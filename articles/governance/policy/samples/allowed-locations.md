@@ -1,23 +1,23 @@
 ---
-title: 샘플 - 승인된 VM 이미지
-description: 이 샘플 정책에서는 승인된 사용자 지정 이미지만 환경에 배포되어야 합니다.
+title: 샘플 - 허용되는 위치
+description: 이 샘플 정책에서는 모든 리소스가 승인된 위치에 배포되어야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 09/18/2018
+ms.date: 12/12/2018
 ms.author: dacoulte
-ms.openlocfilehash: efec6c4e0a677681fd9f1132f4573d99b35236d4
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: aa67133b9f95715d84e9680e1ea45019d722609e
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312666"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386556"
 ---
-# <a name="approved-vm-images"></a>승인된 VM 이미지
+# <a name="allowed-locations"></a>허용되는 위치
 
-이 정책에서는 승인된 사용자 지정 이미지만 환경에 배포되어야 합니다. 승인된 이미지 ID 배열을 지정합니다.
+이 정책을 사용하면 조직에서 리소스를 배포할 때 지정할 수 있는 위치를 제한할 수 있습니다. 지역 규정 준수 요구 사항을 적용하는 데 사용합니다. 리소스 그룹, Microsoft.AzureActiveDirectory/b2cDirectories 및 '글로벌' 지역을 사용하는 리소스를 제외합니다. 허용되는 위치의 배열을 지정합니다.
 
 다음 방법을 사용하여 이 샘플 정책을 배포할 수 있습니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "53312666"
 
 완전히 구성된 JSON 정책 정의로 REST API에서, 'Azure에 배포' 단추에서, 그리고 포털에서 수동으로 사용됩니다.
 
-[!code-json[full](../../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.json "Complete policy definition (JSON)")]
+[!code-json[full](../../../../policy-templates/samples/built-in-policy/allowed-locations/azurepolicy.json "Allowed locations")]
 
 > [!NOTE]
 > 포털에서 수동으로 정책을 만드는 경우 위의 **properties.parameters** 및 **properties.policyRule** 부분을 사용합니다. 두 섹션을 중괄호 `{}`로 묶어서 유효한 JSON으로 만듭니다.
@@ -43,31 +43,31 @@ ms.locfileid: "53312666"
 
 정책 규칙을 정의하는 JSON으로, Azure CLI 및 Azure PowerShell에서 사용됩니다.
 
-[!code-json[rule](../../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.rules.json "Policy rules (JSON)")]
+[!code-json[rule](../../../../policy-templates/samples/built-in-policy/allowed-locations/azurepolicy.rules.json "Policy rules (JSON)")]
 
 ### <a name="policy-parameters"></a>정책 매개 변수
 
 정책 매개 변수를 정의하는 JSON으로, Azure CLI 및 Azure PowerShell에서 사용됩니다.
 
-[!code-json[parameters](../../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.parameters.json "Policy parameters (JSON)")]
+[!code-json[parameters](../../../../policy-templates/samples/built-in-policy/allowed-locations/azurepolicy.parameters.json "Policy parameters (JSON)")]
 
 ## <a name="parameters"></a>매개 변수
 
 |이름 |type |필드 |설명 |
 |---|---|---|---|
-|imageIds |배열 |Microsoft.Compute/imageIds |승인된 VM 이미지 목록|
+|listOfAllowedLocations |배열 |위치 |허용되는 위치 목록|
 
 PowerShell 또는 Azure CLI를 통해 할당을 만드는 경우 `-PolicyParameter`(PowerShell) 또는 `--params`(Azure CLI) 명령을 사용하여 매개 변수 값을 문자열로 또는 파일을 통해 JSON으로 전달할 수 있습니다.
 PowerShell은 cmdlet에 이름/값 해시 테이블을 전달해야 하는 `-PolicyParameterObject` 명령도 지원하는데, 여기서 **이름**은 매개 변수 이름이고 **값**은 할당 과정에 전달되는 단일 값 또는 값 배열입니다.
 
-이 예제 매개 변수에서는 리소스 그룹 _YourResourceGroup_의 _ContosoStdImage_ 또는 '미국 중부'에 위치한 Windows Server 2016 데이터 센터의 2018년 5월 버전만 허용됩니다.
+이 예제 매개 변수에서는 _eastus2_ 또는 _westus_ 위치만 허용됩니다.
 
 ```json
 {
-    "imageIds": {
+    "listOfAllowedLocations": {
         "value": [
-            "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage",
-            "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510"
+            "eastus2",
+            "westus"
         ]
     }
 }
@@ -75,8 +75,8 @@ PowerShell은 cmdlet에 이름/값 해시 테이블을 전달해야 하는 `-Pol
 
 ## <a name="azure-portal"></a>Azure portal
 
-[![Azure에 배포](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
-[![Azure Gov에 배포](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
+[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
+[![Azure Gov에 배포](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -86,16 +86,16 @@ PowerShell은 cmdlet에 이름/값 해시 테이블을 전달해야 하는 `-Pol
 
 ```azurepowershell-interactive
 # Create the Policy Definition (Subscription scope)
-$definition = New-AzureRmPolicyDefinition -Name 'allowed-custom-images' -DisplayName 'Approved VM images' -description 'This policy governs the approved VM images' -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' -Mode All
+$definition = New-AzureRmPolicyDefinition -Name "allowed-locations" -DisplayName "Allowed locations" -description "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.parameters.json' -Mode Indexed
 
 # Set the scope to a resource group; may also be a subscription or management group
 $scope = Get-AzureRmResourceGroup -Name 'YourResourceGroup'
 
 # Set the Policy Parameter (JSON format)
-$policyparam = '{ "imageIds": { "value": [ "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage", "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510" ] } }'
+$policyparam = '{ "listOfAllowedLocations": { "value": [ "eastus2", "westus" ] } }'
 
 # Create the Policy Assignment
-$assignment = New-AzureRmPolicyAssignment -Name 'allowed-custom-images-assignment' -DisplayName 'Approved VM images Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
+$assignment = New-AzureRmPolicyAssignment -Name 'allowed-locations-assignment' -DisplayName 'Allowed locations Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
 ```
 
 ### <a name="remove-with-azure-powershell"></a>Azure PowerShell을 사용하여 제거
@@ -130,16 +130,16 @@ Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
 
 ```azurecli-interactive
 # Create the Policy Definition (Subscription scope)
-definition=$(az policy definition create --name 'allowed-custom-images' --display-name 'Approved VM images' --description 'This policy governs the approved VM images' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' --mode All)
+definition=$(az policy definition create --name 'allowed-locations' --display-name 'Allowed locations' --description 'This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.parameters.json' --mode Indexed)
 
 # Set the scope to a resource group; may also be a subscription or management group
 scope=$(az group show --name 'YourResourceGroup')
 
 # Set the Policy Parameter (JSON format)
-policyparam='{ "imageIds": { "value": [ "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage", "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510" ] } }'
+policyparam='{ "listOfAllowedLocations": { "value": [ "eastus2", "westus" ] } }'
 
 # Create the Policy Assignment
-assignment=$(az policy assignment create --name 'allowed-custom-images-assignment' --display-name 'Approved VM images Assignment' --scope `echo $scope | jq '.id' -r` --policy `echo $definition | jq '.name' -r` --params "$policyparam")
+assignment=$(az policy assignment create --name 'allowed-locations-assignment' --display-name 'Allowed locations Assignment' --scope `echo $scope | jq '.id' -r` --policy `echo $definition | jq '.name' -r` --params "$policyparam")
 ```
 
 ### <a name="remove-with-azure-cli"></a>Azure CLI를 사용하여 제거
@@ -166,20 +166,20 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 ## <a name="rest-api"></a>REST API
 
-[ARMClient](https://github.com/projectkudu/ARMClient) 또는 PowerShell처럼 Resource Manager REST API와 상호 작용하는 데 사용할 수 있는 여러 도구가 있습니다. PowerShell에서 REST API를 호출하는 예는 [정책 정의 구조](../concepts/definition-structure.md#aliases)의 **별칭** 섹션에서 확인할 수 있습니다.
+[ARMClient](https://github.com/projectkudu/ARMClient) 또는 PowerShell처럼 Resource Manager REST API와 상호 작용하는 데 사용할 수 있는 여러 도구가 있습니다.
 
 ### <a name="deploy-with-rest-api"></a>REST API를 사용하여 배포
 
 - 정책 정의를 만들기(구독 범위) 요청 본문에 [정책 정의](#policy-definition) JSON 사용
 
   ```http
-  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/allowed-custom-images?api-version=2016-12-01
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/allowed-locations?api-version=2018-05-01
   ```
 
 - 정책 할당 만들기(리소스 그룹 범위)
 
   ```http
-  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/YourResourceGroup/providers/Microsoft.Authorization/policyAssignments/allowed-custom-images-assignment?api-version=2017-06-01-preview
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/YourResourceGroup/providers/Microsoft.Authorization/policyAssignments/allowed-locations-assignment?api-version=2018-05-01
   ```
 
   요청 본문에 다음 JSON 예제 사용:
@@ -187,13 +187,13 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
   ```json
   {
       "properties": {
-          "displayName": "Approved VM images Assignment",
-          "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/allowed-custom-images",
+          "displayName": "Allowed locations Assignment",
+          "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/allowed-locations",
           "parameters": {
-              "imageIds": {
+              "listOfAllowedLocations": {
                   "value": [
-                      "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage",
-                      "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510"
+                      "eastus2",
+                      "westus"
                   ]
               }
           }
@@ -206,13 +206,13 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 - 정책 할당 제거
 
   ```http
-  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/allowed-custom-images-assignment?api-version=2017-06-01-preview
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/allowed-locations-assignment?api-version=2018-05-01
   ```
 
 - 정책 정의 제거
 
   ```http
-  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/allowed-custom-images?api-version=2016-12-01
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/allowed-locations?api-version=2018-05-01
   ```
 
 ### <a name="rest-api-explanation"></a>REST API 설명
@@ -228,4 +228,3 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 - 추가 [Azure Policy 샘플](index.md) 검토
 - [Azure Policy 정의 구조](../concepts/definition-structure.md) 검토
-- [Windows VM에 정책 적용](../../../virtual-machines/windows/policy.md)에서 Virtual Machines에 대한 추가 Azure Policy 예제 살펴보기

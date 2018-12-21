@@ -1,23 +1,20 @@
 ---
-title: Azure Cosmos DB용 데이터베이스 마이그레이션 도구 | Microsoft Docs
+title: Azure Cosmos DB용 데이터베이스 마이그레이션 도구
 description: 오픈 소스 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하여 MongoDB, SQL Server, 테이블 저장소, Amazon DynamoDB, CSV 및 JSON 파일을 비롯한 다양한 원본에서 Azure Cosmos DB로 데이터를 가져오는 방법을 알아봅니다. CSV에서 JSON로 변환합니다.
 keywords: csv에서 json으로, 데이터베이스 마이그레이션 도구, csv에서 json으로 변환
 services: cosmos-db
 author: deborahc
-manager: kfile
-editor: monicar
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: e04e3443cdd3bf7aa32d023fc053950c58cf1449
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 57c70716ac0e3156440d4a602704cb0ac2e30130
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853968"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091166"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>데이터 마이그레이션 도구를 사용하여 Azure Cosmos DB로 데이터 마이그레이션
 
@@ -43,7 +40,7 @@ Azure Cosmos DB와 함께 사용할 API는 무엇인가요?
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) 이상을 **설치**합니다.
 
-* **처리량 늘리기:** 데이터 마이그레이션 기간은 개별 컬렉션 또는 컬렉션 집합에 대해 설정한 처리량에 따라 다릅니다. 대량 데이터 마이그레이션의 경우 처리량을 늘려야 합니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. Azure Portal에서 처리량을 늘리는 방법에 대한 자세한 내용은 Azure Cosmos DB의 [성능 수준](performance-levels.md) 및 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cosmos-db/)을 참조하세요.
+* **처리량 증가:** 데이터 마이그레이션 기간은 개별 컬렉션 또는 컬렉션 세트에 대해 설정한 처리량에 따라 다릅니다. 대량 데이터 마이그레이션의 경우 처리량을 늘려야 합니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. Azure Portal에서 처리량을 늘리는 방법에 대한 자세한 내용은 Azure Cosmos DB의 [성능 수준](performance-levels.md) 및 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cosmos-db/)을 참조하세요.
 
 * **Azure Cosmos DB 리소스 만들기:** 데이터 마이그레이션을 시작하기 전에 Azure Portal에서 모든 컬렉션을 미리 만듭니다. 데이터베이스 수준 처리량이 있는 Azure Cosmos DB 계정으로 마이그레이션하는 경우에는 Azure Cosmos DB 컬렉션을 만들 때 파티션 키를 제공해야 합니다.
 
@@ -201,7 +198,7 @@ SQL 원본과 마찬가지로, 중첩 구분 기호 속성을 사용하여 가�
 
 DomainInfo.Domain_Name 및 RedirectInfo.Redirecting과 같은 별칭을 확인하세요. 중첩 구분 기호 '.'을 지정하면 가져오기 도구가 가져오는 동안 DomainInfo 및 RedirectInfo 하위 문서를 만듭니다. Azure Cosmos DB의 결과 문서 예는 다음과 같습니다.
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 가져오기 도구는 CSV 파일의 따옴표가 없는 값에 대한 형식 정보를 유추하려고 합니다(따옴표로 묶인 값은 항상 문자열로 처리됨).  숫자, 날짜/시간, 부울 순서로 형식이 식별됩니다.  
 
@@ -306,8 +303,8 @@ Azure Cosmos DB 연결 문자열의 형식은 다음과 같습니다.
 Azure Cosmos DB 원본 가져오기 옵션에는 다음과 같은 고급 옵션이 있습니다.
 
 1. 내부 필드 포함: 내보내기에 Azure Cosmos DB 문서 시스템 속성(예: _rid, _ts)을 포함할지 여부를 지정합니다.
-2. 실패 시 다시 시도 횟수: 일시적 오류(예: 네트워크 연결 중단)의 경우 Azure Cosmos DB에 대한 연결을 다시 시도할 횟수를 지정합니다.
-3. 다시 시도 간격: 일시적 오류(예: 네트워크 연결 중단)의 경우 Azure Cosmos DB에 대한 연결을 다시 시도하는 간격을 지정합니다.
+2. 실패 시 재시도 횟수: 일시적 오류(예: 네트워크 연결 중단)의 경우 Azure Cosmos DB에 대한 연결을 재시도할 횟수를 지정합니다.
+3. 재시도 간격: 일시적 오류(예: 네트워크 연결 중단)의 경우 Azure Cosmos DB에 대한 연결을 재시도하는 간격을 지정합니다.
 4. 연결 모드: Azure Cosmos DB에 사용할 연결 모드를 지정합니다. 사용 가능한 선택 사항은 DirectTcp, DirectHttps 및 게이트웨이입니다. 직접 연결 모드는 더 빠르고, 게이트웨이 모드는 포트 443만 사용하므로 더 방화벽 친화적입니다.
 
 ![Azure Cosmos DB 원본 고급 옵션의 스크린샷](./media/import-data/documentdbsourceoptions.png)
@@ -394,16 +391,16 @@ Azure Cosmos DB 연결 문자열의 형식은 다음과 같습니다.
 
 * 문자열: 문자열 값으로 유지
 * Epoch: Epoch 숫자 값으로 유지
-* 둘 다: 문자열 및 Epoch 숫자 값으로 유지. 이 옵션은 하위 문서를 만듭니다(예: "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }).
+* 둘 다: 문자열 및 Epoch 숫자 값으로 유지. 이 옵션은 하위 문서를 만듭니다. 예: "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 Azure Cosmos DB 대량 가져오기에는 다음과 같은 추가 고급 옵션이 있습니다.
 
 1. Batch 크기: 기본적으로 도구의 배치 크기는 50으로 설정되어 있습니다.  가져올 문서가 크면 배치 크기를 줄이는 것이 좋습니다. 반대로, 가져올 문서가 작으면 배치 크기를 늘리는 것이 좋습니다.
-2. 최대 스크립트 크기(바이트): 기본적으로 도구의 최대 스크립트 크기는 512KB로 설정되어 있습니다.
-3. 자동 ID 생성 사용 안 함: 가져올 모든 문서에 ID 필드가 포함되어 있는 경우 이 옵션을 선택하면 성능을 향상시킬 수 있습니다. 고유 ID 필드가 누락된 문서는 가져오지 않습니다.
-4. 기존 문서 업데이트: 이 도구는 기본적으로 기존 문서를 충돌하는 ID로 대체하지 않습니다. 이 옵션을 선택하면 기존 문서를 일치하는 ID로 덮어쓸 수 있습니다. 이 기능은 기존 문서를 업데이트하는 예약된 데이터 마이그레이션에 유용합니다.
-5. 실패 시 다시 시도 횟수: 일시적 오류(예: 네트워크 연결 중단)의 경우 Azure Cosmos DB에 대한 연결을 다시 시도하는 빈도를 지정합니다.
-6. 다시 시도 간격: 일시적 오류(예: 네트워크 연결 중단)의 경우 Azure Cosmos DB에 대한 연결을 다시 시도하는 간격을 지정합니다.
+2. 최대 스크립트 크기(바이트): 기본적으로 도구의 최대 스크립트 크기는 512KB입니다.
+3. 자동 Id 생성 사용 안 함: 가져올 모든 문서에 ID 필드가 포함되어 있는 경우 이 옵션을 선택하면 성능을 향상시킬 수 있습니다. 고유 ID 필드가 누락된 문서는 가져오지 않습니다.
+4. 기존 문서 업데이트 이 도구는 기본적으로 기존 문서를 충돌하는 ID로 대체하지 않습니다. 이 옵션을 선택하면 기존 문서를 일치하는 ID로 덮어쓸 수 있습니다. 이 기능은 기존 문서를 업데이트하는 예약된 데이터 마이그레이션에 유용합니다.
+5. 실패 시 재시도 횟수: 일시적 오류(예: 네트워크 연결 중단)의 경우 Azure Cosmos DB에 대한 연결을 다시 시도하는 빈도를 지정합니다.
+6. 재시도 간격: 일시적 오류(예: 네트워크 연결 중단)의 경우 Azure Cosmos DB에 대한 연결을 재시도하는 간격을 지정합니다.
 7. 연결 모드: Azure Cosmos DB에 사용할 연결 모드를 지정합니다. 사용 가능한 선택 사항은 DirectTcp, DirectHttps 및 게이트웨이입니다. 직접 연결 모드는 더 빠르고, 게이트웨이 모드는 포트 443만 사용하므로 더 방화벽 친화적입니다.
 
 ![Azure Cosmos DB 대량 가져오기 고급 옵션의 스크린샷](./media/import-data/docdbbulkoptions.png)
@@ -449,15 +446,15 @@ Azure Cosmos DB 연결 문자열의 형식은 다음과 같습니다.
 
 * 문자열: 문자열 값으로 유지
 * Epoch: Epoch 숫자 값으로 유지
-* 둘 다: 문자열 및 Epoch 숫자 값으로 유지. 이 옵션은 하위 문서를 만듭니다(예: "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }).
+* 둘 다: 문자열 및 Epoch 숫자 값으로 유지. 이 옵션은 하위 문서를 만듭니다. 예: "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 Azure Cosmos DB - 순차 레코드 가져오기에는 다음과 같은 추가 고급 옵션이 있습니다.
 
-1. 병렬 요청 수: 기본적으로 도구의 병렬 요청 수는 2개로 설정되어 있습니다. 가져올 문서가 작으면 병렬 요청 수를 늘리는 것이 좋습니다. 이 개수를 너무 많이 늘리면 가져오기 시 속도 제한이 발생할 수 있습니다.
-2. 자동 ID 생성 사용 안 함: 가져올 모든 문서에 ID 필드가 포함되어 있는 경우 이 옵션을 선택하면 성능을 향상시킬 수 있습니다. 고유 ID 필드가 누락된 문서는 가져오지 않습니다.
-3. 기존 문서 업데이트: 이 도구는 기본적으로 기존 문서를 충돌하는 ID로 대체하지 않습니다. 이 옵션을 선택하면 기존 문서를 일치하는 ID로 덮어쓸 수 있습니다. 이 기능은 기존 문서를 업데이트하는 예약된 데이터 마이그레이션에 유용합니다.
-4. 실패 시 다시 시도 횟수: 일시적 오류(예: 네트워크 연결 중단)의 경우 Azure Cosmos DB에 대한 연결을 다시 시도하는 빈도를 지정합니다.
-5. 다시 시도 간격: 일시적 오류(예: 네트워크 연결 중단)의 경우 Azure Cosmos DB에 대한 연결을 다시 시도하는 간격을 지정합니다.
+1. 병렬 요청 수: 기본적으로 도구의 병렬 요청 수는 2개로 설정됩니다. 가져올 문서가 작으면 병렬 요청 수를 늘리는 것이 좋습니다. 이 개수를 너무 많이 늘리면 가져오기 시 속도 제한이 발생할 수 있습니다.
+2. 자동 Id 생성 사용 안 함: 가져올 모든 문서에 ID 필드가 포함되어 있는 경우 이 옵션을 선택하면 성능을 향상시킬 수 있습니다. 고유 ID 필드가 누락된 문서는 가져오지 않습니다.
+3. 기존 문서 업데이트 이 도구는 기본적으로 기존 문서를 충돌하는 ID로 대체하지 않습니다. 이 옵션을 선택하면 기존 문서를 일치하는 ID로 덮어쓸 수 있습니다. 이 기능은 기존 문서를 업데이트하는 예약된 데이터 마이그레이션에 유용합니다.
+4. 실패 시 재시도 횟수: 일시적 오류(예: 네트워크 연결 중단)의 경우 Azure Cosmos DB에 대한 연결을 다시 시도하는 빈도를 지정합니다.
+5. 재시도 간격: 일시적 오류(예: 네트워크 연결 중단)의 경우 Azure Cosmos DB에 대한 연결을 다시 시도하는 간격을 지정합니다.
 6. 연결 모드: Azure Cosmos DB에 사용할 연결 모드를 지정합니다. 사용 가능한 선택 사항은 DirectTcp, DirectHttps 및 게이트웨이입니다. 직접 연결 모드는 더 빠르고, 게이트웨이 모드는 포트 443만 사용하므로 더 방화벽 친화적입니다.
 
 ![Azure Cosmos DB 순차 레코드 가져오기 고급 옵션의 스크린샷](./media/import-data/documentdbsequentialoptions.png)

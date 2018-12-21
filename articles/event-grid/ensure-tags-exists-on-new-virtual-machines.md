@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: eamono
-ms.openlocfilehash: a4356f38df017901ab219318463538003d3a979e
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 9da40508c6f8fec1122ab116786ed726b576a639
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920889"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106705"
 ---
-# <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Azure Automation과 Event Grid 통합
+# <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>자습서: Azure Automation과 Event Grid 통합
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
