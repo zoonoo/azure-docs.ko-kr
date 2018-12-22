@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 Azure에 로그인하고 다음 두 방법 중 하나로 Azure CLI 명령을 실행할 수 있습니다.
 
-- Azure Cloud Shell의 Azure Portal에서 CLI 명령 실행
+- Azure Cloud Shell의 Azure Portal에서 CLI 명령 실행 
 - CLI를 설치하고 로컬에서 CLI 실행  
 
 ### <a name="use-azure-cloud-shell"></a>Azure Cloud Shell 사용
@@ -125,10 +125,10 @@ ZRS(영역 중복 저장소)(미리 보기), GRS(지역 중복 저장소) 또는
 
 |복제 옵션  |SkuName 매개 변수  |
 |---------|---------|
-|LRS(로컬 중복 저장소) |Standard_LRS |
-|ZRS(영역 중복 저장소) |Standard_ZRS |
-|GRS(지역 중복 저장소) |Standard_GRS |
-|읽기 액세스 GRS(지역 중복 저장소) |Standard_RAGRS |
+|LRS(로컬 중복 저장소)     |Standard_LRS         |
+|ZRS(영역 중복 저장소)     |Standard_ZRS         |
+|GRS(지역 중복 저장소)     |Standard_GRS         |
+|읽기 액세스 GRS(지역 중복 저장소)     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -163,10 +163,10 @@ az storage account create \
 
 |복제 옵션  |sku 매개 변수  |
 |---------|---------|
-|LRS(로컬 중복 저장소) |Standard_LRS |
-|ZRS(영역 중복 저장소) |Standard_ZRS |
-|GRS(지역 중복 저장소) |Standard_GRS |
-|읽기 액세스 GRS(지역 중복 저장소) |Standard_RAGRS |
+|LRS(로컬 중복 저장소)     |Standard_LRS         |
+|ZRS(영역 중복 저장소)     |Standard_ZRS         |
+|GRS(지역 중복 저장소)     |Standard_GRS         |
+|읽기 액세스 GRS(지역 중복 저장소)     |Standard_RAGRS         |
 
 ---
 
