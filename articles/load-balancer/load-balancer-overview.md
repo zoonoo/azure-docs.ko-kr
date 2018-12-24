@@ -1,5 +1,6 @@
 ---
-title: Azure Load Balancer 개요 | Microsoft Docs
+title: Azure Load Balancer란?
+titlesuffix: Azure Load Balancer
 description: Azure Load Balancer 기능, 아키텍처 및 구현에 대한 개요입니다. Load Balancer의 작동 방식과 클라우드에서의 활용에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
 ms.topic: overview
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 3b1f2374618a0fdb446c4d0bf59fa14a828639ea
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219582"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185616"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -62,7 +64,7 @@ Load Balancer는 TCP 및 UDP 응용 프로그램에 대해 다음과 같은 기�
 
     ![해시 기반 배포](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    *그림: 해시 기반 배포*
+    그림: 해시 기반 배포
 
 * **포트 전달**
 
@@ -86,7 +88,7 @@ Load Balancer는 TCP 및 UDP 응용 프로그램에 대해 다음과 같은 기�
      
     Load Balancer는 TCP, HTTP 및 HTTPS 엔드포인트에 대한 [다양한 상태 프로브 유형](load-balancer-custom-probe-overview.md#types)을 제공합니다.
 
-    또한 클래식 클라우드 서비스를 사용하는 경우 추가 형식이 허용됩니다. [게스트 에이전트](load-balancer-custom-probe-overview.md#guestagent)  이는 상태 프로브의 마지막 수단으로 간주되어야 하며 다른 옵션이 실행 가능한 경우 권장되지 않습니다.
+    또한 클래식 클라우드 서비스를 사용하는 경우 추가 형식이 허용됩니다.  [게스트 에이전트](load-balancer-custom-probe-overview.md#guestagent).  이는 상태 프로브의 마지막 수단으로 간주되어야 하며 다른 옵션이 실행 가능한 경우 권장되지 않습니다.
     
 * **아웃바운드 연결(SNAT)**
 
@@ -129,7 +131,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ![공용 Load Balancer 예](./media/load-balancer-overview/IC727496.png)
 
-*그림: 공용 Load Balancer를 사용하여 웹 트래픽 부하 분산*
+그림: 공용 Load Balancer를 사용하여 웹 트래픽 부하 분산
 
 인터넷 클라이언트가 TCP 포트 80에서 웹앱의 공용 IP 주소에 웹 페이지 요청을 보내면 Azure Load Balancer가 부하 분산 집합에 있는 3개의 VM에 요청을 분산합니다. Load Balancer 알고리즘에 대한 자세한 내용은 이 문서의 [Load Balancer 기능](load-balancer-overview.md##fundamental-load-balancer-features) 섹션을 참조하세요.
 
@@ -141,14 +143,14 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 내부 Load Balancer를 통해 다음과 같은 유형의 부하 분산을 사용할 수 있습니다.
 
-* **가상 네트워크 내에서**: 가상 네트워크의 VM에서 동일한 가상 네트워크 내에 있는 VM 집합으로 부하 분산.
-* **크로스-프레미스 가상 네트워크의 경우**: 온-프레미스 컴퓨터에서 동일한 가상 네트워크 내에 있는 VM 집합으로 부하 분산. 
-* **다중 계층 응용 프로그램의 경우**: 백 엔드 계층이 인터넷에 연결되어 있지 않은 인터넷 연결 다중 계층 응용 프로그램의 부하 분산. 백 엔드 계층에는 인터넷 연결 계층의 트래픽 부하 분산이 필요합니다(다음 그림 참조).
-* **LOB(기간 업무) 응용 프로그램의 경우**: 추가적인 부하 분산 장치 하드웨어 또는 소프트웨어 없이 Azure에서 호스트되는 LOB(기간 업무) 응용 프로그램의 부하 분산. 이 시나리오는 트래픽 부하가 분산되는 컴퓨터 집합에 있는 온-프레미스 서버를 포함합니다.
+* **가상 네트워크 내에서**: 가상 네트워크의 VM에서 동일한 가상 네트워크 내에 있는 VM 세트로 부하 분산.
+* **크로스-프레미스 가상 네트워크의 경우**: 온-프레미스 컴퓨터에서 동일한 가상 네트워크 내에 있는 VM 세트로 부하 분산. 
+* **다중 계층 애플리케이션의 경우**: 백 엔드 계층이 인터넷에 연결되어 있지 않은 인터넷 연결 다중 계층 애플리케이션의 부하 분산. 백 엔드 계층에는 인터넷 연결 계층의 트래픽 부하 분산이 필요합니다(다음 그림 참조).
+* **LOB(기간 업무) 애플리케이션의 경우**: 추가적인 부하 분산 장치 하드웨어 또는 소프트웨어 없이 Azure에서 호스트되는 LOB(기간 업무) 애플리케이션의 부하 분산. 이 시나리오는 트래픽 부하가 분산되는 컴퓨터 집합에 있는 온-프레미스 서버를 포함합니다.
 
 ![내부 Load Balancer 예제](./media/load-balancer-overview/IC744147.png)
 
-*그림: 공용 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 응용 프로그램 부하 분산*
+그림: 공용 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 애플리케이션 부하 분산
 
 ## <a name="pricing"></a>가격
 표준 Load Balancer 사용량은 구성된 부하 분산 규칙 수와 인바운드 및 아웃바운드 처리 데이터의 양에 따라 청구됩니다. 표준 Load Balancer 가격 정보에 대해서는 [Load Balancer 가격](https://azure.microsoft.com/pricing/details/load-balancer/) 페이지를 참조하세요.

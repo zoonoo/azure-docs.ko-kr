@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Environment가 강제 터널링되도록 구성
+title: App Service Environment가 강제 터널링되도록 구성 - Azure
 description: 아웃바운드 트래픽이 강제 터널링될 때 App Service Environment가 작동하도록 설정
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: ba93aab14c8eaccf9e3ed9ae9db0d169f41dddea
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.custom: seodec18
+ms.openlocfilehash: 89827cdc7d29a817c83fd16ec2a4340f06c8343c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024048"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272738"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>강제 터널링으로 App Service Environment 구성
 
@@ -105,13 +105,13 @@ Azure Storage로 이동하는 트래픽을 제외하고 ASE에서 모든 아웃�
 
 3. App Service Environment에서 인터넷으로의 모든 아웃바운드 트래픽에 사용될 주소를 가져옵니다. 온-프레미스에서 트래픽을 라우팅하는 경우 이러한 주소는 NAT 또는 게이트웨이 IP입니다. App Service Environment 아웃바운드 트래픽을 NVA를 통해 라우팅하려면 송신 주소는 NVA의 공용 IP입니다.
 
-4. _기존 App Service Environment에서 송신 주소를 설정하려면_ resource.azure.com로 이동한 다음, Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>으로 이동합니다. 그러면 App Service Environment를 설명하는 JSON을 볼 수 있습니다. 상단에 **읽기/쓰기**가 표시되는지 확인합니다. **편집**을 선택합니다. 아래로 스크롤하십시오. **userWhitelistedIpRanges** 값을 **null**에서 다음과 같은 값으로 변경합니다. 송신 주소 범위로 설정할 주소를 사용합니다. 
+4. _기존 App Service Environment에서 송신 주소를 설정하려면_ resource.azure.com으로 이동한 다음, Subscription/\<구독 ID>/resourceGroups/\<ASE 리소스 그룹>/providers/Microsoft.Web/hostingEnvironments/\<ASE 이름>으로 이동합니다. 그러면 App Service Environment를 설명하는 JSON을 볼 수 있습니다. 상단에 **읽기/쓰기**가 표시되는지 확인합니다. **편집**을 선택합니다. 아래로 스크롤하십시오. **userWhitelistedIpRanges** 값을 **null**에서 다음과 같은 값으로 변경합니다. 송신 주소 범위로 설정할 주소를 사용합니다. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
    맨 위에서 **PUT**을 선택합니다. 이 옵션은 App Service Environment에서 크기 조정 작업을 트리거하고 방화벽을 조정합니다.
 
-_수신 주소를 사용하여 ASE를 만들려면_ [의 지시에 따라 템플릿][template]을 사용하여 App Service Environment을 만들고 적절한 템플릿을 풀다운합니다.  "속성" 블록이 아니라 azuredeploy.json 파일에서 “리소스” 섹션을 편집하고 해당 값을 지닌 **userWhitelistedIpRanges**에 대해 선을 포함합니다.
+_송신 주소를 사용하여 ASE를 만들려면_ [템플릿을 사용하여 App Service Environment 만들기][template]의 지침을 따르고 적절한 템플릿을 풀다운합니다.  "속성" 블록이 아니라 azuredeploy.json 파일에서 “리소스” 섹션을 편집하고 해당 값을 지닌 **userWhitelistedIpRanges**에 대해 선을 포함합니다.
 
     "resources": [
       {

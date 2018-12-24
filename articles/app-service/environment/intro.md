@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Environment 소개
+title: App Service Environment 소개 - Azure
 description: Azure App Service Environment의 간략한 개요
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: ee0b9fad15653c9315a8bdaad9a76d8355912863
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: af279f3a37290a3ab8a98318b5080d1145f45078
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248846"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269059"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service Environment 소개 #
  
@@ -81,7 +81,7 @@ ASE가 가상 네트워크 및 온-프레미스 네트워크와 함께 어떻게
 
 ## <a name="app-service-environment-v1"></a>App Service 환경 v1 ##
 
-App Service Environment에는 두 가지 버전(ASEv1 및 ASEv2)이 있습니다. 위의 정보는 ASEv2를 기준으로 작성된 것입니다. 이 섹션은 ASEv1과 ASEv2의 차이를 보여줍니다. 
+App Service Environment에는 ASEv1 및 ASEv2라는 두 가지 버전이 있습니다. 위의 정보는 ASEv2를 기준으로 작성된 것입니다. 이 섹션은 ASEv1과 ASEv2의 차이를 보여줍니다. 
 
 ASEv1에서는 모든 리소스를 수동으로 관리해야 합니다. 여기에는 IP 기반 SSL에 사용된 프런트 엔드, 작업자 및 IP 주소가 포함됩니다. App Service 계획을 스케일 아웃하기 전에 호스트할 작업자 풀을 먼저 스케일 아웃해야 합니다.
 
@@ -103,9 +103,9 @@ ASEv1은 ASEv2와는 다른 가격 책정 모델을 사용합니다. ASEv1에서
 [webapps]: ../app-service-web-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/waf-overview.md

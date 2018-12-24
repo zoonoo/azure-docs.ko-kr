@@ -1,6 +1,7 @@
 ---
-title: '빠른 시작: Python SDK를 사용하여 Machine Learning 서비스 작업 영역 만들기 - Azure Machine Learning'
-description: Azure Machine Learning 시작 Python SDK를 설치하고 이것을 사용하여 작업 영역을 만듭니다. 이 작업 영역은 Azure Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 블록입니다.
+title: '빠른 시작:  Python에서 시작'
+titleSuffix: Azure Machine Learning service
+description: Python에서 Azure Machine Learning Service 시작 Python SDK를 사용하여 기계 학습 모델을 실험하고, 학습시키며, 배포하는 데 사용되는 클라우드의 기본 블록인 작업 영역을 만들 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,18 +9,18 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 11/09/2018
-ms.openlocfilehash: 6258717e5c068c910ad9faac3b03f13df8030487
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 3ab55cec4b8483cf254ec3d9fe68521baca9cdf5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710650"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268516"
 ---
-# <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>빠른 시작: Python을 사용하여 Azure Machine Learning 시작
+# <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>빠른 시작: Python SDK를 사용하여 Azure Machine Learning 시작
 
-이 빠른 시작에서는 Python용 Azure Machine Learning SDK를 사용하여 Machine Learning 서비스 [작업 영역](concept-azure-machine-learning-architecture.md)을 만들고 사용합니다. 이 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 블록입니다. 이 빠른 시작에서는 먼저 자체 Python 환경과 Jupyter 노트북 서버를 구성합니다. 설치 과정 없이 실행하려면 [빠른 시작: Azure Portal을 사용하여 Azure Machine Learning 시작](quickstart-get-started.md)을 참조하세요.
-
+이 빠른 시작에서는 Python용 Azure Machine Learning SDK를 사용하여 Machine Learning 서비스 [작업 영역](concept-azure-machine-learning-architecture.md)을 만들고 사용합니다. 이 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 블록입니다. 이 빠른 시작에서는 먼저 자체 Python 환경과 Jupyter 노트북 서버를 구성합니다. 설치 없이 실행하려면 [빠른 시작: Azure Portal을 사용하여 Azure Machine Learning 시작](quickstart-get-started.md)을 참조하세요.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -39,13 +40,12 @@ ms.locfileid: "51710650"
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
->[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.1.74에서 테스트됨 
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLfree) 을 만듭니다.
-
+Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 바로 [Azure Machine Learning Service의 무료 또는 유료 버전](http://aka.ms/AMLFree)을 사용해 보세요.
 
 ## <a name="install-the-sdk"></a>SDK 설치
+
+>[!NOTE]
+> 이 문서의 코드를 실행하려면 Azure Machine Learning SDK 버전 1.0.2 이상이 필요합니다. 
 
 *2018년 9월 27일 이후에 만들어진 데이터 과학 가상 머신을 사용하는 경우 이 섹션을 건너뜁니다.* 이러한 데이터 과학 가상 머신은 Python SDK가 미리 설치된 상태로 제공됩니다.
 
@@ -72,13 +72,37 @@ conda create -n myenv -y Python=3.6
 
 ### <a name="install-the-sdk"></a>SDK 설치
 
-활성화된 conda 환경에 SDK를 설치합니다. 아래 명령은 Machine Learning SDK의 핵심 구성 요소를 설치합니다. 또한 `myenv` conda 환경에 Jupyter Notebook 서버를 설치합니다. 머신 구성에 따라 설치를 완료하는 데 몇 분이 소요됩니다.
+활성화된 conda 환경에 SDK를 설치합니다. 이 코드는 Machine Learning SDK의 핵심 구성 요소를 설치합니다. 또한 conda 환경에 Jupyter Notebook 서버를 설치합니다. 머신 구성에 따라 설치를 완료하는 데 몇 분이 소요됩니다.
 
-```shell
+```sh
+# install Jupyter
+conda install nb_conda
+
 # install the base SDK and Jupyter Notebook
 pip install azureml-sdk[notebooks]
+
 ```
 
+또한 SDK의 추가 구성 요소를 설치하기 위해 다른 "추가" 키워드를 사용할 수도 있습니다.
+
+```sh
+# install the base SDK and auto ml components
+pip install azureml-sdk[automl]
+
+# install the base SDK and model explainability component
+pip install azureml-sdk[explain]
+
+# install the base SDK and experimental components
+pip install azureml-sdk[contrib]
+```
+
+Databricks 환경에서 이 설치를 대신 사용합니다.
+
+```
+# install the base SDK and automl components in Azure Databricks environment
+# read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
+pip install azureml-sdk[databricks]
+```
 
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
@@ -174,35 +198,12 @@ print(run.get_portal_url())
     ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy
     pip install azureml-sdk[automl]
-
-    # install run history widget
-    jupyter nbextension install --py --user azureml.train.widgets
-
-    # enable run history widget
-    jupyter nbextension enable --py --user azureml.train.widgets
-    ```
-
-    또한 SDK의 추가 구성 요소를 설치하기 위해 다른 "추가" 키워드를 사용할 수도 있습니다.
-
-    ```shell
-    # install the base SDK and auto ml components
-    pip install azureml-sdk[automl]
-
-    # install the base SDK and model explainability component
-    pip install azureml-sdk[explain]
-
-    # install the base SDK and experimental components
-    pip install azureml-sdk[contrib]
-
-    # install the base SDK and automl components in Azure Databricks environment
-    # read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
-    pip install azureml-sdk[databricks]
     ```
 
 
 이러한 패키지를 설치한 후에는 자습서에 따라 모델을 학습시키고 배포합니다. 
 
 > [!div class="nextstepaction"]
-> [자습서: 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)
+> [자습서: 이미지 분류 모델 학습시키기](tutorial-train-models-with-aml.md)
 
 [GitHub에서 더 많은 고급 예제](https://aka.ms/aml-notebooks)를 탐색할 수도 있습니다.

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844841"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437149"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
@@ -29,15 +29,15 @@ ms.locfileid: "52844841"
 ## <a name="prerequisites"></a>필수 조건
 
 * 다음 조건을 충족하는 Windows 10 2018년 4월 업데이트 또는 최신 클라이언트:
-   * [Azure AD 조인](../device-management-azure-portal.md) 또는 
-   * [하이브리드 Azure AD 조인](../device-management-hybrid-azuread-joined-devices-setup.md)
+   * [Azure AD 조인 머신](../device-management-azure-portal.md) 또는
+   * [하이브리드 Azure AD 조인 머신](../device-management-hybrid-azuread-joined-devices-setup.md)(도메인 컨트롤러에 네트워크가 연결됨)
 * Azure AD 셀프 서비스 암호 재설정을 사용하도록 설정.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune을 사용하여 암호 재설정 링크 구성
 
-Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도록 설정하는 가장 유연한 방법은 구성 변경을 배포하는 것입니다. Intune을 사용하면 여러분이 정의하는 특정 머신 그룹에 구성 변경 내용을 배포할 수 있습니다. 이 방법을 사용하려면 디바이스를 Intune에 등록해야 합니다.
+Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도록 설정하는 가장 유연한 방법은 구성 변경을 배포하는 것입니다. Intune을 사용하면 여러분이 정의하는 특정 머신 그룹에 구성 변경 내용을 배포할 수 있습니다. 이 메서드는 장치의 Intune 등록이 필요합니다.
 
-### <a name="create-a-device-configuration-policy-in-intune"></a>Intune에서 디바이스 구성 정책 만들기
+### <a name="create-a-device-configuration-policy-in-intune"></a>Intune에서 장치 구성 정책 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 **Intune** 클릭
 2. **장치 구성** > **프로필** > **프로필 만들기**로 이동하여 새 장치 구성 프로필 만들기
@@ -57,20 +57,20 @@ Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도�
    * **확인**
 4. **만들기**
 
-### <a name="assign-a-device-configuration-policy-in-intune"></a>Intune에서 디바이스 구성 정책 할당
+### <a name="assign-a-device-configuration-policy-in-intune"></a>Intune에서 장치 구성 정책 할당
 
-#### <a name="create-a-group-to-apply-device-configuration-policy-to"></a>디바이스 구성 정책을 적용할 그룹 만들기
+#### <a name="create-a-group-to-apply-device-configuration-policy-to"></a>장치 구성 정책을 적용할 그룹 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하여 **Azure Active Directory** 클릭
 2. **사용자 및 그룹** > **모든 그룹** > **새 그룹**으로 이동
 3. 그룹 이름을 입력하고 **구성원 자격 유형** 아래에서 **할당됨** 선택
-   * **구성원** 아래에서 정책을 적용할 Azure AD 가입 Windows 10 장치 선택
+   * **구성원** 아래에서 정책을 적용할 Azure AD 가입 Windows 10 디바이스 선택
    * **선택** 클릭
 4. **만들기**
 
 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../fundamentals/active-directory-manage-groups.md) 문서에서 찾을 수 있습니다.
 
-#### <a name="assign-device-configuration-policy-to-device-group"></a>디바이스 그룹에 디바이스 구성 정책 할당
+#### <a name="assign-device-configuration-policy-to-device-group"></a>장치 그룹에 장치 구성 정책 할당
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 **Intune** 클릭
 2. **장치 구성** > **프로필**로 이동한 후 앞에서 만든 프로필을 클릭하여 앞에서 만든 장치 구성 프로필 찾기
@@ -81,7 +81,7 @@ Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도�
 
    ![할당][Assignment]
 
-Intune을 사용하여 로그인 화면에 암호 재설정 링크를 사용하도록 설정하기 위한 디바이스 구성 정책을 만들어서 할당했습니다.
+Intune을 사용하여 로그인 화면에 암호 재설정 링크를 사용하도록 설정하기 위한 장치 구성 정책을 만들어서 할당했습니다.
 
 ## <a name="configure-reset-password-link-using-the-registry"></a>레지스트리를 사용하여 암호 재설정 링크 구성
 
@@ -97,7 +97,7 @@ Intune을 사용하여 로그인 화면에 암호 재설정 링크를 사용하�
 
 ![로그인 화면][LoginScreen]
 
-이제 사용자가 로그인을 시도하면 셀프 서비스 암호 재설정 환경을 제공하는 암호 재설정 링크가 로그인 화면에 표시됩니다. 사용자는 이 기능을 사용하면 다른 디바이스를 사용하여 웹 브라우저에 액세스할 필요 없이 암호를 재설정할 수 있습니다.
+이제 사용자가 로그인을 시도하면 셀프 서비스 암호 재설정 환경을 제공하는 암호 재설정 링크가 로그인 화면에 표시됩니다. 사용자는 이 기능을 사용하면 다른 장치를 사용하여 웹 브라우저에 액세스할 필요 없이 암호를 재설정할 수 있습니다.
 
 이 기능을 사용하는 방법에 대한 지침은 [회사 또는 학교 암호 재설정](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)에서 찾을 수 있습니다.
 
@@ -125,11 +125,15 @@ Hyper-V를 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 
    * EnableLostMode가 디바이스에서 설정됨
    * Explorer.exe는 사용자 지정 셸로 바뀜
 
+이 기능은 802.1x 네트워크 인증이 배포된 네트워크에 및 “사용자가 로그온하기 직전에 수행” 옵션에는 작동하지 않습니다. 802.1x 네트워크 인증이 배포된 네트워크의 경우 머신 인증을 사용하여 이 기능을 사용하는 것이 좋습니다.
+
 Windows 10 머신이 프록시 서버 또는 방화벽 뒤에 있는 경우 passwordreset.microsoftonline.com 및 ajax.aspnetcdn.com에 대한 HTTPS 트래픽(443)을 허용해야 합니다.
+
+하이브리드 도메인 조인 시나리오의 경우, Active Directory 도메인 컨트롤러 없이도 SSPR 워크플로가 완료되는 시나리오가 있습니다. 새 암호를 처음 사용하려면 도메인 컨트롤러와 연결해야 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 구성한 기능을 더 이상 사용하지 않으려면 앞에서 만든 Intune 디바이스 구성 프로필 또는 레지스트리 키를 삭제합니다.
+이 자습서에서 구성한 기능을 더 이상 사용하지 않으려면 앞에서 만든 Intune 장치 구성 프로필 또는 레지스트리 키를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights란? | Microsoft Docs
+title: Azure Time Series Insights 개요 - Azure Time Series Insights란? | Microsoft Docs
 description: 시계열 데이터 분석 및 IoT 솔루션을 위한 새로운 서비스인 Azure Time Series Insights를 소개합니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -9,13 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 01/26/2018
-ms.openlocfilehash: 85436fedacc765dcdf6a8005cf96f3d63312504c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/05/2018
+ms.custom: seodec18
+ms.openlocfilehash: d1d9fd66b60478ce1f80036167eb520b7f5aecf5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868806"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275145"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights란?
 
@@ -36,7 +37,7 @@ Time Series Insights에는 다음 4가지 핵심 작업이 포함됩니다.
 
 ## <a name="video"></a>비디오
 
-### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>이 비디오에서는 클라우드 기반 IoT 분석 플랫폼인 Time Series Insights를 간략하게 살펴봅니다.</br>
+이 비디오에서는 클라우드 기반 IoT 분석 플랫폼인 Time Series Insights를 간략하게 살펴봅니다.
 
 > [!VIDEO https://www.youtube.com/embed/qNc9gQTLROs]
 
@@ -61,9 +62,9 @@ Time Series Insights에는 다음 4가지 핵심 작업이 포함됩니다.
 
 - **빠른 시작:** Azure Time Series Insights는 데이터를 미리 준비할 필요가 없습니다. 수분 내에 Azure IoT Hub 또는 Event Hub에서 수십억 개의 이벤트에 연결합니다. 연결이 되면 센서 데이터를 시각화하고 상호 작용하여 IoT 솔루션의 유효성을 빠르게 검사할 수 있습니다. 코드를 작성하지 않고도 데이터와 상호 작용할 수 있습니다.
 또한 고급 사용자에게는 세분화된 자유 텍스트 쿼리 화면을 제공하고, 모든 사용자에게는 가리킨 다음 클릭 탐색 기능을 제공하므로 새로 익혀야 할 언어가 없습니다.
-- **거의 실시간에 가까운 정보**: Time Series Insights는 1분 대기 시간으로 하루에 수백만 개의 센서 이벤트를 수집할 수 있습니다. Time Series Insights는 추세와 비정상을 찾아내고, 복잡한 근본 원인을 분석하며, 비용이 많이 드는 가동 중지를 방지할 수 있게 함으로써 센서 데이터에 대한 유용한 정보를 얻을 수 있습니다. Time Series Insights는 실시간 데이터와 기록 데이터 간의 상호 상관 관계를 사용하여 데이터에 숨겨진 추세를 나타낼 수 있습니다.
-- **사용자 지정 솔루션 빌드**: Azure Time Series Insights 데이터를 기존 응용 프로그램에 포함하거나 Time Series Insights REST API를 사용하여 새로운 사용자 지정 솔루션을 만들 수 있습니다. 공유할 수 있는 개인 설정 보기를 만들어 다른 사용자가 여러분이 알아낸 정보를 탐색할 수 있도록 합니다.
-- **확장성**: Time Series Insights는 대용량 IoT를 지원하도록 설계되었습니다. 기본 보존 기간을 31일로 설정하면 하루에 1백만 ~ 1억 개의 이벤트를 수신할 수 있습니다. 기록 데이터와 함께 라이브 데이터 스트림을 거의 실시간으로 시각화하고 분석할 수 있습니다. 엔터프라이즈 규모를 수용할 수 있도록 수신 및 보존 속도가 더욱 향상될 것입니다.
+- **거의 실시간에 가까운 인사이트:** Time Series Insights는 1분 대기 시간으로 하루에 수백만 개의 센서 이벤트를 수집할 수 있습니다. Time Series Insights는 추세와 비정상을 찾아내고, 복잡한 근본 원인을 분석하며, 비용이 많이 드는 가동 중지를 방지할 수 있게 함으로써 센서 데이터에 대한 유용한 정보를 얻을 수 있습니다. Time Series Insights는 실시간 데이터와 기록 데이터 간의 상호 상관 관계를 사용하여 데이터에 숨겨진 추세를 나타낼 수 있습니다.
+- **사용자 지정 솔루션 빌드:** Azure Time Series Insights 데이터를 기존 애플리케이션에 포함하거나 Time Series Insights REST API를 사용하여 새로운 사용자 지정 솔루션을 만들 수 있습니다. 공유할 수 있는 개인 설정 보기를 만들어 다른 사용자가 여러분이 알아낸 정보를 탐색할 수 있도록 합니다.
+- **확장성:** Time Series Insights는 대규모 IoT를 지원하도록 설계되었습니다. 기본 보존 기간을 31일로 설정하면 하루에 1백만 ~ 1억 개의 이벤트를 수신할 수 있습니다. 기록 데이터와 함께 라이브 데이터 스트림을 거의 실시간으로 시각화하고 분석할 수 있습니다. 엔터프라이즈 규모를 수용할 수 있도록 수신 및 보존 속도가 더욱 향상될 것입니다.
 
 ## <a name="getting-started"></a>시작
 5분 이내에 시작할 수 있습니다. 
@@ -74,7 +75,7 @@ Time Series Insights에는 다음 4가지 핵심 작업이 포함됩니다.
 4.  Time Series Insights 탐색기를 사용하여 몇 분 만에 데이터를 볼 수 있습니다.
 
 ## <a name="time-series-insights-explorer"></a>Time Series Insights 탐색기
-이 다이어그램에는 탐색기로 확인한 Time Series Insights 데이터 예제가 나와 있습니다. ![Time Series Insights 탐색기](media/time-series-insights-explorer/explorer4.png)
+이 다이어그램에는 탐색기(![Time Series Insights 탐색기](media/time-series-insights-explorer/explorer4.png))로 확인한 Time Series Insights 데이터 예제가 나와 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
  - [데모 환경에서 Time Series Insights 탐색기를 사용하여 탐색](./time-series-quickstart.md)

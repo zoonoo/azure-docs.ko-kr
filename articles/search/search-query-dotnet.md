@@ -1,6 +1,6 @@
 ---
-title: 인덱스 쿼리(.NET API - Azure Search) | Microsoft Docs
-description: Azure 검색에서 검색 쿼리를 작성하고 검색 매개 변수를 사용하여 검색 결과를 필터링하고 정렬합니다.
+title: .NET SDK를 사용하여 코드에서 인덱스 쿼리 - Azure Search
+description: Azure Search에서 검색 쿼리를 작성하기 위한 C# 코드 예제입니다. 검색 매개 변수를 추가하여 검색 결과를 필터링하고 정렬합니다.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,13 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/19/2017
-ms.openlocfilehash: 5b7f454fed6206ac57799d6f1e86152cd52dc9e9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 5c89902da5e773c60c8e2694159ddeed874ecab2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254420"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317001"
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Search 인덱스 쿼리
 > [!div class="op_single_selector"]
