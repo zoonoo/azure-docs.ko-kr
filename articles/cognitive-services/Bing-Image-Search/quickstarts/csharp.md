@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: C#을 사용하여 이미지 검색 수행 - Bing Image Search API'
+title: '빠른 시작: 이미지 검색 - Bing Image Search REST API 및 C#'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답에서 결과를 확인합니다. 이 간단한 C# 응용 프로그램은 HTTP 이미지 검색 쿼리를 API에 보내고 반환된 첫 번째 이미지의 URL을 표시합니다.
+description: 이 빠른 시작을 사용하여 C#을 통해 Bing Image Search REST API로 이미지 검색 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 3819b476c5d3638f409b4195d6340920032d7b99
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 67dd91d7555ebd1e72cea168fc8b841bf4ed9175
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307494"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249518"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>빠른 시작: Bing Image Search API 및 C#을 사용하여 검색 쿼리 보내기
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>빠른 시작: Bing Image Search REST API 및 C#을 사용하여 이미지 검색
 
 이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답에서 결과를 확인합니다. 이 간단한 C# 응용 프로그램은 HTTP 이미지 검색 쿼리를 API에 보내고 반환된 첫 번째 이미지의 URL을 표시합니다.
 

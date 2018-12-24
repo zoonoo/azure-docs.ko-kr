@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1a1281be1c1b58b21406dad5826e240ccac6c898
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 08a6134d61c4f93f891488ef24a7b81e81645897
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567767"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089805"
 ---
 # <a name="what-is-azure-iot-edge"></a>Azure IoT Edge란?
 
@@ -71,10 +71,10 @@ Azure IoT Edge는 Azure IoT 솔루션 가속기와 원활하게 통합되어 솔
 * 디바이스 집합에 워크로드를 보냅니다.
 * 현장의 디바이스에서 실행되는 워크로드를 모니터링합니다.
 
-![디바이스의 원격 분석, 통찰력 및 작업을 클라우드에 맞게 조정](./media/about-iot-edge/cloud-interface.png)
+![디바이스 원격 분석 및 동작이 클라우드에 맞게 조정됨](./media/about-iot-edge/cloud-interface.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-[시뮬레이션된 장치에 IoT Edge를 배포](quickstart.md)하여 다음 개념을 시도해 봅니다.
+[시뮬레이션된 디바이스에 IoT Edge를 배포](quickstart.md)하여 다음 개념을 시도해 봅니다.
 
  

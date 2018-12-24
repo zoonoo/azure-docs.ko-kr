@@ -1,8 +1,9 @@
 ---
-title: '자습서 5: 자유 형식 텍스트에 대한 pattern.any 엔터티'
+title: Pattern.any 엔터티
 titleSuffix: Azure Cognitive Services
 description: pattern.any 엔터티를 사용하여 발화가 올바른 형식이고 데이터의 끝이 발화의 나머지 단어와 쉽게 혼동될 수 있는 발화에서 데이터를 추출합니다.
 services: cognitive-services
+ms.custom: seodec18
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
@@ -10,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ee5ba6783a50ad50489a20aa662f17af2ca4ae6a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4551968cc446bb949d0b18cb77211808169cb907
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422000"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103475"
 ---
 # <a name="tutorial-5-extract-free-form-data"></a>자습서 5: 자유 형식 데이터 추출
 

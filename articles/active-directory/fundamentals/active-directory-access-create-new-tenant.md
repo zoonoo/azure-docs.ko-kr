@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에 액세스하고 새 테넌트를 만드는 빠른 시작 | Microsoft Docs
-description: Azure Active Directory를 찾고 조직의 테넌트를 새로 만드는 단계를 설명하는 빠른 시작입니다.
+title: 새 테넌트에 액세스하고 새 테넌트를 만드는 빠른 시작 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory를 찾고 조직의 테넌트를 새로 만드는 방법을 설명하는 지침입니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
-custom: it-pro
-ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: cd179d371ec75a2e6ca258a1efbc2361e50a5438
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023554"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083277"
 ---
-# <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>빠른 시작: 새 테넌트를 만들기 위해 Azure Active Directory에 액세스
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 새 테넌트 만들기
 Azure AD(Azure Active Directory) 포털을 사용하여 조직의 테넌트를 새로 만드는 작업을 비롯한 모든 관리 작업을 수행할 수 있습니다. 
 
 이 빠른 시작에서는 Azure Portal과 Azure Active Directory에 액세스하는 방법과 조직의 기본 테넌트를 만드는 방법을 배웁니다.

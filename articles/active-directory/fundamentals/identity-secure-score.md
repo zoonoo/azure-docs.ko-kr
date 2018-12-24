@@ -1,6 +1,6 @@
 ---
-title: Azure AD의 ID 보안 점수란? - 미리 보기 | Microsoft Docs
-description: ID 보안 점수를 사용하여 Azure AD 테넌트의 보안 상태를 개선하는 방법에 대해 알아봅니다.
+title: ID 보안 점수란? - Azure Active Directory(공개 미리 보기) | Microsoft Docs
+description: ID 보안 점수를 사용하여 Azure AD 테넌트의 보안 상태를 개선하는 방법을 설명하는 지침입니다.
 services: active-directory
 keywords: ID 보안 점수, Azure AD, 회사 리소스에 대한 보안 액세스
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a9bb22cae2e9fcd607a81d442f4fb51f12c43454
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: it-pro
+ms.openlocfilehash: 5a133d0a38852ca3e95e3ae07716c4fbd3c87f5d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224140"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092087"
 ---
-# <a name="what-is-the-identity-secure-score-in-azure-ad---preview"></a>Azure AD의 ID 보안 점수란? - 미리 보기
+# <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>Azure Active Directory의 ID 보안 점수란? (공개 미리 보기)
 
 Azure AD 테넌트는 얼마나 안전하나요? 이 질문에 답변하는 방법을 모르는 경우 이 문서를 읽고 ID 보안 점수가 ID 보안 상태를 모니터링하고 개선하는 데 어떻게 도움이 되는지 알아봅니다. 
 

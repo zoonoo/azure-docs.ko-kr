@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: cded90d4f36e353241bb594bae35b7c7e03599b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436012"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965158"
 ---
 # <a name="what-is-api-management"></a>API Management란?
 
@@ -32,14 +32,12 @@ APIM(API Management)을 사용하여 조직은 외부, 파트너 및 내부의 �
 API Management를 사용하려면 관리자가 API를 만듭니다. 각 API는 하나 이상의 작업으로 구성되며, 각 API는 하나 이상의 제품에 추가할 수 있습니다. API를 사용하려면 개발자는 해당 API가 포함된 제품을 구독합니다. 그런 다음 적용 중인 사용 정책에 따라 API의 작업을 호출할 수 있습니다. 일반적인 시나리오는 다음과 같습니다.
 
 * **모바일 인프라 보안** 
-* 
-  **ISV 파트너 시스템 사용**
-* 
-  **내부 API 프로그램 실행**
+* **ISV 파트너 시스템 사용**
+* **내부 API 프로그램 실행**
 
 시스템은 다음 구성 요소로 구성되어 있습니다.
 
-* **API 게이트웨이** 는 다음 작업을 수행하는 끝점입니다.
+* **API 게이트웨이** 는 다음 작업을 수행하는 엔드포인트입니다.
   
   * API 호출 수락 후 백 엔드로 라우팅합니다.
   * API 키, JWT 토큰, 인증서 및 기타 자격 증명을 확인합니다.
@@ -61,7 +59,7 @@ API Management를 사용하려면 관리자가 API를 만듭니다. 각 API는 �
   * 계정을 만들고 구독하여 API 키를 받습니다.
   * 자신의 사용량에 대한 분석에 액세스합니다.
 
-자세한 내용은 [클라우드 기반 API Management: API 기능을 활용](http://j.mp/ms-apim-whitepaper) PDF 백서를 참조하세요. CITO Research의 API Management에 대한 이 소개 백서는 다음을 설명합니다. 
+자세한 내용은 [클라우드 기반 API Management: API의 기능 활용](https://j.mp/ms-apim-whitepaper) PDF 백서를 참조하세요. CITO Research의 API Management에 대한 이 소개 백서는 다음을 설명합니다. 
  
  * 공통 API 요구 사항 및 특징
  * API 분리 및 외관 제공

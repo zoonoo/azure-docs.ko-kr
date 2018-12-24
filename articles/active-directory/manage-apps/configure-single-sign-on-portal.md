@@ -8,20 +8,19 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/09/2018
+ms.date: 12/06/2018
 ms.author: barbkess
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b0180f162996c5fc4647071feaf02d42320b7c9a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: aceacdea8b3c86a5c4f26a5f082f4c6cf0b3805d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036383"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011980"
 ---
-# <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>자습서: Azure Active Directory에서 응용 프로그램에 대한 SAML 기반 Single Sign-On 구성
+# <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션에 대한 SAML 기반 Single Sign-On 구성
 
-이 자습서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure AD(Azure Active Directory)에서 응용 프로그램에 대해 SAML 기반 Single Sign-On을 구성합니다. [응용 프로그램 관련 자습서](../saas-apps/tutorial-list.md)가 없는 응용 프로그램을 구성하기 위해 이 자습서를 사용합니다. 
-
+이 자습서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure AD(Azure Active Directory)에서 응용 프로그램에 대해 SAML 기반 Single Sign-On을 구성합니다. [애플리케이션 관련 자습서](../saas-apps/tutorial-list.md)를 사용할 수 없는 경우 이 자습서를 사용합니다. 
 
 이 자습서에서는 다음 작업에 Azure Portal을 사용합니다.
 
@@ -36,17 +35,17 @@ ms.locfileid: "40036383"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-1. 응용 프로그램을 Azure AD 테넌트에 추가하지 않은 경우 [빠른 시작: Azure AD 테넌트에 응용 프로그램 추가](add-application-portal.md)를 참조하세요.
+1. 애플리케이션이 Azure AD 테넌트에 추가되지 않은 경우 [빠른 시작: Azure AD 테넌트에 애플리케이션 추가](add-application-portal.md)를 참조하세요.
 
 2. [도메인 및 URL 구성](#configure-domain-and-urls)에 설명된 정보는 응용 프로그램 공급 업체에 요청하세요.
 
 3. 이 자습서의 단계를 테스트하려면 비-프로덕션 환경을 사용하는 것이 좋습니다. Azure AD 비-프로덕션 환경이 없으면 [1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 받을 수 있습니다.
 
-4. [Azure Portal](https://portal.azure.com)에 Azure AD 테넌트의 글로벌 관리자, 클라우드 응용 프로그램 관리자 또는 응용 프로그램 관리자로 로그인합니다.
+4. [Azure Portal](https://portal.azure.com)에 Azure AD 테넌트의 클라우드 애플리케이션 관리자 또는 애플리케이션 관리자로 로그인합니다.
 
 ## <a name="select-a-single-sign-on-mode"></a>Single Sign-On 모드 선택
 
-응용 프로그램을 Azure AD 테넌트에 추가하면 응용 프로그램에서 Single Sign-On을 구성할 준비가 되었습니다.
+애플리케이션을 Azure AD 테넌트에 추가하면 애플리케이션에서 Single Sign-On을 구성할 준비가 되었습니다.
 
 Single Sign-On 설정을 열려면:
 
@@ -56,7 +55,7 @@ Single Sign-On 설정을 열려면:
 
 3. **응용 프로그램 종류** 메뉴에서 **모든 응용 프로그램**을 선택하고 **적용**을 클릭합니다.
 
-4. Single Sign-On을 구성하려는 응용 프로그램의 이름을 입력합니다. 고유한 응용 프로그램을 선택하거나 [응용 프로그램 추가](add-application-portal.md) 빠른 시작에 추가된 GitHub 테스트 응용 프로그램을 사용합니다.
+4. Single Sign-On을 구성하려는 응용 프로그램의 이름을 입력합니다. 고유한 애플리케이션을 선택하거나, **GitHub-test**를 입력하여 [애플리케이션 추가](add-application-portal.md) 빠른 시작에 추가한 애플리케이션을 구성합니다.
 
 5. **Single Sign-On**을 클릭합니다. **Single Sign-On 모드**에서 **SAML 기반 로그온**이 기본 옵션으로 표시됩니다. 
 
@@ -72,8 +71,8 @@ Single Sign-On 설정을 열려면:
 
     | 구성 설정 | SP 시작 | idP 시작 | 설명 |
     |:--|:--|:--|:--|
-    | 로그온 URL | 필수 | 지정하지 않음 | 사용자가 이 URL을 열면 서비스 공급자가 Azure AD를 리디렉션하여 사용자를 인증하고 로그온하도록 합니다. Azure AD는 URL을 사용하여 Office 365 및 Azure AD 액세스 패널에서 응용 프로그램을 시작합니다. 비어 있는 경우 사용자가 Office 365, Azure AD 액세스 패널 또는 Azure AD Single Sign-On URL에서 응용 프로그램을 시작할 때 Azure AD는 idP 시작 Single Sign-On을 수행합니다.|
-    | 식별자(엔터티 ID) | 일부 앱의 경우 필수 | 일부 앱의 경우 필수 | 구성될 Single Sign-On에 대해 응용 프로그램을 고유하게 식별합니다. Azure AD는 식별자를 SAML 토큰의 대상 매개 변수로서 응용 프로그램에 다시 전송하고, 응용 프로그램의 유효성을 검사하게 됩니다. 또한 이 값은 응용 프로그램에서 제공하는 모든 SAML 메타데이터 내에서 엔터티 ID로 표시됩니다.|
+    | 로그온 URL | 필수 | 지정하지 않음 | 사용자가 이 URL을 열면 서비스 공급자가 Azure AD를 리디렉션하여 사용자를 인증하고 로그온하도록 합니다. Azure AD는 URL을 사용하여 Office 365 또는 Azure AD 액세스 패널에서 애플리케이션을 시작합니다. 비어 있는 경우 Azure AD는 ID 공급자를 사용하여 사용자가 애플리케이션을 시작할 때 Single Sign-On을 시작합니다.|
+    | 식별자(엔터티 ID) | 일부 앱의 경우 필수 | 일부 앱의 경우 필수 | 구성될 Single Sign-On에 대해 응용 프로그램을 고유하게 식별합니다. Azure AD는 SAML 토큰의 대상 매개 변수로 애플리케이션에 식별자를 보냅니다. 애플리케이션이 식별자의 유효성을 검사해야 합니다. 또한 이 값은 응용 프로그램에서 제공하는 모든 SAML 메타데이터 내에서 엔터티 ID로 표시됩니다.|
     | 회신 URL | 옵션 | 필수 | 응용 프로그램이 SAML 토큰을 수신해야 하는 위치를 지정합니다. 회신 URL은 ACS(Assertion Consumer Service) URL이라고도 합니다. |
     | 릴레이 상태 | 옵션 | 옵션 | 인증이 완료되면 사용자를 리디렉션할 위치를 응용 프로그램에 지정합니다. 일반적으로 해당 값은 응용 프로그램에서 유효한 URL이지만 일부 응용 프로그램은 이 필드를 다르게 사용합니다 자세한 내용은 응용 프로그램 공급 업체에 요청하세요.
 
@@ -87,7 +86,7 @@ Single Sign-On 설정을 열려면:
 
 ## <a name="configure-user-attributes"></a>사용자 특성 구성
 
-사용자 특성을 사용하면 Azure AD에서 응용 프로그램에 보내는 정보를 제어할 수 있습니다. 예를 들어 Azure AD는 응용 프로그램에 사용자의 이름, 이메일 및 직원 ID를 보낼 수 있습니다. Azure AD는 사용자가 로그인할 때마다 SAML 토큰의 응용 프로그램에 사용자 특성을 보냅니다. 
+사용자 특성을 사용하면 사용자가 로그인할 때마다 Azure AD에서 SAML 토큰으로 애플리케이션에 보내는 정보를 제어할 수 있습니다. 예를 들어 Azure AD는 응용 프로그램에 사용자의 이름, 이메일 및 직원 ID를 보낼 수 있습니다. 
 
 이러한 특성은 Single Sign-On이 제대로 작동하기 위해 필수 또는 선택 사항일 수 있습니다. 자세한 내용은 [응용 프로그램 관련 자습서](../saas-apps/tutorial-list.md) 또는 응용 프로그램 공급 업체를 참조하세요.
 
@@ -115,7 +114,7 @@ Azure AD에서는 인증서를 사용하여 응용 프로그램에 보내는 SAM
 
 2. 인증서를 구성하려면 **새 인증서 만들기**를 클릭합니다.
 
-3. **새 인증서 만들기** 블레이드에서 만료 날짜를 설정하고, **저장**을 클릭합니다.
+3. **새 인증서 만들기** 블레이드에서 **만료 날짜**를 설정하고 **저장**을 클릭합니다.
 
 4. **새 인증서 활성화**를 클릭합니다.
 
@@ -129,7 +128,7 @@ Azure AD에서는 인증서를 사용하여 응용 프로그램에 보내는 SAM
 
 응용 프로그램에 사용자 또는 그룹을 할당하려면:
 
-1. 응용 프로그램이 이미 열려 있지 않으면 포털에서 엽니다.
+1. 애플리케이션이 열려 있지 않으면 포털에서 엽니다.
 2. 왼쪽 응용 프로그램 블레이드에서 **사용자 및 그룹**을 클릭합니다.
 3. **사용자 추가**를 클릭합니다.
 4. **할당 추가** 블레이드에서 **사용자 및 그룹**을 클릭합니다.
@@ -146,7 +145,7 @@ Azure AD에서는 인증서를 사용하여 응용 프로그램에 보내는 SAM
     ![응용 프로그램 구성](media/configure-single-sign-on-portal/configure-app.png)
 
 2. 포털에서 **응용 프로그램 구성**을 클릭하고 지침에 따릅니다.
-3. Single Sign-On을 테스트하기 위해 응용 프로그램에서 사용자 계정을 수동으로 만듭니다. [이전 섹션](#assign-users-to-the-application)에서 응용 프로그램에 할당된 사용자 계정을 만듭니다.   응용 프로그램을 조직에 롤아웃할 준비가 됐다면 자동 사용자 프로비전을 사용하여 응용 프로그램에서 사용자 계정을 자동으로 만드는 것이 좋습니다.
+3. Single Sign-On을 테스트하기 위해 애플리케이션에서 사용자 계정을 수동으로 만듭니다. [이전 섹션](#assign-users-to-the-application)에서 응용 프로그램에 할당된 사용자 계정을 만듭니다. 
 
 ## <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
@@ -158,12 +157,12 @@ Azure AD에서는 인증서를 사용하여 응용 프로그램에 보내는 SAM
 
     ![Single Sign-On 테스트 옵션](media/configure-single-sign-on-portal/test-single-sign-on.png) 
 
-3. **현재 사용자로 로그인**을 클릭합니다. 이렇게 하면 관리자인 사용자에 대해 Single Sign-On이 작동하는지를 먼저 확인할 수 있습니다.
+3. **현재 사용자로 로그인**을 클릭합니다. 이 테스트를 통해 관리자인 사용자에 대해 Single Sign-On이 작동하는지를 먼저 확인할 수 있습니다.
 4. 오류가 있으면 오류 메시지가 표시됩니다. 세부 정보를 **어떤 오류인 것 같습니까?** 상자에 복사하고 붙여넣습니다.
 
     ![해결 지침 가져오기](media/configure-single-sign-on-portal/error-guidance.png)
 
-5. **해결 지침 가져오기**를 클릭합니다. 근본 원인 및 해결 지침이 표시됩니다.  이 예제에서 사용자는 응용 프로그램에 할당되지 않았습니다.
+5. **해결 지침 가져오기**를 클릭합니다. 근본 원인 및 해결 지침이 표시됩니다.  이 예제에서 사용자는 애플리케이션에 할당되지 않았습니다.
 
     ![오류 수정](media/configure-single-sign-on-portal/fix-error.png)
 
@@ -174,7 +173,7 @@ Azure AD에서는 인증서를 사용하여 응용 프로그램에 보내는 SAM
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure Portal을 사용하여 Azure AD에서 응용 프로그램에 Single Sign-On을 구성합니다. Single Sign-On 구성 페이지를 찾아서 Single Sign-On 설정을 구성했습니다. 구성을 마치면 응용 프로그램에 사용자를 할당하고, SAML 기반 Single Sign-On을 사용하도록 응용 프로그램을 구성했습니다. 이 작업이 모두 완료되면 SAML 로그온이 제대로 작동하는지 확인했습니다.
+이 자습서에서는 애플리케이션에 대한 Single Sign-On 설정을 구성했습니다. 구성을 마치면 응용 프로그램에 사용자를 할당하고, SAML 기반 Single Sign-On을 사용하도록 응용 프로그램을 구성했습니다. 이 작업이 모두 완료되면 SAML 로그온이 제대로 작동하는지 확인했습니다.
 
 다음 작업을 수행했습니다.
 > [!div class="checklist"]
@@ -183,12 +182,12 @@ Azure AD에서는 인증서를 사용하여 응용 프로그램에 보내는 SAM
 > * 사용자 특성 구성
 > * SAML 서명 인증서 생성
 > * 응용 프로그램에 사용자 또는 그룹 수동으로 할당
-> * Single Sign-On에 대한 응용 프로그램 구성
+> * Azure AD를 SAML ID 공급자로 사용하도록 애플리케이션 구성
 > * SAML 기반 Single Sign-On 테스트
 
-조직에서 많은 사용자에게 응용 프로그램을 롤아웃하려면 자동 프로비전을 사용하는 것이 좋습니다.
+조직에서 더 많은 사용자에게 애플리케이션을 롤아웃하려면 자동 사용자 프로비저닝을 사용하는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
->[자동 프로비전을 사용하여 사용자를 할당하는 방법 알아보기](configure-automatic-user-provisioning-portal.md)
+>[자동 프로비저닝을 사용하여 사용자를 할당하는 방법 알아보기](configure-automatic-user-provisioning-portal.md)
 
 

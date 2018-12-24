@@ -1,5 +1,5 @@
 ---
-title: '자습서: 이미지를 로드하는 방법 - Bing Visual Search'
+title: '자습서: 이미지를 업로드하는 방법 - Bing Visual Search'
 titleSuffix: Azure Cognitive Services
 description: 이미지를 Bing에 업로드하여 인사이트를 얻고, 응답을 구문 분석하여 표시하는 프로세스를 분석합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 24b4bacd6a369812a07095b1d9c114f557d10d57
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443460"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960060"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>자습서: Bing Visual Search 업로드 분석
 
@@ -1340,4 +1340,4 @@ buildDiv 함수는 addDivContent 함수를 호출하여 각 태그의 축소 가
 
 ## <a name="next-steps"></a>다음 단계
 
-인사이트 토큰을 사용하여 인사이트를 얻는 방법에 대해서는 [Bing Visual Search SDK ImageInsightsToken 자습서](.\tutorial-visual-search-insights-token.md)를 참조하세요.
+인사이트 토큰을 사용하여 인사이트를 얻는 방법에 대해서는 [Bing Visual Search SDK ImageInsightsToken 자습서](./tutorial-visual-search-insights-token.md)를 참조하세요.

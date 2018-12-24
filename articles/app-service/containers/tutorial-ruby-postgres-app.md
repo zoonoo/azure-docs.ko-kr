@@ -1,5 +1,5 @@
 ---
-title: Linux의 Azure App Service에서 Ruby 및 Postgres 웹앱 빌드 | Microsoft Docs
+title: Linux에서 Postgres를 사용하여 Ruby 웹앱 빌드 - Azure App Service | Microsoft Docs
 description: Azure에서 PostgreSQL 데이터베이스에 연결하여 Ruby 앱이 작동하도록 하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 925537b3dff852921aad1e74d009e09fc90c394a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 247c4f24869901f0f50b081d8f57b7e3841a8e8a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445079"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271031"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 Postgres 웹앱 빌드
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Ruby 웹앱을 만들고 PostgreSQL 데이터베이스에 연결하는 방법을 보여줍니다. 완료되면 [Ruby on Rails](http://rubyonrails.org/) 앱이 Linux의 App Service에서 실행됩니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Ruby 웹앱을 만들고 PostgreSQL 데이터베이스에 연결하는 방법을 보여줍니다. 완료되면 [Ruby on Rails](https://rubyonrails.org/) 앱이 Linux의 App Service에서 실행됩니다.
 
 ![Azure App Service에서 실행 중인 Ruby on Rails 앱](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -43,7 +43,7 @@ ms.locfileid: "39445079"
 
 * [Git 설치](https://git-scm.com/)
 * [Ruby 2.3 설치](https://www.ruby-lang.org/en/documentation/installation/)
-* [Ruby on Rails 5.1 설치](http://guides.rubyonrails.org/v5.1/getting_started.html)
+* [Ruby on Rails 5.1 설치](https://guides.rubyonrails.org/v5.1/getting_started.html)
 * [PostgreSQL 설치 및 실행](https://www.postgresql.org/download/)
 
 ## <a name="prepare-local-postgres"></a>로컬 Postgres 준비
@@ -92,7 +92,7 @@ bundle install --path vendor/bundle
 
 ### <a name="run-the-sample-locally"></a>로컬에서 샘플 실행
 
-[Rails 마이그레이션](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations)을 실행하여 응용 프로그램에 필요한 테이블을 만듭니다. 마이그레이션에서 만들어진 테이블을 보려면 Git 리포지토리의 _db/migrate_ 디렉터리를 살펴봅니다.
+[Rails 마이그레이션](https://guides.rubyonrails.org/active_record_migrations.html#running-migrations)을 실행하여 응용 프로그램에 필요한 테이블을 만듭니다. 마이그레이션에서 만들어진 테이블을 보려면 Git 리포지토리의 _db/migrate_ 디렉터리를 살펴봅니다.
 
 ```bash
 rake db:create

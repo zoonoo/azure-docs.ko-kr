@@ -1,5 +1,5 @@
 ---
-title: Linux의 Azure App Service용 Python 앱 구성
+title: Linux에서 Python 앱 구성 - Azure App Service
 description: 이 자습서에서는 Linux의 Azure App Service용 Python 앱을 작성하고 구성하는 옵션을 설명합니다.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
-ms.custom: mvc
-ms.openlocfilehash: 9474b2d64c97b6e6d0fc06c3c448fa6e0515e70c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18
+ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633651"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249637"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Linux의 Azure App Service용 Python 앱 구성
 
@@ -48,7 +48,7 @@ Linux 기반 App Service에 배포된 Python 앱은 GitHub 리포지토리에 �
 
 이 컨테이너에는 다음과 같은 특성이 있습니다.
 
-- 앱은 `--bind=0.0.0.0 --timeout 600` 추가 인수를 통해 [Gunicorn WSGI HTTP 서버](http://gunicorn.org/)를 사용하여 실행됩니다.
+- 앱은 `--bind=0.0.0.0 --timeout 600` 추가 인수를 통해 [Gunicorn WSGI HTTP 서버](https://gunicorn.org/)를 사용하여 실행됩니다.
 
 - 기본적으로 기본 이미지에는 Flask 웹 프레임워크가 포함되어 있지만, 컨테이너는 WSGI 및 Python 3.7과 호환되는 다른 프레임워크(예: Django)를 지원합니다.
 
@@ -59,9 +59,9 @@ Linux 기반 App Service에 배포된 Python 앱은 GitHub 리포지토리에 �
 시작하는 동안 Linux의 App Service 컨테이너에서 실행하는 단계는 다음과 같습니다.
 
 1. 제공되는 경우 사용자 지정 시작 명령을 확인하고 적용합니다.
-1. Django 앱의 *wsgi.py* 파일이 있는지 확인합니다. 그렇다면 해당 파일을 사용하여 Gunicorn을 시작합니다.
-1. *application.py*라는 파일이 있는지 확인합니다. 그렇다면 Flask 앱이라는 가정하에 `application:app`을 사용하여 Gunicorn을 시작합니다.
-1. 다른 앱이 없으면 컨테이너에 기본적으로 제공되는 기본 앱을 시작합니다.
+2. Django 앱의 *wsgi.py* 파일이 있는지 확인합니다. 그렇다면 해당 파일을 사용하여 Gunicorn을 시작합니다.
+3. *application.py*라는 파일이 있는지 확인합니다. 그렇다면 Flask 앱이라는 가정하에 `application:app`을 사용하여 Gunicorn을 시작합니다.
+4. 다른 앱이 없으면 컨테이너에 기본적으로 제공되는 기본 앱을 시작합니다.
 
 다음 섹션에서는 각 옵션에 대한 추가 세부 정보를 제공합니다.
 
@@ -100,7 +100,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-또한 Gunicorn에 대한 추가 인수(예: `--workers=4`)를 명령에 추가할 수도 있습니다. 자세한 내용은 [Gunicorn 실행](http://docs.gunicorn.org/en/stable/run.html)(docs.gunicorn.org)을 참조하세요.
+또한 Gunicorn에 대한 추가 인수(예: `--workers=4`)를 명령에 추가할 수도 있습니다. 자세한 내용은 [Gunicorn 실행](https://docs.gunicorn.org/en/stable/run.html)(docs.gunicorn.org)을 참조하세요.
 
 사용자 지정 명령을 제공하려면 다음 단계를 수행합니다.
 

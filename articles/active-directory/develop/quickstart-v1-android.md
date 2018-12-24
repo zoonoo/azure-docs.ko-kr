@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287237"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311068"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -30,7 +30,7 @@ ms.locfileid: "51287237"
 
 Android 응용 프로그램을 개발하는 분들은 Azure AD(Azure Active Directory) 사용자를 간단하게 로그인할 수 있습니다. Azure AD를 사용하면 응용 프로그램이 Microsoft Graph를 통해 또는 개발자 고유의 보호되는 web API를 통해 사용자 데이터에 액세스할 수 있습니다.
 
-Azure ADAL(AD 인증 라이브러리) Android 라이브러리는 산업 표준 OAuth 2.0 및 OpenID Connect를 사용하는 [Microsoft Azure Active Directory 계정](https://azure.microsoft.com/services/active-directory/)을 지원하여 앱에 [Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API](https://developer.microsoft.com/graph) 사용을 시작할 수 있는 기능을 제공합니다.
+Azure ADAL(AD 인증 라이브러리) Android 라이브러리는 산업 표준 OAuth 2.0 및 OpenID Connect를 통해 [Microsoft Azure Active Directory 계정](https://azure.microsoft.com/services/active-directory/)을 지원하여 앱이 [Microsoft Azure Cloud](https://cloud.microsoft.com) 및 [Microsoft Graph API](https://developer.microsoft.com/graph) 사용을 시작할 수 있도록 합니다.
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
@@ -43,7 +43,7 @@ Azure ADAL(AD 인증 라이브러리) Android 라이브러리는 산업 표준 O
 
 시작하려면 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트가 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
 
-## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>시나리오: 사용자를 로그인하고 Microsoft Graph를 호출
+## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>시나리오: 사용자 로그인 및 Microsoft Graph 호출
 
 ![토폴로지](./media/quickstart-v1-android/active-directory-android-topology.png)
 
@@ -51,23 +51,23 @@ Azure ADAL(AD 인증 라이브러리) Android 라이브러리는 산업 표준 O
 
 ## <a name="sample-code"></a>샘플 코드
 
-전체 샘플 코드는 [Github](https://github.com/Azure-Samples/active-directory-android)에서 찾을 수 있습니다.
+전체 샘플 코드는 [GitHub](https://github.com/Azure-Samples/active-directory-android)에서 확인할 수 있습니다.
 
 ```Java
 // Initialize your app with MSAL
 AuthenticationContext mAuthContext = new AuthenticationContext(
-        MainActivity.this, 
-        AUTHORITY, 
+        MainActivity.this,
+        AUTHORITY,
         false);
 
 
 // Perform authentication requests
 mAuthContext.acquireToken(
-    getActivity(), 
-    RESOURCE_ID, 
-    CLIENT_ID, 
-    REDIRECT_URI,  
-    PromptBehavior.Auto, 
+    getActivity(),
+    RESOURCE_ID,
+    CLIENT_ID,
+    REDIRECT_URI,
+    PromptBehavior.Auto,
     getAuthInteractiveCallback());
 
 // ...
@@ -95,7 +95,7 @@ mAuthResult.getAccessToken()
     - **추가**를 선택하고, **API 선택** 안에서 ***Microsoft Graph***를 선택합니다.
     - **로그인 및 사용자 프로필 읽기** 권한을 선택한 다음, **선택**을 눌러 저장합니다.
         - 이 권한은 `User.Read` 범위에 매핑됩니다.
-    - 선택 사항: **필요한 권한 > Windows Azure Active Directory** 안에서, 선택한 **로그인 및 사용자 프로필 읽기** 권한을 제거합니다. 이렇게 하면 사용자 동의 페이지에 권한이 두 번 나열되지 않습니다.
+    - 선택 사항: **필요한 권한 > Microsoft Azure Active Directory** 안에서, 선택한 **로그인 및 사용자 프로필 읽기** 권한을 제거합니다. 이렇게 하면 사용자 동의 페이지에 권한이 두 번 나열되지 않습니다.
 
 4. 축하합니다! 앱이 구성되었습니다. 그 다음 섹션에서는 다음 작업을 수행해야 합니다.
     - `Application ID`

@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 4c261a46b96865900a92bc53e4973fa3df094289
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8b78ec4e358f654342140df1491e19d3fc62fee7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246561"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992388"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 사용하는 지원되는 언어 목록 가져오기
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 지원되는 언어 목록 가져오기
 
 이 빠른 시작에서는 Python 및 Translator Text REST API를 사용하여 지원되는 언어의 목록을 반환하는 GET 요청을 만드는 방법을 알아봅니다.
 
@@ -67,7 +67,7 @@ else:
 현재 Translator Text에는 하나의 엔드포인트가 사용 가능하고 `base_url`로 설정됩니다. `path`는 `languages` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
 
 >[!NOTE]
-> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages)를 참조하세요.
+> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: 언어](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages)를 참조하세요.
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -215,7 +215,7 @@ python get-languages.py
 
 ## <a name="see-also"></a>참고 항목
 
-텍스트 음차뿐만 아니라 다음과 같은 Translator Text API 사용 방법을 알아봅니다.
+Translator Text API를 사용하여 다음을 수행하는 방법을 알아봅니다.
 
 * [텍스트 번역](quickstart-python-translate.md)
 * [텍스트 음역](quickstart-python-transliterate.md)

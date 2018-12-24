@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 080bf465d65199c54e0d09eab8c7bccbc9616ed7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568957"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259548"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -86,12 +86,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="download-a-sample-data-file"></a>샘플 데이터 파일 다운로드
 샘플 JSON 데이터 파일을 다운로드하고 Azure Blob 저장소에 저장합니다.
 
-1. 이 샘플 JSON 데이터 파일을 [Github에서](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 로컬 컴퓨터로 다운로드합니다. 마우스 오른쪽 단추로 클릭하고 원시 파일을 로컬로 저장하도록 다른 이름으로 저장합니다.
+1. 이 샘플 JSON 데이터 파일을 [GitHub에서](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 로컬 컴퓨터로 다운로드합니다. 마우스 오른쪽 단추로 클릭하고 원시 파일을 로컬로 저장하도록 다른 이름으로 저장합니다.
 
 2. 저장소 계정이 아직 없는 경우 만듭니다.
     - Azure Portal에서 **리소스 만들기**를 선택합니다. **저장소** 범주를 선택하고, **저장소 계정**을 선택합니다.
     - 저장소 계정에 고유한 이름을 제공합니다.
-    - **계정 종류** 선택: **Blob Storage**
+    - **계정 종류**를 선택합니다. **Blob Storage**
     - **리소스 그룹** 이름을 선택합니다. Databricks 작업 영역을 만든 것과 동일한 리소스 그룹을 사용합니다.
     
     자세한 내용은 [Azure Blob 저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
@@ -200,7 +200,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ![Databricks 클러스터 중지](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Databricks 클러스터 중지")
 
-클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **Terminate after \_\_ minutes of inactivity**(비활성 __분 후 종료) 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
+클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **비활성 \_\_분 후 종료** 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

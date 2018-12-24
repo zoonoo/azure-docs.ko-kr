@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: Bing News Search API, C#'
+title: '빠른 시작: C#을 사용하여 뉴스 검색 수행 - Bing News Search REST API'
 titlesuffix: Azure Cognitive Services
-description: Bing News Search API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+description: 이 빠른 시작을 사용하여 C#을 통해 Bing News Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: b69e00a31d5746b7f25ef6156b703a4505a89630
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 20a5e24a4fce2bb8dc817cb74c2a58a1bc304fae
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314845"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250419"
 ---
-# <a name="quickstart-bing-news-search-api-with-c"></a>빠른 시작: C#을 통해 Bing News Search API 사용
+# <a name="quickstart-perform-a-news-search-using-c-and-the-bing-news-search-rest-api"></a>빠른 시작: C# 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 
 이 아티클은 Azure의 Microsoft Cognitive Services 일부인 Bing Search API를 사용하는 방법을 보여줍니다. 이 문서에서는 C#을 사용하지만 API는 RESTful 웹 서비스로, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
 

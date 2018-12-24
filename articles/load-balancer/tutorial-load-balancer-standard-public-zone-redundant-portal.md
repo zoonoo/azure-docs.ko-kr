@@ -1,14 +1,11 @@
 ---
-title: '자습서: 가용성 영역 간 VM Load Balancer - Azure Portal | Microsoft Docs'
+title: '자습서: 가용성 영역 간 Load Balancer VM - Azure Portal'
+titlesuffix: Azure Load Balancer
 description: 이 자습서는 Azure Portal을 사용하여 가용성 영역 간 VM 부하 분산을 위한 영역 중복 프런트 엔드가 있는 표준 Load Balancer를 만드는 방법을 설명합니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.custom: seodec18
+ms.openlocfilehash: 18b5f82a5181f0bbf7024b302b802684ef676c8f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304463"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255339"
 ---
-# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 표준 Load Balancer를 통한 가용성 영역 간 VM 부하 분산
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal에서 Standard Load Balancer를 통한 가용성 영역 간 부하 분산
 
 부하 분산은 들어오는 요청을 여러 가상 머신에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서는 가용성 영역 간 VM의 부하를 분산하는 공용 Load Balancer 표준을 만드는 단계를 설명합니다. 이를 통해 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다. 영역 중복에서 하나 이상의 가용성 영역이 실패할 수 있고 지역에서 한 영역이 정상으로 유지되는 한 데이터 경로는 유효합니다. 다음 방법에 대해 알아봅니다.
 

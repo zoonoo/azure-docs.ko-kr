@@ -1,23 +1,23 @@
 ---
-title: 빠른 시작 - Azure Container Instances에서 응용 프로그램 실행
-description: 이 빠른 시작에서는 Azure CLI를 사용하여 Docker 컨테이너에서 실행되는 응용 프로그램을 Azure Container Instances에 배포합니다
+title: 빠른 시작 - Azure Container Instances에서 애플리케이션 실행 - CLI
+description: 이 빠른 시작에서는 Azure CLI를 사용하여 격리된 컨테이너에서 실행할 Docker 컨테이너 애플리케이션을 Azure Container Instances에 배포함
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7db3d9a076fe9ff5b8bbf970705b82a3f0d5ce54
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855666"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189611"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>빠른 시작: Azure Container Instances에서 응용 프로그램 실행
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Container Instances에서 컨테이너 애플리케이션 실행
 
-Azure Container Instances를 사용하여 Azure에서 Docker 컨테이너를 간단하고 빠르게 실행합니다. 가상 머신을 배포하거나 Kubernetes와 같은 전체 컨테이너 오케스트레이션 플랫폼을 사용할 필요가 없습니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure에서 컨테이너를 만들고 FQDN(정규화된 도메인 이름)을 통해 해당 응용 프로그램을 사용할 수 있도록 합니다. 단일 배포 명령을 실행한 후 몇 초 내에 실행 중인 응용 프로그램을 찾아볼 수 있습니다.
+Azure Container Instances를 사용하여 Azure에서 Docker 컨테이너를 간단하고 빠르게 실행합니다. 가상 머신을 배포하거나 Kubernetes와 같은 전체 컨테이너 오케스트레이션 플랫폼을 사용할 필요가 없습니다. 이 빠른 시작에서는 Azure CLI를 사용하여 Azure에서 컨테이너를 만들고 FQDN(정규화된 도메인 이름)을 통해 해당 애플리케이션을 사용할 수 있도록 합니다. 단일 배포 명령을 실행한 후 몇 초 내에 실행 중인 응용 프로그램을 찾아볼 수 있습니다.
 
 ![Azure Container Instances에 배포되어 브라우저에 표시된 응용 프로그램][aci-app-browser]
 

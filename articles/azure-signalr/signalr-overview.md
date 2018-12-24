@@ -1,23 +1,17 @@
 ---
-title: Azure SignalR이란? | Microsoft Docs
+title: Azure SignalR이란?
 description: Azure SignalR Service에 대해 간략히 설명합니다.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
 ms.service: signalr
-ms.devlang: na
 ms.topic: overview
-ms.workload: tbd
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: a159833936ec4762213f063e235fa4f9237af95b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e66326c6c4d93a92c579255cb00b6614ecc03b8c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951103"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255179"
 ---
 # <a name="what-is-azure-signalr-service"></a>Azure SignalR Service란?
 
@@ -25,7 +19,7 @@ Azure SignalR Service는 HTTP를 통해 응용 프로그램에 실시간 웹 기
 
 이 문서에서는 Azure SignalR Service에 대한 개요를 제공합니다.
 
-## <a name="what-is-azure-signalr-service-used-for"></a>Azure SignalR Service의 용도는? 
+## <a name="what-is-azure-signalr-service-used-for"></a>Azure SignalR Service의 용도는?
 
 실시간 콘텐츠 업데이트가 필요한 응용 프로그램 종류는 많습니다. Azure SignalR Service를 사용하기에 적합한 예는 다음과 같습니다.
 
@@ -45,4 +39,3 @@ SignalR은 실시간 웹 응용 프로그램을 빌드하는 데 사용되는 �
 - **[ASP.NET Core SignalR 앱 크기 조정](signalr-overview-scale-aspnet-core.md)** - Azure SignalR Service를 ASP.NET Core SignalR 응용 프로그램과 통합하여 수십만 개의 연결까지 확장합니다.
 - **[서버리스 실시간 앱 빌드](signalr-overview-azure-functions.md)** - Azure SignalR Service와 Azure Functions의 통합을 사용하여 JavaScript, C# 및 Java와 같은 언어로 서버리스 실시간 응용 프로그램을 빌드합니다.
 - **[REST API를 통해 서버에서 클라이언트로 메시지 보내기](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)** - Azure SignalR Service는 REST API를 제공하여 응용 프로그램이 모든 REST 지원 프로그래밍 언어로 SignalR Service와 연결된 클라이언트에 메시지를 게시할 수 있도록 합니다.
-

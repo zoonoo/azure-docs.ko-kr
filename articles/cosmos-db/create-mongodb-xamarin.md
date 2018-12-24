@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: .NET 및 MongoDB API에서 Xamarin.Forms 앱 빌드 | Microsoft Docs'
+title: Azure Cosmos DB는 .NET 및 MongoDB API를 사용하여 Xamarin.Forms 앱 빌드
 description: Azure Cosmos DB MongoDB API에 연결 및 쿼리하는 데 사용할 수 있는 Xamarin 코드 샘플을 제시합니다.
 services: cosmos-db
 author: codemillmatt
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.custom: quickstart, xamarin
@@ -11,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 45d299e2d5e1f9c9c454e6b2f77df7cdf8295e5f
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: ece6780803809829e69fccc320ae65a0c7b0f94b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568712"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089261"
 ---
 # <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>빠른 시작: .NET 및 Azure Portal에서 MongoDB API Xamarin.Forms 앱 빌드
 
@@ -157,7 +156,7 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. [Azure Portal](http://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열**을 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 화면의 오른쪽에서 복사 단추를 사용하여 다음 단계에서 기본 연결 문자열을 복사합니다.
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열**을 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 화면의 오른쪽에서 복사 단추를 사용하여 다음 단계에서 기본 연결 문자열을 복사합니다.
 
 2. **TaskList.Core** 프로젝트의 **Helpers** 디렉터리에서 **APIKeys.cs** 파일을 엽니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용하여 첫 번째 Resource Graph 쿼리 실행
+title: Azure CLI를 사용하여 첫 번째 쿼리 실행
 description: 이 문서에서는 Azure CLI에 대한 Resource Graph 확장을 사용하도록 설정하고 첫 번째 쿼리를 실행하는 단계를 안내합니다.
 services: resource-graph
 author: DCtheGeek
@@ -7,14 +7,14 @@ ms.author: dacoulte
 ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a252dd6698a5e4f724fcbbf821b01f63ab4f529b
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 8f5d98ff591cb456cbbcb3d28a63f39ab3729152
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086814"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308518"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Azure CLI를 사용하여 첫 번째 Resource Graph 쿼리 실행
 

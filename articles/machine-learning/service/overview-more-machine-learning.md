@@ -1,5 +1,5 @@
 ---
-title: Microsoft의 기계 학습 제품 옵션 비교 - Azure | Microsoft Docs
+title: Microsoft의 기계 학습 제품 옵션 비교
 description: Microsoft의 다양한 제품을 비교하여 기계 학습 모델을 빌드, 배포 및 관리합니다. 솔루션에 대해 선택할 제품을 결정합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: ad6cb53bd69218d2af801cb56f882f5ffde3026c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872555"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274125"
 ---
-# <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Microsoft의 기계 학습 제품 옵션이란?
+# <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft의 기계 학습 제품이란?
 
 Microsoft에서는 다양한 제품 옵션을 제공하여 기계 학습 모델을 빌드, 배포 및 관리합니다. 이러한 제품을 비교하고 기계 학습 솔루션을 가장 효과적으로 개발해야 하는 항목을 선택합니다.
 
@@ -33,7 +33,7 @@ Microsoft에서는 다양한 제품 옵션을 제공하여 기계 학습 모델�
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | 예측 분석에 대한 독립 실행형 엔터프라이즈 서버 | R 및 Python을 사용하여 모델을 빌드 및 배포 |
 | ***개발자 도구*** | | |
 | [ML.NET](#mlnet) | 오픈 소스, 플랫폼 간 ML SDK | .NET 응용 프로그램에 대한 ML 솔루션 개발 |
-| [Windows ML](#windows-ml) | Windows 10 ML 플랫폼 | Windows 10 디바이스에서 학습된 모델을 평가 |
+| [Windows ML](#windows-ml) | Windows 10 ML 플랫폼 | Windows 10 장치에서 학습된 모델을 평가 |
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning 서비스
 
@@ -41,8 +41,7 @@ Microsoft에서는 다양한 제품 옵션을 제공하여 기계 학습 모델�
 
 클라우드 규모의 Python 및 CLI를 통해 ML 모델을 학습, 배포 및 관리하려면 Azure Machine Learning 서비스를 사용합니다.
 
->[!Note]
-> Azure Machine Learning은 추가 비용 없이 사용해 볼 수 있습니다. 신용 카드 또는 Azure 구독이 필요하지 않습니다. 지금 시작해 보세요. https://azure.microsoft.com/free/
+지금 바로 [Azure Machine Learning Service의 무료 또는 유료 버전](http://aka.ms/AMLFree)을 사용해 보세요.
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 
@@ -69,7 +68,7 @@ Apache Spark에서 기계 학습 솔루션을 빌드하는 데 공동 작업하�
 - LUIS(언어 해석)
 - 지식 및 검색
 
-Cognitive Services를 사용하여 디바이스 및 플랫폼에서 앱을 개발합니다. API는 끊임없이 개선되며, 설치하기가 매우 쉽습니다.
+Cognitive Services를 사용하여 장치 및 플랫폼에서 앱을 개발합니다. API는 끊임없이 개선되며, 설치하기가 매우 쉽습니다.
 
 ## <a name="azure-data-science-virtual-machine"></a>Azure 데이터 과학 가상 머신
 
@@ -89,7 +88,7 @@ Data Science Virtual Machine은 Azure Machine Learning 서비스의 대상으로
 
 ## <a name="microsoft-machine-learning-server"></a>Microsoft Machine Learning 서버
 
-[Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)는 R 및 Python 프로세스의 병렬 및 분산 워크로드를 호스트하고 관리하기 위한 엔터프라이즈 서버입니다. Microsoft Machine Learning Server는 Linux, Windows, Hadoop 및 Apache Spark에서 실행되며, [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/)에서도 사용할 수 있습니다. 이 서버는 [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package) 및 [MicrosoftML 패키지](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package)를 사용하여 빌드된 솔루션용 실행 엔진을 제공하며, 고성능 분석, 통계 분석, 기계 학습 및 대규모 데이터 집합을 지원하여 오픈 소스 R 및 Python을 확장합니다. 이 기능은 서버와 함께 설치되는 전용 패키지를 통해 제공됩니다. 개발을 위해 [Visual Studio용 R 도구](https://www.visualstudio.com/vs/rtvs/) 및 [Visual Studio용 Python 도구](https://www.visualstudio.com/vs/python/)와 같은 IDE를 사용할 수 있습니다.
+[Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)는 R 및 Python 프로세스의 병렬 및 분산 워크로드를 호스트하고 관리하기 위한 엔터프라이즈 서버입니다. Microsoft Machine Learning Server는 Linux, Windows, Hadoop 및 Apache Spark에서 실행되며, [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/)에서도 사용할 수 있습니다. 이 서버는 [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package) 및 [MicrosoftML 패키지](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package)를 사용하여 빌드된 솔루션용 실행 엔진을 제공하며, 고성능 분석, 통계 분석, 기계 학습 및 대규모 데이터 세트를 지원하여 오픈 소스 R 및 Python을 확장합니다. 이 기능은 서버와 함께 설치되는 전용 패키지를 통해 제공됩니다. 개발을 위해 [Visual Studio용 R 도구](https://www.visualstudio.com/vs/rtvs/) 및 [Visual Studio용 Python 도구](https://www.visualstudio.com/vs/python/)와 같은 IDE를 사용할 수 있습니다.
 
 서버에서 R 및 Python을 통해 구축된 모델을 빌드하고 운영하거나, Hadoop 또는 Spark 클러스터에서 대규모로 학습하는 R 및 Python을 배포해야 하는 경우 Microsoft Machine Learning Server를 사용합니다.
 
@@ -101,7 +100,7 @@ Data Science Virtual Machine은 Azure Machine Learning 서비스의 대상으로
 
 ## <a name="windows-ml"></a>Windows ML
 
-[Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/)은 응용 프로그램에서 학습된 기계 학습 모델을 사용하면서 Windows 10 장치에서 로컬로 학습된 모델을 평가할 수 있습니다.
+[Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/)은 애플리케이션에서 학습된 기계 학습 모델을 사용하면서 Windows 10 디바이스에서 로컬로 학습된 모델을 평가할 수 있습니다.
 
 Windows 응용 프로그램 내에서 학습된 기계 학습 모델을 사용하려는 경우 Windows ML을 사용합니다.
 

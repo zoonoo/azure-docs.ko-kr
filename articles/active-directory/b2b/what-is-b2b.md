@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 609f48d0c2ba41d658850ade367d9b225941b105
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 992abf97751695c10f28f355e1086a12530b9456
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982611"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165234"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Azure Active Directory B2B의 게스트 사용자 액세스란?
 
@@ -73,7 +73,7 @@ Microsoft 응용 프로그램인지 여부에 관계없이 공유하려는 응�
 
 조직의 요구에 맞게 사용자 지정된 방식으로 외부 파트너를 등록하세요.
 - [B2B 공동 작업 초대 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)를 사용하여 셀프 서비스 등록 포털 생성을 포함하여 등록 환경을 사용자 지정할 수 있습니다. 
-- [Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web)의 셀프 서비스 포털에 Microsoft가 제공하는 샘플 코드를 사용합니다.
+- [GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web)의 셀프 서비스 포털에 Microsoft가 제공하는 샘플 코드를 사용합니다.
 
 ![등록 포털](media/what-is-b2b/sign-up-portal.png)
 

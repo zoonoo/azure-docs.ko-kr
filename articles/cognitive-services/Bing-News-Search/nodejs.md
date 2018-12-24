@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: Bing News Search API, Node.js'
+title: '빠른 시작: Node.js를 사용하여 뉴스 검색 수행 - Bing News Search REST API'
 titlesuffix: Azure Cognitive Services
-description: Bing News Search API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+description: 이 빠른 시작을 사용하여 Node.js를 통해 Bing News Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: d0bb2d9b35c93d8730ca17fbf70e41df5deb1834
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 17307aaac531924b02c92ac37151d10bfbc48143
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316910"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252306"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-nodejs"></a>Bing News Search API 및 Node.js에 대한 빠른 시작
+# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>빠른 시작: Node.js 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 
 이 문서는 Azure의 Microsoft Cognitive Services 일부인 Bing News Search API를 사용하는 방법을 보여 줍니다. 이 문서에서는 Node.js를 사용하지만 API는 RESTful 웹 서비스로, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
 

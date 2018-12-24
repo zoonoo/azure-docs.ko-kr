@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 8f6473603bb6e6ae734bde722742c58514d777c8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f91464ebdd29c082fd721e9e4b2e029de991cc1e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428099"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958706"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Automation에 대한 소개
 
@@ -40,18 +40,26 @@ Azure Automation [DSC(Desired State Configuration)](automation-dsc-overview.md)�
 
 Azure Automation을 사용하여 하이브리드 환경에서 Windows 및 Linux 시스템을 업데이트합니다. Azure, 온-프레미스 및 기타 클라우드에서 업데이트 준수에 대한 가시성을 얻을 수 있습니다. 정의된 유지 관리 기간 내에서 업데이트 설치를 오케스트레이션하기 위한 배포 일정을 만들 수 있습니다. 업데이트를 컴퓨터에 설치하지 않는 경우 해당 업데이트를 배포에서 제외할 수 있습니다.
 
-### <a name="shared-capabilities"></a>공유 기능
+### <a name="shared-resources"></a>공유 리소스
 
 Azure Automation은 대규모 환경을 더 쉽게 자동화하고 구성할 수 있게 하는 일단의 공유 리소스로 구성됩니다.
 
-* **[역할 기반 액세스 제어](automation-role-based-access-control.md)** - 제작 기능을 제공하지 않고도 작업을 실행할 수 있게 하는 Automation 운영자 역할을 사용하여 계정에 대한 액세스를 제어합니다.
-* **[변수](automation-variables.md)** - Runbook 및 구성에서 사용할 수 있는 콘텐츠를 보관하는 방법을 제공합니다. Runbook과 이를 참조하는 구성을 수정하지 않고도 값을 변경할 수 있습니다.
-* **[자격 증명](automation-credentials.md)** - 런타임에 Runbook 및 구성에서 사용할 수 있는 중요한 정보를 안전하게 저장합니다.
-* **[인증서](automation-certificates.md)** - 런타임에 저장하고 사용할 수 있으므로 인증 및 배포된 리소스의 보호에 사용할 수 있습니다.
-* **[연결](automation-connections.md)** - 연결 리소스의 시스템에 연결할 때 일반 정보가 포함된 정보의 이름/값 쌍을 저장합니다. 연결은 런타임에 사용하기 위해 모듈 작성자가 Runbook 및 구성에 정의합니다.
 * **[일정](automation-schedules.md)** - 미리 정의된 시간에 자동화를 트리거하기 위해 서비스에서 사용됩니다.
-* **[원본 제어와의 통합](automation-source-control-integration.md)** - 구성을 원본 제어 시스템에서 Runbook 또는 구성을 확인할 수 있는 코드로 승격합니다.
-* **[PowerShell 모듈](automation-integration-modules.md)** - Azure 및 다른 시스템을 관리하는 데 사용됩니다. Microsoft, 타사, 커뮤니티 또는 정의된 사용자 지정 cmdlet 및 DSC 리소스를 Automation 계정으로 가져옵니다.
+* **[모듈](automation-integration-modules.md)** - 모듈은 Azure 및 다른 시스템을 관리하는 데 사용됩니다. Microsoft, 타사, 커뮤니티 또는 정의된 사용자 지정 cmdlet 및 DSC 리소스를 Automation 계정으로 가져옵니다.
+* **[모듈 갤러리](automation-runbook-gallery.md)** - Runbook을 보고 Automation 계정으로 가져오기 위한 PowerShell 갤러리의 네이티브 통합입니다.
+* **[Python 2 패키지](python-packages.md)** - Python Runbook에서 사용할 Automation 계정에 Python 2 패키지를 추가합니다.
+* **[자격 증명](automation-credentials.md)** - 런타임에 Runbook 및 구성에서 사용할 수 있는 중요한 정보를 안전하게 저장합니다.
+* **[연결](automation-connections.md)** - 연결 리소스의 시스템에 연결할 때 일반 정보가 포함된 정보의 이름/값 쌍을 저장합니다. 연결은 런타임에 사용하기 위해 모듈 작성자가 Runbook 및 구성에 정의합니다.
+* **[인증서](automation-certificates.md)** - 런타임에 저장하고 사용할 수 있으므로 인증 및 배포된 리소스의 보호에 사용할 수 있습니다.
+* **[변수](automation-variables.md)** - Runbook 및 구성에서 사용할 수 있는 콘텐츠를 보관하는 방법을 제공합니다. Runbook과 이를 참조하는 구성을 수정하지 않고도 값을 변경할 수 있습니다.
+
+### <a name="source-control-integration"></a>소스 제어 통합
+
+Azure Automation에는 Runbook 또는 구성이 원본 제어 시스템에 체크 인될 수 있는 코드로 구성을 승격하는 [원본 제어와 통합](source-control-integration.md) 기능이 있습니다.
+
+### <a name="role-based-access-control"></a>역할 기반 액세스 제어
+
+Azure Automation은 Automation 계정 및 해당 리소스의 액세스를 제어하는 역할 기반 액세스 제어를 지원합니다. Automation 계정, Runbook 및 작업의 구성 RBAC를 자세히 알아보려면 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
 
 ### <a name="windows-and-linux"></a>Windows 및 Linux
 

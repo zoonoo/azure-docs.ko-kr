@@ -1,6 +1,6 @@
 ---
 title: 빠른 시작 - Azure PowerShell을 사용하여 Windows IaaS VM 암호화 | Microsoft Docs
-description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Windows 가상 머신을 암호화하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Azure에서 Windows IaaS VM을 암호화하는 방법을 알아봅니다.
 services: security
 documentationcenter: na
 author: mestew
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 531da9af871595e6f8bf5d22832367bbfb301dab
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.custom: seodec18
+ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245874"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087867"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Windows IaaS VM 암호화
 
-Azure Disk Encryption을 사용하면 Windows 및 Linux IaaS 가상 머신 디스크를 암호화할 수 있습니다. 이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키와 비밀을 제어하고 관리할 수 있습니다. Azure Disk Encryption을 사용하면 업계 표준 암호화 기술을 사용하여 미사용 VM을 안전하게 보호할 수 있습니다. 이 빠른 시작에서는 Windows Server 2016 VM을 만들고 OS 디스크를 암호화합니다. 
+Azure Disk Encryption을 사용하면 Windows 및 Linux IaaS 가상 머신 디스크를 암호화할 수 있습니다. 이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키와 비밀을 제어하고 관리할 수 있습니다. Azure Disk Encryption을 사용하면 업계 표준 암호화 기술을 사용하여 미사용 VM을 안전하게 보호할 수 있습니다. 이 빠른 시작에서는 Windows Server 2016 VM을 만들고 OS 디스크를 암호화합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

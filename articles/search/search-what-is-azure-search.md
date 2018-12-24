@@ -1,6 +1,6 @@
 ---
-title: Azure Search이란? | Microsoft Docs
-description: Azure Search는 완벽하게 관리되는 호스트된 클라우드 Search 서비스입니다. 이 기능 개요에 대해 자세히 알아보세요.
+title: Azure Search 서비스란? - Azure Search 서비스
+description: Azure Search는 완벽하게 관리되는 호스트된 클라우드 Search 서비스입니다. 기능 설명, 개발 워크플로, Azure Search 및 다른 검색 제품 비교, 시작하는 방법을 검토합니다.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: overview
 ms.date: 11/09/2018
 ms.author: heidist
-ms.openlocfilehash: 85a071017f4394f4ccde297fb229f7786d9249b3
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec2018
+ms.openlocfilehash: 81b9aef553b4cdc214fbcc681a2e5a91b833e6be
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285138"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313499"
 ---
 # <a name="what-is-azure-search"></a>Azure Search란?
 Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 응용 프로그램의 비공개, 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다. 쿼리 실행은 사용자 정의 인덱스를 통합니다.
@@ -73,7 +74,7 @@ Azure Search가 다른 검색 관련 솔루션과 어떻게 비교되는지 질�
 | 비교 대상 | 주요 차이점 |
 |-------------|-----------------|
 |Bing | [Bing Web Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/)는 Bing.com의 인덱스에서 일치하는 용어를 검색합니다. 인덱스는 HTML, XML 및 공개 사이트의 다른 웹 콘텐츠로 빌드됩니다. 동일한 기반의 [Bing Custom Search](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)는 개별 웹 사이트에 적용되는 웹 콘텐츠 유형에 대해 동일한 크롤러 기술을 제공합니다.<br/><br/>Azure Search는 사용자가 정의하고 다양한 출처에서 나오는 사용자가 소유한 데이터 및 문서로 채워지는 색인을 검색합니다. Azure Search는 [인덱서](search-indexer-overview.md)를 통해 일부 데이터 소스에 대한 크롤러 기능을 갖추고 있지만 인덱스 스키마를 준수하는 모든 JSON 문서를 통합 검색이 가능한 단일 리소스로 푸시할 수 있습니다. |
-|데이터베이스 검색 | 많은 데이터베이스 플랫폼에는 기본 제공 검색 환경이 있습니다. SQL Server에는 [전체 텍스트 검색](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) 환경이 있습니다. Cosmos DB 및 유사 기술에는 쿼리 가능한 인덱스가 있습니다. 검색 및 저장소가 결합된 제품을 평가할 때는 어떤 방향으로 갈지 결정하기가 어려울 수 있습니다. 대부분의 솔루션은 둘 다 사용합니다. 즉, 저장소에는 DBMS를 사용하고, 특수한 검색 기능에는 Azure Search를 사용합니다.<br/><br/>DBMS 검색과 비교했을 때, Azure Search는 이기종 원본의 콘텐츠를 저장하고, 언어 인식 테스트 처리(형태소 분석, 기본형 분석, 단어 형태)와 같은 특수한 텍스트 처리 기능을 [56개 언어](https://docs.microsoft.com/rest/api/searchservice/language-support)로 제공합니다. 또한 오타 자동 교정, [동의어](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), [채점 컨트롤](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [패싯](https://docs.microsoft.com/azure/search/search-filters-facets) 및  [사용자 지정 토큰화](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)도 지원합니다. Azure Search의 [전체 텍스트 검색 엔진](search-lucene-query-architecture.md)은 정보 검색 업계 표준인 Apache Lucene을 기반으로 합니다. Azure Search는 반전 인덱스 형태로 데이터를 보존하지만 진정한 데이터 저장소의 훌륭한 대안입니다. 자세한 내용은 이 [포럼 게시물](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data)을 참조하세요. <br/><br/>리소스 사용률도 이 범주의 또 다른 변곡점입니다. 인덱싱 및 일부 쿼리 작업은 계산 집약적인 경우가 많습니다. DBMS에서 클라우드의 전용 솔루션으로 검색을 오프로딩하면 트랜잭션 처리를 위한 시스템 리소스가 보존됩니다. 또한 검색 과정을 외부에서 진행하면 규모를 쿼리 볼륨에 맞게 쉽게 조정할 수 있습니다.|
+|데이터베이스 검색 | 많은 데이터베이스 플랫폼에는 기본 제공 검색 환경이 있습니다. SQL Server에는 [전체 텍스트 검색](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) 환경이 있습니다. Cosmos DB 및 유사 기술에는 쿼리 가능한 인덱스가 있습니다. 검색 및 저장소가 결합된 제품을 평가할 때는 어떤 방향으로 갈지 결정하기가 어려울 수 있습니다. 대부분의 솔루션은 둘 다 사용합니다. 즉, 스토리지에는 DBMS를 사용하고, 특수한 검색 기능에는 Azure Search를 사용합니다.<br/><br/>DBMS 검색과 비교했을 때, Azure Search는 이기종 원본의 콘텐츠를 저장하고, 언어 인식 테스트 처리(형태소 분석, 기본형 분석, 단어 형태)와 같은 특수한 텍스트 처리 기능을 [56개 언어](https://docs.microsoft.com/rest/api/searchservice/language-support)로 제공합니다. 또한 오타 자동 교정, [동의어](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), [채점 컨트롤](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [패싯](https://docs.microsoft.com/azure/search/search-filters-facets) 및  [사용자 지정 토큰화](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)도 지원합니다. Azure Search의 [전체 텍스트 검색 엔진](search-lucene-query-architecture.md)은 정보 검색 업계 표준인 Apache Lucene을 기반으로 합니다. Azure Search는 반전 인덱스 형태로 데이터를 보존하지만 진정한 데이터 저장소의 훌륭한 대안입니다. 자세한 내용은 이 [포럼 게시물](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data)을 참조하세요. <br/><br/>리소스 사용률도 이 범주의 또 다른 변곡점입니다. 인덱싱 및 일부 쿼리 작업은 계산 집약적인 경우가 많습니다. DBMS에서 클라우드의 전용 솔루션으로 검색을 오프로딩하면 트랜잭션 처리를 위한 시스템 리소스가 보존됩니다. 또한 검색 과정을 외부에서 진행하면 규모를 쿼리 볼륨에 맞게 쉽게 조정할 수 있습니다.|
 |전용 검색 솔루션 | 광범위한 기능을 제공하는 전용 검색을 결정한 경우 온-프레미스 솔루션 또는 클라우드 서비스의 최종 범주 비교를 해야 합니다. 대다수의 검색 기술은 인덱싱 및 쿼리 파이프라인 제어, 풍부한 쿼리 및 필터링 구문에 대한 액세스, 순위 및 관련성 제어, 자체 주도형 및 지능형 검색 기능을 제공합니다. <br/><br/>클라우드 서비스는 [최소한의 오버헤드 및 유지 관리, 규모 조정이 가능한 턴키 솔루션](#cloud-service-advantage)을 원하는 경우에 적합합니다. <br/><br/>클라우드 패러다임 내에서는 일부 공급자가 전체 텍스트 검색, 지리적 검색 및 특정 수준의 검색 입력 모호성을 처리하는 기능을 비롯하여 비슷한 기준 기능을 제공합니다. 일반적으로 이러한 기능은 [특수 기능](#feature-drilldown) 또는 자동 맞춤을 결정하는 API, 도구 및 관리의 전반적인 편리성 및 간편성을 나타냅니다. |
 
 클라우드 공급자 중에서 Azure Search는 정보 검색 및 콘텐츠 탐색 작업을 주로 검색 기능에 의존하는 앱을 위한 Azure의 콘텐츠 저장소 및 데이터베이스에 대한 전체 텍스트 검색 워크로드에 가장 강력합니다. 
@@ -82,7 +83,7 @@ Azure Search가 다른 검색 관련 솔루션과 어떻게 비교되는지 질�
 
 + 인덱싱 계층에서의 Azure 데이터 통합(크롤러)
 + 중앙 관리를 위한 Azure Portal
-+ Azure 규모, 안정성 및 세계 수준의 가용성
++ Azure 규모, 안정성 및 최고 수준의 가용성
 + 56개 언어로 안정적인 전체 텍스트 검색을 수행하기 위한 분석기를 사용한 언어 및 사용자 지정 분석
 + [검색 중심 앱에 공통적인 핵심 기능](#feature-drilldown): 점수 매기기, 패싯, 제안, 동의어, 지리적 검색 기능 등
 
@@ -105,7 +106,7 @@ Azure 구독자는 [무료 계층에서 서비스를 프로비전](search-create
 
 구독자가 아닌 경우 [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다. 유료 Azure 서비스를 사용해볼 수 있는 크레딧이 제공됩니다. 크레딧이 소진되더라도 계정이 유지되므로 [무료 Azure 서비스](https://azure.microsoft.com/free/)를 계속 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
 
-또는 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음: MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다. 
+또는 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다. MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다. 
 
 ## <a name="how-to-get-started"></a>시작하는 방법
 

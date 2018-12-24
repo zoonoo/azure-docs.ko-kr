@@ -1,23 +1,17 @@
 ---
-title: Azure Functions와 Azure SignalR을 사용하여 실시간 앱 빌드 | Microsoft Docs
+title: Azure Functions와 Azure SignalR을 사용하여 실시간 앱 빌드
 description: Azure SignalR Service를 서버를 사용하지 않는 응용 프로그램에서 사용하는 방법에 대한 개요입니다.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
 ms.service: signalr
-ms.devlang: na
 ms.topic: overview
-ms.workload: tbd
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 587752b25e3c98bbabbd42bd4d838fd19ae9fd45
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 9380c6434902c6882f84312a3d6999791bf15115
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318710"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256012"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Azure Functions와 Azure SignalR Service를 사용하여 실시간 앱 빌드
 
@@ -71,4 +65,3 @@ SignalR Service를 사용하면 모든 클라이언트 또는 클라이언트의
 
 * [Azure SignalR Service Serverless 빠른 시작 - C#](signalr-quickstart-azure-functions-csharp.md)
 * [Azure SignalR Service Serverless 빠른 시작 - JavaScript](signalr-quickstart-azure-functions-javascript.md)
-

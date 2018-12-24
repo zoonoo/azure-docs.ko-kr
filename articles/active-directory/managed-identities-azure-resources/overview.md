@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 6b1eb36ae661d758f78f98de37f33c4b56741f89
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987263"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320781"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID란?
 
@@ -34,7 +34,15 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
 > [!NOTE]
 > Azure 리소스에 대한 관리 ID는 이전에 MSI(관리 서비스 ID)로 알려진 서비스에 대한 새 이름입니다.
 
-## 이 기능이 어떻게 작동하나요?<a name="how-does-it-work"></a>
+## <a name="terminology"></a>용어
+
+다음 용어는 Azure 리소스 문서 세트의 관리 ID 전체에서 사용됩니다.
+
+- **클라이언트 ID** - 초기 프로비저닝 중에 애플리케이션과 서비스 주체에 연결된, Azure AD에서 생성된 고유 식별자입니다.
+- **보안 주체 ID** - Azure 리소스에 대한 역할 기반 액세스 권한을 부여하는 데 사용되는 관리 ID에 대한 서비스 주체 개체의 개체 ID입니다.
+- **IMDS(Azure Instance Metadata Service)** 는 Azure Resource Manager를 통해 생성된 모든 IaaS VM에서 액세스할 수 있는 REST 엔드포인트입니다. 이 엔드포인트는 VM 내에서만 액세스할 수 있는, 라우팅이 불가능한 잘 알려진 IP 주소(169.254.169.254)에서 사용할 수 있습니다.
+
+## Azure 리소스에 대한 관리 ID는 어떻게 작동하나요?<a name="how-does-it-work"></a>
 
 두 가지 종류의 관리 ID가 있습니다.
 
@@ -115,7 +123,7 @@ Linux VM에서 관리 ID를 사용하는 방법:
 다른 Azure 서비스에서 관리 ID를 사용하는 방법:
 
 * [Azure App Service](/azure/app-service/app-service-managed-service-identity)
-* [Azure 기능](/azure/app-service/app-service-managed-service-identity)
+* [Azure Functions](/azure/app-service/app-service-managed-service-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
 * [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)

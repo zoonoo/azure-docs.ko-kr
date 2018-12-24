@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure 데이터 탐색기에서 데이터 쿼리'
+title: '빠른 시작: Azure Data Explorer에서 데이터 쿼리'
 description: 이 빠른 시작에서는 Azure 데이터 탐색기에서 데이터를 쿼리하고 공유하는 방법을 알아봅니다.
 services: data-explorer
 author: orspod
@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7b9bc52e07bccf931593cd2dbddd68e973d1b26c
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7ce66d3f6117a5e395920dc2232efb0e43f4cd18
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394360"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106450"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>빠른 시작: Azure 데이터 탐색기에서 데이터 쿼리
+# <a name="quickstart-query-data-in-azure-data-explorer"></a>빠른 시작: Azure Data Explorer에서 데이터 쿼리
 
-Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기에서는 쿼리를 실행하고 공유할 수 있는 웹 응용 프로그램이 제공됩니다. 이 응용 프로그램은 Azure Portal에서 그리고 독립 실행형 웹 응용 프로그램으로 사용할 수 있습니다. 이 문서에서는 독립 실행형 버전을 사용합니다. 이 버전의 경우 여러 클러스터에 연결하고 쿼리에 대한 딥 링크를 공유할 수 있습니다.
+Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기에서는 쿼리를 실행하고 공유할 수 있는 웹 응용 프로그램이 제공됩니다. 이 응용 프로그램은 Azure Portal에서 그리고 독립 실행형 웹 응용 프로그램으로 사용할 수 있습니다. 이 문서에서는 독립 실행형 버전을 사용합니다. 이 버전의 경우 여러 클러스터에 연결하고 쿼리에 대한 딥 링크를 공유할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -134,7 +134,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 1. 다음 쿼리를 실행합니다.
 
-    ```Kutso
+    ```Kusto
     StormEvents
     | sort by StartTime desc
     | where DamageProperty > 5000
@@ -148,7 +148,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
     Excel의 피벗 테이블 필드 목록과 비슷하게 작동하는 이 패널을 통해 모눈 자체에서 추가 분석을 수행할 수 있습니다.
 
-1. **피벗 모드**를 선택한 다음 **State** 열을 **행 그룹**으로, **DamageProperty** 열을 **값**으로, **EventType** 열을 **열 레이블**로 각각 끕니다.  
+1. **피벗 모드**를 선택한 다음, **State** 열을 **행 그룹**으로, **DamageProperty** 열을 **값**으로, **EventType** 열을 **열 레이블**로 각각 끕니다.  
 
     ![피벗 모드](media/web-query-data/pivot-mode.png)
 

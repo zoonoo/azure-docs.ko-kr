@@ -1,6 +1,6 @@
 ---
-title: 인덱스 만들기(.NET API - Azure Search) | Microsoft Docs
-description: Azure Search .NET SDK를 사용하여 코드에 인덱스를 만듭니다.
+title: .NET API를 사용하여 코드에서 인덱스 만들기 - Azure Search
+description: Azure Search .NET SDK 및 C# 샘플 코드를 사용하여 전체 텍스트 검색 가능 인덱스를 만드는 방법을 알아봅니다.
 author: brjohnstmsft
 manager: jlembicz
 tags: azure-portal
@@ -10,12 +10,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: a1c9340acdc2521b9b74f47b0e17d0e4d37aea77
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 6d111b1be310a345e23c440f1af9da4183efff43
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236570"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312598"
 ---
 # <a name="create-an-azure-search-index-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]

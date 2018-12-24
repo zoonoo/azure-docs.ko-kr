@@ -1,7 +1,7 @@
 ---
-title: Bing News Search란?
+title: Bing News Search API란?
 titlesuffix: Azure Cognitive Services
-description: Bing News Search API를 사용하여 웹에서 뉴스를 검색하는 방법을 보여줍니다.
+description: Bing News Search API를 사용하여 헤드라인 및 추세 토픽을 포함하여 여러 범주의 최신 헤드라인을 웹에서 검색하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 7a5df20358198e7ccb44ccc60be3ab7716f71ba6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 17383d38b1401149003ad9d1794b3e69284f9033
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227861"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253095"
 ---
-# <a name="what-is-bing-news-search"></a>Bing News Search란?
+# <a name="what-is-the-bing-news-search-api"></a>Bing News Search API란?
 
 Bing News Search API는 [Bing News](https://www.bing.com/news)와 비슷한(하지만 똑같지는 않은) 경험을 제공합니다. Bing News Search API를 사용하면 검색 쿼리를 Bing에 보내서 관련 뉴스 기사 목록을 가져올 수 있습니다.
 
@@ -43,7 +44,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 이전에 Bing API를 호출했고 Bing이 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 경우 클라이언트 ID만 포함하세요.
+Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 전에 Bing API를 호출하고 Bing이 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 경우만 클라이언트 ID를 포함합니다.
 
 특정 도메인에서 뉴스를 가져오려면 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 쿼리 연산자를 사용합니다.
 

@@ -1,21 +1,22 @@
 ---
-title: Java 빠른 시작 - 모델 변경 및 LUIS 앱 학습
-titleSuffix: Azure Cognitive Services
-description: Java 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다. 예제 발언은 의도에 매핑된 대화형 사용자 텍스트입니다. 의도에 대한 예제 발언을 제공하여, 사용자가 제공한 텍스트의 종류가 어떤 의도에 속하는지 LUIS에 알려줍니다.
+title: 변경, 학습 앱, Java
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Java 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bfe4aae25a34799370e52c8677871a62935ab5c2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 206b345fedb033a6b98e350fec8c66a3496f5236
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419744"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080829"
 ---
 # <a name="quickstart-change-model-using-java"></a>빠른 시작: Java를 사용하여 모델 변경 
 
@@ -71,14 +72,14 @@ ms.locfileid: "50419744"
 
 종속성이 있는 AddUtterance를 컴파일합니다.
 
-```CMD
+```console
 > javac -classpath gson-2.8.2.jar AddUtterances.java
 ```
 
 ## <a name="run-code"></a>코드 실행
 인수 없이 `AddUtterance`를 호출하면 LUIS 발화가 학습되지 않고 앱에 추가됩니다.
 
-```CMD
+```console
 > java -classpath .;gson-2.8.2.jar AddUtterances
 ```
 

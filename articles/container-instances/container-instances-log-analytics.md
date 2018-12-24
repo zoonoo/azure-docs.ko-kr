@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 7f4af06222141eb0e143e67ba4bfcdcb2f5f92fa
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614007"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337889"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Azure Log Analytics를 사용한 컨테이너 인스턴스 로깅
 
@@ -24,7 +24,7 @@ Log Analytics로 컨테이너 인스턴스 데이터를 전송하려면 Azure CL
 
 컨테이너 인스턴스에 로그인을 사용하도록 설정하려면 다음이 필요합니다.
 
-* [Log Analytics 작업 영역](../log-analytics/log-analytics-quick-create-workspace.md)
+* [Log Analytics 작업 영역](../azure-monitor/learn/quick-create-workspace.md)
 * [Azure CLI](/cli/azure/install-azure-cli)(또는 [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Log Analytics 자격 증명 가져오기
@@ -44,7 +44,7 @@ Log Analytics 작업 영역 ID 및 기본 키를 가져오려면:
 
 Log Analytics 작업 영역 ID와 기본 키를 알고 있으므로 로깅을 사용할 수 있는 컨테이너 그룹을 만들 수 있습니다.
 
-다음 예제에서는 단일 [fluentd][ fluentd] 컨테이너를 사용하여 컨테이너 그룹을 만드는 두 가지 방법인 Azure CLI 및 YAML 템플릿의 Azure CLI를 보여줍니다. Fluentd 컨테이너는 기본 구성에서 여러 줄의 출력을 생성합니다. 이 출력은 Log Analytics 작업 영역으로 전송되므로 로그를 보고 쿼리하는 방법을 보여주기에 효과적입니다.
+다음 예제에서는 단일 [fluentd][fluentd] 컨테이너를 사용하여 컨테이너 그룹을 만드는 두 가지 방법인 Azure CLI 및 YAML 템플릿 포함 Azure CLI를 보여 줍니다. Fluentd 컨테이너는 기본 구성에서 여러 줄의 출력을 생성합니다. 이 출력은 Log Analytics 작업 영역으로 전송되므로 로그를 보고 쿼리하는 방법을 보여주기에 효과적입니다.
 
 ### <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
 
@@ -135,7 +135,7 @@ ContainerInstanceLog_CL
 Azure Log Analytics에서 로그를 쿼리하고 경고를 구성하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Log Analytics의 로그 검색 이해](../log-analytics/log-analytics-log-search.md)
-* [Azure Monitor의 통합 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+* [Azure Monitor의 통합 경고](../azure-monitor/platform/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>컨테이너 CPU 및 메모리 모니터링

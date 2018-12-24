@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에서 조직의 그룹 및 멤버를 보기 위한 빠른 시작 | Microsoft Docs
-description: Azure Portal을 사용하여 조직의 그룹 및 할당된 멤버를 검색하고 보는 방법에 대한 단계를 제공하는 빠른 시작입니다.
+title: 조직의 그룹 및 멤버를 보기 위한 빠른 시작 - Azure Active Directory | Microsoft Docs
+description: 조직의 그룹 및 할당된 멤버를 검색하고 보는 방법을 설명하는 지침입니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,14 +10,14 @@ ms.component: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 9da9f055163f5df4ea064bd46caa811e39fba20c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 002b4bb4ab20e531132b461f90857cfab6aecfd3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056406"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087478"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인해야 합니다.
 
 ## <a name="create-a-new-group"></a>새 그룹 만들기 
-_MDM policy - West_ 라는 이름의 새 그룹을 만듭니다. 그룹 만들기에 대한 자세한 내용은 [기본 그룹을 만들고 멤버를 추가하는 방법](active-directory-groups-create-azure-portal.md)을 참조하세요.
+_MDM policy - West_라는 이름의 새 그룹을 만듭니다. 그룹 만들기에 대한 자세한 내용은 [기본 그룹을 만들고 멤버를 추가하는 방법](active-directory-groups-create-azure-portal.md)을 참조하세요.
 
 1. **Azure Active Directory**, **그룹**을 선택한 다음, **새 그룹**을 선택합니다.
 
@@ -45,22 +45,22 @@ _MDM policy - West_ 라는 이름의 새 그룹을 만듭니다. 그룹 만들�
     
     - **그룹 유형:** **보안** 선택
     
-    - **그룹 이름:** _MDM policy - West_
+    - **그룹 이름:** _MDM policy - West_ 입력
     
     - **멤버 자격 유형:** **할당됨** 선택
 
 3. **만들기**를 선택합니다.
 
 ## <a name="create-a-new-user"></a>새 사용자 만들기
-_Alain Charon_ 이라는 새 사용자를 만듭니다. 사용자는 그룹 멤버로 추가되기 전에 존재해야 합니다. 사용자 만들기에 대한 자세한 내용은 [사용자 추가 또는 삭제 방법](add-users-azure-active-directory.md)을 참조하세요.
+_Alain Charon_이라는 새 사용자를 만듭니다. 사용자는 그룹 멤버로 추가되기 전에 존재해야 합니다. 사용자 만들기에 대한 자세한 내용은 [사용자 추가 또는 삭제 방법](add-users-azure-active-directory.md)을 참조하세요.
 
 1. **Azure Active Directory**, **사용자**를 선택한 다음, **새 사용자**를 선택합니다.
 
 2. **사용자** 페이지를 완료합니다.
 
-    - **이름:** _Alain Charon_
+    - **이름:** _Alain Charon_ 입력
 
-    - **사용자 이름:** *alain@contoso.com*
+    - **사용자 이름:** *alain@contoso.com* 입력
 
 3. **암호** 상자에 제공된 자동 생성된 암호를 복사한 다음, **만들기**를 선택합니다.
 

@@ -1,23 +1,24 @@
 ---
-title: '자습서 9: LUIS에서 긍정, 부정 및 중립을 포함한 감정 분석'
+title: 정서 분석
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 긍정, 부정 및 중립 감정을 발언에서 추출하는 방법을 보여주는 앱을 만듭니다. 감정은 전체 발화에서 판별됩니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 60c4b280033e110f6b8b2a3ce720934e118c8479
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d93c7619bb670a81372ab83359836a78b8956b09
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424853"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098940"
 ---
-# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>자습서 9: 전체 발화의 감정 추출
+# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>자습서 9:  전체 발화의 감정 추출
 이 자습서에서는 긍정, 부정 및 중립 감정을 발언에서 추출하는 방법을 보여주는 앱을 만듭니다. 감정은 전체 발화에서 판별됩니다.
 
 감정 분석은 사용자의 발언이 긍정, 부정 또는 중립인지를 확인하는 기능입니다. 
@@ -94,7 +95,7 @@ ms.locfileid: "52424853"
 
 2. **감정 분석**을 토글하여 이 설정을 사용 설정합니다. 
 
-    ![](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
+    ![게시 설정으로 감정 분석 켜기](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
 ## <a name="publish"></a>게시
 
@@ -106,7 +107,7 @@ ms.locfileid: "52424853"
 
 2. 주소의 URL 끝으로 이동하고 `Jill Jones work with the media team on the public portal was amazing`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 이 발언은 레이블이 지정된 발언과 같지 않으므로 유용한 테스트이며 감정 분석이 추출된 `EmployeeFeedback` 의도가 반환되어야 합니다.
     
-    ```JSON
+    ```json
     {
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {

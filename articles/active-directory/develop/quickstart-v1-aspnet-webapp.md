@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: a421527de275d38650c314d3722a7d2f93e8331d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 10de179c6055feb46439792ea74a0a3131f39646
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285019"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970659"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft로 로그인 추가
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -56,7 +56,7 @@ ms.locfileid: "52285019"
 | [Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/) | 응용 프로그램이 인증에 OpenIdConnect를 사용할 수 있게 해주는 미들웨어입니다. |
 | [Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies) |응용 프로그램이 쿠키를 사용하여 사용자 세션을 유지하도록 하는 미들웨어 |
 | [Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb) | OWIN 기반 응용 프로그램이 ASP.NET 요청 파이프라인을 사용하여 IIS에서 실행되도록 함 |
-|  |  | 
+|  |  |
 
 ## <a name="step-1-set-up-your-project"></a>1단계: 프로젝트 설정
 
@@ -104,11 +104,11 @@ OWIN 미들웨어 *시작 클래스*를 만들려면 다음을 수행합니다.
 
 1. `Startup.cs`에 *OWIN* 및 *Microsoft.IdentityModel* 네임스페이스를 추가합니다.
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
 2. Startup 클래스를 다음 코드로 바꿉니다.
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=Startup "Startup.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
@@ -129,13 +129,13 @@ OWIN 미들웨어 *시작 클래스*를 만들려면 다음을 수행합니다.
 4.  이름을 `HomeController`로 지정하고 **추가**를 선택합니다.
 5.  클래스에 **OWIN** 네임스페이스를 추가합니다.
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
 6. 코드를 통해 인증 질문을 시작하여 로그인 및 로그아웃을 처리하는 다음 메서드를 컨트롤러에 추가합니다.
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
 
-## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>6단계: 로그인 단추를 통해 사용자가 로그인하는 앱의 홈 페이지 만들기
+## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>6단계: 로그인 단추를 통해 사용자를 로그인하는 앱의 홈페이지 만들기
 
 Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보를 표시하는 새 보기를 만듭니다.
 
@@ -158,11 +158,11 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
 1. 이름을 **ClaimsController**로 지정합니다.
 1. 컨트롤러 클래스의 코드를 다음 코드로 바꿉니다. 그러면 클래스에 `[Authorize]` 특성이 추가됩니다.
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
-> `[Authorize]` 특성을 사용하므로 이 컨트롤러의 모든 메서드는 사용자가 인증된 경우에만 실행할 수 있습니다. 사용자가 인증되지 않은 경우 컨트롤러에 액세스하려고 하면 OWIN에서 인증 질문을 시작하고 사용자가 강제로 인증하도록 합니다. 위 코드는 사용자의 클레임 컬렉션에서 사용자의 토큰에 포함된 특정 특성을 확인합니다. 이러한 특성에는 사용자의 전체 이름과 사용자 이름 및 전역 사용자 식별자 주체가 포함됩니다. 사용자의 조직에 대한 ID를 나타내는 *테넌트 ID*도 포함됩니다. 
+> `[Authorize]` 특성을 사용하므로 이 컨트롤러의 모든 메서드는 사용자가 인증된 경우에만 실행할 수 있습니다. 사용자가 인증되지 않은 경우 컨트롤러에 액세스하려고 하면 OWIN에서 인증 질문을 시작하고 사용자가 강제로 인증하도록 합니다. 위 코드는 사용자의 클레임 컬렉션에서 사용자의 토큰에 포함된 특정 특성을 확인합니다. 이러한 특성에는 사용자의 전체 이름과 사용자 이름 및 전역 사용자 식별자 주체가 포함됩니다. 사용자의 조직에 대한 ID를 나타내는 *테넌트 ID*도 포함됩니다.
 <!--end-collapse-->
 
 ## <a name="step-8-create-a-view-to-display-the-users-claims"></a>8단계: 사용자의 클레임을 표시하는 보기 만들기
@@ -179,7 +179,7 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 
 <!--start-configure-->
 
-## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>9단계: *web.config* 구성 및 응용 프로그램 등록
+## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>9단계: *web.config*를 구성하고 응용 프로그램을 등록합니다.
 
 1. Visual Studio에서 루트 폴더에 있는 `configuration\appSettings`의 `web.config` 섹션 아래에 다음 내용을 추가합니다.
 
@@ -187,7 +187,7 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="RedirectUrl" value="Enter_the_Redirect_Url_here" />
     <add key="Tenant" value="common" />
-    <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
+    <add key="Authority" value="https://login.microsoftonline.com/{0}" />
     ```
 2. 솔루션 탐색기에서 프로젝트를 선택하고 <i>속성</i> 창을 확인합니다([속성] 창이 보이지 않으면 <F4> 키 누르기).
 3. SSL 사용을 <code>True</code>로 변경
@@ -227,10 +227,12 @@ Azure AD와 통합된 어떠한 회사 또는 조직에서 회사 및 학교 계
 이 옵션은 LOB(기간 업무) 응용 프로그램에 대한 일반적인 시나리오입니다.
 
 응용 프로그램에서 특정 Azure AD 인스턴스에 속한 계정의 로그인만 수락하도록 하려면(해당 인스턴스의 *게스트 계정* 포함) 다음 단계를 수행합니다.
+
 1. `Common`에서 *web.config*의 `Tenant` 매개 변수를 조직의 테넌트 이름으로 바꿉니다(예: *contoso.onmicrosoft.com*).
 1. [*OWIN 시작 클래스*](#configure-the-authentication-pipeline)의 `ValidateIssuer` 인수를 `true`로 변경합니다.
 
 특정 조직의 목록에 있는 사용자만 허용하려면 다음 단계를 수행합니다.
+
 1. `ValidateIssuer`를 true로 설정합니다.
 1. `ValidIssuers` 매개 변수를 사용하여 조직 목록을 지정합니다.
 

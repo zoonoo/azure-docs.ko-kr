@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행
+title: Azure PowerShell을 사용하여 첫 번째 쿼리 실행
 description: 이 문서에서는 Azure PowerShell에 대한 Resource Graph 모듈을 사용하도록 설정하고 첫 번째 쿼리를 실행하는 단계를 안내합니다.
 services: resource-graph
 author: DCtheGeek
@@ -7,14 +7,14 @@ ms.author: dacoulte
 ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: resource-graph
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6bd7ceaeaf0b064ebbd8f069a4741489349bb980
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.custom: seodec18
+ms.openlocfilehash: 5ffc93afdfff1a069d00b61868b5ae025121198c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427508"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310728"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행
 

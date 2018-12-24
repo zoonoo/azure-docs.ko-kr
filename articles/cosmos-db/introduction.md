@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB 소개 | Microsoft Docs
+title: Azure Cosmos DB 소개
 description: Azure Cosmos DB에 대해 알아봅니다. 전 세계에 배포된 이 다중 모델 데이터베이스는 낮은 대기 시간, 탄력적 확장성 및 고가용성을 위해 구축되었으며 NoSQL 데이터를 기본적으로 지원합니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 717a0234f0155229597c6fc4fe70a7868a536975
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 50abe2b067770976f19ae9b70c97c2df8354640f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160736"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091581"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -38,10 +36,10 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
     * Azure Cosmos DB가 빌드된 ARS(atom-record-sequence) 기반 데이터 모델은 기본적으로 문서, 그래프, 키-값, 테이블 및 열 계열 데이터 모델을 포함하지만 이를 제한하지 않는 여러 데이터 모델을 지원합니다.
     * 여러 언어에서 사용할 수 있는 SDK로 다음 데이터 모델의 API가 지원됩니다.
         * [SQL API](sql-api-introduction.md): 풍부한 SQL 쿼리 기능이 있지만 스키마가 없는 JSON 데이터베이스 엔진입니다.
-        * [MongoDB API](mongodb-introduction.md): Azure Cosmos DB 플랫폼에서 구동하는 대규모로 확장 가능한 *MongoDB-as-a-Service*입니다. 기존 MongoDB 라이브러리, 드라이버, 도구 및 응용 프로그램과 호환됩니다.
-        * [Cassandra API](cassandra-introduction.md): Azure Cosmos DB 플랫폼에서 구동하는 전 세계적으로 분산된 Cassandra-as-a-Service입니다. 기존 [Apache Cassandra](https://cassandra.apache.org/) 라이브러리, 드라이버, 도구 및 응용 프로그램과 호환됩니다.
-        * [Gremlin API](graph-introduction.md): 개방형 Gremlin API([Apache TinkerPop 사양](http://tinkerpop.apache.org/), Apache Gremlin을 기반으로 함)를 지원하는 고도로 연결된 데이터 집합을 사용하는 응용 프로그램을 쉽게 빌드하고 실행할 수 있게 해주는 완전히 관리되고 수평적으로 확장 가능한 그래프 데이터베이스 서비스입니다.
-        * [Table API](table-introduction.md): 앱을 변경하지 않고도 기존 Azure Table 저장소 응용 프로그램에 프리미엄 기능(예: 자동 인덱싱, 짧은 대기 시간 보장, 전역 배포)을 제공하도록 만들어진 키-값 데이터베이스 서비스입니다.
+        * [MongoDB API](mongodb-introduction.md): Azure Cosmos DB 플랫폼에서 지원하는 대규모로 확장 가능한 *MongoDB-as-a-Service*입니다. 기존 MongoDB 라이브러리, 드라이버, 도구 및 응용 프로그램과 호환됩니다.
+        * [Cassandra API](cassandra-introduction.md): Azure Cosmos DB 플랫폼에서 지원하는 전 세계적으로 분산된 Cassandra-as-a-Service입니다. 기존 [Apache Cassandra](https://cassandra.apache.org/) 라이브러리, 드라이버, 도구 및 응용 프로그램과 호환됩니다.
+        * [Gremlin API](graph-introduction.md): 개방형 Gremlin API([Apache TinkerPop 사양](https://tinkerpop.apache.org/), Apache Gremlin을 기반으로 함)를 지원하는 고도로 연결된 데이터 세트와 호환되는 애플리케이션을 쉽게 빌드하고 실행할 수 있는 수평적으로 확장 가능한 완전 관리형 그래프 데이터베이스 서비스입니다.
+        * [Table API](table-introduction.md): 앱을 변경하지 않고도 기존 Azure Table Storage 애플리케이션에 프리미엄 기능(예: 자동 인덱싱, 짧은 대기 시간 보장, 전역 배포)을 제공하도록 만들어진 키-값 데이터베이스 서비스입니다.
         * 추가 데이터 모델 및 API 제공 예정
 
 * **주문형 및 전 세계적 규모의 처리량 및 저장소에 대한 탄력적이고 독립적인 크기 조정**

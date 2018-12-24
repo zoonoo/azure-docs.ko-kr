@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 0d4ba7edfb22a6710222c854ceb2bf86284d2d77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1ea12c9a544704ea91b85ae944e611e6769b5592
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057801"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407136"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Batch AI 학습 작업에 대한 클러스터 만들기
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 이 빠른 시작에서는 Azure CLI를 사용하여 AI 및 기계 학습 모델을 학습하는 데 사용할 수 있는 Batch AI 클러스터를 만드는 방법을 보여 줍니다. Batch AI는 데이터 과학자 및 AI 연구원이 Azure Virtual Machines 클러스터에서 AI 및 기타 기계 학습 모델을 대규모로 학습하기 위한 관리 서비스입니다.
 
@@ -173,4 +176,4 @@ az group delete --name myResourceGroup
 이 빠른 시작에서는 Azure CLI를 사용하여 Batch AI 클러스터를 만드는 방법을 배웠습니다. Batch AI 클러스터를 사용하여 모델을 학습하는 방법을 자세히 알아보려면 Deep Learning 모델 학습을 위한 빠른 시작을 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Deep Learning 모델 학습](./quickstart-tensorflow-training-cli.md)
+> [딥러닝 모델 학습](./quickstart-tensorflow-training-cli.md)

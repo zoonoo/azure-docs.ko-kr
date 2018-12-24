@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 99d864a5d519ce56a559bea4db7fe89a113e47b9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ROBOTS: NOINDEX
+ms.openlocfilehash: 979253021f5503295e0572759b510e074ceb1a6b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157925"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408071"
 ---
-# <a name="quickstart-train-a-deep-learning-model-with-batch-ai"></a>빠른 시작: Batch AI를 사용하여 Deep Learning 모델 학습
+# <a name="quickstart-train-a-deep-learning-model-with-batch-ai"></a>빠른 시작: Batch AI를 사용하여 딥 러닝 모델 학습시키기
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 이 빠른 시작에서는 Batch AI로 관리하는 GPU 사용 가상 머신에서 샘플 Deep Learning 모델을 학습하는 방법을 보여 줍니다. Batch AI는 데이터 과학자 및 AI 연구원이 Azure Virtual Machines 클러스터에서 AI 및 기타 Machine Learning 모델을 대규모로 학습하기 위한 관리 서비스입니다. 
 
@@ -298,7 +301,7 @@ az batchai cluster resize \
     --target 0
 ```
 
-나중에 작업을 실행하기 위해 하나 이상의 노드로 크기를 조정합니다. 클러스터가 더 이상 필요하지 않으면 `az batchai cluster delete` 명령을 사용하여 삭제합니다.
+나중에 작업을 실행하려면 클러스터 크기를 하나 이상의 노드로 조정합니다. 클러스터가 더 이상 필요하지 않으면 `az batchai cluster delete` 명령을 사용하여 삭제합니다.
 
 ```azurecli-interactive
 az batchai cluster delete \

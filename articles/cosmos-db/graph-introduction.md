@@ -8,31 +8,31 @@ ms.component: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/05/2018
 ms.author: lbosq
-ms.openlocfilehash: f2ca118e137104c6dddd2945b7b88b2f535621eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e9e0d2f452a21f2da29568b953238318cb4477df
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849235"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077452"
 ---
-# <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB: Gremlin API 소개
+# <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB 소개: Gremlin API
 
 [Azure Cosmos DB](introduction.md)는 중요 업무용 응용 프로그램에 사용할 수 있도록 Microsoft에서 제공하는 전역 분산 다중 모델 데이터베이스 서비스입니다. 또한 다중 모델 데이터베이스 방식이며, 문서, 키-값, 그래프 및 열 형식 데이터 모델을 지원합니다. Azure Cosmos DB Gremlin API를 통해 그래프 데이터를 저장하고 사용합니다. Gremlin API는 그래프 데이터 모델링을 지원하고, 그래프 데이터를 따라 이동하기 위한 API를 제공합니다.
 
-이 문서에서는 Azure Cosmos DB Gremlin API의 개요와 이 API를 사용하여 수십억 개의 꼭짓점 및 에지가 포함된 대량의 그래프를 저장하는 방법을 설명합니다. 밀리초 단위 대기 시간 내에 그래프를 쿼리하고 그래프 구조 및 스키마를 쉽게 발전시킬 수 있습니다. Azure Cosmos DB를 쿼리하려면 [Apache TinkerPop](http://tinkerpop.apache.org) 그래프 순회 언어나 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)을 사용합니다.
+이 문서에서는 Azure Cosmos DB Gremlin API의 개요와 이 API를 사용하여 수십억 개의 꼭짓점 및 에지가 포함된 대량의 그래프를 저장하는 방법을 설명합니다. 밀리초 단위 대기 시간 내에 그래프를 쿼리하고 그래프 구조 및 스키마를 쉽게 발전시킬 수 있습니다. Azure Cosmos DB를 쿼리하려면 [Apache TinkerPop](https://tinkerpop.apache.org) 그래프 순회 언어나 [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)을 사용합니다.
 
 ## <a name="what-is-a-graph-database"></a>그래프 데이터베이스란?
 실제 환경의 경우처럼 데이터는 자연스럽게 연결되어 있습니다. 기존의 데이터 모델링은 엔터티에 중점을 둡니다. 또한 대부분의 응용 프로그램에서는 기본적으로 엔터티 및 관계를 모두 모델링해야 합니다.
 
-[그래프](http://mathworld.wolfram.com/Graph.html)는 [꼭짓점](http://mathworld.wolfram.com/GraphVertex.html) 및 [에지](http://mathworld.wolfram.com/GraphEdge.html)로 구성된 구조입니다. 꼭짓점 및 에지는 둘 다 임의 개수의 속성을 포함할 수 있습니다. 
+[그래프](https://mathworld.wolfram.com/Graph.html)는 [꼭짓점](http://mathworld.wolfram.com/GraphVertex.html) 및 [에지](http://mathworld.wolfram.com/GraphEdge.html)로 구성된 구조입니다. 꼭짓점 및 에지는 둘 다 임의 개수의 속성을 포함할 수 있습니다. 
 
 * **꼭짓점** - 꼭짓점은 사람, 장소, 이벤트 등의 개별 개체를 나타냅니다. 
 
 * **에지** - 에지는 꼭짓점 간의 관계를 나타냅니다. 예를 들어, 한 사용자가 다른 사용자를 알고 있으며, 이벤트에 관계되어 있고, 최근 한 위치에 있었을 수 있습니다. 
 
-* **속성** -  속성은 꼭짓점 및 에지에 대한 정보를 나타냅니다. 예제 속성에는 이름 및 처리 기간이 있는 꼭짓점이 포함됩니다. 에지에는 타임스탬프 및/또는 가중치가 지정됩니다. 공식적으로 이 모델을 [속성 그래프](http://tinkerpop.apache.org/docs/current/reference/#intro)라고 합니다. Azure Cosmos DB는 속성 그래프 모델을 지원합니다.
+* **속성** -  속성은 꼭짓점 및 에지에 대한 정보를 나타냅니다. 예제 속성에는 이름 및 처리 기간이 있는 꼭짓점이 포함됩니다. 에지에는 타임스탬프 및/또는 가중치가 지정됩니다. 공식적으로 이 모델을 [속성 그래프](https://tinkerpop.apache.org/docs/current/reference/#intro)라고 합니다. Azure Cosmos DB는 속성 그래프 모델을 지원합니다.
 
-예를 들어 다음 샘플 그래프는 사람, 모바일 디바이스, 관심 분야 및 운영 체제 간 관계를 보여줍니다.
+예를 들어 다음 샘플 그래프는 사람, 모바일 장치, 관심 분야 및 운영 체제 간 관계를 보여줍니다.
 
 ![사람, 디바이스 및 관심 분야를 보여주는 샘플 데이터베이스](./media/graph-introduction/sample-graph.png)
 
@@ -48,7 +48,7 @@ Azure Cosmos DB는 전역 배포, 저장소 및 처리량의 탄력적인 확장
 
 Azure Cosmos DB는 시중에 판매되는 다른 그래프 데이터베이스에 비해 다음과 같은 차별화된 기능을 제공합니다.
 
-* 탄력적으로 확장 가능한 처리량 및 저장소
+* 탄력적으로 확장 가능한 처리량 및 스토리지
 
  실제 사용되는 그래프는 단일 서버의 용량을 초과하여 확장되어야 합니다. Azure Cosmos DB를 사용하면 여러 서버에 걸쳐 원활하게 그래프를 확장할 수 있습니다. 또한 액세스 패턴에 따라 그래프의 처리량을 독립적으로 확장할 수 있습니다. Azure Cosmos DB는 거의 무제한으로 저장소 크기 및 프로비전된 처리량을 확장할 수 있는 그래프 데이터베이스를 지원합니다.
 
@@ -80,18 +80,18 @@ Azure Cosmos DB는 동일한 컨테이너/데이터베이스 내에서 문서 �
 
 ## <a name="get-started"></a>시작하기
 
-Azure CLI(명령줄 인터페이스), Azure PowerShell 또는 Azure Portal을 사용하여 Azure Cosmos DB Gremlin API 계정을 만들고 액세스할 수 있습니다. 계정을 만들면 Gremlin에 대한 WebSocket 프런트 엔드를 제공하는 Gremlin API 서비스 엔드포인트(`https://<youraccount>.gremlin.cosmosdb.azure.com`)를 사용하여 해당 계정 내에서 그래프 데이터베이스에 액세스할 수 있습니다. 이 엔드포인트에 연결하고 Java, Node.js 또는 임의 Gremlin 클라이언트 드라이버에서 응용 프로그램을 빌드하도록 [Gremin 콘솔](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)과 같은 TinkerPop 호환 도구를 구성할 수 있습니다.
+Azure CLI(명령줄 인터페이스), Azure PowerShell 또는 Azure Portal을 사용하여 Azure Cosmos DB Gremlin API 계정을 만들고 액세스할 수 있습니다. 계정을 만들면 Gremlin에 대한 WebSocket 프런트 엔드를 제공하는 Gremlin API 서비스 엔드포인트(`https://<youraccount>.gremlin.cosmosdb.azure.com`)를 사용하여 해당 계정 내에서 그래프 데이터베이스에 액세스할 수 있습니다. 이 엔드포인트에 연결하고 Java, Node.js 또는 임의 Gremlin 클라이언트 드라이버에서 응용 프로그램을 빌드하도록 [Gremin 콘솔](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)과 같은 TinkerPop 호환 도구를 구성할 수 있습니다.
 
 다음 표에서는 Azure Cosmos DB에 대해 사용할 수 있는 인기 있는 Gremlin 드라이버를 보여 줍니다.
 
 | 다운로드 | 문서화 | 시작하기 | 지원되는 커넥터 버전 |
 | --- | --- | --- | --- |
-| [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [GitHub의 Gremlin.NET](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [.NET을 사용하여 그래프 만들기](create-graph-dotnet.md) | 3.4.0-RC2 |
-| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) | [Java를 사용하여 그래프 만들기](create-graph-java.md) | 3.2.0+ |
+| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [GitHub의 Gremlin.NET](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [.NET을 사용하여 그래프 만들기](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Java를 사용하여 그래프 만들기](create-graph-java.md) | 3.2.0+ |
 | [Node.JS](https://www.npmjs.com/package/gremlin) | [Github의 Gremlin-JavaScript](https://github.com/jbmusso/gremlin-javascript) | [Node.js를 사용하여 그래프 만들기](create-graph-nodejs.md) | 2.6.0|
-| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Github의 Gremlin Python](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Python을 사용하여 그래프 만들기](create-graph-python.md) | 3.2.7 |
+| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Github의 Gremlin Python](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Python을 사용하여 그래프 만들기](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [GitHub의 Gremlin-PHP](https://github.com/PommeVerte/gremlin-php) | [PHP를 사용하여 그래프 만들기](create-graph-php.md) | 3.1.0 |
-| [Gremlin 콘솔](https://tinkerpop.apache.org/downloads.html) | [TinkerPop 문서](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Gremlin 콘솔을 사용하여 그래프 만들기](create-graph-gremlin-console.md) | 3.2.0 + |
+| [Gremlin 콘솔](https://tinkerpop.apache.org/downloads.html) | [TinkerPop 문서](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Gremlin 콘솔을 사용하여 그래프 만들기](create-graph-gremlin-console.md) | 3.2.0 + |
 
 ## <a name="graph-database-design-considerations"></a>그래프 데이터베이스 디자인 고려 사항
 
@@ -136,7 +136,7 @@ Azure Cosmos DB 그래프 지원을 사용할 수 있는 몇 가지 시나리오
 
 * 사물 인터넷
 
- IoT 디바이스 간의 네트워크 및 연결을 그래프로 모델링하여 디바이스 및 자산의 상태를 보다 잘 이해할 수 있습니다. 또한 한 네트워크 부분의 변경이 다른 부분에 어떤 영향을 미칠 수 있는지도 알 수 있습니다.
+ IoT 장치 간의 네트워크 및 연결을 그래프로 모델링하여 장치 및 자산의 상태를 보다 잘 이해할 수 있습니다. 또한 한 네트워크 부분의 변경이 다른 부분에 어떤 영향을 미칠 수 있는지도 알 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB의 그래프 지원에 대해 자세히 알아보려면 다음을 참조하세요.

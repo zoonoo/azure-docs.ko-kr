@@ -1,5 +1,5 @@
 ---
-title: Azure Search를 사용하여 검색 상자에 자동 완성을 추가하는 자습서 | Microsoft Docs
+title: 검색 상자에 자동 완성을 추가하는 방법에 대한 자습서 - Azure Search
 description: Azure Search 자동 완성 및 제안 API를 사용하여 데이터 중심 응용 프로그램의 최종 사용자 환경을 개선하는 방법 예제.
 manager: pablocas
 author: mrcarter8
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec2018
+ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578177"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316185"
 ---
-# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>자습서: Azure Search를 사용하여 검색 상자에 자동 완성 추가 
+# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>자습서: Azure Search를 사용하여 검색 상자에 자동 완성 추가
 
 이 자습서에서는 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet)의 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 및 [패싯](search-faceted-navigation.md)을 사용하여 강력한 검색 상자를 구성하는 방법을 알아봅니다. *제안*은 사용자가 지금까지 입력한 내용을 바탕으로 실제 결과를 추천합니다. Azure Search의 [새 미리 보기 기능](search-api-preview.md)인 *자동 완성*은 인덱스의 용어를 제공하여 사용자가 현재 입력 중인 항목을 완성합니다. 사용자가 입력할 때 직접 다양한 검색을 제공하여 사용자 생산성을 높이고 신속 간편하게 찾는 내용을 가져오는 여러 기법을 비교해 보겠습니다.
 
@@ -126,7 +127,7 @@ F5를 눌러 응용 프로그램을 시작합니다.
 
 1. Controllers 디렉터리에서 HomeController.cs 파일을 엽니다. 
 
-1. InitSearch라고 하는 클래스 맨 위의 메서드가 가장 먼저 보일 것입니다.  이 항목은 Azure Search 서비스에 대해 인증된 HTTP 인덱스 클라이언트가 만듭니다.  이 과정에 대해 자세히 알아보려면 [.NET 응용 프로그램에서 Azure Search를 사용하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk) 자습서를 방문하세요.
+1. InitSearch라고 하는 클래스 맨 위의 메서드가 가장 먼저 보일 것입니다.  이 항목은 Azure Search 서비스에 대해 인증된 HTTP 인덱스 클라이언트가 만듭니다.  이 과정에 대해 자세히 알아보려면 다음 자습서를 살펴보세요. [.NET 응용 프로그램에서 Azure Search를 사용하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 1. Suggest 함수로 이동합니다.
 

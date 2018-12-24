@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Speech Service SDK를 사용하여 Windows의 C++에서 음성 인식'
+title: '빠른 시작: 음성 인식, C++(Windows) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Speech Service SDK를 사용하여 Windows 데스크톱에서 음성을 인식하는 방법 알아보기
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 8947ba3f39cebf51e956db0d841e393963832bc4
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 454b84f4ba5e492f61daf67c980b204c82a2090d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218741"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075190"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows의 C++에서 음성 인식
 
@@ -31,11 +31,11 @@ ms.locfileid: "51218741"
 
 1. Visual Studio 2017을 시작합니다.
 
-1. **C++를 사용한 데스크톱 개발** 워크로드를 사용할 수 있도록 합니다. Visual Studio 메뉴 모음에서 **도구** > **도구 및 기능 가져오기**를 선택하여 Visual Studio 설치 관리자를 엽니다. 이 워크로드를 이미 사용하는 경우 다음 단계를 건너뜁니다. 
+1. **C++를 사용한 데스크톱 개발** 워크로드를 사용할 수 있도록 합니다. Visual Studio 메뉴 모음에서 **도구** > **도구 및 기능 가져오기**를 선택하여 Visual Studio 설치 관리자를 엽니다. 이 워크로드를 이미 사용하는 경우 다음 단계를 건너뜁니다.
 
     ![Visual Studio 워크로드 탭의 스크린샷](media/sdk/vs-enable-cpp-workload.png)
 
-    그렇지 않으면 **C++를 사용한 데스크톱 개발** 옆에 있는 확인란을 선택합니다. 
+    그렇지 않으면 **C++를 사용한 데스크톱 개발** 옆에 있는 확인란을 선택합니다.
 
 1. **NuGet 패키지 관리자** 구성 요소를 사용할 수 있도록 합니다. 아직 사용하도록 설정되지 않은 경우 Visual Studio 설치 관리자 대화 상자의 **개별 구성 요소** 탭으로 전환하고, **NuGet 패키지 관리자**를 선택합니다.
 

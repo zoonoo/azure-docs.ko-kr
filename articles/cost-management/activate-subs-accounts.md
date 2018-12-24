@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: f2cb5d33b8d7a7442da16a38e268c56de363a9c6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: secdec18
+ms.openlocfilehash: 9a27efe7908b2a15ceb823d7a85c4a12603731ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274085"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075984"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Cloudyn으로 Azure 구독 및 계정 활성화
 
@@ -41,7 +41,7 @@ Azure 구독에서 CloudynCollector 응용 프로그램을 할당하려면 계�
 3. Azure Active Directory에서 **사용자 설정**을 선택합니다.
 4. **앱 등록** 옵션을 확인합니다.
     - **예**로 설정되어 있으면, 관리자가 아닌 사용자가 AD 앱을 등록할 수 있습니다. 이 설정에서는 Azure AD 테넌트의 모든 사용자가 앱을 등록할 수 있습니다.  
-    ![앱 등록](./media/activate-subs-accounts/app-register.png)
+    ![사용자 설정에서 앱 등록 선택](./media/activate-subs-accounts/app-register.png)
     - **앱 등록** 옵션이 **아니요**로 설정되어 있다면, 테넌트 관리 사용자만이 Azure Active Directory 앱을 등록할 수 있습니다. 테넌트 관리자가 CloudynCollector 응용 프로그램을 등록해야 합니다.
 
 
@@ -53,12 +53,12 @@ Azure 구독에서 CloudynCollector 응용 프로그램을 할당하려면 계�
 
 1. Cloudyn 포털에서 오른쪽 위의 기어 기호를 클릭하고 **클라우드 계정**을 선택합니다.
 2. **새 계정 추가**를 클릭하면 **새 계정 추가** 상자가 나타납니다. 필요한 정보를 입력합니다.  
-    ![새 계정 상자 추가](./media/activate-subs-accounts//add-new-account.png)
+    ![새 계정 추가 상자에 필수 정보 입력](./media/activate-subs-accounts/add-new-account.png)
 
 ### <a name="update-a-subscription"></a>구독 업데이트
 
 1. 계정 관리에서 Cloudyn에 이미 있는 _활성화되지 않은_ 구독을 업데이트하려는 경우 부모 _테넌트 GUID_ 오른쪽에 있는 편집 연필 기호를 클릭합니다. 구독은 부모 테넌트 아래 그룹화되기 때문에 구독을 개별적으로 활성화하지 마십시오.
-    ![구독 다시 검색](./media/activate-subs-accounts/existing-sub.png)
+    ![구독 다시 검색 상자에서 테넌트 ID 선택](./media/activate-subs-accounts/existing-sub.png)
 2. 필요한 경우 Tenant ID를 입력합니다. Tenant ID를 모를 경우 다음 단계를 사용하여 찾습니다.
     1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
     2. Azure Portal에서 **Azure Active Directory**를 선택합니다.
@@ -106,7 +106,7 @@ Cloudyn을 설정하기 위해 Azure Enterprise Agreement API 키를 생성하�
 Azure 서비스 관리자만 Cloudyn을 사용하도록 설정할 수 있습니다. 공동 관리자 권한이 충분하지 않습니다. 그러나 관리자 요구 사항을 해결할 수 있습니다. Azure Active Directory 관리자가 PowerShell 스크립트를 사용하여 **CloudynAzureCollector** 권한을 부여할 수 있도록 요청할 수 있습니다. 다음 스크립트에서는 Azure Active Directory 서비스 사용자인 **CloudynAzureCollector**를 등록할 수 있는 권한을 부여합니다.
 
 
-```
+```powershell
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #Tenant - enter your tenant ID or Name

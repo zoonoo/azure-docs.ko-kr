@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 08c01f8c73f8d25b824a97d31f1681d9a7eb302e
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 09d0c855aada753b0a3e594055ec188c2698e677
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249107"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999008"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>빠른 시작: Translator Text API를 사용하여 Node.js를 사용하는 문장 길이 확인
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>빠른 시작: Translator Text API를 사용하여 Node.js를 통해 문장 길이 확인
 
 이 빠른 시작에서는 Node.js 및 Translator Text REST API를 사용하여 문장 길이(문자 수)를 확인하는 방법을 알아봅니다.
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 요청 모듈을 통해 제공되는 `request()` 메서드를 사용하면 HTTP 메서드, URL, 요청 매개 변수, 헤더 및 JSON 본문을 `options` 개체로 전달할 수 있습니다. 이 코드 조각에서 다음 요청을 구성합니다.
 
 >[!NOTE]
-> 엔드포인트, 경로 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: Dictionary Break Sentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence)를 참조하세요.
+> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: Break Sentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence)를 참조하세요.
 
 ```javascript
 let options = {

@@ -1,21 +1,22 @@
 ---
-title: '자습서 3: 정규식 일치 데이터 - 적절한 형식의 데이터 추출'
+title: 정규식 엔터티
 titleSuffix: Azure Cognitive Services
 description: 정규식 엔터티를 사용하여 발언에서 일관적인 형식의 데이터를 추출합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423420"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135579"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>자습서 3: 적절한 형식의 데이터 추출
 이 자습서에서는 **정규식** 엔터티를 사용하여 발언에서 일관적인 형식의 데이터를 추출하도록 인사 관리 앱을 수정합니다.
@@ -24,14 +25,13 @@ ms.locfileid: "52423420"
 
 **다음은 발언 예제입니다.**
 
-```
-Where is HRF-123456?
-Who authored HRF-123234?
-HRF-456098 is published in French?
-HRF-456098
-HRF-456098 date?
-HRF-456098 title?
-```
+|예제 발화|
+|--|
+|Where is HRF-123456?|
+|Who authored HRF-123234?|
+|HRF-456098 is published in French?|
+|HRF-456098|
+|HRF-456098 date?|
  
 다음과 같은 경우 정규식은 이러한 종류의 데이터에 적합한 선택입니다.
 
@@ -129,7 +129,7 @@ HRF는 `human resources form`을 의미합니다.
 
 2. 주소의 URL 끝으로 이동하고 `When were HRF-123456 and hrf-234567 published in the last year?`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발화 **쿼리**를 나타내는 `q`입니다. 이 발화는 레이블이 지정된 발화와 같지 않으므로 유용한 테스트이며, 두 양식 번호(`HRF-123456` 및 `hrf-234567`)가 있는 `FindForm` 의도가 반환되어야 합니다.
 
-    ```JSON
+    ```json
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {

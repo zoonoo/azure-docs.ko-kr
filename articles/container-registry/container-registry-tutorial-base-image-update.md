@@ -1,21 +1,21 @@
 ---
-title: 자습서 - Azure Container Registry 작업을 사용하여 기본 이미지 업데이트 시 컨테이너 이미지 빌드 자동화
-description: 이 자습서에서는 기본 이미지가 업데이트될 때 클라우드에서 컨테이너 이미지 빌드를 자동으로 트리거하도록 작업을 구성하는 방법을 알아봅니다.
+title: 자습서 - 기본 이미지 업데이트 시 컨테이너 이미지 빌드 자동화 - Azure Container Registry 작업
+description: 이 자습서에서는 기본 이미지가 업데이트될 때 클라우드에서 컨테이너 이미지 빌드를 자동으로 트리거하도록 Azure Container Registry 작업을 구성하는 방법을 알아봅니다.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 54e8892787fa2b7b093609ee5d09f3a87e103411
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b3d8c3aea4955d6f95ead69d5bed147cc486e7c8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856584"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254040"
 ---
-# <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 기본 이미지 업데이트 시 이미지 빌드 자동화
+# <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>자습서: Azure Container Registry에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 
 
 ACR 작업은 기본 이미지 중 하나에서 OS 또는 응용 프로그램 프레임워크를 패치할 때와 같이 컨테이너의 기본 이미지가 업데이트될 때 자동화된 빌드 실행을 지원합니다. 이 자습서에서는 컨테이너의 기본 이미지가 레지스트리에 푸시되었을 때 클라우드에서 빌드를 트리거하는 작업을 ACR 작업에 만드는 방법에 대해 알아봅니다.
 
@@ -73,9 +73,9 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 이 자습서에서는 기본 이미지 업데이트 시나리오를 안내합니다. [코드 샘플][code-sample]에는 두 개의 Docker 파일, 즉 응용 프로그램 이미지와 해당 응용 프로그램에서 기본으로 지정하는 이미지가 포함되어 있습니다. 다음 섹션에서는 새 버전의 기본 이미지가 컨테이너 레지스트리에 푸시될 때 응용 프로그램 이미지의 빌드를 자동으로 트리거하는 ACR 작업을 만듭니다.
 
-[Dockerfile-app][dockerfile-app]: 기반이 되는 Node.js 버전을 표시하는 정적 웹 페이지를 렌더링하는 작은 Node.js 웹 응용 프로그램입니다. 버전 문자열이 시뮬레이션되며, 기본 이미지에 정의된 `NODE_VERSION` 환경 변수의 내용을 표시합니다.
+[Dockerfile-app][dockerfile-app]: 기반이 되는 Node.js 버전을 표시하는 정적 웹 페이지를 렌더링하는 작은 Node.js 웹 애플리케이션입니다. 버전 문자열이 시뮬레이션되며, 기본 이미지에 정의된 `NODE_VERSION` 환경 변수의 내용을 표시합니다.
 
-[Dockerfile-base][dockerfile-base]: `Dockerfile-app`에서 기본으로 지정하는 이미지. 이미지 자체는 [노드][base-node] 이미지를 기반으로 하며 `NODE_VERSION` 환경 변수를 포함합니다.
+[Dockerfile-base][dockerfile-base]: `Dockerfile-app`에서 기본으로 지정하는 이미지입니다. 이미지 자체는 [노드][base-node] 이미지를 기반으로 하며 `NODE_VERSION` 환경 변수를 포함합니다.
 
 다음 섹션에서는 작업을 만들고, Dockerfile 기본 이미지의 `NODE_VERSION` 값을 업데이트한 다음, ACR 작업을 사용하여 기본 이미지를 빌드합니다. ACR 작업에서 새 기본 이미지를 레지스트리에 푸시하면 응용 프로그램 이미지의 빌드가 자동으로 트리거됩니다. 필요에 따라 응용 프로그램 컨테이너 이미지를 로컬로 실행하여 빌드된 이미지에 다른 버전 문자열을 표시합니다.
 
@@ -128,7 +128,7 @@ az acr task run --registry $ACR_NAME --name taskhelloworld
 
 작업이 완료된 후 다음의 선택적 단계를 수행하려면 **실행 ID**(예: "da6")를 적어 둡니다.
 
-### <a name="optional-run-application-container-locally"></a>선택 사항: 로컬로 응용 프로그램 컨테이너 실행
+### <a name="optional-run-application-container-locally"></a>선택 사항: 로컬로 애플리케이션 컨테이너 실행
 
 로컬(Cloud Shell이 아님)에서 작업 중이고 Docker가 설치되어 있는 경우, 기본 이미지를 다시 빌드하기 전에 컨테이너를 실행하여 웹 브라우저에서 렌더링된 응용 프로그램을 확인합니다. Cloud Shell을 사용하는 경우 이 섹션을 건너뜁니다(Cloud Shell에서는 `az acr login` 또는 `docker run`을 지원하지 않음).
 

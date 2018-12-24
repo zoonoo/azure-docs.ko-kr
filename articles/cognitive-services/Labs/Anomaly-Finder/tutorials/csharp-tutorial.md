@@ -10,14 +10,14 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ea9083d530d9a94825b8c568ef4c3dbc847c44c0
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887652"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162463"
 ---
-# <a name="tutorial-anomaly-detection-with-c-application"></a>자습서: C# 응용 프로그램을 사용하여 변칙 검색
+# <a name="tutorial-anomaly-detection-with-c-application"></a>자습서: C# 애플리케이션을 사용하여 변칙 검색
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "48887652"
 
 ## <a name="get-and-use-the-example"></a>예제 가져오기 및 사용
 
-변칙 검색 예제 응용 프로그램을 [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git)에서 컴퓨터로 복제할 수 있습니다. 
+변칙 검색 예제 애플리케이션을 [GitHub](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git)에서 컴퓨터로 복제할 수 있습니다. 
 <a name="Step1"></a>
 ### <a name="install-the-example"></a>예제 설치
 

@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: defe1a109381c7ee44c6fc5e5db4c6f6ecc5ac6f
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706843"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322144"
 ---
-# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>자습서: .NET에서 Azure Web App과 Azure Key Vault 사용
+# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>자습서: .NET에서 Azure 웹앱과 함께 Azure Key Vault 사용
 
 Azure Key Vault는 API 키 및 데이터베이스 연결 문자열과 같은 비밀을 보호하는 데 도움이 됩니다. 애플리케이션, 서비스 및 IT 리소스에 대한 액세스도 제공합니다.
 
@@ -88,7 +88,7 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 
 리소스 그룹에 Key Vault를 만들려면 다음 정보를 제공합니다.
 
-* Key Vault 이름: 숫자, 문자 및 하이픈만 포함할 수 있는 3~24자 문자열입니다(예: 0-9, a-z, A-z, -)
+* 키 자격 증명 모음 이름: 숫자, 문자 및 하이픈만 포함할 수 있는 3~24자 문자열입니다(예: 0-9, a-z, A-z, -).
 * 리소스 그룹 이름
 * 위치: **미국 서부**
 
@@ -132,7 +132,7 @@ az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. 다음 코드를 About.cshtml.cs 파일로 가져옵니다.
 
-   ```
+   ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
     using Microsoft.Azure.Services.AppAuthentication;
@@ -140,7 +140,7 @@ az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 
 4. AboutModel 클래스의 코드는 다음과 같습니다.
 
-   ```
+   ```csharp
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
@@ -220,7 +220,7 @@ Azure Key Vault를 사용하면 자격 증명과 기타 비밀을 안전하게 �
 
 1. Azure에 애플리케이션을 게시할 때 `PrincipalId`를 기록해 둡니다. 1단계의 명령 출력은 다음과 같은 형식이어야 합니다.
 
-   ```
+   ```json
    {
      "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",

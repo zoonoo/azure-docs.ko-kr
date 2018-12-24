@@ -1,5 +1,5 @@
 ---
-title: Bing Image Search란?
+title: Bing Image Search API란?
 titleSuffix: Azure Cognitive Services
 description: Bing Image Search API를 사용하면 응용 프로그램에서 Bing의 인지 이미지 검색 기능을 사용할 수 있습니다. API를 사용하여 사용자 검색 쿼리를 보내면 Bing 이미지와 비슷한 관련 고품질 이미지를 가져와서 표시할 수 있습니다.
 services: cognitive-services
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
-ms.openlocfilehash: 5d5d69eea3a064679cbc5ddc41891a73e77e55ea
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: eb5f508916ef0944a61d556725ae1ba04123584b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295362"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258307"
 ---
-# <a name="what-is-bing-image-search"></a>Bing Image Search란?
+# <a name="what-is-the-bing-image-search-api"></a>Bing Image Search API란?
 
 Bing Image Search API를 사용하면 응용 프로그램에서 Bing의 인지 이미지 검색 기능을 사용할 수 있습니다. API를 사용하여 사용자 검색 쿼리를 보내면 [Bing 이미지](https://www.bing.com/images)와 비슷한 관련 고품질 이미지를 가져와서 표시할 수 있습니다.
 

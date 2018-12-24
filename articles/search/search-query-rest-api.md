@@ -1,6 +1,6 @@
 ---
-title: 인덱스 쿼리(REST API - Azure Search) | Microsoft Docs
-description: Azure 검색에서 검색 쿼리를 작성하고 검색 매개 변수를 사용하여 검색 결과를 필터링하고 정렬합니다.
+title: REST API를 사용하여 코드에서 인덱스 쿼리 - Azure Search
+description: Azure Search에서 검색 쿼리를 작성하기 위한 HTTP 명령 및 REST API 코드입니다. 검색 매개 변수를 추가하여 검색 결과를 필터링하고 정렬합니다.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 04/20/2018
-ms.openlocfilehash: 035dc4ac349513867253e5593e01fab4fec62f6b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: ccdb872646dded34cb50cd64f56733445132c4b7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186514"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316940"
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure Search 인덱스 쿼리
 > [!div class="op_single_selector"]

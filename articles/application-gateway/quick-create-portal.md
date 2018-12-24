@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6ad839b9cf1179e282b9163df5a38e13417408e2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7e11affece7e7eb133aa22e159ec07d4f15e96f7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706231"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999608"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure Portal
 
@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[http://portal.azure.com](http://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
@@ -91,7 +91,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 4. 디스크 기본값을 적용하고 **다음: 네트워킹**을 클릭합니다.
 5. 가상 네트워크에 대해 **myVNet**이 선택되어 있고 서브넷이 **myBackendSubnet**인지 확인합니다.
 6. 나머지는 기본값으로 두고 **다음: 관리**를 클릭합니다.
-7. **끄기**를 클릭하여 부팅 진단을 사용하지 않도록 설정합니다. 나머지는 기본값으로 두고 **검토 + 만들기**를 클릭합니다.
+7. **끄기**를 클릭하여 부팅 진단을 사용하지 않도록 설정합니다. 기타 기본값을 적용하고 **검토 + 만들기**를 클릭합니다.
 8. 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
 9. 가상 머신 만들기가 완료되기를 기다렸다가 계속합니다.
 
