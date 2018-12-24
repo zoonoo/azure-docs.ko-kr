@@ -62,7 +62,7 @@ items:
       href: batch-aad-auth.md
     - name: Batch 관리 포함 Azure AD
       href: batch-aad-auth-management.md
-  - name: 응용 프로그램 패키지 만들기
+  - name: 애플리케이션 패키지 만들기
     href: batch-application-packages.md
   - name: 풀 만들기 및 관리
     items:

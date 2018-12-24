@@ -19,7 +19,7 @@ ms.locfileid: "43123931"
 ---
 # <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 플랫 파일 인코딩 또는 디코딩
 
-B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내기 전에 XML 콘텐츠를 인코딩하려 할 수 있습니다. 논리 앱에서 플랫 파일 인코딩 커넥터를 사용하여 이 작업을 수행할 수 있습니다. 만든 논리 앱은 HTTP 요청 트리거를 포함하여 다른 응용 프로그램 또는 다양한 [커넥터](../connectors/apis-list.md)에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다. 논리 앱에 대한 자세한 내용은 [논리 앱 설명서](logic-apps-overview.md "논리 앱에 대해 자세히 알아보기")에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다.  
+B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내기 전에 XML 콘텐츠를 인코딩하려 할 수 있습니다. 논리 앱에서 플랫 파일 인코딩 커넥터를 사용하여 이 작업을 수행할 수 있습니다. 만든 논리 앱은 HTTP 요청 트리거를 포함하여 다른 애플리케이션 또는 다양한 [커넥터](../connectors/apis-list.md)에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다. 논리 앱에 대한 자세한 내용은 [논리 앱 설명서](logic-apps-overview.md "논리 앱에 대해 자세히 알아보기")에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다.  
 
 ## <a name="create-the-flat-file-encoding-connector"></a>플랫 파일 인코딩 커넥터 만들기
 다음 단계를 수행하여 플랫 파일 인코딩 커넥터를 논리 앱을 추가합니다.

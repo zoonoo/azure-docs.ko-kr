@@ -33,7 +33,7 @@ Twilio는 기존 웹 언어와 기술을 사용하여 음성 및 SMS 응용 프�
 Twilio 가격 책정 정보는 [Twilio 가격 책정][twilio_pricing]에서 확인할 수 있습니다. Azure 고객은 [특별 제공][special_offer](문자 1000통 또는 인바운드 통화 1000분의 무료 크레딧)을 받습니다. 이 제공에 등록하거나 추가 정보를 얻으려면 [https://ahoy.twilio.com/azure][special_offer]를 방문하세요.  
 
 ## <a id="Concepts"></a>개념
-Twilio API는 응용 프로그램에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][twilio_libraries](영문)를 참조하십시오.
+Twilio API는 애플리케이션에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][twilio_libraries](영문)를 참조하십시오.
 
 ### <a id="TwiML"></a>TwiML
 TwiML은 Twilio에 통화 또는 SMS 처리 방법을 알려 주는 XML 기반 명령 집합입니다.
@@ -162,7 +162,7 @@ Twilio 서비스를 사용하고 Azure에서 실행되고 있는 Ruby 응용 프
 변경한 후 웹앱을 다시 시작해야 합니다. 이제 휴대폰을 사용하여 SMS를 Twilio 번호로 보냅니다. 즉시 "Hey, thanks for the ping! Twilio and Azure rock!"이라는 SMS 응답을 받게 됩니다.
 
 ## <a id="additional_services"></a>방법: 추가 Twilio 서비스 사용
-여기에서 보여 준 예뿐만 아니라 Twilio는 Azure 응용 프로그램에서 Twilio 기능을 활용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [Twilio API 설명서][twilio_api_documentation]를 참조하세요.
+여기에서 보여 준 예뿐만 아니라 Twilio는 Azure 애플리케이션에서 Twilio 기능을 활용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [Twilio API 설명서][twilio_api_documentation]를 참조하세요.
 
 ### <a id="NextSteps"></a>다음 단계
 Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가십시오.

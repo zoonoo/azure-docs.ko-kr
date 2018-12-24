@@ -49,7 +49,7 @@ Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]�
      $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
      New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
-4. 만든 응용 프로그램의 **ApplicationId** 를 적어 둡니다. 나중에 필요합니다.
+4. 만든 애플리케이션의 **ApplicationId** 를 적어 둡니다. 나중에 필요합니다.
 5. 다음 명령을 사용하여 새 서비스 주체를 만듭니다. 이전 단계에서 **{MyApplicationId}** 를 **ApplicationId**로 바꿉니다.
    
     ```powershell

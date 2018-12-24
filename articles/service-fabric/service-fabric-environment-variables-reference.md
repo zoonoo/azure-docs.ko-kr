@@ -25,14 +25,14 @@ Service Fabric에는 각 서비스 인스턴스에 대해 설정된 기본 제�
 
 | 환경 변수                         | 설명                                                            | 예                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
-| Fabric_ApplicationName                       | 응용 프로그램의 패브릭 URI 이름                                 | fabric:/MyApplication                                                |
+| Fabric_ApplicationName                       | 애플리케이션의 패브릭 URI 이름                                 | fabric:/MyApplication                                                |
 | Fabric_CodePackageName                       | 프로세스가 속하는 코드 패키지의 이름              | 코드                                                                 |
 | Fabric_Endpoint\_IPOrFQDN\_*ServiceEndpointName*     | 엔드포인트 IP 주소 또는 FQDN                                 | 10.0.0.1                                                     |
 | Fabric\_Endpoint\_*ServiceEndpointName*              | 엔드포인트에 대한 포트 번호                                  | 8234                                                                 |
 | Fabric_Folder_App_Log                        | 로그 폴더                                                             | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\log      |
 | Fabric_Folder_App_Temp                       | 임시 폴더                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\temp     |
 | Fabric_Folder_App_Work                       | 작업 폴더                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\work     |
-| Fabric_Folder_Application                    | 응용 프로그램 홈 폴더                                           | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12             |
+| Fabric_Folder_Application                    | 애플리케이션 홈 폴더                                           | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12             |
 | Fabric_IsContainerHost                       | 프로세스가 컨테이너인지를 지정하는 부울                   | false                                                                |
 | Fabric_NodeId                                | 프로세스를 실행 중인 노드의 노드 ID                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | 클러스터 매니페스트 파일에 지정된 노드의 IP 또는 FQDN | localhost 또는 10.0.0.1                                                |

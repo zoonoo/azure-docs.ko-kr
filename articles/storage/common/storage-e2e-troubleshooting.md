@@ -23,7 +23,7 @@ ms.locfileid: "51262321"
 
 이 자습서에서는 성능에 영향을 줄 수 있는 특정 오류를 확인하는 방법 및 클라이언트 응용 프로그램을 최적화하기 위해 Microsoft 및 Azure Storage에서 제공하는 도구를 사용하여 종단 간에서 비롯한 해당 오류의 문제 해결 방법을 보여 줍니다.
 
-이 자습서는 종단 간 문제 해결 시나리오의 실습 탐색을 제공합니다. Azure Storage 응용 프로그램의 문제 해결에 대한 심층적인 개념 가이드는 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
+이 자습서는 종단 간 문제 해결 시나리오의 실습 탐색을 제공합니다. Azure Storage 애플리케이션의 문제 해결에 대한 심층적인 개념 가이드는 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Azure Storage 응용 프로그램 문제 해결 도구
 Microsoft Azure Storage를 사용하는 클라이언트 응용 프로그램 문제를 해결하기 위해 여러 도구 조합을 사용하여 문제가 발생한 시기 및 문제의 가능한 원인을 확인할 수 있습니다. 이러한 도구로는 다음이 있습니다.

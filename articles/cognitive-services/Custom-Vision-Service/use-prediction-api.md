@@ -36,7 +36,7 @@ ms.locfileid: "46363652"
 
 ![예측 URL이 빨간색 사각형으로 둘러싸인 성능 탭이 표시됩니다.](./media/use-prediction-api/prediction-url.png)
 
-## <a name="create-the-application"></a>응용 프로그램 만들기
+## <a name="create-the-application"></a>애플리케이션 만들기
 
 1. Visual Studio에서 새 C# 콘솔 응용 프로그램을 만듭니다.
 

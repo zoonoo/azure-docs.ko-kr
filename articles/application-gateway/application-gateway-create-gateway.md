@@ -42,7 +42,7 @@ Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우�
 3. 유효한 서브넷과 작업 가상 네트워크가 있는지 확인합니다. 서브넷을 사용 중인 가상 머신 또는 클라우드 배포가 없는지 확인합니다. 응용 프로그램 게이트웨이는 가상 네트워크 서브넷에서 단독이어야 합니다.
 4. 응용 프로그램 게이트웨이를 사용하도록 구성된 서버가 존재하거나 가상 네트워크나 공용 IP/VIP가 할당된 해당 엔드포인트가 만들어져야 합니다.
 
-## <a name="what-is-required-to-create-an-application-gateway"></a>응용 프로그램 게이트웨이를 만드는 데 필요한 것은 무엇입니까?
+## <a name="what-is-required-to-create-an-application-gateway"></a>애플리케이션 게이트웨이를 만드는 데 필요한 것은 무엇입니까?
 
 `New-AzureApplicationGateway` 명령을 사용하여 응용 프로그램 게이트웨이를 만드는 경우, 이 시점에 설정된 구성은 없으며 새로 만든 리소스는 XML 또는 구성 개체를 사용하여 구성됩니다.
 
@@ -213,15 +213,15 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 #### <a name="step-2"></a>2단계
 
-다음으로 응용 프로그램 게이트웨이를 설정합니다. 구성 XML 파일에 `Set-AzureApplicationGatewayConfig` cmdlet를 사용합니다.
+다음으로 애플리케이션 게이트웨이를 설정합니다. 구성 XML 파일에 `Set-AzureApplicationGatewayConfig` cmdlet를 사용합니다.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>구성 개체를 사용하여 응용 프로그램 게이트웨이 구성
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>구성 개체를 사용하여 애플리케이션 게이트웨이 구성
 
-다음 예제에서는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 구성하는 방법을 보여 줍니다. 모든 구성 항목은 개별적으로 구성된 다음 Application Gateway 구성 개체에 추가해야 합니다. 구성 개체를 만든 후 `Set-AzureApplicationGateway` 명령을 사용하여 이전에 만든 응용 프로그램 게이트웨이 리소스에 대한 구성을 커밋합니다.
+다음 예제에서는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 구성하는 방법을 보여 줍니다. 모든 구성 항목은 개별적으로 구성된 다음 애플리케이션 게이트웨이 구성 개체에 추가해야 합니다. 구성 개체를 만든 후 `Set-AzureApplicationGateway` 명령을 사용하여 이전에 만든 응용 프로그램 게이트웨이 리소스에 대한 구성을 커밋합니다.
 
 > [!NOTE]
 > 각 구성 개체에 값을 할당하기 전에 PowerShell에서 저장소에 사용할 개체 종류를 선언해야 합니다. 개별 항목을 만드는 첫 줄은 어떤 `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)`이 사용되는지 정의합니다.

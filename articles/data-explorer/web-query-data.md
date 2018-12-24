@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 이 빠른 시작을 완료하려면 Azure 구독 외에 [테스트 클러스터와 데이터베이스](create-cluster-database-portal.md)가 필요합니다.
 
-## <a name="sign-in-to-the-application"></a>응용프로그램에 로그인합니다.
+## <a name="sign-in-to-the-application"></a>애플리케이션에 로그인합니다.
 
 [응용 프로그램](https://dataexplorer.azure.com/)에 로그인합니다.
 

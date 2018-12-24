@@ -23,7 +23,7 @@ ms.locfileid: "53413679"
 
 이 자습서의 단계에서는 Azure Databricks용 SQL Data Warehouse 커넥터를 사용하여 Azure Databricks로 데이터를 전송합니다. 그러면 이 커넥터는 Azure Blob Storage를 Azure Databricks 클러스터와 Azure SQL Data Warehouse 간에 전송되는 데이터의 임시 저장소로 사용합니다.
 
-다음 그림에서는 응용 프로그램 흐름을 보여줍니다.
+다음 그림에서는 애플리케이션 흐름을 보여줍니다.
 
 ![Azure Databricks를 Data Lake Store 및 SQL Data Warehouse와 함께 사용](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks를 Data Lake Store 및 SQL Data Warehouse와 함께 사용")
 
@@ -147,11 +147,11 @@ Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 �
 
 다음 섹션에서는 앞에서 만든 Azure Active Directory 서비스 사용자에 대한 다음 값을 검색합니다.
 
-### <a name="get-application-id-and-authentication-key-for-the-service-principal"></a>서비스 사용자의 응용 프로그램 ID 및 인증 키 가져오기
+### <a name="get-application-id-and-authentication-key-for-the-service-principal"></a>서비스 사용자의 애플리케이션 ID 및 인증 키 가져오기
 
 프로그래밍 방식으로 로그인하는 경우 응용 프로그램에 대한 ID 및 인증 키가 필요합니다. 이러한 값을 가져오려면 다음 단계를 사용합니다.
 
-1. Azure Active Directory의 **앱 등록**에서 응용 프로그램을 선택합니다.
+1. Azure Active Directory의 **앱 등록**에서 애플리케이션을 선택합니다.
 
    ![응용 프로그램 선택](./media/databricks-extract-load-sql-data-warehouse/select-app.png)
 

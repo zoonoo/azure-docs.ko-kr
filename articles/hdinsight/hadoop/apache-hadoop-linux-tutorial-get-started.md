@@ -170,7 +170,7 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 Hive 솔루션을 만들고 실행하려면,
 
 1. **파일** 메뉴에서 **새로 만들기**, **프로젝트**를 차례로 선택합니다.
-2. 왼쪽 창에서 **HDInsight**를 선택합니다. 가운데 창에서 **Hive 응용 프로그램**을 선택합니다. 속성을 입력한 다음, **확인**을 선택합니다.
+2. 왼쪽 창에서 **HDInsight**를 선택합니다. 가운데 창에서 **Hive 애플리케이션**을 선택합니다. 속성을 입력한 다음, **확인**을 선택합니다.
    
     ![HDInsight Visual Studio Tools - 새 Hive 프로젝트의 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png "Visual Studio에서 Hive 응용 프로그램 만들기")
 3. **솔루션 탐색기**에서 **Script.hql**을 두 번 클릭하여 이 스크립트를 엽니다.

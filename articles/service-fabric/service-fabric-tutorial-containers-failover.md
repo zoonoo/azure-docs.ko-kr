@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 컨테이너 앱 장애 조치(failover) 및 크기 조정 | Microsoft Docs
-description: 아 자습서에서는 장애 조치(failover)가 Azure Service Fabric 컨테이너 응용 프로그램에서 처리되는 방법을 알아봅니다.  또한 클러스터에서 실행되는 컨테이너 및 서비스의 크기를 조정하는 방법을 알아봅니다.
+description: 아 자습서에서는 장애 조치(failover)가 Azure Service Fabric 컨테이너 애플리케이션에서 처리되는 방법을 알아봅니다.  또한 클러스터에서 실행되는 컨테이너 및 서비스의 크기를 조정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
@@ -29,7 +29,7 @@ ms.locfileid: "37112272"
 
 > [!div class="checklist"]
 > * Service Fabric 클러스터에서 컨테이너 장애 조치(failover)에 대해 알아보기
-> * 응용 프로그램에서 웹 프런트 엔드 컨테이너 크기 조정
+> * 애플리케이션에서 웹 프런트 엔드 컨테이너 크기 조정
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -78,7 +78,7 @@ Service Fabric 컨테이너는 해당 서비스에 대한 로드를 수용하도
 
 > [!div class="checklist"]
 > * Service Fabric 클러스터에서 컨테이너 장애 조치(failover)에 대해 알아보기
-> * 응용 프로그램에서 웹 프런트 엔드 컨테이너 크기 조정
+> * 애플리케이션에서 웹 프런트 엔드 컨테이너 크기 조정
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아보았습니다.
 > [!div class="checklist"]

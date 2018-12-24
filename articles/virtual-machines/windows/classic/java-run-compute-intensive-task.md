@@ -1,6 +1,6 @@
 ---
 title: VM의 계산 집약적 Java 응용 프로그램
-description: 다른 Java 응용 프로그램에 의해 모니터링될 수 있는 계산 집약적인 Java 응용 프로그램을 실행하는 가상 머신을 만드는 방법에 대해 알아봅니다.
+description: 다른 Java 애플리케이션에 의해 모니터링될 수 있는 계산 집약적인 Java 애플리케이션을 실행하는 가상 머신을 만드는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
@@ -110,7 +110,7 @@ Azure에서 Service Bus 큐 사용을 시작하려면 먼저 서비스 네임스
    ![기본 키 스크린샷][default_key]
 5. **기본 발급자** 및 **기본 키**를 기록해 둡니다. 이 정보는 아래에서 네임스페이스 관련 작업을 수행하는 데 사용됩니다.
 
-## <a name="how-to-create-a-java-application-that-performs-a-compute-intensive-task"></a>계산 집약적인 작업을 수행하는 Java 응용 프로그램을 만드는 방법
+## <a name="how-to-create-a-java-application-that-performs-a-compute-intensive-task"></a>계산 집약적인 작업을 수행하는 Java 애플리케이션을 만드는 방법
 1. 개발 컴퓨터(직접 생성한 가상 머신일 필요는 없음)에서 [Java용 Azure SDK](https://azure.microsoft.com/develop/java/)를 다운로드합니다.
 2. 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 애플리케이션을 만듭니다. 이 자습서에서는 Java 파일 이름으로 **TSPSolver.java** 를 사용합니다. **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 Service Bus **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
 3. 코딩 후에 애플리케이션을 실행 가능한 Java 아카이브(JAR)로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서에서는 생성된 JAR 이름으로 **TSPSolver.jar** 을 사용합니다.
@@ -302,7 +302,7 @@ Azure에서 Service Bus 큐 사용을 시작하려면 먼저 서비스 네임스
 
 ## <a name="how-to-create-a-java-application-that-monitors-the-progress-of-the-compute-intensive-task"></a>계산 집약적인 작업의 진행 상황을 모니터링하는 Java 애플리케이션을 만드는 방법
 1. 개발 머신에서 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 애플리케이션을 만듭니다. 이 자습서에서는 Java 파일 이름으로 **TSPClient.java** 를 사용합니다. **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 Service Bus **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
-2. 응용 프로그램을 실행 가능한 JAR로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서에서는 생성된 JAR 이름으로 **TSPClient.jar** 을 사용합니다.
+2. 애플리케이션을 실행 가능한 JAR로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서에서는 생성된 JAR 이름으로 **TSPClient.jar** 을 사용합니다.
 
 <p/>
 
@@ -416,10 +416,10 @@ Azure에서 Service Bus 큐 사용을 시작하려면 먼저 서비스 네임스
 
     }
 
-## <a name="how-to-run-the-java-applications"></a>Java 응용 프로그램을 실행하는 방법
+## <a name="how-to-run-the-java-applications"></a>Java 애플리케이션을 실행하는 방법
 계산 집약적인 애플리케이션을 실행하여 먼저 큐를 만든 후에 순회 외판원 문제를 해결합니다. 그러면 현 시점에서의 최상의 경로가 서비스 버스 큐에 추가됩니다. 계산 집약적인 애플리케이션이 실행 중인 동안 또는 실행된 이후에 클라이언트를 실행하여 서비스 버스 큐에서 가져온 결과를 표시합니다.
 
-### <a name="to-run-the-compute-intensive-application"></a>계산 집약적인 응용 프로그램을 실행하려면
+### <a name="to-run-the-compute-intensive-application"></a>계산 집약적인 애플리케이션을 실행하려면
 1. 가상 컴퓨터에 로그온합니다.
 2. 애플리케이션을 실행할 폴더를 만듭니다. **c:\TSP**를 만듭니다.
 3. **TSPSolver.jar**를 **c:\TSP**에 복사합니다.
@@ -491,7 +491,7 @@ Azure에서 Service Bus 큐 사용을 시작하려면 먼저 서비스 네임스
 > 
 > 
 
-### <a name="how-to-run-the-monitoring-client-application"></a>모니터링하는 클라이언트 응용 프로그램을 실행하는 방법
+### <a name="how-to-run-the-monitoring-client-application"></a>모니터링하는 클라이언트 애플리케이션을 실행하는 방법
 1. 클라이언트 애플리케이션을 실행할 머신에 로그온합니다. 이 머신이 **TSPSolver** 애플리케이션을 실행하는 머신과 같을 수도 있지만 반드시 같아야 하는 것은 아닙니다.
 2. 애플리케이션을 실행할 폴더를 만듭니다. **c:\TSP**를 만듭니다.
 3. **TSPClient.jar**를 **c:\TSP**에 복사합니다.

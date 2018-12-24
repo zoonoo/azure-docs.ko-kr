@@ -106,7 +106,7 @@ items:
     href: service-fabric-architecture.md
   - name: 용어
     href: service-fabric-technical-overview.md
-  - name: 응용 프로그램 빌드
+  - name: 애플리케이션 빌드
     items:
     - name: 응용 프로그램 빌드 개요
       href: service-fabric-choose-framework.md

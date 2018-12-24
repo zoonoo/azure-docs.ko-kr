@@ -51,7 +51,7 @@ az group delete --name myResourceGroupAG --yes
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-net) | 가상 네트워크를 만듭니다. |
 | [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create) | 가상 네트워크에 서브넷을 만듭니다. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | 응용 프로그램 게이트웨이의 공용 IP 주소를 만듭니다. |
-| [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | Application Gateway를 만듭니다. |
+| [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | 애플리케이션 게이트웨이를 만듭니다. |
 | [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az-vmss-create) | 가상 머신 확장 집합을 만듭니다. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 저장소 계정을 만듭니다. |
 | [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) | 저장소 계정을 만듭니다. |

@@ -40,7 +40,7 @@ items:
     - name: 빈 에지 노드 사용
       href: ../hdinsight-apps-use-edge-node.md
       maintainContext: true
-    - name: 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
+    - name: 비대화형 인증 .NET HDInsight 애플리케이션 만들기
       href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
       maintainContext: true
     - name: HDInsight의 Apache Phoenix

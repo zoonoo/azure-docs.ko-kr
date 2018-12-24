@@ -58,7 +58,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     | 서브넷 - 이름            | mySubnet                                           |
     | 서브넷 - 주소 범위  | 10.0.0.0/24                                        |
 
-## <a name="create-application-security-groups"></a>응용 프로그램 보안 그룹 만들기
+## <a name="create-application-security-groups"></a>애플리케이션 보안 그룹 만들기
 
 응용 프로그램 보안 그룹을 사용하면 웹 서버와 같은 유사한 기능을 갖는 서버를 함께 그룹화할 수 있습니다.
 
@@ -188,7 +188,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 4. **확인**을 선택합니다.
 5. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 경고 메시지가 표시되면 **예** 또는 **계속**을 선택하여 연결을 계속합니다.
 
-    포트 3389는 *myAsgMgmtServers* VM에 연결된 네트워크 인터페이스가 In인 *myVmMgmt* 응용 프로그램 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
+    포트 3389는 *myAsgMgmtServers* VM에 연결된 네트워크 인터페이스가 In인 *myVmMgmt* 애플리케이션 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
 
 6. PowerShell 세션에서 다음 명령을 입력하여 *myVmMgmt* VM에서 *myVmWeb* VM에 연결합니다.
 

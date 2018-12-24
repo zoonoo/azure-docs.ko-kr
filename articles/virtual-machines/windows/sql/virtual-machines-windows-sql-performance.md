@@ -49,7 +49,7 @@ ms.locfileid: "51258132"
 
 ## <a name="vm-size-guidance"></a>VM 크기 지침
 
-성능이 중요한 응용 프로그램의 경우 다음 [가상 머신 크기](../sizes.md)를 사용하는 것이 좋습니다.
+성능이 중요한 애플리케이션의 경우 다음 [가상 머신 크기](../sizes.md)를 사용하는 것이 좋습니다.
 
 * **SQL Server Enterprise Edition**: DS3_v2 이상
 * **SQL Server Standard 및 Web Edition**: DS2_v2 이상

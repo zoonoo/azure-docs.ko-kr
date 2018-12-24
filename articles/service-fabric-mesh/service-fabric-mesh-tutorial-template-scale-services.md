@@ -142,7 +142,7 @@ WebFrontEnd 서비스 *replicaCount* 속성은 *frontEndReplicaCount* 매개 변
 
 템플릿을 수정한 후에는 응용 프로그램을 업그레이드합니다.
 
-### <a name="upgrade-your-application"></a>응용 프로그램 업그레이드
+### <a name="upgrade-your-application"></a>애플리케이션 업그레이드
 
 응용 프로그램이 실행되는 동안 템플릿 및 업데이트된 매개 변수 파일을 다시 배포하여 응용 프로그램을 업그레이드할 수 있습니다.
 

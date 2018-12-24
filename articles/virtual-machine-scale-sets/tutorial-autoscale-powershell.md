@@ -63,7 +63,7 @@ New-AzureRmVmss `
 확장 집합 리소스와 VM을 모두 만들고 구성하는 데 몇 분 정도 걸립니다.
 
 ## <a name="create-a-rule-to-autoscale-out"></a>자동 크기 확장 규칙 만들기
-응용 프로그램 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이러한 VM 인스턴스를 만들고 응용 프로그램을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 사용자는 모니터링할 메트릭(예: CPU 또는 디스크), 지정된 임계값을 응용 프로그램 로드가 충족해야 하는 기간, 확장 집합에 추가할 VM 인스턴스 수를 제어할 수 있습니다.
+응용 프로그램 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이러한 VM 인스턴스를 만들고 응용 프로그램을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 사용자는 모니터링할 메트릭(예: CPU 또는 디스크), 지정된 임계값을 애플리케이션 로드가 충족해야 하는 기간, 확장 집합에 추가할 VM 인스턴스 수를 제어할 수 있습니다.
 
 평균 CPU 로드가 5분간 70%를 초과할 경우 [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule)을 사용하여 확장 집합의 VM 인스턴스 수를 늘리는 규칙을 만들어 보겠습니다. 규칙이 트리거되면 VM 인스턴스 수가 3만큼 늘어납니다.
 
@@ -135,7 +135,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 
 
 ## <a name="apply-autoscale-rules-to-a-scale-set"></a>확장 집합에 자동 크기 조정 규칙 적용
-마지막 단계는 확장 집합에 자동 크기 조정 프로필을 적용하는 것입니다. 그러면 확장 집합이 응용 프로그램 요구량에 따라 자동으로 확장되거나 축소될 수 있습니다. [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting)을 사용하여 자동 크기 조정 프로필을 다음과 같이 적용합니다.
+마지막 단계는 확장 집합에 자동 크기 조정 프로필을 적용하는 것입니다. 그러면 확장 집합이 애플리케이션 요구량에 따라 자동으로 확장되거나 축소될 수 있습니다. [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting)을 사용하여 자동 크기 조정 프로필을 다음과 같이 적용합니다.
 
 ```azurepowershell-interactive
 Add-AzureRmAutoscaleSetting `

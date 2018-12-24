@@ -233,7 +233,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Azure MySQL에 앱 연결
 
-이 단계에서는 Azure Database for MySQL에서 만든 MySQL 데이터베이스에 PHP 응용 프로그램을 연결합니다.
+이 단계에서는 Azure Database for MySQL에서 만든 MySQL 데이터베이스에 PHP 애플리케이션을 연결합니다.
 
 <a name="devconfig"></a>
 

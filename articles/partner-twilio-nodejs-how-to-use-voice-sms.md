@@ -62,7 +62,7 @@ Twilio 서비스를 사용하기 전에 먼저 [계정을 등록][signup]해야 
 ### <a name="configuring-twilio-credentials-in-system-environment-variables"></a>시스템 환경 변수에서 Twilio 자격 증명 구성
 Twilio 백 엔드에 대해 인증된 요청을 만들려면 Twilio 계정에 대해 사용자 이름 및 암호 집합 역할을 하는 계정 SID 및 인증 토큰이 필요합니다. Azure에서 노드 모듈에 사용하기 위해 이를 구성하는 가장 안전한 방법은 시스템 환경 변수를 사용하는 것입니다. 시스템 환경 변수는 Azure 관리 콘솔에서 직접 설정할 수 있습니다.
 
-node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다.  아래로 조금 스크롤하면 응용 프로그램의 구성 속성을 설정할 수 있는 영역이 표시됩니다.  표시된 것처럼 Twilio 계정 자격 증명([Twilio 콘솔에서 찾을 수 있음][twilio_console])을 입력합니다. 이름을 각각 `TWILIO_ACCOUNT_SID` 및 `TWILIO_AUTH_TOKEN`으로 지정해야 합니다.
+node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다.  아래로 조금 스크롤하면 애플리케이션의 구성 속성을 설정할 수 있는 영역이 표시됩니다.  표시된 것처럼 Twilio 계정 자격 증명([Twilio 콘솔에서 찾을 수 있음][twilio_console])을 입력합니다. 이름을 각각 `TWILIO_ACCOUNT_SID` 및 `TWILIO_AUTH_TOKEN`으로 지정해야 합니다.
 
 ![Azure 관리 콘솔][azure-admin-console]
 

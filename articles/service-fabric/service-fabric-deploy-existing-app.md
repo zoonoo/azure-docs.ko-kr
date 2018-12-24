@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric에 기존 실행 파일 배포 | Microsoft Docs
-description: Service Fabric 클러스터에 배포할 수 있도록 기존 응용 프로그램을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
+description: Service Fabric 클러스터에 배포할 수 있도록 기존 애플리케이션을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -22,7 +22,7 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51258734"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric으로 패키징 및 배포
-기존 실행 파일을 [게스트 실행 파일](service-fabric-guest-executables-introduction.md)로 패키징할 경우 Visual Studio 프로젝트 템플릿을 사용하거나 [응용 프로그램 패키지를 수동으로 만들도록](#manually) 선택할 수 있습니다. Visual Studio를 사용하면 새 프로젝트 템플릿에 의해 응용 프로그램 패키지 구조 및 매니페스트 파일이 생성됩니다.
+기존 실행 파일을 [게스트 실행 파일](service-fabric-guest-executables-introduction.md)로 패키징할 경우 Visual Studio 프로젝트 템플릿을 사용하거나 [애플리케이션 패키지를 수동으로 만들도록](#manually) 선택할 수 있습니다. Visual Studio를 사용하면 새 프로젝트 템플릿에 의해 응용 프로그램 패키지 구조 및 매니페스트 파일이 생성됩니다.
 
 > [!TIP]
 > 기존 Windows 실행 파일을 서비스로 패키징하는 가장 쉬운 방법은 Visual Studio 및 Linux의 Yeoman을 사용하는 것입니다.
@@ -46,7 +46,7 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
 6. 이제 패키지를 사용하고 Visual Studio에서 솔루션을 디버깅하여 로컬 클러스터에 대해 작업을 게시할 수 있습니다. 준비가 되면 원격 클러스터로 응용 프로그램을 게시하거나 원본 제어에 대한 솔루션을 체크 인합니다.
 7. Service Fabric Explorer에서 실행 중인 게스트 실행 파일 서비스를 보는 방법을 보려면 [실행 중인 응용 프로그램 확인](#check-your-running-application)을 참조하세요.
 
-예제 연습은 [Visual Studio를 사용하여 첫 번째 게스트 실행 파일 응용 프로그램 만들기](quickstart-guest-app.md)를 참조하세요.
+예제 연습은 [Visual Studio를 사용하여 첫 번째 게스트 실행 파일 애플리케이션 만들기](quickstart-guest-app.md)를 참조하세요.
 
 ## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>Yeoman을 사용하여 Linux에서 기존 실행 파일 패키징 및 배포
 

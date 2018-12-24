@@ -25,7 +25,7 @@ ms.locfileid: "51711245"
 
 ## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
-이 빠른 시작의 [샘플 응용 프로그램](https://github.com/Azure-Samples/azure-storage-js-v10-quickstart.git)은 간단한 Node.js 콘솔 응용 프로그램입니다. 시작하려면 다음 명령을 사용하여 리포지토리를 컴퓨터에 복제합니다.
+이 빠른 시작의 [샘플 애플리케이션](https://github.com/Azure-Samples/azure-storage-js-v10-quickstart.git)은 간단한 Node.js 콘솔 애플리케이션입니다. 시작하려면 다음 명령을 사용하여 리포지토리를 컴퓨터에 복제합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-storage-js-v10-quickstart.git
@@ -45,7 +45,7 @@ cd azure-storage-js-v10-quickstart
 
 ## <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
 
-응용 프로그램 디렉터리에서 *npm install*을 실행하여 응용 프로그램에 필요한 패키지를 설치합니다.
+애플리케이션 디렉터리에서 *npm install*을 실행하여 애플리케이션에 필요한 패키지를 설치합니다.
 
 ```bash
 npm install

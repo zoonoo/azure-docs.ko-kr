@@ -58,13 +58,13 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 ## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>특정 응용 프로그램 형식에서 지원되는 Single Sign-On 및 프로비전 모드
 
-다음 표는 이전 각 응용 프로그램 형식에서 지원하는 서로 다른 Single Sign-On 및 프로비전 모드를 설명합니다. 이 표를 사용하여 특정 목표를 지원하기 위해 추가해야 하는 응용 프로그램을 이해할 수 있습니다.
+다음 표는 이전 각 애플리케이션 형식에서 지원하는 서로 다른 Single Sign-On 및 프로비전 모드를 설명합니다. 이 표를 사용하여 특정 목표를 지원하기 위해 추가해야 하는 응용 프로그램을 이해할 수 있습니다.
 
   ![앱 형식 테이블](./media/choose-application-type/table1.png)
 
 ## <a name="how-to-choose-a-single-sign-on-mode"></a>Single Sign-On 모드를 선택하는 방법
 
-다음은 Azure AD 응용 프로그램에 대해 지원되는 **Single Sign-On** 모드입니다.
+다음은 Azure AD 애플리케이션에 대해 지원되는 **Single Sign-On** 모드입니다.
 
 -   **Azure AD Single Sign-On 사용 안 함** – 이 응용 프로그램을 Single Sign-On을 사용하여 Azure AD와 통합할 준비가 되지 않았거나 단순히 테스트하는 경우 Azure AD Single Sign-On 사용 안 함 **Single Sign-On 모드** 선택
 
@@ -109,7 +109,7 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 ## <a name="how-to-set-an-applications-single-sign-on-mode"></a>응용 프로그램의 Single Sign-On 모드를 설정하는 방법
 
-응용 프로그램의 **Single Sign-On** 모드를 설정하려면 아래 지침을 따릅니다.
+애플리케이션의 **Single Sign-On** 모드를 설정하려면 아래 지침을 따릅니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -117,7 +117,7 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
+4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
@@ -125,7 +125,7 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 6.  Single Sign-On을 구성하려는 응용 프로그램을 선택합니다.
 
-7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
+7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
 ## <a name="how-to-choose-a-provisioning-mode"></a>프로비전 모드를 선택하는 방법
 
@@ -149,7 +149,7 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 응용 프로그램의 **프로비전** 모드를 설정하려면 아래 지침을 따릅니다.
 
-응용 프로그램의 **Single Sign-On** 모드를 설정하려면 아래 지침을 따릅니다.
+애플리케이션의 **Single Sign-On** 모드를 설정하려면 아래 지침을 따릅니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -157,7 +157,7 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
+4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 

@@ -244,7 +244,7 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 ![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
 
 
-## <a name="run-the-application"></a>6단계: 로컬에서 응용 프로그램 실행
+## <a name="run-the-application"></a>6단계: 로컬에서 애플리케이션 실행
 
 로컬 머신에서 애플리케이션을 테스트하려면 다음 단계를 사용합니다.
 

@@ -463,7 +463,7 @@ Azure에 SAP 시스템을 성공적으로 배포하려면 온-프레미스 SAP �
 > [!IMPORTANT]
 > Azure 및 온-프레미스 고객 배포 간의 크로스-프레미스 시나리오에 대해 논의할 경우 전체 SAP 시스템의 세분성을 고려하게 됩니다. 크로스-프레미스 시나리오에서 *지원되지 않는* 시나리오는 다음과 같습니다.
 >
-> * 배포 방법마다 SAP 응용 프로그램의 다른 계층을 실행합니다. 예를 들어 온-프레미스에서는 DBMS 계층을 실행하지만 Azure VM으로 배포된 VM에서는 SAP 응용 프로그램 계층을 실행하거나 그 반대로 실행할 수 있습니다.
+> * 배포 방법마다 SAP 애플리케이션의 다른 계층을 실행합니다. 예를 들어 온-프레미스에서는 DBMS 계층을 실행하지만 Azure VM으로 배포된 VM에서는 SAP 응용 프로그램 계층을 실행하거나 그 반대로 실행할 수 있습니다.
 > * SAP 계층 구성 요소 일부는 Azure에 있고, 일부는 온-프레미스에 있습니다. 온-프레미스와 Azure VM 간에 SAP 응용 프로그램 계층의 인스턴스를 분할하는 경우를 예로 들 수 있습니다.
 > * 단일 시스템의 SAP 인스턴스를 실행하는 VM을 여러 Azure 영역에 배포하는 것은 지원되지 않습니다.
 >
@@ -474,7 +474,7 @@ Azure에 SAP 시스템을 성공적으로 배포하려면 온-프레미스 SAP �
 ### <a name="supported-os-and-database-releases"></a>지원되는 OS 및 데이터베이스 릴리스
 * Azure Virtual Machines 서비스에 대해 지원되는 Microsoft 서버 소프트웨어는 이 문서에 나열되어 있습니다. <http://support.microsoft.com/kb/2721672>
 * 지원되는 운영 체제 릴리스, SAP 소프트웨어와 연계해서 Azure Virtual Machine 서비스에서 지원되는 데이터베이스 시스템 릴리스는 SAP 정보 [1928533]에 설명되어 있습니다.
-* Azure Virtual Machine 서비스에서 지원되는 SAP 응용 프로그램 및 릴리스는 SAP 정보 [1928533]에 설명되어 있습니다.
+* Azure Virtual Machine 서비스에서 지원되는 SAP 애플리케이션 및 릴리스는 SAP 정보 [1928533]에 설명되어 있습니다.
 * SAP용 Azure 시나리오에서는 64비트 이미지만 게스트 VM으로 실행될 수 있습니다. 결과적으로 64비트 SAP 응용 프로그램 및 데이터베이스만 지원됩니다.
 
 ## <a name="microsoft-azure-virtual-machine-services"></a>Microsoft Azure Virtual Machine 서비스
@@ -498,7 +498,7 @@ Azure Virtual Machine 서비스를 사용하여 사용자 지정 서버 이미�
 각 Azure 지역에 모두 다른 VM 시리즈가 제공되는 것은 아닐 수 있습니다(Azure 지역에 대해서는 다음 장 참조). 또한 일부 VM 또는 VM 시리즈만 SAP용으로 인증되어 있습니다.
 
 > [!IMPORTANT]
-> SAP NetWeaver 기반 응용 프로그램을 사용하는 경우 SAP 정보 [1928533] 에 나열된 VM 형식 및 구성 일부만 지원됩니다.
+> SAP NetWeaver 기반 애플리케이션을 사용하는 경우 SAP 정보 [1928533] 에 나열된 VM 형식 및 구성 일부만 지원됩니다.
 >
 >
 
@@ -1876,7 +1876,7 @@ Azure의 SAP 고가용성에 대한 논의는 다음 두 부분으로 구분할 
 
 * **Azure 인프라 고가용성** - 계산(VM), 네트워크, 저장소 등의 HA와 이러한 HA가 SAP 응용 프로그램 가용성 향상에 주는 이점
 * **SAP 응용 프로그램 고가용성** - 다음과 같은 SAP 소프트웨어 구성 요소의 HA
-  * SAP 응용 프로그램 서버
+  * SAP 애플리케이션 서버
   * SAP ASCS/SCS 인스턴스
   * DB 서버
 
@@ -1968,7 +1968,7 @@ Azure 배율 단위 내에서 Azure 가용성 집합이 사용할 수 있는 장
 
 전용 VM에서 일부 SAP 응용 프로그램 서버 인스턴스를 배포하고 업그레이드 도메인을 5개 받았다고 가정하면 결과적으로 다음과 같은 그림이 완성됩니다. 가용성 집합 내의 장애 및 업그레이드 도메인의 실제 최대 개수는 나중에 변경될 수 있습니다.
 
-![Azure에 있는 SAP 응용 프로그램 서버의 HA][planning-guide-figure-3000]
+![Azure에 있는 SAP 애플리케이션 서버의 HA][planning-guide-figure-3000]
 
 자세한 내용은 <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability> 설명서를 참조하세요.
 

@@ -133,7 +133,7 @@ Application Gateway WAF는 다음 두 가지 모드에서 실행되도록 구성
 
 ### <a name="application-gateway-waf-reports"></a>WAF 모니터링
 
-Application Gateway의 상태를 모니터링하는 것이 중요합니다. 웹 응용 프로그램 방화벽 및 보호되는 응용 프로그램의 상태를 모니터링하는 기능은 로깅과 Azure Monitor, Azure Security Center 및 Log Analytics의 통합을 통해 제공됩니다.
+Application Gateway의 상태를 모니터링하는 것이 중요합니다. 웹 애플리케이션 방화벽 및 보호되는 애플리케이션의 상태를 모니터링하는 기능은 로깅과 Azure Monitor, Azure Security Center 및 Log Analytics의 통합을 통해 제공됩니다.
 
 ![진단](./media/waf-overview/diagnostics.png)
 

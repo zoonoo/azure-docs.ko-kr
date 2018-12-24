@@ -32,7 +32,7 @@ Azure AD와 Palo Alto Networks - Admin UI를 통합하면 다음과 같은 이�
 - 사용자가 본인 Azure AD 계정으로 Palo Alto Networks - Admin UI에 자동으로 로그온(SSO, Single Sign-on)하도록 할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -90,7 +90,7 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
 
 다음 단계에 따라 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Palo Alto Networks - Admin UI 응용 프로그램에서 Single Sign-On을 구성합니다.
 
-1. Azure Portal의 **Palo Alto Networks - Admin UI** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. Azure Portal의 **Palo Alto Networks - Admin UI** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![“Single Sign-On” 링크][4]
 
@@ -307,7 +307,7 @@ Palo Alto Networks - Admin UI는 Just-In-Time 사용자 프로비저닝을 지�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Palo Alto Networks - Admin UI 타일을 선택하면 Palo Alto Networks - Admin UI 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Palo Alto Networks - Admin UI 타일을 선택하면 Palo Alto Networks - Admin UI 애플리케이션에 자동으로 로그온됩니다.
 
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 

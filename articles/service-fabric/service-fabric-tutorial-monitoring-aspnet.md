@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 ASP.NET Core 서비스 모니터링 및 진단 | Microsoft Docs
-description: 이 자습서에서는 Azure Service Fabric ASP.NET 응용 프로그램에 대한 모니터링 및 진단을 설정하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Service Fabric ASP.NET 애플리케이션에 대한 모니터링 및 진단을 설정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -187,7 +187,7 @@ Azure Portal에서 Application Insights 리소스로 이동합니다.
 
 ![AI 추적 세부 정보](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-또한 개요 페이지의 왼쪽 메뉴에서 *응용 프로그램 맵*을 클릭하거나 **앱 맵** 아이콘을 클릭하여 연결된 두 서비스가 보이는 앱 맵으로 이동할 수 있습니다.
+또한 개요 페이지의 왼쪽 메뉴에서 *애플리케이션 맵*을 클릭하거나 **앱 맵** 아이콘을 클릭하여 연결된 두 서비스가 보이는 앱 맵으로 이동할 수 있습니다.
 
 ![AI 추적 세부 정보](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 

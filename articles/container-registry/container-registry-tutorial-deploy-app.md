@@ -25,7 +25,7 @@ ms.locfileid: "53253836"
 > * 두 개의 *Web App for Containers* 인스턴스에 컨테이너 이미지 배포
 > * 배포된 응용 프로그램 확인
 
-지리적 복제 레지스트리를 아직 만들지 않았고 컨테이너화된 샘플 응용 프로그램의 이미지를 레지스트리에 푸시한 경우 시리즈의 이전 자습서인 [지리적 복제 Azure Container Registry 준비](container-registry-tutorial-prepare-registry.md)로 돌아갑니다.
+지리적 복제 레지스트리를 아직 만들지 않았고 컨테이너화된 샘플 애플리케이션의 이미지를 레지스트리에 푸시한 경우 시리즈의 이전 자습서인 [지리적 복제 Azure Container Registry 준비](container-registry-tutorial-prepare-registry.md)로 돌아갑니다.
 
 이 시리즈의 그 다음 문서에서는 응용 프로그램을 업데이트한 다음, 업데이트된 컨테이너 이미지를 레지스트리로 푸시합니다. 마지막으로, 실행 중인 각 웹앱 인스턴스를 탐색하여 변경 사항이 자동으로 적용되어 Azure Container Registry 지역에서 복제 및 webhook가 실제로 작동하고 있음을 보여 줍니다.
 
@@ -72,7 +72,7 @@ Azure Container Registry는 컨테이너화된 응용 프로그램을 [Web App f
 
 Docker 이미지가 지리적 복제 컨테이너 레지스트리에서 배포되면 사이트에서 컨테이너 레지스트리를 호스팅하는 Azure 영역을 나타내는 이미지를 표시합니다.
 
-![브라우저에 표시된 배포된 웹 응용 프로그램][deployed-app-westus]
+![브라우저에 표시된 배포된 웹 애플리케이션][deployed-app-westus]
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>두 번째 Web App for Containers 인스턴스 배포
 
@@ -95,13 +95,13 @@ Docker 이미지가 지리적 복제 컨테이너 레지스트리에서 배포�
 
 포털에서 **App Services**를 선택한 다음 이전 단계에서 프로비저닝된 웹앱을 선택합니다. 이 예제에서 웹앱 이름은 *uniqueregistryname-eastus*입니다.
 
-브라우저에서 실행 중인 응용 프로그램을 보려면 **App Service 개요**의 오른쪽 위에 있는 웹앱의 하이퍼링크 URL을 선택합니다.
+브라우저에서 실행 중인 애플리케이션을 보려면 **App Service 개요**의 오른쪽 위에 있는 웹앱의 하이퍼링크 URL을 선택합니다.
 
 ![Azure Portal에서 Linux의 웹앱 구성][deploy-app-portal-07]
 
 Docker 이미지가 지리적 복제 컨테이너 레지스트리에서 배포되면 사이트에서 컨테이너 레지스트리를 호스팅하는 Azure 영역을 나타내는 이미지를 표시합니다.
 
-![브라우저에 표시된 배포된 웹 응용 프로그램][deployed-app-eastus]
+![브라우저에 표시된 배포된 웹 애플리케이션][deployed-app-eastus]
 
 ## <a name="next-steps"></a>다음 단계
 

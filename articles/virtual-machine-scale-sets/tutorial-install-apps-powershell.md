@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure PowerShell을 사용하여 확장 집합에 응용 프로그램 설치 | Microsoft Docs
-description: Azure PowerShell을 사용하여 사용자 지정 스크립트 확장이 있는 가상 머신 확장 집합에 응용 프로그램을 설치하는 방법을 알아봅니다.
+title: 자습서 - Azure PowerShell을 사용하여 확장 집합에 애플리케이션 설치 | Microsoft Docs
+description: Azure PowerShell을 사용하여 사용자 지정 스크립트 확장이 있는 가상 머신 확장 집합에 애플리케이션을 설치하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: zr-msft
@@ -23,13 +23,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/26/2018
 ms.locfileid: "52311401"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 응용 프로그램 설치
-확장 집합의 VM(가상 머신) 인스턴스에서 응용 프로그램을 실행하려면 먼저 응용 프로그램 구성 요소 및 필요한 파일을 설치해야 합니다. 이전 자습서에서는 사용자 지정 VM 이미지를 만들고 사용하여 VM 인스턴스를 배포하는 방법을 알아보았습니다. 이 사용자 지정 이미지에는 수동 응용 프로그램 설치 및 구성이 포함되어 있습니다. 또한 각 VM 인스턴스가 배포된 후에 확장 집합에 응용 프로그램 설치를 자동화하거나 이미 확장 집합에서 실행되는 응용 프로그램을 업데이트할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 애플리케이션 설치
+확장 집합의 VM(가상 머신) 인스턴스에서 응용 프로그램을 실행하려면 먼저 응용 프로그램 구성 요소 및 필요한 파일을 설치해야 합니다. 이전 자습서에서는 사용자 지정 VM 이미지를 만들고 사용하여 VM 인스턴스를 배포하는 방법을 알아보았습니다. 이 사용자 지정 이미지에는 수동 애플리케이션 설치 및 구성이 포함되어 있습니다. 또한 각 VM 인스턴스가 배포된 후에 확장 집합에 애플리케이션 설치를 자동화하거나 이미 확장 집합에서 실행되는 애플리케이션을 업데이트할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 확장 집합에 응용 프로그램 자동 설치
+> * 확장 집합에 애플리케이션 자동 설치
 > * Azure 사용자 지정 스크립트 확장 사용
-> * 확장 집합에서 실행되는 응용 프로그램 업데이트
+> * 확장 집합에서 실행되는 애플리케이션 업데이트
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
@@ -98,10 +98,10 @@ Update-AzureRmVmss `
   -VirtualMachineScaleSet $vmss
 ```
 
-확장 집합의 각 VM 인스턴스는 GitHub에서 스크립트를 다운로드하고 실행합니다. 더 복잡한 예제에서는 여러 응용 프로그램 구성 요소와 파일을 설치할 수 있습니다. 확장 집합의 크기를 강화하면 새 VM 인스턴스에서 자동으로 동일한 사용자 지정 스크립트 확장 정의를 적용하고 필요한 응용 프로그램을 설치합니다.
+확장 집합의 각 VM 인스턴스는 GitHub에서 스크립트를 다운로드하고 실행합니다. 더 복잡한 예제에서는 여러 애플리케이션 구성 요소와 파일을 설치할 수 있습니다. 확장 집합의 크기를 강화하면 새 VM 인스턴스에서 자동으로 동일한 사용자 지정 스크립트 확장 정의를 적용하고 필요한 애플리케이션을 설치합니다.
 
 
-## <a name="allow-traffic-to-application"></a>응용 프로그램에 트래픽 허용
+## <a name="allow-traffic-to-application"></a>애플리케이션에 트래픽 허용
 
 기본 웹 애플리케이션에 대한 액세스를 허용하려면 [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) 및 [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만듭니다. 자세한 내용은 [Azure 가상 머신 확장 집합에 대한 네트워킹](virtual-machine-scale-sets-networking.md)을 참조하세요.
 
@@ -168,9 +168,9 @@ Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddre
 
 
 ## <a name="update-app-deployment"></a>앱 배포 업데이트
-확장 집합의 수명 주기 전체에서 응용 프로그램의 업데이트된 버전을 배포해야 할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 업데이트된 배포 스크립트를 참조한 다음, 해당 확장을 확장 집합에 다시 적용할 수 있습니다. 이전 단계에서 확장 집합을 만든 경우 `-UpgradePolicyMode`가 *Automatic*으로 설정되어 있습니다. 이 설정을 사용하면 확장 집합의 VM 인스턴스에서 자동으로 업데이트하여 응용 프로그램의 최신 버전을 적용할 수 있습니다.
+확장 집합의 수명 주기 전체에서 애플리케이션의 업데이트된 버전을 배포해야 할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 업데이트된 배포 스크립트를 참조한 다음, 해당 확장을 확장 집합에 다시 적용할 수 있습니다. 이전 단계에서 확장 집합을 만든 경우 `-UpgradePolicyMode`가 *Automatic*으로 설정되어 있습니다. 이 설정을 사용하면 확장 집합의 VM 인스턴스에서 자동으로 업데이트하여 애플리케이션의 최신 버전을 적용할 수 있습니다.
 
-*customConfigv2*라는 새 구성 정의를 만듭니다. 이 정의는 업데이트된 *v2* 버전의 응용 프로그램 설치 스크립트를 실행합니다.
+*customConfigv2*라는 새 구성 정의를 만듭니다. 이 정의는 업데이트된 *v2* 버전의 애플리케이션 설치 스크립트를 실행합니다.
 
 ```azurepowershell-interactive
 $customConfigv2 = @{
@@ -208,12 +208,12 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure PowerShell을 사용하여 확장 집합에 응용 프로그램을 자동으로 설치하고 업데이트하는 방법을 알아보았습니다.
+이 자습서에서는 Azure PowerShell을 사용하여 확장 집합에 애플리케이션을 자동으로 설치하고 업데이트하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 확장 집합에 응용 프로그램 자동 설치
+> * 확장 집합에 애플리케이션 자동 설치
 > * Azure 사용자 지정 스크립트 확장 사용
-> * 확장 집합에서 실행되는 응용 프로그램 업데이트
+> * 확장 집합에서 실행되는 애플리케이션 업데이트
 
 확장 집합을 자동으로 크기 조정하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 

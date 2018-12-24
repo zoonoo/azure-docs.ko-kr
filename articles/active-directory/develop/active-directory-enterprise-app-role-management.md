@@ -51,7 +51,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
 4. 검색 상자에 응용 프로그램 이름을 입력한 다음, 결과 패널에서 응용 프로그램을 선택합니다. **추가** 단추를 선택하여 응용 프로그램을 추가합니다.
 
-    ![결과 목록의 응용 프로그램](./media/active-directory-enterprise-app-role-management/tutorial_app_addfromgallery.png)
+    ![결과 목록의 애플리케이션](./media/active-directory-enterprise-app-role-management/tutorial_app_addfromgallery.png)
 
 5. 응용 프로그램이 추가되면 **속성** 페이지로 이동하여 개체 ID를 복사합니다.
 

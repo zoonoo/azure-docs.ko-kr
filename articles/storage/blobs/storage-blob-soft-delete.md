@@ -128,7 +128,7 @@ Copy a snapshot over the base blob:
 - HelloWorld (is soft deleted: False, is snapshot: False)
 ```
 
-이 출력을 생성한 응용 프로그램에 대한 포인터는 [다음 단계](#next-steps) 섹션을 참조하세요.
+이 출력을 생성한 애플리케이션에 대한 포인터는 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 일시 삭제된 모든 데이터는 활성 데이터와 동일한 요율로 요금이 청구됩니다. 구성된 보존 기간 후 영구적으로 삭제되는 데이터에 대한 비용은 청구되지 않습니다. 스냅숏 및 요금이 발생하는 방법에 대해 자세히 알아보려면 [스냅숏 요금 청구 방법 이해](storage-blob-snapshots.md)를 참조하세요.

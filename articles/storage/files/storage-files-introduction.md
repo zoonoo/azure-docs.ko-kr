@@ -48,7 +48,7 @@ Azure 파일 공유를 사용하여 다음을 수행할 수 있습니다.
 * **완벽한 관리** - Azure 파일 공유는 하드웨어 또는 OS를 관리할 필요 없이 만들 수 있습니다. 즉 서버 OS를 중요한 보안 업그레이드로 패치하거나 결함이 있는 하드 디스크를 교체하지 않아도 된다는 것입니다.
 * **스크립팅 및 도구 지원** - PowerShell cmdlet 및 Azure CLI를 사용하여 Azure 응용 프로그램 관리의 일부로 Azure File 공유를 만들고, 탑재하고, 관리할 수 있습니다. Azure Portal 및 Azure Storage 탐색기를 사용하여 Azure File 공유를 만들고 관리할 수 있습니다. 
 * **복원력**. Azure Files는 처음부터 항상 사용할 수 있도록 빌드되었습니다. 온-프레미스 파일 공유를 Azure Files로 바꾸는 경우 로컬 정전 또는 네트워크 문제를 처리하기 위해 더 이상 주의할 필요가 없습니다. 
-* **친숙한 프로그래밍** - Azure에서 실행 중인 응용 프로그램은 [파일 시스템 I/O API](https://msdn.microsoft.com/library/system.io.file.aspx)를 통해 공유 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 응용 프로그램을 마이그레이션할 수 있습니다. 시스템 IO API 외에도 [Azure Storage 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx) 또는 [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api)를 사용할 수 있습니다.
+* **친숙한 프로그래밍** - Azure에서 실행 중인 응용 프로그램은 [파일 시스템 I/O API](https://msdn.microsoft.com/library/system.io.file.aspx)를 통해 공유 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 애플리케이션을 마이그레이션할 수 있습니다. 시스템 IO API 외에도 [Azure Storage 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx) 또는 [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api)를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 파일 공유 만들기](storage-how-to-create-file-share.md)

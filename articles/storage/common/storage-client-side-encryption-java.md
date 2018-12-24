@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Storage용 Java를 사용하는 클라이언트 쪽 암호화 | Microsoft Docs
-description: Java용 Azure Storage 클라이언트 라이브러리는 Azure Storage 응용 프로그램의 보안을 최대화하기 위해 클라이언트 쪽 암호화 및 Azure Key Vault와의 통합을 지원합니다.
+description: Java용 Azure Storage 클라이언트 라이브러리는 Azure Storage 애플리케이션의 보안을 최대화하기 위해 클라이언트 쪽 암호화 및 Azure Key Vault와의 통합을 지원합니다.
 services: storage
 author: lakasa
 ms.service: storage

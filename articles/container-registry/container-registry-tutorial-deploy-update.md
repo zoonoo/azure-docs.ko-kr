@@ -31,7 +31,7 @@ ms.locfileid: "53256624"
 
 ## <a name="modify-the-web-application"></a>웹 응용 프로그램 수정
 
-이 단계에서는 Azure Container Registry에 업데이트된 컨테이너 이미지를 푸시하면 항상 볼 수 있는 웹 응용 프로그램을 변경합니다.
+이 단계에서는 Azure Container Registry에 업데이트된 컨테이너 이미지를 푸시하면 항상 볼 수 있는 웹 애플리케이션을 변경합니다.
 
 이전 자습서의 [GitHub에서 복제한](container-registry-tutorial-prepare-registry.md#get-application-code) 응용 프로그램 원본에서 `AcrHelloworld/Views/Home/Index.cshtml` 파일을 찾고 원하는 텍스트 편집기에서 엽니다. 기존 `<h1>` 줄 아래에 다음 줄을 추가합니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "53256624"
 
 ## <a name="rebuild-the-image"></a>이미지 다시 빌드
 
-이제 웹 응용 프로그램을 업데이트했으므로 해당 컨테이너 이미지를 다시 빌드합니다. 이전처럼 로그인 서버의 FQDN(정규화된 도메인 이름)을 포함한 정규화된 이미지 이름을 태그에 사용합니다.
+이제 웹 애플리케이션을 업데이트했으므로 해당 컨테이너 이미지를 다시 빌드합니다. 이전처럼 로그인 서버의 FQDN(정규화된 도메인 이름)을 포함한 정규화된 이미지 이름을 태그에 사용합니다.
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1

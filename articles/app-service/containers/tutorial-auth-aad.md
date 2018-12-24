@@ -238,7 +238,7 @@ git push frontend master
 
 이 단계에서는 두 앱에 인증 및 권한 부여를 사용하도록 설정합니다. 또한 백 엔드 앱에 인증된 호출을 수행하는 데 사용할 수 있는 액세스 토큰을 생성하도록 프런트 엔드 앱을 구성합니다.
 
-Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [App Services 응용 프로그램에 대해 Azure Active Directory 인증 구성](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)을 참조하세요.
+Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [App Services 애플리케이션에 대해 Azure Active Directory 인증 구성](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)을 참조하세요.
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>백 엔드 앱에 대한 인증 및 권한 부여 사용
 
@@ -262,13 +262,13 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 **Azure Active Directory**를 다시 클릭한 다음 **응용 프로그램 관리**를 클릭합니다.
 
-AD 응용 프로그램의 관리 페이지에서 **응용 프로그램 ID**를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
+AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/get-application-id-back-end.png)
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>프런트 엔드 앱에 대한 인증 및 권한 부여 사용
 
-프런트 엔드 앱과 동일한 단계를 따르지만 마지막 단계는 건너뜁니다. 프런트 엔드 앱에는 **응용 프로그램 ID**가 필요하지 않습니다. **Azure Active Directory 설정** 페이지를 열어둡니다.
+프런트 엔드 앱과 동일한 단계를 따르지만 마지막 단계는 건너뜁니다. 프런트 엔드 앱에는 **애플리케이션 ID**가 필요하지 않습니다. **Azure Active Directory 설정** 페이지를 열어둡니다.
 
 원하는 경우 `http://<front_end_app_name>.azurewebsites.net`으로 이동합니다. 이제 로그인 페이지로 연결됩니다. 로그인 후에도 백 엔드 앱의 데이터에 여전히 액세스할 수 없습니다. 다음 세 가지를 수행해야 하기 때문입니다.
 
@@ -281,7 +281,7 @@ AD 응용 프로그램의 관리 페이지에서 **응용 프로그램 ID**를 �
 
 ### <a name="grant-front-end-app-access-to-back-end"></a>백 엔드에 프런트 엔드 앱 액세스 부여
 
-두 앱에 대해 인증 및 권한 부여를 사용하도록 설정했으므로 각 앱은 AD 응용 프로그램으로 지원됩니다. 이 단계에서는 프런트 엔드 앱에 사용자 대신 백 엔드 액세스 권한을 부여합니다. (기술적으로 프런트 엔드의 _AD 응용 프로그램_에 사용자를 대신하여 백 엔드의 _AD 응용 프로그램_에 액세스할 수 있는 권한을 부여합니다.)
+두 앱에 대해 인증 및 권한 부여를 사용하도록 설정했으므로 각 앱은 AD 응용 프로그램으로 지원됩니다. 이 단계에서는 프런트 엔드 앱에 사용자 대신 백 엔드 액세스 권한을 부여합니다. (기술적으로 프런트 엔드의 _AD 애플리케이션_에 사용자를 대신하여 백 엔드의 _AD 애플리케이션_에 액세스할 수 있는 권한을 부여합니다.)
 
 이 시점에서 프런트 엔드 앱의 **Azure Active Directory 설정** 페이지에 있어야 합니다. 그렇지 않은 경우 해당 페이지로 돌아갑니다. 
 
@@ -297,7 +297,7 @@ AD 응용 프로그램의 관리 페이지에서 **응용 프로그램 ID**를 �
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>사용 가능한 액세스 토큰을 반환하도록 App Service 구성
 
-이제 프런트 엔드 앱에 필요한 권한이 있습니다. 이 단계에서는 백 엔드 액세스에 사용 가능한 액세스 토큰을 제공하도록 App Service 인증 및 권한 부여를 구성합니다. 이 단계에서는 [백 엔드 앱에 대한 인증 및 권한 부여 사용](#enable-authentication-and-authorization-for-back-end-app)에서 복사한 백 엔드의 응용 프로그램 ID가 필요합니다.
+이제 프런트 엔드 앱에 필요한 권한이 있습니다. 이 단계에서는 백 엔드 액세스에 사용 가능한 액세스 토큰을 제공하도록 App Service 인증 및 권한 부여를 구성합니다. 이 단계에서는 [백 엔드 앱에 대한 인증 및 권한 부여 사용](#enable-authentication-and-authorization-for-back-end-app)에서 복사한 백 엔드의 애플리케이션 ID가 필요합니다.
 
 [Azure Resource Explorer](https://resources.azure.com)에 로그인합니다. 페이지의 위쪽에서 **읽기/쓰기** 를 클릭하여 Azure 리소스 편집이 가능하도록 설정합니다.
 
@@ -305,7 +305,7 @@ AD 응용 프로그램의 관리 페이지에서 **응용 프로그램 ID**를 �
 
 왼쪽 브라우저에서 **구독** > **_&lt;your\_subscription>_** > **resourceGroups** > **myAuthResourceGroup** > **공급자** > **Microsoft.Web** > **사이트** > **_\<front\_end\_app\_name>_** > **구성** > **authsettings**를 클릭합니다.
 
-**authsettings** 보기에서 **편집**을 클릭합니다. 복사한 응용 프로그램 ID를 사용하여 `additionalLoginParams`를 다음 JSON 문자열로 설정합니다. 
+**authsettings** 보기에서 **편집**을 클릭합니다. 복사한 애플리케이션 ID를 사용하여 `additionalLoginParams`를 다음 JSON 문자열로 설정합니다. 
 
 ```json
 "additionalLoginParams": ["response_type=code id_token","resource=<back_end_application_id>"],
@@ -364,7 +364,7 @@ git push frontend master
 서버 코드가 요청 헤더에 액세스할 수 있지만, 클라이언트 코드는 `GET /.auth/me`에 액세스하여 동일한 액세스 토큰을 얻을 수 있습니다([앱 코드에서 토큰 검색](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#retrieve-tokens-in-app-code) 참조).
 
 > [!TIP]
-> 이 섹션에서는 표준 HTTP 메서드를 사용하여 보안 HTTP 호출을 보여줍니다. 그러나 [JavaScript용 ADAL(Azure AD 인증 라이브러리)](https://github.com/AzureAD/azure-activedirectory-library-for-js)을 사용하여 Angular.js 응용 프로그램 패턴을 간소화할 수 있습니다.
+> 이 섹션에서는 표준 HTTP 메서드를 사용하여 보안 HTTP 호출을 보여줍니다. 그러나 [JavaScript용 ADAL(Azure AD 인증 라이브러리)](https://github.com/AzureAD/azure-activedirectory-library-for-js)을 사용하여 Angular.js 애플리케이션 패턴을 간소화할 수 있습니다.
 >
 
 ### <a name="point-angularjs-app-to-back-end-api"></a>Angular.js 앱에서 백 엔드 API 가리키기

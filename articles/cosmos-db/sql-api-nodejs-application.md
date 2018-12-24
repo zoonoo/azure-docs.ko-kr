@@ -83,7 +83,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
    npm start
    ```
 
-1. 브라우저에서 [http://localhost:3000](http://localhost:3000)으로 이동하여 새 응용 프로그램을 확인할 수 있습니다.
+1. 브라우저에서 [http://localhost:3000](http://localhost:3000)으로 이동하여 새 애플리케이션을 확인할 수 있습니다.
    
    ![Node.js 알아보기 - 브라우저 창에 표시된 Hello World 응용 프로그램의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 

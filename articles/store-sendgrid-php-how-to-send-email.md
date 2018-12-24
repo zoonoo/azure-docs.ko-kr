@@ -52,7 +52,7 @@ SendGrid에서 제공하는 SMTP 또는 웹 API를 사용하여 전자 메일을
 
 ### <a name="smtp-api"></a>SMTP API
 
-SendGrid SMTP API를 사용하여 메일을 보내려면 PHP 응용 프로그램에서 메일을 보내기 위한 구성 요소 기반 라이브러리인 *Swift Mailer*를 사용합니다. [Swift Mailer 라이브러리](https://swiftmailer.symfony.com/) v5.3.0을 다운로드할 수 있습니다([Composer]를 사용하여 Swift Mailer 설치). 라이브러리를 사용하여 이메일을 보내려면 `Swift\_SmtpTransport`, `Swift\_Mailer` 및 `Swift\_Message` 클래스 인스턴스를 만들고, 적절한 속성을 설정하고, `Swift\_Mailer::send` 메서드를 호출해야 합니다.
+SendGrid SMTP API를 사용하여 메일을 보내려면 PHP 애플리케이션에서 메일을 보내기 위한 구성 요소 기반 라이브러리인 *Swift Mailer*를 사용합니다. [Swift Mailer 라이브러리](https://swiftmailer.symfony.com/) v5.3.0을 다운로드할 수 있습니다([Composer]를 사용하여 Swift Mailer 설치). 라이브러리를 사용하여 이메일을 보내려면 `Swift\_SmtpTransport`, `Swift\_Mailer` 및 `Swift\_Message` 클래스 인스턴스를 만들고, 적절한 속성을 설정하고, `Swift\_Mailer::send` 메서드를 호출해야 합니다.
 
 ```php
 <?php

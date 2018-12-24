@@ -68,12 +68,12 @@ API Management는 Service Fabric과 직접 통합되므로 다양한 라우팅 �
 
 [Azure Key Vault][key-vault-get-started]는 인증서에 대한 안전한 저장소 위치이자 Azure의 Service Fabric 클러스터에 설치된 인증서를 가져오는 수단으로 사용됩니다. Azure에 배포하지 않는 경우 서비스 패브릭 응용 프로그램의 비밀을 관리하기 위해 주요 자격 증명 모음을 사용할 필요가 없습니다.
 
-예제를 보려면 [응용 프로그램 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
+예제를 보려면 [애플리케이션 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
 
 ## <a name="secure-the-hosting-environment"></a>호스팅 환경 보안 유지
 Azure Service Fabric을 사용하여 다른 사용자 계정으로 클러스터에서 실행 중인 응용 프로그램을 보호할 수 있습니다. 또한 Service Fabric으로 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 응용 프로그램에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 서로 더욱 안전하게 응용 프로그램을 실행할 수 있습니다.
 
-응용 프로그램 매니페스트는 서비스를 실행하고 리소스의 보안을 유지하는 데 필요한 보안 주체(사용자 및 그룹)를 선언합니다.  이러한 보안 주체는 실행, 끝점 바인딩, 패키지 공유 또는 보안 액세스 정책 등에서 참조됩니다.  그런 후 응용 프로그램 매니페스트의 **ServiceManifestImport** 섹션에서 서비스 리소스에 정책이 적용됩니다.
+애플리케이션 매니페스트는 서비스를 실행하고 리소스의 보안을 유지하는 데 필요한 보안 주체(사용자 및 그룹)를 선언합니다.  이러한 보안 주체는 실행, 끝점 바인딩, 패키지 공유 또는 보안 액세스 정책 등에서 참조됩니다.  그런 후 애플리케이션 매니페스트의 **ServiceManifestImport** 섹션에서 서비스 리소스에 정책이 적용됩니다.
 
 보안 주체를 선언할 때 각 그룹에 사용자를 한 명 이상 추가하여 한꺼번에 관리할 수 있도록 사용자 그룹을 정의하고 만들 수도 있습니다. 이 기능은 여러 서비스 진입점에 대한 사용자가 여러 명 있고 그 사용자들에게 그룹 수준에서 특정 공통 권한을 부여해야 하는 경우 유용합니다.
 
@@ -96,7 +96,7 @@ Service Fabric은 컨테이너 내부에 Windows 또는 Linux 클러스터(5.7 �
 Reliable Services 응용 프로그램 프레임워크는 보안을 향상시키는 데 사용할 수 있는 미리 빌드된 통신 스택 및 도구 몇 가지를 제공합니다. 원격 서비스([C#](service-fabric-reliable-services-secure-communication.md) 또는 [Java](service-fabric-reliable-services-secure-communication-java.md))를 사용하거나 [WCF](service-fabric-reliable-services-secure-communication-wcf.md)를 사용하는 경우 보안을 향상시키는 방법을 알아봅니다.
 
 ## <a name="encrypt-application-data-at-rest"></a>미사용 응용 프로그램 데이터 암호화
-Azure에서 실행되는 [Service Fabric](service-fabric-cluster-nodetypes.md) 클러스터의 각 [노드 형식](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)은 가상 머신 확장 집합을 통해 백업됩니다. Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터를 구성하는 확장 집합에 데이터 디스크를 연결할 수 있습니다.  서비스가 연결된 데이터 디스크에 데이터를 저장하는 경우 [해당 데이터 디스크를 암호화](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md)하여 응용 프로그램 데이터를 보호할 수 있습니다.
+Azure에서 실행되는 [Service Fabric](service-fabric-cluster-nodetypes.md) 클러스터의 각 [노드 형식](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)은 가상 머신 확장 집합을 통해 백업됩니다. Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터를 구성하는 확장 집합에 데이터 디스크를 연결할 수 있습니다.  서비스가 연결된 데이터 디스크에 데이터를 저장하는 경우 [해당 데이터 디스크를 암호화](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md)하여 애플리케이션 데이터를 보호할 수 있습니다.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->

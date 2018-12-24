@@ -23,7 +23,7 @@ ms.locfileid: "52313946"
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
-Azure Machine Learning은 기계 학습 및 AI 모델을 만들고 테스트, 관리 및 배포할 수 있는 완전히 관리되는 Azure 서비스입니다. 서비스 및 다운로드 가능 응용 프로그램은 클라우드, 온-프레미스 및 Edge를 이용하여 처리 능력, 속도 및 유연성을 가진 학습, 배포, 관리 및 모니터링을 제공하는 코드 우선 방식을 제공합니다. 또는 Azure Machine Learning Studio는 코딩이 필요하지 않은 브라우저 기반의 시각적 끌어서 놓기 저작 환경을 제공합니다. 
+Azure Machine Learning은 기계 학습 및 AI 모델을 만들고 테스트, 관리 및 배포할 수 있는 완전히 관리되는 Azure 서비스입니다. 서비스 및 다운로드 가능 애플리케이션은 클라우드, 온-프레미스 및 Edge를 이용하여 처리 능력, 속도 및 유연성을 가진 학습, 배포, 관리 및 모니터링을 제공하는 코드 우선 방식을 제공합니다. 또는 Azure Machine Learning Studio는 코딩이 필요하지 않은 브라우저 기반의 시각적 끌어서 놓기 저작 환경을 제공합니다. 
 
 ## <a name="general-product-questions"></a>일반적인 제품 질문
 

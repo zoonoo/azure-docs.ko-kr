@@ -23,7 +23,7 @@ ms.locfileid: "52870574"
 
 **데이터 종속 라우팅** 은 쿼리에서 데이터를 사용하여 적절한 데이터베이스로 요청을 라우트하는 기능입니다. 데이터 종속 라우팅은 분할된 데이터베이스를 사용할 때의 기본 패턴입니다. 요청 컨텍스트는 특히 분할 키가 쿼리의 일부가 아닌 경우 요청을 라우트하는 데 사용될 수도 있습니다. 데이터 종속 라우팅을 사용하는 응용 프로그램의 각 특정 쿼리 또는 트랜잭션은 요청당 단일 데이터베이스에 액세스하는 것으로 제한됩니다. Azure SQL Database 탄력적 도구의 경우 이 라우팅은 **ShardMapManager**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) 클래스를 통해 수행됩니다.
 
-응용 프로그램에서는 다양한 연결 문자열 또는 분할된 환경의 여러 데이터 조각과 연결된 DB 위치를 추적하지 않아도 됩니다. 대신 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md) 에서 필요한 경우 분할된 데이터베이스 맵의 데이터 및 응용 프로그램의 요청 대상인 분할 키의 값에 따라 올바른 데이터베이스에 연결을 엽니다. 이 키는 일반적으로 *customer_id*, *tenant_id*, *date_key* 또는 데이터베이스 요청의 기본 매개 변수인 별도의 특정 식별자입니다. 
+응용 프로그램에서는 다양한 연결 문자열 또는 분할된 환경의 여러 데이터 조각과 연결된 DB 위치를 추적하지 않아도 됩니다. 대신 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md) 에서 필요한 경우 분할된 데이터베이스 맵의 데이터 및 애플리케이션의 요청 대상인 분할 키의 값에 따라 올바른 데이터베이스에 연결을 엽니다. 이 키는 일반적으로 *customer_id*, *tenant_id*, *date_key* 또는 데이터베이스 요청의 기본 매개 변수인 별도의 특정 식별자입니다. 
 
 자세한 내용은 [Scaling Out SQL Server with Data Dependent Routing](https://technet.microsoft.com/library/cc966448.aspx)(데이터 종속 라우팅을 사용하여 SQL Server 크기 조정)을 참조하세요.
 
@@ -109,7 +109,7 @@ using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, Co
 응용 프로그램에서 비동기 프로그래밍을 사용하는 경우 **OpenConnectionForKeyAsync 메서드**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._list_shard_mapper.openconnectionforkeyasync), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx))도 사용할 수 있습니다.
 
 ## <a name="integrating-with-transient-fault-handling"></a>일시적인 오류 처리와 통합
-클라우드에서 데이터 액세스 응용 프로그램을 개발할 경우 일시적인 오류는 앱을 통해 catch하고 오류를 throw하기 전에 작업이 여러 번 다시 시도되는지 확인하는 것이 가장 좋습니다. 클라우드 응용 프로그램에 대한 일시적인 오류 처리는 일시적인 오류 처리([Java](/java/api/com.microsoft.azure.elasticdb.core.commons.transientfaulthandling), [.NET](https://msdn.microsoft.com/library/dn440719\(v=pandp.60\).aspx))에서 설명합니다. 
+클라우드에서 데이터 액세스 애플리케이션을 개발할 경우 일시적인 오류는 앱을 통해 catch하고 오류를 throw하기 전에 작업이 여러 번 다시 시도되는지 확인하는 것이 가장 좋습니다. 클라우드 응용 프로그램에 대한 일시적인 오류 처리는 일시적인 오류 처리([Java](/java/api/com.microsoft.azure.elasticdb.core.commons.transientfaulthandling), [.NET](https://msdn.microsoft.com/library/dn440719\(v=pandp.60\).aspx))에서 설명합니다. 
 
 일시적인 오류 처리는 데이터 종속 라우팅 패턴과 함께 자연스럽게 사용할 수 있습니다. 주요 요구 사항은 데이터 종속 라우팅 연결을 가져온 **using** 블록을 포함하여 전체 데이터 액세스 요청을 다시 시도하는 것입니다. 위의 예제는 다음과 같이 다시 작성할 수 있습니다. 
 

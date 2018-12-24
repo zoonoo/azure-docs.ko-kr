@@ -87,4 +87,4 @@ PowerShell cmdlet을 사용하여 서비스 패브릭 응용 프로그램을 업
 </Policies>
 ```
 ## <a name="next-steps"></a>다음 단계
-응용 프로그램을 업그레이드하는 방법에 대한 자세한 내용은 [Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
+애플리케이션을 업그레이드하는 방법에 대한 자세한 내용은 [Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)를 참조하세요.

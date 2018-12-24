@@ -81,7 +81,7 @@ YARN UI를 사용하여 현재 Spark 클러스터에서 실행 중인 응용 프
     ![서비스 다시 시작](./media/apache-spark-resource-manager/restart-services.png)
 
 ### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Jupyter notebook에서 실행 중인 응용 프로그램에 대한 매개 변수 변경
-Jupyter notebook에서 실행 중인 응용 프로그램의 경우 `%%configure` magic을 사용하여 구성을 변경할 수 있습니다. 이상적으로 첫 번째 코드 셀을 실행하기 전에 응용 프로그램의 시작 부분에 이를 변경해야 합니다. 이렇게 하면 구성이 생성된 경우 Livy 세션에 적용됩니다. 응용 프로그램의 이후 단계에서 구성을 변경하려는 경우 `-f` 매개 변수를 사용해야 합니다. 그러나 이렇게 하면 응용 프로그램의 모든 진행률이 손실됩니다.
+Jupyter notebook에서 실행 중인 애플리케이션의 경우 `%%configure` magic을 사용하여 구성을 변경할 수 있습니다. 이상적으로 첫 번째 코드 셀을 실행하기 전에 응용 프로그램의 시작 부분에 이를 변경해야 합니다. 이렇게 하면 구성이 생성된 경우 Livy 세션에 적용됩니다. 애플리케이션의 이후 단계에서 구성을 변경하려는 경우 `-f` 매개 변수를 사용해야 합니다. 그러나 이렇게 하면 응용 프로그램의 모든 진행률이 손실됩니다.
 
 다음 코드 조각에서는 Jupyter에서 실행 중인 응용 프로그램에 대한 구성을 변경하는 방법을 보여줍니다.
 
@@ -91,7 +91,7 @@ Jupyter notebook에서 실행 중인 응용 프로그램의 경우 `%%configure`
 구성 매개 변수는 JSON 문자열로 전달되어야 하며, 아래 예제 열과 같이 매직 뒤의 다음 줄에 있어야 합니다.
 
 ### <a name="change-the-parameters-for-an-application-submitted-using-spark-submit"></a>spark-submit를 사용하여 제출된 응용 프로그램에 대한 매개 변수 변경
-다음 명령은 `spark-submit`을 사용하여 제출된 배치 응용 프로그램에 대한 구성 매개 변수를 변경하는 방법의 예제입니다.
+다음 명령은 `spark-submit`을 사용하여 제출된 배치 애플리케이션에 대한 구성 매개 변수를 변경하는 방법의 예제입니다.
 
     spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
 

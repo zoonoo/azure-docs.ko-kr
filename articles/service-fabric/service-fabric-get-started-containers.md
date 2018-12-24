@@ -129,7 +129,7 @@ REPOSITORY                    TAG                 IMAGE ID            CREATED   
 helloworldapp                 latest              8ce25f5d6a79        2 minutes ago       10.4 GB
 ```
 
-## <a name="run-the-application-locally"></a>로컬에서 응용 프로그램 실행
+## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 컨테이너 레지스트리를 푸시하기 전에 먼저 로컬에서 이미지를 확인합니다. 
 
 응용 프로그램을 실행합니다.

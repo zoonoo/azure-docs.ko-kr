@@ -19,7 +19,7 @@ ms.locfileid: "29178199"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드 만들기
 
-각각이 다른 리소스 그룹 및 구독에서 여러 Azure 리소스의 데이터를 시각화하는 타일을 포함하는 여러 대시보드를 Azure Portal에서 만들 수 있습니다.  Azure Application Insights에서 서로 다른 차트 및 보기를 고정하여 응용 프로그램의 상태 및 성능의 전체 그림을 제공하는 사용자 지정 대시보드를 만들 수 있습니다.  이 자습서에서는 Azure Application Insights에서 여러 유형의 데이터 및 시각화를 포함하는 사용자 지정 대시보드를 만드는 과정을 안내합니다.  다음 방법에 대해 알아봅니다.
+각각이 다른 리소스 그룹 및 구독에서 여러 Azure 리소스의 데이터를 시각화하는 타일을 포함하는 여러 대시보드를 Azure Portal에서 만들 수 있습니다.  Azure Application Insights에서 서로 다른 차트 및 보기를 고정하여 애플리케이션의 상태 및 성능의 전체 그림을 제공하는 사용자 지정 대시보드를 만들 수 있습니다.  이 자습서에서는 Azure Application Insights에서 여러 유형의 데이터 및 시각화를 포함하는 사용자 지정 대시보드를 만드는 과정을 안내합니다.  다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure에서 사용자 지정 대시보드 만들기
@@ -40,7 +40,7 @@ ms.locfileid: "29178199"
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-new-dashboard"></a>새 대시보드 만들기
-단일 대시보드는 여러 응용 프로그램, 리소스 그룹 및 구독에서 리소스를 포함할 수 있습니다.  응용 프로그램에 대한 새 대시보드를 만들어서 자습서를 시작합니다.  
+단일 대시보드는 여러 애플리케이션, 리소스 그룹 및 구독에서 리소스를 포함할 수 있습니다.  애플리케이션에 대한 새 대시보드를 만들어서 자습서를 시작합니다.  
 
 2.  포털의 주 화면에서 **새 대시보드**를 선택합니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "29178199"
 
 
 ## <a name="add-health-overview"></a>상태 추가 개요
-정적 텍스트만이 있는 대시보드는 그다지 흥미롭지 않으므로 이제 Application Insights에서 타일을 추가하여 응용 프로그램에 대한 정보를 표시합니다.  타일 갤러리에서 Application Insights 타일을 추가하거나 Application Insights 화면에서 직접 고정할 수 있습니다.  이를 통해 익숙한 차트 및 보기를 대시보드에 고정하기 전에 해당 내용을 구성할 수 있습니다.  응용 프로그램에 대한 표준 상태 개요를 추가하여 시작합니다.  구성이 필요하지 않으며 대시보드에 최소한의 사용자 지정을 허용합니다.
+정적 텍스트만이 있는 대시보드는 그다지 흥미롭지 않으므로 이제 Application Insights에서 타일을 추가하여 애플리케이션에 대한 정보를 표시합니다.  타일 갤러리에서 Application Insights 타일을 추가하거나 Application Insights 화면에서 직접 고정할 수 있습니다.  이를 통해 익숙한 차트 및 보기를 대시보드에 고정하기 전에 해당 내용을 구성할 수 있습니다.  애플리케이션에 대한 표준 상태 개요를 추가하여 시작합니다.  구성이 필요하지 않으며 대시보드에 최소한의 사용자 지정을 허용합니다.
 
 
 1. Azure 메뉴에서 **Application Insights**를 선택한 다음 응용 프로그램을 선택합니다.

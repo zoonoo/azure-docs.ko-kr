@@ -16,13 +16,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/28/2018
 ms.locfileid: "52499134"
 ---
-# <a name="install-published-application---dataiku-dds"></a>게시된 응용 프로그램 설치 - Dataiku DDS
+# <a name="install-published-application---dataiku-dds"></a>게시된 애플리케이션 설치 - Dataiku DDS
 
-이 문서에서는 Azure HDInsight에 [Dataiku DDS](https://www.dataiku.com/)에서 게시된 [Apache Hadoop](https://hadoop.apache.org/) 애플리케이션을 설치하고 실행하는 방법을 설명합니다. HDInsight 응용 프로그램 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 애플리케이션을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+이 문서에서는 Azure HDInsight에 [Dataiku DDS](https://www.dataiku.com/)에서 게시된 [Apache Hadoop](https://hadoop.apache.org/) 애플리케이션을 설치하고 실행하는 방법을 설명합니다. HDInsight 애플리케이션 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 애플리케이션 목록은 [타사 Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 애플리케이션을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 ## <a name="about-dataiku-dss"></a>Dataiku DSS 정보
 
-Dataiku [DSS(Data Science Studio)](https://www.dataiku.com/dss/features/connectivity/)는 데이터 과학자가 분석 솔루션을 빌드하여 제공할 수 있게 도와주는 공동 작업 데이터 과학 플랫폼입니다. DSS를 HDInsight 응용 프로그램으로 제공하면 데이터 과학을 사용하여 빅 데이터 솔루션을 빌드하고 엔터프라이즈급 및 규모에서 실행할 수 있습니다.
+Dataiku [DSS(Data Science Studio)](https://www.dataiku.com/dss/features/connectivity/)는 데이터 과학자가 분석 솔루션을 빌드하여 제공할 수 있게 도와주는 공동 작업 데이터 과학 플랫폼입니다. DSS를 HDInsight 애플리케이션으로 제공하면 데이터 과학을 사용하여 빅 데이터 솔루션을 빌드하고 엔터프라이즈급 및 규모에서 실행할 수 있습니다.
 
 DSS를 사용하여 데이터를 수집, 준비, 처리하는 완전한 분석 솔루션을 구현할 수 있습니다. 또한 DSS 솔루션은 기계 학습 모델, 시각화 및 조작에 대한 교육과 적용을 포함할 수 있습니다.
 
@@ -38,13 +38,13 @@ DSS를 사용하여 프로젝트를 빌드한 다음, [Apache Hadoop MapReduce](
 * 클러스터 유형: Hadoop, Spark
 * 클러스터 버전: 3.4, 3.5
 
-## <a name="install-the-dataiku-dss-published-application"></a>Dataiku DDS 게시된 응용 프로그램 설치
+## <a name="install-the-dataiku-dss-published-application"></a>Dataiku DDS 게시된 애플리케이션 설치
 
 이 애플리케이션 및 사용 가능한 다른 ISV 애플리케이션을 설치하는 단계별 지침은 [타사 Apache Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요.
 
 ## <a name="launch-dataiku-dss"></a>Dataiku DSS 실행
 
-1. 설치가 끝나면 Azure Portal에서 **설정** 창으로 이동한 다음, **일반** 범주에서 **응용 프로그램**을 클릭하여 클러스터에서 DSS를 실행할 수 있습니다. [설치된 앱] 창에는 설치된 응용 프로그램이 표시됩니다.
+1. 설치가 끝나면 Azure Portal에서 **설정** 창으로 이동한 다음, **일반** 범주에서 **애플리케이션**을 클릭하여 클러스터에서 DSS를 실행할 수 있습니다. [설치된 앱] 창에 설치된 애플리케이션이 나열됩니다.
 
     ![설치된 Dataiku DSS 앱](./media/hdinsight-apps-install-dataiku/app.png)
 

@@ -1750,7 +1750,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                         <li>
                                             <a href="/azure/managed-applications">
                                                 <img src="media/index/i_managed-application.svg" alt="" />
-                                                <p>Azure 관리되는 응용 프로그램</p>
+                                                <p>Azure Managed Applications</p>
                                             </a>
                                         </li>
                                         <li>
@@ -5381,7 +5381,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure 관리되는 응용 프로그램</h3>
+                                                    <h3>Azure Managed Applications</h3>
                                                     <p>클라우드 제품 관리 간소화</p>
                                                 </div>
                                             </div>

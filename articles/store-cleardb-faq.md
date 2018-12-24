@@ -58,7 +58,7 @@ ClearDB는 MySQL 호스팅 서비스이며 MySQL 인프라를 관리합니다. A
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>ClearDB 프리미엄 클러스터 솔루션을 사용하여 데이터베이스를 만들기 전에 새 클러스터를 만들 수 있나요?
 아니요, 빈 ClearDB 클러스터 만들기는 지원되지 않습니다. Azure Portal을 사용하면 클러스터에서 데이터베이스를 만들 수 있으며 동시에 새 클러스터를 만들 수 있습니다.
 
-## <a name="will-i-be-warned-if-i-try-to-delete-a-cleardb-mysql-database-that-is-in-use-by-one-of-my-applications"></a>내 응용 프로그램 중 하나에서 사용 중인 ClearDB MySQL 데이터베이스를 삭제하려고 하면 경고가 표시되나요?
+## <a name="will-i-be-warned-if-i-try-to-delete-a-cleardb-mysql-database-that-is-in-use-by-one-of-my-applications"></a>내 애플리케이션 중 하나에서 사용 중인 ClearDB MySQL 데이터베이스를 삭제하려고 하면 경고가 표시되나요?
 아니요, 응용 프로그램이 사용하고 있는 마켓플레이스 구매 제품을 삭제할 경우 Azure는 경고를 표시하지 않습니다.
 
 ## <a name="which-regions-can-i-create-cleardb-databases-in"></a>어떤 지역에서 ClearDB 데이터베이스를 만들 수 있나요?

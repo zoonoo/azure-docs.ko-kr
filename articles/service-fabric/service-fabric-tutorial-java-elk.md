@@ -1,6 +1,6 @@
 ---
 title: Azure에서 ELK를 사용하여 Service Fabric에서 앱 모니터링 | Microsoft Docs
-description: 이 자습서에서는 ELK를 설정하고 Service Fabric 응용 프로그램을 모니터링 하는 방법에 대해 알아봅니다.
+description: 이 자습서에서는 ELK를 설정하고 Service Fabric 애플리케이션을 모니터링 하는 방법에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -22,15 +22,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/29/2018
 ms.locfileid: "37112506"
 ---
-# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>자습서: ELK를 사용한 Service Fabric 응용 프로그램 모니터링
+# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>자습서: ELK를 사용한 Service Fabric 애플리케이션 모니터링
 
-이 자습서는 시리즈의 4부입니다. 여기서는 ELK(Elasticsearch, Logstash 및 Kibana)를 사용하여 Azure에서 실행하는 Service Fabric 응용 프로그램을 모니터링하는 방법을 설명합니다.
+이 자습서는 시리즈의 4부입니다. 여기서는 ELK(Elasticsearch, Logstash 및 Kibana)를 사용하여 Azure에서 실행하는 Service Fabric 애플리케이션을 모니터링하는 방법을 설명합니다.
 
 시리즈 4부에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * Azure에 ELK 서버 설정
 > * Event Hubs에서 로그를 수신할 Logstash 구성
-> * Kibana에서 플랫폼 및 응용 프로그램 로그 시각화
+> * Kibana에서 플랫폼 및 애플리케이션 로그 시각화
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]

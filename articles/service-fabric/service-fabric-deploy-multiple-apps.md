@@ -1,5 +1,5 @@
 ---
-title: MongoDB를 사용하는 Node.js 응용 프로그램을 Azure Service Fabric에 배포 | Microsoft Docs
+title: MongoDB를 사용하는 Node.js 애플리케이션을 Azure Service Fabric에 배포 | Microsoft Docs
 description: 여러 게스트 실행 파일을 패키지하여 Azure 서비스 패브릭 클러스터에 배포하는 방법에 대한 연습
 services: service-fabric
 documentationcenter: .net

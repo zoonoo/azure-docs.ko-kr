@@ -1,6 +1,6 @@
 ---
-title: Azure Marketplace SaaS 응용 프로그램 기술 게시 가이드
-description: Azure Marketplace에 SaaS 응용 프로그램을 게시하는 단계별 가이드 및 게시 검사 목록
+title: Azure Marketplace SaaS 애플리케이션 기술 게시 가이드
+description: Azure Marketplace에 SaaS 애플리케이션을 게시하는 단계별 가이드 및 게시 검사 목록
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 documentationcenter: ''
 author: keithcharlie
@@ -67,7 +67,7 @@ SaaS 응용 프로그램을 나열하도록 Azure Active Directory를 구성할 
 
 ## <a name="saas-trial-technical-requirements"></a>SaaS 평가판 기술 요구 사항
 
-SaaS 응용 프로그램에 대한 기술 요구 사항은 간단합니다. 게시할 Azure AD(Azure Active Directory)와 게시자가 통합되기만 하면 됩니다. Azure AD와 응용 프로그램의 통합은 문서화가 잘 되어있으며 이를 위해 Microsoft는 다수의 SDK와 리소스가 제공됩니다.  
+SaaS 애플리케이션에 대한 기술 요구 사항은 간단합니다. 게시할 Azure AD(Azure Active Directory)와 게시자가 통합되기만 하면 됩니다. Azure AD와 애플리케이션의 통합은 문서화가 잘 되어있으며 이를 위해 Microsoft는 다수의 SDK와 리소스가 제공됩니다.  
 
 시작하려면 다른 이니셔티브와 작업을 격리할 수 있도록 Azure Marketplace 게시 전용 구독을 마련하는 것이 좋습니다. 이 작업이 완료되면 이 구독에서 SaaS 응용 프로그램을 배포하기 시작하여 개발 작업을 시작할 수 있습니다.  
 

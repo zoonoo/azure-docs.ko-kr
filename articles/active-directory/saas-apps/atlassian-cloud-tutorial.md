@@ -141,7 +141,7 @@ Atlassian Cloud에서 Azure AD Single Sign-on을 구성하려면 다음을 수�
 
     ![Atlassian Cloud 구성](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_configure.png)
 
-10. 응용 프로그램에 SSO를 구성하려면 관리자 자격 증명을 사용하여 Atlassian Portal에 로그인합니다.
+10. 애플리케이션에 SSO를 구성하려면 관리자 자격 증명을 사용하여 Atlassian Portal에 로그인합니다.
 
 11. Single Sign-On을 구성하기 전에 도메인을 확인해야 합니다. 자세한 내용은 [Atlassian 도메인 확인](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) 문서를 참조하세요.
 

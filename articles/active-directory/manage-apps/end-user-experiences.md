@@ -38,7 +38,7 @@ https://myapps.microsoft.com의 액세스 패널은 최종 사용자가 Azure Ac
 Azure AD 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="office-365-application-launcher"></a>Office 365 응용 프로그램 실행 프로그램
-Office 365를 배포한 조직에서 Azure AD를 통해 사용자에게 할당된 응용 프로그램은 Office 365 포털(https://portal.office.com/myapps)에도 표시됩니다. 이렇게 하면 조직의 사용자가 두 번째 포털을 사용하지 않고도 해당 앱을 쉽고 편리하게 시작할 수 있으므로 Office 365를 사용하는 조직에 권장되는 앱 시작 솔루션입니다.
+Office 365를 배포한 조직에서 Azure AD를 통해 사용자에게 할당된 애플리케이션은 Office 365 포털(https://portal.office.com/myapps)에도 표시됩니다. 이렇게 하면 조직의 사용자가 두 번째 포털을 사용하지 않고도 해당 앱을 쉽고 편리하게 시작할 수 있으므로 Office 365를 사용하는 조직에 권장되는 앱 시작 솔루션입니다.
 
 ![](./media/what-is-single-sign-on/officeapphub.png)
 

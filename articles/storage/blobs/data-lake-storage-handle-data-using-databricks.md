@@ -19,7 +19,7 @@ ms.locfileid: "52974186"
 
 이 자습서에서는 Azure Databricks를 사용하여 Azure Data Lake Storage Gen2가 설정된 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이터를 이동하는 ETL(추출, 변환 및 데이터 로드) 작업을 수행합니다.
 
-다음 그림에서는 응용 프로그램 흐름을 보여줍니다.
+다음 그림에서는 애플리케이션 흐름을 보여줍니다.
 
 ![Azure Databricks를 Data Lake Storage Gen2 및 SQL Data Warehouse와 함께 사용](./media/data-lake-storage-handle-data-using-databricks/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks를 Data Lake Storage Gen2 및 SQL Data Warehouse와 함께 사용")
 

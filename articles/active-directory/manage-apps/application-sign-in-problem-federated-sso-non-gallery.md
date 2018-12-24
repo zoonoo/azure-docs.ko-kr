@@ -34,7 +34,7 @@ ms.locfileid: "44355437"
 
 ## <a name="application-not-found-in-directory"></a>응용 프로그램을 디렉터리에서 찾을 수 없습니다
 
-*오류 AADSTS70001: ‘ https://contoso.com’ 식별자를 가진 응용 프로그램이 디렉터리에 없습니다*.
+*오류 AADSTS70001: ‘https://contoso.com’ 식별자를 가진 응용 프로그램이 디렉터리에 없습니다*.
 
 **가능한 원인**
 
@@ -50,7 +50,7 @@ SAML 요청의 발급자 특성이 Azure AD에서 구성된 식별자 값과 일
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
+4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
@@ -58,7 +58,7 @@ SAML 요청의 발급자 특성이 Azure AD에서 구성된 식별자 값과 일
 
 6.  Single Sign-On을 구성하려는 응용 프로그램을 선택합니다.
 
-7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
+7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
 8.  <span id="_Hlk477190042" class="anchor"></span>**도메인 및 URL** 섹션으로 이동합니다. 식별자 텍스트 상자의 값이 오류 메시지에 표시되는 식별자 값과 일치하는지 확인합니다.
 
@@ -66,7 +66,7 @@ Azure AD에서 식별자 값을 업데이트하고 SAML 요청에서 응용 프�
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>회신 주소가 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다. 
 
-*오류 AADSTS50011: 회신 주소 ‘ https://contoso.com’이 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다.* 
+*오류 AADSTS50011: 회신 주소 ‘https://contoso.com’이 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다.* 
 
 **가능한 원인** 
 
@@ -82,7 +82,7 @@ SAML 요청에서 AssertionConsumerServiceURL 값이 Azure AD에 구성된 회�
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다. 
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다. 
+4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다. 
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다. 
 
@@ -90,7 +90,7 @@ SAML 요청에서 AssertionConsumerServiceURL 값이 Azure AD에 구성된 회�
   
 6.  Single Sign-On을 구성하려는 응용 프로그램을 선택합니다.
 
-7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
+7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
 8.  **도메인 및 URL** 섹션으로 이동합니다. SAML 요청에 있는 AssertionConsumerServiceURL 값과 일치하도록 회신 URL 텍스트 상자의 값을 확인하고 업데이트합니다.
 
@@ -116,7 +116,7 @@ Azure AD에서 회신 URL 값을 업데이트하고 SAML 요청에서 응용 프
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
+4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
@@ -124,7 +124,7 @@ Azure AD에서 회신 URL 값을 업데이트하고 SAML 요청에서 응용 프
 
 6.  목록에서 사용자를 할당하려는 응용 프로그램을 선택합니다.
 
-7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
 8.  **사용자 및 그룹** 목록의 맨 위에서 **추가** 단추를 클릭하여 **할당 추가** 창을 엽니다.
 
@@ -186,7 +186,7 @@ Single Sign-On에 Azure AD SAML 구현을 지원하는지 유효성을 검사해
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
+4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
@@ -218,7 +218,7 @@ Single Sign-On에 Azure AD SAML 구현을 지원하는지 유효성을 검사해
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
+4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
@@ -226,7 +226,7 @@ Single Sign-On에 Azure AD SAML 구현을 지원하는지 유효성을 검사해
 
 6.  Single Sign-On을 구성하려는 응용 프로그램을 선택합니다.
 
-7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
+7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
 8.  **SAML 서명 인증서** 섹션에서 **새 인증서 만들기**를 클릭합니다.
 

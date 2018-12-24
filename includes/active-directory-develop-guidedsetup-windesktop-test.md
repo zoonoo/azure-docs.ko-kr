@@ -23,13 +23,13 @@ ms.locfileid: "50035170"
 ---
 ## <a name="test-your-code"></a>코드 테스트
 
-**F5**를 선택하여 Visual Studio에서 프로젝트를 실행합니다. 응용 프로그램 **MainWindow**는 다음과 같이 표시됩니다.
+**F5**를 선택하여 Visual Studio에서 프로젝트를 실행합니다. 애플리케이션 **MainWindow**는 다음과 같이 표시됩니다.
 
 ![응용 프로그램 테스트](./media/active-directory-develop-guidedsetup-windesktop-test/samplescreenshot.png)
 
-처음으로 응용 프로그램을 실행하여 **Call Microsoft Graph API** 단추를 선택하는 것이라면 로그인하라는 메시지가 표시됩니다. Azure Active Directory 계정(회사 또는 학교 계정) 또는 Microsoft 계정(live.com, outlook.com)을 사용해 테스트합니다.
+처음으로 애플리케이션을 실행하여 **Call Microsoft Graph API** 단추를 선택하는 것이라면 로그인하라는 메시지가 표시됩니다. Azure Active Directory 계정(회사 또는 학교 계정) 또는 Microsoft 계정(live.com, outlook.com)을 사용해 테스트합니다.
 
-![응용프로그램에 로그인합니다.](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
+![애플리케이션에 로그인합니다.](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
 
 ### <a name="provide-consent-for-application-access"></a>응용 프로그램 액세스에 대한 동의 제공
 

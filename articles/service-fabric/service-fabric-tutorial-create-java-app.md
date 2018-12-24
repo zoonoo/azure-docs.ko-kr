@@ -24,7 +24,7 @@ ms.locfileid: "43667220"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>자습서: Service Fabric에서 Java 웹 API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 응용 프로그램 만들기
 
-이 자습서는 시리즈의 1부입니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 Voting 응용 프로그램이 생깁니다. 이 자습서 시리즈는 작업 중인 Linux 또는 Mac OSX 개발자 컴퓨터가 있어야 합니다. 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-java-quickstart)하고 [투표 샘플 응용 프로그램을 설명](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)하기 위해 바로 건너뛸 수 있습니다.
+이 자습서는 시리즈의 1부입니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 Voting 애플리케이션이 생깁니다. 이 자습서 시리즈는 작업 중인 Linux 또는 Mac OSX 개발자 컴퓨터가 있어야 합니다. 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-java-quickstart)하고 [투표 샘플 응용 프로그램을 설명](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)하기 위해 바로 건너뛸 수 있습니다.
 
 ![로컬 Voting 앱](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
@@ -34,11 +34,11 @@ ms.locfileid: "43667220"
 > * Java 상태 저장 신뢰할 수 있는 서비스 만들기
 > * Java 상태 비저장 웹 응용 프로그램 서비스 만들기
 > * 원격 서비스를 사용하여 상태 저장 서비스와 통신
-> * 로컬 Service Fabric 클러스터에 응용 프로그램 배포
+> * 로컬 Service Fabric 클러스터에 애플리케이션 배포
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Java Service Fabric Reliable Services 응용 프로그램 빌드
+> * Java Service Fabric Reliable Services 애플리케이션 빌드
 > * [로컬 클러스터에서 응용 프로그램 배포 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
 > * [Azure 클러스터에 응용 프로그램 배포](service-fabric-tutorial-java-deploy-azure.md)
 > * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
@@ -76,8 +76,8 @@ ms.locfileid: "43667220"
 테이블은 이전 스크린샷에서 패키지 탐색기의 각 항목에 대한 간단한 설명을 제공합니다. 
 | **패키지 탐색기 항목** | **설명** |
 | --- | --- |
-| PublishProfiles | 로컬 및 Azure Service Fabric 클러스터의 프로필 세부 정보를 설명하는 JSON 파일을 포함합니다. 이러한 파일의 내용은 응용 프로그램을 배포하는 경우 플러그 인에서 사용합니다. |
-| 스크립트 | 클러스터를 사용하여 응용 프로그램을 신속하게 관리하려면 명령줄에서 사용될 수 있는 도우미 스크립트를 포함합니다. |
+| PublishProfiles | 로컬 및 Azure Service Fabric 클러스터의 프로필 세부 정보를 설명하는 JSON 파일을 포함합니다. 이러한 파일의 내용은 애플리케이션을 배포하는 경우 플러그 인에서 사용합니다. |
+| 스크립트 | 클러스터를 사용하여 애플리케이션을 신속하게 관리하려면 명령줄에서 사용될 수 있는 도우미 스크립트를 포함합니다. |
 | VotingApplication | Service Fabric 클러스터에 밀어넣은 Service Fabric 응용 프로그램을 포함합니다. |
 | VotingWeb | 관련 Gradle 빌드 파일과 함께 프런트 엔드 상태 비저장 서비스 소스 파일을 포함합니다. |
 | build.gradle | 프로젝트를 관리하는 데 사용되는 Gradle 파일입니다. |
@@ -718,7 +718,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 ![응용 프로그램 다이어그램](./media/service-fabric-tutorial-create-java-app/walkthroughjavavoting.png)
 
-응용 프로그램에서 작업을 수행하는 경우(항목 추가, 투표, 항목 제거) 다음 이벤트가 발생합니다.
+애플리케이션에서 작업을 수행하는 경우(항목 추가, 투표, 항목 제거) 다음 이벤트가 발생합니다.
 1. JavaScript가 적절한 요청을 웹 프런트 엔드 서비스의 Web API에 HTTP 요청으로 보냅니다.
 
 2. 웹 프런트 엔드 서비스는 백 엔드 서비스에 대한 요청을 찾아 전달하기 위해 Service Fabric의 기본 제공 원격 서비스 기능을 사용합니다. 
@@ -916,7 +916,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 > * Java 서비스를 상태 비저장 신뢰할 수 있는 서비스로 만들기
 > * 서비스 간 원격 프로시저 호출(RPC)을 처리하려면 Java 인터페이스 추가
 > * Gradle 스크립트 구성
-> * 로컬 Service Fabric 클러스터에 응용 프로그램 빌드 및 배포
+> * 로컬 Service Fabric 클러스터에 애플리케이션 빌드 및 배포
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]

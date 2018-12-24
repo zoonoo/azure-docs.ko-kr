@@ -251,7 +251,7 @@ Remove-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <r
 
 새 풀을 만들 때 배포에 하나 이상의 응용 프로그램 패키지를 지정할 수 있습니다. 풀을 만들 때 패키지를 지정하는 경우 노드가 풀에 조인하면 각 노드에 배포됩니다. 패키지는 노드를 다시 부팅하거나 이미지로 다시 설치하는 경우에 배포됩니다.
 
-풀에 참가하면서 풀의 노드에 응용 프로그램 패키지를 배포하도록 풀을 만들 때 `-ApplicationPackageReference` 옵션을 지정합니다. 먼저 **PSApplicationPackageReference** 개체를 만들고 이 개체를 풀의 계산 노드에 배포하려는 응용 프로그램 ID 및 패키지 버전으로 구성:
+풀에 참가하면서 풀의 노드에 응용 프로그램 패키지를 배포하도록 풀을 만들 때 `-ApplicationPackageReference` 옵션을 지정합니다. 먼저 **PSApplicationPackageReference** 개체를 만들고 이 개체를 풀의 계산 노드에 배포하려는 애플리케이션 ID 및 패키지 버전으로 구성:
 
 ```PowerShell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
@@ -306,7 +306,7 @@ Get-AzureBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | 
 ```
 
 > [!TIP]
-> 여러 응용 프로그램 패키지를 풀의 계산 노드에 배포할 수 있습니다. 현재 배포된 패키지를 교체하는 대신 응용 프로그램 패키지를 *추가*하고자 하는 경우 위의 `$pool.ApplicationPackageReferences.Clear()` 줄을 생략합니다.
+> 여러 응용 프로그램 패키지를 풀의 계산 노드에 배포할 수 있습니다. 현재 배포된 패키지를 교체하는 대신 애플리케이션 패키지를 *추가*하고자 하는 경우 위의 `$pool.ApplicationPackageReferences.Clear()` 줄을 생략합니다.
 > 
 > 
 

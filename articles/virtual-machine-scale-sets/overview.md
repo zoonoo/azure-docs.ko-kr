@@ -1,6 +1,6 @@
 ---
 title: Azure 가상 머신 확장 집합 개요 | Microsoft Docs
-description: Azure 가상 머신 확장 집합 및 응용 프로그램의 크기를 자동으로 조정하는 방법을 알아봅니다.
+description: Azure 가상 머신 확장 집합 및 애플리케이션의 크기를 자동으로 조정하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar

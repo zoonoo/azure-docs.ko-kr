@@ -44,7 +44,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서�
 
 네트워크 보안 그룹은 보안 규칙을 포함합니다. 보안 규칙은 원본 및 대상을 지정합니다. 원본 및 대상은 응용 프로그램 보안 그룹이 될 수 있습니다.
 
-### <a name="create-application-security-groups"></a>응용 프로그램 보안 그룹 만들기
+### <a name="create-application-security-groups"></a>애플리케이션 보안 그룹 만들기
 
 먼저 [az group create](/cli/azure/group#az_group_create)로 이 문서에서 만든 모든 리소스에 대한 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 리소스 그룹을 만듭니다. 
 
@@ -54,7 +54,7 @@ az group create \
   --location eastus
 ```
 
-[az network asg create](/cli/azure/network/asg#az_network_asg_create)로 응용 프로그램 보안 그룹을 만듭니다. 응용 프로그램 보안 그룹을 사용하면 유사한 포트 필터링 요구 사항을 갖는 서버를 그룹화할 수 있습니다. 다음 예제에서는 두 응용 프로그램 보안 그룹을 만듭니다.
+[az network asg create](/cli/azure/network/asg#az_network_asg_create)로 응용 프로그램 보안 그룹을 만듭니다. 애플리케이션 보안 그룹을 사용하면 유사한 포트 필터링 요구 사항을 갖는 서버를 그룹화할 수 있습니다. 다음 예제에서는 두 애플리케이션 보안 그룹을 만듭니다.
 
 ```azurecli-interactive
 az network asg create \
@@ -81,7 +81,7 @@ az network nsg create \
 
 ### <a name="create-security-rules"></a>보안 규칙 만들기
 
-[az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 보안 규칙을 만듭니다. 다음 예제에서는 포트 80 및 443을 통해 인터넷에서 *myWebServers* 응용 프로그램 보안 그룹으로 가는 트래픽을 허용하는 규칙을 만듭니다.
+[az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 보안 규칙을 만듭니다. 다음 예제에서는 포트 80 및 443을 통해 인터넷에서 *myWebServers* 애플리케이션 보안 그룹으로 가는 트래픽을 허용하는 규칙을 만듭니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -98,7 +98,7 @@ az network nsg rule create \
   --destination-port-range 80 443
 ```
 
-다음 예제에서는 포트 22를 통해 인터넷에서 *myMgmtServers* 응용 프로그램 보안 그룹으로 가는 트래픽을 허용하는 규칙을 만듭니다.
+다음 예제에서는 포트 22를 통해 인터넷에서 *myMgmtServers* 애플리케이션 보안 그룹으로 가는 트래픽을 허용하는 규칙을 만듭니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -204,7 +204,7 @@ ssh azureuser@<publicIpAddress>
 
 암호를 입력하라는 메시지가 표시되면 [VM 만들기](#create-virtual-machines)에서 입력한 암호를 입력합니다.
 
-포트 22는 *myAsgMgmtServers* VM에 연결된 네트워크 인터페이스가 In인 *myVmMgmt* 응용 프로그램 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
+포트 22는 *myAsgMgmtServers* VM에 연결된 네트워크 인터페이스가 In인 *myVmMgmt* 애플리케이션 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
 
 *myVmMgmt* VM에서 *myVmWeb* VM으로 SSH하려면 다음 명령을 사용합니다.
 
@@ -230,7 +230,7 @@ sudo apt-get -y install nginx
 curl myVmWeb
 ```
 
-*myVmMgmt* VM에서 로그아웃합니다. Azure 외부에서 *myVmWeb* 웹 서버에 액세스할 수 있는지 확인하기 위해 자신의 컴퓨터에서 `curl <publicIpAddress>`를 입력합니다. 포트 80은 *myVmWeb* VM에 연결된 네트워크 인터페이스가 In인 *myAsgWebServers* 응용 프로그램 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
+*myVmMgmt* VM에서 로그아웃합니다. Azure 외부에서 *myVmWeb* 웹 서버에 액세스할 수 있는지 확인하기 위해 자신의 컴퓨터에서 `curl <publicIpAddress>`를 입력합니다. 포트 80은 *myVmWeb* VM에 연결된 네트워크 인터페이스가 In인 *myAsgWebServers* 애플리케이션 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

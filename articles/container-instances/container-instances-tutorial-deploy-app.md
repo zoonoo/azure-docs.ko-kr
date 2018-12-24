@@ -23,7 +23,7 @@ ms.locfileid: "53191108"
 
 > [!div class="checklist"]
 > * Azure Container Registry에서 Azure Container Instances에 컨테이너 배포
-> * 브라우저에서 실행 중인 응용 프로그램 보기
+> * 브라우저에서 실행 중인 애플리케이션 보기
 > * 컨테이너의 로그 표시
 
 ## <a name="before-you-begin"></a>시작하기 전에

@@ -21,13 +21,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2018
 ms.locfileid: "52291269"
 ---
-# <a name="application-logging"></a>응용 프로그램 로깅
+# <a name="application-logging"></a>애플리케이션 로깅
 
 코드를 계측하는 것은 사용자에 대한 인사이트를 얻는 방법일 뿐만 아니라 애플리케이션에 문제가 있는지 여부도 알 수 있고 수정해야 할 항목을 진단할 수 있는 방법입니다. 기술적으로 디버거를 프로덕션 서비스에 연결할 수도 있지만 일반적인 방법은 아닙니다. 따라서 자세한 계측 데이터를 갖는 것이 중요합니다.
 
 일부 제품은 자동으로 코드를 계측합니다. 이러한 솔루션이 제대로 작동할 수 있지만, 수동 계측은 거의 항상 비즈니스 논리에 맞게 수행되어야 합니다. 결국 응용 프로그램을 과학 수사 방식으로 디버그하는 데 필요한 정보가 충분히 있어야 합니다. Service Fabric 애플리케이션은 모든 로깅 프레임워크를 통해 계측할 수 있습니다. 이 문서에서는 코드를 계측하는 몇 가지 다른 방법과 다른 방법 중 하나를 선택하는 경우에 대해 설명합니다. 
 
-이러한 제안을 사용하는 방법에 대한 예제는 [Service Fabric 응용 프로그램에 로깅 추가](service-fabric-how-to-diagnostics-log.md)를 참조하세요.
+이러한 제안을 사용하는 방법에 대한 예제는 [Service Fabric 애플리케이션에 로깅 추가](service-fabric-how-to-diagnostics-log.md)를 참조하세요.
 
 ## <a name="application-insights-sdk"></a>Application Insights SDK
 

@@ -51,7 +51,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 
 1. PySpark 커널을 사용하여 Jupyter 노트북을 만듭니다. 자세한 지침은 [Jupyter 노트북 만들기](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)를 참조하세요.
 
-2. 이 응용 프로그램에 필요한 형식을 가져옵니다. 빈 셀에 다음 코드를 복사하여 붙여넣은 다음, **SHIRT + ENTER** 키를 누릅니다.
+2. 이 애플리케이션에 필요한 형식을 가져옵니다. 빈 셀에 다음 코드를 복사하여 붙여넣은 다음, **SHIRT + ENTER** 키를 누릅니다.
 
     ```PySpark
     from pyspark.ml import Pipeline

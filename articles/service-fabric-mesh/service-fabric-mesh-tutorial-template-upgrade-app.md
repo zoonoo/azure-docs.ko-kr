@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c82e0cd5bd6a15ff33f51b4e88f68c13080f595d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f617be79cb61932f79728feef76f056ce72ae0ab
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967968"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891132"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>자습서: Service Fabric Mesh에서 실행되는 Service Fabric 응용 프로그램 업그레이드
 
-이 자습서는 시리즈의 3부입니다. 할당된 CPU 리소스를 늘려서 [Service Fabric Mesh에 이전에 배포한](service-fabric-mesh-tutorial-template-deploy-app.md) Service Fabric 응용 프로그램을 업그레이드하는 방법을 알아봅니다.  이 과정을 완료하면 늘어난 CPU 리소스로 실행되는 웹 프런트 엔드 서비스를 갖게 됩니다.
+이 자습서는 시리즈의 3부입니다. 할당된 CPU 리소스를 늘려서 [Service Fabric Mesh에 이전에 배포한](service-fabric-mesh-tutorial-template-deploy-app.md) Service Fabric 응용 프로그램을 업그레이드하는 방법을 알아봅니다.  이 과정을 완료하면 웹 프런트 엔드 서비스가 늘어난 CPU 리소스로 실행됩니다.
 
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "46967968"
 
 * Azure 구독이 아직 없으면 시작하기 전에 [무료 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
-* [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md)을 열거나 [Azure CLI 및 Service Fabric Mesh CLI를 로컬에 설치](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally)합니다.
+* [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md)을 열거나 [Azure CLI 및 Service Fabric Mesh CLI를 로컬에 설치](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli)합니다.
 
 ## <a name="upgrade-application-configurations"></a>응용 프로그램 구성 업그레이드
 
@@ -119,7 +119,7 @@ WebFrontEnd 서비스 *codePackages->resources->requests->cpu* 속성은 *frontE
               ...
 ```
 
-### <a name="upgrade-your-application"></a>응용 프로그램 업그레이드
+### <a name="upgrade-your-application"></a>애플리케이션 업그레이드
 
 응용 프로그램이 실행되는 동안 템플릿 및 업데이트된 매개 변수 파일을 다시 배포하여 응용 프로그램을 업그레이드할 수 있습니다.
 

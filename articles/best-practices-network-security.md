@@ -240,7 +240,7 @@ Azure와 온-프레미스 네트워크 간에 경계가 필요할 경우 보안 
 * 각 계층에서의 트래픽 허용 또는 거부 방법을 나타내는 상세 트래픽 흐름 시나리오입니다.
 
 
-### <a name="example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs"></a>예제 2: 방화벽 및 NSG로 응용 프로그램을 보호하는 경계 네트워크 빌드
+### <a name="example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs"></a>예제 2: 방화벽 및 NSG로 애플리케이션을 보호하는 경계 네트워크 빌드
 [빠른 시작으로 돌아가기](#fast-start) | [이 예제의 상세 빌드 지침][Example2]
 
 [![8]][8]

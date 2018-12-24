@@ -97,13 +97,13 @@ HTML 로그인 페이지가 있는 웹 응용 프로그램을 만들어서 [암�
 
 ## <a name="updateremove-existing-listing"></a>기존 목록 업데이트/제거
 
-Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 또는 제거하려면 먼저 [응용 프로그램 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps)에서 요청을 제출해야 합니다. Office 365 계정이 있는 경우 이를 사용하여 해당 포털에 로그인합니다. 계정이 없으면 Microsoft 계정(예: Outlook 또는 Hotmail)을 사용하여 로그인합니다.
+Azure AD 앱 갤러리에서 기존 애플리케이션을 업데이트 또는 제거하려면 먼저 [애플리케이션 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps)에서 요청을 제출해야 합니다. Office 365 계정이 있는 경우 이를 사용하여 해당 포털에 로그인합니다. 계정이 없으면 Microsoft 계정(예: Outlook 또는 Hotmail)을 사용하여 로그인합니다.
 
 - 다음 이미지에 표시된 대로 적절한 옵션을 선택합니다.
 
     ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/updateorremove.png)
 
-    * 기존 응용 프로그램을 업데이트하려는 경우 **기존 응용 프로그램 목록 업데이트**를 선택합니다.
+    * 기존 애플리케이션을 업데이트하려는 경우 **기존 애플리케이션 목록 업데이트**를 선택합니다.
     * Azure AD 갤러리에서 기존 응용 프로그램을 제거하려는 경우 **기존 응용 프로그램 목록 제거**를 선택합니다.
     * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요. 
 

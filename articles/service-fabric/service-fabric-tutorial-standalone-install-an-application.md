@@ -41,7 +41,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 * [Visual Studio 2017을 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
-## <a name="download-the-voting-sample-application"></a>투표 응용 프로그램 샘플 다운로드
+## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 샘플 다운로드
 
 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 

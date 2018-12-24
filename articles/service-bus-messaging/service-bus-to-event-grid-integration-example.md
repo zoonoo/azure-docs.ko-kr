@@ -52,7 +52,7 @@ Service Bus 프리미엄 네임스페이스를 만들고 두 개의 구독이 �
 
    ![8][]
 
-1. 토픽 이름과 연결 문자열을 입력하고 다음 콘솔 응용 프로그램 코드를 실행합니다.
+1. 토픽 이름과 연결 문자열을 입력하고 다음 콘솔 애플리케이션 코드를 실행합니다.
 
     ```CSharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
@@ -63,7 +63,7 @@ Service Bus 프리미엄 네임스페이스를 만들고 두 개의 구독이 �
 
 시나리오 전체를 수행하려면 적어도 현재 진행 중인 이벤트를 디버그하고 살펴볼 수 있는 작은 테스트 함수가 필요합니다.
 
-1. Azure Portal에서 새 Azure Functions 응용 프로그램을 만듭니다. Azure 함수의 기본 사항을 알아보려면 [Azure Functions 설명서](https://docs.microsoft.com/azure/azure-functions/)를 참조합니다.
+1. Azure Portal에서 새 Azure Functions 애플리케이션을 만듭니다. Azure 함수의 기본 사항을 알아보려면 [Azure Functions 설명서](https://docs.microsoft.com/azure/azure-functions/)를 참조합니다.
 
 1. 새로 만든 함수에서 더하기 기호(+)를 선택하여 HTTP 트리거 함수를 추가합니다.
 

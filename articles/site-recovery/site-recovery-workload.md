@@ -29,12 +29,12 @@ Site Recovery는 SharePoint, Exchange, Dynamics, SQL Server 및 Active Directory
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>응용 프로그램 복제에 Site Recovery를 사용해야 하는 이유
 
-사이트 복구는 다음과 같이 응용 프로그램 수준 보호 및 복구에 기여합니다.
+사이트 복구는 다음과 같이 애플리케이션 수준 보호 및 복구에 기여합니다.
 
 * 지원되는 컴퓨터에서 실행 중인 모든 워크로드에 복제를 제공하는 앱 중립성.
 * 가장 중요한 비즈니스 앱의 요구를 충족하는 30초의 낮은 RPO를 통한 근거리 동기 복제.
 * 단일 또는 다중 계층 응용 프로그램에 대한 앱 일관성 스냅숏.
-* AD 복제, SQL AlwaysOn, Exchange 데이터베이스 가용성 그룹(DAG) 및 Oracle Data Guard를 포함하는 다른 응용 프로그램 수준 복제 기술을 사용하여 SQL Server AlwaysOn, 파트너쉽과 통합합니다.
+* AD 복제, SQL AlwaysOn, Exchange 데이터베이스 가용성 그룹(DAG) 및 Oracle Data Guard를 포함하는 다른 애플리케이션 수준 복제 기술을 사용하여 SQL Server AlwaysOn, 파트너쉽과 통합합니다.
 * 클릭 한 번으로 전체 응용 프로그램 스택을 복구하고 외부 스크립트 또는 수동 작업을 계획에 포함할 수 있는 유연한 복구.
 * Site Recovery 및 Azure의 고급 네트워크 관리는 낮은 RTO 네트워크 전환을 위해 IP 주소 예약, 부하 분산 장치 구성 및 Azure Traffic Manager와 통합을 포함하는 앱 네트워크 요구 사항을 단순화합니다.
 * 다운로드하고 복구 계획과 통합할 수 있는 프로덕션 준비된 응용 프로그램 특정 스크립트를 제공하는 다양한 자동화 라이브러리입니다.

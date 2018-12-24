@@ -65,7 +65,7 @@ RDP 설정에 구성된 만료 날짜를 바이패스하면 “이 사용자 계
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>내 클라우드 서비스의 기본 URL에 들어오는 트래픽을 사용자 지정 URL로 리디렉션하려면 어떻게 해야 하나요? 
 
-IIS의 URL 다시 쓰기 모듈을 사용하여 클라우드 서비스의 기본 URL(예를 들어 \*.cloudapp.net)에 들어오는 트래픽을 일부 사용자 지정 이름/URL로 리디렉션할 수 있습니다. URL 다시 쓰기 모듈은 기본적으로 웹 역할에서 사용할 수 있으며 해당 규칙은 응용 프로그램의 web.config에 구성되어 있으므로 항상 재부팅/이미지로 다시 설치에 관계 없이 VM에서 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+IIS의 URL 다시 쓰기 모듈을 사용하여 클라우드 서비스의 기본 URL(예를 들어 \*.cloudapp.net)에 들어오는 트래픽을 일부 사용자 지정 이름/URL로 리디렉션할 수 있습니다. URL 다시 쓰기 모듈은 기본적으로 웹 역할에서 사용할 수 있으며 해당 규칙은 애플리케이션의 web.config에 구성되어 있으므로 항상 재부팅/이미지로 다시 설치에 관계 없이 VM에서 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 - [URL 다시 쓰기 모듈에 대한 다시 쓰기 규칙 만들기](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [기본 링크 제거](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)

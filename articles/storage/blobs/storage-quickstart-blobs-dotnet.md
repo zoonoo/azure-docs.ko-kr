@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 
 응용 프로그램을 실행하려면 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 이 응용 프로그램 예제는 환경 변수의 연결 문자열을 읽어서 Azure Storage에 대한 요청 권한을 부여하는 데 사용합니다.
 
-연결 문자열을 복사한 후 응용 프로그램을 실행 중인 로컬 컴퓨터의 새 환경 변수에 씁니다. 환경 변수를 설정하려면 콘솔 창을 열고 사용 중인 운영 체제의 지침을 따릅니다. `<yourconnectionstring>`을 실제 연결 문자열로 바꿉니다.
+연결 문자열을 복사한 후 애플리케이션을 실행 중인 로컬 컴퓨터의 새 환경 변수에 씁니다. 환경 변수를 설정하려면 콘솔 창을 열고 사용 중인 운영 체제의 지침을 따릅니다. `<yourconnectionstring>`을 실제 연결 문자열로 바꿉니다.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -100,7 +100,7 @@ export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 
 편집기로 Visual Studio를 사용하는 경우 **F5** 키를 눌러 실행할 수 있습니다. 
 
-그렇지 않으면 응용 프로그램 디렉터리로 이동하여 `dotnet run` 명령으로 응용 프로그램을 실행합니다.
+그렇지 않으면 애플리케이션 디렉터리로 이동하여 `dotnet run` 명령으로 애플리케이션을 실행합니다.
 
 ```
 dotnet run
@@ -124,7 +124,7 @@ dotnet run
 
 ---
 
-응용 프로그램 예제의 출력은 다음 예제와 비슷합니다.
+애플리케이션 예제의 출력은 다음 예제와 비슷합니다.
 
 ```
 Azure Blob storage - .NET Quickstart sample

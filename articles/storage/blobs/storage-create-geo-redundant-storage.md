@@ -1,6 +1,6 @@
 ---
 title: Azure에서 응용 프로그램 데이터의 고가용성 지원 | Microsoft Docs
-description: 읽기 액세스 지역 중복 저장소를 사용하여 응용 프로그램 데이터의 고가용성을 지원하세요.
+description: 읽기 액세스 지역 중복 스토리지를 사용하여 애플리케이션 데이터의 고가용성을 지원하세요.
 services: storage
 author: tamram
 ms.service: storage
@@ -102,7 +102,7 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 ```
 
 # <a name="java-tabjava"></a>[Java] (#tab/java)
-[샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-java-ha-ra-grs)하고 storage-java-ragrs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드할 수 있습니다. 샘플 프로젝트에는 기본 Java 응용 프로그램이 포함되어 있습니다.
+[샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-java-ha-ra-grs)하고 storage-java-ragrs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드할 수 있습니다. 샘플 프로젝트에는 기본 Java 애플리케이션이 포함되어 있습니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
@@ -150,7 +150,7 @@ Storage 개체 retry 함수는 선형 다시 시도 정책으로 설정됩니다
 # <a name="java-tabjava"></a>[Java] (#tab/java)
 다운로드한 응용 프로그램 폴더로 범위가 지정된 터미널 또는 명령 프롬프트를 열어 응용 프로그램을 실행할 수 있습니다. 여기에서 `mvn compile exec:java`를 입력하여 응용 프로그램을 실행합니다. 그런 다음, 응용 프로그램은 **HelloWorld.png** 이미지를 디렉터리에서 저장소 계정으로 업로드하고, 이미지가 보조 RA-GRS 엔드포인트에 복제되었는지 확인합니다. 검사가 완료되면 다운로드하는 엔드포인트를 다시 보고하는 동안 응용 프로그램은 이미지를 반복해서 다운로드하기 시작합니다.
 
-Storage 개체 retry 함수는 선형 다시 시도 정책을 사용하도록 설정됩니다. retry 함수는 요청을 다시 시도할지 여부를 결정하고, 각 다시 시도 사이에 대기할 시간(초)을 지정합니다. **BlobRequestOptions**의 **LocationMode** 속성은 **PRIMARY\_THEN\_SECONDARY**로 설정됩니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
+Storage 개체 retry 함수는 선형 다시 시도 정책을 사용하도록 설정됩니다. retry 함수는 요청을 다시 시도할지 여부를 결정하고, 각 다시 시도 사이에 대기할 시간(초)을 지정합니다. **BlobRequestOptions**의 **LocationMode** 속성은 **PRIMARY\_THEN\_SECONDARY**로 설정됩니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 애플리케이션이 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
 
 ---
 
@@ -251,7 +251,7 @@ def response_callback(response):
 
 # <a name="java-tabjava"></a>[Java] (#tab/java)
 
-**BlobRequestOptions**의 **LocationMode** 속성이 **PRIMARY\_THEN\_SECONDARY**로 설정된 경우 Java를 사용하여 콜백 처리기를 정의할 필요가 없습니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
+**BlobRequestOptions**의 **LocationMode** 속성이 **PRIMARY\_THEN\_SECONDARY**로 설정된 경우 Java를 사용하여 콜백 처리기를 정의할 필요가 없습니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 애플리케이션이 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
 
 ```java
     BlobRequestOptions myReqOptions = new BlobRequestOptions();

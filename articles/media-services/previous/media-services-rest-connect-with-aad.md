@@ -62,8 +62,8 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 |---|-------|-----|
 |Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 엔드포인트처럼 Azure AD는 https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
 |REST API 엔드포인트|https://amshelloworld.restv2.westus.media.azure.net/api/|애플리케이션에서 모든 Media Services REST API 호출이 수행되는 엔드포인트입니다.|
-|클라이언트 ID(응용 프로그램 ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 응용 프로그램(클라이언트) ID입니다. 액세스 토큰을 가져오려면 클라이언트 ID가 필요합니다. |
-|클라이언트 암호|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 응용 프로그램 키(클라이언트 암호)입니다. 액세스 토큰을 가져오려면 클라이언트 암호가 필요합니다.|
+|클라이언트 ID(애플리케이션 ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 애플리케이션(클라이언트) ID입니다. 액세스 토큰을 가져오려면 클라이언트 ID가 필요합니다. |
+|클라이언트 암호|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 애플리케이션 키(클라이언트 암호)입니다. 액세스 토큰을 가져오려면 클라이언트 암호가 필요합니다.|
 
 ### <a name="get-aad-auth-info-from-the-azure-portal"></a>Azure Portal에서 AAD 인증 정보 가져오기
 
@@ -76,7 +76,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
     ![API 액세스](./media/connect-with-rest/connect-with-rest01.png)
 
-5. 기존 **Azure AD 응용 프로그램**을 선택하거나 아래와 같이 새 응용 프로그램을 만듭니다.
+5. 기존 **Azure AD 애플리케이션**을 선택하거나 아래와 같이 새 애플리케이션을 만듭니다.
 
     > [!NOTE]
     > Azure Media REST 요청이 성공하려면, 호출하는 사용자가 액세스하려는 Media Services 계정에 대한 **참가자** 또는 **소유자** 역할을 가지고 있어야 합니다. "원격 서버에서 (401) 권한 없음 오류를 반환했습니다."라는 예외가 표시되면 [액세스 제어](media-services-use-aad-auth-to-access-ams-api.md#access-control)를 참조하세요.
@@ -94,12 +94,12 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 6. **클라이언트 ID**(응용 프로그램 ID)를 가져옵니다.
     
-    1. 응용 프로그램을 선택합니다.
+    1. 애플리케이션을 선택합니다.
     2. 오른쪽 창에서 **클라이언트 ID**를 가져옵니다. 
 
     ![API 액세스](./media/connect-with-rest/existing-client-id.png)
 
-7.  응용 프로그램의 **키**(클라이언트 암호) 가져오기 
+7.  애플리케이션의 **키**(클라이언트 암호) 가져오기 
 
     1. **응용 프로그램 관리** 단추를 클릭합니다. 클라이언트 ID 정보는 **응용 프로그램 ID** 아래에 있습니다. 
     2. **키**를 누릅니다.

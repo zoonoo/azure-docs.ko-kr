@@ -750,7 +750,7 @@ df.head(10)
 
 ## <a name="run-in-an-hdinsight-cluster"></a>HDInsight 클러스터에서 실행
 
-Machine Learning Workbench 응용 프로그램으로 돌아가서 HDInsight 클러스터에서 스크립트를 실행합니다.
+Machine Learning Workbench 애플리케이션으로 돌아가서 HDInsight 클러스터에서 스크립트를 실행합니다.
 
 1. 왼쪽의 **홈** 아이콘을 선택하여 프로젝트의 홈 화면으로 돌아갑니다.
 

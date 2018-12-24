@@ -60,7 +60,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 | [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) | 라우팅 규칙을 만듭니다. |
 | [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) | 응용 프로그램 게이트웨이의 계층 및 용량을 지정합니다. |
 | [New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewaywebapplicationfirewallconfiguration) | 웹 응용 프로그램 방화벽 구성을 만듭니다. |
-| [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) | Application Gateway를 만듭니다. |
+| [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) | 애플리케이션 게이트웨이를 만듭니다. |
 | [Set-AzureRmVmssStorageProfile](/powershell/module/azurerm.compute/set-azurermvmssstorageprofile) | 확장 집합의 저장소 프로필을 만듭니다. |
 | [Set-AzureRmVmssOsProfile](/powershell/module/azurerm.compute/set-azurermvmssosprofile) | 확장 집합의 운영 체제를 정의합니다. |
 | [Add-AzureRmVmssNetworkInterfaceConfiguration](/powershell/module/azurerm.compute/add-azurermvmssnetworkinterfaceconfiguration) | 확장 집합의 네트워크 인터페이스를 정의합니다. |

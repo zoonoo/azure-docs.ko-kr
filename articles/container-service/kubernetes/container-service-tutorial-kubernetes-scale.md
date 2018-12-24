@@ -32,7 +32,7 @@ ms.locfileid: "52993083"
 > * 앱 프런트 엔드를 실행하는 Pod 자동 크기 조정 구성
 > * Kubernetes Azure 에이전트 노드 크기 조정
 
-후속 자습서에서는 Azure Vote 응용 프로그램을 업데이트하고, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
+후속 자습서에서는 Azure Vote 애플리케이션을 업데이트하고, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

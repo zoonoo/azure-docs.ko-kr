@@ -60,7 +60,7 @@ Reliable Actors를 시작하려면 몇 가지 기본 개념만 이해하면 됩�
 * 행위자 인터페이스 메서드에는 out, ref 또는 선택적 매개 변수가 없어야 합니다.
 * 제네릭 인터페이스는 지원되지 않습니다.
 
-## <a name="create-the-application"></a>응용 프로그램 만들기
+## <a name="create-the-application"></a>애플리케이션 만들기
 Service Fabric 응용 프로그램은 응용 프로그램의 기능을 제공하는 특정 역할이 있는 하나 이상의 서비스를 포함합니다. 마지막 섹션에는 설치한 생성기는 쉽게 첫 번째 서비스를 만들고 나중에 더 추가할 수 있습니다.  Eclipse용 플러그 인을 사용하여 Service Fabric Java 응용 프로그램을 만들고 빌드하고 배포할 수 있습니다. [Eclipse를 사용하여 첫 번째 Java 응용 프로그램 만들기 및 배포](service-fabric-get-started-eclipse.md)를 참조하세요. 빠른 시작에서 Yeoman을 사용하여 카운터 값을 저장하고 가져오는 단일 서비스를 포함한 응용 프로그램을 만듭니다.
 
 1. 터미널에서 ``yo azuresfjava``을 입력합니다.

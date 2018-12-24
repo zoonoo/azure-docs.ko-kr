@@ -79,7 +79,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
     기본적으로 Visual Studio는 *.zip* 파일에 포함되지 않은 NuGet 패키지 콘텐츠를 자동으로 복원합니다. 패키지가 복원되지 않는 경우 **솔루션의 NuGet 패키지 관리** 대화 상자로 이동하고 오른쪽 위에서 **복원** 단추를 클릭하여 수동으로 설치합니다.
 5. **솔루션 탐색기**에서 시작 프로젝트로 **ContosoAdsCloudService**가 선택되었는지 확인합니다.
 6. Visual Studio 2015 이상을 사용하는 경우 ContosoAdsWeb 프로젝트의 응용 프로그램 *Web.config* 파일 및 ContosoAdsCloudService 프로젝트의 *ServiceConfiguration.Local.cscfg* 파일에서 SQL Server 연결 문자열을 변경합니다. 각각의 경우에서 "(localdb)\v11.0"을 "(localdb)\MSSQLLocalDB"로 변경합니다.
-7. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
+7. Ctrl+F5를 눌러 애플리케이션을 실행합니다.
 
     클라우드 서비스 프로젝트를 로컬에서 실행하면 Visual Studio는 Azure *계산 에뮬레이터* 및 Azure *저장소 에뮬레이터*를 자동으로 호출합니다. 계산 에뮬레이터는 컴퓨터의 리소스를 사용하여 웹 역할 및 작업자 역할 환경을 시뮬레이션합니다. 저장소 에뮬레이터는 [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) 데이터베이스를 사용하여 Azure 클라우드 저장소를 시뮬레이션합니다.
 
@@ -103,7 +103,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 
 다음 섹션에서는 솔루션이 클라우드에서 실행될 때 큐, Blob 및 응용 프로그램 데이터베이스에 대해 Azure 클라우드 리소스를 사용하도록 솔루션을 구성합니다. 로컬에서 계속 실행하고 클라우드 저장소 및 데이터베이스 리소스를 사용하려면 그렇게 할 수 있습니다. 어떻게 할지는 연결 문자열을 설정하기에 달려 있습니다.
 
-## <a name="deploy-the-application-to-azure"></a>Azure에 응용 프로그램 배포
+## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 클라우드에서 응용 프로그램을 실행하려면 다음 단계를 수행합니다.
 
 * Azure 클라우드 서비스를 만듭니다.
@@ -367,7 +367,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 ### <a name="configure-connection-strings"></a>연결 문자열 구성
 이 섹션에서는 로컬 테스트를 위해 Azure Storage 및 SQL 연결 문자열을 구성합니다. 자습서 앞부분의 배포 지침에서는 앱이 클라우드에서 실행되는 경우를 위한 연결 문자열을 설정하는 방법을 설명합니다.
 
-1. ContosoAdsWeb 프로젝트에서 응용 프로그램 Web.config 파일을 열고 다음 `connectionStrings` 요소를 `configSections` 요소 뒤에 삽입합니다.
+1. ContosoAdsWeb 프로젝트에서 애플리케이션 Web.config 파일을 열고 다음 `connectionStrings` 요소를 `configSections` 요소 뒤에 삽입합니다.
 
     ```xml
     <connectionStrings>

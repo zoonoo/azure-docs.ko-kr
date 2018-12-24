@@ -1,6 +1,6 @@
 ---
 title: REST를 사용한 주문형 콘텐츠 제공 시작 | Microsoft Docs
-description: 이 자습서에서는 REST API를 사용한 Azure Media Services로 주문형 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다.
+description: 이 자습서에서는 REST API를 사용한 Azure Media Services로 주문형 콘텐츠 배달 애플리케이션을 구현하는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -40,7 +40,7 @@ Media Services REST API를 사용하여 개발을 시작하려면 다음 필수 
 * Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * Media Services REST API를 사용하여 개발하는 방법을 이해합니다. 자세한 내용은 [Media Services REST API 개요](media-services-rest-how-to-use.md)를 참조하세요
-* HTTP 요청 및 응답을 보낼 수 있도록 선택한 응용 프로그램입니다. 이 자습서에서는 [Fiddler](http://www.telerik.com/download/fiddler)를 사용합니다.
+* HTTP 요청 및 응답을 보낼 수 있도록 선택한 애플리케이션입니다. 이 자습서에서는 [Fiddler](http://www.telerik.com/download/fiddler)를 사용합니다.
 
 다음 작업은 본 퀵 스타트에 표시됩니다.
 

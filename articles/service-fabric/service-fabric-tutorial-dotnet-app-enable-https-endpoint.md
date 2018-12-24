@@ -337,7 +337,7 @@ if ($cert -eq $null)
 </ApplicationManifest>
 ```
 
-## <a name="run-the-application-locally"></a>로컬에서 응용 프로그램 실행
+## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 
 솔루션 탐색기에서 **투표** 응용 프로그램을 선택하고 **응용 프로그램 URL** 속성을 " https://localhost:443 " 으로 설정합니다.
 
@@ -422,7 +422,7 @@ $slb | Add-AzureRmLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $sl
 $slb | Set-AzureRmLoadBalancer
 ```
 
-## <a name="deploy-the-application-to-azure"></a>Azure에 응용 프로그램 배포
+## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 
 모든 파일을 저장하고 디버그에서 릴리스로 전환한 다음, F6 키를 눌러 다시 빌드합니다.  솔루션 탐색기에서 **투표**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [클러스터에 응용 프로그램 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 만든 클러스터의 연결 엔드포인트를 선택하거나, 다른 클러스터를 선택합니다.  응용 프로그램을 원격 클러스터에 게시하려면 **게시**를 클릭합니다.
 

@@ -46,9 +46,9 @@ Azure는 64비트 환경입니다. 따라서 32비트 대상에 컴파일된 .NE
 [실행] 메서드는 무기한 실행되도록 합니다. 코드가 [실행] 메서드를 재정의하는 경우 무기한 대기해야 합니다. [실행] 메서드가 반환되는 경우 역할은 재활용됩니다.
 
 ## <a name="incorrect-diagnosticsconnectionstring-setting"></a>잘못된 DiagnosticsConnectionString 설정
-응용 프로그램이 Azure 진단을 사용하는 경우 서비스 구성 파일은 `DiagnosticsConnectionString` 구성 설정을 지정해야 합니다. 이 설정은 Azure에서 저장소 계정에 HTTPS 연결을 지정해야 합니다.
+애플리케이션이 Azure 진단을 사용하는 경우 서비스 구성 파일은 `DiagnosticsConnectionString` 구성 설정을 지정해야 합니다. 이 설정은 Azure에서 저장소 계정에 HTTPS 연결을 지정해야 합니다.
 
-Azure에 응용 프로그램 패키지를 배포하기 전에 `DiagnosticsConnectionString` 설정이 올바른지 확인하려면 다음을 확인합니다.  
+Azure에 애플리케이션 패키지를 배포하기 전에 `DiagnosticsConnectionString` 설정이 올바른지 확인하려면 다음을 확인합니다.  
 
 * `DiagnosticsConnectionString` 설정이 Azure의 유효한 저장소 계정을 가리킵니다.  
   기본적으로 이 설정은 에뮬레이트된 저장소 계정을 가리키므로 응용 프로그램 패키지를 배포하기 전에 이 설정을 명시적으로 변경해야 합니다. 이 설정을 변경하지 않는 경우 역할 인스턴스가 진단 모니터링을 시작하려고 할 때 예외가 throw됩니다. 역할 인스턴스가 무기한 재활용되게 할 수 있습니다.

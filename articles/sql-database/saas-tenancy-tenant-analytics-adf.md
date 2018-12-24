@@ -71,7 +71,7 @@ SaaS 응용 프로그램은 클라우드에서 방대한 양의 테넌트 데이
 > 이 자습서에서는 현재 미리 보기가 제한된 Azure Data Factory의 기능을 사용합니다(연결된 서비스 매개 변수화). 이 자습서를 수행하려는 경우 [여기에](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu) 구독 ID를 제공합니다. 구독을 사용하도록 설정하는 즉시 확인을 전송합니다.
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
-- Wingtip Tickets SaaS Database Per Tenant 응용 프로그램이 배포되어 있어야 합니다. 5분 이내에 배포하려면 [Wingtip SaaS 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
+- Wingtip Tickets SaaS Database Per Tenant 응용 프로그램이 배포되어 있어야 합니다. 5분 이내에 배포하려면 [Wingtip SaaS 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
 - Wingtip Tickets SaaS Database Per Tenant 스크립트와 응용 프로그램 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)를 GitHub에서 다운로드해야 합니다. 다운로드 지침을 참조하세요. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제*해야 합니다.
 - Power BI Desktop이 설치되어 있어야 합니다. [Power BI Desktop 다운로드](https://powerbi.microsoft.com/downloads/).
 - 추가 테넌트 배치가 프로비전되어 있어야 합니다. [**테넌트 프로비전 자습서**](saas-dbpertenant-provision-and-catalog.md)를 참조하세요.

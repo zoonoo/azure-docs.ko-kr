@@ -38,8 +38,8 @@ Azure Key Vault 통합을 사용하여 SQL Server VM을 구성하려면 몇 가�
 
 다음으로 AAD에 응용 프로그램을 등록합니다. 이렇게 하면 VM에 필요한 Key Vault에 액세스할 수 있는 서비스 주체 계정이 제공됩니다. Azure Key Vault 문서의 [Azure Active Directory에 응용 프로그램 등록](../articles/key-vault/key-vault-get-started.md#register) 섹션에서 다음 단계를 찾아보거나 **이 블로그 게시물**의 [응용 프로그램 ID 가져오기](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx) 섹션에서 스크린샷으로 단계를 볼 수 있습니다. 다음 단계를 완료하기 전에, SQL VM에서 Azure Key Vault 통합을 활성화할 때 필요한 다음 정보를 등록 과정에서 수집해야 합니다.
 
-* 응용 프로그램을 추가한 후 **등록된 앱** 블레이드에서 **응용 프로그램 ID**를 찾습니다.
-    응용 프로그램 ID는 나중에 Azure Key Vault 통합을 활성화하기 위해 PowerShell 스크립트의 **$spName** (서비스 주체 이름) 매개 변수에 할당됩니다.
+* 애플리케이션을 추가한 후 **등록된 앱** 블레이드에서 **애플리케이션 ID**를 찾습니다.
+    애플리케이션 ID는 나중에 Azure Key Vault 통합을 활성화하기 위해 PowerShell 스크립트의 **$spName** (서비스 주체 이름) 매개 변수에 할당됩니다.
 
    ![응용 프로그램 UI](./media/virtual-machines-sql-server-akv-prepare/aad-application-id.png)
 
@@ -47,7 +47,7 @@ Azure Key Vault 통합을 사용하여 SQL Server VM을 구성하려면 몇 가�
 
    ![AAD 암호](./media/virtual-machines-sql-server-akv-prepare/aad-sp-secret.png)
 
-* 응용 프로그램 ID 및 암호는 또한 SQL Server에서 자격 증명을 만드는 데 사용됩니다.
+* 애플리케이션 ID 및 암호는 또한 SQL Server에서 자격 증명을 만드는 데 사용됩니다.
 
 * 이 새 클라이언트 ID에 **get**, **wrapKey**, **unwrapKey** 액세스 권한을 부여해야 합니다. 이 작업은 [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) cmdlet을 통해 수행됩니다. 자세한 내용은 [응용 프로그램에 키 또는 암호를 사용하도록 권한 부여](../articles/key-vault/key-vault-get-started.md#authorize)를 참조하세요.
 

@@ -196,7 +196,7 @@ ADO.NET의 트랜잭션에 대한 자세한 내용은 [ADO.NET의 로컬 트랜�
 테이블 반환 매개 변수에 대한 자세한 내용은 [테이블 반환 매개 변수](https://msdn.microsoft.com/library/bb510489.aspx)를 참조하세요.
 
 ### <a name="sql-bulk-copy"></a>SQL 대량 복사
-SQL 대량 복사는 대량의 데이터를 대상 데이터베이스에 삽입하는 또 다른 방법입니다. NET 응용 프로그램은 **SqlBulkCopy** 클래스를 사용하여 대량 삽입 작업을 수행할 수 있습니다. **SqlBulkCopy**는 명령줄 도구 **Bcp.exe** 또는 Transact-SQL 문 **BULK INSERT**와 기능면에서 유사합니다. 다음 코드 예제는 원본 **DataTable**테이블의 행을 SQL Server의 MyTable이라는 대상 테이블로 대량 복사하는 방법을 보여줍니다.
+SQL 대량 복사는 대량의 데이터를 대상 데이터베이스에 삽입하는 또 다른 방법입니다. NET 애플리케이션은 **SqlBulkCopy** 클래스를 사용하여 대량 삽입 작업을 수행할 수 있습니다. **SqlBulkCopy**는 명령줄 도구 **Bcp.exe** 또는 Transact-SQL 문 **BULK INSERT**와 기능면에서 유사합니다. 다음 코드 예제는 원본 **DataTable**테이블의 행을 SQL Server의 MyTable이라는 대상 테이블로 대량 복사하는 방법을 보여줍니다.
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
     {

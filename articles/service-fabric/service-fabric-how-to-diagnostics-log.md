@@ -103,7 +103,7 @@ internal sealed class ServiceEventSource : EventSource
 
 ## <a name="microsoftextensionslogging"></a>Microsoft.Extensions.Logging
 
-ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Logging))은 응용 프로그램에 대한 표준 로깅 API를 제공하는 로깅 프레임워크입니다. 다른 로깅 백 엔드에 대한 지원을 ASP.NET Core 로깅에 연결할 수 있습니다. 이렇게 하면 많은 코드를 변경할 필요 없이 응용 프로그램의 로깅에 대한 다양한 지원이 처리됩니다.
+ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Logging))은 애플리케이션에 대한 표준 로깅 API를 제공하는 로깅 프레임워크입니다. 다른 로깅 백 엔드에 대한 지원을 ASP.NET Core 로깅에 연결할 수 있습니다. 이렇게 하면 많은 코드를 변경할 필요 없이 응용 프로그램의 로깅에 대한 다양한 지원이 처리됩니다.
 
 1. 계측하려는 프로젝트에 **Microsoft.Extensions.Logging** NuGet 패키지를 추가합니다. 또한 공급자 패키지를 추가합니다. 자세한 내용은 [ASP.NET Core 로그인](https://docs.microsoft.com/aspnet/core/fundamentals/logging)(영문)을 참조하세요.
 2. **Microsoft.Extensions.Logging**에 대한 **using** 지시문을 서비스 파일에 추가합니다.

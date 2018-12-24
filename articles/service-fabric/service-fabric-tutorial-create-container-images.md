@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 컨테이너 이미지 만들기 | Microsoft Docs
-description: 이 자습서에서는 다중 컨테이너 Service Fabric 응용 프로그램에 대한 컨테이너 이미지를 만드는 방법을 알아봅니다.
+description: 이 자습서에서는 다중 컨테이너 Service Fabric 애플리케이션에 대한 컨테이너 이미지를 만드는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: ''
 author: suhuruli

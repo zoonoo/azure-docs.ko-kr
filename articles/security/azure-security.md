@@ -119,7 +119,7 @@ Log Analytics를 사용하면 유연한 쿼리 방법으로 대량의 보안 관
 [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/)의 WAF(웹 응용 프로그램 방화벽)는 SQL 삽입, 사이트 간 스크립팅 공격, 세션 하이재킹과 같은 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다. [OWASP(Open Web Application Security Project)에서 상위 10개 일반 취약성](https://msdn.microsoft.com/library/)으로 확인된 위협으로부터 보호하는 기능이 미리 구성되어 있습니다.
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 인증 및 권한 부여
-[App Service 인증/권한 부여](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)는 앱 백 엔드에서 코드를 변경할 필요가 없도록 사용자가 응용 프로그램에 로그인하는 방법을 제공하는 기능입니다. 응용 프로그램을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다.
+[App Service 인증/권한 부여](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)는 앱 백 엔드에서 코드를 변경할 필요가 없도록 사용자가 응용 프로그램에 로그인하는 방법을 제공하는 기능입니다. 애플리케이션을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다.
 
 ### <a name="layered-security-architecture"></a>계층화된 보안 아키텍처
 [App Service 환경](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro)이 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에 배포된 격리된 런타임 환경을 제공하므로 개발자는 각 응용 프로그램 계층에 서로 다른 수준의 네트워크 액세스를 제공하는 계층화된 보안 아키텍처를 만들 수 있습니다. 일반적으로 일반 인터넷 액세스로부터 API 백 엔드를 숨기거나 API가 업스트림 웹앱에서 호출될 수 있도록 하기 원합니다. [NSG(네트워크 보안 그룹)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)은 App Service 환경을 포함하는 Azure Virtual Network 서브넷에서 사용하여 API 응용 프로그램에 대한 공용 액세스를 제한할 수 있습니다.

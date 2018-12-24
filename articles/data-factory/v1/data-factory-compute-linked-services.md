@@ -355,7 +355,7 @@ Data Lake Analytics 연결된 서비스를 만들어서 Data Lake Analytics 연�
 Data Lake Analytics 연결된 서비스에 대해 서비스 주체 또는 사용자 자격 증명을 사용한 인증을 선택할 수 있습니다.
 
 #### <a name="service-principal-authentication-recommended"></a>서비스 주체 인증(권장)
-서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에서 응용 프로그램 엔터티를 등록합니다. 그런 다음, Data Lake Store에 Azure AD 액세스를 부여합니다. 자세한 단계는 [서비스 간 인증](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
+서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에서 애플리케이션 엔터티를 등록합니다. 그런 다음, Data Lake Store에 Azure AD 액세스를 부여합니다. 자세한 단계는 [서비스 간 인증](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
 * 응용 프로그램 UI
 * 응용 프로그램 키 
 * 테넌트 ID
@@ -365,8 +365,8 @@ Data Lake Analytics 연결된 서비스에 대해 서비스 주체 또는 사용
 | 자산                | 설명                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | 응용 프로그램의 클라이언트 ID입니다.     | 예      |
-| servicePrincipalKey | 응용 프로그램의 키입니다.           | 예      |
-| tenant              | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)입니다. 이 정보를 얻으려면 Azure Portal의 오른쪽 위 모서리에 마우스를 올려 놓습니다. | 예      |
+| servicePrincipalKey | 애플리케이션의 키입니다.           | 예      |
+| tenant              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)입니다. 이 정보를 얻으려면 Azure Portal의 오른쪽 위 모서리에 마우스를 올려 놓습니다. | 예      |
 
 **예제: 서비스 주체 인증**
 ```json

@@ -47,10 +47,10 @@ Azure AD(Azure Active Directory)를 사용하면 응용 프로그램에서(예: 
 | --- | --- |
 | `aud` | 대상: **https://login.microsoftonline.com/*tenant_Id*/oauth2/token**여야 합니다. |
 | `exp` | 만료 날짜: 토큰이 만료되는 날짜입니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰의 유효 기간이 만료될 때까지의 시간(초)으로 표시됩니다.|
-| `iss` | 발급자: client_id(클라이언트 서비스의 응용 프로그램 ID)여야 함 |
+| `iss` | 발급자: client_id(클라이언트 서비스의 애플리케이션 ID)여야 함 |
 | `jti` | GUID: JWT ID |
 | `nbf` | 이전이 아님: 토큰을 사용할 수 없게 된 날짜입니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰이 발급된 시간까지 기간(초)으로 표시됩니다. |
-| `sub` | 주체: `iss`의 경우 client_id(클라이언트 서비스의 응용 프로그램 ID)여야 함 |
+| `sub` | 주체: `iss`의 경우 client_id(클라이언트 서비스의 애플리케이션 ID)여야 함 |
 
 ### <a name="signature"></a>서명
 
@@ -92,7 +92,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ## <a name="register-your-certificate-with-azure-ad"></a>Azure AD에 인증서 등록
 
-다음 방법 중 하나를 사용하여 Azure Portal을 통해 Azure AD에서 클라이언트 응용 프로그램과 인증서 자격 증명을 연결할 수 있습니다.
+다음 방법 중 하나를 사용하여 Azure Portal을 통해 Azure AD에서 클라이언트 애플리케이션과 인증서 자격 증명을 연결할 수 있습니다.
 
 ### <a name="uploading-the-certificate-file"></a>인증서 파일 업로드
 
@@ -110,7 +110,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 - `$base64Thumbprint` - 인증서 해시의 base64 인코딩
 - `$base64Value` - 인증서 원시 데이터의 해시의 base64 인코딩
 
-응용 프로그램 매니페스트에서 키를 식별하는 GUID도 제공해야 합니다(`$keyId`).
+애플리케이션 매니페스트에서 키를 식별하는 GUID도 제공해야 합니다(`$keyId`).
 
 클라이언트 응용 프로그램에 대한 Azure 앱 등록에서:
 1. 응용프로그램 매니페스트를 엽니다.

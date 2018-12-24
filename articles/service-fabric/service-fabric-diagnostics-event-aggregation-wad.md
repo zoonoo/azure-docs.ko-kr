@@ -196,7 +196,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 ## <a name="log-collection-configurations"></a>로그 컬렉션 구성
 컬렉션에 대한 추가 채널의 로그도 사용할 수 있습니다. 여기서는 Azure에서 실행되는 클러스터용 템플릿에서 수행할 수 있는 가장 일반적인 몇 가지 구성을 소개합니다.
 
-* 작동 채널 - 기본: 기본적으로 사용하도록 설정됩니다. 노드에 대해 발생하는 이벤트, 배포되는 새 응용 프로그램, 업그레이드 롤백 등을 포함하여 Service Fabric 및 클러스터에서 수행하는 상위 수준 작업입니다. 이벤트 목록은 [작동 채널 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational)를 참조하세요.
+* 작동 채널 - 기본: 기본적으로 사용하도록 설정됩니다. 노드에 대해 발생하는 이벤트, 배포되는 새 애플리케이션, 업그레이드 롤백 등을 포함하여 Service Fabric 및 클러스터에서 수행하는 상위 수준 작업입니다. 이벤트 목록은 [작동 채널 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational)를 참조하세요.
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"

@@ -48,12 +48,12 @@ ms.locfileid: "51612001"
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
 ## <a name="create-a-server-application-listener"></a>서버 응용 프로그램(수신기) 만들기
-Visual Studio에서 메시지를 릴레이로부터 수신 대기하고 받을 C# 콘솔 응용 프로그램을 작성합니다.
+Visual Studio에서 메시지를 릴레이로부터 수신 대기하고 받을 C# 콘솔 애플리케이션을 작성합니다.
 
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-server](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-server.md)]
 
 ## <a name="create-a-client-application-sender"></a>클라이언트 응용 프로그램(보낸 사람) 만들기
-Visual Studio에서 메시지를 릴레이로 보낼 C# 콘솔 응용 프로그램을 작성합니다.
+Visual Studio에서 메시지를 릴레이로 보낼 C# 콘솔 애플리케이션을 작성합니다.
 
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 

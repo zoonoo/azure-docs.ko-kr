@@ -33,17 +33,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
 ```
 
-응용 프로그램을 열려면 *storage-blobs-node-quickstart* 폴더를 찾아 즐겨찾는 코드 편집 환경에서 엽니다.
+애플리케이션을 열려면 *storage-blobs-node-quickstart* 폴더를 찾아 즐겨찾는 코드 편집 환경에서 엽니다.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
 
-응용 프로그램을 실행하기 전에 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 샘플 리포지토리에는 *.env.example*이라는 파일이 포함되어 있습니다. *.example* 확장명을 제거하여 *.env* 파일이 되도록 이 파일의 이름을 바꿀 수 있습니다. *.env* 파일 내에서 *AZURE_STORAGE_CONNECTION_STRING* 키 뒤에 연결 문자열 값을 추가합니다.
+애플리케이션을 실행하기 전에 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. 샘플 리포지토리에는 *.env.example*이라는 파일이 포함되어 있습니다. *.example* 확장명을 제거하여 *.env* 파일이 되도록 이 파일의 이름을 바꿀 수 있습니다. *.env* 파일 내에서 *AZURE_STORAGE_CONNECTION_STRING* 키 뒤에 연결 문자열 값을 추가합니다.
 
 ## <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
 
-응용 프로그램 디렉터리에서 *npm install*을 실행하여 응용 프로그램에 필요한 패키지를 설치합니다.
+애플리케이션 디렉터리에서 *npm install*을 실행하여 애플리케이션에 필요한 패키지를 설치합니다.
 
 ```bash
 npm install
@@ -146,7 +146,7 @@ const createContainer = async (containerName) => {
 
 **createContainerIfNotExists**에 대한 두 번째 매개 변수(*options*)는 [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists)에 대한 값을 수락합니다. *publicAccessLevel*에 대한 *blob* 값은 특정 Blob 데이터가 공개적으로 노출되도록 지정합니다. 이 설정은 *컨테이너* 수준 액세스와 달리 컨테이너의 내용을 나열하는 기능을 부여합니다.
 
-**createContainerIfNotExists**를 사용하면 컨테이너가 이미 있을 때 응용 프로그램에서 오류를 반환하지 않고 *createContainer* 명령을 여러 번 실행할 수 있습니다. 프로덕션 환경에서는 응용 프로그램 전체에서 동일한 컨테이너가 사용되므로 **createContainerIfNotExists**만 호출하는 경우가 많습니다. 이러한 경우 포털 또는 Azure CLI를 통해 컨테이너를 미리 만들 수 있습니다.
+**createContainerIfNotExists**를 사용하면 컨테이너가 이미 있을 때 응용 프로그램에서 오류를 반환하지 않고 *createContainer* 명령을 여러 번 실행할 수 있습니다. 프로덕션 환경에서는 애플리케이션 전체에서 동일한 컨테이너가 사용되므로 **createContainerIfNotExists**만 호출하는 경우가 많습니다. 이러한 경우 포털 또는 Azure CLI를 통해 컨테이너를 미리 만들 수 있습니다.
 
 ### <a name="upload-text"></a>텍스트 업로드
 
@@ -340,7 +340,7 @@ console.log(`Container "${containerName}" is deleted`);
 ## <a name="clean-up-resources"></a>리소스 정리
 저장소 계정에 기록된 모든 데이터는 코드 샘플 끝 부분에서 자동으로 삭제됩니다. 
 
-## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>Blob을 사용하여 Node.js 응용 프로그램을 개발하기 위한 리소스
+## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>BLOB을 사용하여 Node.js 애플리케이션을 개발하기 위한 리소스
 
 Blob 저장소를 사용하여 Node.js 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
 

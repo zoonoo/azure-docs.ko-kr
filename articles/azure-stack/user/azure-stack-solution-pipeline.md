@@ -16,7 +16,7 @@ ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
 ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52967064"
@@ -124,7 +124,7 @@ Azure DevOps 서비스에 대 한 Azure Resource Manager는 서비스 주체를 
 
 서비스 주체 인증에 대 한 키가 필요 합니다. 다음 단계를 사용 하 여 키를 생성 합니다.
 
-1. Azure Active Directory의 **앱 등록**에서 응용 프로그램을 선택합니다.
+1. Azure Active Directory의 **앱 등록**에서 애플리케이션을 선택합니다.
 
     ![응용 프로그램 선택](media/azure-stack-solution-hybrid-pipeline/000_01.png)
 

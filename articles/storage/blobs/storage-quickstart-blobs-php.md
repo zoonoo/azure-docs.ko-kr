@@ -196,7 +196,7 @@ Blob에 파일을 업로드하려면 로컬 드라이브에서 디렉터리 이�
     unlink($fileToUpload);   
 ```
 
-## <a name="resources-for-developing-php-applications-with-blobs"></a>Blob을 사용하여 PHP 응용 프로그램을 개발하기 위한 리소스
+## <a name="resources-for-developing-php-applications-with-blobs"></a>BLOB을 사용하여 PHP 애플리케이션을 개발하기 위한 리소스
 
 Blob 저장소를 사용하여 PHP 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
 

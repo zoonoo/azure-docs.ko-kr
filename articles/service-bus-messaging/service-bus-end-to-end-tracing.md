@@ -47,7 +47,7 @@ Microsoft Azure Service Bus 메시징에는 생산자와 소비자가 이러한 
 프로젝트 유형에 따라 Application Insights SDK를 설치합니다.
 - [ASP.NET](../application-insights/app-insights-asp-net.md) - 버전 2.5-beta2 이상 설치
 - [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) - 버전 2.2.0-beta2 이상 설치
-이러한 링크는 SDK 설치, 리소스 만들기 및 SDK 구성(필요한 경우)에 대한 세부 정보를 제공합니다. 비 ASP.NET 응용 프로그램의 경우 [콘솔 응용 프로그램용 Azure Application Insights](../application-insights/application-insights-console.md) 문서를 참조하세요.
+이러한 링크는 SDK 설치, 리소스 만들기 및 SDK 구성(필요한 경우)에 대한 세부 정보를 제공합니다. 비 ASP.NET 애플리케이션의 경우 [콘솔 애플리케이션용 Azure Application Insights](../application-insights/application-insights-console.md) 문서를 참조하세요.
 
 [메시지 처리기 패턴](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)을 사용하여 메시지를 처리하는 경우 특별히 수행할 작업이 없습니다. 서비스에서 수행하는 모든 Service Bus 호출이 자동으로 추적되고 다른 원격 분석 항목과 상호 연결됩니다. 또는 수동 메시지 처리 추적은 다음 예제를 참조하세요.
 

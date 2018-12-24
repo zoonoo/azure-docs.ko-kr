@@ -43,10 +43,10 @@ JavaScript API를 통해 보고서를 관리하고 보고서의 페이지를 탐
 ### <a name="manage-reports"></a>보고서 관리
 Javascript API를 통해 보고서 및 페이지 수준에서 동작을 관리할 수 있습니다.
 
-* 응용 프로그램에 특정 Power BI 보고서를 안전하게 포함 - [데모 응용 프로그램 포함](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
+* 애플리케이션에 특정 Power BI 보고서를 안전하게 포함 - [데모 애플리케이션 포함](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   * 액세스 토큰 설정
 * 보고서 구성
-  * 필터 창 및 페이지 탐색 창 사용 및 사용 안 함 - [설정 데모 응용 프로그램 업데이트](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
+  * 필터 창 및 페이지 탐색 창 사용 및 사용 안 함 - [설정 데모 애플리케이션 업데이트](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
   * 페이지 및 필터에 대한 기본값 설정 - [기본값 데모 설정](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
 * 전체 화면 모드 시작 및 종료
 

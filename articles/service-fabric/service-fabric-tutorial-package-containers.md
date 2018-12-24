@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Service Fabric 앱으로 컨테이너 패키징 및 배포 | Microsoft Docs
-description: 이 자습서에서는 Yeoman을 사용하여 Azure Service Fabric 응용 프로그램 정의를 생성하고 응용 프로그램을 패키지하는 방법을 알아봅니다.
+description: 이 자습서에서는 Yeoman을 사용하여 Azure Service Fabric 애플리케이션 정의를 생성하고 애플리케이션을 패키지하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: ''
 author: suhuruli

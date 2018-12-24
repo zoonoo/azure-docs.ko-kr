@@ -27,7 +27,7 @@ ms.locfileid: "47054317"
 * 프로비전 및 카탈로그 작업을 수행하는 샘플 PowerShell 코드를 설명하는 자습서
     * 이 자습서에서는 독립 실행형 테넌트별 앱 패턴에 맞게 조정된 Wingtip Tickets 샘플 SaaS 응용 프로그램을 사용합니다.
 
-## <a name="standalone-application-per-tenant-pattern"></a>테넌트별 독립 실행형 응용 프로그램 패턴
+## <a name="standalone-application-per-tenant-pattern"></a>테넌트별 독립 실행형 애플리케이션 패턴
 독립 실행형 테넌트별 앱 패턴은 다중 테넌트 SaaS 응용 프로그램의 몇 가지 패턴 중 하나입니다.  이 패턴에서는 각 테넌트마다 독립 실행형 앱이 프로비전됩니다. 응용 프로그램은 응용 프로그램 수준 구성 요소와 SQL 데이터베이스로 구성됩니다.  각 테넌트 앱은 공급업체의 구독에 배포할 수 있습니다.  대안으로, Azure에는 앱을 테넌트의 구독에 배포하고 테넌트 대신 공급업체가 관리하는 [관리되는 응용 프로그램 프로그램](https://docs.microsoft.com/azure/managed-applications/overview)이 제공됩니다. 
 
    ![app-per-tenant 패턴](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)

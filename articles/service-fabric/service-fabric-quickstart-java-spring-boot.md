@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 Spring Boot 앱 만들기 | Microsoft Docs
-description: 이 자습서에서는 Spring Boot 응용 프로그램 예제를 사용하여 Azure Service Fabric에 Spring Boot 응용 프로그램을 배포합니다.
+description: 이 자습서에서는 Spring Boot 애플리케이션 예제를 사용하여 Azure Service Fabric에 Spring Boot 애플리케이션을 배포합니다.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -26,7 +26,7 @@ ms.locfileid: "51241891"
 
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
-이 빠른 시작에서는 Service Fabric에 Spring Boot 응용 프로그램을 배포하는 방법을 보여줍니다. 이 빠른 시작에서는 Spring 웹 사이트의 [시작](https://spring.io/guides/gs/spring-boot/) 샘플을 사용합니다. 이 빠른 시작에서는 친숙한 명령줄 도구를 사용하여 Spring Boot 샘플을 Service Fabric 응용 프로그램으로 배포하는 방법을 안내합니다. 작업이 완료되면 Service Fabric에서 Spring Boot 시작 샘플을 사용합니다.
+이 빠른 시작에서는 Service Fabric에 Spring Boot 애플리케이션을 배포하는 방법을 보여줍니다. 이 빠른 시작에서는 Spring 웹 사이트의 [시작](https://spring.io/guides/gs/spring-boot/) 샘플을 사용합니다. 이 빠른 시작에서는 친숙한 명령줄 도구를 사용하여 Spring Boot 샘플을 Service Fabric 응용 프로그램으로 배포하는 방법을 안내합니다. 작업이 완료되면 Service Fabric에서 Spring Boot 시작 샘플을 사용합니다.
 
 ![응용 프로그램 스크린샷](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -132,7 +132,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 이 단계에서는 Service Fabric에 배포할 수 있는 Spring Boot 시작 샘플에 Service Fabric 응용 프로그램을 만들었습니다.
 
-## <a name="run-the-application-locally"></a>로컬에서 응용 프로그램 실행
+## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 
 1. 다음 명령을 실행하여 Ubuntu 컴퓨터에서 로컬 클러스터를 시작합니다.
 
@@ -162,13 +162,13 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     ./install.sh
     ```
 
-1. 즐겨찾는 웹 브라우저를 열고 **http://localhost:8080**에 액세스하여 응용 프로그램에 액세스합니다.
+1. 즐겨찾는 웹 브라우저를 열고 **http://localhost:8080**에 액세스하여 애플리케이션에 액세스합니다.
 
     ![응용 프로그램 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
 이제 Service Fabric 클러스터에 배포된 Spring Boot 응용 프로그램에 액세스할 수 있습니다.
 
-## <a name="deploy-the-application-to-azure"></a>Azure에 응용 프로그램 배포
+## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>Azure Service Fabric Cluster 설정
 
@@ -184,7 +184,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 > Spring Boot 서비스는 들어오는 트래픽에 대해 포트 8080에서 수신 대기하도록 구성됩니다. 클러스터에 대해 포트가 열려 있는지 확인합니다. Party 클러스터를 사용하는 경우 이 포트가 열려 있습니다.
 >
 
-Service Fabric은 클러스터 및 해당 응용 프로그램을 관리하는 데 사용할 수 있는 몇 가지 도구를 제공합니다.
+Service Fabric은 클러스터 및 해당 애플리케이션을 관리하는 데 사용할 수 있는 몇 가지 도구를 제공합니다.
 
 * Service Fabric Explorer, 브라우저 기반 도구입니다.
 * Service Fabric CLI(명령줄 인터페이스), Azure CLI를 기반으로 실행됩니다.
@@ -228,7 +228,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
     ![응용 프로그램 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
 
-이제 Azure의 Service Fabric 클러스터에서 실행 중인 Spring Boot 응용 프로그램에 액세스할 수 있습니다.
+이제 Azure의 Service Fabric 클러스터에서 실행 중인 Spring Boot 애플리케이션에 액세스할 수 있습니다.
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>클러스터에서 응용 프로그램 및 서비스 크기 조정
 

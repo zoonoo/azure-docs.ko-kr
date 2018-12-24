@@ -194,7 +194,7 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 4. 프로젝트의 SSL URL을 클립보드에 복사합니다.<br/><br/>![프로젝트 속성](./media/quickstart-v1-aspnet-webapp/visual-studio-project-properties.png)<br />
 5. <code>web.config</code>에서 <code>Enter_the_Redirect_URL_here</code>를 프로젝트의 SSL URL로 바꿉니다.
 
-### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Azure Portal에서 응용 프로그램을 등록한 다음, *web.config*에 정보 추가
+### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Azure Portal에서 애플리케이션을 등록한 다음, *web.config*에 정보 추가
 
 1. [Microsoft Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 이동하여 응용 프로그램을 등록합니다.
 2. **새 응용 프로그램 등록**을 선택합니다.
@@ -212,9 +212,9 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 
 한 조직의 Azure AD 인스턴스에 속한 사용자만 로그인하도록 허용하거나 어떠한 조직에 속한 사용자가 로그인하도록 수락하도록 응용 프로그램을 구성할 수 있습니다. 다음 선택 항목 중 하나의 지침을 따르세요.
 
-### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>모든 회사 또는 조직에서 회사 및 학교 계정의 로그인을 허용하도록 응용 프로그램 구성(다중 테넌트)
+### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>모든 회사 또는 조직에서 회사 및 학교 계정의 로그인을 허용하도록 애플리케이션 구성(다중 테넌트)
 
-Azure AD와 통합된 어떠한 회사 또는 조직에서 회사 및 학교 계정의 로그인을 허용하려면 다음 단계를 수행합니다. 이것은 *SaaS 응용 프로그램*의 일반적인 시나리오입니다.
+Azure AD와 통합된 어떠한 회사 또는 조직에서 회사 및 학교 계정의 로그인을 허용하려면 다음 단계를 수행합니다. 이것은 *SaaS 애플리케이션*의 일반적인 시나리오입니다.
 
 1. [Microsoft Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 돌아가서 방금 등록한 응용 프로그램을 찾습니다.
 2. **모든 설정**에서 **속성**을 선택합니다.
@@ -222,7 +222,7 @@ Azure AD와 통합된 어떠한 회사 또는 조직에서 회사 및 학교 계
 
 이 설정과 다중 테넌트 응용 프로그램의 개념에 대한 자세한 내용은 [다중 테넌트 개요](howto-convert-app-to-be-multi-tenant.md)를 참조하세요.
 
-### <a name="restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>한 조직의 Active Directory 인스턴스에 속한 사용자만 응용 프로그램에 로그인하도록 제한(단일 테넌트)
+### <a name="restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>한 조직의 Active Directory 인스턴스에 속한 사용자만 애플리케이션에 로그인하도록 제한(단일 테넌트)
 
 이 옵션은 LOB(기간 업무) 응용 프로그램에 대한 일반적인 시나리오입니다.
 
@@ -276,7 +276,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 #### <a name="expected-results"></a>예상 결과
 
-로그인한 사용자는 Microsoft 응용 프로그램 등록 포털의 응용 프로그램 등록 정보에 지정된 HTTPS URL인 웹 사이트의 홈페이지로 리디렉션됩니다. 이제 이 페이지에 *Hello {User}*({User} 님, 안녕하세요?) 및 로그아웃 링크, 사용자의 클레임을 표시하는 링크(이전에 만든 권한 부여 컨트롤러에 대한 링크)가 표시됩니다.
+로그인한 사용자는 Microsoft 애플리케이션 등록 포털의 애플리케이션 등록 정보에 지정된 HTTPS URL인 웹 사이트의 홈페이지로 리디렉션됩니다. 이제 이 페이지에 *Hello {User}*({User} 님, 안녕하세요?) 및 로그아웃 링크, 사용자의 클레임을 표시하는 링크(이전에 만든 권한 부여 컨트롤러에 대한 링크)가 표시됩니다.
 
 ### <a name="see-users-claims"></a>사용자의 클레임 보기
 

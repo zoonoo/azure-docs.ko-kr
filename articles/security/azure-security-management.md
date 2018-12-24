@@ -1,6 +1,6 @@
 ---
 title: Azure에서 원격 관리 보안 강화 | Microsoft Docs
-description: 이 문서에서는 클라우드 서비스, Virtual Machines 및 사용자 지정 응용 프로그램 등 Microsoft Azure 환경을 관리하면서 원격 관리 보안을 향상하는 단계를 설명합니다.
+description: 이 문서에서는 클라우드 서비스, Virtual Machines 및 사용자 지정 애플리케이션 등 Microsoft Azure 환경을 관리하면서 원격 관리 보안을 향상하는 단계를 설명합니다.
 services: security
 documentationcenter: na
 author: TerryLanfear

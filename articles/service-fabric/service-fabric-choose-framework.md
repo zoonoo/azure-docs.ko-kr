@@ -30,7 +30,7 @@ Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제�
 첫 번째 [게스트 실행 파일 응용 프로그램](service-fabric-deploy-existing-app.md)을 배포하여 게스트 실행 파일을 시작합니다.
 
 ## <a name="containers"></a>컨테이너
-기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 [컨테이너](service-fabric-containers-overview.md)에 서비스를 배포할 수 있습니다. Service Fabric은 Windows Server 2016에서 Linux 컨테이너 및 Windows 컨테이너의 배포를 지원합니다. 컨테이너 이미지는 컨테이너 저장소에서 가져오고 컴퓨터에 배포될 수 있습니다. 기존 응용 프로그램을 컨테이너에서 게스트 실행 파일, Service Fabric 상태 비저장 또는 상태 저장 서비스, Reliable Actors로 배포할 수 있으며, 프로세스의 서비스와 컨테이너의 서비스를 동일한 응용 프로그램에서 함께 사용할 수 있습니다.
+기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 [컨테이너](service-fabric-containers-overview.md)에 서비스를 배포할 수 있습니다. Service Fabric은 Windows Server 2016에서 Linux 컨테이너 및 Windows 컨테이너의 배포를 지원합니다. 컨테이너 이미지는 컨테이너 저장소에서 가져오고 컴퓨터에 배포될 수 있습니다. 기존 애플리케이션을 컨테이너에서 게스트 실행 파일, Service Fabric 상태 비저장 또는 상태 저장 서비스, Reliable Actors로 배포할 수 있으며, 프로세스의 서비스와 컨테이너의 서비스를 동일한 애플리케이션에서 함께 사용할 수 있습니다.
 
 [Windows 또는 Linux에서 서비스를 컨테이너화하는 방법에 대해 자세히 알아보기](service-fabric-deploy-container.md)
 
@@ -51,7 +51,7 @@ ASP.NET Core는 웹앱, IoT 앱 및 모바일 백 엔드와 같은 최신 클라
 ## <a name="reliable-actors"></a>Reliable Actors
 Reliable Services의 최상위에 구축되는 Reliable Actor 프레임워크는 행위자 설계 패턴을 기준으로 가상 행위자 패턴을 구현하는 응용 프로그램 프레임워크입니다. Reliable Actor 프레임워크는 행위자라고 하는 단일 스레드 실행을 통해 독립적인 계산 단위 및 상태를 사용합니다. Reliable Actor 프레임워크는 행위자와 사전 설정 상태 지속성 및 확장 구성에 대해 기본 포함된 통신을 제공합니다.
 
-Reliable Actors 자체는 Reliable Services에 구축된 응용 프로그램 프레임워크이므로 Service Fabric 플랫폼과 완전히 통합되며 플랫폼이 제공하는 모든 기능을 완벽히 활용할 수 있습니다.
+Reliable Actors 자체는 Reliable Services에 구축된 애플리케이션 프레임워크이므로 Service Fabric 플랫폼과 완전히 통합되며 플랫폼이 제공하는 모든 기능을 완벽히 활용할 수 있습니다.
 
 [Reliable Actors에 대해 자세히 알아보거나](service-fabric-reliable-actors-introduction.md) [첫 번째 Reliable Actor 서비스 작성](service-fabric-reliable-actors-get-started.md)
 

@@ -59,7 +59,7 @@ items:
       href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
     - name: IntelliJ를 사용하여 VPN을 통해 원격으로 Apache Spark 작업 디버그
       href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
-    - name: 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
+    - name: 비대화형 인증 .NET HDInsight 애플리케이션 만들기
       href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
       maintainContext: true
   - name: HDInsight 도구 사용

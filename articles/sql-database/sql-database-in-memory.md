@@ -516,7 +516,7 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 - [일반적인 워크로드 패턴 및 마이그레이션 고려 사항에 대한 백서](https://msdn.microsoft.com/library/dn673538.aspx)를 참조하세요. 여기에서 메모리 내 OLTP가 일반적으로 상당한 성능 향상을 제공하는 워크로드 패턴을 설명합니다.
 
-#### <a name="application-design"></a>응용 프로그램 설계
+#### <a name="application-design"></a>애플리케이션 설계
 
 - [메모리 내 OLTP(메모리 내 최적화)](https://msdn.microsoft.com/library/dn133186.aspx)
 

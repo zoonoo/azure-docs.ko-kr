@@ -68,11 +68,11 @@ Central Desktop과 Azure AD의 통합을 구성하려면 갤러리의 Central De
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 선택합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 선택합니다.
 
     ![새 응용 프로그램 단추][3]
 
-1. 검색 상자에 **Central Desktop**을 입력합니다. 결과 패널에서 **Central Desktop**을 선택한 다음, **추가**를 선택하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **Central Desktop**을 입력합니다. 결과 패널에서 **Central Desktop**을 선택한 다음, **추가**를 선택하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Central Desktop](./media/central-desktop-tutorial/tutorial_centraldesktop_addfromgallery.png)
 
@@ -94,11 +94,11 @@ Central Desktop에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Central Desktop 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Central Desktop 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Central Desktop에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Central Desktop** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. Azure Portal의 **Central Desktop** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -202,7 +202,7 @@ Central Desktop에서 Azure AD Single Sign-On을 구성하고 테스트하려면
  
 ### <a name="create-a-central-desktop-test-user"></a>Central Desktop 테스트 사용자 만들기
 
-Azure AD 사용자가 로그인할 수 있도록 Central Desktop 응용 프로그램에 프로비전되어야 합니다. 이 섹션은 Central Desktop에 Azure AD 사용자 계정을 만드는 방법을 설명합니다.
+Azure AD 사용자가 로그인할 수 있도록 Central Desktop 애플리케이션에 프로비전되어야 합니다. 이 섹션은 Central Desktop에 Azure AD 사용자 계정을 만드는 방법을 설명합니다.
 
 > [!NOTE]
 > Azure AD 사용자 계정을 프로비전하려면 다른 Central Desktop 사용자 계정 생성 도구 또는 Central Desktop가 제공한 API를 사용합니다.
@@ -236,15 +236,15 @@ Azure AD 사용자가 로그인할 수 있도록 Central Desktop 응용 프로�
 
 **Britta Simon을 Central Desktop에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 엽니다. 디렉터리 보기로 이동한 다음, **엔터프라이즈 응용 프로그램**으로 이동합니다.
+1. Azure Portal에서 응용 프로그램 보기를 엽니다. 디렉터리 보기로 이동한 다음, **엔터프라이즈 애플리케이션**으로 이동합니다.
 
 1. **모든 응용 프로그램**을 선택합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Central Desktop**을 선택합니다.
+1. 애플리케이션 목록에서 **Central Desktop**을 선택합니다.
 
-    ![응용 프로그램 목록의 Central Desktop 링크](./media/central-desktop-tutorial/tutorial_centraldesktop_app.png)  
+    ![애플리케이션 목록의 Central Desktop 링크](./media/central-desktop-tutorial/tutorial_centraldesktop_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 
@@ -264,7 +264,7 @@ Azure AD 사용자가 로그인할 수 있도록 Central Desktop 응용 프로�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Central Desktop 타일을 선택하면 Central Desktop 응용 프로그램에 자동으로 로그인됩니다.
+액세스 패널에서 Central Desktop 타일을 선택하면 Central Desktop 애플리케이션에 자동으로 로그인됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

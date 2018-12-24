@@ -77,7 +77,7 @@ ms.locfileid: "47106682"
 
 ### <a name="change-your-password-from-the-office-365-portal"></a>Office 365 포털에서 암호 변경
 
-주로 Office 포털을 통해 응용 프로그램에 액세스하는 경우 이 방법을 사용하세요.
+주로 Office 포털을 통해 애플리케이션에 액세스하는 경우 이 방법을 사용하세요.
 
 1. 기존 암호를 사용하여 [Office 365 계정](https://www.office.com)에 로그인합니다.
 2. 오른쪽 위에서 자신의 프로필을 선택한 다음 **계정 보기**를 선택합니다.
@@ -86,7 +86,7 @@ ms.locfileid: "47106682"
 
 ### <a name="change-your-password-from-the-azure-access-panel"></a>Azure 액세스 패널에서 암호 변경
 
-주로 Azure 액세스 패널(MyApps)을 사용하여 응용 프로그램에 액세스하는 경우 이 방법을 사용하세요.
+주로 Azure 액세스 패널(MyApps)을 사용하여 애플리케이션에 액세스하는 경우 이 방법을 사용하세요.
 
 1. 기존 암호를 사용하여 [Azure 액세스 패널](https://myapps.microsoft.com/)에 로그인합니다.
 2. 오른쪽 위에서 자신의 프로필을 선택한 다음 **프로필**을 선택합니다.

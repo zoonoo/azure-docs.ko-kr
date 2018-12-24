@@ -23,7 +23,7 @@ ms.locfileid: "39003455"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Node.js 응용 프로그램 빌드 및 배포
 
-이 자습서에서는 Azure 클라우드 서비스에서 실행되는 간단한 Node.js 응용 프로그램을 만드는 방법을 보여줍니다. Cloud Services는 Azure에서 확장 가능한 클라우드 응용 프로그램의 구성 요소입니다. 이 클라우드 서비스는 응용 프로그램의 프런트 엔드 및 백 엔드 구성 요소의 구분과 독립적인 관리 및 확장을 허용합니다.  Cloud Services는 각 역할을 안정적으로 호스팅할 수 있는 강력한 전용 가상 머신을 제공합니다.
+이 자습서에서는 Azure 클라우드 서비스에서 실행되는 간단한 Node.js 애플리케이션을 만드는 방법을 보여줍니다. Cloud Services는 Azure에서 확장 가능한 클라우드 응용 프로그램의 구성 요소입니다. 이 클라우드 서비스는 응용 프로그램의 프런트 엔드 및 백 엔드 구성 요소의 구분과 독립적인 관리 및 확장을 허용합니다.  Cloud Services는 각 역할을 안정적으로 호스팅할 수 있는 강력한 전용 가상 머신을 제공합니다.
 
 Cloud Services에 대한 자세한 내용 및 Azure Websites와 Virtual Machines와의 비교에 대한 자세한 내용은 [Azure Websites, Cloud Services 및 Virtual Machines 비교]를 참조하세요.
 
@@ -84,7 +84,7 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 
 이 코드는 클라우드 환경에서 지정된 포트 번호를 사용한다는 점을 제외하고 기본적으로 [nodejs.org] 웹사이트의 "Hello World" 예제와 동일합니다.
 
-## <a name="deploy-the-application-to-azure"></a>Azure에 응용 프로그램 배포
+## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 
 > [!NOTE]
 > 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)하거나 [무료 계정을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)할 수 있습니다.

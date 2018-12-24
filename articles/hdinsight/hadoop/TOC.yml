@@ -134,7 +134,7 @@ items:
       href: apache-hadoop-hive-pig-udf-dotnet-csharp.md
     - name: Apache Hive 및 Apache Pig와 함께 Python 사용
       href: python-udf-hdinsight.md
-    - name: 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
+    - name: 비대화형 인증 .NET HDInsight 애플리케이션 만들기
       href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
       maintainContext: true
   - name: HDInsight 도구 사용

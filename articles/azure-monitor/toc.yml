@@ -531,7 +531,7 @@ items:
           href: insights/container-insights-troubleshoot.md
       - name: Docker 및 Windows 컨테이너 모니터링
         href: insights/containers.md
-      - name: Docker 응용 프로그램 모니터링
+      - name: Docker 애플리케이션 모니터링
         href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
     - name: 리소스 그룹 모니터링
       href: insights/resource-group-insights.md

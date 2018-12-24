@@ -165,7 +165,7 @@ block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
-## <a name="resources-for-developing-python-applications-with-blobs"></a>Blob을 사용하여 Python 응용 프로그램을 개발하기 위한 리소스
+## <a name="resources-for-developing-python-applications-with-blobs"></a>BLOB을 사용하여 Python 애플리케이션을 개발하기 위한 리소스
 
 Blob Storage를 사용하는 Python 개발에 대한 자세한 내용은 다음과 같은 추가 리소스를 참조하세요.
 

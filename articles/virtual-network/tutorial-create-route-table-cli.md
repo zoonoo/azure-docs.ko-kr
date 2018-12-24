@@ -145,7 +145,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-VM 내 운영 체제 또는 VM 내에서 실행 중인 응용 프로그램도 네트워크 트래픽을 전달할 수 있어야 합니다. [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set)를 사용하여 VM의 운영 체제 내에서 IP 전달을 활성화합니다.
+VM 내 운영 체제 또는 VM 내에서 실행 중인 애플리케이션도 네트워크 트래픽을 전달할 수 있어야 합니다. [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set)를 사용하여 VM의 운영 체제 내에서 IP 전달을 활성화합니다.
 
 ```azurecli-interactive
 az vm extension set \

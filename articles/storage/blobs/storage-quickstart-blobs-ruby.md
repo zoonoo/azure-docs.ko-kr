@@ -178,7 +178,7 @@ blob_client.delete_container(container_name)
 File.delete(full_path_to_file)
 File.delete(full_path_to_file2)    
 ```
-## <a name="resources-for-developing-ruby-applications-with-blobs"></a>Blob을 사용하여 Ruby 응용 프로그램을 개발하기 위한 리소스
+## <a name="resources-for-developing-ruby-applications-with-blobs"></a>BLOB을 사용하여 Ruby 애플리케이션을 개발하기 위한 리소스
 
 Blob 저장소를 사용하여 Ruby 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
 

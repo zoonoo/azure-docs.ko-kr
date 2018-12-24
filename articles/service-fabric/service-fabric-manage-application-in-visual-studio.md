@@ -1,6 +1,6 @@
 ---
-title: Visual Studio에서 Azure Servic Fabric 응용 프로그램 관리 | Microsoft Docs
-description: Visual Studio를 사용하여 Azure Service Fabric 응용 프로그램과 서비스를 만들고, 개발하고, 배포하고, 디버그합니다.
+title: Visual Studio에서 Azure Servic Fabric 애플리케이션 관리 | Microsoft Docs
+description: Visual Studio를 사용하여 Azure Service Fabric 애플리케이션과 서비스를 만들고, 개발하고, 배포하고, 디버그합니다.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -47,7 +47,7 @@ Visual Studio는 Visual Studio에서 디버깅의 일부로 응용 프로그램 
 
 #### <a name="application-debug-modes"></a>응용 프로그램 디버그 모드
 
-1. **응용 프로그램 새로 고침** 이 모드를 사용하면 코드를 신속하게 변경하고 디버그할 수 있으며 디버깅하는 동안 정적 웹 파일 편집을 지원합니다. 이 모드는 로컬 개발 클러스터가 [1-노드 모드]인 경우에만 작동합니다. 기본 응용 프로그램 디버그 모드입니다.(/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode)
+1. **응용 프로그램 새로 고침** 이 모드를 사용하면 코드를 신속하게 변경하고 디버그할 수 있으며 디버깅하는 동안 정적 웹 파일 편집을 지원합니다. 이 모드는 로컬 개발 클러스터가 [1-노드 모드]인 경우에만 작동합니다. 기본 애플리케이션 디버그 모드입니다.(/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode)
 2. **응용 프로그램 제거** 를 선택하면 디버그 세션이 종료될 때 응용 프로그램이 제거됩니다.
 3. **자동 업그레이드** 디버그 세션이 종료될 때 응용 프로그램이 계속 실행됩니다. 다음 디버그 세션은 업그레이드로 배포를 처리합니다. 업그레이드 프로세스는 이전 디버그 세션에서 입력한 모든 데이터를 유지합니다.
 4. **응용 프로그램 유지** 디버그 세션이 종료될 때 클러스터에서 응용 프로그램이 계속 실행됩니다. 다음 디버그 세션의 시작 부분에서 응용 프로그램이 제거됩니다.

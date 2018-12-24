@@ -23,7 +23,7 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51233782"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>MPI 응용 프로그램을 실행하기 위해 HPC Pack을 사용하여 Windows RDMA 클러스터 설정
-Azure에서 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 및 [RDMA 가능 HPC VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Windows RDMA 클러스터를 설정합니다. HPC 팩 클러스터에서 RDMA 지원, Windows Server 기반 노드를 설정하는 경우 MPI 응용 프로그램은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
+Azure에서 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 및 [RDMA 가능 HPC VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Windows RDMA 클러스터를 설정합니다. HPC 팩 클러스터에서 RDMA 지원, Windows Server 기반 노드를 설정하는 경우 MPI 애플리케이션은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
 
 ## <a name="hpc-pack-cluster-deployment-options"></a>HPC 팩 클러스터 배포 옵션
 Microsoft HPC Pack은 Windows 또는 Linux HPC 응용 프로그램을 실행하기 위해 온-프레미스 또는 Azure에서 HPC 클러스터를 만들 수 있도록 추가 비용 없이 제공되는 도구입니다. HPC Pack에 Windows(MS-MPI)용 메시지 전달 인터페이스의 Microsoft 구현에 대한 런타임 환경을 포함합니다. HPC Pack을 지원되는 Windows Server 운영 체제를 실행하는 RDMA 지원 인스턴스와 함께 사용하는 경우 Azure RDMA 네트워크에 액세스하는 Windows MPI 응용 프로그램을 효율적으로 실행할 수 있습니다. 
@@ -164,14 +164,14 @@ RDMA 지원 인스턴스의 HPC 팩 배포를 확인하려면 클러스터에서
    
    ![핑퐁 처리량][pingpong2]
 
-### <a name="mpi-application-considerations"></a>MPI 응용 프로그램 고려 사항
+### <a name="mpi-application-considerations"></a>MPI 애플리케이션 고려 사항
 다음은 Azure에서 HPC Pack을 사용하여 MPI 응용 프로그램을 실행하기 위한 고려 사항입니다. 일부는 Azure 노드 배포에만 적용됩니다(작업자 역할 인스턴스가 "Azure로 버스트" 구성에 추가됨).
 
 * 클라우드 서비스의 작업자 역할 인스턴스는 Azure에서 미리 알리지 않고 정기적으로 다시 프로비전됩니다(예: 시스템 유지 관리에서 또는 인스턴스가 실패할 경우). MPI 작업을 실행하는 동안 인스턴스를 다시 프로비전한 경우 인스턴스의 데이터가 손실되고 인스턴스가 처음 배포될 당시의 상태로 돌아가며, 이로 인해 MPI 작업이 실패합니다. 단일 MPI 작업에 사용하는 노드가 많고 작업이 더 오래 실행될수록 작업이 실행되는 동안 인스턴스 중 하나가 다시 프로비전될 가능성이 높아집니다. 배포에서 단일 노드를 파일 서버로 지정하는 경우에도 이를 고려해야 합니다.
 * Azure에서 MPI 작업을 실행하기 위해 RDMA 지원 인스턴스를 사용할 필요는 없습니다. HPC 팩에서 지원되는 모든 인스턴스 크기를 사용할 수 있습니다. 하지만 RDMA 지원 인스턴스는 대기 시간 및 노드에 연결되는 네트워크 대역폭에 민감하며 상대적으로 큰 규모의 MPI 작업을 실행하는 데 사용하는 것이 좋습니다. 대기 시간 및 대역폭에 민감한 MPI 작업을 실행하는 데 다른 크기를 사용하는 경우 단일 작업이 단 몇 개 노드에서만 실행되는 작은 작업을 실행하는 것이 좋습니다.
-* Azure 인스턴스에 배포되는 응용 프로그램은 응용 프로그램과 관련된 라이선스 조건이 적용됩니다. 클라우드에서 실행하기 위해 라이선스나 기타 제한 사항에 대한 상용 응용 프로그램을 공급 업체에 확인합니다. 일부 공급 업체는 종량제 라이선스를 제공합니다.
+* Azure 인스턴스에 배포되는 애플리케이션은 애플리케이션과 관련된 라이선스 조건이 적용됩니다. 클라우드에서 실행하기 위해 라이선스나 기타 제한 사항에 대한 상용 응용 프로그램을 공급 업체에 확인합니다. 일부 공급 업체는 종량제 라이선스를 제공합니다.
 * 온-프레미스 노드, 공유, 라이선스 서버에 액세스하려면 Azure 인스턴스에 추가 설정이 필요합니다. 예를 들어 Azure 노드가 온-프레미스 라이선스 서버에 액세스하도록 하려면 사이트 대 사이트 Azure 가상 네트워크를 구성할 수 있습니다.
-* Azure 인스턴스에 MPI 응용 프로그램을 실행하려면 **hpcfwutil** 명령을 실행하여 인스턴스의 Windows 방화벽에 각 MPI 응용 프로그램을 등록합니다. 그러면 방화벽에서 동적으로 할당한 포트에서 MPI 통신이 이루어집니다.
+* Azure 인스턴스에 MPI 애플리케이션을 실행하려면 **hpcfwutil** 명령을 실행하여 인스턴스의 Windows 방화벽에 각 MPI 애플리케이션을 등록합니다. 그러면 방화벽에서 동적으로 할당한 포트에서 MPI 통신이 이루어집니다.
   
   > [!NOTE]
   > Azure로 버스트 배포의 경우 방화벽 제외 명령을 구성하여 클러스터에 추가된 모든 새 Azure 노드에서 자동으로 실행할 수도 있습니다. **hpcfwutil** 명령을 실행하고 응용 프로그램이 작동하는지 확인한 다음 Azure 노드의 시작 스크립트에 명령을 추가합니다. 자세한 내용은 [Azure 노드에 시작 스크립트 사용](https://technet.microsoft.com/library/jj899632.aspx)을 참조하세요.

@@ -532,7 +532,7 @@ Write-Host "==================================" -ForegroundColor Green
 > [!NOTE]
 > Hive 테이블은 필드 구분 기호로 \001을 사용합니다. 구분 기호는 출력에서 보이지 않습니다.
 
-분석 결과가 Azure Blob 저장소에 배치된 후에는 데이터를 Azure SQL 데이터베이스/SQL Server로 내보내거나, 파워 쿼리를 사용하여 데이터를 Excel로 내보내거나, Hive ODBC 드라이버를 사용하여 응용 프로그램을 데이터에 연결할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache Sqoop 사용][hdinsight-use-sqoop], [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data], [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query] 및 [Microsoft Hive ODBC Driver로 Excel을 HDInsight에 연][hdinsight-hive-odbc]을 참조하세요.
+분석 결과가 Azure Blob 스토리지에 배치된 후에는 데이터를 Azure SQL 데이터베이스/SQL Server로 내보내거나, 파워 쿼리를 사용하여 데이터를 Excel로 내보내거나, Hive ODBC 드라이버를 사용하여 애플리케이션을 데이터에 연결할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache Sqoop 사용][hdinsight-use-sqoop], [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data], [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query] 및 [Microsoft Hive ODBC Driver로 Excel을 HDInsight에 연][hdinsight-hive-odbc]을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 비정형 JSON 데이터 세트를 구조적 Apache Hive 테이블로 변환하여 Azure의 HDInsight를 사용하여 Twitter 데이터를 쿼리하고 탐색하고 분석하는 방법을 살펴보았습니다. 자세한 내용은 다음을 참조하세요.

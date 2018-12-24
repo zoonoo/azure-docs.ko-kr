@@ -26,7 +26,7 @@ ms.locfileid: "53257780"
 
 [Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Azure에서 데이터 기반 ASP.NET 웹앱을 개발하고 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)에 연결하는 방법을 보여 줍니다. 완료되면 ASP.NET 앱이 Azure에서 실행되고 SQL Database에 연결됩니다.
 
-![Azure 웹앱의 게시된 ASP.NET 응용 프로그램](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Azure 웹앱의 게시된 ASP.NET 애플리케이션](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -163,7 +163,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 몇 가지 할 일 항목을 추가합니다.
 
-![Azure 웹앱의 게시된 ASP.NET 응용 프로그램](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Azure 웹앱의 게시된 ASP.NET 애플리케이션](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 축하합니다! 데이터 기반 ASP.NET 응용 프로그램이 Azure App Service에서 라이브로 실행되고 있습니다.
 
@@ -245,7 +245,7 @@ Update-Database
 
 `Ctrl+F5`를 입력하여 앱을 실행합니다. 편집, 세부 정보 및 만들기 링크를 테스트합니다.
 
-응용 프로그램이 오류 없이 로드되면 Code First 마이그레이션이 성공한 것입니다. 그러나 응용 프로그램 논리에서 이 새로운 속성을 아직 사용하지 않기 때문에 페이지가 여전히 동일하게 표시될 수 있습니다. 
+응용 프로그램이 오류 없이 로드되면 Code First 마이그레이션이 성공한 것입니다. 그러나 애플리케이션 논리에서 이 새로운 속성을 아직 사용하지 않기 때문에 페이지가 여전히 동일하게 표시될 수 있습니다. 
 
 ### <a name="use-the-new-property"></a>새 속성 사용
 
@@ -330,7 +330,7 @@ SQL Database에 대한 연결 문자열이 **MyDatabaseContext (MyDbConnection)*
 기존의 모든 할 일 항목이 계속 표시됩니다. ASP.NET 응용 프로그램을 다시 게시해도 SQL Database의 기존 데이터가 손실되지 않습니다. 또한 Code First 마이그레이션은 데이터 스키마만 변경하고 기존 데이터는 그대로 유지합니다.
 
 
-## <a name="stream-application-logs"></a>응용 프로그램 로그 스트림
+## <a name="stream-application-logs"></a>애플리케이션 로그 스트림
 
 Azure 웹앱에서 직접 Visual Studio로 추적 메시지를 스트림할 수 있습니다.
 

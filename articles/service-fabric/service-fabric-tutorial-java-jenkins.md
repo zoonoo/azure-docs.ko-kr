@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 Java 앱에 대한 Jenkins 구성 | Microsoft Docs
-description: 이 자습서에서는 Java Service Fabric 응용 프로그램을 배포하기 위해 Jenkins를 사용하여 연속 통합을 설정하는 방법을 알아봅니다.
+description: 이 자습서에서는 Java Service Fabric 애플리케이션을 배포하기 위해 Jenkins를 사용하여 연속 통합을 설정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -30,7 +30,7 @@ ms.locfileid: "53162225"
 > [!div class="checklist"]
 > * 컴퓨터에 Service Fabric Jenkins 컨테이너 배포
 > * Service Fabric에 배포하기 위한 Jenkins 환경 설정
-> * 응용 프로그램 업그레이드
+> * 애플리케이션 업그레이드
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -94,7 +94,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
    a. 일반 섹션에서 **GitHub 프로젝트**에 대한 확인란을 선택하고 GitHub 프로젝트 URL을 지정합니다. 이 URL은 Jenkins CI/CD(연속 통합, 연속 배포) 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트합니다(예: ``https://github.com/testaccount/dev_test``).
 
-   b. **소스 코드 관리** 섹션 아래에서 **Git**를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트하는 리포지토리 URL을 지정합니다(예: *https://github.com/testaccount/dev_test.git*). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
+   b. **소스 코드 관리** 섹션 아래에서 **Git**를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 애플리케이션을 호스트하는 리포지토리 URL을 지정합니다(예: *https://github.com/testaccount/dev_test.git*). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
 
 1. Jenkins와 통신할 수 있도록 리포지토리를 호스팅하는 *GitHub*을 구성합니다. 다음 단계를 사용하세요.
 
@@ -116,7 +116,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 1. **빌드 후 작업** 드롭다운에서 **Service Fabric 프로젝트 배포**를 선택합니다. 여기에서 Jenkins가 컴파일한 Service Fabric 응용 프로그램을 배포한 클러스터 세부 정보를 제공해야 합니다. 인증서 경로가 볼륨이 탑재(/tmp/myCerts)됐던 위치에 있습니다.
 
-    또한 응용 프로그램을 배포하는 데 사용된 추가 세부 정보를 제공할 수 있습니다. 응용프로그램 세부 정보에 대한 예제는 다음 스크린샷을 참조하세요.
+    또한 응용 프로그램을 배포하는 데 사용된 추가 세부 정보를 제공할 수 있습니다. 애플리케이션 세부 정보에 대한 예제는 다음 스크린샷을 참조하세요.
 
     ![Service Fabric Jenkins 빌드 작업](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
 
@@ -126,7 +126,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 1. **저장**을 클릭합니다.
 
-## <a name="update-your-existing-application"></a>기존 응용 프로그램 업데이트
+## <a name="update-your-existing-application"></a>기존 애플리케이션 업데이트
 
 1. **Service Fabric Voting 샘플 V2**를 사용하여 *VotingApplication/VotingWebPkg/Code/wwwroot/index.html* 파일의 HTML의 제목을 업데이트합니다.
 
@@ -198,6 +198,6 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 > [!div class="checklist"]
 > * 컴퓨터에 Service Fabric Jenkins 컨테이너 배포
 > * Service Fabric에 배포하기 위한 Jenkins 환경 설정
-> * 응용 프로그램 업그레이드
+> * 애플리케이션 업그레이드
 
 * 다른 [Java 샘플](https://github.com/Azure-Samples/service-fabric-java-getting-started) 체크 아웃

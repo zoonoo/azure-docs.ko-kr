@@ -74,7 +74,7 @@ Azure|해당 없음|yes
 ![Site Recovery 계산 및 네트워크 창에서 대상 IP를 설정하는 방법을 보여 주는 스크린샷](./media/site-recovery-active-directory/dns-target-ip.png)
 
 ## <a name="create-a-recovery-plan"></a>복구 계획 만들기
-복구 계획은 장애 조치(failover) 시에 다중 계층 응용 프로그램에서 여러 계층의 시퀀싱을 지원합니다. 시퀀싱은 응용 프로그램의 일관성을 유지하는 데 도움이 됩니다. 다중 계층 웹 응용 프로그램에 대한 복구 계획을 만드는 경우 [Site Recovery를 사용하여 복구 계획 만들기](site-recovery-create-recovery-plans.md)에서 설명한 단계를 수행합니다.
+복구 계획은 장애 조치(failover) 시에 다중 계층 응용 프로그램에서 여러 계층의 시퀀싱을 지원합니다. 시퀀싱은 애플리케이션의 일관성을 유지하는 데 도움이 됩니다. 다중 계층 웹 응용 프로그램에 대한 복구 계획을 만드는 경우 [Site Recovery를 사용하여 복구 계획 만들기](site-recovery-create-recovery-plans.md)에서 설명한 단계를 수행합니다.
 
 ### <a name="add-virtual-machines-to-failover-groups"></a>장애 조치 그룹에 가상 머신 추가
 일반적인 다중 계층 IIS 웹 응용 프로그램을 구성하는 요소는 다음과 같습니다.

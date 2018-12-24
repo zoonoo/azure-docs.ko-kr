@@ -23,7 +23,7 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51226943"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>클라우드 서비스 배포 문제 해결
-Azure에 클라우드 서비스 응용 프로그램 패키지를 배포할 때 Azure 포털의 **속성** 창에서 배포에 대한 정보를 얻을 수 있습니다. 클라우드 서비스에 발생한 문제를 해결하기 위해 이 창에서 세부 정보를 사용할 수 있고 새로운 지원 요청을 할 때 Azure 지원 센터에 이 정보를 제공할 수 있습니다.
+Azure에 클라우드 서비스 애플리케이션 패키지를 배포할 때 Azure portal의 **속성** 창에서 배포에 대한 정보를 얻을 수 있습니다. 클라우드 서비스에 발생한 문제를 해결하기 위해 이 창에서 세부 정보를 사용할 수 있고 새로운 지원 요청을 할 때 Azure 지원 센터에 이 정보를 제공할 수 있습니다.
 
 다음과 같이 **속성** 창을 찾을 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure에 클라우드 서비스 응용 프로그램 패키지를 배포할 때 A
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>문제: 내 배포가 시작되고 모든 역할 인스턴스가 준비되었지만 내 웹 사이트에 액세스할 수가 없어요
-포털에 표시된 웹 사이트 URL 링크에는 포트가 포함되지 않습니다. 웹 사이트의 기본 포트는 80입니다. 응용 프로그램이 다른 포트에서 실행되도록 구성된 경우 웹 사이트에 액세스할 때 URL에 올바른 포트 번호를 추가해야 합니다.
+포털에 표시된 웹 사이트 URL 링크에는 포트가 포함되지 않습니다. 웹 사이트의 기본 포트는 80입니다. 애플리케이션이 다른 포트에서 실행되도록 구성된 경우 웹 사이트에 액세스할 때 URL에 올바른 포트 번호를 추가해야 합니다.
 
 1. Azure 포털에서 클라우드 서비스의 배포를 클릭합니다.
 2. Azure 포털의 **속성** 창에서 역할 인스턴스에 대한 포트를 확인합니다(**입력 엔드포인트**에서).
@@ -74,7 +74,7 @@ Azure에서 문제가 있는 노드를 검색하고 따라서 역할 인스턴�
 1. Azure 포털에서 역할 인스턴스를 클릭합니다.
 2. Azure 포털의 **속성** 창에서 다음 조건을 고려하여 문제를 해결합니다.
    * 역할 인스턴스가 최근에 중지된 경우 ( **중단 횟수**의 값을 확인할 수 있음) 배포를 업데이트할 수 있습니다. 역할 인스턴스가 다시 스스로 작동하는지 확인하기 위해 기다립니다.
-   * 역할 인스턴스가 **사용 중**인 경우 응용 프로그램 코드가 [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) 이벤트를 처리하는지 확인합니다. 이 이벤트를 처리하는 일부 코드를 추가하거나 수정해야 합니다.
+   * 역할 인스턴스가 **사용 중**인 경우 애플리케이션 코드가 [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) 이벤트를 처리하는지 확인합니다. 이 이벤트를 처리하는 일부 코드를 추가하거나 수정해야 합니다.
    * [Azure PaaS Compute 진단 데이터](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)블로그 게시물에서 진단 데이터 및 문제 해결 시나리오를 수행합니다.
 
 > [!WARNING]

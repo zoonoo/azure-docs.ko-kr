@@ -52,7 +52,7 @@ ms.locfileid: "51615079"
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="create-a-client-application-sender"></a>클라이언트 응용 프로그램(보낸 사람) 만들기
-릴레이에 메시지를 보내려면 Node.js 콘솔 응용 프로그램을 작성합니다.
+릴레이에 메시지를 보내려면 Node.js 콘솔 애플리케이션을 작성합니다.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 

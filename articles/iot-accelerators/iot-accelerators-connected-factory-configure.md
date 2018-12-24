@@ -119,7 +119,7 @@ ms.locfileid: "42746982"
 
 * **OpcUri**(문자열 형식)
 
-  이 속성은 OPC UA 서버의 OPC UA 응용 프로그램 URI로 설정되어야 합니다.
+  이 속성은 OPC UA 서버의 OPC UA 애플리케이션 URI로 설정되어야 합니다.
   OPC UA 사양에 따라 전역적으로 고유해야 하므로 이 속성은 스테이션 토폴로지에 노드를 식별하는 데 사용됩니다.
 
 * OPC UA 노드의 배열인 **OpcNodes**(`<opc_node_description>` 형식)

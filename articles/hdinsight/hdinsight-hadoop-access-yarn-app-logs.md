@@ -1,6 +1,6 @@
 ---
 title: 프로그래밍 방식으로 Hadoop YARN 응용 프로그램 로그에 액세스 - Azure
-description: HDInsight의 Hadoop 클러스터에서 프로그래밍 방식으로 응용 프로그램 로그에 액세스합니다.
+description: HDInsight의 Hadoop 클러스터에서 프로그래밍 방식으로 애플리케이션 로그에 액세스합니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -59,7 +59,7 @@ YARN은 여러 프로그래밍 모델을 지원하여 리소스 관리를 응용
 
     wasb:///app-logs/<user>/logs/<applicationId>
 
-이 위치에서 *user*는 응용 프로그램을 시작한 사용자의 이름이고, *applicationId*는 YARN RM이 할당한 응용 프로그램의 고유 식별자입니다.
+이 위치에서 *user*는 애플리케이션을 시작한 사용자의 이름이고, *applicationId*는 YARN RM이 할당한 애플리케이션의 고유 식별자입니다.
 
 집계된 로그는 컨테이너별로 인덱싱된 [이진 형식][binary-format]인 [TFile][T-file]로 작성되므로 직접 읽을 수 없습니다. YARN에서는 관심 있는 응용 프로그램 또는 컨테이너에 대한 이러한 로그를 일반 텍스트로 덤프하는 CLI 도구를 제공합니다. RDP를 통해 연결한 후 클러스터 노드에서 직접 다음 YARN 명령 중 하나를 실행하여 이러한 로그를 일반 텍스트로 볼 수 있습니다.
 
@@ -71,7 +71,7 @@ YARN은 여러 프로그래밍 모델을 지원하여 리소스 관리를 응용
 YARN ResourceManager UI 클러스터 헤드 노드에서 실행되며 Azure 포털 대시보드를 통해 액세스할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 메뉴에서 **찾아보기**, **HDInsight 클러스터**, YARN 응용 프로그램 로그에 액세스할 Windows 기반 클러스터를 차례로 클릭합니다.
+2. 왼쪽 메뉴에서 **찾아보기**, **HDInsight 클러스터**, YARN 애플리케이션 로그에 액세스할 Windows 기반 클러스터를 차례로 클릭합니다.
 3. 위쪽 메뉴에서 **대시보드**를 클릭합니다. **HDInsight 쿼리 콘솔**이라는 새 브라우저 탭에 페이지가 열립니다.
 4. **HDInsight 쿼리 콘솔**에서 **Yarn UI**를 클릭합니다.
 

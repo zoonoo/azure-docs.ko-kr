@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric에 기존 실행 파일 배포 | Microsoft Docs
-description: Service Fabric 클러스터에 배포할 수 있도록 기존 응용 프로그램을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
+description: Service Fabric 클러스터에 배포할 수 있도록 기존 애플리케이션을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
