@@ -29,7 +29,7 @@ ms.locfileid: "53310082"
 다른 Azure 고객 및 파트너가 구매하여 사용하도록 개발자가 Azure Marketplace에 나열된 솔루션을 만들고, 배포하고, 관리하는 데 도움을 주기 위해 이 문서를 제공합니다.
 
 ## <a name="marketplace-publishing"></a>Marketplace 게시
-Azure 게시자인 사용자는 Marketplace에서 다른 개발자, ISV 및 IT 전문가에게 혁신적인 솔루션 또는 서비스를 배포하고 판매할 수 있습니다. Marketplace를 통해 클라우드 기반 응용 프로그램 및 모바일 솔루션을 신속하게 개발하려는 고객에게 접근할 수 있습니다. 솔루션이 비즈니스 사용자를 대상으로 하는 경우 [AppSource](https://appsource.microsoft.com) Marketplace를 고려할 수 있습니다.
+Azure 게시자인 사용자는 Marketplace에서 다른 개발자, ISV 및 IT 전문가에게 혁신적인 솔루션 또는 서비스를 배포하고 판매할 수 있습니다. Marketplace를 통해 클라우드 기반 애플리케이션 및 모바일 솔루션을 신속하게 개발하려는 고객에게 접근할 수 있습니다. 솔루션이 비즈니스 사용자를 대상으로 하는 경우 [AppSource](https://appsource.microsoft.com) Marketplace를 고려할 수 있습니다.
 
 
 ## <a name="supported-types-of-solutions"></a>지원되는 솔루션 형식

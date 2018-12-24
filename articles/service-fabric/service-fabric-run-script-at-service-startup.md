@@ -170,7 +170,7 @@ PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ```
 
-그런 다음, 서비스가 배포되고 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 시작된 노드의 이름을 적어둡니다. 예를 들어 노드 2 등입니다. 다음으로 응용 프로그램 인스턴스 작업 폴더로 이동하여 **TestVariable**값을 보여주는 out.txt 파일을 찾습니다. 예를 들어 이 서비스가 노드 2에 배포된 경우 **MyApplicationType**에 대한 이 경로로 이동할 수 있습니다.
+그런 다음, 서비스가 배포되고 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 시작된 노드의 이름을 적어둡니다. 예를 들어 노드 2 등입니다. 다음으로 애플리케이션 인스턴스 작업 폴더로 이동하여 **TestVariable**값을 보여주는 out.txt 파일을 찾습니다. 예를 들어 이 서비스가 노드 2에 배포된 경우 **MyApplicationType**에 대한 이 경로로 이동할 수 있습니다.
 
 ```
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
@@ -193,7 +193,7 @@ PowerShell 파일에서 다음을 추가하여 시스템 환경 변수를 설정
 ```
 
 > [!NOTE]
-> 기본적으로 배치 파일이 실행될 때 **work**라는 응용 프로그램 폴더에서 파일을 찾습니다. 이 경우 MySetup.bat가 실행될 때 같은 폴더(응용 프로그램 **코드 패키지** 폴더)에서 MySetup.ps1 파일을 찾으려고 합니다. 이 폴더를 변경하려면 아래와 같이 작업 폴더를 설정합니다.
+> 기본적으로 배치 파일이 실행될 때 **work**라는 애플리케이션 폴더에서 파일을 찾습니다. 이 경우 MySetup.bat가 실행될 때 같은 폴더(애플리케이션 **코드 패키지** 폴더)에서 MySetup.ps1 파일을 찾으려고 합니다. 이 폴더를 변경하려면 아래와 같이 작업 폴더를 설정합니다.
 > 
 > 
 
@@ -210,7 +210,7 @@ PowerShell 파일에서 다음을 추가하여 시스템 환경 변수를 설정
 디버깅 목적으로 설치 스크립트를 실행하여 얻은 콘솔 출력을 확인하는 것이 유용할 때가 있습니다. 서비스 매니페스트에서 설치 진입점에 대해 출력을 파일에 기록하는 콘솔 리디렉션 정책을 설정할 수 있습니다. 파일 출력은 애플리케이션이 배포되고 실행되는 클러스터 노드에서 **log**라는 애플리케이션 폴더에 기록됩니다. 
 
 > [!WARNING]
-> 절대 프로덕션에 배포된 응용 프로그램의 콘솔 리디렉션 정책은 사용하지 마세요. 응용 프로그램 장애 조치(failover)에 영향을 줄 수 있기 때문입니다. 로컬 개발 및 디버깅 목적으로*만* 사용하세요.  
+> 절대 프로덕션에 배포된 애플리케이션의 콘솔 리디렉션 정책은 사용하지 마세요. 애플리케이션 장애 조치(failover)에 영향을 줄 수 있기 때문입니다. 로컬 개발 및 디버깅 목적으로*만* 사용하세요.  
 > 
 > 
 

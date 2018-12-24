@@ -93,7 +93,7 @@ ms.locfileid: "53018805"
 >
 7. 파일을 저장합니다.
 
-## <a name="update-the-mvc-application"></a>MVC 응용 프로그램 업데이트
+## <a name="update-the-mvc-application"></a>MVC 애플리케이션 업데이트
 
 이 섹션에서는 Azure Cache for Redis에 대해 간단한 테스트를 표시하는 새 보기를 지원하도록 애플리케이션을 업데이트합니다.
 

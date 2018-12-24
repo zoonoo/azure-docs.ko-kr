@@ -117,7 +117,7 @@ ExoPlayer 버전 2.6 이상에는 오프라인 Widevine DRM 재생을 지원하�
 - library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
 - library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
 
-개발자는 응용 프로그램 개발 중에 [ExoPlayer 개발자 가이드](https://google.github.io/ExoPlayer/guide.html) 및 해당 [개발자 블로그](https://medium.com/google-exoplayer)를 참조하는 것이 좋습니다. Google은 현재, Widevine 오프라인을 지원하는 ExoPlayer 앱의 완전히 문서화된 참조 구현 또는 샘플 코드를 출시하지 않았으므로, 정보가 개발자 가이드 및 블로그로 제한됩니다. 
+개발자는 애플리케이션 개발 중에 [ExoPlayer 개발자 가이드](https://google.github.io/ExoPlayer/guide.html) 및 해당 [개발자 블로그](https://medium.com/google-exoplayer)를 참조하는 것이 좋습니다. Google은 현재, Widevine 오프라인을 지원하는 ExoPlayer 앱의 완전히 문서화된 참조 구현 또는 샘플 코드를 출시하지 않았으므로, 정보가 개발자 가이드 및 블로그로 제한됩니다. 
 
 ### <a name="working-with-older-android-devices"></a>이전 Android 디바이스 사용
 
@@ -138,7 +138,7 @@ Android 4.4 KitKat은 원래부터 다른 이전 Android 버전과 마찬가지�
 
 ## <a name="chrome-player-apps-for-android"></a>Android용 Chrome 플레이어 앱
 
-[Android용 Chrome v. 62](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates) 릴리스부터, EME의 영구 라이선스가 지원됩니다. [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1)은 이제 Android용 Chrome에서도 지원됩니다. 따라서, 최종 사용자에게 이 버전 이상의 Chrome이 있기만 하면 Chrome에서 오프라인 재생 응용 프로그램을 만들 수 있습니다. 
+[Android용 Chrome v. 62](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates) 릴리스부터, EME의 영구 라이선스가 지원됩니다. [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1)은 이제 Android용 Chrome에서도 지원됩니다. 따라서, 최종 사용자에게 이 버전 이상의 Chrome이 있기만 하면 Chrome에서 오프라인 재생 애플리케이션을 만들 수 있습니다. 
 
 또한 Google은 PWA(Progressive Web App) 샘플을 생성하고 오픈 소스로 설정했습니다. 
 
@@ -180,7 +180,7 @@ Widevine 보안 수준에 대해 Google의 [Widevine DRM 아키텍처 개요 문
 Google의 [Widevine DRM 아키텍처 개요](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf)에서는 다음과 같은 세 가지 보안 수준을 정의하고 있습니다.
 
 1.  보안 수준 1: 모든 콘텐츠 처리, 암호화 및 제어가 TEE(신뢰할 수 있는 실행 환경)에서 수행됩니다. 일부 구현 모델에서 보안 처리는 다른 칩에서 수행될 수 있습니다.
-2.  보안 수준 2: TEE 내에서 암호화(비디오 처리는 아님)를 수행합니다. 암호 해독된 버퍼는 응용 프로그램 도메인으로 반환되고 별도의 비디오 하드웨어 또는 소프트웨어를 통해 처리됩니다. 그러나 수준 2에서 암호화 정보는 여전히 TEE 내에서만 처리됩니다.
+2.  보안 수준 2: TEE 내에서 암호화(비디오 처리는 아님)를 수행합니다. 암호 해독된 버퍼는 애플리케이션 도메인으로 반환되고 별도의 비디오 하드웨어 또는 소프트웨어를 통해 처리됩니다. 그러나 수준 2에서 암호화 정보는 여전히 TEE 내에서만 처리됩니다.
 3.  보안 수준 3: 디바이스에 TEE가 없습니다. 호스트 운영 체제의 암호화 정보 및 암호 해독된 콘텐츠를 보호하기 위해 적절한 조치가 수행될 수 있습니다. 수준 3 구현에도 하드웨어 암호화 엔진이 포함될 수 있지만 보안이 아닌 성능만 향상시킵니다.
 
 동시에, [Widevine 라이선스 템플릿에 대한 Azure Media Services 설명서](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview)에서 content_key_specs의 security_level 속성은 다음과 같은 5가지 값(재생을 위한 클라이언트 견고성 요구 사항)을 가질 수 있습니다.

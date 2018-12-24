@@ -20,8 +20,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/18/2018
 ms.locfileid: "34305228"
 ---
-# <a name="create-azure-portal-user-interface-for-your-managed-application"></a>관리되는 응용 프로그램에 대한 Azure Portal 사용자 인터페이스 만들기
-이 문서에서는 createUiDefinition.json 파일의 핵심 개념을 소개합니다. Azure Portal에서 이 파일을 사용하여 관리되는 응용 프로그램을 만들기 위한 사용자 인터페이스를 생성합니다.
+# <a name="create-azure-portal-user-interface-for-your-managed-application"></a>관리되는 애플리케이션에 대한 Azure Portal 사용자 인터페이스 만들기
+이 문서에서는 createUiDefinition.json 파일의 핵심 개념을 소개합니다. Azure Portal에서 이 파일을 사용하여 관리되는 애플리케이션을 만들기 위한 사용자 인터페이스를 생성합니다.
 
 ```json
 {

@@ -35,11 +35,11 @@ ms.locfileid: "39423415"
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트는 다음 명령을 사용하여 관리되는 응용 프로그램을 배포합니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+이 스크립트는 다음 명령을 사용하여 관리되는 애플리케이션을 배포합니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
 | 명령 | 메모 |
 |---|---|
-| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-list) | 관리되는 응용 프로그램을 나열합니다. 쿼리 값을 제공하여 결과를 얻습니다. |
+| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-list) | 관리되는 애플리케이션을 나열합니다. 쿼리 값을 제공하여 결과를 얻습니다. |
 | [az resource list](https://docs.microsoft.com/cli/azure/resource#az-resource-list) | 리소스를 나열합니다. 리소스 그룹 및 쿼리 값을 제공하여 결과를 얻습니다. |
 | [az vm resize](https://docs.microsoft.com/cli/azure/vm#az-vm-resize) | 가상 머신의 크기를 업데이트합니다. |
 

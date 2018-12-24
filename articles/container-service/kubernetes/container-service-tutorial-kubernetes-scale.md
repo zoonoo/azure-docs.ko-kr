@@ -36,7 +36,7 @@ ms.locfileid: "52993083"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, 이 이미지를 Azure Container Registry에 업로드하고, Kubernetes 클러스터를 만들었습니다. 그런 다음 Kubernetes 클러스터에서 응용 프로그램을 실행했습니다. 
+이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, 이 이미지를 Azure Container Registry에 업로드하고, Kubernetes 클러스터를 만들었습니다. 그런 다음, Kubernetes 클러스터에서 애플리케이션을 실행했습니다. 
 
 이러한 단계를 수행하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기](./container-service-tutorial-kubernetes-prepare-app.md)로 돌아갑니다. 
 
@@ -152,7 +152,7 @@ az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-co
 > * 앱 프런트 엔드를 실행하는 Pod 자동 크기 조정 구성
 > * Kubernetes Azure 에이전트 노드 크기 조정
 
-다음 자습서로 이동하여 Kubernetes에서 응용 프로그램 업데이트에 대해 알아봅니다.
+다음 자습서로 이동하여 Kubernetes에서 애플리케이션 업데이트에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Kubernetes에서 응용 프로그램 업데이트](./container-service-tutorial-kubernetes-app-update.md)

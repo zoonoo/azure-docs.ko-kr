@@ -31,7 +31,7 @@ ms.locfileid: "53253163"
 > 이 빠른 시작의 단계에서는 Eclipse IDE를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여주지만, IntelliJ IDEA Ultimate Edition 또는 Community Edition을 사용할 수 있습니다. 자세한 내용은 [IntelliJ를 사용하여 Azure용 Hello World 웹앱 만들기](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)를 참조하세요.
 >
 
-이 빠른 시작을 완료하면 웹 브라우저에서 응용 프로그램을 봤을 때 다음 그림과 같이 표시됩니다.
+이 빠른 시작을 완료하면 웹 브라우저에서 애플리케이션을 봤을 때 다음 그림과 같이 표시됩니다.
 
 !["Hello Azure!" 예제 웹앱](./media/app-service-web-get-started-java/browse-web-app-1.png)
 

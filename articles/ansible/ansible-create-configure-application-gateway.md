@@ -260,7 +260,7 @@ ansible-playbook appgw_create.yml
 
 응용 프로그램 게이트웨이가 생성될 때까지 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
 네트워크 리소스에 대한 샘플 플레이북에서 **미국 동부**에 도메인 **mydomain**을 만들었습니다. 브라우저에서 `http://mydomain.eastus.cloudapp.azure.com`으로 이동합니다. 다음 페이지가 표시되면 응용 프로그램 게이트웨이가 예상대로 작동합니다.
 

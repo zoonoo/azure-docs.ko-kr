@@ -25,7 +25,7 @@ ms.locfileid: "48900516"
 
 ## <a name="procedure-for-parameterizing-configuration-files"></a>구성 파일 매개 변수화 절차
 
-이 예제에서는 응용 프로그램 배포에서 매개 변수를 사용하여 구성 값을 재정의합니다.
+이 예제에서는 애플리케이션 배포에서 매개 변수를 사용하여 구성 값을 재정의합니다.
 
 1. 서비스 프로젝트에서 *<MyService>\PackageRoot\Config\Settings.xml* 파일을 여세요.
 1. 다음 XML을 추가하여 구성 매개 변수 이름 및 값(예: 캐시 크기가 25임)을 설정하세요.
@@ -60,7 +60,7 @@ ms.locfileid: "48900516"
   ```
 
 > [!NOTE]
-> ConfigOverride를 추가하는 경우, Service Fabric은 항상 응용 프로그램 매니페스트에 지정된 응용 프로그램 매개 변수 또는 기본값을 선택합니다.
+> ConfigOverride를 추가하는 경우, Service Fabric은 항상 애플리케이션 매니페스트에 지정된 애플리케이션 매개 변수 또는 기본값을 선택합니다.
 >
 >
 

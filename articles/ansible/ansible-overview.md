@@ -1,8 +1,8 @@
 ---
 title: Azure에서 Ansible 사용
-description: Ansible을 사용하여 클라우드 프로비전, 구성 관리 및 응용 프로그램 배포를 자동화하는 방법을 소개합니다.
+description: Ansible을 사용하여 클라우드 프로비전, 구성 관리 및 애플리케이션 배포를 자동화하는 방법을 소개합니다.
 ms.service: ansible
-keywords: Ansible, Azure, DevOps, 개요, 클라우드 프로비전, 구성 관리, 응용 프로그램 배포, Ansible 모듈, Ansible 플레이북
+keywords: Ansible, Azure, DevOps, 개요, 클라우드 프로비전, 구성 관리, 애플리케이션 배포, Ansible 모듈, Ansible 플레이북
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
@@ -33,9 +33,9 @@ Azure 서비스와 상호 작용하기 위해 Ansible에는 Azure에서 인프�
 
 ## <a name="migrate-existing-workload-to-azure"></a>기존 작업을 Azure로 마이그레이션
 
-인프라를 정의하기 위해 Ansible을 사용하면, 응용 프로그램의 플레이북을 적용하여 필요에 따라 Azure에서 사용자 환경의 크기를 자동으로 조정하도록 할 수 있습니다. 
+인프라를 정의하기 위해 Ansible을 사용하면, 애플리케이션의 플레이북을 적용하여 필요에 따라 Azure에서 사용자 환경의 크기를 자동으로 조정하도록 할 수 있습니다. 
 
-## <a name="automate-cloud-native-application-in-azure"></a>Azure에서 클라우드 네이티브 응용 프로그램 자동화
+## <a name="automate-cloud-native-application-in-azure"></a>Azure에서 클라우드 네이티브 애플리케이션 자동화
 
 Ansible을 사용하면 Azure 마이크로 서비스(예: [Azure Functions](https://azure.microsoft.com//services/functions/)와 [Azure의 Kubernetes](https://azure.microsoft.com/services/container-service/kubernetes/))를 사용하여 Azure에서 클라우드 네이티브 응용 프로그램을 자동화할 수 있습니다.  
 

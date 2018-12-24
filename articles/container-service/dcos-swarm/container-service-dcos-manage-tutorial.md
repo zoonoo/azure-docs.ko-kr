@@ -26,8 +26,8 @@ DC/OS는 컨테이너화된 최신 응용 프로그램 실행을 위한 분산 �
 > * ACS DC/OS 클러스터 만들기
 > * 클러스터에 연결
 > * DC/OS CLI 설치
-> * 클러스터에 응용 프로그램 배포
-> * 클러스터에서 응용 프로그램 크기 조정
+> * 클러스터에 애플리케이션 배포
+> * 클러스터에서 애플리케이션 크기 조정
 > * DC/OS 클러스터 노드 크기 조정
 > * 기본 DC/OS 관리
 > * DC/OS 클러스터 삭제
@@ -135,9 +135,9 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 /test   32   1     0/1    ---       ---      False      DOCKER   None
 ```
 
-## <a name="scale-marathon-application"></a>Marathon 응용 프로그램 크기 조정
+## <a name="scale-marathon-application"></a>Marathon 애플리케이션 크기 조정
 
-이전 예제에서는 단일 인스턴스 응용 프로그램을 만들었습니다. 응용 프로그램의 세 가지 인스턴스를 사용할 수 있도록 이 배포를 업데이트하려면 **marathon-app.json** 파일을 열고 인스턴스 속성을 3으로 업데이트합니다.
+이전 예제에서는 단일 인스턴스 애플리케이션을 만들었습니다. 애플리케이션의 세 가지 인스턴스를 사용할 수 있도록 이 배포를 업데이트하려면 **marathon-app.json** 파일을 열고 인스턴스 속성을 3으로 업데이트합니다.
 
 ```json
 {
@@ -188,7 +188,7 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 ACS DC/OS 클러스터는 인터넷에 액세스할 수 있는 공용 노드 집합과 인터넷에 액세스할 수 없는 개인 노드 집합이라는 두 개의 노드 집합으로 구성됩니다. 기본 집합은 개인 노드이며 마지막 예제에서 사용했습니다.
 
-응용 프로그램이 인터넷에 액세스할 수 있도록 만들려면 공개 노드 집합에 배포합니다. 그러려면 `acceptedResourceRoles` 개체에 `slave_public` 값을 입력합니다.
+애플리케이션이 인터넷에 액세스할 수 있도록 만들려면 공개 노드 집합에 배포합니다. 그러려면 `acceptedResourceRoles` 개체에 `slave_public` 값을 입력합니다.
 
 **nginx public.json**이라는 파일을 만들어서 여기에 다음과 같은 내용을 복사합니다.
 
@@ -240,7 +240,7 @@ az network public-ip list --resource-group myResourceGroup --query "[?contains(n
 
 ## <a name="scale-dcos-cluster"></a>DC/OS 클러스터 크기 조정
 
-이전의 예에서 응용 프로그램은 여러 인스턴스로 확장되었습니다. 더 많거나 적은 계산 수용작업량을 제공하도록 DC/OS 인프라를 확장할 수도 있습니다. 그러려면 [az acs scale](/cli/azure/acs#az-acs-scale) 명령을 사용합니다. 
+이전의 예에서 애플리케이션은 여러 인스턴스로 확장되었습니다. 더 많거나 적은 계산 수용작업량을 제공하도록 DC/OS 인프라를 확장할 수도 있습니다. 그러려면 [az acs scale](/cli/azure/acs#az-acs-scale) 명령을 사용합니다. 
 
 DC/OS 에이전트의 현재 수를 보려면 [az acs show](/cli/azure/acs#az-acs-show) 명령을 사용합니다.
 
@@ -270,8 +270,8 @@ az group delete --name myResourceGroup --no-wait
 > * ACS DC/OS 클러스터 만들기
 > * 클러스터에 연결
 > * DC/OS CLI 설치
-> * 클러스터에 응용 프로그램 배포
-> * 클러스터에서 응용 프로그램 크기 조정
+> * 클러스터에 애플리케이션 배포
+> * 클러스터에서 애플리케이션 크기 조정
 > * DC/OS 클러스터 노드 크기 조정
 > * DC/OS 클러스터 삭제
 

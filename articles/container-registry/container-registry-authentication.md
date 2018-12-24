@@ -36,7 +36,7 @@ az acr login --name <acrName>
 
 ## <a name="service-principal"></a>서비스 주체
 
-레지스트리에 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)를 할당할 수 있으며 응용 프로그램 또는 서비스는 헤드리스 인증에 이를 사용할 수 있습니다. 서비스 주체는 레지스트리에 [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 허용하며 사용자는 레지스트리에 여러 서비스 주체를 할당할 수 있습니다. 여러 서비스 주체를 사용하면 서로 다른 응용 프로그램에 대한 다양한 액세스를 정의할 수 있습니다.
+레지스트리에 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)를 할당할 수 있으며 애플리케이션 또는 서비스는 헤드리스 인증에 이를 사용할 수 있습니다. 서비스 주체는 레지스트리에 [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 허용하며 사용자는 레지스트리에 여러 서비스 주체를 할당할 수 있습니다. 여러 서비스 주체를 사용하면 서로 다른 애플리케이션에 대한 다양한 액세스를 정의할 수 있습니다.
 
 사용 가능한 역할은 다음과 같습니다.
 

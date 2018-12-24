@@ -48,7 +48,7 @@ Node.js 클라이언트는 저장소 계정에 있는 컨테이너의 수에 따
 >
 >
 
-## <a name="build-the-application"></a>응용 프로그램 빌드
+## <a name="build-the-application"></a>애플리케이션 빌드
 
 이제 단계별 프로세스에 따라 Node.js 클라이언트를 빌드하겠습니다.
 

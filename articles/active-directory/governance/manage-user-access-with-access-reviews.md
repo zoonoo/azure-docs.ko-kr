@@ -1,6 +1,6 @@
 ---
 title: Azure AD 액세스 검토를 사용하여 사용자 액세스 관리 | Microsoft Docs
-description: Azure Active Directory 액세스 검토를 사용하여 응용 프로그램에 대한 그룹 또는 할당의 멤버 자격으로 사용자 액세스를 관리하는 방법을 알아봅니다.
+description: Azure Active Directory 액세스 검토를 사용하여 애플리케이션에 대한 그룹 또는 할당의 멤버 자격으로 사용자 액세스를 관리하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon

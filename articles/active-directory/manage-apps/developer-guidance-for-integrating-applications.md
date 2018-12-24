@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory를 사용하기 위해 응용 프로그램 등록 | Microsoft Docs
+title: Azure Active Directory를 사용하기 위해 애플리케이션 등록 | Microsoft Docs
 description: IT 전문가를 위해 작성된 이 문서는 Active Directory와 Azure 응용 프로그램 통합에 대한 지침을 제공합니다.
 services: active-directory
 documentationcenter: ''

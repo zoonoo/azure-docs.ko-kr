@@ -18,7 +18,7 @@ ms.locfileid: "52499271"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark 클러스터를 사용하여 Azure SQL Database에서 데이터 읽기 및 쓰기
 
-Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 다음 SQL Database에서 데이터를 읽고 쓰고 스트리밍하는 방법을 알아봅니다. 이 문서의 지침은 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Scala 코드 조각을 실행합니다. 그러나 Scala 또는 Python에 독립 실행형 응용 프로그램을 만들고 동일한 작업을 수행할 수 있습니다. 
+Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 다음 SQL Database에서 데이터를 읽고 쓰고 스트리밍하는 방법을 알아봅니다. 이 문서의 지침은 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Scala 코드 조각을 실행합니다. 그러나 Scala 또는 Python에 독립 실행형 애플리케이션을 만들고 동일한 작업을 수행할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 

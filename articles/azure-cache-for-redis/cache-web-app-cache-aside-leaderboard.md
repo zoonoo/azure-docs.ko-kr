@@ -707,7 +707,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
     ![캐시 추가됨](./media/cache-web-app-cache-aside-leaderboard/cache-added-to-application.png)
 
-    다음 테이블은 샘플 응용 프로그램에서 각 작업 링크를 설명합니다.
+    다음 테이블은 샘플 애플리케이션에서 각 작업 링크를 설명합니다.
 
     | 조치 | 설명 |
     | --- | --- |

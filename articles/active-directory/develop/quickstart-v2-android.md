@@ -40,7 +40,7 @@ ms.locfileid: "52427018"
 > ## <a name="register-and-download"></a>등록 및 다운로드
 > ### <a name="register-and-configure-your-application-and-code-sample"></a>응용 프로그램 및 코드 샘플 등록 및 구성
 > #### <a name="step-1-register-your-application"></a>1단계: 응용 프로그램 등록
-> 응용 프로그램을 등록하고 응용 프로그램 등록 정보를 솔루션에 추가하려면 다음을 수행합니다.
+> 애플리케이션을 등록하고 애플리케이션 등록 정보를 솔루션에 추가하려면 다음을 수행합니다.
 > 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app)로 이동하여 응용 프로그램을 등록합니다.
 > 1. **응용 프로그램 이름** 상자에서 응용 프로그램의 이름을 입력합니다.
 > 1. **단계별 설치** 확인란의 선택을 취소한 다음 **만들기**를 선택하도록 합니다.

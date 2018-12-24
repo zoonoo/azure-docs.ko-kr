@@ -36,7 +36,7 @@ ms.locfileid: "51711160"
     > URL에서 `Azure`를 대문자로 표시하여 SDK로 작업할 때 대/소문자 관련 가져오기 문제가 발생하지 않도록 합니다. 또한 import 문에서도 `Azure`를 대문자로 표시합니다.
     
 ## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
-이 빠른 시작에서 사용되는 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git)은 기본 Go 응용 프로그램입니다.  
+이 빠른 시작에서 사용되는 [샘플 애플리케이션](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git)은 기본 Go 애플리케이션입니다.  
 
 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다. 
 

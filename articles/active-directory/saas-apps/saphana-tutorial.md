@@ -44,7 +44,7 @@ SAP HANA와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - XSA 관리 웹 인터페이스 및 HANA 인스턴스에 설치된 HANA Studio
 
 > [!NOTE]
-> 이 자습서의 단계를 테스트할 때 SAP HANA의 프로덕션 환경을 사용하지 않는 것이 좋습니다. 응용 프로그램 개발 또는 스테이징 환경에서 통합을 먼저 테스트한 다음 프로덕션 환경을 사용하세요.
+> 이 자습서의 단계를 테스트할 때 SAP HANA의 프로덕션 환경을 사용하지 않는 것이 좋습니다. 애플리케이션 개발 또는 스테이징 환경에서 통합을 먼저 테스트한 다음, 프로덕션 환경을 사용하세요.
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 따릅니다.
 
@@ -70,13 +70,13 @@ SAP HANA가 Azure AD에 통합되도록 구성하려면 갤러리의 SAP HANA를
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 선택합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 선택합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
-1. 검색 상자에 **SAP HANA**를 입력합니다. 그런 다음 결과 창에서 **SAP HANA**를 선택합니다. 마지막으로 **추가** 단추를 선택하여 응용 프로그램을 추가합니다. 
+1. 검색 상자에 **SAP HANA**를 입력합니다. 그런 다음 결과 창에서 **SAP HANA**를 선택합니다. 마지막으로 **추가** 단추를 선택하여 애플리케이션을 추가합니다. 
 
-    ![새 응용 프로그램](./media/saphana-tutorial/tutorial_saphana_addfromgallery.png)
+    ![새 애플리케이션](./media/saphana-tutorial/tutorial_saphana_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 SAP HANA에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
@@ -99,7 +99,7 @@ SAP HANA에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 **SAP HANA에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **SAP HANA** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. Azure Portal의 **SAP HANA** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![Single Sign-On 구성][4]
 
@@ -125,9 +125,9 @@ SAP HANA에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     >[!Note]
     >인증서가 활성 상태가 아니면 Azure AD에서 **Make new certificate active**(새 인증서 활성화) 확인란을 선택하여 활성화합니다. 
 
-1. SAP HANA 응용 프로그램에는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷은 이 형식에 대한 예제를 보여 줍니다. 
+1. SAP HANA 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷은 이 형식에 대한 예제를 보여 줍니다. 
 
-    여기서는 **user.mail**의 **ExtractMailPrefix()** 함수를 이용하여 **사용자 ID**를 매핑했습니다. 이렇게 하면은 고유한 사용자 ID인 사용자의 전자 메일 접두사 값을 얻을 수 있습니다. 이 사용자 ID는 응답이 성공할 때마다 SAP HANA 응용 프로그램에 전송됩니다.
+    여기서는 **user.mail**의 **ExtractMailPrefix()** 함수를 이용하여 **사용자 ID**를 매핑했습니다. 이렇게 하면은 고유한 사용자 ID인 사용자의 전자 메일 접두사 값을 얻을 수 있습니다. 이 사용자 ID는 응답이 성공할 때마다 SAP HANA 애플리케이션에 전송됩니다.
 
     ![Single Sign-On 구성](./media/saphana-tutorial/attribute.png)
 
@@ -161,7 +161,7 @@ SAP HANA에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     다. **일반 데이터** 화면 영역의 **이름** 상자에 새 SAML SSO ID 공급자의 이름을 입력합니다.
 
     > [!NOTE]
-    > SAML IDP의 이름은 필수이며 고유해야 합니다. SAP HANA XS 응용 프로그램에서 사용할 인증 방법으로 SAML을 선택할 때 표시되는 SAML IDP 목록에 나타납니다. 예를 들어 XS 아티팩트 관리 도구의 **인증** 화면 영역에서 이 작업을 수행할 수 있습니다.
+    > SAML IDP의 이름은 필수이며 고유해야 합니다. SAP HANA XS 애플리케이션에서 사용할 인증 방법으로 SAML을 선택할 때 표시되는 SAML IDP 목록에 나타납니다. 예를 들어 XS 아티팩트 관리 도구의 **인증** 화면 영역에서 이 작업을 수행할 수 있습니다.
 
 1. **저장**을 선택하여 SAML ID 공급자의 세부 정보를 저장하고 알려진 SAML IDP 목록에 새 SAML IDP를 추가합니다.
 
@@ -246,7 +246,7 @@ SAP HANA는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하�
 
 **Britta Simon을 SAP HANA에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 엽니다. 디렉터리 보기로 이동하여 **엔터프라이즈 응용 프로그램**으로 이동합니다. **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 응용 프로그램 보기를 엽니다. 디렉터리 보기로 이동하여 **엔터프라이즈 애플리케이션**으로 이동합니다. **모든 응용 프로그램**을 선택합니다.
 
     ![사용자 할당][201] 
 
@@ -272,7 +272,7 @@ SAP HANA는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 SAP HANA 타일을 선택하면 SAP HANA 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 SAP HANA 타일을 선택하면 SAP HANA 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

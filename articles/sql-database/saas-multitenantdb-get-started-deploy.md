@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database를 사용하는 분할된 다중 테넌트 데이터베이스 SaaS 앱 배포 | Microsoft Docs
-description: Azure SQL Database를 사용하여 SaaS 패턴을 보여 주는 분할된 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램을 배포하고 탐색합니다.
+description: Azure SQL Database를 사용하여 SaaS 패턴을 보여 주는 분할된 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션을 배포하고 탐색합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -21,7 +21,7 @@ ms.locfileid: "49352214"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>분할된 다중 테넌트 응용 프로그램 배포 및 탐색
 
-이 자습서에서는 Wingtip Tickets라는 샘플 다중 테넌트 SaaS 응용 프로그램을 배포하고 탐색합니다. Wingtip Tickets 앱은 SaaS 시나리오 구현을 간소화하는 Azure SQL Database의 기능을 보여 주도록 설계되었습니다.
+이 자습서에서는 Wingtip Tickets라는 샘플 다중 테넌트 SaaS 애플리케이션을 배포하고 탐색합니다. Wingtip Tickets 앱은 SaaS 시나리오 구현을 간소화하는 Azure SQL Database의 기능을 보여 주도록 설계되었습니다.
 
 이 Wingtip Tickets 앱 구현에는 분할된 다중 테넌트 데이터베이스 패턴이 사용됩니다. 분할은 테넌트 식별자를 기준으로 합니다. 테넌트 데이터는 테넌트 식별자 값에 따라 특정 데이터베이스에 배포됩니다. 
 
@@ -91,7 +91,7 @@ ms.locfileid: "49352214"
 
 ## <a name="download-and-unblock-the-management-scripts"></a>관리 스크립트 다운로드 및 차단 해제
 
-응용 프로그램이 배포되는 동안 응용 프로그램 소스 코드 및 관리 스크립트를 다운로드합니다.
+애플리케이션이 배포되는 동안 애플리케이션 소스 코드 및 관리 스크립트를 다운로드합니다.
 
 > [!NOTE]
 > zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서 실행 가능한 콘텐츠(스크립트, DLL)를 차단할 수 있습니다. Zip 파일에서 스크립트를 추출할 경우 다음 단계에 따라 추출하기 전에 .zip 파일을 차단 해제하세요. zip 파일을 차단 해제하면 스크립트를 실행할 수 있습니다.
@@ -168,7 +168,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
 ## <a name="provision-a-new-tenant-into-the-sharded-database"></a>새로운 테넌트를 분할된 데이터베이스로 프로비전
 
-초기 배포 시에는 *Tenants1* 데이터베이스에 세 개의 샘플 테넌트가 포함됩니다. 또 다른 테넌트를 만들고 배포된 응용 프로그램에 대한 영향을 확인해 보겠습니다. 이 단계에서는 하나의 키를 눌러 새 테넌트를 만듭니다.
+초기 배포 시에는 *Tenants1* 데이터베이스에 세 개의 샘플 테넌트가 포함됩니다. 또 다른 테넌트를 만들고 배포된 애플리케이션에 대한 영향을 확인해 보겠습니다. 이 단계에서는 하나의 키를 눌러 새 테넌트를 만듭니다.
 
 1. *PowerShell ISE*에서 ...\\Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1*을 엽니다.
 2. **F5**(**F8** 아님) 키를 눌러 스크립트를 실행합니다(지금은 기본값을 그대로 사용).
@@ -208,7 +208,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
 이제 배포된 리소스 중 일부를 살펴봅니다.
 
-1. [Azure Portal](http://portal.azure.com)에서 리소스 그룹 목록으로 이동합니다. 응용 프로그램을 배포할 때 만든 리소스 그룹을 엽니다.
+1. [Azure Portal](http://portal.azure.com)에서 리소스 그룹 목록으로 이동합니다. 애플리케이션을 배포할 때 만든 리소스 그룹을 엽니다.
 
    ![리소스 그룹](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
@@ -246,7 +246,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- 다중 테넌트 SaaS 응용 프로그램에 대해 알아보려면 [다중 테넌트 SaaS 응용 프로그램을 위한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
+- 다중 테넌트 SaaS 애플리케이션에 대해 알아보려면 [다중 테넌트 SaaS 애플리케이션을 위한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
 - 탄력적 풀에 대해 알아보려면 다음을 참조하세요.
 
@@ -258,7 +258,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 이 자습서에서는 다음에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> - Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램을 배포하는 방법
+> - Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션을 배포하는 방법
 > - 앱을 구성하는 서버 및 데이터베이스 정보
 > - *카탈로그*를 사용하여 데이터에 매핑된 테넌트
 > - 다중 테넌트 데이터베이스 및 단일 테넌트 데이터베이스로 새 테넌트를 프로비전하는 방법.

@@ -24,7 +24,7 @@ ms.locfileid: "53002123"
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>기존 Node.js Azure 모바일 서비스를 App Service로 업그레이드
 App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로그램을 빌드하는 새로운 방법입니다. 자세한 내용은 [Mobile Apps 정의]를 참조하세요.
 
-이 문서에서는 기존 Node.js 백 엔드 응용 프로그램을 Azure Mobile Services에서 새로운 App Service Mobile Apps로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 Mobile Services 애플리케이션이 계속 작동할 수 있습니다.  Node.js 백 엔드 애플리케이션을 업그레이드해야 하는 경우 [.NET Mobile Services 업그레이드](app-service-mobile-net-upgrading-from-mobile-services.md)를 참조하세요.
+이 문서에서는 기존 Node.js 백 엔드 애플리케이션을 Azure Mobile Services에서 새로운 App Service Mobile Apps로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 Mobile Services 애플리케이션이 계속 작동할 수 있습니다.  Node.js 백 엔드 애플리케이션을 업그레이드해야 하는 경우 [.NET Mobile Services 업그레이드](app-service-mobile-net-upgrading-from-mobile-services.md)를 참조하세요.
 
 모바일 백 엔드가 Azure App Service로 업그레이드되면 모든 App Service 기능에 액세스할 수 있고 Mobile Services 가격 책정이 아닌 [App Service 가격 책정]에 따라 요금이 청구됩니다.
 
@@ -57,7 +57,7 @@ Mobile Services 클라이언트 SDK는 새 Mobile Apps 서버 SDK와 호환할 �
 2. 호환성 패키지를 사용하여 프로젝트를 Azure 모바일 앱으로 변환합니다.
 3. 모든 차이(예: 인증 설정)를 수정합니다.
 4. 새 App Service에 변환된 Azure 모바일 앱 프로젝트를 배포합니다.
-5. 새 모바일 앱을 사용하는 새 버전의 클라이언트 응용 프로그램을 릴리스합니다.
+5. 새 모바일 앱을 사용하는 새 버전의 클라이언트 애플리케이션을 릴리스합니다.
 6. (선택 사항) 원래 마이그레이션된 모바일 서비스 앱 삭제
 
 삭제는 원래 마이그레이션된 모바일 서비스에 트래픽이 표시되지 않을 때 발생할 수 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: 콘솔 응용 프로그램용 Azure Application Insights | Microsoft Docs
+title: 콘솔 애플리케이션용 Azure Application Insights | Microsoft Docs
 description: 응용 프로그램의 가용성, 성능 및 사용 현황을 모니터링합니다.
 services: application-insights
 documentationcenter: .net
@@ -20,7 +20,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52997966"
 ---
-# <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 응용 프로그램용 Application Insights
+# <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 애플리케이션용 Application Insights
 [Application Insights](app-insights-overview.md)를 사용하여 웹 응용 프로그램의 가용성, 성능 및 사용량을 모니터링할 수 있습니다.
 
 [Microsoft Azure](https://azure.com)를 구독해야 합니다. Microsoft 계정으로 로그인합니다. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 계정을 사용할 수 있습니다. 팀에서 Azure를 단체 구독할 수도 있습니다. 소유자에게 Microsoft 계정을 사용하여 추가해 달라고 요청하세요.
@@ -95,7 +95,7 @@ var telemetryClient = new TelemetryClient(configuration);
 
 ### <a name="configuring-telemetry-collection-from-code"></a>코드에서 원격 분석 컬렉션 구성
 
-* 응용 프로그램이 시작하는 동안 `DependencyTrackingTelemetryModule` 인스턴스를 만들고 구성합니다. 이 인스턴스는 단일 항목이어야 하며 응용 프로그램 수명 동안 유지되어야 합니다.
+* 애플리케이션이 시작하는 동안 `DependencyTrackingTelemetryModule` 인스턴스를 만들고 구성합니다. 이 인스턴스는 싱글톤이어야 하며 애플리케이션 수명 동안 유지되어야 합니다.
 
 ```csharp
 var module = new DependencyTrackingTelemetryModule();

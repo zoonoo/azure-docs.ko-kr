@@ -172,7 +172,7 @@ az container show --resource-group myResourceGroup --name acr-quickstart --query
 
 예제 출력: `"aci-demo.eastus.azurecontainer.io"`
 
-실행 중인 응용 프로그램을 보려면 원하는 브라우저에서 공용 IP 주소로 이동합니다.
+실행 중인 애플리케이션을 보려면 원하는 브라우저에서 공용 IP 주소로 이동합니다.
 
 ![브라우저의 Hello World 앱][aci-app-browser]
 

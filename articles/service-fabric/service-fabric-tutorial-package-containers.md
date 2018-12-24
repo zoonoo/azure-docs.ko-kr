@@ -31,7 +31,7 @@ ms.locfileid: "51255560"
 > * Yeoman 설치
 > * Yeoman을 사용하여 응용 프로그램 패키지 만들기
 > * 응용 프로그램 패키지에서 컨테이너에서 사용할 설정 구성
-> * 응용 프로그램 빌드
+> * 애플리케이션 빌드
 > * 응용 프로그램 배포 및 실행
 > * 응용 프로그램 정리
 
@@ -229,7 +229,7 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 
 응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
 
-파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 누구든지 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있는 Service Fabric 팀에서 실행합니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](https://aka.ms/tryservicefabric).
+파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 누구든지 애플리케이션을 배포하고 플랫폼에 대해 알아볼 수 있는 Service Fabric 팀에서 실행합니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](https://aka.ms/tryservicefabric).
 
 보안 파티 클러스터에서 관리 작업을 수행하기 위해 Service Fabric Explorer, CLI 또는 Powershell을 사용할 수 있습니다. Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에서 PFX 파일을 다운로드하고, 인증서 저장소(Windows 또는 Mac) 또는 브라우저 자체(Ubuntu)로 인증서를 가져와야 합니다. 파티 클러스터의 자체 서명된 인증서에는 암호가 없습니다.
 
@@ -388,7 +388,7 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 > * Yeoman 설치
 > * Yeoman을 사용하여 응용 프로그램 패키지 만들기
 > * 응용 프로그램 패키지에서 컨테이너에서 사용할 설정 구성
-> * 응용 프로그램 빌드
+> * 애플리케이션 빌드
 > * 응용 프로그램 배포 및 실행
 > * 응용 프로그램 정리
 

@@ -34,8 +34,8 @@ ms.locfileid: "53081917"
 
 1. Azure Cosmos DB 계정 만들기 및 프로비전
 2. Python Flask 응용 프로그램 만들기
-3. 웹 응용 프로그램에서 Azure Cosmos DB 연결 및 사용
-4. Azure App Service에 웹 응용 프로그램 배포
+3. 웹 애플리케이션에서 Azure Cosmos DB 연결 및 사용
+4. Azure App Service에 웹 애플리케이션 배포
 
 이 자습서를 따르면 설문 조사에 투표할 수 있는 간단한 투표 응용 프로그램을 빌드합니다.
 
@@ -67,7 +67,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <br/>
-이제 새 Python Flask 웹 응용 프로그램을 처음부터 만드는 방법을 살펴봅니다.
+이제 새 Python Flask 웹 애플리케이션을 처음부터 만드는 방법을 살펴봅니다.
 
 ## <a name="step-2-create-a-new-python-flask-web-application"></a>2단계: 새 Python Flask 웹 애플리케이션 만들기
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 가리킨 후 **프로젝트**를 클릭합니다.
@@ -366,7 +366,7 @@ def vote():
 6. Shift+F5를 눌러 프로젝트의 디버깅을 중지합니다.
 
 ## <a name="step-5-deploy-the-web-application-to-azure"></a>5단계: Azure에 웹 애플리케이션 배포
-이제 Azure Cosmos DB에 대해 로컬로 올바르게 작동하는 응용 프로그램을 완료했으므로 이제 web.config 파일을 만들고, 서버에서 파일을 로컬 환경에 맞게 업데이트한 다음 Azure에서 완성된 앱을 확인합니다. 이 절차는 Visual Studio 2017에 특정합니다. 다른 버전의 Visual Studio를 사용하는 경우 [Azure App Service에 게시](/visualstudio/python/publishing-to-azure)를 참조하세요.
+이제 Azure Cosmos DB에 대해 로컬로 올바르게 작동하는 애플리케이션을 완료했으므로 web.config 파일을 만들고, 서버에서 파일을 로컬 환경에 맞게 업데이트한 다음, Azure에서 완성된 앱을 확인합니다. 이 절차는 Visual Studio 2017에 특정합니다. 다른 버전의 Visual Studio를 사용하는 경우 [Azure App Service에 게시](/visualstudio/python/publishing-to-azure)를 참조하세요.
 
 1. Visual Studio **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 > 새 항목...** 을 선택합니다. 나타나는 대화 상자에서 **Azure web.config (Fast CGI)** 템플릿을 선택하고 **확인**을 선택합니다. 그러면 프로젝트 루트에 `web.config` 파일이 생깁니다. 
 
@@ -430,7 +430,7 @@ def vote():
 투표 페이지에 오류가 발생하고 **자습서**가 아닌 다른 이름으로 프로젝트의 이름을 지정한 경우 **\_\_init\_\_.py**가 줄에서 올바른 프로젝트 이름을 참조하도록 합니다. `import tutorial.view`
 
 ## <a name="next-steps"></a>다음 단계
-축하합니다! Azure Cosmos DB를 사용하여 첫 Python 웹 응용 프로그램을 완성하고 Azure에 게시했습니다.
+축하합니다! Azure Cosmos DB를 사용하여 첫 Python 웹 애플리케이션을 완성하고 Azure에 게시했습니다.
 
 웹 응용 프로그램에 다른 기능을 추가하려면 [Azure Cosmos DB Python SDK](sql-api-sdk-python.md)에서 사용할 수 있는 API를 검토하세요.
 

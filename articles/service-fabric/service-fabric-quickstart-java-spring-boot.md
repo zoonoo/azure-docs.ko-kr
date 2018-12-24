@@ -33,7 +33,7 @@ Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 �
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
 * Service Fabric에 Spring Boot 응용 프로그램 배포
-* 로컬 클러스터에 응용 프로그램 배포
+* 로컬 클러스터에 애플리케이션 배포
 * Azure에서 응용 프로그램을 클러스터에 배포
 * 응용 프로그램을 여러 노드에 걸쳐 스케일 아웃
 * 가용성에 아무런 영향을 주지 않고 서비스에 대한 장애 조치 수행
@@ -164,7 +164,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 1. 즐겨찾는 웹 브라우저를 열고 **http://localhost:8080**에 액세스하여 애플리케이션에 액세스합니다.
 
-    ![응용 프로그램 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
+    ![애플리케이션 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
 이제 Service Fabric 클러스터에 배포된 Spring Boot 응용 프로그램에 액세스할 수 있습니다.
 
@@ -226,7 +226,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
 1. 웹 브라우저를 열고 **http://\<ConnectionIPOrUrl>:8080**에 액세스하여 응용 프로그램에 액세스합니다.
 
-    ![응용 프로그램 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
+    ![애플리케이션 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
 
 이제 Azure의 Service Fabric 클러스터에서 실행 중인 Spring Boot 애플리케이션에 액세스할 수 있습니다.
 
@@ -282,7 +282,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 이 빠른 시작에서는 다음을 수행하는 방법을 알아보았습니다.
 
 * Service Fabric에 Spring Boot 응용 프로그램 배포
-* 로컬 클러스터에 응용 프로그램 배포
+* 로컬 클러스터에 애플리케이션 배포
 * Azure에서 응용 프로그램을 클러스터에 배포
 * 응용 프로그램을 여러 노드에 걸쳐 스케일 아웃
 * 가용성에 아무런 영향을 주지 않고 서비스에 대한 장애 조치 수행

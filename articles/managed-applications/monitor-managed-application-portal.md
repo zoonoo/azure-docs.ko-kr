@@ -52,5 +52,5 @@ ms.locfileid: "53342598"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 관리되는 응용 프로그램 예제는 [Azure 관리되는 응용 프로그램의 샘플 프로젝트](sample-projects.md)를 참조하세요.
+* 관리되는 애플리케이션 예제는 [Azure 관리되는 애플리케이션의 샘플 프로젝트](sample-projects.md)를 참조하세요.
 * 관리되는 응용 프로그램을 배포하려면 [Azure Portal을 통해 서비스 카탈로그 앱 배포](deploy-service-catalog-quickstart.md)를 참조하세요.

@@ -547,7 +547,7 @@ items:
           href: saas-tenancy-welcome-wingtip-tickets-app.md
         - name: 일반 지침
           href: saas-tenancy-wingtip-app-guidance-tips.md
-        - name: 독립 실행형 응용 프로그램
+        - name: 독립 실행형 애플리케이션
           items:
           - name: 예제 앱 배포
             href: saas-standaloneapp-get-started-deploy.md

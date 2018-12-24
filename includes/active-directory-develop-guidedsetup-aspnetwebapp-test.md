@@ -23,7 +23,7 @@ ms.locfileid: "49988533"
 ---
 ## <a name="test-your-code"></a>코드 테스트
 
-Visual Studio에서 응용프로그램을 테스트하려면 **F5** 키를 눌러 프로젝트를 실행합니다. 브라우저가 열리고 http://<span></span>localhost:{port}로 이동합니다. 이 페이지에는 **Microsoft에 로그인** 단추가 표시됩니다. 단추를 선택하여 로그인 프로세스를 시작합니다.
+Visual Studio에서 애플리케이션을 테스트하려면 **F5** 키를 눌러 프로젝트를 실행합니다. 브라우저가 열리고 http://<span></span>localhost:{port}로 이동합니다. 이 페이지에는 **Microsoft에 로그인** 단추가 표시됩니다. 단추를 선택하여 로그인 프로세스를 시작합니다.
 
 테스트를 실행할 준비가 되면, Microsoft Azure Active Directory(Azure AD) 계정(회사 또는 학교 계정) 또는 개인 Microsoft 계정(<span>live.</span>com 또는 <span>outlook.</span>com)을 사용해 로그인합니다.
 
@@ -31,9 +31,9 @@ Visual Studio에서 응용프로그램을 테스트하려면 **F5** 키를 눌�
 <br/><br/>
 ![Microsoft 계정으로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-#### <a name="view-application-results"></a>응용 프로그램 결과 보기
+#### <a name="view-application-results"></a>애플리케이션 결과 보기
 
-로그인한 후 사용자는 웹 사이트의 홈 페이지로 리디렉션됩니다. 홈페이지란 Microsoft 응용 프로그램 등록 포털의 응용 프로그램 등록 정보에 지정된 HTTPS URL입니다. 홈페이지는 로그아웃 링크이며 사용자의 클레임을 보기 위한 링크인 환영 메시지 *"Hello \<User>,"* 를 포함합니다. 사용자 클레임에 대한 링크는 앞에서 만든 *클레임* 컨트롤러로 이동합니다.
+로그인한 후 사용자는 웹 사이트의 홈 페이지로 리디렉션됩니다. 홈페이지란 Microsoft 애플리케이션 등록 포털의 애플리케이션 등록 정보에 지정된 HTTPS URL입니다. 홈페이지는 로그아웃 링크이며 사용자의 클레임을 보기 위한 링크인 환영 메시지 *"Hello \<User>,"* 를 포함합니다. 사용자 클레임에 대한 링크는 앞에서 만든 *클레임* 컨트롤러로 이동합니다.
 
 ### <a name="browse-to-see-the-users-claims"></a>사용자 클레임 찾아보기
 

@@ -1,6 +1,6 @@
 ---
 title: Azure WCF Relay를 사용하여 외부 클라이언트에 온-프레미스 WCF REST 서비스 노출 | Microsoft Docs
-description: WCF 릴레이를 사용하여 클라이언트 및 서비스 응용 프로그램을 빌드합니다.
+description: WCF Relay를 사용하여 클라이언트 및 서비스 애플리케이션을 빌드합니다.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru

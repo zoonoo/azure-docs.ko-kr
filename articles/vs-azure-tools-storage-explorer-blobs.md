@@ -24,7 +24,7 @@ ms.locfileid: "52422055"
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Storage 탐색기로 Azure Blob Storage 리소스 관리
 ## <a name="overview"></a>개요
 [Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md)는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다.
-Blob 저장소를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage 탐색기를 사용하여 Blob 컨테이너 및 Blob으로 작업하는 방법을 알아봅니다.
+Blob 스토리지를 사용하여 세상에 공개적으로 표시하거나 애플리케이션 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage 탐색기를 사용하여 Blob 컨테이너 및 Blob으로 작업하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서의 단계를 완료하려면 다음과 같이 하는 것이 필요합니다.
@@ -199,7 +199,7 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
 
      1. 열려는 blob을 선택합니다.
      2. 기본 창 도구 모음에서 **열기**를 선택합니다.
-     3. Blob은 blob의 기본 파일 형식과 연결된 응용 프로그램을 사용하여 다운로드하고 엽니다.
+     3. Blob은 blob의 기본 파일 형식과 연결된 애플리케이션을 사용하여 다운로드하고 엽니다.
    * **blob을 클립보드에 복사**
 
      1. 복사하려는 blob을 선택합니다.

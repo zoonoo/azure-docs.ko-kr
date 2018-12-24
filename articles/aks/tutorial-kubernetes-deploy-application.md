@@ -18,7 +18,7 @@ ms.locfileid: "41917597"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 응용 프로그램 실행
 
-Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제공합니다. 고유의 응용 프로그램 및 서비스를 빌드하여 Kubernetes 클러스터에 배포하고, 클러스터가 가용성 및 연결을 관리하게 합니다. 7개 중 4단계인 이 자습서에서는 응용 프로그램 예제를 Kubernetes 클러스터에 배포합니다. 다음 방법에 대해 알아봅니다.
+Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. 고유의 응용 프로그램 및 서비스를 빌드하여 Kubernetes 클러스터에 배포하고, 클러스터가 가용성 및 연결을 관리하게 합니다. 7개 중 4단계인 이 자습서에서는 응용 프로그램 예제를 Kubernetes 클러스터에 배포합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 업데이트
@@ -92,7 +92,7 @@ service "azure-vote-front" created
 
 ## <a name="test-the-application"></a>응용 프로그램 테스트
 
-인터넷에 응용 프로그램을 노출하는 [Kubernetes 서비스][kubernetes-service]가 생성됩니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 진행 상황을 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
+인터넷에 애플리케이션을 노출하는 [Kubernetes 서비스][kubernetes-service]가 생성됩니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 진행 상황을 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
 
 ```console
 kubectl get service azure-vote-front --watch
@@ -118,7 +118,7 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Vote 응용 프로그램이 AKS의 Kubernetes 클러스터에 배포되었습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Azure Vote 애플리케이션이 AKS의 Kubernetes 클러스터에 배포되었습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 업데이트

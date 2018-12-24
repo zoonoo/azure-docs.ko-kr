@@ -40,7 +40,7 @@ sections:
     items:
     - image:
         src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: 응용 프로그램 추가
+      text: 애플리케이션 추가
       href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
     - image:
         src: https://docs.microsoft.com/media/common/i_protect.svg

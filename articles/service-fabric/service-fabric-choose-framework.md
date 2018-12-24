@@ -44,7 +44,7 @@ Reliable Services는 서비스 패브릭 단독으로 상태를 저장할 수도
 [Reliable Actors에 대해 자세히 알아보거나](service-fabric-reliable-services-introduction.md) [첫 번째 Reliable Services를 작성해 보세요.](service-fabric-reliable-services-quick-start.md)
 
 ## <a name="aspnet-core"></a>ASP.NET Core
-ASP.NET Core는 웹앱, IoT 앱 및 모바일 백 엔드와 같은 최신 클라우드 기반의 인터넷 연결 응용 프로그램을 빌드하기 위한 새로운 오픈 소스 겸 플랫폼 간 프레임워크입니다. Service Fabric은 ASP.NET Core와 통합되므로 신뢰할 수 있는 컬렉션 및 Service Fabric의 고급 오케스트레이션 기능을 활용하는 상태 비저장 및 상태 저장 ASP.NET Core 응용 프로그램을 작성할 수 있습니다.
+ASP.NET Core는 웹앱, IoT 앱 및 모바일 백 엔드와 같은 최신 클라우드 기반의 인터넷 연결 응용 프로그램을 빌드하기 위한 새로운 오픈 소스 겸 플랫폼 간 프레임워크입니다. Service Fabric은 ASP.NET Core와 통합되므로 신뢰할 수 있는 컬렉션 및 Service Fabric의 고급 오케스트레이션 기능을 활용하는 상태 비저장 및 상태 저장 ASP.NET Core 애플리케이션을 작성할 수 있습니다.
 
 [첫 번째 ASP.NET Core Service Fabric 응용 프로그램을 작성](service-fabric-tutorial-create-dotnet-app.md)하여 [Service Fabric의 ASP.NET Core에 대해 자세히 알아보세요](service-fabric-reliable-services-communication-aspnetcore.md).
 

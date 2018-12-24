@@ -1,6 +1,6 @@
 ---
 title: Azure Relay를 사용하는 REST 자습서 | Microsoft Docs
-description: REST 기반 인터페이스를 표시하는 간단한 Azure Service Bus Relay 호스트 응용 프로그램을 구축합니다.
+description: REST 기반 인터페이스를 표시하는 간단한 Azure Service Bus Relay 호스트 애플리케이션을 구축합니다.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -73,7 +73,7 @@ WCF 계약과 REST 스타일 계약의 주요 차이는 [OperationContractAttrib
     using System.IO;
     ```
    
-    [System.ServiceModel](/dotnet/api/system.servicemodel)은 WCF의 기본 기능에 프로그래밍 방식의 액세스를 가능하게 하는 네임스페이스입니다. WCF 릴레이는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다. 이 네임스페이스는 대부분의 릴레이 응용 프로그램에서 사용됩니다. 마찬가지로 [System.ServiceModel.Channels](/dotnet/api/system.servicemodel.channels)는 채널을 정의하는데 도움을 주는데, 이 개체를 통해 Azure Relay 및 클라이언트 웹 브라우저와 통신하게 됩니다. 마지막으로 [System.ServiceModel.Web](/dotnet/api/system.servicemodel.web)에는 웹 기반 응용 프로그램을 만들 수 있도록 하는 형식이 포함됩니다.
+    [System.ServiceModel](/dotnet/api/system.servicemodel)은 WCF의 기본 기능에 프로그래밍 방식의 액세스를 가능하게 하는 네임스페이스입니다. WCF 릴레이는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다. 이 네임스페이스는 대부분의 릴레이 애플리케이션에서 사용됩니다. 마찬가지로 [System.ServiceModel.Channels](/dotnet/api/system.servicemodel.channels)는 채널을 정의하는데 도움을 주는데, 이 개체를 통해 Azure Relay 및 클라이언트 웹 브라우저와 통신하게 됩니다. 마지막으로 [System.ServiceModel.Web](/dotnet/api/system.servicemodel.web)에는 웹 기반 응용 프로그램을 만들 수 있도록 하는 형식이 포함됩니다.
 7. `ImageListener` 네임스페이스의 이름을 **Microsoft.ServiceBus.Samples**로 바꿉니다.
    
     ```csharp
@@ -115,7 +115,7 @@ WCF 계약과 REST 스타일 계약의 주요 차이는 [OperationContractAttrib
     public interface IImageChannel : IImageContract, IClientChannel { }
     ```
     
-    채널은 서비스 및 클라이언트가 서로 정보를 전달하는 WCF 개체입니다. 나중에 호스트 응용 프로그램에서 채널을 만듭니다. Azure Relay는 이 채널을 사용하여 브라우저의 HTTP GET 요청을 **GetImage** 구현으로 전달합니다. 릴레이는 이 채널을 사용하여 **GetImage** 반환 값을 가져와서 클라이언트 브라우저에 대한 HTTP GETRESPONSE로 해석하기도 합니다.
+    채널은 서비스 및 클라이언트가 서로 정보를 전달하는 WCF 개체입니다. 나중에 호스트 애플리케이션에서 채널을 만듭니다. Azure Relay는 이 채널을 사용하여 브라우저의 HTTP GET 요청을 **GetImage** 구현으로 전달합니다. 릴레이는 이 채널을 사용하여 **GetImage** 반환 값을 가져와서 클라이언트 브라우저에 대한 HTTP GETRESPONSE로 해석하기도 합니다.
 12. **빌드** 메뉴에서 **솔루션 빌드**를 클릭하여 지금까지 수행한 작업이 정확한지 확인합니다.
 
 ### <a name="example"></a>예
@@ -575,7 +575,7 @@ namespace Microsoft.ServiceBus.Samples
 3. 완료되면 명령 프롬프트 창에서 **Enter** 키를 눌러 앱을 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 Azure Relay 서비스를 사용하는 응용 프로그램을 빌드했습니다. 자세한 정보는 다음 문서를 참조하세요.
+이제 Azure Relay 서비스를 사용하는 애플리케이션을 빌드했습니다. 자세한 정보는 다음 문서를 참조하세요.
 
 * [Azure Relay 개요](relay-what-is-it.md)
 * [.NET과 함께 WCF 릴레이 서비스를 사용하는 방법](relay-wcf-dotnet-get-started.md)

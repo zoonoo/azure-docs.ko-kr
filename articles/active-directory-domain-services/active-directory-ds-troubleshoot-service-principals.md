@@ -36,9 +36,9 @@ ms.locfileid: "51035038"
 ## <a name="check-for-missing-service-principals"></a>누락된 서비스 주체에 대한 확인
 다음 단계에 따라 다시 만들어야 하는 서비스 주체를 확인합니다.
 
-1. Azure Portal에서 [엔터프라이즈 응용 프로그램 - 모든 응용 프로그램](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) 페이지로 이동합니다.
+1. Azure Portal에서 [엔터프라이즈 애플리케이션 - 모든 애플리케이션](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) 페이지로 이동합니다.
 2. **표시** 드롭다운에서 **모든 응용 프로그램**을 선택하고 **적용**을 클릭합니다.
-3. 다음 표를 사용하여 검색 상자에 ID를 붙여 넣어 Enter 키를 눌러 각 응용 프로그램 ID를 검색합니다. 검색 결과가 비어 있으면 "해결 방법" 열에 나와 있는 단계를 수행하여 서비스 주체를 다시 만들어야 합니다.
+3. 다음 표를 사용하여 검색 상자에 ID를 붙여 넣어 Enter 키를 눌러 각 애플리케이션 ID를 검색합니다. 검색 결과가 비어 있으면 "해결 방법" 열에 나와 있는 단계를 수행하여 서비스 주체를 다시 만들어야 합니다.
 
 | 응용 프로그램 UI | 해결 방법 |
 | :--- | :--- | :--- |

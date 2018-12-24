@@ -178,7 +178,7 @@ AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계�
 
 ### <a name="data-movement-library"></a>데이터 이동 라이브러리
 
-.NET용 Azure Storage 데이터 이동 라이브러리는 AzCopy를 구동하는 핵심 데이터 이동 프레임워크를 기반으로 합니다. 이 라이브러리는 AzCopy와 유사하게 성능이 높고 안정적이며 사용이 간편한 데이터 전송 작업을 제공합니다. 이 라이브러리를 사용하여 AzCopy의 외부 인스턴스를 실행 및 모니터링하지 않고도 응용 프로그램에서 기본적으로 AzCopy가 제공하는 기능을 활용할 수 있습니다. 자세한 내용은 [.NET용 Azure Storage 데이터 이동 라이브러리](https://github.com/Azure/azure-storage-net-data-movement)를 참조하세요.
+.NET용 Azure Storage 데이터 이동 라이브러리는 AzCopy를 구동하는 핵심 데이터 이동 프레임워크를 기반으로 합니다. 이 라이브러리는 AzCopy와 유사하게 성능이 높고 안정적이며 사용이 간편한 데이터 전송 작업을 제공합니다. 이 라이브러리를 사용하여 AzCopy의 외부 인스턴스를 실행 및 모니터링하지 않고도 애플리케이션에서 기본적으로 AzCopy가 제공하는 기능을 활용할 수 있습니다. 자세한 내용은 [.NET용 Azure Storage 데이터 이동 라이브러리](https://github.com/Azure/azure-storage-net-data-movement)를 참조하세요.
 
 ### <a name="rest-api-or-client-library"></a>REST API 또는 클라이언트 라이브러리
 

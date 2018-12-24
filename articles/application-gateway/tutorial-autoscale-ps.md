@@ -30,7 +30,7 @@ ms.locfileid: "53323203"
 > * 애플리케이션 게이트웨이 인프라 설정
 > * 자동 크기 조정 지정
 > * Application Gateway 만들기
-> * 응용 프로그램 게이트웨이 테스트
+> * 애플리케이션 게이트웨이 테스트
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -147,7 +147,7 @@ $appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
   -Sku $sku -sslCertificates $sslCert01 -AutoscaleConfiguration $autoscaleConfig
 ```
 
-## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
 Get-AzureRmPublicIPAddress를 사용하여 애플리케이션 게이트웨이의 공용 IP 주소를 가져옵니다. 공용 IP 주소 또는 DNS 이름을 복사한 다음, 브라우저의 주소 표시줄에 붙여넣습니다.
 

@@ -69,7 +69,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
     ![응용 프로그램 만들기](./media/graph-get-started/42.png)
 
 
-2. 위에 있는 메뉴에서 **새 응용 프로그램 등록**을 클릭합니다.
+2. 위에 있는 메뉴에서 **새 애플리케이션 등록**을 클릭합니다.
    
     ![응용 프로그램 만들기](./media/graph-get-started/43.png)
 

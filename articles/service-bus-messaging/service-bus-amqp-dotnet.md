@@ -33,7 +33,7 @@ AMQP 1.0 지원은 Service Bus 패키지 버전 2.1 이상에서 이용할 수 �
 
 ### <a name="configuration-using-appconfig"></a>App.config를 사용한 구성
 
-응용 프로그램에서는 App.config 구성 파일을 사용하여 설정을 저장하는 것이 바람직합니다. Service Bus 응용 프로그램의 경우 App.config를 사용하여 Service Bus 연결 문자열을 저장할 수 있습니다. 샘플 App.config 파일은 다음과 같습니다.
+애플리케이션에서는 App.config 구성 파일을 사용하여 설정을 저장하는 것이 바람직합니다. Service Bus 응용 프로그램의 경우 App.config를 사용하여 Service Bus 연결 문자열을 저장할 수 있습니다. 샘플 App.config 파일은 다음과 같습니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

@@ -21,7 +21,7 @@ ms.locfileid: "50242418"
 
 인증서 기반 인증을 사용하면 Exchange Online 계정을 다음에 연결할 때 Windows, Android 또는 iOS 디바이스의 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증을 받을 수 있습니다.
 
-- Microsoft Outlook 및 Microsoft Word와 같은 Microsoft 모바일 응용 프로그램
+- Microsoft Outlook 및 Microsoft Word와 같은 Microsoft 모바일 애플리케이션
 - EAS(Exchange ActiveSync) 클라이언트
 
 이 기능을 구성하면 모바일 디바이스의 특정 메일 및 Microsoft Office 응용 프로그램에 사용자 이름 및 암호 조합을 입력해야 합니다.

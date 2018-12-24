@@ -64,7 +64,7 @@ Azure AD 테넌트에 갤러리 응용 프로그램을 추가하려면:
 
 6. 응용 프로그램을 검색하려면 **갤러리에서 추가** 아래에서 추가할 응용 프로그램 이름을 입력합니다. 결과에서 응용 프로그램을 선택하고 **추가**를 클릭합니다. 다음 예제는 GitHub.com 검색 후 나타나는 **앱 추가** 양식을 보여줍니다.
 
-    ![응용 프로그램 추가](media/add-application-portal/add-an-application.png)
+    ![애플리케이션 추가](media/add-application-portal/add-an-application.png)
 
 6. 응용 프로그램별 양식에서 속성 정보를 변경할 수 있습니다. 예를 들어 조직의 요구에 맞게 응용 프로그램 이름을 편집할 수 있습니다. 이 예에서는 이름으로 **GitHub-test**를 사용합니다.
 

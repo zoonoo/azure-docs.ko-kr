@@ -154,10 +154,10 @@ name은 이 특정 노드 유형에 대한 친숙한 이름입니다. 이 노드
 * clientConnectionEndpointPort는 클라이언트 API를 사용할 때 클라이언트에서 클러스터에 연결하는 데 사용하는 포트입니다. 
 * clusterConnectionEndpointPort는 노드 간에 통신하는 포트입니다.
 * leaseDriverEndpointPort는 노드가 여전히 활성 상태인지 확인하기 위해 클러스터 임대 드라이버에서 사용하는 포트입니다. 
-* serviceConnectionEndpointPort는 특정 노드에서 Service Fabric 클라이언트와 통신하기 위해 해당 노드에 배포된 응용 프로그램과 서비스에서 사용하는 포트입니다.
+* serviceConnectionEndpointPort는 특정 노드에서 Service Fabric 클라이언트와 통신하기 위해 해당 노드에 배포된 애플리케이션과 서비스에서 사용하는 포트입니다.
 * httpGatewayEndpointPort는 Service Fabric Explorer에서 클러스터에 연결하는 데 사용하는 포트입니다.
-* ephemeralPorts는 [OS에서 사용하는 동적 포트](https://support.microsoft.com/kb/929851)를 재정의합니다. Service Fabric에서는 이러한 포트 중 일부를 응용 프로그램 포트로 사용하고, 나머지 포트는 OS에서 사용할 수 있습니다. 또한 이 범위가 OS에 있는 기존 범위에 매핑되므로 어떤 목적이든 JSON 샘플 파일에 지정된 범위를 사용할 수 있습니다. 시작 포트와 끝 포트 간의 차이가 255 이상인지 확인합니다. 이 범위가 OS와 공유되므로 이 차이가 너무 낮으면 충돌이 발생할 수 있습니다. 구성된 동적 포트 범위를 확인하려면 `netsh int ipv4 show dynamicport tcp`를 실행하세요.
-* applicationPorts는 Service Fabric 응용 프로그램에서 사용하는 포트입니다. 응용 프로그램 포트 범위는 응용 프로그램의 엔드포인트 요구 사항을 충족할 수 있을 만큼 충분히 커야 합니다. 이 범위는 컴퓨터의 동적 포트 범위, 즉 구성에 설정된 ephemeralPorts 범위에서 제외해야 합니다. Service Fabric에서는 새 포트가 필요할 때마다 이러한 포트를 사용하여 해당 포트에 대한 방화벽을 엽니다. 
+* ephemeralPorts는 [OS에서 사용하는 동적 포트](https://support.microsoft.com/kb/929851)를 재정의합니다. Service Fabric에서는 이러한 포트 중 일부를 애플리케이션 포트로 사용하고, 나머지 포트는 OS에서 사용할 수 있습니다. 또한 이 범위가 OS에 있는 기존 범위에 매핑되므로 어떤 목적이든 JSON 샘플 파일에 지정된 범위를 사용할 수 있습니다. 시작 포트와 끝 포트 간의 차이가 255 이상인지 확인합니다. 이 범위가 OS와 공유되므로 이 차이가 너무 낮으면 충돌이 발생할 수 있습니다. 구성된 동적 포트 범위를 확인하려면 `netsh int ipv4 show dynamicport tcp`를 실행하세요.
+* applicationPorts는 Service Fabric 애플리케이션에서 사용하는 포트입니다. 응용 프로그램 포트 범위는 응용 프로그램의 엔드포인트 요구 사항을 충족할 수 있을 만큼 충분히 커야 합니다. 이 범위는 컴퓨터의 동적 포트 범위, 즉 구성에 설정된 ephemeralPorts 범위에서 제외해야 합니다. Service Fabric에서는 새 포트가 필요할 때마다 이러한 포트를 사용하여 해당 포트에 대한 방화벽을 엽니다. 
 * reverseProxyEndpointPort는 선택적 역방향 프록시 엔드포인트입니다. 자세한 내용은 [Service Fabric 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요. 
 
 ### <a name="log-settings"></a>로그 설정

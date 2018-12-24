@@ -94,7 +94,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
    ![Firefox에서 인증서 설치](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
-## <a name="deploy-the-service-fabric-application"></a>Service Fabric 응용 프로그램 배포
+## <a name="deploy-the-service-fabric-application"></a>Service Fabric 애플리케이션 배포
 
 1. Cloud Shell에서 CLI를 사용하여 Azure에서 Service Fabric 클러스터에 연결합니다. 엔드포인트는 클러스터의 관리 엔드포인트입니다. 이전 섹션에서 PEM 파일을 만들었습니다. (파티 클러스터의 경우 **추가 정보** 페이지의 지침에서 PEM 파일 및 관리 엔드포인트에 해당하는 명령을 복사할 수 있습니다.)
 

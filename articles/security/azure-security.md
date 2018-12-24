@@ -140,7 +140,7 @@ App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 
 
 -   웹 서버 로깅 - W3C 확장 로그 파일 형식을 사용하는 HTTP 트랜잭션에 대한 정보입니다. 이는 처리된 요청 수, 특정 IP 주소에서 들어온 요청 수 등의 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
 
-#### <a name="application-diagnostics"></a>응용 프로그램 진단
+#### <a name="application-diagnostics"></a>애플리케이션 진단
 [응용 프로그램 진단](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)을 사용하면 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 응용 프로그램 진단에는 두 가지 주요 유형의 이벤트, 즉 응용 프로그램 성능과 관련된 이벤트와 응용 프로그램 실패 및 오류와 관련된 이벤트가 있습니다. 실패와 오류는 연결, 보안 및 오류 문제로 더 자세히 구분할 수 있습니다. 오류 문제는 일반적으로 응용 프로그램 코드에서 발생하는 문제와 관련이 있습니다.
 
 응용 프로그램 진단에서 다음과 같은 방법으로 그룹화된 이벤트를 볼 수 있습니다.

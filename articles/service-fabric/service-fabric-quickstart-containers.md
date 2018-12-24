@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 Windows 컨테이너 앱 만들기 | Microsoft Docs
-description: 이 빠른 시작에서는 Azure Service Fabric에서 첫 번째 Windows 컨테이너 응용 프로그램을 만듭니다.
+description: 이 빠른 시작에서는 Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플리케이션을 만듭니다.
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT

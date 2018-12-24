@@ -33,7 +33,7 @@ ms.locfileid: "53256624"
 
 이 단계에서는 Azure Container Registry에 업데이트된 컨테이너 이미지를 푸시하면 항상 볼 수 있는 웹 애플리케이션을 변경합니다.
 
-이전 자습서의 [GitHub에서 복제한](container-registry-tutorial-prepare-registry.md#get-application-code) 응용 프로그램 원본에서 `AcrHelloworld/Views/Home/Index.cshtml` 파일을 찾고 원하는 텍스트 편집기에서 엽니다. 기존 `<h1>` 줄 아래에 다음 줄을 추가합니다.
+이전 자습서의 [GitHub에서 복제한](container-registry-tutorial-prepare-registry.md#get-application-code) 애플리케이션 원본에서 `AcrHelloworld/Views/Home/Index.cshtml` 파일을 찾고 원하는 텍스트 편집기에서 엽니다. 기존 `<h1>` 줄 아래에 다음 줄을 추가합니다.
 
 ```html
 <h1>MODIFIED</h1>
@@ -131,7 +131,7 @@ Webhook는 두 지역 웹앱에 업데이트된 컨테이너를 자동으로 배
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 지역에서 복제된 레지스트리에 새 버전의 웹 응용 프로그램 컨테이너를 업데이트 및 푸시했습니다. Azure Container Registry의 웹후크가 가장 가까운 레지스트리 복제본에서 로컬 끌어오기를 트리거하는 업데이트를 Web App for Containers에 알렸습니다.
+이 자습서에서는 지역에서 복제된 레지스트리에 새 버전의 웹 애플리케이션 컨테이너를 업데이트 및 푸시했습니다. Azure Container Registry의 웹후크가 가장 가까운 레지스트리 복제본에서 로컬 끌어오기를 트리거하는 업데이트를 Web App for Containers에 알렸습니다.
 
 ### <a name="acr-build-automated-image-build-and-patch"></a>ACR 빌드: 자동화된 이미지 빌드 및 패치
 

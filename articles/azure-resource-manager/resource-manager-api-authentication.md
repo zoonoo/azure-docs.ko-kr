@@ -42,7 +42,7 @@ ms.locfileid: "49956343"
 5. 앱 전용 액세스 토큰을 가져옵니다.
 6. 토큰(5단계)을 사용하여 Resource Manager를 통해 구독에 있는 리소스를 관리합니다.
 
-웹 응용 프로그램의 흐름은 다음과 같습니다.
+웹 애플리케이션의 흐름은 다음과 같습니다.
 
 ![Resource Manager 인증 흐름](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)
 
@@ -77,7 +77,7 @@ Azure 구독에 대한 앱 액세스 권한을 부여합니다.
 $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 ```
 
-AD 응용 프로그램으로 로그인하려면 응용 프로그램 ID 및 암호가 필요합니다. 이전 명령에서 반환된 응용 프로그램 ID를 보려면 다음을 사용합니다.
+AD 응용 프로그램으로 로그인하려면 응용 프로그램 ID 및 암호가 필요합니다. 이전 명령에서 반환된 애플리케이션 ID를 보려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
 $app.ApplicationId
@@ -210,18 +210,18 @@ ASP.NET MVC 샘플 앱의 [UserCanManagerAccessForSubscription](https://github.c
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-사용 권한 API가 여러 사용 권한을 반환합니다. 각 사용 권한은 허용되는 작업(**actions**) 및 허용되지 않는 작업(**notactions**)으로 구성됩니다. 작업이 사용 권한의 허용되는 작업에 있고 해당 권한의 허용되지 않는 작업에 없는 경우, 사용자는 해당 작업을 수행할 수 있습니다. **microsoft.authorization/roleassignments/write**는 액세스 관리 권한을 부여하는 작업입니다. 응용 프로그램은 사용 권한 결과를 구문 분석하여 각 권한의 **actions** 및 **notactions**에서 이 작업 문자열에 대한 정규식 일치(regex match)를 찾습니다.
+사용 권한 API가 여러 사용 권한을 반환합니다. 각 사용 권한은 허용되는 작업(**actions**) 및 허용되지 않는 작업(**notactions**)으로 구성됩니다. 작업이 사용 권한의 허용되는 작업에 있고 해당 권한의 허용되지 않는 작업에 없는 경우, 사용자는 해당 작업을 수행할 수 있습니다. **microsoft.authorization/roleassignments/write**는 액세스 관리 권한을 부여하는 작업입니다. 애플리케이션은 사용 권한 결과를 구문 분석하여 각 권한의 **actions** 및 **notactions**에서 이 작업 문자열에 대한 정규식 일치(regex match)를 찾습니다.
 
 ## <a name="get-app-only-access-token"></a>앱 전용 액세스 토큰 가져오기
 이제 사용자가 Azure 구독에 액세스 권한을 할당할 수 있는지 알게 되었습니다. 다음 단계는 다음과 같습니다.
 
 1. 구독에 대한 애플리케이션의 ID에 대해 적절한 RBAC 역할을 할당합니다.
-2. 구독에 대한 응용 프로그램의 사용 권한을 쿼리하거나 응용 프로그램 전용 토큰을 사용해 Resource Manager에 액세스하여 액세스 할당의 유효성을 검사합니다.
-3. 응용 프로그램의 "연결된 구독" 데이터 구조에 연결을 기록하여 구독의 ID를 유지합니다.
+2. 구독에 대한 애플리케이션의 사용 권한을 쿼리하거나 애플리케이션 전용 토큰을 사용해 Resource Manager에 액세스하여 액세스 할당의 유효성을 검사합니다.
+3. 애플리케이션의 "연결된 구독" 데이터 구조에 연결을 기록하여 구독의 ID를 유지합니다.
 
 첫 번째 단계를 자세히 살펴보겠습니다. 애플리케이션의 ID에 적절한 RBAC 역할을 할당하려면 다음을 결정해야 합니다.
 
-* 사용자의 Azure Active Directory에서 응용 프로그램 ID의 개체 ID
+* 사용자의 Azure Active Directory에서 애플리케이션 ID의 개체 ID
 * 애플리케이션이 구독에 대해 요구하는 RBAC 역할의 ID
 
 애플리케이션이 Azure AD에서 사용자를 인증할 때 애플리케이션에 대한 서비스 주체 개체가 해당 Azure AD에 생성됩니다. Azure는 RBAC 역할을 서비스 주체에 할당하여 Azure 리소스에 대한 직접 액세스 권한을 해당 애플리케이션에 부여할 수 있습니다. 이 작업이 바로 원했던 결과입니다. Azure AD Graph API를 쿼리하여 로그인한 사용자의 Azure AD에서 애플리케이션의 서비스 주체의 ID를 결정합니다.
@@ -251,11 +251,11 @@ ASP.net MVC 샘플 애플리케이션의 [GetObjectIdOfServicePrincipalInOrganiz
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039862","not_before":"1432035962","resource":"https://graph.windows.net/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRv****G5gUTV-kKorR-pg"}
 
 ### <a name="get-objectid-of-application-service-principal-in-user-azure-ad"></a>사용자 Azure AD에서 애플리케이션 서비스 주체의 ObjectId 가져오기
-이제 응용 프로그램 전용 액세스 토큰을 사용하여 [Azure AD Graph 서비스 주체](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API를 쿼리하여 디렉터리에 있는 응용 프로그램의 서비스 주체의 개체 ID를 결정합니다.
+이제 애플리케이션 전용 액세스 토큰을 사용하여 [Azure AD Graph 서비스 주체](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API를 쿼리하여 디렉터리에 있는 애플리케이션의 서비스 주체의 개체 ID를 결정합니다.
 
 ASP.net MVC 샘플 애플리케이션의 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) 메서드가 이 호출을 구현합니다.
 
-다음 예제에서는 애플리케이션의 서비스 주체를 요청하는 방법을 보여 줍니다. a0448380-c346-4f9f-b897-c18733de9394는 응용 프로그램의 클라이언트 ID입니다.
+다음 예제에서는 애플리케이션의 서비스 주체를 요청하는 방법을 보여 줍니다. a0448380-c346-4f9f-b897-c18733de9394는 애플리케이션의 클라이언트 ID입니다.
 
     GET https://graph.windows.net/62e173e9-301e-423e-bcd4-29121ec1aa24/servicePrincipals?api-version=1.5&$filter=appId%20eq%20'a0448380-c346-4f9f-b897-c18733de9394' HTTP/1.1
 
@@ -333,7 +333,7 @@ ASP.net MVC 샘플 앱의 [GrantRoleToServicePrincipalOnSubscription](https://gi
 | Guid | 설명 |
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |구독의 ID |
-| c3097b31-7309-4c59-b4e3-770f8406bad2 |응용 프로그램의 서비스 주체의 개체 ID |
+| c3097b31-7309-4c59-b4e3-770f8406bad2 |애플리케이션의 서비스 주체의 개체 ID |
 | acdd72a7-3385-48ef-bd42-f606fba81ae7 |읽기 권한자 역할의 ID |
 | 4f87261d-2816-465d-8311-70a27558df4c |새 역할 할당에 대해 만든 새 GUID |
 
@@ -360,7 +360,7 @@ ASP.NET MVC 샘플 앱의 [ServicePrincipalHasReadAccessToSubscription](https://
 ## <a name="manage-connected-subscriptions"></a>연결된 구독 관리
 구독에 대해 애플리케이션의 서비스 주체에 적절한 RBAC 역할이 할당된 경우 애플리케이션은 Azure Resource Manager에 대한 애플리케이션 전용 액세스 토큰을 사용하여 해당 역할에 대한 모니터링/관리를 유지할 수 있습니다.
 
-구독 소유자가 포털 또는 명령줄 도구를 사용하여 응용 프로그램의 역할 할당을 제거하는 경우 응용 프로그램은 더 이상 해당 구독에 액세스할 수 없습니다. 이 경우 사용자에게 구독과의 연결이 애플리케이션 외부에서 끊어졌음을 알리고 연결을 "복구"하는 옵션을 사용자에게 제공해야 합니다. 여기서 "복구"는 오프라인 상태에서 삭제된 역할 할당을 다시 만드는 것입니다.
+구독 소유자가 포털 또는 명령줄 도구를 사용하여 애플리케이션의 역할 할당을 제거하는 경우 애플리케이션은 더 이상 해당 구독에 액세스할 수 없습니다. 이 경우 사용자에게 구독과의 연결이 애플리케이션 외부에서 끊어졌음을 알리고 연결을 "복구"하는 옵션을 사용자에게 제공해야 합니다. 여기서 "복구"는 오프라인 상태에서 삭제된 역할 할당을 다시 만드는 것입니다.
 
 사용자가 애플리케이션에 대한 자신의 구독을 연결할 수 있도록 하는 것과 마찬가지로 사용자가 구독의 연결을 끊는 것도 허용해야 합니다. 액세스 관리 관점에서 연결 끊기란 애플리케이션의 서비스 주체가 구독에 대해 가지고 있는 역할 할당을 제거하는 것을 의미합니다. 필요에 따라 구독에 대한 애플리케이션의 상태도 제거할 수 있습니다.
 구독에 대한 액세스 관리 권한을 가진 사용자만이 구독의 연결을 끊을 수 있습니다.

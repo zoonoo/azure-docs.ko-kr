@@ -1956,7 +1956,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Services</h3>
-                                                    <p>가용성과 확장성이 뛰어난 클라우드 응용 프로그램 및 API 만들기</p>
+                                                    <p>가용성과 확장성이 뛰어난 클라우드 애플리케이션 및 API 만들기</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3069,7 +3069,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Cache for Redis</h3>
-                                                    <p>높은 처리량과 짧은 대기 시간으로 응용 프로그램에 강력한 성능 부여</p>
+                                                    <p>높은 처리량과 짧은 대기 시간으로 애플리케이션에 강력한 성능 부여</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5742,7 +5742,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure 중국 21Vianet</h3>
-                                                    <p>중국에서 정부에 의해 규정된 정책 및 데이터 처리 규정을 준수하여 응용 프로그램 빌드 및 호스트</p>
+                                                    <p>중국에서 정부에 의해 규정된 정책 및 데이터 처리 규정을 준수하여 애플리케이션 빌드 및 호스트</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6279,7 +6279,7 @@ Azure 아키텍처 센터에는 Microsoft Azure에서 종단 간 솔루션을 �
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 응용 프로그램 아키텍처 가이드</h3>
-                                                    <p>이 가이드는 확장성과 복원력이 있고 가용성이 뛰어난 Azure에서 응용 프로그램을 디자인하기 위한 체계적인 방식을 제시합니다. 고객의 참여를 통해 확보한 검증된 사례를 기반으로 합니다.</p>
+                                                    <p>이 가이드는 확장성과 복원력이 있고 가용성이 뛰어난 Azure에서 애플리케이션을 디자인하기 위한 체계적인 방식을 제시합니다. 고객의 참여를 통해 확보한 검증된 사례를 기반으로 합니다.</p>
                                                 </div>
                                             </div>
                                         </div>

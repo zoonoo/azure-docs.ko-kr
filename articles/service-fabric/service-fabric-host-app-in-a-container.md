@@ -142,7 +142,7 @@ $registry = New-AzureRMContainerRegistry -ResourceGroupName $acrresourcegroupnam
 ```
 
 ## <a name="create-a-service-fabric-cluster-on-azure"></a>Azure에서 Service Fabric 클러스터 만들기
-Service Fabric 응용 프로그램은 네트워크에 연결된 가상 머신 또는 물리적 머신의 집합인 클러스터에서 실행됩니다.  Azure에 애플리케이션을 배포하기 전에 Azure에서 Service Fabric 클러스터를 만듭니다.
+Service Fabric 애플리케이션은 네트워크에 연결된 가상 머신 또는 물리적 머신의 집합인 클러스터에서 실행됩니다.  Azure에 애플리케이션을 배포하기 전에 Azure에서 Service Fabric 클러스터를 만듭니다.
 
 다음을 수행할 수 있습니다.
 - Visual Studio에서 테스트 클러스터를 만듭니다. 이 옵션을 사용하면 기본 설 구성으로 Visual Studio에서 직접 보안 클러스터정를 만들 수 있습니다. 

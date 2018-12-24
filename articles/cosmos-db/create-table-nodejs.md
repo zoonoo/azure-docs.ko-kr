@@ -112,7 +112,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
    npm install azure-storage node-uuid async nconf --save
    ```
 
-2. git 터미널 창에서 다음 명령을 실행하여 Node 응용 프로그램 시작을 실행합니다.
+2. git 터미널 창에서 다음 명령을 실행하여 Node 애플리케이션 시작을 실행합니다.
 
     ```
     node ./tableSample.js 

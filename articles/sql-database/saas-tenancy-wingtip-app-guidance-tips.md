@@ -1,6 +1,6 @@
 ---
 title: SQL Database 다중 테넌트 앱 예제에 대한 지침 - Wingtip SaaS | Microsoft Docs
-description: Azure SQL Database를 사용하는 샘플 다중 테넌트 응용 프로그램인 Wingtip Tickets SaaS 예제를 설치 및 실행하기 위한 단계와 지침을 제공합니다.
+description: Azure SQL Database를 사용하는 샘플 다중 테넌트 애플리케이션인 Wingtip Tickets SaaS 예제를 설치 및 실행하기 위한 단계와 지침을 제공합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -21,7 +21,7 @@ ms.locfileid: "47054407"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Wingtip Tickets 샘플 SaaS 앱을 사용하기 위한 일반적인 지침
 
-이 문서에는 Azure SQL Database를 사용하는 Wingtip Tickets 샘플 SaaS 응용 프로그램을 실행하기 위한 일반적인 지침이 포함되어 있습니다. 
+이 문서에는 Azure SQL Database를 사용하는 Wingtip Tickets 샘플 SaaS 애플리케이션을 실행하기 위한 일반적인 지침이 포함되어 있습니다. 
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Wingtip Tickets SaaS 스크립트 다운로드 및 차단 해제
 

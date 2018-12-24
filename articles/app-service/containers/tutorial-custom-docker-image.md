@@ -25,7 +25,7 @@ ms.locfileid: "53256080"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Web App for Containers에 사용자 지정 Docker 이미지 사용
 
-[Containers용 Web App](app-service-linux-intro.md)은 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원을 통해 Linux에서 기본 제공 Docker 이미지를 제공합니다. Web App for Containers는 Docker 컨테이너 기술을 사용하여 기본 제공 이미지와 사용자 지정 이미지를 모두 PaaS(Platform as a Service)로 호스팅합니다. 이 자습서에서는 사용자 지정 Docker 이미지를 빌드하고 이 이미지를 Web App for Containers에 배포하는 방법에 대해 설명합니다. 이 패턴은 기본 제공 이미지에 선택한 언어가 포함되어 있지 않거나 기본 제공 이미지에 제공되지 않는 특정 구성이 응용 프로그램에 필요한 경우에 유용합니다.
+[Containers용 Web App](app-service-linux-intro.md)은 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원을 통해 Linux에서 기본 제공 Docker 이미지를 제공합니다. Web App for Containers는 Docker 컨테이너 기술을 사용하여 기본 제공 이미지와 사용자 지정 이미지를 모두 PaaS(Platform as a Service)로 호스팅합니다. 이 자습서에서는 사용자 지정 Docker 이미지를 빌드하고 이 이미지를 Web App for Containers에 배포하는 방법에 대해 설명합니다. 이 패턴은 기본 제공 이미지에 선택한 언어가 포함되어 있지 않거나 기본 제공 이미지에 제공되지 않는 특정 구성이 애플리케이션에 필요한 경우에 유용합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -57,7 +57,7 @@ cd docker-django-webapp-linux
 
 ## <a name="build-the-image-from-the-docker-file"></a>Docker 파일에서 이미지 빌드
 
-Git 리포지토리에서 _Dockerfile_을 살펴봅니다. 이 Docker 파일은 응용 프로그램을 실행하는 데 필요한 Python 환경을 설명합니다. 또한 이미지는 컨테이너와 호스트 간에 보안 통신을 위해 [SSH](https://www.ssh.com/ssh/protocol/) 서버를 설정합니다.
+Git 리포지토리에서 _Dockerfile_을 살펴봅니다. 이 Docker 파일은 애플리케이션을 실행하는 데 필요한 Python 환경을 설명합니다. 또한 이미지는 컨테이너와 호스트 간에 보안 통신을 위해 [SSH](https://www.ssh.com/ssh/protocol/) 서버를 설정합니다.
 
 ```docker
 FROM python:3.4
@@ -132,7 +132,7 @@ docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
 
 ## <a name="push-the-docker-image-to-docker-hub"></a>Docker 허브에 Docker 이미지 푸시
 
-레지스트리는 이미지를 호스트하고 서비스 이미지 및 컨테이너 서비스를 제공하는 응용 프로그램입니다. 이미지를 공유하려면 레지스트리에 푸시해야 합니다. 
+레지스트리는 이미지를 호스트하고 서비스 이미지 및 컨테이너 서비스를 제공하는 애플리케이션입니다. 이미지를 공유하려면 레지스트리에 푸시해야 합니다. 
 
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry such as Azure Container Registry. Select the appropriate tab for your scenario below (your selection will switch multiple tabs on this page). -->
 
@@ -193,7 +193,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>Azure에 앱 배포
 
-Azure Web Apps를 사용하여 클라우드에서 네이티브 Linux 응용 프로그램을 호스트할 수 있습니다. 컨테이너용 Web App을 만들려면 그룹, 서비스 계획 및 웹앱 자체를 만드는 Azure CLI 명령을 실행해야 합니다. 
+Azure Web Apps를 사용하여 클라우드에서 네이티브 Linux 애플리케이션을 호스트할 수 있습니다. 컨테이너용 Web App을 만들려면 그룹, 서비스 계획 및 웹앱 자체를 만드는 Azure CLI 명령을 실행해야 합니다. 
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -324,7 +324,7 @@ Web App for Containers는 컨테이너에 대한 외부 연결을 허용하지 �
 
 그런 다음 대화형 콘솔을 표시하는 페이지로 리디렉션됩니다. 
 
-특정 응용 프로그램이 컨테이너에서 실행되고 있는지를 확인하려고 합니다. 컨테이너를 검사하고 실행 중인 프로세스를 확인하려면 프롬프트에서 `top` 명령을 실행합니다.
+특정 애플리케이션이 컨테이너에서 실행되고 있는지를 확인하려고 합니다. 컨테이너를 검사하고 실행 중인 프로세스를 확인하려면 프롬프트에서 `top` 명령을 실행합니다.
 
 ```bash
 top

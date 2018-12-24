@@ -141,7 +141,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 > [!div class="checklist"]
 > * 연결 문자열 구성
-> * 응용 프로그램 빌드
+> * 애플리케이션 빌드
 > * 응용 프로그램 실행
 > * 연결 수의 유효성 검사
 

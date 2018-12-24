@@ -56,4 +56,4 @@ Azure Traffic Manager에서는 엔드포인트 간의 DNS 수준 라우팅이 �
 ## <a name="next-steps"></a>다음 단계
 - [Azure Site Recovery와 함께 Traffic Manager 사용](../site-recovery/concepts-traffic-manager-with-site-recovery.md) 문서를 자세히 살펴봅니다.
 - Traffic Manager [라우팅 메서드](../traffic-manager/traffic-manager-routing-methods.md)에 대해 자세히 알아봅니다.
-- 응용 프로그램 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.
+- 애플리케이션 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.

@@ -41,7 +41,7 @@ ms.locfileid: "51289277"
 
 Microsoft Azure는 데이터 보호 및 개인 정보 보호를 위한 업계 선도적인 노력을 통해 지속적으로 증가하는 통합 클라우드 서비스(분석, 기계 학습, 저장소, 보안, 네트워킹 및 웹) 컬렉션을 결합하는 완전한 클라우드 솔루션을 제공합니다. Microsoft의 [보안 위험 가정](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) 전략은 공격을 시뮬레이트하는 소프트웨어 보안 전문가로 구성된 전용 *레드 팀*을 활용하여 Azure에서 새로운 위협을 감지 및 보호하고 위험으로부터 복구하는 기능을 테스트합니다. Microsoft의 [글로벌 인시던트 대응](https://www.microsoft.com/en-us/TrustCenter/Security/DesignOpSecurity) 팀은 공격 및 악의적인 활동이 미치는 영향을 최소화 하기 위해 24시간 내내 노력합니다. 이 팀은 문제 관리, 통신 및 복구를 위해 설정된 절차를 따르며 내부 및 외부 파트너와 검색 가능하며 예측 가능한 인터페이스를 사용합니다.
 
-Microsoft의 시스템은 지속적인 침입 탐지 및 방지, 서비스 거부 공격 방지, 일반적인 침투 테스트, 외부 도구를 통해 위협을 식별하고 완화할 수 있습니다. [다단계 인증](../articles/active-directory/authentication/multi-factor-authentication.md) 은 최종 사용자가 네트워크에 액세스하는 추가 보안 계층을 제공합니다. 또한 Microsoft는 응용 프로그램 및 호스트 공급자를 위해 액세스 제어, 모니터링, 맬웨어 방지, 취약점 검색, 패치 및 구성 관리를 제공합니다.
+Microsoft의 시스템은 지속적인 침입 탐지 및 방지, 서비스 거부 공격 방지, 일반적인 침투 테스트, 외부 도구를 통해 위협을 식별하고 완화할 수 있습니다. [다단계 인증](../articles/active-directory/authentication/multi-factor-authentication.md) 은 최종 사용자가 네트워크에 액세스하는 추가 보안 계층을 제공합니다. 또한 Microsoft는 애플리케이션 및 호스트 공급자를 위해 액세스 제어, 모니터링, 맬웨어 방지, 취약점 검색, 패치 및 구성 관리를 제공합니다.
 
 솔루션 가속기는 모든 Microsoft 소프트웨어의 안전한 개발 및 운영을 위한 SDL 및 OSA 프로세스와 함께 Azure 플랫폼에 기본 제공된 보안 및 개인 정보를 활용합니다. 이러한 절차는 인프라 보호, 네트워크 보호, 모든 솔루션의 보안을 위한 기본 사항인 식별 및 관리 기능을 제공합니다.
 

@@ -199,7 +199,7 @@ IngestManifestAsset는 대량 수집을 위한 대량 IngestManifest와 자산�
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
 ```
 
-IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성에서 제공하는 Blob 저장소 컨테이너 URI에 자산 파일을 업로드할 수 있는 고속 클라이언트 응용 프로그램을 사용할 수 있습니다. 
+IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성에서 제공하는 Blob 스토리지 컨테이너 URI에 자산 파일을 업로드할 수 있는 고속 클라이언트 애플리케이션을 사용할 수 있습니다. 
 
 다음 코드에서는 .NET SDK를 사용하여 자산 파일을 업로드하는 방법을 보여 줍니다.
 

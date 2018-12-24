@@ -36,7 +36,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱은 테넌트 ID에 
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)을 참조하세요.
+* Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>SaaS 성능 관리 패턴 소개
@@ -54,7 +54,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱은 테넌트 ID에 
 
 여러 리소스로 작업하는 대규모 시나리오의 경우 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)를 사용할 수 있습니다. 이것은 여러 서비스에서 원격 분석을 수집하고 쿼리 및 경고 설정에 사용할 수 있는 Log Analytics 작업 영역에서 수집된 원격 분석에 대한 분석을 제공하는 개별 Azure 서비스입니다.
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 소스 코드 및 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 소스 코드 및 스크립트 가져오기
 
 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 
@@ -130,7 +130,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 
 **단기적으로** 추가 리소스를 제공하도록 데이터베이스를 확장하거나 다중 테넌트 데이터베이스에서 테넌트를 제거할 것을 생각할 수 있습니다(다중 테넌트 데이터베이스에서 독립형 데이터베이스로 이동).
 
-**장기적으로** 데이터베이스 성능을 개선하기 위해 쿼리 또는 인덱스의 최적화를 생각할 수 있습니다. 성능 문제에 대한 응용 프로그램의 민감도에 따라 데이터베이스가 사용률 100% DTU에 도달하기 전에 데이터베이스를 확장하는 것이 최선일 수 있습니다. 경고를 사용하여 미리 경고합니다.
+**장기적으로** 데이터베이스 성능을 개선하기 위해 쿼리 또는 인덱스의 최적화를 생각할 수 있습니다. 성능 문제에 대한 애플리케이션의 민감도에 따라 데이터베이스가 사용률 100% DTU에 도달하기 전에 데이터베이스를 확장하는 것이 최선일 수 있습니다. 경고를 사용하여 미리 경고합니다.
 
 생성기에 의해 생성된 부하를 증가시켜 사용 중인 데이터베이스를 시뮬레이션할 수 있습니다. 테넌트가 더 자주 그리고 더 오래 버스트하도록 하면 개별 테넌트의 요구 사항을 변경하지 않고 다중 테넌트 데이터베이스에 대한 부하가 증가합니다. 데이터베이스 확장은 포털 내에서 또는 PowerShell에서 쉽게 수행됩니다. 이 연습에서는 포털을 사용합니다.
 
@@ -146,7 +146,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 
 **tenants1** > **개요**로 돌아가 모니터링 차트를 볼 수 있습니다. 데이터베이스에 더 많은 리소스를 제공한 효과를 모니터링합니다. (테넌트 수가 적고 부하가 임의의 값을 갖기 때문에 일정 시간 동안 실행할 때까지 확실한 결과를 보기가 어려울 수 있습니다.) 차트를 볼 때 하위 차트 100%는 여전히 50 DTU이지만 상위 차트의 100%가 이제 100 DTU를 나타낸다는 사실을 염두에 두세요.
 
-데이터베이스는 프로세스 전체에 걸쳐 온라인이고 완전하게 사용할 수 있도록 남아 있습니다. 응용 프로그램 코드는 언제나 끊어진 연결을 재시도하도록 작성해야 합니다. 따라서 데이터베이스 연결이 다시 수행됩니다.
+데이터베이스는 프로세스 전체에 걸쳐 온라인이고 완전하게 사용할 수 있도록 남아 있습니다. 애플리케이션 코드는 언제나 끊어진 연결을 재시도하도록 작성해야 합니다. 따라서 데이터베이스 연결이 다시 수행됩니다.
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>새로운 테넌트를 자체 데이터베이스에서 프로비전 
 
@@ -178,7 +178,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 
 **테넌트 셀프 서비스 크기 조정**
 
-크기 조정은 관리 API가 통해 쉽게 호출되는 작업이므로 테넌트 데이터베이스를 테넌트가 마주치는 응용 프로그램으로 크기 조정하는 기능을 쉽게 만들어 SaaS 서비스의 기능으로 제공할 수 있습니다. 예를 들어 테넌트가 확장과 축소를 직접 관리하게 할 수 있으며, 이는 아마도 테넌트의 대금 청구에 직접 연결될 것입니다!
+크기 조정은 관리 API가 통해 쉽게 호출되는 작업이므로 테넌트 데이터베이스를 테넌트가 마주치는 애플리케이션으로 크기 조정하는 기능을 쉽게 만들어 SaaS 서비스의 기능으로 제공할 수 있습니다. 예를 들어 테넌트가 확장과 축소를 직접 관리하게 할 수 있으며, 이는 아마도 테넌트의 대금 청구에 직접 연결될 것입니다!
 
 **데이터베이스를 사용량 패턴에 맞게 일정에 따라 확장 및 축소**
 

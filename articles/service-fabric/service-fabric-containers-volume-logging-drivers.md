@@ -222,7 +222,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 </Volume>
 ```
 
-앞의 매니페스트 조각에 표시된 대로, 볼륨에 대해 응용 프로그램 매개 변수가 지원됩니다(예제 사용에 대해서는 `MyStorageVar` 확인).
+앞의 매니페스트 조각에 표시된 대로, 볼륨에 대해 애플리케이션 매개 변수가 지원됩니다(예제 사용에 대해서는 `MyStorageVar` 확인).
 
 Docker 로그 드라이버가 지정된 경우 클러스터의 로그를 처리할 에이전트(또는 컨테이너)를 배포해야 합니다. **DriverOption** 태그는 로그 드라이버에 대한 옵션을 지정하는 데 사용할 수 있습니다.
 

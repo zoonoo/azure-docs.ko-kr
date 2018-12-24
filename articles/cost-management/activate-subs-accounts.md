@@ -27,12 +27,12 @@ Azure Resource Manager 자격 증명을 추가하거나 업데이트하면 Cloud
 
 이 아티클에서 절차를 완료하려면 특정 사용 권한이 필요합니다. 사용자 또는 테넌트 관리자에게 다음 사용 권한이 모두 있어야 합니다.
 
-- Azure AD 테넌트로 CloudynCollector 응용 프로그램을 등록하는 사용 권한.
-- 응용 프로그램을 Azure 구독에서의 역할에 할당하는 기능.
+- Azure AD 테넌트로 CloudynCollector 애플리케이션을 등록하는 사용 권한.
+- 애플리케이션을 Azure 구독에서의 역할에 할당하는 기능.
 
-Azure 구독에서 CloudynCollector 응용 프로그램을 할당하려면 계정에 `Microsoft.Authorization/*/Write` 액세스 권한이 있어야 합니다. 이 작업에 대한 권한은 [소유자](../role-based-access-control/built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 역할을 통해 부여됩니다.
+Azure 구독에서 CloudynCollector 애플리케이션을 할당하려면 계정에 `Microsoft.Authorization/*/Write` 액세스 권한이 있어야 합니다. 이 작업에 대한 권한은 [소유자](../role-based-access-control/built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 역할을 통해 부여됩니다.
 
-계정이 **참가자** 역할에 할당된 경우 응용프로그램을 할당할 적절한 사용 권한이 없습니다. Azure 구독에 CloudynCollector 응용 프로그램을 할당하려고 하면 오류가 발생합니다.
+계정이 **참가자** 역할에 할당된 경우 애플리케이션을 할당할 적절한 사용 권한이 없습니다. Azure 구독에 CloudynCollector 애플리케이션을 할당하려고 하면 오류가 발생합니다.
 
 ### <a name="check-azure-active-directory-permissions"></a>Azure Active Directory 권한 확인
 
@@ -42,7 +42,7 @@ Azure 구독에서 CloudynCollector 응용 프로그램을 할당하려면 계�
 4. **앱 등록** 옵션을 확인합니다.
     - **예**로 설정되어 있으면, 관리자가 아닌 사용자가 AD 앱을 등록할 수 있습니다. 이 설정에서는 Azure AD 테넌트의 모든 사용자가 앱을 등록할 수 있습니다.  
     ![사용자 설정에서 앱 등록 선택](./media/activate-subs-accounts/app-register.png)
-    - **앱 등록** 옵션이 **아니요**로 설정되어 있다면, 테넌트 관리 사용자만이 Azure Active Directory 앱을 등록할 수 있습니다. 테넌트 관리자가 CloudynCollector 응용 프로그램을 등록해야 합니다.
+    - **앱 등록** 옵션이 **아니요**로 설정되어 있다면, 테넌트 관리 사용자만이 Azure Active Directory 앱을 등록할 수 있습니다. 테넌트 관리자가 CloudynCollector 애플리케이션을 등록해야 합니다.
 
 
 ## <a name="add-an-account-or-update-a-subscription"></a>계정 추가 또는 구독 업데이트

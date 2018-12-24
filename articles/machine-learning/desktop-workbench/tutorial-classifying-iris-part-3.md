@@ -49,7 +49,7 @@ Azure Machine Learning(미리 보기)는 전문 데이터 과학자를 위한 �
 ## <a name="download-the-model-pickle-file"></a>모델 pickle 파일 다운로드
 이 자습서의 이전 부분에서는 **iris_sklearn.py** 스크립트가 Machine Learning Workbench에서 로컬로 실행되었습니다. 이 작업은 인기 있는 [pickle](https://docs.python.org/3/library/pickle.html) Python 개체 직렬화 패키지를 사용하여 로지스틱 회귀 모델을 직렬화했습니다. 
 
-1. Machine Learning Workbench 응용 프로그램을 엽니다. 그런 다음, 이 자습서 시리즈의 이전 부분에서 만든 **myIris** 프로젝트를 엽니다.
+1. Machine Learning Workbench 애플리케이션을 엽니다. 그런 다음, 이 자습서 시리즈의 이전 부분에서 만든 **myIris** 프로젝트를 엽니다.
 
 1. 프로젝트가 열리면 왼쪽 창에 있는 **파일** 단추(폴더 아이콘)를 선택하여 프로젝트 폴더의 파일 목록을 엽니다.
 
@@ -85,7 +85,7 @@ Azure Machine Learning(미리 보기)는 전문 데이터 과학자를 위한 �
 ## <a name="get-the-scoring-script-and-schema-files"></a>점수 매기기 스크립트 및 스키마 파일 가져오기
 모델 파일과 함께 웹 서비스를 배포하려면 점수 매기기 스크립트도 필요합니다. 선택적으로 웹 서비스 입력 데이터에 대한 스키마가 필요합니다. 점수 매기기 스크립트는 현재 폴더에서 **model.pkl** 파일을 로드하고, 이를 사용하여 새 예측을 생성합니다.
 
-1. Machine Learning Workbench 응용 프로그램을 엽니다. 그런 다음, 자습서 시리즈의 이전 부분에서 만든 **myIris** 프로젝트를 엽니다.
+1. Machine Learning Workbench 애플리케이션을 엽니다. 그런 다음, 자습서 시리즈의 이전 부분에서 만든 **myIris** 프로젝트를 엽니다.
 
 1. 프로젝트가 열리면 왼쪽 창에 있는 **파일** 단추(폴더 아이콘)를 선택하여 프로젝트 폴더의 파일 목록을 엽니다.
 
@@ -138,7 +138,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 >로컬로 배포 된 웹 서비스는 Azure Portal의 서비스 목록에 표시되지 않습니다. 웹 서비스는 로컬 컴퓨터의 Docker에서 실행됩니다.
 
 1. CLI(명령줄 인터페이스)를 엽니다.
-   Machine Learning Workbench 응용 프로그램의 **파일** 메뉴에서 **명령 프롬프트 열기**를 선택합니다.
+   Machine Learning Workbench 애플리케이션의 **파일** 메뉴에서 **명령 프롬프트 열기**를 선택합니다.
 
    명령줄 프롬프트가 현재 프로젝트 폴더 위치인 **c:\temp\myIris>** 에서 열립니다.
 
@@ -181,7 +181,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
    ```
    
-   화면의 지침에 따라 Docker 이미지 저장을 위한 저장소 계정, Docker 이미지 나열을 위한 Azure 컨테이너 레지스트리, 원격 분석 수집을 위한 Azure Application Insights 계정을 프로비전합니다. `-c` 스위치를 사용하면 이 명령에서 컨테이너 서비스 클러스터를 추가로 만들 수 있습니다.
+   화면의 지침에 따라 Docker 이미지 저장을 위한 스토리지 계정, Docker 이미지 나열을 위한 Azure 컨테이너 레지스트리, 원격 분석 수집을 위한 Azure Application Insights 계정을 프로비전합니다. `-c` 스위치를 사용하면 이 명령에서 컨테이너 서비스 클러스터를 추가로 만들 수 있습니다.
    
    클러스터 이름은 환경을 식별할 수 있는 방법입니다. 위치는 Azure Portal에서 만든 모델 관리 계정의 위치와 동일해야 합니다.
 

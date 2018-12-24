@@ -228,7 +228,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 3. 파일을 저장합니다.
 
-## <a name="build-the-application"></a>응용 프로그램 빌드
+## <a name="build-the-application"></a>애플리케이션 빌드
 
 1. 아직 이동하지 않은 경우 `wordcountjava` 디렉터리로 변경합니다.
 

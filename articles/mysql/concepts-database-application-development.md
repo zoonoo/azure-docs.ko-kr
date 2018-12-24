@@ -1,5 +1,5 @@
 ---
-title: Azure Database for MySQL에 대한 데이터베이스 응용 프로그램 개발 개요
+title: Azure Database for MySQL에 대한 데이터베이스 애플리케이션 개발 개요
 description: 개발자가 MySQL용 Azure 데이터베이스에 연결하기 위한 애플리케이션 코드를 작성할 때 따라야 하는 디자인 고려 사항을 소개합니다.
 services: mysql
 author: ajlam

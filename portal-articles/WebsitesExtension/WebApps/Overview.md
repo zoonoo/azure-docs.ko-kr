@@ -34,7 +34,7 @@ Web Apps용 App Service를 사용하여 클라우드에 첫 번째 응용 프로
 
 ## <a name="step-by-step-tutorials"></a>단계별 자습서
 
-Azure에서 보안 웹 응용 프로그램을 배포하고 관리하며 모니터링하는 방법을 알아봅니다.
+Azure에서 보안 웹 애플리케이션을 배포하고 관리하며 모니터링하는 방법을 알아봅니다.
 
 - 다음을 사용하여 응용 프로그램을 만듭니다.
   - [Azure SQL DB를 사용하는 .NET](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)

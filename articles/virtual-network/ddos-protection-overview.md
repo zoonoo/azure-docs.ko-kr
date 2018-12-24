@@ -24,7 +24,7 @@ ms.locfileid: "49310361"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection 표준 개요
 
-DDoS(배포된 서비스 거부) 공격은 고객이 응용 프로그램을 클라우드로 전환하게 만드는 가장 큰 가용성 및 보안 문제 중 일부입니다. DDoS 공격은 응용 프로그램의 리소스를 소진시켜서 정상적인 사용자가 응용 프로그램을 사용할 수 없게 만듭니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다.
+DDoS(배포된 서비스 거부) 공격은 고객이 응용 프로그램을 클라우드로 전환하게 만드는 가장 큰 가용성 및 보안 문제 중 일부입니다. DDoS 공격은 애플리케이션의 리소스를 소진시켜서 정상적인 사용자가 애플리케이션을 사용할 수 없게 만듭니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다.
 
 응용 프로그램 설계 모범 사례와 결합된 Azure DDoS Protection은 DDoS 공격에 대한 방어 기능을 제공합니다. Azure DDoS 보호는 다음과 같은 서비스 계층을 제공합니다.
 
@@ -39,9 +39,9 @@ DDoS Protection 표준은 다음 유형의 공격을 완화할 수 있습니다.
 
 - **대규모 공격**: 이 공격의 목표는 정상적으로 보이는 대량의 트래픽으로 네트워크 계층을 마비시키는 것입니다. 여기에는 UDP 서비스 장애, 증폭 서비스 장애 및 기타 스푸핑된 패킷 서비스 장애가 포함됩니다. DDoS Protection 표준은 자동으로 Azure의 글로벌 네트워크 규모를 사용하여 이러한 잠재적인 멀티 기가바이트 공격을 흡수하고 스크럽하여 완화시킵니다.
 - **프로토콜 공격**: 이러한 공격은 계층 3 및 계층 4 프로토콜 스택의 취약점을 악용하여 대상을 액세스 불능 상태로 만듭니다. SYN 서비스 장애 공격, 리플렉션 공격 및 기타 프로토콜 공격이 여기에 포함됩니다. DDoS Protection 표준은 클라이언트와의 상호 작용을 통해 악성 트래픽과 정상 트래픽을 구분하고 악성 트래픽을 차단하여 이러한 공격을 완화합니다. 
-- **리소스(응용 프로그램) 계층 공격**: 이러한 공격은 대상 웹 응용 프로그램 패킷을 공격하여 호스트 간 데이터 전송을 방해합니다. 공격에는 HTTP 프로토콜 위반, SQL 주입, 교차 사이트 스크립팅 및 기타 계층 7 공격이 포함됩니다. DDoS Protection 표준과 Azure [Application Gateway 웹 응용 프로그램 방화벽](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 함께 사용하여 이러한 공격을 방어합니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall)에서 사용할 수 있는 타사 웹 응용 프로그램 방화벽 제품도 있습니다.
+- **리소스(응용 프로그램) 계층 공격**: 이러한 공격은 대상 웹 응용 프로그램 패킷을 공격하여 호스트 간 데이터 전송을 방해합니다. 공격에는 HTTP 프로토콜 위반, SQL 주입, 교차 사이트 스크립팅 및 기타 계층 7 공격이 포함됩니다. DDoS Protection 표준과 Azure [Application Gateway 웹 애플리케이션 방화벽](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 함께 사용하여 이러한 공격을 방어합니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall)에서 사용할 수 있는 타사 웹 응용 프로그램 방화벽 제품도 있습니다.
 
-DDoS Protection 표준은 가상 머신과 연결된 공용 IP 주소, 부하 분산 장치 및 Application Gateway를 비롯한 가상 네트워크의 리소스를 보호합니다. DDoS Protection 표준은 Application Gateway 웹 응용 프로그램 방화벽과 함께 사용할 경우 전체 계층 3~계층 7 완화 기능을 제공할 수 있습니다.
+DDoS Protection 표준은 가상 머신과 연결된 공용 IP 주소, 부하 분산 장치 및 애플리케이션 게이트웨이를 비롯한 가상 네트워크의 리소스를 보호합니다. DDoS Protection 표준은 Application Gateway 웹 애플리케이션 방화벽과 함께 사용할 경우 전체 계층 3~계층 7 완화 기능을 제공할 수 있습니다.
 
 ## <a name="ddos-protection-standard-features"></a>DDoS Protection 표준 기능
 

@@ -25,10 +25,10 @@ ms.locfileid: "53313788"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>자습서: Linux Service Fabric 클러스터에서 컨테이너 이미지 만들기
 
-이 자습서는 Linux Service Fabric 클러스터에서 컨테이너를 사용하는 방법을 보여 주는 자습서 시리즈의 1부입니다. 이 자습서에서는 Service Fabric과 함께 사용할 수 있도록 다중 컨테이너 응용 프로그램이 준비됩니다. 후속 자습서에서 이러한 이미지는 Service Fabric 응용 프로그램의 일부로 사용됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서는 Linux Service Fabric 클러스터에서 컨테이너를 사용하는 방법을 보여 주는 자습서 시리즈의 1부입니다. 이 자습서에서는 Service Fabric과 함께 사용할 수 있도록 다중 컨테이너 응용 프로그램이 준비됩니다. 후속 자습서에서 이러한 이미지는 Service Fabric 애플리케이션의 일부로 사용됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * GitHub에서 응용 프로그램 원본 복제
+> * GitHub에서 애플리케이션 원본 복제
 > * 응용 프로그램 원본에서 컨테이너 이미지 만들기
 > * ACR(Azure Container Registry) 인스턴스 배포
 > * ACR에 대한 컨테이너 이미지 태그 지정
@@ -211,7 +211,7 @@ azure-vote-front
 이 자습서에서는 GitHub에서 애플리케이션을 끌어오고 컨테이너 이미지를 만들고 레지스트리로 밀어 넣었습니다. 다음 단계가 완료되었습니다.
 
 > [!div class="checklist"]
-> * GitHub에서 응용 프로그램 원본 복제
+> * GitHub에서 애플리케이션 원본 복제
 > * 응용 프로그램 원본에서 컨테이너 이미지 만들기
 > * ACR(Azure Container Registry) 인스턴스 배포
 > * ACR에 대한 컨테이너 이미지 태그 지정

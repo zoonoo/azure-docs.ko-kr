@@ -56,7 +56,7 @@ ms.locfileid: "47055308"
 
 각 테넌트의 경우 Wingtip 애플리케이션은 테넌트 키인 고유 키를 파생할 수 있습니다. 앱은 웹 페이지 URL에서 테넌트 이름을 추출합니다. 앱은 키를 가져오기 위해 이름을 해시합니다. 앱은 카탈로그에 액세스하는 키를 사용합니다. 테넌트가 저장되는 데이터베이스에 대한 카탈로그 상호 참조 정보입니다. 앱은 연결을 위해 데이터베이스 정보를 사용합니다. 다른 테넌트 키 스키마를 사용할 수도 있습니다.
 
-카탈로그를 사용하면 프로비전 후 응용 프로그램을 방해하지 않고 테넌트 데이터베이스의 이름 또는 위치를 변경할 수 있습니다. 다중 테넌트 데이터베이스 모델에서 카탈로그는 데이터베이스 간에 테넌트를 이동할 수 있습니다.
+카탈로그를 사용하면 프로비전 후 애플리케이션을 방해하지 않고 테넌트 데이터베이스의 이름 또는 위치를 변경할 수 있습니다. 다중 테넌트 데이터베이스 모델에서 카탈로그는 데이터베이스 간에 테넌트를 이동할 수 있습니다.
 
 #### <a name="tenant-metadata-beyond-location"></a>테넌트 메타데이터 위치 초과
 
@@ -129,7 +129,7 @@ SaaS 응용 프로그램에서 이러한 변경 내용은 테넌트 데이터베
 
 - Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
-- Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)을 참조하세요.
+- Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)을 참조하세요.
 
 - Wingtip 스크립트 및 소스 코드를 가져옵니다.
     - Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다.

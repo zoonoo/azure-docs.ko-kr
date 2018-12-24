@@ -76,8 +76,8 @@ Azure AD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인�
 1. Azure Portal의 상단 오른쪽 모서리에서 테넌트를 선택합니다.
 
     ![테넌트 단추 선택][select-tenant-button]
-2. 왼쪽 탭에서 **Azure Active Directory**를 선택한 후 “엔터프라이즈 응용 프로그램”을 선택합니다.
-3. “모든 응용 프로그램”을 선택한 다음, 이름이 `myTestCluster_Cluster`인 웹 응용 프로그램을 찾아 선택합니다.
+2. 왼쪽 탭에서 **Azure Active Directory**를 선택한 후 “엔터프라이즈 애플리케이션”을 선택합니다.
+3. “모든 애플리케이션”을 선택한 다음, 이름이 `myTestCluster_Cluster`인 웹 애플리케이션을 찾아 선택합니다.
 4. **사용자 및 그룹** 탭을 클릭합니다.
 
     ![사용자 및 그룹 탭][users-and-groups-tab]
@@ -125,7 +125,7 @@ Service Fabric Explorer에서 Azure AD에 로그인할 때 페이지가 "AADSTS5
 Service Fabric Explorer를 나타내는 클러스터(웹) 응용 프로그램이 Azure AD에 대해 인증을 시도하며, 해당 요청의 일부로 리디렉션 반환 URL을 제공합니다. 그렇지만 Azure AD 응용 프로그램 **REPLY URL** 목록에 표시되지 않습니다.
 
 #### <a name="solution"></a>해결 방법
-AAD 페이지에서 “앱 등록”을 선택하고, 클러스터 응용 프로그램을 선택한 다음, **회신 URL** 단추를 선택합니다. “회신 URL” 페이지에서 Service Fabric Explorer URL을 목록에 추가하거나 목록의 항목 중 하나를 대체합니다. 마친 후 변경 사항을 저장합니다.
+AAD 페이지에서 “앱 등록”을 선택하고, 클러스터 애플리케이션을 선택한 다음, **회신 URL** 단추를 선택합니다. “회신 URL” 페이지에서 Service Fabric Explorer URL을 목록에 추가하거나 목록의 항목 중 하나를 대체합니다. 마친 후 변경 사항을 저장합니다.
 
 ![웹 응용 프로그램 회신 URL][web-application-reply-url]
 

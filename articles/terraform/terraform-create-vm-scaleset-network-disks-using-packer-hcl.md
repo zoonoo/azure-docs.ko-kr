@@ -175,10 +175,10 @@ terraform apply
 ## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>인프라를 편집하여 가상 머신 확장 집합 추가
 
 이 단계에서는 이전에 배포한 네트워크에서 다음 리소스를 만듭니다.
-- Azure Load Balancer를 응용 프로그램에 제공 및 4단계에서 배포된 공용 IP 주소에 연결
-- 하나의 Azure Load Balancer 및 응용 프로그램을 제공하여 이전에 구성된 공용 IP 주소에 연결하는 규칙
+- Azure Load Balancer를 애플리케이션에 제공 및 4단계에서 배포된 공용 IP 주소에 연결
+- 하나의 Azure Load Balancer 및 애플리케이션을 제공하여 이전에 구성된 공용 IP 주소에 연결하는 규칙
 - Azure 백 엔드 주소 풀 및 이를 부하 분산 장치에 할당 
-- 응용 프로그램에서 사용되고 부하 분산 장치에 구성된 상태 프로브 포트 
+- 애플리케이션에서 사용되고 부하 분산 장치에 구성된 상태 프로브 포트 
 - 이전에 배포한 vnet에서 실행 중인, 부하 분산 장치 뒤에 있는 가상 머신 확장 집합
 - 사용자 지정 이미지에서 설치된 가상 머신 확장 노드의 [Nginx](http://nginx.org/)
 

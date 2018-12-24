@@ -30,4 +30,4 @@ ms.locfileid: "50416718"
 ## <a name="next-steps"></a>다음 단계
 VM에 연결하는 데 문제가 있는 경우 [실패하거나 오류가 발생하거나 거부되는 Azure Linux VM에 대한 SSH 연결 문제 해결](../troubleshoot-ssh-connection.md)을 참조하세요. 
 
-VM에서 실행 중인 응용 프로그램에 액세스하는 데 문제가 있는 경우 [Azure의 Linux 가상 머신에서 응용 프로그램 연결 문제 해결](../troubleshoot-app-connection.md)을 참조하세요.
+VM에서 실행 중인 애플리케이션에 액세스하는 데 문제가 있는 경우 [Azure의 Linux 가상 머신에서 애플리케이션 연결 문제 해결](../troubleshoot-app-connection.md)을 참조하세요.

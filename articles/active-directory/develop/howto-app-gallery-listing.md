@@ -49,7 +49,7 @@ ms.locfileid: "48815222"
 
 ## <a name="submit-the-request-in-the-portal"></a>포털에서 요청 제출
 
-응용 프로그램 통합이 Azure AD에서 작동하는지 테스트한 후에 [응용 프로그램 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps) 액세스에 대한 요청을 제출합니다. Office 365 계정이 있는 경우 이를 사용하여 해당 포털에 로그인합니다. 계정이 없으면 Microsoft 계정(예: Outlook 또는 Hotmail)을 사용하여 로그인합니다.
+애플리케이션 통합이 Azure AD에서 작동하는지 테스트한 후에 [애플리케이션 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps) 액세스에 대한 요청을 제출합니다. Office 365 계정이 있는 경우 이를 사용하여 해당 포털에 로그인합니다. 계정이 없으면 Microsoft 계정(예: Outlook 또는 Hotmail)을 사용하여 로그인합니다.
 
 로그인 후 다음 페이지가 표시되면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하고 요청을 제출하는 데 사용할 메일 계정을 제공하세요. 그러면 Azure AD 팀에서 Microsoft Application Network Portal에 계정을 추가합니다.
 
@@ -101,7 +101,7 @@ Azure AD 앱 갤러리에서 기존 애플리케이션을 업데이트 또는 �
 
 - 다음 이미지에 표시된 대로 적절한 옵션을 선택합니다.
 
-    ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/updateorremove.png)
+    ![SAML 애플리케이션을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/updateorremove.png)
 
     * 기존 애플리케이션을 업데이트하려는 경우 **기존 애플리케이션 목록 업데이트**를 선택합니다.
     * Azure AD 갤러리에서 기존 응용 프로그램을 제거하려는 경우 **기존 응용 프로그램 목록 제거**를 선택합니다.
@@ -109,17 +109,17 @@ Azure AD 앱 갤러리에서 기존 애플리케이션을 업데이트 또는 �
 
 ## <a name="timelines"></a>타임라인
 
-갤러리에서 SAML 2.0 또는 WS-Fed 응용 프로그램을 나열하는 프로세스의 타임라인은 영업일을 기준으로 7~10일입니다.
+갤러리에서 SAML 2.0 또는 WS-Fed 애플리케이션을 나열하는 프로세스의 타임라인은 영업일을 기준으로 7~10일입니다.
 
-   ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/timeline.png)
+   ![SAML 애플리케이션을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/timeline.png)
 
-갤러리에서 OpenID Connect 응용 프로그램을 나열하는 프로세스의 타임라인은 영업일을 기준으로 2~5일입니다.
+갤러리에서 OpenID Connect 애플리케이션을 나열하는 프로세스의 타임라인은 영업일을 기준으로 2~5일입니다.
 
-   ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/timeline2.png)
+   ![SAML 애플리케이션을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/timeline2.png)
 
 사용자 프로비저닝 지원을 통해 갤러리에 응용 프로그램을 나열하는 프로세스에 대한 타임라인은 40-45 영업일입니다.
 
-   ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/provisioningtimeline.png)
+   ![SAML 애플리케이션을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>에스컬레이션
 

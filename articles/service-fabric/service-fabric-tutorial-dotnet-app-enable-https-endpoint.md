@@ -34,7 +34,7 @@ ms.locfileid: "49115079"
 > * 원격 클러스터 노드에 SSL 인증서 설치
 > * NETWORK SERVICE에 인증서의 개인 키에 대한 액세스 권한 부여
 > * Azure 부하 분산 장치에서 포트 443 열기
-> * 응용 프로그램을 원격 클러스터에 배포
+> * 애플리케이션을 원격 클러스터에 배포
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -440,7 +440,7 @@ $slb | Set-AzureRmLoadBalancer
 > * 원격 클러스터 노드에 SSL 인증서 설치
 > * NETWORK SERVICE에 인증서의 개인 키에 대한 액세스 권한 부여
 > * Azure 부하 분산 장치에서 포트 443 열기
-> * 응용 프로그램을 원격 클러스터에 배포
+> * 애플리케이션을 원격 클러스터에 배포
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]

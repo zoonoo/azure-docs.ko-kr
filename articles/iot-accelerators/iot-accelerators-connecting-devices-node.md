@@ -382,7 +382,7 @@ ms.locfileid: "38481884"
 
 1. **remote_monitoring.js** 파일에 변경 내용을 저장합니다.
 
-1. 응용 프로그램 예제를 시작하려면 명령 프롬프트에서 다음 명령을 실행합니다.
+1. 애플리케이션 예제를 시작하려면 명령 프롬프트에서 다음 명령을 실행합니다.
 
     ```cmd/sh
     node remote_monitoring.js

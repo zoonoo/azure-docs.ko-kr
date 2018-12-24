@@ -78,7 +78,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1.  만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Data Factory UI 응용 프로그램을 시작합니다.
 
-    ![데이터 팩터리 UI 응용 프로그램의 시작](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image4.png)
+    ![데이터 팩터리 UI 애플리케이션의 시작](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image4.png)
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 

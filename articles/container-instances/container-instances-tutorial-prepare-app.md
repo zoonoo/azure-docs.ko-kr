@@ -23,7 +23,7 @@ Azure Container Instances를 통해 어떠한 가상 머신을 프로비전하�
 
 > [!div class="checklist"]
 > * GitHub에서 응용 프로그램 원본 코드 복제
-> * 응용 프로그램 원본에서 컨테이너 이미지 만들기
+> * 애플리케이션 원본에서 컨테이너 이미지 만들기
 > * 로컬 Docker 환경에서 이미지 테스트
 
 자습서 2부 및 3부에서는 이미지를 Azure Container Registry에 업로드한 후 Azure Container Instances에 배포합니다.
@@ -125,7 +125,7 @@ a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 이 자습서에서는 Azure Container Instances에 배포할 수 있는 컨테이너 이미지를 만들고, 로컬에서 실행되는 것을 확인했습니다. 지금까지 다음과 같은 작업을 수행했습니다.
 
 > [!div class="checklist"]
-> * GitHub에서 응용 프로그램 소스 복제
+> * GitHub에서 애플리케이션 소스 복제
 > * 응용 프로그램 원본에서 컨테이너 이미지 만들기
 > * 컨테이너를 로컬로 테스트
 

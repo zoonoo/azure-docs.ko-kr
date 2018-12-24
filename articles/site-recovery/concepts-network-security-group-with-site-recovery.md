@@ -75,4 +75,4 @@ NSG를 만들고 구성한 경우 [테스트 장애 조치](azure-to-azure-tutor
 -   [네트워크 보안 그룹](../virtual-network/security-overview.md#network-security-groups)에 대해 자세히 알아보세요.
 -   NSG [보안 규칙](../virtual-network/security-overview.md#security-rules)에 대해 자세히 알아보세요.
 -   NSG에 대한 [효과적인 보안 규칙](../virtual-network/diagnose-network-traffic-filter-problem.md)에 대해 자세히 알아보세요.
--   응용 프로그램 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.
+-   애플리케이션 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.

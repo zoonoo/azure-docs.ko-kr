@@ -40,7 +40,7 @@ DSN(데이터 원본 이름)은 특정 데이터 원본에 대한 정보를 포�
 
     ![Databricks 구성 가져오기](./media/connect-databricks-excel-python-r/get-databricks-jdbc-configuration.png "Databricks 구성 가져오기")
 
-3. 컴퓨터에서 응용 프로그램에 따라 **ODBC 데이터 원본** 응용 프로그램(32비트 또는 64비트)을 시작합니다. Excel에서 연결하려면 32비트 버전을 사용합니다. R 및 Python에서 연결하려면 64비트 버전을 사용합니다.
+3. 컴퓨터에서 애플리케이션에 따라 **ODBC 데이터 원본** 애플리케이션(32비트 또는 64비트)을 시작합니다. Excel에서 연결하려면 32비트 버전을 사용합니다. R 및 Python에서 연결하려면 64비트 버전을 사용합니다.
 
     ![ODBC 시작](./media/connect-databricks-excel-python-r/launch-odbc-app.png "ODBC 앱 시작")
 

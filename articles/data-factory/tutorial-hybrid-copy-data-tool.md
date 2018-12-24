@@ -181,7 +181,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
     ![이 컴퓨터에서 빠른 설치 시작 링크](./media/tutorial-hybrid-copy-data-tool/launch-express-setup-link.png)
 
-1. 다운로드한 응용 프로그램을 실행합니다. 창에 빠른 설치의 상태가 표시됩니다. 
+1. 다운로드한 애플리케이션을 실행합니다. 창에 빠른 설치의 상태가 표시됩니다. 
 
     ![빠른 설치 상태](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
 

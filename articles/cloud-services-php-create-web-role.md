@@ -26,7 +26,7 @@ ms.locfileid: "52425679"
 
 이 가이드는 Windows 개발 환경에서 PHP 웹이나 작업자 역할을 만들고, 사용 가능한 "기본 제공" 버전에서 특정 PHP 버전을 선택하여 PHP 구성을 변경하고, 확장을 사용하고, 마지막으로 Azure에 배포하는 방법을 보여 줍니다. 또한 사용자 지정 구성 및 확장으로 제공하는 PHP 런타임을 사용하도록 웹 또는 작업자 역할을 구성하는 방법도 설명합니다.
 
-Azure는 응용 프로그램을 실행하기 위한 세 가지 계산 모델인 Azure App Service, Azure Virtual Machines 및 Azure Cloud Services를 제공합니다. 이 세 모델은 모두 PHP를 지원합니다. 웹 및 작업자 역할을 포함하는 Cloud Services는 *PaaS(Platform as a Service)* 를 제공합니다. Cloud Services 안에서 웹 역할은 프런트 엔드 웹 응용 프로그램을 호스팅할 전용 IIS(인터넷 정보 서비스) 웹 서버를 제공합니다. 작업자 역할은 비동기, 장기 실행 또는 영구 작업을 사용자 조작 또는 입력과 독립적으로 실행할 수 있습니다.
+Azure는 애플리케이션을 실행하기 위한 세 가지 계산 모델인 Azure App Service, Azure Virtual Machines 및 Azure Cloud Services를 제공합니다. 이 세 모델은 모두 PHP를 지원합니다. 웹 및 작업자 역할을 포함하는 Cloud Services는 *PaaS(Platform as a Service)* 를 제공합니다. Cloud Services 안에서 웹 역할은 프런트 엔드 웹 애플리케이션을 호스팅할 전용 IIS(인터넷 정보 서비스) 웹 서버를 제공합니다. 작업자 역할은 비동기, 장기 실행 또는 영구 작업을 사용자 조작 또는 입력과 독립적으로 실행할 수 있습니다.
 
 이러한 옵션에 대한 자세한 내용은 [Azure에서 제공하는 Compute 호스팅 옵션](cloud-services/cloud-services-choose-me.md)을 참조하세요.
 
@@ -61,7 +61,7 @@ PHP 웹 역할을 프로젝트에 추가하려면 프로젝트의 루트 디렉�
 
 ## <a name="specify-the-built-in-php-version"></a>기본 제공 PHP 버전 지정
 
-PHP 웹 또는 작업자 역할을 프로젝트에 추가하면 응용 프로그램이 배포될 때 응용 프로그램의 각 웹 또는 작업자 인스턴스에 PHP가 설치되도록 프로젝트의 구성 파일이 수정됩니다. 기본적으로 설치되는 PHP 버전을 보려면 다음 명령을 실행합니다.
+PHP 웹 또는 작업자 역할을 프로젝트에 추가하면 애플리케이션이 배포될 때 애플리케이션의 각 웹 또는 작업자 인스턴스에 PHP가 설치되도록 프로젝트의 구성 파일이 수정됩니다. 기본적으로 설치되는 PHP 버전을 보려면 다음 명령을 실행합니다.
 
     PS C:\myProject> Get-AzureServiceProjectRoleRuntime
 
@@ -108,7 +108,7 @@ PHP 5.4.0           http://nodertncu.blob.core...   False
 
 ## <a name="use-your-own-php-runtime"></a>고유 PHP 런타임 사용
 
-기본 제공 PHP 런타임을 선택하여 위 설명대로 구성하는 대신 고유 PHP 런타임을 제공할 경우도 있습니다. 예를 들어, 개발 환경에서 사용하는 웹 또는 작업자 역할에서 동일한 PHP 런타임을 사용할 수 있습니다. 이렇게 하면 더 쉽게 응용 프로그램이 프로덕션 환경에서 동작을 변경하지 않게 할 수 있습니다.
+기본 제공 PHP 런타임을 선택하여 위 설명대로 구성하는 대신 고유 PHP 런타임을 제공할 경우도 있습니다. 예를 들어, 개발 환경에서 사용하는 웹 또는 작업자 역할에서 동일한 PHP 런타임을 사용할 수 있습니다. 이렇게 하면 더 쉽게 애플리케이션이 프로덕션 환경에서 동작을 변경하지 않게 할 수 있습니다.
 
 ### <a name="configure-a-web-role-to-use-your-own-php-runtime"></a>고유 PHP 런타임을 사용하도록 웹 역할 구성
 
@@ -138,8 +138,8 @@ PHP 5.4.0           http://nodertncu.blob.core...   False
     %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/handlers /+"[name='PHP',path='*.php',verb='GET,HEAD,POST',modules='FastCgiModule',scriptProcessor='%PHP_FULL_PATH%',resourceType='Either',requireAccess='Script']" /commit:apphost
     %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /"[fullPath='%PHP_FULL_PATH%'].queueLength:50000"
     ```
-5. 응용 프로그램 파일을 웹 역할의 루트 디렉터리에 추가합니다. 그러면 웹 서버의 루트 디렉터리가 됩니다.
-6. 아래 [응용 프로그램 게시](#publish-your-application) 섹션에 설명된 대로 응용 프로그램을 게시합니다.
+5. 애플리케이션 파일을 웹 역할의 루트 디렉터리에 추가합니다. 그러면 웹 서버의 루트 디렉터리가 됩니다.
+6. 아래 [애플리케이션 게시](#publish-your-application) 섹션에 설명된 대로 애플리케이션을 게시합니다.
 
 > [!NOTE]
 > `download.ps1` 스크립트(웹 역할 루트 디렉터리의 `bin` 폴더에 있음)는 고유 PHP 런타임을 사용하기 위해 위에 설명된 단계를 따른 후에 삭제할 수 있습니다.
@@ -183,14 +183,14 @@ PHP 5.4.0           http://nodertncu.blob.core...   False
     echo FAILED
     exit /b -1
     ```
-5. 응용 프로그램 파일을 작업자 역할의 루트 디렉터리에 추가합니다.
-6. 아래 [응용 프로그램 게시](#publish-your-application) 섹션에 설명된 대로 응용 프로그램을 게시합니다.
+5. 애플리케이션 파일을 작업자 역할의 루트 디렉터리에 추가합니다.
+6. 아래 [애플리케이션 게시](#publish-your-application) 섹션에 설명된 대로 애플리케이션을 게시합니다.
 
-## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>계산 및 저장소 에뮬레이터에서 응용 프로그램 실행 
+## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>계산 및 스토리지 에뮬레이터에서 애플리케이션 실행
 
-Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로그램을 테스트할 수 있는 로컬 환경을 제공합니다. 에뮬레이터와 Azure 환경 사이에는 약간의 차이가 있습니다. 이해하기 쉽도록 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](storage/common/storage-use-emulator.md)을 참조하세요.
+Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 애플리케이션을 테스트할 수 있는 로컬 환경을 제공합니다. 에뮬레이터와 Azure 환경 사이에는 약간의 차이가 있습니다. 이해하기 쉽도록 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](storage/common/storage-use-emulator.md)을 참조하세요.
 
-계산 에뮬레이터를 사용하려면 PHP를 로컬로 설치해야 합니다. 계산 에뮬레이터는 로컬 PHP 설치를 사용하여 응용 프로그램을 실행합니다.
+계산 에뮬레이터를 사용하려면 PHP를 로컬로 설치해야 합니다. 계산 에뮬레이터는 로컬 PHP 설치를 사용하여 애플리케이션을 실행합니다.
 
 에뮬레이터에서 프로젝트를 실행하려면 프로젝트의 루트 디렉터리에서 다음 명령을 실행합니다.
 
@@ -211,7 +211,7 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로
 
 ## <a name="publish-your-application"></a>응용 프로그램 게시
 
-응용 프로그램을 게시하려면 먼저 [Import-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/import-azurepublishsettingsfile) cmdlet을 사용하여 게시 설정을 가져와야 합니다. 그런 다음 [Publish-AzureServiceProject](https://docs.microsoft.com/powershell/module/servicemanagement/azure/publish-azureserviceproject) cmdlet을 사용하여 응용 프로그램을 게시합니다. 로그인에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
+애플리케이션을 게시하려면 먼저 [Import-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/import-azurepublishsettingsfile) cmdlet을 사용하여 게시 설정을 가져와야 합니다. 그런 다음, [Publish-AzureServiceProject](https://docs.microsoft.com/powershell/module/servicemanagement/azure/publish-azureserviceproject) cmdlet을 사용하여 애플리케이션을 게시합니다. 로그인에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD에서 응용 프로그램에 대한 액세스 권한이 있는 그룹 구성원 또는 사용자의 액세스 검토 수행 | Microsoft Docs
+title: Azure AD에서 애플리케이션에 대한 액세스 권한이 있는 그룹 구성원 또는 사용자의 액세스 검토 수행 | Microsoft Docs
 description: Azure Active Directory에서 응용 프로그램에 대한 액세스 권한이 있는 그룹 구성원 또는 사용자의 액세스 검토를 수행하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/14/2018
 ms.locfileid: "45606883"
 ---
-# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Azure AD에서 응용 프로그램에 대한 액세스 권한이 있는 그룹 구성원 또는 사용자의 액세스 검토 수행
+# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Azure AD에서 애플리케이션에 대한 액세스 권한이 있는 그룹 구성원 또는 사용자의 액세스 검토 수행
 
-관리자는 Azure AD(Azure Active Directory)를 사용하여 응용 프로그램에 할당된 그룹 구성원 또는 사용자에 대한 [액세스 검토를 만들 수](create-access-review.md) 있습니다. Azure AD는 검토자에게 액세스를 검토하도록 요청하는 전자 메일을 자동으로 보냅니다. 사용자가 전자 메일을 받지 못한 경우 [액세스 검토](perform-access-review.md)의 지침을 보낼 수 있습니다. (검토자로 할당되었지만 초대를 수락하지 않은 게스트는 먼저 초대를 수락한 후에 검토해야 하므로 액세스 검토에서 이메일을 받을 수 없습니다.) 액세스 검토 기간이 만료되었거나 관리자가 액세스 검토를 중지한 후에는 이 문서의 단계에 따라 결과를 확인하고 적용합니다.
+관리자는 Azure AD(Azure Active Directory)를 사용하여 애플리케이션에 할당된 그룹 구성원 또는 사용자에 대한 [액세스 검토를 만들 수](create-access-review.md) 있습니다. Azure AD는 검토자에게 액세스를 검토하도록 요청하는 전자 메일을 자동으로 보냅니다. 사용자가 전자 메일을 받지 못한 경우 [액세스 검토](perform-access-review.md)의 지침을 보낼 수 있습니다. (검토자로 할당되었지만 초대를 수락하지 않은 게스트는 먼저 초대를 수락한 후에 검토해야 하므로 액세스 검토에서 이메일을 받을 수 없습니다.) 액세스 검토 기간이 만료되었거나 관리자가 액세스 검토를 중지한 후에는 이 문서의 단계에 따라 결과를 확인하고 적용합니다.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Azure Portal에서 액세스 검토 보기
 
@@ -38,7 +38,7 @@ ms.locfileid: "45606883"
 
 ## <a name="apply-the-changes"></a>변경 내용 적용 
 
-액세스 검토가 완료된 후 종료 날짜에 도달하거나 관리자가 수동으로 중지하고 검토에 대해 자동 적용이 구성되지 않았으므로, **적용**을 선택하여 변경 내용을 수동으로 적용할 수 있습니다. 검토의 결과는 그룹 또는 응용 프로그램을 업데이트하면 구현됩니다. 검토에서 사용자의 액세스가 거부된 경우 관리자가 이 옵션을 선택하면 Azure AD에서 구성원 자격 또는 응용 프로그램 할당을 제거합니다. 
+액세스 검토가 완료된 후 종료 날짜에 도달하거나 관리자가 수동으로 중지하고 검토에 대해 자동 적용이 구성되지 않았으므로, **적용**을 선택하여 변경 내용을 수동으로 적용할 수 있습니다. 검토의 결과는 그룹 또는 애플리케이션을 업데이트하면 구현됩니다. 검토에서 사용자의 액세스가 거부된 경우 관리자가 이 옵션을 선택하면 Azure AD에서 구성원 자격 또는 애플리케이션 할당을 제거합니다. 
 
 액세스 검토가 완료되고 자동 적용이 구성되었으면, 검토 상태가 완료됨에서 중간 상태, 마지막으로 적용됨 상태로 변경됩니다. 거부된 사용자(있는 경우)가 몇 분 내에 리소스 그룹 구성원 자격 또는 응용 프로그램 할당에서 제거되는 것을 볼 수 있어야 합니다.
 

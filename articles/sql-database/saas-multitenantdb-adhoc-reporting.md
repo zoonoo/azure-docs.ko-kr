@@ -34,7 +34,7 @@ ms.locfileid: "50241977"
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)을 참조하세요.
+* Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 * SSMS(SQL Server Management Studio)가 설치되었습니다. SSMS를 다운로드하고 설치하려면 [SSMS(SQL Server Management Studio) 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 참조하세요.
 
@@ -43,7 +43,7 @@ ms.locfileid: "50241977"
 
 ![임시 보고 패턴](media/saas-multitenantdb-adhoc-reporting/adhocreportingpattern_shardedmultitenantDB.png)
 
-SaaS 응용 프로그램은 클라우드에 중앙 집중식으로 저장되는 방대한 분량의 테넌트 데이터를 분석할 수 있습니다. 분석을 통해 응용 프로그램의 사용 및 작업에 대한 정보를 얻습니다. 이러한 정보는 기능 개발, 활용성 향상 및 기타 앱 및 서비스 투자를 유도할 수 있습니다.
+SaaS 애플리케이션은 클라우드에 중앙 집중식으로 저장되는 방대한 분량의 테넌트 데이터를 분석할 수 있습니다. 분석을 통해 애플리케이션의 사용 및 작업에 대한 정보를 얻습니다. 이러한 정보는 기능 개발, 활용성 향상 및 기타 앱 및 서비스 투자를 유도할 수 있습니다.
 
 단일 다중 테넌트 데이터베이스에 있을 때 이 데이터에 액세스하는 것은 쉽지만 잠재적인 수천 개의 데이터베이스 규모로 분산되는 경우는 그렇게 쉽지 않습니다. 한 가지 방법은 공통 스키마를 통해 배포된 데이터베이스 집합 전체에서 쿼리를 구현하는 [탄력적 쿼리](sql-database-elastic-query-overview.md)를 사용하는 것입니다. 이러한 데이터베이스는 여러 다른 리소스 그룹 및 구독에서 배포할 수 있습니다. 아직 하나의 공통 로그인으로 모든 데이터베이스에서 데이터를 추출하기 위한 액세스 권한을 얻어야 합니다. 탄력적 쿼리는 분산된(테넌트) 데이터베이스에서 테이블 또는 뷰를 미러링하는 외부 테이블이 정의되는 단일 *헤드* 데이터베이스를 사용합니다. 이 헤드 데이터베이스에 제출된 쿼리는 분산 쿼리 계획을 생성하기 위해 컴파일되며 이 쿼리 중 일부는 필요에 따라 테넌트 데이터베이스에 푸시됩니다. 탄력적 쿼리는 카탈로그 데이터베이스에서 분할된 데이터베이스 맵을 사용하여 모든 테넌트 데이터베이스의 위치를 확인합니다. 설정 및 쿼리는 일반 [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)을 사용하여 바로 진행되며 Power BI 또는 Excel 같은 도구에서의 임시 쿼리를 지원합니다.
 
@@ -51,7 +51,7 @@ SaaS 응용 프로그램은 클라우드에 중앙 집중식으로 저장되는 
 
 분석에 대한 이 패턴은 [테넌트 분석 자습서](saas-multitenantdb-tenant-analytics.md)에서 설명되어 있습니다.
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 소스 코드 및 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 소스 코드 및 스크립트 가져오기
 
 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 
@@ -65,7 +65,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 
 ## <a name="explore-the-tenant-tables"></a>테넌트 테이블 탐색 
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램에서 테넌트는 하이브리드 테넌트 관리 모델에 저장됩니다. 여기서 테넌트 데이터는 다중 테넌트 데이터베이스 또는 단일 테넌트 데이터베이스에 저장되며 둘 간에 이동될 수 있습니다. 탄력적 쿼리는 모든 테넌트 데이터베이스에 쿼리할 경우 테넌트 별로 분할된 단일 논리 데이터베이스의 일부인 경우와 같이 해당 데이터를 처리합니다. 
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션에서 테넌트는 하이브리드 테넌트 관리 모델에 저장됩니다. 여기서 테넌트 데이터는 다중 테넌트 데이터베이스 또는 단일 테넌트 데이터베이스에 저장되며 둘 간에 이동될 수 있습니다. 탄력적 쿼리는 모든 테넌트 데이터베이스에 쿼리할 경우 테넌트 별로 분할된 단일 논리 데이터베이스의 일부인 경우와 같이 해당 데이터를 처리합니다. 
 
 이 패턴을 달성하기 위해 모든 테넌트 테이블에는 데이터가 속하는 테넌트를 식별하는 *VenueId* 열이 포함되어 있습니다. *VenueId*는 부문 이름의 해시로 계산되지만 어떤 방법으로든 이 열에 대한 고유한 값을 도입할 수 있습니다. 이 방법은 카탈로그에서 사용하기 위해 테넌트 키를 계산하는 방식과 비슷합니다. *VenueId*를 포함하는 테이블은 탄력적 쿼리에서 쿼리를 병렬화하고 해당 원격 테넌트 데이터베이스로 푸시하는 데 사용됩니다. 이를 통해 반환되는 데이터 양이 크기 감소되며, 결과적으로 특히 데이터가 단일 테넌트 데이터베이스에 저장되는 여러 개의 테넌트가 있는 경우에 성능이 향상됩니다.
 

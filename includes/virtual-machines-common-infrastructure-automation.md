@@ -22,7 +22,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
     - 도구에는 사용자 지정 VM 이미지 빌드를 자동화하는 [Packer](#packer) 및 인프라 빌드 프로세스를 자동화하는 [Terraform](#terraform)이 포함됩니다.
     - [Azure Automation](#azure-automation)은 Azure와 온-프레미스 인프라에 걸쳐 작업을 수행할 수 있습니다.
 
-- 응용 프로그램 배포 및 전달 자동화
+- 애플리케이션 배포 및 전달 자동화
     - 예로는 [Azure DevOps Services](#azure-devops-services)와 [Jenkins](#jenkins)가 있습니다.
 
 ## <a name="ansible"></a>Ansible
@@ -36,7 +36,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 
 
 ## <a name="chef"></a>Chef
-[Chef](https://www.chef.io/)는 인프라를 구성, 배포 및 관리하는 방법을 정의하는 데 도움이 되는 자동화 플랫폼입니다. 추가 구성 요소로는 인프라가 아닌 응용 프로그램 수명 주기 자동화를 위한 Chef Habitat과, 보안 및 정책 요구 사항의 준수를 자동화하는 데 유용한 Chef InSpec이 있습니다. Chef Client는 대상 컴퓨터에 설치되고, 하나 이상의 중앙 Chef Server에서 구성을 저장 및 관리합니다. 자세한 내용은 [Chef 개요(영문)](https://docs.chef.io/chef_overview.html)를 참조하세요.
+[Chef](https://www.chef.io/)는 인프라를 구성, 배포 및 관리하는 방법을 정의하는 데 도움이 되는 자동화 플랫폼입니다. 추가 구성 요소로는 인프라가 아닌 애플리케이션 수명 주기 자동화를 위한 Chef Habitat과, 보안 및 정책 요구 사항의 준수를 자동화하는 데 유용한 Chef InSpec이 있습니다. Chef Client는 대상 컴퓨터에 설치되고, 하나 이상의 중앙 Chef Server에서 구성을 저장 및 관리합니다. 자세한 내용은 [Chef 개요(영문)](https://docs.chef.io/chef_overview.html)를 참조하세요.
 
 방법 배우기:
 
@@ -88,7 +88,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 ## <a name="azure-custom-script-extension"></a>Azure 사용자 지정 스크립트 확장
 [Linux](../articles/virtual-machines/linux/extensions-customscript.md) 또는 [Windows](../articles/virtual-machines/windows/extensions-customscript.md)용 Azure 사용자 지정 스크립트 확장은 Azure VM에서 스크립트를 다운로드하고 실행합니다. 이 확장은 VM을 만들 때 또는 VM 사용 중 언제든지 사용할 수 있습니다. 
 
-스크립트는 Azure Storage 또는 GitHub 리포지토리 등의 공개 위치에서 다운로드할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 원본 VM에서 실행되는 모든 언어로 스크립트를 작성할 수 있습니다. 이러한 스크립트는 응용 프로그램을 설치하거나 필요에 따라 VM을 구성하는 데 사용할 수 있습니다. 자격 증명을 보호하기 위해 암호와 같은 중요한 정보를 보호된 구성에 저장할 수 있습니다. 이러한 자격 증명은 VM 내부에서만 암호 해독됩니다.
+스크립트는 Azure Storage 또는 GitHub 리포지토리 등의 공개 위치에서 다운로드할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 원본 VM에서 실행되는 모든 언어로 스크립트를 작성할 수 있습니다. 이러한 스크립트는 애플리케이션을 설치하거나 필요에 따라 VM을 구성하는 데 사용할 수 있습니다. 자격 증명을 보호하기 위해 암호와 같은 중요한 정보를 보호된 구성에 저장할 수 있습니다. 이러한 자격 증명은 VM 내부에서만 암호 해독됩니다.
 
 방법 배우기:
 
@@ -106,7 +106,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 
 ## <a name="terraform"></a>Terraform
-[Terraform](https://www.terraform.io)은 단일 템플릿 형식 언어인 HCL(HashiCorp 구성 언어)을 사용하여 Azure 인프라 전체를 정의하고 만들 수 있는 자동화 도구입니다. Terraform을 사용하면 지정된 응용 프로그램 솔루션에 대한 네트워크, 저장소 및 VM 리소스를 만드는 프로세스를 자동화하는 템플릿을 정의할 수 있습니다. 다른 플랫폼의 기존 Terraform 템플릿을 Azure에서 사용하여 Azure Resource Manager 템플릿으로 변환할 필요 없이 일관성을 보장하고 인프라 배포를 간소화할 수 있습니다.
+[Terraform](https://www.terraform.io)은 단일 템플릿 형식 언어인 HCL(HashiCorp 구성 언어)을 사용하여 Azure 인프라 전체를 정의하고 만들 수 있는 자동화 도구입니다. Terraform을 사용하면 지정된 애플리케이션 솔루션에 대한 네트워크, 스토리지 및 VM 리소스를 만드는 프로세스를 자동화하는 템플릿을 정의할 수 있습니다. 다른 플랫폼의 기존 Terraform 템플릿을 Azure에서 사용하여 Azure Resource Manager 템플릿으로 변환할 필요 없이 일관성을 보장하고 인프라 배포를 간소화할 수 있습니다.
 
 방법 배우기:
 

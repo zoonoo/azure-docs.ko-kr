@@ -74,7 +74,7 @@ items:
       - name: Azure Marketplace에 HDInsight 앱 게시
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: 게시된 앱 설치 - Cask 데이터 응용 프로그램 플랫폼(CDAP)
+      - name: 게시된 앱 설치 - Cask 데이터 애플리케이션 플랫폼(CDAP)
         href: ../hdinsight-apps-install-cask.md
         maintainContext: true
       - name: 게시된 앱 설치 - Dataiku
@@ -218,7 +218,7 @@ items:
       - name: Apache Hadoop 메모리 및 성능
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: Linux에서 Hadoop YARN 응용 프로그램 로그에 액세스
+      - name: Linux에서 Hadoop YARN 애플리케이션 로그에 액세스
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
       - name: Apache Hadoop 서비스에 대한 힙 덤프 사용

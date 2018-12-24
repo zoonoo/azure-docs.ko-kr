@@ -281,16 +281,16 @@ ms.locfileid: "47096636"
 
 ## <a name="application-manifest-elements"></a>응용 프로그램 매니페스트 요소
 ### <a name="applicationmanifest-element"></a>ApplicationManifest 요소
-응용 프로그램 유형 및 버전을 선언적으로 설명합니다. 구성 요소 서비스의 서비스 매니페스트 하나 이상에서 응용 프로그램 유형을 작성하기 위해 참조됩니다. 구성 요소 서비스의 구성 설정은 매개 변수화된 응용 프로그램 설정을 사용하여 재정의할 수 있습니다. 기본 서비스, 서비스 템플릿, 보안 주체, 정책, 진단 설정 및 인증서도 응용 프로그램 수준에서 선언할 수 있습니다. 자세한 내용은 [ApplicationManifest 요소](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)를 참조하세요.
+애플리케이션 유형 및 버전을 선언적으로 설명합니다. 구성 요소 서비스의 서비스 매니페스트 하나 이상에서 애플리케이션 유형을 작성하기 위해 참조됩니다. 구성 요소 서비스의 구성 설정은 매개 변수화된 애플리케이션 설정을 사용하여 재정의할 수 있습니다. 기본 서비스, 서비스 템플릿, 보안 주체, 정책, 진단 설정 및 인증서도 애플리케이션 수준에서 선언할 수 있습니다. 자세한 내용은 [ApplicationManifest 요소](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)를 참조하세요.
 
 ### <a name="parameters-element"></a>Parameters 요소
-이 응용 프로그램 매니페스트에 사용되는 매개 변수를 선언합니다. 응용 프로그램이 인스턴스화되고 응용 프로그램 또는 서비스 구성 설정을 재정의하는 데 사용될 수 있을 때 이러한 매개 변수의 값을 제공할 수 있습니다. 자세한 내용은 [Parameters 요소](service-fabric-service-model-schema-elements.md#ParametersElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)를 참조하세요.
+이 애플리케이션 매니페스트에 사용되는 매개 변수를 선언합니다. 애플리케이션이 인스턴스화되고 애플리케이션 또는 서비스 구성 설정을 재정의하는 데 사용될 수 있을 때 이러한 매개 변수의 값을 제공할 수 있습니다. 자세한 내용은 [Parameters 요소](service-fabric-service-model-schema-elements.md#ParametersElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)를 참조하세요.
 
 ### <a name="parameter-element"></a>Parameter 요소
-이 매니페스트에 사용할 응용 프로그램 매개 변수입니다. 매개 변수 값은 응용 프로그램 인스턴스하는 동안 변경될 수 있거나, 값이 제공되지 않으면 기본값이 사용됩니다. 자세한 내용은 [Parameter 요소](service-fabric-service-model-schema-elements.md#ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement)를 참조하세요.
+이 매니페스트에 사용할 애플리케이션 매개 변수입니다. 매개 변수 값은 애플리케이션 인스턴스하는 동안 변경될 수 있거나, 값이 제공되지 않으면 기본값이 사용됩니다. 자세한 내용은 [Parameter 요소](service-fabric-service-model-schema-elements.md#ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement)를 참조하세요.
 
 ### <a name="servicemanifestimport-element"></a>ServiceManifestImport 요소
-서비스 개발자가 만든 서비스 매니페스트를 가져옵니다. 응용 프로그램의 각 구성 요소 서비스에 대한 서비스 매니페스트를 가져와야 합니다. 서비스 매니페스트에 대한 구성 재정의 및 정책을 선언할 수 있습니다. 자세한 내용은 [ServiceManifestImport 요소](service-fabric-service-model-schema-elements.md#ServiceManifestImportElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)를 참조하세요.
+서비스 개발자가 만든 서비스 매니페스트를 가져옵니다. 애플리케이션의 각 구성 요소 서비스에 대한 서비스 매니페스트를 가져와야 합니다. 서비스 매니페스트에 대한 구성 재정의 및 정책을 선언할 수 있습니다. 자세한 내용은 [ServiceManifestImport 요소](service-fabric-service-model-schema-elements.md#ServiceManifestImportElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)를 참조하세요.
 
 ### <a name="servicemanifestref-element"></a>ServiceManifestRef 요소
 참조별로 서비스 매니페스트를 가져옵니다. 현재 이 빌드 패키지에 서비스 매니페스트 파일(ServiceManifest.xml)이 있어야 합니다. 자세한 내용은 [ServiceManifestRef 요소](service-fabric-service-model-schema-elements.md#ServiceManifestRefElementServiceManifestRefTypeComplexTypeDefinedInServiceManifestImportelement)를 참조하세요.
@@ -317,16 +317,16 @@ ms.locfileid: "47096636"
 코드, 구성 또는 데이터 패키지를 동일한 서비스 유형의 서비스 인스턴스 간에 공유해야 하는지 여부를 나타냅니다. 자세한 내용은 [PackageSharingPolicy 요소](service-fabric-service-model-schema-elements.md#PackageSharingPolicyElementPackageSharingPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexType)를 참조하세요.
 
 ### <a name="securityaccesspolicy-element"></a>SecurityAccessPolicy 요소
-서비스 매니페스트에 정의된 리소스(예: 엔드포인트)의 보안 주체에 대한 액세스 권한을 부여합니다. 일반적으로 보안 위험을 최소화하기 위해 여러 리소스에 대한 서비스 액세스를 제어하고 제한하는 것이 매우 유용합니다. 이는 다른 개발자가 개발한 마켓플레이스의 서비스 컬렉션에서 응용 프로그램을 빌드하는 경우 특히 중요합니다. 자세한 내용은 [SecurityAccessPolicy 요소](service-fabric-service-model-schema-elements.md#SecurityAccessPolicyElementSecurityAccessPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInSecurityAccessPolicieselementDefinedInDigestedEndpointelement)를 참조하세요.
+서비스 매니페스트에 정의된 리소스(예: 엔드포인트)의 보안 주체에 대한 액세스 권한을 부여합니다. 일반적으로 보안 위험을 최소화하기 위해 여러 리소스에 대한 서비스 액세스를 제어하고 제한하는 것이 매우 유용합니다. 이는 다른 개발자가 개발한 마켓플레이스의 서비스 컬렉션에서 애플리케이션을 빌드하는 경우 특히 중요합니다. 자세한 내용은 [SecurityAccessPolicy 요소](service-fabric-service-model-schema-elements.md#SecurityAccessPolicyElementSecurityAccessPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInSecurityAccessPolicieselementDefinedInDigestedEndpointelement)를 참조하세요.
 
 ### <a name="runaspolicy-element"></a>RunAsPolicy 요소
-서비스 코드 패키지가 실행될 로컬 사용자 또는 로컬 시스템 계정을 지정합니다. 도메인 계정은 Azure Active Directory를 사용할 수 있는 Windows Server 배포에서 지원됩니다. 기본적으로 응용 프로그램은 Fabric.exe 프로세스가 실행되는 계정으로 실행됩니다. 응용 프로그램은 다른 계정으로도 실행될 수 있으며, 이 계정은 Principals 섹션에서 선언해야 합니다. 서비스에 RunAs 정책을 적용하고 서비스 매니페스트에서 HTTP 프로토콜을 사용하여 엔드포인트 리소스를 선언하는 경우, 이러한 엔드포인트에 할당된 포트에서 서비스가 실행되는 RunAs 사용자 계정에 대해 나열된 액세스 제어를 올바르게 유지하도록 SecurityAccessPolicy를 지정해야 합니다. 또한 HTTPS 엔드포인트의 경우 클라이언트에 반환할 인증서 이름을 나타내도록 EndpointBindingPolicy를 정의해야 합니다. 자세한 내용은 [RunAsPolicy 요소](service-fabric-service-model-schema-elements.md#RunAsPolicyElementRunAsPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)를 참조하세요.
+서비스 코드 패키지가 실행될 로컬 사용자 또는 로컬 시스템 계정을 지정합니다. 도메인 계정은 Azure Active Directory를 사용할 수 있는 Windows Server 배포에서 지원됩니다. 기본적으로 애플리케이션은 Fabric.exe 프로세스가 실행되는 계정으로 실행됩니다. 애플리케이션은 다른 계정으로도 실행될 수 있으며, 이 계정은 Principals 섹션에서 선언해야 합니다. 서비스에 RunAs 정책을 적용하고 서비스 매니페스트에서 HTTP 프로토콜을 사용하여 엔드포인트 리소스를 선언하는 경우, 이러한 엔드포인트에 할당된 포트에서 서비스가 실행되는 RunAs 사용자 계정에 대해 나열된 액세스 제어를 올바르게 유지하도록 SecurityAccessPolicy를 지정해야 합니다. 또한 HTTPS 엔드포인트의 경우 클라이언트에 반환할 인증서 이름을 나타내도록 EndpointBindingPolicy를 정의해야 합니다. 자세한 내용은 [RunAsPolicy 요소](service-fabric-service-model-schema-elements.md#RunAsPolicyElementRunAsPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)를 참조하세요.
 
 ### <a name="defaultservices-element"></a>DefaultServices 요소
-이 응용 프로그램 유형에 대해 응용 프로그램이 인스턴스화될 때마다 자동으로 만드는 서비스 인스턴스를 선언합니다. 자세한 내용은 [DefaultServices 요소](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)를 참조하세요.
+이 애플리케이션 유형에 대해 애플리케이션이 인스턴스화될 때마다 자동으로 만드는 서비스 인스턴스를 선언합니다. 자세한 내용은 [DefaultServices 요소](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)를 참조하세요.
 
 ### <a name="service-element"></a>Service 요소
-응용 프로그램이 인스턴스화될 때 자동으로 만드는 서비스를 선언합니다. 자세한 내용은 [Service 요소](service-fabric-service-model-schema-elements.md#ServiceElementanonymouscomplexTypeComplexTypeDefinedInDefaultServicesTypecomplexType)를 참조하세요.
+애플리케이션이 인스턴스화될 때 자동으로 만드는 서비스를 선언합니다. 자세한 내용은 [Service 요소](service-fabric-service-model-schema-elements.md#ServiceElementanonymouscomplexTypeComplexTypeDefinedInDefaultServicesTypecomplexType)를 참조하세요.
 
 ### <a name="statefulservice-element"></a>StatefulService 요소
 상태 저장 서비스를 정의합니다. 자세한 내용은 [StatefulService 요소](service-fabric-service-model-schema-elements.md#StatefulServiceElementStatefulServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)를 참조하세요.
@@ -335,7 +335,7 @@ ms.locfileid: "47096636"
 상태 비저장 서비스를 정의합니다. 자세한 내용은 [StatelessService 요소](service-fabric-service-model-schema-elements.md#StatelessServiceElementStatelessServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)를 참조하세요.
 
 ### <a name="principals-element"></a>Principals 요소
-이 응용 프로그램에서 서비스를 실행하고 리소스를 보호하는 데 필요한 보안 주체(사용자, 그룹)를 설명합니다. 보안 주체는 Policies 섹션에서 참조됩니다. 자세한 내용은 [Principals 요소](service-fabric-service-model-schema-elements.md#PrincipalsElementSecurityPrincipalsTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)를 참조하세요.
+이 애플리케이션에서 서비스를 실행하고 리소스를 보호하는 데 필요한 보안 주체(사용자, 그룹)를 설명합니다. 보안 주체는 Policies 섹션에서 참조됩니다. 자세한 내용은 [Principals 요소](service-fabric-service-model-schema-elements.md#PrincipalsElementSecurityPrincipalsTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)를 참조하세요.
 
 ### <a name="groups-element"></a>Groups 요소
 정책에서 참조할 수 있는 그룹 집합을 보안 주체로 선언합니다. 그룹은 여러 서비스 진입점에 대한 사용자가 여러 명 있고 그 사용자들에게 그룹 수준에서 특정 공통 권한을 부여해야 하는 경우에 유용합니다. 자세한 내용은 [Groups 요소](service-fabric-service-model-schema-elements.md#GroupsElementanonymouscomplexTypeComplexTypeDefinedInSecurityPrincipalsTypecomplexType)를 참조하세요.
@@ -365,7 +365,7 @@ ms.locfileid: "47096636"
 사용자를 추가할 그룹입니다.  그룹은 Groups 섹션에서 정의해야 합니다. 자세한 내용은 [Group 요소](service-fabric-service-model-schema-elements.md#GroupElementanonymouscomplexTypeComplexTypeDefinedInMemberOfelement)를 참조하세요.
 
 ### <a name="policies-element"></a>Policies 요소
-응용 프로그램 수준에서 적용할 정책(로그 수집, 기본 실행, 상태 및 보안 액세스)을 설명합니다. 자세한 내용은 [Policies 요소](service-fabric-service-model-schema-elements.md#PoliciesElementApplicationPoliciesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)를 참조하세요.
+애플리케이션 수준에서 적용할 정책(로그 수집, 기본 실행, 상태 및 보안 액세스)을 설명합니다. 자세한 내용은 [Policies 요소](service-fabric-service-model-schema-elements.md#PoliciesElementApplicationPoliciesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)를 참조하세요.
 
 ### <a name="defaultrunaspolicy-element"></a>DefaultRunAsPolicy 요소
 ServiceManifestImport 섹션에 정의된 특정 RunAsPolicy가 없는 모든 서비스 코드 패키지에 대한 기본 사용자 계정을 지정합니다. 자세한 내용은 [DefaultRunAsPolicy 요소](service-fabric-service-model-schema-elements.md#DefaultRunAsPolicyElementanonymouscomplexTypeComplexTypeDefinedInApplicationPoliciesTypecomplexType)를 참조하세요.
@@ -414,7 +414,7 @@ EntryPoint에서 지정한 실행 파일은 일반적으로 장기 실행 서비
 Settings.xml 파일을 포함하는 PackageRoot 아래에 Name 특성을 통해 이름이 지정되는 폴더를 선언합니다. 이 파일은 런타임에 프로세스에서 다시 읽을 수 있는 사용자 정의 키-값 쌍 설정의 섹션을 포함합니다. 업그레이드하는 동안 ConfigPackage 버전만 변경되면 실행 중인 프로세스가 다시 시작되지 않습니다. 대신, 콜백에서는 구성 설정이 변경되어 동적으로 다시 로드할 수 있음을 프로세스에 알립니다. 자세한 내용은 [ConfigPackage 요소](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)를 참조하세요.
 
 ### <a name="resources-element"></a>Resources 요소
-이 서비스에서 사용하는 리소스를 설명합니다. 이 리소스는 컴파일된 코드를 수정하지 않고 선언할 수 있으며, 서비스를 배포할 때 변경할 수 있습니다. 이러한 리소스에 대한 액세스는 응용 프로그램 매니페스트의 Principals 및 Policies 섹션을 통해 제어됩니다. 자세한 내용은 [Resources 요소](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)를 참조하세요.
+이 서비스에서 사용하는 리소스를 설명합니다. 이 리소스는 컴파일된 코드를 수정하지 않고 선언할 수 있으며, 서비스를 배포할 때 변경할 수 있습니다. 이러한 리소스에 대한 액세스는 애플리케이션 매니페스트의 Principals 및 Policies 섹션을 통해 제어됩니다. 자세한 내용은 [Resources 요소](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)를 참조하세요.
 
 ### <a name="endpoints-element"></a>Endpoints 요소
 서비스에 대한 엔드포인트를 정의합니다. 자세한 내용은 [Endpoints 요소](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)를 참조하세요.
@@ -456,7 +456,7 @@ Settings.xml 파일을 포함하는 PackageRoot 아래에 Name 특성을 통해 
 런타임에 프로세스에서 사용할 정적 데이터를 포함하는 PackageRoot 아래에 Name 특성을 통해 이름이 지정되는 폴더를 선언합니다. Service Fabric에서 서비스 매니페스트에 나열된 데이터 패키지를 업그레이드할 때 호스트 및 지원 패키지에 지정된 모든 EXE 및 DLLHOST를 재활용합니다. 자세한 내용은 [DataPackage 요소](service-fabric-service-model-schema-elements.md#DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement)를 참조하세요.
 
 ### <a name="resources-element"></a>Resources 요소
-이 서비스에서 사용하는 리소스를 설명합니다. 이 리소스는 컴파일된 코드를 수정하지 않고 선언할 수 있으며, 서비스를 배포할 때 변경할 수 있습니다. 이러한 리소스에 대한 액세스는 응용 프로그램 매니페스트의 Principals 및 Policies 섹션을 통해 제어됩니다. 자세한 내용은 [Resources 요소](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)를 참조하세요.
+이 서비스에서 사용하는 리소스를 설명합니다. 이 리소스는 컴파일된 코드를 수정하지 않고 선언할 수 있으며, 서비스를 배포할 때 변경할 수 있습니다. 이러한 리소스에 대한 액세스는 애플리케이션 매니페스트의 Principals 및 Policies 섹션을 통해 제어됩니다. 자세한 내용은 [Resources 요소](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)를 참조하세요.
 
 ### <a name="endpoints-element"></a>Endpoints 요소
 서비스에 대한 엔드포인트를 정의합니다. 자세한 내용은 [Endpoints 요소](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)를 참조하세요.

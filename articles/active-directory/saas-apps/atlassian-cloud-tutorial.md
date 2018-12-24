@@ -239,7 +239,7 @@ Azure AD 사용자가 Atlassian Cloud에 로그인하도록 하려면 Atlassian 
 
 2. **응용 프로그램** 목록에서 **Atlassian Cloud**를 선택합니다.
 
-    ![응용 프로그램 목록의 Atlassian Cloud 링크](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_app.png)
+    ![애플리케이션 목록의 Atlassian Cloud 링크](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_app.png)
 
 3. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 

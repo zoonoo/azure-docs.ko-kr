@@ -1424,7 +1424,7 @@ module.exports = function (context, req) {
 
 ### <a name="app-identity-refresh---c-script-example"></a>앱 ID 새로 고침 - C# 스크립트 예제
 
-다음 예제에서는 응용 프로그램 ID를 사용하여 구독을 새로 고칩니다.
+다음 예제에서는 애플리케이션 ID를 사용하여 구독을 새로 고칩니다.
 
 *function.json*은 구독 입력 바인딩 및 구독 출력 바인딩으로 타이머 트리거를 정의합니다.
 
@@ -1475,7 +1475,7 @@ public static void Run(TimerInfo myTimer, string[] existingSubscriptions, IColle
 
 ### <a name="app-identity-refresh---c-script-example"></a>앱 ID 새로 고침 - C# 스크립트 예제
 
-다음 예제에서는 응용 프로그램 ID를 사용하여 구독을 새로 고칩니다.
+다음 예제에서는 애플리케이션 ID를 사용하여 구독을 새로 고칩니다.
 
 *function.json*은 구독 입력 바인딩 및 구독 출력 바인딩으로 타이머 트리거를 정의합니다.
 

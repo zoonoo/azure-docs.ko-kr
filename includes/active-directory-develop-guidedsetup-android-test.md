@@ -34,7 +34,7 @@ ms.locfileid: "49988342"
 
 사용자가 응용 프로그램에 처음 로그인하면 다음과 같이 앱에 필요한 권한 제공에 동의하라는 메시지가 표시됩니다. 
 
-![응용 프로그램 액세스에 대한 사용자 동의 제공](media/active-directory-develop-guidedsetup-android-test/androidconsent.png)
+![애플리케이션 액세스에 대한 사용자 동의 제공](media/active-directory-develop-guidedsetup-android-test/androidconsent.png)
 
 ### <a name="success"></a>성공!
 

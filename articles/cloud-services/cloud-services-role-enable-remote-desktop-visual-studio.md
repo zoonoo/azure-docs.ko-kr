@@ -1,6 +1,6 @@
 ---
 title: Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용
-description: Azure 클라우드 서비스 응용 프로그램을 구성하여 원격 데스크톱 연결을 허용하는 방법입니다.
+description: Azure 클라우드 서비스 애플리케이션을 구성하여 원격 데스크톱 연결을 허용하는 방법입니다.
 services: cloud-services
 author: ghogen
 manager: douge

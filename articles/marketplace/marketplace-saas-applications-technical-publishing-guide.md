@@ -116,11 +116,11 @@ Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클�
 **다중 테넌트 응용 프로그램의 경우:**  
 
 이미 Azure AD를 지원하는 경우 다음을 수행합니다.
-1.  Azure Portal에서 응용 프로그램을 등록합니다.
+1.  Azure Portal에서 애플리케이션을 등록합니다.
 2.  Azure AD의 다중 테넌트 지원 기능으로 원클릭 평가판 환경을 사용할 수 있습니다. [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)에서 자세한 내용을 찾을 수 있습니다.  
 
 Azure AD 페더레이션 SSO를 처음 사용하는 경우 다음을 수행합니다. 
-1.  Azure Portal에서 응용 프로그램을 등록합니다.
+1.  Azure Portal에서 애플리케이션을 등록합니다.
 2.  [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 또는 [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)을 사용하여 Azure AD에서 SSO를 개발합니다.
 3.  AAD의 다중 테넌트 지원 기능으로 '원클릭'만으로 평가판 환경을 사용할 수 있습니다. [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified)에서 자세한 내용을 찾을 수 있습니다.  
 

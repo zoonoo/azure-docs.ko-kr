@@ -119,9 +119,9 @@ Ubuntu의 경우 [무인 업그레이드](https://help.ubuntu.com/community/Auto
 
 ## <a name="download-the-app-package"></a>앱 패키지 다운로드
 
-설치 스크립트와 함께 응용 프로그램을 [보관 링크](https://go.microsoft.com/fwlink/?linkid=867984)에서 다운로드할 수 있습니다.
+설치 스크립트와 함께 애플리케이션을 [보관 링크](https://go.microsoft.com/fwlink/?linkid=867984)에서 다운로드할 수 있습니다.
 
-sfpkg 형식의 응용 프로그램은 [sfpkg 링크](https://aka.ms/POA/POA_v2.0.2.sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 응용 프로그램을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
+sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA_v2.0.2.sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 애플리케이션을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
 
 ## <a name="configure-the-app"></a>앱 구성
 

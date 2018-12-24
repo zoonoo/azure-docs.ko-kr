@@ -1,6 +1,6 @@
 ---
 title: Wingtips 앱 시작 - Azure SQL Database | Microsoft Docs
-description: 클라우드 환경의 Azure SQL Database에 대한 샘플 Wingtips SaaS 응용 프로그램 및 데이터베이스 테넌시 모델에 대해 알아봅니다.
+description: 클라우드 환경의 Azure SQL Database에 대한 샘플 Wingtips SaaS 애플리케이션 및 데이터베이스 테넌시 모델에 대해 알아봅니다.
 keywords: SQL Database 자습서
 services: sql-database
 ms.service: sql-database

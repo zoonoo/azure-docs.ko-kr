@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights를 사용하여 런타임 예외 진단 | Microsoft Docs
-description: Azure Application Insights를 사용하여 응용 프로그램에서 런타임 예외를 찾고 진단하는 자습서입니다.
+description: Azure Application Insights를 사용하여 애플리케이션에서 런타임 예외를 찾고 진단하는 자습서입니다.
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -19,11 +19,11 @@ ms.locfileid: "53084015"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
-Azure Application Insights는 응용 프로그램에서 원격 분석을 수집하여 런타임 예외를 식별하고 진단하도록 돕습니다.  이 자습서에서는 응용 프로그램을 사용하여 이 프로세스를 안내합니다.  다음 방법에 대해 알아봅니다.
+Azure Application Insights는 애플리케이션에서 원격 분석을 수집하여 런타임 예외를 식별하고 진단하도록 돕습니다.  이 자습서에서는 애플리케이션을 사용하여 이 프로세스를 안내합니다.  다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 예외 추적을 활성화하도록 프로젝트를 수정
-> * 응용 프로그램의 다양한 구성 요소에 대한 예외 식별
+> * 애플리케이션의 다양한 구성 요소에 대한 예외 식별
 > * 예외 세부 정보 보기
 > * 디버깅을 위해 Visual Studio에 예외에 대한 스냅숏 다운로드
 > * 쿼리 언어를 사용하여 실패한 요청의 세부 정보 분석
@@ -47,7 +47,7 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 
 
 ## <a name="analyze-failures"></a>실패 분석
-Application Insights는 응용 프로그램에서 모든 오류를 수집하고 여러 작업 간에 빈도를 볼 수 있도록 하여 가장 높은 영향으로 해당 내용에 집중할 수 있도록 돕습니다.  그런 다음 이러한 실패의 세부 정보를 드릴다운하여 근본 원인을 식별할 수 있습니다.   
+Application Insights는 애플리케이션에서 모든 오류를 수집하고 여러 작업 간에 빈도를 볼 수 있도록 하여 가장 높은 영향으로 해당 내용에 집중할 수 있도록 돕습니다.  그런 다음 이러한 실패의 세부 정보를 드릴다운하여 근본 원인을 식별할 수 있습니다.   
 
 1. **Application Insights**를 선택한 다음 구독을 선택합니다.  
 2. **실패** 패널을 열려면 **조사** 메뉴 아래의 **실패**를 선택하거나 **실패한 요청** 그래프를 클릭합니다.

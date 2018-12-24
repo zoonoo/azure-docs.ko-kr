@@ -44,7 +44,7 @@ ms.locfileid: "53018826"
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-컴퓨터에 *CacheSecrets.config*라는 파일을 만들고 이 파일을 샘플 응용 프로그램의 소스 코드에서 체크인하지 않을 위치에 배치합니다. 이 빠른 시작의 경우 *CacheSecrets.config* 파일은 여기에서 *C:\AppSecrets\CacheSecrets.config*에 있습니다.
+컴퓨터에 *CacheSecrets.config*라는 파일을 만들고 이 파일을 샘플 애플리케이션의 소스 코드에서 체크인하지 않을 위치에 배치합니다. 이 빠른 시작의 경우 *CacheSecrets.config* 파일은 여기에서 *C:\AppSecrets\CacheSecrets.config*에 있습니다.
 
 *CacheSecrets.config* 파일을 편집하여 다음 콘텐츠를 추가합니다.
 

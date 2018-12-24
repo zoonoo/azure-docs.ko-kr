@@ -23,7 +23,7 @@ ms.locfileid: "34206296"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Windows 개발자 컴퓨터에서 Linux Service Fabric 클러스터 설정
 
-이 문서에서는 Windows 개발 컴퓨터에 로컬 Linux Service Fabric을 설정하는 방법을 설명합니다. 로컬 Linux 클러스터를 설정하는 경우 Linux 클러스터를 대상으로 하지만 Windows 컴퓨터에서 개발되는 응용 프로그램을 빠르게 테스트하는 데 유용합니다.
+이 문서에서는 Windows 개발 컴퓨터에 로컬 Linux Service Fabric을 설정하는 방법을 설명합니다. 로컬 Linux 클러스터를 설정하는 경우 Linux 클러스터를 대상으로 하지만 Windows 컴퓨터에서 개발되는 애플리케이션을 빠르게 테스트하는 데 유용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행되지 않습니다. 로컬 Service Fabric 클러스터를 실행하기 위해 미리 구성된 Docker 컨테이너 이미지를 제공합니다. 시작하기 전에 다음 항목이 필요합니다.
@@ -62,7 +62,7 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
     ```
     >[!TIP]
     > * 컨테이너 인스턴스의 이름을 지정하여 보다 읽기 쉬운 방식으로 처리할 수 있습니다. 
-    > * 응용 프로그램을 특정 포트에서 수신하는 경우 추가 -p 태그를 사용하여 지정해야 합니다. 예를 들어 응용 프로그램이 포트 8080에서 수신하는 경우 docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox를 실행합니다.
+    > * 애플리케이션을 특정 포트에서 수신하는 경우 추가 -p 태그를 사용하여 지정해야 합니다. 예를 들어 애플리케이션이 포트 8080에서 수신하는 경우 docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox를 실행합니다.
 
 4. 대화형 ssh 모드에서 Docker 컨테이너에 로그인합니다.
 
@@ -77,7 +77,7 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
     ./run.sh       # Starts the local cluster
     ```
 
-6. 5단계를 성공적으로 완료한 후 Windows에서 ``http://localhost:19080``으로 이동하고 Service Fabric 탐색기를 볼 수 있습니다. 이때 Windows 개발자 컴퓨터의 도구를 사용하여 이 클러스터에 연결하고 Linux Service Fabric 클러스터용 응용 프로그램을 배포할 수 있습니다. 
+6. 5단계를 성공적으로 완료한 후 Windows에서 ``http://localhost:19080``으로 이동하고 Service Fabric 탐색기를 볼 수 있습니다. 이때 Windows 개발자 컴퓨터의 도구를 사용하여 이 클러스터에 연결하고 Linux Service Fabric 클러스터용 애플리케이션을 배포할 수 있습니다. 
 
     > [!NOTE]
     > Eclipse 플러그 인은 현재 Windows에서 지원되지 않습니다. 

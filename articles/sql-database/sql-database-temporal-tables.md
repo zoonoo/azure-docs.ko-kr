@@ -32,7 +32,7 @@ ms.locfileid: "47166421"
 다행스럽게도 이 작업 정보를 유지하기 위해 앱에서 애쓸 필요가 없습니다. 임시 테이블로 이 프로세스를 자동화하여 웹 사이트를 디자인하는 동안 충분한 유연성을 제공하고 데이터 분석 자체에 초점을 두는 데 시간을 할애합니다. 이를 위해 **WebSiteInfo** 테이블을 [임시 시스템 버전](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0)으로 구성하기만 하면 됩니다. 이 시나리오에서 임시 테이블을 활용하는 정확한 단계는 다음과 같습니다.
 
 ## <a name="step-1-configure-tables-as-temporal"></a>1단계: 임시로 테이블 구성
-새로운 개발을 시작하거나 기존 응용 프로그램을 업그레이드하는 여부에 따라 임시 테이블을 만들거나 임시 특성을 추가하여 기존 템플릿을 수정합니다. 일반적인 경우 시나리오는 이러한 두 옵션을 혼합하여 만들 수 있습니다. [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)(SSMS) [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)(SSDT) 또는 기타 Transact-SQL 개발 도구를 사용하여 이러한 작업을 수행합니다
+새로운 개발을 시작하거나 기존 애플리케이션을 업그레이드하는 여부에 따라 임시 테이블을 만들거나 임시 특성을 추가하여 기존 템플릿을 수정합니다. 일반적인 경우 시나리오는 이러한 두 옵션을 혼합하여 만들 수 있습니다. [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)(SSMS) [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)(SSDT) 또는 기타 Transact-SQL 개발 도구를 사용하여 이러한 작업을 수행합니다
 
 > [!IMPORTANT]
 > Microsoft Azure 및 SQL Database에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).

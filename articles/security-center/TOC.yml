@@ -82,7 +82,7 @@ items:
     items:
     - name: Just-In-Time 액세스 관리
       href: security-center-just-in-time.md
-    - name: 적응 응용 프로그램 컨트롤
+    - name: 적응형 애플리케이션 제어
       href: security-center-adaptive-application.md
     - name: 파일 무결성 모니터링
       href: security-center-file-integrity-monitoring.md

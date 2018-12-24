@@ -438,7 +438,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
 
 1. **remote_monitoring.js** 파일에 변경 내용을 저장합니다.
 
-1. 샘플 응용 프로그램을 시작하려면 Raspberry Pi의 명령 프롬프트에서 다음 명령을 실행합니다.
+1. 샘플 애플리케이션을 시작하려면 Raspberry Pi의 명령 프롬프트에서 다음 명령을 실행합니다.
 
     ```sh
     node remote_monitoring.js

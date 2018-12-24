@@ -51,7 +51,7 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>확장 집합의 용량 변경
-이전 명령은 확장 집합 및 VM 인스턴스에 대한 정보를 표시했습니다. 확장 집합에서 인스턴스 수를 늘리거나 줄이려면 용량을 변경할 수 있습니다. 확장 집합은 자동으로 필요한 수의 VM을 만들거나 제거한 후 응용 프로그램 트래픽을 받도록 VM을 구성합니다.
+이전 명령은 확장 집합 및 VM 인스턴스에 대한 정보를 표시했습니다. 확장 집합에서 인스턴스 수를 늘리거나 줄이려면 용량을 변경할 수 있습니다. 확장 집합은 자동으로 필요한 수의 VM을 만들거나 제거한 후 애플리케이션 트래픽을 받도록 VM을 구성합니다.
 
 먼저 [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)를 포함하는 확장 집합 개체를 만들고 `sku.capacity`에 새 값을 지정합니다. 용량 변경 내용을 적용하려면 [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)를 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myScaleSet*을 *5* 인스턴스의 용량으로 업데이트합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 

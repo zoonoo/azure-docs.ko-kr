@@ -25,7 +25,7 @@ Azure Portal을 사용하여 백 엔드 서버에 가상 머신을 사용하는 
 
 > [!div class="checklist"]
 > * 자체 서명된 인증서 만들기
-> * 인증서가 있는 응용 프로그램 게이트웨이 만들기
+> * 인증서가 있는 애플리케이션 게이트웨이 만들기
 > * 백 엔드 서버로 사용되는 가상 머신 만들기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
-이 섹션에서는 [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate)를 사용하여 응용 프로그램 게이트웨이에 대한 수신기를 만들 때 Azure Portal에 업로드하는 자체 서명된 인증서를 만듭니다.
+이 섹션에서는 [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate)를 사용하여 애플리케이션 게이트웨이에 대한 수신기를 만들 때 Azure Portal에 업로드하는 자체 서명된 인증서를 만듭니다.
 
 로컬 컴퓨터에서 Windows PowerShell 창을 관리자로 엽니다. 다음 명령을 실행하여 인증서를 만듭니다.
 
@@ -68,11 +68,11 @@ Export-PfxCertificate \
 
 ## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
-가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 응용 프로그램 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 응용 프로그램 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
+가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
 
 1. Azure Portal의 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
-3. 응용 프로그램 게이트웨이의 이름으로 *myAppGateway*를 입력하고 새 리소스 그룹에 대해 *myResourceGroupAG*를 입력합니다.
+3. 애플리케이션 게이트웨이의 이름으로 *myAppGateway*를 입력하고 새 리소스 그룹에 대해 *myResourceGroupAG*를 입력합니다.
 4. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
 5. **가상 네트워크 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 가상 네트워크에 대해 다음 값을 입력합니다.
 
@@ -89,9 +89,9 @@ Export-PfxCertificate \
 9. 폴더 아이콘을 클릭하고 이전에 만든 *appgwcert.pfx* 인증서를 찾아서 업로드합니다.
 10. 인증서의 이름에 *mycert1*을 입력하고 암호에 *Azure123456!* 를 입력한 다음, **확인**을 클릭합니다.
 
-    ![새 응용 프로그램 게이트웨이 만들기](./media/create-ssl-portal/application-gateway-create.png)
+    ![새 애플리케이션 게이트웨이 만들기](./media/create-ssl-portal/application-gateway-create.png)
 
-11. 요약 페이지에서 설정을 검토한 다음, **확인**을 클릭하여 네트워크 리소스와 응용 프로그램 게이트웨이를 만듭니다. 응용 프로그램 게이트웨이가 생성되는 데 몇 분이 걸릴 수 있습니다. 배포가 완료될 때까지 기다렸다가 다음 섹션으로 이동합니다.
+11. 요약 페이지에서 설정을 검토한 다음, **확인**을 클릭하여 네트워크 리소스와 애플리케이션 게이트웨이를 만듭니다. 애플리케이션 게이트웨이가 생성되는 데 몇 분이 걸릴 수 있습니다. 배포가 완료될 때까지 기다렸다가 다음 섹션으로 이동합니다.
 
 ### <a name="add-a-subnet"></a>서브넷 추가
 
@@ -104,7 +104,7 @@ Export-PfxCertificate \
 
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
-이 예제에서는 응용 프로그램 게이트웨이에 대한 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 또한 응용 프로그램 게이트웨이가 성공적으로 만들어 졌는지 확인하기 위해 가상 머신에 IIS를 설치합니다.
+이 예제에서는 애플리케이션 게이트웨이에 대한 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 또한 가상 머신에 IIS를 설치하여 애플리케이션 게이트웨이가 성공적으로 만들어졌는지 확인합니다.
 
 ### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
@@ -148,18 +148,18 @@ Export-PfxCertificate \
 ### <a name="add-backend-servers"></a>백 엔드 서버 추가
 
 3. **모든 리소스**를 클릭한 다음, **myAppGateway**를 클릭합니다.
-4. **백 엔드 풀**을 클릭합니다. 기본 풀이 응용 프로그램 게이트웨이와 함께 자동으로 생성되었습니다. **appGateayBackendPool**을 클릭합니다.
+4. **백 엔드 풀**을 클릭합니다. 기본 풀이 애플리케이션 게이트웨이와 함께 자동으로 만들어졌습니다. **appGateayBackendPool**을 클릭합니다.
 5. **대상 추가**를 클릭하여 생성된 각각의 가상 머신을 백 엔드 풀에 추가합니다.
 
     ![백 엔드 서버 추가](./media/create-ssl-portal/application-gateway-backend.png)
 
 6. **저장**을 클릭합니다.
 
-## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
 1. **모든 리소스**를 클릭한 다음, **myAGPublicIPAddress**를 클릭합니다.
 
-    ![응용 프로그램 게이트웨이 공용 IP 주소 기록](./media/create-ssl-portal/application-gateway-ag-address.png)
+    ![애플리케이션 게이트웨이에 대한 공용 IP 주소 기록](./media/create-ssl-portal/application-gateway-ag-address.png)
 
 2. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 자체 서명된 인증서를 사용하는 경우 보안 경고를 수락하려면 세부 정보를 선택한 다음 웹 페이지로 이동을 선택합니다.
 
@@ -167,7 +167,7 @@ Export-PfxCertificate \
 
     그러면 보안 IIS 웹 사이트가 다음 예제와 같이 표시됩니다.
 
-    ![응용 프로그램 게이트웨이의 기준 URL 테스트](./media/create-ssl-portal/application-gateway-iistest.png)
+    ![애플리케이션 게이트웨이의 기준 URL 테스트](./media/create-ssl-portal/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -175,7 +175,7 @@ Export-PfxCertificate \
 
 > [!div class="checklist"]
 > * 자체 서명된 인증서 만들기
-> * 인증서가 있는 응용 프로그램 게이트웨이 만들기
+> * 인증서가 있는 애플리케이션 게이트웨이 만들기
 > * 백 엔드 서버로 사용되는 가상 머신 만들기
 
-응용 프로그램 게이트웨이 및 관련 리소스에 대해 자세히 알아보려면 방법 문서를 참조하세요.
+애플리케이션 게이트웨이 및 관련 리소스에 대해 자세히 알아보려면 사용법 문서를 참조하세요.

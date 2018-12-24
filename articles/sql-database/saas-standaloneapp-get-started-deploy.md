@@ -1,6 +1,6 @@
 ---
 title: 단일 테넌트 SaaS 자습서 - Azure SQL Database | Microsoft Docs
-description: Azure SQL Database를 사용하는 독립형 단일 테넌트 SaaS 응용 프로그램 배포 및 탐색
+description: Azure SQL Database를 사용하는 독립형 단일 테넌트 SaaS 애플리케이션 배포 및 탐색
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -19,27 +19,27 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51252414"
 ---
-# <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 독립형 단일 테넌트 응용 프로그램을 배포하고 탐색합니다.
+# <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 독립형 단일 테넌트 애플리케이션을 배포하고 탐색합니다.
 
 이 자습서에서는 독립형 응용 프로그램 패턴 또는 테넌트별 앱 패턴을 사용하여 개발한 Wingtip 티켓 SaaS 응용 프로그램 예제를 배포하고 탐색합니다.  응용 프로그램은 다중 테넌트 SaaS 활성화 시나리오를 간소화하는 Azure SQL Database의 기능을 보여 주도록 설계되었습니다.
 
 독립형 응용 프로그램 패턴 또는 테넌트별 앱 패턴은 각 테넌트에 대해 응용 프로그램 인스턴스를 배포합니다.  각 응용 프로그램은 특정 테넌트에 대해 구성되고 별도 Azure 리소스 그룹에 배포됩니다. 다중 테넌트 솔루션을 제공하기 위해 응용 프로그램의 여러 인스턴스를 프로비전합니다. 이 패턴은 테넌트 격리가 최우선인 테넌트 수가 더 작은 경우에 가장 적합합니다. Azure에는 테넌트를 대신하여 서비스 공급자가 리소스를 테넌트 구독에 배포하고 관리하도록 허용하는 파트너 프로그램이 있습니다. 
 
-이 자습서에서는 3개의 테넌트에 대한 3개의 독립형 응용 프로그램을 Azure 구독에 배포합니다.  개별 응용 프로그램 구성 요소를 탐색하고 작업할 수 있는 전체 액세스 권한이 있습니다.
+이 자습서에서는 3개의 테넌트에 대한 3개의 독립형 응용 프로그램을 Azure 구독에 배포합니다.  개별 애플리케이션 구성 요소를 탐색하고 작업할 수 있는 전체 액세스 권한이 있습니다.
 
-응용 프로그램 소스 코드 및 관리 스크립트는 [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub 리포지토리에서 사용할 수 있습니다. 응용 프로그램은 Visual Studio 2015를 사용하여 만들어졌으며, 업데이트하지 않고는 Visual Studio 2017에서 성공적으로 열리고 컴파일되지 않습니다.
+애플리케이션 소스 코드 및 관리 스크립트는 [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub 리포지토리에서 사용할 수 있습니다. 응용 프로그램은 Visual Studio 2015를 사용하여 만들어졌으며, 업데이트하지 않고는 Visual Studio 2017에서 성공적으로 열리고 컴파일되지 않습니다.
 
 
 이 자습서에서는 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Wingtip 티켓 SaaS 독립형 응용 프로그램 배포 방법
+> * Wingtip 티켓 SaaS 독립형 애플리케이션 배포 방법
 > * 애플리케이션 소스 코드 및 관리 스크립트를 가져올 위치.
 > * 앱을 구성하는 서버 및 데이터베이스 정보.
 
-추가 자습서가 제공될 예정입니다. 이러한 자습서를 통해 이 응용 프로그램 패턴을 기준으로 다양한 관리 시나리오를 탐색할 수 있습니다.   
+추가 자습서가 제공될 예정입니다. 이러한 자습서를 통해 이 애플리케이션 패턴을 기준으로 다양한 관리 시나리오를 탐색할 수 있습니다.   
 
-## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Wingtip 티켓 SaaS 독립형 응용 프로그램 배포
+## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Wingtip 티켓 SaaS 독립형 애플리케이션 배포
 
 제공된 3개 테넌트에 대한 앱을 배포합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "51252414"
 2. 각각의 배포에 필요한 매개 변수 값을 입력합니다.
 
     > [!IMPORTANT]
-    > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 각각의 응용 프로그램 배포에 대한 **새 리소스 그룹을 만듭니다**.  기존 리소스 그룹을 사용하지 마세요. 이 응용 프로그램이나 여기에서 만든 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 응용 프로그램을 완료할 때 모든 리소스 그룹을 삭제합니다.
+    > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 각각의 응용 프로그램 배포에 대한 **새 리소스 그룹을 만듭니다**.  기존 리소스 그룹을 사용하지 마세요. 이 응용 프로그램이나 여기에서 만든 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 애플리케이션을 완료할 때 모든 리소스 그룹을 삭제합니다.
 
     리소스 이름에는 소문자, 숫자 및 하이픈만 사용하는 것이 가장 좋습니다.
     * **리소스 그룹** - 새로 만들기를 선택한 후 리소스 그룹의 이름을 소문자로 입력합니다. 권장 패턴은 **wingtip-sa-\<venueName\>-\<user\>** 입니다.  \<venueName\>의 경우 장소 이름을 공백 없이 대체합니다. \<user\>의 경우 아래의 사용자 값을 대체합니다.  이 패턴을 사용하면 리소스 그룹 이름은 *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*이 될 수 있습니다.
@@ -110,7 +110,7 @@ ms.locfileid: "51252414"
 * To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
 -->
 
-- 다중 테넌트 SaaS 응용 프로그램에 대해 알아보려면 [다중 테넌트 SaaS 응용 프로그램을 위한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
+- 다중 테넌트 SaaS 애플리케이션에 대해 알아보려면 [다중 테넌트 SaaS 애플리케이션을 위한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
  
 ## <a name="delete-resource-groups-to-stop-billing"></a>리소스 그룹을 삭제하여 청구 중지 ##
@@ -122,7 +122,7 @@ ms.locfileid: "51252414"
 이 자습서에서는 다음에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * Wingtip 티켓 SaaS 독립형 응용 프로그램 배포 방법
+> * Wingtip 티켓 SaaS 독립형 애플리케이션 배포 방법
 > * 앱을 구성하는 서버 및 데이터베이스 정보.
 > * 샘플 리소스를 삭제하여 관련 결제를 중지하는 방법
 

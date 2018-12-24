@@ -19,7 +19,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/02/2018
 ms.locfileid: "39444541"
 ---
-# <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins를 사용하여 Linux 응용 프로그램 빌드 및 배포
+# <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins를 사용하여 Linux 애플리케이션 빌드 및 배포
 Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 애플리케이션을 빌드하고 배포하는 방법은 다음과 같습니다.
 
 ## <a name="topic-overview"></a>항목 개요

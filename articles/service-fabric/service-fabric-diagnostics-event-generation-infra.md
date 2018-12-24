@@ -23,7 +23,7 @@ ms.locfileid: "52291451"
 ---
 # <a name="monitoring-the-cluster"></a>클러스터 모니터링
 
-클러스터 수준에서 모니터링하여 하드웨어와 클러스터가 예상대로 작동하는지 확인해야 합니다. Service Fabric은 하드웨어 오류 시에도 응용 프로그램을 계속 실행할 수 있지만, 응용 프로그램이나 기본 인프라에서 오류가 발생하는지를 여전히 진단해야 합니다. 하드웨어 추가 또는 제거에 대한 결정 시 도움이 되도록 용량 계획을 개선하려면 클러스터를 모니터링해야 합니다.
+클러스터 수준에서 모니터링하여 하드웨어와 클러스터가 예상대로 작동하는지 확인해야 합니다. Service Fabric은 하드웨어 오류 시에도 애플리케이션을 계속 실행할 수 있지만, 애플리케이션이나 기본 인프라에서 오류가 발생하는지를 여전히 진단해야 합니다. 하드웨어 추가 또는 제거에 대한 결정 시 도움이 되도록 용량 계획을 개선하려면 클러스터를 모니터링해야 합니다.
 
 Service Fabric은 EventStore 및 다양한 기본 제공 로그 채널을 통해 여러 구조적 플랫폼 이벤트를 [Service Fabric 이벤트](service-fabric-diagnostics-events.md)로 노출합니다. 
 
@@ -83,7 +83,7 @@ Azure Service Fabric 클러스터에 대한 도움을 받기 위해 Microsoft �
 
 ## <a name="measuring-performance"></a>성능 측정
 
-클러스터 성능 측정을 통해 어떻게 부하를 처리하고 클러스터 크기 조정과 관련된 의사 결정을 주도할 수 있는지 이해할 수 있습니다([Azure에서](service-fabric-cluster-scale-up-down.md) 또는 [온-프레미스로](service-fabric-cluster-windows-server-add-remove-nodes.md) 클러스터 크기를 조정하는 방법에 대한 자세한 내용 참조). 성능 데이터는 나중에 로그를 분석할 때 사용자나 응용 프로그램 및 서비스가 수행한 작업에 비교될 경우에도 유용합니다. 
+클러스터 성능 측정을 통해 어떻게 부하를 처리하고 클러스터 크기 조정과 관련된 의사 결정을 주도할 수 있는지 이해할 수 있습니다([Azure에서](service-fabric-cluster-scale-up-down.md) 또는 [온-프레미스로](service-fabric-cluster-windows-server-add-remove-nodes.md) 클러스터 크기를 조정하는 방법에 대한 자세한 내용 참조). 성능 데이터는 나중에 로그를 분석할 때 사용자나 애플리케이션 및 서비스가 수행한 작업에 비교될 경우에도 유용합니다. 
 
 Service Fabric을 사용할 경우 수집할 경우 수집할 성능 카운터에 대해서는 [Service Fabric의 성능 카운터](service-fabric-diagnostics-event-generation-perf.md)를 참조하세요.
 

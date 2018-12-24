@@ -122,7 +122,7 @@ Azure A8 노드의 풀에서 Windows MPI 응용 프로그램을 실행하려면 
 
 ## <a name="example-nvidia-tesla-drivers-on-nc-vm-pool"></a>예제: NC VM 풀의 NVIDIA Tesla 드라이버
 
-Linux NC 노드의 풀에서 CUDA 응용 프로그램을 실행하려면 노드에서 CUDA Toolkit 9.0을 설치해야 합니다. 이 Toolkit은 필요한 NVIDIA Tesla GPU 드라이버를 설치합니다. GPU 드라이버에서 사용자 지정 Ubuntu 16.04 LTS 이미지를 배포하는 예제 단계는 다음과 같습니다.
+Linux NC 노드의 풀에서 CUDA 애플리케이션을 실행하려면 노드에서 CUDA Toolkit 9.0을 설치해야 합니다. 이 Toolkit은 필요한 NVIDIA Tesla GPU 드라이버를 설치합니다. GPU 드라이버에서 사용자 지정 Ubuntu 16.04 LTS 이미지를 배포하는 예제 단계는 다음과 같습니다.
 
 1. Ubuntu 16.04 LTS를 실행하는 Azure NC 시리즈 VM을 배포합니다. 예를 들어, 미국 중남부 지역에서 VM을 만듭니다. 관리되는 디스크에서 VM을 만들었는지 확인합니다.
 2. VM에 연결하고 [CUDA 드라이버 설치](../virtual-machines/linux/n-series-driver-setup.md)하는 단계를 수행합니다.

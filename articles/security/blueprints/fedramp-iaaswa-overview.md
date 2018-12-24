@@ -31,7 +31,7 @@ ms.locfileid: "49405381"
 
 이 Azure Security 및 Compliance Blueprint Automation은 미리 구성된 보안 제어가 있는 IaaS 웹 응용 프로그램 참조 아키텍처를 자동으로 배포하여 고객이 FedRAMP 요구 사항을 준수할 수 있게 합니다. 이 솔루션은 리소스 배포 및 구성을 안내하는 Azure Resource Manager 템플릿과 PowerShell 스크립트로 구성되었습니다.
 
-이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반이며 있는 프로덕션 환경에 그대로 사용해서는 안됩니다. 응용 프로그램을 수정 없이 이러한 환경에 배포하는 것은 FedRAMP 높음 기준의 요구 사항을 온전히 충족하기에는 부족합니다. 다음 사항에 유의하세요.
+이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반이며 있는 프로덕션 환경에 그대로 사용해서는 안됩니다. 애플리케이션을 수정 없이 이러한 환경에 배포하는 것은 FedRAMP 높음 기준의 요구 사항을 온전히 충족하기에는 부족합니다. 다음 사항에 유의하세요.
 - 이 아키텍처는 고객이 FedRAMP 규격에 맞게 Azure를 사용하기 위한 기준을 제공합니다.
 - 요구 사항은 각 고객의 구현에서 특정 상황에 따라 달라질 수 있으므로 이 아키텍처를 사용하여 구축된 솔루션의 적합한 보안 및 준수 평가의 수행은 고객의 책임입니다. 
 
@@ -61,7 +61,7 @@ ms.locfileid: "49405381"
     - DNS 설정이 모든 도메인 컨트롤러에 설정됨
 - Azure Load Balancer
 - Azure Application Gateway
-    - (1) WAF 응용 프로그램 게이트웨이 사용
+    - (1) WAF 애플리케이션 게이트웨이 사용
         - 방화벽 모드: 방지
         - 규칙 집합: OWASP 3.0
         - 수신기: 443 포트
@@ -119,7 +119,7 @@ ms.locfileid: "49405381"
 
 다음 기술은 Azure 환경에서 ID 관리 기능을 제공합니다.
 - [Azure AD(Azure Active Directory)](https://azure.microsoft.com/services/active-directory/)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다.
-- 고객 배포 웹 응용 프로그램에 대한 인증은 Azure AD를 사용하여 수행할 수 있습니다. 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요.  
+- 고객 배포 웹 애플리케이션에 대한 인증은 Azure AD를 사용하여 수행할 수 있습니다. 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요.  
 - [Azure RBAC(Role-based Access Control)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)은 Azure에 대해 세밀하게 초점을 맞춘 액세스 관리를 구현합니다. 구독 액세스는 구독 관리자로 제한되며 리소스 액세스는 사용자 역할에 따라 제한될 수 있습니다.
 - 배포된 IaaS Active Directory 인스턴스는 배포된 IaaS 가상 머신에 대한 OS 수준의 ID 관리를 제공합니다.
 

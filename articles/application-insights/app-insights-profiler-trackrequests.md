@@ -26,7 +26,7 @@ ms.locfileid: "52722125"
 요청을 수동으로 추적하기 위해 수행해야 하는 단계는 다음과 같습니다.
 
 
-  1. 응용 프로그램 수명 초기에 다음 코드를 추가합니다.  
+  1. 애플리케이션 수명 초기에 다음 코드를 추가합니다.  
 
         ```csharp
         using Microsoft.ApplicationInsights.Extensibility;

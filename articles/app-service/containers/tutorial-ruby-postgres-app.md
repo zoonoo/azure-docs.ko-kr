@@ -71,7 +71,7 @@ sudo -u postgres createuser -d <signed_in_user>
 <a name="step2"></a>
 
 ## <a name="create-a-ruby-on-rails-app-locally"></a>로컬로 Ruby on Rails 앱 만들기
-이 단계에서는 Ruby on Rails 샘플 응용 프로그램 가져오고, 해당 데이터베이스를 구성한 후 로컬로 실행합니다. 
+이 단계에서는 Ruby on Rails 샘플 애플리케이션을 가져오고, 해당 데이터베이스를 구성한 후 로컬로 실행합니다. 
 
 ### <a name="clone-the-sample"></a>샘플 복제
 
@@ -232,7 +232,7 @@ export DB_PASSWORD=MyPostgresAzure2017
 rake db:migrate RAILS_ENV=production
 ```
 
-프로덕션 환경에서 실행하는 경우 Rails 응용 프로그램에는 미리 컴파일된 자산이 필요합니다. 다음 명령을 사용하여 필요한 자산을 생성합니다.
+프로덕션 환경에서 실행하는 경우 Rails 애플리케이션에는 미리 컴파일된 자산이 필요합니다. 다음 명령을 사용하여 필요한 자산을 생성합니다.
 
 ```bash
 rake assets:precompile
@@ -257,7 +257,7 @@ Rails 프로덕션 환경에서 JavaScript 및 CSS 파일을 제공하도록 합
 export RAILS_SERVE_STATIC_FILES=true
 ```
 
-프로덕션 환경에서 예제 응용 프로그램을 실행합니다.
+프로덕션 환경에서 예제 애플리케이션을 실행합니다.
 
 ```bash
 rails server -e production
@@ -334,7 +334,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 git remote add azure <paste_copied_url_here>
 ```
 
-Azure 원격 위치에 푸시하여 Ruby on Rails 응용 프로그램을 배포합니다. 배포 사용자를 만드는 작업의 일부로 이전에 제공한 암호를 묻는 메시지가 표시됩니다.
+Azure 원격 위치에 푸시하여 Ruby on Rails 애플리케이션을 배포합니다. 배포 사용자를 만드는 작업의 일부로 이전에 제공한 암호를 묻는 메시지가 표시됩니다.
 
 ```bash
 git push azure master
@@ -369,7 +369,7 @@ remote: Running deployment command...
 
 이 단계에서는 `task` 데이터 모델과 웹앱을 간단히 변경한 다음 업데이트를 Azure에 게시합니다.
 
-작업 시나리오의 경우 작업을 완료한 것으로 표시할 수 있도록 응용 프로그램을 수정합니다.
+작업 시나리오의 경우 작업을 완료한 것으로 표시할 수 있도록 애플리케이션을 수정합니다.
 
 ### <a name="add-a-column"></a>열 추가
 

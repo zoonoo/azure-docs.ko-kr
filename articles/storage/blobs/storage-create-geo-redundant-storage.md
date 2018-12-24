@@ -18,7 +18,7 @@ ms.locfileid: "50415987"
 ---
 # <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>자습서: Azure 저장소를 통해 응용 프로그램 데이터의 고가용성 향상
 
-이 자습서는 Azure에서 응용 프로그램 데이터의 고가용성을 높이는 방법을 보여 주는 시리즈 중 제1부입니다. 작업을 완료하면 [RA-GRS](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)(읽기 액세스 지역 중복 저장소) 계정으로 Blob을 업로드하고 검색하는 콘솔 응용 프로그램을 갖게 됩니다. RA-GRS는 주 지역에서 보조 지역으로 트랜잭션을 복제하는 방식으로 작동합니다. 복제 프로세스는 보조 지역의 데이터가 결과적으로 일치하도록 보장합니다. 이 응용 프로그램은 [회로 차단기](/azure/architecture/patterns/circuit-breaker) 패턴을 사용하여 연결할 엔드포인트를 결정하고 오류가 시뮬레이션되면 보조 끝점으로 전환합니다.
+이 자습서는 Azure에서 응용 프로그램 데이터의 고가용성을 높이는 방법을 보여 주는 시리즈 중 제1부입니다. 작업을 완료하면 [RA-GRS](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)(읽기 액세스 지역 중복)스토리지 계정으로 Blob을 업로드하고 검색하는 콘솔 애플리케이션을 갖게 됩니다. RA-GRS는 주 지역에서 보조 지역으로 트랜잭션을 복제하는 방식으로 작동합니다. 복제 프로세스는 보조 지역의 데이터가 결과적으로 일치하도록 보장합니다. 이 응용 프로그램은 [회로 차단기](/azure/architecture/patterns/circuit-breaker) 패턴을 사용하여 연결할 엔드포인트를 결정하고 오류가 시뮬레이션되면 보조 끝점으로 전환합니다.
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "50415987"
 > * 저장소 계정 만들기
 > * 샘플 다운로드
 > * 연결 문자열 설정
-> * 콘솔 응용 프로그램 실행
+> * 콘솔 애플리케이션 실행
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -88,7 +88,7 @@ ms.locfileid: "50415987"
 
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-[샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)하고, storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드할 수 있습니다. 샘플 프로젝트는 콘솔 응용 프로그램을 포함합니다.
+[샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)하고, storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드할 수 있습니다. 샘플 프로젝트는 콘솔 애플리케이션을 포함합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
@@ -112,7 +112,7 @@ git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 
 ## <a name="set-the-connection-string"></a>연결 문자열 설정
 
-응용 프로그램에서 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 이 연결 문자열은 응용 프로그램을 실행하는 로컬 컴퓨터의 환경 변수 내에 저장하는 것이 좋습니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
+응용 프로그램에서 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 이 연결 문자열은 애플리케이션을 실행하는 로컬 컴퓨터의 환경 변수 내에 저장하는 것이 좋습니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
 
 Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. 기본 또는 보조 키에서 **연결 문자열**을 복사합니다. 운영 체제에 따라 다음 명령 중 하나를 실행하여 \<yourconnectionstring\>을 실제 연결 문자열로 바꿉니다. 이 명령은 로컬 컴퓨터에 환경 변수를 저장합니다. Windows에서 사용 중인 **명령 프롬프트** 또는 셸을 다시 로드할 때까지 환경 변수를 사용할 수 없습니다. 다음 샘플에서 **\<storageConnectionString\>** 을 바꿉니다.
 
@@ -125,12 +125,12 @@ setx storageconnectionstring "\<yourconnectionstring\>"
 ---
 
 
-## <a name="run-the-console-application"></a>콘솔 응용 프로그램 실행
+## <a name="run-the-console-application"></a>콘솔 애플리케이션 실행
 
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 Visual Studio에서 **F5** 키를 누르거나 **시작**을 클릭하여 응용 프로그램 디버깅을 시작합니다. Visual Studio는 구성된 경우 누락된 NuGet 패키지를 자동으로 복원합니다. 자세한 내용은 [패키지 복원으로 패키지 설치 및 다시 설치](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview)에서 확인하세요.
 
-콘솔 창에서 시작하고 응용 프로그램이 실행을 시작합니다. 응용 프로그램은 **HelloWorld.png** 이미지를 솔루션에서 저장소 계정으로 업로드합니다. 응용 프로그램은 해당 이미지를 보조 RA-GRS 엔드포인트로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 끝점을 나타내고 **S**는 보조 끝점을 나타냅니다.
+콘솔 창에서 시작하고 애플리케이션이 실행을 시작합니다. 응용 프로그램은 **HelloWorld.png** 이미지를 솔루션에서 저장소 계정으로 업로드합니다. 응용 프로그램은 해당 이미지를 보조 RA-GRS 엔드포인트로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 끝점을 나타내고 **S**는 보조 끝점을 나타냅니다.
 
 ![콘솔 앱 실행](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -266,13 +266,13 @@ def response_callback(response):
 
 ## <a name="next-steps"></a>다음 단계
 
-시리즈의 파트 1에서는 다음과 같이 RA-GRS 저장소 계정으로 응용 프로그램의 고가용성을 지원하는 방법에 대해 알아봤습니다.
+시리즈의 파트 1에서는 다음과 같이 RA-GRS 스토리지 계정으로 애플리케이션의 고가용성을 지원하는 방법에 대해 알아봤습니다.
 
 > [!div class="checklist"]
 > * 저장소 계정 만들기
 > * 샘플 다운로드
 > * 연결 문자열 설정
-> * 콘솔 응용 프로그램 실행
+> * 콘솔 애플리케이션 실행
 
 시리즈의 파트 2로 진행하여 오류를 시뮬레이션하고 보조 RA-GRS 엔드포인트를 사용하도록 응용 프로그램을 강제하는 방법을 알아 보세요.
 

@@ -157,7 +157,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
    mvn package
    ```
 
-3. git 터미널 창에서 다음 명령을 사용하여 Java 응용 프로그램을 시작합니다.
+3. git 터미널 창에서 다음 명령을 사용하여 Java 애플리케이션을 시작합니다.
     
     ```
     mvn exec:java -D exec.mainClass=GetStarted.Program

@@ -27,7 +27,7 @@ ms.locfileid: "49988522"
 
 ### <a name="option-1-express-mode"></a>옵션 1: 기본 모드
 
-다음을 수행하여 응용 프로그램을 신속하게 등록할 수 있습니다.
+다음을 수행하여 애플리케이션을 신속하게 등록할 수 있습니다.
 
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure)을 통해 응용 프로그램을 등록합니다.
 2. 응용 프로그램 이름과 이메일을 입력합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "49988522"
 
 ### <a name="option-2-advanced-mode"></a>옵션 2: 고급 모드
 
-응용 프로그램을 등록하고 응용 프로그램 등록 정보를 솔루션에 추가하려면 다음을 수행합니다.
+애플리케이션을 등록하고 애플리케이션 등록 정보를 솔루션에 추가하려면 다음을 수행합니다.
 
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app)로 이동하여 응용 프로그램을 등록합니다.
 2. 응용 프로그램 이름과 이메일을 입력합니다.

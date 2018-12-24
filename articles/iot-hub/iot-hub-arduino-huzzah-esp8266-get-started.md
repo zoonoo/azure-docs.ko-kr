@@ -138,7 +138,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 ### <a name="get-the-sample-application-from-github"></a>GitHub에서 샘플 애플리케이션 가져오기
 
-샘플 응용 프로그램은 GitHub에서 호스팅됩니다. GitHub에서 샘플 애플리케이션이 포함된 샘플 리포지토리를 복제합니다. 샘플 리포지토리를 복제하려면 다음 단계를 수행합니다.
+샘플 애플리케이션은 GitHub에서 호스팅됩니다. GitHub에서 샘플 애플리케이션이 포함된 샘플 리포지토리를 복제합니다. 샘플 리포지토리를 복제하려면 다음 단계를 수행합니다.
 
 1. 명령 프롬프트 또는 터미널 창을 엽니다.
 
@@ -156,7 +156,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 5. Visual Studio Code의 앱 폴더에서 app.ino 파일을 엽니다.
 
-   ![Visual Studio Code에서 샘플 응용 프로그램 열기](media/iot-hub-arduino-huzzah-esp8266-get-started/10_vscode-open-sample-app.png)
+   ![Visual Studio Code에서 샘플 애플리케이션 열기](media/iot-hub-arduino-huzzah-esp8266-get-started/10_vscode-open-sample-app.png)
 
 6. Visual Studio Code에서 `F1`을 입력합니다.
 
@@ -204,7 +204,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 ### <a name="dont-have-a-real-dht22-sensor"></a>실제 DHT22 센서가 없나요?
 
-실제 DHT22 센서가 없는 경우 응용 프로그램 예제에서 온도 및 습도 데이터를 시뮬레이션할 수 있습니다. 시뮬레이션된 데이터를 사용하도록 샘플 응용 프로그램을 설정하려면 다음 단계를 수행합니다.
+실제 DHT22 센서가 없는 경우 응용 프로그램 예제에서 온도 및 습도 데이터를 시뮬레이션할 수 있습니다. 시뮬레이션된 데이터를 사용하도록 샘플 애플리케이션을 설정하려면 다음 단계를 수행합니다.
 
 1. `app` 폴더에서 `config.h` 파일을 엽니다.
 

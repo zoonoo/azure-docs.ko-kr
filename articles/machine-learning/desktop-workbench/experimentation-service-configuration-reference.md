@@ -79,7 +79,7 @@ Azure ML Workbench는 **conda_dependencies.yml**이 그대로 유지되는 한 �
 >실행이 _로컬_ 계산 컨텍스트를 대상으로 하는 경우 **conda_dependencies.yml** 파일이 사용되지 **않습니다**. 로컬 Azure ML Workbench Python 환경에 대한 패키지 종속성은 수동으로 설치해야 합니다.
 
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
-이 파일은 설치해야 하는 PySpark 스크립트 및 Spark 패키지를 제출할 때 Spark 응용 프로그램 이름을 지정합니다. 또한 Maven 리포지토리에서 찾을 수 있는 공용 Maven 리포지토리 및 Spark 패키지를 지정할 수도 있습니다.
+이 파일은 설치해야 하는 PySpark 스크립트 및 Spark 패키지를 제출할 때 Spark 애플리케이션 이름을 지정합니다. 또한 Maven 리포지토리에서 찾을 수 있는 공용 Maven 리포지토리 및 Spark 패키지를 지정할 수도 있습니다.
 
 다음은 예제입니다.
 

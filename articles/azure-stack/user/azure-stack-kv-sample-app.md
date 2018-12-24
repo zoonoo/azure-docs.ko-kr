@@ -152,7 +152,7 @@ HelloKeyVault 샘플을 로드 합니다.
 * 로 이동 합니다 **Microsoft.Azure.KeyVault.Samples** > **샘플** > **HelloKeyVault** 폴더입니다.
 * Visual Studio에서 HelloKeyVault 응용 프로그램을 엽니다.
 
-### <a name="configure-the-sample-application"></a>샘플 응용 프로그램 구성
+### <a name="configure-the-sample-application"></a>샘플 애플리케이션 구성
 
 Visual Studio에서
 

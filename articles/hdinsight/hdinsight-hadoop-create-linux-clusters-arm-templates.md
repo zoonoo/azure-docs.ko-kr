@@ -30,7 +30,7 @@ ms.locfileid: "52495151"
 * Azure PowerShell 및/또는 Azure 클래식 CLI
 
 ### <a name="resource-manager-templates"></a>리소스 관리자 템플릿
-Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 응용 프로그램에 대해 다음 리소스를 쉽게 만들 수 있습니다.
+Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 애플리케이션에 대해 다음 리소스를 쉽게 만들 수 있습니다.
 * HDInsight 클러스터 및 해당 종속 리소스(예: 기본 저장소 계정)
 * 기타 리소스(예: [Apache Sqoop](http://sqoop.apache.org/)을 사용하는 Azure SQL Database)
 

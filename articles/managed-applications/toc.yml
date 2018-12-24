@@ -1,9 +1,9 @@
 items:
-- name: Azure 관리되는 응용 프로그램 설명서
+- name: Azure Managed Applications 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: 관리되는 응용 프로그램 정보
+  - name: 관리되는 애플리케이션 정보
     href: overview.md
 - name: 빠른 시작
   items:
@@ -24,7 +24,7 @@ items:
     href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
-  - name: 관리되는 응용 프로그램 솔루션
+  - name: 관리되는 애플리케이션 솔루션
     href: sample-projects.md
 - name: 방법 가이드
   items:

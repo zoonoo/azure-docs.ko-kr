@@ -37,9 +37,9 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
  
 ## <a name="tables-in-azure-cosmos-db"></a>Azure Cosmos DB의 테이블 
 
-Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요한 응용 프로그램을 위해 [테이블 API](table-introduction.md)를 제공합니다. 이제 Azure Cosmos DB 테이블 API 및 [Azure Table Storage](../storage/common/storage-introduction.md) 둘 다 동일한 SDK 및 REST API를 지원합니다. Azure Cosmos DB를 사용하면 높은 처리량 요구 사항의 테이블을 만들 수 있습니다.
+Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요한 애플리케이션을 위해 [테이블 API](table-introduction.md)를 제공합니다. 이제 Azure Cosmos DB 테이블 API 및 [Azure Table Storage](../storage/common/storage-introduction.md) 둘 다 동일한 SDK 및 REST API를 지원합니다. Azure Cosmos DB를 사용하면 높은 처리량 요구 사항의 테이블을 만들 수 있습니다.
 
-이 자습서는 Azure Table Storage SDK에 익숙하고 Azure Cosmos DB에서 사용 가능한 프리미엄 기능을 사용하려는 개발자를 위한 것입니다. [.NET을 사용하여 Azure Table 저장소 시작](table-storage-how-to-use-dotnet.md)을 기반으로 하며, 보조 인덱스, 프로비전된 처리량 및 멀티 호밍과 같은 추가 기능을 활용하는 방법을 보여 줍니다. 이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 Table API 응용 프로그램을 빌드하고 배포하는 방법에 대해 설명합니다. 또한 테이블을 만들고 삭제하며, 테이블 데이터를 삽입, 업데이트, 삭제 및 쿼리하기 위한 .NET 예제를 단계별로 안내합니다. 
+이 자습서는 Azure Table Storage SDK에 익숙하고 Azure Cosmos DB에서 사용 가능한 프리미엄 기능을 사용하려는 개발자를 위한 것입니다. [.NET을 사용하여 Azure Table 저장소 시작](table-storage-how-to-use-dotnet.md)을 기반으로 하며, 보조 인덱스, 프로비전된 처리량 및 멀티 호밍과 같은 추가 기능을 활용하는 방법을 보여 줍니다. 이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 Table API 애플리케이션을 빌드하고 배포하는 방법에 대해 설명합니다. 또한 테이블을 만들고 삭제하며, 테이블 데이터를 삽입, 업데이트, 삭제 및 쿼리하기 위한 .NET 예제를 단계별로 안내합니다. 
 
 현재 Azure Table Storage를 사용하고 있다면 Azure Cosmos DB 테이블 API를 사용할 경우 다음과 같은 이점이 있습니다.
 

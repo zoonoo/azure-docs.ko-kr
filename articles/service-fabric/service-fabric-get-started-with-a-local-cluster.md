@@ -54,7 +54,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
    
     이제 클러스터에 응용 프로그램 배포를 시도할 준비가 되었습니다.
 
-## <a name="deploy-an-application"></a>응용 프로그램 배포
+## <a name="deploy-an-application"></a>애플리케이션 배포
 서비스 패브릭 SDK는 응용 프로그램을 만들기 위한 다양한 개발자 도구 및 프레임워크의 집합을 포함합니다. Visual Studio에서 응용 프로그램을 만드는 방법에 관심이 있는 경우 [Visual Studio에서 서비스 패브릭 응용 프로그램 처음 만들기](service-fabric-create-your-first-application-in-visual-studio.md)를 참조하세요.
 
 이 자습서에서는 기존 샘플 응용 프로그램(WordCount라고 함)을 사용하므로 플랫폼의 관리 측면인 배포, 모니터링 및 업그레이드에 중점을 둘 수 있습니다.

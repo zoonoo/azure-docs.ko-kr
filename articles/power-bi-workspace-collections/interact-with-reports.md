@@ -24,11 +24,11 @@ Power BI JavaScript API를 사용하면 응용 프로그램에 Power BI 보고�
 > [!IMPORTANT]
 > Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 응용 프로그램에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
 
-응용 프로그램의 일부로 호스팅되는 iframe을 사용하여 응용 프로그램에 Power BI 보고서를 포함합니다. iframe은 다음 이미지에 표시된 대로 응용 프로그램 및 보고서 간에 경계의 역할을 합니다.
+응용 프로그램의 일부로 호스팅되는 iframe을 사용하여 응용 프로그램에 Power BI 보고서를 포함합니다. iframe은 다음 이미지에 표시된 대로 애플리케이션 및 보고서 간에 경계의 역할을 합니다.
 
 ![Javascript API가 없는 Power BI 작업 영역 컬렉션 iframe](media/interact-with-reports/iframe-without-javacript.png)
 
-iframe을 통해 포함 프로세스가 훨씬 쉬워지지만 JavaScript API 없이 보고서와 응용 프로그램은 서로 상호 작용할 수 없습니다. 상호 작용이 부족하면 보고서가 실제로 응용 프로그램의 일부가 아닌 것처럼 느낄 수 있습니다. 보고서와 응용 프로그램은 실제로 다음 이미지와 같이 서로 통신해야 합니다.
+iframe을 통해 포함 프로세스가 훨씬 쉬워지지만 JavaScript API 없이 보고서와 응용 프로그램은 서로 상호 작용할 수 없습니다. 상호 작용이 부족하면 보고서가 실제로 응용 프로그램의 일부가 아닌 것처럼 느낄 수 있습니다. 보고서와 애플리케이션은 실제로 다음 이미지와 같이 서로 통신해야 합니다.
 
 ![Javascript API가 있는 Power BI 작업 영역 컬렉션 iframe](media/interact-with-reports/iframe-with-javascript.png)
 

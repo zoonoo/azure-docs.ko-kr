@@ -25,13 +25,13 @@ ms.locfileid: "48843373"
 
 이 섹션에서는 토큰이 필요한 Web API를 쿼리할 수 있도록 Windows Desktop .NET 응용 프로그램(XAML)을 *Microsoft에 로그인*과 통합하는 방법을 설명하기 위해 새 프로젝트를 만듭니다.
 
-이 가이드를 사용하여 만든 응용 프로그램은 그래프를 호출하는 데 사용된 단추, 화면에 결과를 보여주는 영역 및 로그아웃 단추를 표시합니다.
+이 가이드를 사용하여 만든 애플리케이션은 그래프를 호출하는 데 사용된 단추, 화면에 결과를 보여주는 영역 및 로그아웃 단추를 표시합니다.
 
 > [!NOTE]
 > 이 샘플의 Visual Studio 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip)하면 코드 샘플을 실행하기 전에 구성하는 [구성 단계](#register-your-application)를 건너뛸 수 있습니다.
 >
 
-응용 프로그램을 만들려면 다음을 수행합니다.
+애플리케이션을 만들려면 다음을 수행합니다.
 
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **템플릿**에서 **Visual C#** 을 선택합니다.
@@ -75,9 +75,9 @@ ms.locfileid: "48843373"
     }
     ```
 
-## <a name="create-the-application-ui"></a>응용 프로그램 UI 만들기
+## <a name="create-the-application-ui"></a>애플리케이션 UI 만들기
 
-이 섹션에서는 응용 프로그램에서 Microsoft Graph와 같이 보호되는 백 엔드 서버를 쿼리하는 방법을 보여줍니다. 
+이 섹션에서는 애플리케이션에서 Microsoft Graph와 같이 보호되는 백 엔드 서버를 쿼리하는 방법을 보여줍니다. 
 
 *MainWindow.xaml* 파일은 프로젝트 템플릿의 일부로 자동으로 생성되어야 합니다. 이 파일을 열고, 응용 프로그램의 *\<그리드>* 노드를 다음 코드로 바꿉니다.
 

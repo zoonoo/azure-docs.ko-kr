@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="onboard-to-app-center"></a>App에 등록
 
-모바일 앱으로 Application Insights를 사용하려면 앱을 [App Center](https://docs.microsoft.com/mobile-center/)에 등록해야 합니다. Application Insights는 모바일 앱에서 직접 원격 분석을 수신하는 것이 아니라, 앱이 사용자 지정 이벤트 원격 정보를 App Center로 보냅니다. 그런 다음 App Center는 이벤트가 수신되면 이러한 사용자 지정 이벤트의 사본을 Application Insights로 내보냅니다.
+모바일 앱으로 Application Insights를 사용하려면 앱을 [App Center](https://docs.microsoft.com/mobile-center/)에 등록해야 합니다. Application Insights는 모바일 앱에서 직접 원격 분석을 수신하는 것이 아니라, 앱이 사용자 지정 이벤트 원격 정보를 App Center로 보냅니다. 그런 다음, App Center는 이벤트가 수신되면 이러한 사용자 지정 이벤트의 사본을 Application Insights로 내보냅니다.
 
 응용 프로그램을 등록하려면 앱에서 지원하는 각 플랫폼에 대한 App Center 빠른 시작을 따르세요. 각 플랫폼에 대해 별도의 App Center 인스턴스를 만듭니다.
 
@@ -77,7 +77,7 @@ Analytics.trackEvent("Video clicked")
     | 설정        |  값           | 설명  |
    | ------------- |:-------------|:-----|
    | **Name**      | "myApp-iOS" 등의 일부 전역적으로 고유 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **응용 프로그램 유형** | App Center 응용 프로그램 | 모니터링하는 응용 프로그램의 유형입니다. |
+   | **응용 프로그램 유형** | App Center 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
    | **리소스 그룹**     | 새 리소스 그룹, 또는 메뉴의 기존 리소스 그룹 | 새 Application Insights 리소스를 만들 리소스 그룹 |
    | **위치**: | 메뉴의 위치 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
@@ -161,7 +161,7 @@ App Center에서 내보내기를 해제하려면:
 1. App Center에서 **설정**으로 이동하여 **내보내기**를 선택합니다.
 2. 삭제하려는 Application Insights 내보내기를 클릭한 다음, 맨 아래에서 **내보내기 삭제**를 클릭하고 확인합니다.
 
-Application Insights 리소스를 확장하려면:
+Application Insights 리소스를 삭제하려면:
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음, Application Insights 리소스가 만들어진 리소스 그룹을 선택합니다.
 2. 삭제하려는 Application Insights 리소스를 엽니다. 그런 다음, 리소스 맨 위 메뉴에서 **삭제**를 클릭하고 확인합니다. 그러면 Application Insights로 내보낸 데이터 복사본이 영구적으로 삭제됩니다.

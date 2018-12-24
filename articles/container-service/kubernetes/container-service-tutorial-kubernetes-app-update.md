@@ -23,12 +23,12 @@ ms.locfileid: "52993509"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지 또는 이미지 버전을 지정하여 해당 응용 프로그램을 업데이트할 수 있습니다. 응용 프로그램을 업데이트할 때는 배포의 일부분만 동시에 업데이트되도록 업데이트가 스테이징됩니다. 이처럼 스테이징 업데이트가 수행되므로 업데이트 중에도 응용 프로그램을 계속 실행할 수 있습니다. 또한 배포 오류가 발생하는 경우에는 롤백 메커니즘도 제공됩니다. 
+Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지 또는 이미지 버전을 지정하여 해당 응용 프로그램을 업데이트할 수 있습니다. 응용 프로그램을 업데이트할 때는 배포의 일부분만 동시에 업데이트되도록 업데이트가 스테이징됩니다. 이처럼 스테이징 업데이트가 수행되므로 업데이트 중에도 애플리케이션을 계속 실행할 수 있습니다. 또한 배포 오류가 발생하는 경우에는 롤백 메커니즘도 제공됩니다. 
 
 이 자습서(전체 7부 중 6부)에서는 샘플 Azure 투표 앱을 업데이트합니다. 완료하는 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 프런트 엔드 응용 프로그램 코드 업데이트
+> * 프런트 엔드 애플리케이션 코드 업데이트
 > * 업데이트된 컨테이너 이미지 만들기
 > * Azure Container Registry에 컨테이너 이미지 밀어넣기
 > * 업데이트된 컨테이너 이미지 배포
@@ -37,7 +37,7 @@ Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다. 그런 다음 Kubernetes 클러스터에서 응용 프로그램을 실행했습니다. 
+이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다. 그런 다음, Kubernetes 클러스터에서 애플리케이션을 실행했습니다. 
 
 이 자습서에서 사용한 미리 작성된 Docker Compose 파일과 응용 프로그램 소스 코드를 포함하는 응용 프로그램 리포지토리도 복제했습니다. 리포지토리 복제본을 만들었으며 디렉터리를 복제된 디렉터리로 변경했는지 확인하세요. 이 디렉터리 안에는 `azure-vote` 디렉터리와 `docker-compose.yml` 파일이 있습니다.
 
@@ -103,7 +103,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## <a name="deploy-update-application"></a>업데이트된 응용 프로그램 배포
 
-최대 작동 시간을 보장하려면 응용 프로그램 Pod의 여러 인스턴스가 실행되고 있어야 합니다. [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 명령을 사용하여 이 구성을 확인합니다.
+최대 작동 시간을 보장하려면 애플리케이션 Pod의 여러 인스턴스가 실행되고 있어야 합니다. [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 명령을 사용하여 이 구성을 확인합니다.
 
 ```bash
 kubectl get pod
@@ -165,10 +165,10 @@ IP 주소로 이동하여 업데이트된 응용 프로그램을 확인합니다
 이 자습서에서는 응용 프로그램을 업데이트하고 이 업데이트를 Kubernetes 클러스터에 배포했습니다. 다음 작업을 완료했습니다.
 
 > [!div class="checklist"]
-> * 프런트 엔드 응용 프로그램 코드 업데이트
+> * 프런트 엔드 애플리케이션 코드 업데이트
 > * 업데이트된 컨테이너 이미지 만들기
 > * Azure Container Registry에 컨테이너 이미지 밀어넣기
-> * 업데이트된 응용 프로그램 배포
+> * 업데이트된 애플리케이션 배포
 
 다음 자습서로 이동하여 Log Analytics로 Kubernetes를 모니터링하는 방법에 대해 알아봅니다.
 

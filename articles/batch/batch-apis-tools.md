@@ -29,7 +29,7 @@ Azure Batch를 통한 병렬 워크로드 처리는 일반적으로 [Batch API](
 ## <a name="azure-accounts-for-batch-development"></a>Batch 개발을 위한 Azure 계정
 Batch 솔루션을 개발할 경우 Azure 구독에서는 다음 계정을 사용합니다.
 
-* **Batch 계정** - 풀, 계산 노드, 작업 및 태스크를 포함하여 Azure Batch 리소스는 Azure [Batch 계정](batch-api-basics.md#account)과 연결됩니다. 응용 프로그램에서 Batch 서비스를 요청할 때는 Azure Batch 계정 이름, 계정의 URL 및 액세스 키 또는 Azure Active Directory 토큰을 사용하여 요청을 인증합니다. Azure Portal 또는 프로그래밍 방식으로 [Batch 계정을 만들](batch-account-create-portal.md) 수 있습니다.
+* **Batch 계정** - 풀, 계산 노드, 작업 및 태스크를 포함하여 Azure Batch 리소스는 Azure [Batch 계정](batch-api-basics.md#account)과 연결됩니다. 애플리케이션에서 Batch 서비스를 요청할 때는 Azure Batch 계정 이름, 계정의 URL 및 액세스 키 또는 Azure Active Directory 토큰을 사용하여 요청을 인증합니다. Azure Portal 또는 프로그래밍 방식으로 [Batch 계정을 만들](batch-account-create-portal.md) 수 있습니다.
 * **저장소 계정** - Batch는 [Azure Storage][azure_storage]에 있는 파일에 대한 작업을 기본적으로 지원합니다. 거의 모든 Batch 시나리오에서는 Azure Blob 저장소를 사용하여 태스크에서 실행하는 프로그램 및 프로그램에서 처리하는 데이터를 준비하고, 생성되는 출력 데이터를 저장합니다. Batch의 저장소 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요.
 
 ## <a name="batch-service-apis"></a>Batch 서비스 API
@@ -46,7 +46,7 @@ Batch 솔루션을 개발할 경우 Azure 구독에서는 다음 계정을 사�
 
 ## <a name="batch-management-apis"></a>Batch 관리 API
 
-Batch용 Azure Resource Manager API는 Batch 계정에 대한 프로그래밍 방식 액세스를 제공합니다. 이러한 API를 사용하면 Microsoft.Batch 공급자를 통해 Batch 계정, 할당량, 응용 프로그램 패키지 및 기타 리소스를 프로그래밍 방식으로 관리할 수 있습니다.  
+Batch용 Azure Resource Manager API는 Batch 계정에 대한 프로그래밍 방식 액세스를 제공합니다. 이러한 API를 사용하면 Microsoft.Batch 공급자를 통해 Batch 계정, 할당량, 애플리케이션 패키지 및 기타 리소스를 프로그래밍 방식으로 관리할 수 있습니다.  
 
 | API | API 참조 | 다운로드 | 자습서 | 코드 샘플 |
 | --- | --- | --- | --- | --- |

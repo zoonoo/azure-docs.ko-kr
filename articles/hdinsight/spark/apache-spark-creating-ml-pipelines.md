@@ -127,7 +127,7 @@ peek.show()
 only showing top 20 rows
 ```
 
-이제 `model` 개체를 사용하여 예측을 만들 수 있습니다. 이 기계 학습 응용 프로그램의 전체 샘플과 단계별 실행 지침은 [Azure HDInsight에서 Apache Spark 기계 학습 응용 프로그램 빌드](apache-spark-ipython-notebook-machine-learning.md)를 참조하세요.
+이제 `model` 개체를 사용하여 예측을 만들 수 있습니다. 이 기계 학습 애플리케이션의 전체 샘플과 단계별 실행 지침은 [Azure HDInsight에서 Apache Spark 기계 학습 애플리케이션 빌드](apache-spark-ipython-notebook-machine-learning.md)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 

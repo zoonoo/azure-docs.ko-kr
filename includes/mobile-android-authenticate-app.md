@@ -106,7 +106,7 @@ ms.locfileid: "52440318"
     </activity>
     ```
 
-7. Android 응용 프로그램의 `build.gradle`에 `redirectUriScheme`를 추가합니다.
+7. Android 애플리케이션의 `build.gradle`에 `redirectUriScheme`를 추가합니다.
 
     ```gradle
     android {

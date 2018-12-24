@@ -17,7 +17,7 @@ ms.locfileid: "52581003"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>이벤트를 정확하게 한 번만 처리하는 Apache Spark 스트리밍 작업 만들기
 
-스트림 처리 응용 프로그램은 시스템에 일부 오류가 발생한 후에 재처리 메시지를 어떻게 다룰지에 대해 여러 다른 방법을 취합니다.
+스트림 처리 애플리케이션은 시스템에 일부 오류가 발생한 후에 재처리 메시지를 어떻게 다룰지에 대해 여러 다른 방법을 취합니다.
 
 * 최소 한 번: 각 메시지는 처리되도록 보장되지만, 두 번 이상 처리될 수도 있습니다.
 * 최대 한 번: 각 메시지는 처리될 수 또는 처리되지 않을 수도 있습니다. 메시지가 처리되는 경우 한 번만 처리됩니다.
@@ -27,7 +27,7 @@ ms.locfileid: "52581003"
 
 ## <a name="exactly-once-semantics-with-apache-spark-streaming"></a>Apache Spark Streaming을 사용하여 정확히 한 번만 처리하는 의미 체계
 
-먼저, 모든 시스템의 오류 발생 시점에 문제가 발생한 후 어떻게 다시 시작하는지와 데이터 손실을 어떻게 방지할 수 있는지에 대해 고려합니다. Spark 스트리밍 응용 프로그램에는 다음과 같은 구성 성분이 있습니다.
+먼저, 모든 시스템의 오류 발생 시점에 문제가 발생한 후 어떻게 다시 시작하는지와 데이터 손실을 어떻게 방지할 수 있는지에 대해 고려합니다. Spark 스트리밍 애플리케이션에는 다음과 같은 구성 성분이 있습니다.
 
 * 입력 원본
 * 입력 원본에서 데이터를 끌어올 하나 이상의 수신기 프로세스
@@ -39,7 +39,7 @@ ms.locfileid: "52581003"
 
 ### <a name="replayable-sources"></a>재생 가능한 원본
 
-Spark Streaming 응용 프로그램이 이벤트를 읽어 들이는 원본은 *재생 가능*해야 합니다. 즉, 메시지가 검색되지만 메시지를 유지하거나 처리할 수 있기도 전에 시스템이 실패하는 경우 원본은 같은 메시지를 다시 제공해야 합니다.
+Spark Streaming 애플리케이션이 이벤트를 읽어 들이는 원본은 *재생 가능*해야 합니다. 즉, 메시지가 검색되지만 메시지를 유지하거나 처리할 수 있기도 전에 시스템이 실패하는 경우 원본은 같은 메시지를 다시 제공해야 합니다.
 
 Azure에서 HDInsight의 Azure Event Hubs와 [Apache Kafka](https://kafka.apache.org/)는 재생 가능한 원본을 제공합니다. 재생 가능한 원본의 또 다른 예는 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage Blob 또는 Azure Data Lake Store와 같은 내결함성 파일 시스템으로, 이곳에 모든 데이터가 영원히 보관되고 언제든지 데이터 전체를 다시 읽을 수 있습니다.
 
@@ -49,13 +49,13 @@ Spark 스트리밍에서 Event Hubs나 Kafka 같은 원본에는 *신뢰할 수 
 
 ### <a name="use-the-write-ahead-log"></a>Write-Ahead Log 사용
 
-Spark 스트리밍은 Write-Ahead Log의 사용을 지원하는데 받은 이벤트는 각기 먼저 내결함성 저장소에 있는 Spark의 검사점 디렉터리에 기록된 다음 Resilient Distributed Dataset(RDD)에 저장됩니다. Azure에서 내결함성이 있는 저장소는 Azure Storage 또는 Azure Data Lake Store에서 지원하는 HDFS입니다. Spark 스트리밍 응용 프로그램에서 Write-Ahead Log는 `spark.streaming.receiver.writeAheadLog.enable` 구성 설정을 `true`에 설정하여 모든 수신기에 대해 사용하도록 설정됩니다. Write-Ahead Log는 드라이버와 실행기의 오류에 대한 내결함성을 제공합니다.
+Spark 스트리밍은 Write-Ahead Log의 사용을 지원하는데 받은 이벤트는 각기 먼저 내결함성 저장소에 있는 Spark의 검사점 디렉터리에 기록된 다음 Resilient Distributed Dataset(RDD)에 저장됩니다. Azure에서 내결함성이 있는 저장소는 Azure Storage 또는 Azure Data Lake Store에서 지원하는 HDFS입니다. Spark 스트리밍 애플리케이션에서 Write-Ahead Log는 `spark.streaming.receiver.writeAheadLog.enable` 구성 설정을 `true`에 설정하여 모든 수신기에 대해 사용하도록 설정됩니다. Write-Ahead Log는 드라이버와 실행기의 오류에 대한 내결함성을 제공합니다.
 
 이벤트 데이터에 대한 작업을 실행하는 작업자의 경우 각 RDD는 그 자체로 여러 작업자에게 복제되고 배포됩니다. 그것을 실행하는 작업자가 크래시했기 때문에 작업이 실패하면, 작업은 이벤트 데이터의 복제본이 있는 또 다른 작업자에서 다시 시작될 것이므로 이벤트는 손실되지 않습니다.
 
 ### <a name="use-checkpoints-for-drivers"></a>드라이버에 대한 검사점 사용
 
-작업 드라이버는 다시 시작 가능해야 합니다. Spark 스트리밍 응용 프로그램을 실행하는 드라이버가 크래시할 경우, 모든 실행 중인 수신기, 작업 및 이벤트 데이터를 저장하는 모든 RDD가 작동 중지됩니다. 이 경우 나중에 다시 시작할 수 있도록 작업의 진행 상태를 저장할 수 있어야 합니다. 이 작업은 DStream의 방향성 비순환 그래프(DAG)에 검사점을 내결함성 저장소에 주기적으로 설정하여 수행합니다. DAG 메타데이터는 스트리밍 응용 프로그램, 응용 프로그램을 정의하는 작업 및 완료되지 않고 대기 중인 모든 일괄 처리를 만드는 데 사용되는 구성을 포함합니다. 이 메타데이터는 실패한 드라이버를 검사점 정보로부터 다시 시작될 수 있도록 할 수 있습니다. 드라이버가 다시 시작될 때 스스로 이벤트 데이터를 Write-Ahead Log에서 RDD로 복구하는 새 수신기를 시작합니다.
+작업 드라이버는 다시 시작 가능해야 합니다. Spark 스트리밍 애플리케이션을 실행하는 드라이버가 크래시할 경우, 모든 실행 중인 수신기, 작업 및 이벤트 데이터를 저장하는 모든 RDD가 작동 중지됩니다. 이 경우 나중에 다시 시작할 수 있도록 작업의 진행 상태를 저장할 수 있어야 합니다. 이 작업은 DStream의 방향성 비순환 그래프(DAG)에 검사점을 내결함성 저장소에 주기적으로 설정하여 수행합니다. DAG 메타데이터는 스트리밍 애플리케이션, 애플리케이션을 정의하는 작업 및 완료되지 않고 대기 중인 모든 일괄 처리를 만드는 데 사용되는 구성을 포함합니다. 이 메타데이터는 실패한 드라이버를 검사점 정보로부터 다시 시작될 수 있도록 할 수 있습니다. 드라이버가 다시 시작될 때 스스로 이벤트 데이터를 Write-Ahead Log에서 RDD로 복구하는 새 수신기를 시작합니다.
 
 검사점은 Spark 스트리밍에서 두 단계를 거쳐 사용할 수 있습니다. 
 

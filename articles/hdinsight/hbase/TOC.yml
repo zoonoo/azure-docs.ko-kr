@@ -35,7 +35,7 @@ items:
     items:
     - name: Apache HBase.NET SDK 사용
       href: apache-hbase-rest-sdk.md
-    - name: Java 응용 프로그램 배포
+    - name: Java 애플리케이션 배포
       href: apache-hbase-build-java-maven-linux.md
     - name: 빈 에지 노드 사용
       href: ../hdinsight-apps-use-edge-node.md
@@ -76,7 +76,7 @@ items:
       - name: Azure Marketplace에 HDInsight 앱 게시
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: 게시된 앱 설치 - Cask 데이터 응용 프로그램 플랫폼(CDAP)
+      - name: 게시된 앱 설치 - Cask 데이터 애플리케이션 플랫폼(CDAP)
         href: ../hdinsight-apps-install-cask.md
         maintainContext: true
       - name: 게시된 앱 설치 - Dataiku

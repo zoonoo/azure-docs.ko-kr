@@ -21,7 +21,7 @@ ms.locfileid: "47056599"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Azure SQL Database, SQL Data Warehouse, Data Factory 및 Power BI를 사용한 SaaS 분석 탐색
 
-이 자습서에서는 통합형 분석 시나리오를 처음부터 끝까지 살펴봅니다. 시나리오는 테넌트 데이터에 대한 분석을 통해 소프트웨어 공급 업체가 스마트한 결정을 내리는 데 도움을 받는 방법을 보여 줍니다. 각 테넌트 데이터베이스에서 추출된 데이터에 분석을 적용하여 테넌트 동작을 살펴보게 됩니다. 테넌트가 샘플 응용 프로그램인 Wingtip Tickets SaaS 응용 프로그램을 사용하는 방식도 확인하게 됩니다. 이 시나리오는 다음과 같이 3단계로 구성됩니다. 
+이 자습서에서는 통합형 분석 시나리오를 처음부터 끝까지 살펴봅니다. 시나리오는 테넌트 데이터에 대한 분석을 통해 소프트웨어 공급 업체가 스마트한 결정을 내리는 데 도움을 받는 방법을 보여 줍니다. 각 테넌트 데이터베이스에서 추출된 데이터를 사용하여 분석을 통해 샘플 Wingtip Tickets SaaS 애플리케이션을 비롯한 테넌트 동작을 살펴보게 됩니다. 이 시나리오는 다음과 같이 3단계로 구성됩니다. 
 
 1.  각 테넌트 데이터베이스에서 분석 저장소로 **데이터를 추출**합니다. 이 경우는 SQL Data Warehouse입니다.
 2.  분석 처리를 위해 **추출된 데이터를 최적화**합니다.
@@ -71,8 +71,8 @@ SaaS 응용 프로그램은 클라우드에서 방대한 양의 테넌트 데이
 > 이 자습서에서는 현재 미리 보기가 제한된 Azure Data Factory의 기능을 사용합니다(연결된 서비스 매개 변수화). 이 자습서를 수행하려는 경우 [여기에](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu) 구독 ID를 제공합니다. 구독을 사용하도록 설정하는 즉시 확인을 전송합니다.
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
-- Wingtip Tickets SaaS Database Per Tenant 응용 프로그램이 배포되어 있어야 합니다. 5분 이내에 배포하려면 [Wingtip SaaS 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
-- Wingtip Tickets SaaS Database Per Tenant 스크립트와 응용 프로그램 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)를 GitHub에서 다운로드해야 합니다. 다운로드 지침을 참조하세요. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제*해야 합니다.
+- Wingtip Tickets SaaS Database Per Tenant 애플리케이션이 배포되어 있어야 합니다. 5분 이내에 배포하려면 [Wingtip SaaS 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
+- Wingtip Tickets SaaS Database Per Tenant 스크립트와 애플리케이션 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)를 GitHub에서 다운로드해야 합니다. 다운로드 지침을 참조하세요. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제*해야 합니다.
 - Power BI Desktop이 설치되어 있어야 합니다. [Power BI Desktop 다운로드](https://powerbi.microsoft.com/downloads/).
 - 추가 테넌트 배치가 프로비전되어 있어야 합니다. [**테넌트 프로비전 자습서**](saas-dbpertenant-provision-and-catalog.md)를 참조하세요.
 

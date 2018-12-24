@@ -25,7 +25,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
 ![Azure Cosmos DB는 탄력적 규모 확장, 낮은 대기 시간 보증, 일관성 모델 5개, 포괄적 보장 SLA를 갖춘 글로벌하게 배포된 데이터베이스 서비스입니다.](./media/introduction/azure-cosmos-db.png)
 
 ## <a name="key-capabilities"></a>주요 기능
-전 세계적으로 분산된 다중 모델 데이터베이스 서비스인 Azure Cosmos DB는 전 세계적 규모의 확장성과 응답성이 뛰어난 응용 프로그램을 쉽게 만들 수 있습니다.
+전 세계적으로 분산된 다중 모델 데이터베이스 서비스인 Azure Cosmos DB는 전 세계적 규모의 확장성과 응답성이 뛰어난 애플리케이션을 쉽게 만들 수 있습니다.
 
 * **턴키 글로벌 배포**
     * [단추를 클릭](tutorial-global-distribution-sql-api.md)하여 원하는 수의 [Azure 지역](https://azure.microsoft.com/regions/)에 [데이터를 배포](distribute-data-globally.md)할 수 있습니다. 이렇게 하면 사용자가 있는 위치에 데이터를 배치하여 고객에게 가장 짧을 대기 시간을 보장할 수 있습니다. 
@@ -36,8 +36,8 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
     * Azure Cosmos DB가 빌드된 ARS(atom-record-sequence) 기반 데이터 모델은 기본적으로 문서, 그래프, 키-값, 테이블 및 열 계열 데이터 모델을 포함하지만 이를 제한하지 않는 여러 데이터 모델을 지원합니다.
     * 여러 언어에서 사용할 수 있는 SDK로 다음 데이터 모델의 API가 지원됩니다.
         * [SQL API](sql-api-introduction.md): 풍부한 SQL 쿼리 기능이 있지만 스키마가 없는 JSON 데이터베이스 엔진입니다.
-        * [MongoDB API](mongodb-introduction.md): Azure Cosmos DB 플랫폼에서 지원하는 대규모로 확장 가능한 *MongoDB-as-a-Service*입니다. 기존 MongoDB 라이브러리, 드라이버, 도구 및 응용 프로그램과 호환됩니다.
-        * [Cassandra API](cassandra-introduction.md): Azure Cosmos DB 플랫폼에서 지원하는 전 세계적으로 분산된 Cassandra-as-a-Service입니다. 기존 [Apache Cassandra](https://cassandra.apache.org/) 라이브러리, 드라이버, 도구 및 응용 프로그램과 호환됩니다.
+        * [MongoDB API](mongodb-introduction.md): Azure Cosmos DB 플랫폼에서 지원하는 대규모로 확장 가능한 *MongoDB-as-a-Service*입니다. 기존 MongoDB 라이브러리, 드라이버, 도구 및 애플리케이션과 호환됩니다.
+        * [Cassandra API](cassandra-introduction.md): Azure Cosmos DB 플랫폼에서 지원하는 전 세계적으로 분산된 Cassandra-as-a-Service입니다. 기존 [Apache Cassandra](https://cassandra.apache.org/) 라이브러리, 드라이버, 도구 및 애플리케이션과 호환됩니다.
         * [Gremlin API](graph-introduction.md): 개방형 Gremlin API([Apache TinkerPop 사양](https://tinkerpop.apache.org/), Apache Gremlin을 기반으로 함)를 지원하는 고도로 연결된 데이터 세트와 호환되는 애플리케이션을 쉽게 빌드하고 실행할 수 있는 수평적으로 확장 가능한 완전 관리형 그래프 데이터베이스 서비스입니다.
         * [Table API](table-introduction.md): 앱을 변경하지 않고도 기존 Azure Table Storage 애플리케이션에 프리미엄 기능(예: 자동 인덱싱, 짧은 대기 시간 보장, 전역 배포)을 제공하도록 만들어진 키-값 데이터베이스 서비스입니다.
         * 추가 데이터 모델 및 API 제공 예정
@@ -62,7 +62,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
     * 재정적으로 지원되는 업계 최고의 포괄적인 [서비스 수준 계약](https://aka.ms/acdbsla)(SLA)으로 중요한 데이터에 대한 가용성, 대기 시간, 처리량 및 일관성을 보장합니다. 
 
 * **데이터베이스 스키마/인덱스 관리 없음**
-    * 데이터베이스 스키마 및/또는 인덱스 관리에 대한 걱정 없이 응용 프로그램의 스키마를 신속하게 반복합니다.
+    * 데이터베이스 스키마 및/또는 인덱스 관리에 대한 걱정 없이 애플리케이션의 스키마를 신속하게 반복합니다.
     * Azure Cosmos DB의 데이터베이스 엔진은 스키마에서 완전히 자유로우며 스키마나 인덱스 없이 자신이 수집한 모든 데이터를 자동으로 인덱싱하며 매우 빠르게 쿼리를 제공합니다. 
 
 * **낮은 소유 비용**
@@ -84,7 +84,7 @@ Azure Cosmos DB는 기존의 관계형 및 비관계형 데이터베이스의 �
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Azure Cosmos DB를 활용하는 솔루션
 
-다양한 데이터에 대한 실시간에 준하는 응답 시간을 통해 [전역적으로](distribute-data-globally.md) 대량의 데이터, 읽기 및 쓰기를 처리해야 하는 모든 [웹, 모바일, 게임 및 IoT 응용 프로그램](use-cases.md)은 Azure Cosmos DB에서 [보장](https://azure.microsoft.com/support/legal/sla/cosmos-db/)하는 고가용성, 높은 처리량, 짧은 대기 시간 및 조정 가능한 일관성의 이점을 누릴 수 있습니다. Azure Cosmos DB를 [IoT 및 전자 통신 정보](use-cases.md#iot-and-telematics), [소매 및 마케팅](use-cases.md#retail-and-marketing), [게임](use-cases.md#gaming) 및 [웹 및 모바일 응용 프로그램](use-cases.md#web-and-mobile-applications)에 적용하는 방법에 대해 알아보세요.
+다양한 데이터에 대한 실시간에 준하는 응답 시간을 통해 [전역적으로](distribute-data-globally.md) 대량의 데이터, 읽기 및 쓰기를 처리해야 하는 모든 [웹, 모바일, 게임 및 IoT 응용 프로그램](use-cases.md)은 Azure Cosmos DB에서 [보장](https://azure.microsoft.com/support/legal/sla/cosmos-db/)하는 고가용성, 높은 처리량, 짧은 대기 시간 및 조정 가능한 일관성의 이점을 누릴 수 있습니다. Azure Cosmos DB를 [IoT 및 전자 통신 정보](use-cases.md#iot-and-telematics), [소매 및 마케팅](use-cases.md#retail-and-marketing), [게임](use-cases.md#gaming) 및 [웹 및 모바일 애플리케이션](use-cases.md#web-and-mobile-applications)에 적용하는 방법에 대해 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 다음 요약 설명서를 통해 Azure Cosmos DB를 시작해 보세요.

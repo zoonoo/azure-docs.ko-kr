@@ -368,7 +368,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
 ## <a name="scenarios"></a>시나리오
 
-### <a name="application-updates"></a>응용 프로그램 업데이트
+### <a name="application-updates"></a>애플리케이션 업데이트
 애플리케이션이 확장을 통해 확장 집합에 배포되는 경우, 확장 구성을 업데이트하면 업그레이드 정책에 따라 애플리케이션이 업데이트됩니다. 예를 들어, 새 버전의 스크립트를 사용자 지정 스크립트 확장에서 실행되도록 하려면 새 스크립트를 가리키도록 *fileUris* 속성을 업데이트할 수 있습니다. 경우에 따라, 확장 구성이 변경되지 않더라도 강제로 업데이트하려고 할 수 있습니다(예: 스크립트의 URI를 변경하지 않고 스크립트 업데이트). 이러한 경우 업데이트를 강제로 수행하도록 *forceUpdateTag*를 수정할 수 있습니다. Azure 플랫폼에서는 이 속성을 해석하지 않습니다. 값을 변경해도 확장이 실행되는 방식에 영향을 미치지 않습니다. 변경하면 확장이 강제로 다시 실행되기만 합니다. *forceUpdateTag*에 대한 자세한 내용은 [확장에 대한 REST API 설명서](/rest/api/compute/virtualmachineextensions/createorupdate)를 참조하세요. *forceUpdateTag*는 사용자 지정 스크립트 확장뿐만 아니라 모든 확장에서 사용할 수 있습니다.
 
 애플리케이션을 사용자 지정 이미지를 통해 배포하는 것도 일반적입니다. 이 시나리오는 다음 섹션에서 설명됩니다.

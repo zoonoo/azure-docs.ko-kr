@@ -23,7 +23,7 @@ ms.locfileid: "48858046"
 
 다른 사용 권한을 부여하려는 경우 필요에 따라 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령에서 `--role` 값을 수정할 수 있습니다.
 
-스크립트를 실행한 후 서비스 주체의 **ID**와 **암호**를 기록해 둡니다. 자격 증명이 있으면 컨테이너 레지스트리를 서비스 주체로 인증하도록 응용 프로그램과 서비스를 구성할 수 있습니다.
+스크립트를 실행한 후 서비스 주체의 **ID**와 **암호**를 기록해 둡니다. 자격 증명이 있으면 컨테이너 레지스트리를 서비스 주체로 인증하도록 애플리케이션과 서비스를 구성할 수 있습니다.
 
 <!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh --> [!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
 

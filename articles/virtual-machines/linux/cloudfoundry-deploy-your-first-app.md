@@ -75,9 +75,9 @@ cf target -o testorg -s dev
 > [!NOTE] 
 > 조직과 공간 및 RBAC(역할 기반 액세스 제어)에 사용할 수 있는 방법에 대한 자세한 내용 [Cloud Foundry 설명서][cf-orgs-spaces-docs]를 참조하세요.
 
-## <a name="deploy-an-application"></a>응용 프로그램 배포
+## <a name="deploy-an-application"></a>애플리케이션 배포
 
-Java로 작성되며 [Spring Framework](http://spring.io) 및 [Spring Boot](http://projects.spring.io/spring-boot/)를 기반으로 하는 Hello Spring Cloud라는 샘플 Cloud Foundry 응용 프로그램을 사용해 봅시다.
+Java로 작성되며 [Spring Framework](http://spring.io) 및 [Spring Boot](http://projects.spring.io/spring-boot/)를 기반으로 하는 Hello Spring Cloud라는 샘플 Cloud Foundry 애플리케이션을 사용해 봅시다.
 
 ### <a name="clone-the-hello-spring-cloud-repository"></a>Hello Spring Cloud 리포지토리 복제
 
@@ -88,7 +88,7 @@ git clone https://github.com/cloudfoundry-samples/hello-spring-cloud
 cd hello-spring-cloud
 ```
 
-### <a name="build-the-application"></a>응용 프로그램 빌드
+### <a name="build-the-application"></a>애플리케이션 빌드
 
 [Apache Maven](http://maven.apache.org)을 사용하여 앱을 빌드합니다.
 
@@ -139,7 +139,7 @@ cf logs --recent hello-spring-cloud
 cf scale -i 2 hello-spring-cloud
 ```
 
-응용 프로그램에서 `cf app` 명령을 실행하면 Cloud Foundry가 응용 프로그램의 다른 인스턴스를 만들고 있음을 보여 줍니다. 응용 프로그램이 시작된 후 Cloud Foundry는 트래픽 부하 분산을 자동으로 시작합니다.
+응용 프로그램에서 `cf app` 명령을 실행하면 Cloud Foundry가 응용 프로그램의 다른 인스턴스를 만들고 있음을 보여 줍니다. 애플리케이션이 시작된 후 Cloud Foundry는 트래픽 부하 분산을 자동으로 시작합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

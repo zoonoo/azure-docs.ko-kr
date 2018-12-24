@@ -20,7 +20,7 @@ items:
     href: container-instances-tutorial-prepare-app.md
   - name: 2 - 컨테이너 레지스트리 만들기
     href: container-instances-tutorial-prepare-acr.md
-  - name: 3 - 응용 프로그램 배포
+  - name: 3 - 애플리케이션 배포
     href: container-instances-tutorial-deploy-app.md
 - name: 샘플
   items:

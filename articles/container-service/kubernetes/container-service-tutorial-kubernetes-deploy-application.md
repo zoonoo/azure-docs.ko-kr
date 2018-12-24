@@ -116,7 +116,7 @@ azure-vote-front   10.0.42.158   52.179.23.131 80:31873/TCP   2m
 > * Kubernetes에서 응용 프로그램 실행
 > * 응용 프로그램 테스트
 
-다음 자습서로 이동하여 Kubernetes 응용 프로그램과 기본 Kubernetes 인프라를 모두 크기 조정하는 방법에 대해 알아봅니다. 
+다음 자습서로 이동하여 Kubernetes 애플리케이션과 기본 Kubernetes 인프라를 모두 크기 조정하는 방법에 대해 알아봅니다. 
 
 > [!div class="nextstepaction"]
 > [Kubernetes 응용 프로그램 및 인프라 크기 조정](./container-service-tutorial-kubernetes-scale.md)

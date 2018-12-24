@@ -173,7 +173,7 @@ items:
       href: view-master-logs.md
     - name: Kubelet 로그 보기
       href: kubelet-logs.md
-  - name: 응용 프로그램 개발 및 실행
+  - name: 애플리케이션 개발 및 실행
     items:
     - name: Dev Spaces를 사용하여 개발
       href: ../dev-spaces/azure-dev-spaces.md

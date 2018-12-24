@@ -32,7 +32,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 - SQL DW 인스턴스의 이름
 - Azure Active Directory의 테넌트 ID(디렉터리 ID)
 - 구독 ID 
-- 서비스 사용자 응용 프로그램 ID
+- 서비스 사용자 애플리케이션 ID
 - 서비스 사용자 비밀 키
 
 앞에서 설명한 정보가 있으면 다음 템플릿을 배포합니다.
@@ -53,7 +53,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
    ![함수에 대해 통합 선택](media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. 현재 표시되는 값이 *%ScaleDownTime%* 또는 *%ScaleUpTime%* 여야 합니다. 이러한 값은 일정이 [응용 프로그램 설정][Application Settings]에 정의된 값을 따른다는 의미입니다. 지금은 이 값을 무시하고 다음 단계에 따라 일정을 원하는 시간으로 변경할 수 있습니다.
+3. 현재 표시되는 값이 *%ScaleDownTime%* 또는 *%ScaleUpTime%* 여야 합니다. 이러한 값은 일정이 [애플리케이션 설정][Application Settings]에 정의된 값을 따른다는 의미입니다. 지금은 이 값을 무시하고 다음 단계에 따라 일정을 원하는 시간으로 변경할 수 있습니다.
 
 4. 일정 영역에서 원하는 SQL Data Warehouse 강화 주기를 반영하도록 CRON 식의 시간을 추가합니다. 
 

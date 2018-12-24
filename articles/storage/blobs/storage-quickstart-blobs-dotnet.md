@@ -60,7 +60,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
 
-응용 프로그램을 실행하려면 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 이 응용 프로그램 예제는 환경 변수의 연결 문자열을 읽어서 Azure Storage에 대한 요청 권한을 부여하는 데 사용합니다.
+애플리케이션을 실행하려면 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. 이 응용 프로그램 예제는 환경 변수의 연결 문자열을 읽어서 Azure Storage에 대한 요청 권한을 부여하는 데 사용합니다.
 
 연결 문자열을 복사한 후 애플리케이션을 실행 중인 로컬 컴퓨터의 새 환경 변수에 씁니다. 환경 변수를 설정하려면 콘솔 창을 열고 사용 중인 운영 체제의 지침을 따릅니다. `<yourconnectionstring>`을 실제 연결 문자열로 바꿉니다.
 
@@ -108,7 +108,7 @@ dotnet run
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-응용 프로그램 디렉터리로 이동하여 `dotnet run` 명령으로 응용 프로그램을 실행합니다.
+애플리케이션 디렉터리로 이동하여 `dotnet run` 명령으로 애플리케이션을 실행합니다.
 
 ```
 dotnet run
@@ -116,7 +116,7 @@ dotnet run
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-응용 프로그램 디렉터리로 이동하여 `dotnet run` 명령으로 응용 프로그램을 실행합니다.
+애플리케이션 디렉터리로 이동하여 `dotnet run` 명령으로 애플리케이션을 실행합니다.
 
 ```
 dotnet run
@@ -281,7 +281,7 @@ File.Delete(sourceFile);
 File.Delete(destinationFile);
 ```
 
-## <a name="resources-for-developing-net-applications-with-blobs"></a>Blob을 사용하는 .NET 응용 프로그램 개발을 위한 리소스
+## <a name="resources-for-developing-net-applications-with-blobs"></a>Blob을 사용하는 .NET 애플리케이션 개발을 위한 리소스
 
 Blob 저장소를 사용하는 .NET 개발에 대한 이러한 추가 리소스를 참조합니다.
 
@@ -305,5 +305,5 @@ Blob 저장소로 이미지를 업로드하는 웹앱을 만드는 방법에 대
 > [Blob Storage 작업 방법](storage-dotnet-how-to-use-blobs.md)
 
 - .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://www.microsoft.com/net/learn/get-started/)을 참조하세요.
-- Windows용 Visual Studio에서 배포할 수 있는 샘플 응용 프로그램을 탐색하려면 [Azure Blob Storage를 사용하여 .NET 사진 갤러리 웹 응용 프로그램 샘플](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)을 참조하세요.
+- Windows용 Visual Studio에서 배포할 수 있는 샘플 애플리케이션을 탐색하려면 [Azure Blob Storage를 사용하여 .NET 사진 갤러리 웹 애플리케이션 샘플](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)을 참조하세요.
  

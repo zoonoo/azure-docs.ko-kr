@@ -28,7 +28,7 @@ ms.locfileid: "48887243"
 - [Azure Active Directory B2C에서 사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
 - Microsoft 계정이 아직 없으면 [https://www.live.com/](https://www.live.com/)에서 만듭니다.
 
-## <a name="add-an-application"></a>응용 프로그램 추가
+## <a name="add-an-application"></a>애플리케이션 추가
 
 Azure AD B2C에서 ID 공급자로 Microsoft 계정을 사용하려면 Microsoft 계정 응용 프로그램을 추가해야 합니다.
 

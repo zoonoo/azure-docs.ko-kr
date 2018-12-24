@@ -159,7 +159,7 @@ New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
 키 중 하나를 다시 생성한 다음 다시 검색하여 새 값을 확인합니다.
 
 > [!NOTE] 
-> 프러덕션 저장소 계정에 대해 키를 다시 생성하기 전에 신중한 계획이 필요합니다. 하나 이상의 키를 다시 생성하면 다시 생성되는 키를 사용하던 모든 응용 프로그램에 대한 액세스가 무효화됩니다. 자세한 내용은 [액세스 키](storage-account-manage.md#access-keys)를 참조하세요.
+> 프러덕션 저장소 계정에 대해 키를 다시 생성하기 전에 신중한 계획이 필요합니다. 하나 이상의 키를 다시 생성하면 다시 생성되는 키를 사용하던 모든 애플리케이션에 대한 액세스가 무효화됩니다. 자세한 내용은 [액세스 키](storage-account-manage.md#access-keys)를 참조하세요.
 
 
 ### <a name="delete-a-storage-account"></a>저장소 계정 삭제 

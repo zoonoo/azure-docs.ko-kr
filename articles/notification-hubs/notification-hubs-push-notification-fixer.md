@@ -29,20 +29,20 @@ Azure Notification Hubs 고객이 가장 자주 하는 질문 중 하나는 응�
 
 ![Notification Hubs 아키텍처][0]
 
-일반적인 알림 보내기 흐름에서는 메시지가 *응용 프로그램 백 엔드*에서 Notification Hubs로 전송됩니다. Notification Hubs는 모든 등록에서 일부 처리를 수행합니다. 처리 시 구성된 태그 및 태그 식을 고려하여 "대상"이 결정됩니다. 푸시 알림을 받아야 하는 모든 등록이 대상입니다. 이러한 등록은 지원되는 모든 플랫폼(iOS, Google, Windows, Windows Phone, Kindle 및 중국 Android용 Baidu)에 적용될 수 있습니다.
+일반적인 알림 보내기 흐름에서는 메시지가 *애플리케이션 백 엔드*에서 Notification Hubs로 전송됩니다. Notification Hubs는 모든 등록에서 일부 처리를 수행합니다. 처리 시 구성된 태그 및 태그 식을 고려하여 "대상"이 결정됩니다. 푸시 알림을 받아야 하는 모든 등록이 대상입니다. 이러한 등록은 지원되는 모든 플랫폼(iOS, Google, Windows, Windows Phone, Kindle 및 중국 Android용 Baidu)에 적용될 수 있습니다.
 
 대상이 설정되면 Notification Hubs 서비스는 디바이스 플랫폼에 대한 *푸시 알림 서비스*에 알림을 푸시합니다. APNs(Apple Push Notification service) for Apple 및 FCM(Firebase Cloud Messaging) for Google을 예로 들 수 있습니다. Notification Hubs는 여러 등록 일괄 처리에 걸쳐 분할된 알림을 푸시합니다. Notification Hubs는 Azure Portal의 **알림 허브 구성**에 설정된 자격 증명을 기반으로 각 푸시 알림 서비스를 인증합니다. 그러면 푸시 알림 서비스가 각 *클라이언트 디바이스*에 알림을 전달합니다. 
 
-최종 알림 배달 레그는 플랫폼 푸시 알림 서비스와 디바이스 사이에서 발생합니다. 푸시 알림 프로세스의 네 가지 주요 구성 요소(클라이언트, 응용 프로그램 백 엔드, Notification Hubs 및 플랫폼 푸시 알림 서비스) 때문에 알림이 삭제될 수 있습니다. Notification Hubs 아키텍처에 대한 자세한 내용은 [Notification Hubs 개요]를 참조하세요.
+최종 알림 배달 레그는 플랫폼 푸시 알림 서비스와 디바이스 사이에서 발생합니다. 푸시 알림 프로세스의 네 가지 주요 구성 요소(클라이언트, 애플리케이션 백 엔드, Notification Hubs 및 플랫폼 푸시 알림 서비스) 때문에 알림이 삭제될 수 있습니다. Notification Hubs 아키텍처에 대한 자세한 내용은 [Notification Hubs 개요]를 참조하세요.
 
-초기 테스트/준비 단계에서 알림 배달이 실패할 수 있습니다. 이 단계에서 알림이 삭제될 경우 구성이 잘못된 것일 수 있습니다. 프로덕션 환경에서 알림 배달이 실패할 경우 알림의 일부 또는 전체가 삭제될 수 있습니다. 이 경우 보다 근본적인 응용 프로그램 또는 메시지 패턴 문제가 있는 것입니다. 
+초기 테스트/준비 단계에서 알림 배달이 실패할 수 있습니다. 이 단계에서 알림이 삭제될 경우 구성이 잘못된 것일 수 있습니다. 프로덕션 환경에서 알림 배달이 실패할 경우 알림의 일부 또는 전체가 삭제될 수 있습니다. 이 경우 보다 근본적인 애플리케이션 또는 메시지 패턴 문제가 있는 것입니다. 
 
 다음 섹션에서는 일반적인 문제부터 희귀한 문제까지 알림이 삭제될 수 있는 시나리오를 살펴보겠습니다.
 
 ## <a name="notification-hubs-misconfiguration"></a>Notification Hubs 구성 오류
-각 푸시 알림 서비스에 알림을 성공적으로 보내려면 Notification Hubs 서비스는 개발자의 응용 프로그램 컨텍스트에서 자신을 인증해야 합니다. 그러기 위해 개발자는 각 플랫폼(Google, Apple, Windows 등)으로 개발자 계정을 만듭니다. 그런 다음 자격 증명을 받게 되는 플랫폼에 응용 프로그램을 등록합니다. 
+각 푸시 알림 서비스에 알림을 성공적으로 보내려면 Notification Hubs 서비스는 개발자의 응용 프로그램 컨텍스트에서 자신을 인증해야 합니다. 그러기 위해 개발자는 각 플랫폼(Google, Apple, Windows 등)으로 개발자 계정을 만듭니다. 그런 다음, 자격 증명을 받게 되는 플랫폼에 애플리케이션을 등록합니다. 
 
-Azure Portal에 플랫폼 자격 증명을 추가해야 합니다. 디바이스에 도달하는 알림이 하나도 없을 때 가장 먼저 할 일은 Notification Hubs에서 올바른 자격 증명이 구성되었는지 확인하는 것입니다. 자격 증명이 플랫폼별 개발자 계정에서 만든 응용 프로그램과 일치해야 합니다. 
+Azure Portal에 플랫폼 자격 증명을 추가해야 합니다. 디바이스에 도달하는 알림이 하나도 없을 때 가장 먼저 할 일은 Notification Hubs에서 올바른 자격 증명이 구성되었는지 확인하는 것입니다. 자격 증명이 플랫폼별 개발자 계정에서 만든 애플리케이션과 일치해야 합니다. 
 
 이 프로세스를 완료하는 단계별 지침은 [Azure Notification Hubs 시작]을 참조하세요.
 
@@ -56,7 +56,7 @@ Azure Portal에 플랫폼 자격 증명을 추가해야 합니다. 디바이스�
         * 백 엔드에서 알림을 보내는 위치.
         * 푸시 알림 서비스 자격 증명을 구성한 위치.
     
-    * 클라이언트 및 응용 프로그램 백 엔드에서 올바른 공유 액세스 서명 구성 문자열을 사용해야 합니다. 일반적으로 클라이언트에서는 **DefaultListenSharedAccessSignature**를 사용해야 하고 응용 프로그램 백 엔드에서는 **DefaultFullSharedAccessSignature**를 사용해야 합니다(Notification Hubs에 알림을 보낼 수 있는 권한 부여).
+    * 클라이언트 및 애플리케이션 백 엔드에서 올바른 공유 액세스 서명 구성 문자열을 사용해야 합니다. 일반적으로 클라이언트에서는 **DefaultListenSharedAccessSignature**를 사용해야 하고 애플리케이션 백 엔드에서는 **DefaultFullSharedAccessSignature**를 사용해야 합니다(Notification Hubs에 알림을 보낼 수 있는 권한 부여).
 
 * **APNs 구성**
    

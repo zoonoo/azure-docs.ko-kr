@@ -34,4 +34,4 @@ Azure Database for PostgreSQL 및 Azure Database for MySQL을 함께 사용하�
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/B8045/player]
 
-2017년 5월 Microsoft //Build 컨퍼런스에서 가져온 이 비디오에서는 Microsoft의 Azure 내 관리되는 MySQL 제품에 대해 알아봅니다. 이 비디오는 Azure에서 오픈 소스 데이터베이스 시스템을 지원하기 위한 Microsoft의 전략을 알아봅니다. 또한 Azure에서 MySQL을 사용하는 응용 프로그램을 개발하거나 배포하는 개발자에게 이러한 전략이 의미하는 바를 논의합니다. 그뿐 아니라 서비스 아키텍처 개요를 표시하고 Azure Database for MySQL이 다른 Azure 서비스(예: Web Apps)와 통합되어 있음을 보여줍니다.
+2017년 5월 Microsoft //Build 컨퍼런스에서 가져온 이 비디오에서는 Microsoft의 Azure 내 관리되는 MySQL 제품에 대해 알아봅니다. 이 비디오는 Azure에서 오픈 소스 데이터베이스 시스템을 지원하기 위한 Microsoft의 전략을 알아봅니다. 또한 Azure에서 MySQL을 사용하는 애플리케이션을 개발하거나 배포하는 개발자에게 이러한 전략이 의미하는 바를 논의합니다. 그뿐 아니라 서비스 아키텍처 개요를 표시하고 Azure Database for MySQL이 다른 Azure 서비스(예: Web Apps)와 통합되어 있음을 보여줍니다.
