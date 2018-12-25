@@ -161,7 +161,7 @@ ms.locfileid: "45634781"
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 
 이 문서에서는 SAP ASCS 인스턴스를 클러스터링하는 옵션으로서 *클러스터 공유 디스크*를 사용하여 Windows 장애 조치(Failover) 클러스터에서 고가용성 SAP 시스템을 설치 및 구성하기 위해 Azure 인프라를 준비하는 방법을 설명합니다.
@@ -196,7 +196,7 @@ _**그림 1:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
   템플릿은 다음을 만듭니다.
 
   * **가상 머신**:
-    * SAP 응용 프로그램 서버 가상 머신: \<SAPSystemSID\>-di-\<번호\>
+    * SAP 애플리케이션 서버 가상 머신: \<SAPSystemSID\>-di-\<번호\>
     * ASCS/SCS 클러스터 가상 머신: \<SAPSystemSID\>-ascs-\<번호\>
     * DBMS 클러스터: \<SAPSystemSID\>-db-\<번호\>
 
@@ -208,7 +208,7 @@ _**그림 1:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
   * **Azure 저장소 계정(비관리 디스크만 해당)**:
 
   * 다음에 대한 **가용성 그룹**:
-    * SAP 응용 프로그램 서버 가상 머신: \<SAPSystemSID\>-avset-di
+    * SAP 애플리케이션 서버 가상 머신: \<SAPSystemSID\>-avset-di
     * SAP ASCS/SCS 클러스터 가상 머신: \<SAPSystemSID\>-avset-ascs
     * DBMS 클러스터 가상 머신: \<SAPSystemSID\>-avset-db
 
@@ -351,7 +351,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
 
 응용 프로그램 서버 템플릿은 하나의 SAP 시스템을 위한 SAP 응용 프로그램 서버 인스턴스로 사용할 수 있는 둘 이상의 가상 머신을 배포합니다. 예를 들어 5개 SAP 시스템에 대해 ASCS/SCS 템플릿을 배포하는 경우 이 템플릿을 5번 배포해야 합니다.
 
-응용 프로그램 서버 다중 SID 템플릿을 설정하려면 [응용 프로그램 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image] 또는 [Managed Disks를 사용하는 응용 프로그램 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image-md]에서 다음 매개 변수 값을 입력합니다.
+애플리케이션 서버 다중 SID 템플릿을 설정하려면 [애플리케이션 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image] 또는 [Managed Disks를 사용하는 애플리케이션 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image-md]에서 다음 매개 변수 값을 입력합니다.
 
   -  **SAP 시스템 ID**: 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
   -  **OS 종류**: 가상 머신의 운영 체제를 선택합니다.
@@ -430,10 +430,10 @@ DNS 서버에서 다른 두 가상 호스트 이름 pr1-ascs-sap 및 pr1-dbms-sa
 
 | 가상 머신 역할 | 가상 머신 호스트 이름 | 네트워크 카드 이름 | 고정 IP 주소 |
 | --- | --- | --- | --- |
-| 첫 번째 SAP 응용 프로그램 서버 인스턴스 |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
+| 첫 번째 SAP 애플리케이션 서버 인스턴스 |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
 | 두 번째 SAP 응용 프로그램 서버 인스턴스 |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
 | ... |... |... |... |
-| 마지막 SAP 응용 프로그램 서버 인스턴스 |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
+| 마지막 SAP 애플리케이션 서버 인스턴스 |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
 | ASCS/SCS 인스턴스의 첫 번째 클러스터 노드 |pr1-ascs-0 |pr1-nic-ascs-0 |10.0.0.40 |
 | ASCS/SCS 인스턴스의 두 번째 클러스터 노드 |pr1-ascs-1 |pr1-nic-ascs-1 |10.0.0.41 |
 | DBMS 인스턴스의 첫 번째 클러스터 노드 |pr1-db-0 |pr1-nic-db-0 |10.0.0.30 |

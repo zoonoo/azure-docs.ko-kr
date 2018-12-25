@@ -119,7 +119,7 @@ Azure Security Center는 Azure 리소스를 보호하는 데 도움이 됩니다
 
 보안 정책은 지정된 구독 또는 리소스 그룹 내에서 리소스에 대해 권장되는 제어 집합을 정의합니다.
 
-보안 센터에서 회사의 보안 요구 사항 및 응용 프로그램 유형 또는 데이터 민감도에 따라 정책을 정의합니다.
+Security Center에서 회사의 보안 요구 사항 및 애플리케이션 유형 또는 데이터 민감도에 따라 정책을 정의합니다.
 
 ![보안 정책 및 권장 사항](./media/azure-operational-security/azure-operational-security-fig5.png)
 

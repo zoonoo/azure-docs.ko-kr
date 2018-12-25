@@ -131,4 +131,4 @@ IP 확인을 사용하여 NSG 구성이 유효한지 검사할 수도 있습니�
 * Azure 가상 머신에서 실행 중인 침입 검색 또는 네트워크 모니터링 소프트웨어가 SSH 연결을 방지하고 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
-응용 프로그램 액세스 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 가상 머신에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](../linux/troubleshoot-app-connection.md)
+애플리케이션 액세스 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 가상 컴퓨터에서 실행 중인 애플리케이션에 대한 액세스 문제 해결](../linux/troubleshoot-app-connection.md)

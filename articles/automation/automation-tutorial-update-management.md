@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8a99a784292c4294456296c1f105e5f485689368
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 83647dfb0965b8aac8ede5f2e9669ae3d7722c41
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679905"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184987"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Automation을 사용하여 Windows 업데이트 관리
 
@@ -41,7 +41,7 @@ ms.locfileid: "52679905"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="enable-update-management"></a>업데이트 관리 사용
 
@@ -82,48 +82,24 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="configure-alerts"></a>경고 구성
 
-이 단계에서는 Log Analytics 쿼리를 통하거나 마스터 런타임에서 실패한 배포에 대한 업데이트 관리를 추적하여 업데이트가 성공적으로 배포되었는지 알려주는 경고를 설정합니다.
+이 단계에서는 업데이트 배포 상태를 알려 주도록 경고를 설정하는 방법을 알아봅니다.
 
 ### <a name="alert-conditions"></a>경고 조건
 
-각 경고 유형에는 정의해야 할 다양한 경고 조건이 있습니다.
+Automation 계정의 **모니터링** 아래에서 **경고**로 이동한 후 **+ 새 경고 규칙**을 클릭합니다.
 
-#### <a name="log-analytics-query-alert"></a>Log Analytics 쿼리 경고
+Automation 계정이 이미 리소스로 선택되었습니다. 변경하려면 **선택**을 클릭하고 **리소스 선택** 페이지의 **리소스 종류별 필터링** 드롭다운에서 **Automation 계정**을 선택합니다. Automation 계정을 선택한 다음, **완료**를 선택합니다.
 
-성공적인 배포의 경우 Log Analytics 쿼리를 기반으로 하는 경고를 만들 수 있습니다. 실패한 배포의 경우 [Runbook 경고](#runbook-alert) 단계를 사용하여 오케스트레이터에서 배포를 업데이트하는 마스터 Runbook에 오류가 발생할 때 이를 알릴 수 있습니다. 다양한 시나리오를 포함하도록 추가 경고에 대한 사용자 지정 쿼리를 작성할 수 있습니다.
+**조건 추가**를 클릭하여 업데이트 배포에 적절한 신호를 선택합니다. 다음 표는 업데이트 배포에 사용 가능한 두 가지 신호의 세부 정보를 보여 줍니다.
 
-Azure Portal에서 **모니터**로 이동한 다음, **경고 만들기**를 선택합니다.
+|신호 이름|차원|설명|
+|---|---|---|
+|**총 업데이트 배포 실행**|- 업데이트 배포 이름</br>- 상태|이 신호는 업데이트 배포의 전체 상태를 알리는 데 사용됩니다.|
+|**총 업데이트 배포 머신 실행**|- 업데이트 배포 이름</br>- 상태</br>- 대상 컴퓨터</br>- 업데이트 배포 실행 ID|이 신호는 특정 머신을 대상으로 하는 업데이트 배포의 상태를 알리는 데 사용됩니다.|
 
-**1. 경고 조건 정의** 아래에서 **대상 선택**을 클릭합니다. **리소스 종류별로 필터링**에서 **Log Analytics**를 선택합니다. Log Analytics 작업 영역을 선택한 다음, **완료**를 선택합니다.
-
-![경고 만들기](./media/automation-tutorial-update-management/create-alert.png)
-
-**기준 추가**를 선택합니다.
-
-**신호 논리 구성**의 테이블에서 **로그 검색 사용자 지정**을 선택합니다. **검색 쿼리** 텍스트 상자에 다음 쿼리를 입력합니다.
-
-```loganalytics
-UpdateRunProgress
-| where InstallationStatus == 'Succeeded'
-| where TimeGenerated > now(-10m)
-| summarize by UpdateRunName, Computer
-```
-이 쿼리는 지정된 시간 프레임에 완료된 컴퓨터 및 업데이트 실행 이름을 반환합니다.
-
-**논리 경고** 아래에서 **임계값**으로 **1**을 입력합니다. 완료되면 **완료**를 선택합니다.
+차원 값의 경우 목록에서 유효한 값을 선택합니다. 찾으려는 값이 목록에 없으면 해당 차원 옆의 **\+** 기호를 클릭하고 사용자 지정 이름을 입력합니다. 그런 다음, 찾으려는 값을 선택할 수 있습니다. 차원의 모든 값을 선택하려면 **선택\*** 단추를 클릭합니다. 차원 값을 선택하지 않으면 평가 중에 해당 차원이 무시됩니다.
 
 ![신호 논리 구성](./media/automation-tutorial-update-management/signal-logic.png)
-
-#### <a name="runbook-alert"></a>Runbook 경고
-
-실패한 배포의 경우 마스터 Runbook의 실패에 대해 경고해야 합니다.
-Azure Portal에서 **모니터**로 이동한 다음, **경고 만들기**를 선택합니다.
-
-**1. 경고 조건 정의** 아래에서 **대상 선택**을 클릭합니다. **리소스 종류별로 필터링** 아래에서 **Automation 계정**을 선택합니다. Automation 계정을 선택한 다음, **완료**를 선택합니다.
-
-**Runbook 이름**에 대해 **\+** 기호를 클릭하고, 사용자 지정 이름으로 **Patch-MicrosoftOMSComputers**를 입력합니다. **상태**에 대해 **실패**를 선택하거나, **\+** 기호를 클릭하여 **실패**를 입력합니다.
-
-![Runbook에 대한 신호 논리 구성](./media/automation-tutorial-update-management/signal-logic-runbook.png)
 
 **논리 경고** 아래에서 **임계값**으로 **1**을 입력합니다. 완료되면 **완료**를 선택합니다.
 
@@ -133,7 +109,7 @@ Azure Portal에서 **모니터**로 이동한 다음, **경고 만들기**를 �
 
 ![신호 논리 구성](./media/automation-tutorial-update-management/define-alert-details.png)
 
-**3. 작업 그룹 정의**에서 **새 작업 그룹**을 선택합니다. 작업 그룹은 여러 경고에서 사용할 수 있는 작업의 그룹입니다. 이 작업에는 이메일 알림, Runbook, 웹후크 등이 포함되며 이에 국한되지 않습니다. 작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../monitoring-and-diagnostics/monitoring-action-groups.md)를 참조하세요.
+**작업 그룹** 아래에서 **새로 만들기**를 선택합니다. 작업 그룹은 여러 경고에서 사용할 수 있는 작업의 그룹입니다. 이 작업에는 이메일 알림, Runbook, 웹후크 등이 포함되며 이에 국한되지 않습니다. 작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조하세요.
 
 **작업 그룹 이름** 상자에 경고의 이름 및 약식 이름을 입력합니다. 약식 이름은 이 그룹을 사용하여 알림을 보내는 경우 전체 작업 그룹 이름 대신 사용됩니다.
 
@@ -181,9 +157,9 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
    배포가 한 번만 수행될지 여부를 지정하거나 되풀이 일정을 설정할 수도 있습니다. **되풀이**에서 **한 번**을 선택합니다. 기본값을 1일로 그대로 두고 **확인**을 선택합니다. 이렇게 하면 되풀이 일정이 설정됩니다.
 
 * **사전 스크립트 + 사후 스크립트**: 배포 전후에 실행할 스크립트를 선택합니다. 자세한 내용은 [사전 및 사후 스크립트 관리](pre-post-scripts.md)를 참조하세요.
-* **유지 관리 기간(분)**: 기본값으로 그대로 둡니다. 업데이트 배포를 수행하려는 기간을 설정할 수 있습니다. 이 설정을 통해 정해진 서비스 기간 내에 변경 내용을 수행할 수 있습니다.
+* **유지 관리 기간(분)**: 기본값을 그대로 둡니다. 업데이트 배포를 수행하려는 기간을 설정할 수 있습니다. 이 설정을 통해 정해진 서비스 기간 내에 변경 내용을 수행할 수 있습니다.
 
-* **다시 부팅 옵션**: 다시 부팅을 처리하는 방법을 결정합니다. 사용 가능한 옵션은 다음과 같습니다.
+* **다시 부팅 옵션**: 이 설정은 다시 부팅을 처리하는 방법을 결정합니다. 사용 가능한 옵션은 다음과 같습니다.
   * 필요한 경우 다시 부팅(기본값)
   * 항상 다시 부팅
   * 다시 부팅 안 함

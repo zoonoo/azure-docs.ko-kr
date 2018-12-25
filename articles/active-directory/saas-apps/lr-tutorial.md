@@ -50,7 +50,7 @@ LoginRadius와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 LoginRadius 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -72,7 +72,7 @@ LoginRadius의 Azure AD 통합을 구성하려면 갤러리의 LoginRadius를 �
 
     ![새 응용 프로그램 단추][3]
 
-1. 검색 상자에 **LoginRadius**를 입력하고 결과 패널에서 **LoginRadius**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **LoginRadius**를 입력하고 결과 패널에서 **LoginRadius**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 LoginRadius](./media/lr-tutorial/tutorial_LoginRadius_addfromgallery.png)
 
@@ -92,11 +92,11 @@ LoginRadius에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 LoginRadius 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 LoginRadius 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **LoginRadius에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **LoginRadius** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **LoginRadius** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -176,9 +176,9 @@ LoginRadius에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **LoginRadius**를 선택합니다.
+1. 애플리케이션 목록에서 **LoginRadius**를 선택합니다.
 
-    ![응용 프로그램 목록의 LoginRadius 링크](./media/lr-tutorial/tutorial_LoginRadius_app.png)  
+    ![애플리케이션 목록의 LoginRadius 링크](./media/lr-tutorial/tutorial_LoginRadius_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -198,7 +198,7 @@ LoginRadius에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 LoginRadius 타일을 클릭하면 LoginRadius 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 LoginRadius 타일을 클릭하면 LoginRadius 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

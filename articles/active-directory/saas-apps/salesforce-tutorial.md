@@ -74,7 +74,7 @@ Salesforce의 Azure AD 통합을 구성하려면 갤러리의 Salesforce를 관�
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에 **Salesforce**를 입력하고 결과 패널에서 **Salesforce**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **Salesforce**를 입력하고 결과 패널에서 **Salesforce**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Salesforce](./media/salesforce-tutorial/tutorial_salesforce_addfromgallery.png)
 
@@ -230,7 +230,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 2. 애플리케이션 목록에서 **Salesforce**를 선택합니다.
 
-    ![응용 프로그램 목록의 Salesforce 연결](./media/salesforce-tutorial/tutorial_salesforce_app.png)
+    ![애플리케이션 목록의 Salesforce 연결](./media/salesforce-tutorial/tutorial_salesforce_app.png)
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -250,7 +250,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Salesforce 타일을 클릭하면 Salesforce 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Salesforce 타일을 클릭하면 Salesforce 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

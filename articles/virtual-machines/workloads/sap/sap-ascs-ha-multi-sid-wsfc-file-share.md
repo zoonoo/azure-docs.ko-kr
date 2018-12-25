@@ -196,7 +196,7 @@ ms.locfileid: "43189636"
 
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 
 2016년 9월 Microsoft는 [Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용하여 여러 가상 IP 주소를 관리할 수 있는 기능을 출시했습니다. 이 기능은 Azure 외부 부하 분산 장치에 이미 있습니다.
@@ -446,8 +446,8 @@ _**그림 13:** 두 번째 sapmnt가 sapglobal2 호스트에 바인딩되고 Vol
 
 한 SAP \<SID>에 대해 설명된 것과 동일한 설치 및 구성 단계를 따릅니다.
 
-### <a name="install-dbms-and-sap-application-servers"></a>DBMS 및 SAP 응용 프로그램 서버 설치
-앞에서 설명한 대로 DBMS 및 SAP 응용 프로그램을 설치합니다.
+### <a name="install-dbms-and-sap-application-servers"></a>DBMS 및 SAP 애플리케이션 서버 설치
+앞에서 설명한 대로 DBMS 및 SAP 애플리케이션 서버를 설치합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

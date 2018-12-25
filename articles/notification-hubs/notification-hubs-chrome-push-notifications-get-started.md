@@ -387,14 +387,14 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
     ![Google Chrome - 알림 허브 세부 정보 지정][20]  
 
 ## <a name="send"></a>Chrome 앱에 알림 보내기
-테스트를 위해 .NET 콘솔 응용 프로그램을 사용하여 Chrome 푸시 알림을 보냅니다. 
+테스트를 위해 .NET 콘솔 애플리케이션을 사용하여 Chrome 푸시 알림을 보냅니다. 
 
 > [!NOTE]
 > 공용 <a href="https://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 통해 모든 백 엔드에서 Notification Hubs를 사용하여 푸시 알림을 보낼 수 있습니다. 더 많은 플랫폼 간 예제는 [설명서 포털](https://azure.microsoft.com/documentation/services/notification-hubs/)을 확인하세요.
 > 
 > 
 
-1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다. **Visual C#** 에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다.  이 단계에서는 새 콘솔 응용 프로그램 프로젝트가 만들어집니다.
+1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다. **Visual C#** 에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다.  이 단계에서는 새 콘솔 애플리케이션 프로젝트가 만들어집니다.
 2. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 아래쪽 창에 패키지 관리자 콘솔이 표시됩니다.
 3. 콘솔 창에서 다음 명령을 실행합니다.
    

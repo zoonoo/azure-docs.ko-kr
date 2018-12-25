@@ -408,7 +408,7 @@ Azure는 데이터 디스크 IOPS 할당량을 적용합니다. 이러한 할당
 - - -
 > ![ Windows][Logo_Windows]  Windows
 > 
-> Azure VM의 드라이브 D:\는 Azure 계산 노드의 일부 로컬 디스크에서 지원하는 비지속형 드라이브입니다. 비지속형이기 때문에 VM을 다시 부팅하면 D:\ 드라이브의 변경 내용이 손실됩니다. "변경 내용"이란 저장된 파일, 생성된 디렉터리, 설치된 응용 프로그램 등을 의미합니다.
+> Azure VM의 드라이브 D:\는 Azure 계산 노드의 일부 로컬 디스크에서 지원하는 비지속형 드라이브입니다. 비지속형이기 때문에 VM을 다시 부팅하면 D:\ 드라이브의 변경 내용이 손실됩니다. "변경 내용"이란 저장된 파일, 생성된 디렉터리, 설치된 애플리케이션 등을 의미합니다.
 > 
 > ![Linux][Logo_Linux] Linux
 > 
@@ -775,7 +775,7 @@ Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 응용 프로그램�
 
     Latin1-General, binary code point comparison sort for Unicode Data, SQL Server Sort Order 40 on Code Page 850 for non-Unicode Data
 
-원하는 결과가 아닌 경우 SAP 배포를 중지하고 설치 명령이 원하는 대로 작동되지 않은 이유를 확인합니다. 위에서 언급한 것과 다른 SQL Server 코드 페이지를 사용하여 SAP NetWeaver 응용 프로그램을 SQL Server 인스턴스에 배포할 수는 **없습니다** .
+원하는 결과가 아닌 경우 SAP 배포를 중지하고 설치 명령이 원하는 대로 작동되지 않은 이유를 확인합니다. 위에서 언급한 것과 다른 SQL Server 코드 페이지를 사용하여 SAP NetWeaver 애플리케이션을 SQL Server 인스턴스에 배포할 수는 **없습니다**.
 
 ### <a name="sql-server-high-availability-for-sap-in-azure"></a>Azure의 SAP용 SQL Server 고가용성
 이 문서 앞부분에서 언급했듯이 이전 SQL Server 고가용성 기능 활용에 필요한 공유 저장소를 만들 수는 없습니다. 이 기능은 사용자 데이터베이스(및 tempdb)용 공유 디스크를 사용하여 WSFC(Windows Server 장애 조치(failover) 클러스터)에 둘 이상의 SQL Server 인스턴스를 설치합니다. 이는 SAP에서도 지원되는 오래된 표준 고가용성 방법입니다. Azure에서는 공유 저장소를 지원하지 않으므로 공유 디스크 클러스터 구성의 SQL Server 고가용성 구성을 인식할 수 없습니다. 그러나 여러 가지 다른 고가용성 방법을 사용할 수 있으며 다음 섹션에서 설명합니다.
@@ -1164,7 +1164,7 @@ SAP Replication Server를 통한 ASE HADR은 현재 지원되지 않습니다. �
 ## <a name="specifics-to-oracle-database-on-windows"></a>Windows의 Oracle 데이터베이스에 대한 고유 정보
 Microsoft Windows Hyper-V 및 Azure에서 Oracle 소프트웨어가 지원됩니다. 
 
-일반 지원에 따라 Oracle 데이터베이스를 활용하는 SAP 응용 프로그램의 특정 시나리오도 지원됩니다. 자세한 내용은 문서의 이 부분에 나와 있습니다.
+일반 지원에 따라 Oracle 데이터베이스를 활용하는 SAP 애플리케이션의 특정 시나리오도 지원됩니다. 자세한 내용은 문서의 이 부분에 나와 있습니다.
 
 ### <a name="oracle-version-support"></a>Oracle 지원 버전
 Azure Virtual Machines에서 Oracle의 SAP 실행을 위해 지원되는 Oracle 버전 및 해당 OS 버전에 대한 자세한 내용은 SAP Note [2039619]에서 찾을 수 있습니다.
@@ -1202,7 +1202,7 @@ Azure 가용성 집합 또는 SAP 모니터링과 같은 다른 일반적 영역
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Oracle Linux의 Oracle 데이터베이스에 대한 고유 정보
 Microsoft Windows Hyper-V 및 Azure에서 Oracle 소프트웨어가 지원됩니다. 
 
-일반 지원에 따라 Oracle 데이터베이스를 활용하는 SAP 응용 프로그램의 특정 시나리오도 지원됩니다. 자세한 내용은 문서의 이 부분에 나와 있습니다.
+일반 지원에 따라 Oracle 데이터베이스를 활용하는 SAP 애플리케이션의 특정 시나리오도 지원됩니다. 자세한 내용은 문서의 이 부분에 나와 있습니다.
 
 ### <a name="oracle-version-support"></a>Oracle 지원 버전
 Azure Virtual Machines에서 Oracle의 SAP 실행을 위해 지원되는 Oracle 버전 및 해당 OS 버전에 대한 자세한 내용은 SAP Note [2039619]에서 찾을 수 있습니다.

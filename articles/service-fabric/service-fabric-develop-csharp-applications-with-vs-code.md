@@ -42,7 +42,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-st
 
 ## <a name="open-the-application-in-vs-code"></a>VS Code에서 응용 프로그램 열기
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 시작 메뉴에서 VS Code 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다. 디버거를 서비스에 연결하려면 관리자 권한으로 VS Code를 실행해야 합니다.
 
 ### <a name="linux"></a>Linux
@@ -57,7 +57,7 @@ sudo code . --user-data-dir='.'
 
 ![작업 영역의 Counter Service 응용 프로그램](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-application-in-workspace.png)
 
-## <a name="build-the-application"></a>응용 프로그램 빌드
+## <a name="build-the-application"></a>애플리케이션 빌드
 1. VS Code에서 (Ctrl + Shift + p)를 눌러 **명령 팔레트**를 엽니다.
 2. **Service Fabric: Build Application** 명령을 검색한 후 선택합니다. 빌드 출력이 통합된 터미널로 전송됩니다.
 

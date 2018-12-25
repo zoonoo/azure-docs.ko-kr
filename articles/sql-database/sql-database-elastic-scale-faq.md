@@ -37,7 +37,7 @@ ms.locfileid: "52874739"
 
 “사용자 ID=username@servername” 형식의 자격 증명을 사용하지 말고 단순히 "사용자 ID=사용자 이름"을 사용하세요.  또한 "사용자 이름" 로그인에 분할에 대한 권한이 있는지 확인하세요.
 
-#### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>내 응용 프로그램을 시작할 때마다 분할된 데이터베이스 맵 관리자를 만들고 분할을 채워야 하나요?
+#### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>내 애플리케이션을 시작할 때마다 분할된 데이터베이스 맵 관리자를 만들고 분할을 채워야 하나요?
 
 아니요, 분할된 데이터베이스 맵 관리자(예: **[ShardMapManagerFactory.CreateSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**)는 한 번만 만들면 됩니다.  응용 프로그램 시작 시 응용 프로그램에서 **[ShardMapManagerFactory.TryGetSqlShardMapManager()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** 호출을 사용해야 합니다.  이러한 호출은 응용 프로그램 도메인당 하나만 있어야 합니다.
 

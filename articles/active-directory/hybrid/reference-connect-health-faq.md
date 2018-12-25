@@ -190,7 +190,7 @@ CheckForMS17-010
 
 **Q: ADFS 감사가 생성되지 않는 이유는 무엇인가요?**
 
-PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i>을 사용하여 감사 로그가 사용하지 않음 상태가 되도록 합니다. [ADFS 감사 로그](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)에 대해 자세히 알아보세요. ADFS 서버에 푸시된 고급 감사 설정이 있을 경우 auditpol.exe 관련 변경 내용이 덮어써진다는 점을 참고하세요(응용 프로그램 생성됨이 구성되지 않은 경우의 이벤트). 이 경우 응용 프로그램 생성됨 실패 및 성공을 기록하도록 로컬 보안 정책을 설정하세요. 
+PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i>을 사용하여 감사 로그가 사용하지 않음 상태가 되도록 합니다. [ADFS 감사 로그](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)에 대해 자세히 알아보세요. ADFS 서버에 푸시된 고급 감사 설정이 있을 경우 auditpol.exe 관련 변경 내용이 덮어써진다는 점을 참고하세요(애플리케이션 생성됨이 구성되지 않은 경우의 이벤트). 이 경우 애플리케이션 생성됨 실패 및 성공을 기록하도록 로컬 보안 정책을 설정하세요. 
 
 
 ## <a name="related-links"></a>관련 링크

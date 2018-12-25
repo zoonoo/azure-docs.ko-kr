@@ -50,7 +50,7 @@ ADP와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 ADP 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -74,7 +74,7 @@ ADP의 Azure AD 통합을 구성하려면 갤러리의 ADP를 관리되는 SaaS 
 
     ![새 응용 프로그램 단추][3]
 
-5. 검색 상자에 **ADP**를 입력하고 결과 패널에서 **ADP**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+5. 검색 상자에 **ADP**를 입력하고 결과 패널에서 **ADP**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 ADP](./media/adpfederatedsso-tutorial/tutorial_adp_addfromgallery.png)
 
@@ -96,11 +96,11 @@ ADP에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 ADP 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 ADP 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **ADP에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **ADP** 응용 프로그램 통합 페이지에서 **속성 탭**을 클릭하고 다음 단계를 수행합니다. 
+1. Azure Portal의 **ADP** 애플리케이션 통합 페이지에서 **속성 탭**을 클릭하고 다음 단계를 수행합니다. 
 
     ![Single Sign-On 속성](./media/adpfederatedsso-tutorial/tutorial_adp_prop.png)
 
@@ -126,9 +126,9 @@ ADP에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구�
 
     **식별자** 텍스트 상자에 URL `https://fed.adp.com`를 입력합니다. 
     
-5. ADP 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 클레임 이름은 항상 **"PersonImmutableID"** 및 **employeeid**에 매핑한 값입니다. 
+5. ADP 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 클레임 이름은 항상 **"PersonImmutableID"** 및 **employeeid**에 매핑한 값입니다. 
 
-    여기에서는 Azure AD에서 ADP로 매핑되는 사용자가 **employeeid**에서 수행되지만 응용 프로그램 설정에 따라 다른 값에 이를 매핑할 수 있습니다. 따라서 사용자의 올바른 식별자를 사용하고 해당 값을 **"PersonImmutableID"** 클레임으로 매핑하려면 [ADP 지원팀](https://www.adp.com/contact-us/overview.aspx)과 먼저 작업해 보세요.
+    여기에서는 Azure AD에서 ADP로 매핑되는 사용자가 **employeeid**에서 수행되지만 애플리케이션 설정에 따라 다른 값에 이를 매핑할 수 있습니다. 따라서 사용자의 올바른 식별자를 사용하고 해당 값을 **"PersonImmutableID"** 클레임으로 매핑하려면 [ADP 지원팀](https://www.adp.com/contact-us/overview.aspx)과 먼저 작업해 보세요.
 
     ![Configure Single Sign-On](./media/adpfederatedsso-tutorial/tutorial_adp_attribute.png)
 
@@ -180,11 +180,11 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에 **ADP**를 입력하고 결과 패널에서 **ADP**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **ADP**를 입력하고 결과 패널에서 **ADP**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 ADP](./media/adpfederatedsso-tutorial/tutorial_adp_addservicegallery.png)
 
-5. Azure Portal의 **ADP** 응용 프로그램 통합 페이지에서 **속성 탭**을 클릭하고 다음 단계를 수행합니다.  
+5. Azure Portal의 **ADP** 애플리케이션 통합 페이지에서 **속성 탭**을 클릭하고 다음 단계를 수행합니다.  
 
     ![Single Sign-On 연결된 속성](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
@@ -198,7 +198,7 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
     ![Single Sign-On 구성 링크][4]
 
-7. **Single Sign-On** 대화 상자에서 **모드**로 **연결된 로그온**을 선택합니다. 응용 프로그램을 **ADP**에 연결하려면
+7. **Single Sign-On** 대화 상자에서 **모드**로 **연결된 로그온**을 선택합니다. 애플리케이션을 **ADP**에 연결하합니다.
 
     ![연결된 Single Sign-On](./media/adpfederatedsso-tutorial/tutorial_adp_linked.png)
 
@@ -208,7 +208,7 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
                                                               
     a. 위의 **속성 탭**(기본 ADP 앱)에서 복사한 **사용자 액세스 URL**을 붙여넣습니다.
                                                              
-    나. 다음은 다른 **릴레이 상태 URL**을 지원하는 다섯 개의 앱입니다. 특정 응용 프로그램에 대한 적절한 **릴레이 상태 URL** 값을 **사용자 액세스 URL**에 수동으로 추가해야 합니다.
+    나. 다음은 다른 **릴레이 상태 URL**을 지원하는 다섯 개의 앱입니다. 특정 애플리케이션에 대한 적절한 **릴레이 상태 URL** 값을 **사용자 액세스 URL**에 수동으로 추가해야 합니다.
     
     * **ADP Workforce Now**
         
@@ -288,9 +288,9 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **ADP**를 선택합니다.
+2. 애플리케이션 목록에서 **ADP**를 선택합니다.
 
-    ![응용 프로그램 목록의 ADP 링크](./media/adpfederatedsso-tutorial/tutorial_adp_app.png)  
+    ![애플리케이션 목록의 ADP 링크](./media/adpfederatedsso-tutorial/tutorial_adp_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -310,7 +310,7 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 ADP 타일을 클릭하면 ADP 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 ADP 타일을 클릭하면 ADP 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

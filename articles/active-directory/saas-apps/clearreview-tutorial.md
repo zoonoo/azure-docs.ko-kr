@@ -50,7 +50,7 @@ Clear Review와 Azure AD 통합을 구성하려면 다음 항목이 필요합니
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Clear Review 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -123,7 +123,7 @@ Clear Review에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Clear Review 지원 팀](https://clearreview.com/contact/)에 문의하세요.
 
-1. Clear Review 응용 프로그램은 이름 식별자 클레임에 고유한 사용자 ID 값을 필요로 합니다. 사용자 ID 값을 **user.mail**에 매핑해야 합니다.
+1. Clear Review 애플리케이션은 이름 식별자 클레임에 고유한 사용자 ID 값을 필요로 합니다. 사용자 ID 값을 **user.mail**에 매핑해야 합니다.
 
     ![특성 섹션](./media/clearreview-tutorial/attribute.png)
 

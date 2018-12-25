@@ -48,7 +48,7 @@ Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다�
 
 세 가지 클라우드 서비스 기능은 서비스 패키지를 내보내기 전에 특별히 구성해야 합니다.
 
-* 데이터 암호화에 SSL(Secure Sockets Layer)을 사용하는 클라우드 서비스를 배포하려는 경우 SSL에 맞게 [응용 프로그램을 구성](cloud-services-configure-ssl-certificate-portal.md#modify) 합니다.
+* 데이터 암호화에 SSL(Secure Sockets Layer)을 사용하는 클라우드 서비스를 배포하려는 경우 SSL에 맞게 [애플리케이션을 구성](cloud-services-configure-ssl-certificate-portal.md#modify) 합니다.
 * 역할 인스턴스에 대한 원격 데스크톱 연결을 구성하려면 원격 데스크톱에 대한 [역할을 구성](cloud-services-role-enable-remote-desktop-new-portal.md) 합니다.
 * 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure 진단을 사용하도록 설정합니다. *최소 모니터링* (기본 모니터링 수준)에서는 역할 인스턴스(가상 머신)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. *세부 정보 표시 모니터링* 에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure 진단을 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](cloud-services-dotnet-diagnostics.md)을 참조하세요.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 10/30/2018
+ms.date: 12/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 5e4461a910f13c5047c4a2aadd7326c4e12c533f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f437f1fd61cfdaa4d2ff908f6e294fa0c679b9a5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238134"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273061"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Azure Data Box Disk란? (미리 보기)
 
@@ -59,7 +59,7 @@ a.  Data Box Disk는 미리 보기로 있는 동안 미국, 캐나다, 오스트
 a. Data Box Disk는 미국, 캐나다, 오스트레일리아, 서유럽 및 북유럽 내의 모든 지역에서 미리 보기로 지원됩니다. Azure 공용 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. Data Box Disk에 문제가 발생하면 누구에게 연락해야 하나요?
-a. Data Box Disk에 문제가 발생하면 [Data Box Disk 고객 지원팀](mailto:expresspodsupport@microsoft.com)에 문의하세요.
+a. Data Box Disk에 문제가 발생하면 [Microsoft 지원에 문의](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support)하세요.
 
 ## <a name="configure-and-connect"></a>구성 및 연결
  
@@ -111,7 +111,7 @@ a.  복사 프로세스의 속도를 높이려면 다음을 수행합니다.
 - 다중 데이터 복사 스트림을 사용합니다. 예를 들어 Robocopy에서는 다중 스레드 옵션을 사용합니다. 사용되는 정확한 명령에 대한 자세한 내용은 [자습서: Azure Data Box Disk에 데이터 복사 및 확인](data-box-disk-deploy-copy-data.md#copy-data-to-disks)을 참조하세요.
 - 다중 세션을 사용합니다.
 - 네트워크 공유를 통해 복사하는(네트워크 속도로 인해 제한될 수 있음) 대신, 디스크가 연결된 컴퓨터에 데이터가 로컬로 있는지 확인합니다.
-- 복사 프로세스 전체에서 USB 3.0 이상을 사용하고 있는지 확인합니다. [USBView 도구](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview)를 다운로드하고 사용하여 컴퓨터에 연결된 USB 컨트롤러 및 USB 장치를 식별합니다.
+- 복사 프로세스 전체에서 USB 3.0 이상을 사용하고 있는지 확인합니다. [USBView 도구](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview)를 다운로드하고 사용하여 컴퓨터에 연결된 USB 컨트롤러 및 USB 디바이스를 식별합니다.
 - 데이터를 복사하는 데 사용되는 컴퓨터의 성능을 벤치마크합니다. [Bluestop FIO 도구](https://bluestop.org/fio/)를 다운로드하고 사용하여 서버 하드웨어의 성능을 벤치마크합니다.
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>Q. 원본 데이터에 작은 파일(KB 또는 수 MB)이 있는 경우 데이터의 속도를 높이려면 어떻게 해야 할까요?

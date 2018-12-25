@@ -52,7 +52,7 @@ E Sales Manager Remix와 Azure AD 통합을 구성하려면 다음 항목이 필
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 
 
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 * 갤러리에서 E Sales Manager Remix추가
 * Azure AD Single Sign-on 구성 및 테스트
@@ -207,7 +207,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
  
 ### <a name="create-an-e-sales-manager-remix-test-user"></a>E Sales Manager Remix 테스트 사용자 만들기
 
-1. E Sales Manager Remix 응용 프로그램에 관리자로 로그온합니다.
+1. E Sales Manager Remix 애플리케이션에 관리자로 로그온합니다.
 
 1. 오른쪽 상단 메뉴에서 **관리자 메뉴**를 선택합니다.
 

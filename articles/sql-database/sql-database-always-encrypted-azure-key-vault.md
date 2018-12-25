@@ -171,11 +171,11 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 
 **Clinic** > **보안** > **상시 암호화 키**를 확장하여 SSMS에서 키 만들기를 확인할 수 있습니다.
 
-## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>암호화된 데이터로 작동하는 클라이언트 응용 프로그램 만들기
+## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>암호화된 데이터로 작동하는 클라이언트 애플리케이션 만들기
 상시 암호화가 설정되었으므로 암호화된 열에서 *삽입* 및 *선택*을 수행하는 애플리케이션을 빌드할 수 있습니다.  
 
 > [!IMPORTANT]
-> 상시 암호화 열이 있는 서버에 일반 텍스트 데이터를 전달하는 경우 응용 프로그램은 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 개체를 사용해야 합니다. SqlParameter 개체를 사용하지 않고 리터럴 값을 전달하면 예외가 발생합니다.
+> Always Encrypted 열이 있는 서버에 일반 텍스트 데이터를 전달하는 경우 애플리케이션은 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 개체를 사용해야 합니다. SqlParameter 개체를 사용하지 않고 리터럴 값을 전달하면 예외가 발생합니다.
 > 
 > 
 

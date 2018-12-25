@@ -22,7 +22,7 @@ ms.lasthandoff: 08/14/2018
 ms.locfileid: "42142170"
 ---
 # <a name="pen-testing"></a>펜 테스트
-응용 프로그램 테스트 및 배포에 Azure를 사용하면 좋은 점 중 하나는 신속하게 환경을 얻을 수 있다는 점입니다.  자신의 온-프레미스 하드웨어 요청, 구입, “래킹과 스태킹(racking and stacking)”에 대해 걱정할 필요가 없습니다.
+애플리케이션 테스트 및 배포에 Azure를 사용하면 좋은 점 중 하나는 신속하게 환경을 얻을 수 있다는 점입니다.  자신의 온-프레미스 하드웨어 요청, 구입, “래킹과 스태킹(racking and stacking)”에 대해 걱정할 필요가 없습니다.
 
 이것은 좋은 일입니다 – 그렇지만 여전히 일반적인 보안 실사는 수행해야 합니다. 수행해야 할 일 중 하나는 Azure에서 배포하는 응용 프로그램에 대한 침투 테스트를 하는 것입니다.
 
@@ -39,7 +39,7 @@ Microsoft에는 2017년 6월 15일부터 Azure 리소스에 대한 보안 테스
 
 여러분이 수행할 수 있는 표준 테스트는 다음과 같습니다.
 
-* [OWASP(Open Web Application Security Project) 취약점 상위 10개](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
+*  [OWASP(Open Web Application Security Project) 취약점 상위 10개](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
 * [퍼지 테스트](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) 
 * [포트 검색](https://en.wikipedia.org/wiki/Port_scanner) 
 

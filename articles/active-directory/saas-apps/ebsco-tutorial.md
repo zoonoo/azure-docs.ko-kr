@@ -50,7 +50,7 @@ EBSCO와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 EBSCO 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -72,7 +72,7 @@ EBSCO의 Azure AD 통합을 구성하려면 갤러리의 EBSCO를 관리되는 S
 
     ![새 응용 프로그램 단추][3]
 
-1. 검색 상자에 **EBSCO**를 입력하고 결과 패널에서 **EBSCO**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **EBSCO**를 입력하고 결과 패널에서 **EBSCO**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 EBSCO](./media/ebsco-tutorial/tutorial_ebsco_addfromgallery.png)
 
@@ -92,11 +92,11 @@ EBSCO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 EBSCO 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 EBSCO 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **EBSCO** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **EBSCO** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -125,7 +125,7 @@ EBSCO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     o   **Profile** = 클라이언트는 링크를 조정하여 사용자를 특정 프로필에 연결할 수 있습니다(EBSCO에서 구매한 제품에 따라 다름). 특정 프로필 ID를 입력할 수 있습니다. 주 ID는 eds(EBSCO 검색 서비스) 및 ehost(EBSOCOhost 데이터베이스)입니다. 동일한 경우에 대한 지침은 [여기](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile)를 참조하세요.
 
-1. EBSCO 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+1. EBSCO 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
     
     ![Configure Single Sign-On](./media/ebsco-tutorial/tutorial_ebsco_attribute.png)
 
@@ -203,7 +203,7 @@ EBSCO의 경우 사용자 프로비저닝은 자동입니다.
 
 **사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
 
-Azure AD는 필요한 데이터를 EBSCO 응용 프로그램으로 전달합니다. EBSCO의 사용자 프로비저닝은 자동으로 진행되거나 일회성 양식이 필요합니다. 어떤 방식인지는 클라이언트에 개인 설정이 저장된 기존 EBSCOhost 계정이 많이 있는지에 따라 좌우됩니다. 구현 동안 [EBSCO 지원 팀](mailto:sso@ebsco.com)에서 동일한 내용이 논의될 수 있습니다. 어떤 방법이든, 클라이언트는 테스트하기 전에 EBSCOhost 계정을 만들 필요가 없습니다.
+Azure AD는 필요한 데이터를 EBSCO 애플리케이션으로 전달합니다. EBSCO의 사용자 프로비저닝은 자동으로 진행되거나 일회성 양식이 필요합니다. 어떤 방식인지는 클라이언트에 개인 설정이 저장된 기존 EBSCOhost 계정이 많이 있는지에 따라 좌우됩니다. 구현 동안 [EBSCO 지원 팀](mailto:sso@ebsco.com)에서 동일한 내용이 논의될 수 있습니다. 어떤 방법이든, 클라이언트는 테스트하기 전에 EBSCOhost 계정을 만들 필요가 없습니다.
 
    >[!Note]
    >EBSCOhost 사용자 프로비저닝/개인 설정을 자동화할 수 있습니다. Just-In-Time 사용자 프로비저닝에 대해서는 [EBSCO 지원 팀](mailto:sso@ebsco.com)에 문의하세요. 
@@ -220,9 +220,9 @@ Azure AD는 필요한 데이터를 EBSCO 응용 프로그램으로 전달합니�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **EBSCO**를 선택합니다.
+1. 애플리케이션 목록에서 **EBSCO**를 선택합니다.
 
-    ![응용 프로그램 목록의 EBSCO 연결](./media/ebsco-tutorial/tutorial_ebsco_app.png)  
+    ![애플리케이션 목록의 EBSCO 연결](./media/ebsco-tutorial/tutorial_ebsco_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -242,16 +242,16 @@ Azure AD는 필요한 데이터를 EBSCO 응용 프로그램으로 전달합니�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-1. 액세스 패널에서 EBSCO 타일을 클릭하면 EBSCO 응용 프로그램에 자동으로 로그온됩니다.
+1. 액세스 패널에서 EBSCO 타일을 클릭하면 EBSCO 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
-1. 응용 프로그램에 로그인한 후에 오른쪽 위 구석에 있는 **로그인** 단추를 클릭합니다.
+1. 애플리케이션에 로그인한 후에 오른쪽 위 구석에 있는 **로그인** 단추를 클릭합니다.
 
-    ![응용 프로그램 목록의 EBSCO 로그인](./media/ebsco-tutorial/tutorial_ebsco_signin.png)
+    ![애플리케이션 목록의 EBSCO 로그인](./media/ebsco-tutorial/tutorial_ebsco_signin.png)
  
-1. **지금 기관 계정에 기존 MyEBSCOhost 계정 연결** 또는 **새 MyEBSCOhost 계정을 만든 후 기관 계정에 연결**을 사용하여 기관/SAML 로그인을 연결하라는 일회성 메시지가 나타납니다. 계정은 EBSCOhost 응용 프로그램의 개인 설정에 사용됩니다. **새 계정 만들기** 옵션을 선택하면 개인 설정에 대한 양식이 아래 스크린샷에 표시된 것처럼 SAML 응답의 값으로 미리 채워진 것을 볼 수 있습니다. **'계속'** 을 클릭하여 이 선택 내용을 저장합니다.
+1. **지금 기관 계정에 기존 MyEBSCOhost 계정 연결** 또는 **새 MyEBSCOhost 계정을 만든 후 기관 계정에 연결**을 사용하여 기관/SAML 로그인을 연결하라는 일회성 메시지가 나타납니다. 계정은 EBSCOhost 애플리케이션의 개인 설정에 사용됩니다. **새 계정 만들기** 옵션을 선택하면 개인 설정에 대한 양식이 아래 스크린샷에 표시된 것처럼 SAML 응답의 값으로 미리 채워진 것을 볼 수 있습니다. **'계속'** 을 클릭하여 이 선택 내용을 저장합니다.
     
-     ![응용 프로그램 목록의 EBSCO 사용자](./media/ebsco-tutorial/tutorial_ebsco_user.png)
+     ![애플리케이션 목록의 EBSCO 사용자](./media/ebsco-tutorial/tutorial_ebsco_user.png)
 
 1. 위 설정이 완료되면 쿠키/캐시를 지우고 다시 로그인합니다. 다시 수동으로 로그인할 필요는 없습니다. 개인 설정은 저장됩니다.
 

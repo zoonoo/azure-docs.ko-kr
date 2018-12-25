@@ -24,7 +24,7 @@ ms.locfileid: "53278617"
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>기존 .NET Azure 모바일 서비스를 App Service로 업그레이드
 App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로그램을 빌드하는 새로운 방법입니다. 자세한 내용은 [Mobile Apps 정의]를 참조하세요.
 
-이 항목에서는 기존 .NET 백 엔드 응용 프로그램을 Azure Mobile Services에서 새로운 App Service Mobile Apps로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 Mobile Services 애플리케이션이 계속 작동할 수 있습니다.   Node.js 백 엔드 응용 프로그램을 업그레이드해야 하는 경우 [Node.js Mobile Services 업그레이드](app-service-mobile-node-backend-upgrading-from-mobile-services.md)를 참조하세요.
+이 항목에서는 기존 .NET 백 엔드 응용 프로그램을 Azure Mobile Services에서 새로운 App Service Mobile Apps로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 Mobile Services 애플리케이션이 계속 작동할 수 있습니다.   Node.js 백 엔드 애플리케이션을 업그레이드해야 하는 경우 [Node.js Mobile Services 업그레이드](app-service-mobile-node-backend-upgrading-from-mobile-services.md)를 참조하세요.
 
 모바일 백 엔드가 Azure App Service로 업그레이드되면 모든 App Service 기능에 액세스할 수 있고 Mobile Services 가격 책정이 아닌 [App Service 가격 책정]에 따라 요금이 청구됩니다.
 
@@ -66,7 +66,7 @@ Mobile Services 클라이언트 SDK는 새 Mobile Apps 서버 SDK와 호환할 �
 ## <a name="mobile-app-version"></a>두 번째 응용 프로그램 인스턴스 만들기
 업그레이드의 첫 번째 단계는 새 버전의 응용 프로그램을 호스트할 모바일 앱 리소스를 만드는 것입니다. 기존 모바일 서비스를 이미 마이그레이션한 경우 동일한 호스팅 계획에 이 버전을 만들려고 합니다. [Azure Portal] 을 열고 마이그레이션된 응용 프로그램으로 이동합니다. App Service 계획에서 실행 중인지 확인합니다.
 
-다음으로 [.NET 백 엔드 만들기 지침](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)을 수행하여 두 번째 응용 프로그램 인스턴스를 만듭니다. App Service 계획 또는 "호스팅 계획"을 선택하라는 메시지가 나타나면 마이그레이션된 응용 프로그램의 계획을 선택합니다.
+다음으로 [.NET 백 엔드 만들기 지침](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)을 수행하여 두 번째 애플리케이션 인스턴스를 만듭니다. App Service 계획 또는 "호스팅 계획"을 선택하라는 메시지가 나타나면 마이그레이션된 응용 프로그램의 계획을 선택합니다.
 
 Mobile Services와 동일한 데이터베이스 및 알림 허브를 사용하려는 경우가 많습니다. [Azure Portal]을 열고 원래 응용 프로그램 탐색하여 이러한 값을 복사한 다음 **설정** > **응용 프로그램 설정**을 클릭할 수 있습니다. **연결 문자열**에서 `MS_NotificationHubConnectionString` 및 `MS_TableConnectionString`을 복사합니다. 새 업그레이드 사이트로 이동하고 붙여 넣어 기존 값을 덮어씁니다. 앱에 필요한 다른 응용 프로그램 설정에 이 프로세스를 반복합니다.
 

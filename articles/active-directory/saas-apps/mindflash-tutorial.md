@@ -96,7 +96,7 @@ Mindflash에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Mindflash 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Mindflash 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Mindflash에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
@@ -230,7 +230,7 @@ Azure AD 사용자가 Mindflash에 로그인할 수 있도록 하려면 Mindflas
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Mindflash 타일을 클릭하면 Mindflash 응용 프로그램의 로그인 페이지가 표시됩니다.
+액세스 패널에서 Mindflash 타일을 클릭하면 Mindflash 애플리케이션의 로그인 페이지가 표시됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

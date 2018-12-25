@@ -241,7 +241,7 @@ Azure AD Connect 도구에서 추가한 각 포리스트에 대해 도메인 관
 Azure AD Connect에서 AD FS를 구성하는 것은 간단히 몇 번의 클릭으로 가능합니다. 구성하기 전에 다음 사항이 필요합니다.
 
 * 원격 관리가 사용 가능한 페더레이션 서버용 Windows Server 2012 R2 이상 서버
-* 원격 관리가 사용 가능한 웹 응용 프로그램 프록시 서버용 Windows Server 2012 R2 이상 서버
+* 원격 관리가 사용 가능한 웹 애플리케이션 프록시 서버용 Windows Server 2012 R2 이상 서버
 * 사용할 페더레이션 서비스 이름에 대한 SSL 인증서(예: sts.contoso.com)
 
 >[!NOTE]

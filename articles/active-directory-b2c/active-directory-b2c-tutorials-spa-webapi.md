@@ -36,7 +36,7 @@ ms.locfileid: "45605762"
 * [단일 페이지 응용 프로그램에서 Azure Active Directory B2C를 사용하여 사용자 인증 자습서](active-directory-b2c-tutorials-spa.md)를 완료합니다.
 * **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
 * [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 이상
-* [Node.js](https://nodejs.org/en/download/)
+*  [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="register-web-api"></a>웹 API 등록
 
@@ -65,7 +65,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
     
 3. **만들기**를 클릭하여 API를 등록합니다.
 
-등록된 API는 Azure AD B2C 테넌트에 대한 응용 프로그램 목록에 표시됩니다. 목록에서 웹 API를 선택합니다. 웹 API의 속성 창이 표시됩니다.
+등록된 API는 Azure AD B2C 테넌트에 대한 애플리케이션 목록에 표시됩니다. 목록에서 웹 API를 선택합니다. 웹 API의 속성 창이 표시됩니다.
 
 ![웹 API 속성](./media/active-directory-b2c-tutorials-spa-webapi/b2c-web-api-properties.png)
 
@@ -79,7 +79,7 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 ### <a name="define-scopes-for-the-web-api"></a>웹 API에 대한 범위 정의
 
-등록된 API는 Azure AD B2C 테넌트에 대한 응용 프로그램 목록에 표시됩니다. 목록에서 웹 API를 선택합니다. 웹 API의 속성 창이 표시됩니다.
+등록된 API는 Azure AD B2C 테넌트에 대한 애플리케이션 목록에 표시됩니다. 목록에서 웹 API를 선택합니다. 웹 API의 속성 창이 표시됩니다.
 
 **게시된 범위(미리 보기)** 를 클릭합니다.
 
@@ -99,7 +99,7 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 앱에서 보호된 웹 API를 호출하려면 앱 사용 권한을 API에 부여해야 합니다. 이 자습서에서는 [단일 페이지 응용 프로그램(JavaScript)에서 Azure Active Directory B2C를 사용하여 사용자 인증](active-directory-b2c-tutorials-spa.md)에서 만든 단일 페이지 앱을 사용합니다.
 
-1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택하고, **응용 프로그램**을 클릭하여 등록된 앱 목록을 봅니다.
+1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택하고, **애플리케이션**을 클릭하여 등록된 앱 목록을 봅니다.
 
 2. 앱 목록에서 **내 샘플 단일 페이지 앱**을 선택하고, **API 액세스(미리 보기)**, **추가**를 차례로 클릭합니다.
 

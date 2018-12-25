@@ -50,7 +50,7 @@ Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프�
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>사용자의 프로필, 일정, 메일, 연락처, 파일 등에 액세스
 **Azure AD는 Office 365 및 기타 Microsoft 비즈니스 서비스의 권한 부여 서버입니다.**   응용 프로그램 로그인에 Azure AD를 지원하거나 OAuth 2.0을 사용하는 Azure AD 사용자 계정에 현재 사용자 계정 연결을 지원하는 경우 사용자의 프로필, 일정, 메일, 연락처, 파일 및 기타 정보에 대한 읽기 및 쓰기 권한을 요청할 수 있습니다. 사용자의 일정에 매끄럽게 이벤트를 쓸 수 있으며 사용자의 OneDrive에 파일을 읽거나 쓸 수 있습니다. [Office 365 API 액세스](https://msdn.microsoft.com/office/office365/howto/platform-development-overview)에 대해 자세히 알아보세요.
 
-### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Azure 및 Office 365 Marketplace에서 응용 프로그램 홍보
+### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Azure 및 Office 365 Marketplace에서 애플리케이션 홍보
 **이미 Azure AD를 사용 중인 수백만 개의 조직에 응용 프로그램을 홍보합니다.**   이러한 마켓플레이스를 검색하고 찾아보는 사용자는 자격 있는 클라우드 서비스 고객이 되어 이미 하나 이상의 클라우드 서비스를 사용하고 있습니다. [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/)에서 응용 프로그램 홍보하기에 대해 자세히 알아보세요.
 
 **사용자가 응용 프로그램에 등록하면 사용자의 Azure AD 액세스 패널 및 Office 365 앱 시작 관리자에 표시됩니다.**   사용자가 나중에 응용 프로그램으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md)에 대해 자세히 알아보세요.

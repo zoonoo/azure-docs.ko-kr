@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a7e71b4f93f3b890ea73e36052570f9047fc8f32
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43a059e13945be3e39f65995e18ccd552727b874
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228235"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312581"
 ---
-# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java 안정적인 서비스 응용 프로그램 배포
+# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java Reliable Services 애플리케이션 배포
 
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
@@ -67,7 +67,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 2. Eclipse를 엽니다.
 3. 파일 -> 가져오기 -> Gradle-> 기존 Gradle 프로젝트를 클릭하고 마법사를 따릅니다.
-4. Directory를 클릭하고 Github에서 복제한 `service-fabric-java-quickstart` 폴더에서 `Voting` 디렉터리를 선택합니다. Finish를 클릭합니다. 
+4. 디렉터리를 클릭하고 GitHub에서 복제한 `service-fabric-java-quickstart` 폴더에서 `Voting` 디렉터리를 선택합니다. Finish를 클릭합니다.
 
     ![Eclipse Import 대화 상자](./media/service-fabric-quickstart-java/eclipseimport.png)
 
@@ -116,9 +116,9 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
 가장 편리한 방법을 사용하여 시스템에서 인증서를 가져옵니다. 예: 
 
-* Windows: PFX 파일을 두 번 클릭하고 프롬프트에 따라 개인 저장소 `Certificates - Current User\Personal\Certificates`에 인증서를 설치합니다. 또는 **추가 정보** 지침의 PowerShell 명령을 사용할 수 있습니다.
-* Mac: PFX 파일을 두 번 클릭하고 프롬프트에 따라 키 집합에 인증서를 설치합니다.
-* Ubuntu: Mozilla Firefox는 Ubuntu 16.04의 기본 브라우저입니다. 인증서를 Firefox로 가져 오려면 브라우저의 오른쪽 위 모서리에 있는 메뉴 단추를 클릭한 다음 **옵션**을 클릭합니다. **기본 설정** 페이지에서 검색 상자를 사용하여 "인증서"를 검색합니다. **인증서 보기**를 클릭하고 **Your Certificates**(인증서) 탭을 선택하고 **가져오기**를 클릭하여 프롬프트에 따라 인증서를 가져옵니다.
+* Windows에서: PFX 파일을 두 번 클릭하고 프롬프트에 따라 개인 저장소 `Certificates - Current User\Personal\Certificates`에 인증서를 설치합니다. 또는 **추가 정보** 지침의 PowerShell 명령을 사용할 수 있습니다.
+* Mac에서: PFX 파일을 두 번 클릭하고 프롬프트에 따라 키 집합에 인증서를 설치합니다.
+* Ubuntu에서: Mozilla Firefox가 Ubuntu 16.04의 기본 브라우저입니다. 인증서를 Firefox로 가져 오려면 브라우저의 오른쪽 위 모서리에 있는 메뉴 단추를 클릭한 다음 **옵션**을 클릭합니다. **기본 설정** 페이지에서 검색 상자를 사용하여 "인증서"를 검색합니다. **인증서 보기**를 클릭하고 **Your Certificates**(인증서) 탭을 선택하고 **가져오기**를 클릭하여 프롬프트에 따라 인증서를 가져옵니다.
 
    ![Firefox에서 인증서 설치](./media/service-fabric-quickstart-java/install-cert-firefox.png)
 
@@ -132,7 +132,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. `Voting/VotingApplication/ApplicationManifest.xml` 파일에서 **ApplicationManifest** 태그 아래에 다음 코드 조각을 추가합니다. **X509FindValue**는 이전 단계의 지문이어야 합니다(세미콜론 없음). 
+2. `Voting/VotingApplication/ApplicationManifest.xml` 파일에서 **ApplicationManifest** 태그 아래에 다음 코드 조각을 추가합니다. **X509FindValue**는 이전 단계의 지문이어야 합니다(세미콜론 없음).
 
     ```xml
     <Certificates>

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/27/2018
+ms.date: 12/07/2018
 ms.author: danlep
-ms.openlocfilehash: 2694e8cdc4f1918aab36794804ff48f5a70b44be
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a7b61702feb062c57fdec84f335ace44a47d0283
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739688"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249484"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances에 대한 할당량 및 지역 가용성
 
@@ -29,10 +29,11 @@ Azure Container Instances를 지정된 CPU 및 메모리 제한을 사용하여 
 | 위치 | OS | CPU | 메모리(GB) |
 | -------- | -- | :---: | :-----------: |
 | 미국 동부, 북유럽, 유럽 서부, 미국 서부, 미국 서부 2 | Linux | 4 | 14 |
+| 일본 동부 | Linux | 2 | 8 |
 | 오스트레일리아 동부, 미국 동부 2, 동남 아시아 | Linux | 2 | 7 |
-| 캐나다 중부, 인도 중부, 미국 중남부 | Linux | 2 | 3.5 |
-| 미국 동부, 유럽 서부, 미국 서부 | Windows | 4 | 14 |
-| 오스트레일리아 동부, 캐나다 중부, 인도 중부, 미국 동부 2, 북유럽, 미국 중남부, 동남 아시아, 미국 서부 2 | Windows | 2 | 3.5 |
+| 캐나다 중부, 인도 중부, 동아시아, 미국 중북부, 미국 중남부 | Linux | 2 | 3.5 |
+| 미국 동부, 유럽 서부, 미국 서부 |  Windows | 4 | 14 |
+| 오스트레일리아 동부, 캐나다 중부, 인도 중부, 동아시아, 미국 동부 2, 일본 동부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 미국 서부 2 |  Windows | 2 | 3.5 |
 
 이러한 리소스 제한 내에서 만든 컨테이너 인스턴스는 배포 지역 내의 사용 가능 여부의 적용을 받습니다. 영역이 과부하 상태에 있는 경우 인스턴스를 배포할 때 오류가 발생할 수 있습니다. 이러한 배포 오류를 완화하려면 낮은 CPU 및 메모리 설정을 사용하여 인스턴스를 배포하거나 나중에 배포를 시도합니다.
 

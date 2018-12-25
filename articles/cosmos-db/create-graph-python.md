@@ -1,9 +1,8 @@
 ---
-title: '빠른 시작: Gremlin API와 Python - Azure Cosmos DB | Microsoft Docs'
+title: '빠른 시작: Gremlin API와 Python - Azure Cosmos DB'
 description: 이 빠른 시작은 Azure Portal 및 Python과 함께 Azure Cosmos DB Gremlin API를 사용하여 콘솔 응용 프로그램을 만드는 방법을 보여줍니다.
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
@@ -11,20 +10,20 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: d01ee78c4e3fdf0eab694deaeed03e0f61989851
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b8a26164145360bdd46656a86817b8ec61bcb56c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699450"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081492"
 ---
-# <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Python 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
+# <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB는 Python 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 
 > [!div class="op_single_selector"]
 > * [Gremlin 콘솔](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
+> * [Node.JS](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
@@ -43,7 +42,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 또한,
 * [Python](https://www.python.org/downloads/) 버전 v3.5 이상
 * [pip 패키지 관리자](https://pip.pypa.io/en/stable/installing/)
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Gremlin용 Python 드라이버](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
@@ -102,7 +101,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 Azure Portal로 다시 이동하여 연결 정보를 가져와서 앱에 복사합니다. 이러한 설정을 사용하면 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다.
 
-1. [Azure Portal](http://portal.azure.com/)에서 **키**를 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 **키**를 클릭합니다. 
 
     URI 값의 첫 번째 부분을 복사합니다.
 

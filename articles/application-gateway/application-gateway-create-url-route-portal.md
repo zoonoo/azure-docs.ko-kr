@@ -1,5 +1,5 @@
 ---
-title: URL 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기 - Azure Portal
+title: URL 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기 - Azure Portal
 description: Azure Portal을 사용하여 응용 프로그램 게이트웨이 및 가상 머신 확장 집합에 URL 경로 기반 라우팅 규칙을 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: fd437e42c404bec71036e760b95aef7e005d3fd9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 23ee4142dbf3d3c07eb89640554a464d0ac51822
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880202"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102999"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "52880202"
 
 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 NoSQL 데이터를 저장하고, 스키마 없이 디자인된 키/특성 저장소를 제공할 수 있습니다. Table Storage 및 Azure Cosmos DB Table API는 모두 스키마가 없기 때문에 응용 프로그램의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. Table Storage 데이터 및 Azure Cosmos DB Table API에 대한 액세스는 많은 응용 프로그램 유형에 대해 빠르고 비용 효율적이며 비슷한 양의 데이터일 때 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
 
-Table Storage 또는 Azure Cosmos DB Table API를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 세트를 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정 또는 Table API 계정에 포함할 수 있는 테이블의 수에는 저장소 계정 또는 Table API 계정의 최대 용량 한도까지 제한이 없습니다.
+Table Storage 또는 Azure Cosmos DB Table API를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 디바이스 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정 또는 Table API 계정에 포함할 수 있는 테이블의 수에는 저장소 계정 또는 Table API 계정의 최대 용량 한도까지 제한이 없습니다.
 
 ### <a name="about-this-sample"></a>이 샘플 정보
 이 샘플에서는 몇 가지 일반적인 Azure Table Storage 및 Table API 시나리오에서 [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)을 사용하는 방법을 보여 줍니다. 패키지의 이름은 Azure Cosmos DB에 사용할 것임을 의미하지만 이 패키지는 Azure Cosmos DB Table API와 Azure Tables 저장소 모두에서 작동하며 각 서비스에 고유한 엔드포인트가 있습니다. 다음 방법을 설명하는 C# 예제를 통해 이러한 시나리오를 살펴보겠습니다.
@@ -78,7 +78,7 @@ Azure 클라우드 서비스, 웹앱, 바탕화면 및 모바일 응용 프로�
 
 * [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 이 패키지는 Azure Table Storage 계정 또는 Azure Cosmos DB 테이블 API 계정에서 데이터 리소스에 대한 프로그래밍 방식의 액세스를 제공합니다. 이 라이브러리는 현재 .NET 표준에만 제공되고, .NET Core에는 제공되지 않습니다.
 
-* [.NET용 Microsoft Azure 구성 관리자 라이브러리](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): 이 패키지는 응용 프로그램을 실행하는 위치에 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
+* [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): 이 패키지는 애플리케이션을 실행하는 위치와 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
 
 NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 
@@ -88,7 +88,7 @@ NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 4. 온라인에서 "WindowsAzure.ConfigurationManager"를 검색하고 **설치**를 선택하여 Microsoft Azure Configuration Manager 라이브러리를 설치합니다.
 
 > [!NOTE]
-> Storage Common Library for .NET의 ODataLib 종속성은 WCF Data Services가 아니라 NuGet에서 사용 가능한 ODataLib 패키지에 의해 확인됩니다. ODataLib 라이브러리는 직접 다운로드하거나 NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. Storage 클라이언트 라이브러리에서 사용되는 특정 ODataLib 패키지는 [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) 및 [Spatial](http://nuget.org/packages/System.Spatial/)입니다. 이러한 라이브러리는 Azure Table Storage 클래스에서 사용하는 동안 Storage 공통 라이브러리를 통한 프로그래밍의 필수 종속성입니다.
+> Storage Common Library for .NET의 ODataLib 종속성은 WCF Data Services가 아니라 NuGet에서 사용 가능한 ODataLib 패키지에 의해 확인됩니다. ODataLib 라이브러리는 직접 다운로드하거나 NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. Storage 클라이언트 라이브러리에서 사용되는 특정 ODataLib 패키지는 [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/) 및 [Spatial](https://nuget.org/packages/System.Spatial/)입니다. 이러한 라이브러리는 Azure Table Storage 클래스에서 사용하는 동안 Storage 공통 라이브러리를 통한 프로그래밍의 필수 종속성입니다.
 > 
 > 
 
@@ -453,7 +453,7 @@ table.Execute(insertOrReplaceOperation);
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>엔터티 속성 하위 집합 쿼리
-테이블 쿼리는 모든 엔터티 속성 대신 엔터티에서 몇 개의 속성만 검색할 수 있습니다. 프로젝션이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상시킬 수 있습니다. 다음 코드의 쿼리는 테이블에 있는 엔터티의 전자 메일 주소만 반환합니다. 이렇게 하려면 [DynamicTableEntity][dotnet_DynamicTableEntity]의 쿼리와 [EntityResolver][dotnet_EntityResolver]를 사용합니다. [Upsert 및 쿼리 프로젝션 소개 블로그 게시물][blog_post_upsert]에서 프로젝션에 대한 자세한 내용을 참조하세요. 저장소 에뮬레이터에서는 프로젝션이 지원되지 않으므로 이 코드는 Table service의 계정을 사용하는 경우에만 실행됩니다.
+테이블 쿼리는 모든 엔터티 속성 대신 엔터티에서 몇 개의 속성만 검색할 수 있습니다. 프로젝션이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상시킬 수 있습니다. 다음 코드의 쿼리는 테이블에 있는 엔터티의 전자 메일 주소만 반환합니다. 이렇게 하려면 [DynamicTableEntity][dotnet_DynamicTableEntity]의 쿼리와 [EntityResolver][dotnet_EntityResolver]를 사용합니다. 저장소 에뮬레이터에서는 프로젝션이 지원되지 않으므로 이 코드는 Table service의 계정을 사용하는 경우에만 실행됩니다.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -576,9 +576,6 @@ do
 * [.NET(C#)을 사용하여 SQL Database에 연결](../sql-database/sql-database-develop-dotnet-simple.md)하여 관계형 데이터를 저장합니다.
 
 [Download and install the Azure SDK for .NET]: /develop/net/
-[Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-
-[blog_post_upsert]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
 [dotnet_api_ref]: https://msdn.microsoft.com/library/azure/mt347887.aspx
 [dotnet_CloudTableClient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtableclient.aspx

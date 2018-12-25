@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric Explorer를 사용하여 클러스터 시각화 | Microsoft Docs
-description: Service Fabric Explorer는 Microsoft Azure Service Fabric 클러스터에서 클라우드 응용 프로그램 및 노드를 검사 및 관리하기 위한 응용 프로그램입니다.
+description: Service Fabric Explorer는 Microsoft Azure Service Fabric 클러스터에서 클라우드 애플리케이션 및 노드를 검사 및 관리하기 위한 애플리케이션입니다.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -27,7 +27,7 @@ SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하�
 
 ## <a name="service-fabric-explorer-download"></a>Service Fabric Explorer 다운로드
 
-Service Fabric Explorer를 데스크톱 응용 프로그램으로 다운로드하려면 다음 링크를 사용합니다.
+Service Fabric Explorer를 데스크톱 애플리케이션으로 다운로드하려면 다음 링크를 사용합니다.
 
 -  Windows
   - https://aka.ms/sfx-windows
@@ -114,7 +114,7 @@ Service Fabric Explorer는 클러스터 내에서 노드, 응용 프로그램 �
 ![Service Fabric Explorer에서 응용 프로그램 인스턴스 만들기][sfx-create-app-instance]
 
 > [!NOTE]
-> Service Fabric Explorer는 응용 프로그램 인스턴스를 만들 때 매개 변수를 지원하지 않습니다. 응용 프로그램 인스턴스는 기본 매개 변수 값을 사용합니다.
+> Service Fabric Explorer는 애플리케이션 인스턴스를 만들 때 매개 변수를 지원하지 않습니다. 애플리케이션 인스턴스는 기본 매개 변수 값을 사용합니다.
 >
 >
 

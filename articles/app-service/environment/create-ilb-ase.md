@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Environment에서 내부 부하 분산 장치 만들기 및 사용
+title: App Service Environment에서 내부 부하 분산 장치 만들기 - Azure
 description: 인터넷에 연결되지 않은 Azure App Service Environment를 만들고 사용하는 방법에 대한 세부 정보
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: e9d1f77a85d4b5cfb5bb7d3cb80380be3c79315d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.custom: seodec18
+ms.openlocfilehash: b6c04c5b167eb963e9b2befa57e270ac454f5d74
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378281"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344281"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 만들기 및 사용 #
 
@@ -56,19 +56,19 @@ ILB ASE를 사용하는 경우 수행할 수 없는 작업도 있습니다.
 
 ILB ASE를 만들려면
 
-1. Azure Portal에서 **리소스 만들기** > **웹** > **App Service Environment**를 선택합니다.
+1. Azure Portal에서  **리소스 만들기** > **웹** > **App Service Environment**를 선택합니다.
 
-1. 구독을 선택합니다.
+2. 구독을 선택합니다.
 
-1. 리소스 그룹을 선택하거나 만듭니다.
+3. 리소스 그룹을 선택하거나 만듭니다.
 
-1. VNet을 선택하거나 만듭니다.
+4. VNet을 선택하거나 만듭니다.
 
-1. 기존 VNet을 선택한 경우 ASE를 보유하는 서브넷을 만들어야 합니다. ASE의 향후 증가에 맞게 충분히 큰 서브넷 크기를 설정해야 합니다. 256개의 주소가 있고 최대 크기의 ASE 및 확장 요구를 처리할 수 있는 `/24` 크기를 권장합니다. 
+5. 기존 VNet을 선택한 경우 ASE를 보유하는 서브넷을 만들어야 합니다. ASE의 향후 증가에 맞게 충분히 큰 서브넷 크기를 설정해야 합니다. 256개의 주소가 있고 최대 크기의 ASE 및 확장 요구를 처리할 수 있는 `/24` 크기를 권장합니다. 
 
-1. **Virtual Network/위치** > **Virtual Network 구성**을 선택합니다. **VIP 형식**을 **내부**로 설정합니다.
+6.  **Virtual Network/위치** > **Virtual Network 구성**을 선택합니다. **VIP 형식**을 **내부**로 설정합니다.
 
-1. 도메인 이름을 입력합니다. 이 도메인은 이 ASE에서 만든 앱에 사용되는 하위 도메인입니다. 몇 가지 제한 사항이 있습니다. 다음 항목을 사용할 수 없습니다.
+7. 도메인 이름을 입력합니다. 이 도메인은 이 ASE에서 만든 앱에 사용되는 하위 도메인입니다. 몇 가지 제한 사항이 있습니다. 다음 항목을 사용할 수 없습니다.
 
     * net   
 
@@ -96,14 +96,14 @@ ILB ASE를 만들려면
 
 **내부**를 선택한 후에 ASE에 더 많은 IP 주소를 추가하는 기능이 제거됩니다. 대신 ASE의 도메인을 입력해야 합니다. 외부 VIP가 있는 ASE에서 ASE의 이름은 해당 ASE에서 만든 앱에 대한 도메인에 사용됩니다.
 
-**VIP 형식**을 **내부**로 설정한 경우 ASE 이름은 해당 ASE의 도메인에서 사용되지 않습니다. 도메인을 명시적으로 지정해야 합니다. 도메인이 *contoso.corp.net*이고 해당 ASE에서 *timereporting*이라는 앱을 만들었으면 해당 앱의 URL은 timereporting.contoso.corp.net이 됩니다.
+**VIP 형식**을 **내부**로 설정한 경우 ASE 이름은 해당 ASE의 도메인에서 사용되지 않습니다. 도메인을 명시적으로 지정해야 합니다. 도메인이 *contoso.corp.net*이고 해당 ASE에서  *timereporting*이라는 앱을 만드는 경우 앱의 URL은 timereporting.contoso.corp.net이 됩니다.
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>ILB ASE에 앱 만들기 ##
 
 일반적으로 ASE에서 앱을 만드는 것과 동일한 방식으로 ILB ASE에서 앱을 만듭니다.
 
-1. Azure Portal에서 **리소스 만들기** > **웹 + 모바일** > **웹앱**을 선택합니다.
+1. Azure Portal에서  **리소스 만들기** > **웹 + 모바일** > **웹앱**을 선택합니다.
 
 1. 앱의 이름을 입력합니다.
 
@@ -117,9 +117,9 @@ ILB ASE를 만들려면
 
 1. App Service 계획을 선택하거나 만듭니다. 새 App Service 계획을 만들려는 경우 ASE를 위치로 선택합니다. App Service 계획을 만들려는 작업자 풀을 선택합니다. App Service 계획을 만들 때 위치 및 작업자 풀로 ASE를 선택합니다. 앱의 이름을 지정하면 앱 이름 아래의 도메인을 ASE에 대한 도메인으로 바꿉니다.
 
-1. **만들기**를 선택합니다. 앱을 대시보드에 표시하려면 **대시보드에 고정** 확인란을 선택합니다.
+1. **만들기**를 선택합니다. 앱을 대시보드에 표시하려면 **대시보드에 고정** 확인란을 선택합니다.
 
-    ![App Service 계획 생성][2]
+    ![App Service 계획 만들기][2]
 
     **앱** 이름 아래에서 도메인 이름이 ASE의 도메인을 반영하도록 업데이트됩니다.
 
@@ -127,14 +127,14 @@ ILB ASE를 만들려면
 
 ILB ASE는 비 ILB ASE와는 약간 다릅니다. 이미 설명한 대로 고유의 DNS을 관리해야 합니다. 또한 HTTPS 연결에 고유한 인증서를 제공해야 합니다.
 
-ASE를 만든 후에 도메인 이름은 지정된 도메인을 표시합니다. **ILB 인증서**라는 **설정** 메뉴에서 새 항목이 표시됩니다. ILB ASE 도메인을 지정하지 않는 인증서로 ASE가 만들어집니다. 해당 인증서로 ASE를 사용하는 경우 브라우저에서 올바르지 않음을 알려줍니다. 이 인증서를 사용하면 쉽게 HTTPS를 테스트할 수 있지만 ILB ASE 도메인에 연결된 고유한 인증서를 업로드해야 합니다. 인증서가 자체 서명되었는지 인증 기관에서 얻었는지에 관계없이 이 단계를 수행해야 합니다.
+ASE를 만든 후에 도메인 이름은 지정된 도메인을 표시합니다.  **설정** 메뉴에  **ILB 인증서**라는 새 항목이 표시됩니다. ILB ASE 도메인을 지정하지 않는 인증서로 ASE가 만들어집니다. 해당 인증서로 ASE를 사용하는 경우 브라우저에서 올바르지 않음을 알려줍니다. 이 인증서를 사용하면 쉽게 HTTPS를 테스트할 수 있지만 ILB ASE 도메인에 연결된 고유한 인증서를 업로드해야 합니다. 인증서가 자체 서명되었는지 인증 기관에서 얻었는지에 관계없이 이 단계를 수행해야 합니다.
 
 ![ILB ASE 도메인 이름][3]
 
 ILB ASE에는 유효한 SSL 인증서가 필요합니다. 내부 인증 기관을 사용하거나, 외부 발급자로부터 인증서를 구입하거나, 자체 서명된 인증서를 사용합니다. SSL 인증서의 소스에 관계 없이 다음과 같은 인증서 특성을 올바르게 구성해야 합니다.
 
 * **주체**: 이 특성은 *.your-root-domain-here로 설정되어야 합니다.
-* **주체 대체 이름**: 이 특성에는 **.your-root-domain-here* 및 **.scm.your-root-domain-here* 둘 다 포함되어야 합니다. 각 앱과 연결된 SCM/Kudu 사이트에 대한 SSL 연결은 *your-app-name.scm.your-root-domain-here* 양식의 주소를 사용합니다.
+* **주체 대체 이름**: 이 특성에는 **.your-root-domain-here* 및 **.scm.your-root-domain-here*가 둘 다 포함되어야 합니다. 각 앱과 연결된 SCM/Kudu 사이트에 대한 SSL 연결은 *your-app-name.scm.your-root-domain-here* 양식의 주소를 사용합니다.
 
 SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든 중간 인증서와 루트 인증서가 포함되어야 합니다. 암호로 인증서를 보호합니다.
 
@@ -154,7 +154,7 @@ SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든
 
 고유한 인증서를 업로드하고 액세스를 테스트하려면:
 
-1. ASE를 만든 후에 ASE UI로 이동합니다. **ASE** > **설정** > **ILB 인증서**를 선택합니다.
+1. ASE를 만든 후에 ASE UI로 이동합니다. **ASE** > **설정** > **ILB 인증서**를 선택합니다.
 
 1. ILB 인증서를 설정하려면 인증서 pfx 파일을 선택하고 암호를 입력합니다. 이 단계를 처리하는 데 시간이 걸립니다. 업로드 작업이 진행 중이라는 메시지가 나타납니다.
 
@@ -174,9 +174,9 @@ SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든
 
     b. 웹 배포 게시를 테스트하거나 고급 콘솔에 액세스하려면 _mytestapp.scm.ilbase.com_의 레코드를 만듭니다.
 
-1. 해당 VM에서 브라우저를 사용하여 http://mytestapp.ilbase.com로 이동합니다. (또는 도메인에서 웹앱 이름으로 이동합니다.)
+1. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com으로 이동합니다. (또는 도메인에서 웹앱 이름으로 이동합니다.)
 
-1. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의합니다.
+1. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com으로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의합니다.
 
     ILB의 IP 주소가 **IP 주소**에 나열됩니다. 이 목록에는 외부 VIP 및 인바운드 관리 트래픽에 사용하는 IP 주소도 있습니다.
 
@@ -222,13 +222,9 @@ WAF 디바이스를 사용하여 ILB ASE를 구성하는 방법에 대한 자세
 ## <a name="get-started"></a>시작하기 ##
 
 * ASE를 시작하려면 [App Service Environment 소개][Intro]를 참조하세요.
- 
+ 
 <!--Image references-->
-[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
-[2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png
-[3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png
-[4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png
-[5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
+[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png [2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png [3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png [4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png [5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -244,10 +240,10 @@ WAF 디바이스를 사용하여 ILB ASE를 구성하는 방법에 대한 자세
 [webapps]: ../app-service-web-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md

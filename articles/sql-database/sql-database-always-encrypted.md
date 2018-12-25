@@ -133,11 +133,11 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 
 **Clinic** > **보안** > **상시 암호화 키**로 이동하여 SSMS에서 키 만들기를 확인할 수 있습니다. 이제 마법사에서 생성한 새 키를 볼 수 있습니다.
 
-## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>암호화된 데이터로 작동하는 클라이언트 응용 프로그램 만들기
+## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>암호화된 데이터로 작동하는 클라이언트 애플리케이션 만들기
 상시 암호화가 설정되었으므로 암호화된 열에서 *삽입* 및 *선택*을 수행하는 애플리케이션을 빌드할 수 있습니다. 샘플 애플리케이션을 성공적으로 실행하려면 상시 암호화 마법사를 실행한 동일한 컴퓨터에서 실행해야 합니다. 다른 컴퓨터에서 이 애플리케이션을 실행하려면 클라이언트 앱을 실행하는 컴퓨터에 상시 암호화 인증서를 배포해야 합니다.  
 
 > [!IMPORTANT]
-> 상시 암호화 열이 있는 서버에 일반 텍스트 데이터를 전달하는 경우 응용 프로그램은 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 개체를 사용해야 합니다. SqlParameter 개체를 사용하지 않고 리터럴 값을 전달하면 예외가 발생합니다.
+> Always Encrypted 열이 있는 서버에 일반 텍스트 데이터를 전달하는 경우 애플리케이션은 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 개체를 사용해야 합니다. SqlParameter 개체를 사용하지 않고 리터럴 값을 전달하면 예외가 발생합니다.
 > 
 > 
 

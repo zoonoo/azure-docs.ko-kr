@@ -50,7 +50,7 @@ Node.js용 SendGrid 모듈은 다음 명령을 사용하여 NPM(Node Package Man
 npm install sendgrid
 ```
 
-설치 후에는 다음 코드를 사용하여 응용 프로그램에서 이 모듈을 요청할 수 있습니다.
+설치 후에는 다음 코드를 사용하여 애플리케이션에서 이 모듈을 요청할 수 있습니다.
 
 ```javascript
 var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
