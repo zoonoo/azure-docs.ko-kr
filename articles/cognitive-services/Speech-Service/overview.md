@@ -29,19 +29,19 @@ Speech Service의 주요 기능은 음성 텍스트 변환(음성 인식 또는 
 
 |함수|기능|
 |-|-|
-|[Speech-to-text](speech-to-text.md)| <li>연속 실시간 음성을 텍스트로 전사합니다.<li>음성은 오디오 녹음에서 일괄 처리로 전사할 수 있습니다. <li>중간 결과, 음성 끝 검색, 자동 텍스트 서식 및 불경한 언어 마스킹을 지원합니다. <li>[Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/)(LUIS)을 호출하여 전사된 음성에서 사용자 의도를 추론할 수 있습니다.\*|
+|[Speech-to-text](speech-to-text.md)| <li>연속적인 실시간 음성을 텍스트로 변환합니다.<li>오디오 녹음에서 음성으로 일괄 처리로 변환할 수 있습니다. <li>중간 결과, 음성 종료 감지, 자동 텍스트 서식 및 불경한 언어 마스킹을 지원합니다. <li>[Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/)(LUIS)을 사용하여 음성에서 사용자 의도를 추출할 수 있습니다.\*|
 |[텍스트 음성 변환](text-to-speech.md)| <li>**신규**: 사람의 음성과 거의 구분되지 않는 인공신경망 텍스트 음성 변환 음성을 제공합니다(영어). <li>텍스트를 자연스럽게 들리는 음성으로 변환합니다. <li>지원되는 많은 언어에 대해 여러 성별 및/또는 방언을 제공합니다. <li>일반 텍스트 입력 또는 SSML(Speech Synthesis Markup Language)을 지원합니다. |
 |[음성 번역](speech-translation.md)| <li>스트리밍 오디오를 거의 실시간으로 변환합니다.<li> 녹음된 음성을 처리할 수도 있습니다.<li>결과를 텍스트 또는 합성된 음성으로 제공합니다. |
 
 
 ## <a name="customize-speech-features"></a>음성 사용자 지정 기능
 
-사용자 고유의 데이터를 사용하여 Speech 서비스의 Speech to Text 및 Text to Speech 기능의 기본 모델을 학습할 수 있습니다.
+음성 서비스의 Speech to Text 및 Text to speech 기능의 기초가 되는 모델을 교육하기 위해 자신의 데이터를 사용할 수 있습니다.
 
 |기능|모델|목적|
 |-|-|-|
-|음성 텍스트 변환|[음향 모델](how-to-customize-acoustic-models.md)|자동차 또는 공장과 같은 특정 화자 및 환경을 전사하는 데 도움이 됩니다.|
-||[언어 모델](how-to-customize-language-model.md)|의료 또는 IT 전문 용어와 같은 필드 특정 어휘 및 문법을 전사하는 데 도움이 됩니다.|
+|음성 텍스트 변환|[음향 모델](how-to-customize-acoustic-models.md)|자동차 또는 공장과 같은 특정 화자 및 환경을 변환하는 데 도움이 됩니다.|
+||[언어 모델](how-to-customize-language-model.md)|의료 또는 IT 전문 용어와 같은 필드 특정 어휘 및 문법을 변환하는 데 도움이 됩니다.|
 ||[발음 모델](how-to-customize-pronunciation.md)|"I owe you."에 대한 "IOU"와 같은 약어 및 머리글자어를 전사하는 데 도움이 됩니다. |
 |텍스트 음성 변환|[음성 글꼴](how-to-customize-voice-font.md)|실제 음성의 샘플에서 모델을 학습하여 앱 고유의 음성을 앱에 제공합니다.|
 
@@ -55,8 +55,8 @@ Speech Service의 주요 기능은 음성 텍스트 변환(음성 인식 또는 
 
 |<br>방법|음성<br>to Text|Text to<br>음성|음성<br>Translation|<br>설명|
 |-|-|-|-|-|
-|[Speech SDK](speech-sdk.md)|yes|아니요|yes|개발 작업을 간소화하는 C#, C++ 및 Java용 네이티브 API입니다.|
-|[REST API](rest-apis.md)|yes|yes|아니요|응용 프로그램에 음성을 쉽게 추가할 수 있는 간단한 HTTP 기반 API입니다.|
+|[Speech SDK](speech-sdk.md)|yes|no|yes|개발 작업을 간소화할 수 있는 C#, C++ 및 Java용 네이티브 API입니다.|
+|[REST API](rest-apis.md)|yes|yes|no|응용 프로그램에 음성을 쉽게 추가할 수 있는 간단한 HTTP 기반 API입니다.|
 
 ### <a name="websockets"></a>WebSockets
 
