@@ -90,7 +90,7 @@ Speech Service의 사용 사례는 다음과 같습니다.
 
 ### <a name="call-center-transcription"></a>호출 센터 전사
 
-호출 센터 녹음은 주로 호출에 문제가 발생했을 때만 참조됩니다. Speech Service를 사용하면 모든 녹음 내용을 텍스트로 쉽게 기록할 수 있습니다. [전체 텍스트 검색](https://docs.microsoft.com/azure/search/search-what-is-azure-search)을 위해 텍스트를 쉽게 인덱싱하거나 [텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/)을 적용하여 감정, 언어 및 핵심 구문을 검색할 수 있습니다.
+호출 센터 녹음은 주로 호출에 문제가 발생했을 때만 참조됩니다. Speech Service를 사용하면 모든 녹음 내용을 텍스트로 쉽게 기록할 수 있습니다. [전체 텍스트 검색](https://docs.microsoft.com/azure/search/search-what-is-azure-search)을 위해 텍스트를 쉽게 인덱싱하거나 [텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/)을 적용하여 감정, 언어 및 핵심 구문을 감지할 수 있습니다.
 
 콜 센터 녹음이 전문 용어(예: 제품 이름 또는 IT 전문 용어)를 포함하는 경우 [언어 모델](how-to-customize-language-model.md)을 만들어 해당 어휘를 Speech Service에 학습시킬 수 있습니다. 사용자 지정 [어쿠스틱 모델](how-to-customize-acoustic-models.md)은 Speech Service에서 최적 상태가 아닌 전화 연결을 이해하도록 지원할 수 있습니다.
 
@@ -98,7 +98,7 @@ Speech Service의 사용 사례는 다음과 같습니다.
 
 ### <a name="voice-bots"></a>음성 봇
 
-[봇](https://dev.botframework.com/)은 사용자를 그들이 원하는 정보와 연결하고 고객을 그들이 좋아하는 비즈니스에 연결하는 보편화되고 있는 방법입니다. 대화형 사용자 인터페이스를 웹 사이트나 앱에 추가하면 기능을 더 쉽게 찾고 더 빨리 액세스할 수 있습니다. 이 대화는 Speech 서비스를 통해 음성 쿼리에 동일하게 응답함으로써 새로운 차원의 유창성을 적용하고 있습니다.
+[봇](https://dev.botframework.com/)은 사용자가 원하는 정보와 원하는 비즈니스가 있는 고객을 연갈하는 보편적인 방법입니다. 대화형 사용자 인터페이스를 웹 사이트나 앱에 추가하면 기능에 더 쉽고, 더 빠르게 액세스할 수 있습니다. 이 대화는 Speech 서비스를 이용하여 음성 쿼리에 동일하게 응답함으로써 새로운 차원의 유창함을 갖게 됩니다.
 
 음성 지원 봇에 독특한 개성을 추가하기 위해 고유한 음성을 부여할 수 있습니다. 사용자 지정 음성 만들기는 2단계 프로세스입니다. 먼저 사용하려는 음성의 [녹음을 만듭니다](record-custom-voice-samples.md). 그런 다음, Speech 서비스의 [음성 사용자 지정 포털](https://cris.ai/Home/CustomVoice)에 [녹음 내용을 제출](how-to-customize-voice-font.md)(텍스트 기록과 함께)하면 포털에서 나머지 작업을 수행합니다. 사용자 지정 음성을 만든 후에 앱에서 사용하는 단계는 간단합니다.
 
