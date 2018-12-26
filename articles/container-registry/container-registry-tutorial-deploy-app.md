@@ -23,7 +23,7 @@ ms.locfileid: "53253836"
 
 > [!div class="checklist"]
 > * 두 개의 *Web App for Containers* 인스턴스에 컨테이너 이미지 배포
-> * 배포된 응용 프로그램 확인
+> * 배포된 애플리케이션 확인
 
 지리적 복제 레지스트리를 아직 만들지 않았고 컨테이너화된 샘플 애플리케이션의 이미지를 레지스트리에 푸시한 경우 시리즈의 이전 자습서인 [지리적 복제 Azure Container Registry 준비](container-registry-tutorial-prepare-registry.md)로 돌아갑니다.
 
@@ -62,7 +62,7 @@ Azure Container Registry는 컨테이너화된 애플리케이션을 [Web App fo
 
 ## <a name="view-the-deployed-web-app"></a>배포된 웹앱 보기
 
-배포가 완료되면 브라우저에서 해당 URL로 이동하여 실행 중인 응용 프로그램을 볼 수 있습니다.
+배포가 완료되면 브라우저에서 해당 URL로 이동하여 실행 중인 애플리케이션을 볼 수 있습니다.
 
 포털에서 **App Services**를 선택한 다음 이전 단계에서 프로비저닝된 웹앱을 선택합니다. 이 예제에서 웹앱 이름은 *uniqueregistryname-westus*입니다.
 
@@ -91,7 +91,7 @@ Docker 이미지가 지리적 복제 컨테이너 레지스트리에서 배포�
 
 ## <a name="view-the-deployed-web-app"></a>배포된 웹앱 보기
 
-이전과 마찬가지로 브라우저에서 해당 URL로 이동하여 실행 중인 응용 프로그램을 볼 수 있습니다.
+이전과 마찬가지로 브라우저에서 해당 URL로 이동하여 실행 중인 애플리케이션을 볼 수 있습니다.
 
 포털에서 **App Services**를 선택한 다음 이전 단계에서 프로비저닝된 웹앱을 선택합니다. 이 예제에서 웹앱 이름은 *uniqueregistryname-eastus*입니다.
 

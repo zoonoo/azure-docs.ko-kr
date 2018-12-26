@@ -30,7 +30,7 @@ ms.locfileid: "49957777"
 
 Microsoft Azure AD(Azure Active Directory)를 사용하여 웹 응용 프로그램 및 Web API에 인증 및 권한 부여를 추가할 수 있습니다.
 
-이 섹션에서는 Azure AD v1.0 엔드포인트에 대해 자세히 알아보는 데 사용할 수 있는 샘플 링크를 제공합니다. 이 샘플은 응용 프로그램에 사용할 수 있는 코드 조각과 함께 작업 수행 방법을 보여줍니다. 코드 샘플 페이지에서 요구 사항, 설치 및 설정에 도움이 되는 자세한 추가 정보 항목을 찾을 수 있습니다. 또한 코드는 중요한 섹션을 이해하는 데 도움이 되도록 주석으로 처리되어 있습니다.
+이 섹션에서는 Azure AD v1.0 엔드포인트에 대해 자세히 알아보는 데 사용할 수 있는 샘플 링크를 제공합니다. 이 샘플은 애플리케이션에 사용할 수 있는 코드 조각과 함께 작업 수행 방법을 보여줍니다. 코드 샘플 페이지에서 요구 사항, 설치 및 설정에 도움이 되는 자세한 추가 정보 항목을 찾을 수 있습니다. 또한 코드는 중요한 섹션을 이해하는 데 도움이 되도록 주석으로 처리되어 있습니다.
 
 > [!NOTE]
 > Azure AD V2 코드 샘플에 관심이 있는 경우 [시나리오별 v2.0 코드 샘플](sample-v2-code.md)을 참조하세요.
@@ -48,9 +48,9 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 ![JavaScript](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
 ![Angular JS](media/sample-v2-code/logo_angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
-## <a name="web-applications"></a>웹 응용 프로그램
+## <a name="web-applications"></a>웹 애플리케이션
 
-### <a name="web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity"></a>웹 응용 프로그램은 사용자 ID로 사용자를 로그인하고 Microsoft Graph 또는 Web API를 호출
+### <a name="web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity"></a>웹 애플리케이션은 사용자 ID로 사용자를 로그인하고 Microsoft Graph 또는 Web API를 호출
 
 다음 샘플은 사용자를 로그인하는 웹 응용 프로그램을 보여 줍니다. 일부 응용 프로그램은 로그인한 사용자의 이름으로 Microsoft Graph 또는 사용자 고유의 Web API도 호출합니다.
 
@@ -62,7 +62,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 ![자바](media/sample-v2-code/logo_java.png)  | | [java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
 ![PHP](media/sample-v2-code/logo_php.png) | | [php-graphapi-web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
 
-### <a name="web-applications-demonstrating-role-based-access-control-authorization"></a>역할 기반 액세스 제어(권한 부여)를 보여주는 웹 응용 프로그램
+### <a name="web-applications-demonstrating-role-based-access-control-authorization"></a>역할 기반 액세스 제어(권한 부여)를 보여주는 웹 애플리케이션
 
 다음 샘플은 RBAC(역할 기반 액세스 제어)를 구현하는 방법을 보여 줍니다. RBAC는 웹 응용 프로그램의 특정 기능에 대한 사용 권한을 특정 사용자로 제한하는 데 사용됩니다. 사용자가 **Azure AD 그룹**에 속해 있는지 또는 지정된 응용 프로그램 **역할**이 있는지에 따라 권한이 부여됩니다.
 
@@ -70,7 +70,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
  -------- | -------------------
 ![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) <p/>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Azure AD **역할**을 권한 부여에 사용하는 .NET 4.5 MVC 웹앱
 
-## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Microsoft Graph 또는 Web API를 호출하는 데스크톱 및 모바일 공용 클라이언트의 응용 프로그램
+## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Microsoft Graph 또는 Web API를 호출하는 데스크톱 및 모바일 공용 클라이언트의 애플리케이션
 
 다음 샘플은 사용자 이름으로 Microsoft Graph 또는 Web API에 액세스하는 공용 클라이언트 응용 프로그램(데스크톱/모바일 응용 프로그램)을 보여 줍니다. 디바이스 및 플랫폼에 따라 애플리케이션에서 다른 방식(흐름/권한 부여)으로 사용자를 로그인할 수 있습니다. 
 
@@ -78,7 +78,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 - 자동으로(Windows의 Windows 통합 인증 또는 사용자 이름/암호 사용) 
 - 또는 다른 디바이스에 대화형 로그인을 위임하여(웹 컨트롤을 제공하지 않는 디바이스에서 사용되는 디바이스 코드 흐름)
 
-클라이언트 응용 프로그램 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET 또는 ASP.NET Core 2.x Web API 호출
+클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET 또는 ASP.NET Core 2.x Web API 호출
 ------------------ | -------- | ---------- | -------------------- | -------------------------
 데스크톱(WPF)           | ![.NET/C#](media/sample-v2-code/logo_NET.png)  | 대화형 | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget)의 일부 | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
 모바일(UWP)            | .![.NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | 대화형 | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> 이 샘플은 [ADAL.NET](https://aka.ms/adalnet)이 아니라 [WAM](https://docs.microsoft.com/windows/uwp/security/web-account-manager)을 사용합니다.|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store)(ADAL.NET을 사용하여 단일 테넌트 Web API를 호출하는 UWP 응용 프로그램) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store)(ADAL.NET을 사용하여 다중 테넌트 Web API를 호출하는 UWP 응용 프로그램)|
@@ -89,11 +89,11 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 데스크톱(콘솔)          | ![Java 콘솔](media/sample-v2-code/logo_Java.png) | 사용자 이름/암호 | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
 데스크톱(콘솔)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.png) | 디바이스 코드 흐름 | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
-## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>디먼 응용 프로그램(응용 프로그램 ID를 사용하여 Web API에 액세스)
+## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>디먼 애플리케이션(애플리케이션 ID를 사용하여 Web API에 액세스)
 
-다음 샘플은 사용자 없이(응용 프로그램 ID로) Microsoft Graph 또는 web API에 액세스하는 데스크톱 또는 웹 응용 프로그램을 보여줍니다.
+다음 샘플은 사용자 없이(애플리케이션 ID로) Microsoft Graph 또는 web API에 액세스하는 데스크톱 또는 웹 애플리케이션을 보여줍니다.
 
-클라이언트 응용 프로그램 | 플랫폼 | 흐름/권한 부여 | ASP.NET 또는 ASP.NET Core 2.0 Web API 호출
+클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | ASP.NET 또는 ASP.NET Core 2.0 Web API 호출
 ------------------ | -------- | ---------- | -------------------- | -------------------------
 디먼 앱(콘솔)          | ![.NET](media/sample-v2-code/logo_NETframework.png) | 앱 비밀 또는 인증서를 사용하는 클라이언트 자격 증명 | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
 디먼 앱(콘솔)         | ![.NET](media/sample-v2-code/logo_NETcore.png) | 인증서를 사용하는 클라이언트 자격 증명| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)

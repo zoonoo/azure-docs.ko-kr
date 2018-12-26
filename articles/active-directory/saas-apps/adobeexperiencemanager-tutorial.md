@@ -70,7 +70,7 @@ Adobe Experience Manager의 Azure AD 통합을 구성하려면 갤러리의 Adob
     
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 선택합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 4. 검색 상자에 **Adobe Experience Manager**를 입력합니다. 결과 패널에서 **Adobe Experience Manager**를 선택한 다음, **추가**를 선택하여 애플리케이션을 추가합니다.
 

@@ -214,7 +214,7 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="creating-a-linkedin-learning-test-user"></a>LinkedIn Learning 테스트 사용자 만들기
 
-LinkedIn Learning 응용 프로그램은 JIT(Just-in-time) 사용자 프로비저닝을 지원하며 인증 후에 응용 프로그램에서 사용자가 자동으로 만들어집니다. LinkedIn Learning 포털의 관리 설정 페이지에서 **Automatically Assign licenses**(라이선스 자동 할당) 스위치를 전환하여 JIT(Just-in-time) 프로비저닝을 사용하도록 활성화하면 사용자에게 라이선스가 할당됩니다.
+LinkedIn Learning 애플리케이션은 JIT(Just-in-time) 사용자 프로비저닝을 지원하며 인증 후에 애플리케이션에서 사용자가 자동으로 만들어집니다. LinkedIn Learning 포털의 관리 설정 페이지에서 **Automatically Assign licenses**(라이선스 자동 할당) 스위치를 전환하여 JIT(Just-in-time) 프로비저닝을 사용하도록 활성화하면 사용자에게 라이선스가 할당됩니다.
 
    ![Azure AD 테스트 사용자 만들기](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
 
@@ -226,7 +226,7 @@ LinkedIn Learning 응용 프로그램은 JIT(Just-in-time) 사용자 프로비�
 
 **Britta Simon을 LinkedIn Learning에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201]
 

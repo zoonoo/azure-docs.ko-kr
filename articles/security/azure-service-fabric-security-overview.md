@@ -22,7 +22,7 @@ ms.lasthandoff: 07/03/2018
 ms.locfileid: "37436813"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric 보안 개요
-[Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. Service Fabric은 클라우드 응용 프로그램 개발 및 관리에서 발생하는 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있도록 구현하는 데 집중할 수 있습니다.
+[Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. Service Fabric은 클라우드 애플리케이션 개발 및 관리에서 발생하는 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있도록 구현하는 데 집중할 수 있습니다.
 
 이 문서는 Service Fabric 배포를 위한 보안 고려 사항에 대한 개요입니다.
 
@@ -66,7 +66,7 @@ Azure에서 실행되는 클라이언트는 Azure AD(Azure Active Directory)를 
 
 조직(테넌트)에서는 Azure AD를 사용하여 응용 프로그램에 대한 사용자 액세스를 관리할 수 있습니다. 웹 기반 로그인 UI를 갖는 응용 프로그램과 네이티브 클라이언트 환경을 갖는 응용 프로그램이 있습니다.
 
-Service Fabric 클러스터는 웹 기반 Service Fabric Explorer 및 Visual Studio를 포함하여 관리 기능에 대한 여러 진입점을 제공합니다. 결과적으로 두 개의 Azure AD 응용 프로그램(웹 응용 프로그램과 네이티브 응용 프로그램)을 만들어 클러스터에 대한 액세스를 제어합니다.
+Service Fabric 클러스터는 웹 기반 Service Fabric Explorer 및 Visual Studio를 포함하여 관리 기능에 대한 여러 진입점을 제공합니다. 결과적으로 두 개의 Azure AD 애플리케이션(웹 애플리케이션과 네이티브 애플리케이션)을 만들어 클러스터에 대한 액세스를 제어합니다.
 
 Azure 클러스터의 경우 Azure AD 보안을 사용하여 노드 간 보안에 대해 클라이언트 및 인증서를 인증하는 것이 좋습니다.
 
@@ -83,7 +83,7 @@ Windows Server 2012 R2 및 Active Directory가 있는 독립 실행형 Windows S
 
 모니터링 및 진단의 워크플로는 다음 세 단계로 구성됩니다.
 
-1.  **이벤트 생성**: 이벤트 생성에는 인프라(클러스터) 수준 및 응용 프로그램/서비스 수준의 이벤트(로그, 추적, 사용자 지정 이벤트)가 모두 포함됩니다. 제공되는 계측 및 계측을 추가하는 방법을 이해하려면 [인프라 수준 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) 및 [응용 프로그램 수준 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app)를 참조하세요.
+1.  **이벤트 생성**: 이벤트 생성에는 인프라(클러스터) 수준 및 응용 프로그램/서비스 수준의 이벤트(로그, 추적, 사용자 지정 이벤트)가 모두 포함됩니다. 제공되는 계측 및 계측을 추가하는 방법을 이해하려면 [인프라 수준 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) 및 [애플리케이션 수준 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app)를 참조하세요.
 
 2.  **이벤트 집계**: 생성된 이벤트를 표시하려면 먼저 수집하고 집계해야 합니다. 일반적으로 [Azure 진단](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad)(에이전트 기반 로그 수집과 유사) 또는 [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow)(프로세스 내 로그 수집)를 사용하는 것이 좋습니다.
 
@@ -131,17 +131,17 @@ Active Directory 도메인 내에서 컴퓨터 그룹을 사용하려는 경우 
 ### <a name="manage-secrets-in-service-fabric-applications"></a>Service Fabric 응용 프로그램에서 비밀 관리
 저장소 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다.
 
-[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)를 사용하여 키와 비밀을 관리할 수 있습니다. 그러나 응용 프로그램에서 암호 사용은 특정 클라우드 플랫폼을 필요로 하지 않습니다. 어디서나 호스팅되는 클러스터에 응용 프로그램을 배포할 수 있습니다. 이 흐름은 주요 네 단계로 구성됩니다.
+[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)를 사용하여 키와 비밀을 관리할 수 있습니다. 그러나 애플리케이션에서 암호 사용은 특정 클라우드 플랫폼을 필요로 하지 않습니다. 어디서나 호스팅되는 클러스터에 애플리케이션을 배포할 수 있습니다. 이 흐름은 주요 네 단계로 구성됩니다.
 
 1.  데이터 암호화 인증서를 가져옵니다.
 2.  클러스터에 인증서를 설치합니다.
 3.  인증서를 사용하여 응용 프로그램을 배포할 때 비밀 값을 암호화하여 서비스의 Settings.xml 구성 파일에 삽입합니다.
 4.  동일한 암호화 인증서로 암호를 해독하여 Settings.xml 파일에서 암호화된 값을 읽습니다.
 
-자세한 내용은 [Service Fabric 응용 프로그램의 암호 관리](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management)를 참조하세요.
+자세한 내용은 [Service Fabric 애플리케이션의 암호 관리](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management)를 참조하세요.
 
-### <a name="configure-security-policies-for-an-application"></a>응용 프로그램에 대한 보안 정책 구성
-Azure Service Fabric 보안을 사용하여 다른 사용자 계정으로 클러스터에서 실행 중인 응용 프로그램을 보호할 수 있습니다. 또한 Service Fabric 보안은 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 응용 프로그램에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 더욱 안전하게 응용 프로그램을 실행할 수 있습니다.
+### <a name="configure-security-policies-for-an-application"></a>애플리케이션에 대한 보안 정책 구성
+Azure Service Fabric 보안을 사용하여 다른 사용자 계정으로 클러스터에서 실행 중인 응용 프로그램을 보호할 수 있습니다. 또한 Service Fabric 보안은 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 애플리케이션에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 더욱 안전하게 응용 프로그램을 실행할 수 있습니다.
 
 보안 정책 구성을 위한 작업은 다음과 같습니다.
 

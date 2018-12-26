@@ -33,7 +33,7 @@ ms.locfileid: "50420067"
 > * 리소스 만들기
 > * 관리 작업 수행
 > * 리소스 삭제
-> * 응용 프로그램 실행
+> * 애플리케이션 실행
 
 이러한 단계를 수행하려면 약 20분이 걸립니다.
 
@@ -458,7 +458,7 @@ azure.resourceGroups().deleteByName("myResourceGroup");
 
 2. App.java 파일을 저장합니다.
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 이 콘솔 응용 프로그램을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Service Fabric CLI 스크립트 샘플 - 클러스터에서 응용 프로그램 업데이트
-description: Service Fabric CLI 스크립트 샘플 - 새 버전으로 응용 프로그램 업데이트. 이 예제에서는 배포된 응용 프로그램도 새로운 비트로 업그레이드합니다.
+title: Service Fabric CLI 스크립트 샘플 - 클러스터에서 애플리케이션 업데이트
+description: Service Fabric CLI 스크립트 샘플 - 새 버전으로 애플리케이션 업데이트. 이 예제에서는 배포된 애플리케이션도 새로운 비트로 업그레이드합니다.
 services: service-fabric
 documentationcenter: ''
 author: TylerMSFT

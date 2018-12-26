@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cca18b2aa5cb6f27df45e4b63e55251bea058625
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a9ae18c7fbf3b0f663396099f065c76969206f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968852"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890384"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>자습서: 템플릿을 사용하여 Service Fabric Mesh에 응용 프로그램 배포
 
@@ -38,7 +38,7 @@ ms.locfileid: "46968852"
 > [!div class="checklist"]
 > * 템플릿을 사용하여 Service Fabric Mesh에 응용 프로그램 배포
 > * [Service Fabric Mesh에서 실행되는 응용 프로그램에서 서비스 확장](service-fabric-mesh-tutorial-template-scale-services.md)
-> * [Service Fabric Mesh에서 실행되는 응용 프로그램 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
+> * [Service Fabric Mesh에서 실행 중인 응용 프로그램 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * [응용 프로그램 제거](service-fabric-mesh-tutorial-template-remove-app.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
@@ -51,7 +51,7 @@ ms.locfileid: "46968852"
 
 * [Docker 설치](service-fabric-mesh-howto-setup-developer-environment-sdk.md#install-docker)
 
-* [로컬에 Azure CLI 및 Service Fabric Mesh CLI를 설치합니다](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [로컬에 Azure CLI 및 Service Fabric Mesh CLI를 설치합니다](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
@@ -205,7 +205,7 @@ Service Fabric Mesh 응용 프로그램은 Azure RM(Resource Manager) 템플릿�
 이 자습서에서는 To Do List 샘플을 예제로 사용합니다.  새 템플릿 및 parameters 파일을 작성하는 대신 [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) and [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 다운로드하세요.
 
 ### <a name="parameters"></a>매개 변수
-응용 프로그램을 배포한 후에 템플릿의 값이 변경될 것으로 예상되거나 배포별로 값을 변경하는 옵션을 포함하려는 경우(다른 배포에 이 템플릿을 다시 사용하려는 경우)에는 값을 매개 변수화하는 것이 가장 좋습니다. 이렇게 하려면 배포 템플릿 맨 위에 “parameters” 섹션을 만들고 여기서 매개 변수 이름과 속성을 지정합니다. 그러면 나중에 배포 템플릿에서 해당 이름과 속성이 참조됩니다. 각 매개 변수 정의는 *type*, *defaultValue* 및 *description*이 있는 선택적 *metadata* 섹션을 포함합니다.
+응용 프로그램을 배포한 후에 템플릿의 값이 변경될 것으로 예상되거나 배포별로 값을 변경하는 옵션을 포함하려는 경우(다른 배포에 이 템플릿을 다시 사용하려는 경우) 가장 좋은 방법은 값을 매개 변수화하는 것입니다. 이렇게 하려면 배포 템플릿 맨 위에 “parameters” 섹션을 만들고 여기서 매개 변수 이름과 속성을 지정합니다. 그러면 나중에 배포 템플릿에서 해당 이름과 속성이 참조됩니다. 각 매개 변수 정의는 *type*, *defaultValue* 및 *description*이 있는 선택적 *metadata* 섹션을 포함합니다.
 
 parameters 섹션은 배포 템플릿 맨 위의 *resources* 섹션 바로 앞에 정의됩니다.
 
@@ -359,13 +359,31 @@ parameters 파일에서 다음 매개 변수 값을 업데이트합니다.
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-몇 분이 지나면 다음 출력이 표시됩니다.
+이 명령은 아래 표시되는 JSON 코드 조각을 생성합니다. JSON 출력의 ```outputs``` 섹션에서 ```publicIPAddress``` 속성을 복사합니다.
 
-`todolistappNetwork has been deployed successfully on todolistappNetwork with public ip address <IP Address>`
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
 
-## <a name="open-the-application"></a>응용 프로그램 열기
+이 정보는 ARM 템플릿의 ```outputs``` 섹션에서 제공됩니다. 아래와 같이 이 섹션에서는 공용 IP 주소를 가져올 게이트웨이 리소스를 참조합니다. 
 
-응용 프로그램이 정상적으로 배포되고 나면 서비스 엔드포인트의 공용 IP 주소를 가져옵니다. 배포 명령은 서비스 엔드포인트의 공용 IP 주소를 반환합니다. 필요한 경우, 네트워크 리소스를 쿼리하여 서비스 엔드포인트의 공용 IP 주소를 찾을 수도 있습니다. 이 응용 프로그램의 네트워크 리소스 이름은 `todolistappNetwork`입니다. 다음 명령을 사용하여 이 정보를 페치합니다. 
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('helloWorldGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
+
+## <a name="open-the-application"></a>애플리케이션 열기
+
+응용 프로그램이 정상적으로 배포되고 나면 서비스 엔드포인트의 공용 IP 주소를 가져옵니다. 배포 명령은 서비스 엔드포인트의 공용 IP 주소를 반환합니다. 필요한 경우, 네트워크 리소스를 쿼리하여 서비스 엔드포인트의 공용 IP 주소를 찾을 수도 있습니다. 이 애플리케이션의 네트워크 리소스 이름은 `todolistappNetwork`입니다. 다음 명령을 사용하여 이 정보를 페치합니다. 
 
 ```azurecli
 az mesh network show --resource-group myResourceGroup --name todolistappNetwork
@@ -398,4 +416,4 @@ az mesh code-package-log get --resource-group myResourceGroup --application-name
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]
-> [Service Fabric Mesh에서 실행되는 응용 프로그램 확장](service-fabric-mesh-tutorial-template-scale-services.md)
+> [Service Fabric Mesh에서 실행되는 응용 프로그램 크기 조정](service-fabric-mesh-tutorial-template-scale-services.md)

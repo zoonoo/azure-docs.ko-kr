@@ -198,7 +198,7 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 
 1. [Microsoft Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 이동하여 응용 프로그램을 등록합니다.
 2. **새 응용 프로그램 등록**을 선택합니다.
-3. 응용 프로그램의 이름을 입력합니다.
+3. 애플리케이션의 이름을 입력합니다.
 4. Visual Studio 프로젝트의 *SSL URL*을 **로그온 URL**에 붙여넣습니다. 이 URL은 등록하는 응용 프로그램의 회신 URL 목록에도 자동으로 추가됩니다.
 5. **만들기**를 선택하여 응용 프로그램을 등록합니다. 그러면 응용 프로그램 목록으로 돌아갑니다.
 6. 이제 방금 만든 응용 프로그램을 검색 및/또는 선택하여 해상 속성을 엽니다.

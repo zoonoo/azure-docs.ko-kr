@@ -26,9 +26,9 @@ ms.locfileid: "39578673"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>응용 프로그램 인증을 위한 인증서 자격 증명
 
-Azure AD(Azure Active Directory)를 사용하면 응용 프로그램에서(예: OAuth 2.0 클라이언트 자격 증명 부여 흐름([v1.0](v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) 및 On-Behalf-Of 흐름([v1.0](v1-oauth2-on-behalf-of-flow.md), [v2.0](v2-oauth2-on-behalf-of-flow.md))에서) 인증을 위해 자체의 자격 증명을 사용할 수 있습니다.
+Azure AD(Azure Active Directory)를 사용하면 애플리케이션에서(예: OAuth 2.0 클라이언트 자격 증명 부여 흐름([v1.0](v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) 및 On-Behalf-Of 흐름([v1.0](v1-oauth2-on-behalf-of-flow.md), [v2.0](v2-oauth2-on-behalf-of-flow.md))에서) 인증을 위해 자체의 자격 증명을 사용할 수 있습니다.
 
-응용 프로그램이 인증에 사용할 수 있는 자격 증명의 한 가지 형태는 응용 프로그램에서 소유한 인증서로 서명된 JWT(JSON Web Token) 어설션입니다.
+애플리케이션이 인증에 사용할 수 있는 자격 증명의 한 가지 형태는 애플리케이션에서 소유한 인증서로 서명된 JWT(JSON Web Token) 어설션입니다.
 
 ## <a name="assertion-format"></a>어설션 형식
 어설션을 계산하려면 선택한 언어로 많은 [JSON Web Token](https://jwt.ms/)(영문) 라이브러리 중 하나를 사용할 수 있습니다. 토큰에 의해 전달되는 정보는 다음과 같습니다.
@@ -96,14 +96,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### <a name="uploading-the-certificate-file"></a>인증서 파일 업로드
 
-클라이언트 응용 프로그램에 대한 Azure 앱 등록에서:
+클라이언트 애플리케이션에 대한 Azure 앱 등록에서:
 1. **설정 > 키**를 선택한 다음, **공개 키 업로드**를 선택합니다. 
 2. 업로드하려는 인증서 파일을 선택합니다.
 3. **저장**을 선택합니다. 
    
    일단 저장하면 인증서가 업로드되고 지문, 시작 날짜 및 만료 값이 표시됩니다. 
 
-### <a name="updating-the-application-manifest"></a>응용 프로그램 매니페스트 업데이트
+### <a name="updating-the-application-manifest"></a>애플리케이션 매니페스트 업데이트
 
 인증서가 있을 때 다음을 계산해야 합니다.
 
@@ -112,8 +112,8 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 애플리케이션 매니페스트에서 키를 식별하는 GUID도 제공해야 합니다(`$keyId`).
 
-클라이언트 응용 프로그램에 대한 Azure 앱 등록에서:
-1. 응용프로그램 매니페스트를 엽니다.
+클라이언트 애플리케이션에 대한 Azure 앱 등록에서:
+1. 애플리케이션 매니페스트를 엽니다.
 2. 다음 스키마를 사용해서 *keyCredentials* 속성을 새 인증서 정보로 바꿉니다.
 
    ```
@@ -127,7 +127,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
        }
    ]
    ```
-3. 응용 프로그램 매니페스트에 편집 내용을 저장한 다음, 매니페스트를 Azure AD에 업로드합니다. 
+3. 애플리케이션 매니페스트에 편집 내용을 저장한 다음, 매니페스트를 Azure AD에 업로드합니다. 
 
    `keyCredentials` 속성은 다중 값이므로 풍부한 키 관리를 위해 여러 인증서를 업로드할 수 있습니다.
    

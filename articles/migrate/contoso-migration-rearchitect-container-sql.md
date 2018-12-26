@@ -384,7 +384,7 @@ Contoso는 응용 프로그램에 대한 DevOps 인프라 및 파이프라인을
 
 - 이 앱은 SQL Server에 연결하는 WebForms 및 WCF 서비스를 포함하고 있습니다.
 - 또한 Entity Framework를 사용하여 SQL 데이터베이스의 데이터와 통합되고, WCF 서비스를 통해 데이터를 노출합니다.
-- WebForms 응용 프로그램은 WCF 서비스와 상호 작용합니다.
+- WebForms 애플리케이션은 WCF 서비스와 상호 작용합니다.
 
 Contoso 관리자는 다음과 같이 Visual Studio 및 SDK Tools를 사용하여 앱을 컨테이너로 변환합니다.
 
@@ -415,7 +415,7 @@ Contoso 관리자는 다음과 같이 Visual Studio 및 SDK Tools를 사용하�
 
     ![컨테이너](./media/contoso-migration-rearchitect-container-sql/container6.png)
 
-8. 또 다른 매니페스트 파일(**ApplicationManifest.xml)에는 컨테이너에 대한 구성 응용 프로그램이 포함되어 있습니다.
+8. 또 다른 매니페스트 파일(**ApplicationManifest.xml)에는 컨테이너에 대한 구성 애플리케이션이 포함되어 있습니다.
 
     ![컨테이너](./media/contoso-migration-rearchitect-container-sql/container7.png)
 
@@ -506,7 +506,7 @@ Contoso 관리자는 다음과 같이 Visual Studio 및 SDK Tools를 사용하�
 
 SmartHotel360 앱 및 데이터베이스가 Azure에서 실행되자, Contoso는 앱을 확장하려고 합니다.
 
-- Contoso의 개발자는 Service Fabric 클러스터에서 실행될 새로운 .NET Core 응용 프로그램의 프로토타입을 제작합니다.
+- Contoso의 개발자는 Service Fabric 클러스터에서 실행될 새로운 .NET Core 애플리케이션의 프로토타입을 제작합니다.
 - 이 앱은 CosmosDB에서 감정 데이터를 가져오는 데 사용될 것입니다.
 - 이 데이터는 Serverless Azure Function 및 Cognitive Services Text Analysis API를 사용하여 처리되는 트윗 형식입니다.
 

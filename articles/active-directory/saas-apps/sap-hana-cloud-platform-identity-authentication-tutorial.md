@@ -90,7 +90,7 @@ SAP Cloud Platform Identity Authentication을 Azure AD에 통합하려면 갤러
     
 1. 새 애플리케이션을 새로 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 선택합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 1. 검색 상자에 **SAP Cloud Platform Identity Authentication**을 입력합니다. 
 

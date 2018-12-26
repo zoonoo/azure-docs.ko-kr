@@ -1,6 +1,6 @@
 ---
-title: Azure 보안 및 규정 준수 청사진 - GDPR 준수 IaaS 웹 응용 프로그램
-description: Azure 보안 및 규정 준수 청사진 - GDPR 준수 IaaS 웹 응용 프로그램
+title: Azure 보안 및 규정 준수 청사진 - GDPR 준수 IaaS 웹 애플리케이션
+description: Azure 보안 및 규정 준수 청사진 - GDPR 준수 IaaS 웹 애플리케이션
 services: security
 author: jomolesk
 ms.assetid: 04d5239c-fff0-4c2d-9379-1fa79ddbec78
@@ -15,14 +15,14 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51242078"
 ---
-# <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-gdpr"></a>Azure 보안 및 규정 준수 청사진 - GDPR 준수 IaaS 웹 응용 프로그램
+# <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-gdpr"></a>Azure 보안 및 규정 준수 청사진 - GDPR 준수 IaaS 웹 애플리케이션
 
 ## <a name="overview"></a>개요
 GDPR(일반 데이터 보호 규정)에는 조직에서 개인 정보를 식별하고 보호하는 방법, 투명성 요구 사항을 조정하는 방법, 개인 데이터 침해를 탐지하고 보고하는 방법, 개인 정보 담당 직원과 다른 직원을 교육하는 방법을 포함하여 개인 정보를 수집, 저장 및 사용하는 방법에 대한 다양한 요구 사항이 포함되어 있습니다. GDPR은 개인에게 개인 데이터에 대한 더 강화된 제어를 제공하고, 개인 데이터를 수집, 처리 또는 분석하는 조직에 대해 많은 새로운 의무를 부과합니다. GDPR은 EU(유럽 연합)의 사용자에게 상품과 서비스를 제공하거나 EU 거주자와 관련된 데이터를 수집하고 분석하는 조직에 새로운 규칙을 적용합니다. GDPR은 조직의 위치와 관계없이 적용됩니다.
 
 Microsoft는 GDPR에서 식별되는 개인 데이터의 범주를 포함하여 클라우드의 데이터를 보호하기 위해 업계를 선도하는 보안 조치와 및 개인 정보 보호 정책을 갖춘 Azure를 설계했습니다. Microsoft의 [계약 조건](https://aka.ms/Online-Services-Terms)은 Microsoft의 프로세서 요구 사항을 따릅니다.
 
-이 Azure 보안 및 규정 준수 청사진은 간단한 인터넷 연결 웹 응용 프로그램에 적합한 IaaS(Infrastructure as a Service) 환경을 배포하기 위한 지침을 제공합니다. 이 솔루션은 고객이 GDPR의 특정 보안 및 규정 준수 요구 사항을 충족할 수 있는 방법을 보여 주고, 고객이 Azure에서 자신의 IaaS 웹 응용 프로그램 솔루션을 구축하고 구성할 수 있는 기반을 제공합니다. 고객은 이 참조 아키텍처를 활용하고 GDPR 준수 과정에서 Microsoft의 다음 [4단계 프로세스](https://aka.ms/gdprebook)를 따를 수 있습니다.
+이 Azure 보안 및 규정 준수 청사진은 간단한 인터넷 연결 웹 애플리케이션에 적합한 IaaS(Infrastructure as a Service) 환경을 배포하기 위한 지침을 제공합니다. 이 솔루션은 고객이 GDPR의 특정 보안 및 규정 준수 요구 사항을 충족할 수 있는 방법을 보여 주고, 고객이 Azure에서 자신의 IaaS 웹 애플리케이션 솔루션을 구축하고 구성할 수 있는 기반을 제공합니다. 고객은 이 참조 아키텍처를 활용하고 GDPR 준수 과정에서 Microsoft의 다음 [4단계 프로세스](https://aka.ms/gdprebook)를 따를 수 있습니다.
 1. 검색: 존재하는 개인 데이터와 해당 위치를 식별합니다.
 2. 관리: 개인 데이터를 사용하고 액세스하는 방법을 관리합니다.
 3. 보호: 취약성 및 데이터 침해를 방지, 탐지 및 대응하기 위한 보안 제어를 설정합니다.
@@ -111,7 +111,7 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 -   SQL Database는 [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 사용하여 데이터베이스, 관련 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 해독을 수행하고 미사용 정보를 보호하도록 구성됩니다. TDE는 저장된 개인 데이터가 무단 액세스의 영향을 받지 않도록 보장합니다.
 -   [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)은 적절한 권한이 부여될 때까지 데이터베이스 서버에 대한 모든 액세스를 차단합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
 -   [SQL 위협 요소 탐지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started)를 사용하면 의심스러운 데이터베이스 활동, 잠재적 취약성, SQL 삽입 공격 및 비정상 데이터베이스 액세스 패턴에 대한 보안 경고를 제공하여 발생할 수 있는 잠재적 위협을 탐지하고 대응할 수 있습니다.
--   [Always Encrypted 열](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)은 중요한 개인 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 나타나지 않도록 보장합니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 응용 프로그램 또는 응용 프로그램 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
+-   [Always Encrypted 열](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)은 중요한 개인 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 나타나지 않도록 보장합니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 애플리케이션 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
 - [확장 속성](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql) 기능을 사용하면 관련된 개인 데이터를 처리하지 못하도록 하는 응용 프로그램 논리를 지원하기 위해 사용자가 데이터베이스 개체에 사용자 지정 속성을 추가하고 데이터를 "Discontinued" 태그로 지정할 수 있으므로 데이터 주체 처리를 중단할 수 있습니다.
 - [행 수준 보안](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)을 사용하면 사용자가 데이터 액세스를 제한하여 처리를 중단하는 정책을 정의할 수 있습니다.
 - [SQL Database DDM(동적 데이터 마스킹)](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)은 권한이 없는 사용자 또는 응용 프로그램에 데이터를 마스킹하여 중요한 개인 데이터의 노출을 제한합니다. DDM은 잠재적으로 중요한 데이터를 자동으로 검색하고 적용할 적절한 마스크를 제안할 수 있습니다. 이렇게 하면 GDPR 보호에 적합한 개인 데이터를 식별하고 무단 액세스를 통해 데이터베이스를 종료하지 못하도록 액세스를 줄일 수 있습니다. **참고: 고객은 데이터베이스 스키마를 준수하도록 DDM 설정을 조정해야 합니다.**
@@ -119,7 +119,7 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 ### <a name="identity-management"></a>ID 관리
 Azure 환경에서 개인 데이터에 대한 액세스를 관리하는 기능을 제공하는 기술은 다음과 같습니다.
 -   [AAD(Azure Active Directory)](https://azure.microsoft.com/services/active-directory/)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. 이 솔루션의 모든 사용자는 SQL Server에 액세스하는 사용자를 포함하여 AAD에 만들어집니다.
--   응용 프로그램에 대한 인증은 AAD를 사용하여 수행됩니다. 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요. 또한 데이터베이스 열 암호화도 AAD를 사용하여 SQL Server에 대해 응용 프로그램을 인증합니다.  자세한 내용은 [SQL Database의 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
+-   애플리케이션에 대한 인증은 AAD를 사용하여 수행됩니다. 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요. 또한 데이터베이스 열 암호화도 AAD를 사용하여 SQL Server에 대해 애플리케이션을 인증합니다. 자세한 내용은 [SQL Database의 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
 -   [Azure RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 사용하면 관리자가 세분화된 액세스 권한을 정의하여 사용자가 자신의 작업을 수행하는 데 필요한 액세스 권한만 부여할 수 있습니다. 관리자는 모든 사용자에게 Azure 리소스에 대한 무제한 권한을 부여하는 대신 개인 데이터에 액세스하기 위한 특정 작업만 허용할 수 있습니다. 구독 액세스는 구독 관리자에게만 허용됩니다.
 - [AAD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started)를 사용하면 고객이 특정 리소스에 액세스할 수 있는 사용자 수를 최소화할 수 있습니다.  관리자는 AAD PIM을 사용하여 권한 있는 ID와 리소스에 대한 액세스를 검색, 제한 및 모니터링할 수 있습니다. 필요한 경우 이 기능을 사용하여 요청 시 JIT(Just-In-Time) 관리 액세스를 적용할 수도 있습니다.
 - [AAD ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)는 조직의 ID에 영향을 미치는 잠재적 취약성을 탐지하고, 조직의 ID와 관련하여 검색된 의심스러운 작업에 대한 자동화된 대응을 구성하며, 의심스러운 인시던트를 조사하여 이를 해결하기 위한 적절한 조치를 수행합니다.

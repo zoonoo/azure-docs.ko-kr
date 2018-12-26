@@ -1,6 +1,6 @@
 ---
 title: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정의 데이터 관리(SDK 버전 3 미리 보기)
-description: SQL API를 사용하여 온라인 데이터베이스 및 C# 콘솔 응용 프로그램을 만드는 자습서입니다.
+description: SQL API를 사용하여 온라인 데이터베이스 및 C# 콘솔 애플리케이션을 만드는 자습서입니다.
 keywords: NoSQL 자습서, 온라인 데이터베이스, C# 콘솔 응용 프로그램
 author: deborahc
 ms.service: cosmos-db

@@ -51,7 +51,7 @@ AKS 노드는 Azure 가상 머신에서 실행됩니다. 저장소를 노드 및
 
 ### <a name="cluster-node-upgrades"></a>클러스터 노드 업그레이드
 
-Azure Kubernetes Service는 여러 Kubernetes 버전을 제공합니다. AKS에서 새 버전을 사용할 수 있으므로 Azure Portal 또는 Azure CLI를 사용하여 클러스터를 업그레이드할 수 있습니다. 업그레이드 프로세스 중에는 노드를 신중하게 통제하고 드레이닝하여 실행 중인 응용 프로그램의 중단을 최소화합니다.
+Azure Kubernetes Service는 여러 Kubernetes 버전을 제공합니다. AKS에서 새 버전을 사용할 수 있으므로 Azure Portal 또는 Azure CLI를 사용하여 클러스터를 업그레이드할 수 있습니다. 업그레이드 프로세스 중에는 노드를 신중하게 통제하고 드레이닝하여 실행 중인 애플리케이션의 중단을 최소화합니다.
 
 수명 주기 버전에 대해 자세히 알아보려면 [AKS의 지원되는 Kubernetes 버전][aks-supported versions]을 참조하세요. 업그레이드하는 방법에 대한 단계는 [AKS(Azure Kubernetes Service) 클러스터 업그레이드][aks-upgrade]를 참조하세요.
 
@@ -75,7 +75,7 @@ AKS 클러스터는 기존 가상 네트워크로 배포될 수 있습니다. �
 
 ### <a name="ingress-with-http-application-routing"></a>HTTP 응용 프로그램 라우팅을 사용하여 수신
 
-HTTP 응용 프로그램 라우팅 추가 기능을 사용하면 AKS 클러스터에 배포된 응용 프로그램에 쉽게 액세스할 수 있습니다. HTTP 응용 프로그램 라우팅 솔루션이 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램이 배포되면 공개적으로 액세스할 수 있는 DNS 이름이 자동으로 구성됩니다. HTTP 응용 프로그램 라우팅은 DNS 영역을 구성하고 AKS 클러스터와 통합합니다. 그런 다음, 정상적으로 Kubernetes 수신 리소스를 배포할 수 있습니다.
+HTTP 응용 프로그램 라우팅 추가 기능을 사용하면 AKS 클러스터에 배포된 응용 프로그램에 쉽게 액세스할 수 있습니다. HTTP 애플리케이션 라우팅 솔루션이 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램이 배포되면 공개적으로 액세스할 수 있는 DNS 이름이 자동으로 구성됩니다. HTTP 응용 프로그램 라우팅은 DNS 영역을 구성하고 AKS 클러스터와 통합합니다. 그런 다음, 정상적으로 Kubernetes 수신 리소스를 배포할 수 있습니다.
 
 수신 트래픽을 시작하려면 [HTTP 응용 프로그램 라우팅][aks-http-routing]을 참조하세요.
 

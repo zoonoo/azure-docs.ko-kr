@@ -109,7 +109,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
       **Logon Type** 속성을 **Application Server**로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
 
-      ![SAP 응용 프로그램 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
+      ![SAP 애플리케이션 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
 
       **Logon Type** 속성을 **Group**으로 설정하면 다음 속성이 필요합니다(보통은 선택 사항). 
 
@@ -218,7 +218,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
       **Logon Type** 속성을 **Application Server**로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
 
-      ![SAP 응용 프로그램 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
+      ![SAP 애플리케이션 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
 
       **Logon Type** 속성을 **Group**으로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
 
@@ -303,7 +303,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
       **Logon Type** 속성을 **Application Server**로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
 
-      ![SAP 응용 프로그램 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
+      ![SAP 애플리케이션 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
 
       **Logon Type** 속성을 **Group**으로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
    

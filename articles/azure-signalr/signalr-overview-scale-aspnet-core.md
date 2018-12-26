@@ -27,13 +27,13 @@ Azure SignalR Service를 사용하면 ASP.NET Core SignalR의 서버 쪽 구성 
 
 ## <a name="why-not-deploy-signalr-myself"></a>SignalR을 직접 배포하지 않는 이유는?
 
-ASP.NET Core SignalR을 백 엔드 구성 요소로 지원하는 자신만의 Azure 웹 응용 프로그램을 전체 웹 응용 프로그램에 배포하는 방법은 여전히 유효합니다.
+ASP.NET Core SignalR을 백 엔드 구성 요소로 지원하는 자신만의 Azure 웹 애플리케이션을 전체 웹 애플리케이션에 배포하는 방법은 여전히 유효합니다.
 
 Azure SignalR Service를 사용하는 주요 이유 중 하나는 단순성입니다. Azure SignalR Service를 사용하면 성능, 확장성, 가용성과 같은 문제를 처리할 필요가 없습니다. 이러한 문제는 99.9% 서비스 수준 계약으로 처리됩니다.
 
 또한 WebSocket은 일반적으로 실시간 콘텐츠 업데이트를 지원하는 데 선호되는 기술입니다. 그러나 많은 수의 WebSocket 영구 연결을 부하 분산하는 것은 크기 조정 시 해결해야 하는 복잡한 문제가 됩니다. 일반적인 해결 방법으로 DNS 부하 분산, 하드웨어 부하 분산 장치 및 소프트웨어 부하 분산을 활용합니다. Azure SignalR Service는 이 문제를 처리합니다.
 
-또 다른 이유로, 실제로 웹 응용 프로그램을 호스팅할 필요가 없습니다. 웹 응용 프로그램의 논리에서는 [서버를 사용하지 않는 컴퓨팅](https://azure.microsoft.com/overview/serverless-computing/)을 활용할 수 있습니다. 예를 들어 코드는 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) 트리거를 통해 호스팅되고 요청 시에만 실행될 것입니다. 코드가 요청 시에만 실행되고 클라이언트와의 긴 연결을 유지하지 않기 때문에 이 시나리오는 까다로울 수 있습니다. Azure SignalR Service는 이미 사용자를 위해 연결을 관리하므로 이러한 상황을 처리할 수 있습니다. 자세한 내용은 [Azure Functions와 함께 SignalR Service를 사용하는 방법에 대한 개요](signalr-overview-azure-functions.md)를 참조하세요.
+또 다른 이유로, 실제로 웹 애플리케이션을 호스팅할 필요가 없습니다. 웹 응용 프로그램의 논리에서는 [서버를 사용하지 않는 컴퓨팅](https://azure.microsoft.com/overview/serverless-computing/)을 활용할 수 있습니다. 예를 들어 코드는 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) 트리거를 통해 호스팅되고 요청 시에만 실행될 것입니다. 코드가 요청 시에만 실행되고 클라이언트와의 긴 연결을 유지하지 않기 때문에 이 시나리오는 까다로울 수 있습니다. Azure SignalR Service는 이미 사용자를 위해 연결을 관리하므로 이러한 상황을 처리할 수 있습니다. 자세한 내용은 [Azure Functions와 함께 SignalR Service를 사용하는 방법에 대한 개요](signalr-overview-azure-functions.md)를 참조하세요.
 
 ## <a name="how-does-it-scale"></a>크기 조정은 어떻게 합니까?
 

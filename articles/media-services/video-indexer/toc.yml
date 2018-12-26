@@ -43,7 +43,7 @@ items:
     href: video-indexer-view-edit.md
   - name: 기존 비디오에서 비디오 정보 만들기
     href: video-indexer-create-new.md
-  - name: 응용 프로그램에 위젯 포함
+  - name: 애플리케이션에 위젯 포함
     href: video-indexer-embed-widgets.md
   - name: 콘텐츠 모델 사용자 지정
     items:

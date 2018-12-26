@@ -26,7 +26,7 @@ ms.locfileid: "51565737"
 > [!div class="checklist"]
 > * 연결 문자열 구성
 > * 애플리케이션 빌드
-> * 응용 프로그램 실행
+> * 애플리케이션 실행
 > * 연결 수의 유효성 검사
 
 Azure Blob Storage는 데이터를 저장하기 위한 확장 가능한 서비스를 제공합니다. 응용 프로그램 성능을 가능한 한 높게 유지하려면 Blob Storage 작동 방식을 이해하는 것이 좋습니다. Azure Blob에 대한 제한을 알고 있어야 합니다. 이러한 제한을 자세히 알아보려면 [Blob Storage 확장성 대상](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)을 참조하세요.
@@ -55,7 +55,7 @@ setx storageconnectionstring "<storageConnectionString>" /m
 
 완료되면 다른 **명령 프롬프트**를 열고, `D:\git\storage-dotnet-perf-scale-app`으로 이동한 다음, `dotnet build`를 입력하여 응용 프로그램을 빌드합니다.
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 `D:\git\storage-dotnet-perf-scale-app`로 이동합니다.
 
@@ -190,7 +190,7 @@ C:\>
 > [!div class="checklist"]
 > * 연결 문자열 구성
 > * 애플리케이션 빌드
-> * 응용 프로그램 실행
+> * 애플리케이션 실행
 > * 연결 수의 유효성 검사
 
 저장소 계정에서 대량의 데이터를 다운로드하는 시리즈 3부 전에 수행합니다.

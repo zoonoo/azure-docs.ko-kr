@@ -1,6 +1,6 @@
 ---
-title: Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 응용 프로그램
-description: Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 응용 프로그램
+title: Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 애플리케이션
+description: Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 애플리케이션
 services: security
 author: jomolesk
 ms.assetid: 9c32e836-0564-4906-9e15-f070d2707e63
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/14/2018
 ms.locfileid: "39059215"
 ---
-# <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 응용 프로그램
+# <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 애플리케이션
 
 ## <a name="overview"></a>개요
 
@@ -33,7 +33,7 @@ ms.locfileid: "39059215"
 
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
 
- Azure 템플릿은 UK OFFICIAL 워크로드를 지원하는 Azure 클라우드 환경에서 3계층 웹 응용 프로그램 아키텍처를 제공합니다. 아키텍처는 온-프레미스 네트워크를 Azure 허용 웹 기반 작업으로 확장하는 보안 하이브리드 환경을 제공하여 인터넷에서 회사 사용자가 안전하게 액세스할 수 있게 됩니다.
+ Azure 템플릿은 UK OFFICIAL 워크로드를 지원하는 Azure 클라우드 환경에서 3계층 웹 애플리케이션 아키텍처를 제공합니다. 아키텍처는 온-프레미스 네트워크를 Azure 허용 웹 기반 작업으로 확장하는 보안 하이브리드 환경을 제공하여 인터넷에서 회사 사용자가 안전하게 액세스할 수 있게 됩니다.
 
 ![UK OFFICIAL에 대한 3계층 IaaS 웹 응용 프로그램 참조 아키텍처 다이어그램](images/ukofficial-iaaswa-architecture.png?raw=true "UK OFFICIAL에 대한 3계층 IaaS 웹 응용 프로그램 참조 아키텍처 다이어그램")
 

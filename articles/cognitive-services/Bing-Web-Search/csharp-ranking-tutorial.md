@@ -307,7 +307,7 @@ static void DisplayItem(Newtonsoft.Json.Linq.JToken item, string title, string[]
 
 이러한 메서드는 콘솔에 검색 결과를 출력하려면 함께 작동합니다.
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 응용 프로그램을 실행합니다. 출력은 다음과 비슷해야 합니다.
 

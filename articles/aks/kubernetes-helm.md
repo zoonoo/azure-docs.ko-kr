@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52993250"
 ---
-# <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Helm을 사용하여 응용 프로그램 설치
+# <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Helm을 사용하여 애플리케이션 설치
 
 [Helm][helm]은 Kubernetes 응용 프로그램을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. *APT*, *Yum* 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
 
@@ -218,7 +218,7 @@ release "wishful-mastiff" deleted
 
 ## <a name="next-steps"></a>다음 단계
 
-Helm을 사용하여 Kubernetes 응용 프로그램 배포를 관리하는 방법에 대한 자세한 내용은 Helm 설명서를 참조하세요.
+Helm을 사용하여 Kubernetes 애플리케이션 배포를 관리하는 방법에 대한 자세한 내용은 Helm 설명서를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [Helm 설명서][helm-documentation]

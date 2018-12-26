@@ -26,7 +26,7 @@ ms.locfileid: "53018805"
 
 ## <a name="introduction"></a>소개
 
-이 빠른 시작에서는 Visual Studio 2017을 사용하여 ASP.NET 웹 응용 프로그램을 만들고 Azure App Service에 배포하는 방법을 보여 줍니다. 샘플 애플리케이션은 Azure Cache for Redis에 연결되어 데이터를 저장하고 캐시에서 검색합니다. 빠른 시작을 완료한 후 Azure에서 호스트되며 Azure Cache for Redis에서 읽고 쓰는 실행 웹앱을 갖게 됩니다.
+이 빠른 시작에서는 Visual Studio 2017을 사용하여 ASP.NET 웹 애플리케이션을 만들고 Azure App Service에 배포하는 방법을 보여 줍니다. 샘플 애플리케이션은 Azure Cache for Redis에 연결되어 데이터를 저장하고 캐시에서 검색합니다. 빠른 시작을 완료한 후 Azure에서 호스트되며 Azure Cache for Redis에서 읽고 쓰는 실행 웹앱을 갖게 됩니다.
 
 ![간단한 테스트가 완료된 Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -104,7 +104,7 @@ ms.locfileid: "53018805"
 
 ### <a name="update-the-webconfig-file-with-an-app-setting-for-the-cache"></a>캐시에 대한 앱 설정이 포함된 web.config 파일 업데이트
 
-애플리케이션을 로컬로 실행하는 경우 *CacheSecrets.config*의 정보는 Azure Cache for Redis 인스턴스에 연결하는 데 사용됩니다. 나중에 이 응용 프로그램을 Azure에 배포합니다. 그때 응용 프로그램이 이 파일 대신 캐시 연결 정보를 검색하는 데 사용하는 앱 설정을 Azure에서 구성합니다. 
+애플리케이션을 로컬로 실행하는 경우 *CacheSecrets.config*의 정보는 Azure Cache for Redis 인스턴스에 연결하는 데 사용됩니다. 나중에 이 애플리케이션을 Azure에 배포합니다. 그때 응용 프로그램이 이 파일 대신 캐시 연결 정보를 검색하는 데 사용하는 앱 설정을 Azure에서 구성합니다. 
 
 *CacheSecrets.config* 파일이 응용 프로그램과 함께 Azure에 배포되지 않으므로 응용 프로그램을 로컬로 테스트하는 동안에만 사용합니다. 캐시 데이터에 대한 악의적인 액세스를 방지하기 위해 이 정보를 최대한 안전하게 유지하세요.
 
@@ -315,7 +315,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
 다음 자습서를 계속 진행하는 경우 이 빠른 시작에서 만든 리소스를 그대로 두었다가 다시 사용할 수 있습니다.
 
-또는, 빠른 시작 샘플 응용 프로그램 사용을 마친 경우 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
+또는, 빠른 시작 샘플 애플리케이션 사용을 마친 경우 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
 
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹을 삭제하는 경우 그 안의 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
@@ -334,7 +334,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 자습서에서는 더욱 현실적인 시나리오에서 Azure Cache for Redis를 사용하여 앱의 성능을 향상합니다. ASP.NET 및 데이터베이스와 캐시 배제 패턴을 사용하여 순위표 결과를 캐시하려면 이 응용 프로그램을 업데이트합니다.
+다음 자습서에서는 더욱 현실적인 시나리오에서 Azure Cache for Redis를 사용하여 앱의 성능을 향상합니다. ASP.NET 및 데이터베이스와 캐시 배제 패턴을 사용하여 순위표 결과를 캐시하려면 이 애플리케이션을 업데이트합니다.
 
 > [!div class="nextstepaction"]
 > [ASP.NET에서 캐시 배제 순위표 만들기](cache-web-app-cache-aside-leaderboard.md)

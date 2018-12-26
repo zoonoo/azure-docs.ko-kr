@@ -179,14 +179,14 @@ Device Provisioning Service 클라이언트 SDK는 디바이스 등록 소프트
 
 1. 변경 내용을 저장하고 "빌드" 메뉴에서 "솔루션 빌드"를 선택하여 **prov\_dev\_client\_sample** 샘플을 다시 빌드합니다. 
 
-1. **Provision\_Samples** 폴더 아래에서 **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다. 아직 응용 프로그램 예제를 실행하지 마세요.
+1. **Provision\_Samples** 폴더 아래에서 **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다. 아직 애플리케이션 예제를 실행하지 마세요.
 
 > [!IMPORTANT]
 > 아직 디바이스를 실행/시작하지 마세요! 디바이스를 시작하기 전에 먼저 Device Provisioning Service에 디바이스를 등록하여 프로세스를 마쳐야 합니다. 아래의 다음 단계에서는 다음 문서를 안내합니다.
 
 ### <a name="sdk-apis-used-during-registration-for-reference-only"></a>등록 시 사용되는 SDK API(참조용으로만 사용)
 
-참고로, SDK는 등록 시 사용할 응용 프로그램에 다음과 같은 API를 제공합니다. 이러한 API는 디바이스가 부팅되면 Device Provisioning Service에 연결 및 등록하도록 도와줍니다. 그러면 디바이스가 IoT Hub 인스턴스와 연결을 설정하는 데 필요한 정보를 수신합니다.
+참고로, SDK는 등록 시 사용할 애플리케이션에 다음과 같은 API를 제공합니다. 이러한 API는 디바이스가 부팅되면 Device Provisioning Service에 연결 및 등록하도록 도와줍니다. 그러면 디바이스가 IoT Hub 인스턴스와 연결을 설정하는 데 필요한 정보를 수신합니다.
 
 ```C
 // Creates a Provisioning Client for communications with the Device Provisioning Client Service.  

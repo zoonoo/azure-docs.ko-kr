@@ -86,7 +86,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
     정상적으로 작동하면 다음 출력이 표시됩니다.
    
     ![로컬 클러스터에 응용 프로그램 배포][deploy-app-to-local-cluster]
-7. 작업에서 응용 프로그램을 보려면 브라우저를 시작하고 [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html)로 이동합니다. 다음과 같은 결과가 표시됩니다.
+7. 작업에서 애플리케이션을 보려면 브라우저를 시작하고 [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html)로 이동합니다. 다음과 같은 결과가 표시됩니다.
    
     ![배포된 응용 프로그램 UI][deployed-app-ui]
    

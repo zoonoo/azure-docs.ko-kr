@@ -52,7 +52,7 @@ SAP Business Object Cloud와 Azure AD 통합을 설정하려면 다음 항목이
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 
 
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리의 SAP Business Object Cloud 추가
 2. Azure AD Single Sign-On 설정 및 테스트
@@ -72,7 +72,7 @@ Azure AD와 SAP Business Object Cloud 통합을 설정하려면 갤러리의 SAP
     
 3. 새 응용 프로그램을 추가하려면 **새 응용 프로그램**을 선택합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 4. 검색 상자에 **SAP Business Object Cloud**를 입력합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: AKS(Azure Kubernetes Service)의 HTTP 응용 프로그램 라우팅 추가 기능
-description: AKS(Azure Kubernetes Service)의 HTTP 응용 프로그램 라우팅 추가 기능을 사용합니다.
+title: AKS(Azure Kubernetes Service)의 HTTP 애플리케이션 라우팅 추가 기능
+description: AKS(Azure Kubernetes Service)의 HTTP 애플리케이션 라우팅 추가 기능을 사용합니다.
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -17,7 +17,7 @@ ms.locfileid: "49384984"
 ---
 # <a name="http-application-routing"></a>HTTP 응용 프로그램 라우팅
 
-HTTP 응용 프로그램 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 응용 프로그램에 쉽게 액세스할 수 있습니다. 솔루션이 사용하도록 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램이 배포되면 솔루션에서 응용 프로그램 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
+HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 애플리케이션에 쉽게 액세스할 수 있습니다. 솔루션이 사용하도록 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램이 배포되면 솔루션에서 응용 프로그램 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
 
 추가 기능이 사용하도록 설정되면 구독에 DNS 영역을 만듭니다. DNS 비용에 대한 자세한 내용은 [DNS 가격 책정][dns-pricing]을 참조하세요.
 
@@ -28,12 +28,12 @@ HTTP 응용 프로그램 라우팅 솔루션을 사용하면 AKS(Azure Kubernete
 
 추가 기능은 [Kubernetes 수신 컨트롤러][ingress] 및 [외부 DNS][external-dns] 컨트롤러라는 두 구성 요소를 배포합니다.
 
-- **수신 컨트롤러**: 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. 수신 컨트롤러는 응용 프로그램 엔드포인트에 대한 경로를 만드는 [Kubernetes 수신 리소스][ingress-resource]를 감시하고 구현합니다.
+- **수신 컨트롤러**: 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. 수신 컨트롤러는 애플리케이션 엔드포인트에 대한 경로를 만드는 [Kubernetes 수신 리소스][ingress-resource]를 감시하고 구현합니다.
 - **외부 DNS 컨트롤러**: Kubernetes 수신 리소스를 감시하고 클러스터 특정 DNS 영역에 DNS A 레코드를 만듭니다.
 
 ## <a name="deploy-http-routing-cli"></a>HTTP 라우팅 배포: CLI
 
-AKS 클러스터를 배포할 때 Azure CLI를 통해 HTTP 응용 프로그램 라우팅 추가 기능을 사용하도록 설정할 수 있습니다. [az aks create][az-aks-create] 명령에 `--enable-addons` 인수를 사용하면 됩니다.
+AKS 클러스터를 배포할 때 Azure CLI를 통해 HTTP 애플리케이션 라우팅 추가 기능을 사용하도록 설정할 수 있습니다. [az aks create][az-aks-create] 명령에 `--enable-addons` 인수를 사용하면 됩니다.
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
@@ -45,7 +45,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addo
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 ```
 
-클러스터가 배포되거나 업데이트된 후 [az aks show][az-aks-show] 명령을 사용하여 DNS 영역 이름을 검색합니다. 이 이름은 응용 프로그램을 AKS 클러스터에 배포하는 데 필요합니다.
+클러스터가 배포되거나 업데이트된 후 [az aks show][az-aks-show] 명령을 사용하여 DNS 영역 이름을 검색합니다. 이 이름은 애플리케이션을 AKS 클러스터에 배포하는 데 필요합니다.
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
@@ -57,17 +57,17 @@ Result
 
 ## <a name="deploy-http-routing-portal"></a>HTTP 라우팅 배포: Portal
 
-AKS 클러스터를 배포할 때 Azure Portal을 통해 HTTP 응용 프로그램 라우팅 추가 기능을 사용하도록 설정할 수 있습니다.
+AKS 클러스터를 배포할 때 Azure Portal을 통해 HTTP 애플리케이션 라우팅 추가 기능을 사용하도록 설정할 수 있습니다.
 
 ![HTTP 라우팅 기능을 사용하도록 설정](media/http-routing/create.png)
 
-클러스터가 배포되면 자동 생성 AKS 리소스 그룹을 찾아 DNS 영역을 선택합니다. DNS 영역 이름을 기록해 둡니다. 이 이름은 응용 프로그램을 AKS 클러스터에 배포하는 데 필요합니다.
+클러스터가 배포되면 자동 생성 AKS 리소스 그룹을 찾아 DNS 영역을 선택합니다. DNS 영역 이름을 기록해 둡니다. 이 이름은 애플리케이션을 AKS 클러스터에 배포하는 데 필요합니다.
 
 ![DNS 영역 이름 가져오기](media/http-routing/dns.png)
 
 ## <a name="use-http-routing"></a>HTTP 라우팅 사용
 
-HTTP 응용 프로그램 라우팅 솔루션은 다음과 같이 주석 처리된 수신 리소스에서만 트리거될 수 있습니다.
+HTTP 애플리케이션 라우팅 솔루션은 다음과 같이 주석 처리된 수신 리소스에서만 트리거될 수 있습니다.
 
 ```yaml
 annotations:
@@ -143,7 +143,7 @@ service "party-clippy" created
 ingress "party-clippy" created
 ```
 
-cURL 또는 브라우저를 사용하여 samples-http-application-routing.yaml 파일의 호스트 섹션에 지정된 호스트 이름으로 이동합니다. 인터넷을 통해 응용 프로그램을 사용할 수 있기까지 최대 1분 정도 걸릴 수 있습니다.
+cURL 또는 브라우저를 사용하여 samples-http-application-routing.yaml 파일의 호스트 섹션에 지정된 호스트 이름으로 이동합니다. 인터넷을 통해 애플리케이션을 사용할 수 있기까지 최대 1분 정도 걸릴 수 있습니다.
 
 ```bash
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io

@@ -29,7 +29,7 @@ ms.locfileid: "50157482"
 
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 작성기는 세 가지 작성기 자습서를 완료하여 Azure IoT Central 응용 프로그램을 만들어야 합니다.
+시작하기 전에 작성기는 세 가지 작성기 자습서를 완료하여 Azure IoT Central 애플리케이션을 만들어야 합니다.
 
 * [새 장치 유형 정의](tutorial-define-device-type.md)
 * [장치에 대한 규칙 및 작업 구성](tutorial-configure-rules.md)
@@ -41,7 +41,7 @@ Azure IoT Central은 디바이스에 대한 알림을 이메일 메시지로 보
 
 [장치에 대한 규칙 및 작업 구성](tutorial-configure-rules.md) 자습서의 끝에 수신한 이메일 메시지를 엽니다. 이메일에서 **디바이스를 열려면 여기를 클릭**을 선택합니다.
 
-![응용 프로그램 작성기 규칙](media/tutorial-monitor-devices/email.png)
+![애플리케이션 작성기 규칙](media/tutorial-monitor-devices/email.png)
 
 이전 자습서에서 만든 디바이스를 시뮬레이션한 **연결된 공조 디바이스-1**에 대한 **디바이스** 페이지가 브라우저에서 열립니다.
 

@@ -20,7 +20,7 @@ metadata:
   ms.date: 07/26/2018
   ms.author: ryanwi
 abstract:
-  description: Azure Service Fabric Mesh는 개발자가 인프라를 관리하지 않고 중요 업무용 응용 프로그램을 빌드하고 배포할 수 있는 완전히 관리되는 서비스입니다.  Service Fabric Mesh를 사용하여 요청 시 확장되는 안전하고 분산된 마이크로 서비스 응용 프로그램을 빌드하고 실행합니다. 빠른 시작 및 자습서에서 Service Fabric Mesh를 사용하는 방법을 알아봅니다.  자세한 정보는 <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Service Fabric 메시 개요</a> 및 <a href="/azure/service-fabric-mesh/service-fabric-mesh-faq">질문과 대답</a>을 참고하세요.
+  description: Azure Service Fabric Mesh는 개발자가 인프라를 관리하지 않고 중요 업무용 응용 프로그램을 빌드하고 배포할 수 있는 완전히 관리되는 서비스입니다.  Service Fabric Mesh를 사용하여 요청 시 확장되는 안전하고 분산된 마이크로 서비스 애플리케이션을 빌드하고 실행합니다. 빠른 시작 및 자습서에서 Service Fabric Mesh를 사용하는 방법을 알아봅니다.  자세한 정보는 <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Service Fabric 메시 개요</a> 및 <a href="/azure/service-fabric-mesh/service-fabric-mesh-faq">질문과 대답</a>을 참고하세요.
 sections:
 - title: 5분 빠른 시작
   items:

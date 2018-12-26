@@ -51,7 +51,7 @@ Single Sign-On 설정을 열려면:
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Azure Active Directory**를 클릭합니다. 
 
-2. **Azure Active Directory** 블레이드에서 **엔터프라이즈 응용 프로그램**을 클릭합니다. Azure AD 테넌트에 있는 임의의 응용 프로그램 샘플을 보여주는 **모든 응용 프로그램** 블레이드가 열립니다. 
+2. **Azure Active Directory** 블레이드에서 **엔터프라이즈 응용 프로그램**을 클릭합니다. Azure AD 테넌트에 있는 임의의 애플리케이션 샘플을 보여주는 **모든 애플리케이션** 블레이드가 열립니다. 
 
 3. **응용 프로그램 종류** 메뉴에서 **모든 응용 프로그램**을 선택하고 **적용**을 클릭합니다.
 

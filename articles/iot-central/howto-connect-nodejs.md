@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central에 일반 Node.js 클라이언트 응용 프로그램 연결 | Microsoft Docs
+title: Azure IoT Central에 일반 Node.js 클라이언트 애플리케이션 연결 | Microsoft Docs
 description: 디바이스 개발자로서 일반 Node.js 디바이스를 Azure IoT Central 응용 프로그램에 연결하는 방법을 알아봅니다.
 author: tbhagwat3
 ms.author: tanmayb
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/02/2018
 ms.locfileid: "50963995"
 ---
-# <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 응용 프로그램에 일반 클라이언트 응용 프로그램 연결(Node.js)
+# <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 애플리케이션에 일반 클라이언트 애플리케이션 연결(Node.js)
 
 이 문서에서는 디바이스 개발자로서 실제 디바이스를 나타내는 일반 Node.js 응용 프로그램을 Microsoft Azure IoT Central 응용 프로그램에 연결하는 방법을 설명합니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "50963995"
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-1. Azure IoT Central 응용 프로그램. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
+1. Azure IoT Central 애플리케이션. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
 1. [Node.js](https://nodejs.org/) 버전 4.0.0 이상이 설치된 개발 컴퓨터. 명령줄에서 `node --version` 명령을 실행하여 버전을 확인할 수 있습니다. Node.js는 다양한 운영 체제에 사용할 수 있습니다.
 
 ## <a name="create-a-device-template"></a>디바이스 템플릿 만들기
@@ -135,7 +135,7 @@ Azure IoT Central 응용 프로그램에서, 자신이 만든 디바이스 템�
 
   `{your device connection string}` 자리 표시자를 장치 연결 문자열로 업데이트합니다. 이 샘플에서는 `targetTemperature`를 0으로 초기화할 것이며, 필요에 따라 디바이스의 현재 판독값 또는 디바이스 쌍의 값을 사용할 수 있습니다. 
 
-1. Azure IoT Central 응용 프로그램에 원격 분석 데이터, 상태 및 이벤트 측정값을 보낼 수 있도록 다음 함수를 파일에 추가합니다.
+1. Azure IoT Central 애플리케이션에 원격 분석 데이터, 상태 및 이벤트 측정값을 보낼 수 있도록 다음 함수를 파일에 추가합니다.
 
     ```javascript
     // Send device measurements.
@@ -197,7 +197,7 @@ Azure IoT Central 응용 프로그램에서, 자신이 만든 디바이스 템�
     };
     ```
 
-1. Azure IoT Central 응용 프로그램에서 업데이트된 설정을 처리할 수 있도록 다음을 파일에 추가합니다.
+1. Azure IoT Central 애플리케이션에서 업데이트된 설정을 처리할 수 있도록 다음을 파일에 추가합니다.
 
     ```javascript
     // Handle settings changes that come from Azure IoT Central via the device twin.
@@ -255,7 +255,7 @@ Azure IoT Central 응용 프로그램에서, 자신이 만든 디바이스 템�
     client.open(connectCallback);
     ```
 
-## <a name="run-your-nodejs-application"></a>Node.js 응용 프로그램 실행
+## <a name="run-your-nodejs-application"></a>Node.js 애플리케이션 실행
 
 명령줄 환경에서 다음 명령을 실행합니다.
 
@@ -279,6 +279,6 @@ node connectedAirConditionerAdv.js
 
 ## <a name="next-steps"></a>다음 단계
 
-일반 Node.js 클라이언트를 Azure IoT Central 응용 프로그램에 연결하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+일반 Node.js 클라이언트를 Azure IoT Central 애플리케이션에 연결하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 * [Raspberry Pi 준비 및 연결](howto-connect-raspberry-pi-python.md)
 <!-- Next how-tos in the sequence -->

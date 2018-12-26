@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Linux VM의 응용 프로그램 일치 백업'
+title: 'Azure Backup: Linux VM의 애플리케이션 일치 백업'
 description: Azure에 Linux 가상 머신의 응용 프로그램 일치 백업을 만듭니다. 이 문서에서는 Azure 배포 Linux VM을 백업하는 스크립트 프레임워크를 구성하는 내용에 대해 설명합니다. 이 문서에는 문제 해결 정보도 포함되어 있습니다.
 services: backup
 author: anuragmehrotra

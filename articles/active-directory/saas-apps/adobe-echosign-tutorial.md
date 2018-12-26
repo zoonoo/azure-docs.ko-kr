@@ -46,7 +46,7 @@ Adobe Sign과 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Adobe Sign 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -60,11 +60,11 @@ Adobe Sign의 Azure AD 통합을 구성하려면 갤러리의 Adobe Sign을 관�
 
 2. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 및 모든 응용 프로그램이 강조 표시된 Azure Active Directory 메뉴의 스크린샷][2]
+    ![엔터프라이즈 애플리케이션 및 모든 애플리케이션이 강조 표시된 Azure Active Directory 메뉴의 스크린샷][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램**을 선택합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션**을 선택합니다.
 
-    ![대화 상자 맨 위에 있는 응용 프로그램 옵션의 스크린샷][3]
+    ![대화 상자 맨 위에 있는 애플리케이션 옵션의 스크린샷][3]
 
 4. 검색 상자에 **Adobe Sign**을 입력합니다.
 
@@ -91,11 +91,11 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Adobe Sign 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Adobe Sign 애플리케이션에서 Single Sign-On을 구성합니다.
 
-1. Azure Portal의 **Adobe Sign** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. Azure Portal의 **Adobe Sign** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
-    ![Single Sign-On이 강조 표시된 Adobe Sign 응용 프로그램 통합 페이지의 스크린샷][4]
+    ![Single Sign-On이 강조 표시된 Adobe Sign 애플리케이션 통합 페이지의 스크린샷][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**로 **SAML 기반 로그온**을 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
@@ -228,13 +228,13 @@ Azure AD 사용자가 Adobe Sign에 로그인할 수 있도록 하려면 Adobe S
 
 ![Azure Portal Single Sign-On의 스크린샷][200] 
 
-1. Azure Portal에서 응용 프로그램 보기를 엽니다. 그런 다음, 디렉터리 보기로 가서 **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 응용 프로그램 보기를 엽니다. 그런 다음, 디렉터리 보기로 가서 **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 
-    ![엔터프라이즈 응용 프로그램 및 모든 응용 프로그램이 강조 표시된 Azure Portal 응용 프로그램 보기의 스크린샷][201] 
+    ![엔터프라이즈 애플리케이션 및 모든 애플리케이션이 강조 표시된 Azure Portal 애플리케이션 보기의 스크린샷][201] 
 
 2. 응용 프로그램 목록에서 **Adobe Sign**을 선택합니다.
 
-    ![Adobe Sign이 강조 표시된 응용 프로그램 목록의 스크린샷](./media/adobe-echosign-tutorial/tutorial_adobesign_app.png) 
+    ![Adobe Sign이 강조 표시된 애플리케이션 목록의 스크린샷](./media/adobe-echosign-tutorial/tutorial_adobesign_app.png) 
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 
@@ -252,7 +252,7 @@ Azure AD 사용자가 Adobe Sign에 로그인할 수 있도록 하려면 Adobe S
     
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
-액세스 패널에서 Adobe Sign 타일을 선택하면 Adobe Sign 응용 프로그램에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에서 Adobe Sign 타일을 선택하면 Adobe Sign 애플리케이션에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

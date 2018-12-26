@@ -31,7 +31,7 @@ ms.locfileid: "45979296"
 
 1. **새 ASP.NET 웹 응용 프로그램** 대화 상자에서 **MVC**를 선택한 후 **확인**을 선택합니다.
 
-    ![새 ASP.NET 웹 응용 프로그램 대화 상자 스크린샷](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
+    ![새 ASP.NET 웹 애플리케이션 대화 상자 스크린샷](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
 ### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>연결된 서비스를 사용하여 Azure Storage 계정에 연결
 

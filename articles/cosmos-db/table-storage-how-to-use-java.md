@@ -39,7 +39,7 @@ ms.locfileid: "53079316"
 ## <a name="create-a-java-application"></a>Java 애플리케이션 만들기
 이 가이드에서는 Java 애플리케이션에서 로컬로 실행할 수 있거나 Azure에서 웹 역할 또는 작업자 역할로 실행되는 코드에서 실행할 수 있는 스토리지 기능을 사용합니다.
 
-이 문서의 샘플을 사용하려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure Storage 계정 또는 Azure Cosmos DB 계정을 만듭니다. 그런 다음, 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][Azure Storage SDK for Java] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예제를 사용하는 Java 응용 프로그램을 만들 수 있습니다.
+이 문서의 샘플을 사용하려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure Storage 계정 또는 Azure Cosmos DB 계정을 만듭니다. 그런 다음, 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][Azure Storage SDK for Java] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예제를 사용하는 Java 애플리케이션을 만들 수 있습니다.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>테이블 저장소에 액세스하도록 응용 프로그램 구성
 Azure Storage API 또는 Azure Cosmos DB Table API를 사용하여 테이블에 액세스하려는 경우 Java 파일의 맨 위에 다음 import 문을 추가합니다.

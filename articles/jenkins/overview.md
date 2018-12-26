@@ -42,7 +42,7 @@ Azure에서 Jenkins를 호스트하여 빌드 자동화를 중앙 집중화하�
 
 ## <a name="deploy-your-code-into-azure-services"></a>Azure 서비스에 코드 배포
 
-Jenkins CI/CD 파이프라인의 일부로 Azure에 응용 프로그램을 배포하려면 Jenkins 플러그 인을 사용합니다. [Azure App Service](/azure/app-service/) 및 [Azure Container Service](/azure/container-service/kubernetes/)에 배포하면 기본 인프라를 관리하지 않고도 응용 프로그램에 업데이트를 준비, 테스트 및 릴리스할 수 있습니다.
+Jenkins CI/CD 파이프라인의 일부로 Azure에 애플리케이션을 배포하려면 Jenkins 플러그 인을 사용합니다. [Azure App Service](/azure/app-service/) 및 [Azure Container Service](/azure/container-service/kubernetes/)에 배포하면 기본 인프라를 관리하지 않고도 응용 프로그램에 업데이트를 준비, 테스트 및 릴리스할 수 있습니다.
 
  플러그 인은 다음과 같은 서비스 및 환경에 배포하는 데 사용할 수 있습니다.
 

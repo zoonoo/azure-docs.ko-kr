@@ -24,7 +24,7 @@ ms.locfileid: "50230899"
 > 이 SAP 커넥터는 곧 사용 중단될 예정입니다. 새로운 고급 SAP 커넥터가 출시되었으니 [새 SAP 커넥터](./logic-apps-using-sap-connector.md)를 선택하거나 전환할 것을 권장합니다.
 >  
 
-이 문서에서는 SAP 응용 프로그램 서버 및 SAP 메시지 서버 커넥터를 사용하여 논리 앱 내부에서 SAP 리소스에 액세스할 수 있는 방법을 보여 줍니다. 이런 식으로 작업, 프로세스 및 논리 앱을 만들어 SAP 데이터 및 리소스를 관리하는 워크플로를 자동화할 수 있습니다.
+이 문서에서는 SAP 애플리케이션 서버 및 SAP 메시지 서버 커넥터를 사용하여 논리 앱 내부에서 SAP 리소스에 액세스할 수 있는 방법을 보여 줍니다. 이런 식으로 작업, 프로세스 및 논리 앱을 만들어 SAP 데이터 및 리소스를 관리하는 워크플로를 자동화할 수 있습니다.
 
 이 예제에서는 HTTP 요청으로 트리거할 수 있는 논리 앱을 사용합니다. 논리 앱은 IDoc(중간 문서)를 SAP 서버로 전송하고, 논리 앱을 호출한 요청자에게 응답을 반환합니다.
 현재 SAP 커넥터에는 작업만 있고 트리거가 없으므로 이 예제에서는 논리 앱 워크플로의 첫 번째 단계로 [HTTP 요청 트리거](../connectors/connectors-native-reqres.md)를 사용합니다. SAP 커넥터 관련 기술 정보는 다음 참조 문서를 참조하세요. 
@@ -93,9 +93,9 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    * **SAP 응용 프로그램 서버 - SAP로 보내기**
    * **SAP 메시지 서버 - SAP로 보내기**
 
-   이 예제에서는 **SAP 응용 프로그램 서버 - SAP로 보내기** 작업을 사용합니다.
+   이 예제에서는 **SAP 애플리케이션 서버 - SAP로 보내기** 작업을 사용합니다.
 
-   ![“SAP 응용 프로그램 서버” 또는 “SAP 메시지 서버” 선택](media/logic-apps-using-sap-connector-old/select-sap-action.png)
+   ![“SAP 애플리케이션 서버” 또는 “SAP 메시지 서버” 선택](media/logic-apps-using-sap-connector-old/select-sap-action.png)
 
 3. 연결 정보를 묻는 메시지가 표시되면 이제 SAP 연결을 만듭니다. 또는 이미 SAP에 연결된 경우, SAP 작업을 설정할 수 있도록 다음 단계를 계속 진행합니다. 
 
@@ -108,7 +108,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
       **SAP 응용 프로그램 서버**
 
-      ![SAP 응용 프로그램 서버 연결 만들기](./media/logic-apps-using-sap-connector-old/create-SAP-app-server-connection.png)  
+      ![SAP 애플리케이션 서버 연결 만들기](./media/logic-apps-using-sap-connector-old/create-SAP-app-server-connection.png)  
 
       **SAP 메시지 서버**
 

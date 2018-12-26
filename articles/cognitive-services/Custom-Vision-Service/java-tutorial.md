@@ -83,7 +83,7 @@ Java IDE에서 `Vision/CustomVision` 프로젝트를 로드하고 _CustomVisionS
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=108-120)]
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 maven을 사용하여 솔루션을 컴파일하고 실행하려면 PowerShell을 통해 프로젝트 디렉터리에서 다음 명령을 실행합니다.
 

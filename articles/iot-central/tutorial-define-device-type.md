@@ -45,7 +45,7 @@ ms.locfileid: "50963601"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 Azure IoT Central 응용 프로그램이 필요합니다. [Azure IoT Central 응용 프로그램](quick-deploy-iot-central.md) 빠른 시작을 완료한 경우 빠른 시작에서 만든 응용 프로그램을 다시 사용할 수 있습니다. 그렇지 않은 경우 빈 Azure IoT Central 응용 프로그램을 만들려면 다음 단계를 완료합니다.
+이 자습서를 완료하려면 Azure IoT Central 애플리케이션이 필요합니다. [Azure IoT Central 응용 프로그램](quick-deploy-iot-central.md) 빠른 시작을 완료한 경우 빠른 시작에서 만든 응용 프로그램을 다시 사용할 수 있습니다. 그렇지 않은 경우 빈 Azure IoT Central 응용 프로그램을 만들려면 다음 단계를 완료합니다.
 
 1. Azure IoT Central [응용 프로그램 관리자](https://aka.ms/iotcentral) 페이지로 이동합니다.
 
@@ -53,11 +53,11 @@ ms.locfileid: "50963601"
 
    ![조직 계정 입력](./media/tutorial-define-device-type/sign-in.png)
 
-3. 새로운 Azure IoT Central 응용 프로그램 만들기를 시작하려면 **새 응용 프로그램**을 선택합니다.
+3. 새로운 Azure IoT Central 애플리케이션 만들기를 시작하려면 **새 애플리케이션**을 선택합니다.
 
     ![Azure IoT Central 응용 프로그램 관리자 페이지](./media/tutorial-define-device-type/iotcentralhome.png)
 
-4. 새로운 Azure IoT Central 응용 프로그램을 만들려면:
+4. 새로운 Azure IoT Central 애플리케이션을 만들려면:
     
     * **평가판**을 선택합니다. 평가판 응용 프로그램을 만드는 데 Azure 구독이 필요하지 않습니다.
     
@@ -69,7 +69,7 @@ ms.locfileid: "50963601"
     
     * **만들기**를 선택합니다.
 
-    ![Azure IoT Central 응용 프로그램 페이지](./media/tutorial-define-device-type/iotcentralcreate.png)
+    ![Azure IoT Central 애플리케이션 페이지](./media/tutorial-define-device-type/iotcentralcreate.png)
 
     자세한 내용은 [응용 프로그램 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
 
@@ -77,7 +77,7 @@ ms.locfileid: "50963601"
 
 작성기로서 애플리케이션에서 디바이스 템플릿을 만들고 편집할 수 있습니다. 디바이스 템플릿을 만들 때 Azure IoT Central은 템플릿에서 시뮬레이션된 디바이스를 생성합니다. 시뮬레이션된 디바이스는 원격 분석을 생성하여 물리적 디바이스에 연결하기 전에 애플리케이션의 동작을 테스트할 수 있습니다.
 
-응용 프로그램에 새 디바이스 템플릿을 추가하려면 **응용 프로그램 작성기** 페이지로 이동해야 합니다. 그러려면 왼쪽 탐색 메뉴에서 **응용 프로그램 작성기**를 선택합니다.
+응용 프로그램에 새 디바이스 템플릿을 추가하려면 **응용 프로그램 작성기** 페이지로 이동해야 합니다. 그러려면 왼쪽 탐색 메뉴에서 **애플리케이션 작성기**를 선택합니다.
 
 ![응용 프로그램 개발자 페이지](./media/tutorial-define-device-type/builderhome.png)
 

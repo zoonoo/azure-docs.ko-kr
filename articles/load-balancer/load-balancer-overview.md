@@ -23,7 +23,7 @@ ms.locfileid: "53185616"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
-Azure Load Balancer를 사용하여 응용 프로그램 크기를 조정하고 서비스에 대한 고가용성을 구현할 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오를 지원하고, 짧은 대기 시간과 높은 처리량을 제공하고, 모든 TCP 및 UDP 응용 프로그램에 대해 수백만 개의 흐름으로 확장됩니다.  
+Azure Load Balancer를 사용하여 응용 프로그램 크기를 조정하고 서비스에 대한 고가용성을 구현할 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오를 지원하고, 짧은 대기 시간과 높은 처리량을 제공하고, 모든 TCP 및 UDP 애플리케이션에 대해 수백만 개의 흐름으로 확장됩니다.  
 
 Load Balancer는 규칙 및 상태 프로브에 따라, Load Balancer의 프런트 엔드에 도착하는 새 인바운드 흐름을 백 엔드 풀 인스턴스에 분산합니다. 
 
@@ -42,7 +42,7 @@ Azure Load Balancer를 다음에 사용할 수 있습니다.
 
 
 >[!NOTE]
-> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. TLS(Transport Layer Security) 프로토콜 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 응용 프로그램 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 검토하세요. 전역 DNS 부하 분산을 확인하려는 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 필요에 따라 종단 간 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
+> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. TLS(Transport Layer Security) 프로토콜 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 검토하세요. 전역 DNS 부하 분산을 확인하려는 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 필요에 따라 종단 간 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
 
 ## <a name="what-are-load-balancer-resources"></a>Load Balancer 리소스란?
 
@@ -72,10 +72,10 @@ Load Balancer는 TCP 및 UDP 응용 프로그램에 대해 다음과 같은 기�
 
 * **응용 프로그램 모호성 및 투명성**
 
-    Load Balancer는 TCP/UDP 또는 응용 프로그램 계층과 직접 상호 작용하지 않으며, 모든 TCP 또는 UDP 응용 프로그램이 지원될 수 있습니다.  Load Balancer는 흐름을 종료하거나 시작하지 않고 흐름의 페이로드와 상호 작용하지 않으며, 응용 프로그램 계층 게이트웨이 기능을 제공하고, 프로토콜 핸드셰이크는 항상 클라이언트와 백 엔드 풀 인스턴스 간에 직접 발생합니다.  인바운드 흐름에 대한 응답은 항상 가상 머신의 응답입니다.  흐름이 가상 머신에 도착하면 원래 원본 IP 주소도 유지됩니다.  투명도를 더 자세히 설명하기 위한 몇 가지 예입니다.
+    Load Balancer는 TCP/UDP 또는 애플리케이션 계층과 직접 상호 작용하지 않으며, 모든 TCP 또는 UDP 애플리케이션이 지원될 수 있습니다.  Load Balancer는 흐름을 종료하거나 시작하지 않고 흐름의 페이로드와 상호 작용하지 않으며, 응용 프로그램 계층 게이트웨이 기능을 제공하고, 프로토콜 핸드셰이크는 항상 클라이언트와 백 엔드 풀 인스턴스 간에 직접 발생합니다.  인바운드 흐름에 대한 응답은 항상 가상 머신의 응답입니다.  흐름이 가상 머신에 도착하면 원래 원본 IP 주소도 유지됩니다.  투명도를 더 자세히 설명하기 위한 몇 가지 예입니다.
     - 모든 엔드포인트는 VM에서만 응답합니다.  예를 들어, TCP 핸드셰이크는 항상 클라이언트와 선택한 백 엔드 VM 사이에서 발행합니다.  프런트 엔드에 요청에 대한 응답은 백 엔드 VM에서 생성한 응답입니다. 프런트 엔드에 대한 연결의 유효성을 성공적으로 확인하는 경우 최소 하나 이상의 백 엔드 가상 머신에 통합형 연결의 유효성을 검사하는 것입니다.
-    - 응용 프로그램 페이로드는 Load Balancer에 대해 투명하며 모든 UDP 또는 TCP 응용 프로그램을 지원할 수 있습니다. HTTP당 요청 처리 또는 응용 프로그램 계층 페이로드 조작을 요청하는 워크로드의 경우(예를 들어, HTTP URL의 구문 분석) [Application Gateway](https://azure.microsoft.com/services/application-gateway) 같은 계층 7 부하 분산 장치를 사용해야 합니다.
-    - Load Balancer는 TCP 페이로드에 독립적이며 TLS 오프 로드("SSL")은 제공되지 않기 때문에 Load Balancer를 사용하여 통합형 암호화 시나리오를 빌드하고 VM 자체에서 TLS 연결을 종료하여 TLS 응용 프로그램에 대한 대규모 스케일 아웃을 얻을 수 있습니다.  예를 들어 TLS 세션 키 용량은 백 엔드 풀에 추가하는 VM의 수와 유형으로만 제한됩니다.  응용 프로그램 계층 처리인 "SSL 오프 로딩"를 요구하거나 Azure에 인증서 관리를 위임하려는 경우 대신 Azure의 계층 7 부하 분산 장치 [Application Gateway](https://azure.microsoft.com/services/application-gateway)를 사용해야 합니다.
+    - 애플리케이션 페이로드는 Load Balancer에 대해 투명하며 모든 UDP 또는 TCP 애플리케이션을 지원할 수 있습니다. HTTP당 요청 처리 또는 애플리케이션 계층 페이로드 조작을 요청하는 워크로드의 경우(예를 들어, HTTP URL의 구문 분석) [Application Gateway](https://azure.microsoft.com/services/application-gateway) 같은 계층 7 부하 분산 장치를 사용해야 합니다.
+    - Load Balancer는 TCP 페이로드에 독립적이며 TLS 오프 로드("SSL")은 제공되지 않기 때문에 Load Balancer를 사용하여 통합형 암호화 시나리오를 빌드하고 VM 자체에서 TLS 연결을 종료하여 TLS 응용 프로그램에 대한 대규모 스케일 아웃을 얻을 수 있습니다.  예를 들어 TLS 세션 키 용량은 백 엔드 풀에 추가하는 VM의 수와 유형으로만 제한됩니다.  애플리케이션 계층 처리인 "SSL 오프 로딩"를 요구하거나 Azure에 인증서 관리를 위임하려는 경우 대신 Azure의 계층 7 부하 분산 장치 [Application Gateway](https://azure.microsoft.com/services/application-gateway)를 사용해야 합니다.
         
 
 * **자동 재구성**
@@ -84,7 +84,7 @@ Load Balancer는 TCP 및 UDP 응용 프로그램에 대해 다음과 같은 기�
 
 * **상태 프로브**
 
-    백 엔드 풀에 있는 인스턴스의 상태를 확인하려면 Load Balancer는 사용자가 정의한 상태 프로브를 사용합니다. 프로브가 응답하지 않으면 Load Balancer는 비정상 인스턴스에 새 연결의 전송을 중지합니다. 기존 연결은 영향을 받지 않으며, 응용 프로그램이 흐름을 종료하거나, 유휴 시간 제한이 발생하거나, VM이 종료될 때까지 계속됩니다.
+    백 엔드 풀에 있는 인스턴스의 상태를 확인하려면 Load Balancer는 사용자가 정의한 상태 프로브를 사용합니다. 프로브가 응답하지 않으면 Load Balancer는 비정상 인스턴스에 새 연결의 전송을 중지합니다. 기존 연결은 영향을 받지 않으며, 애플리케이션이 흐름을 종료하거나, 유휴 시간 제한이 발생하거나, VM이 종료될 때까지 계속됩니다.
      
     Load Balancer는 TCP, HTTP 및 HTTPS 엔드포인트에 대한 [다양한 상태 프로브 유형](load-balancer-custom-probe-overview.md#types)을 제공합니다.
 

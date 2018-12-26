@@ -20,7 +20,7 @@ ms.lasthandoff: 09/11/2018
 ms.locfileid: "44348483"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric 호스팅 모델
-이 아티클에서는 Azure Service Fabric에서 제공하는 애플리케이션 호스팅 모델을 간략하게 설명하고 **공유 프로세스** 및 **단독 프로세스** 모델 간의 차이점을 설명합니다. 배포된 응용 프로그램이 Service Fabric 노드에 표시되는 방식과 서비스 복제본(또는 인스턴스) 및 서비스-호스트 프로세스 간의 관계를 설명합니다.
+이 아티클에서는 Azure Service Fabric에서 제공하는 애플리케이션 호스팅 모델을 간략하게 설명하고 **공유 프로세스** 및 **단독 프로세스** 모델 간의 차이점을 설명합니다. 배포된 애플리케이션이 Service Fabric 노드에 표시되는 방식과 서비스 복제본(또는 인스턴스) 및 서비스-호스트 프로세스 간의 관계를 설명합니다.
 
 계속하기 전에 [Service Fabric에서 애플리케이션 모델링][a1]에서 설명한 다양한 개념 및 관계를 이해해야 합니다. 
 
@@ -139,7 +139,7 @@ Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 응용 �
 
  단독 프로세스 모델은 해당 프로세스의 모든 복제본에 대한 격리 기능을 제공합니다. 하나의 복제본에 오류가 있는 경우 다른 복제본에 영향을 주지 않습니다. 이 모델은 통신 프로토콜에서 포트 공유를 지원하지 않는 경우에 유용합니다. 복제본 수준에서 리소스 관리를 쉽게 적용할 수 있습니다. 그러나 단독 프로세스는 노드의 각 복제본마다 프로세스 하나를 생성하기 때문에 더 많은 운영 체제 리소스를 사용합니다.
 
-## <a name="exclusive-process-model-and-application-model-considerations"></a>단독 프로세스 모델 및 응용 프로그램 모델 고려 사항
+## <a name="exclusive-process-model-and-application-model-considerations"></a>단독 프로세스 모델 및 애플리케이션 모델 고려 사항
 대부분의 응용 프로그램의 경우 *ServicePackage*당 하나의 *ServiceType*을 유지하여 Service Fabric에서 응용 프로그램을 모델링할 수 있습니다. 
 
 특정한 경우에 Service Fabric은 *ServicePackage*당 둘 이상의 *ServiceType*을 허용하며 하나의 *CodePackage*는 둘 이상의 *ServiceType*을 등록할 수 있습니다. 다음은 이러한 구성이 유용할만한 몇 가지 시나리오입니다.
@@ -174,12 +174,12 @@ Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 응용 �
 ![배포된 애플리케이션의 노드 보기 다이어그램][node-view-six]
 
 
-위 예제에서 'MyCodePackageA'가 'MyServiceTypeA'와 'MyServiceTypeB'를 둘 다 등록하고 'MyCodePackageB'가 없을 경우 중복 *CodePackage*가 실행되지 않는다고 간주할 수 있습니다. 이것이 맞더라도 이 응용 프로그램 모델은 단독 프로세스 호스팅 모델과 일치하지 않습니다. 각 복제본을 고유한 전용 프로세스에 배치하려는 경우 동일한 *CodePackage*에서 *ServiceTypes*를 모두 등록할 필요는 없습니다. 대신 고유한 *ServicePackage*에 *ServiceType*을 각각 배치하면 됩니다.
+위 예제에서 'MyCodePackageA'가 'MyServiceTypeA'와 'MyServiceTypeB'를 둘 다 등록하고 'MyCodePackageB'가 없을 경우 중복 *CodePackage*가 실행되지 않는다고 간주할 수 있습니다. 이것이 맞더라도 이 애플리케이션 모델은 단독 프로세스 호스팅 모델과 일치하지 않습니다. 각 복제본을 고유한 전용 프로세스에 배치하려는 경우 동일한 *CodePackage*에서 *ServiceTypes*를 모두 등록할 필요는 없습니다. 대신 고유한 *ServicePackage*에 *ServiceType*을 각각 배치하면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 [응용 프로그램을 패키지][a4]하고 배포를 준비합니다.
 
-[응용 프로그램을 배포하고 제거][a5]합니다. 이 아티클에서는 PowerShell을 사용하여 응용 프로그램 인스턴스를 관리하는 방법을 설명합니다.
+[응용 프로그램을 배포하고 제거][a5]합니다. 이 아티클에서는 PowerShell을 사용하여 애플리케이션 인스턴스를 관리하는 방법을 설명합니다.
 
 <!--Image references-->
 [node-view-one]: ./media/service-fabric-hosting-model/node-view-one.png

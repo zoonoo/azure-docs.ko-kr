@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열 | Microsoft Docs
+title: Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열 | Microsoft Docs
 description: Azure Active Directory 앱 갤러리에서 Single Sign-On을 지원하는 응용 프로그램을 나열하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -26,11 +26,11 @@ ms.locfileid: "48815222"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>방법: Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열
 
-## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD 응용 프로그램 갤러리란?
+## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD 애플리케이션 갤러리란?
 
 - 고객에게 최상의 SSO(Single Sign-On) 환경을 제공합니다.
-- 응용 프로그램 구성이 간단하고 최소화됩니다.
-- 갤러리에서 빠른 검색에 응용 프로그램을 제공합니다.
+- 애플리케이션 구성이 간단하고 최소화됩니다.
+- 갤러리에서 빠른 검색에 애플리케이션을 제공합니다.
 - 무료, 기본 및 프리미엄 Azure AD 고객은 이 통합을 모두 사용할 수 있습니다.
 - 상호 고객을 위한 단계별 구성 자습서가 있습니다.
 - SCIM를 사용하는 고객은 동일한 앱에 프로비전을 사용할 수 있습니다.
@@ -70,7 +70,7 @@ ms.locfileid: "48815222"
 
 ## <a name="implementing-sso-using-federation-protocol"></a>페더레이션 프로토콜을 사용하여 SSO 구현
 
-Azure AD 앱 갤러리에 응용 프로그램을 나열하려면 먼저 Azure AD에서 지원하는 다음 페더레이션 프로토콜 중 하나를 구현하고 Azure AD 응용 프로그램 갤러리 사용 약관에 동의해야 합니다.  Azure AD 응용 프로그램 갤러리의 사용 약관은 [여기](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)에서 확인하세요.
+Azure AD 앱 갤러리에 애플리케이션을 나열하려면 먼저 Azure AD에서 지원하는 다음 페더레이션 프로토콜 중 하나를 구현하고 Azure AD 애플리케이션 갤러리 사용 약관에 동의해야 합니다. Azure AD 애플리케이션 갤러리의 사용 약관은 [여기](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)에서 확인하세요.
 
 - **OpenID Connect**: Open ID Connect 프로토콜을 사용하여 Azure AD를 통해 응용 프로그램을 통합하려면 [개발자 지침](authentication-scenarios.md)을 수행합니다.
 

@@ -88,7 +88,7 @@ _장치 집합_ 페이지는 개발자가 만든 장치 집합을 표시합니�
 
 작업 페이지에서는 디바이스에 대한 대량 디바이스 관리 작업을 수행할 수 있습니다. 이 빌더에서는 이 페이지를 사용하여 디바이스 속성, 설정 및 명령을 업데이트합니다. 자세한 내용은 [작업 실행](howto-run-a-job.md) 문서를 참조하세요.
 
-## <a name="application-builder"></a>응용 프로그램 작성자
+## <a name="application-builder"></a>애플리케이션 작성자
 
 ![응용 프로그램 개발자 페이지](media/overview-iot-central-tour/applicationbuilder.png)
 

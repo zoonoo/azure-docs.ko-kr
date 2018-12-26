@@ -153,7 +153,7 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-application"></a>응용 프로그램 실행
+#### <a name="run-the-application"></a>애플리케이션 실행
 
 **analyze.html** 파일을 저장하고, 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
@@ -260,7 +260,7 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-application"></a>응용 프로그램 실행
+#### <a name="run-the-application"></a>애플리케이션 실행
 
 **landmark.html** 파일을 저장하고, 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
@@ -363,7 +363,7 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-application"></a>응용 프로그램 실행
+#### <a name="run-the-application"></a>애플리케이션 실행
 
 **celebrities.html** 파일을 저장하고, 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
@@ -484,7 +484,7 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-#### <a name="run-the-application"></a>응용 프로그램 실행
+#### <a name="run-the-application"></a>애플리케이션 실행
 
 **thumbnail.html** 파일을 저장하고, 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **썸네일 생성** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
@@ -579,7 +579,7 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### <a name="run-the-application"></a>응용 프로그램 실행
+#### <a name="run-the-application"></a>애플리케이션 실행
 
 **ocr.html** 파일을 저장하고’ 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 읽을 텍스트의 이미지에 대한 URL을 입력한 다음, **이미지 읽기** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
@@ -738,7 +738,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### <a name="run-the-application"></a>응용 프로그램 실행
+#### <a name="run-the-application"></a>애플리케이션 실행
 
 **handwriting.html** 파일을 저장하고, 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 읽을 텍스트의 이미지에 대한 URL을 입력한 다음, **이미지 읽기** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 

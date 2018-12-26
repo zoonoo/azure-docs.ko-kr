@@ -31,7 +31,7 @@ items:
     href: ../../media-services/video-indexer/video-indexer-view-edit.md
   - name: 기존 비디오에서 비디오 정보 만들기
     href: ../../media-services/video-indexer/video-indexer-create-new.md
-  - name: 응용 프로그램에 위젯 포함
+  - name: 애플리케이션에 위젯 포함
     href: ../../media-services/video-indexer/video-indexer-embed-widgets.md
 - name: 참고 자료
   items:

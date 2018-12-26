@@ -101,7 +101,7 @@ done
 
 ![메시지 표시](./media/custom-event-to-eventhub/show-result.png)
 
-일반적으로 Event Hub에서 이벤트를 검색하는 응용 프로그램을 만듭니다. Event Hub에서 메시지를 가져오는 응용 프로그램을 만들려면 다음을 참조하세요.
+일반적으로 Event Hub에서 이벤트를 검색하는 애플리케이션을 만듭니다. Event Hub에서 메시지를 가져오는 애플리케이션을 만들려면 다음을 참조하세요.
 
 * [.NET Standard에서 이벤트 프로세서 호스트를 사용하여 메시지 수신 시작](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
 * [Java를 사용하여 Azure Event Hubs에서 이벤트 수신](../event-hubs/event-hubs-java-get-started-receive-eph.md)

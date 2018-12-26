@@ -21,9 +21,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43123485"
 ---
-# <a name="saas-applications-offer-publishing-guide"></a>SaaS 응용 프로그램 제품 게시 가이드
+# <a name="saas-applications-offer-publishing-guide"></a>SaaS 애플리케이션 제품 게시 가이드
 
-SaaS 응용 프로그램은. "연락처", "지금 사용해 보기" 및 "지금 가져오기" 작업에 대한 세 개의 다른 호출을 사용하여 마켓플레이스에 게시할 수 있습니다 이 가이드에서는 각각에 대한 요구 사항을 비롯한 세 가지 옵션을 설명합니다. 
+SaaS 애플리케이션은. "연락처", "지금 사용해 보기" 및 "지금 가져오기" 작업에 대한 세 개의 다른 호출을 사용하여 마켓플레이스에 게시할 수 있습니다 이 가이드에서는 각각에 대한 요구 사항을 비롯한 세 가지 옵션을 설명합니다. 
 
 ## <a name="offer-overview"></a>제품 개요  
 
@@ -47,7 +47,7 @@ SaaS 응용 프로그램은 모두 Azure 상점에서 사용할 수 있습니다
 
 평가판이 없고 청구 기능이 없는 SaaS 목록의 작업에 대한 호출은 "연락처"입니다. 
 
-SaaS 응용 프로그램을 나열하도록 Azure Active Directory를 구성할 필요가 없습니다. 
+SaaS 애플리케이션을 나열하도록 Azure Active Directory를 구성할 필요가 없습니다. 
 
 |요구 사항  |세부 정보  |
 |---------|---------|

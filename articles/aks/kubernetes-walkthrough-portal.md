@@ -19,7 +19,7 @@ ms.locfileid: "53437353"
 
 이 빠른 시작에서는 Azure Portal을 사용하여 AKS 클러스터를 배포합니다. 웹 프런트 엔드 및 Redis 인스턴스로 구성된 다중 컨테이너 응용 프로그램이 클러스터에서 실행됩니다. 완료되면 인터넷을 통해 응용 프로그램에 액세스할 수 있습니다.
 
-![Azure Vote 응용 프로그램 예제로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Azure Vote 애플리케이션 예제로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 이 빠른 시작에서는 Kubernetes 기본 개념을 이해하고 있다고 가정합니다. Kubernetes에 대한 자세한 내용은 [Kubernetes 설명서][kubernetes-documentation]를 참조하세요.
 
@@ -95,9 +95,9 @@ NAME                       STATUS    ROLES     AGE       VERSION
 aks-agentpool-14693408-0   Ready     agent     10m       v1.11.2
 ```
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
-Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 빠른 시작에서 매니페스트는 샘플 Azure Vote 응용 프로그램을 실행하는 데 필요한 모든 개체를 만드는 데 사용됩니다. 이러한 개체에는 두 개의 [Kubernetes 배포][kubernetes-deployment]가 포함되는데, 하나는 Azure Vote 프런트 엔드용이고 다른 하나는 Redis 인스턴스용입니다. 또한 두 개의 [Kubernetes Services][kubernetes-service]가 만들어집니다. 하나는 Redis 인스턴스용 내부 서비스이고, 다른 하나는 인터넷에서 Azure Vote 응용 프로그램에 액세스하기 위한 외부 서비스입니다.
+Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 빠른 시작에서 매니페스트는 샘플 Azure Vote 애플리케이션을 실행하는 데 필요한 모든 개체를 만드는 데 사용됩니다. 이러한 개체에는 두 개의 [Kubernetes 배포][kubernetes-deployment]가 포함되는데, 하나는 Azure Vote 프런트 엔드용이고 다른 하나는 Redis 인스턴스용입니다. 또한 두 개의 [Kubernetes Services][kubernetes-service]가 만들어집니다. 하나는 Redis 인스턴스용 내부 서비스이고, 다른 하나는 인터넷에서 Azure Vote 애플리케이션에 액세스하기 위한 외부 서비스입니다.
 
 > [!TIP]
 > 이 빠른 시작에서는 응용 프로그램 매니페스트를 수동으로 만들어 AKS 클러스터에 배포합니다. 더 많은 실제 시나리오에서는 [Azure Dev Spaces][azure-dev-spaces]를 사용하여 AKS 클러스터에서 직접 코드를 신속하게 반복하고 디버깅할 수 있습니다. OS 플랫폼 및 개발 환경 전반에서 Dev Spaces를 사용하고 다른 팀원과 함께 작업할 수 있습니다.
@@ -225,7 +225,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 다음 예제처럼 웹 브라우저를 서비스의 외부 IP 주소로 열어서 Azure Vote 앱을 확인합니다.
 
-![Azure Vote 응용 프로그램 예제로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Azure Vote 애플리케이션 예제로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="monitor-health-and-logs"></a>상태 및 로그 모니터링
 

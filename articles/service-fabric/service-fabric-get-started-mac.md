@@ -105,7 +105,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
     >[!TIP]
     >읽기 쉬운 방식으로 처리할 수 있도록 컨테이너 인스턴스의 이름을 제공합니다. 
     >
-    >응용 프로그램을 특정 포트에서 수신 대기하는 경우 추가 `-p` 태그를 사용하여 포트를 지정해야 합니다. 예를 들어 응용 프로그램이 포트 8080에서 수신 대기하는 경우 다음 `-p` 태그를 추가합니다.
+    >애플리케이션을 특정 포트에서 수신 대기하는 경우 추가 `-p` 태그를 사용하여 포트를 지정해야 합니다. 예를 들어 응용 프로그램이 포트 8080에서 수신 대기하는 경우 다음 `-p` 태그를 추가합니다.
     >
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
@@ -143,7 +143,7 @@ sfctl cluster select --endpoint http://localhost:19080
 
 ## <a name="create-your-application-on-your-mac-by-using-yeoman"></a>Yeoman을 사용하여 Mac에서 응용 프로그램 만들기
 
-Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric 응용 프로그램을 만들 수 있는 스캐폴딩 도구를 제공합니다. 컴퓨터에서 Service Fabric Yeoman 템플릿 생성기가 작동하는지 확인하려면 다음 단계를 수행합니다.
+Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric 애플리케이션을 만들 수 있는 스캐폴딩 도구를 제공합니다. 컴퓨터에서 Service Fabric Yeoman 템플릿 생성기가 작동하는지 확인하려면 다음 단계를 수행합니다.
 
 1. Node.js 및 NPM(노드 패키지 관리자)가 Mac에 설치되어 있어야 합니다. 다음과 같이 [HomeBrew](https://brew.sh/)를 사용하여 소프트웨어를 설치할 수 있습니다.
 
@@ -157,7 +157,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
     ```bash
     npm install -g yo
     ```
-3. 시작 [설명서](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)의 단계를 수행하여 원하는 Yeoman 생성기를 설치합니다. Yeoman을 사용하여 Service Fabric 응용 프로그램을 만들려면 다음 단계를 수행합니다.
+3. 시작 [설명서](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)의 단계를 수행하여 원하는 Yeoman 생성기를 설치합니다. Yeoman을 사용하여 Service Fabric 애플리케이션을 만들려면 다음 단계를 수행합니다.
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
@@ -166,7 +166,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
     ```
 4. 생성기를 설치한 후에는 각각 `yo azuresfguest` 또는 `yo azuresfcontainer`를 실행하여 게스트 실행 파일 또는 컨테이너 서비스를 만듭니다.
 
-5. Mac에서 Service Fabric Java 응용 프로그램을 빌드하려면 JDK 버전 1.8 및 Gradle을 호스트 컴퓨터에 설치해야 합니다. 다음과 같이 [HomeBrew](https://brew.sh/)를 사용하여 소프트웨어를 설치할 수 있습니다. 
+5. Mac에서 Service Fabric Java 애플리케이션을 빌드하려면 JDK 버전 1.8 및 Gradle을 호스트 컴퓨터에 설치해야 합니다. 다음과 같이 [HomeBrew](https://brew.sh/)를 사용하여 소프트웨어를 설치할 수 있습니다. 
 
     ```bash
     brew update
@@ -174,9 +174,9 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
     brew install gradle
     ```
 
-## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>터미널에서 Mac에 응용 프로그램 배포
+## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>터미널에서 Mac에 애플리케이션 배포
 
-Service Fabric 응용 프로그램을 만들고 빌드한 후 [Service Fabric CLI](service-fabric-cli.md#cli-mac)를 사용하여 응용 프로그램을 배포할 수 있습니다.
+Service Fabric 애플리케이션을 만들고 빌드한 후 [Service Fabric CLI](service-fabric-cli.md#cli-mac)를 사용하여 애플리케이션을 배포할 수 있습니다.
 
 1. Mac의 컨테이너 인스턴스 내에서 실행 중인 Service Fabric 클러스터에 연결합니다.
 

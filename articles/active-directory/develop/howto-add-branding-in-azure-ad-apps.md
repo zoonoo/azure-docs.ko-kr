@@ -1,5 +1,5 @@
 ---
-title: 응용 프로그램에 대한 브랜딩 지침 | Microsoft Docs
+title: 애플리케이션에 대한 브랜딩 지침 | Microsoft Docs
 description: Azure Active Directory의 개발자 중심 리소스에 대한 포괄적인 가이드
 services: active-directory
 documentationcenter: dev-center-name
@@ -24,7 +24,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2018
 ms.locfileid: "47068733"
 ---
-# <a name="branding-guidelines-for-applications"></a>응용 프로그램에 대한 브랜딩 지침
+# <a name="branding-guidelines-for-applications"></a>애플리케이션에 대한 브랜딩 지침
 
 Azure AD(Azure Active Directory)를 사용하여 응용 프로그램을 개발하는 경우 Azure AD에서 관리되는 회사 또는 학교 계정, 또는 개인 계정을 응용 프로그램 등록 및 로그인에 사용하려는 고객을 안내해야 합니다.
 

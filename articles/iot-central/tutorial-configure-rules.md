@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central에서 규칙 및 작업 구성 | Microsoft Docs
-description: 이 자습서에서는 Azure IoT Central 응용 프로그램에서 원격 분석 기반 규칙 및 작업을 구성하는 방법을 알려줍니다.
+description: 이 자습서에서는 Azure IoT Central 애플리케이션에서 원격 분석 기반 규칙 및 작업을 구성하는 방법을 알려줍니다.
 author: ankitscribbles
 ms.author: ankitgup
 ms.date: 10/12/2018
@@ -34,7 +34,7 @@ ms.locfileid: "52993644"
 
 ## <a name="create-a-telemetry-based-rule"></a>원격 분석 기반 규칙 만들기
 
-1. 응용 프로그램에 새 원격 분석 기반 규칙을 추가하려면 왼쪽 탐색 메뉴에서 **Device Explorer**를 선택합니다.
+1. 애플리케이션에 새 원격 분석 기반 규칙을 추가하려면 왼쪽 탐색 메뉴에서 **Device Explorer**를 선택합니다.
 
     ![Device Explorer 페이지](media/tutorial-configure-rules/explorerpage1.png)
 
@@ -80,20 +80,20 @@ ms.locfileid: "52993644"
     | 메모     | 공조 장치 온도가 임계값을 초과했습니다. |
 
     > [!NOTE]
-    > 이메일 알림을 받으려면 이메일 주소가 [응용 프로그램의 사용자 ID](howto-administer.md)여야 하며, 사용자는 최소 한 번 이상 응용 프로그램에 로그인했어야 합니다.
+    > 이메일 알림을 받으려면 이메일 주소가 [애플리케이션의 사용자 ID](howto-administer.md)여야 하며, 사용자는 최소 한 번 이상 애플리케이션에 로그인했어야 합니다.
 
-    ![응용 프로그램 작성기 온도 작업](media/tutorial-configure-rules/buildertemperatureaction.png)
+    ![애플리케이션 작성기 온도 작업](media/tutorial-configure-rules/buildertemperatureaction.png)
 
 3. **저장**을 선택합니다. **규칙** 페이지에 규칙이 나열됩니다.
 
-    ![응용 프로그램 작성기 규칙](media/tutorial-configure-rules/builderrules1.png)
+    ![애플리케이션 작성기 규칙](media/tutorial-configure-rules/builderrules1.png)
 
 4. **완료**를 선택하여 **템플릿 편집** 모드를 종료합니다.
  
 
 ## <a name="test-the-rule"></a>규칙 테스트
 
-규칙은 저장 한 직후 발효됩니다. 규칙에서 정의된 조건이 충족되면 응용 프로그램은 작업에서 지정된 이메일 주소로 메시지를 보냅니다.
+규칙은 저장 한 직후 발효됩니다. 규칙에서 정의된 조건이 충족되면 애플리케이션은 작업에서 지정된 이메일 주소로 메시지를 보냅니다.
 
 ![이메일 작업](media/tutorial-configure-rules/email.png)
 

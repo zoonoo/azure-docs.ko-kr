@@ -44,7 +44,7 @@ Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 [WNS(Windows 
     ![Microsoft Store와 앱 연결](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 
 2. 마법사에서 **다음**을 클릭하고, Microsoft 계정으로 로그인하고, **새로운 앱 이름 예약**에서 앱 이름을 입력한 후 **예약**을 클릭합니다.
-3. 앱을 성공적으로 등록한 후에 새로운 앱 이름을 선택하고 **다음** 및 **연결**을 차례로 클릭합니다. 이렇게 하면 필요한 Microsoft Store 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
+3. 앱을 성공적으로 등록한 후에 새로운 앱 이름을 선택하고 **다음** 및 **연결**을 차례로 클릭합니다. 이렇게 하면 필요한 Microsoft Store 등록 정보가 애플리케이션 매니페스트에 추가됩니다.
 4. [애플리케이션 등록 포털](https://apps.dev.microsoft.com/)로 이동하고 Microsoft 계정으로 로그인합니다. 이전 단계에서 연결된 Windows 스토어 앱을 클릭합니다.
 5. 등록 페이지에서 **애플리케이션 암호** 및 **패키지 SID**에 있는 값을 기록합니다. 이 값은 모바일 앱 백 엔드를 구성하는 데 사용합니다.
 

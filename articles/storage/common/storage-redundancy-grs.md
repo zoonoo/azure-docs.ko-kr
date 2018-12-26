@@ -31,7 +31,7 @@ RA-GRS를 사용할 때 유의해야 할 몇 가지 고려 사항:
 * Microsoft에서 보조 지역에 장애 조치(Failover)를 시작하는 경우 장애 조치(Failover)가 완료된 후 사용자에게 해당 데이터에 대한 읽기 및 쓰기 액세스 권한이 있습니다. 자세한 내용은 [재해 복구 지침](storage-disaster-recovery-guidance.md)을 참조하세요.
 * 보조 지역으로 전환하는 방법에 대한 내용은 [Azure Storage 중단이 발생할 경우 수행할 작업](storage-disaster-recovery-guidance.md)을 참조하세요.
 * RA-GRS는 높은 가용성을 위해 제공됩니다. 확장성 지침은 [성능 검사 목록](storage-performance-checklist.md)을 검토하세요.
-* RA-GRS를 사용하여 고가용성을 설계하는 방법에 대한 제안 사항은 [RA-GRS 저장소를 사용하여 고가용성 응용 프로그램 설계](storage-designing-ha-apps-with-ragrs.md)를 참조하세요.
+* RA-GRS를 사용하여 고가용성을 설계하는 방법에 대한 제안 사항은 [RA-GRS 저장소를 사용하여 고가용성 애플리케이션 설계](storage-designing-ha-apps-with-ragrs.md)를 참조하세요.
 
 ## <a name="what-is-the-rpo-and-rto-with-grs"></a>GRS에서 RPO 및 RTO란?
 **RPO(복구 지점 목표):** GRS 및 RA-GRS에서 저장소 서비스는 주 위치에서 보조 위치로 데이터를 비동기적으로 지역에서 복제합니다. 주 지역에서 심각한 지역 재해가 발생하는 경우 Microsoft는 보조 영역으로 장애 조치(failover)를 수행합니다. 장애 조치(failover)가 발생하면 아직 지역 복제되지 않은 최근 변경 사항이 손실될 수 있습니다. 손실될 가능성이 있는 데이터의 시간(분)은 RPO라고 합니다. RPO는 데이터를 복구할 수 있는 시점을 나타냅니다. Azure Storage의 RPO는 일반적으로 15분 미만이지만 현재 지역 복제의 소요 시간에 대한 SLA는 없습니다.

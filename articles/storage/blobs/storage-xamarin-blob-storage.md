@@ -228,7 +228,7 @@ namespace XamarinApp.WinPhone
 }
 ```
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 이제 Android 또는 Windows Phone 에뮬레이터에서 이 응용 프로그램을 실행할 수 있습니다. iOS 에뮬레이터에서 이 응용 프로그램을 실행할 수도 있지만 Mac이 있어야 합니다. 이 작업을 수행하는 방법에 대한 특정 지침은 [Visual Studio를 Mac에 연결](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
 앱을 일단 실행하면 Storage 계정에 컨테이너 `mycontainer` 가 만들어집니다. 여기에는 `Hello, world!` 텍스트를 포함하는 Blob `myblob`가 있어야 합니다. [Microsoft Azure Storage Explorer](http://storageexplorer.com/)를 사용하여 이 사실을 확인할 수 있습니다.

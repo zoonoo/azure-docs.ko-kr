@@ -17,7 +17,7 @@ ms.locfileid: "51264181"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>비용 효율적인 Standard Storage와 관리되지 않는 Azure VM 디스크 및 관리 Azure VM 디스크
 
-Azure Standard Storage는 대기 시간에 영향을 받지 않는 워크로드를 실행하는 VM에 대해 안정적인 저비용 디스크 지원을 제공합니다. 또한 Blob, 테이블, 큐 및 파일을 지원합니다. Standard Storage를 사용하면 데이터가 HDD(하드 디스크 드라이브)에 저장됩니다. VM 작업 시 개발/테스트 시나리오 및 덜 중요한 워크로드에는 표준 SSD 및 HDD 디스크를 사용하고 중요 업무용 프로덕션 응용 프로그램에는 프리미엄 SSD 디스크를 사용할 수 있습니다. Standard Storage는 모든 Azure 지역에서 사용할 수 있습니다. 
+Azure Standard Storage는 대기 시간에 영향을 받지 않는 워크로드를 실행하는 VM에 대해 안정적인 저비용 디스크 지원을 제공합니다. 또한 Blob, 테이블, 큐 및 파일을 지원합니다. Standard Storage를 사용하면 데이터가 HDD(하드 디스크 드라이브)에 저장됩니다. VM 작업 시 개발/테스트 시나리오 및 덜 중요한 워크로드에는 표준 SSD 및 HDD 디스크를 사용하고 중요 업무용 프로덕션 애플리케이션에는 프리미엄 SSD 디스크를 사용할 수 있습니다. Standard Storage는 모든 Azure 지역에서 사용할 수 있습니다. 
 
 이 문서는 표준 SSD 및 HDD 디스크 사용에 중점을 두고 있습니다. Blob, 테이블, 큐 및 파일이 포함된 저장소 사용에 대한 자세한 내용은 [저장소 소개](../articles/storage/common/storage-introduction.md)를 참조하세요.
 

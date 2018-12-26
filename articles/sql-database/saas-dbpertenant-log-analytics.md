@@ -65,7 +65,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 ## <a name="install-and-configure-log-analytics-and-the-azure-sql-analytics-solution"></a>Log Analytics 및 Azure SQL 분석 솔루션 설치 및 구성
 
-Log Analytics는 구성이 필요한 별도의 서비스입니다. Log Analytics는 Log Analytics 작업 영역에서 로그 데이터, 원격 분석 및 메트릭을 수집합니다. Log Analytics 작업 영역은 Azure의 다른 리소스와 마찬가지로 생성이 필요합니다. 작업 영역을 자신이 모니터링하는 응용 프로그램과 동일한 리소스 그룹에서 만들 필요는 없습니다. 대부분의 경우 이렇게 하는 것이 적합합니다. Wingtip Tickets 앱의 경우 하나의 리소스 그룹을 사용하면 작업 영역이 애플리케이션과 함께 삭제되도록 할 수 있습니다.
+Log Analytics는 구성이 필요한 별도의 서비스입니다. Log Analytics는 Log Analytics 작업 영역에서 로그 데이터, 원격 분석 및 메트릭을 수집합니다. Log Analytics 작업 영역은 Azure의 다른 리소스와 마찬가지로 생성이 필요합니다. 작업 영역을 자신이 모니터링하는 애플리케이션과 동일한 리소스 그룹에서 만들 필요는 없습니다. 대부분의 경우 이렇게 하는 것이 적합합니다. Wingtip Tickets 앱의 경우 하나의 리소스 그룹을 사용하면 작업 영역이 애플리케이션과 함께 삭제되도록 할 수 있습니다.
 
 1. PowerShell ISE에서 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*을 엽니다.
 1. 스크립트를 실행하려면 F5 키를 누릅니다.

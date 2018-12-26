@@ -1,6 +1,6 @@
 ---
 title: Azure Cloud Services에 Node.js 앱 빌드 및 배포
-description: Azure Cloud Services에 Express.js 응용 프로그램 빌드 및 배포
+description: Azure Cloud Services에 Express.js 애플리케이션 빌드 및 배포
 services: cloud-services
 documentationcenter: nodejs
 author: jpconnock
@@ -24,7 +24,7 @@ ms.locfileid: "45574611"
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Azure Cloud Services에서 Express를 사용하여 Node.js 웹 응용 프로그램 빌드 및 배포
 
 Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
-개발자는 Node.js 응용 프로그램을 개발할 때 추가 기능을 제공하기 위해 종종 타사 모듈을 사용합니다. 이 자습서에서는 Node.js 웹 응용 프로그램을 만들기 위해 MVC 프레임워크를 제공하는 [Express](https://github.com/expressjs/express) 모듈을 사용하여 새 응용 프로그램을 만듭니다.
+개발자는 Node.js 애플리케이션을 개발할 때 추가 기능을 제공하기 위해 종종 타사 모듈을 사용합니다. 이 자습서에서는 Node.js 웹 응용 프로그램을 만들기 위해 MVC 프레임워크를 제공하는 [Express](https://github.com/expressjs/express) 모듈을 사용하여 새 응용 프로그램을 만듭니다.
 
 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
@@ -57,7 +57,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
     npm 명령의 출력이 아래 결과와 비슷하게 표시되어야 합니다. 
    
     ![express 설치 npm 명령의 출력을 표시하는 Windows PowerShell](./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png)
-2. 디렉터리를 **WebRole1** 디렉터리로 변경하고 express 명령을 사용하여 새 응용 프로그램을 만듭니다.
+2. 디렉터리를 **WebRole1** 디렉터리로 변경하고 express 명령을 사용하여 새 애플리케이션을 만듭니다.
    
         PS C:\node\expressapp\WebRole1> express
    
@@ -69,7 +69,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
        PS C:\node\expressapp\WebRole1> npm install
    
    ![npm 설치 명령의 출력](./media/cloud-services-nodejs-develop-deploy-express-app/node26.png)
-4. 다음 명령을 사용하여 **bin/www** 파일을 **server.js**에 복사합니다. 이는 클라우드 서비스에서 이 응용 프로그램의 진입점을 찾을 수 있도록 하기 위한 것입니다.
+4. 다음 명령을 사용하여 **bin/www** 파일을 **server.js**에 복사합니다. 이는 클라우드 서비스에서 이 애플리케이션의 진입점을 찾을 수 있도록 하기 위한 것입니다.
    
        PS C:\node\expressapp\WebRole1> copy bin/www server.js
    
@@ -83,7 +83,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
        var app = require('./app');
    
    이 변경 작업은 필요한 앱 파일과 동일한 디렉터리로 파일(이전의 **bin/www**)을 이동했기 때문에 필요합니다. 이렇게 변경한 후 **server.js** 파일을 저장합니다.
-6. 다음 명령을 사용하여 Azure 에뮬레이터에서 응용 프로그램을 실행합니다.
+6. 다음 명령을 사용하여 Azure 에뮬레이터에서 애플리케이션을 실행합니다.
    
        PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
    
@@ -107,10 +107,10 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
    
    ![브라우저 창, Welcome to Express in Azure가 들어 있는 페이지](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
 
-응용 프로그램을 테스트한 후 **Stop-AzureEmulator** cmdlet을 사용하여 에뮬레이터를 중지합니다.
+애플리케이션을 테스트한 후 **Stop-AzureEmulator** cmdlet을 사용하여 에뮬레이터를 중지합니다.
 
-## <a name="publishing-the-application-to-azure"></a>Azure에 응용 프로그램 게시
-Azure PowerShell 창에서 **Publish-AzureServiceProject** cmdlet을 사용하여 응용 프로그램을 클라우드 서비스에 배포합니다.
+## <a name="publishing-the-application-to-azure"></a>Azure에 애플리케이션 게시
+Azure PowerShell 창에서 **Publish-AzureServiceProject** cmdlet을 사용하여 애플리케이션을 클라우드 서비스에 배포합니다.
 
     PS C:\node\expressapp\WebRole1> Publish-AzureServiceProject -ServiceName myexpressapp -Location "East US" -Launch
 

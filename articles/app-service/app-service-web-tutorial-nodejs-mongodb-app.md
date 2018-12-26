@@ -84,7 +84,7 @@ git clone https://github.com/Azure-Samples/meanjs.git
 
 이 샘플 리포지토리에는 [MEAN.js 리포지토리](https://github.com/meanjs/mean) 복사본이 들어 있습니다. App Service에서 실행하도록 수정되었습니다(자세한 내용은 MEAN.js 리포지토리의 [README(추가 정보) 파일](https://github.com/Azure-Samples/meanjs/blob/master/README.md) 참조).
 
-### <a name="run-the-application"></a>응용 프로그램 실행
+### <a name="run-the-application"></a>애플리케이션 실행
 
 다음 명령을 실행하여 필요한 패키지를 설치하고 응용 프로그램을 시작합니다.
 

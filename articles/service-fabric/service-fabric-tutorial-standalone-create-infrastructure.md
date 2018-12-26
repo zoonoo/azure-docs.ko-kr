@@ -24,7 +24,7 @@ ms.locfileid: "34209653"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>자습서: AWS 인프라를 만들어 Service Fabric 클러스터 호스팅하기
 
-Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric이 수행하는 "모든 OS 및 모든 클라우드" 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서 시리즈에서는 AWS에서 호스팅되는 독립 실행형 클러스터를 만들고 여기에 응용 프로그램을 설치합니다.
+Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric이 수행하는 "모든 OS 및 모든 클라우드" 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서 시리즈에서는 AWS에서 호스팅되는 독립 실행형 클러스터를 만들고 여기에 애플리케이션을 설치합니다.
 
 이 자습서는 시리즈의 1부입니다. 이 문서에서는 Service Fabric의 독립 실행형 클러스터를 호스팅하는 데 필요한 AWS 리소스를 생성합니다. 후속 문서에서는 Service Fabric 독립 실행형 도무 모음을 설치하고 클러스터에 샘플 응용 프로그램을 설치하고 마지막으로 클러스터를 정리해야 합니다.
 

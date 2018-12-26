@@ -1,6 +1,6 @@
 ---
 title: Azure Storage를 사용하여 클라우드의 응용 프로그램 데이터에 대한 액세스 보호 | Microsoft Docs
-description: SAS 토큰, 암호화 및 HTTPS를 사용하여 클라우드의 응용 프로그램 데이터를 보호합니다.
+description: SAS 토큰, 암호화 및 HTTPS를 사용하여 클라우드의 애플리케이션 데이터를 보호합니다.
 services: storage
 author: tamram
 ms.service: storage

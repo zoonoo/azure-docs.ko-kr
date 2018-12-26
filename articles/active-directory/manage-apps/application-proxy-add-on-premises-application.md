@@ -33,7 +33,7 @@ Azure AD(Azure Active Directory)에는 사용자가 해당 Azure AD 계정으로
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-테넌트에 응용 프로그램을 추가하려면 다음이 필요합니다.
+테넌트에 애플리케이션을 추가하려면 다음이 필요합니다.
 
 * [Microsoft Azure AD 기본 또는 Premium 구독](https://azure.microsoft.com/pricing/details/active-directory). 
 * 애플리케이션 관리자 계정
@@ -232,7 +232,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 > * Azure AD 테넌트에 온-프레미스 애플리케이션 추가
 > * 테스트 사용자가 Azure AD 계정을 사용하여 애플리케이션에 로그온할 수 있는지 확인
 
-이제 응용 프로그램에 Single Sign-On을 구성할 준비가 완료되었습니다. 여러 가지 Single Sign-On 방법이 있으며, 최상의 방법은 애플리케이션에서 인증하는 방법에 따라 달라집니다. 다음 링크를 통해 애플리케이션에 적절한 Single Sign-On 자습서를 찾을 수 있습니다.
+이제 애플리케이션에 Single Sign-On을 구성할 준비가 완료되었습니다. 여러 가지 Single Sign-On 방법이 있으며, 최상의 방법은 애플리케이션에서 인증하는 방법에 따라 달라집니다. 다음 링크를 통해 애플리케이션에 적절한 Single Sign-On 자습서를 찾을 수 있습니다.
 
 > [!div class="nextstepaction"]
 >[Single Sign-on 구성](what-is-single-sign-on.md#choosing-a-single-sign-on-method)

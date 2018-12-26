@@ -31,7 +31,7 @@ Microsoft Dynamics 365 Operations 플랫폼은 다음과 같은 구성 요소로
 
 AOS(Application Object Server), 데이터 관리 프레임워크, 보고 및 BI(비즈니스 인텔리전스) 프레임워크, 개발 도구, 분석 서비스 등의 Dynamics 365 for Operations 플랫폼 이진 파일. 다음 AOT(응용 프로그램 개체 트리) 패키지
 
-1. 응용 프로그램 플랫폼
+1. 애플리케이션 플랫폼
 2. Application Foundation
 3. Test Essentials
 

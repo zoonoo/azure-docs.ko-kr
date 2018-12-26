@@ -16,7 +16,7 @@ ms.locfileid: "48854714"
 ---
 # <a name="deploy-a-multi-container-container-group-with-yaml"></a>YAML을 사용하여 다중 컨테이너 컨테이너 그룹 배포
 
-Azure Container Instances에서는 [컨테이너 그룹](container-instances-container-groups.md)을 사용하여 여러 컨테이너를 단일 호스트에 배포하는 것을 지원합니다. 로깅, 모니터링 또는 서비스에 두 번째로 연결된 프로세스가 필요한 기타 구성용으로 응용 프로그램 사이드카를 빌드할 때 다중 컨테이너 컨테이너 그룹을 사용하면 유용합니다.
+Azure Container Instances에서는 [컨테이너 그룹](container-instances-container-groups.md)을 사용하여 여러 컨테이너를 단일 호스트에 배포하는 것을 지원합니다. 로깅, 모니터링 또는 서비스에 두 번째로 연결된 프로세스가 필요한 기타 구성용으로 애플리케이션 사이드카를 빌드할 때 다중 컨테이너 컨테이너 그룹을 사용하면 유용합니다.
 
 Azure CLI를 사용하여 다중 컨테이너 그룹을 배포하는 두 가지 방법이 있습니다.
 
@@ -34,7 +34,7 @@ Azure CLI에서 [az container create][az-container-create] 명령을 사용하�
 
 먼저 다음 YAML을 **deploy-aci.yaml**이라는 새 파일에 복사합니다.
 
-이 YAML 파일은 두 개의 컨테이너, 하나의 공용 IP 주소, 두 개의 노출된 포트가 있는 “myContainerGroup”이라는 컨테이너 그룹을 정의합니다. 그룹의 첫 번째 컨테이너는 인터넷 연결 웹 응용 프로그램을 실행합니다. 두 번째 컨테이너인 사이드카는 컨테이너 그룹의 로컬 네트워크를 통해 첫 번째 컨테이너에서 실행되는 웹 응용 프로그램에 주기적으로 HTTP 요청을 보냅니다.
+이 YAML 파일은 두 개의 컨테이너, 하나의 공용 IP 주소, 두 개의 노출된 포트가 있는 “myContainerGroup”이라는 컨테이너 그룹을 정의합니다. 그룹의 첫 번째 컨테이너는 인터넷 연결 웹 애플리케이션을 실행합니다. 두 번째 컨테이너인 사이드카는 컨테이너 그룹의 로컬 네트워크를 통해 첫 번째 컨테이너에서 실행되는 웹 애플리케이션에 주기적으로 HTTP 요청을 보냅니다.
 
 ```YAML
 apiVersion: 2018-06-01
@@ -95,7 +95,7 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-실행 중인 응용 프로그램을 보려면 사용하는 브라우저에서 공용 IP 주소로 이동합니다. 예를 들어 이 예제 출력의 IP는 `52.168.26.124`입니다.
+실행 중인 애플리케이션을 보려면 사용하는 브라우저에서 공용 IP 주소로 이동합니다. 예를 들어 이 예제 출력의 IP는 `52.168.26.124`입니다.
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location

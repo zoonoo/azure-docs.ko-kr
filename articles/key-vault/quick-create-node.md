@@ -26,9 +26,9 @@ ms.locfileid: "44714397"
 > * Key Vault를 만듭니다.
 > * Key Vault에 비밀을 저장합니다.
 > * Key Vault에서 비밀을 검색합니다.
-> * Azure 웹 응용 프로그램을 만듭니다.
+> * Azure 웹 애플리케이션을 만듭니다.
 > * 웹앱의 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)를 사용하도록 설정합니다.
-> * 웹 응용 프로그램이 Key Vault에서 데이터를 읽기 위해 필요한 권한을 부여합니다.
+> * 웹 애플리케이션이 Key Vault에서 데이터를 읽기 위해 필요한 권한을 부여합니다.
 
 계속 진행하기 전에 [기본 개념](key-vault-whatis.md#basic-concepts)을 숙지하시기 바랍니다.
 
@@ -168,7 +168,7 @@ az webapp identity assign --name <app_name> --resource-group "<YourResourceGroup
 
 이 명령은 포털로 이동하여 웹 응용 프로그램 속성에서 **ID/시스템 할당됨** 설정을 **켜기**로 전환하는 것과 동일합니다.
 
-### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>응용 프로그램에 Key Vault에서 비밀을 읽을 수 있는 권한 할당
+### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>애플리케이션에 Key Vault에서 비밀을 읽을 수 있는 권한 할당
 
 위 명령의 출력을 적거나 복사해 둡니다. 다음과 같은 형식이어야 합니다.
         

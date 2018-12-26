@@ -51,7 +51,7 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
 ## <a name="service-to-service-access-token-request"></a>서비스 간 액세스 토큰 요청
-클라이언트 응용 프로그램이 공유 암호 또는 인증서 중에서 어떤 방식으로 보호되도록 선택되는지에 따라 두 가지 사례가 있습니다.
+클라이언트 애플리케이션이 공유 암호 또는 인증서 중에서 어떤 방식으로 보호되도록 선택되는지에 따라 두 가지 사례가 있습니다.
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 암호를 사용한 액세스 토큰 요청
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
@@ -82,7 +82,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 | grant_type |필수 |요청된 응답 유형을 지정합니다. 클라이언트 자격 증명 부여 흐름에서 값은 **client_credentials**이어야 합니다. |
 | client_id |필수 |호출 웹 서비스의 Azure AD 클라이언트 ID를 지정합니다. 호출하는 애플리케이션의 클라이언트 ID를 찾으려면 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**, **앱 등록** 및 애플리케이션을 차례로 클릭합니다. client_id는 *응용 프로그램 ID*입니다. |
 | client_assertion_type |필수 |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
-| client_assertion |필수 | 응용 프로그램의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
+| client_assertion |필수 | 애플리케이션의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
 | resource | 필수 |수신 웹 서비스의 앱 ID URI를 입력합니다. 앱 ID URI를 찾으려면 Azure Portal에서 **Azure Active Directory**, **앱 등록**, 서비스 애플리케이션 및 **설정**과 **속성**을 차례로 클릭합니다. |
 
 client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type 및 client_assertion으로 바뀐다는 것을 제외하고 공유 비밀에 따른 요청 사례와 매개 변수는 거의 동일합니다.

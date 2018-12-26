@@ -58,7 +58,7 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 위한 Cornerstone 
     
 3. Cornerstone OnDemand를 추가하려면 대화 상자의 위쪽에서 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 4. 검색 상자에 **Cornerstone OnDemand**를 입력합니다.
 

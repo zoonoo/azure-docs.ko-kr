@@ -16,7 +16,7 @@ ms.lasthandoff: 12/14/2018
 ms.locfileid: "53408377"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 응용 프로그램 배포
-Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 Azure에 응용 프로그램을 배포할 수 있습니다. 이 문서에서는 Azure VMSS(가상 머신 확장 집합)에 Java 응용 프로그램을 배포하는 방법을 보여줍니다.  
+Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 Azure에 응용 프로그램을 배포할 수 있습니다. 이 문서에서는 Azure VMSS(가상 머신 확장 집합)에 Java 애플리케이션을 배포하는 방법을 보여줍니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 - **Azure 구독** - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
@@ -165,7 +165,7 @@ Ansible 플레이북의 다음 섹션에서는 **saclesethosts**라는 호스트
   ansible-playbook vmss-setup-deploy.yml
   ```
 
-Ansible 플레이북 명령 실행에서 출력은 샘플 Java 응용 프로그램이 가상 머신 확장 집합의 호스트 그룹에 설치되었음을 나타냅니다.
+Ansible 플레이북 명령 실행에서 출력은 샘플 Java 애플리케이션이 가상 머신 확장 집합의 호스트 그룹에 설치되었음을 나타냅니다.
 
   ```Output
   PLAY [localhost] **********************************************************
@@ -202,7 +202,7 @@ Ansible 플레이북 명령 실행에서 출력은 샘플 Java 응용 프로그�
   localhost                  : ok=4    changed=1    unreachable=0    failed=0
   ```
 
-축하합니다. 이제 응용 프로그램이 Azure에서 실행되고 있습니다. 이제 가상 머신 확장 집합에 대해 부하 분산 장치의 URL을 탐색할 수 있습니다.
+축하합니다. 이제 애플리케이션이 Azure에서 실행되고 있습니다. 이제 가상 머신 확장 집합에 대해 부하 분산 장치의 URL을 탐색할 수 있습니다.
 
 ![Azure의 가상 머신 확장 집합에서 실행되는 Java 앱](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
 

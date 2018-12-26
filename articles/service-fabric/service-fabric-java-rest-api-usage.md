@@ -23,7 +23,7 @@ ms.locfileid: "37111187"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java 클라이언트 API
 
-Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로컬 개발 컴퓨터 또는 다른 클라우드의 Service Fabric 클러스터에 마이크로 서비스 기반 응용 프로그램 및 컨테이너를 배포하고 관리할 수 있습니다. 이 문서에서는 Service Fabric 클라이언트 REST API에 기반하여 Service Fabric Java 클라이언트 API를 생성하고 사용하는 방법에 대해 설명합니다.
+Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로컬 개발 컴퓨터 또는 다른 클라우드의 Service Fabric 클러스터에 마이크로 서비스 기반 애플리케이션 및 컨테이너를 배포하고 관리할 수 있습니다. 이 문서에서는 Service Fabric 클라이언트 REST API에 기반하여 Service Fabric Java 클라이언트 API를 생성하고 사용하는 방법에 대해 설명합니다.
 
 ## <a name="generate-the-client-code-using-autorest"></a>AutoRest를 사용하여 클라이언트 코드 생성
 

@@ -166,7 +166,7 @@ ms.locfileid: "52426896"
 
 ![Twilio 및 Java를 사용하는 Azure 통화 응답][twilio_java_response]
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 다음은 응용 프로그램을 실행하는 대략적인 단계이며, 이 단계에 대한 자세한 설명은 [Eclipse용 Azure 도구 키트를 사용하여 Hello World 응용 프로그램 만들기][azure_java_eclipse_hello_world]에서 찾을 수 있습니다.
 
 1. TwilioCloud WAR을 Azure **approot** 폴더로 내보냅니다. 

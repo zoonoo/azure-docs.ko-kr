@@ -51,7 +51,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
     
-응용 프로그램에서 저장소 계정에 대한 연결 문자열을 제공해야 합니다. **AzureApp.Java** 파일을 엽니다. `storageConnectionString` 변수를 찾고 이전 섹션에서 복사한 연결 문자열 값을 붙여 넣습니다. `storageConnectionString` 변수는 다음 코드 예제와 유사해야 합니다.
+애플리케이션에서 저장소 계정에 대한 연결 문자열을 제공해야 합니다. **AzureApp.Java** 파일을 엽니다. `storageConnectionString` 변수를 찾고 이전 섹션에서 복사한 연결 문자열 값을 붙여 넣습니다. `storageConnectionString` 변수는 다음 코드 예제와 유사해야 합니다.
 
 ```java
 public static final String storageConnectionString =

@@ -62,7 +62,7 @@ ms.locfileid: "53409416"
 
 이 단계에서는 로컬 .NET Core 프로젝트를 설정합니다. 동일한 프로젝트를 사용하여 백 엔드 API 앱과 프런트 엔드 웹앱을 배포합니다.
 
-### <a name="clone-and-run-the-sample-application"></a>응용 프로그램 예제를 복제하고 실행합니다.
+### <a name="clone-and-run-the-sample-application"></a>애플리케이션 예제를 복제하고 실행합니다.
 
 다음 명령을 실행하여 샘플 리포지토리를 복제하고 실행합니다.
 
@@ -281,7 +281,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 ### <a name="grant-front-end-app-access-to-back-end"></a>백 엔드에 프런트 엔드 앱 액세스 부여
 
-두 앱에 대해 인증 및 권한 부여를 사용하도록 설정했으므로 각 앱은 AD 응용 프로그램으로 지원됩니다. 이 단계에서는 프런트 엔드 앱에 사용자 대신 백 엔드 액세스 권한을 부여합니다. (기술적으로 프런트 엔드의 _AD 애플리케이션_에 사용자를 대신하여 백 엔드의 _AD 애플리케이션_에 액세스할 수 있는 권한을 부여합니다.)
+두 앱에 대해 인증 및 권한 부여를 사용하도록 설정했으므로 각 앱은 AD 애플리케이션으로 지원됩니다. 이 단계에서는 프런트 엔드 앱에 사용자 대신 백 엔드 액세스 권한을 부여합니다. (기술적으로 프런트 엔드의 _AD 애플리케이션_에 사용자를 대신하여 백 엔드의 _AD 애플리케이션_에 액세스할 수 있는 권한을 부여합니다.)
 
 이 시점에서 프런트 엔드 앱의 **Azure Active Directory 설정** 페이지에 있어야 합니다. 그렇지 않은 경우 해당 페이지로 돌아갑니다. 
 
@@ -323,7 +323,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 이 단계에서는 이전에 수정한 서버 코드를 사용하여 백 엔드 API에 대해 인증된 호출을 수행합니다.
 
-이제 프런트 엔드 앱에 필요한 권한이 있고 백 엔드의 응용 프로그램 ID가 로그인 매개 변수에 추가됩니다. 따라서 백 엔드 앱 인증을 위한 액세스 토큰을 가져올 수 있습니다. App Service는 인증된 요청마다 `X-MS-TOKEN-AAD-ACCESS-TOKEN` 헤더를 삽입하여([앱 코드에서 토큰 검색](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#retrieve-tokens-in-app-code) 참조) 이 토큰을 서버 코드에 제공합니다.
+이제 프런트 엔드 앱에 필요한 권한이 있고 백 엔드의 애플리케이션 ID가 로그인 매개 변수에 추가됩니다. 따라서 백 엔드 앱 인증을 위한 액세스 토큰을 가져올 수 있습니다. App Service는 인증된 요청마다 `X-MS-TOKEN-AAD-ACCESS-TOKEN` 헤더를 삽입하여([앱 코드에서 토큰 검색](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#retrieve-tokens-in-app-code) 참조) 이 토큰을 서버 코드에 제공합니다.
 
 > [!NOTE]
 > 이 헤더는 지원되는 모든 언어로 삽입됩니다. 각 해당 언어에 대한 표준 패턴을 사용하여 액세스할 수 있습니다.

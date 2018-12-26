@@ -18,7 +18,7 @@ ms.locfileid: "53321019"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid란?
 
-Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 프로그램을 쉽게 빌드할 수 있습니다. 먼저 구독할 Azure 리소스를 선택한 다음, 이벤트를 전송할 이벤트 처리기 또는 WebHook 엔드포인트를 제공합니다. Event Grid는 기본적으로 저장소 Blob 및 리소스 그룹과 같은 Azure 서비스의 이벤트를 지원합니다. 또한 Event Grid는 사용자 지정 토픽을 사용하여 사용자 고유의 이벤트를 지원합니다. 
+Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 애플리케이션을 쉽게 빌드할 수 있습니다. 먼저 구독할 Azure 리소스를 선택한 다음, 이벤트를 전송할 이벤트 처리기 또는 WebHook 엔드포인트를 제공합니다. Event Grid는 기본적으로 저장소 Blob 및 리소스 그룹과 같은 Azure 서비스의 이벤트를 지원합니다. 또한 Event Grid는 사용자 지정 토픽을 사용하여 사용자 고유의 이벤트를 지원합니다. 
 
 필터를 사용하여 다른 엔드포인트에 대한 특정 이벤트를 라우팅하고, 여러 엔드포인트로 멀티캐스트하며, 이벤트가 안정적으로 배달되도록 할 수 있습니다.
 
@@ -89,7 +89,7 @@ Event Grid, Event Hubs 및 Service Bus를 비교하려면 [Choose between Azure 
 
 Azure Event Grid는 서버리스 작업 자동화 및 [통합](http://azure.com/integration) 작업을 크게 개선하는 여러 가지 기능을 제공합니다. 
 
-### <a name="serverless-application-architectures"></a>서버를 사용하지 않는 응용 프로그램 아키텍처
+### <a name="serverless-application-architectures"></a>서버를 사용하지 않는 애플리케이션 아키텍처
 
 ![서버리스 애플리케이션 아키텍처](./media/overview/serverless_web_app.png)
 
@@ -101,7 +101,7 @@ Event Grid는 데이터 원본과 이벤트 처리기를 연결합니다. 예를
 
 Event Grid를 통해 자동화를 가속화하고 정책 적용을 간소화할 수 있습니다. 예를 들어 Event Grid를 사용하여 가상 머신 또는 SQL 데이터베이스가 생성될 때 Azure Automation에 알립니다. 이벤트를 사용하여 서비스 구성이 규정을 준수하는지 자동으로 확인하거나, 메타데이터를 작업 도구에 배치하거나, 가상 머신에 태그를 지정하거나, 작업 항목을 제출할 수 있습니다.
 
-### <a name="application-integration"></a>응용 프로그램 통합
+### <a name="application-integration"></a>애플리케이션 통합
 
 ![Azure와 애플리케이션 통합](./media/overview/app_integration.png)
 

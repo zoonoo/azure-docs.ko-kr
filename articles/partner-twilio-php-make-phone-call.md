@@ -106,7 +106,7 @@ echo "URI resource: " . $call->uri . "<br />";
 
 ![Twilio 및 PHP를 사용하는 Azure 통화 응답][twilio_php_response]
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 다음 단계에서는 [Git로 Azure Web Apps에 응용 프로그램을 배포합니다](app-service/app-service-web-get-started-php.md)(일부 정보는 관련이 없을 수 있음). 
 
 ## <a name="next-steps"></a>다음 단계

@@ -26,7 +26,7 @@ ms.locfileid: "52682438"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 인증 라이브러리
 
-Azure ADAL(Active Directory 인증 라이브러리) v1.0은 응용 프로그램 개발자들이 클라우드 또는 온-프레미스 AD(Active Directory)에 사용자를 인증하고 API 호출 보안을 위한 토큰을 가져올 수 있게 합니다. ADAL은 개발자가 다음과 같은 기능을 통해 더 쉽게 인증하도록 합니다.
+Azure ADAL(Active Directory 인증 라이브러리) v1.0은 애플리케이션 개발자들이 클라우드 또는 온-프레미스 AD(Active Directory)에 사용자를 인증하고 API 호출 보안을 위한 토큰을 가져올 수 있게 합니다. ADAL은 개발자가 다음과 같은 기능을 통해 더 쉽게 인증하도록 합니다.
 
 - 액세스 토큰 및 새로 고침 토큰을 저장하는 구성 가능한 토큰 캐시
 - 액세스 토큰이 만료되고 새로 고침 토큰을 사용할 수 있을 때 자동 토큰 새로 고침

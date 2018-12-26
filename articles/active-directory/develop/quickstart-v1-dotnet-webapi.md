@@ -48,7 +48,7 @@ ASP.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현�
 * [앱 기본 사항을 다운로드](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip)합니다. 각 샘플은 Visual Studio 2013 솔루션입니다.
 * 응용 프로그램을 등록할 Azure AD 테넌트를 설정합니다. 테넌트가 아직 없는 경우 [가져오는 방법을 알아봅니다](quickstart-create-new-tenant.md).
 
-## <a name="step-1-register-an-application-with-azure-ad"></a>1단계: Azure AD에 응용 프로그램 등록
+## <a name="step-1-register-an-application-with-azure-ad"></a>1단계: Azure AD에 애플리케이션 등록
 
 애플리케이션 보안을 유지하려면 먼저 테넌트에서 애플리케이션을 만들고 몇 가지 중요 정보로 Azure AD를 제공해야 합니다.
 

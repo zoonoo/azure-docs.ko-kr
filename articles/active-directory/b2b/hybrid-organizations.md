@@ -25,7 +25,7 @@ Azure AD(Azure Active Directory) B2B 공동 작업을 사용하면 외부 파트
 
 조직에서 Azure AD B2B 공동 작업 기능을 사용하여 파트너 조직의 게스트 사용자를 Azure AD로 초대하는 경우 이제 이러한 B2B 사용자에게 온-프레미스 앱에 대한 액세스를 제공할 수 있습니다.
 
-SAML 기반 인증을 사용하는 앱의 경우 인증에 Azure AD 응용 프로그램 프록시를 사용하여 Azure Portal을 통해 B2B 사용자들이 이러한 앱을 사용하도록 만들 수 있습니다.
+SAML 기반 인증을 사용하는 앱의 경우 인증에 Azure AD 애플리케이션 프록시를 사용하여 Azure Portal을 통해 B2B 사용자들이 이러한 앱을 사용하도록 만들 수 있습니다.
 
 KCD(Kerberos 제한 위임)과 함께 IWA(Windows 통합 인증)를 사용하는 앱의 경우 인증에 Azure AD 프록시를 사용합니다. 단, 작업할 권한 부여의 경우 사용자 개체가 온-프레미스 Windows Server Active Directory에 있어야 합니다. B2B 게스트 사용자를 나타내는 로컬 사용자 개체를 만드는 데 사용할 수 있는 두 가지 방법이 있습니다.
 

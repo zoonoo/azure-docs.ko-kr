@@ -2,7 +2,7 @@
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure 설명서
-description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 예제 코드, 자습서 등을 가져옵니다.
+description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 애플리케이션을 관리하는 방법을 알아봅니다. 설명서, 예제 코드, 자습서 등을 가져옵니다.
 ms.topic: hub-page
 featureFlags:
 - clicktale
@@ -2151,7 +2151,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Load Balancer</h3>
-                                                    <p>응용 프로그램에 고가용성 및 네트워크 성능 제공</p>
+                                                    <p>애플리케이션에 고가용성 및 네트워크 성능 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3378,7 +3378,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Power BI Embedded</h3>
-                                                    <p>응용 프로그램에 완벽하고 뛰어난 대화형 데이터 시각화를 포함</p>
+                                                    <p>애플리케이션에 완벽하고 뛰어난 대화형 데이터 시각화를 포함</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -1,5 +1,5 @@
 ---
-title: Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여 | Microsoft Docs
+title: Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여 | Microsoft Docs
 description: Azure AD B2B 공동 작업을 사용하여 클라우드 B2B 사용자에게 온-프레미스 앱에 대한 액세스 권한을 부여하는 방법을 보여 줍니다.
 services: active-directory
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/10/2018
 ms.locfileid: "49068846"
 ---
-# <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여
+# <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여
 
 Azure AD(Azure Active Directory) B2B 공동 작업 기능을 사용하여 파트너 조직의 게스트 사용자를 Azure AD로 초대하는 조직의 경우 이제 이러한 B2B 사용자에게 온-프레미스 앱에 대한 액세스를 제공할 수 있습니다. 이러한 온-프레미스 앱은 SAML 기반 인증 또는 KCD(Kerberos 제한 위임)과 함께 IWA(Windows 통합 인증)를 사용할 수 있습니다.
 
@@ -30,16 +30,16 @@ Azure AD(Azure Active Directory) B2B 공동 작업 기능을 사용하여 파트
 - [Azure Active Directory 응용 프로그램 갤러리에 없는 응용 프로그램에 Single Sign-On 구성](../manage-apps/configure-single-sign-on-non-gallery-applications.md)에 설명된 대로 비갤러리 응용 프로그램 템플릿을 사용하여 SAML 앱을 통합합니다. **로그온 URL** 값에 사용하는 값을 알고 있어야 합니다.
 -  Azure AD 응용 프로그램 프록시를 사용하여 인증 원본으로 구성된 **Azure Active Directory**와 함께 온-프레미스 앱을 게시합니다. 지침은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](../manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요. 
 
-   **내부 URL** 설정을 구성하는 경우 비갤러리 응용 프로그램 템플릿에 지정된 로그온 URL을 사용합니다. 이 방식으로 사용자는 조직 경계 외부에서 응용 프로그램에 액세스할 수 있습니다. 응용 프로그램 프록시는 온-프레미스 앱에 대해 SAML Single Sign-On을 수행합니다.
+   **내부 URL** 설정을 구성하는 경우 비갤러리 응용 프로그램 템플릿에 지정된 로그온 URL을 사용합니다. 이 방식으로 사용자는 조직 경계 외부에서 응용 프로그램에 액세스할 수 있습니다. 애플리케이션 프록시는 온-프레미스 앱에 대해 SAML Single Sign-On을 수행합니다.
  
    ![온-프레미스 앱 설정 내부 URL 및 인증 표시](media/hybrid-cloud-to-on-premises/OnPremAppSettings.PNG)
 
 ## <a name="access-to-iwa-and-kcd-apps"></a>IWA 및 KCD 앱에 액세스
 
-B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용하여 보호되는 온-프레미스 응용 프로그램에 대한 액세스 권한을 부여하려면 다음과 같은 구성 요소가 필요합니다.
+B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용하여 보호되는 온-프레미스 애플리케이션에 대한 액세스 권한을 부여하려면 다음과 같은 구성 요소가 필요합니다.
 
-- **Azure AD 응용 프로그램 프록시를 통해 인증**합니다. B2B 사용자는 온-프레미스 응용 프로그램에 인증할 수 있어야 합니다. 이렇게 하려면 Azure AD 응용 프로그램 프록시를 통해 온-프레미스 앱을 게시해야 합니다. 자세한 내용은 [응용 프로그램 프록시를 시작하고 커넥터를 설치](../manage-apps/application-proxy-enable.md) 및 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시](../manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요.
-- **온-프레미스 디렉터리에서 B2B 사용자 개체를 통해 권한을 부여**합니다. 응용 프로그램은 사용자 액세스 검사를 수행하고 올바른 리소스에 대한 액세스 권한을 부여할 수 있어야 합니다. IWA 및 KCD는 이 권한 부여를 완료하기 위해 온-프레미스 Windows Server Active Directory에 있는 사용자 개체가 필요합니다. [KCD를 사용하는 Single Sign-On 작동 방식](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)에 설명된 대로 응용 프로그램 프록시는 이 사용자 개체가 사용자를 가장하고 Kerberos 토큰을 앱에 가져와야 합니다. 
+- **Azure AD 응용 프로그램 프록시를 통해 인증**합니다. B2B 사용자는 온-프레미스 애플리케이션에 인증할 수 있어야 합니다. 이렇게 하려면 Azure AD 애플리케이션 프록시를 통해 온-프레미스 앱을 게시해야 합니다. 자세한 내용은 [응용 프로그램 프록시를 시작하고 커넥터를 설치](../manage-apps/application-proxy-enable.md) 및 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시](../manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요.
+- **온-프레미스 디렉터리에서 B2B 사용자 개체를 통해 권한을 부여**합니다. 애플리케이션은 사용자 액세스 검사를 수행하고 올바른 리소스에 대한 액세스 권한을 부여할 수 있어야 합니다. IWA 및 KCD는 이 권한 부여를 완료하기 위해 온-프레미스 Windows Server Active Directory에 있는 사용자 개체가 필요합니다. [KCD를 사용하는 Single Sign-On 작동 방식](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)에 설명된 대로 응용 프로그램 프록시는 이 사용자 개체가 사용자를 가장하고 Kerberos 토큰을 앱에 가져와야 합니다. 
 
    B2B 사용자 시나리오의 경우 온-프레미스 디렉터리에서 권한 부여에 필요한 게스트 사용자 개체를 만드는 데 사용할 수 있는 두 가지 방법이 있습니다.
 
@@ -54,8 +54,8 @@ B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용�
 2.  게스트 사용자 개체가 Contoso 테넌트에 만들어집니다(예: guest_fabrikam.com의 UPN을 사용하는 사용자 개체 #EXT#@contoso.onmicrosoft.com).
 3.  MIM을 통하거나 B2B PowerShell 스크립트를 통해 Contoso에서 Fabrikam 게스트를 가져옵니다.
 4.  Fabrikam 게스트 사용자 개체(게스트#EXT#)의 표현 또는 “공간”이 MIM 또는 B2B PowerShell 스크립트를 통해 온-프레미스 디렉터리에 만들어집니다.
-5.  게스트 사용자가 온-프레미스 응용 프로그램 app.contoso.com에 액세스합니다.
-6.  Kerberos 제한 위임을 사용하여 응용 프로그램 프록시를 통해 인증 요청이 승인됩니다. 
+5.  게스트 사용자가 온-프레미스 애플리케이션 app.contoso.com에 액세스합니다.
+6.  Kerberos 제한 위임을 사용하여 애플리케이션 프록시를 통해 인증 요청이 승인됩니다. 
 7.  게스트 사용자 개체가 로컬로 존재하기 때문에 인증에 성공합니다.
 
 ### <a name="lifecycle-management-policies"></a>수명 주기 관리 정책

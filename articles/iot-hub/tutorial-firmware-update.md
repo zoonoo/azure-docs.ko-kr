@@ -167,7 +167,7 @@ npm install
 node SimulatedDevice.js "{your device connection string}"
 ```
 
-백 엔드 응용 프로그램을 실행하려면 다른 셸 또는 명령 프롬프트 창을 엽니다. 그런 다음, 다운로드한 Node.js 프로젝트의 **iot-hub/Tutorials/FirmwareUpdate** 폴더로 이동합니다. 그런 다음, 다음 명령을 실행합니다.
+백 엔드 애플리케이션을 실행하려면 다른 셸 또는 명령 프롬프트 창을 엽니다. 그런 다음, 다운로드한 Node.js 프로젝트의 **iot-hub/Tutorials/FirmwareUpdate** 폴더로 이동합니다. 그런 다음, 다음 명령을 실행합니다.
 
 ```cmd/sh
 npm install
@@ -180,11 +180,11 @@ node ServiceClient.js "{your service connection string}"
 
 다음 스크린샷에서는 백 엔드 응용 프로그램의 출력을 보여주고, 펌웨어 desired 속성을 업데이트하도록 구성을 만드는 방법을 강조 표시합니다.
 
-![백 엔드 응용 프로그램](./media/tutorial-firmware-update/BackEnd1.png)
+![백 엔드 애플리케이션](./media/tutorial-firmware-update/BackEnd1.png)
 
 다음 스크린샷에서는 백 엔드 응용 프로그램의 출력을 보여주고, 시뮬레이션된 디바이스의 펌웨어 업데이트 메트릭을 모니터링하는 방법을 강조 표시합니다.
 
-![백 엔드 응용 프로그램](./media/tutorial-firmware-update/BackEnd2.png)
+![백 엔드 애플리케이션](./media/tutorial-firmware-update/BackEnd2.png)
 
 IoT Hub 디바이스 ID 레지스트리의 대기 시간 때문에 백 엔드 응용 프로그램에 전송된 일부 상태 업데이트가 표시되지 않을 수 있습니다. IoT Hub의 **자동 장치 관리 -> IoT 장치 구성** 섹션에 있는 포털에서 메트릭이 표시되지 않을 수도 있습니다.
 

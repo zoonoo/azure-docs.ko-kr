@@ -23,7 +23,7 @@ ms.locfileid: "38972335"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 
-SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하고 관리하기 위한 오픈 소스 도구입니다. Service Fabric Explorer는 Windows, macOS 및 Linux용 데스크톱 응용 프로그램입니다.
+SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하고 관리하기 위한 오픈 소스 도구입니다. Service Fabric Explorer는 Windows, macOS 및 Linux용 데스크톱 애플리케이션입니다.
 
 ## <a name="service-fabric-explorer-download"></a>Service Fabric Explorer 다운로드
 

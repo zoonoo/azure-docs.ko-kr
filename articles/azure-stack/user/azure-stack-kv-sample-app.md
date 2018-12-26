@@ -163,7 +163,7 @@ Visual Studio에서
 
 * 솔루션을 다시 빌드합니다.
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 HelloKeyVault를 실행 하면 응용 프로그램 Azure AD에 로그인 하 고 AuthClientSecret 토큰을 사용 하 여 Azure Stack에서 key vault에 인증할 수 있습니다.
 

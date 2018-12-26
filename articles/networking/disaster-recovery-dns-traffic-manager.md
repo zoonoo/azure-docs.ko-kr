@@ -24,7 +24,7 @@ ms.locfileid: "44391354"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Azure DNS 및 Traffic Manager를 사용하여 재해 복구
 
-재해 복구는 응용 프로그램 기능의 심각한 손실에서 복구하는 데 집중합니다. 재해 복구 솔루션을 선택하려면 비즈니스 및 기술 소유자는 먼저 사용 불가능, 축소된 기능이나 지연된 가용성을 통한 부분 사용 가능 또는 완전 사용 가능과 같이 재해 중에 필요한 기능 수준을 결정해야 합니다.
+재해 복구는 애플리케이션 기능의 심각한 손실에서 복구하는 데 집중합니다. 재해 복구 솔루션을 선택하려면 비즈니스 및 기술 소유자는 먼저 사용 불가능, 축소된 기능이나 지연된 가용성을 통한 부분 사용 가능 또는 완전 사용 가능과 같이 재해 중에 필요한 기능 수준을 결정해야 합니다.
 대부분의 기업 고객은 응용 프로그램 또는 인프라 수준 장애 조치(failover)에 대한 복원력을 위해 다중 지역 아키텍처를 선택하고 있습니다. 고객은 중복 아키텍처를 통해 장애 조치(failover) 및 고가용성을 얻기 위해 여러 가지 방법을 선택할 수 있습니다. 다음은 몇 가지 인기 있는 방법입니다.
 
 - **활성-수동(수동 대기)**: 이 장애 조치(failover) 솔루션에서는 대기 지역에서 실행되는 VM 및 기타 어플라이언스가 장애 조치(failover)를 수행해야 할 때까지 활성 상태가 아닙니다. 그러나 프로덕션 환경은 백업, VM 이미지 또는 Resource Manager 템플릿의 형식으로 다른 지역에 복제됩니다. 이 장애 조치(failover) 메커니즘은 비용 효율적이지만 완전한 장애 조치(failover)를 수행하는 데 시간이 더 오래 걸립니다.
@@ -45,7 +45,7 @@ ms.locfileid: "44391354"
     
     ‘그림: 활성/수동(웜 대기) 재해 복구 구성’
     
-장애 조치(failover) 및 고가용성에 대한 자세한 내용은 [Azure 응용 프로그램에 대한 재해 복구](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)를 참조하세요.
+장애 조치(failover) 및 고가용성에 대한 자세한 내용은 [Azure 애플리케이션에 대한 재해 복구](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)를 참조하세요.
 
 
 ## <a name="planning-your-disaster-recovery-architecture"></a>재해 복구 아키텍처 계획

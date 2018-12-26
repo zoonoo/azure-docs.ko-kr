@@ -1,6 +1,6 @@
 ---
 title: Azure Front Door Service | Microsoft Docs
-description: 이 문서는 Azure Front Door의 개요를 제공합니다. 응용 프로그램에 대한 사용자 트래픽을 부하 분산하기에 적합한 선택인지 알아보세요.
+description: 이 문서는 Azure Front Door의 개요를 제공합니다. 애플리케이션에 대한 사용자 트래픽을 부하 분산하기에 적합한 선택인지 알아보세요.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u

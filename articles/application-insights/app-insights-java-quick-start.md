@@ -92,7 +92,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![Application Insights 개요 메뉴](./media/app-insights-java-quick-start/overview-001.png)
 
-2. 응용 프로그램 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **응용 프로그램 맵**을 클릭합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
+2. 애플리케이션 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **애플리케이션 맵**을 클릭합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
    ![응용 프로그램 맵](./media/app-insights-java-quick-start/application-map-001.png)
 

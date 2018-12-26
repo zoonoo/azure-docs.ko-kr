@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C 사용자 지정 정책 | Microsoft Docs
-description: 사용자 지정 정책을 사용하여 Azure Active Directory B2C에서 소비자 지향 응용 프로그램 개발
+description: 사용자 지정 정책을 사용하여 Azure Active Directory B2C에서 소비자 지향 애플리케이션 개발
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/03/2018
 ms.locfileid: "37440521"
 ---
-# <a name="sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 응용 프로그램에 소비자 등록 및 로그인
+# <a name="sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션에 소비자 등록 및 로그인
 
 사용자 지정 정책은 Azure AD B2C 테넌트의 동작을 정의하는 구성 파일입니다. ID 개발자가 완전히 편집하여 거의 무제한의 작업을 완료할 수 있습니다.
 

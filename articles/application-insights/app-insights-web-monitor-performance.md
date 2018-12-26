@@ -1,6 +1,6 @@
 ---
 title: Application Insights로 앱 상태 및 사용 현황 모니터링
-description: Application Insights를 시작합니다. 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다.
+description: Application Insights를 시작합니다. 온-프레미스 또는 Microsoft Azure 웹 애플리케이션의 사용량, 가용성 및 성능을 분석합니다.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -23,9 +23,9 @@ ms.locfileid: "52720976"
 # <a name="monitor-performance-in-web-applications"></a>웹 응용 프로그램의 성능 모니터링
 
 
-응용 프로그램이 정상적으로 작동하는지 확인하고 오류가 발생하는지 신속하게 파악합니다. [Application Insights][start]는 성능 문제 및 예외에 대한 정보와, 이러한 현상에 대한 근본 원인을 확인하고 진단하는 기능을 제공합니다.
+애플리케이션이 정상적으로 작동하는지 확인하고 오류가 발생하는지 신속하게 파악합니다. [Application Insights][start]는 성능 문제 및 예외에 대한 정보와, 이러한 현상에 대한 근본 원인을 확인하고 진단하는 기능을 제공합니다.
 
-Application Insights에서 Java 및 ASP.NET 웹 응용 프로그램과 서비스, WCF 서비스를 모니터링할 수 있습니다. 온-프레미스, 가상 머신에서 또는 Microsoft Azure 웹 사이트로 호스트할 수 있습니다. 
+Application Insights에서 Java 및 ASP.NET 웹 애플리케이션과 서비스, WCF 서비스를 모니터링할 수 있습니다. 온-프레미스, 가상 머신에서 또는 Microsoft Azure 웹 사이트로 호스트할 수 있습니다. 
 
 Application Insights는 클라이언트 쪽에서 iOS, Android 및 Windows 스토어 앱을 포함한 다양한 디바이스 및 웹 페이지에서 원격 분석을 수행할 수 있습니다.
 
@@ -63,7 +63,7 @@ HTTP 요청에는 페이지, 데이터 및 이미지에 대한 모든 GET 또는
 특정 URL에 대한 요청 수를 가져오려면 타일을 클릭합니다.
 
 ### <a name="average-response-time"></a>평균 응답 시간
-웹 요청이 응용 프로그램에 도착하는 시점과 응답이 반환되는 시점 사이의 시간을 측정합니다.
+웹 요청이 애플리케이션에 도착하는 시점과 응답이 반환되는 시점 사이의 시간을 측정합니다.
 
 점은 이동 평균을 보여 줍니다. 많은 요청이 있을 경우 그래프에서 크게 상승하거나 하락하지는 않지만 평균에서 벗어나는 일부 요청이 있을 수 있습니다.
 

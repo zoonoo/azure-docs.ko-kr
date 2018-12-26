@@ -18,7 +18,7 @@ ms.locfileid: "53385417"
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>자습서: 데이터 웨어하우스로 빅 데이터 스트림
 Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응답하는 데 사용할 수 있는 인텔리전트 이벤트 라우팅 서비스입니다. 예를 들어 Azure Blob Storage 또는 Azure Data Lake Store로 캡처된 Event Hubs 데이터를 처리하도록 Azure Function을 트리거하고, 다른 데이터 리포지토리에 데이터를 마이그레이션할 수 있습니다. 이 [Event Hubs 및 Event Grid 통합 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)은 Event Grid와 함께 Event Hubs를 사용하여 캡처된 Event Hubs 데이터를 BLOB 스토리지에서 SQL Data Warehouse로 원활하게 마이그레이션하는 방법을 보여줍니다.
 
-![응용 프로그램 개요](media/event-grid-event-hubs-integration/overview.png)
+![애플리케이션 개요](media/event-grid-event-hubs-integration/overview.png)
 
 이 다이어그램은 이 자습서에서 빌드하는 솔루션의 워크플로를 보여줍니다. 
 
@@ -239,7 +239,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
         ![Event Grid 구독 만들기](media/event-grid-event-hubs-integration/create-event-subscription.png)
 
 ## <a name="run-the-app-to-generate-data"></a>앱을 실행하여 데이터 생성
-이벤트 허브, SQL 데이터 웨어하우스, Azure 함수 앱 및 이벤트 구독 설정이 완료되었습니다. 이벤트 허브에 대한 데이터를 생성하는 응용 프로그램을 실행하기 전에 몇 가지 값을 구성해야 합니다.
+이벤트 허브, SQL 데이터 웨어하우스, Azure 함수 앱 및 이벤트 구독 설정이 완료되었습니다. 이벤트 허브에 대한 데이터를 생성하는 애플리케이션을 실행하기 전에 몇 가지 값을 구성해야 합니다.
 
 1. Azure Portal에서 이전에 만든 리소스 그룹으로 이동합니다. 
 2. Event Hubs 네임스페이스를 선택합니다.

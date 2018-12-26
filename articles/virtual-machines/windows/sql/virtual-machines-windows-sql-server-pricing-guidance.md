@@ -35,7 +35,7 @@ ms.locfileid: "52496472"
 
 ## <a name="free-licensed-sql-server-editions"></a>무료 라이선스 SQL Server 버전
 
-개념 증명을 개발, 테스트 또는 빌드하려면 무료 라이선스 **SQL Server Developer Edition**을 사용합니다. 이 버전에는 SQL Server Enterprise 버전의 모든 기능이 있어, 모든 유형의 응용 프로그램을 빌드하고 테스트할 수 있습니다. 그러나 Developer 버전은 프로덕션에서는 실행할 수 없습니다. SQL Server Developer 버전 VM은 연결된 SQL Server 라이선스 비용이 없으므로 VM에 대해서만 비용이 발생합니다.
+개념 증명을 개발, 테스트 또는 빌드하려면 무료 라이선스 **SQL Server Developer Edition**을 사용합니다. 이 버전에는 SQL Server Enterprise 버전의 모든 기능이 있어, 모든 유형의 애플리케이션을 빌드하고 테스트할 수 있습니다. 그러나 Developer 버전은 프로덕션에서는 실행할 수 없습니다. SQL Server Developer 버전 VM은 연결된 SQL Server 라이선스 비용이 없으므로 VM에 대해서만 비용이 발생합니다.
 
 프로덕션에서 간단한 워크로드를 실행하려면(4개 코어 미만, 메모리 1GB 미만, 10GB/데이터베이스 미만) 자유롭게 사용이 허가된 **SQL Server Express Edition**을 사용하세요. SQL Server Express 버전 VM 또한 VM에 대해서만 비용 발생합니다.
 

@@ -232,7 +232,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 ## <a name="remove-access"></a>액세스 권한 제거
 
-사용자, 그룹 및 응용 프로그램의 액세스 권한을 제거하려면 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 명령을 사용하여 역할 할당을 제거합니다.
+사용자, 그룹 및 애플리케이션의 액세스 권한을 제거하려면 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 명령을 사용하여 역할 할당을 제거합니다.
 
 1. 다음 명령을 사용하여 리소스 그룹 범위에서 사용자의 기여자 역할 할당을 제거합니다.
 

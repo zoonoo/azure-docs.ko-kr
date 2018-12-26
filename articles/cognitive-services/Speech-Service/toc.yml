@@ -192,7 +192,7 @@ items:
       href: speech-sdk.md#get-the-sdk
     - name: 샘플
       href: speech-sdk.md#get-the-samples
-    - name: 응용 프로그램 제공
+    - name: 애플리케이션 제공
       href: ship-application.md
     - name: 릴리스 정보
       href: releasenotes.md

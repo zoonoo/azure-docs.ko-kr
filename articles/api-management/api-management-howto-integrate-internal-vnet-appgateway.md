@@ -25,7 +25,7 @@ ms.locfileid: "52444618"
 
 ## <a name="overview"> </a> 개요
 
-Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual Network에서 API Management 서비스를 구성할 수 있습니다. Azure Application Gateway는 계층 7 부하 분산 장치를 제공하는 PAAS 서비스입니다. 역방향 프록시 서비스 역할을 하고 제품에 WAF(웹 응용 프로그램 방화벽)를 제공합니다.
+Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual Network에서 API Management 서비스를 구성할 수 있습니다. Azure Application Gateway는 계층 7 부하 분산 장치를 제공하는 PAAS 서비스입니다. 역방향 프록시 서비스 역할을 하고 제품에 WAF(웹 애플리케이션 방화벽)를 제공합니다.
 
 내부 VNET에서 프로비전된 API Management와 Application Gateway 프런트 엔드를 결합하면 다음 시나리오가 가능합니다.
 
@@ -220,7 +220,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -name "p
 
 ## <a name="create-application-gateway-configuration"></a>응용 프로그램 게이트웨이 구성 만들기
 
-응용 프로그램 게이트웨이를 만들기 전에 모든 구성 항목을 설정해야 합니다. 다음 단계 애플리케이션 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
+애플리케이션 게이트웨이를 만들기 전에 모든 구성 항목을 설정해야 합니다. 다음 단계 애플리케이션 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -352,7 +352,7 @@ Get-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
 ## <a name="summary"> </a> 요약
-VNET에서 구성된 Azure API Management는 온-프레미스 또는 클라우드에서 호스트되었는지 여부에 상관 없이 구성된 모든 API에 대한 단일 게이트웨이 인터페이스를 제공합니다. Application Gateway와 API Management의 통합을 통해 특정 API를 인터넷에 액세스할 수 있도록 선택적으로 유연성을 향상시키고 API Management 인스턴스에 대한 프런트 엔드로 웹 응용 프로그램 방화벽을 제공합니다.
+VNET에서 구성된 Azure API Management는 온-프레미스 또는 클라우드에서 호스트되었는지 여부에 상관 없이 구성된 모든 API에 대한 단일 게이트웨이 인터페이스를 제공합니다. Application Gateway와 API Management의 통합을 통해 특정 API를 인터넷에 액세스할 수 있도록 선택적으로 유연성을 향상시키고 API Management 인스턴스에 대한 프런트 엔드로 웹 애플리케이션 방화벽을 제공합니다.
 
 ##<a name="next-steps"> </a> 다음 단계
 * Azure Application Gateway에 대한 자세한 정보

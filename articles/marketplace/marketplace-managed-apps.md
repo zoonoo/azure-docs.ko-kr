@@ -1,6 +1,6 @@
 ---
-title: Azure 응용 프로그램 관리되는 응용 프로그램 제품 게시 가이드
-description: 이 아티클에서는 관리되는 응용 프로그램을 Marketplace에 게시하기 위한 요구 사항을 설명합니다.
+title: Azure 애플리케이션 관리되는 애플리케이션 제품 게시 가이드
+description: 이 아티클에서는 관리되는 애플리케이션을 Marketplace에 게시하기 위한 요구 사항을 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: ellacroi
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43144594"
 ---
-# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure 응용 프로그램: 관리되는 응용 프로그램 제품 게시 가이드
+# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure 애플리케이션: 관리되는 애플리케이션 제품 게시 가이드
 
 관리되는 응용 프로그램은 Marketplace에서 솔루션을 게시하는 주요 방법 중 하나입니다. 이 가이드를 사용하여 이 제품에 대한 요구 사항을 이해합니다. 
 
@@ -34,7 +34,7 @@ Marketplace를 통해 배포되고 청구되는 트랜잭션 제품은 다음과
 >[!NOTE]
 >예를 들어, 파트너는 SI 또는 MSP(관리 서비스 제공자)일 수 있습니다.  
 
-## <a name="managed-application-offer"></a>관리되는 응용 프로그램 제품
+## <a name="managed-application-offer"></a>관리되는 애플리케이션 제품
 
 |요구 사항 |세부 정보  |
 |---------|---------|

@@ -55,7 +55,7 @@ ms.locfileid: "53254244"
 
 이 단계에서는 로컬 .NET Core 프로젝트를 설정합니다.
 
-### <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+### <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 터미널 창에서 `cd`를 사용하여 작업 디렉터리로 이동합니다.
 
@@ -68,9 +68,9 @@ cd dotnetcore-sqldb-tutorial
 
 샘플 프로젝트에는 [Entity Framework Core](https://docs.microsoft.com/ef/core/)를 사용하는 기본 CRUD(Create-Read-Update-Delete) 앱이 포함되어 있습니다.
 
-### <a name="run-the-application"></a>응용 프로그램 실행
+### <a name="run-the-application"></a>애플리케이션 실행
 
-다음 명령을 실행하여 필요한 패키지를 설치하고 데이터베이스 마이그레이션을 실행하고 응용 프로그램을 시작합니다.
+다음 명령을 실행하여 필요한 패키지를 설치하고 데이터베이스 마이그레이션을 실행하고 애플리케이션을 시작합니다.
 
 ```bash
 dotnet restore

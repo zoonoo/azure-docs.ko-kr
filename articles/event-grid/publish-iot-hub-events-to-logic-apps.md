@@ -21,7 +21,7 @@ ms.locfileid: "53135018"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>자습서: Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기
 
-Azure Event Grid를 사용하면 다운스트림 비즈니스 응용 프로그램에서 작업을 트리거하여 IoT Hub에서 이벤트에 대응할 수 있습니다.
+Azure Event Grid를 사용하면 다운스트림 비즈니스 애플리케이션에서 작업을 트리거하여 IoT Hub에서 이벤트에 대응할 수 있습니다.
 
 이 아티클은 IoT Hub 및 Event Grid를 사용하는 샘플 구성을 안내합니다. 결과적으로 디바이스가 IoT 허브에 추가될 때마다 Azure 논리 앱이 알림 이메일을 보내도록 설정합니다. 
 

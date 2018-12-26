@@ -72,7 +72,7 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 * 위임된 권한 설정
 
 
-## <a name="step-1-create-an-active-directory-native-application"></a>1단계: Active Directory 네이티브 응용 프로그램 만들기
+## <a name="step-1-create-an-active-directory-native-application"></a>1단계: Active Directory 네이티브 애플리케이션 만들기
 
 Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용자를 인증하기 위한 Azure AD 네이티브 응용 프로그램을 만들고 구성합니다. 지침에 대해서는 [Azure AD 응용 프로그램 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD 갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성할 때 발생하는 문제 | Microsoft Docs
-description: Azure AD 응용 프로그램 갤러리에 이미 나열된 응용 프로그램에 대해 암호 Single Sign-On을 구성할 때 발생하는 일반적인 문제 이해
+title: Azure AD 갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성할 때 발생하는 문제 | Microsoft Docs
+description: Azure AD 애플리케이션 갤러리에 이미 나열된 애플리케이션에 대해 암호 Single Sign-On을 구성할 때 발생하는 일반적인 문제 이해
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -71,11 +71,11 @@ Microsoft에는 응용 프로그램 통합이 중단되었을 때 자동으로 �
 
 -   드물게 Internet Explorer의 보안 유효성 검사 때문에 스크립트 실행 속도보다 페이지 로드 속도가 느려질 수 있습니다.
 
-   * 이런 상황은 브라우저 버전, 컴퓨터 속도, 방문한 사이트에 따라 달라질 수 있습니다. 그런 경우는 특정 응용 프로그램의 통합을 수정할 수 있도록 지원 팀에 문의해 주세요.
+   * 이런 상황은 브라우저 버전, 컴퓨터 속도, 방문한 사이트에 따라 달라질 수 있습니다. 그런 경우는 특정 애플리케이션의 통합을 수정할 수 있도록 지원 팀에 문의해 주세요.
 
 또한 **이 응용 프로그램의 공급업체와 연락된 경우는 응용 프로그램을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록** **Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
 
-## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>응용 프로그램의 로그인 페이지가 최근에 변경되었거나 추가 필드가 필요한지 확인
+## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>애플리케이션의 로그인 페이지가 최근에 변경되었거나 추가 필드가 필요한지 확인
 
 응용 프로그램의 로그인 페이지가 최근에 변경된 경우는 그 때문에 통합이 깨질 수도 있습니다. 이런 예로는 응용 프로그램 공급업체에서 로그인 필드, chaptcha 또는 다단계 인증을 경험에 추가하는 경우가 있습니다. 다행스럽게도 많은 경우에 Microsoft와 응용 프로그램 공급업체가 협력하여 이 문제를 신속하게 해결할 수 있습니다.
 

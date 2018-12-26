@@ -17,12 +17,12 @@ ms.locfileid: "53256624"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>자습서: 지역 웹앱 배포를 위해 업데이트된 컨테이너 이미지를 지리적으로 복제된 컨테이너 레지스트리로 푸시
 
-세 부분으로 이루어진 자습서 시리즈의 세 번째 부분입니다. [이전 자습서](container-registry-tutorial-deploy-app.md)에서 두 개의 서로 다른 지역 웹앱 배포에 대해 지역에서 복제가 구성되었습니다. 이 자습서에서는 먼저 응용 프로그램을 수정한 다음 새 컨테이너 이미지를 빌드하고 지역에서 복제된 레지스트리를 푸시합니다. 마지막으로 웹앱 인스턴스 모두에서 Azure Container Registry webhook에 의해 자동으로 배포된 변경 내용을 확인합니다.
+세 부분으로 이루어진 자습서 시리즈의 세 번째 부분입니다. [이전 자습서](container-registry-tutorial-deploy-app.md)에서 두 개의 서로 다른 지역 웹앱 배포에 대해 지역에서 복제가 구성되었습니다. 이 자습서에서는 먼저 애플리케이션을 수정한 다음, 새 컨테이너 이미지를 빌드하고 지역에서 복제된 레지스트리를 푸시합니다. 마지막으로 웹앱 인스턴스 모두에서 Azure Container Registry webhook에 의해 자동으로 배포된 변경 내용을 확인합니다.
 
 이 자습서는 시리즈의 마지막 부분입니다.
 
 > [!div class="checklist"]
-> * 웹 응용 프로그램 HTML 수정
+> * 웹 애플리케이션 HTML 수정
 > * Docker 이미지 빌드 및 태그 지정
 > * Azure Container Registry에 변경 내용 푸시
 > * 두 개의 서로 다른 지역에서 업데이트된 앱 보기
@@ -115,11 +115,11 @@ v1: digest: sha256:4c3f2211569346fbe2d1006c18cbea2a4a9dcc1eb3a078608cef70d3a186e
 
 Webhook는 두 지역 웹앱에 업데이트된 컨테이너를 자동으로 배포하는 레지스트리에 새 이미지가 푸시됐음을 Web Apps에 알립니다.
 
-웹 브라우저에서 두 지역 웹앱 배포로 이동하여 응용 프로그램이 두 배포 모두에서 업데이트되었는지 확인합니다. 참고로 각 App Service 개요 탭의 상단 오른쪽에서 배포된 웹앱에 대한 URL을 찾을 수 있습니다.
+웹 브라우저에서 두 지역 웹앱 배포로 이동하여 애플리케이션이 두 배포 모두에서 업데이트되었는지 확인합니다. 참고로 각 App Service 개요 탭의 상단 오른쪽에서 배포된 웹앱에 대한 URL을 찾을 수 있습니다.
 
 ![Azure Portal의 App Service 개요][tutorial-portal-03]
 
-업데이트된 응용 프로그램을 보려면 App Service 개요에서 링크를 선택합니다. *미국 서부*에서 실행되는 앱의 예제 보기는 다음과 같습니다.
+업데이트된 애플리케이션을 보려면 App Service 개요에서 링크를 선택합니다. *미국 서부*에서 실행되는 앱의 예제 보기는 다음과 같습니다.
 
 ![미국 서부 지역에서 실행되는 수정된 웹앱의 브라우저 보기][deployed-app-westus-modified]
 

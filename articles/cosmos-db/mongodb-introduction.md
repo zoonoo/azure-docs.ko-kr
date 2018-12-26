@@ -22,7 +22,7 @@ ms.locfileid: "53409091"
 
 ![Azure Cosmos DB는 MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
-Azure Cosmos DB 데이터베이스는 [MongoDB](https://docs.mongodb.com/manual/introduction/)용으로 작성된 앱의 데이터 저장소로 사용할 수 있습니다. 이 기능은 MongoDB용으로 작성된 응용 프로그램에서 기존 [드라이버](https://docs.mongodb.org/ecosystem/drivers/)를 사용하여 Azure Cosmos DB와 통신하고 MongoDB 데이터베이스 대신 Azure Cosmos DB 데이터베이스를 사용할 수 있습니다. 대부분의 경우 연결 문자열만 변경하여 MongoDB에서 Azure Cosmos DB로 전환할 수 있습니다. 이 기능을 사용하면 MongoDB에서 친숙한 기술과 도구를 계속 사용하면서 Azure Cosmos DB 및 [포괄적인 업계 선도적 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)를 통해 Azure 클라우드에서 전역 배포된 MongoDB 데이터베이스 애플리케이션을 쉽게 빌드하고 실행할 수 있습니다.
+Azure Cosmos DB 데이터베이스는 [MongoDB](https://docs.mongodb.com/manual/introduction/)용으로 작성된 앱의 데이터 저장소로 사용할 수 있습니다. 이 기능은 MongoDB용으로 작성된 애플리케이션에서 기존 [드라이버](https://docs.mongodb.org/ecosystem/drivers/)를 사용하여 Azure Cosmos DB와 통신하고 MongoDB 데이터베이스 대신 Azure Cosmos DB 데이터베이스를 사용할 수 있습니다. 대부분의 경우 연결 문자열만 변경하여 MongoDB에서 Azure Cosmos DB로 전환할 수 있습니다. 이 기능을 사용하면 MongoDB에서 친숙한 기술과 도구를 계속 사용하면서 Azure Cosmos DB 및 [포괄적인 업계 선도적 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)를 통해 Azure 클라우드에서 전역 배포된 MongoDB 데이터베이스 애플리케이션을 쉽게 빌드하고 실행할 수 있습니다.
 
 **MongoDB 호환성**: Azure Cosmos DB에서 MongoDB 유선 프로토콜을 구현하므로 기존 MongoDB 전문 지식, 애플리케이션 코드 및 도구를 사용할 수 있습니다. MongoDB를 사용하여 애플리케이션을 개발하고, 완벽하게 관리되고 전 세계적으로 배포되는 Azure Cosmos DB 서비스를 사용하여 프로덕션에 배포할 수 있습니다. 지원되는 버전에 대한 자세한 내용은 [MongoDB 프로토콜 지원](mongodb-feature-support.md#mongodb-protocol-support)을 참조하세요.
 

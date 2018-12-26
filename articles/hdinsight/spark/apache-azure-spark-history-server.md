@@ -1,6 +1,6 @@
 ---
 title: 확장된 Spark 기록 서버를 사용하여 Spark 응용 프로그램 디버그 및 진단 - Azure HDInsight
-description: 확장된 Spark 기록 서버를 사용하여 Spark 응용 프로그램 디버그 및 진단 - Azure HDInsight.
+description: 확장된 Spark 기록 서버를 사용하여 Spark 애플리케이션 디버그 및 진단 - Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
 author: jejiang

@@ -79,7 +79,7 @@ DStream에 변환을 적용하여 처리를 구현합니다. 이 응용 프로�
 
     wordCounts.print()
 
-### <a name="run-the-application"></a>응용 프로그램 실행
+### <a name="run-the-application"></a>애플리케이션 실행
 
 스트리밍 응용 프로그램을 시작하고 종료 신호를 받을 때까지 실행합니다.
 

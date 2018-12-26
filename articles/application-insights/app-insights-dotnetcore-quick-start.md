@@ -33,7 +33,7 @@ Azure Application Insights를 사용하면 웹 응용 프로그램의 가용성,
 - [.NET Core SDK 2.0 설치](https://www.microsoft.com/net/core)
 - Azure 구독 및 기존 .NET Core 웹 응용 프로그램이 필요합니다.
 
-ASP.NET Core 웹 응용 프로그램에 없는 경우에 [ASP.NET Core 앱을 만들고 Application Insights를 추가](app-insights-asp-net-core.md)하려면 단계별 가이드를 사용할 수 있습니다.
+ASP.NET Core 웹 애플리케이션에 없는 경우에 [ASP.NET Core 앱을 만들고 Application Insights를 추가](app-insights-asp-net-core.md)하려면 단계별 가이드를 사용할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -79,7 +79,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![Application Insights 개요 메뉴](./media/app-insights-dotnetcore-quick-start/overview-001.png)
 
-2. 응용 프로그램 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **응용 프로그램 맵**을 클릭합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
+2. 애플리케이션 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **애플리케이션 맵**을 클릭합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
    ![응용 프로그램 맵](./media/app-insights-dotnetcore-quick-start/application-map.png)
 

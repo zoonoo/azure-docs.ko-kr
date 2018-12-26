@@ -24,13 +24,13 @@ ms.locfileid: "46963324"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>자습서: Service Fabric Mesh 응용 프로그램 배포
 
-이 자습서는 시리즈의 3부이며, Visual Studio에서 직접 Azure Service Fabric Mesh 웹 응용 프로그램을 게시하는 방법을 보여 줍니다.
+이 자습서는 시리즈의 3부이며, Visual Studio에서 직접 Azure Service Fabric Mesh 웹 애플리케이션을 게시하는 방법을 보여 줍니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * Visual Studio를 사용하여 Azure에 앱을 게시합니다.
-> * 응용 프로그램 배포 상태 확인
-> * 현재 구독에 배포된 모든 응용 프로그램 보기
+> * 애플리케이션 배포 상태 확인
+> * 현재 구독에 배포된 모든 애플리케이션 보기
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -50,7 +50,7 @@ ms.locfileid: "46963324"
 
 * Service Fabric 런타임, SDK, Docker 및 Visual Studio 2017 설치가 포함된 [개발 환경을 설정](service-fabric-mesh-howto-setup-developer-environment-sdk.md)했는지 확인합니다.
 
-## <a name="download-the-to-do-sample-application"></a>할 일 응용 프로그램 샘플 다운로드
+## <a name="download-the-to-do-sample-application"></a>할 일 애플리케이션 샘플 다운로드
 
 [이 자습서 시리즈의 2부](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)에서 할 일 응용 프로그램 샘플을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 
@@ -58,13 +58,13 @@ ms.locfileid: "46963324"
 git clone https://github.com/azure-samples/service-fabric-mesh
 ```
 
-응용 프로그램은 `src\todolistapp` 디렉터리 아래에 있습니다.
+애플리케이션은 `src\todolistapp` 디렉터리 아래에 있습니다.
 
 ## <a name="publish-to-azure"></a>Azure에 게시
 
 Service Fabric Mesh 프로젝트를 Azure에 게시하려면 Visual Studio에서 **todolistapp**을 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
 
-그러면 **Service Fabric 응용 프로그램 게시** 대화 상자가 표시됩니다.
+그러면 **Service Fabric 애플리케이션 게시** 대화 상자가 표시됩니다.
 
 ![Visual Studio의 Service Fabric Mesh 게시 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
@@ -91,9 +91,9 @@ Connect-AzureRmAccount
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
 ```
 
-게시 대화 상자에서 **게시** 단추를 눌러 Service Fabric 응용 프로그램을 Azure에 배포합니다.
+게시 대화 상자에서 **게시** 단추를 눌러 Service Fabric 애플리케이션을 Azure에 배포합니다.
 
-처음으로 Azure에 게시하는 경우 Docker 이미지가 ACR(Azure Container Registry)에 게시되며, 이미지 크기에 따라 시간이 걸립니다. 이후에 동일한 프로젝트를 게시할 때는 더 빨리 게시됩니다. Visual Studio **출력** 창에서 **Service Fabric 도구** 창을 선택하여 배포 진행률을 모니터링할 수 있습니다. 배포가 완료되면 **Service Fabric 도구** 출력에 응용 프로그램의 IP 주소와 포트가 URL 형식으로 표시됩니다.
+처음으로 Azure에 게시하는 경우 Docker 이미지가 ACR(Azure Container Registry)에 게시되며, 이미지 크기에 따라 시간이 걸립니다. 이후에 동일한 프로젝트를 게시할 때는 더 빨리 게시됩니다. Visual Studio **출력** 창에서 **Service Fabric 도구** 창을 선택하여 배포 진행률을 모니터링할 수 있습니다. 배포가 완료되면 **Service Fabric 도구** 출력에 애플리케이션의 IP 주소와 포트가 URL 형식으로 표시됩니다.
 
 ```json
 Packaging Application...
@@ -109,19 +109,19 @@ The application was deployed successfully and it can be accessed at http://10.00
 ## <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI 설정 
 나머지 단계에서는 Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용할 수 있습니다. 다음 [지침](service-fabric-mesh-howto-setup-cli.md)에 따라 Azure Service Fabric Mesh CLI 확장 모듈을 설치합니다.
 
-## <a name="check-application-deployment-status"></a>응용 프로그램 배포 상태 확인
+## <a name="check-application-deployment-status"></a>애플리케이션 배포 상태 확인
 
-이 시점에서 응용 프로그램이 배포되었습니다. `app show` 명령을 사용하여 상태를 확인할 수 있습니다. 
+이 시점에서 애플리케이션이 배포되었습니다. `app show` 명령을 사용하여 상태를 확인할 수 있습니다. 
 
-자습서 앱에 대한 응용 프로그램 이름은 `ServiceMeshApp`입니다. 다음 명령을 사용하여 응용 프로그램에 대한 세부 정보를 수집합니다.
+자습서 앱에 대한 애플리케이션 이름은 `ServiceMeshApp`입니다. 다음 명령을 사용하여 애플리케이션에 대한 세부 정보를 수집합니다.
 
 ```azurecli-interactive
 az mesh app show --resource-group $rg --name ServiceMeshApp
 ```
 
-## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>현재 구독에 배포된 모든 응용 프로그램 보기
+## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>현재 구독에 배포된 모든 애플리케이션 보기
 
-“app list” 명령을 사용하여 구독에 배포한 응용 프로그램 목록을 가져올 수 있습니다.
+“app list” 명령을 사용하여 구독에 배포한 애플리케이션 목록을 가져올 수 있습니다.
 
 ```azurecli-interactive
 az mesh app list --output table
@@ -132,8 +132,8 @@ az mesh app list --output table
 자습서의 이 부분에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * Azure에 앱 게시
-> * 응용 프로그램 배포 상태 확인
-> * 현재 구독에 배포된 모든 응용 프로그램 보기
+> * 애플리케이션 배포 상태 확인
+> * 현재 구독에 배포된 모든 애플리케이션 보기
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]

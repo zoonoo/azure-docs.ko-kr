@@ -127,7 +127,7 @@ public static ToDoItem Load(string description, int index, bool completed)
 
 코드 업그레이드든 구성 업그레이드든(이 경우 업그레이드를 둘 다 수행) 관계없이 Azure의 Service Fabric Mesh 앱을 업그레이드하려면 Visual Studio에서 **todolistapp**을 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
 
-그러면 **Service Fabric 응용 프로그램 게시** 대화 상자가 표시됩니다.
+그러면 **Service Fabric 애플리케이션 게시** 대화 상자가 표시됩니다.
 
 ![Visual Studio의 Service Fabric Mesh 게시 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 

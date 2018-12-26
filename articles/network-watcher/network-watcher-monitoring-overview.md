@@ -97,7 +97,7 @@ Network Watcher에 대해 Azure 지역 간 및 인터넷 서비스 공급자 간
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>네트워크 리소스에 대한 진단 로그 보기
 
-네트워크 보안 그룹, 공용 IP 주소, 부하 분산 장치, 가상 네트워크 게이트웨이 및 응용 프로그램 게이트웨이 등 Azure 네트워킹 리소스에 대한 진단을 기록할 수 있습니다. *진단 로그* 기능은 기존 네트워크 리소스에 대해 진단 로그를 생성하는 네트워크 리소스 진단 로그를 활성화 및 비활성화하는 단일 인터페이스를 제공합니다. Microsoft Power BI 및 Azure Log Analytics 같은 도구를 사용하여 진단 로그를 볼 수 있습니다. Azure 네트워크 진단 로그의 분석에 대해 더 자세히 알아보려면 [Log Analytics의 Azure 네트워크 솔루션](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 참조하세요.
+네트워크 보안 그룹, 공용 IP 주소, 부하 분산 장치, 가상 네트워크 게이트웨이 및 애플리케이션 게이트웨이 등 Azure 네트워킹 리소스에 대한 진단을 기록할 수 있습니다. *진단 로그* 기능은 기존 네트워크 리소스에 대해 진단 로그를 생성하는 네트워크 리소스 진단 로그를 활성화 및 비활성화하는 단일 인터페이스를 제공합니다. Microsoft Power BI 및 Azure Log Analytics 같은 도구를 사용하여 진단 로그를 볼 수 있습니다. Azure 네트워크 진단 로그의 분석에 대해 더 자세히 알아보려면 [Log Analytics의 Azure 네트워크 솔루션](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 참조하세요.
 
 ## <a name="network-watcher-automatic-enablement"></a>Network Watcher 자동 사용
 구독에서 가상 네트워크를 만들거나 업데이트하는 경우 가상 네트워크의 지역에서 Network Watcher가 자동으로 사용됩니다. 리소스에 대한 영향이나 Network Watcher를 자동으로 사용하도록 설정하는 데 관련된 요금이 발생하지 않습니다. 자세한 내용은 [Network Watcher 만들기](network-watcher-create.md)를 참조하세요.

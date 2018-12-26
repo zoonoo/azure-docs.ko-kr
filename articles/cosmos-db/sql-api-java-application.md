@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB를 사용한 Java 애플리케이션 개발 자습서
-description: 이 Java 웹 응용 프로그램 자습서에서는 Azure Cosmos DB 및 SQL API를 사용하여 Azure Websites에 호스트된 Java 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다.
-keywords: 응용 프로그램 개발, 데이터베이스 자습서, java 응용 프로그램, java 웹 응용 프로그램 자습서, azure, Microsoft azure
+description: 이 Java 웹 애플리케이션 자습서에서는 Azure Cosmos DB 및 SQL API를 사용하여 Azure Websites에 호스트된 Java 애플리케이션에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다.
+keywords: 애플리케이션 개발, 데이터베이스 자습서, java 애플리케이션, java 웹 애플리케이션 자습서, azure, Microsoft azure
 services: cosmos-db
 author: tknandu
 ms.service: cosmos-db
@@ -713,9 +713,9 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
 6. 항목이 표시되면 확인란을 설정/해제하고 **작업 업데이트**를 클릭하여 항목의 완료 여부를 업데이트할 수 있습니다.
 
 ## <a id="Deploy"></a>6단계: Azure 웹 사이트에 Java 애플리케이션 배포
-Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수 있습니다. 즉, 응용 프로그램을 WAR 파일로 내보내고 소스 제어(예: Git) 또는 FTP를 통해 업로드하면 됩니다.
+Azure 웹 사이트에서는 Java 애플리케이션을 간단히 배포할 수 있습니다. 즉, 애플리케이션을 WAR 파일로 내보내고 소스 제어(예: Git) 또는 FTP를 통해 업로드하면 됩니다.
 
-1. 응용 프로그램을 WAR 파일로 내보내려면 **프로젝트 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **내보내기**를 클릭한 후 **WAR 파일**을 클릭합니다.
+1. 애플리케이션을 WAR 파일로 내보내려면 **프로젝트 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **내보내기**를 클릭한 후 **WAR 파일**을 클릭합니다.
 2. **WAR 내보내기** 창에서 다음을 수행합니다.
    
    * 웹 프로젝트 상자에 azure-documentdb-java-sample을 입력합니다.

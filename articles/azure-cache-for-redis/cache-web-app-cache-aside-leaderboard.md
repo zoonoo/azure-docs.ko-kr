@@ -242,7 +242,7 @@ ms.locfileid: "53020841"
 
     ![코드 변경 내용](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml-code.png)
 
-1. **Ctrl+F5** 키를 눌러 응용 프로그램을 빌드 및 실행합니다. 이 버전의 응용 프로그램이 데이터베이스에서 직접 결과를 읽습니다. 참고로 **새로 만들기**, **편집**, **세부 정보** 및 **삭제** 작업은 응용 프로그램에 **Entity Framework를 사용하는 보기 포함 MVC 5 컨트롤러** 스캐폴드에 의해 자동으로 추가되었습니다. 자습서의 다음 섹션에서는 데이터 액세스를 최적화하고 애플리케이션에 추가 기능을 제공하기 위해 Azure Cache for Redis를 추가합니다.
+1. **Ctrl+F5** 키를 눌러 응용 프로그램을 빌드 및 실행합니다. 이 버전의 애플리케이션이 데이터베이스에서 직접 결과를 읽습니다. 참고로 **새로 만들기**, **편집**, **세부 정보** 및 **삭제** 작업은 응용 프로그램에 **Entity Framework를 사용하는 보기 포함 MVC 5 컨트롤러** 스캐폴드에 의해 자동으로 추가되었습니다. 자습서의 다음 섹션에서는 데이터 액세스를 최적화하고 애플리케이션에 추가 기능을 제공하기 위해 Azure Cache for Redis를 추가합니다.
 
     ![시작 응용 프로그램](./media/cache-web-app-cache-aside-leaderboard/cache-starter-application.png)
 

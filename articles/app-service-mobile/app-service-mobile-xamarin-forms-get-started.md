@@ -44,7 +44,7 @@ ms.locfileid: "52994192"
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-이제 모바일 응용 프로그램에서 사용할 수 있는 모바일 앱 백 엔드를 설정했습니다. 다음으로, 간단한 할 일 목록 백 엔드에 대한 서버 프로젝트를 다운로드하고 Azure에 게시합니다.
+이제 모바일 애플리케이션에서 사용할 수 있는 모바일 앱 백 엔드를 설정했습니다. 다음으로, 간단한 할 일 목록 백 엔드에 대한 서버 프로젝트를 다운로드하고 Azure에 게시합니다.
 
 ## <a name="configure-the-server-project"></a>서버 프로젝트 구성
 

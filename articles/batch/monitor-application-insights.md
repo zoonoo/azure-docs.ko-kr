@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights로 Batch 모니터링 | Microsoft Docs
-description: Azure Application Insights 라이브러리를 사용하여 Azure Batch .NET 응용 프로그램을 계측하는 방법을 알아봅니다.
+description: Azure Application Insights 라이브러리를 사용하여 Azure Batch .NET 애플리케이션을 계측하는 방법을 알아봅니다.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -18,11 +18,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50138347"
 ---
-# <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Application Insights를 사용하여 Azure Batch .NET 응용 프로그램 모니터링 및 디버깅
+# <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Application Insights를 사용하여 Azure Batch .NET 애플리케이션 모니터링 및 디버깅
 
-[Application Insights](../application-insights/app-insights-overview.md)는 개발자가 Azure 서비스에 배포된 응용 프로그램을 모니터링 및 디버그할 수 있는 세련되고 강력한 방법을 제공합니다. Application Insights를 사용하여 성능 카운터 및 예외를 모니터링하고 사용자 지정 메트릭 및 추적으로 코드를 계측할 수 있습니다. Application Insights를 Azure Batch 응용 프로그램과 통합하면 동작에 대한 구체적인 인사이트를 얻고 거의 실시간으로 문제를 조사할 수 있습니다.
+[Application Insights](../application-insights/app-insights-overview.md)는 개발자가 Azure 서비스에 배포된 응용 프로그램을 모니터링 및 디버그할 수 있는 세련되고 강력한 방법을 제공합니다. Application Insights를 사용하여 성능 카운터 및 예외를 모니터링하고 사용자 지정 메트릭 및 추적으로 코드를 계측할 수 있습니다. Application Insights를 Azure Batch 애플리케이션과 통합하면 동작에 대한 구체적인 인사이트를 얻고 거의 실시간으로 문제를 조사할 수 있습니다.
 
-이 문서에서는 Azure Batch .NET 솔루션에 Application Insights 라이브러리를 추가 및 구성하고 응용 프로그램 코드를 계측하는 방법을 보여줍니다. Azure Portal을 통해 응용 프로그램을 모니터링하고 사용자 지정 대시보드를 빌드하는 방법도 보여줍니다. Application Insights의 다른 언어 지원에 대한 내용은 [언어, 플랫폼 및 통합 설명서](../application-insights/app-insights-platforms.md)를 참조하세요.
+이 문서에서는 Azure Batch .NET 솔루션에 Application Insights 라이브러리를 추가 및 구성하고 애플리케이션 코드를 계측하는 방법을 보여줍니다. Azure Portal을 통해 애플리케이션을 모니터링하고 사용자 지정 대시보드를 빌드하는 방법도 보여줍니다. Application Insights의 다른 언어 지원에 대한 내용은 [언어, 플랫폼 및 통합 설명서](../application-insights/app-insights-platforms.md)를 참조하세요.
 
 이 문서에서 코드와 함께 사용할 샘플 C# 솔루션은 [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)에서 제공합니다. 이 예제에서는 Application Insights 계측 코드를 [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) 예제에 추가합니다. 이 예제에 익숙하지 않은 경우 먼저 TopNWords를 빌드하고 실행해 보세요. 여러 계산 노드에서 입력 BLOB 집합을 병렬로 처리하는 기본 Batch 워크플로를 이해하는 데 도움이 될 것입니다. 
 
@@ -47,7 +47,7 @@ ms.locfileid: "50138347"
 
 ## <a name="add-application-insights-to-your-project"></a>프로젝트에 Application Insights 추가
 
-**Microsoft.ApplicationInsights.WindowsServer** NuGet 패키지와 해당 종속성이 프로젝트에 필요합니다. 응용 프로그램의 프로젝트에 추가하거나 복원해야 합니다. 패키지를 설치하려면 `Install-Package` 명령 또는 NuGet 패키지 관리자를 사용합니다.
+**Microsoft.ApplicationInsights.WindowsServer** NuGet 패키지와 해당 종속성이 프로젝트에 필요합니다. 애플리케이션의 프로젝트에 추가하거나 복원해야 합니다. 패키지를 설치하려면 `Install-Package` 명령 또는 NuGet 패키지 관리자를 사용합니다.
 
 ```powershell
 Install-Package Microsoft.ApplicationInsights.WindowsServer
@@ -279,7 +279,7 @@ Application Insights 리소스에서 추적 로그를 보려면 **검색**을 �
 
 ### <a name="view-unhandled-exceptions"></a>처리되지 않은 예외 보기
 
-다음 스크린샷은 응용 프로그램에서 Application Insights 로그 예외가 throw되는 원리를 보여줍니다. 이 예에서는 응용 프로그램이 예외를 throw한 후 수 초 이내에 특정 예외를 자세히 들여다 보고 문제를 진단할 수 있습니다.
+다음 스크린샷은 애플리케이션에서 Application Insights 로그 예외가 throw되는 원리를 보여줍니다. 이 예에서는 응용 프로그램이 예외를 throw한 후 수 초 이내에 특정 예외를 자세히 들여다 보고 문제를 진단할 수 있습니다.
 
 ![처리되지 않은 예외](./media/monitor-application-insights/exception.png)
 
@@ -333,12 +333,12 @@ pool.StartTask = new StartTask()
 ```
 
 > [!TIP]
-> 솔루션의 관리 효율성을 개선하려면 어셈블리를 [응용 프로그램 패키지](./batch-application-packages.md)에 번들화하면 됩니다. 그런 다음, 풀에 응용 프로그램 패키지를 자동으로 배포하도록 풀 구성에 응용 프로그램 패키지 참조를 추가합니다.
+> 솔루션의 관리 효율성을 개선하려면 어셈블리를 [응용 프로그램 패키지](./batch-application-packages.md)에 번들화하면 됩니다. 그런 다음, 풀에 애플리케이션 패키지를 자동으로 배포하도록 풀 구성에 애플리케이션 패키지 참조를 추가합니다.
 >
 
 ## <a name="throttle-and-sample-data"></a>스로틀 및 샘플 데이터 
 
-프로덕션 환경에서 실행되는 Azure Batch 응용 프로그램은 그 규모가 크기 때문에 비용 관리를 위해 Application Insights에서 수집하는 데이터 양을 제한할 수 있습니다. 자세한 메커니즘은 [Application Insights의 샘플링](../application-insights/app-insights-sampling.md)을 참조하세요.
+프로덕션 환경에서 실행되는 Azure Batch 애플리케이션은 그 규모가 크기 때문에 비용 관리를 위해 Application Insights에서 수집하는 데이터 양을 제한할 수 있습니다. 자세한 메커니즘은 [Application Insights의 샘플링](../application-insights/app-insights-sampling.md)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

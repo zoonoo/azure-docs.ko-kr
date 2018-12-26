@@ -35,7 +35,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 서비스가 배포되는 동안 코드 준비로 전환하겠습니다. [GitHub의 샘플 앱](https://github.com/aspnet/AzureSignalR-samples.git)을 복제하고, SignalR Service 연결 문자열을 설정하고, 응용 프로그램을 로컬로 실행합니다.
 

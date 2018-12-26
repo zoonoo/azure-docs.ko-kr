@@ -32,7 +32,7 @@ Azure AD와 Confluence SAML SSO by Microsoft를 통합하면 다음과 같은 �
 - 사용자가 자신의 Azure AD 계정으로 Confluence SAML SSO by Microsoft에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="description"></a>설명:
 
@@ -43,7 +43,7 @@ Atlassian Confluence 서버와 함께 Microsoft Azure Active Directory 계정을
 Confluence SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
-- Confluence 서버 응용 프로그램이 Windows 64비트 서버(온-프레미스 또는 클라우드 IaaS 인프라)에 설치되어 있어야 합니다.
+- Confluence 서버 애플리케이션이 Windows 64비트 서버(온-프레미스 또는 클라우드 IaaS 인프라)에 설치되어 있어야 합니다.
 - Confluence 서버에서 HTTPS를 사용해야 합니다.
 - 지원되는 Confluence 플러그 인 버전은 아래 섹션에 설명되어 있습니다.
 - Confluence 서버가 인터넷에 연결되어 있고 인증을 위해 특히 Azure AD 로그인 페이지에 접속되고 Azure AD에서 토큰을 받을 수 있어야 합니다.
@@ -101,7 +101,7 @@ Confluence SAML SSO by Microsoft가 Azure AD에 통합되도록 구성하려면 
 
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 4. 검색 상자에서 **Confluence SAML SSO by Microsoft**를 입력하고, 결과 패널에서 **Confluence SAML SSO by Microsoft**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 

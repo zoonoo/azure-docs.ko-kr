@@ -97,7 +97,7 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Jive 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Jive 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Jive에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
@@ -199,11 +199,11 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 **Britta Simon을 Jive에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Jive**를 선택합니다.
+1. 애플리케이션 목록에서 **Jive**를 선택합니다.
 
     ![Configure Single Sign-On](./media/jive-tutorial/tutorial_jive_app.png) 
 

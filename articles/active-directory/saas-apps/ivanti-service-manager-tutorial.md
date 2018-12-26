@@ -32,7 +32,7 @@ ISM(Ivanti Service Manager)을 Azure AD와 통합하면 다음과 같은 혜택�
 - 사용자가 해당 Azure AD 계정으로 ISM(Ivanti Service Manager)에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -72,7 +72,7 @@ Azure AD로 ISM(Ivanti Service Manager) 통합을 구성하려면 갤러리의 I
 
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 4. 검색 상자에 **ISM(Ivanti Service Manager)** 을 입력하고 결과 창에서 **ISM(Ivanti Service Manager)** 을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 

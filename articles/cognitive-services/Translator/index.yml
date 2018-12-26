@@ -97,7 +97,7 @@ sections:
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: Translator Text API를 사용하여 응용 프로그램을 개발하는 방법을 알아봅니다.
+    text: Translator Text API를 사용하여 애플리케이션을 개발하는 방법을 알아봅니다.
   - type: paragraph
     text: <a href="tutorial-wpf-translation-csharp.md">C#을 사용하여 Translator에 대한 WPF 응용 프로그램 작성</a>
 - title: 참고 자료

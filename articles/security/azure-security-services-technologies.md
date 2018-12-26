@@ -68,7 +68,7 @@ ms.locfileid: "49384890"
 |------|--------|
 | [Azure&nbsp;역할&nbsp;기반&nbsp;액세스 제어](../active-directory/role-based-access-control-configure.md)|사용자가 조직 내 역할을 기반으로 액세스하는 데 필요한 리소스에만 액세스하도록 허용하는 액세스 제어 기능입니다.  |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)|Azure 내에서 다중 테넌트, 클라우드 기반 디렉터리 및 여러 ID 관리 서비스를 지원하는 클라우드 기반 인증 리포지토리입니다.  |
-| [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)|Azure 응용 프로그램을 사용할 때 고객이 자신의 프로필을 등록, 로그인 및 관리하는 방법을 제어할 수 있도록 해주는 ID 관리 서비스입니다.   |
+| [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)|Azure 애플리케이션을 사용할 때 고객이 자신의 프로필을 등록, 로그인 및 관리하는 방법을 제어할 수 있도록 해주는 ID 관리 서비스입니다.   |
 | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)| Active Directory Domain Services의 클라우드 기반 및 관리되는 버전입니다. |
 | [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)| 보안 정보 액세스를 허용하기 전에 여러 가지 형식의 인증 및 확인을 사용하는 보안 프로비전입니다. |
 
@@ -83,8 +83,8 @@ ms.locfileid: "49384890"
 |------|--------|
 | [네트워크&nbsp;보안&nbsp;그룹](../virtual-network/virtual-networks-nsg.md)| 5튜플을 사용하여 의사 결정을 허용하거나 거부하는 네트워크 기반 액세스 제어 기능입니다.  |
 | [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)| Azure 가상 네트워크에 대한 크로스-프레미스 액세스를 허용하기 위해 VPN 엔드포인트로 사용되는 네트워크 디바이스입니다.  |
-| [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)|URL을 기반으로 라우팅하고 SSL 오프로딩을 수행할 수 있는 고급 웹 응용 프로그램 부하 분산 장치입니다. |
-| [Azure Load Balancer](../load-balancer/load-balancer-overview.md)|TCP/UDP 응용 프로그램 네트워크 부하 분산 장치입니다. |
+| [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)|URL을 기반으로 라우팅하고 SSL 오프로딩을 수행할 수 있는 고급 웹 애플리케이션 부하 분산 장치입니다. |
+| [Azure Load Balancer](../load-balancer/load-balancer-overview.md)|TCP/UDP 애플리케이션 네트워크 부하 분산 장치입니다. |
 | [Azure ExpressRoute](../expressroute/expressroute-introduction.md)| 온-프레미스 네트워크와 Azure 가상 네트워크 간의 전용 WAN 링크입니다. |
 | [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)| 전역 DNS 부하 분산 장치입니다.|
-| [Azure 응용 프로그램 프록시](../active-directory/active-directory-application-proxy-get-started.md)| 온-프레미스에서 호스트되는 웹 응용 프로그램에 대한 원격 액세스를 보호하는 데 사용되는 인증 프런트 엔드입니다. |
+| [Azure 응용 프로그램 프록시](../active-directory/active-directory-application-proxy-get-started.md)| 온-프레미스에서 호스트되는 웹 애플리케이션에 대한 원격 액세스를 보호하는 데 사용되는 인증 프런트 엔드입니다. |

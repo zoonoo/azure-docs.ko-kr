@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub에 원격 분석 데이터 보내기 빠른 시작(Java) | Microsoft Docs
-description: 이 빠른 시작에서는 두 개의 Java 응용 프로그램 샘플을 실행하여 시뮬레이션된 원격 분석을 IoT Hub에 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
+description: 이 빠른 시작에서는 두 개의 Java 애플리케이션 샘플을 실행하여 시뮬레이션된 원격 분석을 IoT Hub에 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub

@@ -38,7 +38,7 @@ ms.locfileid: "50156496"
 
 1. 이러한 [템플릿](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) 및 [매개 변수](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) 샘플 파일을 사용하여 노드 유형과 확장 집합(노드 유형당 하나의 확장 집합)이 각각 두 개씩 있는 초기 클러스터를 배포합니다.  두 개의 확장 집합은 모두 표준 D2_V2 크기이며 Windows Server 2012 R2 Datacenter를 실행합니다.  클러스터에서 기준 업그레이드를 완료할 때까지 기다리세요.   
 2. 선택 사항 - 클러스터에 상태 저장 샘플을 배포합니다.
-3. 주 노드 유형 VM을 업그레이드하도록 결정한 후 주 노드 유형에 두 개의 확장 집합이 있으므로 이러한 [템플릿](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) 및 [매개 변수](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) 샘플 파일을 사용하여 주 노드 유형에 새 확장 집합을 추가합니다.  시스템 서비스 및 사용자 응용 프로그램은 두 개의 서로 다른 확장 집합의 VM 간에 마이그레이션할 수 있습니다.  새 확장 집합 VM은 표준 D4_V2 크기이며 Windows Server 2016 Datacenter with Containers를 실행합니다.  새 부하 분산 장치와 공용 IP 주소도 새 확장 집합과 함께 추가됩니다.  
+3. 주 노드 유형 VM을 업그레이드하도록 결정한 후 주 노드 유형에 두 개의 확장 집합이 있으므로 이러한 [템플릿](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) 및 [매개 변수](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) 샘플 파일을 사용하여 주 노드 유형에 새 확장 집합을 추가합니다.  시스템 서비스 및 사용자 애플리케이션은 두 개의 서로 다른 확장 집합의 VM 간에 마이그레이션할 수 있습니다.  새 확장 집합 VM은 표준 D4_V2 크기이며 Windows Server 2016 Datacenter with Containers를 실행합니다.  새 부하 분산 장치와 공용 IP 주소도 새 확장 집합과 함께 추가됩니다.  
     템플릿에서 새 확장 집합을 찾으려면 *vmNodeType2Name* 매개 변수로 명명된 "Microsoft.Compute/virtualMachineScaleSets" 리소스를 검색합니다.  새 확장 집합은 속성 -> virtualMachineProfile -> extensionProfile -> 확장 -> 속성 -> 설정 -> nodeTypeRef 설정을 차례로 사용하여 주 노드 유형에 추가됩니다.
 4. 클러스터 상태를 확인하고 모든 노드가 정상인지 확인합니다.
 5. 노드를 제거하려는 의도로 주 노드 유형의 이전 확장 집합에 있는 노드를 사용하지 않도록 설정합니다. 한 번에 모두 사용하지 않도록 설정할 수 있으며 작업이 큐에서 대기합니다. 약간의 시간이 걸릴 수도 있지만 모든 노드가 사용되지 않도록 설정될 때까지 기다리세요.  노드 유형의 이전 노드가 사용되지 않도록 설정되면 시스템 서비스 및 시드 노드에서 주 노드 유형에 설정된 새 확장 집합의 VM으로 마이그레이션합니다.
@@ -47,7 +47,7 @@ ms.locfileid: "50156496"
 8. 변수에 설정된 이전의 주 노드 유형 확장 집합과 연결된 공용 IP 주소의 DNS 설정을 저장하고 해당 공용 IP 주소를 제거합니다.
 9. 새 주 노드 유형 확장 집합과 연결된 공용 IP 주소의 DNS 설정을 삭제된 공용 IP 주소의 DNS 설정으로 바꿉니다.  이제 클러스터에 다시 연결할 수 있습니다.
 10. 클러스터에서 노드에 대한 노드 상태를 제거합니다.  이전의 확장 집합에 대한 내구성 수준이 은색 또는 금색으로 표시되면 시스템에서 이 단계를 자동으로 수행합니다.
-11. 이전 단계에서 상태 저장 응용 프로그램을 배포한 경우 응용 프로그램이 작동하는지 확인합니다.
+11. 이전 단계에서 상태 저장 애플리케이션을 배포한 경우 애플리케이션이 작동하는지 확인합니다.
 
 ```powershell
 # Variables.

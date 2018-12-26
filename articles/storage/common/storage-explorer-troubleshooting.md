@@ -58,7 +58,7 @@ Storage 탐색기가 자체 서명된 또는 신뢰할 수 없는 인증서를 �
 재인증 루프에 있거나 계정 중 한 계정의 UPN을 변경한 경우 다음을 수행하세요.
 1. 모든 계정을 제거한 다음, Storage 탐색기를 닫습니다
 2. 컴퓨터에서 .IdentityService 폴더를 삭제합니다. Windows에서 폴더는 `C:\users\<username>\AppData\Local`에 있습니다. Mac 및 Linux의 경우 사용자 디렉토리의 루트에서 폴더를 찾을 수 있습니다.
-3. Mac 또는 Linux를 사용하는 경우 OS의 키 저장소에서 Microsoft.Developer.IdentityService 항목을 삭제해야 합니다. Mac의 경우 키 저장소가 "Gnome 키 집합" 응용 프로그램입니다. Linux의 경우 일반적으로 응용 프로그램은 "키링"으로 불리는데 이름은 배포에 따라 다를 수 있습니다.
+3. Mac 또는 Linux를 사용하는 경우 OS의 키 저장소에서 Microsoft.Developer.IdentityService 항목을 삭제해야 합니다. Mac의 경우 키 저장소가 "Gnome 키 집합" 애플리케이션입니다. Linux의 경우 일반적으로 애플리케이션은 "키링"으로 불리는데 이름은 배포에 따라 다를 수 있습니다.
 
 ### <a name="conditional-access"></a>조건부 액세스
 Windows 10, Linux 또는 macOS에서 Storage 탐색기를 사용하는 경우 조건부 액세스가 지원되지 않습니다. Storage 탐색기에서 사용되는 AAD 라이브러리의 제한 사항 때문입니다.

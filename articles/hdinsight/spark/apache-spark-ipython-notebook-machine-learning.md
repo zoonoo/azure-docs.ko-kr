@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure HDInsight에서 Spark 기계 학습 응용 프로그램 빌드'
+title: '자습서: Azure HDInsight에서 Spark 기계 학습 애플리케이션 빌드'
 description: Jupyter Notebook을 사용하여 HDInsight Spark 클러스터에서 Apache Spark Machine Learning 응용 프로그램을 빌드하는 방법에 대한 단계별 지침입니다.
 services: hdinsight
 ms.service: hdinsight

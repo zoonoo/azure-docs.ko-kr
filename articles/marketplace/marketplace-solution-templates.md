@@ -1,5 +1,5 @@
 ---
-title: Azure 응용 프로그램 솔루션 템플릿 제품 게시 가이드
+title: Azure 애플리케이션 솔루션 템플릿 제품 게시 가이드
 description: 이 문서에서는 솔루션 템플릿을 Azure Marketplace에 게시하기 위한 요구 사항을 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2018
 ms.locfileid: "52264185"
 ---
-# <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure 응용 프로그램: 솔루션 템플릿 제품 게시 가이드
+# <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure 애플리케이션: 솔루션 템플릿 제품 게시 가이드
 
 솔루션 템플릿은 Marketplace에서 솔루션을 게시하는 주요 방법 중 하나입니다. 이 가이드를 사용하여 이 제품에 대한 요구 사항을 이해합니다. 
 

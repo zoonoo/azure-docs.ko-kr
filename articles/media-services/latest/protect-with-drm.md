@@ -70,7 +70,7 @@ Azure Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](ht
 * Visual Studio Code 또는 Visual Studio 설치
 * [이 빠른 시작](create-account-cli-quickstart.md)에서 설명된 대로 새로운 Azure Media Services 계정을 만듭니다.
 * [액세스 API](access-api-cli-how-to.md)를 수행하여 Media Services API를 사용하는 데 필요한 자격 증명 가져오기
-* 응용 프로그램 구성 파일(appsettings.json)에서 적절한 값을 설정합니다.
+* 애플리케이션 구성 파일(appsettings.json)에서 적절한 값을 설정합니다.
 
 ## <a name="download-code"></a>코드 다운로드
 
@@ -83,7 +83,7 @@ Azure Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](ht
 "DRM으로 암호화" 샘플은 [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) 폴더에 있습니다.
 
 > [!NOTE]
-> 샘플은 응용 프로그램을 실행할 때마다 고유한 리소스를 만듭니다. 일반적으로 변환 및 정책 등 기존 리소스를 다시 사용합니다(기존 리소스가 구성이 필요한 경우). 
+> 샘플은 애플리케이션을 실행할 때마다 고유한 리소스를 만듭니다. 일반적으로 변환 및 정책 등 기존 리소스를 다시 사용합니다(기존 리소스가 구성이 필요한 경우). 
 
 ## <a name="start-using-media-services-apis-with-net-sdk"></a>.NET SDK로 Media Services API 사용하기
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights 개요 대시보드 | Microsoft Docs
-description: Azure Application Insights 및 개요 대시보드 기능을 사용하여 응용 프로그램을 모니터링합니다.
+description: Azure Application Insights 및 개요 대시보드 기능을 사용하여 애플리케이션을 모니터링합니다.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -21,7 +21,7 @@ ms.locfileid: "52956955"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights 개요 대시보드
 
-Application Insights에는 응용 프로그램의 상태 및 성능을 한 눈에 빠르게 파악할 수 있도록 요약 개요 창이 항상 제공됩니다. 새 개요 대시보드에는 더 빠르고 유연한 환경이 제공됩니다.
+Application Insights에는 애플리케이션의 상태 및 성능을 한 눈에 빠르게 파악할 수 있도록 요약 개요 창이 항상 제공됩니다. 새 개요 대시보드에는 더 빠르고 유연한 환경이 제공됩니다.
 
 ## <a name="how-do-i-test-out-the-new-experience"></a>새 환경을 테스트하려면 어떻게 할까요?
 

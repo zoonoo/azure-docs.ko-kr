@@ -25,7 +25,7 @@ ms.locfileid: "51704718"
 
 > [!div class="checklist"]
 > * 응용 프로그램 업데이트
-> * 응용 프로그램 실행
+> * 애플리케이션 실행
 > * 연결 수의 유효성 검사
 
 ## <a name="prerequisites"></a>필수 조건
@@ -88,7 +88,7 @@ public static void Main(string[] args)
 dotnet build
 ```
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 이제 응용 프로그램이 다시 빌드되었으므로 업데이트된 코드로 응용 프로그램을 실행할 차례입니다. 아직 열지 않은 경우 `Command Prompt`를 열고 `D:\git\storage-dotnet-perf-scale-app`으로 이동합니다.
 
@@ -206,7 +206,7 @@ C:\>
 시리즈 3부에서는 다음 방법을 통해 저장소 계정에서 대량의 임의 데이터를 다운로드하는 방법에 대해 배웠습니다.
 
 > [!div class="checklist"]
-> * 응용 프로그램 실행
+> * 애플리케이션 실행
 > * 연결 수의 유효성 검사
 
 포털에서 처리량 및 대기 시간 메트릭을 확인하려면 시리즈의 4부로 이동하세요.

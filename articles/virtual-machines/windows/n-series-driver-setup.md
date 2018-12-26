@@ -69,6 +69,6 @@ RDMA 네트워크는 [Microsoft MPI](https://docs.microsoft.com/message-passing-
 
 ## <a name="next-steps"></a>다음 단계
 
-* NVIDIA Tesla GPU에 대한 GPU 가속 응용 프로그램을 빌드하는 개발자는 최신 [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)을 다운로드하여 설치할 수도 있습니다. 자세한 내용은 [CUDA 설치 가이드](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi)를 참조하세요.
+* NVIDIA Tesla GPU에 대한 GPU 가속 애플리케이션을 빌드하는 개발자는 최신 [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)을 다운로드하여 설치할 수도 있습니다. 자세한 내용은 [CUDA 설치 가이드](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi)를 참조하세요.
 
 

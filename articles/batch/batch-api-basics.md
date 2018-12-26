@@ -506,8 +506,8 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 
 ## <a name="next-steps"></a>다음 단계
 * Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.
-* [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 응용 프로그램 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 계산 노드에서 워크로드를 실행하는 응용 프로그램 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
-* Batch 솔루션을 개발하는 동안 사용하기 위해 [Batch Explorer][batch_labs]를 다운로드 및 설치합니다. Batch Explorer를 사용하여 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있습니다. 
+* [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 응용 프로그램 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 계산 노드에서 워크로드를 실행하는 애플리케이션 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
+* Batch 솔루션을 개발하는 동안 사용하기 위해 [Batch Explorer][batch_labs]를 다운로드 및 설치합니다. Batch Explorer를 사용하여 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있습니다. 
 * MSDN에서 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), [Batch 커뮤니티 리포지토리](https://github.com/Azure/Batch) 및 [Azure Batch 포럼][batch_forum]을 비롯한 커뮤니티 리소스를 참조하세요. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png

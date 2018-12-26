@@ -18,7 +18,7 @@ ms.locfileid: "49165967"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
-Azure Maps는 웹 및 모바일 응용 프로그램에 정확한 지리적 컨텍스트를 제공할 수 있도록 최신 매핑 데이터로 지원되는 지리 공간적 서비스의 컬렉션입니다. 여기에는 지도를 렌더링하고 관심 지점을 검색하기 위한 REST API가 포함됩니다. API에서는 관심 지점의 경로, 트래픽 조건, 표준 시간대 및 IP 주소의 위치를 찾을 수도 있습니다. API에서는 익숙한 도구로 위치 정보를 Azure 솔루션에 통합하는 솔루션을 신속하게 개발하고 크기를 조정할 수 있습니다. REST API와 함께 웹 기반 [JavaScript 지도 컨트롤](https://docs.microsoft.com/javascript/api/azure-maps-control)은 여러 미디어를 통해 개발을 쉽고 유연하며 이식 가능하도록 만들기 위해 제공됩니다.
+Azure Maps는 웹 및 모바일 애플리케이션에 정확한 지리적 컨텍스트를 제공할 수 있도록 최신 매핑 데이터로 지원되는 지리 공간적 서비스의 컬렉션입니다. 여기에는 지도를 렌더링하고 관심 지점을 검색하기 위한 REST API가 포함됩니다. API에서는 관심 지점의 경로, 트래픽 조건, 표준 시간대 및 IP 주소의 위치를 찾을 수도 있습니다. API에서는 익숙한 도구로 위치 정보를 Azure 솔루션에 통합하는 솔루션을 신속하게 개발하고 크기를 조정할 수 있습니다. REST API와 함께 웹 기반 [JavaScript 지도 컨트롤](https://docs.microsoft.com/javascript/api/azure-maps-control)은 여러 미디어를 통해 개발을 쉽고 유연하며 이식 가능하도록 만들기 위해 제공됩니다.
 
 다음 비디오는 Azure Maps를 자세히 설명합니다.
 
@@ -34,11 +34,11 @@ Azure Maps 웹 컨트롤을 사용하면 웹 또는 모바일 응용 프로그�
 
 ## <a name="services-in-azure-maps"></a>Azure Maps의 서비스
 
-Azure Maps는 Azure 응용 프로그램에 지리적 컨텍스트를 제공할 수 있는 다음과 같은 6개의 서비스로 구성됩니다.
+Azure Maps는 Azure 애플리케이션에 지리적 컨텍스트를 제공할 수 있는 다음과 같은 6개의 서비스로 구성됩니다.
 
 ### <a name="render-service"></a>Render Service
 
-Render Service는 개발자가 매핑을 중심으로 웹 및 모바일 응용 프로그램을 만들 수 있도록 설계되었습니다. 이 서비스는 19단계 확대/축소 수준에서 사용할 수 있는 고품질 래스터 그래픽 이미지 또는 모든 것을 사용자 지정할 수 있는 벡터 형식 맵 이미지를 사용합니다.
+Render Service는 개발자가 매핑을 중심으로 웹 및 모바일 애플리케이션을 만들 수 있도록 설계되었습니다. 이 서비스는 19단계 확대/축소 수준에서 사용할 수 있는 고품질 래스터 그래픽 이미지 또는 모든 것을 사용자 지정할 수 있는 벡터 형식 맵 이미지를 사용합니다.
 
 ![Azure Maps Map.png](media/about-azure-maps/Introduction_Map.png)
 
@@ -86,7 +86,7 @@ Time Zone Service를 사용하면 위도-경도 쌍 또는 [IANA ID](http://www.
 
 ### <a name="traffic-service"></a>Traffic Service
 
-Traffic Service는 개발자가 트래픽을 요구하는 웹 및 모바일 응용 프로그램을 만들 수 있도록 설계된 웹 서비스 제품군입니다. 이 서비스는 다음 두 가지 데이터 형식을 제공합니다.
+Traffic Service는 개발자가 트래픽을 요구하는 웹 및 모바일 애플리케이션을 만들 수 있도록 설계된 웹 서비스 제품군입니다. 이 서비스는 다음 두 가지 데이터 형식을 제공합니다.
 
 * Traffic Flow - 네트워크의 모든 주요 도로에 대해 실시간으로 관찰된 속도와 여행 시간 정보
 * Traffic Incidents - 도로 네트워크와 관련된 교통 혼잡 및 사고에 대한 정확한 보기
@@ -103,9 +103,9 @@ IP to Location 서비스용 REST API에 대한 정보는 [Azure Maps Geolocation
 
 ## <a name="programming-model"></a>프로그래밍 모델
 
-Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 응용 프로그램을 지원할 수 있습니다. 언어에 구애 받지 않는 프로그래밍 모델을 사용하며 [REST API](https://docs.microsoft.com/rest/api/maps/)를 통해 JSON 출력을 지원합니다.
+Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 애플리케이션을 지원할 수 있습니다. 언어에 구애 받지 않는 프로그래밍 모델을 사용하며 [REST API](https://docs.microsoft.com/rest/api/maps/)를 통해 JSON 출력을 지원합니다.
 
-또한 Azure Maps는 웹 및 모바일 응용 프로그램을 쉽고 빠르게 개발할 수 있는 간단한 프로그래밍 모델이 포함된 편리한 [JavaScript 지도 컨트롤](https://docs.microsoft.com/javascript/api/azure-maps-control)을 제공합니다.
+또한 Azure Maps는 웹 및 모바일 애플리케이션을 쉽고 빠르게 개발할 수 있는 간단한 프로그래밍 모델이 포함된 편리한 [JavaScript 지도 컨트롤](https://docs.microsoft.com/javascript/api/azure-maps-control)을 제공합니다.
 
 ## <a name="usage"></a>사용 현황
 

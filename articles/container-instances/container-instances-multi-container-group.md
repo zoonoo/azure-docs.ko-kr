@@ -159,7 +159,7 @@ az group deployment create --resource-group myResourceGroup --template-file azur
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-실행 중인 응용 프로그램을 보려면 사용하는 브라우저에서 공용 IP 주소로 이동합니다. 예를 들어 이 예제 출력의 IP는 `52.168.26.124`입니다.
+실행 중인 애플리케이션을 보려면 사용하는 브라우저에서 공용 IP 주소로 이동합니다. 예를 들어 이 예제 출력의 IP는 `52.168.26.124`입니다.
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location

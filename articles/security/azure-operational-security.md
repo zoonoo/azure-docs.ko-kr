@@ -297,7 +297,7 @@ Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및
 
 
 
-이러한 보고서의 데이터는 SIEM 시스템, 감사 및 비즈니스 인텔리전스 도구와 같은 응용 프로그램에 유용할 수 있습니다. Azure AD 보고 [API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started)는 일단의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 이러한 API는 다양한 프로그래밍 언어와 도구에서 호출할 수 있습니다.
+이러한 보고서의 데이터는 SIEM 시스템, 감사 및 비즈니스 인텔리전스 도구와 같은 애플리케이션에 유용할 수 있습니다. Azure AD 보고 [API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started)는 일단의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 이러한 API는 다양한 프로그래밍 언어와 도구에서 호출할 수 있습니다.
 
 Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 

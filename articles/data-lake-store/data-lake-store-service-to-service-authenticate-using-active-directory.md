@@ -78,7 +78,7 @@ Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스
     ![그룹에 권한 할당](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "그룹에 권한 할당")
 
 > [!NOTE]
-> Azure Active Directory 응용 프로그램을 특정 폴더로 제한하려면 동일한 Azure Active Directory 응용 프로그램에 루트에 대한 **실행** 권한도 부여하여 .NET SDK를 통한 파일 생성 액세스를 활성화해야 합니다.
+> Azure Active Directory 애플리케이션을 특정 폴더로 제한하려면 동일한 Azure Active Directory 애플리케이션에 루트에 대한 **실행** 권한도 부여하여 .NET SDK를 통한 파일 생성 액세스를 활성화해야 합니다.
 
 > [!NOTE]
 > SDK를 사용하여 Data Lake Storage Gen1 계정을 만들려면 Data Lake Storage Gen1 계정을 만들 리소스 그룹에 Azure AD 웹 응용 프로그램을 역할로 할당해야 합니다.

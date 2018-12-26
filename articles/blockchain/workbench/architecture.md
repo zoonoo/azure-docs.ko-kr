@@ -19,15 +19,15 @@ ms.locfileid: "48241535"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 아키텍처
 
-Azure Blockchain Workbench는 여러 Azure 구성 요소를 사용하는 솔루션을 제공함으로써 블록체인 응용 프로그램 개발을 간소화합니다. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 응용 프로그램 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
+Azure Blockchain Workbench는 여러 Azure 구성 요소를 사용하는 솔루션을 제공함으로써 블록체인 애플리케이션 개발을 간소화합니다. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 응용 프로그램 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
 
 ![Blockchain Workbench 아키텍처](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>ID 및 인증
 
-Blockchain Workbench를 사용하면 컨소시엄이 Azure AD(Azure Active Directory)를 사용하여 해당 엔터프라이즈 ID를 페더레이션할 수 있습니다. Workbench는 Azure AD에 저장된 엔터프라이즈 ID를 사용하여 온체인 ID에 대한 새 사용자 계정을 생성합니다. ID 매핑은 클라이언트 API 및 응용 프로그램에 인증된 로그인을 용이하게 하며 조직의 인증 정책을 사용합니다. Workbench는 지정된 스마트 계약 내에서 특정 역할에 엔터프라이즈 ID를 연관시키는 기능도 제공합니다. 또한 Workbench는 해당 역할이 수행할 수 있는 작업과 시간을 식별할 수 있는 메커니즘을 제공합니다.
+Blockchain Workbench를 사용하면 컨소시엄이 Azure AD(Azure Active Directory)를 사용하여 해당 엔터프라이즈 ID를 페더레이션할 수 있습니다. Workbench는 Azure AD에 저장된 엔터프라이즈 ID를 사용하여 온체인 ID에 대한 새 사용자 계정을 생성합니다. ID 매핑은 클라이언트 API 및 애플리케이션에 인증된 로그인을 용이하게 하며 조직의 인증 정책을 사용합니다. Workbench는 지정된 스마트 계약 내에서 특정 역할에 엔터프라이즈 ID를 연관시키는 기능도 제공합니다. 또한 Workbench는 해당 역할이 수행할 수 있는 작업과 시간을 식별할 수 있는 메커니즘을 제공합니다.
 
-Blockchain Workbench를 배포한 후 사용자는 클라이언트 응용 프로그램, REST 기반 클라이언트 API 또는 메시징 API를 통해 Blockchain Workbench와 상호 작용합니다. 모든 경우에 있어 상호 작용은 Azure AD(Azure Active Directory) 또는 디바이스별 자격 증명을 통해 인증되어야 합니다.
+Blockchain Workbench를 배포한 후 사용자는 클라이언트 애플리케이션, REST 기반 클라이언트 API 또는 메시징 API를 통해 Blockchain Workbench와 상호 작용합니다. 모든 경우에 있어 상호 작용은 Azure AD(Azure Active Directory) 또는 디바이스별 자격 증명을 통해 인증되어야 합니다.
 
 사용자는 참석자의 메일 주소로 메일 초대장을 보냄으로써 컨소시엄 Azure AD로 해당 ID를 페더레이션합니다. 이들 사용자는 로그인 시 이름, 암호 및 정책을 통해 인증됩니다. 해당 조직의 2단계 인증이 그 예입니다.
 
@@ -37,9 +37,9 @@ Azure AD는 Blockchain Workbench에 액세스할 수 있는 모든 사용자를 
 
 ## <a name="client-applications"></a>클라이언트 응용 프로그램
 
-Workbench는 자동으로 생성된 웹 및 모바일(iOS, Android)용 클라이언트 응용 프로그램을 제공하며 이를 사용하여 블록체인 응용 프로그램의 유효성을 검사, 테스트 및 확인할 수 있습니다. 응용 프로그램 인터페이스는 스마트 계약 메타데이터를 기반으로 동적으로 생성되며 모든 사용 사례를 수용할 수 있습니다. 클라이언트 응용 프로그램은 사용자 관련 프런트 엔드를 Blockchain Workbench에서 생성한 전체 블록체인 응용 프로그램에 제공합니다. 클라이언트 응용 프로그램은 Azure AD(Azure Active Directory)를 통해 사용자를 인증한 다음, 스마트 계약의 비즈니스 컨텍스트에 맞는 사용자 환경을 제공합니다. 사용자 환경에서는 권한 있는 개인이 새 스마트 계약 인스턴스를 생성할 수 있으며 스마트 계약이 나타내는 비즈니스 프로세스의 적절한 시점에서 특정 유형의 트랜잭션을 실행할 수 있는 기능을 제공합니다.
+Workbench는 자동으로 생성된 웹 및 모바일(iOS, Android)용 클라이언트 응용 프로그램을 제공하며 이를 사용하여 블록체인 응용 프로그램의 유효성을 검사, 테스트 및 확인할 수 있습니다. 애플리케이션 인터페이스는 스마트 계약 메타데이터를 기반으로 동적으로 생성되며 모든 사용 사례를 수용할 수 있습니다. 클라이언트 애플리케이션은 사용자 관련 프런트 엔드를 Blockchain Workbench에서 생성한 전체 블록체인 애플리케이션에 제공합니다. 클라이언트 애플리케이션은 Azure AD(Azure Active Directory)를 통해 사용자를 인증한 다음, 스마트 계약의 비즈니스 컨텍스트에 맞는 사용자 환경을 제공합니다. 사용자 환경에서는 권한 있는 개인이 새 스마트 계약 인스턴스를 생성할 수 있으며 스마트 계약이 나타내는 비즈니스 프로세스의 적절한 시점에서 특정 유형의 트랜잭션을 실행할 수 있는 기능을 제공합니다.
 
-웹 응용 프로그램에서 권한 있는 사용자는 관리자 콘솔에 액세스할 수 있습니다. 이 콘솔은 Azure AD의 관리자 그룹에 있는 사용자가 사용할 수 있으며 다음 기능에 대한 액세스 권한을 제공합니다.
+웹 애플리케이션에서 권한 있는 사용자는 관리자 콘솔에 액세스할 수 있습니다. 이 콘솔은 Azure AD의 관리자 그룹에 있는 사용자가 사용할 수 있으며 다음 기능에 대한 액세스 권한을 제공합니다.
 
 * 인기 시나리오의 경우 Microsoft에서 제공하는 스마트 계약을 배포합니다. 예를 들면 자산 전송 시나리오가 있습니다.
 * 자체 스마트 계약을 업로드하고 배포합니다.
@@ -52,7 +52,7 @@ Blockchain Workbench에는 REST 기반 게이트웨이 서비스 API가 포함�
 개발자는 Blockchain Workbench 클라이언트 앱에 의존하지 않고도 블록체인 솔루션을 빌드 또는 통합하기 위해 게이트웨이 서비스 API에 액세스할 수 있습니다.
 
 > [!NOTE]
-> API에 대한 인증된 액세스를 사용하도록 설정하기 위해 두 개의 클라이언트 응용 프로그램이 Azure Active Directory에 등록됩니다. Azure Active Directory에는 각 응용 프로그램 유형(기본 및 웹)마다 고유한 응용 프로그램 등록이 필요합니다. 
+> API에 대한 인증된 액세스를 사용하도록 설정하기 위해 두 개의 클라이언트 애플리케이션이 Azure Active Directory에 등록됩니다. Azure Active Directory에는 각 애플리케이션 유형(기본 및 웹)마다 고유한 애플리케이션 등록이 필요합니다. 
 
 ## <a name="message-broker-for-incoming-messages"></a>수신 메시지를 위한 메시지 브로커
 
@@ -60,7 +60,7 @@ Blockchain Workbench로 직접 메시지를 보내려는 개발자는 직접 메
 
 ## <a name="message-broker-for-downstream-consumers"></a>다운스트림 소비자를 위한 메시지 브로커
 
-응용 프로그램의 수명 주기 동안 이벤트가 발생합니다. 게이트웨이 API 또는 원장에서 이벤트를 트리거할 수 있습니다. 이벤트 알림은 이벤트를 기반으로 다운스트림 코드를 시작할 수 있습니다.
+애플리케이션의 수명 주기 동안 이벤트가 발생합니다. 게이트웨이 API 또는 원장에서 이벤트를 트리거할 수 있습니다. 이벤트 알림은 이벤트를 기반으로 다운스트림 코드를 시작할 수 있습니다.
 
 Blockchain Workbench는 두 가지 유형의 이벤트 소비자를 자동으로 배포합니다. 한 소비자는 블록체인 이벤트에 의해 트리거되어 오프 체인 SQL 저장소를 채웁니다. 다른 소비자는 문서의 업로드 및 저장과 관련하여 API에서 생성된 이벤트에 대한 메타데이터를 캡처하는 것입니다.
 

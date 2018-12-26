@@ -62,7 +62,7 @@ Zscaler Internet Access Administrator의 Azure AD 통합을 구성하려면 갤�
 
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추](common/add-new-app.png)
+    ![새 애플리케이션 단추](common/add-new-app.png)
 
 4. 검색 상자에 **Zscaler Internet Access Administrator**를 입력하고 결과 패널에서  **Zscaler Internet Access Administrator**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
@@ -124,7 +124,7 @@ Zscaler Internet Access Administrator에서 Azure AD Single Sign-On을 구성하
     | `https://admin.zscloud.net/adminsso.do` | 
     | `https://admin.zscalerbeta.net/adminsso.do` |
 
-5. Zscaler Internet Access Administrator 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정 페이지**에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
+5. Zscaler Internet Access Administrator 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정 페이지**에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
 
     ![특성 링크](./media/zscaler-internet-access-administrator-tutorial/tutorial_zscaler-internet_attribute.png)
 

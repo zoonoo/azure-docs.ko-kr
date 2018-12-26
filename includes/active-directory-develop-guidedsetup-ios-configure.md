@@ -37,7 +37,7 @@ ms.locfileid: "49988266"
 ### <a name="option-2-advanced-mode"></a>옵션 2: 고급 모드
 
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app)로 이동합니다.
-2. 응용 프로그램의 이름을 입력합니다.
+2. 애플리케이션의 이름을 입력합니다.
 3. [단계별 설정] 옵션이 선택 취소되어 있는지 확인합니다.
 4. `Add Platform`, `Native Application`을 차례로 선택합니다.
 5. `Save`를 선택합니다.

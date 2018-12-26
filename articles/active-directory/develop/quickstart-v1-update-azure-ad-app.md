@@ -44,7 +44,7 @@ Azure AD(Azure Active Directory)를 통해 응용 프로그램을 등록한 엔�
 
 클라이언트에서 리소스 응용 프로그램(예: Microsoft Graph API)에서 공개한 웹 API에 액세스하기 전에 동의 프레임워크는 클라이언트에서 요청된 권한에 따라 필요한 권한 부여를 얻도록 합니다. 기본적으로 모든 응용 프로그램은 **Azure Active Directory**(Graph API) 및 Azure 클래식 배포 모델의 사용 권한을 선택할 수 있습니다. [Graph API "로그인 및 읽기 사용자 프로필" 사용 권한](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails)도 기본적으로 선택됩니다. Office 365를 구독한 계정이 있는 테넌트에 클라이언트를 등록하는 경우 SharePoint 및 Exchange Online에 대한 웹 API 및 권한도 선택할 수 있습니다. 원하는 웹 API 각각에서 두 가지 형식의 사용 권한 중에 선택할 수 있습니다.
 
-- 응용 프로그램 권한: 클라이언트 응용 프로그램이 직접 웹 API에 액세스해야 합니다(사용자 컨텍스트 없음). 이 유형의 권한은 관리자의 동의가 필요하며 네이티브 클라이언트 응용 프로그램에 대해 사용할 수 없습니다.
+- 응용 프로그램 권한: 클라이언트 응용 프로그램이 직접 웹 API에 액세스해야 합니다(사용자 컨텍스트 없음). 이 유형의 권한은 관리자의 동의가 필요하며 네이티브 클라이언트 애플리케이션에 대해 사용할 수 없습니다.
 - 위임된 권한: 클라이언트 응용 프로그램이 로그인된 사용자로 웹 API에 액세스해야 하지만 이 액세스는 선택한 권한에 따라 제한됩니다. 이 형식의 사용 권한은 관리자의 동의를 필요로 하지 않는 한 사용자가 부여할 수 있습니다.
 
   > [!NOTE]
@@ -74,15 +74,15 @@ Azure AD(Azure Active Directory)를 통해 응용 프로그램을 등록한 엔�
   1. 사용 가능한 API 목록을 탐색하거나 검색 상자를 사용하여 Web API를 공개하는 디렉터리에서 사용 가능한 리소스 응용 프로그램 중에서 선택할 수 있습니다. 관심 있는 리소스를 선택한 다음, **선택**을 클릭합니다.
   1. **액세스 사용** 페이지에서 API에 액세스할 때 응용 프로그램에서 필요로 하는 응용 프로그램 사용 권한 및/또는 위임된 사용 권한을 선택합니다.
    
-  ![응용 프로그램의 등록 업데이트 - permissions api](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
+  ![애플리케이션의 등록 업데이트 - permissions api](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
 
-  ![응용 프로그램의 등록 업데이트 - permissions perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
+  ![애플리케이션의 등록 업데이트 - permissions perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. 작업을 마치면 **액세스 사용** 페이지에서 **선택** 단추를 선택한 다음, **API 액세스 추가** 페이지에서 **완료** 단추를 클릭합니다. **필수 사용 권한** 페이지로 돌아가게 됩니다. 여기서 새 리소스를 API 목록에 추가합니다.
 
 ## <a name="configuring-a-resource-application-to-expose-web-apis"></a>웹 API를 공개하는 리소스 응용 프로그램 구성
 
-액세스 [범위](developer-glossary.md#scopes) 및 [역할](developer-glossary.md#roles)을 공개하면 웹 API를 개발하고 클라이언트 응용 프로그램에서 사용할 수 있게 만들 수 있습니다. 올바르게 구성된 웹 API는 Graph API 및 Office 365 API와 같은 다른 Microsoft 웹 API와 마찬가지로 사용 가능합니다. 액세스 범위와 역할은 [응용 프로그램의 매니페스트](developer-glossary.md#application-manifest)를 통해 공개되며, 이 매니페스트는 응용 프로그램의 ID 구성을 나타내는 JSON 파일입니다.
+액세스 [범위](developer-glossary.md#scopes) 및 [역할](developer-glossary.md#roles)을 공개하면 웹 API를 개발하고 클라이언트 애플리케이션에서 사용할 수 있게 만들 수 있습니다. 올바르게 구성된 웹 API는 Graph API 및 Office 365 API와 같은 다른 Microsoft 웹 API와 마찬가지로 사용 가능합니다. 액세스 범위와 역할은 [응용 프로그램의 매니페스트](developer-glossary.md#application-manifest)를 통해 공개되며, 이 매니페스트는 응용 프로그램의 ID 구성을 나타내는 JSON 파일입니다.
 
 다음 섹션에서는 리소스 응용 프로그램의 매니페스트를 수정하여 액세스 범위를 공개하는 방법을 보여줍니다.
 
@@ -119,7 +119,7 @@ Azure AD(Azure Active Directory)를 통해 응용 프로그램을 등록한 엔�
 
   ![응용 프로그램의 등록 업데이트](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
 
-### <a name="verify-the-web-api-is-exposed-to-other-applications-in-your-tenant"></a>웹 API가 테넌트의 다른 응용 프로그램에 노출되었는지 확인합니다.
+### <a name="verify-the-web-api-is-exposed-to-other-applications-in-your-tenant"></a>웹 API가 테넌트의 다른 애플리케이션에 노출되었는지 확인합니다.
 
 1. Azure AD 테넌트로 다시 돌아가서 **앱 등록**을 다시 선택한 다음, 구성하려는 클라이언트 응용 프로그램을 찾아 선택합니다.
 

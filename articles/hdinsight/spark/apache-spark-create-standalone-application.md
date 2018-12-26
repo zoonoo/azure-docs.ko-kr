@@ -1,5 +1,5 @@
 ---
-title: '자습서: IntelliJ를 사용하여 Azure HDInsight에서 Spark용 Scala Maven 응용 프로그램 만들기'
+title: '자습서: IntelliJ를 사용하여 Azure HDInsight에서 Spark용 Scala Maven 애플리케이션 만들기'
 description: Apache Maven을 빌드 시스템으로 사용하여 Scala에서 작성된 Spark 응용 프로그램 및 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형을 만듭니다.
 services: hdinsight
 author: hrasheed-msft
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * Oracle Java Development 키트. [여기](https://aka.ms/azure-jdks)에서 설치할 수 있습니다.
 * Java IDE. 이 문서에서는 IntelliJ IDEA 18.1.1을 사용합니다. [여기](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
 
-## <a name="use-intellij-to-create-application"></a>IntelliJ를 사용하여 응용 프로그램 만들기
+## <a name="use-intellij-to-create-application"></a>IntelliJ를 사용하여 애플리케이션 만들기
 
 1. IntelliJ IDEA를 시작하고 프로젝트를 만듭니다. **새 프로젝트** 대화 상자에서 다음을 수행합니다. 
 

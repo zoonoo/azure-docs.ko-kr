@@ -22,7 +22,7 @@ ms.locfileid: "51300067"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>방법: Visual Studio 2017을 사용하여 Azure Service Fabric에서 Windows 컨테이너 디버깅
 
-Visual Studio 2017 업데이트 7(15.7)에서는 컨테이너의 .NET 응용 프로그램을 Service Fabric 서비스로 디버그할 수 있습니다. 이 문서에서는 환경을 구성한 다음, 로컬 Service Fabric 클러스터에서 실행되는 컨테이너의 .NET 응용 프로그램을 디버그하는 방법에 대해 설명합니다.
+Visual Studio 2017 업데이트 7(15.7)에서는 컨테이너의 .NET 애플리케이션을 Service Fabric 서비스로 디버그할 수 있습니다. 이 문서에서는 환경을 구성한 다음, 로컬 Service Fabric 클러스터에서 실행되는 컨테이너의 .NET 애플리케이션을 디버그하는 방법에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -59,7 +59,7 @@ Service Fabric의 컨테이너 디버깅에 대해 알려진 제한 사항과 �
     * 해결 방법: Virtual Machines NIC에서 IPv4에 대한 UDP 체크섬 오프로드를 사용하지 않도록 설정합니다.
     * 이 경우 컴퓨터의 네트워킹 성능이 저하됩니다.
     * https://github.com/Azure/service-fabric-issues/issues/1061
-* Docker Compose를 사용하여 응용 프로그램을 배포한 경우 DNS 서비스 이름을 사용하여 동일한 응용 프로그램에서 서비스를 확인하는 작업이 Windows10에서 작동하지 않습니다.
+* Docker Compose를 사용하여 애플리케이션을 배포한 경우 DNS 서비스 이름을 사용하여 동일한 애플리케이션에서 서비스를 확인하는 작업이 Windows10에서 작동하지 않습니다.
     * 해결 방법: servicename.applicationname을 사용하여 서비스 엔드포인트를 확인합니다.
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * ClusterFQDNorIP에 IP-address를 사용하는 경우 호스트에서 주 IP를 변경하면 DNS 기능이 중단됩니다.
@@ -68,11 +68,11 @@ Service Fabric의 컨테이너 디버깅에 대해 알려진 제한 사항과 �
     * 해결 방법: 호스트의 주 IP를 사용하여 로컬 클러스터를 다시 만듭니다. 의도적인 작동입니다.
 * 컨테이너를 디버그하는 경우 Docker 로그는 Visual Studio 출력 창에서만 사용할 수 있으며 Service Fabric API(Service Fabric Explorer 포함)를 통해서는 사용할 수 없습니다
 
-## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Service Fabric을 통해 Docker 컨테이너에서 실행되는 .NET 응용 프로그램 디버깅
+## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Service Fabric을 통해 Docker 컨테이너에서 실행되는 .NET 애플리케이션 디버깅
 
 1. Visual Studio를 관리자 권한으로 실행합니다.
 
-1. 기존 .NET 응용 프로그램을 열거나 새로 만듭니다.
+1. 기존 .NET 애플리케이션을 열거나 새로 만듭니다.
 
 1. 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가 -> 컨테이너 오케스트레이터 지원 -> Service Fabric**을 차례로 선택합니다.
 

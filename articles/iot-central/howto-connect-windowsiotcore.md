@@ -91,7 +91,7 @@ Azure IoT Central에서, Raspberry Pi에서 실행되는 코드가 응용 프로
 
 ## <a name="download-the-source-code"></a>소스 코드 다운로드
 
-클라이언트 응용 프로그램의 소스 코드를 살펴보고 수정하려면 [여기](https://github.com/Microsoft/Windows-iotcore-samples/tree/develop/Samples/Azure/IoTHubClients) GitHub에서 소스 코드를 다운로드하면 됩니다. 코드를 수정하려는 경우 [여기](https://github.com/Microsoft/Windows-iotcore-samples)서 사용 중인 데스크톱 운영 체제의 readme 파일에 제공되는 지침을 따라야 합니다.
+클라이언트 애플리케이션의 소스 코드를 살펴보고 수정하려면 [여기](https://github.com/Microsoft/Windows-iotcore-samples/tree/develop/Samples/Azure/IoTHubClients) GitHub에서 소스 코드를 다운로드하면 됩니다. 코드를 수정하려는 경우 [여기](https://github.com/Microsoft/Windows-iotcore-samples)서 사용 중인 데스크톱 운영 체제의 readme 파일에 제공되는 지침을 따라야 합니다.
 
 > [!NOTE]
 > 개발 환경에 **git**이 설치되지 않은 경우 [https://git-scm.com/download](https://git-scm.com/download)에서 다운로드할 수 있습니다.

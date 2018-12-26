@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: SQL API 시작 자습서'
-description: SQL API를 사용하여 온라인 데이터베이스 및 C# 콘솔 응용 프로그램을 만드는 자습서입니다.
+description: SQL API를 사용하여 온라인 데이터베이스 및 C# 콘솔 애플리케이션을 만드는 자습서입니다.
 keywords: NoSQL 자습서, 온라인 데이터베이스, C# 콘솔 응용 프로그램
 services: cosmos-db
 author: SnehaGunda

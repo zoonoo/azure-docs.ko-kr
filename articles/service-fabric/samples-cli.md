@@ -25,7 +25,7 @@ ms.locfileid: "39003003"
 ---
 # <a name="azure-cli-az-and-azure-service-fabric-cli-sfctl-samples"></a>Azure CLI(az) 및 Azure Service Fabric CLI(sfctl) 샘플
 
-다음 표에는 Service Fabric 클러스터, 응용 프로그램 및 서비스를 관리하는 방법의 샘플에 대한 링크가 제공됩니다.
+다음 표에는 Service Fabric 클러스터, 애플리케이션 및 서비스를 관리하는 방법의 샘플에 대한 링크가 제공됩니다.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 

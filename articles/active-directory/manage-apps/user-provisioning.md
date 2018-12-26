@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/26/2018
 ms.locfileid: "52311456"
 ---
-# <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
+# <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
 
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS 앱을 위한 자동 사용자 프로비저닝이란?
 Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 응용 프로그램의 사용자 ID 생성, 관리 및 제거를 자동화할 수 있습니다.
@@ -49,12 +49,12 @@ Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow
 * 수동 프로비저닝 절차에서 빚어지는 비용, 비효율성, 사람의 실수를 방지합니다.
 * 사용자 지정 개발된 프로비저닝 솔루션과 스크립트를 호스트하고 유지하는 데 관련된 비용을 방지합니다.
 * 사용자가 조직을 떠날 때 즉시 주요 SaaS 앱에서 사용자 ID를 제거하여 조직의 보안을 유지합니다.
-* 특정 SaaS 응용 프로그램 또는 시스템에 다수의 사용자를 손쉽게 가져옵니다.
+* 특정 SaaS 애플리케이션 또는 시스템에 다수의 사용자를 손쉽게 가져옵니다.
 * 단일 정책 집합을 사용하여 프로비전된 사용자와 앱에 로그인할 수 있는 사용자를 편리하게 확인합니다.
 
 ## <a name="how-does-automatic-provisioning-work"></a>자동 프로비전은 어떻게 작동합니까?
     
-**Azure AD 프로비전 서비스**는 각 응용 프로그램 공급업체에서 제공하는 사용자 관리 API 엔드포인트에 연결하여 SaaS 앱 및 다른 시스템에 사용자를 프로비전합니다. 이러한 사용자 관리 API 엔드포인트를 사용하면 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 선택한 응용 프로그램의 경우 프로비전 서비스는 그룹 및 역할과 같은 추가 ID 관련 개체를 만들고, 업데이트하고, 제거할 수 있습니다. 
+**Azure AD 프로비전 서비스**는 각 응용 프로그램 공급업체에서 제공하는 사용자 관리 API 엔드포인트에 연결하여 SaaS 앱 및 다른 시스템에 사용자를 프로비전합니다. 이러한 사용자 관리 API 엔드포인트를 사용하면 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 선택한 애플리케이션의 경우 프로비전 서비스는 그룹 및 역할과 같은 추가 ID 관련 개체를 만들고, 업데이트하고, 제거할 수 있습니다. 
 
 ![프로비전](./media/user-provisioning/provisioning0.PNG)
 *그림 1: Azure AD 프로비전 서비스*
@@ -103,7 +103,7 @@ SCIM 2.0 기반 사용자 관리 API를 구현하는 응용 프로그램에 일�
 
 * **관리자 자격 증명**을 Azure AD 프로비전 서비스에 제공해야 응용 프로그램에서 제공하는 사용자 관리 API에 연결할 수 있습니다. 이 섹션에서는 자격 증명이 실패하거나 프로비저닝 작업이 [격리](#quarantine) 상태로 전환될 경우 메일 알림을 받도록 설정할 수도 있습니다.
 
-* **특성 매핑**은 원본 시스템(예: Azure AD)의 필드와 대상 시스템의 필드(예: ServiceNow) 간에 내용을 동기화하도록 지정하기 위해 구성할 수 있습니다. 대상 응용 프로그램에서 이 설정을 지원하는 경우 이 섹션에서는 필요에 따라 사용자 계정 외에도 그룹을 프로비전하도록 구성할 수 있습니다. "일치하는 속성"을 사용하면 시스템 간에 계정을 일치시키는 데 사용되는 필드를 선택할 수 있습니다. "[식](functions-for-customizing-application-data.md)"을 사용하면 대상 시스템에 쓰기 전에 원본 시스템에서 검색된 값을 수정하고 변환할 수 있습니다. 자세한 내용은 [특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
+* **특성 매핑**은 원본 시스템(예: Azure AD)의 필드와 대상 시스템의 필드(예: ServiceNow) 간에 내용을 동기화하도록 지정하기 위해 구성할 수 있습니다. 대상 애플리케이션에서 이 설정을 지원하는 경우 이 섹션에서는 필요에 따라 사용자 계정 외에도 그룹을 프로비전하도록 구성할 수 있습니다. "일치하는 속성"을 사용하면 시스템 간에 계정을 일치시키는 데 사용되는 필드를 선택할 수 있습니다. "[식](functions-for-customizing-application-data.md)"을 사용하면 대상 시스템에 쓰기 전에 원본 시스템에서 검색된 값을 수정하고 변환할 수 있습니다. 자세한 내용은 [특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
 
 ![설정](./media/user-provisioning/provisioning_settings1.PNG)
 
@@ -139,7 +139,7 @@ Azure AD가 소스 시스템인 경우 프로비저닝 서비스는 [Azure AD Gr
 6. 특성 매핑에 “참조” 특성이 포함되어 있을 경우 서비스는 대상 시스템에서 추가 업데이트를 수행하여 참조된 개체를 만들고 연결합니다. 예를 들어 대상 시스템에 있는 한 사용자의 “Manager” 특성이 대상 시스템에서 생성된 다른 사용자에 연결되어 있을 수 있습니다.
 7. 초기 동기화가 끝나면 워터마크를 저장합니다. 이 워터마크는 후속 증분 동기화의 시작점을 제공합니다.
 
-ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프로비저닝뿐 아니라 그룹 및 해당 멤버 프로비저닝도 지원합니다. 이 경우 [매핑](customize-application-attributes.md)에서 그룹 프로비저닝을 사용하도록 설정하면 프로비저닝 서비스에서 사용자와 그룹을 동기화한 다음, 그룹 멤버 자격을 동기화합니다. 
+ServiceNow, Google Apps, Box 등의 일부 애플리케이션은 사용자 프로비저닝뿐 아니라 그룹 및 해당 멤버 프로비저닝도 지원합니다. 이 경우 [매핑](customize-application-attributes.md)에서 그룹 프로비저닝을 사용하도록 설정하면 프로비저닝 서비스에서 사용자와 그룹을 동기화한 다음, 그룹 멤버 자격을 동기화합니다. 
 
 ### <a name="incremental-syncs"></a>증분 동기화
 
@@ -192,7 +192,7 @@ ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프�
 
 **증분 동기화**의 경우, 작업 시간은 해당 동기화 주기에서 검색된 변경 수에 따라 달라집니다. 사용자 또는 그룹 멤버 자격 변경이 5,000개 미만인 경우, 단일 증분 동기화 주기 내에 작업이 완료될 수 있습니다. 
 
-다음 표에는 일반적인 프로비저닝 시나리오의 동기화 시간이 요약되어 있습니다. 이러한 시나리오에서 원본 시스템은 Azure AD이고, 대상 시스템은 SaaS 응용 프로그램입니다. 동기화 시간은 SaaS 응용 프로그램인 ServiceNow, Workplace, Salesforce 및 Google Apps에 대한 동기화 작업의 통계 분석에서 파생된 것입니다.
+다음 표에는 일반적인 프로비저닝 시나리오의 동기화 시간이 요약되어 있습니다. 이러한 시나리오에서 원본 시스템은 Azure AD이고, 대상 시스템은 SaaS 애플리케이션입니다. 동기화 시간은 SaaS 애플리케이션인 ServiceNow, Workplace, Salesforce 및 Google Apps에 대한 동기화 작업의 통계 분석에서 파생된 것입니다.
 
 
 | 범위 구성 | 범위 내 사용자, 그룹 및 멤버 | 초기 동기화 시간 | 증분 동기화 시간 |
@@ -218,13 +218,13 @@ ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프�
 
 * 원본 시스템(Azure AD)에 있는 사용자, 그룹 및 그룹 멤버의 총 수
 
-* 프로비저닝 범위 내 사용자가 대상 응용 프로그램의 기존 사용자와 일치하는지 여부 또는 처음 생성해야 하는지 여부. 모든 사용자가 처음 생성되는 동기화 작업이 모든 사용자가 기존 사용자와 일치하는 동기화 작업보다 대략 *두 배* 정도 오래 걸립니다.
+* 프로비저닝 범위 내 사용자가 대상 애플리케이션의 기존 사용자와 일치하는지 여부 또는 처음 생성해야 하는지 여부. 모든 사용자가 처음 생성되는 동기화 작업이 모든 사용자가 기존 사용자와 일치하는 동기화 작업보다 대략 *두 배* 정도 오래 걸립니다.
 
 * [감사 로그](check-status-user-account-provisioning.md)의 오류 수. 많은 오류가 있고 프로비저닝 서비스가 격리 상태로 전환된 경우 성능이 저하됩니다. 
 
 * 대상 시스템에서 구현된 요청 비율 한도 및 제한. 일부 대상 시스템은 큰 동기화 작업 중 성능에 영향을 줄 수 있는 요청 비율 한도 및 제한을 구현합니다. 이러한 조건에서 너무 많은 요청을 너무 빠르게 받는 앱은 응답 속도가 느려지거나 연결을 닫을 수도 있습니다. 성능을 개선하려면 커넥터가 앱이 처리할 수 있는 속도보다 빠르게 앱 요청이 전송되지 않도록 조정해야 합니다. Microsoft에서 빌드한 프로비저닝 커넥터는 이러한 조정 작업을 수행합니다. 
 
-* 할당된 그룹 수 및 크기. 할당된 그룹 동기화가 사용자 동기화보다 시간이 오래 걸립니다. 할당된 그룹 수와 크기는 둘 다 성능에 영향을 줍니다. 응용 프로그램에 [그룹 개체 동기화가 사용되는 매핑](customize-application-attributes.md#editing-group-attribute-mappings)이 있는 경우 그룹 이름 및 멤버 자격과 같은 그룹 속성이 사용자와 함께 동기화됩니다. 이러한 추가 동기화 때문에 사용자 객체만 동기화하는 것보다 시간이 오래 걸립니다.
+* 할당된 그룹 수 및 크기. 할당된 그룹 동기화가 사용자 동기화보다 시간이 오래 걸립니다. 할당된 그룹 수와 크기는 둘 다 성능에 영향을 줍니다. 애플리케이션에 [그룹 개체 동기화가 사용되는 매핑](customize-application-attributes.md#editing-group-attribute-mappings)이 있는 경우 그룹 이름 및 멤버 자격과 같은 그룹 속성이 사용자와 함께 동기화됩니다. 이러한 추가 동기화 때문에 사용자 객체만 동기화하는 것보다 시간이 오래 걸립니다.
 
 
 ## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>사용자가 적절히 프로비전되는지 어떻게 확인할 수 있나요?

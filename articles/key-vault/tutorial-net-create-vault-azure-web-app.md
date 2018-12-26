@@ -231,7 +231,7 @@ Azure Key Vault를 사용하면 자격 증명과 기타 비밀을 안전하게 �
 >[!NOTE]
 >이 절차의 명령은 [포털](https://portal.azure.com)로 이동하여 웹 응용 프로그램 속성에서 **ID/시스템 할당됨** 설정을 **켜기**로 전환하는 것과 동일합니다.
 
-## <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>응용 프로그램에 Key Vault에서 비밀을 읽을 수 있는 권한 할당
+## <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>애플리케이션에 Key Vault에서 비밀을 읽을 수 있는 권한 할당
 
 다음 명령에서 \<YourKeyVaultName\>을 Key Vault의 이름으로, \<PrincipalId\>를 **PrincipalId**의 값으로 바꿉니다.
 

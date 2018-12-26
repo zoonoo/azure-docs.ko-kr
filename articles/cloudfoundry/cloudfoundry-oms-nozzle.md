@@ -96,7 +96,7 @@ PCF 타일로 또는 CF 응용 프로그램과 같은 다양한 방법으로 Noz
 
 단계에 따라 [Azure Log Analytics Nozzle for PCF를 설치하고 구성합니다](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). 이것은 간단한 방식이기 때문에 PCF Ops Manager 타일이 자동으로 노즐을 구성하여 푸시합니다. 
 
-### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>자동으로 Nozzle을 CF 응용 프로그램으로 배포
+### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>자동으로 Nozzle을 CF 애플리케이션으로 배포
 
 PCF Ops Manager를 사용하지 않는 경우 Nozzle을 응용 프로그램으로 배포합니다. 다음 섹션은 이 프로세스를 설명합니다.
 

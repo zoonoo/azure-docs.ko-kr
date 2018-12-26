@@ -1,6 +1,6 @@
 ---
 title: 빠른 시작 - Azure CLI와 Java를 사용하여 Azure Service Bus에서 메시지 보내기 및 받기 | Microsoft Docs
-description: 이 빠른 시작에서는 Azure CLI 및 Java 응용 프로그램 샘플을 사용하여 Azure Service Bus 메시지를 보내고 받는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Azure CLI 및 Java 애플리케이션 샘플을 사용하여 Azure Service Bus 메시지를 보내고 받는 방법을 알아봅니다.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -18,7 +18,7 @@ ms.locfileid: "52634815"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>빠른 시작: Azure CLI 및 Java를 사용하여 메시지 보내기 및 받기
 
-Microsoft Azure Service Bus는 안전한 메시징과 안정성을 제공하는 엔터프라이즈 통합 메시지 broker입니다. 일반적으로 전형적인 Service Bus 시나리오에는 둘 이상의 응용 프로그램, 서비스 또는 프로세스를 서로 분리하고(응용 프로그램이 동시에 온라인 상태일 필요는 없음), 상태 또는 데이터 변경 내용을 전송하고, 응용 프로그램 간에 메시지를 보내는 작업이 포함됩니다. 
+Microsoft Azure Service Bus는 안전한 메시징과 안정성을 제공하는 엔터프라이즈 통합 메시지 broker입니다. 일반적으로 전형적인 Service Bus 시나리오에는 둘 이상의 애플리케이션, 서비스 또는 프로세스를 서로 분리하고(애플리케이션이 동시에 온라인 상태일 필요는 없음), 상태 또는 데이터 변경 내용을 전송하고, 애플리케이션 간에 메시지를 보내는 작업이 포함됩니다. 
 
 예를 들어 소매 회사는 보급 및 재고 업데이트를 위해 POS(판매 시점 관리) 데이터를 백오피스 또는 지역 유통 센터로 보낼 수 있습니다. 이 경우 클라이언트 응용 프로그램은 Service Bus 큐에서 메시지를 보내고 받습니다.
 
@@ -82,7 +82,7 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
    cd azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java 
    ```
 
-3. 다음 명령을 실행하여 응용 프로그램을 빌드합니다.
+3. 다음 명령을 실행하여 애플리케이션을 빌드합니다.
    
    ```bash
    mvn clean package -DskipTests

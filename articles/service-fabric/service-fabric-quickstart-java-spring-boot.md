@@ -68,7 +68,7 @@ Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 �
 git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
 
-## <a name="build-the-spring-boot-application"></a>Spring Boot 응용 프로그램 빌드 
+## <a name="build-the-spring-boot-application"></a>Spring Boot 애플리케이션 빌드 
 1. `gs-spring-boot/complete` 디렉터리 내에서 아래 명령을 실행하여 응용 프로그램을 빌드합니다. 
 
     ```bash

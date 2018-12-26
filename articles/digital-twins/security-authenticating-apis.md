@@ -21,7 +21,7 @@ Azure Digital Twins는 Azure AD(Azure Active Directory)를 사용하여 사용�
 
 Azure AD 개요의 경우 단계별 가이드, 개념 및 빠른 시작은 [기본 페이지](https://docs.microsoft.com/azure/active-directory/fundamentals/index)를 방문하세요.
 
-응용 프로그램 또는 서비스를 Azure AD와 통합하려면 개발자가 먼저 Azure AD에 응용 프로그램을 등록해야 합니다. 자세한 지침과 스크린샷은 [이 빠른 시작](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)을 참조하세요.
+애플리케이션 또는 서비스를 Azure AD와 통합하려면 개발자가 먼저 Azure AD에 애플리케이션을 등록해야 합니다. 자세한 지침과 스크린샷은 [이 빠른 시작](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)을 참조하세요.
 
 Azure AD에서 지원되는 [5가지 기본 애플리케이션 시나리오](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types)는 다음과 같습니다.
 

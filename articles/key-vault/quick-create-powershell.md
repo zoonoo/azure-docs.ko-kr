@@ -68,7 +68,7 @@ New-AzureRmKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGr
 
 ## <a name="adding-a-secret-to-key-vault"></a>Key Vault에 비밀 추가
 
-자격 증명 모음에 비밀을 추가하려면 몇 가지 단계만 수행하면 됩니다. 이 경우 응용 프로그램에서 사용할 수 있는 암호를 추가합니다. 암호는 **ExamplePassword**라고 명명되며 '''**Pa$$w0rd**''' 값을 저장합니다.
+자격 증명 모음에 비밀을 추가하려면 몇 가지 단계만 수행하면 됩니다. 이 경우 애플리케이션에서 사용할 수 있는 암호를 추가합니다. 암호는 **ExamplePassword**라고 명명되며 '''**Pa$$w0rd**''' 값을 저장합니다.
 
 먼저 다음을 입력하여 Pa$$w0rd 값을 보안 문자열로 변환합니다.
 

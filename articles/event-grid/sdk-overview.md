@@ -43,7 +43,7 @@ Event Grid는 사용자가 프로그래밍 방식으로 리소스를 관리하�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 예제 응용 프로그램은 [Event Grid 코드 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid)을 참조하세요.
+* 예제 애플리케이션은 [Event Grid 코드 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid)을 참조하세요.
 * Event Grid에 대한 소개는 [Event Grid란?](overview.md)을 참조하세요.
 * Azure CLI의 Event Grid 명령은 [Azure CLI](/cli/azure/eventgrid)를 참조하세요.
 * PowerShell의 Event Grid 명령은 [PowerShell](/powershell/module/azurerm.eventgrid)를 참조하세요.

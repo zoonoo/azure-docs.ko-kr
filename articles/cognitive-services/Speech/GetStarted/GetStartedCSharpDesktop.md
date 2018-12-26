@@ -33,7 +33,7 @@ ms.locfileid: "49342333"
 
 다음 샘플은 [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs)을 사용하여 Windows 8 이상 및 .NET Framework 4.5 이상용으로 개발되었습니다.
 
-### <a name="get-the-sample-application"></a>샘플 응용 프로그램 가져오기
+### <a name="get-the-sample-application"></a>샘플 애플리케이션 가져오기
 
 [Speech C# 데스크톱 라이브러리 샘플](https://github.com/microsoft/cognitive-speech-stt-windows) 리포지토리에서 샘플을 복제합니다.
 
@@ -44,9 +44,9 @@ Speech API는 Cognitive Services(이전의 Project Oxford)의 일부입니다. [
 > [!IMPORTANT]
 > * 구독 키를 가져오세요. Speech 클라이언트 라이브러리를 사용하려면 먼저 [구독 키](https://azure.microsoft.com/try/cognitive-services/)가 있어야 합니다.
 >
-> * 구독 키를 사용하세요. 제공된 C# 데스크톱 샘플 응용 프로그램을 사용하여 샘플을 실행할 때 구독 키를 텍스트 상자에 붙여넣습니다. 자세한 내용은 [샘플 응용 프로그램 실행](#step-3-run-the-sample-application)을 참조하세요.
+> * 구독 키를 사용하세요. 제공된 C# 데스크톱 샘플 응용 프로그램을 사용하여 샘플을 실행할 때 구독 키를 텍스트 상자에 붙여넣습니다. 자세한 내용은 [샘플 애플리케이션 실행](#step-3-run-the-sample-application)을 참조하세요.
 
-## <a name="step-1-install-the-sample-application"></a>1단계: 샘플 응용 프로그램 설치
+## <a name="step-1-install-the-sample-application"></a>1단계: 샘플 애플리케이션 설치
 
 1. Visual Studio 2015를 시작하고, **파일** > **열기** > **프로젝트/솔루션**을 차례로 선택합니다.
 
@@ -54,7 +54,7 @@ Speech API는 Cognitive Services(이전의 Project Oxford)의 일부입니다. [
 
 3. SpeechToText-WPF-Samples.sln이라는 Visual Studio 2015 솔루션(.sln) 파일을 두 번 클릭하여 엽니다. 솔루션이 Visual Studio에서 열립니다.
 
-## <a name="step-2-build-the-sample-application"></a>2단계: 샘플 응용 프로그램 빌드
+## <a name="step-2-build-the-sample-application"></a>2단계: 샘플 애플리케이션 빌드
 
 1. *의도가 있는 인식*을 사용하려면 먼저 [LUIS(Language Understanding Intelligent Service)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)에 등록해야 합니다. 그런 다음, LUIS 앱의 엔드포인트 URL을 사용하여 samples/SpeechRecognitionServiceExample 폴더의 app.config 파일에서 `LuisEndpointUrl` 키의 값을 설정합니다. LUIS 앱의 엔드포인트 URL에 대한 자세한 내용은 [앱 게시](../../luis/luis-get-started-create-app.md#publish-your-app)를 참조하세요.
 
@@ -63,7 +63,7 @@ Speech API는 Cognitive Services(이전의 Project Oxford)의 일부입니다. [
 
 2. Ctrl+Shift+B를 누르거나 리본 메뉴에서 **빌드**를 선택합니다. 그런 다음, **솔루션 빌드**를 선택합니다.
 
-## <a name="step-3-run-the-sample-application"></a>3단계: 샘플 응용 프로그램 실행
+## <a name="step-3-run-the-sample-application"></a>3단계: 샘플 애플리케이션 실행
 
 1. 빌드가 완료되면 F5 키를 누르거나 리본 메뉴에서 **시작**을 선택하여 샘플을 실행합니다.
 

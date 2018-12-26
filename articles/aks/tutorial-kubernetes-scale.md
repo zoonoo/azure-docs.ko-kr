@@ -25,7 +25,7 @@ ms.locfileid: "50414185"
 > * 응용 프로그램을 실행하는 Kubernetes Pod의 크기를 수동으로 조정
 > * 앱 프런트 엔드를 실행하는 Pod 자동 크기 조정 구성
 
-후속 자습서에서 Azure Vote 응용 프로그램은 새 버전으로 업데이트됩니다.
+후속 자습서에서 Azure Vote 애플리케이션은 새 버전으로 업데이트됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

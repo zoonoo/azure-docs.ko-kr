@@ -32,7 +32,7 @@ Azure AD와 SAP Cloud Platform을 통합하면 다음과 같은 이점이 제공
 - 사용자가 해당 Azure AD 계정으로 SAP Cloud Platform에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -53,7 +53,7 @@ SAP Cloud Platform과 Azure AD 통합을 구성하려면 다음 항목이 필요
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 SAP Cloud Platform 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -73,7 +73,7 @@ SAP Cloud Platform의 Azure AD 통합을 구성하려면 갤러리의 SAP Cloud 
     
 1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 1. 검색 상자에 **SAP Cloud Platform**을 입력하고 결과 패널에서 **SAP Cloud Platform**을 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
@@ -306,7 +306,7 @@ Azure AD 사용자가 SAP Cloud Platform으로 로그를 사용하려면, SAP Cl
 
 **Britta Simon을 SAP Cloud Platform에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 

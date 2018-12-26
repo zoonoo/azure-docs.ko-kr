@@ -1,5 +1,5 @@
 ---
-title: Azure AD 응용 프로그램에 선택적 클레임을 제공하는 방법 알아보기 | Microsoft Docs
+title: Azure AD 애플리케이션에 선택적 클레임을 제공하는 방법 알아보기 | Microsoft Docs
 description: Azure Active Directory에서 발급하는 SAML 2.0 및 JWT(JSON 웹 토큰)에 사용자 지정 또는 추가 클레임을 추가하기 위한 한 가이드입니다.
 documentationcenter: na
 author: CelesteDG
@@ -25,8 +25,8 @@ ms.locfileid: "51345490"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>방법: Azure AD 앱에 선택적 클레임 제공(공개 미리 보기)
 
-이 기능은 응용 프로그램 개발자가 응용 프로그램에 전송된 토큰에서 원하는 클레임을 지정하는 데 사용합니다. 선택적 클레임을 사용하여 다음을 수행할 수 있습니다.
-- 응용 프로그램에 대한 토큰에 포함할 추가 클레임을 선택합니다.
+이 기능은 애플리케이션 개발자가 애플리케이션에 전송된 토큰에서 원하는 클레임을 지정하는 데 사용합니다. 선택적 클레임을 사용하여 다음을 수행할 수 있습니다.
+- 애플리케이션에 대한 토큰에 포함할 추가 클레임을 선택합니다.
 - Azure AD에서 토큰에 반환하는 특정 클레임의 동작을 변경합니다.
 - 애플리케이션에 대한 사용자 지정 클레임을 추가하고 액세스합니다. 
 
@@ -49,7 +49,7 @@ ms.locfileid: "51345490"
 
 ## <a name="standard-optional-claims-set"></a>표준 선택적 클레임 집합
 
-기본적으로 응용 프로그램에서 사용할 수 있는 선택적 클레임의 집합은 아래와 같습니다. 애플리케이션에 대한 선택적 사용자 지정 클레임을 추가하려면 아래의 [디렉터리 확장](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)을 참조하세요. **액세스 토큰**에 클레임을 추가하면 응용 프로그램(웹 API)*이* 요청하는 액세스 토큰이 아닌 응용 프로그램*용으로* 요청하는 액세스 토큰에 클레임이 적용됩니다. 따라서 API에 액세스하는 클라이언트에 관계없이 클라이언트가 API에 인증을 하는 데 사용하는 액세스 토큰에는 항상 올바른 데이터가 포함됩니다.
+기본적으로 애플리케이션에서 사용할 수 있는 선택적 클레임의 집합은 아래와 같습니다. 애플리케이션에 대한 선택적 사용자 지정 클레임을 추가하려면 아래의 [디렉터리 확장](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)을 참조하세요. **액세스 토큰**에 클레임을 추가하면 응용 프로그램(웹 API)*이* 요청하는 액세스 토큰이 아닌 응용 프로그램*용으로* 요청하는 액세스 토큰에 클레임이 적용됩니다. 따라서 API에 액세스하는 클라이언트에 관계없이 클라이언트가 API에 인증을 하는 데 사용하는 액세스 토큰에는 항상 올바른 데이터가 포함됩니다.
 
 > [!NOTE]
 > 이러한 클레임 대부분은 토큰 유형 열에 명시된 경우를 제외하고 SAML 토큰이 아닌 v1.0 및 v2.0 토큰에 대한 JWT에 포함될 수 있습니다. 또한 현재, 선택적 클레임이 AAD 사용자에 대해서만 지원되는 동안 MSA 지원이 추가됩니다. v2.0 엔드포인트에서 MSA에 선택적 클레임 지원이 있는 경우 사용자 유형 열은 AAD 또는 MSA 사용자에 대해 클레임을 사용할 수 있는지를 나타냅니다. 
@@ -129,7 +129,7 @@ ms.locfileid: "51345490"
 
 ## <a name="configuring-optional-claims"></a>선택적 클레임 구성
 
-응용 프로그램 매니페스트를 수정하여 응용 프로그램에 대한 선택적 클레임을 구성할 수 있습니다(아래 예제 참조). 자세한 내용은 [Azure AD 애플리케이션 매니페스트 이해 문서](reference-app-manifest.md)를 참조하세요.
+애플리케이션 매니페스트를 수정하여 애플리케이션에 대한 선택적 클레임을 구성할 수 있습니다(아래 예제 참조). 자세한 내용은 [Azure AD 애플리케이션 매니페스트 이해 문서](reference-app-manifest.md)를 참조하세요.
 
 **샘플 스키마:**
 
@@ -164,7 +164,7 @@ ms.locfileid: "51345490"
 
 ### <a name="optionalclaims-type"></a>OptionalClaims 형식
 
-응용 프로그램에서 요청한 선택적 클레임을 선언합니다. 응용 프로그램은 선택적 클레임이 보안 토큰 서비스에서 수신할 수 있는 3가지 토큰 유형(ID 토큰, 액세스 토큰, SAML 2 토큰)으로 반환되도록 구성할 수 있습니다. 응용 프로그램은 다른 선택적 클레임 집합이 각 토큰 유형으로 반환되도록 구성할 수 있습니다. Application 엔터티의 OptionalClaims 속성은 OptionalClaims 개체입니다.
+애플리케이션에서 요청한 선택적 클레임을 선언합니다. 애플리케이션은 선택적 클레임이 보안 토큰 서비스에서 수신할 수 있는 3가지 토큰 유형(ID 토큰, 액세스 토큰, SAML 2 토큰)으로 반환되도록 구성할 수 있습니다. 애플리케이션은 다른 선택적 클레임 집합이 각 토큰 유형으로 반환되도록 구성할 수 있습니다. Application 엔터티의 OptionalClaims 속성은 OptionalClaims 개체입니다.
 
 **표 5: OptionalClaims 형식 속성**
 
@@ -176,7 +176,7 @@ ms.locfileid: "51345490"
 
 ### <a name="optionalclaim-type"></a>OptionalClaim 형식
 
-응용 프로그램 또는 서비스 사용자와 연결된 선택적 클레임을 포함합니다. [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) 형식의 idToken, accessToken 및 saml2Token 속성은 OptionalClaim의 컬렉션입니다.
+애플리케이션 또는 서비스 사용자와 연결된 선택적 클레임을 포함합니다. [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) 형식의 idToken, accessToken 및 saml2Token 속성은 OptionalClaim의 컬렉션입니다.
 특정 클레임에서 지원될 경우, AdditionalProperties 필드를 사용하여 OptionalClaim의 동작을 수정할 수도 있습니다.
 
 **표 6: OptionalClaims 형식 속성**
@@ -204,9 +204,9 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 ## <a name="optional-claims-example"></a>선택적 클레임 예제
 
-이 섹션에서는 시나리오를 진행하면서 응용 프로그램에 대한 선택적 클레임 기능을 사용하는 방법을 확인할 수 있습니다.
-응용 프로그램 ID 구성에서 속성을 업데이트하여 선택적 클레임을 사용하도록 설정하고 구성하는 데 여러 옵션을 사용할 수 있습니다.
--   응용 프로그램 매니페스트를 수정할 수 있습니다. 다음 예제에서는 이 방법을 사용하여 구성을 수행합니다. 먼저 매니페스트를 소개하는 [Azure AD 애플리케이션 매니페스트 이해 문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)를 읽으세요.
+이 섹션에서는 시나리오를 진행하면서 애플리케이션에 대한 선택적 클레임 기능을 사용하는 방법을 확인할 수 있습니다.
+애플리케이션 ID 구성에서 속성을 업데이트하여 선택적 클레임을 사용하도록 설정하고 구성하는 데 여러 옵션을 사용할 수 있습니다.
+-   애플리케이션 매니페스트를 수정할 수 있습니다. 다음 예제에서는 이 방법을 사용하여 구성을 수행합니다. 먼저 매니페스트를 소개하는 [Azure AD 애플리케이션 매니페스트 이해 문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)를 읽으세요.
 -   또한 [Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api)를 사용하는 애플리케이션을 작성하여 애플리케이션을 업데이트할 수 있습니다. Graph API 참조 가이드의 [엔터티 및 복합 형식 참조](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type)는 선택적 클레임을 구성하는 데 도움이 될 수 있습니다.
 
 **예제:** 아래 예제에서는 응용 프로그램용 액세스, ID 및 SAML 토큰에 클레임을 추가하도록 응용 프로그램의 매니페스트를 수정합니다.
@@ -243,7 +243,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
             ]
       }
       ```
-      이 경우에는 응용 프로그램에서 수신할 수 있는 각 토큰 유형에 서로 다른 선택적 클레임이 추가되었습니다. 이제 ID 토큰에는 페더레이션 사용자의 UPN이 전체 형식으로 포함됩니다(`<upn>_<homedomain>#EXT#@<resourcedomain>`). 다른 클라이언트가 이 응용 프로그램용으로 요청하는 액세스 토큰에는 이제 auth_time 클레임이 포함됩니다. SAML 토큰은 skypeId 디렉터리 스키마 확장을 포함합니다(이 예제에서 이 앱의 앱 ID는 ab603c56068041afb2f6832e2a17e237임). SAML 토큰은 Skype ID를 `extension_skypeId`로 노출합니다.
+      이 경우에는 애플리케이션에서 수신할 수 있는 각 토큰 유형에 서로 다른 선택적 클레임이 추가되었습니다. 이제 ID 토큰에는 페더레이션 사용자의 UPN이 전체 형식으로 포함됩니다(`<upn>_<homedomain>#EXT#@<resourcedomain>`). 다른 클라이언트가 이 응용 프로그램용으로 요청하는 액세스 토큰에는 이제 auth_time 클레임이 포함됩니다. SAML 토큰은 skypeId 디렉터리 스키마 확장을 포함합니다(이 예제에서 이 앱의 앱 ID는 ab603c56068041afb2f6832e2a17e237임). SAML 토큰은 Skype ID를 `extension_skypeId`로 노출합니다.
 
 1. 매니페스트 업데이트가 끝나면 **저장**을 클릭하여 매니페스트를 저장합니다.
 

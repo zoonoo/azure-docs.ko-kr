@@ -77,7 +77,7 @@ Azure 구독에 대한 앱 액세스 권한을 부여합니다.
 $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 ```
 
-AD 응용 프로그램으로 로그인하려면 응용 프로그램 ID 및 암호가 필요합니다. 이전 명령에서 반환된 애플리케이션 ID를 보려면 다음을 사용합니다.
+AD 애플리케이션으로 로그인하려면 애플리케이션 ID 및 암호가 필요합니다. 이전 명령에서 반환된 애플리케이션 ID를 보려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
 $app.ApplicationId

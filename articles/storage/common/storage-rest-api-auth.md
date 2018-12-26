@@ -52,9 +52,9 @@ REST는 *Representational State Transfer*를 말합니다. 구체적인 정의�
 
 REST는 사용 방법을 알아두면 유용한 기술입니다. Azure 제품 팀에서 수시로 새 기능을 출시하고 있습니다. 새 기능은 대부분 REST 인터페이스를 통해 액세스할 수 있지만, 아직 **모든** 저장소 클라이언트 라이브러리 또는 UI(예: Azure Portal)를 통해 표시된 적은 없습니다. 항상 가장 멋진 최신 기능을 사용하고 싶다면 반드시 REST에 대해 배워야 합니다. Azure Storage와 상호 작용하는 나만의 라이브러리를 작성하고 싶거나 SDK 또는 저장소 클라이언트 라이브러리가 없는 프로그래밍 언어를 사용하여 Azure Storage에 액세스하려는 경우에도 REST API를 사용하면 됩니다.
 
-## <a name="about-the-sample-application"></a>샘플 응용 프로그램 정보
+## <a name="about-the-sample-application"></a>샘플 애플리케이션 정보
 
-샘플 응용 프로그램은 저장소 계정의 컨테이너를 나열합니다. REST API 설명서의 정보와 실제 코드의 상관 관계를 이해하고 나면 다른 REST 호출은 더 쉽게 이해할 수 있습니다. 
+샘플 애플리케이션은 저장소 계정의 컨테이너를 나열합니다. REST API 설명서의 정보와 실제 코드의 상관 관계를 이해하고 나면 다른 REST 호출은 더 쉽게 이해할 수 있습니다. 
 
 [BLOB 서비스 REST API](/rest/api/storageservices/Blob-Service-REST-API)를 보시면, BLOB 저장소에서 수행할 수 있는 모든 작업이 있습니다. 저장소 클라이언트 라이브러리는 REST API를 감싸고 이는 래퍼로, REST API를 직접 사용하지 않고도 간단하게 저장소에 액세스할 수 있게 해줍니다. 하지만 위에서 언급했듯이, 가끔 저장소 클라이언트 라이브러리 대신 REST API를 사용하는 경우가 있습니다.
 

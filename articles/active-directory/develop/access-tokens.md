@@ -221,7 +221,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 * MaxSessionAge: MaxAgeSessionMultiFactor 또는 MaxAgeSessionSingleFactor가 (해지될 때까지) 기본값 이외의 값으로 설정된 경우 MaxAgeSession*에 설정된 시간이 경과된 후에 다시 인증해야 합니다. 
 * 예제:
   * 테넌트에 5일의 MaxInactiveTime이 설정되고 사용자가 1주일 동안 휴가를 갔습니다. 따라서 AAD에는 7일 동안 사용자의 새 토큰 요청이 없습니다. 다음에 사용자가 새 토큰을 요청하는 경우 해당 새로 고침 토큰이 해지되었음을 발견하고 자격 증명을 다시 입력해야 합니다.
-  * 중요한 응용 프로그램에는 1일의 MaxAgeSessionSingleFactor가 지정됩니다. 월요일 및 화요일(25시간이 경과된 후)에 사용자가 로그인하는 경우 다시 인증해야 합니다.
+  * 중요한 애플리케이션에는 1일의 MaxAgeSessionSingleFactor가 지정됩니다. 월요일 및 화요일(25시간이 경과된 후)에 사용자가 로그인하는 경우 다시 인증해야 합니다.
 
 ### <a name="revocation"></a>해지
 

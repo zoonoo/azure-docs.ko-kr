@@ -20,7 +20,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/24/2018
 ms.locfileid: "49957941"
 ---
-# <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 응용 프로그램에 대한 Azure Active Directory 로그인 동작 구성
+# <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
 다음 문서에서는 페더레이션 사용자에 대한 Azure Active Directory 인증 동작을 구성하는 방법을 소개합니다.   여기서는 페더레이션된 도메인의 사용자에 대한 자동 가속 및 인증 제한을 구성합니다.
 
@@ -40,7 +40,7 @@ HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 �
 ## <a name="auto-acceleration"></a>자동 가속 
 일부 조직에서는 사용자 인증을 위해 AD FS와 같은 다른 IdP와 페더레이션되도록 Azure Active Directory 테넌트의 도메인을 구성합니다.  
 
-사용자가 응용 프로그램에 로그인하면 먼저 Azure AD 로그인 페이지가 표시됩니다. UPN을 입력한 후 페더레이션된 도메인에 있으면 해당 도메인의 서비스를 제공하는 IdP의 로그인 페이지로 이동합니다. 특정 상황에서 관리자는 사용자들이 특정 응용 프로그램에 로그인할 때 로그인 페이지로 안내하고자 할 수도 있습니다. 
+사용자가 애플리케이션에 로그인하면 먼저 Azure AD 로그인 페이지가 표시됩니다. UPN을 입력한 후 페더레이션된 도메인에 있으면 해당 도메인의 서비스를 제공하는 IdP의 로그인 페이지로 이동합니다. 특정 상황에서 관리자는 사용자들이 특정 응용 프로그램에 로그인할 때 로그인 페이지로 안내하고자 할 수도 있습니다. 
 
 이에 따라 사용자는 초기 Azure Active Directory 페이지를 건너뛸 수 있습니다. 이 프로세스를 “로그인 자동 가속”이라고 합니다.
 
@@ -74,19 +74,19 @@ HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 �
 Azure Active Directory에서 지원하는 도메인 힌트를 사용한 자동 가속 기능에 대한 자세한 내용은 [Enterprise Mobility + Security 블로그](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/)를 참조하세요.
 
 >[!NOTE]
->도메인 힌트가 인증 요청에 포함되어 있으면 HRD 정책에서 응용 프로그램에 대해 설정된 자동 가속을 재정의합니다.
+>도메인 힌트가 인증 요청에 포함되어 있으면 HRD 정책에서 애플리케이션에 대해 설정된 자동 가속을 재정의합니다.
 
 ### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>자동 가속에 대한 홈 영역 검색 정책
 일부 응용 프로그램은 인증 요청을 구성하는 방법을 제공하지 않습니다. 이 경우 도메인 힌트를 사용하여 자동 가속을 제어할 수는 없습니다. 동일한 동작을 얻기 위해 정책을 통해 자동 가속을 구성할 수 있습니다.  
 
-## <a name="enable-direct-authentication-for-legacy-applications"></a>레거시 응용 프로그램에 직접 인증 사용
-응용 프로그램에서 AAD 라이브러리와 대화형 로그인을 사용하여 사용자를 인증하는 것이 가장 좋습니다. 라이브러리는 페더레이션 사용자 흐름을 처리합니다.  레거시 응용 프로그램에서 페더레이션을 인식하도록 작성되지 않는 경우도 있습니다. 이 경우 홈 영역 검색을 수행하지 않으며, 올바른 페더레이션된 엔드포인트와 상호 작용하여 사용자를 인증하지 않습니다. HRD 정책을 사용하도록 선택하는 경우 사용자 이름/암호 자격 증명을 제출하는 특정 레거시 응용 프로그램에서 이 정책을 통해 Azure Active Directory에서 직접 인증할 수 있습니다. 암호 해시 동기화를 사용하도록 설정해야 합니다. 
+## <a name="enable-direct-authentication-for-legacy-applications"></a>레거시 애플리케이션에 직접 인증 사용
+애플리케이션에서 AAD 라이브러리와 대화형 로그인을 사용하여 사용자를 인증하는 것이 가장 좋습니다. 라이브러리는 페더레이션 사용자 흐름을 처리합니다.  레거시 애플리케이션에서 페더레이션을 인식하도록 작성되지 않는 경우도 있습니다. 이 경우 홈 영역 검색을 수행하지 않으며, 올바른 페더레이션된 엔드포인트와 상호 작용하여 사용자를 인증하지 않습니다. HRD 정책을 사용하도록 선택하는 경우 사용자 이름/암호 자격 증명을 제출하는 특정 레거시 애플리케이션에서 이 정책을 통해 Azure Active Directory에서 직접 인증할 수 있습니다. 암호 해시 동기화를 사용하도록 설정해야 합니다. 
 
 > [!IMPORTANT]
-> 암호 해쉬 동기화가 사용되고 온-프레미스 IdP에서 구현된 정책 없이 이 응용 프로그램을 인증할 수 있는 경우에만 직접 인증을 사용하도록 설정하세요. 어떤 이유로든 암호 해시 동기화를 해제하거나 AD Connect를 통해 디렉터리 동기화를 해제하는 경우 오래된 암호 해시를 사용하여 직접 인증할 수 없도록 방지하기 위해 이 정책을 제거해야 합니다.
+> 암호 해쉬 동기화가 사용되고 온-프레미스 IdP에서 구현된 정책 없이 이 애플리케이션을 인증할 수 있는 경우에만 직접 인증을 사용하도록 설정하세요. 어떤 이유로든 암호 해시 동기화를 해제하거나 AD Connect를 통해 디렉터리 동기화를 해제하는 경우 오래된 암호 해시를 사용하여 직접 인증할 수 없도록 방지하기 위해 이 정책을 제거해야 합니다.
 
 ## <a name="set-hrd-policy"></a>HRD 정책 설정
-페더레이션 로그인 자동 가속용 응용 프로그램 또는 직접 클라우드 기반 응용 프로그램에 HRD 정책을 설정하는 세 가지 단계가 있습니다.
+페더레이션 로그인 자동 가속용 애플리케이션 또는 직접 클라우드 기반 애플리케이션에 HRD 정책을 설정하는 세 가지 단계가 있습니다.
 
 1. HRD 정책 만들기
 
@@ -94,7 +94,7 @@ Azure Active Directory에서 지원하는 도메인 힌트를 사용한 자동 �
 
 3. 서비스 주체에 정책 연결 
 
-정책은 서비스 주체에 연결된 특정 응용 프로그램에만 적용됩니다. 
+정책은 서비스 주체에 연결된 특정 애플리케이션에만 적용됩니다. 
 
 한 번에 하나의 HRD 정책만 서비스 주체에서 활성화할 수 있습니다.  
 
@@ -137,15 +137,15 @@ HRD 정책을 만들어 특정 조직 및 서비스 주체에 할당할 수 있�
 
 - 도메인 힌트가 없고 서비스 주체 또는 조직에 할당된 정책이 없는 경우 기본 HRD 동작이 사용됩니다.
 
-## <a name="tutorial-for-setting-hrd-policy-on-an-application"></a>응용 프로그램에 HRD 정책을 설정하기 위한 자습서 
+## <a name="tutorial-for-setting-hrd-policy-on-an-application"></a>애플리케이션에 HRD 정책을 설정하기 위한 자습서 
 Azure AD PowerShell cmdlet을 사용하여 다음을 포함한 몇 가지 시나리오를 연습해 보겠습니다.
 
 
-- 페더레이션된 단일 도메인이 있는 테넌트의 응용 프로그램에 대해 자동 가속을 수행하도록 HRD 정책을 설정합니다.
+- 페더레이션된 단일 도메인이 있는 테넌트의 애플리케이션에 대해 자동 가속을 수행하도록 HRD 정책을 설정합니다.
 
-- 테넌트에 대해 확인된 여러 도메인 중 하나에 응용 프로그램 자동 가속을 수행하도록 HRD 정책을 설정합니다.
+- 테넌트에 대해 확인된 여러 도메인 중 하나에 애플리케이션 자동 가속을 수행하도록 HRD 정책을 설정합니다.
 
-- 레거시 응용 프로그램에서 페더레이션 사용자에 대한 사용자 이름/암호 인증을 Azure Active Directory에 직접 수행할 수 있도록 HRD 정책을 설정합니다.
+- 레거시 애플리케이션에서 페더레이션 사용자에 대한 사용자 이름/암호 인증을 Azure Active Directory에 직접 수행할 수 있도록 HRD 정책을 설정합니다.
 
 - 정책이 구성된 응용 프로그램 나열
 
@@ -168,27 +168,27 @@ Azure AD PowerShell cmdlet을 사용하여 다음을 포함한 몇 가지 시나
 
 아무 정책도 반환되지 않으면 테넌트에서 만들어진 정책이 없는 것입니다.
 
-### <a name="example-set-hrd-policy-for-an-application"></a>예제: 응용 프로그램에 대한 HRD 정책 설정 
+### <a name="example-set-hrd-policy-for-an-application"></a>예제: 애플리케이션에 대한 HRD 정책 설정 
 
-다음 예제에서는 응용 프로그램에 할당되는 다음 정책 중 하나를 만듭니다. 
-- 테넌트에 단일 도메인이 있는 경우 응용 프로그램에 로그인할 때 사용자를 AD FS 로그인 화면으로 자동 가속합니다. 
+다음 예제에서는 애플리케이션에 할당되는 다음 정책 중 하나를 만듭니다. 
+- 테넌트에 단일 도메인이 있는 경우 애플리케이션에 로그인할 때 사용자를 AD FS 로그인 화면으로 자동 가속합니다. 
 - 테넌트에 페더레이션된 도메인이 둘 이상 있는 경우 사용자를 AD FS 로그인 화면으로 자동 가속합니다.
-- 정책이 할당된 응용 프로그램의 페더레이션 사용자에 대한 비대화형 사용자 이름/암호 로그인을 Azure Active Directory에 직접 사용하도록 설정합니다.
+- 정책이 할당된 애플리케이션의 페더레이션 사용자에 대한 비대화형 사용자 이름/암호 로그인을 Azure Active Directory에 직접 사용하도록 설정합니다.
 
 #### <a name="step-1-create-an-hrd-policy"></a>1단계: HRD 정책 만들기
 
-테넌트에 단일 도메인이 있는 경우 다음 정책은 응용 프로그램에 로그인할 때 사용자를 AD FS 로그인 화면으로 자동 가속합니다.
+테넌트에 단일 도메인이 있는 경우 다음 정책은 애플리케이션에 로그인할 때 사용자를 AD FS 로그인 화면으로 자동 가속합니다.
 
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
-테넌트에 페더레이션된 도메인이 둘 이상 있는 경우 다음 정책은 사용자를 AD FS 로그인 화면으로 자동 가속합니다. 응용 프로그램에 대한 사용자를 인증하는 페더레이션된 도메인이 둘 이상 있는 경우 자동 가속할 도메인을 지정해야 합니다.
+테넌트에 페더레이션된 도메인이 둘 이상 있는 경우 다음 정책은 사용자를 AD FS 로그인 화면으로 자동 가속합니다. 애플리케이션에 대한 사용자를 인증하는 페더레이션된 도메인이 둘 이상 있는 경우 자동 가속할 도메인을 지정해야 합니다.
 
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
-페더레이션 사용자에 대한 사용자 이름/암호 인증을 Azure Active Directory를 통해 직접 사용하도록 설정하는 특정 응용 프로그램에 대한 정책을 만들려면 다음 명령을 실행합니다.
+페더레이션 사용자에 대한 사용자 이름/암호 인증을 Azure Active Directory를 통해 직접 사용하도록 설정하는 특정 애플리케이션에 대한 정책을 만들려면 다음 명령을 실행합니다.
 
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
@@ -202,7 +202,7 @@ Get-AzureADPolicy
 ```
 
 
-HRD 정책을 만든 후에 적용하려면 여러 응용 프로그램 서비스 주체에 할당하면 됩니다.
+HRD 정책을 만든 후에 적용하려면 여러 애플리케이션 서비스 주체에 할당하면 됩니다.
 
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>2단계: 정책을 할당할 서비스 주체 찾기  
 정책을 할당할 서비스 주체의 **ObjectID**가 필요합니다. 여러 가지 방법으로 서비스 주체의 **ObjectID**를 찾을 수 있습니다.    
@@ -218,10 +218,10 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefOb
 
 정책을 추가하려는 각 서비스 주체에 대해 이 명령을 반복할 수 있습니다.
 
-이미 응용 프로그램에 HomeRealmDiscovery 정책이 할당되어 있는 경우 두 번째 정책은 추가할 수 없습니다.  이 경우 추가 매개 변수를 추가하기 위해 응용 프로그램에 할당된 홈 영역 검색 정책의 정의를 변경합니다.
+이미 애플리케이션에 HomeRealmDiscovery 정책이 할당되어 있는 경우 두 번째 정책은 추가할 수 없습니다.  이 경우 추가 매개 변수를 추가하기 위해 애플리케이션에 할당된 홈 영역 검색 정책의 정의를 변경합니다.
 
-#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>4단계: HRD 정책에 할당된 응용 프로그램 서비스 주체 확인
-HRD 정책이 구성되어 있는 응용 프로그램을 확인하려면 **Get-AzureADPolicyAppliedObject** cmdlet을 사용합니다. 확인하려는 정책의 **ObjectID**를 전달합니다.
+#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>4단계: HRD 정책에 할당된 애플리케이션 서비스 주체 확인
+HRD 정책이 구성되어 있는 애플리케이션을 확인하려면 **Get-AzureADPolicyAppliedObject** cmdlet을 사용합니다. 확인하려는 정책의 **ObjectID**를 전달합니다.
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
@@ -229,7 +229,7 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 #### <a name="step-5-youre-done"></a>5단계: 완료되었습니다!
 애플리케이션을 통해 새 정책이 작동 중인지 확인합니다.
 
-### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>예제: HRD 정책이 구성된 응용 프로그램 나열
+### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>예제: HRD 정책이 구성된 애플리케이션 나열
 
 #### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>1단계: 조직에서 생성된 모든 정책 나열 
 
@@ -245,7 +245,7 @@ Get-AzureADPolicy
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
 
-### <a name="example-remove-an-hrd-policy-for-an-application"></a>예제: 응용 프로그램에 대한 HRD 정책 제거
+### <a name="example-remove-an-hrd-policy-for-an-application"></a>예제: 애플리케이션에 대한 HRD 정책 제거
 #### <a name="step-1-get-the-objectid"></a>1단계: ObjectID 가져오기
 앞의 예제를 사용하여 제거하려는 응용 프로그램 서비스 주체의 정책 **ObjectID**를 가져옵니다. 
 

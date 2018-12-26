@@ -33,7 +33,7 @@ ms.locfileid: "49465684"
 > * MongoDB 설치 및 서버 설정
 > * Express 설치 및 서버에 대한 경로 설정
 > * AngularJS를 사용하여 경로에 액세스
-> * 응용 프로그램 실행
+> * 애플리케이션 실행
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -316,7 +316,7 @@ sudo apt-get install -y nodejs
     </html>
     ```
 
-##  <a name="run-the-application"></a>응용 프로그램 실행
+##  <a name="run-the-application"></a>애플리케이션 실행
 
 1. 디렉터리를 *Books*로 다시 변경하고(`cd ..`) 다음 명령을 실행하여 서버를 시작합니다.
 
@@ -348,7 +348,7 @@ sudo apt-get install -y nodejs
 > * MongoDB 설치 및 서버 설정
 > * Express 설치 및 서버에 대한 경로 설정
 > * AngularJS를 사용하여 경로에 액세스
-> * 응용 프로그램 실행
+> * 애플리케이션 실행
 
 SSL 인증서로 웹 서버를 보호하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
 

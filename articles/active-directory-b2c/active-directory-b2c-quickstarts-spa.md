@@ -34,7 +34,7 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
     git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
     ```
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 1. Node.js 명령 프롬프트에서 다음 명령을 실행하여 서버를 시작합니다. 
 

@@ -23,7 +23,7 @@ ms.locfileid: "52841577"
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>PIM에서 관리할 수 있는 Azure AD 디렉터리 역할
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
-조직의 사용자를 Azure AD의 다른 관리 역할에 할당할 수 있습니다. 이러한 역할 할당은 사용자를 추가 또는 제거하거나 서비스 설정을 변경하는 등 사용자가 Azure AD, Office 365, 기타 Microsoft Online Services, 연결된 응용 프로그램에서 수행할 수 있는 작업을 제어합니다.  
+조직의 사용자를 Azure AD의 다른 관리 역할에 할당할 수 있습니다. 이러한 역할 할당은 사용자를 추가 또는 제거하거나 서비스 설정을 변경하는 등 사용자가 Azure AD, Office 365, 기타 Microsoft Online Services, 연결된 애플리케이션에서 수행할 수 있는 작업을 제어합니다.  
 
 전역 관리자는 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)에 설명된 대로 포털을 통해 또는 [PowerShell 명령](/powershell/module/azuread#directory_roles)을 사용하여 Azure AD에서 역할에 **영구적으로** 할당된 사용자를 업데이트할 수 있습니다.
 

@@ -105,7 +105,7 @@ SQL/데이터 관리자는 Azure SQL 데이터베이스에 업로드하기 위�
 -   SQL Database는 [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 사용하도록 구성됩니다. 이 기능은 데이터 및 로그 파일의 실시간 암호화 및 암호 해독을 수행하여 미사용 정보를 보호합니다. TDE는 저장된 데이터가 무단으로 액세스되지 못하게 합니다.
 -   [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)은 적절한 권한이 부여될 때까지 데이터베이스 서버에 대한 모든 액세스를 차단합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
 -   [SQL 위협 요소 탐지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started)를 사용하면 의심스러운 데이터베이스 활동, 잠재적 취약성, SQL 삽입 공격 및 비정상 데이터베이스 액세스 패턴에 대한 보안 경고를 제공하여 발생할 수 있는 잠재적 위협을 탐지하고 대응할 수 있습니다.
--   [Always Encrypted 열](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)은 중요한 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 나타나지 않게 합니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 응용 프로그램 또는 응용 프로그램 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
+-   [Always Encrypted 열](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)은 중요한 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 나타나지 않게 합니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 애플리케이션 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
 -   [SQL Database 동적 데이터 마스킹](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)은 참조 아키텍처 배포 후에 수행할 수 있습니다. 고객은 데이터베이스 스키마를 준수하도록 동적 데이터 마스킹 설정을 조정해야 합니다.
 
 ### <a name="logging-and-audit"></a>로깅 및 감사
@@ -123,7 +123,7 @@ SQL/데이터 관리자는 Azure SQL 데이터베이스에 업로드하기 위�
 -   [Azure 활동 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): 활동 로그 분석 솔루션은 고객에 대한 모든 Azure 구독에서 Azure 활동 로그를 분석하는 데 도움을 줍니다.
 
 ### <a name="identity-management"></a>ID 관리
--   응용 프로그램에 대한 인증은 Azure AD를 사용하여 수행됩니다. 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요. 또한 데이터베이스 열 암호화는 Azure AD를 사용하여 Azure SQL Database에 대해 응용 프로그램을 인증합니다. 자세한 내용은 [SQL Database의 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
+-   애플리케이션에 대한 인증은 Azure AD를 사용하여 수행됩니다. 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요. 또한 데이터베이스 열 암호화는 Azure AD를 사용하여 Azure SQL Database에 대해 애플리케이션을 인증합니다. 자세한 내용은 [SQL Database의 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
 -   [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)은 조직의 ID에 영향을 미치는 잠재적 취약성을 탐지하고, 조직의 ID와 관련하여 검색된 의심스러운 작업에 대한 자동화된 대응을 구성하며, 의심스러운 인시던트를 조사하여 이를 해결하기 위한 적절한 조치를 수행합니다.
 -   [Azure RBAC(Role-based Access Control)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)은 Azure에 초점을 맞춘 액세스 관리를 지원합니다. 구독 액세스는 구독 관리자로 제한됩니다.
 
@@ -164,7 +164,7 @@ Azure SQL Database의 보안 기능 사용에 대한 자세한 내용은 [Contos
 이 데이터 분석 아키텍처는 [Azure Commercial](https://azure.microsoft.com/overview/what-is-azure/) 환경에 배포할 용도로 제작되지는 않았지만, 이 참조 아키텍처에 설명된 서비스와 Azure Commercial 환경에서만 사용할 수 있는 추가 서비스를 통해 비슷한 목표를 달성할 수 있습니다. Azure Commercial은 보통 영향 수준에서 FedRAMP JAB P-ATO를 유지하며, 따라서 정부 기관 및 파트너가 Azure Commercial 환경을 활용하여 중요도 보통인 정보를 클라우드에 배포할 수 있습니다.
 
 Azure Commercial은 대량의 데이터에서 인사이트를 끌어낼 수 있는 다양한 분석 서비스를 제공합니다.
--   [Cortana Intelligence Suite](https://azure.microsoft.com/overview/ai-platform/)의 구성 요소인 [Azure Machine Learning Studio](https://docs.microsoft.com/azure/machine-learning/studio/what-is-ml-studio)는 하나 이상의 데이터 원본으로 예측 분석 모델을 개발합니다. 통계 함수는 여러 반복에 사용되어 Power BI 같은 응용 프로그램에서 사용할 수 있는 효과적인 모델을 생성합니다.
+-   [Cortana Intelligence Suite](https://azure.microsoft.com/overview/ai-platform/)의 구성 요소인 [Azure Machine Learning Studio](https://docs.microsoft.com/azure/machine-learning/studio/what-is-ml-studio)는 하나 이상의 데이터 원본으로 예측 분석 모델을 개발합니다. 통계 함수는 여러 반복에 사용되어 Power BI 같은 애플리케이션에서 사용할 수 있는 효과적인 모델을 생성합니다.
 -   [Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)를 사용하면 운영 및 예비 분석을 위해 한 장소에서 원하는 크기, 유형 및 수집 속도의 데이터를 캡처할 수 있습니다. Azure Data Lake Store는 Hadoop 에코시스템의 오픈 소스 구성 요소 대부분과 호환되며 다른 Azure 서비스와 원활하게 통합됩니다.
 
 ## <a name="threat-model"></a>위협 모델

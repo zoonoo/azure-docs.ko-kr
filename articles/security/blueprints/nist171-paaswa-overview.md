@@ -1,6 +1,6 @@
 ---
-title: Azure 보안 및 규정 준수 청사진 - NIST SP 800-171용 PaaS 웹 응용 프로그램
-description: Azure 보안 및 규정 준수 청사진 - PaaS 웹 응용 프로그램 NIST SP 800-171
+title: Azure 보안 및 규정 준수 청사진 - NIST SP 800-171용 PaaS 웹 애플리케이션
+description: Azure 보안 및 규정 준수 청사진 - PaaS 웹 애플리케이션 NIST SP 800-171
 services: security
 author: jomolesk
 ms.assetid: eea21a0a-5930-43e8-937f-5419c20744c9
@@ -15,12 +15,12 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/18/2018
 ms.locfileid: "49409274"
 ---
-# <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure 보안 및 규정 준수 청사진 - NIST 특별 발행물 800-171용 PaaS 웹 응용 프로그램
+# <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure 보안 및 규정 준수 청사진 - NIST 특별 발행물 800-171용 PaaS 웹 애플리케이션
 
 ## <a name="overview"></a>개요
 [NIST 특별 발행물 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf)은 비연방 정보 시스템 및 조직에 있는 CUI(통제 미분류 정보)를 보호하기 위한 지침을 제공하고 있습니다. NIST SP 800-171에는 CUI 기밀성을 보호하기 위한 14개 보안 요구 사항이 규정되어 있습니다.
 
-이 Azure 보안 및 규정 준수 청사진에서는 고객이 Azure에서 NIST SP 800-171 제어의 하위 집합을 구현하는 PaaS(Platform as a Service) 웹 응용 프로그램을 배포하는 데 도움이 되는 지침을 제공합니다. 이 솔루션은 고객이 특정 보안 및 규정 준수 요구 사항을 충족할 수 있는 방식을 제시합니다. 또한 고객이 Azure에서 웹 응용 프로그램을 직접 빌드하고 구성할 수 있는 기준으로도 사용됩니다.
+이 Azure 보안 및 규정 준수 청사진에서는 고객이 Azure에서 NIST SP 800-171 제어의 하위 집합을 구현하는 PaaS(Platform as a Service) 웹 애플리케이션을 배포하는 데 도움이 되는 지침을 제공합니다. 이 솔루션은 고객이 특정 보안 및 규정 준수 요구 사항을 충족할 수 있는 방식을 제시합니다. 또한 고객이 Azure에서 웹 응용 프로그램을 직접 빌드하고 구성할 수 있는 기준으로도 사용됩니다.
 
 이 참조 아키텍처, 관련 구현 가이드 및 위협 모델은 고객이 특정 요구 사항에 맞게 작업 방식을 조정할 수 있는 기준으로 사용하기 위해 제공되는 것으로, 프로덕션 환경에서 있는 그대로 사용해서는 안 됩니다. 이 아키텍처를 수정하지 않고 배포하는 것만으로는 NIST SP 800-171 요구 사항을 완전히 충족시킬 수 없습니다. 고객은 이 아키텍처를 사용하여 빌드된 솔루션에 대해 적절한 보안 및 규정 준수 평가를 수행해야 합니다. 요구 사항은 각 고객의 구체적인 구현에 따라 달라질 수 있습니다.
 

@@ -165,7 +165,7 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
 7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
-8.  **SAML 서명 인증서** 섹션으로 이동한 다음 **다운로드** 열 값을 클릭합니다. Single Sign-On을 구성해야 할 응용 프로그램에 따라 메타데이터 XML이나 인증서를 다운로드하는 옵션이 표시됩니다.
+8.  **SAML 서명 인증서** 섹션으로 이동한 다음 **다운로드** 열 값을 클릭합니다. Single Sign-On을 구성해야 할 애플리케이션에 따라 메타데이터 XML이나 인증서를 다운로드하는 옵션이 표시됩니다.
 
 Azure AD에서도 메타데이터를 가져오는 URL을 제공합니다. 응용 프로그램에 관련된 메타데이터 URL을 가져오려면 이 패턴을 따릅니다: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 

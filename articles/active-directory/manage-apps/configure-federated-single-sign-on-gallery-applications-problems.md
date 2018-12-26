@@ -1,6 +1,6 @@
 ---
-title: Azure AD 갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성할 때 발생하는 문제 | Microsoft Docs
-description: Azure AD 응용 프로그램 갤러리에 나열된 응용 프로그램의 SAML을 사용하여 페더레이션된 Single Sign-On을 구성할 때 발생하는 일반적인 문제 몇 가지를 해결
+title: Azure AD 갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성할 때 발생하는 문제 | Microsoft Docs
+description: Azure AD 애플리케이션 갤러리에 나열된 애플리케이션의 SAML을 사용하여 페더레이션된 Single Sign-On을 구성할 때 발생하는 일반적인 문제 몇 가지를 해결
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -21,23 +21,23 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2018
 ms.locfileid: "44355642"
 ---
-# <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성할 때 발생하는 문제
+# <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성할 때 발생하는 문제
 
-응용 프로그램을 구성할 때 문제가 발생 할 경우. 응용 프로그램의 자습서에 있는 단계를 모두 수행했는지 확인합니다. 응용 프로그램의 구성에는 응용 프로그램 구성 방법에 관한 인라인 설명서가 있습니다. 또한 [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)에 액세스하면 자세한 단계별 지침을 볼 수 있습니다.
+애플리케이션을 구성할 때 문제가 발생 할 경우. 애플리케이션의 자습서에 있는 단계를 모두 수행했는지 확인합니다. 애플리케이션의 구성에는 애플리케이션 구성 방법에 관한 인라인 설명서가 있습니다. 또한 [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)에 액세스하면 자세한 단계별 지침을 볼 수 있습니다.
 
-## <a name="cant-add-another-instance-of-the-application"></a>응용 프로그램의 다른 인스턴스를 추가할 수 없음
+## <a name="cant-add-another-instance-of-the-application"></a>애플리케이션의 다른 인스턴스를 추가할 수 없음
 
-응용 프로그램의 두 번째 인스턴스를 추가하려면 다음을 수행할 수 있어야 합니다.
+애플리케이션의 두 번째 인스턴스를 추가하려면 다음을 수행할 수 있어야 합니다.
 
 -   두 번째 인스턴스에 대한 고유 식별자를 구성합니다. 첫 번째 인스턴스에 대해 사용한 것과 동일한 식별자를 구성할 수 없습니다.
 
 -   첫 번째 인스턴스에 대해 사용한 것과 다른 인증서를 구성합니다.
 
-응용 프로그램에서 위 사항 중에서 어느 것도 지원하지 않는 경우. 두 번째 인스턴스를 구성할 수 없습니다.
+애플리케이션에서 위 사항 중에서 어느 것도 지원하지 않는 경우. 두 번째 인스턴스를 구성할 수 없습니다.
 
 ## <a name="cant-add-the-identifier-or-the-reply-url"></a>식별자 또는 회신 URL을 추가할 수 없습니다.
 
-식별자 또는 회신 URL을 구성할 수 없는 경우는 식별자 및 회신 URL 값이 응용 프로그램에 대해 미리 구성된 패턴과 일치하는지 확인합니다.
+식별자 또는 회신 URL을 구성할 수 없는 경우는 식별자 및 회신 URL 값이 애플리케이션에 대해 미리 구성된 패턴과 일치하는지 확인합니다.
 
 응용 프로그램에 대해 미리 구성된 패턴을 알려면:
 
@@ -67,7 +67,7 @@ ms.locfileid: "44355642"
 
    * 패턴이 지원되지 않으면 텍스트 상자에 값을 입력하려 할 때 빨간색 느낌표가 표시됩니다. 빨간색 느낌표 위에 마우스를 놓으면 지원되는 패턴이 표시됩니다.
 
-   * 응용 프로그램의 자습서에서 지원되는 패턴에 대한 정보를 볼 수도 있습니다. **Azure AD Single Sign-On 구성** 섹션 아래. **도메인 및 URL** 섹션 아래의 값 구성 단계로 이동합니다.
+   * 애플리케이션의 자습서에서 지원되는 패턴에 대한 정보를 볼 수도 있습니다. **Azure AD Single Sign-On 구성** 섹션 아래. **도메인 및 URL** 섹션 아래의 값 구성 단계로 이동합니다.
 
 값이 Azure AD에 미리 구성된 패턴과 일치하지 않을 경우. 다음을 수행할 수 있습니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "44355642"
 
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>EntityID(사용자 식별자) 형식을 설정하는 위치
 
-사용자 인증 후에 Azure AD에서 응답을 통해 응용 프로그램으로 보내는 EntityID(사용자 식별자) 형식은 선택할 수 없습니다.
+사용자 인증 후에 Azure AD에서 응답을 통해 애플리케이션으로 보내는 EntityID(사용자 식별자) 형식은 선택할 수 없습니다.
 
 Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 응용 프로그램이 요청한 형식을 기반으로 NameID 특성(사용자 식별자)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
 
@@ -101,11 +101,11 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
 7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
-8.  **SAML 서명 인증서** 섹션으로 이동한 다음 **다운로드** 열 값을 클릭합니다. Single Sign-On을 구성해야 할 응용 프로그램에 따라 메타데이터 XML이나 인증서를 다운로드하는 옵션이 표시됩니다.
+8.  **SAML 서명 인증서** 섹션으로 이동한 다음 **다운로드** 열 값을 클릭합니다. Single Sign-On을 구성해야 할 애플리케이션에 따라 메타데이터 XML이나 인증서를 다운로드하는 옵션이 표시됩니다.
 
 Azure AD에서는 메타데이터를 가져오는 URL을 제공하지 않습니다. 메타데이터는 XML 파일로만 검색할 수 있습니다.
 
-## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>응용 프로그램에 전송된 SAML 클레임을 사용자 지정하는 방법을 알 수 없음
+## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>애플리케이션에 전송된 SAML 클레임을 사용자 지정하는 방법을 알 수 없음
 
 응용 프로그램에 전송된 SAML 특성 클레임을 사용자 지정하는 방법을 알아보려면 [Azure Active Directory의 클레임 매핑](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)을 참조하세요.
 

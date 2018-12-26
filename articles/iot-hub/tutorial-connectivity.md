@@ -114,7 +114,7 @@ npm install
 node SimulatedDevice-1.js "{your device connection string}"
 ```
 
-이번에는 응용 프로그램에서 연결하려고 하면 다음과 같은 인증 오류가 표시됩니다.
+이번에는 애플리케이션에서 연결하려고 하면 다음과 같은 인증 오류가 표시됩니다.
 
 ![연결 오류](media/tutorial-connectivity/sim-1-fail.png)
 

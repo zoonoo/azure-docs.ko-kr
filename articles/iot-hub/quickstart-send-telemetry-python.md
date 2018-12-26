@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub에 원격 분석 전송 빠른 시작(Python) | Microsoft Docs
-description: 이 빠른 시작에서는 샘플 Python 응용 프로그램을 실행하여 시뮬레이션된 원격 분석을 IoT Hub로 보내고, 유틸리티를 사용하여 원격 분석을 IoT Hub에서 읽습니다.
+description: 이 빠른 시작에서는 샘플 Python 애플리케이션을 실행하여 시뮬레이션된 원격 분석을 IoT Hub로 보내고, 유틸리티를 사용하여 원격 분석을 IoT Hub에서 읽습니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub

@@ -69,7 +69,7 @@ Azure AD에 IBM Kenexa Survey Enterprise의 통합을 구성하려면 갤러리�
     
 1. 응용 프로그램을 추가하려면 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 1. 검색 상자에 **IBM Kenexa Survey Enterprise**를 입력합니다.
 

@@ -86,7 +86,7 @@ Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정�
    
 1. **필요한 권한** 창에서 **권한 부여**를 선택합니다.
    
-   ![응용 프로그램 사용 권한](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
+   ![애플리케이션 사용 권한](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
    
 이제 Azure AD B2C 테넌트에서 사용자를 만들고, 읽고, 업데이트할 수 있는 권한이 있는 응용 프로그램이 있습니다.
 

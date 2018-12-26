@@ -51,7 +51,7 @@ ms.locfileid: "46306292"
 
 1. 온-프레미스 서버에서 **제어판 -> 프로그램 -> 프로그램 및 기능**으로 이동합니다.
 2. “**Microsoft Azure AD Connect 인증 에이전트**”에 대한 항목이 있는 경우 이 서버에 대해 어떤 조치도 취할 필요가 없습니다.
-3. “**Microsoft Azure AD 응용 프로그램 프록시 커넥터**”에 대한 항목이 있는 경우 이 서버에서 수동으로 업그레이드해야 합니다.
+3. “**Microsoft Azure AD 애플리케이션 프록시 커넥터**”에 대한 항목이 있는 경우 이 서버에서 수동으로 업그레이드해야 합니다.
 
 ![인증 에이전트의 미리 보기 버전](./media/how-to-connect-pta-upgrade-preview-authentication-agents/pta6.png)
 

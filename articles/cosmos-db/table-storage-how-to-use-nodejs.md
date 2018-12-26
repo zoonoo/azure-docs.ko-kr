@@ -35,7 +35,7 @@ ms.locfileid: "53106484"
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Azure Storage 또는 Azure Cosmos DB Table API에 액세스하도록 응용 프로그램 구성
+## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Azure Storage 또는 Azure Cosmos DB Table API에 액세스하도록 애플리케이션 구성
 Azure Storage 또는 Azure Cosmos DB를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 설치
@@ -369,7 +369,7 @@ dc.table.queryEntities(tableName,
 ## <a name="work-with-shared-access-signatures"></a>공유 액세스 서명 작업
 SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하지 않으면서 테이블에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 레코드를 쿼리하는 경우와 같이 데이터에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
 
-클라우드 기반 서비스와 같이 신뢰할 수 있는 응용 프로그램에서는 **TableService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고, 이를 모바일 앱과 같은 신뢰할 수 없거나 신뢰가 약한 응용 프로그램에 제공합니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
+클라우드 기반 서비스와 같이 신뢰할 수 있는 애플리케이션에서는 **TableService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고, 이를 모바일 앱과 같은 신뢰할 수 없거나 신뢰가 약한 애플리케이션에 제공합니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
 
 다음 예에서는 SAS 소유자가 테이블을 쿼리('r')할 수 있도록 허용하며 만든 후 100분이 지나면 만료되는 새 공유 액세스 정책을 생성합니다.
 

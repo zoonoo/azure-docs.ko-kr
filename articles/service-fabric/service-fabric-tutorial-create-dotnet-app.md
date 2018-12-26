@@ -32,12 +32,12 @@ ms.locfileid: "49078497"
 
 > [!div class="checklist"]
 > * ASP.NET Core Web API 서비스를 상태 저장 Reliable Service로 만들기
-> * ASP.NET Core Web 응용 프로그램 서비스를 상태 비저장 웹 서비스로 만들기
+> * ASP.NET Core Web 애플리케이션 서비스를 상태 비저장 웹 서비스로 만들기
 > * 역방향 프록시를 사용하여 상태 저장 서비스와 통신
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * .NET Service Fabric 응용 프로그램 빌드
+> * .NET Service Fabric 애플리케이션 빌드
 > * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
@@ -352,7 +352,7 @@ Service Fabric을 통해 신뢰할 수 있는 컬렉션을 사용하여 일관�
     
 2. **새 Service Fabric 서비스** 대화 상자에서 **상태 저장 ASP.NET Core**를 선택하고, 서비스 이름을 **VotingData**로 지정한 다음, **확인**을 누릅니다.
 
-    서비스 프로젝트를 만들었으면 응용 프로그램에 두 개의 서비스가 있을 것입니다. 계속해서 응용 프로그램을 빌드하는 동안 같은 방법으로 더 많은 서비스를 추가할 수 있습니다. 각 서비스를 독립적으로 버전 지정 및 업그레이드할 수 있습니다.
+    서비스 프로젝트를 만들었으면 애플리케이션에 두 개의 서비스가 있을 것입니다. 계속해서 애플리케이션을 빌드하는 동안 같은 방법으로 더 많은 서비스를 추가할 수 있습니다. 각 서비스를 독립적으로 버전 지정 및 업그레이드할 수 있습니다.
 
 3. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **API**를 선택합니다.
 
@@ -452,7 +452,7 @@ namespace VotingData.Controllers
 
 다음 단계에서는 두 서비스를 연결하고 프런트 엔드 웹 애플리케이션이 백 엔드 서비스에서 투표 정보를 가져와 설정하도록 합니다.
 
-서비스 패브릭은 신뢰할 수 있는 서비스와 유연하게 통신할 수 있는 방법을 제공합니다. 단일 응용 프로그램 내에는 TCP를 통해 액세스할 수 있는 서비스가 있을 수 있습니다. HTTP REST API 및 다른 서비스를 통해 액세스할 수 있는 기타 서비스는 웹 소켓을 통해 액세스할 수 있습니다. 제공되는 옵션 및 관련 장단점에 대한 배경 정보는 [서비스와의 통신](service-fabric-connect-and-communicate-with-services.md)을 참조하세요.
+서비스 패브릭은 신뢰할 수 있는 서비스와 유연하게 통신할 수 있는 방법을 제공합니다. 단일 애플리케이션 내에는 TCP를 통해 액세스할 수 있는 서비스가 있을 수 있습니다. HTTP REST API 및 다른 서비스를 통해 액세스할 수 있는 기타 서비스는 웹 소켓을 통해 액세스할 수 있습니다. 제공되는 옵션 및 관련 장단점에 대한 배경 정보는 [서비스와의 통신](service-fabric-connect-and-communicate-with-services.md)을 참조하세요.
 
 VotingWeb 프런트 엔드 웹 서비스가 VotingData 백 엔드 데이터 서비스와 통신할 수 있도록 이 자습서에서는 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) 및 [Service Fabric 역방향 프록시](service-fabric-reverseproxy.md)를 사용합니다. 역방향 프록시는 기본적으로 19081 포트를 사용하도록 구성되며 이 자습서에서 정상적으로 작동합니다. 이 포트는 클러스터 설정에 사용되도록 ARM 템플릿에서 설정됩니다. 사용되는 포트를 찾으려면 **Microsoft.ServiceFabric/clusters** 리소스에서 클러스터 템플릿을 확인하거나 클러스터 매니페스트에서 HttpApplicationGatewayEndpoint 요소를 확인합니다.
 
@@ -601,24 +601,24 @@ public class VotesController : Controller
 
 ## <a name="walk-through-the-voting-sample-application"></a>투표 응용 프로그램 예제 연습
 
-투표 응용 프로그램은 두 가지 서비스로 구성됩니다.
+투표 애플리케이션은 두 가지 서비스로 구성됩니다.
 
 * 웹 프런트 엔드 서비스(VotingWeb) - ASP.NET Core 웹 프런트 엔드 서비스로, 웹 페이지를 제공하며 백 엔드 서비스와 통신하기 위한 Web API를 공개합니다.
 * 백 엔드 서비스(VotingData) - ASP.NET Core 웹 서비스로, 투표 결과를 디스크에 보관된 신뢰할 수 있는 사전에 저장하기 위한 API를 공개합니다.
 
 ![응용 프로그램 다이어그램](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-응용 프로그램에 투표하는 경우 다음 이벤트가 발생합니다.
+애플리케이션에 투표하는 경우 다음 이벤트가 발생합니다.
 
 1. JavaScript가 투표 요청을 웹 프런트 엔드 서비스의 Web API에 HTTP PUT 요청으로 보냅니다.
 
 2. 웹 프런트 엔드 서비스는 프록시를 사용하여 HTTP PUT 요청을 찾아 백 엔드 서비스에 전달합니다.
 
-3. 백 엔드 서비스는 들어오는 요청을 받고 업데이트된 결과를, 클러스터 내의 여러 노드에 복제되고 디스크에 보관된 신뢰할 수 있는 사전에 저장합니다. 응용 프로그램의 모든 데이터가 클러스터에 저장되므로 데이터베이스가 필요하지 않습니다.
+3. 백 엔드 서비스는 들어오는 요청을 받고 업데이트된 결과를, 클러스터 내의 여러 노드에 복제되고 디스크에 보관된 신뢰할 수 있는 사전에 저장합니다. 애플리케이션의 모든 데이터가 클러스터에 저장되므로 데이터베이스가 필요하지 않습니다.
 
 ## <a name="debug-in-visual-studio"></a>Visual Studio에서 디버그
 
-Visual Studio에서 응용 프로그램을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터를 백 엔드 서비스에 저장합니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 응용 프로그램을 제거합니다. 응용 프로그램을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **응용 프로그램 디버그 모드**를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
+Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터를 백 엔드 서비스에 저장합니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 응용 프로그램을 제거합니다. 애플리케이션을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **응용 프로그램 디버그 모드**를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
 
 코드에서 수행되는 작업을 살펴보려면 다음 단계를 완료합니다.
 
@@ -657,7 +657,7 @@ Visual Studio에서 응용 프로그램을 디버깅할 때 로컬 Service Fabri
 
 > [!div class="checklist"]
 > * ASP.NET Core Web API 서비스를 상태 저장 Reliable Service로 만들기
-> * ASP.NET Core Web 응용 프로그램 서비스를 상태 비저장 웹 서비스로 만들기
+> * ASP.NET Core Web 애플리케이션 서비스를 상태 비저장 웹 서비스로 만들기
 > * 역방향 프록시를 사용하여 상태 저장 서비스와 통신
 
 다음 자습서를 진행합니다.

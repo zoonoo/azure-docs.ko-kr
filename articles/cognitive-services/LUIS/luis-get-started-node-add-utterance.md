@@ -41,7 +41,7 @@ ms.locfileid: "53164469"
 
    [!code-javascript[NPM Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/node/add-utterances.js?range=8-11 "NPM Dependencies")]
 
-파일에 LUIS 상수를 추가합니다. 다음 코드를 복사하고 작성 키, 응용 프로그램 ID 및 버전 ID로 변경합니다.
+파일에 LUIS 상수를 추가합니다. 다음 코드를 복사하고 작성 키, 애플리케이션 ID 및 버전 ID로 변경합니다.
 
    [!code-javascript[LUIS key and IDs](~/samples-luis/documentation-samples/quickstarts/change-model/node/add-utterances.js?range=13-22 "LUIS key and IDs")]
 
@@ -75,7 +75,7 @@ ms.locfileid: "53164469"
 
 ## <a name="run-code"></a>코드 실행
 
-Node.js를 사용하여 명령줄의 응용 프로그램을 실행합니다.
+Node.js를 사용하여 명령줄의 애플리케이션을 실행합니다.
 
 `npm start`를 호출하면 발언이 추가되고, 학습이 진행되고, 학습 상태를 가져옵니다.
 

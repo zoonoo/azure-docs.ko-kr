@@ -395,7 +395,7 @@ SQL Server 2014 이상 릴리스에서는 VHD의 '래퍼' 없이 Azure Blob Stor
 ## <a name="sql-server-2014-buffer-pool-extension"></a>SQL Server 2014 버퍼 풀 확장
 SQL Server 2014에는 [버퍼 풀 확장](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension?view=sql-server-2017)이라는 새로운 기능이 도입되었습니다. 이 기능은 서버 또는 VM의 로컬 SSD에서 지원되는 보조 수준 캐시를 사용하여 메모리에서 유지되는 SQL Server의 버퍼 풀을 확장합니다. 버퍼 풀 확장을 사용하면 데이터의 더 큰 작업 집합을 '메모리 내에서' 유지할 수 있습니다. Azure Standard Storage 액세스에 비해 Azure VM의 로컬 SSD에 저장된 버퍼 풀 확장에 대한 액세스는 많은 요소를 더 빠르게 만듭니다. SQL Server 데이터 파일에 권장된 것처럼 버퍼 풀 확장을 Azure Premium Storage 읽기 캐시와 비교하면 버퍼 풀 확장에 상당한 이점이 없습니다. 이는 두 캐시(SQL Server 버퍼 풀 확장 및 Premium Storage 읽기 캐시) 모두에서 Azure 계산 노드의 로컬 디스크를 사용하기 때문입니다.
 
-SAP 워크플로가 포함된 SQL Server 버퍼 풀 확장을 통해 얻은 경험은 엇갈리고 있으며, 아직도 모든 경우에 사용할지 여부에 대한 명확한 권장 사항이 허용되지 않고 있습니다. 이상적으로는 SAP 응용 프로그램에 필요한 작업 집합이 주 메모리에 적합하다는 것입니다. 한편 Azure는 최대 4TB의 메모리가 있는 VM을 제공하므로 작업 집합을 메모리에서 유지할 수 있습니다. 따라서 버퍼 풀 확장은 일부 드문 경우에만 사용하도록 제한되며 일반적인 사례로 사용되지 않아야 합니다.  
+SAP 워크플로가 포함된 SQL Server 버퍼 풀 확장을 통해 얻은 경험은 엇갈리고 있으며, 아직도 모든 경우에 사용할지 여부에 대한 명확한 권장 사항이 허용되지 않고 있습니다. 이상적으로는 SAP 애플리케이션에 필요한 작업 집합이 주 메모리에 적합하다는 것입니다. 한편 Azure는 최대 4TB의 메모리가 있는 VM을 제공하므로 작업 집합을 메모리에서 유지할 수 있습니다. 따라서 버퍼 풀 확장은 일부 드문 경우에만 사용하도록 제한되며 일반적인 사례로 사용되지 않아야 합니다.  
 
 ## <a name="backuprecovery-considerations-for-sql-server"></a>SQL Server에 대한 Backup/복구 고려 사항
 SQL Server를 Azure에 배포하는 경우 백업 방법을 검토해야 합니다. 프로덕션 시스템이 아닌 경우에도 SQL Server에서 호스팅하는 SAP 데이터베이스는 정기적으로 백업해야 합니다. Azure Storage에는 이제 세 개의 이미지가 있으므로 저장소 작동 중단을 보완하는 측면에서 백업의 중요성이 줄어들었습니다. 적절한 백업 및 복구 계획 유지 관리가 중요한 이유는 특정 시점 복구 기능을 제공하여 논리/수동 오류를 보완할 수 있기 때문입니다. 따라서 목표는 백업을 사용하여 데이터베이스를 다시 특정 시점으로 복원하거나 기존 데이터베이스를 복사하여 다른 시스템에 시딩하는 데 Azure의 백업을 사용하는 것입니다. 
@@ -510,12 +510,12 @@ Azure VM에 SQL Server와 함께 Always On을 배포하는 방법에 대한 자�
 - [Azure에서 Always On 가용성 그룹에 대한 부하 분산 장치 구성](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener)
 
 >[!NOTE]
-> 가용성 그룹 수신기의 가상 IP 주소로 에 대해 Azure 부하 분산 장치를 구성하는 경우 DirectServerReturn이 구성되어 있는지 확인합니다. 이 옵션을 구성하면 SAP 응용 프로그램 계층과 DBMS 계층 간의 네트워크 왕복 대기 시간이 줄어듭니다. 
+> 가용성 그룹 수신기의 가상 IP 주소로 에 대해 Azure 부하 분산 장치를 구성하는 경우 DirectServerReturn이 구성되어 있는지 확인합니다. 이 옵션을 구성하면 SAP 애플리케이션 계층과 DBMS 계층 간의 네트워크 왕복 대기 시간이 줄어듭니다. 
 
 SQL Server Always On은 SAP 워크로드용 Azure 배포에 가장 일반적으로 사용되는 고가용성 및 재해 복구 기능입니다. 대부분의 고객은 단일 Azure 지역 내의 고가용성을 위해 Always On을 사용합니다. 배포가 두 개의 노드로만 제한되는 경우 두 가지 연결 옵션이 있습니다.
 
-- 가용성 그룹 수신기 사용. 가용성 그룹 수신기를 사용하여 Azure 부하 분산 장치를 배포해야 합니다. 이는 일반적으로 기본적인 배포 방법입니다. SAP 응용 프로그램은 단일 노드가 아니라 가용성 그룹 수신기에 연결되도록 구성됩니다.
-- SQL Server 데이터베이스 미러링의 연결 매개 변수 사용. 이 경우 두 노드의 이름이 지정된 방식으로 SAP 응용 프로그램의 연결을 구성해야 합니다. 이러한 SAP 쪽 구성에 대한 정확한 세부 정보는 SAP Note [#965908](https://launchpad.support.sap.com/#/notes/965908)에서 설명하고 있습니다. 이 옵션을 사용하면 가용성 그룹 수신기를 구성할 필요가 없습니다. 그리고 SQL Server 고가용성을 위한 Azure 부하 분산 장치도 없습니다. 결과적으로 SQL Server 인스턴스로 들어오는 트래픽이 Azure 부하 분산 장치를 통해 라우팅되지 않기 때문에 SAP 응용 프로그램 계층과 DBMS 계층 간의 네트워크 대기 시간이 줄어듭니다. 그러나 이 옵션은 가용성 그룹이 두 인스턴스에 걸쳐 있도록 제한하는 경우에만 작동합니다. 
+- 가용성 그룹 수신기 사용. 가용성 그룹 수신기를 사용하여 Azure 부하 분산 장치를 배포해야 합니다. 이는 일반적으로 기본적인 배포 방법입니다. SAP 애플리케이션은 단일 노드가 아니라 가용성 그룹 수신기에 연결되도록 구성됩니다.
+- SQL Server 데이터베이스 미러링의 연결 매개 변수 사용. 이 경우 두 노드의 이름이 지정된 방식으로 SAP 애플리케이션의 연결을 구성해야 합니다. 이러한 SAP 쪽 구성에 대한 정확한 세부 정보는 SAP Note [#965908](https://launchpad.support.sap.com/#/notes/965908)에서 설명하고 있습니다. 이 옵션을 사용하면 가용성 그룹 수신기를 구성할 필요가 없습니다. 그리고 SQL Server 고가용성을 위한 Azure 부하 분산 장치도 없습니다. 결과적으로 SQL Server 인스턴스로 들어오는 트래픽이 Azure 부하 분산 장치를 통해 라우팅되지 않기 때문에 SAP 애플리케이션 계층과 DBMS 계층 간의 네트워크 대기 시간이 줄어듭니다. 그러나 이 옵션은 가용성 그룹이 두 인스턴스에 걸쳐 있도록 제한하는 경우에만 작동합니다. 
 
 많은 고객이 Azure 지역 간의 추가 재해 복구 기능에 대해 SQL Server Always On 기능을 활용하고 있습니다. 일부 고객은 보조 복제본에서 백업을 수행하는 기능도 사용합니다. 
 
@@ -531,7 +531,7 @@ SAP SQL Server 데이터베이스를 온-프레미스에서 Azure로 이동하�
 - 이전의 SQL Server 릴리스에서는 SQL Server 데이터베이스를 암호화할 때 백업 압축이 더 이상 효율적이지 못했습니다. SQL Server 데이터베이스를 온-프레미스에서 암호화한 다음, 백업을 Azure에 복사하여 Azure에서 데이터베이스를 복원하려고 했을 때 이 동작은 문제로 발전할 수 있었습니다. SQL Server 백업 압축은 일반적으로 요인 4의 압축 비율을 달성합니다.
 - SQL Server 2016에서 SQL Server는 효율적인 방식으로 암호화된 데이터베이스도 압축할 수 있는 새로운 기능을 도입했습니다. 자세한 내용은 [이 블로그](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/)를 참조하세요.
  
-SAP 워크로드를 거의 사용하지 않고 TDE 암호화 응용 프로그램을 처리하는 경우, 온-프레미스와 Azure 중 어느 것에서 TDE를 SAP 데이터베이스에 적용하는 것이 더 나은지 여부에 대한 특정 구성을 테스트해야 합니다. Azure에서는 TDE가 적용된 후에 인프라를 과도하게 프로비전하고 축소할 수 있다는 측면에서 유연성이 더 뛰어납니다.
+SAP 워크로드를 거의 사용하지 않고 TDE 암호화 애플리케이션을 처리하는 경우, 온-프레미스와 Azure 중 어느 것에서 TDE를 SAP 데이터베이스에 적용하는 것이 더 나은지 여부에 대한 특정 구성을 테스트해야 합니다. Azure에서는 TDE가 적용된 후에 인프라를 과도하게 프로비전하고 축소할 수 있다는 측면에서 유연성이 더 뛰어납니다.
 
 ### <a name="using-azure-key-vault"></a>Azure Key Vault 사용
 Azure는 암호화 키를 저장하기 위해 [Key Vault](https://azure.microsoft.com/services/key-vault/) 서비스를 제공합니다. 다른 쪽의 SQL Server는 Azure Key Vault를 TDE 인증서 저장소로 활용할 수 있는 커넥터를 제공합니다.

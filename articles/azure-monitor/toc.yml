@@ -710,7 +710,7 @@ items:
           href: log-query/workspace-expression.md
       - name: 로그 데이터
         items:
-        - name: 응용 프로그램 데이터
+        - name: 애플리케이션 데이터
           href: app/analytics.md
         - name: 표준 속성
         - name: 텍스트 데이터 구문 분석

@@ -119,7 +119,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>사용자가 로그인 시 등록하도록 요구하시겠습니까?
 
-이 옵션을 사용하려면 사용자가 Azure AD를 사용하는 응용 프로그램에 로그인한 경우 암호 재설정 등록을 완료해야 합니다. 여기에는 다음 응용 프로그램이 포함됩니다.
+이 옵션을 사용하려면 사용자가 Azure AD를 사용하는 애플리케이션에 로그인한 경우 암호 재설정 등록을 완료해야 합니다. 여기에는 다음 애플리케이션이 포함됩니다.
 
 * Office 365
 * Azure portal

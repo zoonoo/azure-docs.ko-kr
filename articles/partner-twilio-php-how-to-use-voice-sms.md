@@ -82,7 +82,7 @@ Twilio/PHP 응용 프로그램을 빌드하여 Azure에 배포하는 방법에 �
 ## <a id="configure_app"></a>Twilio 라이브러리를 사용하도록 응용 프로그램 구성
 다음과 같은 두 가지 방법으로 PHP용 Twilio 라이브러리를 사용하도록 애플리케이션을 구성할 수 있습니다.
 
-1. GitHub의 PHP용 Twilio 라이브러리([https://github.com/twilio/twilio-php][twilio_php])를 다운로드하고 응용 프로그램에 **Services** 디렉터리를 추가합니다.
+1. GitHub의 PHP용 Twilio 라이브러리([https://github.com/twilio/twilio-php][twilio_php])를 다운로드하고 애플리케이션에 **Services** 디렉터리를 추가합니다.
    
     또는
 2. PHP용 Twilio 라이브러리를 PEAR 패키지로 설치합니다. 다음 명령을 사용하여 설치할 수 있습니다.
