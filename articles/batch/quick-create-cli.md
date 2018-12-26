@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f5790f57b66f1d73ff98d5f84276ec9a44568432
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 75703b4b10bbf3864076952990df2e6c2a9ab28d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857929"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969651"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Batch 작업 실행
 
@@ -25,11 +25,11 @@ ms.locfileid: "37857929"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.20 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.20 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
 다음 예제에서는 *eastus2* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -41,7 +41,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-Azure Storage 계정과 배치 계정을 연결할 수 있습니다. 저장소 계정은 이 빠른 시작에서 필요하지 않지만, 응용 프로그램을 배포하고 대부분의 실제 작업에 대한 입력 및 출력 데이터를 저장하는 데 유용합니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 리소스 그룹에 저장소 계정을 만듭니다.
+Azure Storage 계정과 배치 계정을 연결할 수 있습니다. 스토리지 계정은 이 빠른 시작에서 필요하지 않지만, 애플리케이션을 배포하고 대부분의 실제 작업에 대한 입력 및 출력 데이터를 저장하는 데 유용합니다. [az storage account create](/cli/azure/storage/account#az-storage-account-create) 명령을 사용하여 리소스 그룹에 저장소 계정을 만듭니다.
 
 ```azurecli-interactive
 az storage account create \
@@ -53,7 +53,7 @@ az storage account create \
 
 ## <a name="create-a-batch-account"></a>Batch 계정 만들기
 
-[az batch account create](/cli/azure/batch/account#az_batch_account_create) 명령을 사용하여 배치 계정을 만듭니다. 계산 리소스(계산 노드의 풀) 및 Batch 작업을 만들려면 계정이 필요합니다.
+[az batch account create](/cli/azure/batch/account#az-batch-account-create) 명령을 사용하여 배치 계정을 만듭니다. 계산 리소스(계산 노드의 풀) 및 Batch 작업을 만들려면 계정이 필요합니다.
 
 다음 예제에서는 *mybatchaccount*라는 배치 계정을 *myResourceGroup*에 만들고, 만든 저장소 계정을 연결합니다.  
 
@@ -65,7 +65,7 @@ az batch account create \
     --location eastus2
 ```
 
-계산 풀 및 작업을 만들고 관리하려면 Batch를 통해 인증해야 합니다. [az batch account login](/cli/azure/batch/account#az_batch_account_login) 명령으로 계정에 로그인합니다. 로그인되면 이 계정 컨텍스트가 `az batch` 명령에 사용됩니다.
+계산 풀 및 작업을 만들고 관리하려면 Batch를 통해 인증해야 합니다. [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령으로 계정에 로그인합니다. 로그인되면 이 계정 컨텍스트가 `az batch` 명령에 사용됩니다.
 
 ```azurecli-interactive 
 az batch account login \
@@ -76,7 +76,7 @@ az batch account login \
 
 ## <a name="create-a-pool-of-compute-nodes"></a>계산 노드 풀 만들기
 
-이제 배치 계정이 있으므로 [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) 명령을 사용하여 Linux 계산 노드의 샘플 풀을 만듭니다. 다음 예제에서는 Ubuntu 16.04 LTS를 실행하는 *Standard_A1_v2* 크기의 2개 노드로 구성되는 *mypool*이라는 풀을 만듭니다. 제안된 노드 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
+이제 배치 계정이 있으므로 [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) 명령을 사용하여 Linux 계산 노드의 샘플 풀을 만듭니다. 다음 예제에서는 Ubuntu 16.04 LTS를 실행하는 *Standard_A1_v2* 크기의 2개 노드로 구성되는 *mypool*이라는 풀을 만듭니다. 제안된 노드 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
  
 ```azurecli-interactive
 az batch pool create \
@@ -86,7 +86,7 @@ az batch pool create \
     --node-agent-sku-id "batch.node.ubuntu 16.04" 
 ```
 
-Batch는 풀을 즉시 만들지만, 계산 노드를 할당하고 시작하는 데 몇 분이 걸립니다. 이 시간 동안 풀의 상태는 `resizing`입니다. 풀의 상태를 보려면 [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show) 명령을 실행합니다. 이 명령은 풀의 모든 속성을 표시하고 특정 속성을 쿼리할 수 있습니다. 다음 명령은 풀의 할당 상태를 가져옵니다.
+Batch는 풀을 즉시 만들지만, 계산 노드를 할당하고 시작하는 데 몇 분이 걸립니다. 이 시간 동안 풀의 상태는 `resizing`입니다. 풀의 상태를 보려면 [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) 명령을 실행합니다. 이 명령은 풀의 모든 속성을 표시하고 특정 속성을 쿼리할 수 있습니다. 다음 명령은 풀의 할당 상태를 가져옵니다.
 
 ```azurecli-interactive
 az batch pool show --pool-id mypool \
@@ -97,7 +97,7 @@ az batch pool show --pool-id mypool \
 
 ## <a name="create-a-job"></a>작업 만들기
 
-이제 풀이 있으므로 여기에서 실행할 작업을 만들 수 있습니다.  Batch 작업은 하나 이상의 태스크에 대한 논리적 그룹입니다. 작업에는 우선 순위 및 태스크를 실행할 풀과 같은 태스크에 공통적으로 적용되는 설정이 포함됩니다. [az batch job create](/cli/azure/batch/job#az_batch_job_create) 명령을 사용하여 Batch 작업을 만듭니다. 다음 예제에서는 *mypool* 풀에 *myjob* 작업을 만듭니다. 처음에는 작업에 태스크가 없습니다.
+이제 풀이 있으므로 여기에서 실행할 작업을 만들 수 있습니다.  Batch 작업은 하나 이상의 태스크에 대한 논리적 그룹입니다. 작업에는 우선 순위 및 태스크를 실행할 풀과 같은 태스크에 공통적으로 적용되는 설정이 포함됩니다. [az batch job create](/cli/azure/batch/job#az-batch-job-create) 명령을 사용하여 Batch 작업을 만듭니다. 다음 예제에서는 *mypool* 풀에 *myjob* 작업을 만듭니다. 처음에는 작업에 태스크가 없습니다.
 
 ```azurecli-interactive 
 az batch job create \
@@ -107,7 +107,7 @@ az batch job create \
 
 ## <a name="create-tasks"></a>태스크 만들기
 
-이제 [az batch task create](/cli/azure/batch/task#az_batch_task_create) 명령을 사용하여 작업에서 실행할 일부 태스크를 만듭니다. 이 예제에서는 네 개의 동일한 태스크를 만듭니다. 각 태스크는 `command-line`을 실행하여 계산 노드에 Batch 환경 변수를 표시한 다음 90초 동안 기다립니다. Batch를 사용하면 이 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 계산 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
+이제 [az batch task create](/cli/azure/batch/task#az-batch-task-create) 명령을 사용하여 작업에서 실행할 일부 태스크를 만듭니다. 이 예제에서는 네 개의 동일한 태스크를 만듭니다. 각 태스크는 `command-line`을 실행하여 계산 노드에 Batch 환경 변수를 표시한 다음 90초 동안 기다립니다. Batch를 사용하면 이 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 계산 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
 
 다음 Bash 스크립트에서는 4개의 병렬 태스크(*mytask1*-*mytask4*)를 만듭니다.
 
@@ -127,7 +127,7 @@ done
 
 태스크가 만들어지면 Batch는 풀에서 실행되도록 해당 태스크를 큐에 넣습니다. 노드에서 실행할 수 있게 되면 태스크가 실행됩니다.
 
-[az batch task show](/cli/azure/batch/task#az_batch_task_show) 명령을 사용하여 Batch 태스크의 상태를 봅니다. 다음 예제에서는 풀 노드 중 하나에서 실행되는 *mytask1*에 대한 세부 정보가 표시됩니다.
+[az batch task show](/cli/azure/batch/task#az-batch-task-show) 명령을 사용하여 Batch 태스크의 상태를 봅니다. 다음 예제에서는 풀 노드 중 하나에서 실행되는 *mytask1*에 대한 세부 정보가 표시됩니다.
 
 ```azurecli-interactive 
 az batch task show \
@@ -139,7 +139,7 @@ az batch task show \
 
 ## <a name="view-task-output"></a>태스크 출력 보기
 
-계산 노드에서 태스크로 만들어진 파일을 나열하려면 [az batch task file list](/cli/azure/batch/task#az_batch_task_file_list) 명령을 사용합니다. 다음 명령은 *mytask1*로 만들어진 파일을 나열합니다. 
+계산 노드에서 태스크로 만들어진 파일을 나열하려면 [az batch task file list](/cli/azure/batch/task#az-batch-task-file-list) 명령을 사용합니다. 다음 명령은 *mytask1*로 만들어진 파일을 나열합니다. 
 
 ```azurecli-interactive 
 az batch task file list \
@@ -160,7 +160,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 
 ```
 
-출력 파일 중 하나를 로컬 디렉터리에 다운로드하려면 [az batch task file download](/cli/azure/batch/task#az_batch_task_file_download) 명령을 사용합니다. 이 예제에서 태스크 출력은 `stdout.txt`에 있습니다. 
+출력 파일 중 하나를 로컬 디렉터리에 다운로드하려면 [az batch task file download](/cli/azure/batch/task#az-batch-task-file-download) 명령을 사용합니다. 이 예제에서 태스크 출력은 `stdout.txt`에 있습니다. 
 
 ```azurecli-interactive
 az batch task file download \
@@ -192,13 +192,13 @@ AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ## <a name="clean-up-resources"></a>리소스 정리
 Batch 자습서 및 샘플을 계속 사용하려면 이 빠른 시작에서 만든 배치 계정 및 연결된 저장소 계정을 사용합니다. 배치 계정 자체에는 요금이 부과되지 않습니다.
 
-작업이 예약되지 않은 경우에도 노드가 실행되는 동안은 풀에 대한 요금이 부과됩니다. 더 이상 풀이 필요하지 않으면 [az batch pool delete](/cli/azure/batch/pool#az_batch_pool_delete) 명령을 사용하여 삭제합니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 
+작업이 예약되지 않은 경우에도 노드가 실행되는 동안은 풀에 대한 요금이 부과됩니다. 더 이상 풀이 필요하지 않으면 [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete) 명령을 사용하여 삭제합니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 
 
 ```azurecli-interactive
 az batch pool delete --pool-id mypool
 ```
 
-더 이상 필요하지 않으면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, 배치 계정, 풀 및 관련된 모든 리소스를 제거할 수 있습니다. 다음과 같이 리소스를 삭제합니다.
+더 이상 필요하지 않으면 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 배치 계정, 풀 및 관련된 모든 리소스를 제거할 수 있습니다. 다음과 같이 리소스를 삭제합니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

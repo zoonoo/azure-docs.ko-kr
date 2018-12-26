@@ -9,14 +9,17 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: fcef86a19a77581ff82b64173e2ac68b26ae708a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84ef657af2cc3dc4a7168a815b5e51d6f4f33fd7
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373102"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338372"
 ---
 # <a name="obtain-subscription-keys"></a>구독 키 얻기
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Azure Custom Speech Service를 사용하려면 먼저 사용자 계정을 Azure 구독에 연결해야 합니다. 무료 계층과 유료 계층의 두 가지 구독이 제공됩니다. 계층에 대한 정보는 [가격 책정 페이지](https://www.microsoft.com/cognitive-services/en-us/pricing)를 참조하세요.
 
 ## <a name="get-a-subscription-key"></a>구독 키 가져오기
@@ -31,11 +34,11 @@ Azure Custom Speech Service를 사용하려면 먼저 사용자 계정을 Azure 
         ![Cognitive Services API](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription2.png)
 
     
-2. 다음 필수 필드에 정보를 입력합니다.
+1. 다음 필수 필드에 정보를 입력합니다.
 
       a. **계정 이름**. 적합한 이름을 사용합니다. 리소스 목록에서 Cognitive Services 구독을 찾을 수 있도록 이 이름을 기억해 두세요.
 
-      나. **구독**. Azure 구독에서 하나를 선택합니다.
+      b. **구독**. Azure 구독에서 하나를 선택합니다.
 
       다. **API 형식**. **Custom Speech Service(미리 보기)** 를 선택합니다.
 
@@ -45,7 +48,7 @@ Azure Custom Speech Service를 사용하려면 먼저 사용자 계정을 Azure 
 
       ![Cognitive Services 계정 만들기](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-blade.png)
 
-3. 리소스 목록에서 대시보드의 보기 또는 입력한 계정 이름으로 된 서비스를 찾을 수 있을 것입니다. 서비스를 선택하면 해당 서비스에 대한 개요를 볼 수 있습니다. 왼쪽 목록의 **리소스 관리**에서 **키**를 선택합니다. **키 1**을 복사합니다.
+1. 리소스 목록에서 대시보드의 보기 또는 입력한 계정 이름으로 된 서비스를 찾을 수 있을 것입니다. 서비스를 선택하면 해당 서비스에 대한 개요를 볼 수 있습니다. 왼쪽 목록의 **리소스 관리**에서 **키**를 선택합니다. **키 1**을 복사합니다.
 
       다음 단계에서 이 구독 키가 필요합니다.
 
@@ -57,7 +60,7 @@ Azure Custom Speech Service를 사용하려면 먼저 사용자 계정을 Azure 
 
       ![개요 구독 ID](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-keys.png)
 
-4. 구독 키를 입력하려면 오른쪽 위에 있는 리본에서 사용자 계정을 선택합니다. 드롭다운 메뉴에서 **구독**을 선택합니다.
+1. 구독 키를 입력하려면 오른쪽 위에 있는 리본에서 사용자 계정을 선택합니다. 드롭다운 메뉴에서 **구독**을 선택합니다.
 
       ![구독 메뉴 항목](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-selection.png)
 
@@ -65,7 +68,7 @@ Azure Custom Speech Service를 사용하려면 먼저 사용자 계정을 Azure 
 
     ![구독 표](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-list.png)
 
-5. **새로 추가**를 선택합니다. 구독 및 구독 키의 이름을 입력합니다. 구독의 **키 1**(기본 키) 또는 **키 2**(보조 키)입니다.
+1. **새로 추가**를 선택합니다. 구독 및 구독 키의 이름을 입력합니다. 구독의 **키 1**(기본 키) 또는 **키 2**(보조 키)입니다.
 
       ![구독 키 이름](../../../media/cognitive-services/custom-speech-service/custom-speech-enter-subsciption.png)
 

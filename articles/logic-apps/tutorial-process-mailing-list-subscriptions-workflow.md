@@ -1,28 +1,23 @@
 ---
 title: 메일 그룹 요청을 처리하는 승인 워크플로 만들기 - Azure Logic Apps | Microsoft Docs
-description: 이 자습서에서는 Azure Logic Apps로 메일 그룹 구독을 처리하는 자동화된 승인 워크플로를 만드는 방법을 보여줍니다.
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: '자습서: Azure Logic Apps를 사용하여 메일 그룹 구독을 처리하는 자동화된 승인 워크플로를 만드는 방법입니다.'
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: e31be6ac24b7b194ab77856cb7376f9431a79f24
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b48ecce1c87c0a29996e437d621c3ce396a84856
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300677"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232667"
 ---
-# <a name="manage-mailing-list-requests-with-a-logic-app"></a>논리 앱으로 메일 그룹 요청 관리
+# <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Azure Logic Apps로 메일 그룹 요청 관리
 
 Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스, Microsoft 서비스, 기타 SaaS(software-as-a-service) 앱 및 온-프레미스 시스템의 데이터를 통합할 수 있습니다. 이 자습서에서는 [MailChimp](https://mailchimp.com/) 서비스를 통해 관리되는 메일 그룹에 대한 구독 요청을 처리하는 [논리 앱](../logic-apps/logic-apps-overview.md)을 만드는 방법을 보여줍니다.
 이 논리 앱은 이러한 요청에 대한 이메일 계정을 모니터링하고, 이러한 승인 요청을 보내고, 승인된 구성원을 메일 그룹에 추가합니다.
@@ -322,7 +317,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

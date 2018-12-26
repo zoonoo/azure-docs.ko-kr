@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: c2b77d7c9caab1c7ac13af5ccd50e992bcce1caf
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: be6ee88f43254ec3075a64299005d3597af968e7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31787661"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224768"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Xamarin.iOS 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "31787661"
 ## <a name="restrict-permissions-to-authenticated-users"></a>사용 권한을 인증된 사용자로 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행합니다. 앱 시작 후 상태 코드가 401(권한이 부여되지 않음)인 처리되지 않은 예외가 발생했는지 확인합니다. 오류는 디버거의 콘솔에 기록됩니다. 따라서 Visual Studio의 출력 창에 오류가 표시됩니다.
+&nbsp;&nbsp;4. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 디바이스 또는 에뮬레이터에서 실행합니다. 앱 시작 후 상태 코드가 401(권한이 부여되지 않음)인 처리되지 않은 예외가 발생했는지 확인합니다. 오류는 디버거의 콘솔에 기록됩니다. 따라서 Visual Studio의 출력 창에 오류가 표시됩니다.
 
 &nbsp;&nbsp;이 권한 없음 오류는 앱이 인증되지 않은 사용자로 모바일 앱 백엔드에 액세스하려고 하기 때문에 발생합니다. *TodoItem* 테이블에서 이제 인증을 요구합니다.
 
@@ -117,7 +117,7 @@ ms.locfileid: "31787661"
             return ResumeWithURL != null && ResumeWithURL(url);
         }
 6. **Info.plist** 파일을 열고 **고급** 섹션의 **URL 형식**으로 이동합니다. 이제 URL 형식의 **식별자** 및 **URL 스키마**를 구성하고 **URL 형식 추가**를 클릭합니다. **URL 스키마**는 {url_scheme_of_your_app}와 동일해야 합니다.
-7. Mac 호스트에 연결된 Visual Studio 또는 Mac용 Visual Studio에서 장치 또는 에뮬레이터를 대상으로 하는 클라이언트 프로젝트를 실행합니다. 앱이 데이터를 표시하지 않는지 확인합니다.
+7. Mac 호스트에 연결된 Visual Studio 또는 Mac용 Visual Studio에서 디바이스 또는 에뮬레이터를 대상으로 하는 클라이언트 프로젝트를 실행합니다. 앱이 데이터를 표시하지 않는지 확인합니다.
    
     항목 목록을 아래로 끌어서 새로 고침 제스처를 수행하고 로그인 화면이 나타나도록 합니다. 유효한 자격 증명을 성공적으로 입력하면 앱이 todo 항목 목록을 표시하고 사용자가 데이터를 업데이트할 수 있습니다.
 

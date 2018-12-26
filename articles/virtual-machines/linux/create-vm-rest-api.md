@@ -15,16 +15,32 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 0f77b46be0207b0ce96e6dc2562fb5298afbe36b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 3eeaee9bc6320231f10aa85227e2f43756181806
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928185"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433483"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
 
-Azure에서 VM(가상 머신)은 위치, 하드웨어 크기, 운영 체제 이미지 및 로그온 자격 증명과 같은 다양한 매개 변수에 의해 정의됩니다. 이 문서에서는 REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신을 만드는 방법을 보여 줍니다.
+Azure의 Linux VM(가상 머신)은 디스크, 네트워크 인터페이스 같은 다양한 리소스로 구성되며 위치, 크기, 운영 체제 이미지 및 인증 설정 등의 매개 변수를 정의합니다.
+
+Azure Portal, Azure CLI 2.0, 여러 Azure SDK, Azure Resource Manager 템플릿 및 Terraform 또는 Ansible 같은 많은 타사 도구를 통해 Linux VM을 만들 수 있습니다. 최종적으로 이러한 모든 도구는 Linux VM을 만드는 데 REST API를 사용합니다.
+
+이 문서에서는 REST API를 사용하여 관리 디스크 및 SSH 인증을 통해 Ubuntu 18.04-LTS를 실행하는 Linux VM을 만드는 방법을 보여 줍니다.
+
+## <a name="before-you-start"></a>시작하기 전에
+
+요청을 만들고 제출하기 전에 다음이 필요합니다.
+
+* 구독에 대한 `{subscription-id}`
+  * 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)을 참조합니다.
+* 미리 만든 `{resourceGroupName}`
+* 같은 리소스 그룹의 [가상 네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md)
+* SSH 키 쌍(없는 경우 [새로 생성할](mac-create-ssh-keys.md) 수 있음)
+
+## <a name="request-basics"></a>요청 기본 사항
 
 가상 머신을 만들거나 업데이트하려면 다음 *PUT* 작업을 사용합니다.
 
@@ -32,9 +48,7 @@ Azure에서 VM(가상 머신)은 위치, 하드웨어 크기, 운영 체제 이�
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-## <a name="create-a-request"></a>요청 만들기
-
-*PUT* 요청을 만들려면 `{subscription-id}` 매개 변수는 필수입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)을 참조합니다. 리소스에 대해 `{resourceGroupName}` 및 `{vmName}`과 함께 `api-version` 매개 변수를 정의합니다. 이 문서에서는 `api-version=2017-12-01`을 사용합니다.
+`{subscription-id}` 및 `{resourceGroupName}` 매개 변수 외에도 `{vmName}`(`api-version`은 선택 사항이지만 이 문서는 `api-version=2017-12-01`로 테스트됨)을 지정해야 합니다.
 
 다음과 같은 헤더가 필요합니다.
 
@@ -43,13 +57,13 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 | *Content-Type:*  | 필수 사항입니다. `application/json`로 설정합니다. |
 | *권한 부여* | 필수 사항입니다. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
 
-요청을 만드는 방법에 대한 자세한 내용은 [REST API 요청/응답의 구성 요소](/rest/api/azure/#components-of-a-rest-api-requestresponse)를 참조하세요.
+REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성 요소](/rest/api/azure/#components-of-a-rest-api-requestresponse)를 참조하세요.
 
 ## <a name="create-the-request-body"></a>요청 본문 만들기
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-| Name                       | 필수 | 형식                                                                                | 설명  |
+| 이름                       | 필수 | 형식                                                                                | 설명  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | string                                                                              | 리소스 위치. |
 | 이름                       |          | string                                                                              | 가상 머신의 이름. |
@@ -58,15 +72,12 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | 가상 머신에 대한 운영 체제 설정을 지정합니다. |
 | properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | 가상 머신의 네트워크 인터페이스를 지정합니다. |
 
-요청 본문에 사용할 수 있는 정의의 전체 목록은 [가상 머신 요청 본문 정의 만들기 또는 업데이트](/rest/api/compute/virtualmachines/createorupdate#definitions)를 참조하세요.
-
-### <a name="example-request-body"></a>요청 본문 예제
-
-다음 요청 본문 예제는 프리미엄 관리 디스크를 사용하는 Ubuntu 18.04-LTS 이미지를 정의합니다. SSH 공개 키 인증이 사용되며, VM은 사용자가 [이전에 만든](../../virtual-network/virtual-network-network-interface.md) 기존 가상 NIC(네트워크 인터페이스 카드)를 사용합니다. *osProfile.linuxConfiguration.ssh.publicKeys.keyData* 필드에 SSH 공개 키를 입력합니다. 필요한 경우 [SSH 키 쌍을 생성](mac-create-ssh-keys.md)할 수 있습니다.
+요청 본문 예제는 아래에 있습니다. `keyData`에서 `{computerName}` 및 `{name}` 매개 변수의 VM 이름, `networkInterfaces`에 만든 네트워크 인터페이스 이름, `adminUsername` 및 `path`의 사용자 이름, SSH 키 쌍의 *public* 부분(위치 예: `~/.ssh/id_rsa.pub`)을 지정했는지 확인합니다. 다른 매개 변수의 경우 `location` 및 `vmSize`를 포함하여 수정할 수 있습니다.  
 
 ```json
 {
   "location": "eastus",
+  "name": "{vmName}",
   "properties": {
     "hardwareProfile": {
       "vmSize": "Standard_DS1_v2"
@@ -89,7 +100,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
     },
     "osProfile": {
       "adminUsername": "{your-username}",
-      "computerName": "myVM",
+      "computerName": "{vmName}",
       "linuxConfiguration": {
         "ssh": {
           "publicKeys": [
@@ -105,30 +116,31 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
     "networkProfile": {
       "networkInterfaces": [
         {
-          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+          "id": "/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
           "properties": {
             "primary": true
           }
         }
       ]
     }
-  },
-  "name": "myVM"
+  }
 }
 ```
 
-## <a name="responses"></a>응답
+요청 본문에 사용할 수 있는 정의의 전체 목록은 [가상 머신 요청 본문 정의 만들기 또는 업데이트](/rest/api/compute/virtualmachines/createorupdate#definitions)를 참조하세요.
+
+## <a name="sending-the-request"></a>요청 보내기
+
+이 HTTP 요청을 보내기 위해 원하는 클라이언트를 사용할 수 있습니다. **사용** 단추를 클릭하여 [브라우저 도구](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate)를 사용할 수도 있습니다.
+
+### <a name="responses"></a>응답
 
 가상 머신 만들기 또는 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-| Name        | type                                                                              | 설명 |
+| 이름        | type                                                                              | 설명 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 정상      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 확인          |
 | 201 생성됨 | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 생성일     |
-
-REST API 응답에 대한 자세한 내용은 [응답 메시지 처리](/rest/api/azure/#process-the-response-message)를 참조하세요.
-
-### <a name="example-response"></a>예제 응답
 
 VM을 만든 이전 요청 본문 예제에서 압축된 *201 생성됨* 응답은 *vmId*가 할당되었으며 *provisioningState*가 *만들어지고 있음*을 보여 줍니다.
 
@@ -139,11 +151,13 @@ VM을 만든 이전 요청 본문 예제에서 압축된 *201 생성됨* 응답�
 }
 ```
 
+REST API 응답에 대한 자세한 내용은 [응답 메시지 처리](/rest/api/azure/#process-the-response-message)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-Azure REST API 또는 Azure CLI 2.0 또는 Azure PowerShell과 같은 다른 관리 도구에 대한 자세한 내용은 다음을 참조합니다.
+Azure REST API 또는 Azure CLI, Azure PowerShell 등의 다른 관리 도구에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 - [Azure Compute 공급자 REST API](/rest/api/compute/)
 - [Azure REST API 시작하기](/rest/api/azure/)
-- [Azure CLI 2.0](/cli/azure/)
+- [Azure CLI](/cli/azure/)
 - [Azure PowerShell 모듈](/powershell/azure/overview)

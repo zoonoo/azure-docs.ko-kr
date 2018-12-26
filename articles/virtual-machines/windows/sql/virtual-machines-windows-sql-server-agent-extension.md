@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/20/2018
+ms.date: 07/12/2018
 ms.author: jroth
-ms.openlocfilehash: d9cb4a3bdc5776c4ac70ac376d8b839193e3fc3d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c663aec02d4d1808426a9f05a6674d5504563a63
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39012261"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(Resource Manager)
 > [!div class="op_single_selector"]
@@ -62,6 +63,9 @@ VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사�
 
 * [최신 Azure PowerShell 명령 다운로드 및 구성](/powershell/azure/overview)
 
+> [!IMPORTANT]
+> 이번에 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)은 Azure에서 SQL Server FCI에 대해 지원되지 않습니다. FCI에 참여하는 VM에서 확장을 제거하는 것이 좋습니다. 확장이 지원하는 기능은 에이전트를 제거한 후 SQL VM에 사용할 수 없습니다.
+
 ## <a name="installation"></a>설치
 SQL Server IaaS 에이전트 확장은 SQL Server 가상 머신 갤러리 이미지 중 하나를 프로비전할 때 자동으로 설치됩니다. 이러한 SQL Server VM 중 하나에서 확장을 수동으로 다시 설치해야 하는 경우 다음 PowerShell 명령을 사용합니다.
 
@@ -72,10 +76,8 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 > [!IMPORTANT]
 > 확장 프로그램이 아직 설치되지 않은 경우 확장 프로그램을 설치하면 SQL Server 서비스가 다시 시작됩니다.
 
-OS 전용 Windows Server 가상 머신에 SQL Server IaaS 에이전트 확장을 설치할 수도 있습니다. 이러한 방식은 해당 컴퓨터에서 SQL Server를 수동으로 설치한 경우에만 지원됩니다. 그런 후 동일한 **Set-AzureRmVMSqlServerExtension** PowerShell cmdlet을 사용하여 확장을 수동으로 설치합니다.
-
 > [!NOTE]
-> OS 전용 Windows Server VM에서 SQL Server IaaS 에이전트 확장을 수동으로 설치하는 경우 Azure Portal을 통해 SQL Server 구성 설정을 관리할 수 없습니다. 이 시나리오에서는 모든 변경 작업을 PowerShell로 수행해야 합니다.
+> SQL Server IaaS 에이전트 확장은 [SQL Server VM 갤러리 이미지](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)(종량제 또는 사용자 라이선스 필요)에서만 지원됩니다. OS 전용 Windows Server 가상 머신에 SQL Server를 수동으로 설치하는 경우 또는 사용자 지정된 SQL Server VM VHD를 배포하는 경우에는 지원되지 않습니다. 이러한 경우에 PowerShell을 사용하여 확장을 수동으로 설치하고 관리할 수 있지만 Azure Portal에서 SQL Server 구성 설정을 가져오지 못합니다. 그러나 대신 SQL Server VM 갤러리 이미지를 설치한 다음, 이를 사용자 지정하는 것이 매우 좋습니다.
 
 ## <a name="status"></a>상태
 확장이 설치되어 있는지 확인하는 한 가지 방법은 Azure Portal에서 에이전트 상태를 확인하는 것입니다. 가상 머신 창에서 **모든 설정**을 선택하고 **확장**을 클릭합니다. **SQLIaaSExtension** 확장이 나열되어야 합니다.

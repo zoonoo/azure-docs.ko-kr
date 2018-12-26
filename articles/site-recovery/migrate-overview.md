@@ -1,18 +1,19 @@
 ---
-title: Azure Site Recovery의 마이그레이션 정보 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스 VM 및 Azure VM을 마이그레이션하는 방법을 설명합니다.
+title: Azure Site Recovery를 사용한 온-프레미스 컴퓨터 및 Azure VM 마이그레이션 정보 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스 및 Azure IaaS VM을 Azure로 마이그레이션하는 방법을 설명합니다.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: efd8a8290525c27cddaa713a1b24b6afc187bb09
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6f510ac394b939996defe0a7ed49317ec0aabe3b
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922691"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211998"
 ---
 # <a name="about-migration"></a>마이그레이션 정보
 

@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ec106b46097f9a35b9e41e08de4c18339f1b28f0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 1db805efe7eaec77fcafeb169b3d99098b57f582
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710409"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978981"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Azure Active Directory B2C 등록, 로그인, 프로필 편집 및 암호 재설정을 사용하여 ASP.NET 웹앱 만들기
 
@@ -31,19 +31,21 @@ ms.locfileid: "34710409"
 - Azure 계정에 B2C 테넌트를 연결해야 합니다. [여기](https://azure.microsoft.com/)에서 Azure 계정을 만들 수 있습니다.
 - 샘플 코드를 보고 수정하기 위해 [Microsoft Visual Studio](https://www.visualstudio.com/) 또는 비슷한 프로그램이 필요합니다.
 
-## <a name="create-an-azure-ad-b2c-directory"></a>Azure AD B2C 디렉터리 만들기
+## <a name="create-an-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트 만들기
 
-Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다. 디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 아직 없는 경우 B2C 디렉터리를 만든 후에 이 가이드를 계속 진행합니다.
+Azure AD B2C를 사용하기 전에 테넌트를 만들어야 합니다. 테넌트는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 아직 없는 경우 B2C 테넌트를 만든 후에 이 가이드를 계속 진행합니다.
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
 > [!NOTE]
 > 
-> Azure 구독에 B2C 테넌트를 연결해야 합니다. **만들기**를 선택한 후 **Azure 구독에 기존 Azure AD B2C 테넌트 연결** 옵션을 선택한 다음 **Azure AD B2C 테넌트** 드롭다운에서 연결하려는 테넌트를 선택합니다.
+> Azure 구독에 Azure AD B2C 테넌트를 연결해야 합니다. **만들기**를 선택한 후 **Azure 구독에 기존 Azure AD B2C 테넌트 연결** 옵션을 선택한 다음 **Azure AD B2C 테넌트** 드롭다운에서 연결하려는 테넌트를 선택합니다.
 
 ## <a name="create-and-register-an-application"></a>응용 프로그램 만들기 및 등록
 
-다음으로 B2C 디렉터리에서 앱을 만들고 등록해야 합니다. Azure AD B2C가 앱과 안전하게 통신하는 데 필요한 정보를 제공합니다. 
+다음으로 Azure AD B2C 테넌트에서 앱을 만들고 등록해야 합니다. Azure AD B2C가 앱과 안전하게 통신하는 데 필요한 정보를 제공합니다. 
+
+Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다. 이제 이전에 맞는 테넌트를 사용해야 합니다.
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
@@ -93,7 +95,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 * `ida:ResetPasswordPolicyId`를 "암호 재설정" 정책 이름으로 바꿉니다.
 
 ## <a name="launch-the-app"></a>앱 시작
-Visual Studio 내에서 앱을 시작합니다. 할 일 목록 탭으로 이동합니다. URl는 https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....입니다.
+Visual Studio 내에서 앱을 시작합니다. 할 일 목록 탭으로 이동합니다. URl는 https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*입니다.
 
 메일 주소 또는 사용자 이름을 사용하여 앱에 등록합니다. 로그아웃한 다음 다시 로그인하고 프로필을 편집하거나 암호를 다시 설정합니다. 로그아웃했다가 다른 사용자로 로그인합니다. 
 
@@ -193,7 +195,7 @@ public partial class Startup
                     NameClaimType = "name"
                 },
 
-                // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
+                // Specify the scope by appending all of the scopes requested into one string (separated by a blank space)
                 Scope = $"openid profile offline_access {ReadTasksScope} {WriteTasksScope}"
             }
         );

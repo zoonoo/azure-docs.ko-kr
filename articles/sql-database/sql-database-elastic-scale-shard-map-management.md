@@ -2,19 +2,22 @@
 title: Azure SQL Database 규모 확장 | Microsoft Docs
 description: ShardMapManager 및 .NET용 탄력적 데이터베이스를 사용하는 방법
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/16/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 7e156142a68b30471646ea3a9181ce7d0097e626
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 03/16/2018
+ms.openlocfilehash: 71496a11deff5236161931d572e75d4a84b75c5f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646996"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162069"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장
 SQL Azure에서 데이터베이스를 쉽게 확장하려면 분할된 데이터베이스 맵 관리자를 사용합니다. 분할된 데이터베이스 맵 관리자는 분할된 데이터베이스 집합에서 모든 분할된 데이터베이스(데이터베이스)에 대한 전역 매핑 정보를 유지 관리하는 특수한 데이터베이스입니다. 메타데이터를 사용하면 응용 프로그램을 **분할 키**의 값에 따라 올바른 데이터베이스에 연결할 수 있습니다. 또한 집합에 있는 모든 분할된 데이터베이스는 로컬 분할된 데이터베이스 데이터를 추적하는 맵을 포함합니다( **shardlet**라고도 함). 
@@ -39,7 +42,7 @@ SQL Azure에서 데이터베이스를 쉽게 확장하려면 분할된 데이터
 
 ![범위 매핑][2]
 
-또는 다중 테넌트를 단일 데이터베이스에 할당하는 *목록 매핑* 을 사용하여 다중 테넌트 데이터베이스 모델을 구현할 수 있습니다. 예를 들어 DB1은 테넌트 ID 1과 5에 대한 정보를 저장하는 데 사용하고 DB2는 테넌트 7과 테넌트 10의 데이터를 저장합니다. 
+또는 다중 테넌트를 단일 데이터베이스에 할당하는 *목록 매핑*을 사용하여 다중 테넌트 데이터베이스 모델을 구현할 수 있습니다. 예를 들어 DB1은 테넌트 ID 1과 5에 대한 정보를 저장하는 데 사용하고 DB2는 테넌트 7과 테넌트 10의 데이터를 저장합니다. 
 
 ![단일 DB의 다중 테넌트][3] 
 
@@ -60,7 +63,7 @@ Elastic Scale은 분할 키로 다음의 형식을 지원합니다.
 분할된 데이터베이스 맵은 **개별 분할 키 값의 목록**이나 **분할 키 값의 범위**를 사용하여 생성할 수 있습니다. 
 
 ### <a name="list-shard-maps"></a>목록 분할된 데이터베이스 맵
-**분할된 데이터베이스**에는 **shardlet**이 포함되며, 분할된 데이터베이스에 대한 shardlet 매핑은 분할된 데이터베이스 맵을 통해 유지 관리됩니다. **목록 분할된 데이터베이스 맵** 은 shardlet을 식별하는 개별 키 값과 분할된 데이터베이스로 사용되는 데이터베이스 간의 연결입니다.  **목록 매핑** 은 동일한 데이터베이스에 매핑될 수 있는 명시적이고 서로 다른 키 값입니다. 예를 들어 키 1은 데이터베이스 A에 매핑되고 키 값 3과 6은 모두 데이터베이스 B를 참조합니다.
+**분할된 데이터베이스**에는 **shardlet**이 포함되며, 분할된 데이터베이스에 대한 shardlet 매핑은 분할된 데이터베이스 맵을 통해 유지 관리됩니다. **목록 분할된 데이터베이스 맵** 은 shardlet을 식별하는 개별 키 값과 분할된 데이터베이스로 사용되는 데이터베이스 간의 연결입니다.  **목록 매핑** 은 동일한 데이터베이스에 매핑될 수 있는 명시적이고 서로 다른 키 값입니다. 예를 들어 키 값 1은 데이터베이스 A에 매핑되고, 키 값 3과 6은 데이터베이스 B에 매핑됩니다.
 
 | 키 | 분할된 데이터베이스 위치 |
 | --- | --- |
@@ -97,7 +100,7 @@ Elastic Scale은 분할 키로 다음의 형식을 지원합니다.
 
 **참고:** **ShardMapManager**는 응용 프로그램용 초기화 코드 내에서 앱 도메인별로 한 번만 인스턴스화해야 합니다. 동일한 AppDomain에서 ShardMapManager의 추가 인스턴스를 만들면 응용 프로그램의 메모리와 CPU 사용률이 증가합니다. **ShardMapManager** 는 분할된 데이터베이스 맵을 개수와 관계없이 포함할 수 있습니다. 많은 응용 프로그램의 경우 단일 분할된 데이터베이스 맵으로 충분할 수 있지만 서로 다른 스키마에 대해서 또는 고유성을 위해서는 서로 다른 데이터베이스 집합이 사용되며 이러한 경우 다중 분할된 데이터베이스 맵을 사용하는 것이 좋습니다. 
 
-이 코드는 응용 프로그램에서 TryGetSqlShardMapManager([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) 메서드를 사용하여 기존 **ShardMapManager**를 열려고 합니다. GSM(전역 **ShardMapManager**)을 나타내는 개체가 아직 데이터베이스 내에 없는 경우 클라이언트 라이브러리에서 CreateSqlShardMapManager([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) 메서드를 사용하여 해당 개체를 데이터베이스에 만듭니다.
+이 코드는 응용 프로그램에서 TryGetSqlShardMapManager([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) 메서드를 사용하여 기존 **ShardMapManager**를 열려고 합니다. GSM(글로벌 **ShardMapManager**)을 나타내는 개체가 아직 데이터베이스 내에 없는 경우 클라이언트 라이브러리에서 CreateSqlShardMapManager([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) 메서드를 사용하여 해당 개체를 데이터베이스에 만듭니다.
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.
@@ -221,7 +224,7 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 
 이러한 메서드는 분할된 데이터베이스 환경에서 데이터의 전반적인 분산을 수정하기 위해 사용할 수 있는 구성 요소로 함께 작동합니다.  
 
-* 분할된 데이터베이스를 추가하거나 제거하려면 Shardmap([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx)) 클래스의 **CreateShard**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.createshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)) 및 **DeleteShard**([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.deleteshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx))를 사용합니다. 
+* 분할된 데이터베이스를 추가하거나 제거하려면 shardmap([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx)) 클래스의 **CreateShard**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.createshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)) 및 **DeleteShard**([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.deleteshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx))를 사용합니다. 
   
     이러한 작업을 실행하려면 대상 분할된 데이터베이스를 나타내는 서버 및 데이터베이스가 이미 있어야 합니다. 이러한 메서드는 데이터베이스 자체가 아닌 분할된 데이터베이스 맵의 메타데이터에만 적용됩니다.
 * 분할된 데이터베이스에 매핑되는 지점 또는 범위를 만들거나 제거하려면 RangeShardMapping([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) 클래스의 **CreateRangeMapping**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.createrangemapping), [.NET](https://msdn.microsoft.com/library/azure/dn841993.aspx)), **DeleteMapping**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.deletemapping), [.NET](https://msdn.microsoft.com/library/azure/dn824200.aspx)) 및 ListShardMap([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn842123.aspx)) 클래스의 **CreatePointMapping**([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map.createpointmapping), [.NET](https://msdn.microsoft.com/library/azure/dn807218.aspx))을 사용합니다.

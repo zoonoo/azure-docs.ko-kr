@@ -1,105 +1,96 @@
 ---
-title: 논리 앱에서 Twitter 커넥터를 사용하는 방법 알아보기 | Microsoft Docs
-description: REST API 매개 변수를 사용하는 Twitter 커넥터 개요
-services: ''
-documentationcenter: ''
+title: Azure Logic Apps에서 Twitter에 연결 | Microsoft Docs
+description: Azure Logic Apps를 사용하여 Twitter 계정에서 트윗을 모니터링 및 관리하고, 팔로워, 자신이 팔로우하는 사용자, 다른 사용자, 타임라인 등에 대한 데이터를 가져오는 작업 및 워크플로 자동화
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
-ms.service: multiple
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: b44a973a94043f71f2fd9803abca47652363d8a1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296546"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230662"
 ---
-# <a name="get-started-with-the-twitter-connector"></a>Twitter 커넥터 시작
-Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
+# <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Twitter 모니터링 및 관리
 
-* 트윗 게시 및 트윗 가져오기
-* 타임라인, 친구 및 팔로워에 액세스
-* 이 아티클에 설명된 기타 작업 및 트리거 수행
+Azure Logic Apps 및 Twitter 커넥터를 사용하면 다음과 같이 다른 작업과 함께 트윗, 팔로워, 사용자 및 팔로우하는 사용자, 타임라인 등과 같이 Twitter에서 관심 있는 데이터를 모니터링하고 관리하는 자동화된 작업 및 워크플로를 만들 수 있습니다.
 
-[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/quickstart-create-first-logic-app-workflow.md) 시작할 수 있습니다.  
+* 트윗을 모니터링, 게시 및 검색합니다.
+* 팔로워, 팔로우하는 사용자, 타임라인 등과 같은 데이터를 가져옵니다.
+
+트리거를 사용하여 Twitter 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Twitter 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Twitter 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 특정 해시태그가 있는 새 트윗이 표시되면 Slack 커넥터를 사용하여 메시지를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+
+* Twitter 계정 및 사용자 자격 증명
+
+   자격 증명을 통해 Twitter 계정에 대한 연결을 만들고 액세스하는 권한이 논리 앱에 부여됩니다.
+
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
+
+* Twitter 계정에 액세스하려는 논리 앱입니다. Twitter 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). Twitter 동작을 사용하려면 예를 들어 **되풀이** 트리거 같은 다른 트리거를 통해 논리 앱을 시작합니다.
 
 ## <a name="connect-to-twitter"></a>Twitter에 연결
-논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. [연결](connectors-overview.md)은 논리 앱과 다른 서비스 간의 연결을 제공합니다.  
 
-### <a name="create-a-connection-to-twitter"></a>Twitter에 대한 연결 만들기
-> [!INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## <a name="use-a-twitter-trigger"></a>Twitter 트리거 사용
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
-이 예제에서는 **새 트윗이 게시될 때** 트리거를 사용하여 #Seattle을 검색합니다. #Seattle이 발견되면 Dropbox에 있는 파일을 트윗의 텍스트로 업데이트합니다. 엔터프라이즈 예에서는 회사 이름을 검색하고 SQL 데이터베이스를 트윗의 텍스트로 업데이트할 수 있습니다.
+1. 경로를 선택합니다. 
 
-1. 논리 앱 디자이너의 검색 상자에 *twitter*를 입력한 후 **Twitter - 새 트윗이 게시될 때** 트리거를 선택합니다.   
-   ![Twitter 트리거 이미지 1](./media/connectors-create-api-twitter/trigger-1.png)  
-2. **검색 텍스트** 컨트롤에 *#Seattle*을 입력합니다.  
-   ![Twitter 트리거 이미지 2](./media/connectors-create-api-twitter/trigger-2.png) 
+   * 빈 논리 앱의 경우 검색 상자에서 필터로 “twitter”를 입력합니다. 
+   트리거 목록에서 원하는 트리거를 선택합니다. 
 
-이제, 논리 앱은 워크플로의 다른 트리거 및 동작의 실행을 시작하는 트리거로 구성되었습니다. 
+     또는
 
-> [!NOTE]
-> 논리 앱이 작동하려면 하나 이상의 트리거와 작업이 있어야 합니다. 다음 섹션의 단계를 사용하여 작업을 추가합니다.
+   * 기존 논리 앱의 경우: 
+   
+     * 작업을 추가하려는 마지막 단계에서 **새 단계**를 선택합니다. 
 
-## <a name="add-a-condition"></a>조건 추가
-50명 이상의 사용자로부터 받은 트윗에만 관심이 있습니다. 따라서 팔로워 수가 논리 앱에 먼저 추가되었는지를 확인하는 조건입니다.  
+       또는
 
-1. **+ 새 단계**를 선택하여 새 트윗에 #Seattle이 있을 때 수행할 작업을 추가합니다.  
-   ![Twitter 작업 이미지 1](../../includes/media/connectors-create-api-twitter/action-1.png)  
-2. **조건 추가** 링크를 선택합니다.  
-   ![Twitter 조건 이미지 1](../../includes/media/connectors-create-api-twitter/condition-1.png)   
-   그러면 *같음*, *보다 작음*, *보다 큼*, *포함* 등과 같은 조건을 확인할 수 있는 **조건** 컨트롤이 열립니다.  
-   ![Twitter 조건 이미지 2](../../includes/media/connectors-create-api-twitter/condition-2.png)   
-3. **값 선택** 컨트롤을 선택합니다. 이 컨트롤에서는 이전 작업 또는 트리거 중 하나 이상의 속성을 선택할 수 있습니다. 이 속성 값의 조건은 true 또는 false로 평가됩니다.
-   ![Twitter 조건 이미지 3](../../includes/media/connectors-create-api-twitter/condition-3.png)   
-4. **...** 를 선택하여 속성 목록을 확장하면 사용 가능한 모든 속성을 볼 수 있습니다.        
-   ![Twitter 조건 이미지 4](../../includes/media/connectors-create-api-twitter/condition-4.png)   
-5. **팔로워 수** 속성을 선택합니다.    
-   ![Twitter 조건 이미지 5](../../includes/media/connectors-create-api-twitter/condition-5.png)   
-6. 이제 팔로워 수 속성이 값 컨트롤에 있는 것을 확인합니다.    
-   ![Twitter 조건 이미지 6](../../includes/media/connectors-create-api-twitter/condition-6.png)   
-7. 연산자 목록에서 **보다 큼**을 선택합니다.    
-   ![Twitter 조건 이미지 7](../../includes/media/connectors-create-api-twitter/condition-7.png)   
-8. *보다 큼* 연산자의 피연산자로 50을 입력합니다.  
-   이제 조건이 추가됩니다. 메뉴에서 **저장** 링크를 사용하여 작업을 저장합니다.    
-   ![Twitter 조건 이미지 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
+     * 작업을 추가하려는 단계 사이에서, 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
+     표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
+     
+       검색 상자에서 필터로 “twitter”를 입력합니다. 
+       작업 목록에서 원하는 작업을 선택합니다.
 
-## <a name="use-a-twitter-action"></a>Twitter 작업 사용
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-overview.md#logic-app-concepts)  
+1. Twitter에 로그인하라는 메시지가 표시되면 로그인합니다. 그러면 논리 앱에 대한 액세스 권한을 부여할 수 있습니다.
 
-이제 트리거가 있으므로 트리거에서 찾은 트윗의 내용으로 새 트윗을 게시하는 작업을 추가합니다. 이 연습은 50명 이상의 팔로워가 있는 사용자의 트윗만 게시합니다.  
+1. 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
 
-다음 단계에서는 50명 이상의 팔로워가 있는 사용자가 게시한 각 트윗의 일부 속성을 사용하여 트윗을 게시하는 Twitter 작업을 추가합니다.  
+## <a name="examples"></a>예
 
-1. **작업 추가**를 선택합니다. 이 단계에서는 다른 작업 및 트리거를 검색할 수 있는 검색 컨트롤을 엽니다.  
-   ![Twitter 조건 이미지 9](../../includes/media/connectors-create-api-twitter/condition-9.png)   
-2. 검색 상자에 *twitter*를 입력한 후 **Twitter - 트윗 게시** 작업을 선택합니다. 이 단계에서는 트윗에 대해 게시되는 모든 세부 사항을 입력할 **트윗 게시** 컨트롤을 엽니다.      
-   ![Twitter 작업 이미지 1-5](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
-3. **트윗 텍스트** 컨트롤을 선택합니다. 이제 논리 앱에서 이전 작업 및 트리거의 모든 출력이 표시됩니다. 이러한 출력 중 하나를 선택하여 새 트윗의 일부 트윗 텍스트로 사용할 수 있습니다.     
-   ![Twitter 작업 이미지 2](../../includes/media/connectors-create-api-twitter/action-2.png)   
-4. **사용자 이름**을 선택합니다.   
-5. 사용자 이름 바로 뒤에 있는 트윗 텍스트 컨트롤에 *says:* 를 입력합니다.
-6. *트윗 텍스트*를 선택합니다.       
-   ![Twitter 작업 이미지 3](../../includes/media/connectors-create-api-twitter/action-3.png)   
-7. 워크플로를 활성화하려면 작업을 저장하고 #Seattle 해시 태그로 트윗을 보냅니다.
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter 트리거: 새 트윗이 게시되는 경우
 
+이 트리거는 예를 들어 #Seattle이란 해시태그가 있는 새 트윗을 트리거에서 감지하면 논리 앱 워크플로를 시작합니다. 따라서 예를 들어 이러한 트윗을 찾으면 Dropbox 커넥터를 사용하여 Dropbox 계정과 같은 저장소에 트윗의 콘텐츠가 포함된 파일을 추가할 수 있습니다. 
 
-## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+필요에 따라 지정된 최소 팔로워가 있는 사용자의 트윗만 가져오도록 조건을 포함시킬 수 있습니다.
 
-[커넥터 세부 정보](/connectors/twitterconnector/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
+**엔터프라이즈 예제**: 이 트리거를 사용하여 회사에 대한 트윗을 모니터링하고 SQL 데이터베이스에 트윗의 콘텐츠를 업로드할 수 있습니다.
+
+### <a name="twitter-action-post-a-tweet"></a>Twitter 작업: 트윗 게시
+
+이 작업은 트윗을 게시하되, 앞에서 설명한 트리거에서 찾은 트윗의 콘텐츠만 포함하도록 작업을 사용자가 설정할 수 있습니다. 
+
+## <a name="connector-reference"></a>커넥터 참조
+
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/twitterconnector/)를 검토하세요.
+
+## <a name="get-support"></a>지원 받기
+
+* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

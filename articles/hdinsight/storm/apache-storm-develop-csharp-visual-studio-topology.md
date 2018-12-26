@@ -1,30 +1,24 @@
 ---
-title: Visual Studio 및 C#을 사용하는 Apache Storm 토폴로지 - Azure HDInsight | Microsoft Docs
+title: Visual Studio 및 C#을 사용하는 Apache Storm 토폴로지 - Azure HDInsight
 description: C#으로 Storm 토폴로지를 만드는 방법을 알아봅니다. Visual Studio 용 Hadoop 도구를 사용하여 Visual Studio에서 간단한 단어 카운트 토폴로지를 만듭니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: ''
-ms.devlang: java
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7eae8aa25546fb94bbf7d006063f44f3b6e51a15
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 6f26ec6f1743a72a4a396ba245d80227f6f75913
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018799"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584284"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Data Lake tools for Visual Studio를 사용하여 Apache Storm의 C# 토폴로지 개발
 
-Azure Data Lake(Hadoop) Tools for Visual Studio를 사용하여 C# Storm 토폴로지를 만드는 방법에 대해 알아봅니다. 이 문서는 Visual Studio에서 Storm 프로젝트를 만들고, 프로젝트를 로컬로 테스트하고, Azure HDInsight 클러스터에서 Apache Storm에 배포하는 과정을 보여 줍니다.
+Visual Studio용 Azure Data Lake(Apache Hadoop) 도구를 사용하여 C# Apache Storm 토폴로지를 만드는 방법을 알아봅니다. 이 문서는 Visual Studio에서 Storm 프로젝트를 만들고, 프로젝트를 로컬로 테스트하고, Azure HDInsight 클러스터에서 Apache Storm에 배포하는 과정을 보여 줍니다.
 
 또한 C# 및 Java 구성 요소를 사용하는 하이브리드 토폴로지를 만드는 방법에 대해서도 배웁니다.
 
@@ -33,7 +27,7 @@ Azure Data Lake(Hadoop) Tools for Visual Studio를 사용하여 C# Storm 토폴�
 
 Linux 기반 클러스터에 C# 토폴로지를 사용하려면 프로젝트에 사용되는 Microsoft.SCP.Net.SDK NuGet 패키지를 0.10.0.6 버전 이상으로 업데이트해야 합니다. 패키지 버전은 HDInsight에 설치된 Storm의 주 버전과도 일치해야 합니다.
 
-| HDInsight 버전 | Storm 버전 | SCP.NET 버전 | 기본 모노 버전 |
+| HDInsight 버전 | Apache Storm 버전 | SCP.NET 버전 | 기본 모노 버전 |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
 | 3.3 |0.10.x |0.10.x.x</br>(Windows 기반 HDInsight만 해당) | 해당 없음 |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
@@ -49,7 +43,7 @@ Linux 기반 클러스터에 C# 토폴로지를 사용하려면 프로젝트에 
 
 * Visual Studio 2012 업데이트 4
 
-* Visual Studio 2013 업데이트 4 또는 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+* Visual Studio 2013 업데이트 4 또는 [Visual Studio 2013 Community](https://go.microsoft.com/fwlink/?LinkId=517284)
 
 * Visual Studio 2015 또는 [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
@@ -63,7 +57,7 @@ Data Lake tools for Visual Studio를 설치하려면 [Data Lake tools for Visual
 
 Visual Studio에서 Storm 토폴로지를 제출하면 SCP.NET은 토폴로지 및 종속성이 포함된 zip 파일을 생성합니다. Java는 Linux 기반 클러스터와 호환이 더 잘되는 형식을 사용하기 때문에 이러한 zip 파일을 만드는 데 사용됩니다.
 
-1. 개발 환경에 JDK(Java Developer Kit) 7 이상을 설치합니다. Oracle JDK는 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html)에서 가져올 수 있습니다. [다른 Java 배포](http://openjdk.java.net/)를 사용할 수도 있습니다.
+1. 개발 환경에 JDK(Java Developer Kit) 7 이상을 설치합니다. Oracle JDK는 [Oracle](https://aka.ms/azure-jdks)에서 가져올 수 있습니다. [다른 Java 배포](http://openjdk.java.net/)를 사용할 수도 있습니다.
 
 2. `JAVA_HOME` 환경 변수가 Java가 포함된 디렉터리를 가리켜야 합니다.
 
@@ -76,40 +70,40 @@ using System;
 using System.IO;
 namespace ConsoleApplication2
 {
-   class Program
-   {
-       static void Main(string[] args)
-       {
-           string javaHome = Environment.GetEnvironmentVariable(“JAVA_HOME”);
-           if (!string.IsNullOrEmpty(javaHome))
-           {
-               string jarExe = Path.Combine(javaHome + @”\bin”, “jar.exe”);
-               if (File.Exists(jarExe))
-               {
-                   Console.WriteLine(“JAVA Is Installed properly”);
-                    return;
-               }
-               else
-               {
-                   Console.WriteLine(“A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.”);
-               }
-           }
-           else
-           {
-             Console.WriteLine(“A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.”);
-           }
-       }  
-   }
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine("JAVA Is Installed properly");
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
+               }
+           }
+           else
+           {
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
+           }
+       }  
+   }
 }
 ```
 
-## <a name="storm-templates"></a>Storm 템플릿
+## <a name="apache-storm-templates"></a>Apache Storm 템플릿
 
 Data Lake Tools for Visual Studio는 다음 템플릿을 제공합니다.
 
 | 프로젝트 형식 | 데모 |
 | --- | --- |
-| Storm 응용 프로그램 |빈 Storm 토폴로지 프로젝트 |
+| Storm 애플리케이션 |빈 Storm 토폴로지 프로젝트 |
 | Storm Azure SQL 기록기 샘플 |Azure SQL Database에 쓰는 방법 |
 | Storm Azure Cosmos DB 판독기 샘플 |Azure Cosmos DB에서 읽는 방법 |
 | Storm Azure Cosmos DB 기록기 샘플 |Azure Cosmos DB에 기록하는 방법 |
@@ -125,7 +119,7 @@ Data Lake Tools for Visual Studio는 다음 템플릿을 제공합니다.
 
 이 문서의 단계에서는 기본 Storm 응용 프로그램 프로젝트 형식을 사용하여 토폴로지를 만들 수 있습니다.
 
-### <a name="hbase-templates-notes"></a>HBase 템플릿 정보
+### <a name="apache-hbase-templates-notes"></a>Apache HBase 템플릿 정보
 
 HBase 판독기 및 기록기 템플릿은 HBase Java API가 아니라 HBase REST API를 사용하여 HDInsight 클러스터의 HBase와 통신합니다.
 
@@ -140,7 +134,7 @@ HBase 판독기 및 기록기 템플릿은 HBase Java API가 아니라 HBase RES
 
 1. Visual Studio를 열고 **파일** > **새로 만들기**를 선택한 다음 **프로젝트**를 선택합니다.
 
-2. **새 프로젝트** 창에서 **설치됨** > **템플릿**을 확장하고 **Azure Data Lake**를 선택합니다. 템플릿 목록에서 **Storm 응용 프로그램**을 선택합니다. 화면 아래쪽에서 응용 프로그램 이름으로 **WordCount** 를 입력합니다.
+2. **새 프로젝트** 창에서 **설치됨** > **템플릿**을 확장하고 **Azure Data Lake**를 선택합니다. 템플릿 목록에서 **Storm 애플리케이션**을 선택합니다. 화면 아래쪽에서 애플리케이션 이름으로 **WordCount**를 입력합니다.
 
     ![새 프로젝트 창의 스크린샷](./media/apache-storm-develop-csharp-visual-studio-topology/new-project.png)
 
@@ -571,7 +565,7 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
 > [!WARNING]
 > 로컬 테스트는 기본 C# 전용 토폴로지에서만 작동합니다. 하이브리드 토폴로지나 여러 스트림을 사용하는 토폴로지에는 로컬 테스트를 사용할 수 없습니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 프로젝트 속성에서 **출력 유형**을 **콘솔 응용 프로그램**으로 변경합니다.
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 프로젝트 속성에서 **출력 유형**을 **콘솔 애플리케이션**으로 변경합니다.
 
     ![출력 유형이 강조 표시된 프로젝트 속성의 스크린샷](./media/apache-storm-develop-csharp-visual-studio-topology/outputtype.png)
 
@@ -760,14 +754,14 @@ HDInsight 사용 방법 및 HDInsight의 Storm에 대한 추가 샘플은 다음
 **HDInsight의 Apache Storm**
 
 * [HDInsight에서 Apache Storm을 사용하는 토폴로지 배포 및 모니터링](apache-storm-deploy-monitor-topology.md)
-* [HDInsight의 Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)
+* [HDInsight의 Apache Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)
 
 **HDInsight의 Apache Hadoop**
 
-* [HDInsight에서 Hadoop과 Hive 사용](../hadoop/hdinsight-use-hive.md)
-* [HDInsight에서 Hadoop과 Pig 사용](../hadoop/hdinsight-use-pig.md)
-* [HDInsight에서 Hadoop과 MapReduce 사용](../hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](../hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](../hadoop/hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hadoop MapReduce 사용](../hadoop/hdinsight-use-mapreduce.md)
 
 **HDInsight의 Apache HBase**
 
-* [HDInsight에서 HBase 시작](../hbase/apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight에서 Apache HBase 시작](../hbase/apache-hbase-tutorial-get-started-linux.md)

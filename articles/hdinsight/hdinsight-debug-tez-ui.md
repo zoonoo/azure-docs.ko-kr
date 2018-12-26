@@ -1,27 +1,23 @@
 ---
-title: Windows 기반 HDInsight에서 Tez UI 사용 - Azure | Microsoft Docs
-description: Windows 기반 HDInsight 클러스터에서 Tez UI를 사용하여 Tez 작업 디버깅하는 방법을 알아봅니다.
+title: Windows 기반 HDInsight에서 Apache Tez UI 사용 - Azure
+description: Windows 기반 HDInsight에서 Apache Tez UI를 사용하여 Tez 작업을 디버깅하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: a55bccb9-7c32-4ff2-b654-213a2354bd5c
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: larryfr
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4201fb76ef9b0e711fd48972db86c356d72e6671
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1e529b2276d2e68c67696ba9d142760f5881a25e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406510"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012813"
 ---
-# <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows 기반 HDInsight 클러스터에서 Tez UI를 사용하여 Tez 작업 디버깅
-Tez UI는 실행 엔진으로 Tez를 사용하는 Hive 작업을 디버그하는 데 사용할 수 있습니다. Tez UI를 사용하면 연결된 항목의 그래프로 작업을 시각화하고 각 항목을 자세히 알아보며 통계 및 로깅 정보를 검색할 수 있습니다.
+# <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache Tez UI를 사용하여 Tez 작업 디버깅
+[Apache TEZ](https://tez.apache.org/) UI는 Tez를 실행 엔진으로 사용하는 [Apache Hive](https://hive.apache.org/) 작업을 디버그하는 데 사용할 수 있습니다. Tez UI를 사용하면 연결된 항목의 그래프로 작업을 시각화하고 각 항목을 자세히 알아보며 통계 및 로깅 정보를 검색할 수 있습니다.
 
 > [!IMPORTANT]
 > 이 문서의 단계에는 Windows를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -30,13 +26,13 @@ Tez UI는 실행 엔진으로 Tez를 사용하는 Hive 작업을 디버그하는
 * Windows 기반 HDInsight 클러스터입니다. 새 클러스터를 만드는 단계는 [Windows 기반 HDInsight 사용 시작](hdinsight-hadoop-tutorial-get-started-windows.md)을 참조하세요.
 
   > [!IMPORTANT]
-  > Tez UI는 2016년 2월 8일 이후에 작성된 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다.
+  > Apache Tez UI는 2016년 2월 8일 이후에 만들어진 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다.
   >
   >
 * Windows 기반 원격 데스크톱 클라이언트입니다.
 
-## <a name="understanding-tez"></a>Tez 이해
-Tez는 Hadoop의 데이터 처리에 대해 확장 가능한 프레임워크로, 기존 MapReduce 처리보다 빠른 속도를 제공합니다. 다음 텍스트를 Hive 쿼리의 일부로 포함하여 Tez를 사용하도록 설정할 수 있습니다.
+## <a name="understanding-apache-tez"></a>Apache Tez 이해
+Tez는 Apache Hadoop의 데이터 처리를 위한 확장 가능한 프레임워크이며, 기존 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 처리보다 빠른 속도를 제공합니다. 다음 텍스트를 Hive 쿼리의 일부로 포함하여 Tez를 사용하도록 설정할 수 있습니다.
 
     set hive.execution.engine=tez;
 
@@ -138,6 +134,6 @@ Tez를 사용하는 Hive 쿼리를 실행하려면 다음 단계를 사용합니
     ![태스크 세부 정보](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## <a name="next-steps"></a>다음 단계
-이제 Tez 뷰를 사용하는 방법을 배웠으므로 [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)에 대해 자세히 알아봅니다.
+[Apache TEZ](https://tez.apache.org/) 보기를 사용하는 방법을 알아보았으면 [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)에 대해 자세히 알아세요.
 
-Tez에서 자세한 기술 정보는 [Hortonworks의 Tez 페이지](http://hortonworks.com/hadoop/tez/)를 참조하세요.
+Tez에 대한 자세한 기술 정보는 [Hortonworks의 Apache Tez 페이지](https://hortonworks.com/hadoop/tez/)를 참조하세요.

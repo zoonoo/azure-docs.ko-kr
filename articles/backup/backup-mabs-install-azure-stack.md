@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: eda3e95c1bd8fb7eef97ee9db10c217c2885198f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970886"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576700"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -310,7 +310,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Azu
 
 ## <a name="add-backup-storage"></a>백업 저장소 추가
 
-첫 번째 백업 복사본은 Azure Backup 서버 컴퓨터에 연결된 저장소에 보관됩니다. 디스크 추가에 대한 자세한 내용은 [최신 백업 저장소 추가](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801)를 참조합니다.
+첫 번째 백업 복사본은 Azure Backup 서버 컴퓨터에 연결된 저장소에 보관됩니다. 디스크 추가에 대한 자세한 내용은 [최신 백업 저장소 추가](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801)를 참조합니다.
 
 > [!NOTE]
 > 데이터를 Azure에 전송하려는 경우에도 백업 저장소를 추가해야 합니다. Azure Backup Server 아키텍처에서, Recovery Services 자격 증명 모음에는 데이터의 *두 번째* 복사본이 보관되고 로컬 저장소에는 첫 번째(및 필수) 백업 복사본이 보관됩니다.
@@ -360,10 +360,10 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
 
 ## <a name="next-steps"></a>다음 단계
 
-[DPM을 위한 환경 준비](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801) 문서에는 지원되는 Azure Backup Server 구성에 대한 정보가 포함되어 있습니다.
+[DPM을 위한 환경 준비](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801) 문서에는 지원되는 Azure Backup Server 구성에 대한 정보가 포함되어 있습니다.
 
 다음 문서를 통해 Microsoft Azure Backup Server를 사용한 워크로드 보호에 대해 좀 더 자세히 알아볼 수 있습니다.
 
-- [SQL Server 백업](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
-- [SharePoint 서버 백업](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [SQL Server 백업](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+- [SharePoint 서버 백업](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [대체 서버 백업](backup-azure-alternate-dpm-server.md)

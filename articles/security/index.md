@@ -2,8 +2,8 @@
 title: Azure Security 설명서 | Microsoft Docs
 description: 보안은 Azure의 모든 측면에 통합됩니다. Azure는 글로벌 보안 인텔리전스, 정교한 고객 관련 컨트롤 및 강화된 보안 인프라로 인한 고유한 보안 장점을 제공합니다. 이 강력한 조합을 통해 응용 프로그램 및 데이터를 보호하고 규정 준수 활동을 지원하며, 모든 규모의 조직에 비용 효율적인 보안을 제공합니다.
 services: security
-author: czeumault
-manager: carolz
+author: arob98
+manager: angrobe
 layout: LandingPage
 ms.assetid: ''
 ms.service: security
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
-ms.author: carolz
-ms.openlocfilehash: ceabc623963acd469a2e4694cb412828dc511100
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: angrobe
+ms.openlocfilehash: 98cb089baa759b6569d1e1e06c90022eb75f5355
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113795"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228117"
 ---
 # <a name="azure-security-documentation"></a>Azure 보안 설명서
 
@@ -57,7 +57,7 @@ ms.locfileid: "37113795"
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="http://aka.ms/sharedresponsibility">
+        <a href="https://aka.ms/sharedresponsibility">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -172,13 +172,16 @@ ms.locfileid: "37113795"
                         <h3>백서</h3>
                         <ul class="noBullet">
                             <li style="list-style: none;">
-                                <a class="barLink" href="http://aka.ms/SecurityResponsepaper">클라우드에서 Azure 보안 대응</a>
+                                <a class="barLink" href="https://aka.ms/SecurityResponsepaper">클라우드에서 Azure 보안 대응</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-threat-detection">Azure 지능형 위협 탐지</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-network-security">Azure 네트워크 보안</a>
+                                <a class="barLink" href="/azure/security/abstract-azure-network-security">Azure 네트워크 보안</a>
+                            </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/abstract-container-security-microsoft-azure">Microsoft Azure의 컨테이너 보안</a>
                             </li>
                         </ul>
                     </div>
@@ -194,6 +197,9 @@ ms.locfileid: "37113795"
                         <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_guidelines.svg" alt="" /></div>
                         <h3>모범 사례</h3>
                         <ul class="noBullet">
+                            <li style="list-style: none;">
+                                <a class="barLink" href="https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/">Azure 보안 모범 사례</a>
+                            </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-security-network-security-best-practices">네트워크 보안</a>
                             </li>
@@ -445,7 +451,7 @@ ms.locfileid: "37113795"
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/information-protection/understand-explore/what-is-information-protection">
+        <a href="/azure/information-protection/what-is-information-protection">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">

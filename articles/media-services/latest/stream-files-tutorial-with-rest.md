@@ -1,29 +1,29 @@
 ---
-title: Azure Media Services를 사용하여 업로드, 인코딩 및 스트리밍 | Microsoft Docs
+title: Azure Media Services를 사용하여 업로드, 인코딩 및 스트리밍 - REST | Microsoft Docs
 description: 이 자습서의 단계에 따라 REST를 사용하여 Azure Media Services에서 파일을 업로드하고, 비디오를 인코딩하고, 콘텐츠를 스트림합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: 0faed5d72002f24d7be7602c5f16c18e66a0089e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308616"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615775"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>자습서: REST를 사용하여 비디오 업로드, 인코딩 및 스트림
 
-이 자습서에서는 Azure Media Services를 사용하여 비디오 파일을 업로드, 인코딩 및 스트림하는 방법을 보여 줍니다.
+Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에서 재생할 수 있는 형식으로 미디어 파일을 인코딩할 수 있습니다. 예를 들어 콘텐츠를 Apple의 HLS 또는 MPEG DASH 형식으로 스트림할 수 있습니다. 스트림하기 전에 고품질 디지털 미디어 파일을 인코딩해야 합니다. 인코딩 지침은 [인코딩 개념](encoding-concept.md)을 참조하세요.
 
-Media Services를 사용하면 다양한 브라우저 및 장치에서 재생할 수 있는 형식으로 미디어 파일을 인코딩할 수 있습니다. 예를 들어 Apple의 HLS 또는 MPEG DASH 형식으로 콘텐츠를 스트림할 수 있습니다. 스트림하기 전에 고품질 디지털 미디어 파일을 인코딩해야 합니다. 인코딩 지침은 [인코딩 개념](encoding-concept.md)을 참조하세요.
+이 자습서에서는 REST를 사용하는 Azure Media Services에서 비디오 파일을 업로드하고, 인코딩하고, 스트리밍하는 방법을 보여줍니다. 
 
 ![비디오 재생](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -42,6 +42,14 @@ Media Services를 사용하면 다양한 브라우저 및 장치에서 재생할
 
 ## <a name="prerequisites"></a>필수 조건
 
+- CLI를 로컬로 설치하여 사용하기 위해 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+
+    현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령만 Azure Cloud Shell에서 작동합니다. CLI를 로컬로 사용하는 것이 좋습니다.
+
+- [Media Services 계정 만들기](create-account-cli-how-to.md)
+
+    리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
+
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 일부 AMS REST 자습서에 표시되는 REST API를 실행합니다. 
 
     지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
@@ -53,10 +61,6 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -77,16 +81,17 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
     > [!Note]
     > 액세스 변수를 위의 **Media Services API 액세스** 섹션에서 가져온 값으로 업데이트합니다.
 
-7. 대화 상자를 닫습니다.
-8. 드롭다운에서 **Azure Media Service v3 Environment** 환경을 선택합니다.
+7. 선택한 파일을 두 번 클릭하고[API 액세스](#access-the-media-services-api) 단계를 수행하여 가져온 값을 입력합니다.
+8. 대화 상자를 닫습니다.
+9. 드롭다운에서 **Azure Media Service v3 Environment** 환경을 선택합니다.
 
     ![환경 선택](./media/develop-with-postman/choose-env.png)
    
 ### <a name="configure-the-collection"></a>컬렉션 구성
 
 1. **가져오기**를 클릭하여 컬렉션 파일을 가져옵니다.
-1. `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`을 복제할 때 다운로드한 `Media Services v3 (2018-03-30-preview).postman_collection.json` 파일을 찾습니다.
-3. **Media Services v3(2018-03-30-preview).postman_collection.json** 파일을 선택합니다.
+1. `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`을 복제할 때 다운로드한 `Media Services v3.postman_collection.json` 파일을 찾습니다.
+3. **Media Services v3.postman_collection.json** 파일을 선택합니다.
 
     ![파일 가져오기](./media/develop-with-postman/postman-import-collection.png)
 
@@ -128,15 +133,25 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 2. 그런 다음, "자산 만들기 또는 업데이트"를 선택합니다.
 3. **보내기**를 누릅니다.
 
-    다음 **PUT** 작업을 보냅니다.
+    * 다음 **PUT** 작업을 보냅니다.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
+        ```
+    * 작업에는 다음 본문이 포함됩니다.
+
+        ```json
+        {
+        "properties": {
+            "description": "My Asset",
+            "alternateId" : "some GUID"
+         }
+        }
+        ```
 
 ### <a name="create-a-transform"></a>변환 만들기
 
-Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job**을 제출합니다. 새로운 비디오에 대해 새 Job을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform**이라고 합니다. 자세한 내용은 [Transform 및 Job](transform-concept.md)을 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 장치로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
+Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job**을 제출합니다. 새로운 비디오에 대해 새 Job을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform**이라고 합니다. 자세한 내용은 [Transform 및 Job](transform-concept.md)을 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 디바이스로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
 
 새로운 [Transform](https://docs.microsoft.com/rest/api/media/transforms) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. 필요한 매개 변수는 **TransformOutput** 개체입니다. 각 **TransformOutput**에는 **Preset**이 포함됩니다. **Preset**은 원하는 **TransformOutput**을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 자습서에서 설명하는 샘플은 **AdaptiveStreaming**이라는 기본 제공 Preset을 사용합니다. Preset은 입력 해상도 및 비트 전송률을 기반으로 자동 생성된 비트 전송률 사다리(비트 전송률-해상도 쌍)에 입력 비디오를 인코딩하고 각 비트 전송률-해상도 쌍에 해당하는 H.264 비디오 및 AAC 오디오가 포함된 ISO MP4 파일을 생성합니다. 이 Preset에 대한 정보는 [자동 생성된 비트 전송률 사다리](autogen-bitrate-ladder.md)를 참조하세요.
 
@@ -149,11 +164,30 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 2. 그런 다음, "변환 만들기"를 선택합니다.
 3. **보내기**를 누릅니다.
 
-    다음 **PUT** 작업을 보냅니다.
+    * 다음 **PUT** 작업을 보냅니다.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
+        ```
+    * 작업에는 다음 본문이 포함됩니다.
+
+        ```json
+        {
+            "properties": {
+                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "outputs": [
+                    {
+                    "onError": "StopProcessingJob",
+                "relativePriority": "Normal",
+                    "preset": {
+                        "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+                        "presetName": "AdaptiveStreaming"
+                    }
+                    }
+                ]
+            }
+        }
+        ```
 
 ### <a name="create-a-job"></a>작업 만들기
 
@@ -165,11 +199,32 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 2. 그런 다음, "작업 만들기 또는 업데이트"를 선택합니다.
 3. **보내기**를 누릅니다.
 
-    다음 **PUT** 작업을 보냅니다.
+    * 다음 **PUT** 작업을 보냅니다.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
+        ```
+    * 작업에는 다음 본문이 포함됩니다.
+
+        ```json
+        {
+        "properties": {
+            "input": {
+            "@odata.type": "#Microsoft.Media.JobInputHttp",
+            "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
+            "files": [
+                    "Ignite-short.mp4"
+                ]
+            },
+            "outputs": [
+            {
+                "@odata.type": "#Microsoft.Media.JobOutputAsset",
+                "assetName": "testAsset1"
+            }
+            ]
+        }
+        }
+        ```
 
 작업을 완료하는 데 시간이 다소 걸리기 때문에 완료되면 알림을 받는 것이 좋습니다. 작업 진행률을 보려면 Event Grid를 사용하는 것이 좋습니다. Event Grid는 고가용성, 일관된 성능 및 동적 크기 조정을 위해 설계되었습니다. Event Grid를 사용하면 앱이 사용자 지정 원본뿐만 아니라 거의 모든 Azure 서비스의 이벤트에 대해 수신 대기하고 대응할 수 있습니다. 간단한 HTTP 기반 반응형 이벤트 처리는 이벤트의 지능형 필터링 및 라우팅을 통해 효율적인 솔루션을 구축하는 데 도움이 됩니다.  [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](job-state-events-cli-how-to.md)을 참조하세요.
 
@@ -189,14 +244,24 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 Media Service 계정에는 StreamingPolicy 항목의 수에 대한 할당량이 있습니다. 각 StreamingLocator에 대해 새 StreamingPolicy를 만들지 말아야 합니다.
 
 1. Postman의 왼쪽 창에서 "스트리밍 정책"을 선택합니다.
-2. 그런 다음, "스트리밍 정책 만들기"를 선택합니다.
+2. 그런 다음, "스트리밍 로케이터 만들기"를 선택합니다.
 3. **보내기**를 누릅니다.
 
-    다음 **PUT** 작업을 보냅니다.
+    * 다음 **PUT** 작업을 보냅니다.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        ```
+    * 작업에는 다음 본문이 포함됩니다.
+
+        ```json
+        {
+            "properties":{
+            "assetName": "{{assetName}}",
+            "streamingPolicyName": "{{streamingPolicyName}}"
+            }
+        }
+        ```
 
 ### <a name="list-paths-and-build-streaming-urls"></a>경로 나열 및 스트리밍 URL 작성
 
@@ -208,40 +273,40 @@ Media Service 계정에는 StreamingPolicy 항목의 수에 대한 할당량이 
 2. 그런 다음, "경로 나열"을 선택합니다.
 3. **보내기**를 누릅니다.
 
-    다음 **POST** 작업을 보냅니다.
+    * 다음 **POST** 작업을 보냅니다.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
+        ```
+        
+    * 작업에는 본문이 포함되지 않습니다.
+        
 4. 스트리밍에 사용하려는 경로 중 하나를 적어 둡니다. 이 경로는 다음 섹션에서 사용합니다. 이 경우 다음 경로가 반환되었습니다.
     
     ```
-    {
-        "streamingPaths": [
-            {
-                "streamingProtocol": "Hls",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)"
-                ]
-            },
-            {
-                "streamingProtocol": "Dash",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=mpd-time-csf)"
-                ]
-            },
-            {
-                "streamingProtocol": "SmoothStreaming",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest"
-                ]
-            }
-        ],
-        "downloadPaths": []
-    }
+    "streamingPaths": [
+        {
+            "streamingProtocol": "Hls",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)"
+            ]
+        },
+        {
+            "streamingProtocol": "Dash",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=mpd-time-csf)"
+            ]
+        },
+        {
+            "streamingProtocol": "SmoothStreaming",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest"
+            ]
+        }
+    ]
     ```
 
 #### <a name="build-the-streaming-urls"></a>스트리밍 URL 작성
@@ -254,15 +319,26 @@ Media Service 계정에는 StreamingPolicy 항목의 수에 대한 할당량이 
     > 플레이어가 https 사이트에 호스트 될 경우 URL을 "https"로 업데이트해야 합니다.
 
 2. StreamingEndpoint의 호스트 이름입니다. 이 경우 이름은 "amsaccount-usw22.streaming.media.azure.net"입니다.
-3. 이전 섹션에서 가져온 경로입니다.  
+
+    호스트 이름을 가져오기 위해 다음 GET 작업을 사용할 수 있습니다.
+    
+    ```
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    ```
+    
+3. 이전 경로 나열 섹션에서 가져온 경로입니다.  
 
 결과적으로 다음 HLS URL이 작성되었습니다.
 
 ```
-https://amsaccount-usw22.streaming.media.azure.net/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)
+https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)
 ```
 
 ## <a name="test-the-streaming-url"></a>스트리밍 URL 테스트
+
+
+> [!NOTE]
+> 스트리밍하려는 스트리밍 엔드포인트가 실행 중인지 확인합니다.
 
 이 문서에서는 스트림을 테스트하기 위해 Azure Media Player를 사용합니다. 
 
@@ -280,11 +356,11 @@ Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다. **CloudShell** 도구를 사용하면 됩니다.
+이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다.  
 
-**CloudShell**에서 다음 명령을 실행합니다.
+다음 CLI 명령을 실행합니다.
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

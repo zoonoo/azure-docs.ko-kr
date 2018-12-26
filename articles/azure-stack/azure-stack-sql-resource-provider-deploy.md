@@ -11,33 +11,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 12/04/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: f53b1e08da1cb2d0dc02381bf47c27e8f84cb1d0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: quying
+ms.openlocfilehash: e1a52dffe0b87b140ee8f0da9379a33f8b071f39
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044835"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960671"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Azure Stack에 SQL Server 리소스 공급자 배포
+
 Azure Stack SQL Server 리소스 공급자를 사용 하 여 Azure Stack 서비스로 SQL 데이터베이스를 표시 합니다. SQL 리소스 공급자는 Windows Server 2016 Server Core 가상 머신 (VM)에서 서비스로 실행 됩니다.
+
+> [!IMPORTANT]
+> 항목을 만드는 서버에서 해당 호스트 SQL 또는 MySQL 리소스 공급자에만 사용할 수 있습니다. 리소스 공급자에 의해 생성 되지 않은 호스트 서버에서 생성 하는 항목 일치 하지 않는 상태가 될 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 Azure Stack SQL 리소스 공급자를 배포 하기 전에 준비에서 되어야 하는 몇 가지 필수 구성 요소가 있습니다. 이러한 요구 사항에 VM 권한 있는 끝점에 액세스할 수 있는 컴퓨터에서 다음 단계를 완료 합니다.
 
 - 따라서 아직 수행 하지 않은 경우 [Azure Stack 등록](azure-stack-registration.md) Azure 마켓플레이스 항목을 다운로드할 수 있도록 Azure를 사용 합니다.
-- 이 설치를 실행할 시스템에서 Azure 및 Azure Stack PowerShell 모듈을 설치 해야 합니다. 해당 시스템에는.NET 런타임의 최신 버전을 사용 하 여 Windows 10 또는 Windows Server 2016 이미지를 해야 합니다. 참조 [Azure Stack 용 PowerShell 설치](.\azure-stack-powershell-install.md)합니다.
-- 다운로드 하 여 Azure Stack marketplace에 필요한 Windows Server core VM을 추가 합니다 **Windows Server 2016 Datacenter Server Core** 이미지입니다. 
-- 이진 SQL 리소스 공급자를 다운로드 하 고 임시 디렉터리에 콘텐츠를 추출할 자동 압축 풀기 프로그램을 실행 합니다. 리소스 공급자에는 빌드를 최소 해당 Azure Stack에 있습니다. 실행 중인 Azure Stack의 버전에 대 한 올바른 이진 파일을 다운로드 해야 합니다.
+- 이 설치를 실행할 시스템에서 Azure 및 Azure Stack PowerShell 모듈을 설치 해야 합니다. 해당 시스템에는.NET 런타임의 최신 버전을 사용 하 여 Windows 10 또는 Windows Server 2016 이미지를 해야 합니다. 참조 [Azure Stack 용 PowerShell 설치](./azure-stack-powershell-install.md)합니다.
+- 다운로드 하 여 Azure Stack marketplace에 필요한 Windows Server core VM을 추가 합니다 **Windows Server 2016 Datacenter Server Core** 이미지입니다.
+- 이진 SQL 리소스 공급자를 다운로드 하 고 임시 디렉터리에 콘텐츠를 추출할 자동 압축 풀기 프로그램을 실행 합니다. 리소스 공급자에는 빌드를 최소 해당 Azure Stack에 있습니다.
 
-    |Azure Stack 버전|SQL RP 버전|
-    |-----|-----|
-    |버전 1804 (1.0.180513.1)|[SQL RP 1.1.24.0 버전](https://aka.ms/azurestacksqlrp1804)
-    |버전 1802 (1.0.180302.1)|[SQL RP 1.1.18.0 버전](https://aka.ms/azurestacksqlrp1802)|
-    |     |     |
+  |Azure Stack의 최소 버전|SQL RP 버전|
+  |-----|-----|
+  |버전 1808 (1.1808.0.97)|[SQL RP 1.1.30.0 버전](https://aka.ms/azurestacksqlrp11300)|
+  |버전 1804 (1.0.180513.1)|[SQL RP 1.1.24.0 버전](https://aka.ms/azurestacksqlrp11240)
+  |     |     |
 
 - 데이터 센터 통합 필수 구성 요소가 충족 되는지 확인 합니다.
 
@@ -45,12 +49,12 @@ Azure Stack SQL 리소스 공급자를 배포 하기 전에 준비에서 되어�
     |-----|-----|
     |조건부 DNS 전달이 올바르게 설정 됩니다.|[Azure Stack 데이터 센터 통합-DNS](azure-stack-integrate-dns.md)|
     |리소스 공급자에 대 한 인바운드 포트가 열려 있습니다.|[Azure 데이터 센터 통합 스택-끝점 게시](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI 인증서 주체 및 SAN이 올바르게 설정 됩니다.|[Azure Stack 배포 필수 PKI 필수 조건](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack 배포 PaaS 인증서 필수 구성 요소](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |PKI 인증서 주체 및 SAN이 올바르게 설정 됩니다.|[Azure Stack 배포 필수 PKI 필수 조건](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack 배포 PaaS 인증서 필수 구성 요소](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>인증서
 
-_통합된 시스템 설치용_합니다. 선택적 PaaS 인증서 섹션에서 설명한 SQL PaaS PKI 인증서를 제공 해야 합니다 [Azure Stack 배포에 대 한 PKI 요구 사항](.\azure-stack-pki-certs.md#optional-paas-certificates)합니다. 지정 된 위치에.pfx 파일을 배치 합니다 **DependencyFilesLocalPath** 매개 변수입니다. ASDK 시스템에 대 한 인증서를 제공 하지 않습니다.
+_통합된 시스템 설치용_합니다. 선택적 PaaS 인증서 섹션에서 설명한 SQL PaaS PKI 인증서를 제공 해야 합니다 [Azure Stack 배포에 대 한 PKI 요구 사항](./azure-stack-pki-certs.md#optional-paas-certificates)합니다. 지정 된 위치에.pfx 파일을 배치 합니다 **DependencyFilesLocalPath** 매개 변수입니다. ASDK 시스템에 대 한 인증서를 제공 하지 않습니다.
 
 ## <a name="deploy-the-sql-resource-provider"></a>SQL 리소스 공급자 배포
 
@@ -80,28 +84,35 @@ SQL 리소스 공급자를 배포 하려면 엽니다는 **새** 관리자 권�
 | **AzCredential** | Azure Stack에 대 한 자격 증명을 서비스 관리자 계정입니다. Azure Stack 배포에 사용한 동일한 자격 증명을 사용 합니다. | _필수_ |
 | **VMLocalCredential** | SQL 리소스 공급자 VM의 로컬 관리자 계정의 자격 증명입니다. | _필수_ |
 | **PrivilegedEndpoint** | IP 주소 또는 권한 있는 끝점의 DNS 이름입니다. |  _필수_ |
+| **AzureEnvironment** | Azure Stack을 배포 하기 위한 사용 하는 서비스 관리자 계정의 Azure 환경입니다. Azure AD 배포에만 필요합니다. 지원 되는 환경 이름은 **AzureCloud**를 **AzureUSGovernment**, 중국 Azure Active Directory를 사용 하는 경우 또는 **AzureChinaCloud**합니다. | AzureCloud |
 | **DependencyFilesLocalPath** | 통합된 시스템만을 위한 인증서.pfx 파일을이 디렉터리에 배치 되어야 합니다. 필요에 따라 하나의 Windows 업데이트 MSU이 패키지를 복사할 수 있습니다. | _선택적_ (_필수_ 통합 시스템용) |
 | **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호입니다. | _필수_ |
 | **MaxRetryCount** | 오류가 발생 하는 경우 각 작업을 다시 시도 하려는 횟수입니다.| 2 |
 | **RetryDuration** | 시간 (초)에서 재시도 사이의 시간 제한 간격입니다. | 120 |
-| **제거** | 리소스 공급자와 연결 된 모든 리소스 (아래 참고 참조)를 제거 합니다. | 아니요 |
-| **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아니요 |
+| **제거** | 리소스 공급자와 연결 된 모든 리소스 (아래 참고 참조)를 제거 합니다. | 아닙니다. |
+| **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아닙니다. |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>사용자 지정 스크립트를 사용 하 여 SQL 리소스 공급자 배포
 
-수동 구성 리소스 공급자를 배포 하는 경우을 제거 하려면 다음 스크립트를 사용자 지정할 수 있습니다. Azure Stack 배포에 필요한 기본 계정 정보 및 암호를 변경 합니다.
+수동 구성 리소스 공급자를 배포 하는 경우을 제거 하려면 다음 스크립트를 사용자 지정할 수 있습니다.  
+
+Azure Stack 배포에 필요한 기본 계정 정보 및 암호를 변경 합니다.
+
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module  -Name AzureStack -RequiredVersion 1.3.0
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.5.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -128,6 +139,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
     -PrivilegedEndpoint $privilegedEndpoint `
+    -AzureEnvironment $AzureEnvironment `
     -DefaultSSLCertificatePassword $PfxPass `
     -DependencyFilesLocalPath $tempDir\cert
 
@@ -143,8 +155,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 2. 선택 **리소스 그룹**합니다.
 3. 선택 된 **시스템.\< 위치\>.sqladapter** 리소스 그룹입니다.
 4. 리소스 그룹 개요에 대 한 요약 페이지에 실패 한 배포가 없는 없어야 합니다.
-
       ![SQL 리소스 공급자의 배포를 확인 합니다.](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+5. 마지막으로 선택 **가상 머신** 확인 하려면 관리 포털에서 VM의 SQL 리소스 공급자는 성공적을 만들고 실행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

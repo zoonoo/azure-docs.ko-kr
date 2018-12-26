@@ -4,21 +4,21 @@ description: 이 항목에서는 Azure Media Services를 사용하여 Apple Fair
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 09/18/2018
 ms.author: juliako
-ms.openlocfilehash: 65188dacbb29fea5562ca5b83283861986719ce1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 32f3f4fd3f4f299c9b084ab8604b56ea70e639a4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866681"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368231"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호
 Azure Media Services를 사용하면 다음 형식을 사용하여 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화할 수 있습니다.  
@@ -148,8 +148,8 @@ iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay
 2. 다음 요소를 app.config 파일에 정의된 **appSettings**에 추가합니다.
 
     ```xml
-            <add key="Issuer" value="http://testacs.com"/>
-            <add key="Audience" value="urn:test"/>
+    <add key="Issuer" value="http://testissuer.com"/>
+    <add key="Audience" value="urn:test"/>
     ```
 
 ## <a name="example"></a>예

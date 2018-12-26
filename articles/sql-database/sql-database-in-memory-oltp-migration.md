@@ -2,20 +2,22 @@
 title: 메모리 내 OLTP이 SQL txn 성능 개선 | Microsoft Docs
 description: 메모리 내 OLTP를 채택하여 기존 SQL 데이터베이스의 트랜잭션 성능을 향상합니다.
 services: sql-database
-author: jodebrui
-manager: craigg
-ms.reviewer: MightyPen
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: jodebrui
 ms.author: jodebrui
-ms.openlocfilehash: a2f0d901abfa0013a6f53bacd72a9f8db2e0fd99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: MightyPen
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648050"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228048"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>메모리 내 OLTP를 사용하여 SQL Database에서 응용 프로그램의 성능 향상
 [메모리 내 OLTP](sql-database-in-memory.md)를 사용하면 가격대를 높이지 않고도 [프리미엄 및 중요 비즈니스용 계층](sql-database-service-tiers-vcore.md) 데이터베이스에서 트랜잭션 처리, 데이터 수집 및 일시적인 데이터 시나리오의 성능을 개선할 수 있습니다. 
@@ -45,7 +47,7 @@ SSMS에서 보고서를 생성합니다.
 * **개체 탐색기**에서 데이터베이스 노드를 마우스 오른쪽 단추로 클릭합니다.
 * **보고서** > **표준 보고서** > **트랜잭션 성능 분석 개요**를 클릭합니다.
 
-자세한 내용은 [테이블 또는 저장 프로시저가 메모리 내 OLTP로 이식되어야 하는지 결정](http://msdn.microsoft.com/library/dn205133.aspx)을 참조하세요.
+자세한 내용은 [테이블 또는 저장 프로시저가 메모리 내 OLTP로 이식되어야 하는지 결정](https://msdn.microsoft.com/library/dn205133.aspx)을 참조하세요.
 
 ## <a name="step-3-create-a-comparable-test-database"></a>3단계: 비교할 수 있는 테스트 데이터베이스 만들기
 보고서는 데이터베이스에 메모리 최적화 테이블로 변환하여 이점을 얻을 수 있는 테이블이 있음을 나타낸다고 가정합니다. 이를 확인하기 위해 먼저 테스트하는 것이 좋습니다.
@@ -78,9 +80,9 @@ SSMS에서 보고서를 생성합니다.
    * **테이블 메모리 최적화 관리자** 마법사가 표시됩니다.
 3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)를 클릭하여 메모리 최적화 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
    
-   * *메모리 최적화 관리자* 의 [메모리 최적화 검사 목록](http://msdn.microsoft.com/library/dn284308.aspx).
-   * [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](http://msdn.microsoft.com/library/dn246937.aspx).
-   * [메모리 내 OLTP로 마이그레이션](http://msdn.microsoft.com/library/dn247639.aspx).
+   * *메모리 최적화 관리자* 의 [메모리 최적화 검사 목록](https://msdn.microsoft.com/library/dn284308.aspx).
+   * [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](https://msdn.microsoft.com/library/dn246937.aspx).
+   * [메모리 내 OLTP로 마이그레이션](https://msdn.microsoft.com/library/dn247639.aspx).
 4. 테이블에 지원되지 않는 기능이 없는 경우 관리자는 사용자에게 실제 스키마 및 데이터 마이그레이션을 수행할 수 있습니다.
 
 #### <a name="manual-t-sql"></a>수동 T-SQL
@@ -112,7 +114,7 @@ INSERT INTO <new_memory_optimized_table>
 * NATIVE_COMPILATION
 * SCHEMABINDING: 저장 프로시저가 삭제되지 않는 한 스스로에 영향을 주는 방식으로 변경된 해당 열 정의를 가질 수 없는 테이블을 의미합니다.
 
-네이티브 모듈은 트랜잭션 관리에 하나의 큰 [ATOMIC 블록](http://msdn.microsoft.com/library/dn452281.aspx) 을 사용해야 합니다. 명시적 BEGIN TRANSACTION 또는 ROLLBACK TRANSACTION에 대한 역할이 없습니다. 코드가 비즈니스 규칙 위반을 감지한 경우 [THROW](http://msdn.microsoft.com/library/ee677615.aspx) 문으로 ATOMIC 블록을 종료할 수 있습니다.
+네이티브 모듈은 트랜잭션 관리에 하나의 큰 [ATOMIC 블록](https://msdn.microsoft.com/library/dn452281.aspx) 을 사용해야 합니다. 명시적 BEGIN TRANSACTION 또는 ROLLBACK TRANSACTION에 대한 역할이 없습니다. 코드가 비즈니스 규칙 위반을 감지한 경우 [THROW](https://msdn.microsoft.com/library/ee677615.aspx) 문으로 ATOMIC 블록을 종료할 수 있습니다.
 
 ### <a name="typical-create-procedure-for-natively-compiled"></a>고유하게 컴파일된 일반적인 만들기 프로시저
 고유하게 컴파일된 저장 프로시저를 만드는 T-SQL은 일반적으로 다음 템플릿과 유사합니다.
@@ -143,7 +145,7 @@ CREATE PROCEDURE schemaname.procedurename
 2. 이전 템플릿에 맞게 해당 헤더를 다시 작성합니다.
 3. 저장 프로시저 T-SQL 코드가 고유하게 컴파일된 저장 프로시저에 지원하지 않는 기능을 사용하는지를 확인합니다. 필요한 경우 해결 방법을 구현합니다.
    
-   * 자세한 내용은 [고유하게 컴파일된 저장 프로시저에 대한 마이그레이션 문제](http://msdn.microsoft.com/library/dn296678.aspx)를 참조하세요.
+   * 자세한 내용은 [고유하게 컴파일된 저장 프로시저에 대한 마이그레이션 문제](https://msdn.microsoft.com/library/dn296678.aspx)를 참조하세요.
 4. SP_RENAME을 사용하여 이전의 저장 프로시저의 이름을 바꿉니다. 또는 단순히 삭제합니다.
 5. 편집된 프로시저 T-SQL 만들기 스크립트를 실행합니다.
 
@@ -166,7 +168,7 @@ CREATE PROCEDURE schemaname.procedurename
 * [동적 관리 뷰를 사용하여 Azure SQL Database 모니터링](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>관련 링크
-* [메모리 내 OLTP(메모리 내 최적화)](http://msdn.microsoft.com/library/dn133186.aspx)
-* [고유하게 컴파일된 저장 프로시저의 소개](http://msdn.microsoft.com/library/dn133184.aspx)
-* [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)
+* [메모리 내 OLTP(메모리 내 최적화)](https://msdn.microsoft.com/library/dn133186.aspx)
+* [고유하게 컴파일된 저장 프로시저의 소개](https://msdn.microsoft.com/library/dn133184.aspx)
+* [메모리 최적화 관리자](https://msdn.microsoft.com/library/dn284308.aspx)
 

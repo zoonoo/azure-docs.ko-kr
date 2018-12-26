@@ -4,18 +4,18 @@ description: Azure Active Directory B2B 공동 작업에 대한 코드 및 Power
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: sample
 ms.date: 04/11/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d522649e9339611c56e9f2ae7e6feac067d2ab49
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9d2fa8ec96f629ff85d785897398bc9af52ab3bc
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267222"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165762"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B 공동 작업 코드 및 PowerShell 샘플
 
@@ -24,7 +24,7 @@ ms.locfileid: "34267222"
 
 1. .CSV 파일 준비. 즉 새 CSV 파일을 만들고 invitations.csv라고 지정합니다. 이 예제에서 파일은 C:\data에 저장되고 다음 정보를 포함합니다.
   
-  Name                  |  InvitedUserEmailAddress
+  이름                  |  InvitedUserEmailAddress
   --------------------- | --------------------------
   Gmail B2B 초대 대상자     | b2binvitee@gmail.com
   Outlook B2B 초대 대상자   | b2binvitee@outlook.com
@@ -34,14 +34,14 @@ ms.locfileid: "34267222"
 
 3. 테넌시에 로그인
 
-    ```
+    ```powershell
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
 4. PowerShell cmdlet 실행
 
-  ```
+  ```powershell
   $invitations = import-csv C:\data\invitations.csv
   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
   $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
@@ -56,7 +56,7 @@ ms.locfileid: "34267222"
 ## <a name="code-sample"></a>코드 샘플
 여기에서는 "앱 전용" 모드로 초대 API를 호출하여 B2B 사용자를 초대하는 리소스에 대한 상환 URL을 가져오는 방법을 보여 줍니다. 목표는 사용자 지정 초대 전자 메일을 보내는 것입니다. HTTP 클라이언트를 통해 전자 메일을 작성하여 Graph API를 통해 표시되고 전송되는 방식을 사용자 지정할 수 있습니다.
 
-```
+```csharp
 namespace SampleInviteApp
 {
     using System;

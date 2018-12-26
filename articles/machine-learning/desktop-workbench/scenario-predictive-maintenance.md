@@ -7,19 +7,24 @@ ms.author: jehrling
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: f3f24a9b269205dd77ec3301b2650ee7a03f435b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832699"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996216"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>실제 시나리오에 대한 예측 유지 관리
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 예정되지 않은 장비 가동 중지 시간은 비즈니스에 큰 영향을 줄 수 있습니다. 현장 장비를 실행 상태로 유지하여 사용량 및 성능을 최대화하고 비용 및 예기치 않은 가동 중지 시간을 최소화하는 것이 중요합니다. 문제를 사전에 파악하므로 보다 비용 효율적인 방법으로 제한된 유지 관리 리소스를 할당하고 품질 및 공급망 프로세스를 개선할 수 있도록 합니다. 
 
@@ -41,10 +46,10 @@ PM 자습서를 위한 Cortana Intelligence Gallery는 문제를 보고하고 �
 ## <a name="prerequisites"></a>필수 조건
 
 * [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
-* 설치된 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 복사본. [빠른 시작 설치 가이드](../service/quickstart-installation.md)에 따라 프로그램을 설치하고 작업 영역을 만듭니다.
+* 설치된 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 복사본. [빠른 시작 설치 가이드](quickstart-installation.md)에 따라 프로그램을 설치하고 작업 영역을 만듭니다.
 * Azure Machine Learning 운용화를 사용하려면 로컬 배포 환경과 [Azure Machine Learning 모델 관리 계정](model-management-overview.md)이 필요합니다.
 
-이 예제는 Machine Learning Workbench 계산 컨텍스트에서 실행됩니다. 그러나 이 예제는 16GB 이상의 메모리를 사용하여 실행하는 것이 좋습니다. 이 시나리오는 원격 DS4_V2 표준 [Linux(Ubuntu)용 DSVM(데이터 과학 가상 머신)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)을 실행하는 Windows 10 컴퓨터에서 빌드되고 테스트되었습니다.
+이 예제는 Machine Learning Workbench 계산 컨텍스트에서 실행됩니다. 그러나 이 예제는 16GB 이상의 메모리를 사용하여 실행하는 것이 좋습니다. 이 시나리오는 원격 DS4_V2 표준 [Linux(Ubuntu)용 DSVM(데이터 과학 가상 머신)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)을 실행하는 Windows 10 컴퓨터에서 빌드되고 테스트되었습니다.
 
 모델 운용화는 이 Azure Machine Learning CLI 버전 0.1.0a22를 사용하여 구현되었습니다.
 
@@ -65,13 +70,13 @@ PM 자습서를 위한 Cortana Intelligence Gallery는 문제를 보고하고 �
 az login
 ``` 
 
-이 명령은 https:\\aka.ms\devicelogin URL에서 사용할 인증 키를 제공합니다. CLI는 장치 로그인 작업이 반환되고 일부 연결 정보를 제공할 때까지 기다립니다. 그런 다음 로컬 [Docker](https://www.docker.com/get-docker)가 설치되어 있는 경우 다음 명령을 사용하여 로컬 계산 환경을 준비합니다.
+이 명령은 https:\\aka.ms\devicelogin URL에서 사용할 인증 키를 제공합니다. CLI는 디바이스 로그인 작업이 반환되고 일부 연결 정보를 제공할 때까지 기다립니다. 그런 다음 로컬 [Docker](https://www.docker.com/get-docker)가 설치되어 있는 경우 다음 명령을 사용하여 로컬 계산 환경을 준비합니다.
 
 ```
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-메모리 및 디스크 요구 사항을 충족하기 위해 [Linux(Ubuntu)용 DSVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)에서 실행하는 것이 좋습니다. DSVM이 구성되면 다음 두 가지 명령으로 원격 Docker 환경을 준비합니다.
+메모리 및 디스크 요구 사항을 충족하기 위해 [Linux(Ubuntu)용 DSVM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)에서 실행하는 것이 좋습니다. DSVM이 구성되면 다음 두 가지 명령으로 원격 Docker 환경을 준비합니다.
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

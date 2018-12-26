@@ -1,20 +1,21 @@
 ---
-title: Academic Knowledge API의 Evaluate 메서드 | Microsoft Docs
-description: Evaluate 메서드를 사용하여 Microsoft Cognitive Services의 쿼리 식을 기반으로 일련의 교육 기관을 반환합니다.
+title: Evaluate 메서드 - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Evaluate 메서드를 사용하여 쿼리 식에 따라 일련의 교육 기관을 반환합니다.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 3005ae1f6df042a49db086de4982d8206f6938a4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 262beeefbbafefc95da51e9f4afcbc1bc143f952
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372742"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902334"
 ---
 # <a name="evaluate-method"></a>Evaluate 메서드
 
@@ -27,25 +28,25 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ```   
 <br>
 ## <a name="request-parameters"></a>요청 매개 변수  
-Name     | 값 | Required?  | 설명
+이름     | 값 | Required?  | 설명
 -----------|-----------|---------|--------
-**expr**       | 텍스트 문자열 | 예 | 반환할 엔터티를 지정하는 쿼리 식입니다.
-**model**      | 텍스트 문자열 | 아니오  | 쿼리할 모델의 이름입니다.  현재 기본값은 *latest*입니다.        
-**attributes** | 텍스트 문자열 | 아니오<br>기본값: Id | 응답에 포함된 특성 값을 지정하는 쉼표로 구분된 목록입니다. 특성 이름은 대/소문자를 구분합니다.
-**count**        | Number | 아니오<br>기본값: 10 | 반환할 결과의 수입니다.
-**offset**     | Number |   아니오<br>기본값: 0    | 반환할 첫 번째 결과의 인덱스입니다.
-**orderby** |   텍스트 문자열 | 아니오<br>기본값: 확률 감소 | 엔터티 정렬에 사용되는 특성의 이름입니다. 오름차순/내림차순을 선택적으로 지정할 수 있습니다. 형식은 *name:asc* 또는 *name:desc*입니다.
+**expr**       | 텍스트 문자열 | yes | 반환할 엔터티를 지정하는 쿼리 식입니다.
+**model**      | 텍스트 문자열 | 아니요  | 쿼리할 모델의 이름입니다.  현재 기본값은 *latest*입니다.        
+**attributes** | 텍스트 문자열 | 아니요<br>기본값: Id | 응답에 포함된 특성 값을 지정하는 쉼표로 구분된 목록입니다. 특성 이름은 대/소문자를 구분합니다.
+**count**        | Number | 아니요<br>기본값: 10 | 반환할 결과의 수입니다.
+**offset**     | Number |   아니요<br>기본값: 0    | 반환할 첫 번째 결과의 인덱스입니다.
+**orderby** |   텍스트 문자열 | 아니요<br>기본값: 확률 감소 | 엔터티 정렬에 사용되는 특성의 이름입니다. 오름차순/내림차순을 선택적으로 지정할 수 있습니다. 형식은 *name:asc* 또는 *name:desc*입니다.
   
  <br>
 ## <a name="response-json"></a>응답(JSON)
-Name | 설명
+이름 | 설명
 -------|-----   
 **expr** |  요청의 *expr* 매개 변수입니다.
 **entities** |  쿼리 식과 일치하는 0개 이상의 엔터티 배열입니다. 각 엔터티에는 자연 로그 확률 값 및 다른 요청된 특성의 값이 포함됩니다.
-**aborted** | 요청 시간이 초과되면 True입니다.
+**aborted** | 요청 시간이 초과되면 true입니다.
 
 <br>
-#### <a name="example"></a>예:
+#### <a name="example"></a>예제:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?expr=
 Composite(AA.AuN=='jaime teevan')&count=2&attributes=Ti,Y,CC,AA.AuN,AA.AuId

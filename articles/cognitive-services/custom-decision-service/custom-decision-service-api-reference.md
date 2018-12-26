@@ -1,20 +1,21 @@
 ---
-title: API - Azure Cognitive Services | Microsoft Docs
-description: 컨텍스트에 따라 의사를 결정하고 경험을 통해 점점 개선되는 클라우드 기반 API인 Azure Custom Decision Service의 완전한 사용자 기반 API 가이드입니다.
+title: API 참조 - Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: Custom Decision Service에 대한 완벽한 API 가이드입니다.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.reviewer: marcozo, alekh
-ms.openlocfilehash: 403b17e33394016a07a7b33ba1bcbfe6afdcc05b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3d9b87241946a04ae71fabde9958b24ad626c0db
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377495"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364028"
 ---
 # <a name="api"></a>API
 

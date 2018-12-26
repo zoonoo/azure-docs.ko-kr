@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 .NET 앱 만들기 | Microsoft Docs
-description: 이 자습서에서는 ASP.NET Core 프런트 엔드 및 신뢰할 수 있는 서비스 상태 저장 백 엔드를 사용하여 응용 프로그램을 만들고 클러스터에 배포하는 방법을 알아봅니다.
+description: 이 자습서에서는 ASP.NET Core 프런트 엔드 및 신뢰할 수 있는 서비스 상태 저장 백 엔드를 사용하여 애플리케이션을 만들고 클러스터에 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/28/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aac44d46b6c5d202431aa34a1dc7b962466c799
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346191"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078497"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 응용 프로그램 만들기 및 배포
 
@@ -40,7 +40,7 @@ ms.locfileid: "37346191"
 > * .NET Service Fabric 응용 프로그램 빌드
 > * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Visual Studio Team Services를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>필수 조건
@@ -309,9 +309,9 @@ namespace VotingWeb.Controllers
 
 ### <a name="configure-the-listening-port"></a>수신 대기 포트 구성
 
-VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신할 서비스에 대한 포트를 임의로 선택합니다.  VotingWeb 서비스는 이 응용 프로그램에 대한 프런트 엔드로 작동하고 외부 트래픽을 허용하므로 이 서비스를 고정된 잘 알려진 포트에 바인딩하겠습니다.  [서비스 매니페스트](service-fabric-application-and-service-manifests.md)가 서비스 끝점을 선언합니다.
+VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신할 서비스에 대한 포트를 임의로 선택합니다.  VotingWeb 서비스는 이 응용 프로그램에 대한 프런트 엔드로 작동하고 외부 트래픽을 허용하므로 이 서비스를 고정된 잘 알려진 포트에 바인딩하겠습니다.  [서비스 매니페스트](service-fabric-application-and-service-manifests.md)가 서비스 엔드포인트를 선언합니다.
 
-솔루션 탐색기에서 *VotingWeb/PackageRoot/ServiceManifest.xml*을 엽니다.  **리소스** 섹션에서 **Endpoint** 요소를 찾아서 **포트** 값을 **8080**으로 변경합니다. 응용 프로그램을 로컬로 배포하고 실행하려면 응용 프로그램 수신 대기 포트가 열려 있고 컴퓨터에서 사용할 수 있어야 합니다.
+솔루션 탐색기에서 *VotingWeb/PackageRoot/ServiceManifest.xml*을 엽니다.  **리소스** 섹션에서 **Endpoint** 요소를 찾아서 **포트** 값을 **8080**으로 변경합니다. 애플리케이션을 로컬로 배포하고 실행하려면 애플리케이션 수신 대기 포트가 열려 있고 컴퓨터에서 사용할 수 있어야 합니다.
 
 ```xml
 <Resources>
@@ -342,7 +342,7 @@ VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신�
 
 ## <a name="add-a-stateful-back-end-service-to-your-application"></a>상태 저장 백 엔드 서비스를 응용 프로그램에 추가
 
-이제 응용 프로그램에서 ASP.NET Web API 서비스가 실행되므로, 계속해서 응용 프로그램에 일부 데이터를 저장하는 상태 저장 신뢰할 수 있는 서비스를 추가하겠습니다.
+이제 애플리케이션에서 ASP.NET Web API 서비스가 실행되므로, 계속해서 애플리케이션에 일부 데이터를 저장하는 상태 저장 신뢰할 수 있는 서비스를 추가하겠습니다.
 
 Service Fabric을 통해 신뢰할 수 있는 컬렉션을 사용하여 일관되고 안정적으로 서비스 내에 데이터를 바로 저장할 수 있습니다. 신뢰할 수 있는 컬렉션은 C# 컬렉션을 사용해본 적이 있는 사람에게 친숙한 신뢰할 수 있는 고가용성 컬렉션 클래스의 집합입니다.
 
@@ -450,11 +450,14 @@ namespace VotingData.Controllers
 
 ## <a name="connect-the-services"></a>서비스 연결
 
-다음 단계에서는 두 서비스를 연결하고 프런트 엔드 웹 응용 프로그램이 백 엔드 서비스에서 투표 정보를 가져와 설정하도록 합니다.
+다음 단계에서는 두 서비스를 연결하고 프런트 엔드 웹 애플리케이션이 백 엔드 서비스에서 투표 정보를 가져와 설정하도록 합니다.
 
 서비스 패브릭은 신뢰할 수 있는 서비스와 유연하게 통신할 수 있는 방법을 제공합니다. 단일 응용 프로그램 내에는 TCP를 통해 액세스할 수 있는 서비스가 있을 수 있습니다. HTTP REST API 및 다른 서비스를 통해 액세스할 수 있는 기타 서비스는 웹 소켓을 통해 액세스할 수 있습니다. 제공되는 옵션 및 관련 장단점에 대한 배경 정보는 [서비스와의 통신](service-fabric-connect-and-communicate-with-services.md)을 참조하세요.
 
 VotingWeb 프런트 엔드 웹 서비스가 VotingData 백 엔드 데이터 서비스와 통신할 수 있도록 이 자습서에서는 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) 및 [Service Fabric 역방향 프록시](service-fabric-reverseproxy.md)를 사용합니다. 역방향 프록시는 기본적으로 19081 포트를 사용하도록 구성되며 이 자습서에서 정상적으로 작동합니다. 이 포트는 클러스터 설정에 사용되도록 ARM 템플릿에서 설정됩니다. 사용되는 포트를 찾으려면 **Microsoft.ServiceFabric/clusters** 리소스에서 클러스터 템플릿을 확인하거나 클러스터 매니페스트에서 HttpApplicationGatewayEndpoint 요소를 확인합니다.
+
+> [!NOTE]
+> 역방향 프록시는 Windows 8 이상 또는 Windows Server 2012 이상을 실행하는 클러스터에서만 지원됩니다.
 
 <u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort 리소스</u>
 
@@ -615,7 +618,7 @@ public class VotesController : Controller
 
 ## <a name="debug-in-visual-studio"></a>Visual Studio에서 디버그
 
-Visual Studio에서 응용 프로그램을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 응용 프로그램에서는 신뢰할 수 있는 사전을 사용하여 데이터를 백 엔드 서비스에 저장합니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 응용 프로그램을 제거합니다. 응용 프로그램을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **응용 프로그램 디버그 모드**를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
+Visual Studio에서 응용 프로그램을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터를 백 엔드 서비스에 저장합니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 응용 프로그램을 제거합니다. 응용 프로그램을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **응용 프로그램 디버그 모드**를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
 
 코드에서 수행되는 작업을 살펴보려면 다음 단계를 완료합니다.
 

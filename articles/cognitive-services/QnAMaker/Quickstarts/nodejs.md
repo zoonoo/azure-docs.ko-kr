@@ -1,25 +1,26 @@
 ---
-title: Microsoft QnA Maker API(V4)용 Node.js 빠른 시작 - Azure Cognitive Services | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Text API를 사용하여 신속하게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: REST API(V4) - Node.js - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Text API를 사용하여 신속하게 시작할 수 있도록 Node.js REST 기반 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 79723a914fd41b0197b4d59a6a83304e233d3f64
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.date: 10/19/2018
+ms.author: diberry
+ms.openlocfilehash: cd3d159e4482b43c6356ab7b657a79fa59159c60
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301539"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214990"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Microsoft QnA Maker API와 Node.js의 빠른 시작 
+# <a name="qna-maker-rest-api-with-nodejs"></a>Node.js에서 QnA Maker REST API 사용 
 <a name="HOLTop"></a>
 
-이 문서에서는 Node.js에서 [Microsoft QnA Maker API](../Overview/overview.md)를 사용하여 다음을 수행하는 방법을 보여 줍니다.
+이 문서에서는 Node.js에서 [Microsoft QnA Maker API](../Overview/overview.md) 를 사용하여 다음을 수행하는 방법을 보여 줍니다.
 
 - [새 기술 자료 만들기](#Create)
 - [기존 기술 자료 업데이트](#Update)
@@ -31,14 +32,16 @@ ms.locfileid: "36301539"
 - [기술 자료에 대한 정보 가져오기](#GetKB)
 - [지정된 사용자에게 속하는 모든 기술 자료에 대한 정보 가져오기](#GetKBsByUser)
 - [기술 자료 삭제](#Delete)
-- [현재 끝점 키 가져오기](#GetKeys)
-- [현재 끝점 키 다시 생성](#PutKeys)
+- [현재 엔드포인트 키 가져오기](#GetKeys)
+- [현재 엔드포인트 키 다시 생성](#PutKeys)
 - [현재 단어 변경 집합 가져오기](#GetAlterations)
 - [현재 단어 변경 집합 바꾸기](#PutAlterations)
 
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 실행하려면 [Node.js 6](https://nodejs.org/en/download/)가 필요합니다.
+이 코드를 실행하려면 [Node.js 6](https://nodejs.org/en/download/)이 필요합니다.
 
 **Microsoft QnA Maker API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. [Azure 대시보드](https://portal.azure.com/#create/Microsoft.CognitiveServices)의 유료 구독 키가 필요합니다.
 
@@ -50,7 +53,7 @@ ms.locfileid: "36301539"
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -106,7 +109,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -172,8 +175,8 @@ let req = {
     }
   ],
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "files": []
 };
@@ -207,7 +210,7 @@ create_kb (path, content, function (result) {
 
 **기술 자료 만들기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -246,7 +249,7 @@ create_kb (path, content, function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -305,7 +308,7 @@ let patch = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -366,7 +369,7 @@ let req = {
       }
     ],
     'urls': [
-      'https://docs.microsoft.com/en-us/azure/cognitive-services/Emotion/FAQ'
+      'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
     ]
   },
   'update' : {
@@ -407,7 +410,7 @@ update_kb (path, content, function (result) {
 
 **기술 자료 업데이트 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -447,7 +450,7 @@ Press any key to continue.
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -506,7 +509,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -541,7 +544,7 @@ publish_kb (path, '', function (result) {
 
 **기술 자료 게시 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -559,7 +562,7 @@ publish_kb (path, '', function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -618,7 +621,7 @@ let put = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -674,7 +677,7 @@ replace_kb (path, content, function (result) {
 
 **기술 자료 바꾸기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -692,7 +695,7 @@ replace_kb (path, content, function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -780,7 +783,7 @@ get_qna (path, function (result) {
 
 **기술 자료 다운로드 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -802,7 +805,7 @@ get_qna (path, function (result) {
     {
       "id": 2,
       "answer": "QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.",
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "questions": [
         "Who is the target audience for the QnA Maker tool?"
       ],
@@ -824,7 +827,7 @@ get_qna (path, function (result) {
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
 1. `host` 값을 QnA Maker 구독에 대한 웹 사이트 이름으로 바꿉니다. 자세한 내용은 [QnA Maker 서비스 만들기](../How-To/set-up-qnamaker-service-azure.md)를 참조하세요.
-1. `endpoint_key` 값을 구독에 대해 유효한 끝점 키로 바꿉니다. 이 키는 구독 키와 동일하지 않습니다. [Get endpoint keys](#GetKeys) 메서드를 사용하여 끝점 키를 가져올 수 있습니다.
+1. `endpoint_key` 값을 구독에 대해 유효한 엔드포인트 키로 바꿉니다. 이 키는 구독 키와 동일하지 않습니다. [Get endpoint keys](#GetKeys) 메서드를 사용하여 엔드포인트 키를 가져올 수 있습니다.
 1. `kb` 값을 답변을 쿼리하려는 기술 자료의 ID로 바꿉니다. 이 기술 자료는 [Publish](#Publish) 메서드를 사용하여 이미 게시했어야 합니다.
 1. 프로그램을 실행합니다.
 
@@ -894,7 +897,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Authorization' : 'EndpointKey ' + endpoint_key,
         }
     };
@@ -924,7 +927,7 @@ get_answers (method, content, function (result) {
 
 **답변 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -936,7 +939,7 @@ get_answers (method, content, function (result) {
       "answer": "Yes. However, shadow copies made prior to enabling BitLocker will be automatically deleted when BitLocker is enabled on software-encrypted drives. If you are using a hardware encrypted drive, the shadow copies are retained.",
       "score": 17.3,
       "id": 62,
-      "source": "https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
+      "source": "https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
       "metadata": []
     },
 ...
@@ -954,7 +957,7 @@ get_answers (method, content, function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1039,7 +1042,7 @@ get_kb (path, function (result) {
 
 **기술 자료 세부 정보 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1050,8 +1053,8 @@ get_kb (path, function (result) {
   "name": "QnA Maker FAQ",
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
     "Custom Editorial"
@@ -1069,7 +1072,7 @@ get_kb (path, function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1151,7 +1154,7 @@ get_kbs (path, function (result) {
 
 **사용자에 대한 기술 자료 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1174,8 +1177,8 @@ get_kbs (path, function (result) {
       "name": "QnA Maker FAQ",
       "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
       "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
       ],
       "sources": [
         "Custom Editorial"
@@ -1197,7 +1200,7 @@ Press any key to continue.
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1256,7 +1259,7 @@ let http_delete = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -1291,7 +1294,7 @@ delete_kb (path, '', function (result) {
 
 **기술 자료 삭제 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1303,13 +1306,13 @@ delete_kb (path, '', function (result) {
 
 <a name="GetKeys"></a>
 
-## <a name="get-endpoint-keys"></a>끝점 키 가져오기
+## <a name="get-endpoint-keys"></a>엔드포인트 키 가져오기
 
-다음 코드에서는 [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) 메서드를 사용하여 현재 끝점 키를 가져옵니다.
+다음 코드에서는 [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) 메서드를 사용하여 현재 엔드포인트 키를 가져옵니다.
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1389,9 +1392,9 @@ get_keys (path, function (result) {
 });
 ```
 
-**끝점 키 가져오기 응답**
+**엔드포인트 키 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1404,13 +1407,13 @@ get_keys (path, function (result) {
 
 <a name="PutKeys"></a>
 
-## <a name="refresh-endpoint-keys"></a>끝점 키 새로 고침
+## <a name="refresh-endpoint-keys"></a>엔드포인트 키 새로 고침
 
-다음 코드에서는 [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) 메서드를 사용하여 현재 끝점 키를 다시 생성합니다.
+다음 코드에서는 [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) 메서드를 사용하여 현재 엔드포인트 키를 다시 생성합니다.
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1469,7 +1472,7 @@ let patch = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -1515,9 +1518,9 @@ refresh_keys (path, content, function (result) {
 });
 ```
 
-**끝점 키 새로 고침 응답**
+**엔드포인트 키 새로 고침 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1536,7 +1539,7 @@ refresh_keys (path, content, function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1618,7 +1621,7 @@ get_alterations (path, function (result) {
 
 **단어 변경 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1643,7 +1646,7 @@ get_alterations (path, function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1699,7 +1702,7 @@ let put = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -1747,7 +1750,7 @@ put_alterations (path, content, function (result) {
 
 **단어 변경 바꾸기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {

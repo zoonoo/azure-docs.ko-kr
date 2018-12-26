@@ -1,26 +1,27 @@
 ---
-title: Academic Knowledge API에서 Conference Instance 엔터티 특성 | Microsoft Docs
-description: Cognitive Services에서 Academic Knowledge API의 Conference Instance 엔터티와 함께 사용할 수 있는 특성에 대해 알아봅니다.
+title: Conference Instance 엔터티 특성 - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Academic Knowledge API의 Conference Instance 엔터티와 함께 사용할 수 있는 특성에 대해 알아봅니다.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: ef2bca4346a4666905f3dfb7bd448720f3b0ef8b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6111ad00044943f12b2e098c4fd07ffb40185799
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372758"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902415"
 ---
 # <a name="conference-instance-entity"></a>Conference Instance 엔터티
 
 <sub> *다음 특성은 Conference Instance 엔터티에 한정됩니다. (Ty = '4') </sub>
 
-Name    |설명                            |type       | 작업
+이름    |설명                            |type       | 작업
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |엔터티 ID                              |Int64      |같음
 CIN     |컨퍼런스 인스턴스의 정규화된 이름({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |문자열     |같음
@@ -42,6 +43,6 @@ ECC     |컨퍼런스 인스턴스의 총 예상 인용 횟수 |Int32      |없�
 
 ## <a name="extended-metadata-attributes"></a>확장 메타데이터 특성 ##
 
-Name    | 설명               
+이름    | 설명               
 --------|---------------------------    
 FN      | 컨퍼런스 인스턴스 전체 이름

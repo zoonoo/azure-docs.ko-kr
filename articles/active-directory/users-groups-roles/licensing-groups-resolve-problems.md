@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d64cf71ea3a44b7539835e3616150218e8b3635
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861228"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211539"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 
@@ -97,6 +97,19 @@ Azure AD가 사용 위치가 지원되지 않는 사용자에게 그룹 라이�
 > [!NOTE]
 > Azure AD가 그룹 라이선스를 할당하면 사용 위치가 지정되지 않은 사용자는 디렉터리의 위치를 상속합니다. 현지법 및 규정을 준수하는 그룹 기반 라이선스를 사용하기 전에 관리자가 올바른 사용 위치 값을 사용자에게 설정하는 것이 좋습니다.
 
+## <a name="duplicate-proxy-addresses"></a>프록시 주소 중복
+
+Exchange Online을 사용하는 경우 테넌트의 일부 사용자가 동일한 프록시 주소 값으로 올바르게 구성되지 않을 수 있습니다. 그룹 기반 라이선스가 이러한 사용자에게 라이선스를 할당하려 할 때 실패하면 “프록시 주소가 이미 사용 중”이라는 메시지가 표시됩니다.
+
+> [!TIP]
+> 중복 프록시 주소가 있는지를 확인하려면 Exchange Online에 대해 다음과 같은 PowerShell cmdlet을 실행합니다.
+```
+Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+```
+> 이 문제에 대한 자세한 내용은 [Exchange Online에서 "프록시 주소를 이미 사용 중입니다."라는 오류 메시지](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)가 표시됩니다. 문서에는 [원격 PowerShell을 사용하여 Exchange Online에 연결하는 방법](https://technet.microsoft.com/library/jj984289.aspx)에 대한 정보도 포함됩니다. [Azure AD에 proxyAddresses 특성을 채우는 방법](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)에 대한 자세한 내용은 이 문서를 참조하세요.
+
+영향을 받는 사용자에 대한 프록시 주소 문제를 해결한 후에 그룹에 대해 강제로 라이선스 처리를 수행하여 라이선스가 적용될 수 있게 합니다.
+
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>한 그룹에 두 개 이상의 제품 라이선스가 있으면 어떻게 되나요?
 
 한 그룹에 두 개 이상의 제품 라이선스를 할당할 수 있습니다. 예를 들어 그룹에 Office 365 Enterprise E3 및 Enterprise Mobility + Security를 할당하면 해당 사용자에 대해 포함된 모든 서비스를 쉽게 사용하도록 설정할 수 있습니다.
@@ -134,19 +147,7 @@ Microsoft Workplace Analytics는 추가 기능 제품입니다. 여기에는 이
 > [!TIP]
 > 각 필수 구성 요소 서비스 계획에 대해 여러 그룹을 만들 수 있습니다. 예를 들어 사용자에게 Office 365 Enterprise E1 및 Office 365 Enterprise E3를 모두 사용할 경우 Microsoft Workplace Analytics에 라이선스를 부여하기 위해 두 그룹을 만들 수 있습니다. 한 그룹은 필수 구성 요소인 E1을 사용하고 다른 그룹은 E3를 사용합니다. 이렇게 하면 추가 라이선스를 사용하지 않고 E1과 E3 사용자에게 추가 기능을 배포할 수 있습니다.
 
-## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>Exchange Online의 중복된 프록시 주소 때문에 라이선스 할당이 자동으로 실패함
 
-Exchange Online을 사용하는 경우 테넌트의 일부 사용자가 동일한 프록시 주소 값으로 올바르게 구성되지 않을 수 있습니다. 그룹 기반 라이선스가 이러한 사용자에게 라이선스를 할당하려고 할 때 실패하면 오류를 기록하지 않습니다. 이 인스턴스에서 발생한 오류를 기록하는 오류는 이 기능의 미리 보기 버전의 제한 사항입니다. 본사에서는 *일반 공급* 이전에 문제를 해결할 예정입니다.
-
-> [!TIP]
-> 일부 사용자가 라이선스를 받지 못했으며 해당 사용자에 대해 기록된 오류가 없는 경우 먼저 중복된 프록시 주소를 갖고 있는지 확인합니다.
-> 중복 프록시 주소가 있는지를 확인하려면 Exchange Online에 대해 다음과 같은 PowerShell cmdlet을 실행합니다.
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
-> 이 문제에 대한 자세한 내용은 [Exchange Online에서 "프록시 주소를 이미 사용 중입니다."라는 오류 메시지](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)가 표시됩니다. 문서에는 [원격 PowerShell을 사용하여 Exchange Online에 연결하는 방법](https://technet.microsoft.com/library/jj984289.aspx)에 대한 정보도 포함됩니다.
-
-영향을 받는 사용자에 대한 프록시 주소 문제를 해결한 후에 그룹에 대해 강제로 라이선스 처리를 수행하여 라이선스가 적용될 수 있게 합니다.
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>오류를 해결하기 위해 그룹의 라이선스를 강제로 처리하는 방법
 
@@ -154,11 +155,19 @@ Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.co
 
 예를 들어 사용자에게서 직접 라이선스 할당을 제거하여 라이선스를 확보한 경우 모든 사용자 구성원에게 완전한 사용 권한을 부여하기 위해 이전에 실패한 그룹 처리를 트리거해야 합니다. 그룹을 다시 처리하려면 그룹 창으로 이동하고 **라이선스**를 열고 도구 모음에서 **다시 처리** 단추를 선택합니다.
 
+## <a name="how-do-you-force-license-processing-on-a-user-to-resolve-errors"></a>오류를 해결하기 위해 사용자의 라이선스를 강제로 처리하는 방법은?
+
+오류를 해결하기 위해 수행한 단계에 따라 사용자의 처리를 수동으로 트리거하여 사용자 상태를 업데이트해야 할 수 있습니다.
+
+예를 들어 영향을 받은 사용자를 위해 중복 프록시 주소 문제를 해결한 후 사용자 처리를 트리거해야 합니다. 사용자를 다시 처리하려면 사용자 창으로 이동하여 **라이선스**를 연 다음, 도구 모음에서 **다시 처리** 단추를 선택합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 그룹을 통한 라이선스 관리에 대한 기타 시나리오에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [Azure Active Directory에서 그룹에 라이선스 할당](licensing-groups-assign.md)
 * [Azure Active Directory의 그룹 기반 라이선스란?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Azure Active Directory에서 그룹에 라이선스 할당](licensing-groups-assign.md)
 * [Azure Active Directory에서 개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션하는 방법](licensing-groups-migrate-users.md)
+* [Azure Active Directory에서 그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 마이그레이션하는 방법](licensing-groups-change-licenses.md)
 * [Azure Active Directory 그룹 기반 라이선스 추가 시나리오](licensing-group-advanced.md)
+* [Azure Active Directory의 그룹 기반 라이선싱에 대한 PowerShell 예제](licensing-ps-examples.md)

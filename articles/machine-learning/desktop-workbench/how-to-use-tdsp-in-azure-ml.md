@@ -3,30 +3,31 @@ title: Team Data Science Process 템플릿으로 프로젝트 구조화 | Micros
 description: Azure Machine Learning에서 공동 작업용 프로젝트를 구조화하는 TDSP(Team Data Science Process) 템플릿을 인스턴스화하는 방법
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
-ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: bradsev
-ms.openlocfilehash: 5b53bd3ec479ba6e096b4d00089f968e37f0135c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8e13ba0bcbd24dcc3cd08a0d2886f1da9d85de79
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831771"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249917"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Team Data Science Process 템플릿으로 프로젝트 구조화
 
-이 문서는 Azure Machine Learning에서 TDSP(Team Data Science Process) 템플릿을 사용하여 데이터 과학 프로젝트를 만드는 방법에 대한 지침을 제공합니다. 이러한 템플릿은 공동 작업 및 재현성 프로젝트를 구조화하는 데 도움이 됩니다. 
+이 문서는 이전 버전의 Azure Machine Learning에서 TDSP(Team Data Science Process) 템플릿을 사용하여 데이터 과학 프로젝트를 만드는 방법에 대한 지침을 제공합니다. 이러한 템플릿은 공동 작업 및 재현성 프로젝트를 구조화하는 데 도움이 됩니다. 
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 ## <a name="what-is-the-team-data-science-process"></a>Team Data Science Process란 무엇인가요?
 TDSP란 고급 분석 솔루션을 실행 및 제공하기 위한 민첩하고 반복적인 데이터 과학 프로세스입니다. 엔터프라이즈 조직 내 데이터 과학 팀의 공동 작업과 효율성을 개선하기 위해 설계되었습니다. 4개 핵심 구성 요소를 통해 다음과 같은 목표를 지원합니다.
@@ -52,8 +53,8 @@ TDSP에 대한 자세한 내용은 [Team Data Science Process 개요](../team-da
 * TDSP Machine Learning [템플릿](https://aka.ms/tdspamlgithubrepo)을 검토합니다.
 * 콘텐츠("docs" 폴더에 있는 콘텐츠 제외) 크기는 25MB 미만이어야 합니다. 이 목록 뒤에 나오는 사항을 참조합니다.
 * sample\_data 폴더는 코드를 테스트하거나 초기 개발을 시작할 수 있는 작은 데이터 파일(5MB 미만)에만 사용됩니다.
-* Word 및 PowerPoint 파일과 같은 파일을 저장하면 "docs"폴더의 크기가 상당히 커질 수 있습니다. 공동 작업 Wiki, [SharePoint](https://products.office.com/en-us/sharepoint/collaboration) 또는 이러한 파일을 저장할 다른 공동 작업 리소스를 찾아보시기 바랍니다.
-* Machine Learning에서 큰 파일 및 출력을 처리하는 방법을 알아보려면 [변경 사항 유지 및 대용량 파일 처리](http://aka.ms/aml-largefiles)를 참조하세요.
+* Word 및 PowerPoint 파일과 같은 파일을 저장하면 "docs"폴더의 크기가 상당히 커질 수 있습니다. 공동 작업 Wiki, [SharePoint](https://products.office.com/sharepoint/collaboration) 또는 이러한 파일을 저장할 다른 공동 작업 리소스를 찾아보시기 바랍니다.
+* Machine Learning에서 큰 파일 및 출력을 처리하는 방법을 알아보려면 [변경 사항 유지 및 대용량 파일 처리](https://aka.ms/aml-largefiles)를 참조하세요.
 
 > [!NOTE]
 > readme.md 파일을 제외하고, 프로젝트가 실행되는 동안 사용되지 *않는* 모든 문서화 관련 콘텐츠(텍스트, markdown, 이미지, 기타 문서 파일)는 반드시 "docs"(모두 소문자)라는 폴더에 상주해야 합니다. 이 폴더는 대상을 계산하기 위해 폴더 내 콘텐츠가 불필요하게 복사되는 일이 없도록 Azure Machine Learning 실행 시 무시되는 특수 폴더입니다. 이 폴더의 개체는 프로젝트 크기에 대한 25MB 제한에 포함되지 않습니다. 예를 들어, "docs"폴더는 문서화에 필요한 큰 이미지 파일을 저장할 장소입니다. 이러한 파일은 실행 기록을 통해 Git에서 여전히 추적합니다. 

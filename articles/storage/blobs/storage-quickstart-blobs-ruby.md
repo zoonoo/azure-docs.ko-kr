@@ -3,18 +3,17 @@ title: Azure 빠른 시작 - Ruby를 사용하여 개체 저장소에 Blob 만�
 description: 이 빠른 시작에서는 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Ruby용 저장소 클라이언트 라이브러리를 사용하여 Blob을 Azure Storage에 업로드하고, Blob을 다운로드하고, Blob을 컨테이너에 나열합니다.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 7ef74fe59400ff38a96e7b1b652393eef60eac81
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f6a163b151a6b9066ea58c5834204ed54e51cfc2
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606629"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711228"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>빠른 시작: Ruby를 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -22,19 +21,18 @@ ms.locfileid: "38606629"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 다음이 필요합니다. 
-* [Ruby](https://www.ruby-lang.org/en/downloads/) 설치
-* rubygem 패키지를 사용하여 [Ruby용 Azure Storage 라이브러리](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage)를 설치합니다. 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-```
-gem install azure-storage-blob
-```
+다음 추가 필수 구성 요소를 설치했는지 확인합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* [Ruby](https://www.ruby-lang.org/en/downloads/)
+* rubygem 패키지를 사용하여 [Ruby용 Azure Storage 라이브러리](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) 
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
-
-## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
+    ```
+    gem install azure-storage-blob
+    ```
+    
+## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 이 빠른 시작 가이드에서 사용되는 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git)은 기본 Ruby 응용 프로그램입니다.  
 
 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다. 
@@ -180,7 +178,7 @@ blob_client.delete_container(container_name)
 File.delete(full_path_to_file)
 File.delete(full_path_to_file2)    
 ```
-## <a name="resources-for-developing-ruby-applications-with-blobs"></a>Blob을 사용하여 Ruby 응용 프로그램을 개발하기 위한 리소스
+## <a name="resources-for-developing-ruby-applications-with-blobs"></a>BLOB을 사용하여 Ruby 애플리케이션을 개발하기 위한 리소스
 
 Blob 저장소를 사용하여 Ruby 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
 

@@ -9,15 +9,16 @@ ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/01/2016
-ms.author: mbullwin; olegan
-ms.openlocfilehash: 8aec8567fd15865887a5fe5ded8b45cad0290bf9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.reviewer: olegan
+ms.author: mbullwin
+ms.openlocfilehash: 9f7f7731490467ff32a72507239bfeedc794f2f2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000545"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>개발자 분석: 언어, 플랫폼 및 통합
 이러한 항목은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 [Application Insights](app-insights-overview.md) 의 구현입니다.
@@ -55,17 +56,17 @@ ms.lasthandoff: 05/10/2018
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [안전 스택](https://safe-stack.github.io/docs/template-azure-ai/)
-* [스프링](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
+* [스프링](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 * [유니버설 Windows 앱](app-insights-mobile-center-quickstart.md)(App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Windows 데스크톱 응용 프로그램, 서비스 및 작업자 역할](app-insights-windows-desktop.md)
 * [다른 항목](#projects)
 
 ## <a name="logging-frameworks"></a>로깅 프레임워크
-* [Log4Net, NLog 또는 System.Diagnostics.Trace](app-insights-diagnostic-search.md)
+* [Log4Net, NLog 또는 System.Diagnostics.Trace](app-insights-asp-net-trace-logs.md)
 * [Java, Log4J 또는 Logback](app-insights-java-trace-logs.md)
 * [의미 체계 로깅(SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - [의미 체계 로깅 응용 프로그램 블록](https://msdn.microsoft.com/library/dn440729.aspx)과 통합
-* [클라우드 기반 부하 테스트](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
+* [클라우드 기반 부하 테스트](https://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash 플러그 인](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
@@ -81,7 +82,7 @@ ms.lasthandoff: 05/10/2018
 
 ## <a name="export-and-data-analysis"></a>내보내기 및 데이터 분석
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
-* [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
+* [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](app-insights-export-power-bi.md)
 
 ## <a name="projects"></a> 사용자 고유의 SDK를 빌드합니다

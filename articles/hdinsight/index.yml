@@ -1,26 +1,23 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: bf2b326b6e0003b9a690e560d5a312f16659dad9
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406746"
 documentType: LandingData
 title: Azure HDInsight 설명서
 metadata:
   title: Azure HDInsight 설명서 - 자습서, API 참조 | Microsoft Docs
-  description: HDInsight의 Hadoop을 알아보세요. 설명서에서는 Hadoop, Spark, Kafka, HBase 등을 사용하여 빅 데이터를 처리하고, 분석하며, 통찰력을 얻는 방법을 보여 줍니다.
+  description: HDInsight의 Apache Hadoop에 대해 알아봅니다. 설명서에서는 Apache Hadoop, Apache Spark, Apache Kafka, Apache HBase 등을 사용하여 빅 데이터를 처리하고, 분석하며, 인사이트를 얻는 방법을 보여줍니다.
   services: hdinsight
-  author: nitinme
-  manager: cgronlun
+  author: hrasheed-msft
+  ms.author: hrasheed
   ms.service: hdinsight
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/07/2018
-  ms.author: nitinme
-  ms.openlocfilehash: 4d10acb6d3597b5f5007098775b9bd7751ed4b2a
-  ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37053622"
+  ms.date: 10/18/2018
 abstract:
-  description: Azure HDInsight를 사용하여 스트리밍 또는 기록 데이터를 분석하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 Hadoop, Spark, Hive, LLAP, Kafka, Storm 및 Microsoft Machine Learning Server와 같은 가장 인기 있는 오픈 소스 프레임워크를 사용하여 클러스터를 만들고, 빅 데이터를 처리 및 분석하며, 솔루션을 개발하는 방법을 보여 줍니다.<p>Azure HDInsight는 엔터프라이즈의 경우 완전히 관리되는 전체 스펙트럼의 오픈 소스 분석 서비스입니다. HDInsight는 대량 데이터를 쉽고 빠르며 비용 효율적으로 처리할 수 있도록 하는 클라우드 서비스입니다. HDInsight는 또한 추출, 변환 및 로드(ETL), 데이터 웨어하우징, Machine Learning, IoT와 같은 광범위한 시나리오를 지원합니다.</p>
+  description: Azure HDInsight를 사용하여 스트리밍 또는 기록 데이터를 분석하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm 및 Microsoft Machine Learning Server와 같은 가장 인기 있는 오픈 소스 프레임워크를 사용하여 클러스터를 만들고, 빅 데이터를 처리 및 분석하며, 솔루션을 개발하는 방법을 보여줍니다.<p>Azure HDInsight는 엔터프라이즈의 경우 완전히 관리되는 전체 스펙트럼의 오픈 소스 분석 서비스입니다. HDInsight는 대량 데이터를 쉽고 빠르며 비용 효율적으로 처리할 수 있도록 하는 클라우드 서비스입니다. HDInsight는 또한 추출, 변환 및 로드(ETL), 데이터 웨어하우징, Machine Learning, IoT와 같은 광범위한 시나리오를 지원합니다.</p>
   aside:
     image:
       alt: 
@@ -40,19 +37,19 @@ sections:
     items:
     - image:
         src: media/index/hadoop_r.svg
-      text: Hadoop은
+      text: Apache Hadoop
       href: /azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal
     - image:
         src: media/index/spark_r.svg
-      text: Spark
+      text: Apache Spark
       href: /azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal
     - image:
         src: media/index/kafka_r.svg
-      text: Kafka
+      text: Apache Kafka
       href: /azure/hdinsight/kafka/apache-kafka-get-started
     - image:
         src: media/index/hbase_r.svg
-      text: HBase
+      text: Apache HBase
       href: /azure/hdinsight/hbase/apache-hbase-tutorial-get-started-linux
     - image:
         src: media/index/hive_r.svg
@@ -60,7 +57,7 @@ sections:
       href: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
     - image:
         src: media/index/storm_r.svg
-      text: Storm
+      text: Apache Storm
       href: /azure/hdinsight/storm/apache-storm-tutorial-get-started-linux
     - image:
         src: media/index/ml-server_r.svg
@@ -73,12 +70,12 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: Hadoop&#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">ETL 작업 수행</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">주문형 클러스터 만들기</a>
-    - html: Spark&#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">대화형 쿼리 실행</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">데이터 시각화</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">기계 학습</a>
-    - html: Kafka&#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Kafka를 통한 구조적 스트리밍</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">HDInsight의 Storm에서 사용</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Kafka 생산자 및 소비자 API 사용</a>
-    - html: HBase&#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">VNET에 HBase 클러스터 만들기</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Apache Phoenix 사용</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Spark에 연결</a>
+    - html: Apache Hadoop&#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">ETL 작업 수행</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">주문형 클러스터 만들기</a>
+    - html: Apache Spark&#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">대화형 쿼리 실행</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">데이터 시각화</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">기계 학습</a>
+    - html: Apache Kafka&#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Kafka를 통한 구조적 스트리밍</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">HDInsight의 Storm에서 사용</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Kafka 생산자 및 소비자 API 사용</a>
+    - html: Apache HBase&#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">VNET에 HBase 클러스터 만들기</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Apache Phoenix 사용</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Spark에 연결</a>
     - html: 대화형 쿼리&#58; <a href="/azure/hdinsight/interactive-query/apache-hadoop-connect-hive-power-bi-directquery">직접 쿼리를 사용하여 Power BI에 연결</a>
-    - html: Storm&#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Java에서 Storm 토폴로지 만들기</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">HDInsight에서 Storm 토폴로지 배포</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Storm에서 Data Lake Store에 쓰기</a>
+    - html: Apache Storm&#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Java에서 Storm 토폴로지 만들기</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">HDInsight에서 Storm 토폴로지 배포</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Storm에서 Data Lake Store에 쓰기</a>
     - html: ML 서비스 &#58; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Visual Studio용 R 도구 사용</a>
 - title: 참고 자료
   items:
@@ -86,8 +83,10 @@ sections:
     style: cards
     className: cardsD
     items:
+    - title: 도구
+      html: <p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin">HDInsight IntelliJ 도구</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin">HDInsight Eclipse 도구</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode">HDInsight VSCode 도구</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started">HDInsight Visual Studio 도구</a></p>
     - title: 명령줄
-      html: <p><a href="/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/module/azurerm.hdinsight">Azure PowerShell</a></p>
     - title: 언어
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight">.NET(Hadoop)</a></p><p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET(HBase)</a></p><p><a href="https://archive.codeplex.com/?p=hadoopsdk">.NET(Avro)</a></p>
     - title: REST (영문)

@@ -1,29 +1,30 @@
 ---
-title: Project Answer Search Java 빠른 시작 - Microsoft Cognitive Services | Microsoft Docs
+title: '빠른 시작: Project Answer Search, Java'
+titlesuffix: Azure Cognitive Services
 description: Java에서 Project Answer Search 사용을 시작합니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 4e1f606e1564981589e638e0e51a8b42633ca7b0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 66d5488fa0e8f542327b4150d50e4351af6ade55
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376150"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469098"
 ---
-# <a name="project-answer-search-query-in-java"></a>Java의 Project Answer Search 쿼리
+# <a name="quickstart-project-answer-search-query-in-java"></a>빠른 시작: Java에서 Project Answer Search 쿼리 사용
 이 문서에서는 Java를 사용하여 Azure의 Microsoft Cognitive Services 일부인 Bing Answer Search API를 보여 줍니다. API는 REST 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다.
  
 예제 코드는 최소 외부 종속성으로 Java를 사용합니다.  Mono를 사용하여 Linux 또는 Mac OS X에서 실행할 수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 체험 평가판에 대한 액세스 키 가져오기
+[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 평가판에 대한 액세스 키 가져오기
 
 ## <a name="request"></a>요청 
 

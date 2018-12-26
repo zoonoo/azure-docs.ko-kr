@@ -3,24 +3,24 @@ title: Azure Service Bus 메시지 개요 | Microsoft Docs
 description: Service Bus 메시징에 대한 설명
 services: service-bus-messaging
 documentationcenter: ''
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.service: service-bus-messaging
 ms.topic: overview
-ms.date: 05/22/2018
+ms.date: 09/22/2018
 ms.custom: mvc
-ms.author: sethm
-ms.openlocfilehash: 0357602e6085b25fc6d11363113ebc962dc4d008
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: 55a651080c4ed1d22901681317046f0853e257f0
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643093"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163109"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
 
-Microsoft Azure Service Bus는 완전히 관리되는 엔터프라이즈 통합 메시지 broker입니다. Service Bus는 응용 프로그램과 서비스를 서로 분리하는 데 가장 일반적으로 사용되며, 비동기 데이터 및 상태 전송에 대한 안정적이고 안전한 플랫폼입니다. 데이터는 *메시지*를 사용하여 서로 다른 응용 프로그램 및 서비스간에 전송됩니다. 메시지는 이진 형식으로 JSON, XML 또는 텍스트만 포함할 수 있습니다. 
+Microsoft Azure Service Bus는 완전 관리형 엔터프라이즈 [통합](http://azure.com/integration) 메시지 broker입니다. Service Bus는 응용 프로그램과 서비스를 서로 분리하는 데 가장 일반적으로 사용되며, 비동기 데이터 및 상태 전송에 대한 안정적이고 안전한 플랫폼입니다. 데이터는 *메시지*를 사용하여 서로 다른 응용 프로그램 및 서비스간에 전송됩니다. 메시지는 이진 형식으로 JSON, XML 또는 텍스트만 포함할 수 있습니다. 
 
 몇 가지 일반적인 메시징 시나리오는 다음과 같습니다.
 
@@ -39,7 +39,7 @@ Microsoft Azure Service Bus는 완전히 관리되는 엔터프라이즈 통합 
 
 ![큐](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-큐의 메시지는 도착 시 순서가 지정되고 타임스탬프가 지정됩니다. 허용되면 메시지는 중복 저장소에 안전하게 보관됩니다. 메시지는 요청 시 메시지를 전송하는 *끌어오기* 모드에서 전송됩니다.
+큐의 메시지는 도착 시 순서가 지정되고 타임스탬프가 지정됩니다. 허용되면 메시지는 중복 스토리지에 안전하게 보관됩니다. 메시지는 요청 시 메시지를 전송하는  *끌어오기* 모드에서 전송됩니다.
 
 ## <a name="topics"></a>토픽
 
@@ -95,9 +95,9 @@ Service Bus는 수신자에게 배달할 수 없는 메시지 또는 처리하�
 
 클라이언트가 전송 작업의 결과에 대한 의문을 갖게 되는 오류가 발생하는 경우 [중복 검색](duplicate-detection.md)은 보낸 사람이 동일한 메시지를 다시 보낼 수 있도록 하고 큐 또는 토픽에서 중복된 복사본을 삭제하여 이러한 상황에 대한 의문을 해소합니다.
 
-### <a name="sas-rbac-and-msi"></a>SAS, RBAC 및 MSI
+### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS, RBAC 및 Azure 리소스에 대한 관리 ID
 
-Service Bus는 [SAS](service-bus-sas.md)(공유 액세스 서명), [RBAC](service-bus-role-based-access-control.md)(역할 기반 액세스 제어) 및 [MSI](service-bus-managed-service-identity.md)(관리 서비스 ID)와 같은 보안 프로토콜을 지원합니다.
+Service Bus는 [SAS(공유 액세스 서명)](service-bus-sas.md), [RBAC(역할 기반 액세스 제어)](service-bus-role-based-access-control.md) 및 [Azure 리소스에 대한 관리 ID](service-bus-managed-service-identity.md) 같은 보안 프로토콜을 지원합니다.
 
 ### <a name="geo-disaster-recovery"></a>지리적 재해 복구
 
@@ -115,9 +115,9 @@ Service Bus는 [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/mas
 
 Service Bus는 다음 Azure 서비스와 완벽하게 통합됩니다.
 
-- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
-- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
-- [함수](https://azure.microsoft.com/services/functions/) 
+- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+- [함수](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
  

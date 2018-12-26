@@ -1,359 +1,363 @@
 ---
-title: Azure Content Moderator - 비디오 조정 | Microsoft Docs
-description: 비디오 조정을 사용하여 가능한 성인 및 외설 콘텐츠를 검색합니다.
+title: C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
+titlesuffix: Azure Cognitive Services
+description: .NET용 Content Moderator SDK를 사용하여 다양하고 불쾌한 자료에 대한 텍스트 비디오 콘텐츠를 분석하는 방법
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
-ms.date: 02/02/2018
+ms.topic: conceptual
+ms.date: 10/31/2018
 ms.author: sajagtap
-ms.openlocfilehash: ef58f5990d4a0a19ab2b8c61b42ab2a0754dc6fa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 80635354b228edc1a8c1334e5d59cf530a10083e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377694"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008286"
 ---
-# <a name="video-moderation"></a>비디오 조정
+# <a name="analyze-video-content-for-objectionable-material-in-c"></a>C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
 
-오늘날, 온라인 뷰어는 대중적인 국가별 소셜 미디어 웹 사이트에서 수십억 개의 비디오 뷰를 생성하며 점점 증가 추세에 있습니다. 잠재적인 성인 및 외설 콘텐츠를 예측하는 기계 학습 기반 서비스를 적용하여 조정 노력을 줄일 수 있습니다.
+이 문서에서는 [.NET용 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)를 사용하여 성인 또는 성적 콘텐츠에 대한 비디오 콘텐츠를 검사하는 데 도움이 되는 정보와 코드 샘플을 제공합니다.
 
-## <a name="sign-up-for-the-content-moderator-media-processor-public-preview"></a>Content Moderator 미디어 프로세서(공개 미리 보기)에 등록
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-### <a name="create-a-free-azure-account"></a>평가판 Azure 계정 만들기
+## <a name="prerequisites"></a>필수 조건
+- [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전
 
-Azure 계정이 아직 없는 경우 [여기에서 시작](https://azure.microsoft.com/free/)하여 무료 Azure 계정을 만듭니다.
+## <a name="set-up-azure-resources"></a>Azure 리소스 설정
+
+Content Moderator의 비디오 조정 기능은 AMS(Azure Media Services)에서 무료 공개 미리 보기 **미디어 프로세서**로 사용할 수 있습니다. Azure Media Services는 비디오 콘텐츠 저장 및 스트리밍에 대한 전문 Azure 서비스입니다. 
 
 ### <a name="create-an-azure-media-services-account"></a>Azure Media Services 계정 만들기
 
-Content Moderator의 비디오 기능은 AMS(Azure Media Services)에서 무료로 공개 미리 보기 **미디어 프로세서**로 사용할 수 있습니다.
+[Azure Media Services 계정 만들기](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account)의 지침에 따라 AMS를 구독하고 연결된 Azure Storage 계정을 만듭니다. 해당 스토리지 계정에서 새 Blob 스토리지 컨테이너를 만듭니다.
 
-Azure 구독에서 [Azure Media Services 계정을 만듭니다](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account).
+### <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 응용 프로그램 만들기
 
-### <a name="get-azure-active-directory-credentials"></a>Azure Active Directory 자격 증명 가져오기
+Azure Portal에서 새 AMS 구독으로 이동한 후 측면 메뉴에서 **API 액세스**를 선택합니다. **서비스 주체를 사용하여 Azure Media Services에 연결**을 선택합니다. 나중에 필요하므로 **REST API 엔드포인트** 필드의 값을 기록합니다.
 
-   1. [Azure Media Services 포털 문서](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)를 읽고 Azure Portal을 사용하여 Azure AD 인증 자격 증명을 가져오는 방법을 알아봅니다.
-   1. [Azure Media Services .NET 문서](https://docs.microsoft.com/azure/media-services/media-services-dotnet-get-started-with-aad)를 읽고 .NET SDK에서 Azure Active Directory 자격 증명을 사용하는 방법을 알아봅니다.
+**Azure AD 앱** 섹션에서 **새로 만들기**를 선택하고 새 Azure AD 애플리케이션 등록에 이름을 지정합니다(예: "VideoModADApp"). **저장**을 클릭하고 애플리케이션이 구성되는 동안 몇 분 기다립니다. 그런 다음, 페이지의 **Azure AD 앱** 섹션에 새로운 앱 등록이 표시됩니다.
 
-   > [!NOTE]
-   > 이 빠른 시작의 샘플 코드는 이러한 두 문서에 설명된 **서비스 주체 인증** 방법을 사용합니다.
+앱 등록을 선택하고 아래의 **애플리케이션 관리** 단추를 클릭합니다. 나중에 필요하므로 **애플리케이션 ID** 필드의 값을 기록합니다. **설정** > **키**를 선택하고 새 키에 대한 설명을 입력합니다(예: "VideoModKey"). **저장**을 클릭하면 새 키 값이 나타납니다. 이 문자열을 복사하고 안전한 곳에 저장합니다.
 
-AMS 자격 증명을 가져온 후에는 두 가지 방법으로 Content Moderator 미디어 프로세서를 사용해볼 수 있습니다.
+위 프로세스에 대한 자세한 안내는 [Azure AD 인증 시작](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)을 참조하세요.
+
+이 작업을 수행하고 나면 비디오 조정 미디어 프로세서를 두 가지 다른 방법으로 사용할 수 있습니다.
 
 ## <a name="use-azure-media-services-explorer"></a>Azure Media Services 탐색기 사용
 
-대화형 [AMS(Azure Media Services) 탐색기](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/)를 사용하여 AMS 계정을 찾아보고, 비디오를 업로드하고, Content Moderator 미디어 프로세서로 검사를 수행합니다. GitHub에서 [다운로드한 후 설치](https://github.com/Azure/Azure-Media-Services-Explorer/releases)하고 [소스 코드를 찾아보면서](http://github.com/Azure/Azure-Media-Services-Explorer) AMS SDK를 사용에 대해 자세히 알아봅니다.
+Azure Media Services 탐색기는 AMS에 대한 사용자 친화적인 프런트 엔드입니다. 이 탐색기를 사용하여 AMS 계정을 찾아보고, 비디오를 업로드하며 Content Moderator 미디어 프로세서로 콘텐츠를 검사할 수 있습니다. [GitHub](https://github.com/Azure/Azure-Media-Services-Explorer/releases)에서 다운로드하여 설치하거나, 자세한 내용은 [Azure Media Services Explorer 블로그 게시물](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/)을 참조하세요.
 
 ![Content Moderator를 사용하는 Azure Media Services 탐색기](images/ams-explorer-content-moderator.PNG)
 
-## <a name="net-quickstart-with-visual-studio-and-c"></a>Visual Studio 및 C#으로 .NET 빠른 시작
+## <a name="create-the-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-1. 솔루션에 새 **콘솔 앱(.NET Framework)** 프로젝트를 추가합니다.
+1. Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만들고 **VideoModeration**으로 이름을 지정합니다. 
+1. 솔루션에 다른 프로젝트가 있는 경우 이것을 단일 시작 프로젝트로 선택합니다.
+1. 필요한 NuGet 패키지를 가져옵니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 누르고 **NuGet 패키지 관리**를 선택한 후 다음 패키지를 찾아 설치합니다.
+    - windowsazure.mediaservices
+    - windowsazure.mediaservices.extensions
 
-   샘플 코드에서 프로젝트의 이름을 **VideoModeration**으로 지정합니다.
+## <a name="add-video-moderation-code"></a>비디오 조정 코드 추가
 
-1. 이 프로젝트를 솔루션의 단일 시작 프로젝트로 선택합니다.
-
-### <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
-
-[NuGet](https://www.nuget.org/)에서 사용할 수 있는 다음 NuGet 패키지를 설치합니다.
-
-- windowsazure.mediaservices
-- windowsazure.mediaservices.extensions
+다음으로 이 가이드에서 프로젝트로 코드를 복사하여 붙여넣고 기본 콘텐츠 조정 시나리오를 구현합니다.
 
 ### <a name="update-the-programs-using-statements"></a>프로그램의 using 문 업데이트
 
-프로그램의 using 문을 수정합니다.
+_Program.cs_ 파일 위에 다음 `using` 문을 추가합니다.
 
-    using System;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.IO;
-    using System.Threading;
-    using Microsoft.WindowsAzure.Storage.Blob;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using System.Collections.Generic;
+```csharp
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.IO;
+using System.Threading;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using System.Collections.Generic;
+```
 
+### <a name="set-up-resource-references"></a>리소스 참조 설정
 
-### <a name="initialize-application-specific-settings"></a>응용 프로그램 관련 설정 초기화
+_Program.cs_의 **Program** 클래스에 다음 정적 필드를 추가합니다. 이 필드에는 AMS 구독 연결에 필요한 정보가 있습니다. 위의 단계에서 얻은 값으로 입력하세요. `CLIENT_ID`는 Azure AD 앱의 **애플리케이션 ID** 값이고 `CLIENT_SECRET`는 해당 앱에 대해 사용자가 생성한 "VideoModKey"의 값입니다.
 
-Program.cs의 **Program** 클래스에 다음 정적 필드를 추가합니다.
+```csharp
+// declare constants and globals
+private static CloudMediaContext _context = null;
+private static CloudStorageAccount _StorageAccount = null;
 
-    // declare constants and globals
-    private static CloudMediaContext _context = null;
-    private static CloudStorageAccount _StorageAccount = null;
+// Azure Media Services (AMS) associated Storage Account, Key, and the Container that has 
+// a list of Blobs to be processed.
+static string STORAGE_NAME = "YOUR AMS ASSOCIATED BLOB STORAGE NAME";
+static string STORAGE_KEY = "YOUR AMS ASSOCIATED BLOB STORAGE KEY";
+static string STORAGE_CONTAINER_NAME = "YOUR BLOB CONTAINER FOR VIDEO FILES";
 
-    // Azure Media Services (AMS) associated Storage Account, Key, and the Container that has 
-    // a list of Blobs to be processed.
-    static string STORAGE_NAME = "YOUR AMS ASSOCIATED BLOB STORAGE NAME";
-    static string STORAGE_KEY = "YOUR AMS ASSOCIATED BLOB STORAGE KEY";
-    static string STORAGE_CONTAINER_NAME = "YOUR BLOB CONTAINER FOR VIDEO FILES";
+private static StorageCredentials _StorageCredentials = null;
 
-    private static StorageCredentials _StorageCredentials = null;
+// Azure Media Services authentication. 
+private const string AZURE_AD_TENANT_NAME = "microsoft.onmicrosoft.com";
+private const string CLIENT_ID = "YOUR CLIENT ID";
+private const string CLIENT_SECRET = "YOUR CLIENT SECRET";
 
-    // Azure Media Services authentication. See the quickstart for how to get these.
-    private const string AZURE_AD_TENANT_NAME = "microsoft.onmicrosoft.com";
-    private const string CLIENT_ID = "YOUR CLIENT ID"
-    private const string CLIENT_SECRET = "YOUR CLIENT SECRET";
+// REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".      
+private const string REST_API_ENDPOINT = "YOUR API ENDPOINT";
 
-    // REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".      
-    private const string REST_API_ENDPOINT = "YOUR API ENDPOINT";
+// Content Moderator Media Processor Nam
+private const string MEDIA_PROCESSOR = "Azure Media Content Moderator";
 
-    // Content Moderator Media Processor Nam
-    private const string MEDIA_PROCESSOR = "Azure Media Content Moderator";
+// Input and Output files in the current directory of the executable
+private const string INPUT_FILE = "VIDEO FILE NAME";
+private const string OUTPUT_FOLDER = "";
 
-    // Input and Output files in the current directory of the executable
-    private const string INPUT_FILE = "VIDEO FILE NAME";
-    private const string OUTPUT_FOLDER = "";
+// JSON settings file
+private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
-### <a name="create-a-preset-file-json"></a>미리 설정된 파일(json) 만들기
+```
 
-버전 번호를 사용하여 현재 디렉터리에 JSON 파일을 만듭니다.
+로컬 비디오 파일을 사용하려면(가장 간단한 사례) 프로젝트에 추가하고 `INPUT_FILE` 값으로 경로를 입력합니다(상대 경로는 실행 디렉터리와 상대적임).
 
-    private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
-    //Example file content:
-    //        {
-    //             "version": "2.0"
-    //        }
-    private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
+또한 현재 디렉터리에 _preset.json_ 파일을 만들고 버전 번호를 지정하기 위해 사용해야 합니다. 예: 
 
-### <a name="add-the-following-code-to-the-main-method"></a>main 메서드에 다음 코드 추가
+```JSON
+{
+    "version": "2.0"
+}
+```
 
-main 메서드는 먼저 Azure 미디어 컨텍스트를 만들고, 비디오가 Blob 저장소에 있는 경우에는 Azure Storage 컨텍스트를 만듭니다.
-코드의 나머지 부분은 Azure Storage 컨테이너 내의 로컬 폴더, Blob 또는 여러 Blob에서 비디오를 검색합니다.
-다른 코드 줄을 주석으로 처리하여 모든 옵션을 시도할 수 있습니다.
+### <a name="load-the-input-videos"></a>입력 비디오를 로드합니다.
 
-    // Create Azure Media Context
-    CreateMediaContext();
+**Program** 클래스의 **Main** 메서드는 먼저 Azure Media 컨텍스트를 만들고, 비디오가 Blob 스토리지에 있는 경우에는 Azure Storage 컨텍스트를 만듭니다. 코드의 나머지 부분은 Azure Storage 컨테이너 내의 로컬 폴더, Blob 또는 여러 Blob에서 비디오를 검색합니다. 다른 코드 줄을 주석으로 처리하여 모든 옵션을 시도할 수 있습니다.
 
-    // Create Storage Context
-    CreateStorageContext();
+```csharp
+// Create Azure Media Context
+CreateMediaContext();
 
-    // Use a file as the input.
-    // IAsset asset = CreateAssetfromFile();
-    
-    // -- OR ---
-    
-    // Or a blob as the input
-    // IAsset asset = CreateAssetfromBlob((CloudBlockBlob)GetBlobsList().First());
+// Create Storage Context
+CreateStorageContext();
 
-    // Then submit the asset to Content Moderator
-    // RunContentModeratorJob(asset);
+// Use a file as the input.
+IAsset asset = CreateAssetfromFile();
 
-    //-- OR ----
+// -- OR ---
 
-    // Just run the content moderator on all blobs in a list (from a Blob Container)
-    RunContentModeratorJobOnBlobs();
+// Or a blob as the input
+// IAsset asset = CreateAssetfromBlob((CloudBlockBlob)GetBlobsList().First());
 
-### <a name="add-the-code-to-create-an-azure-media-context"></a>Azure 미디어 컨텍스트를 만드는 코드 추가
+// Then submit the asset to Content Moderator
+RunContentModeratorJob(asset);
 
-    /// <summary>
-    /// Creates a media context from azure credentials
-    /// </summary>
-    static void CreateMediaContext()
-    {
-        // Get Azure AD credentials
-        var tokenCredentials = new AzureAdTokenCredentials(AZURE_AD_TENANT_NAME,
-            new AzureAdClientSymmetricKey(CLIENT_ID, CLIENT_SECRET),
-            AzureEnvironments.AzureCloudEnvironment);
+//-- OR ----
 
-        // Initialize an Azure AD token
-        var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+// Just run the content moderator on all blobs in a list (from a Blob Container)
+// RunContentModeratorJobOnBlobs();
+```
 
-        // Create a media context
-        _context = new CloudMediaContext(new Uri(REST_API_ENDPOINT), tokenProvider);
-    }
+### <a name="create-an-azure-media-context"></a>Azure Media 컨텍스트 만들기
+
+**Program** 클래스에 다음 메서드를 추가합니다. 이 메서드는 AMS 자격 증명을 사용하여 AMS와의 통신을 허용합니다.
+
+```csharp
+// Creates a media context from azure credentials
+static void CreateMediaContext()
+{
+    // Get Azure AD credentials
+    var tokenCredentials = new AzureAdTokenCredentials(AZURE_AD_TENANT_NAME,
+        new AzureAdClientSymmetricKey(CLIENT_ID, CLIENT_SECRET),
+        AzureEnvironments.AzureCloudEnvironment);
+
+    // Initialize an Azure AD token
+    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+    // Create a media context
+    _context = new CloudMediaContext(new Uri(REST_API_ENDPOINT), tokenProvider);
+}
+```
 
 ### <a name="add-the-code-to-create-an-azure-storage-context"></a>Azure Storage 컨텍스트를 만드는 코드 추가
-저장소 자격 증명에서 만든 저장소 컨텍스트를 사용하여 Blob 저장소에 액세스합니다.
 
-    /// <summary>
-    /// Creates a storage context from the AMS associated storage name and key
-    /// </summary>
-    static void CreateStorageContext()
+**Program** 클래스에 다음 메서드를 추가합니다. 스토리지 자격 증명에서 만든 Storage 컨텍스트를 사용하여 Blob 스토리지에 액세스합니다.
+
+```csharp
+// Creates a storage context from the AMS associated storage name and key
+static void CreateStorageContext()
+{
+    // Get a reference to the storage account associated with a Media Services account. 
+    if (_StorageCredentials == null)
     {
-        // Get a reference to the storage account associated with a Media Services account. 
-        if (_StorageCredentials == null)
-        {
-            _StorageCredentials = new StorageCredentials(STORAGE_NAME, STORAGE_KEY);
-        }
-        _StorageAccount = new CloudStorageAccount(_StorageCredentials, false);
+        _StorageCredentials = new StorageCredentials(STORAGE_NAME, STORAGE_KEY);
     }
+    _StorageAccount = new CloudStorageAccount(_StorageCredentials, false);
+}
+```
 
 ### <a name="add-the-code-to-create-azure-media-assets-from-local-file-and-blob"></a>로컬 파일 및 Blob에서 Azure 미디어 자산을 만드는 코드 추가
+
 Content Moderator 미디어 프로세서는 Azure Media Services 플랫폼 내의 **자산**에 대해 작업을 실행합니다.
 이러한 메서드는 로컬 파일 또는 연결된 Blob에서 자산을 만듭니다.
 
-    /// <summary>
-    /// Creates an Azure Media Services Asset from the video file
-    /// </summary>
-    /// <returns>Asset</returns>
-    static IAsset CreateAssetfromFile()
-    {
-        return _context.Assets.CreateFromFile(INPUT_FILE, AssetCreationOptions.None); ;
-    }
+```csharp
+// Creates an Azure Media Services Asset from the video file
+static IAsset CreateAssetfromFile()
+{
+    return _context.Assets.CreateFromFile(INPUT_FILE, AssetCreationOptions.None); ;
+}
 
-    /// <summary>
-    /// Creates an Azure Media Services asset from your blog storage
-    /// </summary>
-    /// <param name="Blob"></param>
-    /// <returns>Asset</returns>
-    static IAsset CreateAssetfromBlob(CloudBlockBlob Blob)
-    {
-        // Create asset from the FIRST blob in the list and return it
-        return _context.Assets.CreateFromBlob(Blob, _StorageCredentials, AssetCreationOptions.None);
-    }
+// Creates an Azure Media Services asset from your blog storage
+static IAsset CreateAssetfromBlob(CloudBlockBlob Blob)
+{
+    // Create asset from the FIRST blob in the list and return it
+    return _context.Assets.CreateFromBlob(Blob, _StorageCredentials, AssetCreationOptions.None);
+}
+```
 
 ### <a name="add-the-code-to-scan-a-collection-of-videos-as-blobs-within-a-container"></a>컨테이너 내에서 비디오 컬렉션(blob으로)을 검색하는 코드 추가
 
-    /// <summary>
-    /// Runs the Content Moderator Job on all Blobs in a given container name
-    /// </summary>
-    static void RunContentModeratorJobOnBlobs()
+```csharp
+// Runs the Content Moderator Job on all Blobs in a given container name
+static void RunContentModeratorJobOnBlobs()
+{
+    // Get the reference to the list of Blobs. See the following method.
+    var blobList = GetBlobsList();
+
+    // Iterate over the Blob list items or work on specific ones as needed
+    foreach (var sourceBlob in blobList)
     {
-        // Get the reference to the list of Blobs. See the following method.
-        var blobList = GetBlobsList();
+        // Create an Asset
+        IAsset asset = _context.Assets.CreateFromBlob((CloudBlockBlob)sourceBlob,
+                            _StorageCredentials, AssetCreationOptions.None);
+        asset.Update();
 
-        // Iterate over the Blob list items or work on specific ones as needed
-        foreach (var sourceBlob in blobList)
-        {
-            // Create an Asset
-            IAsset asset = _context.Assets.CreateFromBlob((CloudBlockBlob)sourceBlob,
-                               _StorageCredentials, AssetCreationOptions.None);
-            asset.Update();
-
-            // Submit to Content Moderator
-            RunContentModeratorJob(asset);
-        }
+        // Submit to Content Moderator
+        RunContentModeratorJob(asset);
     }
+}
 
-    /// <summary>
-    /// Get all blobs in your container
-    /// </summary>
-    /// <returns></returns>
-    static IEnumerable<IListBlobItem> GetBlobsList()
-    {
-        // Get a reference to the Container within the Storage Account
-        // that has the files (blobs) for moderation
-        CloudBlobClient CloudBlobClient = _StorageAccount.CreateCloudBlobClient();
-        CloudBlobContainer MediaBlobContainer = CloudBlobClient.GetContainerReference(STORAGE_CONTAINER_NAME);
+// Get all blobs in your container
+static IEnumerable<IListBlobItem> GetBlobsList()
+{
+    // Get a reference to the Container within the Storage Account
+    // that has the files (blobs) for moderation
+    CloudBlobClient CloudBlobClient = _StorageAccount.CreateCloudBlobClient();
+    CloudBlobContainer MediaBlobContainer = CloudBlobClient.GetContainerReference(STORAGE_CONTAINER_NAME);
 
-        // Get the reference to the list of Blobs 
-        var blobList = MediaBlobContainer.ListBlobs();
-        return blobList;
-    }
+    // Get the reference to the list of Blobs 
+    var blobList = MediaBlobContainer.ListBlobs();
+    return blobList;
+}
+```
 
 ### <a name="add-the-method-to-run-the-content-moderator-job"></a>Content Moderator 작업을 실행하기 위한 메서드 추가
 
-    /// <summary>
-    /// Run the Content Moderator job on the designated Asset from local file or blob storage
-    /// </summary>
-    /// <param name="asset"></param>
-    static void RunContentModeratorJob(IAsset asset)
+```csharp
+// Run the Content Moderator job on the designated Asset from local file or blob storage
+static void RunContentModeratorJob(IAsset asset)
+{
+    // Grab the presets
+    string configuration = File.ReadAllText(CONTENT_MODERATOR_PRESET_FILE);
+
+    // grab instance of Azure Media Content Moderator MP
+    IMediaProcessor mp = _context.MediaProcessors.GetLatestMediaProcessorByName(MEDIA_PROCESSOR);
+
+    // create Job with Content Moderator task
+    IJob job = _context.Jobs.Create(String.Format("Content Moderator {0}",
+            asset.AssetFiles.First() + "_" + Guid.NewGuid()));
+
+    ITask contentModeratorTask = job.Tasks.AddNew("Adult and racy classifier task",
+            mp, configuration,
+            TaskOptions.None);
+    contentModeratorTask.InputAssets.Add(asset);
+    contentModeratorTask.OutputAssets.AddNew("Adult and racy classifier output",
+        AssetCreationOptions.None);
+
+    job.Submit();
+
+
+    // Create progress printing and querying tasks
+    Task progressPrintTask = new Task(() =>
     {
-        // Grab the presets
-        string configuration = File.ReadAllText(CONTENT_MODERATOR_PRESET_FILE);
-
-        // grab instance of Azure Media Content Moderator MP
-        IMediaProcessor mp = _context.MediaProcessors.GetLatestMediaProcessorByName(MEDIA_PROCESSOR);
-
-        // create Job with Content Moderator task
-        IJob job = _context.Jobs.Create(String.Format("Content Moderator {0}",
-                asset.AssetFiles.First() + "_" + Guid.NewGuid()));
-
-        ITask contentModeratorTask = job.Tasks.AddNew("Adult and racy classifier task",
-                mp, configuration,
-                TaskOptions.None);
-        contentModeratorTask.InputAssets.Add(asset);
-        contentModeratorTask.OutputAssets.AddNew("Adult and racy classifier output",
-            AssetCreationOptions.None);
-
-        job.Submit();
-
-
-        // Create progress printing and querying tasks
-        Task progressPrintTask = new Task(() =>
+        IJob jobQuery = null;
+        do
         {
-            IJob jobQuery = null;
-            do
-            {
-                var progressContext = _context;
-                jobQuery = progressContext.Jobs
-                .Where(j => j.Id == job.Id)
-                    .First();
-                    Console.WriteLine(string.Format("{0}\t{1}",
-                    DateTime.Now,
-                    jobQuery.State));
-                    Thread.Sleep(10000);
-             }
-             while (jobQuery.State != JobState.Finished &&
-             jobQuery.State != JobState.Error &&
-             jobQuery.State != JobState.Canceled);
-        });
-        progressPrintTask.Start();
+            var progressContext = _context;
+            jobQuery = progressContext.Jobs
+            .Where(j => j.Id == job.Id)
+                .First();
+                Console.WriteLine(string.Format("{0}\t{1}",
+                DateTime.Now,
+                jobQuery.State));
+                Thread.Sleep(10000);
+            }
+            while (jobQuery.State != JobState.Finished &&
+            jobQuery.State != JobState.Error &&
+            jobQuery.State != JobState.Canceled);
+    });
+    progressPrintTask.Start();
 
-        Task progressJobTask = job.GetExecutionProgressTask(
-        CancellationToken.None);
-        progressJobTask.Wait();
+    Task progressJobTask = job.GetExecutionProgressTask(
+    CancellationToken.None);
+    progressJobTask.Wait();
 
-        // If job state is Error, the event handling 
-        // method for job progress should log errors.  Here we check 
-        // for error state and exit if needed.
-        if (job.State == JobState.Error)
-        {
-            ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-            Console.WriteLine(string.Format("Error: {0}. {1}",
-            error.Code,
-            error.Message));
-        }
-
-        DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
+    // If job state is Error, the event handling 
+    // method for job progress should log errors.  Here we check 
+    // for error state and exit if needed.
+    if (job.State == JobState.Error)
+    {
+        ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+        Console.WriteLine(string.Format("Error: {0}. {1}",
+        error.Code,
+        error.Message));
     }
 
-### <a name="add-a-couple-of-helper-functions"></a>몇 가지 도우미 함수 추가
+    DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
+}
+```
+
+### <a name="add-helper-functions"></a>도우미 함수 추가
 
 이러한 메서드는 Azure Media Services 자산에서 Content Moderator 출력 파일(JSON)을 다운로드하고 프로그램이 콘솔에 실행 중 상태를 로깅할 수 있도록 조정 작업의 상태를 추적하는 데 도움을 줍니다.
 
-    static void DownloadAsset(IAsset asset, string outputDirectory)
+```csharp
+static void DownloadAsset(IAsset asset, string outputDirectory)
+{
+    foreach (IAssetFile file in asset.AssetFiles)
     {
-        foreach (IAssetFile file in asset.AssetFiles)
-        {
-            file.Download(Path.Combine(outputDirectory, file.Name));
-        }
+        file.Download(Path.Combine(outputDirectory, file.Name));
     }
+}
 
-    // event handler for Job State
-    static void StateChanged(object sender, JobStateChangedEventArgs e)
+// event handler for Job State
+static void StateChanged(object sender, JobStateChangedEventArgs e)
+{
+    Console.WriteLine("Job state changed event:");
+    Console.WriteLine("  Previous state: " + e.PreviousState);
+    Console.WriteLine("  Current state: " + e.CurrentState);
+    switch (e.CurrentState)
     {
-        Console.WriteLine("Job state changed event:");
-        Console.WriteLine("  Previous state: " + e.PreviousState);
-        Console.WriteLine("  Current state: " + e.CurrentState);
-        switch (e.CurrentState)
-        {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job finished.");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-                Console.WriteLine("Job is canceled.\n");
-                break;
-            case JobState.Error:
-                Console.WriteLine("Job failed.\n");
-                break;
-            default:
-                break;
-        }
+        case JobState.Finished:
+            Console.WriteLine();
+            Console.WriteLine("Job finished.");
+            break;
+        case JobState.Canceling:
+        case JobState.Queued:
+        case JobState.Scheduled:
+        case JobState.Processing:
+            Console.WriteLine("Please wait...\n");
+            break;
+        case JobState.Canceled:
+            Console.WriteLine("Job is canceled.\n");
+            break;
+        case JobState.Error:
+            Console.WriteLine("Job failed.\n");
+            break;
+        default:
+            break;
     }
+}
+```
 
 ### <a name="run-the-program-and-review-the-output"></a>프로그램 실행 및 출력 검토
 
@@ -365,62 +369,62 @@ Content Moderation 작업이 완료되면 JSON 응답을 분석합니다. 응답
 - **start**, **duration**, **totalDuration** 및 **timestamp**는 "ticks"로 지정합니다. **timescale**로 나누어 초 수를 가져옵니다.
  
 > [!NOTE]
-
 > - `adultScore`는 잠재적으로 특정 상황에서 성적으로 노골적이거나 성인용으로 간주될 수 있는 콘텐츠의 존재 가능성 및 예측 점수를 나타냅니다.
 > - `racyScore`는 잠재적으로 특정 상황에서 성적으로 외설적이거나 도발적인 것으로 간주될 수 있는 콘텐츠의 존재 가능성 및 예측 점수를 나타냅니다.
 > - `adultScore` 및 `racyScore`의 범위는 0부터 1 사이입니다. 점수가 높을수록 모델이 예측하는 범주에 해당할 가능성이 높아집니다. 이 미리 보기는 수동으로 코딩된 결과가 아닌 통계 모델을 사용합니다. 고유한 콘텐츠로 테스트하여 각 범주가 요구 사항과 얼마나 일치하는지 확인하는 것이 좋습니다.
 > - `reviewRecommended`는 내부 점수 임계값에 따라 true 또는 false입니다. 고객은 이 값을 사용할지 또는 콘텐츠 정책에 따라 사용자 지정 임계값을 결정할지를 평가해야 합니다.
->
 
-    {
-    "version": 2,
-    "timescale": 90000,
-    "offset": 0,
-    "framerate": 50,
-    "width": 1280,
-    "height": 720,
-    "totalDuration": 18696321,
-    "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
-      ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
-      ]
-    }
+```json
+{
+"version": 2,
+"timescale": 90000,
+"offset": 0,
+"framerate": 50,
+"width": 1280,
+"height": 720,
+"totalDuration": 18696321,
+"fragments": [
+{
+    "start": 0,
+    "duration": 18000
+},
+{
+    "start": 18000,
+    "duration": 3600,
+    "interval": 3600,
+    "events": [
+    [
+        {
+        "reviewRecommended": false,
+        "adultScore": 0.00001,
+        "racyScore": 0.03077,
+        "index": 5,
+        "timestamp": 18000,
+        "shotIndex": 0
+        }
     ]
-    }
+    ]
+},
+{
+    "start": 18386372,
+    "duration": 119149,
+    "interval": 119149,
+    "events": [
+    [
+        {
+        "reviewRecommended": true,
+        "adultScore": 0.00000,
+        "racyScore": 0.91902,
+        "index": 5085,
+        "timestamp": 18386372,
+        "shotIndex": 62
+        }
+    ]
+    ]
+}
+]
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

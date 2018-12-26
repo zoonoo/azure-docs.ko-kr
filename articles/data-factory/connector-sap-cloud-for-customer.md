@@ -74,15 +74,15 @@ SAP Cloud for Customer에서 지원되는 모든 싱크 데이터 저장소로 �
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 SAP Cloud for Customer 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 SAP Cloud for Customer 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-SAP Cloud for Customer에서 데이터를 복사하려면 데이터 집합의 type 속성을 **SapCloudForCustomerResource**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+SAP Cloud for Customer에서 데이터를 복사하려면 데이터 세트의 type 속성을 **SapCloudForCustomerResource**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성은 **SapCloudForCustomerResource**로 설정해야 합니다. |예 |
+| 형식 | 데이터 세트의 type 속성은 **SapCloudForCustomerResource**로 설정해야 합니다. |예 |
 | 경로 | SAP C4C OData 엔터티의 경로를 지정합니다. |예 |
 
 **예제:**
@@ -157,8 +157,8 @@ SAP Cloud for Customer로 데이터를 복사하려면 복사 작업의 싱크 �
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | type 속성은 **SapCloudForCustomerSink**로 설정해야 합니다.  | 예 |
-| writeBehavior | 작업의 쓰기 동작입니다. “Insert”, “Update”가 될 수 있습니다. | 아니요. 기본값은 “Insert”입니다. |
-| writeBatchSize | 쓰기 작업의 일괄 처리 크기입니다. 최상의 성능을 얻기 위한 일괄 처리 크기는 테이블이나 서버에 따라 다를 수 있습니다. | 아니요. 기본값은 10입니다. |
+| writeBehavior | 작업의 쓰기 동작입니다. “Insert”, “Update”가 될 수 있습니다. |  아니요. 기본값은 “Insert”입니다. |
+| writeBatchSize | 쓰기 작업의 일괄 처리 크기입니다. 최상의 성능을 얻기 위한 일괄 처리 크기는 테이블이나 서버에 따라 다를 수 있습니다. |  아니요. 기본값은 10입니다. |
 
 **예제:**
 

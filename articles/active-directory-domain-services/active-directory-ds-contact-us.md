@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 문의 | Microsoft Docs'
 description: Azure AD 도메인 서비스 제품 팀에 문의
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/23/2017
-ms.author: maheshu
-ms.openlocfilehash: cc3bcaa5702cc5338e8ea1b7f350e58a98a4a013
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.author: ergreenl
+ms.openlocfilehash: cedf09cd9dae23b3ea00d08b4a19ceb496e4958d
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213253"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155969"
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Azure AD Domain Services - 문의
 ## <a name="contact-the-product-team"></a>제품팀에 문의

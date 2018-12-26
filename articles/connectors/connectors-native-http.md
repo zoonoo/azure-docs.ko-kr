@@ -1,220 +1,91 @@
 ---
-title: HTTP를 통해 끝점과 통신 - Azure Logic Apps | Microsoft Docs
-description: HTTP를 통해 끝점과 통신할 수 있는 Logic Apps 만들기
+title: Azure Logic Apps를 사용하여 HTTP 엔드포인트에 연결 | Microsoft Docs
+description: Azure Logic Apps를 사용하여 HTTP 엔드포인트와 통신하는 작업 및 워크플로 자동화
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/15/2016
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 452af4facd03ce2b4f010a29acc0122241df63c1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: 1c30f77c061ec25c88186caee3f60e65f3afb3de
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296427"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232871"
 ---
-# <a name="get-started-with-the-http-action"></a>HTTP 동작 시작
+# <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 HTTP 또는 HTTPS 엔드포인트 호출
 
-HTTP 작업을 사용하여 조직에 대한 워크플로를 확장하고 HTTP를 통해 끝점과 통신할 수 있습니다.
+Azure Logic Apps 및 HTTP(Hypertext Transfer Protocol) 커넥터를 사용하여 논리 앱을 빌드하여 모든 HTTP 또는 HTTPS 엔드포인트와 통신하는 워크플로를 자동화할 수 있습니다. 예를 들어 웹 사이트에 대한 서비스 엔드포인트를 모니터링할 수 있습니다. 해당 엔드포인트에서 웹 사이트 중지와 같은 이벤트가 발생할 때 이벤트는 논리 앱의 워크플로를 트리거하고 지정된 작업을 실행합니다. 
 
-다음을 수행할 수 있습니다.
+정기적으로 엔드포인트를 검사 또는 *폴링*하기 위해 워크플로에서 첫 번째 단계로 HTTP 트리거를 사용할 수 있습니다. 각 검사에서 트리거는 엔드포인트에 호출 또는 *요청*을 전송합니다. 엔드포인트의 응답은 논리 앱의 워크플로가 실행될지 여부를 결정합니다. 트리거는 응답에서 논리 앱의 작업으로 모든 콘텐츠를 전달합니다. 
 
-* 관리하는 웹 사이트가 중단되면 활성화되는(트리거) 논리 앱 워크플로를 만듭니다.
-* HTTP를 통해 모든 끝점과 통신하여 다른 서비스로 워크플로를 확장합니다.
+원하는 경우 엔드포인트 호출을 위해 워크플로의 다른 단계로 HTTP 작업을 사용할 수 있습니다. 엔드포인트의 응답은 워크플로의 나머지 작업을 실행하는 방법을 결정합니다.
 
-논리 앱에서 HTTP 동작 사용을 시작하려면 [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
+논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="use-the-http-trigger"></a>HTTP 트리거 사용
-트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요](connectors-overview.md).
+## <a name="prerequisites"></a>필수 조건
 
-논리 앱 디자이너에서 HTTP 트리거를 설정하는 방법의 예제 시퀀스는 다음과 같습니다.
+* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
 
-1. 논리 앱에 HTTP 트리거를 추가합니다.
-2. 폴링할 HTTP 끝점에 대한 매개 변수를 입력합니다.
-3. 폴링할 빈도에 대해 되풀이 간격을 수정합니다.
+* 호출하려는 대상 엔드포인트에 대한 URL 
 
-   이제 각 검사 중에 반환된 모든 콘텐츠에 대해 논리 앱이 실행됩니다.
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
-   ![HTTP 트리거](./media/connectors-native-http/using-trigger.png)
+* 대상 엔드포인트를 호출하려는 논리 앱 HTTP 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). HTTP 작업을 사용하려면 트리거로 논리 앱을 시작합니다.
 
-### <a name="how-the-http-trigger-works"></a>HTTP 트리거 작동 방식
+## <a name="add-http-trigger"></a>HTTP 트리거 추가
 
-HTTP 트리거는 되풀이 간격에 따라 HTTP 끝점에 대한 호출을 전송합니다. 기본적으로 300 미만의 모든 HTTP 응답 코드에서 논리 앱이 실행됩니다. 논리 앱을 실행할지 여부를 지정하려면 코드 보기에서 논리 앱을 편집하고 HTTP 호출 이후에 평가되는 조건을 추가합니다. 다음은 반환된 상태 코드가 `400`보다 크거나 같을 때마다 발생하는 HTTP 트리거의 예입니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 빈 논리 앱을 엽니다.
 
-```javascript
-"Http":
-{
-    "conditions": [
-        {
-            "expression": "@greaterOrEquals(triggerOutputs()['statusCode'], 400)"
-        }
-    ],
-    "inputs": {
-        "method": "GET",
-        "uri": "https://blogs.msdn.microsoft.com/logicapps/",
-        "headers": {
-            "accept-language": "en"
-        }
-    },
-    "recurrence": {
-        "frequency": "Second",
-        "interval": 15
-    },
-    "type": "Http"
-}
-```
+1. 검색 상자에 "http"를 필터로 입력합니다. 트리거 목록에서 **HTTP** 트리거를 선택합니다. 
 
-HTTP 트리거 매개 변수에 대한 전체 세부 정보는 [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger)에서 확인할 수 있습니다.
+   ![HTTP 트리거 선택](./media/connectors-native-http/select-http-trigger.png)
 
-## <a name="use-the-http-action"></a>HTTP 동작 사용
+1. 대상 엔드포인트에 대한 호출에 포함하려는 [HTTP 트리거의 매개 변수 및 값](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)을 제공합니다. 트리거에서 대상 엔드포인트를 검사하려는 빈도에 대한 되풀이를 설정합니다.
 
-동작은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. 
-[작업에 대해 자세히 알아봅니다.](connectors-overview.md)
+   ![HTTP 트리거 매개 변수 입력](./media/connectors-native-http/http-trigger-parameters.png)
 
-1. **다음 단계** > **동작 추가**를 선택합니다.
-3. 동작 검색 상자에 **http**를 입력하여 HTTP 동작을 나열합니다.
-   
-    ![HTTP 동작 선택](./media/connectors-native-http/using-action-1.png)
+   HTTP 트리거, 매개 변수 및 값에 대한 자세한 내용은 [트리거 및 작업 형식 참조](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)를 참조하세요.
 
-4. HTTP 호출에 대한 모든 필수 매개 변수를 추가합니다.
-   
-    ![HTTP 동작 완료](./media/connectors-native-http/using-action-2.png)
+1. 트리거가 발생할 때 실행되는 작업을 사용하여 논리 앱의 워크플로를 계속해서 작성합니다.
 
-5. 디자이너 도구 모음에서 **저장**을 클릭합니다. 논리 앱이 저장되면서 동시에 게시(활성화)됩니다.
+## <a name="add-http-action"></a>HTTP 작업 추가
 
-## <a name="http-trigger"></a>HTTP 트리거
-여기에는 이 커넥터가 지원하는 트리거에 대한 세부 정보가 나와 있습니다. HTTP 커넥터에는 1개의 트리거가 있습니다.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-| 트리거 | 설명 |
-| --- | --- |
-| HTTP |HTTP 호출을 수행하고 응답 콘텐츠를 반환합니다. |
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
-## <a name="http-action"></a>HTTP 동작
-여기에는 이 커넥터가 지원하는 동작에 대한 세부 정보가 나와 있습니다. HTTP 커넥터에는 1개의 가능한 동작이 있습니다.
+1. HTTP 작업을 추가하려는 마지막 단계에서 **새 단계**를 선택합니다. 
 
-| 조치 | 설명 |
-| --- | --- |
-| HTTP |HTTP 호출을 수행하고 응답 콘텐츠를 반환합니다. |
+   이 예제에서 논리 앱은 첫 번째 단계로 HTTP 트리거로 시작합니다.
 
-## <a name="http-details"></a>HTTP 세부 정보
-다음 표에서는 동작의 필수 및 선택적 입력 필드와 함께 동작 사용과 연관된 해당 출력 세부 정보를 설명합니다.
+1. 검색 상자에 "http"를 필터로 입력합니다. 작업 목록에서 **HTTP** 작업을 선택합니다.
 
-#### <a name="http-request"></a>HTTP 요청
-HTTP 아웃바운드 요청을 하는 동작에 대한 입력 필드는 다음과 같습니다.
-A*는 필수 필드 임을 의미합니다.
+   ![HTTP 작업 선택](./media/connectors-native-http/select-http-action.png)
 
-| 표시 이름 | 속성 이름 | 설명 |
-| --- | --- | --- |
-| Method* |메서드 |사용할 HTTP 동사 |
-| URI* |uri |HTTP 요청에 대한 URI |
-| 헤더 |headers |포함할 HTTP 헤더의 JSON 개체 |
-| 본문 |본문 |HTTP 요청 본문 |
-| 인증 |인증 |[인증](#authentication) 섹션의 세부 정보 |
+   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
+   표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
 
-<br>
+1. 대상 엔드포인트에 대한 호출에 포함하려는 [HTTP 작업의 매개 변수 및 값](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)을 제공합니다. 
 
-#### <a name="output-details"></a>출력 세부 정보
-HTTP 요청에 대한 출력 세부 정보는 다음과 같습니다.
+   ![HTTP 작업 매개 변수 입력](./media/connectors-native-http/http-action-parameters.png)
 
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| headers |object |응답 헤더 |
-| 본문 |object |응답 개체 |
-| 상태 코드 |int |HTTP 상태 코드 |
+1. 완료되면 논리 앱을 저장해야 합니다. 디자이너 도구 모음에서 **저장**을 선택합니다. 
 
 ## <a name="authentication"></a>인증
-Logic Apps 기능을 사용하면 HTTP 끝점에 대해 다른 유형의 인증을 사용할 수 있습니다. 이 인증은 HTTP, **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** 및 **[HTTP 웹후크](connectors-native-webhook.md)** 커넥터와 함께 사용할 수 있습니다. 다음 인증 유형은 구성할 수 있습니다.
 
-* [기본 인증](#basic-authentication)
-* [클라이언트 인증서 인증](#client-certificate-authentication)
-* [Azure AD(Azure Active Directory) OAuth 인증](#azure-active-directory-oauth-authentication)
+인증을 설정하려면 작업 또는 트리거 내에서 **고급 옵션 표시**를 선택합니다. HTTP 트리거 및 작업에 사용 가능한 인증 유형에 대한 자세한 내용은 [트리거 및 작업 형식 참조](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)를 참조하세요.
 
-#### <a name="basic-authentication"></a>기본 인증
+## <a name="get-support"></a>지원 받기
 
-기본 인증 개체는 기본 인증에 필요합니다.
-A*는 필수 필드 임을 의미합니다.
-
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| 형식* |형식 |인증 유형(기본 인증의 경우 `Basic` 이어야 함) |
-| 사용자 이름* |사용자 이름 |인증할 사용자 이름 |
-| 암호* |암호 |인증하기 위한 암호 |
-
-> [!TIP]
-> 정의에서 검색할 수 없는 암호를 사용하려는 경우 `securestring` 매개 변수 및 `@parameters()` 
-> [워크플로 정의 함수](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow)를 사용합니다.
-
-예: 
-
-```javascript
-{
-    "type": "Basic",
-    "username": "user",
-    "password": "test"
-}
-```
-
-#### <a name="client-certificate-authentication"></a>클라이언트 인증서 인증
-
-다음 인증 개체는 클라이언트 인증서 인증에 필요합니다. A*는 필수 필드 임을 의미합니다.
-
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| 형식* |형식 |인증 유형(SSL 클라이언트 인증서의 경우 `ClientCertificate` 여야 함) |
-| PFX* |pfx |PFX(개인 정보 교환) 파일의 Base64로 인코딩된 콘텐츠 |
-| 암호* |암호 |PFX 파일에 액세스하기 위한 암호 |
-
-> [!TIP]
-> 논리 앱을 저장한 후 정의에서 읽을 수 없는 매개 변수를 사용하려면 `securestring` 매개 변수 및 `@parameters()` 
-> [워크플로 정의 함수](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow)를 사용할 수 있습니다.
-
-예: 
-
-```javascript
-{
-    "type": "ClientCertificate",
-    "pfx": "aGVsbG8g...d29ybGQ=",
-    "password": "@parameters('myPassword')"
-}
-```
-
-#### <a name="azure-ad-oauth-authentication"></a>Azure AD OAuth 인증
-다음 인증 개체는 Azure AD OAuth 인증에 필요합니다. A*는 필수 필드 임을 의미합니다.
-
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| 형식* |형식 |인증 유형(Azure AD OAuth의 경우 `ActiveDirectoryOAuth` 여야 함) |
-| 테넌트* |tenant |Azure AD 테넌트의 테넌트 식별자 |
-| 대상* |audience |사용 권한을 요청하는 리소스. 예: `https://management.core.windows.net/` |
-| 클라이언트 ID* |clientId |Azure AD 응용 프로그램의 클라이언트 ID |
-| 암호* |secret |토큰을 요청하는 클라이언트의 암호 |
-
-> [!TIP]
-> `securestring` 매개 변수 및 `@parameters()` [워크플로 정의 함수](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow)를 사용하면 저장한 후 정의에서 읽을 수 없는 매개 변수를 사용할 수 있습니다.
-> 
-> 
-
-예: 
-
-```javascript
-{
-    "type": "ActiveDirectoryOAuth",
-    "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    "audience": "https://management.core.windows.net/",
-    "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-    "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
-}
-```
+* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
 
+* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

@@ -1,22 +1,23 @@
 ---
 title: 다중 테넌트 SaaS 앱에서 Azure SQL 데이터베이스 복원 | Microsoft Docs
 description: 실수로 데이터를 삭제한 후 단일 테넌트 SQL 데이터베이스를 복원하는 방법을 알아봅니다.
-keywords: SQL Database 자습서
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 319195ceb98b5b760d4d92055faa6e09c8fb0e3d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 228f5135165cbf8806516e5e932f210586013402
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644351"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056746"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>테넌트별 데이터베이스 SaaS 응용 프로그램에서 단일 테넌트 복원
 

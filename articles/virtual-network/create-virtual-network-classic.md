@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: a2e2075a735b63588352f3bcdc97e2d6410660fe
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365426"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421393"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>여러 서브넷이 있는 가상 네트워크(클래식) 만들기
 
@@ -47,7 +47,7 @@ ms.locfileid: "34365426"
 
     |설정|값|
     |---|---|
-    |Name|myVnet|
+    |이름|myVnet|
     |주소 공간|10.0.0.0/16|
     |서브넷 이름|공용|
     |서브넷 주소 범위|10.0.0.0/24|

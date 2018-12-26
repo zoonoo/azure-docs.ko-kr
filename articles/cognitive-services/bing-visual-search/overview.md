@@ -1,21 +1,21 @@
 ---
-title: Bing Visual Search API 개요 | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: 유사한 이미지, 쇼핑 소스 등 이미지에 대한 세부 정보 또는 인사이트를 가져오는 방법을 보여 줍니다.
+title: Bing Visual Search란?
+titleSuffix: Azure Cognitive Services
+description: Bing Visual Search는 유사한 이미지 또는 쇼핑 소스와 같은 이미지에 대한 세부 정보 또는 인사이트를 제공합니다.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-visual-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: overview
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 95f10d8ea7ebe1d40d45231a8ea40df81543fe8b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 85240f1f44278cec0f76c9b4e2e79aa065224840
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377239"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886298"
 ---
 # <a name="what-is-bing-visual-search-api"></a>Bing Visual Search API란?
 
@@ -37,14 +37,14 @@ Visual Search는 유명인, 기념물 및 랜드마크, 아트워크, 가정용 
 Visual Search 결과에는 이미지의 관심 영역에 대한 경계 상자도 포함됩니다. 예를 들어 이미지에 유명인이 여러 명 포함된 경우 결과에 이미지에서 인식된 각 유명인의 경계 상자가 포함될 수 있습니다. 또는 Bing이 이미지에서 제품 또는 의류를 인식하는 경우 결과에 인식된 제품 또는 의류 항목의 경계 상자가 포함될 수 있습니다.
 
 > [!IMPORTANT]
-> /images/details 끝점을 사용하여 [이미지 인사이트를 가져오는](../bing-image-search/image-insights.md) 경우 Visual Search를 사용하는 대신 코드를 업데이트해야 합니다. 그러면 보다 포괄적인 인사이트가 제공됩니다.
+> /images/details 엔드포인트를 사용하여 [이미지 인사이트를 가져오는](../bing-image-search/image-insights.md) 경우 Visual Search를 사용하는 대신 코드를 업데이트해야 합니다. 그러면 보다 포괄적인 인사이트가 제공됩니다.
 
 
 ## <a name="the-request"></a>요청
 
 다음은 이미지에 대한 인사이트를 가져오기 위한 옵션입니다. 
 
-- 이전 호출에서 이미지로부터 가져온 인사이트 토큰을 [Bing Images API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 끝점 중 하나로 보냅니다.
+- 이전 호출에서 이미지로부터 가져온 인사이트 토큰을 [Bing Images API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 엔드포인트 중 하나로 보냅니다.
 - 이미지의 URL 보내기
 - 이미지(이진) 업로드
 
@@ -71,7 +71,7 @@ Visual Search에 이미지 토큰 또는 URL을 전송하는 경우 다음은 PO
 }
 ```
 
-`imageInfo` 개체에는 `url` 및 `imageInsightsToken` 필드 중 하나만 포함되어야 합니다. `url` 필드를 인터넷에서 액세스 가능한 이미지의 URL로 설정합니다. 지원되는 최대 이미지 크기는 1MB입니다.
+`imageInfo` 개체에는 `url` 또는 `imageInsightsToken` 필드 중 하나만 포함되어야 합니다. `url` 필드를 인터넷에서 액세스 가능한 이미지의 URL로 설정합니다. 지원되는 최대 이미지 크기는 1MB입니다.
 
 `imageInsightsToken`을 인사이트 토큰으로 설정해야 합니다. 인사이트 토큰을 가져오려면 Bing Image API를 호출합니다. 응답에는 `Image` 개체 목록이 포함됩니다. 각 `Image` 개체에는 토큰을 포함하는 `imageInsightsToken` 필드가 포함됩니다.
 
@@ -84,9 +84,9 @@ Visual Search에 이미지 토큰 또는 URL을 전송하는 경우 다음은 PO
 POST 본문에 이러한 옵션을 포함하는 방법에 대한 자세한 내용은 [콘텐츠 양식 유형](#content-form-types)을 참조하세요.
 
 
-### <a name="endpoint"></a>끝점
+### <a name="endpoint"></a>엔드포인트
 
-Visual Search 끝점은 https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch입니다.
+Visual Search 엔드포인트는 https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch입니다.
 
 요청은 HTTP POST 요청으로만 전송되어야 합니다. 
 
@@ -95,12 +95,12 @@ Visual Search 끝점은 https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/v
 
 다음은 요청에서 지정해야 하는 쿼리 매개 변수입니다. 최소한 `mkt` 쿼리 매개 변수를 포함해야 합니다.
 
-|Name|값|type|필수|  
+|이름|값|type|필수|  
 |----------|-----------|----------|--------------|  
-|<a name="cc" />cc|결과가 나오는 국가의 2자 국가 코드입니다.<br /><br /> 이 매개 변수를 설정하는 경우 [Accept-Language](#acceptlanguage) 헤더도 지정해야 합니다. Bing은 언어 목록에서 찾은 첫 번째 지원되는 언어를 사용하고, 지정한 국가 코드와 언어를 결합하여 결과를 반환할 지역/국가를 결정합니다. 언어 목록에 지원되는 언어가 없으면 Bing은 요청을 지원하는 가장 가까운 언어와 지역/국가를 찾습니다. 또는 지정된 지역/국가 대신 집계 또는 기본 지역/국가를 결과에 사용할 수 있습니다.<br /><br /> 여러 언어를 지정하는 경우에만 이 쿼리 매개 변수와 `Accept-Language` 쿼리 매개 변수를 사용해야 합니다. 여러 언어를 지정하지 않는 경우 `mkt` 및 `setLang` 쿼리 매개 변수를 사용해야 합니다.<br /><br /> 이 매개 변수와 [mkt](#mkt) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.|문자열|아니오|  
-|<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br /> **참고:** 알려진 경우 지역/국가를 항상 지정하는 것이 좋습니다. 지역/국가를 지정하면 Bing이 요청을 라우팅하고 최적 응답을 반환하는 데 도움이 됩니다.<br /><br /> 이 매개 변수와 [cc](#cc) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.|문자열|예|  
-|<a name="safesearch" />safeSearch|성인 콘텐츠를 필터링하는 데 사용되는 필터입니다. 다음은 대/소문자를 구분하지 않는 가능한 필터 값입니다.<br /><ul><li>Off&mdash;성인 텍스트 또는 이미지를 포함하는 웹 페이지를 반환합니다.<br /><br/></li><li>Moderate&mdash;성인 텍스트만 포함하고 성인 이미지는 포함하지 않는 웹 페이지를 반환합니다.<br /><br/></li><li>Strict&mdash;성인 텍스트 또는 이미지를 포함하는 웹 페이지를 반환하지 않습니다.</li></ul><br /> 기본값은 Moderate입니다.<br /><br /> **참고:** Bing의 성인 정책에 따라 `safeSearch`가 Strict로 설정되어야 하는 지역/국가에서 요청이 나온 경우 Bing은 `safeSearch` 값을 무시하고 Strict를 사용합니다.<br/><br/>**참고:** `site:` 쿼리 연산자를 사용하는 경우 `safeSearch` 쿼리 매개 변수가 설정된 값에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용합니다. |문자열|아니오|  
-|<a name="setlang" />setLang|사용자 인터페이스 문자열에 사용할 언어입니다. ISO 639-1 2자 언어 코드를 사용하여 언어를 지정합니다. 예를 들어 영어의 언어 코드는 EN입니다. 기본값은 EN(영어)입니다.<br /><br /> 선택 사항이지만, 언어를 항상 지정해야 합니다. 일반적으로, 사용자가 사용자 인터페이스 문자열을 다른 언어로 표시하려는 경우가 아니면 `setLang`을 `mkt`에 지정된 것과 동일한 언어로 설정합니다.<br /><br /> 이 매개 변수와 [Accept-Language](#acceptlanguage) 헤더는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 또한, 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다.|문자열|아니오| 
+|<a name="cc" />cc|결과가 나오는 국가의 2자 국가 코드입니다.<br /><br /> 이 매개 변수를 설정하는 경우 [Accept-Language](#acceptlanguage) 헤더도 지정해야 합니다. Bing은 언어 목록에서 찾은 첫 번째 지원되는 언어를 사용하고, 지정한 국가 코드와 언어를 결합하여 결과를 반환할 지역/국가를 결정합니다. 언어 목록에 지원되는 언어가 없으면 Bing은 요청을 지원하는 가장 가까운 언어와 지역/국가를 찾습니다. 또는 지정된 지역/국가 대신 집계 또는 기본 지역/국가를 결과에 사용할 수 있습니다.<br /><br /> 여러 언어를 지정하는 경우에만 이 쿼리 매개 변수와 `Accept-Language` 쿼리 매개 변수를 사용해야 합니다. 여러 언어를 지정하지 않는 경우 `mkt` 및 `setLang` 쿼리 매개 변수를 사용해야 합니다.<br /><br /> 이 매개 변수와 [mkt](#mkt) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.|문자열|아니요|  
+|<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br /> **참고:** 알려진 경우 지역/국가를 항상 지정하는 것이 좋습니다. 지역/국가를 지정하면 Bing이 요청을 라우팅하고 최적 응답을 반환하는 데 도움이 됩니다.<br /><br /> 이 매개 변수와 [cc](#cc) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.|문자열|yes|  
+|<a name="safesearch" />safeSearch|성인 콘텐츠를 필터링하는 데 사용되는 필터입니다. 다음은 대/소문자를 구분하지 않는 가능한 필터 값입니다.<br /><ul><li>Off&mdash;성인 텍스트 또는 이미지를 포함하는 웹 페이지를 반환합니다.<br /><br/></li><li>Moderate&mdash;성인 텍스트만 포함하고 성인 이미지는 포함하지 않는 웹 페이지를 반환합니다.<br /><br/></li><li>Strict&mdash;성인 텍스트 또는 이미지를 포함하는 웹 페이지를 반환하지 않습니다.</li></ul><br /> 기본값은 Moderate입니다.<br /><br /> **참고:** Bing의 성인 정책에 따라 `safeSearch`가 Strict로 설정되어야 하는 지역/국가에서 요청이 나온 경우 Bing은 `safeSearch` 값을 무시하고 Strict를 사용합니다.<br/><br/>**참고:** `site:` 쿼리 연산자를 사용하는 경우 `safeSearch` 쿼리 매개 변수가 설정된 값에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용합니다. |문자열|아니요|  
+|<a name="setlang" />setLang|사용자 인터페이스 문자열에 사용할 언어입니다. ISO 639-1 2자 언어 코드를 사용하여 언어를 지정합니다. 예를 들어 영어의 언어 코드는 EN입니다. 기본값은 EN(영어)입니다.<br /><br /> 선택 사항이지만, 언어를 항상 지정해야 합니다. 일반적으로, 사용자가 사용자 인터페이스 문자열을 다른 언어로 표시하려는 경우가 아니면 `setLang`을 `mkt`에 지정된 것과 동일한 언어로 설정합니다.<br /><br /> 이 매개 변수와 [Accept-Language](#acceptlanguage) 헤더는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 또한, 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다.|문자열|아니요| 
 
 ### <a name="headers"></a>헤더
 
@@ -116,12 +116,12 @@ Visual Search 끝점은 https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/v
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|필수 요청 헤더입니다.<br /><br /> [Cognitive Services](https://www.microsoft.com/cognitive-services/)에서 이 서비스에 등록할 때 받은 구독 키입니다.|  
 |<a name="pragma" />Pragma|선택적 요청 헤더입니다.<br /><br /> 기본적으로 Bing은 사용 가능한 경우 캐시된 콘텐츠를 반환합니다. Bing이 캐시된 콘텐츠를 반환하지 않도록 하려면 Pragma 헤더를 no-cache로 설정합니다(예: Pragma: no-cache).
 |<a name="useragent" />User-Agent|선택적 요청 헤더입니다.<br /><br /> 요청을 시작하는 사용자 에이전트입니다. Bing은 사용자 에이전트를 사용하여 모바일 사용자에게 최적화된 환경을 제공합니다. 선택 사항이지만, 이 헤더를 항상 지정하는 것이 좋습니다.<br /><br /> user-agent는 일반적으로 사용되는 브라우저에서 보내는 것과 동일한 문자열이어야 합니다. 사용자 에이전트에 대한 자세한 내용은 [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)을 참조하세요.<br /><br /> 다음은 user-agent 문자열의 예입니다.<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; SCH-I500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML; like Gecko) Version/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 like Mac OS X) AppleWebKit/536.26 (KHTML; like Gecko) Mobile/10B142 iPhone4;1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC&mdash;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
-|<a name="clientid" />X-MSEdge-ClientID|선택적 요청 및 응답 헤더입니다.<br /><br /> Bing은 이 헤더를 사용하여 Bing API 호출에서 일관된 동작을 사용자에게 제공합니다. Bing은 새로운 기능과 개선 사항을 자주 플라이트하며, 다른 플라이트의 트래픽을 할당하기 위해 클라이언트 ID를 키로 사용합니다. 여러 요청에서 사용자에 대해 동일한 클라이언트 ID를 사용하지 않는 경우 Bing은 여러 개의 충돌하는 플라이트에 사용자를 할당할 수 있습니다. 여러 개의 충돌하는 플라이트에 할당되면 일관되지 않은 사용자 경험이 발생할 수 있습니다. 예를 들어 두 번째 요청의 플라이트 할당이 첫 번째 요청과 다른 경우 예기치 않은 경험이 발생할 수 있습니다. 또한 Bing은 클라이언트 ID를 사용하여 웹 결과를 해당 클라이언트 ID의 검색 기록에 맞게 조정하고 사용자에게 보다 풍부한 경험을 제공할 수 있습니다.<br /><br /> 또한 Bing은 이 헤더를 통해 클라이언트 ID에서 생성된 활동을 분석하여 결과 순위를 개선합니다. 관련성 개선은 Bing API에서 제공하는 결과 품질 향상에 도움이 되며, API 소비자의 클릭 광고율도 높아집니다.<br /><br /> **중요:** 선택 사항이지만, 이 헤더를 필수로 간주해야 합니다. 동일한 일반 사용자 및 장치 조합에 대해 여러 요청에서 클라이언트 ID를 유지하면 1) API 소비자에게 일관된 사용자 환경이 수신되고, 2) Bing API의 결과 품질 향상을 통해 클릭 광고율이 높아집니다.<br /><br /> 다음은 이 헤더에 적용되는 기본 사용 규칙입니다.<br /><ul><li>장치에서 응용 프로그램을 사용하는 각 사용자에게 Bing에서 생성된 고유한 클라이언트 ID가 있어야 합니다.<br /><br/>이 헤더를 요청에 포함하지 않으면 Bing은 ID를 생성하고 X-MSEdge-ClientID 응답 헤더에 반환합니다. 요청에 이 헤더를 포함해서는 안 되는 경우는 사용자가 해당 장치에서 앱을 처음 사용할 때뿐입니다.<br /><br/></li><li>**주의:** 이 클라이언트 ID를 인증된 사용자 계정 정보에 연결할 수 없도록 해야 합니다.</li><li>앱이 장치에서 이 사용자와 관련하여 수행하는 각 Bing API 요청에 대해 클라이언트 ID를 사용합니다.<br /><br/></li><li>클라이언트 ID를 유지합니다. 브라우저 앱에서 ID를 유지하려면 영구적 HTTP 쿠키를 사용하여 모든 세션에서 해당 ID가 사용되도록 합니다. 세션 쿠키를 사용하면 안 됩니다. 모바일 앱과 같은 다른 앱의 경우 장치의 영구적 저장소를 사용하여 ID를 유지합니다.<br /><br/>다음에 사용자가 해당 장치에서 앱을 사용하는 경우 유지된 클라이언트 ID를 가져옵니다.</li></ul><br /> **참고:** Bing 응답에 이 헤더가 포함될 수도 있고, 포함되지 않을 수도 있습니다. 응답에 이 헤더가 포함된 경우, 클라이언트 ID를 캡처하여 해당 장치에서 사용자에 대해 수행되는 모든 후속 Bing 요청에 사용합니다.<br /><br /> **참고:** X-MSEdge-ClientID를 포함하는 경우 요청에 쿠키를 포함하면 안 됩니다.|  
-|<a name="clientip" />X-MSEdge-ClientIP|선택적 요청 헤더입니다.<br /><br /> 클라이언트 장치의 IPv4 또는 IPv6 주소입니다. IP 주소는 사용자 위치를 검색하는 데 사용됩니다. Bing은 위치 정보를 사용하여 유해 정보 차단 동작을 결정합니다.<br /><br /> **참고:** 선택 사항이지만, 이 헤더와 X-Search-Location 헤더를 항상 지정하는 것이 좋습니다.<br /><br /> 주소를 난독 처리(예: 마지막 8진수를 0으로 변경)하면 안 됩니다. 주소를 난독 처리하면 장치의 실제 위치 근처에 있는 위치로 지정되지 않으므로 Bing이 잘못된 결과를 제공할 수 있습니다.|  
-|<a name="location" />X-Search-Location|선택적 요청 헤더입니다.<br /><br /> 클라이언트의 지리적 위치를 설명하는 키/값 쌍의 세미콜론으로 구분된 목록입니다. Bing은 위치 정보를 사용하여 유해 정보 차단 동작을 결정하고 관련된 로컬 콘텐츠를 반환합니다. 키/값 쌍을 \<키\>:\<값\>으로 지정합니다. 다음은 사용자 위치를 지정하는 데 사용하는 키입니다.<br /><br /><ul><li>lat&mdash;필수. 클라이언트 위치의 위도(도)입니다. 위도는 -90.0보다 크거나 같고 +90.0보다 작거나 같아야 합니다. 음수 값은 남위를 나타내고, 양수 값은 북위를 나타냅니다.<br /><br /></li><li>long&mdash;필수. 클라이언트 위치의 경도(도)입니다. 경도는 -180.0보다 크거나 같고 +180.0보다 작거나 같아야 합니다. 음수 값은 서경을 나타내고, 양수 값은 동경을 나타냅니다.<br /><br /></li><li>re&mdash;필수. 좌표의 가로 정확도를 지정하는 반경(미터)입니다. 장치의 위치 서비스에서 반환된 값을 전달합니다. 일반적인 값은 GPS/Wi-Fi의 경우 22m, 기지국 삼각측량의 경우 380m, 역방향 IP 조회의 경우 18,000m입니다.<br /><br /></li><li>ts&mdash;선택 사항. 클라이언트가 위치에 있었던 시간의 UTC UNIX 타임스탬프입니다. UNIX 타임스탬프는 1970년 1월 1일 이후의 시간(초)입니다.<br /><br /></li><li>head&mdash;선택 사항입니다. 클라이언트 상대적인 이동 방향입니다. 정북을 기준으로 시계 반대 방향으로 계산해서, 이동 방향을 0에서 360 사이의 도로 지정합니다. `sp` 키가 0이 아닌 경우에만 이 키를 지정합니다.<br /><br /></li><li>sp&mdash;선택 사항. 클라이언트 장치가 이동하는 가로 벡터(속도)(초당 미터)입니다.<br /><br /></li><li>alt&mdash;선택 사항. 클라이언트 장치의 고도(미터)입니다.<br /><br /></li><li>are&mdash;선택 사항입니다. 좌표의 세로 정확도를 지정하는 반경(미터)입니다. `alt` 키를 지정하는 경우에만 이 키를 지정합니다.<br /><br /></li></ul> **참고:** 많은 키는 선택 사항이지만, 제공하는 정보가 많을수록 위치 결과가 정확해집니다.<br /><br /> **참고:** 선택 사항이지만, 사용자의 지리적 위치를 항상 지정하는 것이 좋습니다. 클라이언트의 IP 주소가 사용자의 실제 위치를 정확하게 반영하지 않는 경우(예: 클라이언트가 VPN을 사용하는 경우) 위치를 제공하는 것이 특히 중요합니다. 최적의 결과를 얻으려면 이 헤더와 X-MSEdge-ClientIP 헤더를 포함해야 하지만, 최소한 이 헤더를 포함해야 합니다.|
+|<a name="clientid" />X-MSEdge-ClientID|선택적 요청 및 응답 헤더입니다.<br /><br /> Bing은 이 헤더를 사용하여 Bing API 호출에서 일관된 동작을 사용자에게 제공합니다. Bing은 새로운 기능과 개선 사항을 자주 플라이트하며, 다른 플라이트의 트래픽을 할당하기 위해 클라이언트 ID를 키로 사용합니다. 여러 요청에서 사용자에 대해 동일한 클라이언트 ID를 사용하지 않는 경우 Bing은 여러 개의 충돌하는 플라이트에 사용자를 할당할 수 있습니다. 여러 개의 충돌하는 플라이트에 할당되면 일관되지 않은 사용자 경험이 발생할 수 있습니다. 예를 들어 두 번째 요청의 플라이트 할당이 첫 번째 요청과 다른 경우 예기치 않은 경험이 발생할 수 있습니다. 또한 Bing은 클라이언트 ID를 사용하여 웹 결과를 해당 클라이언트 ID의 검색 기록에 맞게 조정하고 사용자에게 보다 풍부한 경험을 제공할 수 있습니다.<br /><br /> 또한 Bing은 이 헤더를 통해 클라이언트 ID에서 생성된 활동을 분석하여 결과 순위를 개선합니다. 관련성 개선은 Bing API에서 제공하는 결과 품질 향상에 도움이 되며, API 소비자의 클릭 광고율도 높아집니다.<br /><br /> **중요:** 선택 사항이지만, 이 헤더를 필수로 간주해야 합니다. 동일한 일반 사용자 및 디바이스 조합에 대해 여러 요청에서 클라이언트 ID를 유지하면 1) API 소비자에게 일관된 사용자 환경이 수신되고, 2) Bing API의 결과 품질 향상을 통해 클릭 광고율이 높아집니다.<br /><br /> 다음은 이 헤더에 적용되는 기본 사용 규칙입니다.<br /><ul><li>디바이스에서 애플리케이션을 사용하는 각 사용자에게 Bing에서 생성된 고유한 클라이언트 ID가 있어야 합니다.<br /><br/>이 헤더를 요청에 포함하지 않으면 Bing은 ID를 생성하고 X-MSEdge-ClientID 응답 헤더에 반환합니다. 요청에 이 헤더를 포함해서는 안 되는 경우는 사용자가 해당 디바이스에서 앱을 처음 사용할 때뿐입니다.<br /><br/></li><li>**주의:** 이 클라이언트 ID를 인증된 사용자 계정 정보에 연결할 수 없도록 해야 합니다.</li><li>앱이 디바이스에서 이 사용자와 관련하여 수행하는 각 Bing API 요청에 대해 클라이언트 ID를 사용합니다.<br /><br/></li><li>클라이언트 ID를 유지합니다. 브라우저 앱에서 ID를 유지하려면 영구적 HTTP 쿠키를 사용하여 모든 세션에서 해당 ID가 사용되도록 합니다. 세션 쿠키를 사용하면 안 됩니다. 모바일 앱과 같은 다른 앱의 경우 디바이스의 영구적 저장소를 사용하여 ID를 유지합니다.<br /><br/>다음에 사용자가 해당 디바이스에서 앱을 사용하는 경우 유지된 클라이언트 ID를 가져옵니다.</li></ul><br /> **참고:** Bing 응답에 이 헤더가 포함될 수도 있고, 포함되지 않을 수도 있습니다. 응답에 이 헤더가 포함된 경우, 클라이언트 ID를 캡처하여 해당 디바이스에서 사용자에 대해 수행되는 모든 후속 Bing 요청에 사용합니다.<br /><br /> **참고:** X-MSEdge-ClientID를 포함하는 경우 요청에 쿠키를 포함하면 안 됩니다.|  
+|<a name="clientip" />X-MSEdge-ClientIP|선택적 요청 헤더입니다.<br /><br /> 클라이언트 디바이스의 IPv4 또는 IPv6 주소입니다. IP 주소는 사용자 위치를 검색하는 데 사용됩니다. Bing은 위치 정보를 사용하여 유해 정보 차단 동작을 결정합니다.<br /><br /> **참고:** 선택 사항이지만, 이 헤더와 X-Search-Location 헤더를 항상 지정하는 것이 좋습니다.<br /><br /> 주소를 난독 처리(예: 마지막 8진수를 0으로 변경)하면 안 됩니다. 주소를 난독 처리하면 디바이스의 실제 위치 근처에 있는 위치로 지정되지 않으므로 Bing이 잘못된 결과를 제공할 수 있습니다.|  
+|<a name="location" />X-Search-Location|선택적 요청 헤더입니다.<br /><br /> 클라이언트의 지리적 위치를 설명하는 키/값 쌍의 세미콜론으로 구분된 목록입니다. Bing은 위치 정보를 사용하여 유해 정보 차단 동작을 결정하고 관련된 로컬 콘텐츠를 반환합니다. 키/값 쌍을 \<키\>:\<값\>으로 지정합니다. 다음은 사용자 위치를 지정하는 데 사용하는 키입니다.<br /><br /><ul><li>lat&mdash;필수. 클라이언트 위치의 위도(도)입니다. 위도는 -90.0보다 크거나 같고 +90.0보다 작거나 같아야 합니다. 음수 값은 남위를 나타내고, 양수 값은 북위를 나타냅니다.<br /><br /></li><li>long&mdash;필수. 클라이언트 위치의 경도(도)입니다. 경도는 -180.0보다 크거나 같고 +180.0보다 작거나 같아야 합니다. 음수 값은 서경을 나타내고, 양수 값은 동경을 나타냅니다.<br /><br /></li><li>re&mdash;필수. 좌표의 가로 정확도를 지정하는 반경(미터)입니다. 디바이스의 위치 서비스에서 반환된 값을 전달합니다. 일반적인 값은 GPS/Wi-Fi의 경우 22m, 기지국 삼각측량의 경우 380m, 역방향 IP 조회의 경우 18,000m입니다.<br /><br /></li><li>ts&mdash;선택 사항. 클라이언트가 위치에 있었던 시간의 UTC UNIX 타임스탬프입니다. UNIX 타임스탬프는 1970년 1월 1일 이후의 시간(초)입니다.<br /><br /></li><li>head&mdash;선택 사항입니다. 클라이언트 상대적인 이동 방향입니다. 정북을 기준으로 시계 반대 방향으로 계산해서, 이동 방향을 0에서 360 사이의 도로 지정합니다. `sp` 키가 0이 아닌 경우에만 이 키를 지정합니다.<br /><br /></li><li>sp&mdash;선택 사항. 클라이언트 디바이스가 이동하는 가로 벡터(속도)(초당 미터)입니다.<br /><br /></li><li>alt&mdash;선택 사항. 클라이언트 디바이스의 고도(미터)입니다.<br /><br /></li><li>are&mdash;선택 사항입니다. 좌표의 세로 정확도를 지정하는 반경(미터)입니다. `alt` 키를 지정하는 경우에만 이 키를 지정합니다.<br /><br /></li></ul> **참고:** 많은 키는 선택 사항이지만, 제공하는 정보가 많을수록 위치 결과가 정확해집니다.<br /><br /> **참고:** 선택 사항이지만, 사용자의 지리적 위치를 항상 지정하는 것이 좋습니다. 클라이언트의 IP 주소가 사용자의 실제 위치를 정확하게 반영하지 않는 경우(예: 클라이언트가 VPN을 사용하는 경우) 위치를 제공하는 것이 특히 중요합니다. 최적의 결과를 얻으려면 이 헤더와 X-MSEdge-ClientIP 헤더를 포함해야 하지만, 최소한 이 헤더를 포함해야 합니다.|
 
 > [!NOTE] 
-> 사용 약관에 따라, 이러한 헤더 사용과 관련해서 해당 법률을 모두 준수해야 합니다. 예를 들어 유럽 등의 특정 관할지에서는 사용자 장치에 특정 추적 장치를 배치하기 전에 사용자 동의를 받아야 하는 요구 사항이 있습니다.
+> 사용 약관에 따라, 이러한 헤더 사용과 관련해서 해당 법률을 모두 준수해야 합니다. 예를 들어 유럽 등의 특정 관할지에서는 사용자 디바이스에 특정 추적 디바이스를 배치하기 전에 사용자 동의를 받아야 하는 요구 사항이 있습니다.
 
 
 <a name="content-form-types" />
@@ -147,7 +147,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-로컬 이미지를 업로드하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여 줍니다. 양식 데이터에는 Content-Disposition 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "image"로 설정해야 하고, `filename` 매개 변수를 임의의 문자열 매개 변수로 설정할 수 있습니다. Content-Type 헤더는 일반적으로 사용되는 모든 이미지 MIME 형식으로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진입니다. 업로드할 수는 최대 이미지 크기는 1MB입니다. 
+로컬 이미지를 업로드하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여 줍니다. 양식 데이터에는 Content-Disposition 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "image"로 설정해야 하고, `filename` 매개 변수를 임의의 문자열 매개 변수로 설정할 수 있습니다. Content-Type 헤더는 일반적으로 사용되는 모든 이미지 MIME 형식으로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진입니다. 업로드할 수는 최대 이미지 크기는 1MB입니다. 가장 큰 너비 또는 높이는 1,500픽셀 미만이어야 합니다.
 
 
 ```
@@ -400,7 +400,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
     }
 ```
 
-이미지에 사람, 장소 또는 사물과 같은 인식된 엔터티가 포함된 경우 태그 중 하나에는 Entity 인사이트가 포함될 수 있습니다. 다음 예제와 같이 기타 정보가 엔터티에 포함될 수도 있습니다.
+이미지에 사람, 장소 또는 사물과 같은 인식된 엔터티가 포함된 경우 태그 중 하나에는 Entity 인사이트가 포함될 수 있습니다. 
 
 ```json
     {
@@ -428,29 +428,6 @@ Content-Disposition: form-data; name="knowledgeRequest"
           "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Statue+of+Liberty",
           "displayName" : "Statue of Liberty",
           "actionType" : "Entity",
-        },
-        {
-          "_type" : "ImageModuleAction",
-          "actionType" : "Trivia",
-          "data" : {
-            "value" : [
-              {
-                "name" : "Where was the cornerstone of the statue of liberty laid",
-                "text" : "<the answer>",
-                "hostPageUrl" : "http:\/\/contoso.com\/history\/...",
-              },
-              {
-                "name" : "Why Is the Statue of Liberty Green",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/why-statue-of-liberty-is-green",
-              },
-              {
-                "name" : "What is the Statue of Liberty made of",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/art-literature\/statue-liberty-made",
-              }
-            ]
-          }
         }
       ]
     }
@@ -465,7 +442,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 API를 사용해 봅니다. [Visual Search API 테스트 콘솔](https://dev.cognitive.microsoft.com/docs/services/878c38e705b84442845e22c7bff8c9ac)로 이동합니다. 
 
 
-[Visual Search API 참조](https://aka.ms/bingvisualsearchreferencedoc)를 숙지합니다. 참조에는 검색 결과를 요청하는 데 사용할 끝점, 헤더 및 쿼리 매개 변수 목록이 포함되어 있습니다. 응답 개체의 정의도 포함됩니다. 
+[Visual Search API 참조](https://aka.ms/bingvisualsearchreferencedoc)를 숙지합니다. 참조에는 검색 결과를 요청하는 데 사용할 엔드포인트, 헤더 및 쿼리 매개 변수 목록이 포함되어 있습니다. 응답 개체의 정의도 포함됩니다. 
 
 검색 결과 사용에 대한 어떤 규칙도 위반하지 않도록 [Bing 사용 및 표시 요구 사항](./use-and-display-requirements.md)을 반드시 읽도록 합니다.
 

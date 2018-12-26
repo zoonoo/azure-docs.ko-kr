@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: b78b5b1880d1bfcb55b6736b1393dcadcf46c1ec
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3cc0d9122fd7335bc29c7f35c1163cb39d3481b8
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215667"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054304"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>자습서: 15Five와 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 15Five 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -65,17 +65,17 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 4. 검색 상자에서 **15Five**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/15five-tutorial/tutorial_15five_search.png)
 
-5. 결과 창에서 **15Five**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+5. 결과 창에서 **15Five**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/15five-tutorial/tutorial_15five_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 15Five 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 15Five 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **15Five에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **15Five** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **15Five** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -201,7 +201,7 @@ Azure AD 사용자가 15Five에 로그인할 수 있도록 하려면 15Five로 �
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **15Five**를 선택합니다.
+2. 애플리케이션 목록에서 **15Five**를 선택합니다.
 
     ![Configure Single Sign-On](./media/15five-tutorial/tutorial_15five_app.png) 
 
@@ -223,8 +223,8 @@ Azure AD 사용자가 15Five에 로그인할 수 있도록 하려면 15Five로 �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 15Five 타일을 클릭할 때 15Five 응용 프로그램의 로그인 페이지를 가져와야 합니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에서 15Five 타일을 클릭할 때 15Five 애플리케이션의 로그인 페이지를 가져와야 합니다.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

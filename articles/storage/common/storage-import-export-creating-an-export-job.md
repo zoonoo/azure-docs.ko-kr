@@ -2,24 +2,18 @@
 title: Azure Import/Export에 대한 내보내기 작업 만들기 | Microsoft Docs
 description: Microsoft Azure Import/Export 서비스에 대해 내보내기 작업을 만드는 방법을 알아봅니다.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 613d480b-a8ef-4b28-8f54-54174d59b3f4
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 3fb3f2af5e5cebcac21f4372bc9d9dc9ee837202
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: common
+ms.openlocfilehash: 0066ec20c68d70fac9a6529f8f5b85855d6c5349
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232270"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666827"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure Import/Export 서비스에 대한 내보내기 작업 만들기
 REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내보내기 작업을 만드는 단계는 다음과 같습니다.
@@ -54,7 +48,7 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내�
  내보낼 blob을 지정하는 방법에 대한 자세한 내용은 [작업 배치](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 연산을 참조하세요.
 
 ## <a name="obtaining-your-shipping-location"></a>배송 위치 가져오기
-내보내기 작업을 만들기 전에 [위치 가져오기](https://portal.azure.com) 또는 [위치 나열](/rest/api/storageimportexport/listlocations) 연산을 호출하여 배송 위치 이름 및 주소를 가져와야 합니다. `List Locations`는 위치 목록과 해당 우편 발송 주소 목록을 반환합니다. 반환된 목록에서 위치를 선택하고 해당 주소로 하드 드라이브 배송할 수 있습니다. `Get Location` 연산을 사용하여 특정 위치에 대한 배송 주소를 직접 얻을 수도 있습니다.
+내보내기 작업을 만들기 전에 [위치 가져오기](https://portal.azure.com) 또는 [위치 나열](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) 연산을 호출하여 배송 위치 이름 및 주소를 가져와야 합니다. `List Locations`는 위치 목록과 해당 우편 발송 주소 목록을 반환합니다. 반환된 목록에서 위치를 선택하고 해당 주소로 하드 드라이브 배송할 수 있습니다. `Get Location` 연산을 사용하여 특정 위치에 대한 배송 주소를 직접 얻을 수도 있습니다.
 
 배송 위치를 가져오려면 다음 단계를 수행합니다.
 

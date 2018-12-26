@@ -1,21 +1,21 @@
 ---
-title: Speech Synthesis Markup Language | Microsoft Docs
+title: Speech Synthesis Markup Language
+titleSuffix: Azure Cognitive Services
 description: Speech Synthesis Markup Language를 사용하여 텍스트 음성 변환의 발음 및 운율을 제어합니다.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
-author: v-jerkin
-manager: noellelacharite
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 04/28/2018
-ms.author: v-jerkin
-ms.openlocfilehash: d955e7fd7805688ba103897c0d900c44f16514f8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: conceptual
+ms.date: 09/08/2018
+ms.author: erhopf
+ms.openlocfilehash: b32be520adeee2de50c8f49c2884dc9dc92c0ddd
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376839"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469285"
 ---
 # <a name="speech-synthesis-markup-language"></a>Speech Synthesis Markup Language
 
@@ -23,7 +23,7 @@ SSML(Speech Synthesis Markup Language)은 텍스트 음성 변환의 발음 및 
 
 자세한 내용은 W3C에서 [SSML(Speech Synthesis Markup Language) 버전 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/)을 참조하세요.
 
-다음 예제에서는 일반적인 음성 합성 요구에 SSML을 사용하는 방법을 보여 줍니다.
+다음 예제에서는 일반적인 음성 합성 요구에 SSML을 사용하는 방법을 보여줍니다.
 
 ## <a name="add-a-break"></a>중단 추가
 ```xml
@@ -76,7 +76,18 @@ SSML(Speech Synthesis Markup Language)은 텍스트 음성 변환의 발음 및 
 </prosody></voice> </speak>
 ```
 
+## <a name="use-multiple-voices"></a>여러 음성 사용
+```xml
+<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
+    Good morning!
+</voice>
+<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
+    Good morning to you too Jessa!
+</voice> </speak>
+```
+
 ## <a name="next-steps"></a>다음 단계
 
 * [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-windows.md)
+* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)

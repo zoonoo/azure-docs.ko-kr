@@ -7,18 +7,21 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 40711c424d3d552253deba85110b0c4447f4ec62
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 60abe46670353121ad308f8926a7ee178c76e74e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831028"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951664"
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>계산 대상으로 DSVM 및 HDI Spark 클러스터 만들기
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Ubuntu 기반 DSVM(Data Science Virtual Machine) 및 Azure HDInsight 클러스터용 Apache Spark와 같은 추가 계산 대상을 추가하여 기계 학습 실험을 쉽게 강화하거나 확장할 수 있습니다. 이 문서는 Azure에서 이러한 계산 대상을 만드는 단계를 안내합니다. Azure ML 계산 대상에 대한 자세한 내용은 [Azure Machine Learning 실험 서비스 개요](experimentation-service-configuration.md)를 참조하세요.
 
@@ -69,14 +72,14 @@ _vmSize_ 필드의 경우 [Ubuntu DSVM Azure 리소스 관리 템플릿](https:/
 >[!TIP]
 > [딥 러닝 워크로드](how-to-use-gpu.md)의 경우 GPU 기반 VM을 배포할 수 있습니다.
 
-- [범용 VM](/virtual-machines/linux/sizes-general.md)
+- [범용 VM](../../virtual-machines/linux/sizes-general.md)
   - Standard_DS2_v2 
   - Standard_DS3_v2 
   - Standard_DS4_v2 
   - Standard_DS12_v2 
   - Standard_DS13_v2 
   - Standard_DS14_v2 
-- [GPU 기반 VM](/virtual-machines/linux/sizes-gpu.md)
+- [GPU 기반 VM](../../virtual-machines/linux/sizes-gpu.md)
   - Standard_NC6 
   - Standard_NC12 
   - Standard_NC24 
@@ -150,7 +153,7 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## <a name="expand-the-dsvm-os-disk"></a>DSVM OS 디스크 확장
-Ubuntu DSVM은 50GB OS 디스크 및 100GB 데이터 디스크가 함께 제공됩니다. Docker는 더 많은 공간을 사용할 수 있는 데이터 디스크에 이미지를 저장합니다. Azure ML의 계산 대상으로 사용할 경우 이 디스크는 Docker 엔진이 Docker 이미지를 끌어 당기고 그 위에 conda 레이어를 빌드하는 데 사용될 수 있습니다. 실행 중에 "디스크 꽉 참"오류를 피하려면 디스크를 더 큰 크기(예: 200GB)로 확장해야 할 수도 있습니다. azure-cli에서 이것을 쉽게 수행하는 방법을 알아보려면 [Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크를 확장하는 방법](../../virtual-machines/linux/expand-disks.md)을 참조하세요. 
+Ubuntu DSVM은 50GB OS 디스크 및 100GB 데이터 디스크가 함께 제공됩니다. Docker는 더 많은 공간을 사용할 수 있는 데이터 디스크에 이미지를 저장합니다. Azure ML의 계산 대상으로 사용할 경우 이 디스크는 Docker 엔진이 Docker 이미지를 끌어 당기고 그 위에 conda 레이어를 빌드하는 데 사용될 수 있습니다. 실행 중에 "디스크 꽉 참" 오류를 방지하려면 디스크를 더 큰 크기(예: 200GB)로 확장해야 할 수도 있습니다. azure-cli에서 이것을 쉽게 수행하는 방법을 알아보려면 [Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크를 확장하는 방법](../../virtual-machines/linux/expand-disks.md)을 참조하세요. 
 
 ## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Azure Portal에 Azure HDInsight용 Apache Spark 클러스터 생성
 

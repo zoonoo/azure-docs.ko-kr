@@ -2,23 +2,26 @@
 title: 'Azure Portal: SQL Database 동적 데이터 마스킹 | Microsoft Docs'
 description: Azure Portal에서 SQL 데이터베이스 동적 데이터 마스킹을 시작하는 방법
 services: sql-database
-author: ronitr
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: ronitr
 ms.author: ronitr
-ms.openlocfilehash: 9b47345278bd74449c16e4e17ed1748dba489f82
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 1ec0634c89148cee59f399e437b92a7d2c6b283b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645517"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165724"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Azure Portal에서 SQL Database 동적 데이터 마스킹 시작
 
-이 문서에서는 Azure Portal을 사용하여 [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)을 구현하는 방법을 보여 줍니다. [Azure SQL Database cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx) 또는 [REST API](https://msdn.microsoft.com/library/dn505719.aspx)를 사용하여 동적 데이터 마스킹을 구현할 수도 있습니다.
+이 문서에서는 Azure Portal을 사용하여 [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)을 구현하는 방법을 보여 줍니다. [Azure SQL Database cmdlet](https://docs.microsoft.com/powershell/module/azurerm.sql/) 또는 [REST API](https://msdn.microsoft.com/library/dn505719.aspx)를 사용하여 동적 데이터 마스킹을 구현할 수도 있습니다.
 
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Azure Portal을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
@@ -45,7 +48,7 @@ ms.locfileid: "34645517"
     ![탐색 창](./media/sql-database-dynamic-data-masking-get-started/8_ddm_excluded_users.png)
    
    > [!TIP]
-   > 응용 프로그램 계층에서 권한이 있는 응용 프로그램 사용자에 대해 중요한 데이터를 표시할 수 있도록 지정하려면 응용 프로그램이 데이터베이스 쿼리에 사용할 SQL 사용자나 AAD ID를 추가합니다. 중요한 데이터의 노출을 최소화하려면 권한이 있는 사용자 수를 최소한으로 이 목록에 포함하는 것이 좋습니다.
+   > 애플리케이션 계층에서 권한이 있는 애플리케이션 사용자에 대해 중요한 데이터를 표시할 수 있도록 지정하려면 애플리케이션이 데이터베이스 쿼리에 사용할 SQL 사용자나 AAD ID를 추가합니다. 중요한 데이터의 노출을 최소화하려면 권한이 있는 사용자 수를 최소한으로 이 목록에 포함하는 것이 좋습니다.
    > 
    > 
 10. 데이터 마스킹 구성 페이지에서 **저장**을 클릭하여 새 마스킹 정책 또는 업데이트된 마스킹 정책을 저장합니다.
@@ -54,4 +57,4 @@ ms.locfileid: "34645517"
 ## <a name="next-steps"></a>다음 단계
 
 * 동적 데이터 마스킹의 개요는 [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)을 참조하세요.
-* [Azure SQL Database cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx) 또는 [REST API](https://msdn.microsoft.com/library/dn505719.aspx)를 사용하여 동적 데이터 마스킹을 구현할 수도 있습니다.
+* [Azure SQL Database cmdlet](https://docs.microsoft.com/powershell/module/azurerm.sql/) 또는 [REST API](https://msdn.microsoft.com/library/dn505719.aspx)를 사용하여 동적 데이터 마스킹을 구현할 수도 있습니다.

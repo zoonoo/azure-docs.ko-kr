@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 45365092f5bcd1a8d309c10404a7437c494a8967
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 6dc3fb97c912aa9ac66e3d40a8a0318a6938905c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102344"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230294"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Backup 및 복원
 
@@ -56,7 +56,7 @@ BizTalk 서비스는 항상 **일시 중단** 상태로 복원됩니다. 이 상
 
 * Azure BizTalk Services SDK를 사용하여 BizTalk 서비스 응용 프로그램을 만든 경우 복원된 환경에서 작동할 응용 프로그램에서 ACS(Access Control) 자격 증명을 업데이트해야 할 수도 있습니다.
 * 기존 BizTalk 서비스 환경을 복제하도록 BizTalk 서비스를 복원할 수 있습니다. 이 경우 원래 BizTalk Services 포털에 원본 FTP 폴더를 사용하는 계약이 구성되어 있으면 새로 복원한 환경에서 다른 원본 FTP 폴더를 사용하도록 계약을 업데이트해야 할 수도 있습니다. 그렇지 않으면 두 가지 계약에서 동일한 메시지를 가져오려고 할 수 있습니다.
-* 여러 BizTalk 서비스 환경을 유지하도록 복원한 경우 Visual Studio 응용 프로그램, PowerShell cmdlet, REST API 또는 거래 업체 관리 도구 OM API에서 올바른 환경을 대상으로 하는지 확인합니다.
+* 여러 BizTalk 서비스 환경을 유지하도록 복원한 경우 Visual Studio 애플리케이션, PowerShell cmdlet, REST API 또는 거래 업체 관리 도구 OM API에서 올바른 환경을 대상으로 하는지 확인합니다.
 * 새로 복원한 BizTalk 서비스 환경에서 자동 백업을 구성하는 것이 좋습니다.
 
 ## <a name="what-gets-backed-up"></a>백업 대상
@@ -132,18 +132,18 @@ BizTalk 서비스는 항상 **일시 중단** 상태로 복원됩니다. 이 상
 </table>
 
 ## <a name="next"></a>다음
-Azure BizTalk Services를 만들려면 [BizTalk Services: 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)으로 이동합니다. 응용 프로그램을 만들려면 [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
+Azure BizTalk Services를 만들려면 [BizTalk Services: 프로비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)으로 이동합니다. 애플리케이션을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동합니다.
 
 ## <a name="see-also"></a>참고 항목
-* [BizTalk 서비스 Backup](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [Backup에서 BizTalk 서비스 복원](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk Services: Developer, Basic, Standard 및 Premium Editions 차트](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: 프로비저닝 상태 차트](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk Services: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: 발급자 이름 및 발급자 키](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [Azure BizTalk Services SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [BizTalk 서비스 Backup](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [Backup에서 BizTalk 서비스 복원](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk Services: Developer, Basic, Standard 및 Premium Editions 차트](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk Services: 프로비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: 프로비저닝 상태 차트](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: 제한](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services: 발급자 이름 및 발급자 키](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [Azure BizTalk Services SDK로 시작하는 방법](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png

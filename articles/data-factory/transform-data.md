@@ -10,25 +10,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 23471a4ae912ee4947a91f0aef7fb2557e6ebba3
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e3aefc23cd0f4d8043232214591155aa893f4522
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050969"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390139"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 > [!div class="op_single_selector"]
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
-> * [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md)
-> * [Spark](transform-data-using-spark.md)
+> * [HDInsight 스트리밍](transform-data-using-hadoop-streaming.md)
+> * [HDInsight Spark](transform-data-using-spark.md)
 > * [Machine Learning](transform-data-using-machine-learning.md) 
 > * [저장 프로시저](transform-data-using-stored-procedure.md)
 > * [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md)
+> * [Databricks Notebook](transform-data-databricks-notebook.md)
+> * [Databricks Jar](transform-data-databricks-jar.md)
+> * [Databricks Python](transform-data-databricks-python.md)
 > * [.NET 사용자 지정](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>개요
@@ -54,7 +57,7 @@ Data Factory 파이프라인에서 HDInsight Spark 작업은 사용자 고유 HD
 ## <a name="machine-learning-activities"></a>Machine Learning 작업
 Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Azure Machine Learning 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 [배치 실행 작업](transform-data-using-machine-learning.md)을 사용하여 Machine Learning 웹 서비스를 호출하고 배치에 있는 데이터에 대한 예측을 할 수 있습니다.
 
-시간이 지남에 따라 Machine Learning 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 Machine Learning 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. [업데이트 리소스 작업](update-machine-learning-models.md)을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다.  
+시간이 지남에 따라 Machine Learning 점수 매기기 실험의 예측 모델은 새 입력 데이터 세트를 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 Machine Learning 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. [업데이트 리소스 작업](update-machine-learning-models.md)을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다.  
 
 이러한 Machine Learning 작업에 대한 자세한 내용은 [Machine Learning 작업 사용](transform-data-using-machine-learning.md)을 참조하세요. 
 
@@ -64,7 +67,19 @@ Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사�
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
 Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다. 자세한 내용은 [Data Analytics U-SQL 작업](transform-data-using-data-lake-analytics.md) 문서를 참조하세요. 
 
-## <a name="net-custom-activity"></a>.NET 사용자 지정 작업
+## <a name="databricks-notebook-activity"></a>Databricks Notebook 활동
+
+Data Factory 파이프라인의 Azure Databricks Notebook 활동은 Azure Databricks 작업 영역에서 Databricks Notebook을 실행합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다. [Databricks Notebook을 실행하여 데이터 변환](transform-data-databricks-notebook.md)을 참조하세요.
+
+## <a name="databricks-jar-activity"></a>Databricks Jar 활동
+
+Data Factory 파이프라인의 Azure Databricks Jar 활동은 Azure Databricks 클러스터에서 Spark Jar를 실행합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다. [Azure Databricks에서 Jar 활동을 실행하여 데이터 변환](transform-data-databricks-jar.md)을 참조하세요.
+
+## <a name="databricks-python-activity"></a>Databricks Python 활동
+
+Data Factory 파이프라인의 Azure Databricks Python 활동은 Azure Databricks 클러스터에서 Python 파일을 실행합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다. [Azure Databricks에서 Python 활동을 실행하여 데이터 변환](transform-data-databricks-python.md)을 참조하세요.
+
+## <a name="custom-activity"></a>사용자 지정 작업
 Data Factory에서 지원되지 않는 방식으로 데이터를 변환해야 하는 경우 고유의 데이터 이동 논리가 포함된 사용자 지정 작업을 만들어서 파이프라인에 해당 작업을 사용할 수 있습니다. Azure Batch 서비스 또는 Azure HDInsight 클러스터를 사용하여 실행되도록 사용자 지정 .NET 작업을 구성할 수 있습니다. 자세한 내용은 [사용자 지정 작업 사용](transform-data-using-dotnet-custom-activity.md) 문서를 참조하세요. 
 
 R이 설치된 HDInsight 클러스터에서 R 스크립트를 실행하는 사용자 지정 작업을 만들 수 있습니다. [Azure Data Factory를 사용하여 R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)을 참조하세요. 

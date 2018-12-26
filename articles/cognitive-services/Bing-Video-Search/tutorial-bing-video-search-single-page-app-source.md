@@ -1,26 +1,27 @@
 ---
-title: Bing Video Search 단일 페이지 웹앱(소스 코드) | Microsoft Docs
+title: '자습서: 단일 페이지 웹앱 빌드 - Bing Video Search'
+titlesuffix: Azure Cognitive Services
 description: 단일 페이지 웹 응용 프로그램에서 Bing Video Search API를 사용하는 방법을 보여 주는 자습서의 소스 코드입니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: c0842e53cbc297c1980a9d08733d838def073835
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: b0856be88382e1bb7a4cc65f5fd05910b814e152
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373127"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223290"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>자습서: 단일 페이지 Video Search 앱
+# <a name="tutorial-single-page-bing-video-search-app"></a>자습서: 단일 페이지 Bing Video Search 앱
 
 Bing Video Search에 대한 [단일 페이지 앱 자습서](tutorial-bing-video-search-single-page-app.md)에서 설명하는 전체 소스 코드입니다. 앱을 실행하려면 소스 코드를 메모장이나 다른 텍스트 편집기에 복사하고 `bing.html`로 저장합니다. 그런 다음, Microsoft Edge 또는 다른 인기 브라우저에서 저장된 파일을 엽니다.
 
-````html
+```html
 <!DOCTYPE html>
 <!-- saved from url=(0014)about:internet -->
 <!-- the above Mark of the Web lets IE run this page in the Internet security zone,
@@ -615,3 +616,4 @@ function doPrevSearchPage() {
 
 </body>
 </html>
+```

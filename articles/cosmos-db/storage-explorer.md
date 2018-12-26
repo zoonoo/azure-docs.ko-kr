@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: b45328425cff978377d5e05de487d42e786c063b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 4a50809c48ba03b7a12689d905e704d3f820ca8a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345110"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162469"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Azure Storage 탐색기에서 Azure Cosmos DB 관리
 
@@ -130,7 +130,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
 2. 파티션 키를 지정할 수 있으려면 **무제한**을 선택한 다음, **확인**을 클릭하여 완료합니다.
 
-    컬렉션을 만들 때 파티션 키가 사용된 경우, 컬렉션을 만들고 나면 컬렉션에 대해 파티션 키 값을 변경할 수 없습니다. 파티션 키 설정에 대한 자세한 내용은 [Design for partitioning](partition-data.md#designing-for-partitioning)(분할 설계)을 참조하세요.
+    컬렉션을 만들 때 파티션 키가 사용된 경우, 컬렉션을 만들고 나면 컬렉션에 대해 파티션 키 값을 변경할 수 없습니다.
 
     ![파티션 키](./media/storage-explorer/partitionkey.png)
 
@@ -152,7 +152,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 - 선택한 문서를 삭제하려면 **삭제** 단추를 클릭합니다.
 
 #### <a name="query-for-documents"></a>문서에 대한 쿼리
-- [SQL 쿼리](sql-api-sql-query.md)를 입력하고 **적용**을 클릭하여 문서 필터를 편집합니다.
+- [SQL 쿼리](how-to-sql-query.md)를 입력하고 **적용**을 클릭하여 문서 필터를 편집합니다.
 
     ![문서 필터](./media/storage-explorer/document-filter.png)
 

@@ -1,27 +1,20 @@
 ---
-title: '자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석 | Microsoft Docs'
+title: '자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석'
 description: Event Hubs 및 Cognitive Services API를 통해 Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석을 거의 실시간으로 실행하는 방법을 알아봅니다.
 services: azure-databricks
-documentationcenter: ''
 author: lenadroid
-manager: cgronlun
-editor: ''
-tags: ''
-ms.assetid: ''
+ms.author: alehall
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 06/21/2018
-ms.author: alehall
-ms.openlocfilehash: 1d6087477a7d99314ced19f5fe29fe81b5acaef4
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.date: 12/07/2018
+ms.openlocfilehash: 449d721683bd59646506db57d78b9535aa7d614d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308094"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100188"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
 
@@ -29,7 +22,7 @@ ms.locfileid: "36308094"
 
 이 자습서가 완료되면 Twitter에서 "Azure"라는 용어가 포함된 트윗을 스트리밍하고 트윗에 대한 감정 분석을 실행하게 됩니다.
 
-다음 그림에서는 응용 프로그램 흐름을 보여줍니다.
+다음 그림에서는 애플리케이션 흐름을 보여줍니다.
 
 ![Event Hubs 및 Cognitive Services를 사용하는 Azure Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-tutorial.png "Event Hubs 및 Cognitive Services를 사용하는 Azure Databricks")
 
@@ -106,13 +99,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     * 클러스터의 이름을 입력합니다.
     * 이 문서에서는 **4.0(베타)** 런타임을 사용하여 클러스터를 만듭니다.
-    * **Terminate after ____ minutes of inactivity**(비활성 ____분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
+    * **비활성 \_\_분 후 종료** 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
     **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
 ## <a name="create-a-twitter-application"></a>Twitter 응용 프로그램 만들기
 
-트윗 스트림을 받으려면 Twitter에 응용 프로그램을 만들어야 합니다. 다음 단계에 따라 Twitter 응용 프로그램을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
+트윗 스트림을 받으려면 Twitter에 애플리케이션을 만들어야 합니다. 다음 단계에 따라 Twitter 애플리케이션을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
 
 1. 웹 브라우저에서 [Twitter 응용 프로그램 관리](https://apps.twitter.com/)로 이동하고 **새 앱 만들기**를 선택합니다.
 
@@ -122,11 +115,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![Twitter 응용 프로그램 세부 정보](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Twitter 응용 프로그램 세부 정보")
 
-3. 응용 프로그램 페이지에서 **키 및 액세스 토큰** 탭을 선택하고, **소비자 키** 및 **소비자 비밀**에 대한 값을 복사합니다. 또한 **내 액세스 토큰 만들기**를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀**에 대한 값을 복사합니다.
+3. 애플리케이션 페이지에서 **키 및 액세스 토큰** 탭을 선택하고, **소비자 키** 및 **소비자 비밀**에 대한 값을 복사합니다. 또한 **내 액세스 토큰 만들기**를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀**에 대한 값을 복사합니다.
 
     ![Twitter 응용 프로그램 세부 정보](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Twitter 응용 프로그램 세부 정보")
 
-Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러한 값은 자습서의 뒷부분에서 필요합니다.
+Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한 값은 자습서의 뒷부분에서 필요합니다.
 
 ## <a name="attach-libraries-to-spark-cluster"></a>Spark 클러스터에 라이브러리 연결
 
@@ -138,7 +131,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 2. [새 라이브러리] 페이지에서 **원본**에 대해 **Maven 코디네이트**를 선택합니다. **코디네이트**에서 추가하려는 패키지에 대한 코디네이트를 입력합니다. 이 자습서에서 사용된 라이브러리에 대한 Maven 코디네이트는 다음과 같습니다.
 
-    * Spark Event Hubs 커넥터 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
+    * Spark Event Hubs 커넥터 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
     * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
 
     ![Maven 코디네이트 제공](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Maven 코디네이트 제공")
@@ -157,9 +150,9 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 ## <a name="get-a-cognitive-services-access-key"></a>Cognitive Services 액세스 키 가져오기
 
-이 자습서에서는 [Microsoft Cognitive Services 텍스트 분석 API](../cognitive-services/text-analytics/overview.md)를 사용하여 트윗 스트림에 대한 감정 분석을 거의 실시간으로 실행합니다. API를 사용하기 전에 Azure에 Microsoft Cognitive Services 계정을 만들고 텍스트 분석 API를 사용하기 위한 액세스 키를 검색해야 합니다.
+이 자습서에서는 [Microsoft Cognitive Services Text Analytics API](../cognitive-services/text-analytics/overview.md)를 사용하여 트윗 스트림에 대한 감정 분석을 거의 실시간으로 실행합니다. API를 사용하기 전에 Azure에 Microsoft Cognitive Services 계정을 만들고, Text Analytics API를 사용하기 위한 액세스 키를 검색해야 합니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. **+ 리소스 만들기**를 선택합니다.
 
@@ -212,77 +205,79 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 ## <a name="send-tweets-to-event-hubs"></a>Event Hubs에 트윗 보내기
 
-**SendTweetsToEventHub** 노트북에서 다음 코드를 붙여넣고, 자리 표시자를 이전에 만든 Event Hubs 네임스페이스 및 Twitter 응용 프로그램에 대한 값으로 바꿉니다. 이 노트북은 "Azure" 키워드가 있는 트윗을 Event Hubs에 실시간으로 스트리밍합니다.
+**SendTweetsToEventHub** 노트북에서 다음 코드를 붙여넣고, 자리 표시자를 이전에 만든 Event Hubs 네임스페이스 및 Twitter 애플리케이션에 대한 값으로 바꿉니다. 이 노트북은 "Azure" 키워드가 있는 트윗을 Event Hubs에 실시간으로 스트리밍합니다.
 
-    import java.util._
-    import scala.collection.JavaConverters._
-    import com.microsoft.azure.eventhubs._
-    import java.util.concurrent._
+```scala
+import java.util._
+import scala.collection.JavaConverters._
+import com.microsoft.azure.eventhubs._
+import java.util.concurrent._
 
-    val namespaceName = "<EVENT HUBS NAMESPACE>"
-    val eventHubName = "<EVENT HUB NAME>"
-    val sasKeyName = "<POLICY NAME>"
-    val sasKey = "<POLICY KEY>"
-    val connStr = new ConnectionStringBuilder()
-                .setNamespaceName(namespaceName)
-                .setEventHubName(eventHubName)
-                .setSasKeyName(sasKeyName)
-                .setSasKey(sasKey)
+val namespaceName = "<EVENT HUBS NAMESPACE>"
+val eventHubName = "<EVENT HUB NAME>"
+val sasKeyName = "<POLICY NAME>"
+val sasKey = "<POLICY KEY>"
+val connStr = new ConnectionStringBuilder()
+            .setNamespaceName(namespaceName)
+            .setEventHubName(eventHubName)
+            .setSasKeyName(sasKeyName)
+            .setSasKey(sasKey)
 
-    val pool = Executors.newFixedThreadPool(1)
-    val eventHubClient = EventHubClient.create(connStr.toString(), pool)
+val pool = Executors.newFixedThreadPool(1)
+val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
-    def sendEvent(message: String) = {
-      val messageData = EventData.create(message.getBytes("UTF-8"))
-      eventHubClient.get().send(messageData)
-      System.out.println("Sent event: " + message + "\n")
+def sendEvent(message: String) = {
+  val messageData = EventData.create(message.getBytes("UTF-8"))
+  eventHubClient.get().send(messageData)
+  System.out.println("Sent event: " + message + "\n")
+}
+
+import twitter4j._
+import twitter4j.TwitterFactory
+import twitter4j.Twitter
+import twitter4j.conf.ConfigurationBuilder
+
+// Twitter configuration!
+// Replace values below with yours
+
+val twitterConsumerKey = "<CONSUMER KEY>"
+val twitterConsumerSecret = "<CONSUMER SECRET>"
+val twitterOauthAccessToken = "<ACCESS TOKEN>"
+val twitterOauthTokenSecret = "<TOKEN SECRET>"
+
+val cb = new ConfigurationBuilder()
+  cb.setDebugEnabled(true)
+  .setOAuthConsumerKey(twitterConsumerKey)
+  .setOAuthConsumerSecret(twitterConsumerSecret)
+  .setOAuthAccessToken(twitterOauthAccessToken)
+  .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
+
+val twitterFactory = new TwitterFactory(cb.build())
+val twitter = twitterFactory.getInstance()
+
+// Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
+
+val query = new Query(" #Azure ")
+query.setCount(100)
+query.lang("en")
+var finished = false
+while (!finished) {
+  val result = twitter.search(query)
+  val statuses = result.getTweets()
+  var lowestStatusId = Long.MaxValue
+  for (status <- statuses.asScala) {
+    if(!status.isRetweet()){
+      sendEvent(status.getText())
     }
+    lowestStatusId = Math.min(status.getId(), lowestStatusId)
+    Thread.sleep(2000)
+  }
+  query.setMaxId(lowestStatusId - 1)
+}
 
-    import twitter4j._
-    import twitter4j.TwitterFactory
-    import twitter4j.Twitter
-    import twitter4j.conf.ConfigurationBuilder
-
-    // Twitter configuration!
-    // Replace values below with yours
-
-    val twitterConsumerKey = "<CONSUMER KEY>"
-    val twitterConsumerSecret = "<CONSUMER SECRET>"
-    val twitterOauthAccessToken = "<ACCESS TOKEN>"
-    val twitterOauthTokenSecret = "<TOKEN SECRET>"
-
-    val cb = new ConfigurationBuilder()
-      cb.setDebugEnabled(true)
-      .setOAuthConsumerKey(twitterConsumerKey)
-      .setOAuthConsumerSecret(twitterConsumerSecret)
-      .setOAuthAccessToken(twitterOauthAccessToken)
-      .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
-
-    val twitterFactory = new TwitterFactory(cb.build())
-    val twitter = twitterFactory.getInstance()
-
-    // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
-
-    val query = new Query(" #Azure ")
-    query.setCount(100)
-    query.lang("en")
-    var finished = false
-    while (!finished) {
-      val result = twitter.search(query)
-      val statuses = result.getTweets()
-      var lowestStatusId = Long.MaxValue
-      for (status <- statuses.asScala) {
-        if(!status.isRetweet()){
-          sendEvent(status.getText())
-        }
-        lowestStatusId = Math.min(status.getId(), lowestStatusId)
-        Thread.sleep(2000)
-      }
-      query.setMaxId(lowestStatusId - 1)
-    }
-
-    // Closing connection to the Event Hub
-    eventHubClient.get().close()
+// Closing connection to the Event Hub
+ eventHubClient.get().close()
+```
 
 노트북을 실행하려면 **Shift+Enter**를 누릅니다. 다음 코드 조각과 같은 출력이 표시됩니다. 출력의 각 이벤트는 Event Hubs로 수집되는 트윗입니다.
 
@@ -305,27 +300,28 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 **AnalyzeTweetsFromEventHub** 노트북에서 다음 코드를 붙여넣고, 자리 표시자를 이전에 만든 Azure Event Hubs의 값으로 바꿉니다. 이 노트북은 **SendTweetsToEventHub** 노트북을 사용하여 이전에 Event Hubs로 스트리밍한 트윗을 읽습니다.
 
-    import org.apache.spark.eventhubs._
+```scala
+import org.apache.spark.eventhubs._
 
-    // Build connection string with the above information
-    val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
-      .setEventHubName("<EVENT HUB NAME>")
-      .build
+// Build connection string with the above information
+val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
+  .setEventHubName("<EVENT HUB NAME>")
+  .build
 
-    val customEventhubParameters =
-      EventHubsConf(connectionString)
-      .setMaxEventsPerTrigger(5)
+val customEventhubParameters =
+  EventHubsConf(connectionString)
+  .setMaxEventsPerTrigger(5)
 
-    val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
+val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
 
-    incomingStream.printSchema
+incomingStream.printSchema
 
-    // Sending the incoming stream into the console.
-    // Data comes in batches!
-    incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+// Sending the incoming stream into the console.
+// Data comes in batches!
+incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 다음과 같은 출력을 얻습니다.
-
 
     root
      |-- body: binary (nullable = true)
@@ -353,22 +349,24 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 출력은 이진 모드이므로 다음 코드 조각을 사용하여 문자열로 변환합니다.
 
-    import org.apache.spark.sql.types._
-    import org.apache.spark.sql.functions._
+```scala
+import org.apache.spark.sql.types._
+import org.apache.spark.sql.functions._
 
-    // Event Hub message format is JSON and contains "body" field
-    // Body is binary, so we cast it to string to see the actual content of the message
-    val messages =
-      incomingStream
-      .withColumn("Offset", $"offset".cast(LongType))
-      .withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType))
-      .withColumn("Timestamp", $"enqueuedTime".cast(LongType))
-      .withColumn("Body", $"body".cast(StringType))
-      .select("Offset", "Time (readable)", "Timestamp", "Body")
+// Event Hub message format is JSON and contains "body" field
+// Body is binary, so we cast it to string to see the actual content of the message
+val messages =
+  incomingStream
+  .withColumn("Offset", $"offset".cast(LongType))
+  .withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType))
+  .withColumn("Timestamp", $"enqueuedTime".cast(LongType))
+  .withColumn("Body", $"body".cast(StringType))
+  .select("Offset", "Time (readable)", "Timestamp", "Body")
 
-    messages.printSchema
+messages.printSchema
 
-    messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 이제 출력은 다음 코드 조각과 비슷합니다.
 
@@ -397,7 +395,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
     ...
     ...
 
-이제 Apache Spark의 Event Hubs 커넥터를 사용하여 거의 실시간으로 Azure Event Hubs의 데이터를 Azure Databricks로 스트리밍합니다. Spark에 Event Hubs 커넥터를 사용하는 방법에 대한 자세한 내용은 [커넥터 설명서](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs)를 참조하세요.
+이제 Apache Spark용 Event Hubs 커넥터를 사용하여 거의 실시간으로 Azure Event Hubs의 데이터를 Azure Databricks로 스트림했습니다. Spark에 Event Hubs 커넥터를 사용하는 방법에 대한 자세한 내용은 [커넥터 설명서](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs)를 참조하세요.
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>트윗에 대한 감정 분석 실행
 
@@ -405,71 +403,63 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 먼저 노트북에 새 코드 셀을 추가한 다음, 아래에 제공된 코드 조각을 붙여넣습니다. 이 코드 조각은 언어 및 감정 API를 사용하기 위한 데이터 형식을 정의합니다.
 
-    import java.io._
-    import java.net._
-    import java.util._
+```scala
+import java.io._
+import java.net._
+import java.util._
 
-    class Document(var id: String, var text: String, var language: String = "", var sentiment: Double = 0.0) extends Serializable
+case class Language(documents: Array[LanguageDocuments], errors: Array[Any]) extends Serializable
+case class LanguageDocuments(id: String, detectedLanguages: Array[DetectedLanguages]) extends Serializable
+case class DetectedLanguages(name: String, iso6391Name: String, score: Double) extends Serializable
 
-    class Documents(var documents: List[Document] = new ArrayList[Document]()) extends Serializable {
+case class Sentiment(documents: Array[SentimentDocuments], errors: Array[Any]) extends Serializable
+case class SentimentDocuments(id: String, score: Double) extends Serializable
 
-        def add(id: String, text: String, language: String = "") {
-            documents.add (new Document(id, text, language))
-        }
-        def add(doc: Document) {
-            documents.add (doc)
-        }
-    }
+case class RequestToTextApi(documents: Array[RequestToTextApiDocument]) extends Serializable
+case class RequestToTextApiDocument(id: String, text: String, var language: String = "") extends Serializable
+```
 
-새 코드 셀을 추가하고 아래에 제공된 코드 조각을 붙여넣습니다. 이 코드 조각은 JSON 문자열을 구문 분석하는 데 필요합니다.
+새 코드 셀을 추가하고 아래에 제공된 코드 조각을 붙여넣습니다. 이 코드 조각은 언어 감지 및 감정 분석을 실행하기 위해 텍스트 분석 API를 호출하는 함수가 포함된 개체를 정의합니다. `<PROVIDE ACCESS KEY HERE>` 및 `<PROVIDE REGION HERE>` 자리 표시자를 Cognitive Services에 대해 검색한 값으로 바꿔야 합니다.
 
-    class CC[T] extends Serializable { def unapply(a:Any):Option[T] = Some(a.asInstanceOf[T]) }
-    object M extends CC[scala.collection.immutable.Map[String, Any]]
-    object L extends CC[scala.collection.immutable.List[Any]]
-    object S extends CC[String]
-    object D extends CC[Double]
+```scala
+import javax.net.ssl.HttpsURLConnection
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
+import scala.util.parsing.json._
 
-새 코드 셀을 추가하고 아래에 제공된 코드 조각을 붙여넣습니다. 이 코드 조각은 언어 감지 및 감정 분석을 실행하기 위해 텍스트 분석 API를 호출하는 함수가 포함된 개체를 정의합니다. `<PROVIDE ACCESS KEY HERE>` 및 `<PROVIDE HOST HERE>` 자리 표시자를 Cognitive Services에 대해 검색한 값으로 바꿔야 합니다.
+object SentimentDetector extends Serializable {
 
-    import javax.net.ssl.HttpsURLConnection
-    import com.google.gson.Gson
-    import com.google.gson.GsonBuilder
-    import com.google.gson.JsonObject
-    import com.google.gson.JsonParser
-    import scala.util.parsing.json._
+    // Cognitive Services API connection settings
+    val accessKey = "<PROVIDE ACCESS KEY HERE>"
+    val host = "https://<PROVIDE REGION HERE>.api.cognitive.microsoft.com"
+    val languagesPath = "/text/analytics/v2.0/languages"
+    val sentimentPath = "/text/analytics/v2.0/sentiment"
+    val languagesUrl = new URL(host+languagesPath)
+    val sentimenUrl = new URL(host+sentimentPath)
+    val g = new Gson
 
-    object SentimentDetector extends Serializable {
-
-      // Cognitive Services API connection settings
-      val accessKey = "<PROVIDE ACCESS KEY HERE>"
-      val host = "<PROVIDE HOST HERE>"
-      val languagesPath = "/text/analytics/v2.0/languages"
-      val sentimentPath = "/text/analytics/v2.0/sentiment"
-      val languagesUrl = new URL(host+languagesPath)
-      val sentimenUrl = new URL(host+sentimentPath)
-
-      def getConnection(path: URL): HttpsURLConnection = {
+    def getConnection(path: URL): HttpsURLConnection = {
         val connection = path.openConnection().asInstanceOf[HttpsURLConnection]
         connection.setRequestMethod("POST")
         connection.setRequestProperty("Content-Type", "text/json")
         connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey)
         connection.setDoOutput(true)
         return connection
-      }
+    }
 
-      def prettify (json_text: String): String = {
+    def prettify (json_text: String): String = {
         val parser = new JsonParser()
         val json = parser.parse(json_text).getAsJsonObject()
         val gson = new GsonBuilder().setPrettyPrinting().create()
         return gson.toJson(json)
-      }
+    }
 
-      // Handles the call to Cognitive Services API.
-      // Expects Documents as parameters and the address of the API to call.
-      // Returns an instance of Documents in response.
-      def processUsingApi(inputDocs: Documents, path: URL): String = {
-        val docText = new Gson().toJson(inputDocs)
-        val encoded_text = docText.getBytes("UTF-8")
+    // Handles the call to Cognitive Services API.
+    def processUsingApi(request: RequestToTextApi, path: URL): String = {
+        val requestToJson = g.toJson(request)
+        val encoded_text = requestToJson.getBytes("UTF-8")
         val connection = getConnection(path)
         val wr = new DataOutputStream(connection.getOutputStream())
         wr.write(encoded_text, 0, encoded_text.length)
@@ -485,79 +475,83 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
         }
         in.close()
         return response.toString()
-      }
-
-      // Calls the language API for specified documents.
-      // Returns a documents with language field set.
-      def getLanguage (inputDocs: Documents): Documents = {
-        try {
-          val response = processUsingApi(inputDocs, languagesUrl)
-          // In case we need to log the json response somewhere
-          val niceResponse = prettify(response)
-          val docs = new Documents()
-          val result = for {
-                // Deserializing the JSON response from the API into Scala types
-                Some(M(map)) <- scala.collection.immutable.List(JSON.parseFull(niceResponse))
-                L(documents) = map("documents")
-                M(document) <- documents
-                S(id) = document("id")
-                L(detectedLanguages) = document("detectedLanguages")
-                M(detectedLanguage) <- detectedLanguages
-                S(language) = detectedLanguage("iso6391Name")
-          } yield {
-                docs.add(new Document(id = id, text = id, language = language))
-          }
-          return docs
-        } catch {
-              case e: Exception => return new Documents()
-        }
-      }
-
-      // Calls the sentiment API for specified documents. Needs a language field to be set for each of them.
-      // Returns documents with sentiment field set, taking a value in the range from 0 to 1.
-      def getSentiment (inputDocs: Documents): Documents = {
-        try {
-          val response = processUsingApi(inputDocs, sentimenUrl)
-          val niceResponse = prettify(response)
-          val docs = new Documents()
-          val result = for {
-                // Deserializing the JSON response from the API into Scala types
-                Some(M(map)) <- scala.collection.immutable.List(JSON.parseFull(niceResponse))
-                L(documents) = map("documents")
-                M(document) <- documents
-                S(id) = document("id")
-                D(sentiment) = document("score")
-          } yield {
-                docs.add(new Document(id = id, text = id, sentiment = sentiment))
-          }
-          return docs
-        } catch {
-            case e: Exception => return new Documents()
-        }
-      }
     }
 
-    // User Defined Function for processing content of messages to return their sentiment.
-    val toSentiment = udf((textContent: String) => {
-      val inputDocs = new Documents()
-      inputDocs.add (textContent, textContent)
-      val docsWithLanguage = SentimentDetector.getLanguage(inputDocs)
-      val docsWithSentiment = SentimentDetector.getSentiment(docsWithLanguage)
-      if (docsWithLanguage.documents.isEmpty) {
-        // Placeholder value to display for no score returned by the sentiment API
-        (-1).toDouble
-      } else {
-        docsWithSentiment.documents.get(0).sentiment.toDouble
-      }
-    })
+    // Calls the language API for specified documents.
+    def getLanguage (inputDocs: RequestToTextApi): Option[Language] = {
+        try {
+            val response = processUsingApi(inputDocs, languagesUrl)
+            // In case we need to log the json response somewhere
+            val niceResponse = prettify(response)
+            // Deserializing the JSON response from the API into Scala types
+            val language = g.fromJson(niceResponse, classOf[Language])
+            if (language.documents(0).detectedLanguages(0).iso6391Name == "(Unknown)")
+                return None
+            return Some(language)
+        } catch {
+            case e: Exception => return None
+        }
+    }
+
+    // Calls the sentiment API for specified documents. Needs a language field to be set for each of them.
+    def getSentiment (inputDocs: RequestToTextApi): Option[Sentiment] = {
+        try {
+            val response = processUsingApi(inputDocs, sentimenUrl)
+            val niceResponse = prettify(response)
+            // Deserializing the JSON response from the API into Scala types
+            val sentiment = g.fromJson(niceResponse, classOf[Sentiment])
+            return Some(sentiment)
+        } catch {
+            case e: Exception => return None
+        }
+    }
+}
+```
+
+다른 셀을 추가하여 감정을 결정하는 Spark UDF(사용자 정의 함수)를 정의합니다.
+
+```scala
+// User Defined Function for processing content of messages to return their sentiment.
+val toSentiment =
+    udf((textContent: String) =>
+        {
+            val inputObject = new RequestToTextApi(Array(new RequestToTextApiDocument(textContent, textContent)))
+            val detectedLanguage = SentimentDetector.getLanguage(inputObject)
+            detectedLanguage match {
+                case Some(language) =>
+                    if(language.documents.size > 0) {
+                        inputObject.documents(0).language = language.documents(0).detectedLanguages(0).iso6391Name
+                        val sentimentDetected = SentimentDetector.getSentiment(inputObject)
+                        sentimentDetected match {
+                            case Some(sentiment) => {
+                                if(sentiment.documents.size > 0) {
+                                    sentiment.documents(0).score.toString()
+                                }
+                                else {
+                                    "Error happened when getting sentiment: " + sentiment.errors(0).toString
+                                }
+                            }
+                            case None => "Couldn't detect sentiment"
+                        }
+                    }
+                    else {
+                        "Error happened when getting language" + language.errors(0).toString
+                    }
+                case None => "Couldn't detect language"
+            }
+        }
+    )
+```
 
 마지막 코드 셀을 추가하여 트윗의 내용과 해당 트윗과 관련된 감정이 포함된 데이터 프레임을 준비합니다.
 
-    // Prepare a dataframe with Content and Sentiment columns
-    val streamingDataFrame = incomingStream.selectExpr("cast (body as string) AS Content").withColumn("Sentiment", toSentiment($"Content"))
+```scala
+// Prepare a dataframe with Content and Sentiment columns
+val streamingDataFrame = incomingStream.selectExpr("cast (body as string) AS Content").withColumn("Sentiment", toSentiment($"Content"))
 
-    // Display the streaming data with the sentiment
-    streamingDataFrame.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+// Display the streaming data with the sentiment
+streamingDataFrame.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 다음 코드 조각과 유사한 출력이 표시됩니다.
 
@@ -576,7 +570,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 **Sentiment** 열에서 **1**에 가까운 값은 Azure와 훌륭한 경험이 있음을 나타냅니다. **0**에 가까운 값은 Microsoft Azure를 사용하면서 사용자가 직면한 문제가 있음을 나타냅니다.
 
-이것으로 끝입니다. Azure Databricks를 사용하여 데이터를 Azure Event Hubs에 성공적으로 스트리밍하고, Event Hubs 커넥터를 사용하여 스트림 데이터를 사용한 다음, 스트리밍 데이터에 대한 감정 분석을 거의 실시간으로 실행했습니다.
+이것으로 끝입니다. Azure Databricks를 사용하여 데이터를 Azure Event Hubs에 성공적으로 스트림하고, Event Hubs 커넥터를 통해 스트림 데이터를 사용한 다음, 스트리밍 데이터에 대한 감정 분석을 거의 실시간으로 실행했습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -584,7 +578,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 ![Databricks 클러스터 중지](./media/databricks-sentiment-analysis-cognitive-services/terminate-databricks-cluster.png "Databricks 클러스터 중지")
 
-클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **Terminate after __ minutes of inactivity**(비활성 __분 후 종료) 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
+클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **비활성 \_\_분 후 종료** 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure Databricks를 사용하여 Azure Event Hubs로 데이터를 스트리밍한 다음, Event Hubs에서 스트리밍 데이터를 실시간으로 읽는 방법을 알아보았습니다. 다음 방법에 대해 알아보았습니다.

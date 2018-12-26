@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: e7274e4507d901a209ed5832e98ca630feefda4f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31420098"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567046"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream Analytics의 변칙 검색
 
 > [!IMPORTANT]
-> 이 기능은 미리 보기 상태이며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다.
+> 이 기능은 더 이상 사용되지 않고 있지만 새로운 함수로 대체됩니다. 자세한 내용은 [Azure Stream Analytics의 8가지 새로운 기능](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) 블로그 게시물을 참조하세요.
 
 **AnomalyDetection** 연산자는 이벤트 스트림에서 다양한 형식의 변칙을 검색하는 데 사용됩니다. 예를 들어 장시간에 걸쳐 사용 가능한 메모리가 천천히 감소하는 것은 메모리 누수를 암시할 수 있으며, 일정 범위에서 안정적인 상태를 유지하던 웹 서비스 요청 수가 갑자기 증가하거나 늘어날 수 있습니다.  
 
@@ -31,7 +31,7 @@ AnomalyDetection 연산자는 세 가지 형식의 변칙을 검색합니다.
 
 * **느린 부정 추세**: 시간 경과에 따른 추세의 느린 감소.  
 
-AnomalyDetection 연산자를 사용할 때는 **Limit Duration** 절을 지정해야 합니다. 이 절은 변칙을 검색할 때 고려해야 하는 시간 간격(현재 이벤트에서 검색 기록까지의 간격)을 지정합니다. 이 연산자는 선택적으로  **When**  절을 사용하여 특정 속성이나 조건과 일치하는 이벤트로만 제한될 수 있습니다. 이 연산자는 선택적으로  **Partition by**  절에 지정된 키를 기반으로 이벤트 그룹을 별도로 처리할 수도 있습니다. 학습 및 예측은 각 파티션에 대해 독립적으로 발생합니다. 
+AnomalyDetection 연산자를 사용할 때는 **Limit Duration** 절을 지정해야 합니다. 이 절은 변칙을 검색할 때 고려해야 하는 시간 간격(현재 이벤트에서 검색 기록까지의 간격)을 지정합니다. 이 연산자는 선택적으로 **When** 절을 사용하여 특정 속성이나 조건과 일치하는 이벤트로만 제한될 수 있습니다. 또한 이 연산자는 선택적으로 **Partition by** 절에 지정된 키를 기준으로 이벤트 그룹을 따로 처리할 수도 있습니다. 학습 및 예측은 각 파티션에 대해 독립적으로 발생합니다. 
 
 ## <a name="syntax-for-anomalydetection-operator"></a>AnomalyDetection 연산자에 대한 구문
 
@@ -45,11 +45,11 @@ AnomalyDetection 연산자를 사용할 때는 **Limit Duration** 절을 지정�
 
 * **scalar_expression** -변칙 검색을 수행하는 스칼라 식입니다. 이 매개 변수에 허용되는 값에는 단일(스칼라) 값을 반환하는 Float 또는 Bigint 데이터 형식이 포함됩니다. 와일드 카드 식 \* **는** 허용되지 않습니다. 스칼라 식은 다른 분석 함수 또는 외부 함수를 포함할 수 없습니다. 
 
-* **partition_by_clause** - `PARTITION BY <partition key>` 절은 학습 및 훈련을 별도 파티션으로 나눕니다. 즉, `<partition key>` 값별로 별도 모델을 사용하고, 해당 값을 갖는 이벤트만 해당 모델의 학습 및 훈련에 사용합니다. 예를 들어 다음 쿼리는 판독을 학습하고 동일한 센서의 다른 판독에 대해서만 점수를 매깁니다.
+* **partition_by_clause** - `PARTITION BY <partition key>` 절은 학습 및 훈련을 별도 파티션으로 나눕니다. 즉, `<partition key>` 값별로 별도 모델을 사용하고, 해당 값을 갖는 이벤트만 해당 모델의 학습 및 훈련에 사용합니다. 예를 들어 다음 쿼리는 판독을 학습하고 동일한 센서의 다른 판독에 대해서만 점수를 매깁니다.
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
-* **limit_duration clause** `DURATION(<unit>, <length>)` - 변칙을 검색할 때 고려해야 하는 시간 간격(현재 이벤트에서 검색 기록까지의 간격)을 지정합니다. 지원되는 단위와 해당 약어에 대한 자세한 설명은 [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics)를 참조하세요. 
+* **limit_duration clause** `DURATION(<unit>, <length>)` - 변칙을 검색할 때 고려해야 하는 시간 간격(현재 이벤트에서 검색 기록까지의 간격)을 지정합니다. 지원되는 단위와 해당 약어에 대한 자세한 설명은 [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics)를 참조하세요. 
 
 * **when_clause** - 변칙 검색 계산에서 고려되는 이벤트에 대한 부울 조건을 지정합니다.
 
@@ -131,7 +131,7 @@ Machine Learning 수준에서 변칙 검색 알고리즘은 들어오는 각각�
    - Slope, 기울기가 음수인 경우  
    - 0, 그 밖의 경우  
 
-들어오는 이벤트에 대한 기묘도(strangeness) 값이 계산되면 기묘도(strangeness) 값을 기반으로 마팅게일(martingale) 값이 계산됩니다. (마팅게일(martingale) 값이 계산되는 방식에 대한 자세한 내용은 [Machine Learning 블로그](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)를 참조하세요.) 마팅게일(martingale) 값은 변칙 점수로 재조정됩니다. 마팅게일(martingale) 값은 기묘도(strangeness) 값에 대응하여 천천히 증가하기 때문에 검색기가 산발적인 변화에 대해 강력한 상태를 유지하여 잘못된 경고를 줄일 수 있습니다. 또한 유용한 속성이 있습니다. 
+들어오는 이벤트에 대한 기묘도(strangeness) 값이 계산되면 기묘도(strangeness) 값을 기반으로 마팅게일(martingale) 값이 계산됩니다. (마팅게일(martingale) 값이 계산되는 방식에 대한 자세한 내용은 [Machine Learning 블로그](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)를 참조하세요.) 이 마팅게일(martingale) 값은 변칙 점수로 반환됩니다. 마팅게일(martingale) 값은 기묘도(strangeness) 값에 대응하여 천천히 증가하기 때문에 검색기가 산발적인 변화에 대해 강력한 상태를 유지하여 잘못된 경고를 줄일 수 있습니다. 또한 유용한 속성이 있습니다. 
 
 확률[M<sub>t</sub> > λ와 같이 t가 존재함] < 1/λ, 여기서 M<sub>t</sub>는 순간 t의 마팅게일(martingale) 값이고 λ는 실제 값입니다. 예를 들어 M<sub>t</sub>>100일 때 경고를 실행하면 거짓 긍정의 확률은 1/100 미만입니다.  
 
@@ -243,7 +243,7 @@ Machine Learning 수준에서 변칙 검색 알고리즘은 들어오는 각각�
 ## <a name="references"></a>참조
 
 * [변칙 검색 - Machine Learning을 사용하여 시계열 데이터에서 변칙 검색](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
-* [Machine Learning 변칙 검색 API](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
+* [Machine Learning 변칙 검색 API](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
 * [시계열 변칙 검색](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
 ## <a name="next-steps"></a>다음 단계

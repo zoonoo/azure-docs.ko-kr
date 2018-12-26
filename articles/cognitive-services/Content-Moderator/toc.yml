@@ -1,133 +1,162 @@
+items:
 - name: Content Moderator 설명서
+  href: index.yml
 - name: 개요
   items:
-    - name: Content Moderator란?
-      href: overview.md
-- name: 샘플
+  - name: Content Moderator란?
+    href: overview.md
+    expanded: true
+- name: 빠른 시작
   items:
-    - name: .NET SDK 샘플
-      href: samples-dotnet.md
-    - name: 'C#의 REST API 샘플'
-      href: samples-rest.md
+  - name: 시작
+    href: quick-start.md
+  - name: 클라이언트 SDK 사용
+    items:
+    - name: C#
+      items:
+      - name: 이미지 콘텐츠 분석
+        href: image-moderation-quickstart-dotnet.md
+      - name: 텍스트 콘텐츠 분석
+        href: text-moderation-quickstart-dotnet.md
+    - name: Python
+      items:
+      - name: 텍스트 콘텐츠 분석
+        href: text-moderation-quickstart-python.md
+- name: 자습서
+  items:
+  - name: 전자 상거래 이미지 관리
+    href: ecommerce-retail-catalog-moderation.md
 - name: 개념
   items:
-    - name: 이미지 조정
-      href: image-moderation-api.md
-    - name: 텍스트 조정
-      href: text-moderation-api.md
-    - name: 텍스트 조정 - 언어
-      href: Text-Moderation-API-Languages.md
-    - name: 비디오 조정
-      href: video-moderation-human-review.md
-    - name: 작업 및 검토
-      href: review-api.md
-    - name: 워크플로
-      href: workflow-api.md
+  - name: 이미지 조정
+    href: image-moderation-api.md
+  - name: 텍스트 조정
+    href: text-moderation-api.md
+  - name: 비디오 조정
+    href: video-moderation-human-review.md
+  - name: 작업 및 검토
+    href: review-api.md
+  - name: 워크플로
+    href: workflow-api.md
 - name: 방법 가이드
   items:
-    - name: Content Moderator 평가판 사용
+  - name: 조정 서비스 사용
+    items:
+    - name: 중재 API
       items:
-        - name: Content Moderator 시작
-          href: quick-start.md
-        - name: 중재 API
-          items:
-            - name: 도우미 라이브러리 - .NET
-              href: content-moderator-helper-quickstart-dotnet.md
-            - name: 이미지 - API 콘솔
-              href: try-image-api.md
-            - name: 이미지 - .NET
-              href: image-moderation-quickstart-dotnet.md
-            - name: 사용자 지정 이미지 - API 콘솔
-              href: try-image-list-api.md
-            - name: 사용자 지정 이미지 - .NET
-              href: image-lists-quickstart-dotnet.md
-            - name: 텍스트 - API 콘솔
-              href: try-text-api.md
-            - name: 텍스트 - .NET
-              href: text-moderation-quickstart-dotnet.md
-            - name: 사용자 지정 사용 약관 - API 콘솔
-              href: try-terms-list-api.md
-            - name: 사용자 지정 사용 약관 - .NET
-              href: term-lists-quickstart-dotnet.md
-            - name: 비디오 - .NET
-              href: video-moderation-api.md
-        - name: API 검토
-          items:
-            - name: 작업 - API 콘솔
-              href: try-review-api-job.md
-            - name: 작업 - .NET
-              href: moderation-jobs-quickstart-dotnet.md
-            - name: 검토 - API 콘솔
-              href: try-review-api-review.md
-            - name: 검토 - .NET
-              href: moderation-reviews-quickstart-dotnet.md
-            - name: 비디오 검토 - .NET
-              href: video-reviews-quickstart-dotnet.md
-            - name: 비디오 대본 검토 - .NET
-              href: video-transcript-reviews-quickstart-dotnet.md
-            - name: 워크플로 - API 콘솔
-              href: try-review-api-workflow.md
-    - name: 첫 번째 Content Moderator 앱
+      - name: .NET SDK 사용
+        items:
+        - name: 비디오 콘텐츠 확인
+          href: video-moderation-api.md
+        - name: 사용자 지정 목록에 대한 이미지 확인
+          href: image-lists-quickstart-dotnet.md
+        - name: 사용자 지정 용어에 대한 텍스트 확인
+          href: term-lists-quickstart-dotnet.md
+      - name: REST API 사용
+        items:
+        - name: 이미지 - API 콘솔
+          href: try-image-api.md
+        - name: 사용자 지정 이미지 - API 콘솔
+          href: try-image-list-api.md
+        - name: 텍스트 - API 콘솔
+          href: try-text-api.md
+        - name: 사용자 지정 사용 약관 - API 콘솔
+          href: try-terms-list-api.md
+  - name: 검토 도구 사용
+    items:
+    - name: API 검토
       items:
-        - name: Facebook 콘텐츠 조정
-          href: facebook-post-moderation.md
-        - name: eCommerce 이미지 조정
-          href: ecommerce-retail-catalog-moderation.md
-        - name: 비디오 및 대본 조정
-          href: video-transcript-moderation-review-tutorial-dotnet.md
-    - name: 검토 도구
-      items:
-        - name: 사용자 참여형
-          href: Review-Tool-User-Guide/human-in-the-loop.md
-        - name: 설정 사용
-          href: Review-Tool-User-Guide/Configure.md
-        - name: 팀 관리
-          href: Review-Tool-User-Guide/SubTeams.md
-        - name: 태그 사용
-          href: Review-Tool-User-Guide/Tags.md
-        - name: 이미지 검토
-          href: Review-Tool-User-Guide/Review-Moderated-Images.md
-        - name: 텍스트 검토
-          href: Review-Tool-User-Guide/Text-Reviews.md
-        - name: 자격 증명 관리
-          href: Review-Tool-User-Guide/Credentials.md
-        - name: 커넥터 사용
-          href: Review-Tool-User-Guide/Connectors.md
-        - name: 워크플로 사용
-          href: Review-Tool-User-Guide/Workflows.md
-        - name: 대시보드 보기
-          href: Review-Tool-User-Guide/View-Dashboard.md
+      - name: .NET SDK 사용
+        items:
+        - name: 작업 - .NET
+          href: moderation-jobs-quickstart-dotnet.md
+        - name: 검토 - .NET
+          href: moderation-reviews-quickstart-dotnet.md
+        - name: 비디오 검토 - .NET
+          href: video-reviews-quickstart-dotnet.md
+        - name: 비디오 대본 검토 - .NET
+          href: video-transcript-reviews-quickstart-dotnet.md
+      - name: REST API 사용
+        items:
+        - name: 작업 - API 콘솔
+          href: try-review-api-job.md
+        - name: 검토 - API 콘솔
+          href: try-review-api-review.md
+        - name: 워크플로 - API 콘솔
+          href: try-review-api-workflow.md
+    - name: 검토 도구 개요
+      href: Review-Tool-User-Guide/human-in-the-loop.md
+    - name: 검토 도구 설정
+      href: Review-Tool-User-Guide/Configure.md
+    - name: 팀 관리
+      href: Review-Tool-User-Guide/SubTeams.md
+    - name: 태그 사용
+      href: Review-Tool-User-Guide/Tags.md
+    - name: 이미지 검토
+      href: Review-Tool-User-Guide/Review-Moderated-Images.md
+    - name: 텍스트 검토
+      href: Review-Tool-User-Guide/Text-Reviews.md
+    - name: 자격 증명 관리
+      href: Review-Tool-User-Guide/Credentials.md
+    - name: 커넥터 사용
+      href: Review-Tool-User-Guide/Connectors.md
+    - name: 워크플로 사용
+      href: Review-Tool-User-Guide/Workflows.md
+    - name: 대시보드 보기
+      href: Review-Tool-User-Guide/View-Dashboard.md
+  - name: 첫 번째 Content Moderator 앱
+    items:
+    - name: Facebook 콘텐츠 조정
+      href: facebook-post-moderation.md
+    - name: 비디오 및 대본 조정
+      href: video-transcript-moderation-review-tutorial-dotnet.md
+  - name: 계정 데이터 내보내기 또는 삭제
+    href: ./export-delete-data.md
+  - name: Azure 웹 세미나 시리즈
+    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
 - name: 참고 자료
   items:
-    - name: Content Moderator API
-      href: api-reference.md
-    - name: SDK
-      items:
-        - name: 자바
-          href: 'https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-cognitiveservices-contentmoderator%22'
-        - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest'
-        - name: 파이썬
-          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python'
-        - name: .NET
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator'
+  - name: Content Moderator API
+    href: api-reference.md
+  - name: SDK
+    items:
+    - name: 자바
+      href: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-cognitiveservices-contentmoderator%22
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python
+    - name: .NET
+      href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator
 - name: 리소스
   items:
-    - name: FAQ
-      href: FAQs.md
-    - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: 가격
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
-    - name: 계정 데이터 내보내기 또는 삭제
-      href: ./export-delete-data.md
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/559960-content-moderator'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
-    - name: 기술 자료
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator'
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
-    - name: 주문형 웹 세미나
-      href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
+  - name: 샘플
+    items:
+    - name: .NET SDK 샘플
+      href: samples-dotnet.md
+    - name: C#의 REST API 샘플
+      href: samples-rest.md
+    - name: 기타 Azure 샘플
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator
+  - name: FAQ
+    href: FAQs.md
+  - name: 가격 책정 및 제한
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/559960-content-moderator
+  - name: 기술 자료
+    href: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator
+  - name: 언어 지원
+    href: language-support.md
+  - name: 스택 오버플로
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: 국가별 가용성
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+ms.openlocfilehash: 7b2d77cd0cef0146fd5eefb0c43b3489aa0f1b2b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654056"

@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2016
 ms.author: magoedte
-ms.openlocfilehash: b5f8a1b826717d51729b0bb621bf26e35d4bdd36
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: be7829c35f299381a5e82621412feb13cc2e8bb2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406877"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299239"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Azure Automation을 사용하여 Azure Key Vault 관리
 이 가이드에서는 Azure Automation 서비스 및 이 서비스를 사용하여 Azure Key Vault에서 키 및 암호 관리를 간소화하는 방법에 대해 소개합니다.
@@ -32,7 +32,7 @@ Azure Automation는 요구 사항에 맞게 크기가 조정되는 매우 안정
 Azure Automation에서 자동으로 실행되도록 클라우드 관리 작업을 이동하여 작업 오버헤드를 줄이고 IT 및 DevOps 직원들이 비즈니스 가치를 추가하는 작업에 집중할 수 있게 합니다.
 
 ## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>Azure Automation을 통해 Azure Key Vault를 쉽게 관리하려면 어떻게 해야 하나요?
-Key Vault는 [AzureRM Key Vault cmdlet](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) 및 [Azure 클래식 Key Vault cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)을 사용하여 Azure Automation으로 관리될 수 있습니다. 클래식 Key Vault 관리를 위한 Azure 모듈은 Azure Automation에 자동으로 제공되며, 서비스 내에서 많은 Key Vault 관리 작업을 수행할 수 있도록, [AzureRM-KeyVault 모듈](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) 을 Azure Automation으로 가져올 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
+Key Vault는 [AzureRM Key Vault cmdlet](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) 및 [Azure 클래식 Key Vault cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure)을 사용하여 Azure Automation으로 관리될 수 있습니다. 클래식 Key Vault 관리를 위한 Azure 모듈은 Azure Automation에 자동으로 제공되며, 서비스 내에서 많은 Key Vault 관리 작업을 수행할 수 있도록, [AzureRM-KeyVault 모듈](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) 을 Azure Automation으로 가져올 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
 
 Azure Key Vault cmdlet을 사용하여 다음과 같은 작업을 수행할 수 있습니다. 
 

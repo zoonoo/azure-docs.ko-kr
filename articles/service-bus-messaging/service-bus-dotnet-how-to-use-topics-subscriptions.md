@@ -3,7 +3,7 @@ title: Azure Service Bus 항목 및 구독 시작 | Microsoft Docs
 description: Service Bus 메시징 항목 및 구독을 사용하는 C# .NET Core 콘솔 응용 프로그램을 작성합니다.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/03/2018
-ms.author: sethm
-ms.openlocfilehash: 8916ccb430da6bea66de3894201a11a70bb45df9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/03/2018
+ms.author: spelluru
+ms.openlocfilehash: d48d658883324637e1026ac00312ade86ccc1400
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38298965"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230583"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus 큐 항목 시작
 
@@ -35,7 +35,7 @@ ms.locfileid: "38298965"
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](http://www.visualstudio.com/vs) 이상
+1. [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
 2. Azure 구독.
 

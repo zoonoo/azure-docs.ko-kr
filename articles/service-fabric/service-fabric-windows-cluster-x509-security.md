@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 62d821894521c5dea8e7577b75d9590adc829263
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212418"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228575"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호
-이 문서에서는 독립 실행형 Windows 클러스터의 다양한 노드 간 통신을 보호하는 방법에 대해 설명합니다. 또한 X.509 인증서를 사용하여 이 클러스터에 연결하는 클라이언트를 인증하는 방법에 대해서도 설명합니다. 인증을 통해 권한 있는 사용자만 클러스터 및 배포된 응용 프로그램에 액세스하고 관리 작업을 수행할 수 있습니다. 인증서 보안은 클러스터가 만들어지기 전에 클러스터에서 사용되어야 합니다.  
+이 문서에서는 독립 실행형 Windows 클러스터의 다양한 노드 간 통신을 보호하는 방법에 대해 설명합니다. 또한 X.509 인증서를 사용하여 이 클러스터에 연결하는 클라이언트를 인증하는 방법에 대해서도 설명합니다. 인증을 통해 권한 있는 사용자만 클러스터 및 배포된 애플리케이션에 액세스하고 관리 작업을 수행할 수 있습니다. 인증서 보안은 클러스터가 만들어지기 전에 클러스터에서 사용되어야 합니다.  
 
 노드 간 보안, 클라이언트-노드 보안 및 역할 기반 액세스 제어와 같은 클러스터 보안에 대한 자세한 내용은 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 참조하세요.
 
@@ -88,7 +88,7 @@ ms.locfileid: "34212418"
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint": "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]",
                 "IsAdmin": true
             }
         ],
@@ -257,7 +257,7 @@ ms.locfileid: "34212418"
 ## <a name="acquire-the-x509-certificates"></a>X.509 인증서를 획득합니다.
 클러스터 내 통신을 보호하려면 먼저 클러스터 노드에 대한 X.509 인증서를 가져와야 합니다. 또한 이 클러스터에 대한 연결을 권한 있는 컴퓨터/사용자로 제한하려면 클라이언트 컴퓨터에 대한 인증서를 가져와서 설치해야 합니다.
 
-프로덕션 워크로드를 실행하는 클러스터의 경우 [CA(인증 기관)](https://en.wikipedia.org/wiki/Certificate_authority)로 서명된 X.509 인증서를 사용하여 클러스터를 보호합니다. 이러한 인증서를 가져오는 방법에 대한 자세한 내용은 [인증서를 가져오는 방법](http://msdn.microsoft.com/library/aa702761.aspx)을 참조하세요.
+프로덕션 워크로드를 실행하는 클러스터의 경우 [CA(인증 기관)](https://en.wikipedia.org/wiki/Certificate_authority)로 서명된 X.509 인증서를 사용하여 클러스터를 보호합니다. 이러한 인증서를 가져오는 방법에 대한 자세한 내용은 [인증서를 가져오는 방법](https://msdn.microsoft.com/library/aa702761.aspx)을 참조하세요.
 
 테스트 목적으로 사용하는 클러스터의 경우 자체 서명된 인증서를 사용하도록 선택할 수 있습니다.
 
@@ -354,7 +354,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-그런 다음 다른 PowerShell 명령을 실행하면 이 클러스터에 대해 작업할 수 있습니다. 예를 들어 [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode.md?view=azureservicefabricps)를 실행하여 이 보안 클러스터의 노드 목록을 표시할 수 있습니다.
+그런 다음 다른 PowerShell 명령을 실행하면 이 클러스터에 대해 작업할 수 있습니다. 예를 들어 [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps)를 실행하여 이 보안 클러스터의 노드 목록을 표시할 수 있습니다.
 
 
 클러스터를 제거하려면 Service Fabric 패키지를 다운로드한 클러스터의 노드에 연결하고, 명령줄을 열고, 패키지 폴더로 이동합니다. 이제 다음 명령을 실행합니다.
@@ -364,7 +364,7 @@ Connect-ServiceFabricCluster $ConnectArgs
 ```
 
 > [!NOTE]
-> 인증서 구성이 올바르지 않으면 배포 중에 클러스터가 시작되지 않을 수 있습니다. 보안 문제를 자체적으로 진단하려면 **응용 프로그램 및 서비스 로그** > **Microsoft-Service Fabric**에서 이벤트 뷰어 그룹을 찾아보세요.
+> 인증서 구성이 올바르지 않으면 배포 중에 클러스터가 시작되지 않을 수 있습니다. 보안 문제를 자체적으로 진단하려면 **애플리케이션 및 서비스 로그** > **Microsoft-Service Fabric**에서 이벤트 뷰어 그룹을 찾아보세요.
 > 
 > 
 

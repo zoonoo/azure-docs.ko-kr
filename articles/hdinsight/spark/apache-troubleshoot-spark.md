@@ -1,34 +1,29 @@
 ---
-title: Azure HDInsight를 사용한 Spark 문제 해결 | Microsoft Docs
+title: Azure HDInsight의 Spark 문제 해결
 description: Apache Spark 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
-keywords: Azure HDInsight, Spark, FAQ, 문제 해결 가이드, 일반적인 문제, 응용 프로그램 구성, Ambari
-services: Azure HDInsight
-documentationcenter: na
-author: arijitt
-manager: ''
-editor: ''
-ms.assetid: 25D89586-DE5B-4268-B5D5-CC2CE12207ED
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.date: 11/2/2017
-ms.author: arijitt
-ms.openlocfilehash: 15fe5e6d2acdb8d782342b21f5db81443c44843d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: hdinsight
+ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.topic: conceptual
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: f286d8b2ba254cfad542db14b8719d6f3f676222
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164536"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093746"
 ---
-# <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 Spark 문제 해결
+# <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Spark 문제 해결
 
-Apache Ambari에서 Apache Spark 페이로드를 사용할 때의 주요 문제 및 해결 방법을 알아봅니다.
+[Apache Ambari](https://ambari.apache.org/)에서 [Apache Spark](https://spark.apache.org/) 페이로드 작업 시 주요 문제 및 해결 방법을 알아봅니다.
 
-## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>클러스터에서 Ambari를 사용하여 Spark 응용 프로그램을 구성하는 방법
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-ambari-on-clusters"></a>클러스터에서 Apache Ambari를 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?
 
 ### <a name="resolution-steps"></a>해결 단계:
 
-이 프로시저 구성 값은 이전에 HDInsight에서 설정한 값입니다. 설정해야 하는 Spark 구성 및 값을 결정하려면 [Spark 응용 프로그램 OutOfMemoryError 예외가 발생하는 원인](#what-causes-a-spark-application-outofmemoryerror-exception)을 참조하세요. 
+이 프로시저 구성 값은 이전에 HDInsight에서 설정한 값입니다. 설정해야 하는 Spark 구성 및 값을 결정하려면 [Apache Spark 애플리케이션 OutofMemoryError 예외가 발생하는 원인](#what-causes-a-spark-application-outofmemoryerror-exception)을 참조하세요. 
 
 1. 클러스터 목록에서 **Spark2**를 선택합니다.
 
@@ -90,14 +85,14 @@ Apache Ambari에서 Apache Spark 페이로드를 사용할 때의 주요 문제 
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
-[HDInsight 클러스터에서 Spark 작업 제출(영문)](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight 클러스터에서 Apache Spark 작업 제출](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>클러스터에서 Jupyter Notebook을 사용하여 Spark 응용 프로그램을 구성하는 방법
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>클러스터에서 Jupyter Notebook을 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?
 
 ### <a name="resolution-steps"></a>해결 단계:
 
-1. 설정해야 하는 Spark 구성 및 값을 결정하려면 [Spark 응용 프로그램 OutOfMemoryError 예외가 발생하는 원인](#what-causes-a-spark-application-outofmemoryerror-exception)을 참조하세요.
+1. 설정해야 하는 Spark 구성 및 값을 결정하려면 [Apache Spark 애플리케이션 OutofMemoryError 예외가 발생하는 원인](#what-causes-a-spark-application-outofmemoryerror-exception)을 참조하세요.
 
 2. Jupyter Notebook의 첫 번째 셀에서 **%%configure** 지시문 뒤에 유효한 JSON 형식의 Spark 구성을 지정합니다. 필요에 따라 실제 값을 변경합니다.
 
@@ -105,14 +100,14 @@ Apache Ambari에서 Apache Spark 페이로드를 사용할 때의 주요 문제 
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
-[HDInsight 클러스터에서 Spark 작업 제출(영문)](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight 클러스터에서 Apache Spark 작업 제출](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>클러스터에서 Livy를 사용하여 Spark 응용 프로그램을 구성하는 방법
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>클러스터에서 Apache Livy를 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?
 
 ### <a name="resolution-steps"></a>해결 단계:
 
-1. 설정해야 하는 Spark 구성 및 값을 결정하려면 [Spark 응용 프로그램 OutOfMemoryError 예외가 발생하는 원인](#what-causes-a-spark-application-outofmemoryerror-exception)을 참조하세요. 
+1. 설정해야 하는 Spark 구성 및 값을 결정하려면 [Apache Spark 애플리케이션 OutofMemoryError 예외가 발생하는 원인](#what-causes-a-spark-application-outofmemoryerror-exception)을 참조하세요. 
 
 2. cURL 같은 REST 클라이언트를 사용하여 Livy로 Spark 응용 프로그램을 제출합니다. 다음과 유사한 명령을 사용합니다. 필요에 따라 실제 값을 변경합니다.
 
@@ -122,14 +117,14 @@ Apache Ambari에서 Apache Spark 페이로드를 사용할 때의 주요 문제 
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
-[HDInsight 클러스터에서 Spark 작업 제출(영문)](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight 클러스터에서 Apache Spark 작업 제출](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>클러스터에서 spark-submit을 사용하여 Spark 응용 프로그램을 구성하는 방법
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>클러스터에서 spark-submit을 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?
 
 ### <a name="resolution-steps"></a>해결 단계:
 
-1. 설정해야 하는 Spark 구성 및 값을 결정하려면 [Spark 응용 프로그램 OutOfMemoryError 예외가 발생하는 원인](#what-causes-a-spark-application-outofmemoryerror-exception)을 참조하세요.
+1. 설정해야 하는 Spark 구성 및 값을 결정하려면 [Apache Spark 애플리케이션 OutofMemoryError 예외가 발생하는 원인](#what-causes-a-spark-application-outofmemoryerror-exception)을 참조하세요.
 
 2. 다음과 비슷한 명령을 사용하여 spark-shell을 시작합니다. 필요에 따라 구성의 실제 값을 변경합니다. 
 
@@ -139,10 +134,10 @@ Apache Ambari에서 Apache Spark 페이로드를 사용할 때의 주요 문제 
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
-[HDInsight 클러스터에서 Spark 작업 제출(영문)](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight 클러스터에서 Apache Spark 작업 제출](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>Spark 응용 프로그램 OutofMemoryError 예외를 발생시키는 원인
+## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>Apache Spark 애플리케이션 OutofMemoryError 예외가 발생하는 원인
 
 ### <a name="detailed-description"></a>자세한 설명
 
@@ -223,8 +218,8 @@ java.lang.OutOfMemoryError
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
-- [Spark 메모리 관리 개요(영문)](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [HDInsight 클러스터에서 Spark 응용 프로그램 디버그](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+- [Apache Spark 메모리 관리 개요](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+- [HDInsight 클러스터에서 Apache Spark 애플리케이션 디버그](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
 ### <a name="see-also"></a>참고 항목

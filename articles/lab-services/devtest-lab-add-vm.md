@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 5f953cd6f33e5d46098566740efbf83a5fd80799
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e86568da7f3d607c90e42e09a61ced9993c4d744
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635319"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254046"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 VM 추가
 [첫 번째 VM을 이미 만든 경우](devtest-lab-create-first-vm.md) 미리 로드된 [Marketplace 이미지](devtest-lab-configure-marketplace-images.md)에서 만들었을 것입니다. 이제 이후의 VM을 랩에 추가하려면 [사용자 지정 이미지](devtest-lab-create-template.md) 또는 [수식](devtest-lab-manage-formulas.md)인 *기본*을 선택하면 됩니다. 이 자습서에서는 DevTest Labs에서 랩에 VM을 추가하기 위해 Azure Portal을 사용하는 방법을 설명합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "38635319"
 또한 이 문서에서는 랩에서 VM의 아티팩트를 만드는 방법을 보여 줍니다.
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 VM을 추가하는 단계
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 1. 랩 목록에서 VM을 만들려는 랩을 선택합니다.  
 1. 랩의 **개요** 창에서 **+ 추가**를 선택합니다.  
@@ -35,17 +35,21 @@ ms.locfileid: "38635319"
     ![VM 단추 추가](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
 1. **기본 선택** 창에서 VM에 기본을 선택합니다.
-1. **가상 머신** 창의 **가상 머신 이름** 텍스트 상자에 새 가상 머신의 이름을 입력합니다.
+1. **가상 머신** 창에서 **가상 머신 이름**은 자동 생성된 고유의 이름으로 미리 채워집니다. 이 이름은 뒤에 고유한 3자리 숫자가 붙는 이메일 주소 내의 사용자 이름에 해당합니다. 이 기능을 사용하면 컴퓨터를 만들 때마다 컴퓨터 이름을 생각하고 입력하는 시간이 절약됩니다. 이 자동으로 채워진 필드를 재정의하려는 경우 선택한 이름으로 재정의할 수 있습니다. VM에 대해 자동으로 채워진 이름을 재정의하려면 **가상 머신 이름** 텍스트 상자에 이름을 입력합니다. 
 
     ![랩 VM 창](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
-1. 가상 머신에서 관리자 권한이 부여된 **사용자 이름**을 입력합니다.  
-1. [비밀 저장소](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)에 저장된 암호를 사용하려는 경우 **저장된 비밀 사용**을 선택하고 비밀(암호)에 해당하는 키 값을 지정합니다. 그렇지 않으면 **값 입력** 텍스트 필드에 암호를 입력합니다.
-1. **가상 머신 디스크 유형**은 랩에서 가상 머신의 저장소 디스크 유형을 허용하는지 확인합니다.
-1. **가상 머신 크기**를 선택하고 만들려는 프로세서 코어, RAM 크기 및 VM의 하드 드라이브 크기를 지정하는 미리 정의된 항목 중 하나를 선택합니다.
-1. **아티팩트** 를 선택하고 아티팩트 목록에서 기본 이미지에 추가하려는 아티팩트를 선택하고 구성합니다.
+1. 컴퓨터에 대한 **사용자 이름**은 자동으로 생성된 고유한 이름으로 미리 채워집니다. 이 이름은 이메일 주소 내의 사용자 이름에 해당합니다. 이 기능을 사용하면 새 컴퓨터를 만들 때마다 사용자 이름을 결정하는 시간이 절약됩니다. 다시 이 자동으로 채워진 필드를 재정의하려는 경우 선택한 사용자 이름으로 재정의할 수 있습니다. 사용자 이름에 대해 자동으로 채워진 값을 재정의하려면 **사용자 이름** 텍스트 상자에 값을 입력합니다. 이 사용자에게 가상 머신에서 **관리자** 권한이 부여됩니다.     
+1. **암호**의 경우
+    
+    랩에서 첫 번째 VM을 만들려는 경우 **값 입력** 텍스트 상자에 암호를 입력합니다. 랩과 연결 된 Azure 키 자격 증명 모음에 이 암호를 기본 암호로 저장하려면 **기본 암호로 저장**을 선택합니다. 기본 암호는 **VmPassword**라는 이름으로 키 자격 증명 모음에 저장됩니다. 랩에서 후속 VM을 만들려는 경우 **암호**에 대해 **VmPassword**가 자동으로 선택됩니다. 값을 재정의하려면 **저장된 비밀 사용** 확인란을 선택 취소하고 암호를 입력합니다. 
+
+    먼저 키 자격 증명 모음에 비밀을 저장한 다음, 랩에서 VM을 만드는 동안 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음에 비밀 저장](devtest-lab-store-secrets-in-key-vault.md)을 참조하세요. 키 자격 증명 모음에 저장된 암호를 사용하려면 **저장된 비밀 사용**을 선택하고 비밀(암호)에 해당하는 키 값을 지정합니다. 
+3. **가상 머신 디스크 유형**은 랩에서 가상 머신의 저장소 디스크 유형을 허용하는지 확인합니다.
+4. **가상 머신 크기**를 선택하고 만들려는 프로세서 코어, RAM 크기 및 VM의 하드 드라이브 크기를 지정하는 미리 정의된 항목 중 하나를 선택합니다.
+5. **아티팩트** 를 선택하고 아티팩트 목록에서 기본 이미지에 추가하려는 아티팩트를 선택하고 구성합니다.
     **참고:** DevTest Lab을 처음 접하거나 아티팩트를 구성 중인 경우 [VM에 기존 아티팩트 추가](#add-an-existing-artifact-to-a-vm) 섹션을 참조한 다음 완료되면 여기로 돌아옵니다.
-1. **고급 설정**을 선택하여 VM의 네트워크 옵션 및 만료 옵션을 구성합니다. 
+6. **고급 설정**을 선택하여 VM의 네트워크 옵션 및 만료 옵션을 구성합니다. 
 
    만료 옵션을 설정하려면 달력 아이콘을 선택하고 VM이 자동으로 삭제될 날짜를 지정합니다.  기본적으로 VM은 만료되지 않습니다. 
 1. Azure Resource Manager 템플릿을 보거나 복사하려면 [Azure Resource Manager 템플릿 저장](#save-azure-resource-manager-template) 섹션을 참조하여 원하는 작업을 마친 후에 여기로 다시 돌아옵니다.
@@ -65,7 +69,7 @@ VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 각 �
 
 아티팩트를 만드는 방법을 알아보려면 [DevTest Labs와 함께 사용할 사용자 고유의 아티팩트를 저작하는 방법 알아보기](devtest-lab-artifact-author.md)문서를 참조하세요.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 1. 랩 목록에서 사용하려는 VM을 포함하는 랩을 선택합니다.  
 1. **내 가상 머신**를 선택합니다.
@@ -102,7 +106,7 @@ VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 각 �
 Azure Resource Manager 템플릿을 사용하면 반복 가능한 배포를 선언적으로 정의할 수 있습니다. 다음 단계는 생성 중인 VM에 대한 Azure Resource Manager 템플릿을 저장하는 방법을 설명합니다.
 저장한 Azure Resource Manager 템플릿은 [Azure PowerShell로 새 VM을 배포](../azure-resource-manager/resource-group-overview.md#template-deployment)하는 데 사용할 수 있습니다.
 
-1. **가상 머신** 창에서 **ARM 템플릿 보기**를 선택합니다.
+1. **가상 머신** 창에서 **Azure Resource Manager 템플릿 보기**를 선택합니다.
 2. **Azure Resource Manager 템플릿 보기** 창에서 템플릿 텍스트를 선택합니다.
 3. 선택한 텍스트를 클립보드에 복사합니다.
 4. **확인**을 선택하여 **Azure Resource Manager 템플릿 창 보기**를 닫습니다.

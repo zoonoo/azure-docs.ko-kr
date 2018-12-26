@@ -4,24 +4,25 @@ description: Azure Multi-Factor Authentication과 관련된 질문과 대답입�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: ea976f7ac80f0c485320713117c9ff2b484a287b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.reviewer: michmcla
+ms.openlocfilehash: eb0fa1edaadddfe055f3fc53a6d232e5a1293490
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128693"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424938"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
 이 FAQ에서는 Azure Multi-factor Authentication 및 Multi-Factor Authentication 서비스 사용에 대한 일반적인 질문에 대한 답변을 제공합니다. 서비스 전반, 청구 모델, 사용자 경험 및 문제 해결에 대한 질문으로 세분화됩니다.
 
 ## <a name="general"></a>일반
+
 **Q: Azure Multi-Factor Authentication 서버는 사용자 데이터를 어떻게 처리하나요?**
 
 Multi-Factor Authentication 서버를 사용하면 사용자의 데이터가 온-프레미스 서버에만 저장됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가 2단계 인증을 수행하는 경우 Multi-factor Authentication 서버는 인증을 위해 Azure Multi-factor Authentication 클라우드 서비스에 데이터를 보냅니다. Multi-factor Authentication 서버와 Multi-factor Authentication 클라우드 서비스 간의 통신에는 포트 443 아웃바운드를 통해 SSL(Secure Sockets Layer) 또는 TLS(전송 계층 보안)가 사용됩니다.
@@ -60,6 +61,7 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해, SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하고 있는 Microsoft는 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 이외의 국가에는 짧은 코드를 지원하지 않습니다.
 
 ## <a name="billing"></a>결제
+
 [Multi-Factor Authentication 가격 책정 페이지](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 또는 [Azure Multi-Factor Authentication 획득 방법](concept-mfa-licensing.md)에 대한 설명서를 참조하여 대부분의 청구 관련 질문에 대답할 수 있습니다.
 
 **Q: 인증하는 데 사용되는 전화 통화 및 문자 메시지에 대한 요금이 조직에 부과되나요?**
@@ -118,8 +120,7 @@ MFA 공급자가 생성되면 Azure Active Directory(즉, “Azure AD 테넌트�
 
 모든 사용자가 두 가지 이상의 인증 방법을 구성했기를 바랍니다. 다시 로그인을 시도하도록 지시하지만 로그인 페이지에서 다른 인증 방법을 선택하도록 알려 줍니다.
 
-사용자에게 [최종 사용자 문제 해결 가이드](end-user/current/multi-factor-authentication-end-user-troubleshoot.md)를 안내해줄 수 있습니다.
-
+사용자에게 [최종 사용자 문제 해결 가이드](../user-help/multi-factor-authentication-end-user-troubleshoot.md)를 안내해줄 수 있습니다.
 
 **Q: 내 사용자 중 하나가 계정에 로그인할 수 없는 경우 어떻게 해야 하나요?**
 
@@ -127,11 +128,11 @@ MFA 공급자가 생성되면 Azure Active Directory(즉, “Azure AD 테넌트�
 
 **Q: 내 사용자 중 하나가 앱 암호를 사용하는 전화기를 분실한 경우 어떻게 해야 하나요?**
 
-무단 액세스를 방지하려면 모든 사용자 앱 암호를 삭제합니다. 사용자에게 교체용 장치가 있는 경우 암호를 다시 만들 수 있습니다. [클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 및 장치 설정 관리](howto-mfa-userdevicesettings.md)에 대해 자세히 알아보세요.
+무단 액세스를 방지하려면 모든 사용자 앱 암호를 삭제합니다. 사용자에게 교체용 디바이스가 있는 경우 암호를 다시 만들 수 있습니다. [클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 및 장치 설정 관리](howto-mfa-userdevicesettings.md)에 대해 자세히 알아보세요.
 
 **Q: 사용자가 비브라우저 앱에 로그인할 수 없으면 어떻게 하나요?**
 
-조직에서 레거시 클라이언트를 계속 사용하고 [앱 암호 사용을 허용](howto-mfa-mfasettings.md#app-passwords)한 경우 사용자는 자신의 사용자 이름 및 암호로 이러한 레거시 클라이언트에 로그인할 수 없습니다. 대신, [앱 암호를 설정](end-user/current/multi-factor-authentication-end-user-app-passwords.md)해야 합니다. 사용자는 로그인 정보를 지우고(삭제)하고 앱을 다시 시작한 후 일반 암호 대신 *앱 암호*와 사용자 이름을 사용하여 로그인해야 합니다.
+조직에서 레거시 클라이언트를 계속 사용하고 [앱 암호 사용을 허용](howto-mfa-mfasettings.md#app-passwords)한 경우 사용자는 자신의 사용자 이름 및 암호로 이러한 레거시 클라이언트에 로그인할 수 없습니다. 대신, [앱 암호를 설정](../user-help/multi-factor-authentication-end-user-app-passwords.md)해야 합니다. 사용자는 로그인 정보를 지우고(삭제)하고 앱을 다시 시작한 후 일반 암호 대신 *앱 암호*와 사용자 이름을 사용하여 로그인해야 합니다.
 
 조직에 레거시 클라이언트가 없는 경우 사용자가 앱 암호를 만들도록 허용하지 않아야 합니다.
 
@@ -144,7 +145,7 @@ MFA 공급자가 생성되면 Azure Active Directory(즉, “Azure AD 테넌트�
 
 서비스의 안정성에 영향을 줄 수 있는 제어할 수 없는 요소가 있기 때문에 양방향 SMS에서 텍스트 메시지 전달 및 응답 수신이 보장되지 않습니다. 이러한 요소에는 대상 국가, 휴대폰 통신사 및 신호 강도가 포함됩니다.
 
-사용자에게 문자 메시지를 안정적으로 수신하는 데 문제가 있는 경우 대신 모바일 앱 또는 휴대폰 전화 방법을 사용하도록 지시합니다. 모바일 앱은 셀룰러 및 Wi-Fi 연결 모두를 통해 알림을 받을 수 있습니다. 또한 장치에 신호가 전혀 없는 경우에도 모바일 앱은 인증 코드를 생성할 수 있습니다. [Android](http://go.microsoft.com/fwlink/?Linkid=825072), [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) 및 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
+사용자에게 문자 메시지를 안정적으로 수신하는 데 문제가 있는 경우 대신 모바일 앱 또는 휴대폰 전화 방법을 사용하도록 지시합니다. 모바일 앱은 셀룰러 및 Wi-Fi 연결 모두를 통해 알림을 받을 수 있습니다. 또한 디바이스에 신호가 전혀 없는 경우에도 모바일 앱은 인증 코드를 생성할 수 있습니다. [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) 및 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
 텍스트 메시지를 사용해야 하는 경우 가능하면 양방향 SMS보다는 단방향 SMS를 사용하는 것이 좋습니다. 단방향 SMS는 보다 안정적이며 다른 국가에서 전송된 문자 메시지에 응답할 때 발생하는 전역 SMS 요금이 부과되지 않도록 합니다.
 
@@ -191,13 +192,13 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 - Azure AD의 관리자가 MFA를 사용할 수 있도록 사용자를 설정했지만 사용자의 계정에 대한 보안 정보가 아직 등록되어 있지 않습니다.
 - 사용자가 Azure AD에서 셀프 서비스 암호 재설정을 사용하도록 설정되었습니다. 보안 정보를 통해 향후 암호를 재설정(분실한 경우)할 수 있습니다.
 - 사용자가 MFA를 요구하는 조건부 액세스 정책이 있는 응용 프로그램에 액세스했고 MFA에 이전에 등록되지 않았습니다.
-- 사용자는 Azure AD(Azure AD 조인 포함)로 장치를 등록하고 있으며 조직에는 장치 등록을 위해 MFA가 필요하지만 사용자는 이전에 MFA에 등록하지 않았습니다.
+- 사용자는 Azure AD(Azure AD 조인 포함)로 디바이스를 등록하고 있으며 조직에는 디바이스 등록을 위해 MFA가 필요하지만 사용자는 이전에 MFA에 등록하지 않았습니다.
 - 사용자는 Windows 10에서 비즈니스용 Windows Hello를 생성하고 있으며(MFA 필요) MFA에 이전에 등록되지 않았습니다.
 - 조직에서 사용자에게 적용된 MFA 등록 정책을 만들고 사용하도록 설정했습니다.
 - 사용자는 MFA에 대해 이전에 등록되었지만 관리자가 사용하지 않도록 설정한 인증 방법을 선택했습니다. 따라서 사용자는 MFA 등록 과정을 다시 거쳐서 새로운 기본 인증 방법을 선택해야 합니다.
 
-
 ## <a name="errors"></a>오류
+
 **Q: 사용자가 모바일 앱 알림을 사용할 때 "활성화된 계정에 대한 인증 요청이 아닙니다." 오류 메시지가 표시되면 사용자는 어떻게 해야 하나요?**
 
 모바일 앱에서 해당 계정을 제거하려면 이 절차에 따라 알린 다음 다시 추가합니다.
@@ -211,12 +212,13 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 
 2단계 인증이 필요한 계정에서 작동하지 않는 로컬 컴퓨터에 설치된 비브라우저 응용 프로그램에 로그인을 시도할 때 0x800434D4L 오류가 발생합니다.
 
-이 오류를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이 해결책에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능을 제공하는](http://help.outlook.com/141/gg709759.aspx?sl=1) 방법을 참조하세요.
+이 오류를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이 해결책에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능을 제공하는](https://help.outlook.com/141/gg709759.aspx?sl=1) 방법을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 질문이 여기에서 답변되지 않은 경우 페이지의 맨 아래에 의견을 남겨 주세요. 또는 도움말을 얻는 몇 가지 추가 옵션은 다음과 같습니다.
 
-* [Microsoft 지원 기술 자료](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport)에서 일반적인 기술 문제에 대한 솔루션을 검색합니다.
+* [Microsoft 지원 기술 자료](https://www.microsoft.com/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport)에서 일반적인 기술 문제에 대한 솔루션을 검색합니다.
 * 커뮤니티에서 기술 질문 및 대답을 검색하고 찾아보거나 [Azure Active Directory 포럼](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)에서 직접 원하는 질문을 할 수 있습니다.
 * 기존 PhoneFactor 고객이며 암호를 재설정에 대해 질문이 있거나 도움이 필요한 경우 [암호 재설정](mailto:phonefactorsupport@microsoft.com) 링크를 사용하여 지원 사례를 개설하세요.
 * [Azure Multi-Factor Authentication 서버(PhoneFactor) 지원](https://support.microsoft.com/oas/default.aspx?prid=14947)을 통해 지원 전문가에게 문의하세요. 문의하는 경우 가능한 문제에 대한 많은 정보를 제공해주시면 도움이 됩니다. 오류를 발견한 페이지, 특정 오류 코드, 특정 세션 ID 및 오류를 발견한 사용자의 ID를 포함하는 정보를 제공해 주시면 됩니다.

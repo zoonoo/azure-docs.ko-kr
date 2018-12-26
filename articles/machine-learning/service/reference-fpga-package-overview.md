@@ -1,21 +1,26 @@
 ---
 title: Azure Machine Learning의 하드웨어 가속을 위한 FPGA 패키지
 description: Azure Machine Learning 사용자가 사용할 수 있는 Python 패키지에 대해 알아봅니다.
+services: machine-learning
 ms.service: machine-learning
-ms.component: studio
-ms.topic: conceptual
+ms.component: core
+ms.topic: reference
 ms.reviewer: jmartens
-ms.author: routlaw
-author: rloutlaw
+ms.author: tedway
+author: tedway
 ms.date: 05/07/2018
-ms.openlocfilehash: e680ef34be1d5dae2942c432de5e81fe620bbdc4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 83c5a788f85fcc47c221f5c8f9e6944c4448fbf9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832981"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712129"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning 하드웨어 가속 패키지
+
+>[!Note]
+>**이 문서는 이제 사용되지 않습니다.** 이 FPGA 패키지는 사용되지 않습니다. 이 기능에 대한 지원이 Azure ML SDK에 추가되었습니다. 이 패키지에 대한 지원은 점진적으로 종료됩니다. [지원 관련 일정을 확인해 보세요](overview-what-happened-to-workbench.md#timeline). 업데이트된 [FPGA 지원](concept-accelerate-with-fpgas.md)에 대해 알아보세요.
 
 Azure Machine Learning 하드웨어 가속 패키지는 Azure Machine Learning용 Python pip 설치 가능 확장이며, 데이터 과학자와 AI 개발자는 다음 작업을 신속하게 수행할 수 있습니다.
 
@@ -27,9 +32,9 @@ Azure Machine Learning 하드웨어 가속 패키지는 Azure Machine Learning�
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLfree)을 만듭니다.
 
-1. Azure Machine Learning 모델 관리 계정을 만들어야 합니다. 계정 만들기에 대한 자세한 내용은 [Azure Machine Learning 빠른 시작 및 Workbench 설치](../service/quickstart-installation.md) 문서를 참조하세요. 
+1. Azure Machine Learning 모델 관리 계정. 계정 만들기에 대한 자세한 내용은 [Azure Machine Learning 빠른 시작 및 Workbench 설치](../desktop-workbench/quickstart-installation.md) 문서를 참조하세요. 
 
 1. 패키지를 설치해야 합니다. 
 
@@ -40,18 +45,18 @@ Azure Machine Learning 하드웨어 가속 패키지는 Azure Machine Learning�
 
 2. [Anaconda(Python 3.6)](https://conda.io/miniconda.html)를 설치합니다.
 
-3. 미리 구성된 Anaconda 환경을 다운로드하려면 Git 프롬프트에서 아래 명령을 사용합니다.
+   미리 구성된 Anaconda 환경을 다운로드하려면 Git 프롬프트에서 아래 명령을 사용합니다.
 
     ```
     git clone https://aka.ms/aml-real-time-ai
     ```
-5. 환경을 만들려면 **Anaconda 프롬프트**를 열고 아래 명령을 사용합니다.
+1. 환경을 만들려면 **Anaconda 프롬프트**를 열고 아래 명령을 사용합니다.
 
     ```
     conda env create -f aml-real-time-ai/environment.yml
     ```
 
-6. 환경을 활성화하려면 아래 명령을 사용합니다.
+1. 환경을 활성화하려면 아래 명령을 사용합니다.
 
     ```
     conda activate amlrealtimeai
@@ -143,7 +148,7 @@ Azure Machine Learning 하드웨어 가속 패키지는 Azure Machine Learning�
 
 ## <a name="reporting-issues"></a>문제 보고
 
-[포럼](https://aka.ms/aml-forum)을 사용하여 패키지와 관련된 모든 문제를 보고하세요.
+[포럼](https://aka.ms/aml-forum-service)을 사용하여 패키지와 관련된 모든 문제를 보고하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

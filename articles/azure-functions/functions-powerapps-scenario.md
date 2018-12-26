@@ -3,26 +3,21 @@ title: PowerApps에서 함수 호출 | Microsoft Docs
 description: 사용자 지정 커넥터를 만든 후 해당 커넥터를 사용하여 함수를 호출합니다.
 services: functions
 keywords: 클라우드 앱, 클라우드 서비스, PowerApps, 비즈니스 프로세스, 비즈니스 응용 프로그램
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 3693b167f196b82c520703fa50ffabb27b555050
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 49000d4fd61e7cd061b415d50545a7f5ee56f3fb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586979"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579126"
 ---
 # <a name="call-a-function-from-powerapps"></a>PowerApps에서 함수 호출
 [PowerApps](https://powerapps.microsoft.com) 플랫폼은 비즈니스 전문가가 기존 응용 프로그램 코드 없이도 앱을 빌드할 수 있도록 디자인되었습니다. 전문 개발자는 Azure Functions를 사용하여 PowerApps 앱 작성자에게 기술적 세부 사항은 숨기면서 PowerApps의 기능을 확장할 수 있습니다.
@@ -46,7 +41,7 @@ Microsoft Flow에서 동일한 함수 호출에 대한 내용은 [Microsoft Flow
 
 ## <a name="prerequisites"></a>필수 조건
 
-+ Azure 계정과 동일한 로그인 자격 증명을 사용하는 활성 [PowerApps 계정](https://docs.microsoft.com/en-us/powerapps/maker/signup-for-powerapps) 
++ Azure 계정과 동일한 로그인 자격 증명을 사용하는 활성 [PowerApps 계정](https://docs.microsoft.com/powerapps/maker/signup-for-powerapps) 
 + 앱에 대한 데이터 원본으로 사용할 Excel 및 [Excel 샘플 파일](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx)입니다.
 + [함수에 대한 OpenAPI 정의 만들기](functions-openapi-definition.md) 자습서를 완료합니다.
 
@@ -212,7 +207,7 @@ Microsoft Flow에서 동일한 함수 호출에 대한 내용은 [Microsoft Flow
 ## <a name="run-the-app"></a>앱 실행
 앱이 완성되었습니다. 이제 앱을 실행하고 작동되는 함수 호출을 확인해 보겠습니다.
 
-1. PowerApps Studio의 오른쪽 위 모서리에서 실행 단추를 클릭합니다. ![앱 실행 단추](media/functions-powerapps-scenario/f5-arrow-sm.png)에서도 확인할 수 있습니다.
+1. PowerApps Studio의 오른쪽 위 모서리에서 실행 단추를 클릭합니다. ![앱 실행 단추](media/functions-powerapps-scenario/f5-arrow-sm.png).
 
 1. **ServiceRequired** 값이 `Yes`인 터빈을 선택하고 **비용 계산** 단추를 클릭합니다. 다음 이미지와 유사한 결과가 표시됩니다.
 

@@ -1,20 +1,20 @@
 ---
-title: Azure Site Recovery를 사용하여 보조 Azure 지역에 Azure VM의 재해 복구 훈련 실행
-description: Azure Site Recovery 서비스를 사용하여 보조 Azure 지역에 Azure VM의 재해 복구 훈련을 실행하는 방법을 알아봅니다.
+title: Azure Site Recovery 서비스를 사용하여 보조 Azure 지역에 Azure VM의 재해 복구 훈련 실행
+description: Azure Site Recovery 서비스를 사용하여 Azure IaaS VM의 보조 Azure 지역에 Azure VM의 재해 복구 훈련을 실행하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 789e637f3a5806aafe0ca8cad5b6408ef77b32d0
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 7a93ae00a33ceba920630eed14fb0a3e308739e6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919617"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836052"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>보조 Azure 지역에 Azure VM의 재해 복구 훈련 실행
 
@@ -26,12 +26,13 @@ ms.locfileid: "37919617"
 > * 필수 구성 요소 확인
 > * VM에 대해 테스트 장애 조치(failover) 실행
 
-
+> [!NOTE]
+> 이 자습서는 최소 단계로 DR 드릴을 수행하는 단계로 사용자를 안내하기 위한 것입니다. 네트워킹 고려 사항, 자동화 또는 문제 해결을 포함해 DR 드릴 수행과 관련된 다양한 측면에 대해 자세히 알아보고 싶다면 Azure VM에 대한 ‘방법’에 있는 문서를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - 테스트 장애 조치(failover)를 실행하기 전에 VM 속성을 확인하여 모두 올바르게 되어 있는지 확인하는 것이 좋습니다.  **복제 항목**에서 VM 속성에 액세스합니다. **Essentials** 블레이드는 컴퓨터 설정 및 상태에 대한 정보를 표시합니다.
-- 복제를 활성화할 때 설정된 기본 네트워크가 아니라 테스트 장애 조치에 대한 별도의 Azure VM 네트워크를 사용하는 것이 좋습니다.
+- 복제를 활성화할 때 설정된 기본 네트워크가 아니라 **테스트 장애 조치에 대한 별도의 Azure VM 네트워크를 사용하는 것이 좋습니다**.
 
 
 ## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행

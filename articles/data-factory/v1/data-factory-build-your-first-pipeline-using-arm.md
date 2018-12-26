@@ -11,16 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 172de59561892f0f17fc1f90016cc95495ceb2cb
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a04e91cea4ce1670fcc0a7be2d7591d5856b738f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051310"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106865"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure 리소스 관리자 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.locfileid: "37051310"
 > [!NOTE]
 > 이 자습서의 데이터 파이프라인은 출력 데이터를 생성하는 입력 데이터를 변환합니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 > 
-> 이 자습서의 파이프라인에는 활동 유형이 HDInsightHive 하나뿐입니다. 파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [Data Factory에서 예약 및 실행](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요. 
+> 이 자습서의 파이프라인에는 활동 유형이 HDInsightHive 하나뿐입니다. 파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 세트를 다른 활동의 입력 데이터 세트로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [Data Factory에서 예약 및 실행](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 * [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
@@ -54,9 +54,9 @@ ms.locfileid: "37051310"
 | --- | --- |
 | Azure Storage 연결된 서비스 |Azure Storage 계정을 데이터 팩터리에 연결합니다. Azure Storage 계정은 이 샘플의 파이프라인에 대한 입력 및 출력 데이터를 가집니다. |
 | HDInsight 주문형 연결된 서비스 |주문형 HDInsight 클러스터를 데이터 팩터리에 연결합니다. 이 클러스터는 사용자가 데이터를 처리할 수 있도록 자동으로 생성되며 처리 작업이 완료되면 삭제됩니다. |
-| Azure Blob 입력 데이터 집합 |Azure Storage 연결된 서비스를 참조하세요. 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 집합은 입력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다. |
-| Azure Blob 출력 데이터 집합 |Azure Storage 연결된 서비스 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 집합은 출력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다. |
-| 데이터 파이프라인 |파이프라인에는 HDInsightHive가 입력 데이터 집합을 사용하여 출력 데이터 집합을 생성하는 활동 유형이 하나 있습니다. |
+| Azure Blob 입력 데이터 세트 |Azure Storage 연결된 서비스를 참조하세요. 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 세트는 입력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다. |
+| Azure Blob 출력 데이터 세트 |Azure Storage 연결된 서비스 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 세트는 출력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다. |
+| 데이터 파이프라인 |파이프라인에는 HDInsightHive가 입력 데이터 세트를 사용하여 출력 데이터 세트를 생성하는 활동 유형이 하나 있습니다. |
 
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 이러한 두 가지 유형의 활동은 [데이터 이동 활동](data-factory-data-movement-activities.md) 및 [데이터 변환 활동](data-factory-data-transformation-activities.md)입니다. 이 자습서에는 한 가지 활동(Hive 활동)이 있는 파이프라인을 만듭니다.
 
@@ -342,15 +342,15 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTu
 4. **다이어그램 보기**에 파이프라인의 개요와 이 자습서에 사용된 데이터 집합이 표시됩니다.
    
    ![다이어그램 보기](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
-5. 다이어그램 보기에서 **AzureBlobOutput**데이터 집합을 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
+5. 다이어그램 보기에서 **AzureBlobOutput**데이터 세트를 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
    
-    ![데이터 집합](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
+    ![데이터 세트](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
 6. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다. 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분) 따라서 파이프라인이 조각을 처리하는 데 **약 30분**이 걸릴 수 있습니다.
    
-    ![데이터 집합](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
+    ![데이터 세트](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
 7. 조각이 **준비** 상태에 있으면 출력 데이터에 대한 Blob Storage의 **adfgetstarted** 컨테이너에 있는 **partitioneddata** 폴더를 확인합니다.  
 
-Azure 포털 블레이드를 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md) 을 참조하세요.
+Azure 포털 블레이드를 사용하여 이 자습서에서 만든 파이프라인 및 데이터 세트를 모니터링하는 방법에 대한 지침은 [데이터 세트 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md) 을 참조하세요.
 
 앱 모니터링 및 관리를 사용하여 데이터 파이프라인을 모니터링할 수도 있습니다. 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [앱 모니터링을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 를 참조하세요. 
 
@@ -443,8 +443,8 @@ HDInsight 주문형 연결된 서비스를 정의하는 데 사용되는 JSON �
 
 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
 
-#### <a name="azure-blob-input-dataset"></a>Azure Blob 입력 데이터 집합
-입력 데이터를 포함하는 Blob 컨테이너, 폴더 및 파일의 이름을 지정할 수 있습니다. Azure Blob 데이터 집합을 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 집합 속성](data-factory-azure-blob-connector.md#dataset-properties)을 참조하세요. 
+#### <a name="azure-blob-input-dataset"></a>Azure Blob 입력 데이터 세트
+입력 데이터를 포함하는 Blob 컨테이너, 폴더 및 파일의 이름을 지정할 수 있습니다. Azure Blob 데이터 세트를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 세트 속성](data-factory-azure-blob-connector.md#dataset-properties)을 참조하세요. 
 
 ```json
 {
@@ -476,8 +476,8 @@ HDInsight 주문형 연결된 서비스를 정의하는 데 사용되는 JSON �
 ```
 이 정의는 매개 변수 템플릿에 정의된 매개 변수 blobContainer, inputBlobFolder 및 inputBlobName을 사용합니다. 
 
-#### <a name="azure-blob-output-dataset"></a>Azure Blob 출력 데이터 집합
-출력 데이터를 포함하는 Blob 컨테이너 및 폴더의 이름을 지정합니다. Azure Blob 데이터 집합을 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 집합 속성](data-factory-azure-blob-connector.md#dataset-properties)을 참조하세요.  
+#### <a name="azure-blob-output-dataset"></a>Azure Blob 출력 데이터 세트
+출력 데이터를 포함하는 Blob 컨테이너 및 폴더의 이름을 지정합니다. Azure Blob 데이터 세트를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 세트 속성](data-factory-azure-blob-connector.md#dataset-properties)을 참조하세요.  
 
 ```json
 {
@@ -568,7 +568,7 @@ HDInsight 주문형 연결된 서비스를 정의하는 데 사용되는 JSON �
 ## <a name="reuse-the-template"></a>템플릿 재사용
 이 자습서에서는 데이터 팩터리 엔터티를 정의하는 템플릿과 매개 변수 값을 전달하는 템플릿을 만들었습니다. 같은 템플릿을 사용하여 데이터 팩터리 엔터티를 다른 환경에 배포하는 데 사용하려면 각 환경에 대한 매개 변수 파일을 만들고 해당 환경에 배포할 때 사용합니다.     
 
-예:  
+예제:  
 
 ```PowerShell
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
@@ -622,7 +622,7 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 | 항목 | 설명 |
 |:--- |:--- |
 | [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
-| [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다. |
+| [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 세트를 이해하는 데 도움이 됩니다. |
 | [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) |이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. |
 

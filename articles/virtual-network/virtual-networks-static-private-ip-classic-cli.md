@@ -1,6 +1,6 @@
 ---
-title: VM(클래식)에 대한 개인 IP 주소 구성 - Azure CLI 1.0 | Microsoft Docs
-description: Azure CLI(명령줄 인터페이스) 1.0을 사용하여 가상 머신(클래식)에 대한 개인 IP 주소를 구성하는 방법에 대해 알아봅니다.
+title: VM(클래식)에 대한 개인 IP 주소 구성 - Azure 클래식 CLI | Microsoft Docs
+description: Azure 클래식 CLI(명령줄 인터페이스)를 사용하여 가상 머신(클래식)에 대한 개인 IP 주소를 구성하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a18877167d04fdb039070d5315390a846925fd29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: abc551f796cb2d8921b6b1f67fb6a6714655ffde
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31791810"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134678"
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 가상 머신(클래식)에 대한 개인 IP 주소 구성
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 가상 머신(클래식)에 대한 개인 IP 주소 구성
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
@@ -33,12 +33,12 @@ ms.locfileid: "31791810"
 
 이 문서에서는 클래식 배포 모델에 대해 설명합니다. [리소스 관리자 배포 모델에서 정적 개인 IP 주소를 관리](virtual-networks-static-private-ip-arm-cli.md)할 수도 있습니다.
 
-아래 샘플 Azure CLI 명령에는 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [vnet 만들기](virtual-networks-create-vnet-classic-cli.md)에 설명된 테스트 환경을 구축합니다.
+다음 샘플 Azure 클래식 CLI 명령에는 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [vnet 만들기](virtual-networks-create-vnet-classic-cli.md)에 설명된 테스트 환경을 구축합니다.
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>VM을 만들 때 정적 개인 IP 주소를 지정하는 방법
 위의 시나리오를 기반으로 *TestService*라는 새 클라우드 서비스에 *DNS01*이라는 VM을 만들려면 다음 단계를 수행합니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](/cli/azure/install-cli-version-1.0)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. **azure service create** 명령을 실행하여 클라우드 서비스를 만듭니다.
    
         azure service create TestService --location uscentral
@@ -75,7 +75,7 @@ ms.locfileid: "31791810"
    * **TestService**. VM이 만들어지는 클라우드 서비스의 이름입니다.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. VM을 만드는 데 사용한 이미지입니다.
    * **adminuser**. Windows VM에 대한 로컬 관리자입니다.
-   * **AdminP@ssw0rd**. Windows VM에 대한 로컬 관리자 암호입니다.
+   * <strong>AdminP@ssw0rd</strong>. Windows VM에 대한 로컬 관리자 암호입니다.
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>VM의 정적 개인 IP 주소 정보를 검색하는 방법
 위의 스크립트로 만든 VM에 대한 정적 개인 IP 주소 정보를 보려면 다음 Azure CLI 명령을 실행하고 *Network StaticIP*에 대한 값을 확인합니다.
@@ -124,4 +124,3 @@ ms.locfileid: "31791810"
 * [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.
 * [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
 * [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
-

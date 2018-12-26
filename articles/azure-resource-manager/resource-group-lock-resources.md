@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1a0f813e1857d2f1c1cc36b34b6339d26fa91c13
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4d00da4adf3069069a66c02e391f0a1a3298ac29
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488604"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299676"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기 
 
@@ -104,7 +104,7 @@ ms.locfileid: "38488604"
 
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name sitegroup -Location southcentralus
 New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
 ```
@@ -121,44 +121,44 @@ az group deployment create --resource-group sitegroup --template-uri https://raw
 
 리소스를 잠그려면 리소스 이름, 리소스 종류 및 해당 리소스 그룹 이름을 제공합니다.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 리소스 그룹을 잠그려면 해당 리소스 그룹의 이름을 제공합니다.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
 잠금에 대한 정보를 가져오려면 [Get-AzureRmResourceLock](/powershell/module/azurerm.resources/get-azurermresourcelock)를 사용합니다. 구독의 모든 잠금을 가져오려면 다음을 사용합니다.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceLock
 ```
 
 리소스에 대한 모든 잠금을 가져오려면 다음을 사용합니다.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 리소스 그룹에 대한 모든 잠금을 가져오려면 다음을 사용합니다.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
 잠금을 삭제하려면 다음을 사용합니다.
 
-```powershell
+```azurepowershell-interactive
 $lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
 Remove-AzureRmResourceLock -LockId $lockId
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[az lock create](/cli/azure/lock#az_lock_create) 명령을 사용하여 Azure CLI를 통해 배포된 리소스를 잠급니다.
+[az lock create](/cli/azure/lock#az-lock-create) 명령을 사용하여 Azure CLI를 통해 배포된 리소스를 잠급니다.
 
 리소스를 잠그려면 리소스 이름, 리소스 종류 및 해당 리소스 그룹 이름을 제공합니다.
 
@@ -172,7 +172,7 @@ az lock create --name LockSite --lock-type CanNotDelete --resource-group example
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-잠금에 대한 정보를 가져오려면 [az lock list](/cli/azure/lock#az_lock_list)를 사용합니다. 구독의 모든 잠금을 가져오려면 다음을 사용합니다.
+잠금에 대한 정보를 가져오려면 [az lock list](/cli/azure/lock#az-lock-list)를 사용합니다. 구독의 모든 잠금을 가져오려면 다음을 사용합니다.
 
 ```azurecli
 az lock list

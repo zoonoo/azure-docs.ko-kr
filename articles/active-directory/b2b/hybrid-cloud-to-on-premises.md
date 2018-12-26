@@ -4,18 +4,18 @@ description: Azure AD B2B 공동 작업을 사용하여 클라우드 B2B 사용�
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
-ms.date: 04/20/2018
-ms.author: twooley
-author: twooley
+ms.topic: conceptual
+ms.date: 10/10/2018
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f34bb9eaa04491dfbef8fac711690d1b19677d89
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 57c807b7729b58d2537ee09ddd5d05d4f2afb55e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259719"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068846"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여
 
@@ -27,7 +27,7 @@ Azure AD(Azure Active Directory) B2B 공동 작업 기능을 사용하여 파트
 
 다음을 모두 수행해야 합니다.
 
-- [Azure Active Directory 응용 프로그램 갤러리에 없는 응용 프로그램에 Single Sign-On 구성](../active-directory-saas-custom-apps.md)에 설명된 대로 비갤러리 응용 프로그램 템플릿을 사용하여 SAML 앱을 통합합니다. **로그온 URL** 값에 사용하는 값을 알고 있어야 합니다.
+- [Azure Active Directory 응용 프로그램 갤러리에 없는 응용 프로그램에 Single Sign-On 구성](../manage-apps/configure-single-sign-on-non-gallery-applications.md)에 설명된 대로 비갤러리 응용 프로그램 템플릿을 사용하여 SAML 앱을 통합합니다. **로그온 URL** 값에 사용하는 값을 알고 있어야 합니다.
 -  Azure AD 응용 프로그램 프록시를 사용하여 인증 원본으로 구성된 **Azure Active Directory**와 함께 온-프레미스 앱을 게시합니다. 지침은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](../manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요. 
 
    **내부 URL** 설정을 구성하는 경우 비갤러리 응용 프로그램 템플릿에 지정된 로그온 URL을 사용합니다. 이 방식으로 사용자는 조직 경계 외부에서 응용 프로그램에 액세스할 수 있습니다. 응용 프로그램 프록시는 온-프레미스 앱에 대해 SAML Single Sign-On을 수행합니다.
@@ -63,9 +63,9 @@ B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용�
 수명 주기 관리 정책을 통해 온-프레미스 B2B 사용자 개체를 관리할 수 있습니다. 예: 
 
 - 응용 프로그램 프록시를 인증하는 동안 MFA가 사용되도록 게스트 사용자에 대한 MFA(Multi-Factor Authentication)를 설정할 수 있습니다. 자세한 내용은 [B2B 공동 작업 사용자에 대한 조건부 액세스](conditional-access.md)를 참조하세요.
-- 클라우드 B2B 사용자에서 수행되는 모든 후원, 액세스 검토, 계정 확인 등은 온-프레미스 사용자에게 적용됩니다. 예를 들어 수명 주기 관리 정책을 통해 클라우드 사용자가 삭제된 경우 온-프레미스 사용자도 MIM 동기화 또는 Azure AD Connect 동기화를 통해 삭제됩니다. 자세한 내용은 [Azure AD 액세스 검토를 사용하여 게스트 액세스 관리](../active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)를 참조하세요.
+- 클라우드 B2B 사용자에서 수행되는 모든 후원, 액세스 검토, 계정 확인 등은 온-프레미스 사용자에게 적용됩니다. 예를 들어 수명 주기 관리 정책을 통해 클라우드 사용자가 삭제된 경우 온-프레미스 사용자도 MIM 동기화 또는 Azure AD Connect 동기화를 통해 삭제됩니다. 자세한 내용은 [Azure AD 액세스 검토를 사용하여 게스트 액세스 관리](../governance/manage-guest-access-with-access-reviews.md)를 참조하세요.
 
-### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>MIM을 통해 B2B 게스트 사용자 개체 만들기(미리 보기)
+### <a name="create-b2b-guest-user-objects-through-mim"></a>MIM을 통해 B2B 게스트 사용자 개체 만들기
 
 MIM 2016 서비스 팩 1 및 Microsoft Graph용 MIM 관리 에이전트를 사용하여 온-프레미스 디렉터리에 게스트 사용자 개체를 만드는 방법에 관한 자세한 내용은 [Azure 응용 프로그램 프록시를 사용하여 MIM(Microsoft Identity Manager) 2016 SP1과 Azure AD B2B(Business to Business) 공동 작업](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario)을 참조하세요.
 
@@ -79,11 +79,11 @@ MIM 2016 서비스 팩 1 및 Microsoft Graph용 MIM 관리 에이전트를 사�
 
 ## <a name="license-considerations"></a>라이선스 고려 사항
 
-온-프레미스 앱에 액세스하는 외부 게스트 사용자를 위한 올바른 CAL(클라이언트 액세스 라이선스)가 있어야 합니다. 자세한 내용은 [클라이언트 액세스 라이선스 및 라이선스 관리](https://www.microsoft.com/en-us/licensing/product-licensing/client-access-license.aspx)의 “외부 커넥터” 섹션을 참조하세요. 특정 라이선스 요구 사항은 Microsoft 담당자 또는 지역 대리점에 문의하세요.
+온-프레미스 앱에 액세스하는 외부 게스트 사용자를 위한 올바른 CAL(클라이언트 액세스 라이선스)가 있어야 합니다. 자세한 내용은 [클라이언트 액세스 라이선스 및 라이선스 관리](https://www.microsoft.com/licensing/product-licensing/client-access-license.aspx)의 “외부 커넥터” 섹션을 참조하세요. 특정 라이선스 요구 사항은 Microsoft 담당자 또는 지역 대리점에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [하이브리드 조직에 대한 Azure Active Directory B2B 공동 작업](hybrid-organizations.md)
 
-- Azure AD Connect 개요는 [Azure Active Directory와 온-프레미스 디렉터리 통합](../connect/active-directory-aadconnect.md)을 참조하세요.
+- Azure AD Connect 개요는 [Azure Active Directory와 온-프레미스 디렉터리 통합](../hybrid/whatis-hybrid-identity.md)을 참조하세요.
 

@@ -1,10 +1,11 @@
 ---
-title: Net# 신경망 사양 언어 가이드 - Azure Machine Learning | Microsoft Docs
-description: Net#을 사용하여 사용자 지정 신경망 모델을 만드는 방법에 대한 예제와 Net# 신경망 사양 언어 구문
+title: Net# 인공신경망 네트워크 - Azure Machine Learning Studio | Microsoft Docs
+description: Net# 인공신경망 사양 언어 구문과 Net# 및 Azure Machine Learning Studio를 사용하여 사용자 지정 인공신경망 모델을 만드는 방법에 대한 예제입니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 2571420e3497e85ec1bf37b340015b061e8c91d4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833916"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315310"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Azure Machine Learning용 Net# 신경망 사양 언어에 대한 가이드
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 Net# 인공신경망 사양 언어에 대한 가이드
 
 Net#은 Microsft에서 개발된 언어로 신경망 아키텍처를 정의하기 위해 사용됩니다. Net#을 사용하여 신경망 구조를 정의하면 이미지, 오디오 또는 비디오 같은 데이터에서 학습을 향상하는 것으로 알려진 임의 차원의 나선 또는 DNN(Deep Neural Network) 같은 복잡한 구조를 정의할 수 있습니다.
 
@@ -230,7 +231,7 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 나선형 네트워크 및 해당 응용 프로그램에 대한 자세한 내용은 다음 문서를 참조하세요. 
 
 + [http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
-+ [http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf) 
++ [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf) 
 + [http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
 
 ## <a name="pooling-bundles"></a>풀링 번들
@@ -460,7 +461,8 @@ output Digit [10] from Hid3 all;
 + 커널당 가중치 수는 `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`입니다. 또는 `26 * 50 = 1300`입니다.
 + 다음과 같이 각 숨겨진 계층에서 노드를 계산할 수 있습니다.
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5` `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
 + 총 노드 수는 계층의 선언된 차원인 [50, 5, 5]를 사용하여 `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`와 같이 계산할 수 있습니다.
 + `Sharing[d]`가 `d == 0`에 대해서만 False이므로 커널 수는 `MapCount * NodeCount\[0] = 10 * 5 = 50`입니다. 

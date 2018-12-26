@@ -4,9 +4,6 @@ description: Traffic Manager의 성능 및 Traffic Manager 사용 시 웹 사이
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 3ba5dfa1-2922-43f1-9a23-d06969c4a516
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: f686685138625a53971f1fc5fc754fd22c9d67b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bf2222e09644520bbfc6c5424c7f29d05b3c799
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110791"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257700"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사항
 
@@ -27,11 +24,11 @@ ms.locfileid: "23110791"
 
 WestUS 및 EastAsia 지역에 웹 사이트 인스턴스가 있습니다. 인스턴스 중 하나가 트래픽 관리자 프로브에 대한 상태 검사를 실패합니다. 응용 프로그램 트래픽은 정상 지역으로 전송됩니다. 이 장애 조치는 예상되는 동작이지만 성능은 이제 멀리 떨어진 지역으로 이동하는 트래픽의 대기 시간에 따라 문제가 될 수 있습니다.
 
-## <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사항
+## <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사
 
 Traffic Manager가 웹 사이트에 미칠 수 있는 유일한 성능 영향은 초기 DNS 조회입니다. Traffic Manager 프로필의 이름에 대한 DNS 요청은 trafficmanager.net 영역을 호스팅하는 Microsoft DNS 루트 서버에서 처리됩니다. Traffic Manager는 Traffic Manager 정책 및 검색 결과에 기반하여 Microsoft DNS 루트 서버에 정보를 표시하고 정기적으로 업데이트합니다. 따라서 초기 DNS 조회 중에도 DNS 쿼리가 Traffic Manager에 전송되지 않습니다.
 
-Traffic Manager는 DNS 이름 서버, API 서비스, 저장소 계층 및 서비스를 모니터링 하는 끝점 등 여러 구성 요소로 이루어져 있습니다. Traffic Manager 서비스 구성 요소가 실패해도 Traffic Manager 프로필과 연결된 DNS 이름에 아무런 영향이 없습니다. Microsoft DNS 서버에 있는 레코드는 변경되지 않고 유지됩니다. 그러나 끝점 모니터링 및 DNS 업데이트는 일어나지 않습니다. 따라서, Traffic Manager는 기본 사이트가 작동을 중단하는 경우 DNS가 장애 조치 사이트를 가리키도록 업데이트하지 못합니다.
+Traffic Manager는 DNS 이름 서버, API 서비스, 저장소 계층 및 서비스를 모니터링 하는 엔드포인트 등 여러 구성 요소로 이루어져 있습니다. Traffic Manager 서비스 구성 요소가 실패해도 Traffic Manager 프로필과 연결된 DNS 이름에 아무런 영향이 없습니다. Microsoft DNS 서버에 있는 레코드는 변경되지 않고 유지됩니다. 그러나 엔드포인트 모니터링 및 DNS 업데이트는 일어나지 않습니다. 따라서, Traffic Manager는 기본 사이트가 작동을 중단하는 경우 DNS가 장애 조치 사이트를 가리키도록 업데이트하지 못합니다.
 
 DNS 이름 확인은 신속하고 결과는 캐시됩니다. 초기 DNS 조회 속도는 클라이언트가 이름 확인을 위해 사용하는 DNS 서버에 따라 다릅니다. 일반적으로 클라이언트는 50ms 이내에 DNS 조회를 완료할 수 있습니다. 조회 결과는 DNS TTL(Time-to-Live)기간 동안 캐시됩니다. Traffic Manager에 대한 기본 TTL은 300 초입니다.
 
@@ -55,7 +52,7 @@ Traffic Manager 프로필의 성능 및 동작을 이해하는 데 사용할 수
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
 
-    결과가 캐시되므로 동일한 Traffic Manager 끝점에 대한 두 번째 테스트의 경우 DNS 조회에 0.002초가 소요됩니다.
+    결과가 캐시되므로 동일한 Traffic Manager 엔드포인트에 대한 두 번째 테스트의 경우 DNS 조회에 0.002초가 소요됩니다.
 
     ![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
 
@@ -83,7 +80,7 @@ Traffic Manager 프로필의 성능 및 동작을 이해하는 데 사용할 수
 
 [Traffic Manager 설정 테스트](traffic-manager-testing-settings.md)
 
-[Traffic Manager 작업(REST API 참조)](http://go.microsoft.com/fwlink/?LinkId=313584)
+[Traffic Manager 작업(REST API 참조)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Azure Traffic Manager cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
+[Azure Traffic Manager cmdlet](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
 

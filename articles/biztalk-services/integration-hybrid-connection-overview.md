@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 819af52bb10c9ffcb7e1133437f6d0afbe6105ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa38d0ef3d00bf5fdb886703cd882ec5ba552b95
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26629689"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234037"
 ---
 # <a name="hybrid-connections-overview"></a>하이브리드 연결 개요
 
@@ -94,9 +94,9 @@ ms.locfileid: "26629689"
 [Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>참고 항목
-[Microsoft Azure의 BizTalk Services를 관리하기 위한 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[Microsoft Azure의 BizTalk Services를 관리하기 위한 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [BizTalk Services: Editions 차트](biztalk-editions-feature-chart.md)  
-[BizTalk 서비스 만들기](biztalk-provision-services.md)  
+[BizTalk Service 만들기](biztalk-provision-services.md)  
 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

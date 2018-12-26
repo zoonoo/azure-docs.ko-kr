@@ -1,6 +1,6 @@
 ---
-title: C#을 사용하여 Linux에서 첫 번째 Azure 마이크로 서비스 만들기 | Microsoft Docs
-description: C#을 사용하여 Service Fabric 응용 프로그램 만들기 및 배포
+title: C#을 사용하여 Linux에서 Azure Service Fabric 앱 처음 만들기 | Microsoft Docs
+description: C# 및 .NET Core 2.0을 사용하여 Service Fabric 응용 프로그램을 만들고 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 59dc090053c78dbddc1854f21db39f66df7bc91c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: e917119e2d0f9b7b5cfa9ea145cc6e540486ac66
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020548"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052599"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>첫 번째 Azure Service Fabric 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -41,30 +41,22 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
 
 1. 컴퓨터에서 Node.js 및 NPM 설치
 
-   Ubuntu
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-   sudo apt-get install -y nodejs 
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
+   nvm install node 
    ```
-
-   Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
-   ```bash
-   sudo yum install nodejs
-   sudo yum install npm
-   ```
-
 2. NPM의 컴퓨터에 [Yeoman](http://yeoman.io/) 템플릿 생성기 설치
 
   ```bash
-  sudo npm install -g yo
+  npm install -g yo
   ```
 3. NPM에서 Service Fabric Yeoman C# 응용 프로그램 생성기 설치
 
   ```bash
-  sudo npm install -g generator-azuresfcsharp
+  npm install -g generator-azuresfcsharp
   ```
 
-## <a name="create-the-application"></a>응용 프로그램 만들기
+## <a name="create-the-application"></a>애플리케이션 만들기
 서비스 패브릭 응용 프로그램은 응용 프로그램의 기능을 제공하는 특정 역할이 있는 하나 이상의 서비스를 포함할 수 있습니다. 마지막 단계에서 설치한 C#용 Service Fabric [Yeoman](http://yeoman.io/) 생성기를 통해 쉽게 첫 번째 서비스를 만들고 나중에 더 추가할 수 있습니다. 단일 서비스를 사용하여 응용 프로그램을 만들기 위해 Yeoman을 사용해 보겠습니다.
 
 1. 터미널에서 다음 명령을 입력하여 스캐폴딩 구축을 시작합니다. `yo azuresfcsharp`
@@ -78,7 +70,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
 >
 >
 
-## <a name="build-the-application"></a>응용 프로그램 빌드
+## <a name="build-the-application"></a>애플리케이션 빌드
 Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을 사용하여 터미널에서 앱을 빌드할 수 있습니다(응용 프로그램 폴더로 이동한 후).
 
   ```sh

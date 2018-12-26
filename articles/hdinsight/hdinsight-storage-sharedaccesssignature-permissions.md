@@ -1,24 +1,20 @@
 ---
-title: 공유 액세스 서명을 사용하여 액세스 제한 - Azure HDInsight | Microsoft Docs
+title: 공유 액세스 서명을 사용하여 액세스 제한 - Azure HDInsight
 description: 공유 액세스 서명을 사용하여 Azure 저장소 Blob에 저장된 데이터에 대한 HDInsight 액세스를 제한하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 328f052e1ccad3ac26cce62c858e050253192ae8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: hrasheed
+ms.openlocfilehash: 08ffc3a9eb4942cb21c0a800d493b87b016d7f87
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179984"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016185"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 

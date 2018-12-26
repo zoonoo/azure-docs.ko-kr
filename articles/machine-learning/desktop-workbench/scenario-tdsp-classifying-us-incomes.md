@@ -3,27 +3,32 @@ title: 소득 분류 - Team Data Science Process - Azure Machine Learning | Micr
 description: Team Data Science Process 템플릿을 사용하여 Azure Machine Learning에서 미국 소득을 분류하는 프로젝트를 만드는 방법입니다.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.author: bradsev
-ms.openlocfilehash: 3b1d2be46b2f142adff966991997891e44e850ec
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8533023a16cb350828127d0603e6add0876b37a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832682"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948852"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>TDSP(Team Data Science Process) 프로젝트에서 소득 분류
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="introduction"></a>소개
 
@@ -55,9 +60,9 @@ ms.locfileid: "34832682"
 1. [Azure](https://azure.microsoft.com) 구독 [체험 구독](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg)으로 이 샘플을 실행할 수도 있습니다.
 2. [Azure DSVM(Science Virtual Machine) Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm)(VM 크기: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), 4개의 가상 CPU 및 14Gb RAM포함) Azure DSVM에서 테스트되었지만 모든 Windows 10 컴퓨터에서 작동할 가능성이 높습니다.
 3. Azure Machine Learning 및 관련 서비스에 대한 설명서를 검토합니다(링크는 아래 참조).
-4. [빠른 시작 설치 가이드](../service/quickstart-installation.md)에서 Azure Machine Learning을 제대로 설치했는지 확인합니다.
+4. [빠른 시작 설치 가이드](quickstart-installation.md)에서 Azure Machine Learning을 제대로 설치했는지 확인합니다.
 
-이 샘플의 데이터 집합은 UCI ML 리포지토리[[링크]](https://archive.ics.uci.edu/ml/datasets/adult)에서 가져옵니다. 1994 미국 인구 조사 데이터베이스에서 가져왔으며 약 50,000명의 개인에 대한 인구 조사 및 소득 정보를 포함합니다. 숫자 및 범주 기능이 있는 데이터 집합 및 두 가지 소득 범주로 구성된 범주 대상입니다('>50K' 또는 '<=50K'). 
+이 샘플의 데이터 세트는 UCI ML 리포지토리[[링크]](https://archive.ics.uci.edu/ml/datasets/adult)에서 가져옵니다. 1994 미국 인구 조사 데이터베이스에서 가져왔으며 약 50,000명의 개인에 대한 인구 조사 및 소득 정보를 포함합니다. 숫자 및 범주 기능이 있는 데이터 집합 및 두 가지 소득 범주로 구성된 범주 대상입니다('>50K' 또는 '<=50K'). 
 
 ### <a name="optional-version-control-repository"></a>선택 사항: 버전 제어 리포지토리
 프로젝트와 해당 콘텐츠를 저장하고 버전을 제어하려는 경우 작업을 수행할 수 있는 버전 제어 리포지토리가 있어야 합니다. Azure Machine Learning에서 TDSP 템플릿을 사용하여 새 프로젝트를 만드는 동안 Git 리포지토리 위치를 입력할 수 있습니다. 세부 정보는 [Azure Machine Learning에서 Git을 사용하는 방법](using-git-ml-project.md)을 참조하세요.
@@ -65,7 +70,7 @@ ms.locfileid: "34832682"
 ### <a name="informational-about-azure-machine-learning"></a>정보 제공: Azure Machine Learning 정보
 * [FAQ - 시작 방법](frequently-asked-questions.md)
 * [개요](../service/overview-what-is-azure-ml.md)
-* [설치](../service/quickstart-installation.md)
+* [설치](quickstart-installation.md)
 * [실행](experimentation-service-configuration.md)
 * [TDSP 사용](https://aka.ms/how-to-use-tdsp-in-aml)
 * [파일 읽기 및 쓰기](how-to-read-write-files.md)
@@ -79,7 +84,7 @@ ms.locfileid: "34832682"
 2.  **프로젝트** 페이지에서 **+** 기호를 클릭하고 **새 프로젝트**를 선택합니다.
 3.  **새 프로젝트 만들기** 창에서 새 프로젝트에 대한 정보를 입력합니다.
 4.  **검색 프로젝트 템플릿** 검색 상자에서 "미국 소득 분류 - TDSP 프로젝트"를 입력하고 템플릿을 선택합니다.
-5.  **만들기**
+5.   **만들기**
 
 프로젝트를 만드는 동안 적절한 상자에 빈 Git 리포지토리 위치를 입력하면 프로젝트 생성 후 해당 리포지토리가 프로젝트 구조 및 콘텐츠로 채워집니다.
 

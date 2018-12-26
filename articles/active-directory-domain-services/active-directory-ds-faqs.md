@@ -3,7 +3,7 @@ title: FAQ - Azure Active Directory Domain Services | Microsoft Docs
 description: Azure Active Directory Domain Services에 대해 자주 묻는 질문과 대답입니다.
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: maheshu
-ms.openlocfilehash: 41e5d515dcea4a4bc2ebfec8493d44de877a263f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.author: ergreenl
+ms.openlocfilehash: c2f10b1bf3b61577a2b0616be6fa50f7639559ba
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214732"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158920"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: 자주 묻는 질문과 대답(FAQ)
 이 페이지는 Azure Active Directory Domain Services에 대한 자주 묻는 질문을 응답합니다. 업데이트를 계속 확인합니다.
@@ -51,7 +51,7 @@ Azure AD Domain Services 구성 또는 관리에서 발생하는 일반적인 �
 예. [PowerShell을 사용하여 Azure AD Domain Services를 사용하기 위한 방법](active-directory-ds-enable-using-powershell.md)을 참조하세요.
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure AD Domain Services를 사용할 수 있나요?
-예. [PowerShell을 사용하여 Azure AD Domain Services를 사용하기 위한 방법](active-directory-ds-enable-using-powershell.md)을 참조하세요.
+아니요, 지금은 템플릿을 통해 Azure AD Domain Services를 사용하도록 설정할 수 없습니다. 대신 PowerShell을 사용할 수 있습니다. [PowerShell을 통해 Azure AD Domain Services를 사용하도록 설정하는 방법](active-directory-ds-enable-using-powershell.md)을 참조하세요.
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에 도메인 컨트롤러를 추가할 수 있나요?
 아니요. Azure AD 도메인 서비스에서 제공하는 도메인은 관리되는 도메인입니다. 이 도메인에 대해 도메인 컨트롤러를 프로비전, 구성 또는 다른 방식으로 관리하지 않아도 됩니다. 이러한 관리 작업은 Microsoft에서 서비스로 제공합니다. 따라서 관리되는 도메인에 대해 추가 도메인 컨트롤러(읽기-쓰기 또는 읽기 전용)를 추가할 수 없습니다.
@@ -96,6 +96,9 @@ Azure AD Domain Services 관리되는 도메인의 기본 암호 수명은 90일
 
 ### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인을 일시 중지할 수 있나요? 
 아니요. Azure AD Domain Services 관리되는 도메인을 사용하도록 설정했으면 관리되는 도메인을 사용하지 않거나/삭제할 때까지 선택한 가상 네트워크에서 해당 서비스가 제공됩니다. 서비스를 일시 중지할 방법은 없습니다. 관리되는 도메인을 삭제할 때까지 시간 기준으로 계속 청구됩니다.
+
+### <a name="can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>Azure AD Domain Services를 DR 이벤트의 다른 지역으로 장애 조치(failover)할 수 있나요?
+아니요.  현재 Azure AD Domain Services는 지역 중복 배포 모델을 제공하지 않습니다. 지역은 Azure 지역의 단일 가상 네트워크로 제한되어 있습니다. 여러 Azure 지역을 사용하려면 Azure IaaS VM에서 Active Directory 도메인 컨트롤러를 실행해야 합니다.  아키텍처 지침은 [여기](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain)에서 찾을 수 있습니다.
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Enterprise Mobility Suite(EMS)의 일부로 Azure AD 도메인 서비스를 가져올 수 있습니까? Azure AD Domain Services를 사용하려면 Azure AD Premium이 필요합니까?
 아니요. Azure AD Domain Services는 종량제 Azure 서비스이며 EMS의 일부가 아닙니다. Azure AD Domain Services는 모든 에디션의 Azure AD(무료, 기본 및 프리미엄)에 사용할 수 있습니다. 사용 방식에 따라 시간 단위로 청구됩니다.

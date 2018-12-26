@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 시작 | Microsoft Docs'
 description: Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2018
-ms.author: maheshu
-ms.openlocfilehash: c6c5762a460fadb04f940742bed759ea17f74aad
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.author: ergreenl
+ms.openlocfilehash: 70dee552ec575f4969593eac4e91fdbb18b426f1
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215738"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156190"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 

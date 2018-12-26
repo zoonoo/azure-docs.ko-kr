@@ -1,7 +1,7 @@
 ---
-title: Conversation Learner 응용 프로그램에서 카드를 사용하는 방법, 2부 - Microsoft Cognitive Services | Microsoft Docs
+title: Conversation Learner 모델에서 카드를 사용하는 방법, 2부 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Conversation Learner 응용 프로그램에서 카드를 사용하는 방법을 알아봅니다.
+description: Conversation Learner 모델에서 카드를 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,17 +10,21 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 254f0953fd3e281a35857e69d9795e3decebf45d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 99c474978d4da1d80669505330b2dc6220d7ca5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376182"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226637"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>카드 사용 방법(2부 중 1부)
 이 자습서는 채우기 가능 양식 카드를 봇에 추가하는 방법을 보여 줍니다. 양식 필드가 어떻게 엔터티로 이동하는지를 보여 줍니다.
 
 Conversation Learner는 봇이 시작된 디렉터리에 있는 “cards” 디렉터리에 카드 정의 파일이 있을 것으로 예상합니다.
+
+## <a name="video"></a>비디오
+
+[![자습서 14 미리 보기](https://aka.ms/cl-tutorial-14-preview)](https://aka.ms/blis-tutorial-14)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.
@@ -33,7 +37,7 @@ Conversation Learner는 봇이 시작된 디렉터리에 있는 “cards” 디�
 
 ### <a name="open-the-demo"></a>데모 열기
 
-Web UI의 앱 목록에서 Tutorial-14-Cards-2를 클릭합니다. 
+Web UI의 모델 목록에서 Tutorial-14-Cards-2를 클릭합니다. 
 
 ### <a name="the-card"></a>카드
 

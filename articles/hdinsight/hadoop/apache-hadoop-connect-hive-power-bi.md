@@ -1,29 +1,25 @@
 ---
-title: Azure HDInsight에서 Power BI를 사용하여 빅 데이터 시각화 | Microsoft Docs
+title: Azure HDInsight에서 Power BI를 사용하여 빅 데이터 시각화
 description: Microsoft Power BI를 사용하여 Azure HDInsight에서 처리한 Hive 데이터를 시각화하는 방법에 대해 알아봅니다.
 keywords: hdinsight,hadoop,hive,대화형 쿼리,대화형 hive,LLAP,odbc
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 6f4efdebd6fc2833747b4cb72496447e0be03a58
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: hrasheed
+ms.openlocfilehash: e6711a5595c6b7c6caaff97f4c1996817be1abce
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199999"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634552"
 ---
-# <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Azure HDInsight의 ODBC를 사용하여 Microsoft Power BI로 Hive 데이터 시각화
+# <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Azure HDInsight의 ODBC를 사용하여 Microsoft Power BI와 Apache Hive 데이터 시각화
 
-ODBC를 사용하여 Microsoft Power BI를 Azure HDInsight에 연결하고 Hive 데이터를 시각화하는 방법에 대해 알아봅니다. 
+ODBC를 사용하여 Microsoft Power BI를 Azure HDInsight에 연결하고 Apache Hive 데이터를 시각화하는 방법에 대해 알아봅니다. 
 
 >[!IMPORTANT]
 > Hive ODBC 드라이버를 활용하여 Power BI Desktop에서 제네릭 ODBC 커넥터를 통해 가져오기를 수행할 수 있습니다. 그러나 BI 워크로드의 경우 Hive 쿼리 엔진의 비대화형 특성을 지정하지 않는 것이 좋습니다. 성능을 개선하기 위해 [대화형 쿼리 HDInsight 커넥터](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) 및 [HDInsight Spark 커넥터](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect)를 선택할 수 있습니다.
@@ -44,7 +40,7 @@ ODBC를 사용하여 Microsoft Power BI를 Azure HDInsight에 연결하고 Hive 
 
 ## <a name="create-hive-odbc-data-source"></a>Hive ODBC 데이터 원본 만들기
 
-[Hive ODBC 데이터 원본 만들기](apache-hadoop-connect-excel-hive-odbc-driver.md#create-hive-odbc-data-source)를 참조하세요.
+[Hive ODBC 데이터 원본 만들기](apache-hadoop-connect-excel-hive-odbc-driver.md#create-apache-hive-odbc-data-source)를 참조하세요.
 
 ## <a name="load-data-from-hdinsight"></a>HDInsight에서 데이터 로드
 

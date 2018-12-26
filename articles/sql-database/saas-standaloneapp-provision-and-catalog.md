@@ -1,21 +1,23 @@
 ---
 title: 다중 테넌트 SaaS 자습서 - Azure SQL Database | Microsoft Docs
 description: 독립 실행형 응용 프로그램 패턴을 사용하여 새 테넌트 프로비전 및 카탈로그 작업
-keywords: SQL Database 자습서
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: SaaS
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: billgib
+manager: craigg
 ms.date: 01/31/2018
-ms.author: billgib
-ms.openlocfilehash: 0f2495ddc5d5053582d67bd44cdf80d018f79e42
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 92a1745f8da9783a22c7cbf417acb0709759f41c
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646156"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054317"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>테넌트별 응용 프로그램 SaaS 패턴을 사용하여 새 테넌트 프로비전/카탈로그 작업
 
@@ -25,7 +27,7 @@ ms.locfileid: "34646156"
 * 프로비전 및 카탈로그 작업을 수행하는 샘플 PowerShell 코드를 설명하는 자습서
     * 이 자습서에서는 독립 실행형 테넌트별 앱 패턴에 맞게 조정된 Wingtip Tickets 샘플 SaaS 응용 프로그램을 사용합니다.
 
-## <a name="standalone-application-per-tenant-pattern"></a>테넌트별 독립 실행형 응용 프로그램 패턴
+## <a name="standalone-application-per-tenant-pattern"></a>테넌트별 독립 실행형 애플리케이션 패턴
 독립 실행형 테넌트별 앱 패턴은 다중 테넌트 SaaS 응용 프로그램의 몇 가지 패턴 중 하나입니다.  이 패턴에서는 각 테넌트마다 독립 실행형 앱이 프로비전됩니다. 응용 프로그램은 응용 프로그램 수준 구성 요소와 SQL 데이터베이스로 구성됩니다.  각 테넌트 앱은 공급업체의 구독에 배포할 수 있습니다.  대안으로, Azure에는 앱을 테넌트의 구독에 배포하고 테넌트 대신 공급업체가 관리하는 [관리되는 응용 프로그램 프로그램](https://docs.microsoft.com/azure/managed-applications/overview)이 제공됩니다. 
 
    ![app-per-tenant 패턴](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
@@ -140,7 +142,7 @@ Azure Resource Manager 템플릿은 응용 프로그램을 배포 및 구성하�
 이 자습서에서는 다음에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * Wingtip 티켓 SaaS 독립형 응용 프로그램 배포 방법
+> * Wingtip 티켓 SaaS 독립형 애플리케이션 배포 방법
 > * 앱을 구성하는 서버 및 데이터베이스 정보.
 > * 샘플 리소스를 삭제하여 관련 결제를 중지하는 방법
 

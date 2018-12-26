@@ -1,25 +1,25 @@
 ---
-title: 기본 인사이트 태그 | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Visual Search가 이미지에 대해 반환하는 기본 인사이트 정보를 제공합니다.
+title: 기본 인사이트 태그 - Bing Visual Search
+titleSuffix: Azure Cognitive Services
+description: Bing Visual Search가 이미지에 대해 반환하는 기본 인사이트에 대한 세부 정보를 제공합니다.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-visual-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: c0bf51ab86e2ba99aeb859ea415e1afd355a86f2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cf0b53d13e65b0815c0501a70570788f7be599b1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376398"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883401"
 ---
 # <a name="default-insights-tag"></a>기본 인사이트 태그
 
-기본 인사이트 태그는 `displayName` 필드가 빈 문자열로 설정된 태그입니다. 다음 예제는 가능한 기본 인사이트(작업) 목록을 보여 줍니다.
+기본 인사이트 태그는 `displayName` 필드가 빈 문자열로 설정된 태그입니다. 다음 예제는 가능한 기본 인사이트(작업) 목록을 보여 줍니다. 응답에 포함되는 작업 목록은 이미지에 따라 달라집니다. 또한 각 작업에 대한 속성 목록도 이미지에 따라 달라지므로 사용하기 전에 해당 속성이 있는지 확인합니다.
 
 ```json
 {
@@ -344,6 +344,9 @@ ProductVisualSearch 인사이트는 시각적으로 원본 이미지에 표시�
                 "shoppingSourcesCount" : 1,
                 "recipeSourcesCount" : 0,
                 "aggregateOffer" : {
+                  "name":"4-Piece Kitchen Package with...",
+                  "priceCurrency":"USD",
+                  "lowPrice":2756,
                   "offers" : [
                     {
                       "name" : "4-Piece Kitchen Package with...",
@@ -360,7 +363,8 @@ ProductVisualSearch 인사이트는 시각적으로 원본 이미지에 표시�
                       "availability" : "InStock",
                       "lastUpdated" : "2018-02-20T00:00:00.0000000"
                     }
-                  ]
+                  ],
+                  "offerCount":1
                 },
                 "pagesIncludingCount" : 4,
                 "availableSizesCount" : 2

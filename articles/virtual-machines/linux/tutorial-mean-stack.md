@@ -3,7 +3,7 @@ title: 자습서 - Azure의 Linux 가상 머신에 MEAN 스택 만들기 | Micro
 description: 이 자습서에서는 Azure의 Linux VM에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/08/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 8b472c5f1175f006e4c7a6574135460540bf2283
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a223cb9be7c381c2f64648b32ef9bca69ebeddb5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38720655"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465684"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure의 Linux 가상 머신에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택 만들기
 
@@ -37,7 +37,7 @@ ms.locfileid: "38720655"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 
 ## <a name="create-a-linux-vm"></a>Linux VM 만들기
@@ -91,7 +91,7 @@ sudo apt-get install -y nodejs
 ```
 
 ## <a name="install-mongodb-and-set-up-the-server"></a>MongoDB 설치 및 서버 설정
-[MongoDB](http://www.mongodb.com)는 유연한 JSON 유사 문서에 데이터를 저장합니다. 데이터베이스의 필드는 문서마다 다를 수 있으며 데이터 구조는 시간이 지남에 따라 변경될 수 있습니다. 예제 응용 프로그램에서는 책 이름, isbn 번호, 저자 및 페이지 수를 포함하는 책 레코드를 MongoDB에 추가할 것입니다. 
+[MongoDB](http://www.mongodb.com)는 유연한 JSON 유사 문서에 데이터를 저장합니다. 데이터베이스의 필드는 문서마다 다를 수 있으며 데이터 구조는 시간이 지남에 따라 변경될 수 있습니다. 예제 애플리케이션에서는 책 이름, isbn 번호, 저자 및 페이지 수를 포함하는 책 레코드를 MongoDB에 추가할 것입니다. 
 
 1. VM에서 연 bash 셸을 SSH와 함께 사용하여 MongoDB를 설정합니다.
 
@@ -340,7 +340,7 @@ sudo apt-get install -y nodejs
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Linux VM에 대해 MEAN 스택을 사용하여 책 레코드를 추적하는 웹 응용 프로그램을 만들었습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Linux VM에 대해 MEAN 스택을 사용하여 책 레코드를 추적하는 웹 애플리케이션을 만들었습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * Linux VM 만들기

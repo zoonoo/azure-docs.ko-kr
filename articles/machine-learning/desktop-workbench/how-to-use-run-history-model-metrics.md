@@ -7,18 +7,23 @@ ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: df29117235e890a9b20619744df6320f298a73b2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 52b02460d444464211fc74c8982379424abebb5c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831872"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965520"
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench의 실행 기록 및 모델 메트릭을 사용하는 방법
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Azure Machine Learning Workbench는 **실행 기록** 및 **모델 메트릭** 기능을 통해 데이터 과학 실험을 지원합니다.
 **실행 기록**은 Machine Learning 실험의 출력을 추적하는 방법을 제공하며, 그 후 결과를 필터링 및 비교할 수 있습니다.
@@ -27,8 +32,8 @@ Azure Machine Learning Workbench는 **실행 기록** 및 **모델 메트릭** �
 
 ## <a name="prerequisites"></a>필수 조건
 이 방법 가이드를 단계별로 실행하려면 다음을 수행해야 합니다.
-* [Azure Machine Learning 만들기 및 설치](../service/quickstart-installation.md)
-- [프로젝트 만들기](../service/quickstart-installation.md)
+* [Azure Machine Learning 만들기 및 설치](quickstart-installation.md)
+- [프로젝트 만들기](quickstart-installation.md)
 
 
 ## <a name="azure-ml-logging-api-overview"></a>Azure ML 로깅 API 개요
@@ -51,7 +56,7 @@ logger.log("all values", [5, 6, 7])
 Azure ML Workbench 프로젝트 내에서 간편하게 로거를 사용할 수 있으며, 이 문서에서는 그 방법을 보여줍니다.
 
 ## <a name="create-a-project-in-azure-ml-workbench"></a>Azure ML Workbench에서 프로젝트 만들기
-아직 프로젝트가 없는 경우 표시된 것처럼 [프로젝트 대시보드](../service/quickstart-installation.md)의 **빠른 시작 만들기 및 설치**에서 프로젝트를 만들고, **iris_sklearn.py** 스크립트를 열 수 있습니다.
+아직 프로젝트가 없는 경우 표시된 것처럼 [프로젝트 대시보드](quickstart-installation.md)의 **빠른 시작 만들기 및 설치**에서 프로젝트를 만들고, **iris_sklearn.py** 스크립트를 열 수 있습니다.
 
 ![파일 탭에서 스크립트에 액세스](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)
 

@@ -6,14 +6,14 @@ author: adigan
 manager: Nkolli
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/27/2016
+ms.date: 10/18/2018
 ms.author: adigan
-ms.openlocfilehash: cebbe532b5d1b13588604c61ac10bf3c56a85e07
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 232885398c996d0c744ac55b6c6967fd398eec0b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604967"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945657"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>SQL Server를 DPM 작업으로 Azure에 백업
 이 문서는 Azure Backup을 사용한 SQL Server 데이터베이스 백업의 구성 단계를 안내합니다.
@@ -27,7 +27,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 3. Azure에서 데이터베이스를 복구합니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
-시작하기 전에, 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites)를 모두 충족하는지 확인합니다. 필수 구성 요소는 백업 저장소 만들기, 보관 자격 증명 다운로드, Azure Backup 에이전트 설치 및 저장소에 서버 등록 등의 작업들을 다룹니다.
+시작하기 전에, 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites-and-limitations)를 모두 충족하는지 확인합니다. 필수 구성 요소는 백업 저장소 만들기, 보관 자격 증명 다운로드, Azure Backup 에이전트 설치 및 저장소에 서버 등록 등의 작업들을 다룹니다.
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Azure에 대해 SQL server 데이터베이스를 보호하기 위한 백업 정책을 만듭니다.
 1. DPM 서버에서 **보호** 작업 영역을 클릭합니다.

@@ -22,7 +22,8 @@
 
 ## 방법
 ### [Azure 포털을 통해 관리](storsimple-virtual-array-manager-service-administration.md)
-#### [최신 업데이트 설치](storsimple-virtual-array-install-update-1.md)
+#### [최신 업데이트 설치](storsimple-virtual-array-install-update-11.md)
+##### [업데이트 1 설치](storsimple-virtual-array-install-update-1.md)
 ##### [업데이트 0.6 설치](storsimple-virtual-array-install-update-06.md)
 ##### 보관
 ###### [업데이트 0.5 설치](storsimple-virtual-array-install-update-05.md)
@@ -47,7 +48,8 @@
 ### [로컬 웹 UI를 통해 구성](storsimple-ova-web-ui-admin.md)
 
 ## 릴리스 정보
-### [업데이트 1 - 현재](storsimple-virtual-array-update-1-release-notes.md)
+### [업데이트 1.1 - 현재](storsimple-virtual-array-update-11-release-notes.md)
+### [업데이트 1](storsimple-virtual-array-update-1-release-notes.md)
 ### [업데이트 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### 보관
 #### [업데이트 0.5](storsimple-virtual-array-update-05-release-notes.md)
@@ -59,6 +61,7 @@
 
 ## 개요
 ### [솔루션이란?](storsimple-overview.md)
+### [데이터 전송 옵션 비교](storsimple-8000-choose-storage-solution.md)
 ### [StorSimple 학습 맵](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [보안 고려 사항](storsimple-8000-security.md)
 ### [지역 가용성](storsimple-regions.md)
@@ -178,8 +181,10 @@
 
 ### 마이그레이션
 #### [구독 및 저장소 계정](storsimple-8000-migrate-classic-azure-portal.md)
-#### [5000/7000 시리즈 장치에서](storsimple-8000-migrate-from-5000-7000.md)
-#### [다른 저장 장치에서](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [5000/7000 시리즈 장치에서](storsimple-8000-migration-options.md)
+##### [StorSimple 8000 시리즈 장치 대상](storsimple-8000-migrate-from-5000-7000.md)
+##### [Azure 파일 동기화 대상](storsimple-5000-7000-afs-migration.md)
+#### [다른 저장 장치에서](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### 주 지역에서
 #### [업데이트 5 설치 - 현재](storsimple-8000-install-update-5.md)
@@ -244,8 +249,8 @@
 ## [가격](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=storsimple)
-## [지원 블로그](http://blogs.msdn.com/b/storsimple/)
-## [타사 알림](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [지원 블로그](https://blogs.msdn.com/b/storsimple/)
+## [타사 알림](https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 

@@ -3,7 +3,7 @@ title: 자습서 - Azure에서 Windows VM에 응용 프로그램 설치 | Micros
 description: 이 자습서에서는 사용자 지정 스크립트 확장을 사용하여 스크립트를 실행하고 Azure에서 Windows 가상 머신에 응용 프로그램을 배포하는 방법을 배웁니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 2a365321e35c84d5b09570a7eac41bec6cdeb143
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b183e9f3149f9fa8b856215ea9cd5ee33c1e6d79
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928967"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465463"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>자습서 - 사용자 지정 스크립트 확장을 사용하여 Azure에서 Windows 가상 머신에 응용 프로그램 배포
 
@@ -45,7 +45,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 Windows VM 및 Linux VM 둘 다에 사용자 지정 스크립트 확장을 사용할 수 있습니다.
 
 
-## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-virtual-machine"></a>가상 머신 만들기
 먼저 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM에 대한 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell-interactive

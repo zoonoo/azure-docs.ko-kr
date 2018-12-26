@@ -4,19 +4,19 @@ description: 이 항목에서는 로컬 파일에서 작업 입력을 만드는 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 94e7192e13397ad8ec973d92f4c538f430c9cd60
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3b4c11c359c15f1275a16774b490c08b543572c3
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160008"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378714"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>로컬 파일에서 작업 입력 만들기
 
@@ -36,4 +36,4 @@ Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입�
 
 ## <a name="next-steps"></a>다음 단계
 
-[HTTP URL에서 작업 입력 만들기](job-input-from-http-how-to.md).
+[HTTP URL에서 작업 입력 만들기](job-input-from-http-how-to.md)

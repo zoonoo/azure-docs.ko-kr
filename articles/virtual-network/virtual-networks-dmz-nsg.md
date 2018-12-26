@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ec29e6b250f927a3a4a94ffdf83d6c7c0e325722
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23126681"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457292"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>예 1 – Azure Resource Manager 템플릿으로 NSG를 사용하여 간단한 DMZ 빌드
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
@@ -99,7 +99,7 @@ ms.locfileid: "23126681"
     ``` 
 
 2. 이 예의 첫 번째 규칙에서는 백 엔드 서브넷에서 DNS 서버에 대해 모든 내부 네트워크 간 DNS 트래픽을 허용합니다. 규칙은 몇 가지 중요한 매개 변수를 포함합니다.
-  * "destinationAddressPrefix" - 규칙은 "기본 태그"라는 특수한 주소 유형의 접두사를 사용할 수 있습니다. 이러한 태그는 더 큰 범주의 주소 접두사를 해결하는 쉬운 방법을 허용하는 시스템 제공 식별자입니다. 이 규칙은 기본 태그 “Internet"을 사용하여 VNet 외의 모든 주소를 나타냅니다. 다른 접두사 레이블은 VirtualNetwork 및 AzureLoadBalancer입니다.
+  * "destinationAddressPrefix" - DNS 트래픽이 DNS 서버에 도달할 수 있도록 대상 주소 접두사가 "10.0.2.4"로 설정됩니다.
   * "Direction"은 이 규칙이 적용되는 트래픽 흐름의 방향을 나타냅니다. 방향은 서브넷 또는 Virtual Machine의 관점에서 옵니다(이 NSG가 바인딩되는 위치에 따라). 따라서 Direction이 "Inbound"이고 트래픽이 서브넷에 들어가는 경우 규칙이 적용되고 서브넷에서 나가는 트래픽에는 이 규칙이 적용되지 않습니다.
   * "Priority"는 트래픽 흐름이 평가되는 순서를 설정합니다. 번호가 낮을수록 우선순위가 높습니다. 특정 트래픽 흐름에 규칙이 적용되는 경우 더 이상 규칙이 처리되지 않습니다. 따라서 우선순위 1인 규칙에서는 트래픽을 허용하고 우선순위 2인 규칙에서는 트래픽을 거부하고 두 규칙 모두 트래픽에 적용된다면 트래픽 흐름이 허용됩니다(규칙 1의 우선순위가 높으므로 해당 규칙이 적용되고 다른 규칙은 적용되지 않음).
   * "Access"는 이 규칙의 영향을 받는 트래픽을 차단("Deny")하거나 허용("Allow")할지를 나타냅니다.
@@ -180,7 +180,7 @@ ms.locfileid: "23126681"
     },
      ```
 
-6. 이 규칙은 네트워크 상의 모든 서버에 인터넷에서 트래픽을 거부합니다. 우선순위 110 및 120의 규칙을 사용하여 방화벽에 대한 인바운드 인터넷 트래픽 및 서버의 RDP 포트만 허용하고 다른 모든 항목은 차단합니다. 이 규칙은 모든 예기치 않은 흐름을 차단하는 "유사 시 대기" 규칙입니다.
+6. 규칙은 "기본 태그"라는 특수한 주소 유형의 접두사를 사용할 수 있습니다. 이러한 태그는 더 큰 범주의 주소 접두사를 해결하는 쉬운 방법을 허용하는 시스템 제공 식별자입니다. 이 규칙은 대상 주소 접두사에 대해 "VirtualNetwork" 기본 태그를 사용하여 VNet 내에서 모든 주소를 나타냅니다. 다른 접두사 레이블은 Internet 및 AzureLoadBalancer입니다. 이 규칙은 네트워크 상의 모든 서버에 인터넷에서 트래픽을 거부합니다. 우선순위 110 및 120의 규칙을 사용하여 방화벽에 대한 인바운드 인터넷 트래픽 및 서버의 RDP 포트만 허용하고 다른 모든 항목은 차단합니다. 이 규칙은 모든 예기치 않은 흐름을 차단하는 "유사 시 대기" 규칙입니다.
 
     ```JSON
     {

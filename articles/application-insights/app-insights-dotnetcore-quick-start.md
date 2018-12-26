@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ccd55633f71be172edc330459bf8610f2146ad8d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386387"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991622"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core 웹 응용 프로그램 모니터링 시작
 
@@ -33,7 +33,7 @@ Azure Application Insights를 사용하면 웹 응용 프로그램의 가용성,
 - [.NET Core SDK 2.0 설치](https://www.microsoft.com/net/core)
 - Azure 구독 및 기존 .NET Core 웹 응용 프로그램이 필요합니다.
 
-ASP.NET Core 웹 응용 프로그램이 없는 경우 [ASP.NET Core 웹앱 만들기 가이드](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs)에 따라 ASP.NET Core 웹 응용 프로그램을 만들 수 있습니다.
+ASP.NET Core 웹 응용 프로그램에 없는 경우에 [ASP.NET Core 앱을 만들고 Application Insights를 추가](app-insights-asp-net-core.md)하려면 단계별 가이드를 사용할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -77,25 +77,25 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 1. 이제 Azure Portal에서 **프로젝트** > **Application Insights** > **Application Insights 포털 열기**를 차례로 선택하여 Application Insights **개요** 페이지를 다시 열어 현재 실행 중인 응용 프로그램에 대한 세부 정보를 볼 수 있습니다.
 
-   ![Application Insights 개요 메뉴](./media/app-insights-dotnetcore-quick-start/004-Black.png)
+   ![Application Insights 개요 메뉴](./media/app-insights-dotnetcore-quick-start/overview-001.png)
 
-2. 응용 프로그램 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **앱 맵**을 클릭합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
+2. 응용 프로그램 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **응용 프로그램 맵**을 클릭합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
-   ![응용 프로그램 맵](./media/app-insights-dotnetcore-quick-start/0002-dc.png)
+   ![응용 프로그램 맵](./media/app-insights-dotnetcore-quick-start/application-map.png)
 
 3. **앱 분석** 아이콘![ 응용 프로그램 맵 아이콘](./media/app-insights-dotnetcore-quick-start/006.png)을 클릭합니다.  그러면 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights 분석**이 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
    ![일정 기간의 사용자 요청에 대한 분석 그래프](./media/app-insights-dotnetcore-quick-start/0007-dc.png)
 
-4. **개요** 페이지로 돌아가서 **상태 개요 타임라인**을 검사합니다.  이 대시보드는 들어오는 요청의 수, 해당 요청의 기간 및 발생한 모든 오류를 포함하여 응용 프로그램 상태에 대한 통계를 제공합니다. 
+4. **개요** 페이지로 돌아가서 KPI 대시보드를 검사합니다.  이 대시보드는 들어오는 요청의 수, 해당 요청의 기간 및 발생한 모든 오류를 포함하여 응용 프로그램 상태에 대한 통계를 제공합니다. 
 
-   ![상태 개요 타임라인 그래프](./media/app-insights-dotnetcore-quick-start/0008-dc.png)
+   ![상태 개요 타임라인 그래프](./media/app-insights-dotnetcore-quick-start/overview-graphs.png)
 
    **페이지 보기 로드 시간** 차트를 **클라이언트 쪽 원격 분석** 데이터로 채우도록 하려면 이 스크립트를 추적하려는 각 페이지에 추가합니다.
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

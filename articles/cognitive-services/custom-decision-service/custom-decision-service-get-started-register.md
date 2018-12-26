@@ -1,20 +1,22 @@
 ---
-title: 응용 프로그램 등록 - Azure Cognitive Services | Microsoft Docs
-description: Azure Custom Decision Service에 새 앱을 등록하는 방법에 대한 단계별 가이드
+title: 응용 프로그램 등록 - Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: Azure Custom Decision Service에 새 앱을 등록하는 방법에 대한 단계별 가이드입니다.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
-ms.reviewer: marcozo;alekh;marossi
-ms.openlocfilehash: 2aa8fbe77c11df4434eefa4c92d8529d5ca1d885
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.reviewer: marcozo
+ms.openlocfilehash: 598300597856d858095ff7c2e2cf9e9264190a9d
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376918"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365403"
 ---
 # <a name="register-your-application"></a>응용 프로그램 등록
 

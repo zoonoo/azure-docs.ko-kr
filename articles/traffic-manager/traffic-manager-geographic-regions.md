@@ -4,9 +4,6 @@ description: 이 문서에서는 Azure Traffic Manager 지리적 라우팅 유�
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1609daa4edbc3db9384941d575c141faaa799fb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28201499"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138245"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>지리적 트래픽 라우팅 메소드에 대해 Azure Traffic Manager에서 사용하는 국가/지역 계층 구조
 
-이 문서에서는 Azure Traffic Manager의 **지리적** 트래픽 라우팅 메서드에서 사용하는 국가 및 지역을 나열합니다. [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/)를 호출하여 이 정보를 프로그래밍 방식으로 가져올 수도 있습니다. 
+이 문서에서는 Azure Traffic Manager의 **지리적** 트래픽 라우팅 메서드에서 사용하는 국가 및 지역을 나열합니다. [Azure Traffic Manager의 REST API](https://docs.microsoft.com/rest/api/trafficmanager/)를 호출하여 이 정보를 프로그래밍 방식으로 가져올 수도 있습니다. 
 
 - WORLD(전 세계)
 
@@ -179,7 +176,7 @@ ms.locfileid: "28201499"
 
         - BB(바베이도스)
 
-        - BL(세인트 바르텔레미)
+        - BL(생바르텔레미)
 
         - BM(버뮤다)
 
@@ -241,13 +238,13 @@ ms.locfileid: "28201499"
 
         - JM(자메이카)
 
-        - KN(세인트 크리스토퍼 네비스)
+        - KN(세인트키츠 네비스)
 
         - KY(케이맨 제도)
 
         - LC(세인트루시아)
 
-        - MF(세인트 마틴)
+        - MF(생마르탱)
 
         - MQ(마르티니크)
 
@@ -265,7 +262,7 @@ ms.locfileid: "28201499"
 
         - SV(엘살바도르)
 
-        - SX(신트마르텐)
+        - SX(신트마르턴)
 
         - TC(터크스 케이커스 제도)
 
@@ -475,7 +472,7 @@ ms.locfileid: "28201499"
 
         - BJ(베냉)
 
-        - BV(부베이 섬)
+        - BV(부베섬)
 
         - BW(보츠와나)
 
@@ -623,7 +620,7 @@ ms.locfileid: "28201499"
 
     - GEO-AP(오스트레일리아/태평양)
 
-        - AS(미국령 사모아)
+        - AS(아메리칸 사모아)
 
         - AU(오스트레일리아)
 
@@ -687,7 +684,7 @@ ms.locfileid: "28201499"
 
         - VU(바누아투)
 
-        - WF(월리스 푸투나)
+        - WF(왈리스-푸투나 제도)
 
         - WS(사모아)
 

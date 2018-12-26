@@ -1,21 +1,20 @@
 ---
-title: Azure Site Recovery를 사용하여 VMware VM 및 실제 서버 장애 복구에 대해 Azure의 프로세스 서버 설정 | Microsoft Docs
-description: 이 아티클에서는 Azure VM을 VMware에 장애 복구하도록 Azure에서 프로세스 서버를 설정하는 방법을 설명합니다.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+title: Azure Site Recovery를 사용한 VMware VM 및 물리적 서버의 재해 복구 중에 장애 복구(failback)하기 위해 Azure에서 프로세스 서버 설정 | Microsoft Docs
+description: 이 문서에서는 VMware VM 및 물리적 서버의 재해 복구 중에 Azure에서 온-프레미스로 장애 복구(failback)하기 위해 Azure에서 프로세스 서버를 설정하는 방법을 설명합니다.
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: raynew
-ms.openlocfilehash: ade47c59a8db673869ce8c60a062a2a6a6656ca2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.topic: conceptual
+ms.date: 11/19/2018
+ms.author: ramamill
+ms.openlocfilehash: 50d1170f64ae199f4a1bf4b852c1ed3232df4d42
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38689003"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974806"
 ---
-# <a name="set-up-additional-process-servers-for-scalability"></a>확장성을 위해 추가 프로세스 서버 설정
+# <a name="scale-for-failback-with-additional-process-servers"></a>추가 프로세스 서버를 사용한 장애 복구(failback)를 위한 확장
 
 기본적으로 [사이트 복구](site-recovery-overview.md)를 사용하여 VMware VM 또는 물리적 서버를 Azure에 복제하는 경우 프로세스 서버가 구성 서버 컴퓨터에 설치되어 사이트 복구 및 온-프레미스 인프라 간의 데이터 전송을 조정하는 데 사용됩니다. 용량을 늘리고 복제 배포를 확장하려면 추가 독립 실행형 프로세스 서버를 추가할 수 있습니다. 이 문서에서는 이를 수행하는 방법을 설명합니다.
 
@@ -31,15 +30,18 @@ VMware 복제에 대해 [용량 계획](site-recovery-plan-capacity-vmware.md)�
 
 | **추가 프로세스 서버** | **캐시 디스크 크기** | **데이터 변경률** | **보호된 컴퓨터** |
 | --- | --- | --- | --- |
-|4개 vCPU(2개 소켓 * 2코어 @ 2.5GHz), 8GB 메모리 |300GB |250GB 이하 |85대 이하의 컴퓨터를 복제합니다. |
-|8개 vCPU(2개 소켓 * 4코어 @ 2.5GHz), 12GB 메모리 |600GB |250GB ~ 1TB |85-150대 컴퓨터를 복제합니다. |
-|12개 vCPU(2개 소켓 * 6코어 @ 2.5GHz), 24GB 메모리 |1TB |1TB ~ 2TB |150-225대 컴퓨터를 복제합니다. |
+|4개 vCPU(2개 소켓 * 2코어 \@ 2.5GHz) 8GB 메모리 |300GB |250GB 이하 |85대 이하의 컴퓨터를 복제합니다. |
+|8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz), 12GB 메모리 |600GB |250GB ~ 1TB |85-150대 컴퓨터를 복제합니다. |
+|12개 vCPU(2개 소켓 * 6코어 \@ 2.5GHz) 24GB 메모리 |1TB |1TB ~ 2TB |150-225대 컴퓨터를 복제합니다. |
+
+여기서 보호된 원본 머신 각각은 각 100GB의 디스크 3개로 구성됩니다.
 
 ### <a name="prerequisites"></a>필수 조건
 
 추가 프로세스 서버에 대한 필수 구성 요소는 다음 표에 요약되어 있습니다.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
 
 
 ## <a name="download-installation-file"></a>설치 파일 다운로드
@@ -79,7 +81,7 @@ UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCred
 예: 
 
 ```
-MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
 cd C:\Temp\Extracted
 UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMWare" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
 ```

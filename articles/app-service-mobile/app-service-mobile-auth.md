@@ -13,16 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 237310c607eb8488e53631b6e69d01703d1ebf99
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: de501b79107aafa61c489db607c37d086a5f4ed4
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30839731"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408020"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure App Service에서 모바일 앱에 대한 인증 및 권한 부여
 
-이 문서에서는 App Service 백 엔드를 사용하여 네이티브 모바일 앱을 개발할 때 인증 및 권한 부여가 작동하는 방법에 대해 설명합니다. App Service에서 통합된 인증 및 권한 부여를 제공하므로 모바일 앱은 App Service의 코드를 변경하지 않고 사용자를 로그인할 수 있습니다. 응용 프로그램을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다. 
+이 문서에서는 App Service 백 엔드를 사용하여 네이티브 모바일 앱을 개발할 때 인증 및 권한 부여가 작동하는 방법에 대해 설명합니다. App Service에서 통합된 인증 및 권한 부여를 제공하므로 모바일 앱은 App Service의 코드를 변경하지 않고 사용자를 로그인할 수 있습니다. 애플리케이션을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다. 
 
 이 문서는 모바일 앱 개발에 중점을 둡니다. 모바일 앱에 대한 App Service 인증 및 권한 부여를 빠르게 시작하려면 [iOS 앱에 인증 추가][iOS](또는 [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] 또는 [Cordova]) 자습서 중 하나를 참조하세요. 
 
@@ -91,11 +91,11 @@ Google에 대한 [클라이언트 제어 흐름](../app-service/app-service-auth
 [Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
 [Cordova]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
 
-[AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Google]: app-service-mobile-how-to-configure-google-authentication.md
-[MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
+[AAD]: ../app-service/configure-authentication-provider-aad.md
+[Facebook]: ../app-service/configure-authentication-provider-facebook.md
+[Google]: configure-authentication-provider-google.md
+[MSA]: ../app-service/configure-authentication-provider-microsoft.md
+[Twitter]: ../app-service/configure-authentication-provider-twitter.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

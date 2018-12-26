@@ -1,22 +1,23 @@
 ---
-title: Microsoft Translator Text API Transliterate 메서드 | Microsoft Docs
-description: Microsoft Translator Text API Transliterate 메서드를 사용합니다.
+title: Translator Text API Transliterate 메서드
+titlesuffix: Azure Cognitive Services
+description: Translator Text API Transliterate 메서드를 사용합니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: fdd6fa9236f0c02685198b6de3228c444993dad6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377519"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018624"
 ---
-# <a name="text-api-30-transliterate"></a>Text API 3.0: Transliterate
+# <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: Transliterate
 
 특정 언어의 텍스트를 한 스크립트에서 다른 스크립트로 변환합니다.
 
@@ -170,7 +171,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-유니코드 문자를 지원하지 않는 명령줄 창에서 cUrl을 사용하는 경우 다음 JSON 페이로드를 가져온 후 `request.txt`라는 파일에 저장합니다. 이 파일은 `UTF-8` 인코딩을 사용해서 저장해야 합니다.
+유니코드 문자를 지원하지 않는 명령줄 창에서 cURL을 사용하는 경우 다음 JSON 페이로드를 가져온 후 `request.txt`라는 파일에 저장합니다. 이 파일은 `UTF-8` 인코딩을 사용해서 저장해야 합니다.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

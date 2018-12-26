@@ -1,5 +1,5 @@
 ---
-title: Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드 | Microsoft Docs
+title: SQL Database를 사용하여 .NET Core 앱 빌드 - Azure App Service | Microsoft Docs
 description: SQL Database에 연결하여 Azure App Service에서 .NET Core 앱이 작동하도록 하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: dotnet
@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 90cd9b4b29c0860355d318201df49262afd82de5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: seodec18
+ms.openlocfilehash: 775d7595e80c02bcfbc1c3d6abc687d5e335d7da
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38472664"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261010"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>자습서: Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드
 
@@ -54,7 +54,7 @@ ms.locfileid: "38472664"
 
 이 단계에서는 로컬 .NET Core 프로젝트를 설정합니다.
 
-### <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+### <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 터미널 창에서 `cd`를 사용하여 작업 디렉터리로 이동합니다.
 
@@ -97,9 +97,9 @@ SQL Database의 경우 이 자습서에서는 [Azure SQL Database](/azure/sql-da
 
 ### <a name="create-a-sql-database-logical-server"></a>SQL Database 논리 서버 만들기
 
-Cloud Shell에서 [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) 명령을 사용하여 SQL Database 논리 서버를 만듭니다.
+Cloud Shell에서 [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) 명령을 사용하여 SQL Database 논리 서버를 만듭니다.
 
-*\<server_name>* 자리 표시자를 고유한 SQL Database 이름으로 바꿉니다. 이 이름은 SQL Database 끝점(`<server_name>.database.windows.net`)의 일부로 사용되므로 Azure의 모든 논리 서버에서 고유해야 합니다. 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-50자 사이여야 합니다. 또한 *\<db_username>* 및 *\<db_password>* 를 선택한 사용자 이름 및 암호로 바꿉니다. 
+*\<server_name>* 자리 표시자를 고유한 SQL Database 이름으로 바꿉니다. 이 이름은 SQL Database 엔드포인트(`<server_name>.database.windows.net`)의 일부로 사용되므로 Azure의 모든 논리 서버에서 고유해야 합니다. 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-50자 사이여야 합니다. 또한 *\<db_username>* 및 *\<db_password>* 를 선택한 사용자 이름 및 암호로 바꿉니다. 
 
 
 ```azurecli-interactive
@@ -128,7 +128,7 @@ SQL Database 논리 서버를 만들면 Azure CLI는 다음 예제와 비슷한 
 
 ### <a name="configure-a-server-firewall-rule"></a>서버 방화벽 규칙 구성
 
-[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create)를 사용하여 [Azure SQL Database 서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
+[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create)를 사용하여 [Azure SQL Database 서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -140,7 +140,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>데이터베이스 만들기
 
-[`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) 명령을 사용하여 서버에서 [S0 성능 수준](../sql-database/sql-database-service-tiers-dtu.md)인 데이터베이스를 만듭니다.
+[`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) 명령을 사용하여 서버에서 [S0 성능 수준](../sql-database/sql-database-service-tiers-dtu.md)인 데이터베이스를 만듭니다.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -158,7 +158,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_u
 
 ## <a name="deploy-app-to-azure"></a>Azure에 앱 배포
 
-이 단계에서는 SQL Database 연결 .NET Core 응용 프로그램을 App Service에 배포합니다.
+이 단계에서는 SQL Database 연결 .NET Core 애플리케이션을 App Service에 배포합니다.
 
 ### <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성
 
@@ -174,7 +174,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_u
 
 ### <a name="configure-an-environment-variable"></a>환경 변수 구성
 
-Azure 앱에 연결 문자열을 설정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용합니다. 다음 명령에서 *\<app name>* 및 *\<connection_string>* 매개 변수를 앞에서 만든 연결 문자열로 바꿉니다.
+Azure 앱에 연결 문자열을 설정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 다음 명령에서 *\<app name>* 및 *\<connection_string>* 매개 변수를 앞에서 만든 연결 문자열로 바꿉니다.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
@@ -215,6 +215,10 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 이코드가 프로덕션(즉, Azure 환경)에서 실행되고 있다고 감지되는 경우 구성한 연결 문자열을 사용하여 SQL Database에 연결합니다.
 
 Azure에서 실행되는 경우 `Database.Migrate()` 호출이 해당 마이그레이션 구성에 따라 .NET Core 앱이 필요한 데이터베이스를 자동으로 생성하기 때문에 도움을 받을 수 있습니다. 
+
+> [!IMPORTANT]
+> 확장해야 하는 프로덕션 앱의 경우 [프로덕션에서 마이그레이션 적용](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production)의 모범 사례를 따르세요.
+> 
 
 변경 내용을 저장한 후 Git 리포지토리로 커밋합니다. 
 

@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: ea6241c98cd65af14242301be4681e613d867fbc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: af59a3f4d631992c2319a79f40a721c45535bb91
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071184"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581065"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -53,7 +53,7 @@ ms.locfileid: "39071184"
                 </a>
             </li>
             <li>
-                <a href="https://azure.microsoft.com/community/training/">
+                <a href="https://go.microsoft.com/fwlink/?linkid=2012831">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -63,7 +63,7 @@ ms.locfileid: "39071184"
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Azure용 PluralSight 동영상 교육</span>
+                                    <span class="likeAnH3">Pluralsight의 무료 Azure 과정</span>
                                 </div>
                             </div>
                         </div>
@@ -96,6 +96,7 @@ ms.locfileid: "39071184"
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/virtual-machines/linux/">Linux 가상 머신</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/">Windows 가상 머신</a></li>
+                                                    <li><a class="barLink" href="/azure/governance/blueprints/">Azure Blueprints</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -114,7 +115,7 @@ ms.locfileid: "39071184"
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
-                                                    <li><a class="barLink" href="/azure/azure-policy/">Azure Policy</a></li>
+                                                    <li><a class="barLink" href="/azure/governance/policy/">Azure Policy</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -168,7 +169,7 @@ Node.js</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="">
 Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -247,6 +248,16 @@ Azure PowerShell </a>
                                                 <h3>DevOps</h3>
                                                 <ul class="noBullet">
                                                     <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+Azure DevOps </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops/pipelines/index">
+                                                            <img src="https://docs.microsoft.com/azure/devops/_img/index/devopsiconpipelines96.svg" alt="">
+Azure Pipelines </a>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/azure/ansible/">
                                                             <img src="media/index/ansible.svg" alt="">
 Ansible </a>
@@ -267,14 +278,45 @@ Jenkins </a>
 Terraform </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
+                                                        <a class="barLink" href="/azure/devops-project/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-Visual Studio Team Services </a>
+Azure DevOps Projects </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Microsoft Learn을 통해 기술 쌓기</h3>
+                                                <ul class="noBullet">
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
+                                                            <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt="">
+Azure 서비스 및 기능 둘러보기 </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-Azure를 사용하는 DevOps 알아보기</a>
+                                                        <a class="barLink" href="/learn/modules/principles-cloud-computing/">
+                                                            <img src="https://docs.microsoft.com/learn/achievements/principles-cloud-computing.svg" alt="">
+클라우드 컴퓨팅의 원칙 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">
+                                                            <img src="https://docs.microsoft.com/learn/achievements/control-azure-services-with-cli.svg" alt="">
+CLI를 사용하여 Azure 서비스 제어 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/automate-azure-tasks-with-powershell/">
+                                                            <img src="https://docs.microsoft.com/learn/achievements/automate-azure-tasks-with-powershell.svg" alt="">
+PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/browse/?products=azure">더 많은 대화형 학습 보기...</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -287,7 +329,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                             <li></li>
                             <li class="bottomRightItem">
                                 <a href="https://docs.microsoft.com/azure/index#pivot=products&panel=all">
-                                    <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">모든 Azure 서비스 보기<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
+                                    <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">모든 Azure 서비스 보기<svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
                                 </a>
                             </li>
                         </ul>
@@ -341,12 +383,6 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/batch-ai/">
-                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Azure Batch AI</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
@@ -382,6 +418,12 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 <p>Azure의 SAP HANA(대규모 인스턴스)</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/cyclecloud/">
+                                                <img src="media/index/logo_cyclecloud.svg" alt="" />
+                                                <p>CycleCloud</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>데이터베이스</h3>
                                     <ul>
@@ -410,9 +452,9 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/">
+                                            <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Redis Cache</p>
+                                                <p>Azure Cache for Redis</p>
                                             </a>
                                         </li>
                                         <li>
@@ -443,6 +485,12 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             <a href="/azure/mysql/">
                                                 <img src="media/index/MySQL.svg" alt="" />
                                                 <p>Azure Database for MySQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/mariadb/">
+                                                <img src="media/index/MariaDB.svg" alt="" />
+                                                <p>Azure Database for MariaDB</p>
                                             </a>
                                         </li>
                                         <li>
@@ -526,12 +574,6 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             <a href="/azure/event-grid/">
                                                 <img src="media/index/azure_event_grid.svg" alt="" />
                                                 <p>Event Grid</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/biztalk-services/">
-                                                <img src="media/index/BizTalkServices.svg" alt="" />
-                                                <p>Biztalk Services</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -689,7 +731,13 @@ Azure를 사용하는 DevOps 알아보기</a>
                                         <li>
                                             <a href="/azure/firewall/">
                                                 <img src="media/index/azure_firewall.svg" alt="" />
-                                                <p>Azure 방화벽</p>
+                                                <p>Azure Firewall</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/frontdoor/">
+                                                <img src="media/index/frontdoor.svg" alt="" />
+                                                <p>Azure Front Door Service</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -699,12 +747,6 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             <a href="/azure/azure-databricks/">
                                                 <img src="media/index/logo_databricks.svg" alt="" />
                                                 <p>Azure Databricks</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/batch-ai/">
-                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Azure Batch AI</p>
                                             </a>
                                         </li>
                                         <li>
@@ -800,11 +842,11 @@ Azure를 사용하는 DevOps 알아보기</a>
                                         <li>
                                             <a href="/azure/cognitive-services/speaker-recognition/home">
                                                 <img src="media/index/API_Speaker_Recognition.svg" alt="" />
-                                                <p>화자 인식 API</p>
+                                                <p>Speaker Recognition API</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsofttranslator.com/speech-translate.html">
+                                            <a href="/azure/cognitive-services/translator-speech/">
                                                 <img src="media/index/API_TranslatorSpeech.svg" alt="" />
                                                 <p>Translator Speech API</p>
                                             </a>
@@ -1000,7 +1042,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/data-lake-storage/introduction">
+                                            <a href="/azure/storage/blobs/data-lake-storage-introduction">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Storage Gen2</p>
                                             </a>
@@ -1039,6 +1081,18 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             <a href="/azure/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>File Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/databox-family/">
+                                                <img src="media/index/Service-icon.png" alt="" />
+                                                <p>Data Box</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/avere-vfxt/">
+                                                <img src="media/index/avere.svg" alt="" />
+                                                <p>Avere vFXT</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1084,6 +1138,12 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-explorer/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                <p>Azure Data Explorer</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1147,18 +1207,23 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/storage/blobs/data-lake-storage-introduction">
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                <p>Data Lake Storage Gen2</p>
+                                            </a>
+                                            <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Data Lake Storage Gen1</p>
                                             </a>
                                         </li>
                                     </ul>
                                     <h3>DevOps</h3>
                                     <ul>
                                         <li>
-                                            <a href="/vsts/">
+                                            <a href="/azure/devops/">
                                                 <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
+                                                <p>Azure DevOps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1191,6 +1256,12 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 <p>HockeyApp</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/devops-project">
+                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                <p>Azure DevOps Projects</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>개발자 도구</h3>
                                     <ul>
@@ -1201,9 +1272,9 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/vsts/">
+                                            <a href="/azure/devops/">
                                                 <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
+                                                <p>Azure DevOps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1246,6 +1317,12 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-central/">
+                                                <img src="media/index/iot-central.svg" alt="" />
+                                                <p>IoT Central</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/iot-hub/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
                                                 <p>IoT Hub</p>
@@ -1258,27 +1335,27 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/iot-central/">
-                                                <img src="media/index/iot-central.svg" alt="" />
-                                                <p>IoT Central</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-solution-accelerators.svg" alt="" />
                                                 <p>IoT 솔루션 가속기</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/time-series-insights/">
-                                                <img src="media/index/time-series-insights.svg" alt="" />
-                                                <p>Time Series Insights</p>
+                                            <a href="/azure/digital-twins/">
+                                                <img src="media/index/digital_twin.svg" alt="" />
+                                                <p>Azure Digital Twins</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/iot-dps/">
                                                 <img src="media/index/dps.svg" alt="" />
                                                 <p>IoT Hub Device Provisioning 서비스</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/time-series-insights/">
+                                                <img src="media/index/time-series-insights.svg" alt="" />
+                                                <p>Time Series Insights</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1388,6 +1465,12 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 <p>API Apps</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/azure-signalr/">
+                                                <img src="media/index/azure-signalr.svg" alt="" />
+                                                <p>Azure SignalR Service</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>모바일</h3>
                                     <ul>
@@ -1449,7 +1532,13 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-network/ddos-protection-overview">
+                                        <li>
+                                            <a href="/azure/dedicated-hsm">
+                                                <img src="media/index/dedicated-hsm.svg" alt="" />
+                                                <p>Azure 전용 HSM</p>
+                                            </a>
+                                        </li>
+                        <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos-protection.svg" alt="" />
                                                 <p>Azure DDoS 보호</p>
                                             </a>
@@ -1461,7 +1550,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/information-protection/">
+                                            <a href="/azure/information-protection/">
                                                 <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
                                                 <p>Azure Information Protection</p>
                                             </a>
@@ -1512,7 +1601,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/information-protection/">
+                                            <a href="/azure/information-protection/">
                                                 <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
                                                 <p>Azure Information Protection</p>
                                             </a>
@@ -1629,15 +1718,27 @@ Azure를 사용하는 DevOps 알아보기</a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/ddd/">
+                                            <a href="/azure/app-service-mobile">
                                                 <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="" />
                                                 <p>Azure 모바일 앱</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-policy/">
+                                            <a href="/azure/governance/policy/">
                                                 <img src="media/index/governance.svg" alt="" />
                                                 <p>Azure Policy</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/governance/blueprints/">
+                                                <img src="media/index/blueprints.svg" alt="" />
+                                                <p>Azure Blueprints</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/governance/resource-graph/">
+                                                <img src="media/index/resource-graph.svg" alt="" />
+                                                <p>Azure Resource Graph</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1649,7 +1750,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                         <li>
                                             <a href="/azure/managed-applications">
                                                 <img src="media/index/i_managed-application.svg" alt="" />
-                                                <p>Azure 관리되는 응용 프로그램</p>
+                                                <p>Azure Managed Applications</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1787,25 +1888,6 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/batch-ai/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/batch-ai.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Batch AI</h3>
-                                                    <p>심층 학습 및 AI 모델을 대규모 및 병렬로 쉽게 실험 및 학습</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1874,7 +1956,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Services</h3>
-                                                    <p>가용성과 확장성이 뛰어난 클라우드 응용 프로그램 및 API 만들기</p>
+                                                    <p>가용성과 확장성이 뛰어난 클라우드 애플리케이션 및 API 만들기</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1913,6 +1995,25 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 <div class="cardText">
                                                     <h3>Azure의 SAP HANA(대규모 인스턴스)</h3>
                                                     <p>모든 대규모 클라우드 공급자의 최대 SAP HANA 워크로드 실행</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cyclecloud/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_cyclecloud.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>CycleCloud</h3>
+                                                    <p>모든 규모의 HPC 및 큰 계산 클러스터 만들기, 관리, 작동 및 최적화</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2144,7 +2245,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure 방화벽</h3>
+                                                    <h3>Azure Firewall</h3>
                                                     <p>고가용성 및 확장성 있는 클라우드 기반 네트워크 보안 서비스</p>
                                                 </div>
                                             </div>
@@ -2165,6 +2266,25 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 <div class="cardText">
                                                     <h3>가상 WAN</h3>
                                                     <p>안전한 전역 규모 분기 연결 빌드</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/frontdoor/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/frontdoor.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Front Door Service</h3>
+                                                    <p>글로벌 웹앱을 제공하는 확장성이 뛰어나고 안전한 진입점</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2215,7 +2335,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/storage/data-lake-storage/introduction">
+                                <a href="/azure/storage/blobs/data-lake-storage-introduction">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2226,7 +2346,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
-                                                    <p>확장성이 매우 뛰어나고 안전한 Data Lake Storage</p>
+                                                    <p>Blob Storage에서 빌드된 확장성이 매우 뛰어나고 안전한 Data Lake Storage</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2341,6 +2461,44 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 <div class="cardText">
                                                     <h3>File Storage</h3>
                                                     <p>표준 SMB 3.0 프로토콜을 사용하는 파일 공유</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en-us/azure/databox-family/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/service-icon-small.png" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Box 제품군</h3>
+                                                    <p>오프라인 또는 네트워크 기반 데이터 전송으로 사용하는 저장소 장치 제품군</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en-us/azure/avere-vfxt/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/avere.svg" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Avere vFXT</h3>
+                                                    <p>Azure에서 고성능 파일 기반 워크로드 실행</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2517,6 +2675,25 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 <div class="cardText">
                                                     <h3>API Apps</h3>
                                                     <p>클라우드 API를 간편하게 빌드하고 사용</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-signalr">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-signalr.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure SignalR Service</h3>
+                                                    <p>쉽게 실시간 웹 기능 추가</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2881,7 +3058,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache/">
+                                <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2891,8 +3068,8 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis Cache</h3>
-                                                    <p>높은 처리량과 짧은 대기 시간으로 응용 프로그램에 강력한 성능 부여</p>
+                                                    <h3>Azure Cache for Redis</h3>
+                                                    <p>높은 처리량과 짧은 대기 시간으로 애플리케이션에 강력한 성능 부여</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2949,7 +3126,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Table Storage</h3>
-                                                    <p>반구조화된 데이터 집합을 사용하는 NoSQL 키-값 저장소</p>
+                                                    <p>반구조화된 데이터 세트를 사용하는 NoSQL 키-값 저장소</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2988,6 +3165,25 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 <div class="cardText">
                                                     <h3>Azure Database for MySQL</h3>
                                                     <p>앱 개발자용 관리되는 MySQL 데이터베이스 서비스</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/mariadb/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MariaDB.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Database for MariaDB</h3>
+                                                    <p>앱 개발자를 위한 관리형 MariaDB 데이터베이스 서비스</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3095,6 +3291,25 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/data-explorer/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Data Explorer</h3>
+                                                    <p>로그 및 원격 분석 데이터를 위한 빠르고 확장성이 우수한 데이터 탐색 서비스</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3106,7 +3321,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>수백만 개의 IoT 장치에서 실시간 데이터 스트림 처리</p>
+                                                    <p>수백만 개의 IoT 디바이스에서 실시간 데이터 스트림 처리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3285,6 +3500,25 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/storage/blobs/data-lake-storage-introduction">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Storage Gen2</h3>
+                                                    <p>Blob Storage에서 빌드된 확장성이 매우 뛰어나고 안전한 Data Lake Storage</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3295,7 +3529,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Data Lake Storage Gen1</h3>
                                                     <p>빅 데이터 분석 작업을 위한 대규모 저장소</p>
                                                 </div>
                                             </div>
@@ -3343,25 +3577,6 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 <div class="cardText">
                                                     <h3>Azure Databricks</h3>
                                                     <p>Spark 클러스터를 사용하여 Azure Databricks 작업 영역 만들기</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/batch-ai/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Batch AI</h3>
-                                                    <p>심층 학습 및 AI 모델을 대규모 및 병렬로 쉽게 실험 및 학습</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3701,6 +3916,25 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-central/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/iot-central.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Central</h3>
+                                                    <p>클라우드 관련 전문 지식 없이도 IoT를 위한 SaaS 경험</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-hub/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3739,25 +3973,6 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/iot-central/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/iot-central.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>IoT Central</h3>
-                                                    <p>클라우드 관련 전문 지식 없이도 IoT를 위한 SaaS 경험</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/iot-suite/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3777,18 +3992,18 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/time-series-insights/">
+                                <a href="/azure/digital-twins/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/time-series-insights.svg" alt="" />
+                                                        <img src="media/index/digital_twin.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Time Series Insights</h3>
-                                                    <p>시계열 데이터를 즉각적으로 탐색 및 분석</p>
+                                                    <h3>Azure Digital Twins</h3>
+                                                    <p>공간 및 인프라의 디지털 복제본 만들기</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3808,6 +4023,25 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 <div class="cardText">
                                                     <h3>IoT Hub Device Provisioning 서비스</h3>
                                                     <p>Azure IoT Hub에 대한 Just-In-Time 무인 프로비전</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/time-series-insights/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/time-series-insights.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Time Series Insights</h3>
+                                                    <p>시계열 데이터를 즉각적으로 탐색 및 분석</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3940,7 +4174,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>수백만 개의 IoT 장치에서 실시간 데이터 스트림 처리</p>
+                                                    <p>수백만 개의 IoT 디바이스에서 실시간 데이터 스트림 처리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4104,25 +4338,6 @@ Azure를 사용하는 DevOps 알아보기</a>
                                     </div>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/azure/biztalk-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/BizTalkServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Biztalk Services</h3>
-                                                    <p>엔터프라이즈 및 클라우드의 원활한 통합</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
                         </ul>
                     </li>
                     <li>
@@ -4167,7 +4382,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/information-protection/">
+                                <a href="/azure/information-protection/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4305,7 +4520,26 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-network/ddos-protection-overview">
+                                <a href="/azure/dedicated-hsm/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/dedicated-hsm.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>전용 HSM</h3>
+                                                    <p>Azure에서 암호화 키 스토리지 사용</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                    <a href="/azure/virtual-network/ddos-protection-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4343,7 +4577,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/information-protection/">
+                                <a href="/azure/information-protection/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4462,7 +4696,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                         <a href="#devops">DevOps</a>
                         <ul id="devops" class="cardsA">
                             <li>
-                                <a href="/vsts/">
+                                <a href="/azure/devops/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4472,7 +4706,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Team Services</h3>
+                                                    <h3>Azure DevOps</h3>
                                                     <p>팀에서 서비스를 통해 코드 공유, 작업 추적 및 소프트웨어 릴리스 가능</p>
                                                 </div>
                                             </div>
@@ -4575,6 +4809,25 @@ Azure를 사용하는 DevOps 알아보기</a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/devops-project">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure DevOps Projects</h3>
+                                                    <p>플랫폼의 모든 언어를 Azure에 빠르게 배포</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -4600,7 +4853,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/vsts/">
+                                <a href="/azure/devops/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4610,7 +4863,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Team Services</h3>
+                                                    <h3>Azure DevOps</h3>
                                                     <p>팀에서 서비스를 통해 코드 공유, 작업 추적 및 소프트웨어 릴리스 가능</p>
                                                 </div>
                                             </div>
@@ -4985,7 +5238,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-resource-manager/resource-group-overview">
+                                <a href="/azure/azure-resource-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5042,7 +5295,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-policy/">
+                                <a href="/azure/governance/policy/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5054,6 +5307,44 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 <div class="cardText">
                                                     <h3>Azure Policy</h3>
                                                     <p>Azure 리소스에 대해 대규모로 기업 거버넌스 및 표준을 구현합니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/governance/blueprints/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/blueprints.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Blueprints</h3>
+                                                    <p>구성 가능한 아티팩트를 사용하여 반복 가능한 방식으로 클라우드 환경 배포 및 업데이트</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/governance/resource-graph/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/resource-graph.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Resource Graph</h3>
+                                                    <p>풍부한 쿼리 언어를 사용하여 대규모로 리소스 탐색</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5090,7 +5381,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure 관리되는 응용 프로그램</h3>
+                                                    <h3>Azure Managed Applications</h3>
                                                     <p>클라우드 제품 관리 간소화</p>
                                                 </div>
                                             </div>
@@ -5413,7 +5704,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure US Government</h3>
-                                                    <p>Azure의 전용 인스턴스에서 미국 정부 기관 임무를 위한 응용 프로그램 빌드 및 호스팅</p>
+                                                    <p>Azure의 전용 인스턴스에서 미국 정부 기관 임무를 위한 애플리케이션 빌드 및 호스팅</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5451,7 +5742,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure 중국 21Vianet</h3>
-                                                    <p>중국에서 정부에 의해 규정된 정책 및 데이터 처리 규정을 준수하여 응용 프로그램 빌드 및 호스트</p>
+                                                    <p>중국에서 정부에 의해 규정된 정책 및 데이터 처리 규정을 준수하여 애플리케이션 빌드 및 호스트</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5571,7 +5862,7 @@ Java 개발자용 Azure </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -5669,12 +5960,36 @@ Azure CLI </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_visual-studio.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="/visualstudio/azure/">Visual Studio</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=navigation+cta&utm_content=download+vs2017">Windows용 다운로드</a>
+                                                </p>
+                                                 <p>
+                                                    <a href="https://visualstudio.microsoft.com/vs/mac/">Mac용 다운로드</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="https://docs.microsoft.com/media/logos/logo_vs-code.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio Code</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio                             Code</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">App Service</a>
@@ -5715,7 +6030,7 @@ Docker </h3>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Visual Studio Code용 다운로드 </a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Team Services용 다운로드</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Azure DevOps용 다운로드</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -5778,22 +6093,23 @@ Java 도구 </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                    <img src="media/index/azure-resource-manager.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-SQL 도구 </h3>
+Azure 리소스 관리자 </h3>
                                                 <p>
-                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio<sup>미리 보기</sup></a>
+                                                    <a href="https://docs.microsoft.com/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy">Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SSMS(SQL Server Management Studio)</a>
-                                                </p>                                            <p>
-                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SSDT(SQL Server Data Tools)</a>
+                                                    <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code">Visual Studio Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/sql/tools/overview-sql-tools">모든 SQL 도구 참조</a>
+                                                    <a href="https://azure.microsoft.com/resources/templates/">샘플 템플릿</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/templates/">참조</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -5811,19 +6127,19 @@ SQL 도구 </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com">Storage 탐색기</a>
+                                                    <a href="https://storageexplorer.com">Storage 탐색기</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=722418">Linux용 다운로드</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=722418">Linux용 다운로드</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708342">Mac용 다운로드</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708342">Mac용 다운로드</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708343">Windows용 다운로드</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708343">Windows용 다운로드</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -5870,15 +6186,17 @@ Service Fabric SDK 및 Tools </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-데이터베이스 마이그레이션 도구 </h3>
-                                                <p>DMA(
-                                                    <a href="https://aka.ms/dma">Data Migration Assistant</a>)
+SQL 도구 </h3>
+                                                <p>
+                                                    <a href="/sql/azure-data-studio/download">Azure Data Studio <sup>PREVIEW</sup></a>
                                                 </p>
-                                                <p>SSMA(
-                                                    <a href="https://aka.ms/ssma">SQL Server Migration Assistant</a>)
+                                                <p>
+                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SSMS(SQL Server Management Studio)</a>
+                                                </p>                                            <p>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SSDT(SQL Server Data Tools)</a>
                                                 </p>
-                                                <p>DEA(
-                                                    <a href="https://aka.ms/dea-tool">데이터베이스 실험 도우미</a>)
+                                                <p>
+                                                    <a href="/sql/tools/overview-sql-tools">모든 SQL 도구 참조</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -5961,7 +6279,7 @@ Azure 아키텍처 센터에는 Microsoft Azure에서 종단 간 솔루션을 �
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 응용 프로그램 아키텍처 가이드</h3>
-                                                    <p>이 가이드는 확장성과 복원력이 있고 가용성이 뛰어난 Azure에서 응용 프로그램을 디자인하기 위한 체계적인 방식을 제시합니다. 고객의 참여를 통해 확보한 검증된 사례를 기반으로 합니다.</p>
+                                                    <p>이 가이드는 확장성과 복원력이 있고 가용성이 뛰어난 Azure에서 애플리케이션을 디자인하기 위한 체계적인 방식을 제시합니다. 고객의 참여를 통해 확보한 검증된 사례를 기반으로 합니다.</p>
                                                 </div>
                                             </div>
                                         </div>

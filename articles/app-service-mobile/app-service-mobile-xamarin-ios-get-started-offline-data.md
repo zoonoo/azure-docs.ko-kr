@@ -25,14 +25,14 @@ ms.locfileid: "27594669"
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## <a name="overview"></a>개요
-이 자습서에서는 Xamarin.iOS용 Azure Mobile Apps의 오프라인 동기화 기능을 소개합니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 장치가 다시 온라인 상태가 되면 이러한 변경 내용이 원격 서비스와 동기화됩니다.
+이 자습서에서는 Xamarin.iOS용 Azure Mobile Apps의 오프라인 동기화 기능을 소개합니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 디바이스가 다시 온라인 상태가 되면 이러한 변경 내용이 원격 서비스와 동기화됩니다.
 
 이 자습서에서는 [Xamarin iOS 앱 만들기] 에서 Xamarin.iOS 앱 프로젝트를 업데이트하여 Azure Mobile Apps의 오프라인 기능을 지원합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 데이터 액세스 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
-오프라인 동기화 기능에 대한 자세한 내용은 [증분 동기화]항목을 참조하세요.
+오프라인 동기화 기능에 대한 자세한 내용은 [Azure Mobile Apps에서 오프라인 데이터 동기화]항목을 참조하세요.
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>오프라인 기능을 지원하도록 클라이언트 앱 업데이트
-Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리오에서 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 로컬 저장소에서 [SyncContext]를 초기화합니다. [IMobileServiceSyncTable] 인터페이스를 통해 테이블을 참조합니다. SQLite는 장치의 로컬 저장소로 사용됩니다.
+Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리오에서 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 로컬 저장소에서 [SyncContext]를 초기화합니다. [IMobileServiceSyncTable] 인터페이스를 통해 테이블을 참조합니다. SQLite는 디바이스의 로컬 저장소로 사용됩니다.
 
 1. [Xamarin iOS 앱 만들기] 자습서에서 완료한 프로젝트의 NuGet 패키지 관리자를 열고 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 패키지를 검색한 후 설치합니다.
 2. QSTodoService.cs 파일을 열고 `#define OFFLINE_SYNC_ENABLED` 정의의 주석 처리를 제거합니다.
@@ -45,7 +45,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 
          const string applicationURL = @"https://your-service.azurewebsites.fail";
 
-    장치에서 Wi-Fi 및 셀룰러 네트워크를 사용하지 않도록 설정하여 오프라인 동작을 시연하거나 비행기 모드를 사용할 수 있습니다.
+    디바이스에서 Wi-Fi 및 셀룰러 네트워크를 사용하지 않도록 설정하여 오프라인 동작을 시연하거나 비행기 모드를 사용할 수 있습니다.
 2. 앱을 빌드 및 실행합니다. 앱을 시작하는 경우 동기화는 새로 고침에 실패합니다.
 3. 새 항목을 입력하고 **저장** 을 클릭할 때마다 푸시가 [CancelledByNetworkError] 상태로 실패하는지 확인합니다. 그러나 새 todo 항목은 모바일 앱 백 엔드에 푸시할 수 있을 때까지 로컬 저장소에 위치합니다.  프로덕션 앱에서 이러한 예외를 무시하는 경우 클라이언트 앱은 모바일 앱 백 엔드에 연결된 것처럼 작동합니다.
 4. 앱을 닫았다가 다시 시작하여 만든 새 항목이 로컬 저장소에 유지되는지 확인합니다.
@@ -54,7 +54,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 
 ## <a name="update-online-app"></a>모바일 앱 백 엔드를 다시 연결하도록 앱 업데이트
 이 섹션에서는 앱을 Mobile App 백 엔드에 다시 연결합니다. 여기서는 모바일 앱 백 엔드를 사용하여 오프라인 상태에서 온라인 상태로 전환되는 앱을 시뮬레이트합니다.   네트워크 연결을 해제하여 네트워크 손상을 시뮬레이트하는 경우에는 코드를 변경할 필요가 없습니다.
-네트워크 다시 켭니다.  응용 프로그램을 처음 실행하는 경우 `RefreshDataAsync` 메서드가 호출됩니다. 차례로 `SyncAsync`가 호출되고 백 엔드 데이터베이스와 로컬 저장소가 동기화됩니다.
+네트워크 다시 켭니다.  애플리케이션을 처음 실행하는 경우 `RefreshDataAsync` 메서드가 호출됩니다. 차례로 `SyncAsync`가 호출되고 백 엔드 데이터베이스와 로컬 저장소가 동기화됩니다.
 
 1. 공유 프로젝트에서 QSToDoService.cs를 열고 **applicationURL**의 변경 내용을 되돌립니다.
 2. 앱을 다시 빌드하고 실행합니다. 앱은 푸시 및 끌어오기 작업을 사용하여 `OnRefreshItemsSelected` 메서드가 실행되면 로컬 변경 내용을 Azure Mobile App 백 엔드와 동기화합니다.
@@ -62,10 +62,10 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 4. 앱에서 로컬 저장소에서 완료할 몇 개 항목 옆의 확인란을 클릭합니다.
 
    `CompleteItemAsync`은 `SyncAsync`를 호출하여 Mobile App 백 엔드와 전체 항목을 동기화합니다. `SyncAsync` 는 푸시와 끌어오기를 둘 다 호출합니다.
-   **클라이언트가 변경한 테이블에 끌어오기를 실행할 때마다 클라이언트 동기화 컨텍스트에 푸시가 항상 먼저 자동으로 실행됩니다**. 이러한 암시적 푸시를 통해 로컬 저장소의 모든 테이블 및 관계가 동기화된 상태로 유지될 수 있습니다. 이 동작에 대한 자세한 내용은 [증분 동기화]를 참조하세요.
+   **클라이언트가 변경한 테이블에 끌어오기를 실행할 때마다 클라이언트 동기화 컨텍스트에 푸시가 항상 먼저 자동으로 실행됩니다**. 이러한 암시적 푸시를 통해 로컬 저장소의 모든 테이블 및 관계가 동기화된 상태로 유지될 수 있습니다. 이 동작에 대한 자세한 내용은 [Azure Mobile Apps에서 오프라인 데이터 동기화]를 참조하세요.
 
 ## <a name="review-the-client-sync-code"></a>클라이언트 동기화 코드 검토
-자습서 [Xamarin iOS 앱 만들기] 를 완료한 경우 다운로드한 Xamarin 클라이언트 프로젝트는 로컬 SQLite 데이터베이스를 사용하여 오프라인 동기화를 지원하는 코드를 포함합니다. 이미 자습서 코드에 포함된 내용에 대한 간략한 개요입니다. 기능의 개념적 개요는 [증분 동기화]를 참조하세요.
+자습서 [Xamarin iOS 앱 만들기] 를 완료한 경우 다운로드한 Xamarin 클라이언트 프로젝트는 로컬 SQLite 데이터베이스를 사용하여 오프라인 동기화를 지원하는 코드를 포함합니다. 이미 자습서 코드에 포함된 내용에 대한 간략한 개요입니다. 기능의 개념적 개요는 [Azure Mobile Apps에서 오프라인 데이터 동기화]를 참조하세요.
 
 * 모든 테이블 작업을 수행하려면 먼저 로컬 저장소를 초기화해야 합니다. `QSTodoListViewController.ViewDidLoad()`가 `QSTodoService.InitializeStoreAsync()`를 실행하는 경우 로컬 저장소 데이터베이스를 초기화합니다. 이 메서드는 Azure Mobile App 클라이언트 SDK에서 제공하는 `MobileServiceSQLiteStore` 클래스를 사용하여 새 로컬 SQLite 데이터베이스를 만듭니다.
 
@@ -87,7 +87,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 
     제공되는 코드는 `QSTodoService.SyncAsync()` 를 호출하여 todoitem목록이 새로 고쳐지거나 todoitem이 더해지거나 완료될 때마다 동기화합니다. 로컬 변경이 수행될 때마다 앱이 동기화됩니다. 끌어오기가 컨텍스트에 의해 추적되는 로컬 업데이트를 보류 중인 테이블에 대해 실행되는 경우 끌어오기 작업은 먼저 자동으로 컨텍스트 푸시를 트리거합니다.
 
-    제공된 코드에서 원격 `TodoItem` 테이블에 있는 모든 레코드를 쿼리하지만 쿼리 ID 및 쿼리를 `PushAsync`로 전달하여 레코드를 필터링할 수도 있습니다. 자세한 내용은 *Azure Mobile Apps에서 오프라인 데이터 동기화* 에서 [증분 동기화]섹션을 참조하세요.
+    제공된 코드에서 원격 `TodoItem` 테이블에 있는 모든 레코드를 쿼리하지만 쿼리 ID 및 쿼리를 `PushAsync`로 전달하여 레코드를 필터링할 수도 있습니다. 자세한 내용은 *Azure Mobile Apps에서 오프라인 데이터 동기화* 에서 [Azure Mobile Apps에서 오프라인 데이터 동기화]섹션을 참조하세요.
 
         // QSTodoService.cs
         public async Task SyncAsync()
@@ -105,13 +105,13 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
         }
 
 ## <a name="additional-resources"></a>추가 리소스
-* [증분 동기화]
+* [Azure Mobile Apps에서 오프라인 데이터 동기화]
 * [Azure Mobile Apps .NET SDK 사용 방법][8]
 
 <!-- Images -->
 
 <!-- URLs. -->
 [Xamarin iOS 앱 만들기]: app-service-mobile-xamarin-ios-get-started.md
-[증분 동기화]: app-service-mobile-offline-data-sync.md
+[Azure Mobile Apps에서 오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md

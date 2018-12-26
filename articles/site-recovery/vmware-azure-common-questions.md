@@ -1,28 +1,27 @@
 ---
-title: 일반적인 질문 - Azure Site Recovery를 사용하여 VMware에서 Azure로 복제 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 VMware VM을 Azure로 복제하는 경우와 관련된 일반적인 질문을 요약하고 있습니다.
-services: site-recovery
+title: 일반적인 질문 - Azure Site Recovery를 사용하여 VMware에서 Azure로 재해 복구 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로의 온-프레미스 VMware VM 재해 복구를 설정할 때 발생하는 일반적인 질문을 요약하고 있습니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: dc316df754ea0b8630abe341dc5ce6b0adffa685
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920038"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162486"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
-이 문서에서는 온-프레미스 VMware VM을 Azure로 복제할 때 표시되는 일반적인 질문에 대한 대답을 제공합니다. 이 문서를 읽은 후 질문이 있다면 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주세요.
+이 문서에서는 온-프레미스 VMware VM의 재해 복구를 Azure로 배포할 때 표시되는 일반적인 질문에 대한 대답을 제공합니다. 이 문서를 읽은 후 질문이 있다면 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주세요.
 
 
 ## <a name="general"></a>일반
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery 비용은 어떻게 책정하는가요?
-[Azure Site Recovery 가격](https://azure.microsoft.com/en-in/pricing/details/site-recovery/) 세부 정보를 검토하세요.
+[Azure Site Recovery 가격](https://azure.microsoft.com/pricing/details/site-recovery/) 세부 정보를 검토하세요.
 
 ### <a name="how-do-i-pay-for-azure-vms"></a>Azure VM에 대한 요금을 지불하려면 어떻게 할까요?
 복제 중에 데이터는 Azure 저장소로 복제되며 어떠한 VM 변경에도 지불하지 않습니다. Azure에 장애 조치를 실행하면 Site Recovery에서 Azure IaaS 가상 머신을 자동으로 만듭니다. 그러면 Azure에서 사용하는 컴퓨팅 리소스에 대한 요금이 청구됩니다.
@@ -45,20 +44,28 @@ LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하�
 
 
 
-## <a name="on-premises"></a>온-프레미스 
+## <a name="on-premises"></a>온-프레미스
 
 ### <a name="what-do-i-need-on-premises"></a>온-프레미스에는 무엇이 필요한가요?
-온-프레미스에는 단일 VMware VM에 설치된 Site Recovery 구성 요소가 필요합니다. 하나 이상의 ESXi 호스트가 있는 VMware 인프라가 필요하며 vCenter 서버를 사용하는 것이 좋습니다. 또한 복제할 하나 이상의 VMware VM도 필요합니다. VMware에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요](vmware-azure-architecture.md).
 
-다음 두 가지 방법 중 하나로 온-프레미스 구성 서버를 배포할 수 있습니다.
+온-프레미스에서 다음이 필요합니다.
+- 단일 VMware VM에 설치된 Site Recovery 구성 요소
+- 하나 이상의 ESXi 호스트가 있는 VMware 인프라가 필요하며 vCenter 서버를 사용하는 것이 좋습니다.
+- 복제할 하나 이상의 VMware VM도 필요합니다.
 
-1. 사전 설치된 구성 서버가 있는 VM 템플릿을 사용하여 배포합니다. [여기에서 자세히 알아보세요](vmware-azure-tutorial.md#download-the-vm-template).
-2. 원하는 Windows Server 2016 컴퓨터에서 설치 프로그램을 사용하여 배포합니다. [여기에서 자세히 알아보세요](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+VMware에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요](vmware-azure-architecture.md).
 
-사용자의 고유한 Windows Server 컴퓨터에서 구성 서버 배포 시작 단계를 검색하려면 보호 활성화의 보호 목표에서 **Azure로 > 가상화되지 않음/기타**를 선택합니다.
+다음과 같이 온-프레미스 구성 서버를 배포할 수 있습니다.
+
+- 미리 설치된 구성 서버와 함께 OVA 템플릿을 사용하여 VMware VM으로 구성 서버를 배포하는 것이 좋습니다.
+- 어떤 이유로 템플릿으로 사용할 수 없는 경우 구성 서버를 수동으로 설정할 수 있습니다. [자세히 알아보기](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>온-프레미스 VM은 어디에 복제되는가요?
 데이터는 Azure 저장소에 복제됩니다. 장애 조치를 실행하면 Site Recovery에서 저장소 계정으로부터 Azure VM을 자동으로 만듭니다.
+
+## <a name="replication"></a>복제
 
 ### <a name="what-apps-can-i-replicate"></a>복제할 수 있는 앱은 무엇인가요?
 [복제 요구 사항](vmware-physical-azure-support-matrix.md##replicated-machines)을 준수하는 VMware VM에서 실행되는 모든 응용 프로그램 또는 작업을 복제할 수 있습니다. Site Recovery는 응용 프로그램 인식 복제를 지원하므로 앱을 지능형 상태로 장애 조치 및 장애 복구할 수 있습니다. SharePoint, Exchange, Dynamics, SQL Server, Active Directory와 같은 Microsoft 응용 프로그램과 통합되고, Oracle, SAP, IBM, Red Hat과 같은 선도적인 공급 업체와 긴밀하게 협력합니다. [자세히 알아봅니다](site-recovery-workload.md) .
@@ -72,39 +79,44 @@ Site Recovery는 공용 엔드포인트를 통하거나 ExpressRoute 공용 피�
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN을 통해 복제할 수 없는 이유는 무엇인가요?
 
-Azure에 복제하는 경우 복제 트래픽이 Azure Storage 계정의 공용 엔드포인트에 도달하므로, ExpressRoute(공용 피어링)를 사용하여 공용 인터넷을 통해서만 복제할 수 있으며 VPN은 작동하지 않습니다. 
+Azure에 복제하는 경우 복제 트래픽이 Azure Storage 계정의 공용 엔드포인트에 도달하므로, ExpressRoute(공용 피어링)를 사용하여 공용 인터넷을 통해서만 복제할 수 있으며 VPN은 작동하지 않습니다.
 
 
-
-## <a name="what-are-the-replicated-vm-requirements"></a>복제된 VM에 대한 요구 사항은 무엇인가요?
+### <a name="what-are-the-replicated-vm-requirements"></a>복제된 VM에 대한 요구 사항은 무엇인가요?
 
 복제의 경우 VMware VM에서 지원되는 운영 체제를 실행해야 합니다. 또한 VM에서 Azure VM에 대한 요구 사항을 충족해야 합니다. 지원 매트릭스에서 [자세히 알아보세요](vmware-physical-azure-support-matrix.md##replicated-machines).
 
-## <a name="how-often-can-i-replicate-to-azure"></a>Azure에 얼마나 자주 복제할 수 있나요?
+### <a name="how-often-can-i-replicate-to-azure"></a>Azure에 얼마나 자주 복제할 수 있나요?
 VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 
-## <a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
+### <a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
 확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)을 통해 이 기능에 대한 의견을 보내 주세요.
 
-## <a name="can-i-do-an-offline-initial-replication"></a>오프라인 초기 복제를 수행할 수 있나요?
+### <a name="can-i-do-an-offline-initial-replication"></a>오프라인 초기 복제를 수행할 수 있나요?
 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-exclude-disks"></a>디스크를 제외할 수 있나요?
-예, 디스크는 복제에서 제외할 수 있습니다. 
+예, 디스크는 복제에서 제외할 수 있습니다.
 
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>동적 디스크를 사용하여 VM을 복제할 수 있나요?
 예, 동적 디스크는 복제할 수 있습니다. 운영 체제 디스크는 기본 디스크여야 합니다.
 
-### <a name="can-i-add-a-new-vm-to-an-existing-replication-group"></a>새 VM을 기존 복제 그룹에 추가할 수 있나요?
-예.
+### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>다중 VM 일관성에 대해 복제 그룹을 사용하는 경우 새 VM을 기존 복제 그룹에 추가할 수 있나요?
+예, 복제를 활성화하면 새 VM을 기존 복제 그룹에 추가할 수 있습니다. 복제가 시작된 후 VM을 기존 복제 그룹에 추가할 수 없으며 기존 VM에 대한 복제 그룹을 만들 수 없습니다.
+
+### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>디스크를 추가하거나 크기를 조정하여 복제 중인 VM을 수정할 수 있나요?
+
+Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다. 새 디스크를 추가하려는 경우 디스크를 추가하고 VM에 대한 보호를 다시 활성화해야 합니다.
 
 ## <a name="configuration-server"></a>구성 서버
 
 ### <a name="what-does-the-configuration-server-do"></a>구성 서버에서 수행하는 작업은 무엇인가요?
-구성 서버는 다음을 포함하여 온-프레미스 Site Recovery 구성 요소를 실행합니다. 
+구성 서버는 다음을 포함하여 온-프레미스 Site Recovery 구성 요소를 실행합니다.
 - 구성 서버 - 온-프레미스와 Azure 간의 통신을 조정하고 데이터 복제를 관리합니다.
 - 프로세스 서버 - 복제 게이트웨이의 역할을 합니다. 즉 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 통해 최적화하며, Azure 저장소로 보냅니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고, 온-프레미스 VMware VM에 대한 자동 검색을 수행합니다.
 - 마스터 대상 서버 - Azure에서 장애 복구 중에 복제 데이터를 처리합니다.
+
+구성 서버 구성 요소 및 프로세스에 대해 [자세히 알아보세요](vmware-azure-architecture.md).
 
 ### <a name="where-do-i-set-up-the-configuration-server"></a>구성 서버를 설정해야 하는 위치는 어떻게 되나요?
 구성 서버에는 단일 고가용성 온-프레미스 VMware VM이 필요합니다.
@@ -114,20 +126,43 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 [필수 구성 요소](vmware-azure-deploy-configuration-server.md#prerequisites)를 검토하세요.
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>구성 서버는 템플릿을 사용하는 대신 수동으로 설정할 수 있나요?
-최신 버전의 OVF 템플릿을 사용하여 [구성 서버 VM을 만드는](vmware-azure-deploy-configuration-server.md) 것이 좋습니다. VMware 서버에 대한 액세스 권한이 없는 것처럼 어떤 이유로 액세스할 수 없는 경우 포털에서 [통합 설치 파일을 다운로드](physical-azure-set-up-source.md)하여 VM에서 실행할 수 있습니다. 
+최신 버전의 OVF 템플릿을 사용하여 [구성 서버 VM을 만드는](vmware-azure-deploy-configuration-server.md) 것이 좋습니다. VMware 서버에 대한 액세스 권한이 없는 것처럼 어떤 이유로 액세스할 수 없는 경우 포털에서 [통합 설치 파일을 다운로드](physical-azure-set-up-source.md)하여 VM에서 실행할 수 있습니다.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>구성 서버에서 둘 이상의 지역에 복제할 수 있나요?
-아니요. 이렇게 하려면 각 지역마다 구성 서버를 설정해야 합니다.
+ 아니요. 이렇게 하려면 각 지역마다 구성 서버를 설정해야 합니다.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Azure에서 구성 서버를 호스팅할 수 있나요?
-가능한 경우 구성 서버를 실행하는 Azure VM에서 온-프레미스 VMware 인프라 및 VM과 통신해야 합니다. 아마도 오버헤드가 실용적이지 않을 것입니다.
-
-
-### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>최신 버전의 구성 서버 템플릿은 어디서 구할 수 있나요?
-최신 버전은 [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 다운로드하세요.
+가능한 경우 구성 서버를 실행하는 Azure VM에서 온-프레미스 VMware 인프라 및 VM과 통신해야 합니다. 이로 인해 대기 시간이 늘어나고 진행 중인 복제에 영향을 줄 수 있습니다.
 
 ### <a name="how-do-i-update-the-configuration-server"></a>구성 서버를 업데이트하려면 어떻게 할까요?
-업데이트 롤업을 설치합니다. 최신 업데이트 정보는 [wiki 업데이트 페이지](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)에서 찾을 수 있습니다.
+구성 서버 업데이트에 [대해 알아봅니다](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). 최신 업데이트 정보는 [Azure 업데이트 페이지](https://azure.microsoft.com/updates/?product=site-recovery)에서 찾을 수 있습니다. [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 최신 버전의 구성 서버를 직접 다운로드할 수도 있습니다.
+
+### <a name="should-i-backup-the-deployed-configuration-server"></a>배포된 구성 서버를 백업해야 하나요?
+구성 서버의 예약된 정기 백업을 수행하는 것이 좋습니다. 성공적인 장애 복구(Failover)를 위해서는 장애 복구(Failover)하려는 가상 머신이 구성 서버 데이터베이스에 있어야 하고 구성 서버가 실행 중이고 연결된 상태여야 합니다. [여기](vmware-azure-manage-configuration-server.md)에서 일반 구성 서버 관리 작업에 대해 자세히 알아볼 수 있습니다.
+
+### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>구성 서버를 설정할 때 MySQL을 수동으로 다운로드하여 설치할 수 있나요?
+예. MySQL을 다운로드하여 **C:\Temp\ASRSetup** 폴더에 넣습니다. 그런 다음, 수동으로 설치합니다. 구성 서버 VM을 설정하고 조건에 동의하면 MySQL이 **다운로드 및 설치**에 **이미 설치됨**으로 표시됩니다.
+
+### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>MySQL을 다운로드하지 않고 Site Recovery에서 설치할 수 있나요?
+예. MySQL 설치 관리자를 다운로드하여 **C:\Temp\ASRSetup** 폴더에 넣습니다.  구성 서버 VM을 설정하고, 조건에 동의하고, **다운로드 및 설치**를 클릭하면 포털에서 추가한 설치 관리자를 사용하여 MySQL을 설치합니다.
+ 
+### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>다른 용도로 구성 서버 VM을 사용할 수 있나요?
+아니요, 구성 서버로만 VM을 사용해야 합니다. 
+
+### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>구성 서버에 등록된 자격 증명 모음을 변경할 수 있나요?
+ 아니요. 구성 서버에 등록된 후에는 자격 증명 모음을 변경할 수 없습니다.
+
+### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버의 재해 복구에 동일한 구성 서버를 사용할 수 있나요?
+예, 하지만 물리적 머신은 VMware VM으로만 장애 복구(failback)할 수 있습니다.
+
+### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>구성 서버의 암호는 어디서 다운로드할 수 있나요?
+[이 문서를 검토](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)하여 암호를 다운로드 하는 방법에 대해 알아봅니다.
+
+### <a name="where-can-i-download-vault-registration-keys"></a>자격 증명 모음 등록 키는 어디서 다운로드할 수 있나요?
+
+**Recovery Services 자격 증명 모음**에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 통해 다운로드합니다. **서버**에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 자격 증명 파일을 다운로드합니다.
+
+
 
 ## <a name="mobility-service"></a>모바일 서비스
 
@@ -135,7 +170,7 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 설치 관리자는 구성 서버의 **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** 폴더에 보관됩니다.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>모바일 서비스를 설치하려면 어떻게 할까요?
-복제하려는 각 VM에 [푸시 설치](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)를 사용하여 설치하거나, [UI](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui) 또는 [PowerShell](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt)을 사용하여 수동으로 설치합니다. 또는 [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md) 또는 [Azure Automation 및 DSC](vmware-azure-mobility-deploy-automation-dsc.md)와 같은 배포 도구를 사용하여 배포할 수 있습니다.
+복제하려는 각 VM에 [푸시 설치](vmware-azure-install-mobility-service.md)를 사용하여 설치하거나, UI 또는 PowerShell을 사용하여 [수동으로 설치](vmware-physical-mobility-service-install-manual.md)합니다. 또는 [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)와 같은 배포 도구를 사용하여 배포할 수 있습니다.
 
 
 
@@ -187,7 +222,7 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA�
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>장애 복구하는 데 VPN 또는 ExpressRoute가 필요한 이유는 무엇인가요?
 
-Azure에서 장애 복구하는 경우 Azure의 데이터가 온-프레미스 VM으로 다시 복사되고 개인 액세스가 필요합니다. 
+Azure에서 장애 복구하는 경우 Azure의 데이터가 온-프레미스 VM으로 다시 복사되고 개인 액세스가 필요합니다.
 
 
 

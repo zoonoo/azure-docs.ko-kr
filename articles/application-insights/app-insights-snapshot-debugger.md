@@ -9,21 +9,24 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/08/2018
-ms.author: mbullwin; pharring
-ms.openlocfilehash: 66339e5f5d2cc7447df0f8faf70d2d9fd45db738
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.topic: conceptual
+ms.date: 10/10/2018
+ms.reviewer: pharring
+ms.author: mbullwin
+ms.openlocfilehash: 9d0cb566ffb8fbec4b99b0f0eeca79b21d1b0dde
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159138"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335132"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅숏
 
 예외가 발생할 때 라이브 웹 응용 프로그램에서 자동으로 디버그 스냅숏을 수집할 수 있습니다. 스냅숏은 예외가 throw되었을 때의 소스 코드 및 변수의 상태를 보여 줍니다. [Azure Application Insights](app-insights-overview.md)의 스냅숏 디버거(미리 보기)는 웹앱에서 예외 원격 분석을 모니터링합니다. 프로덕션에서 문제를 진단하는 데 필요한 정보를 유지하도록 많이 throw되는 예외에 대한 스냅숏을 수집합니다. [스냅숏 수집기 NuGet 패키지](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)를 응용 프로그램에 포함하고 필요에 따라, [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 컬렉션 매개 변수를 구성합니다. 스냅숏은 Application Insights 포털의 [예외](app-insights-asp-net-exceptions.md)에 표시됩니다.
 
-포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 소스 코드가 있는 좀 더 강력한 디버깅 환경을 구현하려면 [Visual Studio용 스냅숏 디버거 확장을 다운로드](https://aka.ms/snapshotdebugger)하여 Visual Studio 2017 Enterprise에서 스냅숏을 엽니다. 또한 Visual Studio에서 예외를 기다리지 않고 [snappoint에서 대화형으로 스냅숏을 만들도록 설정](https://aka.ms/snappoint)할 수도 있습니다.
+포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 소스 코드가 있는 좀 더 강력한 디버깅 환경을 구현하려면 Visual Studio 2017 Enterprise에서 스냅숏을 엽니다. 또한 Visual Studio에서 예외를 기다리지 않고 [snappoint에서 대화형으로 스냅숏을 만들도록 설정](https://aka.ms/snappoint)할 수도 있습니다.
+
+디버그 스냅숏은 7일 동안 저장됩니다. 이 보존 정책은 응용 프로그램 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
 
 스냅숏 컬렉션을 다음에 사용할 수 있습니다.
 * .NET Framework 및 .NET Framework 4.5 이상을 실행하는 ASP.NET 응용 프로그램
@@ -190,9 +193,12 @@ ms.locfileid: "34159138"
 
 ## <a name="grant-permissions"></a>권한 부여
 
-Azure 구독의 소유자는 스냅숏을 조사할 수 있습니다. 다른 사용자는 소유자에 의해 권한이 부여되어야 합니다.
+스냅숏에 대한 액세스는 RBAC(역할 기반 액세스 제어)로 보호됩니다. 스냅숏을 검사하려면 먼저 구독 소유자가 사용자를 필요한 역할에 추가해야 합니다.
 
-사용 권한을 부여하려면 스냅숏을 검사하는 사용자에게 `Application Insights Snapshot Debugger` 역할을 할당합니다. 대상 Application Insights 리소스 또는 리소스 그룹이나 구독에 대한 구독 소유자가 개별 사용자 또는 그룹에 이 역할을 할당할 수 있습니다.
+> [!NOTE]
+> 소유자 및 참가자는 이 역할을 자동으로 소유하지는 않습니다. 스냅숏을 보려면 해당 스냅숏을 역할에 추가해야 합니다.
+
+구독 소유자는 스냅숏을 검사할 사용자에게 `Application Insights Snapshot Debugger` 역할을 할당해야 합니다. 대상 Application Insights 리소스 또는 리소스 그룹이나 구독에 대한 구독 소유자가 개별 사용자 또는 그룹에 이 역할을 할당할 수 있습니다.
 
 1. Azure Portal에서 Application Insights 리소스로 이동합니다.
 1. **액세스 제어(IAM)** 를 클릭합니다.
@@ -220,7 +226,7 @@ Azure 구독의 소유자는 스냅숏을 조사할 수 있습니다. 다른 사
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Visual Studio 2017 Enterprise에서 스냅숏 디버그
 1. **스냅숏 다운로드** 단추를 클릭하여 Visual Studio 2017 Enterprise에서 열 수 있는 `.diagsession` 파일을 다운로드합니다.
 
-2. `.diagsession` 파일을 열려면 먼저 [Visual Studio용 스냅숏 디버거 확장을 다운로드하고 설치](https://aka.ms/snapshotdebugger)해야 합니다.
+2. `.diagsession` 파일을 열려면 스냅숏 디버거 VS 구성 요소를 설치해야 합니다. 스냅숏 디버거 구성 요소는 VS에서 ASP.net 워크로드의 필수 구성 요소이며 VS 설치 관리자의 개별 구성 요소 목록에서 선택할 수 있습니다. 15.5 이전 버전의 Visual Studio를 사용하는 경우 [VS 마켓플레이스](http://aka.ms/snapshotdebugger)에서 확장을 설치해야 합니다.
 
 3. 스냅숏 파일을 연 후에 Visual Studio에서 미니덤프 디버깅 페이지가 표시됩니다. **관리 코드 디버그**를 클릭하여 스냅숏을 디버깅하기 시작합니다. 예외가 throw되는 코드 줄에 스냅숏이 열리고 프로세스의 현재 상태를 디버그할 수 있습니다.
 
@@ -234,7 +240,7 @@ Azure 구독의 소유자는 스냅숏을 조사할 수 있습니다. 다른 사
 응용 프로그램에서 [TrackException](app-insights-asp-net-exceptions.md#exceptions)을 호출할 때마다 스냅숏 수집기는 throw된 예외의 형식과 throw하는 메서드에서 문제 ID를 계산합니다.
 응용 프로그램에서 TrackException을 호출할 때마다 해당 문제 ID에 대한 카운터가 증가합니다. 카운터가 `ThresholdForSnapshotting` 값에 도달하면 문제 ID가 수집 계획에 추가됩니다.
 
-또한 스냅숏 수집기는 [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) 이벤트에 가입하여 예외가 throw되었을 때 이를 모니터링합니다. 해당 이벤트가 발생하면 예외의 문제 ID가 계산되어 수집 계획의 문제 ID와 비교됩니다.
+또한 Snapshot Collector는 [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) 이벤트에 가입하여 예외가 throw되었을 때 이를 모니터링합니다. 해당 이벤트가 발생하면 예외의 문제 ID가 계산되어 수집 계획의 문제 ID와 비교됩니다.
 일치하는 항목이 있으면 실행 중인 프로세스의 스냅숏이 만들어집니다. 스냅숏에는 고유 식별자가 할당되고, 예외는 해당 식별자로 스탬프 처리됩니다. FirstChanceException 처리기가 반환되면 throw된 예외는 정상으로 처리됩니다. 결국, 예외는 스냅숏 식별자와 함께 Application Insights에 보고되는 TrackException 메서드에 다시 도달합니다.
 
 주 프로세스는 계속 실행되고 매우 짧은 중단을 통해 사용자에게 트래픽을 제공합니다. 한편 스냅숏은 스냅숏 업로더 프로세스에 전달됩니다. 스냅숏 업로더는 미니덤프를 만들고, 관련된 모든 기호(.pdb) 파일과 함께 이를 Application Insights에 업로드합니다.
@@ -250,7 +256,8 @@ Azure 구독의 소유자는 스냅숏을 조사할 수 있습니다. 다른 사
 ## <a name="current-limitations"></a>현재 제한 사항
 
 ### <a name="publish-symbols"></a>기호 게시
-스냅숏 디버거를 사용하려면 Visual Studio에서 변수를 디코딩하고 디버깅 환경을 제공하기 위해 프로덕션 서버에 기호 파일이 있어야 합니다. Visual Studio 2017 15.2 릴리스는 App Service에 게시할 때 기본적으로 릴리스 빌드에 대한 기호를 게시합니다. 이전 버전에서는 기호가 릴리스 모드에서 게시될 수 있게 게시 프로필 `.pubxml` 파일에 다음 줄을 추가해야 합니다.
+스냅숏 디버거를 사용하려면 Visual Studio에서 변수를 디코딩하고 디버깅 환경을 제공하기 위해 프로덕션 서버에 기호 파일이 있어야 합니다.
+Visual Studio 2017의 15.2 버전 이상은 App Service에 게시할 때 기본적으로 릴리스 빌드에 대한 기호를 게시합니다. 이전 버전에서는 기호가 릴리스 모드에서 게시될 수 있게 게시 프로필 `.pubxml` 파일에 다음 줄을 추가해야 합니다.
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
@@ -399,6 +406,49 @@ Cloud Services의 역할의 경우, 기본 임시 폴더가 너무 작아서 미
       <!-- Other SnapshotCollector configuration options -->
     </Add>
    </TelemetryProcessors>
+   ```
+
+### <a name="overriding-the-shadow-copy-folder"></a>섀도 복사본 폴더 재정의
+
+Snapshot Collector가 시작되면 Snapshot Uploader 프로세스를 실행하기에 적합한 디스크에서 폴더를 찾으려고 시도합니다. 선택된 폴더는 섀도 복사본 폴더라고 합니다.
+
+Snapshot Collector는 잘 알려진 위치 몇 곳에서 Snapshot Uploader 바이너리를 복사할 권한이 있는지 확인합니다. 다음 환경 변수가 사용됩니다.
+- Fabric_Folder_App_Temp
+- LOCALAPPDATA
+- APPDATA
+- TEMP
+
+적당한 폴더를 찾을 수 없으면 Snapshot Collector는 _"Could not find a suitable shadow copy folder."_(적합한 섀도 복사본 폴더를 찾을 수 없습니다.)라는 오류를 보고합니다.
+
+복사에 실패하면 Snapshot Collector는 `ShadowCopyFailed` 오류를 보고합니다.
+
+업로더를 시작할 수 없으면 Snapshot Collector는 `UploaderCannotStartFromShadowCopy` 오류를 보고합니다. 메시지 본문에 `System.UnauthorizedAccessException`이 포함되는 경우가 많습니다. 일반적으로 이 오류는 권한이 축소된 계정으로 응용 프로그램이 실행되기 때문에 발생합니다. 계정에 섀도 복사본 폴더에 쓸 수 있는 권한은 있지만 코드를 실행할 수 있는 권한이 없습니다.
+
+이러한 오류는 일반적으로 시작하는 동안 발생하기 때문에 _"Uploader failed to start."_(업로드를 시작하지 못했습니다.)라는 `ExceptionDuringConnect` 오류 다음에 발생합니다.
+
+이러한 오류를 해결하려면 `ShadowCopyFolder` 구성을 통해 섀도 복사본 폴더를 수동으로 지정하면 됩니다. ApplicationInsights.config를 사용하는 예:
+
+   ```xml
+   <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Override the default shadow copy folder. -->
+      <ShadowCopyFolder>D:\SnapshotUploader</ShadowCopyFolder>
+      <!-- Other SnapshotCollector configuration options -->
+    </Add>
+   </TelemetryProcessors>
+   ```
+
+또는 .NET Core 응용 프로그램과 appsettings.json을 사용하는 경우:
+
+   ```json
+   {
+     "ApplicationInsights": {
+       "InstrumentationKey": "<your instrumentation key>"
+     },
+     "SnapshotCollectorConfiguration": {
+       "ShadowCopyFolder": "D:\\SnapshotUploader"
+     }
+   }
    ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Application Insights 검색을 사용하여 스냅숏 예외 찾기

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: 74907693270e6cd340d3b34585a80077aa87f0f7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aafbde6907e59be3b0ff1d5807ffe4a7d2fffaa4
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055664"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346107"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Cisco Spark 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "37055664"
 
 
 > [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](./../active-directory-saas-app-provisioning.md)를 참조하세요.
+> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -53,7 +53,7 @@ Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Cisco S
 
 2. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 섹션][2]
+    ![엔터프라이즈 애플리케이션 섹션][2]
 
 3. Cisco Spark를 추가하려면 대화 상자의 위쪽에서 **새 응용 프로그램** 단추를 클릭합니다.
 
@@ -71,7 +71,7 @@ Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Cisco S
 
 ## <a name="assigning-users-to-cisco-spark"></a>Cisco Spark에 사용자 할당
 
-Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 프로비저닝의 컨텍스트에서 Azure AD의 응용 프로그램에 "할당된" 사용자 및/또는 그룹만 동기화됩니다.
+Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 프로비저닝의 컨텍스트에서 Azure AD의 애플리케이션에 "할당된" 사용자 및/또는 그룹만 동기화됩니다.
 
 자동 사용자 프로비전을 구성하고 사용하도록 설정하기 전에 Cisco Spark에 액세스해야 하는 Azure AD의 사용자를 결정해야 합니다. 결정했으면 다음 지시에 따라 이러한 사용자를 Cisco Spark에 할당할 수 있습니다.
 
@@ -153,7 +153,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![Cisco Spark 프로비전](./media/cisco-spark-provisioning-tutorial/UserMappingAttributes.png)
 
-12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../active-directory-saas-scoping-filters.md)에서 제공하는 다음 지침을 참조합니다.
+12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
 13. Cisco Spark에 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
@@ -170,7 +170,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고, Cisco Spark의 Azure AD 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 활동 보고서에 대한 링크를 따를 수 있습니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
+
+## <a name="connector-limitations"></a>커넥터 제한 사항
+
+* Cisco Spark는 현재 Cisco의 EFT(초기 필드 테스트) 단계에 있습니다. 자세한 내용은 [Cisco 지원 팀](https://www.webex.co.in/support/support-overview.html)에 문의하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
@@ -180,7 +184,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](../active-directory-saas-provisioning-reporting.md).
+* [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](../manage-apps/check-status-user-account-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/cisco-spark-provisioning-tutorial/tutorial_general_01.png

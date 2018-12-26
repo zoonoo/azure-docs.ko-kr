@@ -1,22 +1,26 @@
 ---
-title: Microsoft Translator Speech API에서 지원되는 언어 | Microsoft Docs
-description: Microsoft Translator Speech API에서 지원되는 언어를 봅니다.
+title: 지원되는 언어 - Translator Speech API
+titlesuffix: Azure Cognitive Services
+description: Translator Speech API에서 지원되는 언어를 봅니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0d33033442a012290baa78d80f1b8bde0499b3f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dd1c60a2c2ad88abf686e89972d29768ef600e4e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382883"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344560"
 ---
-# <a name="languages-supported-by-the-microsoft-translator-speech-api"></a>Microsoft Translator Speech API에서 지원되는 언어
+# <a name="languages-supported-by-the-translator-speech-api"></a>Translator Speech API에서 지원되는 언어
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 음성 번역에 다음 언어가 지원됩니다. 두 언어가 음성 번역에 지원되는 경우 음성 - 음성 변환 또는 음성 - 텍스트 변환이 지원됩니다. 대상 언어가 음성 번역을 지원하지 않으면 음성 - 텍스트 변환만 지원됩니다. 
 
 | 음성 언어    |
@@ -32,14 +36,14 @@ ms.locfileid: "35382883"
 | 러시아어      |
 | 스페인어      | 
 
-Microsoft Translator Speech API는 다음 언어를 음성 - 텍스트 변환 번역에 대한 대상 언어로 지원합니다. 
+Translator Speech API는 다음 언어를 음성 텍스트 변환 번역에 대한 대상 언어로 지원합니다. 
 
 | 텍스트 언어    | 언어 코드 |
 |:----------- |:-------------:|
 | 아프리칸스어      | `af`          |
 | 아랍어       | `ar`          |
 | 벵골어      | `bn`          |
-| 보스니아어(라틴어)      | `bs`          |
+| 보스니아어(라틴 문자)      | `bs`          |
 | 불가리아어      | `bg`          |
 | 광둥어(번체)      | `yue`          |
 | 카탈로니아어      | `ca`          |
@@ -102,7 +106,7 @@ Microsoft Translator Speech API는 다음 언어를 음성 - 텍스트 변환 �
 
 ## <a name="access-the-list-programmatically"></a>목록에 프로그래밍 방식으로 액세스
 
-언어 리소스를 사용하여 지원되는 언어 목록에 프로그래밍 방식으로 액세스할 수 있습니다. 목록에서는 영어 또는 지원되는 다른 언어의 언어 이름뿐만 아니라 언어 코드도 제공합니다. 이 목록은 새 언어를 사용할 수 있을 때 Microsoft Translator 서비스에서 자동으로 업데이트됩니다.
+언어 리소스를 사용하여 지원되는 언어 목록에 프로그래밍 방식으로 액세스할 수 있습니다. 목록에서는 영어 또는 지원되는 다른 언어의 언어 이름뿐만 아니라 언어 코드도 제공합니다. 이 목록은 새 언어를 사용할 수 있을 때 Translator Speech 서비스에서 자동으로 업데이트됩니다.
 
 언어 리소스는 음성, 텍스트 및 텍스트 음성 변환에 지원되는 언어 목록을 반환합니다. 언어 리소스에는 인증이 필요하지 않습니다.
 

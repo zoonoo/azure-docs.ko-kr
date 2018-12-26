@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d76a8996f7ccc6a7b6df2f8e1fe52568dbd725db
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b3ef6e2a6b9b51c271372aa3c9342b52a4260788
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210801"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348109"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 ServiceNow 구성
 
 이 자습서에서는 사용자 계정을 Azure AD에서 ServiceNow로 자동으로 프로비전 및 프로비전 해제하도록 ServiceNow 및 Azure AD에서 수행해야 하는 단계를 설명합니다.
 
 > [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](./../active-directory-saas-app-provisioning.md)를 참조하세요.
+> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -48,7 +48,7 @@ ServiceNow와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 
 ## <a name="assigning-users-to-servicenow"></a>ServiceNow에 사용자 할당
 
-Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 "할당된" 사용자 및 그룹만 동기화됩니다.
+Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 "할당된" 사용자 및 그룹만 동기화됩니다.
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 ServiceNow 앱 액세스 권한이 필요한 사용자를 나타내는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정되면 [엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)의 지침에 따라 해당 사용자를 ServiceNow 앱에 할당할 수 있습니다.
 
@@ -68,39 +68,39 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
 
-2. 이미 ServiceNow에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 ServiceNow의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **ServiceNow**를 검색합니다. 검색 결과에서 ServiceNow를 선택하고 응용 프로그램 목록에 추가합니다.
+1. 이미 ServiceNow에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 ServiceNow의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **ServiceNow**를 검색합니다. 검색 결과에서 ServiceNow를 선택하고 응용 프로그램 목록에 추가합니다.
 
-3. ServiceNow의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
+1. ServiceNow의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 
-4. **프로비전 모드**를 **자동**으로 설정합니다. 
+1. **프로비전 모드**를 **자동**으로 설정합니다. 
 
     ![프로비전](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-5. 관리자 자격 증명 섹션에서 다음 단계를 수행합니다.
+1. 관리자 자격 증명 섹션에서 다음 단계를 수행합니다.
    
     a. **ServiceNow 인스턴스 이름** 텍스트 상자에 ServiceNow 인스턴스 이름을 입력합니다.
 
-    나. **ServiceNow 관리자 사용자 이름** 텍스트 상자에 관리자의 사용자 이름을 입력합니다.
+    b. **ServiceNow 관리자 사용자 이름** 텍스트 상자에 관리자의 사용자 이름을 입력합니다.
 
     다. **ServiceNow 관리자 암호** 텍스트 상자에 관리자의 암호를 입력합니다.
 
-6. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 ServiceNow 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 ServiceNow 계정에 팀 관리자 권한이 있는지 확인하고 **"관리자 자격 증명"** 단계를 다시 시도합니다.
+1. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 ServiceNow 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 ServiceNow 계정에 팀 관리자 권한이 있는지 확인하고 **"관리자 자격 증명"** 단계를 다시 시도합니다.
 
-7. 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
+1. 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
 
-8. **저장**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
-9. 매핑 섹션에서 **Azure Active Directory 사용자를 ServiceNow에 동기화**를 선택합니다.
+1. 매핑 섹션에서 **Azure Active Directory 사용자를 ServiceNow에 동기화**를 선택합니다.
 
-10. **특성 매핑** 섹션에서 Azure AD에서 ServiceNow로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 ServiceNow의 사용자 계정을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
+1. **특성 매핑** 섹션에서 Azure AD에서 ServiceNow로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 ServiceNow의 사용자 계정을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
-11. ServiceNow에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 설정 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
+1. ServiceNow에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 설정 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
-12. **저장**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
 사용자 및 그룹 섹션에서 Provisioning Status에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 ServiceNow 앱의 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 작업 로그를 확인할 수 있습니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

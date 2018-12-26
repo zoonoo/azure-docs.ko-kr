@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Stream Analytics의 몇 가지 일반적�
 services: stream-analytics
 author: jasonwhowell
 manager: kfile
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: e04d1072acee635235b0a5bd8465ca38c861017b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2fe180873f8f410d80b06d29d16881eb49f7fc2a
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523526"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978446"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Stream Analytics의 일반적인 문제 및 문제를 해결하는 단계
 
@@ -26,7 +26,7 @@ ms.locfileid: "31523526"
 
 ![입력 타일](media/stream-analytics-malformed-events/inputs_tile.png)
 
-자세한 내용을 보려면 진단 로그를 사용하여 경고의 세부 정보를 확인하십시오. 형식이 잘못된 입력 이벤트의 경우 실행 로그에는 다음과 같은 메시지와 함께 항목이 포함됩니다. "메시지: 리소스 <blob URI>의 입력 이벤트를 JSON으로 역직렬화할 수 없습니다." 
+자세한 내용을 보려면 진단 로그를 사용하여 경고의 세부 정보를 확인하십시오. 형식이 잘못된 입력 이벤트의 경우 실행 로그에는 다음과 같은 메시지와 함께 항목이 포함됩니다. “메시지: 리소스 <blob URI>의 입력 이벤트를 JSON으로 역직렬화할 수 없습니다.” 
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계
 
@@ -38,7 +38,9 @@ ms.locfileid: "31523526"
 
 3. 잘못된 형식이 있는 JSON 데이터를 불러오려면 CheckMalformedEvents.cs 코드를 실행합니다. 이 예제는 [GitHub 샘플 리포지토리](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH)에 있습니다. 이 코드는 파티션 ID, 오프셋을 읽고 오프셋에 배치된 데이터를 출력합니다. 
 
-4. 데이터를 읽은 경우 직렬화 형식을 분석하고 수정할 수 있습니다. 
+4. 데이터를 읽은 경우 직렬화 형식을 분석하고 수정할 수 있습니다.
+
+5. [Service Bus Explorer를 사용하여 IoT Hub에서 이벤트를 읽을](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b) 수 있습니다.
 
 ## <a name="delayed-output"></a>지연된 출력
 

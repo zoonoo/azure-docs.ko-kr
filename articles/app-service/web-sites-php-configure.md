@@ -13,18 +13,18 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: d7b832659272f01b6e939150fa89626620d5eab7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1e5f7ed2fb4c77e0a738cbe6ee6c84b46bc59bb8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153561"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230838"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Azure App Service Web Apps에서 PHP 구성
 
 ## <a name="introduction"></a>소개
 
-이 가이드에서는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 Web Apps에 대한 기본 제공 PHP 런타임을 구성하고 사용자 지정 PHP 런타임을 제공하며 확장을 사용하도록 설정하는 방법을 보여 줍니다. App Service를 사용하려면 [무료 평가판]에 등록해야 합니다. 이 가이드를 최대한 활용하려면 먼저 App Service에서 PHP 웹앱을 만들어야 합니다.
+이 가이드에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 Web Apps에 대한 기본 제공 PHP 런타임을 구성하고 사용자 지정 PHP 런타임을 제공하며 확장을 사용하도록 설정하는 방법을 보여 줍니다. App Service를 사용하려면 [무료 평가판]에 등록해야 합니다. 이 가이드를 최대한 활용하려면 먼저 App Service에서 PHP 웹앱을 만들어야 합니다.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -58,9 +58,9 @@ PHP 7.0 및 PHP 7.2 버전도 사용할 수 있지만 기본적으로는 사용�
 
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
-### <a name="azure-cli-20-linux-mac-windows"></a>Azure CLI 2.0(Linux, Mac, Windows)
+### <a name="azure-cli"></a>Azure CLI 
 
-Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI 2.0을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)해야 합니다.
+Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)해야 합니다.
 
 1. 터미널을 열고 계정에 로그인합니다.
 
@@ -102,7 +102,7 @@ Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI 2.0�
 
 1. `PHP_INI_SCAN_DIR` 키 및 `d:\home\site\ini` 값으로 웹앱에 앱 설정을 추가합니다.
 1. Kudu Console(http://&lt;site-name&gt;.scm.azurewebsite.net)을 사용하여 `d:\home\site\ini` 디렉터리에 `settings.ini` 파일을 만듭니다.
-1. php.ini 파일에서 사용한 것과 동일한 구문을 사용하여 구성 설정을 `settings.ini` 파일에 추가합니다. 예를 들어 `curl.cainfo` 설정이 `*.crt` 파일을 가리키고 'wincache.maxfilesize' 설정을 512K로 설정하려면 `settings.ini` 파일에 다음 텍스트를 포함합니다.
+1. `php.ini` 파일에 사용한 것과 동일한 구문을 사용하여 구성 설정을 `settings.ini` 파일에 추가합니다. 예를 들어 `curl.cainfo` 설정이 `*.crt` 파일을 가리키고 'wincache.maxfilesize' 설정을 512K로 설정하려면 `settings.ini` 파일에 다음 텍스트를 포함합니다.
 
         ; Example Settings
         curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
@@ -119,7 +119,7 @@ Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI 2.0�
 1. `.dll` 확장 파일을 `ext` 디렉터리에 둡니다(예: `php_xdebug.dll`). 확장이 기본 버전의 PHP와 호환되며 VC9 및 nts(non-thread-safe)와 호환 가능해야 합니다.
 1. `PHP_INI_SCAN_DIR` 키 및 `d:\home\site\ini` 값으로 웹앱에 앱 설정을 추가합니다.
 1. `d:\home\site\ini`에 `extensions.ini`라는 `ini` 파일을 만듭니다.
-1. php.ini 파일에서 사용한 것과 동일한 구문을 사용하여 구성 설정을 `extensions.ini` 파일에 추가합니다. 예를 들어 MongoDB 및 XDebug 확장을 사용하려면 `extensions.ini` 파일에 다음 텍스트를 포함합니다.
+1. `php.ini` 파일에 사용한 것과 동일한 구문을 사용하여 구성 설정을 `extensions.ini` 파일에 추가합니다. 예를 들어 MongoDB 및 XDebug 확장을 사용하려면 `extensions.ini` 파일에 다음 텍스트를 포함합니다.
 
         ; Enable Extensions
         extension=d:\home\site\ext\php_mongo.dll
@@ -189,7 +189,7 @@ App Service가 PHP 프로젝트에 있는 경우 기본적으로 composer.json�
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
+자세한 내용은 [PHP 개발자 센터](https://azure.microsoft.com/develop/php/)를 참조하세요.
 
 > [!NOTE]
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.

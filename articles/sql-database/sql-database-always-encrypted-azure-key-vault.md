@@ -3,21 +3,24 @@ title: '상시 암호화: SQL Database - Azure Key Vault | Microsoft Docs'
 description: 이 문서에서는 SQL Server Management Studio의 상시 암호화 마법사를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다.
 keywords: 데이터 암호화, 암호화 키, 클라우드 암호화
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: 19a033b79879f1b51626a14510fc4cc71c43426c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: ''
+manager: craigg
+ms.date: 10/05/2018
+ms.openlocfilehash: 5499193ba96d5a32ac6d3b310eee531c68fd52fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644062"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255927"
 ---
-# <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>상시 암호화: SQL Database의 중요한 데이터 보호 및 Azure Key Vault에 암호화 키 저장
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: 중요한 데이터 보호 및 Azure Key Vault에 암호화 키 저장
 
 이 문서에서는 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/hh213248.aspx)의 [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 또한 Azure Key Vault에 각 암호화 키를 저장하는 방법을 보여 주는 지침도 포함되어 있습니다.
 
@@ -45,13 +48,14 @@ ms.locfileid: "34644062"
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>클라이언트 응용 프로그램에서 SQL Database 서비스에 액세스하도록 설정
 AAD(Azure Active Directory) 응용 프로그램을 설정하고 응용 프로그램을 인증하는 데 필요한 *응용 프로그램 ID* 및 *키*를 복사하여 클라이언트 응용 프로그램에서 SQL Database 서비스에 액세스할 수 있게 해야 합니다.
 
-*응용 프로그램 ID* 및 *키*를 가져오려면 [리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)의 단계를 수행합니다.
+*응용 프로그램 ID* 및 *키*를 가져오려면 [리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)의 단계를 수행합니다.
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>키를 저장할 주요 자격 증명 모음 만들기
 클라이언트 앱이 구성되었고 응용 프로그램 ID가 있으므로, 이제 키 자격 증명 모음을 만들고 사용자와 사용자 응용 프로그램에서 이 자격 증명 모음의 암호(Always Encrypted 키)에 액세스할 수 있도록 액세스 정책을 구성해야 합니다. 새 열 마스터 키를 만들고 SQL Server Management Studio에서 암호화를 설정하기 위해서는 *create*, *get*, *list*, *sign*, *verify*, *wrapKey* 및 *unwrapKey* 권한이 필요합니다.
 
 다음 스크립트를 실행하여 주요 자격 증명 모음을 빠르게 만들 수 있습니다. 이러한 cmdlet에 대한 자세한 설명 및 주요 자격 증명 모음을 만들고 구성하는 방법은 [Azure Key Vault 시작](../key-vault/key-vault-get-started.md)을 참조하세요.
 
+```powershell
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
     $applicationId = '<application ID from your AAD application>'
@@ -69,12 +73,12 @@ AAD(Azure Active Directory) 응용 프로그램을 설정하고 응용 프로그
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
     Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
-
+```
 
 
 
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **리소스 만들기** > **데이터베이스** > **SQL 데이터베이스**로 이동합니다.
 3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure Portal에서 데이터베이스를 만드는 방법에 대한 자세한 지침은 [첫 Azure SQL Database](sql-database-get-started-portal.md)를 참조하세요.
    
@@ -104,6 +108,7 @@ SSMS를 열고 클리닉 데이터베이스가 있는 서버에 연결합니다.
 2. **Clinic** 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다.
 3. 새 쿼리 창에 다음 Transact-SQL(T-SQL)을 붙여넣고 **실행** 합니다.
 
+```sql
         CREATE TABLE [dbo].[Patients](
          [PatientId] [int] IDENTITY(1,1),
          [SSN] [char](11) NOT NULL,
@@ -117,12 +122,12 @@ SSMS를 열고 클리닉 데이터베이스가 있는 서버에 연결합니다.
          [BirthDate] [date] NOT NULL
          PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
          GO
-
+```
 
 ## <a name="encrypt-columns-configure-always-encrypted"></a>열 암호화(상시 암호화 구성)
 SSMS는 쉽게 열 마스터 키, 열 암호화 키 및 암호화된 열을 설정하여 상시 암호화를 쉽게 구성하는 마법사를 제공합니다.
 
-1. **데이터베이스** > **빈** > **테이블**를 사용하여 데이터베이스 암호화로 SQL 데이터베이스의 중요한 데이터를 보호하는 방법을 보여 줍니다.
+1.  **데이터베이스** > **빈** > **테이블**를 사용하여 데이터베이스 암호화로 SQL 데이터베이스의 중요한 데이터를 보호하는 방법을 보여 줍니다.
 2. **Patients** 테이블을 마우스 오른쪽 단추로 클릭하고 **열 암호화**를 선택하여 상시 암호화 마법사를 엽니다.
    
     ![열 암호화](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
@@ -166,11 +171,11 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 
 **Clinic** > **보안** > **상시 암호화 키**를 확장하여 SSMS에서 키 만들기를 확인할 수 있습니다.
 
-## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>암호화된 데이터로 작동하는 클라이언트 응용 프로그램 만들기
-상시 암호화가 설정되었으므로 암호화된 열에서 *삽입* 및 *선택*을 수행하는 응용 프로그램을 빌드할 수 있습니다.  
+## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>암호화된 데이터로 작동하는 클라이언트 애플리케이션 만들기
+상시 암호화가 설정되었으므로 암호화된 열에서 *삽입* 및 *선택*을 수행하는 애플리케이션을 빌드할 수 있습니다.  
 
 > [!IMPORTANT]
-> 상시 암호화 열이 있는 서버에 일반 텍스트 데이터를 전달하는 경우 응용 프로그램은 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 개체를 사용해야 합니다. SqlParameter 개체를 사용하지 않고 리터럴 값을 전달하면 예외가 발생합니다.
+> Always Encrypted 열이 있는 서버에 일반 텍스트 데이터를 전달하는 경우 애플리케이션은 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 개체를 사용해야 합니다. SqlParameter 개체를 사용하지 않고 리터럴 값을 전달하면 예외가 발생합니다.
 > 
 > 
 
@@ -180,9 +185,10 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 
 패키지 관리자 콘솔에서 코드의 다음 두 줄을 실행합니다.
 
+```powershell
     Install-Package Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-
+```
 
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>연결 문자열을 수정하여 상시 암호화 사용
@@ -190,7 +196,7 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 
 상시 암호화를 사용하려면 **열 암호화 설정** 키워드를 연결 문자열에 추가하고 **사용함**으로 설정해야 합니다.
 
-이 연결 문자열에서 직접 설정하거나 [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx)를 사용하여 설정할 수 있습니다. 다음 섹션에서 응용 프로그램 예제는 **SqlConnectionStringBuilder**를 사용하는 방법을 보여 줍니다.
+이 연결 문자열에서 직접 설정하거나 [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx)를 사용하여 설정할 수 있습니다. 다음 섹션에서 애플리케이션 예제는 **SqlConnectionStringBuilder**를 사용하는 방법을 보여줍니다.
 
 ### <a name="enable-always-encrypted-in-the-connection-string"></a>연결 문자열에서 상시 암호화 사용
 연결 문자열에 다음 키워드를 추가합니다.
@@ -201,6 +207,7 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 ### <a name="enable-always-encrypted-with-sqlconnectionstringbuilder"></a>SqlConnectionStringBuilder로 상시 암호화 사용
 다음 코드는 [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx)을 [사용함](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx)으로 설정하여 상시 암호화를 사용하는 방법을 보여 줍니다.
 
+```CS
     // Instantiate a SqlConnectionStringBuilder.
     SqlConnectionStringBuilder connStringBuilder =
        new SqlConnectionStringBuilder("replace with your connection string");
@@ -208,10 +215,12 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
     // Enable Always Encrypted.
     connStringBuilder.ColumnEncryptionSetting =
        SqlConnectionColumnEncryptionSetting.Enabled;
+```
 
 ## <a name="register-the-azure-key-vault-provider"></a>Azure Key Vault 공급자 등록
 다음 코드는 ADO.NET 드라이버로 Azure Key Vault 공급자를 등록하는 방법을 보여 줍니다.
 
+```C#
     private static ClientCredential _clientCredential;
 
     static void InitializeAzureKeyVaultProvider()
@@ -227,8 +236,7 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
        providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
        SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
     }
-
-
+```
 
 ## <a name="always-encrypted-sample-console-application"></a>상시 암호화 샘플 콘솔 응용 프로그램
 이 샘플에서는 다음 방법을 설명합니다.
@@ -241,7 +249,7 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 **Program.cs** 내용을 다음 코드로 바꿉니다. Main 메서드 바로 위의 줄에서 전역 connectionString 변수에 대한 연결 문자열을 Azure 포털에서 유효한 연결 문자열로 바꿉니다. 이 코드에 대한 유일한 변경 내용입니다.
 
 작업에서 상시 암호화를 확인하려면 앱을 실행합니다.
-
+```CS
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -581,7 +589,7 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
         public DateTime BirthDate { get; set; }
     }
     }
-
+```
 
 
 ## <a name="verify-that-the-data-is-encrypted"></a>데이터가 암호화되는지 확인합니다.
@@ -589,13 +597,17 @@ SSMS로 Patients 데이터를 쿼리하여 서버의 실제 데이터가 암호�
 
 Clinic 데이터베이스에 대해 다음 쿼리를 실행합니다.
 
+```sql
     SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```
 
 암호화된 열에 일반 텍스트 데이터가 포함되지 않은 것을 볼 수 있습니다.
 
    ![새 콘솔 응용 프로그램](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 *열 암호화 설정=활성화* 매개 변수를 연결에 추가할 수 있습니다.
+SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면, 먼저 사용자가 Azure Key Vault에 대한 적절한 권한(*get*, *unwrapKey* 및 *verify*)을 갖고 있는지 확인해야 합니다. 자세한 내용은 [열 마스터 키(상시 암호화) 만들기 및 저장](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017)을 참조하세요.
+
+그런 다음, 연결하는 동안 *Column Encryption Setting=enabled* 매개 변수를 추가합니다.
 
 1. SSMS에서 **개체 탐색기**에 있는 서버를 마우스 오른쪽 단추로 클릭하고 **연결 끊기**를 선택합니다.
 2. **연결** > **데이터베이스 엔진**을 클릭하여 **서버에 연결** 창을 열고 **옵션**을 클릭합니다.
@@ -603,12 +615,13 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 *열 암�
    
     ![새 콘솔 응용 프로그램](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
 4. Clinic 데이터베이스에 대해 다음 쿼리를 실행합니다.
-   
-        SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-   
-     이제 암호화된 열에서 일반 텍스트 데이터를 볼 수 있습니다.
 
-    ![새 콘솔 응용 프로그램](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
+   ```sql
+      SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+   ```
+
+     이제 암호화된 열에서 일반 텍스트 데이터를 볼 수 있습니다.
+     ![새 콘솔 응용 프로그램](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -622,5 +635,5 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 *열 암�
 * [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)
 * [SQL Server 암호화](https://msdn.microsoft.com/library/bb510663.aspx)
 * [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
-* [상시 암호화 블로그](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [상시 암호화 블로그](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 

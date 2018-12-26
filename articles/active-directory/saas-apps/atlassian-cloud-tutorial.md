@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 7609cea0d16a52a927f87ee9ab6d4445bfc2eb20
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 68613b8613a2e5a9139b83eb23e66884659efc47
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228927"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114937"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>자습서: Atlassian Cloud와 Azure Active Directory 통합
 
@@ -39,7 +39,7 @@ Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용
 Atlassian Cloud와 Azure AD를 통합하도록 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
-- Atlassian 클라우드 제품에 대한 SAML(Security Assertion Markup Language) Single Sign-On 사용을 설정하려면 Identity Manager를 설정해야 합니다. [Identity Manager]( https://www.atlassian.com/enterprise/cloud/identity-manager)에 대해 자세히 알아보세요.
+- Atlassian Cloud 제품에 SAML(Security Assertion Markup Language) Single Sign-On을 사용하도록 설정하려면 Atlassian Access를 설정해야 합니다. [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager)에 대해 자세히 알아보세요.
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하는 경우 프로덕션 환경을 사용하지 않는 것이 좋습니다.
@@ -99,22 +99,27 @@ Atlassian Cloud에서 Azure AD Single Sign-on을 구성하려면 다음을 수�
 
     ![Single Sign-On 창](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_samlbase.png)
 
-3. **Atlassian Cloud 도메인 및 URL** 아래에서 IDP 시작 모드로 응용 프로그램을 구성하려는 경우 다음을 수행합니다.
+3. **IDP 시작** 모드로 응용 프로그램을 구성하려면 **Atlassian Cloud 도메인 및 URL** 아래에서 다음을 수행합니다.
 
     ![Atlassian Cloud 도메인 및 URL Single Sign-On 정보](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
     
-    a. **식별자** 상자에 **`https://auth.atlassian.com/saml/<unique ID>`** 를 입력합니다.
+    a. **식별자** 상자에 `https://auth.atlassian.com/saml/<unique ID>` 패턴을 사용하여 URL을 입력합니다.
     
-    나. **회신 URL** 상자에 **`https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`** 를 입력합니다.
+    나. **회신 URL** 상자에 `https://auth.atlassian.com/login/callback?connection=saml-<unique ID>` 패턴으로 URL을 입력합니다.
 
-    다. **릴레이 상태** 상자에 **`https://<instancename>.atlassian.net`** 구문으로 URL을 입력합니다.
+    다. **고급 URL 설정 표시**를 선택합니다.
 
-4. SP 시작 모드로 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택한 후 **로그온 URL** 상자에 **`https://<instancename>.atlassian.net`** 구문으로 URL을 입력합니다.
+    d. **릴레이 상태** 상자에 `https://<instancename>.atlassian.net` 패턴을 사용하여 URL을 입력합니다.
+
+    > [!NOTE]
+    > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값은 이 자습서의 뒷부분에 설명된 Atlassian Cloud SAML 구성 화면에서 얻습니다.
+
+4. SP 시작 모드로 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택한 후 **로그온 URL** 상자에 `https://<instancename>.atlassian.net` 패턴을 사용하여 URL을 입력합니다.
 
     ![Atlassian Cloud 도메인 및 URL Single Sign-On 정보](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
 
     > [!NOTE]
-    > 위의 값은 실제가 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL 값으로 업데이트합니다. Atlassian Cloud SAML 구성 화면에서 실제 값을 가져올 수 있습니다. 이러한 값은 자습서의 뒷부분에서 설명합니다.
+    > 위의 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Atlassian Cloud 클라이언트 지원 팀](https://support.atlassian.com/)에 문의하세요.
 
 5. **SAML 서명 인증서** 아래에서 **인증서(Base64)** 를 선택한 후 사용자의 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -136,7 +141,7 @@ Atlassian Cloud에서 Azure AD Single Sign-on을 구성하려면 다음을 수�
 
     ![Atlassian Cloud 구성](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_configure.png)
 
-10. 응용 프로그램에 SSO를 구성하려면 관리자 자격 증명을 사용하여 Atlassian Portal에 로그인합니다.
+10. 애플리케이션에 SSO를 구성하려면 관리자 자격 증명을 사용하여 Atlassian Portal에 로그인합니다.
 
 11. Single Sign-On을 구성하기 전에 도메인을 확인해야 합니다. 자세한 내용은 [Atlassian 도메인 확인](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) 문서를 참조하세요.
 
@@ -234,7 +239,7 @@ Azure AD 사용자가 Atlassian Cloud에 로그인하도록 하려면 Atlassian 
 
 2. **응용 프로그램** 목록에서 **Atlassian Cloud**를 선택합니다.
 
-    ![응용 프로그램 목록의 Atlassian Cloud 링크](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_app.png)
+    ![애플리케이션 목록의 Atlassian Cloud 링크](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_app.png)
 
 3. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 
@@ -255,7 +260,7 @@ Azure AD 사용자가 Atlassian Cloud에 로그인하도록 하려면 Atlassian 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 [액세스 패널]에서 **Atlassian Cloud** 타일을 선택하면 Atlassian Cloud 응용 프로그램에 자동으로 로그인됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

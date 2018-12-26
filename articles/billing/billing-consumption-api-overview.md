@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: 69e148089f48ebe04faceff87b08eb3f7127f8a3
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 88b7909e78f8bd36ce456eee60587acbbb94b6cd
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248370"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286751"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure Consumption API 개요 
 
@@ -81,7 +81,7 @@ API에는 다음이 포함됩니다.
 -   **기업 고객만** - 이 API는 EA 고객에게만 제공됩니다. 
     - 고객이 이 API를 호출하려면 엔터프라이즈 관리자 권한이 있어야 합니다. 
 
-자세한 내용은 [잔액 API](https://docs.microsoft.com/rest/api/consumption/getbalancesbybillingaccount)의 기술 사양을 참조하세요.
+자세한 내용은 [잔액 API](https://docs.microsoft.com/rest/api/consumption/balances)의 기술 사양을 참조하세요.
 
 ## <a name="budgets-api"></a>예산 API
 
@@ -103,7 +103,7 @@ API에는 다음이 포함됩니다.
 
 ## <a name="reservation-recommendations-api"></a>예약 권장 사항 API
 
-이 API를 사용하여 VM 예약 인스턴스 구매에 대한 권장 사항을 가져옵니다. 권장 사항은 고객이 예상 비용 절감 및 구매 금액을 분석할 수 있도록 설계되었습니다. 
+이 API를 사용하여 Reserved VM Instances 구매에 대한 권장 사항을 가져옵니다. 권장 사항은 고객이 예상 비용 절감 및 구매 금액을 분석할 수 있도록 설계되었습니다. 
 
 API에는 다음이 포함됩니다.
 

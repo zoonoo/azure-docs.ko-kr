@@ -1,6 +1,6 @@
 ---
 title: Azure 운영 보안 | Microsoft Docs
-description: Microsoft OMS(Operations Management Suite), 해당 서비스 및 작동 방법에 대해 알아봅니다.
+description: Microsoft Azure Log Analytics, 해당 서비스 및 작동 방법에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 60260d7bcff07a9ce2d680c84119d11271579e7d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c7d8ab8beced055d10cebcecf36d957b155c63b7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342272"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256224"
 ---
 # <a name="azure-operational-security"></a>Azure 운영 보안
 ## <a name="introduction"></a>소개
@@ -30,7 +30,7 @@ ms.locfileid: "37342272"
 고객 관점과 Microsoft 운영 관점 모두에서 Microsoft Azure에서 구현된 일련의 보안 제어를 보다 잘 이해할 수 있도록 Microsoft Azure에서 제공되는 운영 보안을 포괄적으로 살펴볼 수 있는 "Azure 운영 보안" 백서가 작성되었습니다.
 
 ### <a name="azure-platform"></a>Azure 플랫폼
-Azure는 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 장치를 지원하는 공용 클라우드 서비스 플랫폼입니다. Docker 통합으로 Linux 컨테이너를 실행할 수 있습니다. JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드할 수 있습니다. iOS, Android 및 Windows 장치용 백 엔드를 빌드할 수 있습니다. Azure 클라우드 서비스는 수백만의 개발자와 IT 전문가가 이미 믿고 사용하고 있는 동일한 수준의 기술을 지원합니다.
+Azure는 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 디바이스를 지원하는 공용 클라우드 서비스 플랫폼입니다. Docker 통합으로 Linux 컨테이너를 실행할 수 있습니다. JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드할 수 있습니다. iOS, Android 및 Windows 디바이스용 백 엔드를 빌드할 수 있습니다. Azure 클라우드 서비스는 수백만의 개발자와 IT 전문가가 이미 믿고 사용하고 있는 동일한 수준의 기술을 지원합니다.
 
 IT 자산을 만들거나 공용 클라우드 서비스 공급자로 마이그레이션하는 경우 조직에서 제공하는 서비스와 제어를 통해 응용 프로그램과 데이터를 보호할 수 있는 해당 조직의 능력에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
 
@@ -40,7 +40,7 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 응용 프�
 Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크를 기반으로 합니다.
 
 이 백서는 Microsoft Azure 클라우드 플랫폼 내에서 Azure 운영 보안에 대한 Microsoft 접근 방식을 간략히 설명하고 다음 서비스를 다룹니다.
-1.  [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
+1.  [Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
 2.  [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
@@ -53,17 +53,17 @@ Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, �
 6.  [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## <a name="microsoft-operations-management-suite"></a>Microsoft 작업 관리 도구 모음
+## <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
 
-Microsoft OMS(Operations Management Suite)는 하이브리드 클라우드를 위한 IT 관리 솔루션입니다. 단독으로 사용하거나 기존 System Center 배포를 확장할 수 있도록 OMS는 인프라의 클라우드 기반 관리를 위한 최대한의 유연성과 제어를 제공합니다.
+Microsoft Azure Log Analytics는 하이브리드 클라우드를 위한 IT 관리 솔루션입니다. 단독으로 사용하거나 기존 System Center 배포를 확장할 수 있도록 Log Analytics는 인프라의 클라우드 기반 관리를 위한 최대한의 유연성과 제어를 제공합니다.
 
-![Microsoft 작업 관리 도구 모음](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-OMS를 사용하면 경쟁력 있는 솔루션보다 저렴한 비용으로 온-프레미스, Azure, AWS, Windows Server, Linux, VMware 및 OpenStack을 포함한 모든 클라우드의 모든 인스턴스를 관리할 수 있습니다. 클라우드 우선 세계를 위해 구축된 OMS는 새로운 비즈니스 과제를 충족하고 새로운 워크로드, 응용 프로그램 및 클라우드 환경을 수용할 수 있는 가장 빠르고 비용 효율적인 방법으로 기업을 관리하기 위한 새로운 방법을 제공합니다.
+Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-프레미스, Azure, AWS, Windows Server, Linux, VMware 및 OpenStack을 포함한 모든 클라우드의 모든 인스턴스를 관리할 수 있습니다. 클라우드 우선 세계를 위해 구축된 Log Analytics는 새로운 비즈니스 과제를 충족하고 새로운 워크로드, 응용 프로그램 및 클라우드 환경을 수용할 수 있는 가장 빠르고 비용 효율적인 방법으로 기업을 관리하기 위한 새로운 방법을 제공합니다.
 
-### <a name="oms-services"></a>OMS 서비스
+### <a name="log-analytics-services"></a>Log Analytics 서비스
 
-OMS의 핵심 기능은 Azure에서 실행되는 서비스 집합을 통해 제공됩니다. 각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다.
+Log Analytics의 핵심 기능은 Azure에서 실행되는 서비스 집합을 통해 제공됩니다. 각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다.
 
 | 서비스  | 설명|
 | :------------- | :-------------|
@@ -74,7 +74,7 @@ OMS의 핵심 기능은 Azure에서 실행되는 서비스 집합을 통해 제�
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)는 관리형 리소스의 데이터를 중앙 리포지토리로 수집하여 OMS에 대한 모니터링 서비스를 제공합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics)는 관리되는 리소스의 데이터를 중앙 리포지토리로 수집하여 모니터링 서비스를 제공합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다.
 
 
 이 방법을 사용하면 다양한 원본의 데이터를 통합할 수 있으므로 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 모든 종류의 데이터에 모든 작업을 제공할 수 있도록 데이터 컬렉션을 해당 데이터에서 수행된 작업과 명확하게 구분합니다.
@@ -92,17 +92,17 @@ Log Analytics 서비스는 다음 방법을 사용하여 클라우드 기반 데
 
 ### <a name="azure-backup"></a>Azure Backup
 
-[Azure Backup](http://azure.microsoft.com/documentation/services/backup)은 데이터 백업 및 복원 서비스를 제공하며 OMS 제품 및 서비스 계열의 일부입니다.
+[Azure Backup](https://azure.microsoft.com/documentation/services/backup)은 데이터 백업 및 복원 서비스를 제공하며 Log Analytics 제품 및 서비스 계열의 일부입니다.
 자본 투자 없이 최소한의 운영 비용으로 응용 프로그램 데이터를 보호하고 수년 간 보관합니다. SQL Server, SharePoint와 같은 응용 프로그램 워크로드 외에도 물리적 및 가상 Windows 서버의 데이터를 백업할 수 있습니다. 또한 중복 및 장기 저장을 위해 [System Center DPM(Data Protection Manager)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager)에서 보호된 데이터를 Azure로 복제하는 데 사용할 수 있습니다.
 
 
 Azure Backup의 보호 데이터는 특정 지리적 지역에 있는 백업 저장소에 저장됩니다. 데이터는 동일 지역 내에서 복제되며, 보관 유형에 따라 복원력을 높이기 위해 다른 지역에 복제될 수 있습니다.
 
 ### <a name="management-solutions"></a>관리 솔루션
-[Microsoft OMS(Operations Management Suite)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)는 온-프레미스 및 클라우드 인프라를 관리하고 보호하는 데 유용한 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.
 
 
-[관리 솔루션](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)은 하나 이상의 OMS 서비스를 사용하여 특정 관리 시나리오를 구현하는 미리 패키지된 논리 집합입니다. 사용자가 간편하게 Azure 구독에 추가하여 OMS 투자 가치를 높일 수 있도록 Microsoft와 파트너의 여러 솔루션이 제공됩니다. 파트너는 자체 솔루션을 만들어 응용 프로그램과 서비스를 지원하고, Azure Marketplace 또는 빠른 시작 템플릿을 통해 사용자에게 제공할 수 있습니다.
+[관리 솔루션](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)은 하나 이상의 Log Analytics 서비스를 사용하여 특정 관리 시나리오를 구현하는 미리 패키지된 논리 집합입니다. Azure 구독에 쉽게 추가할 수 있는 Microsoft와 파트너의 다양한 솔루션을 사용할 수 있기 때문에 Log Analytics에 대한 투자 가치를 높일 수 있습니다. 파트너는 자체 솔루션을 만들어 응용 프로그램과 서비스를 지원하고, Azure Marketplace 또는 빠른 시작 템플릿을 통해 사용자에게 제공할 수 있습니다.
 
 
 ![관리 솔루션](./media/azure-operational-security/azure-operational-security-fig4.png)
@@ -119,7 +119,7 @@ Azure Security Center는 Azure 리소스를 보호하는 데 도움이 됩니다
 
 보안 정책은 지정된 구독 또는 리소스 그룹 내에서 리소스에 대해 권장되는 제어 집합을 정의합니다.
 
-보안 센터에서 회사의 보안 요구 사항 및 응용 프로그램 유형 또는 데이터 민감도에 따라 정책을 정의합니다.
+Security Center에서 회사의 보안 요구 사항 및 애플리케이션 유형 또는 데이터 민감도에 따라 정책을 정의합니다.
 
 ![보안 정책 및 권장 사항](./media/azure-operational-security/azure-operational-security-fig5.png)
 
@@ -164,7 +164,7 @@ Azure Security Center는 크래시 덤프 파일의 임시 복사본을 수집�
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-[OMS 보안](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) 및 감사 솔루션을 사용하면 IT에서 모든 리소스를 적극적으로 모니터링하여 보안 문제의 영향을 최소화할 수 있습니다. OMS 보안 및 감사에는 리소스 모니터링에 사용할 수 있는 보안 도메인이 있습니다. 보안 도메인을 통해 옵션에 빠르게 액세스할 수 있으며, 여기서는 보안 모니터링과 관련하여 다음 도메인에 대해 자세히 살펴봅니다.
+[Log Analytics 보안](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) 및 감사 솔루션을 사용하면 IT가 모든 리소스를 능동적으로 모니터링하여 보안 문제의 영향을 최소화할 수 있습니다. Log Analytics 보안 및 감사에는 리소스 모니터링에 사용할 수 있는 보안 도메인이 있습니다. 보안 도메인을 통해 옵션에 빠르게 액세스할 수 있으며, 여기서는 보안 모니터링과 관련하여 다음 도메인에 대해 자세히 살펴봅니다.
 
 -   맬웨어 평가
 -   업데이트 평가
@@ -241,7 +241,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 
 [Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 로깅을 수행하며 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다. Storage 분석 로깅은 [Blob, 큐 및 Table service](https://docs.microsoft.com/azure/storage/storage-introduction)에서 사용할 수 있습니다. 저장소 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
 
-이 정로를 사용하면 개별 요청을 모니터링하고 저장소 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다. 서비스 끝점에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 저장소 계정의 활동이 Blob 끝점에는 있지만 테이블 또는 큐 끝점에는 없는 경우 Blob service와 관련된 로그만 만들어집니다.
+이 정로를 사용하면 개별 요청을 모니터링하고 저장소 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다. 서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 저장소 계정의 활동이 Blob 엔드포인트에는 있지만 테이블 또는 큐 엔드포인트에는 없는 경우 Blob service와 관련된 로그만 만들어집니다.
 
 저장소 분석을 사용하려면 모니터링할 각 서비스에 대해 저장소 분석을 개별적으로 사용하도록 설정해야 합니다. 이 작업은 [Azure Portal](https://portal.azure.com/)에서 수행할 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 저장소 분석을 사용하도록 설정할 수도 있습니다. [서비스 속성 설정] 작업을 사용하여 각 서비스에 대해 개별적으로 저장소 분석을 사용하도록 설정합니다.
 
@@ -273,9 +273,9 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 | 로그 만들기/삭제 등 저장소 분석 자체에서 수행한 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) 및 [저장소 분석 로그 형식](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) 항목에 나와 있습니다. | 기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) 및 [저장소 분석 로그 형식](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format)에서 설명하고 있습니다. |
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
-Azure AD에는 다단계 인증, 장치 등록, 셀프 서비스 암호 관리, 셀프 서비스 그룹 관리, 권한 있는 계정 관리, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 광범위한 감사, 보안 모니터링 및 경고를 포함한 완벽한 ID 관리 기능이 포함되어 있습니다.
+Azure AD에는 다단계 인증, 디바이스 등록, 셀프 서비스 암호 관리, 셀프 서비스 그룹 관리, 권한 있는 계정 관리, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 광범위한 감사, 보안 모니터링 및 경고를 포함한 완벽한 ID 관리 기능이 포함되어 있습니다.
 
--   Azure AD 다단계 인증 및 조건부 액세스를 사용하여 응용 프로그램 보안을 개선합니다.
+-   Azure AD 다단계 인증 및 조건부 액세스를 사용하여 애플리케이션 보안을 개선합니다.
 
 -   응용 프로그램 사용을 모니터링하고 보안 보고 및 모니터링을 통해 비즈니스를 고급 위협으로부터 보호합니다.
 
@@ -285,12 +285,12 @@ Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및
 
 | 보안 보고서  | 작업 보고서| 감사 보고서 |
 | :------------- | :-------------| :-------------|
-|알 수 없는 원본에서 로그인 | 응용 프로그램 사용: 요약 | 디렉터리 감사 보고서 |
+|알 수 없는 원본에서 로그인 | 애플리케이션 사용: 요약 | 디렉터리 감사 보고서 |
 |여러 번의 실패 후 로그인 | 응용 프로그램 사용: 세부 |   |
-|여러 지역에서의 로그인 | 응용 프로그램 대시보드 |  |
+|여러 지역에서의 로그인 | 애플리케이션 대시보드 |  |
 |의심스러운 작업이 있는 IP 주소에서 로그인 |계정 프로비전 오류 |  |
 |비정상적인 로그인 작업 |개별 사용자 장치 |  |
-|감염 가능성이 있는 장치에서 로그인 |개별 사용자 활동 |   |
+|감염 가능성이 있는 디바이스에서 로그인 |개별 사용자 활동 |   |
 |비정상적인 로그인 활동을 포함하는 사용자 |그룹 활동 보고서 |   |
 | |암호 재설정 등록 활동 보고서 |   |
 | |암호 재설정 활동 |   | |
@@ -308,11 +308,11 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 개인 정보와 데이터를 보호하는 동시에 조직의 IT 인프라를 관리하는 데 유용한 소프트웨어와 서비스를 제공합니다. Microsoft는 데이터를 다른 사람에게 맡길 때 해당 신뢰에는 엄격한 보안이 필요하다는 것을 알고 있습니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다. 데이터 보안 및 보호는 Microsoft의 최우선 과제입니다.
+이 문서에서는 개인 정보와 데이터를 보호하는 동시에 조직의 IT 인프라를 관리하는 데 유용한 소프트웨어와 서비스를 제공합니다. Microsoft는 데이터를 다른 사람에게 맡길 때 해당 신뢰에는 엄격한 보안이 필요하다는 것을 알고 있습니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.  데이터 보안 및 보호는 Microsoft의 최우선 과제입니다.
 
 이 문서에서 설명하는 내용은 다음과 같습니다.
 
--   OMS(Operations Management Suite)에서 데이터를 수집, 처리 및 보호하는 방법에 대해 설명합니다.
+-   Log Analytics 제품군에서 데이터를 수집, 처리 및 보호하는 방법입니다.
 
 -   여러 데이터 원본에서 이벤트를 빠르게 분석합니다. 보안 위험을 식별하고 위협과 공격의 범위와 영향을 파악하여 보안 위반의 손해를 완화합니다.
 
@@ -335,7 +335,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 Microsoft는 클라우드 인프라의 탄력성을 보장하고 공격으로부터 방어할 수 있도록 보안에 주의하면서 서비스와 소프트웨어를 설계합니다.
 
-- [Operations Management Suite | 보안 및 규정 준수](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Log Analytics | 보안 및 규정 준수](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 Microsoft 보안 데이터 및 분석을 사용하여 더 지능적이고 효과적인 위협 검색을 수행합니다.
 

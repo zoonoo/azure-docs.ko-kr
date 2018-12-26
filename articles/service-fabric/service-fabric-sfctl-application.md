@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 3ecc5a03ff1847dc11c5a5047e35566a4e68fec2
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 40ec204f105b32c8b7d9e2dda6f6f3c3023b2d44
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763700"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495461"
 ---
 # <a name="sfctl-application"></a>sfctl application
 응용 프로그램 및 응용 프로그램 종류를 만들고, 삭제하고, 관리합니다.
@@ -78,7 +78,7 @@ ms.locfileid: "34763700"
 ## <a name="sfctl-application-delete"></a>sfctl application delete
 기존 Microsoft Azure Service Fabric 응용 프로그램을 삭제합니다.
 
-기존 Microsoft Azure Service Fabric 응용 프로그램을 삭제합니다. 응용 프로그램을 삭제하려면 먼저 만들어야 합니다. 응용프로그램을 삭제하면 해당 응용프로그램의 일부인 모든 서비스가 삭제됩니다. 기본적으로 Service Fabric은 서비스 복제를 정상적으로 닫은 후 다음 서비스를 삭제합니다. 하지만 서비스에서 복제본을 정상적으로 닫는 데 문제가 있으면 삭제 작업이 오래 걸리거나 중단될 수 있습니다. 선택적인 ForceRemove 플래그를 사용하여 정상적인 닫기 시퀀스를 건너 뛰고 응용 프로그램 및 모든 서비스를 강제로 삭제합니다.
+응용 프로그램을 삭제하려면 먼저 만들어야 합니다. 응용프로그램을 삭제하면 해당 응용프로그램의 일부인 모든 서비스가 삭제됩니다. 기본적으로 Service Fabric은 서비스 복제를 정상적으로 닫은 후 다음 서비스를 삭제합니다. 하지만 서비스에서 복제본을 정상적으로 닫는 데 문제가 있으면 삭제 작업이 오래 걸리거나 중단될 수 있습니다. 선택적인 ForceRemove 플래그를 사용하여 정상적인 닫기 시퀀스를 건너 뛰고 응용 프로그램 및 모든 서비스를 강제로 삭제합니다.
 
 ### <a name="arguments"></a>인수
 
@@ -101,7 +101,7 @@ ms.locfileid: "34763700"
 ## <a name="sfctl-application-deployed"></a>sfctl application deployed
 Microsoft Azure Service Fabric 노드에서 배포된 응용 프로그램에 대한 정보를 가져옵니다.
 
-Microsoft Azure Service Fabric 노드에서 배포된 응용 프로그램에 대한 정보를 가져옵니다.  이 쿼리는 제공되는 응용 프로그램 ID가 시스템 응용 프로그램용인 경우 시스템 응용 프로그램 정보를 반환합니다. 결과는 활성, 활성화 중 및 상태 다운로드 중인 배포된 응용 프로그램을 포함합니다. 이 쿼리에서는 노드 이름이 클러스터의 노드에 해당해야 합니다. 제공된 노드 이름이 클러스터의 활성 Service Fabric 노드를 가리키지 않으면 쿼리가 실패합니다.
+이 쿼리는 제공되는 응용 프로그램 ID가 시스템 응용 프로그램용인 경우 시스템 응용 프로그램 정보를 반환합니다. 결과는 활성, 활성화 중 및 상태 다운로드 중인 배포된 응용 프로그램을 포함합니다. 이 쿼리에서는 노드 이름이 클러스터의 노드에 해당해야 합니다. 제공된 노드 이름이 클러스터의 활성 Service Fabric 노드를 가리키지 않으면 쿼리가 실패합니다.
 
 ### <a name="arguments"></a>인수
 
@@ -225,7 +225,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 ## <a name="sfctl-application-list"></a>sfctl application list
 지정된 필터와 일치하는 Service Fabric 클러스터에서 만든 응용프로그램 목록을 가져옵니다.
 
-Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어지는 과정에 있으며 지정된 필터와 일치하는 응용 프로그램에 대한 정보를 가져옵니다. 응답에는 이름, 유형, 상태, 매개 변수 및 응용 프로그램에 관한 기타 세부 정보가 포함됩니다. 응용 프로그램이 한 페이지에 맞지 않는 경우, 결과의 한 페이지가 연속 토큰으로 반환되어 다음 페이지를 가져오는 데 사용될 수 있습니다. 필터 ApplicationTypeName 및 ApplicationDefinitionKindFilter는 동시에 지정할 수 없습니다.
+Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어지는 과정에 있으며 지정된 필터와 일치하는 응용 프로그램에 대한 정보를 가져옵니다. 응답에는 이름, 유형, 상태, 매개 변수 및 응용 프로그램에 관한 기타 세부 정보가 포함됩니다. 응용 프로그램이 한 페이지에 맞지 않는 경우, 결과 한 페이지가 연속 토큰으로 반환되어 다음 페이지를 가져오는 데 사용될 수 있습니다. 필터 ApplicationTypeName 및 ApplicationDefinitionKindFilter는 동시에 지정할 수 없습니다.
 
 ### <a name="arguments"></a>인수
 
@@ -273,7 +273,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
 응용 프로그램 유형을 설명하는 매니페스트를 가져옵니다.
 
-응용 프로그램 유형을 설명하는 매니페스트를 가져옵니다. 응답에 응용 프로그램 매니페스트 XML이 문자열로 포함됩니다.
+응답에 응용 프로그램 매니페스트 XML이 문자열로 포함됩니다.
 
 ### <a name="arguments"></a>인수
 
@@ -353,7 +353,7 @@ Microsoft Azure Service Fabric 응용 프로그램에 대한 상태 보고서를
 ## <a name="sfctl-application-type"></a>sfctl application type
 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 응용 프로그램 종류의 목록을 가져옵니다.
 
-Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비전되는 프로세스에 있는 응용 프로그램 유형에 대한 정보를 반환합니다. 이러한 결과는 이름이 매개 변수로 지정된 것과 정확히 일치하며 주어진 쿼리 매개 변수를 준수해야 하는 응용 프로그램 유형에서 나온 값입니다. 하나의 응용 프로그램 형식으로 반환된 각 버전과 함께 응용 프로그램 형식 이름과 일치하는 응용 프로그램 형식의 모든 버전입니다. 응답에는 이름 , 버전, 상태 및 응용 프로그램에 관한 기타 세부 정보가 포함됩니다. 이것은 페이징된 쿼리로 응용 프로그램 유형 모두가 한 페이지에 맞지 않는 경우, 결과의 한 페이지가 연속 토큰으로 반환되어 다음 페이지를 가져오는 데 사용될 수 있습니다. 예를 들어 10개의 응용 프로그램 형식이 있지만 페이지는 처음 세 응용 프로그램 형식에만 맞거나, 최대 결과가 3으로 설정된다면, 3이 반환됩니다. 결과의 나머지 부분에 액세스하려면 다음 쿼리에 반환된 연속 토큰을 사용하여 후속 페이지를 검색합니다. 후속 페이지가 없다면 공백인 연속 토큰이 반환됩니다.
+Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비전되는 프로세스에 있는 응용 프로그램 유형에 대한 정보를 반환합니다. 이러한 결과는 이름이 매개 변수로 지정된 것과 정확히 일치하며 주어진 쿼리 매개 변수를 준수해야 하는 응용 프로그램 유형에서 나온 값입니다. 하나의 응용 프로그램 형식으로 반환된 각 버전과 함께 응용 프로그램 형식 이름과 일치하는 응용 프로그램 형식의 모든 버전입니다. 응답에는 이름 , 버전, 상태 및 응용 프로그램에 관한 기타 세부 정보가 포함됩니다. 이것은 페이징된 쿼리로 응용 프로그램 유형 모두가 한 페이지에 맞지 않는 경우, 결과 한 페이지가 연속 토큰으로 반환되어 다음 페이지를 가져오는 데 사용될 수 있습니다. 예를 들어 10개의 응용 프로그램 형식이 있지만 페이지는 처음 3개 응용 프로그램 형식에만 맞거나, 최대 결과가 3으로 설정된다면, 3이 반환됩니다. 결과의 나머지 부분에 액세스하려면 다음 쿼리에 반환된 연속 토큰을 사용하여 후속 페이지를 검색합니다. 후속 페이지가 없다면 공백인 연속 토큰이 반환됩니다.
 
 ### <a name="arguments"></a>인수
 
@@ -379,7 +379,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 ## <a name="sfctl-application-type-list"></a>sfctl application type-list
 Microsoft Azure Service Fabric 클러스터에서 응용 프로그램의 유형 목록을 가져옵니다.
 
-Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비전되는 프로세스에 있는 응용 프로그램 유형에 대한 정보를 반환합니다. 응용 프로그램 유형의 각 버전은 하나의 응용 프로그램 유형으로 반환됩니다. 응답에는 이름 , 버전, 상태 및 응용 프로그램에 관한 기타 세부 정보가 포함됩니다. 이것은 페이징된 쿼리로 응용 프로그램 유형 모두가 한 페이지에 맞지 않는 경우, 결과의 한 페이지가 연속 토큰으로 반환되어 다음 페이지를 가져오는 데 사용될 수 있습니다. 예를 들어 10개의 응용 프로그램 형식이 있지만 페이지는 처음 세 응용 프로그램 형식에만 맞거나, 최대 결과가 3으로 설정된다면, 3이 반환됩니다. 결과의 나머지 부분에 액세스하려면 다음 쿼리에 반환된 연속 토큰을 사용하여 후속 페이지를 검색합니다. 후속 페이지가 없다면 공백인 연속 토큰이 반환됩니다.
+Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비전되는 프로세스에 있는 응용 프로그램 유형에 대한 정보를 반환합니다. 응용 프로그램 유형의 각 버전은 하나의 응용 프로그램 유형으로 반환됩니다. 응답에는 이름 , 버전, 상태 및 응용 프로그램에 관한 기타 세부 정보가 포함됩니다. 이것은 페이징된 쿼리로 응용 프로그램 유형 모두가 한 페이지에 맞지 않는 경우, 결과 한 페이지가 연속 토큰으로 반환되어 다음 페이지를 가져오는 데 사용될 수 있습니다. 예를 들어 10개의 응용 프로그램 형식이 있지만 페이지는 처음 3개 응용 프로그램 형식에만 맞거나, 최대 결과가 3으로 설정된다면, 3이 반환됩니다. 결과의 나머지 부분에 액세스하려면 다음 쿼리에 반환된 연속 토큰을 사용하여 후속 페이지를 검색합니다. 후속 페이지가 없다면 공백인 연속 토큰이 반환됩니다.
 
 ### <a name="arguments"></a>인수
 
@@ -404,7 +404,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 ## <a name="sfctl-application-unprovision"></a>sfctl application unprovision
 클러스터에서 Microsoft Azure Service Fabric 응용 프로그램 유형을 제거하거나 등록 취소합니다.
 
-클러스터에서 Microsoft Azure Service Fabric 응용 프로그램 유형을 제거하거나 등록 취소합니다. 이 작업은 응용 프로그램 형식의 모든 응용 프로그램 인스턴스가 삭제된 경우에만 수행될 수 있습니다. 응용 프로그램 형식이 등록 취소되면 이 특정 응용 프로그램 형식에 대해서는 새 응용 프로그램 인스턴스가 만들어질 수 없습니다.
+이 작업은 응용 프로그램 형식의 모든 응용 프로그램 인스턴스가 삭제된 경우에만 수행될 수 있습니다. 응용 프로그램 형식이 등록 취소되면 이 특정 응용 프로그램 형식에 대해서는 새 응용 프로그램 인스턴스가 만들어질 수 없습니다.
 
 ### <a name="arguments"></a>인수
 
@@ -551,7 +551,6 @@ Microsoft Azure Service Fabric 응용 프로그램 패키지를 이미지 저장
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
-
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,5 +1,5 @@
 ---
-title: 신뢰할 수 있는 Azure 마이크로 서비스 구성 | Microsoft Docs
+title: Azure Service Fabric Reliable Services 구성 | Microsoft Docs
 description: Azure 서비스 패브릭에서 상태 저장 Reliable Services를 구성하는 방법을 알아봅니다.
 services: Service-Fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 3e058242840a3fa8b86c9ae9d5a0940cc02f04d2
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: ee8010fbbadc011e04d6d43599d671a1f926bb5f
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020392"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049659"
 ---
 # <a name="configure-stateful-reliable-services"></a>상태 저장 Reliable Services 구성
 Reliable Services에는 두 가지 구성 설정 집합이 있습니다. 한 집합은 클러스터의 모든 Reliable Services에 대해 전역인 반면 다른 집합은 특정 Reliable Services에 한정됩니다.
@@ -112,7 +112,7 @@ ReplicatorConfig
 | Name | 단위 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |초 |0.015 |작업을 수신한 후 주 복제본에 대한 승인을 다시 보내기 전에 보조 복제본의 복제자가 대기하는 시간. 이 간격 내에서 처리하는 작업에 대해 보낼 나머지 승인은 모두 하나의 응답으로 전송됩니다. |
-| ReplicatorEndpoint |해당 없음 |기본값 없음--필수 매개 변수 |주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 끝점을 참조해야 합니다. 서비스 매니페스트에서 끝점 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md) 를 참조하세요. |
+| ReplicatorEndpoint |해당 없음 |기본값 없음--필수 매개 변수 |주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 엔드포인트를 참조해야 합니다. 서비스 매니페스트에서 엔드포인트 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md) 를 참조하세요. |
 | MaxPrimaryReplicationQueueSize |작업의 수 |8192 |기본 큐의 최대 작업 수. 작업은 주 복제자가 모든 보조 복제자로부터 승인을 받은 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다. |
 | MaxSecondaryReplicationQueueSize |작업의 수 |16384 |보조 큐의 최대 작업 수. 작업은 지속성을 통해 상태를 항상 사용 가능하도록 설정한 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다. |
 | CheckpointThresholdInMB |MB |50 |상태가 검사점이 된 후의 로그 파일 공간 크기 |
@@ -124,6 +124,7 @@ ReplicatorConfig
 | SharedLogId |GUID |"" |이 복제본과 함께 사용되는 공유 로그 파일을 식별하는 데 사용할 고유한 GUID를 지정합니다. 일반적으로 서비스는 이 설정을 사용해서는 안 됩니다. 그러나 SharedLogId가 지정된 경우 SharedLogPath도 지정해야 합니다. |
 | SharedLogPath |정규화된 경로 이름 |"" |이 복제본의 공유 로그 파일을 생성할 정규화된 경로를 지정합니다. 일반적으로 서비스는 이 설정을 사용해서는 안 됩니다. 그러나 SharedLogPath가 지정된 경우 SharedLogId도 지정해야 합니다. |
 | SlowApiMonitoringDuration |초 |300 |관리되는 API 호출에 대한 모니터링 간격을 설정합니다. 예: 사용자 제공 백업 콜백 함수. 이 간격이 지나면 상태 경고 보고서가 상태 관리자로 전송됩니다. |
+| LogTruncationIntervalSeconds |초 |0 |각 복제본에서 로그 잘림이 시작되는 구성 가능한 간격입니다. 로그 크기뿐 아니라 시간을 기준으로 로그가 잘리도록 하는 데 사용합니다. 이 설정은 신뢰할 수 있는 디렉터리에서 삭제된 항목을 강제 제거합니다. 따라서 삭제된 항목이 적절한 시기에 제거되게 하는 데 사용할 수 있습니다. |
 
 ### <a name="sample-configuration-via-code"></a>코드를 통한 샘플 구성
 ```csharp

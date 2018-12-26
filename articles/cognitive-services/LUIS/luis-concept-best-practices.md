@@ -1,33 +1,34 @@
 ---
-title: LUIS 모범 사례 이해 - Azure | Microsoft Docs
+title: LUIS로 앱을 빌드하는 경우의 모범 사례 - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: 최상의 결과를 얻기 위해 LUIS 모범 사례를 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 6c4e4c7acb5083e758aa7c6b94e2464a85ae8e9e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.topic: conceptual
+ms.date: 09/10/2018
+ms.author: diberry
+ms.openlocfilehash: 6b7b9c8a2a3e7da1628ef3e6f93a4b632ce38615
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951116"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637783"
 ---
-# <a name="best-practices"></a>모범 사례
+# <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Cognitive Services로 Language Understanding 앱을 빌드하는 경우의 모범 사례
 앱 작성 프로세스를 사용하여 LUIS 앱을 빌드합니다. 
 
 * 언어 모델 빌드
 * 몇 가지 학습 예제 발화를 추가합니다(의도당 10~15개).
 * 게시 
-* 끝점에서 테스트 
+* 엔드포인트에서 테스트 
 * 기능 추가
 
-앱이 [게시](luis-how-to-publish-app.md)된 후 기능 추가, 게시 및 끝점에서 테스트의 작성 주기를 사용합니다. 다른 예제 발화를 추가하는 방식으로 다음 작성 주기를 시작하지 마세요. 이렇게 하면 LUIS는 실제 사용자 발화를 사용하여 모델을 학습할 수 없습니다. 
+앱이 [게시](luis-how-to-publish-app.md)된 후 기능 추가, 게시 및 엔드포인트에서 테스트의 작성 주기를 사용합니다. 다른 예제 발화를 추가하는 방식으로 다음 작성 주기를 시작하지 마세요. 이렇게 하면 LUIS는 실제 사용자 발화를 사용하여 모델을 학습할 수 없습니다. 
 
-LUIS가 학습을 효율적으로 진행하려면 예제 및 끝점 발화의 현재 집합이 신뢰할 수 있는 높은 예측 점수를 반환할 때까지 발화를 확장하지 마세요. 활성 학습, [패턴](luis-concept-patterns.md) 및 [구문 목록](luis-concept-feature.md)을 사용하여 점수를 개선합니다. 
+LUIS가 학습을 효율적으로 진행하려면 예제 및 엔드포인트 발화의 현재 집합이 신뢰할 수 있는 높은 예측 점수를 반환할 때까지 발화를 확장하지 마세요. 활성 학습, [패턴](luis-concept-patterns.md) 및 [구문 목록](luis-concept-feature.md)을 사용하여 점수를 개선합니다. 
 
 ## <a name="do-and-dont"></a>허용 및 금지
 다음 목록에는 LUIS 앱의 모범 사례가 포함되어 있습니다.
@@ -60,24 +61,24 @@ Book a hotel
 LUIS의 예측 데이터를 사용하여 의도가 겹치는지 확인합니다. 겹치는 의도가 있으면 LUIS가 제대로 구별하지 못할 수 있습니다. 결과는 상위 점수 의도가 다른 의도에 너무 가깝다는 것입니다. LUIS는 매번 학습할 데이터를 통해 똑같은 경로를 사용하지 않으므로 겹치는 의도는 학습에서 첫 번째 또는 두 번째가 될 수 있습니다. 이 문제가 발생하지 않도록 각 의도의 발화 점수를 멀리 떨어지게 합니다. 의도를 분명히 구별하면 매번 상위 의도가 예측됩니다. 
  
 ## <a name="do-build-the-app-iteratively"></a>반복적으로 앱 빌드
-[예제 발화](luis-concept-utterance.md) 또는 끝점 발화로 사용되지 않는 별도의 ‘블라인드’ 테스트 집합을 유지합니다. 테스트 집합의 앱을 계속 개선합니다. 실제 사용자 발화를 반영하도록 테스트 집합을 조정합니다. 이 블라인드 테스트 집합을 사용하여 각 반복을 평가합니다. 
+[예제 발화](luis-concept-utterance.md) 또는 엔드포인트 발화로 사용되지 않는 별도의 ‘블라인드’ 테스트 집합을 유지합니다. 테스트 집합의 앱을 계속 개선합니다. 실제 사용자 발화를 반영하도록 테스트 집합을 조정합니다. 이 블라인드 테스트 집합을 사용하여 각 반복을 평가합니다. 
 
-개발자에게는 세 개의 데이터 집합이 있어야 합니다. 첫 번째는 모델을 빌드하기 위한 예제 발화입니다. 두 번째는 끝점에서 모델을 테스트하는 데 사용됩니다. 세 번째는 [일괄 테스트](luis-how-to-batch-test.md)에서 사용되는 블라인드 테스트 데이터입니다. 이 마지막 집합은 응용 프로그램 학습에 사용되지 않고 끝점에서 전송되지 않습니다.  
+개발자에게는 세 개의 데이터 집합이 있어야 합니다. 첫 번째는 모델을 빌드하기 위한 예제 발화입니다. 두 번째는 엔드포인트에서 모델을 테스트하는 데 사용됩니다. 세 번째는 [일괄 테스트](luis-how-to-batch-test.md)에서 사용되는 블라인드 테스트 데이터입니다. 이 마지막 집합은 응용 프로그램 학습에 사용되지 않고 엔드포인트에서 전송되지 않습니다.  
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>이후 반복에서 구문 목록 및 패턴 추가
 [구문 목록](luis-concept-feature.md)을 사용하면 앱 도메인에 관련된 단어의 사전을 정의할 수 있습니다. 몇 가지 단어를 사용하여 구문 목록을 시드한 다음, 제안 기능을 사용면 LUIS가 어휘에서 더 많은 단어를 인식합니다. 구문 목록이 정확하게 일치하지 않으므로 모든 단어를 어휘에 추가하지는 마세요. 
 
-서로 매우 비슷한 끝점의 실제 사용자 발화는 단어 선택 및 배치 패턴을 표시할 수 있습니다. [패턴](luis-concept-patterns.md) 기능은 이 단어 선택 및 배치를 정규식과 함께 사용하여 예측 정확도를 개선합니다. 패턴의 정규식은 패턴을 일치시키는 동안 무시하려는 단어 및 문장 부호를 고려합니다. 
+서로 매우 비슷한 엔드포인트의 실제 사용자 발화는 단어 선택 및 배치 패턴을 표시할 수 있습니다. [패턴](luis-concept-patterns.md) 기능은 이 단어 선택 및 배치를 정규식과 함께 사용하여 예측 정확도를 개선합니다. 패턴의 정규식은 패턴을 일치시키는 동안 무시하려는 단어 및 문장 부호를 고려합니다. 
 
 문장 부호를 무시할 수 있도록 문장 부호에 패턴의 선택적 구문을 사용합니다.
 
-신뢰도가 왜곡되므로 앱이 끝점 요청을 수신하기 전에 이러한 사례를 적용하지 마세요.  
+신뢰도가 왜곡되므로 앱이 엔드포인트 요청을 수신하기 전에 이러한 사례를 적용하지 마세요.  
 
 ## <a name="do-add-example-utterances-to-none-intent"></a>None 의도에 예제 발화 추가
 이는 응용 프로그램 외부의 모든 것을 나타내는 대체 의도입니다. LUIS 앱의 나머지 부분에 있는 예제 발화 10개마다 하나의 예제 발화를 None 의도에 추가합니다.
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>활성 학습의 제안 기능 활용
-의도에 더 많은 예제 의도를 추가하는 대신 정기적으로 [활성 학습](luis-how-to-review-endoint-utt.md)의 **끝점 발화 검토**를 사용합니다. 앱이 지속적으로 끝점 발화를 수신하기 때문에 이 목록은 계속 증가하고 변경됩니다.
+의도에 더 많은 예제 의도를 추가하는 대신 정기적으로 [활성 학습](luis-how-to-review-endoint-utt.md)의 **엔드포인트 발화 검토**를 사용합니다. 앱이 지속적으로 엔드포인트 발화를 수신하기 때문에 이 목록은 계속 증가하고 변경됩니다.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>앱 성능 모니터링
 테스트 집합을 사용하여 예측 정확도를 모니터링합니다. 
@@ -93,7 +94,7 @@ LUIS는 의도의 발화에서 변형을 예측합니다. 전체 의미는 동�
 
 |같은 형식 사용 안 함|다양한 형식 사용|
 |--|--|
-|Buy a ticket to Seattle<br>Buy a ticket to Paris<br>Buy a ticket to Orlando|Buy 1 ticket to Seattle<br>Reserve two seats on the red eye to Paris next Monday<br>I would like to book 3 tickets to Orlando for spring break|
+|Buy a ticket to Seattle<br>파리행 항공권 구입<br>올랜도행 항공권 구입|시애틀행 항공권 1매 구입<br>다음 월요일에 파리행 야간 항공편에서 2석 예약<br>봄 방학을 위해 올란도행 항공권 3매를 예약|
 
 두 번째 열에는 여러 가지 동사(buy, reserve, book), 여러 가지 수량(1, two, 3), 여러 가지 단어 배열이 사용되지만 모두 여행을 위해 항공사 티켓을 구매하려는 동의할 의도를 포함합니다. 
 

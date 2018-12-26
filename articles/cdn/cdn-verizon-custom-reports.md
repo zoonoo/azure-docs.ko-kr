@@ -3,8 +3,8 @@ title: Verizon의 사용자 지정 보고서 | Microsoft Docs
 description: 대역폭, 전송되는 데이터, 적중 횟수, 캐시 상태, 캐시 적중률, 전송되는 IPV4/IPV6 데이터와 같은 보고서를 사용하여 CDN 사용 패턴을 볼 수 있습니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: ''
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-deasim
-ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.author: magattus
+ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26343891"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092069"
 ---
 # <a name="custom-reports-from-verizon"></a>Verizon의 사용자 지정 보고서
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 Verizon 프로필에 대한 관리 포털을 통해 Verizon 사용자 지정 보고서를 사용하여 에지 CNAME 보고서에 대해 수집할 데이터 유형을 정의할 수 있습니다.
 
@@ -39,7 +39,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 사용자 지정 보
     ![CDN 관리 포털 - 사용자 지정 보고서 메뉴](./media/cdn-reports/cdn-custom-reports.png)
 
 ## <a name="edge-cnames-custom-report"></a>에지 CNAME 사용자 지정 보고서
-에지 CNAME 사용자 지정 보고서는 사용자 지정 보고서 로깅을 사용하도록 설정된 에지 CNAME에 대한 적중 횟수 및 데이터 전송 통계를 제공합니다. 에지 CNAME은 Azure CDN 끝점 호스트 이름 및 모든 관련 사용자 지정 도메인 호스트 이름으로 구성됩니다. 
+에지 CNAME 사용자 지정 보고서는 사용자 지정 보고서 로깅을 사용하도록 설정된 에지 CNAME에 대한 적중 횟수 및 데이터 전송 통계를 제공합니다. 에지 CNAME은 Azure CDN 엔드포인트 호스트 이름 및 모든 관련 사용자 지정 도메인 호스트 이름으로 구성됩니다. 
 
 사용자 지정 보고서 데이터 로깅은 에지 CNAME의 사용자 지정 보고 기능을 사용하도록 설정한 후 1시간 후에 시작됩니다. 특정 플랫폼 또는 모든 플랫폼에 대한 에지 CNAME 보고서를 생성하여 보고서 데이터를 볼 수 있습니다. 이 보고서의 적용 범위는 지정된 기간 동안 사용자 지정 보고서 데이터가 수집된 에지 CNAME으로 제한됩니다. 에지 CNAME 보고서는 메트릭 옵션에 정의된 메트릭에 따라 상위 10개 에지 CNAME에 대한 그래프 및 데이터 테이블로 구성됩니다. 
 

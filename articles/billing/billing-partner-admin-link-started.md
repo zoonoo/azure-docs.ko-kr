@@ -3,19 +3,20 @@ title: 파트너 ID에 Azure 계정 연결 | Microsoft Docs
 description: 고객의 리소스를 관리하기 위해 사용하는 사용자 계정에 파트너 ID를 연결하여 Azure 고객 관리를 추적합니다.
 services: billing
 author: dhirajgandhi
-ms.author: dhgandhi
+manager: dhgandhi
+ms.author: cwatson
 ms.date: 03/12/2018
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a48298668e2297cb95f2a2f16eac6387ff509781
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608715"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274182"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -89,7 +90,7 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
     C:\ az extension add --name managementpartner
     ``` 
 
-2.  사용자 계정 또는 서비스 주체를 사용하여 고객의 테넌트에 로그인합니다. 자세한 내용은 [Azure CLI 2.0을 사용하여 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)을 참조하세요.
+2.  사용자 계정 또는 서비스 주체를 사용하여 고객의 테넌트에 로그인합니다. 자세한 내용은 [Azure CLI를 사용하여 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)을 참조하세요.
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
@@ -124,7 +125,7 @@ C:\ az managementpartner delete --partner-id 12345
 
 **파트너 ID를 연결할 수 있는 사용자는 누구인가요?**
 
-고객의 리소스를 관리하고 있는 파트너 조직의 모든 사용자는 계정에 파트너 ID를 연결할 수 있습니다.
+고객의 Azure 리소스를 관리하는 파트너 조직의 모든 사용자는 파트너 ID를 계정에 연결할 수 있습니다.
 
 **파트너 ID가 연결되면 변경할 수 있나요?**
 
@@ -136,4 +137,4 @@ C:\ az managementpartner delete --partner-id 12345
 
 **다른 파트너 또는 고객이 파트너 ID에 대한 연결을 편집하거나 제거할 수 있나요?**
 
-연결은 계정 수준에 관련됩니다. 사용자만이 파트너 ID에 대한 연결을 편집하고 제거할 수 있습니다. 고객 및 다른 파트너는 파트너 ID에 대한 연결을 변경할 수 없습니다. 
+링크는 사용자 계정 수준에서 연결됩니다. 사용자만이 파트너 ID에 대한 연결을 편집하고 제거할 수 있습니다. 고객 및 다른 파트너는 파트너 ID에 대한 연결을 변경할 수 없습니다. 

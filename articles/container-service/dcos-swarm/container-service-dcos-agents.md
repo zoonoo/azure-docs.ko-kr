@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9dda6d45caf69734eb135779c8bac00fea721efd
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 9c614d18b96c182fa166a4bc43fb1bb2f8d5d6f5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901061"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976737"
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Azure Container Service의 DC/OS 에이전트 풀
 Azure Container Service의 DC/OS 클러스터는 2개의 풀, 즉 공용 풀과 개인 풀에 에이전트 노드를 포함합니다. 응용 프로그램을 이러한 두 풀 중 하나에 배포할 수 있으며 이는 컨테이너 서비스의 컴퓨터 간의 액세스 가능성에 영향을 줍니다. 컴퓨터는 인터넷(공용)에 노출되거나 내부(개인)로 유지될 수 있습니다. 이 문서에서는 공용 및 개인 풀이 있는 이유에 대한 간략한 개요를 제공합니다.
@@ -24,7 +24,7 @@ Azure Container Service의 DC/OS 클러스터는 2개의 풀, 즉 공용 풀과 
 
 * **공용 에이전트**: 공용 에이전트 노드는 공개적으로 액세스 가능한 네트워크를 통해 DC/OS 앱과 서비스를 실행합니다. 
 
-DC/OS 네트워크 보안에 대한 자세한 내용은 [DC/OS 설명서](https://dcos.io/docs/1.7/administration/securing-your-cluster/)를 참조하세요.
+DC/OS 네트워크 보안에 대한 자세한 내용은 [DC/OS 설명서](https://dcos.io/docs/1.8/administration/securing-your-cluster/)를 참조하세요.
 
 ## <a name="deploy-agent-pools"></a>에이전트 풀 배포
 
@@ -37,7 +37,7 @@ Azure Container Service의 DC/OS 에이전트 풀은 다음과 같이 만들어�
 개인 풀과 공용 풀은 Azure 가상 머신 규모 집합입니다. 배포 후 이러한 풀의 크기를 조정할 수 있습니다.
 
 ## <a name="use-agent-pools"></a>에이전트 풀 사용
-기본적으로 **Marathon** 은 새 응용 프로그램을 *사용자* 에이전트 노드에 배포합니다. 응용 프로그램 생성 중에 응용 프로그램을 *공용* 노드에 명시적으로 배포해야 합니다. **선택 사항** 탭을 선택하고 **수락된 리소스 역할** 값에 **slave_public**을 입력합니다. 이 과정은 [여기](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container)와 [DC\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) 설명서에 문서화되어 있습니다.
+기본적으로 **Marathon** 은 새 응용 프로그램을 *사용자* 에이전트 노드에 배포합니다. 응용 프로그램 생성 중에 응용 프로그램을 *공용* 노드에 명시적으로 배포해야 합니다. **선택 사항** 탭을 선택하고 **수락된 리소스 역할** 값에 **slave_public**을 입력합니다. 이 과정은 [여기](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container)와 [DC\OS](https://docs.mesosphere.com/1.7/administration/installing/oss/custom/create-public-agent/) 설명서에 문서화되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [DC/OS 컨테이너 관리](container-service-mesos-marathon-ui.md)에 대해 자세히 알아보세요.

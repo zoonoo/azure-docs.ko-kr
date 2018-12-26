@@ -1,27 +1,27 @@
 ---
-title: "Azure Application Insights에서 개발, 테스트 및 릴리스의 원격 분석 구분 | Microsoft Docs"
-description: "개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석"
+title: Azure Application Insights에서 개발, 테스트 및 릴리스의 원격 분석 구분 | Microsoft Docs
+description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8d95958bce0597bfb16ef1c6b99b72ce9134e66f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 77c0baba1c30153730e87181e24137d9a20ea6b1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012473"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>개발, 테스트 및 프로덕션의 원격 분석 구분
 
-웹 응용 프로그램의 다음 버전을 개발할 때 새 버전과 이미 릴리스된 버전의 [Application Insights](app-insights-overview.md) 원격 분석이 혼동되지 않도록 하려고 합니다. 혼동을 방지하기 위해 서로 다른 개발 단계의 원격 분석을 별도의 계측 키(ikeys)와 함께 별도의 Application Insights 리소스에 보냅니다. 버전이 단계별로 이동됨에 따라 계측 키 변경을 보다 쉽게 하기 위해서는 구성 파일 대신 코드에 ikey를 설정하는 것이 더 나을 수 있습니다. 
+웹 애플리케이션의 다음 버전을 개발할 때 새 버전과 이미 릴리스된 버전의 [Application Insights](app-insights-overview.md) 원격 분석이 혼동되지 않도록 하려고 합니다. 혼동을 방지하기 위해 서로 다른 개발 단계의 원격 분석을 별도의 계측 키(ikeys)와 함께 별도의 Application Insights 리소스에 보냅니다. 버전이 단계별로 이동됨에 따라 계측 키 변경을 보다 쉽게 하기 위해서는 구성 파일 대신 코드에 ikey를 설정하는 것이 더 나을 수 있습니다. 
 
 시스템이 Azure 클라우드 서비스인 경우 [별도의 ikey를 설정하는 다른 방법](app-insights-cloudservices.md)이 있습니다.
 
@@ -31,8 +31,8 @@ ms.lasthandoff: 11/01/2017
 
 일반적으로 다양한 시나리오에 별도의 리소스 또는 단일 공유 리소스를 사용하도록 선택합니다.
 
-* 서로 다른 독립적인 응용 프로그램 - 각 앱에 대해 별도의 리소스와 ikey를 사용합니다.
-* 한 비즈니스 응용 프로그램의 여러 구성 요소 또는 역할 - 모든 구성 요소 앱에 대해 [단일 공유 리소스](app-insights-monitor-multi-role-apps.md)를 사용합니다. cloud_RoleName 속성에 따라 원격 분석을 필터링 또는 분할할 수 있습니다.
+* 서로 다른 독립적인 애플리케이션 - 각 앱에 대해 별도의 리소스와 ikey를 사용합니다.
+* 한 비즈니스 애플리케이션의 여러 구성 요소 또는 역할 - 모든 구성 요소 앱에 대해 [단일 공유 리소스](app-insights-app-map.md)를 사용합니다. cloud_RoleName 속성에 따라 원격 분석을 필터링 또는 분할할 수 있습니다.
 * 개발, 테스트 및 릴리스 - '스탬프' 프로덕션 단계에서 시스템 버전에 따라 별도의 리소스 및 ikey를 사용합니다.
 * A | B 테스트 - 단일 리소스를 사용합니다. 변형을 식별하는 원격 분석에 속성을 추가하는 TelemetryInitializer를 만듭니다.
 
@@ -72,7 +72,7 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
 
 
 ## <a name="create-additional-application-insights-resources"></a>추가 Application Insights 리소스 만들기
-동일한 구성 요소의 다른 응용 프로그램 구성 요소 또는 다른 스탬프(개발/테스트/프로덕션)에 대한 원격 분석을 분리하려면 새 Application Insights 리소스를 만들어야 합니다.
+동일한 구성 요소의 다른 애플리케이션 구성 요소 또는 다른 스탬프(개발/테스트/프로덕션)에 대한 원격 분석을 분리하려면 새 Application Insights 리소스를 만들어야 합니다.
 
 [portal.azure.com](https://portal.azure.com)에서 Application Insights 리소스를 추가합니다.
 
@@ -113,7 +113,7 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
     ```XML
 
     <?xml version="1.0" encoding="utf-8"?>
-    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
+    <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
       <Build type="MSBuild">
         <MSBuild>
@@ -139,7 +139,7 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
     MSBuild가 버전 번호를 생성하게 하려면 AssemblyReference.cs에서 `1.0.*` 같이 버전을 설정합니다.
 
 ## <a name="version-and-release-tracking"></a>버전 및 릴리스 추적
-응용 프로그램 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. .csproj 파일에서 다음을 추가합니다.  
+애플리케이션 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. .csproj 파일에서 다음을 추가합니다.  
 
 ```XML
 
@@ -148,14 +148,14 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
     </PropertyGroup>
 ```
 
-빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **응용 프로그램 버전** 을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](app-insights-diagnostic-search.md)을 수행하거나 [메트릭을 탐색](app-insights-metrics-explorer.md)할 때 버전을 기준으로 필터링할 수 있습니다.
+빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **애플리케이션 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](app-insights-diagnostic-search.md)을 수행하거나 [메트릭을 탐색](app-insights-metrics-explorer.md)할 때 버전을 기준으로 필터링할 수 있습니다.
 
 그러나 빌드 버전 번호는 Visual Studio의 개발자 빌드가 아니라 Microsoft Build Engine에서만 생성된다는 점에 유의해야 합니다.
 
 ### <a name="release-annotations"></a>릴리스 주석
-Visual Studio Team Services를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](app-insights-annotations.md)이 차트에 추가됩니다. 다음 이미지는 이러한 표식이 어떻게 나타나는지를 보여줍니다.
+Azure DevOps를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](app-insights-annotations.md)이 차트에 추가됩니다. 다음 이미지는 이러한 표식이 어떻게 나타나는지를 보여줍니다.
 
-![차트의 샘플 릴리스 주석 스크린샷](./media/app-insights-asp-net/release-annotation.png)
+![차트의 샘플 릴리스 주석 스크린샷](media/app-insights-separate-resources/release-annotation.png)
 ## <a name="next-steps"></a>다음 단계
 
 * [여러 역할에 대한 공유 리소스](app-insights-monitor-multi-role-apps.md)

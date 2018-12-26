@@ -10,19 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 02/23/2017
+ms.topic: conceptual
+ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 942cc355c186b73e0b8802bfbf79ef8b4b39191a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bc505aa9dc2258a8752d1986489957c401e4e4c4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023511"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 저장소로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
-
-연속 내보내기를 사용할 경우 추가 요금이 발생할 수 있습니다. [가격 책정 모델](https://azure.microsoft.com/pricing/details/application-insights/)을 확인하세요.
 
 연속 내보내기를 설정하기 전에 고려하려는 일부 대안이 있습니다.
 
@@ -38,11 +37,9 @@ ms.lasthandoff: 05/10/2018
 ## <a name="setup"></a> 연속 내보내기 만들기
 1. 앱에 대 한 Application Insights 리소스에서 연속 내보내기를 열고 **추가**를 선택합니다.
 
-    ![아래로 스크롤하여 연속 내보내기 클릭](./media/app-insights-export-telemetry/01-export.png)
-
 2. 내보낼 원격 분석 데이터 유형을 선택합니다.
 
-3. 데이터를 저장할 [Azure Storage 계정](../storage/common/storage-introduction.md)을 만들거나 선택합니다.
+3. 데이터를 저장할 [Azure Storage 계정](../storage/common/storage-introduction.md)을 만들거나 선택합니다. 저장소 가격 책정 옵션에 대한 자세한 내용은 [공식 책정 가격 페이지](https://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
 
     > [!Warning]
     > 기본적으로 저장소 위치는 Application Insights 리소스와 동일한 지역으로 설정됩니다. 다른 지역에 저장하는 경우 전송 요금이 발생할 수 있습니다.
@@ -177,7 +174,7 @@ Where
     아니요. 죄송합니다. 우리의 내보내기 엔진은 현재 Azure 저장소에서만 작동합니다.  
 * *내 저장소에 보관하는 데이터량에 제한이 있나요?*
 
-    번호 내보내기를 삭제할 때까지 푸싱한 데이터를 유지합니다. blob 저장소에 대한 외부 제한에 도달하는 경우 중지하지만 제한은 상당히 큽니다. 사용자가 이용하는 저장소 크기는 사용자가 제어하기 나름입니다.  
+    아니요. 내보내기를 삭제할 때까지 푸싱한 데이터를 유지합니다. blob 저장소에 대한 외부 제한에 도달하는 경우 중지하지만 제한은 상당히 큽니다. 사용자가 이용하는 저장소 크기는 사용자가 제어하기 나름입니다.  
 * *저장소에서 몇 개의 BLOB를 볼 수 있나요?*
 
   * 내보내려고 선택한 모든 데이터 형식에 대해 새 blob(데이터 파일이 사용 가능한 경우)이 매 분마다 만들어 집니다.

@@ -3,20 +3,22 @@ title: Azure Application Insights 원격 분석 상관 관계 | Microsoft 문서
 description: Application Insights 원격 분석 상관 관계
 services: application-insights
 documentationcenter: .net
-author: mrbullwinkle
+author: lgayhardt
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
-ms.date: 04/09/2018
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: 12b46b4abaa17fe9dd0e9055bca5463312bbd15d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.date: 10/31/2018
+ms.reviewer: sergkanz
+ms.author: lagayhar
+ms.openlocfilehash: b61163f7e2bc4cf4e7029c9852e5baad431fa0e0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615843"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -64,7 +66,7 @@ STOCKS API라는 외부 API를 사용하여 주식의 현재 시가를 보여 �
 
 ## <a name="correlation-headers"></a>상관 관계 헤더
 
-현재 [correlation HTTP protocol](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md)(상관 관계 HTTP 프로토콜)에 대한 RFC 제안 작업을 진행하고 있습니다. 이 제안은 다음 두 가지 헤더를 정의합니다.
+현재 [correlation HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)(상관 관계 HTTP 프로토콜)에 대한 RFC 제안 작업을 진행하고 있습니다. 이 제안은 다음 두 가지 헤더를 정의합니다.
 
 - `Request-Id`는 호출의 전체적으로 고유한 ID를 전달합니다.
 - `Correlation-Context` - 분산 추적 속성의 이름-값 쌍 컬렉션을 전달합니다.
@@ -73,19 +75,49 @@ STOCKS API라는 외부 API를 사용하여 주식의 현재 시가를 보여 �
 
 Application Insights에서는 상관 관계 HTTP 프로토콜에 대한 [extension](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md)(확장)을 정의합니다. `Request-Context` 이름-값 쌍을 사용하여 즉각적인 호출자 또는 호출 수신자에서 사용된 속성 컬렉션을 전파합니다. Application Insights SDK는 이 헤더를 사용하여 `dependency.target` 및 `request.source` 필드를 설정합니다.
 
+### <a name="w3c-distributed-tracing"></a>W3C 분산 추적
+
+[W3C 분산 추적 서식](https://w3c.github.io/trace-context/)으로 전환하고 있습니다. 정의:
+- `traceparent` - 전역적으로 고유한 작업 ID와 호출의 고유 식별자를 전달합니다.
+- `tracestate` - 추적 시스템에 대한 특정 컨텍스트를 전달합니다.
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-classic-apps"></a>ASP.NET 클래식 앱에 W3C 분산 추적 지원을 사용하도록 설정
+
+이 기능은 Microsoft.ApplicationInsights.Web 및 Microsoft.ApplicationInsights.DependencyCollector 패키지의 버전 2.8.0-beta1부터 사용할 수 있습니다.
+기본값은 **off**이며 사용하도록 설정하려면 `ApplicationInsights.config`를 다음과 같이 변경합니다.
+
+* `RequestTrackingTelemetryModule` 아래 `EnableW3CHeadersExtraction` 요소를 추가하고 값을 `true`로 설정합니다.
+* `DependencyTrackingTelemetryModule` 아래 `EnableW3CHeadersInjection` 요소를 추가하고 값을 `true`로 설정합니다.
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>ASP.NET Core 앱에 W3C 분산 추적 지원을 사용하도록 설정
+
+이 기능은 Microsoft.ApplicationInsights.AspNetCore 버전 2.5.0-beta1 및 Microsoft.ApplicationInsights.DependencyCollector 버전 2.8.0-beta1에 포함되어 있습니다.
+기본값은 **off**이며 사용하도록 설정하려면 `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing`을 `true`로 설정합니다.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry(o => 
+        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
+    // ....
+}
+```
+
 ## <a name="open-tracing-and-application-insights"></a>Open Tracing 및 Application Insights
 
-[Open Tracing](http://opentracing.io/) 및 Application Insights 데이터 모델은 다음과 같이 표시됩니다. 
+[Open Tracing 데이터 모델 사양](http://opentracing.io/) 및 Application Insights 데이터 모델은 다음과 같은 방식으로 매핑됩니다.
 
-- `request`, `pageView`가 **Span**으로 매핑되고 `span.kind = server`입니다.
-- `dependency`가 **Span**을 매핑되고 `span.kind = client`입니다.
-- `request` 및 `dependency`의 `id`가 **Span.Id**로 매핑됩니다.
-- `operation_Id`가 **TraceId**로 매핑됩니다.
-- `operation_ParentId`가 `ChildOf` 형식의 **Reference**로 매핑됩니다.
+| Application Insights                  | Open Tracing                                      |
+|------------------------------------   |-------------------------------------------------  |
+| `Request`, `PageView`                 | `Span`(`span.kind = server` 사용)                  |
+| `Dependency`                          | `Span`(`span.kind = client` 사용)                  |
+| `Request` 및 `Dependency`의 `Id`    | `SpanId`                                          |
+| `Operation_Id`                        | `TraceId`                                         |
+| `Operation_ParentId`                  | `ChildOf` 유형의 `Reference`(상위 범위)   |
 
-Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
+Application Insights 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요. 
 
-Open Tracing 개념의 정의는 [specification](https://github.com/opentracing/specification/blob/master/specification.md)(사양) 및 [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)를 참조하세요.
+Open Tracing 개념의 정의는 Open Tracing [specification](https://github.com/opentracing/specification/blob/master/specification.md)(사양) 및 [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)를 참조하세요.
 
 
 ## <a name="telemetry-correlation-in-net"></a>.NET의 원격 분석 상관 관계
@@ -114,19 +146,15 @@ Application Insights SDK 시작 버전 `2.4.0-beta1`에서는 DiagnosticsSource 
 ### <a name="role-name"></a>역할 이름
 경우에 따라, [응용 프로그램 맵](app-insights-app-map.md)에 구성 요소 이름에 표시되는 방식을 사용자 지정하려고 할 수 있습니다. 이렇게 하려면 다음 중 하나를 수행하여 `cloud_roleName`을 수동으로 설정할 수 있습니다.
 
-원격 분석 이니셜라이저를 통해(모든 원격 분석 항목에 태그 지정)
-```Java
-public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
-
-    @Override
-    protected void onInitializeTelemetry(Telemetry telemetry) {
-        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
-    }
-  }
+`WebRequestTrackingFilter`를 사용 중인 경우 `WebAppNameContextInitializer`에서 자동으로 애플리케이션 이름을 설정합니다. 구성 파일(ApplicationInsights.xml)에 다음을 추가합니다.
+```XML
+<ContextInitializers>
+  <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
+</ContextInitializers>
 ```
-[장치 컨텍스트 클래스](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context)를 통해(이 원격 분석 항목에만 태그 지정)
+클라우드 컨텍스트 클래스를 통해:
 ```Java
-telemetry.getContext().getDevice().setRoleName("My Component Name");
+telemetryClient.getContext().getCloud().setRole("My Component Name");
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -135,3 +163,5 @@ telemetry.getContext().getDevice().setRoleName("My Component Name");
 - Application Insights에서 마이크로 서비스의 모든 구성 요소를 등록합니다. [지원되는 플랫폼](app-insights-platforms.md)을 확인합니다.
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
 - [원격 분석을 확장 및 필터링](app-insights-api-filtering-sampling.md)하는 방법을 알아봅니다.
+- [Application Insights 구성 참조](app-insights-configuration-with-applicationinsights-config.md)
+

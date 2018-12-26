@@ -3,19 +3,19 @@ title: SQL Data Warehouse로 데이터 마이그레이션| Microsoft Docs
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse로 데이터를 마이그레이션하기 위한 팁
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: ca467ae5fbe784399e4e046c47c920ff7dec638e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fc7bf4eaeb073b0337be68632e5057bfce96e06a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796006"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43310618"
 ---
 # <a name="migrate-your-data"></a>데이터 마이그레이션
 다양한 도구를 사용하여 다양한 원본의 데이터를 SQL Data Warehouse로 이동할 수 있습니다.  이 작업을 위해 ADF Copy, SSIS 및 bcp를 모두 사용할 수 있습니다. 그러나 데이터 크기가 증가하면 단계별로 데이터 마이그레이션 프로세스 세분화를 고려해야 합니다. 부드러운 데이터 마이그레이션이 되도록 성능 및 복원 모두를 위한 각 단계를 최적화하는 기회를 제공합니다.
@@ -33,7 +33,7 @@ PolyBase는 데이터 로드를 위한 고성능 옵션도 제공합니다. 그�
 > 
 > 
 
-일부 훌륭한 [ADF 샘플][ADF samples]에 대한 다음 문서를 읽어 보세요.
+일부 훌륭한 [ADF 샘플][ADF 샘플]에 대한 다음 문서를 읽어 보세요.
 
 ## <a name="integration-services"></a>Integration Services
 Integration Services(SSIS)는 강력하고 유연한 변환 및 로드(ETL) 도구로, 복잡한 워크플로, 데이터 변환 및 여러 데이터 로드 옵션을 지원합니다. SSIS를 사용하여 광범위한 마이그레이션의 일부로 또는 Azure로 데이터를 전송합니다.
@@ -182,9 +182,8 @@ PolyBase 사용한 데이터 로드에 대해 자세히 알려면 [PolyBase를 �
 
 <!--Article references-->
 [AZCopy]: ../storage/common/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/v1/data-factory-data-movement-activities.md 
-[ADF samples]: ../data-factory/v1/data-factory-samples.md
-[ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
+[ADF Copy]: ../data-factory/copy-activity-overview.md 
+[ADF Copy examples]: ../data-factory/quickstart-create-data-factory-dot-net.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [스키마 마이그레이션]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md

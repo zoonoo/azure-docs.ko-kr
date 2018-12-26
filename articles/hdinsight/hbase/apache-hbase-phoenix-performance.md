@@ -1,29 +1,24 @@
 ---
-title: Azure HDInsight의 Phoenix 성능 | Microsoft Docs
+title: Azure HDInsight의 Phoenix 성능
 description: Phoenix 성능을 최적화하는 모범 사례입니다.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: b4c1e3fb919ab9ad88a15b51a5e204290a7a12cf
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 8a67327497c96cba570d2ddb8c525bf5a60be790
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164638"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308220"
 ---
-# <a name="phoenix-performance-best-practices"></a>Phoenix 성능 모범 사례
+# <a name="apache-phoenix-performance-best-practices"></a>Apache Phoenix 성능 모범 사례
 
-Phoenix 성능의 가장 중요한 측면은 기본 HBase를 최적화하는 것입니다. Phoenix는 SQL 쿼리를 검색과 같은 HBase 작업으로 변환하는 HBase 위에 관계형 데이터 모델을 만듭니다. 테이블 스키마 디자인, 기본 키의 필드 선택 및 순서 지정 그리고 인덱스 사용은 모두 Phoenix 성능에 영향을 줍니다.
+[Apache Phoenix](https://phoenix.apache.org/) 성능의 가장 중요한 측면은 기본 [Apache HBase](http://hbase.apache.org/)를 최적화하는 것입니다. Phoenix는 SQL 쿼리를 검색과 같은 HBase 작업으로 변환하는 HBase 위에 관계형 데이터 모델을 만듭니다. 테이블 스키마 디자인, 기본 키의 필드 선택 및 순서 지정 그리고 인덱스 사용은 모두 Phoenix 성능에 영향을 줍니다.
 
 ## <a name="table-schema-design"></a>테이블 스키마 디자인
 
@@ -78,7 +73,7 @@ Phoenix의 테이블에 정의된 기본 키는 기본 HBase 테이블의 rowkey
 
 ### <a name="column-design"></a>열 디자인
 
-* VARCHAR 열은 큰 열의 I/O 비용으로 인해 약 1MB 미만으로 유지합니다. 쿼리를 처리할 때 HBase는 전체 셀을 구체화한 후에 클라이언트에 보내고, 클라이언트는 전체 셀을 받은 후에 응용 프로그램 코드에 전달합니다.
+* VARCHAR 열은 큰 열의 I/O 비용으로 인해 약 1MB 미만으로 유지합니다. 쿼리를 처리할 때 HBase는 전체 셀을 구체화한 후에 클라이언트에 보내고, 클라이언트는 전체 셀을 받은 후에 애플리케이션 코드에 전달합니다.
 * protobuf, Avro, msgpack 또는 BSON과 같은 압축 형식을 사용하여 열 값을 저장합니다. JSON은 더 큰 크기로 인해 권장되지 않습니다.
 * 데이터를 먼저 압축한 후에 저장하여 대기 시간과 I/O 비용을 줄입니다.
 
@@ -234,5 +229,5 @@ explain 계획 결과에 나타날 수 있는 항목의 전체 목록은 [Apache
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Phoenix 튜닝 가이드](https://phoenix.apache.org/tuning_guide.html)
+* [Apache Phoenix 튜닝 가이드](https://phoenix.apache.org/tuning_guide.html)
 * [보조 인덱스](http://phoenix.apache.org/secondary_indexing.html)

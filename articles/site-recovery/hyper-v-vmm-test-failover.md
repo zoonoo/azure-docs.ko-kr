@@ -1,19 +1,18 @@
 ---
-title: Azure Site Recovery를 사용하여 보조 사이트로 Hyper-V VM의 DR 훈련 실행 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 VMM 클라우드에서 Hyper-V VM에 대한 DR 훈련을 보조 데이터 센터로 실행하는 방법을 알아봅니다.
-services: site-recovery
+title: Azure Site Recovery를 사용하여 보조 사이트로 Hyper-V VM의 재해 복구 훈련 실행 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 보조 온-프레미스 데이터 센터로 VMM 클라우드의 Hyper-V VM에 대한 DR 훈련을 실행하는 방법을 알아봅니다.
 author: ponatara
 manager: abhemraj
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 03533af27ac6fd406b4639c31c3add0015a76f45
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3f7e534e9c698e31e1061c35aec713d20c7e570f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918801"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211352"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>보조 사이트로 Hyper-V VM에 대한 DR 훈련 실행
 

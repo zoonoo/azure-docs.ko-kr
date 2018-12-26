@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - OMS 모니터링을 사용하여 Linux VM 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - OMS 모니터링을 사용하여 Linux VM 만들기
+title: Azure CLI 스크립트 샘플 - Azure 모니터링을 사용하여 Linux VM 만들기 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - Azure 모니터링을 사용하여 Linux VM 만들기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 92bc86a1db4aca563a089e20c3e19557517f2d9b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: cedb8d9c2ef4acd9d7a896153bce6be790ed83a3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932622"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407969"
 ---
-# <a name="monitor-a-vm-with-operations-management-suite"></a>Operations Management Suite를 사용하여 VM 모니터링
+# <a name="monitor-a-vm-with-azure-monitoring"></a>Azure Monitoring을 사용하여 VM 모니터링
 
-이 스크립트는 Azure Virtual Machine을 만들고 OMS(Operations Management Suite) 에이전트를 설치하고 OMS 작업 영역을 사용하여 시스템을 등록합니다. 스크립트를 실행하면 가상 머신이 OMS 콘솔에 표시됩니다.
+이 스크립트는 Azure Virtual Machine을 만들고 Log Analytics 에이전트를 설치하고 Log Analytics 작업 영역을 사용하여 시스템을 등록합니다. 스크립트를 실행하면 가상 머신이 콘솔에 표시됩니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -51,7 +51,7 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 가상 머신을 만들고 네트워크 카드, 가상 네트워크, 서브넷 및 NSG에 연결합니다. 또한 이 명령은 사용할 가상 머신 이미지와 관리 자격 증명을 지정합니다.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | 가상 머신에 대한 VM 확장을 실행합니다. 이 경우에 Operations Management Suite 에이전트 확장은 OMS 에이전트를 설치하고 OMS 작업 영역에서 VM을 등록하는 데 사용됩니다. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | 가상 머신에 대한 VM 확장을 실행합니다. 이 경우에 Log Analytics 에이전트 확장은 Log Analytics 에이전트를 설치하고 Log Analytics 작업 영역에서 VM을 등록하는 데 사용됩니다. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

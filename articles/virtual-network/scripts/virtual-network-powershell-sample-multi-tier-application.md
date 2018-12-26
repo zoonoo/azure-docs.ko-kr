@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 다중 계층 응용 프로그램용 네트워크 만들기 | Microsoft Docs
+title: Azure PowerShell 스크립트 샘플 - 다중 계층 애플리케이션용 네트워크 만들기 | Microsoft Docs
 description: Azure PowerShell 스크립트 샘플 - 다중 계층 응용 프로그램을 위한 가상 네트워크를 만듭니다.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,16 +13,16 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 03/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
-ms.openlocfilehash: 3a57827616e4722b8520dcddb64e4e67fa8c79c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ebc0e18ecea61705ea8cb925a25d4233bfc9a2cb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599900"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340507"
 ---
-# <a name="create-a-network-for-multi-tier-applications-script-sample"></a>다중 계층 응용 프로그램을 위한 네트워크 만들기 스크립트 샘플
+# <a name="create-a-network-for-multi-tier-applications-script-sample"></a>다중 계층 애플리케이션을 위한 네트워크 만들기 스크립트 샘플
 
 이 스크립트 샘플은 프런트 엔드 및 백 엔드 서브넷이 있는 가상 네트워크를 만듭니다. 프런트 엔드 서브넷에 대한 트래픽은 HTTP 및 SSH로 제한되며, 백 엔드 서브넷에 대한 트래픽은 MySQL(3306 포트)로 제한됩니다. 스크립트를 실행한 후에는 웹 서버와 MySQL 소프트웨어를 배포할 수 있는 두 개의 가상 머신이 각 서브넷에 하나씩 있게 됩니다.
 
@@ -32,10 +32,11 @@ Azure [Cloud Shell](https://shell.azure.com/powershell) 또는 로컬 PowerShell
 
 ## <a name="sample-script"></a>샘플 스크립트
 
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> 서브넷 ID는 가상 네트워크를 만든 후에 특히 -Subnet 옵션이 포함된 New-AzureRmVirtualNetwork cmdlet을 사용하여 할당됩니다. New-AzureRmVirtualNetwork를 호출하기 전에 New-AzureRmVirtualNetworkSubnetConfig cmdlet을 사용하여 서브넷을 구성하는 경우 서브넷 ID는 New-AzureRmVirtualNetwork를 호출할 때까지 표시되지 않습니다.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 
-## <a name="clean-up-deployment"></a>배포 정리 
+## <a name="clean-up-deployment"></a>배포 정리
 
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 

@@ -1,41 +1,41 @@
 ---
-title: Azure에서 Visual Studio Team Services에서 배포되는 함수 만들기 | Microsoft Docs
-description: 함수 앱 만들기 및 Visual Studio Team Services의 함수 코드 배포
+title: Azure에서 Azure DevOps로부터 배포되는 함수 만들기 | Microsoft Docs
+description: 함수 앱 만들기 및 Azure DevOps의 함수 코드 배포
 services: functions
 keywords: ''
-author: syntaxc4
-ms.author: cfowler
-ms.date: 01/09/2018
+author: ggailey777
+ms.author: glenga
+ms.date: 07/03/2018
 ms.topic: sample
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
-ms.openlocfilehash: 0bd2e0896758b4d9f019b0c9520c5e9e1f3afd94
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 17e33e3c0e6b06266025a7f0e6403789c9468a16
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29842350"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957483"
 ---
-# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>함수 앱 만들기 및 Visual Studio Team Services의 함수 코드 배포
+# <a name="create-a-function-app-and-deploy-function-code-from-azure-devops"></a>함수 앱 만들기 및 Azure DevOps의 함수 코드 배포
 
-이 항목에서는 Azure Functions를 사용하여 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 [서버 없는](https://azure.microsoft.com/overview/serverless-computing/) 함수 앱을 만드는 방법을 보여 줍니다. 함수의 컨테이너에 해당하는 함수 앱은 VSTS(Visual Studio Team Services) 리포지토리에서 지속적으로 배포됩니다. 
+이 항목에서는 Azure Functions를 사용하여 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 [서버 없는](https://azure.microsoft.com/solutions/serverless/) 함수 앱을 만드는 방법을 보여 줍니다. 함수의 컨테이너에 해당하는 함수 앱은 Azure DevOps 리포지토리에서 지속적으로 배포됩니다. 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 이 항목을 완료하려면 다음 항목이 필요합니다.
 
-* 함수 앱 프로젝트를 포함하고 사용자에게 관리 권한이 있는 VSTS 리포지토리
-* VSTS 리포지토리에 액세스하기 위한 [PAT(개인용 액세스 토큰)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate)
+* 함수 앱 프로젝트를 포함하고 사용자에게 관리 권한이 있는 Azure DevOps 리포지토리
+* Azure DevOps 리포지토리에 액세스하기 위한 [PAT(개인용 액세스 토큰)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Azure CLI를 로컬로 사용하는 경우 버전 2.0 이상을 설치해서 사용해야 합니다. Azure CLI 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+Azure CLI를 로컬로 사용하는 경우 버전 2.0 이상을 설치해서 사용해야 합니다. Azure CLI 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-이 샘플은 Azure 함수 앱을 만들고 Visual Studio Team Services의 함수 코드를 배포합니다.
+이 샘플은 Azure 함수 앱을 만들고 Azure DevOps의 함수 코드를 배포합니다.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 
@@ -47,10 +47,10 @@ Azure CLI를 로컬로 사용하는 경우 버전 2.0 이상을 설치해서 사
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | App Service 계획을 만듭니다. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Git 또는 Mercurial 리포지토리를 사용하여 함수 앱에 연결합니다. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 함수 앱에 필요한 저장소 계정을 만듭니다. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | 서버를 사용하지 않는 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만듭니다. |
+| [az functionapp deployment source config](https://docs.microsoft.com/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Git 또는 Mercurial 리포지토리를 사용하여 함수 앱에 연결합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

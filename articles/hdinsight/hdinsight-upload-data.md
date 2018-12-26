@@ -1,30 +1,25 @@
 ---
-title: HDInsight에서 Hadoop 작업용 데이터 업로드 | Microsoft Docs
-description: Azure CLI, Azure Storage 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 Hadoop 작업 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다.
+title: HDInsight에서 Apache Hadoop 작업용 데이터 업로드
+description: Azure 클래식 CLI, Azure Storage 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 Apache Hadoop 작업 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다.
 keywords: etl hadoop, hadoop으로 데이터 가져오기, hadoop 데이터 로드
-services: hdinsight,storage
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
+services: hdinsight
+author: hrasheed-msft
+ms.reviewer: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 1734e9f0002ab7f33a8a67e44811352cb5c45fdc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 11/06/2018
+ms.openlocfilehash: 50e9162da5fda98d73ccfeea0776dc89ddd25dac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202461"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256921"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Hadoop 작업용 데이터 업로드
 
-Azure HDInsight는 Azure Storage 및 Azure Data Lake Store를 통해 모든 기능을 갖춘 HDFS(Hadoop Distributed File System)를 제공합니다. Azure Storage 및 Data Lake Store는 고객에게 원활한 환경을 제공하기 위해 HDFS를 확장하여 설계되었습니다. 이를 통해 Hadoop 에코시스템에서 구성 요소의 전체 집합이 관리하는 데이터에서 직접 작동하도록 합니다. Azure Storage 및 Data Lake Store는 데이터의 저장소 및 해당 데이터의 계산을 최적화하는 별개의 파일 시스템입니다. Azure Storage를 사용하는 이점에 대한 자세한 내용은 [HDInsight에서 Azure Storage 사용][hdinsight-storage] 및 [HDInsight에서 Data Lake Store 사용](hdinsight-hadoop-use-data-lake-store.md)을 참조하세요.
+Azure HDInsight는 Azure Storage 및 Azure Data Lake Store(Gen1 및 Gen2)를 통해 모든 기능을 갖춘 HDFS(Hadoop Distributed File System)를 제공합니다. Azure Storage, Data Lake Store Gen1 및 Gen2는 고객에게 원활한 환경을 제공하기 위해 HDFS를 확장하여 설계되었습니다. 이를 통해 Hadoop 에코시스템에서 구성 요소의 전체 집합이 관리하는 데이터에서 직접 작동하도록 합니다. Azure Storage, Data Lake Store Gen1 및 Gen2는 데이터의 스토리지 및 해당 데이터의 계산을 최적화하는 별개의 파일 시스템입니다. Azure Storage 사용 시 얻을 수 있는 혜택에 대한 자세한 내용은 [HDInsight에서 Azure Storage 사용][hdinsight-storage], [HDInsight에서 Data Lake Store Gen1 사용](hdinsight-hadoop-use-data-lake-store.md) 및 [HDInsight에서 Data Lake Store Gen2 사용](../storage/data-lake-storage/use-hdi-cluster.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -34,7 +29,8 @@ Azure HDInsight는 Azure Storage 및 Azure Data Lake Store를 통해 모든 기�
 * 다음 두 문서의 정보:
 
     - [HDInsight에서 Azure Storage 사용][hdinsight-storage]
-    - [HDInsight에서 Data Lake Store 사용](hdinsight-hadoop-use-data-lake-store.md)
+    - [HDInsight에서 Data Lake Store Gen1 사용](hdinsight-hadoop-use-data-lake-store.md)
+    - [HDInsight에서 Data Lake Store Gen2 사용](../storage/data-lake-storage/use-hdi-cluster.md)   
 
 ## <a name="upload-data-to-azure-storage"></a>Azure Storage에 데이터 업로드
 
@@ -43,22 +39,22 @@ Microsoft는 Azure Storage에서 작업할 다음 유틸리티를 제공합니�
 
 | 도구 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure 명령줄 인터페이스][azurecli] |✔ |✔ |✔ |
+| [Azure 클래식 CLI][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Hadoop 명령](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> Azure CLI, Azure PowerShell 및 AzCopy가 모두 Azure 외부에서 사용될 수 있지만, Hadoop 명령은 HDInsight 클러스터에서만 사용할 수 있습니다. 명령을 사용하면 데이터를 로컬 파일 시스템에서 Azure Blob 저장소로 로드할 수 있습니다.
+> Azure 클래식 CLI, Azure PowerShell 및 AzCopy가 모두 Azure 외부에서 사용될 수 있지만, Hadoop 명령은 HDInsight 클러스터에서만 사용할 수 있습니다. 명령을 사용하면 데이터를 로컬 파일 시스템에서 Azure Blob 저장소로 로드할 수 있습니다.
 >
 >
 
-#### <a id="xplatcli"></a>Azure CLI
-Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫폼 도구입니다. Azure Storage에 데이터를 업로드하려면 다음 단계를 사용합니다:
+#### <a id="xplatcli"></a>Azure 클래식 CLI
+Azure 클래식 CLI는 Azure 서비스를 관리할 수 있도록 하는 플랫폼 간 도구입니다. Azure Storage에 데이터를 업로드하려면 다음 단계를 사용합니다:
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-1. [Mac, Linux 및 Windows용 Azure CLI를 설치하고 구성합니다](../cli-install-nodejs.md).
+1. [Mac, Linux 및 Windows용 Azure 클래식 CLI를 설치하고 구성합니다](../cli-install-nodejs.md).
 2. 명령 프롬프트, bash 또는 다른 셸을 열고 다음을 사용하여 Azure 구독을 인증합니다.
 
     ```cli
@@ -218,7 +214,7 @@ Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 �
     파일 업로드가 완료되면 HDInsight 클러스터의 작업에서 사용할 수 있습니다.
 
 ### <a name="mount-azure-storage-as-local-drive"></a>Azure Storage를 로컬 드라이브로 탑재
-[Azure Storage를 로컬 드라이브로 탑재](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx)를 참조하세요.
+[Azure Storage를 로컬 드라이브로 탑재](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx)를 참조하세요.
 
 ### <a name="upload-using-services"></a>서비스를 사용하여 업로드
 #### <a name="azure-data-factory"></a>Azure 데이터 팩터리
@@ -240,7 +236,7 @@ Azure Storage는 다음 프로그래밍 언어에서 Azure SDK를 사용하여 �
 * 자바
 * Node.js
 * PHP
-* 파이썬
+* Python
 * Ruby
 
 Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](https://azure.microsoft.com/downloads/)
@@ -309,6 +305,8 @@ Ambari 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDIns
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-adls-gen1]: hdinsight-hadoop-use-data-lake-store.md
+[hdinsight-adls-gen2]: ../storage/data-lake-storage/use-hdi-cluster.md
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 

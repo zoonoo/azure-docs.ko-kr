@@ -3,19 +3,19 @@ title: LUIS 미리 빌드된 percentage 참조 - Azure | Microsoft Docs
 titleSuffix: Azure
 description: 이 문서에는 LUIS(Language Understanding)의 percentage 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4d502e93f8b6bf3af2da05a499c359faeabb51da
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 11/26/2018
+ms.author: diberry
+ms.openlocfilehash: 876ee710491213f17c12d3b6ddd0339bb2043657
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321605"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334910"
 ---
 # <a name="percentage-entity"></a>Percentage 엔터티
 Percentage 수치는 분수, `3 1/2` 또는 백분율, `2%`로 표시될 수 있습니다. 이 엔터티를 이미 학습했기 때문에 percentage를 포함하는 예제 발언을 응용 프로그램 의도에 추가할 필요가 없습니다. Percentage 엔터티는 [여러 문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다. 

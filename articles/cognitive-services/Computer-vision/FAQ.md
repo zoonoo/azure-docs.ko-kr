@@ -1,22 +1,24 @@
 ---
-title: Computer Vision API에 대한 FAQ | Microsoft Docs
-description: Microsoft Cognitive Services의 Computer Vision API에 대한 FAQ를 제공합니다.
+title: Computer Vision API에 대한 FAQ
+titlesuffix: Azure Cognitive Services
+description: Azure Cognitive Services의 Computer Vision API에 대한 질문과 대답의 대답을 가져옵니다.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 5c862dd2fb26a005f4e785673a4e9358ecf9286f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 55b474d0edbb8dc01b9f35d4f8799e53e37862df
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372951"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166375"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Computer Vision API 질문과 대답
+
 ### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-computer-vision-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>이 FAQ에서 원하는 질문에 대한 답변을 찾을 수 없는 경우 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive)에서 Computer Vision API 커뮤니티에 물어보거나 [UserVoice의 도움말 및 지원](https://cognitive.uservoice.com/)에 문의하세요.
 
 -----
@@ -42,7 +44,7 @@ ms.locfileid: "35372951"
 | 덴마크어(da-DK)  | 네덜란드어(nl-NL)     | 영어           | 핀란드어(fi-FI)            |프랑스어(fr-FR)
 | 독일어(de-DE)  | 그리스어(el-GR)     | 헝가리어(hu-HU) | 이탈리아어(it-IT)            | 일본어(ja-JP)
 | 한국어(ko-KR)  | 노르웨이어(nb-NO) | 폴란드어(pl-PL)    | 포르투갈어(pt-BR) (pt-PT) | 러시아어(ru-RU)
-| 스페인어(es-ES)   | 스웨덴어(sv-SV)     | 터키어(tr-TU)   |                            |
+| 스페인어(es-ES)   | 스웨덴어(sv-SV)     | 터키어(tr-TR)   |                            |
 
 -----
 

@@ -1,3 +1,16 @@
+---
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: rogarana
+ms.openlocfilehash: aa701ada917811382351fee9469a5cfa9a7599b8
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279791"
+---
 Azure 가상 머신은 다수의 데이터 디스크 수 연결을 지원합니다. 이 문서에서는 VM의 데이터 디스크에 대한 확장성 및 성능 목표를 설명합니다. 이러한 목표를 사용하면 성능 및 용량 요구 사항을 충족해야 하는 디스크의 종류와 수를 결정하는 데 도움이 됩니다. 
 
 > [!IMPORTANT]
@@ -12,7 +25,6 @@ Azure 가상 머신은 다수의 데이터 디스크 수 연결을 지원합니�
 > | 프리미엄 Managed Disks | 10000 | 50,000 |
 > | 표준_LRS 스냅숏 | 10000 | 50,000 |
 > | 표준_ZRS 스냅숏 | 10000 | 50,000 |
-> | 프리미엄_LRS 스냅숏 | 10000 | 50,000 |
 > | 관리되는 이미지 | 10000 | 50,000 |
 
 * **표준 저장소 계정:** 표준 저장소 계정의 최대 총 요청 속도는 20,000 IOPS입니다. 표준 저장소 계정에서 모든 가상 컴퓨터 디스크의 총 IOPS는 이 제한을 초과할 수 없습니다.

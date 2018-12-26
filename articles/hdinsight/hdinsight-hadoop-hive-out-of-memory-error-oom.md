@@ -1,25 +1,21 @@
 ---
-title: Azure HDInsight에서 Hive 메모리 부족 오류 수정 | Microsoft Docs
+title: Azure HDInsight에서 Hive 메모리 부족 오류 수정
 description: HDInsight에서 Hive 메모리 부족 오류를 수정합니다. 고객 시나리오는 많은 대형 테이블 간 쿼리입니다.
 keywords: 메모리 부족 오류, OOM, Hive 설정
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 7bce3dff-9825-4fa0-a568-c52a9f7d1dad
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: f2ae83d259b7567a4b5c39e76ed7610e2ee426f8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: hrasheed
+ms.openlocfilehash: 90bf59dd7733864c345bbbb59b6236ae7b9a9c36
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200540"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248313"
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Azure HDInsight에서 Hive 메모리 부족 오류 수정
 
@@ -103,7 +99,7 @@ hive-site.xml 파일을 살펴보면 **hive.auto.convert.join.noconditionaltask*
         </description>
       </property>
 
-Map Join이 Java 힙 공간 메모리 부족 오류의 원인일 가능성이 있습니다. 블로그 게시물 [HDInsight에서 Hadoop Yarn 메모리 설정](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)에 설명된 것처럼 Tez 실행 엔진을 사용할 때 사용된 힙 엔진은 실제로 Tez 컨테이너에 속합니다. Tez 컨테이너 메모리를 설명하는 다음 이미지를 참조하세요.
+Map Join이 Java 힙 공간 메모리 부족 오류의 원인일 가능성이 있습니다. 블로그 게시물 [HDInsight에서 Hadoop Yarn 메모리 설정](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)에 설명된 것처럼 Tez 실행 엔진을 사용할 때 사용된 힙 엔진은 실제로 Tez 컨테이너에 속합니다. Tez 컨테이너 메모리를 설명하는 다음 이미지를 참조하세요.
 
 ![Tez 컨테이너 메모리 다이어그램: Hive 메모리 부족 오류](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 

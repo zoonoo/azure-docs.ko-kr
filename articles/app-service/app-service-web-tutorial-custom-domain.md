@@ -1,5 +1,5 @@
 ---
-title: Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑 | Microsoft Docs
+title: 기존 사용자 지정 DNS 이름 매핑 - Azure App Service | Microsoft Docs
 description: Azure App Service의 웹앱, 모바일 앱 백 엔드 또는 API 앱에 기존 사용자 지정 DNS 도메인 이름(베니티 도메인)을 추가하는 방법을 알아봅니다.
 keywords: App Service, Azure App Service, 도메인 매핑, 도메인 이름, 기존 도메인, 호스트 이름
 services: app-service\web
@@ -15,13 +15,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 5c0aa042f97e10f90787b1cdf8e03cd6d849441e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: seodec18
+ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461642"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270266"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>자습서: Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑
 
@@ -38,13 +38,11 @@ ms.locfileid: "38461642"
 > * 사용자 지정 디렉터리로 기본 URL 리디렉션
 > * 스크립트로 도메인 매핑 자동화
 
-라이브 사이트 및 해당 DNS 도메인 이름을 App Service로 마이그레이션하려면 [활성 DNS 이름을 Azure App Service로 마이그레이션](app-service-custom-domain-name-migrate.md)을 참조하세요.
-
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [App Service 앱을 만들거나](/azure/app-service/) 다른 자습서를 위해 만든 앱을 사용합니다.
+* [App Service 앱을 만들거나](/azure/app-service/) 다른 자습서에서 만든 앱을 사용합니다.
 * 도메인 이름을 구입하고 도메인 공급자(예: GoDaddy)의 DNS 레지스트리에 대한 액세스 권한이 있는지 확인합니다.
 
   예를 들어 `contoso.com` 및 `www.contoso.com`에 대한 DNS 항목을 추가하려면 `contoso.com` 루트 도메인에 대한 DNS 설정을 구성할 수 있어야 합니다.
@@ -54,13 +52,13 @@ ms.locfileid: "38461642"
 
 ## <a name="prepare-the-app"></a>앱 준비
 
-사용자 지정 DNS 이름을 웹앱에 매핑하려면 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/)이 유료 계층(**공유**, **기본**, **표준** 또는 **프리미엄**)이어야 합니다. 이 단계에서는 App Service 앱이 지원되는 가격 책정 계층에 속하는지 확인해야 합니다.
+사용자 지정 DNS 이름을 웹앱에 매핑하려면 웹앱의 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/)이 유료 계층(**공유**, **기본**, **표준**, **프리미엄** 또는 Azure Functions의 경우 **사용량**)이어야 합니다. 이 단계에서는 App Service 앱이 지원되는 가격 책정 계층에 속하는지 확인해야 합니다.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[클래식 포털](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+[Azure 포털](https://portal.azure.com)에서 Azure 계정으로 로그인합니다.
 
 ### <a name="navigate-to-the-app-in-the-azure-portal"></a>Azure Portal에서 앱으로 이동합니다.
 
@@ -90,7 +88,7 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 
 유료 계층(**D1**, **B1**, **B2**, **B3** 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기**를 클릭합니다.
 
-**Apply**를 클릭합니다.
+**적용**을 클릭합니다.
 
 ![가격 책정 계층 확인](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -305,11 +303,15 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 
 <a name="virtualdir"></a>
 
+## <a name="migrate-an-active-domain"></a>활성 도메인 마이그레이션
+
+라이브 사이트 및 해당 DNS 도메인 이름을 가동 중지 시간 없이 App Service로 마이그레이션하려면 [활성 DNS 이름을 Azure App Service로 마이그레이션](app-service-custom-domain-name-migrate.md)을 참조하세요.
+
 ## <a name="redirect-to-a-custom-directory"></a>사용자 지정 디렉터리로 리디렉션
 
 App Service는 기본적으로 웹 요청을 앱 코드의 루트 디렉터리로 보냅니다. 그러나 특정 웹 프레임워크는 루트 디렉터리에 시작하지 않습니다. 예를 들어 [Laravel](https://laravel.com/)은 `public` 하위 디렉터리에서 시작합니다. `contoso.com` DNS 예제를 계속하려면 그러한 앱은 `http://contoso.com/public`에서 액세스할 수도 있지만, 대신 실제로 `http://contoso.com`을 `public` 디렉터리로 전달할 수 있습니다. 이 단계는 DNS 확인을 포함하지는 않으나, 가상 디렉터리를 사용자 지정합니다.
 
-이를 수행하려면 웹앱 페이지의 왼쪽 탐색에서 **응용 프로그램 설정**을 선택합니다. 
+이를 수행하려면 웹앱 페이지의 왼쪽 탐색에서 **애플리케이션 설정**을 선택합니다. 
 
 페이지의 하단에서 기본적으로 루트 가상 디렉터리`/`는 앱 코드의 루트 디렉터리인 `site\wwwroot`를 가리킵니다. 예를 들어 대신 `site\wwwroot\public`을 가리키도록 변경하고 변경 내용을 저장합니다. 
 

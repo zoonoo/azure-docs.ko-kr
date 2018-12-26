@@ -4,24 +4,24 @@ description: Azure AD 셀프 서비스 암호 재설정의 데이터 요구 사�
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: eb3c1177f86f4c595280521f4dbcbe8081f68895
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257591"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296247"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>최종 사용자를 등록할 필요 없이 암호 재설정 배포
 
 Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 배포하려면 인증 데이터가 있어야 합니다. 일부 조직에서는 사용자들이 직접 자신의 인증 데이터를 입력하도록 하지만 대부분의 조직에서는 Active Directory에 있는 기존 데이터와 동기화하는 것을 선호합니다. 동기화된 데이터는 다음과 같은 조건이 충족되는 경우 사용자 개입 없이 Azure AD 및 SSPR에 제공됩니다.
    * 온-프레미스 디렉터리에 데이터가 올바른 형식으로 저장되어 있습니다.
-   * [기본 설정을 사용하여 Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md)가 구성되어 있습니다.
+   * [기본 설정을 사용하여 Azure AD Connect](../hybrid/how-to-connect-install-express.md)가 구성되어 있습니다.
 
 올바르게 작동하려면 전화 번호가 *+국가코드 전화번호* 형식으로 저장되어야 합니다(예: +1 4255551234).
 
@@ -47,20 +47,19 @@ Azure AD Connect에서 기본 설정을 사용한 경우 다음과 같은 매핑
 
 ![연락처][Contact]
 
-전화 필드가 채워지고 휴대폰이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지와 암호 재설정 워크플로 중 해당 번호를 볼 수 있습니다. 
+전화 필드가 채워지고 휴대폰이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지와 암호 재설정 워크플로 중 해당 번호를 볼 수 있습니다.
 
 대체 전화 필드는 암호 재설정에 사용되지 않습니다.
 
 이메일 필드가 채워지고 이메일이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지와 암호 재설정 워크플로 중 해당 이메일을 볼 수 있습니다.
 
-대체 이메일 필드가 채워지고 이메일이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지에서 해당 이메일을 볼 수 **없지만** 암호 재설정 워크플로 중 볼 수 있습니다. 
-
+대체 이메일 필드가 채워지고 이메일이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지에서 해당 이메일을 볼 수 **없지만** 암호 재설정 워크플로 중 볼 수 있습니다.
 
 ## <a name="security-questions-and-answers"></a>보안 질문 및 답변
 
-본인 확인 질문과 답변은 Azure AD 테넌트에 안전하게 저장되며 사용자가 [SSPR 등록 포털](https://aka.ms/ssprsetup)을 통해서만 액세스할 수 있습니다. 관리자는 다른 사용자의 질문과 답변 내용을 보거나 수정할 수 없습니다.
+본인 확인 질문과 답변은 Azure AD 테넌트에 안전하게 저장되며 사용자가 [SSPR 등록 포털](https://aka.ms/ssprsetup)을 통해서만 액세스할 수 있습니다. 관리자는 다른 사용자의 질문과 답변 내용을 보거나, 설정하거나, 수정할 수 없습니다.
 
-### <a name="what-happens-when-a-user-registers"></a>사용자가 등록하면 어떻게 되나요?
+## <a name="what-happens-when-a-user-registers"></a>사용자가 등록하면 어떻게 되나요?
 
 사용자가 등록하면 등록 페이지에서 다음 필드를 설정합니다.
 
@@ -155,8 +154,8 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 ## <a name="next-steps"></a>다음 단계
 
 * [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](howto-sspr-deployment.md)
-* [암호 재설정 또는 변경](../active-directory-passwords-update-your-own-password.md)
-* [셀프 서비스 암호 재설정 등록](../active-directory-passwords-reset-register.md)
+* [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
+* [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md)
 * [라이선스 관련 질문이 있습니까?](concept-sspr-licensing.md)
 * [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](concept-sspr-howitworks.md#authentication-methods)
 * [SSPR에서 사용하는 정책 옵션은 무엇입니까?](concept-sspr-policy.md)

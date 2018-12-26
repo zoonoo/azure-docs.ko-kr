@@ -70,10 +70,10 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
 1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 연결된 서비스를 만듭니다.
-2. 복사 활동의 입력 및 출력 데이터를 나타내는 데이터 집합을 만듭니다. 
-3. 입력과 출력으로 각각의 데이터 집합을 사용하는 복사 활동이 포함된 파이프라인을 만듭니다. 
+2. 복사 활동의 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 
+3. 입력과 출력으로 각각의 데이터 세트를 사용하는 복사 활동이 포함된 파이프라인을 만듭니다. 
 
-복사 마법사를 사용하는 경우 Data Factory 연결된 서비스, 데이터 집합 및 파이프라인 엔터티에 대한 JSON 정의가 자동으로 만들어집니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 Data Factory 엔터티를 정의합니다. [JSON 예제: DB2에서 Azure Blob 저장소로 데이터 복사](#json-example-copy-data-from-db2-to-azure-blob)에서는 온-프레미스 DB2 데이터 저장소에서 데이터를 복사하는 데 사용되는 Data Factory 엔터티에 대한 JSON 정의를 보여 줍니다.
+복사 마법사를 사용하는 경우 Data Factory 연결된 서비스, 데이터 세트 및 파이프라인 엔터티에 대한 JSON 정의가 자동으로 만들어집니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 Data Factory 엔터티를 정의합니다. [JSON 예제: DB2에서 Azure Blob 저장소로 데이터 복사](#json-example-copy-data-from-db2-to-azure-blob)에서는 온-프레미스 DB2 데이터 저장소에서 데이터를 복사하는 데 사용되는 Data Factory 엔터티에 대한 JSON 정의를 보여 줍니다.
 
 다음 섹션에서는 DB2 데이터 저장소와 관련된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -91,10 +91,10 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | **암호** |사용자 계정의 암호입니다. |아니오 |
 | **gatewayName** |Data Factory 서비스에서 온-프레미스 DB2 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
-## <a name="dataset-properties"></a>데이터 집합 속성
-데이터 집합을 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. JSON 데이터 집합에 대한 **structure**, **availability** 및 **policy**과 같은 섹션은 모든 데이터 집합 유형(Azure SQL, Azure Blob 저장소, Azure Table 저장소 등)에서 비슷합니다.
+## <a name="dataset-properties"></a>데이터 세트 속성
+데이터 세트를 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. JSON 데이터 세트에 대한 **structure**, **availability** 및 **policy**과 같은 섹션은 모든 데이터 세트 유형(Azure SQL, Azure Blob 저장소, Azure Table 저장소 등)에서 비슷합니다.
 
-**typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. DB2 데이터 집합을 포함하는 **RelationalTable** 형식의 데이터 집합에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
+**typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. DB2 데이터 세트를 포함하는 **RelationalTable** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
@@ -107,7 +107,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| **query** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from "MySchema"."MyTable""` |아니요(데이터 집합의 **tableName** 속성이 지정된 경우) |
+| **query** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from "MySchema"."MyTable""` |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
 
 > [!NOTE]
 > 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리 문에서 ""(큰 따옴표)를 사용하여 속성 이름을 묶습니다.
@@ -165,7 +165,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 샘플에서는 시계열 데이터에 대한 "timestamp"라는 열이 있는 "MyTable"이라는 DB2 테이블을 만들었다고 가정합니다.
 
-**external** 속성이 "true"로 설정되었습니다. 이 설정을 사용하는 경우 이 데이터 집합은 Data Factory의 외부에 있고 Data Factory의 활동으로 생성되지 않는다고 Data Factory 서비스에 알려줍니다. **type** 속성은 **RelationalTable**로 설정되어 있습니다.
+**external** 속성이 "true"로 설정되었습니다. 이 설정을 사용하는 경우 이 데이터 세트는 Data Factory의 외부에 있고 Data Factory의 활동으로 생성되지 않는다고 Data Factory 서비스에 알려줍니다. **type** 속성은 **RelationalTable**로 설정되어 있습니다.
 
 
 ```json
@@ -253,7 +253,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 **복사 활동에 대한 파이프라인**
 
-파이프라인에는 지정된 입력 및 출력 데이터 집합을 사용하도록 구성되고 매 시간마다 실행하도록 예약된 복사 활동이 포함됩니다. 파이프라인에 대한 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 "Orders" 테이블에서 데이터를 선택합니다.
+파이프라인에는 지정된 입력 및 출력 데이터 세트를 사용하도록 구성되고 매 시간마다 실행하도록 예약된 복사 활동이 포함됩니다. 파이프라인에 대한 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 "Orders" 테이블에서 데이터를 선택합니다.
 
 ```json
 {
@@ -299,7 +299,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 }
 ```
 
-## <a name="type-mapping-for-db2"></a>DB2에 대한 형식 매핑
+## <a name="type-mapping-for-db2"></a> DB2에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 대로 복사 활동에서는 다음 2단계 접근 방법을 사용하여 source 형식에서 sink 형식으로의 자동 형식 변환을 수행합니다.
 
 1. 네이티브 소스 형식에서 .NET 형식으로 변환
@@ -351,10 +351,10 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | Char |문자열 |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
-원본 데이터 집합의 열을 싱크 데이터 집합의 열에 매핑하는 방법을 알아보려면 [Azure Data Factory의 데이터 집합 열 매핑](data-factory-map-columns.md)을 참조하세요.
+원본 데이터 세트의 열을 싱크 데이터 세트의 열에 매핑하는 방법을 알아보려면 [Azure Data Factory의 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.
 
 ## <a name="repeatable-reads-from-relational-sources"></a>관계형 원본에서 반복 가능한 읽기
-관계형 데이터 저장소에서 데이터를 복사할 때 의도하지 않은 결과를 방지하기 위해 반복성을 명심해야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 집합에 대한 다시 시도 **policy** 속성을 구성할 수도 있습니다. 조각의 재실행 횟수 및 재실행 방법과 관계 없이 동일한 데이터를 읽어야 합니다. 자세한 내용은 [관계형 원본에서 반복 가능한 읽기](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)를 참조하세요.
+관계형 데이터 저장소에서 데이터를 복사할 때 의도하지 않은 결과를 방지하기 위해 반복성을 명심해야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 세트에 대한 다시 시도 **policy** 속성을 구성할 수도 있습니다. 조각의 재실행 횟수 및 재실행 방법과 관계 없이 동일한 데이터를 읽어야 합니다. 자세한 내용은 [관계형 원본에서 반복 가능한 읽기](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)를 참조하세요.
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 [복사 활동 성능 및 조정 가이드](data-factory-copy-activity-performance.md)에서 복사 활동의 성능에 영향을 주는 주요 요소와 성능을 최적화하는 방법에 대해 알아보세요.

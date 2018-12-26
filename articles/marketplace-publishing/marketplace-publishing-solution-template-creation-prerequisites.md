@@ -3,8 +3,8 @@ title: Marketplace의 솔루션 템플릿 만들기를 위한 필수 기술 구�
 description: Azure Marketplace에 배포 및 판매할 솔루션 템플릿을 만들기 위한 요구 사항 이해
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 ms.assetid: bbcc12dd-1c2f-4ce6-830c-f0e06524aa38
 ms.service: marketplace
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
-ms.author: mbaldwin
-ms.openlocfilehash: ce90545900f4abdaf5173c160faf9b178193eafe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: hascipio; v-divte
+ms.openlocfilehash: be4964e36766a27e9115311448529c279e3ae74a
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165881"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365546"
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Azure Marketplace의 솔루션 템플릿 생성을 위한 필수 기술 구성 요소
 시작하기 전에 프로세스를 자세히 읽고 각 단계를 어디에서, 왜 수행하는지를 이해해야 합니다. 제품 만들기 프로세스를 시작하기 전에 회사 정보와 기타 데이터를 최대한 많이 준비하고 필요한 도구를 다운로드하고 기술 구성 요소를 만들어야 합니다.  

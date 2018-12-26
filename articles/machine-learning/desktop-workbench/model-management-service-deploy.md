@@ -7,18 +7,23 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 5360c9371b0e1d3191624cd1a65e505e7b9968de
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8753463f90ae97d4b98d557eec5bd737b4853480
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832046"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433976"
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>웹 서비스로 Machine Learning 웹 학습 모델 배포
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Azure Machine Learning 모델 관리는 모델을 컨테이너화된 Docker 기반 웹 서비스로 배포하는 인터페이스를 제공합니다. Spark, Microsoft CNTK(Cognitive Toolkit), Keras, Tensorflow 및 Python과 같은 프레임워크를 사용하여 만든 모델을 배포할 수 있습니다. 
 
@@ -45,7 +50,7 @@ CLI를 사용하여 웹 서비스를 배포하여 로컬 컴퓨터 또는 클러
 ### <a name="1-save-your-model"></a>1. 모델 저장
 학습되고 저장된 모델 파일(예: mymodel.pkl)로 시작합니다. 파일 확장명은 모델을 학습하고 저장하는 데 사용하는 플랫폼에 따라 다릅니다. 
 
-예를 들어 Python의 Pickle 라이브러리를 사용하여 학습된 모델을 파일에 저장할 수 있습니다. 다음은 아이리스 데이터 집합을 사용하는 [예제](http://scikit-learn.org/stable/modules/model_persistence.html)입니다.
+예를 들어 Python의 Pickle 라이브러리를 사용하여 학습된 모델을 파일에 저장할 수 있습니다. 다음은 아이리스 데이터 세트를 사용하는 [예제](http://scikit-learn.org/stable/modules/model_persistence.html)입니다.
 
 ```python
 import pickle
@@ -132,6 +137,7 @@ run 함수는 모델과 입력 데이터를 사용하여 예측을 반환합니�
 
 ```python
 def run(input_df):
+    # clf2 is the same model as clf1, but loaded from the model.pkl file
     global clf2, inputs_dc, prediction_dc
     try:
         prediction = model.predict(input_df)

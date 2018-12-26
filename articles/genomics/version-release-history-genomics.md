@@ -1,28 +1,26 @@
 ---
-title: 버전 릴리스 내역 | Microsoft Docs
+title: 버전 릴리스 기록 - Microsoft Genomics
 titleSuffix: Azure
 description: Microsoft Genomics는 수정 사항 및 새로운 기능으로 Microsoft Genomics Python 클라이언트를 정기적으로 업데이트합니다.
-services: microsoft-genomics
-author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
-ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+services: genomics
+author: ruchir
+manager: cgronlun
+ms.author: ruchir
+ms.service: genomics
 ms.topic: article
-ms.date: 03/02/2018
-ms.openlocfilehash: 28f1fa7c7e37c276a3a767ce7c742b0239a5b65a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 11/08/2018
+ms.openlocfilehash: e673d732d1d43e3f58a295a94d11fc42f3618d93
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29802930"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345865"
 ---
 # <a name="version-release-history"></a>버전 릴리스 내역
 Microsoft Genomics 팀은 수정 사항 및 새로운 기능으로 Microsoft Genomics Python 클라이언트를 정기적으로 업데이트합니다. 
 
 ## <a name="latest-release"></a>최신 릴리스
-현재 Python 클라이언트는 버전 0.7.4입니다. 이 버전은 2018년 3월 5일에 릴리스되었으며 GATK 3.3을 사용합니다. 
+현재 Python 클라이언트는 버전 0.7.4입니다. 2018년 3월 5일 릴리스되었으며 GATK 3.5 및 GATK4를 통해 실행 중인 워크플로를 지원합니다.
 
 
 ## <a name="release-history"></a>릴리스 내역 
@@ -35,4 +33,4 @@ Microsoft Genomics 팀은 수정 사항 및 새로운 기능으로 Microsoft Gen
 버전 0.7.3에는 사소한 버그 수정 사항이 포함되어 있습니다.
 
 ### <a name="version-072"></a>버전 0.7.2
-버전 0.7.2는 초기 버전입니다. 이 버전은 2017년 11월 1일에 릴리스되었으며 GATK 3.3을 사용합니다.
+버전 0.7.2는 초기 버전입니다. 이 버전은 2017년 11월 1일에 릴리스되었습니다.

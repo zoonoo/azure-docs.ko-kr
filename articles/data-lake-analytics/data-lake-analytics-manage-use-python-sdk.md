@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: matt1883
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 2f3912069b54b3ad761493f02336d8d58866f53a
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f73ef118efbdfc94d8cb9b7d81717bd13511c785
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261463"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048285"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Python을 사용하여 Azure Data Lake Analytics 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -26,7 +25,7 @@ ms.locfileid: "35261463"
 
 * Python의 64비트 버전을 사용합니다.
 * **[Python.org 다운로드](https://www.python.org/downloads/)** 에서 찾을 수 있는 표준 Python 배포를 사용할 수 있습니다. 
-* 대부분의 개발자는 **[Anaconda Python 배포](https://www.continuum.io/downloads)** 사용을 편리하게 여깁니다.  
+* 대부분의 개발자는 **[Anaconda Python 배포](https://www.anaconda.com/download/)** 사용을 편리하게 여깁니다.  
 * 이 문서는 표준 Python 배포의 Python 버전 3.6을 사용하여 작성되었습니다.
 
 ## <a name="install-azure-python-sdk"></a>Azure Python SDK 설치
@@ -100,7 +99,7 @@ import logging, getpass, pprint, uuid, time
 
 이 메서드는 지원되지 않습니다.
 
-### <a name="interactive-user-authentication-with-a-device-code"></a>장치 코드로 대화형 사용자 인증
+### <a name="interactive-user-authentication-with-a-device-code"></a>디바이스 코드로 대화형 사용자 인증
 
 ```python
 user = input('Enter the user to authenticate with that has permission to subscription: ')

@@ -9,17 +9,20 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ms.openlocfilehash: 99bc275db1f0c1b45b3db440d2e03d0db9ab5cf6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7b7bbf89f04e4c8b12df46c2a7100a08001eb7d1
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373071"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340804"
 ---
-# <a name="create-a-custom-speech-to-text-endpoint"></a>사용자 지정 음성-텍스트 끝점 만들기
+# <a name="create-a-custom-speech-to-text-endpoint"></a>사용자 지정 음성-텍스트 엔드포인트 만들기
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 사용자 지정 음향 모델 또는 언어 모델을 만든 후에 사용자 지정 음성-텍스트 변환 엔드포인트에 배포할 수 있습니다. 
 
-## <a name="create-an-endpoint"></a>끝점 만들기
+## <a name="create-an-endpoint"></a>엔드포인트 만들기
 새 사용자 지정 엔드포인트를 만들려면 페이지 맨 위에 있는 **Custom Speech** 메뉴에서 **배포**를 선택합니다. 그러면 현재 사용자 지정 엔드포인트 표를 볼 수 있는 **배포** 페이지로 이동됩니다. 아직 엔드포인트를 만들지 않은 경우 표가 비어 있습니다. 현재 로캘이 표 제목에 반영됩니다. 
 
 다른 언어에 대한 배포를 만들려면 **로캘 변경**을 클릭합니다. 지원되는 언어에 대한 자세한 내용은 [Custom Speech Service에서 지원되는 로캘](cognitive-services-custom-speech-change-locale.md)을 참조하세요.

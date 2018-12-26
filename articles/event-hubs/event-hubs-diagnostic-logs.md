@@ -4,7 +4,7 @@ description: Azure에서 이벤트 허브의 진단 로그를 설정하는 방�
 keywords: ''
 documentationcenter: ''
 services: event-hubs
-author: banisadr
+author: ShubhaVijayasarathy
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/30/2018
-ms.author: sethm
-ms.openlocfilehash: 451fc42f573db2b60985912cfa63617e04f09e6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 07/02/2018
+ms.author: shvija
+ms.openlocfilehash: bee6219bca21c3bc2bf4f97aa061fce0b30d55ff
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28932718"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985169"
 ---
-# <a name="event-hubs-diagnostic-logs"></a>Event Hubs 진단 로그
+# <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
 Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
 
@@ -31,7 +31,7 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 
 ## <a name="enable-diagnostic-logs"></a>진단 로그 활성화
 
-진단 로그는 기본적으로 해제되어 있습니다. 진단 로그를 사용하도록 설정하려면:
+진단 로그는 기본적으로 해제되어 있습니다. 진단 로그를 활성화하려면 다음 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com)의 **모니터링 + 관리**에서 **진단 로그**를 클릭합니다.
 
@@ -82,7 +82,7 @@ archiveStep | ArchiveFlushWriter
 startTime | 실패 시작 시간입니다.
 failures | 실패가 발생한 횟수입니다.
 durationInSeconds | 실패 기간입니다.
-전하는 말씀 | 오류 메시지입니다.
+Message | 오류 메시지입니다.
 카테고리 | ArchiveLogs
 
 다음 코드는 보관 로그 JSON 문자열에 대한 예입니다.
@@ -139,5 +139,5 @@ Example:
 
 ## <a name="next-steps"></a>다음 단계
 * [Event Hubs 소개](event-hubs-what-is-event-hubs.md)
-* [이벤트 허브 API 개요](event-hubs-api-overview.md)
-* [이벤트 허브 시작](event-hubs-dotnet-standard-getstarted-send.md)
+* [Event Hubs API 개요](event-hubs-api-overview.md)
+* [Event Hubs 시작](event-hubs-dotnet-standard-getstarted-send.md)

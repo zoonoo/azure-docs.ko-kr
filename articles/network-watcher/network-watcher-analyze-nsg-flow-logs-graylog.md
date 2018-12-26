@@ -3,7 +3,7 @@ title: Azure 네트워크 보안 그룹 흐름 로그 분석 - Graylog | Microso
 description: Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그를 관리하고 분석하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
-author: mareat
+author: mattreatMSFT
 manager: vitinnan
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 8d82ffa84c3d75ec3acd102a2de2bdce3718a995
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26639287"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823047"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
@@ -28,17 +28,20 @@ ms.locfileid: "26639287"
 
 흐름 로깅을 사용하도록 설정된 네트워크 보안 그룹이 네트워크에 많이 있을 수 있습니다. 이러한 네트워크 보안 그룹 중 일부는 구문 분석하고 로그에서 정보를 얻기가 느리고 복잡할 수 있습니다. 이 문서에서는 Graylog(오픈 소스 로그 관리 및 분석 도구)와 Logstash(오픈 소스 서버 쪽 데이터 처리 파이프라인)를 사용하여 이러한 네트워크 보안 그룹 흐름 로그를 중앙에서 관리하는 솔루션을 제공합니다.
 
+> [!Warning]
+> 다음 단계는 흐름 로그 버전 1을 사용하여 작동합니다. 자세한 내용은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md)를 참조하세요. 다음 지침은 수정 없이 로그 파일의 버전 2를 사용하여 작동하지 않습니다.
+
 ## <a name="scenario"></a>시나리오
 
 네트워크 보안 그룹 흐름 로그는 Network Watcher를 사용하여 활성화됩니다. 흐름 로그는 Azure Blob 저장소로 전달됩니다. Logstash 플러그 인은 Blob 저장소에서 흐름 로그를 연결하고 처리하여 Graylog에 보내는 데 사용됩니다. 흐름 로그가 Graylog에 저장되면 분석되어 사용자 지정된 대시보드에 시각화될 수 있습니다.
 
-![Graylog 워크플로]](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
+![Graylog 워크플로](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
 
 ## <a name="installation-steps"></a>설치 단계
 
 ### <a name="enable-network-security-group-flow-logging"></a>네트워크 보안 그룹 흐름 로그 사용
 
-이 시나리오에서는 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
+이 시나리오에서는 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 그룹 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은  [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
 
 ### <a name="setting-up-graylog"></a>Graylog 설정
 
@@ -51,30 +54,30 @@ ms.locfileid: "26639287"
 
 Graylog는 플랫폼 및 기본 설정에 따라 다양한 방법으로 설치할 수 있습니다. 설치 가능한 방법에 대한 전체 목록은 Graylog의 공식 [설명서](http://docs.graylog.org/en/2.2/pages/installation.html)를 참조하세요. Graylog 서버 응용 프로그램은 Linux 배포판에서 실행되며, 다음과 같은 필수 구성 요소를 포함합니다.
 
--   Oracle Java SE 8 이상 - [Oracle 설치 설명서](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
--   Elastic Search 2.x(2.1.0 이상) - [Elasticsearch 설치 설명서](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
--   MongoDB 2.4 이상 - [MongoDB 설치 설명서](https://docs.mongodb.com/manual/administration/install-on-linux/)
+-  Java SE 8 이상 - [Azul Azure JDK 설명서](https://aka.ms/azure-jdks)
+-  Elastic Search 2.x(2.1.0 이상) - [Elasticsearch 설치 설명서](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
+-  MongoDB 2.4 이상 - [MongoDB 설치 설명서](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
 ### <a name="install-logstash"></a>Logstash 설치
 
 Logstash는 JSON 형식의 흐름 로그를 흐름 튜플 수준으로 평면화하는 데 사용됩니다. 흐름 로그를 평면화하면 Graylog에서 로그를 더 쉽게 구성하고 검색할 수 있습니다.
 
-1.  Logstash를 설치하려면 다음 명령을 실행합니다.
+1. Logstash를 설치하려면 다음 명령을 실행합니다.
 
-    ```bash
-    curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
-    sudo dpkg -i logstash-5.2.0.deb
-    ```
+   ```bash
+   curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
+   sudo dpkg -i logstash-5.2.0.deb
+   ```
 
-2.  흐름 로그를 구문 분석하고 Graylog로 보내도록 Logstash를 구성합니다. Logstash.conf 파일을 만듭니다.
+2. 흐름 로그를 구문 분석하고 Graylog로 보내도록 Logstash를 구성합니다. Logstash.conf 파일을 만듭니다.
 
-    ```bash
-    sudo touch /etc/logstash/conf.d/logstash.conf
-    ```
+   ```bash
+   sudo touch /etc/logstash/conf.d/logstash.conf
+   ```
 
-3.  파일에 다음 내용을 추가합니다. 강조 표시된 값을 변경하여 저장소 계정 세부 정보를 반영합니다.
+3. 파일에 다음 내용을 추가합니다. 강조 표시된 값을 변경하여 저장소 계정 세부 정보를 반영합니다.
 
-    ```
+   ```
     input {
         azureblob
         {
@@ -173,28 +176,26 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 이제 Logstash를 사용하여 흐름 로그에 대한 연결을 설정하고 Graylog 서버를 설정했으므로 들어오는 로그 파일을 수락하도록 Graylog를 구성해야 합니다.
 
-1.  구성된 URL을 사용하여 Graylog 서버 웹 인터페이스로 이동합니다. 브라우저를 `http://<graylog-server-ip>:9000/`에 연결하여 인터페이스에 액세스할 수 있습니다.
+1. 구성된 URL을 사용하여 Graylog 서버 웹 인터페이스로 이동합니다. 브라우저를 `http://<graylog-server-ip>:9000/`에 연결하여 인터페이스에 액세스할 수 있습니다.
 
-2.  구성 페이지로 이동하려면 위쪽 탐색 모음의 오른쪽에 있는 **시스템** 드롭다운 메뉴를 선택한 다음 **입력**을 클릭합니다.
-    또는 `http://<graylog-server-ip>:9000/system/inputs`로 이동합니다.
+2. 구성 페이지로 이동하려면 위쪽 탐색 모음의 오른쪽에 있는 **시스템** 드롭다운 메뉴를 선택한 다음 **입력**을 클릭합니다.
+   또는 `http://<graylog-server-ip>:9000/system/inputs`로 이동합니다.
 
-    ![시작](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
+   ![시작](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
-3.  새 입력을 시작하려면 **입력 선택** 드롭다운에서 *GELF UDP*를 선택한 다음 양식을 작성합니다. GELF는 Graylog Extended Log Format의 약자입니다. GELF 형식은 Graylog에서 개발되었습니다. 이점에 대한 자세한 내용은 Graylog [설명서](http://docs.graylog.org/en/2.2/pages/gelf.html)를 참조하세요.
+3. 새 입력을 시작하려면 **입력 선택** 드롭다운에서 *GELF UDP*를 선택한 다음 양식을 작성합니다. GELF는 Graylog Extended Log Format의 약자입니다. GELF 형식은 Graylog에서 개발되었습니다. 이점에 대한 자세한 내용은 Graylog [설명서](http://docs.graylog.org/en/2.2/pages/gelf.html)를 참조하세요.
 
-    Graylog 서버를 구성한 IP에 입력을 바인딩해야 합니다. IP 주소는 Logstash 구성 파일에 지정된 UDP 출력의 **host** 필드와 일치해야 합니다. 기본 포트는 *12201*이어야 합니다. 포트가 Logstash 구성 파일에 지정된 UDP 출력의 **port** 필드와 일치하는지 확인합니다.
+   Graylog 서버를 구성한 IP에 입력을 바인딩해야 합니다. IP 주소는 Logstash 구성 파일에 지정된 UDP 출력의 **host** 필드와 일치해야 합니다. 기본 포트는 *12201*이어야 합니다. 포트가 Logstash 구성 파일에 지정된 UDP 출력의 **port** 필드와 일치하는지 확인합니다.
 
-    ![입력](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
+   ![입력](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
 
-    입력을 시작하면 다음 그림과 같이 **로컬 입력** 섹션 아래에 해당 입력이 표시됩니다.
+   입력을 시작하면 다음 그림과 같이 **로컬 입력** 섹션 아래에 해당 입력이 표시됩니다.
 
-    ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
+   ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
-    Graylog 메시지 입력에 대한 자세한 내용은 [설명서](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs)를 참조하세요.
+   Graylog 메시지 입력에 대한 자세한 내용은 [설명서](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs)를 참조하세요.
 
-4.  이러한 구성이 완료되면 Logstash를 시작하여 다음 명령으로 흐름 로그에서 읽기를 시작할 수 있습니다.
-
-    `sudo systemctl start logstash.service`
+4. 이러한 구성이 완료되면 Logstash를 시작하여 `sudo systemctl start logstash.service` 명령으로 흐름 로그에서 읽기를 시작할 수 있습니다.
 
 ### <a name="search-through-graylog-messages"></a>Graylog 메시지를 통해 검색
 
@@ -208,16 +209,15 @@ Graylog 서버에서 메시지를 수집하도록 허용된 약간의 시간이 
 
 검색할 특정 메시지 필드를 선택하지 않으면 기본적으로 모든 메시지 필드가 검색에 포함됩니다. 특정 메시지(예: 특정 원본 IP의 흐름 튜플)를 검색하려면 Graylog 검색 쿼리 언어를 [문서화](http://docs.graylog.org/en/2.2/pages/queries.html)된 대로 사용할 수 있습니다.
 
-
 ## <a name="analyze-network-security-group-flow-logs-using-graylog"></a>Graylog를 사용하여 네트워크 보안 그룹 흐름 로그 분석
 
 Graylog 실행을 설정했으므로 기능 중 일부를 사용하여 흐름 로그 데이터를 더 잘 파악할 수 있습니다. 이러한 방법 중 하나는 대시보드를 사용하여 데이터의 특정 보기를 만드는 것입니다.
 
 ### <a name="create-a-dashboard"></a>대시보드 만들기
 
-1.  위쪽 탐색 모음에서 **대시보드**를 선택하거나 `http://<graylog-server-ip>:9000/dashboards/`로 이동합니다.
+1. 위쪽 탐색 모음에서 **대시보드**를 선택하거나 `http://<graylog-server-ip>:9000/dashboards/`로 이동합니다.
 
-2.  여기서 녹색 **대시보드 만들기** 단추를 클릭하고 대시보드의 제목과 설명이 포함된 간단한 양식을 작성합니다. **저장** 단추를 눌러 새 대시보드를 만듭니다. 다음 그림과 비슷한 대시보드가 표시됩니다.
+2. 여기서 녹색 **대시보드 만들기** 단추를 클릭하고 대시보드의 제목과 설명이 포함된 간단한 양식을 작성합니다. **저장** 단추를 눌러 새 대시보드를 만듭니다. 다음 그림과 비슷한 대시보드가 표시됩니다.
 
     ![대시보드](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
 
@@ -225,21 +225,21 @@ Graylog 실행을 설정했으므로 기능 중 일부를 사용하여 흐름 �
 
 대시보드의 제목을 클릭하여 볼 수 있지만, 위젯을 추가하지 않았으므로 현재 비어 있습니다. 대시보드에 추가할 수 있는 쉽고 유용한 형식 위젯은 **빠른 값** 차트이며, 여기에서는 선택한 필드 및 해당 배포의 값 목록이 표시됩니다.
 
-1.  위쪽 탐색 모음에서 **검색**을 선택하여 흐름 로그를 받는 UDP 입력의 검색 결과로 다시 이동합니다.
+1. 위쪽 탐색 모음에서 **검색**을 선택하여 흐름 로그를 받는 UDP 입력의 검색 결과로 다시 이동합니다.
 
-2.  화면 왼쪽의 **검색 결과** 패널 아래에서 **필드** 탭을 찾습니다. 여기에서는 들어오는 흐름 튜플 메시지 각각의 다양한 필드가 나열됩니다.
+2. 화면 왼쪽의 **검색 결과** 패널 아래에서 **필드** 탭을 찾습니다. 여기에서는 들어오는 흐름 튜플 메시지 각각의 다양한 필드가 나열됩니다.
 
-3.  시각화하려는 매개 변수를 모두 선택합니다(이 예에서는 원본 IP를 선택함). 가능한 위젯 목록을 표시하려면 필드의 왼쪽에 있는 파란색 드롭다운 화살표를 클릭한 다음 **빠른 값**을 선택하여 위젯을 생성합니다. 다음 그림과 비슷하게 표시됩니다.
+3. 시각화하려는 매개 변수를 모두 선택합니다(이 예제에서는 IP 원본이 선택됨). 가능한 위젯 목록을 표시하려면 필드의 왼쪽에 있는 파란색 드롭다운 화살표를 클릭한 다음 **빠른 값**을 선택하여 위젯을 생성합니다. 다음 그림과 비슷하게 표시됩니다.
 
-    ![원본 IP](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
+   ![원본 IP](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
 
-4.  여기서 위젯의 오른쪽 위 모서리에 있는 **대시보드에 추가** 단추를 선택하고, 추가할 해당 대시보드를 선택할 수 있습니다.
+4. 여기서 위젯의 오른쪽 위 모서리에 있는 **대시보드에 추가** 단추를 선택하고, 추가할 해당 대시보드를 선택할 수 있습니다.
 
-5.  대시보드로 다시 이동하여 방금 추가한 위젯을 확인합니다.
+5. 대시보드로 다시 이동하여 방금 추가한 위젯을 확인합니다.
 
-    대시보드에 다양한 다른 위젯(예: 히스토그램 및 개수)을 추가하여 다음 그림처럼 샘플 대시보드와 같은 중요한 메트릭을 추적할 수 있습니다.
+   대시보드에 다양한 다른 위젯(예: 히스토그램 및 개수)을 추가하여 다음 그림처럼 샘플 대시보드와 같은 중요한 메트릭을 추적할 수 있습니다.
 
-    ![흐름 로그 대시보드](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
+   ![흐름 로그 대시보드](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
 
     대시보드 및 다른 형식의 위젯에 대한 자세한 설명은 Graylog [설명서](http://docs.graylog.org/en/2.2/pages/dashboards.html)를 참조하세요.
 
@@ -247,4 +247,4 @@ Network Watcher와 Graylog를 통합함으로써 이제는 네트워크 보안 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)에서 Power BI를 사용하여 네트워크 보안 그룹 흐름 로그를 시각화하는 방법을 알아봅니다.
+ [Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)에서 Power BI를 사용하여 네트워크 보안 그룹 흐름 로그를 시각화하는 방법을 알아봅니다.

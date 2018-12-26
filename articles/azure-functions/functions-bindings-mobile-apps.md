@@ -3,26 +3,25 @@ title: Azure Functions의 Mobile Apps 바인딩
 description: Azure Functions에서 Azure Mobile Apps 바인딩을 사용하는 방법을 파악합니다.
 services: functions
 documentationcenter: na
-author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+author: craigshoemaker
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
-ms.author: glenga
-ms.openlocfilehash: 67adec7f30c8e4b24d0726ebdefa613fcefa7d3e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: cshoe
+ms.openlocfilehash: f61a00e3ea243dfdf777af88b5f211580f35d8a0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602520"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001654"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions의 Mobile Apps 바인딩 
+
+> [!NOTE]
+> Azure Mobile Apps 바인딩은 Azure Functions 1.x에만 사용할 수 있습니다. 이는 Azure Functions 2.x에서 지원되지 않습니다.
 
 이 문서에서는 Azure Functions에서 [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 바인딩을 사용하여 작업하는 방법을 설명합니다. Azure Functions는 Mobile Apps에 대한 입력 및 출력 바인딩을 지원합니다.
 
@@ -32,19 +31,13 @@ Mobile Apps 바인딩을 사용하면 모바일 앱에서 데이터 테이블을
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-Mobile Apps는 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 패키지 버전 1.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub 리포지토리에 있습니다.
+Mobile Apps는 [Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 패키지 버전 1.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
-
-Mobile Apps는 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) GitHub 리포지토리에 있습니다.
-
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
-
 ## <a name="input"></a>입력
 
-Mobile Apps 입력 바인딩은 모바일 테이블 끝점에서 레코드를 로드하여 함수에 전달합니다. C# 및 F# 함수에서 함수가 성공적으로 종료되면 레코드에 변경한 내용을 자동으로 다시 테이블에 전송합니다.
+Mobile Apps 입력 바인딩은 모바일 테이블 엔드포인트에서 레코드를 로드하여 함수에 전달합니다. C# 및 F# 함수에서 함수가 성공적으로 종료되면 레코드에 변경한 내용을 자동으로 다시 테이블에 전송합니다.
 
 ## <a name="input---example"></a>입력 - 예제
 
@@ -78,8 +71,7 @@ Mobile Apps 입력 바인딩은 모바일 테이블 끝점에서 레코드를 �
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 [구성](#input---configuration) 섹션에서는 이러한 속성을 설명합니다.
@@ -124,8 +116,7 @@ public static void Run(string myQueueItem, JObject record)
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 [구성](#input---configuration) 섹션에서는 이러한 속성을 설명합니다.
@@ -166,7 +157,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---usage"></a>입력 - 사용
 
-C# 함수에서 지정된 ID가 있는 레코드를 찾으면 명명된 [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) 매개 변수로 전달됩니다. 레코드를 찾을 수 없는 경우 매개 변수 값은 `null`입니다. 
+C# 함수에서 지정된 ID가 있는 레코드를 찾으면 명명된 [JObject](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) 매개 변수로 전달됩니다. 레코드를 찾을 수 없는 경우 매개 변수 값은 `null`입니다. 
 
 JavaScript 함수에서는 레코드가 `context.bindings.<name>` 개체로 전달됩니다. 레코드를 찾을 수 없는 경우 매개 변수 값은 `null`입니다. 
 
@@ -223,8 +214,7 @@ public static object Run(
     "apiKey": "My_MobileApp_Key",
     "direction": "out"
     }
-],
-"disabled": false
+]
 }
 ```
 

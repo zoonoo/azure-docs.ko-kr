@@ -1,25 +1,25 @@
 ---
 title: Azure Active Directory B2C에서 Application Insights의 이벤트를 사용하여 사용자 동작 추적 | Microsoft Docs
-description: 사용자 지정 정책을 사용하여 Azure AD B2C 사용자 경험에서 Application Insights의 이벤트 로그를 사용하도록 설정하기 위한 단계별 가이드(미리 보기)
+description: 사용자 지정 정책을 사용하여 Azure AD B2C 사용자 경험에서 Application Insights의 이벤트 로그를 사용하도록 설정하는 방법을 알아봅니다(미리 보기).
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b37e61763b34e320ffb4078600e08b1d32330a1
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: d7097886b746c225bb420f9a96e2b7ef5c95c913
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709967"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684742"
 ---
-# <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Application Insights를 사용하여 Azure AD B2C 경험의 사용자 동작 추적
+# <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Application Insights를 사용하여 Azure Active Directory B2C에서 사용자 동작 추적
 
-Azure AD B2C(Azure Active Directory B2C)는 Azure Application Insights에서 잘 작동합니다. 사용자 생성 사용자 경험에 대한 자세한 사용자 지정 이벤트 로그를 제공합니다. 이 문서에서는 시작하여 다음 작업을 수행하는 방법을 보여줍니다.
+Azure AD(Azure Active Directory) B2C를 Azure Application Insights와 함께 사용하는 경우 사용자 경험을 위해 자세하고 사용자 지정된 이벤트 로그를 가져올 수 있습니다. 이 문서에서는 다음 방법을 설명합니다.
 
 * 사용자 동작에 대한 정보를 얻습니다.
 * 개발에서 또는 프로덕션 환경에서 사용자 고유의 정책 문제를 해결합니다.
@@ -31,9 +31,9 @@ Azure AD B2C(Azure Active Directory B2C)는 Azure Application Insights에서 잘
 
 ## <a name="how-it-works"></a>작동 방법
 
-Azure AD B2C에서 ID 경험 프레임워크는 이제 공급자 `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`을 포함합니다.  이 공급자는 Azure AD B2C에 제공된 계측 키를 사용하여 Application Insights에 직접 이벤트 데이터를 보냅니다.
+Azure AD B2C에서 ID 경험 프레임워크는 공급자 `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`을 포함합니다. 이 공급자는 Azure AD B2C에 제공된 계측 키를 사용하여 Application Insights에 직접 이벤트 데이터를 보냅니다.
 
-기술 프로필은 이 공급자를 사용하여 B2C에서 이벤트를 정의합니다.  이 프로필은 이벤트의 이름, 기록될 클레임 및 계측 키를 지정합니다.  이벤트를 게시하기 위해 기술 프로필이 `orchestration step` 또는 `validation technical profile`로 사용자 지정 사용자 경험에 추가됩니다.
+기술 프로필은 이 공급자를 사용하여 Azure AD B2C에서 이벤트를 정의합니다. 이 프로필은 이벤트의 이름, 기록될 클레임 및 계측 키를 지정합니다. 이벤트를 게시하기 위해 기술 프로필이 `orchestration step` 또는 `validation technical profile`로 사용자 지정 사용자 경험에 추가됩니다.
 
 Application Insights는 상관 관계 ID를 사용하여 사용자 세션을 기록하는 이벤트를 통합할 수 있습니다. Application Insights는 짧은 시간 안에 이벤트 및 세션을 사용할 수 있게 하며, 많은 시각화, 내보내기 및 분석 도구를 제공합니다.
 
@@ -41,20 +41,25 @@ Application Insights는 상관 관계 ID를 사용하여 사용자 세션을 기
 
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다. 이 문서에서는 사용자 지정 정책 시작 팩을 사용하고 있다고 가정합니다. 하지만 시작 팩은 필요하지 않습니다.
 
-## <a name="step-1-create-an-application-insights-resource-and-get-the-instrumentation-key"></a>1단계. Application Insights 리소스 생성 및 계측 키 가져오기
+## <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
-Azure AD B2C에서 Application Insights를 사용하는 경우 리소스를 만들고 계측 키를 가져오기만 하면 됩니다. [Azure Portal](https://portal.azure.com)에서 리소스를 만듭니다.
+Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 만들고 계측 키를 가져오기만 하면 됩니다.
 
-1. Azure Portal의 구독 테넌트 내에서 **+ 리소스 만들기**를 선택합니다. 이 테넌트는 Azure AD B2C 테넌트가 아닙니다.  
-2. **Application Insights**를 검색하고 선택합니다.  
-3. 기본 설정의 구독에서 **응용 프로그램 유형**으로 **ASP.NET 웹 응용 프로그램**을 사용하는 리소스를 만듭니다.
-4. Application Insights 리소스를 만든 후 열고 계측 키를 적어 둡니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. Azure 구독을 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 구독이 포함된 디렉터리를 선택합니다. 이 테넌트는 Azure AD B2C 테넌트가 아닙니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **리소스 만들기**를 선택하고 **Application Insights**를 검색하여 선택합니다.
+4. **만들기**를 클릭합니다.
+5. 리소스의 **이름**을 입력합니다.
+6. **응용 프로그램 유형**에서 **ASP.NET 웹 응용 프로그램**을 선택합니다.
+7. **리소스 그룹**: 기존 그룹을 선택하거나 새 리소스 그룹의 이름을 입력합니다.
+8. **만들기**를 클릭합니다.
+4. Application Insights 리소스를 만든 후 해당 리소스를 열고 **기본 정보**를 확장하고 계측 키를 복사합니다.
 
-![Application Insights 개요 및 계측 키](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-key.png)
+![Application Insights 개요 및 계측 키](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)
 
-## <a name="step-2-add-new-claimtype-definitions-to-your-trust-framework-extension-file"></a>2단계. 보안 프레임워크 확장 파일에 새 ClaimType 정의 추가
+## <a name="add-new-claimtype-definitions"></a>새 ClaimType 정의 추가
 
-스타터 팩에서 확장 파일을 열고 `<BuildingBlocks>` 노드에 다음 요소를 추가합니다. 파일 이름은 일반적으로 `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`입니다.
+스타터 팩에서 *TrustFrameworkExtensions.xml* 파일을 열고 다음 요소를 [BuildingBlocks](buildingblocks.md) 요소에 추가합니다.
 
 ```xml
 <ClaimsSchema>
@@ -101,34 +106,23 @@ Azure AD B2C에서 Application Insights를 사용하는 경우 리소스를 만�
 </ClaimsSchema>
 ```
 
-## <a name="step-3-add-new-technical-profiles-that-use-the-application-insights-provider"></a>3단계. Application Insights 공급자를 사용하는 새 기술 프로필 추가
+## <a name="add-new-technical-profiles"></a>새 기술 프로필 추가
 
-기술 프로필은 Azure AD B2C의 ID 경험 프레임워크의 함수로 간주될 수 있습니다. 이 예제에서는 세션을 열고 이벤트를 게시하기 위한 5개의 기술 프로필을 정의합니다.
+기술 프로필은 Azure AD B2C의 ID 경험 프레임워크의 함수로 간주될 수 있습니다. 이 테이블은 세션을 열고 이벤트를 게시하는 데 사용되는 기술 프로필을 정의합니다.
 
 | 기술 프로필 | Task |
 | ----------------- | -----|
-| AzureInsights-Common | 모든 Azure Insights 기술 프로필에 포함되는 공통 매개 변수 집합을 만듭니다. | 
-| JourneyContextForInsights | Application Insights에서 세션을 열고 상관 관계 ID를 보냅니다. |
-| AzureInsights-SignInRequest | 로그인 요청이 수산될 때 클레임 집합을 사용하여 `SignIn` 이벤트를 만듭니다. | 
+| AzureInsights-Common | 모든 Azure Insights 기술 프로필에 포함할 공통 매개 변수 집합을 만듭니다. | 
+| AzureInsights-SignInRequest | 로그인 요청이 수신되었을 때 클레임 집합을 사용하여 SignIn 이벤트를 만듭니다. | 
 | AzureInsights-UserSignup | 사용자가 등록/로그인 경험에서 등록 옵션을 트리거할 때 UserSignup 이벤트를 만듭니다. | 
 | AzureInsights-SignInComplete | 토큰이 신뢰 당사자 응용 프로그램에 전송되었을 때 인증이 성공적으로 완료되었다고 기록합니다. | 
 
-`<ClaimsProviders>` 노드에 다음 요소를 추가하여 스타터 팩에서 확장 파일로 프로필을 추가합니다.  파일 이름은 일반적으로 `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`입니다.
-
-> [!IMPORTANT]
-> `ApplicationInsights-Common` 기술 프로필의 계측 키를 Application Insights 리소스에서 제공하는 GUID로 변경합니다.
+프로필을 스타터 팩의 *TrustFrameworkExtensions.xml* 파일에 추가합니다. 이러한 요소를 **ClaimsProviders** 요소에 추가합니다.
 
 ```xml
 <ClaimsProvider>
   <DisplayName>Application Insights</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="JourneyContextForInsights">
-      <DisplayName>Application Insights</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="CorrelationId" />
-      </OutputClaims>
-    </TechnicalProfile>
     <TechnicalProfile Id="AzureInsights-SignInRequest">
       <InputClaims>
         <!-- An input claim with a PartnerClaimType="eventName" is required. This is used by the AzureApplicationInsightsProvider to create an event with the specified value. -->
@@ -172,24 +166,16 @@ Azure AD B2C에서 Application Insights를 사용하는 경우 리소스를 만�
 </ClaimsProvider>
 ```
 
-## <a name="step-4-add-the-technical-profiles-for-application-insights-as-orchestration-steps-in-an-existing-user-journey"></a>4단계. Application Insights에 대한 기술 프로필을 기존 사용자 경험에 오케스트레이션 단계로 추가
+> [!IMPORTANT]
+> `ApplicationInsights-Common` 기술 프로필의 계측 키를 Application Insights 리소스에서 제공하는 GUID로 변경합니다.
 
-`JournyeContextForInsights`를 오케스트레이션 1단계로 호출합니다.
-
-```xml
-<!-- Initialize a session with Application Insights -->
-<OrchestrationStep Order="1" Type="ClaimsExchange">
-  <ClaimsExchanges>
-    <ClaimsExchange Id="JourneyContextForInsights" TechnicalProfileReferenceId="JourneyContextForInsights" />
-  </ClaimsExchanges>
-</OrchestrationStep>
-```
+## <a name="add-the-technical-profiles-as-orchestration-steps"></a>오케스트레이션 단계로 기술 프로필 추가
 
 `Azure-Insights-SignInRequest`를 오케스트레이션 2단계로 호출하여 로그인/등록 요청이 수신되었는지 추적합니다.
 
 ```xml
 <!-- Track that we have received a sign in request -->
-<OrchestrationStep Order="2" Type="ClaimsExchange">
+<OrchestrationStep Order="1" Type="ClaimsExchange">
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackSignInRequest" TechnicalProfileReferenceId="AzureInsights-SignInRequest" />
   </ClaimsExchanges>
@@ -200,7 +186,7 @@ Azure AD B2C에서 Application Insights를 사용하는 경우 리소스를 만�
 
 ```xml
 <!-- Handles the user clicking the sign up link in the local account sign in page -->
-<OrchestrationStep Order="9" Type="ClaimsExchange">
+<OrchestrationStep Order="8" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
       <Value>newUser</Value>
@@ -215,13 +201,14 @@ Azure AD B2C에서 Application Insights를 사용하는 경우 리소스를 만�
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackUserSignUp" TechnicalProfileReferenceId="AzureInsights-UserSignup" />
   </ClaimsExchanges>
+</OrchestrationStep>
 ```
 
-`SendClaims` 오케스트레이션 단계 바로 다음에 `Azure-Insights-SignInComplete`를 호출합니다. 이 단계는 성공적으로 완료된 경험을 반영합니다.
+`SendClaims` 오케스트레이션 단계 바로 다음에 `Azure-Insights-SignInComplete`를 호출합니다. 이 단계는 성공적으로 완료된 경험을 나타냅니다.
 
 ```xml
 <!-- Track that we have successfully sent a token -->
-<OrchestrationStep Order="11" Type="ClaimsExchange">
+<OrchestrationStep Order="10" Type="ClaimsExchange">
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackSignInComplete" TechnicalProfileReferenceId="AzureInsights-SignInComplete" />
   </ClaimsExchanges>
@@ -232,9 +219,9 @@ Azure AD B2C에서 Application Insights를 사용하는 경우 리소스를 만�
 > 새 오케스트레이션 단계를 추가한 후, 1부터 N까지 건너뛰지 말고 순차적으로 단계 번호를 다시 매깁니다.
 
 
-## <a name="step-5-upload-your-modified-extensions-file-run-the-policy-and-view-events-in-application-insights"></a>5단계. Application Insights에서 수정된 확장 파일 업로드, 정책 실행 및 이벤트 보기
+## <a name="upload-your-file-run-the-policy-and-view-events"></a>파일을 업로드, 정책 실행 및 이벤트 보기
 
-새 보안 프레임워크 확장 파일을 저장하고 업로드합니다. 그런 후 응용 프로그램에서 신뢰 당사자 정책을 호출하거나 Azure AD B2C 인터페이스에서 `Run Now`를 사용합니다. 몇 초 내에 사용자 이벤트를 Application Insights에서 사용할 수 있습니다.
+*TrustFrameworkExtensions.xml* 파일을 저장하고 업로드합니다. 그런 다음, 응용 프로그램에서 신뢰 당사자 정책을 호출하거나 Azure Portal에서 **지금 실행**을 사용합니다. 몇 초 내에 사용자 이벤트를 Application Insights에서 사용할 수 있습니다.
 
 1. Azure Active Directory 테넌트에서 **Application Insights** 리소스를 엽니다.
 2. **사용량** > **이벤트**를 선택합니다.
@@ -242,95 +229,17 @@ Azure AD B2C에서 Application Insights를 사용하는 경우 리소스를 만�
 
 ![Application Insights USAGE-Events Blase](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-graphic.png)
 
-##  <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
-필요에 맞게 사용자 경험에 클레임 유형 및 이벤트를 추가합니다. 다음은 추가 클레임 해결 프로그램을 사용하는 가능한 클레임 목록입니다.
+필요에 맞게 사용자 경험에 클레임 유형 및 이벤트를 추가합니다. [클레임 확인자](claim-resolver-overview.md) 또는 문자열 클레임 유형을 사용하고 **입력 클레임** 요소를 Application Insights 이벤트 또는 Azure Insights 공통 기술 프로필에 추가하여 클레임을 추가합니다. 
 
-### <a name="culture-specific-claims"></a>문화권 관련 클레임
+- **ClaimTypeReferenceId**는 클레임 유형에 대한 참조입니다.
+- **PartnerClaimType**은 Azure Insights에 나타나는 속성의 이름입니다. `{property:NAME}`의 구분을 사용합니다. 단, `NAME`은 이벤트에 추가하는 속성입니다. 
+- **DefaultValue**는 임의의 문자열 값 또는 클레임 확인자를 사용합니다. 
 
-```xml
-Referenced using: {Culture:One of the property names below}
+```XML
+<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
+<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
+<InputClaim ClaimTypeReferenceId="language" PartnerClaimType="{property:language}" DefaultValue="{Culture:RFC5646}" />
 ```
-
-| 클레임 | 정의 | 예 |
-| ----- | -----------| --------|
-| LanguageName | 언어에 대한 2자 ISO 코드  | en |
-| RegionName | 지역에 대한 2자 ISO 코드  | US |
-| RFC5646 | RFC5646 언어 코드 | ko-KR |
-| LCID   | 언어 코드의 LCID | 1033 |
-
-### <a name="policy-specific-claims"></a>정책 관련 클레임
-
-```xml
-Referenced using {Policy:One of the property names below}
-```
-
-| 클레임 | 정의 | 예 |
-| ----- | -----------| --------|
-| TrustFrameworkTenantId | trustframework 테넌트 ID | 해당 없음 |
-| RelyingPartyTenantId | 신뢰 당사자의 테넌트 ID | 해당 없음 |
-| PolicyId | 정책의 개체 ID | 해당 없음 |
-| TenantObjectId | 정책의 테넌트 개체 ID | 해당 없음 |
-
-### <a name="openid-connect-specific-claims"></a>OpenID Connect 관련 클레임
-
-```xml
-Referenced using {OIDC:One of the property names below}
-```
-
-| 클레임 | OpenIdConnect 매개 변수 | 예 |
-| ----- | ----------------------- | --------|
-| prompt | prompt | 해당 없음 |
-| LoginHint |  login_hint | 해당 없음 |
-| DomainHint | domain_hint | 해당 없음 |
-|  MaxAge | max_age | 해당 없음 |
-| clientid | client_id | 해당 없음 |
-| 사용자 이름 | login_hint | 해당 없음 |
-| 암호 | domain_hint | 해당 없음 |
-|  리소스 | resource| 해당 없음 |
-| AuthenticationContextReferences | acr_values | 해당 없음 |
-
-### <a name="non-protocol-parameters-included-with-oidc--oauth2-requests"></a>OIDC 및 OAuth2 요청에 포함된 비 프로토콜 매개 변수
-
-```xml
-Referenced using { OAUTH-KV:Querystring parameter name }
-```
-
-OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 사용자 경험에서 클레임에 매핑될 수 있습니다. 그런 다음, 이벤트에 기록할 수 있습니다. 예를 들어, 응용 프로그램의 요청에는 이름이 `app_session`, `loyalty_number` 또는 `any_string`인 쿼리 문자열 매개 변수가 포함될 수 있습니다.
-
-다음은 응용 프로그램의 샘플 요청입니다.
-
-```
-https://login.microsoftonline.com/sampletenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
-
-```
-Application Insights 이벤트에 `Input Claim` 요소를 추가하여 클레임을 추가할 수 있습니다.
-
-```
-<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="app_session" DefaultValue="{OAUTH-KV:app_session}" />
-<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="loyalty_number" DefaultValue="{OAUTH-KV:loyalty_number}" />
-```
-
-### <a name="other-system-claims"></a>기타 시스템 클레임
-
-일부 시스템 클레임은 레코드에서 이벤트로 사용되려면 클레임 모음에 추가되어야 합니다. 이러한 클레임을 사용하려면 기술 프로필 `SimpleUJContext`를 오케스트레이션 단계 또는 유효성 검사 기술 프로필로 호출해야 합니다.
-
-```xml
-<ClaimsProvider>
-  <DisplayName>User Journey Context Provider</DisplayName>
-  <TechnicalProfiles>
-    <TechnicalProfile Id="SimpleUJContext">
-      <DisplayName>User Journey Context Provide</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="IP-Address" />
-        <OutputClaim ClaimTypeReferenceId="CorrelationId" />
-        <OutputClaim ClaimTypeReferenceId="DateTimeInUtc" />
-        <OutputClaim ClaimTypeReferenceId="Build" />
-      </OutputClaims>
-    </TechnicalProfile>
-  </TechnicalProfiles>
-</ClaimsProvider>
-```
-
 

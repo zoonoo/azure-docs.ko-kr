@@ -2,22 +2,22 @@
 title: Azure Stream Analytics의 JavaScript 사용자 정의 집계
 description: 이 문서에서는 Azure Stream Analytics에서 JavaScript 사용자 정의 집계로 고급 쿼리 역학을 수행하는 방법을 설명합니다.
 services: stream-analytics
-author: minhe-msft
-ms.author: minhe
-manager: santoshb
-ms.reviewer: jasonh
+author: rodrigoamicrosoft
+ms.author: rodrigoa
+manager: kfile
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: 718109d17309747a3c19f22921e4a316b0b88dc6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907326"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702377"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics JavaScript 사용자 정의 집계(미리 보기)
-
+ 
 Azure Stream Analytics는 JavaScript로 작성된 UDA(사용자 정의 집계)를 지원하고 이를 통해 복잡한 상태 저장 비즈니스 논리를 구현할 수 있습니다. UDA 내에서 상태 데이터 구조, 상태 누적, 상태 누적 처분 및 집계 결과 계산의 모든 권한을 갖고 있습니다. 문서에서는 두 개의 서로 다른 JavaScript UDA 인터페이스, UDA를 만드는 단계 및 Stream Analytics 쿼리에서 창 기반 작업으로 UDA를 사용하는 방법을 소개합니다.
 
 ## <a name="javascript-user-defined-aggregates"></a>JavaScript 사용자 정의 집계
@@ -80,7 +80,7 @@ function main() {
 
 ### <a name="function-alias"></a>함수 별칭
 
-함수 별칭은 UDA 식별자입니다. Stream Analytics 쿼리에서 호출되는 경우 항상 "uda"와 함께 UDA 별칭을 사용합니다. 식별됩니다.
+함수 별칭은 UDA 식별자입니다. Stream Analytics 쿼리에서 호출되는 경우 항상 “uda”와 함께 UDA 별칭을 사용합니다. 식별됩니다.
 
 ### <a name="function-type"></a>함수 유형
 
@@ -175,7 +175,7 @@ JavaScript UDA 데이터 형식의 경우 [JavaScript UDF 통합](stream-analyti
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>ASA 쿼리에서 JavaScript UDA 호출
 
-Azure Portal에서 작업을 열고, 쿼리를 편집하고, 자동 인출 접두사 "uda"로 TWA() 함수를 호출합니다. 예: 
+Azure Portal에서 작업을 열고, 쿼리를 편집하고, 자동 인출 접두사 “uda”로 TWA() 함수를 호출합니다. 예: 
 
 ````SQL
 WITH value AS

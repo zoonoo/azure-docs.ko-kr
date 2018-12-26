@@ -1,24 +1,20 @@
 ---
-title: "Java를 사용한 Azure Storage 샘플 | Microsoft Docs"
-description: "Azure 저장소에 대한 샘플 코드 및 응용 프로그램을 확인하고 다운로드하여 실행합니다. Java 저장소 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다."
+title: Java를 사용한 Azure Storage 샘플 | Microsoft Docs
+description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. Java 저장소 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
 services: storage
-documentationcenter: na
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: 
 ms.service: storage
 ms.devlang: java
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: fd27e1ac9a773e7b0f5245aa74acdb0521cd098c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 83080d1e73ddb06de9b454f106517ef230c4b25a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984267"
 ---
 # <a name="azure-storage-samples-using-java"></a>Java를 사용한 Azure Storage 샘플
 
@@ -26,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 
 다음 테이블에서는 샘플 리포지토리 및 각 샘플에서 다루는 시나리오에 대한 개요를 제공합니다. GitHub에서 해당 샘플 코드를 보려면 링크를 클릭합니다.
 
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">끝점</th><th style="font-size:110%">시나리오</th><th style="font-size:110%">샘플 코드</th></tr></thead><tbody> 
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">엔드포인트</th><th style="font-size:110%">시나리오</th><th style="font-size:110%">샘플 코드</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
 <td>Blob 추가</td> 
@@ -165,31 +161,31 @@ ms.lasthandoff: 10/11/2017
 <tr> 
 <td rowspan="7"><b>테이블</b></td>
 <td>테이블 만들기</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Java에서 Azure Table Service 시작</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java에서 Azure Table Service 시작</a></td> 
 </tr> 
 <tr> 
 <td>엔터티/테이블 삭제</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Java에서 Azure Table Service 시작</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java에서 Azure Table Service 시작</a></td> 
 </tr> 
 <tr> 
 <td>엔터티 삽입/병합/바꾸기</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Storage Java 클라이언트 라이브러리 샘플</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java에서 Azure Table Service 시작</a></td> 
 </tr> 
 <tr> 
 <td>엔터티 쿼리</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Java에서 Azure Table Service 시작</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java에서 Azure Table Service 시작</a></td> 
 </tr> 
 <tr> 
 <td>쿼리 테이블</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Java에서 Azure Table Service 시작</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java에서 Azure Table Service 시작</a></td> 
 </tr> 
 <tr> 
 <td>테이블 ACL/속성</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableAdvanced.java">Java에서 Azure Table Service 시작</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Java에서 Azure Table Service 시작</a></td> 
 </tr> 
 <tr> 
 <td>엔터티 업데이트</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Storage Java 클라이언트 라이브러리 샘플</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java에서 Azure Table Service 시작</a></td> 
 </tr> 
 </tbody> 
 </table>
@@ -205,14 +201,14 @@ ms.lasthandoff: 10/11/2017
 
 Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방법에 대한 지침은 찾고 있는 경우 다음 가이드를 확인해 보세요.
 
-* [Java에서 Azure Blob Service 시작](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Java에서 Azure Queue Service 시작](../storage-java-how-to-use-queue-storage.md)
+* [Java에서 Azure Blob Service 시작](../blobs/storage-quickstart-blobs-java.md)
+* [Java에서 Azure Queue Service 시작](../queues/storage-java-how-to-use-queue-storage.md)
 * [Java에서 Azure Table Service 시작](../../cosmos-db/table-storage-how-to-use-java.md)
-* [Java에서 Azure File Service 시작](../storage-java-how-to-use-file-storage.md)
+* [Java에서 Azure File Service 시작](../files/storage-java-how-to-use-file-storage.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 다른 언어용 샘플에 대한 정보:
 
-* .NET: [.NET을 사용한 Azure Storage 샘플](../storage-samples-dotnet.md)
-* 다른 모든 언어: [Azure Storage 샘플](../storage-samples.md)
+* .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
+* 다른 모든 언어: [Azure Storage 샘플](storage-samples.md)

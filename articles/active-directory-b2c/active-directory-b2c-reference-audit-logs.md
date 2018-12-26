@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1697830f699c9cd50548bcfcdd038348db314020
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 67e57faf37697697bee74597a40db39149699fe5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969662"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320240"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -24,7 +24,7 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 > [!IMPORTANT]
 > 감사 로그는 7일 동안만 유지됩니다. 보존 기간이 더 오래 필요한 경우, 아래 표시된 방법 중 하나를 사용하여 로그를 다운로드하고 저장하도록 플랜하세요. 
 
-##<a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>감사 로그의 B2C 범주에서 사용 가능한 활동 개요
+## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>감사 로그의 B2C 범주에서 사용 가능한 활동 개요
 감사 로그의 **B2C** 범주에는 다음 유형의 활동이 포함됩니다.
 |활동 유형 |설명  |
 |---------|---------|
@@ -38,10 +38,10 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 > [!NOTE]
 > 사용자 개체 CRUD 활동의 경우 **핵심 디렉터리** 범주를 참조하세요.
 
-##<a name="example-activity"></a>예제 활동
+## <a name="example-activity"></a>예제 활동
 아래 예는 사용자가 외부 ID 공급자로 로그인할 때 캡처된 데이터를 보여 줍니다. ![감사 로그 - 예제](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
-##<a name="accessing-audit-logs-through-the-azure-portal"></a>Azure Portal을 통해 감사 로그 액세스
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Azure Portal을 통해 감사 로그 액세스
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. B2C 디렉터리에 있는지 확인합니다.
 2. 왼쪽의 즐겨찾기 막대에서 **Azure Active Directory**를 클릭합니다. 
     
@@ -62,18 +62,18 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 - 목록의 특정 행을 클릭하면 오른쪽에 있는 상황별 상자에 활동과 연관된 추가 특성이 표시됩니다.
 - **다운로드**를 클릭하여 활동을 csv 파일로 다운로드합니다.
 
-##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Azure AD 보고 API를 통해 감사 로그 액세스
+## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Azure AD 보고 API를 통해 감사 로그 액세스
 감사 로그는 Azure Active Directory에 대한 다른 활동과 동일한 파이프라인에 게시되므로 [Azure Active Directory 보고 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference)를 통해 액세스할 수 있습니다. 
 
-###<a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 조건
 Azure AD 보고 API를 인증하려면 먼저 응용 프로그램을 등록해야 합니다. [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)의 단계를 완료해야 합니다.
 
-###<a name="accesing-the-api"></a>API 액세스
-API를 통해 Azure AD B2C 감사 로그를 다운로드하려면 로그를 **B2C** 범주로 필터링합니다. 범주별로 필터링하려면 Azure AD 보고 API 끝점을 호출할 때 아래와 같이 쿼리 문자열 매개 변수를 사용합니다.
+### <a name="accesing-the-api"></a>API 액세스
+API를 통해 Azure AD B2C 감사 로그를 다운로드하려면 로그를 **B2C** 범주로 필터링합니다. 범주별로 필터링하려면 Azure AD 보고 API 엔드포인트를 호출할 때 아래와 같이 쿼리 문자열 매개 변수를 사용합니다.
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`
 
-###<a name="powershell-script"></a>PowerShell 스크립트
+### <a name="powershell-script"></a>PowerShell 스크립트
 다음 스크립트는 PowerShell을 사용하여 Azure AD 보고 API를 쿼리하고 결과를 JSON 파일로 저장하는 예를 보여 줍니다.
 
 ```powershell

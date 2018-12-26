@@ -3,21 +3,21 @@ title: Azure Key Vault 제한 지침
 description: Key Vault 제한은 리소스의 과용을 방지하기 위해 동시 호출 수를 제한합니다.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: ''
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2018
-ms.author: alleonar
-ms.openlocfilehash: 59968f2bccbe2828ebe5fb33c57ed28d4f8509b6
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: bryanla
+ms.openlocfilehash: 4906be4dc6315d8b4dd3c1e640b40caec28b7743
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067693"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302003"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 제한 지침
 

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/13/2018
-ms.openlocfilehash: cfdfa1493857a1731da74c52a616293b482f811a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5dc90a1334b525c02be3eae2985900ab07cf2e05
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030695"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696251"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Visual Studio 도구를 사용하여 Stream Analytics Edge 작업 개발
 
-이 자습서에서는 Visual Studio용 Stream Analytics 도구를 사용하여 Stream Analytics Edge 작업을 작성하고, 디버그하고, 만드는 방법에 대해 알아봅니다. 작업을 만들고 테스트한 후에는 Azure Portal로 이동하여 장치에 배포할 수 있습니다. 
+이 자습서에서는 Visual Studio용 Stream Analytics 도구를 사용하여 Stream Analytics Edge 작업을 작성하고, 디버그하고, 만드는 방법에 대해 알아봅니다. 작업을 만들고 테스트한 후에는 Azure Portal로 이동하여 디바이스에 배포할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -93,7 +93,7 @@ FROM EdgeInput
 4. 로컬로 실행하거나 Azure에 제출할 수 있습니다. 쿼리를 테스트하려면> **로컬로 실행**을 선택합니다.  
    ![실행 옵션](./media/stream-analytics-tools-for-visual-studio-edge-jobs/run-options.png)
  
-5. 명령 프롬프트 창에 작업의 상태가 표시됩니다. 작업이 성공적으로 실행되면 프로젝트 폴더 경로("Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42")에 "2018-02-23-11-31-42"와 같은 폴더가 만들어집니다. 폴더 경로로 이동하여 로컬 폴더의 결과를 봅니다.
+5. 명령 프롬프트 창에 작업의 상태가 표시됩니다. 작업이 성공적으로 실행되면 프로젝트 폴더 경로(“Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42”)에 “2018-02-23-11-31-42”와 같은 폴더가 만들어집니다. 폴더 경로로 이동하여 로컬 폴더의 결과를 봅니다.
 
    또한 Azure Portal에 로그인하여 작업이 만들어졌는지 확인할 수도 있습니다. 
 
@@ -109,7 +109,7 @@ FROM EdgeInput
 
    ![Azure에 제출](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-to-azure.png)
  
-   이제 Stream Analytics Edge 작업이 만들어졌으므로 [IoT Edge에서 작업 실행 자습서](stream-analytics-edge.md)를 참조하여 장치에 장치를 배포하는 방법을 알아볼 수 있습니다. 
+   이제 Stream Analytics Edge 작업이 만들어졌으므로 [IoT Edge에서 작업 실행 자습서](stream-analytics-edge.md)를 참조하여 디바이스에 디바이스를 배포하는 방법을 알아볼 수 있습니다. 
 
 ## <a name="manage-the-job"></a>작업 관리 
 

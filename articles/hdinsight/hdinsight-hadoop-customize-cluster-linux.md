@@ -1,25 +1,20 @@
 ---
-title: 스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정 - Azure | Microsoft Docs
+title: 스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정 - Azure
 description: '스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터에 사용자 지정 구성 요소를 추가합니다. 스크립트 동작은 클러스터 구성을 사용자 지정하거나 다른 서비스 및 유틸리티(예: Hue, Solr 또는 R)를 추가하는 데 사용할 수 있는 Bash 스크립트입니다.'
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 856a94b0cf64a20fbe9267b76422c47d88d21f43
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 24fecd73876228b3665cde21ae312963ec979df6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32778906"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279733"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
 
@@ -58,7 +53,7 @@ Azure 구독의 관리자/소유자가 아닌 경우 적어도 HDInsight 클러�
 
 * HDInsight 클러스터에서 액세스할 수 있는 URI에 저장되어야 합니다. 가능한 저장소 위치는 다음과 같습니다.
 
-    * HDInsight 클러스터에서 액세스할 수 있는 **Azure Data Lake Store** 계정 - HDInsight에서 Azure Data Lake Store를 사용하는 방법에 대한 자세한 내용은 [Azure Data Lake Store에서 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+    * HDInsight 클러스터에서 액세스할 수 있는 **Azure Data Lake Store** 계정 - HDInsight에서 Azure Data Lake Store를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
         Data Lake Store에 저장된 스크립트를 사용하는 경우 URI 형식은 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`입니다.
 
@@ -72,7 +67,7 @@ Azure 구독의 관리자/소유자가 아닌 경우 적어도 HDInsight 클러�
         URI 예제는 [예제 스크립트 작업 스크립트](#example-script-action-scripts) 섹션을 참조하세요.
 
         > [!WARNING]
-        > HDInsight는 __범용__ Azure Storage 계정만 지원합니다. 현재 __Blob 저장소__ 계정 유형은 지원하지 않습니다.
+        > HDInsight는 표준 성능 계층에서 Azure Storage 계정의 Blob만 지원합니다. 
 
 * 헤드 노드 또는 작업자 노드와 같은 **특정 노드 유형에서만 실행**되도록 제한할 수 있습니다.
 
@@ -94,7 +89,7 @@ Azure 구독의 관리자/소유자가 아닌 경우 적어도 HDInsight 클러�
 
 * 클러스터 노드에서 **루트 수준 권한**으로 실행합니다.
 
-* **Azure Portal**, **Azure PowerShell**, **Azure CLI v1.0** 또는 **HDInsight .NET SDK**를 통해 사용할 수 있습니다.
+* **Azure Portal**, **Azure PowerShell**, **Azure 클래식 CLI** 또는 **HDInsight .NET SDK**를 통해 사용할 수 있습니다.
 
 클러스터는 실행된 모든 스크립트 기록을 보관합니다. 이 기록은 승격 또는 강등 작업에 스크립트의 ID를 찾아야 할 경우에 유용합니다.
 
@@ -152,12 +147,12 @@ HDInsight를 구성하는 동안 스크립트가 실행됩니다. 스크립트�
 
 * Azure portal
 * Azure PowerShell
-* Azure CLI v1.0
+* Azure 클래식 CLI
 * HDInsight .NET SDK
 
 HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 스크립트를 제공합니다.
 
-| Name | 스크립트 |
+| 이름 | 스크립트 |
 | --- | --- |
 | **Azure Storage 계정 추가** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh [HDInsight 클러스터에 추가 저장소 추가](hdinsight-hadoop-add-storage.md)를 참조하세요. |
 | **Hue 설치** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)을 참조하세요. |
@@ -173,9 +168,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>클러스터를 만드는 동안 Azure Portal에서 스크립트 동작 사용
 
-1. [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)에서 설명한 대로 클러스터를 만들기 시작합니다. __클러스터 요약__ 섹션에 도달하면 중지합니다.
-
-2. __클러스터 요약__ 섹션에서 __고급 설정__에 대한 __편집__ 링크를 선택합니다.
+1. [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)에서 설명한 대로 클러스터를 만들기 시작합니다. 클러스터를 만드는 동안 __클러스터 요약__ 페이지로 이동합니다. __클러스터 요약__ 페이지에서 __고급 설정__에 대한 __편집__ 링크를 선택합니다.
 
     ![고급 설정 링크](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
@@ -192,7 +185,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
     | 자산 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 소유 스크립트를 사용하려면 __사용자 지정__을 선택합니다. 그렇지 않은 경우 제공된 스크립트 중 하나를 선택합니다. |
-    | Name |스크립트 작업의 이름을 지정합니다. |
+    | 이름 |스크립트 작업의 이름을 지정합니다. |
     | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
     | Head/Worker/Zookeeper |스크립트가 실행되는 노드(**헤드**, **작업자** 또는 **ZooKeeper**)를 지정합니다. |
     | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
@@ -231,7 +224,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>클러스터를 만드는 동안 Azure PowerShell에서 스크립트 동작 사용
 
-이 섹션에서는 스크립트를 호출하여 클러스터를 사용자 지정하는 [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
+이 섹션에서는 스크립트를 호출하여 클러스터를 사용자 지정하는 [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
 
 다음 스크립트는 PowerShell을 사용하는 클러스터를 만들 때 스크립트 작업을 적용하는 방법에 대해 보여줍니다.
 
@@ -271,7 +264,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
     | 자산 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 소유 스크립트를 사용하려면 __사용자 지정__을 선택합니다. 그렇지 않은 경우 제공된 스크립트를 선택합니다. |
-    | Name |스크립트 작업의 이름을 지정합니다. |
+    | 이름 |스크립트 작업의 이름을 지정합니다. |
     | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
     | Head/Worker/Zookeeper |스크립트가 실행되는 노드(**헤드**, **작업자** 또는 **ZooKeeper**)를 지정합니다. |
     | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
@@ -299,10 +292,9 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Azure CLI에서 실행 중인 클러스터에 스크립트 동작 적용
 
-계속하기 전에 Azure CLI를 설치 및 구성했는지 확인하세요. 자세한 내용은 [Azure CLI 1.0 설치](../cli-install-nodejs.md)를 참조하세요.
+계속하기 전에 Azure CLI를 설치 및 구성했는지 확인하세요. 자세한 내용은 [Azure 클래식 CLI 설치](../cli-install-nodejs.md)를 참조하세요.
 
-> [!IMPORTANT]
-> HDInsight에는 Azure CLI 1.0이 필요합니다. 현재 Azure CLI 2.0에서는 HDInsight 작업을 위한 명령을 제공하지 않습니다.
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 1. Azure Resource Manager 모드로 전환하려면 명령줄에 다음 명령을 사용합니다.
 
@@ -387,7 +379,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
 
-### <a name="using-the-azure-cli"></a>Azure CLI 사용
+### <a name="using-the-azure-classic-cli"></a>Azure 클래식 CLI 사용
 
 | 사용하는 명령 | 수행하는 동작 |
 | --- | --- |

@@ -1,6 +1,6 @@
 ---
 title: Azure Access Control Service에서 마이그레이션 | Microsoft Docs
-description: Azure Access Control Service에서 앱 및 서비스를 이동하기 위한 옵션
+description: Azure ACS(Access Control Service)에서 앱 및 서비스를 이동하기 위한 옵션에 대해 알아보세요.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 10/03/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 0b3e7d9b7a01767e44c7c59c7250808290a03c30
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.reviewer: jlu, annaba, hirsin
+ms.openlocfilehash: 805270fa4cc051929ecb1362f2d3cd4455a17a60
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319227"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423384"
 ---
-# <a name="migrate-from-the-azure-access-control-service"></a>Azure Access Control Service에서 마이그레이션
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
-Azure Active Directory(Azure AD) 서비스의 하나인 Azure Access Control은 2018년 11월 7일부터 사용 중지됩니다. 현재 Access Control을 사용하는 응용 프로그램 및 서비스는 그때까지 다른 인증 메커니즘으로 완전히 마이그레이션되어야 합니다. 이 문서에서는 Access Control의 사용 중지를 계획 중인 기존 고객에게 몇 가지 권장 사항을 안내합니다. Access Control을 사용하지 않는 경우 어떤 조치도 취할 필요가 없습니다.
-
+Microsoft Azure AD(Azure Active Directory) 서비스의 하나인 Azure ACS(Access Control)는 2018년 11월 7일부터 사용 중지됩니다. 현재 Access Control을 사용하는 응용 프로그램 및 서비스는 그때까지 다른 인증 메커니즘으로 완전히 마이그레이션되어야 합니다. 이 문서에서는 Access Control의 사용 중지를 계획 중인 기존 고객에게 몇 가지 권장 사항을 안내합니다. Access Control을 사용하지 않는 경우 어떤 조치도 취할 필요가 없습니다.
 
 ## <a name="overview"></a>개요
 
@@ -38,7 +37,7 @@ Access Control의 용도는 다음과 같은 세 가지 범주로 나누어집�
 - 사용자 지정 및 미리 패키지된 웹 응용 프로그램(예: SharePoint)에 인증을 추가합니다. Access Control "수동" 인증을 사용하면 Microsoft 계정(이전의 Live ID)은 물론, Google, Facebook, Yahoo, Azure AD 및 AD FS(Active Directory Federation Services) 계정으로도 웹 응용 프로그램에 로그인할 수 있습니다.
 - Access Control에서 발행하는 토큰으로 사용자 지정 웹 서비스를 보호합니다. 웹 서비스는 “능동” 인증을 사용하여 Access Control에서 인증한 클라이언트의 액세스만 허용할 수 있습니다.
 
-이어지는 섹션에서는 이러한 용도와 각각의 권장 마이그레이션 전략을 설명합니다. 
+이어지는 섹션에서는 이러한 용도와 각각의 권장 마이그레이션 전략을 설명합니다.
 
 > [!WARNING]
 > 대부분의 경우 기존 앱과 서비스를 신기술로 마이그레이션할 때는 코드를 대폭 수정해야 합니다. 시스템 중단이나 가동 중지 시간을 방지하기 위해서는 가능한 한 빨리 마이그레이션을 계획하고 이행하는 것이 좋습니다.
@@ -57,11 +56,56 @@ Access Control의 구성 요소는 다음과 같습니다.
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-이 URL에서 STS 및 관리 작업과의 모든 통신이 이루어집니다. 용도별로 서로 다른 경로를 갖습니다. 응용 프로그램 또는 서비스에서 Access Control을 사용하는지 확인하려면 https://<namespace>.accesscontrol.windows.net의 트래픽을 모니터링합니다. 이 URL로 전달되는 모든 트래픽은 Access Control에서 처리하는 것으로, 사용 중지 계획을 세워야 합니다. 
+이 URL에서 STS 및 관리 작업과의 모든 통신이 이루어집니다. 용도별로 서로 다른 경로를 갖습니다. 응용 프로그램 또는 서비스에서 Access Control을 사용하는지 확인하려면 https://&lt;namespace&gt;.accesscontrol.windows.net으로의 트래픽을 모니터링합니다. 이 URL로 전달되는 모든 트래픽은 Access Control에서 처리하는 것으로, 사용 중지 계획을 세워야 합니다. 
 
 이에 대한 예외는 모든 `https://accounts.accesscontrol.windows.net` 트래픽입니다. 이 URL로 전달되는 트래픽은 다른 서비스에 의해 처리되기 때문에 Access Control 사용 중지의 영향을 받지 **않습니다**. 
 
 Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)](https://msdn.microsoft.com/library/hh147631.aspx)을 참조하세요.
+
+## <a name="find-out-which-of-your-apps-will-be-impacted"></a>어떤 앱이 영향을 받을지 확인합니다.
+
+이 섹션의 단계에 따라 ACS 사용 중지에 의해 어떤 앱이 영향을 받을지 확인십시오.
+
+### <a name="download-and-install-acs-powershell"></a>ACS PowerShell 다운로드 및 설치
+
+1. PowerShell 갤러리로 이동하여 [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2)를 다운로드합니다.
+1. 실행하여 모듈 설치
+
+    ```powershell
+    Install-Module -Name Acs.Namespaces
+    ```
+
+1. 실행하여 가능한 모든 명령 목록 가져오기
+
+    ```powershell
+    Get-Command -Module Acs.Namespaces
+    ```
+
+    특정 명령에 대한 도움말을 보려면 다음을 실행합니다.
+
+    ```
+     Get-Help [Command-Name] -Full
+    ```
+    
+    여기서 `[Command-Name]`은 ACS 명령의 이름입니다.
+
+### <a name="list-your-acs-namespaces"></a>ACS 네임스페이스 나열
+
+1. **Connect-AcsAccount** cmdlet을 사용하여 ACS에 연결합니다.
+  
+    명령을 실행하기 전에 `Set-ExecutionPolicy -ExecutionPolicy Bypass`를 실행해야 하며 해당 명령을 실행하려면 해당 구독의 관리자여야 합니다.
+
+1. **Get-AcsSubscription** cmdlet을 사용하여 사용 가능한 Azure 구독을 나열합니다.
+1. **Get-AcsNamespace** cmdlet을 사용하여 ACS 네임스페이스를 나열합니다.
+
+### <a name="check-which-applications-will-be-impacted"></a>어떤 응용 프로그램이 영향을 받는지 확인합니다.
+
+1. 이전 단계에서 해당 네임스페이스를 사용하고 `https://<namespace>.accesscontrol.windows.net`으로 이동합니다.
+
+    예를 들어, 네임스페이스 중 하나가 contoso-test이면 `https://contoso-test.accesscontrol.windows.net`으로 이동합니다.
+
+1. **신뢰 관계**에서 **신뢰 당사자 응용 프로그램**을 선택하여 ACS 사용 중지에 의해 영향을 받는 응용 프로그램 목록을 확인합니다.
+1. 가지고 있는 다른 모든 ACS 네임스페이스에 대해 1-2 단계를 반복합니다.
 
 ## <a name="retirement-schedule"></a>사용 중지 일정
 
@@ -69,10 +113,12 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
 
 Access Control 구성 요소의 사용 중지 일정은 다음과 같습니다.
 
-- **2017년 11월**: 클래식 Azure Portal의 Azure AD 관리자 환경이 [사용 중지됩니다](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). 현재 새로운 전용 URL `http://manage.windowsazure.com?restoreClassic=true`에서 Access Control에 대한 네임스페이스를 관리할 수 있습니다. 필요한 경우 이 URl를 사용하여 기존 네임스페이스를 보고, 네임스페이스를 사용하거나 사용하지 않도록 설정하고, 네임스페이스를 삭제합니다.
+- **2017년 11월**: 클래식 Azure Portal의 Azure AD 관리자 환경이 [사용 중지됩니다](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). 현재 새로운 전용 URL `https://manage.windowsazure.com?restoreClassic=true`에서 Access Control에 대한 네임스페이스를 관리할 수 있습니다. 필요한 경우 이 URl를 사용하여 기존 네임스페이스를 보고, 네임스페이스를 사용하거나 사용하지 않도록 설정하고, 네임스페이스를 삭제합니다.
 - **2018년 4월 2일**: Azure 클래식 포털이 완전히 사용 중지됩니다. 즉, 더 이상 URL을 통해 Access Control 네임스페이스 관리를 사용할 수 없습니다. 이 시점에서는 Access Control을 사용 또는 사용하지 않도록 설정 하거나, 삭제하거나, 열거할 수 없습니다. 하지만 `https://\<namespace\>.accesscontrol.windows.net`에서는 Access Control 관리 포털이 완벽하게 작동됩니다. Access Control의 다른 모든 구성 요소는 계속해서 정상적으로 작동합니다.
 - **2018년 11월 7일**: 모든 Access Control 구성 요소가 영구적으로 종료됩니다. 즉, Access Control 관리 포털, 관리 서비스, STS, 토큰 변환 규칙 엔진이 종료됩니다. 이 시점에서 Access Control(\<namespace\>.accesscontrol.windows.net에 위치)로 전송된 모든 요청이 실패합니다. 이 시점 전까지 기존 앱과 서비스를 다른 기술로 모두 마이그레이션 완료해야 합니다.
 
+> [!NOTE]
+> 정책은 일정 기간 동안 토큰을 요청하지 않은 네임스페이스를 사용하지 않도록 설정합니다. 2018년 9월초 현재 해당 기간은 비활성 기간 14일이지만 몇 주 후부터는 비활성 기간 7일로 단축될 예정입니다. 현재 사용하지 않도록 설정된 액세스 제어 네임스페이스가 있다면 [ACS PowerShell을 다운로드 및 설치](#download-and-install-acs-powershell)하여 해당 네임스페이스를 다시 사용하도록 설정할 수 있습니다.
 
 ## <a name="migration-strategies"></a>마이그레이션 전략
 
@@ -93,12 +139,11 @@ Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우
 | Azure Backup | [Azure Backup 에이전트 업그레이드](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
-<!-- Azure RemoteApp deprecated in favor of Citrix: http://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
+<!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
 <!-- Exchange push notifications are moving, customers don't need to move -->
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
-
 
 ### <a name="sharepoint-customers"></a>SharePoint 고객
 
@@ -106,7 +151,7 @@ SharePoint 2013, 2016 및 SharePoint Online 고객은 오래 전부터 클라우
 
 | 기능 | 지침 |
 | ------- | -------- |
-| Azure AD에서 사용자 인증 | 이전에는 Azure AD가 인증을 위해 SharePoint에서 요구하는 SAML 1.1 토큰을 지원하지 않았으며, SharePoint를 Azure AD 토큰 형식과 호환되도록 만들기 위해 ACS 토큰을 중간자로 사용했습니다. 이제는 [토큰 발급 정책을 사용하여 SharePoint를 Azure AD에 직접 연결](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication)할 수 있습니다. |
+| Azure AD에서 사용자 인증 | 이전에는 Azure AD가 인증을 위해 SharePoint에서 요구하는 SAML 1.1 토큰을 지원하지 않았으며, SharePoint를 Azure AD 토큰 형식과 호환되도록 만들기 위해 ACS 토큰을 중간자로 사용했습니다. 이제, [온-프레미스 앱에서 Azure AD 앱 갤러리 SharePoint를 사용하여 SharePoint를 Azure AD에 직접 연결](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial)할 수 있습니다. |
 | [SharePoint 온-프레미스에서 앱 인증 및 서버 간 인증](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. | 
 | [SharePoint 추가 기능에 대한 낮은 신뢰 권한 부여(호스팅된 공급자 및 호스팅된 SharePoint)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
 | [SharePoint 클라우드 하이브리드 검색](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
@@ -175,26 +220,14 @@ WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러�
 - Azure AD 토큰 사용자 지정의 유연성이 제공됩니다. Access Control에서 발행한 클레임과 일치하도록 Azure AD에서 발행한 클레임을 사용자 지정할 수 있습니다. 특히 사용자 ID 또는 이름 식별자 클레임이 포함됩니다. 기술을 변경한 다음에도 사용자들이 전과 동일하게 사용자 식별자를 받기 위해서는 Azure AD에서 발행한 사용자 ID가 Access Control에서 발생한 사용자 ID와 일치해야 합니다.
 - 사용자가 직접 수명을 제어하는 응용 프로그램에 맞게 토큰 서명 인증서를 구성할 수 있습니다.
 
-<!--
-
-Possible nameIdentifiers from Access Control (via AAD or AD FS):
-- AD FS - Whatever AD FS is configured to send (email, UPN, employeeID, what have you)
-- Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
-- Default from AAD using Custom apps nowadays: UPN
-- Kusto can't tell us distribution, it's redacted
-
--->
-
 > [!NOTE]
 > 이 방법을 사용하려면 Azure AD Premium 라이선스가 필요합니다. Access Control 고객이고 응용 프로그램에 대한 Single Sign-On을 설정하기 위해 Premium 라이선스가 필요한 경우 저희에게 문의하세요. 사용할 수 있는 개발자 라이선스를 제공합니다.
 
 또 다른 방법은 [이 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation)을 따르는 것입니다. 코드 샘플에서는 Ws-Federation을 설정하는 다른 방법을 설명합니다. 코드 샘플에서는 WIF가 아닌 ASP.NET 4.5 OWIN 미들웨어를 사용하지만 WIF를 사용하는 앱에서도 유효한 앱 등록 방법을 사용할 수 있으며, 이때 Azure AD Premium 라이선스가 필요하지 않습니다. 
 
-이 방법을 선택한 경우에는 [Azure AD의 서명 키 롤오버](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover)에 대해 이해해야 합니다. 이 방법에서는 Azure AD 글로벌 서명 키를 사용하여 토큰을 발행합니다. 기본적으로 WIF는 자동으로 서명 키를 업데이트하지 않습니다. Azure AD가 글로벌 서명 키를 교대시킬 때 변화된 사항이 적용될 수 있도록 WIF 구현이 준비가 되어 있어야 합니다.
+이 방법을 선택한 경우에는 [Azure AD의 서명 키 롤오버](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover)에 대해 이해해야 합니다. 이 방법에서는 Azure AD 글로벌 서명 키를 사용하여 토큰을 발행합니다. 기본적으로 WIF는 자동으로 서명 키를 업데이트하지 않습니다. Azure AD가 글로벌 서명 키를 교대시킬 때 변화된 사항이 적용될 수 있도록 WIF 구현이 준비가 되어 있어야 합니다. 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요 정보](https://msdn.microsoft.com/library/azure/dn641920.aspx)를 참조하세요.
 
 OpenID Connect 또는 OAuth 프로토콜을 통해 Azure AD와 통합할 수 있다면 그렇게 하는 것이 좋습니다. [Azure AD 개발자 가이드](https://aka.ms/aaddev)에서 웹 응용 프로그램에 Azure AD를 통합하는 방법에 대한 방대한 설명서와 자료를 확인할 수 있습니다.
-
-<!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Azure Active Directory B2C로 마이그레이션
 
@@ -237,7 +270,6 @@ Azure AD B2C가 응용 프로그램 및 서비스에 적합한 마이그레이�
 - [Azure AD B2C 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Azure AD B2C 가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
-
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Ping ID 또는 Auth0로 마이그레이션
 
 경우에 따라 주요 코드를 변경하지 않고 웹 응용 프로그램에서 Access Control을 교체하는 데 Azure AD와 Azure AD B2C만으로 충분하지 않을 수 있습니다. 다음과 같은 몇 가지 일반적인 예가 있습니다.
@@ -249,8 +281,6 @@ Azure AD B2C가 응용 프로그램 및 서비스에 적합한 마이그레이�
 - 많은 ID 공급자에 대한 페더레이션을 중앙에서 ACS를 사용하여 관리하는 다중 테넌트 웹 응용 프로그램
 
 이러한 경우 웹 응용 프로그램을 다른 클라우드 인증 서비스로 마이그레이션하는 것을 고려해 보는 것이 좋습니다. 다음 옵션에 대해 알아보세요. 다음 옵션은 Access Control과 비슷한 기능을 제공합니다.
-
-
 
 |     |     | 
 | --- | --- |
@@ -320,6 +350,10 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 | ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 ACS와 동일한 많은 기능을 지원하는 클라우드 ID 서비스이고 PingFederate는 더 큰 유연성을 제공하는 유사한 온-프레미스 ID 제품입니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요. |
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
+
+#### <a name="passthrough-authentication"></a>통과 인증
+
+임의 토큰 변환을 사용하는 통과 인증에 해당하는 Microsoft의 ACS 기술은 없습니다. 이러한 인증을 사용해야 하는 고객은 가장 근접한 솔루션을 제공하는 Auth0을 사용할 수 있습니다.
 
 ## <a name="questions-concerns-and-feedback"></a>질문, 우려 사항 및 피드백
 

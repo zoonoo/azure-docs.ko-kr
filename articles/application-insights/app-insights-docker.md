@@ -11,16 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 53ade76b9dbdc27df90da1f7e197464816529d1d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4df6780fa61c1ed32279d882f383097dc0287716
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295764"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275918"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Application Insights에서 Docker 응용 프로그램 모니터링
+
 [Docker](https://www.docker.com/) 컨테이너의 수명 주기 이벤트 및 성능 카운터를 Application Insights에서 차트로 표시할 수 있습니다. 호스트의 컨테이너에 [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) 이미지를 설치하면 호스트는 물론 다른 이미지에 대한 성능 카운터가 표시됩니다.
 
 Docker를 사용하여 모든 종속성이 포함된 경량 컨테이너에 앱을 배포합니다. Docker 엔진을 실행하는 모든 호스트 컴퓨터에서 앱이 실행됩니다.
@@ -31,33 +32,28 @@ Docker 호스트에서 [Application Insights 이미지](https://hub.docker.com/r
 * 모든 컨테이너에 대한 성능 카운터 CPU, 메모리, 네트워크 사용량 외 다수
 * 컨테이너에서 실행되는 앱에 [Java용 Application Insights SDK를 설치하면](app-insights-java-live.md) 해당 앱에 대한 모든 원격 분석에 컨테이너와 호스트 컴퓨터를 식별하는 추가적인 속성이 포함됩니다. 예를 들어 둘 이상의 호스트에서 실행되는 앱 인스턴스가 있다면 앱 원격 분석을 호스트별로 쉽게 필터링할 수 있습니다.
 
-![예제](./media/app-insights-docker/00.png)
+> [!NOTE]
+> 이 솔루션은 더 이상 사용되지 않습니다. 컨테이너 모니터링의 현재 투자에 대한 자세한 내용을 보려면 [컨테이너용 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)를 확인해보세요.
 
 ## <a name="set-up-your-application-insights-resource"></a>Application Insights 리소스 설정
+
 1. [Microsoft Azure Portal](https://azure.com)에 로그인하고 앱에 대한 Application Insights 리소스를 열거나 [새 리소스를 만듭니다](app-insights-create-new-resource.md). 
    
     *어떤 리소스를 사용해야 하나요?* 호스트에서 실행하는 앱을 다른 사람이 개발한 경우에는 [새로운 Application Insights 리소스를 만들어야 합니다](app-insights-create-new-resource.md). 이 리소스에서 원격 분석을 보고 분석하게 됩니다. (앱 형식에 대해 '일반'을 선택합니다.)
    
     해당 앱의 개발자인 경우에는 각 앱에 [Application Insights SDK를 추가](app-insights-java-live.md) 하셨기를 바랍니다. 실제로 모든 리소스가 단일 비즈니스 응용 프로그램의 구성 요소라면, 하나의 리소스에 원격 분석을 보내도록 모든 리소스를 구성하고, 동일한 리소스를 사용하여 Docker 수명 주기 및 성능 데이터를 표시하게 됩니다. 
    
-    세 번째 시나리오는 사용자가 대부분의 앱을 개발했지만 별도의 리소스를 사용하여 앱의 원격 분석을 나타내는 경우입니다. 대개 이런 경우에는 Docker 데이터에 대해서도 별도의 리소스를 만들려고 할 것입니다. 
-2. Docker 타일을 추가합니다. **타일 추가**를 선택하고 갤러리에서 Docker 타일을 끌어다 놓은 후 **완료**를 클릭합니다. 
-   
-    ![예제](./media/app-insights-docker/03.png)
+    세 번째 시나리오는 사용자가 대부분의 앱을 개발했지만 별도의 리소스를 사용하여 앱의 원격 분석을 나타내는 경우입니다. 대개 이런 경우에는 Docker 데이터에 대해서도 별도의 리소스를 만들려고 할 것입니다.
 
-> [!NOTE]
-> Application Insights의 개요 창은 이제 잠기고 갤러리에서 타일 추가를 허용하지 않습니다. Azure 대시보드 인터페이스를 통해 위에서 설명한 것처럼 Docker 타일을 여전히 추가할 수 있습니다.
-
-3. **Essentials** 드롭다운을 클릭하고 계측 키를 복사합니다. 이 키를 사용하여 SDK에 원격 분석을 보낼 위치를 알립니다.
-
-    ![예제](./media/app-insights-docker/02-props.png)
+2. **Essentials** 드롭다운을 클릭하고 계측 키를 복사합니다. 이 키를 사용하여 SDK에 원격 분석을 보낼 위치를 알립니다.
 
 원격 분석을 확인하기 위해 곧 돌아와야 하므로 해당 브라우저 창을 열어둡니다.
 
 ## <a name="run-the-application-insights-monitor-on-your-host"></a>호스트에서 Application Insights 모니터링 실행
+
 원격 분석을 표시할 위치를 확보했으니, 원격 분석 데이터를 수집하고 보낼 컨테이너식 앱을 설정할 수 있습니다.
 
-1. Docker 호스트에 연결합니다. 
+1. Docker 호스트에 연결합니다.
 2. 계측 키를 아래 명령에 넣어 편집하고 실행합니다.
    
    ```
@@ -84,19 +80,6 @@ Docker 타일을 클릭합니다.
 
 특히 Docker 엔진에서 다른 컨테이너가 실행되고 있는 경우 Docker 앱에서 데이터가 도착하는 것을 곧 확인할 수 있습니다.
 
-다음은 표시될 수 있는 몇 가지 보기입니다.
-
-### <a name="perf-counters-by-host-activity-by-image"></a>호스트별 성능 카운터, 이미지별 활동
-![예제](./media/app-insights-docker/10.png)
-
-![예제](./media/app-insights-docker/11.png)
-
-자세한 내용을 보려면 호스트 또는 이미지 이름을 클릭합니다.
-
-보기를 사용자 지정하려면 차트, 그리드 제목을 차례로 클릭하거나 차트 추가를 사용합니다. 
-
-[메트릭 탐색기에 대해 자세히 알아봅니다](app-insights-metrics-explorer.md).
-
 ### <a name="docker-container-events"></a>Docker 컨테이너 이벤트
 ![예제](./media/app-insights-docker/13.png)
 
@@ -106,13 +89,7 @@ Docker 타일을 클릭합니다.
 ![예제](./media/app-insights-docker/14.png)
 
 ### <a name="docker-context-added-to-app-telemetry"></a>앱 원격 분석에 추가되는 Docker 컨텍스트
-AI SDK를 사용하여 계측되는 응용 프로그램에서 보내는 요청 원격 분석은 Docker 컨텍스트를 사용하여 보강됩니다.
-
-![예제](./media/app-insights-docker/16.png)
-
-프로세서 시간 및 사용 가능한 메모리 성능 카운터는 Docker 컨테이너 이름으로 그룹화되고 보강됩니다.
-
-![예제](./media/app-insights-docker/15.png)
+AI SDK를 사용하여 계측되는 응용 프로그램에서 보내는 요청 원격 분석은 Docker 컨텍스트 정보를 사용하여 보강됩니다.
 
 ## <a name="q--a"></a>질문과 대답
 *Docker에서 얻을 수 없는 어떤 기능을 Application Insights가 제공하나요?*

@@ -1,23 +1,20 @@
 ---
-title: Linux 기반 Azure HDInsight에서 Hadoop Oozie 워크플로 사용 | Microsoft Docs
+title: Linux 기반 Azure HDInsight에서 Hadoop Oozie 워크플로 사용
 description: Linux 기반 HDInsight에서 Hadoop Oozie를 사용합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
+author: omidm1
+ms.author: omidm
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-ms.openlocfilehash: a1fd33ec83208dfd5d90a0fb11557c72a5f02e88
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 4ea8ded6abcdee397511272c539f9be6cdd12c0e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019282"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685534"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Hadoop과 함께 Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 
@@ -33,12 +30,12 @@ Azure HDInsight에서 Hadoop와 함께 Apache Oozie를 사용하는 방법을 �
 Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스템에 특정한 작업을 예약할 수도 있습니다.
 
 > [!NOTE]
-> HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure Data Factory를 사용하는 것입니다. Data Factory에 대한 자세한 내용은 [Data Factory에서 Pig 및 Hive 사용][azure-data-factory-pig-hive]을 참조하세요.
+> HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure Data Factory를 사용하는 것입니다. Data Factory에 대한 자세한 내용은 [Data Factory에서 Pig 및 Hive 사용][azure-data-factory-pig-hive]을 참조하세요. Enterprise Security Package가 포함된 클러스터에서 Oozie를 사용하려면 [Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)을 참조하세요.
 
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **HDInsight 클러스터**: [Linux에서 HDInsight 시작](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **기본 HDInsight 클러스터**: [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -49,7 +46,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 ![워크플로 다이어그램][img-workflow-diagram]
 
-1. Hive 동작은 HiveQL을 실행하여 HDInsight에 포함된 **hivesampletable** 에서 레코드를 추출합니다. 데이터의 각 행은 특정 모바일 장치에서의 방문을 설명합니다. 레코드 형식은 다음 텍스트와 유사하게 표시됩니다.
+1. Hive 동작은 HiveQL을 실행하여 HDInsight에 포함된 **hivesampletable** 에서 레코드를 추출합니다. 데이터의 각 행은 특정 모바일 디바이스에서의 방문을 설명합니다. 레코드 형식은 다음 텍스트와 유사하게 표시됩니다.
 
         8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
         23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
@@ -756,7 +753,6 @@ Oozie UI를 사용하여 Oozie 로그를 볼 수 있습니다. Oozie UI에는 �
 [hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
 
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md

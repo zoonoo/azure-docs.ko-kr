@@ -1,11 +1,12 @@
 ---
-title: 온라인 데이터 원본에서 Machine Learning Studio로 데이터 가져오기 | Microsoft Docs
-description: 다양한 온라인 원본에서 Azure Machine Learning Studio로 학습 데이터를 가져오는 방법.
+title: 온라인 데이터 원본에서 Machine Learning Studio로 데이터 가져오기 - Azure | Microsoft Docs
+description: 이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure Machine Learning Studio 실험으로 이동하는 데 필요한 정보를 설명합니다.
 keywords: 데이터 가져오기, 데이터 형식, 데이터 유형, 데이터 원본, 학습 데이터
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
@@ -16,24 +17,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: ab806f8191bc8edc4d5be6003cd177d8c24d71e7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 89e2414b32dfb3cc6773d09dcdc3e711e56492ef
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834678"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315027"
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>데이터 가져오기 모듈을 사용하여 다양한 온라인 데이터 원본에서 Azure Machine Learning Studio로 데이터 가져오기
-이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure Machine Learning 실험으로 이동하는 데 필요한 정보를 설명합니다.
+이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure Machine Learning Studio 실험으로 이동하는 데 필요한 정보를 설명합니다.
 
 > [!NOTE]
 > 이 문서에서는 [데이터 가져오기][import-data] 모듈에 대한 일반 정보를 제공합니다. 액세스할 수 있는 데이터 형식, 형식, 매개변수 및 일반 질문의 응답에 대한 자세한 내용은 [데이터 가져오기][import-data] 모듈의 모듈 참조 항목을 참조하세요.
 > 
 > 
-
-<!-- -->
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 ## <a name="introduction"></a>소개
 [Azure Machine Learning Studio](https://studio.azureml.net/Home)에서 [데이터 가져오기][import-data] 모듈을 사용하여 실험을 실행하는 동안 여러 온라인 데이터 원본 중 하나의 데이터에 액세스할 수 있습니다.
@@ -49,7 +46,7 @@ ms.locfileid: "34834678"
 
 Studio 실험에서 온라인 데이터 원본에 액세스하려면 [데이터 가져오기][import-data] 모듈을 추가하고 **데이터 원본**을 선택한 다음 데이터에 액세스하는 데 필요한 매개 변수를 제공합니다. 지원되는 온라인 데이터 원본을 아래 표에 항목별로 나타냈습니다. 또한 이 테이블은 지원되는 파일 형식 및 데이터에 액세스하는 데 사용되는 매개 변수도 요약합니다.
 
-실험이 실행 중인 동안 이 학습 데이터에 액세스하므로 데이터는 해당 실험에서만 사용할 수 있습니다. 비교에 의해 데이터 집합 모듈에 저장된 데이터를 작업 영역의 아무 실험에나 사용할 수 있습니다.
+실험이 실행 중인 동안 이 학습 데이터에 액세스하므로 데이터는 해당 실험에서만 사용할 수 있습니다. 비교에 의해 데이터 세트 모듈에 저장된 데이터를 작업 영역의 아무 실험에나 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 현재 [데이터 가져오기][import-data] 및 [데이터 내보내기][export-data] 모듈은 클래식 배포 모델을 사용하여 만든 Azure Storage의 데이터를 읽고 쓸 수 있습니다. 다시 말해, 핫 저장소 액세스 계층 또는 쿨 저장소 액세스 계층을 제공하는 새로운 Azure Blob Storage 계정 유형은 아직 지원되지 않습니다. 

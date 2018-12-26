@@ -3,23 +3,23 @@ title: Azure Security Center에서 보안 구성 수정 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center 권장 사항 "보안 구성 수정"을 구현하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
-ms.author: terrylan
-ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285919"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317498"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Security Center에서 보안 구성 수정
 Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 체제)를 매일 분석하여 이러한 VM과 컴퓨터를 공격에 보다 취약하게 만들 수 있는 구성을 확인합니다. Security Center에서는 OS 구성이 권장 보안 구성 규칙과 일치하지 않을 경우 취약성을 해결하도록 권장하며, 이러한 취약성 해결을 위해 구성을 변경하는 것이 좋습니다.
@@ -27,11 +27,11 @@ Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 �
 모니터링되는 특정 구성에 대한 자세한 내용은 [권장되는 구성 규칙 목록](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)을 참조하세요. 보안 구성 평가를 사용자 지정하는 방법을 알아보려면 [Azure Security Center에서 OS 보안 구성 사용자 지정(미리 보기)](security-center-customize-os-security-config.md)을 참조하세요.
 
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
-"보안 구성 수정"은 Security Center에서 권장 사항으로 표시됩니다. 권장 사항은 **권장 사항** > **Compute** 아래 표시됩니다.
+"보안 구성 수정"은 Security Center에서 권장 사항으로 표시됩니다. 권장 사항은 **권장 사항** > **Compute 및 앱** 아래 표시됩니다.
 
-이 예제에서는 **Compute** 아래의 "보안 구성 수정" 권장 사항을 살펴보겠습니다.
-1. Security Center의 왼쪽 창에서 **Compute**를 선택합니다.  
-  **Compute** 창이 열립니다.
+이 예제에서는 **Compute 및 앱** 아래의 “보안 구성 수정” 권장 사항을 살펴보겠습니다.
+1. Security Center의 왼쪽 창에서 **Compute 및 앱**을 선택합니다.  
+  **Compute 및 앱** 창이 열립니다.
 
    ![보안 구성 수정][1]
 
@@ -101,13 +101,13 @@ Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 �
 Security Center에 대해 알아보려면 다음 리소스를 참조하세요.
 
 * 지원되는 Windows 및 Linux VM의 목록은 [Azure Security Center에서 지원되는 플랫폼](security-center-os-coverage.md)을 참조하세요.
-* Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아보려면 [Azure Security Center에서 보안 정책 설정](security-center-policies.md)을 참조하세요.
+* Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아보려면 [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md)을 참조하세요.
 * 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아보려면 [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
 * Azure 리소스의 상태를 모니터링하는 방법을 알아보려면 [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md)을 참조하세요.
 * 보안 경고를 관리하고 대응하는 방법을 알아보려면 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.
 * 파트너 솔루션의 상태를 모니터링하는 방법을 알아보려면 [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md)을 참조하세요.
 * 서비스 사용에 관한 질문과 대답은 [Azure Security Center FAQ](security-center-faq.md)를 참조하세요.
-* Azure 보안 및 규정 준수에 관한 블로그 게시물은 [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)를 참조하세요.
+* Azure 보안 및 규정 준수에 관한 블로그 게시물은 [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/)를 참조하세요.
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: juluk
-ms.openlocfilehash: 3ceddb94336fc2703e6f916f05ab1ec3676cb50d
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 37ad0adf01172fadc6d9845576045a4542bdae19
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
-ms.locfileid: "27864887"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497793"
 ---
 # <a name="embed-azure-cloud-shell"></a>Azure Cloud Shell 포함
 
@@ -27,11 +27,11 @@ Cloud Shell을 포함하면 개발자 및 콘텐츠 작성자가 전용 URL, [sh
 
 일반 크기 단추
 
-[![](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+[![일반 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
 
 큰 크기 단추
 
-[![](https://shell.azure.com/images/launchcloudshell@2x.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+[![큰 시작](https://shell.azure.com/images/launchcloudshell@2x.png "Azure Cloud Shell 시작")](https://shell.azure.com)
 
 ## <a name="how-to"></a>방법
 
@@ -43,7 +43,7 @@ Cloud Shell을 포함하면 개발자 및 콘텐츠 작성자가 전용 URL, [sh
 
 팝업 Cloud Shell을 포함할 HTML은 다음과 같습니다.
 ```html
-<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
+<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><img alt="Launch Azure Cloud Shell" src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 ```
 
 ## <a name="customize-experience"></a>환경 사용자 지정
@@ -51,9 +51,9 @@ Cloud Shell을 포함하면 개발자 및 콘텐츠 작성자가 전용 URL, [sh
 URL을 확장하여 특정 셸 환경을 설정합니다.
 |환경   |URL   |
 |---|---|
-|가장 최근에 사용한 셸   |shell.azure.com           |
-|Bash                       |shell.azure.com/bash       |
-|PowerShell                 |shell.azure.com/powershell |
+|가장 최근에 사용한 셸   |[shell.azure.com](https://shell.azure.com)           |
+|Bash                       |[shell.azure.com/bash](https://shell.azure.com/bash)       |
+|PowerShell                 |[shell.azure.com/powershell](https://shell.azure.com/powershell) |
 
 ## <a name="next-steps"></a>다음 단계
 [Cloud Shell의 Bash 빠른 시작](quickstart.md)<br>

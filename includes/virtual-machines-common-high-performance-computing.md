@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 496c32e70ad58f64b31c1f6fcf913884fcd4abc1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 88aeaf1246583345d1d28218e8e91b3ecbcd166b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348238"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53430002"
 ---
 조직에는 대규모 컴퓨팅 요구 사항이 있습니다. 이러한 큰 계산 작업에는 엔지니어링 설계 및 분석, 재무 위험 계산, 이미지 렌더링, 복잡한 모델링, 몬테카를로 시뮬레이션 등이 포함됩니다. 
 
@@ -40,8 +40,7 @@ Azure 클라우드를 사용하여 병렬 일괄 처리 작업에서 기존의 H
     * [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/) 및 [Cycle Computing](https://cyclecomputing.com/)(이제 [Microsoft와 조인됨](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/))을 포함하여 공급 업체에서 Azure를 사용할 수 있는 엔지니어링 및 시뮬레이션 솔루션을 실행합니다.
     * Azure에서 호스팅된 서비스로 [Cray 슈퍼 컴퓨터](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure)를 사용합니다.
 * **Marketplace 솔루션**
-    * 
-  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)에서 제공되는 [HPC 응용 프로그램](#hpc-applications) 및 [솔루션](#marketplace-solutions)의 규모를 사용합니다. 
+    * [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)에서 제공되는 [HPC 응용 프로그램](#hpc-applications) 및 [솔루션](#marketplace-solutions)의 규모를 사용합니다. 
     
 
 
@@ -59,7 +58,7 @@ HPC용으로 설계된 Linux 및 Windows VM 이미지 및 솔루션은 [Azure Ma
 * [Windows 및 Linux용 Azure 데이터 과학 VM](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
 * [D3View](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 * [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
-* [Lustre용 Intel Cloud Edition](https://azuremarketplace.microsoft.com/marketplace/apps/intel.lustre-cloud-edition-eval?tab=Overview)
+* [Lustre용 Intel Cloud Edition](https://azuremarketplace.microsoft.com/marketplace/apps/intel.intel-cloud-edition-gs)
 
 
  
@@ -87,7 +86,6 @@ Azure에서 사용자 지정 또는 상용 HPC 응용 프로그램을 실행합�
 
 ### <a name="ai-and-deep-learning"></a>AI 및 심층 학습
 
-* 심층 학습 모델에 대한 [Batch AI](../articles/batch-ai/overview.md) 학습
 * [Microsoft Cognitive 도구 키트](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
 * [심층 학습 VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [심층 학습용 Batch Shipyard 레시피](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
@@ -163,13 +161,12 @@ Azure 가상 머신, 가상 머신 확장 집합, Batch 및 관련 계산 서비
 ### <a name="data-and-analytics"></a>데이터 및 분석
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
-* [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
+* [Data Lake Storage Gen1](../articles/data-lake-store/data-lake-store-overview.md)
 * [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 
 ### <a name="ai-and-machine-learning"></a>AI 및 기계 학습
 * [Machine Learning Services](../articles/machine-learning/service/overview-what-is-azure-ml.md)
-* [Batch AI](../articles/batch-ai/overview.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>네트워킹
@@ -198,7 +195,7 @@ Azure HPC 솔루션으로 비즈니스 문제를 해결한 고객은 다음과 �
 * [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
 * [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
 * [NeuroInitiative](https://customers.microsoft.com/en-us/story/neuroinitiative-health-provider-azure)
-* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+* [Schlumberger](https://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 

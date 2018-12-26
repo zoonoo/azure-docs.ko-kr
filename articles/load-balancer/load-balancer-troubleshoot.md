@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 6777842f3ca336eb4ae0d134cbc7ffd062bc6f29
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1a4be7b5caba751f0f90e865d8ef23e5e9c899d6
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37890807"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140112"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
 
@@ -79,7 +79,7 @@ VM의 방화벽이 프로브 포트를 차단하고 있거나 서브넷 또는 V
         - 백 엔드 풀 VM에서 들어오는 패킷이 확인되지 않으면 트래픽을 차단하는 네트워크 보안 그룹 또는 UDR 구성 오류가 있는 것일 수 있습니다. 
         - 백 엔드 풀 VM에서 나가는 패킷이 확인되지 않으면 VM에 관련 없는 문제(예: 프로브 포트를 차단하는 응용 프로그램)가 있는지 확인해야 합니다. 
     - 프로브 패킷이 부하 분산 장치에 도달하기 전에 강제로 다른 대상으로 전달되는지 확인합니다(UDR 설정을 통해). 이로 인해 트래픽이 백엔드 VM에 절대 도달하지 못할 수 있습니다. 
-* 프로브 형식을 변경하고(예: HTTP에서 TCP로) 네트워크 보안 그룹 ACL의 해당 포트 및 방화벽이 프로브 응답 구성에 문제가 있는지 평가하도록 구성합니다. 상태 프로브 구성에 대한 자세한 내용은 [끝점 부하 분산 장치 상태 프로브 구성](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/)을 참조하세요.
+* 프로브 형식을 변경하고(예: HTTP에서 TCP로) 네트워크 보안 그룹 ACL의 해당 포트 및 방화벽이 프로브 응답 구성에 문제가 있는지 평가하도록 구성합니다. 상태 프로브 구성에 대한 자세한 내용은 [엔드포인트 부하 분산 장치 상태 프로브 구성](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/)을 참조하세요.
 
 ## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>증상: Load Balancer 뒤의 VM이 구성된 데이터 포트의 트래픽에 응답하지 않습니다.
 
@@ -87,7 +87,7 @@ VM의 방화벽이 프로브 포트를 차단하고 있거나 서브넷 또는 V
 * Load Balancer 백 엔드 풀 VM이 데이터 포트에서 수신하지 않습니다. 
 * 네트워크 보안 그룹이 Load Balancer 백 엔드 풀 VM에서 포트를 차단하고 있습니다.  
 * 동일한 VM 및 NIC에서 Load Balancer에 액세스 
-* 참여하는 Load Balancer 백 엔드 풀 VM에서 인터넷 부하 분산 장치 VIP에 액세스 
+* 참여하는 Load Balancer 백 엔드 풀 VM에서 인터넷 Load Balancer 프런트 엔드에 액세스 
 
 ### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>원인 1: Load Balancer 백 엔드 풀 VM이 데이터 포트에서 수신하지 않습니다. 
 VM이 데이터 트래픽에 응답하지 않을 경우 대상 포트가 참여 VM에서 열려 있지 않거나 VM이 해당 포트에서 수신하지 않기 때문일 수 있습니다. 
@@ -119,10 +119,11 @@ Load Balancer의 백 엔드 VM에서 호스트된 응용 프로그램이 동일�
 * 응용 프로그램마다 별도 백 엔드 풀 VM을 구성합니다. 
 * 각 응용 프로그램이 자체 네트워크 인터페이스 및 IP 주소를 사용하도록 이중 NIC VM에 응용 프로그램을 구성합니다. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>원인 4: 참여하는 Load Balancer 백 엔드 풀 VM에서 인터넷 Load Balancer VIP에 액세스
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>원인 4: 참여하는 Load Balancer 백 엔드 풀 VM에서 내부 Load Balancer VIP에 액세스
 
-ILB VIP가 VNet 내에 구성되어 있고 참가자 백 엔드 VM 중 하나가 인터넷 Load Balancer VIP에 액세스하려고 하면 결과는 실패합니다. 이것은 지원되지 않는 시나리오입니다.
-**해결 방법** Application Gateway 또는 기타 프록시(예: nginx 또는 haproxy)가 이러한 종류의 시나리오를 지원하는지 평가합니다. Application Gateway에 대한 자세한 내용은 [Application Gateway에 대한 개요](../application-gateway/application-gateway-introduction.md)를 참조하세요.
+내부 Load Balancer가 VNet 내에서 구성되고, 참여하는 백 엔드 Load Balancer 중 하나가 내부 Load Balancer 프런트 엔드에 액세스하려고 하면 흐름이 원본 VM에 매핑될 때 오류가 발생할 수 있습니다. 이 시나리오는 지원되지 않습니다. 자세한 내용은 [제한 사항](load-balancer-overview.md#limitations)을 검토하세요.
+
+**해결 방법** 프록시를 사용하여이 시나리오의 차단을 해제하는 방법이 몇 가지 있습니다. Application Gateway 또는 기타 타사 프록시(예: nginx 또는 haproxy)를 평가하세요. Application Gateway에 대한 자세한 내용은 [Application Gateway에 대한 개요](../application-gateway/application-gateway-introduction.md)를 참조하세요.
 
 ## <a name="additional-network-captures"></a>추가 네트워크 캡처
 지원 사례를 열기로 결정한 경우 더 빠른 해결을 위해 다음 정보를 수집합니다. 단일 백 엔드 VM을 선택하여 다음과 같은 테스트를 수행합니다.

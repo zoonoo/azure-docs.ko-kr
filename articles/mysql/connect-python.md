@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 7eef3d71a35b5016e48e519b95c2573fbe3390e7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 54b25aa141da15224d5d8034ba54783d3633f5be
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265108"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914739"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>MySQL용 Azure Database: Python을 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Python](https://python.org)을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 Mac OS, Ubuntu Linux 및 Windows 플랫폼에서 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다. 이 항목에서는 Python을 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
@@ -27,7 +27,11 @@ ms.locfileid: "35265108"
 - [Azure CLI를 사용한 MySQL용 Azure Database 서버 만들기](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Python 및 MySQL 커넥터 설치
-자신의 컴퓨터에 [Python](https://www.python.org/downloads/)과 [Python용 MySQL 커넥터](https://dev.mysql.com/downloads/connector/python/)를 설치합니다. 사용하는 플랫폼에 따라 해당 섹션의 다음 단계를 수행합니다.
+자신의 컴퓨터에 [Python](https://www.python.org/downloads/)과 [Python용 MySQL 커넥터](https://dev.mysql.com/downloads/connector/python/)를 설치합니다. 사용하는 플랫폼에 따라 아래 해당 섹션의 단계를 수행합니다. 
+
+> [!NOTE]
+> 이 빠른 시작은 쿼리를 실행하는 MySQL에 연결하는 원시 SQL 쿼리 접근 방식을 사용합니다. 웹 프레임워크를 사용하는 경우 이러한 프레임워크에 대한 권장되는 커넥터를 사용합니다. 예를 들어 Django 사용에 대해 [mysqlclient](https://pypi.org/project/mysqlclient/)가 제안됩니다.
+>
 
 ### <a name="windows"></a>Windows
 1. [python.org](https://www.python.org/downloads/windows/)에서 Python 2.7을 다운로드하고 설치합니다. 
@@ -56,7 +60,7 @@ ms.locfileid: "35265108"
 
    ```bash
    pip install mysql-connector-python-rf
-   ```
+   ``` 
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
@@ -66,7 +70,6 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 3. 서버 이름을 클릭합니다.
 4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
  ![MySQL용 Azure Database 서버 이름](./media/connect-python/1_server-overview-name-login.png)
-   
 
 ## <a name="run-python-code"></a>Python 코드 실행
 - 코드를 텍스트 파일에 붙여넣고 .py 파일 확장명이 포함된 프로젝트 폴더(C:\pythonmysql\createtable.py 또는 /home/username/pythonmysql/createtable.py)에 저장합니다.

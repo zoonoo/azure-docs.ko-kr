@@ -2,19 +2,19 @@
 title: Azure Backup 에이전트를 사용하여 파일 및 폴더 백업
 description: Microsoft Azure Backup 에이전트를 사용하여 Windows 파일과 폴더를 Azure에 백업합니다. Recovery Services 자격 증명 모음을 만들고, Backup 에이전트를 설치하고, 백업 정책을 정의하고, 파일 및 폴더에 초기 백업을 실행합니다.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: 백업 자격 증명 모음, Windows 서버 백업, Windows 백업
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/5/2018
-ms.author: markgal
-ms.openlocfilehash: 583149ed892f82af8687d698cabe1a876aaaa523
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 8/5/2018
+ms.author: raynew
+ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606260"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874008"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델을 사용하여 Azure로 Windows Server 또는 클라이언트 백업
 이 문서는 Resource Manager 배포 모델을 사용하여 Azure Backup이 포함된 Azure에 Windows 서버(또는 Windows 클라이언트) 파일 및 폴더를 백업하는 방법을 설명합니다.
@@ -89,7 +89,7 @@ Recovery Services 자격 증명 모음은 시간이 경과되면서 만든 모�
 
   ![저장소 구성 선택 항목](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-  기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 끝점으로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 저장소 끝점으로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+  기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 엔드포인트로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 저장소 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 자격 증명 모음을 만들었으니, Microsoft Azure Recovery Services 에이전트를 다운로드하여 설치하고, 보관 자격 증명을 다운로드한 다음 그 자격 증명을 사용하여 에이전트를 자격 증명 모음에 등록하여, 파일과 폴더를 백업할 인프라를 준비하겠습니다.
 
@@ -250,7 +250,7 @@ Microsoft Azure Backup 에이전트는 네트워크 제한 기능을 제공합�
 ![IR 완료](./media/backup-configure-vault/ircomplete.png)
 
 ## <a name="questions"></a>질문이 있으십니까?
-질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
+질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>다음 단계
 VM 또는 다른 워크로드를 백업하는 방법에 대한 자세한 내용은 다음을 참조하세요.

@@ -29,7 +29,7 @@ az network local-gateway list --resource-group TestRG1
 
 ### <a name="to-verify-the-shared-key-values"></a>공유 키 값을 확인하려면
 
-공유 키 값이 VPN 장치 구성에 사용한 값과 동일한지 확인합니다. 동일하지 않은 경우 장치의 값을 사용하여 연결을 다시 실행하거나 반환되는 값으로 장치를 업데이트합니다. 값이 일치해야 합니다. 공유 키를 보려면 [az network vpn-connection-list](https://docs.microsoft.com/cli/azure/network/vpn-connection#az_network_vpn_connection_list) 명령을 사용합니다.
+공유 키 값이 VPN 디바이스 구성에 사용한 값과 동일한지 확인합니다. 동일하지 않은 경우 디바이스의 값을 사용하여 연결을 다시 실행하거나 반환되는 값으로 디바이스를 업데이트합니다. 값이 일치해야 합니다. 공유 키를 보려면 [az network vpn-connection-list](https://docs.microsoft.com/cli/azure/network/vpn-connection#az_network_vpn_connection_list) 명령을 사용합니다.
 
 ```azurecli
 az network vpn-connection shared-key show --connection-name VNet1toSite2 --resource-group TestRG1

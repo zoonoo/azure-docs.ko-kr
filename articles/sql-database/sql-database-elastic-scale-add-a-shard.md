@@ -2,19 +2,22 @@
 title: 탄력적 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가하기 | Microsoft Docs
 description: 이 문서에서는 탄력적인 확장 API를 사용하여 새 분할된 데이터베이스를 분할된 데이터베이스 집합에 추가하는 방법을 설명합니다.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 3f5feab300f882c9987feac7a34f84b9dedb43c5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 3be9723d0beddc6bfcd6b6a34b56f4b8fd80aa31
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647914"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239936"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Elastic Database 도구를 사용하여 분할된 데이터베이스 추가하기
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>새 범위 또는 키에 대해 분할된 데이터베이스를 추가하기

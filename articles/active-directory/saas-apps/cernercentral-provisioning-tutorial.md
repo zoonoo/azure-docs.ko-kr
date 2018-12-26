@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 694274abb9a762bc6ca6309cbd56b0eb65bb5a5e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bc215061d5f2f139c5912f29f709346cb681ee86
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228784"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346634"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>자습서: 동 사용자 프로비전을 위한 Cerner Central 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "36228784"
 
 ## <a name="assigning-users-to-cerner-central"></a>Cerner Central에 사용자 지정
 
-Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 "할당된" 사용자 및 그룹만 동기화됩니다. 
+Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 "할당된" 사용자 및 그룹만 동기화됩니다. 
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Cerner Central에 대한 액세스가 필요한 사용자를 대표하는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정했으면 다음 지시에 따라 이러한 사용자를 Cerner Central에 할당할 수 있습니다.
 
@@ -59,13 +59,13 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 이 섹션에서는 사용자의 Azure AD를 Cerner의 SCIM 사용자 계정 프로비전 API를 사용하여 Cerner Central의 사용자 명단에 연결하고, Azure AD의 사용자 및 그룹 할당을 기반으로 Cerner Central에서 할당된 사용자 계정을 만들고, 업데이트하고 비활성화하도록 프로비전 서비스를 구성하는 방법을 안내합니다.
 
 > [!TIP]
-> [Azure Portal ( https://portal.azure.com) ) 에 제공된 지침에 따라 Cerner Central에 대해 SAML 기반 Single Sign-On을 사용하도록 선택할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다. 자세한 내용은 [Cerner Central Single Sign-On 자습서](cernercentral-tutorial.md)를 참조하세요.
+> [Azure Portal(https://portal.azure.com))]에 제공된 지침에 따라 Cerner Central에 대해 SAML 기반 Single Sign-On을 사용하도록 선택할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다. 자세한 내용은 [Cerner Central Single Sign-On 자습서](cernercentral-tutorial.md)를 참조하세요.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Azure AD에서 Cerner Central에 자동 사용자 계정 프로비전을 구성하려면 다음을 수행합니다.
 
 
-Cerner Central으로 사용자 계정을 프로비전하기 위해 Cerner에서 Cerner Central 시스템 계정을 요청하고 Azure AD에서 Cerner의 SCIM 끝점에 연결하는 데 사용할 수 있는 OAuth 전달자 토큰을 생성해야 합니다. 또한 프로덕션에 배포하기 전에 Cerner 샌드박스 환경에서 통합을 수행하는 것이 좋습니다.
+Cerner Central으로 사용자 계정을 프로비전하기 위해 Cerner에서 Cerner Central 시스템 계정을 요청하고 Azure AD에서 Cerner의 SCIM 엔드포인트에 연결하는 데 사용할 수 있는 OAuth 전달자 토큰을 생성해야 합니다. 또한 프로덕션에 배포하기 전에 Cerner 샌드박스 환경에서 통합을 수행하는 것이 좋습니다.
 
 1.  첫 번째 단계는 Cerner 및 Azure AD 통합을 관리하는 사용자에게 CernerCare 계정이 있는지 확인합니다. 이 계정은 지침을 완료하는 데 필요한 설명서에 액세스할 때 필요합니다. 필요한 경우 아래 URL을 사용하여 해당하는 각 환경에서 CernerCare 계정을 만들 수 있습니다.
 
@@ -125,7 +125,7 @@ Cerner Central으로 사용자 계정을 프로비전하기 위해 Cerner에서 
 
 사용자 및 그룹 섹션에서 Cerner Central에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 Cerner Central 앱의 프로비전 서비스에서 수행하는 모든 작업을 설명하는 프로비전 활동 로그에 연결된 링크를 따를 수 있습니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

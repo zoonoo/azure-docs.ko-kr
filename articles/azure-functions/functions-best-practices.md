@@ -4,29 +4,25 @@ description: Azure Functions에 대한 모범 사례 및 패턴에 알아봅니�
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions, 패턴, 모범 사례, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b11d4ab7188141b36b998e16429329c33f09cee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 78882742549632e7f1f6362f9e3ad0ae0034ffda
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599571"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634679"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
-이 문서에서는 [서버를 사용하지 않는](https://azure.microsoft.com/overview/serverless-computing/) 함수 앱의 성능 및 안정성을 개선하기 위한 지침을 제공합니다. 
+이 문서에서는 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 함수 앱의 성능 및 안정성을 개선하기 위한 지침을 제공합니다. 
 
 ## <a name="general-best-practices"></a>일반 모범 사례
 
@@ -41,7 +37,7 @@ Azure Functions를 사용하여 서버가 없는 솔루션을 빌드하고 설�
 
 ### <a name="cross-function-communication"></a>함수 통신 교차
 
-[지속형 함수](durable-functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)는 여러 함수 간에 상태 전환 및 통신을 관리하도록 빌드됩니다.
+[지속형 함수](durable/durable-functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)는 여러 함수 간에 상태 전환 및 통신을 관리하도록 빌드됩니다.
 
 지속형 함수 및 Logic Apps를 사용하지 않고 여러 기능을 통합하는 경우 함수 통신 교차를 위해 저장소 큐를 사용하는 것이 일반적으로 가장 좋은 방법입니다.  주요 이유는 저장소 큐는 더 저렴하고 프로비전하는 것이 훨씬 쉽습니다. 
 
@@ -77,6 +73,10 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 ## <a name="scalability-best-practices"></a>확장성 모범 사례
 
 함수 앱의 인스턴스 크기를 조정하는 방법에 영향을 주는 여러 가지 요인이 있습니다. 자세한 내용은 [함수 크기 조정](functions-scale.md)의 설명서에서 제공됩니다.  함수 앱에 최적의 확장성을 보장하는 몇 가지 모범 사례는 다음과 같습니다.
+
+### <a name="share-and-manage-connections"></a>연결 공유 및 관리
+
+가능하면 외부 리소스에 대한 연결을 다시 사용합니다.  [Azure Functions에서 연결을 관리하는 방법](./manage-connections.md)을 참조하세요.
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>동일한 함수 앱에서 테스트와 프로덕션 코드의 혼합 금지
 

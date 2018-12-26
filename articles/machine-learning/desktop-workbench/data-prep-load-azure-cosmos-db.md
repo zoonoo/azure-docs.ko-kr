@@ -7,20 +7,25 @@ ms.author: cforbe
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 20e23f41310b90c62eacb7279ea3da0eec376683
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9c4ea529e8ca6dbb9b7321dc24468fad93435705
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830693"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948199"
 ---
 # <a name="connecting-to-azure-cosmos-db-as-a-data-source"></a>Azure Cosmos DB에 데이터 원본으로 연결
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 이 문서에는 Azure Machine Learning Workbench에서 Cosmos DB에 연결할 수 있는 python 샘플이 포함되어 있습니다.
 
 ## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>데이터 준비로 Azure Cosmos DB 데이터 로드

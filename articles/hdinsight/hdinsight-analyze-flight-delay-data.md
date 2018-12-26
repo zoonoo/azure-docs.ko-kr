@@ -1,30 +1,26 @@
 ---
-title: HDInsight에서 Hadoop을 사용하여 비행 지연 데이터 분석 - Azure | Microsoft Docs
+title: HDInsight의 Apache Hadoop을 사용하여 비행 지연 데이터 분석 - Azure
 description: 하나의 Windows PowerShell 스크립트를 사용하여 HDInsight 클러스터를 만들고, Hive 작업을 실행하고, Sqoop 작업을 실행하고, 클러스터를 삭제하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2e24a138220f350e56b30406f65bb869dd523bad
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770575"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015877"
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
-Hive에서는 대규모 데이터의 요약, 쿼리, 분석에 적용할 수 있는 SQL 스타일 스크립트 언어인 *[HiveQL][hadoop-hiveql]* 을 통해 Hadoop MapReduce 작업을 실행할 수 있습니다.
+# <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>HDInsight의 Apache Hive를 사용하여 비행 지연 데이터 분석
+[Apache Hive](https://hive.apache.org/)는 대량의 데이터를 요약, 쿼리, 분석하는 데 적용할 수 있는 SQL 스타일 스크립트 언어인 *[HiveQL][hadoop-hiveql]* 을 통해 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 작업을 실행하는 수단을 제공합니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 클러스터를 사용하는 단계는 [HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석(Linux)](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
+> 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 클러스터를 사용하는 단계는 [HDInsight에서 Apache Hive를 사용하여 비행 지연 데이터 분석(Linux)](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
 
 Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기능을 분리할 수 있다는 것입니다. HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. 일반적인 작업은 세 부분으로 구성되어 있습니다.
 
@@ -48,7 +44,7 @@ Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기
 부록에서 비행 지연 데이터를 업로드하고, Hive 쿼리 문자열을 만들기/업로드하고, Azure SQL 데이터베이스에서 Sqoop 작업을 준비하기 위한 지침을 찾을 수 있습니다.
 
 > [!NOTE]
-> 이 문서의 단계는 Windows 기반 HDInsight 클러스터를 대상으로 합니다. Linux 기반 클러스터를 사용하는 단계는 [HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석(Linux)](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
+> 이 문서의 단계는 Windows 기반 HDInsight 클러스터를 대상으로 합니다. Linux 기반 클러스터를 사용하는 단계는 [HDInsight에서 Apache Hive를 사용하여 비행 지연 데이터 분석(Linux)](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
 
 ### <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
@@ -80,7 +76,7 @@ PowerShell 스크립트의 일부는 데이터를 공용 blob 컨테이너에서
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>클러스터 만들기 및 Hive/Sqoop 작업 실행
 Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 가장 비용 효율적으로 Hive 작업을 실행하는 방법은 작업의 클러스터를 만들고 완료된 작업은 삭제하는 것입니다. 다음 스크립트에 전체 프로세스가 나와 있습니다.
-HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기][hdinsight-provision] 및 [HDInsight에서 Hive 사용][hdinsight-use-hive]을 참조하세요.
+HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터 만들기][hdinsight-provision] 및 [HDInsight에서 Apache Hive 사용][hdinsight-use-hive]을 참조하세요.
 
 **Azure PowerShell로 Hive 쿼리를 실행하려면**
 
@@ -92,7 +88,7 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
     $nameToken = "<Enter an Alias>"
 
     ###########################################
-    # You must configure the follwing variables
+    # You must configure the following variables
     # for an existing Azure SQL Database
     ###########################################
     $existingSqlDatabaseServerName = "<Azure SQL Database Server>"
@@ -241,10 +237,10 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
 - - -
 
 ## <a id="appendix-a"></a>부록 A - Azure Blob 저장소에 비행 지연 데이터 업로드
-데이터 파일과 HiveQL 스크립트 파일을 업로드하려면( [부록 B](#appendix-b)참조) 약간의 계획이 필요합니다. 그 계획은 HDInsight 클러스터를 만들고 Hive 작업을 실행하기 전에 데이터 파일과 HiveQL 파일을 저장하는 것입니다. 다음 두 가지 옵션을 사용할 수 있습니다.
+데이터 파일과 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 스크립트 파일을 업로드하려면([부록 B](#appendix-b) 참조) 계획이 필요합니다. 그 계획은 HDInsight 클러스터를 만들고 Hive 작업을 실행하기 전에 데이터 파일과 HiveQL 파일을 저장하는 것입니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
 * **HDInsight 클러스터에서 기본 파일 시스템으로 사용하는 것과 같은 Azure Storage 계정을 사용합니다.** HDInsight 클러스터에는 Storage 계정 액세스 키가 포함되므로 추가로 변경할 필요가 없습니다.
-* **HDInsight 클러스터 기본 파일 시스템과 다른 Azure Storage 계정을 사용합니다.** 이 경우 [HDInsight 클러스터 만들기 및 Hive/Sqoop 작업 실행](#runjob) 에 있는 Windows PowerShell 스크립트의 생성 부분을 수정하여 Storage 계정을 추가 Storage 계정으로서 연결해야 합니다. 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기][hdinsight-provision]를 참조하세요. 그러면 HDInsight 클러스터가 Storage 계정의 액세스 키를 인식합니다.
+* **HDInsight 클러스터 기본 파일 시스템과 다른 Azure Storage 계정을 사용합니다.** 이 경우 [HDInsight 클러스터 만들기 및 Apache Hive/Sqoop 작업 실행](#runjob) 에 있는 Windows PowerShell 스크립트의 생성 부분을 수정하여 추가 Storage 계정으로 Storage 계정을 연결해야 합니다. 지침은 [HDInsight에서 Apache Hadoop 클러스터 만들기][hdinsight-provision]를 참조하세요. 그러면 HDInsight 클러스터가 Storage 계정의 액세스 키를 인식합니다.
 
 > [!NOTE]
 > 데이터 파일의 Blob 저장소 경로는 HiveQL 스크립트 파일에 하드 코드됩니다. 수정 내용에 따라 이를 업데이트해야 합니다.
@@ -255,7 +251,7 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
 2. 페이지에서 다음 값을 선택합니다.
 
     <table border="1">
-    <tr><th>Name</th><th>값</th></tr>
+    <tr><th>이름</th><th>값</th></tr>
     <tr><td>Filter Year</td><td>2013 </td></tr>
     <tr><td>Filter Period</td><td>January</td></tr>
     <tr><td>필드</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay*(다른 모든 필드는 선택하지 않음)</td></tr>
@@ -363,7 +359,7 @@ tutorials/flightdelay/data 경로는 파일을 업로드했을 때 만든 가상
 - - -
 
 ## <a id="appendix-b"></a>부록 B - HiveQL 스크립트 만들기 및 업로드
-Azure PowerShell을 사용하여 여러 HiveQL 문을 한 번에 하나씩 실행하거나 HiveQL 문을 스크립트 파일에 패키지할 수 있습니다. 이 섹션에서는 HiveQL 스크립트를 만든 다음 Azure PowerShell을 사용하여 Azure Blob 저장소에 업로드하는 방법을 보여 줍니다. Hive에서는 HiveQL 스크립트를 Azure Blob 저장소에 저장해야 합니다.
+Azure PowerShell을 사용하여 여러 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 문을 한 번에 하나씩 실행하거나 HiveQL 문을 스크립트 파일에 패키징할 수 있습니다. 이 섹션에서는 HiveQL 스크립트를 만든 다음 Azure PowerShell을 사용하여 Azure Blob 저장소에 업로드하는 방법을 보여 줍니다. Hive에서는 HiveQL 스크립트를 Azure Blob 저장소에 저장해야 합니다.
 
 HiveQL 스크립트는 다음을 수행합니다.
 
@@ -371,9 +367,9 @@ HiveQL 스크립트는 다음을 수행합니다.
 2. **delays_raw 외부 Hive 테이블을 만듭니다**. 이 테이블은 비행 지연 파일이 있는 Blob 저장소 위치를 가리킵니다. 이 쿼리는 필드는 ","로 구분되고 줄은 "\n"로 끝나도록 지정합니다. Hive가 필드 구분 기호인 쉼표와 필드 값(ORIGIN\_CITY\_NAME 및 DEST\_CITY\_NAME에 대한 필드 값의 경우)의 일부인 쉼표를 구분할 수 없기 때문에 필드 값에 쉼표가 포함될 경우 문제가 발생합니다. 이 문제를 해결하기 위해 쿼리는 TEMP 열을 만들어 열에 잘못 분할된 데이터를 저장합니다.
 3. 해당 테이블이 이미 있는 경우 **delays 테이블을 삭제합니다.**
 4. **delays 테이블을 만듭니다**. 더 처리하기 전에 데이터를 정리하는 데 도움이 됩니다. 이 쿼리는 delays_raw 테이블에서 새 테이블인 *delays*를 만듭니다. TEMP 열(앞에서 언급함)은 복사되지 않으며, **substring** 함수는 해당 데이터에서 따옴표를 제거하는 데 사용됩니다.
-5. **평균 날씨 지연을 계산하고 그 결과를 도시 이름별로 그룹화합니다.** 또한 결과를 Blob 저장소에 출력합니다. 쿼리에서 데이터의 아포스트로피가 제거되고 **weather_delay**의 값이 null인 행은 제외됩니다. 이 작업은 이 자습서의 뒷부분에서 사용되는 Sqoop가 기본적으로 이러한 값을 정상적으로 처리하지 않기 때문에 필요합니다.
+5. **평균 날씨 지연을 계산하고 그 결과를 도시 이름별로 그룹화합니다.**  또한 결과를 Blob 저장소에 출력합니다. 쿼리에서 데이터의 아포스트로피가 제거되고 **weather_delay**의 값이 null인 행은 제외됩니다. 이 작업은 이 자습서의 뒷부분에서 사용되는 Sqoop가 기본적으로 이러한 값을 정상적으로 처리하지 않기 때문에 필요합니다.
 
-HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoop-hiveql](영문)를 참조하세요. 각 HiveQL 명령은 세미콜론으로 끝나야 합니다.
+HiveQL 명령의 전체 목록을 보려면 [Apache Hive 데이터 정의 언어][hadoop-hiveql]를 참조하세요. 각 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 명령은 세미콜론으로 끝나야 합니다.
 
 **HiveQL 스크립트 파일을 만들려면**
 
@@ -453,7 +449,7 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
     Write-Host "`nvalidating the folder structure on the workstation for saving the HQL script file ..."  -ForegroundColor Green
     if (test-path $hqlLocalFileName){
 
-        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwirte it? (Y/N)'
+        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwrite it? (Y/N)'
 
         if ($isDelete.ToLower() -ne "y")
         {
@@ -643,7 +639,7 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
     catch{Connect-AzureRmAccount}
     #EndRegion
 
-    #region - Create and validate Azure resouce group
+    #region - Create and validate Azure resource group
     try{
         Get-AzureRmResourceGroup -Name $resourceGroupName
     }
@@ -716,18 +712,18 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 5. 스크립트 출력의 유효성을 검사합니다. 스크립트가 정상적으로 실행되었는지 확인합니다.
 
 ## <a id="nextsteps"></a> 다음 단계
-이제 파일을 Azure Blob 저장소로 업로드하는 방법, Azure Blob 저장소의 데이터를 사용하여 Hive 테이블을 채우는 방법, Hive 쿼리를 실행하는 방법, Sqoop을 사용하여 HDFS의 데이터를 Azure SQL 데이터베이스로 내보내는 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
+이제 파일을 Azure Blob Storage로 업로드하는 방법, Azure Blob Storage의 데이터를 사용하여 Apache Hive 테이블을 채우는 방법, Hive 쿼리를 실행하는 방법, Sqoop을 사용하여 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)의 데이터를 Azure SQL 데이터베이스로 내보내는 방법을 이해했습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight 시작][hdinsight-get-started]
-* [HDInsight에서 Hive 사용][hdinsight-use-hive]
-* [HDInsight에서 Oozie 사용][hdinsight-use-oozie]
-* [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop]
-* [HDInsight에서 Pig 사용][hdinsight-use-pig]
+* [HDInsight에서 Apache Hive 사용][hdinsight-use-hive]
+* [HDInsight에서 Apache Oozie 사용][hdinsight-use-oozie]
+* [HDInsight에서 Apache Sqoop 사용][hdinsight-use-sqoop]
+* [HDInsight에서 Apache Pig 사용][hdinsight-use-pig]
 * [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs

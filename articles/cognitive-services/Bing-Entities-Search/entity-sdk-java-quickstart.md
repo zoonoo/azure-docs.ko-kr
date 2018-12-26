@@ -1,30 +1,32 @@
 ---
-title: Bing Entity Search SDK Java 빠른 시작 | Microsoft Docs
+title: '빠른 시작: Bing Entity Search SDK, Java'
+titlesuffix: Azure Cognitive Services
 description: Bing Entity Search SDK 콘솔 응용 프로그램을 설치합니다.
-titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/19/2018
 ms.author: v-gedod
-ms.openlocfilehash: ebfabc00b5dc031ac4e5284450a9d639c383e78f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 291a307d4fd7c0fa723b8b17c13b3ef13cdeb8de
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377879"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316823"
 ---
-# <a name="bing-entity-search-sdk-java-quickstart"></a>Bing Entity Search SDK Java 빠른 시작
+# <a name="quickstart-bing-entity-search-sdk-with-java"></a>빠른 시작: Java를 통해 Bing Entity Search SDK 설정
 
 Bing Entity Search SDK는 엔터티 쿼리 및 구문 분석 결과에 대한 REST API 기능을 제공합니다. 
 
 [Java Bing Entity Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch)은 Git Hub에서 얻을 수 있습니다. 
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
-**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다. Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Entity Search SDK 종속성을 설치합니다. Maven POM 파일에는 다음 선언이 필요합니다.
+**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+
+Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Entity Search SDK 종속성을 설치합니다. Maven POM 파일에는 다음 선언이 필요합니다.
 ```
   <dependencies>
     <dependency>

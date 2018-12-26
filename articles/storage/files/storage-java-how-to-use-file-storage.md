@@ -2,24 +2,19 @@
 title: Java를 사용하여 Azure Files 개발 | Microsoft Docs
 description: Azure Files를 사용하여 파일 데이터를 저장하는 Java 응용 프로그램 및 서비스를 개발하는 방법을 알아봅니다.
 services: storage
-documentationcenter: java
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: a9585bc77a73cbd84fb2efa201a5745c62f3360a
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: 8a5a71fada190939abf638cd1b681adff7e80970
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738203"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244545"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Java를 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -35,9 +30,9 @@ ms.locfileid: "34738203"
 * 파일 업로드, 다운로드 및 삭제
 
 > [!Note]  
-> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 Java I/O 클래스를 사용하여 Azure 파일 공유에 액세스하는 응용 프로그램을 작성할 수 있습니다. 이 문서에서는 [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage Java SDK를 사용하는 응용 프로그램을 작성하는 방법에 대해 설명합니다.
+> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 Java I/O 클래스를 사용하여 Azure 파일 공유에 액세스하는 응용 프로그램을 작성할 수 있습니다. 이 문서에서는 [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage Java SDK를 사용하는 응용 프로그램을 작성하는 방법에 대해 설명합니다.
 
-## <a name="create-a-java-application"></a>Java 응용 프로그램 만들기
+## <a name="create-a-java-application"></a>Java 애플리케이션 만들기
 샘플을 빌드하려면 JDK(Java 개발 키트)와 [Java용 Azure Storage SDK](https://github.com/Azure/azure-storage-java)가 필요합니다. Azure 저장소 계정도 만들었어야 합니다.
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Azure Files를 사용하도록 응용 프로그램 설정
@@ -236,6 +231,6 @@ if ( file.deleteIfExists() ) {
 * [Android용 Azure Storage SDK](https://github.com/azure/azure-storage-android)
 * [Azure Storage 클라이언트 SDK 참조](http://dl.windowsazure.com/storage/javadoc/)
 * [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Storage 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure Storage 팀 블로그](https://blogs.msdn.com/b/windowsazurestorage/)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](../common/storage-use-azcopy.md)
 * [Azure Files 문제 해결 - Windows](storage-troubleshoot-windows-file-connection-problems.md)

@@ -1,21 +1,23 @@
 ---
-title: Microsoft Cognitive Services, Project Answer Search에 대한 C# 빠른 시작 | Microsoft Docs
-description: Project Answer Search를 사용하여 Azure에서 Microsoft Cognitive Services를 시작하기 위한 코드 샘플입니다.
+title: '빠른 시작: Project Answer Search, C#'
+titlesuffix: Azure Cognitive Services
+description: C#을 통해 Project Answer Search를 사용하여 시작하는 코드 샘플입니다.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: b05b7745bdb5020a4a0912635e040256415b2626
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 6d00c420ba84ea78235e138977cc4b5fde4fae64
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376151"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464848"
 ---
-# <a name="project-answer-search-query-in-c"></a>C#에서 Project Answer Search 쿼리
+# <a name="quickstart-project-answer-search-query-in-c"></a>빠른 시작: C#에서 Project Answer Search 쿼리 사용
 
 다음 C# 예제에서는 미적분의 제3 법칙에 대한 정보의 쿼리를 만들고 보냅니다.
 
@@ -53,7 +55,7 @@ namespace Answers_csharp
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "YOUR-SUBSCRIPTION-KEY";
 
-        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search "; 
+        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search"; 
 
         const string searchTerm = "third law of calculus"; 
 
@@ -185,7 +187,7 @@ namespace Answers_csharp
 ```
 ## <a name="running-the-application"></a>응용 프로그램 실행
 
-응용 프로그램을 실행하려면
+응용 프로그램을 실행하려면:
 
 1. Visual Studio에서 새 콘솔 솔루션을 만듭니다.
 2. `Program.cs`를 제공된 코드로 바꿉니다.

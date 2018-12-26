@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293719"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443511"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure App Service에서 웹앱 구성
 
@@ -73,9 +73,12 @@ ms.locfileid: "36293719"
 이 섹션에는 시작 시 웹앱이 로드하는 이름/값 쌍이 나와 있습니다. 
 
 * .NET 앱의 경우, 이 설정은 런타임 시 .NET 구성 `AppSettings`으로 주입되어 기존 설정을 재정의합니다. 
+* Linux 또는 Web App for Containers의 App Service의 경우 `ApplicationInsights:InstrumentationKey`와 같은 이름에 중첩된 json 키 구조가 있는 경우 키 이름으로 `ApplicationInsights__InstrumentationKey`가 있어야 합니다. 따라서 `:`을 `__`(즉, 밑줄 두 개)로 대체해야 합니다.
 * PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 환경 변수로 이러한 설정에 액세스할 수 있습니다. 각 앱 설정에 대해 두 개의 환경 변수가 만들어집니다. 하나는 앱 설정 항목에 의해 이름이 지정되고, 다른 하나는 이름에 APPSETTING_ 접두사가 붙습니다. 둘 다 같은 값을 포함합니다.
 
 앱 설정은 저장될 때 항상 암호화됩니다(미사용 암호화).
+
+[Key Vault 참조](app-service-key-vault-references.md)를 사용하여 Key Vault에서 앱 설정을 해결할 수 있습니다.
 
 ### <a name="connection-strings"></a>연결 문자열
 연결된 리소스의 연결 문자열입니다. 
@@ -92,6 +95,8 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 예를 들어 MySql 연결 문자열 이름이 `connectionstring1`로 지정된 경우 환경 변수 `MYSQLCONNSTR_connectionString1`을 통해 액세스될 수 있습니다.
 
 연결 문자열은 저장될 때 항상 암호화됩니다(미사용 암호화).
+
+[Key Vault 참조](app-service-key-vault-references.md)를 사용하여 Key Vault에서 연결 설정을 해결할 수 있습니다.
 
 ### <a name="default-documents"></a>기본 문서
 기본 문서는 웹 사이트의 루트 URL에 표시되는 웹 페이지입니다.  목록에서 첫 번째로 일치되는 파일이 사용됩니다. 
@@ -157,9 +162,9 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 배포 슬롯을 보려면 **모든 설정** > **배포 슬롯**을 사용하여 웹앱을 구성하는 방법을 설명합니다.
 
 ### <a name="monitoring"></a>모니터링
-기본 또는 표준 모드에서는 지리적으로 분산된 최대 세 곳의 HTTP 또는 HTTPS 끝점에 대한 가용성을 테스트할 수 있습니다. HTTP 응답 코드가 오류(4xx 또는 5xx)이거나 응답에 30초 넘게 걸리는 경우 모니터링 테스트가 실패합니다. 지정된 모든 위치에서 모니터링 테스트가 성공하는 경우 끝점은 사용 가능한 것으로 간주됩니다. 
+기본 또는 표준 모드에서는 지리적으로 분산된 최대 세 곳의 HTTP 또는 HTTPS 엔드포인트에 대한 가용성을 테스트할 수 있습니다. HTTP 응답 코드가 오류(4xx 또는 5xx)이거나 응답에 30초 넘게 걸리는 경우 모니터링 테스트가 실패합니다. 지정된 모든 위치에서 모니터링 테스트가 성공하는 경우 엔드포인트는 사용 가능한 것으로 간주됩니다. 
 
-자세한 내용은 [방법: 웹 끝점 모니터링]을 참조하세요.
+자세한 내용은 [방법: 웹 엔드포인트 모니터링]을 참조하세요.
 
 > [!NOTE]
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가]으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
@@ -179,7 +184,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 [Azure App Service에서 사용자 지정 도메인 이름 구성]: ./app-service-web-tutorial-custom-domain.md
 [Azure App Service에서 Web Apps에 대한 스테이징 환경으로 배포]: ./web-sites-staged-publishing.md
 [Azure App Service에서 앱에 대한 HTTPS를 사용하도록 설정]: ./app-service-web-tutorial-custom-ssl.md
-[방법: 웹 끝점 모니터링]: http://go.microsoft.com/fwLink/?LinkID=279906
+[방법: 웹 엔드포인트 모니터링]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Azure App Service에서 Web Apps에 대한 기본 사항 모니터링]: ./web-sites-monitor.md
 [파이프라인 모드]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Azure App Service에서 웹앱 크기 조정]: ./web-sites-scale.md

@@ -2,24 +2,18 @@
 title: Azure Import/Export 가져오기 작업을 위한 하드 드라이브 준비 - v1 | Microsoft Docs
 description: WAImportExport v1 도구로 하드 드라이브를 준비하여 Azure Import/Export 서비스의 가져오기 작업을 만드는 방법에 대해 알아봅니다.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 3d818245-8b1b-4435-a41f-8e5ec1f194b2
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 361e16262e528c7dea1bab4b9d945a28af8be399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 861b3302e065689a4ea9c0df0879f9c0df12e619
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23107851"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526949"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>가져오기 작업을 위한 하드 드라이브 준비
 가져오기 작업을 위해 하드 드라이브를 하나 이상 준비하려면 다음 단계를 수행합니다.
@@ -111,7 +105,7 @@ ms.locfileid: "23107851"
 |명령줄 매개 변수|설명|
 |-----------------------------|-----------------|
 |**/sk:**<StorageAccountKey\>|`Optional.` 데이터를 가져올 저장소 계정의 저장소 계정 키입니다. 명령에 **/sk:**<StorageAccountKey\> 또는 **/csas:**<ContainerSas\> 중 하나를 포함해야 합니다.|
-|**/csas:**<ContainerSas\>|`Optional`. 저장소 계정에 데이터를 가져오는 데 사용할 컨테이너 SAS입니다. 명령에 **/sk:**<StorageAccountKey\> 또는 **/csas:**<ContainerSas\> 중 하나를 포함해야 합니다.<br /><br /> 이 매개 변수의 값은 컨테이너 이름, 물음표(?) 및 SAS 토큰으로 시작해야 합니다. 예:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> URL 또는 저장된 액세스 정책에 지정되어 있는지 여부에 관계없이 권한은 가져오기 작업의 경우 읽기(Read), 쓰기(Write) 및 삭제(Delete), 내보내기 작업의 경우 읽기, 쓰기 및 목록 작성(List)을 포함해야 합니다.<br /><br /> 이 매개 변수를 지정하면 가져오거나 내보낼 모든 Blob은 공유 액세스 서명에 지정된 컨테이너 내에 있어야 합니다.|
+|**/csas:**<ContainerSas\>|`Optional` 저장소 계정에 데이터를 가져오는 데 사용할 컨테이너 SAS입니다. 명령에 **/sk:**<StorageAccountKey\> 또는 **/csas:**<ContainerSas\> 중 하나를 포함해야 합니다.<br /><br /> 이 매개 변수의 값은 컨테이너 이름, 물음표(?) 및 SAS 토큰으로 시작해야 합니다. 예: <br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> URL 또는 저장된 액세스 정책에 지정되어 있는지 여부에 관계없이 권한은 가져오기 작업의 경우 읽기(Read), 쓰기(Write) 및 삭제(Delete), 내보내기 작업의 경우 읽기, 쓰기 및 목록 작성(List)을 포함해야 합니다.<br /><br /> 이 매개 변수를 지정하면 가져오거나 내보낼 모든 Blob은 공유 액세스 서명에 지정된 컨테이너 내에 있어야 합니다.|
 |**/t:**<TargetDriveLetter\>|`Required.` 현재 복사 세션의 대상 하드 드라이브 문자입니다(후행 콜론 없음).|
 |**/format**|`Optional.` 드라이브를 포맷해야 하는 경우 이 매개 변수를 지정합니다. 그렇지 않으면 생략합니다. 이 도구는 드라이브를 포맷하기 전에 콘솔에서 확인 메시지를 표시합니다. 확인을 하지 않으려면 /silentmode 매개 변수를 지정합니다.|
 |**/silentmode**|`Optional.` 대상 드라이브 포맷에 대한 확인 메시지를 표시하지 않으려면 이 매개 변수를 지정합니다.|

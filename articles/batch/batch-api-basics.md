@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fe0d3836046ad143e746503210099ee5c640a08
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 8b6e543a4835410368e752e70e7e8cb6d8805c0e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129101"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735582"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -69,7 +69,7 @@ Azure Batch 서비스의 핵심 구성 요소 개요에서는 Batch 개발자가
 ## <a name="account"></a>계좌
 Batch 계정은 Batch 서비스 내에서 고유 하게 식별되는 엔터티입니다. 모든 처리는 Batch 계정과 연결됩니다.
 
-[Azure Portal](batch-account-create-portal.md) 또는 프로그래밍 방식(예: [Batch 관리 .NET 라이브러리](batch-management-dotnet.md))를 통해 Azure Batch 계정을 만들 수 있습니다. 계정을 만들 때 작업 관련 입력 및 출력 데이터 또는 응용 프로그램을 저장하기 위해 Azure Storage 계정을 연결할 수 있습니다.
+[Azure Portal](batch-account-create-portal.md) 또는 프로그래밍 방식(예: [Batch 관리 .NET 라이브러리](batch-management-dotnet.md))를 통해 Azure Batch 계정을 만들 수 있습니다. 계정을 만들 때 작업 관련 입력 및 출력 데이터 또는 애플리케이션을 저장하기 위해 Azure Storage 계정을 연결할 수 있습니다.
 
 단일 Batch 계정에서 여러 Batch 워크로드를 실행하거나 다른 Azure 지역이 아닌 동일한 구독에 있는 Batch 계정 간에 워크로드를 배포할 수 있습니다.
 
@@ -79,11 +79,13 @@ Batch 계정은 Batch 서비스 내에서 고유 하게 식별되는 엔터티�
 
 대부분의 Batch 솔루션은 리소스 파일 및 출력 파일을 저장하기 위해 Azure Storage를 사용합니다. 예를 들어 Batch 태스크(표준 태스크, 시작 태스크, 작업 준비 태스크 및 작업 릴리스 태스크 포함)는 일반적으로 저장소 계정에 상주하는 리소스 파일을 지정합니다.
 
-Batch는 다음과 같은 Azure Storage [계정 옵션](../storage/common/storage-account-options.md)을 지원합니다.
+Batch는 다음 유형의 Azure Storage 계정을 지원합니다.
 
 * 범용 v2(GPv2) 계정 
 * 범용 v1(GPv1) 계정
 * Blob 저장소 계정(현재 가상 머신 구성에서 풀에 대해 지원됨)
+
+저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
 
 Batch 계정을 만들 때 또는 나중에 저장소 계정을 Batch 계정에 연결할 수 있습니다. 저장소 계정을 선택할 때 비용 및 성능 요구 사항을 고려해야 합니다. 예를 들어 GPv2 및 BLOB 저장소 계정 옵션은 GPv1보다 큰 [용량 및 확장성 제한](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)을 지원합니다. (저장소 제한을 늘리려면 Azure 고객 지원팀에 문의하세요.) 이러한 계정 옵션은 저장소 계정에서 데이터를 읽어 오거나 저장소 계정에 데이터를 쓰는 다수의 병렬 태스크를 포함하고 있는 Batch 솔루션의 성능을 향상할 수 있습니다.
 
@@ -153,7 +155,7 @@ Batch 풀을 만들 때 Azure 가상 머신 구성과 풀의 각 계산 노드�
 
 Batch API를 사용하여 Virtual Machine 구성 풀을 만들 때 Docker 컨테이너에서 작업을 실행하도록 풀을 설정할 수 있습니다. 현재 Docker 컨테이너를 지원하는 이미지를 사용하여 풀을 만들어야 합니다. Microsoft Azure Marketplace의 컨테이너 이미지로 Windows Server 2016 Datacenter를 사용하거나 Docker Community Edition이나 Enterprise Edition 및 모든 필수 드라이버를 포함하는 사용자 지정 VM 이미지를 제공합니다. 풀 설정은 풀이 만들어질 때 VM에 컨테이너 이미지를 복사하는 [컨테이너 구성](/rest/api/batchservice/pool/add#definitions_containerconfiguration)을 포함해야 합니다. 그러면 풀에서 실행되는 작업은 컨테이너 이미지와 컨테이너 실행 옵션을 참조할 수 있습니다.
 
-자세한 내용은 [Azure Batch에서 Docker 컨테이너 응용 프로그램 실행](batch-docker-container-workloads.md)을 참조하세요.
+자세한 내용은 [Azure Batch에서 Docker 컨테이너 애플리케이션 실행](batch-docker-container-workloads.md)을 참조하세요.
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>Compute 노드 유형 및 대상 노드 수
 
@@ -288,7 +290,7 @@ Batch에서 만드는 작업에 우선 순위를 할당할 수 있습니다. Bat
 기존 풀에 시작 태스크를 추가하거나 업데이트하는 경우 노드에 적용할 시작 태스크에 대한 해당 계산 노드를 다시 부팅해야 합니다.
 
 >[!NOTE]
-> 리소스 파일 및 환경 변수를 포함한 시작 태스크의 전체 크기는 32768자 이하여야 합니다. 시작 태스크가 이러한 요구 사항을 충족하도록 하려면 두 가지 방법 중 하나를 사용할 수 있습니다.
+> Batch는 리소스 파일과 환경 변수가 포함된 시작 태스크의 전체 크기를 제한합니다. 시작 태스크의 크기를 줄이려면 다음 두 가지 방법 중 하나를 사용할 수 있습니다.
 >
 > 1. 응용 프로그램 패키지를 사용하여 Batch 풀의 각 노드에 응용 프로그램 또는 데이터를 배포할 수 있습니다. 응용 프로그램 패키지에 대한 자세한 내용은 [Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 > 2. 응용 프로그램 파일이 포함된 압축 보관 파일을 수동으로 만들 수 있습니다. 압축 보관 파일을 Azure Storage에 BLOB으로 업로드하세요. 압축 보관 파일을 시작 작업에 대한 리소스 파일로 지정합니다. 시작 작업을 위해 명령줄을 실행하기 전에 명령줄에서 보관 파일의 압축을 푸세요. 
@@ -504,8 +506,8 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 
 ## <a name="next-steps"></a>다음 단계
 * Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.
-* [.NET용 Azure Batch 라이브러리 시작](batch-dotnet-get-started.md)에서 샘플 Batch 응용 프로그램을 단계별로 안내합니다. 또한 Linux 계산 노드에서 워크로드를 실행하는 [Python 버전](batch-python-tutorial.md) 자습서가 있습니다.
-* Batch 솔루션을 개발하는 동안 사용하기 위해 [BatchLabs][batch_labs]를 다운로드 및 설치합니다. BatchLabs를 사용하여 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있습니다. 
+* [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 응용 프로그램 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 계산 노드에서 워크로드를 실행하는 응용 프로그램 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
+* Batch 솔루션을 개발하는 동안 사용하기 위해 [Batch Explorer][batch_labs]를 다운로드 및 설치합니다. Batch Explorer를 사용하여 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있습니다. 
 * MSDN에서 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), [Batch 커뮤니티 리포지토리](https://github.com/Azure/Batch) 및 [Azure Batch 포럼][batch_forum]을 비롯한 커뮤니티 리소스를 참조하세요. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
@@ -516,7 +518,7 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -540,7 +542,7 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 [vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
-[py_add_user]: https://docs.microsoft.com/en-us/python/azure/?view=azure-python
+[py_add_user]: https://docs.microsoft.com/python/azure/?view=azure-python
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx

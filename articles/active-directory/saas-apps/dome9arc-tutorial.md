@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 1fd7fc6560c3378765623b46f8af59cfc8c65286
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231460"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387857"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>자습서: Dome9 Arc와 Azure Active Directory 통합
 
@@ -50,29 +50,32 @@ Dome9 Arc와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Dome9 Arc 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-dome9-arc-from-the-gallery"></a>갤러리에서 Dome9 Arc 추가
+
 Azure AD에 Dome9 Arc를 통합하도록 구성하려면 갤러리의 Dome9 Arc를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 Dome9 Arc를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
     ![Azure Active Directory 단추][1]
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
-    
+
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에서 **Dome9 Arc**를 입력하고, 결과 패널에서 **Dome9 Arc**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에서 **Dome9 Arc**를 입력하고, 결과 패널에서 **Dome9 Arc**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Dome9 Arc](./media/dome9arc-tutorial/tutorial_dome9arc_addfromgallery.png)
 
@@ -81,8 +84,6 @@ Azure AD에 Dome9 Arc를 통합하도록 구성하려면 갤러리의 Dome9 Arc�
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 하여 Dome9 Arc에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Dome9 Arc 사용자를 인식하고 있어야 합니다. 즉 Azure AD 사용자와 Dome9 Arc의 관련 사용자 간에 연결 관계를 설정해야 합니다.
-
-Dome9 Arc에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 할당하여 연결 관계를 설정합니다.
 
 Dome9 Arc에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
@@ -94,11 +95,11 @@ Dome9 Arc에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Dome9 Arc 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Dome9 Arc 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Dome9 Arc에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Dome9 Arc** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Dome9 Arc** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -112,7 +113,7 @@ Dome9 Arc에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **식별자** 텍스트 상자에 URL `https://secure.dome9.com/`을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://secure.dome9.com/sso/saml/yourcompanyname`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://secure.dome9.com/sso/saml/yourcompanyname`
 
     > [!NOTE]
     > 이 자습서의 뒷부분에서 설명하는 dome9 관리 포털에서 회사 이름 값을 선택합니다.
@@ -122,11 +123,11 @@ Dome9 Arc에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     ![Dome9 Arc 도메인 및 URL Single Sign-On 정보](./media/dome9arc-tutorial/tutorial_dome9arc_url1.png)
 
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://secure.dome9.com/sso/saml/<yourcompanyname>`
-     
+ 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Dome9 Arc 클라이언트 지원 팀](https://dome9.com/about/contact-us/)에 문의하세요. 
 
-5. Dome9 Arc 소프트웨어 응용 프로그램에는 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+5. Dome9 Arc 소프트웨어 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
     ![Single Sign-On 구성 attb](./media/dome9arc-tutorial/tutorial_dome9arc_attribute.png)
 
@@ -134,7 +135,7 @@ Dome9 Arc에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     
     | 특성 이름  | 특성 값 | 
     | --------------- | --------------- | 
-    | memberof | user.assignedroles | 
+    | memberof | user.assignedroles |
     
     a. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
 
@@ -142,11 +143,14 @@ Dome9 Arc에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-On 특성 편집 구성](./media/dome9arc-tutorial/tutorial_attribute_05.png)
 
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
-    
+
     d. **Ok**를 클릭합니다.
+    
+    > [!NOTE]
+    > 응용 프로그램에 대한 역할을 구성 및 설정하는 방법은 이 [링크](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management)를 참조하세요.
 
 7. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -155,7 +159,7 @@ Dome9 Arc에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 8. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/dome9arc-tutorial/tutorial_general_400.png)
-    
+
 9. **Dome9 Arc 구성** 섹션에서 **Dome9 Arc 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![Dome9 Arc 구성](./media/dome9arc-tutorial/tutorial_dome9arc_configure.png) 
@@ -176,16 +180,13 @@ Dome9 Arc에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **계정 ID** 텍스트 상자에서 회사 이름을 입력합니다. 이 값은 Azure Portal URL 섹션에서 언급한 회신 URL에 사용됩니다.
 
-    나. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **발급자** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **발급자** 텍스트 상자에 붙여넣습니다.
 
     다. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **IDP 엔드포인트 URL** 텍스트 상자에 붙여넣습니다.
 
     d. 다운로드한 Base64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음, **X.509 인증서** 텍스트 상자에 붙여넣습니다.
 
     e. **저장**을 클릭합니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -218,12 +219,12 @@ Dome9 Arc에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
- 
+
 ### <a name="create-a-dome9-arc-test-user"></a>Dome9 Arc 테스트 사용자 만들기
 
-Azure AD 사용자가 Dome9 Arc에 로그인할 수 있게 하려면 해당 사용자를 응용 프로그램에 프로비전해야 합니다. Dome9 Arc는 JIT(Just-In-Time) 프로비전을 지원하지만 이 기능이 제대로 작동하려면 사용자가 특정 **역할**을 선택하여 사용자에게 할당해야 합니다.
+Azure AD 사용자가 Dome9 Arc에 로그인할 수 있게 하려면 해당 사용자를 애플리케이션에 프로비전해야 합니다. Dome9 Arc는 JIT(Just-In-Time) 프로비전을 지원하지만 이 기능이 제대로 작동하려면 사용자가 특정 **역할**을 선택하여 사용자에게 할당해야 합니다.
 
-   >[!Note] 
+   >[!Note]
    >**역할**을 만드는 방법 및 다른 자세한 내용은 [Dome9 Arc 클라이언트 지원 팀](https://dome9.com/about/contact-us/)에 문의하세요.
 
 **사용자 계정을 수동으로 프로비전하려면 다음 단계를 수행합니다.**
@@ -239,12 +240,12 @@ Azure AD 사용자가 Dome9 Arc에 로그인할 수 있게 하려면 해당 사�
     ![직원 추가](./media/dome9arc-tutorial/user2.png)
 
 4. **사용자 만들기** 섹션에서 다음 단계를 수행합니다.
-    
+
     ![직원 추가](./media/dome9arc-tutorial/user3.png)
 
     a. **이메일** 텍스트 상자에서 사용자의 이메일(예: Brittasimon@contoso.com)을 입력합니다.
 
-    나. **이름** 텍스트 상자에 사용자의 이름(예: Britta)을 입력합니다.
+    b. **이름** 텍스트 상자에 사용자의 이름(예: Britta)을 입력합니다.
 
     다. **성** 텍스트 상자에 사용자의 성(예: Simon)을 입력합니다.
 
@@ -264,9 +265,9 @@ Azure AD 사용자가 Dome9 Arc에 로그인할 수 있게 하려면 해당 사�
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Dome9 Arc**를 선택합니다.
+2. 애플리케이션 목록에서 **Dome9 Arc**를 선택합니다.
 
-    ![응용 프로그램 목록의 Dome9 Arc 링크](./media/dome9arc-tutorial/tutorial_dome9arc_app.png)  
+    ![애플리케이션 목록의 Dome9 Arc 링크](./media/dome9arc-tutorial/tutorial_dome9arc_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -281,20 +282,18 @@ Azure AD 사용자가 Dome9 Arc에 로그인할 수 있게 하려면 해당 사�
 6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-    
+
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-[액세스 패널]에서 [Dome9 Arc] 타일을 클릭하면 Dome9 Arc 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+[액세스 패널]에서 [Dome9 Arc] 타일을 클릭하면 Dome9 Arc 애플리케이션에 자동으로 로그온됩니다.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 

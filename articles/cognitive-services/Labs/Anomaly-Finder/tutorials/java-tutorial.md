@@ -1,22 +1,25 @@
 ---
-title: 변칙 검색 Java 앱 - Microsoft Cognitive Services | Microsoft Docs
-description: Microsoft Cognitive Services의 변칙 검색 API를 사용하는 Java 앱을 탐색합니다. 원래 데이터 요소를 API에 전송하고 예상 값과 변칙 요소를 가져옵니다.
+title: '자습서: 변칙 검색, Java'
+titlesuffix: Azure Cognitive Services
+description: 변칙 검색 API를 사용하는 Java 앱을 탐색합니다. 원래 데이터 요소를 API에 전송하고 예상 값과 변칙 요소를 가져옵니다.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 228d440da358eba1322e2228c54f21e925e36ecd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4aab76b819ba252dbe00b3faf2f69c24df14bbd1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597951"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419030"
 ---
-# <a name="anomaly-detection-java-application"></a>변칙 검색 Java 응용 프로그램
+# <a name="tutorial-anomaly-detection-with-java-application"></a>자습서: Java 응용 프로그램을 사용하여 변칙 검색
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 이 문서에서는 단순 Java 응용 프로그램을 사용하여 변칙 검색 API를 호출하는 방법을 설명합니다.  
 예제는 시계열 데이터를 구독 키가 있는 변칙 검색 API에 제출한 후 API에서 각 데이터 요소에 대한 모든 변칙 요소와 예상 값을 가져옵니다.
@@ -25,7 +28,7 @@ ms.locfileid: "38597951"
 
 ### <a name="platform-requirements"></a>플랫폼 요구 사항
 
-이 자습서는 [IntelliJ IDEA](https://www.jetbrains.com/idea)를 사용하여 개발되었습니다. 또한 [JDK(Java Development Kit)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 버전 1.8 이상과 최신 [Apache Maven](http://maven.apache.org/) 빌드 도구를 설치해야 합니다.
+이 자습서는 [IntelliJ IDEA](https://www.jetbrains.com/idea)를 사용하여 개발되었습니다. 또한 [JDK(Java Development Kit)](https://aka.ms/azure-jdks) 버전 1.8 이상과 최신 [Apache Maven](http://maven.apache.org/) 빌드 도구를 설치해야 합니다.
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>변칙 검색을 구독하고 구독 키 받기 
 

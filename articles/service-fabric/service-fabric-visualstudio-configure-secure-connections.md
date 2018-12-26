@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/04/2017
 ms.author: cawa
-ms.openlocfilehash: e2772cc2c59b93c7e523eaa0127dcf4ea0bc589e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8d76a2144234591792359ed8dd4a0779e6a2fc5c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208688"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145789"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Visual Studio에서 서비스 패브릭 클러스터에 대한 보안 연결 구성
 액세스 제어 정책이 구성되어 있는 Azure 서비스 패브릭 클러스터에 안전하게 액세스하기 위해 Visual Studio를 사용하는 방법에 대해 알아봅니다.
@@ -30,7 +30,7 @@ Azure Service Fabric 클러스터에서 지원되는 2가지 연결 형식: **�
 Visual Studio 서비스 패브릭 도구는 게시할 클러스터에 연결하기 위한 모든 인증 형식을 지원합니다. 보안 서비스 패브릭 클러스터를 설정하는 방법에 대한 지침은 [Azure Portal에서 서비스 패브릭 클러스터 설정](service-fabric-cluster-creation-via-portal.md)을 참조하세요.
 
 ## <a name="configure-cluster-connections-in-publish-profiles"></a>게시 프로필에서 클러스터 연결 구성
-Visual Studio에서 Service Fabric 프로젝트를 게시하는 경우 **Service Fabric 응용 프로그램 게시** 대화 상자에서 Azure Service Fabric 클러스터를 선택할 수 있습니다. **연결 끝점** 아래의 해당 구독에서 기존 클러스터를 선택합니다.
+Visual Studio에서 Service Fabric 프로젝트를 게시하는 경우 **Service Fabric 응용 프로그램 게시** 대화 상자에서 Azure Service Fabric 클러스터를 선택할 수 있습니다. **연결 엔드포인트** 아래의 해당 구독에서 기존 클러스터를 선택합니다.
 
 ![**Service Fabric 응용 프로그램 게시** 대화 상자를 사용하여 Service Fabric 연결을 구성합니다.][publishdialog]
 
@@ -46,7 +46,7 @@ Visual Studio에서 Service Fabric 프로젝트를 게시하는 경우 **Service
    
    게시 프로필 XML 파일을 수동으로 편집하여 인증서 정보를 지정하므로 인증서 저장소 이름, 저장소 위치 및 인증서 지문을 적어 두어야 합니다. 인증서 저장소 이름 및 저장소 위치에 이러한 값을 제공해야 합니다. 자세한 내용은 [방법: 인증서의 지문 검색](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx)을 참조하세요.
    
-   *ClusterConnectionParameters* 매개 변수를 사용하여 서비스 패브릭 클러스터에 연결할 때 사용할 PowerShell 매개 변수를 지정할 수 있습니다. 유효한 매개 변수는 Connect-ServiceFabricCluster cmdlet에서 허용하는 모든 매개 변수입니다. 사용 가능한 매개 변수 목록은 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) 를 참조하세요.
+   *ClusterConnectionParameters* 매개 변수를 사용하여 서비스 패브릭 클러스터에 연결할 때 사용할 PowerShell 매개 변수를 지정할 수 있습니다. 유효한 매개 변수는 Connect-ServiceFabricCluster cmdlet에서 허용하는 모든 매개 변수입니다. 사용 가능한 매개 변수 목록은 [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) 를 참조하세요.
    
    원격 클러스터에 게시하는 경우 해당 특정 클러스터에 적절한 매개 변수를 지정해야 합니다. 다음은 비보안 클러스터에 연결하기 위한 예제입니다.
    

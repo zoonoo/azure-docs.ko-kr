@@ -2,28 +2,24 @@
 title: 시나리오를 식별하고 분석 프로세스 계획 - Azure | Microsoft Docs
 description: 일련의 주요 질문을 고려한 고급 분석 계획
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 7754fccdfe8a2c4fad24f61fc22c722d2640ffa6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b61f6c12aaa94fc61063e8d3bd7e339f1548781c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064621"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446426"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>시나리오를 파악하고 고급 분석 데이터 처리를 계획하는 방법
-데이터 집합에 대해 고급 분석 처리를 수행할 환경을 설정할 때 어떤 리소스를 포함하도록 계획해야 할까요? 이 문서는 시나리오에 적합한 작업과 리소스를 파악하는 데 도움이 될만한 것을 묻는 일련의 질문을 제시합니다. 예측 분석에 대한 고급 단계의 순서는 [TDSP(팀 데이터 과학 프로세스)란 무엇입니까?](overview.md)에 대략적으로 설명되어 있습니다. 각각의 단계에는 개별적인 시나리오에 관련된 작업을 위한 구체적인 리소스가 필요합니다. 시나리오를 파악하기 위한 주요 질문은 데이터 로지스틱, 특징, 데이터 집합의 품질, 분석에 사용할 도구 및 언어에 대한 것입니다.
+데이터 세트에 대해 고급 분석 처리를 수행할 환경을 설정할 때 어떤 리소스를 포함하도록 계획해야 할까요? 이 문서는 시나리오에 적합한 작업과 리소스를 파악하는 데 도움이 될만한 것을 묻는 일련의 질문을 제시합니다. 예측 분석에 대한 고급 단계의 순서는 [TDSP(팀 데이터 과학 프로세스)란 무엇입니까?](overview.md)에 대략적으로 설명되어 있습니다. 각각의 단계에는 개별적인 시나리오에 관련된 작업을 위한 구체적인 리소스가 필요합니다. 시나리오를 파악하기 위한 주요 질문은 데이터 로지스틱, 특징, 데이터 세트의 품질, 분석에 사용할 도구 및 언어에 대한 것입니다.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -36,7 +32,7 @@ ms.locfileid: "37064621"
    * 데이터가 로컬/네트워크 파일 위치에 있습니다.
    * 데이터가 SQL Server 데이터베이스에 있습니다.
    * 데이터가 Azure 저장소 컨테이너에 저장됩니다.
-2. **Azure 대상은 무엇인가요?** 처리 또는 모델링을 위해 요구되는 대상은 무엇인가요? 예: 
+2. **Azure 대상은 무엇인가요?**  처리 또는 모델링을 위해 요구되는 대상은 무엇인가요? 예: 
    
    * Azure Blob Storage
    * SQL Azure 데이터베이스
@@ -49,7 +45,7 @@ ms.locfileid: "37064621"
    * [분석용 저장소 환경에 데이터 로드](ingest-data.md)
    * [다양한 데이터 원본에서 Azure Machine Learning Studio로 학습 데이터를 가져옵니다](../studio/import-data.md).
 4. **데이터를 정기적으로 이동해야 하나요? 마이그레이션 중에 수정되어야 하나요?** 온-프레미스 및 클라우드 리소스를 모두 액세스하는 하이브리드 시나리오에서 데이터를 지속적으로 마이그레이션해야 하는 경우, 데이터를 트랜잭션 처리하거나 수정해야 하거나 마이그레이션 과정 중에 비즈니스 로직을 추가해야 하는 경우 ADF(Azure Data Factory)를 사용하는 것이 좋습니다. 자세한 내용은 [Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동](move-sql-azure-adf.md)을 참조하세요.
-5. **얼마나 많은 양의 데이터를 Azure로 이동해야 하나요?** 대량의 데이터 집합은 특정 환경의 저장소 용량을 초과할 수 있습니다. 예를 들어, 다음 섹션에서 Machine Learning Studio의 크기 제한에 대한 논의를 참조하세요. 이런 경우, 분석하는 동안 데이터 샘플이 사용될 수 있습니다. 다양한 Azure 환경에서 데이터 집합을 다운 샘플링하는 방법에 대한 자세한 내용은 [팀 데이터 과학 프로세스의 데이터 샘플링](sample-data.md)을 참조하세요.
+5. **얼마나 많은 양의 데이터를 Azure로 이동해야 하나요?** 대량의 데이터 세트는 특정 환경의 저장소 용량을 초과할 수 있습니다. 예를 들어, 다음 섹션에서 Machine Learning Studio의 크기 제한에 대한 논의를 참조하세요. 이런 경우, 분석하는 동안 데이터 샘플이 사용될 수 있습니다. 다양한 Azure 환경에서 데이터 세트를 다운 샘플링하는 방법에 대한 자세한 내용은 [팀 데이터 과학 프로세스의 데이터 샘플링](sample-data.md)을 참조하세요.
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>데이터 특성 질문: 유형, 형식, 크기
 이러한 질문은 다양한 유형의 데이터에 적합하고 특정한 제한 사항이 있는 저장소 및 처리 환경을 계획하는 핵심적인 내용입니다.
@@ -81,9 +77,9 @@ Azure Machine Learning Studio 환경을 예로 들어 보겠습니다.
 분석 과정에 사용되는 다른 Azure 서비스의 제한 사항에 대한 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-subscription-service-limits.md)을 참조하세요.
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>데이터 품질 질문: 탐색 및 전처리
-1. **데이터에 대해 무엇을 알고 있나요?** 데이터를 탐색하여 데이터의 기본적인 특성을 이해할 수 있습니다. 표시되는 패턴 또는 추세, 포함된 이상값 또는 값의 개수가 필요합니다. 이 단계는 가장 적합한 분석 기능이나 유형을 제시할 수 있는 가설을 수식화하고 추가적인 데이터 수집 계획을 수식화하는 데 필요한 전처리의 정도를 판단하는 데 중요합니다. 기술 통계 계산 및 시각화 표현은 데이터 검사에 유용한 기법입니다. 다양한 Azure 환경에서 데이터 집합을 탐색하는 방법에 대한 자세한 내용은 [팀 데이터 과학 프로세스에서 데이터 탐색](explore-data.md)을 참조하세요.
+1. **데이터에 대해 무엇을 알고 있나요?** 데이터를 탐색하여 데이터의 기본적인 특성을 이해할 수 있습니다. 표시되는 패턴 또는 추세, 포함된 이상값 또는 값의 개수가 필요합니다. 이 단계는 가장 적합한 분석 기능이나 유형을 제시할 수 있는 가설을 수식화하고 추가적인 데이터 수집 계획을 수식화하는 데 필요한 전처리의 정도를 판단하는 데 중요합니다. 기술 통계 계산 및 시각화 표현은 데이터 검사에 유용한 기법입니다. 다양한 Azure 환경에서 데이터 세트를 탐색하는 방법에 대한 자세한 내용은 [팀 데이터 과학 프로세스에서 데이터 탐색](explore-data.md)을 참조하세요.
 2. **데이터에 전처리 또는 정리가 필요한가요?**
-   데이터 전처리 및 정리는 일반적으로 기계 학습에 데이터 집합을 효과적으로 사용할 수 있기 전에 수행해야 하는 중요한 작업입니다. 원시 데이터는 노이즈가 많고, 불안정하고, 값이 누락된 경우가 종종 있습니다. 이러한 데이터를 모델링에 사용하면 결과가 잘못될 수 있습니다. 관련 설명은 [향상된 기계 학습에 대한 데이터를 준비하는 작업](prepare-data.md)을 참조하세요.
+   데이터 전처리 및 정리는 일반적으로 기계 학습에 데이터 세트를 효과적으로 사용할 수 있기 전에 수행해야 하는 중요한 작업입니다. 원시 데이터는 노이즈가 많고, 불안정하고, 값이 누락된 경우가 종종 있습니다. 이러한 데이터를 모델링에 사용하면 결과가 잘못될 수 있습니다. 관련 설명은 [향상된 기계 학습에 대한 데이터를 준비하는 작업](prepare-data.md)을 참조하세요.
 
 ## <a name="tools-and-languages-questions"></a>도구 및 언어 질문
 필요하거나 사용하기에 가장 편리한 언어 및 개발 환경 또는 도구에 따라서 많은 옵션이 있습니다.
@@ -91,7 +87,7 @@ Azure Machine Learning Studio 환경을 예로 들어 보겠습니다.
 1. **분석에 사용하려는 언어는 무엇인가요?**  
    
    * R
-   * 파이썬
+   * Python
    * SQL
 2. **데이터 분석에 사용해야 하는 도구는 무엇인가요?**
    
@@ -99,10 +95,10 @@ Azure Machine Learning Studio 환경을 예로 들어 보겠습니다.
    * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
    * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
    * [RStudio](http://www.rstudio.com)
-   * [Python Tools for Visual Studio](http://aka.ms/ptvsdocs)
+   * [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
    * [Anaconda](https://www.continuum.io/why-anaconda)
    * [Jupyter 노트북](http://jupyter.org/)
-   * [Microsoft Power BI](http://powerbi.microsoft.com)
+   * [Microsoft Power BI](https://powerbi.microsoft.com)
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>고급 분석 시나리오 파악
 이전 섹션의 질문에 대답하고 나면 어떤 시나리오가 가장 적합한지 결정할 수 있습니다. 샘플 시나리오는 [Azure Machine Learning의 고급 분석 시나리오](plan-sample-scenarios.md)에 약술되어 있습니다.

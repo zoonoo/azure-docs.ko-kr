@@ -3,8 +3,8 @@ title: Azure CDN에서 사용자 지정 HTTPS를 사용하기 위해 허용되�
 description: 고유의 인증서를 사용하여 사용자 지정 도메인에서 HTTPS를 사용하도록 설정하려면 허용되는 CA(인증 기관)를 사용하여 인증서를 만들어야 합니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
-ms.author: v-deasim
+ms.date: 10/18/2018
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 3c41ca7e375324ff784bf7bee347bb56400ddfbd
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 79b8cfa061bafb43cbcf2ec8a43638fd14c2fcd0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35237083"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954040"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Azure CDN에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관
 
@@ -33,6 +33,10 @@ ms.locfileid: "35237083"
 다음은 고유의 인증서를 만들 때 허용되는 CA입니다.
 
 - AddTrust External CA Root
+- AlphaSSL Root CA
+- AME Infra CA 01
+- AME Infra CA 02
+- Ameroot
 - AP Root CA
 - AP Root Certificate Authority 2013
 - AP Root Certificate Authority 2014
@@ -47,44 +51,41 @@ ms.locfileid: "35237083"
 - DigiCert Global Root CA
 - DigiCert High Assurance CA-3
 - DigiCert High Assurance EV Root CA
+- DigiCert SHA2 Extended Validation Server CA
 - DigiCert SHA2 High Assurance Server CA
 - DigiCert SHA2 Secure Server CA
+- DST Root CA X3
+- D-trust Root Class 3 CA 2 2009
+- Encryption Everywhere DV TLS CA
+- Entrust Root Certification Authority
+- Entrust Root Certification Authority - G2
+- Entrust.net Certification Authority(2048)
+- GeoTrust Global CA
+- GeoTrust Primary Certification Authority
+- GeoTrust Primary Certification Authority - G2
+- Geotrust RSA CA 2018
 - GlobalSign
 - GlobalSign Extended Validation CA - SHA256 - G2
 - GlobalSign Organization Validation CA - G2
 - GlobalSign Root CA
-- Microsoft Authenticode(tm) Root Authority
-- Microsoft Exchange Services CA 2015
-- Microsoft Internal Corporate Root
-- Microsoft IT ITO SSL CA 1
-- Microsoft IT SSL SHA1
-- Microsoft IT SSL SHA2
-- Microsoft IT TLS CA 1
-- Microsoft IT TLS CA 2
-- Microsoft IT TLS CA 4
-- Microsoft IT TLS CA 5
-- Microsoft Root Authority
-- Microsoft Root Certificate Authority
-- Microsoft Root Certificate Authority 2010
-- Microsoft Root Certificate Authority 2011
-- Microsoft Secure Server CA 2011
-- Microsoft Services Partner Root
-- Microsoft Time Stamping Service Root
-- Microsoft Windows Hardware Compatibility
-- MSIT CA Z2
-- MSIT Enterprise CA 1
-- MSIT Enterprise CA 3
+- Go Daddy Root Certificate Authority - G2
+- Go Daddy Secure Certificate Authority - G2
+- RapidSSL RSA CA 2018
 - Root Agency
 - Symantec Class 3 EV SSL CA - G3
 - Symantec Class 3 Secure Server CA - G4
 - Symantec Enterprise Mobile Root for Microsoft
+- Thawte Primary Root CA
+- Thawte Primary Root CA - G2
+- Thawte Primary Root CA - G3
+- Thawte RSA CA 2018
 - Thawte Timestamping CA
-- UTN-USERFirst-Object
+- TrustAsia TLS RSA CA
 - VeriSign Class 3 Extended Validation SSL CA
 - VeriSign Class 3 Extended Validation SSL SGC CA
 - VeriSign Class 3 Public Primary Certification Authority - G5
 - VeriSign International Server CA - Class 3
 - VeriSign Time Stamping Service Root
 - VeriSign Universal Root Certification Authority
-- WMSvc-SHA2-DALEDGE1008
+
 

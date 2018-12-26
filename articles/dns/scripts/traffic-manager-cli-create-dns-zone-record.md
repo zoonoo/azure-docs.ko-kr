@@ -3,7 +3,7 @@ title: CLI 예제 - 도메인 이름에 대한 DNS 영역 및 레코드 만들�
 description: Azure CLI 스크립트 예제에서는 도메인 이름에 대한 DNS 영역 및 레코드를 만드는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: traffic-manager
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/30/2018
-ms.author: kumud
-ms.openlocfilehash: 3f9f272f6ae79ad39ba9d9ad09775f3082774a0c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: b8a69b44714a24c78bf4077c27b5bf5633cc56d3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32773164"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431769"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Azure CLI 스크립트 예제: DNS 영역 및 레코드 만들기
 
@@ -73,11 +73,11 @@ az group delete -n myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) | Azure DNS 영역을 만듭니다. |
 | [az network dns record-set a add-record](/cli/azure/network/dns/record-set#az-network-dns-record-set-a-add-record) | *A* 레코드를 DNS 영역에 추가합니다. |
 | [az network dns record-set list](/cli/azure/network/dns/record-set#az-network-dns-record-set-a-list) | DNS 영역에서 모든*A* 레코드 집합을 나열합니다. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

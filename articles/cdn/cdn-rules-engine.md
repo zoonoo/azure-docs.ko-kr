@@ -3,8 +3,8 @@ title: Azure CDN 규칙 엔진을 사용하여 HTTP 동작 재정의 | Microsoft
 description: 규칙 엔진을 사용하면 특정 유형의 콘텐츠 전달 차단과 같이 Azure CDN에서 HTTP 요청을 처리하는 방식을 사용자 지정하여 캐싱 정책을 정의하고 HTTP 헤더를 수정할 수 있습니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: df8114aaf5b4672ea51482978abde6f0ce724528
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.author: magattus
+ms.openlocfilehash: 2ac43b472758f3403bc87bf3d64321eb97109f53
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261052"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092401"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진을 사용하여 HTTP 동작 재정의
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -28,19 +28,19 @@ ms.locfileid: "35261052"
 Azure CDN 규칙 엔진을 사용하면 HTTP 요청을 처리하는 방법을 사용자 지정할 수 있습니다. 예를 들어 특정 콘텐츠 형식 배달을 차단하거나, 캐싱 정책을 정의하거나, HTTP 헤더를 수정할 수 있습니다. 이 자습서에서는 CDN 자산의 캐싱 동작을 변경하는 규칙을 만드는 방법을 보여줍니다. 규칙 엔진 구문에 대한 자세한 내용은 [Azure CDN 규칙 엔진 참조](cdn-rules-engine-reference.md)를 참조하세요.
 
 ## <a name="access"></a>Access
-규칙 엔진에 액세스하려면 먼저 **CDN 프로필** 페이지의 맨 위에서 **관리**를 선택하여 Azure CDN 관리 페이지에 액세스해야 합니다. 끝점이 DSA(동적 사이트 가속)에 최적화되었는지 여부에 따라 끝점의 형식에 적절한 규칙 집합을 사용하여 규칙 엔진에 액세스할 수 있습니다.
+규칙 엔진에 액세스하려면 먼저 **CDN 프로필** 페이지의 맨 위에서 **관리**를 선택하여 Azure CDN 관리 페이지에 액세스해야 합니다. 엔드포인트가 DSA(동적 사이트 가속)에 최적화되었는지 여부에 따라 엔드포인트의 형식에 적절한 규칙 집합을 사용하여 규칙 엔진에 액세스할 수 있습니다.
 
-- 일반 웹 배달 또는 다른 비 DSA 최적화를 위해 최적화된 끝점: 
+- 일반 웹 배달 또는 다른 비 DSA 최적화를 위해 최적화된 엔드포인트: 
     
     **HTTP Large** 탭을 선택한 다음, **규칙 엔진**을 선택합니다.
 
     ![HTTP에 대한 규칙 엔진](./media/cdn-rules-engine/cdn-http-rules-engine.png)
 
-- DSA에 최적화된 끝점: 
+- DSA에 최적화된 엔드포인트: 
     
     **ADN** 탭을 선택한 다음, **규칙 엔진**을 선택합니다. 
     
-    ADN은 DSA 콘텐츠를 지정하기 위해 Verizon에서 사용하는 용어입니다. 여기에서 만든 규칙은 DSA에 최적화되지 않은 프로필의 끝점에서 무시됩니다. 
+    ADN은 DSA 콘텐츠를 지정하기 위해 Verizon에서 사용하는 용어입니다. 여기에서 만든 규칙은 DSA에 최적화되지 않은 프로필의 엔드포인트에서 무시됩니다. 
 
     ![DSA에 대한 규칙 엔진](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
 

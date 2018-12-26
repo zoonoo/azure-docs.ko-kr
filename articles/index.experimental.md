@@ -3,19 +3,19 @@ layout: HubPage
 hide_bc: true
 title: Microsoft Azure 설명서
 description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.
-ms.openlocfilehash: c7f46f9b22bd3696b7d281815687cca2b90b22b3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c8ba57b9173fbbfa4e00472972921073f32cb2f7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070064"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017790"
 ---
 <div id="main" class="v2">
     <div class="container">
         <h1 class="screenReader">Microsoft Azure 설명서</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
-                <a href="http://aka.ms/azuredevgetstarted/">
+                <a href="https://aka.ms/azuredevgetstarted/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -137,7 +137,7 @@ ms.locfileid: "34070064"
                                                 </div>
                                                 <div class="ico48Link">
                                                     <a href="/go/azure/">
-                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt=""/>
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt=""/>
                                                         <span>Go</span>
                                                     </a>
                                                 </div>
@@ -208,7 +208,7 @@ ms.locfileid: "34070064"
                             <li></li>
                             <li class="bottomRightItem">
                                 <a href="https://aka.ms/j3wr7y">
-                                <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">모든 Azure 서비스 보기<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
+                                <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">모든 Azure 서비스 보기<svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
                                 </a>
                             </li>
                             </li>
@@ -321,9 +321,9 @@ ms.locfileid: "34070064"
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/">
+                                            <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Redis Cache</p>
+                                                <p>Azure Cache for Redis</p>
                                             </a>
                                         </li>
                                         <li>
@@ -640,7 +640,7 @@ ms.locfileid: "34070064"
                                         <li>
                                             <a href="/azure/cognitive-services/speaker-recognition/home">
                                                 <img src="media/index/API_Spc_SpeakerRecognition.svg" alt="" />
-                                                <p>화자 인식</p>
+                                                <p>Speaker Recognition</p>
                                             </a>
                                         </li>
                                         <li>
@@ -779,11 +779,11 @@ ms.locfileid: "34070064"
                                         <li>
                                             <a href="https://www.visualstudio.com/docs/overview">
                                                 <img src="media/index/VisualStudioTeamServices.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
+                                                <p>Azure DevOps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/devtest-lab/">
+                                            <a href="/azure/lab-services/">
                                                 <img src="media/index/DevTestLabs.svg" alt="" />
                                                 <p>Azure DevTest Labs</p>
                                             </a>
@@ -902,12 +902,6 @@ ms.locfileid: "34070064"
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
                                                 <p>검색</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/mobile-engagement/">
-                                                <img src="media/index/MobileEngagement.svg" alt="" />
-                                                <p>Mobile Engagement</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1642,25 +1636,6 @@ ms.locfileid: "34070064"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/mobile-engagement/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MobileEngagement.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Mobile Engagement</h3>
-                                                    <p>앱 사용 및 사용자 유지 증가</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/notification-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1899,7 +1874,7 @@ ms.locfileid: "34070064"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache/">
+                                <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1909,7 +1884,7 @@ ms.locfileid: "34070064"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis Cache</h3>
+                                                    <h3>Azure Cache for Redis</h3>
                                                     <p>높은 처리량과 대기 시간이 짧은 데이터 액세스로 빠르고 확장 가능한 응용 프로그램 빌드</p>
                                                 </div>
                                             </div>
@@ -2148,7 +2123,7 @@ ms.locfileid: "34070064"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>수백만 개의 IoT 장치에서 실시간 데이터 스트림 처리</p>
+                                                    <p>수백만 개의 IoT 디바이스에서 실시간 데이터 스트림 처리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2305,7 +2280,7 @@ ms.locfileid: "34070064"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT 개발자 센터</h3>
-                                                    <p>장치 연결 시작</p>
+                                                    <p>디바이스 연결 시작</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2362,7 +2337,7 @@ ms.locfileid: "34070064"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Event Hubs</h3>
-                                                    <p>수백만 개의 장치에서 원격 분석 수신</p>
+                                                    <p>수백만 개의 디바이스에서 원격 분석 수신</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2381,7 +2356,7 @@ ms.locfileid: "34070064"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>수백만 개의 IoT 장치에서 실시간 데이터 스트림 처리</p>
+                                                    <p>수백만 개의 IoT 디바이스에서 실시간 데이터 스트림 처리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2737,7 +2712,7 @@ ms.locfileid: "34070064"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Team Services</h3>
+                                                    <h3>Azure DevOps</h3>
                                                     <p>팀에서 서비스를 통해 코드 공유, 작업 추적 및 소프트웨어 릴리스 가능</p>
                                                 </div>
                                             </div>
@@ -2746,7 +2721,7 @@ ms.locfileid: "34070064"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/devtest-lab/">
+                                <a href="/azure/lab-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3052,7 +3027,7 @@ ms.locfileid: "34070064"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure US Government</h3>
-                                                    <p>Azure의 전용 인스턴스에서 미국 정부 기관 임무를 위한 응용 프로그램 빌드 및 호스팅</p>
+                                                    <p>Azure의 전용 인스턴스에서 미국 정부 기관 임무를 위한 애플리케이션 빌드 및 호스팅</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3150,10 +3125,10 @@ ms.locfileid: "34070064"
                                                     <a href="https://pypi.python.org/pypi/azure">Python SDK 가져오기</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">시작</a>
+                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API 참조</a>
+                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">API 참조</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/resources/samples/?platform=python">샘플 받기</a>
@@ -3180,10 +3155,10 @@ ms.locfileid: "34070064"
                                                     <a href="https://www.npmjs.com/package/azure">Node.js SDK 가져오기</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">시작</a>
+                                                    <a href="https://azure.github.io/azure-sdk-for-node/">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">API 참조</a>
+                                                    <a href="https://azure.github.io/azure-sdk-for-node/">API 참조</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">샘플 받기</a>
@@ -3256,7 +3231,7 @@ ms.locfileid: "34070064"
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -3313,12 +3288,12 @@ ms.locfileid: "34070064"
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0 </h3>
+                                                <h3>Azure CLI </h3>
                                                 <p>
                                                     <a href="/cli/azure">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure/install-azure-cli">Azure CLI 2.0 다운로드</a>
+                                                    <a href="/cli/azure/install-azure-cli">Azure CLI 다운로드</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">참조</a>
@@ -3363,18 +3338,18 @@ ms.locfileid: "34070064"
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI </h3>
+                                                <h3>Azure 클래식 CLI </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/linux-azure-cli">Linux용 Azure CLI 다운로드</a>
+                                                    <a href="https://aka.ms/linux-azure-cli">Linux용 Azure CLI 다운로드</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/mac-azure-cli">Mac용 Azure CLI 다운로드</a>
+                                                    <a href="https://aka.ms/mac-azure-cli">Mac용 Azure CLI 다운로드</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/webpi-azure-cli">Windows용 Azure CLI 다운로드</a>
+                                                    <a href="https://aka.ms/webpi-azure-cli">Windows용 Azure CLI 다운로드</a>
                                                 </p>
                                                 <p>
                                                     <a href="/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">참조</a>
@@ -3427,13 +3402,13 @@ ms.locfileid: "34070064"
                                                     <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Visual Studio용 다운로드 </a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=Click2CloudInc.Click2CloudDockerExtensionForVisualStudio2017">Visual Studio용 다운로드 </a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Visual Studio Code용 다운로드 </a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Team Services용 다운로드</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Azure DevOps용 다운로드</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3472,19 +3447,19 @@ ms.locfileid: "34070064"
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com">Storage 탐색기</a>
+                                                    <a href="https://storageexplorer.com">Storage 탐색기</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">시작</a>
                                                 </p>
                                                 <p>
-                                                     <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Linux용 다운로드</a>
+                                                     <a  href="https://go.microsoft.com/fwlink/?LinkId=722418">Linux용 다운로드</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708342">Mac용 다운로드</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708342">Mac용 다운로드</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708343">Windows용 다운로드</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708343">Windows용 다운로드</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3502,13 +3477,13 @@ ms.locfileid: "34070064"
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Python 도구</a>
+                                                    <a href="https://aka.ms/ptvs">Python 도구</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Visual Studio 시작</a>
+                                                    <a href="https://aka.ms/ptvsdocs">Visual Studio 시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Visual Studio Code 시작</a>
+                                                    <a href="https://code.visualstudio.com/docs/python/python-tutorial">Visual Studio Code 시작</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3599,7 +3574,7 @@ ms.locfileid: "34070064"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>클라우드 응용 프로그램에 대한 모범 사례</h3>
-                                                    <p>자동 크기 조정, 캐싱, 데이터 분할, API 디자인 및 모니터링과 같은 측면을 다루는 클라우드 응용 프로그램에 대한 모범 사례 집합입니다.</p>
+                                                    <p>자동 크기 조정, 캐싱, 데이터 분할, API 디자인 및 모니터링과 같은 측면을 다루는 클라우드 애플리케이션에 대한 모범 사례 집합입니다.</p>
                                                 </div>
                                             </div>
                                         </div>

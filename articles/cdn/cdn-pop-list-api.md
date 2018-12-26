@@ -3,8 +3,8 @@ title: Azure CDN에 대한 현재 Verizon POP 목록 검색 | Microsoft Docs
 description: REST API를 사용하여 현재 Verizon POP 목록을 검색하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
-ms.author: v-deasim
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: f796d18a03e14fdf652af72366762e1365523f09
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f703a934b0eaf4bff5be3811adeed8f0287bc658
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754416"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50237828"
 ---
 # <a name="retrieve-the-current-verizon-pop-list-for-azure-cdn"></a>Azure CDN에 대한 현재 Verizon POP 목록 검색
 
@@ -34,4 +34,4 @@ POP 목록을 검색하기 위한 REST API 작업의 구문은 [에지 노드 - 
 
 ## <a name="next-steps"></a>다음 단계
 
-REST API에 대한 정보는 [Azure CDN REST API](https://docs.microsoft.com/en-us/rest/api/cdn/)를 참조하세요.
+REST API에 대한 정보는 [Azure CDN REST API](https://docs.microsoft.com/rest/api/cdn/)를 참조하세요.

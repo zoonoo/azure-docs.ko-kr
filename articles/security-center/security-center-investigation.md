@@ -3,36 +3,41 @@ title: Azure Security Center에서 인시던트 및 경고 조사 | Microsoft Do
 description: 이 문서를 통해 Azure Security Center에서 조사 기능을 사용하여 보안 인시던트 및 경고를 조사할 수 있습니다.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
-ms.openlocfilehash: bab7b64a1635639991d639fb838b7118e234aa5b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: d097c1e37a47f9f832d053fa57fb0031288999f8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776485"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962803"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Azure Security Center에서 인시던트 및 경고 조사(미리 보기)
 이 문서를 통해 Azure Security Center에서 조사 기능을 사용하여 보안 인시던트 및 경고를 조사할 수 있습니다.
 
 ## <a name="what-is-investigation-in-security-center"></a>Security Center의 조사란?
 Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해하고, 잠재적인 [보안 인시던트](https://docs.microsoft.com/azure/security-center/security-center-incident)의 근본 원인을 추적할 수 있습니다.
- 
+
 해당 기능은 조사 중인 인시던트와 관련된 모든 엔터티([보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), 사용자, 컴퓨터 및 인시던트)를 연결하여 조사 프로세스를 용이하게 하기 위해 사용합니다.  Security Center는 포함된 엔터티와 관련 데이터의 상관 관계를 지정하고 개체를 탐색하고 관련 정보를 시각화하는 데 도움이 되는 라이브 그래프를 사용하는 이 상관 관계를 노출하여 이를 수행할 수 있습니다.
+
+> [!NOTE]
+> [사용자 지정 경고](security-center-custom-alert.md)는 Security Center의 조사 기능에서 지원되지 않습니다.
+>
+>
 
 
 ## <a name="how-investigation-works"></a>조사 작동 방식
 조사는 조사 대시보드의 중앙 영역을 차지하는 그래프에 의해 구성됩니다. 그래프는 항상 특정 엔터티에 집중하여 이에 관련된 엔터티를 나타냅니다. 엔터티는 보안 경고, 사용자, 컴퓨터 또는 인시던트일 수 있습니다.
- 
+
 ![Map](./media/security-center-investigation/security-center-investigation-fig1.png)
 
 사용자는 그래프에서 엔터티를 클릭하여 여러 엔터티를 탐색할 수 있습니다. 그래프는 선택된 엔터티 및 해당 관련 엔터티에 자동으로 중앙 집중합니다. 그래프에서 더 이상 관련 없는 엔터티를 제거할 수 있습니다.
@@ -43,7 +48,7 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 ![path](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>일반 정보
-엔터티가 그래프에 표시되면 탭이 이 엔터티에 대한 추가 정보를 보여줍니다. **정보** 탭에서는 사용할 수 있는 다양한 정보 원본의 엔터티에 대한 일반 정보를 제공합니다. 
+엔터티가 그래프에 표시되면 탭이 이 엔터티에 대한 추가 정보를 보여줍니다. **정보** 탭에서는 사용할 수 있는 다양한 정보 원본의 엔터티에 대한 일반 정보를 제공합니다.
 
 ![일반 정보](./media/security-center-investigation/security-center-investigation-fig3.png)
 
@@ -71,7 +76,7 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 
 ### <a name="timeline"></a>타임라인
 
-그래프에 표시되는 대부분의 데이터 및 다양한 탭은 특정 기간 동안 관련이 있습니다. 이 시간 범위는 그래프의 맨 위 왼쪽에서 시간 범위 선택기를 사용하도록 설정됩니다. 조사기에는 시간 범위를 선택할 수 있는 다양한 방법이 있습니다. 
+그래프에 표시되는 대부분의 데이터 및 다양한 탭은 특정 기간 동안 관련이 있습니다. 이 시간 범위는 그래프의 맨 위 왼쪽에서 시간 범위 선택기를 사용하도록 설정됩니다. 조사기에는 시간 범위를 선택할 수 있는 다양한 방법이 있습니다.
 
 ![타임라인](./media/security-center-investigation/security-center-investigation-fig7.png)
 
@@ -103,7 +108,7 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 
     ![조사 대시보드](./media/security-center-investigation/security-center-investigation-fig9.png)
 
-이 지점에서부터 이 인시던트에 관련된 엔터티를 탐색하고 각각에 대한 자세한 정보를 탐색할 수 있습니다. 
+이 지점에서부터 이 인시던트에 관련된 엔터티를 탐색하고 각각에 대한 자세한 정보를 탐색할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 Security Center에서 조사 기능을 사용하는 방법을 살펴보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
@@ -111,7 +116,6 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md). Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). 다양한 유형의 보안 경고에 대해 알아봅니다.
-* [Azure Security Center 문제 해결 가이드](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Security Center의 일반적인 문제를 해결하는 방법에 대해 알아봅니다. 
+* [Azure Security Center 문제 해결 가이드](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Security Center의 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md)로 설정합니다. 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

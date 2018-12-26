@@ -7,19 +7,23 @@ ms.author: serinak
 manager: hjerez
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: 14f8dd29b7d4185d01529631333de045ad23cdd0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2a7733468ec082c8954f623f3ebe2cea1fbad561
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831462"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976236"
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Azure MLC(Machine Learning Compute) 클러스터에서 SSL 사용 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 이 지침을 통해 MLC(Machine Learning Compute ) 클러스터에서 점수 매기기 호출에 대한 SSL을 설정할 수 있습니다. 
 
@@ -65,7 +69,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>CNAME과 IP 주소 매핑
 
-필수 조건에서 선택한 CNAME과 실시간 FE(프런트 엔드)의 IP 주소 사이에 매핑을 만듭니다. FE의 IP 주소를 찾으려면 아래 명령을 실행합니다. 실시간 클러스터 프런트 엔드의 IP 주소가 포함된 "publicIpAddress"라는 필드가 출력에 표시됩니다. CNAME에서 사용된 FQDN에서 공용 IP 주소로 레코드를 설정하려면 DNS 공급자의 지침을 참조합니다.
+필수 조건에서 선택한 CNAME과 실시간 FE(프런트 엔드)의 IP 주소 사이에 매핑을 만듭니다. FE의 IP 주소를 찾으려면 아래 명령을 실행합니다. 실시간 클러스터 프런트 엔드의 IP 주소가 포함된 “publicIpAddress”라는 필드가 출력에 표시됩니다. CNAME에서 사용된 FQDN에서 공용 IP 주소로 레코드를 설정하려면 DNS 공급자의 지침을 참조합니다.
 
 
 

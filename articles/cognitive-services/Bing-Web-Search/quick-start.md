@@ -1,53 +1,54 @@
 ---
-title: Web Search API 빠른 시작 | Microsoft Docs
+title: Web Search API 빠른 시작
+titleSuffix: Azure Cognitive Services
 description: Bing Web Search API를 사용하여 시작하는 방법을 보여 줍니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 27B4B51A-D017-44C8-8E4E-9684DC553886
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0b8c4678a518985a4be3ee426a85b0a85dd2365d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6e4c5a47ea19a4308865de78f3a4c059a9f8ac79
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373223"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312404"
 ---
 # <a name="your-first-bing-search-query"></a>첫 번째 Bing 검색 쿼리
 
-첫 번째 호출을 만들려면 Cognitive Services 구독 키가 필요합니다. 키를 얻으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)를 참조하세요.
+첫 번째 호출을 만들려면 Cognitive Services 구독 키가 필요합니다. 키를 받으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)를 참조하세요. [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
-Web Search 결과를 가져오려면 다음 엔드포인트로 GET 요청을 보냅니다.  
-  
+웹 검색 결과를 가져오려면 다음 엔드포인트로 GET 요청을 보냅니다.  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search
 ```  
 
 요청은 HTTPS 프로토콜을 사용해야 합니다.
 
-모든 요청은 서버에서 시작되는 것이 좋습니다. 클라이언트 응용 프로그램의 일부로 키를 배포하면 제3자가 나쁜 목적을 갖고 응용 프로그램에 액세스할 가능성이 높아집니다. 또한 서버에서 호출을 만들면 향후 API 버전을 업그레이드하기 위한 단일 업그레이드 지점이 제공됩니다.  
-  
-요청은 사용자의 검색어가 포함된 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query) 쿼리 매개 변수를 지정해야 합니다. 선택 사항이지만, 결과를 가져올 지역/국가를 식별하는 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt) 쿼리 매개 변수도 요청에서 지정해야 합니다. `responseFilter` 및 `textDecorations`와 같은 선택적 쿼리 매개 변수 목록은 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters)를 참조하세요. 모든 쿼리 매개 변수 값은 URL 인코딩되어야 합니다.  
-  
-요청은 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey) 헤더를 지정해야 합니다. 선택 사항이지만, 다음 헤더도 지정하는 것이 좋습니다.  
-  
+모든 요청은 서버에서 시작되는 것이 좋습니다. 클라이언트 응용 프로그램의 일부로 키를 배포하면 제3자가 나쁜 목적을 갖고 응용 프로그램에 액세스할 가능성이 높아집니다. 또한 서버에서 호출하면 향후 API 버전을 위한 단일 업그레이드 지점이 제공됩니다.  
+
+요청에서 사용자의 검색어가 포함된 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query) 쿼리 매개 변수를 지정해야 합니다. 선택 사항이지만, 결과를 가져올 지역/국가를 식별하는 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt) 쿼리 매개 변수도 요청에서 지정해야 합니다. `responseFilter` 및 `textDecorations`와 같은 선택적 쿼리 매개 변수 목록은 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters)를 참조하세요. 모든 쿼리 매개 변수 값은 URL 인코딩되어야 합니다.  
+
+요청에서 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey) 헤더를 지정해야 합니다. 선택 사항이지만, 다음 헤더도 지정하는 것이 좋습니다.  
+
 -   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientid)  
 -   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientip)  
 -   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#location)  
 
-클라이언트 IP 및 위치 헤더는 위치 인식 콘텐츠를 반환하는 데 중요합니다. 예를 들어, 사용자의 쿼리가 *항해 + 강습*인 경우, 아마도 해당 위치 근처에 있는 수업에 관심이 있는 것입니다. 결과에 사용자의 위치 근처에서 이용할 수 있는 강습을 포함하려면 위치 헤더와 선택적으로 클라이언트 IP 헤더를 포함해야 합니다. 쿼리 용어가 명시적으로 위치를 언급하는 경우에는 덜 중요합니다(예: 항해 + 강습 + 플로리다 + 키). 
+클라이언트 IP 및 위치 헤더는 위치 인식 콘텐츠를 반환하는 데 중요합니다. 예를 들어, 사용자의 쿼리가 *항해 + 강습*인 경우, 아마도 해당 위치 근처에 있는 수업에 관심이 있는 것입니다. 결과에 사용자의 위치 근처에서 이용할 수 있는 강습을 포함하려면 위치 헤더와 선택적으로 클라이언트 IP 헤더를 포함해야 합니다. 쿼리 용어가 명시적으로 위치를 언급하는 경우에는 덜 중요합니다(예: 항해 + 강습 + 플로리다 + 키).
 
 모든 요청 및 응답 헤더의 목록은 [헤더](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers)를 참조하세요.
 
 ## <a name="the-request"></a>요청
 
-다음은 모든 제안된 쿼리 매개 변수 및 헤더를 포함하는 검색 요청을 보여 줍니다. Bing API 중 하나를 처음으로 호출한 경우 클라이언트 ID 헤더를 포함하지 마십시오. 전에 Bing API를 호출하고 Bing이 사용자 및 장치 조합에 대한 클라이언트 ID를 반환한 경우만 클라이언트 ID를 포함합니다. 
-  
+다음은 모든 제안된 쿼리 매개 변수 및 헤더를 포함하는 검색 요청을 보여 줍니다. Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 이전에 Bing API를 호출했고 Bing이 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 경우 클라이언트 ID만 포함하세요.
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+lessons+seattle&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -265,6 +266,6 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>다음 단계
 
-API를 사용해 봅니다. [Web Search API 테스트 콘솔](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d)로 이동합니다. 
+API를 사용해 봅니다. [Web Search API 테스트 콘솔](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d)로 이동합니다.
 
 응답 개체 사용에 대한 자세한 내용은 [웹 검색](./search-the-web.md)을 참조하세요.

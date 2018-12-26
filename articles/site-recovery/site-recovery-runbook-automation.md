@@ -1,25 +1,18 @@
 ---
-title: Azure Site Recovery에서 복구 계획에 Azure Automation Runbook 추가 | Microsoft Docs
-description: Azure Site Recovery가 Azure Automation을 사용하여 복구 계획을 확장하는 데 어떻게 도움이 되는지 알아봅니다. Azure로 복구하는 동안 복잡한 작업을 완료하는 방법을 알아봅니다.
-services: site-recovery
-documentationcenter: ''
+title: Site Recovery에서 복구 계획에 Azure Automation Runbook 추가 | Microsoft Docs
+description: Azure Site Recovery를 통한 재해 복구를 위해 Azure Automation을 사용하여 복구 계획을 확장하는 방법에 대해 알아봅니다.
 author: ruturaj
 manager: gauravd
-editor: ''
-ms.assetid: ecece14d-5f92-4596-bbaf-5204addb95c2
 ms.service: site-recovery
-ms.devlang: powershell
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: e9a1dfc6aa26246db5322a8f4491ab2a5bccfcf5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1853d8d23aeb96cda3148c6c9e7668b9c2c28924
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917696"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244018"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
 이 문서에서는 Azure Site Recovery를 Azure Automation에 통합하여 복구 계획을 확장하는 방법을 설명합니다. 복구 계획으로 Site Recovery로 보호되는 VM의 복구를 오케스트레이션할 수 있습니다. 복구 계획은 보조 클라우드로 복제 및 Azure로의 복제 모두에서 작동합니다. 복구 계획을 통해 복구를 **일관적으로 정확**하고, **반복 가능**하며, **자동화**되도록 할 수도 있습니다. VM을 Azure로 장애 조치(failover)하는 경우 Azure Automation과 통합하면 복구 계획이 확장됩니다. 이를 통해 강력한 자동화 작업을 제공하는 Runbook을 실행할 수 있습니다.
@@ -196,7 +189,7 @@ workflow AddPublicIPAndNSG {
 
 단일 스크립트에서 특정 VM의 공용 IP를 설정하는 시나리오를 고려해 보세요. 다른 시나리오에서는 서로 다른 VM(모든 VM 아님)에는 다른 NSG를 적용하려고 합니다. 모든 복구 계획에 다시 사용할 수 있는 스크립트를 만들 수 있습니다. 각 복구 계획에는 다양한 수의 VM이 포함될 수 있습니다. 예를 들어 SharePoint 복구에는 두 개의 프런트 엔드가 있습니다. 기본 LOB(기간 업무) 응용 프로그램에는 하나의 프런트 엔드만 있습니다. 각 복구 계획에 별도의 변수를 만들 수 없습니다.
 
-다음 예제에서는 Azure Automation 계정 자산에서 새 기술을 사용하고 [복합 변수](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396)를 만듭니다. 여러 값을 지정하여 이 작업을 수행합니다. 다음 단계를 완료하려면 Azure PowerShell을 사용해야 합니다.
+다음 예제에서는 Azure Automation 계정 자산에서 새 기술을 사용하고 [복합 변수](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable)를 만듭니다. 여러 값을 지정하여 이 작업을 수행합니다. 다음 단계를 완료하려면 Azure PowerShell을 사용해야 합니다.
 
 1. PowerShell에서 Azure 구독에 로그인합니다.
 
@@ -259,8 +252,8 @@ Automation 계정에 샘플 스크립트를 배포하려면 **Azure에 배포** 
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure Automation 서비스 실행 계정](../automation/automation-create-runas-account.md)
-* [Azure Automation 개요](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation 개요")
-* [Azure Automation 샘플 스크립트](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation 샘플 스크립트")
+* [Azure Automation 개요](https://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation 개요")
+* [Azure Automation 샘플 스크립트](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation 샘플 스크립트")
 
 ## <a name="next-steps"></a>다음 단계
 장애 조치를 실행하는 방법에 대해 [자세히 알아보세요](site-recovery-failover.md).

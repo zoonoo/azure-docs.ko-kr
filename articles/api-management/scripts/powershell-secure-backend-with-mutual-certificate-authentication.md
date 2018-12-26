@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 8603e17f905a37cbfeb87be4190c403fda3cbe0b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a372b4fe246d74c0689475bf316513ba32e9ea5c
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937305"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267269"
 ---
 # <a name="secure-back-end"></a>백 엔드 보호
 
@@ -44,4 +44,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/overview)를 참조하세요.
 
-Azure API Management에 대한 추가 Azure PowerShell 샘플은 [PowerShell 샘플](../powershell-samples.md)에서 확인할 수 있습니다.
+Azure API Management에 대한 추가 Azure PowerShell 샘플은 [PowerShell 샘플](../powershell-samples.md)에서 찾을 수 있습니다.

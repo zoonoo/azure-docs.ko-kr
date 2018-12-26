@@ -1,24 +1,25 @@
 ---
-title: 기술 자료에 GenerateAnswer API와 함께 메타데이터 사용 | Microsoft Docs
-description: GenerateAnswer API와 함께 메타데이터 사용
+title: GenerateAnswer API와 메타데이터 - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker는 메타데이터를 키/값 쌍의 형태로 질문/응답 집합에 추가할 수 있습니다. 이 정보는 사용자 쿼리에 대한 결과를 필터링하고 후속 대화에 사용할 수 있는 추가 정보를 저장하는 데 사용할 수 있습니다.
 services: cognitive-services
-author: pchoudhari
-manager: rsrikan
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/18/2018
-ms.author: pchoudh
-ms.openlocfilehash: 94e3632884d7033971ff1c45b455afb9a09ee798
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 09/12/2018
+ms.author: tulasim88
+ms.openlocfilehash: eef26cf1f5a11d7dcd1fdc41747aac675e0bc528
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35383237"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031087"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>메타데이터 및 GenerateAnswer API 사용
 
-QnA Maker는 메타데이터를 키/값 쌍의 형태로 질문/응답 집합에 추가할 수 있습니다. 이 정보는 결과를 사용자 쿼리로 필터링하고, 특정 결과를 부스팅하고, 후속 대화에 사용할 수 있는 추가 정보를 저장하는 등의 다양한 방법으로 사용할 수 있습니다. 자세한 내용은 [기술 자료](../Concepts/knowledge-base.md)를 참조하세요.
+QnA Maker는 메타데이터를 키/값 쌍의 형태로 질문/응답 집합에 추가할 수 있습니다. 이 정보는 사용자 쿼리에 대한 결과를 필터링하고 후속 대화에 사용할 수 있는 추가 정보를 저장하는 데 사용할 수 있습니다. 자세한 내용은 [기술 자료](../Concepts/knowledge-base.md)를 참조하세요.
 
 ## <a name="qna-entity"></a>QnA 엔터티
 
@@ -57,7 +58,7 @@ HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnsw
     - **QnAMaker 엔드포인트**(문자열): Azure 구독에 배포된 엔드포인트의 호스트 이름입니다.
 - **요청 헤더**
     - **콘텐츠 형식**(문자열): API로 전송되는 본문의 미디어 형식입니다.
-    - **권한 부여**(문자열): 엔드포인트 키입니다.
+    - **권한 부여**(문자열): 끝점 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **요청 본문**
     - **질문**(문자열): 기술 자료에 대해 쿼리할 사용자 질문입니다.
     - **top**(선택 사항, 정수): 출력에 포함할 순위에 오른 결과의 수입니다. 기본값은 1입니다.
@@ -82,6 +83,7 @@ HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnsw
     - **답변** - 사용자 쿼리에 대한 답변 목록으로, 순위 점수 기준 내림차순으로 정렬됩니다.
         - **점수**: 0~100 사이의 순위 점수입니다.
         - **질문**: 사용자가 제공한 질문입니다.
+        - **답변**: 질문에 대한 답변입니다.
         - **원본**: 기술 자료에서 답변을 추출하거나 저장한 원본 이름입니다.
         - **메타데이터**: 답변과 연결된 메타데이터입니다.
             - 이름: 메타데이터 이름입니다. (문자열, 최대 길이: 100자, 필수)

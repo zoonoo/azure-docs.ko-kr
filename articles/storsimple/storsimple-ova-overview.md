@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/21/2018
+ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651208"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480957"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple 가상 배열 소개
 
@@ -30,8 +30,8 @@ Microsoft Azure StorSimple 가상 배열은 하이퍼바이저 및 Microsoft Azu
 이 문서에서는 가상 배열에 대한 개요를 제공합니다. 다음은 몇 가지 추가 리소스입니다.
 
 * 모범 사례에 대해서는 [StorSimple 가상 배열 모범 사례](storsimple-ova-best-practices.md)를 참조하세요.
-* StorSimple 8000 시리즈 장치에 대한 개요는 [StorSimple 8000 시리즈: 하이브리드 클라우드 솔루션](storsimple-overview.md)을 참조하세요.
-* StorSimple 5000/7000 시리즈 장치에 대한 정보는 [StorSimple 온라인 도움말](http://onlinehelp.storsimple.com/)을 참조하세요.
+* StorSimple 8000 시리즈 디바이스에 대한 개요는 [StorSimple 8000 시리즈: 하이브리드 클라우드 솔루션](storsimple-overview.md)을 참조하세요.
+* StorSimple 5000/7000 시리즈 디바이스에 대한 정보는 [StorSimple 온라인 도움말](http://onlinehelp.storsimple.com/)을 참조하세요.
 
 가상 배열은 iSCSI 또는 SMB(서버 메시지 블록) 프로토콜을 지원합니다. 기존 하이퍼바이저 인프라에서 실행되며 클라우드, 클라우드 백업, 빠른 복원, 항목 수준 복원, 재해 복구 기능에 계층화를 제공합니다.
 
@@ -49,7 +49,7 @@ Microsoft Azure StorSimple 가상 배열은 하이퍼바이저 및 Microsoft Azu
 | 저장소 계층화 |열 매핑을 사용하여 계층화에 포함시킬 데이터와 그렇지 않은 데이터를 결정 |
 | 지원 |공급업체에 의해 지원되는 가상화 인프라 |
 | 성능 |기본 인프라에 따라 달라짐 |
-| 데이터 이동성 |동일한 장치에 복원할 수 있음 또는 항목 수준 복원을 수행함(파일 서버) |
+| 데이터 이동성 |동일한 디바이스에 복원할 수 있음 또는 항목 수준 복원을 수행함(파일 서버) |
 | 저장소 계층 |로컬 하이퍼바이저 저장소 및 클라우드 |
 | 공유 크기 |계층화: 최대 20TB; 로컬로 고정: 최대 2TB |
 | 볼륨 크기 |계층화: 500GB~5TB, 로컬로 고정: 50GB~200GB <br> 계층화된 볼륨에 대한 최대 로컬 예약은 200GB입니다. |
@@ -66,7 +66,7 @@ StorSimple은 응용 프로그램을 수정하지 않고 사용자와 서버를 
 | --- | --- |
 | 투명한 통합 |가상 배열은 iSCSI 또는 SMB 프로토콜을 지원합니다. 로컬 계층과 클라우드 계층 간의 데이터 이동은 원활하고 사용자에게 투명하게 진행됩니다. |
 | 저장소 비용 감소 |StorSimple을 통해 가장 많이 사용되는 핫 데이터에 대한 현재 요구를 충족하기에 충분한 로컬 저장소를 프로비전합니다. 저장소에 대한 수요가 증가하면, StorSimple은 콜드 데이터를 비용 효과적인 클라우드 저장소로 계층화합니다. 저장소 요구 사항 및 비용을 좀 더 줄이기 위해 데이터를 클라우드로 보내기 전에 중복 제거 및 압축이 진행됩니다. |
-| 단순화된 저장소 관리 |StorSimple은 StorSimple Device Manager를 사용하여 여러 장치를 관리하는 중앙 집중식 관리를 클라우드에 제공합니다. |
+| 단순화된 저장소 관리 |StorSimple은 StorSimple Device Manager를 사용하여 여러 디바이스를 관리하는 중앙 집중식 관리를 클라우드에 제공합니다. |
 | 향상된 재해 복구 및 규정 준수 |StorSimple은 메타데이터를 즉시 복원하고 필요에 따라 데이터를 복원하여 보다 빠른 재해 복구를 지원합니다. 즉, 정상 작업 중단을 최소화하면서 계속할 수 있습니다. |
 | 데이터 이동성 |복구 및 데이터 마이그레이션을 위해 클라우드에 계층화된 데이터를 다른 사이트에서 액세스할 수 있습니다. 원본 가상 배열에만 데이터를 복원할 수 있습니다. 하지만, 재해 복구 기능을 사용하면 전체 가상 배열을 또 다른 가상 배열에 복원합니다. |
 
@@ -76,16 +76,16 @@ StorSimple은 응용 프로그램을 수정하지 않고 사용자와 서버를 
 
 |시나리오     |워크로드     |지원됨      |제한               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |파일 공유     |예      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
-|클라우드 보관  |보관 파일 공유     |예      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
+|원격 사무실/지사(ROBO)  |파일 공유     |yes      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
+|클라우드 보관  |보관 파일 공유     |yes      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
 
-StorSimple 가상 배열은 자주 액세스되지 않는 데이터에 가장 적합합니다. 가상 배열에는 성능 향상을 위한 로컬 캐시가 있지만 사용자는 장치가 저장소의 가장 낮은 계층(클라우드)에서 파일을 서비스한다고 가정해야 합니다. 각 가상 배열은 약 100Mbps로 Azure 저장소에 쓰고 읽을 수 있습니다. 해당 링크는 장치에 들어오는 모든 요청 간에 공유되며 아래 다이어그램에 나와 있는 것처럼 병목 상태가 될 수 있습니다.
+StorSimple 가상 배열은 자주 액세스되지 않는 데이터에 가장 적합합니다. 가상 배열에는 성능 향상을 위한 로컬 캐시가 있지만 사용자는 디바이스가 저장소의 가장 낮은 계층(클라우드)에서 파일을 서비스한다고 가정해야 합니다. 각 가상 배열은 약 100Mbps로 Azure 저장소에 쓰고 읽을 수 있습니다. 해당 링크는 디바이스에 들어오는 모든 요청 간에 공유되며 아래 다이어그램에 나와 있는 것처럼 병목 상태가 될 수 있습니다.
 
 ![클라우드 보관](./media/storsimple-ova-overview/cloud-archiving.png)
 
-여러 동시 사용자가 가상 배열에 액세스하는 경우 모두 Azure에 대한 연결을 공유하므로 성능이 저하됩니다. 사용자마다 보장된 성능은 없으며 장치는 도착한 개별 요청을 처리합니다.
+여러 동시 사용자가 가상 배열에 액세스하는 경우 모두 Azure에 대한 연결을 공유하므로 성능이 저하됩니다. 사용자마다 보장된 성능은 없으며 디바이스는 도착한 개별 요청을 처리합니다.
 
-StorSimple 가상 배열은 고가용성이 필요한 워크로드에는 적합하지 않습니다. 가상 배열은 소프트웨어 업데이트가 설치될 때 가동 중지 시간을 경험하는 단일 노드 장치입니다. 관리자는 1년에 3-4회의, 30분 유지 관리 기간을 계획해야 합니다.
+StorSimple 가상 배열은 고가용성이 필요한 워크로드에는 적합하지 않습니다. 가상 배열은 소프트웨어 업데이트가 설치될 때 가동 중지 시간을 경험하는 단일 노드 디바이스입니다. 관리자는 1년에 3-4회의, 30분 유지 관리 기간을 계획해야 합니다.
 
 ## <a name="workflows"></a>워크플로
 
@@ -96,7 +96,7 @@ StorSimple 가상 배열은 다음과 같은 워크플로에 특히 적합합니
 * [데이터 보호 및 재해 복구](#data-protection-and-disaster-recovery)
 
 ### <a name="cloud-based-storage-management"></a>클라우드 기반 저장소 관리
-Azure Portal에서 실행되는 StorSimple Device Manager 서비스를 사용하여 여러 장치와 여러 위치에 저장된 데이터를 관리할 수 있습니다. 이것은 분산된 지점 시나리오에 특히 유용합니다. 가상 배열 및 물리적인 StorSimple 장치를 관리하려면 StorSimple Device Manager 서비스 인스턴스를 별도로 만들어야 합니다. 또한 가상 배열은 이제 Azure 클래식 포털 대신 새 Azure Portal을 사용합니다.
+Azure Portal에서 실행되는 StorSimple Device Manager 서비스를 사용하여 여러 디바이스와 여러 위치에 저장된 데이터를 관리할 수 있습니다. 이것은 분산된 지점 시나리오에 특히 유용합니다. 가상 배열 및 물리적인 StorSimple 디바이스를 관리하려면 StorSimple Device Manager 서비스 인스턴스를 별도로 만들어야 합니다. 또한 가상 배열은 이제 Azure 클래식 포털 대신 새 Azure Portal을 사용합니다.
 
 ![클라우드 기반 저장소 관리](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
@@ -115,16 +115,16 @@ Azure Portal에서 실행되는 StorSimple Device Manager 서비스를 사용하
 가상 배열에는 다음 구성 요소가 포함됩니다.
 
 * [가상 배열](#virtual-array) – 가상화된 환경 또는 하이퍼바이저에 프로비전된 가상 머신을 기반으로 하는 하이브리드 클라우드 저장 장치입니다.
-* [StorSimple Device Manager 서비스](#storsimple-device-manager-service) – 다양한 지리적 위치에서 액세스할 수 있는 단일 웹 인터페이스에서 하나 이상의 StorSimple 장치를 관리할 수 있는 Azure Portal의 확장입니다. StorSimple Device Manager 서비스를 사용하여 서비스를 만들고 관리하고, 장치와 경고를 보고 관리하고, 볼륨, 공유, 기존 스냅숏을 관리할 수 있습니다.
+* [StorSimple Device Manager 서비스](#storsimple-device-manager-service) – 다양한 지리적 위치에서 액세스할 수 있는 단일 웹 인터페이스에서 하나 이상의 StorSimple 장치를 관리할 수 있는 Azure Portal의 확장입니다. StorSimple Device Manager 서비스를 사용하여 서비스를 만들고 관리하고, 디바이스와 경고를 보고 관리하고, 볼륨, 공유, 기존 스냅숏을 관리할 수 있습니다.
 * [로컬 웹 사용자 인터페이스](#local-web-user-interface) – 로컬 네트워크에 연결할 수 있도록 장치를 구성한 후에 StorSimple Device Manager 서비스에 장치를 등록하는 데 사용되는 웹 기반 UI입니다. 
 * [명령줄 인터페이스](#command-line-interface) – 가상 배열의 지원 세션을 시작하는 데 사용할 수 있는 Windows PowerShell 인터페이스입니다.
   다음 섹션에서는 이러한 각 구성 요소를 자세히 설명하고 솔루션이 데이터를 정렬하고, 저장소를 할당하고 저장소 관리 및 데이터 보호를 용이하게 방법에 대해 설명합니다.
 
 ### <a name="virtual-array"></a>가상 배열
 
-가상 배열은 기본 저장소를 제공하고, 클라우드 저장소와의 통신을 관리하고, 장치에 저장된 모든 데이터의 보안과 기밀성을 보장하는 데 도움을 주는 단일 노드 저장소 솔루션입니다.
+가상 배열은 기본 저장소를 제공하고, 클라우드 저장소와의 통신을 관리하고, 디바이스에 저장된 모든 데이터의 보안과 기밀성을 보장하는 데 도움을 주는 단일 노드 저장소 솔루션입니다.
 
-가상 배열은 다운로드가 가능한 하나의 모델로 제공됩니다. 가상 배열에 대해 장치의 최대 용량은 6.4TB(기본 저장소 요구 사항 8TB)이고 클라우드 저장소를 포함하여 64TB입니다.
+가상 배열은 다운로드가 가능한 하나의 모델로 제공됩니다. 가상 배열에 대해 디바이스의 최대 용량은 6.4TB(기본 저장소 요구 사항 8TB)이고 클라우드 저장소를 포함하여 64TB입니다.
 
 가상 배열에는 다음과 같은 기능이 있습니다.
 
@@ -132,7 +132,7 @@ Azure Portal에서 실행되는 StorSimple Device Manager 서비스를 사용하
 * 데이터 센터에 상주하고 iSCSI 서버 또는 파일 서버로 구성될 수 있습니다.
 * 클라우드와 통합됩니다.
 * Backup이 클라우드에 저장되기 때문에, 재해 복구를 수월하게 하고 항목 수준 복구(ILR)를 간소화시킬 수 있습니다.
-* 업데이트를 물리적 장치에 적용하듯이 가상 배열에 적용할 수 있습니다.
+* 업데이트를 물리적 디바이스에 적용하듯이 가상 배열에 적용할 수 있습니다.
 
 > [!NOTE]
 > 가상 배열은 확장할 수 없습니다. 따라서 가상 배열을 만들 때 충분한 저장소를 프로비전하는 것이 중요합니다.
@@ -151,11 +151,11 @@ Microsoft Azure StorSimple는 StorSimple 저장소를 중앙에서 관리하기 
 
 StorSimple Device Manager 서비스를 사용하여 가상 배열의 일상적인 관리를 수행합니다.
 
-자세한 내용은 [StorSimple Device Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-virtual-array-manager-service-administration.md)로 이동합니다.
+자세한 내용은 [StorSimple Device Manager 서비스를 사용하여 StorSimple 디바이스 관리](storsimple-virtual-array-manager-service-administration.md)로 이동합니다.
 
 ### <a name="local-web-user-interface"></a>로컬 웹 사용자 인터페이스
 
-가상 배열은 장치의 일회성 구성 및 StorSimple Device Manager 서비스 등록에 사용되는 웹 기반 UI를 포함합니다. 이것을 사용하여 가상 배열을 종료하고 다시 시작하고, 진단 테스트를 실행하고, 소프트웨어를 업데이트하고, 장치 관리자 암호를 변경하고, 시스템 로그를 보고, 서비스 요청을 위해 Microsoft 지원으로 문의할 수 있습니다.
+가상 배열은 디바이스의 일회성 구성 및 StorSimple Device Manager 서비스 등록에 사용되는 웹 기반 UI를 포함합니다. 이것을 사용하여 가상 배열을 종료하고 다시 시작하고, 진단 테스트를 실행하고, 소프트웨어를 업데이트하고, 디바이스 관리자 암호를 변경하고, 시스템 로그를 보고, 서비스 요청을 위해 Microsoft 지원으로 문의할 수 있습니다.
 
 웹 기반 UI 사용에 대한 자세한 내용은 [웹 기반 UI를 사용하여 StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)를 참조하세요.
 
@@ -209,7 +209,7 @@ StorSimple 데이터 보호 기능을 통해 주문형 백업을 만들 수 있�
 
 ## <a name="managing-personal-information"></a>개인 정보 관리
 
-가상 계열에 대한 StorSimple 장치 관리자는 두 가지 키 인스턴스에서 개인 정보를 수집합니다.
+가상 계열에 대한 StorSimple 디바이스 관리자는 두 가지 키 인스턴스에서 개인 정보를 수집합니다.
  - 사용자의 이메일 주소가 구성된 사용자 설정을 변경합니다. 이 정보는 관리자가 지울 수 있습니다. 
  - 공유 폴더에 있는 데이터에 액세스할 수 있는 사용자입니다. 공유 데이터에 액세스할 수 있는 사용자의 목록을 표시하고 내보낼 수 있습니다. 공유가 삭제되는 경우 이 목록도 삭제됩니다.
 

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: fc9337188fd439082c4aa34f0cbebe3eb2da5d99
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603220"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632588"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>PowerShell을 사용하여 Azure VPN Gateway에서 BGP를 구성하는 방법
 이 문서에서는 리소스 관리자 배포 모델 및 PowerShell을 사용하여 프레미스 간 S2S(사이트 간) VPN 연결 및 VNet 간 연결에서 BGP를 사용하도록 설정하는 단계를 안내합니다.
 
 ## <a name="about-bgp"></a>BGP 정보
-BGP는 두 개 이상의 네트워크 간에 라우팅 및 연결 정보를 교환하도록 인터넷에서 일반적으로 사용하는 표준 라우팅 프로토콜입니다. BGP를 통해 Azure VPN Gateway 및 온-프레미스 VPN 장치(BGP 피어 또는 인접이라고 함)는 관련된 게이트웨이 또는 라우터를 거치도록 해당 접두사의 가용성 및 연결 가능성에 대한 정보를 두 게이트웨이에 제공하는 "경로"를 교환할 수 있습니다. BGP 게이트웨이가 하나의 BGP 피어에서 파악한 경로를 다른 모든 BGP 피어로 전파하여 BGP를 통해 여러 네트워크 간에 전송 라우팅을 사용할 수도 있습니다.
+BGP는 두 개 이상의 네트워크 간에 라우팅 및 연결 정보를 교환하도록 인터넷에서 일반적으로 사용하는 표준 라우팅 프로토콜입니다. BGP를 통해 Azure VPN Gateway 및 온-프레미스 VPN 디바이스(BGP 피어 또는 인접이라고 함)는 관련된 게이트웨이 또는 라우터를 거치도록 해당 접두사의 가용성 및 연결 가능성에 대한 정보를 두 게이트웨이에 제공하는 "경로"를 교환할 수 있습니다. BGP 게이트웨이가 하나의 BGP 피어에서 파악한 경로를 다른 모든 BGP 피어로 전파하여 BGP를 통해 여러 네트워크 간에 전송 라우팅을 사용할 수도 있습니다.
 
 BGP의 이점에 대한 자세한 설명과 BGP 사용의 기술 요구 사항 및 고려 사항을 이해하려면 [Azure VPN Gateway에서의 BGP 개요](vpn-gateway-bgp-overview.md)를 참조하세요.
 
@@ -58,7 +58,7 @@ BGP의 이점에 대한 자세한 설명과 BGP 사용의 기술 요구 사항 �
 이 연습에서는 먼저 변수를 선언합니다. 다음 예제에서는 이 연습에 대한 값을 사용하여 변수를 선언합니다. 생산을 위해 구성하는 경우 값을 사용자의 값으로 바꾸어야 합니다. 이 구성 유형에 익숙해지기 위해 단계를 차례로 실행하는 경우 이 변수를 사용할 수 있습니다. 변수를 수정한 다음 복사하여 PowerShell 콘솔에 붙여 넣습니다.
 
 ```powershell
-$Sub1 = "Replace_With_Your_Subcription_Name"
+$Sub1 = "Replace_With_Your_Subscription_Name"
 $RG1 = "TestBGPRG1"
 $Location1 = "East US"
 $VNetName1 = "TestVNet1"
@@ -120,7 +120,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Locatio
 ```
 
 #### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. Azure BGP 피어 IP 주소 가져오기
-게이트웨이를 만든 후 Azure VPN Gateway에서 BGP 피어 IP 주소를 가져와야 합니다. 온-프레미스 VPN 장치에 대해 Azure VPN Gateway를 BGP 피어로 구성하려면 이 주소가 필요합니다.
+게이트웨이를 만든 후 Azure VPN Gateway에서 BGP 피어 IP 주소를 가져와야 합니다. 온-프레미스 VPN 디바이스에 대해 Azure VPN Gateway를 BGP 피어로 구성하려면 이 주소가 필요합니다.
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
@@ -142,7 +142,7 @@ $vnet1gw.BgpSettingsText
 
 ## <a name ="crossprembbgp"></a>2부 - BGP를 사용하여 프레미스 간 연결 설정
 
-프레미스 간 연결을 설정하려면 온-프레미스 VPN 장치를 나타내는 로컬 네트워크 게이트웨이를 만들고 VPN 게이트웨이와 로컬 네트워크 게이트웨이를 연결하는 연결을 만들어야 합니다. 이러한 단계를 안내하는 문서가 있지만 이 문서는 BGP 구성 매개 변수를 지정하는 데 필요한 추가 속성을 포함합니다.
+프레미스 간 연결을 설정하려면 온-프레미스 VPN 디바이스를 나타내는 로컬 네트워크 게이트웨이를 만들고 VPN 게이트웨이와 로컬 네트워크 게이트웨이를 연결하는 연결을 만들어야 합니다. 이러한 단계를 안내하는 문서가 있지만 이 문서는 BGP 구성 매개 변수를 지정하는 데 필요한 추가 속성을 포함합니다.
 
 ![프레미스 간에 대한 BGP](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crossprem.png)
 
@@ -167,8 +167,8 @@ $BGPPeerIP5 = "10.52.255.254"
 로컬 네트워크 게이트웨이 매개 변수와 관련하여 몇 가지 주의할 점은 다음과 같습니다.
 
 * 로컬 네트워크 게이트웨이는 VPN 게이트웨이와 같거나 다른 위치 및 리소스 그룹에 있을 수 있습니다. 이 예제에서는 다른 위치의 다른 리소스 그룹에 표시됩니다.
-* 로컬 네트워크 게이트웨이에 대해 선언해야 하는 최소 접두사는 VPN 장치의 BGP 피어 IP 주소의 호스트 주소입니다. 이 경우에는 "10.52.255.254/32"의 접두사 /32입니다.
-* 다시 확인하면 온-프레미스 네트워크와 Azure VNet 간에는 서로 다른 BGP ASN을 사용해야 합니다. 동일한 경우 온-프레미스 VPN 장치가 이미 다른 BGP 인접과의 피어에 ASN을 사용하고 있으면 VNet ASN을 변경해야 합니다.
+* 로컬 네트워크 게이트웨이에 대해 선언해야 하는 접두사는 VPN 디바이스의 BGP 피어 IP 주소에서 호스트 주소입니다. 이 경우에는 "10.52.255.254/32"의 접두사 /32입니다.
+* 다시 확인하면 온-프레미스 네트워크와 Azure VNet 간에는 서로 다른 BGP ASN을 사용해야 합니다. 동일한 경우 온-프레미스 VPN 디바이스가 이미 다른 BGP 인접과의 피어에 ASN을 사용하고 있으면 VNet ASN을 변경해야 합니다.
 
 계속하기 전에 여전히 구독 1에 연결되어 있는지 확인합니다.
 
@@ -199,7 +199,7 @@ $lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 ```
 
-다음 예제에서 이 연습을 위해 온-프레미스 VPN 장치의 BGP 구성 섹션에 입력할 매개 변수를 나열합니다.
+다음 예제에서 이 연습을 위해 온-프레미스 VPN 디바이스의 BGP 구성 섹션에 입력할 매개 변수를 나열합니다.
 
 ```
 

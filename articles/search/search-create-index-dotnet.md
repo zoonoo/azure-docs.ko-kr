@@ -1,6 +1,6 @@
 ---
-title: 인덱스 만들기(.NET API - Azure Search) | Microsoft Docs
-description: Azure Search .NET SDK를 사용하여 코드에 인덱스를 만듭니다.
+title: .NET API를 사용하여 코드에서 인덱스 만들기 - Azure Search
+description: Azure Search .NET SDK 및 C# 샘플 코드를 사용하여 전체 텍스트 검색 가능 인덱스를 만드는 방법을 알아봅니다.
 author: brjohnstmsft
 manager: jlembicz
 tags: azure-portal
@@ -10,12 +10,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: 7e7d1f8110d8470fe7596633563529f397c5551e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 6d111b1be310a345e23c440f1af9da4183efff43
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794755"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312598"
 ---
 # <a name="create-an-azure-search-index-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -31,11 +32,11 @@ ms.locfileid: "31794755"
 이 가이드를 수행하고 인덱스를 만들기 전에 이미 [Azure Search 서비스를 만들어야](search-create-service-portal.md)합니다.
 
 > [!NOTE]
-> 이 문서의 모든 샘플 코드는 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](http://aka.ms/search-dotnet-howto)를 참조하세요. 좀 더 구체적인 샘플 코드 연습은 [Azure Search .NET SDK](search-howto-dotnet-sdk.md)를 참조하세요.
+> 이 문서의 모든 샘플 코드는 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](https://aka.ms/search-dotnet-howto)를 참조하세요. 좀 더 구체적인 샘플 코드 연습은 [Azure Search .NET SDK](search-howto-dotnet-sdk.md)를 참조하세요.
 
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure Search 서비스의 관리 API 키 식별
-Azure Search 서비스를 프로비전했다면 .NET SDK를 사용하여 서비스 끝점에 대한 요청을 실행할 준비가 거의 된 것입니다. 먼저 프로비전한 검색 서비스에 대해 생성된 관리 API 키 중 하나가 있어야 합니다. .NET SDK는 서비스에 대한 모든 요청에 대해 이 API 키를 전송합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
+Azure Search 서비스를 프로비전했다면 .NET SDK를 사용하여 서비스 엔드포인트에 대한 요청을 실행할 준비가 거의 된 것입니다. 먼저 프로비전한 검색 서비스에 대해 생성된 관리 API 키 중 하나가 있어야 합니다. .NET SDK는 서비스에 대한 모든 요청에 대해 이 API 키를 전송합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 1. 서비스의 API 키를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure Search 서비스의 블레이드로 이동합니다.
@@ -53,7 +54,7 @@ Azure Search 서비스를 프로비전했다면 .NET SDK를 사용하여 서비�
 ## <a name="create-an-instance-of-the-searchserviceclient-class"></a>SearchServiceClient 클래스의 인스턴스 만들기
 Azure Search .NET SDK 사용을 시작하려면 `SearchServiceClient` 클래스의 인스턴스를 만들어야 합니다. 이 클래스에는 몇 가지 생성자가 있습니다. 검색 서비스 이름과 `SearchCredentials` 개체를 매개 변수로 사용할 생성자입니다. `SearchCredentials` 는 API 키를 래핑합니다.
 
-아래 코드에서는 응용 프로그램의 구성 파일([샘플 응용 프로그램](http://aka.ms/search-dotnet-howto)의 경우 `appsettings.json`)에 저장된 API 키와 검색 서비스 이름의 값을 사용하여 새 `SearchServiceClient`를 만듭니다.
+아래 코드에서는 응용 프로그램의 구성 파일([샘플 응용 프로그램](https://aka.ms/search-dotnet-howto)의 경우 `appsettings.json`)에 저장된 API 키와 검색 서비스 이름의 값을 사용하여 새 `SearchServiceClient`를 만듭니다.
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 8854f694ce067aaa80a159430a9f48440bcdd95a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6bd41115f586bf2969dacb772f097d84654f0306
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701873"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092597"
 ---
 # <a name="resize-a-windows-vm"></a>Windows VM 크기 조정
 
@@ -53,7 +53,7 @@ $vm.HardwareProfile.VmSize = "<newVMsize>"
 Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-원하는 크기가 나열되지 않은 경우에는 다음 명령을 실행하여 VM의 할당을 취소하고 크기를 조정한 다음, VM을 다시 시작합니다. 원하는 크기로 **<newVMsize>** 를 릴리스합니다.
+원하는 크기가 나열되지 않은 경우에는 다음 명령을 실행하여 VM의 할당을 취소하고 크기를 조정한 다음, VM을 다시 시작합니다. **<newVMsize>** 를 원하는 크기로 바꿉니다.
    
 ```powershell
 Stop-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName -Force

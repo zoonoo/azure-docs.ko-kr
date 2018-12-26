@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 57ad5d5d2e7e068f47d51408527f1f7553917279
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4156071c36b06be586b05ee98e9eeb0a9138e4bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841696"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246859"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작
 Windows Server를 실행하는 헤드 노드 및 지원되는 Linux 배포를 실행하는 여러 컴퓨터 노드를 포함하는 Azure의 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) 클러스터를 설정합니다. 클러스터의 Windows 헤드 노드와 Linux 노드 간에 데이터를 이동하는 옵션을 탐색합니다. Linux HPC 작업을 클러스터에 제출하는 방법에 대해 알아봅니다.
@@ -64,24 +64,24 @@ HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 배포하는 �
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>배포 옵션 1. Resource Manager 템플릿 사용
 1. Azure Marketplace의 [Linux 워크로드용 HPC Pack 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 템플릿으로 이동하여 **배포**를 클릭합니다.
-2. Azure 포털에서 정보를 검토한 다음 **만들기**를 클릭합니다.
+1. Azure 포털에서 정보를 검토한 다음 **만들기**를 클릭합니다.
    
     ![포털 만들기][portal]
-3. **기본 사항** 블레이드에서 클러스터에 대한 이름을 입력합니다(이는 헤드 노드 VM의 이름도 지정하게 됨). 기존 리소스 그룹을 선택하거나 사용할 수 있는 위치에 배포용 그룹을 만들 수 있습니다. 이 위치는 특정 VM 크기 및 기타 Azure 서비스의 가용성에 영향을 줍니다([하위 지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 참조).
-4. **헤드 노드 설정** 블레이드에서 첫 번째 배포의 경우 일반적으로 기본 설정을 적용할 수 있습니다. 
+1. **기본 사항** 블레이드에서 클러스터에 대한 이름을 입력합니다(이는 헤드 노드 VM의 이름도 지정하게 됨). 기존 리소스 그룹을 선택하거나 사용할 수 있는 위치에 배포용 그룹을 만들 수 있습니다. 이 위치는 특정 VM 크기 및 기타 Azure 서비스의 가용성에 영향을 줍니다([하위 지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 참조).
+1. **헤드 노드 설정** 블레이드에서 첫 번째 배포의 경우 일반적으로 기본 설정을 적용할 수 있습니다. 
    
    > [!NOTE]
    > **사후 구성 스크립트 URL** 은 실행 후 헤드 노드 VM에서 실행할 공개적으로 사용 가능한 Windows PowerShell 스크립트를 지정하는 선택적 설정입니다. 
    > 
    > 
-5. **Compute 노드 설정** 블레이드에서 노드용 명명 패턴, 노드의 수와 크기, 배포할 Linux 배포판을 선택합니다.
-6. **인프라 설정** 블레이드에서 가상 네트워크 및 Active Directory 도메인의 이름, 도메인 및 VM 관리자 자격 증명, 저장소 계정용 명명 패턴을 입력합니다.
+1. **Compute 노드 설정** 블레이드에서 노드용 명명 패턴, 노드의 수와 크기, 배포할 Linux 배포판을 선택합니다.
+1. **인프라 설정** 블레이드에서 가상 네트워크 및 Active Directory 도메인의 이름, 도메인 및 VM 관리자 자격 증명, 저장소 계정용 명명 패턴을 입력합니다.
    
    > [!NOTE]
    > HPC Pack에서는 Active Directory 도메인을 사용하여 클러스터 사용자를 인증합니다. 
    > 
    > 
-7. 유효성 검사 테스트가 실행되고 사용 약관을 검토한 후에는 **구매**를 클릭합니다.
+1. 유효성 검사 테스트가 실행되고 사용 약관을 검토한 후에는 **구매**를 클릭합니다.
 
 ### <a name="deployment-option-2-use-the-iaas-deployment-script"></a>배포 옵션 2. IaaS 배포 스크립트 사용
 HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 배포하는 경우 추가 필수 조건은 다음과 같습니다.
@@ -135,12 +135,12 @@ HPC Pack IaaS 배포 스크립트는 XML 구성 파일을 입력으로 사용하
 **HPC Pack IaaS 배포 스크립트를 실행하려면**
 
 1. 관리자 권한으로 클라이언트 컴퓨터에서 Windows PowerShell을 엽니다.
-2. 디렉터리를 스크립트가 설치되는 폴더(이 예제에서는 E:\IaaSClusterScript)로 변경합니다.
+1. 디렉터리를 스크립트가 설치되는 폴더(이 예제에서는 E:\IaaSClusterScript)로 변경합니다.
    
     ```powershell
     cd E:\IaaSClusterScript
     ```
-3. 다음 명령을 실행하여 HPC Pack 클러스터를 배포합니다. 이 예제에서는 구성 파일이 E:\HPCDemoConfig.xml에 있다고 가정합니다.
+1. 다음 명령을 실행하여 HPC Pack 클러스터를 배포합니다. 이 예제에서는 구성 파일이 E:\HPCDemoConfig.xml에 있다고 가정합니다.
    
     ```powershell
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
@@ -148,7 +148,7 @@ HPC Pack IaaS 배포 스크립트는 XML 구성 파일을 입력으로 사용하
    
     a. 앞의 명령에서 **AdminPassword** 가 지정되지 않았으므로 사용자 *MyAdminName*에 대한 암호를 입력하라는 메시지가 표시됩니다.
    
-    나. 스크립트에서 구성 파일의 유효성 검사를 시작합니다. 네트워크 연결에 따라 몇 분 정도 걸릴 수 있습니다.
+    b. 스크립트에서 구성 파일의 유효성 검사를 시작합니다. 네트워크 연결에 따라 몇 분 정도 걸릴 수 있습니다.
    
     ![유효성 검사][validate]
    
@@ -184,9 +184,9 @@ Azure에서 HPC Pack 클러스터를 배포한 후에 클러스터를 배포할 
 * **헤드 노드 NFS 서버** - Windows 및 Linux 혼합 환경에 대한 파일 공유 솔루션을 제공합니다.
 
 ### <a name="azure-file-storage"></a>Azure 파일 저장소
-[Azure 파일](https://azure.microsoft.com/services/storage/files/) 서비스는 표준 SMB 2.1 프로토콜을 사용하여 파일 공유를 노출합니다. Azure VM 및 클라우드 서비스는 탑재된 공유를 통해 여러 응용 프로그램 구성 요소에서 파일 데이터를 공유할 수 있으며, 온-프레미스 응용 프로그램은 파일 저장소 API를 통해 공유의 파일 데이터에 액세스할 수 있습니다. 
+[Azure 파일](https://azure.microsoft.com/services/storage/files/) 서비스는 표준 SMB 2.1 프로토콜을 사용하여 파일 공유를 노출합니다. Azure VM 및 클라우드 서비스는 탑재된 공유를 통해 여러 애플리케이션 구성 요소에서 파일 데이터를 공유할 수 있으며, 온-프레미스 애플리케이션은 파일 스토리지 API를 통해 공유의 파일 데이터에 액세스할 수 있습니다. 
 
-Azure 파일 공유를 만들고 헤드 노드에 탑재하는 세부 단계는 [Windows에서 Azure 파일 저장소 시작](../../../storage/files/storage-how-to-use-files-windows.md)을 참조하세요. Linux 노드에 Azure 파일 공유를 탑재하려면 [Linux에서 Azure File Storage를 사용하는 방법](../../../storage/files/storage-how-to-use-files-linux.md)을 참조하세요. 영구적 연결을 설정하려면 [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)(영문)를 참조하세요.
+Azure 파일 공유를 만들고 헤드 노드에 탑재하는 세부 단계는 [Windows에서 Azure 파일 저장소 시작](../../../storage/files/storage-how-to-use-files-windows.md)을 참조하세요. Linux 노드에 Azure 파일 공유를 탑재하려면 [Linux에서 Azure File Storage를 사용하는 방법](../../../storage/files/storage-how-to-use-files-linux.md)을 참조하세요. 영구적 연결을 설정하려면 [Microsoft Azure 파일에 대한 연결 유지](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)(영문)를 참조하세요.
 
 다음 예제에서는 저장소 계정에 Azure 파일 공유를 만듭니다. 헤드 노드에 공유를 탑재하려면 명령 프롬프트를 열고 다음 명령을 입력합니다.
 
@@ -223,7 +223,7 @@ clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.net/rd
     ![파일 공유 권한][fileshareperms]
    
     ![파일 공유][filesharing]
-2. Windows PowerShell 창을 열고 다음 명령을 실행합니다.
+1. Windows PowerShell 창을 열고 다음 명령을 실행합니다.
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -252,7 +252,7 @@ NFS 서비스를 사용하면 SMB 프로토콜을 사용하는 Windows Server 20
     ![NFS NTFS 사용 권한][nfsperm]
    
     ![NFS 관리 속성][nfsmanage]
-2. Windows PowerShell 창을 열고 다음 명령을 실행합니다.
+1. Windows PowerShell 창을 열고 다음 명령을 실행합니다.
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare
@@ -271,7 +271,7 @@ HPC Pack 클러스터에 작업을 제출하는 방법에는 여러 가지가 �
 
 Azure에서 HPC Pack GUI 도구 및 HPC 웹 포털을 통해 클러스터에 작업을 제출하는 방법은 Windows 컴퓨터 노드의 경우와 동일합니다. [HPC Pack 작업 관리자](https://technet.microsoft.com/library/ff919691.aspx) 및 [온-프레미스 클라이언트 컴퓨터에서 작업을 제출하는 방법](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
-REST API를 통해 작업을 제출하려면 [Microsoft HPC Pack의 REST API를 사용하여 작업 만들기 및 제출](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx)을 참조하세요. 또한 Linux 클라이언트에서 작업을 제출하려면 [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756)의 Python 샘플을 참조하세요.
+REST API를 통해 작업을 제출하려면 [Microsoft HPC Pack의 REST API를 사용하여 작업 만들기 및 제출](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx)을 참조하세요. 또한 Linux 클라이언트에서 작업을 제출하려면 [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756)의 Python 샘플을 참조하세요.
 
 ## <a name="clusrun-for-linux-nodes"></a>Linux 노드에 대한 Clusrun
 HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) 도구를 사용하여 명령 프롬프트 또는 HPC 클러스터 관리자를 통해 Linux 노드에서 명령을 실행할 수 있습니다. 다음은 몇 가지 기본적인 예입니다.

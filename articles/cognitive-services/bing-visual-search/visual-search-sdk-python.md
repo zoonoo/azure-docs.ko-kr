@@ -1,23 +1,23 @@
 ---
-title: Visual Search SDK Python 빠른 시작 | Microsoft Docs
-description: Visual Search SDK Python 콘솔 응용 프로그램을 설치합니다.
+title: '빠른 시작: Bing Visual Search SDK, Python'
 titleSuffix: Azure Cognitive Services
+description: Visual Search SDK Python 콘솔 응용 프로그램을 설치합니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: f7a1f275f9059abdceaef577fb5ca722c9951366
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 9f2a6d9b75ccf704862d169b96ea1a1f2edb9815
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939417"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445689"
 ---
-# <a name="visual-search-sdk-python-quickstart"></a>Visual Search SDK Python 빠른 시작
+# <a name="quickstart-bing-visual-search-sdk-python"></a>빠른 시작: Bing Visual Search SDK Python
 
 Bing Visual Search SDK는 웹 요청 및 구문 분석 결과에 대한 REST API의 기능을 사용합니다.
 [Python Bing Visual Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py)은 Git Hub에서 얻을 수 있습니다.
@@ -30,7 +30,16 @@ Bing Visual Search SDK는 웹 요청 및 구문 분석 결과에 대한 REST API
 * [태그, 동작 및 actionType](#tags-actions)
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
-* Cognitive Services API 키는 SDK 호출을 인증하는 데 필요합니다. [평가판 키](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)에 등록합니다. 평가판 키는 초당 한 번의 호출로 7일 동안 유효합니다. 프로덕션 시나리오의 경우 [액세스 키를 구입하세요](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). [가격 책정 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/)도 참조하세요.
+* 이 빠른 시작의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
+
+Azure Portal에서 구독을 시작하려면
+1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
+2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
+3. 새 리소스에 대해 `Name`을 입력합니다.
+4. `Pay-As-You-Go` 구독을 선택합니다.
+5. `S9` 가격 책정 계층을 선택합니다.
+6. `Enable`을 클릭하여 구독을 시작합니다.
+ 
 * Python이 없을 경우 설치하세요. SDK는 Python 2.7 3.3, 3.4, 3.5 및 3.6과 호환됩니다.
 * Python 개발에 대한 일반 권장 사항은 [가상 환경](https://docs.python.org/3/tutorial/venv.html)을 사용하는 것입니다. [venv module](https://pypi.python.org/pypi/virtualenv)을 사용하여 가상 환경을 설치하고 초기화합니다. Python 2.7용 virtualenv를 설치합니다.
 ```
@@ -227,14 +236,14 @@ def search_image_binary_with_crop_area(client, sub_key, file_path):
 <a name="knowledge-req"></a>
 ## <a name="knowledgerequest-parameter"></a>KnowledgeRequest 매개 변수
 
-다음 코드는 \"site:www.bing.com\" 필터와 함께 `knowledgeRequest` 매개 변수에서 이미지 URL을 보냅니다. 그런 다음, `imageInsightsToken`, 태그의 수, 작업의 수 및 첫 번째 actionType을 인쇄합니다.
+다음 코드는 \"site:pinterest.com\" 필터와 함께 `knowledgeRequest` 매개 변수에서 이미지 URL을 보냅니다. 그런 다음, `imageInsightsToken`, 태그의 수, 작업의 수 및 첫 번째 actionType을 인쇄합니다.
 ```
 def search_url_with_filters(client_in, sub_key):
 
     client = client_in
 
     image_url = "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80"
-    filters = Filters(site="www.bing.com")
+    filters = Filters(site="pinterest.com")
 
     knowledge_request = VisualSearchRequest(
         image_info=ImageInfo(url=image_url),
@@ -281,7 +290,7 @@ def search_url_with_filters(client_in, sub_key):
 ```
     client = client_in
 
-    image_insights_token = "bcid_113F29C079F18F385732D8046EC80145*ccid_oV/QcH95*mid_687689FAFA449B35BC11A1AE6CEAB6F9A9B53708*thid_R.113F29C079F18F385732D8046EC80145"
+    image_insights_token = "bcid_CA6BDBEA28D57D52E0B9D4B254F1DF0D*ccid_6J+8V1zi*thid_R.CA6BDBEA28D57D52E0B9D4B254F1DF0D"
     crop_area = CropArea(top=0.1,bottom=0.5,left=0.1,right=0.9)
 
     knowledge_request = VisualSearchRequest(

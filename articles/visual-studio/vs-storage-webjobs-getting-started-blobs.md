@@ -7,16 +7,17 @@ manager: douge
 ms.assetid: 324c9376-0225-4092-9825-5d1bd5550058
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 4800d6ad0482462b9eccb72de34de56e4f7c370c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796995"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254403"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -27,7 +28,7 @@ ms.locfileid: "31796995"
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Blob이 만들어지거나 업데이트될 때 함수를 트리거하는 방법
 이 섹션에서는 **BlobTrigger** 특성을 사용하는 방법을 보여 줍니다.
 
- **참고:** WebJobs SDK는 로그 파일을 검사하여 새 BLOB 또는 변경된 BLOB을 확인합니다. 이 프로세스는 기본적으로 느리므로, BLOB을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다.  응용 프로그램에서 BLOB을 즉시 처리해야 하는 경우 BLOB을 만들 때 큐 메시지를 만들고 BLOB을 처리하는 함수의 **BlobTrigger** 특성 대신 **QueueTrigger** 특성을 사용하는 것이 좋습니다.
+ **참고:** WebJobs SDK는 로그 파일을 검사하여 새 BLOB 또는 변경된 BLOB을 확인합니다. 이 프로세스는 기본적으로 느리므로, BLOB을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다.  애플리케이션에서 BLOB을 즉시 처리해야 하는 경우 BLOB을 만들 때 큐 메시지를 만들고 BLOB을 처리하는 함수의 **BlobTrigger** 특성 대신 **QueueTrigger** 특성을 사용하는 것이 좋습니다.
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>확장명을 포함하는 Blob 이름에 대한 단일 자리 표시자
 다음 코드 샘플은 *입력* 컨테이너에 표시된 텍스트 Blob를 *출력* 컨테이너에 복사합니다.
@@ -83,7 +84,7 @@ ms.locfileid: "31796995"
 * **ICloudBlob**
 * **CloudBlockBlob**
 * **CloudPageBlob**
-* [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder)
+*  [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder)
 
 Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 **CloudStorageAccount** 매개 변수를 추가할 수도 있습니다.
 
@@ -181,9 +182,9 @@ SDK는 JSON 메시지를 자동으로 deserialize합니다. **PoisonBlobMessage*
         }
 
 ### <a name="blob-polling-algorithm"></a>Blob 폴링 알고리즘
-WebJobs SDK는 응용 프로그램이 시작될 때 **BlobTrigger** 특성에 지정된 모든 컨테이너를 검사합니다. 대용량 저장소 계정의 경우 이러한 검사에 약간의 시간이 걸릴 수 있으므로 새 Blob을 찾고 **BlobTrigger** 함수를 실행하기까지 조금 기다려야 할 수 있습니다.
+WebJobs SDK는 애플리케이션이 시작될 때 **BlobTrigger** 특성에 지정된 모든 컨테이너를 검사합니다. 대용량 저장소 계정의 경우 이러한 검사에 약간의 시간이 걸릴 수 있으므로 새 Blob을 찾고 **BlobTrigger** 함수를 실행하기까지 조금 기다려야 할 수 있습니다.
 
-응용 프로그램이 시작된 후 새 Blob 또는 변경된 Blob을 검색하기 위해 SDK는 Blob 저장소 로그를 주기적으로 읽습니다. Blob 로그는 버퍼되고 약 10분마다 실제로 작성되므로 Blob이 생성되거나 업데이트된 후 해당 **BlobTrigger** 함수가 실행되기 전에 지연이 발생할 수 있습니다.
+애플리케이션이 시작된 후 새 Blob 또는 변경된 Blob을 검색하기 위해 SDK는 Blob 스토리지 로그를 주기적으로 읽습니다. Blob 로그는 버퍼되고 약 10분마다 실제로 작성되므로 Blob이 생성되거나 업데이트된 후 해당 **BlobTrigger** 함수가 실행되기 전에 지연이 발생할 수 있습니다.
 
 **Blob** 특성을 사용하여 만드는 Blob에 대한 예외가 있습니다. WebJobs SDK는 새 Blob을 만든 경우 일치하는 모든 **BlobTrigger** 함수에 새 Blob을 즉시 전달합니다. 따라서 Blob 입력 및 출력 체인이 있는 경우 SDK는 이를 효율적으로 처리할 수 있습니다. 그러나 다른 방법으로 만들거나 업데이트한 Blob에 대해 Blob 처리 함수를 실행할 때 대기 시간을 줄이려면 **BlobTrigger**보다 **QueueTrigger**를 사용하는 것이 좋습니다.
 
@@ -216,5 +217,5 @@ Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 * 로그 작성
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Blob 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
+이 문서에서는 Azure Blob 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](https://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 

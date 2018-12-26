@@ -210,7 +210,7 @@ Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>매개 변수화된 Azure Blob 데이터 집합(BlobDataset.json)
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>매개 변수화된 Azure Blob 데이터 세트(BlobDataset.json)
 파이프라인은 **folderPath**를 파이프라인의 **outputPath1** 또는 **outputPath2** 매개 변수 중 하나의 값으로 설정합니다. 
 
 ```json

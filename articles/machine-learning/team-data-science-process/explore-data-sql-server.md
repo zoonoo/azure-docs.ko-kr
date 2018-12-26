@@ -2,32 +2,27 @@
 title: Azure의 SQL Server Virtual Machine에서 데이터 탐색 | Microsoft Docs
 description: Azure에서 SQL Server VM에 저장된 데이터를 탐색하는 방법입니다.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ccbb3085-af9e-4ec2-9df2-15dcab261d05
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: deguhath
-ms.openlocfilehash: d96852006377123f6e9d17c3ae5b79fe930c1e1c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: da01a1a386e1ffc590f4cbbb85d9d50a180d4973
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836799"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442933"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Azure의 SQL Server Virtual Machine에서 데이터 탐색
+
 이 문서에서는 Azure에서 SQL Server VM에 저장된 데이터를 탐색하는 방법을 다룹니다. 이렇게 하려면 SQL을 사용하여 데이터 랭글링을 수행하거나 Python과 같은 프로그래밍 언어를 사용합니다.
 
-다음 **메뉴** 는 다양한 저장소 환경에서 데이터를 탐색하기 위해 도구를 사용하는 방법을 설명하는 토픽에 연결되는 링크입니다. 이 작업은 Cortana 분석 프로세스(CAP)의 한 단계입니다.
-
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+이 작업은 [팀 데이터 과학 프로세스](overview.md)의 단계입니다.
 
 > [!NOTE]
 > 이 문서의 샘플 SQL 문에서는 데이터가 SQL Server에 있는 것으로 가정합니다. 그렇지 않은 경우 데이터를 SQL Server로 이동하는 방법은 클라우드 데이터 과학 프로세스 맵을 참조하세요.
@@ -51,7 +46,7 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
 > [!NOTE]
-> 실용적인 예제에는 [NYC Taxi 데이터 집합](http://www.andresmh.com/nyctaxitrips/)을 사용할 수 있으며, 종단 간 연습에 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
+> 실용적인 예제에는 [NYC Taxi 데이터 세트](http://www.andresmh.com/nyctaxitrips/)를 사용할 수 있으며, 종단 간 연습에 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
 > 
 > 
 
@@ -72,5 +67,5 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/) 에서는 Python �
 이제 [데이터 과학 환경에서 Azure Blob 데이터 처리](data-blob.md)토픽에 설명된 대로 Pandas DataFrame으로 작업할 수 있습니다.
 
 ## <a name="the-team-data-science-process-in-action-example"></a>실행 중인 팀 데이터 과학 프로세스 예제
-공용 데이터 집합을 사용하여 Cortana 분석 프로세스의 종단 간 연습 예제는 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
+공용 데이터 세트를 사용하여 Cortana 분석 프로세스의 종단 간 연습 예제는 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
 

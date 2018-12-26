@@ -4,7 +4,7 @@ description: 이 자습서에서는 Java를 사용하는 AMS(Azure Media Service
 services: media-services
 documentationcenter: java
 author: juliako
-manager: cfowler
+manager: femila
 editor: johndeu
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/26/2017
+ms.date: 09/18/2018
 ms.author: juliako
-ms.openlocfilehash: 92cfdcd08d93c85fc2cb2bc14a26e6f2fcc70d01
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6581c389cb7b1aa9c6ce6b9e84b56017264822f4
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780180"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232956"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Java 클라이언트 SDK를 사용하여 Azure Media Services 시작
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -43,7 +43,7 @@ Java용 Media Services SDK를 사용하려면 [Azure Media Services Java SDK](ht
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->`azure-media` 패키지 버전 `0.9.8`부터 SDK에서 AAD(Azure Active Directory) 인증을 지원하고 Azure ACS(Access Control Service) 인증 지원을 제거했습니다. ACS 서비스는 2018년 6월 22일부터 사용되지 않습니다. 가능한 빨리 Azure AD 인증 모델로 마이그레이션하는 것이 좋습니다. 마이그레이션에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요.
+>`azure-media` 패키지 버전 `0.9.8`부터 SDK에서 AAD(Azure Active Directory) 인증을 지원하고 Azure ACS(Access Control Service) 인증 지원을 제거했습니다. 가능한 빨리 Azure AD 인증 모델로 마이그레이션하는 것이 좋습니다. 마이그레이션에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요.
 
 >[!NOTE]
 >Azure Media Services Java SDK의 소스 코드는 [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media)에서 찾을 수 있습니다. 마스터 분기가 아니라 0.9 분기로 전환해야 합니다. 
@@ -51,17 +51,17 @@ Java용 Media Services SDK를 사용하려면 [Azure Media Services Java SDK](ht
 ## <a name="how-to-use-azure-media-services-with-java"></a>방법: Java에서 Azure Media Services 사용
 
 >[!NOTE]
->Azure Media Services 계정이 만들어지면 **기본** 스트리밍 끝점이 **중지됨** 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다.
+>Azure Media Services 계정이 만들어지면 **기본** 스트리밍 엔드포인트가 **중지됨** 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다.
 
 다음 코드에서는 자산을 만들고, 미디어 파일을 자산에 업로드하고, 자산 변환 태스크를 포함하는 작업을 실행하고, 동영상을 스트리밍하기 위해 로케이터를 만드는 방법을 보여 줍니다.
 
-이 코드를 사용하려면 먼저 Media Services 계정을 설정해야 합니다. 계정 설정에 대한 자세한 내용은 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
+이 코드를 사용하려면 먼저 Media Services 계정을 설정해야 합니다. 계정 설정에 대한 자세한 내용은 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)(영문)을 참조하세요.
 
 이 코드는 Azure AD 서비스 주체 인증을 사용하여 Azure Media Services API에 연결됩니다. Azure AD 응용 프로그램을 만들고 코드에서 다음 변수의 값을 지정합니다.
 * `tenant`: Azure AD 응용 프로그램이 있는 Azure AD 테넌트 도메인
 * `clientId`: Azure AD 응용 프로그램의 클라이언트 ID
 * `clientKey`: Azure AD 응용 프로그램의 클라이언트 키
-* `restApiEndpoint`: Azure Media Services 계정의 REST API 끝점
+* `restApiEndpoint`: Azure Media Services 계정의 REST API 엔드포인트
 
 Azure AD 응용 프로그램을 만들고 Azure Portal에서 위의 구성 값을 얻을 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 Azure AD 인증 시작](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)의 **서비스 주체 인증** 섹션을 참조하세요.
 
@@ -118,7 +118,7 @@ Azure AD 응용 프로그램을 만들고 Azure Portal에서 위의 구성 값�
         // This is using the default Adaptive Streaming encoding preset. 
         // You can choose to use a custom preset, or any other sample defined preset. 
         // In addition you can use other processors, like Speech Analyzer, or Redactor if desired.
-        private static String preferedEncoder = "Media Encoder Standard";
+        private static String preferredEncoder = "Media Encoder Standard";
         private static String encodingPreset = "Adaptive Streaming";
 
         public static void main(String[] args)
@@ -216,7 +216,7 @@ Azure AD 응용 프로그램을 만들고 Azure Portal에서 위의 구성 값�
 
             // Retrieve the list of Media Processors that match the name
             ListResult<MediaProcessorInfo> mediaProcessors = mediaService
-                            .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferedEncoder)));
+                            .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferredEncoder)));
 
             // Use the latest version of the Media Processor
             MediaProcessorInfo mediaProcessor = null;
@@ -309,10 +309,10 @@ Azure AD 응용 프로그램을 만들고 Azure Portal에서 위의 구성 값�
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="additional-resources"></a>추가 리소스
-Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center] 및 [Java 개발자용 Azure][Azure for Java developers]를 참조하세요.
+Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center] 및 [Java 개발자용 Azure 를 참조하세요][Azure for Java developers].
 
 
-Media Services Javadoc 설명서는 [Java용 Azure 라이브러리 설명서][Java용 Azure 라이브러리 설명서]를 참조하세요.
+Media Services Javadoc 설명서는 [Java용 Azure 라이브러리 설명서]\(Java용 Azure 라이브러리 설명서)를 참조하세요.
 
 <!-- URLs. -->
 

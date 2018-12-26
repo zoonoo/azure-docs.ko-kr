@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 946de42c499182f8785866f362677779b105760d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: aaf9fba7b3a2667577c26ade9cd88bcc87c60f61
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940826"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243848"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Azure Media Services를 사용하여 라이브 스트리밍을 수행하여 .NET으로 다중 비트 스트림을 만드는 방법
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.locfileid: "33940826"
 > 
 > 
 
-1. 비디오 카메라를 컴퓨터에 연결합니다. RTMP 또는 부드러운 스트리밍 프로토콜 중 하나로 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
+1. 비디오 카메라를 컴퓨터에 연결합니다. RTMP 또는 부드러운 스트리밍 프로토콜 중 하나로 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
 
     이 단계는 채널을 만든 후에도 수행할 수 있습니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "33940826"
 11. 주문형 로케이터를 만들어 프로그램과 관련된 자산을 게시합니다.
 
     >[!NOTE]
-    >AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태에 있어야 합니다. 
+    >AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있어야 합니다. 
 
 12. 스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다.
 13. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
@@ -80,8 +80,8 @@ ms.locfileid: "33940826"
 이 문서에서는 다음을 수행하는 방법을 보여줍니다.
 
 1. 채널을 만들고 시작합니다. 오래 실행되는 API가 사용됩니다.
-2. 채널 수집(입력) 끝점을 가져옵니다. 이 끝점은 단일 비트 전송률 라이브 스트림을 보낼 수 있는 인코더에 제공되어야 합니다.
-3. 미리 보기 끝점을 가져옵니다. 이 끝점은 스트림을 미리 보는 데 사용됩니다.
+2. 채널 수집(입력) 엔드포인트를 가져옵니다. 이 엔드포인트는 단일 비트 전송률 라이브 스트림을 보낼 수 있는 인코더에 제공되어야 합니다.
+3. 미리 보기 엔드포인트를 가져옵니다. 이 엔드포인트는 스트림을 미리 보는 데 사용됩니다.
 4. 콘텐츠를 저장하는 데 사용할 자산을 만듭니다. 자산 배달 정책도 이 예와 같이 구성해야 합니다.
 5. 프로그램을 만들고 이전에 만든 자산을 사용하도록 지정합니다. 프로그램을 시작합니다. 오래 실행되는 API가 사용됩니다.
 6. 자산의 로케이터를 만들어 콘텐츠가 게시되고 클라이언트로 스트리밍될 수 있도록 합니다.

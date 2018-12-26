@@ -7,26 +7,24 @@ manager: shreeshd
 keywords: 백업 및 재해 복구; 백업 서비스
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/25/2018
-ms.author: trinadhk
-ms.openlocfilehash: ac6d2a8a152f3c6e22be962b867ef58421eda47b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 8/6/2018
+ms.author: saurse;trinadhk
+ms.openlocfilehash: cf27848b6ca63f06c7d452ac67908cb85dbafd47
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016491"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239845"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Azure Backup 에이전트에 대한 질문
 이 문서에서는 Azure Backup 에이전트 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
 
-[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
-
 ## <a name="configure-backup"></a>백업 구성
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>최신 Azure Backup 에이전트를 어디서 다운로드할 수 있나요? <br/>
-Windows Server, System Center DPM 또는 Windows 클라이언트를 백업하기 위한 최신 에이전트를 [여기](http://aka.ms/azurebackup_agent)에서 다운로드할 수 있습니다. 가상 머신을 백업하려는 경우 VM 에이전트(적절한 확장을 자동으로 설치)를 사용합니다. Azure 갤러리에서 만든 가상 머신에는 VM 에이전트가 이미 있습니다.
+Windows Server, System Center DPM 또는 Windows 클라이언트를 백업하기 위한 최신 에이전트를 [여기](https://aka.ms/azurebackup_agent)에서 다운로드할 수 있습니다. 가상 머신을 백업하려는 경우 VM 에이전트(적절한 확장을 자동으로 설치)를 사용합니다. Azure 갤러리에서 만든 가상 머신에는 VM 에이전트가 이미 있습니다.
 
 ### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>Azure Backup 에이전트를 구성할 때 저장소 자격 증명을 입력하라는 메시지가 표시됩니다. 저장소 자격 증명은 만료되나요?
-예, 저장소 자격 증명은 48시간이 지나면 만료됩니다. 파일이 만료되면 Azure 포털에 로그인하고 해당 자격 증명 모음에서 저장소 자격 증명 파일을 다운로드하세요.
+예, 저장소 자격 증명은 48시간이 지나면 만료됩니다. 파일이 만료되면 Azure Portal에 로그인하고 해당 자격 증명 모음에서 저장소 자격 증명 파일을 다운로드하세요.
 
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>어떤 드라이브 유형의 파일 및 폴더를 백업할 수 있나요? <br/>
 다음과 같은 드라이브/볼륨은 백업할 수 없습니다.
@@ -65,6 +63,10 @@ Backup 데이터는 등록된 자격 증명 모음의 데이터 센터로 전송
 
 ### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>Azure Backup 에이전트는 Windows 2012 중복제거를 사용하는 서버에서 작동합니까? <br/>
 예. 에이전트 서비스는 백업 작업을 준비할 때 중복 제거 된 데이터를 일반 데이터로 변환 합니다. 그 다음 백업에 대한 데이터를 최적화하고 데이터를 암호화한 다음 온라인 백업 서비스에 암호화된 데이터를 보냅니다.
+
+## <a name="prerequisites-and-dependencies"></a>필수 구성 요소 및 종속성
+### <a name="what-features-of-microsoft-azure-recovery-services-mars-agent-require-net-framework-452-and-higher"></a>MARS(Microsoft Azure Recovery Services) 에이전트의 어떤 기능에 .NET Framework 4.5.2 이상이 필요한가요?
+*데이터 복구* 마법사에서 개별 파일 및 폴더의 복원을 활성화하는 [즉시 복원](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) 기능에 .NET Framework 4.5.2 이상이 필요합니다.
 
 ## <a name="backup"></a>Backup
 ### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Azure Backup 에이전트에 대해 지정된 캐시 위치를 변경하려면 어떻게 해야 하나요?<br/>
@@ -111,8 +113,7 @@ Backup 데이터는 등록된 자격 증명 모음의 데이터 센터로 전송
 
 ## <a name="manage-backups"></a>백업 관리
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Azure에 데이터를 백업하는 Windows 서버 이름을 바꾸면 어떻게 되나요?<br/>
-서버 이름을 바꾸면 현재 구성된 모든 백업이 중지됩니다.
-Backup 자격 증명 모음에 서버의 새 이름을 등록합니다. 자격 증명 모음에 새 이름을 등록하면 첫 번째 백업 작업은 *전체* 백업입니다. 이전 서버 이름으로 자격 증명 모음에 백업된 데이터를 복원해야 하는 경우에는 **데이터 복구** 마법사의 [**다른 서버**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) 옵션을 사용합니다.
+서버 이름을 바꾸면 현재 구성된 모든 백업이 중지됩니다. Backup 자격 증명 모음에 서버의 새 이름을 등록합니다. 자격 증명 모음에 새 이름을 등록하면 첫 번째 백업 작업은 *전체* 백업입니다. 이전 서버 이름으로 자격 증명 모음에 백업된 데이터를 복원해야 하는 경우에는 **데이터 복구** 마법사의 [**다른 서버**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) 옵션을 사용합니다.
 
 ### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Azure Backup 에이전트를 사용하여 Backup 정책에서 지정할 수 있는 최대 파일 경로 길이는 무엇인가요? <br/>
 Azure Backup 에이전트는 NTFS에 의존합니다. [파일 경로 길이 사양은 Windows API에 의해 제한됩니다](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). 보호하려는 파일의 경로가 Windows API에 허용되는 길이보다 긴 경우 상위 폴더 또는 디스크 드라이브를 백업합니다.  

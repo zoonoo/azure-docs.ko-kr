@@ -3,7 +3,7 @@ title: Azure Relay 예외 및 해결 방법 | Microsoft Docs
 description: Azure Relay 예외 및 해결하기 위해 수행할 수 있는 권장된 동작의 목록입니다.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2017
-ms.author: sethm
-ms.openlocfilehash: 1dbe73dac0d09db96ab902909125869959963e6f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: spelluru
+ms.openlocfilehash: 0fe30fe95e77adceaa5013f89206b08daf2a58a2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "26855864"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702098"
 ---
 # <a name="azure-relay-exceptions"></a>Azure Relay 예외
 
@@ -61,7 +61,7 @@ Relay API는 다음과 같은 범주로 분류될 수 있는 예외를 생성합
 
 [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) 은 특정 엔터티에 대한 할당량이 초과됐음을 나타냅니다.
 
-릴레이의 경우 이 예외는 수신기의 최대수가 이 끝점에 대해 초과되었음을 나타내는 [System.ServiceModel.QuotaExceededException](https://msdn.microsoft.com/library/system.servicemodel.quotaexceededexception.aspx)을 래핑합니다. 이는 예외 메시지의 **MaximumListenersPerEndpoint** 값에 표시됩니다.
+릴레이의 경우 이 예외는 수신기의 최대수가 이 엔드포인트에 대해 초과되었음을 나타내는 [System.ServiceModel.QuotaExceededException](https://msdn.microsoft.com/library/system.servicemodel.quotaexceededexception.aspx)을 래핑합니다. 이는 예외 메시지의 **MaximumListenersPerEndpoint** 값에 표시됩니다.
 
 ## <a name="timeoutexception"></a>TimeoutException
 [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) 은 사용자가 시작한 작업이 작업 시간 제한보다 더 오래 걸린다는 것을 나타냅니다. 
@@ -73,7 +73,7 @@ Relay API는 다음과 같은 범주로 분류될 수 있는 예외를 생성합
 *   [OpenTimeout](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) 값이 너무 작을 수 있습니다(1초 미만).
 * 온-프레미스 릴레이 수신기는 응답하지 않을 수 있으며(또는 수신기에서 새 클라이언트 연결을 허용하지 못하도록 방지하는 방화벽 규칙 문제가 발생할 수 있음) [OpenTimeout](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) 값은 20초보다 작습니다.
 
-예:
+예제:
 
 ```
 'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10.

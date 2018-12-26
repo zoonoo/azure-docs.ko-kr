@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 9c7cf223eab3e989436e12c39b122f2aee7619a0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9c3815f0083d049d9b4baed8e360f5927fcd3d69
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30906663"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025687"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure의 FreeBSD 소개
-이 항목에서는 Azure에서 FreeBSD 가상 머신을 실행하는 방법의 개요를 제공합니다.
+이 문서에서는 Azure에서 FreeBSD 가상 머신을 실행하는 방법의 개요를 제공합니다.
 
 ## <a name="overview"></a>개요
 Microsoft Azure용 FreeBSD는 최신 서버, 데스크톱 및 포함된 플랫폼을 작동하는 데 사용되는 고급 컴퓨터 운영 체제입니다.
@@ -31,7 +31,7 @@ Microsoft Azure용 FreeBSD는 최신 서버, 데스크톱 및 포함된 플랫�
 Microsoft Corporation은 Azure에서 사용 가능한 [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/)가 미리 구성된 FreeBSD 이미지를 만들고 있습니다. 현재 다음 FreeBSD 버전이 Microsoft에서 이미지로 제공됩니다.
 
 - FreeBSD 10.3 릴리스
-- FreeBSD 11.0 릴리스
+- FreeBSD 10.4 릴리스
 - FreeBSD 11.1 릴리스
 
 이 에이전트는 처음 사용 시 VM을 프로비전(사용자 이름, 암호 또는 SSH 키, 호스트 이름 등)하고 선택적 VM 확장 기능을 사용하도록 설정하는 것과 같은 작업을 위해 FreeBSD VM과 Azure 패브릭 간의 통신을 담당합니다.
@@ -41,29 +41,29 @@ FreeBSD 후속 버전에서는 제품을 최신 상태로 유지하고, FreeBSD 
 ## <a name="deploying-a-freebsd-virtual-machine"></a>FreeBSD 가상 머신 배포
 FreeBSD 가상 머신 배포 작업은 Azure Portal에서 Azure Marketplace의 이미지를 사용하는 간단한 프로세스입니다.
 
-- [Azure Marketplace의 FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
-- [Azure Marketplace의 FreeBSD 11.0](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+- [Azure Marketplace의 FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103)
+- [Azure Marketplace의 FreeBSD 10.4](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeBSD104)
 - [Azure Marketplace의 FreeBSD 11.1](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 
-### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>FreeBSD에서 Azure CLI 2.0을 통해 FreeBSD VM 만들기
-먼저 FreeBSD 컴퓨터에서 다음 명령을 사용하여 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 설치해야 합니다.
+### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>FreeBSD에서 Azure CLI를 통해 FreeBSD VM 만들기
+먼저 FreeBSD 컴퓨터에서 다음 명령을 사용하여 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 설치해야 합니다.
 
-```bash 
+```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-bash가 FreeBSD 컴퓨터에 설치되지 않은 경우 설치 전에 다음 명령을 실행합니다. 
+bash가 FreeBSD 컴퓨터에 설치되지 않은 경우 설치 전에 다음 명령을 실행합니다. 
 
 ```bash
 sudo pkg install bash
 ```
 
-python이 FreeBSD 컴퓨터에 설치되지 않은 경우 설치 전에 다음 명령을 실행합니다. 
+python이 FreeBSD 컴퓨터에 설치되지 않은 경우 설치 전에 다음 명령을 실행합니다. 
 
 ```bash
 sudo pkg install python35
-cd /usr/local/bin 
-sudo rm /usr/local/bin/python 
+cd /usr/local/bin 
+sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
@@ -72,7 +72,7 @@ sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 이제 Azure에 로그인한 후 FreeBSD VM을 만들 수 있습니다. 다음은 FreeBSD 11.0 VM을 만드는 예제입니다. 새로 만든 공용 IP의 정규화된 DNS 이름을 사용하여 `--public-ip-address-dns-name` 매개 변수를 추가할 수도 있습니다. 
 
 ```azurecli
-az login 
+az login 
 az group create --name myResourceGroup --location eastus
 az vm create --name myFreeBSD11 \
     --resource-group myResourceGroup \
@@ -81,7 +81,7 @@ az vm create --name myFreeBSD11 \
     --generate-ssh-keys
 ```
 
-그런 후 위 배포의 출력에 표시된 IP 주소를 통해 FreeBSD VM에 로그인할 수 있습니다. 
+그 후 위의 배포 출력에 인쇄된 IP 주소를 통해 FreeBSD VM에 로그인할 수 있습니다. 
 
 ```bash
 ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
@@ -131,7 +131,7 @@ $ sudo <COMMAND>
 선택적으로 `sudo -s`를 사용하여 루트 셸을 얻을 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
-[Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.2에는 Azure의 FreeBSD VM에 프로비전 오류를 유발하는 [알려진 문제](https://github.com/Azure/WALinuxAgent/pull/517))가 있습니다. [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.3 및 이후 릴리스에서는 해결책이 확보될 것입니다. 
+[Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.2에는 Azure의 FreeBSD VM에 프로비전 오류를 유발하는 [알려진 문제](https://github.com/Azure/WALinuxAgent/pull/517)가 있습니다. [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.3 및 이후 릴리스에서는 해결책이 확보될 것입니다. 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) 로 가서 FreeBSD VM을 만듭니다.
+* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111) 로 가서 FreeBSD VM을 만듭니다.

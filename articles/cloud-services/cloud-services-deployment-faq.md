@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 05217129d4993514acaf8c717847040584984cb3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d44cfc0164892c34bcbe16ca07e9ec67190ada24
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068907"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415307"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 배포 문제: FAQ(질문과 대답)
 
@@ -64,17 +64,16 @@ Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 �
 
 자세한 내용은 [클라우드 서비스를 업데이트하는 방법](cloud-services-update-azure-service.md)을 참조하세요.
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Azure Resource Manager 저장소 계정을 사용하는 경우 Service Management API 또는 PowerShell을 통해 Cloud Services를 배포할 수 없는 이유는 무엇인가요? 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Azure Resource Manager 저장소 계정을 사용하는 경우 Service Management API 또는 PowerShell을 통해 Cloud Services를 배포할 수 없는 이유는 무엇인가요? 
 
-Cloud Service는 Azure Resource Manager 모델과 직접 호환되지 않는 클래식 리소스이므로 Azure Resource Manager 저장소 계정과 함께 연결할 수 없습니다. 다음은 몇 가지 옵션입니다. 
- 
+Cloud Service는 Azure Resource Manager 모델과 직접 호환되지 않는 클래식 리소스이므로 Azure Resource Manager 저장소 계정과 함께 연결할 수 없습니다. 다음은 몇 가지 옵션입니다. 
+ 
 - REST API를 통해 배포.
 
-    Service Management REST API를 통해 배포하면 클래식 및 Azure Resource Manager 저장소 계정 모두를 통해 작업할 수 있는 blob 저장소에 대한 SAS URL을 지정하여 이러한 제한의 문제를 해결할 수 있습니다. [여기](https://msdn.microsoft.com/library/azure/ee460813.aspx)에서 ‘PackageUrl’ 속성에 대해 자세히 읽어보세요.
-  
+    Service Management REST API를 통해 배포하면 클래식 및 Azure Resource Manager 저장소 계정 모두를 통해 작업할 수 있는 blob 저장소에 대한 SAS URL을 지정하여 이러한 제한의 문제를 해결할 수 있습니다. [여기](https://msdn.microsoft.com/library/azure/ee460813.aspx)에서 ‘PackageUrl’ 속성에 대해 자세히 읽어보세요.  
 - [Azure Portal](https://portal.azure.com)을 통해 배포.
 
-    호출이 Azure Resource Manager와 클래식 리소스 간의 통신을 허용하는 프록시/shim을 통해 전송되므로 이 작업은 [Azure Portal](https://portal.azure.com)에서 작동합니다. 
+    호출이 Azure Resource Manager와 클래식 리소스 간의 통신을 허용하는 프록시/shim을 통해 전송되므로 이 작업은 [Azure Portal](https://portal.azure.com)에서 작동합니다. 
  
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Azure Portal에서 배포할 저장소 계정을 제공하도록 하는 이유는 무엇인가요? 
 

@@ -1,3 +1,16 @@
+---
+author: spelluru
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: spelluru
+ms.openlocfilehash: b6e0e57881154f5885e9f518363eda3c5b1169a0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331242"
+---
 ### <a name="install-via-composer"></a>작성기를 통해 설치
 1. 프로젝트 루트에 **composer.json** 이라는 파일을 만들고 다음 코드를 추가합니다.
    

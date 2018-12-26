@@ -9,14 +9,17 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ms.openlocfilehash: 6d92459deb3464cd97c215cbf9a8320628b6da80
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a9bdb257137db0063d39f028a69e2164eccbdc31
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374134"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340463"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>새 가격 책정 모델로 배포 마이그레이션
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 2017년 7월 현재, Custom Speech Service는 [새 가격 책정 모델](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/)을 제공합니다. 새 모델은 *이해하기가 더 쉽고*, *비용 계산이 더 간단하며*, 크기 조정 면에서 *더 유연*합니다. 크기 조정의 경우 Microsoft는 배율 단위 개념을 도입했습니다. 각 배율 단위는 동시 요청 5개를 처리할 수 있습니다. 이전 모델에서 동시 요청에 대한 크기 조정은 S0 계층의 경우 동시 요청 5개, S1 계층의 경우 12개로 설정됐습니다. 사용 사례 요구 사항을 사용하여 더 큰 유연성을 제공하기 위해 이러한 제한을 시작했습니다.
 
 이전 S0 또는 S1 계층을 실행하는 경우 기존 배포를 새 S2 계층으로 마이그레이션하는 것이 좋습니다. 새 S2 계층은 S0 및 S1 계층 둘 다 포함합니다. 다음 그림에서 사용 가능한 옵션을 확인할 수 있습니다.
@@ -67,7 +70,7 @@ Custom Speech Service 포털로 되돌아가 배포를 확인합니다. (브라�
 >
 
 ## <a name="next-steps"></a>다음 단계
-자습서는 다음을 참조합니다.
+더 많은 자습서를 보려면 다음 항목을 참조하세요.
 * [사용자 지정 음향 모델 만들기](cognitive-services-custom-speech-create-acoustic-model.md)
 * [사용자 지정 언어 모델 만들기](cognitive-services-custom-speech-create-language-model.md)
 * [사용자 지정 음성-텍스트 엔드포인트 만들기](cognitive-services-custom-speech-create-endpoint.md)

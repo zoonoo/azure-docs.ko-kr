@@ -6,17 +6,17 @@ ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 1/12/2018
 ms.topic: quickstart
 ms.custom: mvc
+ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 0a629deec0cc18f65dfe5e88a3eaea528636dd0f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fe2ca48c1cab3789f2bb501eaf00aeb9cd866b8c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300942"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233687"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>빠른 시작: Azure Logic Apps를 사용하여 첫 번째 자동화된 워크플로 만들기 - Azure Portal
 
@@ -34,7 +34,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 ## <a name="create-your-logic-app"></a>논리 앱 만들기 
 
-1. Azure 주 메뉴에서 **리소스 만들기** > **엔터프라이즈 통합** > **논리 앱**을 선택합니다.
+1. Azure 주 메뉴에서 **리소스 만들기** > **통합** > **논리 앱**을 선택합니다.
 
    ![논리 앱 만들기](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
@@ -42,12 +42,12 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    ![논리 앱 세부 정보 제공](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | 설정 | 값 | 설명 | 
-   | ------- | ----- | ----------- | 
+   | 자산 | 값 | 설명 | 
+   |----------|-------|-------------| 
    | **Name** | MyFirstLogicApp | 논리 앱의 이름 | 
    | **구독** | <*your-Azure-subscription-name*> | Azure 구독의 이름 | 
    | **리소스 그룹** | My-First-LA-RG | 관련 리소스를 구성하는 데 사용된 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름 | 
-   | **위치**: | 미국 동부 2 | 논리 앱 정보를 저장할 지역 | 
+   | **위치**: | 미국 서부 | 논리 앱 정보를 저장할 지역 | 
    | **Log Analytics** | 꺼짐 | 진단 로깅에 대한 설정을 **끄기**로 유지합니다. | 
    |||| 
 
@@ -69,12 +69,12 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    ![RSS 피드, 빈도 및 간격을 사용하여 트리거 설정](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
-   | 설정 | 값 | 설명 | 
-   | ------- | ----- | ----------- | 
+   | 자산 | 값 | 설명 | 
+   |----------|-------|-------------| 
    | **RSS 피드 URL** | ```http://feeds.reuters.com/reuters/topNews``` | 모니터링하려는 RSS 피드에 대한 링크 | 
    | **간격** | 1 | 검사 간에 대기하는 간격의 수 | 
    | **Frequency(빈도)** | 분 | 검사 간 간격의 시간 단위  | 
-   |  |  |  | 
+   |||| 
 
    간격과 빈도는 논리 앱의 트리거에 대한 일정을 정의합니다. 
    이 논리 앱은 1분마다 피드를 확인합니다.
@@ -95,9 +95,11 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    ![작업 추가](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. **작업 선택** 아래에서 "이메일 보내기"를 검색한 다음, 원하는 이메일 공급자에 대한 "이메일 보내기" 작업을 선택합니다. 작업 목록을 특정 서비스로 필터링하려면 먼저 **커넥터** 아래에서 커넥터를 선택하면 됩니다.
+2. **작업 선택** 아래에서 "이메일 보내기"를 필터로 입력합니다. 작업 목록에서 원하는 이메일 공급자에 대한 "이메일 보내기" 작업을 선택합니다. 
 
    ![“Office 365 Outlook - 전자 메일 보내기” 작업을 선택합니다.](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+
+   특정 앱 또는 서비스에 대한 작업 목록을 필터링하기 위해 먼저 앱 또는 서비스를 선택할 수 있습니다.
 
    * Azure 회사 또는 학교 계정에서 Office 365 Outlook을 선택합니다. 
    * Microsoft 개인 계정에서 Outlook.com을 선택합니다.
@@ -109,21 +111,14 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    1. **받는 사람** 상자에 받는 사람의 이메일 주소를 입력합니다. 
    자신의 이메일 주소를 사용하여 테스트할 수 있습니다.
 
-      지금은 매개 변수 목록 또는 나타나는 **동적 콘텐츠 추가** 목록을 무시합니다. 
-      일부 편집 상자 내부를 클릭하면 이 목록이 나타나고 워크플로에 입력으로 포함할 수 있는 이전 단계의 사용 가능한 매개 변수가 표시됩니다.
-      브라우저 너비에 따라 표시되는 목록이 달라집니다.
+      지금은 나타나는 **동적 콘텐츠 추가** 목록을 무시합니다. 
+      일부 편집 상자 내부를 클릭하면 이 목록이 나타나고 워크플로에 입력으로 포함할 수 있는 이전 단계의 사용 가능한 매개 변수가 표시됩니다. 
 
    2. **제목** 상자에 ```New RSS item: ``` 텍스트를 입력하고 후행 공백을 하나 둡니다.
 
       ![전자 메일 제목 입력](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
  
-   3. 매개 변수 목록 또는 **동적 콘텐츠 추가** 목록에서 RSS 항목을 포함할 **피드 제목**을 선택합니다.
-
-      예를 들어 다음은 매개 변수 목록입니다.
-
-      ![매개 변수 목록 - "피드 제목"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-parameters-list.png)
-
-      다음은 동적 콘텐츠 목록입니다.
+   3. **동적 콘텐츠 추가** 목록에서 RSS 항목 제목을 포함할 **피드 제목**을 선택합니다.
 
       ![동적 콘텐츠 목록 - "피드 제목"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-dynamic-content.png)
 
@@ -131,18 +126,18 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
       ![추가된 피드 제목](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-feed-title.png)
 
-      디자이너에 "For each" 루프가 나타나면 배열이 포함된 필드를 선택한 것입니다(예: **범주-항목** 필드). 
-      이러한 종류의 필드에 대해, 디자이너는 해당 필드를 참조하는 작업 주변에 이 루프를 자동으로 추가합니다. 
+      디자이너에 "For each" 루프가 나타나면 배열에 대한 토큰을 선택한 것입니다(예: **categories-Item** 토큰). 
+      이러한 종류의 토큰에 대해 디자이너는 해당 토큰을 참조하는 작업 주변에 이 루프를 자동으로 추가합니다. 
       그렇게 하면 논리 앱이 각 배열 항목에 대해 동일한 작업을 수행합니다. 
       루프를 제거하려면 루프의 제목 표시줄에서 **줄임표**(**...**)를 선택하고 **삭제**를 선택합니다.
 
-   4. **본문** 상자에서 이 텍스트를 입력하고, 이메일 본문에 대해 다음 필드를 선택합니다. 
+   4. **본문** 상자에서 이 텍스트를 입력하고, 이메일 본문에 대해 다음 토큰을 선택합니다. 
    편집 상자에서 빈 줄을 추가하려면 Shift + Enter 키를 누릅니다. 
 
       ![전자 메일 본문에 콘텐츠 추가](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
-      | 설정 | 설명 | 
-      | ------- | ----------- | 
+      | 자산 | 설명 | 
+      |----------|-------------| 
       | **피드 제목** | 항목의 제목 | 
       | **다음에 게시된 피드** | 항목의 게시 날짜 및 시간 | 
       | **주 피드 링크** | 항목의 URL | 
@@ -167,14 +162,23 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 없으면 논리 앱 및 관련 리소스가 포함된 리소스 그룹을 삭제하세요. 주 Azure 메뉴에서 **리소스 그룹**으로 이동하여 논리 앱의 리소스 그룹을 선택합니다. **리소스 그룹 삭제**를 선택합니다. 리소스 그룹 이름을 입력하여 확인하고, **삭제**를 선택합니다.
+이 샘플이 더 이상 필요 없으면 논리 앱 및 관련 리소스가 포함된 리소스 그룹을 삭제합니다. 
 
-!["리소스 그룹" > "개요" > "리소스 그룹 삭제"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
+1. 주 Azure 메뉴에서 **리소스 그룹**으로 이동하여 논리 앱의 리소스 그룹을 선택합니다. **개요** 페이지에서 **리소스 그룹 삭제**를 선택합니다. 
+
+   !["리소스 그룹" > "개요" > "리소스 그룹 삭제"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
+
+2. 리소스 그룹 이름을 입력하여 확인하고, **삭제**를 선택합니다.
+
+   ![삭제 확인](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
+
+> [!NOTE]
+> 논리 앱을 삭제하면 새 실행이 인스턴스화되지 않습니다. 모든 진행 중 및 보류 중인 실행이 취소됩니다. 수천 개의 실행이 있다면 취소를 완료하는 데 상당한 시간이 소요될 수 있습니다.
 
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

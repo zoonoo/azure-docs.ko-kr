@@ -3,7 +3,7 @@ title: Azure Event Hubs 인증 및 보안 모델의 개요 | Microsoft Docs
 description: Event Hubs 인증 및 보안 모델 개요
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 5264930dcb802c2a58abc179bdd0041acc9f58d0
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: 0e8dcf9eede744d52e38b742946a59944988f199
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311372"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141385"
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Event Hubs 인증 및 보안 모델 개요
 
@@ -31,13 +31,13 @@ Azure Event Hubs 보안 모델은 다음 요구 사항을 만족합니다.
 
 ## <a name="client-authentication"></a>클라이언트 인증
 
-Event Hubs 보안 모델은 [공유 액세스 서명(SAS)](../service-bus-messaging/service-bus-sas.md) 토큰 및 *이벤트 게시자*의 조합을 기반으로 합니다. 이벤트 게시자는 이벤트 허브에 대한 가상 끝점을 정의합니다. 게시자는 이벤트 허브에 메시지를 보내는 데만 사용할 수 있습니다. 게시자에서 메시지를 받을 수 없습니다.
+Event Hubs 보안 모델은 [공유 액세스 서명(SAS)](../service-bus-messaging/service-bus-sas.md) 토큰 및 *이벤트 게시자*의 조합을 기반으로 합니다. 이벤트 게시자는 이벤트 허브에 대한 가상 엔드포인트를 정의합니다. 게시자는 이벤트 허브에 메시지를 보내는 데만 사용할 수 있습니다. 게시자에서 메시지를 받을 수 없습니다.
 
 일반적으로 이벤트 허브에서는 클라이언트당 하나의 게시자를 사용합니다. 이벤트 허브의 게시자에게 전달되는 모든 메시지는 해당 이벤트 허브 내의 큐에 삽입됩니다. 게시자는 세분화된 액세스 제어 및 제한을 사용하도록 설정합니다.
 
 각 Event Hubs 클라이언트는 클라이언트에 업로드되는 고유 토큰을 할당받습니다. 각 고유 토큰이 고유한 다른 게시자에 대한 액세스가 허용되도록 토큰이 생성됩니다. 토큰을 소유하는 클라이언트는 하나의 게시자에게만 보낼 수 있으며 다른 게시자에게는 보낼 수 없습니다. 여러 클라이언트가 동일한 토큰을 공유하는 경우 각 클라이언트가 게시자를 공유합니다.
 
-권장하지는 않지만 이벤트 허브에 대한 직접 액세스 권한을 부여하는 토큰을 가진 장치를 장착할 수 있습니다. 이 토큰을 보유하는 모든 장치는 해당 이벤트 허브에 직접 메시지를 보낼 수 있습니다. 이러한 장치는 제한의 대상이 되지 않습니다. 또한 장치에서 해당 이벤트 허브로 보내는 것을 차단할 수 없습니다.
+추천되지는 않지만 이벤트 허브에 대한 직접 액세스 권한을 부여하는 토큰을 가진 디바이스를 장착할 수 있습니다. 이 토큰을 보유하는 모든 디바이스는 해당 이벤트 허브에 직접 메시지를 보낼 수 있습니다. 이러한 디바이스는 제한의 대상이 되지 않습니다. 또한 디바이스에서 해당 이벤트 허브로 보내는 것을 차단할 수 없습니다.
 
 모든 토큰은 SAS 키로 서명됩니다. 일반적으로 모든 토큰은 동일한 키로 서명됩니다. 클라이언트는 키를 인식하지 않기 때문에 다른 클라이언트가 토큰을 제조하지 못합니다.
 

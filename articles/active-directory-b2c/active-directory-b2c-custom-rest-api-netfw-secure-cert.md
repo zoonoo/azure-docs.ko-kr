@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 004577ead56befce02771b82ace088706e8f0c3c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 7bf7add75f60bf64f64119979e5eee81be0f6e7b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34709209"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344968"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>클라이언트 인증서를 사용하여 RESTful 서비스 보호
 
@@ -38,21 +38,13 @@ ms.locfileid: "34709209"
 * 유효한 인증서(개인 키를 포함한 .pfx 파일) 가져오기
 
 ## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>1단계: 클라이언트 인증서 인증을 위한 웹앱 구성
-**Azure App Service**가 클라이언트 인증서를 요구하도록 설정하려면 웹앱 `clientCertEnabled` 사이트를 *true*로 설정합니다. 이와 같이 변경하려면 REST API를 사용해야 합니다. Azure Portal에서 관리 환경을 통해 설정을 사용할 수 있습니다. 설정을 찾으려면 RESTful 응용 프로그램 **설정** 메뉴의 **개발 도구** 아래에서 **리소스 탐색기**를 선택합니다.
+**Azure App Service**가 클라이언트 인증서를 요구하도록 설정하려면 웹앱 `clientCertEnabled` 사이트를 *true*로 설정합니다. 이 변경 내용을 적용하려면 Azure Portal에서 웹앱 페이지를 엽니다. 왼쪽 탐색 메뉴의 **설정** 아래에서 **SSL 설정**을 선택합니다. **클라이언트 인증서** 섹션에서 **들어오는 클라이언트 인증서** 옵션을 설정합니다.
 
 >[!NOTE]
 >Azure App Service 계획이 표준 이상이어야 합니다. 자세한 내용은 [Azure App Service 계획 심층 개요](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)를 참조하세요.
 
-
-다음 이미지에 표시된 대로 [Azure Resource Explorer(미리 보기)](https://resources.azure.com)를 사용하여 **clientCertEnabled** 속성을 *true*로 설정합니다.
-
-![Azure Resource Explorer를 통해 clientCertEnabled 설정](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
-
 >[!NOTE]
 >**clientCertEnabled** 속성을 설정하는 방법에 대한 자세한 내용은 [웹앱에 TLS 상호 인증 구성](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)을 참조하세요.
-
->[!TIP]
->또는 REST API 호출을 쉽게 만들려면 [ARMClient](https://github.com/projectkudu/ARMClient) 도구를 사용할 수 있습니다.
 
 ## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>2단계: Azure AD B2C 정책 키에 인증서 업로드
 `clientCertEnabled`를 *true*로 설정한 후에 RESTful API와 통신하기 위해 클라이언트 인증서가 필요합니다. Azure AD B2C 테넌트에서 클라이언트 인증서를 가져오고, 업로드하고, 저장하려면 다음을 수행합니다. 
@@ -144,7 +136,7 @@ ms.locfileid: "34709209"
      "exp": 1507125903,
      "nbf": 1507122303,
      "ver": "1.0",
-     "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+     "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
      "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
      "acr": "b2c_1a_signup_signin",
      "nonce": "defaultNonce",

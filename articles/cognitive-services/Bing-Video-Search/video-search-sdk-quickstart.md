@@ -1,29 +1,30 @@
 ---
-title: Video search SDK C# 빠른 시작 | Microsoft Docs
-description: Video Search SDK 콘솔 응용 프로그램을 설치합니다.
-titleSuffix: Azure cognitive services setup News search SDK C# console application
+title: '빠른 시작: Bing Video Search SDK, C#'
+titleSuffix: Azure Cognitive Services
+description: Bing Video Search SDK 콘솔 응용 프로그램을 설치합니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: f53e2d0f0052ccfabb6d750556cb532f069c9121
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: bf8eece4b5afe34635d80a57cc12c26a8ed157d6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377951"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314135"
 ---
-# <a name="video-search-sdk-c-quickstart"></a>Video Search SDK C# 빠른 시작
+# <a name="quickstart-bing-video-search-sdk-with-c"></a>빠른 시작: C#을 사용한 Bing Video Search SDK 
 
 Bing Video Search SDK는 웹 요청 및 구문 분석 결과에 대한 REST API 기능을 포함하고 있습니다.
 
 [C# Bing Video Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch)은 Git Hub에서 얻을 수 있습니다.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
+**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 Bing Video Search SDK를 사용하여 콘솔 응용 프로그램을 설정하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 찾습니다.  `Microsoft.Azure.CognitiveServices.Search.VideoSearch` 패키지를 추가합니다.
 

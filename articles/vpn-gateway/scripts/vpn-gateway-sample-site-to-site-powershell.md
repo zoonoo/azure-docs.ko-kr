@@ -3,28 +3,22 @@ title: Azure PowerShell 스크립트 샘플 - 사이트 간 VPN 구성 | Microso
 description: 사이트 간 VPN을 구성합니다.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: ''
-ms.assetid: ''
+author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
 ms.date: 04/30/2018
-ms.author: anzaman
-ms.openlocfilehash: 62381c08892017512dcf2bd5d9c7f8690bedfb6c
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: alzam
+ms.openlocfilehash: 65dd0c7038d6b99d1a5532898a3a6468c498a95f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32313412"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976930"
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>PowerShell을 사용하여 VPN Gateway를 만들고 사이트 간 연결 추가
 
-이 스크립트는 경로 기반 VPN Gateway를 만들고 사이트 간 구성을 추가합니다. 연결을 만들기 위해 VPN 장치를 구성해야 합니다. 자세한 내용은 [사이트 간 VPN Gateway 연결에 대한 VPN 장치 및 IPsec/IKE 매개 변수 정보](../vpn-gateway-about-vpn-devices.md)를 참조하세요.
+이 스크립트는 경로 기반 VPN Gateway를 만들고 사이트 간 구성을 추가합니다. 연결을 만들기 위해 VPN 디바이스를 구성해야 합니다. 자세한 내용은 [사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보](../vpn-gateway-about-vpn-devices.md)를 참조하세요.
 
 
 ```azurepowershell-interactive
@@ -110,9 +104,9 @@ Remove-AzureRmResourceGroup -Name TestRG1
 | [새-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | 가상 네트워크를 만듭니다. |
 | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | 공용 IP 주소를 만듭니다. |
 | [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) | 게이트웨이 IP 구성을 새로 만듭니다. |
-| [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.resources/new-azurermvirtualnetworkgateway) | VPN 게이트웨이를 만듭니다. |
-| [New-AzureRmLocalNetworkGateway](/powershell/module/azurerm.resources/new-azurermlocalnetworkgateway) | 로컬 네트워크 게이트웨이를 만듭니다. |
-| [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/ new-azurermvirtualnetworkgatewayconnection) | 사이트 간 연결을 만듭니다. |
+| [New-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgateway?view=azurermps-6.8.1) | VPN 게이트웨이를 만듭니다. |
+| [New-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-6.8.1) | 로컬 네트워크 게이트웨이를 만듭니다. |
+| [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection) | 사이트 간 연결을 만듭니다. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
 | [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) | 가상 네트워크에 대한 서브넷 구성을 설정합니다. |
 | [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) | VPN 게이트웨이에 대한 구성을 설정합니다. |

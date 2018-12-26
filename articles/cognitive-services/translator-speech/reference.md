@@ -1,45 +1,47 @@
 ---
-title: Microsoft Translator Speech API 참조 | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Microsoft Translator Speech API에 대한 참조 문서입니다.
+title: Translator Speech API 참조
+titleSuffix: Azure Cognitive Services
+description: Translator Speech API에 대한 참조 문서입니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech
+ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: be8faddf56158de3399713c41638c0b913b4627e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382865"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340446"
 ---
-# <a name="microsoft-translator-speech-api"></a>Microsoft Translator Speech API
+# <a name="translator-speech-api"></a>Translator Speech API
 
-이 서비스는 한 언어의 대화 음성을 다른 언어의 텍스트로 기록하기 위한 스트리밍 API를 제공합니다. 또한 이 API는 텍스트에서 음성 변환 기능을 통합하여 번역된 텍스트를 다시 읽어줍니다. Microsoft Translator Speech API는 Skype Translator에서 볼 수 있는 것처럼 실시간 대화 번역과 같은 시나리오도 허용합니다.
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-Microsoft Translator Speech API를 사용하여 클라이언트 응용 프로그램은 음성 오디오를 서비스로 스트리밍하고 텍스트 기반의 결과를 돌려받습니다. 여기에는 인식된 텍스트를 소스 언어로, 해당 번역을 대상 언어로 포함합니다. 텍스트 결과는 심층 신경망에 의해 작동하는 ASR(Automatic Speech Recognition)을 들어오는 오디오 스트리밍에 적용하여 생성합니다. 원시 ASR 출력은 사용자 의도를 더 밀접하게 반영하기 위해 TrueText라는 새 기술로 더욱 개선되었습니다. 예를 들어 TrueText는 말더듬(으흠 및 콜록) 표현을 제거하고, 적절한 구두점 및 대문자 사용을 복원합니다. 비속어를 제외하거나 마스킹하는 기능도 포함됩니다. 인식 및 번역 엔진은 특히 대화형 음성 처리를 학습합니다. 음성 번역 서비스는 무음 감지 기능을 사용하여 발언의 마지막을 확인합니다. 음성 활동을 잠시 멈춘 뒤 서비스는 완성된 발언에 대한 최종 결과를 다시 스트리밍합니다. 서비스는 부분 결과를 돌려보내 진행 중인 발언에 대한 중간 인식과 번역을 제공할 수도 있습니다. 최종 결과를 위해 이 서비스는 대상 언어로 구어체 텍스트에서 음성을 합성하는 기능(텍스트를 음성으로 변환)을 제공합니다. 텍스트를 음성으로 변환하는 오디오는 클라이언트에서 지정한 형식으로 생성됩니다. WAV 및 MP3 형식을 사용할 수 있습니다.
+이 서비스는 한 언어의 대화 음성을 다른 언어의 텍스트로 기록하기 위한 스트리밍 API를 제공합니다. 또한 이 API는 텍스트에서 음성 변환 기능을 통합하여 번역된 텍스트를 다시 읽어줍니다. Translator Speech API는 Skype Translator에서 볼 수 있는 것처럼 실시간 대화 번역과 같은 시나리오도 허용합니다.
 
-Microsoft Translator Speech API는 WebSocket 프로토콜을 사용하여 클라이언트 및 서버 간 전이중 통신 채널을 제공합니다. 응용 프로그램은 이 서비스를 사용하기 위해 다음 단계를 거쳐야 합니다.
+Translator Speech API를 사용하여 클라이언트 응용 프로그램은 음성 오디오를 서비스로 스트리밍하고 텍스트 기반의 결과를 돌려받습니다. 여기에는 인식된 텍스트를 소스 언어로, 해당 번역을 대상 언어로 포함합니다. 텍스트 결과는 심층 신경망에 의해 작동하는 ASR(Automatic Speech Recognition)을 들어오는 오디오 스트리밍에 적용하여 생성합니다. 원시 ASR 출력은 사용자 의도를 더 밀접하게 반영하기 위해 TrueText라는 새 기술로 더욱 개선되었습니다. 예를 들어 TrueText는 말더듬(으흠 및 콜록) 표현을 제거하고, 적절한 구두점 및 대문자 사용을 복원합니다. 비속어를 제외하거나 마스킹하는 기능도 포함됩니다. 인식 및 번역 엔진은 특히 대화형 음성 처리를 학습합니다. 음성 번역 서비스는 무음 감지 기능을 사용하여 발언의 마지막을 확인합니다. 음성 활동을 잠시 멈춘 뒤 서비스는 완성된 발언에 대한 최종 결과를 다시 스트리밍합니다. 서비스는 부분 결과를 돌려보내 진행 중인 발언에 대한 중간 인식과 번역을 제공할 수도 있습니다. 최종 결과를 위해 이 서비스는 대상 언어로 구어체 텍스트에서 음성을 합성하는 기능(텍스트를 음성으로 변환)을 제공합니다. 텍스트를 음성으로 변환하는 오디오는 클라이언트에서 지정한 형식으로 생성됩니다. WAV 및 MP3 형식을 사용할 수 있습니다.
+
+Translator Speech API는 WebSocket 프로토콜을 활용하여 클라이언트 및 서버 간 전이중 통신 채널을 제공합니다. 응용 프로그램은 이 서비스를 사용하기 위해 다음 단계를 거쳐야 합니다.
 
 ## <a name="1-getting-started"></a>1. 시작
-Microsoft Translator Text API에 액세스하려면 [Microsoft Azure에 등록](translator-speech-how-to-signup.md)해야 합니다.
+Translator Text API에 액세스하려면 [Microsoft Azure에 등록](translator-speech-how-to-signup.md)해야 합니다.
 
 ## <a name="2-authentication"></a>2. 인증
 
-등록 키를 사용하여 인증을 받습니다. Microsoft Translator Speech API는 다음 두 가지 인증 모드를 지원합니다.
+등록 키를 사용하여 인증을 받습니다. Translator Speech API는 다음 두 가지 인증 모드를 지원합니다.
 
-* **액세스 토큰 사용:** 응용 프로그램에서 토큰 서비스의 액세스 토큰을 가져옵니다. Microsoft Translator Speech API 구독 키를 사용하여 Cognitive Services 인증 서비스에서 액세스 토큰을 가져옵니다. 액세스 토큰은 10분 동안 유효합니다. 10분 간격으로 새 액세스 토큰을 획득하고, 이러한 10분 내에 반복되는 요청에 대해 동일한 액세스 토큰을 계속 사용합니다.
+* **액세스 토큰 사용:** 응용 프로그램에서 토큰 서비스의 액세스 토큰을 가져옵니다. Translator Speech API 구독 키를 사용하여 Azure Cognitive Services 인증 서비스에서 액세스 토큰을 가져옵니다. 액세스 토큰은 10분 동안 유효합니다. 10분 간격으로 새 액세스 토큰을 획득하고, 이러한 10분 내에 반복되는 요청에 대해 동일한 액세스 토큰을 계속 사용합니다.
 
 * **등록 키 직접 사용:** 응용 프로그램에서 등록 키를 `Ocp-Apim-Subscription-Key` 헤더에 값으로 제공합니다.
 
 구독 키와 액세스 토큰을 보이지 않게 숨겨야 하는 비밀로 취급합니다.
 
 ## <a name="3-query-languages"></a>3. 쿼리 언어
-**지원되는 언어의 현재 집합에서 언어 리소스를 쿼리합니다.** [언어 리소스](languages-reference.md)는 음성 인식, 텍스트 번역 및 텍스트 음성 변환에 사용할 수 있는 언어 집합을 노출합니다. 각 언어 또는 음성에 Microsoft Translator Speech API가 같은 언어 또는 음성을 식별하는 데 사용하는 식별자가 제공됩니다.
+**지원되는 언어의 현재 집합에서 언어 리소스를 쿼리합니다.** [언어 리소스](languages-reference.md)는 음성 인식, 텍스트 번역 및 텍스트 음성 변환에 사용할 수 있는 언어 집합을 노출합니다. 각 언어 또는 음성에 Translator Speech API가 같은 언어 또는 음성을 식별하는 데 사용하는 식별자가 제공됩니다.
 
 ## <a name="4-stream-audio"></a>4. 오디오 스트리밍
 **연결을 열고 서비스에 대한 오디오 스트리밍을 시작합니다.** 서비스 URL은 `wss://dev.microsofttranslator.com/speech/translate`입니다. 매개 변수 및 서비스에 필요한 오디오 형식은 아래의 `/speech/translate` 작업에 설명되어 있습니다. 매개 변수 중 하나는 위 2 단계의 액세스 토큰을 전달하는 데 사용됩니다.
@@ -47,7 +49,7 @@ Microsoft Translator Text API에 액세스하려면 [Microsoft Azure에 등록](
 ## <a name="5-process-the-results"></a>5. 결과 처리
 **서비스에서 다시 스트리밍된 결과를 처리합니다.** 부분 결과, 최종 결과 및 텍스트 음성 변환 오디오 세그먼트의 형식은 아래 `/speech/translate` 작업의 설명서에 설명되어 있습니다.
 
-Microsoft Translator Speech API의 사용 방식을 보여 주는 코드 샘플은 [Microsoft Translator Github 사이트](https://github.com/MicrosoftTranslator)에서 사용할 수 있습니다.
+Translator Speech API의 사용 방식을 보여 주는 코드 샘플은 [Microsoft Translator Github 사이트](https://github.com/MicrosoftTranslator)에서 사용할 수 있습니다.
 
 ## <a name="implementation-notes"></a>구현 참고 사항
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Microsoft Docs"
-description: "다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다."
+title: Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Microsoft Docs
+description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/05/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 869ea96072b1492db929c16cfb1e22b0c96bca7d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 275eb5f32def94fa974f0cb180b9de9dcedf1a00
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230923"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights를 사용한 런타임 시 웹앱 계측
 
-
 코드를 수정하거나 다시 배포할 필요 없이 Azure Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. 앱이 온-프레미스 IIS 서버에서 호스트되는 경우 상태 모니터를 설치합니다. Azure 웹앱이거나 Azure VM에서 실행되는 경우 Azure 제어판의 Application Insights 모니터링에서 전환할 수 있습니다. ([라이브 J2EE 웹앱](app-insights-java-live.md) 및 [Azure Cloud Services](app-insights-cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.) [Microsoft Azure](http://azure.com) 구독이 필요합니다.
 
-![예제 차트](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+![실패한 요청, 서버 응답 시간 및 서버 요청에 대한 정보를 포함하는 App Insights 개요 그래프 스크린샷](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 경로가 있습니다.
 
@@ -36,14 +36,14 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
 
 |  | 빌드 시간 | 실행 시간 |
 | --- | --- | --- |
-| 요청 및 예외 |예 |예 |
-| [자세한 예외 정보](app-insights-asp-net-exceptions.md) | |예 |
+| 요청 및 예외 |yes |yes |
+| [자세한 예외 정보](app-insights-asp-net-exceptions.md) | |yes |
 | [종속성 진단](app-insights-asp-net-dependencies.md) |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
-| [시스템 성능 카운터](app-insights-performance-counters.md) |예 |예 |
-| [사용자 지정 원격 분석에 대 한 API][api] |예 |아니요 |
-| [추적 로그 통합](app-insights-asp-net-trace-logs.md) |예 |아니요 |
-| [페이지 보기 및 사용자 데이터](app-insights-javascript.md) |예 |아니요 |
-| 코드를 다시 빌드해야 함 |예 | 아니요 |
+| [시스템 성능 카운터](app-insights-performance-counters.md) |yes |yes |
+| [사용자 지정 원격 분석에 대 한 API][api] |yes |아니요 |
+| [추적 로그 통합](app-insights-asp-net-trace-logs.md) |yes |아니요 |
+| [페이지 보기 및 사용자 데이터](app-insights-javascript.md) |yes |아니요 |
+| 코드를 다시 빌드해야 함 |yes | 아니요 |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>라이브 Azure 웹앱 모니터링
@@ -57,7 +57,7 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
 
     ![Application Insights를 클릭해 갑니다.](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
-[클라우드 및 VM 앱 모니터링](app-insights-azure.md).
+[클라우드 및 VM 앱 모니터링](app-insights-overview.md).
 
 ### <a name="enable-client-side-monitoring-in-azure"></a>Azure에서 클라이언트 쪽 모니터링 사용
 
@@ -78,7 +78,7 @@ Application Insights JavaScript SDK가 이제 각 웹 페이지에 삽입됩니�
 IIS 서버에서 앱이 호스트되는 경우 상태 모니터를 사용하여 Application Insights를 사용하도록 설정합니다.
 
 1. IIS 웹 서버에서 관리자 자격 증명으로 로그인합니다.
-2. Application Insights 상태 모니터가 설치되어 있지 않으면 [상태 모니터 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=506648)를 다운로드하고 실행합니다.(또는 [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)를 실행하고 Application Insights 상태 모니터를 검색합니다.)
+2. Application Insights 상태 모니터가 설치되어 있지 않으면 [상태 모니터 설치 관리자](https://go.microsoft.com/fwlink/?LinkId=506648)를 다운로드하고 실행합니다.(또는 [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)를 실행하고 Application Insights 상태 모니터를 검색합니다.)
 3. 상태 모니터에서 모니터링할 설치된 웹 응용 프로그램 또는 웹 사이트를 선택합니다. Azure 자격 증명으로 로그인합니다.
 
     Application Insights 포털에서 결과를 표시할 리소스를 구성합니다. (일반적으로 새 리소스를 만드는 것이 좋습니다. 이 앱에 대해 [웹 테스트][availability] 또는 [클라이언트 모니터링][client]이 이미 있으면 기존 리소스를 선택합니다.) 

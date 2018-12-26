@@ -1,24 +1,24 @@
 ---
-title: Azure Event Hubs로 보내는 실시간 이벤트에서 데이터 변칙 시각화 | Microsoft Docs
+title: 실시간 이벤트의 데이터 이상 시각화 - Azure Event Hubs | Microsoft Docs
 description: 자습서 - Microsoft Azure Event Hubs로 보내는 실시간 이벤트에서 데이터 변칙 시각화
 services: event-hubs
-author: robinsh
+author: ShubhaVijayasarathy
 manager: timlt
-ms.author: robinsh
-ms.date: 06/26/2018
+ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
-ms.custom: mvc
-ms.openlocfilehash: 28c03d12954b172388a92dd0c3f6aed2266ffaf7
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.openlocfilehash: add88a24da2e217d705065274f26382c1ffe8e17
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132711"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091682"
 ---
-# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>자습서: Azure Event Hubs로 보내는 실시간 이벤트에서 데이터 변칙 시각화
+# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>자습서: Azure Event Hubs에 보내는 실시간 이벤트에서 데이터 이상 시각화
 
-Azure Event Hubs에서는 Azure Stream Analytics를 사용하여 들어오는 데이터를 확인하고 변칙을 짚어낸 다음, Power BI에서 시각화할 수 있습니다. 이벤트 허브에 지속적으로 실시간 데이터를 보내 초당 최대 수백 만 건의 이벤트를 더하는 수천 대의 장치를 가정해 보겠습니다. 이렇게 많은 데이터에서 변칙이나 오류를 어떻게 확인할까요? 예를 들어, 장치가 신용 카드 거래를 전송하며 5초 이내 간격으로 여러 국가에서 여러 거래가 있을 때마다 수집해야 한다면 어떻게 될까요? 누군가 신용 카드를 도용하여 동시에 전세계에서 물품을 구매하는 경우 이런 상황이 발생할 수 있습니다. 
+Azure Event Hubs에서는 Azure Stream Analytics를 사용하여 들어오는 데이터를 확인하고 변칙을 짚어낸 다음, Power BI에서 시각화할 수 있습니다. 이벤트 허브에 지속적으로 실시간 데이터를 보내 초당 최대 수백 만 건의 이벤트를 더하는 수천 대의 디바이스를 가정해 보겠습니다. 이렇게 많은 데이터에서 변칙이나 오류를 어떻게 확인할까요? 예를 들어, 디바이스가 신용 카드 거래를 전송하며 5초 이내 간격으로 여러 국가에서 여러 거래가 있을 때마다 수집해야 한다면 어떻게 될까요? 누군가 신용 카드를 도용하여 동시에 전세계에서 물품을 구매하는 경우 이런 상황이 발생할 수 있습니다. 
 
 이 자습서에서는 이 예제를 시뮬레이션합니다. 신용 카드 거래를 만들어 이벤트 허브로 보내는 응용 프로그램을 실행합니다. 그런 다음, Azure Stream Analytics를 통해 실시간으로 데이터 스트림을 읽습니다. 여기서는 유효한 거래와 잘못된 거래를 구별한 다음, Power BI를 사용하여 잘못된 것으로 태그 지정된 거래를 시각적으로 식별합니다.
 
@@ -30,7 +30,7 @@ Azure Event Hubs에서는 Azure Stream Analytics를 사용하여 들어오는 �
 > * 이러한 트랜잭션을 처리하는 Stream Analytics 작업 구성
 > * Power BI 시각화를 구성하여 결과 표시
 
-이 자습서를 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정][]을 만드세요.
+이 자습서를 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요][].
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -176,11 +176,11 @@ GitHub의 Event Hubs [샘플](https://github.com/Azure/azure-event-hubs/tree/mas
 
    **작업 이름**: **contosoEHjob**을 사용합니다. 이 필드는 작업의 이름이며 전역에서 고유해야 합니다.
 
-   **구독**: 사용자의 구독을 선택합니다.
+   **구독**: 구독을 선택합니다.
 
    **리소스 그룹**: 이벤트 허브에서 사용하는 것과 동일한 리소스 그룹(**ContosoResourcesEH**)을 사용합니다.
 
-   **위치**: 설치 스크립트에 사용되는 동일한 위치(**미국 서부**)를 사용합니다.
+   **위치**: 설치 스크립트에 사용된 것과 동일한 위치(**미국 서부**)를 사용합니다.
 
    ![새 Azure Stream Analytics 작업을 만드는 방법을 보여주는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
@@ -201,15 +201,15 @@ Stream Analytics 작업 입력은 이벤트 허브로부터의 신용 카드 거
 
    **입력 별칭**: **contosoinputs**를 사용합니다. 이 필드는 데이터에 대한 쿼리를 정의할 때 사용한 입력 스트림의 이름입니다.
 
-   **구독**: 사용자의 구독을 선택합니다.
+   **구독**: 구독을 선택합니다.
 
-   **Event Hubs 네임 스페이스**: 이벤트 허브 네임스페이스($**eventHubNamespace**)를 선택합니다. 
+   **Event Hubs 네임스페이스**: Event Hub 네임스페이스($**eventHubNamespace**)를 선택합니다. 
 
-   **이벤트 허브 이름**: **기존 항목 사용**을 클릭하고 이벤트 허브($**eventHubName**)를 선택합니다.
+   **Event Hub 이름**: **기존 항목 사용**을 클릭하고, 이벤트 허브($**eventHubName**)를 선택합니다.
 
-   **이벤트 허브 정책 이름**: **RootManageSharedAccessKey**를 선택합니다.
+   **Event Hubs 정책 이름**: **RootManageSharedAccessKey**를 선택합니다.
 
-   **Event Hubs 소비자 그룹**:이 필드를 비워 두면 기본 소비자 그룹을 사용합니다.
+   **Event Hubs 소비자 그룹**: 기본 소비자 그룹을 사용하려면 이 필드를 비워 둡니다.
 
    나머지 필드는 기본값을 그대로 사용합니다.
 
@@ -225,7 +225,7 @@ Stream Analytics 작업 입력은 이벤트 허브로부터의 신용 카드 거
 
    **출력 별칭**: **contosooutputs**를 사용합니다. 이 필드는 출력에 대한 고유 별칭입니다. 
 
-   **데이터 집합 이름**: **contosoehdataset**를 사용합니다. 이 필드는 Power BI에 사용할 데이터 집합의 이름입니다. 
+   **데이터 세트 이름**: **contosoehdataset**를 사용합니다. 이 필드는 Power BI에 사용할 데이터 세트의 이름입니다. 
 
    **테이블 이름**: **contosoehtable**을 사용합니다. 이 필드는 Power BI에 사용할 테이블의 이름입니다. 
 
@@ -292,9 +292,9 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클
 
 3. **내 작업 영역**으로 이동합니다.
 
-4. **데이터 집합**을 클릭합니다.
+4. **데이터 세트**를 클릭합니다.
 
-   Stream Analytics 작업에 대한 출력을 만들 때 지정한 데이터 집합이 표시됩니다(**contosoehdataset**). 데이터 집합을 처음 표시할 때는 5-10분이 걸릴 수 있습니다.
+   Stream Analytics 작업에 대한 출력을 만들 때 지정한 데이터 세트가 표시됩니다(**contosoehdataset**). 데이터 세트를 처음 표시할 때는 5-10분이 걸릴 수 있습니다.
 
 5. **대시보드**를 클릭한 다음, **만들기**를 클릭하고 **대시보드**를 선택합니다.
 
@@ -308,9 +308,9 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클
 
    ![타일 원본을 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-real-time-data.png)
 
-8. 데이터 집합(**contosoehdataset**)을 선택하고 **다음**을 클릭합니다.
+8. 데이터 세트(**contosoehdataset**)를 선택하고 **다음**을 클릭합니다.
 
-   ![데이터 집합을 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
+   ![데이터 세트를 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
 9. 시각화 형식으로 **카드**를 선택합니다. **필드** 아래에서 **값 추가**를 선택한 다음, **fraudulentuses**를 선택합니다.
 
@@ -327,7 +327,7 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클
    * **타일 추가**를 클릭합니다.
    * **사용자 지정 스트리밍 데이터**를 선택합니다. 
    * **다음**을 클릭합니다.
-   * 데이터 집합을 선택하고 **다음**을 클릭합니다. 
+   * 데이터 세트를 선택하고 **다음**을 클릭합니다. 
 
 12. **시각화 형식**에서 **꺾은선형 차트**를 선택합니다.
 
@@ -349,7 +349,7 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클
 
 ### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Power BI 시각화에서 리소스 정리
 
-Power BI 계정에 로그인합니다. **내 작업 영역**으로 이동합니다. 대시보드 이름이 있는 줄에서 휴지통 아이콘을 클릭합니다. **데이터 집합**으로 이동하고 휴지통 아이콘을 클릭하여 데이터 집합(**contosoehdataset**)을 삭제합니다.
+Power BI 계정에 로그인합니다. **내 작업 영역**으로 이동합니다. 대시보드 이름이 있는 줄에서 휴지통 아이콘을 클릭합니다. **데이터 세트**로 이동하고 휴지통 아이콘을 클릭하여 데이터 세트(**contosoehdataset**)를 삭제합니다.
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Azure CLI를 사용하여 리소스 정리
 
@@ -382,4 +382,4 @@ Azure Event Hubs에 대해 자세히 알아보려면 다음 문서를 진행하�
 > [!div class="nextstepaction"]
 > [.NET Standard를 사용하여 Azure Event Hubs로 메시지 전송 시작](event-hubs-dotnet-standard-getstarted-send.md)
 
-[계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[계정을 만드세요]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

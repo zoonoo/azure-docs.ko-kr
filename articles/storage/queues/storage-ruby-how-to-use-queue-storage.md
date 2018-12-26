@@ -2,24 +2,20 @@
 title: Ruby에서 Queue Storage를 사용하는 방법 | Microsoft Docs
 description: Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Ruby로 작성되었습니다.
 services: storage
-documentationcenter: ruby
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 59c2d81b-db9c-46ee-ade2-2f0caae6b1e6
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 0d7624d47a6924a5c8dec66b47ac0887ff493879
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: queues
+ms.openlocfilehash: 67a5dc0eddb6deb51ec69c68c48d5edf308cf43e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719076"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231569"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Ruby에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -37,7 +33,7 @@ ms.locfileid: "38719076"
 ## <a name="create-a-ruby-application"></a>Ruby 응용 프로그램 만들기
 Ruby 응용 프로그램을 만듭니다. 지침은 [Linux의 App Service에서 Ruby 앱 만들기](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)를 참조하세요.
 
-## <a name="configure-your-application-to-access-storage"></a>저장소에 액세스하도록 응용 프로그램 구성
+## <a name="configure-your-application-to-access-storage"></a>스토리지에 액세스하도록 애플리케이션 구성
 Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용해야 합니다.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>RubyGems를 사용하여 패키지 가져오기
@@ -61,7 +57,7 @@ Azure.config.storage_access_key = "<your Azure storage access key>"
 
 Azure 포털의 클래식 또는 Resource Manager 저장소 계정에서 이러한 값을 가져오려면
 
-1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 사용하려는 저장소 계정으로 이동합니다.
 3. 오른쪽의 설정 블레이드에서 **액세스 키**를 클릭합니다.
 4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다. 
@@ -157,7 +153,7 @@ azure_queue_service.delete_queue("test-queue")
 ## <a name="next-steps"></a>다음 단계
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
-* [Azure Storage 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure Storage 팀 블로그](https://blogs.msdn.com/b/windowsazurestorage/)
 * GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) (영문) 리포지토리를 방문하세요.
 
-이 항목에서 다룬 Azure 큐 서비스와 [Service Bus 큐를 사용하는 방법](/develop/ruby/how-to-guides/service-bus-queues/) 항목에서 다루는 Azure Service Bus 큐를 비교하려면 [Azure Queues 및 Service Bus 큐 - 비교 및 대조](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하세요.
+이 항목에서 다룬 Azure 큐 서비스와 [Service Bus 큐를 사용하는 방법](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) 항목에서 다루는 Azure Service Bus 큐를 비교하려면 [Azure Queues 및 Service Bus 큐 - 비교 및 대조](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하세요.

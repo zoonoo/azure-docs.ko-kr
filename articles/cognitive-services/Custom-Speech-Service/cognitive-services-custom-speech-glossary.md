@@ -9,14 +9,16 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 2b6c54f023eccfa813817256bdcc1cbde83d49a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 02f6c3f81cbaa26eed8de8b7785b519ecbc3bf26
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373119"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344254"
 ---
 # <a name="glossary"></a>용어
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 ## <a name="a"></a>A
 
@@ -82,7 +84,7 @@ ms.locfileid: "35373119"
 
 ### <a name="search-and-dictate-model"></a>검색 및 받아쓰기 모델
 
-명령 처리에 적합한 음향 모델. Microsoft 검색 및 받아쓰기 AM은 명령처럼 응용 프로그램 또는 장치에서 지시하는 음성에 적합합니다.
+명령 처리에 적합한 음향 모델. Microsoft 검색 및 받아쓰기 AM은 명령처럼 애플리케이션 또는 디바이스에서 지시하는 음성에 적합합니다.
 
 ### <a name="subscription-key"></a>구독 키
 

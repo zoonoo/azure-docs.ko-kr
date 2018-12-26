@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: a4b87d92751c84d96bc70915d16adae7943c145e
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062880"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582499"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -58,12 +58,43 @@ ms.locfileid: "37062880"
 
 3. 지정된 사용자에게 할당된 모든 역할을 나열하려면 **Get-AzureRmRoleAssignment -SignInName [사용자 메일] -IncludeClassicAdministrators**를 사용합니다. 
 
-출력이 표시되지 않으면 각 구독 관리자에게 문의하여 명령을 실행할 권한을 얻으세요. 자세한 내용은 [Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)를 참조하세요.
+출력이 표시되지 않으면 각 구독 관리자에게 문의하여 명령을 실행할 권한을 얻으세요. 자세한 내용은 [Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)를 참조하세요.
 
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>트래픽 분석을 사용할 수 있는 Azure 지역은 어디인가요?
 
-미국 중서부, 미국 동부, 미국 동부 2, 미국 중북부, 미국 중남부, 미국 중부, 미국 서부, 미국 서부 2, 유럽 서부, 북유럽, 영국 서부, 영국 남부, 오스트레일리아 동부, 오스트레일리아 남동부 및 동남 아시아에서 NSG용 트래픽 분석을 사용할 수 있습니다. Log Analytics 작업 영역이 미국 중서부, 미국 동부, 유럽 서부, 영국 남부, 오스트레일리아 남동부 또는 동남 아시아 지역에 있어야 합니다.
+지원되는 다음 지역 중 하나에서 NSG용 트래픽 분석을 사용할 수 있습니다.
+- 캐나다 중부
+- 미국 중서부
+- 미국 동부
+- 미국 동부 2
+- 미국 중북부
+- 미국 중남부
+- 미국 중부
+- 미국 서부
+- 미국 서부 2
+- 서유럽
+- 북유럽
+- 브라질 남부
+- 영국 서부
+- 영국 남부
+- 오스트레일리아 동부
+- 오스트레일리아 남동부 
+- 동남아시아
+- 인도 중부
+- 인도 남부
+- 일본 동부
+
+Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
+- 캐나다 중부
+- 미국 중서부
+- 미국 동부
+- 서유럽
+- 영국 남부
+- 오스트레일리아 남동부
+- 동남아시아 
+- 인도 중부
+- 일본 동부
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>흐름 로그를 설정하려는 NSG가 작업 영역과 다른 지역에 있어도 되나요?
 
@@ -77,13 +108,13 @@ ms.locfileid: "37062880"
 
 예. 기존 작업 영역을 선택하는 경우, 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. 작업 영역을 업그레이드하지 않으려면 새 작업 영역을 만들어야 합니다. 새 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md)를 참조하세요.
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>Azure Storage 계정과 Operations Management Suite 작업 영역이 서로 다른 구독에 있어도 되나요?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Azure Storage 계정과 Log Analytics 작업 영역이 서로 다른 구독에 있어도 되나요?
 
-예. Azure Storage 계정이 한 구독에 있고 Operations Management Suite 작업 영역이 다른 구독에 있을 수 있습니다.
+네, Azure Storage 계정이 한 구독에 있고, Log Analytics 작업 영역이 다른 구독에 있어도 됩니다.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>원시 로그를 다른 구독에 저장할 수 있나요?
 
-아니요. 흐름 로그에 NSG를 사용할 수 있는 저장소 계정에 원시 로그를 저장할 수 있습니다. 그러나 저장소 계정과 원시 로그는 둘 다 동일한 구독 및 지역에 있어야 합니다.
+ 아니요. 흐름 로그에 NSG를 사용할 수 있는 저장소 계정에 원시 로그를 저장할 수 있습니다. 그러나 저장소 계정과 원시 로그는 둘 다 동일한 구독 및 지역에 있어야 합니다.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>“찾을 수 없음” 오류로 인해 트래픽 분석에 대해 NSG를 구성할 수 없으면 어떻게 하나요?
 
@@ -91,11 +122,11 @@ ms.locfileid: "37062880"
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>NSG 흐름 로그 페이지에 상태가 “로드 실패”로 표시되면 어떻게 하나요?
 
-흐름 로깅이 성공적으로 작동하려면 Microsoft.Insights 공급자를 등록해야 합니다. Microsoft.Insights 공급자가 구독에 대해 등록된 것인지 확실하지 않은 경우, 다음 명령에서 *xxxxx-xxxxx-xxxxxx-xxxx*를 바꾼 후 PowerShell에서 다음 명령을 실행합니다.
+흐름 로깅이 제대로 작동하려면 Microsoft.Insights 공급자를 등록해야 합니다. Microsoft.Insights 공급자가 구독에 등록되어 있는지 확실하지 않은 경우, 다음 명령에서 *xxxxx-xxxxx-xxxxxx-xxxx*를 바꾼 후 PowerShell에서 다음 명령을 실행합니다.
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>솔루션을 구성했습니다. 그런데 왜 대시보드에 아무 것도 표시되지 않나요?
@@ -115,7 +146,7 @@ ms.locfileid: "37062880"
 
 다음 이유로 메시지가 표시될 수 있습니다.
 - 트래픽 분석이 최근에 설정되었으며 의미 있는 인사이트를 얻는 데 필요한 데이터를 아직 충분히 수집하지 못했을 수 있습니다.
-- Operations Management Suite 작업 영역의 사용 가능한 버전을 사용하고 있고 할당량 한도를 초과했습니다. 용량이 큰 작업 영역을 사용해야 할 수도 있습니다.
+- Log Analytics 작업 영역의 체험판 버전을 사용하고 있고 할당량 한도를 초과했습니다. 용량이 큰 작업 영역을 사용해야 할 수도 있습니다.
     
 그래도 문제가 계속되면 [사용자 의견 포럼](https://feedback.azure.com/forums/217313-networking?category_id=195844)에 문제를 올려주세요.
     
@@ -194,7 +225,9 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 ## <a name="how-is-traffic-analytics-priced"></a>트래픽 분석의 비용은 얼마인가요?
 
-트래픽 분석은 요금이 측정됩니다. 요금은 서비스에서 생성된 흐름 로그 데이터 처리 및 Log Analytics 작업 영역에서 생성된 향상된 로그 저장을 기준으로 측정됩니다. 자세한 내용은 [가격 플랜](https://azure.microsoft.com/en-us/pricing/details/network-watcher/)을 참조하세요. 
+트래픽 분석은 요금이 측정됩니다. 요금은 서비스에서 생성된 흐름 로그 데이터 처리 및 Log Analytics 작업 영역에서 생성된 향상된 로그 저장을 기준으로 측정됩니다. 
+
+예를 들어 [가격 책정 계획](https://azure.microsoft.com/pricing/details/network-watcher/)과 관련해서 미국 중서부 지역을 고려해보겠습니다. 트래픽 분석에 의해 처리되는 저장소 계정에 저장된 흐름 로그 데이터가 10GB이고 Log Analytics 작업 영역에서 수집된 보강된 로그가 1GB인 경우 해당 요금은 10 x 2.3$ + 1 x 2.76$ = 25.76$가 됩니다.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>지역 지도 보기에서 키보드를 사용하여 탐색할 수 있나요?
 
@@ -216,9 +249,9 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 - 지도에서 강조 표시된 다른 노드로 이동하려면 `Tab` 또는 `Right arrow` 키를 사용하여 앞으로 이동합니다. 뒤로 이동하려면 `Shift+Tab` 또는 `Left arrow` 키를 사용합니다.
 - 지도에서 강조 표시된 노드를 선택하려면 `Enter` 또는 `Down arrow` 키를 사용합니다.
 - 노드를 선택하면 해당 노드의 **정보 도구 상자**로 포커스가 이동됩니다. 기본적으로 포커스는 **정보 도구 상자**의 닫힌 단추로 이동합니다. **상자** 보기 내부에서 추가로 이동하려면 `Right arrow` 및 `Left arrow` 키를 사용하여 각각 앞으로 또는 뒤로 이동할 수 있습니다. `Enter` 키를 누르면 **정보 도구 상자**에서 포커스가 있는 단추를 선택한 것과 동일한 효과가 적용됩니다.
-- **정보 도구 상자**에 포커스가 있는 동안 `Tab` 키를 누르면 선택된 노드와 동일한 대륙의 끝점으로 포커스가 이동합니다. `Right arrow` 및 `Left arrow` 키를 사용하여 이러한 끝점 간을 이동합니다.
-- 다른 흐름 끝점 또는 대륙 클러스터로 이동하려면 `Tab` 키를 사용하여 앞으로 이동하고 `Shift+Tab` 키를 사용하여 뒤로 이동합니다.
-- **대륙 클러스터**에 포커스가 있을 때 `Enter` 또는 `Down` 화살표 키를 사용하여 대륙 클러스터 내부의 끝점을 강조 표시할 수 있습니다. 대륙 클러스터의 정보 상자에서 끝점과 [닫기] 단추 간을 이동하려면 `Right arrow` 또는 `Left arrow` 키를 사용하여 각각 앞으로 또는 뒤로 이동할 수 있습니다. 아무 엔드포인트에서 `Shift+L` 키를 사용하여 선택한 노드와 엔드포인트를 잇는 연결선으로 전환할 수 있습니다. `Shift+L`을 다시 누르면 선택한 끝점으로 이동할 수 있습니다.
+- **정보 도구 상자**에 포커스가 있는 동안 `Tab` 키를 누르면 선택된 노드와 동일한 대륙의 끝점으로 포커스가 이동합니다. `Right arrow` 및 `Left arrow` 키를 사용하여 이러한 엔드포인트 간을 이동합니다.
+- 다른 흐름 엔드포인트 또는 대륙 클러스터로 이동하려면 `Tab` 키를 사용하여 앞으로 이동하고 `Shift+Tab` 키를 사용하여 뒤로 이동합니다.
+- **대륙 클러스터**에 포커스가 있을 때 `Enter` 또는 `Down` 화살표 키를 사용하여 대륙 클러스터 내부의 엔드포인트를 강조 표시할 수 있습니다. 대륙 클러스터의 정보 상자에서 엔드포인트와 [닫기] 단추 간을 이동하려면 `Right arrow` 또는 `Left arrow` 키를 사용하여 각각 앞으로 또는 뒤로 이동할 수 있습니다. 아무 엔드포인트에서 `Shift+L` 키를 사용하여 선택한 노드와 엔드포인트를 잇는 연결선으로 전환할 수 있습니다. `Shift+L`을 다시 누르면 선택한 엔드포인트로 이동할 수 있습니다.
         
 ### <a name="keyboard-navigation-at-any-stage"></a>모든 단계에서 키보드 탐색
     

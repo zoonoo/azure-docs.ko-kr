@@ -1,78 +1,70 @@
 ---
-title: Azure Portal에서 Cognitive Services API 계정 만들기 | Microsoft Docs
+title: Azure Portal에서 Cognitive Services API 계정 만들기
+titlesuffix: Azure Cognitive Services
 description: Azure Portal에서 Microsoft Cognitive Services API를 만드는 방법입니다.
 services: cognitive-services
-documentationcenter: ''
 author: garyericson
 manager: cgronlun
-editor: ''
-ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: cognitive-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.reviewer: gibattag
-ms.openlocfilehash: 3697dd0628f0028cb486139e92c032f0d757c6ed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 37f53303a3b0c224c1286fb488a796fd5cdee0e5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374487"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386419"
 ---
-# <a name="create-a-cognitive-services-apis-account-in-the-azure-portal"></a>Azure Portal에서 Cognitive Services API 계정 만들기
+# <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Cognitive Services 계정 만들기
 
-Microsoft Cognitive Service API를 사용하려면 먼저 Azure Portal에서 계정을 만들어야 합니다.
+이 빠른 시작을 통해 Azure Cognitive Services 사용을 시작합니다. 이러한 서비스는 사용 가능한 하나 이상의 Cognitive Services API에 연결할 수 있도록 하는 Azure [리소스](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)로 표시됩니다.
 
-1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+## <a name="prerequisites"></a>필수 조건
 
-2. **+ 리소스 만들기**를 클릭합니다.
+* 유효한 Azure 구독. 무료로 [계정을 만들 수 있습니다](https://azure.microsoft.com/free/).
 
-3. Azure Marketplace에서 **AI + Cognitive Services**를 선택하고 사용 가능한 API 목록을 검색합니다. Cognitive Services API의 전체 목록을 보려면 **모두 보기**를 클릭합니다. 계속 진행하려면 선택한 API를 클릭합니다.
+## <a name="create-and-subscribe-to-an-azure-cognitive-services-resource"></a>Azure Cognitive Services 리소스 생성 및 구독
 
-    ![Cognitive Services API 선택](media/cognitive-services-apis-create-account/select-cognitive-services-apis.png)
+1. [Azure Portal](http://portal.azure.com)에 로그인한 후 **+리소스 만들기**를 클릭합니다.
+    
+    ![Cognitive Services API 선택](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
-4. **만들기** 페이지에서 다음 정보를 제공합니다.
+2. Azure Marketplace에서 **AI + Machine Learning**을 선택합니다. 관심 있는 서비스가 표시되지 않으면 **모두 보기**를 클릭하여 전체 Cognitive Services API 카탈로그를 표시합니다.
 
-   - **계정 이름:** 계정의 이름입니다. 설명이 포함된 이름(예: *AFaceAPIAccount*)을 사용하는 것이 좋습니다.
+    ![Cognitive Services API 선택](media/cognitive-services-apis-create-account/azureMarketplace.png)
 
-   - **구독:** 참가자 이상의 권한이 있는 사용 가능한 Azure 구독 중 하나를 선택합니다.
+3. **만들기** 페이지에서 다음 정보를 제공합니다.
 
-   - **API 형식:** 사용하려는 Cognitive Services API를 선택합니다. 사용 가능한 다양한 Cognitive Services API에 대한 자세한 내용은 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) 사이트를 참조하세요.
+    |    |    |
+    |--|--|
+    | **Name** | Cognitive Services 리소스를 설명하는 이름입니다. 설명이 포함된 이름(예: *MyNameFaceAPIAccount*)을 사용하는 것이 좋습니다. |
+    | **구독** | 사용 가능한 Azure 구독 중 하나를 선택합니다. |
+    | **위치**: | Cognitive Service 인스턴스의 위치입니다. 다른 위치를 사용하면 대기 시간이 발생할 수 있지만 리소스의 런타임 가용성에는 영향을 주지 않습니다. |
+    | **가격 책정 계층** | Cognitive Services 계정의 비용은 선택한 옵션 및 사용량에 따라 다릅니다. 자세한 내용은 API [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/)를 참조하세요.
+    | **리소스 그룹** | Cognitive Services 리소스를 포함할 [Azure 리소스 그룹](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group)입니다. 새 그룹을 만들거나 기존 그룹에 추가할 수 있습니다. |
 
-   - **가격 책정 계층:** Cognitive Services 계정의 비용은 실제 사용량 및 선택한 옵션에 따라 다릅니다. 각 API의 가격 책정에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/)를 참조하세요.
+    ![리소스 만들기 화면](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
-   - **리소스 그룹:** 리소스 그룹은 동일한 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. 리소스 그룹에 대한 자세한 내용은 [포털을 통해 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)를 참조하세요.
+## <a name="access-your-resource"></a>리소스 액세스 
 
-   - **리소스 그룹 위치:** 선택된 API가 전역(특정 위치에 바인딩되지 않음)인 경우에만 필요합니다. 그렇지만 API가 전역이고 특정 위치에 바인딩되지 않은 경우 Cognitive Services API 계정과 연결된 메타데이터가 상주하는 리소스 그룹의 위치를 지정해야 합니다. 이 위치는 계정의 런타임 가용성에 영향을 주지 않습니다. 리소스 그룹에 대한 자세한 내용은 [포털을 통해 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)를 참조하세요.
+> [!NOTE]
+> 구독 소유자는 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition)을 적용하고, “허용되는 리소스 종류 없음” 정책 정의를 할당하고, **Microsoft.CognitiveServices/accounts**를 대상 리소스 종류로 지정하여 리소스 그룹 및 구독의 Cognitive Services 계정을 만들지 못하게 할 수 있습니다.
 
-   - **온라인 서비스 사용 약관에 대한 명시적 승인**: 계정을 만들려면 구독 소유자 또는 참가자([Azure 역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/overview)에서 정의됨)가 [온라인 서비스 사용 약관](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx)에서 Cognitive Services에 적용되는 사용 약관을 명시적으로 승인해야 합니다. 
+리소스를 만든 후 고정하면 Azure 대시보드에서 액세스할 수 있습니다. 그렇지 않으면 **리소스 그룹**에서 찾을 수 있습니다.
 
-     구독 소유자는 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](../azure-policy/assign-policy-definition.md) 문서에 따라 “허용되는 리소스 종류 없음” 정책 정의를 할당하고 **Microsoft.CognitiveServices/accounts**를 대상 리소스 종류로 지정하여 [Azure 정책](../azure-policy/azure-policy-introduction.md)을 통해 특정 리소스 그룹 또는 구독과 관련해서 Cognitive Services 계정을 만들지 못하도록 설정할 수 있습니다.
+Cognitive Services 리소스 내에서 **개요** 섹션의 엔드포인트 URL 및 키를 사용하여 응용 프로그램에서 API 호출을 시작할 수 있습니다.
 
-     계정 생성이 비활성화된 경우 계정을 만들 때 다음 오류가 표시됩니다.
+![리소스 화면](media/cognitive-services-apis-create-account/resourceScreen.png)
 
-     ![계정 만들기 오류](media/cognitive-services-apis-create-account/error-message.png)
+## <a name="next-steps"></a>다음 단계
 
-5. Azure Portal 대시보드에 계정을 고정하려면 **대시보드에 고정**을 클릭합니다.
+> [!div class="nextstepaction"]
+> [Computer Vision API C# 자습서](https://docs.microsoft.com/azure/cognitive-services/computer-vision/tutorials/csharptutorial)
 
-6. **만들기**를 클릭하여 계정을 만듭니다.
+## <a name="see-also"></a>참고 항목
 
-Cognitive Services 계정이 성공적으로 배포되면 대시보드에서 타일을 클릭하여 계정 정보를 확인합니다.
-
-**개요** 섹션의 **끝점 URL**과 **키** 섹션의 키를 사용하여 응용 프로그램에서 API 호출을 시작할 수 있습니다.
-
-![계정 정보 표시](media/cognitive-services-apis-create-account/display-account.png)
-
-![계정 키 표시](media/cognitive-services-apis-create-account/account-keys.png)
-
-### <a name="next-steps"></a>다음 단계
-
-사용 가능한 모든 Microsoft Cognitive Services에 대한 자세한 내용은 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 참조하세요.
-
-몇 가지 예제 Cognitive Services API 사용에 대한 빠른 시작 가이드는 다음을 참조하세요.
-
- - [Computer Vision C# 빠른 시작](/computer-vision/quickstarts/csharp.md)
- - [텍스트 분석 및 Python](/text-analytics/quickstarts/python.md)
- - [Face API 및 JavaScript](/face/quickstarts/javascript.md)
+* [빠른 시작: 이미지에서 필기된 텍스트 추출](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
+* [자습서: 이미지에서 얼굴을 감지하고 포착하는 앱 만들기](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial)
+* [Custom Search 웹 페이지 빌드](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)
+* [Bot Framework를 사용하여 봇에 LUIS(Language Understanding) 통합](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample)

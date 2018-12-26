@@ -9,14 +9,16 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: panosper
-ms.openlocfilehash: a6139283a555f8f97371c02f9d1f3d53dc6f15d3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 97eee2b6440dbbf740ad5fa856bd518facabbfef
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374766"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342299"
 ---
 # <a name="what-is-custom-speech-service"></a>Custom Speech Service란?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Custom Speech Service는 사용자에게 음성-텍스트 전사에 대한 음성 모델을 사용자 지정할 수 있는 기능을 제공하는 클라우드 기반 서비스입니다.
 Custom Speech Service를 사용하려면 [Custom Speech Service 포털](https://cris.ai)을 참조합니다.
@@ -42,7 +44,7 @@ Microsoft 음성 대 텍스트 엔진은 세계 정상급이면서 위에서 설
 
 ## <a name="next-steps"></a>다음 단계
 
-Custom Speech Service를 사용하는 방법에 대한 자세한 내용은 [Custom Speech Service 포털](https://cris.ai)을 참조합니다.
+Custom Speech Service를 사용하는 방법에 대한 자세한 내용은 [Custom Speech Service 포털](https://cris.ai)을 참조하세요.
 
 * [시작](cognitive-services-custom-speech-get-started.md)
 * [FAQ](cognitive-services-custom-speech-faq.md)

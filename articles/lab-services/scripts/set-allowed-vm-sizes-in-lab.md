@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 159f175e7bb27b2d89001e1eba737c67adb89e50
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 559e74675a5d113584dca21979c20462c9cdf19c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638146"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054709"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>PowerShell을 사용하여 Azure Lab Services에서 허용되는 VM 크기 설정
 
@@ -38,7 +38,7 @@ ms.locfileid: "34638146"
 
 | 명령 | 메모 |
 |---|---|
-| [Find-AzureRmResource](/module/azurerm.resources/find-azurermresource) | 지정된 매개 변수를 기반으로 리소스를 검색합니다. |
+| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | 지정된 매개 변수를 기반으로 리소스를 검색합니다. |
 | [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | 리소스를 가져옵니다. |
 | [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | 리소스를 수정합니다. |
 | [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | 리소스를 만듭니다. |

@@ -1,22 +1,23 @@
 ---
-title: Microsoft Translator Text API Lookup 메서드 | Microsoft Docs
-description: Microsoft Translator Text API Lookup 메서드를 사용합니다.
+title: Translator Text API 사전 조회 메서드
+titlesuffix: Azure Cognitive Services
+description: Translator Text API 사전 조회 메서드를 사용합니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 31435fcfca61517bfc72d534e911a1dcadbee52b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41b610f3504a8eb6619613e3ad0aa7c1c4cf9f66
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377527"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127846"
 ---
-# <a name="text-api-30-dictionary-lookup"></a>Text API 3.0: 사전 조회
+# <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3.0: 사전 조회
 
 하나의 단어와 소수의 관용구에 대한 대체 번역을 제공합니다. 각 번역에는 음성 일부 및 역번역 목록이 포함되어 있습니다. 역번역을 사용하면 번역 맥락을 이해할 수 있습니다. [사전 예제](.\v3-0-dictionary-examples.md) 작업을 사용하면 추가로 드릴다운하여 각 번역 쌍의 사용 예제를 볼 수 있습니다.
 

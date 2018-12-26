@@ -3,8 +3,9 @@ title: Cortana Intelligence 대회 관련 FAQ | Microsoft Docs
 description: Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문입니다.
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.author: haining
+author: ericlicoding
+ms.custom: (previous ms.author=haining, author=hning86)
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
@@ -15,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1db1b8ee7ba3611f8d1d69f711f1ec72308c7d06
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8782af26056f8341ee68ed87f003bc585e0c4e69
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833331"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265112"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence 대회 관련 FAQ
 **Cortana Intelligence 대회는 무엇입니까?**
 
-Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커뮤니티가 한 자리에 모여서 가장 복잡한 데이터 과학 문제를 집단적으로 해결하는 대회입니다. 전 세계의 데이터 전문가들이 Cortana Intelligence 대회를 통해 서로 실력을 겨루고, 매우 정확하고 지능적인 데이터 과학 모델을 만들 수 있습니다. Microsoft가 주최하는 이러한 대회는 대중에게 최초로 공개된 고유한 데이터 집합을 기반으로 합니다. 상위 10위에 이름을 올린 참가자는 보상을 받거나 이름을 널리 알릴 수 있습니다. [aka.ms/CIComp](http://aka.ms/CIComp)에서 대회 홈페이지에 액세스할 수 있습니다.
+Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커뮤니티가 한 자리에 모여서 가장 복잡한 데이터 과학 문제를 집단적으로 해결하는 대회입니다. 전 세계의 데이터 전문가들이 Cortana Intelligence 대회를 통해 서로 실력을 겨루고, 매우 정확하고 지능적인 데이터 과학 모델을 만들 수 있습니다. Microsoft가 주최하는 이러한 대회는 대중에게 최초로 공개된 고유한 데이터 집합을 기반으로 합니다. 상위 10위에 이름을 올린 참가자는 보상을 받거나 이름을 널리 알릴 수 있습니다. [aka.ms/CIComp](https://aka.ms/CIComp)에서 대회 홈페이지에 액세스할 수 있습니다.
 
 **Microsoft는 새 대회를 얼마나 자주 여나요?**
 
@@ -37,7 +38,7 @@ Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커�
 
 **경쟁에 참가하려면 어떻게 해야 하나요?**
 
-[Azure AI Gallery](https://gallery.cortanaintelligence.com/)에서 [대회](https://gallery.cortanaintelligence.com/competitions) 홈페이지에 액세스하거나 [http://aka.ms/CIComp](http://aka.ms/CIComp)로 이동합니다. 홈페이지에는 현재 실행 중인 모든 대회가 나열됩니다. 각 대회의 로그인 페이지에 구체적인 지침과 참가 규칙, 상품 및 대회 기간이 나와 있을 것입니다.
+[Azure AI Gallery](https://gallery.cortanaintelligence.com/)에서 [대회](https://gallery.cortanaintelligence.com/competitions) 홈페이지에 액세스하거나 [http://aka.ms/CIComp](https://aka.ms/CIComp)로 이동합니다. 홈페이지에는 현재 실행 중인 모든 대회가 나열됩니다. 각 대회의 로그인 페이지에 구체적인 지침과 참가 규칙, 상품 및 대회 기간이 나와 있을 것입니다.
 
 1. 참가하려는 대회를 찾아서 모든 지침을 읽고 자습서 비디오를 시청하세요. 그런 다음 **대회 참가** 단추를 클릭하고 기존 Azure Machine Learning 작업 영역에 시작 실험을 복사합니다. 아직 작업 영역에 액세스할 수 없는 경우 작업 영역부터 만들어야 합니다. 시작 실험을 실행하고, 성능 메트릭을 관찰한 다음, 창의력을 발휘하여 모델의 성능을 개선합니다. 아마도 대부분의 시간을 이 단계에서 보내게 될 것입니다.   
 
@@ -51,15 +52,15 @@ Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커�
 
 **오픈 소스 도구를 사용하여 이 대회에 참가할 수 있나요?**
 
-대회 참가자는 데이터 과학 모델 개발을 위한 Cortana Intelligence Suite의 클라우드 기반 서비스인 Azure Machine Learning Studio를 사용하여 대회에 제출할 응모작을 만들어야 합니다. Machine Learning Studio는 기계 학습 실험을 만들기 위한 GUI 인터페이스를 제공할 뿐 아니라 네이티브 실행을 위한 참가자 고유의 R 및/또는 Python 스크립트를 가져올 수 있습니다. Studio의 R 및 Python 런타임에는 다양한 오픈 소스 R/Python 패키지가 포함되어 있습니다. 자체 패키지를 실험의 일부로 가져올 수도 있습니다. 또한 자유롭게 데이터를 탐색할 수 있도록 Studio에 Jupyter Notebook 서비스가 내장되어 있습니다. 물론, 언제든지 대회에 사용되는 데이터 집합을 다운로드하고 Machine Learning Studio 이외의 선호하는 도구에서 살펴볼 수 있습니다. 
+대회 참가자는 데이터 과학 모델 개발을 위한 Cortana Intelligence Suite의 클라우드 기반 서비스인 Azure Machine Learning Studio를 사용하여 대회에 제출할 응모작을 만들어야 합니다. Machine Learning Studio는 기계 학습 실험을 만들기 위한 GUI 인터페이스를 제공할 뿐 아니라 네이티브 실행을 위한 참가자 고유의 R 및/또는 Python 스크립트를 가져올 수 있습니다. Studio의 R 및 Python 런타임에는 다양한 오픈 소스 R/Python 패키지가 포함되어 있습니다. 자체 패키지를 실험의 일부로 가져올 수도 있습니다. 또한 자유롭게 데이터를 탐색할 수 있도록 Studio에 Jupyter Notebook 서비스가 내장되어 있습니다. 물론, 언제든지 대회에 사용되는 데이터 세트를 다운로드하고 Machine Learning Studio 이외의 선호하는 도구에서 살펴볼 수 있습니다. 
 
 **참가하려면 데이터 과학자여야 하나요?**
 
-번호 데이터 고급 사용자, 데이터 과학에 관심이 있는 사용자, 데이터 과학자를 꿈꾸는 분이라면 누구나 대회에 참가할 수 있습니다. 지원 문서는 모든 사용자가 경쟁할 수 있도록 디자인되었습니다. 참가 대상은 다음과 같습니다.
+아니요. 데이터 고급 사용자, 데이터 과학에 관심이 있는 사용자, 데이터 과학자를 꿈꾸는 분이라면 누구나 대회에 참가할 수 있습니다. 지원 문서는 모든 사용자가 경쟁할 수 있도록 디자인되었습니다. 참가 대상은 다음과 같습니다.
 
 * **데이터 개발자**, **데이터 과학자**, **BI** 및 **분석 전문가**: 서비스를 이용할 다른 사람을 위해 데이터 및 분석 콘텐츠를 만드는 사람.
 * **데이터 관리자**: 해당 데이터, 데이터의 의미와 사용 의도 및 목적에 대한 지식이 있는 사람
-* **학생** & **연구원**: 대학에서 교육 프로그램을 통해 데이터 관련 기술을 배우고 익히는 사람 또는 MOOC(Massive Open Online Courses) 참가자
+* **학생** 및 **연구원**: 대학에서 교육 프로그램을 통해 데이터 관련 기술을 배우고 익히는 사람 또는 MOOC(Massive Open Online Courses) 참가자
 
 **동료들과 함께 팀으로 응모할 수 있나요?**
 
@@ -77,7 +78,7 @@ Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커�
 
 다음과 같은 상황이 발생합니다.
 
-* 대회에 사용된 전체 데이터 집합이 임의로 학습 데이터와 테스트 데이터(학습 데이터를 제외한 나머지)로 층화되어 분할됩니다. 학습 및 테스트 데이터의 레이블 분포가 일정하도록 임의 분할이 층화됩니다.
+* 대회에 사용된 전체 데이터 세트가 임의로 학습 데이터와 테스트 데이터(학습 데이터를 제외한 나머지)로 층화되어 분할됩니다. 학습 및 테스트 데이터의 레이블 분포가 일정하도록 임의 분할이 층화됩니다.
 * 데이터 가져오기 모듈 구성의 시작 실험의 일부로 학습 데이터가 업로드되어 제공됩니다.
 * 동일한 층화를 사용하여 테스트 데이터가 공용 및 개인 테스트 데이터로 추가 분할됩니다.
 * 공용 테스트 데이터가 채점의 초기 라운드에 사용됩니다. 결과를 공용 점수라고 하며, 항목을 제출할 때 제출 기록에 표시되는 내용입니다. 이 점수는 제출되는 모든 응모작에 대해 계산됩니다. 이 공용 점수는 공용 순위표에서 순위를 지정할 때 사용됩니다.
@@ -98,7 +99,7 @@ Microsoft에서 개인 순위표의 결과를 확인한 다음 연락드립니�
 
 **대회에서 우승하면 상금은 어떻게 받나요?**
 
-경쟁 우승자인 경우 자격 상태, 라이선스 및 릴리스의 선언에 서명해야 합니다. 이 양식에서는 경쟁 규칙을 반복합니다. 우승자는 미국 세금 양식 W-9를 작성하거나 미국 납세자가 아닌 경우 양식 W-8BEN을 작성해야 합니다. 보상 지급 프로세스에 따라 모든 수상자가 등록한 전자 메일로 연락이 갈 것입니다. 자세한 내용은 [약관](http://aka.ms/comptermsandconditions) 을 참조하세요.
+경쟁 우승자인 경우 자격 상태, 라이선스 및 릴리스의 선언에 서명해야 합니다. 이 양식에서는 경쟁 규칙을 반복합니다. 우승자는 미국 세금 양식 W-9를 작성하거나 미국 납세자가 아닌 경우 양식 W-8BEN을 작성해야 합니다. 보상 지급 프로세스에 따라 모든 수상자가 등록한 전자 메일로 연락이 갈 것입니다. 자세한 내용은 [약관](https://aka.ms/comptermsandconditions) 을 참조하세요.
 
 **같은 점수를 받은 응모작이 여러 개 있으면 어떻게 되나요?**
 
@@ -106,7 +107,7 @@ Microsoft에서 개인 순위표의 결과를 확인한 다음 연락드립니�
 
 **게스트 작업 영역을 사용하여 참가할 수 있나요?**
 
-번호 대회에 참가하려면 무료 또는 표준 작업 영역을 사용해야 합니다. 게스트 작업 영역에서 대회 시작 실험을 열 수 있으나 해당 작업 영역에서 제출할 수 있는 유효한 항목을 만들 수는 없습니다. 
+아니요. 대회에 참가하려면 무료 또는 표준 작업 영역을 사용해야 합니다. 게스트 작업 영역에서 대회 시작 실험을 열 수 있으나 해당 작업 영역에서 제출할 수 있는 유효한 항목을 만들 수는 없습니다. 
 
 **모든 Azure 지역에서 작업 영역을 사용하여 대회에 참가할 수 있나요?**
 
@@ -114,5 +115,5 @@ Microsoft에서 개인 순위표의 결과를 확인한 다음 연락드립니�
 
 **Microsoft가 사용자의 대회 솔루션 및 응모작을 보관하나요?**
 
-사용자의 응모작은 우승 솔루션을 선발하기 위한 평가 용도로만 보관됩니다. 자세한 내용은 [약관](http://aka.ms/comptermsandconditions) 을 참조하세요.
+사용자의 응모작은 우승 솔루션을 선발하기 위한 평가 용도로만 보관됩니다. 자세한 내용은 [약관](https://aka.ms/comptermsandconditions) 을 참조하세요.
 

@@ -1,12 +1,12 @@
 ---
-title: Machine Learning 스튜디오로 데이터 가져오기 | Microsoft Docs
+title: Machine Learning 스튜디오로 데이터 가져오기 - Azure | Microsoft Docs
 description: 다양한 데이터 원본에서 Azure Machine Learning Studio로 데이터를 가져오는 방법. 지원되는 데이터 형식에 대해 알아봅니다.
 keywords: 데이터 가져오기, 데이터 형식, 데이터 유형, 데이터 원본, 학습 데이터
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
+author: ericlicoding
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: amlstudiodocs
 editor: cgronlun
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
@@ -16,35 +16,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: a5750555802489b41b007831164767beb953ebc4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2f8c1eb43fddb21a59d4f00fd86b08d3fb3608f4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34837466"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269960"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>다양한 데이터 원본에서 Azure Machine Learning Studio로 학습 데이터를 가져오기
-다음을 수행하면 Machine Learning Studio에 사용자 고유의 데이터를 사용하여 예측 분석 솔루션을 개발 및 학습할 수 있습니다. 
 
-* 미리 하드 드라이브의 **로컬 파일** 에서 데이터를 업로드하여 사용자의 작업 영역에 데이터 집합 모듈을 만듭니다.
-* [데이터 가져오기][import-data] 모듈을 사용하여 실험을 실행하는 동안 여러 **온라인 데이터 원본** 중 하나에서 데이터에 액세스합니다. 
-* **데이터 집합**으로 저장된 또 다른 Azure 기계 학습 실험에서 나온 데이터를 사용합니다.
-* 온-프레미스 **SQL Server 데이터베이스**에서 데이터 사용합니다.
+다음 데이터를 사용하면 Machine Learning Studio에 사용자 고유의 데이터를 사용하여 예측 분석 솔루션을 개발 및 학습할 수 있습니다. 
 
-이러한 각 옵션을 아래 메뉴의 항목 중 하나에서 설명합니다. 이 항목에서는 Machine Learning Studio에서 사용하기 위해 이러한 여러 데이터 원본에서 데이터를 가져오는 방법을 보여 줍니다. 
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
+* [**로컬 파일**](import-data-from-local-file.md) - 하드 드라이브에서 로컬 데이터를 미리 로드하여 사용자의 작업 영역에 데이터 세트 모듈을 만듭니다.
+* [**온라인 데이터 원본**](import-data-from-online-sources.md) - [데이터 가져오기][import-data] 모듈을 사용하여 실험을 실행하는 동안 여러 온라인 원본 중 하나에서 데이터에 액세스합니다.
+* [**Machine Learning Studio 실험**](import-data-from-an-experiment.md) - Machine Learning Studio에서 데이터 세트로 저장된 데이터를 사용합니다.
+* [**온-프레미스 SQL Server 데이터베이스**](use-data-from-an-on-premises-sql-server.md) - 수동으로 데이터를 복사하지 않고도 온-프레미스 SQL Server 데이터베이스의 데이터를 사용합니다.
 
 > [!NOTE]
-> Machine Learning Studio에는 학습 데이터로 사용할 수 있는 샘플 데이터 집합이 많이 있습니다. 이에 대한 자세한 내용은 [Azure Machine Learning Studio의 샘플 데이터 집합 사용](use-sample-datasets.md)을 참조하세요.
+> Machine Learning Studio에는 학습 데이터로 사용할 수 있는 샘플 데이터 세트가 많이 있습니다. 이에 대한 자세한 내용은 [Azure Machine Learning Studio의 샘플 데이터 세트 사용](use-sample-datasets.md)을 참조하세요.
 > 
 > 
 
-또한 이 소개 항목에서는 Machine Learning Studio에 사용할 준비가 완료된 데이터를 가져오는 방법을 보여 주고 지원되는 데이터 형식과 데이터 유형을 다룹니다. 
-
-> [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-> 
-> 
+또한 이 소개 문서에서는 Machine Learning Studio에 사용할 준비가 완료된 데이터를 가져오는 방법을 보여 주고 지원되는 데이터 형식과 데이터 유형을 다룹니다.
 
 ## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 사용할 준비가 완료된 데이터 가져오기
 Machine Learning Studio는 데이터베이스에서 구분되었거나 구조화된 데이터인 텍스트 데이터 등의 직사각형 또는 테이블 형식 데이터에 대해 작업하도록 설계되어 있습니다. 단, 경우에 따라 직사각형이 아닌 데이터도 사용할 수 있습니다.
@@ -86,7 +79,7 @@ Machine Learning Studio에서 인식하는 **데이터 유형**은 다음과 같
 * Datetime
 * timespan
 
-Machine Learning 스튜디오에서는 ***데이터 테이블***이라는 내부 데이터 형식을 사용하여 모듈 간에 데이터를 전달합니다. [데이터 집합으로 변환][convert-to-dataset] 모듈을 사용하여 명시적으로 데이터를 데이터 테이블 형식으로 변환할 수 있습니다.
+Machine Learning 스튜디오에서는 ***데이터 테이블***이라는 내부 데이터 형식을 사용하여 모듈 간에 데이터를 전달합니다. [데이터 세트로 변환][convert-to-dataset] 모듈을 사용하여 명시적으로 데이터를 데이터 테이블 형식으로 변환할 수 있습니다.
 
 데이터 테이블 이외의 형식을 허용하는 모든 모듈에서는 다음 모듈에 데이터를 전달하기 전에 데이터를 데이터 테이블로 자동 변환합니다.
 

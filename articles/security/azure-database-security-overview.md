@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 27f6ccadaa89042ebced759ac3040b5b79e1f8f8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051528"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584777"
 ---
 # <a name="azure-database-security-overview"></a>Azure 데이터베이스 보안 개요
 
@@ -35,7 +35,7 @@ Microsoft는 엔터프라이즈 데이터를 암호화하는 추가적인 방법
 
 Azure SQL Database 감사를 사용하면 기업에서 로그인 Azure Storage에 이벤트를 기록할 수 있습니다. 또한 드릴다운 보고서 및 분석을 용이하게 하려면 SQL Database 감사 기능을 Microsoft Power BI와 통합합니다.
 
-Azure SQL Database는 HIPAA, ISO 27001/27002, PCI DSS Level 1 등을 비롯한 대부분의 규제 또는 보안 요구 사항을 만족할 수 있게 강력히 보호될 수 있습니다. 보안 규정 준수 인증의 최신 목록은 [Microsoft Azure Trust Center 사이트](http://azure.microsoft.com/support/trust-center/services/)에서 제공합니다.
+Azure SQL Database는 HIPAA, ISO 27001/27002, PCI DSS Level 1 등을 비롯한 대부분의 규제 또는 보안 요구 사항을 만족할 수 있게 강력히 보호될 수 있습니다. 보안 규정 준수 인증의 최신 목록은 [Microsoft Azure Trust Center 사이트](https://azure.microsoft.com/support/trust-center/services/)에서 제공합니다.
 
 이 문서에서는 구조적, 테이블 형식 및 관계형 데이터에 대한 Microsoft Azure SQL Database 보호의 기본 사항을 안내합니다. 특히 이 문서에서는 데이터 보호, 액세스 제어 및 사전 모니터링을 위한 리소스로 시작합니다.
 
@@ -44,7 +44,7 @@ Azure SQL Database는 HIPAA, ISO 27001/27002, PCI DSS Level 1 등을 비롯한 �
 SQL Database는 암호화를 제공하여 데이터를 보호하도록 도와줍니다.
 
 - 이동 중인 데이터 - [TLS(전송 계층 보안)](https://support.microsoft.com/kb/3135244)를 통해
-- 미사용 데이터 - [투명한 데이터 암호화](http://go.microsoft.com/fwlink/?LinkId=526242)를 통해
+- 미사용 데이터 - [투명한 데이터 암호화](https://go.microsoft.com/fwlink/?LinkId=526242)를 통해
 - 사용 중인 데이터 - [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)를 통해
 
 데이터를 암호화하는 다른 방법으로 다음을 고려해 보세요.
@@ -65,11 +65,12 @@ Azure SQL Database에 대한 모든 연결은 데이터베이스로/로부터 �
 응용 프로그램의 연결 문자열에서 연결을 암호화하고 서버 인증서를 신뢰하지 않도록 매개 변수를 지정해야 합니다. Azure Portal 외부에서 연결 문자열을 복사할 때 이 작업을 수행합니다. 그렇지 않으면 연결에서 서버의 ID를 확인하지 않으므로 "메시지 가로채기(man-in-the-middle)" 공격에 노출됩니다. 예를 들어, ADO.NET 드라이버의 경우 이러한 연결 문자열 매개 변수는 `Encrypt=True` 및 `TrustServerCertificate=False`입니다.
 
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
+
 데이터베이스를 보호하기 위해 여러 가지 예방 조치를 취할 수 있습니다. 예를 들어, 보안 시스템을 설계하고, 중요한 자산을 암호화하고, 데이터베이스 서버 방화벽을 작성합니다. 그러나 물리적 미디어(예: 드라이브 또는 백업 테이프)가 도난되는 시나리오에서는 악의적인 사용자가 데이터베이스를 단순히 복원하거나 연결하여 데이터를 찾아 볼 수 있습니다.
 
 한 가지 해결 방법으로 데이터베이스의 중요한 데이터를 암호화하고 인증서로 데이터를 암호화하는 데 사용되는 키를 보호합니다. 이렇게 하면 키가 없는 사람이 데이터를 사용할 수 없게 되지만 이러한 종류의 보호는 계획해야 합니다.
 
-이 문제를 해결하기 위해 SQL Server 및 SQL Database는 [투명한 데이터 암호화](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017)를 지원합니다. 투명한 데이터 암호화는 SQL Server 및 SQL Database 데이터 파일을 암호화합니다. 이를 미사용 데이터 암호화라고 합니다.
+이 문제를 해결하기 위해 SQL Server 및 SQL Database는 [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017)를 지원합니다. 투명한 데이터 암호화는 SQL Server 및 SQL Database 데이터 파일을 암호화합니다. 이를 미사용 데이터 암호화라고 합니다.
 
 투명한 데이터 암호화는 악의적인 활동의 위협으로부터 보호합니다. 응용 프로그램에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다.  
 
@@ -92,6 +93,7 @@ Always Encrypted는 데이터를 소유하고 볼 수 있는 사용자와 데이
 또한 Always Encrypted는 응용 프로그램에 대해 암호화를 투명하게 합니다. 클라이언트 응용 프로그램에서 중요 데이터를 자동으로 암호화 및 암호 해독할 수 있게, Always Encrypted를 구현하는 드라이버는 클라이언트 컴퓨터에 설치됩니다. 드라이버는 데이터베이스 엔진에 데이터를 전달하기 전에 중요한 열의 데이터를 암호화합니다. 드라이버는 응용 프로그램에 대한 의미 체계가 유지되도록 쿼리를 자동으로 다시 작성합니다. 마찬가지로, 드라이버는 암호화된 데이터베이스 열에 저장되고 쿼리 결과에 포함된 데이터를 투명하게 암호 해독합니다.
 
 ## <a name="access-control"></a>Access Control
+
 보안을 제공하기 위해 SQL Database는 다음을 사용하여 액세스를 제어합니다.
 
 - IP 주소를 통해 연결을 제한하는 방화벽 규칙
@@ -124,11 +126,13 @@ Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 �
   - Windows 통합 인증 또는 Azure AD에서 지원하는 기타 인증을 사용하여 암호 저장을 제거할 수 있습니다.
 
 #### <a name="authorization"></a>권한 부여
+
 [권한 부여](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins)는 사용자가 Azure SQL Data Database 내에서 수행할 수 있는 작업을 참조합니다. 사용자 계정의 데이터베이스 [역할 멤버 자격](https://msdn.microsoft.com/library/ms189121) 및 [개체 수준 사용 권한](https://msdn.microsoft.com/library/ms191291.aspx)에 따라 제어됩니다. 권한 부여는 보안 주체가 액세스할 수 있는 보호 가능한 리소스와, 해당 리소스에 대해 허용되는 작업을 결정하는 프로세스입니다.
 
 ### <a name="application-access"></a>응용 프로그램 액세스
 
 #### <a name="dynamic-data-masking"></a>동적 데이터 마스킹
+
 콜 센터의 서비스 담당자는 주민 등록 번호 또는 신용 카드 번호의 여러 숫자로 호출자를 식별할 수 있습니다. 하지만 이러한 데이터 항목이 서비스 담당자에게 완전히 노출되어서는 안 됩니다.
 
 모든 쿼리의 결과 집합에서 주민 등록 번호 또는 신용 카드 번호의 마지막 4자리를 제외한 모든 숫자를 마스킹하도록 마스킹 규칙을 정의할 수 있습니다.
@@ -141,11 +145,11 @@ Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 �
 
 [동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)을 수행하면 응용 프로그램 계층에 대한 영향을 최소화하면서 표시할 중요한 데이터의 양을 지정할 수 있도록 하여 중요한 데이터에 대한 무단 액세스를 방지할 수 있습니다. 동적 데이터 마스킹은 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다. 이때 데이터베이스의 데이터 자체는 변경되지 않습니다.
 
-
 > [!Note]
 > Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역할이 동적 데이터 마스킹을 구성할 수 있습니다.
 
 #### <a name="row-level-security"></a>행 수준 보안
+
 다중 테넌트 데이터베이스에 대한 또 다른 공통 보안 요구 사항은 [행 수준 보안](https://msdn.microsoft.com/library/dn765131.aspx)입니다. 이 기능을 사용하면 쿼리를 실행하는 사용자의 특성을 기반으로 하여 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다. 특성의 예로는 그룹 멤버 자격 및 실행 컨텍스트가 있습니다.
 
 ![클라이언트 응용 프로그램을 통해 사용자가 테이블의 행에 액세스하도록 허용하는 행 수준 보안](./media/azure-databse-security-overview/azure-database-fig4.png)
@@ -155,18 +159,20 @@ Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 �
 행 수준 보안에서는 조건자 기반 액세스 제어를 도입합니다. 이 제어는 메타데이터 또는 관리자가 적절하다고 판단한 다른 기준을 반영할 수 있는 유연하고 중앙 집중적인 평가가 특징입니다. 조건자는 사용자 특성에 따라 해당 사용자가 데이터에 대해 적합한 액세스 권한이 있는지 여부를 판단하기 위한 기준으로 사용됩니다. 조건자 기준 액세스 제어를 사용하여 레이블 기반 액세스 제어를 구현할 수 있습니다.
 
 ## <a name="proactive-monitoring"></a>사전 모니터링
+
 SQL Database는 *감사* 및 *위협 검색* 기능을 제공하여 데이터를 보호합니다.
 
 ### <a name="auditing"></a>감사
+
 [SQL Database 감사](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started)는 데이터베이스 내에서 발생하는 변경 사항과 이벤트에 대한 정보를 파악하는 기능을 강화합니다. 업데이트 및 데이터에 대한 쿼리를 예로 들 수 있습니다.
 
 SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 기록합니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다. 감사를 사용하면 규정 표준을 보다 쉽게 준수할 수 있지만 규정을 완전히 준수한다고 보장할 수는 없습니다.
 
 SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
--   **유지** 합니다. 감사할 데이터베이스 동작의 범주를 정의할 수 있습니다.
--   **보고** 합니다. 미리 구성된 보고서 및 대시보드를 사용하여 활동 및 이벤트 보고를 빠르게 시작할 수 있습니다.
--   **분석** 합니다. 의심스러운 이벤트, 특별한 활동 및 추세를 찾을 수 있습니다.
+- **유지** 합니다. 감사할 데이터베이스 동작의 범주를 정의할 수 있습니다.
+- **보고** 합니다. 미리 구성된 보고서 및 대시보드를 사용하여 활동 및 이벤트 보고를 빠르게 시작할 수 있습니다.
+- **분석** 합니다. 의심스러운 이벤트, 특별한 활동 및 추세를 찾을 수 있습니다.
 
 두 가지 감사 방법이 있습니다.
 
@@ -174,13 +180,26 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 -   **테이블 감사** - Azure Table Storage에 로그가 기록됩니다.
 
 ### <a name="threat-detection"></a>위협 감지
-[Azure SQL Database 위협 검색](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)은 보안 위협의 가능성이 있는 의심스러운 활동을 검색합니다. 위협 검색을 통해 SQL 삽입 등, 데이터베이스에 의심스러운 이벤트가 발생하면 그에 대처할 수 있습니다. 경고를 제공하며 Azure SQL Database Auditing이 의심스러운 이벤트를 탐색할 수 있게 지원합니다.
+
+[Azure SQL Database에 대한 Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-advanced-threat-protection)은 보안 위협의 가능성이 있는 의심스러운 활동을 검색합니다. 위협 검색을 통해 SQL 삽입 등, 데이터베이스에 의심스러운 이벤트가 발생하면 그에 대처할 수 있습니다. 경고를 제공하며 Azure SQL Database Auditing이 의심스러운 이벤트를 탐색할 수 있게 지원합니다.
 
 ![외부 공격자와 악의적인 내부자가 있는 SQL Database 및 웹 앱에 대한 위협 검색](./media/azure-databse-security-overview/azure-database-fig5.jpg)
 
-예를 들어, SQL 삽입은 웹 응용 프로그램의 일반적인 보안 문제 중 하나입니다. SQL 삽입은 데이터 기반 응용 프로그램을 공격하는 데 사용됩니다. 공격자는 응용 프로그램의 취약성을 이용하여 악의적인 SQL 문을 응용 프로그램 항목 필드에 삽입하고 데이터베이스의 데이터를 침범하거나 수정합니다.
+SQL ATP(Advanced Threat Protection)은 데이터 검색 및 분류, 취약성 평가 및 위협 검색을 포함하여 SQL 고급 보안 기능을 제공합니다. 
 
-보안 책임자 또는 지정된 다른 관리자는 의심스러운 데이터베이스 활동이 발생하는 즉시 알림을 받을 수 있습니다. 각 알림에서는 의심스러운 활동에 대한 세부 정보를 제공하고 해당 위협을 자세히 조사하고 완화하는 방법을 권장합니다.        
+- [데이터 검색 및 분류](../sql-database/sql-database-data-discovery-and-classification.md)
+- [취약성 평가](../sql-database/sql-vulnerability-assessment.md)  
+- [위협 탐지](../sql-database/sql-database-threat-detection.md)
+
+[Azure Database for PostgreSQL Advanced Threat Protection](../postgresql/concepts-data-access-and-security-threat-protection.md)은 비정상적인 활동에 대한 보안 경고를 제공하여 잠재적인 위협이 발생하면 사용자가 이를 검색하고 대응할 수 있도록 하는 새로운 차원의 보안을 제공합니다. 사용자는 의심스러운 데이터베이스 활동, 잠재적 취약성, 그리고 비정상적인 데이터베이스 액세스 및 쿼리 패턴에 대한 경고를 받습니다. Azure Database for PostgreSQL용 Advanced Threat Protection의 경고는 Azure Security Center에 통합되어 있습니다. 경고의 유형은 다음과 같습니다.
+
+- 비정상적인 위치에서 액세스
+- 비정상적인 Azure 데이터 센터에서 액세스 
+- 알 수 없는 보안 주체에서 액세스 
+- 잠재적으로 위험한 응용 프로그램에서 액세스 
+- Azure Database for PostgreSQL 자격 증명에 대한 무차별 암호 대입 공격 
+
+[Azure Database for MySQL Advanced Threat Protection](../mysql/concepts-data-access-and-security-threat-protection.md)은 PostgreSQL Advanced Protection과 유사한 보호를 제공합니다.  
 
 ## <a name="centralized-security-management"></a>중앙 집중식 보안 관리 
 
@@ -188,12 +207,20 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-database)를 사용하면 모든 서버 및 데이터베이스의 보안에 가시성을 제공하여 SQL Database에서 데이터를 보호할 수 있습니다. 보안 센터를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
--   SQL Database 암호화 및 감사를 위한 정책을 정의합니다.
--   모든 구독 간에 SQL Database 리소스의 보안을 모니터링합니다.
--   보안 문제를 신속하게 파악하고 해결합니다.
--   [Azure SQL Database 위협 감지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)에 대한 경고를 통합합니다.
+- SQL Database 암호화 및 감사를 위한 정책을 정의합니다.
+- 모든 구독 간에 SQL Database 리소스의 보안을 모니터링합니다.
+- 보안 문제를 신속하게 파악하고 해결합니다.
+- [Azure SQL Database 위협 감지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)에 대한 경고를 통합합니다.
 
 보안 센터는 역할 기반 액세스를 지원합니다.
+
+## <a name="sql-information-protection"></a>SQL Information Protection
+
+[SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md)은 잠재적으로 중요한 데이터를 자동으로 검색하고 분류하며, 분류 속성으로 중요한 데이터의 태그를 영구적으로 지정하는 레이블 지정 메커니즘을 제공하고, 데이터베이스 분류 상태를 보여주는 상세 대시보드를 제공합니다.  
+
+또한 중요한 데이터를 추출하는 쿼리를 명시적으로 감사할 수 있도록 SQL 쿼리의 결과 집합 민감도를 계산하고 데이터를 보호할 수 있습니다. SQL Information Protection에 대한 자세한 내용은 Azure SQL Database 데이터 검색 및 분류를 참조하세요.
+
+Azure Security Center에서 [SQL Information Protection 정책](../security-center/security-center-info-protection-policy.md)을 구성할 수 있습니다.
 
 ## <a name="azure-marketplace"></a>Azure Marketplace
 

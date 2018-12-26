@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: decae2fee0d040d0857950bec507df173e2820b9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 294eae1dd5e591d12fdb82f62ea013ba54489686
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627162"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253346"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
 
@@ -28,11 +28,11 @@ ms.locfileid: "34627162"
 * [예측 유지 관리 솔루션 가속기](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [연결된 팩터리 솔루션 가속기](https://github.com/Azure/azure-iot-connected-factory)
 
-### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>솔루션 가속기에 대한 장치 클라이언트를 개발하는 데 어떤 SDK를 사용할 수 있나요?
+### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>솔루션 가속기에 대한 디바이스 클라이언트를 개발하는 데 어떤 SDK를 사용할 수 있나요?
 
 [Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) GitHub 리포지토리에서 다른 언어(C, .NET, Java, Node.js, Python) IoT 장치 SDK에 대한 링크를 확인할 수 있습니다.
 
-DevKit 장치를 사용하는 경우 [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk) GitHub 리포지토리에서 리소스 및 샘플을 확인할 수 있습니다.
+DevKit 디바이스를 사용하는 경우 [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk) GitHub 리포지토리에서 리소스 및 샘플을 확인할 수 있습니다.
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-solution-accelerators"></a>세 가지 솔루션 가속기 모두에 새로운 마이크로 서비스 아키텍처를 사용할 수 있나요?
 
@@ -41,6 +41,10 @@ DevKit 장치를 사용하는 경우 [IoT DevKit SDK](https://github.com/Microso
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>새 업데이트의 새로운 오픈 소스 마이크로 서비스 기반 아키텍처는 어떤 이점을 제공하나요?
 
 지난 2년 동안 클라우드 아키텍처는 크게 발전했습니다. 마이크로 서비스는 개발 속도를 저하시키지 않으면서 규모와 유연성을 달성하는 훌륭한 패턴으로 부상했습니다. 이 아키텍처 패턴은 일부 Microsoft 서비스에 내부적으로 사용되어 뛰어난 안정성과 확장성을 제공하고 있습니다. 고객이 이점을 누릴 수 있도록 이러한 경험을 실제 활용하고 있습니다.
+
+### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>원격 모니터링 솔루션의 이전 버전 관련 정보는 어디서 확인할 수 있나요?
+
+원격 모니터링 솔루션 가속기 이전 버전의 명칭은 IoT Suite Remote Monitoring 미리 구성된 솔루션이었습니다. [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/)에서 보관된 설명서를 확인할 수 있습니다.
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>기존 솔루션과 동일한 지역에서 새로운 솔루션 가속기를 사용할 수 있나요?
 
@@ -74,19 +78,15 @@ DevKit 장치를 사용하는 경우 [IoT DevKit SDK](https://github.com/Microso
 
 현재는 [DreamSpark용 Microsoft Azure](https://azure.microsoft.com/pricing/member-offers/imagine/) 계정으로 솔루션 가속기를 만들 수 없습니다. 하지만 몇 분 이내에 [Azure용 무료 평가판 계정](https://azure.microsoft.com/free/)을 만들면 솔루션 가속기를 만들 수 있습니다.
 
-### <a name="can-i-create-a-solution-accelerator-if-i-have-cloud-solution-provider-csp-subscription"></a>CSP(클라우드 솔루션 공급자) 구독이 있는 경우 솔루션 가속기를 만들 수 있나요?
-
-현재는 CSP(클라우드 솔루션 공급자) 구독이 있는 솔루션 가속기를 만들 수 없습니다. 하지만 몇 분 이내에 [Azure용 무료 평가판 계정](https://azure.microsoft.com/free/)을 만들면 솔루션 가속기를 만들 수 있습니다.
-
 ### <a name="how-do-i-delete-an-aad-tenant"></a>AAD 테넌트를 어떻게 삭제하나요?
 
-Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx)을 참조하세요.
+Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx)을 참조하세요.
 
 ### <a name="next-steps"></a>다음 단계
 
 IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습니다.
 
-* [원격 모니터링 솔루션 가속기의 기능 탐색](iot-accelerators-remote-monitoring-explore.md)
+* [원격 모니터링 솔루션 가속기의 기능 탐색](quickstart-remote-monitoring-deploy.md)
 * [예측 유지 관리 솔루션 가속기 개요](iot-accelerators-predictive-overview.md)
-* [연결된 팩터리 솔루션 가속기 개요](iot-accelerators-connected-factory-overview.md)
-* [처음부터 IoT 보안을 고려](securing-iot-ground-up.md)
+* [연결된 팩터리 솔루션 가속기 배포](quickstart-connected-factory-deploy.md)
+* [처음부터 IoT 보안을 고려](/azure/iot-fundamentals/iot-security-ground-up)

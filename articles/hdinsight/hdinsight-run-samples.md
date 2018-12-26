@@ -1,30 +1,25 @@
 ---
-title: HDInsight에서 Hadoop 샘플 실행 - Azure | Microsoft Docs
+title: HDInsight에서 Hadoop 샘플 실행 - Azure
 description: 제공된 샘플을 사용하여 Azure HDInsight 서비스 사용을 시작합니다. 또한 데이터 클러스터에 대해 MapReduce 프로그램을 실행하는 PowerShell 스크립트를 사용합니다.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bf76d452-abb4-4210-87bd-a2067778c6ed
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1262e0eda5cf490eb6c3ef81bc05de3954059f4c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1324980e173d31803026f9ec93565d4aabd30c85
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418712"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687251"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Hadoop MapReduce 샘플 실행
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Azure HDInsight를 사용하여 Hadoop 클러스터에서 MapReduce 작업을 실행하는 데 도움이 되는 일련의 샘플이 제공됩니다. 이 샘플은 직접 만든 각 HDInsight의 관리되는 클러스터에 대해 사용할 수 있습니다. 이러한 샘플을 실행하면 Azure PowerShell cmdlet을 사용하여 Hadoop 클러스터에 대해 작업을 실행하는 방법을 알 수 있게 됩니다.
+Azure HDInsight를 사용하여 Hadoop 클러스터에서 MapReduce 작업 실행을 시작하는 데 도움이 되는 일련의 샘플이 제공됩니다. 이 샘플은 직접 만든 각 HDInsight의 관리되는 클러스터에 대해 사용할 수 있습니다. 이러한 샘플을 실행하면 Azure PowerShell cmdlet을 사용하여 Hadoop 클러스터에 대해 작업을 실행하는 방법을 알 수 있게 됩니다.
 
 * [**단어 개수**][hdinsight-sample-wordcount]: 텍스트 파일에 나오는 단어 수를 계산합니다.
 * [**C# 스트리밍 단어 개수**][hdinsight-sample-csharp-streaming]: Hadoop 스트리밍 인터페이스를 사용하여 텍스트 파일에 나오는 단어 수를 계산합니다.
@@ -216,7 +211,6 @@ Pi 추정은 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 
 * [HDInsight에서 Hadoop과 Pig 사용][hdinsight-use-pig]
 * [HDInsight에서 Hadoop과 Hive 사용][hdinsight-use-hive]
 * [HDInsight에서 Hadoop 작업 제출][hdinsight-submit-jobs]
-* [Azure HDInsight SDK 설명서][hdinsight-sdk-documentation]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>부록 A - 단어 개수 소스 코드
 
@@ -932,7 +926,7 @@ public class TeraSort extends Configured implements Tool {
         splitPoints = readPartitions(fs, partFile, job);
         trie = buildTrie(splitPoints, 0, splitPoints.length, new Text(), 2);
         } catch (IOException ie) {
-        throw new IllegalArgumentException("can't read paritions file", ie);
+        throw new IllegalArgumentException("can't read partitions file", ie);
         }
     }
 
@@ -982,8 +976,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:hadoop/apache-hadoop-introduction.md

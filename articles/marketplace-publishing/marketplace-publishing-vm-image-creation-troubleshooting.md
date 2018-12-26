@@ -3,7 +3,7 @@ title: VHD를 만드는 동안 일반적인 문제 해결 방법 | Microsoft Doc
 description: VHD 만드는 동안 문제를 해결하는 일반적인 질문 및 문제에 대답합니다.
 services: Azure Marketplace
 documentationcenter: ''
-author: msmbaldwin
+author: HannibalSII
 manager: ''
 editor: ''
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 09/26/2016
-ms.author: mbaldwin
-ms.openlocfilehash: 65361ad5bd7c3311c428b64b8476ec8f2ea2d17b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: hascipio; v-divte
+ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29941604"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713400"
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>VHD를 만드는 동안 발생하는 일반적인 문제 해결 방법
 이 문서는 가상 머신 솔루션을 게시하거나 관리하는 동안 문제가 발생하거나 관련된 일반적인 질문이 있는 Azure Marketplace 게시자 및/또는 공동 관리자를 돕기 위해 제공됩니다.

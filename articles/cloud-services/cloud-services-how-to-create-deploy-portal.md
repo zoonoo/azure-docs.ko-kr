@@ -3,7 +3,7 @@ title: 클라우드 서비스를 만들고 배포하는 방법 | Microsoft Docs
 description: Azure 포털을 사용하여 클라우드 서비스를 만들고 배포하는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 96b92690cd164b1012380f82a1d1bd3336350e57
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: jeconnoc
+ms.openlocfilehash: ece3511d0d3c12be13a649385ea9b6dd5c75bfe0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29388087"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303713"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>클라우드 서비스를 만들고 배포하는 방법
 Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 *빨리 만들기* 및 *사용자 지정 만들기*를 제공합니다.
@@ -27,19 +27,19 @@ Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방�
 이 문서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드** 를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 작업을 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 Azure 포털에서 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 사용자 지정 만들기를 사용하여 동시에 둘 다를 수행할 수 있습니다.
 
 > [!NOTE]
-> VSTS(Visual Studio Team Services)에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 Azure 빠른 시작 또는 대시보드에서 VSTS 게시를 설정합니다. 자세한 내용은 [Visual Studio Team Services를 사용하여 Azure에 지속적인 전송][TFSTutorialForCloudService]을 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
+> Azure DevOps에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 Azure 빠른 시작 또는 대시보드에서 Azure DevOps 게시를 설정합니다. 자세한 내용은 [Continuous Delivery to Azure by Using Azure DevOps][TFSTutorialForCloudService](Azure DevOps를 사용하여 Azure에 지속적으로 전송)를 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
 >
 >
 
 ## <a name="concepts"></a>개념
-Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다음과 같은 세 가지 구성 요소가 필요합니다.
+Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다음과 같은 세 가지 구성 요소가 필요합니다.
 
 * **서비스 정의**  
-  클라우드 서비스 정의 파일(.csdef)은 역할 수를 포함하여 서비스 모델을 정의합니다.
+   클라우드 서비스 정의 파일(.csdef)은 역할 수를 포함하여 서비스 모델을 정의합니다.
 * **서비스 구성**  
-  클라우드 서비스 구성 파일(.cscfg)은 역할 인스턴스 수를 포함하여 클라우드 서비스 및 개별 역할에 대한 구성 설정을 제공합니다.
+   클라우드 서비스 구성 파일(.cscfg)은 역할 인스턴스 수를 포함하여 클라우드 서비스 및 개별 역할에 대한 구성 설정을 제공합니다.
 * **서비스 패키지**  
-  서비스 패키지(.cspkg)에는 응용 프로그램 코드와 구성 및 서비스 정의 파일이 포함됩니다.
+   서비스 패키지(.cspkg)에는 응용 프로그램 코드와 구성 및 서비스 정의 파일이 포함됩니다.
 
 이러한 구성 요소에 대한 자세한 내용과 패키지를 만드는 방법은 [여기](cloud-services-model-and-package.md)에서 볼 수 있습니다.
 
@@ -48,7 +48,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 세 가지 클라우드 서비스 기능은 서비스 패키지를 내보내기 전에 특별히 구성해야 합니다.
 
-* 데이터 암호화에 SSL(Secure Sockets Layer)을 사용하는 클라우드 서비스를 배포하려는 경우 SSL에 맞게 [응용 프로그램을 구성](cloud-services-configure-ssl-certificate-portal.md#modify) 합니다.
+* 데이터 암호화에 SSL(Secure Sockets Layer)을 사용하는 클라우드 서비스를 배포하려는 경우 SSL에 맞게 [애플리케이션을 구성](cloud-services-configure-ssl-certificate-portal.md#modify) 합니다.
 * 역할 인스턴스에 대한 원격 데스크톱 연결을 구성하려면 원격 데스크톱에 대한 [역할을 구성](cloud-services-role-enable-remote-desktop-new-portal.md) 합니다.
 * 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure 진단을 사용하도록 설정합니다. *최소 모니터링* (기본 모니터링 수준)에서는 역할 인스턴스(가상 머신)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. *세부 정보 표시 모니터링* 에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure 진단을 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](cloud-services-dotnet-diagnostics.md)을 참조하세요.
 

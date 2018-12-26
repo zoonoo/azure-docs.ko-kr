@@ -3,7 +3,7 @@ title: 가용성 영역을 사용하는 Azure 확장 집합 만들기 | Microsof
 description: 가동 중단에 대비해서 중복성을 늘리기 위해 가용성 영역을 사용하는 Azure 가상 머신 확장 집합을 만드는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
-ms.author: cynthn
-ms.openlocfilehash: e19130c5ee418ebaa41f9ee42e217c52cdeec6cb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 08/08/2018
+ms.author: zarhoads
+ms.openlocfilehash: 062725ab5e486ff795ffa0f4a72dd3fdb0e6b948
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697945"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468877"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>가용성 영역을 사용하는 가상 머신 확장 집합 만들기
 
@@ -45,10 +45,10 @@ API 버전 *2017-12-01*부터 확장 집합을 하나 이상의 영역으로 배
 
 ### <a name="zone-balancing"></a>영역 균형
 
-마지막으로 여러 영역에서 배포되는 확장 집합의 경우 "최상의 노력 영역 균형" 또는 "엄격한 영역 균형"을 선택하는 옵션을 갖습니다. 확장 집합은 각 영역에서 VM의 수가 확장 집합에 대한 다른 모든 영역의 VM 수 중 하나에 있는 경우 "균형"으로 간주됩니다. 예: 
+마지막으로 여러 영역에서 배포되는 확장 집합의 경우 "최상의 노력 영역 균형" 또는 "엄격한 영역 균형"을 선택하는 옵션을 갖습니다. 확장 집합은 각 영역에 동일한 수의 VM이 있거나 확장 집합의 다른 모든 영역에서 VM이 +\\- 1이면 "균형"으로 간주됩니다. 예: 
 
-- 영역 1에 2개의 VM, 영역 2에 3개의 VM, 영역 3에 3개의 VM이 있는 확장 집합은 균형으로 간주됩니다.
-- 영역 1에 1개의 VM, 영역 2에 3개의 VM, 영역 3에 3개의 VM이 있는 확장 집합은 불균형으로 간주됩니다.
+- 영역 1에 2개의 VM, 영역 2에 3개의 VM, 영역 3에 3개의 VM이 있는 확장 집합은 균형으로 간주됩니다. VM 수가 다른 영역은 하나 뿐이며 다른 영역보다 1개만 적습니다. 
+- 영역 1에 1개의 VM, 영역 2에 3개의 VM, 영역 3에 3개의 VM이 있는 확장 집합은 불균형으로 간주됩니다. 영역 1에는 영역 2 및 3보다 VM이 2개 적게 있습니다.
 
 확장 집합에서 VM이 만들어졌어도 해당 VM에서 확장은 배포되지 않을 수 있습니다. 확장이 실패한 이러한 VM은 확장 집합이 분산된 경우를 결정할 때에 여전히 계산됩니다. 예를 들어 영역 1에 3개의 VM, 영역 2에 3개의 VM, 영역 3에 3개의 VM이 있는 확장 집합은 모든 확장이 영역 1에서 실패하고 모든 확장이 영역 2 및 3에서 성공한 경우에도 균형으로 간주됩니다.
 
@@ -64,12 +64,12 @@ API 버전 *2017-12-01*부터 확장 집합을 하나 이상의 영역으로 배
 
 가용성 영역을 사용하려면 [지원되는 Azure 지역](../availability-zones/az-overview.md#regions-that-support-availability-zones)에 확장 집합을 만들어야 합니다. 다음 방법 중 하나를 사용하여 가용성 영역을 사용하는 확장 집합을 만들 수 있습니다.
 
-- [Azure 포털](#use-the-azure-portal)
-- [Azure CLI 2.0](#use-the-azure-cli-20)
+- [Azure Portal](#use-the-azure-portal)
+- [Azure CLI](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure 리소스 관리자 템플릿](#use-azure-resource-manager-templates)
 
-## <a name="use-the-azure-portal"></a>Azure 포털 사용
+## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
 가용성 영역을 사용하는 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-portal.md)에 자세히 설명된 프로세스와 같습니다. 지원되는 Azure 지역을 선택할 때 다음 예제에 표시된 대로 하나 이상의 사용 가능한 지역에 확장 집합을 만들 수 있습니다.
 
@@ -77,7 +77,7 @@ API 버전 *2017-12-01*부터 확장 집합을 하나 이상의 영역으로 배
 
 확장 집합과 Azure Load Balancer 및 공용 IP 주소와 같은 지원 리소스가 지정된 단일 지역에서 만들어집니다.
 
-## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 사용
+## <a name="use-the-azure-cli"></a>Azure CLI 사용
 
 가용성 영역을 사용하는 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-cli.md)에 자세히 설명된 프로세스와 같습니다. 가용성 영역을 사용하려면 지원되는 Azure 지역에 확장 집합을 만들어야 합니다.
 
@@ -98,7 +98,7 @@ az vmss create \
 
 ### <a name="zone-redundant-scale-set"></a>영역 중복 확장 집합
 
-영역 중복 확장 집합을 만들려면 *표준* SKU 공용 IP 주소 및 부하 분산 장치를 사용합니다. 향상된 중복성을 위해 *표준* SKU는 영역 중복 네트워크 리소스를 만듭니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-standard-overview.md)를 참조하세요.
+영역 중복 확장 집합을 만들려면 *표준* SKU 공용 IP 주소 및 부하 분산 장치를 사용합니다. 향상된 중복성을 위해 *표준* SKU는 영역 중복 네트워크 리소스를 만듭니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-standard-overview.md) 및 [표준 Load Balancer 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md)을 참조하세요.
 
 영역 중복 확장 집합을 만들려면 여러 영역을 `--zones` 매개 변수로 지정합니다. 다음 예제에서는 *1,2,3* 영역에 *myScaleSet*라는 영역 중복 확장 집합을 만듭니다.
 
@@ -215,7 +215,7 @@ New-AzureRmVmss `
 }
 ```
 
-공용 IP 주소 또는 부하 분산 장치를 만드는 경우 *"sku": { "name": "Standard" }"* 속성을 지정하여 영역 중복 네트워크 리소스를 만듭니다. 또한 모든 트래픽을 허용하는 네트워크 보안 그룹 및 규칙을 만들어야 합니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-standard-overview.md)를 참조하세요.
+공용 IP 주소 또는 부하 분산 장치를 만드는 경우 *"sku": { "name": "Standard" }"* 속성을 지정하여 영역 중복 네트워크 리소스를 만듭니다. 또한 모든 트래픽을 허용하는 네트워크 보안 그룹 및 규칙을 만들어야 합니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-standard-overview.md) 및 [표준 Load Balancer 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md)을 참조하세요.
 
 영역 중복 확장 집합 및 네트워크 리소스의 전체 예제는 [이 샘플 Resource Manager 템플릿](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)을 참조하세요.
 

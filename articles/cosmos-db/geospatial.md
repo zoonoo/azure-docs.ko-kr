@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB에서 지리 공간 데이터 작업 | Microsoft Docs
+title: Azure Cosmos DB SQL API 계정에서 지리 공간 데이터 작업 | Microsoft Docs
 description: Azure Cosmos DB 및 SQL API를 사용하여 공간 개체를 만들고 인덱싱 및 쿼리하는 방법을 이해합니다.
 services: cosmos-db
 author: SnehaGunda
@@ -7,18 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 11/01/2017
 ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 893b985514f4c812da673a90fc40148e8ac9ce81
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1de97ef34ab2db79ef7eaeca66cb8d0598ae9262
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611370"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284492"
 ---
-# <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 지리 공간 및 GeoJSON 위치 데이터 작업
-이 문서에서는 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)의 지리 공간 기능을 소개합니다. 이 문서를 읽은 후에는 다음과 같은 질문에 답할 수 있습니다.
+# <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API 계정에서 지리 공간 및 GeoJSON 위치 데이터 사용
+
+이 문서에서는 Azure Cosmos DB의 지리 공간 기능을 소개합니다. 현재 지리 공간 데이터의 저장 및 액세스는 Cosmos DB SQL API 계정에서만 지원됩니다. 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
 * Azure Cosmos DB에 공간 데이터를 저장하려면 어떻게 해야 하나요?
 * SQL 및 LINQ에서 Azure Cosmos DB의 지리 공간 데이터를 쿼리하려면 어떻게 해야 하나요?
@@ -97,10 +97,10 @@ Azure Cosmos DB는 인덱싱 및 지리 공간 지점 데이터의 쿼리를 지
 ### <a name="coordinate-reference-systems"></a>좌표 참조 시스템
 지구 모양이 불규칙적이므로 지리 공간 데이터의 좌표는 각각 고유한 참조 프레임과 측정 단위가 있는 많은 CRS(좌표 참조 시스템)에 표시됩니다. 예를 들어 "National Grid of Britain"은 영국에서만 정확하고 그 밖의 지역에서는 정확하지 않은 참조 시스템입니다. 
 
-현재 가장 많이 사용되는 CRS는 World Geodetic System [WGS-84](http://earth-info.nga.mil/GandG/wgs84/)입니다. GPS 장치와 Google Map 및 Bing 지도 API를 비롯한 많은 매핑 서비스는 WGS-84를 사용합니다. Azure Cosmos DB는 WGS-84 CRS만 사용하여 지리 공간 데이터의 인덱싱 및 쿼리를 지원합니다. 
+현재 가장 많이 사용되는 CRS는 World Geodetic System [WGS-84](http://earth-info.nga.mil/GandG/wgs84/)입니다. GPS 디바이스와 Google Map 및 Bing 지도 API를 비롯한 많은 매핑 서비스는 WGS-84를 사용합니다. Azure Cosmos DB는 WGS-84 CRS만 사용하여 지리 공간 데이터의 인덱싱 및 쿼리를 지원합니다. 
 
 ## <a name="creating-documents-with-spatial-data"></a>공간 데이터를 포함하는 문서 만들기
-GeoJSON 값을 포함하는 문서를 만드는 경우 컬렉션의 인덱싱 정책에 따라 공간 인덱스를 사용하여 자동으로 인덱싱됩니다. Python 또는 Node.js와 같은 동적으로 형식화된 언어로 Azure Cosmos DB SDK 작업을 수행하는 경우 유효한 GeoJSON을 만들어야 합니다.
+GeoJSON 값을 포함하는 문서를 만드는 경우, 컨테이너의 인덱싱 정책에 따라 공간 인덱스를 사용하여 자동으로 인덱싱됩니다. Python 또는 Node.js와 같은 동적으로 형식화된 언어로 Azure Cosmos DB SDK 작업을 수행하는 경우 유효한 GeoJSON을 만들어야 합니다.
 
 **Node.js에서 지리 공간 데이터를 포함하는 문서 만들기**
 
@@ -151,7 +151,7 @@ await client.CreateDocumentAsync(
 지리 공간 데이터를 삽입하는 방법을 살펴보았으며, 이제 SQL 및 LINQ에서 Azure Cosmos DB를 사용하여 이 데이터를 쿼리하는 방법을 살펴보겠습니다.
 
 ### <a name="spatial-sql-built-in-functions"></a>공간 SQL 기본 제공 함수
-Azure Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. SQL 언어의 전체 기본 제공 함수 집합에 대한 자세한 내용은 [Azure Cosmos DB 쿼리](sql-api-sql-query.md)를 참조하세요.
+Azure Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. SQL 언어의 전체 기본 제공 함수 집합에 대한 자세한 내용은 [Azure Cosmos DB 쿼리](how-to-sql-query.md)를 참조하세요.
 
 <table>
 <tr>
@@ -392,6 +392,6 @@ Azure Cosmos DB에서 지리 공간 지원을 시작하는 방법을 배웠으�
 
 * [GitHub의 지리 공간 .NET 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)을 사용하여 코딩 시작
 * [Azure Cosmos DB 쿼리 실습](http://www.documentdb.com/sql/demo#geospatial)에서 지리 공간 쿼리 실습
-* [Azure Cosmos DB 쿼리](sql-api-sql-query.md)에 대해 알아보기
-* [Azure Cosmos DB 인덱싱 정책에 대해 알아보기](indexing-policies.md)
+* [Azure Cosmos DB 쿼리](how-to-sql-query.md)에 대해 알아보기
+* [Azure Cosmos DB 인덱싱 정책에 대해 알아보기](index-policy.md)
 

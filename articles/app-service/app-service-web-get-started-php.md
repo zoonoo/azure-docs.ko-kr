@@ -1,5 +1,5 @@
 ---
-title: Azure에서 PHP 웹앱 만들기 | Microsoft Docs
+title: PHP 웹앱 만들기 - Azure App Service | Microsoft Docs
 description: 몇 분 안에 Azure App Service Web Apps에서 첫 번째 PHP Hello World를 배포합니다.
 services: app-service\web
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/13/2017
+ms.date: 08/24/2018
 ms.author: cephalin;cfowler
-ms.custom: mvc
-ms.openlocfilehash: 2d1144a94a74e56cae6ff0a4b026a64540086c11
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.custom: seodec18
+ms.openlocfilehash: 02c80f3b3883af4b32b5bc0fb837680dad1e0ecf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968581"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261554"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure에서 PHP 웹앱 만들기
 
@@ -41,20 +41,20 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 여기서 설명하는 단�
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 * <a href="https://git-scm.com/" target="_blank">Git 설치</a>
-* <a href="http://php.net/manual/install.php" target="_blank">PHP 설치</a>
+* <a href="https://php.net/manual/install.php" target="_blank">PHP 설치</a>
 
 ## <a name="download-the-sample-locally"></a>로컬로 샘플 다운로드
 
-터미널 창에서 다음 명령을 실행합니다. 그러면 응용 프로그램 예제가 로컬 컴퓨터에 복제되고 샘플 코드가 들어 있는 디렉터리로 이동합니다.
+터미널 창에서 다음 명령을 실행합니다. 그러면 응용 프로그램 예제가 로컬 컴퓨터에 복제되고 샘플 코드가 들어 있는 디렉터리로 이동합니다. 
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
 cd php-docs-hello-world
 ```
 
-## <a name="run-the-app-locally"></a>로컬에서 앱 실행
+## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
-PHP 웹 서버에서 기본 제공을 시작하려면 터미널 창을 열고 `php` 명령을 사용하여 응용 프로그램을 로컬로 실행합니다.
+응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 `php` 명령을 사용하여 기본 제공 PHP 웹 서버를 시작합니다.
 
 ```bash
 php -S localhost:8080
@@ -78,9 +78,9 @@ php -S localhost:8080
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 웹앱을 만듭니다. 
+Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 웹앱을 만듭니다. 
 
-다음 예에서 `<app_name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 `PHP|7.0`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes)를 실행합니다. 
+다음 예에서 `<app_name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 `PHP|7.0`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)를 실행합니다. 
 
 ```azurecli-interactive
 # Bash

@@ -1,66 +1,60 @@
 ---
-title: B2B 모니터링을 위한 사용자 지정 추적 스키마 - Azure Logic Apps | Microsoft Docs
-description: 사용자 지정 추적 스키마를 만들어 Azure 통합 계정의 트랜잭션에서 B2B 메시지를 모니터링합니다.
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: B2B 메시지에 대한 사용자 지정 추적 스키마 - Azure Logic Apps | Microsoft Docs
+description: 엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps 통합 계정에서 B2B 메시지를 모니터링하는 사용자 지정 추적 스키마 만들기
 services: logic-apps
-documentationcenter: ''
-ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 431235370c52be4c6e1ad6cd1af6a412e9eac230
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 68c5d6e68562d4027c102e1bde42c775648e58c4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299837"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124846"
 ---
-# <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>추적을 사용하도록 설정하여 종단 간, 전체 워크플로 모니터링
+# <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Azure Logic Apps에서 종단 간 워크플로를 모니터링하는 사용자 지정 추적 스키마 만들기
+
 기업 간 워크플로의 다양한 부분에 대해 사용할 수 있는 기본 제공 추적(예: AS2 또는 X12 메시지 추적)이 있습니다. 논리 앱, BizTalk Server, SQL Server 또는 다른 계층을 포함하는 워크플로를 만들 경우 워크플로의 시작부터 끝까지 이벤트를 기록하는 사용자 지정 추적을 사용하도록 설정할 수 있습니다. 
 
-이 항목에서는 논리 앱 외부의 계층에서 사용할 수 있는 사용자 지정 코드를 제공합니다. 
+이 문서에서는 논리 앱 외부의 계층에서 사용할 수 있는 사용자 지정 코드를 제공합니다. 
 
 ## <a name="custom-tracking-schema"></a>사용자 지정 추적 스키마
-````java
 
-        {
-            "sourceType": "",
-            "source": {
-
-            "workflow": {
-                "systemId": ""
-            },
-            "runInstance": {
-                "runId": ""
-            },
-            "operation": {
-                "operationName": "",
-                "repeatItemScopeName": "",
-                "repeatItemIndex": "",
-                "trackingId": "",
-                "correlationId": "",
-                "clientRequestId": ""
-                }
-            },
-            "events": [
-            {
-                "eventLevel": "",
-                "eventTime": "",
-                "recordType": "",
-                "record": {                
-                }
-            }
-         ]
+```json
+{
+   "sourceType": "",
+   "source": {
+      "workflow": {
+         "systemId": ""
+      },
+      "runInstance": {
+         "runId": ""
+      },
+      "operation": {
+         "operationName": "",
+         "repeatItemScopeName": "",
+         "repeatItemIndex": "",
+         "trackingId": "",
+         "correlationId": "",
+         "clientRequestId": ""
       }
-
-````
+   },
+   "events": [
+      {
+         "eventLevel": "",
+         "eventTime": "",
+         "recordType": "",
+         "record": {                
+         }
+      }
+   ]
+}
+```
 
 | 자산 | type | 설명 |
 | --- | --- | --- |
@@ -78,13 +72,16 @@ ms.locfileid: "35299837"
 | eventTime |   | UTC 형식 YYYY-MM-DDTHH:MM:SS.00000Z의 이벤트 시간입니다. 필수 사항입니다. |
 | recordType |   | 트랙 레코드의 유형입니다. 허용되는 값은 **custom**입니다. 필수 사항입니다. |
 | record |   | 사용자 지정 레코드 유형입니다. 허용된 형식은 JToken입니다. 필수 사항입니다. |
+||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>B2B 프로토콜 추적 스키마
+
 스키마를 추적하는 B2B 프로토콜에 대한 정보는 다음을 참조하세요.
+
 * [AS2 추적 스키마](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)   
 * [X12 추적 스키마](logic-apps-track-integration-account-x12-tracking-schema.md)
 
 ## <a name="next-steps"></a>다음 단계
-* [B2B 메시지 모니터링](logic-apps-monitor-b2b-message.md)에 대해 자세히 알아봅니다.   
+
+* [B2B 메시지 모니터링](logic-apps-monitor-b2b-message.md)에 대해 자세히 알아봅니다.
 * [Log Analytics에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)에 대해 알아봅니다.
-* [엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md)에 대해 알아봅니다.

@@ -7,18 +7,22 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: bf96a6986abe858074decaaecfe38b3807822aab
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 84068376f35bc4df6672cffcc0ac3438b12edbb5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830244"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979678"
 ---
 # <a name="model-management-setup"></a>모델 관리 설치
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 이 문서는 Azure ML 모델 관리를 사용하여 Machine Learning 모델을 웹 서비스로 배포 및 관리하는 방법을 설명합니다. 
 
@@ -36,6 +40,14 @@ Workbench에서 CLI(명령줄 인터페이스)를 사용하려면 **파일** -> 
 데이터 과학 Virtual Machine에서 명령 프롬프트를 연결하고 엽니다. `az ml -h`를 입력하여 옵션을 표시합니다. 명령에 대한 자세한 내용을 보려면 --help 플래그를 사용합니다.
 
 다른 모든 시스템에는 CLI를 설치해야 합니다.
+
+>[!NOTE]
+> Linux DSVM의 Jupyter 노트에서 다음 명령 형식을 사용하여 Azure CLI 및 Azure ML CLI에 액세스할 수 있습니다.  **이 명령은 특히 Linux DSVM의 Jupyter 노트에 대한 것입니다**.  이러한 명령은 노트의 현재 Python 커널에 액세스합니다(예: conda `py35` 환경).
+>```
+>import sys
+>! {sys.executable} -m azure.cli login
+>! {sys.executable} -m azure.cli ml -h
+>```
 
 ### <a name="installing-or-updating-on-windows"></a>Windows에서 설치(또는 업데이트)
 

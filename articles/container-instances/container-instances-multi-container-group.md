@@ -2,19 +2,18 @@
 title: Azure Container Instances에 다중 컨테이너 그룹 배포
 description: Azure Container Instances에서 여러 컨테이너가 있는 컨테이너 그룹을 배포하는 방법을 알아봅니다.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ecc4484eddd6541c1407e1ed816ba8830030d7c8
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: adb284772291dc901dd5302124982948c1f37eea
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888200"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856482"
 ---
 # <a name="deploy-a-container-group"></a>컨테이너 그룹 배포
 
@@ -36,7 +35,7 @@ Azure CLI를 사용하여 다중 컨테이너 그룹을 배포하는 두 가지 
 
 먼저 `azuredeploy.json` 파일을 만든 후, 다음 JSON을 이 파일에 복사합니다.
 
-이 Resource Manager 템플릿은 두 개의 컨테이너, 하나의 공용 IP 주소, 두 개의 노출된 포트가 포함된 컨테이너 그룹을 정의합니다. 그룹의 첫 번째 컨테이너는 인터넷 연결 응용 프로그램을 실행합니다. 두 번째 컨테이너인 사이드카는 그룹 로컬 네트워크를 통해 주 웹 응용 프로그램에 대한 HTTP 요청을 수행합니다.
+이 Resource Manager 템플릿은 두 개의 컨테이너, 하나의 공용 IP 주소, 두 개의 노출된 포트가 포함된 컨테이너 그룹을 정의합니다. 그룹의 첫 번째 컨테이너는 인터넷 연결 애플리케이션을 실행합니다. 두 번째 컨테이너인 사이드카는 그룹 로컬 네트워크를 통해 주 웹 응용 프로그램에 대한 HTTP 요청을 수행합니다.
 
 ```JSON
 {
@@ -176,7 +175,7 @@ myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-helloworld
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-출력
+출력:
 
 ```bash
 listening on port 80
@@ -191,7 +190,7 @@ listening on port 80
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-출력
+출력:
 
 ```bash
 Every 3s: curl -I http://localhost                          2018-01-09 23:25:11
@@ -222,8 +221,8 @@ Connection: keep-alive
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
-[az-container-logs]: /cli/azure/container#az_container_logs
-[az-container-show]: /cli/azure/container#az_container_show
-[az-group-create]: /cli/azure/group#az_group_create
-[az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create
+[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show
+[az-group-create]: /cli/azure/group#az-group-create
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
 [template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups

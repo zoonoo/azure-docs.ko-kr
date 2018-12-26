@@ -1,6 +1,6 @@
 ---
-title: "시작 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs"
-description: "작업에서 위협 모델링 도구를 강조 표시하는 자세한 개요입니다."
+title: 시작 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
+description: 작업에서 위협 모델링 도구를 강조 표시하는 자세한 개요입니다.
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096777"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>위협 모델링 도구 시작
 
-클라우드 및 엔터프라이즈 보안 도구 팀은 올해 초 **[클릭하여 다운로드](https://aka.ms/tmtpreview)**로 위협 모델링 도구 미리 보기를 발표했습니다. 전달 메커니즘의 변경을 통해 고객이 도구를 열 때마다 고객에게 최신 기능 향상 및 버그 수정을 푸시하여 유지 관리 및 사용이 쉽도록 할 수 있습니다.
+클라우드 및 엔터프라이즈 보안 도구 팀은 올해 초 **[클릭하여 다운로드](https://aka.ms/tmtpreview)** 로 위협 모델링 도구 미리 보기를 발표했습니다. 전달 메커니즘의 변경을 통해 고객이 도구를 열 때마다 고객에게 최신 기능 향상 및 버그 수정을 푸시하여 유지 관리 및 사용이 쉽도록 할 수 있습니다.
 이 문서는 Microsoft SDL 위협 모델링 접근 방식을 시작하는 과정을 안내하고 도구를 사용하여 보안 프로세스의 핵심으로 위협 모델을 개발하는 방법을 보여 줍니다.
 
 이 문서는 SDL 위협 모델링 접근 방식의 기존 지식을 기반으로 합니다. 빠른 검토는 **[위협 모델링 웹 응용 프로그램](https://msdn.microsoft.com/library/ms978516.aspx)** 및 2006년에 게시된 보관된 **[STRIDE 접근 방식을 사용하여 보안 결함 파악](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** 버전의 MSDN 문서를 참조하세요.
@@ -41,7 +42,7 @@ ms.lasthandoff: 12/18/2017
 
 | 구성 요소                                   | 세부 정보                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **피드백, 제안 및 문제 단추** | SDL의 모든 것에 대한 **[MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)**으로 이동합니다. 해결 방법 및 권장 사항과 함께 다른 사용자가 수행하는 작업을 읽을 기회를 줍니다. 원하는 항목을 여전히 찾을 수 없는 경우 지원 팀이 도울 수 있도록 tmtextsupport@microsoft.com으로 전자 메일을 보내 주세요.                                                                                                                            |
+| **피드백, 제안 및 문제 단추** | SDL의 모든 것에 대한 **[MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)** 으로 이동합니다. 해결 방법 및 권장 사항과 함께 다른 사용자가 수행하는 작업을 읽을 기회를 줍니다. 원하는 항목을 여전히 찾을 수 없는 경우 지원 팀이 도울 수 있도록 tmtextsupport@microsoft.com으로 전자 메일을 보내 주세요.                                                                                                                            |
 | **모델 만들기**                          | 다이어그램을 그리려면 빈 캔버스를 엽니다. 모델에 사용하려는 템플릿을 선택합니다.                                                                                                                                                                                                                                                                                                                                                                       |
 | **새 모델에 대한 템플릿**                 | 모델을 만들기 전에 사용할 템플릿을 선택해야 합니다. 기본 템플릿은 Azure 위협 모델 템플릿이며 Azure 관련 스텐실, 위협 및 완화를 포함합니다. 일반 모델의 경우 드롭다운 메뉴에서 SDL TM 기술 자료를 선택합니다. 사용자 고유의 템플릿을 만들거나 모든 사용자를 위해 새 템플릿을 제출하시겠습니까? 자세한 내용은 **[템플릿 리포지토리](https://github.com/Microsoft/threat-modeling-templates)** GitHub 페이지를 확인하세요.                              |
 | **모델 열기**                            | <p>이전에 저장된 위협 모델을 엽니다. 최근에 열린 모델 기능은 가장 최근 파일을 열어야 하는 경우 유용합니다. 선택 영역 위로 마우스를 가져가면 두 가지 방법으로 모델을 열 수 있습니다.</p><p><ul><li>이 컴퓨터에서 열기 - 로컬 저장소를 사용하여 파일을 여는 고전적인 방법</li><li>OneDrive에서 열기 - 팀은 OneDrive에서 폴더를 사용하여 생산성 및 공동 작업을 높이도록 단일 위치에 모든 위협 모델을 저장하고 공유할 수 있습니다.</li></ul></p> |
@@ -78,14 +79,14 @@ ms.lasthandoff: 12/18/2017
 > - 웹 서버에 명령을 전송합니다. - 원
 > - 웹 서버는 데이터베이스를 컨설팅합니다(두 개의 병렬 선).
 
-Ricardo가 Cristina에게 보여준 것은 DFD, **[데이터 흐름 다이어그램](https://en.wikipedia.org/wiki/Data_flow_diagram)**의 짧은 버전입니다. 위협 모델링 도구를 통해 사용자는 빨간색 점선으로 표시되는 트러스트 경계를 지정하여 제어에 있는 다양한 엔터티를 보여 줄 수 있습니다. 예를 들어 IT 관리자는 인증 목적으로 Active Directory 시스템이 필요하므로 Active Directory는 제어 밖에 있습니다.
+Ricardo가 Cristina에게 보여준 것은 DFD, **[데이터 흐름 다이어그램](https://en.wikipedia.org/wiki/Data_flow_diagram)** 의 짧은 버전입니다. 위협 모델링 도구를 통해 사용자는 빨간색 점선으로 표시되는 트러스트 경계를 지정하여 제어에 있는 다양한 엔터티를 보여 줄 수 있습니다. 예를 들어 IT 관리자는 인증 목적으로 Active Directory 시스템이 필요하므로 Active Directory는 제어 밖에 있습니다.
 
 > Cristina: 올바르게 보입니다. 위협은 어떻나요?
 > Ricardo: 보여 드리겠습니다.
 
 ## <a name="analyzing-threats"></a>위협 분석
 
-아이콘 메뉴 선택 영역에서 분석 보기를 클릭하면(돋보기가 있는 파일) **[STRIDE(스푸핑, 변조, 정보 노출, 서비스 거부 및 권한 상승)](https://en.wikipedia.org/wiki/STRIDE_(security))**라는 SDL 접근 방식을 사용하는 기본 템플릿을 기반으로 위협 모델링 도구에서 발견한 생성된 위협 목록으로 이동합니다. 개념은 소프트웨어는 예측 가능한 위협 집합에서 나온다는 것이며 6가지 범주를 사용하여 찾을 수 있습니다.
+아이콘 메뉴 선택 영역에서 분석 보기를 클릭하면(돋보기가 있는 파일) **[STRIDE(스푸핑, 변조, 정보 공개, 부인, 서비스 거부 및 권한 상승)](https://en.wikipedia.org/wiki/STRIDE_(security))** 라는 SDL 접근 방식을 사용하는 기본 템플릿을 기반으로 위협 모델링 도구에서 발견한 생성된 위협 목록으로 이동합니다. 개념은 소프트웨어는 예측 가능한 위협 집합에서 나온다는 것이며 6가지 범주를 사용하여 찾을 수 있습니다.
 
 이 접근 방식은 경고 시스템을 추가하거나 도둑이 든 후 추적하기 전에 준비된 잠금 메커니즘이 있는 각 문과 창문을 확인하여 집을 보안하는 것과 같습니다.
 
@@ -142,4 +143,4 @@ Ricardo가 OneDrive를 사용하여 그의 동료에게 그의 위협 모델을 
 
 ## <a name="next-steps"></a>다음 단계
 
-질문, 의견 및 문제를 tmtextsupport@microsoft.com에 보냅니다. 시작하려면 위협 모델링 도구를 **[다운로드](https://aka.ms/tmtpreview)**하세요.
+질문, 의견 및 문제를 tmtextsupport@microsoft.com에 보냅니다. 시작하려면 위협 모델링 도구를 **[다운로드](https://aka.ms/tmtpreview)** 하세요.

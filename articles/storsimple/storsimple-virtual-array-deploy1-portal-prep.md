@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2d87642b93d58d92660a2df71f2561ffe502315a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477927"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257268"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal 준비
 
@@ -44,7 +44,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 | --- | --- | --- | --- |
 | 1. |**Azure Portal 설정** |StorSimple 가상 배열을 프로비전하기 전에 StorSimple 장치 관리자 서비스를 만들고 구성합니다. |[포털 준비](storsimple-virtual-array-deploy1-portal-prep.md) |
 | 2. |**가상 배열 프로비전** |Hyper-V의 경우 Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2에서 Hyper-V를 실행하는 호스트 시스템의 StorSimple 가상 배열을 프로비전하고 연결합니다. <br></br> <br></br> VMware의 경우, VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에서 StorSimple 가상 배열에 프로비전하고 연결합니다.<br></br> |[Hyper-V에서 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [VMware에서 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-vmware.md) |
-| 3. |**가상 배열 설정** |파일 서버에 대해 초기 설정을 수행하고 StorSimple 파일 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 SMB 공유를 프로비전할 수 있습니다. <br></br> <br></br> iSCSI 서버에 대해 초기 설정을 수행하고 StorSimple iSCSI 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 iSCSI 볼륨을 프로비전할 수 있습니다. |[파일 서버로 가상 배열 설정](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[iSCSI 서버로 가상 배열 설정](storsimple-virtual-array-deploy3-iscsi-setup.md) |
+| 3. |**가상 배열 설정** |파일 서버에 대해 초기 설정을 수행하고 StorSimple 파일 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 SMB 공유를 프로비전할 수 있습니다. <br></br> <br></br>  iSCSI 서버에 대해 초기 설정을 수행하고 StorSimple iSCSI 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 iSCSI 볼륨을 프로비전할 수 있습니다. |[파일 서버로 가상 배열 설정](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[iSCSI 서버로 가상 배열 설정](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 이제 Azure Portal 설치를 시작할 수 있습니다.
 
@@ -52,14 +52,14 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 
 구성 검사 목록에서는 StorSimple 가상 배열에 소프트웨어를 구성하기 전에 수집해야 하는 정보를 설명합니다. 이 정보를 미리 준비하면 사용자 환경에서 StorSimple 장치를 배포하는 과정을 간소화하는 데 도움이 됩니다. StorSimple 가상 배열을 파일 서버로 배포할지 iSCSI 서버로 배포할지에 따라서 다음 검사 목록 중 하나가 필요합니다.
 
-* [StorSimple 가상 배열 파일 서버 구성 검사 목록](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf)을 다운로드합니다.
-* [StorSimple 가상 배열 iSCSI 서버 구성 검사 목록](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf)을 다운로드합니다.
+* [StorSimple 가상 배열 파일 서버 구성 검사 목록](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf)을 다운로드합니다.
+* [StorSimple 가상 배열 iSCSI 서버 구성 검사 목록](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf)을 다운로드합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 여기에는 StorSimple 장치 관리자 서비스, StorSimple 가상 배열, 데이터 센터 네트워크에 대한 필수 조건이 제공됩니다.
 
-### <a name="for-the-storsimple-device-manager-service"></a>StorSimple 장치 관리자 서비스의 경우
+### <a name="for-the-storsimple-device-manager-service"></a>StorSimple 디바이스 관리자 서비스의 경우
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -71,7 +71,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 
 가상 배열을 배포하기 전에 다음 사항을 확인해야 합니다.
 
-* 장치 프로비전에 사용될 수 있는 Windows Server 2008 R2 이상 또는 VMware(ESXi 5.0, 5.5 또는 6.0)에서 Hyper-V를 실행하는 호스트 시스템에 액세스할 수 있습니다.
+* 디바이스 프로비전에 사용될 수 있는 Windows Server 2008 R2 이상 또는 VMware(ESXi 5.0, 5.5 또는 6.0)에서 Hyper-V를 실행하는 호스트 시스템에 액세스할 수 있습니다.
 * 가상 배열을 프로비전하려면 호스트 시스템에서 다음 리소스를 전용으로 사용할 수 있습니다.
   
   * 코어 4개 이상
@@ -106,7 +106,7 @@ StorSimple 장치 관리자 서비스 단일 인스턴스는 여러 StorSimple �
 
 ## <a name="step-2-get-the-service-registration-key"></a>2단계: 서비스 등록 키 받기
 
-StorSimple 장치 관리자 서비스를 실행한 후에는 서비스 등록 키를 받아야 합니다. 이 키는 StorSimple 장치를 서비스에 등록 및 연결하는 데 사용됩니다.
+StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등록 키를 받아야 합니다. 이 키는 StorSimple 장치를 서비스에 등록 및 연결하는 데 사용됩니다.
 
 [Azure Portal](https://portal.azure.com/)에서 다음 단계를 수행합니다.
 
@@ -130,7 +130,7 @@ StorSimple 장치 관리자 서비스를 실행한 후에는 서비스 등록 �
 
 #### <a name="to-get-the-virtual-array-image"></a>가상 배열 이미지를 가져오려면
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 2. Azure Portal에서 **찾아보기 > StorSimple 장치 관리자**를 클릭합니다.
 3. 기존 StorSimple 장치 관리자 서비스를 선택합니다. **StorSimple 장치 관리자** 블레이드에서 **빠른 시작**을 클릭합니다. 
 4. Microsoft 다운로드 센터에서 다운로드하려는 이미지에 해당하는 링크를 클릭합니다. 이미지 파일은 약 4.8GB입니다.
@@ -144,13 +144,13 @@ StorSimple 장치 관리자 서비스를 실행한 후에는 서비스 등록 �
 
 이 단계는 선택 사항이며 서비스를 사용하여 저장소 계정을 자동으로 생성하도록 설정하지 않은 경우에만 수행해야 합니다.
 
-다른 지역에 Azure Storage 계정을 만들어야 하는 경우 단계별 지침은 [저장소 계정을 만드는 방법](../storage/common/storage-create-storage-account.md#create-a-storage-account)을 참조하세요.
+다른 지역에 Azure Storage 계정을 만들어야 하는 경우 단계별 지침은 [저장소 계정을 만드는 방법](../storage/common/storage-quickstart-create-account.md)을 참조하세요.
 
 기존 Microsoft Azure Storage 계정을 추가하려면 StorSimple 장치 관리자 서비스 페이지의 [Azure Portal](https://ms.portal.azure.com/)에서 다음 단계를 수행합니다.
 
 #### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>장치 관리자 서비스와 동일한 Azure 구독에 있는 저장소 계정 자격 증명을 추가하려면
 
-1. 장치 관리자 서비스를 찾아 선택하고 두 번 클릭합니다. 그러면 **개요** 블레이드가 열립니다.
+1. Device Manager 서비스를 찾아 선택하고 두 번 클릭합니다. 그러면 **개요** 블레이드가 열립니다.
 2. **구성** 섹션 내의 **Storage 계정 자격 증명**을 선택합니다.
 3. **추가**를 클릭합니다.
 4. **저장소 계정 추가** 블레이드에서 다음을 수행합니다.

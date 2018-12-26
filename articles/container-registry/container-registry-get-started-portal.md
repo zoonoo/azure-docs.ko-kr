@@ -1,22 +1,21 @@
 ---
-title: 빠른 시작 - Azure Portal을 사용하여 Azure에서 개인 Docker 레지스트리 만들기
+title: 빠른 시작 - Azure에서 개인 Docker 레지스트리 만들기 - Azure Portal
 description: Azure Portal을 사용한 개인 Docker 컨테이너 레지스트리 만들기에 대해 빠르게 알아봅니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 03/03/2018
-ms.author: marsma
-ms.custom: mvc
-ms.openlocfilehash: 55da52e0d314c353c669c56ad918c4dd6bef44c3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 11/06/2018
+ms.author: danlep
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 865c53fdda60f6a0384157ec68042b4b8b243a7a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169808"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255366"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 컨테이너 레지스트리 만들기
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 개인 컨테이너 레지스트리 만들기
 
 Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고 관리할 수 있는 Azure의 개인 Docker 레지스트리입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 컨테이너 레지스트리를 만들고, 컨테이너 이미지를 레지스트리로 푸시하고, 마지막으로 레지스트리의 컨테이너를 ACI(Azure Container Instances)로 배포합니다.
 
@@ -24,15 +23,15 @@ Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-**리소스 만들기** > **컨테이너** > **Azure Container Registry**를 선택합니다.
+**리소스 만들기** > **컨테이너** > **컨테이너 레지스트리**를 선택합니다.
 
 ![Azure Portal에서 컨테이너 레지스트리 만들기][qs-portal-01]
 
-**레지스트리 이름** 및 **리소스 그룹**에 대한 값을 입력합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. `myResourceGroup`이라는 새 리소스 그룹을 만들고, **SKU**에 ‘Basic’을 선택합니다. **만들기**를 선택하여 ACR 인스턴스를 배포합니다.
+**레지스트리 이름** 및 **리소스 그룹**에 대한 값을 입력합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 이 빠른 시작에서는 `West US` 위치에 `myResourceGroup`이라는 새 리소스 그룹을 만들고, **SKU**로 '기본'을 선택합니다. **만들기**를 선택하여 ACR 인스턴스를 배포합니다.
 
 ![Azure Portal에서 컨테이너 레지스트리 만들기][qs-portal-03]
 
@@ -72,29 +71,29 @@ Azure Container Registry에 이미지를 푸시하려면 먼저 이미지가 있
 docker pull microsoft/aci-helloworld
 ```
 
-레지스트리에 이미지를 푸시하려면 먼저 ACR 로그인 서버 이름으로 이미지에 태그를 지정해야 합니다. [docker tag][docker-tag] 명령을 사용하여 이미지에 태그를 지정합니다. *login server*를 이전에 기록해 둔 로그인 서버 이름으로 바꿉니다.
+레지스트리에 이미지를 푸시하려면 먼저 ACR 로그인 서버 이름으로 이미지에 태그를 지정해야 합니다. [docker tag][docker-tag] 명령을 사용하여 이미지에 태그를 지정합니다. *login server*를 이전에 기록해 둔 로그인 서버 이름으로 바꿉니다. *리포지토리 이름*(예: **`myrepo`**)을 추가하여 리포지토리에 이미지를 배치합니다.
 
 ```bash
-docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
+docker tag microsoft/aci-helloworld <login server>/<repository name>/aci-helloworld:v1
 ```
 
-마지막으로 [docker push][docker-push]를 사용하여 ACR 인스턴스로 이미지를 푸시합니다. *login server*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
+마지막으로 [docker push][docker-push]를 사용하여 ACR 인스턴스로 이미지를 푸시합니다. *login server*를 ACR 인스턴스의 로그인 서버 이름으로 바꾸고, *repository name*을 이전 명령에서 사용한 리포지토리 이름으로 바꿉니다.
 
 ```bash
-docker push <login server>/aci-helloworld:v1
+docker push <login server>/<repository name>/aci-helloworld:v1
 ```
 
 성공적인 `docker push` 명령은 다음과 유사하게 출력됩니다.
 
 ```
-The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
-7c701b1aeecd: Pushed
-c4332f071aa2: Pushed
-0607e25cc175: Pushed
+The push refers to repository [specificregistryname.azurecr.io/myrepo/aci-helloworld]
+31ba1ebd9cf5: Pushed
+cd07853fe8be: Pushed
+73f25249687f: Pushed
 d8fbd47558a8: Pushed
 44ab46125c35: Pushed
 5bef08742407: Pushed
-v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c62ba size: 1577
+v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
 ```
 
 ## <a name="list-container-images"></a>컨테이너 이미지 나열
@@ -115,7 +114,7 @@ ACR 인스턴스의 이미지를 나열하려면 포털에서 레지스트리로
 
 ![ACI 바로 가기 메뉴 시작][qs-portal-11]
 
-**컨테이너 이름**을 입력하고, 올바른 구독이 선택되었는지 확인하고, 기존 **리소스 그룹**: "myResourceGroup"을 선택한 다음, **확인**을 클릭하여 Azure 컨테이너 인스턴스를 시작합니다.
+**컨테이너 이름**을 입력하고, 올바른 구독이 선택되었는지 확인하고, 기존 **리소스 그룹** "myResourceGroup"을 선택합니다. "공용 IP 주소" 옵션을 사용하도록 **예**로 설정한 다음, **확인**을 클릭하여 Azure 컨테이너 인스턴스를 시작합니다.
 
 ![ACI 배포 옵션 시작][qs-portal-12]
 
@@ -129,7 +128,7 @@ mycontainer 컨테이너 그룹을 선택하여 컨테이너 그룹 속성을 �
 
 ## <a name="view-the-application"></a>응용 프로그램 보기
 
-컨테이너가 **실행** 상태가 되면 선호하는 브라우저를 사용하여 이전 단계에서 기록해 둔 IP 주소로 이동하여 응용 프로그램을 표시합니다.
+컨테이너가 **실행** 상태가 되면 선호하는 브라우저를 사용하여 이전 단계에서 기록해 둔 IP 주소로 이동하여 애플리케이션을 표시합니다.
 
 ![브라우저의 Hello World 앱][qs-portal-15]
 
@@ -137,7 +136,7 @@ mycontainer 컨테이너 그룹을 선택하여 컨테이너 그룹 속성을 �
 
 리소스를 정리하려면 포털에서 **myResourceGroup** 리소스 그룹으로 이동합니다. 리소스 그룹이 로드되면 **리소스 그룹 삭제**를 클릭하여 리소스 그룹, Azure Container Registry 및 모든 Azure Container Instances를 제거합니다.
 
-![Azure Portal에서 컨테이너 레지스트리 만들기][qs-portal-08]
+![Azure Portal에서 리소스 그룹 삭제][qs-portal-08]
 
 ## <a name="next-steps"></a>다음 단계
 

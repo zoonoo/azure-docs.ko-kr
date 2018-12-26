@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.date: 09/21/2018
+ms.author: spelluru
+ms.openlocfilehash: 7045172fcd3c64cb0d979f5e3e8381c49579f1d2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27160266"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855258"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션
 
@@ -66,5 +66,4 @@ Service Bus 인증에 대한 자세한 내용은 다음 항목을 참조하세�
 
 * [Service Bus 인증 및 권한 부여](service-bus-authentication-and-authorization.md)
 * [공유 액세스 서명을 사용한 Service Bus 인증](service-bus-sas.md)
-* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 

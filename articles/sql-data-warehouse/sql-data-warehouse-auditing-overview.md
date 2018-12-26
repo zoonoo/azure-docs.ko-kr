@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse 감사 | Microsoft Docs
 description: 감사 및 Azure SQL Data Warehouse에서 감사를 설정하는 방법에 대해 알아봅니다.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 306032ece4feda0e8132db1e95c4a229472e6c04
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34643501"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260383"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 감사
 
@@ -52,8 +52,9 @@ SQL Data Warehouse 데이터베이스 감사를 사용하여 다음을 수행할
 > * 특정 데이터베이스에 대해 다른 *저장소 계정* 또는 *보존 기간*을 사용할 수 있습니다.
 > * 서버의 나머지 데이터베이스와는 다른 특정 데이터베이스에 대해 이벤트 형식이나 범주를 감사하려 합니다. 예를 들어 특정 데이터베이스에 대해서만 감사해야 하는 테이블 삽입이 있을 수 있습니다.
 > * 현재 데이터베이스 수준 감사로만 지원되는 위협 감지를 사용하려고 합니다.
->
 
+> [!IMPORTANT]
+>Azure SQL Data Warehouse 또는 Azure SQL Data Warehouse가 있는 서버에서 감사를 사용하도록 설정하면 이전에 일시 중지된 경우에도 **Data Warehouse가 다시 시작됩니다**. **감사를 사용하도록 설정한 후에 Data Warehouse를 일시 중지해야 합니다**.
 
 ## <a id="subheading-5"></a>모든 데이터베이스에 대한 서버 수준 감사 설정
 
@@ -111,7 +112,7 @@ SQL Data Warehouse 데이터베이스 감사를 사용하여 다음을 수행할
 
 ## <a id="subheading-3"></a>감사 로그 및 보고서 분석
 
-###<a name="server-level-policy-audit-logs"></a>서버 수준 정책 감사 로그
+### <a name="server-level-policy-audit-logs"></a>서버 수준 정책 감사 로그
 서버 수준 감사 로그는 Azure 구독의 Azure Blob 저장소에 있는 **Blob 추가**에 기록됩니다. **sqldbauditlogs**라는 컨테이너 내부에 Blob 파일 컬렉션으로 저장됩니다.
 
 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [BLOB 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
@@ -146,10 +147,10 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 
 
 <br>
-###<a name="database-level-policy-audit-logs"></a>데이터베이스 수준 정책 감사 로그
+### <a name="database-level-policy-audit-logs"></a>데이터베이스 수준 정책 감사 로그
 데이터베이스 수준 감사 로그는 설치 중에 선택한 Azure 저장소 계정의 **SQLDBAuditLogs** 접두사가 포함된 저장소 테이블의 컬렉션에 집계됩니다. [Azure Storage 탐색기](http://azurestorageexplorer.codeplex.com)와 같은 도구를 사용하여 로그 파일을 볼 수 있습니다.
 
-미리 구성된 대시보드 보고서 템플릿은 로그 데이터를 빠르게 분석하는 데 도움이 되는 [다운로드 가능 Excel 스프레드시트](http://go.microsoft.com/fwlink/?LinkId=403540)로 사용할 수 있습니다. 감사 로그의 템플릿을 사용하려면 Excel 2013 이상과 파워 쿼리가 필요하며 이러한 프로그램은 [여기](http://www.microsoft.com/download/details.aspx?id=39379)에서 다운로드할 수 있습니다.
+미리 구성된 대시보드 보고서 템플릿은 로그 데이터를 빠르게 분석하는 데 도움이 되는 [다운로드 가능 Excel 스프레드시트](https://go.microsoft.com/fwlink/?LinkId=403540)로 사용할 수 있습니다. 감사 로그의 템플릿을 사용하려면 Excel 2013 이상과 파워 쿼리가 필요하며 이러한 프로그램은 [여기](https://www.microsoft.com/download/details.aspx?id=39379)에서 다운로드할 수 있습니다.
 
 템플릿에는 가상의 샘플 데이터가 포함되어 있으며 Azure 저장소 계정에서 직접 감사 로그를 가져오도록 파워 쿼리를 설정할 수 있습니다.
 

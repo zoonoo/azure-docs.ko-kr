@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/22/2018
+ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 91bb57f49f8c92967275d340410e22381adad19e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 12880c3aada46b1656cf37b0cb539292cce930ef
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114278"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625711"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Service Fabric Windows 클러스터 배포
 
@@ -43,13 +43,13 @@ ms.locfileid: "37114278"
 > * Azure에서 보안 클러스터 만들기
 > * [클러스터 규모 확장 또는 규모 감축](service-fabric-tutorial-scale-cluster.md)
 > * [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
-> * [Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)
+> * [클러스터 삭제](service-fabric-tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
 
-* Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Service Fabric SDK 및 PowerShell 모듈](service-fabric-get-started.md)을 설치합니다.
 * [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 설치합니다.
 
@@ -61,13 +61,13 @@ ms.locfileid: "37114278"
 
 클러스터의 가상 머신 집합에 대한 크기, 번호 및 속성이 노드 형식에 정의됩니다. 모든 정의된 노드 형식은 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)으로 설정되며, 이는 가상 머신의 컬렉션을 집합으로 배포하고 관리하는 데 사용하는 Azure 계산 리소스입니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. 노드 형식은 "프런트 엔드" 또는 "백 엔드"와 같은 클러스터 노드 집합에 대한 역할을 정의하는 데 사용됩니다.  클러스터에 둘 이상의 노드 형식이 있을 수 있지만 주 노드 형식에는 프로덕션 클러스터에 대한 최소 5개의 VM(또는 테스트 클러스터에 대한 최소 3개의 VM)이 있어야 합니다.  [Service Fabric 시스템 서비스](service-fabric-technical-overview.md#system-services)는 주 노드 형식의 노드에 배치됩니다.
 
-클러스터는 클러스터 인증서로 보호됩니다. 클러스터 인증서는 노드 간 통신을 보호하고 관리 클라이언트에 클러스터 관리 끝점을 인증하는 데 사용되는 X.509 인증서입니다.  클러스터 인증서는 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer용 SSL도 제공합니다. 자체 서명된 인증서는 테스트 클러스터에 유용합니다.  프로덕션 클러스터의 경우 클러스터 인증서로 CA(인증 기관)의 인증서를 사용합니다.
+클러스터는 클러스터 인증서로 보호됩니다. 클러스터 인증서는 노드 간 통신을 보호하고 관리 클라이언트에 클러스터 관리 엔드포인트를 인증하는 데 사용되는 X.509 인증서입니다.  클러스터 인증서는 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer용 SSL도 제공합니다. 자체 서명된 인증서는 테스트 클러스터에 유용합니다.  프로덕션 클러스터의 경우 클러스터 인증서로 CA(인증 기관)의 인증서를 사용합니다.
 
 클러스터 인증서는 다음 조건을 충족해야 합니다.
 
 * 개인 키를 포함해야 합니다.
 * 키 교환을 위해 만들어야 합니다. 이 인증서는 개인 정보 교환(.pfx) 파일로 내보낼 수 있습니다.
-* 인증서의 주체 이름이 Service Fabric 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이렇게 일치해야 합니다. .cloudapp.azure.com 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다.  클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
+* 인증서의 주체 이름이 Service Fabric 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 엔드포인트 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이렇게 일치해야 합니다. .cloudapp.azure.com 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다.  클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
 Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증서를 관리하는 데 사용됩니다.  클러스터를 Azure에 배포할 때 서비스 패브릭 클러스터 생성을 담당하는 Azure 리소스 공급자는 주요 자격 증명 모음에서 인증서를 가져와 클러스터 VM에 설치합니다.
 
@@ -81,14 +81,14 @@ Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증
 
 다음 Resource Manager 템플릿 파일을 다운로드합니다.
 
-* [vnet-cluster.json][template]
-* [vnet-cluster.parameters.json][parameters]
+* [azuredeploy.json][template]
+* [azuredeploy.parameters.json][parameters]
 
-[vnet-cluster.json][template]은 다음을 포함한 숫자 리소스를 배포합니다.
+이 템플릿은 가상 머신 5개의 보안 클러스터 및 단일 노드 형식을 가상 네트워크 및 네트워크 보안 그룹에 배포합니다.  다른 예제 템플릿은 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates)에 있을 수 있습니다.  [azuredeploy.json][template]은 다음을 포함한 숫자 리소스를 배포합니다.
 
 ### <a name="service-fabric-cluster"></a>Service Fabric 클러스터
 
-Windows 클러스터는 다음과 같은 특성으로 배포됩니다.
+**Microsoft.ServiceFabric/clusters** 리소스에서 Windows 클러스터가 다음과 같은 특성으로 구성됩니다.
 
 * 단일 노드 형식
 * 기본 노드 형식의 5개 노드(템플릿 매개 변수에서 구성 가능)
@@ -103,7 +103,7 @@ Windows 클러스터는 다음과 같은 특성으로 배포됩니다.
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-부하 분산 장치가 배포되고, 다음 포트에 대한 프로브 및 규칙이 설정됩니다.
+**Microsoft.Network/loadBalancers** 리소스에서 부하 분산 장치가 구성되고 다음 포트에 대한 프로브 및 규칙이 설정됩니다.
 
 * 클라이언트 연결 엔드포인트: 19000
 * HTTP 게이트웨이 엔드포인트 19080
@@ -111,16 +111,16 @@ Windows 클러스터는 다음과 같은 특성으로 배포됩니다.
 * 응용 프로그램 포트: 443
 * Service Fabric 역방향 프록시: 19081
 
-다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 Microsoft.Network/loadBalancers 리소스 및 Microsoft.Network/networkSecurityGroups 리소스를 조정해야 합니다.
+다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 **Microsoft.Network/loadBalancers** 리소스 및 **Microsoft.Network/networkSecurityGroups** 리소스를 조정해야 합니다.
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>가상 네트워크, 서브넷 및 네트워크 보안 그룹
 
-가상 네트워크, 서브넷 및 네트워크 보안 그룹의 이름은 템플릿 매개 변수에서 선언됩니다.  가상 네트워크 및 서브넷의 주소 공간은 템플릿 매개 변수에서 선언됩니다.
+가상 네트워크, 서브넷 및 네트워크 보안 그룹의 이름은 템플릿 매개 변수에서 선언됩니다.  가상 네트워크 및 서브넷의 주소 공간도 템플릿 매개 변수로 선언되고 **Microsoft.Network/virtualNetworks** 리소스에 구성됩니다.
 
 * 가상 네트워크 주소 공간: 172.16.0.0/20
 * Service Fabric 서브넷 주소 공간: 172.16.2.0/23
 
-네트워크 보안 그룹에서 다음과 같은 인바운드 트래픽 규칙이 활성화됩니다. 템플릿 변수를 변경하여 포트 값을 변경할 수 있습니다.
+**Microsoft.Network/networkSecurityGroups** 리소스에서 다음 인바운드 트래픽 규칙을 사용하도록 설정할 수 있습니다. 템플릿 변수를 변경하여 포트 값을 변경할 수 있습니다.
 
 * ClientConnectionEndpoint(TCP): 19000
 * HttpGatewayEndpoint(HTTP/TCP): 19080
@@ -131,27 +131,27 @@ Windows 클러스터는 다음과 같은 특성으로 배포됩니다.
 * 응용 프로그램 포트 범위 – 49152~65534(서비스 간 통신에 사용되며 부하 분산 장치에서 열리지 않음)
 * 다른 모든 포트 차단
 
-다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 Microsoft.Network/loadBalancers 리소스 및 Microsoft.Network/networkSecurityGroups 리소스를 조정해야 합니다.
+다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 **Microsoft.Network/loadBalancers** 리소스 및 **Microsoft.Network/networkSecurityGroups** 리소스를 조정해야 합니다.
 
 ## <a name="set-template-parameters"></a>템플릿 매개 변수 설정
 
-[vnet-cluster.parameters.json][parameters] 매개 변수 파일은 클러스터 및 연결된 리소스를 배포하는 데 사용되는 많은 값을 선언합니다. 배포에 대해 수정이 필요할 수도 있는 매개 변수 중 일부는 다음과 같습니다.
+[azuredeploy.parameters.json][parameters] 매개 변수 파일은 클러스터 및 연결된 리소스를 배포하는 데 사용되는 많은 값을 선언합니다. 배포에 대해 수정이 필요할 수도 있는 매개 변수 중 일부는 다음과 같습니다.
 
 |매개 변수|예제 값|메모|
 |---|---||
-|adminUserName|vmadmin| 클러스터 VM에 대한 관리자 사용자 이름입니다. |
-|adminPassword|Password#1234| 클러스터 VM에 대한 관리자 암호입니다.|
-|clusterName|mysfcluster123| 클러스터의 이름입니다. |
+|adminUserName|vmadmin| 클러스터 VM에 대한 관리자 사용자 이름입니다.[VM의 사용자 이름 요구 사항](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
+|adminPassword|Password#1234| 클러스터 VM에 대한 관리자 암호입니다. [VM의 암호 요구 사항](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
+|clusterName|mysfcluster123| 클러스터의 이름입니다. 문자와 숫자만 포함할 수 있습니다. 길이는 3자에서 23자 사이일 수 있습니다.|
 |location|southcentralus| 클러스터의 위치입니다. |
-|certificateThumbprint|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 지문 값을 입력합니다. 예를 들면 "6190390162C988701DB5676EB81083EA608DCCF3"과 같습니다.</p>. |
+|certificateThumbprint|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 SHA1 지문 값을 입력합니다. 예를 들면 “6190390162C988701DB5676EB81083EA608DCCF3”과 같습니다.</p>. |
 |certificateUrlValue|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다. </p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 URL을 입력합니다. 예: "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
-|sourceVaultValue||<p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 원본 자격 증명 모음 값을 입력합니다. 예를 들면 "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT"와 같습니다.</p>|
+|sourceVaultValue||<p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 원본 자격 증명 모음 값을 입력합니다. 예를 들면 “/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”와 같습니다.</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>가상 네트워크 및 클러스터 배포
 
-다음으로 네트워크 토폴로지를 설정하고 Service Fabric 클러스터를 배포합니다. [vnet-linuxcluster.json][template] Resource Manager 템플릿은 VNET(가상 네트워크)과 Service Fabric에 대한 서브넷 및 NSG(네트워크 보안 그룹)를 만듭니다. 템플릿은 활성화된 인증서 보안으로 클러스터도 배포합니다.  프로덕션 클러스터의 경우 클러스터 인증서로 CA(인증 기관)의 인증서를 사용합니다. 테스트 클러스터를 보호하는 데 자체 서명된 인증서를 사용할 수 있습니다.
+다음으로 네트워크 토폴로지를 설정하고 Service Fabric 클러스터를 배포합니다. [azuredeploy.json][template] Resource Manager 템플릿은 VNET(가상 네트워크), Service Fabric에 대한 서브넷 및 NSG(네트워크 보안 그룹)를 만듭니다. 템플릿은 활성화된 인증서 보안으로 클러스터도 배포합니다.  프로덕션 클러스터의 경우 클러스터 인증서로 CA(인증 기관)의 인증서를 사용합니다. 테스트 클러스터를 보호하는 데 자체 서명된 인증서를 사용할 수 있습니다.
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>기존 인증서를 사용하여 클러스터 만들기
 
@@ -178,9 +178,9 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
--ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
--KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateFile $certpath
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+-ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
+-KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>자체 서명된 새로운 인증서를 사용하여 클러스터 만들기
@@ -209,9 +209,9 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
--ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
--CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+-ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
+-CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateSubjectName $subname
 
 ```
 
@@ -228,7 +228,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
 
 이제 보안 클러스터에 연결할 준비가 되었습니다.
 
-**Service Fabric** PowerShell 모듈은 Service Fabric 클러스터, 응용 프로그램 및 서비스를 관리하기 위한 많은 cmdlet을 제공합니다.  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet을 사용하여 보안 클러스터에 연결합니다. 인증서 지문 및 연결 끝점 세부 정보는 이전 단계의 출력에 있습니다.
+**Service Fabric** PowerShell 모듈은 Service Fabric 클러스터, 응용 프로그램 및 서비스를 관리하기 위한 많은 cmdlet을 제공합니다.  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet을 사용하여 보안 클러스터에 연결합니다. 인증서 SHA1 지문 및 연결 엔드포인트 세부 정보는 이전 단계의 출력에 있습니다.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
@@ -246,14 +246,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서 시리즈의 다른 문서에서는 방금 만든 클러스터를 사용합니다. 다음 문서로 바로 이동하지 않는 경우 요금이 발생하지 않도록 클러스터 및 Key Vault를 삭제하는 것이 좋습니다. 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다.
-
-[Remove-AzureRMResourceGroup cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup)을 사용하여 리소스 그룹 및 모든 클러스터 리소스를 삭제합니다.  또한 Key Vault를 포함하는 리소스 그룹을 삭제합니다.
-
-```powershell
-Remove-AzureRmResourceGroup -Name $groupname -Force
-Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
-```
+이 자습서 시리즈의 다른 문서에서는 방금 만든 클러스터를 사용합니다. 다음 문서로 바로 이동하지 않는 경우 요금이 발생하지 않도록 [클러스터를 삭제](service-fabric-cluster-delete.md)하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -271,5 +264,5 @@ Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
 > [!div class="nextstepaction"]
 > [클러스터 규모 조정](service-fabric-tutorial-scale-cluster.md)
 
-[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.json
-[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.parameters.json

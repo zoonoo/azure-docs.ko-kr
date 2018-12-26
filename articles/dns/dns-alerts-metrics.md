@@ -3,7 +3,7 @@ title: Azure DNS 메트릭 및 경고 | Microsoft Docs
 description: Azure DNS 메트릭 및 경고에 대해 알아봅니다.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jennoc
 editor: ''
 ms.assetid: ''
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: kumud
-ms.openlocfilehash: 54c4df446ee5c1bf8d29dd6c33b304f39ce8f1b8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: victorh
+ms.openlocfilehash: de29c24556522abeaff8d942edc027c7444c3ed3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31591622"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965027"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS 메트릭 및 경고
 Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. 이 문서에서는 Azure DNS 서비스에 대한 메트릭 및 경고를 설명합니다.
 
 ## <a name="azure-dns-metrics"></a>Azure DNS 메트릭
 
-Azure DNS는 서비스에서 호스트되는 DNS의 특정 측면을 모니터링할 수 있도록 고객에게 메트릭을 제공합니다. 또한 Azure DNS 메트릭을 사용하여 관심 조건에 따라 경고를 구성하고 받을 수 있습니다. 메트릭은 [Azure Monitor 서비스](../monitoring-and-diagnostics/index.yml)를 통해 제공됩니다. Azure DNS는 DNS 영역에 대한 Azure Monitor를 통해 다음 메트릭을 제공합니다.
+Azure DNS는 서비스에서 호스트되는 DNS의 특정 측면을 모니터링할 수 있도록 고객에게 메트릭을 제공합니다. 또한 Azure DNS 메트릭을 사용하여 관심 조건에 따라 경고를 구성하고 받을 수 있습니다. 메트릭은 [Azure Monitor 서비스](../azure-monitor/index.yml)를 통해 제공됩니다. Azure DNS는 DNS 영역에 대한 Azure Monitor를 통해 다음 메트릭을 제공합니다.
 
 -   QueryVolume
 -   RecordSetCount

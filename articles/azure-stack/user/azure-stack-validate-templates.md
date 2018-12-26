@@ -1,9 +1,9 @@
 ---
-title: 서식 파일 유효성 검사 도구를 사용 하 여 Azure 스택에 대 한 서식 파일을 확인 | Microsoft Docs
-description: Azure 스택 배포에 대 한 템플릿 확인
+title: 템플릿 유효성 검사 도구를 사용 하 여 Azure Stack 용 템플릿 확인 | Microsoft Docs
+description: Azure Stack 배포용 템플릿 확인
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
@@ -12,53 +12,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 61c893848176a89b4b6ed8d7a46f27bdeff5cec1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 73a0766baee8da782f0192fbc17fb2898a8360ac
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294493"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42139386"
 ---
-# <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>서식 파일 유효성 검사 도구와 함께 Azure 스택에 대 한 템플릿을 확인 하십시오.
+# <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>템플릿 유효성 검사 도구를 사용 하 여 Azure Stack에 대 한 템플릿을 확인합니다
 
-*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
+*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-템플릿 유효성 검사 도구를 사용 하 여 확인할 Azure 리소스 관리자 [템플릿](azure-stack-arm-templates.md) Azure 스택을 배포할 때 사용할 준비가 되었습니다. 서식 파일 유효성 검사 도구는 스택 Azure tools의 일부로 사용할 수 있습니다. 에 설명 된 단계를 사용 하 여 Azure 스택 도구 다운로드는 [GitHub에서 도구를 다운로드](azure-stack-powershell-download.md) 문서.
+템플릿 유효성 검사 도구를 사용 하 여 확인에 Azure Resource Manager [템플릿](azure-stack-arm-templates.md) Azure Stack에 배포 하기 위한 준비가 되었습니다. 템플릿 유효성 검사 도구는 Azure Stack 도구의 일부로 사용할 수 있습니다. 에 설명 된 단계를 사용 하 여 Azure Stack 도구를 다운로드 합니다 [GitHub에서 도구를 다운로드](azure-stack-powershell-download.md) 문서.
 
 ## <a name="overview"></a>개요
 
-서식 파일의 유효성을 검사할 클라우드 기능을 구축 해야 첫 번째 파일을 다음 유효성 검사 도구를 실행 합니다. Azure 스택 도구에서 다음 PowerShell 모듈을 사용 하는 경우:
+템플릿을 확인을 위해 클라우드 기능을 구축할 수 있는 첫 번째 파일을 다음 유효성 검사 도구를 실행 합니다. Azure Stack 도구에서 다음 PowerShell 모듈을 사용 하는 경우:
 
-- 에 **CloudCapabilities** 폴더:<br>         AzureRM.CloudCapabilities.psm1은 서비스 및 Azure 스택 클라우드에서 버전을 나타내는 클라우드 기능 JSON 파일을 만듭니다.
+- 에 **CloudCapabilities** 폴더:<br>         AzureRM.CloudCapabilities.psm1은 서비스 및 Azure Stack 클라우드에 버전을 나타내는 클라우드 기능 JSON 파일을 만듭니다.
 - 에 **TemplateValidator** 폴더:<br>
-AzureRM.TemplateValidator.psm1은 Azure 스택에서 배포에 대 한 서식 파일을 테스트 하려면 클라우드 기능 JSON 파일을 사용 합니다.
+AzureRM.TemplateValidator.psm1은 클라우드 기능 JSON 파일을 사용 하 여 Azure Stack의 템플릿 배포에 대 한 테스트.
 
 ## <a name="build-the-cloud-capabilities-file"></a>클라우드 기능 파일 빌드
 
-서식 파일 유효성 검사기를 사용 하려면 먼저 JSON 파일을 작성 AzureRM.CloudCapabilities PowerShell 모듈을 실행 합니다.
+템플릿 유효성 검사기를 사용 하기 전에 JSON 파일을 빌드합니다 AzureRM.CloudCapabilities PowerShell 모듈을 실행 합니다.
 
 >[!NOTE]
->통합된 시스템을 업데이트 하거나 새 서비스 또는 가상 확장을 추가할 경우이 모듈을 다시 실행 해야 합니다.
+>통합된 시스템을 업데이트 하거나 새 서비스 또는 가상 확장을 추가 하는 경우이 모듈을 다시 실행 해야 있습니다.
 
-1. Azure 스택에 연결이 있는지 확인 합니다. Azure 스택 개발 키트 호스트에서 다음이 단계를 수행할 수 있으며 하거나 사용할 수 있습니다는 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 워크스테이션에서 연결할 수 있습니다.
+1. Azure Stack에 연결 되어 있는지 확인 합니다. Azure Stack 개발 키트 호스트에서 이러한 단계를 수행할 수 있습니다 또는 사용할 수는 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 워크스테이션에서 연결 합니다.
 2. AzureRM.CloudCapabilities PowerShell 모듈을 가져옵니다.
 
     ```PowerShell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. 서비스 버전을 검색 하 고 클라우드 기능 JSON 파일을 만들도록 하려면 Get CloudCapabilities cmdlet을 사용 합니다. 지정 하지 않으면 **-OutputPath**, æ ä AzureCloudCapabilities.Json 현재 디렉터리에 만들어집니다. 사용자의 실제 위치를 사용 합니다.
+3. Get-CloudCapabilities cmdlet을 사용 하 여 서비스 버전을 검색 하 고 클라우드 기능 JSON 파일을 만듭니다. 지정 하지 않으면 **-OutputPath**, 파일 AzureCloudCapabilities.Json 현재 디렉터리에 만들어집니다. 사용자의 실제 위치를 사용 합니다.
 
     ```PowerShell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
     ```
 
-## <a name="validate-templates"></a>서식 파일의 유효성을 검사합니다
+## <a name="validate-templates"></a>템플릿 유효성 검사
 
-템플릿 AzureRM.TemplateValidator PowerShell 모듈을 사용 하 여 유효성을 검사 하려면 다음이 단계를 사용 합니다. 사용자 고유의 템플릿을 사용 하거나 유효성을 검사 수는 [Azure 스택 퀵 스타트 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates)합니다.
+이러한 단계를 사용 하 여 템플릿 AzureRM.TemplateValidator PowerShell 모듈을 사용 하 여 유효성을 검사 합니다. 사용자 고유의 템플릿을 사용 하거나 유효성을 검사 합니다 [Azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates)합니다.
 
 1. AzureRM.TemplateValidator.psm1 PowerShell 모듈을 가져옵니다.
 
@@ -67,7 +67,7 @@ AzureRM.TemplateValidator.psm1은 Azure 스택에서 배포에 대 한 서식 �
     Import-Module .\AzureRM.TemplateValidator.psm1
     ```
 
-2. 서식 파일 유효성 검사기를 실행 합니다.
+2. 템플릿 유효성 검사기를 실행 합니다.
 
     ```PowerShell
     Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
@@ -75,27 +75,27 @@ AzureRM.TemplateValidator.psm1은 Azure 스택에서 배포에 대 한 서식 �
     -Verbose
     ```
 
-서식 파일 유효성 검사 경고 또는 오류가 PowerShell 콘솔 및 원본 디렉터리에 HTML 파일에 기록 됩니다. 다음 화면 캡처에서는 유효성 검사 보고서의 예를 보여 줍니다.
+템플릿 유효성 검사 경고 또는 오류는 원본 디렉터리에 HTML 파일과 PowerShell 콘솔에 기록 됩니다. 다음 화면 캡처에서는 유효성 검사 보고서의 예를 보여 줍니다.
 
-![서식 파일 유효성 검사 보고서](./media/azure-stack-validate-templates/image1.png)
+![템플릿 유효성 검사 보고서](./media/azure-stack-validate-templates/image1.png)
 
 ### <a name="parameters"></a>매개 변수
 
-서식 파일 유효성 검사기는 다음 매개 변수를 지원합니다.
+템플릿 유효성 검사기는 다음 매개 변수를 지원합니다.
 
 | 매개 변수 | 설명 | 필수 |
 | ----- | -----| ----- |
-| TemplatePath | Azure 리소스 관리자 템플릿이를 재귀적으로 경로 지정 | 예 | 
-| TemplatePattern | 일치 하는 템플릿 파일의 이름을 지정 합니다. | 아니요 |
+| TemplatePath | 재귀적으로 경로 Azure Resource Manager 템플릿의 찾을 지정합니다 | 예 | 
+| TemplatePattern | 와 일치 하도록 템플릿 파일의 이름을 지정 합니다. | 아니요 |
 | CapabilitiesPath | 클라우드 기능 JSON 파일의 경로를 지정합니다. | 예 | 
-| IncludeComputeCapabilities | VM 크기 및 VM 확장 같은 IaaS 리소스의 평가 포함합니다. | 아니요 |
-| IncludeStorageCapabilities | SKU 형식 처럼 저장소 리소스의 평가 포함합니다. | 아니요 |
-| 보고서 | 생성된 된 HTML 보고서의 이름을 지정합니다. | 아니요 |
+| IncludeComputeCapabilities | VM 크기 및 VM 확장 등의 IaaS 리소스의 평가 포함합니다. | 아니요 |
+| IncludeStorageCapabilities | SKU 형식 같은 storage 리소스의 평가 포함합니다. | 아니요 |
+| 보고서 | 생성 된 HTML 보고서의 이름을 지정합니다. | 아니요 |
 | 자세한 정보 표시 | 콘솔에 오류 및 경고를 기록합니다. | 아니요|
 
 ### <a name="examples"></a>예
 
-이 예에서는 모든 유효성을 검사는 [Azure 스택 퀵 스타트 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates) 로컬 저장소에 다운로드 합니다. 또한이 예제에서는 가상 컴퓨터 크기와 Azure 스택 개발 키트 기능에 대해 확장 유효성을 검사 합니다.
+이 예제에서는 모든 유효성을 검사 합니다 [Azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates) 로컬 저장소에 다운로드 합니다. 예제에서는 가상 머신 크기 및 Azure Stack 개발 키트 기능에 대 한 확장의 유효성도 검사 합니다.
 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
@@ -107,5 +107,5 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 스택에 템플릿을 배포합니다](azure-stack-arm-templates.md)
+- [Azure Stack에 템플릿 배포](azure-stack-arm-templates.md)
 - [Azure Stack용 템플릿 개발](azure-stack-develop-templates.md)

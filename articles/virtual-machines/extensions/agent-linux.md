@@ -3,7 +3,7 @@ title: Azure Linux VM 에이전트 개요 | Microsoft Docs
 description: Linux 에이전트(waagent)를 설치 및 구성하여 가상 머신과 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: danis
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
-ms.author: danis
+ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2fe93cba2c8b295925ce4cfa8c3017ee1373261
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944915"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243882"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
 
@@ -51,7 +51,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
   
   * 가상 NUMA 구성(`2.6.37` 미만 커널에는 사용 안 함)
   * /dev/random의 Hyper-V 엔트로피 이용
-  * 루트 장치(원격일 수 있음)에 대한 SCSI 시간 제한 구성
+  * 루트 디바이스(원격일 수 있음)에 대한 SCSI 시간 제한 구성
 * **진단**
   
   * 직렬 포트로 콘솔 리디렉션
@@ -67,13 +67,13 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 플랫폼에서 에이전트로의 정보 흐름은 다음 두 채널을 통해 진행됩니다.
 
 * IaaS 배포를 위해 부팅 시 연결된 DVD. 이 DVD에는 실제 SSH 키 쌍이 아닌 모든 프로비전 정보가 포함된 OVF 규격 구성 파일이 포함되어 있습니다.
-* 배포 및 토폴로지 구성을 가져오는 데 사용된 REST API를 공개하는 TCP 끝점
+* 배포 및 토폴로지 구성을 가져오는 데 사용된 REST API를 공개하는 TCP 엔드포인트.
 
 ## <a name="requirements"></a>요구 사항
 다음 시스템은 테스트를 거쳐 Azure Linux 에이전트와 동작하는 것으로 알려져 있습니다.
 
 > [!NOTE]
-> [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)에서 설명한 대로 Microsoft Azure 플랫폼에서 지원되는 시스템의 공식 목록에서 이 목록은 달라질 수 있습니다.
+> [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)에서 설명한 대로 Microsoft Azure 플랫폼에서 지원되는 시스템의 공식 목록에서 이 목록은 달라질 수 있습니다.
 > 
 > 
 
@@ -344,6 +344,6 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 
 * 프로비전 중에 Ubuntu 클라우드 이미지에서 리소스 디스크 탑재 지점 및 스왑 공간을 구성하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
   
-  * [Ubuntu Wiki: Swap 파티션 구성](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki: Swap 파티션 구성](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Azure Virtual Machine에 사용자 지정 데이터 삽입](../windows/classic/inject-custom-data.md)
 

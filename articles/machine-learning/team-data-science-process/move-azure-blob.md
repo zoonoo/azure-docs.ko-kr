@@ -1,33 +1,32 @@
 ---
 title: Azure Blob Storage 간 데이터 이동 | Microsoft Docs
-description: Azure Blob Storage의 데이터 이동
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
-manager: jhubbard
+description: Azure Blob Storage 간 데이터 이동
+services: machine-learning
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: d6681e30-ab45-45ea-a9fb-ac8acefe544d
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 40ec20765bf7874f245d3e37800b0b38dcda475d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: fa3fd5dfdd0fbdb8200b0c5c8df512caedbe735c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838050"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441845"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Azure Blob Storage 간 데이터 이동
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
-<!-- just in case, adding this to separate these two include references -->
+팀 데이터 과학 프로세스는 프로세스의 각 단계에서 가장 적절한 방법으로 처리되거나 분석되도록 데이터가 다양한 저장소 환경에 수집되거나 로드되어야 합니다.
+다음 문서에서는 다양한 기술을 사용하여 Azure Blob Storage 간에 데이터를 이동하는 방법을 설명합니다.
 
-[!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
+* [Azure Storage-Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
+* [AZCopy](move-data-to-azure-blob-using-azcopy.md)
+* [Python](move-data-to-azure-blob-using-python.md)
+* [SSIS](move-data-to-azure-blob-using-ssis.md)
 
 가장 적합한 방법은 시나리오에 따라 달라집니다. [Azure Machine Learning의 고급 분석 시나리오](plan-sample-scenarios.md) 문서는 고급 분석 프로세스에서 사용되는 다양한 데이터 과학 워크플로에 필요한 리소스를 결정하도록 도와줍니다.
 
@@ -43,7 +42,7 @@ ms.locfileid: "34838050"
 * 예측 분석 결과 수신 
 * 결과를 저장소에 업로드 
 
-자세한 내용은 [Azure 데이터 팩터리 및 Azure Machine Learning을 사용하여 예측 파이프라인 만들기](../../data-factory/v1/data-factory-azure-ml-batch-execution-activity.md)를 참조하세요.
+자세한 내용은 [Azure 데이터 팩터리 및 Azure Machine Learning을 사용하여 예측 파이프라인 만들기](../../data-factory/transform-data-using-machine-learning.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자에게 Azure 구독, 저장소 계정 및 계정에 해당하는 저장소 키가 있다고 가정합니다. 데이터를 업로드/다운로드하려면 Azure 저장소 계정 이름 및 계정 키를 알아야 합니다.

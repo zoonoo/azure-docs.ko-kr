@@ -1,7 +1,7 @@
 ---
-title: Ruby 앱을 만들고 Linux의 App Service에 배포 | Microsoft Docs
-description: Linux의 App Service로 Ruby 앱을 만드는 방법을 알아봅니다.
-keywords: azure app service, linux, oss, ruby
+title: Linux에서 Ruby 웹앱 만들기 - Azure App Service | Microsoft Docs
+description: Linux의 App Service로 Ruby on Rails 앱을 만드는 방법을 알아봅니다.
+keywords: azure app service, linux, oss, ruby, rails
 services: app-service
 documentationcenter: ''
 author: SyntaxC4
@@ -13,19 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/10/2017
+ms.date: 08/24/2018
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 57442cdb28dfce07ec653e2f0a69d19f5bb6c919
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: seodec18
+ms.openlocfilehash: 13686951324a10c1de621f0fe507be062c9d2095
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674787"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252476"
 ---
-# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Linux의 App Service에서 Ruby 앱 만들기
+# <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Linux의 App Service에서 Ruby on Rails 앱 만들기
 
 [Linux의 Azure App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 기본 [Ruby on Rails](https://rubyonrails.org/) 응용 프로그램을 만든 다음, Linux의 웹앱으로 Azure에 배포하는 방법을 보여 줍니다.
+
+> [!NOTE]
+> Ruby 개발 스택은 현재 Ruby on Rails만 지원합니다. Sinatra 같은 다른 플랫폼을 사용하려면 [Web App for Containers](https://docs.microsoft.com/azure/app-service/containers/)를 참조하세요.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -44,13 +47,20 @@ ms.locfileid: "38674787"
 git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 ```
 
-## <a name="run-the-application-locally"></a>로컬에서 응용 프로그램 실행
+## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 
-레일 서버는 응용 프로그램이 작동하도록 실행돼야 합니다. `hello-world` 디렉터리를 변경하고 `rails server` 명령을 사용하여 서버를 시작합니다.
+응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고, `hello-world` 디렉터리로 변경하고, `rails server` 명령을 사용하여 서버를 시작합니다.
+
+첫 번째 단계는 필요한 Gem을 설치하는 것입니다. 샘플에 `Gemfile`이 포함되어 있으므로 설치할 Gem을 지정하지 않아도 됩니다. 이를 위해 번들러를 사용합니다.
+
+```
+bundle install
+```
+
+Gem이 설치되면 번들러를 사용하여 앱을 시작합니다.
 
 ```bash
-cd hello-world\bin
-rails server
+bundle exec rails server
 ```
 
 웹 브라우저를 사용하여 `http://localhost:3000`으로 이동한 후 앱을 로컬로 테스트합니다.
@@ -106,7 +116,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-배포가 완료되면 여기에 표시된 것처럼 [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) 명령을 사용하여 배포를 적용하도록 웹앱을 다시 시작합니다.
+배포가 완료되면 여기에 표시된 것처럼 [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-restart) 명령을 사용하여 배포를 적용하도록 웹앱을 다시 시작합니다.
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup

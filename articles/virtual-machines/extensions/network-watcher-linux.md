@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: db508e2311602a66a2c252ffaa842f8bfb4f670b
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 35cd773c2a30549dde10a73b2fbe6db1a0c8b34a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076074"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989382"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux용 Network Watcher 에이전트 가상 머신 확장
 
@@ -28,7 +28,7 @@ ms.locfileid: "34076074"
 
 [Azure Network Watcher](/azure/network-watcher/)는 Azure 네트워크에 대한 모니터링을 허용하는 네트워크 성능 모니터링, 진단 및 분석 서비스입니다. Network Watcher 에이전트 VM(가상 머신) 확장은 요청 시 네트워크 트래픽 캡처 및 기타 고급 기능 등 Azure VM에서 Network Watcher 일부 기능을 위한 요구 사항입니다.
 
-이 아티클에서는 Linux용 Network Watcher 에이전트 VM 확장에 대해 지원되는 플랫폼 및 배포 옵션을 설명합니다. 에이전트 설치는 VM을 중단하거나, 다시 부팅이 필요하지 않습니다.
+이 아티클에서는 Linux용 Network Watcher 에이전트 VM 확장에 대해 지원되는 플랫폼 및 배포 옵션을 설명합니다. 에이전트 설치는 VM을 중단하거나, 다시 부팅이 필요하지 않습니다. 배포하는 가상 머신에 확장을 배포할 수 있습니다. 가상 머신이 Azure 서비스에서 배포되는 경우 가상 머신에서 확장 설치의 허용 여부를 결정하는 서비스에 대한 설명서를 확인합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -38,16 +38,15 @@ Network Watcher 에이전트 확장은 다음 Linux 배포판에 대해 구성�
 
 | 배포 | 버전 |
 |---|---|
-| Ubuntu | 16.04 LTS, 14.04 LTS 및 12.04 LTS |
+| Ubuntu | 12+ |
 | Debian | 7 및 8 |
-| RedHat | 6 및 7 |
+| Red Hat | 6 및 7 |
 | Oracle Linux | 6.8+ 및 7 |
 | SUSE Linux Enterprise Server | 11 및 12 |
 | OpenSUSE Leap | 42.3+ |
 | CentOS | 6.5+ 및 7 |
 | CoreOS | 899.17.0+ |
 
-CoreOS는 지원되지 않습니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
@@ -77,7 +76,7 @@ CoreOS는 지원되지 않습니다.
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 |
+| 이름 | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
@@ -88,7 +87,7 @@ CoreOS는 지원되지 않습니다.
 
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. Network Watcher 에이전트 확장을 배포하려면 템플릿에서 이전 json 스키마를 사용합니다.
 
-## <a name="azure-cli-10-deployment"></a>Azure CLI 1.0 배포
+## <a name="azure-classic-cli-deployment"></a>Azure 클래식 CLI 배포
 
 다음 예제에서는 클래식 배포 모델을 통해 배포된 기존 VM에 Network Watcher 에이전트 VM 확장을 배포합니다.
 
@@ -97,7 +96,7 @@ azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
 
-## <a name="azure-cli-20-deployment"></a>Azure CLI 2.0 배포
+## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
 다음 예제에서는 Resource Manager를 통해 배포된 기존 VM에 Network Watcher 에이전트 VM 확장을 배포합니다.
 
@@ -111,7 +110,7 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 Azure Portal 및 Azure CLI를 사용하여 확장 배포 상태에 대한 데이터를 검색할 수 있습니다.
 
-다음 예제에서는 Azure CLI 1.0을 사용하여 클래식 배포 모델을 통해 배포된 VM에 대한 확장의 배포 상태를 보여줍니다.
+다음 예제에서는 Azure 클래식 CLI를 사용하여 클래식 배포 모델을 통해 배포된 VM에 대한 확장의 배포 상태를 보여 줍니다.
 
 ```azurecli
 azure config mode asm
@@ -123,7 +122,7 @@ azure vm extension get myVM1
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 `
 
-다음 예제에서는 Azure CLI 2.0을 사용하여 Resource Manager를 통해 배포된 VM에 대한 NetworkWatcherAgentLinux 확장의 배포 상태를 보여줍니다.
+다음 예제에서는 Azure CLI를 사용하여 Resource Manager를 통해 배포된 VM에 대한 NetworkWatcherAgentLinux 확장의 배포 상태를 보여 줍니다.
 
 ```azurecli
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1

@@ -2,24 +2,20 @@
 title: Node.js에서 큐 저장소를 사용하는 방법 | Microsoft Docs
 description: Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Node.js로 작성되었습니다.
 services: storage
-documentationcenter: nodejs
-author: craigshoemaker
-manager: jeconnoc
-editor: tysonn
-ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
+author: tamram
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: cshoe
-ms.openlocfilehash: c19ac5f45504e3c19b0b300dbc3ea157861d05ed
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: tamram
+ms.component: queues
+ms.openlocfilehash: 38da370e8e3cd81e209d0fd592d6b2afa8c82e44
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38681221"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138516"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Node.js에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -34,9 +30,9 @@ ms.locfileid: "38681221"
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Azure App Service에서 Node.js 웹앱 만들기](../../app-service/app-service-web-get-started-nodejs.md), [Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)(Windows PowerShell 사용) 또는 [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)를 참조하세요.
+빈 Node.js 애플리케이션을 만듭니다. Node.js 애플리케이션을 만드는 방법에 대한 지침은 [Azure App Service에서 Node.js 웹앱 만들기](../../app-service/app-service-web-get-started-nodejs.md), [Azure Cloud Service에 Node.js 애플리케이션 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)(Windows PowerShell 사용) 또는 [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)를 참조하세요.
 
-## <a name="configure-your-application-to-access-storage"></a>저장소에 액세스하도록 응용 프로그램 구성
+## <a name="configure-your-application-to-access-storage"></a>스토리지에 액세스하도록 애플리케이션 구성
 Azure Storage를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 가져오기
@@ -59,7 +55,7 @@ Azure Storage를 사용하려면 저장소 REST 서비스와 통신하는 편리
 3. **ls** 명령을 수동으로 실행하여 **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
-메모장 또는 다른 텍스트 편집기를 사용하여 저장소를 사용할 응용 프로그램의 **server.js** 파일 맨 위에 다음을 추가합니다.
+메모장 또는 다른 텍스트 편집기를 사용하여 스토리지를 사용할 애플리케이션의 **server.js** 파일 맨 위에 다음을 추가합니다.
 
 ```javascript
 var azure = require('azure-storage');
@@ -144,7 +140,7 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 1. 메시지를 큐에서 제거합니다.
 2. 메시지를 삭제합니다.
 
-메시지를 큐에서 제거하려면 **getMessage**를 사용합니다. 그러면 큐에서 메시지가 보이지 않으므로 다른 클라이언트에서 처리할 수 없습니다. 응용 프로그램에서 메시지를 처리하고 나면 **deleteMessage** 를 호출하여 큐에서 삭제합니다. 다음 예제에서는 메시지를 가져온 후 삭제합니다.
+메시지를 큐에서 제거하려면 **getMessage**를 사용합니다. 그러면 큐에서 메시지가 보이지 않으므로 다른 클라이언트에서 처리할 수 없습니다. 애플리케이션에서 메시지를 처리하고 나면 **deleteMessage** 를 호출하여 큐에서 삭제합니다. 다음 예제에서는 메시지를 가져온 후 삭제합니다.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, results, response){
@@ -250,7 +246,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 ## <a name="how-to-work-with-shared-access-signatures"></a>공유 액세스 서명 작업 방법
 SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하지 않으면서 큐에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 메시지를 제출하도록 허용하는 경우와 같이 큐에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
 
-클라우드 기반 서비스와 같이 신뢰할 수 있는 응용 프로그램에서는 **QueueService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고 신뢰할 수 없거나 신뢰가 약한 응용 프로그램에 제공합니다. 예를 들면 모바일 앱이 여기에 해당됩니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
+클라우드 기반 서비스와 같이 신뢰할 수 있는 애플리케이션에서는 **QueueService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고 신뢰할 수 없거나 신뢰가 약한 애플리케이션에 제공합니다. 예를 들면 모바일 앱이 여기에 해당됩니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
 
 다음 예에서는 SAS 소유자가 큐에 메시지를 추가할 수 있도록 허용하며 만든 후 100분이 지나면 만료되는 새 공유 액세스 정책을 생성합니다.
 
@@ -274,7 +270,7 @@ var host = queueSvc.host;
 
 SAS 소유자가 큐에 액세스할 때 필요하므로 호스트 정보도 제공해야 합니다.
 
-그러고 나면 클라이언트 응용 프로그램에서 **QueueServiceWithSAS** 에 SAS를 사용하여 큐에 대한 작업을 수행합니다. 다음 예에서는 큐를 연결하고 메시지를 만듭니다.
+그러고 나면 클라이언트 애플리케이션에서 **QueueServiceWithSAS** 에 SAS를 사용하여 큐에 대한 작업을 수행합니다. 다음 예에서는 큐를 연결하고 메시지를 만듭니다.
 
 ```javascript
 var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);

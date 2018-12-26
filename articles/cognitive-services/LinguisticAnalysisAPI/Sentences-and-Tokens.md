@@ -1,22 +1,27 @@
 ---
-title: Linguistic Analysis API의 문장 및 토큰 | Microsoft Docs
-description: Cognitive Services의 Linguistic Analysis API에서 수행하는 문장 분리 및 토큰화에 대해 알아봅니다.
+title: 문장 및 토큰 - Linguistic Analysis API
+titlesuffix: Azure Cognitive Services
+description: Linguistic Analysis API에서 수행하는 문장 분리 및 토큰화에 대해 알아봅니다.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: 4681098a0e56640e95463272be44f7432be26839
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373086"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237877"
 ---
 # <a name="sentence-separation-and-tokenization"></a>문장 분리 및 토큰화
+
+> [!IMPORTANT]
+> Linguistic Analysis 미리 보기는 2018년 8월 9일부로 서비스 해제되었습니다. 텍스트 처리 및 분석에는 [Azure Machine Learning 텍스트 분석 모듈](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics)을 사용하는 것이 좋습니다.
 
 ## <a name="background-and-motivation"></a>배경 및 동기
 
@@ -52,7 +57,8 @@ ms.locfileid: "35373086"
 
 몇 가지 어려운 사례가 있습니다.
 첫째, 문장 부호는 종종(항상 그렇지는 않지만) 주변 컨텍스트와 분리해야 합니다.
-둘째, 영어에는 "didn't" 또는 "it's"처럼 단어를 압축하고 줄여 쓰는 *축약형*이 있습니다. 토크나이저의 목표는 문자 시퀀스를 단어로 나누는 것입니다.
+둘째, 영어에는 "didn't" 또는 "it's"처럼 단어를 압축하고 줄여 쓰는 *축약형*이 있습니다.
+토크나이저의 목표는 문자 시퀀스를 단어로 나누는 것입니다.
 
 위의 예제 문장으로 돌아가 봅시다.
 고유한 토큰 사이에 "가운데 점"(&middot;)을 배치했습니다.
@@ -63,9 +69,10 @@ ms.locfileid: "35373086"
 
 사전에서 찾는 대부분의 토큰이 단어입니다(예: *important*, *director*).
 나머지는 문장 부호로만 구성됩니다.
-마지막으로, *not*을 줄인 *n't*, 소유격의 *'s* 같은 축약형을 나타내는 흔치 않은 토큰이 있습니다. 이 토큰화를 사용하면 *didn't*라는 단어와 *did not*이라는 구를 보다 일관적인 방식으로 처리할 수 있습니다.
+마지막으로, *not*을 줄인 *n't*, 소유격의 *'s* 같은 축약형을 나타내는 흔치 않은 토큰이 있습니다.
+이 토큰화를 사용하면 *didn't*라는 단어와 *did not*이라는 구를 보다 일관적인 방식으로 처리할 수 있습니다.
 
 ## <a name="specification"></a>사양
 
 문장 및 토큰 구성을 일관적으로 결정하는 것이 중요합니다.
-Microsoft는 [Penn Treebank](https://www.cis.upenn.edu/~treebank/)의 사양을 사용합니다(추가 세부 정보는 [https://www.cis.upenn.edu/~treebank/tokenization.html] 참조).
+현재, [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42)의 기준을 참조하고 있습니다(일부 추가 세부 사항은 ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html 참조).

@@ -1,24 +1,20 @@
 ---
-title: HDInsight의 Hadoop 서비스에서 사용하는 포트 - Azure | Microsoft Docs
+title: HDInsight에서 Hadoop 서비스에서 사용하는 포트 - Azure
 description: HDInsight에서 실행 중인 Hadoop 서비스에 사용된 포트 목록입니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: dd14aed9-ec25-4bb3-a20c-e29562735a7d
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: larryfr
-ms.openlocfilehash: 4490ac9bccb406bd2e882fc8afcbaf05aa8ddfab
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: e6204933d6b9a4a6b296a141520fc8887c9181f1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797317"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279717"
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight의 Hadoop 서비스에서 사용하는 포트
 
@@ -41,7 +37,7 @@ Linux 기반 HDInsight 클러스터는 인터넷에서 세 포트(22, 23, 443)�
 HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있으며 인터넷에서 직접 액세스할 수 없습니다. 공용 게이트웨이는 모든 HDInsight 클러스터 유형에 대해 일반적인 다음 포트에 대한 인터넷 액세스를 제공합니다.
 
 | 서비스 | 포트 | 프로토콜 | 설명 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | sshd |22 |SSH |기본 헤드 노드에서 sshd에 클라이언트를 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
 | sshd |22 |SSH |에지 노드에서 클라이언트를 sshd에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
 | sshd |23 |SSH |보조 헤드 노드에서 sshd에 클라이언트를 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |

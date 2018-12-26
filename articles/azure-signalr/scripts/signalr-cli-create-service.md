@@ -1,26 +1,19 @@
 ---
-title: Azure CLI 스크립트 샘플 - SignalR Service 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - SignalR Service 만들기
 description: Azure CLI 스크립트 샘플 - SignalR Service 만들기
-services: signalr
-documentationcenter: signalr
-author: wesmc7777
-manager: cfowler
-editor: ''
-tags: azure-service-management
+author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: signalr
 ms.date: 04/20/2018
-ms.author: wesmc
+ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: a8df62fe229a627b2e551ab04528ad601c5d5d2a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 364a8b6574b06aa2403ea028fecd0676ba0342a7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766430"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256216"
 ---
 # <a name="create-a-signalr-service"></a>SignalR Service 만들기 
 
@@ -30,7 +23,7 @@ ms.locfileid: "33766430"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -56,7 +49,7 @@ az extension add -n signalr
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az signalr create](/cli/azure/group#az-group-create) | Azure SignalR Service 리소스를 만듭니다. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | SignalR을 통해 실시간 콘텐츠 업데이트를 푸시할 때 응용 프로그램에서 사용할 키를 나열합니다. |
+| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | SignalR을 통해 실시간 콘텐츠 업데이트를 푸시할 때 응용 프로그램에서 사용할 키를 나열합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,29 +1,25 @@
 ---
-title: Kafka와 함께 Apache Spark 스트리밍 - Azure HDInsight | Microsoft Docs
-description: Spark Apache Spark를 사용하여 DStreams로 Apache Kafka에(서) 데이터를 스트리밍하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
+title: Apache Kafka에서 Apache Spark 스트리밍 - Azure HDInsight
+description: DStreams를 사용하여 Apache Kafka 간에 데이터를 스트리밍하기 위해 Apache Spark를 사용하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
 keywords: kafka 예제,kafka zookeeper,spark 스트리밍 kafka,spark 스트리밍 kafka 예제
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/23/2018
-ms.author: larryfr
-ms.openlocfilehash: a9463b5983b5f41683a5cfe416ca125bf2810062
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 110357a7a84aa8cc6bd7dcb5bbef9ca02879a9cb
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402382"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494279"
 ---
-# <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>HDInsight의 Kafka를 사용한 Apache Spark 스트리밍(DStream) 예제
+# <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka를 사용한 Apache Spark 스트리밍(DStream) 예제
 
-Spark Apache Spark를 사용하여 DStreams로 HDInsight의 Apache Kafka에(서) 데이터를 스트리밍하는 방법을 알아봅니다. 이 예제에서는 Spark 클러스터에서 실행되는 Jupyter Notebook을 사용합니다.
+[DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html)를 사용하여 HDInsight에서 [Apache Kafka](https://kafka.apache.org/) 간에 데이터를 스트리밍하기 위해 [Apache Spark](https://spark.apache.org/)를 사용하는 방법을 알아봅니다. 이 예제에서는 Spark 클러스터에서 실행되는 [Jupyter Notebook](https://jupyter.org/)을 사용합니다.
 
 > [!NOTE]
 > 이 문서의 단계는 HDInsight의 Spark와 HDInsight의 Kafka 클러스터를 모두 포함하는 Azure 리소스 그룹을 만듭니다. 이러한 클러스터는 모두 Azure Virtual Network에 있으며, 여기서는 Spark 클러스터와 Kafka 클러스터 간에 직접 통신할 수 있습니다.
@@ -63,7 +59,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
     * **위치**: 지리적으로 가까운 위치를 선택합니다.
 
-    * **기본 클러스터 이름**: 이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **hdi**를 입력하면 __spark-hdi__라는 Spark 클러스터와 **kafka-hdi**라는 Kafka 클러스터가 만들어집니다.
+    * **기본 클러스터 이름**: 이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **hdistreaming**를 입력하면 __spark-hdistreaming__라는 Spark 클러스터와 **kafka-hdistreaming**라는 Kafka 클러스터가 생성됩니다.
 
     * **클러스터 로그인 사용자 이름**: Spark 및 Kafka 클러스터의 관리자 이름입니다.
 
@@ -75,7 +71,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
 3. **사용 약관**을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
 
-4. 마지막으로 **대시보드에 고정**을 선택한 다음 **구매**를 선택합니다. 클러스터를 만드는 데 약 20분이 걸립니다.
+4. 마지막으로, **구매**를 선택합니다. 클러스터를 만드는 데 약 20분이 걸립니다.
 
 리소스를 만든 후에 요약 페이지가 나타납니다.
 
@@ -101,6 +97,6 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 이 예제에서는 Spark를 사용하여 Kafka에(서) 쓰고 읽는 방법을 배웠습니다. Kafka를 사용하는 다른 방법을 찾으려면 다음 링크를 사용하세요.
 
 * [HDInsight에서 Apache Kafka 시작](kafka/apache-kafka-get-started.md)
-* [MirrorMaker를 사용하여 HDInsight에 Kafka 복제본 만들기](kafka/apache-kafka-mirroring.md)
-* [HDInsight의 Kafka에서 Apache Storm 사용](hdinsight-apache-storm-with-kafka.md)
+* [MirrorMaker를 사용하여 HDInsight에 Apache Kafka 복제본 만들기](kafka/apache-kafka-mirroring.md)
+* [HDInsight에서 Apache Storm 및 Apache Kafka 사용](hdinsight-apache-storm-with-kafka.md)
 

@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse의 T-SQL 루프 사용 | Microsoft Docs
 description: 솔루션을 개발하기 위해 Azure SQL Data Warehouse에서 Transact-SQL 루프를 사용하여 커서를 대체하는 방법에 대한 팁입니다.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 8d51c8f18d7c00d21fcc057efcda73e2a6b46cc7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b7c21566916c9728900e69dc6480098fadae7622
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598968"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301211"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>SQL Data Warehouse의 T-SQL 루프 사용
 솔루션을 개발하기 위해 Azure SQL Data Warehouse에서 Transact-SQL 루프를 사용하여 커서를 대체하는 방법에 대한 팁입니다.

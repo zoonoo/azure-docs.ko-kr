@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric Explorer를 사용하여 클러스터 시각화 | Microsoft Docs
-description: Service Fabric Explorer는 Microsoft Azure Service Fabric 클러스터에서 클라우드 응용 프로그램 및 노드를 검사 및 관리하기 위한 응용 프로그램입니다.
+description: Service Fabric Explorer는 Microsoft Azure Service Fabric 클러스터에서 클라우드 애플리케이션 및 노드를 검사 및 관리하기 위한 애플리케이션입니다.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: mikhegn
-ms.openlocfilehash: 916742d89447af4097d37b5d78e97ff86c12834c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 459dd86fd614cb185801b074cea70c36dc7f6ccb
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210184"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972335"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 
-SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하고 관리하기 위한 오픈 소스 도구입니다. Service Fabric Explorer는 Windows 및 Linux용 데스크톱 응용 프로그램입니다. MacOS는 곧 지원될 예정입니다.
+SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하고 관리하기 위한 오픈 소스 도구입니다. Service Fabric Explorer는 Windows, macOS 및 Linux용 데스크톱 응용 프로그램입니다.
 
 ## <a name="service-fabric-explorer-download"></a>Service Fabric Explorer 다운로드
 
-Service Fabric Explorer를 데스크톱 응용 프로그램으로 다운로드하려면 다음 링크를 사용합니다.
+Service Fabric Explorer를 데스크톱 애플리케이션으로 다운로드하려면 다음 링크를 사용합니다.
 
-- Windows
+-  Windows
   - https://aka.ms/sfx-windows
 
 - Linux
@@ -93,10 +93,10 @@ Service Fabric Explorer를 사용하는 방법을 알아보려면 다음 Microso
 ![서비스 패브릭 탐색기 기능 창][sfx-service-essentials]
 
 ### <a name="view-the-clusters-nodes"></a>클러스터의 노드 보기
-노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 응용 프로그램을 검사할 수 있습니다. 특히 현재 실행되고 있는 복제본을 확인할 수 있습니다.
+노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 애플리케이션을 검사할 수 있습니다. 특히 현재 실행되고 있는 복제본을 확인할 수 있습니다.
 
 ## <a name="actions"></a>작업
-서비스 패브릭 탐색기는 클러스터 내에서 노드, 응용 프로그램 및 서비스에 대한 작업을 호출하는 빠른 방법을 제공합니다.
+Service Fabric Explorer는 클러스터 내에서 노드, 응용 프로그램 및 서비스에 대한 작업을 호출하는 빠른 방법을 제공합니다.
 
 예를 들어 응용 프로그램 인스턴스를 삭제하려면 왼쪽 트리에서 응용 프로그램을 선택한 다음 **작업** > **응용 프로그램 삭제**로 이동하여 로컬 클러스터에서 Service Fabric 탐색기를 시작할 수 있습니다.
 
@@ -114,7 +114,7 @@ Service Fabric Explorer를 사용하는 방법을 알아보려면 다음 Microso
 ![Service Fabric Explorer에서 응용 프로그램 인스턴스 만들기][sfx-create-app-instance]
 
 > [!NOTE]
-> Service Fabric Explorer는 응용 프로그램 인스턴스를 만들 때 매개 변수를 지원하지 않습니다. 응용 프로그램 인스턴스는 기본 매개 변수 값을 사용합니다.
+> Service Fabric Explorer는 애플리케이션 인스턴스를 만들 때 매개 변수를 지원하지 않습니다. 애플리케이션 인스턴스는 기본 매개 변수 값을 사용합니다.
 >
 >
 

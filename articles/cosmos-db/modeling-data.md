@@ -3,19 +3,19 @@ title: NoSQL 데이터베이스의 문서 데이터 모델링 | Microsoft Docs
 description: NoSQL 데이터베이스의 데이터 모델링에 대해 알아봅니다.
 keywords: 데이터 모델링
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2016
-ms.author: sngun
-ms.openlocfilehash: ef40bcb473e4d7dbe51f9d8d9ca20265c04d0df6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: andrl
+ms.openlocfilehash: c577c9734490e3aacc148153f550162371ae482e
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612686"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038470"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>NoSQL 데이터베이스의 문서 데이터 모델링
 Azure Cosmos DB와 같은 스키마가 없는 데이터베이스에서는 데이터 모델을 매우 쉽게 변경할 수 있지만, 데이터를 고려할 어느 정도의 시간이 필요합니다. 

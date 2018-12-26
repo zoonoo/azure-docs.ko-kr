@@ -1,25 +1,27 @@
 ---
-title: Emotion API FAQ | Microsoft Docs
-description: Cognitive Services의 Emotion API에 대한 FAQ를 제공합니다.
+title: 질문과 대답 - Emotion API
+titlesuffix: Azure Cognitive Services
+description: Emotion API에 대한 질문과 대답을 확인합니다.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: anroth
-ms.openlocfilehash: 8532d7c00fd8d7b01d84b5e55cb9bbc60241789c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6c1c4b8e5c2701f3c419a58bc3fdc33f7e629bbd
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372998"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238542"
 ---
 # <a name="emotion-api-frequently-asked-questions"></a>Emotion API 질문과 대답
- 
+
 > [!IMPORTANT]
-> Video API 미리 보기는 2017년 10월 30일에 종료됩니다. 새 [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) 미리 보기를 사용하여 비디오에서 정보를 쉽게 추출하고 말이나 얼굴, 성격, 감정을 감지하여 검색 결과를 제시하는 등 콘텐츠 검색 경험을 향상하세요. [자세히 알아보기](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Emotion API는 2019년 2월 15일부터 더 이상 사용되지 않습니다. 이제 감정 인식 기능은 [Face API](https://docs.microsoft.com/azure/cognitive-services/face/)의 일부로 일반 공급됩니다.
 
 ### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-emotion-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>이 FAQ에서 원하는 질문에 대한 답변을 찾을 수 없는 경우 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive)에서 Emotion API 커뮤니티에 물어보거나 [UserVoice](https://cognitive.uservoice.com/)의 도움말 및 지원에 문의하세요.  
 
@@ -33,15 +35,15 @@ ms.locfileid: "35372998"
 
 **질문**: *Emotion API가 식별할 수 있는 감정은 몇 개입니까?*
 
-**대답**: Emotion API는 일반적으로 수용되는 8가지 감정을 인식합니다. 
+**대답**: Emotion API는 일반적으로 수용되는 8가지 감정을 인식합니다.
 * 행복
 * 슬픔
 * 놀람
 * 분노
 * 두려움
 * 경멸
-* 역겨움 
-* 무감정 
+* 역겨움
+* 무감정
 
 -----
 
@@ -53,10 +55,10 @@ ms.locfileid: "35372998"
 
 **질문**: *이진 이미지 데이터를 전달하는 중에 "잘못된 얼굴 이미지"라는 오류가 발생합니다.**
 
-**대답**: 알고리즘에 이미지 구문 분석과 관련된 문제가 있다는 의미입니다.  
-* 지원되는 입력 이미지 형식에 JPEG, PNG, GIF(첫 번째 프레임), BMP가 포함됩니다. 
+**대답**: 이 메시지는 알고리즘에 이미지 구문 분석과 관련된 문제가 있다는 의미입니다.  
+* 지원되는 입력 이미지 형식에 JPEG, PNG, GIF(첫 번째 프레임), BMP가 포함됩니다.
 * 이미지 파일 크기는 4MB를 넘지 않아야 합니다.
-* 감지 가능한 얼굴 크기 범위는 36x36 픽셀부터 4096x4096 픽셀 사이입니다. 이 범위를 벗어난 얼굴은 감지되지 않습니다.
-* 일부 얼굴은 기술적인 문제(예: 매우 큰 얼굴 각도(머리 포즈) 및 큰 폐색)로 인해 감지되지 않을 수 있습니다. 정면 및 정면에 가까운 얼굴이 최상의 결과를 생성합니다.
+* 감지 가능한 얼굴 크기 범위는 36 x 36 픽셀 ~ 4096x4096 픽셀입니다. 이 범위를 벗어난 얼굴은 감지되지 않습니다.
+* 일부 얼굴은 기술적인 문제(예: 매우 큰 얼굴각도(머리 포즈) 및 큰 폐색)로 인해 검색되지 않을 수 있습니다. 정면 및 정면에 가까운 얼굴이 최상의 결과를 생성합니다.
 
 -----

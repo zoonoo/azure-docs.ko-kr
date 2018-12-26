@@ -1,27 +1,21 @@
 ---
 title: 예외 처리 및 오류 로깅 시나리오 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps에 대한 고급 예외 처리 및 오류 로깅에 대한 실제 사용 사례에 대해 설명합니다.
-keywords: ''
+description: 다음은 Azure Logic Apps에 대한 고급 예외 처리 및 오류 로깅에 대한 실제 사용 사례입니다.
 services: logic-apps
-author: hedidin
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: hedidin
+ms.author: b-hoedid
+ms.reviewer: estfan, LADocs
+ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
-ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
-ms.author: LADocs; b-hoedid
-ms.openlocfilehash: cb80423266d3e9c0b3cac31821965ad92c0420d9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0c6062fb9e9708b0fa6aef7a6d7390287cbf69d4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299361"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124038"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
 
@@ -440,7 +434,7 @@ API 앱에서 발생한 로그 응답 메시지입니다.
 
 Azure Cosmos DB의 모든 문서에는 고유 ID가 있어야 합니다. `PatientId` 를 사용하고 Unix 타임스탬프 값(double)으로 변환되는 타임스탬프를 추가합니다. 값을 잘라서 소수 자릿수 값을 제거합니다.
 
-[GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs)에서 오류 컨트롤러 API의 소스 코드를 확인할 수 있습니다.
+[GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs)에서 오류 컨트롤러 API의 소스 코드를 확인할 수 있습니다.
 
 다음 구문을 사용하여 논리 앱에서 API를 호출합니다.
 

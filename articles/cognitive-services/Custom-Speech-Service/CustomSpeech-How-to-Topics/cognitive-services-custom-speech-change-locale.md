@@ -9,14 +9,17 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: c378fd951f9cd04884f44fbec5accb5d9a886bfe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8493aeb3c1c2436900ae626ad0f34cbe8b060163
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372767"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342171"
 ---
 # <a name="supported-locales-in-custom-speech-service"></a>Custom Speech Service에서 지원되는 로캘
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 현재 Custom Speech Service는 다음 로캘에서 모델의 사용자 지정을 지원합니다.
 
 | 모델 형식 | 언어 지원 |

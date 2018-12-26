@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/21/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937940"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970198"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -29,7 +29,7 @@ Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 �
 
 Azure Portal에서는 수분 내에 [서버를 만들 수 있습니다](analysis-services-create-server.md). 그리고 Azure Resource Manager [템플릿](../azure-resource-manager/resource-manager-create-first-template.md) 및 PowerShell을 사용하면 선언적 템플릿을 통해 서버를 만들 수 있습니다. 단일 템플릿을 사용하면 저장소 계정 및 Azure Functions와 같은 다른 Azure 구성 요소와 함께 서버 리소스를 배포할 수 있습니다. 
 
-**비디오:** Azure Automation을 사용하여 서버 생성을 신속하게 할 수 있는 방법에 대한 자세한 내용을 알아보려면 [배포 자동화](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)를 확인합니다.
+**비디오:** Azure Automation을 사용하여 서버 생성을 신속하게 하는 방법에 대한 자세한 내용을 알아보려면 [배포 자동화](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)를 확인합니다.
 
 Azure Analysis Services는 다양한 Azure Services와 통합되어 정교한 분석 솔루션을 빌드할 수 있습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)와 통합되어 중요한 데이터에 안전한 역할 기반 액세스를 제공합니다. 모델에 데이터를 로드하는 활동을 포함하여 [Azure Data Factory](../data-factory/introduction.md) 파이프라인에 통합합니다. [Azure Automation](../automation/automation-intro.md) 및 [Azure Functions](../azure-functions/functions-overview.md)는 사용자 지정 코드를 사용하여 모델의 간단한 오케스트레이션을 수행하는 데 사용할 수 있습니다. 
 
@@ -39,7 +39,7 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 
 ### <a name="developer-tier"></a>개발자 계층
 
-이 계층은 평가, 개발 및 테스트 시나리오에 권장됩니다. 단일 계획에는 표준 계층과 동일한 기능이 포함되지만, 처리 능력, QPU 및 메모리 크기가 제한됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 사용할 수 없습니다. 이 계층은 SLA를 제공하지 않습니다.
+이 계층은 평가, 개발 및 테스트 시나리오에 권장됩니다. 단일 계획에는 표준 계층과 동일한 기능이 포함되지만, 처리 능력, QPU 및 메모리 크기가 제한됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 *사용할 수 없습니다*. 이 계층에는 SLA를 제공하지 않습니다.
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
@@ -81,32 +81,36 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |브라질 남부     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |캐나다 중부    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |미국 동부     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|미국 동부 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|미국 동부 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|미국 동부 2     |     S8, S9   |    1    |
 |미국 중북부     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중남부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중서부   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|미국 서부     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
-|미국 서부2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
+|미국 서부     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
+|미국 서부     |    S8, S9   |    2  |
+|미국 서부2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
+|미국 서부2    |    S8, S9  |    1     |
 
 ### <a name="europe"></a>유럽
 
 |지역  | 지원되는 계획 | 쿼리 복제본(표준 계획만) |
 |---------|---------|:---------:|
 |북유럽     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|영국 남부   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|서유럽     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
+|영국 남부     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
+|서유럽     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|서유럽    |   S8, S9  |  1  |
 
 ### <a name="asia-pacific"></a>아시아 태평양 
 
 |지역  | 지원되는 계획 | 쿼리 복제본(표준 계획만) |
 |---------|---------|:---------:|
+|오스트레일리아 동부     |    B1, B2, S0, S1, S2, S4     |    3     |
+|오스트레일리아 동부     |    S8, S9    |    1     |
 |오스트레일리아 남동부     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|일본 동부  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|동남아시아     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
+|일본 동부     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|동남아시아     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |인도 서부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-
-\* 표준 계층에서 S8 및 S9 계획은 한 쿼리 복제본을 지원합니다.
 
 ## <a name="scale-to-your-needs"></a>사용자의 요구 사항에 맞게 규모 조정
 
@@ -128,9 +132,9 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 
 ## <a name="built-on-sql-server-analysis-services"></a>SQL Server Analysis Services에 구축
 
-Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Edition에 있은 훌륭한 기능과 호환 가능하며, 1200 이상 [호환성 수준](analysis-services-compat-level.md)의 테이블 형식 모델을 지원합니다. 테이블 형식 모델은 관계형 모델링 구문(모델, 테이블, 열)이며 TMSL(Tabular Model Scripting Language) 및 TOM(Tabular Object Model) 코드로 테이블 형식 메타데이터 개체 정의에 명시됩니다. 파티션, 큐브 뷰, 행 수준 보안, 양방향 관계 및 변환을 모두 지원합니다. 다차원 모델 및 PowerPivot for Sharepoint는 Azure Analysis Services에서 지원되지 *않습니다*.
+Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Edition에 있은 훌륭한 기능과 호환 가능하며, 1200 이상 [호환성 수준](analysis-services-compat-level.md)의 테이블 형식 모델을 지원합니다. 테이블 형식 모델은 관계형 모델링 구문(모델, 테이블, 열)이며 TMSL(Tabular Model Scripting Language) 및 TOM(Tabular Object Model) 코드로 테이블 형식 메타데이터 개체 정의에 명시됩니다. 파티션, 큐브 뷰, 행 수준 보안, 양방향 관계 및 변환을 모두 지원합니다\*. 다차원 모델 및 PowerPivot for Sharepoint는 Azure Analysis Services에서 지원되지 *않습니다*.
 
-메모리 내 및 DirectQuery 모드 모두에서 테이블 형식 모델이 지원됩니다. 메모리 내 모드(기본값) 테이블 형식 모델은 여러 데이터 원본을 지원합니다. 모델 데이터가 고도로 압축되고 메모리 내에 캐시되었기 때문에서 이 모드는 대량의 데이터에 가장 빠른 쿼리 응답을 제공합니다. 또한 복잡한 데이터 집합 및 쿼리에 가장 훌륭한 유연성을 제공합니다. 분할하면 증분 로드를 활성화하고, 평행을 증가하고, 메모리 소비를 줄입니다. 계산된 테이블 및 모든 DAX 함수와 같은 기타 고급 데이터 모델링 기능이 지원됩니다. 데이터 원본에서 캐시된 데이터를 업데이트하기 위해 메모리 내 모델을 새로 고칠(처리할) 수 있어야 합니다. Azure 서비스 사용자 지원에서 PowerShell, TOM, TMSL 및 REST를 사용하는 무인 새로 고침 작업은 모델 데이터를 항상 최신 상태로 유지하도록 유연성을 제공합니다. 
+메모리 내 및 DirectQuery 모드 모두에서 테이블 형식 모델이 지원됩니다. 메모리 내 모드(기본값) 테이블 형식 모델은 여러 데이터 원본을 지원합니다. 모델 데이터가 고도로 압축되고 메모리 내에 캐시되었기 때문에서 이 모드는 대량의 데이터에 가장 빠른 쿼리 응답을 제공합니다. 또한 복잡한 데이터 세트 및 쿼리에 가장 훌륭한 유연성을 제공합니다. 분할하면 증분 로드를 활성화하고, 평행을 증가하고, 메모리 소비를 줄입니다. 계산된 테이블 및 모든 DAX 함수와 같은 기타 고급 데이터 모델링 기능이 지원됩니다. 데이터 원본에서 캐시된 데이터를 업데이트하기 위해 메모리 내 모델을 새로 고칠(처리할) 수 있어야 합니다. Azure 서비스 사용자 지원에서 PowerShell, TOM, TMSL 및 REST를 사용하는 무인 새로 고침 작업은 모델 데이터를 항상 최신 상태로 유지할 수 있는 유연성을 제공합니다. 
 
 DirectQuery 모드*는 저장소 및 쿼리 실행에 백 엔드 관계형 데이터베이스를 활용합니다. 단일 SQL Server, SQL Server 데이터 웨어하우스, Azure SQL Database, Azure SQL Data Warehouse, Oracle 및 Teradata 데이터 원본에서 초대량의 데이터 집합이 지원됩니다. 백 엔드 데이터 집합은 사용 가능한 서버 리소스 메모리를 초과할 수 있습니다. 복잡한 데이터 모델 새로 고침 시나리오가 필요하지 않습니다. 또한 제한된 데이터 원본 형식, DAX 수식 제한 사항과 같은 몇 가지 제한 사항이 있으며 일부 고급 데이터 모델링 기능이 지원되지 않습니다. 사용자에게 적절한 모드를 결정하기 전에 [직접 쿼리 모드](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular)를 참조하세요.
 
@@ -178,16 +182,18 @@ Analysis Services에서는 서버 및 데이터베이스 작업 모델, 개체 �
 
 ### <a name="azure-governance"></a>Azure 거버넌스
 
-Azure Analysis Services는 [Microsoft Online Services 약관](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) 및 [Microsoft 개인정보처리방침](https://privacy.microsoft.com/privacystatement)에 따라 사용할 수 있습니다.
+Azure Analysis Services는 [Microsoft Online Services 약관](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) 및 [Microsoft 개인정보처리방침](https://privacy.microsoft.com/privacystatement)에 따라 사용할 수 있습니다.
 Azure 보안에 대한 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/trustcenter)를 참조하세요.
 
 ## <a name="use-the-tools-you-already-know"></a>이미 알고 있는 도구 사용
 
 ![BI 개발자 도구](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>Visual Studio용 SSDT(SQL Server Data Tools)
+### <a name="visual-studio"></a>Visual Studio
 
-[Visual Studio용 SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제는 SSDT에 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다. Microsoft Analysis Services 프로젝트는 설치할 수 있는 패키지 VSIX로 Visual Studio에 사용할 수 있습니다. [Marketplace에서 다운로드](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+[Visual Studio용 SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제는 SSDT에 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다. 
+
+Visual Studio 2017을 사용하는 경우 Microsoft Analysis Services Projects는 무료 설치 가능한 VSIX 패키지로 제공됩니다. [Marketplace에서 다운로드](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 

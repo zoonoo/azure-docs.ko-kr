@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8953be2be77c14a82294e56ac60b8bc993ec6c2f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186881"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527072"
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Azure Search에서 검색 결과를 페이징하는 방법
 이 문서는 총 횟수, 문서 검색, 정렬 순서, 탐색과 같은 검색 결과 페이지의 표준 요소를 구현하기 위한 Azure Search 서비스의 사용 방법에 대한 지침을 제공합니다.
@@ -102,7 +102,6 @@ Azure Search에서는 `"Sortable": true.`(으)로 인덱싱되는 모든 필드�
 * [Azure Search 서비스 REST API](https://docs.microsoft.com/rest/api/searchservice)
 * [인덱스 작업](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 * [문서 작업](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-* [Azure Search에 대한 비디오 및 자습서](search-video-demo-tutorial-list.md)
 * [Azure Search의 패싯 탐색](search-faceted-navigation.md)
 
 <!--Image references-->

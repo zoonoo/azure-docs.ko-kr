@@ -4,24 +4,20 @@ description: Azure Functions를 사용하여 Azure Blob Storage에 추가된 항
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 03/27/2018
+ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 928ea1dbb68206e128f0593ba15cb48935ab1ccf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fcc5052d73d921a8181ad068453111e5ead4361a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602666"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999881"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Azure Blob Storage에 의해 트리거되는 함수 만들기
 
@@ -31,7 +27,7 @@ ms.locfileid: "38602666"
 
 ## <a name="prerequisites"></a>필수 조건
 
-+ [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)를 다운로드하고 설치합니다.
++ [Microsoft Azure Storage 탐색기](https://storageexplorer.com/)를 다운로드하고 설치합니다.
 + Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
 ## <a name="create-an-azure-function-app"></a>Azure Function 앱 만들기
@@ -46,15 +42,21 @@ ms.locfileid: "38602666"
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Blob Storage 트리거 함수 만들기
 
-1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱에서 첫 번째 함수이면 **사용자 지정 함수**를 선택합니다. 그러면 함수 템플릿의 전체 집합이 표시됩니다.
+1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3단계로 이동합니다.
 
-    ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
+   ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-portal.png)
 
-2. 검색 필드에 `blob`를 입력한 다음 Blob Storage 트리거 템플릿에서 원하는 언어를 선택합니다.
+1. **추가 템플릿**, **템플릿 마침 및 보기**를 차례로 선택합니다.
 
-    ![Blob Storage 트리거 템플릿을 선택합니다.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
- 
-3. 이미지 아래의 표에 지정된 설정을 사용합니다.
+    ![Functions 빠른 시작 - 추가 템플릿 선택](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
+
+1. 검색 필드에서 `blob`을 입력한 다음, **Blob 트리거** 템플릿을 선택합니다.
+
+1. 메시지가 표시되면 **설치**를 선택하여 함수 앱에 Azure Storage 확장과 모든 종속성을 설치합니다. 설치가 완료되면 **계속**을 선택합니다.
+
+    ![바인딩 확장 설치](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+
+1. 이미지 아래의 표에 지정된 설정을 사용합니다.
 
     ![Blob Storage 트리거 함수 만들기.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
@@ -64,7 +66,7 @@ ms.locfileid: "38602666"
     | **Path**   | samples-workitems/{name}    | 모니터링되는 Blob Storage의 위치입니다. 바인딩에 _name_ 매개 변수로 전달되는 Blob의 파일 이름입니다.  |
     | **Storage 계정 연결** | AzureWebJobsStorage | 함수 앱에 이미 사용된 저장소 계정 연결을 사용하거나 새로 만들 수 있습니다.  |
 
-3. **만들기**를 클릭하여 사용자의 함수를 만듭니다.
+1. **만들기**를 클릭하여 사용자의 함수를 만듭니다.
 
 다음으로 Azure Storage 계정에 연결하고 **samples-workitems** 컨테이너를 만듭니다.
 
@@ -74,7 +76,7 @@ ms.locfileid: "38602666"
 
     ![Storage 계정 연결 자격 증명 가져오기.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. [Microsoft Azure Storage 탐색기](http://storageexplorer.com/) 도구를 실행하고 왼쪽의 연결 아이콘을 클릭하고 **저장소 계정 이름 및 키 사용**을 선택하고 **다음**을 클릭합니다.
+1. [Microsoft Azure Storage 탐색기](https://storageexplorer.com/) 도구를 실행하고 왼쪽의 연결 아이콘을 클릭하고 **저장소 계정 이름 및 키 사용**을 선택하고 **다음**을 클릭합니다.
 
     ![Storage 계정 탐색기 도구 실행.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 

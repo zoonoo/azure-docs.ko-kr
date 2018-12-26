@@ -3,19 +3,19 @@ title: '빠른 시작: Azure SQL Data Warehouse 만들기 및 쿼리 - Azure Por
 description: Azure Portal에서 Azure SQL Data Warehouse로 데이터 웨어하우스를 만들고 쿼리합니다.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9501d023ad1e0bfdf692f31ec61ae59959c0f23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 004ae5c8c171f731a244e926dd51d677300630f1
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191522"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248079"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse 생성 및 쿼리
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-data-warehouse"></a>데이터 웨어하우스 만들기
 
-Azure SQL 데이터 웨어하우스는 정의된 [계산 리소스](memory-and-concurrency-limits.md)를 사용하여 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server)에 생성됩니다. 
+Azure SQL 데이터 웨어하우스는 정의된 [계산 리소스](memory-and-concurrency-limits.md)를 사용하여 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-logical-servers.md)에 생성됩니다. 
 
 다음 단계에 따라 AdventureWorksDW 샘플 데이터가 포함된 SQL 데이터 웨어하우스를 만듭니다. 
 
@@ -79,7 +79,7 @@ Azure SQL 데이터 웨어하우스는 정의된 [계산 리소스](memory-and-c
 
     ![성능 구성](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. **Apply**를 클릭합니다.
+8. **적용**을 클릭합니다.
 
 9. 이제 SQL Data Warehouse 양식을 완료했으므로 **만들기**를 클릭하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
 
@@ -135,7 +135,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 ## <a name="connect-to-the-server-as-server-admin"></a>서버 관리자 권한으로 서버에 연결
 
-이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md))를 사용하여 Azure SQL 서버에 연결합니다.
+이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용하여 Azure SQL 서버에 연결합니다.
 
 1. SQL Server Management Studio를 엽니다.
 

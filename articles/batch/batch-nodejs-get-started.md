@@ -11,21 +11,14 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: bef298ea8e5710b386822f071d0644c9ddad04a2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314424"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164622"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js용 Batch SDK 시작
-
-> [!div class="op_single_selector"]
-> * [.NET](batch-dotnet-get-started.md)
-> * [Python](batch-python-tutorial.md)
-> * [Node.js](batch-nodejs-get-started.md)
->
->
 
 [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch)를 사용하여 Node.js로 Batch 클라이언트를 빌드하는 기본 사항을 알아봅니다. 일괄 처리 응용 프로그램에 대한 시나리오를 단계별로 이해한 다음 Node.js 클라이언트를 사용하여 설정해 보겠습니다.  
 
@@ -42,7 +35,7 @@ ms.locfileid: "30314424"
 
 ![Azure Batch 시나리오](./media/batch-nodejs-get-started/BatchScenario.png)
 
-Node.js 클라이언트는 저장소 계정에 있는 컨테이너의 수에 따라 준비 작업(나중에 자세히 설명)과 작업 집합을 사용하여 일괄 처리 작업을 배포합니다. github 리포지토리에서 스크립트를 다운로드할 수 있습니다.
+Node.js 클라이언트는 저장소 계정에 있는 컨테이너의 수에 따라 준비 작업(나중에 자세히 설명)과 작업 집합을 사용하여 일괄 처리 작업을 배포합니다. GitHub 리포지토리에서 스크립트를 다운로드할 수 있습니다.
 
 * [Node.js 클라이언트](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
 * [준비 작업 셸 스크립트](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
@@ -55,7 +48,7 @@ Node.js 클라이언트는 저장소 계정에 있는 컨테이너의 수에 따
 >
 >
 
-## <a name="build-the-application"></a>응용 프로그램 빌드
+## <a name="build-the-application"></a>애플리케이션 빌드
 
 이제 단계별 프로세스에 따라 Node.js 클라이언트를 빌드하겠습니다.
 

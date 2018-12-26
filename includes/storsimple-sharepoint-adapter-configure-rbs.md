@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 3888242f0379cc97bbe511e49a31a0f7eb8c5372
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165137"
+---
 <!--author=SharS last changed: 1/14/2016 -->
 
 > [!NOTE]
@@ -16,7 +29,7 @@
    2. 텍스트 상자에 BLOB 저장소의 UNC(범용 명명 규칙) 경로를 입력합니다.
       
       > [!NOTE]
-      > BLOB 저장소 볼륨은 StorSimple 장치에 구성된 iSCSI 볼륨에서 호스팅해야 합니다.
+      > BLOB 저장소 볼륨은 StorSimple 디바이스에 구성된 iSCSI 볼륨에서 호스팅해야 합니다.
 
    3. 원격 저장소에 대해 구성하려는 각 콘텐츠 데이터베이스 아래에 있는 **사용** 단추를 클릭합니다.
       
@@ -44,7 +57,7 @@
    
    1. SharePoint에 문서를 업로드합니다. 
    2. 구성한 UNC 경로를 찾습니다. RBS 디렉터리 구조가 만들어지고 업로드된 개체가 포함되어있는지 확인합니다.
-6. (선택 사항) SharePoint에 포함된 Microsoft RBS `Migrate()` PowerShell cmdlet을 사용하여 기존 BLOB 콘텐츠를 StorSimple 장치로 마이그레이션할 수 있습니다. 자세한 내용은 [SharePoint 2013에서 RBS 내부 또는 외부로 콘텐츠 마이그레이션][6] 또는 [RBS(SharePoint Foundation 2010) 내부 또는 외부로 콘텐츠 마이그레이션][7]을 참조하세요.
+6. (선택 사항) SharePoint에 포함된 Microsoft RBS `Migrate()` PowerShell cmdlet을 사용하여 기존 BLOB 콘텐츠를 StorSimple 디바이스로 마이그레이션할 수 있습니다. 자세한 내용은 [SharePoint 2013에서 RBS 내부 또는 외부로 콘텐츠 마이그레이션][6] 또는 [RBS(SharePoint Foundation 2010) 내부 또는 외부로 콘텐츠 마이그레이션][7]을 참조하세요.
 7. (선택 사항) 테스트 설치에서 다음과 같이 BLOB이 콘텐츠 데이터베이스 외부로 이동되었는지를 확인할 수 있습니다. 
    
    1. SQL Management Studio를 시작합니다.
@@ -92,15 +105,15 @@
       ```
       
       RBS가 올바르게 구성된 경우, 업로드되고 RBS로 성공적으로 표면화된 모든 개체에 대한 SizeOfContentInDB 열에 NULL 값이 나타나야 합니다.
-8. (선택 사항)RBS를 구성하고 모든 BLOB 콘텐츠를 StorSimple 장치로 이동한 후, 장치에 콘텐츠 데이터베이스를 이동할 수 있습니다. 콘텐츠 데이터베이스를 이동하도록 선택한 경우, 기본 볼륨으로 장치에서 콘텐츠 데이터베이스 저장소를 구성하는 것이 좋습니다. 그런 다음, 설정된 SQL Server 모범 사례를 사용하여 콘텐츠 데이터베이스를 StorSimple 장치로 마이그레이션합니다. 
+8. (선택 사항)RBS를 구성하고 모든 BLOB 콘텐츠를 StorSimple 디바이스로 이동한 후, 디바이스에 콘텐츠 데이터베이스를 이동할 수 있습니다. 콘텐츠 데이터베이스를 이동하도록 선택한 경우, 기본 볼륨으로 디바이스에서 콘텐츠 데이터베이스 저장소를 구성하는 것이 좋습니다. 그런 다음, 설정된 SQL Server 모범 사례를 사용하여 콘텐츠 데이터베이스를 StorSimple 디바이스로 마이그레이션합니다. 
    
    > [!NOTE]
-   > 콘텐츠 데이터베이스를 장치로 이동하면 StorSimple 8000 시리즈 장치만 지원합니다(5000 또는 7000 시리즈를 지원하지 않음).
+   > 콘텐츠 데이터베이스를 디바이스로 이동하면 StorSimple 8000 시리즈 디바이스만 지원합니다(5000 또는 7000 시리즈를 지원하지 않음).
    
-   StorSimple 장치에 대한 별도 볼륨에 BLOB 및 콘텐츠 데이터베이스를 저장하는 경우, 동일한 볼륨 컨테이너에 구성하는 것이 좋습니다. 이렇게 하면 같이 백업됩니다.
+   StorSimple 디바이스에 대한 별도 볼륨에 BLOB 및 콘텐츠 데이터베이스를 저장하는 경우, 동일한 볼륨 컨테이너에 구성하는 것이 좋습니다. 이렇게 하면 같이 백업됩니다.
    
    > [!WARNING]
-   > RBS를 사용하도록 설정하지 않은 경우, 콘텐츠 데이터베이스를 StorSimple 장치로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
+   > RBS를 사용하도록 설정하지 않은 경우, 콘텐츠 데이터베이스를 StorSimple 디바이스로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
    
 9. 다음 단계인 [가비지 수집 구성](#configure-garbage-collection)으로 이동합니다.
 

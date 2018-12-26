@@ -4,18 +4,18 @@ description: Azure Portal에서 사용자 설정, 개인 대시보드 및 사용
 services: azure-portal
 keywords: ''
 author: santhoshsomayajula
-ms.author: santhosh.somayajulu
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: e9bf6e69b439f5201d66cabb9bc87fe5c9faa610
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: cwatson
+ms.openlocfilehash: b2bf674dbb253c7ec698b18776d8752ed6a4c1c8
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659880"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394083"
 ---
 # <a name="export-or-delete-settings-in-the-azure-portal"></a>Azure Portal에서 설정 내보내기 또는 삭제
 Azure Portal 설정 메뉴에서 다음 설정을 내보내고 삭제할 수 있습니다.

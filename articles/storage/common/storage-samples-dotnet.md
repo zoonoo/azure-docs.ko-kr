@@ -1,25 +1,20 @@
 ---
 title: .NET을 사용한 Azure Storage 샘플 | Microsoft Docs
-description: Azure Storage에 대한 샘플 코드 및 응용 프로그램을 확인하고 다운로드하여 실행합니다. .NET 저장소 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
+description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. .NET 저장소 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
 services: storage
-documentationcenter: na
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: 1e6973f0decc448657d869afb8823dd03c62d272
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: common
+ms.openlocfilehash: 663df77a7fb574f05cfaa9378dff53ca5db21c49
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191250"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526112"
 ---
 # <a name="azure-storage-samples-using-net"></a>.NET을 사용한 Azure Storage 샘플
 

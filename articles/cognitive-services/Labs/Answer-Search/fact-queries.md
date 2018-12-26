@@ -1,22 +1,23 @@
 ---
-title: Project Answer Search 팩트 쿼리 - Microsoft Cognitive Services | Microsoft Docs
+title: '빠른 시작: Project Answer Search 팩트 쿼리'
+titlesuffix: Azure Cognitive Services
 description: Project Answer Search를 사용한 팩트 쿼리
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 0a9d1925d5ae26f40824676fbebdcb0ffc450c53
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 7e8a793362e51a05a73c0b42346e2e8fafb3f44d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376174"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469404"
 ---
-# <a name="query-for-facts"></a>팩트 쿼리
+# <a name="quickstart-query-for-facts"></a>빠른 시작: 팩트 쿼리
 
 날짜 또는 식별 가능한 정보와 같은 팩트에 대한 쿼리인 경우 응답에 `facts` 답변이 포함될 수 있습니다. 팩트 답변에는 웹 문서의 단락에서 추출된 관련 결과가 포함됩니다.  이러한 쿼리는 항상 웹 페이지를 반환하며, [팩트](fact-queries.md) 및/또는 [엔터티](entity-queries.md)는 쿼리에 종속됩니다.
 

@@ -16,37 +16,37 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: ed47a5d1449ba634f90e93a82f15daf6e44a553e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2baae0a1932bdcb7fa5e29ac06dd8ae7a7020a30
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793864"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421847"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>네트워크 구성 파일을 사용하여 가상 네트워크(클래식) 구성
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 Resource Manager 배포 모델을 사용하는 것이 좋습니다.
 
-Azure CLI(명령줄 인터페이스) 1.0 또는 Azure PowerShell을 사용하여 네트워크 구성 파일이 있는 가상 네트워크(클래식)를 만들고 구성할 수 있습니다. 네트워크 구성 파일을 사용하여 Azure Resource Manager 배포 모델을 통해 가상 네트워크를 만들거나 수정할 수는 없습니다. 네트워크 구성 파일을 사용하여 가상 네트워크(클래식)를 만들거나 수정하는 데는 Azure Portal을 사용할 수 없지만 네트워크 구성 파일을 사용하지 않고 가상 네트워크(클래식)를 만드는 데는 Azure Portal을 사용할 수 있습니다.
+Azure 클래식 CLI(명령줄 인터페이스) 또는 Azure PowerShell을 사용하여 네트워크 구성 파일이 있는 가상 네트워크(클래식)를 만들고 구성할 수 있습니다. 네트워크 구성 파일을 사용하여 Azure Resource Manager 배포 모델을 통해 가상 네트워크를 만들거나 수정할 수는 없습니다. 네트워크 구성 파일을 사용하여 가상 네트워크(클래식)를 만들거나 수정하는 데는 Azure Portal을 사용할 수 없지만 네트워크 구성 파일을 사용하지 않고 가상 네트워크(클래식)를 만드는 데는 Azure Portal을 사용할 수 있습니다.
 
 네트워크 구성 파일을 사용하여 가상 네트워크(클래식)을 만들고 구성하려면 파일을 내보내기, 변경 및 가져오기 해야 합니다.
 
 ## <a name="export"></a>네트워크 구성 파일 내보내기
 
-PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 내보낼 수 있습니다. PowerShell은 XML 파일을 내보내는 반면 Azure CLI는 json 파일을 내보냅니다.
+PowerShell 또는 Azure 클래식 CLI를 사용하여 네트워크 구성 파일을 내보낼 수 있습니다. PowerShell은 XML 파일을 내보내는 반면 Azure 클래식 CLI는 json 파일을 내보냅니다.
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Azure PowerShell 설치 및 Azure에 로그인](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Azure PowerShell 설치 및 Azure에 로그인](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. 다음 명령에서 디렉터리(있는지 확인) 및 파일 이름을 원하는 대로 변경한 후 명령을 실행하여 네트워크 구성 파일을 내보냅니다.
 
     ```powershell
     Get-AzureVNetConfig -ExportToFile c:\azure\networkconfig.xml
     ```
 
-### <a name="azure-cli-10"></a>Azure CLI 1.0
+### <a name="azure-classic-cli"></a>Azure 클래식 CLI
 
-1. [Azure CLI 1.0 설치](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure CLI 1.0 명령 프롬프트에서 나머지 단계를 완료 합니다.
+1. [Azure 클래식 CLI를 설치합니다](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 클래식 CLI 명령 프롬프트에서 나머지 단계를 완료합니다.
 2. `azure login` 명령을 입력하여 Azure에 로그인합니다.
 3. `azure config mode asm` 명령을 입력하여 asm 모드에 있는지 확인합니다.
 4. 다음 명령에서 디렉터리(있는지 확인) 및 파일 이름을 원하는 대로 변경한 후 명령을 실행하여 네트워크 구성 파일을 내보냅니다.
@@ -57,7 +57,7 @@ PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 내보
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>네트워크 구성 파일 만들기 또는 수정
 
-네트워크 구성 파일은 XML 파일(PowerShell 사용) 또는 json 파일(Azure CLI 사용)입니다. 모든 텍스트 또는 XML/json 편집기에서 파일을 편집할 수 있습니다. [네트워크 구성 파일 스키마 설정](https://msdn.microsoft.com/library/azure/jj157100.aspx) 문서에는 모든 설정에 대한 세부 정보가 포함됩니다. 설정에 대한 추가 설명은 [가상 네트워크 및 설정 보기](manage-virtual-network.md#view-virtual-networks-and-settings)를 참조하세요. 파일에 대한 변경 내용:
+네트워크 구성 파일은 XML 파일(PowerShell 사용) 또는 json 파일(클래식 CLI 사용)입니다. 모든 텍스트 또는 XML/json 편집기에서 파일을 편집할 수 있습니다. [네트워크 구성 파일 스키마 설정](https://msdn.microsoft.com/library/azure/jj157100.aspx) 문서에는 모든 설정에 대한 세부 정보가 포함됩니다. 설정에 대한 추가 설명은 [가상 네트워크 및 설정 보기](manage-virtual-network.md#view-virtual-networks-and-settings)를 참조하세요. 파일에 대한 변경 내용:
 
 - 스키마를 준수해야 하며 그렇지 않은 경우 네트워크 구성 파일 가져오기가 실패합니다.
 - 구독에 대한 모든 기존 네트워크 설정을 덮어쓰므로 수정할 때는 특히 주의하세요. 예를 들어, 다음에 나오는 네트워크 구성 파일 예를 참조하세요. 원본 파일에 두 **VirtualNetworkSite** 인스턴스가 포함되어 있고 예제와 같이 변경했다고 가정하겠습니다. 파일을 가져올 때 Azure는 파일에서 제거한 **VirtualNetworkSite** 인스턴스에 대한 가상 네트워크를 삭제합니다. 이 단순한 시나리오에서는 가상 네트워크에 리소스가 없다고 가정하고 가상 네트워크를 삭제할 수 없는 것처럼 가져오기가 실패합니다.
@@ -92,7 +92,7 @@ PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 내보
 
 내보낸 네트워크 구성 파일에 내용이 없는 경우 이전 예제에서 XML을 복사하여 새 파일에 붙여넣을 수 있습니다.
 
-### <a name="example-json-for-use-with-the-azure-cli-10"></a>Azure CLI 1.0과 함께 사용할 JSON 예제
+### <a name="example-json-for-use-with-the-classic-cli"></a>클래식 CLI와 함께 사용할 JSON 예제
 
 다음 네트워크 구성 파일 예제는 *미국 동부* Azure 지역에 주소 공간이 *10.0.0.0/16*이고 가상 네트워크 이름이 *myVirtualNetwork*인 가상 네트워크를 만듭니다. 가상 네트워크는 주소 접두사가 *10.0.0.0/24*인 *mySubnet*이라는 하나의 서브넷을 포함합니다.
 
@@ -121,20 +121,20 @@ PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 내보
 
 ## <a name="import"></a>네트워크 구성 파일 가져오기
 
-PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 가져올 수 있습니다. PowerShell은 XML 파일을 가져오는 반면 Azure CLI는 json 파일을 가져옵니다. 가져오기가 실패하는 경우 파일이 [네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 준수하는지 확인합니다. 
+PowerShell 또는 클래식 CLI를 사용하여 네트워크 구성 파일을 가져올 수 있습니다. PowerShell은 XML 파일을 가져오는 반면 클래식 CLI는 json 파일을 가져옵니다. 가져오기가 실패하는 경우 파일이 [네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 준수하는지 확인합니다. 
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Azure PowerShell 설치 및 Azure에 로그인](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Azure PowerShell 설치 및 Azure에 로그인](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. 필요에 따라 다음 명령에서 디렉터리 및 파일 이름을 변경한 후 명령을 실행하여 네트워크 구성 파일을 가져옵니다.
  
     ```powershell
     Set-AzureVNetConfig  -ConfigurationPath c:\azure\networkconfig.xml
     ```
 
-### <a name="azure-cli-10"></a>Azure CLI 1.0
+### <a name="azure-classic-cli"></a>Azure 클래식 CLI
 
-1. [Azure CLI 1.0 설치](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure CLI 1.0 명령 프롬프트에서 나머지 단계를 완료 합니다.
+1. [Azure 클래식 CLI를 설치합니다](/cli/azure/install-classic-cli). 클래식 CLI 명령 프롬프트에서 나머지 단계를 완료합니다.
 2. `azure login` 명령을 입력하여 Azure에 로그인합니다.
 3. `azure config mode asm` 명령을 입력하여 asm 모드에 있는지 확인합니다.
 4. 필요에 따라 다음 명령에서 디렉터리 및 파일 이름을 변경한 후 명령을 실행하여 네트워크 구성 파일을 가져옵니다.

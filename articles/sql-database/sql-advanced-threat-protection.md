@@ -2,23 +2,25 @@
 title: Advanced Threat Protection - Azure SQL Database | Microsoft Docs
 description: 중요한 데이터 검색 및 분류, 데이터베이스 취약성 관리 및 Azure SQL 데이터베이스에 대한 위협을 나타낼 수 있는 비정상적인 활동 검색 기능에 대해 알아봅니다.
 services: sql-database
-author: ronitr
-manager: craigg
 ms.service: sql-database
+ms.subservice: security
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 5/17/2018
+author: ronitr
 ms.author: ronitr
-ms.reviewer: carlrab
-ms.openlocfilehash: da21a0b66d86b4cc3e2dc59bdd972d4e24d7e5ec
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.reviewer: vanto
+manager: craigg
+ms.date: 05/17/2018
+ms.openlocfilehash: cb3d8629d5d72644e647da14e7c3b31a4914814d
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305720"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159563"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL Database의 Advanced Threat Protection
 
-SQL Advanced Threat Protection은 SQL 고급 보안 기능에 대한 통합 패키지입니다. 여기에는 중요한 데이터 검색 및 분류, 데이터베이스 취약성 관리 및 데이터베이스에 대한 위협을 나타낼 수 있는 비정상적인 활동 검색 기능이 포함됩니다. 이러한 기능을 설정하고 관리하는 단일 준비 위치를 제공합니다. 
+SQL Advanced Threat Protection은 SQL 고급 보안 기능에 대한 통합 패키지입니다. 여기에는 중요한 데이터 검색 및 분류, 잠재적인 데이터베이스 취약성 표시 및 완화, 데이터베이스에 대한 위협을 나타낼 수 있는 비정상적인 활동 검색 기능이 포함됩니다. 이러한 기능을 설정하고 관리하는 단일 준비 위치를 제공합니다. 
 
 ## <a name="overview"></a>개요
 

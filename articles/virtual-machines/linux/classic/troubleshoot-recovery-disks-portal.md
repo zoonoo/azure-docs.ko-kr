@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f3f575b8b689ce97b202385e42b3f7854e883e36
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: baa8e61a9d7c8d9a021cb9fda096c6e07511d0d1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38681013"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416718"
 ---
 # <a name="troubleshoot-a-linux-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>OS 디스크를 복구 VM에 연결하여 Linux 클래식 VM의 문제 해결
 
@@ -30,4 +30,4 @@ ms.locfileid: "38681013"
 ## <a name="next-steps"></a>다음 단계
 VM에 연결하는 데 문제가 있는 경우 [실패하거나 오류가 발생하거나 거부되는 Azure Linux VM에 대한 SSH 연결 문제 해결](../troubleshoot-ssh-connection.md)을 참조하세요. 
 
-VM에서 실행 중인 응용 프로그램에 액세스하는 데 문제가 있는 경우 [Azure의 Linux 가상 머신에서 응용 프로그램 연결 문제 해결](../troubleshoot-app-connection.md)을 참조하세요.
+VM에서 실행 중인 애플리케이션에 액세스하는 데 문제가 있는 경우 [Azure의 Linux 가상 머신에서 애플리케이션 연결 문제 해결](../troubleshoot-app-connection.md)을 참조하세요.

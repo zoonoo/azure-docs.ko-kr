@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: ab4c5b98ed9f6fcc8c271797db2d81dcc7ec4449
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a49ce4e997a21e0db707c851f5ea46817bcb642e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "29717033"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49960186"
 ---
 다음 표는 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)에 지정된 할당량과 제한을 나열합니다. Event Hubs 가격에 대한 자세한 내용은 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
 
 | 제한 | 범위 | 메모 | 값 |
 | --- | --- | --- | --- | --- |
+| 구독당 Event Hubs 네임스페이스 수 |구독 |- |1000 |
 | 네임스페이스당 Event Hubs 개수 |네임스페이스 |새로운 Event Hub 생성에 대한 이후 요청은 거부됩니다. |10 |
 | Event Hub당 파티션 수 |엔터티 |- |32 |
 | Event Hub당 소비자 그룹 수 |엔터티 |- |20 |

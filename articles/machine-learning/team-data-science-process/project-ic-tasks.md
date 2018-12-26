@@ -1,25 +1,21 @@
 ---
 title: Team Data Science Process 개별 참가자 작업 - Azure | Microsoft Docs
 description: 개별 참가자가 데이터 과학 팀 프로젝트에서 수행하는 작업에 대한 개요입니다.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: e431d89e5d74f5712f6f109075201c95dc233bd3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: d8e51dcf8434508664801f53391592aab34d7e4a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838554"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447064"
 ---
 # <a name="individual-contributor-tasks"></a>개별 참가자 작업
 
@@ -34,14 +30,14 @@ ms.locfileid: "34838554"
 
 TDSP에서 데이터 과학 프로젝트를 실행하는 방법에 대한 지침은 [데이터 과학 프로젝트 실행](project-execution.md)을 참조하세요. 
 
->[AZURE.NOTE] 다음 지침에서는 VSTS(Visual Studio Team Services)를 사용하여 TDSP 팀 환경을 설정하는 데 필요한 단계에 대해 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 VSTS를 사용하여 이러한 작업을 수행하는 방법을 지정합니다. 그룹에 다른 코드 호스팅 플랫폼이 사용되는 경우 팀 리더가 수행해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 다를 수 있습니다.
+>[AZURE.NOTE] 다음 지침에서 Azure DevOps를 사용하여 TDSP 팀 환경을 설정하는 데 필요한 단계를 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 Azure DevOps를 사용하여 이러한 작업을 수행하는 방법을 지정합니다. 그룹에 다른 코드 호스팅 플랫폼이 사용되는 경우 팀 리더가 수행해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 다를 수 있습니다.
 
 
 ## <a name="repositories-and-directories"></a>리포지토리 및 디렉터리
 
 이 자습서에서는 리포지토리 및 디렉터리의 약식 이름을 사용합니다. 이러한 이름을 사용하면 리포지토리와 디렉터리 간의 작업을 더 쉽게 수행할 수 있습니다. 다음 섹션에서는 이 표기법이 사용됩니다(Git 리포지토리에는 **R** 및 DSVM의 로컬 디렉터리에는 **D**).
 
-- **R2**: 그룹 관리자가 VSTS 그룹 서버에 설정한 Git의 GroupUtilities 리포지토리
+- **R2**: 그룹 관리자가 Azure DevOps 그룹 서버에 설정한 Git의 GroupUtilities 리포지토리
 - **R4**: 팀 리더가 설정한 Git의 TeamUtilities 리포지토리
 - **R5**: 프로젝트 리더가 설정한 Git의 Project 리포지토리
 - **D2**: R2에서 복제된 로컬 디렉터리
@@ -61,7 +57,7 @@ TDSP에서 데이터 과학 프로젝트를 실행하는 방법에 대한 지침
 
 - Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 Virtual Machine)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
 - **Windows DSVM**을 사용하는 경우 컴퓨터에 [GCM(Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)이 설치되어 있어야 합니다. README.md 파일에서 **다운로드 및 설치** 섹션으로 스크롤한 다음 *최신 설치 관리자*를 클릭합니다. 이렇게 하면 최신 설치 관리자 페이지로 이동합니다. 여기서 .exe 설치 관리자를 다운로드하여 실행합니다. 
-- **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 VSTS 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
+- **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 Azure DevOps Services 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
 - 팀 리더 및/또는 프로젝트 리더가 DSVM에 탑재해야 하는 Azure 파일 저장소를 만든 경우 해당 Azure 파일 저장소 정보를 가져와야 합니다. 
 
 ## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>1-3단계: 로컬 컴퓨터에 그룹, 팀 및 프로젝트 리포지토리 복제

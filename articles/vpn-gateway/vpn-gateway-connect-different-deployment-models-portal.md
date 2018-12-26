@@ -2,25 +2,18 @@
 title: 'Azure Resource Manager VNet에 클래식 가상 네트워크를 연결하는 방법: 포털 | Microsoft Docs'
 description: VPN Gateway 및 포털을 사용하여 클래식 VNet을 Resource Manager VNet에 연결하는 단계
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5e51027455da1f8be34d99c79bc79bc37df57d14
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38721558"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405007"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -294,7 +287,7 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 -LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
 ```
 
-##<a name="verify"></a>섹션 6 - 연결 확인
+## <a name="verify"></a>섹션 6 - 연결 확인
 
 Azure Portal 또는 PowerShell을 사용하여 연결을 확인할 수 있습니다. 확인 시, 연결이 만들어지는 동안 1~2분 정도 기다려야 할 수 있습니다. 연결이 완료되면 연결 상태가 '연결 중'에서 '연결됨'으로 변경됩니다.
 

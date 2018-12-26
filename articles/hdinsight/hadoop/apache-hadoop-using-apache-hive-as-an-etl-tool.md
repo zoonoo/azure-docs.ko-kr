@@ -1,29 +1,24 @@
 ---
-title: Apache Hive를 ETL 도구로 사용 - Azure HDInsight | Microsoft Docs
+title: Apache Hive를 ETL 도구로 사용 - Azure HDInsight
 description: Apache Hive를 사용하여 Azure HDInsight에서 데이터를 ETL(추출, 변환 및 로드)합니다.
 services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 11/14/2017
+author: ashishthaps
 ms.author: ashishth
-ms.openlocfilehash: 06e06d87abd66c80deb2c8731f68bb8171da574b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 11/14/2017
+ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31399589"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632546"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive를 ETL(추출, 변환 및 로드) 도구로 사용
 
-일반적으로 들어오는 데이터를 분석에 적합한 대상으로 로드하기 전에, 정리하고 변환해야 합니다. ELT(추출, 변환 및 로드) 작업은 데이터를 준비하고 데이터 대상에 로드하는 데 사용됩니다.  HDInsight의 Hive는 구조화되지 않은 데이터를 읽고, 필요에 따라 데이터를 처리한 후 의사 결정 지원 시스템에 대한 관계형 데이터 웨어하우스에 데이터를 로드할 수 있습니다. 이 방법에서 데이터는 원본에서 추출된 후 확장 가능한 저장소(예: Azure Storage Blob 또는 Azure Data Lake Store)에 저장됩니다. 그런 후 데이터는 Hive 쿼리 시퀀스를 사용하여 변환된 후, Hive 내에서 대상 데이터 저장소로 대량 로드되기 위한 최종 준비 단계가 됩니다.
+일반적으로 들어오는 데이터를 분석에 적합한 대상으로 로드하기 전에, 정리하고 변환해야 합니다. ELT(추출, 변환 및 로드) 작업은 데이터를 준비하고 데이터 대상에 로드하는 데 사용됩니다.  HDInsight의 Apache Hive는 구조화되지 않은 데이터를 읽고, 필요에 따라 데이터를 처리한 다음, 의사 결정 지원 시스템에 대한 관계형 데이터 웨어하우스에 데이터를 로드할 수 있습니다. 이 방법에서 데이터는 원본에서 추출된 후 확장 가능한 저장소(예: Azure Storage Blob 또는 Azure Data Lake Store)에 저장됩니다. 그런 후 데이터는 Hive 쿼리 시퀀스를 사용하여 변환된 후, Hive 내에서 대상 데이터 저장소로 대량 로드되기 위한 최종 준비 단계가 됩니다.
 
 ## <a name="use-case-and-model-overview"></a>사용 사례 및 모델 개요
 
@@ -65,7 +60,7 @@ Hive를 사용하여 ETL을 수행하는 일반적인 단계는 다음과 같습
 데이터 원본은 일반적으로 데이터 저장소의 기존 데이터와 일치시킬 수 있는 외부 데이터입니다. 예를 들면 다음과 같습니다.
 
 * 데이터 파일을 생성하는 소셜 미디어 데이터, 로그 파일, 센서 및 응용 프로그램
-* 날씨 통계 또는 공급업체 판매 횟수와 같이 데이터 공급자에서 가져온 데이터 집합
+* 날씨 통계 또는 공급업체 판매 횟수와 같이 데이터 공급자에서 가져온 데이터 세트
 * 적합한 도구 또는 프레임워크를 통해 캡처, 필터링 및 처리된 스트리밍 데이터
 
 <!-- TODO: (see Collecting and loading data into HDInsight). -->
@@ -97,4 +92,5 @@ ETL 프로세스의 일부로 해당 데이터에 대해 여러 작업을 실행
 
 * [최대 규모의 ETL](apache-hadoop-etl-at-scale.md)
 * [데이터 파이프라인 운용](../hdinsight-operationalize-data-pipeline.md)
+
 <!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

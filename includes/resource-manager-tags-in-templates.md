@@ -1,3 +1,16 @@
+---
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tomfitz
+ms.openlocfilehash: 5e483ecfcbddfcf5aa7f8a41c1ee75136c86b656
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440295"
+---
 배포 중 리소스에 태그를 지정하려면 배포 중인 리소스에 `tags` 요소를 추가합니다. 태그 이름 및 값을 제공합니다.
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>태그 이름에 리터럴 값 적용

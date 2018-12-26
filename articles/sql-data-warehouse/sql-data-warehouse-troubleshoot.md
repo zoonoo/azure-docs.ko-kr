@@ -3,22 +3,22 @@ title: Azure SQL Data Warehouse 문제 해결 | Microsoft Docs
 description: Azure SQL Data Warehouse 문제 해결
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 27445eb754a5e985485db101c9d0fe1ba8aa2451
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3500754c7e9cb14ea86e9c0e562ec5f98fc1fc94
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525250"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377771"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 문제 해결
-이 항목에서는 일반적인 문제 해결 질문을 나열합니다.
+이 문서에서는 일반적인 문제 해결 질문을 나열합니다.
 
 ## <a name="connecting"></a>연결
 | 문제 | 해결 방법 |
@@ -102,7 +102,7 @@ ms.locfileid: "31525250"
 [Unsupported data types]: sql-data-warehouse-tables-data-types.md#unsupported-data-types
 [Overview]: sql-data-warehouse-tables-overview.md
 [Data types]: sql-data-warehouse-tables-data-types.md
-[Distribute]:/sql-data-warehouse-tables-distribute.md
+[Distribute]: sql-data-warehouse-tables-distribute.md
 [Index]: sql-data-warehouse-tables-index.md
 [Partition]: sql-data-warehouse-tables-partition.md
 [Statistics]: sql-data-warehouse-tables-statistics.md

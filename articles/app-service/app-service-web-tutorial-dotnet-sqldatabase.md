@@ -1,5 +1,5 @@
 ---
-title: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드 | Microsoft Docs
+title: SQL Database를 사용하여 ASP.NET 앱 빌드 - Azure App Service | Microsoft Docs
 description: SQL Server 데이터베이스를 사용하여 Azure에 C# ASP.NET 앱을 배포하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: b08033c53185e6229e6fa368a3456749e19eb1f0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.custom: seodec18
+ms.openlocfilehash: 14dbd723772caa0045e9744ddb726060e3a1b8cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021326"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257780"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드
 
 [Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Azure에서 데이터 기반 ASP.NET 웹앱을 개발하고 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)에 연결하는 방법을 보여 줍니다. 완료되면 ASP.NET 앱이 Azure에서 실행되고 SQL Database에 연결됩니다.
 
-![Azure 웹앱의 게시된 ASP.NET 응용 프로그램](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Azure 웹앱의 게시된 ASP.NET 애플리케이션](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -50,9 +50,8 @@ Visual Studio가 이미 설치된 경우 **도구** > **도구 및 기능 가져
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-<a name="-download-the-sample-projecthttpsgithubcomazure-samplesdotnet-sqldb-tutorialarchivemasterzip"></a>-[샘플 프로젝트를 다운로드합니다](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
--
--*dotnet-sqldb-tutorial-master.zip* 파일을 추출(압축 해제)합니다.
+- [샘플 프로젝트를 다운로드합니다](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+- *dotnet-sqldb-tutorial-master.zip* 파일을 추출(압축 해제)합니다.
 
 샘플 프로젝트에는 [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)를 사용하는 기본 [ASP.NET MVC](https://www.asp.net/mvc) CRUD(Create-Read-Update-Delete) 앱이 포함되어 있습니다.
 
@@ -107,7 +106,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 리소스 그룹 이름을 **myResourceGroup**으로 지정합니다.
 
-### <a name="create-an-app-service-plan"></a>App Service 계획 만들기
+### <a name="create-an-app-service-plan"></a>App Service 플랜 만들기
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
@@ -115,7 +114,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 **App Service 계획 구성** 대화 상자에서 다음 설정을 사용하여 새 App Service 계획을 구성합니다.
 
-![App Service 계획 만들기](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
+![App Service 플랜 만들기](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
 | 설정  | 제안 값 | Blob에 대한 자세한 내용은 |
 | ----------------- | ------------ | ----|
@@ -164,7 +163,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 몇 가지 할 일 항목을 추가합니다.
 
-![Azure 웹앱의 게시된 ASP.NET 응용 프로그램](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Azure 웹앱의 게시된 ASP.NET 애플리케이션](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 축하합니다! 데이터 기반 ASP.NET 응용 프로그램이 Azure App Service에서 라이브로 실행되고 있습니다.
 
@@ -246,7 +245,7 @@ Update-Database
 
 `Ctrl+F5`를 입력하여 앱을 실행합니다. 편집, 세부 정보 및 만들기 링크를 테스트합니다.
 
-응용 프로그램이 오류 없이 로드되면 Code First 마이그레이션이 성공한 것입니다. 그러나 응용 프로그램 논리에서 이 새로운 속성을 아직 사용하지 않기 때문에 페이지가 여전히 동일하게 표시될 수 있습니다. 
+응용 프로그램이 오류 없이 로드되면 Code First 마이그레이션이 성공한 것입니다. 그러나 애플리케이션 논리에서 이 새로운 속성을 아직 사용하지 않기 때문에 페이지가 여전히 동일하게 표시될 수 있습니다. 
 
 ### <a name="use-the-new-property"></a>새 속성 사용
 
@@ -331,7 +330,7 @@ SQL Database에 대한 연결 문자열이 **MyDatabaseContext (MyDbConnection)*
 기존의 모든 할 일 항목이 계속 표시됩니다. ASP.NET 응용 프로그램을 다시 게시해도 SQL Database의 기존 데이터가 손실되지 않습니다. 또한 Code First 마이그레이션은 데이터 스키마만 변경하고 기존 데이터는 그대로 유지합니다.
 
 
-## <a name="stream-application-logs"></a>응용 프로그램 로그 스트림
+## <a name="stream-application-logs"></a>애플리케이션 로그 스트림
 
 Azure 웹앱에서 직접 Visual Studio로 추적 메시지를 스트림할 수 있습니다.
 
@@ -424,4 +423,4 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 연결 Azure SQL Database의 보안을 쉽게 개선하는 방법을 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [관리되는 서비스 ID를 사용하여 SQL Database에 안전하게 액세스](app-service-web-tutorial-connect-msi.md)
+> [Azure 리소스에 대한 관리 ID를 사용하여 SQL Database에 안전하게 액세스](app-service-web-tutorial-connect-msi.md)

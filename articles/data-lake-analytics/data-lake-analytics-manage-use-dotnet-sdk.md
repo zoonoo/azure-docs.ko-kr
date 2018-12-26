@@ -4,18 +4,17 @@ description: 이 문서에서는 Azure .Net SDK를 사용하여 Data Lake Analyt
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: dc49bb9b5461a4e8eb3573877276f5876e12f340
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fc732065f328f653082286508db74cc29107854e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625123"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232011"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Azure Data Lake Analytics .NET 앱 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -25,7 +24,7 @@ ms.locfileid: "34625123"
 ## <a name="prerequisites"></a>필수 조건
 
 * **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012와 Visual C++ 설치**.
-* **.NET 버전 2.5 이상용 Microsoft Azure SDK**.  [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
+* **.NET 버전 2.5 이상용 Microsoft Azure SDK**.  [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
 * **필요한 NuGet 패키지**
 
 ### <a name="install-nuget-packages"></a>NuGet 패키지 설치
@@ -332,22 +331,27 @@ IEnumerable<USqlTableColumn> columns = tbl.ColumnList;
 
 foreach (USqlTableColumn utc in columns)
 {
-  string scriptPath = "/Samples/Scripts/SearchResults_Wikipedia_Script.txt";
-  Stream scriptStrm = adlsFileSystemClient.FileSystem.Open(_adlsAccountName, scriptPath);
-  string scriptTxt = string.Empty;
-  using (StreamReader sr = new StreamReader(scriptStrm))
-  {
-      scriptTxt = sr.ReadToEnd();
-  }
-
-  var jobName = "SR_Wikipedia";
-  var jobId = Guid.NewGuid();
-  var properties = new USqlJobProperties(scriptTxt);
-  var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1, degreeOfParallelism: 1, jobId: jobId);
-  var jobInfo = adlaJobClient.Job.Create(adla, jobId, parameters);
-  Console.WriteLine($"Job {jobName} submitted.");
-
+  Console.WriteLine($"\t{utc.Name}");
 }
+```
+
+### <a name="submit-a-u-sql-job"></a>U-SQL 작업 제출
+다음 코드에서는 Data Lake Analytics 작업 관리 클라이언트를 사용하여 작업을 제출하는 방법을 보여줍니다.
+``` csharp
+string scriptPath = "/Samples/Scripts/SearchResults_Wikipedia_Script.txt";
+Stream scriptStrm = adlsFileSystemClient.FileSystem.Open(_adlsAccountName, scriptPath);
+string scriptTxt = string.Empty;
+using (StreamReader sr = new StreamReader(scriptStrm))
+{
+    scriptTxt = sr.ReadToEnd();
+}
+
+var jobName = "SR_Wikipedia";
+var jobId = Guid.NewGuid();
+var properties = new USqlJobProperties(scriptTxt);
+var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1, degreeOfParallelism: 1, jobId: jobId);
+var jobInfo = adlaJobClient.Job.Create(adla, jobId, parameters);
+Console.WriteLine($"Job {jobName} submitted.");
 ```
 
 ### <a name="list-failed-jobs"></a>실패한 작업 나열

@@ -2,24 +2,20 @@
 title: Azure Functions 런타임 설치 | Microsoft Docs
 description: Azure Functions 런타임 미리 보기 2를 설치하는 방법
 services: functions
-documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: ''
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: f8ce27bf28f73818932f2ac9056d4fdd573679e8
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1ad1d2c74be97afcb62f3f8e8161111f4938f645
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
-ms.locfileid: "26290660"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093671"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Azure Functions 런타임 미리 보기 2 설치
 
@@ -53,7 +49,7 @@ Azure Functions 런타임 미리 보기 설치 관리자는 Azure Functions 런�
 
     ![Azure Functions 런타임 미리 보기 설치 관리자][1]
 
-1. **다음**을 누릅니다.
+1. **다음**을 클릭합니다.
 1. **EULA**의 약관을 읽은 후에 **확인란을 선택**하여 조건에 동의하고 **다음 클릭**하여 계속 진행합니다.
 1. **함수 관리 역할** 및/또는 **함수 작업자 역할** 중에서 이 컴퓨터에 설치하려는 역할을 선택하고 **다음**을 클릭합니다.
 

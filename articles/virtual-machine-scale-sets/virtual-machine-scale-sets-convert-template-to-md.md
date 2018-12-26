@@ -4,7 +4,7 @@ description: 확장 집합 템플릿을 변환하여 관리되는 디스크 확�
 keywords: 가상 머신 크기 집합
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
-ms.author: negat
-ms.openlocfilehash: 760e30f5c6f4ecaff299bae1725548a6a7c5184c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: be56fd80229010090216413a7c1833d94e8bac25
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781074"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739569"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>확장 집합 템플릿을 변환하여 관리되는 디스크 확장 집합 템플릿 사용
 
-확장 집합을 만드는 데 관리되는 디스크를 사용하지 않고 Resource Manager 템플릿을 사용하는 고객은 관리되는 디스크를 사용하도록 수정하려고 할 수 있습니다. 이 문서에서는 샘플 Resource Manager 템플릿용 커뮤니티 중심 리포지토리 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)에서 끌어오기 요청을 예로 사용하여 관리 디스크를 수행하는 방법을 보여 줍니다. 전체 끌어오기 요청은 [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998)에서 찾을 수 있으며 diff의 관련 부분은 설명과 함께 아래에 있습니다.
+확장 집합을 만드는 데 관리되는 디스크를 사용하지 않고 Resource Manager 템플릿을 사용하는 고객은 관리되는 디스크를 사용하도록 수정하려고 할 수 있습니다. 이 문서에서는 샘플 Resource Manager 템플릿용 커뮤니티 중심 리포지토리 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)에서 끌어오기 요청을 예로 사용하여 관리 디스크를 수행하는 방법을 보여 줍니다. 전체 끌어오기 요청은 [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998)에서 찾을 수 있으며 차이점 관련 부분은 설명과 함께 아래에 있습니다.
 
 ## <a name="making-the-os-disks-managed"></a>관리되는 OS 디스크 만들기
 
@@ -138,7 +138,7 @@ ms.locfileid: "26781074"
 ]
 ```
 
-이 배열에 `n`개의 디스크를 지정하는 경우 확장 집합의 각 VM은 `n`개의 데이터 디스크를 가져옵니다. 그러나 이러한 데이터 디스크는 원시 장치입니다. 포맷되지 않습니다. 사용하기 전에 디스크를 연결, 파티션 및 포맷하는 것은 고객에게 달려 있습니다. 필요에 따라 각 데이터 디스크 개체에 `"managedDisk": { "storageAccountType": "Premium_LRS" }`를 지정하여 프리미엄 데이터 디스크가 되어야 하도록 지정할 수도 있습니다. VM sku의 대문자 또는 소문자 ‘s’를 사용하는 VM만 프리미엄 디스크를 사용할 수 있습니다.
+이 배열에 `n`개의 디스크를 지정하는 경우 확장 집합의 각 VM은 `n`개의 데이터 디스크를 가져옵니다. 그러나 이러한 데이터 디스크는 원시 디바이스입니다. 포맷되지 않습니다. 사용하기 전에 디스크를 연결, 파티션 및 포맷하는 것은 고객에게 달려 있습니다. 필요에 따라 각 데이터 디스크 개체에 `"managedDisk": { "storageAccountType": "Premium_LRS" }`를 지정하여 프리미엄 데이터 디스크가 되어야 하도록 지정할 수도 있습니다. VM sku의 대문자 또는 소문자 ‘s’를 사용하는 VM만 프리미엄 디스크를 사용할 수 있습니다.
 
 확장 집합으로 데이터 디스크 사용에 대한 자세한 내용은 [이 문서](./virtual-machine-scale-sets-attached-disks.md)를 참조하세요.
 

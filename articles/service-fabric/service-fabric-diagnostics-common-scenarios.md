@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: bd7a7e0288ced0219a0600034b273d1acba6b09b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 146ea6431516f7b78d23cd4b36aff43110639e83
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660241"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633098"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Service Fabric을 사용하여 일반적인 시나리오 진단
 
@@ -31,8 +31,8 @@ ms.locfileid: "34660241"
 
 * [Service Fabric이 있는 Application Insights](service-fabric-tutorial-monitoring-aspnet.md)
 * [클러스터에서 Azure 진단 사용](service-fabric-diagnostics-event-aggregation-wad.md)
-* [OMS Log Analytics 작업 영역 설정](service-fabric-diagnostics-oms-setup.md)
-* [성능 카운터를 추적하는 OMS 에이전트](service-fabric-diagnostics-oms-agent.md)
+* [Log Analytics 작업 영역 설정](service-fabric-diagnostics-oms-setup.md)
+* [성능 카운터를 추적하는 Log Analytics 에이전트](service-fabric-diagnostics-oms-agent.md)
 
 ## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>내 응용 프로그램에서 처리되지 않은 예외를 확인하려면 어떻게 해야 할까요?
 
@@ -63,7 +63,7 @@ ms.locfileid: "34660241"
 1. 노드 이벤트는 Service Fabric 클러스터에서 추적합니다. **ServiceFabric(NameofResourceGroup)** 이라는 Service Fabric 분석 솔루션 리소스로 이동합니다.
 2. 블레이드 아래쪽에서 "요약"이라는 그래프를 클릭합니다.
 
-    ![OMS 솔루션](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Log Analytics 솔루션](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
 3. 여기에는 다양한 메트릭을 표시하는 많은 그래프와 타일이 있습니다. 그래프 중 하나를 클릭하면 [로그 검색]으로 이동합니다. 여기서는 모든 클러스터 이벤트 또는 성능 카운터를 쿼리할 수 있습니다.
 4. 다음 쿼리를 입력합니다. 이러한 이벤트 ID는 [노드 이벤트 참조](service-fabric-diagnostics-event-generation-operational.md#application-events)에 있습니다.
@@ -75,7 +75,7 @@ ms.locfileid: "34660241"
 
 5. 위쪽에서 "새 경고 규칙"을 클릭하면, 이제 이 쿼리에 따라 이벤트가 도착할 때마다 선택한 통신 방법으로 경고 메시지를 받게 됩니다.
 
-    ![OMS 새 경고](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![Log Analytics 새 경고](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
 ## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>응용 프로그램 업그레이드 롤백에 대한 경고를 받으려면 어떻게 해야 할까요?
 
@@ -90,24 +90,24 @@ ms.locfileid: "34660241"
 
 ## <a name="how-do-i-see-container-metrics"></a>컨테이너 메트릭을 보려면 어떻게 할까요?
 
-모든 그래프가 있는 동일한 보기에서 컨테이너 성능에 대한 일부 타일을 볼 수 있습니다. 이러한 타일을 채우려면 OMS 에이전트와 [컨테이너 모니터링 솔루션](service-fabric-diagnostics-oms-containers.md)이 필요합니다.
+모든 그래프가 있는 동일한 보기에서 컨테이너 성능에 대한 일부 타일을 볼 수 있습니다. 이러한 타일을 채우려면 Log Analytics 에이전트와 [컨테이너 모니터링 솔루션](service-fabric-diagnostics-oms-containers.md)이 필요합니다.
 
-![OMS 컨테이너 메트릭](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
+![Log Analytics 컨테이너 메트릭](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
 
 >[!NOTE]
 >컨테이너 **내**에서 원격 분석을 계측하려면 [컨테이너에 대한 Application Insights nuget 패키지](https://github.com/Microsoft/ApplicationInsights-servicefabric#microsoftapplicationinsightsservicefabric--for-service-fabric-lift-and-shift-scenarios)를 추가해야 합니다.
 
 ## <a name="how-can-i-monitor-performance-counters"></a>성능 카운터를 모니터링하려면 어떻게 해야 할까요?
 
-1. 클러스터에 OMS 에이전트가 추가되었으면 추적하려는 특정 성능 카운터를 추가해야 합니다. 포털에서 OMS 작업 영역의 페이지로 이동합니다. 작업 영역 탭은 솔루션 페이지의 왼쪽 메뉴에 있습니다.
+1. 클러스터에 Log Analytics 에이전트가 추가되었으면 추적하려는 특정 성능 카운터를 추가해야 합니다. 포털에서 Log Analytics 작업 영역의 페이지로 이동합니다. 작업 영역 탭은 솔루션 페이지의 왼쪽 메뉴에 있습니다.
 
-    ![OMS 작업 영역 탭](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
+    ![Log Analytics 작업 영역 탭](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
 
 2. 작업 영역 페이지의 동일한 왼쪽 메뉴에서 "고급 설정"을 클릭합니다.
 
-    ![OMS 고급 설정](media/service-fabric-diagnostics-common-scenarios/advancedsettingsoms.png)
+    ![Log Analytics 고급 설정](media/service-fabric-diagnostics-common-scenarios/advancedsettingsoms.png)
 
-3. 데이터 > Windows 성능 카운터(Linux 컴퓨터의 경우 데이터 > Linux 성능 카운터)를 차례로 클릭하여 OMS 에이전트를 통해 노드에서 특정 카운터를 수집하기 시작합니다. 추가할 카운터에 대한 형식 예제는 다음과 같습니다.
+3. 데이터 > Windows 성능 카운터(Linux 머신의 경우 데이터 > Linux 성능 카운터)를 차례로 클릭하여 Log Analytics 에이전트를 통해 노드에서 특정 카운터를 수집하기 시작합니다. 추가할 카운터에 대한 형식 예제는 다음과 같습니다.
 
     * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
     * `Processor(_Total)\\% Processor Time`
@@ -118,7 +118,7 @@ ms.locfileid: "34660241"
     * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
     * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-    ![OMS 성능 카운터](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
+    ![Log Analytics 성능 카운터](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
 4. 이렇게 하면 인프라에서 워크로드를 처리하는 방법을 확인하고 리소스 사용률에 따라 관련 경고를 설정할 수 있습니다. 예를 들어 총 프로세서 사용률이 90%를 초과하거나 5% 미만인 경우 경고를 설정하는 것이 좋습니다. 이 경우 사용할 카운터 이름은 "% 프로세서 시간"입니다. 이 작업은 다음 쿼리에 대한 경고 규칙을 만들어 수행할 수 있습니다.
 
@@ -128,7 +128,7 @@ ms.locfileid: "34660241"
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>내 Reliable Services 및 Actors의 성능을 추적하려면 어떻게 할까요?
 
-응용 프로그램에서 Reliable Services 또는 Actors의 성능을 추적하려면 Service Fabric 행위자, 행위자 메서드, 서비스 및 서비스 메서드 카운터도 추가해야 합니다. 위의 시나리오와 비슷한 방식으로 이러한 카운터를 추가할 수 있습니다. OMS에 추가할 신뢰할 수 있는 서비스 및 행위자 성능 카운터에 대한 예제는 다음과 같습니다.
+응용 프로그램에서 Reliable Services 또는 Actors의 성능을 추적하려면 Service Fabric 행위자, 행위자 메서드, 서비스 및 서비스 메서드 카운터도 추가해야 합니다. 위의 시나리오와 비슷한 방식으로 이러한 카운터를 추가할 수 있습니다. Log Analytics에 추가할 신뢰할 수 있는 서비스 및 행위자 성능 카운터에 대한 예제는 다음과 같습니다.
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`
@@ -141,7 +141,7 @@ Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) 및 
 
 * [AI에 경고 설정](../application-insights/app-insights-alerts.md) - 성능 또는 사용 변경에 대한 알림 받기
 * [Application Insights의 스마트 감지](../application-insights/app-insights-proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 AI에 전송되는 원격 분석에 대한 사전 분석 수행
-* 검색 및 진단에 도움이 되도록 OMS Log Analytics [경고](../log-analytics/log-analytics-alerts.md)에 대해 자세히 알아보세요.
-* 온-프레미스 클러스터의 경우 OMS는 OMS로 데이터를 보내는 데 사용할 수 있는 게이트웨이(HTTP 전달 프록시)를 제공합니다. 자세한 내용은 [OMS 게이트웨이를 사용하여 인터넷 액세스 없이 OMS에 컴퓨터 연결](../log-analytics/log-analytics-oms-gateway.md)을 참조하세요.
+* 검색 및 진단에 도움이 되도록 Log Analytics [경고](../log-analytics/log-analytics-alerts.md)에 대해 자세히 알아보세요.
+* 온-프레미스 클러스터의 경우 Log Analytics는 Log Analytics로 데이터를 보내는 데 사용할 수 있는 게이트웨이(HTTP 전달 프록시)를 제공합니다. 자세한 내용은 [Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 Log Analytics에 컴퓨터 연결](../azure-monitor/platform/gateway.md)을 참조하세요.
 * Log Analytics의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능 알아보기
 * Log Analytics에 대한 자세한 개요와 제공되는 사항을 보려면 [Log Analytics란?](../operations-management-suite/operations-management-suite-overview.md)을 참조하세요.

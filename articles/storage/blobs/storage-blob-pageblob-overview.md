@@ -3,16 +3,17 @@ title: Azure 페이지 Blob의 고유 기능 | Microsoft Docs
 description: Azure 페이지 Blob와 해당 이점의 개요, 샘플 스크립트를 통한 사용 사례
 services: storage
 author: anasouma
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: wielriac
-ms.openlocfilehash: 79590e1987ee29ca06f9fb103f548518b2c1c57e
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.component: blobs
+ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022691"
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Azure 페이지 Blob의 고유 기능
 
@@ -41,7 +42,7 @@ Azure Site Recovery, Azure Backup과 같은 자사의 Microsoft 서비스뿐만 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>지정된 크기의 빈 페이지 Blob 만들기
-페이지 Blob을 만들기 위해 아래 예제와 같이 **StorageCredentialsAccountAndKey** 개체와 함께 먼저 저장소 계정(그림 1의 *pbaccount*)의 Blob 저장소에 액세스하기 위한 기본 URI가 있는 **CloudBlobClient** 개체를 만듭니다. 이 예제에서는 **CloudBlobContainer** 개체에 대한 참조를 만든 다음, 아직 없는 경우 컨테이너(testvhds)를 만듭니다. 그런 다음, **CloudBlobContainer** 개체를 사용하여 액세스할 페이지 Blob 이름(os4.vhd)을 지정하여 **CloudPageBlob** 개체에 대한 참조를 만듭니다. 페이지 Blob을 만들려면 [CloudPageBlob.Create](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_)를 호출하여 만들려는 Blob의 최대 크기를 전달합니다. blobSize는 512바이트의 배수여야 합니다.
+페이지 Blob을 만들기 위해 아래 예제와 같이 **StorageCredentialsAccountAndKey** 개체와 함께 먼저 저장소 계정(그림 1의 *pbaccount*)의 Blob 저장소에 액세스하기 위한 기본 URI가 있는 **CloudBlobClient** 개체를 만듭니다. 이 예제에서는 **CloudBlobContainer** 개체에 대한 참조를 만든 다음, 아직 없는 경우 컨테이너(*testvhds*)를 만드는 방법을 보여줍니다. 그런 다음, **CloudBlobContainer** 개체를 사용하여 액세스할 페이지 Blob 이름(os4.vhd)을 지정하여 **CloudPageBlob** 개체에 대한 참조를 만듭니다. 페이지 Blob을 만들려면 [CloudPageBlob.Create](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_)를 호출하여 만들려는 Blob의 최대 크기를 전달합니다. blobSize는 512바이트의 배수여야 합니다.
 
 ```csharp
 using Microsoft.WindowsAzure.StorageClient;
@@ -70,7 +71,7 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>페이지 Blob에 페이지 쓰기
-페이지를 쓰려면 [CloudPageBlob.WritePages](/library/microsoft.windowsazure.storageclient.cloudpageblob.writepages.aspx) 메서드를 사용합니다.  이 메서드를 사용하면 최대 4MB의 순차적 페이지 집합을 작성할 수 있습니다. 작성되는 오프셋은 512바이트 경계(startingOffset % 512 == 0)에서 시작하고 512바이트 경계 -1에서 종료해야 합니다.  다음 코드 예제에서는 Blob에 대한 **WritePages**를 호출하는 방법을 보여 줍니다.
+페이지를 쓰려면 [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) 메서드를 사용합니다.  이 메서드를 사용하면 최대 4MB의 순차적 페이지 집합을 작성할 수 있습니다. 작성되는 오프셋은 512바이트 경계(startingOffset % 512 == 0)에서 시작하고 512바이트 경계 -1에서 종료해야 합니다.  다음 코드 예제에서는 Blob에 대한 **WritePages**를 호출하는 방법을 보여 줍니다.
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -115,8 +116,6 @@ foreach (PageRange range in pageRanges)
 
 #### <a name="leasing-a-page-blob"></a>페이지 Blob 임대
 Blob 임대 작업은 Blob에 대한 쓰기 및 삭제 작업 잠금을 설정하고 관리합니다. 이 작업은 한 번에 하나의 클라이언트만 Blob에 쓸 수 있도록 여러 클라이언트에서 페이지 Blob에 액세스하는 시나리오에서 유용합니다. 예를 들어 Azure 디스크는 이 임대 메커니즘을 활용하여 디스크가 단일 VM에서만 관리되도록 합니다. 잠금 기간은 15~60초 또는 무한할 수 있습니다. 자세한 내용은 [여기](/rest/api/storageservices/lease-blob) 설명서를 참조하세요.
-
-> 다음 링크를 사용하여 다른 여러 응용 프로그램 시나리오에 대한 [코드 샘플](/resources/samples/?service=storage&term=blob&sort=0 )을 확인할 수 있습니다. 
 
 페이지 Blob은 풍부한 REST API 외에도 공유 액세스, 내구성 및 강화된 보안을 제공합니다. 다음 단락에서 이러한 이점에 대해 자세하게 설명합니다. 
 

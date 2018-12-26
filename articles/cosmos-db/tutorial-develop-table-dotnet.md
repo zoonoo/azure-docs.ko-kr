@@ -1,25 +1,23 @@
 ---
-title: 'Azure Cosmos DB: .NET의 Table API를 사용하여 개발 | Microsoft Docs'
-description: .NET을 사용하는 Azure Cosmos DB의 Table API를 통해 개발하는 방법에 대해 알아봅니다.
-services: cosmos-db
+title: .NET SDK를 사용하여 Table API로 개발
+titleSuffix: Azure Cosmos DB
+description: .NET SDK를 사용하여 Azure Cosmos DB에서 Table API로 개발하는 방법을 알아봅니다.
 author: SnehaGunda
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/18/2017
+ms.date: 12/07/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: e6511b9511d2598b58fd3afee34803ceb09ac5ce
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: seodec18
+ms.openlocfilehash: f10cb17f0300b6bd21d17b1e2ff204d57e4a7988
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582855"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251184"
 ---
-# <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET의 Table API를 사용하여 개발
+# <a name="develop-with-azure-cosmos-dbs-table-api-using-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB의 Table API로 개발
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
@@ -39,13 +37,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
  
 ## <a name="tables-in-azure-cosmos-db"></a>Azure Cosmos DB의 테이블 
 
-Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요한 응용 프로그램을 위해 [테이블 API](table-introduction.md)를 제공합니다. 이제 Azure Cosmos DB 테이블 API 및 [Azure Table Storage](../storage/common/storage-introduction.md) 둘 다 동일한 SDK 및 REST API를 지원합니다. Azure Cosmos DB를 사용하면 높은 처리량 요구 사항의 테이블을 만들 수 있습니다.
+Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요한 애플리케이션을 위해 [테이블 API](table-introduction.md)를 제공합니다. 이제 Azure Cosmos DB 테이블 API 및 [Azure Table Storage](../storage/common/storage-introduction.md) 둘 다 동일한 SDK 및 REST API를 지원합니다. Azure Cosmos DB를 사용하면 높은 처리량 요구 사항의 테이블을 만들 수 있습니다.
 
-이 자습서는 Azure Table Storage SDK에 익숙하고 Azure Cosmos DB에서 사용 가능한 프리미엄 기능을 사용하려는 개발자를 위한 것입니다. [.NET을 사용하여 Azure Table 저장소 시작](table-storage-how-to-use-dotnet.md)을 기반으로 하며, 보조 인덱스, 프로비전된 처리량 및 멀티 호밍과 같은 추가 기능을 활용하는 방법을 보여 줍니다. 이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 Table API 응용 프로그램을 빌드하고 배포하는 방법에 대해 설명합니다. 또한 테이블을 만들고 삭제하며, 테이블 데이터를 삽입, 업데이트, 삭제 및 쿼리하기 위한 .NET 예제를 단계별로 안내합니다. 
+이 자습서는 Azure Table Storage SDK에 익숙하고 Azure Cosmos DB에서 사용 가능한 프리미엄 기능을 사용하려는 개발자를 위한 것입니다. [.NET을 사용하여 Azure Table 저장소 시작](table-storage-how-to-use-dotnet.md)을 기반으로 하며, 보조 인덱스, 프로비전된 처리량 및 멀티 호밍과 같은 추가 기능을 활용하는 방법을 보여 줍니다. 이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 Table API 애플리케이션을 빌드하고 배포하는 방법에 대해 설명합니다. 또한 테이블을 만들고 삭제하며, 테이블 데이터를 삽입, 업데이트, 삭제 및 쿼리하기 위한 .NET 예제를 단계별로 안내합니다. 
 
 현재 Azure Table Storage를 사용하고 있다면 Azure Cosmos DB 테이블 API를 사용할 경우 다음과 같은 이점이 있습니다.
 
-- 멀티 호밍 및 [자동 및 수동 장애 조치](regional-failover.md)와 함께 턴키 방식으로 [전역 배포](distribute-data-globally.md)
+- 멀티 호밍 및 [자동 및 수동 장애 조치](high-availability.md)와 함께 턴키 방식으로 [전역 배포](distribute-data-globally.md)
 - 모든 속성("보조 인덱스")에 대한 스키마 독립적 자동 인덱싱 및 빠른 쿼리 지원 
 - 여러 지역 간에 [독립적인 저장소 및 처리량 크기 조정](partition-data.md) 지원
 - 초당 수백 개에서 수백만 개의 요청으로 확장할 수 있는 [테이블당 전용 처리량](request-units.md) 지원
@@ -77,9 +75,9 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-이제 github에서 Table 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
+이제 GitHub에서 Table 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
 1. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 폴더를 변경합니다. 
 
@@ -99,7 +97,7 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 이를 통해 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다. 
 
-1. [Azure Portal](http://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
 
     화면의 오른쪽에서 복사 단추를 사용하여 기본 연결 문자열을 복사합니다.
 
@@ -117,7 +115,7 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 4. 8줄에서 StorageConnectionString 값에 포털의 기본 연결 문자열 값을 붙여넣습니다. 따옴표 내에 문자열을 붙여넣습니다.
    
     > [!IMPORTANT]
-    > 끝점에서 documents.azure.com을 사용하면 미리 보기 계정이 있다는 것을 의미하고 일반 공급 Table API SDK를 사용하려면 [새 Table API 계정](#create-a-database-account)을 만들어야 합니다. 
+    > 엔드포인트에서 documents.azure.com을 사용하면 미리 보기 계정이 있다는 것을 의미하고 일반 공급 Table API SDK를 사용하려면 [새 Table API 계정](#create-a-database-account)을 만들어야 합니다. 
     >
 
     8줄은 다음과 같이 표시됩니다.
@@ -182,7 +180,8 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 이 클라이언트는 앱 설정에 지정된 경우 `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel` 및 `TablePreferredLocations` 구성 값을 사용하여 초기화됩니다.
 
 ## <a name="create-a-table"></a>테이블 만들기
-그런 다음 `CloudTable`을 사용하여 테이블을 만듭니다. Azure Cosmos DB의 테이블은 저장소 및 처리량 측면에서 독립적으로 확장할 수 있으며, 분할은 서비스에서 자동으로 처리됩니다. Azure Cosmos DB는 고정된 크기 및 무제한 테이블을 모두 지원합니다. 자세한 내용은 [Azure Cosmos DB에서 분할](partition-data.md)을 참조하세요. 
+
+그런 다음 `CloudTable`을 사용하여 테이블을 만듭니다. Azure Cosmos DB의 테이블은 저장소 및 처리량 측면에서 독립적으로 확장할 수 있으며, 분할은 서비스에서 자동으로 처리됩니다. 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
@@ -293,7 +292,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-Azure Cosmos DB는 Table API에 대한 Azure Table 저장소와 동일한 쿼리 기능을 지원합니다. 또한 Azure Cosmos DB는 정렬, 집계, 지리 공간적 쿼리, 계층 구조 및 다양한 기본 제공 함수도 지원합니다. 추가 기능은 향후 서비스 업데이트의 Table API에서 제공됩니다. 이러한 기능에 대한 개요는 [Azure Cosmos DB 쿼리](sql-api-sql-query.md)를 참조하세요. 
+Azure Cosmos DB는 Table API에 대한 Azure Table 저장소와 동일한 쿼리 기능을 지원합니다. 또한 Azure Cosmos DB는 정렬, 집계, 지리 공간적 쿼리, 계층 구조 및 다양한 기본 제공 함수도 지원합니다. 이러한 기능에 대한 개요는 [Azure Cosmos DB 쿼리](how-to-sql-query.md)를 참조하세요. 
 
 ## <a name="replace-an-entity"></a>엔터티 바꾸기
 엔터티를 업데이트하려면 Table service에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 Table service에 저장합니다. 다음 코드에서는 기존 고객의 전화 번호를 변경합니다. 

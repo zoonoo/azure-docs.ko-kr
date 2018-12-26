@@ -1,9 +1,9 @@
 ---
-title: Azure CLI 2.0을 사용하여 도메인 영역 파일을 Azure DNS에 가져오기 및 내보내기 | Microsoft Docs
-description: Azure CLI 2.0을 사용하여 Azure DNS에 DNS 영역 파일을 가져오고 내보내는 방법을 알아봅니다
+title: Azure CLI를 사용하여 도메인 영역 파일을 Azure DNS에 가져오기 및 내보내기 | Microsoft Docs
+description: Azure CLI를 사용하여 Azure DNS에 DNS 영역 파일을 가져오고 내보내는 방법을 알아봅니다
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: timlt
 ms.assetid: f5797782-3005-4663-a488-ac0089809010
 ms.service: dns
@@ -12,17 +12,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: kumud
-ms.openlocfilehash: 3aee4e20b43d946101e692f0dca76b07e04dbb7a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: victorh
+ms.openlocfilehash: 5afb607f0410b428d8e67fdff043a4e376dd60a5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069380"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956356"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 DNS 영역 파일 가져오기 및 내보내기 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI를 사용하여 DNS 영역 파일 가져오기 및 내보내기 
 
-이 아티클에서는 Azure CLI 2.0을 사용하여 Azure DNS에 대한 DNS 영역 파일 가져오고 내보내는 과정을 설명합니다.
+이 문서에서는 Azure CLI를 사용하여 Azure DNS에 대한 DNS 영역 파일 가져오고 내보내는 과정을 설명합니다.
 
 ## <a name="introduction-to-dns-zone-migration"></a>DNS 영역 마이그레이션 소개
 
@@ -30,7 +30,7 @@ DNS 영역 파일은 영역의 모든 DNS(도메인 이름 시스템) 레코드�
 
 Azure DNS는 Azure CLI(명령줄 인터페이스I)를 사용하여 영역 파일 가져오기 및 내보내기를 지원합니다. 영역 파일 가져오기는 현재 Azure PowerShell 또는 Azure Portal을 통해 지원되지 **않습니다**.
 
-Azure CLI 2.0은 Azure 서비스를 관리하는 데 사용하는 플랫폼 간 명령줄 도구입니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 다운로드하여 Windows, Mac 및 Linux 플랫폼에 사용할 수 있습니다. 가장 일반적인 이름 서버 소프트웨어인 [BIND](https://www.isc.org/downloads/bind/)는 일반적으로 Linux에서 실행하기 때문에 플랫폼 간 지원은 영역 파일 가져오기 및 내보내기에 중요합니다.
+Azure CLI는 Azure 서비스를 관리하는 데 사용하는 플랫폼 간 명령줄 도구입니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 다운로드하여 Windows, Mac 및 Linux 플랫폼에 사용할 수 있습니다. 가장 일반적인 이름 서버 소프트웨어인 [BIND](https://www.isc.org/downloads/bind/)는 일반적으로 Linux에서 실행하기 때문에 플랫폼 간 지원은 영역 파일 가져오기 및 내보내기에 중요합니다.
 
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>기존 DNS 영역 파일 가져오기

@@ -1,5 +1,5 @@
 ---
-title: Azure DC/OS 클러스터용 파일 공유
+title: (사용되지 않음) Azure DC/OS 클러스터용 파일 공유
 description: Azure Container Service에서 DC/OS 클러스터에 파일 공유 만들기 및 탑재
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: c1c318f4204efd24a2d9d3d83bb1cb71f5775bdb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 728f8ddbda35f27c0f89e1d72e98fd2d7669320e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26331205"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999856"
 ---
-# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>DC/OS 클러스터에 파일 공유 만들기 및 탑재
+# <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(사용되지 않음) DC/OS 클러스터에 파일 공유 만들기 및 탑재
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 이 문서에서는 Azure에서 파일 공유를 만들어서 DC/OS 클러스터의 각 에이전트 및 마스터에 탑재하는 방법을 설명합니다. 파일 공유를 설정하면 구성, 액세스, 로그 등과 같은 클러스터 전반에서 파일을 간편하게 공유할 수 있습니다. 이 자습서에서는 다음 태스크를 완료합니다.
 
@@ -27,7 +29,7 @@ ms.locfileid: "26331205"
 
 이 자습서의 단계를 완료하려면 ACS DC/OS 클러스터가 필요합니다. 필요한 경우 [이 스크립트 샘플](./../kubernetes/scripts/container-service-cli-deploy-dcos.md)을 사용하여 클러스터를 만들 수 있습니다.
 
-이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

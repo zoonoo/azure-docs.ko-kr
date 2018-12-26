@@ -1,24 +1,31 @@
 ---
-title: Node.js를 사용하여 Azure Cosmos DB에 MongoDB 앱 연결 | Microsoft Docs
-description: Azure Cosmos DB에 기존 Node.js MongoDB 앱을 연결하는 자세한 방법
-services: cosmos-db
+title: Node.js MongoDB 앱을 Azure Cosmos DB에 연결
+description: 이 빠른 시작은 Node.js로 작성된 기존 MongoDB 앱을 Azure Cosmos DB 데이터베이스에 연결하는 방법을 보여 줍니다.
 author: SnehaGunda
-manager: kfile
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/19/2017
-ms.author: sngun
-ms.openlocfilehash: ff6712a70138a2178a2bddb4af467371192fdea3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: d9754cf66b05059c986c7ffbff94290e207f706a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582224"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141383"
 ---
-# <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: 기존 Node.js MongoDB 웹앱 마이그레이션 
+# <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB는 기존 Node.js MongoDB 웹앱 마이그레이션 
+
+> [!div class="op_single_selector"]
+> * [.NET](create-mongodb-dotnet.md)
+> * [Java](create-mongodb-java.md)
+> * [Node.JS](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
+> * [Xamarin](create-mongodb-xamarin.md)
+> * [Golang](create-mongodb-golang.md)
+>  
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
@@ -31,19 +38,19 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
-Azure CLI 외에도 `npm` 및 `git` 명령을 실행하려면 [Node.js](https://nodejs.org/) 및 [Git](http://www.git-scm.com/downloads)가 로컬로 설치되어 있어야 합니다.
+Azure CLI 외에도 `npm` 및 `git` 명령을 실행하려면 [Node.js](https://nodejs.org/) 및 [Git](https://www.git-scm.com/downloads)가 로컬로 설치되어 있어야 합니다.
 
 Node.js에 대한 실무 지식이 있어야 합니다. 이 빠른 시작은 일반적으로 Node.js 응용 프로그램을 개발하는 데 도움이 되지 않습니다.
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 샘플 리포지토리에는 기본 [MEAN.js](http://meanjs.org/) 응용 프로그램이 들어 있습니다.
+다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 샘플 리포지토리에는 기본 [MEAN.js](https://meanjs.org/) 응용 프로그램이 들어 있습니다.
 
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
@@ -76,7 +83,7 @@ npm start
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-설치된 Azure CLI를 사용하는 경우 [az login](/cli/azure/reference-index#az_login) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다. Azure Cloud Shell을 사용하는 경우 이 단계를 건너뛸 수 있습니다.
+설치된 Azure CLI를 사용하는 경우 [az login](/cli/azure/reference-index#az-login) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다. Azure Cloud Shell을 사용하는 경우 이 단계를 건너뛸 수 있습니다.
 
 ```azurecli
 az login 
@@ -86,11 +93,11 @@ az login
 
 설치된 Azure CLI를 사용하는 경우 `az` 명령을 실행하여 `cosmosdb` 구성 요소가 이미 설치되어 있는지 확인합니다. 기본 명령 목록에 `cosmosdb`가 있으면 다음 명령으로 진행합니다. Azure Cloud Shell을 사용하는 경우 이 단계를 건너뛸 수 있습니다.
 
-`cosmosdb`가 기본 명령 목록에 없으면 [Azure CLI 2.0]( /cli/azure/install-azure-cli)을 다시 설치합니다.
+`cosmosdb`가 기본 명령 목록에 없으면 [Azure CLI]( /cli/azure/install-azure-cli)를 다시 설치합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az_group_create)를 사용하여 [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. Azure 리소스 그룹은 웹앱, 데이터베이스, 저장소 계정이 관리되었는지 등 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+[az group create](/cli/azure/group#az-group-create)를 사용하여 [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. Azure 리소스 그룹은 웹앱, 데이터베이스, 저장소 계정이 관리되었는지 등 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
 다음 예제에서는 유럽 서부 지역의 리소스 그룹을 만듭니다. 리소스 그룹에 고유한 이름을 선택합니다.
 
@@ -102,9 +109,9 @@ az group create --name myResourceGroup --location "West Europe"
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
 
-[az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) 명령을 사용하여 Azure Cosmos DB 계정을 만듭니다.
+[az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) 명령을 사용하여 Azure Cosmos DB 계정을 만듭니다.
 
-다음 명령에서 `<cosmosdb-name>` 자리 표시자를 표시하는 고유한 Azure Cosmos DB 이름을 바꿉니다. 이 고유한 이름은 Azure Cosmos DB 끝점의 일부(`https://<cosmosdb-name>.documents.azure.com/`)로 사용되므로, Azure의 모든 Azure Cosmos DB 계정에서 고유해야 합니다. 
+다음 명령에서 `<cosmosdb-name>` 자리 표시자를 표시하는 고유한 Azure Cosmos DB 이름을 바꿉니다. 이 고유한 이름은 Azure Cosmos DB 엔드포인트의 일부(`https://<cosmosdb-name>.documents.azure.com/`)로 사용되므로, Azure의 모든 Azure Cosmos DB 계정에서 고유해야 합니다. 
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -115,7 +122,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 Azure Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정보를 표시합니다. 
 
 > [!NOTE]
-> 이 예서는 Azure CLI 출력 형식으로 JSON을 사용합니다(기본값). 다른 출력 형식을 사용하려면 [Azure CLI 2.0 명령에 대한 출력 형식](https://docs.microsoft.com/cli/azure/format-output-azure-cli)을 참조하세요.
+> 이 예서는 Azure CLI 출력 형식으로 JSON을 사용합니다(기본값). 다른 출력 형식을 사용하려면 [Azure CLI 명령에 대한 출력 형식](https://docs.microsoft.com/cli/azure/format-output-azure-cli)을 참조하세요.
 
 ```json
 {
@@ -172,7 +179,7 @@ module.exports = {
 
 ## <a name="retrieve-the-key"></a>키 검색
 
-Azure Cosmos DB 데이터베이스에 연결하기 위해 데이터베이스 키가 필요합니다. [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) 명령을 사용하여 기본 키를 검색합니다.
+Azure Cosmos DB 데이터베이스에 연결하기 위해 데이터베이스 키가 필요합니다. [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) 명령을 사용하여 기본 키를 검색합니다.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"

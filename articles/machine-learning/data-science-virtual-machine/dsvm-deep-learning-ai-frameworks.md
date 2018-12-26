@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: fbe3aeac3918142388edfa8cd053badd362d7fd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160753"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241925"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>심층 학습 및 AI 프레임워크
-[데이터 과학 Virtual Machine](http://aka.ms/dsvm)(DSVM) 및 [심층 학습 VM](http://aka.ms/dsvm/deeplearning)은 예측 분석 및 이미지, 언어 이해 등의 인식 기능을 갖춘 인공 지능(AI) 응용 프로그램을 빌드하는 데 유용한 여러 심층 학습 프레임워크를 지원합니다. 
+[데이터 과학 Virtual Machine](https://aka.ms/dsvm)(DSVM) 및 [심층 학습 VM](https://aka.ms/dsvm/deeplearning)은 예측 분석 및 이미지, 언어 이해 등의 인식 기능을 갖춘 인공 지능(AI) 응용 프로그램을 빌드하는 데 유용한 여러 심층 학습 프레임워크를 지원합니다. 
 
 여기에 DSVM에서 사용할 수 있는 모든 심층 학습에 대한 자세한 내용이 있습니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "34160753"
 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | 심층 학습 프레임워크      |
+| 무엇인가요?   | 고급 심화 학습 API      |
 | 지원되는 DSVM 버전      | Windows, Linux     |
 | DSVM에 구성/설치 방법  | TensorFlow는 [Linux 및 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition)의 Python 3.5에 설치되고, [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition)의 Python 3.6에 설치됩니다. |
 | 샘플에 대한 링크      | https://github.com/fchollet/keras/tree/master/examples      |
@@ -174,11 +174,11 @@ X2Go를 사용하여 VM에 로그인합니다. 터미널에서 서비스를 시�
 
     sudo systemctl start digits
 
-서비스는 시작하는 데 약 1분이 걸립니다. 웹 브라우저를 시작하여 `http://localhost:5000`로 이동합니다.
+서비스는 시작하는 데 약 1분이 걸립니다. 웹 브라우저를 시작하여 `http://localhost:5000` 로 이동합니다. DIGITS는 보안 로그인을 제공하지 않으며 VM 외부에 공개하면 안 됩니다.
 
 
 
-## <a name="nvdia-smi"></a>nvdia smi
+## <a name="nvidia-smi"></a>nvidia-smi
 
 |    |           |
 | ------------- | ------------- |

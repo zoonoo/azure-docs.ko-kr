@@ -1,5 +1,5 @@
 ---
-title: Azure DC/OS 클러스터에 ACR 사용
+title: (사용되지 않음) Azure DC/OS 클러스터에 ACR 사용
 description: Azure Container Service에서 DC/OS 클러스터에 Azure Container Registry 사용
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 90d449de19022b3b427e3d89d5beb18bbd36c6b4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a27f6c017d9d648414637f900e0cf7c4be147bfe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597990"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996340"
 ---
-# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>DC/OS 클러스터에 ACR을 사용하여 응용 프로그램 배포
+# <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(사용되지 않음) DC/OS 클러스터에 ACR을 사용하여 애플리케이션 배포
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 이 문서에서는 DC/OS 클러스터에 Azure Container Registry를 사용하는 방법을 살펴봅니다. ACR을 사용하여 컨테이너 이미지를 비공개로 저장하고 관리할 수 있습니다. 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -28,13 +30,13 @@ ms.locfileid: "38597990"
 
 이 자습서의 단계를 완료하려면 ACS DC/OS 클러스터가 필요합니다. 필요한 경우 [이 스크립트 샘플](./../kubernetes/scripts/container-service-cli-deploy-dcos.md)을 사용하여 클러스터를 만들 수 있습니다.
 
-이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-azure-container-registry"></a>Azure Container Registry 배포
 
-필요한 경우 [az acr create](/cli/azure/acr#az_acr_create) 명령으로 Azure Container Registry를 만듭니다. 
+필요한 경우 [az acr create](/cli/azure/acr#az-acr-create) 명령으로 Azure Container Registry를 만듭니다. 
 
 다음 예제에서는 임의로 생성된 이름으로 레지스트리를 만듭니다. 또한 레지스트리는 `--admin-enabled` 인수를 사용하여 관리자 계정으로 구성됩니다.
 

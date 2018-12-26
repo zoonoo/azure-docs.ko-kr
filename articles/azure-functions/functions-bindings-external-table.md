@@ -2,24 +2,20 @@
 title: Azure Functions의 외부 테이블 바인딩(실험)
 description: Azure Functions에서 외부 테이블 바인딩 사용
 services: functions
-documentationcenter: ''
-author: alexkarcher-msft
-manager: cfowler
-editor: ''
+author: craigshoemaker
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
-ms.author: alkarche
-ms.openlocfilehash: 8a4358fa67e45d0b7a2df1519d649099b5ef5850
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.author: cshoe
+ms.openlocfilehash: 5566ea8b21682c5023afc4af357e1a80e1d37384
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27613284"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248474"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Azure Functions의 외부 테이블 바인딩(실험)
 
@@ -186,13 +182,13 @@ Salesforce에서 이 예제를 사용하려는 경우 `dataSetName`은 "default"
 |**direction** | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | 함수 코드에서 이벤트 항목을 나타내는 변수의 이름입니다. | 
 |**연결**| API 연결 문자열을 저장하는 앱 설정을 식별합니다. 이 앱 설정은 통합 UI에서 API 연결을 추가할 때 자동으로 생성됩니다.|
-|**dataSetName**|읽을 테이블을 포함하는 데이터 집합의 이름입니다.|
+|**dataSetName**|읽을 테이블을 포함하는 데이터 세트의 이름입니다.|
 |**tableName**|테이블의 이름입니다.|
 |**entityId**|테이블 바인딩을 위해 비워 두어야 합니다.
 
-테이블 형식 커넥터는 데이터 집합을 제공하며 각 데이터 집합은 테이블을 포함합니다. 기본 데이터 집합의 이름은 “default”입니다. 다양한 SaaS 공급자의 데이터 집합 및 테이블의 제목은 아래에 나열됩니다.
+테이블 형식 커넥터는 데이터 집합을 제공하며 각 데이터 집합은 테이블을 포함합니다. 기본 데이터 집합의 이름은 “default”입니다. 다양한 SaaS 공급자의 데이터 세트 및 테이블의 제목은 아래에 나열됩니다.
 
-|커넥터|데이터 집합|테이블|
+|커넥터|데이터 세트|테이블|
 |:-----|:---|:---| 
 |**SharePoint**|사이트|SharePoint 목록
 |**SQL**|데이터베이스|테이블 

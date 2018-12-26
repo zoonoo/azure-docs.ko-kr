@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5106bbbb073908af7e7e8f045fa6fb60e8a306f4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c52c9fc6b47b03b3ca6db96decb8b4777577d00e
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316915"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174244"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>동시에 태스크를 실행하여 Batch 계산 노드의 사용량 극대화 
 
@@ -56,15 +56,15 @@ Azure Batch를 사용하면 노드 코어의 최대 4배수의 노드 마다 최
 이 기능이 얼마나 중요한지 확인하기 위해 위의 예에서 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] 값이 16으로 구성된 [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) 노드 풀을 고려해 보겠습니다. [CloudPool.TaskSchedulingPolicy][task_schedule]가 *Pack*인 [ComputeNodeFillType][fill_type]으로 구성된 경우, 각 노드의 모든 16개 코어의 사용량을 최대화하며 [풀 자동 크기 조정](batch-automatic-scaling.md)을 통해 풀에서 사용되지 않는 노드(작업이 할당되지 않은 노드)를 솎아냅니다. 리소스 사용량을 최소화하고 비용을 절감합니다.
 
 ## <a name="batch-net-example"></a>Batch .NET 예
-이 [Batch .NET][api_net] API 코드 조각은 노드 당 최대 4개의 작업이 있는 네 개의 대규모 노드를 포함하는 풀을 만드는 요청을 나타냅니다. 풀의 다른 노드로 작업을 할당하기 전에 각 노드를 채울 정책을 예약하는 작업을 지정합니다. Batch .NET API를 사용하여 풀을 추가하는 방법에 대한 자세한 내용은 [BatchClient.PoolOperations.CreatePool][poolcreate_net]을 참조하세요.
+이 [Batch .NET][api_net] API 코드 조각은 노드 당 최대 4개의 작업이 있는 네 개의 노드를 포함하는 풀을 만드는 요청을 나타냅니다. 풀의 다른 노드로 작업을 할당하기 전에 각 노드를 채울 정책을 예약하는 작업을 지정합니다. Batch .NET API를 사용하여 풀을 추가하는 방법에 대한 자세한 내용은 [BatchClient.PoolOperations.CreatePool][poolcreate_net]을 참조하세요.
 
 ```csharp
 CloudPool pool =
     batchClient.PoolOperations.CreatePool(
         poolId: "mypool",
         targetDedicatedComputeNodes: 4
-        virtualMachineSize: "large",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 pool.MaxTasksPerComputeNode = 4;
 pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
@@ -125,13 +125,13 @@ Duration: 00:08:48.2423500
 >
 
 ## <a name="next-steps"></a>다음 단계
-### <a name="batchlabs-heat-map"></a>BatchLabs 열 지도
-[BatchLabs][batch_labs]는 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. BatchLabs에는 작업 실행의 시각화를 제공하는 *열 지도* 기능이 포함되어 있습니다. [ParallelTasks][parallel_tasks_sample] 샘플 응용 프로그램을 실행할 때 열 지도 기능을 사용하면 각 노드에서 병렬 작업의 실행을 쉽게 시각화할 수 있습니다.
+### <a name="batch-explorer-heat-map"></a>Batch 탐색기 열 지도
+[Batch Explorer][batch_labs]는 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Batch Explorer에는 작업 실행의 시각화를 제공하는 *열 지도* 기능이 포함되어 있습니다. [ParallelTasks][parallel_tasks_sample] 샘플 응용 프로그램을 실행할 때 열 지도 기능을 사용하면 각 노드에서 병렬 작업의 실행을 쉽게 시각화할 수 있습니다.
 
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [enable_autoscaling]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx

@@ -3,8 +3,8 @@ title: 쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어 - 표준 
 description: Azure CDN 쿼리 문자열 캐싱은 웹 요청에 쿼리 문자열이 포함된 경우 파일이 캐시되는 방식을 제어합니다. 이 문서에서는 Azure CDN 표준 제품에서 쿼리 문자열 캐싱을 설명합니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 17410e4f-130e-489c-834e-7ca6d6f9778d
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: aa553dfc04a755be1169fa117ec66dd10ea75b54
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.author: magattus
+ms.openlocfilehash: f0dab3dc81c626e3e7f8c79b4142e5eb4f2a1276
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260433"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093802"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어 - 표준 계층
 > [!div class="op_single_selector"]
@@ -45,9 +45,9 @@ Azure CDN(Content Delivery Network)을 사용하면 쿼리 문자열이 포함�
     > 쿼리 문자열에 세션 ID나 사용자 이름과 같이 요청마다 변경되는 매개 변수가 포함되어 있으면 캐시 적중률이 낮아지므로 이 모드를 사용하지 마세요.
 
 ## <a name="changing-query-string-caching-settings-for-standard-cdn-profiles"></a>Standard CDN 프로필에 대한 쿼리 문자열 캐싱 설정 변경
-1. CDN 프로필을 연 다음 관리할 CDN 끝점을 선택합니다.
+1. CDN 프로필을 연 다음 관리할 CDN 엔드포인트를 선택합니다.
    
-   ![CDN 프로필 끝점](./media/cdn-query-string/cdn-endpoints.png)
+   ![CDN 프로필 엔드포인트](./media/cdn-query-string/cdn-endpoints.png)
    
 2. 설정 아래의 왼쪽 창에서 **캐싱 규칙**을 클릭합니다.
    

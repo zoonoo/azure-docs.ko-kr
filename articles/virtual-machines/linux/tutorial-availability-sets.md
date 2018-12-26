@@ -1,9 +1,9 @@
 ---
 title: 자습서 - Azure에서 Linux VM을 위한 고가용성 | Microsoft Docs
-description: 이 자습서에서는 Azure CLI 2.0을 사용하여 가용성 집합에서 고가용성 가상 머신을 배포하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure CLI를 사용하여 가용성 집합에서 고가용성 가상 머신을 배포하는 방법을 알아보세요.
 documentationcenter: ''
 services: virtual-machines-linux
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/05/2017
-ms.author: cynthn
+ms.date: 08/24/2018
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: dc6fba89571515d0d2d7ed3ecc35c3065405056b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f7bf5e233307703dca522974d52a86bc193186b8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696806"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465834"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli-20"></a>자습서: Azure CLI 2.0을 사용하여 고가용성 가상 머신 만들기 및 배포
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 고가용성 가상 머신 만들기 및 배포
 
 이 자습서에서는 가용성 집합이라는 기능을 사용하여 Azure에서 VM(Virtual Machine) 솔루션의 가용성과 안정성을 향상시키는 방법에 대해 알아봅니다. 가용성 집합을 사용하면 Azure에 배포한 VM이 격리된 여러 하드웨어 클러스터에 분산되도록 할 수 있습니다. 이렇게 하면 Azure 내의 하드웨어 또는 소프트웨어 오류가 발생할 때, VM의 하위 집합에만 영향을 주며 전체 솔루션은 사용 가능한 운영 상태로 계속 유지됩니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "38696806"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="availability-set-overview"></a>가용성 집합 개요
 
@@ -79,10 +79,11 @@ for i in `seq 1 2`; do
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
+     --vnet-name myVnet \
+     --subnet mySubnet \
      --image UbuntuLTS \
      --admin-username azureuser \
-     --generate-ssh-keys \
-     --no-wait
+     --generate-ssh-keys
 done
 ```
 
@@ -94,7 +95,7 @@ done
 
 ## <a name="check-for-available-vm-sizes"></a>사용 가능한 VM 크기 확인
 
-VM 크기를 하드웨어에서 사용할 수 있는 가용성 집합에 나중에 추가 VM을 추가할 수 있습니다. [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes)를 사용하여 하드웨어 클러스터에서 가용성 집합에 대한 사용 가능한 모든 크기를 나열합니다.
+VM 크기를 하드웨어에서 사용할 수 있는 가용성 집합에 나중에 추가 VM을 추가할 수 있습니다. [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az-vm-availability-set-list-sizes)를 사용하여 하드웨어 클러스터에서 가용성 집합에 대한 사용 가능한 모든 크기를 나열합니다.
 
 ```azurecli-interactive
 az vm availability-set list-sizes \

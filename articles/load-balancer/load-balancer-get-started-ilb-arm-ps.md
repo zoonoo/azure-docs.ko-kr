@@ -4,27 +4,24 @@ description: Azure Resource Manager로 Azure PowerShell 모듈을 사용하여 �
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jennoc
-tags: azure-resource-manager
-ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 1b599e5b88026c06a6912ede9952497c489b0269
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4e99411ec56f25e249429e4e65bae4a8e7071cc1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697307"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412689"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [템플릿](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -116,7 +113,7 @@ $vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Locati
 
 ### <a name="step-1-create-a-front-end-ip-pool"></a>1단계: 프런트 엔드 IP 풀 만들기
 
-서브넷 10.0.2.0/24에 대한 개인 IP 주소 10.0.2.5로 프런트 엔드 IP 풀을 만듭니다. 이 주소는 들어오는 네트워크 트래픽 끝점입니다.
+서브넷 10.0.2.0/24에 대한 개인 IP 주소 10.0.2.5로 프런트 엔드 IP 풀을 만듭니다. 이 주소는 들어오는 네트워크 트래픽 엔드포인트입니다.
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
@@ -241,7 +238,7 @@ $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
 
 ### <a name="step-3-assign-the-nic-to-a-vm"></a>3단계: NIC를 VM에 할당
 
-`Add-AzureRmVMNetworkInterface` 명령을 사용하여 NIC를 가상 머신에 할당합니다.
+`Add-AzureRmVMNetworkInterface`명령을 사용하여 NIC를 가상 머신에 할당합니다.
 
 가상 컴퓨터를 만들고 NIC를 할당하는 단계별 지침은 [PowerShell을 사용하여 Azure VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)를 참조하세요.
 

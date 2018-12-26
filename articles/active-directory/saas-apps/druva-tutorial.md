@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 8a274ea6a31c907060893fe128c1125b0072781e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 985304244acdfafa4fa99dbbe876f35b3e6c58b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229625"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439364"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>자습서: Druva와 Azure Active Directory 통합
 
@@ -53,7 +53,7 @@ Druva와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Druva 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-druva-from-the-gallery"></a>갤러리에서 Druva 추가
 Druva의 Azure AD 통합을 구성하려면 갤러리의 Druva를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -64,15 +64,15 @@ Druva의 Azure AD 통합을 구성하려면 갤러리의 Druva를 관리되는 S
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에 **Druva**를 입력하고 결과 패널에서 **Druva**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **Druva**를 입력하고 결과 패널에서 **Druva**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 Druva](./media/druva-tutorial/tutorial_druva_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Druva에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 할�
 Druva에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[Druva 테스트 사용자 만들기](#create-a-druva-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Druva에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[Druva 테스트 사용자 만들기](#create-a-druva-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Druva에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -102,31 +102,31 @@ Druva에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Single Sign-On 구성 링크][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Single Sign-On 대화 상자](./media/druva-tutorial/tutorial_druva_samlbase.png)
 
-3. **Druva 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **Druva 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/druva-tutorial/tutorial_druva_url.png)
 
     **식별자** 텍스트 상자에 문자열 값 `druva-cloud`를 입력합니다.
     
-4. **고급 URL 설정 표시**를 선택합니다. **SP** 시작 모드에서 응용 프로그램을 구성하려면:
+1. **고급 URL 설정 표시**를 선택합니다. **SP** 시작 모드에서 응용 프로그램을 구성하려면:
 
     ![Configure Single Sign-On](./media/druva-tutorial/tutorial_druva_url1.png)
     
     **로그온 URL** 텍스트 상자에서 URL `https://cloud.druva.com/home`을 입력합니다.
 
-5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/druva-tutorial/tutorial_druva_certificate.png) 
 
-6. Druva 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 **SAML 토큰 특성** 구성에 사용자 지정 특성 매핑을 추가합니다. 
+1. Druva 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 **SAML 토큰 특성** 구성에 사용자 지정 특성 매핑을 추가합니다. 
 
     ![Configure Single Sign-On](./media/druva-tutorial/tutorial_druva_attribute.png)
 
-7. **Single Sign-On** 대화 상자의 **사용자 특성** 섹션에서 이전의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
+1. **Single Sign-On** 대화 상자의 **사용자 특성** 섹션에서 이전의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
 
     | 특성 이름      | 특성 값      |
     | ------------------- | -------------------- |
@@ -144,21 +144,21 @@ Druva에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     
     d. **Ok**를 클릭합니다.    
 
-8. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/druva-tutorial/tutorial_general_400.png)
 
-9. **Druva 구성** 섹션에서 **Druva 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
+1. **Druva 구성** 섹션에서 **Druva 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![Configure Single Sign-On](./media/druva-tutorial/tutorial_druva_configure.png) 
 
-10. 다른 웹 브라우저 창에서 Druva 회사 사이트에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 Druva 회사 사이트에 관리자로 로그인합니다.
 
-11. **관리 \> 설정**으로 이동합니다.
+1. **관리 \> 설정**으로 이동합니다.
 
     ![설정](./media/druva-tutorial/ic795091.png "설정")
 
-12. Single Sign-On 설정 대화 상자에서 다음 단계를 수행합니다.
+1. Single Sign-On 설정 대화 상자에서 다음 단계를 수행합니다.
 
     ![Single Sign-On 설정](./media/druva-tutorial/ic795092.png "Single Sign-On 설정")
     
@@ -170,11 +170,11 @@ Druva에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
      
     d. **설정** 페이지를 열려면 **저장**을 클릭합니다.
 
-13. **설정** 페이지에서 **SSO 토큰 생성**을 클릭합니다.
+1. **설정** 페이지에서 **SSO 토큰 생성**을 클릭합니다.
 
     ![설정](./media/druva-tutorial/ic795093.png "설정")
 
-14. **Single Sign-On 인증 토큰** 대화 상자에서 다음 단계를 수행합니다.
+1. **Single Sign-On 인증 토큰** 대화 상자에서 다음 단계를 수행합니다.
 
     ![SSO 토큰](./media/druva-tutorial/ic795094.png "SSO 토큰")
     
@@ -198,15 +198,15 @@ Druva에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Azure Active Directory 단추](./media/druva-tutorial/create_aaduser_01.png)
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/druva-tutorial/create_aaduser_02.png)
 
-3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
 
     ![추가 단추](./media/druva-tutorial/create_aaduser_03.png)
 
-4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자에서 다음 단계를 수행합니다.
 
     ![사용자 대화 상자](./media/druva-tutorial/create_aaduser_04.png)
 
@@ -226,15 +226,15 @@ Azure AD 사용자가 Druva에 로그인할 수 있도록 하려면 Druva로 프
 
 1. **Druva** 회사 사이트에 관리자 권한으로 로그인합니다.
 
-2. **\> 사용자 관리**로 이동합니다.
+1. **\> 사용자 관리**로 이동합니다.
    
    ![사용자 관리](./media/druva-tutorial/ic795097.png "사용자 관리")
 
-3. **새로 만들기**를 클릭합니다.
+1. **새로 만들기**를 클릭합니다.
    
    ![사용자 관리](./media/druva-tutorial/ic795098.png "사용자 관리")
 
-4. 새 사용자 만들기 대화 상자에서 다음 단계를 수행합니다.
+1. 새 사용자 만들기 대화 상자에서 다음 단계를 수행합니다.
    
    ![NewUser 만들기](./media/druva-tutorial/ic795099.png "NewUser 만들기")
    
@@ -259,30 +259,30 @@ Azure AD 사용자가 Druva에 로그인할 수 있도록 하려면 Druva로 프
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Druva**를 선택합니다.
+1. 응용 프로그램 목록에서 **Druva**를 선택합니다.
 
     ![응용 프로그램 목록의 Druva 링크](./media/druva-tutorial/tutorial_druva_app.png)  
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     !["사용자 및 그룹" 링크][202]
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![할당 추가 창][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Druva 타일을 클릭하면 Druva 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

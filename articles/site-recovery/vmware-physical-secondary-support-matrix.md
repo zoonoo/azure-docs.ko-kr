@@ -1,23 +1,22 @@
 ---
-title: Azure Site Recovery를 사용하여 보조 VMware 사이트에 VMware VM 또는 물리적 서버를 복제하기 위한 지원 매트릭스 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 VMware/물리적 서버를 보조 사이트에 복제하는 기능 지원에 대해 요약합니다.
-services: site-recovery
+title: Azure Site Recovery를 사용하여 VMware VM 또는 물리적 서버에서 보조 VMware 사이트로 재해 복구하기 위한 지원 매트릭스 | Microsoft Docs
+description: Azure Site Recovery를 사용한 VMware VM 및 물리적 서버와 보조 사이트 간의 재해 복구 지원이 요약되어 있습니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 2ea1c337b4193997039876a05e71fb0088d455b1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 7e86757f42a90de971155137b44d1a8ad9cc9ac1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923411"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847918"
 ---
-# <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware VM 및 물리적 서버를 보조 사이트에 복제하기 위한 지원 매트릭스
+# <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware VM 또는 물리적 서버에서 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 VMware VM 또는 Windows/Linux 물리적 서버를 보조 VMware 사이트에 복제하는 경우 지원되는 사항을 요약하여 설명합니다.
+이 문서에는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 VMware VM 또는 Windows/Linux 물리적 서버에서 보조 VMware 사이트로 재해 복구하는 경우 지원되는 사항이 요약되어 있습니다.
 
 - VMware VM 또는 물리적 서버를 Azure에 복제하려면 [이 지원 매트릭스](vmware-physical-azure-support-matrix.md)를 검토하세요.
 - Hyper-V VM을 보조 사이트에 복제하려면 [이 지원 매트릭스](hyper-v-azure-support-matrix.md)를 검토하세요.
@@ -57,15 +56,15 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 
 
 **구성** | **지원됨**  
 --- | --- 
-호스트 - NIC 팀 | 예 
-호스트 - VLAN | 예 
-호스트 - IPv4 | 예 
-호스트 - IPv6 | 아니오 
-게스트 VM - NIC 팀 | 아니오
-게스트 VM - IPv4 | 예
-게스트 VM - IPv6 | 아니오
-게스트 VM - Windows/Linux - 고정 IP 주소 | 예
-게스트 VM - 다중 NIC | 예
+호스트 - NIC 팀 | yes 
+호스트 - VLAN | yes 
+호스트 - IPv4 | yes 
+호스트 - IPv6 | 아니요 
+게스트 VM - NIC 팀 | 아니요
+게스트 VM - IPv4 | yes
+게스트 VM - IPv6 | 아니요
+게스트 VM - Windows/Linux - 고정 IP 주소 | yes
+게스트 VM - 다중 NIC | yes
 
 
 ## <a name="storage"></a>Storage
@@ -74,37 +73,37 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 
 
 **Storage(호스트)** | **지원됨** 
 --- | --- 
-NFS | 예 
+NFS | yes 
 SMB 3.0 | 해당 없음 
-SAN(ISCSI) | 예 
-다중 경로(MPIO) | 예 
+SAN(ISCSI) | yes 
+다중 경로(MPIO) | yes 
 
 ### <a name="guest-or-physical-server-storage"></a>게스트 또는 물리적 서버 저장소
 
 **구성** | **지원됨** 
 --- | --- 
-VMDK | 예 
+VMDK | yes 
 VHD/VHDX | 해당 없음 
 2세대 VM | 해당 없음 
-공유 클러스터 디스크 | 예 
-암호화된 디스크 | 아니오 
-UEFI| 예 
-NFS | 아니오 
-SMB 3.0 | 아니오 
-RDM | 예 
-디스크 > 1TB | 예 
-스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예 
-저장소 공간 | 아니오 
-디스크 핫 추가/제거 | 예 
-디스크 제외 | 예 
+공유 클러스터 디스크 | yes 
+암호화된 디스크 | 아니요 
+UEFI| yes 
+NFS | 아니요 
+SMB 3.0 | 아니요 
+RDM | yes 
+디스크 > 1TB | yes 
+스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | yes 
+저장소 공간 | 아니요 
+디스크 핫 추가/제거 | yes 
+디스크 제외 | yes 
 다중 경로(MPIO) | 해당 없음 
 
 ## <a name="vaults"></a>자격 증명 모음
 
 **작업** | **지원됨** 
 --- | --- 
-리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) | 아니오 
-리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니오 
+리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) | 아니요 
+리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니요 
 
 ## <a name="mobility-service-and-updates"></a>Mobility 서비스 및 업데이트
 
@@ -112,7 +111,7 @@ Mobility 서비스는 온-프레미스 VMware 서버 또는 물리적 서버와 
 
 **업데이트** | **세부 정보** 
 --- | --- 
-Scout 업데이트 | 최신 Scout 업데이트에 대해 [알아보고 다운로드](/vmware-physical-secondary-disaster-recovery.md#updates)  | Scout 업데이트는 누적입니다.
+Scout 업데이트 | 최신 Scout 업데이트에 대해 [알아보고 다운로드](vmware-physical-secondary-disaster-recovery.md#updates)  | Scout 업데이트는 누적입니다.
 구성 요소 업데이트 | Scout 업데이트에는 RX 서버, 구성 서버, 프로세스 및 마스터 대상 서버, vContinuum 서버 및 보호하려면 원본 서버를 포함하여 모든 구성 요소에 대한 업데이트가 포함되어 있습니다.<br/><br/> [자세히 알아보기](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
 
 

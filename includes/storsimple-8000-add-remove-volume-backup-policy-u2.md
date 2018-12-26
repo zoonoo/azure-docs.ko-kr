@@ -1,9 +1,22 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: cd7eafa251d50e5b5c4e84b1586926f8c5e27c5f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164693"
+---
 <!--author=alkohli last changed: 01/02/17-->
 
 
 #### <a name="to-add-or-remove-a-volume"></a>볼륨을 추가 또는 제거하려면
 
-1. StorSimple 장치로 이동하고 **백업 정책**을 클릭합니다.
+1. StorSimple 디바이스로 이동하고 **백업 정책**을 클릭합니다.
 
 2. 정책의 테이블 형식 목록에서 수정하려는 정책을 선택 및 클릭합니다. 상황에 맞는 메뉴를 마우스 오른쪽 단추로 클릭하여 호출한 후 **볼륨 추가/제거**를 선택합니다.
 

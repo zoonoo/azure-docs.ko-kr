@@ -1,22 +1,23 @@
 ---
-title: Text Analytics API 개요 - Azure Cognitive Services | Microsoft Docs
-description: 감성 분석, 핵심 구 추출 및 언어 감지에 대한 Azure Cognitive Services의 Text Analytics API입니다.
+title: Text Analytics란?
+titleSuffix: Azure Cognitive Services
+description: 감성 분석, 핵심 구 추출, 언어 감지 및 엔터티 링크 설정에 대한 Azure Cognitive Services의 Text Analytics입니다.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
-ms.topic: article
-ms.date: 5/02/2018
+ms.component: text-analytics
+ms.topic: overview
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: db5ea943f270aa512afb508668aec90cc4c90df4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 545d60207bbd1941920bc0e70096417c35486634
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377815"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634602"
 ---
-# <a name="what-is-text-analytics-api-version-20"></a>Text Analytics API 버전 2.0이란?
+# <a name="what-is-text-analytics"></a>Text Analytics란?
 
 텍스트 분석 API는 클라우드 기반 서비스로 원시 텍스트에 대한 고급 자연어 처리를 제공하며, 감성 분석, 핵심 구 추출, 언어 감지 및 엔터티 링크의 네 가지 주요 기능을 포함합니다.
 
@@ -28,10 +29,14 @@ ms.locfileid: "35377815"
 
 | 작업| 설명 | API |
 |-----------|-------------|------|
-|[**감정 분석**](how-tos/text-analytics-how-to-sentiment-analysis.md) | 원시 텍스트에서 긍정적이거나 부정적인 감정의 단서를 분석하여 브랜드 또는 주제에 대한 고객의 생각을 알아봅니다. 이 API는 각 문서에 대해 0과 1 사이의 감점 점수를 반환합니다. 여기서 1이 가장 긍정적인 것입니다.<br /> 분석 모델은 Microsoft의 포괄적인 텍스트 본문 및 자연어 기술을 사용하여 미리 학습됩니다. 이 API는 [선택된 언어](text-analytics-supported-languages.md)에 대해 사용자가 제공하는 원시 텍스트를 분석하고 점수를 매겨 호출 응용 프로그램에 직접 결과를 반환할 수 있습니다. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br /> [.NET](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package)  |
-|[**핵심 구 추출**](how-tos/text-analytics-how-to-keyword-extraction.md) | 자동으로 핵심 구를 추출하여 요점을 빠르게 파악합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 핵심 발화 지점을 반환합니다.  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br /> [.NET](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
-|[**언어 감지**](how-tos/text-analytics-how-to-language-detection.md) | 최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [.NET](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) | 
-|[**엔터티 링크(미리 보기)**](how-tos/text-analytics-how-to-entity-linking.md) | 텍스트의 잘 알려진 엔터티를 식별하고 웹의 추가 정보로 연결됩니다. 엔터티 링크는 용어가 개별적으로 구분할 수 엔터티, 동사 및 기타 단어 형태 중 하나로 사용되는 경우를 인식하고 명확히 구분해줍니다. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) | 
+|[**감정 분석**](how-tos/text-analytics-how-to-sentiment-analysis.md) | 원시 텍스트에서 긍정적이거나 부정적인 감정의 단서를 분석하여 브랜드 또는 주제에 대한 고객의 생각을 알아봅니다. 이 API는 각 문서에 대해 0과 1 사이의 감점 점수를 반환합니다. 여기서 1이 가장 긍정적인 것입니다.<br /> 분석 모델은 Microsoft의 포괄적인 텍스트 본문 및 자연어 기술을 사용하여 미리 학습됩니다. 이 API는 [선택된 언어](text-analytics-supported-languages.md)에 대해 사용자가 제공하는 원시 텍스트를 분석하고 점수를 매겨 호출 응용 프로그램에 직접 결과를 반환할 수 있습니다. | [REST (영문)](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package)  |
+|[**핵심 구 추출**](how-tos/text-analytics-how-to-keyword-extraction.md) | 자동으로 핵심 구를 추출하여 요점을 빠르게 파악합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 핵심 발화 지점을 반환합니다.  | [REST (영문)](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
+|[**언어 감지**](how-tos/text-analytics-how-to-language-detection.md) | 최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. | [REST (영문)](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) | 
+|[**엔터티 인식(미리 보기)**](how-tos/text-analytics-how-to-entity-linking.md) | 텍스트의 엔터티를 인물, 장소, 조직, 날짜/시간, 수량, 백분율, 통화 등으로 식별하고 분류합니다. 잘 알려진 엔터티도 인식되고, 웹에서 더 많은 정보에 연결됩니다. | [REST (영문)](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) |
+
+## <a name="use-containers"></a>컨테이너 사용
+
+[Text Analytics 컨테이너를 사용](how-tos/text-analytics-how-to-install-containers.md)하여 표준화된 Docker 컨테이너를 데이터와 가까이 설치함으로써 핵심 구를 추출하고, 언어를 검색하고, 로컬로 감정을 분석할 수 있습니다.
 
 ## <a name="typical-workflow"></a>일반적인 워크플로
 
@@ -41,7 +46,7 @@ ms.locfileid: "35377815"
 
 2. 데이터를 구조화되지 않은 원시 텍스트로 포함하는 [요청을 JSON으로 구성](how-tos/text-analytics-how-to-call-api.md#json-schema)합니다.
 
-3. 등록 동안 설정된 끝점에 요청을 게시하고, 감정 분석, 핵심 구 추출, 언어 감지 또는 엔터티 ID 등, 원하는 리소스를 추가합니다.
+3. 등록 동안 설정된 엔드포인트에 요청을 게시하고, 감정 분석, 핵심 구 추출, 언어 감지 또는 엔터티 ID 등, 원하는 리소스를 추가합니다.
 
 4. 응답을 스트리밍하거나 로컬로 저장합니다. 요청에 따라, 결과는 감정 점수, 추출된 핵심 구 모음 또는 언어 코드가 됩니다.
 
@@ -59,7 +64,7 @@ ms.locfileid: "35377815"
 
 ## <a name="data-limits"></a>데이터 제한
 
-모든 Text Analytics API 끝점은 원시 텍스트 데이터를 수락합니다. 현재 제한은 각 문서에 대해 5,000자입니다. 더 큰 문서를 분석해야 할 경우 좀 더 작은 청크로 분리할 수 있습니다. 여전히 더 높은 한도가 필요하면 [저희에게 문의](https://azure.microsoft.com/overview/sales-number/)하세요. 그러면 해결해 드릴 수 있습니다.
+모든 Text Analytics API 엔드포인트는 원시 텍스트 데이터를 수락합니다. 현재 제한은 각 문서에 대해 5,000자입니다. 더 큰 문서를 분석해야 할 경우 좀 더 작은 청크로 분리할 수 있습니다. 여전히 더 높은 한도가 필요하면 [저희에게 문의](https://azure.microsoft.com/overview/sales-number/)하세요. 그러면 해결해 드릴 수 있습니다.
 
 | 제한 | 값 |
 |------------------------|---------------|

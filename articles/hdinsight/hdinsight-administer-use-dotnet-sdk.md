@@ -1,27 +1,22 @@
 ---
-title: .NET SDK를 사용하여 HDInsight의 Hadoop 클러스터 관리 - Azure | Microsoft Docs
-description: HDInsight .NET SDK를 사용하여 HDInsight에서 Hadoop 클러스터에 대해 관리 작업을 수행하는 방법에 대해 알아봅니다.
+title: .NET SDK를 사용하여 HDInsight의 Apache Hadoop 클러스터 관리 - Azure
+description: HDInsight .NET SDK를 사용하여 HDInsight의 Apache Hadoop 클러스터에 대해 관리 작업을 수행하는 방법에 대해 알아봅니다.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
-ms.assetid: fd134765-c2a0-488a-bca6-184d814d78e9
+ms.reviewer: jasonh
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 08c9d16570a923c79c81cebb8669a43488129d9a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: hrasheed
+ms.openlocfilehash: 26aeb5641533125dcd909ae96d28c8274677cf30
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017940"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013444"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Hadoop 클러스터 관리
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 [HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)를 사용하여 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
@@ -111,10 +106,10 @@ namespace HDInsightManagement
 }
 ```
 
-이 프로그램을 실행하면 프롬프트가 나타납니다.  프롬프트를 표시하지 않으려면 [비대화형 인증 .NET HDInsight 응용 프로그램 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md)를 참조하세요.
+이 프로그램을 실행하면 프롬프트가 나타납니다.  프롬프트를 표시하지 않으려면 [비대화형 인증 .NET HDInsight 애플리케이션 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md)를 참조하세요.
 
 ## <a name="create-clusters"></a>클러스터 만들기
-[.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+ [.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
 ## <a name="list-clusters"></a>클러스터 나열
 다음 코드 조각은 클러스터 및 일부 속성을 나열합니다.
@@ -147,12 +142,12 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 
 HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노드 수를 변경하는 영향은 다음과 같습니다.
 
-* Hadoop은
+* Apache Hadoop
   
     모든 보류 중인 또는 실행 중인 작업에 영향을 주지 않고 실행되는 Hadoop 클러스터의 작업자 노드 수를 원활하게 늘릴 수 있습니다. 작업이 진행 중인 동안에 새 작업을 제출할 수 있습니다. 크기 조정 작업의 오류는 정상적으로 처리되므로 클러스터는 항상 기능 상태로 남아 있습니다.
   
     데이터 노드 수를 줄여 Hadoop 클러스터를 축소하면 클러스터의 서비스 중 일부가 다시 시작됩니다. 그러면 실행 중인 작업과 보류 중인 작업이 크기 조정 작업을 완료하지 못하고 실패합니다. 그러나 작업이 완료되면 작업을 다시 제출할 수 있습니다.
-* HBase
+* Apache HBase
   
     HBase 클러스터가 실행 중인 동안 데이터 노드를 원활하게 추가하거나 제거할 수 있습니다. 지역 서버는 크기 조정 작업을 완료하는 몇 분 안에 자동으로 균형을 맞춥니다. 그러나 클러스터의 헤드 노드에 로그인한 다음 명령 프롬프트 창에서 다음 명령을 실행하여 자동으로 지역 서버의 균형을 맞출 수도 있습니다.
   
@@ -161,7 +156,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
     >hbase shell
     >balancer
     ```
-* Storm
+* Apache Storm
   
     실행 중인 동안 Storm 클러스터에 데이터 노드를 원활하게 추가하거나 제거할 수 있습니다. 하지만 크기 조정 작업이 성공적으로 완료되면 다시 토폴로지 균형을 조정해야 합니다.
   
@@ -193,13 +188,13 @@ _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Nam
 ```
 
 ## <a name="grantrevoke-access"></a>액세스 권한 부여/해지
-HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다(이러한 모든 서비스에 RESTful 끝점이 있음).
+HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다(이러한 모든 서비스에 RESTful 엔드포인트가 있음).
 
 * ODBC
 * JDBC
-* Ambari
-* Oozie
-* Templeton
+* Apache Ambari
+* Apache Oozie
+* Apache Templeton
 
 이러한 서비스에는 기본적으로 액세스 권한이 부여됩니다. 액세스 권한을 해지/부여할 수 있습니다. 해지하려면:
 
@@ -233,7 +228,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 이 작업은 포털을 통해서도 수행할 수 있습니다. [Azure Portal을 사용하여 HDInsight 관리][hdinsight-admin-portal]를 참조하세요.
 
 ## <a name="update-http-user-credentials"></a>HTTP 사용자 자격 증명 업데이트
-이는 [HTTP 권한 부여/해지 액세스](#grant/revoke-access)와 절차가 동일합니다. 클러스터에 HTTP 액세스 권한이 부여되어 있는 경우 이를 먼저 해지해야 합니다.  그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
+[HTTP 액세스 부여/해지](#grant/revoke-access)와 같은 절차입니다.  클러스터에 HTTP 액세스 권한이 부여된 경우 먼저 해당 권한을 해지해야 합니다.  그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
 
 ## <a name="find-the-default-storage-account"></a>기본 저장소 계정 찾기
 다음 코드 조각에서는 클러스터에 대한 기본 저장소 계정 이름 및 기본 저장소 계정 키를 가져오는 방법을 보여 줍니다.
@@ -247,25 +242,25 @@ foreach (var key in results.Configuration.Keys)
 ```
 
 ## <a name="submit-jobs"></a>작업 제출
-**MapReduce 작업을 제출하려면**
+**Apache Hadoop MapReduce 작업을 제출하려면**
 
-[HDInsight에서 Hadoop MapReduce 샘플 실행](hadoop/apache-hadoop-run-samples-linux.md)을 참조하세요.
+[HDInsight에서 Apache Hadoop MapReduce 샘플 실행](hadoop/apache-hadoop-run-samples-linux.md)을 참조하세요.
 
-**Hive 작업을 제출하려면** 
+**Apache Hive 작업을 제출하려면** 
 
-[.NET SDK를 사용하여 Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)을 참조하세요.
+[.NET SDK를 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)을 참조하세요.
 
-**Pig 작업을 제출하려면**
+**Apache Pig 작업을 제출하려면**
 
-[.NET SDK를 사용하여 Pig 작업 실행](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)을 참조하세요.
+[.NET SDK를 사용하여 Apache Pig 작업 실행](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)을 참조하세요.
 
-**Sqoop 작업을 제출하려면**
+**Apache Sqoop 작업을 제출하려면**
 
-[HDInsight와 함께 Sqoop 사용](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)을 참조하세요.
+[HDInsight에서 Apache Sqoop 사용](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)을 참조하세요.
 
-**Oozie 작업을 제출하려면**
+**Apache Oozie 작업을 제출하려면**
 
-[Hadoop과 함께 Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](hdinsight-use-oozie-linux-mac.md)을 참조하세요.
+[Hadoop과 함께 Apache Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](hdinsight-use-oozie-linux-mac.md)을 참조하세요.
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob 저장소에 데이터 업로드
 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.
@@ -278,9 +273,9 @@ foreach (var key in results.Configuration.Keys)
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
 * [Azure HDInsight 시작][hdinsight-get-started]
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

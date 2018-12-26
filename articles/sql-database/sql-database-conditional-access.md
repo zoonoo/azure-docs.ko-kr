@@ -2,23 +2,31 @@
 title: 조건부 액세스 - Azure SQL Database 및 데이터 웨어하우스 | Microsoft Doc
 description: Azure SQL Database 및 데이터 웨어하우스에 대한 조건부 액세스를 구성하는 방법에 대해 알아봅니다.
 services: sql-database
-author: GithubMirek
-manager: johammer
-ms.custom: security
 ms.service: sql-database
+ms.subservice: security
+ms.custom: sql-data-warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: GithubMirek
 ms.author: mireks
-ms.openlocfilehash: 83762136659756204aab5da367b905f66e770087
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: e7386e2f926132f5657bdb17011dafe1e1c7b101
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647462"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063084"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Azure SQL Database 및 데이터 웨어하우스를 사용하여 조건부 액세스(MFA)  
 
-SQL Database와 SQL Data Warehouse는 Microsoft 조건부 액세스를 지원합니다. 다음 단계에서는 조건부 액세스 정책을 적용하기 위해 SQL Database를 구성하는 방법을 보여 줍니다.  
+Azure [SQL Database](sql-database-technical-overview.md)와 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)는 Microsoft 조건부 액세스를 지원합니다. 
+
+> [!NOTE]
+> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+
+다음 단계에서는 조건부 액세스 정책을 적용하기 위해 SQL Database를 구성하는 방법을 보여 줍니다.  
 
 ## <a name="prerequisites"></a>필수 조건  
 - Azure Active Directory 인증을 지원하도록 SQL Database 또는 SQL Data Warehouse를 구성해야 합니다. 자세한 단계는 [SQL Database 또는 SQL Data Warehouse에서 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md)를 참조하세요.  

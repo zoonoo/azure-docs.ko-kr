@@ -1,9 +1,9 @@
 ---
-title: Azure CLI 2.0을 사용하여 Virtual Machine Scale Sets 관리 | Microsoft Docs
-description: 인스턴스를 시작하고 중지하는 방법 및 확장 집합 용량을 변경하는 방법과 같은 Virtual Machine Scale Sets를 관리하는 공통 Azure CLI 2.0 명령입니다.
+title: Azure CLI를 사용하여 Virtual Machine Scale Sets 관리 | Microsoft Docs
+description: 인스턴스를 시작하고 중지하는 방법 및 확장 집합 용량을 변경하는 방법과 같은 Virtual Machine Scale Sets를 관리하는 공통 Azure CLI 명령입니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: a9e01039f1fbf46739ff8dbafea411aad2c3f4f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: zarhoads
+ms.openlocfilehash: bbed197eb78e34c6e53802dfcfdcc192f780df33
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308056"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465662"
 ---
-# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 가상 머신 확장 집합 관리
-가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. 이 문서에서는 이러한 작업을 수행할 수 있는 공통 Azure CLI 2.0 명령의 일부를 설명합니다.
+# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합 관리
+가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. 이 문서에서는 이러한 작업을 수행할 수 있는 공통 Azure CLI 명령의 일부를 설명합니다.
 
-이러한 관리 작업을 완료하려면 최신 Azure CLI 2.0이 필요합니다. 자세한 내용은 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 가상 머신 확장 집합을 만들어야 하는 경우 [Azure CLI 2.0에서 확장 집합을 만들](quick-create-cli.md) 수 있습니다.
+이러한 관리 작업을 완료하려면 최신 Azure CLI가 필요합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 가상 머신 확장 집합을 만들어야 하는 경우 [Azure CLI에서 확장 집합을 만들](quick-create-cli.md) 수 있습니다.
 
 
 ## <a name="view-information-about-a-scale-set"></a>확장 집합에 대한 정보 보기
@@ -92,7 +92,7 @@ az vmss scale \
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>확장 집합에서 VM 중지 및 시작
-확장 집합에서 하나 이상의 VM을 중지하려면 [az vmss stop](/cli/azure/vmss/stop)을 사용합니다. `--instance-ids` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 중지하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 중지됩니다. 여러 VM을 중지하려면 각 인스턴스 ID를 공백으로 구분합니다.
+확장 집합에서 하나 이상의 VM을 중지하려면 [az vmss stop](/cli/azure/vmss#az-vmss-stop)을 사용합니다. `--instance-ids` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 중지하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 중지됩니다. 여러 VM을 중지하려면 각 인스턴스 ID를 공백으로 구분합니다.
 
 다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 중지합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 

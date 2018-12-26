@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 223c038155d16f41f1599aa76081560739cd7095
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 12decd07934b45c3f2e8b9b098af305303641176
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657379"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634781"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS를 위한 SAP HA용 Azure 인프라 준비
 
@@ -161,7 +161,7 @@ ms.locfileid: "34657379"
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 
 이 문서에서는 SAP ASCS 인스턴스를 클러스터링하는 옵션으로서 *클러스터 공유 디스크*를 사용하여 Windows 장애 조치(Failover) 클러스터에서 고가용성 SAP 시스템을 설치 및 구성하기 위해 Azure 인프라를 준비하는 방법을 설명합니다.
@@ -196,7 +196,7 @@ _**그림 1:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
   템플릿은 다음을 만듭니다.
 
   * **가상 머신**:
-    * SAP 응용 프로그램 서버 가상 머신: \<SAPSystemSID\>-di-\<번호\>
+    * SAP 애플리케이션 서버 가상 머신: \<SAPSystemSID\>-di-\<번호\>
     * ASCS/SCS 클러스터 가상 머신: \<SAPSystemSID\>-ascs-\<번호\>
     * DBMS 클러스터: \<SAPSystemSID\>-db-\<번호\>
 
@@ -208,7 +208,7 @@ _**그림 1:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
   * **Azure 저장소 계정(비관리 디스크만 해당)**:
 
   * 다음에 대한 **가용성 그룹**:
-    * SAP 응용 프로그램 서버 가상 머신: \<SAPSystemSID\>-avset-di
+    * SAP 애플리케이션 서버 가상 머신: \<SAPSystemSID\>-avset-di
     * SAP ASCS/SCS 클러스터 가상 머신: \<SAPSystemSID\>-avset-ascs
     * DBMS 클러스터 가상 머신: \<SAPSystemSID\>-avset-db
 
@@ -305,7 +305,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
   -  **시스템 가용성**: **HA**를 선택합니다.
   -  **관리자 사용자 이름 및 관리자 암호**: 컴퓨터에 로그인하는 데 사용할 수 있는 새 사용자를 만듭니다.
   -  **신규 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들지 기존 서브넷을 사용할지 설정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존** 항목을 선택합니다.
-  -  **서브넷 ID**: 가상 머신을 연결할 서브넷의 ID를 설정합니다. 온-프레미스 네트워크에 가상 머신을 연결하는 데 사용할 ExpressRoute 가상 네트워크의 서브넷 또는 VPN을 선택합니다. ID는 일반적으로 다음과 같이 나타납니다.
+  -  **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 다음과 같이 나타납니다.
 
    /subscriptions/\<구독 ID\>/resourceGroups/\<리소스 그룹 이름\>/providers/Microsoft.Network/virtualNetworks/\<가상 네트워크 이름\>/subnets/\<서브넷 이름\>
 
@@ -351,7 +351,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
 
 응용 프로그램 서버 템플릿은 하나의 SAP 시스템을 위한 SAP 응용 프로그램 서버 인스턴스로 사용할 수 있는 둘 이상의 가상 머신을 배포합니다. 예를 들어 5개 SAP 시스템에 대해 ASCS/SCS 템플릿을 배포하는 경우 이 템플릿을 5번 배포해야 합니다.
 
-응용 프로그램 서버 다중 SID 템플릿을 설정하려면 [응용 프로그램 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image] 또는 [Managed Disks를 사용하는 응용 프로그램 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image-md]에서 다음 매개 변수 값을 입력합니다.
+애플리케이션 서버 다중 SID 템플릿을 설정하려면 [애플리케이션 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image] 또는 [Managed Disks를 사용하는 애플리케이션 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image-md]에서 다음 매개 변수 값을 입력합니다.
 
   -  **SAP 시스템 ID**: 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
   -  **OS 종류**: 가상 머신의 운영 체제를 선택합니다.
@@ -430,10 +430,10 @@ DNS 서버에서 다른 두 가상 호스트 이름 pr1-ascs-sap 및 pr1-dbms-sa
 
 | 가상 머신 역할 | 가상 머신 호스트 이름 | 네트워크 카드 이름 | 고정 IP 주소 |
 | --- | --- | --- | --- |
-| 첫 번째 SAP 응용 프로그램 서버 인스턴스 |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
+| 첫 번째 SAP 애플리케이션 서버 인스턴스 |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
 | 두 번째 SAP 응용 프로그램 서버 인스턴스 |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
 | ... |... |... |... |
-| 마지막 SAP 응용 프로그램 서버 인스턴스 |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
+| 마지막 SAP 애플리케이션 서버 인스턴스 |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
 | ASCS/SCS 인스턴스의 첫 번째 클러스터 노드 |pr1-ascs-0 |pr1-nic-ascs-0 |10.0.0.40 |
 | ASCS/SCS 인스턴스의 두 번째 클러스터 노드 |pr1-ascs-1 |pr1-nic-ascs-1 |10.0.0.41 |
 | DBMS 인스턴스의 첫 번째 클러스터 노드 |pr1-db-0 |pr1-nic-db-0 |10.0.0.30 |
@@ -475,9 +475,9 @@ SAP Azure Resource Manager 템플릿은 다음에 대해 필요한 포트를 만
 
 SAP ASCS/SCS 인스턴스를 설치하면 ABAP ASCS 인스턴스에 대해 기본 인스턴스 번호 00을, Java SCS 인스턴스에 대해 기본 인스턴스 번호 01을 사용해야 합니다.
 
-다음으로 SAP NetWeaver 포트에 대한 필수 내부 부하 분산 끝점을 만듭니다.
+다음으로 SAP NetWeaver 포트에 대한 필수 내부 부하 분산 엔드포인트를 만듭니다.
 
-필수 내부 부하 분산 끝점을 만들려면 먼저 SAP NetWeaver ABAP ASCS 포트에 대한 다음과 같은 부하 분산 끝점을 만듭니다.
+필수 내부 부하 분산 엔드포인트를 만들려면 먼저 SAP NetWeaver ABAP ASCS 포트에 대한 다음과 같은 부하 분산 엔드포인트를 만듭니다.
 
 | 서비스/부하 분산 규칙 이름 | 기본 포트 번호 | (인스턴스 번호가 00인 ASCS 인스턴스)(ERS가 10)에 대한 구체적인 포트 |
 | --- | --- | --- |
@@ -495,7 +495,7 @@ SAP ASCS/SCS 인스턴스를 설치하면 ABAP ASCS 인스턴스에 대해 기�
 
 **표 1:** SAP NetWeaver ABAP ASCS 인스턴스의 포트 번호
 
-그런 후 SAP NetWeaver Java SCS 포트에 대한 다음과 같은 부하 분산 끝점을 만듭니다.
+그런 후 SAP NetWeaver Java SCS 포트에 대한 다음과 같은 부하 분산 엔드포인트를 만듭니다.
 
 | 서비스/부하 분산 규칙 이름 | 기본 포트 번호 | (인스턴스 번호가 01인 SCS 인스턴스)(ERS가 11)에 대한 구체적인 포트 |
 | --- | --- | --- |
@@ -526,7 +526,7 @@ SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경�
 1.  Azure Portal에서 **\<SID\>-lb-ascs 부하 분산 장치** > **부하 부산 규칙**을 선택합니다.
 2.  SAP ASCS 또는 SCS 인스턴스에 속하는 모든 부하 분산 규칙에 대해 다음 값을 변경합니다.
 
-  * Name
+  * 이름
   * 포트
   * 백 엔드 포트
 

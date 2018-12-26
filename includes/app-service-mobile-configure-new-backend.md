@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 05/25/2018
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 4da469ac31c3ee50d601c87b4d7487ae5bb7bc3a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d3bfb7bc8a5432392dba3b0c5019902b3e59773
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34664011"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513845"
 ---
 1. **App Services** 단추를 클릭하고, Mobile Apps 백 엔드를 선택하고, **빠른 시작**을 선택한 후 클라이언트 플랫폼(iOS, Android, Xamarin, Cordova)을 선택합니다.
 
     ![Mobile Apps 빠른 시작이 강조 표시된 Azure Portal][quickstart]
 
-2. 데이터베이스 연결이 구성되지 않은 경우 다음을 수행하여 새로 만듭니다.
+1. 데이터베이스 연결이 구성되지 않은 경우 다음을 수행하여 새로 만듭니다.
 
     ![Mobile Apps가 있는 Azure Portal 데이터베이스에 연결][connect]
 
-    a. 새 SQL Database 및 서버를 만듭니다.
+    a. 새 SQL Database 및 서버를 만듭니다. 아래 3단계를 완료하기 위해 연결 문자열 이름 필드를 MS_TableConnectionString의 기본값으로 유지해야 합니다.
 
     ![Mobile Apps가 있는 Azure Portal 새 데이터베이스 및 서버 만들기][server]
 
-    나. 데이터 연결을 성공적으로 만들 때까지 기다립니다.
+    b. 데이터 연결을 성공적으로 만들 때까지 기다립니다.
 
     ![데이터 연결을 성공적으로 만들는 경우 Azure Portal 알림][notification]
 
@@ -35,9 +35,9 @@ ms.locfileid: "34664011"
 
     ![Azure Portal 알림, "이미 데이터가 연결되었습니다."][already-connection]
 
-3. **2. 테이블 API 만들기** 아래에서 **백 엔드 언어**를 Node.js로 선택합니다.
+1. **2. 테이블 API 만들기** 아래에서 **백 엔드 언어**를 Node.js로 선택합니다.
 
-4. 승인을 허용하고 **TodoItem 테이블 만들기**를 선택합니다.
+1. 승인을 허용하고 **TodoItem 테이블 만들기**를 선택합니다.
     이 작업을 통해 데이터베이스의 테이블에 새 할 일 목록을 만듭니다.
 
     >[!IMPORTANT]

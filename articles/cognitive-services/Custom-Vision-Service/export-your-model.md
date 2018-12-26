@@ -1,24 +1,25 @@
 ---
-title: Custom Vision Service 모델을 모바일로 내보내기 - Custom Vision Service - Azure Cognitive Services  | Microsoft Docs
+title: 모바일로 모델 내보내기 - Custom Vision Service
+titlesuffix: Azure Cognitive Services
 description: 모바일 응용 프로그램을 만드는 데 사용할 모델을 내보내는 방법을 알아봅니다.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: ce8f42d6239867dd217cddfc61a27d7835dc9c9b
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 50417e9e1722e69c24185c05ea5e286e6b13e8c7
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35383141"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364944"
 ---
-# <a name="export-your-model-for-use-with-mobile-devices"></a>모바일 장치에 사용할 모델 내보내기
+# <a name="export-your-model-for-use-with-mobile-devices"></a>모바일 디바이스에 사용할 모델 내보내기
 
-Custom Vision Service를 사용하면 분류자를 내보내서 오프라인으로 실행할 수 있습니다. 내보낸 분류자를 응용 프로그램에 포함하여 장치에서 실행하면 실시간 분류가 가능합니다. 
+Custom Vision Service를 사용하면 분류자를 내보내서 오프라인으로 실행할 수 있습니다. 내보낸 분류자를 응용 프로그램에 포함하여 디바이스에서 실행하면 실시간 분류가 가능합니다. 
 
 Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 
@@ -28,7 +29,7 @@ Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 * Windows 또는 Linux __컨테이너__. 컨테이너에는 Custom Vision Service API를 사용할 Tensorflow 모델 및 서비스 코드가 포함됩니다. 
 
 > [!IMPORTANT]
-> Custom Vision Service는 __소형__ 도메인만 내보냅니다. 소형 도메인을 통해 생성된 모델은 모바일 장치의 실시간 분류 제약 조건에 맞게 최적화됩니다. 소형 도메인을 사용하여 만든 분류자는 교육 데이터의 양이 동일한 표준 도메인보다 정확도가 살짝 떨어질 수 있습니다.
+> Custom Vision Service는 __소형__ 도메인만 내보냅니다. 소형 도메인을 통해 생성된 모델은 모바일 디바이스의 실시간 분류 제약 조건에 맞게 최적화됩니다. 소형 도메인을 사용하여 만든 분류자는 교육 데이터의 양이 동일한 표준 도메인보다 정확도가 살짝 떨어질 수 있습니다.
 >
 > 분류자를 향상하는 방법은 [분류자 향상](getting-started-improving-your-classifier.md) 문서를 참조하세요.
 
@@ -73,5 +74,5 @@ Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 * Swift를 사용한 실시간 이미지 분류에 대한 [내보낸 CoreML 모델을 iOS 응용 프로그램에서 사용](https://go.microsoft.com/fwlink/?linkid=857726) 샘플
 * 실시간 이미지 분류에 대한 [내보낸 CoreML 모델을 Xamarin에 사용](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) 샘플 iOS 응용 프로그램 
 * 실시간 이미지 분류에 대한 [내보낸 Tensorflow 모델을 Android 응용 프로그램에서 사용](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) 샘플 
-* [Tensorflow 모델을 Windows에 사용](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/export-model-python)
-* [내보낸 ONNX 모델을 Windows Machine Learning에 사용](https://azure.microsoft.com/en-us/resources/samples/cognitive-services-onnx-customvision-sample/) 샘플
+* [Tensorflow 모델을 Windows에 사용](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-model-python)
+* [내보낸 ONNX 모델을 Windows Machine Learning에 사용](https://azure.microsoft.com/resources/samples/cognitive-services-onnx-customvision-sample/) 샘플

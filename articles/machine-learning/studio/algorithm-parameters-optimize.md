@@ -1,10 +1,11 @@
 ---
-title: Azure Machine Learning에서 알고리즘 최적화 | Microsoft Docs
-description: Azure Machine Learning에서 알고리즘에 대한 최적 매개 변수 집합을 선택하는 방법에 대해 설명합니다.
+title: Azure Machine Learning Studio에 사용할 알고리즘 최적화 | Microsoft Docs
+description: Azure Machine Learning Studio에서 알고리즘에 대한 최적 매개 변수 집합을 선택하는 방법에 대해 설명합니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
@@ -15,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 64d725712dc8cf87deb150944a390c9cef87b56f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f4b7ba04f643fc823ca627e279faea31dee9d2a4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833899"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314715"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Azure Machine Learning에서 알고리즘을 최적화하는 매개 변수 선택
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 알고리즘을 최적화하는 매개 변수 선택
+
 이 토픽에서는 Azure Machine Learning에서 알고리즘에 대한 올바른 하이퍼 매개 변수 집합을 선택하는 방법에 대해 설명합니다. 대부분의 기계 학습 알고리즘은 설정할 매개 변수를 포함하고 있습니다. 모델을 학습할 때 이러한 매개 변수의 값을 제공해야 합니다. 학습된 모델의 효율성은 선택한 모델 매개 변수에 따라 달라집니다. 최적의 매개 변수 집합을 찾는 프로세스를 *모델 선택*이라고 합니다.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
@@ -63,15 +65,15 @@ ms.locfileid: "34833899"
 동일한 [Tune Model Hyperparameters][tune-model-hyperparameters] 모듈이 매개 변수 집합에 해당하는 모든 모델을 학습하고, 여러 메트릭을 평가한 다음, 선택한 메트릭을 기반으로 최상의 학습된 모델을 만듭니다. 이 모듈에는 다음 두 개의 필수 입력이 있습니다.
 
 * 미숙한 학습자
-* 데이터 집합
+* 데이터 세트
 
-또한 이 모듈은 선택적 데이터 집합 입력을 포함하고 있습니다. 접기 정보가 있는 데이터 집합을 필수 데이터 집합 입력에 연결합니다. 데이터 집합에 접기 정보가 할당되지 않은 경우에는 기본적으로는 10번 접기 교차 유효성 검사가 자동으로 실행됩니다. 접기 할당이 수행되지 않고 유효성 검사 데이터 집합이 최적의 데이터 집합 포트에서 제공된 경우에는 학습 테스트 모드가 선택되고 첫 번째 데이터 집합이 각 매개 변수 조합에 대한 모델의 학습에 사용됩니다.
+또한 이 모듈은 선택적 데이터 세트 입력을 포함하고 있습니다. 접기 정보가 있는 데이터 세트를 필수 데이터 세트 입력에 연결합니다. 데이터 세트에 접기 정보가 할당되지 않은 경우에는 기본적으로는 10번 접기 교차 유효성 검사가 자동으로 실행됩니다. 접기 할당이 수행되지 않고 유효성 검사 데이터 세트가 최적의 데이터 세트 포트에서 제공된 경우에는 학습 테스트 모드가 선택되고 첫 번째 데이터 세트가 각 매개 변수 조합에 대한 모델의 학습에 사용됩니다.
 
 ![향상된 의사 결정 트리 분류자](./media/algorithm-parameters-optimize/fig6a.png)
 
-이 모델은 유효성 검사 데이터 집합에서 평가됩니다. 모듈의 왼쪽 출력 포트에는 매개 변수 값 함수로 다양한 메트릭이 표시됩니다. 오른쪽 출력 포트에는 선택한 메트릭(이 예의 경우 **정확도**)에 따라 최고 성능의 모델에 해당하는 학습된 모델이 제공됩니다.  
+이 모델은 유효성 검사 데이터 세트에서 평가됩니다. 모듈의 왼쪽 출력 포트에는 매개 변수 값 함수로 다양한 메트릭이 표시됩니다. 오른쪽 출력 포트에는 선택한 메트릭(이 예의 경우 **정확도**)에 따라 최고 성능의 모델에 해당하는 학습된 모델이 제공됩니다.  
 
-![유효성 검사 데이터 집합](./media/algorithm-parameters-optimize/fig6b.png)
+![유효성 검사 데이터 세트](./media/algorithm-parameters-optimize/fig6b.png)
 
 오른쪽 출력 포트를 시각화하여 선택한 정확한 매개 변수를 확인할 수 있습니다. 이 모델은 테스트 집합을 채점하거나 학습된 모델로 저장한 후 조작 가능한 웹 서비스를 제공하는 데 사용될 수 있습니다.
 

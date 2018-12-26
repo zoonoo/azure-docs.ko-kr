@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: c3959e6e33ef603edb51d8f0b29ee140d6bd01c7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a1308035a8b758a9e2f824de3a78c03103c19931
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223062"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42140107"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>자습서: Fidelity NetBenefits와 Azure Active Directory 통합
 
@@ -50,24 +50,27 @@ Fidelity NetBenefits와 Azure AD 통합을 구성하려면 다음 항목이 필�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
+이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Fidelity NetBenefits 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-fidelity-netbenefits-from-the-gallery"></a>갤러리에서 Fidelity NetBenefits 추가
+
 Fidelity NetBenefits가 Azure AD로 통합되도록 구성하려면 갤러리의 Fidelity NetBenefits를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 Fidelity NetBenefits를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
     ![Azure Active Directory 단추][1]
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
-    
+
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
@@ -103,7 +106,7 @@ Fidelity NetBenefits에서 Azure AD Single Sign-On을 구성하고 테스트하�
     ![Single Sign-On 구성 링크][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Single Sign-On 대화 상자](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_samlbase.png)
 
 3. **Fidelity NetBenefits 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
@@ -116,35 +119,28 @@ Fidelity NetBenefits에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     프로덕션 환경의 경우: `urn:sp:fidelity:geninbndnbparts20`
 
-    나. **회신 URL** 텍스트 상자에서 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 Fidelity가 구현 시에 제공해야 하는 URL을 입력하거나 할당된 Fidelity Client Service Manager에 문의합니다.
 
-    테스트 환경의 경우: `https://loginxq1.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
-
-    프로덕션 환경의 경우: `https://login.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
- 
 4. Fidelity NetBenefits 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. **사용자 ID**를 **user.userprincipalname**과 매핑하였습니다. 이것을 **employeeid** 또는 조직에 **사용자 ID**로 적용할 수 있는 다른 클레임과 매핑할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
     ![Fidelity NetBenefits 특성](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_attribute.png)
 
     >[!Note]
-    >Fidelity NetBenefits는 정적 및 동적 페더레이션을 지원합니다. 정적은 SAML 기반 JIT(Just-in-time) 사용자 프로비전을 사용하지 않는 다는 의미이며 동적은 JIT(Just-in-time) 사용자 프로비전을 지원한다는 의미입니다. JIT 기반 프로비전을 사용하려면 고객은 Azure AD에 더 많은 클레임(예: 사용자의 생년월일 등)을 추가해야 합니다. 이러한 세부 정보는 [Fidelity NetBenefits 지원 팀](mailto:SSOMaintenance@fmr.com)이 제공하며 이 팀이 인스턴스에 대해 동적 페더레이션을 사용하도록 설정해야 합니다.
-    
-4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
+    >Fidelity NetBenefits는 정적 및 동적 페더레이션을 지원합니다. 정적은 SAML 기반 JIT(Just-in-time) 사용자 프로비전을 사용하지 않는 다는 의미이며 동적은 JIT(Just-in-time) 사용자 프로비전을 지원한다는 의미입니다. JIT 기반 프로비전을 사용하려면 고객은 Azure AD에 더 많은 클레임(예: 사용자의 생년월일 등)을 추가해야 합니다. 이러한 세부 정보는 할당된 **Fidelity Client Service Manager**에서 제공하며, 인스턴스에 대해 이 동적 페더레이션을 사용하도록 설정해야 합니다.
 
-    ![인증서 다운로드 링크](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_certificate.png) 
+5. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
-5. **저장** 단추를 클릭합니다.
+    ![인증서 다운로드 링크](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_certificate.png)
+
+6. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/fidelitynetbenefits-tutorial/tutorial_general_400.png)
 
-6. **Fidelity NetBenefits 구성** 섹션에서 **Fidelity NetBenefits 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
+7. **Fidelity NetBenefits 구성** 섹션에서 **Fidelity NetBenefits 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
-    ![Fidelity NetBenefits 구성](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_configure.png) 
+    ![Fidelity NetBenefits 구성](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_configure.png)
 
-7. **Fidelity NetBenefits** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**, **SAML Single Sign-On 서비스 URL** 및 **SAML 엔터티 ID**를 [Fidelity NetBenefits 지원 팀](mailto:SSOMaintenance@fmr.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+8. **Fidelity NetBenefits** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**, **SAML Single Sign-On 서비스 URL** 및 **SAML 엔터티 ID**를 **할당된 Fidelity Client Service Manager**로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -180,21 +176,21 @@ Fidelity NetBenefits에서 Azure AD Single Sign-On을 구성하고 테스트하�
   
 ### <a name="create-a-fidelity-netbenefits-test-user"></a>Fidelity NetBenefits 테스트 사용자 만들기
 
-이 섹션에서는 Fidelity NetBenefits에서 Britta Simon이라는 사용자를 만듭니다. 정적 페더레이션을 만드는 경우 [Fidelity NetBenefits 지원 팀](mailto:SSOMaintenance@fmr.com)과 함께 Fidelity NetBenefits 플랫폼에 사용자를 만드십시오. 이러한 사용자는 Single Sign-On을 사용하기 전에 만들고 활성화해야 합니다. 
+이 섹션에서는 Fidelity NetBenefits에서 Britta Simon이라는 사용자를 만듭니다. 정적 페더레이션을 만드는 경우 할당된 **Fidelity Client Service Manager**와 함께 Fidelity NetBenefits 플랫폼에 사용자를 만드세요. 이러한 사용자는 Single Sign-On을 사용하기 전에 만들고 활성화해야 합니다.
 
-동적 페더레이션의 경우 사용자는 JIT(Just-in-time) 사용자 프로비전을 사용하여 만들어집니다. JIT 기반 프로비전을 사용하려면 고객은 Azure AD에 더 많은 클레임(예: 사용자의 생년월일 등)을 추가해야 합니다. 이러한 세부 정보는 [Fidelity NetBenefits 지원 팀](mailto:SSOMaintenance@fmr.com)이 제공하며 이 팀이 인스턴스에 대해 동적 페더레이션을 사용하도록 설정해야 합니다.
+동적 페더레이션의 경우 사용자는 JIT(Just-in-time) 사용자 프로비전을 사용하여 만들어집니다. JIT 기반 프로비전을 사용하려면 고객은 Azure AD에 더 많은 클레임(예: 사용자의 생년월일 등)을 추가해야 합니다. 이러한 세부 정보는 할당된 **Fidelity Client Service Manager**에서 제공하며, 인스턴스에 대해 이 동적 페더레이션을 사용하도록 설정해야 합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Fidelity NetBenefits에 대한 액세스 권한을 부여합니다.
 
-![사용자 역할 할당][200] 
+![사용자 역할 할당][200]
 
 **Britta Simon을 Fidelity NetBenefits에 할당하려면 다음 단계를 수행합니다.**
 
 1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
 
-    ![사용자 할당][201] 
+    ![사용자 할당][201]
 
 2. 응용프로그램 목록에서 **Fidelity NetBenefits**를 선택합니다.
 
@@ -213,20 +209,18 @@ Fidelity NetBenefits에서 Azure AD Single Sign-On을 구성하고 테스트하�
 6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-    
+
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Fidelity NetBenefits 타일을 클릭하면 Fidelity NetBenefits 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -241,4 +235,3 @@ Fidelity NetBenefits에서 Azure AD Single Sign-On을 구성하고 테스트하�
 [201]: ./media/fidelitynetbenefits-tutorial/tutorial_general_201.png
 [202]: ./media/fidelitynetbenefits-tutorial/tutorial_general_202.png
 [203]: ./media/fidelitynetbenefits-tutorial/tutorial_general_203.png
-

@@ -14,17 +14,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 25193232263d55cb56c6ca35a8d1a074ce6bb157
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6cc4c0b01511309766e48c3d671ee897e5d6f326
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637993"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669116"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>단일 비트 전송률 라이브 스트림을 보낼 Wirecast 인코더 사용
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
-> * [Elemental Live](media-services-configure-elemental-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 >
@@ -36,7 +35,7 @@ ms.locfileid: "34637993"
 
 ## <a name="prerequisites"></a>필수 조건
 * [Azure Media Services 계정 만들기](media-services-portal-create-account.md)
-* 실행 중인 스트리밍 끝점이 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)
+* 실행 중인 스트리밍 엔드포인트가 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 엔드포인트 관리](media-services-portal-manage-streaming-endpoints.md)
 * 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.
 * 이 도구를 시작하고 AMS 계정에 연결합니다.
 
@@ -121,7 +120,7 @@ ms.locfileid: "34637993"
     새로 만들어진 프로필을 이제 인코딩 필드에서 선택할 수 있게 됩니다.
 
     새 프로필이 선택되었는지 확인합니다.
-7. Wirecast **RTMP 끝점**에 할당하기 위해 채널 입력 URL을 가져옵니다.
+7. Wirecast **RTMP 엔드포인트**에 할당하기 위해 채널 입력 URL을 가져옵니다.
 
     AMSE 도구로 다시 이동하여 채널 완료 상태를 확인합니다. 상태가 **시작 중**에서 **실행 중**으로 변경되었으면 입력 URL을 가져올 수 있습니다.
 

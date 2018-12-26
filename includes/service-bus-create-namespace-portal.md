@@ -2,20 +2,20 @@
 title: 포함 파일
 description: 포함 파일
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
 ms.date: 07/03/2018
-ms.author: sethm
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a110998505ed49c36e1ec722b1dfbf0969def060
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 377ea6629223c365ef3d00c756929bf23ddffde5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449561"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702648"
 ---
-Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azure에서 고유한 이름인 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
+Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azure에서 고유한 이름인 네임스페이스를 만들어야 합니다. 네임스페이스는 애플리케이션 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
 
 네임스페이스를 만들려면
 
@@ -39,7 +39,7 @@ Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azu
 3. **공유 액세스 정책** 화면에서 **RootManageSharedAccessKey**를 클릭합니다.
    
     ![connection-info][connection-info]
-4. **정책: RootManageSharedAccessKey** 창에서 **연결 문자열–기본 키** 옆의 복사 단추를 클릭하여 나중에 사용하기 위해 연결 문자열을 클립보드에 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 붙여 넣습니다.
+4. **정책: RootManageSharedAccessKey** 창에서 **기본 연결 문자열** 옆의 복사 단추를 클릭하여 나중에 사용할 수 있도록 연결 문자열을 클립보드에 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 붙여 넣습니다.
    
     ![connection-string][connection-string]
 

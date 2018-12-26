@@ -4,7 +4,7 @@ description: Azure PowerShell 및 Resource Manager 배포 모델을 사용하여
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: cynthn
-ms.openlocfilehash: 2ce73ca0a50a9884337258be0fab00528800db27
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: zarhoads
+ms.openlocfilehash: fbbe6753bd8aa3e43c8a45db5692ce38c18de50c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701822"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467296"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Windows VM에 대한 가용성 집합 변경
 다음 단계에서는 Azure PowerShell을 사용하여 VM의 가용성 집합을 변경하는 방법을 설명합니다. VM은 생성될 때만 가용성 집합에 추가될 수 있습니다. 가용성 집합을 변경하려면 가상 머신을 삭제한 다음, 다시 만들어야 합니다. 
@@ -35,13 +35,10 @@ ms.locfileid: "34701822"
     $vmName = "myVM"
     $newAvailSetName = "myAvailabilitySet"
 
-# Get VM Details
-    $originalVM = get-azurermvm `
+# Get the details of the VM to be moved to the Availablity Set
+    $originalVM = Get-AzureRmVM `
        -ResourceGroupName $resourceGroup `
        -Name $vmName
-
-# Remove the original VM
-    Remove-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
 
 # Create new availability set if it does not exist
     $availSet = Get-AzureRmAvailabilitySet `
@@ -57,6 +54,9 @@ ms.locfileid: "34701822"
        -PlatformUpdateDomainCount 2 `
        -Sku Aligned
     }
+    
+# Remove the original VM
+    Remove-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName    
 
 # Create the basic configuration for the replacement VM
     $newVM = New-AzureRmVMConfig `

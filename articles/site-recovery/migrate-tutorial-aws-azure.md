@@ -1,20 +1,20 @@
 ---
-title: Azure Site Recovery를 사용하여 AWS에서 Azure로 VM 마이그레이션 | Microsoft Docs
+title: Azure Site Recovery 서비스를 사용하여 Azure로 AWS VM 마이그레이션 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 AWS(Amazon Web Services)에서 실행되는 Windows VM을 Azure로 마이그레이션하는 방법을 설명합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: cd3229773b19b9f6c4d9ff76402f1841a4810bc7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922660"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851131"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
@@ -29,14 +29,16 @@ ms.locfileid: "37922660"
 > * 테스트 장애 조치(failover)를 통해 모든 것이 제대로 작동하는지 확인
 > * Azure에 대한 일회성 장애 조치(failover) 실행
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 - 마이그레이션할 VM이 지원되는 OS 버전을 실행하고 있는지 확인합니다. 지원되는 버전은 다음과 같습니다. 
-    - Windows Server 2016
-    - Red Hat Enterprise Linux 6.7(HVM 가상화된 인스턴스만 해당) 및 Citrix PV 또는 AWS PV 드라이버만 포함해야 합니다. Red Hat PV 드라이버를 실행하는 인스턴스는 지원되지 **않습니다**.
-
-- 복제하려는 각 VM에 모바일 서비스가 설치되어야 합니다. 
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - 64비트 버전의 Windows Server 2008 R2 SP1 이상
+  - Red Hat Enterprise Linux 6.7(HVM 가상화된 인스턴스만 해당)(Citrix PV 또는 AWS PV 드라이버 포함). RedHat PV 드라이버를 실행하는 인스턴스는 지원되지 *않습니다*.
+ - 복제하려는 각 VM에 모바일 서비스가 설치되어야 합니다. 
 
     > [!IMPORTANT]
     > Site Recovery에서 VM에 대한 복제를 사용하도록 설정하면 이 서비스를 자동으로 설치합니다. 자동 설치가 되려면 Site Recovery가 VM에 액세스하는 데 사용할 EC2 인스턴스 계정을 준비해야 합니다. 도메인 또는 로컬 계정을 사용할 수 있습니다. 
@@ -117,7 +119,7 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
 
 1. Windows Server 2012 R2가 실행되는 EC2 인스턴스를 사용하여 구성 서버를 만들고 복구 자격 증명 모음에 등록합니다.
 2. 구성 서버로 사용하는 EC2 인스턴스 VM에서 [서비스 URL](site-recovery-support-matrix-to-azure.md)에 액세스할 수 있도록 프록시를 구성합니다.
-3. [Microsoft Azure Site Recovery 통합 설치](http://aka.ms/unifiedinstaller_wus)를 다운로드합니다. 로컬 컴퓨터에 다운로드한 후에 구성 서버로 사용할 VM에 복사해도 됩니다.
+3. [Microsoft Azure Site Recovery 통합 설치](https://aka.ms/unifiedinstaller_wus)를 다운로드합니다. 로컬 컴퓨터에 다운로드한 후에 구성 서버로 사용할 VM에 복사해도 됩니다.
 4. **다운로드** 단추를 선택하여 자격 증명 모음 등록 키를 다운로드합니다. 다운로드한 파일을 구성 서버로 사용할 VM에 복사합니다.
 5. VM에서 Microsoft Azure Site Recovery 통합 설치용으로 다운로드한 설치 프로그램을 마우스 오른쪽 단추로 클릭한 후 **관리자 권한으로 실행**을 선택합니다.
 
@@ -237,10 +239,12 @@ VM에 대해 복제를 사용하도록 설정하면 변경 내용이 적용되�
 Azure VM에 마이그레이션할 EC2 인스턴스에 대해 실제 장애 조치(failover)를 실행합니다.
 
 1. **보호된 항목** > **복제된 항목**에서 AWS 인스턴스를 선택한 후 **장애 조치(Failover)** 를 선택합니다.
-2. **장애 조치(Failover)** 에서 장애 조치할 **복구 지점**을 선택합니다. 최신 복구 지점을 선택합니다.
-3. 장애 조치를 트리거하기 전에 Site Recovery에서 원본 가상 머신을 종료하려고 시도하는 경우 **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다**를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
-4. VM이 **복제된 항목**에 표시되는지 확인합니다.
-5. 각 VM을 마우스 오른쪽 단추로 클릭한 후 **마이그레이션 완료**를 선택합니다. 그러면 마이그레이션 프로세스가 완료되고, AWS VM에 대한 복제가 중지되고, VM에 대한 Site Recovery 청구가 중지됩니다.
+2. **장애 조치(Failover)** 에서 장애 조치할 **복구 지점**을 선택합니다. 최근 복구 지점을 선택하고 장애 조치(failover)를 시작합니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
+1. VM이 **복제된 항목**에 표시되는지 확인합니다.
+2. 각 VM을 마우스 오른쪽 단추로 클릭한 후 **마이그레이션 완료**를 선택합니다. 다음을 수행합니다.
+
+    - 그러면 마이그레이션 프로세스가 완료되고, AWS VM에 대한 복제가 중지되고, VM에 대한 Site Recovery 청구가 중지됩니다.
+    - 이 단계는 복제 데이터를 정리합니다. 마이그레이션된 VM을 삭제하지 않습니다. 
 
     ![마이그레이션 완료](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

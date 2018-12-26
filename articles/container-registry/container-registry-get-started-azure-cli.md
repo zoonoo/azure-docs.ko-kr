@@ -1,28 +1,27 @@
 ---
-title: 빠른 시작 - Azure CLI를 사용하여 Azure에서 개인 Docker 레지스트리 만들기
+title: 빠른 시작 - Azure에서 개인 Docker 레지스트리 만들기 - Azure CLI
 description: Azure CLI를 사용한 개인 Docker 컨테이너 레지스트리 만들기에 대해 빠르게 알아봅니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
-ms.author: marsma
-ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 20dfae9c24bac7d9f76ae95f8b6d7c0610a0735e
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.author: danlep
+ms.custom: seodec18, H1Hack27Feb2017, mvc
+ms.openlocfilehash: e75a2d126680c71542aa04bae5a30ea7c376cea1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888544"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255927"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 컨테이너 레지스트리 만들기
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 개인 컨테이너 레지스트리 만들기
 
 Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하는 데 사용되는 관리되는 Docker 컨테이너 레지스트리 서비스입니다. 이 가이드는 Azure CLI를 사용하여 Azure Container Registry 인스턴스 만들기, 컨테이너 이미지를 레지스트리로 푸시, 마지막으로 레지스트리의 컨테이너에서 ACI(Azure Container Instances)로 배포를 설명합니다.
 
 이 빠른 시작에서는 Azure CLI 버전 2.0.27 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
-또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [Mac][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
+또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [macOS][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 Docker를 쉽게 구성할 수 있는 패키지를 제공합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -40,9 +39,7 @@ az group create --name myResourceGroup --location eastus
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-[az acr create][az-acr-create] 명령을 사용하여 ACR 인스턴스를 만듭니다.
-
-레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 다음 예제에서는 *myContainerRegistry007*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
+[az acr create][az-acr-create] 명령을 사용하여 ACR 인스턴스를 만듭니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 다음 예제에서는 *myContainerRegistry007*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -117,7 +114,7 @@ docker push <acrLoginServer>/aci-helloworld:v1
 az acr repository list --name <acrName> --output table
 ```
 
-출력
+출력:
 
 ```bash
 Result
@@ -131,7 +128,7 @@ aci-helloworld
 az acr repository show-tags --name <acrName> --repository aci-helloworld --output table
 ```
 
-출력
+출력:
 
 ```bash
 Result
@@ -175,7 +172,7 @@ az container show --resource-group myResourceGroup --name acr-quickstart --query
 
 예제 출력: `"aci-demo.eastus.azurecontainer.io"`
 
-실행 중인 응용 프로그램을 보려면 원하는 브라우저에서 공용 IP 주소로 이동합니다.
+실행 중인 애플리케이션을 보려면 원하는 브라우저에서 공용 IP 주소로 이동합니다.
 
 ![브라우저의 Hello World 앱][aci-app-browser]
 
@@ -207,12 +204,12 @@ az group delete --name myResourceGroup
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-acr-create]: /cli/azure/acr#az_acr_create
-[az-acr-login]: /cli/azure/acr#az_acr_login
-[az-group-create]: /cli/azure/group#az_group_create
-[az-group-delete]: /cli/azure/group#az_group_delete
+[az-acr-create]: /cli/azure/acr#az-acr-create
+[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-group-create]: /cli/azure/group#az-group-create
+[az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli]: /cli/azure/install-azure-cli
-[az-container-show]: /cli/azure/container#az_container_show
+[az-container-show]: /cli/azure/container#az-container-show
 [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
 [container-registry-skus]: container-registry-skus.md
 [container-registry-auth-aci]: container-registry-auth-aci.md

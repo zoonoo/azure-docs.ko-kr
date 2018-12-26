@@ -2,18 +2,17 @@
 title: Azure Container Instances를 Jenkins 빌드 에이전트로 사용
 description: Azure Container Instances를 Jenkins 빌드 에이전트로 사용하는 방법을 알아봅니다.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/20/2018
-ms.author: marsma
-ms.openlocfilehash: ff94a250ca40aa546ebb07faa96563f49dea974a
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.date: 08/31/2018
+ms.author: danlep
+ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887694"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354192"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Azure Container Instances를 Jenkins 빌드 에이전트로 사용
 
@@ -48,7 +47,7 @@ Azure Container Instances에 대한 자세한 내용은 [Azure Container Instanc
 
    ![Jenkins 포털 배포의 추가 설정](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. [Azure 관리 서비스 ID][managed-service-identity]가 Jenkins 인스턴스에 대한 인증 ID를 자동으로 만들게 하려면 서비스 주체 통합에서 **Auto(MSI)** 를 선택합니다. 사용자 고유의 서비스 주체 자격 증명을 입력하려면 **수동**을 선택합니다.
+4. 서비스 주체 통합을 위해 **Auto(MSI)** 를 선택하여 to have [Azure 리소스용 관리 ID][managed-identities-azure-resources]가 Jenkins 인스턴스에 대한 인증 ID를 자동으로 만들게 합니다. 사용자 고유의 서비스 주체 자격 증명을 입력하려면 **수동**을 선택합니다.
 
 5. 클라우드 에이전트는 Jenkins 빌드 작업을 위한 클라우드 기반 플랫폼을 구성합니다. 이 문서에서는 **ACI**를 선택합니다. ACI 클라우드 에이전트를 사용하면 각 Jenkins 빌드 작업이 하나의 컨테이너 인스턴스에서 실행됩니다.
 
@@ -92,31 +91,21 @@ Azure Container Instances에 대한 자세한 내용은 [Azure Container Instanc
 
 ## <a name="create-a-build-job"></a>빌드 작업 만들기
 
-컨테이너 이미지를 Jenkins 빌드 대상으로 사용할 때 빌드에 필요한 모든 도구를 포함하는 이미지를 지정해야 합니다. 이미지를 지정하려면:
+이제 Jenkins 빌드 작업을 만들어서 Azure Container Instance에서 Jenkins 빌드를 보여줍니다.
 
-1. **Jenkins 관리** > **시스템 구성**을 선택하고 **클라우드** 섹션이 나올 때까지 아래로 스크롤합니다. 이 예제에서는 Docker 이미지 값을 **microsoft/java-on-azure-jenkins-slave**로 업데이트합니다.
-
-   모두 마쳤으면 **저장**을 선택하여 Jenkins 대시보드로 돌아갑니다.
-
-   ![Jenkins 클라우드 구성](./media/container-instances-jenkins/jenkins-aci-image.png)
-
-2. 이제 Jenkins 빌드 작업을 만듭니다. **새 항목**을 선택하고, 빌드 프로젝트의 이름을 지정하고(예: **aci-java-demo**), **프리스타일 프로젝트**를 선택하고, **확인**을 선택합니다.
+1. **새 항목**을 선택하고, 빌드 프로젝트의 이름을 지정하고(예: **aci-demo**), **프리스타일 프로젝트**를 선택하고, **확인**을 선택합니다.
 
    ![빌드 작업 이름 상자와 프로젝트 형식 목록](./media/container-instances-jenkins/jenkins-new-job.png)
 
-3. **일반**에서 **이 프로젝트를 실행할 수 있는 위치 제한**을 선택합니다. 레이블 식에 **linux**를 입력합니다. 이렇게 구성하면 이 빌드 작업이 ACI 클라우드에서 실행됩니다.
+2. **일반**에서 **이 프로젝트를 실행할 수 있는 위치 제한**을 선택합니다. 레이블 식에 **linux**를 입력합니다. 이렇게 구성하면 이 빌드 작업이 ACI 클라우드에서 실행됩니다.
 
    ![구성 세부 정보가 제공되는 "일반" 탭](./media/container-instances-jenkins/jenkins-job-01.png)
 
-4. **소스 코드 관리**에서 **Git**을 선택하고 리포지토리 URL로 **https://github.com/spring-projects/spring-petclinic.git**을 입력합니다. 이 GitHub 리포지토리는 응용 프로그램 예제 코드를 포함하고 있습니다.
+3. **빌드** 아래에서 **빌드 단계 추가**를 선택하고 **셸 실행**을 선택합니다. `echo "aci-demo"`를 명령으로 입력합니다.
 
-   ![소스 코드 정보를 제공하는 "소스 코드 관리" 탭](./media/container-instances-jenkins/jenkins-job-02.png)
+   ![빌드 단계에 대한 선택 영역이 있는 "빌드" 탭](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. **빌드** 아래에서 **빌드 단계 추가**, **최상위 Maven 대상 호출**을 차례로 선택합니다. 빌드 단계 목표로 **패키지**를 입력합니다.
-
-   ![빌드 단계에 대한 선택 영역이 있는 "빌드" 탭](./media/container-instances-jenkins/jenkins-job-03.png)
-
-6. **저장**을 선택합니다.
+5. **저장**을 선택합니다.
 
 ## <a name="run-the-build-job"></a>빌드 작업 실행
 
@@ -137,6 +126,10 @@ Azure Container Instances에 대한 자세한 내용은 [Azure Container Instanc
 4. 모든 빌드 작업이 완료되면 컨테이너 인스턴스가 제거됩니다.
 
    ![컨테이너 인스턴스가 제거된 리소스 그룹](./media/container-instances-jenkins/jenkins-aci-none.png)
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins 플러그 인 문제 해결
+
+Jenkins 플러그 인에서 버그가 발생하면 [Jenkins JIRA](https://issues.jenkins-ci.org/)에서 특정 구성 요소에 대한 문제를 제출해 주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

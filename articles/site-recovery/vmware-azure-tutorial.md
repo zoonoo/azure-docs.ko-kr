@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 93626e6a8f199841b285fb8a6e302e6c3054db0d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 18675737dd03dd6c95a8f57a8f8bcdaed6c8b93d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918036"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837327"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -132,7 +132,7 @@ OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라
 4. **VMware PowerCLI 설치**를 선택합니다. 이렇게 하기 전에 모든 브라우저 창을 닫아야 합니다. 그런 다음, **계속**을 선택합니다.
 5. 계속하기 전에 **어플라이언스 구성 유효성 검사**에서 필수 구성 요소가 확인됩니다.
 6. **vCenter Server/vSphere ESXi 서버 구성**에 복제하려는 VM이 있는 vCenter 서버 또는 vSphere 호스트의 FQDN 또는 IP 주소를 지정합니다. 서버가 수신 대기하는 포트를 입력합니다. 자격 증명 모음의 VMware 서버에 사용할 이름을 입력합니다.
-7. 구성 서버가 VMware 서버에 연결하는 데 사용할 자격 증명을 입력합니다. Site Recovery는 이러한 자격 증명을 사용하여 복제에 사용 가능한 VMware VM을 자동으로 검색합니다. **추가**를 선택한 다음, **계속**을 선택합니다.
+7. 구성 서버가 VMware 서버에 연결하는 데 사용할 사용자 자격 증명을 입력합니다. 사용자 이름과 암호가 정확하고 보호할 가상 머신의 관리자 그룹에 속하는지 확인합니다. Site Recovery는 이러한 자격 증명을 사용하여 복제에 사용 가능한 VMware VM을 자동으로 검색합니다. **추가**를 선택한 다음, **계속**을 선택합니다.
 8. **가상 머신 자격 증명 구성**에서 복제가 사용되면 VM에서 모바일 서비스를 자동으로 설치하는 데 사용할 사용자 이름 및 암호를 입력합니다.
     - Windows 컴퓨터의 경우 복제하려는 컴퓨터에 대한 로컬 관리자 권한이 필요합니다.
     - Linux의 경우 루트 계정에 대한 세부 정보를 제공합니다.

@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2e3852ffc01312f01843a90de5f5565784b1c0b5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 43a059e13945be3e39f65995e18ccd552727b874
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114254"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312581"
 ---
-# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java 안정적인 서비스 응용 프로그램 배포
+# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java Reliable Services 애플리케이션 배포
 
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
@@ -66,8 +66,8 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![로컬 클러스터 정상](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Eclipse를 엽니다.
-3. File -> Open Projects from File System...을 선택합니다.
-4. Directory를 클릭하고 Github에서 복제한 `service-fabric-java-quickstart` 폴더에서 `Voting` 디렉터리를 선택합니다. Finish를 클릭합니다.
+3. 파일 -> 가져오기 -> Gradle-> 기존 Gradle 프로젝트를 클릭하고 마법사를 따릅니다.
+4. 디렉터리를 클릭하고 GitHub에서 복제한 `service-fabric-java-quickstart` 폴더에서 `Voting` 디렉터리를 선택합니다. Finish를 클릭합니다.
 
     ![Eclipse Import 대화 상자](./media/service-fabric-quickstart-java/eclipseimport.png)
 
@@ -90,7 +90,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 운영합니다. 파티 클러스터를 사용하여 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드 및 클라이언트-노드 보안에 단일 자체 서명 인증서를 사용합니다.
 
-[Linux 클러스터](http://aka.ms/tryservicefabric)에 로그인하고 조인합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. **추가 정보** 링크를 클릭하여 인증서 암호 및 다양한 환경에서 인증서를 사용하도록 구성하는 방법에 대한 지침을 찾습니다. **시작** 페이지와 **추가 정보** 페이지를 모두 열어두고 다음 단계에서 일부 지침을 사용합니다.
+[Linux 클러스터](https://aka.ms/tryservicefabric)에 로그인하고 조인합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. **추가 정보** 링크를 클릭하여 인증서 암호 및 다양한 환경에서 인증서를 사용하도록 구성하는 방법에 대한 지침을 찾습니다. **시작** 페이지와 **추가 정보** 페이지를 모두 열어두고 다음 단계에서 일부 지침을 사용합니다.
 
 > [!Note]
 > 시간당 사용 가능한 파티 클러스터의 수는 제한되어 있습니다. 파티 클러스터에 등록하려고 할 때 오류가 발생하면, 일정 기간 동안 기다린 후 다시 시도하거나, [Azure에서 Service Fabric 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)의 단계에 따라 구독에 클러스터를 만들 수 있습니다.
@@ -101,7 +101,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 Service Fabric은 클러스터 및 해당 응용 프로그램을 관리하는 데 사용할 수 있는 몇 가지 도구를 제공합니다.
 
 * Service Fabric Explorer, 브라우저 기반 도구입니다.
-* Service Fabric CLI(명령줄 인터페이스), Azure CLI 2.0을 기반으로 실행됩니다.
+* Service Fabric CLI(명령줄 인터페이스), Azure CLI를 기반으로 실행됩니다.
 * PowerShell 명령
 
 이 빠른 시작에서는 Service Fabric CLI 및 Service Fabric Explorer를 사용합니다.
@@ -116,9 +116,9 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
 가장 편리한 방법을 사용하여 시스템에서 인증서를 가져옵니다. 예: 
 
-* Windows: PFX 파일을 두 번 클릭하고 프롬프트에 따라 개인 저장소 `Certificates - Current User\Personal\Certificates`에 인증서를 설치합니다. 또는 **추가 정보** 지침의 PowerShell 명령을 사용할 수 있습니다.
-* Mac: PFX 파일을 두 번 클릭하고 프롬프트에 따라 키 집합에 인증서를 설치합니다.
-* Ubuntu: Mozilla Firefox는 Ubuntu 16.04의 기본 브라우저입니다. 인증서를 Firefox로 가져 오려면 브라우저의 오른쪽 위 모서리에 있는 메뉴 단추를 클릭한 다음 **옵션**을 클릭합니다. **기본 설정** 페이지에서 검색 상자를 사용하여 "인증서"를 검색합니다. **인증서 보기**를 클릭하고 **Your Certificates**(인증서) 탭을 선택하고 **가져오기**를 클릭하여 프롬프트에 따라 인증서를 가져옵니다.
+* Windows에서: PFX 파일을 두 번 클릭하고 프롬프트에 따라 개인 저장소 `Certificates - Current User\Personal\Certificates`에 인증서를 설치합니다. 또는 **추가 정보** 지침의 PowerShell 명령을 사용할 수 있습니다.
+* Mac에서: PFX 파일을 두 번 클릭하고 프롬프트에 따라 키 집합에 인증서를 설치합니다.
+* Ubuntu에서: Mozilla Firefox가 Ubuntu 16.04의 기본 브라우저입니다. 인증서를 Firefox로 가져 오려면 브라우저의 오른쪽 위 모서리에 있는 메뉴 단추를 클릭한 다음 **옵션**을 클릭합니다. **기본 설정** 페이지에서 검색 상자를 사용하여 "인증서"를 검색합니다. **인증서 보기**를 클릭하고 **Your Certificates**(인증서) 탭을 선택하고 **가져오기**를 클릭하여 프롬프트에 따라 인증서를 가져옵니다.
 
    ![Firefox에서 인증서 설치](./media/service-fabric-quickstart-java/install-cert-firefox.png)
 
@@ -132,7 +132,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. `Voting/VotingApplication/ApplicationManifest.xml` 파일에서 **ApplicationManifest** 태그 아래에 다음 코드 조각을 추가합니다. **X509FindValue**는 이전 단계의 지문이어야 합니다(세미콜론 없음). 
+2. `Voting/VotingApplication/ApplicationManifest.xml` 파일에서 **ApplicationManifest** 태그 아래에 다음 코드 조각을 추가합니다. **X509FindValue**는 이전 단계의 지문이어야 합니다(세미콜론 없음).
 
     ```xml
     <Certificates>

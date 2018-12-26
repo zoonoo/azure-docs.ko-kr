@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 351809cd5f165a863dc02bfadf78fa59cbaabfd7
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 3f4763b5e15d4b9b84e868262a9e8538b8a407a2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24103364"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228830"
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭 검토
 
@@ -39,20 +39,20 @@ BizTalk Services 버전에 따라 나열된 일부 옵션을 사용하지 못할
         <td><strong>도구 얻기</strong></td>
         <td>BizTalk Services SDK를 다운로드하여 온-프레미스 개발 컴퓨터에 Visual Studio 프로젝트 템플릿을 설치합니다. 이러한 템플릿은 BizTalk Service에 배포되는 <strong>BizTalk Services</strong>(브리지) 및 <strong>BizTalk Service Artifacts</strong>(변형) Visual Studio 프로젝트를 만듭니다.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Azure BizTalk Services SDK로 시작하는 방법</a> 및 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Azure BizTalk Services SDK 설치</a>에서 시작 단계를 나열합니다.
+        <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302335">Azure BizTalk Services SDK로 시작하는 방법</a> 및 <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=241589">Azure BizTalk Services SDK 설치</a>에서 시작 단계를 나열합니다.
         </td>
     </tr>
     <tr>
         <td><strong>파트너 규약 만들기</strong></td>
         <td>Azure에서 호스트되는 Azure BizTalk Services 포털을 엽니다. 이 포털에서 파트너를 추가하고 X12, AS2 및 EDIFACT EDI 계약을 생성할 수 있습니다.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">BizTalk Services Portal에서 EDI 메시징 구성 요소 구성</a>에서 시작 단계를 나열합니다.
+        <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">BizTalk Services Portal에서 EDI 메시징 구성 요소 구성</a>에서 시작 단계를 나열합니다.
         </td>
     </tr>
 
 <tr>
         <td><strong>BizTalk Services에 대한 자세한 정보</strong></td>
-        <td>Azure BizTalk Services에 대해 자세히 알아보려면 <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">학습 센터</a>로 이동합니다.</td>
+        <td>Azure BizTalk Services에 대해 자세히 알아보려면 <a HREF="https://azure.microsoft.com/documentation/services/biztalk-services/">학습 센터</a>로 이동합니다.</td>
 </tr>
 </table>
 
@@ -67,14 +67,14 @@ BizTalk Services 버전에 따라 나열된 일부 옵션을 사용하지 못할
 <br/><br/>
 이 메뉴는 <strong>빠른 시작</strong> 탭의 <strong>파트너 계약 만들기</strong>와 동일합니다.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">BizTalk Services Portal에서 EDI 메시징 구성 요소 구성</a>에서 BizTalk Services Portal에 대한 자세한 정보를 제공합니다.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">BizTalk Services Portal에서 EDI 메시징 구성 요소 구성</a>에서 BizTalk Services Portal에 대한 자세한 정보를 제공합니다.</td>
 </tr>
 
 <tr>
 <td>[Access Control 네임스페이스]의 <strong>연결 정보</strong></td>
 <td>연결 정보를 선택하면 Access Control 네임스페이스, 기본 발급자 및 기본 키가 표시됩니다. 이러한 값은 복사할 수 있습니다.
 <br/><br/>
-또한 Access Control 포털을 열 수 있습니다. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">액세스 제어 네임 스페이스 만들기</a>에서 Access Control Portal에 대한 자세한 정보를 제공합니다.</td>
+또한 Access Control 포털을 열 수 있습니다. <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285670">액세스 제어 네임 스페이스 만들기</a>에서 Access Control Portal에 대한 자세한 정보를 제공합니다.</td>
 </tr>
 
 <tr>
@@ -122,7 +122,7 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 </tr>
 <tr>
 <td><strong>SSL 인증서 업데이트</strong></td>
-<td>다른 SSL 인증서를 사용하도록 BizTalk 서비스를 업데이트할 수 있습니다. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">BizTalk Service를 만들</a> 때는 자체 서명된 SSL 인증서가 자동으로 만들어집니다.</td>
+<td>다른 SSL 인증서를 사용하도록 BizTalk 서비스를 업데이트할 수 있습니다. <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">BizTalk Service를 만들</a> 때는 자체 서명된 SSL 인증서가 자동으로 만들어집니다.</td>
 </tr>
 <tr>
 <td><strong>인증서 다운로드</strong></td>
@@ -130,7 +130,7 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 </tr>
 <tr>
 <td><strong>상태</strong></td>
-<td>BizTalk 서비스의 현재 상태를 표시합니다. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=329870">BizTalk Services: 서비스 상태 차트</a>를 참조합니다. </td>
+<td>BizTalk 서비스의 현재 상태를 표시합니다. <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=329870">BizTalk Services: 서비스 상태 차트</a>를 참조합니다. </td>
 </tr>
 <tr>
 <td><strong>서비스 URL</strong></td>
@@ -138,7 +138,7 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 </tr>
 <tr>
 <td><strong>공용 VIP(가상 IP) 주소</strong></td>
-<td>BizTalk 서비스에 할당된 IP 주소입니다. 이는 모든 입력 끝점에 사용되며 아웃바운드 트래픽의 원본 주소입니다. 이 IP 주소는 만들어진 상태에서는 BizTalk 서비스에 속합니다. BizTalk 서비스를 삭제하면 IP 주소가 다른 BizTalk 서비스에 할당됩니다.</td>
+<td>BizTalk 서비스에 할당된 IP 주소입니다. 이는 모든 입력 엔드포인트에 사용되며 아웃바운드 트래픽의 원본 주소입니다. 이 IP 주소는 만들어진 상태에서는 BizTalk 서비스에 속합니다. BizTalk 서비스를 삭제하면 IP 주소가 다른 BizTalk 서비스에 할당됩니다.</td>
 </tr>
 <tr>
 <td><strong>ACS 네임스페이스</strong></td>
@@ -149,7 +149,7 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 <td>BizTalk 서비스를 만들 때 입력한 버전을 나열합니다.</td>
 </tr>
 <tr>
-<td><strong>위치</strong></td>
+<td><strong>위치</strong>:</td>
 <td>BizTalk 서비스를 호스트하는 지리적 지역을 표시합니다.</td>
 </tr>
 <tr>
@@ -160,13 +160,13 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 <td><strong>추적 데이터베이스</strong></td>
 <td>BizTalk 서비스에 사용되는 추적 테이블을 저장하는 Azure SQL Database 이름입니다. 
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">요구 사항 설명</a>에서는 [추적 데이터베이스]에 대한 자세한 정보를 제공합니다.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">요구 사항 설명</a>에서는 [추적 데이터베이스]에 대한 자세한 정보를 제공합니다.</td>
 </tr>
 <tr>
 <td><strong>모니터링/보관 저장소</strong></td>
 <td>BizTalk 서비스에 대한 모니터링 출력을 저장하는 Azure Storage 계정 이름입니다.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">요구 사항 설명</a>에서는 Storage 계정에 대한 자세한 정보를 제공합니다.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">요구 사항 설명</a>에서는 Storage 계정에 대한 자세한 정보를 제공합니다.</td>
 </tr>
 <tr>
 <td><strong>구독 이름</strong></td>
@@ -178,7 +178,7 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 </tr>
 </table>
 
-[BizTalk Services: 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)은 BizTalk Service를 만드는 단계를 나열합니다.
+[BizTalk Services: 프로비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)은 BizTalk Service를 만드는 단계를 나열합니다.
 
 ##### <a name="manage-connection-information-sync-keys-and-delete-in-the-task-bar"></a>작업 표시줄의 관리, 연결 정보, 동기화 키 및 삭제:
 <table border="1">
@@ -189,7 +189,7 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 <br/><br/>
 이 메뉴는 <strong>빠른 시작</strong> 탭의 <strong>파트너 계약 만들기</strong>와 동일합니다.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">BizTalk Services Portal에서 EDI 메시징 구성 요소 구성</a>에서 BizTalk Services Portal에 대한 자세한 정보를 제공합니다.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">BizTalk Services Portal에서 EDI 메시징 구성 요소 구성</a>에서 BizTalk Services Portal에 대한 자세한 정보를 제공합니다.</td>
 </tr>
 <tr>
 <td>[Access Control 네임스페이스]의 <strong>연결 정보</strong></td>
@@ -197,7 +197,7 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 <br/><br/>
 또한 Access Control 포털을 열 수 있습니다. 이 Access Control 포털은 왼쪽 탐색 창에서 Active Directory 옵션을 사용하는 경우와 동일한 기능을 제공합니다.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">ACS 네임 스페이스 관리</a>에서 Access Control Portal에 대한 자세한 정보를 제공합니다.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285670">ACS 네임 스페이스 관리</a>에서 Access Control Portal에 대한 자세한 정보를 제공합니다.</td>
 </tr>
 <tr>
 <td>[Storage 계정]의 <strong>동기화 키</strong></td>
@@ -269,7 +269,7 @@ BizTalk 서비스 이름을 선택하면 다음 항목이 표시된 모니터 �
 </tr>
 <tr>
 <td><strong>원본에서 실패</strong></td>
-<td>원본 끝점에서 메시지를 끌어올 때 BizTalk 서비스에서 실패한 총 메시지 수를 표시합니다.</td>
+<td>원본 엔드포인트에서 메시지를 끌어올 때 BizTalk 서비스에서 실패한 총 메시지 수를 표시합니다.</td>
 </tr>
 <tr>
 <td><strong>CPU 사용량</strong></td>
@@ -342,11 +342,11 @@ Azure BizTalk Services에서 하이브리드 연결을 만들거나 관리하려
 * [BizTalk Services: Backup 및 복원](biztalk-backup-restore.md)
 
 ## <a name="see-also"></a>참고 항목
-* [하이브리드 연결](integration-hybrid-connection-overview.md)  
+* [VNet](integration-hybrid-connection-overview.md)  
 * [BizTalk Services: Developer, Basic, Standard 및 Premium Editions 차트](biztalk-editions-feature-chart.md)  
 * [BizTalk Services: 프로비전](biztalk-provision-services.md)  
 * [BizTalk Services: BizTalk 서비스 상태 차트](biztalk-service-state-chart.md)  
-* [Azure BizTalk Services SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Azure BizTalk Services SDK로 시작하는 방법](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [Quickstart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png

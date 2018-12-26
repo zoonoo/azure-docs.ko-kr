@@ -1,25 +1,20 @@
 ---
-title: HDInsight의 Hadoop 클러스터에 Giraph 설치 및 사용 - Azure | Microsoft Docs
+title: HDInsight의 Hadoop 클러스터에 Giraph 설치 및 사용 - Azure
 description: Giraph를 사용하여 HDInsight 클러스터를 사용자 지정하는 방법 및 Giraph를 사용하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 77a1d0e0-55de-4e61-98a0-060914fb7ca0
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2016
-ms.author: nitinme
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: c4cd643d4bdd95493f63bb5b1c1f855bc95bf226
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 6138cc337c35924405fa3f6489e7e40bfc5779c9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271364"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007011"
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Giraph 설치 및 사용
 
@@ -53,7 +48,7 @@ ms.locfileid: "34271364"
 
     <table border='1'>
         <tr><th>자산</th><th>값</th></tr>
-        <tr><td>Name</td>
+        <tr><td>이름</td>
             <td>스크립트 작업의 이름을 지정합니다. 예: <b>Install Giraph</b></td></tr>
         <tr><td>스크립트 URI</td>
             <td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다. 예: <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
@@ -78,7 +73,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 
     tiny_graph.txt 파일을 HDInsight 클러스터의 기본 저장소에 업로드합니다. 데이터를 업로드하는 방법은 [HDInsight에서 Hadoop 작업에 대한 데이터 업로드](hdinsight-upload-data.md)를 참조하세요.
 
-    이 데이터는 [source\_id, source\_value,[[dest\_id], [edge\_value],...]]의 형식을 사용하여 방향이 지정된 그래프의 개체 간 관계를 설명합니다. 각 줄은 **source\_id** 개체와 하나 이상의 **dest\_id** 개체 간 관계를 나타냅니다. **edge\_value**(또는 가중치)는 **source_id**와 **dest\_id** 간 연결의 강도 또는 거리로 생각할 수 있습니다.
+    이 데이터는 [source\_id, source\_value,[[dest\_id], [edge\_value],...]]의 형식을 사용하여 방향이 지정된 그래프의 개체 간 관계를 설명합니다. 각 줄은 sourceid** 개체와 하나 이상의 **dest\_id** 개체 간 관계를 나타냅니다. **edge\_value**(또는 가중치)는 **source_id**와 **dest\_id** 간 연결의 강도 또는 거리로 생각할 수 있습니다.
 
     개체 간 거리로 위의 값(또는 가중치)을 사용하여 그리면 다음과 같을 수 있습니다.
 
@@ -159,7 +154,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
     ![가장 짧은 경로와 함께 원으로 그린 개체](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 ## <a name="install-giraph-using-aure-powershell"></a>Aure PowerShell을 사용하여 Giraph 설치
-[스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)을 참조하세요.  샘플은 Azure PowerShell을 사용하여 Spark를 설치하는 방법을 보여줍니다. [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.
+[스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)을 참조하세요.  샘플은 Azure PowerShell을 사용하여 Spark를 설치하는 방법을 보여줍니다. [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.
 
 ## <a name="install-giraph-using-net-sdk"></a>.NET SDK을 사용하여 Giraph 설치
 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)을 참조하세요. 샘플은 .NET SDK를 사용하여 Spark를 설치하는 방법을 보여줍니다. [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.

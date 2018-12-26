@@ -8,26 +8,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 10/22/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: eae350f751788eb09271e70f71f79b12e27c4e16
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061404"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094598"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 시나리오에서 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크에 조인합니다. 
 
 - Azure-SSIS 통합 런타임에서 실행되는 SSIS 패키지에서 온-프레미스 데이터 저장소에 연결하려고 합니다. 
 
-- 가상 네트워크 서비스 엔드포인트/관리되는 인스턴스(미리 보기)를 사용하여 Azure SQL Database에서 SSIS(SQL Server Integration Services) 카탈로그 데이터베이스를 호스팅하고 있습니다. 
+- 가상 네트워크 서비스 엔드포인트/Managed Instance를 사용하여 Azure SQL Database에서 SSIS(SQL Server Integration Services) 카탈로그 데이터베이스를 호스팅하고 있습니다. 
 
  Azure Data Factory를 사용하면 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 통해 만들어진 가상 네트워크에 Azure SSIS 통합 런타임을 조인할 수 있습니다. 
+
+> [!IMPORTANT]
+> 클래식 가상 네트워크는 현재 사용되지 않으므로, 대신 Azure Resource Manager 가상 네트워크를 사용하세요.  이미 클래식 가상 네트워크를 사용하고 있다면, 가능한 한 빨리 Azure Resource Manager 가상 네트워크를 사용하도록 전환하시기 바랍니다.
 
 ## <a name="access-to-on-premises-data-stores"></a>온-프레미스 데이터 저장소 액세스
 SSIS 패키지가 공용 클라우드 데이터 저장소에만 액세스하는 경우 Azure-SSIS IR을 가상 네트워크에 조인할 필요가 없습니다. SSIS 패키지가 온-프레미스 데이터 저장소에 액세스하는 경우 Azure-SSIS IR을 온-프레미스 네트워크에 연결된 가상 네트워크에 조인해야 합니다. 
@@ -42,20 +45,24 @@ SSIS 패키지가 공용 클라우드 데이터 저장소에만 액세스하는 
  
 - 온-프레미스 네트워크에 연결된 기존 Azure Resource Manager 가상 네트워크가 Azure-SSIS IR과 다른 위치에 있는 경우, 먼저 Azure-SSIS IR에서 조인할 [Azure Resource Manager 가상 네트워크](../virtual-network/quick-create-portal.md##create-a-virtual-network)를 만듭니다. 그런 다음, Azure Resource Manager-Azure Resource Manager 가상 네트워크 연결을 구성합니다. 또는 Azure-SSIS IR에서 조인할 [클래식 가상 네트워크](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 만들 수 있습니다. 그런 다음, [클래식-Azure Resource Manager 가상 네트워크](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) 연결을 구성합니다. 
 
-## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance-preview"></a>가상 네트워크 서비스 엔드포인트/관리되는 인스턴스(미리 보기)를 사용하여 Azure SQL Database에서 SSIS 카탈로그 데이터베이스를 호스팅합니다.
-SSIS 카탈로그가 가상 네트워크 서비스 엔드포인트 또는 관리되는 인스턴스(미리 보기)를 사용하여 Azure SQL Database에서 호스팅되는 경우 다음에 Azure-SSIS IR을 조인할 수 있습니다. 
+## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance"></a>가상 네트워크 서비스 엔드포인트/Managed Instance를 사용하여 Azure SQL Database에서 SSIS 카탈로그 데이터베이스를 호스팅합니다.
+SSIS 카탈로그가 가상 네트워크 서비스 엔드포인트 또는 Managed Instance를 사용하여 Azure SQL Database에서 호스팅되는 경우 다음에 Azure-SSIS IR을 조인할 수 있습니다. 
 
 - 동일한 가상 네트워크 
-- 가상 네트워크 서비스 엔드포인트/관리되는 인스턴스(미리 보기)를 사용하여 Azure SQL Database에서 사용되는 가상 네트워크와의 네트워크 간 연결이 설정된 다른 가상 네트워크 
+- Managed Instance에 사용되는 가상 네트워크와 네트워크 간 연결이 설정된 다른 가상 네트워크. 
 
-Azure-SSIS IR을 관리되는 인스턴스와 동일한 가상 네트워크에 조인하는 경우에는 Azure-SSIS IR이 관리되는 인스턴스와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 관리되는 인스턴스와 다른 가상 네트워크에 조인하는 경우에는 가상 네트워크 피어링(동일한 지역으로 제한됨) 또는 가상 네트워크에서 가상 네트워크로 연결을 사용하는 것이 좋습니다. [응용 프로그램을 Azure SQL Database 관리되는 인스턴스에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.
+가상 네트워크 서비스 엔드포인트가 있는 Azure SQL Database에서 SSIS 카탈로그를 호스트하는 경우 Azure-SSIS IR을 동일한 가상 네트워크 및 서브넷에 연결해야 합니다.
 
-가상 네트워크는 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 통해 배포할 수 있습니다.
+Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 연결하는 경우 Azure-SSIS IR이 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 연결하는 경우에는 가상 네트워크 피어링(동일한 지역으로 제한됨) 또는 가상 네트워크 간 연결을 사용하는 것이 좋습니다. [응용 프로그램을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.
+
+모든 경우에서, 가상 네트워크는 Azure Resource Manager 배포 모델을 통해서만 배포할 수 있습니다.
 
 다음 섹션에 자세한 내용이 제공됩니다. 
 
 ## <a name="requirements-for-virtual-network-configuration"></a>가상 네트워크 구성 요구 사항
 -   `Microsoft.Batch`가 Azure-SSIS IR을 호스팅하는 가상 네트워크 서브넷의 구독에 속한 등록된 공급자인지 확인합니다. 클래식 가상 네트워크를 사용하는 경우 `MicrosoftAzureBatch`도 해당 가상 네트워크에 대한 클래식 Virtual Machine 기여자 역할에 조인합니다. 
+
+-   필요한 권한이 있는지 확인하세요. [필요한 권한](#perms)을 참조하세요.
 
 -   Azure-SSIS IR을 호스팅할 적절한 서브넷을 선택합니다. [서브넷 선택](#subnet)을 참조하세요. 
 
@@ -67,12 +74,24 @@ Azure-SSIS IR을 관리되는 인스턴스와 동일한 가상 네트워크에 �
 
 -   가상 네트워크의 리소스 그룹에서 특정 Azure 네트워크 리소스를 만들고 삭제할 수 있는지 확인합니다. [리소스 그룹 요구 사항](#resource-group)을 참조하세요. 
 
+### <a name="perms"></a> 필요한 권한
+
+Azure-SSIS 통합 런타임을 만드는 사용자에게는 다음 권한이 있어야 합니다.
+
+- SSIS IR를 Azure Resource Manager 가상 네트워크에 연결하는 경우 다음 두 가지 옵션이 있습니다.
+
+  - 기본 제공 ‘네트워크 참가자’ 역할을 사용합니다. 이 역할에는 범위가 필요 이상으로 큰 *Microsoft.Network/\** 권한이 제공됩니다.
+
+  - 필요한 *Microsoft.Network/virtualNetworks/\*/join/action* 권한만 포함하는 사용자 지정 역할을 만듭니다. 
+
+- SSIS IR을 클래식 가상 네트워크에 연결하는 경우에는 기본 제공 ‘클래식 가상 머신 참가자’ 역할을 사용하는 것이 좋습니다. 그렇지 않은 경우 가상 네트워크 연결 권한이 포함된 사용자 지정 역할을 정의해야 합니다.
+
 ### <a name="subnet"></a> 서브넷 선택
 -   GatewaySubnet은 가상 네트워크 게이트웨이 전용이므로 Azure SSIS Integration Runtime을 배포할 때는 선택하지 마세요. 
 
 -   선택한 서브넷에 Azure-SSIS IR에 사용할 수 있는 충분한 주소 공간이 있는지 확인합니다. 사용 가능한 IP 주소를 IR 노드 수의 2배 이상으로 유지합니다. Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소는 사용할 수 없습니다. 서브넷의 첫 번째 및 마지막 IP 주소는 Azure 서비스에 사용되는 3개 이상의 주소와 함께 프로토콜 적합성을 위해 예약됩니다. 자세한 내용은 [이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)를 참조하세요. 
 
--   다른 Azure 서비스(예: SQL Database 관리되는 인스턴스(미리 보기), App Service 등)에서 단독으로 사용하는 서브넷은 사용하지 않습니다. 
+-   다른 Azure 서비스(예: SQL Database Managed Instance, App Service 등)에서 단독으로 사용하는 서브넷은 사용하지 않습니다. 
 
 ### <a name="dns_server"></a> 도메인 이름 서비스 서버 
 Azure-SSIS 통합 런타임에서 조인된 가상 네트워크에서 고유한 DNS(도메인 이름 서비스) 서버를 사용해야 하는 경우 공용 Azure 호스트 이름(예: Azure Storage Blob 이름, `<your storage account>.blob.core.windows.net`)을 확인할 수 있는지 확인합니다 . 
@@ -86,13 +105,14 @@ Azure-SSIS 통합 런타임에서 조인된 가상 네트워크에서 고유한 
 자세한 내용은 [자체 DNS 서버를 사용하는 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조하세요. 
 
 ### <a name="nsg"></a> 네트워크 보안 그룹
-Azure-SSIS 통합 런타임에서 조인한 가상 네트워크에 NSG(네트워크 보안 그룹)를 구현해야 하는 경우 다음 포트를 통해 인바운드/아웃바운드 트래픽을 허용합니다. 
+Azure-SSIS 통합 런타임에 사용되는 서브넷에 대해 NSG(네트워크 보안 그룹)를 구현해야 하는 경우 다음 포트를 통해 인바운드/아웃바운드 트래픽을 허용합니다. 
 
 | 방향 | 전송 프로토콜 | 원본 | 원본 포트 범위 | 대상 | 대상 포트 범위 | 설명 |
 |---|---|---|---|---|---|---|
-| 인바운드 | TCP | 인터넷 | * | VirtualNetwork | 29876, 29877(IR을 Azure Resource Manager 가상 네트워크에 조인하는 경우) <br/><br/>10100, 20100, 30100(IR을 클래식 가상 네트워크에 조인하는 경우)| Data Factory 서비스는 이러한 포트를 사용하여 가상 네트워크의 Azure-SSIS 통합 런타임 노드와 통신합니다. <br/><br/> NSG를 지정하든 안 하든 Data Factory는 Azure-SSIS IR을 호스트하는 가상 머신에 연결된 NIC(네트워크 인터페이스 카드)의 수준에서 항상 NSG를 구성합니다. Data Factory IP 주소에서 인바운드 트래픽만 허용됩니다. 인터넷 트래픽에 대해 이러한 포트를 여는 경우라도 Data Factory IP 주소가 아닌 IP 주소에서의 트래픽은 NIC 수준에서 차단됩니다. |
-| 아웃바운드 | TCP | VirtualNetwork | * | 인터넷 | 443 | 가상 네트워크의 Azure-SSIS 통합 런타임 노드는 이 포트를 사용하여 Azure 서비스(예: Azure Storage, Azure Event Hubs)에 액세스합니다. |
-| 아웃바운드 | TCP | VirtualNetwork | * | 인터넷 또는 SQL | 1433, 11000-11999, 14000-14999 | 가상 네트워크의 Azure-SSIS 통합 런타임 노드는 이러한 포트를 사용하여 Azure SQL Database 서버가 호스트하는 SSISDB에 액세스합니다. 관리되는 인스턴스(미리 보기)가 호스트하는 SSISDB에는 이 목적이 적용되지 않습니다. |
+| 인바운드 | TCP | AzureCloud<br/>(또는 인터넷 같은 대규모 범위) | * | VirtualNetwork | 29876, 29877(IR을 Azure Resource Manager 가상 네트워크에 조인하는 경우) <br/><br/>10100, 20100, 30100(IR을 클래식 가상 네트워크에 조인하는 경우)| Data Factory 서비스는 이러한 포트를 사용하여 가상 네트워크의 Azure-SSIS 통합 런타임 노드와 통신합니다. <br/><br/> 서브넷 수준 NSG를 만들든 그렇지 않든, Data Factory는 Azure-SSIS IR을 호스트하는 가상 머신에 연결된 NIC(네트워크 인터페이스 카드)의 수준에서 항상 NSG를 구성합니다. 지정된 포트에서 Data Factory IP 주소의 인바운드 트래픽만 해당 NIC 수준 NSG에서 허용됩니다. 서브넷 수준에서 인터넷 트래픽에 대해 이러한 포트를 여는 경우라도 Data Factory IP 주소가 아닌 IP 주소에서의 트래픽은 NIC 수준에서 차단됩니다. |
+| 아웃바운드 | TCP | VirtualNetwork | * | AzureCloud<br/>(또는 인터넷 같은 대규모 범위) | 443 | 가상 네트워크의 Azure-SSIS 통합 런타임 노드는 이 포트를 사용하여 Azure 서비스(예: Azure Storage, Azure Event Hubs)에 액세스합니다. |
+| 아웃바운드 | TCP | VirtualNetwork | * | 인터넷 | 80 | 가상 네트워크에 있는 Azure-SSIS 통합 런타임의 노드는 이 포트를 사용하여 인터넷에서 인증서 해지 목록을 다운로드합니다. |
+| 아웃바운드 | TCP | VirtualNetwork | * | Sql<br/>(또는 인터넷 같은 대규모 범위) | 1433, 11000-11999, 14000-14999 | 가상 네트워크의 Azure-SSIS 통합 런타임 노드는 이러한 포트를 사용하여 Azure SQL Database 서버가 호스트하는 SSISDB에 액세스합니다. Managed Instance가 호스트하는 SSISDB에는 이 목적이 적용되지 않습니다. |
 ||||||||
 
 ### <a name="route"></a> Azure ExpressRoute 또는 사용자 정의 경로 사용
@@ -131,23 +151,23 @@ Azure-SSIS 통합 런타임에서 조인한 가상 네트워크에 NSG(네트워
 
 1. Microsoft Edge 또는 Google Chrome을 시작합니다. 현재는 두 웹 브라우저에서만 Data Factory UI가 지원됩니다. 
 
-2. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-3. **추가 서비스**를 선택합니다. **가상 네트워크**를 필터링하여 선택합니다. 
+1. **추가 서비스**를 선택합니다. **가상 네트워크**를 필터링하여 선택합니다. 
 
-4. 목록에서 가상 네트워크를 필터링하고 선택합니다. 
+1. 목록에서 가상 네트워크를 필터링하고 선택합니다. 
 
-5. **가상 네트워크** 페이지에서 **속성**을 선택합니다. 
+1. **가상 네트워크** 페이지에서 **속성**을 선택합니다. 
 
-6. **리소스 ID**에 대한 복사 단추를 선택하여 가상 네트워크에 대한 리소스 ID를 클립보드에 복사합니다. 클립 보드의 ID를 OneNote 또는 파일에 저장합니다. 
+1. **리소스 ID**에 대한 복사 단추를 선택하여 가상 네트워크에 대한 리소스 ID를 클립보드에 복사합니다. 클립 보드의 ID를 OneNote 또는 파일에 저장합니다. 
 
-7. 왼쪽 메뉴에서 **서브넷**을 선택합니다. **사용 가능한 주소** 수가 Azure-SSIS 통합 런타임의 노드보다 큰지 확인합니다. 
+1. 왼쪽 메뉴에서 **서브넷**을 선택합니다. **사용 가능한 주소** 수가 Azure-SSIS 통합 런타임의 노드보다 큰지 확인합니다. 
 
-8. 가상 네트워크가 있는 Azure 구독에 Azure Batch 공급자가 등록되었는지 확인합니다. 또는 Azure Batch 공급자를 등록합니다. Azure 배치 계정이 구독에 이미 있는 경우 구독이 Azure 배치에 등록됩니다. (Data Factory 포털에 Azure-SSIS IR을 만들면 Azure Batch 공급자가 자동으로 등록됩니다.) 
+1. 가상 네트워크가 있는 Azure 구독에 Azure Batch 공급자가 등록되었는지 확인합니다. 또는 Azure Batch 공급자를 등록합니다. Azure 배치 계정이 구독에 이미 있는 경우 구독이 Azure 배치에 등록됩니다. (Data Factory 포털에 Azure-SSIS IR을 만들면 Azure Batch 공급자가 자동으로 등록됩니다.) 
 
    a. Azure Portal의 왼쪽 메뉴에서 **구독**을 선택합니다. 
 
-   나. 사용 중인 구독을 선택합니다. 
+   b. 구독을 선택합니다. 
 
    다. 왼쪽에서 **리소스 공급자**를 선택하고 **Microsoft.Batch**가 등록된 공급자인지 확인합니다. 
 
@@ -160,29 +180,29 @@ Azure-SSIS 통합 런타임에서 조인한 가상 네트워크에 NSG(네트워
 
 1. Microsoft Edge 또는 Google Chrome을 시작합니다. 현재는 두 웹 브라우저에서만 Data Factory UI가 지원됩니다. 
 
-2. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-3. **추가 서비스**를 선택합니다. **가상 네트워크(클래식)** 를 필터링하여 선택합니다. 
+1. **추가 서비스**를 선택합니다. **가상 네트워크(클래식)** 를 필터링하여 선택합니다. 
 
-4. 목록에서 가상 네트워크를 필터링하고 선택합니다. 
+1. 목록에서 가상 네트워크를 필터링하고 선택합니다. 
 
-5. **가상 네트워크(클래식)** 페이지에서 **속성**을 선택합니다. 
+1. **가상 네트워크(클래식)** 페이지에서 **속성**을 선택합니다. 
 
    ![클래식 가상 네트워크 리소스 ID](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 
-6. **RESOURCE ID**에 대한 복사 단추를 선택하여 클래식 네트워크의 리소스 ID를 클립보드에 복사합니다. 클립 보드의 ID를 OneNote 또는 파일에 저장합니다. 
+1. **RESOURCE ID**에 대한 복사 단추를 선택하여 클래식 네트워크의 리소스 ID를 클립보드에 복사합니다. 클립 보드의 ID를 OneNote 또는 파일에 저장합니다. 
 
-7. 왼쪽 메뉴에서 **서브넷**을 선택합니다. **사용 가능한 주소** 수가 Azure-SSIS 통합 런타임의 노드보다 큰지 확인합니다. 
+1. 왼쪽 메뉴에서 **서브넷**을 선택합니다. **사용 가능한 주소** 수가 Azure-SSIS 통합 런타임의 노드보다 큰지 확인합니다. 
 
    ![가상 네트워크에서 사용 가능한 주소 수](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
 
-8. **MicrosoftAzureBatch**를 가상 네트워크의 **클래식 가상 머신 참가자** 역할에 조인합니다. 
+1. **MicrosoftAzureBatch**를 가상 네트워크의 **클래식 가상 머신 참가자** 역할에 조인합니다. 
 
     a. 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택하고, 도구 모음에서 **추가**를 선택합니다. 
 
     !["액세스 제어" 및 "추가" 단추](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-    나. **권한 추가** 페이지에서 **역할**에 **클래식 가상 머신 참가자**를 선택합니다. **선택** 상자에 **ddbf3205-c6bd-46ae-8127-60eb93363864**를 붙여넣고 검색 결과 목록에서 **Microsoft Azure Batch**를 선택합니다. 
+    b. **권한 추가** 페이지에서 **역할**에 **클래식 가상 머신 참가자**를 선택합니다. **선택** 상자에 **ddbf3205-c6bd-46ae-8127-60eb93363864**를 붙여넣고 검색 결과 목록에서 **Microsoft Azure Batch**를 선택합니다. 
 
     !["권한 추가" 페이지의 검색 결과](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
 
@@ -194,11 +214,11 @@ Azure-SSIS 통합 런타임에서 조인한 가상 네트워크에 NSG(네트워
 
     ![Azure Batch 액세스 확인](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 
-9. 가상 네트워크가 있는 Azure 구독에 Azure Batch 공급자가 등록되었는지 확인합니다. 또는 Azure Batch 공급자를 등록합니다. Azure 배치 계정이 구독에 이미 있는 경우 구독이 Azure 배치에 등록됩니다. (Data Factory 포털에 Azure-SSIS IR을 만들면 Azure Batch 공급자가 자동으로 등록됩니다.) 
+1. 가상 네트워크가 있는 Azure 구독에 Azure Batch 공급자가 등록되었는지 확인합니다. 또는 Azure Batch 공급자를 등록합니다. Azure 배치 계정이 구독에 이미 있는 경우 구독이 Azure 배치에 등록됩니다. (Data Factory 포털에 Azure-SSIS IR을 만들면 Azure Batch 공급자가 자동으로 등록됩니다.) 
 
    a. Azure Portal의 왼쪽 메뉴에서 **구독**을 선택합니다. 
 
-   나. 사용 중인 구독을 선택합니다. 
+   b. 구독을 선택합니다. 
 
    다. 왼쪽에서 **리소스 공급자**를 선택하고 **Microsoft.Batch**가 등록된 공급자인지 확인합니다. 
 
@@ -209,39 +229,39 @@ Azure-SSIS 통합 런타임에서 조인한 가상 네트워크에 NSG(네트워
 ### <a name="join-the-azure-ssis-ir-to-a-virtual-network"></a>Azure-SSIS IR을 가상 네트워크에 조인
 1. Microsoft Edge 또는 Google Chrome을 시작합니다. 현재는 두 웹 브라우저에서만 Data Factory UI가 지원됩니다. 
 
-2. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **데이터 팩터리**를 선택합니다. 메뉴에 **데이터 팩터리**가 표시되지 않으면 **다른 서비스**를 선택하고, **INTELLIGENCE + ANALYTICS** 섹션에서 **데이터 팩터리**를 선택합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **데이터 팩터리**를 선택합니다. 메뉴에 **데이터 팩터리**가 표시되지 않으면 **다른 서비스**를 선택하고, **INTELLIGENCE + ANALYTICS** 섹션에서 **데이터 팩터리**를 선택합니다. 
 
    ![데이터 팩터리 목록](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-3. 목록에서 Azure SSIS 통합 런타임의 데이터 팩터리를 선택합니다. 데이터 팩터리의 홈 페이지가 표시됩니다. **작성자 및 배포** 타일을 선택합니다. 별도의 탭에 Data Factory UI가 표시됩니다. 
+1. 목록에서 Azure SSIS 통합 런타임의 데이터 팩터리를 선택합니다. 데이터 팩터리의 홈 페이지가 표시됩니다. **작성자 및 배포** 타일을 선택합니다. 별도의 탭에 Data Factory UI가 표시됩니다. 
 
    ![데이터 팩터리 홈페이지](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 
-4. 데이터 팩터리 UI에서 **편집** 탭으로 전환하고 **연결**을 선택한 다음, **통합 런타임** 탭으로 전환합니다. 
+1. 데이터 팩터리 UI에서 **편집** 탭으로 전환하고 **연결**을 선택한 다음, **통합 런타임** 탭으로 전환합니다. 
 
    !["통합 런타임" 탭](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
 
-5. Azure-SSIS IR이 실행 중이면 통합 런타임 목록에서 Azure-SSIS IR에 대한 **동작** 열의 **중지** 단추를 선택합니다. 중지해야 IR을 편집할 수 있습니다. 
+1. Azure-SSIS IR이 실행 중이면 통합 런타임 목록에서 Azure-SSIS IR에 대한 **동작** 열의 **중지** 단추를 선택합니다. 중지해야 IR을 편집할 수 있습니다. 
 
    ![IR 중지](media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png)
 
-6. 통합 런타임 목록에서 Azure-SSIS IR에 대한 **동작** 열의 **편집** 단추를 선택합니다. 
+1. 통합 런타임 목록에서 Azure-SSIS IR에 대한 **동작** 열의 **편집** 단추를 선택합니다. 
 
    ![통합 런타임 편집](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
 
-7. **통합 런타임 설정** 창의 **일반 설정** 페이지에서 **다음**을 선택합니다. 
+1. **통합 런타임 설정** 창의 **일반 설정** 페이지에서 **다음**을 선택합니다. 
 
    ![IR 설치를 위한 일반 설정](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-general-settings.png)
 
-8. **SQL 설정** 페이지에서 관리자 암호를 입력하고 **다음**을 선택합니다. 
+1. **SQL 설정** 페이지에서 관리자 암호를 입력하고 **다음**을 선택합니다. 
 
    ![IR 설치를 위한 SQL Server 설정](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-sql-settings.png)
 
-9. **고급 설정** 페이지에서 다음을 수행합니다. 
+1. **고급 설정** 페이지에서 다음을 수행합니다. 
 
    a. **Azure-SSIS Integration Runtime이 조인할 VNet을 선택하고 Azure Services가 VNet 권한/설정을 구성하도록 허용**에 대한 확인란을 선택합니다. 
 
-   나. **형식**에서는 가상 네트워크가 클래식 가상 네트워크인지 아니면 Azure Resource Manager 가상 네트워크인지 선택합니다. 
+   b. **형식**에서는 가상 네트워크가 클래식 가상 네트워크인지 아니면 Azure Resource Manager 가상 네트워크인지 선택합니다. 
 
    다. **VNet 이름**에서는 해당 가상 네트워크를 선택합니다. 
 
@@ -251,7 +271,7 @@ Azure-SSIS 통합 런타임에서 조인한 가상 네트워크에 NSG(네트워
 
    ![IR 설치를 위한 고급 설정](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-advanced-settings.png)
 
-10. 이제 Azure SSIS IR에 대한 **동작** 열의 **시작** 단추를 사용하여 IR을 시작할 수 있습니다. Azure-SSIS IR을 시작하는 데 약 20~30분이 걸립니다. 
+1. 이제 Azure SSIS IR에 대한 **동작** 열의 **시작** 단추를 사용하여 IR을 시작할 수 있습니다. Azure-SSIS IR을 시작하는 데 약 20~30분이 걸립니다. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -284,8 +304,8 @@ Azure-SSIS IR을 만드는 동시에 가상 네트워크에 조인할 수 있습
 ### <a name="join-an-existing-azure-ssis-ir-to-a-virtual-network"></a>기존 Azure-SSIS IR을 가상 네트워크에 조인
 [Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md) 문서의 스크립트는 동일한 스크립트에서 Azure-SSIS IR을 만들고 가상 네트워크에 조인하는 방법을 보여줍니다. 기존 Azure-SSIS가 있는 경우에는 다음 단계를 수행하여 가상 네트워크에 조인합니다. 
 1. Azure-SSIS IR을 중지합니다. 
-2. 가상 네트워크에 조인하도록 Azure-SSIS IR을 구성합니다. 
-3. Azure-SSIS IR을 시작합니다. 
+1. 가상 네트워크에 조인하도록 Azure-SSIS IR을 구성합니다. 
+1. Azure-SSIS IR을 시작합니다. 
 
 ### <a name="define-the-variables"></a>변수를 정의합니다.
 ```powershell
@@ -357,6 +377,6 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 Azure-SSIS 런타임에 대한 자세한 내용은 다음 항목을 참조하세요. 
 - [Azure-SSIS 통합 런타임](concepts-integration-runtime.md#azure-ssis-integration-runtime). 이 문서에서는 Azure-SSIS IR을 비롯한 일반적인 통합 런타임에 대한 개념 정보를 제공합니다. 
 - [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md). 이 문서에서는 Azure-SSIS IR을 만드는 단계별 지침을 제공합니다. Azure SQL Database를 사용하여 SSIS 카탈로그를 호스트합니다. 
-- [Azure-SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 자습서의 내용을 보충하는 이 문서에서는 가상 네트워크 서비스 엔드포인트/관리되는 인스턴스(미리 보기)로 Azure SQL Database를 사용하여 SSIS 카탈로그에 호스팅하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 
+- [Azure-SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 자습서의 내용을 보충하는 이 문서에서는 가상 네트워크 서비스 엔드포인트/Managed Instance로 Azure SQL Database를 사용하여 SSIS 카탈로그에 호스팅하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 
 - [Azure-SSIS IR 모니터링](monitor-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR에 대한 정보와 반환된 정보의 상태 설명을 검색하는 방법을 설명합니다. 
 - [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서는 Azure-SSIS IR을 중지, 시작 또는 제거하는 방법을 설명합니다. 또한 노드를 추가하여 Azure-SSIS IR을 규모 확장하는 방법을 보여줍니다. 

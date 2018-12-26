@@ -1,5 +1,5 @@
 ---
-title: Azure App Service에서 CORS를 사용한 RESTful API | Microsoft Docs
+title: CORS를 사용하여 RESTful API 호스트 | Microsoft Docs
 description: Azure App Service에서 CORS 지원을 통해 RESTful API를 호스팅하는 방법을 알아봅니다.
 services: app-service\api
 documentationcenter: dotnet
@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 11/21/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 4b5e432a9c553f5221f138b19a180f92420e6058
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: seodec18
+ms.openlocfilehash: b22ea49367009a4c76135d979d783c5b73449d9d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317752"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261571"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅
 
-[Azure App Service](app-service-web-overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 App Service에는 RESTful API에 대한 [CORS(Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing)에 대한 지원이 기본적으로 제공됩니다. 이 자습서에서는 CORS 지원을 사용하여 ASP.NET Core API 앱을 배App Service에 포하는 방법을 보여 줍니다. 명령줄 도구를 사용하여 앱을 구성하고, Git을 사용하여 앱을 배포합니다. 
+[Azure App Service](app-service-web-overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 App Service에는 RESTful API에 대한 [CORS(Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing)의 지원이 기본적으로 제공됩니다. 이 자습서에서는 CORS 지원을 사용하여 ASP.NET Core API 앱을 App Service에 배포하는 방법을 보여 줍니다. 명령줄 도구를 사용하여 앱을 구성하고, Git을 사용하여 앱을 배포합니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "38317752"
 
 이 단계에서는 로컬 ASP.NET Core 프로젝트를 설정합니다. App Service는 다른 언어로 작성된 API에 대해 동일한 워크플로를 지원합니다.
 
-### <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+### <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 터미널 창에서 `cd`를 사용하여 작업 디렉터리로 이동합니다.  
 
@@ -58,7 +58,7 @@ ms.locfileid: "38317752"
 git clone https://github.com/Azure-Samples/dotnet-core-api
 ```
 
-이 리포지토리에는 [Swagger를 사용한 ASP.NET Core Web API 도움말 페이지](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio) 자습서에 따라 만든 응용 프로그램이 포함되어 있습니다. Swagger 생성기를 사용하여 [Swagger UI](https://swagger.io/swagger-ui/)와 Swagger JSON 엔드포인트를 제공합니다.
+이 리포지토리에는 자습서: [Swagger를 사용한 ASP.NET Core Web API 도움말 페이지](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio)에 따라 만든 앱이 포함되어 있으며, Swagger 생성기를 사용하여 [Swagger UI](https://swagger.io/swagger-ui/)와 Swagger JSON 엔드포인트를 제공합니다.
 
 ### <a name="run-the-application"></a>응용 프로그램 실행
 
@@ -70,13 +70,13 @@ dotnet restore
 dotnet run
 ```
 
-브라우저에서 `http://localhost:5000/swagger`로 이동하여 Swagger UI를 통해 재생합니다.
+브라우저에서 `http://localhost:5000/swagger`로 이동하여 Swagger UI를 실행해 봅니다.
 
 ![로컬로 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/local-run.png)
 
 `http://localhost:5000/api/todo`로 이동하여 ToDo JSON 항목 목록을 확인합니다.
 
-`http://localhost:5000`으로 이동하여 브라우저 앱을 통해 재생합니다. 나중에 CORS 기능을 테스트하기 위해 브라우저 앱을 App Service의 원격 API로 지정할 것입니다. 브라우저 앱에 대한 코드는 리포지토리의 _wwwroot_ 디렉터리에 있습니다.
+`http://localhost:5000`으로 이동하여 브라우저 앱을 실행해 봅니다. 나중에 CORS 기능을 테스트하기 위해 브라우저 앱을 App Service의 원격 API로 지정할 것입니다. 브라우저 앱에 대한 코드는 리포지토리의 _wwwroot_ 디렉터리에 있습니다.
 
 언제든지 ASP.NET Core를 중지하려면 터미널에서 `Ctrl+C`를 누릅니다.
 
@@ -84,7 +84,7 @@ dotnet run
 
 ## <a name="deploy-app-to-azure"></a>Azure에 앱 배포
 
-이 단계에서는 SQL Database 연결 .NET Core 응용 프로그램을 App Service에 배포합니다.
+이 단계에서는 SQL Database 연결 .NET Core 애플리케이션을 App Service에 배포합니다.
 
 ### <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성
 
@@ -134,7 +134,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ### <a name="browse-to-the-azure-web-app"></a>Azure 웹앱 찾아보기
 
-브라우저에서 `http://<app_name>.azurewebsites.net/swagger`로 이동하여 Swagger UI를 통해 재생합니다.
+브라우저에서 `http://<app_name>.azurewebsites.net/swagger`로 이동하여 Swagger UI를 실행해 봅니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-run.png)
 
@@ -158,7 +158,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 dotnet run
 ```
 
-`http://localhost:5000`에 있는 브라우저 앱으로 이동합니다. 브라우저에서 개발자 도구 창(Windows용 Chrome에서 `Ctrl`+`Shift`+`i`)을 열고 **콘솔** 탭을 검사합니다. 이제 `No 'Access-Control-Allow-Origin' header is present on the requested resource` 오류 메시지가 표시됩니다.
+`http://localhost:5000`에 있는 브라우저 앱으로 이동합니다. 브라우저에서 개발자 도구 창을 열고(Windows용 Chrome에서 `Ctrl`+`Shift`+`i`) **콘솔** 탭을 검사합니다. 이제 `No 'Access-Control-Allow-Origin' header is present on the requested resource` 오류 메시지가 표시됩니다.
 
 ![브라우저 클라이언트에서 발생한 CORS 오류](./media/app-service-web-tutorial-rest-api/cors-error.png)
 
@@ -168,13 +168,16 @@ dotnet run
 
 ### <a name="enable-cors"></a>CORS를 사용하도록 설정 
 
-Cloud Shell에서 [`az resource update`](/cli/azure/resource#az_resource_update) 명령을 사용하여 CORS를 클라이언트 URL로 사용하도록 설정합니다. _&lt;appname>_ 자리 표시자를 바꿉니다.
+Cloud Shell에서 [`az resource update`](/cli/azure/resource#az-resource-update) 명령을 사용하여 CORS를 클라이언트 URL로 사용하도록 설정합니다. _&lt;appname>_ 자리 표시자를 바꿉니다.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
 ```
 
 `properties.cors.allowedOrigins`에 둘 이상의 클라이언트 URL(`"['URL1','URL2',...]"`)을 설정할 수 있습니다. `"['*']"`를 사용하여 모든 클라이언트 URL을 사용하도록 설정할 수도 있습니다.
+
+> [!NOTE]
+> 앱에서 쿠키나 인증 토큰과 같은 자격 증명을 전송하도록 요구하는 경우 브라우저의 응답에 `ACCESS-CONTROL-ALLOW-CREDENTIALS` 헤더가 필요할 수 있습니다. App Service에서 이를 사용하도록 설정하려면 CORS 구성에서 `properties.cors.supportCredentials`를 `true`로 설정합니다. `allowedOrigins`에 `'*'`가 포함된 경우에는 이를 사용하도록 설정할 수 없습니다.
 
 ### <a name="test-cors-again"></a>CORS 다시 테스트
 
@@ -186,7 +189,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 ## <a name="app-service-cors-vs-your-cors"></a>App Service CORS 및 사용자 고유 CORS
 
-더 많은 유연성을 위해 App Service CORS 대신 자신의 CORS 유틸리티를 사용할 수 있습니다. 예를 들어 여러 경로 또는 메서드에 허용되는 원본을 서로 다르게 지정할 수 있습니다. App Service CORS를 사용하면 모든 API 경로 및 메서드에 대해 허용되는 원본 집합을 하나만 지정할 수 있으므로 사용자 고유의 CORS 코드를 사용하려고 합니다. [원본 간 요청(CORS) 사용](/aspnet/core/security/cors)에서 ASP.NET Core가 작동하는 방식을 참조하세요.
+더 많은 유연성을 위해 App Service CORS 대신 자신의 CORS 유틸리티를 사용할 수 있습니다. 예를 들어 여러 경로 또는 메서드에 대해 허용되는 원본을 서로 다르게 지정할 수 있습니다. App Service CORS를 사용하면 모든 API 경로 및 메서드에 대해 허용되는 원본 집합을 하나만 지정할 수 있으므로 사용자 고유의 CORS 코드를 사용해야 합니다. ASP.NET Core에서 이를 수행하는 방법은 [Enabling Cross-Origin Requests (CORS)](/aspnet/core/security/cors)(원본 간 요청(CORS) 사용)를 참조하세요.
 
 > [!NOTE]
 > App Service CORS와 사용자 고유 CORS 코드는 함께 사용하지 마세요. 함께 사용하는 경우 App Service CORS가 우선적으로 적용되며, 사용자 고유의 CORS 코드는 아무런 영향을 주지 않습니다.
@@ -208,4 +211,4 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 사용자를 인증하고 사용자 권한을 부여하는 방법에 대해 알아보려면 다음 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [자습서: 종단 간 사용자 인증 및 권한 부여](app-service-web-tutorial-auth-aad.md)
+> [자습서: 엔드투엔드 사용자 인증 및 권한 부여](app-service-web-tutorial-auth-aad.md)

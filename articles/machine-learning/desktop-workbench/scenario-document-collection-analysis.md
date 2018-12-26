@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ROBOTS: NOINDEX
+ms.openlocfilehash: 762955103aeb48eb8a9b62f4e3ffe193bba71a38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861259"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947220"
 ---
 # <a name="document-collection-analysis"></a>문서 컬렉션 분석
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 이 시나리오에서는 Azure ML Workbench를 사용한 문구 학습, 토픽 모델링, 토픽 모델 분석과 같은 기법을 포함하는, 여러 문서 컬렉션을 요약하고 분석하는 방법을 보여줍니다. Azure Machine Learning Workbench는 방대한 문서 컬렉션에 대한 손쉬운 크기 조정을 제공하며, 로컬 컴퓨터에서 데이터 과학 Virtual Machines, Spark 클러스터에 이르는 다양한 컴퓨팅 컨텍스트에서 모델을 교육하고 조정할 메커니즘을 제공합니다. Azure Machine Learning Workbench의 Jupyter 노트북을 통해 쉽게 개발할 수 있습니다.
 
@@ -60,7 +65,7 @@ ms.locfileid: "37861259"
 
 이 예제를 실행하기 위한 필수 조건은 다음과 같습니다.
 
-* [빠른 시작 설치 및 만들기](../service/quickstart-installation.md)에 따라 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)를 제대로 설치했는지 확인합니다.
+* [빠른 시작 설치 및 만들기](quickstart-installation.md)에 따라 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)를 제대로 설치했는지 확인합니다.
 
 * 이 예를 모든 계산 컨텍스트에서 실행할 수 있습니다. 그렇지만 적어도 16GB 메모리와 5GB 디스크 공간이 있는 다중 코어 컴퓨터에서 실행하는 것이 좋습니다 .
 
@@ -71,11 +76,11 @@ ms.locfileid: "37861259"
 2.  **프로젝트** 페이지에서 **+** 기호를 클릭하고 **새 프로젝트**를 선택합니다.
 3.  **새 프로젝트 만들기** 창에서 새 프로젝트에 대한 정보를 입력합니다.
 4.  **프로젝트 검색 템플릿** 검색 상자에서 "문서 컬렉션 분석"을 입력하고 템플릿을 선택합니다.
-5.  **만들기**
+5.   **만들기**
 
 ## <a name="data-description"></a>데이터 설명
 
-이 시나리오에 사용된 데이터 집합은 미국 의회가 취한 각 입법 조치에 대한 텍스트 요약 및 관련된 메타 데이터를 포함합니다. 데이터는 미국 의회의 활동을 추적하고 미국인이 국가 입법 과정에 참여하도록 돕는 [GovTrack.us](https://www.govtrack.us/)에서 수집됩니다. 대량 데이터는 이 시나리오에 포함되지 않은 수동 스크립트를 사용하여 [이 링크](https://www.govtrack.us/data/congress/)를 통해 다운로드할 수 있습니다. 데이터를 다운로드하는 방법에 대한 세부 정보는 [GovTrack API 설명서](https://www.govtrack.us/developers)에서 찾을 수 있습니다.
+이 시나리오에 사용된 데이터 세트는 미국 의회가 취한 각 입법 조치에 대한 텍스트 요약 및 관련된 메타 데이터를 포함합니다. 데이터는 미국 의회의 활동을 추적하고 미국인이 국가 입법 과정에 참여하도록 돕는 [GovTrack.us](https://www.govtrack.us/)에서 수집됩니다. 대량 데이터는 이 시나리오에 포함되지 않은 수동 스크립트를 사용하여 [이 링크](https://www.govtrack.us/data/congress/)를 통해 다운로드할 수 있습니다. 데이터를 다운로드하는 방법에 대한 세부 정보는 [GovTrack API 설명서](https://www.govtrack.us/developers)에서 찾을 수 있습니다.
 
 ### <a name="data-source"></a>데이터 원본
 
@@ -87,15 +92,15 @@ ms.locfileid: "37861259"
 
 | 필드 이름 | type | 설명 | 누락된 값 포함 |
 |------------|------|-------------|---------------|
-| `ID` | 문자열 | 법안/결의안 ID. 이 필드의 형식은 [bill_type][number]-[congress]입니다. 예를 들어 "hconres1 93"은 법안 유형이 "hconres"(상하 양원 동일 결의를 의미함, [이 문서](https://github.com/unitedstates/congress/wiki/bills#basic-information) 참조), 법안 번호는 1, 의회 번호는 93임을 나타냅니다. | 아니오 |
-| `Text` | 문자열 | 법안/결의안 내용. | 아니오 |
-| `Date` | 문자열 | 처음 제안된 청구서/해결 날짜. 'yyyy-mm-dd' 형식. | 아니오 |
-| `SponsorName` | 문자열 | 법안/결의안을 제안한 주요 발기인 이름. | 예 |
-| `Type` | 문자열 | 주요 발기인의 직함, 'rep'(하원 의원) 또는 'sen'(상원 의원) 중 하나입니다. | 예 |
-| `State` | 문자열 | 주요 발기인의 주. | 예 |
-| `District` | 정수  | 발기인의 직함이 하원 의원일 경우 주요 발기인의 지구 번호. | 예 |
-| `Party` | 문자열 | 주요 발기인의 당. | 예 |
-| `Subjects` | 문자열 | 의회 도서관에서 법안에 점증적으로 추가한 주제어. 주제어는 쉼표로 연결됩니다. 이러한 용어는 의회 도서관 직원에 의해 작성되며 법안의 정보가 처음 게시될 때 일반적으로 제공되지 않습니다. 이러한 용어는 언제든지 추가될 수 있습니다. 따라서 법안의 수명이 다하면 일부 주체는 더 이상 관련이 없을 수도 있습니다. | 예 |
+| `ID` | 문자열 | 법안/결의안 ID. 이 필드의 형식은 [bill_type][number]-[congress]입니다. 예를 들어 "hconres1 93"은 법안 유형이 "hconres"(상하 양원 동일 결의를 의미함, [이 문서](https://github.com/unitedstates/congress/wiki/bills#basic-information) 참조), 법안 번호는 1, 의회 번호는 93임을 나타냅니다. | 아니요 |
+| `Text` | 문자열 | 법안/결의안 내용. | 아니요 |
+| `Date` | 문자열 | 처음 제안된 청구서/해결 날짜. 'yyyy-mm-dd' 형식. | 아니요 |
+| `SponsorName` | 문자열 | 법안/결의안을 제안한 주요 발기인 이름. | yes |
+| `Type` | 문자열 | 주요 발기인의 직함, 'rep'(하원 의원) 또는 'sen'(상원 의원) 중 하나입니다. | yes |
+| `State` | 문자열 | 주요 발기인의 주. | yes |
+| `District` | 정수  | 발기인의 직함이 하원 의원일 경우 주요 발기인의 지구 번호. | yes |
+| `Party` | 문자열 | 주요 발기인의 당. | yes |
+| `Subjects` | 문자열 | 의회 도서관에서 법안에 점증적으로 추가한 주제어. 주제어는 쉼표로 연결됩니다. 이러한 용어는 의회 도서관 직원에 의해 작성되며 법안의 정보가 처음 게시될 때 일반적으로 제공되지 않습니다. 이러한 용어는 언제든지 추가될 수 있습니다. 따라서 법안의 수명이 다하면 일부 주체는 더 이상 관련이 없을 수도 있습니다. | yes |
 
 ## <a name="scenario-structure"></a>시나리오 구조
 
@@ -129,7 +134,7 @@ ms.locfileid: "37861259"
 
 ### <a name="data-ingestion-and-transformation"></a>데이터 수집 및 변환
 
-컴파일된 데이터 집합 `CongressionalDataAll_Jun_2017.tsv`은 Blob Storage에 저장되고 노트북 및 Python 스크립트 내에서 모두 액세스 가능합니다. 데이터 수집 및 변환을 위한 두 단계는 텍스트 데이터 전처리와 구 학습입니다.
+컴파일된 데이터 세트 `CongressionalDataAll_Jun_2017.tsv`은 Blob Storage에 저장되고 노트북 및 Python 스크립트 내에서 모두 액세스 가능합니다. 데이터 수집 및 변환을 위한 두 단계는 텍스트 데이터 전처리와 구 학습입니다.
 
 #### <a name="preprocess-text-data"></a>텍스트 데이터 전처리
 

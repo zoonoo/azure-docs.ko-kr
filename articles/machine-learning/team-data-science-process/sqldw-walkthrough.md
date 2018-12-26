@@ -2,33 +2,29 @@
 title: '실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용 | Microsoft Docs'
 description: 활성 중인 고급 분석 프로세스 및 기술
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: deguhath
-ms.openlocfilehash: 12eb182c859617139fce6553496c6aa6e9bcdc98
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 87c3b0b597a401041b8bf1b6f3997431d8816e92
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839064"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445714"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용
-이 자습서에서는 공개적으로 사용 가능한 데이터 집합인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에 SQL Data Warehouse(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
+이 자습서에서는 공개적으로 사용 가능한 데이터 세트인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 세트에 SQL Data Warehouse(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
 
-이 절차에서는 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 워크플로를 따릅니다. 데이터 과학 환경을 설정하는 방법, SQL DW에 데이터를 로드하는 방법 및 SQL DW 또는 IPython Notebook을 사용하여 모델링할 데이터와 엔지니어링 기능을 탐색하는 방법을 보여 줍니다. 그런 다음 Azure Machine Learning으로 모델을 빌드하고 배포하는 방법을 보여 줍니다.
+이 절차에서는 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 워크플로를 따릅니다. 데이터 과학 환경을 설정하는 방법, SQL DW에 데이터를 로드하는 방법 및 SQL DW 또는 IPython Notebook을 사용하여 모델링할 데이터와 엔지니어링 기능을 탐색하는 방법을 보여 줍니다. 그런 다음 Azure Machine Learning으로 모델을 빌드하고 배포하는 방법을 보여 줍니다.
 
 ## <a name="dataset"></a>NYC Taxi Trips 데이터 집합
-NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여정의 요금으로 기록된 약 20GB의 압축된 CSV 파일(압축되지 않은 경우 약 48GB)로 구성됩니다. 각 여정 레코드는 승차 및 하차 위치, 익명 처리된 hack(기사) 면허증 번호 및 medallion(택시의 고유 ID) 번호를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 집합으로 제공됩니다.
+NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여정의 요금으로 기록된 약 20GB의 압축된 CSV 파일(압축되지 않은 경우 약 48GB)로 구성됩니다. 각 여정 레코드는 승차 및 하차 위치, 익명 처리된 hack(기사) 면허증 번호 및 medallion(택시의 고유 ID) 번호를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 세트로 제공됩니다.
 
 1. **trip_data.csv** 파일에는 승객 수, 승차 및 하차 지점, 여정 기간, 여정 거리 등 여정 세부 정보가 포함됩니다. 다음은 몇 가지 샘플 레코드입니다.
    
@@ -209,7 +205,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
               )
           )
           ;
-  * Azure Blob 저장소에 NYC Taxi 데이터 집합에 대한 외부 요금 및 여정 테이블을 만듭니다.
+  * Azure Blob 저장소에 NYC Taxi 데이터 세트에 대한 외부 요금 및 여정 테이블을 만듭니다.
     
           CREATE EXTERNAL TABLE {external_nyctaxi_fare}
           (
@@ -370,7 +366,7 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
 **출력:** 173,179,759행과 14개의 열이 표시됩니다.
 
 ### <a name="exploration-trip-distribution-by-medallion"></a>탐색: medallion별 여정 분포
-이 예제 쿼리에서는 지정된 기간 내의 100개가 넘는 여정을 완료한 medallion(택시 번호)을 식별합니다. 쿼리는 **pickup\_datetime** 파티션 구성표를 조건으로 하므로 분할된 테이블 액세스를 활용합니다. 전체 데이터 집합을 쿼리할 때도 분할된 테이블 및/또는 인덱스 검색을 사용합니다.
+이 예제 쿼리에서는 지정된 기간 내의 100개가 넘는 여정을 완료한 medallion(택시 번호)을 식별합니다. 쿼리는 **pickup\_datetime** 파티션 구성표를 조건으로 하므로 분할된 테이블 액세스를 활용합니다. 전체 데이터 세트를 쿼리할 때도 분할된 테이블 및/또는 인덱스 검색을 사용합니다.
 
     SELECT medallion, COUNT(*)
     FROM <schemaname>.<nyctaxi_fare>
@@ -406,7 +402,7 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
 **출력:** 쿼리는 잘못된 경도 및/또는 위도 필드가 있는 837,467개의 여정을 반환합니다.
 
 ### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>탐색: 왕복 여정과 비왕복 여정 분포
-이 예제에서는 지정된 기간 동안(또는 여기 설정된 대로 전체 연도를 포함하는 경우 전체 데이터 집합에서) 왕복 여정 수와 비왕복 여정 수를 확인합니다. 이 분포는 나중에 이진 분류 모델링에 사용할 이진 레이블 분포를 반영합니다.
+이 예제에서는 지정된 기간 동안(또는 여기 설정된 대로 전체 연도를 포함하는 경우 전체 데이터 세트에서) 왕복 여정 수와 비왕복 여정 수를 확인합니다. 이 분포는 나중에 이진 분류 모델링에 사용할 이진 레이블 분포를 반영합니다.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
       SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
@@ -417,7 +413,7 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
 **출력:** 쿼리는 2013년 팁 빈도(왕복 여정 90,447,622 및 비왕복 여정 82,264,709)를 반환합니다.
 
 ### <a name="exploration-tip-classrange-distribution"></a>탐색: 팁 클래스/범위 분포
-이 예제에서는 지정된 기간 동안(또는 전체 연도를 포괄하는 경우 전체 데이터 집합에서) 팁 범위 분포를 계산합니다. 이는 나중에 다중 클래스 분류 모델링에 사용할 레이블 클래스의 분포입니다.
+이 예제에서는 지정된 기간 동안(또는 전체 연도를 포괄하는 경우 전체 데이터 세트에서) 팁 범위 분포를 계산합니다. 이는 나중에 다중 클래스 분류 모델링에 사용할 레이블 클래스의 분포입니다.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
         SELECT CASE
@@ -544,7 +540,7 @@ SQL 쿼리에서 기능을 생성하는 이 함수를 호출하는 예는 다음
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>모델 구축에 사용할 데이터를 준비합니다.
-다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성하며, 조인된 전체 데이터 집합에서 샘플을 추출합니다. 샘플링은 승차 시간에 따라 여정의 하위 집합을 검색하여 수행됩니다.  Azure의 SQL Database 인스턴스에서 데이터를 직접 수집하기 위해 이 쿼리를 복사한 다음 [Azure Machine Learning Studio](https://studio.azureml.net)[데이터 가져오기][import-data] 모듈에 직접 붙여넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
+다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성하며, 조인된 전체 데이터 세트에서 샘플을 추출합니다. 샘플링은 승차 시간에 따라 여정의 하위 집합을 검색하여 수행됩니다.  Azure의 SQL Database 인스턴스에서 데이터를 직접 수집하기 위해 이 쿼리를 복사한 다음 [Azure Machine Learning Studio](https://studio.azureml.net)[데이터 가져오기][import-data] 모듈에 직접 붙여넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -825,10 +821,10 @@ and
 2. Azure ML로 데이터를 가져옵니다.
 3. 필요에 따라 데이터를 전처리, 변환 및 조작합니다.
 4. 필요에 따라 기능을 생성합니다.
-5. 데이터를 학습/유효성 검사/테스트 데이터 집합으로 분할하거나, 각각에 대한 별도의 데이터 집합을 만듭니다.
+5. 데이터를 학습/유효성 검사/테스트 데이터 세트로 분할하거나, 각각에 대한 별도의 데이터 세트를 만듭니다.
 6. 해결할 학습 문제에 따라 하나 이상의 기계 학습 알고리즘을 선택하세요. 이진 분류, 다중 클래스 분류, 회귀)을 선택합니다.
-7. 학습 데이터 집합을 사용하여 하나 이상의 모델을 학습합니다.
-8. 학습된 모델을 사용하여 유효성 검사 데이터 집합의 점수를 매깁니다.
+7. 학습 데이터 세트를 사용하여 하나 이상의 모델을 학습합니다.
+8. 학습된 모델을 사용하여 유효성 검사 데이터 세트의 점수를 매깁니다.
 9. 모델을 평가하여 학습 문제에 대한 관련 메트릭을 계산합니다.
 10. 모델을 미세 조정하고 배포할 가장 적합한 모델을 선택합니다.
 
@@ -850,7 +846,7 @@ SQL Data Warehouse 데이터베이스에서 직접 데이터를 읽는 이진 �
 > [!IMPORTANT]
 > 이전 섹션에 제공된 모델링 데이터 추출 및 샘플링 쿼리 예제에서는 **세 가지 모델링 연습에 대한 모든 레이블이 쿼리에 포함되어 있습니다**. 각 모델링 연습의 중요한(필수) 단계는 다른 두 문제에 대한 필요 없는 레이블 및 다른 모든 **목표 누설**을 **제외**하는 것입니다. 예를 들어 이진 분류를 사용할 때는 레이블 **tipped**를 사용하고, **tip\_class**, **tip\_amount** 및 **total\_amount** 필드를 제외합니다. 이러한 필드는 지불된 팁을 의미하므로 목표 누설입니다.
 > 
-> 필요 없는 열 또는 목표 누설을 제외하려면 [데이터 집합의 열 선택][select-columns] 모듈 또는 [메타데이터 편집][edit-metadata]을 사용하면 됩니다. 자세한 내용은 [데이터 집합의 열 선택][select-columns] 및 [메타데이터 편집][edit-metadata] 참조 페이지를 참조하세요.
+> 필요 없는 열 또는 목표 누설을 제외하려면 [데이터 세트의 열 선택][select-columns] 모듈 또는 [메타데이터 편집][edit-metadata]을 사용하면 됩니다. 자세한 내용은 [데이터 세트의 열 선택][select-columns] 및 [메타데이터 편집][edit-metadata] 참조 페이지를 참조하세요.
 > 
 > 
 
@@ -872,14 +868,14 @@ Azure Machine Learning에서는 학습 실험의 구성 요소를 기반으로 �
 2. 필요한 입력 데이터 스키마를 나타내는 논리적 **입력 포트** 를 식별합니다.
 3. 필요한 웹 서비스 출력 스키마를 나타내는 논리적 **출력 포트** 를 식별합니다.
 
-점수 매기기 실험을 만들 때 필요에 따라 검토하고 조정합니다. 일반적인 조정은 입력 데이터 집합 및/또는 쿼리를 레이블 필드를 제외한 것으로 바꾸는 것입니다. 레이블 필드는 서비스를 호출할 때 사용할 수 없기 때문입니다. 또한 입력 데이터 집합 및/또는 쿼리 크기를 입력 스키마를 나타내는 데 충분한 정도의 몇몇 레코드로 줄이는 것이 좋습니다. 출력 포트의 경우 일반적으로 [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 모든 입력 필드를 제외하고 **점수가 매겨진 레이블** 및 **점수가 매겨진 확률**만 출력에 포함합니다.
+점수 매기기 실험을 만들 때 필요에 따라 검토하고 조정합니다. 일반적인 조정은 입력 데이터 세트 및/또는 쿼리를 레이블 필드를 제외한 것으로 바꾸는 것입니다. 레이블 필드는 서비스를 호출할 때 사용할 수 없기 때문입니다. 또한 입력 데이터 세트 및/또는 쿼리 크기를 입력 스키마를 나타내는 데 충분한 정도의 몇몇 레코드로 줄이는 것이 좋습니다. 출력 포트의 경우 일반적으로 [데이터 세트의 열 선택][select-columns] 모듈을 사용하여 모든 입력 필드를 제외하고 **점수가 매겨진 레이블** 및 **점수가 매겨진 확률**만 출력에 포함합니다.
 
 샘플 점수 매기기 실험은 아래 그림에서 제공됩니다. 배포할 준비가 되면 아래쪽 작업 모음에서 **웹 서비스 게시** 단추를 클릭합니다.
 
 ![Azure ML 게시][11]
 
 ## <a name="summary"></a>요약
-이 연습 자습서에서 수행한 작업을 설명하면 Azure 데이터 과학 환경을 만들고 대용량 공용 데이터 집합으로 작업하며, 팀 데이터 과학 프로세스를 통해 가져오고, 데이터 취득에서 모델 학습, Azure Machine Learning 웹 서비스의 배포에 이르는 모든 과정을 수행했습니다.
+이 연습 자습서에서 수행한 작업을 설명하면 Azure 데이터 과학 환경을 만들고 대용량 공용 데이터 세트로 작업하며, 팀 데이터 과학 프로세스를 통해 가져오고, 데이터 취득에서 모델 학습, Azure Machine Learning 웹 서비스의 배포에 이르는 모든 과정을 수행했습니다.
 
 ### <a name="license-information"></a>라이선스 정보
 이 샘플 연습 및 이와 함께 제공되는 스크립트와 IPython Notebook은 MIT 라이선스에 따라 Microsoft에서 공유한 것입니다. 자세한 내용은 GitHub의 샘플 코드 디렉터리에 있는 LICENSE.txt 파일을 참조하세요.
@@ -887,7 +883,7 @@ Azure Machine Learning에서는 학습 실험의 구성 요소를 기반으로 �
 ## <a name="references"></a>참조
 • [Andrés Monroy NYC Taxi Trips 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/)  
 • [Chris Whong의 FOILing NYC Taxi Trip 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [NYC Taxi 및 Limousine 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [NYC Taxi 및 Limousine 수수료 연구 및 통계](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

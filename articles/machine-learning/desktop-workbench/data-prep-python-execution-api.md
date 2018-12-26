@@ -7,20 +7,25 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: dac13d36477dccce3bce2ecb9fe2326c36d9ef59
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5280ed4143ef2ee980300cebe234de7f2020a14f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830598"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968104"
 ---
 # <a name="execute-data-sources-and-data-preparations-packages-from-python"></a>Python에서 데이터 원본 및 데이터 준비 패키지 실행
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Python 내에서 Azure Machine Learning 데이터 원본 또는 Azure Machine Learning 데이터 준비 패키지를 사용하려면:
 

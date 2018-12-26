@@ -4,18 +4,18 @@ description: Azure MFA 서버 온-프레미스 단계별 시작
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 130e9956702515574da47dc872b03598ca19ff29
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.reviewer: michmcla
+ms.openlocfilehash: d69addac0647513e00663110ac82eef343b77983
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031690"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364621"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
 
@@ -49,6 +49,7 @@ Azure Multi-Factor Authentication에 사용 중인 서버가 다음 요구 사�
 |:--- |:--- |
 | 하드웨어 |<li>200MB의 하드 디스크 공간</li><li>x32 또는 x64 지원 프로세서</li><li>1GB 이상 RAM</li> |
 | 소프트웨어 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>윈도우 10</li><li>Windows 8.1, 모든 버전</li><li>Windows 8, 모든 버전</li><li>Windows 7, 모든 버전</li><li>Windows Vista, 모든 버전, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li> |
+| 권한 | Active Directory에 등록할 도메인 관리자 또는 엔터프라이즈 관리자 계정 |
 
 ### <a name="azure-mfa-server-components"></a>Azure MFA 서버 구성 요소
 
@@ -76,7 +77,7 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 | 134.170.165.0/25 |255.255.255.128 |134.170.165.1 – 134.170.165.126 |
 | 70.37.154.128/25 |255.255.255.128 |70.37.154.129 – 70.37.154.254 |
 
-이벤트 확인 기능을 사용하지 않고 사용자가 모바일 앱을 사용하여 회사 네트워크의 장치에서 확인하지 않는 경우 다음 범위만 필요합니다.
+이벤트 확인 기능을 사용하지 않고 사용자가 모바일 앱을 사용하여 회사 네트워크의 디바이스에서 확인하지 않는 경우 다음 범위만 필요합니다.
 
 | IP 서브넷 | 네트워크 마스크 | IP 범위 |
 |:---: |:---: |:---: |
@@ -157,7 +158,7 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 * 이름과 성(선택 사항)
 * 메일 주소(선택 사항)
 * 전화 번호 - 음성 통화 또는 SMS 인증을 수행할 때
-* 장치 토큰 - 모바일 앱 인증을 수행할 때
+* 디바이스 토큰 - 모바일 앱 인증을 수행할 때
 * 인증 모드
 * 인증 결과
 * MFA 서버 이름
@@ -184,7 +185,7 @@ Azure MFA 서버를 백업하려면 **PhoneFactor.pfdata** 파일을 포함한 *
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL 프로토콜 및 암호 그룹 관리
 
-MFA 서버 버전 8.x 이상으로 업그레이드하거나 해당 버전을 설치하면 조직에서 필요하지 않는 경우 오래되고 약한 암호 그룹을 사용하지 않도록 설정하거나 제거하는 것이 좋습니다. 이 작업을 완료하는 방법에 대한 정보는 [AD FS에 대한 SSL/TLS 프로토콜 및 암호 그룹 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 아티클에서 찾을 수 있습니다.
+MFA 서버 버전 8.x 이상으로 업그레이드하거나 해당 버전을 설치하면 조직에서 필요하지 않는 경우 오래되고 약한 암호 그룹을 사용하지 않도록 설정하거나 제거하는 것이 좋습니다. 이 작업을 완료하는 방법에 대한 정보는 [AD FS에 대한 SSL/TLS 프로토콜 및 암호 그룹 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 문서에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

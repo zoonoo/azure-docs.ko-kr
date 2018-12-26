@@ -1,3 +1,16 @@
+---
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: rogarana
+ms.openlocfilehash: 5ac7982d306125804fc5b7873e537f9381f717cb
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279795"
+---
 **프리미엄 관리되지 않는 가상 머신 디스크: 계정 한도당**
 
 | 리소스 | 기본 제한 |

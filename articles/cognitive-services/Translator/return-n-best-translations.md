@@ -1,20 +1,21 @@
 ---
-title: Microsoft Translator Text API를 사용한 N-Best 번역 반환 | Microsoft Docs
+title: N-Best 번역 반환 - Translator Text API
+titlesuffix: Azure Cognitive Services
 description: Microsoft Translator Text API를 사용하여 N-Best 번역을 반환합니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 3eafe50f69ae1a6748342e64a414ecee4467d0d1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a0f4e4dd5cea9c3ea7b682e6372d2ffa8726e6ef
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374359"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646476"
 ---
 # <a name="how-to-return-n-best-translations"></a>N-Best 번역 반환 방법
 
@@ -46,7 +47,7 @@ Microsoft Translator API의 GetTranslations() 및 GetTranslationsArray() 메서�
 * 범주: 유일하게 지원되는 기본 옵션은 "general"입니다.
 * ContentType: 유일하게 지원되는 기본 옵션은 "text/plain"입니다.
 * 상태: 요청 및 응답을 상호 연결하게 하는 사용자 상태입니다. 응답에서 동일한 내용이 반환됩니다.
-* IncludeMultipleMTAlternatives: MT 엔진에서 하나를 초과하는 대안을 반환할 것인지 여부를 결정하는 플래그입니다. 기본값이 False이고 1개의 대안만을 포함합니다.
+* IncludeMultipleMTAlternatives: MT 엔진에서 하나를 초과하는 대안을 반환할 것인지 여부를 결정하는 플래그입니다. 기본값이 False이고 1개의 대안만 포함합니다.
 
 ## <a name="ratings"></a>등급
 등급은 다음과 같이 적용됩니다. 즉, 최고의 자동 번역 등급은 5입니다.

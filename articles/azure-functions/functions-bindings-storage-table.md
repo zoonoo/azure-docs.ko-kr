@@ -3,24 +3,20 @@ title: Azure Functions의 Azure Table Storage 바인딩
 description: Azure Functions에서 Azure Table Storage 바인딩을 사용하는 방법을 이해합니다.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: craigshoemaker
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 11/08/2017
-ms.author: tdykstra
-ms.openlocfilehash: 51b9f7bfd25da7dfd4ae9038f8dab70e9232b944
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.date: 09/03/2018
+ms.author: cshoe
+ms.openlocfilehash: 3fc31306af1c85a67a1afca8a34be82a711f2527
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724584"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999529"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Table Storage 바인딩
 
@@ -30,17 +26,17 @@ ms.locfileid: "34724584"
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-Table Storage 바인딩은 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지 버전 2.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub 리포지토리에 있습니다.
-
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
-## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
-
-Table Storage 바인딩은 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub 리포지토리에 있습니다.
+Table Storage 바인딩은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지 버전 2.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
+## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
+
+Table Storage 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables) GitHub 리포지토리에 있습니다.
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="input"></a>입력
 
@@ -50,14 +46,17 @@ Azure Table Storage 입력 바인딩을 사용하여 Azure Storage 계정에서 
 
 언어 관련 예제를 참조하세요.
 
-* [C# 단일 엔터티 읽기](#input---c-example-1)
-* [C# 여러 엔터티 읽기](#input---c-example-2)
-* [C# 스크립트 - 하나의 읽기 엔터티](#input---c-script-example-1)
-* [C# 스크립트 - 여러 개의 읽기 엔터티](#input---c-script-example-2)
-* [F#](#input---f-example-2)
+* [C# 단일 엔터티 읽기](#input---c-example---one-entity)
+* [C# IQueryable에 바인딩](#input---c-example---iqueryable)
+* [C# CloudTable에 바인딩](#input---c-example---cloudtable)
+* [C# 스크립트 단일 엔터티 읽기](#input---c-script-example---one-entity)
+* [C# 스크립트 IQueryable에 바인딩](#input---c-script-example---iqueryable)
+* [C# 스크립트 CloudTable에 바인딩](#input---c-script-example---cloudtable)
+* [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
 
-### <a name="input---c-example-1"></a>입력 - C# 예제 1
+### <a name="input---c-example---one-entity"></a>입력 - C# 예제 - 단일 엔터티
 
 다음 예제에서는 단일 테이블 행을 읽을 수 있는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 
 
@@ -77,14 +76,14 @@ public class TableStorage
     public static void TableInput(
         [QueueTrigger("table-items")] string input, 
         [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
+        log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
     }
 }
 ```
 
-### <a name="input---c-example-2"></a>입력 - C# 예제 2
+### <a name="input---c-example---iqueryable"></a>입력 - C# 예제 - IQueryable
 
 다음 예제에서는 여러 테이블 행을 읽을 수 있는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. `MyPoco` 클래스가 `TableEntity`에서 파생됩니다.
 
@@ -100,20 +99,69 @@ public class TableStorage
     public static void TableInput(
         [QueueTrigger("table-items")] string input, 
         [Table("MyTable", "MyPartition")] IQueryable<MyPoco> pocos, 
-        TraceWriter log)
+        ILogger log)
     {
         foreach (MyPoco poco in pocos)
         {
-            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
+            log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
         }
     }
 }
 ```
 
-  > [!NOTE]
-  > `IQueryable`은 [Functions v2 런타임](functions-versions.md)에서 지원되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 [CloudTable paramName 메서드 매개 변수를 사용](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable)합니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
+### <a name="input---c-example---cloudtable"></a>입력 - C# 예제 - CloudTable
 
-### <a name="input---c-script-example-1"></a>입력 - C# 스크립트 예 1
+`IQueryable`은 [Functions v2 런타임](functions-versions.md)에서 지원되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 `CloudTable` 메서드 매개 변수를 사용합니다. 다음은 Azure Functions 로그 테이블을 쿼리하는 2.x 함수 예제입니다.
+
+```csharp
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
+using Microsoft.WindowsAzure.Storage.Table;
+using System;
+using System.Threading.Tasks;
+
+namespace FunctionAppCloudTable2
+{
+    public class LogEntity : TableEntity
+    {
+        public string OriginalName { get; set; }
+    }
+    public static class CloudTableDemo
+    {
+        [FunctionName("CloudTableDemo")]
+        public static async Task Run(
+            [TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, 
+            [Table("AzureWebJobsHostLogscommon")] CloudTable cloudTable,
+            ILogger log)
+        {
+            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+
+            TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
+                TableQuery.CombineFilters(
+                    TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, 
+                        "FD2"),
+                    TableOperators.And,
+                    TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, 
+                        "t")));
+
+            // Execute the query and loop through the results
+            foreach (LogEntity entity in 
+                await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
+            {
+                log.LogInformation(
+                    $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
+            }
+        }
+    }
+}
+```
+
+CloudTable을 사용하는 방법에 대한 자세한 내용은 [Azure Table Storage 시작](../cosmos-db/table-storage-how-to-use-dotnet.md)을 참조하세요.
+
+`CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
+
+### <a name="input---c-script-example---one-entity"></a>입력 - C# 스크립트 예제 - 단일 엔터티
 
 다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트](functions-reference-csharp.md) 코드에서 테이블 입력 바인딩을 보여줍니다. 함수는 큐 트리거를 사용하여 단일 테이블 행을 읽습니다. 
 
@@ -148,10 +196,10 @@ public class TableStorage
 C# 스크립트 코드는 다음과 같습니다.
 
 ```csharp
-public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
+public static void Run(string myQueueItem, Person personEntity, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    log.Info($"Name in Person entity: {personEntity.Name}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"Name in Person entity: {personEntity.Name}");
 }
 
 public class Person
@@ -162,7 +210,7 @@ public class Person
 }
 ```
 
-### <a name="input---c-script-example-2"></a>입력 - C# 스크립트 예 2
+### <a name="input---c-script-example---iqueryable"></a>입력 - C# 스크립트 예제 - IQueryable
 
 다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트](functions-reference-csharp.md) 코드에서 테이블 입력 바인딩을 보여줍니다. 함수는 큐 메시지에 지정된 파티션 키의 엔터티를 읽습니다.
 
@@ -197,13 +245,14 @@ C# 스크립트 코드는 엔터티 형식이 `TableEntity`에서 파생할 수 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Extensions.Logging;
 
-public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
+public static void Run(string myQueueItem, IQueryable<Person> tableBinding, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
     {
-        log.Info($"Name: {person.Name}");
+        log.LogInformation($"Name: {person.Name}");
     }
 }
 
@@ -212,6 +261,69 @@ public class Person : TableEntity
     public string Name { get; set; }
 }
 ```
+
+### <a name="input---c-script-example---cloudtable"></a>입력 - C# 스크립트 예제 - CloudTable
+
+`IQueryable`은 [Functions v2 런타임](functions-versions.md)에서 지원되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 `CloudTable` 메서드 매개 변수를 사용합니다. 다음은 Azure Functions 로그 테이블을 쿼리하는 2.x 함수 예제입니다.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */1 * * * *"
+    },
+    {
+      "name": "cloudTable",
+      "type": "table",
+      "connection": "AzureWebJobsStorage",
+      "tableName": "AzureWebJobsHostLogscommon",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```csharp
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
+using System;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+
+public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, ILogger log)
+{
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+
+    TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
+    TableQuery.CombineFilters(
+        TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, 
+            "FD2"),
+        TableOperators.And,
+        TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, 
+            "a")));
+
+    // Execute the query and loop through the results
+    foreach (LogEntity entity in 
+    await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
+    {
+        log.LogInformation(
+            $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
+    }
+}
+
+public class LogEntity : TableEntity
+{
+    public string OriginalName { get; set; }
+}
+```
+
+CloudTable을 사용하는 방법에 대한 자세한 내용은 [Azure Table Storage 시작](../cosmos-db/table-storage-how-to-use-dotnet.md)을 참조하세요.
+
+`CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
 ### <a name="input---f-example"></a>입력 - F# 예제
 
@@ -256,8 +368,8 @@ type Person = {
 }
 
 let Run(myQueueItem: string, personEntity: Person) =
-    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-    log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
+    log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    log.LogInformation(sprintf "Name in Person entity: %s" personEntity.Name)
 ```
 
 ### <a name="input---javascript-example"></a>입력 - JavaScript 예제
@@ -302,11 +414,30 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+### <a name="input---java-example"></a>입력 - Java 예제
+
+다음 예는 Table Storage의 지정된 파티션에 있는 총 항목 수를 반환하는 HTTP 트리거 함수를 보여줍니다.
+
+```java
+@FunctionName("getallcount")
+public int run(
+   @HttpTrigger(name = "req",
+                 methods = {"get"},
+                 authLevel = AuthorizationLevel.ANONYMOUS) Object dummyShouldNotBeUsed,
+   @TableInput(name = "items",
+                tableName = "mytablename",  partitionKey = "myparkey",
+                connection = "myconnvarname") MyItem[] items
+) {
+    return items.length;
+}
+```
+
+
 ## <a name="input---attributes"></a>입력 - 특성
  
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 다음 특성을 사용하여 테이블 입력 바인딩을 구성합니다.
 
-* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)
 
   특성의 생성자는 테이블 이름, 파티션 키 및 행 키를 사용합니다. 다음 예제와 같이 out 매개 변수 또는 함수의 반환 값에서 사용할 수 있습니다.
 
@@ -315,7 +446,7 @@ module.exports = function (context, myQueueItem) {
   public static void Run(
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
-      TraceWriter log)
+      ILogger log)
   {
       ...
   }
@@ -328,7 +459,7 @@ module.exports = function (context, myQueueItem) {
   public static void Run(
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
-      TraceWriter log)
+      ILogger log)
   {
       ...
   }
@@ -359,6 +490,10 @@ module.exports = function (context, myQueueItem) {
 * 함수에 적용된 `StorageAccount` 특성
 * 클래스에 적용된 `StorageAccount` 특성
 * 함수 앱의 기본 저장소 계정("AzureWebJobsStorage" 앱 설정)
+
+## <a name="input---java-annotations"></a>입력 - Java 주석
+
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Table Storage에서 제공되는 매개 변수에 대한 `@TableInput` 주석을 사용합니다.  옵션 <T>를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다. 
 
 ## <a name="input---configuration"></a>입력 - 구성
 
@@ -429,9 +564,9 @@ public class TableStorage
 
     [FunctionName("TableOutput")]
     [return: Table("MyTable")]
-    public static MyPoco TableOutput([HttpTrigger] dynamic input, TraceWriter log)
+    public static MyPoco TableOutput([HttpTrigger] dynamic input, ILogger log)
     {
-        log.Info($"C# http trigger function processed: {input.Text}");
+        log.LogInformation($"C# http trigger function processed: {input.Text}");
         return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
     }
 }
@@ -468,11 +603,11 @@ public class TableStorage
 C# 스크립트 코드는 다음과 같습니다.
 
 ```csharp
-public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
+public static void Run(string input, ICollector<Person> tableBinding, ILogger log)
 {
     for (int i = 1; i < 10; i++)
         {
-            log.Info($"Adding Person entity {i}");
+            log.LogInformation($"Adding Person entity {i}");
             tableBinding.Add(
                 new Person() { 
                     PartitionKey = "Test", 
@@ -530,9 +665,9 @@ type Person = {
   Name: string
 }
 
-let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
+let Run(input: string, tableBinding: ICollector<Person>, log: ILogger) =
     for i = 1 to 10 do
-        log.Info(sprintf "Adding Person entity %d" i)
+        log.LogInformation(sprintf "Adding Person entity %d" i)
         tableBinding.Add(
             { PartitionKey = "Test"
               RowKey = i.ToString()
@@ -588,7 +723,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>출력 - 특성
 
-[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)를 사용합니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)를 사용합니다.
 
 특성의 생성자는 테이블 이름을 사용합니다. 다음 예제와 같이 `out` 매개 변수 또는 함수의 반환 값에서 사용할 수 있습니다.
 
@@ -597,7 +732,7 @@ module.exports = function (context) {
 [return: Table("MyTable")]
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
-    TraceWriter log)
+    ILogger log)
 {
     ...
 }
@@ -610,7 +745,7 @@ public static MyPoco TableOutput(
 [return: Table("MyTable", Connection = "StorageConnectionAppSetting")]
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
-    TraceWriter log)
+    ILogger log)
 {
     ...
 }
@@ -648,7 +783,7 @@ Table Storage 출력 바인딩은 다음과 같은 시나리오를 지원합니�
 
   C# 또는 C# 스크립트에서 `ICollector<T> paramName` 또는 `IAsyncCollector<T> paramName` 메서드 매개 변수를 사용하여 출력 테이블 엔터티에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. `T`는 추가하려는 엔터티의 스키마를 지정합니다. 일반적으로 `T`는 `TableEntity`에서 파생되거나 `ITableEntity`을 구현하지만 반드시 그런 것은 아닙니다. *function.json* 또는 `Table` 특성 생성자의 파티션 키와 행 키의 값은 이 시나리오에서 사용되지 않습니다.
 
-  대신 Azure Storage SDK를 사용하여 테이블에 쓰는 `CloudTable paramName` 메서드 매개 변수를 사용합니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
+  대신 Azure Storage SDK를 사용하여 테이블에 쓰는 `CloudTable` 메서드 매개 변수를 사용합니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다. `CloudTable`에 바인딩하는 코드 예제는 이 문서의 앞부분에 있는 [C#](#input---c-example---cloudtable) 또는 [C# 스크립트](#input---c-script-example---cloudtable)에 대한 입력 바인딩 예제를 참조하세요.
 
 * **JavaScript에서 하나 이상의 행 쓰기**
 

@@ -1,19 +1,19 @@
 ---
-title: Azure로의 Hyper-V 복제에 대한 Azure Site Recovery Deployment Planner 비용 예측 세부 정보 | Microsoft Docs
-description: 이 문서에서는 Hyper-V에서 Azure로의 복제 시나리오에 대해 Azure Site Recovery Deployment Planner를 사용하여 생성된 보고서의 비용 예측 세부 정보를 설명합니다.
+title: Hyper-V VM과 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner 비용 예측 보고서 검토 | Microsoft Docs
+description: 이 문서에서는 Hyper-V와 Azure 간 재해 복구를 위해 Azure Site Recovery Deployment Planner에서 생성된 비용 예측 보고서를 검토하는 방법을 설명합니다.
 services: site-recovery
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 31461e70e81f0f48a8d67e31b98cfae2dd627a54
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0233446f817436632efc4110872e84b6b3105453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29466829"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213188"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서 
 
@@ -39,9 +39,9 @@ Azure Site Recovery Deployment Planner 보고서는 [권장 사항](hyper-v-depl
 **월간/연간 Azure Storage 비용**: 복제 및 DR 드릴에 사용되는 프리미엄 및 표준 저장소에 대해 발생하는 총 저장소 비용입니다.
 
 ## <a name="detailed-cost-analysis"></a>자세한 비용 분석
-계산, 저장소 및 네트워크에 대한 Azure 가격은 Azure 지역마다 다릅니다. 구독, 구독과 연결된 제품 및 지정된 대상 Azure 지역에 기반한 최신 Azure 가격을 사용하여 지정된 통화 단위의 비용 예측 보고서를 생성할 수 있습니다. 도구에서는 기본적으로 미국 서부 2 Azure 지역과 USD(미국 달러) 통화가 사용됩니다. 다른 지역 및 통화를 사용하는 경우 다음 번에 구독 ID, 제품 ID, 대상 지역 및 통화가 없는 보고서를 생성하면, 도구에서 마지막으로 사용한 대상 지역과 통화를 사용하여 비용을 예측합니다.
+계산, 저장소 및 네트워크에 대한 Azure 가격은 Azure 지역마다 다릅니다. 구독, 구독과 연결된 제안 및 지정된 대상 Azure 지역에 기반한 최신 Azure 가격을 사용하여 지정된 통화 단위의 비용 예측 보고서를 생성할 수 있습니다. 도구에서는 기본적으로 미국 서부 2 Azure 지역과 USD(미국 달러) 통화가 사용됩니다. 다른 지역 및 통화를 사용하는 경우 다음 번에 구독 ID, 제안 ID, 대상 지역 및 통화가 없는 보고서를 생성하면, 도구에서 마지막으로 사용한 대상 지역과 통화를 사용하여 비용을 예측합니다.
 
-이 섹션에는 보고서 생성에 사용한 구독 ID 및 제품 ID가 표시됩니다. 사용하지 않으면 비어 있습니다.
+이 섹션에는 보고서 생성에 사용한 구독 ID 및 제안 ID가 표시됩니다. 사용하지 않으면 비어 있습니다.
 
 전체 보고서에서 회색으로 표시된 셀은 읽기 전용입니다. 흰색 셀은 요구 사항에 따라 수정할 수 있습니다.
 
@@ -105,11 +105,11 @@ VM을 수동으로 추가하려면:
 
 1. **행 삽입**을 선택하여 **시작** 및 **끝** 행 사이에 새 행을 삽입합니다.
 
-2. 이 구성과 일치하는 대략적인 VM 크기 및 VM 수에 따라 다음 열을 채웁니다. 
+1. 이 구성과 일치하는 대략적인 VM 크기 및 VM 수에 따라 다음 열을 채웁니다. 
 
     a. **VM 수**
 
-    나. **IaaS 크기(선택)**
+    b. **IaaS 크기(선택)**
 
     다. **저장소 유형(표준/프리미엄)**
 
@@ -125,9 +125,9 @@ VM을 수동으로 추가하려면:
 
     i. **AHUB(Azure Hybrid Use Benefit)**
 
-3. **연간 DR 드릴 횟수**, **각 DR 드릴 기간(일)**, **데이터 중복성** 및 **Azure 하이브리드 사용 혜택**에 대해 **모든 항목에 적용**을 선택하여 테이블의 모든 VM에 동일한 값을 적용할 수 있습니다.
+1. **연간 DR 드릴 횟수**, **각 DR 드릴 기간(일)**, **데이터 중복성** 및 **Azure 하이브리드 사용 혜택**에 대해 **모든 항목에 적용**을 선택하여 테이블의 모든 VM에 동일한 값을 적용할 수 있습니다.
 
-4. **비용 다시 계산**을 선택하여 비용을 업데이트합니다.
+1. **비용 다시 계산**을 선택하여 비용을 업데이트합니다.
 
 **VM 이름**: VM의 이름입니다.
 
@@ -143,7 +143,7 @@ VM을 수동으로 추가하려면:
 
 **연간 DR 드릴 횟수**: 1년 동안 DR 드릴을 수행하는 횟수입니다. 기본적으로 1년에 4번입니다. 특정 VM에 대한 기간을 수정하거나 새 값을 모든 VM에 적용할 수 있습니다. 맨 위 행에 새 값을 입력하고 **모든 항목에 적용**을 선택합니다. 연간 DR 드릴 횟수와 각 DR 드릴 기간에 따라 총 DR 드릴 비용이 계산됩니다. 
 
-**각 DR 드릴 기간(일)**: 각 DR 드릴의 기간입니다. [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/en-in/pricing/details/site-recovery)에 따라 기본적으로 90일마다 7일입니다. 특정 VM에 대한 기간을 수정하거나 새 값을 모든 VM에 적용할 수 있습니다. 맨 위 행에 새 값을 입력하고 **모든 항목에 적용**을 선택합니다. 연간 DR 드릴 횟수와 각 DR 드릴 기간에 따라 총 DR 드릴 비용이 계산됩니다.
+**각 DR 드릴 기간(일)**: 각 DR 드릴의 기간입니다. [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/pricing/details/site-recovery)에 따라 기본적으로 90일마다 7일입니다. 특정 VM에 대한 기간을 수정하거나 새 값을 모든 VM에 적용할 수 있습니다. 맨 위 행에 새 값을 입력하고 **모든 항목에 적용**을 선택합니다. 연간 DR 드릴 횟수와 각 DR 드릴 기간에 따라 총 DR 드릴 비용이 계산됩니다.
  
 **OS 종류**: VM의 운영 체제(OS) 종류입니다. Windows 또는 Linux입니다. OS 종류가 Windows이면 Azure 하이브리드 사용 혜택을 해당 VM에 적용할 수 있습니다. 
 
@@ -167,7 +167,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>지원되는 통화
 Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보고서를 생성할 수 있습니다.
 
-|통화|Name||통화|Name||통화|Name|
+|통화|이름||통화|이름||통화|이름|
 |---|---|---|---|---|---|---|---|
 |ARS|아르헨티나 페소($)||AUD|호주 달러($)||BRL|브라질 헤알(R$)|
 |CAD|캐나다 달러($)||CHF|스위스 프랑(chf)||DKK|덴마크 크로네(kr)|

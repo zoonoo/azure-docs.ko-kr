@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 6b2dc2e8859efdcc57c45831381bc1870495ecf6
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: cf0fad78613d063a0f1270597cf67eadd996124a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776026"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406915"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Azure에서 Terraform을 사용하여 전체 Linux 가상 머신 인프라 만들기
 
@@ -75,6 +75,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     }
 }
 ```
+
 다음 섹션에서는 *myVnet* 가상 네트워크에 *mySubnet*이라는 서브넷을 만듭니다.
 
 ```tf
@@ -108,7 +109,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 네트워크 보안 그룹은 VM 내/외부 네트워크 트래픽의 흐름을 제어합니다. 다음 섹션에서는 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만들고 TCP 포트 22에서 SSH 트래픽을 허용하는 규칙을 정의합니다.
 
 ```tf
-resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
+resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
@@ -140,6 +141,7 @@ resource "azurerm_network_interface" "myterraformnic" {
     name                = "myNIC"
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
+    network_security_group_id = "${azurerm_network_security_group.myterraformnsg.id}"
 
     ip_configuration {
         name                          = "myNicConfiguration"
@@ -186,7 +188,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 ```
 
 
-## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-virtual-machine"></a>가상 머신 만들기
 
 마지막 단계에서는 VM을 만들고 생성한 모든 리소스를 사용합니다. 다음 섹션에서는 *myVM*이라는 VM을 만들고 *myNIC*라는 가상 NIC를 연결합니다. 최신 *Ubuntu 16.04-LTS* 이미지를 사용하고, 암호 인증을 사용하지 않도록 설정된 *azureuser*라는 사용자가 만들어집니다.
 
@@ -243,10 +245,6 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 이러한 모든 섹션을 함께 가져오거나 작동 중인 Terraform을 보려면 *terraform_azure.tf*라는 파일을 만들고 다음 콘텐츠를 붙여넣습니다.
 
 ```tf
-variable "resourcename" {
-  default = "myResourceGroup"
-}
-
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"

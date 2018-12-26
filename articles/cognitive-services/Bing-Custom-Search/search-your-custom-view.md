@@ -1,46 +1,60 @@
 ---
-title: 'Bing Custom Search: 사용자 지정 뷰 검색 | Microsoft Docs'
-description: 웹의 사용자 지정 뷰를 검색하는 방법을 설명합니다.
+title: 사용자 지정 보기 검색 - Bing Custom Search
+titlesuffix: Azure Cognitive Services
+description: 웹의 사용자 지정 보기 검색 방법을 설명합니다.
 services: cognitive-services
-author: brapel
-manager: ehansen
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 75f6c8d299c7eed901dda0631fca74b040f72e30
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: maheshb
+ms.openlocfilehash: 58472d535be41fdd3e1139756f867f683509d9a3
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374695"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161738"
 ---
 # <a name="call-your-custom-search"></a>사용자 지정 검색 호출
+
 인스턴스에 대한 검색 결과를 가져오기 위해 Custom Search API를 처음으로 호출하기 전에 Cognitive Services 구독 키를 받아야 합니다. Custom Search API에 대한 키를 받으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)를 참조하세요.
 
-> [!NOTE]
-> 2017년 10월 15일 또는 그 이전에 프로비전된 미리 보기 키를 보유한 기존 Bing Custom Search 고객은 2017년 11월 30일까지 또는 허용되는 최대 쿼리 수를 모두 사용할 때까지 해당 키를 사용할 수 있습니다. 그 후에는 Azure의 일반 공급 버전으로 마이그레이션해야 합니다.
 
 ## <a name="try-it-out"></a>체험
-사용자 지정 검색 환경을 구성한 후 Custom Search 포털 내에서 구성을 테스트할 수 있습니다. [Custom Search](https://customsearch.ai)에 로그인하고 Custom Search 인스턴스를 클릭한 다음, **프로덕션** 탭을 클릭합니다. **끝점** 탭이 표시됩니다. 구독에 따라 시도할 수 있는 끝점이 결정됩니다. [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)를 참조하세요. 끝점을 테스트하려면 드롭다운에서 선택하고 관련된 구성 옵션을 설정합니다. 
 
-다음은 사용 가능한 옵션입니다.
+사용자 지정 검색 환경을 구성한 후 Custom Search 포털 내에서 구성을 테스트할 수 있습니다. 
 
-- **쿼리**: 검색할 검색어입니다. Web, Image 및 Autosuggest 끝점에만 사용할 수 있습니다.
-- **사용자 지정 구성 ID**: 선택한 Custom Search 인스턴스의 구성 ID입니다. 이 필드는 읽기 전용입니다.
-- **지역/국가**: 결과가 나오는 지역/국가입니다. Web, Image 및 Hosted UI 끝점에만 사용할 수 있습니다.
-- **구독 키**: 테스트에 사용할 구독 키입니다. 드롭다운에서 키를 선택하거나 수동으로 입력할 수 있습니다.
-- **유해 정보 차단**: 성인 콘텐츠용 웹 페이지를 필터링하는 데 사용되는 필터입니다. Web, Image 및 Hosted UI 끝점에만 사용할 수 있습니다.
-- **개수**: 응답에서 반환할 검색 결과 수입니다. Web 및 Image 끝점에만 사용할 수 있습니다.
-- **오프셋**: 응답에서 반환할 검색 결과 수입니다. Web 및 Image 끝점에만 사용할 수 있습니다.
+1. [Custom Search](https://customsearch.ai)에 로그인합니다.
+2. 인스턴스 목록에서 Custom Search 인스턴스를 클릭합니다.
+3. **프로덕션** 탭을 클릭합니다. 
+4. **엔드포인트** 탭에서 엔드포인트(예: Web API)를 선택합니다. 구독에서 어떤 엔드포인트가 표시되는지 확인합니다(구독 옵션은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) 참조). 
+5. 매개 변수의 값을 지정합니다. 
 
-Web, Image 또는 Autosuggest에 대한 필수 옵션을 모두 지정한 후 **호출**을 클릭하여 오른쪽 창에서 JSON 응답을 확인합니다. 
+    다음은 설정할 수 있는 가능한 매개 변수입니다(실제 목록은 선택한 엔드포인트에 따라 다름). 이러한 매개 변수에 대한 자세한 내용은 [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) 참조를 확인하세요.
 
-Hosted UI 끝점을 선택한 경우 오른쪽 창에서 검색 환경을 테스트할 수 있습니다.
+    - **쿼리**: 검색할 검색어입니다. 웹, 이미지, 비디오 및 자동 제안 엔드포인트에만 사용할 수 있습니다.
+    - **사용자 지정 구성 ID**: 선택한 Custom Search 인스턴스의 구성 ID입니다. 이 필드는 읽기 전용입니다.
+    - **지역/국가**: 결과가 나오는 지역/국가입니다. 웹, 이미지, 비디오 및 호스트된 UI 엔드포인트에만 사용할 수 있습니다.
+    - **구독 키**: 테스트에 사용할 구독 키입니다. 드롭다운 목록에서 키를 선택하거나 수동으로 입력할 수 있습니다.  
+      
+    **추가 매개 변수**를 클릭하면 다음 매개 변수가 표시됩니다.  
+      
+    - **유해 정보 차단**: 성인 콘텐츠용 웹 페이지를 필터링하는 데 사용되는 필터입니다. 웹, 이미지, 비디오 및 호스트된 UI 엔드포인트에만 사용할 수 있습니다.
+    - **사용자 인터페이스 언어**: 사용자 인터페이스 문자열에 사용되는 언어입니다. 예를 들어, 호스트된 UI에서 이미지 및 비디오를 사용하도록 설정한 경우 **이미지** 및 **비디오** 탭에서 지정된 언어를 사용합니다.
+    - **개수**: 응답에서 반환할 검색 결과 수입니다. 웹, 이미지 및 비디오 엔드포인트에서만 사용할 수 있습니다.
+    - **오프셋**: 결과를 반환하기 전에 건너뛸 검색 결과의 수입니다. 웹, 이미지 및 비디오 엔드포인트에서만 사용할 수 있습니다.
+
+6. 필수 옵션을 모두 지정한 후 **호출**을 클릭하여 오른쪽 창에서 JSON 응답을 확인합니다. 
+
+호스트된 UI 엔드포인트를 선택한 경우 아래쪽 창에서 검색 환경을 테스트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 - [C#을 사용하여 사용자 지정 뷰 호출](./call-endpoint-csharp.md)
 - [Java를 사용하여 사용자 지정 뷰 호출](./call-endpoint-java.md)
 - [NodeJs를 사용하여 사용자 지정 뷰 호출](./call-endpoint-nodejs.md)
 - [Python을 사용하여 사용자 지정 뷰 호출](./call-endpoint-python.md)
+
+- [C# SDK를 사용하여 사용자 지정 뷰 호출](./sdk-csharp-quick-start.md)

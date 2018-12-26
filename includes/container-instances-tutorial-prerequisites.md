@@ -2,22 +2,22 @@
 title: 포함 파일
 description: 포함 파일
 services: container-instances
-author: mmacy
+author: dlepow
 ms.service: container-instances
 ms.topic: include
 ms.date: 03/20/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 95a8cf4eca7969631d069a31c9d08ba52c8b02b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: da63a5418ab94623f6ce3c9f35a085dd8b198d1a
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30193485"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48858097"
 ---
 이 자습서를 완료하려면 다음 요구 사항을 충족해야 합니다.
 
-**Azure CLI**: 로컬 컴퓨터에 Azure CLI 버전 2.0.29 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우 [Azure CLI 2.0 설치][azure-cli-install]를 참조하세요.
+**Azure CLI**: 로컬 컴퓨터에 Azure CLI 버전 2.0.29 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 **Docker**: 이 자습서에서는 컨테이너, 컨테이너 이미지 및 기본 `docker` 명령과 같은 핵심 Docker 개념에 대한 기본적인 지식이 있다고 가정합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요][docker-get-started]를 참조하세요.
 

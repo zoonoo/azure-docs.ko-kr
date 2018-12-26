@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights를 사용하여 성능 문제 진단 | Microsoft Docs
-description: Azure Application Insights를 사용하여 응용 프로그램에서 성능 문제를 찾고 진단하는 자습서입니다.
+description: Azure Application Insights를 사용하여 애플리케이션에서 성능 문제를 찾고 진단하는 자습서입니다.
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -10,16 +10,16 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4ce4c9e2479c8d570766169ce5094dcc2b4bc511
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969137"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42812874"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights를 사용하여 성능 문제 찾기 및 진단
 
-Azure Application Insights는 응용 프로그램에서 원격 분석을 수집하여 해당 작업 및 성능 분석을 돕습니다.  이 정보를 사용하여 발생할 수 있는 문제를 식별하거나 사용자에게 가장 큰 영향을 주는 응용 프로그램에 대한 개선 사항을 식별할 수 있습니다.  이 자습서에서는 응용 프로그램의 서버 구성 요소 및 클라이언트 관점의 성능을 분석하는 프로세스를 안내합니다.  다음 방법에 대해 알아봅니다.
+Azure Application Insights는 애플리케이션에서 원격 분석을 수집하여 해당 작업 및 성능 분석을 돕습니다.  이 정보를 사용하여 발생할 수 있는 문제를 식별하거나 사용자에게 가장 큰 영향을 주는 애플리케이션에 대한 개선 사항을 식별할 수 있습니다.  이 자습서에서는 애플리케이션의 서버 구성 요소 및 클라이언트 관점의 성능을 분석하는 프로세스를 안내합니다.  다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 서버 쪽 작업의 성능 식별
@@ -42,7 +42,7 @@ Azure Application Insights는 응용 프로그램에서 원격 분석을 수집�
 Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
 
 ## <a name="identify-slow-server-operations"></a>느린 서버 작업 식별
-Application Insights는 응용 프로그램에서 다른 작업에 대한 성능 정보를 수집합니다. 가장 긴 기간으로 이러한 작업을 식별하여 잠재적인 문제를 진단하거나 진행 중인 개발을 대상으로 하여 응용 프로그램의 전반적인 성능을 개선할 수 있습니다.
+Application Insights는 애플리케이션에서 다른 작업에 대한 성능 정보를 수집합니다. 가장 긴 기간으로 이러한 작업을 식별하여 잠재적인 문제를 진단하거나 진행 중인 개발을 대상으로 하여 애플리케이션의 전반적인 성능을 개선할 수 있습니다.
 
 1. **Application Insights**를 선택한 다음 구독을 선택합니다.  
 1. **성능** 패널을 열려면 **조사** 메뉴 아래의 **성능**을 선택하거나 **서버 응답 시간** 그래프를 클릭합니다.
@@ -53,27 +53,20 @@ Application Insights는 응용 프로그램에서 다른 작업에 대한 성능
 
     ![성능 패널](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. 그래프는 현재 시간에 따라 모든 작업의 평균 기간을 보여 줍니다.  그래프에 고정하여 관심이 있는 작업을 추가합니다.  일부 조사할 가치가 있는 최대치가 있다는 것을 보여 줍니다.  그래프의 시간 창을 축소하여 이를 더 분리합니다.
+3. 현재 그래프에는 일정 기간 동안의 선택한 작업에 대한 평균 기간이 표시되어 있습니다. 95번째 백분위수로 전환하여 성능 문제를 찾을 수 있습니다. 그래프에 고정하여 관심이 있는 작업을 추가합니다.  일부 조사할 가치가 있는 최대치가 있다는 것을 보여 줍니다.  그래프의 시간 창을 축소하여 이를 더 분리합니다.
 
     ![고정 작업](media/app-insights-tutorial-performance/pin-operations.png)
 
-4.  작업을 클릭하여 오른쪽에서 해당 성능 패널을 봅니다. 다른 요청에 대한 기간의 분포를 보여 줍니다.  사용자는 일반적으로 약 0.5초에서 성능 저하를 알아차리므로 500밀리초 이상의 요청으로 창을 축소합니다.  
+4.  오른쪽의 성능 패널에는 선택한 작업에의 다양한 요청에 대한 시간 분포를 보여 줍니다.  창을 줄여 95번째 백분위수에서 시작합니다. "상위 3개 종속성" 인사이트 카드에서 외부 종속성이 느린 트랜잭션에 영향을 줄 수 있음을 한눈에 알 수 있습니다.  샘플 목록을 보려면 샘플 수가 있는 단추를 클릭합니다. 그런 다음, 샘플을 선택하여 트랜잭션 세부 정보를 확인하면 됩니다.
 
     ![기간 배포](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  이 예제에서는 상당한 요청의 수가 처리되는 데 1초 이상이 소요되는 것을 볼 수 있습니다. **작업 세부 정보**를 클릭하여 이 작업의 세부 정보를 볼 수 있습니다.
+5.  Fabrikamaccount Azure 테이블에 대한 호출이 전체 트랜잭션 기간에 가장 많이 영향을 주고 있음을 한눈에 볼 수 있습니다. 또한 예외로 인해 실패한 호출도 볼 수 있습니다. 목록에서 항목을 클릭하면 오른쪽에서 해당 세부 정보를 볼 수 있습니다. [트랜잭션 진단 환경에 대한 자세한 정보](app-insights-transaction-diagnostics.md)
 
     ![작업 세부 정보](media/app-insights-tutorial-performance/operation-details.png)
+    
 
-    > [!NOTE]
-    “통합된 세부 정보: E2E 트랜잭션 진단” [미리 보기 환경](app-insights-previews.md)을 사용하도록 설정하여 요청, 종속성, 예외, 추적, 이벤트 등과 같은 모든 관련 서버 쪽 원격 분석을 하나의 전체 화면 보기에서 확인할 수 있습니다. 
-
-    미리 보기를 사용하도록 설정하면 통합된 환경에서 오류 또는 예외와 함께 종속성 호출에 소요된 시간을 볼 수 있습니다. 구성 요소 간 트랜잭션의 경우 세부 정보 창 함께 Gantt 차트를 통해 근본 원인 구성 요소, 종속성 또는 예외를 신속하게 진단할 수 있습니다. 아래쪽 섹션을 확장하여 선택한 구성 요소 작업에 수집된 모든 추적 또는 이벤트의 시간 시퀀스를 확인할 수 있습니다. [새 환경에 대해 자세히 알아보세요](app-insights-transaction-diagnostics.md).  
-
-    ![트랜잭션 진단](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
-
-
-6.  지금까지 수집한 정보는 성능 저하가 있다는 것만을 확인하지만 근본 원인에 조금 접근합니다.  **프로파일러**는 작업에 대해 실행되는 실제 코드 및 각 단계에 필요한 시간을 표시하여 이를 돕습니다. 일부 작업은 프로파일러가 주기적으로 실행되므로 추적이 없을 수 있습니다.  시간이 지남에 따라 더 많은 작업에 추적이 있어야 합니다.  작업에 대한 프로파일러를 시작하려면 **프로파일러 추적**을 클릭합니다.
+6.  **프로파일러**는 작업에 대해 실행된 실제 코드 및 각 단계에 필요한 시간을 표시하여 코드 수준 진단을 더 자세히 수행하는 데 도움이 됩니다. 일부 작업은 프로파일러가 주기적으로 실행되므로 추적이 없을 수 있습니다.  시간이 지남에 따라 더 많은 작업에 추적이 있어야 합니다.  작업에 대한 프로파일러를 시작하려면 **프로파일러 추적**을 클릭합니다.
 5.  추적은 각 작업에 대한 개별 이벤트를 보여주므로 전반적인 작업의 기간에 대한 근본 원인을 진단할 수 있습니다.  가장 긴 기간을 포함하는 상위 예 중 하나를 클릭합니다.
 6.  **실행 부하 과다 경로 표시**를 클릭하여 작업의 총 기간에 가장 큰 영향을 주는 이벤트의 특정 경로를 강조 표시합니다.  이 예에서는 가장 느린 호출이 *FabrikamFiberAzureStorage.GetStorageTableData* 메서드에서 비롯되었음을 확인할 수 있습니다. 대부분의 시간을 사용하는 파트는 *CloudTable.CreateIfNotExist* 메서드입니다. 함수가 호출될 때마다 이 코드 줄을 실행하면 불필요한 네트워크 호출 및 CPU 리소스가 사용됩니다. 코드를 수정하는 가장 좋은 방법은 한 번만 실행하는 일부 시작 메서드에 이 줄을 배치하는 것입니다. 
 
@@ -100,11 +93,11 @@ Application Insights Analytics는 Application Insights에서 수집된 모든 �
 ## <a name="identify-slow-client-operations"></a>느린 클라이언트 작업 식별
 Application Insights는 최적화를 위한 서버 프로세스 식별 외에도 클라이언트 브라우저의 관점을 분석할 수 있습니다.  이를 통해 클라이언트 구성 요소에 대한 잠재적인 개선 사항을 식별하고 다양한 브라우저 또는 다른 위치에서 문제를 식별할 수도 있습니다.
 
-1. **조사** 아래의 **브라우저**를 선택하여 브라우저 요약을 엽니다.  이는 브라우저의 관점에서 응용 프로그램의 다양한 원격 분석의 시각적 요약을 제공합니다.
+1. **조사** 아래의 **브라우저**를 선택하여 브라우저 요약을 엽니다.  이는 브라우저의 관점에서 애플리케이션의 다양한 원격 분석의 시각적 요약을 제공합니다.
 
     ![브라우저 요약](media/app-insights-tutorial-performance/browser-summary.png)
 
-2.  아래의 **가장 느린 페이지는 무엇인가요?** 로 스크롤합니다.  클라이언트가 로드하는 데 가장 긴 시간이 소요되는 응용 프로그램의 페이지 목록을 표시합니다.  이 정보를 사용하여 사용자에 가장 큰 영향을 주는 해당 페이지의 우선 순위를 지정할 수 있습니다.
+2.  아래의 **가장 느린 페이지는 무엇인가요?** 로 스크롤합니다.  클라이언트가 로드하는 데 가장 긴 시간이 소요되는 애플리케이션의 페이지 목록을 표시합니다.  이 정보를 사용하여 사용자에 가장 큰 영향을 주는 해당 페이지의 우선 순위를 지정할 수 있습니다.
 3.  페이지 중 하나를 클릭하여 **페이지 보기** 패널을 엽니다.  예제에서 **/FabrikamProd** 페이지는 과도 한 평균 기간을 표시합니다.  **페이지 보기** 패널은 다른 기간 범위의 분석을 포함하여 이 페이지에 대한 세부 정보를 제공합니다.
 
     ![페이지 보기](media/app-insights-tutorial-performance/page-view.png)

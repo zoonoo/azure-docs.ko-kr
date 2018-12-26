@@ -1,10 +1,11 @@
 ---
-title: Azure Machine Learning 모델이 웹 서비스가 되는 과정 | Microsoft Docs
+title: Machine Learning Studio 모델이 웹 서비스가 되는 과정 - Azure | Microsoft Docs
 description: Azure Machine Learning 모델을 통해 개발 실험에서 조작 가능한 웹 서비스까지 진행하는 메커니즘을 간략히 살펴봅니다.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 7b9aec2815f836b3b220de37fe6428c54d39c3e5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1254f41d4961956acc8f7abc7d5490fedbb8c5d0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835575"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310102"
 ---
-# <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning 모델을 통한 실험에서 조작 가능한 웹 서비스까지의 진행 과정
+# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>실험에서 조작 가능한 웹 서비스까지 Machine Learning Studio 모델 진행 과정
 Azure Machine Learning Studio는 예측 분석 모델을 대신하는 ***실험***을 개발, 실행, 테스트 및 반복할 수 있는 대화형 캔버스를 제공합니다. 다음 작업에 사용할 수 있는 모듈을 매우 다양하게 갖추고 있습니다.
 
 * 실험에 대한 데이터 입력
@@ -80,7 +81,7 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 실험을 반복한 후 만족한 경우:
 
 1. **웹 서비스 설정**을 클릭하고 **재학습 웹 서비스**를 선택합니다. 입력 및 출력 노드가 자동으로 추가됩니다.
-2. **실행**을 클릭합니다.
+2.  **실행**을 클릭합니다.
 3. **웹 서비스 배포**를 클릭하고 배포하려는 환경에 따라 **웹 서비스 배포[기존]** 또는 **웹 서비스 배포[신규]** 를 선택합니다.
 
 이제 웹 서비스가 배포되고 예측 웹 서비스처럼 액세스하고 관리할 수 있습니다.

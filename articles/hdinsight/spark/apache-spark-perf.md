@@ -1,34 +1,30 @@
 ---
-title: 성능을 위한 Spark 작업 최적화 - Azure HDInsight | Microsoft Docs
+title: 성능을 위한 Spark 작업 최적화 - Azure HDInsight
 description: 최상의 Spark 클러스터 성능을 얻기 위한 일반적인 전략을 보여 줍니다.
 services: hdinsight
-documentationcenter: ''
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
+author: maxluk
 ms.author: maxluk
-ms.openlocfilehash: f35ed98efb26dfa0d75a57ca3646f567a7949dae
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 01/11/2018
+ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164369"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499138"
 ---
-# <a name="optimize-spark-jobs"></a>Spark 작업 최적화
+# <a name="optimize-apache-spark-jobs"></a>Apache Spark 작업 최적화
 
-특정 워크로드에 대해 Spark 클러스터 구성을 최적화하는 방법에 대해 알아봅니다.  가장 일반적인 문제는 부적절한 구성(특히 크기가 틀린 실행기), 장기 실행 작업, 카티전 작업으로 이어지는 작업으로 인한 메모리 압력입니다. 적절한 캐싱을 사용하고 [데이터 기울이기](#optimize-joins-and-shuffles)를 허용하여 작업 속도를 높일 수 있습니다. 최고의 성능을 얻기 위해 장기 실행 및 리소스 소모 Spark 작업 실행을 모니터링하고 검토합니다.
+특정 워크로드에 대해 [Apache Spark](https://spark.apache.org/) 클러스터 구성을 최적화하는 방법에 대해 알아봅니다.  가장 일반적인 문제는 부적절한 구성(특히 크기가 틀린 실행기), 장기 실행 작업, 카티전 작업으로 이어지는 작업으로 인한 메모리 압력입니다. 적절한 캐싱을 사용하고 [데이터 기울이기](#optimize-joins-and-shuffles)를 허용하여 작업 속도를 높일 수 있습니다. 최고의 성능을 얻기 위해 장기 실행 및 리소스 소모 Spark 작업 실행을 모니터링하고 검토합니다.
 
 다음 섹션에서는 일반적인 Spark 작업 최적화 및 권장 사항에 대해 설명합니다.
 
 ## <a name="choose-the-data-abstraction"></a>데이터 추상화 선택
 
-Spark 1.x는 RDD를 사용하여 데이터를 추상화한 다음 Spark 2.x에서 데이터 프레임 및 데이터 집합을 도입했습니다. 다음 상대적인 장점을 고려합니다.
+Spark 1.x는 RDD를 사용하여 데이터를 추상화한 다음, Spark 2.x에서 데이터 프레임 및 데이터 세트를 도입했습니다. 다음 상대적인 장점을 고려합니다.
 
 * **데이터 프레임**
     * 대부분의 상황에서 최선의 선택
@@ -36,7 +32,7 @@ Spark 1.x는 RDD를 사용하여 데이터를 추상화한 다음 Spark 2.x에�
     * 전체 단계 코드 생성
     * 직접 메모리 액세스
     * 낮은 GC(가비지 수집) 오버헤드
-    * 컴파일 시간 검사나 도메인 개체 프로그래밍이 없으므로 데이터 집합처럼 개발자에게 친숙하지 않음
+    * 컴파일 시간 검사나 도메인 개체 프로그래밍이 없으므로 데이터 세트처럼 개발자에게 친숙하지 않음
 * **데이터 집합**
     * 성능에 미치는 영향이 허용되는 복잡한 ETL 파이프라인에서 우수함
     * 성능에 미치는 영향이 큰 집계에서는 좋지 않음
@@ -64,16 +60,16 @@ Spark는 csv, json, xml, parquet, orc, avro 등의 여러 가지 형식을 지�
 
 | 저장소 유형 | 파일 시스템 | 속도 | 임시 | 사용 사례 |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:**//url/ | **Standard** | 예 | 임시 클러스터 |
-| Azure Data Lake Store | **adl:**//url/ | **보다 빠름** | 예 | 임시 클러스터 |
-| 로컬 HDFS | **hdfs:**//url/ | **가장 빠름** | 아니오 | 대화형 24/7 클러스터 |
+| Azure Blob Storage | **wasb:**//url/ | **Standard** | yes | 임시 클러스터 |
+| Azure Data Lake Store | **adl:**//url/ | **보다 빠름** | yes | 임시 클러스터 |
+| 로컬 HDFS | **hdfs:**//url/ | **가장 빠름** | 아니요 | 대화형 24/7 클러스터 |
 
 ## <a name="use-the-cache"></a>캐시 사용
 
 Spark는 `.persist()`, `.cache()`, `CACHE TABLE`과 같은 다양한 방법을 통해 사용할 수 있는 자체 기본 캐싱 메커니즘을 제공합니다. 이 기본 캐싱은 중간 결과를 캐시해야 하는 ETL 파이프라인뿐만 아니라 작은 데이터 집합에서도 효과적입니다. 그러나 현재 Spark 기본 캐싱은 캐시된 테이블이 분할 데이터를 유지하지 않으므로 분할에서 잘 작동하지 않습니다. 보다 일반적이며 신뢰할 수 있는 캐싱 기술은 *저장소 계층 캐싱*입니다.
 
 * 기본 Spark 캐싱(권장하지 않음)
-    * 작은 데이터 집합에 적합
+    * 작은 데이터 세트에 적합
     * 분할에서는 작동하지 않으며 향후 Spark 릴리스에서 변경될 수 있음
 
 * 저장소 수준 캐싱(권장)
@@ -98,7 +94,7 @@ Spark는 데이터를 메모리에 두고 작업하기 때문에 Spark 작업 �
 
 ### <a name="spark-memory-considerations"></a>Spark 메모리 고려 사항
 
-YARN을 사용하는 경우 YARN은 각 Spark 노드에서 모든 컨테이너에서 사용되는 메모리의 최대 합계를 제어합니다.  다음 다이어그램에서는 주요 개체 및 해당 관계를 보여 줍니다.
+[Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)을 사용하는 경우 YARN은 각 Spark 노드에서 모든 컨테이너에서 사용되는 메모리의 최대 합계를 제어합니다.  다음 다이어그램에서는 주요 개체 및 해당 관계를 보여 줍니다.
 
 ![YARN Spark 메모리 관리](./media/apache-spark-perf/yarn-spark-memory.png)
 
@@ -151,7 +147,7 @@ df1.join(broadcast(df2), Seq("PK")).
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
-버킷 테이블을 사용하는 경우 세 번째 조인 유형인 `Merge` 조인이 있습니다. 데이터 집합이 올바르게 미리 분할되고 미리 정렬되어 있으면 `SortMerge` 조인에서 비용이 많이 드는 정렬 단계를 건너뛸 수 있습니다.
+버킷 테이블을 사용하는 경우 세 번째 조인 유형인 `Merge` 조인이 있습니다. 데이터 세트가 올바르게 미리 분할되고 미리 정렬되어 있으면 `SortMerge` 조인에서 비용이 많이 드는 정렬 단계를 건너뛸 수 있습니다.
 
 조인 순서는 더 복잡한 쿼리에서 특히 중요합니다. 가장 많이 선택하는 조인으로 시작합니다. 또한 가능한 경우 집계 후 행 수가 늘어나는 조인을 이동합니다.
 
@@ -191,11 +187,11 @@ Spark 클러스터 워크로드에 따라 기본이 아닌 Spark 구성을 사�
 동시 쿼리를 실행할 때는 다음 사항을 고려합니다.
 
 1. 실행기당 30GB와 모든 컴퓨터 코어를 사용하여 시작합니다.
-2. CPU를 초과 구독하여(약 30%의 대기 시간 개선) 여러 병렬 Spark 응용 프로그램을 만듭니다.
-3. 병렬 응용 프로그램에서 쿼리를 배포합니다.
+2. CPU를 초과 구독하여(약 30%의 대기 시간 개선) 여러 병렬 Spark 애플리케이션을 만듭니다.
+3. 병렬 애플리케이션에서 쿼리를 배포합니다.
 4. 평가판 실행과 GC 오버헤드와 같은 이전 요인을 모두 고려하여 크기를 늘리거나 줄입니다.
 
-타임라인 보기, SQL 그래프, 작업 통계 등을 확인하여 이상값 또는 다른 성능 문제의 쿼리 성능을 모니터링합니다. 경우에 따라 하나 또는 몇 개의 실행기가 다른 실행기보다 느린 경우 작업을 실행하는 데 훨씬 많은 시간이 소요될 수 있습니다. 이러한 현상은 대규모 클러스터(30개가 넘는 노드)에서 자주 발생합니다. 이 경우 스케줄러가 느린 작업을 보정할 수 있도록 작업을 더 많은 수로 나눕니다. 예를 들어 응용 프로그램에서 실행기 코어의 수보다 최소한 두 배의 작업이 있어야 합니다. `conf: spark.speculation = true`를 사용하면 작업을 추측에 근거하여 실행해 볼 수 있습니다.
+타임라인 보기, SQL 그래프, 작업 통계 등을 확인하여 이상값 또는 다른 성능 문제의 쿼리 성능을 모니터링합니다. 경우에 따라 하나 또는 몇 개의 실행기가 다른 실행기보다 느린 경우 작업을 실행하는 데 훨씬 많은 시간이 소요될 수 있습니다. 이러한 현상은 대규모 클러스터(30개가 넘는 노드)에서 자주 발생합니다. 이 경우 스케줄러가 느린 작업을 보정할 수 있도록 작업을 더 많은 수로 나눕니다. 예를 들어 애플리케이션에서 실행기 코어의 수보다 최소한 두 배의 작업이 있어야 합니다. `conf: spark.speculation = true`를 사용하면 작업을 추측에 근거하여 실행해 볼 수 있습니다.
 
 ## <a name="optimize-job-execution"></a>작업 실행 최적화
 
@@ -216,9 +212,9 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure HDInsight에서 실행 중인 Spark 작업 디버그](apache-spark-job-debugging.md)
-* [HDInsight에서 Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)
-* [Spark REST API를 사용하여 Spark 클러스터에 원격 작업 제출](apache-spark-livy-rest-interface.md)
-* [Spark 튜닝](https://spark.apache.org/docs/latest/tuning.html)
-* [작동하도록 Spark 작업을 실제로 조정하는 방법](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그](apache-spark-job-debugging.md)
+* [HDInsight에서 Apache Spark 클러스터용 리소스 관리](apache-spark-resource-manager.md)
+* [Apache Spark REST API를 사용하여 Apache Spark 클러스터에 원격 작업 제출](apache-spark-livy-rest-interface.md)
+* [Apache Spark 조정](https://spark.apache.org/docs/latest/tuning.html)
+* [작동하도록 Apache Spark 작업을 실제로 조정하는 방법](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Kryo Serialization](https://github.com/EsotericSoftware/kryo)

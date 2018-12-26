@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+ms.openlocfilehash: 79fb8517ec6880e8a3eae0e74275567a24644b87
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133394"
+---
 ## <a name="deployment-customization"></a>배포 사용자 지정
 
 배포 프로세스에서는 푸시하는 .zip 파일에 실행 준비 앱이 포함되어 있다고 가정합니다. 기본적으로 사용자 지정은 실행되지 않습니다. 지속적인 통합을 사용하여 가져오는 동일한 빌드 프로세스를 사용하도록 설정하려면 응용 프로그램 설정에 다음을 추가합니다.

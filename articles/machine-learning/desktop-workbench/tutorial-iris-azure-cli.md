@@ -2,22 +2,26 @@
 title: Azure Machine Learning 미리 보기 기능 - 명령줄 인터페이스에 대한 자습서 | Microsoft Docs
 description: 이 자습서에서는 명령줄 인터페이스에서 종단 간 아이리스 분류를 완료하는 데 필요한 모든 단계를 안내합니다.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: jpe316
+ms.author: jordane
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 05238c27a5654ae24c619b52d769abbf90b940e7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ROBOTS: NOINDEX
+ms.openlocfilehash: c5f7b8b98f97e020b4f6fb4b125d444df87f8d5a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025755"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>자습서: 명령줄 인터페이스를 사용하여 아이리스 분류
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
 
 이 자습서에서는 Azure Machine Learning 미리 보기 기능에서 CLI(명령줄 인터페이스) 도구를 사용하여 다음을 수행하는 방법에 대해 알아봅니다. 
@@ -34,7 +38,7 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
   
   Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-- [빠른 시작: Azure Machine Learning 서비스 설치 및 시작](../service/quickstart-installation.md)의 설명에 따라 설치된 Azure Machine Learning Workbench 응용 프로그램. 
+- [빠른 시작: Azure Machine Learning 서비스 설치 및 시작](quickstart-installation.md)의 설명에 따라 설치된 Azure Machine Learning Workbench 응용 프로그램. 
 
   >[!IMPORTANT]
   >이 문서에서 CLI를 사용하여 Azure Machine Learning 서비스 계정을 만들 것이므로 Azure Machine Learning 서비스 계정을 만들지 마십시오.
@@ -91,7 +95,7 @@ $ az account set -s <subscription id or name>
 이 단계에서는 새 실험 계정과 새 작업 영역을 만듭니다. 실험 계정 및 작업 영역에 대한 자세한 내용은 [Azure Machine Learning 개념](overview-general-concepts.md)을 참조하세요.
 
 > [!NOTE]
-> 실험 계정에는 실험 실행 출력을 저장하는 데 사용되는 저장소 계정이 필요합니다. 저장소 계정 이름은 연결되는 URL이 포함되므로 Azure에서 전역적으로 고유해야 합니다. 기존 저장소 계정을 지정하지 않으면 실험 계정 이름이 새 저장소 계정을 만드는 데 사용됩니다. 고유한 이름을 사용했는지 확인합니다. 그렇지 않으면 _"\<storage_account_name>이라는 저장소 계정이 이미 사용되었습니다."_라는 오류 메시지가 표시됩니다. 또는 `--storage` 인수를 사용하여 기존 저장소 계정을 제공할 수 있습니다.
+> 실험 계정에는 실험 실행 출력을 저장하는 데 사용되는 저장소 계정이 필요합니다. 저장소 계정 이름은 연결되는 URL이 포함되므로 Azure에서 전역적으로 고유해야 합니다. 기존 저장소 계정을 지정하지 않으면 실험 계정 이름이 새 저장소 계정을 만드는 데 사용됩니다. 고유한 이름을 사용했는지 확인합니다. 그렇지 않으면 _"\<storage_account_name>이라는 저장소 계정이 이미 사용되었습니다."_ 라는 오류 메시지가 표시됩니다. 또는 `--storage` 인수를 사용하여 기존 저장소 계정을 제공할 수 있습니다.
 
 ```azure-cli
 # create a resource group 
@@ -139,16 +143,16 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>클라우드 Git 리포지토리와 연결된 새 프로젝트 만들기
-VSTS(Visual Studio Team Service) Git 리포지토리와 연결된 새 프로젝트를 만들 수 있습니다. 실험이 제출될 때마다 전체 프로젝트 폴더의 스냅숏이 원격 Git 리포지토리로 커밋됩니다. 자세한 내용은 [Azure Machine Learning Workbench 프로젝트에서 Git 리포지토리 사용](using-git-ml-project.md)을 참조하세요.
+Azure Repos에서 Git 리포지토리에 연결된 새 프로젝트를 만들 수 있습니다. 실험이 제출될 때마다 전체 프로젝트 폴더의 스냅숏이 원격 Git 리포지토리로 커밋됩니다. 자세한 내용은 [Azure Machine Learning Workbench 프로젝트에서 Git 리포지토리 사용](using-git-ml-project.md)을 참조하세요.
 
 > [!NOTE]
-> Azure Machine Learning은 VSTS에서 만들어진 빈 Git 리포지토리만 지원합니다.
+> Azure Machine Learning은 Azure Repos에서 만들어진 빈 Git 리포지토리만 지원합니다.
 
 ```azure-cli
-$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
+$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <repo URL>
 ```
 > [!TIP]
-> "리포지토리 URL이 유효하지 않거나 사용자에게 액세스 권한이 없음"이라는 오류가 발생하는 경우, VSTS(_보안_, _개인 액세스 토큰 추가_ 메뉴)에서 보안 토큰을 만들고, 프로젝트를 만들 때 `--vststoken` 인수를 사용할 수 있습니다. 
+> “리포지토리 URL이 유효하지 않거나 사용자에게 액세스 권한이 없음”이라는 오류가 발생하는 경우, Azure DevOps(‘보안’, ‘개인 액세스 토큰 추가’ 메뉴)에서 보안 토큰을 만들고, 프로젝트를 만들 때 `--vststoken` 인수를 사용할 수 있습니다. 
 
 ### <a name="sample_create"></a>샘플에서 새 프로젝트 만들기
 이 예제에서는 샘플 프로젝트를 템플릿으로 사용하여 새 프로젝트를 만듭니다.
@@ -252,7 +256,7 @@ $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r 
 이전 단계의 결과에서 웹 서비스 ID를 사용하여 웹 서비스를 호출하고 테스트합니다. 
 
 ```azure-cli
-# Get web service usage infomration
+# Get web service usage information 
 $ az ml service usage realtime -i <web service id>
 
 # Call the web service with the run command:

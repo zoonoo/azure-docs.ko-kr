@@ -1,7 +1,20 @@
-#### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>클라우드 어플라이언스에 공용 끝점을 만들려면
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 1cf5bbdad555c50c418851904f36a578522843b2
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165416"
+---
+#### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>클라우드 어플라이언스에 공용 엔드포인트를 만들려면
 
 1. Azure 포털에 로그인합니다.
-2. **Virtual Machines**로 이동한 후 클라우드 어플라이언스로 사용 중인 가상 컴퓨터를 선택합니다.
+2. **Virtual Machines**로 이동한 후 클라우드 어플라이언스로 사용 중인 가상 머신을 선택합니다.
     
 3. 가상 컴퓨터 내부 및 외부로 흐름을 제어하는 NSG(네트워크 보안 그룹) 규칙을 만들어야 합니다. NSG 규칙을 만들려면 다음 단계를 수행합니다.
     1. **네트워크 보안 그룹**을 선택합니다.
@@ -18,7 +31,7 @@
 
         인바운드 보안 규칙 추가 블레이드에서:
 
-        1. **이름**의 경우, 끝점에 대해 WinRMHttps를 입력합니다.
+        1. **이름**의 경우, 엔드포인트에 대해 WinRMHttps를 입력합니다.
         
         2. **우선 순위**로는 1000(기본 규칙에 대한 우선 순위임)보다 작은 숫자를 선택합니다. 값이 높을수록 우선 순위는 더 낮아집니다.
 

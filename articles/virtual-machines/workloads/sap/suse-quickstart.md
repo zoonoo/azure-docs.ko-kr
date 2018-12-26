@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: cc4438a770a8092275373ccf8da9cc9951a1f906
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858615"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950049"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 실행
 이 문서에서는 Microsoft Azure SUSE Linux VM(가상 머신)에서 SAP NetWeaver를 실행할 때 고려해야 할 다양한 항목을 설명합니다. 2016년 5월 19일을 기준으로 SAP NetWeaver는 Azure의 SUSE Linux VM에서 공식적으로 지원됩니다. Linux 버전, SAP 커널 버전 및 기타 필수 조건과 관련된 모든 세부 정보는 SAP 정보 1928533, “Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형”에서 찾을 수 있습니다.
@@ -78,9 +78,9 @@ WALinuxAgent라고 하는 이 에이전트는 Azure Marketplace 내 SLES 이미�
 SAP "향상된 모니터링"은 Azure에서 SAP를 실행하기 위한 필수 구성 요소입니다. SAP 정보 2191498 “Azure와 Linux의 SAP: 향상된 모니터링”에서 자세한 내용을 확인하세요.
 
 ## <a name="attaching-azure-data-disks-to-an-azure-linux-vm"></a>Azure Linux VM에 Azure 데이터 디스크 연결
-장치 ID를 사용하여 Azure 데이터 디스크를 Azure Linux VM에 탑재해서는 안됩니다. 대신 UUID(Universally Unique Identifier)를 사용합니다. 예를 들어 Azure 데이터 디스크를 탑재하기 위해 그래픽 도구를 사용하는 경우 주의해야 합니다. /etc/fstab의 항목을 재차 확인하세요.
+디바이스 ID를 사용하여 Azure 데이터 디스크를 Azure Linux VM에 탑재해서는 안됩니다. 대신 UUID(Universally Unique Identifier)를 사용합니다. 예를 들어 Azure 데이터 디스크를 탑재하기 위해 그래픽 도구를 사용하는 경우 주의해야 합니다. /etc/fstab의 항목을 재차 확인하세요.
 
-장치 ID의 문제점은 변경될 가능성이 있고 그렇게 되면 Azure VM이 부팅 프로세스에 머무를 수 있다는 점입니다. 문제를 완화시키려면 /etc/fstab에 nofail 매개 변수를 추가할 수 있습니다. 하지만 응용 프로그램이 전과 같이 탑재 지점을 사용할 수 있고, 외부 Azure 데이터 디스크가 부팅 중에 탑재되지 않은 경우에 루트 파일 시스템에 작성할 수 있기 때문에 nofail에 유의합니다.
+디바이스 ID의 문제점은 변경될 가능성이 있고 그렇게 되면 Azure VM이 부팅 프로세스에 머무를 수 있다는 점입니다. 문제를 완화시키려면 /etc/fstab에 nofail 매개 변수를 추가할 수 있습니다. 하지만 애플리케이션이 전과 같이 탑재 지점을 사용할 수 있고, 외부 Azure 데이터 디스크가 부팅 중에 탑재되지 않은 경우에 루트 파일 시스템에 작성할 수 있기 때문에 nofail에 유의합니다.
 
 UUID를 통한 탑재에서 유일한 예외는 다음 섹션에 설명된 대로 문제 해결을 위해 OS 디스크를 연결하는 것입니다.
 
@@ -101,8 +101,8 @@ Azure에서 SUSE VM 부팅 프로세스가 중지되는 상황이 발생할 수 
 
 예를 들면, 기존 SAP 설치는 물론 호스트 이름을 유지하기 위해서 마지막에 프로비전 해제 단계 없이 VM을 업로드하려면 다음 항목을 확인합니다.
 
-* 장치 ID가 아닌 UUID를 사용하여 OS 디스크가 탑재되어야 합니다. /etc/fstab에서만 UUID로 변경하는 것은 OS 디스크에 충분하지 않습니다. 또한, YaST를 통해 또는 /boot/grub/menu.lst를 편집하여 부팅 로더를 적용하는 것도 잊지 말아야 합니다.
-* SUSE OS 디스크에 VHDX 형식을 사용하고 Azure에 업로드하기 위해서 이를 VHD로 변환하면 네트워크 장치가 eth0에서 eth1로 변경될 가능성이 높습니다. 나중에 Azure에서 부팅할 때 문제를 방지하려면 [복제된 SLES 11 VMware에서 eth0 수정](https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/)에 설명된 것처럼 eth0으로 다시 변경해야 합니다.
+* 디바이스 ID가 아닌 UUID를 사용하여 OS 디스크가 탑재되어야 합니다. /etc/fstab에서만 UUID로 변경하는 것은 OS 디스크에 충분하지 않습니다. 또한, YaST를 통해 또는 /boot/grub/menu.lst를 편집하여 부팅 로더를 적용하는 것도 잊지 말아야 합니다.
+* SUSE OS 디스크에 VHDX 형식을 사용하고 Azure에 업로드하기 위해서 이를 VHD로 변환하면 네트워크 디바이스가 eth0에서 eth1로 변경될 가능성이 높습니다. 나중에 Azure에서 부팅할 때 문제를 방지하려면 [복제된 SLES 11 VMware에서 eth0 수정](https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/)에 설명된 것처럼 eth0으로 다시 변경해야 합니다.
 
 문서에 설명된 내용 외에 다음 파일을 삭제하는 것이 좋습니다.
 
@@ -119,7 +119,7 @@ Azure Linux 에이전트(waagent)를 설치하여 NIC이 여러 개만 아니라
    ```
 JSON 템플릿 파일에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../../../resource-group-authoring-templates.md) 및 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 
-CLI 및 Azure Resource Manager에 대한 자세한 내용은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](../../../xplat-cli-azure-resource-manager.md)을 참조하세요.
+Azure 클래식 CLI 및 Azure Resource Manager에 대한 자세한 내용은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure 클래식 CLI 사용](../../../xplat-cli-azure-resource-manager.md)을 참조하세요.
 
 ## <a name="sap-license-and-hardware-key"></a>SAP 라이선스 및 하드웨어 키
 공식적인 SAP-Azure 인증을 위해, SAP 라이선스에 사용되는 SAP 하드웨어 키 계산을 위한 새로운 메커니즘이 도입되었습니다. 새 알고리즘을 사용하려면 SAP 커널이 적용되어야 합니다. 이전 Linux용 SAP 커널 버전에는 이 코드 변경이 포함되어 있지 않습니다. 따라서 특정한 상황(예: Azure VM 크기 조정)에서 SAP 하드웨어 키가 변경되고 SAP 라이선스가 더 이상 유효하지 않을 수 있습니다. 해결책은 최신 SAP Linux 커널과 함께 제공됩니다.  자세한 SAP 커널 패치는 SAP 정보 1928533에 설명되어 있습니다.
@@ -134,7 +134,7 @@ SUSE는 일련의 SAP 관련 설정을 관리하는 "sapconf"라는 패키지를
 - ‘tuned-adm’을 사용하여 SAP 워크로드를 위한 시스템 튜닝은 6.2장의 [여기](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf)에서 확인할 수 있습니다.
 
 ## <a name="nfs-share-in-distributed-sap-installations"></a>분산된 SAP 설치에서 NFS 공유
-예를 들어 데이터베이스 및 SAP 응용 프로그램 서버를 별도의 VM에 설치하려는 분산 설치의 경우 NFS(네트워크 파일 시스템)을 통해 /sapmnt 디렉터리를 공유할 수 있습니다. /sapmnt에 NFS 공유를 생성한 후에 설치 단계에서 문제가 발생하면 공유에 "no_root_squash"가 설정되어 있는지 확인합니다.
+예를 들어 데이터베이스 및 SAP 애플리케이션 서버를 별도의 VM에 설치하려는 분산 설치의 경우 NFS(네트워크 파일 시스템)을 통해 /sapmnt 디렉터리를 공유할 수 있습니다. /sapmnt에 NFS 공유를 생성한 후에 설치 단계에서 문제가 발생하면 공유에 "no_root_squash"가 설정되어 있는지 확인합니다.
 
 ## <a name="logical-volumes"></a>논리 볼륨
 과거에는 여러 Azure 데이터 디스크에 큰 논리 볼륨이 필요한 경우(예: SAP 데이터베이스에 대해) Linux LVM(논리 볼륨 관리자)은 아직 Azure에서 유효성이 완전하게 확인되지 않았으므로 Raid 관리 도구 MDADM을 사용하는 것이 권장되었습니다. mdadm을 사용하여 Azure에서 Linux RAID를 설정하는 방법을 알아보려면 [Linux에서 소프트웨어 RAID 구성](../../linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 그동안 2016년 5월부터 Linux 논리 볼륨 관리자가 Azure에서 완전히 지원되어 MDADM 대신 사용할 수 있게 되었습니다. Azure에서 LVM에 관한 자세한 내용을 보려면 다음을 읽어 보세요.  

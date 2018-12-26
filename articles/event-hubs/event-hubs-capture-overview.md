@@ -3,7 +3,7 @@ title: Azure Event Hubs 캡처 개요 | Microsoft Docs
 description: Event Hubs 캡처로 원격 분석 데이터 캡처
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: e53cdeea-8a6a-474e-9f96-59d43c0e8562
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 00eee302cc15d94ec62f5f3332e18ee2df24f5cd
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: 91263d7f6e8c0c2774df560a45eeff9efc672343
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311436"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408427"
 ---
 # <a name="azure-event-hubs-capture"></a>Azure Event Hubs 캡처
 
@@ -104,6 +104,10 @@ Apache Avro에는 [Java][Java] 및 [Python][Python]에 대한 전체 시작 가�
 ## <a name="how-event-hubs-capture-is-charged"></a>Event Hubs 캡처의 요금 부과 방식
 
 Event Hubs 캡처는 처리량 단위와 유사하게 시간당 요금으로 측정됩니다. 요금은 네임스페이스에 대해 구입한 처리량 단위 수에 정비례합니다. 처리량 단위가 증가 및 감소함에 따라 성능이 일치하도록 Event Hubs 캡처도 증가 및 감소합니다. 측정은 동시에 발생합니다. 가격 정보는 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요. 
+
+## <a name="integration-with-event-grid"></a>Event Grid와 통합 
+원본으로 Event Hubs 네임스페이스를 사용하여 Azure Event Grid 구독을 만들 수 있습니다. 다음 자습서에서는 원본으로 이벤트 허브를, 싱크로 Azure Functions 앱을 사용하여 Event Grid 구독을 만드는 방법을 보여줍니다. [Event Grid 및 Azure Functions를사용하여 SQL Data Warehouse에 캡처된 Event Hubs 데이터 처리 및 마이그레이션](store-captured-data-data-warehouse.md)
+
 
 ## <a name="next-steps"></a>다음 단계
 

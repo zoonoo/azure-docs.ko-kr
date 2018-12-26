@@ -3,20 +3,23 @@ title: Azure Application Insights로 사용 분석 | Microsoft Docs
 description: 어떤 사용자가 앱으로 어떤 작업을 수행하는지 이해합니다.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: mbullwin
-ms.openlocfilehash: 79f4f77f08653c40591137268b87dc2feeb0acf6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
+ms.openlocfilehash: 968c5fb093f3ebdb6ce7eb239f79573f19b89e0f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278636"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -26,7 +29,7 @@ ms.lasthandoff: 05/08/2018
 
 앱 서버 코드와 웹 페이지에 모두 Application Insights를 설치하여 최상의 환경을 얻습니다. 앱의 클라이언트 및 서버 구성 요소는 분석을 위해 Azure Portal로 원격 분석을 다시 보냅니다.
 
-1. **서버 코드:** [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-azure.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md) 또는 [기타](app-insights-platforms.md) 앱에 적합한 모듈을 설치합니다.
+1. **서버 코드:** [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-overview.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md) 또는 [기타](app-insights-platforms.md) 앱에 적합한 모듈을 설치합니다.
 
     * *서버 코드를 설치하지 않으려면 [Azure Application Insights 리소스를 만들기만](app-insights-create-new-resource.md) 하면 됩니다.*
 
@@ -81,7 +84,7 @@ ms.lasthandoff: 05/08/2018
 
 ## <a name="retention---how-many-users-come-back"></a>재방문 주기 - 다시 찾아온 사용자는 몇 명이나 되나요?
 
-재방문 주기는 특정 시간 버킷 동안 일부 비즈니스 작업을 수행한 사용자의 코호트를 기준으로 사용자가 해당 앱을 다시 사용하는 빈도를 이해하는 데 도움이 됩니다. 
+재방문 주기는 특정 시간 버킷 동안 일부 비즈니스 작업을 수행한 사용자의 코호트를 기준으로 사용자가 해당 앱을 다시 사용하는 빈도를 이해하는 데 도움이 됩니다. 
 
 - 사용자가 다시 찾아오게 만드는 특정 기능 이해 
 - 실제 사용자 데이터에 따라 가설 세우기 

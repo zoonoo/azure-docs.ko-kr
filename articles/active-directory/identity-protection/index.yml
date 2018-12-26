@@ -1,0 +1,46 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 04de34624a7902849d42ad62ed4e6a813157ddd9
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45606680"
+documentType: LandingData
+title: Azure AD ID 보호
+metadata:
+  document_id: 
+  title: Azure Active Directory Identity Protection 설명서 - 빠른 시작, 개념, 참조 | Microsoft Docs
+  description: Azure Active Directory Identity Protection을 구성하고 테스트하는 방법을 알아봅니다.
+  services: active-directory
+  ms.component: identity-protection
+  author: MarkusVi
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/14/2018
+  ms.author: markvi
+abstract:
+  description: 잠재적으로 손상된 ID 검색의 작동 원리 및 이를 해결하기 위해 자동화된 대응을 구현하는 방법을 알아봅니다. Azure Active Directory ID 보호는 Azure AD Premium P2 버전의 기능으로, 다음 작업을 가능하게 합니다.<ul><li>조직의 ID에 영향을 미치는 잠재적인 취약점 검색</li><li>조직의 ID와 관련된 의심스러운 작업에 자동으로 대응하도록 조건부 액세스 정책 구성</li><li>의심스러운 인시던트 조사 및 해결을 위한 작업 수행</li></ul><br> 다음 리소스를 통해 신속하게 시작할 수 있습니다.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/video.png
+      width: 246
+    title: Azure Active Directory Identity Protection 소개
+    href: https://www.youtube.com/watch?v=zI3jn_G0_Ns
+    width: 246
+sections:
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: 일반적인 액세스 시나리오의 경우 로그인 위험 조건부 액세스 정책을 구성하는 방법을 알아봅니다.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_security-management.png
+      text: 세션 위험이 감지되면 액세스 차단
+      href: quickstart-sign-in-risk-policy.md

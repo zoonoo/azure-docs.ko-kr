@@ -1,20 +1,21 @@
 ---
-title: Project Answer Search 사용 및 표시 요구 사항 - Microsoft Cognitive Services | Microsoft Docs
-description: Project Answer Search 끝점에 대한 사용 및 표시 요구 사항입니다.
+title: 사용 및 표시 요구 사항 - Project Answer Search
+titlesuffix: Azure Cognitive Services
+description: Project Answer Search 엔드포인트에 대한 사용 및 표시 요구 사항입니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: answer-search
+ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 6e8eaaaa2c83a1420f2de86b23e15f4f19f7a565
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: b57e80370c778e7cebdb4a5ccd888ced324be0aa
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376407"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469489"
 ---
 # <a name="project-answer-search-use-and-display-requirements"></a>Project Answer Search 사용 및 표시 요구 사항
 
@@ -25,7 +26,7 @@ ms.locfileid: "35376407"
 수행하지 않아야 할 작업:
 
 - Bing Spell Check 또는 Bing Autosuggest API에서 받은 데이터를 복사, 저장 또는 캐시하지 않습니다.
-- 사용자 또는 제3자가 제공할 수 있는 새 서비스 또는 기존 서비스를 학습, 평가 또는 개선하기 위해 Machine Learning 또는 이와 유사한 알고리즘 작업의 일부로 Bing Spell Check API 또는 Bing Autosuggest API에서 받은 데이터는 사용하지 않습니다.
+- 사용자 또는 제3자가 제공할 수 있는 새 서비스 또는 기존 서비스를 학습, 평가 또는 개선하기 위해 기계 학습 또는 이와 유사한 알고리즘 작업의 일부로 Bing Spell Check API 또는 Bing Autosuggest API에서 받은 데이터는 사용하지 않습니다.
 
 ## <a name="2-definitions"></a>2. 정의
 
@@ -79,9 +80,9 @@ ms.locfileid: "35376407"
 
 **E. 서비스 연속성.** Search API 응답의 데이터는 복사, 저장 또는 캐시하면 안 됩니다. 그러나 서비스 액세스 및 데이터 렌더링의 연속성을 사용하려면 다음과 같은 경우에만 결과를 유지할 수 있습니다.
 
-**장치** - 다음과 같은 목적으로만 보관된 결과를 사용할 수 있다면 (i) 쿼리 시간으로부터 24시간 미만 동안 또는 (ii) 최종 사용자가 업데이트된 결과에 대해 다른 쿼리를 제출할 때까지 최종 사용자가 해당 결과를 장치에서 유지할 수 있습니다.
+**장치** - 다음과 같은 목적으로만 보관된 결과를 사용할 수 있다면 (i) 쿼리 시간으로부터 24시간 미만 동안 또는 (ii) 최종 사용자가 업데이트된 결과에 대해 다른 쿼리를 제출할 때까지 최종 사용자가 해당 결과를 디바이스에서 유지할 수 있습니다.
 
-- 최종 사용자가 해당 장치에서 이 최종 사용자에게 이전에 반환된 결과에 액세스할 수 있도록 합니다(예: 서비스 중단의 경우). 또는
+- 최종 사용자가 해당 디바이스에서 이 최종 사용자에게 이전에 반환된 결과에 액세스할 수 있도록 합니다(예: 서비스 중단의 경우). 또는
 - 최종 사용자의 신호에 따라 해당 최종 사용자의 요구를 예상하여 개인 설정된 자동 관리 쿼리에 대해 반환된 결과를 저장합니다(예: 서비스 중단이 예상되는 경우).
 
 **서버** - 다음과 같은 목적으로만 보관된 결과만 제어하고 표시하는 서버에서 단일 최종 사용자 특정의 결과를 안전하게 유지할 수 있습니다.
@@ -91,7 +92,7 @@ ms.locfileid: "35376407"
 
 보관할 때마다 특정 사용자에 대한 결과를 다른 사용자에 대한 결과와 혼합할 수 없습니다. 즉, 각 사용자의 결과를 개별적으로 유지하고 전달해야 합니다.
 
-**일반** - 보관된 결과의 모든 표시는 다음과 같아야 합니다.
+**일반** - 보관된 결과의 모든 표시는 다음 조건을 충족해야 합니다.
 
 - 쿼리가 전송된 시간에 대한 명확하고 눈에 잘 띄는 통지를 포함합니다.
 - 업데이트된 결과를 다시 쿼리하고 얻기 위해 사용자에게 단추 또는 이와 유사한 수단을 제시합니다. 

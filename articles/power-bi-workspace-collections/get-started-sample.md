@@ -2,26 +2,20 @@
 title: 샘플 시작
 description: 이 문서에서 Power BI 작업 영역 컬렉션 시작 샘플을 소개합니다.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 4daa675092bed1788025e7e3f7e7e11d02ef1671
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414884"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246687"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI 작업 영역 컬렉션 시작 샘플
 
@@ -32,9 +26,9 @@ ms.locfileid: "31414884"
 
 다른 위치로 이동하기 전에 다음 리소스를 저장할 수 있습니다. 이러한 리소스는 Power BI 보고서를 샘플 앱 및 자체 앱에 통합할 때 도움이 됩니다.
 
-* [샘플 작업 영역 웹앱](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [샘플 작업 영역 웹앱](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI 작업 영역 컬렉션 API 참조](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472)(NuGet을 통해 사용 가능)
+* [Power BI .NET SDK ](https://go.microsoft.com/fwlink/?LinkId=746472)(NuGet을 통해 사용 가능)
 * [JavaScript Report Embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -44,7 +38,7 @@ ms.locfileid: "31414884"
 
 샘플 앱을 실행하는 데 필요한 구성 요소에 액세스할 Visual Studio 개발 환경을 설정하는 방법을 단계적으로 안내합니다.
 
-1. [Power BI 작업 영역 컬렉션 - 보고서를 웹앱으로 통합](http://go.microsoft.com/fwlink/?LinkId=761493) 샘플을 GitHub에서 다운로드하여 압축을 해제합니다.
+1. [Power BI 작업 영역 컬렉션 - 보고서를 웹앱으로 통합](https://go.microsoft.com/fwlink/?LinkId=761493) 샘플을 GitHub에서 다운로드하여 압축을 해제합니다.
 2. Visual Studio에서 **PowerBI-embedded.sln** 을 엽니다. 이 솔루션에서 사용되는 패키지를 업데이트하려면 NuGet 패키지 관리자 콘솔에서 **Update-Package** 명령을 실행해야 할 수 있습니다.
 3. 솔루션을 빌드하십시오.
 4. **ProvisionSample** 콘솔 앱을 실행합니다. 샘플 콘솔 앱에서 작업 영역을 프로비전하고 PBIX 파일을 가져옵니다.
@@ -57,8 +51,8 @@ ms.locfileid: "31414884"
 8. 이 문서의 뒷부분에서 사용할 수 있도록 새로 만든 **작업 영역 ID** 를 복사하여 저장합니다. **작업 영역 ID**를 만든 후에 **Azure Portal**에서 확인할 수 있습니다.
 
     ![Azure Portal 내의 작업 영역 ID](media/get-started-sample/workspace-id.png)
-9. PBIX 파일을 **작업 영역**으로 가져오려면 옵션 **6, 기존 작업 영역**에 PBIX Desktop 파일을 가져옵니다. 사용할 수 있는 PBIX 파일이 없는 경우 [소매점 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
-10. 메시지가 표시되면 **데이터 집합**의 식별 이름을 입력합니다.
+9. PBIX 파일을 **작업 영역**으로 가져오려면 옵션 **6, 기존 작업 영역**에 PBIX Desktop 파일을 가져옵니다. 사용할 수 있는 PBIX 파일이 없는 경우 [소매점 분석 샘플 PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
+10. 메시지가 표시되면 **데이터 세트**의 식별 이름을 입력합니다.
 
 다음과 같은 응답이 표시됩니다.
 
@@ -89,7 +83,7 @@ Checking import state... Succeeded
     ```
 3. **EmbedSample** 웹 응용 프로그램을 실행합니다.
 
-**EmbedSample** 웹 응용 프로그램을 실행하면 왼쪽 탐색 패널에 **보고서** 메뉴가 포함되어야 합니다. 가져온 보고서를 보려면 **보고서**를 확장하고 보고서를 클릭합니다. [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 가져온 경우 샘플 웹앱이 다음과 같이 보입니다.
+**EmbedSample** 웹 응용 프로그램을 실행하면 왼쪽 탐색 패널에 **보고서** 메뉴가 포함되어야 합니다. 가져온 보고서를 보려면 **보고서**를 확장하고 보고서를 클릭합니다. [소매 분석 샘플 PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)를 가져온 경우 샘플 웹앱이 다음과 같이 보입니다.
 
 ![샘플 응용 프로그램 내의 샘플 왼쪽 탐색 창](media/get-started-sample/sample-left-nav.png)
 

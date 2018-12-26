@@ -2,23 +2,23 @@
 title: 미사용 데이터베이스 암호화 - Azure Cosmos DB | Microsoft Docs
 description: Azure Cosmos DB가 모든 데이터의 기본 암호화를 제공하는 방법을 알아봅니다.
 services: cosmos-db
-author: voellm
+author: rafats
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2017
-ms.author: voellm
-ms.openlocfilehash: ab22cc64265efe3948256d81f964796b6d21d3d5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: rafats
+ms.openlocfilehash: 2b54f8c7d9f6427f3104d3c64c65cc555f68738a
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611027"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038419"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>미사용 Azure Cosmos DB 데이터베이스 암호화
 
-미사용 암호화는 일반적으로 반도체 드라이브(SSD) 및 하드 디스크(HDD)와 같은 비휘발성 저장소 장치에서 데이터를 암호화하는 것을 말합니다. Cosmos DB는 해당 주 데이터베이스를 SSD에 저장합니다. 해당 미디어 첨부 파일 및 백업은 일반적으로 HDD로 백업되는 Azure Blob Storage에 저장됩니다. Cosmos DB에 대한 미사용 암호화가 릴리스됨에 따라 모든 데이터베이스, 미디어 첨부 파일 및 백업이 암호화됩니다. 이제 데이터는 전송 중(네트워크를 통해)과 미사용 시(비휘발성 저장소) 암호화되므로 종단 간 암호화가 가능합니다.
+미사용 암호화는 일반적으로 반도체 드라이브(SSD) 및 하드 디스크(HDD)와 같은 비휘발성 저장소 디바이스에서 데이터를 암호화하는 것을 말합니다. Cosmos DB는 해당 주 데이터베이스를 SSD에 저장합니다. 해당 미디어 첨부 파일 및 백업은 일반적으로 HDD로 백업되는 Azure Blob Storage에 저장됩니다. Cosmos DB에 대한 미사용 암호화가 릴리스됨에 따라 모든 데이터베이스, 미디어 첨부 파일 및 백업이 암호화됩니다. 이제 데이터는 전송 중(네트워크를 통해)과 미사용 시(비휘발성 저장소) 암호화되므로 종단 간 암호화가 가능합니다.
 
 PaaS 서비스인 Cosmos DB는 사용하기가 매우 간편합니다. Cosmos DB에 저장된 모든 사용자 데이터는 미사용 및 전송 시 암호화되기 때문에 어떤 조치도 취할 필요가 없습니다. 또한 미사용 암호화가 기본적으로 "설정" 상태라는 것도 이러한 노력 중 하나입니다. 설정하거나 해제하는 데 사용되는 컨트롤이 없습니다. Microsoft는 [가용성 및 성능 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)를 지속적으로 충족하면서 이 기능을 제공합니다.
 

@@ -1,39 +1,41 @@
 ---
-title: Azure Search의 데이터 추출, 자연어 처리를 위한 Cognitive Search | Microsoft Docs
-description: 인지 기술을 사용하여 Azure Search 인덱싱에서 검색 가능한 콘텐츠를 만들기 위한 데이터 추출, NLP(자연어 처리) 및 이미지 처리입니다.
+title: Azure Search의 데이터 추출, 자연어 AI 처리를 위한 Cognitive Search
+description: 인식 기술 및 AI 알고리즘을 사용하여 Azure Search 인덱싱에서 검색 가능한 콘텐츠를 만들기 위한 콘텐츠 추출, NLP(자연어 처리) 및 이미지 처리입니다.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 68d546fc4c853f1a19230b8aee7e86519aaa7e4c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304284"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729055"
 ---
 # <a name="what-is-cognitive-search"></a>Cognitive Search란?
 
-Cognitive search는 [Azure Search](search-what-is-azure-search.md)의 미리 보기 기능이며 인덱싱 워크로드에 AI가 추가된 미국 중남부와 유럽 서부의 모든 계층에서 사용할 수 있습니다. 인덱싱 과정의 데이터 추출, 자연어 처리 및 이미지 처리 작업은 구조화되지 않은 콘텐츠 또는 검색할 수 없는 콘텐츠의 잠재적인 정보를 찾아서 Azure Search에서 검색할 수 있도록 만듭니다.
+Cognitive Search는 인덱싱 파이프라인에 AI 알고리즘을 연결하여 검색할 수 없는 콘텐츠에 대한 검색 가능한 정보를 만듭니다. AI 통합은 검색 인덱스로 이어지는 원본 문서를 보강하는 *인식 기술*을 통해 이루어집니다. 
 
-AI 통합은 검색 인덱스로 이어지는 순차적인 프로세스를 통해 원본 문서를 보강하는 인지 기술(*cognitive skills*)을 통해 이루어집니다. 
+**자연어 처리** 기술에는 [엔터티 인식](cognitive-search-skill-named-entity-recognition.md), 언어 감지, [핵심 구 추출](cognitive-search-skill-keyphrases.md), 텍스트 조작 및 감정 감지가 포함됩니다. 이러한 기술을 사용하여 구조화되지 않은 텍스트가 구조화되고 인덱스에서 검색 및 필터링 가능한 필드에 매핑됩니다.
+
+**이미지 처리**에는 [OCR](cognitive-search-skill-ocr.md) 및 얼굴 감지와 같은 [시각적 기능](cognitive-search-skill-image-analysis.md), 이미지 해석, 이미지 인식(유명한 사람 및 랜드마크) 또는 색상이나 이미지 방향과 같은 특성이 포함됩니다. Azure Search의 모든 쿼리 기능을 사용하여 검색 가능한 이미지 콘텐츠의 텍스트 표현을 만들 수 있습니다.
 
 ![Cognitive Search 파이프라인 다이어그램](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive Search 파이프라인 개요")
 
-인덱싱 중에 사용되는 기술은 미리 정의되거나 사용자 지정이 가능합니다.
+Azure Search의 인식 기술은 Cognitive Services API에 사용되는 것과 동일한 AI 알고리즘을 기반으로 합니다. [Named Entity Recognition API](cognitive-search-skill-named-entity-recognition.md), [Key Phrase Extraction API](cognitive-search-skill-keyphrases.md) 및 [OCR API](cognitive-search-skill-ocr.md)는 그 중 일부입니다. 
 
-+ [미리 정의된 기술](cognitive-search-predefined-skills.md)은 Cognitive Services API에 사용되는 알고리즘과 동일한 AI 알고리즘을 기반으로 합니다. [Named Entity Recognition](cognitive-search-skill-named-entity-recognition.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) 및 [OCR](cognitive-search-skill-ocr.md)은 그 중 일부입니다. 
-
-+ [사용자 지정 기술](cognitive-search-create-custom-skill-example.md)은 필요한 특수 처리에 맞게 사용자가 개발할 수 있습니다. 사용자 지정 기술의 예에는 금융, 과학 출판물 또는 의약품과 같은 특정 도메인을 대상으로 하는 사용자 지정 엔터티 모듈 또는 문서 분류자가 있습니다.
+자연어 및 이미지 처리는 Azure Search에서 검색 가능한 인덱스에 문서의 컴퍼지션의 일부가 되는 결과를 사용하여 데이터 수집 단계 동안 적용됩니다. 데이터는 Azure 데이터 집합으로 소싱된 다음, 필요한 [기본 제공 기술](cognitive-search-predefined-skills.md)을 사용하여 인덱싱 파이프라인을 통해 푸시됩니다. 아키텍처는 확장이 가능하므로 기본 제공 기술이 충분하지 않은 경우 사용자 지정 처리를 통합하도록 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md)을 만들고 연결할 수 있습니다. 예에는 금융, 과학 출판물 또는 의약품과 같은 특정 도메인을 대상으로 하는 사용자 지정 엔터티 모듈 또는 문서 분류자가 있습니다.
 
 > [!NOTE]
-> Cognitive Search는 공개 미리 보기 상태이며, 현재 기술 집합 실행이 무료로 제공됩니다. 이 기능의 가격은 추후에 발표될 예정입니다.
+> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
 
 ## <a name="components-of-cognitive-search"></a>Cognitive Search의 구성 요소
+
+Cognitive Search는 [Azure Search](search-what-is-azure-search.md)의 미리 보기 기능이며 미국 중남부와 유럽 서부의 모든 계층에서 사용할 수 있습니다. 
 
 Cognitive Search 파이프라인은 데이터 원본을 탐색하고 종단간 인덱스 프로세싱을 제공하는 [Azure Search *인덱서*](search-indexer-overview.md)를 기반으로 합니다. 기술이 인덱서에 연결되어 문서를 가로채서 사용자가 정의한 기술에 따라 문서를 보강합니다. 인덱스가 완료되면 [Azure Search에서 지원하는 모든 쿼리 유형](search-query-overview.md)에서 검색 요청을 통해 콘텐츠에 액세스할 수 있습니다.  인덱서를 처음 접하는 경우, 이 섹션의 단계별 안내를 참조하세요.
 

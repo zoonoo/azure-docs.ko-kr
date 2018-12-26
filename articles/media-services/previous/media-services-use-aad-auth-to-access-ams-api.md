@@ -4,27 +4,27 @@ description: Azure Media Services API에 대한 액세스를 인증하는 데 Az
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: a7f20c22b39458134d3dcd42b7e13860c03bad58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 320afdb1e4f71150680e9bed6a4c1c9955c99936
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785912"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230627"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure Media Services API 액세스
  
 Azure Media Services API는 RESTful API입니다. 이 API와 REST API 또는 제공되는 클라이언트 SDK를 사용하여 미디어 리소스에 대한 작업을 수행할 수 있습니다. Azure Media Services는 Microsoft .NET용 Media Services 클라이언트 SDK를 제공합니다. Media Services 리소스 및 Media Services API에 액세스할 수 있는 권한을 부여하려면 먼저 인증을 거쳐야 합니다. 
 
-Media Services는 [Azure AD(Azure Active Directory) 기반 인증](../../active-directory/active-directory-whatis.md)을 지원합니다. Azure Media REST 서비스의 경우 REST API 요청을 하는 사용자 또는 응용 프로그램이 리소스에 액세스하기 위해 **참가자** 또는 **소유자** 역할을 포함해야 합니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../../role-based-access-control/overview.md)을 참조하세요.  
+Media Services는 [Azure AD(Azure Active Directory) 기반 인증](../../active-directory/fundamentals/active-directory-whatis.md)을 지원합니다. Azure Media REST 서비스의 경우 REST API 요청을 하는 사용자 또는 응용 프로그램이 리소스에 액세스하기 위해 **참가자** 또는 **소유자** 역할을 포함해야 합니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../../role-based-access-control/overview.md)을 참조하세요.  
 
 > [!IMPORTANT]
 > 현재 Media Services는 Azure Access Control 서비스 인증 모델을 지원합니다. 그러나 Access Control 권한 부여는 2018년 6월 1일부로 더 이상 사용되지 않을 예정입니다. 가능한 빨리 Azure AD 인증 모델로 마이그레이션하는 것이 좋습니다.
@@ -71,7 +71,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 두 가지 인�
 1. 사용자에게 자격 증명을 묻는 메시지를 표시합니다.
 2. 다음 매개 변수로 Azure AD 액세스 토큰을 요청합니다.  
 
-    * Azure AD 테넌트 끝점.
+    * Azure AD 테넌트 엔드포인트.
 
         Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 둡니다.
     * Media Services 리소스 URI. 
@@ -82,7 +82,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 두 가지 인�
     * Media Services(원시) 응용 프로그램 리디렉션 URI.
     * REST Media Services의 리소스 URI.
         
-        REST API 끝점을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
+        REST API 엔드포인트를 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
 
     이러한 매개 변수 값을 가져오려면 사용자 인증 옵션과 [Azure Portal을 사용하여 Azure AD 인증 설정 액세스](media-services-portal-get-started-with-aad.md)를 참조하세요.
 
@@ -100,7 +100,7 @@ Media Services .NET 클라이언트 SDK를 사용하지 않는 경우 2단계에
 
 소비자 시나리오를 빌드하는 데 서비스 주체 인증 방법을 사용하는 경우 일반적으로 모바일 또는 데스크톱 응용 프로그램에서 직접 처리되지 않고 중간 계층에서 일부 API를 통해 인증이 처리됩니다. 
 
-이 방법을 사용하려면 자체 테넌트에 Azure AD 응용 프로그램 및 서비스 주체를 만듭니다. 응용 프로그램을 만든 후 Media Services 계정에 앱 참가자 또는 소유자 역할 액세스 권한을 제공합니다. Azure Portal에서 Azure CLI를 사용하거나 PowerShell 스크립트로 이 작업을 수행할 수 있습니다. 기존 Azure AD 응용 프로그램을 사용할 수도 있습니다. [Azure Portal](media-services-portal-get-started-with-aad.md)에서 Azure AD 앱 및 서비스 주체를 등록 및 관리할 수 있습니다. [Azure CLI 2.0](media-services-use-aad-auth-to-access-ams-api.md) 또는 [PowerShell](media-services-powershell-create-and-configure-aad-app.md)을 사용하여 이 작업을 수행할 수도 있습니다. 
+이 방법을 사용하려면 자체 테넌트에 Azure AD 응용 프로그램 및 서비스 주체를 만듭니다. 응용 프로그램을 만든 후 Media Services 계정에 앱 참가자 또는 소유자 역할 액세스 권한을 제공합니다. Azure Portal에서 Azure CLI를 사용하거나 PowerShell 스크립트로 이 작업을 수행할 수 있습니다. 기존 Azure AD 응용 프로그램을 사용할 수도 있습니다. [Azure Portal](media-services-portal-get-started-with-aad.md)에서 Azure AD 앱 및 서비스 주체를 등록 및 관리할 수 있습니다. [Azure CLI](media-services-use-aad-auth-to-access-ams-api.md) 또는 [PowerShell](media-services-powershell-create-and-configure-aad-app.md)을 사용하여 이 작업을 수행할 수도 있습니다. 
 
 ![중간 계층 앱](./media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
@@ -113,7 +113,7 @@ Azure AD 응용 프로그램을 만든 후 다음 설정에 대한 값을 가져
     
 1. 중간 계층 앱(웹 API 또는 웹 응용 프로그램)은 다음 매개 변수가 있는 Azure AD 액세스 토큰을 요청합니다.  
 
-    * Azure AD 테넌트 끝점.
+    * Azure AD 테넌트 엔드포인트.
 
         Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 둡니다.
     * Media Services 리소스 URI. 
@@ -122,7 +122,7 @@ Azure AD 응용 프로그램을 만든 후 다음 설정에 대한 값을 가져
 
     * REST Media Services의 리소스 URI.
 
-        REST API 끝점을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
+        REST API 엔드포인트를 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
 
     * Azure AD 응용 프로그램 값: 클라이언트 ID 및 클라이언트 암호.
     
@@ -146,8 +146,8 @@ Media Services .NET 클라이언트 SDK를 사용하지 않는 경우 1단계에
 
 다음 문서는 Azure AD 인증 개념을 간략히 설명합니다. 
 
-- [Azure AD로 해결된 인증 시나리오](../../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
-- [Azure AD에서 응용 프로그램 추가, 업데이트 또는 제거](../../active-directory/develop/active-directory-integrating-applications.md)
+- [Azure AD로 해결된 인증 시나리오](../../active-directory/develop/authentication-scenarios.md)
+- [Azure AD에서 응용 프로그램 추가, 업데이트 또는 제거](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 - [PowerShell을 사용하여 역할 기반 Access Control 구성 및 관리](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>다음 단계

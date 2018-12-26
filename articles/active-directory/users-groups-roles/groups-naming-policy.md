@@ -4,7 +4,7 @@ description: Azure Active Directory에서 Office 365 그룹에 대한 만료를 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.component: users-groups-roles
 ms.topic: article
 ms.date: 05/21/2018
 ms.author: curtand
-ms.reviewer: kairaz.contractor
+ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c973245b6c8ee3557f9bf410544f9f698b2733c5
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37871479"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243132"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Azure Active Directory에서 Office 365 그룹에 대한 명명 정책 적용(미리 보기)
 
@@ -49,7 +49,7 @@ Office 365 그룹에 대한 명명 정책은 두 가지 방법으로 적용할 �
 
 #### <a name="user-attributes"></a>사용자 특성
 
-사용자가 그룹을 만든 부서, 사무실 또는 지리적 지역을 식별하는 데 도움이 되는 특성을 사용할 수 있습니다. 예를 들어, 명명 정책을 `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”` 및 `User’s department = Engineering`으로 정의하면 적용된 그룹 이름은 “GRP 내 그룹 엔지니어링”이 될 수 있습니다. 지원되는 Azure AD 속성은 \[Department\], \[Company\], \[Office\], \[StateOrProvince\], \[CountryOrRegion\], \[Title\]입니다. 지원되지 않는 사용자 속성은 고정 문자열로 처리됩니다(예: “\[ postalCode \]”). 확장 속성 및 사용자 정의 속성은 지원되지 않습니다.
+사용자가 그룹을 만든 부서, 사무실 또는 지리적 지역을 식별하는 데 도움이 되는 특성을 사용할 수 있습니다. 예를 들어, 명명 정책을 `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"` 및 `User’s department = Engineering`으로 정의하면 적용된 그룹 이름은 “GRP 내 그룹 엔지니어링”이 될 수 있습니다. 지원되는 Azure AD 속성은 \[Department\], \[Company\], \[Office\], \[StateOrProvince\], \[CountryOrRegion\], \[Title\]입니다. 지원되지 않는 사용자 속성은 고정 문자열로 처리됩니다(예: “\[ postalCode \]”). 확장 속성 및 사용자 정의 속성은 지원되지 않습니다.
 
 조직의 모든 사용자에 대해 입력된 값이 있는 속성을 사용하고 long 값이 있는 속성은 사용하지 않는 것이 좋습니다.
 
@@ -65,7 +65,7 @@ Office 365 그룹에 대한 명명 정책은 두 가지 방법으로 적용할 �
 
 ### <a name="administrator-override"></a>관리자 재정의
 
-선택한 관리자는 모든 그룹 워크로드와 끝점에서 이러한 정책으로부터 제외될 수 있어 차단된 단어와 고유한 명명 규칙을 사용하여 그룹을 생성할 수 있습니다. 다음은 그룹 명명 정책이 적용되지 않는 관리자 역할 목록입니다.
+선택한 관리자는 모든 그룹 워크로드와 엔드포인트에서 이러한 정책으로부터 제외될 수 있어 차단된 단어와 고유한 명명 규칙을 사용하여 그룹을 생성할 수 있습니다. 다음은 그룹 명명 정책이 적용되지 않는 관리자 역할 목록입니다.
 
 - 전역 관리자
 - 파트너 계층 1 지원

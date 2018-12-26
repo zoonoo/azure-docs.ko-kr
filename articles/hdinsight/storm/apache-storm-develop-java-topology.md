@@ -1,30 +1,25 @@
 ---
-title: Apache Storm 예제 Java 토폴로지 - Azure HDInsight | Microsoft Docs
+title: Apache Storm 예제 Java 토폴로지 - Azure HDInsight
 description: 예제 단어 개수 토폴로지를 만들어 Java에서 Apache Storm 토폴로지를 만드는 방법에 대해 배웁니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 keywords: apache storm,apache storm example,storm java,storm topology example
-ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 02/20/2018
-ms.author: larryfr
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 02277d8398fe5e3f3cfd1244e53cc80c4b627fa3
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5f07f462fc33761f7d29944594491a72f283cd31
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857425"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582567"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java에서 Apache Storm 토폴로지 만들기
 
-Apache Storm에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅니다. 단어 계산 응용 프로그램을 구현하는 Storm 토폴로지를 만들어야 합니다. Maven을 사용하여 프로젝트를 빌드하고 패키징합니다. 그런 다음 Flux 프레임워크를 사용하여 토폴로지를 정의하는 방법을 알아봅니다.
+[Apache Storm](http://storm.apache.org/)에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅니다. 단어 계산 응용 프로그램을 구현하는 Storm 토폴로지를 만들어야 합니다. [Apache Maven](https://maven.apache.org/)을 사용하여 프로젝트를 빌드하고 패키징합니다. 그런 다음 Flux 프레임워크를 사용하여 토폴로지를 정의하는 방법을 알아봅니다.
 
 이 문서의 단계를 완료한 후에 HDInsight에서 Apache Storm에 토폴로지를 배포할 수 있습니다.
 
@@ -33,9 +28,9 @@ Apache Storm에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [JDK(Java Developer Kit) 버전 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [JDK(Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)
 
-* [Maven(https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
+* [Apache Maven(https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 
 * 텍스트 편집기 또는 IDE
 
@@ -81,7 +76,7 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupI
 
 ## <a name="add-maven-repositories"></a>Maven 리포지토리 추가
 
-HDInsight는 HDP(Hortonworks Data Platform)를 기반으로 하므로 Hortonworks 리포지토리를 사용하여 Apache Storm 프로젝트에 대한 종속성을 다운로드하는 것이 좋습니다. __pom.xml__ 파일에서 `<url>http://maven.apache.org</url>` 줄 뒤에 다음 XML을 추가합니다.
+HDInsight는 HDP(Hortonworks Data Platform)를 기반으로 하므로 Hortonworks 리포지토리를 사용하여 Apache Storm 프로젝트에 대한 종속성을 다운로드하는 것이 좋습니다. __pom.xml__ 파일에서 `<url> http://maven.apache.org</url>` 줄 뒤에 다음 XML을 추가합니다.
 
 ```xml
 <repositories>
@@ -539,7 +534,7 @@ public class WordCountTopology {
 
 ### <a name="configure-logging"></a>로깅 구성
 
-Storm은 Apache Log4j를 사용하여 정보를 기록합니다. 로깅을 구성하지 않으면 토폴로지는 진단 정보를 내보냅니다. 로깅되는 내용을 제어하려면 `resources` 디렉터리에서 `log4j2.xml`이라는 파일을 만듭니다. 파일 콘텐츠로 다음 XML을 사용합니다.
+Storm은 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/)를 사용하여 정보를 기록합니다. 로깅을 구성하지 않으면 토폴로지는 진단 정보를 내보냅니다. 로깅되는 내용을 제어하려면 `resources` 디렉터리에서 `log4j2.xml`이라는 파일을 만듭니다. 파일 콘텐츠로 다음 XML을 사용합니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -564,7 +559,7 @@ Storm은 Apache Log4j를 사용하여 정보를 기록합니다. 로깅을 구�
 
 `<Root level="error">` 섹션은 루트 수준의 로깅(모든 항목이 `com.microsoft.example`에 있지는 않음)을 오류 정보를 기록하도록 구성합니다.
 
-Log4j의 로깅 구성에 대한 자세한 내용은 [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html)을 참조하세요.
+Log4j 2의 로깅 구성에 대한 자세한 내용은 [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html)을 참조하세요.
 
 > [!NOTE]
 > Storm 버전 0.10.0 이상은 Log4j 2.x를 사용합니다. 이전 버전의 Storm은 로그 구성에 다른 형식을 사용하는 Log4j 1.x를 사용합니다. 오래된 구성에 대한 자세한 내용은 [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat)을 참조하세요.
@@ -593,7 +588,7 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 ## <a name="convert-the-topology-to-flux"></a>토폴로지를 Flux로 변환
 
-Flux는 Storm 0.10.0 이상에서 사용할 수 있는 새로운 프레임워크로서 구성을 구현과 분리할 수 있습니다. 구성 요소가 여전히 Java로 정의되지만 토폴로지는 YAML 파일을 사용하여 정의됩니다. 프로젝트를 통해 기본 토폴로지 정의를 패키지하거나 토폴로지를 제출할 때 독립 실행형 파일을 사용할 수 있습니다. Storm에 토폴로지를 제출할 때 환경 변수 또는 구성 파일을 사용하여 YAML 토폴로지 정의에서 값을 채울 수 있습니다.
+[Flux](http://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html)는 Storm 0.10.0 이상에서 사용할 수 있는 새로운 프레임워크로서 구성을 구현과 분리할 수 있습니다. 구성 요소가 여전히 Java로 정의되지만 토폴로지는 YAML 파일을 사용하여 정의됩니다. 프로젝트를 통해 기본 토폴로지 정의를 패키지하거나 토폴로지를 제출할 때 독립 실행형 파일을 사용할 수 있습니다. Storm에 토폴로지를 제출할 때 환경 변수 또는 구성 파일을 사용하여 YAML 토폴로지 정의에서 값을 채울 수 있습니다.
 
 YAML 파일은 토폴로지 및 구성 요소 간 데이터 흐름에 사용할 구성 요소를 정의합니다. jar 파일의 일부로 YAML 파일을 포함하거나 외부 YAML 파일을 사용할 수 있습니다.
 
@@ -767,23 +762,23 @@ Flux에 대한 자세한 내용은 [Flux 프레임워크(https://storm.apache.or
 
     토폴로지가 시작되면 내보낸 배치 간의 간격이 newtopology.yaml에 있는 값을 반영하도록 변경되었다는 점에 유의해야 합니다. 따라서 토폴로지를 다시 컴파일하지 않고도 YAML 파일을 통해 구성을 변경할 수 있습니다.
 
-Flux 프레임워크의 다른 기능에 대한 자세한 내용은 [Flux(https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html)를 참조하세요.
+Flux 프레임워크의 다른 기능에 대한 자세한 내용은 [Flux(http://storm.apache.org/releases/current/flux.html)](http://storm.apache.org/releases/current/flux.html)를 참조하세요.
 
 ## <a name="trident"></a>Trident
 
-Trident는 Storm에서 제공하는 높은 수준의 추상화이며 상태 저장 처리를 지원합니다. Trident의 주요 이점은 토폴로지가 입력하는 모든 메시지가 한 번만 처리된다는 점입니다. Trident를 사용하지 않으면 토폴로지는 메시지가 최소한 한 번은 처리된다는 것만 보장할 수 있습니다. Bolt를 만드는 대신 사용할 수 있는 기본 제공 구성 요소와 같은 다른 차이점도 있습니다. 사실 Bolt는 필터, 프로젝션 및 함수와 같이 덜 일반적인 구성 요소로 대체됩니다.
+[Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html)는 Storm에서 제공하는 높은 수준의 추상화이며 상태 저장 처리를 지원합니다. Trident의 주요 이점은 토폴로지가 입력하는 모든 메시지가 한 번만 처리된다는 점입니다. Trident를 사용하지 않으면 토폴로지는 메시지가 최소한 한 번은 처리된다는 것만 보장할 수 있습니다. Bolt를 만드는 대신 사용할 수 있는 기본 제공 구성 요소와 같은 다른 차이점도 있습니다. 사실 Bolt는 필터, 프로젝션 및 함수와 같이 덜 일반적인 구성 요소로 대체됩니다.
 
 Trident 응용 프로그램은 Maven 프로젝트를 사용하여 만들 수 있습니다. 이 문서의 앞부분에 제공된 것과 동일한 기본 단계를 거치며 코드만 다릅니다. Trident도 현재 Flux 프레임워크에서 사용할 수 없습니다.
 
-Trident에 대한 자세한 내용은 [Trident API 개요](http://storm.apache.org/documentation/Trident-API-Overview.html)를 참조하세요.
+Trident에 대한 자세한 내용은 [Trident API 개요](http://storm.apache.org/releases/current/Trident-API-Overview.html)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Java를 사용하여 Storm 토폴로지를 만드는 방법을 배웠으므로 이제 다음으로 이동합니다.
+Java를 사용하여 Apache Storm 토폴로지를 만드는 방법을 알아봤으면 이제 다음으로 이동합니다.
 
 * [HDInsight에서 Apache Storm 토폴로지 배포 및 관리](apache-storm-deploy-monitor-topology.md)
 
 * [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)
 
-Storm 토폴로지에 대한 추가 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)를 참조하세요.
+Apache Storm 토폴로지에 대한 추가 예제는 [HDInsight의 Apache Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)를 참조하세요.
 

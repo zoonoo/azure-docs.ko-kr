@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 5e4921be3116754f146ed0845513010f2642c97b
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165603"
+---
 <!--author=SharS last changed: 9/17/15-->
 
 #### <a name="to-install-maintenance-mode-hotfixes-via-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell을 통해 유지 관리 모드 핫픽스를 설치하려면
@@ -6,7 +19,7 @@
 > 
 > 
 
-1. 장치를 유지 관리 모드로 설정합니다. 유지 관리 모드로 전환하는 방법에 대한 지침은 [2단계: 유지 관리 모드 전환](../articles/storsimple/storsimple-update-device.md#step2) 을 참조하세요.
+1. 디바이스를 유지 관리 모드로 설정합니다. 유지 관리 모드로 전환하는 방법에 대한 지침은 [2단계: 유지 관리 모드 전환](../articles/storsimple/storsimple-update-device.md#step2) 을 참조하세요.
 2. 핫픽스를 적용하려면 다음을 입력합니다.
    
      `Start-HcsHotfix` 

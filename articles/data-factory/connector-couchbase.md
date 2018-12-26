@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Couchbase에서 데이터 복사 | Microsoft Docs
+title: Azure Data Factory(미리 보기)를 사용하여 Couchbase에서 데이터 복사 | Microsoft Docs
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Couchbase에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 9806ec19df0a68ac71cf639f5cb9b2b600a574ba
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: fee9deb43b4619f26cb9e4c0044b25bd34af93d2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053925"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126838"
 ---
-# <a name="copy-data-from-couchbase-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Couchbase에서 데이터 복사
+# <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Couchbase에서 데이터 복사
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Couchbase에서 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 > [!IMPORTANT]
-> 이 커넥터는 현재 미리 보기 상태입니다. 사용해 보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
+> 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 사용해 보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -45,9 +45,9 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **Couchbase**로 설정해야 합니다. | 예 |
-| connectionString | Couchbase에 연결할 ODBC 연결 문자열입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
+| 형식 | type 속성은 **Couchbase**로 설정해야 합니다. | yes |
+| connectionString | Couchbase에 연결할 ODBC 연결 문자열입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
 
@@ -70,11 +70,11 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Couchbase 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Couchbase 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Couchbase에서 데이터를 복사하려면 데이터 집합의 type 속성을 **CouchbaseTable**로 설정합니다. 이 형식의 데이터 집합에는 추가적인 형식별 속성이 없습니다.
+Couchbase에서 데이터를 복사하려면 데이터 세트의 type 속성을 **CouchbaseTable**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
 
 **예제**
 
@@ -101,8 +101,8 @@ Couchbase에서 데이터를 복사하려면 복사 작업의 원본 형식을 *
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **CouchbaseSource**로 설정해야 합니다. | 예 |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 예 |
+| 형식 | 복사 작업 원본의 type 속성은 **CouchbaseSource**로 설정해야 합니다. | yes |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | yes |
 
 **예제:**
 

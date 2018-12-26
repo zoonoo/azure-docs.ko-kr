@@ -2,19 +2,22 @@
 title: 확장된 클라우드 데이터베이스에서 보고(수평 분할) | Microsoft Docs
 description: 복수 데이터베이스에 대해 보고하려면 교차 데이터베이스 쿼리를 사용합니다.
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: e2393980d966d5a476a2fedf0e70b0614e803e06
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 9eabdae9b884b7c55d410100193c8c5a41243e09
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646442"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864599"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 [탄력적 쿼리](sql-database-elastic-query-overview.md)를 사용하여 단일 연결 지점의 여러 Azure SQL 데이터베이스에서 보고서를 만들 수 있습니다. 데이터베이스를 가로로 분할해야 합니다("분할됨"이라고도 함).
@@ -39,7 +42,7 @@ ms.locfileid: "34646442"
 
    이 시점에 데이터베이스 간 쿼리는 Elastic Database 클라이언트 라이브러리를 통해 지원됩니다. 예를 들면, 명령창에 있는 옵션4를 이용합니다. 다중 분할된 데이터베이스 쿼리에서 나온 결과는 항상 모든 분할된 데이터베이스의 **UNION ALL** 입니다.
 
-   다음 섹션에서는 분할 된 데이터베이스 간 데이터의 다양한 쿼리를 지원하는 샘플 데이터베이스 끝점을 만듭니다.
+   다음 섹션에서는 분할 된 데이터베이스 간 데이터의 다양한 쿼리를 지원하는 샘플 데이터베이스 엔드포인트를 만듭니다.
 
 ## <a name="create-an-elastic-query-database"></a>탄력적 쿼리 데이터베이스 만들기
 1. [Azure Portal](https://portal.azure.com)을 열고 로그인합니다.

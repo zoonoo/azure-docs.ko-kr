@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8bf8388829504b18e71ec597d21b844e29a82346
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6e5b9ce7a4625cccdfaa29492250a5e8255ec23d
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931137"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136522"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows 가상 머신을 위한 Azure 가상 네트워크 만들기 및 관리
 
@@ -49,7 +49,7 @@ Azure 가상 네트워크를 사용하면 네트워크에서 가상 머신, 인�
 - *myVNet* - VM이 다른 VM 및 인터넷과 통신할 때 사용하는 가상 네트워크.
 - *myFrontendSubnet* - 프런트 엔드 리소스에서 사용되는 *myVNet*의 서브넷.
 - *myPublicIPAddress* - 인터넷에서 *myFrontendVM*을 액세스할 때 사용되는 공용 IP 주소.
-- *myFrontentNic* - *myFrontendVM*이 *myBackendVM*과 통신할 때 사용하는 네트워크 인터페이스.
+- *myFrontendNic* - *myFrontendVM*이 *myBackendVM*과 통신할 때 사용하는 네트워크 인터페이스.
 - *myFrontendVM* - 인터넷과 *myBackendVM* 사이에 통신할 때 사용되는 VM.
 - *myBackendNSG* - *myFrontendVM*과 *myBackendVM* 사이의 통신을 제어하는 네트워크 보안 그룹.
 - *myBackendSubnet* - *myBackendNSG*에 연동되어 백엔드 리소스에 의해 사용되는 서브넷.

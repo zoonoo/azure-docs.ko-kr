@@ -3,7 +3,7 @@ title: VM에 Trend Micro Deep Security 설치 | Microsoft Docs
 description: 이 문서에서는 Azure에서 클래식 배포 모델을 사용하여 만든 VM에 Trend Micro 보안을 설치하고 구성하는 방법을 설명합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: danis
-ms.openlocfilehash: 6098d310bcc6fe5df2378688b78277fc7e4b16bc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: ddb999c252f0802ef57942de694340ae29f2d8ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944775"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240361"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "33944775"
 
 Azure Portal, Azure CLI 또는 PowerShell을 사용하여 만든 기존 VM에는 VM 에이전트가 없을 수 있습니다. VM 에이전트가 없는 기존 가상 머신에서는 이 에이전트를 먼저 다운로드하여 설치해야 합니다. 이 문서에서는 두 상황을 모두 다룹니다.
 
-온-프레미스 솔루션용 Trend Micro의 현재 구독이 있는 경우 Azure Virtual Machines를 보호하는 데 사용할 수 있습니다. 아직 구독 고객이 아닌 경우에는 평가판 구독에 등록할 수 있습니다. 이 솔루션에 대한 자세한 내용은 Trend Micro 블로그 게시물 [Deep Security에 대한 Microsoft Azure VM 에이전트 확장](http://go.microsoft.com/fwlink/p/?LinkId=403945)을 참조하세요.
+온-프레미스 솔루션용 Trend Micro의 현재 구독이 있는 경우 Azure Virtual Machines를 보호하는 데 사용할 수 있습니다. 아직 구독 고객이 아닌 경우에는 평가판 구독에 등록할 수 있습니다. 이 솔루션에 대한 자세한 내용은 Trend Micro 블로그 게시물 [Deep Security에 대한 Microsoft Azure VM 에이전트 확장](https://go.microsoft.com/fwlink/p/?LinkId=403945)을 참조하세요.
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>새 VM에 Deep Security Agent 설치
 
@@ -67,7 +67,7 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용하여 만든 기존 VM에는
 
 클라우드 서비스 및 가상 머신 이름을 모르는 경우 **Get-AzureVM**을 실행하여 현재 구독의 모든 가상 머신에 대한 해당 정보를 표시합니다.
 
-**write-host** 명령에서 **True**가 반환되면 VM 에이전트가 설치되어 있는 것입니다. **False**가 반환되면 Azure 블로그 게시물 [VM 에이전트 및 확장 - 2부](http://go.microsoft.com/fwlink/p/?LinkId=403947)에서 지침 및 다운로드 링크를 참조합니다.
+**write-host** 명령에서 **True**가 반환되면 VM 에이전트가 설치되어 있는 것입니다. **False**가 반환되면 Azure 블로그 게시물 [VM 에이전트 및 확장 - 2부](https://go.microsoft.com/fwlink/p/?LinkId=403947)에서 지침 및 다운로드 링크를 참조합니다.
 
 VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 
@@ -78,12 +78,12 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 ## <a name="next-steps"></a>다음 단계
 에이전트가 설치되어 있는 경우 실행을 시작하는 데 몇 분 정도 걸립니다. 그 이후에는 Deep Security Manager를 통해 관리할 수 있도록 가상 머신에서 Deep Security를 정품 인증해야 합니다. 추가 지침은 다음 문서를 참조하세요.
 
-* 이 솔루션과 관련된 Trend 문서, [Microsoft Azure에 대한 즉시 재생 가능한 클라우드 보안](http://go.microsoft.com/fwlink/?LinkId=404101)
-* 가상 머신 구성을 위한 [샘플 Windows PowerShell 스크립트](http://go.microsoft.com/fwlink/?LinkId=404100)
-* [지침](http://go.microsoft.com/fwlink/?LinkId=404099) 
+* 이 솔루션과 관련된 Trend 문서, [Microsoft Azure에 대한 즉시 재생 가능한 클라우드 보안](https://go.microsoft.com/fwlink/?LinkId=404101)
+* 가상 머신 구성을 위한 [샘플 Windows PowerShell 스크립트](https://go.microsoft.com/fwlink/?LinkId=404100)
+* [지침](https://go.microsoft.com/fwlink/?LinkId=404099) 
 
 ## <a name="additional-resources"></a>추가 리소스
-[Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]
+[Windows Server를 실행하는 가상 머신에 로그온하는 방법]
 
 [Azure VM 확장 및 기능]
 
@@ -93,5 +93,5 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 [3]: ./media/trend/SecurityAgentDetails.png
 
 <!-- Link references -->
-[Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]:../windows/classic/connect-logon.md
+[Windows Server를 실행하는 가상 머신에 로그온하는 방법]:../windows/classic/connect-logon.md
 [Azure VM 확장 및 기능]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

@@ -1,20 +1,23 @@
-﻿---
+---
 title: Azure SQL Database에 대한 쿼리 성능 Insight | Microsoft Docs
 description: 쿼리 성능 모니터링은 Azure SQL Database에 대한 대부분의 CPU 사용 쿼리를 식별합니다.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: danimir
+ms.author: danil
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: f608beb0834b1c838b082e92340ebf9b650d8b3f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0dd6430021eed5571a6590f411a68e747cd7b506
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648737"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274890"
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL Database Query Performance Insight
 관련 데이터베이스의 성능을 관리하고 튜닝하는 것은 많은 전문 지식과 시간 투자를 필요로 하는 어려운 일입니다. Query Performance Insight를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
@@ -22,7 +25,7 @@ ms.locfileid: "34648737"
 * 데이터베이스 리소스(DTU) 사용에 대한 보다 자세한 정보를 확인합니다. 
 * CPU/기간/실행 횟수별 최상위 쿼리는 향상된 성능을 위해 잠재적으로 조정될 수 있습니다.
 * 쿼리에 대한 세부 정보로 드릴다운하는 기능으로, 리소스 사용률에 대한 텍스트 및 기록을 표시합니다. 
-* [SQL Azure 데이터베이스 관리자](sql-database-advisor.md)  
+*  [SQL Azure 데이터베이스 관리자](sql-database-advisor.md)  
 
 
 

@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 5610a4ec726b296f54beca65a58d6c0e63a5b375
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 09ba81e4d895afeccf41617039732ae3e72147d7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084871"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972425"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터 증분 로드
 이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob 저장소로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
@@ -29,7 +29,7 @@ ms.locfileid: "37084871"
 > * 워터마크 값을 저장할 데이터 저장소를 준비합니다.
 > * 데이터 팩터리를 만듭니다.
 > * 연결된 서비스 만들기. 
-> * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
+> * 원본, 싱크 및 워터마크 데이터 세트를 만듭니다.
 > * 파이프라인을 만듭니다.
 > * 파이프라인을 실행합니다.
 > * 파이프라인 실행을 모니터링합니다. 
@@ -37,7 +37,7 @@ ms.locfileid: "37084871"
 ## <a name="overview"></a>개요
 대략적인 솔루션 다이어그램은 다음과 같습니다. 
 
-![데이터 증분 로드](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
+![데이터 증분 로드](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
 
 이 솔루션을 만드는 중요한 단계는 다음과 같습니다. 
 
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요.
-* **Azure Storage**. Blob 저장소를 싱크 데이터 저장소로 사용합니다. 저장소 계정이 없는 경우, 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
+* **Azure Storage**. Blob 저장소를 싱크 데이터 저장소로 사용합니다. 저장소 계정이 없는 경우, 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
 * **Azure PowerShell**. [Azure PowerShell을 설치 및 구성](/powershell/azure/install-azurerm-ps)의 지침을 따르세요.
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>SQL 데이터베이스에 데이터 원본 테이블 만들기
@@ -119,7 +119,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```sql
     Select * from watermarktable
     ```
-    출력 
+    출력: 
 
     ```
     TableName  | WatermarkValue
@@ -188,7 +188,7 @@ END
     ```
 
 * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정이 참여자 또는 소유자 역할의 구성원이거나, Azure 구독의 관리자여야 합니다.
-* Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Storage, SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Storage, SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
@@ -263,10 +263,10 @@ END
     ProvisioningState :
     ```
 
-## <a name="create-datasets"></a>데이터 집합 만들기
-이 단계에서는 원본 및 싱크 데이터를 나타내는 데이터 집합을 만듭니다. 
+## <a name="create-datasets"></a>데이터 세트 만들기
+이 단계에서는 원본 및 싱크 데이터를 나타내는 데이터 세트를 만듭니다. 
 
-### <a name="create-a-source-dataset"></a>원본 데이터 집합 만들기
+### <a name="create-a-source-dataset"></a>원본 데이터 세트 만들기
 
 1. 동일한 폴더에 다음 내용이 포함된 SourceDataset.json이라는 JSON 파일을 만듭니다. 
 
@@ -288,7 +288,7 @@ END
     ```
     이 자습서에서는 테이블 이름으로 data_source_table을 사용합니다. 다른 이름의 테이블을 사용하는 경우 이름을 바꿉니다.
 
-2. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SourceDataset 데이터 집합을 만듭니다.
+2. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SourceDataset 데이터 세트를 만듭니다.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -304,7 +304,7 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### <a name="create-a-sink-dataset"></a>싱크 데이터 집합 만들기
+### <a name="create-a-sink-dataset"></a>싱크 데이터 세트 만들기
 
 1. 동일한 폴더에 다음 내용이 포함된 SinkDataset.json이라는 JSON 파일을 만듭니다. 
 
@@ -331,7 +331,7 @@ END
     > [!IMPORTANT]
     > 이 코드 조각에서는 Blob 저장소에 adftutorial이라는 Blob 컨테이너가 있다고 가정합니다. 컨테이너가 없으면 만들거나 기존 컨테이너의 이름으로 설정합니다. `incrementalcopy` 출력 폴더가 컨테이너에 없는 경우 자동으로 만들어집니다. 이 자습서에서 파일 이름은 `@CONCAT('Incremental-', pipeline().RunId, '.txt')` 식을 사용하여 동적으로 생성됩니다.
 
-2. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SinkDataset 데이터 집합을 만듭니다.
+2. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SinkDataset 데이터 세트를 만듭니다.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -347,8 +347,8 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset    
     ```
 
-## <a name="create-a-dataset-for-a-watermark"></a>워터마크에 대한 데이터 집합 만들기
-이 단계에서는 상위 워터마크 값을 저장하기 위한 데이터 집합을 만듭니다. 
+## <a name="create-a-dataset-for-a-watermark"></a>워터마크에 대한 데이터 세트 만들기
+이 단계에서는 상위 워터마크 값을 저장하기 위한 데이터 세트를 만듭니다. 
 
 1. 동일한 폴더에 다음 내용이 포함된 WatermarkDataset.json이라는 JSON 파일을 만듭니다. 
 
@@ -367,7 +367,7 @@ END
         }
     }    
     ```
-2.  **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 WatermarkDataset 데이터 집합을 만듭니다.
+2.  **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 WatermarkDataset 데이터 세트를 만듭니다.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
@@ -729,7 +729,7 @@ END
 > * 워터마크 값을 저장할 데이터 저장소를 준비합니다. 
 > * 데이터 팩터리를 만듭니다.
 > * 연결된 서비스 만들기. 
-> * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
+> * 원본, 싱크 및 워터마크 데이터 세트를 만듭니다.
 > * 파이프라인을 만듭니다.
 > * 파이프라인을 실행합니다.
 > * 파이프라인 실행을 모니터링합니다. 

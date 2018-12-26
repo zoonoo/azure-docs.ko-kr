@@ -3,7 +3,7 @@ title: Azure Service Fabric 컨테이너 서비스에 대한 네트워킹 모드
 description: Azure Service Fabric에서 지원하는 다양한 네트워킹 모드를 설정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 869b87b8df3b1f532a33e943e728681b358ed8b4
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.author: twhitney, subramar
+ms.openlocfilehash: 1a0b7932d8dced086370027e1f8eecaf81841ab3
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287631"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300782"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
 
@@ -180,7 +180,7 @@ ms.locfileid: "36287631"
    |설정 |값 | |
    | --- | --- | --- |
    |우선 순위 |2000 | |
-   |Name |Custom_Dns  | |
+   |이름 |Custom_Dns  | |
    |원본 |VirtualNetwork | |
    |대상 | VirtualNetwork | |
    |서비스 | DNS(UDP/53) | |
@@ -222,7 +222,7 @@ ms.locfileid: "36287631"
     >Linux 클러스터에서는 다른 서비스에 네트워킹 모드를 혼합하는 것이 지원되지 않습니다. 
     >
 
-5. **열기** 모드를 선택하면 서비스 패키지에 코드 패키지가 하나만 있어도, 서비스 매니페스트의 **끝점** 정의가 끝점에 해당하는 코드 패키지를 명시적으로 가리켜야 합니다. 
+5. **열기** 모드를 선택하면 서비스 패키지에 코드 패키지가 하나만 있어도, 서비스 매니페스트의 **엔드포인트** 정의가 엔드포인트에 해당하는 코드 패키지를 명시적으로 가리켜야 합니다. 
    
    ```xml
    <Resources>

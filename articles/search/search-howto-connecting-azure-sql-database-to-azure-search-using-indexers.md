@@ -1,20 +1,20 @@
 ---
 title: 인덱서를 사용하여 Azure Search에 Azure SQL Database 연결 | Microsoft Docs
 description: 인덱서를 사용하여 Azure SQL Database에서 Azure Search 인덱스로 데이터를 가져오는 방법에 대해 알아봅니다.
-author: chaosrealm
-manager: jlembicz
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: eugenesh
-ms.openlocfilehash: 5545b2e40777496ab8c808a8c2692b346d3509c5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778344"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245650"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>인덱서를 사용하여 Azure Search에 Azure SQL Database 연결
 
@@ -109,7 +109,7 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
 응답은 다음과 같아야 합니다.
 
     {
-        "@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
+        "\@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
         "lastResult": {
             "status":"success",
@@ -140,7 +140,7 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
     }
 
 실행 기록은 50개의 최근에 완료한 실행까지 포함할 수 있으며, 시간 순서의 반대로 정렬됩니다(최신 항목이 응답에서 먼저 표시됨)
-응답에 대한 추가 정보는 [인덱서 상태 가져오기](http://go.microsoft.com/fwlink/p/?LinkId=528198)에서 확인할 수 있습니다.
+응답에 대한 추가 정보는 [인덱서 상태 가져오기](https://go.microsoft.com/fwlink/p/?LinkId=528198)에서 확인할 수 있습니다.
 
 ## <a name="run-indexers-on-a-schedule"></a>일정에 따라 인덱서 실행
 일정에 따라 주기적으로 실행되도록 인덱서를 정렬할 수도 있습니다. 이렇게 하려면 인덱서를 만들거나 업데이트할 때 **schedule** 속성을 추가합니다. 아래 예제에서는 인덱서를 업데이트하는 PUT 요청을 보여 줍니다.
@@ -277,7 +277,7 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
         }
     }
 
-**softDeleteMarkerValue**는 문자열이어야 합니다. 실제 값의 문자열 표현을 사용하세요. 예를 들어 삭제된 행이 값 1로 표시된 정수 열이 있는 경우 `"1"`을 사용합니다. 삭제된 행이 부울 true 값으로 표시된 BIT 열이 있는 경우 `"True"`를 사용합니다.
+**softDeleteMarkerValue**는 문자열이어야 합니다. 실제 값의 문자열 표현을 사용하세요. 예를 들어 삭제된 행이 값 1로 표시된 정수 열이 있는 경우 `"1"`을 사용합니다. 삭제된 행이 부울 true 값으로 표시된 BIT 열이 있는 경우 문자열 리터럴 `True` 또는 `true`를 사용합니다. 대소문자는 상관 없습니다.
 
 <a name="TypeMapping"></a>
 
@@ -324,7 +324,7 @@ SQL 인덱서는 여러 구성 설정을 노출합니다.
 
 **Q:** Azure의 IaaS에서 실행되는 SQL Server가 아닌 데이터베이스에서 Azure SQL 인덱서를 사용할 수 있습니까?
 
-번호 SQL Server가 아닌 데이터베이스에서는 인덱서를 테스트하지 않았기 때문에 이 시나리오는 지원되지 않습니다.  
+아니요. SQL Server가 아닌 데이터베이스에서는 인덱서를 테스트하지 않았기 때문에 이 시나리오는 지원되지 않습니다.  
 
 **Q:** 일정에 따라 실행되는 여러 인덱서를 만들 수 있습니까?
 

@@ -3,7 +3,7 @@ title: Azure Linux 가상 머신에 Oracle ASM 설정 | Microsoft Docs
 description: Azure 환경에서 Oracle ASM을 빠르게 준비하여 실행합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: RicksterCDN
+author: romitgirdhar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/19/2017
-ms.author: rclaus
-ms.openlocfilehash: cc75235680eeace5107ef6ac0380e8b7a42974fc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 08/02/2018
+ms.author: rogirdh
+ms.openlocfilehash: 236809336975eec94d7decd9822fc9143ae19bfb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618441"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981028"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 컴퓨터에 Oracle ASM 설정  
 
@@ -36,7 +36,7 @@ Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환�
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="prepare-the-environment"></a>환경 준비
 
@@ -402,7 +402,7 @@ Oracle Grid Infrastructure 소프트웨어를 다운로드 및 준비하려면 �
 ## <a name="prepare-your-local-client-and-vm-to-run-x11"></a>로컬 클라이언트와 VM에서 X11 실행 준비
 Oracle ASM를 구성하려면 설치 및 구성을 완료할 그래픽 인터페이스가 필요합니다. X11 프로토콜을 사용하여 이 설치를 용이하게 합니다. X11 기능을 사용하도록 설정하고 구성한 클라이언트 시스템(Mac 또는 Linux)을 사용하는 경우 Windows 컴퓨터에만 독점적인 이 구성 및 설정을 건너뛰어도 됩니다. 
 
-1. Windows 컴퓨터에 [PuTTY를 다운로드](http://www.putty.org/)하고 [Xming](https://xming.en.softonic.com/)을 다운로드합니다. 계속하기 전에 기본 값으로 이러한 응용 프로그램의 설치를 완료해야 합니다.
+1. Windows 컴퓨터에 [PuTTY를 다운로드](http://www.putty.org/)하고 [Xming](https://xming.en.softonic.com/)을 다운로드합니다. 계속하기 전에 기본 값으로 이러한 애플리케이션의 설치를 완료해야 합니다.
 
 2. PuTTY를 설치한 후에 명령 프롬프트를 열고, PuTTY 폴더(예: C:\Program Files\PuTTY)로 변경하고 키를 생성하기 위해 `puttygen.exe`를 실행합니다.
 

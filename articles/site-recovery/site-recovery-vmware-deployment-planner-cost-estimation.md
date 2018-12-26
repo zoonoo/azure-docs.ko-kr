@@ -1,27 +1,20 @@
 ---
-title: VMware에서 Azure로의 Azure Site Recovery Deployment Planner | Microsoft Docs
-description: Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
-services: site-recovery
-documentationcenter: ''
+title: Azure Site Recovery Deployment Planner에서 비용 예측 보고서 검토 | Microsoft Docs
+description: 이 문서에서는 Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner에서 비용 예측 보고서를 검토하는 방법을 설명합니다.
 author: nsoneji
 manager: garavd
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: f1d23419df6f66ef430cb57f41a9a70c7babe7df
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 7244aa2c0b665b47d597662b98ec291d6bfeeddd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919144"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215024"
 ---
-# <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서  
+# <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Site Recovery Deployment Planner에서 비용 예측 보고서 검토
 
 Deployment Planner 보고서는 [권장 사항](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) 시트에 비용 예측 요약을 제공하고 비용 예측 시트에 자세한 비용 분석을 제공합니다. VM당 자세한 비용 분석이 있습니다. 
 
@@ -131,7 +124,7 @@ VM을 수동으로 추가하려면:
 
 **연간 DR 드릴 횟수**: 연간 DR 드릴을 수행하는 횟수입니다. 기본적으로 1년에 4번입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간에 따라 총 DR 드릴 비용이 계산됩니다.  
 
-**각 DR 드릴 지속 시간(일)**: 각 DR 드릴의 지속 시간입니다. 기본적으로 [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/en-in/pricing/details/site-recovery)당 90일마다 7일입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 총 DR 드릴 비용은 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간을 기반으로 계산됩니다.
+**각 DR 드릴 지속 시간(일)**: 각 DR 드릴의 지속 시간입니다. 기본적으로 [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/pricing/details/site-recovery)당 90일마다 7일입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 총 DR 드릴 비용은 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간을 기반으로 계산됩니다.
   
 **OS 종류**: VM의 OS 종류입니다. Windows 또는 Linux입니다. OS 종류가 Windows이면 Azure 하이브리드 사용 혜택을 해당 VM에 적용할 수 있습니다. 
 
@@ -155,7 +148,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>지원되는 통화
 Azure Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보고서를 생성할 수 있습니다.
 
-|통화|Name||통화|Name||통화|Name|
+|통화|이름||통화|이름||통화|이름|
 |---|---|---|---|---|---|---|---|
 |ARS|아르헨티나 페소($)||AUD|호주 달러($)||BRL|브라질 헤알(R$)|
 |CAD|캐나다 달러($)||CHF|스위스 프랑. (chf)||DKK|덴마크 크론(kr)|

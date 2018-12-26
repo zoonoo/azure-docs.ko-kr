@@ -3,7 +3,7 @@ title: Cloud Services에서 Azure 진단(.NET)을 사용하는 방법 | Microsof
 description: Azure 진단을 사용하면 디버깅, 성능 측정, 모니터링, 트래픽 분석 등을 위해 Azure Cloud Services에서 데이터를 수집할 수 있습니다.
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: adegeo
-ms.openlocfilehash: a8d6b16fa363062e06d48bfc5af2ca37697d5cd8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: jeconnoc
+ms.openlocfilehash: f9f26f14944986bc673a3b7529adb055ad16d058
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29460902"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003064"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Cloud Services에서 Azure 진단 사용
 Azure 진단의 배경은 [Azure 진단 개요](../azure-diagnostics.md) 를 참조하세요.

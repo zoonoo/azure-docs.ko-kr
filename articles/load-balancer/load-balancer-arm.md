@@ -4,9 +4,6 @@ description: Azure Resource Manager와 함께 부하 분산 장치용 PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: tysonn
-ms.assetid: d0394f11-ee5a-4407-9d86-79c936297265
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 599c016763fde6f1dc8221fffa554cf68e8c498f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9d11a34c499029550de12e8a47f7de0b1beac7b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790392"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235040"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Azure Load Balancer에 대한 Azure Resource Manager 지원 사용
 
@@ -53,15 +50,15 @@ Azure Load Balancer를 사용하는 빠른 시작 템플릿은 커뮤니티 생�
 
 템플릿의 예:
 
-* [부하 분산 장치의 2개 VM 및 부하 분산 규칙](http://go.microsoft.com/fwlink/?LinkId=544799)
-* [내부 부하 분산 장치를 포함하는 VNET의 2개 VM 및 부하 분산 장치 규칙](http://go.microsoft.com/fwlink/?LinkId=544800)
-* [부하 분산 장치의 2개 VM 및 LB에서 NAT 규칙 구성](http://go.microsoft.com/fwlink/?LinkId=544801)
+* [부하 분산 장치의 2개 VM 및 부하 분산 규칙](https://go.microsoft.com/fwlink/?LinkId=544799)
+* [내부 부하 분산 장치를 포함하는 VNET의 2개 VM 및 부하 분산 장치 규칙](https://go.microsoft.com/fwlink/?LinkId=544800)
+* [부하 분산 장치의 2개 VM 및 LB에서 NAT 규칙 구성](https://go.microsoft.com/fwlink/?LinkId=544801)
 
 ## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>PowerShell 또는 CLI를 사용하여 Azure 부하 분산 장치 설정
 
 Azure Resource Manager cmdlet, 명령줄 도구 및 REST API 시작
 
-* [Azure 네트워킹 Cmdlet](https://msdn.microsoft.com/library/azure/mt163510.aspx) 을 사용하여 부하 분산 장치를 만들 수 있습니다.
+* [Azure 네트워킹 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.network#networking) 을 사용하여 부하 분산 장치를 만들 수 있습니다.
 * [Azure Resource Manager를 사용하여 부하 분산 장치를 만드는 방법](load-balancer-get-started-ilb-arm-ps.md)
 * [Azure 리소스 관리에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)
 * [부하 분산 장치 REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx)

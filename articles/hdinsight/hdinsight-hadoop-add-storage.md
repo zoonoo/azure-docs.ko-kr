@@ -1,31 +1,27 @@
 ---
-title: HDInsight에 추가 Azure 저장소 계정 추가 | Microsoft 문서
+title: HDInsight에 추가 Azure 저장소 계정 추가
 description: 기존 HDInsight 클러스터에 추가 Azure 저장소 계정을 추가하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationCenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 1404b37725362a71ccb4a0a84dff0c7c4ca591e2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 194f84d2ce5360aa9ad9f3d771bf24f153ac6f5c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170104"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496306"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 저장소 계정 추가
 
 스크립트 동작을 사용하여 추가 Azure 저장소 계정을 HDInsight에 추가하는 방법에 대해 알아봅니다. 이 문서의 단계는 기존 Linux 기반 HDInsight 클러스터에 저장소 계정을 추가합니다.
 
 > [!IMPORTANT]
-> 이 문서의 내용은 클러스터를 만든 후 클러스터에 추가 저장소를 추가하는 방법에 대한 것입니다. 클러스터를 만드는 동안 저장소 계정을 추가하는 방법에 대한 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
+> 이 문서의 내용은 클러스터를 만든 후 클러스터에 추가 저장소를 추가하는 방법에 대한 것입니다. 클러스터를 만드는 동안 스토리지 계정을 추가하는 방법에 대한 자세한 내용은 [Apache Hadoop, Apache Spark, Apache Kafka 등으로 HDInsight에서 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -47,7 +43,7 @@ ms.locfileid: "32170104"
 
 * core-site.xml 파일에 저장소 계정을 추가합니다.
 
-* Oozie, YARN, MapReduce2 및 HDFS 서비스를 중지하고 다시 시작합니다. 이러한 서비스를 중지하고 시작하면 서비스에서 새 저장소 계정을 사용할 수 있습니다.
+* [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) 및 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) 서비스를 중지하고 다시 시작합니다. 이러한 서비스를 중지하고 시작하면 서비스에서 새 저장소 계정을 사용할 수 있습니다.
 
 > [!WARNING]
 > HDInsight 클러스터와 다른 위치에서는 저장소 계정을 사용할 수 없습니다.
@@ -62,7 +58,7 @@ __요구 사항__:
 
 ## <a name="to-use-the-script"></a>스크립트 사용
 
-Azure Portal, Azure PowerShell 또는 Azure CLI 1.0에서 이 스크립트를 사용할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)을 참조하세요.
+Azure Portal, Azure PowerShell 또는 Azure 클래식 CLI에서 이 스크립트를 사용할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)을 참조하세요.
 
 > [!IMPORTANT]
 > 사용자 지정 문서에 제공된 단계를 사용할 때는 다음 정보를 사용하여 이 스크립트를 적용하세요.
@@ -75,7 +71,7 @@ Azure Portal, Azure PowerShell 또는 Azure CLI 1.0에서 이 스크립트를 �
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Azure Portal 또는 도구에 Storage 계정이 표시되지 않음
 
-Azure Portal에서 HDInsight 클러스터를 볼 때 __속성__에서 __Storage 계정__ 항목을 선택하면 이 스크립트 동작을 통해 추가된 Storage 계정이 표시되지 않습니다. Azure PowerShell 및 Azure CLI도 추가 저장소 계정을 표시하지 않습니다.
+Azure Portal에서 HDInsight 클러스터를 볼 때 __속성__에서 __Storage 계정__ 항목을 선택하면 이 스크립트 동작을 통해 추가된 Storage 계정이 표시되지 않습니다. Azure PowerShell 및 Azure 클래식 CLI도 추가 저장소 계정을 표시하지 않습니다.
 
 이 저장소 정보는 스크립트에서 클러스터의 core-site.xml 구성만 수정하기 때문에 표시되지 않습니다. 이 정보는 Azure 관리 API를 사용하여 클러스터 정보를 검색할 때 사용되지 않습니다.
 

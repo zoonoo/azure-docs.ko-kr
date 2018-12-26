@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 08/20/2018
 ms.author: juliako
-ms.openlocfilehash: 2d3219f6f2617fec941e308febb2e47efa184170
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9e8dc926fd796e82ea531aba6cb3a682649dff41
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943232"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246600"
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Azure Media Services를 사용하는 라이브 스트리밍 개요
 
@@ -43,7 +43,7 @@ Azure Media Services를 사용하여 라이브 스트리밍 이벤트를 제공�
 
 **Microsoft Azure Media Services**(AMS)에서는 라이브 스트리밍 콘텐츠를 수집, 인코딩, 미리 보기, 저장 및 배달하는 기능을 제공합니다.
 
-콘텐츠를 고객에게 배달할 때는 서로 다른 네트워크 조건에 따라 다양한 장치에 고화질 영상을 제공하는 것이 목표입니다. 이를 위해 라이브 인코더를 사용하여 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다.  여러 장치에서 스트리밍을 관리하려면 Media Services [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜에 동적으로 다시 패키징합니다. Media Services에서 지원하는 적응 비트 전송률 스트리밍은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH입니다.
+콘텐츠를 고객에게 배달할 때는 서로 다른 네트워크 조건에 따라 다양한 장치에 고화질 영상을 제공하는 것이 목표입니다. 이를 위해 라이브 인코더를 사용하여 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다.  여러 디바이스에서 스트리밍을 관리하려면 Media Services [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 스트림을 여러 프로토콜에 동적으로 다시 패키징합니다. Media Services에서 지원하는 적응 비트 전송률 스트리밍은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH입니다.
 
 Azure Media Services에서 **채널**, **프로그램** 및 **스트리밍 끝점**은 수집, 형식 지정, DVR, 보안, 확장성 및 중복성을 포함한 라이브 스트리밍 기능 전반을 처리합니다.
 
@@ -67,18 +67,17 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 
 | 기능 | 통과 채널 | 표준 채널 |
 | --- | --- | --- |
-| 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아니오 |예 |
+| 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아니요 |yes |
 | 최대 해상도, 계층 수 |1080p, 8계층, 60+fps |720p, 6계층, 30fps |
 | 입력 프로토콜 |RTMP, 부드러운 스트리밍 |RTMP, 부드러운 스트리밍 |
-| 가격 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) |
+| 가격 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 | [가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) |
 | 최대 실행 시간 |연중 무휴 |8시간 |
-| 슬레이트 삽입 지원 |아니오 |예 |
-| 광고 신호 지원 |아니오 |예 |
-| 통과 CEA 608/708 캡션 |예 |예 |
-| 기여 피드의 일시 정지에서 복구하는 기능 |예 |아니요(채널은 입력 데이터가 6초 이상 없으면 슬레이팅을 시작함) |
-| 균일하지 않은 입력 GOP에 대한 지원 |예 |아니요 - 입력은 고정된 2초 GOP여야 함 |
-| 변수 프레임 속도 입력에 대한 지원 |예 |아니요 - 입력은 고정된 프레임 속도여야 함.<br/>예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 하지만 인코더는 10프레임/초까지 떨어질 수 없습니다. |
-| 입력 피드가 손실될 경우 채널 자동 차단 |아니오 |12시간 동안 프로그램 실행이 없는 경우 |
+| 슬레이트 삽입 지원 |아니요 |yes |
+| 광고 신호 지원 |아니요 |yes |
+| 통과 CEA 608/708 캡션 |yes |yes |
+| 균일하지 않은 입력 GOP에 대한 지원 |yes |아니요 - 입력은 고정된 2초 GOP여야 함 |
+| 변수 프레임 속도 입력에 대한 지원 |yes |아니요 - 입력은 고정된 프레임 속도여야 함.<br/>예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 하지만 인코더는 10프레임/초까지 떨어질 수 없습니다. |
+| 입력 피드가 손실될 경우 채널 자동 차단 |아니요 |12시간 동안 프로그램 실행이 없는 경우 |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>온-프레미스 인코더(통과)에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
 다음 다이어그램에서는 **통과** 워크플로에 관련된 AMS 플랫폼의 주요 부분을 보여 줍니다.
@@ -96,7 +95,7 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>채널 및 관련 구성 요소에 대한 설명
 ### <a name="channel"></a>채널
-Media Services에서, [채널](https://docs.microsoft.com/rest/api/media/operations/channel)은 라이브 스트리밍 콘텐츠 처리를 담당합니다. 채널은 라이브 트랜스코더에 제공될 입력 끝점(수집 URL)을 제공합니다. 채널은 라이브 트랜스코더에서 라이브 입력 스트림을 수신하여 하나 이상의 StreamingEndpoints를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 채널은 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 끝점(미리 보기 URL)을 제공합니다.
+Media Services에서, [채널](https://docs.microsoft.com/rest/api/media/operations/channel)은 라이브 스트리밍 콘텐츠 처리를 담당합니다. 채널은 라이브 트랜스코더에 제공될 입력 엔드포인트(수집 URL)를 제공합니다. 채널은 라이브 트랜스코더에서 라이브 입력 스트림을 수신하여 하나 이상의 StreamingEndpoints를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 채널은 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)를 제공합니다.
 
 채널을 만들 때 수집 URL 및 미리 보기 URL을 얻을 수 있습니다. 이러한 URL을 얻으려면 채널이 시작됨 상태로 있을 필요가 없습니다. 라이브 트랜스코더에서 채널로 데이터를 푸시할 준비가 되면 채널을 시작해야 합니다. 라이브 트랜스코더에서 데이터 수집을 시작하면 스트림을 미리 볼 수 있습니다.
 
@@ -141,7 +140,7 @@ Media Services에서, [채널](https://docs.microsoft.com/rest/api/media/operati
 | 시작 중 |시작 중 |없음(일시적인 상태) |
 | 실행 중 |준비(실행 중인 프로그램이 없음)<br/>또는<br/>스트리밍(실행 중인 프로그램이 하나 이상임) |예 |
 | 중지 중 |중지 중 |없음(일시적인 상태) |
-| 중지됨 |중지됨 |아니오 |
+| 중지됨 |중지됨 |아니요 |
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

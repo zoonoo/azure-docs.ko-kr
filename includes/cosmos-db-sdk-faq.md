@@ -1,3 +1,16 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+ms.openlocfilehash: 99dddd86c9348c9791d3012b382298bb020e63c9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572452"
+---
 **1. 고객은 SDK 사용 중지에 대한 알림을 어떻게 받나요?**
 
 Microsoft는 지원되는 SDK로 매끄럽게 전환할 수 있도록 사용 중지되는 SDK 지원이 종료되기 12개월 전에 사전 알림을 제공합니다. 또한 고객은 Azure 관리 포털, 개발자 센터, 블로그 게시물, 할당된 서비스 관리자에 대한 직접 통신 등의 다양한 통신 채널을 통해 알림을 받게 됩니다.

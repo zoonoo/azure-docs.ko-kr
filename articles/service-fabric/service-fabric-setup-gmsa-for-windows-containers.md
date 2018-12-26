@@ -3,7 +3,7 @@ title: Azure Service Fabric 컨테이너 서비스에 대한 gMSA 설정 | Micro
 description: Azure Service Fabric에서 실행 중인 컨테이너에 대해 gMSA를 설정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: subramar
-ms.openlocfilehash: e4cd0b42e21609f88edc28c8fd7b5c433d56b3c1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney, subramar
+ms.openlocfilehash: 1adb2e7fcf5542c3f422bf073e5085717c5b82e4
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209096"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299744"
 ---
 # <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Service Fabric에서 실행 중인 Windows 컨테이너에 대한 gMSA 설정
 

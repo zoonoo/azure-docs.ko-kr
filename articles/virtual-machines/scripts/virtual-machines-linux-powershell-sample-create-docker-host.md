@@ -3,7 +3,7 @@ title: Azure PowerShell 스크립트 샘플 - Docker | Microsoft Docs
 description: Azure PowerShell 스크립트 샘플 - Docker
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/02/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: f2c66385f66bf9aa75601da1a6ab03bf00210fa2
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: ba58c2ddabc59bd0432bdc1740071bdb1795f322
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928402"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465851"
 ---
 # <a name="create-a-docker-host-with-powershell"></a>PowerShell을 사용하여 Docker 호스트 만들기
 

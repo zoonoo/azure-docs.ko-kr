@@ -1,25 +1,19 @@
 ---
-title: "Data Catalog 개발자 개념 | Microsoft Docs"
-description: "카탈로그 REST API를 통해 노출된 것으로 Azure 데이터 카탈로그 개념적 모델의 주요 개념을 소개합니다."
+title: Azure 데이터 카탈로그 개발자 개념
+description: 카탈로그 REST API를 통해 노출된 것으로 Azure 데이터 카탈로그 개념적 모델의 주요 개념을 소개합니다.
 services: data-catalog
-documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: 
-tags: 
+author: markingmyname
+ms.author: maghan
 ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 48d4a33f7667786f2eb8851ed69dedc206e777ae
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 97dafe01db4779332a530dc8981b3d6ada8c9df9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406518"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure 데이터 카탈로그 개발자 개념
 Microsoft **Azure 데이터 카탈로그**는 데이터 원본 검색 및 크라우드소싱 데이터 원본 메타데이터에 대한 기능을 제공하는 완전히 관리되는 클라우드 서비스입니다. 개발자는 REST API를 통해 서비스를 사용할 수 있습니다. 서비스에서 구현되는 개념을 이해 하는 것은 개발자가 **Azure 데이터 카탈로그**를 성공적으로 통합하는 데 중요합니다.
@@ -308,7 +302,7 @@ ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>참가자</td>
         ]
     }
 
-  **소유자를 할당하고 기존 루트 항목에 대한 표시를 제한**: **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+  **소유자 할당 및 기존 루트 항목에 대한 표시 유형 제한**: **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
     {
         "roles": [

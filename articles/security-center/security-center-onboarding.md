@@ -3,23 +3,23 @@ title: 보안 개선을 위해 Azure Security Center 표준 계층으로 온보�
 description: " 보안을 개선하기 위해 Azure Security Center 표준 계층으로 온보딩하는 방법을 알아봅니다. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
-ms.author: terrylan
-ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: d5a4cfa3a91b82aa0f5b1725f86c732fecf632d4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416492"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405449"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩
 Security Center 표준 계층으로 업그레이드하면 하이브리드 클라우드 작업을 위해 강화된 보안 관리 및 위협 방지 기능을 활용할 수 있습니다.  60일 동안 표준 계층을 무료로 사용해 볼 수 있습니다. 자세한 내용은 Security Center [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
@@ -40,59 +40,40 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 >
 >
 
-## <a name="upgrade-an-azure-subscription"></a>Azure 구독 업그레이드
-모든 구독을 표준으로 업그레이드하려면 다음을 수행합니다.
-1. Security Center 주 메뉴 아래에서 **온보딩**을 선택합니다.
-2. Security Center의 **고급 보안으로 온보딩** 아래에 온보딩할 수 있는 구독이 나열됩니다. **표준 계획 적용**을 선택하여 나열된 모든 구독을 업그레이드할 수 있습니다.
+## <a name="upgrade-an-azure-subscription-or-workspace"></a>Azure 구독 또는 작업 영역 업그레이드
+구독 또는 작업 영역을 표준으로 업그레이드하려면:
+1. Security Center 주 메뉴에서 **시작하기**를 선택합니다.
+  ![시작](./media/security-center-onboarding/get-started.png)
+2. **업그레이드** 아래에 Security Center가 온보딩할 수 있는 구독 및 작업 영역을 나열합니다. 
+   - 확장 가능한 **Apply your trial**(평가판 적용)을 클릭하여 평가판 사용 자격이 있는 모든 구독 및 작업 영역 목록을 표시할 수 있습니다.
+   -    평가판 사용 자격이 없는 구독 및 작업 영역은 업그레이드할 수 있습니다.
+   -    평가판 사용 자격이 있는 작업 영역 및 구독을 선택하여 평가판을 시작할 수 있습니다.
+3.  **평가판 시작**을 클릭하여 선택한 구독에서 평가판을 시작할 수 있습니다.
+  ![구독 선택](./media/security-center-onboarding/select-subscription.png)
 
-  ![모든 구독 업그레이드][1]
-
-개별 구독을 표준 계층으로 업그레이드하려는 경우: **표준 계층 적용**을 선택하여 **온보딩**에서 구독을 업그레이드할 수 있습니다. 구독에 속하는 리소스 그룹을 표준 계층으로 업그레이드하려면 구독을 선택하고 다음을 수행합니다.
-1. 구독을 선택합니다.  구독에 포함된 리소스 그룹에 대한 정보가 **보안 정책**에 제공됩니다.
-2. 구독 또는 리소스 그룹을 선택합니다.
-
-  ![모든 구독 업그레이드][2]
-
-3. **표준**을 선택하여 무료에서 표준으로 업그레이드합니다.
-4. **저장**을 선택합니다.
-
-> [!NOTE]
-> 구독을 표준 계층으로 업그레이드하면 [자동 프로 비저닝](security-center-enable-data-collection.md)이 설정됩니다(이전에 사용하지 않도록 설정한 경우). 모니터링 에이전트를 자동 프로비저닝하는 것이 좋습니다.
->
->
-
-## <a name="upgrade-a-workspace"></a>작업 영역 업그레이드
-작업 영역에 표준 계층을 적용하는 경우에는 해당 작업 영역에 보고를 하는 모든 리소스에 표준 계층이 적용됩니다.
-
-1. **온보딩** 블레이드로 돌아옵니다.
-2. 작업 영역을 선택합니다.
-
-  ![작업 영역 업그레이드][8]
-
-3. **표준**을 선택하여 업그레이드합니다.  
-4. **저장**을 선택합니다.
 
    > [!NOTE]
-   > 무료 또는 표준 계층을 작업 영역에 적용할 수 없는 시나리오도 있습니다. 무료를 선택하면 Security Center의 무료 기능은 Azure VM에만 적용됩니다. 즉, 비 Azure 컴퓨터에는 무료 기능이 적용되지 않습니다. 반면 표준을 선택하면 작업 영역에 보고를 하는 모든 Azure VM 및 비 Azure 컴퓨터에 표준 기능이 적용됩니다. 그러므로 Azure 및 비 Azure 리소스에 고급 보안을 제공하려는 경우 표준을 적용하는 것이 좋습니다.
+   > Security Center의 무료 기능은 Azure VM에만 적용됩니다. 즉, 비 Azure 컴퓨터에는 무료 기능이 적용되지 않습니다. 반면 표준을 선택하면 작업 영역에 보고를 하는 모든 Azure VM 및 비 Azure 컴퓨터에 표준 기능이 적용됩니다. 그러므로 Azure 및 비 Azure 리소스에 고급 보안을 제공하려는 경우 표준을 적용하는 것이 좋습니다.
    >
    >
 
 ## <a name="onboard-non-azure-computers"></a>비 Azure 컴퓨터 온보딩
-Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 수는 있지만, 그러려면 먼저 이러한 리소스를 온보딩해야 합니다. **온보딩** 블레이드나 **계산** 블레이드에서 비 Azure 컴퓨터를 추가할 수 있습니다. 여기서는 두 방법에 대해 모두 설명합니다.
+Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 수는 있지만, 그러려면 먼저 이러한 리소스를 온보딩해야 합니다. **시작하기** 블레이드나 **계산** 블레이드에서 비 Azure 컴퓨터를 추가할 수 있습니다. 여기서는 두 방법에 대해 모두 설명합니다.
 
-### <a name="add-new-non-azure-computers-from-onboarding"></a>온보딩에서 새로운 비 Azure 컴퓨터 추가
+### <a name="add-new-non-azure-computers-from-getting-started"></a>**시작하기**에서 새로운 비 Azure 컴퓨터 추가
 
-1. **온보딩**으로 돌아옵니다.   
-2. **새로운 비 Azure 컴퓨터를 추가하시겠습니까?** 를 선택합니다.
+1. **시작하기**으로 돌아갑니다.   
+2. **시작하기** 탭을 선택합니다.
 
-  ![비 Azure 컴퓨터 추가][3]
+  ![비 Azure](./media/security-center-onboarding/non-azure.png)
+
+3. **새 비 Azure 컴퓨터 추가**에서 **구성**을 클릭합니다. Log Analytics 작업 영역 목록이 표시됩니다. 이 목록에는 자동 프로비저닝을 사용하는 경우 Security Center에서 자동으로 생성되는 기본 작업 영역이 포함됩니다(해당하는 경우). 이 작업 영역이나 사용할 다른 작업 영역을 선택합니다.
+
+  ![비 Azure 컴퓨터 추가][7]
 
 기존 작업 영역이 있으면 **새로운 비 Azure 컴퓨터 추가** 아래에 나열됩니다. 컴퓨터를 기존 작업 영역에 추가하거나 새 작업 영역을 만들 수 있습니다. 새 작업 영역을 만들려면 **새 작업 영역 추가** 링크를 선택합니다.
 
-여기서는 두 방법에 대해 모두 설명합니다.
-
-- 새 작업 영역을 만들고 컴퓨터 추가
-- 기존 작업 영역을 선택하고 컴퓨터 추가
+### <a name="add-new-non-azure-computers-from-compute"></a>**계산**에서 새로운 비 Azure 컴퓨터 추가
 
 **새 작업 영역을 만들고 컴퓨터 추가**
 
@@ -101,6 +82,8 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
    ![새 작업 영역 추가][4]
 
 2. **보안 및 감사** 아래에서 **OMS 작업 영역**을 선택하여 새 작업 영역을 만듭니다.
+> [!NOTE]
+> OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.
 3. **OMS 작업 영역** 아래에 작업 영역에 대한 정보를 입력합니다.
 4. **OMS 작업 영역** 아래에서 **확인**을 선택합니다.  확인을 선택하고 나면 Windows 또는 Linux 에이전트 및 이러한 에이전트를 구성할 때 사용할 작업 영역 ID용 키를 다운로드할 수 있는 링크가 표시됩니다.
 5. **보안 및 감사** 아래에서 **확인**을 선택합니다.
@@ -113,8 +96,8 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 
    ![개요][5]
 
-2. **계산** 타일을 선택합니다.
-3. **계산** 아래에서 **컴퓨터 추가**를 선택합니다.
+2. **계산 및 앱**을 선택합니다.
+3. **계산 및 앱** 아래에서 **컴퓨터 추가**를 선택합니다.
 
    ![계산 블레이드][6]
 
@@ -122,7 +105,7 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 
    ![컴퓨터 추가][7]
 
- **직접 에이전트** 블레이드에서 Windows 또는 Linux 에이전트 및 이러한 에이전트를 구성할 때 사용할 작업 영역 ID용 키를 다운로드할 수 있는 링크가 제공됩니다.   
+ **직접 에이전트** 블레이드에서 Windows 또는 Linux 에이전트 및 에이전트를 구성할 때 사용할 작업 영역 ID 및 키를 다운로드할 수 있는 링크가 제공됩니다.   
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center의 고급 보안 혜택을 활용하기 위해 Azure 및 비 Azure 리소스를 온보딩하는 방법에 대해 알아보았습니다.  온보딩한 리소스에 대해 추가 작업을 수행하려면 다음 항목을 참조하세요.
@@ -134,9 +117,9 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png
 [2]: ./media/security-center-onboarding/onboard-subscription.png
-[3]: ./media/security-center-onboarding/add-non-azure-resource.png
+[3]: ./media/security-center-onboarding/get-started.png
 [4]: ./media/security-center-onboarding/create-workspace.png
 [5]: ./media/security-center-onboarding/overview.png
 [6]: ./media/security-center-onboarding/compute-blade.png
-[7]: ./media/security-center-onboarding/add-non-azure-computer.png
+[7]: ./media/security-center-onboarding/add-computer.png
 [8]: ./media/security-center-onboarding/onboard-workspace.png

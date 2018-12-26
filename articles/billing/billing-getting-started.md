@@ -4,7 +4,7 @@ description: Azure 청구서에 예기치 않은 요금이 부과되지 않도�
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: alherz
 editor: ''
 tags: billing
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: tonguyen
-ms.openlocfilehash: e4db9911697a4d79032b7a6358db642112a5a54e
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: c19769dda281f4346c23b823ea00eac83790b618
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062175"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582533"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -31,6 +31,9 @@ Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파
 - 구독이 평가판, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), AIO(Azure in Open) 또는 BizSpark인 경우, 크레딧을 모두 사용하면 구독이 자동으로 사용되지 않도록 설정됩니다. 구독이 예상치 않게 사용할 수 없도록 설정되는 것을 방지하려면 [지출 한도](#spending-limit)에 대해 자세히 알아보세요.
 
 - [Azure 체험 계정](https://azure.microsoft.com/free/)에 등록하는 경우 [12개월 동안 체험용으로 가장 널리 사용되는 Azure 서비스의 일부를 사용할 수 있습니다](billing-create-free-services-included-free-account.md). 아래에 나열된 권장 사항과 함께 [체험 계정에서 요금 청구 방지](billing-avoid-charges-free-account.md)를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [Azure 청구 문서 개선](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Azure 서비스를 추가하기 전에 예상 비용 얻기
 
@@ -51,17 +54,6 @@ Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파
 일반적으로 Azure Portal에서 서비스를 추가하는 경우 유사한 월별 예상 비용이 표시되는 보기가 제공됩니다. 예를 들어 Windows VM의 크기를 선택하는 경우 계산 시간에 대해 예상되는 월별 비용이 표시됩니다.
 
 ![예제: A1 Windows VM의 월별 비용이 $66.96 USD로 예측됨](./media/billing-getting-started/vm-size-cost.PNG)
-
-### <a name="set-up-billing-alerts"></a>청구 경고 설정
-
-사용 비용이 지정한 금액을 초과하는 경우 전자 메일을 받도록 청구 경고를 설정합니다. 월별 크레딧이 있는 경우 지정된 금액을 다 사용하는 경우에 대해 경고를 설정합니다. 자세한 내용은 [Microsoft Azure 구독에 대한 청구 경고 설정](billing-set-up-alerts.md)을 참조하세요.
-
-![청구 경고 전자 메일 스크린 샷](./media/billing-getting-started/billing-alert.png)
-
-> [!NOTE]
-> 이 기능은 미리 보기 상태이므로 정기적으로 사용 현황을 확인해야 합니다.
-
-가격 계산기의 예상 비용을 첫 번째 경고에 대한 지침으로 사용할 수도 있습니다.
 
 ### <a name="spending-limit"></a> 지출 한도가 설정되어 있는지 확인
 
@@ -121,7 +113,7 @@ Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파
 
 ### <a name="turn-on-and-check-out-azure-advisor-recommendations"></a>Azure Advisor 권장 지침 설정 및 확인
 
-[Azure Advisor](../advisor/advisor-overview.md)는 사용량이 낮은 리소스를 식별하여 비용을 절감하는 데 도움을 주는 미리 보기 기능입니다. Azure Portal에서 이 기능을 켭니다.
+[Azure Advisor](../advisor/advisor-overview.md)는 사용량이 낮은 리소스를 식별하여 비용을 절감하는 데 도움을 주는 기능입니다. Azure Portal에서 Advisor를 방문합니다.
 
 ![Azure Portal의 Azure Advisor 단추 스크린 샷](./media/billing-getting-started/advisor-button.PNG)
 
@@ -150,7 +142,7 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 | CSP(클라우드 솔루션 공급자) | 공급자에게 알림 |
 | Azure 스폰서쉽 | [스폰서쉽 포털](https://www.microsoftazuresponsorships.com/) |
 
-대기업의 IT를 관리하는 경우 [Azure 엔터프라이즈 스 캐폴드](/azure/architecture/cloud-adoption-guide/subscription-governance) 및 [엔터프라이즈 IT 백서](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf)(.pdf 다운로드, 영어 버전만 제공)를 읽어보세요.
+대기업의 IT를 관리하는 경우 [Azure 엔터프라이즈 스 캐폴드](/azure/architecture/cloud-adoption-guide/subscription-governance) 및 [엔터프라이즈 IT 백서](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf)(.pdf 다운로드, 영어 버전만 제공)를 읽어보세요.
 
 #### <a name="EA"></a> Azure Portal 내에서 기업 계약 비용 보기 미리 보기 
 
@@ -163,7 +155,7 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
     - 사용자는 부서 관리자이며 등록 관리자가 "DA 보기 요금" 설정을 비활성화했습니다.  등록 관리자에게 액세스 권한을 문의하세요. 
     - 채널 파트너를 통해 Azure를 구매했고 파트너가 가격 정보를 릴리스하지 않았습니다.  
 - 엔터프라이즈 포털 내에서 비용 액세스와 관련된 설정이 업데이트되는 경우 Azure Portal에 변경 내용이 반영되기까지 몇 분 간의 지연이 있습니다.
-- 지출 한도, 청구 경고 및 송장 지침은 EA 구독에 적용되지 않습니다.
+- 지출 한도 및 송장 지침은 EA 구독에 적용되지 않습니다.
 
 ### <a name="check-your-subscription-and-access"></a>구독 및 액세스 권한 확인
 
@@ -175,7 +167,8 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 
 계정 관리자가 아니면 경우 누군가가 [Azure Active Directory RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 통해 부분적인 액세스 권한을 부여한 것입니다. 구독을 관리하고 청구 정보를 변경하려면 [계정 관리자를 찾고](billing-subscription-transfer.md#whoisaa) 작업을 수행하거나 [구독을 전송](billing-subscription-transfer.md)하도록 요청합니다.
 
-계정 관리자가 더 이상 조직에 있지 않은 상태에서 청구를 관리해야 할 경우 [지원 서비스에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요. 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+계정 관리자가 더 이상 조직에 있지 않은 상태에서 청구를 관리해야 하는 경우에는 [문의하세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

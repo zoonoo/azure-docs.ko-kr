@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 27eaa6582a355198b61e996cce0a4acce48061cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 493beb254852464765d506c61c7ae6ce3b3835d3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267131"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362894"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -77,6 +77,11 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
 
 ## <a name="requirements-and-constraints"></a>요구 사항 및 제약 조건
 
+가상 네트워크가 전역적으로 피어링될 때 다음 제약 조건이 적용됩니다.
+- 가상 네트워크는 Azure 국가별 클라우드를 제외한 모든 Azure 공용 클라우드 지역에 있을 수 있습니다.
+- 하나의 가상 네트워크의 리소스는 전역적으로 피어링된 가상 네트워크에 있는 Azure 내부 부하 분산 장치의 프런트 엔드 IP 주소와 통신할 수 없습니다. 함께 통신하는 부하 분산 장치 및 리소스는 동일한 지역에 있어야 합니다.
+- 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용할 수 없습니다. 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용하려면 피어링된 가상 네트워크가 동일한 지역에 있어야 합니다.
+
 요구 사항 및 제약 조건에 대한 자세한 내용은 [가상 네트워크 피어링 요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요. 가상 네트워크에 만들 수 있는 피어링 수 제한에 대한 자세한 내용은 [Azure 네트워킹 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요. 
 
 ## <a name="permissions"></a>권한
@@ -85,7 +90,9 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
 
 ## <a name="pricing"></a>가격
 
-가상 네트워크 피어링 연결을 활용하는 수신 및 송신 트래픽에 대한 명목 요금이 부과됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-network)를 참조하세요.
+가상 네트워크 피어링 연결을 활용하는 수신 및 송신 트래픽에 대한 명목 요금이 부과됩니다. VNet 피어링 및 전역 VNet 피어링 가격 책정에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-network)를 참조하세요.
+
+게이트웨이 전송은 프레미스 간 또는 VNet 간 연결의 피어링된 가상 네트워크에서 VPN Gateway를 활용하도록 가상 네트워크를 설정하는 피어링 속성입니다. 이 시나리오에서 원격 게이트웨이를 통해 전달되는 트래픽은 [VPN Gateway 요금](https://azure.microsoft.com/pricing/details/vpn-gateway/)이 적용되고 [VNet 피어링 요금](https://azure.microsoft.com/pricing/details/virtual-network)이 발생하지 않습니다. 예를 들어 VNetA에 온-프레미스 연결에 대한 VPN Gateway가 있고 VNetB가 적절한 속성이 구성된 VNetA에 피어링된 경우 VNetB에서 온-프레미스로 전달되는 트래픽은 VPN Gateway 가격 책정당 송신만이 청구됩니다. VNet 피어링 요금이 적용되지 않습니다. [가상 네트워크 피어링을 위한 VPN Gateway 전송을 구성](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -100,3 +107,4 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
 
 * [허브 및 스포크 네트워크 토폴로지](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)를 만드는 방법을 알아봅니다.
 * 모든 [가상 네트워크 피어링 설정 및 변경 방법](virtual-network-manage-peering.md)에 대해 자세히 알아봅니다.
+* [VNet 피어링 FAQ](virtual-networks-faq.md#vnet-peering)를 통해 VNet 피어링 및 글로벌 VNet 피어링에 대해 자주 묻는 질문의 답을 알아보세요.

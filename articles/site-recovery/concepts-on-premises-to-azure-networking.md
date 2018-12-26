@@ -1,22 +1,21 @@
 ---
-title: Azure Site Recovery를 통해 Azure에 장애 조치(Failover) 후 연결할 IP 주소 설정 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 온-프레미스에서 장애 조치(failover)한 후 Azure VM에 연결할 IP 주소를 설정하는 방법을 설명합니다.
+title: Azure Site Recovery를 사용하여 Azure로 재해 복구 및 장애 조치(Failover) 후 연결할 IP 주소 설정 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 온-프레미스에서 재해 복구 및 장애 조치(failover)한 후 Azure VM에 연결할 IP 주소 설정 방법 설명
 services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 99b8287b79a7cf9802ab3b71ce4c90032706bc63
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: c05a97dc5a5fe9a0e8a6f1a8598ff82fcf488ab2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919246"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253281"
 ---
-# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Azure에 장애 조치(failover)한 후 연결할 IP 주소 설정
+# <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>장애 조치(failover) 후 연결할 IP 주소 설정
 
 이 문서에서는 Azure로의 복제 및 장애 조치에 [Azure Site Recovery](site-recovery-overview.md)를 사용한 후 Azure VM에 연결하기 위한 네트워킹 요구 사항을 설명합니다.
 
@@ -82,7 +81,7 @@ Woodgrove가 IP 주소를 유지하는 동시에 해당 VM을 Azure로 복제할
 
 ## <a name="assigning-new-ip-addresses"></a>새 IP 주소 할당
 
-이 [블로그 게시물](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/)은 장애 조치(failover) 후 IP 주소를 유지할 필요가 없을 때 Azure 네트워킹 인프라를 설정하는 방법을 설명합니다. 응용 프로그램 설명으로 시작하여 온-프레미스 및 Azure의 네트워킹을 설정하는 방법을 찾고, 장애 조치(failover)를 실행하는 방법에 대한 정보로 마무리합니다.
+이 [블로그 게시물](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/)은 장애 조치(failover) 후 IP 주소를 유지할 필요가 없을 때 Azure 네트워킹 인프라를 설정하는 방법을 설명합니다. 응용 프로그램 설명으로 시작하여 온-프레미스 및 Azure의 네트워킹을 설정하는 방법을 찾고, 장애 조치(failover)를 실행하는 방법에 대한 정보로 마무리합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [장애 조치 실행](site-recovery-failover.md)

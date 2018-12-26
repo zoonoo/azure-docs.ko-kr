@@ -3,17 +3,17 @@ title: Azure Storage 소개 - Azure의 클라우드 저장소 | Microsoft Docs
 description: Azure Storage는 Microsoft의 클라우드 저장소 솔루션입니다. Azure Storage는 고가용성, 보안, 지속형, 확장성이 뛰어난 중복된 데이터 개체에 대한 저장소를 제공합니다.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 04/05/2018
+ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: 0ae4e196c81e767b2bbee4340f5d99b9f803df3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: e483997140efc1d75466d887e42383d887f8a6f4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653657"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963252"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -30,9 +30,9 @@ Azure Storage는 최신 데이터 저장소 시나리오를 위한 Microsoft의 
 Azure Storage는 이러한 데이터 서비스를 포함합니다. 
 
 - [Azure Blob](../blobs/storage-blobs-introduction.md): 텍스트 및 이진 데이터에 대한 확장성이 뛰어난 개체 저장소입니다.
-- [Azure Files](../files/storage-files-introduction.md): 클라우드 또는 온-프레미스 배포에 대한 관리되는 파일 공유입니다.
-- [Azure 큐](../queues/storage-queues-introduction.md): 응용 프로그램 구성 요소 간에 안정적인 메시징을 위한 메시징 저장소입니다. 
-- [Azure 테이블](../tables/table-storage-overview.md): 구조화된 데이터의 스키마 없는 저장소를 위한 NoSQL 저장소입니다.
+- [Azure 파일](../files/storage-files-introduction.md): 클라우드 또는 온-프레미스 배포에 대한 관리형 파일 공유입니다.
+- [Azure 큐](../queues/storage-queues-introduction.md): 애플리케이션 구성 요소 간에 안정적인 메시지를 위한 메시지 저장소입니다. 
+- [Azure 테이블](../tables/table-storage-overview.md): 정형 데이터의 스키마 없는 스토리지를 위한 NoSQL 저장소입니다.
 
 각 서비스는 저장소 계정을 통해 액세스됩니다. 시작하려면 [저장소 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 
@@ -48,9 +48,9 @@ Blob 저장소는 다음에 이상적입니다.
 * 백업/복원, 재해 복구 및 보관용 데이터 저장
 * 온-프레미스 또는 Azure 호스티드 서비스에 의한 분석용 데이터 저장
 
-Blob 저장소의 개체는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. 사용자 또는 클라이언트 응용 프로그램은 URL, [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) 또는 Azure Storage 클라이언트 라이브러리를 통해 Blob에 액세스할 수 있습니다. 저장소 클라이언트 라이브러리는 [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/en/latest/index.html), [PHP](http://azure.github.io/azure-storage-php/) 및 [Ruby](http://azure.github.io/azure-storage-ruby)를 비롯한 여러 언어에서 사용할 수 있습니다.
+Blob 저장소의 개체는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. 사용자 또는 클라이언트 응용 프로그램은 URL, [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) 또는 Azure Storage 클라이언트 라이브러리를 통해 Blob에 액세스할 수 있습니다. 저장소 클라이언트 라이브러리는 [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](http://azure.github.io/azure-storage-php/) 및 [Ruby](http://azure.github.io/azure-storage-ruby)를 비롯한 여러 언어에서 사용할 수 있습니다.
 
-Blob 저장소에 대한 자세한 내용은 [Azure에서 개체 저장소 소개](../blobs/storage-blobs-introduction.md)를 참조하세요.
+Blob 스토리지에 대한 자세한 내용은 [Blob 스토리지 소개](../blobs/storage-blobs-introduction.md)를 참조하세요.
 
 ## <a name="azure-files"></a>Azure 파일
 [Azure Files](../files/storage-files-introduction.md)를 사용하면 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 액세스할 수 있는 고가용성 네트워크 파일 공유를 설정할 수 있습니다. 즉, 여러 VM이 읽기 및 쓰기 권한을 모두 사용하여 동일한 파일을 공유할 수 있습니다. 또한 REST 인터페이스 또는 저장소 클라이언트 라이브러리를 사용하여 파일을 읽을 수 있습니다.
@@ -85,7 +85,7 @@ Table 저장소에 대한 자세한 내용은 [Azure Table 저장소 개요](../
 
 ## <a name="disk-storage"></a>디스크 저장소
 
-또한 Azure Storage는 가상 머신에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 포함합니다. 이러한 기능에 대한 자세한 내용은 [Compute Service 설명서](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute)를 참조하세요.
+또한 Azure Storage는 가상 머신에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 포함합니다. 이러한 기능에 대한 자세한 내용은 [Compute Service 설명서](https://docs.microsoft.com/azure/#pivot=products&panel=Compute)를 참조하세요.
 
 ## <a name="types-of-storage-accounts"></a>저장소 계정 유형
 
@@ -93,7 +93,7 @@ Table 저장소에 대한 자세한 내용은 [Azure Table 저장소 개요](../
 
 |**저장소 계정의 유형**|**범용 표준**|**범용 프리미엄**|**Blob Storage, 핫 및 쿨 액세스 계층**|
 |-----|-----|-----|-----|
-|**지원되는 서비스**| Blob, File, Queue 서비스 | Blob Service | Blob Service|
+|**지원되는 서비스**| Blob, File, Queue 및 Table 서비스 | Blob Service | Blob Service|
 |**지원되는 Blob 유형**|블록 Blob, 페이지 Blob 및 추가 Blob | 페이지 Blob | 블록 Blob 및 추가 Blob|
 
 ### <a name="general-purpose-storage-accounts"></a>범용 저장소 계정
@@ -140,6 +140,7 @@ Storage 서비스에 사용할 수 있는 기본적인 종류의 두 가지 암�
 
 미사용 Azure SSE(저장소 서비스 암호화)를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 통해 Azure Storage는 저장소를 유지하기 전에 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 암호화, 암호 해독 및 키 관리는 사용자에게 완전히 투명하게 처리됩니다.
 
+
 SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure Resource Manager 및 클래식) 및 모든 Azure Storage 서비스(Blob, 큐, 테이블 및 파일)의 데이터를 자동으로 암호화합니다. SSE는 Azure Storage 성능에 영향을 주지 않습니다.
 
 미사용 SSE 암호화에 대한 자세한 내용은 [미사용 데이터에 대한 Azure 저장소 서비스 암호화](storage-service-encryption.md)를 참조하세요.
@@ -169,12 +170,14 @@ AzCopy는 [Azure 데이터 이동 라이브러리](https://www.nuget.org/package
 
 Azure Import/Export 서비스는 저장소 계정 간에 대량의 Blob 데이터를 가져오거나 내보내는 데 사용할 수 있습니다. 여러 하드 드라이브를 준비하고 Azure 데이터 센터에 전자 메일로 보내면 여기에서 하드 드라이브 간에 데이터를 전송하고 하드 드라이브를 다시 사용자에게 보냅니다. Import/Export 서비스에 대한 자세한 내용은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage에 데이터 전송](../storage-import-export-service.md)을 참조하세요.
 
+빠르고 저렴하고 신뢰할 수 있는 방법으로 저장소 계정에 대량의 Blob 데이터를 가져오려면 Azure Data Box 디스크를 사용할 수도 있습니다. Microsoft는 40TB 용량의 암호화된 SSD(solid-state disk)를 5개까지 지역 이동 통신 사업자를 통해 데이터 센터에 제공합니다. 신속하게 디스크를 구성하고, USB 연결을 통해 디스크에 데이터를 복사하고, Azure에 다시 디스크를 제공합니다. Azure 데이터 센터에서 데이터는 자동으로 드라이브에서 클라우드로 업로드됩니다. 이 솔루션에 대한 자세한 내용은 [Azure Data Box 디스크 개요](https://docs.microsoft.com/azure/databox/data-box-disk-overview)로 이동합니다.
+
 ## <a name="pricing"></a>가격
 
 Azure Storage에서 가격 책정에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 
 ## <a name="storage-apis-libraries-and-tools"></a>Storage API, 라이브러리 및 도구
-Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 액세스할 수 있습니다. 또한 Azure storage는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기 호출, 작업 일괄 처리, 예외 관리, 자동 재시도, 작업자 동작 등과 같은 세부 사항을 처리하여 Azure Storage 작업의 많은 측면을 간소화합니다. 현재 이 라이브러리는 파이프라인의 다른 라이브러리와 함께 다음 언어 및 플랫폼에 대해 사용할 수 있습니다.
+Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 액세스할 수 있습니다. 또한 Azure Storage는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기 호출, 작업 일괄 처리, 예외 관리, 자동 재시도, 작업자 동작 등과 같은 세부 사항을 처리하여 Azure Storage 작업의 많은 측면을 간소화합니다. 현재 이 라이브러리는 파이프라인의 다른 라이브러리와 함께 다음 언어 및 플랫폼에 대해 사용할 수 있습니다.
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Azure Storage 데이터 API 및 라이브러리 참조
 * [Storage 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/)
@@ -198,7 +201,7 @@ Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언�
 ### <a name="tools-and-utilities"></a>도구 및 유틸리티
 * [Storage용 Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azure.storage)
 * [Storage용 Azure CLI Cmdlet](https://docs.microsoft.com/cli/azure/storage)
-* [AzCopy 명령줄 유틸리티](http://aka.ms/downloadazcopy)
+* [AzCopy 명령줄 유틸리티](https://aka.ms/downloadazcopy)
 * [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * [Azure Storage 클라이언트 도구](../storage-explorers.md)
 * [Azure 개발자 도구](https://azure.microsoft.com/tools/)

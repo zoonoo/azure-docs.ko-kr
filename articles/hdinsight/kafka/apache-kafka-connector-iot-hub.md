@@ -1,31 +1,26 @@
 ---
-title: Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용 | Microsoft Docs
+title: Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용
 description: Azure IoT Hub를 통해 HDInsight에서 Apache Kafka를 사용하는 방법에 대해 알아봅니다. Kafka 연결 Azure IoT Hub 프로젝트는 Kafka에 대한 원본 및 싱크 커넥터를 제공합니다. 원본 커넥터는 IoT Hub에서 데이터를 읽을 수 있으며 싱크 커넥터는 IoT Hub에 기록합니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/15/2018
-ms.author: larryfr
-ms.openlocfilehash: 33fdb5b099efc40fec94a860b21cda75ced44fe9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.date: 11/06/2018
+ms.openlocfilehash: 143df8a8c82e84b193bdb48a3d41682fca19156b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267304"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315430"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용
 
-HDInsight의 Apache Kafka 및 Azure IoT Hub 간에 데이터를 이동하려면 [Kafka 연결 Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) 커넥터를 사용하는 방법에 대해 알아봅니다. 이 문서에서는 클러스터의 에지 노드에서 IoT Hub 커넥터를 실행하는 방법을 설명합니다.
+HDInsight의 Apache Kafka 및 Azure IoT Hub 간에 데이터를 이동하려면 [Apache Kafka 연결 Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) 커넥터를 사용하는 방법에 대해 알아봅니다. 이 문서에서는 클러스터의 에지 노드에서 IoT Hub 커넥터를 실행하는 방법을 설명합니다.
 
-Kafka 연결 API를 사용하면 데이터를 계속 Kafka로 끌어오거나 Kafka에서 다른 시스템으로 데이터를 밀어넣기하는 커넥터를 구현할 수 있습니다. [Kafka 연결 Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub)는 Azure IoT Hub에서 데이터를 Kafka로 끌어오는 커넥터입니다. Kafka에서 데이터를 IoT Hub로 밀어넣기할 수도 있습니다. 
+Kafka 연결 API를 사용하면 데이터를 계속 Kafka로 끌어오거나 Kafka에서 다른 시스템으로 데이터를 밀어넣기하는 커넥터를 구현할 수 있습니다. [Apache Kafka 연결 Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub)는 Azure IoT Hub에서 데이터를 Kafka로 끌어오는 커넥터입니다. Kafka에서 데이터를 IoT Hub로 밀어넣기할 수도 있습니다. 
 
 IoT Hub에서 끌어오는 경우 __원본__ 커넥터를 사용합니다. IoT Hub로 밀어넣기하는 경우 __싱크__ 커넥터를 사용합니다. IoT Hub 커넥터는 원본 및 싱크 커넥터 모두를 제공합니다.
 
@@ -89,7 +84,7 @@ IoT Hub에서 끌어오는 경우 __원본__ 커넥터를 사용합니다. IoT H
 >
 >    이 명령은 프로젝트에 대한 `target/scala-2.11` 디렉터리에서 `kafka-connect-iothub-assembly_2.11-0.6.jar`라는 파일을 만듭니다.
 
-## <a name="configure-kafka"></a>Kafka 구성
+## <a name="configure-apache-kafka"></a>Apache Kafka 구성
 
 SSH 연결에서 에지 노드까지 다음 단계를 사용하여 독립 실행형 모드에서 실행되도록 Kafka를 구성합니다.
 
@@ -116,7 +111,7 @@ SSH 연결에서 에지 노드까지 다음 단계를 사용하여 독립 실행
 
     `wn0-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,wn1-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
 
-4. Zookeeper 노드의 주소를 가져옵니다. 클러스터에 여러 Zookeeper 노드가 있지만 하나 또는 두 개의 참조만 필요합니다. 두 Zookeeper 노드의 주소를 가져오려면 다음 명령을 사용합니다.
+4. Apache Zookeeper 노드의 주소를 가져옵니다. 클러스터에 여러 Zookeeper 노드가 있지만 하나 또는 두 개의 참조만 필요합니다. 두 Zookeeper 노드의 주소를 가져오려면 다음 명령을 사용합니다.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -294,7 +289,7 @@ IoT Hub와 작동하도록 싱크 연결을 구성하려면 SSH 연결에서 에
 /usr/hdp/current/kafka-broker/bin/connect-standalone.sh /usr/hdp/current/kafka-broker/config/connect-standalone.properties /usr/hdp/current/kafka-broker/config/connect-iothub-source.properties
 ```
 
-커넥터가 시작하면 해당 장치에서 IoT Hub로 메시지를 보냅니다. 커넥터는 IoT Hub에서 메시지를 읽고 Kafka 항목에 저장하므로 콘솔에 정보를 기록합니다.
+커넥터가 시작하면 해당 디바이스에서 IoT Hub로 메시지를 보냅니다. 커넥터는 IoT Hub에서 메시지를 읽고 Kafka 항목에 저장하므로 콘솔에 정보를 기록합니다.
 
 ```text
 [2017-08-29 20:15:46,112] INFO Polling for data - Obtained 5 SourceRecords from IotHub (com.microsoft.azure.iot.kafka.co
@@ -340,7 +335,7 @@ t.runtime.WorkerSinkTask:262)
     > [!WARNING]
     > 새 SSH 연결이므로 `$KAFKABROKERS` 변수는 어떤 정보도 포함하지 않습니다. 이를 설정하려면 다음 방법 중 하나를 사용합니다.
     >
-    > * [Kafka 구성](#configure-kafka) 섹션에서 처음 3단계를 사용합니다.
+    > * [Apache Kafka 구성](#configure-apache-kafka) 섹션의 처음 세 단계를 사용합니다.
     > * 값을 가져오려면 이전 SSH 연결에서 `echo $KAFKABROKERS`를 사용한 다음, 다음 명령에서 `$KAFKABROKERS`를 실제 값으로 바꿉니다.
 
     ```bash
@@ -349,10 +344,10 @@ t.runtime.WorkerSinkTask:262)
 
     이 명령은 기본 Bash 프롬프트로 반환하지 않습니다. 대신 `iotout` 항목에 키보드 입력을 보냅니다.
 
-3. 장치에 메시지를 보내려면 `kafka-console-producer`에 대한 SSH 세션에 JSON 문서를 붙여넣습니다.
+3. 디바이스에 메시지를 보내려면 `kafka-console-producer`에 대한 SSH 세션에 JSON 문서를 붙여넣습니다.
 
     > [!IMPORTANT]
-    > 장치 ID에 `"deviceId"` 항목 값을 설정해야 합니다. 다음 예제에서 장치는 `fakepi`이라고 합니다.
+    > 디바이스 ID에 `"deviceId"` 항목 값을 설정해야 합니다. 다음 예제에서 디바이스는 `fakepi`이라고 합니다.
 
     ```text
     {"messageId":"msg1","message":"Turn On","deviceId":"fakepi"}
@@ -360,19 +355,19 @@ t.runtime.WorkerSinkTask:262)
 
     이 JSON 문서에 대한 스키마는 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)에 자세히 설명되어 있습니다.
 
-    시뮬레이션된 Raspberry Pi 장치를 사용하고 장치가 실행 중인 경우 해당 장치에서 다음 메시지를 기록합니다.
+    시뮬레이션된 Raspberry Pi 디바이스를 사용하고 디바이스가 실행 중인 경우 해당 디바이스에서 다음 메시지를 기록합니다.
 
     ```text
     Receive message: Turn On
     ```
 
-    JSON 문서를 다시 보내지만 `"message"` 항목 값을 변경합니다. 장치에서 새 값을 기록합니다.
+    JSON 문서를 다시 보내지만 `"message"` 항목 값을 변경합니다. 디바이스에서 새 값을 기록합니다.
 
 싱크 커넥터 사용에 대한 자세한 내용은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 HDInsight에서 IoT Kafka 커넥터를 시작하기 위해 Kafka 연결 API를 사용하는 방법을 알아보았습니다. Kafka를 사용하는 다른 방법을 찾으려면 다음 링크를 사용하세요.
+이 문서에서는 HDInsight에서 IoT Kafka 커넥터를 시작하기 위해 Apache Kafka 연결 API를 사용하는 방법을 알아보았습니다. Kafka를 사용하는 다른 방법을 찾으려면 다음 링크를 사용하세요.
 
-* [HDInsight의 Kafka에서 Apache Spark 사용](../hdinsight-apache-spark-with-kafka.md)
-* [HDInsight의 Kafka에서 Apache Storm 사용](../hdinsight-apache-storm-with-kafka.md)
+* [HDInsight에서 Apache Spark 및 Apache Kafka 사용](../hdinsight-apache-spark-with-kafka.md)
+* [HDInsight에서 Apache Storm 및 Apache Kafka 사용](../hdinsight-apache-storm-with-kafka.md)

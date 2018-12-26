@@ -1,25 +1,26 @@
 ---
-title: Microsoft QnA Maker API(V4)용 C# 빠른 시작 - Azure Cognitive Services | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Text API를 사용하여 신속하게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: REST API(V4) - C# - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Text API를 사용하여 신속하게 시작할 수 있는 C# REST 기반 정보와 코드 샘플을 가져옵니다.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 15f0415819bc0ae51e8160bb2b4a12c409b13baa
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.date: 10/19/2018
+ms.author: diberry
+ms.openlocfilehash: a93d6d939f1ccdaa7cbbe16de1e380227489ac45
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301340"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211488"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>C#에서 Microsoft QnA Maker API의 빠른 시작 
+# <a name="qna-maker-rest-api-with-c"></a>C#에서 QnA Maker REST API 사용 
 <a name="HOLTop"></a>
 
-이 아티클에서는 C#에서 [Microsoft QnA Maker API](../Overview/overview.md)를 사용하여 다음을 수행하는 방법을 보여줍니다.
+이 문서에서는 C#에서 [Microsoft QnA Maker API](../Overview/overview.md) 를 사용하여 다음을 수행하는 방법을 보여줍니다.
 
 - [새 기술 자료 만들기](#Create)
 - [기존 기술 자료 업데이트](#Update)
@@ -36,6 +37,8 @@ ms.locfileid: "36301340"
 - [현재 단어 변경 집합 가져오기](#GetAlterations)
 - [현재 단어 변경 집합 바꾸기](#PutAlterations)
 
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.visualstudio.com/downloads/)이 필요합니다. (체험용 Community Edition이 작동됩니다.)
@@ -50,7 +53,7 @@ Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.vis
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -97,8 +100,8 @@ namespace QnAMaker
     }
   ],
   'urls': [
-    'https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs',
-    'https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq'
+    'https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs',
+    'https://docs.microsoft.com/bot-framework/resources-bot-framework-faq'
   ],
   'files': []
 }
@@ -208,7 +211,7 @@ namespace QnAMaker
 
 **기술 자료 만들기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -247,7 +250,7 @@ namespace QnAMaker
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -292,7 +295,7 @@ namespace QnAMaker
       }
     ],
     'urls': [
-      'https://docs.microsoft.com/en-us/azure/cognitive-services/Emotion/FAQ'
+      'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
     ]
   },
   'update' : {
@@ -409,7 +412,7 @@ namespace QnAMaker
 
 **기술 자료 업데이트 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -449,7 +452,7 @@ Press any key to continue.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -526,7 +529,7 @@ namespace QnAMaker
 
 **기술 자료 게시 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -544,7 +547,7 @@ namespace QnAMaker
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -643,7 +646,7 @@ namespace QnAMaker
 
 **기술 자료 바꾸기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -661,7 +664,7 @@ namespace QnAMaker
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -735,7 +738,7 @@ namespace QnAMaker
 
 **기술 자료 다운로드 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -757,7 +760,7 @@ namespace QnAMaker
     {
       "id": 2,
       "answer": "QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.",
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "questions": [
         "Who is the target audience for the QnA Maker tool?"
       ],
@@ -851,7 +854,7 @@ namespace QnAMaker
 
 **답변 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -863,7 +866,7 @@ namespace QnAMaker
       "answer": "Yes. However, shadow copies made prior to enabling BitLocker will be automatically deleted when BitLocker is enabled on software-encrypted drives. If you are using a hardware encrypted drive, the shadow copies are retained.",
       "score": 17.3,
       "id": 62,
-      "source": "https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
+      "source": "https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
       "metadata": []
     },
 ...
@@ -881,7 +884,7 @@ namespace QnAMaker
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -951,7 +954,7 @@ namespace QnAMaker
 
 **기술 자료 세부 정보 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -962,8 +965,8 @@ namespace QnAMaker
   "name": "QnA Maker FAQ",
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
     "Custom Editorial"
@@ -981,7 +984,7 @@ namespace QnAMaker
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -1048,7 +1051,7 @@ namespace QnAMaker
 
 **사용자에 대한 기술 자료 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1071,8 +1074,8 @@ namespace QnAMaker
       "name": "QnA Maker FAQ",
       "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
       "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
       ],
       "sources": [
         "Custom Editorial"
@@ -1094,7 +1097,7 @@ Press any key to continue.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -1170,7 +1173,7 @@ namespace QnAMaker
 
 **기술 자료 삭제 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1188,7 +1191,7 @@ namespace QnAMaker
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -1254,7 +1257,7 @@ namespace QnAMaker
 
 **엔드포인트 키 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1273,7 +1276,7 @@ namespace QnAMaker
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -1342,7 +1345,7 @@ namespace QnAMaker
 
 **엔드포인트 키 새로 고침 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1361,7 +1364,7 @@ namespace QnAMaker
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -1427,7 +1430,7 @@ namespace QnAMaker
 
 **단어 변경 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1452,7 +1455,7 @@ namespace QnAMaker
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -1551,7 +1554,7 @@ namespace QnAMaker
 
 **단어 변경 바꾸기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {

@@ -8,13 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 9/27/2017
-ms.openlocfilehash: e4e831c602255df66f4c86ffa17336f51d2b52f7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 09/27/2017
+ms.openlocfilehash: 567e2f850e2c51a6103dc24b91d139042d58acb3
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30906276"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986835"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Stream Analytics 도구를 사용하여 지속적으로 통합 및 개발
 이 문서에서는 Visual Studio용 Azure Stream Analytics 도구를 사용하여 지속적인 통합 및 배포 프로세스를 설정하는 방법에 대해 알아봅니다.
@@ -83,7 +83,7 @@ localrun -Project [ProjectFullPath]
 ```
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]
 ```
-예:
+예제:
 ```
 ./tools/SA.exe arm -JobTemplate "ProjectA.JobTemplate.json" -JobParameterFile "ProjectA.JobTemplate.parameters.json" -OutputFile "JobDefinition.json" 
 ```

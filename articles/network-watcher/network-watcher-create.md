@@ -14,16 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9d3e579cd58bc6c7d67b29998ea5a48a65548b0a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ea10e83e8a5963c1ea0073179c15b1c2f3230805
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30904003"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615220"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Azure Network Watcher 인스턴스 만들기
 
-Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나리오 수준 상태를 모니터링하고 진단할 수 있게 하는 지역 서비스입니다. 시나리오 수준 모니터링을 사용하면 종단 간 네트워크 수준 보기에서 문제를 진단할 수 있습니다. Network Watcher에서 제공하는 네트워크 진단 및 시각화 도구를 사용하면 Azure에서 네트워크를 파악하고, 진단하고, 정보를 얻을 수 있습니다.
+Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나리오 수준 상태를 모니터링하고 진단할 수 있게 하는 지역 서비스입니다. 시나리오 수준 모니터링을 사용하면 종단 간 네트워크 수준 보기에서 문제를 진단할 수 있습니다. Network Watcher에서 제공하는 네트워크 진단 및 시각화 도구를 사용하면 Azure에서 네트워크를 파악하고, 진단하고, 정보를 얻을 수 있습니다. Network Watcher는 Network Watcher 리소스 만들기를 통해 사용하도록 설정됩니다. 이 리소스에서는 Network Watcher 기능을 활용하도록 허용합니다.
+
+## <a name="network-watcher-is-automatically-enabled"></a>Network Watcher가 자동으로 사용하도록 설정됨
+구독에서 가상 네트워크를 만들거나 업데이트하면 가상 네트워크 지역에서 Network Watcher가 자동으로 사용하도록 설정됩니다. Network Watcher가 자동으로 사용하도록 설정되어도 리소스에 영향을 주지 않으며 관련된 요금도 없습니다.
+
+#### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Network Watcher 자동 사용 옵트아웃
+Network Watcher 자동 사용을 옵트아웃하려면 다음 명령을 실행하여 옵트아웃할 수 있습니다.
+
+> [!WARNING]
+> Network Watcher 자동 사용 옵트아웃은 영구적 변경입니다. 옵트아웃한 후에는 [고객 지원에 문의](https://azure.microsoft.com/support/options/)하지 않고는 옵트인할 수 없습니다.
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+```azurecli-interactive
+az feature register --name DisableNetworkWatcherAutocreation --namespace Microsoft.Network
+az provider register -n Microsoft.Network
+```
+
+
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>포털에서 Network Watcher 만들기
 

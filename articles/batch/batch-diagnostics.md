@@ -15,16 +15,17 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: e64d272695c4e47c972df040d1c1c2a63bf3dddd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31788197"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822758"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
-이 문서에서는 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)의 기능을 사용하여 배치 계정을 모니터링하는 방법을 설명합니다. Azure Monitor는 배치 계정의 리소스에 대해 [메트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md) 및 [진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)를 수집합니다. 이 데이터를 다양한 방법으로 수집하고 사용하여 배치 계정을 모니터링하고 문제를 진단합니다. 또한 메트릭이 지정된 값에 도달할 때 알림을 받을 수 있도록 [메트릭 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data)를 구성할 수 있습니다. 
+ 
+이 문서에서는 [Azure Monitor](../azure-monitor/overview.md)의 기능을 사용하여 배치 계정을 모니터링하는 방법을 설명합니다. Azure Monitor는 배치 계정의 리소스에 대해 [메트릭](../azure-monitor/platform/data-collection.md#metrics) 및 [진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)를 수집합니다. 이 데이터를 다양한 방법으로 수집하고 사용하여 배치 계정을 모니터링하고 문제를 진단합니다. 또한 메트릭이 지정된 값에 도달할 때 알림을 받을 수 있도록 [메트릭 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 구성할 수 있습니다. 
 
 ## <a name="batch-metrics"></a>일괄 처리 메트릭
 
@@ -64,7 +65,8 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 2. **모니터링**에서 **경고 규칙** > **메트릭 경고 추가**를 클릭합니다.
 3. 메트릭, 경고 조건(예: 메트릭이 일정 기간 동안 특정 값을 초과하는 경우) 및 하나 이상의 알림을 선택합니다.
 
-또한 [REST API]()를 사용하여 거의 실시간으로 경고를 구성할 수 있습니다. 자세한 내용은 [Azure Portal에서 Azure 서비스에 대한 최신 메트릭 경고 사용](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)을 참조하세요.
+또한 [REST API](https://docs.microsoft.com/rest/api/monitor/)를 사용하여 거의 실시간으로 경고를 구성할 수 있습니다. 자세한 내용은 [경고 개요](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 참조하세요.
+
 ## <a name="batch-diagnostics"></a>일괄 처리 진단
 
 진단 로그에는 각 리소스의 작업을 설명하는 Azure 리소스에서 내보낸 정보가 포함됩니다. 일괄 처리의 경우 다음 로그를 수집할 수 있습니다.
@@ -83,7 +85,7 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
 * 일괄 처리 진단 로그 이벤트를 [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md)로 스트리밍합니다. Event Hubs는 초당 수백 건의 이벤트를 수집하여 모든 실시간 분석 공급자를 통해 변환 및 저장할 수 있습니다. 
 
-* OMS(Operations Management Suite) 포털에서 분석할 수 있게 진단 로그를 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)로 보내거나, Power BI 또는 Excel에서 분석할 수 있도록 내보냅니다.
+* 진단 로그를 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)로 보냅니다. 여기서 진단 로그를 분석하거나 추가 분석을 위해 Power BI 또는 Excel로 내보낼 수 있습니다.
 
 > [!NOTE]
 > Azure 서비스를 사용하여 진단 로그 데이터를 저장하거나 처리하려면 추가 비용이 발생할 수 있습니다. 
@@ -101,7 +103,7 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
     ![일괄 처리 진단](media/batch-diagnostics/diagnostics-portal.png)
 
-로그 컬렉션을 사용하도록 설정하는 다른 옵션으로는 포털에서 Azure Monitor를 사용하여 진단 설정을 구성하거나, [Resource Manager 템플릿](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)을 사용하거나, Azure PowerShell 또는 Azure CLI를 사용하는 방법이 있습니다. [Azure 리소스에서 로그 데이터 수집 및 사용](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)을 참조하세요.
+로그 컬렉션을 사용하도록 설정하는 다른 옵션으로는 포털에서 Azure Monitor를 사용하여 진단 설정을 구성하거나, [Resource Manager 템플릿](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)을 사용하거나, Azure PowerShell 또는 Azure CLI를 사용하는 방법이 있습니다. [Azure 리소스에서 로그 데이터 수집 및 사용](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)을 참조하세요.
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>저장소에서 진단 로그에 액세스
@@ -115,7 +117,7 @@ BATCHACCOUNTS/{batch account name}/y={four-digit numeric year}/
 m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
-예:
+예제:
 
 ```
 insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/

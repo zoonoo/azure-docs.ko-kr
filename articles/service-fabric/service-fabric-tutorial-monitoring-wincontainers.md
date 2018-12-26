@@ -3,7 +3,7 @@ title: Azure의 Service Fabric에서 Windows 컨테이너 모니터링 및 진�
 description: 이 자습서에서는 Azure Service Fabric에서 Windows 컨테이너의 모니터링 및 진단을 위해 Log Analytics를 구성합니다.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: dekapur
+ms.author: twhitney, dekapur
 ms.custom: mvc
-ms.openlocfilehash: b013627c5a0dc596c9897d7fa2c5bf2b2a79ee40
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 9249c0bb559328c878d784b54af5117b785daffe
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114009"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300628"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>자습서: Log Analytics를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
 
-자습서의 2부이며, Service Fabric에서 오케스트레이션되는 Windows 컨테이너를 모니터링하도록 Log Analytics를 설정하는 과정을 안내합니다.
+자습서의 3부이며, Service Fabric에서 오케스트레이션되는 Windows 컨테이너를 모니터링하도록 Log Analytics를 설정하는 과정을 안내합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "37114009"
 
 ## <a name="setting-up-log-analytics-with-your-cluster-in-the-resource-manager-template"></a>Resource Manager 템플릿에서 클러스터를 사용하여 Log Analytics 설정
 
-이 자습서의 1부에서 [제공된 템플릿](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial)을 사용한 경우 제네릭 Service Fabric Azure Resource Manager 템플릿에 다음 내용을 추가해야 합니다. Log Analytics를 사용하여 컨테이너를 모니터링하기 위해 설정하려면 고유한 클러스터가 있는 경우:
+이 자습서의 1부에서 [제공된 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure)을 사용한 경우 제네릭 Service Fabric Azure Resource Manager 템플릿에 다음 내용을 추가해야 합니다. Log Analytics를 사용하여 컨테이너를 모니터링하기 위해 설정하려면 고유한 클러스터가 있는 경우:
 
 * Resource Manager 템플릿을 다음과 같이 변경합니다.
 * PowerShell을 통해 배포하여 [템플릿 배포](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)를 통해 클러스터를 업그레이드합니다. Azure Resource Manager는 리소스가 있음을 인식하므로 업그레이드로 배포됩니다.

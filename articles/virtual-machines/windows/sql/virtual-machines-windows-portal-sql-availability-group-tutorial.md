@@ -14,14 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287806"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238078"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>수동으로 Azure VM에서 Always On 가용성 그룹 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "36287806"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서는 사용자가 SQL Server Always On 가용성 그룹을 기본적으로 이해하고 있다고 가정합니다. 자세한 내용은 [Always On 가용성 그룹 개요(SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx)를 참조하세요.
+이 자습서는 사용자가 SQL Server Always On 가용성 그룹을 기본적으로 이해하고 있다고 가정합니다. 자세한 내용은 [Always On 가용성 그룹 개요(SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx)를 참조하세요.
 
 다음 표에 이 자습서를 시작하기 전에 완료해야 하는 필수 구성 요소가 나열되어 있습니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "36287806"
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | 클러스터 감시를 위한 파일 공유 |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server 서비스 계정 | 도메인 계정 |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server 에이전트 서비스 계정 | 도메인 계정 |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|방화벽 포트 열기 | - SQL Server: 기본 인스턴스에 대해 **1433** <br/> - 데이터베이스 미러링 끝점: **5022** 또는 사용 가능한 포트 <br/> - Azure Load Balancer 프로브: **59999** 또는 사용 가능한 포트 |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|방화벽 포트 열기 | - SQL Server: 기본 인스턴스에 대해 **1433** <br/> - 데이터베이스 미러링 엔드포인트: **5022** 또는 사용 가능한 포트 <br/> - 가용성 그룹 부하 분산 장치 IP 주소 상태 프로브: **59999** 또는 사용 가능한 포트 <br/> - 클러스터 코어 부하 분산 장치 IP 주소 상태 프로브: **58888** 또는 사용 가능한 포트 |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|장애 조치(Failover) 클러스터링 기능 추가 | 이 기능을 필요로 하는 SQL Server 2개 |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|설치 도메인 계정 | - 각 SQL Server의 로컬 관리자 <br/> - SQL Server의 각 인스턴스에 대해 SQL Server sysadmin 고정 서버 역할의 멤버  |
 
@@ -78,7 +78,7 @@ ms.locfileid: "36287806"
    | 클러스터 관리를 위한 액세스 지점 |클러스터 이름(예: **SQLAGCluster1**)을 **클러스터 이름**에 입력합니다.|
    | 확인 |저장소 공간을 사용하지 않는 경우 기본값을 사용합니다. 이 표 다음의 참고 사항을 참조하세요. |
 
-### <a name="set-the-cluster-ip-address"></a>클러스터 IP 주소 설정
+### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Windows Server 장애 조치(Failover) 클러스터 IP 주소 설정
 
 1. **장애 조치(Failover) 클러스터 관리자**에서 **클러스터 코어 리소스**로 아래로 스크롤하여 클러스터 세부 정보를 확장합니다. **이름** 및 **IP 주소** 리소스가 **실패** 상태에 모두 표시됩니다. 클러스터에 컴퓨터 자체와 동일한 IP 주소가 할당되어 주소가 중복되므로 IP 주소 리소스는 온라인 상태로 전환할 수 없습니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "36287806"
 
    ![클러스터 속성](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. **고정 IP 주소**를 선택하고 주소 입력란에 APIPA(자동 개인 IP 주소) 범위 169.254.255.254~169.254.0.1의 사용 가능한 주소를 지정합니다. 이 예제에서는 해당 범위에 어떤 주소도 사용 가능합니다. 예: `169.254.0.1`. 그런 다음 **확인**을 클릭합니다.
+3. **고정 IP 주소**를 선택하고 가상 머신과 동일한 서브넷에서 사용 가능한 주소를 지정합니다.
 
 4. **클러스터 코어 리소스** 섹션에서 클러스터 이름을 마우스 오른쪽 단추로 클릭하고 **온라인 상태로 전환**을 클릭합니다. 그런 다음 두 리소스가 모두 온라인 상태로 전환될 때까지 기다립니다. 클러스터 이름 리소스가 온라인 상태가 되면 새 AD 컴퓨터 계정으로 DC 서버를 업데이트합니다. 이 AD 계정을 사용하여 나중에 가용성 그룹 클러스터형 서비스를 실행합니다.
 
@@ -119,7 +119,7 @@ ms.locfileid: "36287806"
 
 ### <a name="add-a-cluster-quorum-file-share"></a>클러스터 쿼럼 파일 공유 추가
 
-이 예제에서 Windows 클러스터는 파일 공유를 사용하여 클러스터 쿼럼을 만듭니다. 이 자습서에서는 노드 및 파일 공유 과반수 쿼럼을 사용합니다. 자세한 내용은 [장애 조치(Failover) 클러스터의 쿼럼 구성 이해](http://technet.microsoft.com/library/cc731739.aspx)를 참조하세요.
+이 예제에서 Windows 클러스터는 파일 공유를 사용하여 클러스터 쿼럼을 만듭니다. 이 자습서에서는 노드 및 파일 공유 과반수 쿼럼을 사용합니다. 자세한 내용은 [장애 조치(Failover) 클러스터의 쿼럼 구성 이해](https://technet.microsoft.com/library/cc731739.aspx)를 참조하세요.
 
 1. 원격 데스크톱 세션으로 파일 공유 미러링 모니터 구성원 서버에 연결합니다.
 
@@ -168,7 +168,7 @@ ms.locfileid: "36287806"
 1. **쿼럼 감시 선택**에서 **파일 공유 감시 구성**을 클릭합니다.
 
    >[!TIP]
-   >Windows Server 2016은 클라우드 감시를 지원합니다. 이 유형의 감시를 선택한 경우 파일 공유 감시가 필요하지 않습니다. 자세한 내용은 [장애 조치(Failover) 클러스터에 대한 클라우드 감시 배포](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness)를 참조하세요. 이 자습서에서는 이전 운영 체제에서 지원되는 파일 공유 감시를 사용합니다.
+   >Windows Server 2016은 클라우드 감시를 지원합니다. 이 유형의 감시를 선택한 경우 파일 공유 감시가 필요하지 않습니다. 자세한 내용은 [장애 조치(Failover) 클러스터에 대한 클라우드 감시 배포](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness)를 참조하세요. 이 자습서에서는 이전 운영 체제에서 지원되는 파일 공유 감시를 사용합니다.
 
 1. **파일 공유 감시 구성**에서 사용자가 만든 공유에 대한 경로를 입력합니다. **다음**을 클릭합니다.
 
@@ -188,7 +188,7 @@ ms.locfileid: "36287806"
 
     ![AlwaysOn 가용성 그룹 사용](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
 
-4. **Apply**를 클릭합니다. 팝업 대화 상자에서 **확인**을 클릭합니다.
+4. **적용**을 클릭합니다. 팝업 대화 상자에서 **확인**을 클릭합니다.
 
 5. SQL Server 서비스를 다시 시작합니다.
 
@@ -292,11 +292,11 @@ Repeat these steps on the second SQL Server.
 
    ![새 AG 마법사, 복제본 지정(전체)](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/64-newagreplica.png)
 
-6. **끝점**을 클릭하여 이 가용성 그룹에 사용될 데이터베이스 미러링 끝점을 확인합니다. [데이터베이스 미러링 끝점에 대한 방화벽 규칙](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall)을 설정할 때 사용한 것과 동일한 포트를 사용합니다.
+6. **엔드포인트**를 클릭하여 이 가용성 그룹에 사용될 데이터베이스 미러링 엔드포인트를 확인합니다. [데이터베이스 미러링 엔드포인트에 대한 방화벽 규칙](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall)을 설정할 때 사용한 것과 동일한 포트를 사용합니다.
 
     ![새 AG 마법사, 초기 데이터 동기화 선택](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 예제에서는 **\\\\\<First SQL Server\>\Backup\** 입니다. **다음**을 클릭합니다.
+8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 예제에서는 **\\\\\<First SQL Server\>\Backup\\** 입니다. **다음**을 클릭합니다.
 
    >[!NOTE]
    >전체 동기화는 SQL Server의 첫 번째 인스턴스에서 데이터베이스의 전체 백업을 수행하고 두 번째 인스턴스로 복원합니다. 대형 데이터베이스의 경우 전체 동기화는 시간이 오래 걸릴 수 있으므로 권장되지 않습니다. 수동으로 데이터베이스의 백업을 수행하고 `NO RECOVERY`를 통해 복원하여 이 시간을 줄일 수 있습니다. 가용성 그룹을 구성하기 전에 두 번째 SQL Server에서 이미 `NO RECOVERY`로 데이터베이스를 복원한 경우 **조인만**을 선택합니다. 가용성 그룹을 구성한 후 백업을 수행하려는 경우 **초기 데이터 동기화 건너뛰기**를 선택합니다.
@@ -341,15 +341,17 @@ Repeat these steps on the second SQL Server.
 
 ## <a name="create-an-azure-load-balancer"></a>Azure Load Balancer 만들기
 
-Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 보유합니다. 이 섹션에서는 Azure Portal에서 부하 분산 장치를 만드는 방법을 요약합니다.
+Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기 및 Windows Server 장애 조치(failover) 클러스터의 IP 주소를 보유합니다. 이 섹션에서는 Azure Portal에서 부하 분산 장치를 만드는 방법을 요약합니다.
+
+Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 있습니다. 표준 Load Balancer는 기본 Load Balancer 보다 더 많은 기능을 제공합니다. 가용성 그룹의 경우 가용성 집합 대신 가용성 영역을 사용하는 경우 표준 Load Balancer가 필요합니다. 부하 분산 장치 유형 간의 차이점에 대한 자세한 내용은 [Load Balancer SKU 비교](../../../load-balancer/load-balancer-overview.md#skus)를 참조하세요.
 
 1. Azure Portal에서 SQL Server가 있는 리소스 그룹으로 이동하여 **+추가**를 클릭합니다.
-2. **부하 분산 장치**를 검색합니다. Microsoft에서 게시한 부하 분산 장치를 선택합니다.
+1. **부하 분산 장치**를 검색합니다. Microsoft에서 게시한 부하 분산 장치를 선택합니다.
 
    ![장애 조치(Failover) 클러스터 관리자에서 AG](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
-1.  **만들기**를 클릭합니다.
-3. 부하 분산 장치에 대한 다음 매개 변수를 구성합니다.
+1. **만들기**를 클릭합니다.
+1. 부하 분산 장치에 대한 다음 매개 변수를 구성합니다.
 
    | 설정 | 필드 |
    | --- | --- |
@@ -358,7 +360,7 @@ Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장
    | **가상 네트워크** |Azure Virtual Network의 이름을 사용합니다. |
    | **서브넷** |가상 컴퓨터가 있는 서브넷 이름을 사용합니다.  |
    | **IP 주소 할당** |공용 |
-   | **IP 주소** |서브넷에서 사용 가능한 주소를 사용합니다. 이것은 클러스터 IP 주소와 다릅니다. |
+   | **IP 주소** |서브넷에서 사용 가능한 주소를 사용합니다. 가용성 그룹 수신기에 대해 이 주소를 사용합니다. 이것은 클러스터 IP 주소와 다릅니다.  |
    | **구독** |가상 머신과 동일한 구독을 사용합니다. |
    | **위치**: |가상 컴퓨터와 동일한 위치를 사용합니다. |
 
@@ -370,13 +372,15 @@ Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장
 
 부하 분산 장치를 구성하려면 백 엔드 풀, 프로브를 만들고 부하 분산 규칙을 설정해야 합니다. Azure Portal에서 이러한 작업을 수행할 수 있습니다.
 
-### <a name="add-backend-pool"></a>백 엔드 풀 추가
+### <a name="add-backend-pool-for-the-availability-group-listener"></a>가용성 그룹 수신기에 대한 백 엔드 풀 추가
 
 1. Azure Portal에서 가용성 그룹으로 이동합니다. 새로 만든 부하 분산 장치를 보려면 보기를 새로 고쳐야 할 수도 있습니다.
 
    ![리소스 그룹의 부하 분산 장치 찾기](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. 부하 분산 장치를 클릭하고 **백엔드 풀**, **+추가**를 차례로 클릭합니다. 
+1. 부하 분산 장치를 클릭하고 **백엔드 풀**, **+추가**를 차례로 클릭합니다.
+
+1. 백 엔드 풀의 이름을 입력합니다.
 
 1. VM이 포함된 가용성 집합과 백 엔드 풀을 연결합니다.
 
@@ -391,7 +395,7 @@ Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장
 
 1. 부하 분산 장치를 클릭하고 **상태 프로브**, **+추가**를 차례로 클릭합니다.
 
-1. 다음과 같이 상태 프로브를 설정합니다.
+1. 다음과 같이 수신기 상태 프로브를 설정합니다.
 
    | 설정 | 설명 | 예
    | --- | --- |---
@@ -407,15 +411,55 @@ Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장
 
 1. 부하 분산 장치를 클릭하고 **부하 분산 규칙**, **+추가**를 차례로 클릭합니다.
 
-1. 부하 분산 규칙을 다음과 같이 설정합니다.
+1. 수신기 부하 분산 규칙을 다음과 같이 설정합니다.
    | 설정 | 설명 | 예
    | --- | --- |---
    | **Name** | 텍스트 | SQLAlwaysOnEndPointListener |
    | **프런트 엔드 IP 주소** | 주소 선택 |부하 분산 장치를 만들 때 생성된 주소를 사용합니다. |
    | **프로토콜** | TCP 선택 |TCP |
-   | **포트** | 가용성 그룹 수신기용 포트 사용 | 1435 |
-   | **백 엔드 포트** | 이 필드는 부동 IP가 직접 서버 반환에 대해 설정된 경우 사용하지 않습니다. | 1435 |
+   | **포트** | 가용성 그룹 수신기용 포트 사용 | 1433 |
+   | **백 엔드 포트** | 이 필드는 부동 IP가 직접 서버 반환에 대해 설정된 경우 사용하지 않습니다. | 1433 |
    | **프로브** |프로브에 대해 지정한 이름 | SQLAlwaysOnEndPointProbe |
+   | **세션 지속성** | 드롭다운 목록 | **없음** |
+   | **유휴 시간 제한** | TCP 연결을 열린 상태로 유지하는 시간(분) | 4 |
+   | **부동 IP(Direct Server Return)** | |사용 |
+
+   > [!WARNING]
+   > 직접 서버 반환은 만드는 동안 설정됩니다. 이는 변경할 수 없습니다.
+
+1. **확인**을 클릭하여 수신기 부하 분산 규칙을 설정합니다.
+
+### <a name="add-the-cluster-core-ip-address-for-the-windows-server-failover-cluster-wsfc"></a>WSFC(Windows Server 장애 조치 클러스터)에 대한 클러스터 코어 IP 주소 추가
+
+WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
+
+1. 포털의 동일한 Azure Load Balancer에서 **프런트 엔드 IP 구성**을 클릭하고 **+추가**를 클릭합니다. 클러스터 코어 리소스에서 WSFC에 대해 구성한 IP 주소를 사용합니다. IP 주소를 고정으로 설정합니다.
+
+1. 부하 분산 장치에서 **상태 프로브**, **+추가**를 차례로 클릭합니다.
+
+1. WSFC 클러스터 코어 IP 주소 상태 프로브를 다음과 같이 설정합니다.
+
+   | 설정 | 설명 | 예
+   | --- | --- |---
+   | **Name** | 텍스트 | WSFCEndPointProbe |
+   | **프로토콜** | TCP 선택 | TCP |
+   | **포트** | 사용하지 않는 모든 포트 | 58888 |
+   | **간격**  | 프로브 시도 간격(초) |5 |
+   | **비정상 임계값** | 가상 머신이 비정상 상태로 간주되기 위한 연속된 프로브 실패 횟수  | 2 |
+
+1. **확인**을 클릭하여 상태 프로브를 설정합니다.
+
+1. 부하 분산 규칙을 설정합니다. **부하 분산 규칙**을 클릭하고 **+추가**를 클릭합니다.
+
+1. 클러스터 코어 IP 주소 부하 분산 규칙을 다음과 같이 설정합니다.
+   | 설정 | 설명 | 예
+   | --- | --- |---
+   | **Name** | 텍스트 | WSFCEndPoint |
+   | **프런트 엔드 IP 주소** | 주소 선택 |WSFC IP 주소를 구성할 때 생성된 주소를 사용합니다. 수신기 IP 주소와는 다릅니다. |
+   | **프로토콜** | TCP 선택 |TCP |
+   | **포트** | 클러스터 IP 주소에 대한 포트를 사용합니다. 수신기 프로브 포트에 사용되지 않는 사용 가능한 포트입니다. | 58888 |
+   | **백 엔드 포트** | 이 필드는 부동 IP가 직접 서버 반환에 대해 설정된 경우 사용하지 않습니다. | 58888 |
+   | **프로브** |프로브에 대해 지정한 이름 | WSFCEndPointProbe |
    | **세션 지속성** | 드롭다운 목록 | **없음** |
    | **유휴 시간 제한** | TCP 연결을 열린 상태로 유지하는 시간(분) | 4 |
    | **부동 IP(Direct Server Return)** | |사용 |
@@ -446,7 +490,7 @@ SQL Server Management Studio에서 수신기 포트를 설정합니다.
 
 1. 이제 장애 조치(Failover) 클러스터 관리자에서 만든 수신기 이름이 표시됩니다. 수신기 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
-1. **포트** 상자에서 이전에 사용한 $EndpointPort(1433이 기본값임)를 사용하여 가용성 그룹 수신기에 대한 포트 번호를 지정한 다음 **확인**을 클릭합니다.
+1. **포트** 상자에 가용성 그룹 수신기의 포트 번호를 지정합니다. 1433이 기본값이며 **확인**을 클릭합니다.
 
 이제 Resource Manager 모드에서 실행 중인 Azure Virtual Machines의 SQL Server 가용성 그룹이 만들어졌습니다.
 
@@ -458,38 +502,20 @@ SQL Server Management Studio에서 수신기 포트를 설정합니다.
 
 1. **sqlcmd** 유틸리티를 사용하여 연결을 테스트합니다. 예를 들어 다음 스크립트는 Windows 인증을 사용하는 수신기를 통해 주 복제본에 대한 **sqlcmd** 연결을 설정합니다.
 
-    ```
-    sqlcmd -S <listenerName> -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName> -E
+  ```
 
-    수신기가 기본 포트(1433) 이외의 포트를 사용하는 경우 연결 문자열에서 포트를 지정합니다. 예를 들어 다음 sqlcmd 명령은 포트 1435에서 수신기에 연결합니다.
+  수신기가 기본 포트(1433) 이외의 포트를 사용하는 경우 연결 문자열에서 포트를 지정합니다. 예를 들어 다음 sqlcmd 명령은 포트 1435에서 수신기에 연결합니다.
 
-    ```
-    sqlcmd -S <listenerName>,1435 -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName>,1435 -E
+  ```
 
 SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자동으로 연결합니다.
 
 > [!TIP]
-> 지정한 포트가 두 SQL Server의 방화벽에서 열려 있는지 확인합니다. 두 서버 모두 사용하는 TCP 포트에 대한 인바운드 규칙이 필요합니다. 자세한 내용은 [방화벽 규칙 추가 또는 편집](http://technet.microsoft.com/library/cc753558.aspx)을 참조하세요.
->
->
-
-
-
-<!--**Notes**: *Notes provide just-in-time info: A Note is “by the way” info, an Important is info users need to complete a task, Tip is for shortcuts. Don’t overdo*.-->
-
-
-<!--**Procedures**: *This is the second “step." They often include substeps. Again, use a short title that tells users what they’ll do*. *("Configure a new web project.")*-->
-
-<!--**UI**: *Note the format for documenting the UI: bold for UI elements and arrow keys for sequence. (Ex. Click **File > New > Project**.)*-->
-
-<!--**Screenshot**: *Screenshots really help users. But don’t include too many since they’re difficult to maintain. Highlight areas you are referring to in red.*-->
-
-<!--**No. of steps**: *Make sure the number of steps within a procedure is 10 or fewer. Seven steps is ideal. Break up long procedure logically.*-->
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
+> 지정한 포트가 두 SQL Server의 방화벽에서 열려 있는지 확인합니다. 두 서버 모두 사용하는 TCP 포트에 대한 인바운드 규칙이 필요합니다. 자세한 내용은 [방화벽 규칙 추가 또는 편집](https://technet.microsoft.com/library/cc753558.aspx)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: sergkanz; mbullwin
-ms.openlocfilehash: f6654dc869b6c1a3f91ee8dee44dcdbf4bdfc5fd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: b6cfae20f09b19a57cf411777e78abb1dbbf0484
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094115"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>원격 분석 컨텍스트: Application Insights 데이터 모델
 
@@ -32,14 +34,14 @@ ms.lasthandoff: 05/08/2018
 
 ## <a name="client-ip-address"></a>클라이언트 IP 주소
 
-클라이언트 장치의 IP 주소입니다. IPv4 및 IPv6이 지원됩니다. 원격 분석이 서비스에서 전송되는 경우 위치 컨텍스트는 서비스에서 작업을 시작한 사용자와 관련이 있습니다. Application Insights는 클라이언트 IP에서 지리적 위치 정보를 추출한 다음 자릅니다. 따라서 클라이언트 IP 자체는 최종 사용자가 식별할 수 있는 정보로 사용될 수 없습니다. 
+클라이언트 디바이스의 IP 주소입니다. IPv4 및 IPv6이 지원됩니다. 원격 분석이 서비스에서 전송되는 경우 위치 컨텍스트는 서비스에서 작업을 시작한 사용자와 관련이 있습니다. Application Insights는 클라이언트 IP에서 지리적 위치 정보를 추출한 다음 자릅니다. 따라서 클라이언트 IP 자체는 최종 사용자가 식별할 수 있는 정보로 사용될 수 없습니다. 
 
 최대 길이: 46
 
 
-## <a name="device-type"></a>장치 유형
+## <a name="device-type"></a>디바이스 유형
 
-원래 이 필드는 응용 프로그램의 최종 사용자가 사용하는 장치의 유형을 나타내는 데 사용되었습니다. 현재는 장치 유형이 'Browser'인 JavaScript 원격 분석을 장치 유형이 'PC'인 서버 쪽 원격 분석과 구별하는 데 주로 사용됩니다.
+원래 이 필드는 응용 프로그램의 최종 사용자가 사용하는 디바이스의 유형을 나타내는 데 사용되었습니다. 현재는 디바이스 유형이 'Browser'인 JavaScript 원격 분석을 디바이스 유형이 'PC'인 서버 쪽 원격 분석과 구별하는 데 주로 사용됩니다.
 
 최대 길이: 64
 

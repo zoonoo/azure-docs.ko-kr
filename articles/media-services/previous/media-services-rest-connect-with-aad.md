@@ -3,28 +3,28 @@ title: Azure AD 인증을 사용하여 REST로 Azure Media Services API 액세�
 description: REST를 사용하여 Azure Active Directory 인증으로 Azure Media Services API를 액세스하는 방법을 알아봅니다.
 services: media-services
 documentationcenter: ''
-author: willzhan
-manager: cfowler
+author: juliako
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2017
+ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785992"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945080"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Azure Media Services API 액세스
 
 Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가지 방법 중 하나로 인증할 수 있습니다.
 
-- **사용자 인증**은 Azure Media Services 리소스와 상호 작용하는 데 앱을 사용하는 사용자를 인증합니다. 대화형 응용 프로그램은 먼저 사용자에게 자격 증명을 묻는 메시지를 표시합니다. 예제는 권한 있는 사용자가 인코딩 작업 또는 라이브 스트리밍을 모니터링하기 위해 사용한 관리 콘솔 앱입니다. 
+- **사용자 인증**은 Azure Media Services 리소스와 상호 작용하는 데 앱을 사용하는 사용자를 인증합니다. 대화형 애플리케이션은 먼저 사용자에게 자격 증명을 묻는 메시지를 표시합니다. 예제는 권한 있는 사용자가 인코딩 작업 또는 라이브 스트리밍을 모니터링하기 위해 사용한 관리 콘솔 앱입니다. 
 - **서비스 주체 인증**은 서비스를 인증합니다. 이 인증 방법을 일반적으로 사용하는 응용 프로그램은 디먼 서비스, 중간 계층 서비스 또는 예약된 작업(예: 웹앱, 함수 앱, 논리 앱, API 또는 마이크로 서비스)을 실행하는 앱입니다.
 
     이 자습서에서는 Azure AD **서비스 주체** 인증을 사용하여 REST를 통해 AMS API에 액세스하는 방법을 설명합니다. 
@@ -45,9 +45,9 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - [Azure Portal을 사용하여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
-- [AAD 인증을 사용하여 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 문서를 검토합니다.
+- [Azure AD 인증을 사용하여 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 문서를 검토합니다.
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 이 문서에 나와 있는 REST API를 실행합니다. 
 
     이 자습서에서는 **Postman**을 사용하지만 어떤 REST 도구든 사용할 수 있습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
@@ -60,23 +60,23 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 |설정|예|설명|
 |---|-------|-----|
-|Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 끝점처럼 Azure AD는 https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
-|REST API 끝점|https://amshelloworld.restv2.westus.media.azure.net/api/|응용 프로그램에서 모든 Media Services REST API 호출이 수행되는 끝점입니다.|
-|클라이언트 ID(응용 프로그램 ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 응용 프로그램(클라이언트) ID입니다. 액세스 토큰을 가져오려면 클라이언트 ID가 필요합니다. |
-|클라이언트 암호|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 응용 프로그램 키(클라이언트 암호)입니다. 액세스 토큰을 가져오려면 클라이언트 암호가 필요합니다.|
+|Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 엔드포인트처럼 Azure AD는 https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
+|REST API 엔드포인트|https://amshelloworld.restv2.westus.media.azure.net/api/|애플리케이션에서 모든 Media Services REST API 호출이 수행되는 엔드포인트입니다.|
+|클라이언트 ID(애플리케이션 ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 애플리케이션(클라이언트) ID입니다. 액세스 토큰을 가져오려면 클라이언트 ID가 필요합니다. |
+|클라이언트 암호|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 애플리케이션 키(클라이언트 암호)입니다. 액세스 토큰을 가져오려면 클라이언트 암호가 필요합니다.|
 
 ### <a name="get-aad-auth-info-from-the-azure-portal"></a>Azure Portal에서 AAD 인증 정보 가져오기
 
 정보를 가져오려면 다음 단계를 수행합니다.
 
-1. [Azure 포털](http://portal.azure.com) 에 로그인합니다.
+1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
 2. AMS 인스턴스로 이동합니다.
 3. **API 액세스**를 선택합니다.
 4. **서비스 주체를 사용하여 Azure Media Services API에 연결**을 클릭합니다.
 
     ![API 액세스](./media/connect-with-rest/connect-with-rest01.png)
 
-5. 기존 **Azure AD 응용 프로그램**을 선택하거나 아래와 같이 새 응용 프로그램을 만듭니다.
+5. 기존 **Azure AD 애플리케이션**을 선택하거나 아래와 같이 새 애플리케이션을 만듭니다.
 
     > [!NOTE]
     > Azure Media REST 요청이 성공하려면, 호출하는 사용자가 액세스하려는 Media Services 계정에 대한 **참가자** 또는 **소유자** 역할을 가지고 있어야 합니다. "원격 서버에서 (401) 권한 없음 오류를 반환했습니다."라는 예외가 표시되면 [액세스 제어](media-services-use-aad-auth-to-access-ams-api.md#access-control)를 참조하세요.
@@ -94,12 +94,12 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 6. **클라이언트 ID**(응용 프로그램 ID)를 가져옵니다.
     
-    1. 응용 프로그램을 선택합니다.
+    1. 애플리케이션을 선택합니다.
     2. 오른쪽 창에서 **클라이언트 ID**를 가져옵니다. 
 
-    ![API 액세스](./media/connect-with-rest/existing-client-id.png)에서도 확인할 수 있습니다.
+    ![API 액세스](./media/connect-with-rest/existing-client-id.png)
 
-7.  응용 프로그램의 **키**(클라이언트 암호) 가져오기 
+7.  애플리케이션의 **키**(클라이언트 암호) 가져오기 
 
     1. **응용 프로그램 관리** 단추를 클릭합니다. 클라이언트 ID 정보는 **응용 프로그램 ID** 아래에 있습니다. 
     2. **키**를 누릅니다.
@@ -144,8 +144,8 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
     Postman 창 오른쪽의 **Bulk Edit**를 클릭하고 다음 본문을 붙여 넣어도 됩니다. 클라이언트 ID와 암호 값은 적절한 값으로 바꿉니다.
 
         grant_type:client_credentials
-        client_id:{Your Client ID that you got from your AAD Application}
-        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        client_id:{Your Client ID that you got from your Azure AD Application}
+        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
         resource:https://rest.media.azure.net
 
 8. **보내기**를 누릅니다.
@@ -160,7 +160,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 1. **Postman**을 엽니다.
 2. **GET**을 선택합니다.
-3. REST API 끝점 붙여넣기(예: https://amshelloworld.restv2.westus.media.azure.net/api/Assets))
+3. REST API 엔드포인트 붙여넣기(예: https://amshelloworld.restv2.westus.media.azure.net/api/Assets))
 4. **Authorization** 탭을 선택합니다. 
 5. **Bearer Token**을 선택합니다.
 6. 이전 섹션에서 만든 토큰을 붙여 넣습니다.

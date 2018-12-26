@@ -2,43 +2,47 @@
 title: Azure SQL Database vCore 기반 리소스 제한 - 탄력적 풀 | Microsoft Docs
 description: 이 페이지에서는 Azure SQL Database의 탄력적 풀에 대한 몇 가지 일반적인 vCore 기반 리소스 제한을 설명합니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
-ms.author: carlrab
-ms.openlocfilehash: 01f213c7cf5f6be3ef84601a50bb4455422faf22
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+author: oslake
+ms.author: moslake
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 10/15/2018
+ms.openlocfilehash: 6673fa9d377400d7e80fc95dc7d0ce12f4b2e60e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311187"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354175"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools-preview"></a>탄력적 풀에 대한 Azure SQL Database vCore 기반 구매 모델 제한(미리 보기)
+# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>탄력적 풀에 대한 Azure SQL Database vCore 기반 구매 모델 제한
 
 이 아티클에서는 vCore 기반 구매 모델을 사용하여 풀링된 데이터베이스 및 Azure SQL Database 탄력적 풀에 대한 리소스 제한을 자세히 제공합니다.
 
 DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제한 - 탄력적 풀](sql-database-dtu-resource-limits-elastic-pools.md)을 참조하세요.
 
+> [!IMPORTANT]
+> 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>탄력적 풀: 저장소 크기 및 성능 수준
-
-다음 표에서는 SQL Database 탄력적 풀에 대해 각 서비스 계층과 성능 수준에서 사용할 수 있는 리소스를 나타냅니다. [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 또는 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)를 사용하여 서비스 계층, 성능 수준 및 저장소 용량을 설정할 수 있습니다.
+[Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 또는 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)를 사용하여 서비스 계층, 계산 크기 및 저장소 용량을 설정할 수 있습니다.
 
 > [!NOTE]
-> 탄력적 풀의 개별 데이터베이스에 대한 리소스 제한은 일반적으로 성능 수준이 동일한 풀 외부의 단일 데이터베이스에 대한 리소스 제한과 동일합니다. 예를 들어 GP_Gen4_1 데이터베이스에 대한 최대 동시 작업자 수는 200명입니다. 따라서 GP_Gen4_1 풀의 데이터베이스에 대한 최대 동시 작업자 수도 200명입니다. GP_Gen4_1 풀에 대한 총 동시 작업자 수는 210명입니다.
+> 탄력적 풀의 개별 데이터베이스에 대한 리소스 제한은 일반적으로 계산 크기가 동일한 풀 외부의 단일 데이터베이스에 대한 리소스 제한과 동일합니다. 예를 들어 GP_Gen4_1 데이터베이스에 대한 최대 동시 작업자 수는 200명입니다. 따라서 GP_Gen4_1 풀의 데이터베이스에 대한 최대 동시 작업자 수도 200명입니다. GP_Gen4_1 풀에 대한 총 동시 작업자 수는 210명입니다.
 
-### <a name="general-purpose-service-tier"></a>범용 서비스 계층
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>범용 서비스 계층: 저장소 크기 및 크기 계산
 
-#### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
-|성능 수준|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
+### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
+
+|계산 크기|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
 |vCore 수|1|2|4|8|16|24|
 |메모리(GB)|7|14|28|56|112|168|
-|Columnstore 지원 여부|예|예|예|예|예|예|
+|Columnstore 지원 여부|yes|예|예|예|예|yes|
 |메모리 내 OLTP 저장소(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |저장소 유형|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|
 |최대 데이터 크기(GB)|512|756|1536|2048|3584|4096|
@@ -48,21 +52,22 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 동시 작업자(요청)|210|420|840|1,680|3,360|5040|
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|
-|최대 풀 밀도|100|200|500|500|500|500|
-|최소/최대 탄력적 풀 클릭 중지 수|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|풀당 최대 DB|100|200|500|500|500|500|
+|데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |복제본 수|1|1|1|1|1|1|
 |다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 |||
 
-#### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
-|성능 수준|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
+
+|계산 크기|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|5|
 |vCore 수|2|4|8|16|24|32|40|80|
 |메모리(GB)|11|22|44|88|132|176|220|440|
-|Columnstore 지원 여부|예|예|예|예|예|예|예|예|
+|Columnstore 지원 여부|yes|예|예|예|예|예|예|yes|
 |메모리 내 OLTP 저장소(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |저장소 유형|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|
 |최대 데이터 크기(GB)|512|756|1536|2048|3072|4096|4096|4096|
@@ -72,23 +77,24 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 동시 작업자(요청)|210|420|840|1,680|2520|3,360|4200|8400
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|30000|30000|
-|최대 풀 밀도|100|200|500|500|500|500|500|500|
-|최소/최대 탄력적 풀 클릭 중지 수|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|풀당 최대 DB|100|200|500|500|500|500|500|500|
+|데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |복제본 수|1|1|1|1|1|1|1|1|
 |다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 |||
 
-### <a name="business-critical-service-tier"></a>중요 비즈니스 서비스 계층
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>중요 비즈니스용 서비스 계층: 저장소 크기 및 크기 계산
 
-#### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
-|성능 수준|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
+
+|계산 크기|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
 |vCore 수|1|2|4|8|16|24|
 |메모리(GB)|7|14|28|56|112|168|
-|Columnstore 지원 여부|예|예|예|예|예|예|
+|Columnstore 지원 여부|yes|예|예|예|예|yes|
 |메모리 내 OLTP 저장소(GB)|1|2|4|8|20|36|
 |저장소 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |최대 데이터 크기(GB)|1024|1024|1024|1024|1024|1024|
@@ -98,21 +104,22 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |IO 대기 시간(근사치)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|
 |최대 동시 작업자(요청)|210|420|840|1,680|3,360|5040|
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|
-|최대 풀 밀도|해당 없음|50|100|100|100|100|
-|최소/최대 탄력적 풀 클릭 중지 수|해당 없음|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|풀당 최대 DB|이 계산 크기에는 단일 DB만 지원됩니다.|50|100|100|100|100|
+|데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|해당 없음|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |복제본 수|3|3|3|3|3|3|
 |다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
-|읽기 확장|예|예|예|예|예|예|
+|읽기 확장|yes|예|예|예|예|yes|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 |||
 
 #### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
-|성능 수준|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+
+|계산 크기|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|5|
 |vCore 수|2|4|8|16|24|32|40|80|
 |메모리(GB)|11|22|44|88|132|176|220|440|
-|Columnstore 지원 여부|예|예|예|예|예|예|예|예|
+|Columnstore 지원 여부|yes|예|예|예|예|예|예|yes|
 |메모리 내 OLTP 저장소(GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |저장소 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |IO 대기 시간(근사치)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|
@@ -122,17 +129,17 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |대상 IOPS(64KB)|5,000|10000|20000|40,000|60000|80,000|100000|200000
 |최대 동시 작업자(요청)|210|420|840|1,680|2520|3,360|5040|8400|
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|30000|30000|
-|최대 풀 밀도|해당 없음|50|100|100|100|100|100|100|
-|최소/최대 탄력적 풀 클릭 중지 수|해당 없음|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|풀당 최대 DB|해당 없음|50|100|100|100|100|100|100|
+|데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|해당 없음|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |복제본 수|3|3|3|3|3|3|3|3|
 |다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
-|읽기 확장|예|예|예|예|예|예|예|예|
+|읽기 확장|yes|예|예|예|예|예|예|yes|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 |||
 
 탄력적 풀의 모든 vCore가 사용 중인 경우 풀의 각 데이터베이스는 동일한 양의 계산 리소스를 받아서 쿼리를 처리합니다. SQL Database 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 데이터베이스당 최소 vCore 수가 0이 아닌 값으로 설정되면, 탄력적 풀 리소스 공유 공정성이 각 데이터베이스에 대해 보장된 리소스의 양에 추가됩니다.
 
-### <a name="database-properties-for-pooled-databases"></a>풀링된 데이터베이스에 대한 데이터베이스 속성
+## <a name="database-properties-for-pooled-databases"></a>풀링된 데이터베이스에 대한 데이터베이스 속성
 
 다음 표에서 풀링된 데이터베이스에 대한 속성을 설명합니다.
 
@@ -142,8 +149,9 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 | 데이터베이스당 최소 vCore 수 |풀의 데이터베이스가 보장되는 최소 vCore 수입니다. 풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. 데이터베이스당 최소 vCore 수를 0으로 설정할 수 있으며 기본값이기도 합니다. 이 속성은 0과 데이터베이스당 평균 vCore 사용량 사이의 값으로 설정됩니다. 풀의 데이터베이스 수와 데이터베이스당 최소 vCore 수를 곱한 값은 풀당 vCore 수를 초과할 수 없습니다.|
 | 데이터베이스당 최대 저장소 |사용자가 풀의 데이터베이스에 대해 설정한 최대 데이터베이스 크기입니다. 풀된 데이터베이스는 할당된 풀 저장소를 공유하므로 데이터베이스에 도달할 수 있는 크기는 남아있는 풀 저장소 및 데이터베이스 크기 중 작은 값으로 제한됩니다. 최대 데이터베이스 크기는 데이터 파일의 최대 크기를 나타내고, 로그 파일에서 사용하는 공간을 포함하지 않습니다. |
 |||
- 
+
 ## <a name="next-steps"></a>다음 단계
 
 - 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
+- 서버 및 구독 수준의 한도에 관한 정보는 [논리 서버에 대한 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.

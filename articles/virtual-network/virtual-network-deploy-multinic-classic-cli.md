@@ -1,6 +1,6 @@
 ---
-title: 다중 NIC가 있는 VM(클래식) 만들기 - Azure CLI 1.0 | Microsoft Docs
-description: Azure CLI(명령줄 인터페이스) 1.0을 사용하여 다중 NIC가 있는 VM(클래식)을 만드는 방법에 대해 알아봅니다.
+title: 다중 NIC이 있는 VM(클래식) 만들기 - Azure 클래식 CLI | Microsoft Docs
+description: Azure 클래식 CLI(명령줄 인터페이스)를 사용하여 다중 NIC가 있는 VM(클래식)을 만드는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b56ab474ff23748487c50bd34487c80242c6429
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4ea53048819bfdad5c45e522115aa6e493dfc8bc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651989"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953373"
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 다중 NIC가 있는 VM(클래식) 만들기
+# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 다중 NIC가 있는 VM(클래식) 만들기
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 

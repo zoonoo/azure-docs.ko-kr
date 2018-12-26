@@ -4,7 +4,7 @@ description: Media Services REST API 개요
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 10/29/2018
 ms.author: juliako;johndeu
-ms.openlocfilehash: af83e876802b176d4e097535d45df91e8a986dfb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 38310ce64335e03c6728092bf1b8ce4752740a83
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785982"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233466"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services Operations REST API 개요
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -104,7 +104,7 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 | HEAD |GET 응답에 대한 개체의 메타데이터를 반환합니다. |
 
 ## <a name="discover-and-browse-the-media-services-entity-model"></a>Media Services 엔터티 모델 검색 및 찾아보기
-Media Services 엔터티를 더 쉽게 검색할 수 있게 되면 $metadata 작업을 사용할 수 있습니다. 유효한 모든 엔터티 형식, 엔터티 속성, 연결, 함수, 동작 등을 검색할 수 있습니다. Media Services REST API 끝점의 끝에 $metadata 작업을 추가하여 이 검색 서비스에 액세스할 수 있습니다.
+Media Services 엔터티를 더 쉽게 검색할 수 있게 되면 $metadata 작업을 사용할 수 있습니다. 유효한 모든 엔터티 형식, 엔터티 속성, 연결, 함수, 동작 등을 검색할 수 있습니다. Media Services REST API 엔드포인트의 끝에 $metadata 작업을 추가하여 이 검색 서비스에 액세스할 수 있습니다.
 
  /api/$metadata.
 

@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator - API 콘솔의 콘텐츠 조정 워크플로 | Microsoft Docs
+title: API 콘솔의 콘텐츠 조정 워크플로 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: API 콘솔에서 콘텐츠 조정 워크플로를 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: sajagtap
-ms.openlocfilehash: 700b2bea5e902141659266a94d61ceb810c1b802
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4ef8951b30fa7aede08a1af3c834192b5ed18649
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373262"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223853"
 ---
 # <a name="workflows-from-the-api-console"></a>API 콘솔의 워크플로
 

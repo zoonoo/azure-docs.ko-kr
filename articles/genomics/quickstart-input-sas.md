@@ -1,24 +1,22 @@
 ---
-title: 저장소 계정 키 대신 SAS를 사용하여 워크플로 제출 | Microsoft Docs
+title: 저장소 계정 키가 아닌 SAS를 사용하여 워크플로 제출 - Microsoft Genomics
 titleSuffix: Azure
 description: 빠른 시작은 msgen 클라이언트가 설치되어 있고 서비스를 통해 샘플 데이터를 성공적으로 실행했다고 가정합니다.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: 802e300ac453baa4ea9bd9183223315abced2ea1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a22e4bb0949544e18237e789ca807e57ed59abf
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177217"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733500"
 ---
-# <a name="submit-a-workflow-using-a-sas-instead-of-a-storage-account-key"></a>저장소 계정 키 대신 SAS를 사용하여 워크플로 제출
+# <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>저장소 계정 키 대신 SAS를 사용하여 Microsoft Genomics에 워크플로 제출 
 
 이 빠른 시작은 저장소 계정 키 대신 [SAS(공유 액세스 서명)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)를 포함하는 config.txt 파일을 사용하여 Microsoft Genomics 서비스에 워크플로를 제출하는 방법을 보여 줍니다. 이 기능은 config.txt 파일에 표시되는 저장소 계정 키를 포함하는 것에 대한 보안 문제가 있는 경우에 유용할 수 있습니다. 이 문서에서는 `msgen` 클라이언트를 이미 설치하여 실행하고 있으며 Azure Storage를 사용하는 방법을 잘 알고 있다고 가정합니다. 제공된 샘플 데이터를 사용하여 워크플로를 성공적으로 제출한 경우 이 빠른 시작을 진행할 준비가 된 것입니다. 
 

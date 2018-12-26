@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 24b0c6873721ef196b1c0dc6d6a357f87a4a5e39
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 62077f45d96e96a7fef35cf025740849d2b99445
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29846369"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42141745"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>네트워크 가상 어플라이언스를 통한 트래픽 라우팅
 
@@ -58,8 +58,8 @@ az group delete --name MyResourceGroup --yes
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | NSG(네트워크 보안 그룹)을 만듭니다. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | VM에 대한 인바운드 HTTP 및 HTTPS 포트를 허용하는 NSG 규칙을 만듭니다. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| NSG 및 경로 테이블을 서브넷에 연결합니다. |
-| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| 모든 경로에 대한 경로 테이블을 만듭니다. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| VM을 통해 서브넷과 인터넷 간 트래픽을 라우팅하는 경로를 만듭니다. |
+| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| 모든 경로에 대한 경로 테이블을 만듭니다. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| VM을 통해 서브넷과 인터넷 간 트래픽을 라우팅하는 경로를 만듭니다. |
 | [az vm create](/cli/azure/vm#az_vm_create) | 가상 머신을 만들고 NIC를 이 가상 머신에 연결합니다. 또한 이 명령은 사용할 가상 머신 이미지와 관리 자격 증명을 지정합니다. |
 | [az group delete](/cli/azure/group#az_group_delete) | 리소스 그룹 및 이 그룹에 속한 모든 리소스를 삭제합니다. |
 

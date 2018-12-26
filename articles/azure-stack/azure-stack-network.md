@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003616"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340191"
 ---
 # <a name="network-connectivity"></a>네트워크 연결
 이 문서에서는 Azure Stack 기존 네트워킹 환경에 통합 하는 방법을 결정 하는 데 Azure Stack 네트워크 인프라 정보를 제공 합니다. 
@@ -41,11 +41,11 @@ Azure Stack 솔루션에는 작업 및 서비스를 지원 하기 위해 복원 
 
 | 논리적 네트워크 | 설명 | 크기 | 
 | -------- | ------------- | ------------ | 
-| 공용 VIP | Azure Stack이이 네트워크에서 주소 32 개의 합계를 사용합니다. 소수의 Azure Stack 서비스에 대 한 8 공용 IP 주소는 사용 하 고 나머지 테 넌 트 가상 컴퓨터에서 사용 됩니다. App Service 및 SQL 리소스 공급자를 사용 하려는 경우에 7 더 많은 주소가 사용 됩니다. | / 26 (62 호스트)-롤아웃의 경우/22 (1022 호스트)<br><br>권장 되 는/24 (254 명의 호스트) = | 
+| 공용 VIP | Azure Stack이이 네트워크에서 31 주소의 합계를 사용합니다. 소수의 Azure Stack 서비스에 대 한 8 공용 IP 주소는 사용 하 고 나머지 테 넌 트 가상 컴퓨터에서 사용 됩니다. App Service 및 SQL 리소스 공급자를 사용 하려는 경우에 7 더 많은 주소가 사용 됩니다. 나머지 15 Ip는 향후 Azure 서비스에 대 한 예약 되어 있습니다. | / 26 (62 호스트)-롤아웃의 경우/22 (1022 호스트)<br><br>권장 되 는/24 (254 명의 호스트) = | 
 | 스위치 인프라 | 지점 간 라우팅 목적으로 전용된 IP 주소 관리 인터페이스 및 스위치에 할당 된 루프백 주소를 전환 합니다. | /26 | 
 | 인프라 | Azure Stack 내부 구성 요소에 대 한 통신 하는 데 사용 합니다. | /24 |
 | 개인 | 저장소 네트워크 및 개인 Vip에 사용 합니다. | /24 | 
-| BMC | 실제 호스트의 Bmc와 통신 하는 데 사용 합니다. | /27 | 
+| BMC | 실제 호스트의 Bmc와 통신 하는 데 사용 합니다. | /26 | 
 | | | |
 
 ## <a name="network-infrastructure"></a>네트워크 인프라
@@ -85,7 +85,7 @@ Azure Stack 서비스 사용할 수 있도록 사용자에 게 외부 Azure Stac
 ### <a name="ports-and-urls"></a>포트 및 Url
 Azure Stack 서비스 (같은 포털, Azure Resource Manager, DNS 등) 외부 네트워크에 사용할 수 있는 허용 하도록 설정 해야 이러한 끝점에 트래픽을 특정 Url, 포트 및 프로토콜입니다.
  
-배포의 경우 기존 프록시 서버에 투명 프록시 업링크를 허용 해야 합니다 특정 포트 및 Url 모두에 대 한 [인바운드](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) 하 고 [아웃 바운드](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) 통신 합니다. 이러한 포트 및 Url id, marketplace 배포, 패치 및 업데이트, 등록 및 사용 현황 데이터에 대 한 포함 합니다.
+배포의 경우 기존 프록시 서버에 투명 프록시 업링크를 허용 해야 합니다 특정 포트 및 Url 모두에 대 한 [인바운드](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) 하 고 [아웃 바운드](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) 통신 합니다. 이러한 포트 및 Url id, marketplace, 패치 및 업데이트, 등록 및 사용 현황 데이터에 대 한 포함 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [테두리 연결](azure-stack-border-connectivity.md)

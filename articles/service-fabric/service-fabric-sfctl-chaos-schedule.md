@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 0d09338f71d71d07ab0e037d4736cfaa1f3cff85
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763950"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492243"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 chaos schedule을 가져오고 설정합니다.
@@ -35,6 +35,12 @@ chaos schedule을 가져오고 설정합니다.
 Chaos를 실행하는 시기 및 방법을 정의하는 Chaos Schedule을 가져옵니다.
 
 사용 중인 Chaos Schedule과 Chaos를 실행하는 시기 및 방법을 정의하는 Chaos Schedule의 버전을 가져옵니다.
+
+### <a name="arguments"></a>인수
+
+|인수|설명|
+| --- | --- |
+| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -59,6 +65,7 @@ Chaos에서 현재 사용 중인 Chaos Schedule을 설정합니다. Chaos는 Cha
 | --expiry-date-utc | Chaos를 예약하는 데 Schedule을 사용하여 중지할 시기에 대한 날짜 및 시간입니다.  기본값\: 9999-12-31T23\:59\:59.999Z. |
 | --jobs | Chaos를 실행할 시기 및 Chaos와 함께 실행할 매개 변수를 나타내는 ChaosScheduleJobs의 JSON 인코딩된 목록입니다. |
 | --start-date-utc | Chaos를 예약하는 데 Schedule을 사용하여 시작할 시기에 대한 날짜 및 시간입니다.  기본값\: 1601-01-01T00\:00\:00.000Z. |
+| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 | --version | Schedule의 버전 번호입니다. |
 
 ### <a name="global-arguments"></a>전역 인수

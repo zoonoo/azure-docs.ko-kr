@@ -1,10 +1,11 @@
 ---
-title: Machine Learning 웹 서비스에 대한 로깅 | Microsoft Docs
+title: Machine Learning Studio 웹 서비스에 대한 로깅 | Microsoft Docs
 description: Machine Learning 웹 서비스에 대해 로깅을 사용하도록 설정하는 방법을 알아봅니다. 로깅은 API 문제를 해결하는 데 도움이 되는 추가 정보를 제공합니다.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
@@ -15,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 4e1545c8fd05795c683b24c029376a3d1e6d85b8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5ac8712b1f5dbea4ed3225e87b1a6f51312c3529
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835834"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310415"
 ---
-# <a name="enable-logging-for-machine-learning-web-services"></a>Machine Learning 웹 서비스에 대해 로깅 사용
+# <a name="enable-logging-for-machine-learning-studio-web-services"></a>Machine Learning Studio 웹 서비스에 대해 로깅 사용
 이 문서에서는 Machine Learning 웹 서비스의 로깅 기능을 설명합니다. 로깅은 오류 번호 및 메시지 외에 Machine Learning API 호출 문제를 해결하는 데 유용한 추가 정보를 제공합니다.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>웹 서비스에서 로깅을 사용하도록 설정하는 방법
@@ -37,7 +38,7 @@ ms.locfileid: "34835834"
 
    ![새로운 또는 클래식 웹 서비스 선택](./media/web-services-logging/select-web-service.png)
 
-3. 새 웹 서비스의 경우 웹 서비스 이름을 클릭합니다. 클래식 웹 서비스의 경우 웹 서비스 이름을 클릭하고, 다음 페이지에서 적절한 끝점을 클릭합니다.
+3. 새 웹 서비스의 경우 웹 서비스 이름을 클릭합니다. 클래식 웹 서비스의 경우 웹 서비스 이름을 클릭하고, 다음 페이지에서 적절한 엔드포인트를 클릭합니다.
 
 4. 최상위 메뉴 모음에서 **구성**을 클릭합니다.
 
@@ -65,7 +66,7 @@ ms.locfileid: "34835834"
 
 
 ## <a name="the-effects-of-enabling-logging"></a>로깅 활성화의 효과
-로깅을 사용하도록 설정하면 웹 서비스 끝점의 진단 및 오류가 사용자 작업 영역과 연결된 Azure Storage 계정의 **ml-diagnostics** blob 컨테이너에 로깅됩니다. 이 컨테이너는 이 저장소 계정과 연결된 모든 작업 영역의 모든 웹 서비스 끝점에 대한 모든 진단 정보를 포함합니다.
+로깅을 사용하도록 설정하면 웹 서비스 엔드포인트의 진단 및 오류가 사용자 작업 영역과 연결된 Azure Storage 계정의 **ml-diagnostics** blob 컨테이너에 로깅됩니다. 이 컨테이너는 이 저장소 계정과 연결된 모든 작업 영역의 모든 웹 서비스 엔드포인트에 대한 모든 진단 정보를 포함합니다.
 
 Azure Storage 계정을 탐색하는 데 사용할 수 있는 여러 도구 중 하나를 통해 로그를 볼 수 있습니다. 가장 쉬운 방법은 Azure Portal에서 저장소 계정으로 이동한 다음, **컨테이너**를 클릭하고 컨테이너 **ml-diagnostics**를 클릭하는 것입니다.  
 

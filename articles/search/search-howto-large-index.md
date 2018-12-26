@@ -8,14 +8,14 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: cb99096c1217fca1527b17946dc12390ddf3f62c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0b346756349c483dea32ec31827a653bd9b777cf
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660201"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705942"
 ---
-# <a name="how-to-scale-out-indexing-in-azure-seearch"></a>Azure Search에서 인덱싱을 스케일 아웃하는 방법
+# <a name="how-to-scale-out-indexing-in-azure-search"></a>Azure Search에서 인덱싱을 스케일 아웃하는 방법
 
 데이터 볼륨이 커지거나 처리 요구 사항이 변경되면 간단한 [다시 빌드 및 다시 인덱싱 작업](search-howto-reindex.md)만으로는 충분하지 않을 수 있습니다. 
 
@@ -29,7 +29,7 @@ ms.locfileid: "34660201"
 
 기본적으로 예약된 인덱싱은 특정 간격으로 시작되며, 대개 다음으로 예약된 간격에서 다시 시작되기 전에 작업이 완료됩니다. 하지만 간격 내에 처리가 완료되지 않으면 인덱서가 중지됩니다(시간이 초과되기 때문임). 다음 번 간격이 시작되면, 마지막으로 중단된 위치에서 처리가 다시 시작되며, 시스템은 해당 위치를 추적합니다. 
 
-실제 여러 날에 걸쳐 수행되는 인덱스 로드의 경우 24시간 일정으로 인덱서를 배치할 수 있습니다. 다음 번 24시간 범위에서 인덱싱이 재개되면 마지막으로 성공한 문서에서 다시 시작됩니다. 이러한 방식으로 인덱서는 처리되지 않은 모든 문서가 처리될 때까지 여러 날에 걸쳐 문서 백로그를 통해 작업을 수행할 수 있습니다. 이러한 방식에 대한 자세한 내용은 [큰 데이터 집합 인덱싱](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)을 참조하세요.
+실제 여러 날에 걸쳐 수행되는 인덱스 로드의 경우 24시간 일정으로 인덱서를 배치할 수 있습니다. 다음 번 24시간 범위에서 인덱싱이 재개되면 마지막으로 성공한 문서에서 다시 시작됩니다. 이러한 방식으로 인덱서는 처리되지 않은 모든 문서가 처리될 때까지 여러 날에 걸쳐 문서 백로그를 통해 작업을 수행할 수 있습니다. 이러한 방식에 대한 자세한 내용은 [큰 데이터 세트 인덱싱](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)을 참조하세요.
 
 <a name="parallel-indexing"></a>
 

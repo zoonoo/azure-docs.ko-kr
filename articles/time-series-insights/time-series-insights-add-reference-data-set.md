@@ -4,18 +4,18 @@ description: 이 문서에서는 Azure Time Series Insights 환경에서 참조 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: jasonh
-manager: kfile
+ms.author: anshan
+manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 962c3c8d439884cacf010b0bbcab03bd216dbd43
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 45520a556d109158987dd47e33a1efb52a1cd356
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294203"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364740"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 참조 데이터 집합 만들기
 
@@ -24,6 +24,12 @@ ms.locfileid: "36294203"
 참조 데이터 집합은 이벤트 원본의 이벤트로 확장된 항목의 컬렉션입니다. Time Series Insights 수신 엔진은 이벤트 원본의 각 이벤트와 참조 데이터 집합의 해당 데이터 행을 조인합니다. 이렇게 보강된 이벤트는 쿼리에 사용할 수 있습니다. 이 조인은 참조 데이터 집합에서 정의된 기본 키 열을 기준으로 합니다.
 
 참조 데이터는 소급되어 조인되지 않습니다. 즉, 참조 데이터 집합이 일단 구성되고 업로드되면, 현재 및 미래의 수신 데이터만 일치되고 참조 데이터 집합에 조인됩니다.
+
+## <a name="video"></a>비디오: 
+
+### <a name="in-this-video-we-cover-time-series-insights-reference-data-modelbr"></a>이 비디오에서는 Time Series Insight의 참조 데이터 모델을 설명합니다.</br>
+
+> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
 ## <a name="add-a-reference-data-set"></a>참조 데이터 집합 추가
 
@@ -87,7 +93,7 @@ ms.locfileid: "36294203"
 
    ![업로드](media/add-reference-data-set/upload_rows.png)
 
-   이 페이지에서는 완료된 업로드를 확인하고 **데이터 집합이 업로드됨** 메시지를 표시합니다.
+   이 페이지에서는 완료된 업로드를 확인하고 **데이터 세트가 업로드됨** 메시지를 표시합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 프로그래밍 방식으로 [참조 데이터를 관리](time-series-insights-manage-reference-data-csharp.md)합니다.

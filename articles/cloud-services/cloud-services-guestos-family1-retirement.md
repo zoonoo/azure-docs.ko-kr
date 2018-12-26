@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: 3178a09dab1cb972a3460d54dc9908fb95cce68b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d6429766b6aac547fd99279659acb1067298e77c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22998298"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244681"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>게스트 OS 제품군 1 사용 중지 확인
 OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습니다.
@@ -28,16 +28,16 @@ OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습�
 
 **2014년 11월 3일** 게스트 OS 제품군 1에 대한 연장 지원이 종료되어 완전히 사용 중지됩니다. 제품군 1의 모든 서비스에 적용됩니다. 언제든지 이러한 서비스를 중지할 수 있습니다. 수동으로 직접 업그레이드하지 않으면 서비스가 계속된다는 보장이 없습니다.
 
-추가 질문이 있으면 [Cloud Services 포럼](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc)을 방문하거나 [Azure 지원에 문의하세요](https://azure.microsoft.com/support/options/).
+추가 질문이 있으면 [Cloud Services 포럼](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc)을 방문하거나 [Azure 지원에 문의하세요](https://azure.microsoft.com/support/options/).
 
 ## <a name="are-you-affected"></a>영향을 받나요?
-다음 중 하나에 적용되는 경우 클라우드 서비스에 영향을 받습니다.
+다음 중 하나에 적용되는 경우 Cloud Services에 영향을 받습니다.
 
 1. 클라우드 서비스에 대한 ServiceConfiguration.cscfg 파일에 명시적으로 지정된 "osFamily ="1"의 값이 있습니다.
 2. 클라우드 서비스에 대한 ServiceConfiguration.cscfg 파일에 명시적으로 지정된 osFamily의 값이 없습니다. 현재, 이 경우 시스템은 "1"의 기본값을 사용합니다.
 3. Azure Portal은 게스트 운영 체제 제품군 값을 "Windows Server 2008"로 표시합니다.
 
-어떤 클라우드 서비스가 어떤 OS 제품군을 실행 중인지 알기 위해, Azure PowerShell에서 다음 스크립트를 실행할 수 있지만 먼저 [Azure PowerShell을 설정해야](/powershell/azureps-cmdlets-docs) 합니다. 스크립트에 대한 자세한 내용은 [Azure 게스트 OS 제품군 1 만료: 2014년 6월](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)을 참조하세요.
+어떤 클라우드 서비스가 어떤 OS 제품군을 실행 중인지 알기 위해, Azure PowerShell에서 다음 스크립트를 실행할 수 있지만 먼저 [Azure PowerShell을 설정해야](/powershell/azureps-cmdlets-docs) 합니다. 스크립트에 대한 자세한 내용은 [Azure 게스트 OS 제품군 1 만료: 2014년 6월](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)을 참조하세요.
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -56,17 +56,17 @@ foreach($subscription in Get-AzureSubscription) {
 
 **게스트 OS 제품군 4.x** -Windows Server 2012 R2 *(권장)*
 
-1. 응용 프로그램이.NET framework 4.0, 4.5 또는 4.5.1과 함께 SDK 2.1 이상을 사용 중이어야 합니다.
+1. 애플리케이션이.NET framework 4.0, 4.5 또는 4.5.1과 함께 SDK 2.1 이상을 사용 중이어야 합니다.
 2. ServiceConfiguration.cscfg 파일에서 osFamily 특성을 "4"으로 설정하고 클라우드 서비스를 다시 배포합니다.
 
 **게스트 OS 제품군 3.x** -Windows Server 2012
 
-1. 응용 프로그램이.NET framework 4.0 또는 4.5와 함께 SDK 1.8 이상을 사용 중이어야 합니다.
+1. 애플리케이션이.NET framework 4.0 또는 4.5와 함께 SDK 1.8 이상을 사용 중이어야 합니다.
 2. ServiceConfiguration.cscfg 파일에서 osFamily 특성을 "3"으로 설정하고 클라우드 서비스를 다시 배포합니다.
 
 **게스트 OS 제품군 2.x** -Windows Server 2008 R2
 
-1. 응용 프로그램이.NET framework 3.5 또는 4.0과 함께 SDK 1.3 이상을 사용 중이어야 합니다.
+1. 애플리케이션이.NET framework 3.5 또는 4.0과 함께 SDK 1.3 이상을 사용 중이어야 합니다.
 2. ServiceConfiguration.cscfg 파일에서 osFamily 특성을 "2"로 설정하고 클라우드 서비스를 다시 배포합니다.
 
 ## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>게스트 OS 제품군 1에 대한 연장된 지원이 2014년 11월 3일에 종료되었습니다.

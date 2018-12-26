@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 58474286352ff3f00b31e65a565c2b64a656a177
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 63407382762a814ded4529caa109d76e987c9505
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
-ms.locfileid: "29149637"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286447"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG 흐름 로그 읽기
 
 PowerShell을 사용하여 NSG 흐름 로그 항목을 읽는 방법을 설명합니다.
 
-NSG 흐름 로그는 저장소 계정의 [블록 Blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs)에 저장됩니다. 블록 Blob는 더 작은 여러 블록으로 구성되어 있습니다. 각 로그는 1시간마다 생성되는 개별 블록 Blob입니다. 1시간마다 새 로그가 생성되며 몇 분마다 로그가 새 항목으로 업데이트되어 최신 데이터가 포함됩니다. 이 문서에서는 흐름 로그의 각 부분을 읽는 방법에 대해 알아봅니다.
+NSG 흐름 로그는 저장소 계정의 [블록 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)에 저장됩니다. 블록 Blob는 더 작은 여러 블록으로 구성되어 있습니다. 각 로그는 1시간마다 생성되는 개별 블록 Blob입니다. 1시간마다 새 로그가 생성되며 몇 분마다 로그가 새 항목으로 업데이트되어 최신 데이터가 포함됩니다. 이 문서에서는 흐름 로그의 각 부분을 읽는 방법에 대해 알아봅니다.
 
 ## <a name="scenario"></a>시나리오
 
-다음 시나리오에서는 저장소 계정에 저장된 예제 흐름 로그를 사용합니다. NSG 흐름 로그에서 최신 이벤트를 선택적으로 읽을 수 있는 방법을 단계적으로 확인할 것입니다. 이 문서에서는 PowerShell을 사용하지만 여기서 설명하는 개념은 프로그래밍 언어에만 국한되지 않으며, Azure Storage API가 지원하는 모든 언어에 적용됩니다.
+다음 시나리오에서는 저장소 계정에 저장된 예제 흐름 로그를 사용합니다. NSG 흐름 로그에서 최신 이벤트를 선택적으로 읽는 방법을 알아봅니다. 이 문서에서는 PowerShell을 사용하지만 여기서 설명하는 개념은 프로그래밍 언어에만 국한되지 않으며, Azure Storage API가 지원하는 모든 언어에 적용됩니다.
 
 ## <a name="setup"></a>설정
 
@@ -39,44 +39,45 @@ NSG 흐름 로그는 저장소 계정의 [블록 Blob](/rest/api/storageservices
 다음 PowerShell은 NSG 흐름 로그 Blob를 쿼리하는 데 필요한 변수를 설정하고 [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) 블록 Blob 내의 블록을 나열합니다. 실제 환경에서 사용되는 값을 포함하여 스크립트를 업데이트하세요.
 
 ```powershell
-# The SubscriptionID to use
-$subscriptionId = "00000000-0000-0000-0000-000000000000"
+function Get-NSGFlowLogBlockList {
+    [CmdletBinding()]
+    param (
+        [string] [Parameter(Mandatory=$true)] $subscriptionId,
+        [string] [Parameter(Mandatory=$true)] $NSGResourceGroupName,
+        [string] [Parameter(Mandatory=$true)] $NSGName,
+        [string] [Parameter(Mandatory=$true)] $storageAccountName,
+        [string] [Parameter(Mandatory=$true)] $storageAccountResourceGroup,
+        [string] [Parameter(Mandatory=$true)] $macAddress,
+        [datetime] [Parameter(Mandatory=$true)] $logTime
+    )
 
-# Resource group that contains the Network Security Group
-$resourceGroupName = "<resourceGroupName>"
+    process {
+        # Retrieve the primary storage account key to access the NSG logs
+        $StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccountResourceGroup -Name $storageAccountName).Value[0]
 
-# The name of the Network Security Group
-$nsgName = "NSGName"
+        # Setup a new storage context to be used to query the logs
+        $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
-# The storage account name that contains the NSG logs
-$storageAccountName = "<storageAccountName>" 
+        # Container name used by NSG flow logs
+        $ContainerName = "insights-logs-networksecuritygroupflowevent"
 
-# The date and time for the log to be queried, logs are stored in hour intervals.
-[datetime]$logtime = "06/16/2017 20:00"
+        # Name of the blob that contains the NSG flow log
+        $BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${NSGResourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${NSGName}/y=$($logTime.Year)/m=$(($logTime).ToString("MM"))/d=$(($logTime).ToString("dd"))/h=$(($logTime).ToString("HH"))/m=00/macAddress=$($macAddress)/PT1H.json"
 
-# Retrieve the primary storage account key to access the NSG logs
-$StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
+        # Gets the storage blog
+        $Blob = Get-AzureStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
 
-# Setup a new storage context to be used to query the logs
-$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+        # Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
+        $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
 
-# Container name used by NSG flow logs
-$ContainerName = "insights-logs-networksecuritygroupflowevent"
+        # Stores the block list in a variable from the block blob.
+        $blockList = $CloudBlockBlob.DownloadBlockList()
 
-# The MAC Address of the Network Interface
-$macAddress = "000D3AFA8650"
-
-# Name of the blob that contains the NSG flow log
-$BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${nsgName}/y=$($logtime.Year)/m=$(($logtime).ToString("MM"))/d=$(($logtime).ToString("dd"))/h=$(($logtime).ToString("HH"))/m=00/macAddress=$($macAddress)/PT1H.json"
-
-# Gets the storage blog
-$Blob = Get-AzureStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
-
-# Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
-$CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
-
-# Stores the block list in a variable from the block blob.
-$blockList = $CloudBlockBlob.DownloadBlockList()
+        # Return the Block List
+        $blockList
+    }
+}
+$blockList = Get-NSGFlowLogBlockList -subscriptionId "00000000-0000-0000-0000-000000000000" -NSGResourceGroupName "resourcegroupname" -storageAccountName "storageaccountname" -storageAccountResourceGroup "sa-rg" -macAddress "000D3AF8196E" -logTime "03/07/2018 22:00"
 ```
 
 `$blockList` 변수는 Blob의 블록 목록을 반환합니다. 각 블록 Blob에는 블록이 두 개 이상 포함되어 있습니다.  첫 번째 블록은 길이가 `21`바이트이며 json 로그의 여는 괄호를 포함합니다. 나머지 블록은 닫는 괄호이며 길이가 `9`바이트입니다.  보시다시피 다음 예제 로그에는 개별 항목 7개가 있습니다. 로그의 모든 새 항목은 최종 블록 앞의 오른쪽 끝에 추가됩니다.
@@ -156,7 +157,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ```
 
 이 시나리오는 전체 로그를 구문 분석할 필요 없이 NSG 흐름 로그의 항목을 읽는 방법의 예입니다. 블록 Blob에 저장된 블록의 길이를 추적하거나 블록 ID를 사용하면 로그에 작성되는 새 항목을 읽을 수 있습니다. 이 방법을 사용하면 새 항목만 읽을 수 있습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

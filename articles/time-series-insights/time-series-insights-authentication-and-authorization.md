@@ -4,19 +4,19 @@ description: 이 문서에서는 Azure Time Series Insights API를 호출하는 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: dmden
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 90fb5ee2bf222e260da802c149d80ed15df2e259
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cbd851737d7122ff8b0c75eb2050ab481c8cecc0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295090"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958468"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -83,8 +83,10 @@ Time Series Insights에 액세스해야 하는 응용 프로그램이 있는 경
     C#을 사용하는 경우 다음 코드를 사용하여 응용 프로그램 대신 토큰을 가져올 수 있습니다. 전체 샘플은 [C#을 사용하여 데이터 쿼리](time-series-insights-query-data-csharp.md)를 참조하세요.
 
     ```csharp
+    // Enter your Active Directory tenant domain name
+    var tenant = "YOUR_AD_TENANT.onmicrosoft.com";
     var authenticationContext = new AuthenticationContext(
-        "https://login.microsoftonline.com/common",
+        $"https://login.microsoftonline.com/{tenant}",
         TokenCache.DefaultShared);
 
     AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
@@ -106,4 +108,4 @@ Time Series Insights에 액세스해야 하는 응용 프로그램이 있는 경
 - API 참조 정보에 대해서는 [쿼리 API 참조](/rest/api/time-series-insights/time-series-insights-reference-queryapi)를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+> [서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)

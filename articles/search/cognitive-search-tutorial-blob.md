@@ -1,37 +1,43 @@
 ---
-title: '자습서: Azure Search에서 인식 검색 API 호출 | Microsoft Docs'
-description: 데이터 추출 및 변환을 위한 Azure Search 인덱싱의 데이터 추출, 자연어 및 이미지 AI 처리 예제입니다.
+title: 자습서 - 인식 검색 API 호출 - Azure Search
+description: 이 자습서에서는 데이터 추출 및 변환을 위한 Azure Search 인덱싱의 데이터 추출, 자연어 및 이미지 AI 처리 예제를 단계별로 알아봅니다.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.custom: seodec2018
+ms.openlocfilehash: 4b78675de2902736b90afa1df9ad66e2df2b0f77
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757573"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386233"
 ---
-# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>자습서: 인식 검색 API(미리 보기)를 호출하는 방법 알아보기
+# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>자습서: 인식 검색 API를 호출하는 방법 알아보기(미리 보기)
 
 이 자습서에서는 *인식 기술*을 사용하여 Azure Search에서 데이터 보강을 프로그래밍하는 메커니즘을 알아봅니다. 인색 기술은 텍스트 및 이미지의 텍스트 표현을 추출하고 언어, 엔터티, 핵심 구 등을 추출하는 NLP(자연어 처리)이자 이미지 분석 작업입니다. 최종적으로 인식 검색 인덱싱 파이프라인을 통해 Azure Search 인덱스에 풍부한 추가 콘텐츠가 생성됩니다. 
 
 이 자습서에서는 다음 작업을 수행할 REST API 호출을 만듭니다.
 
 > [!div class="checklist"]
-> * 인덱스로 라우팅되는 원본 데이터를 보강하는 인덱싱 파이프라인 만들기
-> * 샘플 데이터 집합에 기본 제공 기술 사용: 엔터티 인식, 언어 감지, 텍스트 조작, 핵심 구 추출
+> * 인덱스로 라우팅되는 샘플 데이터를 보강하는 인덱싱 파이프라인 만들기
+> * 기본 제공 기술 적용: 엔터티 인식, 언어 감지, 텍스트 조작, 핵심 구 추출
 > * 기술 집합에서 입력을 출력에 매핑하여 여러 기술을 연결하는 방법을 알아봅니다
 > * 요청을 실행하고 결과 검토
 > * 추가 개발을 위해 인덱스 및 인덱서 다시 설정
 
 출력은 Azure Search에서 검색 가능한 전체 텍스트 인덱스입니다. [동의어](search-synonyms.md), [점수 매기기 프로필](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [분석기](search-analyzers.md), [필터](search-filters.md) 등의 다른 표준 기능을 사용하여 인덱스를 향상할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+> [!NOTE]
+> 2018년 12월 21일부터 Cognitive Services 리소스를 Azure Search 기술과 연결할 수 있습니다. 이렇게 하면 기술 실행에 대한 요금을 청구할 수 있습니다. 또한 문서 해독 단계의 일부로 이미지 추출에 대한 요금 청구가 이 날짜에서 시작됩니다. 문서에서의 텍스트 추출은 추가 비용 없이 계속 제공됩니다.
+>
+> 기본 제공 기술의 실행에 대한 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격은 미리 보기 가격으로 책정되며 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다. [자세한 정보](cognitive-search-attach-cognitive-services.md)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,30 +55,31 @@ Azure Search에 대한 REST 호출을 만들려면 PowerShell이나 Telerik Fidd
 
 1. **리소스 만들기**를 클릭하고, Azure Search를 검색하고, **만들기**를 클릭합니다. 검색 서비스를 처음으로 설정하는 경우 [포털에서 Azure Search 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
-  ![대시보드 포털](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "포털에서 Azure Search 서비스 만들기")
+  ![대시보드 포털](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "포털에서 Azure Search 서비스 만들기")
 
 1. 리소스 그룹으로는 이 자습서에서 만드는 모든 리소스를 포함할 리소스 그룹을 만듭니다. 이렇게 하면 자습서를 마친 후 보다 쉽게 리소스를 정리할 수 있습니다.
 
-1. 위치로는 **미국 중남부** 또는 **유럽 서부**를 선택합니다. 현재 두 영역에서만 미리 보기를 사용할 수 있습니다.
+1. 위치에 대해 Cognitive Search에 [지원되는 지역](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob#supported-regions) 중 하나를 선택합니다.
 
 1. 가격 책정 계층으로는 자습서와 빠른 시작을 완료할 수 있는 **무료** 서비스를 만듭니다. 사용자 고유의 데이터를 사용하여 자세히 조사하려면 **기본** 또는 **표준** 같은 [유료 서비스](https://azure.microsoft.com/pricing/details/search/)를 만듭니다. 
 
   무료 서비스는 인덱스 3개, blob 크기 최대 16MB, 인덱싱 2분으로 제한되며, 이는 인식 검색의 전체 기능을 실행하기에는 부족합니다. 다른 계층의 제한에 대한 내용은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
-  > [!NOTE]
-  > 인식 검색은 현재 공개 미리 보기로 제공됩니다. 무료 계층을 포함한 모든 계층에서 기술 집합을 사용할 수 있습니다. 이 기능의 가격은 추후에 발표될 예정입니다.
+  ![포털의 서비스 정의 페이지](./media/cognitive-search-tutorial-blob/create-search-service1.png "포털의 서비스 정의 페이지")
+  ![포털의 서비스 정의 페이지](./media/cognitive-search-tutorial-blob/create-search-service2.png "포털의 서비스 정의 페이지")
 
+ 
 1. 서비스를 대시보드에 고정하면 서비스 정보에 빠르게 액세스할 수 있습니다.
 
-  ![포털의 서비스 정의 페이지](./media/cognitive-search-tutorial-blob/create-search-service.png "포털의 서비스 정의 페이지")
+  ![포털의 서비스 정의 페이지](./media/cognitive-search-tutorial-blob/create-search-service3.png "포털의 서비스 정의 페이지")
 
-1. 서비스를 만든 후 다음 정보를 수집합니다. 개요 페이지의 **URL** 및 키 페이지의 **api-key**(기본 키 또는 보조 키).
+1. 서비스가 만들어지면 [개요] 페이지의 **URL** 및 [키] 페이지의 **api-key**(기본 또는 보조) 정보를 수집합니다.
 
   ![포털의 엔드포인트 및 키 정보](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "포털의 엔드포인트 및 키 정보")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob service를 설정하고 샘플 데이터 로드
 
-보강 파이프라인은 Azure 데이터 원본에서 데이터를 가져옵니다. 원본 데이터는 [Azure Search 인덱서](search-indexer-overview.md)의 지원되는 데이터 원본 유형에서 생성되어야 합니다. 이 연습에서는 BLOB 저장소를 사용하여 여러 가지 콘텐츠 형식을 보여줍니다.
+보강 파이프라인은 Azure 데이터 원본에서 데이터를 가져옵니다. 원본 데이터는 [Azure Search 인덱서](search-indexer-overview.md)의 지원되는 데이터 원본 유형에서 생성되어야 합니다. Azure Table Storage는 인식 검색을 지원하지 않습니다. 이 연습에서는 BLOB 저장소를 사용하여 여러 가지 콘텐츠 형식을 보여줍니다.
 
 1. [샘플 데이터를 다운로드합니다](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). 샘플 데이터는 여러 종류의 작은 파일 집합으로 구성됩니다. 
 
@@ -124,7 +131,7 @@ api-key: [admin key]
 403 또는 404 오류가 있다면 요청 구조를 확인합니다. `api-version=2017-11-11-Preview`는 엔드포인트에 있어야 하고, `api-key`는 `Content-Type` 뒤에 나오는 헤더에 있어야 하고, 그 값이 검색 서비스에 대해 유효해야 합니다. 이 자습서의 나머지 단계에서 헤더를 다시 사용할 수 있습니다.
 
 > [!TIP]
-> 이제 많은 작업을 수행하기 전에, 미리 보기 기능을 제공하는 지원되는 위치, 즉 미국 중남부 또는 유럽 서부 중 한 곳에서 검색 서비스가 실행되는지 확인합니다.
+> 이제 많은 작업을 수행하기 전에 미리 보기 기능을 제공하도록 지원되는 위치 중 하나인 미국 중남부 또는 유럽 서부에서 검색 서비스가 실행되는지 확인합니다.
 
 ## <a name="create-a-skillset"></a>기술 집합 만들기
 
@@ -245,7 +252,7 @@ Content-Type: application/json
 
 ## <a name="create-an-index"></a>인덱스 만들기
 
-이 섹션에서는 검색 가능한 인덱스에 포함할 필드 및 각 필드의 검색 특성을 지정하여 인덱스 스키마를 정의합니다. 필드에는 형식이 있으며 필드가 사용되는 방식(검색 가능, 정렬 가능 등)을 결정하는 특성을 가질 수 있습니다. 인덱스의 필드 이름은 원본의 필드 이름을 동일하게 일치시키는 데 필요하지 않습니다. 이후 단계에서 인덱서의 필드 매핑을 원본-대상 연결 필드에 추가할 것입니다. 이 단계에서는 검색 응용 프로그램과 관련된 필드 명명 규칙을 사용하여 인덱스를 정의합니다.
+이 섹션에서는 검색 가능한 인덱스에 포함할 필드 및 각 필드의 검색 특성을 지정하여 인덱스 스키마를 정의합니다. 필드에는 형식이 있으며 필드가 사용되는 방식(검색 가능, 정렬 가능 등)을 결정하는 특성을 가질 수 있습니다. 인덱스의 필드 이름은 원본의 필드 이름을 동일하게 일치시키는 데 필요하지 않습니다. 이후 단계에서 인덱서의 필드 매핑을 원본-대상 연결 필드에 추가할 것입니다. 이 단계에서는 검색 애플리케이션과 관련된 필드 명명 규칙을 사용하여 인덱스를 정의합니다.
 
 이 연습에서는 다음 필드와 필드 형식을 사용합니다.
 
@@ -520,7 +527,7 @@ Content-Type: application/json
 2. 기술 집합 및 인덱스 정의를 수정합니다.
 3. 서비스에서 인덱스 및 인덱서를 다시 만들어 파이프라인을 실행합니다. 
 
-포털을 사용하여 인덱스 및 인덱서를 삭제할 수 있습니다. 기술 집합을 삭제하기로 결정한 경우 HTTP 명령을 통해서만 삭제할 수 있습니다.
+포털을 사용하여 인덱스, 인덱서 및 기술을 삭제할 수 있습니다.
 
 ```http
 DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview

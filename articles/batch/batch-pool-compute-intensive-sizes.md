@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: danlep
-ms.openlocfilehash: 5a73e926b5979e573ccb0402ff2d23eae2463232
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6969f0c6a05ebf5b34fb746d2a83b884687ad710
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29762444"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258258"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용
 
@@ -105,7 +105,7 @@ Batch 풀에 특별한 VM 크기를 구성하려면 Batch API 및 도구는 다�
 
 Azure A8 노드의 풀에서 Windows MPI 응용 프로그램을 실행하려면 지원되는 MPI 구현을 설치해야 합니다. Batch 응용 프로그램 패키지를 사용하여 Windows 풀에서 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx)를 설치하는 샘플 단계는 다음과 같습니다.
 
-1. 최신 버전의 Microsoft MPI에 대한 [설치 패키지](http://go.microsoft.com/FWLink/p/?LinkID=389556)(MSMpiSetup.exe)를 다운로드합니다.
+1. 최신 버전의 Microsoft MPI에 대한 [설치 패키지](https://go.microsoft.com/FWLink/p/?LinkID=389556)(MSMpiSetup.exe)를 다운로드합니다.
 2. 패키지의 zip 파일을 만듭니다.
 3. Batch 계정에 패키지를 업로드합니다. 단계는 [응용 프로그램 패키지](batch-application-packages.md) 지침을 참조하세요. *MSMPI*와 같은 응용 프로그램 ID 및 *8.1*과 같은 버전을 지정합니다. 
 4. Batch API 또는 Azure Portal을 사용하여 원하는 수의 노드 및 규모로 클라우드 서비스 구성에서 풀을 만듭니다. 다음 표에서는 시작 태스크를 사용하여 무인 모드에서 MPI를 설정하는 샘플 설정을 보여줍니다.
@@ -122,7 +122,7 @@ Azure A8 노드의 풀에서 Windows MPI 응용 프로그램을 실행하려면 
 
 ## <a name="example-nvidia-tesla-drivers-on-nc-vm-pool"></a>예제: NC VM 풀의 NVIDIA Tesla 드라이버
 
-Linux NC 노드의 풀에서 CUDA 응용 프로그램을 실행하려면 노드에서 CUDA Toolkit 9.0을 설치해야 합니다. 이 Toolkit은 필요한 NVIDIA Tesla GPU 드라이버를 설치합니다. GPU 드라이버에서 사용자 지정 Ubuntu 16.04 LTS 이미지를 배포하는 예제 단계는 다음과 같습니다.
+Linux NC 노드의 풀에서 CUDA 애플리케이션을 실행하려면 노드에서 CUDA Toolkit 9.0을 설치해야 합니다. 이 Toolkit은 필요한 NVIDIA Tesla GPU 드라이버를 설치합니다. GPU 드라이버에서 사용자 지정 Ubuntu 16.04 LTS 이미지를 배포하는 예제 단계는 다음과 같습니다.
 
 1. Ubuntu 16.04 LTS를 실행하는 Azure NC 시리즈 VM을 배포합니다. 예를 들어, 미국 중남부 지역에서 VM을 만듭니다. 관리되는 디스크에서 VM을 만들었는지 확인합니다.
 2. VM에 연결하고 [CUDA 드라이버 설치](../virtual-machines/linux/n-series-driver-setup.md)하는 단계를 수행합니다.

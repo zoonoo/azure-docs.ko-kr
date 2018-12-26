@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 7bdc692104194bff4a25e6974ba72971af543cbf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 248fd094a8655af2a21035267a6b8f69f268683d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698163"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262168"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Chrome 앱에 알림 푸시
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -328,7 +328,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
           client.onload = function () {
             if (client.readyState == 4) {
               if (client.status == 200) {
-                updateLog("Notification Hub Registration succesful!");
+                updateLog("Notification Hub Registration successful!");
                 updateLog(client.responseText);
               } else {
                 updateLog("Notification Hub Registration did not succeed!");
@@ -362,7 +362,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
    * **registerWithGCM**은 GCM에 대한 `chrome.gcm.register` 호출을 수행하여 현재 Chrome 앱 인스턴스를 등록하는 첫 번째 단추 클릭 처리기입니다.
    * **registerCallback** 은 GCM 등록 호출이 반환될 때 호출되는 콜백 함수입니다.
    * **registerWithNH** 는 Notification Hubs로 등록하는 두 번째 단추 클릭 처리기입니다. 사용자가 지정한 `hubName` 및 `connectionString`을 가져와 Notification Hubs 등록 REST API 호출을 만듭니다.
-   * **splitConnectionString** 및 **generateSaSToken**은 모든 REST API 호출에서 사용되어야 하는 SaS 토큰 만들기 프로세스의 JavaScript 구현을 나타내는 도우미입니다. 자세한 내용은 [일반적인 개념](http://msdn.microsoft.com/library/dn495627.aspx)을 참조하세요.
+   * **splitConnectionString** 및 **generateSaSToken**은 모든 REST API 호출에서 사용되어야 하는 SaS 토큰 만들기 프로세스의 JavaScript 구현을 나타내는 도우미입니다. 자세한 내용은 [일반적인 개념](https://msdn.microsoft.com/library/dn495627.aspx)을 참조하세요.
    * **sendNHRegistrationRequest**는 Azure Notification Hubs에 대한 HTTP REST 호출을 수행하는 함수입니다.
    * **registrationPayload** 는 등록 XML 페이로드를 정의합니다. 자세한 내용은 [등록 NH REST API 만들기]를 참조하세요. GCM에서 받은 값을 사용하여 등록 ID를 업데이트합니다.
    * **client**는 응용 프로그램에서 HTTP POST 요청을 수행하는 데 사용하는 **XMLHttpRequest** 인스턴스입니다. `sasToken`을 사용하여 `Authorization` 헤더를 업데이트합니다. 이 호출이 성공적으로 완료되면 이 Chrome 앱 인스턴스가 Azure Notification Hubs에 등록됩니다.
@@ -379,22 +379,22 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 3. Chrome 앱이 오류 없이 만들어지면 Chrome 앱이 표시됩니다.
    
     ![Google Chrome - Chrome 앱 표시][18]
-4. 이전에 **Google 클라우드 콘솔**에서 확인한 **프로젝트 번호**를 보낸 사람 ID로 입력하고 **GCM에 등록**을 클릭합니다. **GCM로 등록 성공**
+4. 이전에 **Google 클라우드 콘솔**에서 확인한 **프로젝트 번호**를 보낸 사람 ID로 입력하고 **GCM에 등록**을 클릭합니다.  **GCM로 등록 성공**
    
     ![Google Chrome - Chrome 앱 사용자 지정][19]
-5. 앞에서 포털에서 확인한 **알림 허브 이름** 및 **DefaultListenSharedAccessSignature**를 입력하고 **Azure 알림 허브에 등록**을 클릭합니다. **성공적으로 알림 허브 등록!** 메시지가 표시되고 Azure Notification Hubs 등록 ID가 포함된 등록 응답 세부 정보도 함께 표시됩니다.
+5. 앞에서 포털에서 확인한 **알림 허브 이름** 및 **DefaultListenSharedAccessSignature**를 입력하고 **Azure 알림 허브에 등록**을 클릭합니다.  **성공적으로 알림 허브 등록!** 메시지가 표시되고 Azure Notification Hubs 등록 ID가 포함된 등록 응답 세부 정보도 함께 표시됩니다.
    
     ![Google Chrome - 알림 허브 세부 정보 지정][20]  
 
 ## <a name="send"></a>Chrome 앱에 알림 보내기
-테스트를 위해 .NET 콘솔 응용 프로그램을 사용하여 Chrome 푸시 알림을 보냅니다. 
+테스트를 위해 .NET 콘솔 애플리케이션을 사용하여 Chrome 푸시 알림을 보냅니다. 
 
 > [!NOTE]
-> 공용 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 통해 모든 백 엔드에서 Notification Hubs를 사용하여 푸시 알림을 보낼 수 있습니다. 더 많은 플랫폼 간 예제는 [설명서 포털](https://azure.microsoft.com/documentation/services/notification-hubs/)을 확인하세요.
+> 공용 <a href="https://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 통해 모든 백 엔드에서 Notification Hubs를 사용하여 푸시 알림을 보낼 수 있습니다. 더 많은 플랫폼 간 예제는 [설명서 포털](https://azure.microsoft.com/documentation/services/notification-hubs/)을 확인하세요.
 > 
 > 
 
-1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다. **Visual C#** 에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다.  이 단계에서는 새 콘솔 응용 프로그램 프로젝트가 만들어집니다.
+1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다. **Visual C#** 에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다.  이 단계에서는 새 콘솔 애플리케이션 프로젝트가 만들어집니다.
 2. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 아래쪽 창에 패키지 관리자 콘솔이 표시됩니다.
 3. 콘솔 창에서 다음 명령을 실행합니다.
    
@@ -435,7 +435,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 > 
 
 ## <a name="next-steps"> </a>다음 단계
-이 자습서에서는 백 엔드에 등록되어 있는 모든 클라이언트에 브로드캐스트 알림을 보냈습니다. 특정 장치로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
+이 자습서에서는 백 엔드에 등록되어 있는 모든 클라이언트에 브로드캐스트 알림을 보냈습니다. 특정 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
 
 > [!div class="nextstepaction"]
 >[특정 장치에 알림 푸시](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)

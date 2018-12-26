@@ -3,16 +3,15 @@
 
 # 개요
 ## [Data Lake Storage Gen1 개요](data-lake-store-overview.md)
-## [Data Lake Storage Gen1과 Azure Storage 비교](data-lake-store-comparison-with-blob-storage.md)
-## [빅 데이터 처리를 위한 Data Lake Storage Gen1](data-lake-store-data-scenarios.md)
-## [Data Lake Storage Gen1에서 작동하는 오픈 소스 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
-## [Data Lake Storage Gen1을 사용하는 모범 사례](data-lake-store-best-practices.md)
+## [Azure Storage와 비교](data-lake-store-comparison-with-blob-storage.md)
+## [빅 데이터 처리](data-lake-store-data-scenarios.md)
+## [오픈 소스 응용 프로그램으로 작업](data-lake-store-compatible-oss-other-applications.md)
+## [모범 사례](data-lake-store-best-practices.md)
 
 # 시작하기
-## [포털 사용](data-lake-store-get-started-portal.md)
-## [PowerShell 사용](data-lake-store-get-started-powershell.md)
-## [Azure CLI 2.0 사용](data-lake-store-get-started-cli-2.0.md)
-
+## [Azure Portal 사용](data-lake-store-get-started-portal.md)
+## [Azure PowerShell 사용](data-lake-store-get-started-powershell.md)
+## [Azure CLI 사용](data-lake-store-get-started-cli-2.0.md)
 
 # 방법
 ## 데이터 로드 및 이동
@@ -22,13 +21,14 @@
 ### [DistCp 사용](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop 사용](data-lake-store-data-transfer-sql-sqoop.md)
 ### [오프라인 소스에서 데이터 업로드](data-lake-store-offline-bulk-data-upload.md)
-### [지역 간 Data Lake Store 마이그레이션](data-lake-store-migration-cross-region.md)
+### [지역 간 Data Lake Storage Gen1 마이그레이션](data-lake-store-migration-cross-region.md)
 
 ## 데이터 보호
 ### [보안 개요](data-lake-store-security-overview.md)
-### [Data Lake Storage Gen1에서 액세스 제어](data-lake-store-access-control.md)
-### [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
+### [액세스 제어](data-lake-store-access-control.md)
+### [저장된 데이터 보호](data-lake-store-secure-data.md)
 ### [암호화](data-lake-store-encryption.md)
+### [가상 네트워크 통합(미리 보기)](data-lake-store-network-security.md)
 
 ## Data Lake Storage Gen1을 사용하여 인증
 ### [인증 옵션](data-lakes-store-authentication-using-azure-active-directory.md)
@@ -55,14 +55,14 @@
 #### [Python 사용](data-lake-store-data-operations-python.md)
 
 ## 성능
-### [Azure Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-guidance.md)
-### [Data Lake Storage Gen1에서 PowerShell을 사용하기 위한 성능 조정 지침](data-lake-store-performance-tuning-powershell.md)
-### [HDInsight의 Spark 및 Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-spark.md)
-### [HDInsight의 Hive 및 Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-hive.md)
-### [HDInsight의 MapReduce 및 Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-mapreduce.md)
-### [HDInsight의 Storm 및 Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-storm.md)
+### [개요](data-lake-store-performance-tuning-guidance.md)
+### [Azure PowerShell 사용](data-lake-store-performance-tuning-powershell.md)
+### [HDInsight의 Spark 사용](data-lake-store-performance-tuning-spark.md)
+### [HDInsight의 Hive 사용](data-lake-store-performance-tuning-hive.md).
+### [HDInsight에서 MapReduce 사용](data-lake-store-performance-tuning-mapreduce.md).
+### [HDInsight의 Storm 사용](data-lake-store-performance-tuning-storm.md)
 
-## Azure 서비스와의 통합
+## Azure 서비스와 통합
 ### HDInsight 사용
 #### [Azure Portal 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 #### [Azure PowerShell 사용(기본 저장소)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -88,19 +88,18 @@
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
-## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
+## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python(계정 관리)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)
 ## [Python(파일 시스템 관리)](http://azure-datalake-store.readthedocs.io/en/latest)
-## [REST](/rest/api/datalakestore)
+## [REST (영문)](/rest/api/datalakestore)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Data Lake Store 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [가격](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [스택 오버플로 포럼](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

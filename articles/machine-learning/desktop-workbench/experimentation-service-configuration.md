@@ -7,18 +7,21 @@ ms.author: gokhanu
 manager: haining
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 6903a02a2f714dc6a8de7bcdd6a81cdd14f2cb0a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3c5084e548bbb72fa38aae8b60aa46fb4d462dca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831357"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990351"
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning 실험 서비스 구성
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="overview"></a>개요
 Azure Machine Learning 실험 서비스를 사용하면 데이터 과학자가 Azure Machine Learning 실행 및 실행 관리 기능을 사용하여 실험을 실행할 수 있습니다. 이는 빠른 반복과 함께 빠른 실험 프레임워크를 제공합니다. Azure Machine Learning Workbench를 사용하면 컴퓨터에서 로컬 실행을 시작할 수 있으며, Spark를 실행하는 GPU 또는 HDInsight 클러스터가 있는 원격 데이터 과학 VM과 같은 다른 환경으로 규모를 강화하거나 확장하는 쉬운 경로도 시작할 수 있습니다.
@@ -43,7 +46,7 @@ Workbench 프로젝트에서 로컬로 또는 클라우드에서 크기에 따�
 Azure Machine Learning 실험 실행의 다음과 같은 개념을 이해해야 합니다. 이후 섹션에서 이러한 개념을 사용 하는 방법을 자세히 설명합니다. 
 
 #### <a name="compute-target"></a>계산 대상
-_계산 대상_은 사용자의 데스크톱, VM의 원격 Docker 또는 클러스터 등과 같은 사용자의 프로그램을 실행하는 위치를 지정합니다. 계산 대상은 사용자가 주소를 지정하고 액세스할 수 있어야 합니다. Workbench에서는 Workbench 응용 프로그램 및 CLI를 사용하여 계산 대상을 만들고 관리할 수 있습니다. 
+_계산 대상_은 사용자의 데스크톱, VM의 원격 Docker 또는 클러스터 등과 같은 사용자의 프로그램을 실행하는 위치를 지정합니다. 계산 대상은 사용자가 주소를 지정하고 액세스할 수 있어야 합니다. Workbench에서는 Workbench 애플리케이션 및 CLI를 사용하여 계산 대상을 만들고 관리할 수 있습니다. 
 
 CLI의 _az ml computetarget attach_ 명령을 사용하면 실행에 사용할 수 있는 계산 대상을 만들 수 있습니다.
 
@@ -267,7 +270,7 @@ sudo /anaconda/envs/py35/bin/pip install <package>
 HDInsight는 Apache Spark를 지원하는 인기 있는 빅 데이터 분석용 플랫폼입니다. Workbench를 사용하면 HDInsight Spark 클러스터를 사용하여 빅 데이터에 대해 실험할 수 있습니다. 
 
 >[!NOTE]
->HDInsight 클러스터는 Azure Blob을 주 저장소로 사용해야 합니다. 아직 Azure Data Lake Storage를 사용하도록 지원되지 않습니다.
+>HDInsight 클러스터는 Azure Blob을 주 저장소로 사용해야 합니다. 아직 Azure Data Lake Storage 사용은 지원되지 않습니다.
 
 다음 명령을 사용하여 HDInsight Spark 클러스터에 대한 계산 대상 및 실행 구성을 만들 수 있습니다.
 
@@ -276,7 +279,7 @@ $ az ml computetarget attach cluster --name "myhdi" --address "<FQDN or IP addre
 ```
 
 >[!NOTE]
->IP 주소 대신에 FQDN을 사용하고 HDI Spark 클러스터 이름이 _foo_인 경우, SSH 끝점은 _foo-ssh.azurehdinsight.net_이라는 드라이버 노드에 있습니다. _--address_ 매개 변수에 FQDN을 사용하는 경우 서버 이름의 접미사 **-ssh**를 잊지 마십시오.
+>IP 주소 대신에 FQDN을 사용하고 HDI Spark 클러스터 이름이 _foo_인 경우, SSH 엔드포인트는 _foo-ssh.azurehdinsight.net_이라는 드라이버 노드에 있습니다. _--address_ 매개 변수에 FQDN을 사용하는 경우 서버 이름의 접미사 **-ssh**를 잊지 마십시오.
 
 
 계산 컨텍스트를 가지고 있는 경우 다음 명령을 실행하여 PySpark 스크립트를 실행할 수 있습니다.
@@ -325,5 +328,5 @@ az ml experiment prepare -c remotevm
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Machine Learning 만들기 및 설치](../service/quickstart-installation.md)
+* [Azure Machine Learning 만들기 및 설치](quickstart-installation.md)
 * [모델 관리](model-management-overview.md)

@@ -2,18 +2,22 @@
 title: 새 Elastic Database 작업으로 마이그레이션 | Microsoft Docs
 description: 새 Elastic Database 작업으로 마이그레이션합니다.
 services: sql-database
-author: johnpaulkee
-manager: craigg
 ms.service: sql-database
-ms.topic: article
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: johnpaulkee
+ms.author: joke
+ms.reviewer: ''
+manager: craigg
 ms.date: 06/14/2018
-ms.author: johnpaulkee
-ms.openlocfilehash: 97d50b6ddcbb46cb291578caab5193e13cc56932
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 4470a13dfe462671b1a58a217e679d2b40236c6a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868884"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873974"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>새 Elastic Database 작업으로 마이그레이션
 
@@ -30,18 +34,25 @@ ms.locfileid: "37868884"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-최신 미리 보기 AzureRM.Sql PowerShell 모듈을 설치하여 탄력적 작업 cmdlet을 가져옵니다.
+**AzureRM.Sql** 4.8.1-미리 보기 모듈을 설치하여 최신 탄력적 작업 cmdlet을 가져옵니다. 관리자 권한으로 PowerShell에서 다음 명령을 실행합니다.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
 Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
 
-# You may need to restart the powershell session
 # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
 Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 
+# Restart your powershell session with administrative access
+
 # Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
-Install-Module -Name AzureRM.Sql -AllowPrerelease -Force
+Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
+
+# Import the AzureRM.Sql 4.8.1 module
+Import-Module AzureRM.Sql -RequiredVersion 4.8.1
+
+# Confirm if module successfully imported - if the imported version is 4.8.1, then continue
+Get-Module AzureRM.Sql
 ```
 
 ### <a name="create-a-new-elastic-job-agent"></a>새로운 탄력적 작업 에이전트 만들기

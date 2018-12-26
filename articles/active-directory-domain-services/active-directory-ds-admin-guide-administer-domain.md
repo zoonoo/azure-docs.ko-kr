@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 관리되는 도메인 관리 | 
 description: Azure Active Directory Domain Services 관리되는 도메인 관리
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: d4fdbc75-3e6b-4e20-8494-5dcc3bf2220a
@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: 2ee5250147a82199057a3bf6f043627616e7443d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: ergreenl
+ms.openlocfilehash: dab1547ca17acaeda3cb168d78b342661ebe4615
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333689"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230481"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인 관리
 이 문서에서는 Azure AD(Active Directory) 도메인 서비스 관리되는 도메인을 관리하는 방법을 보여 줍니다.
@@ -63,7 +63,7 @@ Azure AD 도메인 서비스 관리되는 도메인을 AD PowerShell 또는 ADAC
 ### <a name="remotely-administer-the-managed-domain-from-a-client-computer-for-example-windows-10"></a>클라이언트 컴퓨터(예: Windows 10)에서 관리되는 도메인을 원격으로 관리
 이 문서의 지침에서는 AAD-DS 관리되는 도메인을 관리하기 위해 Windows Server 가상 머신을 사용합니다. 하지만 이 작업을 위해 Windows 클라이언트(예: Windows 10) 가상 머신을 사용하도록 선택할 수도 있습니다.
 
-TechNet의 지침에 따라 Windows 클라이언트 가상 머신에 [원격 서버 관리 도구(RSAT)를 설치](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) 할 수 있습니다.
+TechNet의 지침에 따라 Windows 클라이언트 가상 머신에 [원격 서버 관리 도구(RSAT)를 설치](https://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) 할 수 있습니다.
 
 ## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>작업 2 - 가상 머신에 Active Directory 관리 도구 설치
 도메인에 가입된 가상 머신에 Active Directory 관리 도구를 설치하려면 다음 단계를 완료합니다. [원격 서버 관리 도구 설치 및 사용](https://technet.microsoft.com/library/hh831501.aspx)에 대한 자세한 내용은 TechNet을 참조하세요.

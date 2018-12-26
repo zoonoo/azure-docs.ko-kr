@@ -1,0 +1,262 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 845fb826d18949c30663c829e65537156bd2f865
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986067"
+documentType: LandingData
+title: Microsoft ID 플랫폼(개발자용 Azure Active Directory)
+metadata:
+  title: Microsoft ID 플랫폼(개발자용 Azure Active Directory)
+  description: Microsoft ID 플랫폼을 사용하여 모든 Microsoft ID에서 사용자가 안전하게 로그인하고, Microsoft Graph, 기타 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져올 수 있는 앱을 빌드하는 방법을 알아봅니다.
+  services: active-directory
+  author: CelesteDG
+  manager: mtillman
+  ms.service: active-directory
+  ms.component: develop
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/24/2018
+  ms.author: celested
+abstract:
+  description: Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자가 모든 Microsoft ID에 로그인하고, Microsoft Graph, 기타 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 응용 프로그램을 빌드할 수 있습니다. 인증 서비스, 오픈 소스 라이브러리, 응용 프로그램 등록 및 구성, 완전한 개발자 설명서, 코드 샘플 및 기타 개발자 콘텐츠로 구성된 모든 기능을 갖춘 플랫폼입니다. Microsoft ID 플랫폼은 OAuth 2.0 및 OpenID Connect 등의 산업 표준 프로토콜을 지원합니다.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/video-featured.png
+      width: 250
+    title: 인증을 통해 웹앱 솔루션 빌드(9:31)
+    href: https://www.youtube.com/watch?v=QWh5HZK9vRA
+    width: 250
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/active-directory/develop/about-microsoft-identity-platform
+      html: <p>Microsoft ID 플랫폼 및 기능에 대해 알아봅니다.</p>
+      image:
+        src: ./media/index/i_get-started.svg
+      title: Microsoft ID 플랫폼 정보
+    - href: /azure/active-directory/develop/azure-ad-developers-guide/
+      html: <p>ADAL(Azure AD Authentication Library), Azure Portal 및 Azure AD Graph API를 사용하여 Azure AD v1.0 엔드포인트에서 토큰을 요청하면 Azure AD ID(회사 및 학교 계정)를 인증할 수 있습니다.</p>
+      image:
+        src: ./media/index/i_advanced.svg
+      title: v1.0
+    - href: /azure/active-directory/develop/v2-overview
+      html: <p>MSAL(Microsoft Authentication Library), Azure Portal 및 Microsoft Graph API를 사용하여 Azure AD v2.0 엔드포인트를 통해 광범위한 Microsoft ID를 인증합니다.</p>
+      image:
+        src: ./media/index/i_investigate.svg
+      title: v2.0
+- title: 빠른 시작
+  items:
+  - type: paragraph
+    text: 빠른 시작을 수행하여 신속하게 앱을 빌드하고 토큰 가져오기, 토큰 새로 고치기, 사용자 로그인, 사용자 정보 표시 등의 기능을 추가합니다.
+  - type: paragraph
+    text: <b>단일 페이지 앱</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/angularjs-shield.svg
+      title: AngularJS
+    - image:
+        src: ./media/index/logo_js.svg
+      title: JavaScript
+    rows:
+    - title: v1.0
+      values:
+      - href: quickstart-v1-angularjs-spa.md
+      - href: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi
+    - title: v2.0
+      values:
+      - href: 
+      - href: quickstart-v2-javascript.md
+  - type: paragraph
+    text: <b>웹앱</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_NET.svg
+      title: ASP .NET
+    - image:
+        src: ./media/index/logo_NETcore.svg
+      title: ASP .NET Core
+    - image:
+        src: ./media/index/logo_java.svg
+      title: 자바
+    - image:
+        src: ./media/index/logo_nodejs.svg
+      title: NodeJS
+    - image:
+        src: ./media/index/logo_python.svg
+      title: Python
+    rows:
+    - title: v1.0
+      values:
+      - href: quickstart-v1-aspnet-webapp.md
+      - href: 
+      - href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
+      - href: quickstart-v1-openid-connect-code.md
+      - href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
+    - title: v2.0
+      values:
+      - href: quickstart-v2-aspnet-webapp.md
+      - href: quickstart-v2-aspnet-core-webapp.md
+      - href: 
+      - href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
+      - href: 
+  - type: paragraph
+    text: <b>Web API</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_NET.svg
+      title: ASP .NET
+    - image:
+        src: ./media/index/logo_NETcore.svg
+      title: ASP .NET Core
+    - image:
+        src: ./media/index/logo_nodejs.svg
+      title: NodeJS
+    rows:
+    - title: v1.0
+      values:
+      - href: quickstart-v1-dotnet-webapi.md
+      - href: 
+      - href: quickstart-v1-nodejs-webapi.md
+    - title: v2.0
+      values:
+      - href: https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet
+      - href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
+      - href: 
+  - type: paragraph
+    text: <b>모바일 및 데스크톱 앱</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_android.svg
+      title: Android
+    - image:
+        src: ./media/index/logo_ios.svg
+      title: iOS
+    - image:
+        src: ./media/index/logo_Windows.svg
+      title: 범용 Windows 플랫폼
+    - image:
+        src: ./media/index/logo_Windows.svg
+      title: Windows 데스크톱 .NET
+    - image:
+        src: ./media/index/logo_xamarin.svg
+      title: Xamarin
+    rows:
+    - title: v1.0
+      values:
+      - href: quickstart-v1-android.md
+      - href: quickstart-v1-ios.md
+      - href: 
+      - href: quickstart-v1-dotnet.md
+      - href: quickstart-v1-xamarin.md
+    - title: v2.0
+      values:
+      - href: quickstart-v2-android.md
+      - href: quickstart-v2-ios.md
+      - href: quickstart-v2-uwp.md
+      - href: quickstart-v2-windows-desktop.md
+      - href: 
+  - type: paragraph
+    text: <b>서비스 간</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_NET.svg
+      title: .NET
+    rows:
+    - title: v1.0
+      values:
+      - href: sample-v1-code.md#server-or-daemon-application-to-web-api
+    - title: v2.0
+      values:
+      - href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: Microsoft ID 플랫폼을 사용하여 액세스 토큰 얻기, Microsoft 로그인 구현 등의 최상위 인증 개발자 작업을 위한 심층적인 시나리오 기반 절차를 따릅니다.
+  - type: paragraph
+    text: <b>단일 페이지 앱</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_js.svg
+      title: JavaScript
+    rows:
+    - title: v1.0
+      values:
+      - href: 
+    - title: v2.0
+      values:
+      - href: tutorial-v2-javascript-spa.md
+  - type: paragraph
+    text: <b>웹앱</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_NET.svg
+      title: ASP .NET
+    rows:
+    - title: v1.0
+      values:
+      - href: 
+    - title: v2.0
+      values:
+      - href: tutorial-v2-asp-webapp.md
+  - type: paragraph
+    text: <b>모바일 및 데스크톱 앱</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_android.svg
+      title: Android
+    - image:
+        src: ./media/index/logo_ios.svg
+      title: iOS
+    - image:
+        src: ./media/index/logo_Windows.svg
+      title: 범용 Windows 플랫폼
+    - image:
+        src: ./media/index/logo_Windows.svg
+      title: Windows 데스크톱 .NET
+    rows:
+    - title: v1.0
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: v2.0
+      values:
+      - href: tutorial-v2-android.md
+      - href: tutorial-v2-ios.md
+      - href: tutorial-v2-windows-uwp.md
+      - href: tutorial-v2-windows-desktop.md
+- title: 샘플
+  items:
+  - type: paragraph
+    text: 개발 중인 앱의 유형, 사용 중인 플랫폼 및 API를 바탕으로 코드 샘플을 찾아보세요.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/develop/sample-v1-code">시나리오별 v1.0 코드 샘플</a>
+    - html: <a href="/azure/active-directory/develop/sample-v2-code">시나리오별 v2.0 코드 샘플</a>

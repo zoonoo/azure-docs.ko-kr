@@ -1,22 +1,19 @@
 ---
-title: 온-프레미스 네트워크에 HDInsight 연결 - Azure HDInsight | Microsoft Docs
+title: 온-프레미스 네트워크에 HDInsight 연결 - Azure HDInsight
 description: Azure Virtual Network에서 HDInsight 클러스터를 만들고 온-프레미스 네트워크에 연결하는 방법을 알아봅니다. 사용자 지정 DNS 서버를 사용하여 HDInsight와 온-프레미스 네트워크 간에 이름 확인을 구성하는 방법을 알아봅니다.
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: larryfr
-ms.openlocfilehash: bfb6515ba9b7f36e90783444fc474dc575b32f37
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: hrasheed
+ms.openlocfilehash: 1d5a6dc6db3eaa46f6f2bd9944af7aefe759fbc7
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113625"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496112"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -324,12 +321,12 @@ HDInsight에 대한 대부분의 설명서는 인터넷을 통해 클러스터�
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. 서비스가 제공되는 포트를 확인하려면 [HDInsight의 Hadoop 서비스에서 사용하는 포트](./hdinsight-hadoop-port-settings-for-services.md) 문서를 참조하세요.
+2. 서비스가 제공되는 포트를 확인하려면 [HDInsight의 Apache Hadoop 서비스에서 사용하는 포트](./hdinsight-hadoop-port-settings-for-services.md) 문서를 참조하세요.
 
     > [!IMPORTANT]
     > 헤드 노드에서 호스팅되는 일부 서비스는 한 번에 한 노드에서만 활성화됩니다. 한 헤드 노드에서 서비스에 액세스하려고 하고 실패하게 되면 다른 헤드 노드로 전환합니다.
     >
-    > 예를 들어 Ambari는 한 번에 하나의 헤드 노드에서만 활성화됩니다. 한 헤드 노드에서 Ambari에 액세스하려고 하고 404 오류가 반환되면 다른 헤드 노드에서 실행합니다.
+    > 예를 들어 Apache Ambari는 한 번에 하나의 헤드 노드에서만 활성화됩니다. 한 헤드 노드에서 Ambari에 액세스하려고 하고 404 오류가 반환되면 다른 헤드 노드에서 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

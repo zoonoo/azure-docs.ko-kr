@@ -3,20 +3,19 @@ title: Azure Storage에 대량의 임의 데이터를 병렬로 업로드 | Micr
 description: Azure SDK를 사용하여 Azure Storage 계정에 대량의 임의 데이터를 병렬로 업로드하는 방법에 대해 알아봅니다.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 668700cf3ff3d1a90f9639129ef2953ddca016f1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: blobs
+ms.openlocfilehash: a69d67ee455b447eb038903bb8fafb644d025662
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30239901"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565737"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Azure Storage에 대량의 임의 데이터를 병렬로 업로드
 
@@ -26,7 +25,7 @@ ms.locfileid: "30239901"
 
 > [!div class="checklist"]
 > * 연결 문자열 구성
-> * 응용 프로그램 빌드
+> * 애플리케이션 빌드
 > * 응용 프로그램 실행
 > * 연결 수의 유효성 검사
 
@@ -96,7 +95,7 @@ private static async Task UploadFilesAsync()
         int max_outstanding = 100;
         int completed_count = 0;
 
-        // Define the BlobRequestionOptions on the upload.
+        // Define the BlobRequestOptions on the upload.
         // This includes defining an exponential retry policy to ensure that failed connections are retried with a backoff policy. As multiple large files are being uploaded
         // large block sizes this can cause an issue if an exponential retry policy is not defined.  Additionally parallel operations are enabled with a thread count of 8
         // This could be should be multiple of the number of cores that the machine has. Lastly MD5 hash validation is disabled for this example, this improves the upload speed.
@@ -190,13 +189,13 @@ C:\>
 
 > [!div class="checklist"]
 > * 연결 문자열 구성
-> * 응용 프로그램 빌드
+> * 애플리케이션 빌드
 > * 응용 프로그램 실행
 > * 연결 수의 유효성 검사
 
 저장소 계정에서 대량의 데이터를 다운로드하는 시리즈 3부 전에 수행합니다.
 
 > [!div class="nextstepaction"]
-> [저장소 계정에 대량의 대용량 파일을 병렬로 업로드](storage-blob-scalable-app-download-files.md)
+> [Azure Storage에서 대량의 임의 데이터 다운로드](storage-blob-scalable-app-download-files.md)
 
 [previous-tutorial]: storage-blob-scalable-app-create-vm.md

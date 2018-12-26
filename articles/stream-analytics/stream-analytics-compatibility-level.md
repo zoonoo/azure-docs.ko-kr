@@ -3,17 +3,17 @@ title: Azure Stream Analytics 작업의 호환성 수준 이해
 description: Azure Stream Analytics 작업의 호환성 수준을 설정하는 방법과 최신 호환성 수준의 주요 변경 내용을 알아봅니다.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/03/2018
-ms.openlocfilehash: 32e73918b2dd98822d42d74002b705ff730145d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 10/15/2018
+ms.openlocfilehash: 83bbb777f5af6d29736db3b53ca39c449402c78e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902977"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977716"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
  
@@ -40,11 +40,11 @@ ms.locfileid: "30902977"
 
   * **이전 버전:** Azure Stream Analytics에서 DataContractSerializer를 사용했기 때문에 메시지 내용에 XML 태그가 포함되었습니다. 예: 
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ “SensorId”:”1”, “Temperature”:64\}\u0001 
+   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
 
   * **현재 버전:** 추가 태그 없이 메시지 내용에 스트림이 직접 포함됩니다. 예: 
   
-   { “SensorId”:”1”, “Temperature”:64} 
+   { "SensorId":"1", "Temperature":64} 
  
 * **필드 이름의 대/소문자 구분 유지**  
 
@@ -68,5 +68,5 @@ ms.locfileid: "30902977"
   * **현재 버전:** 더 이상 자동으로 표준 시간대 정보를 사용하여 문자열 값을 날짜/시간 형식으로 업캐스트하지 않습니다. 따라서 표준 시간대 정보가 유지됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Stream Analytics 문제 해결 가이드](stream-analytics-troubleshooting-guide.md)
+* [Azure Stream Analytics 입력 문제 해결](stream-analytics-troubleshoot-input.md)
 * [Stream Analytics Resource 상태 블레이드](stream-analytics-resource-health.md)

@@ -1,9 +1,9 @@
 ---
 title: Azure Security Center 자습서 - Azure Security Center로 리소스 보호 | Microsoft Docs
-description: 이 자습서는 Just-In-Time VM 액세스 정책과 응용 프로그램 제어 정책을 구성하는 방법을 보여 줍니다.
+description: 이 자습서는 Just-In-Time VM 액세스 정책과 애플리케이션 제어 정책을 구성하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: cda204f5b54aef239cc0795b62c6fa484a27ebb5
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.date: 12/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: 19b5f6d6cb8e0e17dba9944e8b72c6938f168c70
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29529417"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839350"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>자습서: Azure Security Center로 리소스 보호
-Security Center는 액세스 및 응용 프로그램 제어를 통해 악성 활동을 차단하여 위협에 대한 노출을 제한합니다. Just-In-Time VM(가상 머신) 액세스는 지속적인 VM 액세스를 거부할 수 있도록 하여 공격에 대한 노출을 줄입니다. 대신, 필요한 경우에만 VM에 대한 제어 및 감사된 액세스를 제공합니다. 적응형 응용 프로그램 제어는 VM에서 실행할 수 있는 응용 프로그램을 제어하여 맬웨어로부터 VM을 강화합니다. Security Center는 기계 학습을 통해 VM에서 실행 중인 프로세스를 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다.
+Security Center는 액세스 및 애플리케이션 제어를 통해 악성 활동을 차단하여 위협에 대한 노출을 제한합니다. Just-In-Time VM(가상 머신) 액세스는 지속적인 VM 액세스를 거부할 수 있도록 하여 공격에 대한 노출을 줄입니다. 대신, 필요한 경우에만 VM에 대한 제어 및 감사된 액세스를 제공합니다. 적응형 애플리케이션 제어는 VM에서 실행할 수 있는 애플리케이션을 제어하여 맬웨어로부터 VM을 강화합니다. Security Center는 기계 학습을 통해 VM에서 실행 중인 프로세스를 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -34,12 +34,10 @@ Security Center는 액세스 및 응용 프로그램 제어를 통해 악성 활
 Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서에서 설명하는 기능을 단계별로 실행하려면 Security Center 표준 가격 책정 계층에 있어야 합니다. 처음 60일 동안 추가 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
+이 자습서에서 설명하는 기능을 단계별로 실행하려면 Security Center 표준 가격 책정 계층에 있어야 합니다. 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
 
 ## <a name="manage-vm-access"></a>VM 액세스 관리
 Just-In-Time VM 액세스를 사용하면 Azure VM에 대한 인바운드 트래픽을 잠가 공격에 대한 노출을 줄이는 동시에 VM에 쉽게 액세스하여 필요할 때 연결할 수 있습니다.
-
-Just-In-Time VM 액세스는 미리 보기로 제공됩니다.
 
 관리 포트는 항상 열려 있을 필요가 없습니다. 예를 들어 관리 또는 유지 관리 작업을 수행하기 위해 VM에 연결되는 동안에만 열려 있어야 합니다. Just-In-Time을 사용하는 경우 Security Center는 관리 포트에 대한 액세스를 제한하는 NSG(네트워크 보안 그룹) 규칙을 사용하여 공격자의 대상이 되지 않도록 합니다.
 
@@ -73,19 +71,19 @@ Just-In-Time VM 액세스는 미리 보기로 제공됩니다.
 4. **확인**을 선택하여 저장합니다.
 
 ## <a name="harden-vms-against-malware"></a>맬웨어로부터 VM 강화
-적응형 응용 프로그램 제어는 구성된 리소스 그룹에서 실행할 수 있는 응용 프로그램 집합을 정의하는 데 도움이 되며, 이로 인해 특히 맬웨어로부터 VM을 강화할 수 있는 혜택이 있습니다. Security Center는 기계 학습을 통해 VM에서 실행 중인 프로세스를 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다.
+적응형 애플리케이션 제어는 구성된 리소스 그룹에서 실행할 수 있는 애플리케이션 집합을 정의하는 데 도움이 되며, 이로 인해 특히 맬웨어로부터 VM을 강화할 수 있는 혜택이 있습니다. Security Center는 기계 학습을 통해 VM에서 실행 중인 프로세스를 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다.
 
-적응형 응용 프로그램 제어는 미리 보기로 제공됩니다. 이 기능은 Windows 컴퓨터에서만 사용할 수 있습니다.
+이 기능은 Windows 컴퓨터에서만 사용할 수 있습니다.
 
 1. Security Center 주 메뉴로 돌아갑니다. **고급 클라우드 방어** 아래에서 **적응형 응용 프로그램 제어**를 선택합니다.
 
-   ![적응 응용 프로그램 컨트롤][3]
+   ![적응형 애플리케이션 제어][3]
 
   **리소스 그룹** 섹션에는 세 개의 탭이 있습니다.
 
   - **구성됨**: 응용 프로그램 제어로 구성된 VM을 포함하는 리소스 그룹 목록입니다.
   - **권장**: 응용 프로그램 제어가 권장되는 리소스 그룹 목록입니다.
-  - **권장 사항 없음**: 응용 프로그램 제어 권장 사항이 없는 VM을 포함하는 리소스 그룹 목록입니다. 예를 들어 응용 프로그램이 항상 변경되어 안정적인 상태에 도달하지 않았던 VM이 있습니다.
+  - **권장 사항 없음**: 응용 프로그램 제어 권장 사항이 없는 VM을 포함하는 리소스 그룹 목록입니다. 예를 들어 애플리케이션이 항상 변경되어 안정적인 상태에 도달하지 않았던 VM이 있습니다.
 
 2. **권장** 탭을 선택하여 응용 프로그램 제어 권장 사항이 있는 리소스 그룹 목록을 확인합니다.
 
@@ -96,7 +94,7 @@ Just-In-Time VM 액세스는 미리 보기로 제공됩니다.
   - **이름**: 전체 응용 프로그램 경로
   - **프로세스**: 모든 경로 내에 있는 응용 프로그램 수
   - **일반**: "예"는 이러한 프로세스가 리소스 그룹에 있는 대부분의 VM에서 실행되었음을 나타냅니다.
-  - **악용 가능**: 경고 아이콘은 응용 프로그램 허용 목록을 우회하기 위해 공격자가 사용할 수 응용 프로그램임을 나타냅니다. 승인 전에 이러한 응용 프로그램을 검토하는 것이 좋습니다.
+  - **악용 가능**: 경고 아이콘은 응용 프로그램 허용 목록을 우회하기 위해 공격자가 사용할 수 응용 프로그램임을 나타냅니다. 승인 전에 이러한 애플리케이션을 검토하는 것이 좋습니다.
 
 4. 선택이 완료되면 **만들기**를 선택합니다.
 
@@ -125,7 +123,7 @@ Just-In-Time VM 액세스는 미리 보기로 제공됩니다.
 
 > [!div class="checklist"]
 > * Just-In-Time VM 액세스 정책을 구성하여 필요할 때만 VM에 대한 제어 및 감사된 액세스 제공
-> * 적응형 응용 프로그램을 구성하여 VM에서 실행할 수 있는 응용 프로그램 제어
+> * 적응형 애플리케이션 제어를 구성하여 VM에서 실행할 수 있는 애플리케이션 제어
 
 보안 인시던트에 대응하는 방법을 알아보려면 다음 자습서로 진행합니다.
 

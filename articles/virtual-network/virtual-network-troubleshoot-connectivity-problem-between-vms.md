@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 6decb0e9188db00608be35d9ba4e84df92ceb671
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 7574ac1a5937fbe963ef764d42f04d00f6c02d69
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072337"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241772"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Azure VM 간의 연결 문제 해결
 
@@ -39,7 +39,7 @@ Azure VM(Virtual Machines) 간에 연결 문제가 발생할 수 있습니다. �
 4. [VM 앱 또는 서비스가 포트에서 수신 대기하는지 여부 확인](#step-4-check-whether-vm-app-or-service-is-listening-on-the-port)
 5. [문제가 SNAT에 의해 발생하는지 여부 확인](#step-5-check-whether-the-problem-is-caused-by-snat)
 6. [트래픽이 클래식 VM의 ACL에 의해 차단되는지 여부 ](#step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm)
-7. [클래식 VM에 대해 끝점이 생성되는지 여부 확인](#step-7-check-whether-the-endpoint-is-created-for-the-classic-vm)
+7. [클래식 VM에 대해 엔드포인트가 생성되는지 여부 확인](#step-7-check-whether-the-endpoint-is-created-for-the-classic-vm)
 8. [VM 네트워크 공유에 연결해보기](#step-8-try-to-connect-to-a-vm-network-share)
 9. [vNET 간 연결 확인](#step-9-check-inter-vnet-connectivity)
 
@@ -95,15 +95,15 @@ VM 앱 또는 서비스가 포트에서 수신 대기하는지 여부를 확인�
 
 ### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>6단계: 트래픽이 클래식 VM의 ACL에 의해 차단되는지 여부
 
-ACL(액세스 제어 목록)은 가상 머신 끝점의 트래픽을 선택적으로 허용하거나 거부하는 기능을 제공합니다. 자세한 내용은 [끝점에서의 ACL 관리](../virtual-machines/windows/classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요.
+ACL(액세스 제어 목록)은 가상 머신 엔드포인트의 트래픽을 선택적으로 허용하거나 거부하는 기능을 제공합니다. 자세한 내용은 [엔드포인트에서의 ACL 관리](../virtual-machines/windows/classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요.
 
-### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>7단계: 클래식 VM에 대해 끝점이 생성되는지 여부 확인
+### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>7단계: 클래식 VM에 대해 엔드포인트가 생성되는지 여부 확인
 
-클래식 배포 모델을 사용하여 Azure에서 만든 모든 VM은 개인 네트워크 채널을 통해 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 머신과 자동으로 통신할 수 있습니다. 그러나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 끝점이 필요합니다. 자세한 내용은 [끝점을 설정하는 방법](../virtual-machines/windows/classic/setup-endpoints.md)을 참조하세요.
+클래식 배포 모델을 사용하여 Azure에서 만든 모든 VM은 개인 네트워크 채널을 통해 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 머신과 자동으로 통신할 수 있습니다. 그러나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 엔드포인트가 필요합니다. 자세한 내용은 [엔드포인트를 설정하는 방법](../virtual-machines/windows/classic/setup-endpoints.md)을 참조하세요.
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>8단계: VM 네트워크 공유에 연결해보기
 
-VM 네트워크 공유에 연결할 수 없으면 VM의 사용할 수 없는 NIC가 문제의 원인일 수 있습니다. 사용할 수 없는 NIC를 삭제하려면 [사용할 수 없는 NIC를 삭제하는 방법](../virtual-machines/windows/reset-network-interface.md#delete-the-unavailable-nics)을 참조하세요.
+VM 네트워크 공유에 연결할 수 없으면 VM의 사용할 수 없는 NIC가 문제의 원인일 수 있습니다. 사용할 수 없는 NIC를 삭제하려면 [사용할 수 없는 NIC를 삭제하는 방법](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)을 참조하세요.
 
 ### <a name="step-9-check-inter-vnet-connectivity"></a>9단계: vNET 간 연결 확인
 

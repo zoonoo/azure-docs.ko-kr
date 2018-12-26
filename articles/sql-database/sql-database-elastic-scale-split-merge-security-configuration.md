@@ -1,21 +1,23 @@
 ---
 title: 분할-병합 보안 구성 | Microsoft Docs
 description: 탄력적 크기 조정을 위해 분할/병합 서비스를 통해 암호화에 대해 409 인증서를 설정합니다.
-metakeywords: Elastic Database certificates security
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: bb2090aba61f32e79fe3a9fd950e6e3688193d7d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647088"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231400"
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
 분할/병합 서비스를 사용하려면 보안을 올바르게 구성해야 합니다. 서비스는 Microsoft Azure SQL Database의 탄력적인 확장 기능에 속합니다. 자세한 내용은 [탄력적인 확장 분할 및 병합 서비스 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
@@ -27,21 +29,21 @@ ms.locfileid: "34647088"
 2. [클라이언트 인증서를 구성하려면](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>인증서를 얻으려면
-공용 CA(인증 기관) 또는 [Windows 인증서 서비스](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)에서 인증서를 얻을 수 있습니다. 인증서를 가져올 때 이러한 방법이 일반적으로 사용됩니다.
+공용 CA(인증 기관) 또는 [Windows 인증서 서비스](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)에서 인증서를 얻을 수 있습니다. 인증서를 가져올 때 이러한 방법이 일반적으로 사용됩니다.
 
 이러한 옵션을 사용할 수 없는 경우 **자체 서명된 인증서**를 생성할 수 있습니다.
 
 ## <a name="tools-to-generate-certificates"></a>인증서를 생성하는 도구
-* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>도구를 실행하려면
-* Visual Studio용 개발자 명령 프롬프트에서 [Visual Studio 명령 프롬프트를 참조하세요](http://msdn.microsoft.com/library/ms229859.aspx) 
+* Visual Studio용 개발자 명령 프롬프트에서 [Visual Studio 명령 프롬프트를 참조하세요](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     설치되어 있는 경우 다음으로 이동합니다.
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* WDK 가져오기 [Windows 8.1: 키트 및 도구 다운로드](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* WDK 가져오기 [Windows 8.1: 키트 및 도구 다운로드](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>SSL 인증서를 구성하려면
 통신을 암호화하고 서버를 인증하려면 SSL 인증서가 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
@@ -87,7 +89,7 @@ ms.locfileid: "34647088"
 6. [클라이언트 인증서 해지 확인 구성](#Configure-Client-Certificate-Revocation-Check)
 
 ## <a name="allowed-ip-addresses"></a>허용된 IP 주소
-특정 범위의 IP 주소에서만 서비스 끝점에 액세스하도록 제한할 수 있습니다.
+특정 범위의 IP 주소에서만 서비스 엔드포인트에 액세스하도록 제한할 수 있습니다.
 
 ## <a name="to-configure-encryption-for-the-store"></a>저장소에 대한 암호화를 구성하려면
 메타데이터 저장소에 저장된 자격 증명을 암호화하려면 인증서가 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
@@ -108,11 +110,11 @@ ms.locfileid: "34647088"
 2. [서비스 구성 파일에서 암호화 인증서 업데이트](#update-encryption-certificate-in-service-configuration-file)
 
 ## <a name="the-default-configuration"></a>기본 구성
-기본 구성에서는 HTTP 끝점에 대한 모든 액세스를 거부합니다. 이러한 끝점에 대한 요청에서는 데이터베이스 자격 증명과 같은 중요한 정보가 전송될 수 있으므로 이 설정을 사용하는 것이 좋습니다.
-기본 구성에서는 HTTPS 끝점에 대한 모든 액세스가 허용됩니다. 이 설정을 추가로 제한할 수 있습니다.
+기본 구성에서는 HTTP 엔드포인트에 대한 모든 액세스를 거부합니다. 이러한 엔드포인트에 대한 요청에서는 데이터베이스 자격 증명과 같은 중요한 정보가 전송될 수 있으므로 이 설정을 사용하는 것이 좋습니다.
+기본 구성에서는 HTTPS 엔드포인트에 대한 모든 액세스가 허용됩니다. 이 설정을 추가로 제한할 수 있습니다.
 
 ### <a name="changing-the-configuration"></a>구성 변경
-**서비스 구성 파일**의 **<EndpointAcls>** 섹션에서 끝점에 적용되는 액세스 제어 규칙 그룹을 구성합니다.
+**서비스 구성 파일**의 **<EndpointAcls>** 섹션에서 엔드포인트에 적용되는 액세스 제어 규칙 그룹을 구성합니다.
 
     <EndpointAcls>
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
@@ -122,7 +124,7 @@ ms.locfileid: "34647088"
 액세스 제어 그룹의 규칙은 서비스 구성 파일의 <AccessControl name=""> 섹션에서 구성합니다. 
 
 해당 형식에 대한 설명은 네트워크 Access Control 목록 설명서에 나와 있습니다.
-예를 들어 100.100.0.0~100.100.255.255 범위의 IP만 HTTPS 끝점에 액세스하도록 허용하려는 경우의 규칙은 다음과 같습니다.
+예를 들어 100.100.0.0~100.100.255.255 범위의 IP만 HTTPS 엔드포인트에 액세스하도록 허용하려는 경우의 규칙은 다음과 같습니다.
 
     <AccessControl name="Retricted">
       <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
@@ -139,7 +141,7 @@ ms.locfileid: "34647088"
 
 이러한 메커니즘은 IIS의 동적 IP 보안에 자세히 설명되어 있는 기능을 기반으로 합니다. 이 구성을 변경할 때 다음과 같은 요인에 주의하세요.
 
-* 프록시 및 원격 호스트 정보를 통한 Network Address Translation 장치의 동작
+* 프록시 및 원격 호스트 정보를 통한 Network Address Translation 디바이스의 동작
 * 웹 역할의 모든 리소스에 대한 각 요청(예: 스크립트, 이미지 등 로드) 이 고려됨
 
 ## <a name="restricting-number-of-concurrent-accesses"></a>동시 액세스 수 제한
@@ -219,7 +221,7 @@ SSL 키 쌍이 포함된 기존 또는 생성된 .PFX 파일을 업로드합니�
 * 신뢰할 수 있는 루트 인증 기관 저장소로 인증서를 가져옵니다.
 
 ## <a name="turn-off-client-certificate-based-authentication"></a>클라이언트 인증서 기반 인증 해제
-클라이언트 인증서 기반 인증만 지원되며, 이를 사용하지 않으면 다른 메커니즘(예: Microsoft Azure Virtual Network)이 없는 한 서비스 끝점에 대한 공용 액세스가 허용됩니다.
+클라이언트 인증서 기반 인증만 지원되며, 이를 사용하지 않으면 다른 메커니즘(예: Microsoft Azure Virtual Network)이 없는 한 서비스 엔드포인트에 대한 공용 액세스가 허용됩니다.
 
 서비스 구성 파일에서 이러한 설정을 false로 변경하여 기능을 해제합니다.
 
@@ -441,7 +443,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 7. 완료되면 목록의 새 항목에서 인증서 지문을 복사합니다.
 
 ## <a name="other-security-considerations"></a>기타 보안 고려 사항
-이 문서에 설명된 SSL 설정은 HTTPS 끝점을 사용하는 경우 해당 클라이언트와 서비스 간의 통신을 암호화합니다. 데이터베이스 액세스에 대한 자격 증명 및 기타 잠재적으로 중요한 정보가 통신에 포함되므로 이러한 암호화가 중요합니다. 단, 서비스에서 Microsoft Azure 구독의 메타데이터 저장소에 대해 제공한 Microsoft Azure SQL 데이터베이스의 내부 테이블에 있는 자격 증명을 비롯하여 내부 상태를 유지합니다. 해당 데이터베이스는 서비스 구성 파일(.CSCFG 파일)에서 다음 설정의 일부로 정의됩니다. 
+이 문서에 설명된 SSL 설정은 HTTPS 엔드포인트를 사용하는 경우 해당 클라이언트와 서비스 간의 통신을 암호화합니다. 데이터베이스 액세스에 대한 자격 증명 및 기타 잠재적으로 중요한 정보가 통신에 포함되므로 이러한 암호화가 중요합니다. 단, 서비스에서 Microsoft Azure 구독의 메타데이터 저장소에 대해 제공한 Microsoft Azure SQL 데이터베이스의 내부 테이블에 있는 자격 증명을 비롯하여 내부 상태를 유지합니다. 해당 데이터베이스는 서비스 구성 파일(.CSCFG 파일)에서 다음 설정의 일부로 정의됩니다. 
 
     <Setting name="ElasticScaleMetadata" value="Server=…" />
 

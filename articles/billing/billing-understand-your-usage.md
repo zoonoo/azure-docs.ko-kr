@@ -4,7 +4,7 @@ description: Azure 구독에 대한 세부 사용량 CSV 섹션을 읽고 이해
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: alherz
 editor: ''
 tags: billing
 ms.service: billing
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
-ms.openlocfilehash: 723e42d2bb2af09eb2236c3cbefeee33987ea45b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: c5b41d86133bbcafcc61423b4d60e59846edc2f2
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060803"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580918"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure 세부 사용 요금 조건 이해 
 
@@ -77,7 +77,7 @@ CSV 파일의 일일 사용량 섹션에는 청구 요금에 영향을 주는 �
 |사용되는 서비스 |사용한 Azure 플랫폼 서비스입니다. |
 |리소스 그룹 |배포된 측정기가 실행되는 리소스 그룹입니다. <br/><br/>자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요. |
 |인스턴스 ID | 측정기에 대한 식별자입니다. <br/><br/> 식별자를 만들 때 측정기에 대해 지정한 이름을 포함합니다. 리소스의 이름 또는 정규화된 리소스 ID입니다. 자세한 내용은 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources)를 참조하세요. |
-|태그들 | 측정기에 할당하는 태그입니다. 태그를 사용하여 청구 레코드를 그룹화합니다.<br/><br/>예를 들어 측정기를 사용하는 부서는 비용을 배분하는 데 태그를 사용할 수 있습니다. 태그를 내보내도록 지원하는 서비스에는 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources)를 사용하여 프로비전된 가상 머신, 저장소 및 네트워킹 서비스가 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)을 참조하세요. |
+|태그들 | 측정기에 할당하는 태그입니다. 태그를 사용하여 청구 레코드를 그룹화합니다.<br/><br/>예를 들어 측정기를 사용하는 부서는 비용을 배분하는 데 태그를 사용할 수 있습니다. 태그를 내보내도록 지원하는 서비스에는 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources)를 사용하여 프로비전된 가상 머신, 저장소 및 네트워킹 서비스가 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)을 참조하세요. |
 |추가 정보 |서비스 특정 메타데이터입니다. 예를 들어 가상 컴퓨터용 이미지 형식입니다. |
 |서비스 정보 1 |구독에서 서비스가 속한 프로젝트 이름입니다. |
 |서비스 정보 2 |선택적 서비스 특정 메타데이터를 캡처하는 레거시 필드입니다. |
@@ -88,5 +88,6 @@ CSV 파일의 일일 사용량 섹션에는 청구 요금에 영향을 주는 �
 ## <a name="external"></a>외부 서비스 요금은 어떤가요?
 외부 서비스(또는 Marketplace 주문)는 독립 서비스 공급업체에서 제공하며 별도로 청구됩니다. Azure 청구서에 요금이 표시되지 않습니다. 자세한 내용은 [Azure 외부 서비스 요금의 이해](billing-understand-your-azure-marketplace-charges.md)를 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
-추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?)하여 문제를 신속하게 해결하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -1,5 +1,6 @@
 ---
 title: Android의 Java에서 Microsoft Speech Recognition API 시작 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Microsoft Speech API를 사용하여 음성 오디오를 텍스트로 변환하는 Android 응용 프로그램을 개발합니다.
 services: cognitive-services
 author: zhouwangzw
@@ -7,20 +8,22 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a10f7be1c36fb431016a9867f606e26be858069e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4c5243ec14a4494222168bb33b3e840b96f8465e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373894"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345257"
 ---
-# <a name="get-started-with-speech-recognition-in-java-on-android"></a>Android의 Java에서 Speech Recognition 시작
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Speech Recognition API를 사용하면 클라우드 기반 Speech Service를 사용하여 음성 오디오를 텍스트로 변환하는 Android 응용 프로그램을 개발할 수 있습니다. API는 실시간 스트리밍을 지원하므로 응용 프로그램에서 오디오를 서비스에 보내는 동시에 부분 인식 결과를 동시에 비동기적으로 받을 수 있습니다.
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>빠른 시작: Android의 Java에서 Bing Speech Recognition API 사용
 
-이 문서에서는 샘플 응용 프로그램을 사용하여 Android용 Speech 클라이언트 라이브러리를 통해 Android 장치용 Java에서 음성 - 텍스트 변환 응용 프로그램을 개발하는 방법을 보여 줍니다.
+Bing Speech Recognition API를 사용하면 클라우드 기반 Bing Speech 서비스를 사용하여 음성 오디오를 텍스트로 변환하는 Android 응용 프로그램을 개발할 수 있습니다. API는 실시간 스트리밍을 지원하므로 응용 프로그램에서 오디오를 서비스에 보내는 동시에 부분 인식 결과를 동시에 비동기적으로 받을 수 있습니다.
+
+이 문서에서는 샘플 애플리케이션을 사용하여 Android용 Speech 클라이언트 라이브러리를 통해 Android 디바이스용 Java에서 음성 - 텍스트 변환 애플리케이션을 개발하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

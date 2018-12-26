@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9790cd7c79efa1b64220f9e128de9a3b8eb902c0
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178826"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426947"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 Azure Key Vault는 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
@@ -143,7 +143,7 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
-**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
+**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json**\*\*
 
 이 출력에서 확인할 수 있듯이 Blob은 명명 규칙 **resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json**을 따릅니다.
 
@@ -235,7 +235,7 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 | operationName | REST API 명령 |
 | --- | --- |
-| 인증 |Azure Active Directory 끝점을 통해 |
+| 인증 |Azure Active Directory 엔드포인트를 통해 |
 | VaultGet |[키 자격 증명 모음에 대한 정보 가져오기](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
 | VaultPut |[키 자격 증명 모음 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
 | VaultDelete |[키 자격 증명 모음 삭제](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
@@ -265,7 +265,7 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 ## <a id="loganalytics"></a>Log Analytics 사용
 
-Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault AuditEvent 로그를 검토할 수 있습니다. 설정 방법을 비롯한 자세한 내용은 [Log Analytics의 Azure Key Vault 솔루션](../log-analytics/log-analytics-azure-key-vault.md)을 참조하세요. 또한 이 문서는 먼저 Azure Storage 계정으로 로그를 라우팅하고 해당 위치에서 읽도록 Log Analytics를 구성한 Log Analytics 미리 보기 중 제공된 이전 Key Vault 솔루션에서 마이그레이션해야 할 경우 지침을 포함합니다.
+Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault AuditEvent 로그를 검토할 수 있습니다. 설정 방법을 비롯한 자세한 내용은 [Log Analytics의 Azure Key Vault 솔루션](../azure-monitor/insights/azure-key-vault.md)을 참조하세요. 또한 이 문서는 먼저 Azure Storage 계정으로 로그를 라우팅하고 해당 위치에서 읽도록 Log Analytics를 구성한 Log Analytics 미리 보기 중 제공된 이전 Key Vault 솔루션에서 마이그레이션해야 할 경우 지침을 포함합니다.
 
 ## <a id="next"></a>다음 단계
 웹 응용 프로그램에서 Azure Key Vault를 사용하는 자습서는 [웹 응용 프로그램에서 Azure Key Vault 사용](key-vault-use-from-web-application.md)을 참조하세요.

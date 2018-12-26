@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator를 사용하여 Facebook 콘텐츠 조정 | Microsoft Docs
-description: 기계 학습 기반 Content Moderator를 사용하여 Facebook 페이지 조정
+title: '자습서: Facebook 콘텐츠 조정 - Azure Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Content Moderator를 사용한 Facebook 페이지 조정입니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 316c7212c30e9fe1151cdf5ceabf875439ad4c65
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373383"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255434"
 ---
-# <a name="facebook-content-moderation-with-content-moderator"></a>Content Moderator를 사용하여 Facebook 콘텐츠 조정
+# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>자습서: Content Moderator를 사용하여 Facebook 콘텐츠 조정
 
 이 자습서에서는 기계 학습 기반 Content Moderator를 사용하여 Facebook 게시물 및 의견을 조정하는 방법을 알아봅니다.
 
@@ -67,7 +68,7 @@ ms.locfileid: "35373383"
 | 앱 설정 | 설명   | 
 | -------------------- |-------------|
 | cm:TeamId   | Content Moderator 팀 ID  | 
-| cm:SubscriptionKey | Content Moderator 구독 키 - [자격 증명](/review-tool-user-guide/credentials.md) 참조 | 
+| cm:SubscriptionKey | Content Moderator 구독 키 - [자격 증명](review-tool-user-guide/credentials.md) 참조 | 
 | cm:Region | Content Moderator 지역 이름(공백 없이) 위의 참고를 참조하세요. |
 | cm:ImageWorkflow | 이미지에서 실행할 워크플로의 이름 |
 | cm:TextWorkflow | 텍스트에서 실행할 워크플로의 이름 |
@@ -85,7 +86,7 @@ ms.locfileid: "35373383"
     6. **만들기**를 클릭합니다.
     7. **run.csx**의 콘텐츠를 [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx)의 콘텐츠로 바꿉니다.
 
-6. **CMListener**라는 새 **HttpTrigger-CSharp** 함수를 만듭니다. 이 함수는 Facebook의 이벤트를 수신합니다. 다음 단계에 따라 이 함수를 만듭니다.
+6. **CMListener**라는 새 **HttpTrigger-CSharp** 함수를 만듭니다. 이 함수는 Content Moderator에서 이벤트를 수신합니다. 다음 단계에 따라 이 함수를 만듭니다.
 
     1. 참조를 위해 [Azure Functions 생성](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 페이지를 열어 둡니다.
     2. **+** 를 클릭하여 새 함수 만들기에 추가합니다.
@@ -159,7 +160,7 @@ Microsoft Cognitive Services SDK 및 샘플은 모두 MIT 라이선스를 통해
 ## <a name="next-steps"></a>다음 단계
 
 1. Microsoft Build 2017에서 이 솔루션의 [데모(비디오)를 봅니다](https://channel9.msdn.com/Events/Build/2017/T6033).
-1. [Github의 Facebook 샘플](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
+1. [GitHub의 Facebook 샘플](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
 2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
 3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token

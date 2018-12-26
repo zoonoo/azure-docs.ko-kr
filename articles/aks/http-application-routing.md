@@ -1,6 +1,6 @@
 ---
-title: Azure Container Service(AKS)의 HTTP 응용 프로그램 라우팅 추가 기능
-description: Azure Container Service(AKS)에서 HTTP 응용 프로그램 라우팅 추가 기능 사용
+title: AKS(Azure Kubernetes Service)의 HTTP 응용 프로그램 라우팅 추가 기능
+description: AKS(Azure Kubernetes Service)의 HTTP 응용 프로그램 라우팅 추가 기능을 사용합니다.
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -8,32 +8,60 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 6e5a81742b4a6b21e5cfa28d8e772430f8ae30ba
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c2f68afb685cb04d456e06cadf378bd1c3ebb1fb
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384984"
 ---
 # <a name="http-application-routing"></a>HTTP 응용 프로그램 라우팅
 
-HTTP 응용 프로그램 라우팅 솔루션을 사용하면 AKS 클러스터에 배포된 응용 프로그램에 쉽게 액세스할 수 있습니다. 사용하도록 설정되면 솔루션이 AKS 클러스터에 수신 컨트롤러를 구성합니다. 또한 응용 프로그램을 배포할 때 솔루션이 응용 프로그램 끝점에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
+HTTP 응용 프로그램 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 응용 프로그램에 쉽게 액세스할 수 있습니다. 솔루션이 사용하도록 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램이 배포되면 솔루션에서 응용 프로그램 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
 
-이 추가 기능을 사용하도록 설정하면 구독에 DNS 영역을 만듭니다. DNS 비용에 대한 자세한 내용은 [DNS 가격 책정][dns-pricing]을 참조하세요.
+추가 기능이 사용하도록 설정되면 구독에 DNS 영역을 만듭니다. DNS 비용에 대한 자세한 내용은 [DNS 가격 책정][dns-pricing]을 참조하세요.
+
+> [!CAUTION]
+> HTTP 응용 프로그램 라우팅 추가 기능은 수신 컨트롤러를 빠르게 만들고 응용 프로그램에 액세스할 수 있도록 설계되었습니다. 이 추가 기능은 프로덕션 용도로 사용하지 않는 것이 좋습니다. 여러 복제본 및 TLS 지원을 포함하는 프로덕션 준비 수신 배포에 대해서는 [HTTPS 수신 컨트롤러 만들기](https://docs.microsoft.com/azure/aks/ingress-tls)를 참조하세요.
 
 ## <a name="http-routing-solution-overview"></a>HTTP 라우팅 솔루션 개요
 
-추가 기능은 두 구성 요소, [Kubernetes 수신 컨트롤러][ingress] 및 [외부 DNS][external-dns] 컨트롤러를 배포합니다.
+추가 기능은 [Kubernetes 수신 컨트롤러][ingress] 및 [외부 DNS][external-dns] 컨트롤러라는 두 구성 요소를 배포합니다.
 
-- **수신 컨트롤러** - 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. 수신 컨트롤러는 응용 프로그램 끝점에 대한 경로를 만드는 [Kubernetes 수신 리소스][ingress-resource]를 감시하고 구현합니다.
-- **외부 DNS 컨트롤러** - Kubernetes 수신 리소스를 감시하고 클러스터별 DNS 영역에 DNS A 레코드를 만듭니다.
+- **수신 컨트롤러**: 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. 수신 컨트롤러는 응용 프로그램 엔드포인트에 대한 경로를 만드는 [Kubernetes 수신 리소스][ingress-resource]를 감시하고 구현합니다.
+- **외부 DNS 컨트롤러**: Kubernetes 수신 리소스를 감시하고 클러스터 특정 DNS 영역에 DNS A 레코드를 만듭니다.
 
-## <a name="deploy-http-routing"></a>HTTP 라우팅 배포
+## <a name="deploy-http-routing-cli"></a>HTTP 라우팅 배포: CLI
+
+AKS 클러스터를 배포할 때 Azure CLI를 통해 HTTP 응용 프로그램 라우팅 추가 기능을 사용하도록 설정할 수 있습니다. [az aks create][az-aks-create] 명령에 `--enable-addons` 인수를 사용하면 됩니다.
+
+```azurecli
+az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
+```
+
+[az aks enable-addons][az-aks-enable-addons] 명령을 사용하여 기존 AKS 클러스터에서 HTTP 라우팅을 활성화할 수도 있습니다. 기존 클러스터에서 HTTP 라우팅을 활성화하려면 `--addons` 매개 변수를 추가하고 다음 예제에서와 같이 *http_application_routing*을 지정합니다.
+
+```azurecli
+az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
+```
+
+클러스터가 배포되거나 업데이트된 후 [az aks show][az-aks-show] 명령을 사용하여 DNS 영역 이름을 검색합니다. 이 이름은 응용 프로그램을 AKS 클러스터에 배포하는 데 필요합니다.
+
+```azurecli
+$ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+
+Result
+-----------------------------------------------------
+9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+```
+
+## <a name="deploy-http-routing-portal"></a>HTTP 라우팅 배포: Portal
 
 AKS 클러스터를 배포할 때 Azure Portal을 통해 HTTP 응용 프로그램 라우팅 추가 기능을 사용하도록 설정할 수 있습니다.
 
 ![HTTP 라우팅 기능을 사용하도록 설정](media/http-routing/create.png)
 
-클러스터가 배포되면 자동 생성 AKS 리소스 그룹을 찾아 DNS 영역을 선택합니다. DNS 영역 이름을 기록해 둡니다. 이 이름은 응용 프로그램을 AKS 클러스터에 배포할 때 필요합니다.
+클러스터가 배포되면 자동 생성 AKS 리소스 그룹을 찾아 DNS 영역을 선택합니다. DNS 영역 이름을 기록해 둡니다. 이 이름은 응용 프로그램을 AKS 클러스터에 배포하는 데 필요합니다.
 
 ![DNS 영역 이름 가져오기](media/http-routing/dns.png)
 
@@ -41,12 +69,12 @@ AKS 클러스터를 배포할 때 Azure Portal을 통해 HTTP 응용 프로그�
 
 HTTP 응용 프로그램 라우팅 솔루션은 다음과 같이 주석 처리된 수신 리소스에서만 트리거될 수 있습니다.
 
-```
+```yaml
 annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-파일 `samples-http-application-routing.yaml`을 만들고 다음 YAML에 복사합니다. 43줄에서 이 문서의 마지막 단계에서 수집한 DNS 영역 이름으로 `<CLUSTER_SPECIFIC_DNS_ZONE>`을 업데이트합니다.
+**samples-http-application-routing.yaml**이라는 파일을 만들고 다음 YAML을 복사합니다. 줄 43에서, 이 문서의 이전 단계에서 수집한 DNS 영역 이름으로 `<CLUSTER_SPECIFIC_DNS_ZONE>`을 업데이트합니다.
 
 
 ```yaml
@@ -63,6 +91,13 @@ spec:
       containers:
       - image: r.j3ss.co/party-clippy
         name: party-clippy
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         tty: true
         command: ["party-clippy"]
         ports:
@@ -100,7 +135,7 @@ spec:
 
 [kubectl apply][kubectl-apply] 명령을 사용하여 리소스를 만듭니다.
 
-```
+```bash
 $ kubectl apply -f samples-http-application-routing.yaml
 
 deployment "party-clippy" created
@@ -108,9 +143,9 @@ service "party-clippy" created
 ingress "party-clippy" created
 ```
 
-cURL 또는 브라우저를 사용하여 `samples-http-application-routing.yaml` 파일의 호스트 섹션에 지정된 호스트 이름으로 이동합니다. 응용 프로그램이 인터넷을 통해 사용하기까지 최대 1분이 걸릴 수 있습니다.
+cURL 또는 브라우저를 사용하여 samples-http-application-routing.yaml 파일의 호스트 섹션에 지정된 호스트 이름으로 이동합니다. 인터넷을 통해 응용 프로그램을 사용할 수 있기까지 최대 1분 정도 걸릴 수 있습니다.
 
-```
+```bash
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
  _________________________________
@@ -131,9 +166,17 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ```
 
-## <a name="troubleshooting"></a>문제 해결
+## <a name="remove-http-routing"></a>HTTP 라우팅 제거
 
-외부 DNS 응용 프로그램의 응용 프로그램 로그를 보려면 [kubectl logs][kubectl-logs] 명령을 사용합니다. 로그에서 A 및 TXT DNS 레코드가 성공적으로 만들어졌는지 확인합니다.
+Azure CLI를 사용하여 HTTP 라우팅 솔루션을 제거할 수 있습니다. 이렇게 하려면 AKS 클러스터 및 리소스 그룹 이름을 대체하는 다음 명령을 실행합니다.
+
+```azurecli
+az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
+```
+
+## <a name="troubleshoot"></a>문제 해결
+
+외부 DNS 응용 프로그램의 응용 프로그램 로그를 보려면 [kubectl logs][kubectl-logs] 명령을 사용합니다. 로그에서 A 및 TXT DNS 레코드가 성공적으로 만들어졌음을 확인합니다.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
@@ -146,9 +189,9 @@ Azure Portal의 DNS 영역 리소스에서 이러한 레코드를 볼 수도 있
 
 ![DNS 레코드 가져오기](media/http-routing/clippy.png)
 
-[kubectl logs][kubectl-logs] 명령을 사용하여 Nginx 수신 컨트롤러에 대한 응용 프로그램 로그를 봅니다. 로그에서 수신 리소스 생성 및 컨트롤러의 재로드를 확인합니다. 모든 HTTP 작업이 기록됩니다.
+[kubectl logs][kubectl-logs] 명령을 사용하여 Nginx 수신 컨트롤러에 대한 응용 프로그램 로그를 봅니다. 로그에서 수신 리소스 `CREATE` 및 컨트롤러 다시 로드를 확인합니다. 모든 HTTP 작업이 기록됩니다.
 
-```
+```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
 
 -------------------------------------------------------------------------------
@@ -185,11 +228,11 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 167.220.24.46 - [167.220.24.46] - - [26/Apr/2018:21:53:20 +0000] "GET / HTTP/1.1" 200 234 "" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" 197 0.001 [default-party-clippy-80] 10.244.0.13:8080 234 0.004 200
 ```
 
-## <a name="cleanup"></a>정리
+## <a name="clean-up"></a>정리
 
-이 단계에서 만든 연결된 Kubernetes 개체를 제거합니다.
+이 문서에서 만든 연결된 Kubernetes 개체를 제거합니다.
 
-```
+```bash
 $ kubectl delete -f samples-http-application-routing.yaml
 
 deployment "party-clippy" deleted
@@ -199,10 +242,14 @@ ingress "party-clippy" deleted
 
 ## <a name="next-steps"></a>다음 단계
 
-AKS에 HTTPS 보안 수신 컨트롤러를 설치하는 방법에 대한 자세한 내용은 [Azure Container Service(AKS)의 HTTPS 수신][ingress-https]을 참조하세요.
+AKS에 HTTPS 보안 수신 컨트롤러를 설치하는 방법에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)의 HTTPS 수신][ingress-https]을 참조하세요.
 
 <!-- LINKS - internal -->
-[ingress-https]: ./ingress.md
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
+[ingress-https]: ./ingress-tls.md
+[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
+
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/

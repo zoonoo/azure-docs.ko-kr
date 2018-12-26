@@ -1,22 +1,20 @@
 ---
-title: 'Azure Cosmos DB: MongoDB API를 사용하여 쿼리하는 방법 | Microsoft Docs'
+title: 'Azure Cosmos DB: MongoDB API를 사용하여 쿼리하는 방법'
 description: Azure Cosmos DB의 MongoDB API를 사용하여 쿼리하는 방법을 알아봅니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/29/2018
-ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 539e41dbd4d9e115c2d8daf90405d7683bcaa462
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.date: 03/29/2018
+ms.openlocfilehash: 8c865ab7fa997b169e481612ce791d960688da56
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763190"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841509"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>자습서: MongoDB API를 사용하여 Azure Cosmos DB 쿼리
 
@@ -27,9 +25,7 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md)는 [MongoDB 셸 쿼리](h
 > [!div class="checklist"]
 > * MongoDB를 사용한 데이터 쿼리
 
-MongoDB를 쿼리하는 방법에 대한 Azure Cosmos DB 프로그램 관리자 Andy Hoh의 비디오를 시청하여 쿼리를 시작할 수 있습니다.
-
->[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
+이 문서의 예제를 사용하여 시작하고 [MongoDB 셸을 사용하여 Azure Cosmos DB 쿼리](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) 비디오를 시청할 수 있습니다.
 
 ## <a name="sample-document"></a>샘플 문서
 
@@ -69,7 +65,7 @@ MongoDB를 쿼리하는 방법에 대한 Azure Cosmos DB 프로그램 관리자 
 
 **쿼리**
     
-    db.families.find({ id: “WakefieldFamily”})
+    db.families.find({ id: "WakefieldFamily"})
 
 **결과**
 
@@ -119,7 +115,7 @@ MongoDB를 쿼리하는 방법에 대한 Azure Cosmos DB 프로그램 관리자 
 
 **쿼리**
     
-    db.families.find( { id: “WakefieldFamily” }, { children: true } )
+    db.families.find( { id: "WakefieldFamily" }, { children: true } )
 
 **결과**
 

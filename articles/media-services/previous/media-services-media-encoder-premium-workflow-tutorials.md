@@ -4,7 +4,7 @@ description: 이 문서는 미디어 인코더 Premium 워크플로를 사용한
 services: media-services
 documentationcenter: ''
 author: xstof
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 3cba7a6a8bf6fbe199664b738b68ceca3a7746f8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0a20f7629fbc102ae05c51c7388bbfd6915d6204
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783952"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257387"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>고급 미디어 인코더 Premium 워크플로 자습서
 ## <a name="overview"></a>개요
@@ -237,7 +237,7 @@ MP4 출력 파일을 작성했지만 이 워크플로를 실행한 결과로 미
 
 이제 2,5Mbps로 960x540를 출력하는 새 AVC 인코더에 대한 구성을 적용합니다. (여기에 해당 속성 "출력 너비", "출력 높이" 및 "비트 전송률(kbps)"을 사용합니다.)
 
-Azure Media Services의 동적 패키징과 함께 결과 자산을 사용하려 한다면 스트리밍 끝점은 서로 정확하게 정렬된 MP4 파일 HLS/조각화된 MP4/DASH 조각에서 생성될 수 있어야 합니다. 생성되는 방법도 다른 비트 전송률 간에 전환하는 클라이언트가 부드러운 단일 연속 비디오 및 오디오 환경을 가져오는 방식이어야 합니다. 이렇게 하려면 두 AVC 인코더 GOP("사진의 그룹")의 속성에서 MP4 파일의 크기가 2초로 설정되어 있는지 확인해야 합니다. 이는 다음으로 수행할 수 있습니다.
+Azure Media Services의 동적 패키징과 함께 결과 자산을 사용하려 한다면 스트리밍 엔드포인트는 서로 정확하게 정렬된 MP4 파일 HLS/조각화된 MP4/DASH 조각에서 생성될 수 있어야 합니다. 생성되는 방법도 다른 비트 전송률 간에 전환하는 클라이언트가 부드러운 단일 연속 비디오 및 오디오 환경을 가져오는 방식이어야 합니다. 이렇게 하려면 두 AVC 인코더 GOP("사진의 그룹")의 속성에서 MP4 파일의 크기가 2초로 설정되어 있는지 확인해야 합니다. 이는 다음으로 수행할 수 있습니다.
 
 * 고정 GOP 크기 모드를 GOP 크기로 설정하고
 * 키 프레임 간격을 2초로 설정합니다.
@@ -939,9 +939,9 @@ xml을 더 자세히 알아보려면 다음과 같습니다.
 ```
 
 ## <a name="also-see"></a>참고 항목
-[Azure Media Services의 프리미엄 Encoding 소개](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+[Azure Media Services의 프리미엄 Encoding 소개](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
-[Azure Media Services의 프리미엄 Encoding 사용 방법](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+[Azure Media Services의 프리미엄 Encoding 사용 방법](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 [Azure Media Services로 주문형 콘텐츠 인코딩](media-services-encode-asset.md#media-encoder-premium-workflow)
 
@@ -949,7 +949,7 @@ xml을 더 자세히 알아보려면 다음과 같습니다.
 
 [샘플 워크플로 파일](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
-[Azure Media Services 탐색기 도구](http://aka.ms/amse)
+[Azure Media Services 탐색기 도구](https://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

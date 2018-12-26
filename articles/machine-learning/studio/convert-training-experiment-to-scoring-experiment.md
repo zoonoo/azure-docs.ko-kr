@@ -3,8 +3,9 @@ title: Azure Machine Learning Studio에서 배포하기 위한 모델을 준비�
 description: Machine Learning Studio 학습 실험을 예측 실험으로 변환하여 학습된 모델을 웹 서비스로 배포하기 위해 준비하는 방법
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: eb943c45-541a-401d-844a-c3337de82da6
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 4bfbe22ba04f154c9f24daa13231d18e73316f9c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7849a21e2d005584030375e2193f74a99b3977bd
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833845"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265239"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 배포하기 위한 모델을 준비하는 방법
 
@@ -64,11 +65,11 @@ Azure Machine Learning Studio는 예측 분석 모델을 개발한 다음 Azure 
 
 이 학습 실험을 예측 실험으로 변환하면 이러한 모듈 중 일부는 다음과 같이 더 이상 필요하지 않거나 다른 용도로 사용됩니다.
 
-* **데이터** - 이 샘플 데이터 집합의 데이터는 점수를 매기는 동안 사용되지 않습니다. 웹 서비스 사용자가 점수를 매길 데이터를 제공합니다. 그러나 데이터 형식과 같은 이 데이터 집합의 메타데이터는 학습된 모델에서 사용됩니다. 따라서 이 메타데이터를 제공할 수 있도록 예측 실험에서 데이터 집합을 유지해야 합니다.
+* **데이터** - 이 샘플 데이터 집합의 데이터는 점수를 매기는 동안 사용되지 않습니다. 웹 서비스 사용자가 점수를 매길 데이터를 제공합니다. 그러나 데이터 형식과 같은 이 데이터 세트의 메타데이터는 학습된 모델에서 사용됩니다. 따라서 이 메타데이터를 제공할 수 있도록 예측 실험에서 데이터 세트를 유지해야 합니다.
 
 * **준비** - 점수 매기기를 위해 제출할 사용자 데이터에 따라 이러한 모듈이 들어오는 데이터를 처리하는 데 필요할 수도 있고 그렇지 않을 수도 있습니다. **웹 서비스 설정** 단추는 이러한 모듈을 수정하지 않지만, 이들을 처리할 방법은 결정해야 합니다.
   
-    예를 들어 이 예제에서 샘플 데이터 집합에는 누락된 값이 있을 수 있으므로 이를 처리하기 위해 [누락된 데이터 정리][clean-missing-data] 모듈이 포함되어 있습니다. 또한 샘플 데이터 집합에는 모델을 학습하는 데 필요하지 않은 열도 포함되어 있습니다. 따라서 [데이터 집합의 열 선택][select-columns] 모듈이 데이터 흐름에서 이러한 여분의 열을 제외하기 위해 포함되었습니다. 점수 매기기를 위해 웹 서비스를 통해 제출할 데이터에 누락된 값이 있다는 것을 아는 경우 [누락된 데이터 정리][clean-missing-data] 모듈을 제거할 수 있습니다. 그러나 [데이터 집합의 열 선택][select-columns] 모듈은 학습된 모델에 필요한 데이터 열을 정의하는 데 유용하므로 해당 모듈을 유지해야 합니다.
+    예를 들어 이 예제에서 샘플 데이터 세트에는 누락된 값이 있을 수 있으므로 이를 처리하기 위해 [누락된 데이터 정리][clean-missing-data] 모듈이 포함되어 있습니다. 또한 샘플 데이터 세트에는 모델을 학습하는 데 필요하지 않은 열도 포함되어 있습니다. 따라서 [데이터 세트의 열 선택][select-columns] 모듈이 데이터 흐름에서 이러한 여분의 열을 제외하기 위해 포함되었습니다. 점수 매기기를 위해 웹 서비스를 통해 제출할 데이터에 누락된 값이 있다는 것을 아는 경우 [누락된 데이터 정리][clean-missing-data] 모듈을 제거할 수 있습니다. 그러나 [데이터 세트의 열 선택][select-columns] 모듈은 학습된 모델에 필요한 데이터 열을 정의하는 데 유용하므로 해당 모듈을 유지해야 합니다.
 
 * **학습** - 이러한 모듈은 모델 학습에 사용됩니다. **웹 서비스 설정**을 클릭하면 이러한 모듈이 학습한 모델을 포함하는 단일 모듈로 바뀝니다. 이 새 모듈은 모듈 팔레트의 **학습한 모델** 섹션에 저장됩니다.
 
@@ -92,7 +93,7 @@ Azure Machine Learning Studio는 예측 분석 모델을 개발한 다음 Azure 
 마찬가지로 기본적으로 **웹 서비스 설정** 은 웹 서비스 출력 모듈을 데이터 흐름의 맨 아래에 둡니다. 이 예제에서 웹 서비스는 사용자에게 전체 입력 데이터 벡터와 점수 매기기 결과가 포함된 [모델 점수 매기기][score-model] 모듈을 반환합니다.
 그러나 다른 모듈을 반환하고 싶은 경우에는 **웹 서비스 출력** 모듈 앞에 모듈을 더 추가할 수 있습니다. 
 
-예를 들어 입력 데이터의 전체 벡터가 아닌 점수 매기기 결과만 반환하려면 [데이터 집합의 열 선택][select-columns] 모듈을 추가하여 점수 매기기 결과를 제외한 모든 열을 제외합니다. 그런 다음 **웹 서비스 출력** 모듈을 [데이터 집합의 열 선택][select-columns] 모듈의 출력으로 이동합니다. 실험은 다음과 같습니다.
+예를 들어 입력 데이터의 전체 벡터가 아닌 점수 매기기 결과만 반환하려면 [데이터 세트의 열 선택][select-columns] 모듈을 추가하여 점수 매기기 결과를 제외한 모든 열을 제외합니다. 그런 다음, **웹 서비스 출력** 모듈을 [데이터 세트의 열 선택][select-columns] 모듈의 출력으로 이동합니다. 실험은 다음과 같습니다.
 
 ![웹 서비스 출력 이동][figure5]
 

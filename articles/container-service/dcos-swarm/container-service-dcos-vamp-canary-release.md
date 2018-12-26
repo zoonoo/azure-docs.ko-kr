@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 0f6c0e9206d9e056ee0496b6cc515625b08b1e4a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 116f8ad1760f8e61c70b34d614a0265d11e3ae65
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959919"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975859"
 ---
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 클러스터에서 Vamp를 사용하여 마이크로 서비스 카나리아 릴리스
 
@@ -29,7 +29,7 @@ ms.locfileid: "36959919"
 
 [카나리아 릴리스](https://martinfowler.com/bliki/CanaryRelease.html)란 Netflix, Facebook, Spotify 등의 혁신적인 조직에서 채택한 영리한 배포 전략입니다. 문제를 줄이고, 안전망을 도입하고, 혁신을 가속화하는 합리적인 방법입니다. 그렇다면 왜 모든 회사에서 이 방법을 사용하지 않을까요? 카나리아 전략을 포함하도록 CI/CD 파이프라인을 확장하면 복잡성이 높아지며 방대한 DevOps 지식과 경험이 필요합니다. 중소기업과 대기업 모두 시작하기도 전에 포기할 정도로 복잡합니다. 
 
-[Vamp](http://vamp.io/)는 이 전환을 좀 더 용이하게 하고 고객이 선호하는 컨테이너 스케줄러에 카나리아 릴리스 기능을 가져오도록 설계된 오픈 소스 시스템입니다. Vamp의 카나리아 기능은 백분율 기반 롤아웃보다 우수합니다. 트래픽을 필터링하고 다양한 조건으로 나눌 수 있습니다. 예를 들어 특정 사용자, IP 범위 또는 장치를 대상으로 할 수 있습니다. Vamp는 성능 메트릭을 추적 및 분석하여 실제 데이터를 기반으로 자동화가 가능합니다. 오류 발생 시 자동으로 롤백하도록 설정하거나 부하 또는 대기 시간에 따라 개별 서비스 변형의 규모를 조정할 수 있습니다.
+[Vamp](http://vamp.io/)는 이 전환을 좀 더 용이하게 하고 고객이 선호하는 컨테이너 스케줄러에 카나리아 릴리스 기능을 가져오도록 설계된 오픈 소스 시스템입니다. Vamp의 카나리아 기능은 백분율 기반 롤아웃보다 우수합니다. 트래픽을 필터링하고 다양한 조건으로 나눌 수 있습니다. 예를 들어 특정 사용자, IP 범위 또는 디바이스를 대상으로 할 수 있습니다. Vamp는 성능 메트릭을 추적 및 분석하여 실제 데이터를 기반으로 자동화가 가능합니다. 오류 발생 시 자동으로 롤백하도록 설정하거나 부하 또는 대기 시간에 따라 개별 서비스 변형의 규모를 조정할 수 있습니다.
 
 ## <a name="set-up-azure-container-service-with-dcos"></a>DC/OS를 사용하여 Azure Container Service 설정
 
@@ -127,7 +127,7 @@ Elasticsearch가 **실행 중**으로 보고하면 DC/OS Universe 패키지를 �
 
 Vamp가 실행 중이니, 청사진의 서비스를 배포합니다. 
 
-[Vamp 청사진](http://vamp.io/documentation/using-vamp/blueprints/)은 가장 간단한 형태로 끝점(게이트웨이), 클러스터 및 배포할 서비스를 설명합니다. Vamp는 클러스터를 사용하여 동일한 서비스의 여러 변형을 카나리아 릴리스 또는 A/B 테스트를 위한 논리 그룹으로 그룹화합니다.  
+[Vamp 청사진](http://vamp.io/documentation/using-vamp/blueprints/)은 가장 간단한 형태로 엔드포인트(게이트웨이), 클러스터 및 배포할 서비스를 설명합니다. Vamp는 클러스터를 사용하여 동일한 서비스의 여러 변형을 카나리아 릴리스 또는 A/B 테스트를 위한 논리 그룹으로 그룹화합니다.  
 
 이 시나리오에서는 [**sava**](https://github.com/magneticio/sava)라고 하는 샘플 모놀리식 응용 프로그램을 사용하며 버전은 1.0입니다. 모놀리식은 magneticio/sava:1.0.0 아래의 Docker 허브에 있는 Docker 컨테이너에 패키지됩니다. 앱은 보통 포트 8080에서 실행되지만 이 예에서는 포트 9050 아래에 노출하려 합니다. 간단한 청사진을 사용하여 Vamp를 통해 앱을 배포합니다.
 
@@ -162,7 +162,7 @@ Vamp가 실행 중이니, 청사진의 서비스를 배포합니다.
 
 게이트웨이 두 개가 생성되며 **게이트웨이** 페이지에 나열됩니다.
 
-* 실행 중인 서비스(9050 포트)에 액세스하는 안정적인 끝점 
+* 실행 중인 서비스(9050 포트)에 액세스하는 안정적인 엔드포인트 
 * Vamp가 관리하는 내부 게이트웨이(이 게이트웨이는 나중에 자세히 설명). 
 
 ![Vamp UI - sava 게이트웨이](./media/container-service-dcos-vamp-canary-release/10_vamp_sava_gateways.png)
@@ -172,7 +172,7 @@ Sava 서비스가 배포되었지만 아직 Azure Load Balancer는 이 서비스
 
 ## <a name="update-the-azure-network-configuration"></a>Azure 네트워크 구성 업데이트
 
-Vamp가 DC/OS 에이전트 노드에 sava 서비스를 배포하고 포트 9050에서 안정적인 끝점을 노출했습니다. DC/OS 클러스터 외부에서 서비스에 액세스하려면 클러스터 배포에서 Azure 네트워크 구성을 다음과 같이 변경해야 합니다. 
+Vamp가 DC/OS 에이전트 노드에 sava 서비스를 배포하고 포트 9050에서 안정적인 엔드포인트를 노출했습니다. DC/OS 클러스터 외부에서 서비스에 액세스하려면 클러스터 배포에서 Azure 네트워크 구성을 다음과 같이 변경해야 합니다. 
 
 1. 포트 9050의 트래픽을 sava 인스턴스로 전달하도록 상태 프로브와 규칙을 사용하여 에이전트(**dcos-agent-lb-xxxx**라는 이름의 리소스)에 대해 **Azure Load Balancer를 구성**합니다. 
 
@@ -227,7 +227,7 @@ Vamp는 청사진에 설명된 새 sava:1.1.0 서비스 변형을 실행 중인 
 
 ![Vamp UI - 업데이트된 sava 배포](./media/container-service-dcos-vamp-canary-release/22_sava_cluster.png)
 
-**sava/sava_cluster/webport** 게이트웨이(클러스터 끝점)도 업데이트되고, 새로 배포된 sava: 1.1.0에 대 한 경로가 추가됩니다. 아직은 트래픽이 여기로 라우팅되지 않습니다(**가중치**가 0%로 설정).
+**sava/sava_cluster/webport** 게이트웨이(클러스터 엔드포인트)도 업데이트되고, 새로 배포된 sava: 1.1.0에 대 한 경로가 추가됩니다. 아직은 트래픽이 여기로 라우팅되지 않습니다(**가중치**가 0%로 설정).
 
 ![Vamp UI - 클러스터 게이트웨이](./media/container-service-dcos-vamp-canary-release/23_sava_cluster_webport.png)
 
@@ -282,7 +282,7 @@ Vamp는 **조건**을 사용하여 게이트웨이의 경로 간 트래픽을 �
 
 ## <a name="summing-up"></a>요약
 
-이 문서에서는 DC/OS 클러스터의 Vamp에 대해 간략히 소개했습니다. 초보자를 위해 Azure Container Service DC/OS 클러스터에서 Vamp를 실행하고, Vamp 청사진을 사용하여 서비스를 배포하고, 노출된 끝점(게이트웨이)에서 서비스에 액세스했습니다.
+이 문서에서는 DC/OS 클러스터의 Vamp에 대해 간략히 소개했습니다. 초보자를 위해 Azure Container Service DC/OS 클러스터에서 Vamp를 실행하고, Vamp 청사진을 사용하여 서비스를 배포하고, 노출된 엔드포인트(게이트웨이)에서 서비스에 액세스했습니다.
 
 또한 Vamp의 강력한 기능 몇 가지를 살펴보았습니다. 새 서비스 변형을 실행 중인 배포와 병합하고 증분 방식으로 도입한 후 트래픽을 필터링하여 알려진 호환성 문제를 해결했습니다.
 
@@ -291,7 +291,7 @@ Vamp는 **조건**을 사용하여 게이트웨이의 경로 간 트래픽을 �
 
 * [Vamp REST API](http://vamp.io/documentation/api/api-reference/)를 통해 Vamp 작업을 관리하는 방법을 알아봅니다.
 
-* Node.js에서 Vamp 자동화 스크립트를 빌드하고 [Vamp 워크플로](http://vamp.io/documentation/tutorials/create-a-workflow/)로 실행합니다.
+* Node.js에서 Vamp 자동화 스크립트를 빌드하고 [Vamp 워크플로](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow)로 실행합니다.
 
 * 추가 [VAMP 자습서](http://vamp.io/documentation/tutorials/)를 살펴봅니다.
 

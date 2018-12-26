@@ -3,7 +3,7 @@ title: 자습서 - Azure PowerShell을 사용하여 확장 집합용 디스크 �
 description: Azure PowerShell을 사용하여 디스크를 추가, 준비, 나열 및 분리하는 방법을 포함하여, 가상 머신 확장 집합이 있는 Managed Disks를 만들고 사용하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 17f20ac2313ed4abd4f86bf10b65848a9870a688
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e1510c726ea0d97211f6fdd380da7cb493d32cc
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606674"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464882"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
-가상 머신 확장 집합은 디스크를 사용하여 VM 인스턴스의 운영 체제, 응용 프로그램 및 데이터를 저장합니다. 확장 집합을 만들고 관리할 때 예상 작업에 적합한 디스크 크기와 구성을 선택해야 합니다. 이 자습서에서는 VM 디스크를 만들고 관리하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+가상 머신 확장 집합은 디스크를 사용하여 VM 인스턴스의 운영 체제, 애플리케이션 및 데이터를 저장합니다. 확장 집합을 만들고 관리할 때 예상 작업에 적합한 디스크 크기와 구성을 선택해야 합니다. 이 자습서에서는 VM 디스크를 만들고 관리하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * OS 디스크 및 임시 디스크
@@ -59,7 +59,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
-응용 프로그램을 설치하고 데이터를 저장해야 하는 경우 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. VM 인스턴스의 크기에 따라 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 두 개의 데이터 디스크를 연결할 수 있습니다.
+애플리케이션을 설치하고 데이터를 저장해야 하는 경우 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. VM 인스턴스의 크기에 따라 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 두 개의 데이터 디스크를 연결할 수 있습니다.
 
 ### <a name="max-data-disks-per-vm"></a>VM당 최대 데이터 디스크 수
 | type | 일반적인 크기 | VM당 최대 데이터 디스크 수 |
@@ -139,7 +139,7 @@ Update-AzureRmVmss `
 
 
 ## <a name="prepare-the-data-disks"></a>데이터 디스크 준비
-확장 집합 VM 인스턴스에 만들어지고 연결된 디스크는 원시 디스크입니다. 데이터 및 응용 프로그램과 함께 사용하려면 먼저 디스크를 준비해야 합니다. 디스크를 준비하려면 파티션을 만들고, 파일 시스템을 만들고, 디스크를 탑재합니다.
+확장 집합 VM 인스턴스에 만들어지고 연결된 디스크는 원시 디스크입니다. 데이터 및 애플리케이션과 함께 사용하려면 먼저 디스크를 준비해야 합니다. 디스크를 준비하려면 파티션을 만들고, 파일 시스템을 만들고, 디스크를 탑재합니다.
 
 확장 집합의 여러 VM 인스턴스에 걸쳐 프로세스를 자동화하려면 Azure 사용자 지정 스크립트 확장을 사용할 수 있습니다. 이 확장은 연결된 데이터 디스크를 준비하는 것과 같이 각 VM 인스턴스에서 스크립트를 로컬로 실행할 수 있습니다. 자세한 내용은 [사용자 지정 스크립트 확장 개요](../virtual-machines/windows/extensions-customscript.md)를 참조하세요.
 

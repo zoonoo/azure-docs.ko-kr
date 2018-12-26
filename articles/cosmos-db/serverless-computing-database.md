@@ -9,16 +9,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 26d5fe3cf96f7a63b725f1b46d85e453a8aa6ada
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613968"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582788"
 ---
-# <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure Functions를 통한, 서버를 사용하지 않는 데이터베이스 컴퓨팅
+# <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
 
-서버를 사용하지 않는 컴퓨팅을 통해 반복 가능한 상태 비저장 논리의 개별 항목에 집중할 수 있습니다. 이러한 항목에는 인프라 관리가 필요 없으며, 실행 기간(초 또는 밀리초) 동안만 리소스를 사용합니다. 서버를 사용하지 않는 컴퓨팅 이동의 핵심에는 [Azure Functions](https://azure.microsoft.com/services/functions)가 Azure 에코시스템에서 사용할 수 있는 함수가 있습니다.
+서버를 사용하지 않는 컴퓨팅을 통해 반복 가능한 상태 비저장 논리의 개별 항목에 집중할 수 있습니다. 이러한 항목에는 인프라 관리가 필요 없으며, 실행 기간(초 또는 밀리초) 동안만 리소스를 사용합니다. 서버를 사용하지 않는 컴퓨팅 이동의 핵심에는 [Azure Functions](https://azure.microsoft.com/services/functions)가 Azure 에코시스템에서 사용할 수 있는 함수가 있습니다. Azure의 다른 서버리스 실행 환경에 대해 자세히 알아보려면 [Azure의 서버리스](https://azure.microsoft.com/solutions/serverless/) 페이지를 참조하세요. 
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)와 Azure Functions 간의 네이티브 통합을 사용하여 Azure Cosmos DB 계정에서 직접 데이터베이스 트리거, 입력 바인딩 및 출력 바인딩을 만들 수 있습니다. Azure Functions 및 Azure Cosmos DB를 통해 전역 사용자 기반의 풍부한 데이터에 짧은 대기 시간으로 액세스할 수 있는, 서버를 사용하지 않는 이벤트 구동 앱을 만들고 배포할 수 있습니다.
 
@@ -27,11 +27,12 @@ ms.locfileid: "34613968"
 Azure Cosmos DB 및 Azure Functions를 사용하면 다음과 같은 방법으로 데이터베이스와 서버를 사용하지 않는 앱을 통합할 수 있습니다.
 
 * Azure Functions에서 이벤트 구동 **Azure Cosmos DB 트리거**를 만듭니다. 이 트리거는 [변경 피드](change-feed.md) 스트림을 사용하여 Azure Cosmos DB 컨테이너에서 변경 내용을 모니터링합니다. 컨테이너를 변경하면 변경 피드 스트림이 트리거로 전송되고, 트리거가 Azure Functions를 호출합니다.
-* 또는 **입력 바인딩**을 사용하여 Azure Functions를 Azure Cosmos DB 컬렉션에 바인딩합니다. 입력 바인딩은 함수가 실행될 때 컨테이너에서 데이터를 읽습니다.
-* **출력 바인딩**을 사용하여 함수를 Azure Cosmos DB 컬렉션에 바인딩합니다. 출력 바인딩은 함수가 완료될 때 컨테이너에 데이터를 씁니다.
+* 또는 **입력 바인딩**을 사용하여 Azure Functions를 Azure Cosmos DB 컨테이너에 바인딩합니다. 입력 바인딩은 함수가 실행될 때 컨테이너에서 데이터를 읽습니다.
+* **출력 바인딩**을 사용하여 함수를 Azure Cosmos DB 컨테이너에 바인딩합니다. 출력 바인딩은 함수가 완료될 때 컨테이너에 데이터를 씁니다.
 
 > [!NOTE]
-> 이때 Azure Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩은 SQL API 및 Graph API 계정에서만 작동합니다.
+> 현재, Azure Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩은 SQL API에서만 사용할 수 있습니다. 다른 모든 Azure Cosmos DB API의 경우 MongoDB API, Cassandra API, Gremlin API 및 Table API를 비롯한 API에 정적 클라이언트를 사용하여 함수에서 데이터베이스에 액세스해야 합니다.
+
 
 다음 다이어그램은 다음 세 가지 통합을 각각 보여 줍니다. 
 
@@ -58,7 +59,7 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 4. 변경 피드를 통해 모든 변경 내용이 스트리밍되기 때문에 센서 데이터 컬렉션에 대한 데이터 변경 시마다 트리거가 호출됩니다.
 5. 임계값 조건은 센서 데이터를 보증 부서에 보내기 위해 함수에 사용됩니다.
 6. 또한 온도가 특정 값을 초과하는 경우 소유자에게도 경고가 전송됩니다.
-7. 함수의 **출력 바인딩**은 다른 Azure Cosmos DB 컬렉션의 자동차 레코드를 업데이트하여 검사 엔진 이벤트에 대한 정보를 저장합니다.
+7. 함수의 **출력 바인딩**은 다른 Azure Cosmos DB 컨테이너의 자동차 레코드를 업데이트하여 검사 엔진 이벤트에 대한 정보를 저장합니다.
 
 다음 그림은 Azure Portal에서 이 트리거에 대해 기록되는 코드를 보여 줍니다.
 
@@ -82,22 +83,22 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>게임 사용 사례 - Azure Cosmos DB 트리거 및 출력 바인딩
 
-게임에서 새 사용자가 생성되면 [Azure Cosmos DB Graph API](graph-introduction.md)를 사용하여 알 수 있는 다른 사용자를 검색할 수 있습니다. 그런 다음 검색하기 쉽도록 [Azure Cosmos DB SQL 데이터베이스]에 결과를 쓸 수 있습니다.
+게임에서 새 사용자가 생성되면 [Azure Cosmos DB Gremlin API](graph-introduction.md)를 사용하여 알 수 있는 다른 사용자를 검색할 수 있습니다. 그런 다음 검색하기 쉽도록 [Azure Cosmos DB SQL 데이터베이스]에 결과를 쓸 수 있습니다.
 
 **구현:** Azure Cosmos DB 트리거 및 출력 바인딩 사용
 
 1. Azure Cosmos DB [그래프 데이터베이스](graph-introduction.md)를 사용하여 모든 사용자를 저장하면 Azure Cosmos DB 트리거로 새 함수를 만들 수 있습니다. 
 2. 새 사용자를 삽입할 때마다 함수가 호출된 다음 **출력 바인딩**을 사용하여 결과가 저장됩니다.
-3. 함수는 그래프 데이터베이스를 쿼리하여 새 사용자와 직접 관련된 모든 사용자를 검색하고 해당 데이터 집합을 함수에 반환합니다.
+3. 함수는 그래프 데이터베이스를 쿼리하여 새 사용자와 직접 관련된 모든 사용자를 검색하고 해당 데이터 세트를 함수에 반환합니다.
 4. 이 데이터는 Azure Cosmos DB에 저장되며, 새 사용자에게 연결된 친구를 보여 주는 프런트 엔드 응용 프로그램에서 쉽게 검색할 수 있습니다.
 
 ### <a name="retail-use-case---multiple-functions"></a>소매 사용 사례 - 여러 함수
 
 소매 구현에서 사용자가 바구니에 항목을 추가할 때 이제 선택적 비즈니스 파이프라인 구성 요소에 대한 함수를 유연하게 만들고 호출할 수 있습니다.
 
-**구현:** 하나의 컬렉션을 수신 대기하는 여러 Azure Cosmos DB 트리거
+**구현:** 하나의 컨테이너를 수신 대기하는 여러 Azure Cosmos DB 트리거
 
-1. 각각에 Azure Cosmos DB 트리거를 추가하여 여러 Azure Functions를 만들 수 있으며, 모두 쇼핑 카트 데이터의 동일한 변경 피드를 수신 대기합니다. 여러 함수가 동일한 변경 피드를 수신 대기하면 각 함수에 새 임대 컬렉션이 필요합니다. 임대 컬렉션에 대한 자세한 내용은 [변경 피드 프로세서 라이브러리 이해](change-feed.md#understand-cf)를 참조하세요.
+1. 각각에 Azure Cosmos DB 트리거를 추가하여 여러 Azure Functions를 만들 수 있으며, 모두 쇼핑 카트 데이터의 동일한 변경 피드를 수신 대기합니다. 여러 함수가 동일한 변경 피드를 수신 대기하면 각 함수에 새 임대 컬렉션이 필요합니다. 임대 컬렉션에 대한 자세한 내용은 [변경 피드 프로세서 라이브러리 이해](change-feed-processor.md)를 참조하세요.
 2. 사용자 쇼핑 카트에 새 항목을 추가할 때마다 쇼핑 카트 컨테이너의 변경 피드를 통해 각 함수가 독립적으로 호출됩니다.
     * 한 함수는 현재 바구니의 콘텐츠를 사용하여 사용자가 관심을 가질 수 있는 다른 항목의 표시를 변경할 수 있습니다.
     * 다른 함수는 총 재고량을 업데이트할 수 있습니다.
@@ -110,15 +111,12 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 ## <a name="tooling"></a>도구
 
 Azure Cosmos DB와 Azure Functions 간의 네이티브 통합은 Azure Portal 및 Visual Studio 2017에서 지원됩니다.
-* Azure Functions Portal에서 Azure Cosmos DB 트리거를 만들 수 있습니다. 빠른 시작 지침은 [Azure Portal에서 Azure Cosmos DB 트리거 만들기](https://aka.ms/cosmosdbtriggerportalfunc) ![Azure Functions Portal에서 Azure Cosmos DB 트리거 만들기](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png)를 참조하세요. 
-* Azure Functions Portal에서 Azure Cosmos DB 입력 바인딩 및 출력 바인딩을 다른 트리거 형식에 추가할 수도 있습니다. 빠른 시작 지침은 [Azure Functions 및 Cosmos DB를 사용하여 구조화되지 않은 데이터 저장](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)을 참조하세요.
-    ![Azure Functions Portal에서 Azure Cosmos DB 트리거 만들기](./media/serverless-computing-database/function-portal-input-binding.png)
-*   Azure Cosmos DB Portal에서 동일한 리소스 그룹의 기존 Azure Functions 앱에 Azure Cosmos DB 트리거를 추가할 수 있습니다.
-    ![Azure Functions Portal에서 Azure Cosmos DB 트리거 만들기](./media/serverless-computing-database/cosmos-db-portal.png)
-* Visual Studio 2017에서 통합된 템플릿을 사용하여 Azure Cosmos DB 트리거를 만들 수 있습니다.
+
+* Azure Functions Portal에서 Azure Cosmos DB 트리거를 만들 수 있습니다. 빠른 시작 지침은 [Azure Portal에서 Azure Cosmos DB 트리거 만들기](https://aka.ms/cosmosdbtriggerportalfunc)를 참조하세요.
+* Azure Cosmos DB Portal에서 동일한 리소스 그룹의 기존 Azure Functions 앱에 Azure Cosmos DB 트리거를 추가할 수 있습니다.
+* Visual Studio 2017에서 [Azure Functions Tools for Visual Studio 2017](../azure-functions/functions-develop-vs.md)을 사용하여 Azure Cosmos DB 트리거를 만들 수 있습니다.
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
-
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>서버를 사용하지 않는 컴퓨팅에 대해 Azure Functions 통합을 선택하는 이유
 
@@ -126,11 +124,11 @@ Azure Functions는 인프라를 프로비전 또는 관리하지 않고 요청 �
 
 Azure Cosmos DB는 다음과 같은 이유로 서버를 사용하지 않는 컴퓨팅 아키텍처에 권장되는 데이터베이스입니다.
 
-* **모든 데이터 즉시 액세스**: Azure Cosmos DB는 기본적으로 모든 데이터를 [자동으로 인덱싱](indexing-policies.md)하고 해당 인덱스를 즉시 사용할 수 있게 하므로 저장된 모든 값에 대한 세분화된 액세스 권한을 갖습니다. 따라서 데이터베이스를 지속적으로 쿼리, 업데이트 및 새 항목을 추가하고 Azure Functions를 통해 즉시 액세스할 수 있습니다.
+* **모든 데이터 즉시 액세스**: Azure Cosmos DB는 기본적으로 모든 데이터를 [자동으로 인덱싱](index-policy.md)하고 해당 인덱스를 즉시 사용할 수 있게 하므로 저장된 모든 값에 대한 세분화된 액세스 권한을 갖습니다. 따라서 데이터베이스를 지속적으로 쿼리, 업데이트 및 새 항목을 추가하고 Azure Functions를 통해 즉시 액세스할 수 있습니다.
 
 * **스키마 사용 안 함**. Azure Cosmos DB는 스키마를 사용하지 않으므로 Azure Functions의 모든 데이터 출력을 처리할 수 있습니다. 이 “모두 처리” 방법을 사용하면 모두 Azure Cosmos DB에 출력되는 다양한 함수를 간단히 만들 수 있습니다.
 
-* **확장 가능한 처리량**. Azure Cosmos DB에서 즉시 처리량을 확장 및 축소할 수 있습니다. 동일한 컬렉션을 쿼리하고 쓰는 수백 또는 수천 개의 함수가 있는 경우 [RU/s](request-units.md)를 확장하여 부하를 처리할 수 있습니다. 모든 함수는 할당된 RU/s를 사용하여 병렬로 작동할 수 있으며 데이터 [일관성](consistency-levels.md)이 보장됩니다.
+* **확장 가능한 처리량**. Azure Cosmos DB에서 즉시 처리량을 확장 및 축소할 수 있습니다. 동일한 컨테이너를 쿼리하고 쓰는 수백 또는 수천 개의 함수가 있는 경우, [RU/s](request-units.md)를 확장하여 부하를 처리할 수 있습니다. 모든 함수는 할당된 RU/s를 사용하여 병렬로 작동할 수 있으며 데이터 [일관성](consistency-levels.md)이 보장됩니다.
 
 * **글로벌 복제** Azure Cosmos DB 데이터를 [전 세계](distribute-data-globally.md)에 복제하여 대기 시간을 줄이고 사용자에게 가장 가까운 지역에 데이터를 배치할 수 있습니다. 모든 Azure Cosmos DB 쿼리와 마찬가지로, 이벤트 구동 트리거의 데이터는 사용자에게 가장 가까운 Azure Cosmos DB에서 읽은 데이터입니다.
 
@@ -152,7 +150,6 @@ Flow, Logic Apps, Azure Functions 또는 WebJobs가 구현에 가장 적합한�
 
 * [Azure Portal에서 Azure Cosmos DB 트리거 만들기](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Azure Cosmos DB 입력 바인딩을 사용하여 Azure Functions HTTP 트리거 만들기](https://aka.ms/cosmosdbinputbind)
-* [Azure Functions 및 Cosmos DB를 사용하여 구조화되지 않은 데이터 저장](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
 * [Azure Cosmos DB 바인딩 및 트리거](../azure-functions/functions-bindings-cosmosdb.md)
 
 

@@ -2,25 +2,21 @@
 title: Azure의 SQL Server 가상 컴퓨터에서 데이터 탐색 | Microsoft Docs
 description: Azure의 SQL Server 가상 머신에서 데이터를 탐색하고 기능 생성
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: jhubbard
-editor: ''
-ms.assetid: 3949fb2c-ffab-49fb-908d-27d5e42f743b
+author: marktab
+manager: cgronlun
+editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: deguhath
-ms.openlocfilehash: 39bdbce4ada225c0fa7df8559f68b591ccfc68b7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 73e56497834344e0e41d89313086c051683b4fbb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838659"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442560"
 ---
 # <a name="heading"></a>Azure의 SQL Server 가상 컴퓨터에서 데이터 처리
 이 문서에서는 Azure의 SQL Server VM에 저장된 데이터를 탐색하고 데이터에 대한 기능을 생성하는 방법에 대해 알아봅니다. 이렇게 하려면 SQL을 사용하여 데이터 랭글링을 수행하거나 Python과 같은 프로그래밍 언어를 사용합니다.
@@ -40,7 +36,7 @@ ms.locfileid: "34838659"
 SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 몇 가지 샘플 SQL 스크립트는 다음과 같습니다.
 
 > [!NOTE]
-> 실용적인 예제에는 [NYC Taxi 데이터 집합](http://www.andresmh.com/nyctaxitrips/)을 사용할 수 있으며, 종단 간 연습에 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
+> 실용적인 예제에는 [NYC Taxi 데이터 세트](http://www.andresmh.com/nyctaxitrips/)를 사용할 수 있으며, 종단 간 연습에 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
 > 
 > 
 
@@ -141,7 +137,7 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/) 에서는 Python �
 이제 [데이터 과학 환경에서 Azure Blob 데이터 처리](data-blob.md) 문서에 설명된 대로 Pandas 데이터 프레임으로 작업할 수 있습니다.
 
 ## <a name="azure-data-science-in-action-example"></a>Azure 데이터 과학 작동 예제
-공용 데이터 집합을 사용한 Azure 데이터 과학 프로세스의 종단 간 연습 예제는 [Azure에서 Azure 데이터 과학 프로세스](sql-walkthrough.md)를 참조하세요.
+공용 데이터 세트를 사용한 Azure 데이터 과학 프로세스의 종단 간 연습 예제는 [Azure에서 Azure 데이터 과학 프로세스](sql-walkthrough.md)를 참조하세요.
 
 [1]: ./media/sql-server-virtual-machine/reader_db_featurizedinput.png
 

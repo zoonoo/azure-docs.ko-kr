@@ -2,19 +2,22 @@
 title: Azure SQL Database DTU 기반 리소스 제한 탄력적 풀 | Microsoft Docs
 description: 이 페이지에서는 Azure SQL Database의 탄력적 풀에 대한 몇 가지 일반적인 DTU 기반 리소스 제한을 설명합니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: elastic-pools
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
-ms.author: carlrab
-ms.openlocfilehash: 08dabf1ad66f69c5e0f55aedbc2a4d0bb265a0bd
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: e3b46620d15f8c08d0da69aef3d8c0920e5ad4ec
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752234"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830075"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>DTU를 기반 구매 모델을 사용한 탄력적 풀에 대한 리소스 제한 
 
@@ -22,9 +25,12 @@ ms.locfileid: "36752234"
 
 단일 데이터베이스에 대한 DTU 기반 구매 모델 리소스 제한은 [DTU 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-elastic-pools.md)를 참조합니다. vCore 기반 리소스 제한은 [vCore 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md) 및 [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조합니다.
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>탄력적 풀: 저장소 크기 및 성능 수준
+> [!IMPORTANT]
+> 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
-다음 표에서는 SQL Database 탄력적 풀에 대해 각 서비스 계층과 성능 수준에서 사용할 수 있는 리소스를 나타냅니다. [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 또는 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)를 사용하여 서비스 계층, 성능 수준 및 저장소 용량을 설정할 수 있습니다.
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>탄력적 풀: 저장소 크기 및 계산 크기
+
+SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 계산 크기에 제공되는 리소스를 보여줍니다. [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 또는 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)를 사용하여 서비스 계층, 계산 크기 및 저장소 용량을 설정할 수 있습니다.
 
 > [!NOTE]
 > 탄력적 풀의 개별 데이터베이스에 대한 리소스 제한은 일반적으로 DTU 및 서비스 계층을 기반으로 하는 풀 외부의 단일 데이터베이스의 경우와 동일합니다. 예를 들어 S2 데이터베이스의 최대 동시 작업자 수는 120명입니다. 따라서 풀의 데이터베이스당 최대 DTU가 50DTU(S2와 동일)인 경우 표준 풀의 데이터베이스에 대한 최대 동시 작업자 수도 120명입니다.
@@ -105,7 +111,7 @@ ms.locfileid: "36752234"
 ||||||||
 
 > [!IMPORTANT]
-> 현재 영국 북부, 미국 중서부, 영국 남부2, 중국 동부, USDoDCentral, 독일 중부, USDoDEast, US Gov 남서부, US Gov 중남부, 독일 북동부, 중국 북부, US Gov 동부를 제외한 모든 지역에서 1TB를 초과하는 저장소를 프리미엄 계층에 사용할 수 있습니다. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+> 현재 미국 중서부, 중국 동부, USDoDCentral, 독일 중부, USDoDEast, US Gov 남서부, 독일 북동부, USGov 아이오와, 중국 북부를 제외한 모든 지역에서 1TB를 초과하는 저장소를 프리미엄 계층에 사용할 수 있습니다. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
 
 탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다. SQL Database 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
 
@@ -125,6 +131,7 @@ ms.locfileid: "36752234"
 ## <a name="next-steps"></a>다음 단계
 
 - 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
+- 서버 및 구독 수준의 한도에 관한 정보는 [논리 서버의 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
-- DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)를 참조하세요.
+- DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model)를 참조하세요.
 - tempdb 크기 한도에 대한 자세한 내용은 https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database를 참조하세요.

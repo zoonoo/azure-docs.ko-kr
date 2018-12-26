@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1114ea90ae6976a3bc3580ebae5fd853de0274a1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ab41211fb0b0b6360bdbc255e367d0492c2438ed
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30317024"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39330678"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 계산 노드의 크기를 조정하는 자동 크기 조정 수식 만들기
 
@@ -160,8 +160,8 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 | doubleVec *operator* doubleVec |+, -, *, / |doubleVec |
 | timeinterval *operator* double |*, / |timeinterval |
 | timeinterval *operator* timeinterval |+, - |timeinterval |
-| timeinterval *operator* timestamp |+ |timestamp |
-| timestamp *operator* timeinterval |+ |timestamp |
+| timeinterval *operator* timestamp |+ | timestamp |
+| timestamp *operator* timeinterval |+ | timestamp |
 | timestamp *operator* timestamp |- |timeinterval |
 | *operator*double |-, ! |double |
 | *operator*timeinterval |- |timeinterval |
@@ -195,7 +195,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 | std(doubleVecList) |double |doubleVecList에 있는 값의 샘플 표준 편차를 반환합니다. |
 | stop() | |자동 크기 조정 식의 평가를 중지합니다. |
 | sum(doubleVecList) |double |doubleVecList에 있는 모든 구성 요소의 합계를 반환합니다. |
-| time(string dateTime="") |timestamp |매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다. |
+| time(string dateTime="") | timestamp |매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다. |
 | val(doubleVec v, double i) |double |시작 인덱스가 0인 벡터 v의 위치 i 요소 값을 반환합니다. |
 
 앞의 표에서 설명하는 함수 중 일부는 목록을 인수로 허용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예: 
@@ -367,7 +367,7 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
                     poolId: "mypool",
-                    virtualMachineSize: "small", // single-core, 1.75 GB memory, 225 GB disk
+                    virtualMachineSize: "standard_d1_v2",
                     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));    
 pool.AutoScaleEnabled = true;
 pool.AutoScaleFormula = "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);";
@@ -476,7 +476,7 @@ if (pool.AutoScaleEnabled == false)
     // We need a valid autoscale formula to enable autoscaling on the
     // pool. This formula is valid, but won't resize the pool:
     await pool.EnableAutoScaleAsync(
-        autoscaleFormula: "$TargetDedicatedNodes = {pool.CurrentDedicatedNodes};",
+        autoscaleFormula: "$TargetDedicatedNodes = $CurrentDedicatedNodes;",
         autoscaleEvaluationInterval: TimeSpan.FromMinutes(5));
 
     // Batch limits EnableAutoScaleAsync calls to once every 30 seconds.
@@ -658,7 +658,7 @@ string formula = string.Format(@"
 
 ## <a name="next-steps"></a>다음 단계
 * [동시 노드 작업으로 Azure Batch 계산 리소스 사용 극대화](batch-parallel-node-tasks.md)는 풀의 계산 노드에서 여러 작업을 동시에 실행할 수 있는 방법을 자세히 설명합니다. 자동 크기 조정 외에도 이 기능은 일부 워크로드에 대한 작업 기간을 줄여서 비용을 절약하는 데 도움이 될 수 있습니다.
-* 다른 효율성 부스터의 경우 Batch 응용 프로그램이 Batch 서비스를 최적화하여 쿼리하도록 합니다. 잠재적으로 수천 개의 계산 노드 또는 작업의 상태를 쿼리할 때 네트워크를 교차하는 데이터의 양을 제한하는 방법을 알아보려면 [효율적인 Azure Batch 서비스 쿼리](batch-efficient-list-queries.md)를 참조하세요.
+* 다른 효율성 부스터의 경우 Batch 애플리케이션이 Batch 서비스를 최적화하여 쿼리하도록 합니다. 잠재적으로 수천 개의 계산 노드 또는 작업의 상태를 쿼리할 때 네트워크를 교차하는 데이터의 양을 제한하는 방법을 알아보려면 [효율적인 Azure Batch 서비스 쿼리](batch-efficient-list-queries.md)를 참조하세요.
 
 [net_api]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
 [net_batchclient]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient

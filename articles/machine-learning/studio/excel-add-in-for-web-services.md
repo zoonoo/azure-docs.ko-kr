@@ -3,10 +3,9 @@ title: Machine Learning 웹 서비스용 Excel 추가 기능 | Microsoft Docs
 description: 코드를 작성하지 않고 Excel에서 직접 Azure Machine Learning 웹 서비스를 사용하는 방법입니다.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
-editor: cgronlun
+author: ericlicoding
+ms.custom: (previous ms.author=marthalc, author=marthalc)
+ms.author: amlstudiodocs
 ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
 ms.component: studio
@@ -15,26 +14,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 68e2f72dfd8cc58d42263f4b6378d89304aaaa4d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: debe3165a60cd0da866842a425c1ca8c52eab644
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834195"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262026"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Azure Machine Learning 웹 서비스용 Excel 추가 기능
+# <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio 웹 서비스용 Excel 추가 기능
 Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비스를 호출할 수 있습니다.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>통합 문서에서 기존 웹 서비스를 사용하는 단계
 
-1. 타이타닉호의 승객에 대한 데이터와 Excel 추가 기능이 들어 있는 [샘플 Excel 파일](http://aka.ms/amlexcel-sample-2)을 엽니다.
+1. 타이타닉호의 승객에 대한 데이터와 Excel 추가 기능이 들어 있는 [샘플 Excel 파일](https://aka.ms/amlexcel-sample-2)을 엽니다. 
+ 
+> [!NOTE]
+> 파일과 관련된 웹 서비스 목록이 보이고 하단에 "자동 예측" 확인란이 표시됩니다. 자동 예측을 사용하도록 설정하면 입력이 변경될 때마다 **모든** 서비스의 예측이 업데이트됩니다. 선택하지 않는 경우 새로 고치려면 "모두 예측"을 클릭해야 합니다. 서비스 수준에서 자동 예측을 사용하도록 설정하려면 6단계로 이동합니다.
+
 2. 웹 서비스를 클릭하여 선택합니다(이 예제의 경우 "Titanic Survivor Predictor (Excel Add-in Sample) [Score]").
    
     ![웹 서비스 선택][01]
 3. 이렇게 하면 **Predict** 섹션으로 이동합니다.  이 통합 문서에는 이미 샘플 데이터가 포함되어 있지만 통합 문서가 비어 있는 경우에는 Excel에서 셀 하나를 선택하고 **샘플 데이터 사용**을 클릭할 수 있습니다.
 4. 머리글이 있는 데이터를 선택하고 입력 데이터 범위 아이콘을 클릭합니다.  "My data has headers" 상자가 선택되어 있는지 확인합니다.
 5. **Output** 아래에 출력을 배치할 셀 번호를 입력합니다(여기서는 "H1").
-6. **Predict**를 클릭합니다.
+6. **Predict**를 클릭합니다. "자동 예측" 확인란을 선택할 경우 선택한 영역(입력으로 지정된 영역)에서 변경 작업이 수행될 때 예측 단추를 누르지 않아도 요청 및 출력 셀 업데이트가 트리거됩니다.
    
     ![Predict 섹션][02]
 
@@ -83,7 +86,7 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 ## <a name="sharing-your-workbook"></a>통합 문서 공유
 통합 문서를 저장하면 추가한 웹 서비스의 API/기본 키도 저장됩니다. 즉, 신뢰할 수 있는 사용자와만 통합 문서를 공유해야 합니다.
 
-다음 설명 섹션 또는 [포럼](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409)에서 질문을 할 수 있습니다.
+다음 설명 섹션 또는 [포럼](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409)에서 질문을 할 수 있습니다.
 
 [01]: ./media/excel-add-in-for-web-services/image1.png
 [02]: ./media/excel-add-in-for-web-services/image2.png

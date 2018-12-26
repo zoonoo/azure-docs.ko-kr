@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: danlep
-ms.openlocfilehash: a16d60dd48efeced7735562884acd26640d36483
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a52dbdad3842760c447e22f4274ab944750840e7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311342"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816789"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch Management 솔루션 인증
 
@@ -34,9 +34,9 @@ Batch 관리 .NET 라이브러리 및 AccountManagement 샘플을 사용하는 �
 
 ## <a name="register-your-application-with-azure-ad"></a>Azure AD에 응용 프로그램 등록
 
-Azure [Active Directory 인증 라이브러리][aad_adal](ADAL)는 응용 프로그램 내에서 사용하기 위해 Azure AD에 프로그래밍 방식 인터페이스를 제공합니다. 응용 프로그램에서 ADAL을 호출하려면 Azure AD 테넌트에 응용 프로그램을 등록해야 합니다. 응용 프로그램을 등록할 때 Azure AD 테넌트 내에서 이름을 포함하여 응용 프로그램에 대한 Azure AD 정보를 제공합니다. 그런 다음 Azure AD는 런타임 시 응용 프로그램을 Azure AD와 연결하는 데 사용하는 응용 프로그램 ID를 제공합니다. 응용 프로그램 ID에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/active-directory-application-objects.md)를 참조하세요.
+Azure [Active Directory 인증 라이브러리][aad_adal](ADAL)는 응용 프로그램 내에서 사용하기 위해 Azure AD에 프로그래밍 방식 인터페이스를 제공합니다. 응용 프로그램에서 ADAL을 호출하려면 Azure AD 테넌트에 응용 프로그램을 등록해야 합니다. 응용 프로그램을 등록할 때 Azure AD 테넌트 내에서 이름을 포함하여 응용 프로그램에 대한 Azure AD 정보를 제공합니다. 그런 다음 Azure AD는 런타임 시 응용 프로그램을 Azure AD와 연결하는 데 사용하는 응용 프로그램 ID를 제공합니다. 응용 프로그램 ID에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 
-AccountManagement 샘플 응용 프로그램을 등록하려면 [Azure Active Directory와 응용 프로그램 통합][aad_integrate]에서 [응용 프로그램 추가](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) 섹션의 단계를 따릅니다. 응용 프로그램 유형으로 **네이티브 클라이언트 응용 프로그램**을 지정합니다. **리디렉션 URI**의 업계 표준 OAuth 2.0 URI는 `urn:ietf:wg:oauth:2.0:oob`입니다. 그러나 실제 끝점일 필요가 없으므로 `http://myaccountmanagementsample`리디렉션 URI**에 대한 유효한 URI(예:** )를 지정할 수 있습니다.
+AccountManagement 샘플 응용 프로그램을 등록하려면 [Azure Active Directory와 응용 프로그램 통합][aad_integrate]에서 [응용 프로그램 추가](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) 섹션의 단계를 따릅니다. 응용 프로그램 유형으로 **네이티브 클라이언트 응용 프로그램**을 지정합니다. **리디렉션 URI**의 업계 표준 OAuth 2.0 URI는 `urn:ietf:wg:oauth:2.0:oob`입니다. 그러나 실제 엔드포인트일 필요가 없으므로 `http://myaccountmanagementsample`리디렉션 URI**에 대한 유효한 URI(예:** )를 지정할 수 있습니다.
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
@@ -65,19 +65,19 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 ![Azure Resource Manager API에 대한 권한 위임](./media/batch-aad-auth-management/required-permissions-management-plane.png)
 
-## <a name="azure-ad-endpoints"></a>Azure AD 끝점
+## <a name="azure-ad-endpoints"></a>Azure AD 엔드포인트
 
-Azure AD를 사용하여 Batch Management 솔루션을 인증하려면 잘 알려진 다음 두 개의 끝점이 필요합니다.
+Azure AD를 사용하여 Batch Management 솔루션을 인증하려면 잘 알려진 다음 두 개의 엔드포인트가 필요합니다.
 
-- **Azure AD 공통 끝점**은 통합 인증의 경우와 같이 특정 테넌트를 제공하지 않을 때 일반 자격 증명 수집 인터페이스를 제공합니다.
+- **Azure AD 공통 엔드포인트**는 통합 인증의 경우와 같이 특정 테넌트를 제공하지 않을 때 일반 자격 증명 수집 인터페이스를 제공합니다.
 
     `https://login.microsoftonline.com/common`
 
-- **Azure Resource Manager 끝점**은 Batch Management 서비스에 대한 요청을 인증하기 위한 토큰을 얻는 데 사용됩니다.
+- **Azure Resource Manager 엔드포인트**는 Batch Management 서비스에 대한 요청을 인증하기 위한 토큰을 얻는 데 사용됩니다.
 
     `https://management.core.windows.net/`
 
-AccountManagement 샘플 응용 프로그램은 이러한 끝점에 대한 상수를 정의합니다. 해당 상수를 변경하지 않고 그대로 둡니다.
+AccountManagement 샘플 응용 프로그램은 이러한 엔드포인트에 대한 상수를 정의합니다. 해당 상수를 변경하지 않고 그대로 둡니다.
 
 ```csharp
 // Azure Active Directory "common" endpoint.
@@ -132,9 +132,9 @@ Azure AD에 대한 자세한 내용은 [Azure Active Directory 설명서](https:
 Azure AD를 사용하여 Batch 서비스 응용 프로그램을 인증하려면 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)을 참조하세요. 
 
 
-[aad_about]: ../active-directory/active-directory-whatis.md "Azure Active Directory란?"
+[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Azure Active Directory란?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Azure AD의 인증 시나리오"
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Azure AD의 인증 시나리오"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Azure Active Directory와 응용 프로그램 통합"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: http://portal.azure.com

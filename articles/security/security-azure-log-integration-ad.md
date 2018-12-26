@@ -15,16 +15,16 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 07299b960747528dde8dcefc70055442c2150486
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0b27cd314dd03375b2d2e6ba537cda74e2ec4310
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235994"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313244"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Azure Active Directory 감사 로그 통합
 
-Azure AD(Azure Active Directory) 감사 이벤트를 통해 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. [Azure Active Directory 감사 보고서 이벤트](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md)를 검토하여 추적할 수 있는 이벤트 유형을 확인할 수 있습니다.
+Azure AD(Azure Active Directory) 감사 이벤트를 통해 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. [Azure Active Directory 감사 보고서 이벤트](../active-directory/reports-monitoring/concept-audit-logs.md)를 검토하여 추적할 수 있는 이벤트 유형을 확인할 수 있습니다.
 
 
 >[!IMPORTANT]
@@ -49,7 +49,7 @@ Azure AD(Azure Active Directory) 감사 이벤트를 통해 Azure Active Directo
 
    ``Azlog.exe authorizedirectoryreader tenantId``
 
-   예:
+   예제:
 
    ``AZLOG.exe authorizedirectoryreader ba2c0000-d24b-4f4e-92b1-48c4469999``
 

@@ -179,7 +179,7 @@ ms.locfileid: "34658437"
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 
-Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산, Storage 및 네트워크 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 SAP NetWeaver 기반 ABAP, Java 및 ABAP+Java 스택과 같은 기존 응용 프로그램을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
+Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산, Storage 및 네트워크 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 SAP NetWeaver 기반 ABAP, Java 및 ABAP+Java 스택과 같은 기존 애플리케이션을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
 
 이러한 일련의 문서는 다음 내용을 설명합니다.
 
@@ -194,7 +194,7 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
   * ![Windows][Logo_Windows]  **Windows**, **WSFC(Windows Server 장애 조치(Failover) 클러스터)** 사용
   * ![Linux][Logo_Linux] **Linux**, **Linux Cluster Framework** 사용
 
-이러한 문서에서는 SPOF(단일 실패 지점) 구성 요소(예: SAP 중앙 서비스(ASCS/SCS) 및 DBMS(데이터베이스 관리 시스템))를 보호하는 방법을 알아봅니다. 또한 Azure의 중복 구성 요소(예: SAP 응용 프로그램 서버)에 대해서도 알아봅니다.
+이러한 문서에서는 SPOF(단일 실패 지점) 구성 요소(예: SAP 중앙 서비스(ASCS/SCS) 및 DBMS(데이터베이스 관리 시스템))를 보호하는 방법을 알아봅니다. 또한 Azure의 중복 구성 요소(예: SAP 애플리케이션 서버)에 대해서도 알아봅니다.
 
 ## <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오
 

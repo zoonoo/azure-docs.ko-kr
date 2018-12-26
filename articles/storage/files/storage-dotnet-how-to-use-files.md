@@ -2,30 +2,25 @@
 title: .NET을 사용하여 Azure Files 개발 | Microsoft Docs
 description: Azure Files를 사용하여 파일 데이터를 저장하는 .NET 응용 프로그램 및 서비스를 개발하는 방법을 알아봅니다.
 services: storage
-documentationcenter: .net
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 95f890ccbe03fc734b54ac8c5edee2ec7b56d9c6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: 380a7be6a42109f90da5dbd39ea557c06be4be6a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737632"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253706"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-이 자습서에서는 [Azure Files](storage-files-introduction.md)를 사용하여 파일 데이터를 저장하는 응용 프로그램을 .NET을 사용하여 개발하는 기본 사항을 보여줍니다. 이 자습서에서는 간단한 콘솔 응용 프로그램을 만들어서 .NET 및 Azure Files에서 기본 작업을 수행합니다.
+이 자습서에서는 [Azure Files](storage-files-introduction.md)를 사용하여 파일 데이터를 저장하는 응용 프로그램을 .NET을 사용하여 개발하는 기본 사항을 보여줍니다. 이 자습서에서는 간단한 콘솔 애플리케이션을 만들어서 .NET 및 Azure Files에서 기본 작업을 수행합니다.
 
 * 파일 내용 가져오기
 * 파일 공유에 대한 할당량(최대 크기) 설정
@@ -40,12 +35,12 @@ Azure Files에 대한 자세한 내용은 [Azure Files 소개](storage-files-int
 
 ## <a name="understanding-the-net-apis"></a>.NET API 이해
 
-Azure Files는 클라이언트 응용 프로그램에 SMB(서버 메시지 블록) 및 REST라는 광범위한 두 가지 방법을 제공합니다. .NET 내에서 `System.IO` 및 `WindowsAzure.Storage` API별로 이러한 접근 방식을 추상화합니다.
+Azure Files는 클라이언트 애플리케이션에 SMB(서버 메시지 블록) 및 REST라는 광범위한 두 가지 방법을 제공합니다. .NET 내에서 `System.IO` 및 `WindowsAzure.Storage` API별로 이러한 접근 방식을 추상화합니다.
 
 API | 사용하는 경우 | 메모
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 사용자 응용 프로그램의 경우: <ul><li>SMB를 통해 파일을 읽고 써야 합니다.</li><li>포트 445를 통해 Azure Files 계정에 대한 액세스 권한이 있는 장치에서 실행됩니다.</li><li>파일 공유의 관리 설정을 관리할 필요가 없습니다.</li></ul> | SMB를 통한 Azure Files를 사용하여 파일 I/O를 코딩하는 작업은 일반적으로 네트워크 파일 공유 또는 로컬 저장소 장치를 사용하여 I/O를 코딩하는 작업과 동일합니다. 파일 I/O를 비롯한 다양한 .NET 기능에 대한 소개는 [이 자습서](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)를 참조하세요.
-[WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | 사용자 응용 프로그램의 경우: <ul><li>방화벽이나 ISP 제약 조건으로 인해 SMB를 통해 포트 445에서 Azure Files에 액세스할 수 없습니다.</li><li>파일 공유 할당량을 설정하거나 공유 액세스 서명을 만들 수 있는 기능 등 관리 기능이 필요합니다.</li></ul> | 이 문서는 (SMB 대신) REST 및 파일 공유의 관리를 사용하여 파일 I/O에서 `WindowsAzure.Storage`를 사용하는 방법을 보여줍니다.
+[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 사용자 애플리케이션의 경우: <ul><li>SMB를 통해 파일을 읽고 써야 합니다.</li><li>포트 445를 통해 Azure Files 계정에 대한 액세스 권한이 있는 디바이스에서 실행됩니다.</li><li>파일 공유의 관리 설정을 관리할 필요가 없습니다.</li></ul> | SMB를 통한 Azure Files를 사용하여 파일 I/O를 코딩하는 작업은 일반적으로 네트워크 파일 공유 또는 로컬 저장소 디바이스를 사용하여 I/O를 코딩하는 작업과 동일합니다. 파일 I/O를 비롯한 다양한 .NET 기능에 대한 소개는 [이 자습서](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)를 참조하세요.
+[WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | 사용자 애플리케이션의 경우: <ul><li>방화벽이나 ISP 제약 조건으로 인해 SMB를 통해 포트 445에서 Azure Files에 액세스할 수 없습니다.</li><li>파일 공유 할당량을 설정하거나 공유 액세스 서명을 만들 수 있는 기능 등 관리 기능이 필요합니다.</li></ul> | 이 문서는 (SMB 대신) REST 및 파일 공유의 관리를 사용하여 파일 I/O에서 `WindowsAzure.Storage`를 사용하는 방법을 보여줍니다.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>콘솔 응용 프로그램 만들기 및 어셈블리 가져오기
 Visual Studio에서 새로운 Windows 콘솔 응용 프로그램을 만듭니다. 다음 단계에서는 Visual Studio 2017에서 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다. 이 단계는 다른 버전의 Visual Studio에서도 유사합니다.
@@ -220,7 +215,7 @@ if (share.Exists())
 
     // Create a new CloudFile object from the SAS, and write some text to the file.
     CloudFile fileSas = new CloudFile(fileSasUri);
-    fileSas.UploadText("This write operation is authenticated via SAS.");
+    fileSas.UploadText("This write operation is authorized via SAS.");
     Console.WriteLine(fileSas.DownloadText());
 }
 ```
@@ -233,7 +228,7 @@ Azure Storage 클라이언트 라이브러리 버전 5.x부터 파일을 다른 
 AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일로 복사할 수도 있고 그 반대로 복사할 수도 있습니다. [AzCopy 명령줄 유틸리티로 데이터 전송](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
 > [!NOTE]
-> blob을 파일에 복사하거나 파일을 blob에 복사하는 경우 두 항목이 동일한 저장소 계정 내에 있더라도 SAS(공유 액세스 서명)를 사용하여 원본 개체를 인증해야 합니다.
+> BLOB을 파일에 복사하거나 파일을 BLOB에 복사하는 경우 두 항목이 동일한 저장소 계정 내에 있더라도 SAS(공유 액세스 서명)를 사용하여 원본 개체에 대한 액세스를 인증해야 합니다.
 > 
 > 
 
@@ -307,7 +302,7 @@ CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
 
 // Create a SAS for the file that's valid for 24 hours.
 // Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
-// to authenticate access to the source object, even if you are copying within the same
+// to authorize access to the source object, even if you are copying within the same
 // storage account.
 string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
 {
@@ -327,7 +322,7 @@ Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
 Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
 
-동일한 방식으로 blob을 파일에 복사할 수 있습니다. 원본 개체가 blob인 경우 복사 작업 동안 해당 blob에 대한 액세스를 인증하는 SAS를 만듭니다.
+동일한 방식으로 blob을 파일에 복사할 수 있습니다. 원본 개체가 BLOB인 경우 복사 작업 동안 해당 BLOB에 대한 액세스를 인증하는 SAS를 만듭니다.
 
 ## <a name="share-snapshots-preview"></a>공유 스냅숏(미리 보기)
 Azure Storage 클라이언트 라이브러리의 버전 8.5부터는 공유 스냅숏(미리 보기)를 만들 수 있습니다. 또한 공유 스냅숏을 나열하거나 찾고 삭제할 수도 있습니다. 공유 스냅숏은 읽기 전용이므로 공유 스냅숏에 쓰기 작업이 허용되지 않습니다.
@@ -476,10 +471,10 @@ Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
 
 ### <a name="reference"></a>참고 자료
 * [Storage Client Library for .NET 참조](https://msdn.microsoft.com/library/azure/dn261237.aspx)
-* [파일 서비스 REST API 참조](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+* [파일 서비스 REST API 참조](https://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### <a name="blog-posts"></a>블로그 게시물
 * [Azure Files는 현재 일반 공급됩니다.](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Azure Files 내부 구조](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Microsoft Azure 파일 서비스 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [Microsoft Azure 파일에 대한 연결 유지](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

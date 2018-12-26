@@ -1,22 +1,20 @@
 ---
-title: 'Azure Site Recovery 에이전트 오류 문제 해결: 게스트 에이전트 상태 사용할 수 없음 | Microsoft Docs'
-description: 에이전트 및 확장과 관련된 Azure Site Recovery 오류의 증상, 원인 및 해결 방법
-services: site-recovery
+title: Azure Site Recovery 에이전트를 사용하여 문제 해결 | Microsoft Docs
+description: Azure Site Recovery 에이전트 오류의 증상, 원인 및 해결 방법에 대한 정보를 제공합니다.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: troubleshooting
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: c0429e87f6c58ef2b9c7a268bee596d769e95910
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: ddbfdc9928122373b82d043fac0777576c5fe99e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919807"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227487"
 ---
-# <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>Azure Site Recovery 확장 오류 문제 해결: 에이전트 또는 확장 관련 문제
+# <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Azure Site Recovery 에이전트를 사용하여 문제 해결
 
 이 문서에서는 VM 에이전트 및 확장과 관련된 Azure Site Recovery 오류를 해결하는 데 도움이 될 수 있는 문제 해결 단계를 제공합니다.
 
@@ -66,7 +64,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 1. VM 서비스(services.msc)에서 “Microsoft Azure 게스트 에이전트 서비스”가 실행 중인지 확인합니다. “Microsoft Azure 게스트 에이전트 서비스”를 다시 시작합니다.    
 2. Microsoft Azure 게스트 에이전트 서비스가 서비스에 표시되지 않으면 제어판에서 **프로그램 및 기능**으로 이동하여 Windows 게스트 에이전트 서비스가 설치되어 있는지 확인합니다.
 4. Microsoft Azure 게스트 에이전트가 **프로그램 및 기능**에 표시되면 Windows 게스트 에이전트를 제거합니다.
-5. [최신 버전의 에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하고 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다.
+5. [최신 버전의 에이전트 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하고 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다.
 6. Microsoft Azure 게스트 에이전트 서비스가 서비스에 표시되는지 확인합니다.
 7. 보호 작업을 다시 시작합니다.
 

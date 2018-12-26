@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 29ac86ed5c744d37150b0f1b2db17f60306fe77e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3053e136ab08c38d9460d60f64464a17f6f61574
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799804"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824086"
 ---
 # <a name="monitor-batch-solutions"></a>Batch 솔루션 모니터링
 
@@ -34,7 +34,7 @@ Batch 계정을 포함하는 구독 수준에서, [Azure 활동 로그](../monit
 
 ## <a name="batch-account-level-monitoring"></a>Batch 계정 수준 모니터링
 
-[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)의 기능을 사용하여 각 Batch 계정을 모니터링합니다. Azure Monitor는 Batch 계정 수준에서 범위가 지정된 풀, 작업, 태스크 등의 리소스에 대한 [메트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md), 그리고 필요에 따라 [진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)를 수집합니다. 이 데이터를 수동으로 또는 프로그래밍 방식으로 수집하고 사용하여 Batch 계정의 활동을 모니터링하고 문제를 진단할 수 있습니다. 자세한 내용은 [진단 평가 및 모니터링을 위한 Batch 메트릭, 경고 및 로그](batch-diagnostics.md)를 참조하세요.
+[Azure Monitor](../azure-monitor/overview.md)의 기능을 사용하여 각 Batch 계정을 모니터링합니다. Azure Monitor는 Batch 계정 수준에서 범위가 지정된 풀, 작업, 태스크 등의 리소스에 대한 [메트릭](../azure-monitor/platform/data-collection.md#metrics), 그리고 필요에 따라 [진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)를 수집합니다. 이 데이터를 수동으로 또는 프로그래밍 방식으로 수집하고 사용하여 Batch 계정의 활동을 모니터링하고 문제를 진단할 수 있습니다. 자세한 내용은 [진단 평가 및 모니터링을 위한 Batch 메트릭, 경고 및 로그](batch-diagnostics.md)를 참조하세요.
  
 > [!NOTE]
 > 메트릭은 추가 구성 없이 Batch 계정에서 기본적으로 사용할 수 있으며 30일의 롤링 기록이 있습니다. Batch 계정에 진단 로깅을 사용하도록 설정해야 하며, 진단 로그 데이터를 저장 또는 처리하는 추가 비용이 발생할 수 있습니다. 
@@ -43,7 +43,7 @@ Batch 계정을 포함하는 구독 수준에서, [Azure 활동 로그](../monit
 
 Batch 응용 프로그램에서 Batch API를 사용하여 작업, 태스크, 노드, 풀을 포함한 리소스 상태를 모니터링하거나 쿼리할 수 있습니다. 예: 
 
-* [상태별 작업 계수](batch-get-task-counts.md)
+* [상태별 태스크 및 계산 노드 카운팅](batch-get-resource-counts.md)
 * [Batch 리소스를 효율적으로 나열하는 쿼리 만들기](batch-efficient-list-queries.md)
 * [태스크 종속성 만들기](batch-task-dependencies.md)
 * [작업 관리자 태스크](/rest/api/batchservice/job/add#jobmanagertask) 사용
@@ -63,7 +63,7 @@ Batch 응용 프로그램에서 Batch API를 사용하여 작업, 태스크, 노
   > Application Insights를 사용하는 추가 비용이 발생할 수 있습니다. [가격 책정 옵션](https://azure.microsoft.com/pricing/details/application-insights/)을 참조하세요. 
   >
 
-* [BatchLabs](https://github.com/Azure/BatchLabs)는 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchLabs/)를 다운로드합니다. 필요에 따라 BatchLabs의 VM 성능 카운터 같은 [Application Insights 데이터를 표시](https://github.com/Azure/batch-insights)하도록 Batch 솔루션을 구성합니다.
+* [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다. 필요에 따라 Batch Explorer의 VM 성능 카운터 같은 [Application Insights 데이터를 표시](https://github.com/Azure/batch-insights)하도록 Batch 솔루션을 구성합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

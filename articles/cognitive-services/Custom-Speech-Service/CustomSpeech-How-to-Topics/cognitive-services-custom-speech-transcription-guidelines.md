@@ -9,14 +9,17 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 2785a35ac7583ac3d9503cb721d10078d86aa365
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6c64b89c2eb933e9bcc24bdc3097e7a0b2aab368
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373335"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342469"
 ---
 # <a name="transcription-guidelines"></a>기록 지침
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 음향 및 언어 모델 사용자 지정에 대한 텍스트 데이터를 효과적으로 사용하려면 다음 기록 지침을 따라야 합니다. 이러한 지침은 언어별로 제공됩니다.
 
 ## <a name="text-normalization"></a>텍스트 정규화
@@ -36,7 +39,7 @@ ms.locfileid: "35373335"
 | 사용을 피할 유니코드 | ASCII 대체 문자 |
 |----- | ----- |
 | “Hello world”(여는 큰따옴표 및 닫는 큰따옴표) | “Hello world”(큰따옴표) |
-| John’s day(올바른 작은따옴표) | John's day(아포스트로피) |
+| John’s day(오른쪽 작은따옴표) | John's day(아포스트로피) |
 
 ### <a name="text-normalization-performed-by-the-custom-speech-service"></a>Custom Speech Service에서 수행하는 텍스트 정규화
 

@@ -1,6 +1,6 @@
 ---
 title: 로컬 Service Fabric 클러스터에서 Java 앱 디버그 | Microsoft Docs
-description: 이 자습서에서는 로컬 클러스터에서 실행되는 Service Fabric Java 응용 프로그램에서 로그를 가져오고 디버그하는 방법을 알아봅니다.
+description: 이 자습서에서는 로컬 클러스터에서 실행되는 Service Fabric Java 애플리케이션에서 로그를 가져오고 디버그하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -22,13 +22,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/11/2018
 ms.locfileid: "38652705"
 ---
-# <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>자습서: 로컬 Service Fabric 클러스터에 배포된 Java 응용 프로그램 디버그
+# <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>자습서: 로컬 Service Fabric 클러스터에 배포된 Java 애플리케이션 디버그
 
-이 자습서는 시리즈의 2부입니다. Eclipse를 사용하여 Service Fabric 응용 프로그램에 원격 디버거를 연결하는 방법을 알아봅니다. 또한 개발자를 위해 편리한 위치에서 실행 중인 응용 프로그램에서 로그를 리디렉션하는 방법을 알아봅니다.
+이 자습서는 시리즈의 2부입니다. Eclipse를 사용하여 Service Fabric 애플리케이션에 원격 디버거를 연결하는 방법을 알아봅니다. 또한 개발자를 위해 편리한 위치에서 실행 중인 애플리케이션에서 로그를 리디렉션하는 방법을 알아봅니다.
 
 시리즈 2부에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Eclipse를 사용하여 Java 응용 프로그램 디버그
+> * Eclipse를 사용하여 Java 애플리케이션 디버그
 > * 구성 가능한 위치로 로그 리디렉션
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
@@ -55,7 +55,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 로컬 개발 클러스터에 솔루션을 [빌드하고 배포합니다](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster).
 
-## <a name="debug-java-application-using-eclipse"></a>Eclipse를 사용하여 Java 응용 프로그램 디버그
+## <a name="debug-java-application-using-eclipse"></a>Eclipse를 사용하여 Java 애플리케이션 디버그
 
 1. 컴퓨터에서 Eclipse IDE를 열고 **파일 -> 가져오기...** 를 클릭합니다.
 
@@ -69,7 +69,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
     ```
 
-5. 인스턴스 수 또는 디버그하는 서비스의 복제본 수를 1로 설정하여 응용 프로그램 매니페스트를 업데이트합니다. 이 설정은 디버깅에 사용되는 포트에 대한 충돌을 방지합니다. 예를 들어, 상태 비저장 서비스의 경우 ``InstanceCount="1"``을 설정하고 상태 저장 서비스의 경우 ``TargetReplicaSetSize="1" MinReplicaSetSize="1"``과 같이 대상과 최소 복제본 세트 크기를 1로 설정합니다.
+5. 인스턴스 수 또는 디버그하는 서비스의 복제본 수를 1로 설정하여 애플리케이션 매니페스트를 업데이트합니다. 이 설정은 디버깅에 사용되는 포트에 대한 충돌을 방지합니다. 예를 들어, 상태 비저장 서비스의 경우 ``InstanceCount="1"``을 설정하고 상태 저장 서비스의 경우 ``TargetReplicaSetSize="1" MinReplicaSetSize="1"``과 같이 대상과 최소 복제본 세트 크기를 1로 설정합니다.
 
 6. Eclipse IDE에서 **실행 -> 구성 디버그 -> 원격 Java 응용 프로그램**을 선택하고 **새** 단추를 누르고 속성을 다음과 같이 설정하고 **적용**을 클릭합니다.
 
@@ -119,14 +119,14 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
     ```
 
-이 단계에서는 Service Fabric Java 응용 프로그램을 개발하는 동안 응용 프로그램 로그를 디버그하고 액세스하는 방법을 알아봅니다.
+이 단계에서는 Service Fabric Java 애플리케이션을 개발하는 동안 애플리케이션 로그를 디버그하고 액세스하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 자습서의 이 부분에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Eclipse를 사용하여 Java 응용 프로그램 디버그
+> * Eclipse를 사용하여 Java 애플리케이션 디버그
 > * 구성 가능한 위치로 로그 리디렉션
 
 다음 자습서를 진행합니다.

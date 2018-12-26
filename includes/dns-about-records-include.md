@@ -1,8 +1,21 @@
+---
+author: vhorne
+ms.service: dns
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: victorh
+ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331252"
+---
 ### <a name="record-names"></a>레코드 이름
 
 Azure DNS에서는 상대 이름을 사용하여 레코드를 지정합니다. FQDN(*정규화된* 도메인 이름)은 영역 이름을 포함하는 반면 *상대* 이름은 영역 이름을 포함하지 않습니다. 예를 들어 'contoso.com' 영역의 상대 레코드 이름 'www'는 정규화된 레코드 이름 'www.contoso.com'을 제공합니다.
 
-*apex* 레코드는 DNS 영역의 루트(또는 *apex*)에 있는 DNS 레코드입니다. 예를 들어 DNS 영역 'contoso.com'에서 루트 레코드는 정규화된 이름 'contoso.com'도 가집니다(*naked* 도메인이라고도 함).  규칙에 따라 루트 레코드를 나타내는 데 \'\@\' 상대 이름을 사용합니다.
+*apex* 레코드는 DNS 영역의 루트(또는 *apex*)에 있는 DNS 레코드입니다. 예를 들어 DNS 영역 'contoso.com'에서 루트 레코드는 정규화된 이름 'contoso.com'도 가집니다(*naked* 도메인이라고도 함).  규칙에 따라 루트 레코드를 나타내는 데 '\@' 상대 이름을 사용합니다.
 
 ### <a name="record-types"></a>레코드 유형
 

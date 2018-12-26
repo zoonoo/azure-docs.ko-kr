@@ -1,19 +1,19 @@
 ---
-title: Site Recovery를 사용하여 복제된 Hyper-V VM을 보조 데이터 센터로 장애 조치(Failover) 및 장애 복구(failback) | Microsoft Docs
-description: Azure Site Recovery를 사용하여 Hyper-V VM을 보조 온-프레미스 사이트로 장애 조치(Failover)하고, 주 사이트로 장애 복구(failback)하는 방법 알아보기
+title: Azure Site Recovery를 사용하여 재해 복구하는 동안 복제된 Hyper-V VM을 보조 데이터 센터로 장애 조치(Failover) 및 장애 복구(failback) | Microsoft Docs
+description: Azure Site Recovery를 사용하여 재해 복구하는 동안 Hyper-V VM을 보조 온-프레미스 사이트로 장애 조치(Failover)하고, 주 사이트로 장애 복구(failback)하는 방법에 대해 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: b3ca7be647ff7db0d147eca57edb20e658a28130
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 80a26f7f2c97fdbc5342d8845277facd79f22a62
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919474"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210009"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>복제된 Hyper-V VM을 보조 온-프레미스 사이트로 장애 조치(Failover) 및 장애 복구(failback)
 

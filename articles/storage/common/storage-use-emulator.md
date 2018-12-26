@@ -3,21 +3,21 @@ title: 개발 및 테스트에 Azure Storage 에뮬레이터 사용 | Microsoft 
 description: Azure Storage 에뮬레이터는 Azure Storage 응용 프로그램에 대한 개발 및 테스트에 대해 무료 로컬 개발 환경을 제공합니다. 요청을 인증하는 방법, 응용 프로그램에서 에뮬레이터에 연결하는 방법 및 명령줄 도구를 사용하는 방법을 알아봅니다.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/10/2018
 ms.author: tamram
-ms.openlocfilehash: c6500cd1ddd31d789b8cd5d72d6e4614db3f88db
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.component: common
+ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291938"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052546"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
-Microsoft Azure 저장소 에뮬레이터는 개발 목적으로 Azure Blob, 큐 및 Table service를 에뮬레이트하는 로컬 환경을 제공합니다. 저장소 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 저장소 서비스에 대해 응용 프로그램을 테스트할 수 있습니다. 에뮬레이터에서 응용 프로그램이 작동하는 방식에 만족하는 경우 Azure 저장소 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
+Microsoft Azure 저장소 에뮬레이터는 개발 목적으로 Azure Blob, 큐 및 Table service를 에뮬레이트하는 로컬 환경을 제공합니다. 저장소 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 저장소 서비스에 대해 응용 프로그램을 테스트할 수 있습니다. 에뮬레이터에서 애플리케이션이 작동하는 방식에 만족하는 경우 Azure 스토리지 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
 
 ## <a name="get-the-storage-emulator"></a>저장소 에뮬레이터 가져오기
 저장소 에뮬레이터는 [Microsoft Azure SDK](https://azure.microsoft.com/downloads/)의 일부로 제공됩니다. [독립 실행형 설치 관리자](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)(직접 다운로드)를 사용하여 저장소 에뮬레이터를 설치할 수도 있습니다. 저장소 에뮬레이터를 설치하려면 컴퓨터에 대한 관리자 권한이 있어야 합니다.
@@ -26,9 +26,8 @@ Microsoft Azure 저장소 에뮬레이터는 개발 목적으로 Azure Blob, 큐
 
 > [!NOTE]
 > 저장소 에뮬레이터의 어느 한 버전으로 작성한 데이터에 다른 버전으로 반드시 액세스할 수 있는 것은 아닙니다. 장기간 보존하려는 데이터는 저장소 에뮬레이터가 아닌 Azure Storage 계정에 저장하는 것이 좋습니다.
-> <p/>
+> 
 > 저장소 에뮬레이터는 OData 라이브러리의 특정 버전에 따라 달라집니다. 저장소 에뮬레이터에서 사용되는 OData DLL을 다른 버전으로 바꾸는 것은 지원되지 않으며 예기치 않은 동작을 초래합니다. 그러나 저장소 서비스가 지원하는 어떤 버전의 OData도 에뮬레이터에 요청을 보내는 데 사용할 수 있습니다.
->
 
 ## <a name="how-the-storage-emulator-works"></a>저장소 에뮬레이터의 작동 원리
 저장소 에뮬레이터는 로컬 Microsoft SQL Server 인스턴스와 로컬 파일 시스템을 사용하여 Azure Storage 서비스를 에뮬레이트합니다. 기본적으로 저장소 에뮬레이터는 Microsoft SQL Server 2012 Express LocalDB의 데이터베이스를 사용합니다. 저장소 에뮬레이터가 LocalDB가 아닌 SQL Server의 로컬 인스턴스에 액세스하도록 구성할 수 있습니다. 자세한 내용은 이 문서 다음에 나오는 [저장소 에뮬레이터 시작 및 초기화](#start-and-initialize-the-storage-emulator) 섹션을 참조하세요.
@@ -69,7 +68,7 @@ Azure Storage 에뮬레이터를 시작하려면:
 
   기본 SQL Server 인스턴스를 사용하도록 에뮬레이터에 지시하는 다음 명령을 사용할 수도 있습니다.
 
-  `AzureStorageEmulator.exe init /server .\\`
+  `AzureStorageEmulator.exe init /server .`
 
   또는 LocalDB 인스턴스를 다시 초기화하는 다음 명령을 사용할 수도 있습니다.
 
@@ -94,10 +93,10 @@ Xamarin 라이브러리와 같은 일부 Azure 저장소 클라이언트 라이�
 또한 Azure PowerShell을 사용하여 SAS 토큰을 생성할 수 있습니다. 다음 예제에서는 blob 컨테이너에 대한 모든 권한을 가진 SAS 토큰을 생성합니다.
 
 1. Azure PowerShell이 아직 없는 경우 설치합니다(최신 버전의 Azure PowerShell cmdlet 사용 권장). 설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/install-azurerm-ps)을 참조하세요.
-2. Azure PowerShell을 열고 `ACCOUNT_NAME` 및 `ACCOUNT_KEY==`를 자신의 자격 증명으로 바꾸고 `CONTAINER_NAME`을 선택한 이름으로 바꿔서 다음 명령을 실행합니다.
+2. Azure PowerShell을 열고 다음 명령을 실행하여 `CONTAINER_NAME`을 선택한 이름으로 바꿉니다.
 
 ```powershell
-$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+$context = New-AzureStorageContext -Local
 
 New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
@@ -109,7 +108,7 @@ New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryT
 새 컨테이너에 대해 결과적으로 생성된 공유 액세스 서명 URI는 다음과 유사해야 합니다.
 
 ```
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
 이 예제를 사용하여 만든 공유 액세스 서명은 하루 동안 유효 합니다. 서명은 컨테이너 내에서 blob에 대해 모든 권한을 부여합니다(읽기, 쓰기, 삭제, 나열).
@@ -117,7 +116,7 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-
 공유 액세스 서명에 대한 자세한 내용은 [Azure Storage에서 SAS(공유 액세스 서명) 사용](../storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 ## <a name="addressing-resources-in-the-storage-emulator"></a>저장소 에뮬레이터에서 리소스의 주소 지정
-저장소 에뮬레이터에 대한 서비스 끝점은 Azure 저장소 계정의 끝점과 다릅니다. 이 차이는 로컬 컴퓨터가 도메인 이름 확인을 수행하지 않기 때문이며, 따라서 저장소 에뮬레이터 끝점은 로컬 주소여야 합니다.
+저장소 에뮬레이터에 대한 서비스 엔드포인트는 Azure 저장소 계정의 엔드포인트와 다릅니다. 이 차이는 로컬 컴퓨터가 도메인 이름 확인을 수행하지 않기 때문이며, 따라서 저장소 에뮬레이터 엔드포인트는 로컬 주소여야 합니다.
 
 Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 사용합니다. 계정 이름은 URI 호스트 이름의 일부이고 주소를 지정하는 리소스는 URI 경로의 일부입니다.
 
@@ -135,7 +134,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 `http://127.0.0.1:10000/myaccount/mycontainer/myblob.txt`
 
-저장소 에뮬레이터에 대한 서비스 끝점은 다음과 같습니다.
+저장소 에뮬레이터에 대한 서비스 엔드포인트는 다음과 같습니다.
 
 * Blob service: `http://127.0.0.1:10000/<account-name>/<resource-path>`
 * 큐 서비스: `http://127.0.0.1:10001/<account-name>/<resource-path>`
@@ -180,13 +179,14 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 * 저장소 에뮬레이터는 확장 가능한 저장소 서비스가 아니며 많은 수의 동시 클라이언트를 지원하지 않습니다.
 * [저장소 에뮬레이터에서 리소스의 주소 지정](#addressing-resources-in-the-storage-emulator)에 설명한 대로, 저장소 에뮬레이터 및 Azure 저장소 계정에서 리소스의 주소가 서로 다르게 지정됩니다. 이러한 차이는 도메인 이름 확인이 클라우드에서는 가능하지만 로컬 컴퓨터에서는 불가능하기 때문에 발생합니다.
 * 버전 3.1부터는 저장소 에뮬레이터 계정에 대해 RA-GRS(읽기 권한 지역 중복 복제)를 사용할 수 있습니다. 에뮬레이터에서 모든 계정은 RA-GRS 활성화 되어 있으며 기본 및 보조 복제본 간에 지연되지 않습니다. Blob 서비스 통계 가져오기, 큐 서비스 통계 가져오기 및 테이블 서비스 통계 가져오기 작업은 보조 계정에서 지원되며 기본 SQL 데이터베이스에 따라 현재 시간으로 `LastSyncTime` 응답 요소의 값을 항상 반환합니다.
-* 파일 서비스 및 SMB 프로토콜 서비스 끝점은 저장소 에뮬레이터에서 현재 지원되지 않습니다.
+* 파일 서비스 및 SMB 프로토콜 서비스 엔드포인트는 저장소 에뮬레이터에서 현재 지원되지 않습니다.
 * 에뮬레이터 버전에서 지원되지 않는 저장소 서비스 버전을 사용하는 경우 저장소 에뮬레이트에서 VersionNotSupportedByEmulator 오류(HTTP 상태 코드 400 - 잘못된 요청)가 반환됩니다.
 
 ### <a name="differences-for-blob-storage"></a>Blob 저장소의 차이점
 다음과 같은 차이점이 에뮬레이터의 Blob 저장소에 적용됩니다.
 
 * 저장소 에뮬레이터는 blob 크기를 최대 2GB까지만 지원합니다.
+* 저장소 에뮬레이터에서 blob 이름의 최대 길이는 256자인 반면, Azure Storage에서 blob 이름의 최대 길이는 1024자입니다.
 * 증분 복사를 사용하면 덮어쓴 Blob의 스냅숏을 복사할 수 있으며 이로 인해 서비스에 오류가 반환됩니다.
 * Get Page Ranges Diff는 Incremental Copy Blob을 사용하여 복사한 스냅숏 간에는 작동하지 않습니다.
 * 임대 ID가 요청에 지정되어 있지 않은 경우에도 Put Blob 작업은 저장소 에뮬레이터에 있으며 활성 임대가 있는 blob에 대해 성공할 수 있습니다.
@@ -205,6 +205,12 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 ## <a name="storage-emulator-release-notes"></a>저장소 에뮬레이터 릴리스 정보
 
+### <a name="version-57"></a>버전 5.7
+로깅을 사용하도록 설정한 경우 충돌을 야기하는 버그가 수정되었습니다.
+
+### <a name="version-56"></a>버전 5.6
+* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 엔드포인트에서 2018-03-28 버전의 저장소 서비스를 지원합니다.
+
 ### <a name="version-55"></a>버전 5.5
 * 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 엔드포인트에서 2017-11-09 버전의 저장소 서비스를 지원합니다.
 * BLOB 생성 시간을 반환하는 BLOB **Created** 속성에 대한 지원이 추가되었습니다.
@@ -216,7 +222,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 엔드포인트에서 2017-07-29 버전의 저장소 서비스를 지원합니다.
 
 ### <a name="version-52"></a>버전 5.2
-* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 끝점에서 2017-04-17 버전의 저장소 서비스를 지원합니다.
+* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 엔드포인트에서 2017-04-17 버전의 저장소 서비스를 지원합니다.
 * 테이블 속성 값이 제대로 인코딩되지 않는 버그를 수정했습니다.
 
 ### <a name="version-51"></a>버전 5.1
@@ -232,25 +238,25 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 * 일부 DLL이 제거되거나 이름이 바뀌었습니다.
 
 ### <a name="version-46"></a>버전 4.6
-* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 끝점에서 2016-05-31 버전의 저장소 서비스를 지원합니다.
+* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 엔드포인트에서 2016-05-31 버전의 저장소 서비스를 지원합니다.
 
 ### <a name="version-45"></a>버전 4.5
 * 백업 데이터베이스의 이름이 변경되었을 때 저장소 에뮬레이터의 초기화 및 설치가 실패하는 버그가 수정되었습니다.
 
 ### <a name="version-44"></a>버전 4.4
-* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 끝점에서 2015-12-11 버전의 저장소 서비스를 지원합니다.
+* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 엔드포인트에서 2015-12-11 버전의 저장소 서비스를 지원합니다.
 * 저장소 에뮬레이터의 blob 데이터 가비지 수집은 이제 많은 수의 blob 처리할 때 더 효율적입니다.
 * 컨테이너 ACL XML이 저장소 서비스의 방법과는 약간 다르게 유효성 검사가 이뤄지게 하던 버그를 수정했습니다.
 * 때로 최대 및 최소 DateTime 값이 잘못된 표준 시간대에 보고되도록 하던 버그를 수정했습니다.
 
 ### <a name="version-43"></a>버전 4.3
-* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 끝점에서 2015-07-08 버전의 저장소 서비스를 지원합니다.
+* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 엔드포인트에서 2015-07-08 버전의 저장소 서비스를 지원합니다.
 
 ### <a name="version-42"></a>버전 4.2
-* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 끝점에서 2015-04-05 버전의 저장소 서비스를 지원합니다.
+* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 엔드포인트에서 2015-04-05 버전의 저장소 서비스를 지원합니다.
 
 ### <a name="version-41"></a>버전 4.1
-* 저장소 에뮬레이터는 이제 새로운 추가 Blob 기능을 제외하고 Blob, 큐 및 Table service 끝점에서 2015-02-21 버전의 저장소 서비스를 지원합니다.
+* 저장소 에뮬레이터는 이제 새로운 추가 Blob 기능을 제외하고 Blob, 큐 및 Table service 엔드포인트에서 2015-02-21 버전의 저장소 서비스를 지원합니다.
 * 에뮬레이터에서 지원되지 않는 저장소 서비스 버전을 사용하는 경우 에뮬레이트에서 의미 있는 오류 메시지가 반환됩니다. 최신 버전의 에뮬레이터를 사용하는 것이 좋습니다. VersionNotSupportedByEmulator 오류(HTTP 상태 코드 400 - 잘못된 요청)가 발생하는 경우 최신 버전의 저장소 에뮬레이터를 다운로드하세요.
 * 경합 조건으로 인해 동시 병합 작업 중 잘못된 테이블 엔터티 데이터가 발생하는 버그가 수정되었습니다.
 
@@ -258,7 +264,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 * 저장소 에뮬레이터 실행 파일의 이름이 *AzureStorageEmulator.exe*로 바뀌었습니다.
 
 ### <a name="version-32"></a>버전 3.2
-* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 끝점에서 2014-02-14 버전의 저장소 서비스를 지원합니다. 파일 서비스 끝점은 저장소 에뮬레이터에서 현재 지원되지 않습니다. 2014-02-14 버전에 대한 자세한 내용은 [Azure Storage 서비스에 대한 버전 관리](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) 를 참조하세요.
+* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 엔드포인트에서 2014-02-14 버전의 저장소 서비스를 지원합니다. 파일 서비스 엔드포인트는 저장소 에뮬레이터에서 현재 지원되지 않습니다. 2014-02-14 버전에 대한 자세한 내용은 [Azure Storage 서비스에 대한 버전 관리](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) 를 참조하세요.
 
 ### <a name="version-31"></a>버전 3.1
 * 읽기 액세스 지역 중복 저장소 (RA-GRS)는 이제 저장소 에뮬레이터에서 지원됩니다. Blob 서비스 통계 가져오기, 큐 서비스 통계 가져오기 및 테이블 서비스 통계 가져오기 API는 보조 계정에서 지원되며 기본 SQL 데이터베이스에 따라 현재 시간으로 LastSync 시간 응답 요소의 값을 항상 반환합니다. 저장소 에뮬레이터를 사용하여 프로그래밍 방식으로 보조 계정에 액세스하려는 경우 .NET용 Storage 클라이언트 라이브러리 버전 3.2 이상을 사용합니다. 자세한 내용은 .NET용 Microsoft Azure Storage 클라이언트 라이브러리 참조를 참조하세요.

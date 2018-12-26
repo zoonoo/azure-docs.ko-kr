@@ -1,24 +1,18 @@
 ---
-title: "Azure Data Catalog에서 관련 데이터 자산을 보는 방법 | Microsoft Docs"
-description: "이 문서에서는 Azure Data Catalog에서 선택한 데이터 자산의 관련 데이터 자산을 보는 방법을 설명합니다."
+title: Azure Data Catalog에서 관련 데이터 자산을 보는 방법
+description: 이 문서에서는 Azure Data Catalog에서 선택한 데이터 자산의 관련 데이터 자산을 보는 방법을 설명합니다.
 services: data-catalog
-documentationcenter: 
-author: steelanddata
-manager: NA
-editor: 
-tags: 
+author: markingmyname
+ms.author: maghan
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 37d12209d28b73f0d7fc6d940ded344fbeae968d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e68dc22943b7a53693320528f91670d9229b806f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958335"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Azure Data Catalog에서 관련 데이터 자산을 보는 방법
 Azure Data Catalog를 사용하면 선택한 데이터 자산과 관련된 데이터 자산을 보고 관계를 확인할 수 있습니다. 
@@ -35,9 +29,9 @@ Azure Data Catalog를 사용하면 선택한 데이터 자산과 관련된 데�
 > 데이터 카탈로그에서 두 데이터 자산 간의 관계를 가져오려면 동시에 두 자산을 등록해야 합니다. 그 중 하나를 별도로 추가한 경우 해당 자산 및 다른 데이터 자산을 다시 추가하여 둘 간의 관계를 가져옵니다.
 
 ## <a name="view-related-data-assets"></a>관련된 데이터 자산 보기
-선택한 데이터 집합과 관련된 데이터 자산을 보려면 다음 그림과 같이 **관계** 탭을 사용합니다. 
+선택한 데이터 세트와 관련된 데이터 자산을 보려면 다음 그림과 같이 **관계** 탭을 사용합니다. 
 
-![Azure Data Catalog - 관련 데이터 자산 보기](media\data-catalog-how-to-view-related-data-assets\relationships-tab.png)
+![Azure Data Catalog - 관련 데이터 자산 보기](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
 
 이 예제에는 선택한 **ProductSubcategory** 데이터 자산에 대해 2가지 관계가 설정되어 있습니다. 
 
@@ -49,7 +43,7 @@ Azure Data Catalog를 사용하면 선택한 데이터 자산과 관련된 데�
 
 열의 정규화된 이름 같은 자세한 정보를 보려면 마우스를 위로 가져갑니다. 그러면 다음 그림과 비슷한 팝업이 표시됩니다. 
 
-![Azure Data Catalog - 관계 팝업](media\data-catalog-how-to-view-related-data-assets\relationship-popup.png)
+![Azure Data Catalog - 관계 팝업](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
 
 이미 등록된 자산 간의 관계를 포함하려면 해당 자산을 다시 등록합니다.
 

@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6b3205603b91077ca2c3226dcb78589de37d15cf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b74f40c093ca4cc62330de321ea2b53315b903db
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247367"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java용 Application Insights 문제 해결과 질문 및 답변
 [Java의 Azure Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.
@@ -42,7 +43,7 @@ ms.lasthandoff: 04/03/2018
 * 버전 충돌 문제를 방지하려면 동일한 버전의 Application Insights 코어, 웹, 에이전트 및 로깅 어펜더를 사용합니다.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>데이터를 보는 데 중지되었습니다.
-* [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
+* [상태 블로그](https://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
 * 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 알아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
 * 최근에 SDK를 업그레이드했나요? 고유한 SDK jar만 프로젝트 디렉터리 내부에 있는지 확인합니다. 두 개의 서로 다른 SDK 버전이 있으면 안 됩니다.
 * 올바른 AI 리소스를 보고 있나요? 원격 분석이 필요한 리소스에 응용 프로그램의 iKey를 일치합니다. 동일해야 합니다.
@@ -64,7 +65,7 @@ ms.lasthandoff: 04/03/2018
 
 서버에서 원격 분석을 보내도록 앱을 설정했습니다. 이제 다음 단계로 [웹 브라우저에서 원격 분석을 보내도록 웹 페이지를 설정][usage]해야 합니다.
 
-또는 클라이언트가 [휴대폰이나 기타 장치][platforms]의 앱인 경우 해당 장치에서 원격 분석을 보낼 수 있습니다. 
+또는 클라이언트가 [휴대폰이나 기타 디바이스][platforms]의 앱인 경우 해당 디바이스에서 원격 분석을 보낼 수 있습니다. 
 
 동일한 계측 키를 사용하여 클라이언트 및 서버 원격 분석을 둘 다 설정합니다. 데이터가 동일한 Application Insights 리소스에 표시되며, 클라이언트와 서버의 이벤트에 상관 관계를 지정할 수 있습니다.
 

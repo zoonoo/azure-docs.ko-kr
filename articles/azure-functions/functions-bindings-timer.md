@@ -3,26 +3,22 @@ title: Azure Functions의 타이머 트리거
 description: Azure Functions에서 타이머 트리거를 사용하는 방법을 파악합니다.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: craigshoemaker
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 02/27/2017
-ms.author: tdykstra
+ms.date: 09/08/2018
+ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: a4895c0c58d1cdb0430b7418ba24dd85157ecdd3
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 6589a90f6eea2bfd7188e89b701233b37c162d54
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308162"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978769"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -50,6 +46,7 @@ ms.locfileid: "36308162"
 * [C# 스크립트(.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="c-example"></a>C# 예제
 
@@ -57,13 +54,13 @@ ms.locfileid: "36308162"
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
     if(myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
 ```
 
@@ -85,13 +82,13 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 C# 스크립트 코드는 다음과 같습니다.
 
 ```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
+public static void Run(TimerInfo myTimer, ILogger log)
 {
     if(myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}" );  
 }
 ```
 
@@ -113,11 +110,11 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 F# 스크립트 코드는 다음과 같습니다.
 
 ```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
+let Run(myTimer: TimerInfo, log: ILogger ) =
     if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
+        log.LogInformation("F# function is running late.")
     let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
+    log.LogInformation(sprintf "F# function executed at %s!" now)
 ```
 
 ### <a name="javascript-example"></a>JavaScript 예제
@@ -135,7 +132,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter ) =
 }
 ```
 
-JavaScript 스크립트 코드는 다음과 같습니다.
+JavaScript 코드는 다음과 같습니다.
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -143,12 +140,27 @@ module.exports = function (context, myTimer) {
 
     if(myTimer.isPastDue)
     {
-        context.log('Node.js is running late!');
+        context.log('Node is running late!');
     }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log('Node timer trigger function ran!', timeStamp);   
 
     context.done();
 };
+```
+
+### <a name="java-example"></a>Java 예제
+
+다음 예제 함수는 5분 간격으로 트리거되고 실행됩니다. 함수의 `@TimerTrigger` 주석은 [CRON 식](http://en.wikipedia.org/wiki/Cron#CRON_expression)과 같은 문자열 형식을 사용하여 일정을 정의합니다.
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
 ```
 
 ## <a name="attributes"></a>특성
@@ -159,13 +171,13 @@ module.exports = function (context, myTimer) {
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
     if (myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
  ```
 
@@ -179,10 +191,13 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 |**direction** | 해당 없음 | "in"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 타이머 개체를 나타내는 변수의 이름입니다. | 
 |**schedule**|**ScheduleExpression**|[CRON 식](#cron-expressions) 또는 [TimeSpan](#timespan) 값입니다. App Service 계획에서 함수 앱을 실행 중인 경우에만 `TimeSpan`을 사용할 수 있습니다. "%ScheduleAppSetting%" 예제와 같이 앱 설정에서 일정 식을 배치하고 이 속성을 **%** 기호에서 래핑된 앱 설정 이름으로 설정할 수 있습니다. |
-|**runOnStartup**|**RunOnStartup**|`true`인 경우 함수는 런타임이 시작될 때 호출됩니다. 예를 들어 비활성으로 인해 유휴 상태로 전환된 후에 함수 앱이 작동될 때 런타임이 시작됩니다. 함수 변경으로 인해 함수 앱을 다시 시작할 때 및 함수 앱이 확장할 때입니다. 따라서 **runOnStartup**은 예측할 수 없는 경우에 코드를 실행하므로 `true`로 설정되는 경우가 거의 없습니다.|
+|**runOnStartup**|**RunOnStartup**|`true`인 경우 함수는 런타임이 시작될 때 호출됩니다. 예를 들어 비활성으로 인해 유휴 상태로 전환된 후에 함수 앱이 작동될 때 런타임이 시작됩니다. 함수 변경으로 인해 함수 앱을 다시 시작할 때 및 함수 앱이 확장할 때입니다. 따라서 **runOnStartup**은 특히 프로덕션에서 `true`로 설정되는 경우가 거의 없습니다. |
 |**useMonitor**|**UseMonitor**|`true` 또는 `false`로 설정하여 일정을 모니터링해야 하는지를 나타냅니다. 일정 모니터링은 일정 발생을 유지하여 함수 앱 인스턴스가 다시 시작하는 경우에도 일정을 올바르게 유지하도록 지원합니다. 명시적으로 설정하지 않는 경우 되풀이 간격이 1분을 넘는 큰 일정에서 기본값은 `true`입니다. 분당 한 번 넘게 트리거되는 일정에서 기본값은 `false`입니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!CAUTION]
+> 프로덕션 환경에서는 **runOnStartup**을 `true`로 설정하지 않는 것이 좋습니다. 이 설정을 사용하면 매우 예측할 수 없는 시간에 코드가 실행됩니다. 특정 프로덕션 환경에서 이러한 추가 실행으로 인해 소비 계획에서 호스팅되는 앱의 비용이 상당히 높아질 수 있습니다. 예를 들어 **runOnStartup**을 사용하면 함수 앱의 크기를 조정할 때마다 트리거가 호출됩니다. 프로덕션 환경에서 **runOnStartup**을 사용하도록 설정하기 전에 함수의 프로덕션 동작을 완전히 이해했는지 확인하세요.   
 
 ## <a name="usage"></a>사용 현황
 
@@ -205,7 +220,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 ## <a name="cron-expressions"></a>CRON 식 
 
-Azure Functions 타이머 트리거의 CRON 식에는 다음과 같은 6개의 필드가 포함됩니다. 
+Azure Functions는 [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리를 사용하여 CRON 식을 해석합니다. CRON 식에는 6개의 필드가 포함됩니다.
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -219,7 +234,12 @@ Azure Functions 타이머 트리거의 CRON 식에는 다음과 같은 6개의 �
 |값 집합(`,` 연산자)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05,hh:mm:08 및 hh:mm:10에서 hh:mm은 매시간의 매분임(분당 3번)|
 |간격 값(`/` 연산자)|<nobr>"0 */5 * * * *"</nobr>|hh:05:00, hh:10:00, hh:15:00부터 hh:55:00까지에서 hh는 매시간임(시간당 12번)|
 
-월 또는 일을 지정하려면 숫자 값 대신 3자 약어를 사용할 수 있습니다. 예를 들어 1월에는 Jan을 사용하고 일요일에는 Sun을 사용합니다.
+월 또는 요일을 지정하려면 숫자 값, 이름 또는 이름 약어를 사용할 수 있습니다.
+
+* 요일의 경우 숫자 값은 0에서 6까지이며 0은 Sunday로 시작합니다.
+* 이름은 영어입니다. 예: `Monday`, `January`.
+* 이름은 대/소문자를 구분하지 않습니다.
+* 이름은 축약될 수 있습니다. 약어 길이는 글자 세 개가 좋습니다.  예: `Mon`, `Jan`. 
 
 ### <a name="cron-examples"></a>CRON 예제
 
@@ -227,13 +247,13 @@ Azure Functions에서 타이머 트리거를 사용할 수 있는 CRON 식의 �
 
 |예|트리거될 때  |
 |---------|---------|
-|"0 */5 * * * *"|5분마다 한 번|
-|"0 0 * * * *"|1시간이 시작할 때마다 한 번|
-|"0 0 */2 * * *"|2시간마다 한 번|
-|"0 0 9-17 * * *"|오전 9시에서 오후 5시까지 1시간마다 한 번|
-|"0 30 9 * * *"|매일 오전 9시 30분|
-|"0 30 9 * * 1-5"|평일 오전 9:30|
-
+|`"0 */5 * * * *"`|5분마다 한 번|
+|`"0 0 * * * *"`|1시간이 시작할 때마다 한 번|
+|`"0 0 */2 * * *"`|2시간마다 한 번|
+|`"0 0 9-17 * * *"`|오전 9시에서 오후 5시까지 1시간마다 한 번|
+|`"0 30 9 * * *"`|매일 오전 9시 30분|
+|`"0 30 9 * * 1-5"`|평일 오전 9:30|
+|`"0 30 9 * Jan Mon"`|1월 매주 월요일 오전 9:30|
 >[!NOTE]   
 >온라인으로 CRON 식 예제를 찾을 수 있지만 그 중 대부분은 `{second}` 필드를 생략합니다. 이들 중 하나를 복사하는 경우 누락된 `{second}` 필드를 추가합니다. 일반적으로 해당 필드에 별표가 아닌 0을 사용합니다.
 
@@ -246,14 +266,16 @@ CRON 식과 함께 사용하는 기본 표준 시간대는 UTC(협정 세계시)
 예를 들어 *동부 표준시*는 UTC-05:00입니다. 타이머 트리거를 매일 오전 10시 EST에 발생하도록 하려면 UTC 표준 시간대를 반영하는 다음과 같은 CRON 식을 사용합니다.
 
 ```json
-"schedule": "0 0 15 * * *",
+"schedule": "0 0 15 * * *"
 ``` 
 
 또는 `WEBSITE_TIME_ZONE`이라는 함수 앱에 앱 설정을 만들고, 값을 **동부 표준시**로 설정합니다.  그런 다음, 다음 CRON 식을 사용합니다. 
 
 ```json
-"schedule": "0 0 10 * * *",
+"schedule": "0 0 10 * * *"
 ``` 
+
+`WEBSITE_TIME_ZONE`을 사용하는 경우 일광 절약 시간제와 같은 특정 표준 시간대에서 시간 변경에 대해 시간이 조정됩니다. 
 
 ## <a name="timespan"></a>timespan
 

@@ -6,18 +6,20 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 02/21/2018
+ms.date: 08/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: afb85f20c49821ca98e078791730a3376198e9e5
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303320"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144116"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Service Bus에 대한 Azure Event Grid 이벤트 스키마
 
 이 문서에서는 Service Bus 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+
+샘플 스크립트 및 자습서 목록은 [Service Bus 이벤트 원본](event-sources.md#service-bus)을 참조하세요.
 
 ## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
@@ -93,7 +95,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
 | 자산 | type | 설명 |
 | -------- | ---- | ----------- |
-| nameSpaceName | string | 리소스가 있는 Service Bus 네임스페이스입니다. |
+| namespaceName | string | 리소스가 있는 Service Bus 네임스페이스입니다. |
 | requestUri | string | 이벤트를 내보내는 특정 큐 또는 구독의 URI입니다. |
 | entityType | string | 이벤트를 내보내는 Service Bus 엔터티의 유형(큐 또는 구독)입니다. |
 | queueName | string | 큐를 구독하는 경우 활성 메시지가 있는 큐입니다. 토픽/구독을 사용하는 경우 값이 null입니다. |

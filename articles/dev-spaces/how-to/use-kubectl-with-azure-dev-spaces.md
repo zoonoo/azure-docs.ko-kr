@@ -4,19 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: zr-msft
+ms.author: zarhoads
 ms.date: 05/11/2018
 ms.topic: article
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-manager: douge
-ms.openlocfilehash: 3dc0dd4b571f716bcabb67c4cbef1ea6d762eb94
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: b522ab9177d963f65ac6ea75538ddc46331875da
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248661"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706792"
 ---
 # <a name="use-kubectl-with-an-azure-dev-space"></a>Azure Dev Space로 kubectl 사용
 

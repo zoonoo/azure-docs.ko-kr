@@ -1,32 +1,26 @@
 ---
-title: Azure HDInsight에서 Livy Spark를 사용하여 Spark 클러스터에 작업 제출 | Microsoft Docs
+title: Azure HDInsight에서 Livy Spark를 사용하여 Spark 클러스터에 작업 제출
 description: Apache Spark REST API를 사용하여 Azure HDInsight 클러스터에 원격으로 Spark 작업을 제출하는 방법을 알아봅니다.
-keywords: apache spark rest api, livy spark
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 2817b779-1594-486b-8759-489379ca907d
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/11/2017
-ms.author: nitinme
-ms.openlocfilehash: 29cf245a03b38be4f5396a3c83c966a27cf038f3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 11/06/2018
+ms.openlocfilehash: 6a0a2dec6beeecca3779f4b047d3b5fe6295a1e6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517780"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495310"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출
 
-Azure HDInsight Spark 클러스터에 원격 작업을 제출하는 데 사용되는 Livy, Apache Spark REST API를 사용하는 방법을 알아봅니다. 자세한 설명서는 [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/)를 참조하세요.
+Azure HDInsight Spark 클러스터에 원격 작업을 제출하는 데 사용되는 [Apache Livy](https://livy.incubator.apache.org/), [Apache Spark](https://spark.apache.org/) REST API를 사용하는 방법을 알아봅니다. 자세한 설명서는 [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/)를 참조하세요.
 
-Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행되도록 배치 작업을 제출할 수 있습니다. 이 문서는 Livy를 사용하여 배치 작업을 제출하는 방법에 대해 설명합니다. 이 문서의 코드 조각은 cURL을 사용하여 Livy Spark 끝점에 대한 REST API를 호출합니다.
+Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행되도록 배치 작업을 제출할 수 있습니다. 이 문서는 Livy를 사용하여 배치 작업을 제출하는 방법에 대해 설명합니다. 이 문서의 코드 조각은 cURL을 사용하여 Livy Spark 엔드포인트에 대한 REST API를 호출합니다.
 
 **필수 조건:**
 
@@ -34,19 +28,19 @@ Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행�
 
 * [cURL](http://curl.haxx.se/). 이 문서에서는 cURL을 사용하여 HDInsight Spark 클러스터에 대해 REST API 호출을 수행하는 방법을 보여 줍니다.
 
-## <a name="submit-a-livy-spark-batch-job"></a>Livy Spark 배치 작업 제출
-배치 작업을 제출하기 전에 클러스터와 연결된 클러스터 저장소에 응용 프로그램 jar을 업로드해야 합니다. [**AzCopy**](../../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
+## <a name="submit-an-apache-livy-spark-batch-job"></a>Apache Livy Spark 일괄 작업 제출
+배치 작업을 제출하기 전에 클러스터와 연결된 클러스터 저장소에 응용 프로그램 jar을 업로드해야 합니다. [**AzCopy**](../../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
 
-    curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
+    curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 
 **예제**:
 
 * jar 파일이 클러스터 저장소(WASB)에 있는 경우
   
-        curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
 * 입력 파일의 일부분으로 jar 파일 이름 및 클래스 이름을 전달하려는 경우(이 예제에서는 input.txt)
   
-        curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
 
 ## <a name="get-information-on-livy-spark-batches-running-on-the-cluster"></a>클러스터에서 실행 중인 Livy Spark 배치에 대한 정보 가져오기
     curl -k --user "<hdinsight user>:<user password>" -v -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
@@ -55,7 +49,7 @@ Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행�
 
 * 클러스터에서 실행 중인 모든 Livy Spark 배치를 검색하려는 경우:
   
-        curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches" 
 * 지정된 batchId로 특정 배치를 검색하려는 경우
   
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
@@ -101,7 +95,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
 
 2. 이제 배치 작업을 제출하도록 합니다. 다음 코드 조각은 입력 파일(input.txt)을 사용하여 매개 변수로 jar 이름 및 클래스 이름을 전달합니다. Windows 컴퓨터에서 이러한 단계를 실행하는 경우 입력 파일을 사용하는 것이 권장됩니다.
    
-        curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
    
     파일 **input.txt** 에서 매개 변수는 다음과 같이 정의됩니다.
    
@@ -158,9 +152,9 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
    
     출력의 마지막 줄은 배치가 성공적으로 삭제된 것을 보여 줍니다. 실행 중인 작업을 삭제하면 작업이 종료됩니다. 성공적으로 완료됐거나 그렇지 않은 작업을 삭제하는 경우 작업 정보를 완전히 삭제합니다.
 
-## <a name="using-livy-spark-on-hdinsight-35-clusters"></a>HDInsight 3.5 클러스터에서 Livy Spark 사용
+## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>HDInsight 버전 3.5로 시작하는 Livy 구성에 대한 업데이트
 
-기본적으로 HDInsight 3.5 클러스터는 로컬 파일 경로를 사용하여 샘플 데이터 파일이나 jar를 액세스하지 못하도록 합니다. 클러스터에서 jar 또는 샘플 데이터 파일에 액세스하는 대신 `wasb://` 경로를 사용하는 것이 좋습니다. 로컬 경로를 사용하려면 이에 따라 Ambari 구성을 적절하게 업데이트해야 합니다. 이렇게 하려면 다음을 수행합니다.
+기본적으로 HDInsight 클러스터 3.5 이상은 로컬 파일 경로를 사용하여 샘플 데이터 파일이나 jar를 액세스하지 못하도록 합니다. 클러스터에서 jar 또는 샘플 데이터 파일에 액세스하는 대신 `wasb://` 경로를 사용하는 것이 좋습니다. 로컬 경로를 사용하려면 이에 따라 Ambari 구성을 적절하게 업데이트해야 합니다. 이렇게 하려면 다음을 수행합니다.
 
 1. 클러스터에 대한 Ambari 포털로 이동합니다. Ambari 웹 UI는 https://**CLUSTERNAME**.azurehdidnsight.net의 HDInsight 클러스터에서 사용할 수 있습니다. 여기서 CLUSTERNAME은 클러스터 이름입니다.
 
@@ -170,7 +164,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 클러스터에 대한 Livy 작업 제출
 
-Azure Virtual Network 내에서 HDInsight Spark 클러스터에 연결하는 경우 클러스터의 Livy에 직접 연결할 수 있습니다. 이러한 경우 Livy 끝점의 URL은 `http://<IP address of the headnode>:8998/batches`입니다. 여기서 **8998**은 클러스터 헤드 노드에서 Livy가 실행되는 포트입니다. 비공용 포트의 서비스 액세스에 대한 자세한 내용은 [HDInsight의 Hadoop 서비스에서 사용하는 포트](../hdinsight-hadoop-port-settings-for-services.md)를 참조하세요.
+Azure Virtual Network 내에서 HDInsight Spark 클러스터에 연결하는 경우 클러스터의 Livy에 직접 연결할 수 있습니다. 이러한 경우 Livy 엔드포인트의 URL은 `http://<IP address of the headnode>:8998/batches`입니다. 여기서 **8998**은 클러스터 헤드 노드에서 Livy가 실행되는 포트입니다. 비공용 포트의 서비스 액세스에 대한 자세한 내용은 [HDInsight의 Apache Hadoop 서비스에 사용되는 포트](../hdinsight-hadoop-port-settings-for-services.md)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -188,7 +182,7 @@ Azure Virtual Network 내에서 HDInsight Spark 클러스터에 연결하는 경
 
 ## <a name="next-step"></a>다음 단계
 
-* [Livy REST API 설명서](http://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Apache Livy REST API 설명서](http://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](apache-spark-job-debugging.md)
 

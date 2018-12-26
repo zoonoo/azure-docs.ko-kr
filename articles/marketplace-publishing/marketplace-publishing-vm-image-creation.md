@@ -3,8 +3,8 @@ title: Azure Marketplace에 대한 가상 컴퓨터 이미지 만들기 | Micros
 description: Azure Marketplace에서 다른 사용자가 구입할 수 있도록 가상 머신 이미지를 만드는 방법에 대한 자세한 지침입니다.
 services: Azure Marketplace
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: mbaldwin
-ms.openlocfilehash: ad6d48a03575e8fabd7eed2ebc1f7926ec4559d4
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.author: hascipio; v-divte
+ms.openlocfilehash: 0dc33c669a73dd92926eef6a9c4a476160ce60a4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808743"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686367"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace에 대한 가상 머신 이미지 만들기 가이드
 이 문서의 **2단계**에서는 Azure Marketplace에 배포할 VHD(가상 하드 디스크)를 준비하는 과정을 안내합니다. VHD는 SKU의 기반입니다. Linux 기반 SKU를 제공할지 Windows 기반 SKU를 제공할지 여부에 따라 프로세스는 다릅니다. 이 문서에서는 두 시나리오를 모두 다룹니다. 이 프로세스는 [계정 만들기 및 등록][link-acct-creation]과 함께 병렬로 수행할 수 있습니다.
@@ -43,7 +43,7 @@ SKU는 VM 이미지에 대한 상업용 이름입니다. VM 이미지에는 운�
 
 ### <a name="11-add-an-offer"></a>1.1 제품 추가
 1. 판매자 계정을 사용하여 [게시 포털][link-pubportal]에 로그인합니다.
-2. 게시 포털의 **Virtual Machines** 탭을 선택합니다. 표시된 입력 필드에 제품 이름을 입력합니다. 제품 이름은 일반적으로 Azure Marketplace에 판매할 계획인 제품 또는 서비스의 이름입니다.
+2. 게시 포털의 **Virtual Machines** 탭을 선택합니다. 표시된 입력 필드에 제품 이름을 입력합니다. 제안 이름은 일반적으로 Azure Marketplace에 판매할 계획인 제품 또는 서비스의 이름입니다.
 3. **만들기**를 선택합니다.
 
 ### <a name="12-define-a-sku"></a>1.2 SKU 정의
@@ -69,9 +69,9 @@ VM 이미지용 운영 체제 VHD는 Windows Server 또는 SQL Server를 포함�
 
 시작하려면 [Microsoft Azure Portal][link-azure-portal]에 있는 다음 이미지 중 하나에서 VM을 만듭니다.
 
-* Windows Server([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
-* SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
-* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web][link-sql-2012-web])
+* Windows Server ([2012 R2 데이터 센터][link-datactr-2012-r2], [2012 데이터 센터][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
+* SQL Server 2014 
+* SQL Server 2012 SP2 
 
 이러한 링크는 게시 포털의 SKU 페이지 아래에도 있습니다.
 
@@ -94,7 +94,7 @@ Microsoft Azure 포털에서 승인된 기본 이미지를 기반으로 VM을 �
 
     a.    온-프레미스에서 VHD를 개발하려는 경우 크기는 중요하지 않습니다. 더 작은 VM 중 하나를 사용하는 것이 좋습니다.
 
-    나.    Azure에서 이미지를 개발하려는 경우 선택된 이미지에 대한 권장 VM 크기 중 하나를 사용하는 것이 좋습니다.
+    b.    Azure에서 이미지를 개발하려는 경우 선택된 이미지에 대한 권장 VM 크기 중 하나를 사용하는 것이 좋습니다.
 
     다.    가격 책정에 대한 자세한 내용은 포털에 표시되는 **권장 가격 책정 계층** 선택기를 참조하세요. 게시자가 제공한 세 개의 권장 크기를 제공합니다. 이 경우 게시자는 Microsoft입니다.
 
@@ -103,14 +103,14 @@ Microsoft Azure 포털에서 승인된 기본 이미지를 기반으로 VM을 �
 
     a.    빠른 배포를 위해 **선택적 구성** 및 **리소스 그룹**에서 속성에 대한 기본값을 그대로 사용할 수 있습니다.
 
-    나.    필요에 따라 **Storage 계정**에서 운영 체제 VHD를 저장할 Storage 계정을 선택할 수 있습니다.
+    b.    필요에 따라 **Storage 계정**에서 운영 체제 VHD를 저장할 Storage 계정을 선택할 수 있습니다.
 
     다.    필요에 따라 **리소스 그룹**에서 VM을 배치할 논리 그룹을 선택할 수 있습니다.
 6. 배포를 위한 **위치** 를 선택합니다.
 
     a.    온-프레미스에서 VHD를 개발하려면 나중에 이미지를 Azure에 업로드할 것이므로 위치는 중요하지 않습니다.
 
-    나.    Azure에서 이미지를 개발하려면 처음부터 미국 기반 Microsoft Azure 지역 중 하나를 사용하는 것이 좋습니다. 그러면 개발자가 인증을 위해 이미지를 제출할 때 Microsoft에서 자동으로 수행되는 VHD 복사 프로세스가 단축됩니다.
+    b.    Azure에서 이미지를 개발하려면 처음부터 미국 기반 Microsoft Azure 지역 중 하나를 사용하는 것이 좋습니다. 그러면 개발자가 인증을 위해 이미지를 제출할 때 Microsoft에서 자동으로 수행되는 VHD 복사 프로세스가 단축됩니다.
 
     ![drawing][img-portal-vm-location]
 7. **만들기**를 클릭합니다. VM 배포를 시작합니다. 몇 분 이내에 배포되고 SKU에 대한 이미지 만들기를 시작할 수 있습니다.
@@ -148,11 +148,11 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 클라우드에서 VHD를 
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
-RDP에 대한 자세한 내용은 MSDN의 [RDP 또는 SSH를 사용하여 Azure VM에 연결](http://msdn.microsoft.com/library/azure/dn535788.aspx)(영문) 문서를 참조하세요.
+RDP에 대한 자세한 내용은 MSDN의 [RDP 또는 SSH를 사용하여 Azure VM에 연결](https://msdn.microsoft.com/library/azure/dn535788.aspx)(영문) 문서를 참조하세요.
 
 **VM 구성 및 SKU 만들기**
 
-운영 체제 VHD를 다운로드한 후 Hyper-V를 사용하고 SKU 만들기를 시작하도록 VM을 구성합니다. 세부 단계는 TechNet 링크([Hyper-V 설치 및 VM 구성](http://technet.microsoft.com/library/hh846766.aspx))에서 확인할 수 있습니다.
+운영 체제 VHD를 다운로드한 후 Hyper-V를 사용하고 SKU 만들기를 시작하도록 VM을 구성합니다. 세부 단계는 TechNet 링크([Hyper-V 설치 및 VM 구성](https://technet.microsoft.com/library/hh846766.aspx))에서 확인할 수 있습니다.
 
 ### <a name="34-choose-the-correct-vhd-size"></a>3.4 올바른 VHD 크기 선택
 VM 이미지의 Windows 운영 체제 VHD는 128GB 고정 형식 VHD로 만들어져야 합니다.  
@@ -189,9 +189,9 @@ VM 이미지에 대해 자세히 알아보려면 다음 블로그 게시물을 �
 * [VM 이미지 PowerShell 방법](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 * [Azure에서 VM 이미지 정보](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-### <a name="set-up-the-necessary-tools-powershell-and-azure-cli"></a>필요한 도구, PowerShell 및 Azure CLI 설정
+### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>필요한 도구, PowerShell 및 Azure 클래식 CLI 설정
 * [PowerShell을 설정하는 방법](/powershell/azure/overview)
-* [Azure CLI를 설정하는 방법](../cli-install-nodejs.md)
+* [Azure CLI를 설정하는 방법](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 사용자 VM 이미지 만들기
 #### <a name="capture-vm"></a>VM 캡처
@@ -323,7 +323,7 @@ Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음�
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_03.png)
 
-5. 저장소 계정 이름, 저장소 계정 키 및 저장소 끝점 도메인을 지정합니다. Azure Portal에 대한 VHD를 보관하는 Azure 구독의 저장소 계정입니다.
+5. 저장소 계정 이름, 저장소 계정 키 및 저장소 엔드포인트 도메인을 지정합니다. Azure Portal에 대한 VHD를 보관하는 Azure 구독의 저장소 계정입니다.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_04.png)
 
@@ -349,7 +349,7 @@ Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음�
 
     a. **액세스 허용 시작**: UTC 시간에 대한 보호를 위해 현재 날짜 이전으로 선택합니다. 예를 들어, 현재 날짜가 2014년 10월 6일이면 2014년 10월 5일을 선택합니다.
 
-    나. **액세스 허용 종료**: **액세스 허용 시작** 날짜로부터 3주 이상 지난 날짜를 선택합니다.
+    b. **액세스 허용 종료**: **액세스 허용 시작** 날짜로부터 3주 이상 지난 날짜를 선택합니다.
 
     다. **허용 동작**: **나열** 및 **읽기** 권한을 선택합니다.
 
@@ -397,7 +397,7 @@ Microsoft Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계�
 
     a.  **시작 시간:** UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2014년 10월 6일이면 2014년 10월 5일을 선택합니다.
 
-    나.  **만료 시간:** **시작 시간** 날짜 이후 3주 이상 지난 날짜를 선택합니다.
+    b.  **만료 시간:** **시작 시간** 날짜 이후 3주 이상 지난 날짜를 선택합니다.
 
     다.  **사용 권한**: **나열** 및 **읽기** 권한을 선택합니다.
 
@@ -411,7 +411,7 @@ Microsoft Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계�
 
     아래와 같이 SAS URL의 컨테이너 이름 뒤에 VHD 이름을 삽입합니다.`https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
-    예:
+    예제:
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_15.png)
 
@@ -427,61 +427,45 @@ Microsoft Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계�
 
 11. SKU에서 각 VHD에 대해 이 단계를 반복합니다.
 
-**Azure CLI(Windows가 아닌 연속 통합에 권장됨)**
+**Azure CLI 2.0(비 Windows 및 지속적인 통합에 권장됨)**
 
-Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니다.
+Azure 클래식 CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니다.
 
-1.  Microsoft Azure CLI를 [여기](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/)에서 다운로드합니다. **[Windows](http://aka.ms/webpi-azure-cli)** 및 **[MAC OS](http://aka.ms/mac-azure-cli)** 에 대한 다양한 링크를 찾을 수도 있습니다.
+[!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
+
+1.  Microsoft Azure CLI를 [여기](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에서 다운로드합니다. **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** 및 **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)** 에 대한 다양한 링크를 찾을 수도 있습니다.
 
 2.  다운로드되면 설치하세요.
 
-3.  다음 코드로 PowerShell 파일(또는 기타 스크립트 실행 파일)을 만들고 로컬로 저장합니다.
+3.  다음 코드를 사용하여 Bash 파일(또는 다른 동등한 스크립트 실행 파일)을 만들고 로컬로 저장합니다.
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl <Permission End Date> -c $conn --start <Permission Start Date>  
+        export AZURE_STORAGE_ACCOUNT=<Storage Account Name>
+        EXPIRY=$(date -d "3 weeks" '+%Y-%m-%dT%H:%MZ')
+        CONTAINER_SAS=$(az storage container generate-sas --account-name -n vhds --permissions rl --expiry $EXPIRY -otsv)
+        BLOB_URL=$(az storage blob url -c vhds -n <VHD Blob Name> -otsv)
+        echo $BLOB_URL\?$CONTAINER_SAS
 
     위에 있는 다음 매개 변수를 업데이트합니다.
 
-    a. **`<StorageAccountName>`**: 저장소 계정 이름을 제공합니다.
+    a. **`<Storage Account Name>`**: 저장소 계정 이름을 제공합니다.
 
-    나. **`<Storage Account Key>`**: 저장소 계정 키를 제공합니다.
+    b. **`<VHD Blob Name>`**: VHD Blob의 이름을 입력합니다.
 
-    다. **`<Permission Start Date>`**: UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2016년 10월 25일이면 값은 2016/10/25입니다. Azure CLI 2.0(az 명령)을 사용하는 경우 시작 및 종료 날짜에 날짜 및 시간을 제공합니다(예: 10-25-2016T00:00:00Z).
+    시작 날짜 이후 3주 이상 지난 날짜를 선택합니다(기본값은 sas-token 생성 시간임). 값의 예는 **2018-10-11T23:56Z**입니다.
 
-    d. **`<Permission End Date>`**: **시작 날짜** 이후 3주 이상 지난 날짜를 선택합니다. 값은 **11/02/2016**이어야 합니다. Azure CLI 2.0(az 명령)을 사용하는 경우 시작 및 종료 날짜에 날짜 및 시간을 제공합니다(예: 11-02-2016T00:00:00Z).
+    적절한 매개 변수를 업데이트한 후의 예제 코드는 다음과 같습니다. export AZURE_STORAGE_ACCOUNT=vhdstorage1ba78dfb6bc2d8     EXPIRY=$(date -d "3 weeks" '+%Y-%m-%dT%H:%MZ')     CONTAINER_SAS=$(az storage container generate-sas -n vhds --permissions rl --expiry $EXPIRY -otsv)     BLOB_URL=$(az storage blob url -c vhds -n osdisk_1ba78dfb6b.vhd -otsv)     echo $BLOB_URL\?$CONTAINER_SAS
 
-    다음은 적절한 매개 변수를 업데이트한 후의 예제 코드입니다.
+4.  스크립트를 실행합니다. 그러면 컨테이너 수준 액세스에 대한 SAS URL이 제공됩니다.
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=<account-key>"
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
-
-4.  "관리자 권한으로 실행" 모드로 Powershell 편집기를 열고 3단계에서 파일을 엽니다. OS에서 사용할 수 있는 어떤 스크립트 편집기도 사용할 수 있습니다.
-
-5.  스크립트를 실행하면 컨테이너 수준 액세스에 대한 SAS URL을 제공합니다.
-
-    다음은 SAS 서명의 출력으로 메모장에서 강조 표시된 부분을 복사합니다.
-
-    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
-
-6.  이제 컨테이너 수준 SAS URL이 있으므로 여기에 VHD의 이름을 추가해야 합니다.
-
-    컨테이너 수준 SAS URL #
-
-    `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-7.  아래 `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`와 같이 SAS URL의 컨테이너 이름 뒤에 VHD 이름을 삽입합니다.
-
-    예:
-
-    TestRGVM201631920152.vhd는 VHD 이름이고 VHD SAS URL은 다음과 같습니다.
-
-    `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+5.  SAS URL을 확인합니다.
 
     - 이미지 파일 이름과 ".vhd"가 URI에 있는지 확인합니다.
     -   서명 중간에 "sp=rl"이 표시되는지 확인합니다. 이는 읽기 및 나열 액세스가 성공적으로 제공되었음을 나타냅니다.
     -   서명 중간에 "sr=c"가 표시되는지 확인합니다. 컨테이너 수준 액세스 권한이 있는지 보여 줍니다.
+
+    예제:
+
+    `https://vhdstorage1ba78dfb6bc2d8.blob.core.windows.net/vhds/osdisk_1ba78dfb6b.vhd?se=2018-10-12T00%3A04Z&sp=rl&sv=2018-03-28&sr=c&sig=...`
 
 8.  생성된 공유 액세스 서명 URI가 작동하는지 확인하려면 브라우저에서 테스트합니다. 다운로드 프로세스가 시작됩니다.
 
@@ -520,7 +504,7 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
 |이미지 복사 중 오류 - “sp=rl”이 SAS URL에 없습니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|"읽기" 및 "나열"로 설정된 사용 권한으로 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |이미지 복사 중 오류 - SAS URL은 VHD 이름에 공백을 포함합니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|공백 없이 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |이미지 복사 중 오류 – SAS URL 권한 부여 오류|오류: 이미지 복사 권한 부여 오류로 인해 Blob을 다운로드할 수 없습니다.|SAS URL 다시 생성|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|이미지 복사 실패 – SAS Url "st" 및 "se" 매개 변수에 전체 날짜/시간 사양이 없습니다.|오류: 이미지 복사 잘못된 SAS URL로 인해 Blob을 다운로드할 수 없습니다. |SAS Url 시작 및 종료 날짜 매개 변수("st", "se")에는 날짜만 지정하거나 약식 시간 버전을 지정하면 안 되며 전체 날짜/시간 사양(예: 11-02-2017T00:00:00Z)을 지정해야 합니다. Azure CLI 2.0(az 명령)을 사용하는 경우 이러한 시나리오가 발생하기 쉽습니다. 전체 날짜/시간 사양을 제공하고 SAS Url을 다시 생성해야 합니다.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|이미지 복사 실패 – SAS Url "st" 및 "se" 매개 변수에 전체 날짜/시간 사양이 없습니다.|오류: 이미지 복사 잘못된 SAS URL로 인해 Blob을 다운로드할 수 없습니다. |SAS Url 시작 및 종료 날짜 매개 변수("st", "se")에는 날짜만 지정하거나 약식 시간 버전을 지정하면 안 되며 전체 날짜/시간 사양(예: 11-02-2017T00:00:00Z)을 지정해야 합니다. Azure CLI 버전 2.0 이상을 사용하는 경우 이러한 시나리오가 발생하기 쉽습니다. 전체 날짜/시간 사양을 제공하고 SAS Url을 다시 생성해야 합니다.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>다음 단계
 SKU 세부 정보를 완료하면 [Azure Marketplace 마케팅 콘텐츠 가이드][link-pushstaging]를 진행할 수 있습니다. 게시 프로세스의 해당 단계에서는 **3단계: 스테이징에서 VM 제품 테스트** 이전에 필요한 마케팅 콘텐츠, 가격 책정 및 기타 정보를 제공합니다. 여기에서 제품을 Azure Marketplace에 배포하여 일반에게 공개하고 판매하기 전에 다양한 사용 사례 시나리오를 테스트합니다.  
@@ -557,15 +541,6 @@ SKU 세부 정보를 완료하면 [Azure Marketplace 마케팅 콘텐츠 가이�
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx
 [link-azure-portal]:https://portal.azure.com
 [link-pubportal]:https://publish.windowsazure.com
-[link-sql-2014-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/
-[link-sql-2014-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/
-[link-sql-2014-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/
-[link-sql-2012-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/
-[link-sql-2012-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/
-[link-sql-2012-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/
-[link-datactr-2012-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/
-[link-datactr-2012]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
-[link-datactr-2008-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-technet-1]:https://technet.microsoft.com/library/hh848454.aspx
 [link-azure-vm-2]:./virtual-machines-linux-agent-user-guide/

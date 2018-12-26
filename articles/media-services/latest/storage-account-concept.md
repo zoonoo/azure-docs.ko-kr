@@ -4,19 +4,19 @@ description: 이 문서에서는 Media Services에서 저장소 계정을 사용
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 6d4c21867b0b46508f348300ae2b9553a75d23b2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dbd8dea32bbd4cacefd64e91541ab20b1056731e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782572"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379037"
 ---
 # <a name="storage-accounts"></a>Storage 계정
 
@@ -27,7 +27,7 @@ Media Services 계정을 만들려면 Azure Storage 계정 리소스의 이름�
 >[!NOTE]
 > Blob 전용 계정은 **기본**으로 허용되지 않습니다. 
 
-핫 저장소 계층과 쿨 저장소 계층 중 하나를 선택할 수 있도록 GPv2를 사용하는 것이 좋습니다. 저장소 계정에 대해 자세히 알아보려면 [Azure Storage 계정 옵션](../../storage/common/storage-account-options.md)을 참조하세요. 
+핫 저장소 계층과 쿨 저장소 계층 중 하나를 선택할 수 있도록 GPv2를 사용하는 것이 좋습니다. 저장소 계정을 자세히 알아보려면 [Azure Storage 계정 개요](../../storage/common/storage-account-overview.md)를 참조하세요. 
 
 ## <a name="assets-in-a-storage-account"></a>저장소 계정의 자산
 

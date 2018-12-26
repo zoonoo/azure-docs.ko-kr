@@ -1,25 +1,18 @@
 ---
 title: URL 기반 콘텐츠 라우팅 개요 | Microsoft Docs
 description: 이 페이지에서는 Application Gateway URL 기반 콘텐츠 라우팅, UrlPathMap 구성 및 PathBasedRouting 규칙에 대한 개요를 제공합니다.
-documentationcenter: na
 services: application-gateway
 author: vhorne
 manager: jpconnock
-editor: ''
-ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 11/7/2018
 ms.author: victorh
-ms.openlocfilehash: f6108b5ac628b8bc2c1d74dcc871f96115094859
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: bc123307a3cc3a5040e93e517c60604dc75fc7e7
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770341"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218426"
 ---
 # <a name="url-path-based-routing-overview"></a>URL 경로 기반 라우팅 개요
 
@@ -70,7 +63,7 @@ urlPathMap 요소는 백 엔드 서버 풀 매핑에 대한 경로 패턴을 지
 ```
 
 > [!NOTE]
-> PathPattern: 이 설정은 일치하는 경로 패턴의 목록입니다. 각각은 /로 시작해야 하고 "*"는 "/" 다음의 끝에 올 수 있습니다. 경로 검사기에 제공하는 문자열은 ? 또는 #으로 시작하는 텍스트는 포함하지 않습니다. 이러한 문자는 허용되지 않습니다.
+> PathPattern: 이 설정은 일치하는 경로 패턴의 목록입니다. 각각은 /로 시작해야 하고 "*"는 "/" 다음의 끝에 올 수 있습니다. 경로 검사기에 제공되는 문자열에는 첫 번째 ? 또는 # 뒤에 어떤 텍스트도 포함되지 않으며, 여기에서는 해당 문자를 사용할 수 없습니다. 그렇지 않은 경우 URL에 허용되는 모든 문자는 PathPattern에서 사용됩니다.
 
 자세한 내용은 [URL 기반 라우팅을 사용하는 Resource Manager 템플릿](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing)을 참조하세요.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 687356b60ad0bbc469d67e071ce3bccc8b61ebd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609004"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404905"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry 시스템 모니터링용 Azure Log Analytics Nozzle 배포
 
@@ -56,14 +56,14 @@ UAA 명령줄 클라이언트를 설치하기 전에 Rubygems가 설치되어 �
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Azure에서 Log Analytics 작업 영역 만들기
 
-수동으로 또는 템플릿을 사용하여 Log Analytics 작업 영역을 만들 수 있습니다. 이 템플릿은 OMS 콘솔에 대해 미리 구성된 OMS KPI 뷰와 경고의 설치를 배포합니다. 
+수동으로 또는 템플릿을 사용하여 Log Analytics 작업 영역을 만들 수 있습니다. 이 템플릿은 Log Analytics 콘솔에 대해 미리 구성된 KPI 뷰와 경고의 설치를 배포합니다. 
 
 #### <a name="to-create-the-workspace-manually"></a>수동으로 작업 영역을 만들려면 다음을 수행합니다.
 
 1. Azure Portal에서 Azure Marketplace의 서비스 목록을 검색한 다음, Log Analytics를 선택합니다.
 2. **만들기**를 선택한 후, 다음 항목에 대한 선택 사항을 지정합니다.
 
-   * **OMS 작업 영역**: 작업 영역의 이름을 입력합니다.
+   * **Log Analytics 작업 영역**: 작업 영역의 이름을 입력합니다.
    * **구독**: 구독이 여러 개인 경우 CF 배포와 동일한 구독을 선택합니다.
    * **리소스 그룹**: 새 리소스 그룹을 만들거나 CF 배포가 포함된 그룹과 같은 그룹을 사용할 수 있습니다.
    * **위치**: 위치를 입력합니다.
@@ -71,19 +71,19 @@ UAA 명령줄 클라이언트를 설치하기 전에 Rubygems가 설치되어 �
 
 자세한 내용은 [Log Analytics 시작](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)을 참조하세요.
 
-#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Azure Marketplace에서 OMS 모니터링 템플릿을 통해 OMS 작업 영역을 만들려면
+#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Azure Marketplace에서 모니터링 템플릿을 통해 Log Analytics 작업 영역을 만들려면
 
 1. Azure Portal을 엽니다.
 2. "+" 기호를 클릭하거나 왼쪽 위 모서리에서 "리소스 만들기"를 클릭합니다.
-3. 검색 창에 "Cloud Foundry"를 입력하 고 "OMS Cloud Foundry Monitoring Solution"을 선택합니다.
-4. OMS Cloud Foundry 모니터링 솔루션 템플릿 첫 페이지가 로드되며, "만들기"를 클릭하여 템플릿 블레이드를 실행합니다.
+3. 검색 창에 “Cloud Foundry”를 입력하 고 “Cloud Foundry Monitoring Solution”을 선택합니다.
+4. Cloud Foundry 모니터링 솔루션 템플릿 첫 페이지가 로드되며, “만들기”를 클릭하여 템플릿 블레이드를 실행합니다.
 5. 필수 매개 변수를 입력합니다.
-    * **구독**: OMS 작업 영역에 대한 Azure 구독을 선택합니다. 보통은 Cloud Foundry 배포와 동일합니다.
-    * **리소스 그룹**: OMS 작업 영역에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
+    * **구독**: Log Analytics 작업 영역에 대한 Azure 구독을 선택합니다. 보통은 Cloud Foundry 배포와 동일합니다.
+    * **리소스 그룹**: Log Analytics 작업 영역에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
     * **리소스 그룹 위치**: 리소스 그룹의 위치를 선택합니다.
     * **OMS_Workspace_Name**: 작업 영역 이름을 입력합니다. 작업 영역이 없는 경우 템플릿에서 새로 만듭니다.
     * **OMS_Workspace_Region**: 작업 영역에 대한 위치를 선택합니다.
-    * **OMS_Workspace_Pricing_Tier**: OMS 작업 영역 SKU를 선택합니다. 참조는 [가격 책정 지침](https://azure.microsoft.com/pricing/details/log-analytics/)에서 확인하세요.
+    * **OMS_Workspace_Pricing_Tier**: Log Analytics 작업 영역 SKU를 선택합니다. 참조는 [가격 책정 지침](https://azure.microsoft.com/pricing/details/log-analytics/)에서 확인하세요.
     * **약관**: 약관을 클릭한 다음, "만들기"를 클릭하여 약관에 동의합니다.
 - 모든 매개 변수를 지정한 후 "만들기"를 클릭하여 템플릿을 배포합니다. 배포가 완료되면 상태가 알림 탭에 표시됩니다.
 
@@ -137,8 +137,8 @@ cd oms-log-analytics-firehose-nozzle
 이제 현재 디렉터리에서 manifest.yml 파일에 환경 변수를 설정할 수 있습니다. 다음은 Nozzle용 앱 매니페스트를 보여 줍니다. 값을 사용자의 특정 Log Analytics 작업 영역 정보로 바꿉니다.
 
 ```
-OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_WORKSPACE             : Log Analytics workspace ID: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
+OMS_KEY                   : OMS key: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
 OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
 OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
 OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
@@ -177,11 +177,11 @@ cf apps
 ```
 OMS Nozzle 응용 프로그램이 실행되고 있는지 확인합니다.
 
-## <a name="view-the-data-in-the-oms-portal"></a>OMS 포털에서 데이터 보기
+## <a name="view-the-data-in-the-azure-portal"></a>Azure Portal에서 데이터 보기
 
-마켓플레이스를 통해 OMS 모니터링 솔루션을 배포한 경우 Azure Portal로 이동하고 OMS 솔루션을 찾습니다. 이 솔루션은 템플릿에서 지정한 리소스 그룹에 있습니다. 솔루션을 클릭하고 "OMS 콘솔"로 이동하면 주요 Cloud Foundry 시스템 KPI, 응용 프로그램 데이터, 경고 및 VM 상태 메트릭으로 미리 구성된 뷰가 나열됩니다.  
+마켓플레이스를 통해 모니터링 솔루션을 배포한 경우 Azure Portal로 이동하고 솔루션을 찾습니다. 이 솔루션은 템플릿에서 지정한 리소스 그룹에 있습니다. 솔루션을 클릭하고 “Log Analytics 콘솔”로 이동하면 주요 Cloud Foundry 시스템 KPI, 응용 프로그램 데이터, 경고 및 VM 상태 메트릭으로 미리 구성된 뷰가 나열됩니다. 
 
-OMS 작업 영역을 수동으로 만든 경우 다음 단계에 따라 뷰와 경고를 만듭니다.
+Log Analytics 작업 영역을 수동으로 만든 경우 다음 단계에 따라 뷰와 경고를 만듭니다.
 
 ### <a name="1-import-the-oms-view"></a>1. OMS 보기 가져오기
 
@@ -246,6 +246,6 @@ Azure Log Analytics Nozzle은 오픈 소스입니다. [GitHub 섹션](https://gi
 
 ## <a name="next-step"></a>다음 단계
 
-PCF2.0부터는 VM 성능 메트릭이 System Metrics Forwarder에 의해 Azure Log Analytics 노즐로 전달되며 OMS 작업 영역에 통합되었습니다. 이제 VM 성능 메트릭에 OMS 에이전트가 필요하지 않습니다. 그러나 OMS 에이전트를 사용하여 Syslog 정보를 계속 수집할 수 있습니다. OMS 에이전트는 Bosh 추가 기능으로 CF VM에 설치됩니다. 
+PCF2.0부터는 VM 성능 메트릭이 System Metrics Forwarder에 의해 Azure Log Analytics 노즐로 전달되며 Log Analytics 작업 영역에 통합되었습니다. 이제 VM 성능 메트릭에 Log Analytics 에이전트가 필요하지 않습니다. 그러나 Log Analytics 에이전트를 사용하여 Syslog 정보를 계속 수집할 수 있습니다. Log Analytics 에이전트는 Bosh 추가 기능으로 CF VM에 설치됩니다. 
 
-자세한 내용은 [Cloud Foundry 배포에 OMS 에이전트 배포](https://github.com/Azure/oms-agent-for-linux-boshrelease)를 참조하세요.
+자세한 내용은 [Cloud Foundry 배포에 Log Analytics 에이전트 배포](https://github.com/Azure/oms-agent-for-linux-boshrelease)를 참조하세요.

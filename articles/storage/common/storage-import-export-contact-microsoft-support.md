@@ -2,24 +2,18 @@
 title: Azure Import/Export 작업에 대한 지원 티켓 또는 사례 만들기 | Microsoft Docs
 description: 가져오기/내보내기 작업 관련 문제에 대해 지원 요청을 기록하는 방법을 살펴봅니다.
 services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/29/2018
 ms.author: alkohli;
-ms.openlocfilehash: b82adae5854aa836701e299a0aabd2b61e73ca99
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: common
+ms.openlocfilehash: 321f59b1fd7b408d13856d7345d5d00608e3d250
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323656"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521084"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>가져오기/내보내기 작업에 대한 지원 티켓 열기
 

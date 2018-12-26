@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 471b53be4200ff728214876dd187c3c4e427c947
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: d0b6fc1ebd08b29b9acc28cfb0107b815c7d7bad
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342883"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068245"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>OSBA(Open Service Broker for Azure)를 사용하여 Azure에서 관리되는 서비스와 통합
 
@@ -53,7 +53,7 @@ helm install svc-cat/catalog --name catalog --namespace catalog --set controller
 클러스터가 RBAC를 사용할 수 없는 경우 이 명령을 실행합니다.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.auth.enabled=false --set controllerManager.healthcheck.enabled=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set controllerManager.healthcheck.enabled=false
 ```
 
 Helm 차트를 실행한 후에는 다음 명령의 출력에 `servicecatalog`가 나타나는지 확인합니다.
@@ -195,7 +195,7 @@ kubectl get secrets -n wordpress -o yaml
 
 <!-- LINKS - external -->
 [helm-charts]: https://github.com/Azure/helm-charts
-[helm-cli-install]: kubernetes-helm.md#install-helm-cli
+[helm-cli-install]: https://docs.helm.sh/helm/#helm-install
 [helm-create-new-chart]: https://github.com/Azure/helm-charts#creating-a-new-chart
 [kubernetes-service-catalog]: https://github.com/kubernetes-incubator/service-catalog
 [open-service-broker-azure]: https://github.com/Azure/open-service-broker-azure

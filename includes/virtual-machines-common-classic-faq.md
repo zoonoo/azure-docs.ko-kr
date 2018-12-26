@@ -1,6 +1,16 @@
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 37dc96cf965181c5acba74449c684a08035e37b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264443"
+---
 이 문서에서는 클래식 배포 모델을 사용하여 만든 Azure 가상 머신에 대한 사용자의 일부 일반적인 질문을 해결합니다.
 
 ## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>클래식 배포 모델에서 만든 내 VM을 새 Resource Manager 모델에 마이그레이션할 수 있나요?
@@ -12,9 +22,9 @@
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Azure VM에서 무엇을 실행할 수 있습니까?
 모든 구독자는 Azure 가상 머신에서 서버 소프트웨어를 실행할 수 있습니다. 최신 버전의 Windows Server뿐만 아니라 다양한 Linux 배포를 실행할 수 있습니다. 지원 세부 사항은, 다음을 참조하세요:
 
-• Windows VM의 경우 -- [Azure Virtual Machines에 대한 Microsoft 서버 소프트웨어 지원](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Windows VM의 경우 -- [Azure Virtual Machines에 대한 Microsoft 서버 소프트웨어 지원](https://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• Linux VM의 경우 -- [Azure 인증 배포의 Linux](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+• Linux VM의 경우 -- [Azure 인증 배포의 Linux](https://go.microsoft.com/fwlink/p/?LinkId=393551)
 
 Windows 클라이언트 이미지를 사용할 수 있는, Windows 7 및 Windows 8.1의 특정 버전은 MSDN Azure 혜택 구독자와 MSDN 개발 및 테스트 종량제 구독자가 개발 및 테스트 작업을 위해 사용할 수 있습니다. 지침과 제한 사항을 포함한 자세한 내용은 [MSDN 구독자를 위한 Windows 클라이언트 이미지](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/)를 참조하세요.
 
@@ -28,10 +38,10 @@ Azure Resource Manager 배포 모델 및 Azure Portal에서 선호도 그룹 기
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>가상 컴퓨터에 얼마나 많은 용량의 저장소를 사용할 수 있습니까?
 각 데이터 디스크의 최대 용량은 1 TB 입니다. 사용할 수 있는 데이터 디스크의 수는 가상 머신의 크기에 따라 달라집니다. 자세한 내용은 [Virtual Machines의 크기](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
-Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크에 대한 저장소를 제공합니다. 각 디스크는 페이지 blob으로 저장된 .vhd 파일입니다. 가격 책정에 대한 자세한 내용은 [Storage 가격 세부 정보](http://go.microsoft.com/fwlink/p/?LinkId=396819)를 참조하세요.
+Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크에 대한 저장소를 제공합니다. 각 디스크는 페이지 blob으로 저장된 .vhd 파일입니다. 가격 책정에 대한 자세한 내용은 [Storage 가격 세부 정보](https://go.microsoft.com/fwlink/p/?LinkId=396819)를 참조하세요.
 
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>어떤 가상 하드 디스크 유형을 사용할 수 있습니까?
-Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX가 있고 Azure에서 사용하려는 경우 먼저 Hyper-V 관리자 또는 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet을 사용하여 변환해야 합니다. 이를 수행한 후, 가상 머신과 사용할 수 있도록 Azure의 저장소 계정에 VHD를 업로드하기 위해 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet(서비스 관리 모드)를 사용합니다.
+Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX가 있고 Azure에서 사용하려는 경우 먼저 Hyper-V 관리자 또는 [convert-VHD](https://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet을 사용하여 변환해야 합니다. 이를 수행한 후, 가상 머신과 사용할 수 있도록 Azure의 저장소 계정에 VHD를 업로드하기 위해 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet(서비스 관리 모드)를 사용합니다.
 
 * Linux 지침에 대한 내용은 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)를 참조하세요.
 
@@ -40,7 +50,7 @@ Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX�
 
 * Azure에서는 가상 머신에 대한 콘솔 액세스를 제공하지 않습니다. 부팅이 완료될 때까지 VM에 액세스할 수 없습니다.
 * 대부분의 [크기](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 가진 Azure VM에는 가상 네트워크 어댑터가 하나만 있습니다. 따라서 외부 IP 주소가 하나만 지정될 수 있습니다. A8 및 A9 크기는 제한된 시나리오에서 인스턴스 간의 응용 프로그램 커뮤니케이션을 위해 두 번째 네트워크 어댑터를 사용합니다.
-* Azure VM은 2세대 Hyper-V VM 기능을 지원하지 않습니다. 이러한 기능에 대한 자세한 내용은 [Hyper-v에 대한 Virtual Machine 사양](http://technet.microsoft.com/library/dn592184.aspx) 및 [2세대 가상 머신 개요](https://technet.microsoft.com/library/dn282285.aspx)를 참조하세요.
+* Azure VM은 2세대 Hyper-V VM 기능을 지원하지 않습니다. 이러한 기능에 대한 자세한 내용은 [Hyper-v에 대한 Virtual Machine 사양](https://technet.microsoft.com/library/dn592184.aspx) 및 [2세대 가상 머신 개요](https://technet.microsoft.com/library/dn282285.aspx)를 참조하세요.
 
 ## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>이러한 가상 머신은 현존하는 온-프레미스 네트워킹 인프라를 사용할 수 있습니까?
 클래식 배포 모델에서 만든 가상 머신의 경우 Azure Virtual Network를 사용하여 기존 인프라를 확장할 수 있습니다. 접근법은 지점 사무실을 설치와 유사합니다. 사용자는 Azure에서 VPN(가상 사설망)을 프로비전하고 관리하며 온-프레미스 IT 인프라에 안전하게 연결할 수 있습니다. 자세한 내용은 [Virtual Network 개요](../articles/virtual-network/virtual-networks-overview.md)를 참조하세요.
@@ -59,7 +69,7 @@ Windows VM에 대한 추가 옵션은 다음과 같습니다.
 
 * Azure Portal에서 VM을 찾은 다음 명령 모음에서 **원격 액세스 다시 설정**을 클릭합니다.
 * [Windows 기반 Azure Virtual Machine에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 검토합니다.
-* Windows PowerShell 원격을 사용하여 VM에 연결하거나 VM에 연결할 다른 리소스에 대한 추가 끝점을 만듭니다. 자세한 내용은 [Virtual Machine에 끝점을 설정하는 방법](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+* Windows PowerShell 원격을 사용하여 VM에 연결하거나 VM에 연결할 다른 리소스에 대한 추가 엔드포인트를 만듭니다. 자세한 내용은 [Virtual Machine에 엔드포인트를 설정하는 방법](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 Hyper-V에 친숙한 경우 VMConnect와 유사한 도구를 찾을 수 있습니다. 가상 머신에 대한 콘솔 액세스가 지원되지 않으므로 Azure는 유사한 도구를 제공하지 않습니다.
 
@@ -75,7 +85,7 @@ Windows 가상 머신에서, 페이지 파일을 이동하고 드라이브 문�
 * Linux에 대해 배포시 패키지 관리 도구 및 적절한 도구를 사용하세요.
 * Windows 가상 컴퓨터의 경우 Windows Server 마이그레이션 도구 등을 사용하여 서버를 마이그레이션해야 합니다. Azure에 상주하는 동안, 게스트 OS를 업그레이드 하려고 시도하지 마십시오. 가상 머신에 대한 액세스를 손실할 수 있는 위험 때문에 해당 업그레이드는 지원되지 않습니다. 업그레이드를 하는 동안 문제가 발생하는 경우, 원격 데스크톱 세션을 시작할 수 있는 기능이 손실되며, 문제를 해결할 수 없습니다.
 
-Windows Server 마이그레이션을 위한 도구 및 프로세스에 대한 자세한 일반 정보는 [Windows Server에 역할 및 기능 마이그레이션](http://go.microsoft.com/fwlink/p/?LinkId=396940)을 참조하세요.
+Windows Server 마이그레이션을 위한 도구 및 프로세스에 대한 자세한 일반 정보는 [Windows Server에 역할 및 기능 마이그레이션](https://go.microsoft.com/fwlink/p/?LinkId=396940)을 참조하세요.
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>가상 머신에 대한 기본 사용자 이름 및 암호는 무엇입니까?
 Azure에 의해 제공되는 이미지는 미리 구성된 이름 및 암호가 필요없습니다. 이러한 이미지 중 하나를 사용하여 가상 머신을 만들 때, 가상 머신에 로그온하는 데 사용할 사용자 이름 및 암호를 제공해야 합니다.
@@ -90,8 +100,8 @@ Azure에 의해 제공되는 이미지는 미리 구성된 이름 및 암호가 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Azure가 내 가상 머신에서 바이러스 백신을 실행할 수 있습니까?
 Azure는 바이러스 백신 솔루션에 대한 몇 가지 옵션을 제공하지만 관리하는 업무는 사용자의 책임입니다. 예를 들면, 맬웨어 방지 소프트웨어에 대한 별도 구독이 필요할 수 있으며, 검사를 실행하고 업데이트를 설치 시기를 결정해야 합니다. Windows 가상 컴퓨터를 만들 때 또는 나중에 Microsoft 맬웨어 방지 프로그램, Symantec Endpoint Protection 또는 TrendMicro Deep Security Agent에 대한 VM 확장으로 백신 프로그램 지원을 추가할 수 있습니다. Symantec 및 TrendMicro 확장으로 무료 기간 한정 구독 또는 기존 엔터프라이즈 구독을 사용할 수 있습니다. Microsoft 맬웨어 방지 프로그램은 무료입니다. 자세한 내용은 다음을 참조하세요.
 
-* [Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](http://go.microsoft.com/fwlink/p/?LinkId=404207)
-* [Azure VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](http://go.microsoft.com/fwlink/p/?LinkId=404206)
+* [Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](https://go.microsoft.com/fwlink/p/?LinkId=404207)
+* [Azure VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](https://go.microsoft.com/fwlink/p/?LinkId=404206)
 * [Azure Virtual Machines에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>백업 및 복구에 대한 나의 옵션은 무엇입니까?

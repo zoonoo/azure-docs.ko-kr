@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 호환 가능한 타사 소프�
 description: Azure Active Directory Domain Services와 호환되는 타사 소프트웨어
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/06/2017
-ms.author: maheshu
-ms.openlocfilehash: 77453d05667e0520b4da550803902f01631aa5e1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.author: ergreenl
+ms.openlocfilehash: dbac33c24ca29a7fa6883e95b73e948cc7fe1e9b
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232082"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154898"
 ---
 # <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Azure AD Domain Services와 호환되는 타사 소프트웨어
 

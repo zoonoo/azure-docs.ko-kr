@@ -1,11 +1,12 @@
 ---
-title: API Management를 사용하여 Azure ML 웹 서비스를 관리하는 방법 알아보기 | Microsoft Docs
+title: API Management를 사용하여 Machine Learning Studio 웹 서비스 관리 - Azure | Microsoft Docs
 description: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다.
 keywords: 기계 학습, api 관리
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
@@ -16,19 +17,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 4ca551ed07447e41ec94b0334eac0d235e0a5b6f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835086"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308242"
 ---
-# <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대해 알아봅니다.
+# <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Management를 사용하여 Azure Machine Learning Studio 웹 서비스 관리
 ## <a name="overview"></a>개요
-이 가이드에서는 API Management를 빠르게 시작하여 AzureML 웹 서비스를 관리하는 방법을 보여 줍니다.
+이 가이드에서는 API Management를 빠르게 시작하여 Azure Machine Learning Studio 웹 서비스를 관리하는 방법을 보여줍니다.
 
 ## <a name="what-is-azure-api-management"></a>Azure API Management란?
-Azure API Management는 사용자 액세스, 사용 제한 및 대시보드 모니터링을 정의하여 REST API 끝점을 관리할 수 있는 Azure 서비스입니다. Azure API Management에 대한 자세한 내용은 [여기](https://azure.microsoft.com/services/api-management/) 를 클릭하세요. Azure API Management를 시작하는 방법에 대한 설명은 [여기](../../api-management/api-management-get-started.md)를 클릭하세요. 이 가이드를 기반으로 하는 이 다른 가이드에서는 알림 구성, 가격 책정 계층, 응답 처리, 사용자 인증, 제품 생산, 개발자 구독 및 사용량 대시보딩을 포함하는 다양한 주제를 다룹니다.
+Azure API Management는 사용자 액세스, 사용 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리할 수 있는 Azure 서비스입니다. Azure API Management에 대한 자세한 내용은 [여기](https://azure.microsoft.com/services/api-management/) 를 클릭하세요. Azure API Management를 시작하는 방법에 대한 설명은 [여기](../../api-management/api-management-get-started.md)를 클릭하세요. 이 가이드를 기반으로 하는 이 다른 가이드에서는 알림 구성, 가격 책정 계층, 응답 처리, 사용자 인증, 제품 생산, 개발자 구독 및 사용량 대시보딩을 포함하는 다양한 주제를 다룹니다.
 
 ## <a name="what-is-azureml"></a>AzureML이란?
 AzureML은 고급 분석 솔루션을 손쉽게 빌드, 배포 및 공유할 수 있도록 하는 기계 학습을 위한 Azure 서비스입니다. AzureML에 대한 자세한 내용은 [여기](https://azure.microsoft.com/services/machine-learning/) 를 클릭하세요.
@@ -223,7 +224,7 @@ API를 만들려면:
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>웹 서비스 테스트
-AzureML 웹 서비스는 RSS(요청/응답 서비스) 및 BES(일괄 처리 실행 서비스) 끝점으로 구성됩니다. RSS는 동기 실행에 사용됩니다. BES는 비동기 작업 실행에 사용됩니다. 다음 샘플 Python 소스로 웹 서비스를 테스트하려면 Python용 Azure SDK를 다운로드해야 할 수 있습니다( [Python을 설치하는 방법](../../python-how-to-install.md)참조).
+AzureML 웹 서비스는 RSS(요청/응답 서비스) 및 BES(일괄 처리 실행 서비스) 엔드포인트로 구성됩니다. RSS는 동기 실행에 사용됩니다. BES는 비동기 작업 실행에 사용됩니다. 다음 샘플 Python 소스로 웹 서비스를 테스트하려면 Python용 Azure SDK를 다운로드해야 할 수 있습니다( [Python을 설치하는 방법](../../python-how-to-install.md)참조).
 
 또한 다음 샘플 원본에 대한 실험의 **workspace**, **service** 및 **api_key**가 필요합니다. 웹 서비스 대시보드에서 실험의 **요청/응답** 또는 **Batch 실행**을 클릭하여 workspace 및 service를 찾을 수 있습니다.
 
@@ -233,9 +234,9 @@ AzureML 웹 서비스는 RSS(요청/응답 서비스) 및 BES(일괄 처리 실�
 
 ![find-api-key](./media/manage-web-service-endpoints-using-api-management/find-api-key.png)
 
-#### <a name="test-rrs-endpoint"></a>RRS 끝점 테스트
+#### <a name="test-rrs-endpoint"></a>RRS 엔드포인트 테스트
 ##### <a name="test-button"></a>테스트 단추
-RRS 끝점을 테스트하는 간편한 방법은 웹 서비스 대시보드에서 **테스트** 를 클릭하는 것입니다.
+RRS 엔드포인트를 테스트하는 간편한 방법은 웹 서비스 대시보드에서 **테스트** 를 클릭하는 것입니다.
 
 ![test](./media/manage-web-service-endpoints-using-api-management/test.png)
 
@@ -279,7 +280,7 @@ RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하�
         print(error.info())
         print(json.loads(error.read()))
 
-#### <a name="test-bes-endpoint"></a>BES 끝점 테스트
+#### <a name="test-bes-endpoint"></a>BES 엔드포인트 테스트
 대시보드에서 **Batch 실행**을 클릭하고 아래쪽으로 스크롤합니다. C#, Python 및 R에 대한 샘플 코드가 표시됩니다. 작업을 제출하고, 작업을 시작하고, 작업의 상태나 결과를 가져오고, 작업을 삭제하기 위한 BES 요청 구문도 표시됩니다.
 
 이 가이드에서는 작동하는 Python 예제를 보여 줍니다. 실험의 **workspace**, **service** 및 **api_key**를 사용하여 예제를 수정해야 합니다. 또한 **저장소 계정 이름**, **저장소 계정 키** 및 **저장소 컨테이너 이름**을 수정해야 합니다. 마지막으로 **입력 파일**의 위치와 **출력 파일**의 위치를 수정해야 합니다.
@@ -377,7 +378,7 @@ RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하�
 
     while True:
         print("Checking the job status...")
-        # If you are using Python 3+, replace urllib2 with urllib.request in the follwing code
+        # If you are using Python 3+, replace urllib2 with urllib.request in the following code
         req = urllib2.Request(url2, headers = { "Authorization":("Bearer " + api_key) })
         try:
             response = urllib2.urlopen(req)

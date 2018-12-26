@@ -9,16 +9,16 @@ ms.assetid: 40650472-e860-4c1b-a589-9956245df307
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2018
-ms.author: sdash
-ms.openlocfilehash: 02421492528e44ed6a913443a7793235170d4881
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: e11c34b2587dcb7602161d36ba4deda1dca73c82
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159410"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720976"
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 응용 프로그램의 성능 모니터링
 
@@ -27,7 +27,7 @@ ms.locfileid: "34159410"
 
 Application Insights에서 Java 및 ASP.NET 웹 응용 프로그램과 서비스, WCF 서비스를 모니터링할 수 있습니다. 온-프레미스, 가상 머신에서 또는 Microsoft Azure 웹 사이트로 호스트할 수 있습니다. 
 
-Application Insights는 클라이언트 쪽에서 iOS, Android 및 Windows 스토어 앱을 포함한 다양한 장치 및 웹 페이지에서 원격 분석을 수행할 수 있습니다.
+Application Insights는 클라이언트 쪽에서 iOS, Android 및 Windows 스토어 앱을 포함한 다양한 디바이스 및 웹 페이지에서 원격 분석을 수행할 수 있습니다.
 
 ## <a name="setup"></a>성능 모니터링 설정
 Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로젝트에 ApplicationInsights.config가 없음) 다음 방법 중 하나를 선택하여 작업을 시작합니다.

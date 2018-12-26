@@ -1,33 +1,29 @@
 ---
-title: '자습서: Apache Kafka Streams API 사용 - Azure HDInsight | Microsoft Docs'
+title: '자습서: Apache Kafka Streams API 사용 - Azure HDInsight '
 description: HDInsight의 Kafka에서 Apache Kafka Streams API를 사용하는 방법에 대해 알아봅니다. 이 API를 사용하면 Kafka에서 토픽 간 스트림 처리를 수행할 수 있습니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/17/2018
-ms.author: larryfr
-ms.openlocfilehash: 5391d6ae101a97e9b62215621267e591b2a995f5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 11/06/2018
+ms.openlocfilehash: 8319376c597f16a5bfe1a357d74c59453b797e51
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626397"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495140"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>자습서: Apache Kafka Streams API
 
-Kafka Streams API를 사용하는 응용 프로그램을 만들고 HDInsight의 Kafka에서 이를 실행하는 방법을 알아봅니다. 
+Apache Kafka Streams API를 사용하는 애플리케이션을 만들고 HDInsight의 Kafka에서 이를 실행하는 방법을 알아봅니다. 
 
 이 자습서에서 사용되는 응용 프로그램은 스트리밍 워드 카운트입니다. 이 응용 프로그램은 Kafka 토픽에서 텍스트 데이터를 읽고, 개별 단어를 추출한 다음, 워드 카운트를 다른 Kafka 토픽에 저장합니다.
 
 > [!NOTE]
-> Kafka 스트림 처리는 종종 Apache Spark 또는 Storm을 사용하여 수행됩니다. Kafka 0.10.0 버전(HDInsight 3.5 및 3.6)에 Kafka Streams API가 도입되었습니다. 이 API를 사용하면 입력 및 출력 토픽 간의 데이터 스트림을 변환할 수 있습니다. 경우에 따라 Spark 또는 Storm 스트리밍 솔루션을 만드는 대신 이 방법을 사용할 수 있습니다. 
+> Kafka 스트림 처리는 종종 Apache Spark 또는 Apache Storm을 사용하여 수행됩니다. Kafka 0.10.0 버전(HDInsight 3.5 및 3.6)에 Kafka Streams API가 도입되었습니다. 이 API를 사용하면 입력 및 출력 토픽 간의 데이터 스트림을 변환할 수 있습니다. 경우에 따라 Spark 또는 Storm 스트리밍 솔루션을 만드는 대신 이 방법을 사용할 수 있습니다. 
 >
 > Kafka Streams에 대한 자세한 내용은 Apache.org의 [Streams 소개](https://kafka.apache.org/10/documentation/streams/) 문서를 참조하세요.
 
@@ -42,15 +38,15 @@ Kafka Streams API를 사용하는 응용 프로그램을 만들고 HDInsight의 
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight 3.6 클러스터의 Kafka HDInsight 클러스터에서 Kafka를 만드는 방법을 알아보려면 [HDInsight에서 Kafka 시작](apache-kafka-get-started.md) 설명서를 참조하세요.
+* HDInsight 3.6 클러스터의 Kafka HDInsight 클러스터에서 Kafka를 만드는 방법을 알아보려면 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md) 설명서를 참조하세요.
 
-* [Kafka 소비자 및 생산자 API](apache-kafka-producer-consumer-api.md) 문서의 단계를 완료합니다. 이 문서의 단계는 이 자습서에서 만든 예제 응용 프로그램 및 토픽을 사용합니다.
+* [Apache Kafka 소비자 및 생산자 API](apache-kafka-producer-consumer-api.md) 문서의 단계를 완료합니다. 이 문서의 단계는 이 자습서에서 만든 예제 응용 프로그램 및 토픽을 사용합니다.
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
 
 개발 환경에 다음 구성 요소가 설치되어 있어야 합니다.
 
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 또는 이와 동등한 프로그램(예: OpenJDK)
+* [Java JDK 8](https://aka.ms/azure-jdks) 또는 이와 동등한 프로그램(예: OpenJDK)
 
 * [Apache Maven](http://maven.apache.org/)
 
@@ -88,7 +84,7 @@ Kafka Streams API를 사용하는 응용 프로그램을 만들고 HDInsight의 
 
 ### <a name="streamjava"></a>Stream.java
 
-`Stream.java` 파일은 스트림 API를 사용하여 워드 카운트 응용 프로그램을 구현합니다. 이 파일은 `test`라는 Kafka 토픽에서 데이터를 읽고, `wordcounts`라는 토픽에 워드 카운트를 씁니다.
+[Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) 파일은 스트림 API를 사용하여 워드 카운트 응용 프로그램을 구현합니다. 이 파일은 `test`라는 Kafka 토픽에서 데이터를 읽고, `wordcounts`라는 토픽에 워드 카운트를 씁니다.
 
 다음 코드는 워드 카운트 응용 프로그램을 정의합니다.
 
@@ -162,7 +158,7 @@ public class Stream
    
     `sshuser`은 클러스터의 SSH 사용자로, `clustername`은 클러스터 이름으로 바꿉니다. 메시지가 표시되면 SSH 사용자 계정의 암호를 입력합니다. HDInsight에서의 `scp` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-## <a name="create-kafka-topics"></a>Kafka 토픽 만들기
+## <a name="create-apache-kafka-topics"></a>Apache Kafka 토픽 만들기
 
 1. 클러스터에 대한 SSH 연결을 열려면 다음 명령을 사용합니다.
 
@@ -179,7 +175,7 @@ public class Stream
     read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. Kafka broker 호스트와 Zookeeper 호스트를 가져오려면 다음 명령을 사용합니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다. 암호를 2번 입력하라는 메시지가 나타납니다.
+3. Kafka broker 호스트와 Apache Zookeeper 호스트를 가져오려면 다음 명령을 사용합니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다. 암호를 2번 입력하라는 메시지가 나타납니다.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
@@ -225,7 +221,7 @@ public class Stream
 2. `test` 토픽으로 레코드를 보내려면 다음 명령을 사용하여 생산자 응용 프로그램을 시작합니다.
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
     ```
 
 3. 생산자가 완료되면 다음 명령을 사용하여 `wordcounts` 토픽에 저장된 정보를 확인합니다.
@@ -259,7 +255,7 @@ public class Stream
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 HDInsight의 Kafka에서 Kafka Streams API를 사용하는 방법에 대해 알아보았습니다. Kafka 작업에 대해 자세히 알아보려면 다음을 사용하세요.
+이 문서에서는 HDInsight의 Apache Kafka에서 Kafka Streams API를 사용하는 방법에 대해 알아보았습니다. Kafka 작업에 대해 자세히 알아보려면 다음을 사용하세요.
 
-* [Kafka 로그 분석](apache-kafka-log-analytics-operations-management.md)
-* [Kafka 클러스터 간 데이터 복제](apache-kafka-mirroring.md)
+* [Apache Kafka 로그 분석](apache-kafka-log-analytics-operations-management.md)
+* [Apache Kafka 클러스터 간 데이터 복제](apache-kafka-mirroring.md)

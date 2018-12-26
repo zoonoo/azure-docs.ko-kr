@@ -1,42 +1,68 @@
 ---
-title: Speech 서비스 지역 | Microsoft Docs
+title: Speech Service 지역
+titlesuffix: Azure Cognitive Services
 description: Speech 서비스의 지역에 대한 참조입니다.
 services: cognitive-services
 author: mahilleb-msft
-manager: wolmfa61
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: speech
-ms.topic: article
-ms.date: 06/27/2018
+ms.component: speech-service
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: a201cc043f673e2285ea48950804d97b96f881ed
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8d36036332e939075ffac8763bec9c23d8e4a3f7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054944"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712894"
 ---
-# <a name="regions-and-endpoints-of-the-speech-service"></a>Speech 서비스 지역 및 엔드포인트
+# <a name="speech-service-supported-regions"></a>Speech Service 지원 지역
 
-> [!NOTE]
-> [Speech SDK](speech-sdk.md)의 지역 이름은 아래 엔드포인트 도메인의 첫 부분과 일치합니다.
-> 예를 들어, Speech SDK에서 미국 지역을 지정하려면 `westus`를 사용합니다.
+음성 서비스를 통해 애플리케이션에서 오디오를 텍스트로 변환하고, 음성 번역을 수행하고, 텍스트를 음성으로 변환할 수 있습니다. 음성 SDK 및 REST API에 대한 고유한 엔드포인트를 사용하여 여러 지역에서 서비스를 사용할 수 있습니다.
 
-## <a name="speech-to-text"></a>음성 텍스트 변환
+구독에 대한 영역과 일치하는 엔드포인트를 사용하는지 확인합니다.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+## <a name="speech-sdk"></a>음성 SDK
 
-## <a name="text-to-speech"></a>텍스트에서 음성 변환
+[Speech Service SDK](speech-sdk.md)에서 지역은 문자열로 지정됩니다(예: C#용 음성 SDK에서 `SpeechConfig.FromSubscription`에 대한 매개 변수로 지정).
 
-[!include[](includes/endpoints-text-to-speech.md)]
+### <a name="speech-recognition-and-translation"></a>음성 인식 및 번역
 
-## <a name="authentication"></a>인증
+**음성 인식** 및 **번역**에 대해 이러한 지역에서 음성 SDK를 사용할 수 있습니다.
 
-[!include[](includes/endpoints-token-service.md)]
+  지역 | 음성 SDK 매개 변수 | 음성 사용자 지정 포털
+ ------|-------|--------
+ 미국 서부 | `westus` | https://westus.cris.ai
+ 미국 서부2 | `westus2` | https://westus2.cris.ai
+ 미국 동부 | `eastus` | https://eastus.cris.ai
+ 미국 동부2 | `eastus2` | https://eastus2.cris.ai
+ 동아시아 | `eastasia` | https://eastasia.cris.ai
+ 동남아시아 | `southeastasia` | https://southeastasia.cris.ai
+ 북유럽 | `northeurope` | https://northeurope.cris.ai
+ 서유럽 | `westeurope` | https://westeurope.cris.ai
 
-인증 토큰 가져오기 및 새로 고침에 대한 자세한 내용은 [여기](rest-apis.md#authentication)를 참조하세요.
 
-## <a name="language-understanding-speech-sdk-only"></a>언어 이해(Speech SDK만 해당)
+### <a name="intent-recognition"></a>의도 인식
 
-Language Understanding 서비스의 지역 목록은 [여기](/azure/cognitive-services/luis/luis-reference-regions)에 있습니다.
-Speech SDK에서 엔드포인트 도메인 이름의 처음 부분으로 이 지역을 지정합니다(예: `westus`).
+음성 SDK에 대한 **의도 인식**은 LUIS와 영역 지원을 공유합니다. 사용 가능한 영역의 전체 목록은 [영역 및 엔드포인트 게시 - LUIS](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions)를 참조하세요.
+
+음성 SDK를 통해 **의도 인식**에 사용할 수 있는 지역은 [Language Understanding 서비스 지역 페이지](/azure/cognitive-services/luis/luis-reference-regions)에 표시됩니다.
+
+나열된 각 게시 영역의 경우 제공된 **API 영역 이름**을 사용합니다. 예를 들어 미국 서부에 `westus`를 사용합니다.
+
+## <a name="rest-apis"></a>REST API
+
+음성 서비스는 또한 음성-텍스트 및 텍스트-음성 변환 요청에 대한 REST 엔드포인트를 노출합니다.
+
+### <a name="speech-to-text"></a>음성 텍스트 변환
+
+음성-텍스트 변환 참조 설명서는 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text)를 참조하세요.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+
+### <a name="text-to-speech"></a>텍스트 음성 변환
+
+텍스트-음성 변환 참조 설명서는 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text)를 참조하세요.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

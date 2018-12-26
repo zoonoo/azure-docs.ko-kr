@@ -1,47 +1,48 @@
 ---
-title: Azure Search에서 Azure SQL Databases를 인덱싱하는 방법에 대한 자습서 | Microsoft Docs
-description: 검색 가능한 데이터를 추출하고 Azure Search 인덱스에 입력하기 위해 Azure SQL Databases를 탐색합니다.
+title: 자습서 - Azure Portal에서 Azure SQL 데이터베이스 인덱싱 - Azure Search
+description: 이 자습서에서 검색 가능한 데이터를 추출하고 Azure Search 인덱스에 입력하기 위해 Azure SQL Databases를 탐색합니다.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/10/2017
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: abf121ec369d84dd307416d2c08971d9096de4a8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799518"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312054"
 ---
-# <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Azure Search 인덱서를 사용하여 Azure SQL Databases를 탐색하는 방법
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>자습서: Azure Search 인덱서를 사용하여 Azure SQL 데이터베이스 탐색
 
 이 자습서에서는 샘플 Azure SQL Database에서 검색할 수 있는 데이터를 추출하기 위해 인덱서를 구성하는 방법을 보여줍니다. [인덱서](search-indexer-overview.md)는 외부 데이터 원본을 탐색하는 Azure Search의 구성 요소이며 콘텐츠로 [검색 인덱스](search-what-is-an-index.md)를 채웁니다. 모든 인덱서 중에 Azure SQL Database의 인덱서가 가장 널리 사용됩니다. 
 
-인덱서 구성의 숙련도에 따라 작성하고 유지 관리해야 하는 코드를 단순화할 수 있습니다. 스키마 준수 JSON 데이터 집합을 준비하고 푸시하는 대신 인덱서를 데이터 원본에 연결하고, 인덱서로 데이터를 추출하고, 인덱스에 삽입하고, 필요에 따라 되풀이 일정으로 인덱서를 실행하여 기본 원본에서 변경 내용을 적용할 수 있습니다.
+인덱서 구성의 숙련도에 따라 작성하고 유지 관리해야 하는 코드를 단순화할 수 있습니다. 스키마 준수 JSON 데이터 세트를 준비하고 푸시하는 대신 인덱서를 데이터 원본에 연결하고, 인덱서로 데이터를 추출하고, 인덱스에 삽입하고, 필요에 따라 되풀이 일정으로 인덱서를 실행하여 기본 원본에서 변경 내용을 적용할 수 있습니다.
 
-이 자습서에서는 [Azure Search.NET 클라이언트 라이브러리](https://aka.ms/search-sdk) 및.NET Core 콘솔 응용 프로그램을 사용하여 다음 작업을 수행합니다.
+이 자습서에서는 [Azure Search.NET 클라이언트 라이브러리](https://aka.ms/search-sdk) 및.NET Core 콘솔 애플리케이션을 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * 솔루션 다운로드 및 구성
-> * 응용 프로그램 설정에 검색 서비스 정보 추가
-> * Azure SQL Database에서 외부 데이터 집합 준비 
+> * 애플리케이션 설정에 검색 서비스 정보 추가
+> * Azure SQL Database에서 외부 데이터 세트 준비 
 > * 샘플 코드에서 인덱스 및 인덱서 정의 검토
 > * 데이터를 가져오는 인덱서 코드 실행
 > * 인덱스 검색
 > * 포털에서 인덱서 구성 보기
 
-## <a name="prerequisites"></a>필수 조건
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-* 활성 Azure 계정. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다. 
+## <a name="prerequisites"></a>필수 조건
 
 * Azure Search 서비스. 설정하는 도움말은 [검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 * 인덱서 사용되는 외부 데이터 원본을 제공하는 Azure SQL Database입니다. 샘플 솔루션은 SQL 데이터 파일을 제공하여 테이블을 만듭니다.
 
-* Visual Studio 2017. 체험 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 사용할 수 있습니다. 
+* Visual Studio 2017. [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) 평가판을 사용할 수 있습니다. 
 
 > [!Note]
 > 체험 Azure Search 서비스를 사용하는 경우 세 가지 인덱스, 세 가지 인덱서 및 세 가지 데이터 원본으로 제한됩니다. 이 자습서에서는 각각을 하나씩 만듭니다. 서비스에 새 리소스를 허용하는 공간이 있는지 확인합니다.
@@ -77,7 +78,7 @@ ms.locfileid: "31799518"
 
 ### <a name="get-the-search-service-name-and-admin-api-key"></a>검색 서비스 이름 및 관리 api-key 가져오기
 
-포털에서 검색 서비스 끝점 및 키를 찾을 수 있습니다. 키는 서비스 작업에 대한 액세스 권한을 제공합니다. 관리자 키를 사용하면 서비스에서 인덱서 및 인덱스와 같은 개체를 만들고 삭제하는 데 필요한 쓰기 액세스를 허용합니다.
+포털에서 검색 서비스 엔드포인트 및 키를 찾을 수 있습니다. 키는 서비스 작업에 대한 액세스 권한을 제공합니다. 관리자 키를 사용하면 서비스에서 인덱서 및 인덱스와 같은 개체를 만들고 삭제하는 데 필요한 쓰기 액세스를 허용합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 [구독에 대한 검색 서비스](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)를 찾습니다.
 
@@ -90,7 +91,7 @@ ms.locfileid: "31799518"
 4. 해당 항목을 복사하고 Visual Studio에서 **appsettings.json**에 첫 번째 항목으로 붙여넣습니다.
 
   > [!Note]
-  > 서비스 이름은 search.windows.net을 포함하는 끝점의 일부입니다. 자세한 내용을 보려면 개요 페이지의 **Essentials**에서 전체 URL을 확인할 수 있습니다. URL은 https://your-service-name.search.windows.net과 비슷합니다.
+  > 서비스 이름은 search.windows.net을 포함하는 엔드포인트의 일부입니다. 자세한 내용을 보려면 개요 페이지의 **Essentials**에서 전체 URL을 확인할 수 있습니다. URL은 https://your-service-name.search.windows.net과 비슷합니다.
 
 5. 왼쪽의 **설정** > **키**에서 관리자 키 중 하나를 복사하고 i**appsettings.json**에 두 번째 항목으로 붙여넣습니다. 키는 프로비전하는 동안 서비스에 대해 생성되는 영숫자 문자열이며 서비스 작업에 대한 권한 있는 액세스에 필요합니다. 
 
@@ -110,11 +111,11 @@ ms.locfileid: "31799518"
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
 
-Azure Portal 및 샘플의 *hotels.sql* 파일을 사용하여 Azure SQL Database에서 데이터 집합을 만들 수 있습니다. Azure Search는 뷰 또는 쿼리에서 생성된 일반 행 집합을 사용합니다. 샘플 솔루션에 있는 SQL 파일은 단일 테이블을 만들고 채웁니다.
+Azure Portal 및 샘플의 *hotels.sql* 파일을 사용하여 Azure SQL Database에서 데이터 세트를 만들 수 있습니다. Azure Search는 뷰 또는 쿼리에서 생성된 일반 행 집합을 사용합니다. 샘플 솔루션에 있는 SQL 파일은 단일 테이블을 만들고 채웁니다.
 
 다음 연습은 기존 서버 또는 데이터베이스를 사용하지 않고 2단계에서 모두 만들도록 지시합니다. 필요에 따라 기존 리소스가 있는 경우 4단계에서부터 여기에 호텔 테이블을 추가할 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
 2. **리소스 만들기** > **SQL Database**를 클릭하여 데이터베이스, 서버 및 리소스 그룹을 만듭니다. 기본값 및 가장 낮은 수준의 가격 책정 계층을 사용할 수 있습니다. 서버를 만드는 이점은 이후 단계에서 테이블을 만들고 로드하는 데 필요한 관리자 사용자 이름 및 암호를 지정할 수 있다는 것입니다.
 
@@ -145,7 +146,7 @@ Azure Portal 및 샘플의 *hotels.sql* 파일을 사용하여 Azure SQL Databas
    ```
    정형화된 쿼리인 `SELECT * FROM Hotels`는 쿼리 편집기에서 작동하지 않습니다. 샘플 데이터는 위치 필드에 지리 좌표를 포함합니다. 이 시점에는 편집기에서 처리되지 않습니다. 쿼리할 다른 열의 목록은 다음 문을 실행할 수 있습니다.`SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
-10. 이제 외부 데이터 집합이 있으므로 데이터베이스에 대한 ADO.NET 연결 문자열을 복사합니다. 데이터베이스의 SQL Database 페이지에서 **설정** > **연결 문자열**로 이동하고, ADO.NET 연결 문자열을 복사합니다.
+10. 이제 외부 데이터 세트가 있으므로 데이터베이스에 대한 ADO.NET 연결 문자열을 복사합니다. 데이터베이스의 SQL Database 페이지에서 **설정** > **연결 문자열**로 이동하고, ADO.NET 연결 문자열을 복사합니다.
  
   ADO.NET 연결 문자열은 다음 예제와 비슷하며 유효한 데이터베이스 이름, 사용자 이름 및 암호를 사용하도록 수정됩니다.
 
@@ -180,7 +181,7 @@ public string HotelName { get; set; }
 . . .
 ```
 
-스키마는 점수 매기기, 사용자 지정 분석기 및 다른 구문을 향상시키기 위해 점수 매기기 프로필을 비롯한 다른 요소를 포함할 수도 있습니다. 그러나 목적상 스키마는 밀도가 낮게 정의되어 샘플 데이터 집합에서 발견되는 필드를 구성합니다.
+스키마는 점수 매기기, 사용자 지정 분석기 및 다른 구문을 향상시키기 위해 점수 매기기 프로필을 비롯한 다른 요소를 포함할 수도 있습니다. 그러나 목적상 스키마는 밀도가 낮게 정의되어 샘플 데이터 세트에서 발견되는 필드를 구성합니다.
 
 이 자습서에서 인덱서는 하나의 데이터 원본에서 데이터를 끌어옵니다. 실제로 여러 인덱서를 동일한 인덱스에 연결하여 여러 데이터 원본 및 인덱서에서 통합된 검색 가능한 인덱스를 만들 수 있습니다. 동일한 인덱스 인덱서 쌍을 사용하여 유연성이 필요한 경우에 다양한 인덱서 및 데이터 원본 조합으로 데이터 원본 또는 하나의 인덱스가 달라질 수 있습니다.
 
@@ -233,7 +234,7 @@ Azure Search에서 독립적으로 보거나, 구성하거나, 삭제할 수 있
 
   ![SQL 스크립트](./media/search-indexer-tutorial/console-output.png)
 
-코드는 Visual Studio에서 로컬로 실행되어 Azure의 검색 서비스에 연결합니다. 그러면 연결 문자열을 사용하여 Azure SQL Database에 연결하고 데이터 집합을 검색합니다. 이 많은 작업에서 잠재적인 실패 지점이 있지만 오류가 발생하는 경우 다음 상태를 먼저 확인하세요.
+코드는 Visual Studio에서 로컬로 실행되어 Azure의 검색 서비스에 연결합니다. 그러면 연결 문자열을 사용하여 Azure SQL Database에 연결하고 데이터 세트를 검색합니다. 이 많은 작업에서 잠재적인 실패 지점이 있지만 오류가 발생하는 경우 다음 상태를 먼저 확인하세요.
 
 + 제공한 검색 서비스 연결 정보가 이 자습서에서 해당 서비스 이름으로 제한됩니다. 전체 URL을 입력한 경우 인덱스 생성 시 연결 오류와 함께 작업이 중지됩니다.
 
@@ -269,21 +270,14 @@ Azure Portal의 검색 서비스 개요 페이지에서 맨 위에 있는 **검�
 
   ![인덱서 및 데이터 원본 타일](./media/search-indexer-tutorial/tiles-portal.png)
 
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이러한 서비스를 계속 사용하지 않으려면 Azure Portal에서 이러한 단계에 따라 이 자습서에서 만든 리소스를 모두 삭제합니다. 
-
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다. 
-2. 리소스 그룹 페이지에서 **리소스 그룹 삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.
+이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Search 서비스를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Search 서비스의 개요 페이지에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용 및 기타 지원되는 데이터 원본에 관련된 작업은 다음 문서를 참조하세요.
+AI 지원 알고리즘을 인덱서 파이프라인에 연결할 수 있습니다. 다음 단계로 다음 자습서를 계속 진행합니다.
 
-* [Azure SQL Database 또는 Azure 가상 머신의 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Azure Table Storage](search-howto-indexing-azure-tables.md)
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* [Azure Search Blob 인덱서를 사용하여 CSV Blob 인덱싱](search-howto-index-csv-blobs.md)
-* [Azure Search Blob 인덱서를 사용하여 JSON Blob 인덱싱](search-howto-index-json-blobs.md)
-
+> [!div class="nextstepaction"]
+> [Azure Blob Storage에서 문서 인덱싱](search-howto-indexing-azure-blob-storage.md)

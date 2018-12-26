@@ -9,14 +9,16 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ms.openlocfilehash: d2225dec818c600febfad2f9ebc42594f6ac09ac
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bd39976691aab0c2333afe9fafc9c5a8cc518b67
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372855"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339562"
 ---
 # <a name="custom-speech-service-meters-and-quotas"></a>Custom Speech Service 미터 및 견적
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 클라우드 기반 Custom Speech Service를 사용하면 음성-텍스트 전사에 대한 음성 모델을 사용자 지정할 수 있습니다.
 

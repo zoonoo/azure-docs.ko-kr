@@ -7,20 +7,25 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: ee1379995dffd8aebbd71757c06e06ea43561794
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9168ac1d26432ca3eee5a59b63aa0cec3ae72856
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830448"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989059"
 ---
 # <a name="supported-matrix-for-this-release"></a>이 릴리스에 지원되는 행렬 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 코드가 Azure Machine Learning 데이터 원본을 사용하여 데이터를 로드하거나 Azure Machine Learning 데이터 준비에서 Pandas 또는 Spark 데이터 프레임을 가져올 때 다음과 같은 실험 계산 환경 및 데이터 위치의 조합이 지원됩니다.
 
 |     |로컬 파일  |Azure Blob 저장소  |SQL Server 데이터베이스 \***  |

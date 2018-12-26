@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 06/27/2018
+ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 5c2088ab39e32c049ce867698e84efba759c9a87
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447339"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036600"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>가상 머신 이미지를 Azure Stack에서 사용할 수 있도록
 
@@ -30,16 +30,16 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 ## <a name="add-a-vm-image-through-the-portal"></a>포털을 통해 VM 이미지 추가
 
-> [!NOTE]
+> [!NOTE]  
 > 이 메서드를 사용 하 여 별도로 마켓플레이스 항목을 만들어야 합니다.
 
 이미지는 blob 저장소 URI에 의해 참조 될 수 있어야 합니다. Windows 또는 Linux 운영 체제 이미지를 VHD 형식 (VHDX 아님)를 준비 하 고 Azure 또는 Azure Stack 저장소 계정에 이미지를 업로드 합니다. 이미지는 이미 Azure 또는 Azure Stack에서 blob storage에 업로드 됩니다, 경우에 1 단계를 건너뛸 수 있습니다.
 
 1. [Azure Resource Manager 배포에 대 한 Windows VM 이미지를 업로드](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) 또는 Linux 이미지에 설명 된 지침을 따릅니다 [Azure Stack의 배포 Linux virtual machines](azure-stack-linux.md)합니다. 이미지를 업로드 하기 전에 다음 사항을 고려해 야는:
 
-   - Azure Stack 고정된 디스크 VHD 형식만을 지원합니다. 고정된 형식은 디스크 오프셋 X가 blob 오프셋 X에 저장 되도록 파일 내에 선형적으로 논리적 디스크를 구조입니다. Blob 끝의 작은 바닥글에서는 VHD의 속성을 설명합니다. 디스크는 고정 하는 경우를 확인 하려면 사용 합니다 [GET-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell 명령입니다.  
+   - Azure Stack 지원 세대만 고정된 디스크 VHD에서에서 VM 한 개 (1) 형식입니다. 고정 형식은 디스크 오프셋 X가 blob 오프셋 X에 저장 되도록 파일 내에 선형적으로 논리적 디스크를 구조입니다. Blob 끝의 작은 바닥글에서는 VHD의 속성을 설명합니다. 디스크는 고정 하는 경우를 확인 하려면 사용 합니다 [GET-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell 명령입니다.  
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     >  Azure Stack에서 동적 디스크 Vhd를 지원 하지 않습니다. VM에 연결 된 동적 디스크 크기 조정 실패 상태의 VM 종료 됩니다. 이 문제를 완화 하려면 VM의 디스크를 저장소 계정에 VHD blob을 삭제 하지 않고 VM을 삭제 합니다. 동적 디스크에서 VHD 고정된 디스크와 가상 컴퓨터를 다시 만들를 변환 합니다.
 
    * Azure Stack 이미지 리포지토리에 이미지를 푸시 하려면 적은 시간이 걸리기 때문에 blob storage에서 Azure로 보다 Azure Stack blob storage에 이미지를 업로드 하는 것이 효율적 이며
@@ -48,13 +48,13 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
    * Blob storage URI 이미지를 업로드 하는 위치를 기록해 둡니다. Blob 저장소 URI 형식은 다음과 같습니다: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd 합니다.
 
-   * Blob에 익명으로 액세스할 수 있도록으로 저장소 계정 blob 컨테이너를 VM 이미지 VHD를 업로드 하는 위치입니다. 선택 **Blob**를 선택한 후 **액세스 정책**합니다. 필요에 따라 대신 컨테이너에 대 한 공유 액세스 서명을 생성 하 수 blob URI의 일부분으로 포함 합니다.
+   * Blob에 익명으로 액세스할 수 있도록으로 저장소 계정 blob 컨테이너를 VM 이미지 VHD를 업로드 하는 위치입니다. 선택 **Blob**를 선택한 후 **액세스 정책**합니다. 필요에 따라 대신 컨테이너에 대 한 공유 액세스 서명을 생성 하 수 blob URI의 일부분으로 포함 합니다. 이 단계를 수행 하면 blob이 이미지를 추가 하기 위해 사용할 수 있습니다. Blob를 익명으로 액세스할 수 없는 경우 실패 한 상태의 VM 이미지에 만들어집니다.
 
    ![저장소 계정 blob으로 이동](./media/azure-stack-add-vm-image/image1.png)
 
    ![Public에 대 한 집합 blob 액세스](./media/azure-stack-add-vm-image/image2.png)
 
-2. Operator 자격으로 Azure Stack에 로그인 합니다. 메뉴에서 선택 **더 많은 서비스**합니다. 그런 다음 선택 **계산** > **VM 이미지** > **추가**합니다.
+2. Operator 자격으로 Azure Stack에 로그인 합니다. 메뉴에서 선택 **모든 서비스**합니다. 그런 다음 합니다 **관리** 범주 선택 **Compute** > **VM 이미지** > **추가**합니다.
 
 3. 아래 **VM 이미지를 추가**, 게시자, 제품, SKU 및 가상 머신 이미지의 버전을 입력 합니다. 이러한 이름 세그먼트 Resource Manager 템플릿에서 VM 이미지를 참조 하세요. 선택 되어 있는지 확인 합니다 **osType** 올바르게 값입니다. 에 대 한 **운영 체제 디스크 Blob URI**, 여기서 이미지 업로드 된 Blob URI를 입력 합니다. 그런 다음 선택 **만들기** VM 이미지를 만들기 시작 합니다.
 
@@ -75,7 +75,7 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>PowerShell을 사용 하 여 Marketplace VM 이미지 추가
 
 > [!Note]  
-> 템플릿 및 PowerShell 배포만 사용할 수 있습니다 Azure 리소스 관리자에 대 한 이미지 기반 추가할 때 사용 합니다. 이미지를 사용할 수 있도록를 marketplace 항목으로 사용자는 문서의 단계를 사용 하 여 마켓플레이스 항목 게시 [만들기 및 마켓플레이스 항목 게시](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
+> 템플릿 및 PowerShell 배포만 사용할 수 있습니다 Azure 리소스 관리자에 대 한 이미지 기반 추가할 때 사용 합니다. 이미지를 사용할 수 있도록를 marketplace 항목으로 사용자는 문서의 단계를 사용 하 여 마켓플레이스 항목 게시 [만들기 및 마켓플레이스 항목 게시](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
 
 1. [Azure Stack 용 PowerShell 설치](azure-stack-powershell-install.md)합니다.  
 
@@ -115,7 +115,7 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
     자세한 내용은 참조에 대 한 PowerShell 참조를 [추가 AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet 및 [새로 만들기-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>PowerShell을 사용 하 여 사용자 지정 VM 이미지를 Marketplace에 추가
-
+ 
 1. [Azure Stack 용 PowerShell 설치](azure-stack-powershell-install.md)합니다.
 
   ```PowerShell  

@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 5a1b2ffa160a31b639605242b651dc8d14e7a01b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 386b4b8440c74f6599e7147996b5843ea0f67e68
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040028"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423367"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
@@ -30,10 +30,10 @@ Twilio는 기존 웹 언어와 기술을 사용하여 음성 및 SMS 응용 프�
 **Twilio 음성** 을 통해 응용 프로그램에서 전화를 걸고 받을 수 있습니다. **Twilio SMS** 를 사용하면 응용 프로그램에서 SMS 메시지를 작성하고 받을 수 있습니다. **Twilio 클라이언트** 를 사용하면 응용 프로그램에서 모바일 연결을 비롯한 기존 인터넷 연결을 통해 음성 통신을 사용할 수 있습니다.
 
 ## <a id="Pricing"></a>Twilio 가격 책정 및 특별 제공
-Twilio 가격 책정 정보는 [Twilio 가격 책정][twilio_pricing]에서 확인할 수 있습니다. Azure 고객은 [특별 제공][special_offer](문자 1000통 또는 인바운드 통화 1000분의 무료 크레딧)을 받습니다. 이 제공에 등록하거나 추가 정보를 얻으려면 [http://ahoy.twilio.com/azure][special_offer]를 방문하세요.
+Twilio 가격 책정 정보는 [Twilio 가격 책정][twilio_pricing]에서 확인할 수 있습니다. Azure 고객은 [특별 제공][special_offer](문자 1000통 또는 인바운드 통화 1000분의 무료 크레딧)을 받습니다. 이 제공에 등록하거나 추가 정보를 얻으려면 [https://ahoy.twilio.com/azure][special_offer]를 방문하세요.
 
 ## <a id="Concepts"></a>개념
-Twilio API는 응용 프로그램에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][twilio_libraries](영문)를 참조하십시오.
+Twilio API는 애플리케이션에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][twilio_libraries](영문)를 참조하십시오.
 
 Twilio API의 핵심 요소는 Twilio 동사와 TwiML(Twilio Markup Language)입니다.
 
@@ -117,7 +117,7 @@ JSP(Java Server Page) 원본 파일의 경우
     Twilio.init(accountSID, authToken);
 
     // Use the Twilio-provided site for the TwiML response.
-    URI uri = new URI("http://twimlets.com/message" +
+    URI uri = new URI("https://twimlets.com/message" +
             "?Message%5B0%5D=Hello%20World%21");
 
     // Declare To and From numbers
@@ -129,7 +129,7 @@ JSP(Java Server Page) 원본 파일의 경우
     Call.creator(to, from, uri).create();
 ```
 
-**Call.creator** 메서드에 전달된 매개 변수에 대한 자세한 내용은 [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls]를 참조하세요.
+**Call.creator** 메서드에 전달된 매개 변수에 대한 자세한 내용은 [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls]를 참조하세요.
 
 언급한 대로 이 코드는 Twilio 제공 사이트를 사용하여 TwiML 응답을 반환합니다. 고유한 사이트를 대신 사용하여 TwiML 응답을 제공할 수 있습니다. 자세한 내용은 [Azure의 Java 응용 프로그램에서 TwiML 응답을 제공하는 방법](#howto_provide_twiml_responses)을 참조하십시오.
 
@@ -155,10 +155,10 @@ JSP(Java Server Page) 원본 파일의 경우
     Message sms = Message.creator(to, from, body).create();
 ```
 
-**Message.creator** 메서드에 전달된 매개 변수에 대한 자세한 내용은 [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms]를 참조하세요.
+**Message.creator** 메서드에 전달된 매개 변수에 대한 자세한 내용은 [https://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms]를 참조하세요.
 
 ## <a id="howto_provide_twiml_responses"></a>방법: 고유한 웹 사이트에서 TwiML 응답 제공
-응용 프로그램에서 Twilio API 호출을 시작하면(예: **CallCreator.create** 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위 예제에서는 Twilio 제공 URL인 [http://twimlets.com/message][twimlet_message_url]를 사용합니다. TwiML은 웹 서비스에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [http://twimlets.com/message][twimlet_message_url]를 클릭하면 빈 **&lt;Response&gt;** 요소가 표시됩니다. 또 다른 예로, [http://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world]을 클릭하면 **&lt;Say&gt;** 요소를 포함하는 **&lt;Response&gt;** 요소가 표시됩니다.
+응용 프로그램에서 Twilio API 호출을 시작하면(예: **CallCreator.create** 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위의 예제에서는 Twilio 제공 URL [https://twimlets.com/message][twimlet_message_url]을 사용합니다. TwiML은 웹 서비스에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [https://twimlets.com/message][twimlet_message_url]를 클릭하여 빈 **&lt;Response&gt;** 요소를 확인합니다. 다른 예로 [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world]를 클릭하여 **&lt;Say&gt;** 요소를 포함하는 **&lt;Response&gt;** 요소를 확인합니다.)
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 URL 사이트를 만들 수 있습니다. HTTP 응답을 반환하는 모든 언어로 사이트를 만들 수 있습니다. 이 항목에서는 JSP 페이지에서 URL을 호스팅한다고 가정합니다.
 
@@ -185,7 +185,7 @@ Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 U
     </Response>
 ```
 
-**ApiVersion** 매개 변수는 Twilio 음성 요청(SMS 요청 아님)에 사용할 수 있습니다. Twilio 음성 및 SMS 요청에 사용 가능한 요청 매개 변수를 보려면 각각 <https://www.twilio.com/docs/api/twiml/twilio_request> 및 <https://www.twilio.com/docs/api/twiml/sms/twilio_request>를 참조하세요. **RoleName** 환경 변수는 Azure 배포의 일부로 사용할 수 있습니다. **System.getenv**에서 선택될 수 있도록 사용자 지정 환경 변수를 추가하려면 [기타 역할 구성 설정][misc_role_config_settings]의 환경 변수 섹션을 참조하세요.
+**ApiVersion** 매개 변수는 Twilio 음성 요청(SMS 요청 아님)에 사용할 수 있습니다. Twilio 음성 및 SMS 요청에 대한 사용 가능한 요청 매개 변수를 확인하려면 각각 <https://www.twilio.com/docs/api/twiml/twilio_request> 및 <https://www.twilio.com/docs/api/twiml/sms/twilio_request>를 참조하세요. **RoleName** 환경 변수는 Azure 배포의 일부로 사용할 수 있습니다. **System.getenv**에서 선택될 수 있도록 사용자 지정 환경 변수를 추가하려면 [기타 역할 구성 설정][misc_role_config_settings]의 환경 변수 섹션을 참조하세요.
 
 JSP 페이지가 TwiML 응답을 제공하도록 설정된 경우 **Call.creator** 메서드에 전달되는 URL로 JSP 페이지의 URL을 사용합니다. 예를 들어 MyTwiML이라는 웹 응용 프로그램이 Azure 호스티드 서비스에 배포되어 있고 JSP 페이지의 이름이 mytwiml.jsp인 경우 다음과 같이 URL을 **Call.creator**에 전달할 수 있습니다.
 
@@ -205,7 +205,7 @@ TwiML로 응답하는 또 다른 옵션은 **com.twilio.twiml** 패키지에 포
 Azure에서 Java와 함께 Twilio를 사용하는 방법에 대한 자세한 내용은 [Azure의 Java 웹 응용 프로그램에서 Twilio를 사용하여 전화를 거는 방법][howto_phonecall_java]을 참조하세요.
 
 ## <a id="AdditionalServices"></a>방법: 추가 Twilio 서비스 사용
-여기에서 보여 준 예뿐만 아니라 Twilio는 Azure 응용 프로그램에서 Twilio 기능을 활용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [Twilio API 설명서][twilio_api_documentation]를 참조하세요.
+여기에서 보여 준 예뿐만 아니라 Twilio는 Azure 애플리케이션에서 Twilio 기능을 활용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [Twilio API 설명서][twilio_api_documentation]를 참조하세요.
 
 ## <a id="NextSteps"></a>다음 단계
 Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가십시오.
@@ -220,22 +220,22 @@ Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내�
 [twilio_api_service]: https://api.twilio.com
 [add_ca_cert]: java-add-certificate-ca-store.md
 [howto_phonecall_java]: partner-twilio-java-phone-call-example.md
-[misc_role_config_settings]: http://msdn.microsoft.com/library/windowsazure/hh690945.aspx
-[twimlet_message_url]: http://twimlets.com/message
-[twimlet_message_url_hello_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World%21
-[twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
-[twilio_rest_sending_sms]: http://www.twilio.com/docs/api/rest/sending-sms
-[twilio_pricing]: http://www.twilio.com/pricing
-[special_offer]: http://ahoy.twilio.com/azure
+[misc_role_config_settings]: https://msdn.microsoft.com/library/windowsazure/hh690945.aspx
+[twimlet_message_url]: https://twimlets.com/message
+[twimlet_message_url_hello_world]: https://twimlets.com/message?Message%5B0%5D=Hello%20World%21
+[twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls
+[twilio_rest_sending_sms]: https://www.twilio.com/docs/api/rest/sending-sms
+[twilio_pricing]: https://www.twilio.com/pricing
+[special_offer]: https://ahoy.twilio.com/azure
 [twilio_libraries]: https://www.twilio.com/docs/libraries
-[twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api]: http://www.twilio.com/api
+[twiml]: https://www.twilio.com/docs/api/twiml
+[twilio_api]: https://www.twilio.com/api
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_console]:  https://www.twilio.com/console
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified#
-[twilio_api_documentation]: http://www.twilio.com/docs
-[twilio_security_guidelines]: http://www.twilio.com/docs/security
-[twilio_howtos]: http://www.twilio.com/docs/howto
+[twilio_api_documentation]: https://www.twilio.com/docs
+[twilio_security_guidelines]: https://www.twilio.com/docs/security
+[twilio_howtos]: https://www.twilio.com/docs/howto
 [twilio_on_github]: https://github.com/twilio
-[twilio_support]: http://www.twilio.com/help/contact
-[twilio_quickstarts]: http://www.twilio.com/docs/quickstart
+[twilio_support]: https://www.twilio.com/help/contact
+[twilio_quickstarts]: https://www.twilio.com/docs/quickstart

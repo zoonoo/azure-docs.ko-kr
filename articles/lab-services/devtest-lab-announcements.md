@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3282a90069ecd119154df492ac6dc366d26b5300
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eedab085098c34cdac3c49a3892f7cb0d5824f1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611208"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259924"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 공지 게시
 
@@ -35,7 +35,7 @@ ms.locfileid: "38611208"
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>기존 랩에 공지를 게시하는 단계
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. 필요한 경우 **모든 서비스**를 선택하고 목록에서 **DevTest Labs**를 선택합니다. 대시보드의 **모든 리소스** 아래에 랩이 이미 표시되어 있을 수 있습니다.
 1. 랩 목록에서 공지를 게시하려는 랩을 선택합니다.  
 1. 랩의 **개요** 영역에서 **구성 및 정책**을 선택합니다.  
@@ -70,7 +70,7 @@ ms.locfileid: "38611208"
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>알림을 보기 위한 단계
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 랩을 선택합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에서 랩을 선택합니다.
 
 1. 랩에 게시된 공지가 있으면 랩 개요 페이지 위쪽에 정보 알림이 표시됩니다. 이 정보 공지는 공지를 만들었을 때 지정된 공지 제목입니다.
 
@@ -81,6 +81,89 @@ ms.locfileid: "38611208"
     ![랩 공지에 대한 자세한 정보](./media/devtest-lab-announcements/devtestlab-user-announcement-text.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
+## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
+다음 예제에서와 같이 Azure Resource Manager 템플릿의 일부로 공지를 지정할 수 있습니다. 
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string",
+            "defaultValue": "devtestlabfromarm"
+        },
+        "regionId": {
+            "type": "string",
+            "defaultValue": "eastus"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-04-26-preview",
+            "name": "[parameters('name')]",
+            "type": "Microsoft.DevTestLab/labs",
+            "location": "[parameters('regionId')]",
+            "tags": {},
+            "properties": {
+                "labStorageType": "Premium",
+                "announcement":
+                {
+                    "title": "Important! Three images are currently inaccessible. Click for more information.",
+                    "markdown":"# Images are inaccessible\n\nThe following 3 images are currently not available for use: \n\n- image1\n- image2\n- image3\n\nI am working to fix the problem ASAP.",
+                    "enabled": "Enabled",
+                    "expirationDate":"2018-12-31T06:00:00+00:00",
+                    "expired": "false"
+                },
+                "support": {
+                    "markdown": "",
+                    "enabled": "Enabled"
+                }                
+            },
+            "resources": [
+                {
+                    "apiVersion": "2017-04-26-preview",
+                    "name": "LabVmsShutdown",
+                    "location": "[parameters('regionId')]",
+                    "type": "schedules",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.DevTestLab/labs', parameters('name'))]"
+                    ],
+                    "properties": {
+                        "status": "Enabled",
+                        "timeZoneId": "Eastern Standard Time",
+                        "dailyRecurrence": {
+                            "time": "1900"
+                        },
+                        "taskType": "LabVmsShutdownTask",
+                        "notificationSettings": {
+                            "status": "Disabled",
+                            "timeInMinutes": 30
+                        }
+                    }
+                },
+                {
+                    "apiVersion": "2017-04-26-preview",
+                    "name": "[concat('Dtl', parameters('name'))]",
+                    "type": "virtualNetworks",
+                    "location": "[parameters('regionId')]",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.DevTestLab/labs', parameters('name'))]"
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+다음 방법 중 하나를 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다.
+
+- [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+- [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+- [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+- [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ## <a name="next-steps"></a>다음 단계
 * 랩 정책을 변경하거나 설정하는 경우 사용자에게 알리기 위해 공지를 게시할 수 있습니다. [정책 및 일정 설정](devtest-lab-set-lab-policy.md)은 사용자 지정된 정책을 사용하여 구독에 제한 사항 및 규칙을 적용하는 방법에 대한 정보를 제공합니다.

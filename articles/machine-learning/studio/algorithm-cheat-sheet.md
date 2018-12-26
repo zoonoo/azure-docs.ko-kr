@@ -1,61 +1,49 @@
 ---
-title: Machine Learning 알고리즘 치트 시트 | Microsoft Docs
+title: 기계 학습 알고리즘 치트 시트 - Azure Machine Learning Studio | Microsoft Docs
 description: 인쇄 가능한 기계 학습 알고리즘 치트 시트를 사용하면 Azure Machine Learning Studio에서 예측 모델에 적합한 알고리즘을 선택합니다.
 keywords: 알고리즘 치트 시트, 치트 시트, 기계 학습 알고리즘
 services: machine-learning
-documentationcenter: ''
-author: pakalra
-ms.author: pakalra
+author: ericlicoding
+ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.author: amlstudiodocs
 manager: cgronlun
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: a448d6931330f7b2f0730add65473097bb2b5a57
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 307a2d442fc8cf82630b111b6ea73e180c740c64
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833566"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307417"
 ---
-# <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Microsoft Azure Machine Learning Studio용 기계 학습 알고리즘 치트 시트
-**Microsoft Azure Machine Learning 알고리즘 치트 시트**를 사용하면 예측 분석 모델에 대한 적합한 알고리즘을 선택할 수 있습니다.
+# <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 기계 학습 알고리즘 치트 시트
+
+**Azure Machine Learning 알고리즘 치트 시트**를 사용하면 예측 분석 모델에 대한 적합한 알고리즘을 선택할 수 있습니다.
 
 [Azure Machine Learning 스튜디오](https://studio.azureml.net/)에는 ***회귀***, ***분류***, ***클러스터링***, ***이상 감지*** 제품군 등의 대규모 알고리즘 라이브러리가 있습니다. 각 항목은 다양한 유형의 기계 학습 문제를 해결하기 위해 고안되었습니다.
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>다운로드: 기계 학습 알고리즘 치트 시트
-**여기서 치트 시트 다운로드: [Machine Learning 알고리즘 치트 시트(11x17인치)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
+
+**여기서 치트 시트 다운로드: [Machine Learning 알고리즘 치트 시트(11x17인치)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
 ![Machine Learning 알고리즘 치트 시트: Machine Learning 알고리즘을 선택하는 방법에 대해 알아봅니다.][cheat-sheet]
 
 [cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
-간편하게 보관하면서 알고리즘을 선택할 수 있도록 tabloid 크기로 Machine Learning 알고리즘 치트 시트를 다운로드하여 인쇄합니다.
+간편하게 보관하면서 알고리즘을 선택할 수 있도록 tabloid 크기로 Machine Learning Studio 알고리즘 치트 시트를 다운로드하여 인쇄합니다.
 
 > [!NOTE]
-> 이 치트 시트를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure Machine Learning을 위한 알고리즘 선택 방법](algorithm-choice.md) 문서를 참조하세요.
-> 
-> 
+> 적합한 알고리즘을 선택하기 위해 이 치트 시트를 사용하는 방법, 다양한 유형의 Machine Learning 알고리즘 및 사용 방법에 대한 자세한 논의는 [Microsoft Azure Machine Learning에서 알고리즘을 선택하는 방법](algorithm-choice.md)을 참조하세요.
 
-## <a name="more-help-with-algorithms"></a>알고리즘에 대한 자세한 도움말
-* 적합한 알고리즘을 선택하기 위해 이 치트 시트를 사용하는 방법, 다양한 유형의 Machine Learning 알고리즘 및 사용 방법에 대한 자세한 논의는 [Microsoft Azure Machine Learning에서 알고리즘을 선택하는 방법](algorithm-choice.md)을 참조하세요.
-* 알고리즘을 설명하고 예제를 제공하는 다운로드 가능한 인포그래픽은 [다운로드 가능한 인포그래픽: 알고리즘 예제를 포함한 Machine Learning 기본 사항](basics-infographic-with-algorithm-examples.md)을 참조하세요.
-* Machine Learning Studio에서 사용할 수 있는 모든 기계 학습 알고리즘의 범주별 목록은 Machine Learning Studio Algorithm 및 모듈 도움말에서 [초기화 모델][initialize-model]을 참조하세요.
-* Machine Learning Studio의 전체 알고리즘 및 모듈에 대한 알파벳 순서 목록은 Machine Learning Studio 알고리즘 및 모듈 도움말에서 [Machine Learning Studio 모듈의 A-Z 목록][a-z-list]을 참조하세요.
-* Machine Learning Studio의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure Machine Learning Studio 기능 개요](studio-overview-diagram.md)를 참조하세요.
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-## <a name="notes-and-terminology-definitions-for-the-machine-learning-algorithm-cheat-sheet"></a>기계 학습 알고리즘 치트 시트에 대한 메모 및 용어 정의
+## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Machine Learning Studio 알고리즘 치트 시트 관련 참고 사항 및 용어 정의
 
 * 알고리즘 치트 시트에서 제공된 제안 사항은 대략적인 위치 조정 규칙입니다. 제안을 변형하거나 명백하게 위반할 수 있습니다. 시작점을 제안하기 위한 용도로만 제공됩니다. 데이터에 대해 여러 알고리즘을 실행하고 비교해 보세요. 각 알고리즘의 원칙과 데이터를 생성한 시스템에 대한 이해가 필요합니다.
 
-* 모든 Machine Learning 알고리즘에는 자체 스타일이나 *귀납적 바이어스*가 있습니다. 특정 문제의 경우 여러 알고리즘이 적절할 수 있으며, 한 알고리즘이 다른 알고리즘보다 더 적합할 수 있습니다. 하지만 어떤 것이 가장 적합한지 항상 미리 알 수 없습니다. 이러한 경우 여러 알고리즘이 참고 자료에 함께 나열됩니다. 적절한 전략은 한 알고리즘을 시도하고, 결과가 만족스럽지 않을 경우 다른 알고리즘을 시도하는 것입니다. 동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험의 예제는 [Azure AI 갤러리](http://gallery.cortanaintelligence.com/)에서 [다중 클래스 분류자 비교: 문자 인식](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92)을 참조합니다.
+* 모든 Machine Learning 알고리즘에는 자체 스타일이나 *귀납적 바이어스*가 있습니다. 특정 문제의 경우 여러 알고리즘이 적절할 수 있으며, 한 알고리즘이 다른 알고리즘보다 더 적합할 수 있습니다. 하지만 어떤 것이 가장 적합한지 항상 미리 알 수 없습니다. 이러한 경우 여러 알고리즘이 참고 자료에 함께 나열됩니다. 적절한 전략은 한 알고리즘을 시도하고, 결과가 만족스럽지 않을 경우 다른 알고리즘을 시도하는 것입니다. 동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험의 예제는 [Azure AI 갤러리](http://gallery.azure.ai/)에서 [다중 클래스 분류자 비교: 문자 인식](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92)을 참조합니다.
 
 * Machine Learning의 세 가지 주요 범주는 **감독 학습**, **자율 학습** 및 **보충 학습**입니다.
 
@@ -75,15 +63,20 @@ ms.locfileid: "34833566"
 
 * 각 범주에 대한 **더미 변수**를 만든 다음 범주가 적용되는 경우 1로, 적용되지 않는 경우 0으로 설정하여 신경망을 범주 변수와 함께 사용할 수 있습니다.
 
+## <a name="next-steps"></a>다음 단계
 
-<!-- This is how you can embed a link in an image in HTML. Don't know how to do this in markdown.
-<a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
-<img src="C:\Users\garye\azure-docs-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
-</a>
--->
+* 알고리즘을 설명하고 예제를 제공하는 다운로드 가능한 인포그래픽은 [다운로드 가능한 인포그래픽: 알고리즘 예제를 포함한 Machine Learning 기본 사항](basics-infographic-with-algorithm-examples.md)을 참조하세요.
+
+* Machine Learning Studio에서 사용할 수 있는 모든 기계 학습 알고리즘의 범주별 목록은 Machine Learning Studio Algorithm 및 모듈 도움말에서 [초기화 모델][initialize-model]을 참조하세요.
+
+* Machine Learning Studio의 전체 알고리즘 및 모듈에 대한 알파벳 순서 목록은 Machine Learning Studio 알고리즘 및 모듈 도움말에서 [Machine Learning Studio 모듈의 A-Z 목록][a-z-list]을 참조하세요.
+
+* Machine Learning Studio의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure Machine Learning Studio 기능 개요](studio-overview-diagram.md)를 참조하세요.
+
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 <!-- Module References -->
-[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
-[initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
-[k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
-[one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
+[a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/one-vs-all-multiclass

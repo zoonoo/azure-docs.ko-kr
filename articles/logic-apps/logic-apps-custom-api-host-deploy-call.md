@@ -1,28 +1,23 @@
 ---
 title: Azure Logic Apps에서 웹 API 및 REST API 배포 및 호출 | Microsoft Docs
 description: Azure Logic Apps에서 시스템 통합 워크플로에 대한 웹 API 및 REST API 배포 및 호출
-keywords: 웹 API, REST API, 커넥터, 워크플로, 시스템 통합, 인증
 services: logic-apps
-author: stepsic-microsoft-com
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
+ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.author: LADocs; stepsic
-ms.openlocfilehash: e808a463beb312df6ee2f8fc4378f72755dcdf33
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0d53c8355fadf53c81676a1fe3c71f8e0b046630
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299010"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126571"
 ---
-# <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>논리 앱 워크플로에서 사용자 지정 API 배포 및 호출
+# <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로에서 사용자 지정 API 배포 및 호출
 
 논리 앱 워크플로에서 사용할 [사용자 지정 API를 만든](./logic-apps-create-api-app.md) 후에 API를 먼저 배포해야 호출할 수 있습니다. API를 [웹앱](../app-service/app-service-web-overview.md)으로 배포할 수 있지만 [API 앱](../app-service/app-service-web-tutorial-rest-api.md)으로 배포하는 것이 좋습니다. 이렇게 하면 클라우드에서 API를 빌드, 호스팅 및 사용할 때 작업을 더 쉽게 수행할 수 있습니다. API에서 코드를 변경할 필요가 없이 API 앱에 코드를 배포하기만 하면 됩니다. 확장성이 뛰어나고 쉬운 API 호스팅을 제공하는 PaaS(Platform-as-a-Service) 제품인 [Azure App Service](../app-service/app-service-web-overview.md)에서 API를 호스트할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager 스크립트를 사용하여 StorSimple 장치 관리 | Microsoft Docs
+title: Azure Resource Manager 스크립트를 사용하여 StorSimple 디바이스 관리 | Microsoft Docs
 description: Azure Resource Manager 스크립트를 사용하여 StorSimple 작업을 자동화하는 방법 알아보기
 services: storsimple
 documentationcenter: NA
@@ -21,11 +21,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2017
 ms.locfileid: "26373944"
 ---
-# <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Azure Resource Manager SDK 기반 스크립트를 사용하여 StorSimple 장치 관리
+# <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Azure Resource Manager SDK 기반 스크립트를 사용하여 StorSimple 디바이스 관리
 
-이 문서에서는 Azure Resource Manager SDK 기반 스크립트를 사용하여 StorSimple 8000 시리즈 장치를 관리하는 방법을 설명합니다. 이러한 스크립트를 실행하도록 환경을 구성하는 단계를 안내하는 샘플 스크립트도 포함되어 있습니다.
+이 문서에서는 Azure Resource Manager SDK 기반 스크립트를 사용하여 StorSimple 8000 시리즈 디바이스를 관리하는 방법을 설명합니다. 이러한 스크립트를 실행하도록 환경을 구성하는 단계를 안내하는 샘플 스크립트도 포함되어 있습니다.
 
-이 문서는 Azure Portal에서 실행되는 StorSimple 8000 시리즈 장치에만 적용됩니다.
+이 문서는 Azure Portal에서 실행되는 StorSimple 8000 시리즈 디바이스에만 적용됩니다.
 
 ## <a name="sample-scripts"></a>샘플 스크립트
 
@@ -35,19 +35,19 @@ ms.locfileid: "26373944"
 
 | Azure Resource Manager 스크립트                    | 설명                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | 이 스크립트를 사용하여 StorSimple 장치에 서비스 데이터 암호화 키를 변경할 권한을 부여합니다.                                                                                                           |
+| [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | 이 스크립트를 사용하여 StorSimple 디바이스에 서비스 데이터 암호화 키를 변경할 권한을 부여합니다.                                                                                                           |
 | [Create-StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | 이 스크립트는 8010 또는 8020 StorSimple Cloud Appliance를 만듭니다. 이 클라우드 어플라이언스를 구성하고 StorSimple 데이터 관리자 서비스에 등록할 수 있습니다.                                                       |
 | [CreateOrUpdate-Volume.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/CreateOrUpdate-Volume.ps1)                        | 이 스크립트는 StorSimple 볼륨을 만들거나 수정합니다.                                                                                                                                                             |
-| [Get-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackup.ps1)                             | 이 스크립트는 StorSimple 데이터 관리자 서비스에 등록된 장치에 대한 모든 백업을 나열합니다.                                                                                                          |
-| [Get-DeviceBackupPolicy.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackupPolicy.ps1)                       | 이 스크립트는 StorSimple 장치에 대한 모든 백업 정책을 나열합니다.                                                                                                                                                 |
-| [Get-DeviceJobs.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1)                               | 이 스크립트는 StorSimple 데이터 관리자 서비스에서 실행 중인 모든 StorSimple 작업을 가져옵니다.                                                                                                                     |
-| [Get-DeviceUpdateAvailability.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceUpdateAvailability.ps1)                 | 이 스크립트는 업데이트 서버를 검색하고 StorSimple 장치에 설치할 수 있는 업데이트가 있는지 알려줍니다.                                                                                          |
-| [Install-DeviceUpdate.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Install-DeviceUpdate.ps1)                         | 이 스크립트는 StorSimple 장치에 사용 가능한 업데이트를 설치합니다.                                                                                                                                           |
+| [Get-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackup.ps1)                             | 이 스크립트는 StorSimple 디바이스 관리자 서비스에 등록된 디바이스에 대한 모든 백업을 나열합니다.                                                                                                          |
+| [Get-DeviceBackupPolicy.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackupPolicy.ps1)                       | 이 스크립트는 StorSimple 디바이스에 대한 모든 백업 정책을 나열합니다.                                                                                                                                                 |
+| [Get-DeviceJobs.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1)                               | 이 스크립트는 StorSimple 디바이스 관리자 서비스에서 실행 중인 모든 StorSimple 작업을 가져옵니다.                                                                                                                     |
+| [Get-DeviceUpdateAvailability.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceUpdateAvailability.ps1)                 | 이 스크립트는 업데이트 서버를 검색하고 StorSimple 디바이스에 설치할 수 있는 업데이트가 있는지 알려줍니다.                                                                                          |
+| [Install-DeviceUpdate.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Install-DeviceUpdate.ps1)                         | 이 스크립트는 StorSimple 디바이스에 사용 가능한 업데이트를 설치합니다.                                                                                                                                           |
 | [Manage-CloudSnapshots.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Manage-CloudSnapshots.ps1)                        | 이 스크립트는 수동 클라우드 스냅숏을 시작하고 지정된 보존 기간(일)보다 오래된 클라우드 스냅숏을 삭제합니다.                                                                                                   |
 | [Monitor-Backups.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1)                              | 이 Azure Automation Runbook PowerShell 스크립트는 모든 백업 작업의 상태를 보고합니다.                                                                                                              |
 | [Remove-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Remove-DeviceBackup.ps1)                          | 이 스크립트는 단일 백업 개체를 삭제합니다.                                                                                                                                                           |
-| [Start-DeviceBackupJob.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Start-DeviceBackupJob.ps1)                        | 이 스크립트는 StorSimple 장치에서 수동 백업을 시작합니다.                                                                                                                                       |
-| [Update-CloudApplianceServiceEncryptionKey.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Update-CloudApplianceServiceEncryptionKey.ps1)    | 이 스크립트는 StorSimple 장치 관리자 서비스에 등록된 모든 8010/8020 StorSimple Cloud Appliance에 대한 서비스 데이터 암호화 키를 업데이트합니다.                                     |
+| [Start-DeviceBackupJob.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Start-DeviceBackupJob.ps1)                        | 이 스크립트는 StorSimple 디바이스에서 수동 백업을 시작합니다.                                                                                                                                       |
+| [Update-CloudApplianceServiceEncryptionKey.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Update-CloudApplianceServiceEncryptionKey.ps1)    | 이 스크립트는 StorSimple 디바이스 관리자 서비스에 등록된 모든 8010/8020 StorSimple Cloud Appliance에 대한 서비스 데이터 암호화 키를 업데이트합니다.                                     |
 | [Verify-BackupScheduleAndBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Verify-BackupScheduleAndBackup.ps1)               | 이 스크립트는 백업 정책과 연결된 모든 일정을 분석한 후 누락된 백업을 강조 표시합니다. 또한 사용 가능한 백업 목록을 사용하여 백업 카탈로그를 확인합니다.             |
 
 
@@ -69,7 +69,7 @@ Azure PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 사용 �
 
 ### <a name="run-azure-powershell-script"></a>Azure PowerShell 스크립트 실행
 
-이 예제에서 사용되는 스크립트는 StorSimple 장치의 모든 작업을 나열합니다. 여기에는 성공 또는 실패한 작업과 진행 중인 작업이 모두 포함됩니다. 다음 단계에 따라 스크립트를 다운로드하고 실행합니다.
+이 예제에서 사용되는 스크립트는 StorSimple 디바이스의 모든 작업을 나열합니다. 여기에는 성공 또는 실패한 작업과 진행 중인 작업이 모두 포함됩니다. 다음 단계에 따라 스크립트를 다운로드하고 실행합니다.
 
 1. Azure PowerShell을 시작합니다. 새 폴더를 만들고 디렉터리를 해당 새 폴더로 변경합니다.
 
@@ -98,7 +98,7 @@ Azure PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 사용 �
 
     ```
 
-5. 스크립트를 실행합니다. 인증하라는 메시지가 뜨면 Azure 자격 증명을 제공합니다. 이 스크립트는 StorSimple 장치의 모든 작업에 대한 필터링된 작업 목록을 출력합니다.
+5. 스크립트를 실행합니다. 인증하라는 메시지가 뜨면 Azure 자격 증명을 제공합니다. 이 스크립트는 StorSimple 디바이스의 모든 작업에 대한 필터링된 작업 목록을 출력합니다.
            
     ```           
         .\Get-StorSimpleJob.ps1 -SubscriptionId [subid] -TenantId [tenant id] -DeviceName [name of device] -ResourceGroupName [name of resource group] -ManagerName[name of device manager] -FilterByStatus [Filter for job status] -FilterByJobType [Filter for job type] -FilterByStartTime [Filter for start date time] -FilterByEndTime [Filter for end date time]
@@ -107,7 +107,7 @@ Azure PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 사용 �
 
 ### <a name="sample-output"></a>샘플 출력
 
-샘플 스크립트가 실행되면 다음과 같은 출력이 표시됩니다. 출력에는 등록된 장치에서 실행된 작업 중에서 2017년 9월 25일에 시작해서 2017년 10월 2일에 완료된 모든 작업이 포함됩니다.
+샘플 스크립트가 실행되면 다음과 같은 출력이 표시됩니다. 출력에는 등록된 디바이스에서 실행된 작업 중에서 2017년 9월 25일에 시작해서 2017년 10월 2일에 완료된 모든 작업이 포함됩니다.
 
 ```
 -----------------------------------------

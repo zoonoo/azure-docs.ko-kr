@@ -1,26 +1,21 @@
 ---
 title: 상태 확인, 로깅 설정 및 경고 받기 - Azure Logic Apps | Microsoft Docs
-description: 논리 앱에 대한 상태 및 성능 모니터링, 진단 데이터 로그 및 경고 설정
-author: jeffhollan
-manager: jeconnoc
-editor: ''
+description: Azure Logic Apps의 상태 모니터링, 진단 데이터 로깅 및 경고 설정
 services: logic-apps
-documentationcenter: ''
-ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: f11db2009328118dda036057918ba853f5032200
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293526"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405738"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>상태 모니터링, 진단 로깅 설정, Azure Logic Apps에 대한 경고 설정
 
@@ -95,7 +90,9 @@ ms.locfileid: "36293526"
 
    1. **Log Analytics에 보내기**를 선택합니다. 
    2. **Log Analytics** 아래에서 **구성**을 선택합니다. 
-   3. **OMS 작업 영역** 아래에서 로깅에 사용할 Log Analytics 작업 영역을 선택합니다.
+   3. **OMS 작업 영역**에서 로깅에 사용할 작업 영역을 선택합니다.
+   > [!NOTE]
+   > OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.
    4. **로그** 아래에서 **WorkflowRuntime** 범주를 선택합니다.
    5. 메트릭 간격을 선택합니다.
    6. 완료하면 **저장**을 선택합니다.

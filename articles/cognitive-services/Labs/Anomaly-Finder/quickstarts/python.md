@@ -5,18 +5,20 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
+ms.component: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: c14916b0644edab613b298d6e71f8bbb9a6bb804
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eb64bb4daece44d33775dca7417c51b216e04614
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375310"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49455439"
 ---
 # <a name="use-the-anomaly-finder-api-with-python"></a>Python 및 Anomaly Finder API 사용
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 이 문서에서 제공하는 정보 및 코드 샘플을 통해 Python과 함께 Anomaly Finder API 사용을 빠르게 시작하여 시계열 데이터의 변칙 결과를 가져오는 작업을 수행할 수 있습니다.
 

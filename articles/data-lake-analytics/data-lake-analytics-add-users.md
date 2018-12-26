@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: 58b78c7d9769069f36c9f01c2a7650878a6c5ec9
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f48dc07e27c6cb01a842f1f6d720ed6476028ef7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716795"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542315"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Azure Portal에서 사용자 추가
 
@@ -32,12 +31,12 @@ ms.locfileid: "34716795"
 입력 데이터 및 출력 데이터를 포함하는 폴더에서 필요에 따라 "R-X" 또는 "RWX"을 부여합니다.
 
 
-## <a name="optionally-add-the-user-to-the-azure-data-lake-store-role-reader-role"></a>필요에 따라 Azure Data Lake Store 역할 **읽기 권한자** 역할에 사용자를 추가합니다.
-1.  Azure Data Lake Store 계정을 찾습니다.
+## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>필요에 따라 Azure Data Lake Storage Gen1 **읽기 권한자** 역할에 사용자를 추가합니다.
+1.  Azure Data Lake Storage Gen1 계정을 찾습니다.
 2.  **사용자**를 클릭합니다.
 3. **추가**를 클릭합니다.
 4.  이 그룹에 할당하려는 Azure RBAC 역할을 선택합니다.
-5.  읽기 권한자 역할에 할당합니다. 이 역할에는ADLS에 저장된 데이터를 이동/관리하는 데 필요한 최소한의 사용 권한 집합이 있습니다. Azure 서비스를 관리하기 위한 그룹이 없는 경우 이 역할에 할당합니다.
+5.  읽기 권한자 역할에 할당합니다. 이 역할에는 ADLSGen1에 저장된 데이터를 이동/관리하는 데 필요한 최소한의 사용 권한 집합이 있습니다. Azure 서비스를 관리하기 위한 그룹이 없는 경우 이 역할에 할당합니다.
 6.  그룹의 이름에 입력합니다.
 7.  **확인**을 클릭합니다.
 

@@ -3,7 +3,7 @@ title: Azure 클라우드 서비스 모니터링 | Microsoft Docs
 description: Azure 클라우드 서비스에 포함되는 모니터링 기능과 사용 가능한 일부 옵션에 대해 설명합니다.
 services: cloud-services
 documentationcenter: ''
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: adegeo
-ms.openlocfilehash: f3a3a1beb8540ee8ab0502379396c06ea505fb44
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.author: jeconnoc
+ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2018
-ms.locfileid: "29149909"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146522"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>클라우드 서비스 모니터링 소개
 
@@ -54,11 +54,11 @@ ms.locfileid: "29149909"
 * 고객 오류 로그
 
 > [!IMPORTANT]
-> 이러한 모든 데이터가 저장소 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 **않습니다**. 응용 프로그램에 Application Insights와 같은 다른 서비스를 통합하는 것이 좋습니다.
+> 이러한 모든 데이터가 저장소 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 **않습니다**. 애플리케이션에 Application Insights와 같은 다른 서비스를 통합하는 것이 좋습니다.
 
 ## <a name="setup-diagnostics-extension"></a>진단 확장 설정
 
-먼저 **클래식** 저장소 계정이 없는 경우 [하나 만듭니다](../storage/common/storage-create-storage-account.md#create-a-storage-account). **클래식 배포 모델**을 지정하여 저장소 계정을 만듭니다.
+먼저 **클래식** 저장소 계정이 없는 경우 [하나 만듭니다](../storage/common/storage-quickstart-create-account.md). **클래식 배포 모델**을 지정하여 저장소 계정을 만듭니다.
 
 다음으로, **저장소 계정(클래식)** 리소스로 이동합니다. **설정** > **액세스 키**를 선택하고 **기본 연결 문자열** 값을 복사합니다. 클라우드 서비스에 대해 이 값이 필요합니다. 
 

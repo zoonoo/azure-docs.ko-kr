@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 08/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 76980214daf6e7dd019c56db089095ae121b853f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 73e20afdcacec76482f8ebf01bf2cef2105912a6
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215354"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>자습서: Cisco Webex와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Cisco Webex와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Cisco Webex 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -74,7 +74,7 @@ Cisco Webex의 Azure AD 통합을 구성하려면 갤러리의 Cisco Webex를 �
 
 4. 검색 상자에 **Cisco Webex**를 입력합니다. 
 
-5. 결과 패널에서 **Cisco Webex**를 선택합니다. 그런 다음, **추가** 단추를 선택하여 응용 프로그램을 추가합니다.
+5. 결과 패널에서 **Cisco Webex**를 선택합니다. 그런 다음, **추가** 단추를 선택하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Cisco Webex](./media/cisco-webex-tutorial/tutorial_ciscowebex_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Cisco Webex에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Cisco Webex 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Cisco Webex 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Cisco Webex에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Cisco Webex** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. Azure Portal의 **Cisco Webex** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -108,67 +108,82 @@ Cisco Webex에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
  
     ![Single Sign-On 대화 상자](./media/cisco-webex-tutorial/tutorial_ciscowebex_samlbase.png)
 
-3. **Cisco Webex 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+3. 다른 웹 브라우저 창에서 Cisco Webex 회사 사이트에 관리자로 로그인합니다.
+
+4. 메뉴의 왼쪽에서 **설정**을 클릭합니다.
+
+    ![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial_cisco_webex_10.png)
+
+5. 설정 페이지의 **인증** 섹션에서 아래로 스크롤하여 **수정**을 클릭합니다.
+
+    ![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial_cisco_webex_14.png)
+
+6. **타사 ID 공급자 통합 (고급)** 을 선택하고 다음 화면으로 이동합니다.
+
+    ![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial_cisco_webex_15.png)
+
+7. **디렉터리 메타데이터 내보내기** 페이지에서 **메타데이터 파일 다운로드**를 클릭하여 메타데이터 파일을 다운로드합니다.
+
+    ![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial_cisco_webex_16.png)
+
+8. Azure Portal의 **Cisco Webex 도메인 및 URL** 섹션에서 다운로드한 **서비스 공급자 메타데이터 파일**을 업로드하고 다음 단계를 수행하여 응용 프로그램을 구성합니다.
+
+    a. **메타데이터 파일 업로드**를 클릭합니다.
+
+    ![Cisco Webex 도메인 및 URL Single Sign-On 정보](./media/cisco-webex-tutorial/tutorial_ciscowebex_upload.png)
+
+    b. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
+
+    ![Cisco Webex 도메인 및 URL Single Sign-On 정보](./media/cisco-webex-tutorial/tutorial_ciscowebex_uploadconfig.png)
+
+    다. **서비스 공급자 메타데이터 파일**을 성공적으로 업로드한 후에는 **식별자** 및 **응답 URL** 값이 **Cisco Webex 도메인 및 URL** 섹션 텍스트 상자에 다음과 같이 자동으로 입력됩니다.
 
     ![Cisco Webex 도메인 및 URL Single Sign-On 정보](./media/cisco-webex-tutorial/tutorial_ciscowebex_url.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.webex.com`
-
-    나. **식별자** 상자에 URL `http://www.webex.com`을 입력합니다.
-
-    다. **회신 URL** 상자에 다음 패턴으로 URL을 입력합니다. `https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company`
+    d. **로그온 URL** 텍스트 상자에 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://<SUBDOMAIN>.webex.com/`
      
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Cisco Webex 클라이언트 지원 팀](https://www.webex.co.in/support/support-overview.html)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Cisco Webex 클라이언트 지원 팀](https://www.webex.co.in/support/support-overview.html)에 문의하세요.
 
-5. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 선택한 후 컴퓨터에 메타데이터 파일을 저장합니다.
+9. Cisco Webex 응용 프로그램은 특정 특성을 포함하는 SAML 어설션이 필요합니다. 이 응용 프로그램에 대한 다음 특성을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+    
+    ![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial_ciscowebex_07.png) 
+
+10. **Single sign-on** 대화 상자의 **사용자 특성** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
+    
+    |  특성 이름  | 특성 값 |
+    | --------------- | -------------------- |    
+    |   firstname    | user.givenname |
+    |   lastname    | user.surname |
+    |   uid    | user.mail |
+
+    a. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
+
+    ![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial_attribute_04.png)
+
+    ![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial_attribute_05.png)
+    
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    
+    다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
+    
+    d. **Ok**를 클릭합니다.
+
+11. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 선택한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/cisco-webex-tutorial/tutorial_ciscowebex_certificate.png) 
 
-6. **저장**을 선택합니다.
+12. **저장**을 선택합니다.
 
     ![Single Sign-On 저장 단추 구성](./media/cisco-webex-tutorial/tutorial_general_400.png)
     
-6. **Cisco Webex 구성** 섹션에서 **Configure Cisco Webex**를 선택하여 **로그온 구성** 창을 엽니다. **빠른 참조** 섹션에서 **로그아웃 URL**, **SAML 엔터티 ID** 및 **SAML Single Sign-On 서비스 URL**을 복사합니다.
+13. Cisco Webex 회사 사이트 관리자 페이지에서 Azure AD 메타데이터 파일을 찾아 업로드하려면 파일 브라우저 옵션을 사용합니다. 그런 다음, **메타데이터에서 인증 기관이 서명한 인증서 필요(더 안전)** 를 선택하고 다음 화면으로 이동합니다. 
 
-    ![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial_ciscowebex_configure.png) 
+    ![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial_cisco_webex_11.png)
 
-7. 다른 웹 브라우저 창에서 Cisco Webex 회사 사이트에 관리자로 로그인합니다.
+14. **SSO 연결 테스트**를 선택하고 새 브라우저 탭이 열리면 로그인하여 Azure AD로 인증합니다.
 
-8. 위쪽의 메뉴에서 **사이트 관리**를 선택합니다.
-
-    ![사이트 관리](./media/cisco-webex-tutorial/ic777621.png "사이트 관리")
-
-9. **사이트 관리** 섹션에서 **SSO 구성**을 선택합니다.
-   
-    ![SSO 구성](./media/cisco-webex-tutorial/ic777622.png "SSO 구성")
-
-10. **페더레이션된 웹 SSO 구성** 섹션에서 다음 단계를 수행합니다.
-   
-    ![페더레이션 SSO 구성](./media/cisco-webex-tutorial/ic777623.png "페더레이션 SSO 구성")  
-
-    a. **페더레이션 프로토콜** 목록에서 **SAML 2.0**을 선택합니다.
-
-    나. **SSO 프로필**의 경우 **SP 시작**을 선택합니다.
-
-    다. 다운로드된 인증서를 메모장에서 열고 내용을 복사합니다.
-
-    d. **SAML 메타데이터 가져오기**를 선택하고 인증서의 복사된 내용을 붙여넣습니다.
-
-    e. **SAML(IdP ID)의 발급자** 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID**의 값을 붙여넣습니다.
-
-    f. **고객 SSO 서비스 로그인 URL** 상자에 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 붙여넣습니다.
-
-    g. **NameID 형식** 목록에서 **전자 메일 주소**를 선택합니다.
-
-    h. **AuthnContextClassRef** 상자에 **urn:oasis:names:tc:SAML:2.0:ac:classes:Password**를 입력합니다.
-
-    i. **고객 SSO 서비스 로그아웃 URL** 상자에 Azure Portal에서 복사한 **Sign-Out URL**을 붙여넣습니다.
-   
-    j. **업데이트**를 선택합니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다. **Active Directory** > **엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에 **Single Sign-On** 탭을 선택하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서](https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+15. **Cisco Cloud Collaboration Management** 브라우저 탭으로 돌아갑니다. 테스트에 성공하면 **이 테스트에 성공했습니다. Single Sign-On 사용 옵션**을 사용하고 **저장**을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -204,38 +219,7 @@ Cisco Webex에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
  
 ### <a name="create-a-cisco-webex-test-user"></a>Cisco Webex 테스트 사용자 만들기
 
-Azure AD 사용자가 Cisco Webex에 로그인할 수 있도록 하려면 Cisco Webex로 프로비전되어야 합니다. Cisco Webex의 경우 프로비전은 수동 작업입니다.
-
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
-
-1. **Cisco Webex** 테넌트에 로그인합니다.
-
-2. **사용자 관리** > **사용자 추가**로 이동합니다.
-   
-    ![사용자 추가](./media/cisco-webex-tutorial/ic777625.png "사용자 추가")
-
-3. **사용자 추가** 섹션에서 다음 단계를 수행합니다.
-   
-    ![사용자 추가](./media/cisco-webex-tutorial/ic777626.png "사용자 추가")   
-
-    a. **계정 유형**으로 **호스트**를 선택합니다.
-
-    나. **이름** 상자에 사용자의 이름(이 경우 **Britta**)을 입력합니다.
-
-    다. **성** 상자에 사용자의 성(이 경우 **Simon**)을 입력합니다.
-
-    d. **사용자 이름** 상자에 사용자의 메일(이 경우 **Brittasimon@contoso.com**)을 입력합니다.
-
-    e. **메일** 상자에 사용자의 메일 주소(이 경우 **Brittasimon@contoso.com**)를 입력합니다.
-
-    f. **암호** 상자에 사용자의 암호를 입력합니다.
-
-    g. **암호 확인** 상자에 사용자의 암호를 다시 입력합니다.
-
-    h. **추가**를 선택합니다.
-
->[!NOTE]
->다른 Cisco Webex 사용자 계정 생성 도구 또는 Cisco Webex가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비전할 수 있습니다. 
+이 섹션에서는 Cisco Webex에서 Britta Simon이라는 사용자를 만드는 것이 목적입니다. Cisco Webex는 기본적으로 사용하도록 설정된 Just-In-Time 프로비전 및 자동 사용자 프로비전을 지원합니다. 자동 사용자 프로비전 구성 방법에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial)에서 제공합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -245,15 +229,15 @@ Azure AD 사용자가 Cisco Webex에 로그인할 수 있도록 하려면 Cisco 
 
 **Britta Simon을 Cisco Webex에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 엽니다. 다음으로 디렉터리 보기로 이동한 다음, **엔터프라이즈 응용 프로그램**으로 이동합니다.  
+1. Azure Portal에서 응용 프로그램 보기를 엽니다. 다음으로 디렉터리 보기로 이동한 다음, **엔터프라이즈 애플리케이션**으로 이동합니다.  
 
 2. **모든 응용 프로그램**을 선택합니다.
 
     ![사용자 할당][201] 
 
-3. 응용 프로그램 목록에서 **Cisco Webex**를 선택합니다.
+3. 애플리케이션 목록에서 **Cisco Webex**를 선택합니다.
 
-    ![응용 프로그램 목록의 Cisco Webex 링크](./media/cisco-webex-tutorial/tutorial_ciscowebex_app.png)  
+    ![애플리케이션 목록의 Cisco Webex 링크](./media/cisco-webex-tutorial/tutorial_ciscowebex_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 
@@ -273,9 +257,9 @@ Azure AD 사용자가 Cisco Webex에 로그인할 수 있도록 하려면 Cisco 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Cisco Webex 타일을 선택하면 Cisco Webex 응용 프로그램에 자동으로 로그인됩니다.
+액세스 패널에서 Cisco Webex 타일을 선택하면 Cisco Webex 애플리케이션에 자동으로 로그인됩니다.
 
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

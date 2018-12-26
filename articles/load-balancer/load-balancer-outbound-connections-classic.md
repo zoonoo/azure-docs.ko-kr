@@ -4,22 +4,19 @@ description: 이 문서에서는 Azure를 통해 클라우드 서비스에서 �
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5cb0647148d2cd90ad4cce6e16de30b72fff8429
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939824"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219667"
 ---
 # <a name="outbound-connections-classic"></a>아웃바운드 연결(클래식)
 
@@ -40,9 +37,9 @@ Azure에서는 아웃바운드 연결 클래식 배포를 달성하기 위한 �
 
 | 시나리오 | 방법 | IP 프로토콜 | 설명 | 웹 작업자 역할 | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1. 인스턴스 수준 공용 IP 주소가 있는 VM](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure에서 공용 IP가 할당된 Virtual Machine을 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. | 아니오 | 예 |
-| [2. 부하 분산된 공용 엔드포인트](#publiclbendpoint) | 공용 엔드포인트에 대한 포트 가장(PAT)을 사용하는 SNAT | TCP, UDP | Azure에서 공용 IP 주소 공용 엔드포인트를 여러 개인 엔드포인트와 공유하며, PAT에 대한 공용 엔드포인트의 사용 후 삭제 포트를 사용합니다. | 예 | 예 |
-| [3. 독립 실행형 VM](#defaultsnat) | 포트를 가장하는(PAT) SNAT | TCP, UDP | Azure에서 자동으로 SNAT에 대한 공용 IP 주소를 지정하고, 이 공용 IP 주소를 전체 배포와 공유하고, PAT에 대한 공용 엔드포인트의 사용 후 삭제 포트를 사용합니다. 이 시나리오는 이전 시나리오의 대체 시나리오입니다. 가시성 및 제어 기능이 필요한 경우에는 권장되지 않습니다. | 예 | 예 |
+| [1. 인스턴스 수준 공용 IP 주소가 있는 VM](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure에서 공용 IP가 할당된 Virtual Machine을 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. | 아니요 | yes |
+| [2. 부하 분산된 공용 엔드포인트](#publiclbendpoint) | 공용 엔드포인트에 대한 포트 가장(PAT)을 사용하는 SNAT | TCP, UDP | Azure에서 공용 IP 주소 공용 엔드포인트를 여러 개인 엔드포인트와 공유하며, PAT에 대한 공용 엔드포인트의 사용 후 삭제 포트를 사용합니다. | yes | yes |
+| [3. 독립 실행형 VM](#defaultsnat) | 포트를 가장하는(PAT) SNAT | TCP, UDP | Azure에서 자동으로 SNAT에 대한 공용 IP 주소를 지정하고, 이 공용 IP 주소를 전체 배포와 공유하고, PAT에 대한 공용 엔드포인트의 사용 후 삭제 포트를 사용합니다. 이 시나리오는 이전 시나리오의 대체 시나리오입니다. 가시성 및 제어 기능이 필요한 경우에는 권장되지 않습니다. | yes | yes |
 
 이는 Azure의 Resource Manager 배포에 사용할 수 있는 아웃바운드 연결 기능의 하위 집합입니다.  
 
@@ -121,6 +118,8 @@ Azure에서 지정된 공용 IP 주소를 공유하는 VM 또는 웹 작업자 �
 배포 크기를 변경하면 설정된 흐름 중 일부에 영향을 줄 수 있습니다. 백 엔드 풀 크기가 증가하여 그 다음 계층으로 전환되면 그 다음으로 큰 백 앤드 풀 계층으로 전환되는 동안 미리 할당된 SNAT 포트의 절반이 회수됩니다. 회수된 SNAT 포트와 연결된 흐름은 시간이 초과되며 다시 설정해야 합니다. 미리 할당된 포트를 사용할 수 있는 한, 새 흐름이 즉시 성공합니다.
 
 배포 크기가 줄고 더 낮은 계층으로 전환되면 사용 가능한 SNAT 포트 수가 늘어납니다. 이 경우 기존에 할당된 SNAT 포트와 각각의 흐름은 영향을 받지 않습니다.
+
+클라우드 서비스를 다시 배포하거나 변경하는 경우 인프라는 실제와 같이 많은 최대 두 번까지 백 엔드 풀을 일시적으로 보고할 수 있습니다. Azure는 차례로 예상보다 적은 인스턴스당 SNAT 포트를 미리 할당합니다.  그러면 SNAT 포트 소모의 확률을 일시적으로 증가시킬 수 있습니다. 결국 풀 크기는 실제 크기로 전환되고 Azure는 미리 할당된 SNAT 포트를 위의 테이블에 따라 예상된 수로 자동으로 증가시킵니다.  이 동작은 의도적이며 구성할 수 없습니다.
 
 SNAT 포트 할당은 IP 전송 프로토콜과 관련이 있으며(TCP 및 UDP가 별도로 유지 관리됨), 다음 조건에서 해제됩니다.
 

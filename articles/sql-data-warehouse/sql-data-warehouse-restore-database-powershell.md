@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse 복원(PowerShell) | Microsoft Docs
 description: Azure SQL Data Warehouse 복원을 위한 PowerShell 작업.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 332b80d5c6dbe0b46a6fb793d3c0c04574744b19
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fde06a9c7c0f0b225840c3b5a49d00fbfbcf33d9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600039"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306269"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Azure SQL Data Warehouse 복원(PowerShell)
 > [!div class="op_single_selector"]
@@ -172,7 +172,7 @@ Azure SQL Database 버전의 무중단 업무 방식 기능에 대해 알아보�
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
-[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
+[Restore-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/

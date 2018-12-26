@@ -14,22 +14,25 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: crdun
-ms.openlocfilehash: 9e9f7aba49c53a1a6fcc611ed771f266eb49c883
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 557f6f6a6d4925ec167760455dfc67449582c05c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38547178"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42811673"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Android 앱에 푸시 알림 추가
+
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>개요
-이 자습서에서는 푸시 알림을 [Android 빠른 시작] 프로젝트에 추가하여 레코드가 삽입될 때마다 장치에 푸시 알림이 전송됩니다.
+
+이 자습서에서는 푸시 알림을 [Android 빠른 시작] 프로젝트에 추가하여 레코드가 삽입될 때마다 디바이스에 푸시 알림이 전송됩니다.
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+
 다음이 필요합니다.
 
 * 프로젝트의 백 엔드에 따른 IDE
@@ -40,37 +43,47 @@ ms.locfileid: "38547178"
 * [Android 빠른 시작]을 완료합니다.
 
 ## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Firebase Cloud Messaging을 지원하는 프로젝트 만들기
+
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 ## <a name="configure-a-notification-hub"></a>알림 허브 구성
+
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="configure-azure-to-send-push-notifications"></a>푸시 알림을 전송하도록 Azure 구성
+
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
 ## <a name="enable-push-notifications-for-the-server-project"></a>서버 프로젝트에 푸시 알림 사용
+
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
 ## <a name="add-push-notifications-to-your-app"></a>앱에 푸시 알림 추가
+
 이 섹션에서는 푸시 알림을 처리하도록 클라이언트 Android 앱을 업데이트합니다.
 
 ### <a name="verify-android-sdk-version"></a>Android SDK 버전 확인
+
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
 다음 단계에서는 Google Play Services를 설치합니다. Firebase Cloud Messaging에는 매니페스트의 **minSdkVersion** 속성이 준수해야 하는 개발 및 테스트의 최소 API 수준 요구 사항이 있습니다.
 
-오래된 장치로 테스트하는 경우 [Android 프로젝트에 Firebase 추가]에서 이 값의 허용되는 최소값과 제대로 설정하는 방법을 참조하세요.
+오래된 디바이스로 테스트하는 경우 [Android 프로젝트에 Firebase 추가]에서 이 값의 허용되는 최소값과 제대로 설정하는 방법을 참조하세요.
 
 ### <a name="add-firebase-cloud-messaging-to-the-project"></a>프로젝트에 Firebase Cloud Messaging 추가
+
 [!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
 
 ### <a name="add-code"></a>코드 추가
+
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
 
 ## <a name="test-the-app-against-the-published-mobile-service"></a>게시된 모바일 서비스에 대해 앱 테스트
-USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에서 가상 장치를 사용하여 앱을 테스트할 수 있습니다.
+
+USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에서 가상 디바이스를 사용하여 앱을 테스트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 이 자습서를 완료했으므로 다음 자습서 중 하나를 계속하는 것을 고려해보세요.
 
 * [Android 앱에 인증 추가](app-service-mobile-android-get-started-users.md).

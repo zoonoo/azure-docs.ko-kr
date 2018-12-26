@@ -4,22 +4,21 @@ description: FAQ(질문과 대답)
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 5374f7f4-c189-43ef-8b7f-f2f4141e2748
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: a47163d06e24814ca5724d1fabea84058f8764cf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: bf5bc66ce55b0b9d6095cd395a11f68b40af1639
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783242"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685721"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -27,9 +26,9 @@ ms.locfileid: "33783242"
 
 ## <a name="general-ams-faqs"></a>일반 AMS FAQ
 
-Q: Apple iOS 장치에 스트리밍하려면 어떻게 하나요?
+Q: Apple iOS 디바이스에 스트리밍하려면 어떻게 하나요?
 
-A: URL의 "/Manifest" 부분에 "(format=m3u8-aapl)" 경로를 추가하여 스트리밍 원본 서버에 Apple iOS 네이티브 장치에서 사용할 수 있게 HLS 콘텐츠를 다시 반환하도록 지시합니다(자세한 내용은 (콘텐츠 배달)[media-services-deliver-content-overview.md] 참조).
+A: URL의 "/Manifest" 부분에 "(format=m3u8-aapl)" 경로를 추가하여 스트리밍 원본 서버에 Apple iOS 네이티브 디바이스에서 사용할 수 있게 HLS 콘텐츠를 다시 반환하도록 지시합니다(자세한 내용은 [콘텐츠 전달](media-services-deliver-content-overview.md) 참조).
 
 Q: 인덱싱을 확장하려면 어떻게 하나요?
 
@@ -37,7 +36,7 @@ A: 예약 단위는 Encoding 및 인덱싱 작업에서 동일합니다. [Encodi
 
 Q: 업로드, 인코딩 및 동영상을 게시합니다. 스트리밍하려고 할 때 어떤 이유로 비디오가 재생되지 않는 걸까요?
 
-A: 가장 일반적인 이유 중 하나는 재생하려고 하는 스트리밍 끝점이 **실행 중** 상태가 아니기 때문입니다.  
+A: 가장 일반적인 이유 중 하나는 재생하려고 하는 스트리밍 엔드포인트가 **실행 중** 상태가 아니기 때문입니다.  
 
 Q: 라이브 스트림에서 합치기를 수행할 수 있나요?
 
@@ -45,7 +44,7 @@ A: 라이브 스트림 합치기는 현재 Azure Media Services에서 제공되�
 
 Q: 라이브 스트리밍으로 Azure CDN을 사용할 수 있나요?
 
-A: Media Services는 Azure CDN와의 통합을 지원합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 끝점을 관리하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.  CDN을 사용하여 라이브 스트리밍을 사용할 수 있습니다. Azure Media Services는 부드러운 스트리밍, HLS 및 MPEG-DASH 출력을 제공합니다. 이러한 형식에서는 HTTP를 데이터 전송에 사용하여 HTTP 캐싱의 이점을 얻을 수 있습니다. 라이브 스트리밍에서 실제 비디오/오디오 데이터가 조각으로 분할되고 이 개별 조각은 CDN에 캐시됩니다. 새로 고쳐야 하는 데이터 요구는 매니페스트 데이터입니다. CDN은 매니페스트 데이터를 주기적으로 새로 고칩니다.
+A: Media Services는 Azure CDN와의 통합을 지원합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 엔드포인트를 관리하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.  CDN을 사용하여 라이브 스트리밍을 사용할 수 있습니다. Azure Media Services는 부드러운 스트리밍, HLS 및 MPEG-DASH 출력을 제공합니다. 이러한 형식에서는 HTTP를 데이터 전송에 사용하여 HTTP 캐싱의 이점을 얻을 수 있습니다. 라이브 스트리밍에서 실제 비디오/오디오 데이터가 조각으로 분할되고 이 개별 조각은 CDN에 캐시됩니다. 새로 고쳐야 하는 데이터 요구는 매니페스트 데이터입니다. CDN은 매니페스트 데이터를 주기적으로 새로 고칩니다.
 
 Q: Azure 미디어 서비스는 저장된 이미지를 지원하나요?
 

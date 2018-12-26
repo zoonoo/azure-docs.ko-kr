@@ -5,32 +5,31 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/21/2018
+ms.date: 08/14/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 49db6b625a9e4fc46fe414eb723dfccd890efd64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 130cc66831b25621cb022eb19005c624fcd71b9e
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34677362"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "40105509"
 ---
-**마지막 문서 업데이트**: 2018년 5월 21일 오후 3시 PST
+**마지막 문서 업데이트**: 2018년 8월 14일 오전 10시 PST.
 
-투기적 실행 사이드 채널 공격으로 알려진 최근 공개된 [새로운 종류의 CPU 취약성](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)으로 인해 고객은 명확하게 이해하기 위해 질문하게 되었습니다.  
+투기적 실행 사이드 채널 공격으로 알려진 공개된 [새로운 종류의 CPU 취약점](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)으로 인해 고객은 명확하게 이해하기 위해 질문하게 되었습니다.  
 
-Microsoft는 모든 클라우드 서비스에서 완화 기능을 배포했습니다. Azure를 실행하고 고객 워크로드를 서로 격리하는 인프라가 보호됩니다.  즉, Azure에서 실행하는 다른 고객은 이러한 취약성을 사용하여 응용 프로그램을 공격할 수 없습니다.
+Microsoft는 모든 클라우드 서비스에서 완화 기능을 배포했습니다. Azure를 실행하고 고객 워크로드를 서로 격리하는 인프라가 보호됩니다. 즉, 동일한 인프라를 사용하는 잠재적 공격자가 이러한 취약점을 사용하여 응용 프로그램을 공격할 수 없습니다.
 
-또한 Azure는 가능한 경우 [메모리 보존 유지 관리](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance)의 사용을 확대하고, 호스트가 업데이트되거나 VM이 이미 업데이트된 호스트로 이동하는 동안 최대 30초까지 VM을 일시 중지합니다.  나아가 메모리 보존 유지 관리는 고객 영향을 최소화하고 다시 부팅이 필요하지 않습니다.  Azure는 호스트에 대한 시스템 전체 업데이트를 적용할 때 이러한 메서드를 활용하게 됩니다.
+Azure에서는 가능한 경우 [메모리 보존 유지 관리](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance)를 사용하여 고객 영향을 최소화하고 다시 부팅할 필요를 제거합니다. Azure는 호스트에 대한 시스템 전반을 업데이트하고 고객을 보호할 때 이러한 메서드를 계속 활용합니다.
+
+Azure의 모든 측면에 보안을 통합하는 방법에 대한 자세한 정보는 [Azure 보안 설명서](https://docs.microsoft.com/azure/security/) 사이트에서 사용할 수 있습니다. 
 
 > [!NOTE] 
-2018년 5월 21일에, Google Project Zero와 Microsoft는 Speculative Store Bypass로 알려진 새로운 추론형 실행 쪽 채널 취약점 일부를 발표했습니다. 추론형 실행 취약점을 직접적으로 해결하는 추가적인 심층 방어 완화 기능이 Microsoft 클라우드 인프라를 통해 배포되었습니다. 자세한 내용은 https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180012를 참조하세요. 
->
-> 2018년 2월말에 Intel Corporation에서는 안정성을 개선하고 [Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html)에 의해 밝혀진 최근 취약점을 완화하는 마이크로코드 릴리스의 상태에 대해 업데이트된 [마이크로코드 수정 지침](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf)을 게시했습니다. [2018년 1월 3일](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/)에 Azure에서 결정된 완화 요소는 Intel의 마이크로코드 업데이트의 영향을 받지 않습니다. Microsoft는 이미 다른 Azure 테넌트의 Azure 가상 머신을 보호하기 위해 강력한 완화 요소를 배치하였습니다.  
->
-> Intel의 마이크로코드는 공격으로부터 보호하기 위해 변형 2 스펙터([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) 또는 분기 대상 주입)를 처리하며, 이는 Azure의 VM 내에서 공유하거나 신뢰할 수 없는 워크로드를 실행하는 경우에만 적용할 수 있습니다. 엔지니어들은 Azure 고객에게 제공하기 전에 마이크로코드의 성능 영향을 최소화하기 위해 안정성 테스트를 진행하고 있습니다.  VM 내에서 신뢰할 수 없는 워크로드를 실행하는 고객은 거의 없으므로 대부분의 고객은 일단 출시되면 이 기능을 사용하도록 설정하지 않아도 됩니다. 
->
-> 이 페이지는 자세한 정보가 제공되면 업데이트될 예정입니다.  
+> 이 문서를 처음 게시한 이후 이 취약점 종류의 여러 변형이 공개되었습니다. Microsoft에서는 고객을 보호하고 지침을 제공하는 데 계속 투자하고 있습니다. 계속 추가 수정을 릴리스하므로 이 페이지가 업데이트됩니다. 
+> 
+> 2018년 8월 14일에 업계에서는 여러 CVE([CVE-2018-3615, CVE-2018-3620 및 CVE-2018-3646](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html))를 할당한 L1TF([L1 Terminal Fault](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018))로 알려진 새로운 투기적 실행 쪽 채널 취약점을 공개했습니다. 이 취약점은 Intel® Core® 프로세서 및 Intel® Xeon® 프로세서에 영향을 줍니다. Microsoft는 고객 간 격리를 강화하는 클라우드 서비스에서 완화를 배포했습니다. L1TF 및 이전 취약점([스펙터 변형 2 CVE-2017-5715 및 멜트다운 변형 3 CVE-2017-5754](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution))으로부터 보호하기 위한 추가 지침은 아래를 참조하세요.
+>  
 
 
 
@@ -39,40 +38,80 @@ Microsoft는 모든 클라우드 서비스에서 완화 기능을 배포했습�
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>운영 체제를 최신 상태로 유지
 
-OS 업데이트가 Azure에서 실행되는 기타 고객으로부터 Azure에서 실행되는 응용 프로그램을 격리하지 않아도 되지만 항상 OS 버전을 최신 상태로 유지하는 것이 좋습니다. 2018년 1월과 그 이후의 [Windows보안 롤업](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)에는 이러한 취약점에 대한 완화 조치가 포함되었습니다.
+OS 업데이트가 다른 Azure 고객으로부터 Azure에서 실행되는 응용 프로그램을 격리하지 않아도 되지만 항상 소프트웨어를 최신 상태로 유지하는 것이 좋습니다. Windows용 최신 보안 롤업에는 여러 투기적 실행 쪽 채널 취약점에 대한 완화가 포함됩니다. 마찬가지로 Linux 배포판은 이러한 취약점을 해결하기 위해 여러 업데이트를 릴리스했습니다. 운영 체제를 업데이트하기 위해 권장된 조치는 다음과 같습니다.
 
-다음과 같은 제품에서 운영 체제를 업데이트하기 위해 권장된 조치는 다음과 같습니다. 
-
-<table>
-<tr>
-<th>제품</th> <th>권장 작업 </th>
-</tr>
-<tr>
-<td>Azure Cloud Services </td>  <td>자동 업데이트를 사용하거나 최신 게스트 OS를 실행합니다.</td>
-</tr>
-<tr>
-<td>Azure Linux Virtual Machines</td> <td>사용 가능한 경우 운영 체제 공급자로부터 업데이트를 설치합니다. </td>
-</tr>
-<tr>
-<td>Azure Windows Virtual Machines </td> <td>OS 업데이트를 설치하기 전에 지원되는 바이러스 백신 응용 프로그램을 실행하고 있는지 확인합니다. 호환성 정보는 바이러스 백신 소프트웨어 공급 업체에 문의하세요.<p> [1월 보안 롤업](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)을 설치합니다. </p></td>
-</tr>
-<tr>
-<td>기타 Azure PaaS 서비스</td> <td>이러한 서비스를 사용하는 고객에게 필요한 작업은 없습니다. Azure에서는 자동으로 OS 버전을 최신 상태로 유지합니다. </td>
-</tr>
-</table>
+| 제품 | 권장 작업  |
+|----------|---------------------|
+| Azure Cloud Services  | [자동 업데이트](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal)를 사용하거나 최신 게스트 OS를 실행합니다. |
+| Azure Linux Virtual Machines | 운영 체제 공급자로부터 업데이트를 설치합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Linux](#linux)를 참조하세요. |
+| Azure Windows Virtual Machines  | 최신 보안 롤업을 설치합니다.
+| 기타 Azure PaaS 서비스 | 이러한 서비스를 사용하는 고객에게 필요한 작업은 없습니다. Azure에서는 자동으로 OS 버전을 최신 상태로 유지합니다. |
 
 ## <a name="additional-guidance-if-you-are-running-untrusted-code"></a>신뢰할 수 없는 코드를 실행하는 경우 추가 지침 
 
-신뢰할 수 없는 코드를 실행하지 않으면 추가 고객 작업이 필요하지 않습니다. 신뢰할 수 없는 코드를 허용하는 경우(예: 고객 중 한 명이 응용 프로그램 내의 클라우드에서 실행할 이진 또는 코드 조각을 업로드하도록 허용) 다음 단계를 추가로 수행해야 합니다.  
+신뢰할 수 없는 사용자가 임의의 코드를 실행하도록 허용하는 고객은 해당 Azure Virtual Machines 또는 Cloud Services 내에서 몇 가지 추가 보안 기능을 구현하려고 할 수 있습니다. 이러한 기능은 몇 가지 투기적 실행 취약점에서 설명하는 프로세스 내 공개 벡터로부터 보호합니다.
 
+추가 보안 기능을 권장하는 예제 시나리오:
+
+- 신뢰할 수 없는 코드를 VM 내에서 실행할 수 있습니다.  
+    - *예를 들어 고객 중 한 사람이 응용 프로그램 내에서 실행하는 이진 파일 또는 스크립트를 업로드하도록 허용합니다*. 
+- 신뢰할 수 없는 사용자가 권한이 낮은 계정을 사용하여 VM에 로그인하도록 허용합니다.   
+    - *예를 들어 권한이 낮은 사용자가 원격 데스크톱 또는 SSH를 사용하여 VM 중 하나에 로그인하도록 허용합니다*.  
+- 신뢰할 수 없는 사용자가 중첩된 가상화를 통해 구현되는 가상 머신에 액세스하도록 허용합니다.  
+    - *예를 들어 Hyper-V 호스트를 제어하지만 신뢰할 수 없는 사용자에게 VM을 할당합니다*. 
+
+신뢰할 수 없는 코드를 포함하는 시나리오를 구현하지 않는 고객은 이러한 추가 보안 기능을 사용할 필요가 없습니다. 
+
+## <a name="enabling-additional-security"></a>추가 보안 사용 
+
+VM 또는 Cloud Service 내에서 추가 보안 기능을 사용할 수 있습니다.
 
 ### <a name="windows"></a>Windows 
-Windows를 사용하고 신뢰할 수 없는 코드를 호스팅하는 경우, 추론 실행 사이드 채널 취약성(특히 [CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754) 변형 3 멜트다운 또는 데이터 캐시 로드)에 대한 추가 보호를 제공하는 KVA(커널 가상 주소) 섀도잉이라는 Windows 기능도 사용하도록 설정해야 합니다. 이 기능은 기본적으로 해제되어 있으며 사용하는 경우 성능에 영향을 줄 수 있습니다. 서버에서 보호를 사용하도록 설정하는 방법은 [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 지침에 따릅니다. Azure Cloud Services를 실행하는 경우 WA-GUEST-OS-5.15_201801-01 또는 WA-GUEST-OS-4.50_201801-01(2018년 1월 10일부터 사용 가능)을 실행하고 있는지 확인하고 시작 작업을 통해 레지스트리 키를 사용하도록 설정합니다.
+
+대상 운영 체제를 최신 상태로 유지하여 이러한 추가 보안 기능을 사용하도록 설정해야 합니다. 다양한 투기적 실행 쪽 채널 완화를 기본적으로 사용하는 반면 여기에 설명된 추가 기능은 수동으로 활성화해야 하며 성능에 영향이 발생할 수 있습니다. 
+
+**1단계**: [Azure 지원팀에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical)하여 Virtual Machines에 업데이트된 펌웨어(마이크로코드)를 노출합니다. 
+
+**2단계**: KVAS(커널 가상 주소 섀도잉) 및 BTI(분기 대상 주입) OS 지원을 사용하도록 설정합니다. [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 지침에 따라 `Session Manager` 레지스트리 키를 통해 보호를 사용하도록 설정합니다. 다시 부팅해야 합니다. 
+
+**3단계**: [중첩된 가상화](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization)(D3 및 E3에만 해당)를 사용 중인 배포의 경우 Hyper-V 호스트를 사용하는 VM 내에서 이러한 지침을 적용합니다. 
+
+1. [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 지침에 따라 `MinVmVersionForCpuBasedMitigations` 레지스트리 키를 통해 보호를 사용하도록 설정합니다.  
+ 
+1. [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types)에서 지침에 따라 하이퍼바이저 스케줄러 형식을 **Core**로 설정합니다. 
+
+**4단계**: [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 지침에 따라 [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell 모듈을 사용하여 보호가 설정되었는지 확인합니다. 
+
+> [!NOTE]
+> 이전에 이 모듈을 다운로드한 경우 최신 버전을 설치해야 합니다.
+>
+
+모든 VM은 다음을 표시합니다.
+
+```
+branch target injection mitigation is enabled: True
+
+kernel VA shadow is enabled: True  
+
+L1TFWindowsSupportEnabled: True
+```
 
 
 ### <a name="linux"></a>Linux
-Linux를 사용하고 신뢰할 수 없는 코드를 호스팅하는 경우 KPTI(커널 페이지 테이블 격리)를 구현하는 보다 최신 버전으로 Linux를 업데이트해야 합니다. 여기서는 사용자 공간에 속한 페이지 테이블과 커널에서 사용되는 페이지 테이블을 구분합니다. 이러한 완화에는 Linux OS 업데이트가 필요하고 사용 가능한 경우 배포 공급자로부터 가져올 수 있습니다. OS 공급자는 기본적으로 보호를 활성화 또는 비활성화했는지를 알 수 있습니다.
 
+<a name="linux"></a> 내부 추가 보안 기능 집합을 사용하도록 설정하면 대상 운영 체제를 최신 상태로 유지해야 합니다. 일부 완화는 기본적으로 활성화됩니다. 다음 섹션에서는 기본적으로 해제되어 있고 하드웨어 지원(마이크로코드)을 사용하는 기능을 설명합니다. 이러한 기능을 활성화하면 성능에 영향이 발생할 수 있습니다. 자세한 지침은 운영 체제 공급자의 설명서를 참조합니다.
+ 
+**1단계**: [Azure 지원팀에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical)하여 Virtual Machines에 업데이트된 펌웨어(마이크로코드)를 노출합니다.
+ 
+**2단계**: 운영 체제 공급자의 설명서를 수행하여 CVE-2017-5715(스펙터 변형 2)를 완화하기 위해 BTI(분기 대상 주입) OS 지원을 사용합니다. 
+ 
+**3단계**: 운영 체제 공급자의 설명서를 수행하여 CVE-2017-5754(멜트다운 변형 3)를 완화하기 위해 KPTI(커널 페이지 테이블 격리)를 사용합니다. 
+ 
+자세한 내용은 운영 체제의 공급자에서 사용할 수 있습니다.  
+ 
+- [Redhat 및 CentOS](https://access.redhat.com/security/vulnerabilities/speculativeexecution) 
+- [Suse](https://www.suse.com/support/kb/doc/?id=7022512) 
+- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown) 
 
 
 ## <a name="next-steps"></a>다음 단계

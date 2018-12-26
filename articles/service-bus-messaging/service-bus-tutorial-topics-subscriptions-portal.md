@@ -2,19 +2,19 @@
 title: 자습서 - Azure Portal에서 게시/구독 채널 및 토픽 필터를 사용하여 소매점 재고 분류 업데이트 | Microsoft Docs
 description: 이 자습서에서는 토픽과 구독에서 메시지를 보내고 받는 방법과 .NET을 사용하여 필터 규칙을 추가하고 사용하는 방법을 알아봅니다.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
-ms.date: 05/22/2018
+ms.author: spelluru
+ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: f504f3bf513a20d8590d9907106b1fd12f907877
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b03a0538e92ac126a50a1346eb1bf7fb003189f9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651687"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966861"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>자습서: Azure Portal 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -32,22 +32,22 @@ Microsoft Azure Service Bus는 응용 프로그램과 서비스 간에 정보를
 
 ![토픽](./media/service-bus-tutorial-topics-subscriptions-portal/about-service-bus-topic.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][]을 만들 수 있습니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음을 설치했어야 합니다.
 
-- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](http://www.visualstudio.com/vs) 이상
+- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
 
 ## <a name="service-bus-topics-and-subscriptions"></a>Service Bus 토픽 및 구독
 
 [토픽에 대한 각 구독](service-bus-messaging-overview.md#topics)은 각 메시지의 복사본을 받을 수 있습니다. 토픽은 완전히 프로토콜이며, 의미상 Service Bus 큐와 호환됩니다. Service Bus 토픽은 메시지 속성을 설정하거나 수정하는 선택적 동작과 함께 필터 조건이 포함된 다양한 선택 규칙을 지원합니다. 규칙이 일치할 때마다 메시지를 생성합니다. 규칙, 필터 및 작업에 대해 자세히 알아보려면 이 [링크](topic-filters.md)를 따르세요.
 
-## <a name="log-on-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-먼저 [Azure Portal][Azure portal]로 이동하고 Azure 구독을 사용하여 로그온합니다. 첫 번째 단계는 **메시징** 유형의 Service Bus 네임스페이스를 만드는 것입니다.
+먼저 [Azure Portal][Azure portal]로 이동하고 Azure 구독을 사용하여 로그인합니다. 첫 번째 단계는 **메시징** 유형의 Service Bus 네임스페이스를 만드는 것입니다.
 
 ## <a name="create-a-service-bus-namespace"></a>Service Bus 네임스페이스 만들기
 
@@ -70,7 +70,7 @@ Service Bus 메시징 네임스페이스는 [정규화된 도메인 이름][]으
 1. **모든 리소스**를 클릭한 다음 새로 만든 네임스페이스 이름을 클릭합니다.
 2. 네임스페이스 창에서 **공유 액세스 정책**을 클릭합니다.
 3. **공유 액세스 정책** 화면에서 **RootManageSharedAccessKey**를 클릭합니다.
-4. **정책: RootManageSharedAccessKey** 창에서 **기본 연결 문자열** 옆의 **복사** 단추를 클릭하여 나중에 사용할 수 있도록 연결 문자열을 클립보드에 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 붙여 넣습니다.
+4. **정책: RootManageSharedAccessKey** 창에서 **기본 연결 문자열** 옆에 있는 **복사** 단추를 클릭하여 나중에 사용할 수 있도록 해당 연결 문자열을 클립보드에 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 붙여 넣습니다.
 
     ![connection-string][connection-string]
 5. 이전 단계를 반복하여 나중에 사용할 수 있도록 **기본 키** 값을 복사하여 임시 위치에 붙여넣습니다.
@@ -91,7 +91,7 @@ Service Bus 토픽을 만들려면 해당 토픽을 만들 네임스페이스를
 
 ## <a name="create-filter-rules-on-subscriptions"></a>구독에 대한 필터 규칙 만들기
 
-네임스페이스와 토픽/구독이 프로비전되고 필요한 자격 증명이 있으면 구독에 대한 필터 규칙을 만듭니다. 그러면 메시지를 보내고 받을 준비가 됩니다. [이 GitHub 샘플 폴더](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted\BasicSendReceiveTutorialwithFilters)에서 코드를 검사할 수 있습니다.
+네임스페이스와 토픽/구독이 프로비전되고 필요한 자격 증명이 있으면 구독에 대한 필터 규칙을 만듭니다. 그러면 메시지를 보내고 받을 준비가 됩니다. [이 GitHub 샘플 폴더](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted/BasicSendReceiveTutorialwithFilters)에서 코드를 검사할 수 있습니다.
 
 ### <a name="send-and-receive-messages"></a>메시지 보내기 및 받기
 
@@ -450,7 +450,7 @@ Service Bus의 게시/구독 기능을 사용하는 방법에 대해 자세히 �
 > [!div class="nextstepaction"]
 > [PowerShell 및 토픽/구독을 사용하여 재고 업데이트](service-bus-tutorial-topics-subscriptions-powershell.md)
 
-[체험 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[무료 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [정규화된 도메인 이름]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

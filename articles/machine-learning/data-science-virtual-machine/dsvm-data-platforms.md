@@ -33,9 +33,9 @@ ms.locfileid: "31411032"
 | | |
 | ------------- | ------------- |
 | 무엇인가요?   | 로컬 관계형 데이터베이스 인스턴스      |
-| 지원되는 DSVM 버전      | Windows      |
-| 일반적인 사용 용도      | 더 작은 데이터 집합을 사용하여 로컬에서 빠른 개발 <br/> In-database R 실행   |
-| 샘플에 대한 링크      |    뉴욕 시 데이터 집합의 작은 샘플은 SQL 데이터베이스 `nyctaxi`로 로드됩니다. <br/> Microsoft R 및 데이터베이스 내 분석을 보여주는 Jupyter 샘플은 다음에서 찾을 수 있습니다.<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
+| 지원되는 DSVM 버전      |  Windows      |
+| 일반적인 사용 용도      | 더 작은 데이터 세트를 사용하여 로컬에서 빠른 개발 <br/> In-database R 실행   |
+| 샘플에 대한 링크      |    뉴욕 시 데이터 세트의 작은 샘플은 SQL 데이터베이스 `nyctaxi`로 로드됩니다. <br/> Microsoft R 및 데이터베이스 내 분석을 보여주는 Jupyter 샘플은 다음에서 찾을 수 있습니다.<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | DSVM의 관련 도구       | SQL Server Management Studio <br/> ODBC/JDBC 드라이버<br/> pyodbc, RODBC<br />Apache Drill      |
 
 > [!NOTE]
@@ -69,7 +69,7 @@ Microsoft SQL Server는 표준 방식으로 설치됩니다. 그것은 `C:\Progr
 | ------------- | ------------- |
 | 무엇인가요?   | 빠른 대규모 데이터 처리 및 기계 학습을 위한 시스템인, 많이 사용되는 Apache Spark 플랫폼의 독립 실행형(단일 노드 In Process) 인스턴스     |
 | 지원되는 DSVM 버전      | Linux <br /> Windows (실험적)      |
-| 일반적인 사용 용도      | * 더 작은 데이터 집합을 사용하여 로컬에서 빠르게 Spark/PySpark 응용 프로그램을 개발하고 나중에 Azure HDInsight와 같은 큰 Spark 클러스터에 배포합니다<br/> * Microsoft R Server Spark 컨텍스트를 테스트합니다. <br />* SparkML 또는 Microsoft의 오픈 소스인 [MMLSpark](https://github.com/Azure/mmlspark) 라이브러리를 사용하여 ML 응용 프로그램을 빌드합니다  |
+| 일반적인 사용 용도      | * 더 작은 데이터 세트를 사용하여 로컬에서 빠르게 Spark/PySpark 응용 프로그램을 개발하고 나중에 Azure HDInsight와 같은 큰 Spark 클러스터에 배포합니다<br/> * Microsoft R Server Spark 컨텍스트를 테스트합니다. <br />* SparkML 또는 Microsoft의 오픈 소스인 [MMLSpark](https://github.com/Azure/mmlspark) 라이브러리를 사용하여 ML 응용 프로그램을 빌드합니다  |
 | 샘플에 대한 링크      |    Jupyter 샘플: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft R Server(Spark 컨텍스트): /dsvm/samples/MRS/MRSSparkContextSample.R |
 | DSVM의 관련 도구       | PySpark, Scala<br/>Jupyter (Spark/PySpark 커널)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache Drill      |
 
@@ -100,7 +100,7 @@ Ubuntu Linux DSVM 버전의 Microsoft R Server Spark 컨텍스트에서 실행�
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>DSVM에 구성/설치 방법 
 |플랫폼|설치 위치($SPARK_HOME)|
 |:--------|:--------|
-|Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
+| Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 

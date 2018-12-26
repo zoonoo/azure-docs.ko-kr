@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: 4e894eaee6bb151b480204905d0a98324f5c353b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: quying
+ms.openlocfilehash: ee76d71f89fb94c8c05c6a733dac241a9e4fa13c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049598"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965141"
 ---
 # <a name="update-the-mysql-resource-provider"></a>MySQL 리소스 공급자 업데이트 
 
@@ -27,10 +27,11 @@ ms.locfileid: "39049598"
 
 Azure Stack 빌드를 업데이트할 때 새 SQL 리소스 공급자 어댑터를 해제 될 수 있습니다. 기존 어댑터를 작동 하는 동안에 가능한 한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다. 
 
->[!IMPORTANT]
->릴리스되는 순서 대로 업데이트를 설치 해야 합니다. 버전을 건너뛸 수 없습니다. 버전 목록 가리킵니다 [리소스 공급자 필수 구성 요소 배포](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites)합니다.
+> [!IMPORTANT]
+> 릴리스되는 순서 대로 업데이트를 설치 해야 합니다. 버전을 건너뛸 수 없습니다. 버전 목록 가리킵니다 [리소스 공급자 필수 구성 요소 배포](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)합니다.
 
 ## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>MySQL 리소스 공급자 어댑터 (통합된 시스템에만 해당) 업데이트
+
 Azure Stack 빌드를 업데이트할 때 새 SQL 리소스 공급자 어댑터를 해제 될 수 있습니다. 기존 어댑터를 작동 하는 동안에 가능한 한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다.  
  
 사용 하는 리소스 공급자 업데이트를 **UpdateMySQLProvider.ps1** 스크립트입니다. 프로세스는에 설명 된 대로 리소스 공급자를 설치 하는 데 사용 하는 프로세스와 유사 합니다 [리소스 공급자 배포](#deploy-the-resource-provider) 이 문서의 섹션입니다. 스크립트는 리소스 공급자의 다운로드에 포함 되어 있습니다. 
@@ -48,15 +49,19 @@ DeployMySqlProvider.ps1 스크립트에 대 한 설명 된 동일한 인수를 �
 > 업데이트 프로세스를 통합된 시스템에만 적용 됩니다. 
 
 ```powershell 
-# Install the AzureRM.Bootstrapper module and set the profile. 
-Install-Module -Name AzureRm.BootStrapper -Force 
-Use-AzureRmProfile -Profile 2017-03-09-profile 
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.5.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
 $domain = "AzureStack" 
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines 
 $privilegedEndpoint = "AzS-ERCS01" 
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted. 
 $tempDir = 'C:\TEMP\MYSQLRP' 
@@ -83,6 +88,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 -VMLocalCredential $vmLocalAdminCreds ` 
 -CloudAdminCredential $cloudAdminCreds ` 
 -PrivilegedEndpoint $privilegedEndpoint ` 
+-AzureEnvironment $AzureEnvironment `
 -DefaultSSLCertificatePassword $PfxPass ` 
 -DependencyFilesLocalPath $tempDir\cert ` 
 -AcceptLicense 
@@ -97,12 +103,13 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 | **AzCredential** | Azure Stack에 대 한 자격 증명을 서비스 관리자 계정입니다. Azure Stack 배포에 사용한 것과 동일한 자격 증명을 사용 합니다. | _필수_ | 
 | **VMLocalCredential** |SQL 리소스 공급자 VM의 로컬 관리자 계정의 자격 증명입니다. | _필수_ | 
 | **PrivilegedEndpoint** | IP 주소 또는 권한 있는 끝점의 DNS 이름입니다. |  _필수_ | 
+| **AzureEnvironment** | Azure Stack을 배포 하기 위한 사용 하는 서비스 관리자 계정의 Azure 환경입니다. Azure AD 배포에만 필요합니다. 지원 되는 환경 이름은 **AzureCloud**를 **AzureUSGovernment**에 중국의 Azure AD를 사용 하는 경우 또는 **AzureChinaCloud**합니다. | AzureCloud |
 | **DependencyFilesLocalPath** | 인증서.pfx 파일에서이 디렉터리에 배치 되어야 합니다. | _선택적_ (_필수_ 다중 노드) | 
 | **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호입니다. | _필수_ | 
 | **MaxRetryCount** | 오류가 발생 하는 경우 각 작업을 다시 시도 하려는 횟수입니다.| 2 | 
 | **RetryDuration** | 시간 (초)에서 재시도 사이의 시간 제한 간격입니다. | 120 | 
-| **제거** | 리소스 공급자와 연결 된 모든 리소스 (아래 참고 참조)를 제거 합니다. | 아니요 | 
-| **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아니요 | 
+| **제거** | 리소스 공급자와 연결 된 모든 리소스 (아래 참고 참조)를 제거 합니다. | 아닙니다. | 
+| **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아닙니다. | 
 | **AcceptLicense** | GPL 라이선스에 동의 하는 메시지를 건너뜁니다.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
  
 

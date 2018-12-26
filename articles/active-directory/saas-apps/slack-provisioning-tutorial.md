@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 2fef141cada8faffc055571516ae4c899ae6dc42
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 74bfd49fd69353e95a275f31fa0bba9e9b558227
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229447"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632928"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Slack 구성
 
@@ -57,7 +57,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 이 섹션에서는 사용자의 Azure AD를 Slack의 사용자 계정 프로비전 API에 연결하고, Azure AD의 사용자 및 그룹 할당을 기반으로 Slack에서 할당된 사용자 계정을 만들고, 업데이트하고 비활성화하도록 프로비전 서비스를 구성하는 방법을 안내합니다.
 
-**팁:**: (Azure Portal)[https://portal.azure.com] 에 제공된 지침에 따라 Slack에 SAML 기반 Single Sign-On을 사용하도록 설정할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
+**팁:**: [Azure Portal](https://portal.azure.com)에 제공된 지침에 따라 Slack에 SAML 기반 Single Sign-On을 사용하도록 설정할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Azure AD에서 Slack에 자동 사용자 계정 프로비전을 구성하려면 다음을 수행합니다.
@@ -111,8 +111,16 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 이제 **사용자 및 그룹** 섹션의 Slack에 할당된 모든 그룹 개체는 Azure AD에서 Slack으로 완전하게 동기화됩니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 Slack 앱에서 프로비전 서비스에서 수행하는 모든 작업을 설명하는 프로비전 작업 로그에 연결된 링크를 이용할 수 있습니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
+## <a name="connector-limitations"></a>커넥터 제한 사항
+
+  * Slack의 **displayName** 특성을 구성할 때는 다음 동작에 유의하세요. 
+  * 값이 완전히 고유하지는 않습니다(예: 2명의 사용자가 동일한 표시 이름을 가질 수 있음).
+  * 비영어 문자, 공백, 대/소문자를 지원합니다. 
+  * 허용되는 문장 부호는 마침표, 밑줄, 하이픈, 아포스트로피, 대괄호(예: **( [ { } ] )**) 및 구분 기호(예: **, / ;**)입니다.
+  * Slack의 작업 공간/조직에서 두 설정, 즉 **Profile syncing is enabled**(프로필 동기화 사용) 및 **Users cannot change their display name**(사용자가 표시 이름을 변경할 수 없음)이 구성된 경우에만 업데이트됩니다.
+  * Slack의 **userName** 특성은 21자 미만이어야 하며 고유한 값을 가져야 합니다. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

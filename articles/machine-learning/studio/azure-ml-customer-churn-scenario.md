@@ -1,10 +1,11 @@
 ---
-title: Machine Learning을 사용하여 고객 이탈 분석 | Microsoft Docs
-description: 고객 이탈을 분석하고 채점하는 통합 모델 개발에 대한 사례 연구
+title: Azure Machine Learning Studio를 사용하여 고객 이탈 분석 | Microsoft Docs
+description: Azure Machine Learning Studio를 사용하여 고객 이탈을 분석하고 채점하는 통합 모델 개발에 대한 사례 연구입니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1beba951a6785aa90eef22a63a8064e9da1bb27f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835120"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314987"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Azure Machine Learning을 사용하여 고객 이탈 분석
+# <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 사용하여 고객 이탈 분석
 ## <a name="overview"></a>개요
 이 문서에서는 Azure Machine Learning을 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 이 문서에서는 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 Machine Learning을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.  
 
@@ -44,9 +45,9 @@ ms.locfileid: "34835120"
 ## <a name="industry-outlook-and-approaches"></a>업계 전망 및 접근법
 정교한 이탈 처리는 성숙한 산업의 표시입니다. 대표적인 예로는 가입자가 공급자를 빈번히 전환하는 것으로 알려진 통신 업계를 들 수 있습니다. 이 자발적인 이탈이 주된 관심사입니다. 또한 공급자는 고객 전환을 유도하는 요인인 *이탈 동인*에 대한 상당한 정보를 축적했습니다.
 
-예를 들어 송수화기나 장치 선택은 휴대폰 비즈니스에서 잘 알려진 이탈 동인입니다. 따라서 신규 가입자를 위해 송수화기 보조금을 지급하고 업그레이드 시 기존 고객에게 전체 가격을 청구하는 정책이 널리 사용됩니다. 역사적으로 이 정책은 고객이 공급자를 변경할 때 새로운 할인을 얻을 것이라고 기대하게 합니다. 결국 이에 따라 공급자는 해당 전략을 다듬게 됩니다.
+예를 들어 송수화기나 디바이스 선택은 휴대폰 비즈니스에서 잘 알려진 이탈 동인입니다. 따라서 신규 가입자를 위해 송수화기 보조금을 지급하고 업그레이드 시 기존 고객에게 전체 가격을 청구하는 정책이 널리 사용됩니다. 역사적으로 이 정책은 고객이 공급자를 변경할 때 새로운 할인을 얻을 것이라고 기대하게 합니다. 결국 이에 따라 공급자는 해당 전략을 다듬게 됩니다.
 
-송수화기 제품의 높은 변동성은 현재 송수화기 모델을 기반으로 한 변동 모델을 빠르게 무효화하는 요소입니다. 또한 휴대 전화는 통신 장치일 뿐만 아니라 패션이기도 합니다(예: iPhone). 이러한 소셜 예측자는 일반적인 통신 데이터 집합의 범위를 벗어납니다.
+송수화기 제품의 높은 변동성은 현재 송수화기 모델을 기반으로 한 변동 모델을 빠르게 무효화하는 요소입니다. 또한 휴대 전화는 통신 디바이스일 뿐만 아니라 패션이기도 합니다(예: iPhone). 이러한 소셜 예측자는 일반적인 통신 데이터 집합의 범위를 벗어납니다.
 
 모델링의 최종적인 결론은 이탈에 대한 알려진 이유를 제거함으로써 타당한 정책을 고안할 수 없다는 것입니다. 실제로 의사 결정 트리와 같이 범주형 변수를 수량화하는 대표적인 모델을 비롯하여 연속 모델링 전략은 **필수**입니다.
 
@@ -71,7 +72,7 @@ ms.locfileid: "34835120"
 
 위험 의사 결정 마케팅 구분/해체의 전체 주기는 대부분 비즈니스 문제에 적용할 수 있는 범용화된 구조입니다. 이탈 분석은 간소화된 예측 솔루션을 허용하지 않는 복잡한 비즈니스 문제의 모든 특성을 보이므로 이 문제 그룹의 강력한 대표 사례입니다. 이탈에 대한 현대적 접근법의 사회적 측면은 접근법에서 특별히 강조되지 않지만 사회적 측면은 모든 모델에서와 같이 모델링 원형에서 캡슐화됩니다.  
 
-여기서 또 다른 흥미로운 요소는 빅데이터 분석입니다. 오늘날 통신 및 소매 비즈니스에서는 고객에 대한 방대한 데이터를 수집하며, 사물 인터넷(Internet of Things) 및 유비쿼터스 장치와 같이 새롭게 떠오르는 추세를 고려해 볼 때 비즈니스가 여러 계층에서 스마트 솔루션을 채택할 수 있도록 하는 다중 모델 연결에 대한 필요가 일반적인 추세가 될 것임을 쉽게 예측할 수 있습니다.  
+여기서 또 다른 흥미로운 요소는 빅데이터 분석입니다. 오늘날 통신 및 소매 비즈니스에서는 고객에 대한 방대한 데이터를 수집하며, 사물 인터넷(Internet of Things) 및 유비쿼터스 디바이스와 같이 새롭게 떠오르는 추세를 고려해 볼 때 비즈니스가 여러 계층에서 스마트 솔루션을 채택할 수 있도록 하는 다중 모델 연결에 대한 필요가 일반적인 추세가 될 것임을 쉽게 예측할 수 있습니다.  
 
  
 
@@ -132,12 +133,12 @@ ms.locfileid: "34835120"
 *그림 8: Machine Learning Studio에서 모델 만들기*  
 
 ### <a name="scoring-methods"></a>점수 매기기 방법
-레이블이 지정된 학습 데이터 집합을 사용하여 네 가지 모델의 점수를 매겼습니다.  
+레이블이 지정된 학습 데이터 세트를 사용하여 네 가지 모델의 점수를 매겼습니다.  
 
-또한 데스크톱 버전의 SAS Enterprise Miner 12를 사용하여 빌드한 비교 가능한 모델에 점수 매기기 데이터 집합을 제출했습니다. SAS 모델과 네 가지 Machine Learning Studio 모델 모두의 정확도를 측정했습니다.  
+또한 데스크톱 버전의 SAS Enterprise Miner 12를 사용하여 빌드한 비교 가능한 모델에 점수 매기기 데이터 세트를 제출했습니다. SAS 모델과 네 가지 Machine Learning Studio 모델 모두의 정확도를 측정했습니다.  
 
 ## <a name="results"></a>결과
-이 섹션에서는 점수 데이터 집합에 따라 모델 정확도에 대한 결과를 제공합니다.  
+이 섹션에서는 점수 데이터 세트에 따라 모델 정확도에 대한 결과를 제공합니다.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>점수 매기기의 정확도 및 정밀도
 일반적으로 Azure Machine Learning의 구현은 정확도가 SAS보다 10~15%(AUC(Area Under Curve)) 정도 낮습니다.  
@@ -154,7 +155,7 @@ AUC(Area Under Curve)는 긍정적 및 부정적 모집단에 대한 점수 분�
 AUC 값을 통해 모델을 비교할 수 있으므로 일반적으로 AUC는 다양한 알고리즘(또는 다양한 시스템)에 대한 가치의 측정값으로 사용됩니다. 이는 기상학 및 생물공학과 같은 산업에서 일반적인 접근법입니다. 따라서 AUC는 분류자 성능을 평가하는 데 널리 사용되는 대표적인 도구입니다.  
 
 ### <a name="comparing-misclassification-rates"></a>오분류 비율 비교
-8,000여 개 구독에 대한 CRM 데이터를 사용하여 해당 데이터 집합에 대한 오분류 비율을 비교했습니다.  
+8,000여 개 구독에 대한 CRM 데이터를 사용하여 해당 데이터 세트에 대한 오분류 비율을 비교했습니다.  
 
 * SAS 오분류 비율은 10~15%였습니다.
 * Machine Learning Studio 오분류 비율은 상위 200~300명의 이탈자에 대해 15~20%였습니다.  

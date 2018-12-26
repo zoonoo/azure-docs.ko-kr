@@ -3,19 +3,19 @@ title: Azure Service Bus를 사용하는 .NET 다중 계층 응용 프로그램 
 description: Azure에서 Service Bus 큐를 사용하여 계층 간에 통신하는 다중 계층 응용 프로그램을 개발하는 데 도움이 되는 .NET 자습서입니다.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/05/2018
-ms.author: sethm
-ms.openlocfilehash: 34b647c0405e4d0997eca12758c10b60cf862a5f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/05/2018
+ms.author: spelluru
+ms.openlocfilehash: b905feef4d3a5445ba27b92637448443c3bbb4a3
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611235"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855615"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus 큐를 사용하는 .NET 다중 계층 응용 프로그램
 
@@ -57,7 +57,7 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 
 ## <a name="create-a-namespace"></a>네임스페이스 만들기
 
-첫 번째 단계에서는 *네임스페이스*를 만들고 해당 네임스페이스에 대한 [SAS(공유 액세스 서명)](service-bus-sas.md) 키를 얻습니다. 네임스페이스는 Service Bus를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 네임스페이스 이름 및 SAS 키 조합은 Service Bus에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
+첫 번째 단계에서는 *네임스페이스*를 만들고 해당 네임스페이스에 대한 [SAS(공유 액세스 서명)](service-bus-sas.md) 키를 얻습니다. 네임스페이스는 Service Bus를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 네임스페이스 이름 및 SAS 키 조합은 Service Bus에 자격 증명을 제공하여 애플리케이션에 대한 액세스를 인증합니다.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -315,10 +315,10 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 4. **새 역할 프로젝트 추가** 대화 상자에서 **Service Bus 큐가 있는 작업자 역할**을 클릭합니다.
    
    ![][23]
-5. **이름** 상자에서 프로젝트 이름을 **OrderProcessingRole**로 지정합니다. 그런 다음 **추가**를 클릭합니다.
+5. **이름** 상자에서 프로젝트 이름을 **OrderProcessingRole**로 지정합니다. 그런 다음, **추가**를 클릭합니다.
 6. "Service Bus 네임스페이스 만들기" 섹션의 9단계에서 얻은 연결 문자열을 클립보드에 복사합니다.
 7. **솔루션 탐색기**에서, 5단계에서 만든 **OrderProcessingRole**을 마우스 오른쪽 단추로 클릭합니다. 이때 클래스가 아니라 **역할**에서 **OrderProcessingRole**을 마우스 오른쪽 단추로 클릭해야 합니다. 그런 다음 **속성**을 클릭합니다.
-8. **속성** 대화 상자의 **설정** 탭에서 **Microsoft.ServiceBus.ConnectionString**의 **값** 상자 내부를 클릭한 다음 6단계에서 복사한 끝점 값을 붙여 넣습니다.
+8. **속성** 대화 상자의 **설정** 탭에서 **Microsoft.ServiceBus.ConnectionString**의 **값** 상자 내부를 클릭한 다음 6단계에서 복사한 엔드포인트 값을 붙여 넣습니다.
    
    ![][25]
 9. **OnlineOrder** 클래스를 만들어 큐에서 처리할 때 주문을 나타냅니다. 이미 만든 클래스를 다시 사용할 수 있습니다. **솔루션 탐색기**에서 **OrderProcessingRole** 클래스를 마우스 오른쪽 단추로 클릭합니다(역할이 아닌 클래스 아이콘을 마우스 오른쪽 단추로 클릭). **추가**를 클릭한 후 **기존 항목**을 클릭합니다.
@@ -352,7 +352,6 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 ## <a name="next-steps"></a>다음 단계
 Service Bus에 대한 자세한 내용은 다음 리소스를 참조하십시오.  
 
-* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐 사용 시작][sbacomqhowto]
 * [Service Bus 서비스 페이지][sbacom]  
 

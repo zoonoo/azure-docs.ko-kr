@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: cd4e31336fd0e90b13f1c3984de89f24e65b052b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a53fe43365100c6d71fcc2b9e0944a221adf188d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23479612"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249237"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 ExpressRoute 회로 만들기 및 수정
 
@@ -28,16 +28,16 @@ ms.locfileid: "23479612"
 이 문서에서는 CLI(명령줄 인터페이스)를 사용하여 Azure ExpressRoute 회로를 만드는 방법을 설명합니다. 또한 이 문서에서는 회로의 상태를 확인하거나, 업데이트하거나, 삭제하고 프로비전을 해제하는 방법을 보여줍니다. ExpressRoute 회로를 사용하는 다른 방법을 사용하려는 경우 다음 목록에서 문서를 선택할 수 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
 > 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-* 시작하기 전에 최신 버전의 CLI 명령(2.0 이상)을 설치합니다. CLI 명령 설치에 대한 자세한 내용은 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli) 및 [Azure CLI 2.0 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요.
+* 시작하기 전에 최신 버전의 CLI 명령(2.0 이상)을 설치합니다. CLI 설치 명령에 대한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli) 및 [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요.
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
 ## <a name="create"></a>ExpressRoute 회로 만들기 및 프로비전

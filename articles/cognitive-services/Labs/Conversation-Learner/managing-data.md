@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d42f903559a1e07b42ded33972be4b552f21b5e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f9de4377857188a8cf483321654fb857e428c7f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376198"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171642"
 ---
 # <a name="managing-user-data"></a>사용자 데이터 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "35376198"
 
 ## <a name="how-to-disable-logging"></a>로깅을 사용하지 않도록 설정하는 방법
 
-최종 사용자와의 대화를 Conversation Learner 응용 프로그램에 대한 “설정” 페이지에 포함할지 여부를 제어할 수 있습니다.  “로그 대화” 확인란이 있습니다.  이 확인란 선택을 취소하면 최종 사용자와의 대화가 기록되지 않습니다.
+최종 사용자와의 대화를 Conversation Learner 모델에 대한 “설정” 페이지에 포함할지 여부를 제어할 수 있습니다.  “로그 대화” 확인란이 있습니다.  이 확인란 선택을 취소하면 최종 사용자와의 대화가 기록되지 않습니다.
 
 ## <a name="what-is-logged"></a>기록되는 내용 
 
@@ -81,9 +81,10 @@ Ocp-Apim-Subscription-Key=<LUIS_AUTHORING_KEY>
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-여기서 `<appId>`는 이 Conversation Learner 응용 프로그램의 GUID이고, `<logDialgoId>`는 검색할 로그 대화의 ID입니다.  
+여기서 `<appId>`는 이 Conversation Learner 모델의 GUID이고, `<logDialgoId>`는 검색할 로그 대화의 ID입니다.  
 
-개발자는 로그 대화를 편집한 다음, 학습 대화로 저장할 수 있습니다.  이 작업이 완료되면 Conversation Learner는 “원본” 로그 대화의 ID를 학습 대화와 함께 저장합니다.  또한 학습 대화 상자는 UI에서 “분기”할 수 있습니다. 학습 대화에 연결된 원본 로그 대화 ID가 있는 경우 해당 학습 대화의 분기는 동일한 로그 대화 ID로 표시됩니다.
+> [!NOTE]
+> 개발자는 로그 대화를 편집한 다음, 학습 대화로 저장할 수 있습니다.  이 작업이 완료되면 Conversation Learner는 “원본” 로그 대화의 ID를 학습 대화와 함께 저장합니다.  또한 학습 대화 상자는 UI에서 “분기”할 수 있습니다. 학습 대화에 연결된 원본 로그 대화 ID가 있는 경우 해당 학습 대화의 분기는 동일한 로그 대화 ID로 표시됩니다.
 
 로그 대화에서 파생된 모든 학습 대화를 가져오려면 다음 단계를 수행합니다.
 
@@ -93,7 +94,7 @@ GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<app
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialogs
 ```
 
-여기서 `<appId>`는 이 Conversation Learner 응용 프로그램의 GUID입니다.  
+여기서 `<appId>`는 이 Conversation Learner 모델의 GUID입니다.  
 
 모든 학습 대화가 반환됩니다.  이 목록에서 연결된 `sourceLogDialogId`를 검색하고 연결된 `trainDialogId`를 확인합니다. 
 
@@ -103,7 +104,7 @@ ID별로 단일 학습 대화를 보려면 다음을 실행합니다.
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-여기서 `<appId>`는 이 Conversation Learner 응용 프로그램의 GUID이고, `<trainDialogId>`는 검색할 학습 대화의 ID입니다.  
+여기서 `<appId>`는 이 Conversation Learner 모델의 GUID이고, `<trainDialogId>`는 검색할 학습 대화의 ID입니다.  
 
 ## <a name="how-to-delete-a-logged-dialog"></a>기록된 대화를 삭제하는 방법
 
@@ -113,7 +114,7 @@ GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<app
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-여기서 `<appId>`는 이 Conversation Learner 응용 프로그램의 GUID이고, `<logDialogId>`는 삭제할 로그 대화의 ID입니다. 
+여기서 `<appId>`는 이 Conversation Learner 모델의 GUID이고, `<logDialogId>`는 삭제할 로그 대화의 ID입니다. 
 
 해당 ID를 제공하여 학습 대화를 삭제하려면 다음 HTTP 호출을 사용할 수 있습니다.
 
@@ -121,4 +122,4 @@ DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-여기서 `<appId>`는 이 Conversation Learner 응용 프로그램의 GUID이고, `<trainDialogId>`는 삭제할 학습 대화의 ID입니다. 
+여기서 `<appId>`는 이 Conversation Learner 모델의 GUID이고, `<trainDialogId>`는 삭제할 학습 대화의 ID입니다. 

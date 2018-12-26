@@ -1,30 +1,25 @@
 ---
-title: Azure 서버를 사용하지 않음 개요 | Microsoft Docs
-description: 인프라에 대한 염려 없이 클라우드에서 강력한 솔루션을 만듭니다.
-keywords: ''
+title: Azure Serverless 개요 | Microsoft Docs
+description: 인프라에 대한 걱정 없이 클라우드에서 강력한 솔루션을 만드는 방법 알아보기
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: klam, estfan, LADocs
+ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 84ff855676215e6b69ec97a1527d14366e763b07
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 068e5399073959d2c5aa6c4bbeb0d7bccf7d05e6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299929"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393782"
 ---
-# <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>함수 및 Logic Apps로 Azure 서버를 사용하지 않음 개요
+# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>개요: Azure Logic Apps 및 Azure Functions를 사용하는 Azure Serverless
 
-서버를 사용하지 않는 응용 프로그램은 개발 속도 향상, 필요한 코드 감소 및 규모 간소화의 이점을 제공합니다.  이 문서는 서버를 사용하지 않는 솔루션과 Azure 서버를 사용하지 않는 제품의 다른 특성을 살펴봅니다.
+[서버리스](https://azure.microsoft.com/solutions/serverless/) 응용 프로그램은 개발 속도 향상, 필요한 코드 감소 및 규모 간소화의 이점을 제공합니다.  이 문서는 서버를 사용하지 않는 솔루션과 Azure 서버를 사용하지 않는 제품의 다른 특성을 살펴봅니다.
 
 ## <a name="what-is-serverless"></a>서버를 사용하지 않음은 무엇입니까?
 
@@ -34,7 +29,7 @@ ms.locfileid: "35299929"
 
 ## <a name="what-are-azure-functions"></a>Azure Functions란?
 
-Azure Functions는 클라우드에서 작은 코드 또는 "함수"를 실행하기 위한 솔루션입니다. 실행할 전체 응용 프로그램 또는 인프라를 염려하지 않고 당면한 문제에 필요한 코드를 작성할 수 있습니다. Functions는 개발 생산성을 높일 수 있으며 C#, F#, Node.js, Python, PHP 등의 원하는 개발 언어를 사용할 수 있습니다. 코드를 실행한 시간에 따라 지불하고 Azure는 필요에 따라 크기를 조정합니다.
+Azure Functions는 클라우드에서 작은 코드 또는 "함수"를 실행하기 위한 솔루션입니다. 실행할 전체 애플리케이션 또는 인프라를 염려하지 않고 당면한 문제에 필요한 코드를 작성할 수 있습니다. Functions는 개발 생산성을 높일 수 있으며 C#, F#, Node.js, Python, PHP 등의 원하는 개발 언어를 사용할 수 있습니다. 코드를 실행한 시간에 따라 지불하고 Azure는 필요에 따라 크기를 조정합니다.
 
 Azure Functions를 바로 시작하려면 [첫 번째 Azure 함수 만들기](../azure-functions/functions-create-first-azure-function.md)를 시작합니다. Functions에 대한 자세한 기술 정보는 [개발자 참조](../azure-functions/functions-reference.md)를 참조하세요.
 

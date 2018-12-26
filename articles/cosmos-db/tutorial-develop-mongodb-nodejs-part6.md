@@ -1,25 +1,23 @@
 ---
-title: Azure에 대한 MongoDB, Angular 및 노드 자습서 - 6부 | Microsoft Docs
+title: Node.Js, MongoB API를 사용하는 Angular 앱(6부)
+titleSuffix: Azure Cosmos DB
 description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 6부
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
-editor: ''
+author: johnpapa
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/17/2018
-ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 2a437c02c9391b09cc2adfe84efe677d31f486b4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 12/06/2018
+ms.author: jopapa
+ms.custom: seodec18
+ms.openlocfilehash: ec6fc4237fd2be11d1e937ec6aed12898689e73f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231664"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139982"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 6부: 앱에 게시, 배치 및 삭제 함수 추가
+# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-crud-functions-to-the-app"></a>Angular 및 Azure Cosmos DB에서 MongoDB 앱 만들기 - 6부: 앱에 CRUD 함수 추가
 
 이 다중 파트 자습서에서는 Express 및 Angular와 Node.js로 작성된 새 [MongoDB API](mongodb-introduction.md) 앱을 만들고 Azure Cosmos DB 데이터베이스에 연결하는 방법을 보여줍니다.
 
@@ -80,7 +78,7 @@ ms.locfileid: "36231664"
     };
     ```
 
-4. **routes.js**에서 `get` 라우터 뒤에 `post` 함수에 라우터를 추가합니다. 이 라우터는 한 번에 하나의 Hero를 게시합니다. 이 방식으로 라우터 파일 구조를 지정하면 사용 가능한 모든 API 끝점을 표시하고 **hero.service.js** 파일에 실제 작업만 남겨둡니다.
+4. **routes.js**에서 `get` 라우터 뒤에 `post` 함수에 라우터를 추가합니다. 이 라우터는 한 번에 하나의 Hero를 게시합니다. 이 방식으로 라우터 파일 구조를 지정하면 사용 가능한 모든 API 엔드포인트를 표시하고 **hero.service.js** 파일에 실제 작업만 남겨둡니다.
 
     ```javascript
     router.post('/hero', (req, res) => {
@@ -88,13 +86,13 @@ ms.locfileid: "36231664"
     });
     ```
 
-5. 앱을 실행하여 모두 제대로 작동하는지 확인합니다. Visual Studio Code에서 모든 변경 내용을 저장하고, 왼쪽에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png)을 클릭하고 **디버깅 시작** 단추 ![Visual Studio Code의 디버깅 시작 아이콘](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png)을 클릭합니다.
+5. 앱을 실행하여 모두 제대로 작동하는지 확인합니다. Visual Studio Code에서 모든 변경 내용을 저장하고, 왼쪽에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png)을 선택하고 **디버깅 시작** 단추 ![Visual Studio Code의 디버깅 시작 아이콘](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png)을 선택합니다.
 
 6. 이제 인터넷 브라우저로 다시 이동하고 대부분의 컴퓨터에서 F12 키를 눌러 개발자 도구 네트워크 탭을 엽니다. [http://localhost:3000](http://localhost:3000)으로 이동하여 네트워크를 통해 수행된 호출을 감시합니다.
 
     ![네트워크 활동을 보여주는 Chrome의 네트워킹 탭](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 
-7. **새 Hero 추가** 단추를 클릭하여 새 Hero를 추가합니다. ID로 "999", 이름으로 "Fred", 설명으로 "Hello"를 입력한 다음 **저장**을 클릭합니다. 새 Hero에 POST 요청을 보냈는지 네트워킹 탭에 표시됩니다. 
+7. **새 Hero 추가** 단추를 선택하여 새 Hero를 추가합니다. ID로 "999", 이름으로 "Fred", 설명으로 "Hello"를 입력하고 **저장**을 선택합니다. 새 Hero에 POST 요청을 보냈는지 네트워킹 탭에 표시됩니다. 
 
     ![가져오기 및 게시 함수에 대한 네트워크 활동을 보여주는 Chrome의 네트워킹 탭](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
 
@@ -173,17 +171,17 @@ ms.locfileid: "36231664"
     };
     ```
 
-4. 코드를 업데이트했으므로 Visual Studio Code에서 **다시 시작** 단추 ![Visual Studio Code의 다시 시작 단추](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png)를 클릭합니다.
+4. 코드를 업데이트했으니, Visual Studio Code에서 **다시 시작** 단추 ![Visual Studio Code의 다시 시작 단추](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png)를 선택합니다.
 
-5. 인터넷 브라우저에서 페이지를 새로 고치고 **새 Hero 추가** 단추를 클릭합니다. ID로 "9", 이름으로 "Starlord", 설명으로 "Hi"를 포함한 새 Hero를 추가합니다. **저장** 단추를 클릭하여 새 Hero를 저장합니다.
+5. 인터넷 브라우저에서 페이지를 새로 고치고 **새 Hero 추가** 단추를 선택합니다. ID로 "9", 이름으로 "Starlord", 설명으로 "Hi"를 포함한 새 Hero를 추가합니다. **저장** 단추를 선택하여 새 Hero를 저장합니다.
 
-6. 이제 **Starlord** Hero를 선택하고 설명을 "Hi"에서 "Bye"로 변경하고 **저장** 단추를 클릭합니다. 
+6. 이제 **Starlord** Hero를 선택하고 설명을 "Hi"에서 "Bye"로 변경하고 **저장** 단추를 선택합니다. 
 
     이제 네트워크 탭에서 ID를 선택하여 페이로드를 표시할 수 있습니다. 설명이 현재 "Bye"로 설정되었는지 페이로드에서 확인할 수 있습니다.
 
     ![페이로드를 보여주는 Heroes 앱 및 네트워킹 탭](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
 
-    UI에서 Heroes 중 하나를 삭제하고 삭제 작업을 완료하는 데 걸리는 시간을 확인할 수도 있습니다. "Fred"라는 Hero에서 "삭제" 단추를 클릭해보세요.
+    UI에서 Heroes 중 하나를 삭제하고 삭제 작업을 완료하는 데 걸리는 시간을 확인할 수도 있습니다. "Fred"라는 Hero에서 "삭제" 단추를 선택해보세요.
 
     ![함수를 완료하는 시간을 보여주는 Heroes 앱 및 네트워킹 탭](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
 

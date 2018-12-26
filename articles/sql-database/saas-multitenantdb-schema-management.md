@@ -1,25 +1,26 @@
 ---
 title: 다중 테넌트 앱에서 Azure SQL Database 스키마 관리 | Microsoft Docs
 description: Azure SQL Database를 사용하는 다중 테넌트 응용 프로그램에서 여러 테넌트에 대한 스키마 관리
-keywords: SQL Database 자습서
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/03/2018
-ms.reviewers: billgib
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: 816cde31e84eeda8110c042f4e0640f12fb4cc53
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: billgib
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: e7aeb273d4ae276d3460c3de1f404230276cffb7
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645993"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056644"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>분할된 다중 테넌트 SQL 데이터베이스를 사용하는 SaaS 응용 프로그램에서 스키마 관리
-
+ 
 이 자습서에서는 SaaS(Software as a Service) 응용 프로그램에서 대규모 데이터베이스를 유지 관리하는 데 따른 문제를 검토합니다. 수많은 데이터베이스에 스키마를 적용하기 위한 솔루션이 설명되어 있습니다.
 
 다른 응용 프로그램과 마찬가지로 Wingtip Tickets SaaS 앱도 시간이 지나면서 발전되고, 그에 따라 데이터베이스를 변경해야 합니다. 변경 사항은 스키마나 참조 데이터를 영향을 줄 수도 있고, 데이터베이스 유지 관리 작업에 적용될 수도 있습니다. 테넌트별 데이터베이스 패턴을 사용하는 SaaS 응용 프로그램에서는 수많은 테넌트 데이터베이스를 대상으로 변경 사항을 효율적으로 조율할 수 있어야 합니다. 또한, 변경 사항이 새로 생성되는 데이터베이스에도 포함되도록 데이터베이스 프로비저닝 프로세스에 변경 사항을 반영해야 합니다.
@@ -168,7 +169,6 @@ SSMS에서 *tenants1-mt-&lt;user&gt;* 서버에 있는 테넌트 데이터베이
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-에서도 확인할 수 있습니다.
 > * 여러 데이터베이스에서 T-SQL 작업을 실행하는 작업 에이전트 만들기
 > * 모든 테넌트 데이터베이스에서 참조 데이터 업데이트하기
 > * 모든 테넌트 데이터베이스의 테이블에서 인덱스 만들기

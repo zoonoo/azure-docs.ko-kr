@@ -2,22 +2,22 @@
 title: Azure Backup용 Log Analytics 데이터 모델
 description: 이 문서에서는 Azure Backup 데이터에 대한 Log Analytics 데이터 모델 세부 정보에 대해 설명합니다.
 services: backup
-author: JPallavi
-manager: vijayts
+author: adiganmsft
+manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
-ms.author: pajosh
+ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a2ba1d523e7a6364420302eee095f24fd08eadb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605776"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877584"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure Backup 데이터용 Log Analytics 데이터 모델
-이 문서에서는 보고 데이터를 Log Analytics로 푸시하는 데 사용되는 데이터 모델에 대해 설명합니다. 이 데이터 모델을 사용하면 사용자 지정 쿼리, 대시보드를 만들고 Log Analytics에서 이를 활용할 수 있습니다. 
+Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이터 모델을 사용하면 원하는 대로 사용자 지정 쿼리와 대시보드를 만들거나 Azure Backup 데이터를 사용자 지정할 수 있습니다.
 
 ## <a name="using-azure-backup-data-model"></a>Azure Backup 데이터 모델 사용
 데이터 모델의 일부로 제공되는 다음 필드를 사용하여 요구 사항에 따라 시각적 개체, 사용자 지정 쿼리 및 대시보드를 만들 수 있습니다.
@@ -27,53 +27,53 @@ ms.locfileid: "34605776"
 
 | 필드 | 데이터 형식 | 설명 |
 | --- | --- | --- |
-| AlertUniqueId_s |텍스트 |생성된 경고의 고유 ID |
-| AlertType_s |텍스트 |생성된 경고의 형식(예: Backup) |
+| AlertUniqueId_s |텍스트 |생성된 경고의 고유 식별자 |
+| AlertType_s |텍스트 |경고의 형식(예: Backup) |
 | AlertStatus_s |텍스트 |경고의 상태(예: Active) |
-| AlertOccurenceDateTime_s |날짜/시간 |경고를 만든 날짜 및 시간 |
+| AlertOccurrenceDateTime_s |날짜/시간 |경고를 만든 날짜 및 시간 |
 | AlertSeverity_s |텍스트 |경고의 심각도(예: Critical) |
-| EventName_s |텍스트 |이 이벤트의 이름을 나타내며, 항상 AzureBackupCentralReport입니다. |
-| BackupItemUniqueId_s |텍스트 |이 경고가 속한 백업 항목의 고유 ID |
-| SchemaVersion_s |텍스트 |스키마의 현재 버전을 나타내며, **V1**입니다. |
+| EventName_s |텍스트 |이벤트의 이름, 항상 AzureBackupCentralReport임 |
+| BackupItemUniqueId_s |텍스트 |경고와 관련된 백업 항목의 고유 식별자 |
+| SchemaVersion_s |텍스트 |스키마의 현재 버전(예: **V1**) |
 | State_s |텍스트 |경고 개체의 현재 상태(예: Active, Deleted) |
 | BackupManagementType_s |텍스트 |백업 수행에 대한 공급자 유형(예: IaaSVM, 이 경고가 속한 FileFolder) |
-| OperationName |텍스트 |현재 작업의 이름(Alert)을 나타냅니다. |
-| Category |텍스트 |Log Analytics에 푸시된 진단 데이터의 범주를 나타내며, AzureBackupReport입니다. |
+| OperationName |텍스트 |현재 작업의 이름(예: Alert) |
+| Category |텍스트 |Log Analytics에 푸시된 진단 데이터의 범주, 항상 AzureBackupReport임 |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
-| ProtectedServerUniqueId_s |텍스트 |이 경고가 속한 보호 대상의 고유 ID |
-| VaultUniqueId_s |텍스트 |이 경고가 속한 보호 대상의 고유 ID |
+| ProtectedServerUniqueId_s |텍스트 |경고와 관련된 보호된 서버의 고유 식별자 |
+| VaultUniqueId_s |텍스트 |경고와 관련된 보호된 자격 증명 모음의 고유 식별자 |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
-| ResourceId |텍스트 |데이터가 수집되는 리소스 ID를 나타내며, Recovery Services 자격 증명 모음 리소스 ID가 표시됩니다. |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 구독 ID를 나타냅니다. |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 리소스 그룹을 나타냅니다. |
-| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(Microsoft.RecoveryServices)를 나타냅니다. |
-| ResourceType |텍스트 |데이터가 수집되는 리소스의 종류(Vaults)를 나타냅니다. |
+| ResourceId |텍스트 |데이터가 수집되는 리소스의 고유 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
+| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
+| ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
 ### <a name="backupitem"></a>BackupItem
 이 표에서는 백업 항목 관련 필드에 대한 세부 정보를 제공합니다.
 
 | 필드 | 데이터 형식 | 설명 |
 | --- | --- | --- |
-| EventName_s |텍스트 |이 이벤트의 이름을 나타내며, 항상 AzureBackupCentralReport입니다. |  
-| BackupItemUniqueId_s |텍스트 |백업 항목의 고유 ID |
-| BackupItemId_s |텍스트 |백업 항목의 ID |
+| EventName_s |텍스트 |이벤트의 이름, 항상 AzureBackupCentralReport임 |  
+| BackupItemUniqueId_s |텍스트 |백업 항목의 고유 식별자 |
+| BackupItemId_s |텍스트 |백업 항목의 식별자 |
 | BackupItemName_s |텍스트 |백업 항목의 이름 |
 | BackupItemFriendlyName_s |텍스트 |백업 항목의 친숙한 이름 |
 | BackupItemType_s |텍스트 |백업 항목의 형식(예: VM, FileFolder) |
 | ProtectedServerName_s |텍스트 |백업 항목이 속한 보호된 서버의 이름 |
 | ProtectionState_s |텍스트 |백업 항목의 현재 보호 상태(예: Protected, ProtectionStopped) |
-| SchemaVersion_s |텍스트 |스키마의 현재 버전을 나타내며, **V1**입니다. |
-| State_s |텍스트 |백업 항목 개체의 현재 상태(예: Active, Deleted) |
+| SchemaVersion_s |텍스트 |스키마의 버전(예: **V1**) |
+| State_s |텍스트 |백업 항목 개체의 상태(예: Active, Deleted) |
 | BackupManagementType_s |텍스트 |백업 수행에 대한 공급자 유형(예: IaaSVM, 이 백업 항목이 속한 FileFolder) |
-| OperationName |텍스트 |현재 작업의 이름(BackupItem)을 나타냅니다. |
-| Category |텍스트 |Log Analytics에 푸시된 진단 데이터의 범주를 나타내며, AzureBackupReport입니다. |
-| 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
+| OperationName |텍스트 |작업의 이름(예: BackupItem) |
+| Category |텍스트 |Log Analytics에 푸시된 진단 데이터의 범주, 항상 AzureBackupReport임 |
+| 리소스 |텍스트 |데이터가 수집되는 리소스(예: Recovery Services 자격 증명 모음 이름) |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
-| ResourceId |텍스트 |데이터가 수집되는 리소스 ID를 나타내며, Recovery Services 자격 증명 모음 리소스 ID가 표시됩니다. |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 구독 ID를 나타냅니다. |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 리소스 그룹을 나타냅니다. |
-| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(Microsoft.RecoveryServices)를 나타냅니다. |
-| ResourceType |텍스트 |데이터가 수집되는 리소스의 종류(Vaults)를 나타냅니다. |
+| ResourceId |텍스트 |수집되는 데이터에 대한 리소스 ID(예: Recovery Services 자격 증명 모음 리소스 ID) |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |수집되는 데이터에 대한 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
+| ResourceProvider |텍스트 |수집되는 데이터에 대한 리소스 공급자(예: Microsoft.RecoveryServices) |
+| ResourceType |텍스트 |수집되는 데이터에 대한 리소스 종류(예: Vaults) |
 
 ### <a name="backupitemassociation"></a>BackupItemAssociation
 이 표에서는 다양한 엔터티와의 백업 항목 연결에 대한 세부 정보를 제공합니다.
@@ -84,35 +84,35 @@ ms.locfileid: "34605776"
 | BackupItemUniqueId_s |텍스트 |백업 항목의 고유 ID |
 | SchemaVersion_s |텍스트 |스키마의 현재 버전을 나타내며, **V1**입니다. |
 | State_s |텍스트 |백업 항목 연결 개체의 현재 상태(예: Active, Deleted) |
-| BackupManagementType_s |텍스트 |백업 수행에 대한 공급자 유형(예: IaaSVM, 이 백업 항목이 속한 FileFolder) |
+| BackupManagementType_s |텍스트 |백업 작업을 수행하는 서버에 대한 공급자 유형(예: IaaSVM, FileFolder) |
 | OperationName |텍스트 |현재 작업의 이름(BackupItemAssociation)을 나타냅니다. |
 | Category |텍스트 |Log Analytics에 푸시된 진단 데이터의 범주를 나타내며, AzureBackupReport입니다. |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
-| PolicyUniqueId_g |텍스트 |백업 항목이 연결된 정책을 식별하는 고유 ID |
-| ProtectedServerUniqueId_s |텍스트 |이 백업 항목이 속한 보호된 서버의 고유 ID |
-| VaultUniqueId_s |텍스트 |이 백업 항목이 속한 자격 증명 모음의 고유 ID |
+| PolicyUniqueId_g |텍스트 |백업 항목과 관련된 정책에 대한 고유 식별자 |
+| ProtectedServerUniqueId_s |텍스트 |백업 항목과 관련된 보호된 서버의 고유 식별자 |
+| VaultUniqueId_s |텍스트 |백업 항목이 포함된 자격 증명 모음의 고유 식별자 |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
-| ResourceId |텍스트 |데이터가 수집되는 리소스 ID를 나타내며, Recovery Services 자격 증명 모음 리소스 ID가 표시됩니다. |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 구독 ID를 나타냅니다. |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 리소스 그룹을 나타냅니다. |
-| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(Microsoft.RecoveryServices)를 나타냅니다. |
-| ResourceType |텍스트 |데이터가 수집되는 리소스의 종류(Vaults)를 나타냅니다. |
+| ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |수집되는 데이터에 대한 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
+| ResourceProvider |텍스트 |수집되는 데이터에 대한 리소스 공급자(예: Microsoft.RecoveryServices) |
+| ResourceType |텍스트 |수집되는 데이터에 대한 리소스 종류(예: Vaults) |
 
 ### <a name="job"></a>작업
 이 표에서는 작업 관련 필드에 대한 세부 정보를 제공합니다.
 
 | 필드 | 데이터 형식 | 설명 |
 | --- | --- | --- |
-| EventName_s |텍스트 |이 이벤트의 이름을 나타내며, 항상 AzureBackupCentralReport입니다. |
-| BackupItemUniqueId_s |텍스트 |이 작업이 속한 백업 항목의 고유 ID |
-| SchemaVersion_s |텍스트 |스키마의 현재 버전을 나타내며, **V1**입니다. |
+| EventName_s |텍스트 |이벤트의 이름, 항상 AzureBackupCentralReport임 |
+| BackupItemUniqueId_s |텍스트 |백업 항목의 고유 식별자 |
+| SchemaVersion_s |텍스트 |스키마의 버전(예: **V1**) |
 | State_s |텍스트 |작업 개체의 현재 상태(예: Active, Deleted) |
-| BackupManagementType_s |텍스트 |백업 수행에 대한 공급자 유형(예: IaaSVM, 이 작업이 속한 FileFolder) |
+| BackupManagementType_s |텍스트 |백업 작업을 수행하는 서버에 대한 공급자 유형(예: IaaSVM, FileFolder) |
 | OperationName |텍스트 |현재 작업의 이름(Job)을 나타냅니다. |
 | Category |텍스트 |Log Analytics에 푸시된 진단 데이터의 범주를 나타내며, AzureBackupReport입니다. |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
-| ProtectedServerUniqueId_s |텍스트 |이 작업이 속한 보호 대상의 고유 ID |
-| VaultUniqueId_s |텍스트 |이 작업이 속한 보호 대상의 고유 ID |
+| ProtectedServerUniqueId_s |텍스트 |작업과 관련된 보호된 서버의 고유 식별자 |
+| VaultUniqueId_s |텍스트 |보호된 자격 증명 모음의 고유 식별자 |
 | JobOperation_s |텍스트 |실행되는 작업에 대한 동작(예: Backup, 복원, Backup 구성) |
 | JobStatus_s |텍스트 |완료된 작업의 상태(예: Completed, Failed) |
 | JobFailureCode_s |텍스트 |발생한 작업 실패로 인한 오류 코드 문자열 |
@@ -122,11 +122,11 @@ ms.locfileid: "34605776"
 | DataTransferredInMB_s | Number |이 작업에 대해 전송되는 데이터 크기(MB 단위)|
 | JobUniqueId_g |텍스트 |작업을 식별하는 고유 ID |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
-| ResourceId |텍스트 |데이터가 수집되는 리소스 ID를 나타내며, Recovery Services 자격 증명 모음 리소스 ID가 표시됩니다. |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 구독 ID를 나타냅니다. |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 리소스 그룹을 나타냅니다. |
-| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(Microsoft.RecoveryServices)를 나타냅니다. |
-| ResourceType |텍스트 |데이터가 수집되는 리소스의 종류(Vaults)를 나타냅니다. |
+| ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID)|
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
+| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
+| ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
 ### <a name="policy"></a>정책
 이 표에서는 정책 관련 필드에 대한 세부 정보를 제공합니다.
@@ -136,7 +136,7 @@ ms.locfileid: "34605776"
 | EventName_s |텍스트 |이 이벤트의 이름을 나타내며, 항상 AzureBackupCentralReport입니다. |
 | SchemaVersion_s |텍스트 |스키마의 현재 버전을 나타내며, **V1**입니다. |
 | State_s |텍스트 |정책 개체의 현재 상태(예: Active, Deleted) |
-| BackupManagementType_s |텍스트 |백업 수행에 대한 공급자 유형(예: IaaSVM, 이 정책이 속한 FileFolder) |
+| BackupManagementType_s |텍스트 |백업 작업을 수행하는 서버에 대한 공급자 유형(예: IaaSVM, FileFolder) |
 | OperationName |텍스트 |현재 작업의 이름(Policy)을 나타냅니다. |
 | Category |텍스트 |Log Analytics에 푸시된 진단 데이터의 범주를 나타내며, AzureBackupReport입니다. |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
@@ -162,11 +162,11 @@ ms.locfileid: "34605776"
 | YearlyRetentionFormat_s |텍스트 |연별 보존에 대한 구성 형식(예: 일 기준 매일, 주 기준 매주) |
 | YearlyRetentionDaysOfTheMonth_s |텍스트 |매년 보존에 대해 선택한 월의 날짜 |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
-| ResourceId |텍스트 |데이터가 수집되는 리소스 ID를 나타내며, Recovery Services 자격 증명 모음 리소스 ID가 표시됩니다. |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 구독 ID를 나타냅니다. |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 리소스 그룹을 나타냅니다. |
-| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(Microsoft.RecoveryServices)를 나타냅니다. |
-| ResourceType |텍스트 |데이터가 수집되는 리소스의 종류(Vaults)를 나타냅니다. |
+| ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
+| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
+| ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
 ### <a name="policyassociation"></a>PolicyAssociation
 이 표에서는 다양한 엔터티와의 정책 연결에 대한 세부 정보를 제공합니다.
@@ -176,18 +176,18 @@ ms.locfileid: "34605776"
 | EventName_s |텍스트 |이 이벤트의 이름을 나타내며, 항상 AzureBackupCentralReport입니다. |
 | SchemaVersion_s |텍스트 |스키마의 현재 버전을 나타내며, **V1**입니다. |
 | State_s |텍스트 |정책 개체의 현재 상태(예: Active, Deleted) |
-| BackupManagementType_s |텍스트 |백업 수행에 대한 공급자 유형(예: IaaSVM, 이 정책이 속한 FileFolder) |
+| BackupManagementType_s |텍스트 |백업 작업을 수행하는 서버에 대한 공급자 유형(예: IaaSVM, FileFolder) |
 | OperationName |텍스트 |현재 작업의 이름(PolicyAssociation)을 나타냅니다. |
 | Category |텍스트 |Log Analytics에 푸시된 진단 데이터의 범주를 나타내며, AzureBackupReport입니다. |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
 | PolicyUniqueId_g |텍스트 |정책을 식별하는 고유 ID |
 | VaultUniqueId_s |텍스트 |이 정책이 속한 자격 증명 모음의 고유 ID |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
-| ResourceId |텍스트 |데이터가 수집되는 리소스 ID를 나타내며, Recovery Services 자격 증명 모음 리소스 ID가 표시됩니다. |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 구독 ID를 나타냅니다. |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 리소스 그룹을 나타냅니다. |
-| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(Microsoft.RecoveryServices)를 나타냅니다. |
-| ResourceType |텍스트 |데이터가 수집되는 리소스의 종류(Vaults)를 나타냅니다. |
+| ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
+| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
+| ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
 ### <a name="protectedserver"></a>ProtectedServer
 이 표에서는 보호된 서버 관련 필드에 대한 세부 정보를 제공합니다.
@@ -198,21 +198,21 @@ ms.locfileid: "34605776"
 | ProtectedServerName_s |텍스트 |보호된 서버의 이름 |
 | SchemaVersion_s |텍스트 |스키마의 현재 버전을 나타내며, **V1**입니다. |
 | State_s |텍스트 |보호된 서버 개체의 현재 상태(예: Active, Deleted) |
-| BackupManagementType_s |텍스트 |백업 수행에 대한 공급자 유형(예: IaaSVM, 이 보호된 서버가 속한 FileFolder) |
+| BackupManagementType_s |텍스트 |백업 작업을 수행하는 서버에 대한 공급자 유형(예: IaaSVM, FileFolder) |
 | OperationName |텍스트 |현재 작업의 이름(ProtectedServer)을 나타냅니다. |
 | Category |텍스트 |Log Analytics에 푸시된 진단 데이터의 범주를 나타내며, AzureBackupReport입니다. |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
 | ProtectedServerUniqueId_s |텍스트 |보호된 서버의 고유 ID |
 | RegisteredContainerId_s |텍스트 |백업에 대해 등록된 컨테이너의 ID |
-| ProtectedServerType_s |텍스트 |보호된 서버 백업 유형(예: Windows) |
+| ProtectedServerType_s |텍스트 |보호된 서버의 유형(예: Windows) |
 | ProtectedServerFriendlyName_s |텍스트 |보호된 서버의 친숙한 이름 |
 | AzureBackupAgentVersion_s |텍스트 |Azure Backup 에이전트의 버전 번호 |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
-| ResourceId |텍스트 |데이터가 수집되는 리소스 ID를 나타내며, Recovery Services 자격 증명 모음 리소스 ID가 표시됩니다. |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 구독 ID를 나타냅니다. |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 리소스 그룹을 나타냅니다. |
-| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(Microsoft.RecoveryServices)를 나타냅니다. |
-| ResourceType |텍스트 |데이터가 수집되는 리소스의 종류(Vaults)를 나타냅니다. |
+| ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
+| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
+| ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
 ### <a name="protectedserverassociation"></a>ProtectedServerAssociation
 이 표에서는 다른 엔터티와의 보호된 서버 연결에 대한 세부 정보를 제공합니다.
@@ -222,18 +222,18 @@ ms.locfileid: "34605776"
 | EventName_s |텍스트 |이 이벤트의 이름을 나타내며, 항상 AzureBackupCentralReport입니다. |
 | SchemaVersion_s |텍스트 |스키마의 현재 버전을 나타내며, **V1**입니다. |
 | State_s |텍스트 |보호된 서버 연결 개체의 현재 상태(예: Active, Deleted) |
-| BackupManagementType_s |텍스트 |백업 수행에 대한 공급자 유형(예: IaaSVM, 이 보호된 서버가 속한 FileFolder) |
+| BackupManagementType_s |텍스트 |백업 작업을 수행하는 서버에 대한 공급자 유형(예: IaaSVM, FileFolder) |
 | OperationName |텍스트 |현재 작업의 이름(ProtectedServerAssociation)을 나타냅니다. |
 | Category |텍스트 |Log Analytics에 푸시된 진단 데이터의 범주를 나타내며, AzureBackupReport입니다. |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
 | ProtectedServerUniqueId_s |텍스트 |보호된 서버의 고유 ID |
 | VaultUniqueId_s |텍스트 |이 보호된 서버가 속한 자격 증명 모음의 고유 ID |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
-| ResourceId |텍스트 |데이터가 수집되는 리소스 ID를 나타내며, Recovery Services 자격 증명 모음 리소스 ID가 표시됩니다. |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 구독 ID를 나타냅니다. |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 리소스 그룹을 나타냅니다. |
-| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(Microsoft.RecoveryServices)를 나타냅니다. |
-| ResourceType |텍스트 |데이터가 수집되는 리소스의 종류(Vaults)를 나타냅니다. |
+| ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
+| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
+| ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
 ### <a name="storage"></a>Storage
 이 표에서는 저장소 관련 필드에 대한 세부 정보를 제공합니다.
@@ -245,18 +245,18 @@ ms.locfileid: "34605776"
 | EventName_s |텍스트 |이 이벤트의 이름을 나타내며, 항상 AzureBackupCentralReport입니다. |
 | SchemaVersion_s |텍스트 |스키마의 현재 버전을 나타내며, **V1**입니다. |
 | State_s |텍스트 |저장소 개체의 현재 상태(예: Active, Deleted) |
-| BackupManagementType_s |텍스트 |백업 수행에 대한 공급자 유형(예: IaaSVM, 이 저장소가 속한 FileFolder) |
+| BackupManagementType_s |텍스트 |백업 작업을 수행하는 서버에 대한 공급자 유형(예: IaaSVM, FileFolder) |
 | OperationName |텍스트 |현재 작업의 이름(Storage)을 나타냅니다. |
 | Category |텍스트 |Log Analytics에 푸시된 진단 데이터의 범주를 나타내며, AzureBackupReport입니다. |
 | 리소스 |텍스트 |데이터가 수집되는 리소스이며, Recovery Services 자격 증명 모음 이름이 표시됩니다. |
 | ProtectedServerUniqueId_s |텍스트 |저장소가 계산되는 보호된 서버의 고유 ID |
 | VaultUniqueId_s |텍스트 |저장소가 계산되는 자격 증명 모음의 고유 ID |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
-| ResourceId |텍스트 |데이터가 수집되는 리소스 ID를 나타내며, Recovery Services 자격 증명 모음 리소스 ID가 표시됩니다. |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 구독 ID를 나타냅니다. |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 리소스 그룹을 나타냅니다. |
-| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(Microsoft.RecoveryServices)를 나타냅니다. |
-| ResourceType |텍스트 |데이터가 수집되는 리소스의 종류(Vaults)를 나타냅니다. |
+| ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
+| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
+| ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
 ### <a name="vault"></a>Vault
 이 표에서는 자격 증명 모음 관련 필드에 대한 세부 정보를 제공합니다.
@@ -274,11 +274,11 @@ ms.locfileid: "34605776"
 | AzureDataCenter_s |텍스트 |자격 증명 모음이 위치한 데이터 센터 |
 | StorageReplicationType_s |텍스트 |자격 증명 모음에 대한 저장소 복제 유형(예: GeoRedundant) |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
-| ResourceId |텍스트 |데이터가 수집되는 리소스 ID를 나타내며, Recovery Services 자격 증명 모음 리소스 ID가 표시됩니다. |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 구독 ID를 나타냅니다. |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스(RS 자격 증명 모음)의 리소스 그룹을 나타냅니다. |
-| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(Microsoft.RecoveryServices)를 나타냅니다. |
-| ResourceType |텍스트 |데이터가 수집되는 리소스의 종류(Vaults)를 나타냅니다. |
+| ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
+| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
+| ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
 ## <a name="next-steps"></a>다음 단계
-Azure Backup 보고서를 만들기 위한 데이터 모델을 검토한 후에는 Log Analytics에서 [대시보드를 만들](../log-analytics/log-analytics-dashboards.md) 수 있습니다.
+Azure Backup 보고서를 만들기 위한 데이터 모델을 검토한 후에는 Log Analytics에서 [대시보드를 만들](../azure-monitor/platform/dashboards.md) 수 있습니다.

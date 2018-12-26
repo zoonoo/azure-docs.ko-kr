@@ -1,19 +1,21 @@
 ---
-title: Bing Autosuggest API에 대한 사용 및 표시 요구 사항 | Microsoft Docss
+title: 사용 및 표시 요구 사항 - Bing Autosuggest API
+titlesuffix: Azure Cognitive Services
 description: Bing Autosuggest API의 데이터를 사용하여 자동 프로세스의 검색 결과를 향상시킵니다.
 services: cognitive-services
 author: dwlin
-manager: zhang
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: dwlin
-ms.openlocfilehash: 7f7f1e3277a6927f61670c3f078395dc37d25c12
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cb8fd3eeb730ca4e75b456a7f0413e97396c82d7
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377799"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286733"
 ---
+# <a name="bing-search-api-use-and-display-requirements"></a>Bing Search API 사용 및 표시 요구 사항
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

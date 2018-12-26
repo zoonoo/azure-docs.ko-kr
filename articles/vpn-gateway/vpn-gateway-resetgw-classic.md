@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: e61e41c41888d8d2ca65961dd5bea73fd9b6bd21
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: d23ed383bee3346cfbb20c6935dd3630e137c179
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927692"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573907"
 ---
 # <a name="reset-a-vpn-gateway"></a>VPN Gateway 다시 설정
 
-Azure VPN Gateway 재설정은 하나 이상의 사이트 간 VPN 터널에서 크로스-프레미스 VPN 연결이 손실되는 경우에 유용합니다. 이 상황에서 온-프레미스 VPN 장치는 모두 올바르게 작동하지만 Azure VPN 게이트웨이와 IPsec 터널을 설정할 수 없습니다. 이 문서는 VPN Gateway를 다시 설정하도록 도와줍니다.
+Azure VPN Gateway 재설정은 하나 이상의 사이트 간 VPN 터널에서 크로스-프레미스 VPN 연결이 손실되는 경우에 유용합니다. 이 상황에서 온-프레미스 VPN 디바이스는 모두 올바르게 작동하지만 Azure VPN 게이트웨이와 IPsec 터널을 설정할 수 없습니다. 이 문서는 VPN Gateway를 다시 설정하도록 도와줍니다.
 
 ### <a name="what-happens-during-a-reset"></a>다시 설정하는 동안 어떻게 되나요?
 
@@ -75,7 +75,7 @@ Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 ### <a name="resetclassic"></a>클래식 배포 모델
 
-게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzureVNetGateway**입니다. 다시 설정을 수행하기 전에 최신 버전의 [SM(Service Management) PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)이 있는지 확인합니다. 다음 예제에서는 "ContosoVNet"이라는 가상 네트워크에 대한 게이트웨이를 다시 설정합니다.
+게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzureVNetGateway**입니다. 다시 설정을 수행하기 전에 최신 버전의 [SM(Service Management) PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)이 있는지 확인합니다. 다음 예제에서는 "ContosoVNet"이라는 가상 네트워크에 대한 게이트웨이를 다시 설정합니다.
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

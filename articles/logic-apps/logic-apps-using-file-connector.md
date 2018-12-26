@@ -1,108 +1,107 @@
 ---
 title: 온-프레미스 파일 시스템에 연결 - Azure Logic Apps | Microsoft Docs
-description: 온-프레미스 데이터 게이트웨이 및 파일 시스템 커넥터를 통해 논리 앱 워크플로에서 온-프레미스 파일 시스템에 연결
-keywords: 파일 시스템, 온-프레미스
+description: Azure Logic Apps에서 온-프레미스 데이터 게이트웨이를 통해 파일 시스템 커넥터를 사용하여 온-프레미스 파일 시스템에 연결하는 작업 및 워크플로 자동화
 services: logic-apps
-author: derek1ee
-manager: jeconnoc
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/18/2017
-ms.author: LADocs; deli
-ms.openlocfilehash: 019b5fcd218ddd471c5f02d0332b8f5b5bf0edb3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 08/25/2018
+ms.openlocfilehash: 0c30ffec58b1542fa80cf0c9873a0e6df8641104
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300823"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232548"
 ---
-# <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>파일 시스템 커넥터를 사용하여 Logic Apps에서 온-프레미스 파일 시스템에 연결
+# <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 온-프레미스 파일 시스템에 연결
 
-논리 앱은 데이터를 관리하고 온-프레미스 리소스에 안전하게 액세스하기 위해 온-프레미스 데이터 게이트웨이를 사용할 수 있습니다. 이 문서는 "Dropbox에 업로드된 파일을 파일 공유에 복사한 다음 전자 메일 전송"이라는 기본 예제 시나리오를 통해 온-프레미스 파일 시스템에 연결하는 방법을 보여줍니다.
+파일 시스템 커넥터 및 Azure Logic Apps를 사용하면 다음과 같이 온-프레미스 파일 공유에 파일을 만들어서 관리하는 자동화된 작업 및 워크플로를 만들 수 있습니다.  
+
+- 파일 만들기, 가져오기, 추가, 업데이트 및 삭제
+- 폴더 또는 루트 폴더의 파일을 나열합니다.
+- 파일 콘텐츠 및 메타데이터를 가져옵니다.
+
+이 문서에서는 [Dropbox에 업로드된 파일을 파일 공유에 복사한 후 이메일 보내기] 예제 시나리오에서 설명한 것처럼, 온-프레미스 파일 시스템에 연결하는 방법을 보여줍니다. 온-프레미스 시스템에 안전하게 연결하고 액세스할 수 있도록 논리 앱은 [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)를 사용합니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 최신 [온-프레미스 데이터 게이트웨이](https://www.microsoft.com/download/details.aspx?id=53127)를 다운로드합니다.
+* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
 
-* 최신 온-프레미스 데이터 게이트웨이 버전 1.15.6150.1 이상을 설치 및 설정합니다. 이 단계는 [온-프레미스 데이터 소스에 연결](http://aka.ms/logicapps-gateway)을 참조하세요. 이러한 단계를 계속하려면 온-프레미스 컴퓨터에 게이트웨이를 설치해야 합니다.
+* 논리 앱을 파일 시스템 서버 같은 온-프레미스 시스템에 연결하려면 먼저 [온-프레미스 데이터 게이트웨이를 설치 및 설정](../logic-apps/logic-apps-gateway-install.md)해야 합니다. 이런 방식으로 논리 앱에서 파일 시스템 연결을 만들 때 게이트웨이 설치를 사용하도록 지정할 수 있습니다.
 
-* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
+* [Drobox 계정](https://www.dropbox.com/) 및 사용자 자격 증명
 
-## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>파일 시스템에 연결하기 위한 트리거 및 작업 추가
+  자격 증명을 통해 Drobox 계정에 대한 연결을 만들고 액세스하는 권한이 논리 앱에 부여됩니다. 
 
-1. 빈 논리 앱을 만듭니다. **Dropbox - 파일이 만들어진 경우** 트리거를 첫 번째 단계로 추가합니다. 
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식 이 예에서는 빈 논리 앱이 필요합니다.
 
-2. 트리거에서 **+ 다음 단계** > **작업 추가**를 선택합니다. 
+## <a name="add-trigger"></a>트리거 추가
 
-3. 검색 상자에 "파일 시스템"을 필터로 입력합니다. 파일 시스템 커넥터에 대한 모든 작업이 표시되면 **파일 시스템 - 파일 만들기** 작업을 선택합니다. 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-   ![파일 커넥터 검색](media/logic-apps-using-file-connector/search-file-connector.png)
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
-4. 파일 시스템에 아직 연결하지 않은 경우 연결을 생성하라는 메시지가 표시됩니다. 
+1. 검색 상자에 필터로 "dropbox"를 입력합니다. 트리거 목록에서 **파일을 만들 때** 트리거를 선택합니다. 
 
-5. **온-프레미스 데이터 게이트웨이를 통해 연결**을 선택합니다. 연결 속성이 나타나면 테이블에 지정된 대로 연결을 설정합니다.
+   ![Dropbox 트리거 선택](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
-   ![연결 구성](media/logic-apps-using-file-connector/create-file.png)
+1. Dropbox 계정 자격 증명을 사용하여 로그인하고, Dropbox 데이터에 대한 액세스 권한을 Azure Logic Apps에 부여합니다. 
 
-   | 설정 | 설명 |
-   | ------- | ----------- |
-   | **루트 폴더** | 파일 시스템에 대한 루트 폴더를 지정합니다. 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더 또는 컴퓨터에서 액세스할 수 있는 네트워크 공유 폴더를 지정할 수 있습니다. <p>**팁:** 루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. | 
-   | **인증 유형** | 파일 시스템에 사용되는 인증 유형 | 
-   | **사용자 이름** | 이전에 설치된 게이트웨이에 대한 사용자 이름 {*도메인*\\*사용자 이름*}을 입력합니다. | 
-   | **암호** | 이전에 설치된 게이트웨이에 대한 암호를 입력합니다. | 
-   | **게이트웨이** | 이전에 설치된 게이트웨이를 선택합니다. | 
+1. 트리거에 필요한 정보를 입력합니다.
+
+   ![Dropbox 트리거](media/logic-apps-using-file-connector/dropbox-trigger.png)
+
+## <a name="add-actions"></a>작업 추가
+
+1. 트리거 아래에서 **다음 단계**를 선택합니다. 검색 상자에 "파일 시스템"을 필터로 입력합니다. 작업 목록에서 **파일 만들기 - 파일 시스템** 작업을 선택합니다.
+
+   ![파일 시스템 커넥터 찾기](media/logic-apps-using-file-connector/find-file-system-action.png)
+
+1. 파일 시스템에 아직 연결하지 않은 경우 연결을 생성하라는 메시지가 표시됩니다.
+
+   ![연결 만들기](media/logic-apps-using-file-connector/file-system-connection.png)
+
+   | 자산 | 필수 | 값 | 설명 | 
+   | -------- | -------- | ----- | ----------- | 
+   | **연결 이름** | yes | <*connection-name*> | 연결에 사용하려는 이름 | 
+   | **루트 폴더** | yes | <*root-folder-name*> | 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더처럼 파일 시스템의 루트 폴더이거나 컴퓨터가 액세스할 수 있는 네트워크 공유의 폴더입니다. <p>예: `\\PublicShare\\DropboxFiles` <p>루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. | 
+   | **인증 유형** | 아니요 | <*auth-type*> | 파일 시스템에 사용되는 인증 유형(예: **Windows**) | 
+   | **사용자 이름** | yes | <*domain*>\\<*username*> | 이전에 설치된 데이터 게이트웨이의 사용자 이름 | 
+   | **암호** | yes | <*your-password*> | 이전에 설치된 데이터 게이트웨이의 암호 | 
+   | **gateway** | yes | <*installed-gateway-name*> | 이전에 설치된 게이트웨이의 이름 | 
    ||| 
 
-6. 모든 연결 세부 정보를 제공한 후 **만들기**를 선택합니다. 
+1. 작업을 완료하면 **만들기**를 선택합니다. 
 
    Logic Apps는 연결을 구성하고 테스트하여 제대로 작동되는지 확인합니다. 
    연결이 제대로 설정되면 이전에 선택한 작업에 대한 옵션이 표시됩니다. 
-   이제 파일 시스템 커넥터를 사용할 준비가 되었습니다.
 
-7. Dropbox에서 온-프레미스 파일 공유의 루트 폴더로 파일을 복사하는 **파일 만들기** 작업을 설정합니다.
+1. **파일 만들기** 작업에서, Dropbox에서 온-프레미스 파일 공유의 루트 폴더로 파일을 복사하기 위한 세부 정보를 입력합니다. 이전 단계의 출력을 추가하려면 상자 내부를 클릭하고, 동적 콘텐츠 목록이 나타나면 사용 가능한 필드에서 선택합니다.
 
    ![파일 작업 만들기](media/logic-apps-using-file-connector/create-file-filled.png)
 
-8. 파일을 복사하기 위한 작업을 수행한 후 관련 사용자가 새 파일에 대해 알 수 있도록 전자 메일을 보내는 Outlook 작업을 추가합니다. 전자 메일의 받는 사람, 제목 및 본문을 입력합니다. 
-
-   **동적 콘텐츠** 목록에서 전자 메일에 더 많은 세부 정보를 추가할 수 있도록 파일 커넥터의 데이터 출력을 선택할 수 있습니다.
+1. 이제 적절한 사용자가 새 파일에 대해 알 수 있도록 이메일을 보내는 Outlook 작업을 추가합니다. 전자 메일의 받는 사람, 제목 및 본문을 입력합니다. 자신의 이메일 주소를 사용하여 테스트할 수 있습니다.
 
    ![전자 메일 보내기 작업](media/logic-apps-using-file-connector/send-email.png)
 
-9. 논리 앱을 저장합니다. Dropbox에 파일을 업로드하여 앱을 테스트합니다. 파일은 온-프레미스 파일 공유로 복사되며 해당 작업에 대한 전자 메일 알림이 수신됩니다.
+1. 논리 앱을 저장합니다. Dropbox에 파일을 업로드하여 앱을 테스트합니다. 
 
-축하합니다. 이제 온-프레미스 파일 시스템에 연결할 수 있는 작업 논리 앱이 생성되었습니다. 
+   논리 앱은 온-프레미스 파일 공유로 파일을 복사하고, 받는 사람에게 복사된 파일에 대한 이메일을 보냅니다.
 
-다음과 같이 커넥터가 제공하는 다른 기능도 함께 탐색해 보세요.
+## <a name="connector-reference"></a>커넥터 참조
 
-- 파일 만들기
-- 폴더의 파일 나열
-- 파일 첨부
-- 파일 삭제
-- 파일 콘텐츠 가져오기
-- 경로를 사용하여 파일 콘텐츠 가져오기
-- 파일 메타데이터 가져오기
-- 경로를 사용하여 파일 메타데이터 가져오기
-- 루트 폴더의 파일 나열
-- 파일 업데이트
-
-## <a name="view-the-swagger"></a>swagger 보기
-
-[swagger 정보](/connectors/fileconnector/)를 참조하세요. 
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/fileconnector/)를 검토하세요.
 
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
 
-* Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Azure Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)에서 투표하거나 아이디어를 제출하세요.
+* Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Azure Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)에서 투표하거나 아이디어를 제출하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [온-프레미스 데이터에 연결](../logic-apps/logic-apps-gateway-connection.md) 
-* [논리 앱 모니터링](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [B2B 시나리오를 위한 엔터프라이즈 통합](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [온-프레미스 데이터에 연결](../logic-apps/logic-apps-gateway-connection.md)하는 방법을 알아봅니다. 
+* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

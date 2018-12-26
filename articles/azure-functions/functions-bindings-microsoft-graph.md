@@ -2,25 +2,23 @@
 title: Azure Functions에 대한 Microsoft Graph 바인딩
 description: Azure Functions에서 Microsoft Graph 트리거 및 바인딩을 사용하는 방법을 파악합니다.
 services: functions
-author: mattchenderson
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.tgt_pltfrm: na
+author: craigshoemaker
+manager: jeconnoc
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: mahender
-ms.openlocfilehash: af748f234a27ed9b37ac50438d7497fd680bc193
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.author: cshoe
+ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085575"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51301019"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions에 대한 Microsoft Graph 바인딩
 
-이 문서에서는 Azure Functions에서 Microsoft Graph 트리거 및 바인딩을 구성하고 사용하는 방법에 대해 설명합니다. 이러한 방법을 배우고 나면 Azure Functions를 사용하여 [Microsoft Graph](https://graph.microsoft.io)에서 데이터, 자세한 정보 및 이벤트를 작업할 수 있습니다.
+이 문서에서는 Azure Functions에서 Microsoft Graph 트리거 및 바인딩을 구성하고 사용하는 방법에 대해 설명합니다. 이러한 방법을 배우고 나면 Azure Functions를 사용하여 [Microsoft Graph](https://developer.microsoft.com/graph)에서 데이터, 자세한 정보 및 이벤트를 작업할 수 있습니다.
 
 Microsoft Graph 확장에는 다음과 같은 바인딩이 제공됩니다.
 - 모든 Microsoft Graph API와 상호 작용할 수 있게 해주는 [인증 토큰 입력 바인딩](#token-input).
@@ -129,9 +127,10 @@ Azure Portal을 사용하는 경우 확장을 설치할지 묻는 메시지 아�
 ```csharp
 using System.Net; 
 using System.Net.Http; 
-using System.Net.Http.Headers; 
+using System.Net.Http.Headers;
+using Microsoft.Extensions.Logging; 
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string graphToken, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string graphToken, ILogger log)
 {
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", graphToken);
@@ -173,7 +172,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string
 다음 JavaScript 코드는 토큰을 사용하여 Microsoft Graph에 대한 HTTP 호출을 만들고 그 결과를 반환합니다.
 
 ```js
-const rp = require('request-promise');
+const rp = require('request-promise');
 
 module.exports = function (context, req) {
     let token = "Bearer " + context.bindings.graphToken;
@@ -285,9 +284,10 @@ Excek 테이블 입력 바인딩은 OneDrive에 저장된 Excel 테이블의 콘
 ```csharp
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives; 
+using Microsoft.Extensions.Primitives;
+using Microsoft.Extensions.Logging;
 
-public static IActionResult Run(HttpRequest req, string[][] excelTableData, TraceWriter log)
+public static IActionResult Run(HttpRequest req, string[][] excelTableData, ILogger log)
 {
     return new OkObjectResult(excelTableData);
 }
@@ -435,8 +435,9 @@ Excel 출력 바인딩은 OneDrive에 저장된 Excel 테이블의 콘텐츠를 
 ```csharp
 using System.Net;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRow, TraceWriter log)
+public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRow, ILogger log)
 {
     string input = req.Query
         .FirstOrDefault(q => string.Compare(q.Key, "text", true) == 0)
@@ -589,10 +590,11 @@ C# 스크립트 코드는 쿼리 문자열에 지정된 파일을 읽고 그 길
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static void Run(HttpRequestMessage req, Stream myOneDriveFile, TraceWriter log)
+public static void Run(HttpRequestMessage req, Stream myOneDriveFile, ILogger log)
 {
-    log.Info(myOneDriveFile.Length.ToString());
+    log.LogInformation(myOneDriveFile.Length.ToString());
 }
 ```
 
@@ -732,13 +734,15 @@ OneDrive 파일 출력 바인딩은 OneDrive에 저장된 파일의 콘텐츠를
 ```csharp
 using System.Net;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDriveFile)
+public static async Task Run(HttpRequest req, ILogger log, Stream myOneDriveFile)
 {
     string data = req.Query
         .FirstOrDefault(q => string.Compare(q.Key, "text", true) == 0)
         .Value;
     await myOneDriveFile.WriteAsync(Encoding.UTF8.GetBytes(data), 0, data.Length);
+    myOneDriveFile.Close();
     return;
 }
 ```
@@ -830,7 +834,7 @@ Outlook 메시지 출력 바인딩은 Outlook을 통해 메일 메시지를 보�
 * [예제](#outlook-output---example)
 * [특성](#outlook-output---attributes)
 * [구성](#outlook-output---configuration)
-* [사용 현황](#outlook-outnput---usage)
+* [사용 현황](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Outlook 출력 - 예제
 
@@ -868,8 +872,9 @@ C# 스크립트 코드는 호출자의 메일을 쿼리 문자열에 지정된 �
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static void Run(HttpRequest req, out Message message, TraceWriter log)
+public static void Run(HttpRequest req, out Message message, ILogger log)
 { 
     string emailAddress = req.Query["to"];
     message = new Message(){
@@ -1028,14 +1033,15 @@ C# 스크립트 코드는 들어오는 메일 메시지에 반응하여 받는 �
 #r "Microsoft.Graph"
 using Microsoft.Graph;
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(Message msg, TraceWriter log)  
+public static async Task Run(Message msg, ILogger log)  
 {
-    log.Info("Microsoft Graph webhook trigger function processed a request.");
+    log.LogInformation("Microsoft Graph webhook trigger function processed a request.");
 
     // Testable by sending oneself an email with the subject "Azure Functions" and some text body
     if (msg.Subject.Contains("Azure Functions") && msg.From.Equals(msg.Sender)) {
-        log.Info($"Processed email: {msg.BodyPreview}");
+        log.LogInformation($"Processed email: {msg.BodyPreview}");
     }
 }
 ```
@@ -1161,13 +1167,14 @@ C# 스크립트 코드는 구독을 가져와서 삭제합니다.
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(HttpRequest req, string[] existingSubscriptions, IAsyncCollector<string> subscriptionsToDelete, TraceWriter log)
+public static async Task Run(HttpRequest req, string[] existingSubscriptions, IAsyncCollector<string> subscriptionsToDelete, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
     foreach (var subscription in existingSubscriptions)
     {
-        log.Info($"Deleting subscription {subscription}");
+        log.LogInformation($"Deleting subscription {subscription}");
         await subscriptionsToDelete.AddAsync(subscription);
     }
 }
@@ -1310,10 +1317,11 @@ C# 스크립트 코드는 호출하는 사용자가 Outlook 메시지를 받으�
 ```csharp
 using System;
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, TraceWriter log)
+public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, ILogger log)
 {
-  log.Info("C# HTTP trigger function processed a request.");
+  log.LogInformation("C# HTTP trigger function processed a request.");
     clientState = Guid.NewGuid().ToString();
     return new HttpResponseMessage(HttpStatusCode.OK);
 }
@@ -1357,7 +1365,7 @@ public static HttpResponseMessage run(HttpRequestMessage req, out string clientS
 JavaScript 코드는 호출하는 사용자가 Outlook 메시지를 받으면 이 함수 앱에 그 사실을 알리는 웹후크를 등록합니다.
 
 ```js
-const uuidv4 = require('uuid/v4');
+const uuidv4 = require('uuid/v4');
 
 module.exports = function (context, req) {
     context.bindings.clientState = uuidv4();
@@ -1416,7 +1424,7 @@ module.exports = function (context, req) {
 
 ### <a name="app-identity-refresh---c-script-example"></a>앱 ID 새로 고침 - C# 스크립트 예제
 
-다음 예제에서는 응용 프로그램 ID를 사용하여 구독을 새로 고칩니다.
+다음 예제에서는 애플리케이션 ID를 사용하여 구독을 새로 고칩니다.
 
 *function.json*은 구독 입력 바인딩 및 구독 출력 바인딩으로 타이머 트리거를 정의합니다.
 
@@ -1450,15 +1458,16 @@ C# 스크립트 코드는 구독을 새로 고칩니다.
 
 ```csharp
 using System;
+using Microsoft.Extensions.Logging;
 
-public static void Run(TimerInfo myTimer, string[] existingSubscriptions, ICollector<string> subscriptionsToRefresh, TraceWriter log)
+public static void Run(TimerInfo myTimer, string[] existingSubscriptions, ICollector<string> subscriptionsToRefresh, ILogger log)
 {
     // This template uses application permissions and requires consent from an Azure Active Directory admin.
     // See https://go.microsoft.com/fwlink/?linkid=858780
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     foreach (var subscription in existingSubscriptions)
     {
-      log.Info($"Refreshing subscription {subscription}");
+      log.LogInformation($"Refreshing subscription {subscription}");
       subscriptionsToRefresh.Add(subscription);
     }
 }
@@ -1466,7 +1475,7 @@ public static void Run(TimerInfo myTimer, string[] existingSubscriptions, IColle
 
 ### <a name="app-identity-refresh---c-script-example"></a>앱 ID 새로 고침 - C# 스크립트 예제
 
-다음 예제에서는 응용 프로그램 ID를 사용하여 구독을 새로 고칩니다.
+다음 예제에서는 애플리케이션 ID를 사용하여 구독을 새로 고칩니다.
 
 *function.json*은 구독 입력 바인딩 및 구독 출력 바인딩으로 타이머 트리거를 정의합니다.
 
@@ -1506,8 +1515,8 @@ module.exports = function (context) {
     const existing = context.bindings.existingSubscriptions;
     var toRefresh = [];
     for (var i = 0; i < existing.length; i++) {
-        context.log(`Deleting subscription ${existing[i]}`);
-        todelete.push(existing[i]);
+        context.log(`Refreshing subscription ${existing[i]}`);
+        toRefresh.push(existing[i]);
     }
     context.bindings.subscriptionsToRefresh = toRefresh;
     context.done();
@@ -1543,10 +1552,11 @@ C# 스크립트 코드는 각 사용자의 ID를 사용하여 코드에서 구�
 
 ```csharp
 using System;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubscriptions, IBinder binder, TraceWriter log)
+public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubscriptions, IBinder binder, ILogger log)
 {
-  log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+  log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     foreach (var subscription in existingSubscriptions)
     {
         // binding in code to allow dynamic identity
@@ -1558,7 +1568,7 @@ public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubsc
             }
         ))
         {
-            log.Info($"Refreshing subscription {subscription}");
+            log.LogInformation($"Refreshing subscription {subscription}");
             await subscriptionsToRefresh.AddAsync(subscription);
         }
 

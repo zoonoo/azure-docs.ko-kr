@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5943357bc421bbae0caef7f0acd7aa3364813826
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 771ec7713c989025635e585b7bb511986e71cda9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597521"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024770"
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
 이 문서에서는 C# 7 정책 식 구문에 대해 설명합니다. 각 식에서 암시적으로 제공된 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수와 .NET Framework 형식의 허용된 [하위 집합](api-management-policy-expressions.md#CLRTypes)에 액세스합니다.  
@@ -52,15 +52,15 @@ ms.locfileid: "34597521"
   
 @(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
   
-@{   
-  string value;   
-  if (context.Request.Headers.TryGetValue("Authorization", out value))   
-  {   
-    return Encoding.UTF8.GetString(Convert.FromBase64String(value));  
-  }   
-  else   
-  {   
-    return null;  
+@{   
+  string value;   
+  if (context.Request.Headers.TryGetValue("Authorization", out value))   
+  {   
+    return Encoding.UTF8.GetString(Convert.FromBase64String(value));  
+  }   
+  else   
+  {   
+    return null;  
   }  
 }  
 ```  
@@ -74,18 +74,18 @@ ms.locfileid: "34597521"
 ##  <a name="CLRTypes"></a> 정책 식에 허용된 .NET Framework 형식  
  다음 표에서는 .NET Framework 형식과 정책 식에 허용된 멤버를 보여 줍니다.  
   
-|CLR 형식|지원되는 방식|  
+|CLR 형식|지원되는 멤버|  
 |--------------|-----------------------|  
-|Newtonsoft.Json.Linq.Extensions|모든 메서드 지원됨|  
-|Newtonsoft.Json.Linq.JArray|모든 메서드 지원됨|  
-|Newtonsoft.Json.Linq.JConstructor|모든 메서드 지원됨|  
-|Newtonsoft.Json.Linq.JContainer|모든 메서드 지원됨|  
-|Newtonsoft.Json.Linq.JObject|모든 메서드 지원됨|  
-|Newtonsoft.Json.Linq.JProperty|모든 메서드 지원됨|  
-|Newtonsoft.Json.Linq.JRaw|모든 메서드 지원됨|  
-|Newtonsoft.Json.Linq.JToken|모든 메서드 지원됨|  
-|Newtonsoft.Json.Linq.JTokenType|모든 메서드 지원됨|  
-|Newtonsoft.Json.Linq.JValue|모든 메서드 지원됨|  
+|Newtonsoft.Json.Linq.Extensions|모두|  
+|Newtonsoft.Json.Linq.JArray|모두|  
+|Newtonsoft.Json.Linq.JConstructor|모두|  
+|Newtonsoft.Json.Linq.JContainer|모두|  
+|Newtonsoft.Json.Linq.JObject|모두|  
+|Newtonsoft.Json.Linq.JProperty|모두|  
+|Newtonsoft.Json.Linq.JRaw|모두|  
+|Newtonsoft.Json.Linq.JToken|모두|  
+|Newtonsoft.Json.Linq.JTokenType|모두|  
+|Newtonsoft.Json.Linq.JValue|모두|  
 |System.Collections.Generic.IReadOnlyCollection<T\>|모두|  
 |System.Collections.Generic.IReadOnlyDictionary<TKey,  TValue>|모두|  
 |System.Collections.Generic.ISet<TKey, TValue>|모두|  
@@ -105,9 +105,10 @@ ms.locfileid: "34597521"
 |System.Int16|모두|  
 |System.Int32|모두|  
 |System.Int64|모두|  
-|System.Linq.Enumerable<T\>|모든 메서드 지원됨|  
+|System.Linq.Enumerable<T\>|모두|  
 |System.Math|모두|  
-|System.MidpointRounding|모두|  
+|System.MidpointRounding|모두|
+|System.Net.WebUtility|모두|
 |System.Nullable<T\>|모두|  
 |System.Random|모두|  
 |System.SByte|모두|  
@@ -146,23 +147,23 @@ ms.locfileid: "34597521"
 |System.UInt32|모두|  
 |System.UInt64|모두|  
 |System.Uri|모두|  
-|System.Xml.Linq.Extensions|모든 메서드 지원됨|  
-|System.Xml.Linq.XAttribute|모든 메서드 지원됨|  
-|System.Xml.Linq.XCData|모든 메서드 지원됨|  
-|System.Xml.Linq.XComment|모든 메서드 지원됨|  
-|System.Xml.Linq.XContainer|모든 메서드 지원됨|  
-|System.Xml.Linq.XDeclaration|모든 메서드 지원됨|  
-|System.Xml.Linq.XDocument|모든 메서드 지원됨|  
-|System.Xml.Linq.XDocumentType|모든 메서드 지원됨|  
-|System.Xml.Linq.XElement|모든 메서드 지원됨|  
-|System.Xml.Linq.XName|모든 메서드 지원됨|  
-|System.Xml.Linq.XNamespace|모든 메서드 지원됨|  
-|System.Xml.Linq.XNode|모든 메서드 지원됨|  
-|System.Xml.Linq.XNodeDocumentOrderComparer|모든 메서드 지원됨|  
-|System.Xml.Linq.XNodeEqualityComparer|모든 메서드 지원됨|  
-|System.Xml.Linq.XObject|모든 메서드 지원됨|  
-|System.Xml.Linq.XProcessingInstruction|모든 메서드 지원됨|  
-|System.Xml.Linq.XText|모든 메서드 지원됨|  
+|System.Xml.Linq.Extensions|모두|  
+|System.Xml.Linq.XAttribute|모두|  
+|System.Xml.Linq.XCData|모두|  
+|System.Xml.Linq.XComment|모두|  
+|System.Xml.Linq.XContainer|모두|  
+|System.Xml.Linq.XDeclaration|모두|  
+|System.Xml.Linq.XDocument|모두|  
+|System.Xml.Linq.XDocumentType|모두|  
+|System.Xml.Linq.XElement|모두|  
+|System.Xml.Linq.XName|모두|  
+|System.Xml.Linq.XNamespace|모두|  
+|System.Xml.Linq.XNode|모두|  
+|System.Xml.Linq.XNodeDocumentOrderComparer|모두|  
+|System.Xml.Linq.XNodeEqualityComparer|모두|  
+|System.Xml.Linq.XObject|모두|  
+|System.Xml.Linq.XProcessingInstruction|모두|  
+|System.Xml.Linq.XText|모두|  
 |System.Xml.XmlNodeType|모두|  
   
 ##  <a name="ContextVariables"></a> 컨텍스트 변수  
@@ -170,7 +171,7 @@ ms.locfileid: "34597521"
   
 |컨텍스트 변수|허용된 메서드, 속성 및 매개 변수 값|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> 배포<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> LastError<br /><br /> 작업<br /><br /> 제품<br /><br /> 요청<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> response<br /><br /> 구독<br /><br /> Timestamp: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> 사용자<br /><br /> Variables: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
+|context|Api: IApi<br /><br /> 배포<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> LastError<br /><br /> 작업(Operation)<br /><br /> 제품<br /><br /> 요청<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> response<br /><br /> 구독<br /><br /> Timestamp: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> 사용자<br /><br /> Variables: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
 |context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: IUrl<br /><br /> Version: string |  
 |context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> context.LastError에 대한 자세한 내용은 [오류 처리](api-management-error-handling-policies.md)를 참조하세요.|  

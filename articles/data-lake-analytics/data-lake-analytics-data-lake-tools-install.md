@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.openlocfilehash: c520c437212c23cc9dc8327c95b9f2a77b08e1ac
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3269d38b691ec4dd9573a241c89dadc285787143
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622873"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254029"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구 설치
 
@@ -27,7 +26,7 @@ Visual Studio를 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-
     * Visual Studio 2017
     * Visual Studio 2015
     * Visual Studio 2013
-* **.NET용 Microsoft Azure SDK** 버전 2.7.1 이상.  [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
+* **.NET용 Microsoft Azure SDK** 버전 2.7.1 이상.  [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
 * **Data Lake Analytics** 계정. 계정을 만들려면 [Azure Portal을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)을 참조하세요.
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2017"></a>Azure Data Lake Tools for Visual Studio 2017 설치
@@ -40,7 +39,7 @@ Azure Data Lake Tools for Visual Studio는 Visual Studio 2017 15.3 이상에서 
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2013-and-2015"></a>Azure Data Lake Tools for Visual Studio 2013 및 2015 설치
 
-[다운로드 센터](http://aka.ms/adltoolsvs)에서 Azure Data Lake Tools for Visual Studio를 다운로드하여 설치합니다. 설치가 끝나면 다음을 확인할 수 있습니다.
+[다운로드 센터](https://aka.ms/adltoolsvs)에서 Azure Data Lake Tools for Visual Studio를 다운로드하여 설치합니다. 설치가 끝나면 다음을 확인할 수 있습니다.
 * **서버 탐색기** > **Azure** 노드에 **Data Lake Analytics** 노드가 포함됩니다. 
 * **도구** 메뉴에 **Data Lake** 항목이 있습니다.
 

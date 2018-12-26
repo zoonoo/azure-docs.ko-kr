@@ -2,23 +2,18 @@
 title: Azure Storage와 함께 Azure PowerShell 사용 | Microsoft Docs
 description: Azure PowerShell cmdlet을 Azure Storage에 사용하는 방법에 대해 알아봅니다.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 08/16/2018
 ms.author: rogarana
-ms.openlocfilehash: 951b69877718c5da3c165c24c297906a1ad9a976
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: 35813573be9b069cc920f5ede813503ab1b99b4a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652504"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227217"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 함께 Azure PowerShell 사용
 
@@ -37,7 +32,7 @@ PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관�
 
 이 문서에서는 저장소 분석을 사용하고 액세스하는 방법, 데이터 평면 cmdlet을 사용하는 방법, China 클라우드, German 클라우드 및 Government 클라우드 같은 Azure 독립 클라우드에 액세스하는 방법 등, 저장소에 대한 몇 가지 다른 PowerShell 문서에 대한 링크를 제공합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 이 연습에는 Azure PowerShell 모듈 버전 4.4 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
 
@@ -55,7 +50,7 @@ Connect-AzureRmAccount
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>구독의 저장소 계정 나열
 
-[Get-AzureRMStorageAccount](/powershell/module/azurerm.resources/get-azurermstorageaccount) cmdlet를 실행하여 현재 구독의 저장소 계정 목록을 검색합니다. 
+[Get-AzureRMStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) cmdlet를 실행하여 현재 구독의 저장소 계정 목록을 검색합니다. 
 
 ```powershell
 Get-AzureRMStorageAccount | Select StorageAccountName, Location
@@ -108,11 +103,11 @@ $ctx = $storageAccount.Context
 
 이 스크립트는 다음 PowerShell cmdlet를 사용합니다. 
 
-*   [Get AzureRmLocation](/powershell/module/azurerm.storage/Get-AzureRmLocation) -유효한 위치 목록을 검색합니다. 이 예제에서는 위치에 `eastus`를 사용합니다.
+*   [Get AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) -유효한 위치 목록을 검색합니다. 이 예제에서는 위치에 `eastus`를 사용합니다.
 
-*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup) - 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 여기서는 `teststoragerg`입니다. 
+*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) - 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 여기서는 `teststoragerg`입니다. 
 
-*   [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/New-AzureRmStorageAcccount) -- 실제 저장소 계정을 만듭니다. 이 예제에서는 `testpshstorage`를 사용합니다.
+*   [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) -- 저장소 계정을 만듭니다. 이 예제에서는 `testpshstorage`를 사용합니다.
 
 SKU 이름은 LRS(로컬 중복 저장소)처럼 저장소 계정에 대한 복제 유형을 나타냅니다. 복제에 대한 자세한 내용은 [Azure Storage 복제](storage-redundancy.md)를 참조하세요.
 
@@ -128,7 +123,7 @@ SKU 이름은 LRS(로컬 중복 저장소)처럼 저장소 계정에 대한 복�
 
 ### <a name="storage-account-properties"></a>저장소 계정 속성
 
-저장소 계정에 대한 설정을 변경하려면 [Set-AzureRmStorageAccount](/powershell/module/azurerm.resources/Set-AzureRmStorageAccount)를 사용합니다. 저장소 계정 위치 또는 속하는 리소스 그룹은 변경할 수 없지만 다른 여러 속성은 변경할 수 있습니다. 다음은 PowerShell을 사용하여 변경할 수 있는 몇 가지 속성의 목록입니다.
+저장소 계정에 대한 설정을 변경하려면 [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount)를 사용합니다. 저장소 계정 위치 또는 속하는 리소스 그룹은 변경할 수 없지만 다른 여러 속성은 변경할 수 있습니다. 다음은 PowerShell을 사용하여 변경할 수 있는 몇 가지 속성의 목록입니다.
 
 * 저장소 계정에 할당된 **사용자 지정 도메인**
 
@@ -164,7 +159,7 @@ New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
 키 중 하나를 다시 생성한 다음 다시 검색하여 새 값을 확인합니다.
 
 > [!NOTE] 
-> 프러덕션 저장소 계정에 대해 키를 다시 생성하기 전에 신중한 계획이 필요합니다. 하나 이상의 키를 다시 생성하면 다시 생성되는 키를 사용하던 모든 응용 프로그램에 대한 액세스가 무효화됩니다. 자세한 내용은 [저장소 액세스 키 다시 생성](storage-create-storage-account.md#regenerate-storage-access-keys)을 참조하세요.
+> 프러덕션 저장소 계정에 대해 키를 다시 생성하기 전에 신중한 계획이 필요합니다. 하나 이상의 키를 다시 생성하면 다시 생성되는 키를 사용하던 모든 애플리케이션에 대한 액세스가 무효화됩니다. 자세한 내용은 [액세스 키](storage-account-manage.md#access-keys)를 참조하세요.
 
 
 ### <a name="delete-a-storage-account"></a>저장소 계정 삭제 
@@ -186,13 +181,13 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 이 문서에서는 PowerShell cmdlet를 사용하여 이러한 설정을 관리하는 방법을 보여 줍니다.
 * [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
 * [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
-* [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
+* [Remove-AzureRmStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.storage/remove-azurermstorageaccountnetworkrule?view=azurermps-6.8.1)
 
 ## <a name="use-storage-analytics"></a>저장소 분석 사용  
 
 [Azure Storage Analytics](storage-analytics.md)는[Storage Analytics 메트릭](/rest/api/storageservices/about-storage-analytics-metrics)과 [Storage Analytics 로깅](/rest/api/storageservices/about-storage-analytics-logging)으로 구성됩니다. 
 
-**Storage Analytics 메트릭**은 저장소 계정의 상태를 모니터링하는 데 사용할 수 있는 Azure Storage 게정의 메트릭을 수집하는 데 사용됩니다. Blob, 파일, 테이블 및 큐에 대해 메트릭을 사용할 수 있습니다.
+**Storage Analytics 메트릭**은 저장소 계정의 상태를 모니터링하는 데 사용할 수 있는 Azure Storage 계정의 메트릭을 수집하는 데 사용됩니다. Blob, 파일, 테이블 및 큐에 대해 메트릭을 사용할 수 있습니다.
 
 **Storage Analytics 로깅**은 서버 쪽에서 발생하며, 이를 통해 Storage 계정의 성공한 요청 및 실패한 요청에 대한 세부 정보를 기록할 수 있습니다. 이러한 로그를 사용하여 테이블, 큐 및 Blob에 대한 읽기, 쓰기 및 삭제 작업뿐만 아니라 실패한 요청의 이유에 대한 세부 정보를 볼 수 있습니다. 로깅은 Azure Files에 사용할 수 없습니다.
 
@@ -220,7 +215,6 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 Azure Cosmos DB 테이블 API는 턴키 글로벌 배포, 짧은 대기 시간 읽기 및 쓰기, 자동 보조 인덱싱 및 전용 처리량과 같은 테이블 저장소를 위한 고급 기능을 제공 합니다. 
 
 * 자세한 내용은 [Azure Cosmos DB 테이블 API](../../cosmos-db/table-introduction.md)를 참조하세요. 
-* PowerShell을 사용하여 Azure Cosmos DB 테이블 API 작업을 수행하는 방법을 알아보려면 [PowerShell을 사용하여 Azure Cosmos DB 테이블 API 작업 수행](../../cosmos-db/table-powershell.md)을 참조하세요.
 
 ## <a name="independent-cloud-deployments-of-azure"></a>Azure의 독립 클라우드 배포
 

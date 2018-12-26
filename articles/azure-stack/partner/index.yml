@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 26c0353bddb9455b1bda8961f3c05e0f6c7cc176
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647717"
+documentType: LandingData
+title: Azure Stack 파트너 설명서
+metadata:
+  document_id: 
+  title: Azure Stack 파트너 D\documentation-자습서, API R\reference
+  description: Azure Stack 호스트 하드웨어의 유효성을 검사 하는 방법에 알아봅니다. 서비스 유효성 검사는 microsoft Azure Stack 제품 엔지니어링 배치 된 파트너 솔루션에서 사용 하기 위한 네이티브 Azure 서비스입니다.
+  services: azure-stack
+  author: mattbriggs
+  manager: femila
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/25/2018
+  ms.author: mabrigg
+  ms.reviewer: John.Haskin
+abstract:
+  description: 서비스로 Azure Stack과 함께 사용 하기 위해 하드웨어를 확인 하려면 유효성 검사를 사용할 수 있습니다. 서비스는 microsoft Azure Stack 제품 엔지니어링 배치 된 파트너 솔루션에서 사용 하기 위한 기본 Azure 서비스.
+sections:
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: 하드웨어에서 테스트를 예약 하는 유효성 검사 서비스 포털을 사용 하는 방법을 알아봅니다.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/i_account-management.svg
+      text: 서비스 포털로 유효성 검사를 사용 하 여 첫 번째 테스트를 예약 하려면
+      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-test-pass
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: Azure Stack 하드웨어의 유효성을 검사 하는 방법에 알아봅니다.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-solution-new">새 Azure Stack 솔루션의 유효성을 검사합니다</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-oem-package">OEM 패키지 유효성 검사</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Microsoft의 소프트웨어 업데이트의 유효성을 검사합니다</a>

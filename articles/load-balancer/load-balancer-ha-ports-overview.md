@@ -4,23 +4,19 @@ description: 내부 부하 분산 장치에서 고가용성 포트 부하 분산
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 04/07/2018
 ms.author: kumud
-ms.openlocfilehash: 53e09498324f802ce1839d262999657d37ee973b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 744cd933e901b930aa0394b36e9770bab6de38df
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169121"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740334"
 ---
 # <a name="high-availability-ports-overview"></a>고가용성 포트 개요
 

@@ -2,23 +2,18 @@
 title: Azure Storage 마이그레이션 FAQ | Microsoft Docs
 description: Azure Storage 마이그레이션에 대한 일반적인 질문과 대답입니다.
 services: storage
-documentationcenter: na
 author: genlin
-manager: timlt
-editor: tysonn
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 12172c53e8e5077f9690a2459bf5ccf3c3a05507
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.component: common
+ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071393"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416395"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -42,7 +37,7 @@ Automation 스크립트는 저장소 콘텐츠 조작 대신 Azure Resource Mana
 
 **동일한 지역 내의 동일한 저장소 계정에 있는 별도의 두 파일 공유 간에 데이터를 복사하기 위해 요금이 있나요?**
 
-번호 이 프로세스에는 요금이 부과되지 않습니다.
+아니요. 이 프로세스에는 요금이 부과되지 않습니다.
 
 **내 저장소 계정 전체를 다른 저장소 계정에 백업하려면 어떻게 할까요?**
 
@@ -196,7 +191,7 @@ AzCopy를 사용하여 다른 저장소 계정으로 데이터를 복사한 다�
 
 **저장소 계정의 복제를 지역 중복 저장소에서 로컬 중복 저장소로 변경하기 위한 필수 구성 요소가 있나요?**
 
-번호 
+아니요. 
 
 **Azure Files 중복 저장소에 액세스하려면 어떻게 할까요?**
 
@@ -261,7 +256,7 @@ Azure CLI를 사용할 수 있습니다.
 
 -   SAS(공유 액세스 서명) 토큰을 사용하여 리소스에 대한 액세스를 제공합니다. 
 
--   사용자에게 저장소 계정의 기본 또는 보조 키를 제공합니다. 자세한 내용은 [저장소 계정 관리](storage-create-storage-account.md#manage-your-storage-account)를 참조하세요.
+-   사용자에게 저장소 계정의 기본 또는 보조 키를 제공합니다. 자세한 내용은 [저장소 계정 관리](storage-account-manage.md#access-keys)를 참조하세요.
 
 -   익명 액세스를 허용하도록 액세스 정책을 변경합니다. 자세한 내용은 [컨테이너 및 Blob에 익명의 사용자 권한 부여](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)를 참조하세요.
 

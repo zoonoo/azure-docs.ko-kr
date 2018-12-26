@@ -9,14 +9,16 @@ ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 599302cbf614f800d35a9a8c6a401c9692fc2e39
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 6af2da9ffc7678a58fcf1c647ba89c586066d2ad
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268283"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339099"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>자습서: 사용자 지정 언어 모델 만들기
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 이 자습서에서는 텍스트 쿼리에 대한 사용자 지정 언어 모델 또는 사용자가 응용 프로그램에 입력 하거나 언급할 것으로 예상하는 발언을 만듭니다. 그런 다음, 응용 프로그램에 음성 상호 작용을 추가하려면 Microsoft에서 기존의 최신 음성 모델과 함께 이 사용자 지정 언어 모델을 사용할 수 있습니다.
 
@@ -64,11 +66,11 @@ Azure Portal에서 사용자 지정 Search Service 구독을 만드는 방법에
 
 ## <a name="import-the-language-data-set"></a>언어 데이터 집합 가져오기
 
-"음향 데이터 집합" 행에서 "가져오기" 단추를 클릭하면 해당 사이트는 새 데이터 집합을 업로드하기 위한 페이지를 표시합니다.
+"음향 데이터 세트" 행에서 "가져오기" 단추를 클릭하면 해당 사이트는 새 데이터 세트를 업로드하기 위한 페이지를 표시합니다.
 
-언어 데이터 집합을 가져올 준비가 되면 [Custom Speech Service 포털](https://cris.ai)에 로그인합니다.  그럼 다음, 위쪽 리본에서 "사용자 지정 음성" 드롭 다운 메뉴를 클릭하고 "적응 데이터"를 선택합니다. Custom Speech Service에 처음으로 데이터를 업로드하는 경우 "데이터 집합" 이라는 빈 테이블이 표시됩니다.
+언어 데이터 집합을 가져올 준비가 되면 [Custom Speech Service 포털](https://cris.ai)에 로그인합니다.  그럼 다음, 위쪽 리본에서 "사용자 지정 음성" 드롭 다운 메뉴를 클릭하고 "적응 데이터"를 선택합니다. Custom Speech Service에 처음으로 데이터를 업로드하는 경우 "데이터 세트"라는 빈 테이블이 표시됩니다.
 
-새 데이터 집합을 가져오기 위해 "언어 데이터 집합" 행에서 "가져오기" 단추를 클릭하면 해당 사이트는 새 데이터 집합을 업로드하기 위한 페이지를 표시합니다. 향후에 데이터 집합을 확인할 수 있도록 이름 및 설명을 입력합니다. 다음으로, "파일 선택" 단추를 사용하여 언어 데이터의 텍스트 파일을 찾습니다. 그 후 "가져오기"를 클릭하면 데이터 집합이 업로드됩니다. 데이터 집합 크기에 따라 몇 분이 걸릴 수 있습니다.
+새 데이터 세트를 가져오기 위해 "언어 데이터 세트" 행에서 "가져오기" 단추를 클릭하면 해당 사이트는 새 데이터 세트를 업로드하기 위한 페이지를 표시합니다. 향후에 데이터 집합을 확인할 수 있도록 이름 및 설명을 입력합니다. 다음으로, "파일 선택" 단추를 사용하여 언어 데이터의 텍스트 파일을 찾습니다. 그 후 "가져오기"를 클릭하면 데이터 집합이 업로드됩니다. 데이터 집합 크기에 따라 몇 분이 걸릴 수 있습니다.
 
 ![다음을 시도해 보세요.](../../../media/cognitive-services/custom-speech-service/custom-speech-language-datasets-import.png)
 

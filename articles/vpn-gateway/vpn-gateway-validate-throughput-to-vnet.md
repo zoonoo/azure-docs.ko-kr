@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 38ff1ee4c525d41e2a7446d5adc792c746504491
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 7e6b3e7496c4a063156ff3b8feae1f5096efe55f
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754309"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035621"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법
 
@@ -37,7 +37,7 @@ VPN Gateway 연결을 통해 Azure 내 Virtual Network와 온-프레미스 IT �
 
 VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 
-- 온-프레미스 VPN 장치([유효성 검사된 VPN 장치](vpn-gateway-about-vpn-devices.md#devicetable) 목록 보기).
+- 온-프레미스 VPN 디바이스([유효성 검사된 VPN 디바이스](vpn-gateway-about-vpn-devices.md#devicetable) 목록 보기).
 - 공용 인터넷
 - Azure VPN Gateway
 - Azure VM
@@ -48,13 +48,13 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>최대 예상 수신/송신 계산
 
-1.  응용 프로그램의 기준선 처리량 요구 사항을 결정합니다.
+1.  애플리케이션의 기준선 처리량 요구 사항을 결정합니다.
 2.  Azure VPN Gateway 처리량 제한을 결정합니다. 자세한 내용은 [VPN Gateway 계획 및 설계](vpn-gateway-plan-design.md)의 “SKU 및 VPN 형식별 총 처리량” 섹션을 참조하세요.
 3.  VM 크기에 대한 [Azure VM 처리량 지침](../virtual-machines/virtual-machines-windows-sizes.md)을 결정합니다.
 4.  ISP(인터넷 서비스 공급자) 대역폭을 결정합니다.
 5.  예상 처리량을 계산합니다((VM, Gateway, ISP)의 최소 대역폭 * 0.8).
 
-계산된 처리량이 응용 프로그램의 기준선 처리량 요구 사항을 충족하지 않을 경우 병목 현상으로 식별한 리소스의 대역폭을 늘려야 합니다. Azure VPN Gateway의 크기를 조정하려면 [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)(게이트웨이 SKU 변경)를 참조하세요. 가상 머신의 크기를 조정하려면 [VM 크기 조정](../virtual-machines/virtual-machines-windows-resize-vm.md)을 참조하세요. 예상 인터넷 대역폭을 사용할 수 없으면 ISP에 문의해야 할 수도 있습니다.
+계산된 처리량이 애플리케이션의 기준선 처리량 요구 사항을 충족하지 않을 경우 병목 현상으로 식별한 리소스의 대역폭을 늘려야 합니다. Azure VPN Gateway의 크기를 조정하려면 [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)(게이트웨이 SKU 변경)를 참조하세요. 가상 머신의 크기를 조정하려면 [VM 크기 조정](../virtual-machines/virtual-machines-windows-resize-vm.md)을 참조하세요. 예상 인터넷 대역폭을 사용할 수 없으면 ISP에 문의해야 할 수도 있습니다.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>성능 도구를 사용하여 네트워크 처리량의 유효성 검사
 
@@ -88,8 +88,8 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
     ```CMD
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
-    </br>
-    **Azure Linux:** Azure Linux 이미지에는 허용되는 방화벽이 있습니다. 포트를 수신 중인 응용 프로그램이 있으면 트래픽이 통과할 수 있습니다. 보안 설정된 사용자 지정 이미지를 사용하려면 명시적으로 열린 포트가 필요할 수 있습니다. 일반적인 Linux OS 계층 방화벽에는 `iptables`, `ufw` 또는 `firewalld`가 포함됩니다.
+     
+    **Azure Linux:** Azure Linux 이미지에는 허용되는 방화벽이 있습니다. 포트를 수신 중인 애플리케이션이 있으면 트래픽이 통과할 수 있습니다. 보안 설정된 사용자 지정 이미지를 사용하려면 명시적으로 열린 포트가 필요할 수 있습니다. 일반적인 Linux OS 계층 방화벽에는 `iptables`, `ufw` 또는 `firewalld`가 포함됩니다.
 
 3. 서버 노드에서 iperf3.exe가 추출된 디렉터리로 변경합니다. 그다음에 서버 모드에서 iPerf를 실행하고 다음 명령으로 포트 5001을 수신하도록 설정합니다.
 
@@ -122,15 +122,15 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 ## <a name="address-slow-file-copy-issues"></a>느린 파일 복사 문제 처리
 Windows 탐색기를 사용하거나 RDP 세션을 통해 끌어서 놓으면 파일 복사가 느려질 수 있습니다. 일반적으로 이 문제의 원인은 다음 요소 중 하나이거나 둘 다에 해당합니다.
 
-- Windows 탐색기 및 RDP와 같은 파일 복사 응용 프로그램은 파일을 복사할 때 여러 스레드를 사용하지 않습니다. 성능을 개선하기 위해 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx)와 같은 다중 스레드 파일 복사 응용 프로그램을 통해 16개 또는 32개의 스레드를 사용하여 파일을 복사합니다. Richcopy에서 파일 복사에 사용할 스레드 수를 변경하려면 **작업** > **복사 옵션** > **파일 복사**를 클릭합니다.<br><br>
+- Windows 탐색기 및 RDP와 같은 파일 복사 애플리케이션은 파일을 복사할 때 여러 스레드를 사용하지 않습니다. 성능을 개선하기 위해 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx)와 같은 다중 스레드 파일 복사 애플리케이션을 통해 16개 또는 32개의 스레드를 사용하여 파일을 복사합니다. Richcopy에서 파일 복사에 사용할 스레드 수를 변경하려면 **작업** > **복사 옵션** > **파일 복사**를 클릭합니다.<br><br>
 ![느린 파일 복사 문제](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - 부족한 VM 디스크 읽기/쓰기 속도. 자세한 내용은 [Azure Storage 문제 해결](../storage/common/storage-e2e-troubleshooting.md)을 참조하세요.
 
-## <a name="on-premises-device-external-facing-interface"></a>온-프레미스 장치 외부 연결 인터페이스
-온-프레미스 VPN 장치 인터넷 연결 IP 주소가 Azure의 [로컬 네트워크](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) 정의에 포함된 경우 VPN, 간헐적인 연결 해제 또는 성능 문제가 표시되지 않을 수 있습니다.
+## <a name="on-premises-device-external-facing-interface"></a>온-프레미스 디바이스 외부 연결 인터페이스
+온-프레미스 VPN 디바이스 인터넷 연결 IP 주소가 Azure의 [로컬 네트워크](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) 정의에 포함된 경우 VPN, 간헐적인 연결 해제 또는 성능 문제가 표시되지 않을 수 있습니다.
 
 ## <a name="checking-latency"></a>대기 시간 확인
-tracert를 통해 Microsoft Azure Edge 장치를 추적하여 홉 사이에 100ms를 초과하는 지연이 있는지 확인합니다.
+tracert를 통해 Microsoft Azure Edge 디바이스를 추적하여 홉 사이에 100ms를 초과하는 지연이 있는지 확인합니다.
 
 온-프레미스 네트워크에서 Azure Gateway 또는 VM의 VIP에 대해 *tracert*를 실행합니다. 반환된 *만 확인하면 Azure 가장자리에 도달했음을 알 수 있습니다. 반환된 “MSN”이 포함된 DNS 이름을 확인하면 Microsoft 백본에 도달했음을 알 수 있습니다.<br><br>
 ![대기 시간 확인](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)

@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 37b5e5d05559088d7f5aac796f452f2ed83447fc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 200c87bdf2f0d686cd2e768d3b6b9a7fe3a5691b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294634"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282518"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>응용 프로그램 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -30,7 +30,7 @@ Azure Active Directory 응용 프로그램 프록시 및 PingAccess는 Azure Act
 
 Azure Active Directory용 PingAccess는 인증에 헤더를 사용하는 응용 프로그램에 대한 액세스 및 Single Sign-On을 사용자에게 부여할 수 있도록 하는 PingAccess 제품입니다. 응용 프로그램 프록시는 Azure AD를 사용하여 액세스를 인증한 다음 커넥터 서비스를 통해 트래픽을 전달하여 다른 앱과 같이 이러한 앱을 처리합니다. PingAccess는 응용 프로그램에서 읽을 수 있는 형식으로 인증을 받도록 앱 앞에 위치하고 Azure AD의 액세스 토큰을 헤더로 변환합니다.
 
-사용자는 회사 앱을 사용하기 위해 로그인할 때 다른 점을 알아차리지 못합니다. 여전히 어디에서든지 모든 장치에서 작업할 수 있습니다. 
+사용자는 회사 앱을 사용하기 위해 로그인할 때 다른 점을 알아차리지 못합니다. 여전히 어디에서든지 모든 디바이스에서 작업할 수 있습니다. 
 
 응용 프로그램 프록시 커넥터는 해당 인증 유형에 관계 없이 모든 앱에 원격 트래픽을 보내므로 계속해서 자동으로 부하 균형을 유지합니다.
 
@@ -38,7 +38,7 @@ Azure Active Directory용 PingAccess는 인증에 헤더를 사용하는 응용 
 
 이 시나리오는 Azure Active Directory 및 PingAccess 간의 파트너 관계를 통해 제공되므로 두 서비스에 대한 라이선스가 필요합니다. 그러나 Azure Active Directory Premium 구독에는 최대 20개의 응용 프로그램을 보장하는 기본 PingAccess 라이선스가 포함되어 있습니다. 헤더 기반 응용 프로그램을 20개 이상 게시해야 하는 경우 PingAccess에서 라이선스를 추가로 구입할 수 있습니다. 
 
-자세한 내용은 [Azure Active Directory 버전](../active-directory-whatis.md)을 참조하세요.
+자세한 내용은 [Azure Active Directory 버전](../fundamentals/active-directory-whatis.md)을 참조하세요.
 
 ## <a name="publish-your-application-in-azure"></a>Azure에 응용 프로그램 게시
 
@@ -140,7 +140,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>선택 사항 - 사용자 지정 필드를 보내도록 GraphAPI 업데이트
 
-Azure AD에서 인증에 대해 전송하는 보안 토큰의 목록은 [Azure AD 토큰 참조](./../develop/active-directory-token-and-claims.md)를 참조하세요. 다른 토큰을 전송하는 사용자 지정 클레임이 필요한 경우 Graph 탐색기 또는 Azure Portal에서 응용 프로그램의 매니페스트를 사용하여 앱 필드 *acceptMappedClaims*를 **True**로 설정합니다.    
+Azure AD에서 인증에 대해 전송하는 보안 토큰의 목록은 [Azure AD 토큰 참조](../develop/v1-id-and-access-tokens.md)를 참조하세요. 다른 토큰을 전송하는 사용자 지정 클레임이 필요한 경우 Graph 탐색기 또는 Azure Portal에서 응용 프로그램의 매니페스트를 사용하여 앱 필드 *acceptMappedClaims*를 **True**로 설정합니다.    
 
 이 예에서는 Graph Explorer를 사용합니다.
 
@@ -151,7 +151,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
-이 예제는 [Azure Portal](https://portal.azure.com)을 사용하여 *acceptedMappedClaims* 필드를 업데이트합니다.
+다음 예제에서는 [Azure Portal](https://portal.azure.com)을 사용하여 *acceptedMappedClaims* 필드를 업데이트합니다.
 1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **앱 등록**을 선택합니다.
 3. 응용 프로그램 > **매니페스트**를 선택합니다.
@@ -162,10 +162,10 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 >[!NOTE]
 >사용자 지정 클레임을 사용하려면 사용자 지정 정책도 정의하고 응용 프로그램에 할당해야 합니다.  이 정책은 필요한 모든 사용자 지정 특성을 포함해야 합니다.
 >
->정책 정의 및 할당은 PowerShell, Azure AD Graph 탐색기 또는 MS Graph를 통해 수행할 수 있습니다.  이 작업을 PowerShell에서 수행하는 경우 먼저 `New-AzureADPolicy `를 사용한 후 `Set-AzureADServicePrincipalPolicy`를 사용하여 응용 프로그램에 할당해야 할 수 있습니다.  자세한 내용은 [Azure AD 정책 설명서](../active-directory-claims-mapping.md#claims-mapping-policy-assignment)를 참조하세요.
+>정책 정의 및 할당은 PowerShell, Azure AD Graph 탐색기 또는 MS Graph를 통해 수행할 수 있습니다.  이 작업을 PowerShell에서 수행하는 경우 먼저 `New-AzureADPolicy `를 사용한 후 `Set-AzureADServicePrincipalPolicy`를 사용하여 응용 프로그램에 할당해야 할 수 있습니다.  자세한 내용은 [Azure AD 정책 설명서](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)를 참조하세요.
 
 ### <a name="optional---use-a-custom-claim"></a>선택 사항 - 사용자 지정 클레임 사용
-응용 프로그램에서 사용자 지정 클레임을 사용하도록 하고 추가 필드를 포함하려면 [사용자 지정 클레임 매핑 정책을 만들고 응용 프로그램에 할당](../active-directory-claims-mapping.md#claims-mapping-policy-assignment)해야 합니다.
+응용 프로그램에서 사용자 지정 클레임을 사용하도록 하고 추가 필드를 포함하려면 [사용자 지정 클레임 매핑 정책을 만들고 응용 프로그램에 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)해야 합니다.
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>PingAccess 다운로드 및 앱 구성
 

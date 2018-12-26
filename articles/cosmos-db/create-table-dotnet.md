@@ -1,24 +1,30 @@
 ---
-title: '빠른 시작: Table API와 .NET - Azure Cosmos DB | Microsoft Docs'
+title: '빠른 시작: Table API와 .NET - Azure Cosmos DB'
 description: 이 빠른 시작은 Azure Portal 및 .NET과 함께 Azure Cosmos DB Table API를 사용하여 응용 프로그램을 만드는 방법을 보여줍니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.custom: quickstart connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: e70501be61455e9707fcf57d1996729097a0641f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 22b2f247de97a0bf0b4a145062c7b92fec61ee9a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582386"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074988"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>빠른 시작: .NET 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드 
+
+> [!div class="op_single_selector"]
+> * [.NET](create-table-dotnet.md)
+> * [Java](create-table-java.md)
+> * [Node.JS](create-table-nodejs.md)
+> * [Python](create-table-python.md)
+>  
 
 이 빠른 시작에서는 GitHub에서 예제를 복제하여 .NET과 Azure Cosmos DB [Table API](table-introduction.md)를 통해 앱을 빌드하는 방법을 보여 줍니다. 또한 Azure Cosmos DB 계정을 만드는 방법 및 데이터 탐색기를 사용하여 웹 기반 Azure Portal에 테이블과 엔터티를 만드는 방법도 보여줍니다.
 
@@ -67,21 +73,21 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
-## <a name="open-the-sample-application-in-visual-studio"></a>Visual Studio에서 샘플 응용 프로그램 열기
+## <a name="open-the-sample-application-in-visual-studio"></a>Visual Studio에서 샘플 애플리케이션 열기
 
 1. Visual Studio의 **파일** 메뉴에서 **열기**를 선택한 다음 **프로젝트/솔루션**을 선택합니다. 
 
    ![솔루션 열기](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
 
-2. 샘플 응용 프로그램을 복제한 폴더로 이동한 다음 TableStorage.sln 파일을 엽니다.
+2. 샘플 애플리케이션을 복제한 폴더로 이동한 다음, TableStorage.sln 파일을 엽니다.
 
-   ![복제된 응용 프로그램 열기](media/create-table-dotnet/azure-cosmos-db-open-clone.png) 
+   ![복제된 애플리케이션 열기](media/create-table-dotnet/azure-cosmos-db-open-clone.png) 
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 이를 통해 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다. 
 
-1. [Azure Portal](http://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
 
     창의 오른쪽에서 복사 단추를 사용하여 **기본 연결 문자열**을 복사합니다.
 
@@ -117,7 +123,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 1. Visual Studio의 **솔루션 탐색기**에서 **TableStorage** 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다. 
 
    ![NuGet 패키지 관리](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
-2. NuGet **찾아보기** 상자에 *Microsoft.Azure.CosmosDB.Table*을 입력합니다. 그러면 Cosmos DB Table API 클라이언트 라이브러리를 찾을 수 있습니다.
+2. NuGet **찾아보기** 상자에 *Microsoft.Azure.CosmosDB.Table*을 입력합니다. 그러면 Cosmos DB Table API 클라이언트 라이브러리를 찾을 수 있습니다. 이 라이브러리는 현재 .NET 표준에만 제공되고, .NET Core에는 제공되지 않습니다.
    
    ![NuGet 찾아보기 탭](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 

@@ -4,18 +4,18 @@ description: Azure AD 암호 보호 미리 보기를 사용하여 온-프레미�
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 0819a947229e633331253923654de56638a6c76a
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ca412e94f65c7e1ed9a547ec9dcabc62fac7d42f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292932"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741830"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>미리 보기: Windows Server Active Directory에 Azure AD 암호 보호 강제 적용
 
@@ -34,21 +34,13 @@ Azure AD 암호 보호를 구성하는 소프트웨어 구성 요소는 세 가�
 
 ![Azure AD 암호 보호 구성 요소가 함께 작동하는 방법](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
-## <a name="requirements"></a>요구 사항
-
-* 도메인 컨트롤러를 포함하여 Azure AD 암호 보호 구성 요소가 설치된 모든 컴퓨터에서는 Windows Server 2012 이상을 반드시 실행해야 합니다.
-* 각 도메인의 하나 이상의 도메인 컨트롤러와 Azure AD 암호 보호 프록시 서비스를 호스팅하는 하나 이상의 서버간에 네트워크 연결이 존재해야 합니다.
-* DC 에이전트 서비스 소프트웨어를 실행하는 모든 Active Directory 도메인은 sysvol 복제에 DFSR을 사용해야 합니다.
-* Azure AD 암호 보호 프록시 서비스를 Azure AD에 등록하기 위한 전역 관리자 계정
-* 포리스트 루트 도메인의 Active Directory 도메인 관리자 권한이 있는 계정
-
 ### <a name="license-requirements"></a>라이선스 요구 사항
 
 전역 금지 암호 목록의 이점은 Azure AD(Azure Active Directory)의 모든 사용자에게 적용됩니다.
 
-사용자 지정 금지 암호 목록에는 Azure AD 기본 라이선스가 필요합니다.
+사용자 지정 금지 암호 목록에는 Azure AD Basic 라이선스가 필요합니다.
 
-Windows Server Active Directory용 Azure AD 암호 보호에는 Azure AD Premium 라이선스가 필요합니다. 
+Windows Server Active Directory용 Azure AD 암호 보호에는 Azure AD Premium 라이선스가 필요합니다.
 
 비용을 비롯한 추가 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
 
@@ -61,12 +53,13 @@ Azure AD 암호 보호에 필요한 두 가지 설치 관리자가 있으며, [M
 * 도메인 컨트롤러에서 인터넷에 연결할 필요가 없습니다. 인터넷 연결이 필요한 유일한 컴퓨터는 Azure AD 암호 보호 프록시 서비스를 실행하는 컴퓨터입니다.
 * 도메인 컨트롤러에는 네트워크 포트가 열려 있지 않습니다.
 * Active Directory 스키마 변경이 필요하지 않습니다.
-   * 기존 Active Directory 컨테이너 및 serviceConnectionPoint 스키마 개체가 소프트웨어에 사용됩니다.
+* 기존 Active Directory 컨테이너 및 serviceConnectionPoint 스키마 개체가 소프트웨어에 사용됩니다.
 * 최소 Active Directory 도메인 또는 포리스트 기능 수준(DFL\FFL) 요구 사항은 없습니다.
 * 이 소프트웨어는 보호하는 Active Directory 도메인의 계정을 만들거나 요구하지 않습니다.
 * 증분 배포는 암호 정책이 도메인 컨트롤러 에이전트가 설치된 위치에만 적용된다는 절충안과 함께 지원됩니다.
+* 암호 보호 기능이 적용되도록 모든 DC에서 DC 에이전트를 설치하는 것이 좋습니다. 
 * Azure AD 암호 보호는 실시간 정책 응용 프로그램 엔진이 아닙니다. 암호 정책 구성이 변경되는 시간과 이것이 모든 도메인 컨트롤러에 도달하여 강제 적용되는 시간 사이에는 지연이 있을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD 암호 보호 배포](howto-password-ban-bad-on-premises.md)
+[Azure AD 암호 보호 배포](howto-password-ban-bad-on-premises-deploy.md)

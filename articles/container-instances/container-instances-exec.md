@@ -2,22 +2,21 @@
 title: Azure Container Instances에서 실행 중인 컨테이너에서 명령 실행
 description: Azure Container Instances에서 현재 실행 중인 컨테이너에서 명령을 실행하는 방법에 대해 알아봅니다.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: marsma
-ms.openlocfilehash: 43211f620efb16cbcd722d3d386b1bb862fc6280
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: danlep
+ms.openlocfilehash: 577e2386c352798bc21a2c78b22726128ac7cf0a
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165649"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854091"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>실행 중인 Azure Container Instances에서 명령 실행
 
-Azure Container Instances는 실행 중인 컨테이너에서 명령을 실행하도록 지원합니다. 시작한 컨테이너에서 명령을 실행하면 응용 프로그램 개발 및 문제 해결 중에 특히 유용합니다. 이 기능은 일반적으로 실행 중인 컨테이너에서 문제를 디버깅할 수 있도록 대화형 셸을 실행하는 데 사용됩니다.
+Azure Container Instances는 실행 중인 컨테이너에서 명령을 실행하도록 지원합니다. 시작한 컨테이너에서 명령을 실행하면 애플리케이션 개발 및 문제 해결 중에 특히 유용합니다. 이 기능은 일반적으로 실행 중인 컨테이너에서 문제를 디버깅할 수 있도록 대화형 셸을 실행하는 데 사용됩니다.
 
 ## <a name="run-a-command-with-azure-cli"></a>Azure CLI를 사용하여 명령 실행
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric 응용 프로그램 암호 관리 | Microsoft Docs
-description: Service Fabric 응용 프로그램에서 암호 값을 보호하는 방법에 대해 설명합니다.
+title: Azure Service Fabric 애플리케이션 암호 관리 | Microsoft Docs
+description: Service Fabric 애플리케이션에서 암호 값을 보호하는 방법에 대해 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -43,7 +43,7 @@ ms.locfileid: "36295456"
 클러스터의 각 노드에 이 인증서를 설치해야 합니다. 이 인증서는 런타임에 서비스의 Settings.xml에 저장된 값을 해독하는 데 사용됩니다. 설정 지침은 [Azure Resource Manager를 사용하여 클러스터를 만드는 방법][service-fabric-cluster-creation-via-arm]을 참조하세요. 
 
 ## <a name="encrypt-application-secrets"></a>응용 프로그램 비밀 암호화
-응용 프로그램을 배포할 때 인증서를 사용하여 비밀 값을 암호화하고 서비스의 Settings.xml 구성 파일에 삽입합니다. 서비스 패브릭 SDK는 비밀 암호화 및 암호 해독 기능이 기본적으로 제공됩니다. 작성 시 비밀 값을 암호화한 후 서비스 코드에서 프로그래밍 방식으로 해독하여 읽을 수 있습니다. 
+애플리케이션을 배포할 때 인증서를 사용하여 비밀 값을 암호화하고 서비스의 Settings.xml 구성 파일에 삽입합니다. 서비스 패브릭 SDK는 비밀 암호화 및 암호 해독 기능이 기본적으로 제공됩니다. 작성 시 비밀 값을 암호화한 후 서비스 코드에서 프로그래밍 방식으로 해독하여 읽을 수 있습니다. 
 
 다음 PowerShell 명령은 비밀을 암호화하는 데 사용됩니다. 이 명령은 값을 암호화합니다. 암호화 텍스트에 서명하지 **않습니다**. 클러스터에 설치된 것과 동일한 암호화 인증서를 사용하여 비밀 값의 암호 텍스트를 생성해야 합니다.
 

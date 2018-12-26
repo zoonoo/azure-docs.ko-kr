@@ -2,20 +2,17 @@
 title: Azure Blob 저장소를 Linux의 파일 시스템으로 탑재하는 방법 | Microsoft Docs
 description: Linux에 FUSE가 있는 Azure Blob 저장소 컨테이너를 탑재합니다.
 services: storage
-documentationcenter: linux
 author: seguler
-manager: jahogg
 ms.service: storage
-ms.devlang: bash
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/11/2018
 ms.author: seguler
-ms.openlocfilehash: 1098eef15b559c30ef436d8e13bbe02bddb78649
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 50378fd7739567b0cc56066168ddd33c3ea14141
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072095"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957057"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법
 
@@ -30,7 +27,7 @@ ms.locfileid: "34072095"
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Linux에 blobfuse 설치
-blobfuse 이진 파일은 [Linux용 Microsoft 소프트웨어 리포지토리](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)에서 사용할 수 있습니다. blobfuse를 설치하려면 이러한 리포지토리 중 하나를 구성합니다.
+Blobfuse 이진 파일은 Ubuntu 및 RHEL 배포를 위한 [Linux용 Microsoft 소프트웨어 리포지토리](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)에서 사용할 수 있습니다. 해당 배포에서 Blobfuse를 설치하려면 목록에서 리포지토리 중 하나를 구성합니다. 배포에 사용할 수 있는 이진 파일이 없는 경우 [여기](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) 설치 단계에 따라 소스 코드에서 이진 파일을 빌드할 수도 있습니다.
 
 ### <a name="configure-the-microsoft-package-repository"></a>Microsoft 패키지 리포지토리 구성
 [Microsoft 제품용 Linux 패키지 리포지토리](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)를 구성합니다.
@@ -79,7 +76,7 @@ sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 ```
 
 ### <a name="use-an-ssd-for-temporary-path"></a>임시 경로로 SSD 사용
-Azure에서는 VM에서 사용할 수 있는 임시 디스크(SSD)를 사용하여 blobfuse에 대기 시간이 짧은 버퍼를 제공할 수 있습니다. Ubuntu 배포에서는 이 임시 디스크가 '/mnt'에 탑재되는 반면, RedHat 및 CentOS 배포에서는 '/mnt/resource/'에 탑재됩니다.
+Azure에서는 VM에서 사용할 수 있는 임시 디스크(SSD)를 사용하여 blobfuse에 대기 시간이 짧은 버퍼를 제공할 수 있습니다. Ubuntu 배포에서는 이 임시 디스크가 '/mnt'에 탑재되는 반면, Red Hat 및 CentOS 배포에서는 '/mnt/resource/'에 탑재됩니다.
 
 사용자가 임시 경로에 액세스할 수 있는지 확인합니다.
 ```bash
@@ -92,7 +89,7 @@ blobfuse를 사용하려면 자격 증명을 다음 형식의 텍스트 파일�
 
 ```
 accountName myaccount
-accountKey myaccesskey==
+accountKey storageaccesskey
 containerName mycontainer
 ```
 
@@ -100,6 +97,10 @@ containerName mycontainer
 ```bash
 chmod 700 fuse_connection.cfg
 ```
+
+> [!NOTE]
+> Windows에서 구성 파일을 만든 경우 `dos2unix`를 실행하여 삭제하고 Unix 형식으로 변환해야 합니다. 
+>
 
 ### <a name="create-an-empty-directory-for-mounting"></a>탑재할 빈 디렉터리 만들기
 ```bash

@@ -1,24 +1,20 @@
 ---
-title: 데이터 분석 파이프라인 운영 - Azure | Microsoft Docs
+title: 데이터 분석 파이프라인 운영 - Azure
 description: 새 데이터에 의해 트리거되고 간결한 결과를 생성하는 예제 데이터 파이프라인을 설정하고 실행합니다.
 services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
+author: ashishthaps
 ms.author: ashishth
-ms.openlocfilehash: 7ac1ed0db15d91ef8af009c879c3634148826286
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 01/11/2018
+ms.openlocfilehash: 9057d9f5d63598ea249e8f3193b84fd715018829
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392190"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109974"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>데이터 분석 파이프라인 운영
 
@@ -34,7 +30,7 @@ ms.locfileid: "31392190"
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-이 예제 파이프라인은 새로운 시간 간격의 비행 데이터가 도착할 때까지 기다렸다가, 장기적인 분석을 위해 자세한 비행 정보를 Hive 데이터 웨어하우스에 저장합니다. 또한 이 파이프라인은 일별 비행 데이터만 요약하는 훨씬 더 작은 데이터 집합도 만듭니다. 이 일별 비행 요약 데이터는 웹 사이트용과 같은 보고서를 제공하기 위해 SQL Database로 전송됩니다.
+이 예제 파이프라인은 새로운 시간 간격의 비행 데이터가 도착할 때까지 기다렸다가, 장기적인 분석을 위해 자세한 비행 정보를 Hive 데이터 웨어하우스에 저장합니다. 또한 이 파이프라인은 일별 비행 데이터만 요약하는 훨씬 더 작은 데이터 세트도 만듭니다. 이 일별 비행 요약 데이터는 웹 사이트용과 같은 보고서를 제공하기 위해 SQL Database로 전송됩니다.
 
 아래 다이어그램은 이 예제 파이프라인을 보여 줍니다.
 
@@ -566,11 +562,11 @@ bash 세션의 SCP를 사용하여 Oozie 워크플로(`workflow.xml`), Hive 쿼�
     </dataset>
     ```
 
-    HDFS의 데이터 경로는 `uri-template` 요소에 제공된 식에 따라 동적으로 작성됩니다. 이 코디네이터에서, 데이터 집합에도 1일의 주기가 사용됩니다. 코디네이터 요소의 시작 및 종료 날짜가 작업이 예약되는 시간을 제어(및 명목 시간 정의)하지만, 데이터 집합의 `initial-instance` 및 `frequency`는 `uri-template` 구성에 사용되는 날짜 계산을 제어합니다. 이 경우 코디네이터 시작 하루 전으로 초기 인스턴스를 설정하여 데이터의 첫째 날(1/1/2017)을 선택하도록 합니다. 데이터 집합의 날짜 계산은 코디네이터가 설정한 명목 시간(첫 번째 작업의 경우 2017-01-01T00:00:00 GMT)을 경과하지 않은 가장 최근 날짜를 찾을 때까지, `initial-instance` 값(12/31/2016)에서 데이터 집합 주기(1일)씩 늘어나면서 롤포워드됩니다.
+    HDFS의 데이터 경로는 `uri-template` 요소에 제공된 식에 따라 동적으로 작성됩니다. 이 코디네이터에서, 데이터 세트에도 1일의 주기가 사용됩니다. 코디네이터 요소의 시작 및 종료 날짜가 작업이 예약되는 시간을 제어(및 명목 시간 정의)하지만, 데이터 세트의 `initial-instance` 및 `frequency`는 `uri-template` 구성에 사용되는 날짜 계산을 제어합니다. 이 경우 코디네이터 시작 하루 전으로 초기 인스턴스를 설정하여 데이터의 첫째 날(1/1/2017)을 선택하도록 합니다. 데이터 세트의 날짜 계산은 코디네이터가 설정한 명목 시간(첫 번째 작업의 경우 2017-01-01T00:00:00 GMT)을 경과하지 않은 가장 최근 날짜를 찾을 때까지, `initial-instance` 값(12/31/2016)에서 데이터 세트 주기(1일)씩 늘어나면서 롤포워드됩니다.
 
     빈 `done-flag` 요소는 Oozie가 지정된 시간에 입력 데이터의 존재 여부를 확인할 때 디렉터리 또는 파일의 존재 여부에 따라 데이터가 사용 가능한지 확인함을 나타냅니다. 이 경우 csv 파일의 존재 여부가 관건입니다. csv 파일이 있으면 Oozie는 데이터가 준비되어 있다고 가정하고, 파일을 처리하는 워크플로 인스턴스를 시작합니다. csv 파일이 없으면 Oozie는 데이터가 아직 준비되지 않았다고 가정하며 워크플로를 실행하면 대기 상태가 됩니다.
 
-* 핵심 사항 3: `data-in` 요소는 연결된 데이터 집합에 대해 `uri-template`의 값을 바꿀 때 명목 시간으로 사용할 특정 타임스탬프를 지정합니다.
+* 핵심 사항 3: `data-in` 요소는 연결된 데이터 세트에 대해 `uri-template`의 값을 바꿀 때 명목 시간으로 사용할 특정 타임스탬프를 지정합니다.
 
     ```
     <data-in name="event_input1" dataset="ds_input1">

@@ -1,26 +1,27 @@
 ---
-title: AD FS 온-프레미스 앱을 Azure로 마이그레이션 | Microsoft Docs
-description: 이 문서는 조직에서 페더레이션된 SaaS 응용 프로그램에 중점을 두고 온-프레미스 응용 프로그램을 Azure AD로 마이그레이션하는 방법을 이해할 수 있도록 돕기 위한 것입니다.
+title: AD FS에서 Azure AD로 앱 이동 | Microsoft Docs
+description: 이 문서는 조직에서 페더레이션된 SaaS 응용 프로그램에 중점을 두고 응용 프로그램을 Azure AD로 이동하는 방법을 이해할 수 있도록 돕기 위한 것입니다.
 services: active-directory
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
+ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 71fa305c0151ba2ff319694cdd3df55bf351e0c5
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: b799a3947770b44752b599dbb2c47cbf1cfbcda2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946273"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959063"
 ---
-# <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>AD FS 온-프레미스 앱을 Azure로 마이그레이션 
+# <a name="move-applications-from-ad-fs-to-azure-ad"></a>AD FS에서 Azure AD로 응용 프로그램 이동 
 
-이 문서는 온-프레미스 응용 프로그램을 Azure AD(Azure Active Directory)로 마이그레이션하는 방법을 이해하는 데 도움이 됩니다. 페더레이션된 SaaS 응용 프로그램에 중점을 두고 있습니다. 
+이 문서는 응용 프로그램을 AD FS에서 Azure AD(Azure Active Directory)로 이동하는 방법을 이해하는 데 도움이 됩니다. 페더레이션된 SaaS 응용 프로그램에 중점을 두고 있습니다. 
 
 이 문서에서는 단계별 지침을 제공하지 않습니다. 대신 온-프레미스 구성이 Azure AD로 변환되는 방식을 이해함으로써 마이그레이션을 수행하는 데 도움이 되는 개념적 지침을 제공합니다. 또한 일반적인 시나리오에 대해서도 설명합니다.
 
@@ -30,7 +31,7 @@ ms.locfileid: "36946273"
 
 그리고 대부분의 조직과 마찬가지로 클라우드 응용 프로그램 및 ID를 도입하는 과정에 있을 가능성도 있습니다. 아마도 Office 365 및 Azure AD Connect를 사용하여 실행하고 있을 것입니다. 일부 주요 작업을 위해 클라우드 기반 SaaS 응용 프로그램을 설정했을 수도 있지만 전부는 아닙니다.  
 
-많은 조직에서는 Office 365 및 Azure AD 기반 응용 프로그램과 함께 SaaS 또는 사용자 지정 LOB(기간 업무) 응용 프로그램이 온-프레미스 로그온 서비스(예: AD FS(Active Directory Federation Services))에 직접 페더레이션되어 있습니다. 이 마이그레이션 가이드에서는 온-프레미스 응용 프로그램을 Azure AD로 마이그레이션하는 이유와 방법에 대해 설명합니다.
+많은 조직에서는 Office 365 및 Azure AD 기반 응용 프로그램과 함께 SaaS 또는 사용자 지정 LOB(기간 업무) 응용 프로그램이 온-프레미스 로그온 서비스(예: AD FS(Active Directory Federation Services))에 직접 페더레이션되어 있습니다. 이 가이드에서는 응용 프로그램을 Azure AD로 이동하는 이유 및 방법을 설명합니다.
 
 >[!NOTE]
 >이 가이드는 사용자 지정 LOB 응용 프로그램에 대한 고급 정보와 함께 SaaS 응용 프로그램 구성 및 마이그레이션에 대한 자세한 정보를 제공합니다. 사용자 지정 LOB 응용 프로그램에 대한 자세한 지침은 나중에 제공할 예정입니다.
@@ -39,9 +40,9 @@ ms.locfileid: "36946273"
 
 ![Azure AD를 통해 페더레이션된 응용 프로그램](media/migrate-adfs-apps-to-azure/migrate2.png)
 
-## <a name="reasons-for-migrating-apps-to-azure-ad"></a>앱을 Azure AD로 마이그레이션하는 이유
+## <a name="reasons-for-moving-apps-to-azure-ad"></a>앱을 Azure AD로 이동하는 이유
 
-조직에서 이미 AD FS, Ping 또는 다른 온-프레미스 인증 공급자를 사용하는 경우, 앱을 Azure AD로 마이그레이션하면 다음과 같은 이점이 있습니다.
+조직에서 이미 AD FS, Ping 또는 다른 온-프레미스 인증 공급자를 사용하는 경우, 앱을 Azure AD로 이동하면 다음과 같은 이점이 있습니다.
 
 **더 안전한 액세스**
 - [Azure AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용하여 Azure Multi-Factor Authentication을 포함한 세부적인 응용 프로그램별 액세스 제어를 구성합니다. 이 정책은 Office 365와 동일한 방식으로 SaaS 및 사용자 지정 앱에 적용할 수 있습니다.
@@ -54,13 +55,13 @@ ms.locfileid: "36946273"
 - Azure AD는 SaaS 앱에 대한 ID 공급자로서 다음과 같은 추가 기능을 지원합니다.
   - 응용 프로그램별 토큰 서명 인증서
   - [구성 가능한 인증서 만료 날짜](manage-certificates-for-federated-single-sign-on.md)
-  - Azure AD ID에 기반한 사용자 계정의 [자동 프로비전](../active-directory-saas-app-provisioning.md)(주요 Azure Marketplace 앱에서).
+  - Azure AD ID에 기반한 사용자 계정의 [자동 프로비전](user-provisioning.md)(주요 Azure Marketplace 앱에서).
 
 **온-프레미스 ID 공급자의 혜택 유지**
 - Azure AD 혜택을 받고 있는 동안에는 인증을 위해 온-프레미스 솔루션을 계속 사용할 수 있습니다. 이렇게 하면 온-프레미스 Multi-Factor Authentication 솔루션, 로깅 및 감사와 같은 혜택이 그대로 유지됩니다. 
 
 **온-프레미스 ID 공급자의 사용 중지 지원**
-- 온-프레미스 인증 제품을 사용 중지하려는 조직에서 앱을 Azure AD로 마이그레이션하는 경우 일부 작업을 방해하지 않으면서 더 쉽게 전환할 수 있습니다. 
+- 온-프레미스 인증 제품을 사용 중지하려는 조직에서 앱을 Azure AD로 이동하는 경우 일부 작업을 방해하지 않으면서 더 쉽게 전환할 수 있습니다. 
 
 ## <a name="mapping-types-of-apps-on-premises-to-types-of-apps-in-azure-ad"></a>온-프레미스의 앱 유형을 Azure AD의 앱 유형에 매핑
 대부분의 앱은 사용하는 로그온 유형에 따라 몇 가지 범주 중 하나에 해당합니다. 이러한 범주는 Azure AD에서 앱이 표시되는 방법을 결정합니다.
@@ -121,12 +122,12 @@ AD FS와 Azure AD는 비슷하게 작동하므로 신뢰, 로그온 및 로그�
 |---|---|---|---|
 |IdP </br>로그온 </br>URL|앱의 관점에서 본 IdP의 로그온 URL(사용자가 로그인을 위해 리디렉션되는 위치)입니다.|AD FS 로그온 URL은 "/adfs/ls/" 뒤에 오는 AD FS 페더레이션 서비스 이름입니다. 예: https&#58;//fs.contoso.com/adfs/ls/|Azure AD에 대한 해당 값은 {tenant-id}를 테넌트 ID로 바꾸는 패턴을 따릅니다. 이 테넌트 ID는 Azure Portal의 **Azure Active Directory** > **속성** 아래에서 **디렉터리 ID**로 있습니다.</br></br>SAML-P 프로토콜을 사용하는 앱의 경우: https&#58;//login.microsoftonline.com/{tenant-id}/saml2 </br></br>WS-Federation 프로토콜을 사용하는 앱의 경우: https&#58;//login.microsoftonline.com/{tenant-id}/wsfed|
 |IdP </br>로그 아웃 </br>URL|앱의 관점에서 본 IdP의 로그아웃 URL(사용자가 앱에서 로그아웃할 때 리디렉션되는 위치)입니다.|AD FS의 경우 로그아웃 URL은 로그온 URL과 동일하거나 "wa = wsignout1.0"이 추가된 URL과 동일합니다. 예: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|Azure AD에 대한 해당 값은 앱에서 SAML 2.0 로그아웃을 지원하는지 여부에 따라 다릅니다.</br></br>앱에서 SAML 로그아웃을 지원하는 경우 {tenant-id} 값을 테넌트 ID로 바꾸는 값 패턴을 따릅니다. 이 테넌트 ID는 Azure Portal의 **Azure Active Directory** > **속성** 아래에서 **디렉터리 ID**(https&#58;//login.microsoftonline.com/{tenant-id}/saml2)로 있습니다.</br></br>앱에서 SAML 로그아웃을 지원하지 않는 경우: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
-|신뢰 </br>서명 </br>인증서|IdP에서 발급한 토큰에 서명하는 데 사용하는 개인 키가 있는 인증서입니다. 앱이 신뢰하도록 구성된 것과 동일한 IdP에서 토큰이 제공되었는지 확인합니다.|AD FS 토큰 서명 인증서는 AD FS 관리의 **인증서** 아래에 있습니다.|Azure AD에서 토큰 서명 인증서는 Azure Portal 내의 응용 프로그램 **Single Sign-On** 속성에 있는 **SAML 서명 인증서** 헤더 아래에 있습니다. 여기서는 앱에 업로드할 인증서를 다운로드할 수 있습니다.</br></br> 응용 프로그램에 둘 이상의 인증서가 있는 경우 모든 인증서는 페더레이션 메타데이터 XML 파일에 있습니다.|
+|토큰 </br>서명 </br>인증서|IdP에서 발급한 토큰에 서명하는 데 사용하는 개인 키가 있는 인증서입니다. 앱이 신뢰하도록 구성된 것과 동일한 IdP에서 토큰이 제공되었는지 확인합니다.|AD FS 토큰 서명 인증서는 AD FS 관리의 **인증서** 아래에 있습니다.|Azure AD에서 토큰 서명 인증서는 Azure Portal 내의 응용 프로그램 **Single Sign-On** 속성에 있는 **SAML 서명 인증서** 헤더 아래에 있습니다. 여기서는 앱에 업로드할 인증서를 다운로드할 수 있습니다.</br></br> 응용 프로그램에 둘 이상의 인증서가 있는 경우 모든 인증서는 페더레이션 메타데이터 XML 파일에 있습니다.|
 |식별자/</br>"발급자"|앱의 관점에서 본 IdP의 식별자(때로는 "발급자 ID"라고 함)입니다.</br></br>SAML 토큰에서 값은 **Issuer** 요소로 표시됩니다.|AD FS에 대한 식별자는 일반적으로 AD FS 관리의 **서비스** > **페더레이션 서비스 속성 편집** 아래에 있는 페더레이션 서비스 식별자입니다. 예: http&#58;//fs.contoso.com/adfs/services/trust|Azure AD에 대한 해당 값은 {tenant-id} 값을 테넌트 ID로 바꾸는 패턴을 따릅니다. 이 테넌트 ID는 Azure Portal의 **Azure Active Directory** > **속성** 아래에서 **디렉터리 ID**(https&#58;//sts.windows.net/{tenant-id}/)로 있습니다.|
-|IdP </br>페더레이션 </br>metadata|공개적으로 사용할 수 있는 IdP의 페더레이션 메타데이터에 대한 위치입니다. (일부 앱은 URL, 식별자 및 토큰 서명 인증서를 개별적으로 구성하는 관리자 대신 연합 메타데이터를 사용합니다.)|AD FS 페더레이션 메타데이터 URL은 AD FS 관리의 **서비스** > **엔드포인트** > **메타데이터** > **형식: 페더레이션 메타데이터** 아래에 있습니다. 예: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Azure AD에 대한 해당 값은 https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml 패턴을 따릅니다. 여기서 {TenantDomainName} 값은 "contoso.onmicrosoft.com" 형식의 테넌트 이름으로 바꿉니다. </br></br>자세한 내용은 [페더레이션 메타데이터](../develop/active-directory-federation-metadata.md)를 참조하세요.
+|IdP </br>페더레이션 </br>metadata|공개적으로 사용할 수 있는 IdP의 페더레이션 메타데이터에 대한 위치입니다. (일부 앱은 URL, 식별자 및 토큰 서명 인증서를 개별적으로 구성하는 관리자 대신 연합 메타데이터를 사용합니다.)|AD FS 페더레이션 메타데이터 URL은 AD FS 관리의 **서비스** > **엔드포인트** > **메타데이터** > **형식: 페더레이션 메타데이터** 아래에 있습니다. 예: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Azure AD에 대한 해당 값은 https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml 패턴을 따릅니다. 여기서 {TenantDomainName} 값은 "contoso.onmicrosoft.com" 형식의 테넌트 이름으로 바꿉니다. </br></br>자세한 내용은 [페더레이션 메타데이터](../develop/azure-ad-federation-metadata.md)를 참조하세요.
 
-## <a name="migrating-saas-apps"></a>SaaS 앱 마이그레이션
-SaaS 앱은 현재 AD FS 또는 다른 ID 공급자에서 Azure AD로 수동으로 마이그레이션됩니다. 앱별 지침은 [Marketplace에 있는 SaaS 앱 통합에 대한 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
+## <a name="moving-saas-apps"></a>SaaS 앱 이동
+SaaS 앱은 현재 AD FS 또는 다른 ID 공급자에서 Azure AD로 수동으로 이동됩니다. 앱별 지침은 [Marketplace에 있는 SaaS 앱 통합에 대한 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
 
 통합 자습서에서는 녹색 필드 통합을 수행한다고 가정합니다. 앱을 계획, 평가, 구성 및 전환할 때 마이그레이션에만 적용되는 몇 가지 주요 개념을 알고 있어야 합니다.  
 - 일부 앱은 쉽게 마이그레이션할 수 있습니다. 사용자 지정 클레임과 같이 더 복잡한 요구 사항이 있는 앱의 경우 Azure AD 및/또는 Azure AD Connect에서 추가로 구성해야 할 수도 있습니다.
@@ -134,7 +135,7 @@ SaaS 앱은 현재 AD FS 또는 다른 ID 공급자에서 Azure AD로 수동으�
 - 추가 클레임이 필요하다고 판단되면 Azure AD에서 해당 클레임을 사용할 수 있는지 확인합니다. Azure AD Connect 동기화 구성을 확인하여 필요한 특성(예: **samAccountName**)이 Azure AD와 동기화되는지 확인합니다.
 - Azure AD에서 특성을 사용할 수 있게 되면 Azure AD에 클레임 발급 규칙을 추가하여 에 이러한 특성이 클레임으로 발급된 토큰에 포함되도록 할 수 있습니다. 이러한 규칙은 Azure AD에서 있는 앱의 **Single Sign-On** 속성에 추가합니다.
 
-### <a name="assess-what-can-be-migrated"></a>마이그레이션할 수 있는 항목 평가
+### <a name="assess-what-can-be-moved"></a>이동할 수 있는 항목 평가
 SAML 2.0 응용 프로그램은 Marketplace의 Azure AD 응용 프로그램을 통하거나 비Marketplace 응용 프로그램으로 Azure AD와 통합할 수 있습니다.  
 
 일부 구성에는 Azure AD에서 구성하기 위한 추가 단계가 필요하며, 일부 구성은 현재 지원되지 않습니다. 이동할 수 있는 항목을 결정하려면 각 앱의 현재 구성을 살펴봅니다. 특히 다음 구성을 살펴보세요.
@@ -143,14 +144,14 @@ SAML 2.0 응용 프로그램은 Marketplace의 Azure AD 응용 프로그램을 �
 - 발급된 SAML 토큰 버전
 - 기타 구성(예; 발급 권한 부여 규칙 또는 액세스 제어 정책 및 Multi-Factor Authentication(추가 인증) 규칙)
 
-#### <a name="what-can-be-migrated-today"></a>현재 마이그레이션할 수 있는 항목
-현재 쉽게 마이그레이션할 수 있는 앱에는 표준 구성 요소 및 클레임 집합을 사용하는 SAML 2.0 앱이 포함됩니다. 이러한 앱은 다음으로 구성될 수 있습니다.
+#### <a name="what-can-be-moved-today"></a>지금 바로 이동할 수 있는 항목
+현재 쉽게 이동할 수 있는 앱에는 표준 구성 요소 및 클레임 집합을 사용하는 SAML 2.0 앱이 포함됩니다. 이러한 앱은 다음으로 구성될 수 있습니다.
 - 사용자 계정 이름.
 - 메일 주소입니다.
 - 이름
 - 성
 - SAML **NameID**로 대체되는 특성(Azure AD 메일 특성, 메일 접두사, 직원 ID, 확장 특성(1-15) 또는 온-프레미스 **SamAccountName** 특성 포함). 자세한 내용은 [NameIdentifier 클레임 편집](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
-- 사용자 지정 클레임. 지원되는 클레임 매핑에 대한 자세한 내용은 [Azure Active Directory의 클레임 매핑](../active-directory-claims-mapping.md) 및 [Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
+- 사용자 지정 클레임. 지원되는 클레임 매핑에 대한 자세한 내용은 [Azure Active Directory의 클레임 매핑](../develop/active-directory-claims-mapping.md) 및 [Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
 
 사용자 지정 클레임 및 **NameID** 요소 외에도, Azure AD에서 마이그레이션의 일부로 추가 구성 단계가 필요한 구성은 다음과 같습니다.
 - AD FS에서 사용자 지정 권한 부여 또는 Multi-Factor Authentication 규칙을 사용자 지정합니다. [Azure AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능을 사용하여 구성합니다.
@@ -170,7 +171,7 @@ SAML 2.0 응용 프로그램은 Marketplace의 Azure AD 응용 프로그램을 �
 - 토큰의 클레임 기능
     - 온-프레미스 그룹 이름을 클레임으로 발급
     - Azure AD 이외의 저장소로부터의 클레임
-    - 복잡한 클레임 발급 변환 규칙. 지원되는 클레임 매핑에 대한 자세한 내용은 [Azure Active Directory의 클레임 매핑](../active-directory-claims-mapping.md) 및 [Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
+    - 복잡한 클레임 발급 변환 규칙. 지원되는 클레임 매핑에 대한 자세한 내용은 [Azure Active Directory의 클레임 매핑](../develop/active-directory-claims-mapping.md) 및 [Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
     - 디렉터리 확장을 클레임으로 발급
     - **NameID** 형식의 사양 사용자 지정
     - 다중 값 특성의 발급
@@ -202,7 +203,7 @@ Azure AD 포털에서 사용자를 할당하려면 SaaS 앱의 페이지로 이�
 
 !["할당 추가" 창](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-액세스를 확인하려면 사용자가 로그인할 때 [액세스 패널](../active-directory-saas-access-panel-introduction.md)에 SaaS 앱이 표시되어야 합니다. 액세스 패널은 http://myapps.microsoft.com에 있습니다. 이 예에서는 Salesforce 및 ServiceNow 모두에 대한 액세스 권한이 사용자에게 성공적으로 할당되었습니다.
+액세스를 확인하려면 사용자가 로그인할 때 [액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md)에 SaaS 앱이 표시되어야 합니다. 액세스 패널은 http://myapps.microsoft.com에 있습니다. 이 예에서는 Salesforce 및 ServiceNow 모두에 대한 액세스 권한이 사용자에게 성공적으로 할당되었습니다.
 
 ![Salesforce 및 ServiceNow 앱이 있는 액세스 패널의 예](media/migrate-adfs-apps-to-azure/migrate8.png)
 
@@ -231,10 +232,10 @@ Azure AD 포털에서 사용자를 할당하려면 SaaS 앱의 페이지로 이�
 ![Azure AD를 인증 서비스로 선택](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>선택 사항: Azure AD에서 사용자 프로비저닝 구성
-Azure AD에서 SaaS 응용 프로그램에 대한 사용자 프로비저닝을 직접 처리하게 하려면 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비전 및 프로비전 해제](../active-directory-saas-app-provisioning.md)를 참조하세요.
+Azure AD에서 SaaS 응용 프로그램에 대한 사용자 프로비저닝을 직접 처리하게 하려면 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비전 및 프로비전 해제](user-provisioning.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Active Directory로 응용 프로그램 관리](what-is-application-management.md)
 - [앱에 대한 액세스 관리](what-is-access-management.md)
-- [Azure AD Connect 페더레이션](../active-directory-aadconnectfed-whatis.md)
+- [Azure AD Connect 페더레이션](../hybrid/how-to-connect-fed-whatis.md)

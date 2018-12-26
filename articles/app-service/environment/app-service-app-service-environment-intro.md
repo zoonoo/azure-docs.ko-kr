@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: ca30818b015e95594d3b2c9861d98f24174c0aea
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: a2efb3177a97aa362a269ab3a00239a0d391f026
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318166"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574694"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>App Service Environment v1 소개
 
@@ -45,7 +45,7 @@ App Service 환경이 어떻게 높은 확장성을 사용하고 네트워크 �
 
 AzureCon 심층 분석에 표시된 보안 아키텍처를 구성하는 방법을 보려면 App Service Environment를 사용하여 [계층화된 보안 아키텍처](app-service-app-service-environment-layered-security.md) 를 구현하는데 대한 문서를 참조하세요.
 
-App Service Environment에서 실행 중인 앱은 웹 응용 프로그램 방화벽 (WAF) 등의 업스트림 장치에서 제어된 액세스를 가질 수 있습니다.  [App Service Environment에 대한 WAF 구성](app-service-app-service-environment-web-application-firewall.md) 의 문서는 이 시나리오에 대해 설명합니다. 
+App Service Environment에서 실행 중인 앱은 웹 응용 프로그램 방화벽 (WAF) 등의 업스트림 디바이스에서 제어된 액세스를 가질 수 있습니다.  [App Service Environment에 대한 WAF 구성](app-service-app-service-environment-web-application-firewall.md) 의 문서는 이 시나리오에 대해 설명합니다. 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -69,9 +69,9 @@ App Service 환경을 Azure Resource Manager 가상 네트워크에서 **만들 
 
 App Service Environment는 공개 IP 주소가 있는 인터넷 연결이거나 Azure ILB(내부 부하 분산 장치) 주소만 있는 내부 연결일 수 있습니다.
 
-[네트워크 보안 그룹][NetworkSecurityGroups]을 사용하여 App Service 환경이 있는 서브넷에 대한 인바운드 네트워크 통신을 제한할 수 있습니다.  이 옵션을 통해 웹 응용 프로그램 방화벽 및 SaaS 공급자와 같은 업스트림 장치 및 서비스 뒤에서 앱을 실행할 수 있습니다.
+[네트워크 보안 그룹][NetworkSecurityGroups]을 사용하여 App Service 환경이 있는 서브넷에 대한 인바운드 네트워크 통신을 제한할 수 있습니다.  이 옵션을 통해 웹 응용 프로그램 방화벽 및 SaaS 공급자와 같은 업스트림 디바이스 및 서비스 뒤에서 앱을 실행할 수 있습니다.
 
-또한 앱에서는 내부 데이터베이스 및 웹 서비스와 같은 회사 리소스에 자주 액세스해야 합니다.  일반적인 접근 방법은 Azure 가상 네트워크 내에서 이동하는 내부 네트워크 트래픽에만 이러한 끝점을 사용할 수 있도록 하는 것입니다.  App Service 환경이 내부 서비스와 동일한 가상 네트워크에 가입되면 해당 환경에서 실행되는 앱은 [사이트 간][SiteToSite] 및 [Azure ExpressRoute][ExpressRoute] 연결을 통해 도달할 수 있는 끝점을 비롯하여 내부 서비스에 액세스할 수 있게 됩니다.
+또한 앱에서는 내부 데이터베이스 및 웹 서비스와 같은 회사 리소스에 자주 액세스해야 합니다.  일반적인 접근 방법은 Azure 가상 네트워크 내에서 이동하는 내부 네트워크 트래픽에만 이러한 엔드포인트를 사용할 수 있도록 하는 것입니다.  App Service 환경이 내부 서비스와 동일한 가상 네트워크에 가입되면 해당 환경에서 실행되는 앱은 [사이트 간][SiteToSite] 및 [Azure ExpressRoute][ExpressRoute] 연결을 통해 도달할 수 있는 엔드포인트를 비롯하여 내부 서비스에 액세스할 수 있게 됩니다.
 
 App Service 환경이 가상 네트워크 및 온-프레미스 네트워크와 함께 작동하는 방법에 대한 자세한 내용은 [네트워크 아키텍처][NetworkArchitectureOverview], [인바운드 트래픽 제어][ControllingInboundTraffic] 및 [백 엔드에 안전하게 연결][SecurelyConnectingToBackends]에 대한 문서를 참조하세요. 
 
@@ -93,7 +93,7 @@ ExpressRoute로 App Service 환경을 사용하는 방법에 대한 자세한 �
 [AzureConDeepDive]:  https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
 [GeodistributedAppFootprint]:  app-service-app-service-environment-geo-distributed-scale.md
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[SiteToSite]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site
+[SiteToSite]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [HowToConfigureanAppServiceEnvironment]:  app-service-web-configure-an-app-service-environment.md
 [ControllingInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md

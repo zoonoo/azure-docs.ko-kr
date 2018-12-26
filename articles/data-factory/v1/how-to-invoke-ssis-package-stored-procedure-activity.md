@@ -13,23 +13,23 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: bf91b1cb1e764c1350cead0c5dfb109b73e9dad3
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052718"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275584"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS 패키지를 호출하는 방법에 대해 설명합니다. 
 
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [저장 프로시저 작업을 사용하여 SSIS 패키지 호출](../how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [저장 프로시저 작업을 사용하여 SSIS 패키지 호출](../how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
-이 문서의 연습에서는 SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 사용합니다. Azure SQL Database 관리되는 인스턴스(미리 보기)를 사용할 수도 있습니다.
+이 문서의 연습에서는 SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 사용합니다. Azure SQL Database Managed Instance를 사용할 수도 있습니다.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 만들기
 Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](../tutorial-create-azure-ssis-runtime-portal.md)의 단계별 지침에 따라 만듭니다. Data Factory 버전 1을 사용하여 Azure-SSIS 통합 런타임을 만들 수 없습니다. 
@@ -48,7 +48,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
       
      ![새 데이터 팩터리 페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
-   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 이름 필드에 대해 다음과 같은 오류가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 문서를 참조하세요.
+   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 이름 필드에 대해 다음과 같은 오류가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](data-factory-naming-rules.md) 문서를 참조하세요.
 
     `Data factory name ADFTutorialDataFactory is not available`
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다. 
@@ -88,10 +88,10 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
 
         ![Azure SQL Database 연결된 서비스](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-definition.png)
 
-### <a name="create-a-dummy-dataset-for-output"></a>출력에 대한 더미 데이터 집합 만들기
-출력 데이터 집합은 파이프라인의 일정을 결정하는 더미 데이터 집합입니다. 빈도는 시간으로 설정되고 간격은 1로 설정됩니다. 따라서 파이프라인은 파이프라인 시작 및 종료 시간 내에 한 시간에 한 번 실행됩니다. 
+### <a name="create-a-dummy-dataset-for-output"></a>출력에 대한 더미 데이터 세트 만들기
+출력 데이터 세트는 파이프라인의 일정을 결정하는 더미 데이터 세트입니다. 빈도는 시간으로 설정되고 간격은 1로 설정됩니다. 따라서 파이프라인은 파이프라인 시작 및 종료 시간 내에 한 시간에 한 번 실행됩니다. 
 
-1. 데이터 팩터리 편집기의 왼쪽 창에서 **... 자세히** -> **새 데이터 집합** -> **Azure SQL**을 차례로 클릭합니다.
+1. 데이터 팩터리 편집기의 왼쪽 창에서 **... 자세히** -> **새 데이터 세트** -> **Azure SQL**을 차례로 클릭합니다.
 
     ![자세히 -> 새 데이터 집합](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-dataset-menu.png)
 2. 다음 JSON 코드 조각을 오른쪽 창의 JSON 편집기에 복사합니다. 
@@ -110,7 +110,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
         }
     }
     ```
-3. 도구 모음에서 **배포** 를 클릭합니다. 이 작업은 데이터 집합을 Azure Data Factory 서비스에 배포합니다. 
+3. 도구 모음에서 **배포** 를 클릭합니다. 이 작업은 데이터 세트를 Azure Data Factory 서비스에 배포합니다. 
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>저장 프로시저 작업을 사용하여 파이프라인 만들기 
 이 단계에서는 저장 프로시저 작업을 사용하여 파이프라인 만듭니다. 이 작업은 sp_executesql 저장 프로시저를 호출하여 SSIS 패키지를 실행합니다. 
@@ -151,7 +151,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
 3. 도구 모음에서 **배포** 를 클릭합니다. 이 작업은 파이프라인을 Azure Data Factory 서비스에 배포합니다. 
 
 ### <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
-출력 데이터 집합의 일정은 매시간으로 정의됩니다. 파이프라인 종료 시간은 시작 시간에서 5시간입니다. 따라서 5개의 파이프라인 실행이 표시됩니다. 
+출력 데이터 세트의 일정은 매시간으로 정의됩니다. 파이프라인 종료 시간은 시작 시간에서 5시간입니다. 따라서 5개의 파이프라인 실행이 표시됩니다. 
 
 1. 데이터 팩터리에 대한 홈페이지가 표시되도록 편집기 창을 닫습니다. **모니터링 및 관리** 타일을 클릭합니다. 
 
@@ -233,10 +233,10 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
     New-AzureRmDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
     ```
 
-### <a name="create-an-output-dataset"></a>출력 데이터 집합 만들기
-출력 데이터 집합은 파이프라인의 일정을 결정하는 더미 데이터 집합입니다. 빈도는 시간으로 설정되고 간격은 1로 설정됩니다. 따라서 파이프라인은 파이프라인 시작 및 종료 시간 내에 한 시간에 한 번 실행됩니다. 
+### <a name="create-an-output-dataset"></a>출력 데이터 세트 만들기
+출력 데이터 세트는 파이프라인의 일정을 결정하는 더미 데이터 세트입니다. 빈도는 시간으로 설정되고 간격은 1로 설정됩니다. 따라서 파이프라인은 파이프라인 시작 및 종료 시간 내에 한 시간에 한 번 실행됩니다. 
 
-1. 다음 콘텐츠를 사용하여 OuputDataset.json 파일을 만듭니다. 
+1. 다음 콘텐츠를 사용하여 OutputDataset.json 파일을 만듭니다. 
     
     ```json
     {

@@ -2,63 +2,79 @@
 title: 'Azure Cosmos DB: SQL Node.js API, SDK 및 리소스 | Microsoft Docs'
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB Node.js SDK의 각 버전 간 변경 내용을 포함하여 SQL Node.js API 및 SDK에 대한 모든 것을 알아봅니다.
 services: cosmos-db
-author: rnagpal
-manager: kfile
+author: deborahc
 editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 5/3/2018
+ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94d60325fa53668628ddefa68e8ce313c4fa75c6
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b5ba00376e40b92a217bddd5b27c53dbe30c3cf3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797848"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687506"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK 다운로드**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-
-<tr><td>**API 설명서**</td><td>[Node.js API 참조 설명서](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
-
-<tr><td>**SDK 설치 지침**</td><td>[설치 지침](http://azure.github.io/azure-documentdb-node/)</td></tr>
-
-<tr><td>**SDK에 참여**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-
-<tr><td>**샘플**</td><td>[Node.js 코드 샘플](sql-api-nodejs-samples.md)</td></tr>
-
-<tr><td>**시작 자습서**</td><td>[Node.js SDK 시작](sql-api-nodejs-get-started.md)</td></tr>
-
-<tr><td>**웹앱 자습서**</td><td>[Azure Cosmos DB를 사용하여 Node.js 웹 응용 프로그램 빌드](sql-api-nodejs-application.md)</td></tr>
-
-<tr><td>**현재 지원되는 플랫폼**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
-[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
-[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
-[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
-</td></tr>
-</table></br>
+|리소스  |링크  |
+|---------|---------|
+|SDK 다운로드  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|API 설명서  |  [JavaScript SDK 참조 설명서](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|SDK 설치 지침  |  [설치 지침](https://github.com/Azure/azure-cosmos-js#installation)
+|SDK에 참여 | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+| 샘플 | [Node.js 코드 샘플](sql-api-nodejs-samples.md)
+| 시작 자습서 | [JavaScript SDK 시작](sql-api-nodejs-get-started.md)
+| 웹앱 자습서 | [Azure Cosmos DB를 사용하여 Node.js 웹 응용 프로그램 빌드](sql-api-nodejs-application.md)
+| 현재 지원되는 플랫폼 | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - SDK 버전 2.0.0 이상이 필요합니다.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="2.0.5"/>2.0.5</a>
+* 노드 에이전트 형식의 인터페이스를 추가합니다. Typescript 사용자는 더 이상 @types/node를 종속성으로 설치할 필요가 없습니다.
+* 이제 기본 위치가 제대로 적용됩니다.
+* 개발자 설명서에 포함된 향상된 기능
+* 다양한 오타 수정
+
+### <a name="2.0.4"/>2.0.4</a>
+* 2.0.3에 도입된 형식 정의 문제 수정
+
+### <a name="2.0.3"/>2.0.3</a>
+* `big-integer` 종속성 제거
+* AsyncIterable 형식에 대한 참조 지시문으로 전환 Typescript 사용자는 더 이상 해당 "lib" 설정을 사용자 지정할 필요가 없습니다.
+* 오타 수정
+
+### <a name="2.0.2"/>2.0.2</a>
+* 추가 정보 링크 수정
+
+### <a name="2.0.1"/>2.0.1</a>
+* 재시도 인터페이스 구현 수정
+
+### <a name="2.0.0"/>2.0.0</a>
+* JavaScript SDK 버전 2.0.0 GA
+* 다중 지역 쓰기 지원이 추가되었습니다.
+
+### <a name="2.0.0-3"/>2.0.0-3</a>
+* 공개 미리 보기용 JavaScript SDK 버전 2.0.0의 RC1
+* 관련 데이터베이스, 컨테이너 및 항목 클래스에 분할된 최상위 CosmosClient 및 메서드가 있는 새로운 개체 모델 
+* [프라미스](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises)에 대한 지원 
+* TypeScript로 변환된 SDK
 
 ### <a name="1.14.4"/>1.14.4</a>
 * npm 설명서가 수정되었습니다.
@@ -137,7 +153,7 @@ ms.locfileid: "34797848"
 * 잘못된 concat 결과로 인해 링크를 반환하지 못했던 RangePartitionResolver.resolveForRead 버그가 수정되었습니다.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* hashParitionResolver resolveForRead() 해결: 예외를 throw하는 제공된 파티션 키가 없는 경우 모든 등록된 링크의 목록을 대신 반환합니다.
+* hashPartitionResolver resolveForRead() 해결: 예외를 throw하는 제공된 파티션 키가 없는 경우 모든 등록된 링크의 목록을 대신 반환합니다.
 
 ### <a name="1.5.4"/>1.5.4</a>
 * 문제 해결 [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - 전용 HTTPS 에이전트: Azure Cosmos DB 목적으로 전역 에이전트를 수정하지 않도록 합니다. 모든 lib의 요청에 대해 전용 에이전트를 사용 합니다.
@@ -201,6 +217,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.0.0-3(RC)](#2.0.0-3) |2018년 8월 2일 |--- |
 | [1.14.4](#1.14.4) |2018년 5월 3일 |--- |
 | [1.14.3](#1.14.3) |2018년 5월 3일 |--- |
 | [1.14.2](#1.14.2) |2017년 12월 21일 |--- |

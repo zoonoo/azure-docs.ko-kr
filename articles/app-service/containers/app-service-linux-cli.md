@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 2.0을 사용하여 Web App for Containers 관리 | Microsoft Docs
+title: Azure CLI를 사용하여 Web App for Containers 관리 | Microsoft Docs
 description: Azure CLI를 사용하여 Web App for Containers 관리
 keywords: azure app service, 웹앱, cli, linux, oss
 services: app-service
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 54c979313a6ffa43008aa9870332b92d2b2f182a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 024ca5bcf9c1f82f07656691d6ef5358ca3d5111
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24105392"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998494"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Azure CLI를 사용하여 Web App for Containers 관리
 
-이 문서의 명령을 사용하면 Azure CLI 2.0을 사용하여 Web App for Containers를 만들고 관리할 수 있습니다.
+이 문서의 명령을 사용하면 Azure CLI를 사용하여 Web App for Containers를 만들고 관리할 수 있습니다.
 다음 두 가지 방법으로 새 버전의 CLI를 사용하기 시작할 수 있습니다.
 
-* 컴퓨터에 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* 머신에 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell(미리 보기)](../../cloud-shell/overview.md) 사용
 
 ## <a name="create-a-linux-app-service-plan"></a>Linux App Service 계획 만들기
@@ -105,7 +105,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>다음 단계
 
 * [Linux의 Azure App Service란?](app-service-linux-intro.md)
-* [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell(미리 보기)](../../cloud-shell/overview.md)
 * [Azure App Service에서 스테이징 환경 설정](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Web App for Containers를 사용한 연속 배포](app-service-linux-ci-cd.md)

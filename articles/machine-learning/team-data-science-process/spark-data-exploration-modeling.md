@@ -2,30 +2,25 @@
 title: Spark로 데이터 탐색 및 모델링 | Microsoft Docs
 description: Azure에서 Spark MLlib 도구 키트의 데이터 탐색 및 모델링 기능을 소개합니다.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: b989b918-5ba5-4696-b8d0-76ae510a23f4
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: deguhath
-ms.openlocfilehash: 244175be3c520e24f114675d19bcac8564ce2c8e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: fd02501e0b616ef173faae8c9ea81c3956d69672
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838918"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446758"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Spark로 데이터 탐색 및 모델링
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
-이 연습에서는 HDInsight Spark를 사용하여 NYC Taxi Trip 및 요금 2013 데이터 집합의 샘플에 데이터 탐색과 이진 분류 및 회귀 모델링 작업을 수행합니다.  처리를 위한 HDInsight Spark 클러스터와 데이터 및 모델을 저장하는 Azure Blob을 사용하여 [데이터 과학 프로세스](http://aka.ms/datascienceprocess)의 단계를 종단 간 안내합니다. 프로세스는 Azure Storage Blob에서 가져온 데이터를 탐색하고 시각화한 다음 데이터를 준비하여 예측 모델을 빌드합니다. 이러한 모델은 Spark MLlib 도구 키트를 사용하여 이진 분류 및 회귀 모델링 작업을 수행합니다.
+이 연습에서는 HDInsight Spark를 사용하여 NYC Taxi Trip 및 요금 2013 데이터 세트의 샘플에 데이터 탐색과 이진 분류 및 회귀 모델링 작업을 수행합니다.  처리를 위한 HDInsight Spark 클러스터와 데이터 및 모델을 저장하는 Azure Blob을 사용하여 [데이터 과학 프로세스](https://aka.ms/datascienceprocess)의 단계를 종단 간 안내합니다. 프로세스는 Azure Storage Blob에서 가져온 데이터를 탐색하고 시각화한 다음 데이터를 준비하여 예측 모델을 빌드합니다. 이러한 모델은 Spark MLlib 도구 키트를 사용하여 이진 분류 및 회귀 모델링 작업을 수행합니다.
 
 * **이진 분류** 작업은 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 
 * **회귀** 작업은 다른 팁 기능을 기반으로 하는 팁의 금액을 예측합니다. 
@@ -40,7 +35,7 @@ ms.locfileid: "34838918"
 또한 모델링 단계에는 각 모델 유형을 학습, 평가 및 저장하는 방법을 보여주는 코드가 포함되어 있습니다. Python은 솔루션을 코딩하고 관련 차트를 표시하는 데 사용합니다.   
 
 > [!NOTE]
-> Spark MLlib 도구 키트가 큰 데이터 집합에서 작동하도록 디자인되었지만 여기서는 편의상 비교적 작은 샘플을 사용합니다(30Mb보다 작은 170,000개 행 즉, 원래 NYC 데이터 집합의 약 0.1%를 사용함). 여기에 제공된 연습은 2개의 작업자 노드를 가진 HDInsight 클러스터에서 효율적으로 실행됩니다(약 10분 동안). 동일한 코드를 약간만 수정하면 데이터를 메모리에 캐시하고 클러스터 크기를 변경하도록 적절하게 수정하여 더 큰 데이터 집합을 처리하는 데 사용할 수 있습니다.
+> Spark MLlib 도구 키트가 큰 데이터 세트에서 작동하도록 디자인되었지만 여기서는 편의상 비교적 작은 샘플을 사용합니다(30Mb보다 작은 170,000개 행 즉, 원래 NYC 데이터 세트의 약 0.1%를 사용함). 여기에 제공된 연습은 2개의 작업자 노드를 가진 HDInsight 클러스터에서 효율적으로 실행됩니다(약 10분 동안). 동일한 코드를 약간만 수정하면 데이터를 메모리에 캐시하고 클러스터 크기를 변경하도록 적절하게 수정하여 더 큰 데이터 집합을 처리하는 데 사용할 수 있습니다.
 > 
 > 
 
@@ -59,12 +54,12 @@ Spark 2.0 클러스터를 사용하여 구현되는 회귀 및 분류 작업은 
 
 - [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): 이 파일은 NYC Taxi Trip 및 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data) 설명된 데이터 집합을 사용하여 Spark 2.0 클러스터에서 데이터 탐색, 모델링, 점수 매기기를 수행하는 방법에 대한 정보를 제공합니다. 이 Notebook은 Spark 2.0에 대해 제공했던 코드를 신속하게 탐색하기 위한 좋은 시작점일 수 있습니다. NYC Taxi 데이터를 분석하는 Notebook 상세 정보는 이 목록에서 다음 Notebook을 참조하세요. 이러한 Notebook을 비교하는 목록 다음의 참고 사항을 확인하세요. 
 - [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): 이 파일은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)에 설명된 NYC 택시 여정 및 요금 데이터 집합을 사용한 데이터 랭글링(Spark SQL 및 데이터 프레임 작업), 탐색, 모델링 및 점수 매기기를 수행하는 방법을 보여줍니다.
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): 이 파일은 2011년 및 2012년의 유명 항공사 정시 출발 데이터 집합을 사용한 데이터 랭글링(Spark SQL 및 데이터 프레임 작업), 탐색, 모델링 및 점수 매기기를 수행하는 방법을 보여줍니다. 날씨 요소를 모델에 포함시킬 수 있도록 모델링하기 전에 항공사 데이터 집합과 공항 날씨 데이터(예: 풍속, 온도, 고도 등)를 통합하였습니다.
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): 이 파일은 2011년 및 2012년의 유명 항공사 정시 출발 데이터 집합을 사용한 데이터 랭글링(Spark SQL 및 데이터 프레임 작업), 탐색, 모델링 및 점수 매기기를 수행하는 방법을 보여줍니다. 날씨 요소를 모델에 포함시킬 수 있도록 모델링하기 전에 항공사 데이터 세트와 공항 날씨 데이터(예: 풍속, 온도, 고도 등)를 통합하였습니다.
 
 <!-- -->
 
 > [!NOTE]
-> 항공사 데이터 집합은 분류 알고리즘의 사용 이해를 돕기 위해 Spark 2.0 Notebook에 추가되었습니다. 항공사 정시 출발 데이터 집합 및 날씨 데이터 집합에 대한 내용은 다음 링크를 참조하세요.
+> 항공사 데이터 세트는 분류 알고리즘의 사용 이해를 돕기 위해 Spark 2.0 Notebook에 추가되었습니다. 항공사 정시 출발 데이터 세트 및 날씨 데이터 세트에 대한 내용은 다음 링크를 참조하세요.
 
 >- 항공사 정시 출발 데이터: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
 
@@ -144,7 +139,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 데이터 과학 프로세스의 첫 번째 단계는 원본에서 분석할 데이터를 수집하여 데이터 탐색 및 모델링 환경에 상주시키는 것입니다. 이 연습에서 이 환경은 Spark입니다. 이 섹션은 일련의 작업을 완료하는 코드를 포함합니다.
 
 * 모델링할 데이터 샘플 수집
-* 입력 데이터 집합 읽기(.tsv 파일로 저장됨)
+* 입력 데이터 세트 읽기(.tsv 파일로 저장됨)
 * 데이터 포맷 및 정리
 * 메모리에 개체 만들기 및 캐시(RDD 또는 데이터 프레임)
 * SQL 컨텍스트에 임시 테이블로 등록
@@ -339,7 +334,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 * 메모리에서 개체 캐시
 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>시간을 트래픽 시간 버킷으로 범주화하여 새로운 기능 만들기
-이 코드는 트래픽 시간 버킷으로 시간을 범주화하여 새로운 기능을 만드는 방법 및 메모리에 결과 데이터 프레임을 캐시하는 방법을 보여줍니다. RDD(복원력 있는 분산된 데이터 집합) 및 데이터 프레임을 반복해서 사용하는 경우 캐시하면 실행 시간이 향상됩니다. 따라서 RDD 및 데이터 프레임을 연습의 여러 단계에서 캐시합니다. 
+이 코드는 트래픽 시간 버킷으로 시간을 범주화하여 새로운 기능을 만드는 방법 및 메모리에 결과 데이터 프레임을 캐시하는 방법을 보여줍니다. RDD(복원력 있는 분산된 데이터 세트) 및 데이터 프레임을 반복해서 사용하는 경우 캐시하면 실행 시간이 향상됩니다. 따라서 RDD 및 데이터 프레임을 연습의 여러 단계에서 캐시합니다. 
 
     # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
     sqlStatement = """
@@ -472,7 +467,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 
 
 ### <a name="create-a-random-sub-sampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>데이터의 하위 무작위 샘플링을 만들고 학습 및 테스트 집합으로 분할합니다
-이 코드는 데이터의 무작위 샘플링을 만듭니다(25%가 여기에서 사용됨). 데이터 집합의 크기로 인해 이 예제에 필요하지 않지만 필요한 경우 자신의 문제에 사용하는 방식을 알 수 있도록 여기서 샘플링할 수 있는 방법을 설명합니다. 샘플이 큰 경우 모델을 학습하는 동안 상당한 시간을 절약할 수 있습니다. 다음 샘플을 교육 부분(여기서 75%)와 테스트 부분(여기서 25%)로 분할하여 분류 및 회귀 모델링에 사용합니다.
+이 코드는 데이터의 무작위 샘플링을 만듭니다(25%가 여기에서 사용됨). 데이터 세트의 크기로 인해 이 예제에 필요하지 않지만 필요한 경우 자신의 문제에 사용하는 방식을 알 수 있도록 여기서 샘플링할 수 있는 방법을 설명합니다. 샘플이 큰 경우 모델을 학습하는 동안 상당한 시간을 절약할 수 있습니다. 다음 샘플을 교육 부분(여기서 75%)와 테스트 부분(여기서 25%)로 분할하여 분류 및 회귀 모델링에 사용합니다.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -600,7 +595,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 3. **모델 저장** 
 
 ### <a name="classification-using-logistic-regression"></a>로지스틱 회귀를 사용하는 분류
-이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 집합에서 팁이 여정에 지불되었는지를 예측하는 [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) 로 로지스틱 회귀 분석 모델을 학습하고 평가하며 저장하는 방법을 보여 줍니다.
+이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 세트에서 팁이 여정에 지불되었는지를 예측하는 [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) 로 로지스틱 회귀 분석 모델을 학습하고 평가하며 저장하는 방법을 보여 줍니다.
 
 **CV 및 하이퍼 매개 변수 비우기를 사용하여 로지스틱 회귀 모델 학습**
 
@@ -747,7 +742,7 @@ ROC 곡선을 그리고 예측을 수행하는 코드는 다음과 같습니다.
 ![로지스틱 회귀 ROC curve.png](./media/spark-data-exploration-modeling/logistic-regression-roc-curve.png)
 
 ### <a name="random-forest-classification"></a>임의 포리스트 분류
-이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 집합에서 팁이 여정에 지불되었는지 여부를 예측하는 임의 포리스트 모델을 학습, 평가, 저장하는 방법을 보여줍니다.
+이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 세트에서 팁이 여정에 지불되었는지 여부를 예측하는 임의 포리스트 모델을 학습, 평가, 저장하는 방법을 보여줍니다.
 
     #PREDICT WHETHER A TIP IS PAID OR NOT USING RANDOM FOREST
 
@@ -799,7 +794,7 @@ Area under ROC = 0.985297691373
 위의 셀을 실행하는 데 걸린 시간: 31.09초
 
 ### <a name="gradient-boosting-trees-classification"></a>그라데이션 향상 트리 분류
-이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 집합에서 팁이 여정에 지불되었는지 여부를 예측하는 그라데이션 향상 트리 모델을 학습, 평가, 저장하는 방법을 보여줍니다.
+이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 세트에서 팁이 여정에 지불되었는지 여부를 예측하는 그라데이션 향상 트리 모델을 학습, 평가, 저장하는 방법을 보여줍니다.
 
     #PREDICT WHETHER A TIP IS PAID OR NOT USING GRADIENT BOOSTING TREES
 
@@ -1002,7 +997,7 @@ R-sqr = 0.759661334921
     dirfilename = modelDir + btregressionfilename;
     gbtModel.save(sc, dirfilename)
 
-    # CONVER RESULTS TO DF AND REGISER TEMP TABLE
+    # CONVERT RESULTS TO DF AND REGISTER TEMP TABLE
     test_predictions = sqlContext.createDataFrame(predictionAndLabels)
     test_predictions.registerTempTable("tmp_results");
 

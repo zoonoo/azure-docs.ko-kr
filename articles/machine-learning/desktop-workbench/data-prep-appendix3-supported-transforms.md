@@ -7,20 +7,23 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 0ad4202f62aada30a8eab996858d3e972876e5f2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 26674648217e01b66fbe722cd013d51d867e9ba9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831284"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984390"
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 준비를 위해 데이터 변환 사용
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Azure Machine Learning의 *변환*은 지정된 형식의 데이터를 사용하고, 데이터에 대해 작업을 수행하고(예: 데이터 형식 변경) 데이터를 새 형식으로 생성합니다. 각 변환에는 자체 인터페이스와 동작이 있습니다. 데이터 흐름의 단계를 통해 여러 변환을 함께 연결하여 데이터에 대해 복잡하고 반복 가능한 변환을 수행할 수 있습니다. 이것이 데이터 준비 기능의 핵심입니다.
 

@@ -1,22 +1,25 @@
 ---
 title: 오디오 스트림을 청크 분할하여 전송하는 방법 | Microsoft Docs
-description: 청크 분할 전송을 사용하여 오디오 스트림을 음성 서비스로 보내는 방법입니다.
+titlesuffix: Azure Cognitive Services
+description: 청크 분할 전송을 사용하여 오디오 스트림을 Bing Speech 서비스로 보내는 방법
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 7d02340932dfc547893c4c40cbe08978b7b93756
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 510bc258aae80582e85478936c3281198e89d755
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373790"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343166"
 ---
 # <a name="chunked-transfer-encoding"></a>청크 분할 전송 인코딩
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 음성 - 텍스트 변환을 전사하기 위해 Microsoft 음성 인식 API를 사용하면 오디오를 하나의 청크 전체로 보내거나 작은 청크로 분할하여 보낼 수 있습니다. 효율적으로 오디오를 스트림하고 전사 대기 시간을 줄이려면 [청크 분할 전송 인코딩](https://en.wikipedia.org/wiki/Chunked_transfer_encoding)을 사용하여 오디오를 서비스로 스트림하는 것이 좋습니다. 다른 구현은 사용자가 인식하는 대기 시간을 늘릴 수 있습니다. 자세한 내용은 [오디오 스트림](../concepts.md#audio-streams) 페이지를 참조하세요.
 

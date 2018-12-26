@@ -4,18 +4,18 @@ description: Azure MFA 및 사용자 포털을 시작합니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 7254e8d1b5a525c3ab06230837bd368e17911dbe
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.reviewer: michmcla
+ms.openlocfilehash: 1bd9dd82fb72c3d6b0759139680647be764f273a
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100282"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161556"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털
 
@@ -30,7 +30,7 @@ ms.locfileid: "37100282"
 ![MFA 사용자 포털](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> Multi-Factor Authentication 서버에서만 사용자 포털을 사용할 수 있습니다. 클라우드에서 Multi-Factor Authentication을 사용하는 경우 사용자는 [2단계 인증을 위한 계정 설정](end-user/current/multi-factor-authentication-end-user-first-time.md) 또는 [2단계 인증을 위한 설정 관리](end-user/current/multi-factor-authentication-end-user-manage-settings.md)를 참조합니다.
+> Multi-Factor Authentication 서버에서만 사용자 포털을 사용할 수 있습니다. 클라우드에서 Multi-Factor Authentication을 사용하는 경우 사용자는 [2단계 인증을 위한 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md) 또는 [2단계 인증을 위한 설정 관리](../user-help/multi-factor-authentication-end-user-manage-settings.md)를 참조합니다.
 
 ## <a name="install-the-web-service-sdk"></a>웹 서비스 SDK 설치
 
@@ -134,7 +134,7 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 | Allow users to initiate One-Time Bypass(일회성 바이패스 시작 허용) | 일회성 바이패스를 시작할 수 있습니다. 사용자가 이 옵션을 설정하면 다음번에 로그인할 때 적용됩니다. 바이패스(초) 프롬프트의 상자에서 기본값 300초를 변경할 수 있습니다. 변경하지 않으면 일회성 바이패스는 300초가 지나면 만료됩니다. |
 | Allow users to select method(방법 선택 허용) | 사용자가 자신의 기본 연락 방법을 지정할 수 있습니다. 전화 통화, 문자 메시지, 모바일 앱 또는 OATH 토큰 옵션 중 방법을 선택할 수 있습니다. |
 | Allow users to select language(언어 선택 허용) | 전화 통화, 문자 메시지, 모바일 앱 또는 OATH 토큰에 사용되는 언어를 변경할 수 있습니다. |
-| Allow users to activate mobile app(모바일 앱 활성화 허용) | 서버에서 사용되는 모바일 앱 활성화 프로세스를 완료하기 위한 활성화 코드를 생성할 수 있습니다.  앱을 활성화할 수 있는 장치 수를 1부터 10 사이로 설정할 수도 있습니다. |
+| Allow users to activate mobile app(모바일 앱 활성화 허용) | 서버에서 사용되는 모바일 앱 활성화 프로세스를 완료하기 위한 활성화 코드를 생성할 수 있습니다.  앱을 활성화할 수 있는 디바이스 수를 1부터 10 사이로 설정할 수도 있습니다. |
 | Use security questions for fallback(대체 방법으로 보안 질문 사용) | 2단계 검증에 실패한 경우 보안 질문을 허용합니다. 답변이 맞아야 하는 보안 질문의 수를 지정할 수 있습니다. |
 | Allow users to associate third-party OATH token(타사 OATH 토큰 연결 허용) | 타사 OATH 토큰을 지정할 수 있습니다. |
 | Use OATH token for fallback(대체 방법으로 OATH 토큰 사용) | 2단계 검증이 실패한 경우 OATH 토큰을 사용할 수 있도록 합니다. 세션 제한 시간(분)을 지정할 수도 있습니다. |
@@ -160,10 +160,10 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 
 ![사용자 포털 SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
-사용자가 Mobile App 확인 방법을 선택하면 페이지에는 해당 장치에서 Microsoft Authenticator 앱을 설치하고 활성화 코드를 생성하라는 메시지가 표시됩니다. 앱을 설치한 후 [활성화 코드 생성] 단추를 클릭합니다.
+사용자가 Mobile App 확인 방법을 선택하면 페이지에는 해당 디바이스에서 Microsoft Authenticator 앱을 설치하고 활성화 코드를 생성하라는 메시지가 표시됩니다. 앱을 설치한 후 [활성화 코드 생성] 단추를 클릭합니다.
 
 > [!NOTE]
-> Microsoft 인증 앱을 사용하려면 해당 장치에 푸시 알림을 사용하도록 설정해야 합니다.
+> Microsoft 인증 앱을 사용하려면 해당 디바이스에 푸시 알림을 사용하도록 설정해야 합니다.
 
 그러면 페이지에 활성화 코드와 URL이 바코드 그림과 함께 표시됩니다. 사용자가 PIN을 사용해서 인증해야 하는 경우 페이지에 추가로 PIN을 입력하라는 메시지가 표시됩니다. Microsoft 인증 앱에 활성화 코드와 URL을 입력하거나 바코드 스캐너를 사용하여 바코드 그림을 스캔하고 [활성화] 단추를 클릭합니다.
 

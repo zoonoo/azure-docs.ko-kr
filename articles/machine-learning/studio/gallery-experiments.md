@@ -1,10 +1,11 @@
 ---
-title: Azure AI 갤러리 실험 | Microsoft Docs
+title: Azure AI Gallery 실험 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure AI 갤러리에서 실험을 검색 및 공유합니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
@@ -15,18 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: d57e780fbf5187f2481d40bde28b113181c15b4a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 66b5e30a26c57676bdd65b4861d34ca90c0c25af
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834661"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317469"
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Azure AI 갤러리의 실험 검색
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="experiments-for-machine-learning-studio"></a>Machine Learning Studio용 실험
-갤러리에는 [Azure Machine Learning Studio](https://studio.azureml.net)에서 개발된 매우 다양한 [실험](https://gallery.cortanaintelligence.com/experiments)이 있습니다. 실험은 특정한 기계 학습 기법을 보여주는 빠른 개념 증명 실험에서 복잡한 기계 학습 문제에 대한 완전히 개발된 솔루션에 이르기까지 다양합니다.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com)에는 [Azure Machine Learning Studio](https://studio.azureml.net)에서 개발된 다양한 [실험](https://gallery.cortanaintelligence.com/experiments)이 있습니다. 실험은 특정한 기계 학습 기법을 보여주는 빠른 개념 증명 실험에서 복잡한 기계 학습 문제에 대한 완전히 개발된 솔루션에 이르기까지 다양합니다.
 
 > [!NOTE]
 > ***실험***은 예측 분석 모델을 생성하는 데 사용할 수 있는 Machine Learning Studio의 캔버스입니다. 다양한 분석 모듈에 데이터를 연결하여 모델을 만듭니다. 다른 아이디어를 시도, 평가판 실행을 수행하고 마지막으로 Azure에 웹 서비스로 모델을 배포할 수 있습니다. 기본 실험을 만드는 방법의 예제는 [Machine Learning 자습서: Azure Machine Learning Studio에서 첫 번째 실험 만들기](create-experiment.md)를 참조하세요. 예측 분석 솔루션을 만드는 방법의 자세한 연습 과정은 [연습: Azure Machine Learning의 신용 위험 평가에 대한 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)을 참조하세요.
@@ -169,7 +168,7 @@ Azure AI 갤러리는 실험의 복사본을 가져오는 두 가지 방법을 �
 * 읽기 권한자가 이전 데이터 과학 경험이 있다고 가정할 수도 있지만 간단한 언어를 사용하는 것이 도움이 될 수 있습니다. 가능하면 자세하게 설명합니다.
 * Cortana Intelligence Suite는 비교적 새로운 기능입니다. 모든 읽기 권한자가 사용하는 방법을 잘 알고 있지 않습니다. 실험을 골고루 탐색할 수 있도록 충분한 정보와 단계별 설명을 제공합니다.
 * 시각적 개체는 읽기 권한자가 실험 설명서를 올바르게 해석하고 사용하는 데 유용할 수 있습니다. 시각적 개체에는 실험 그래프 및 데이터의 스크린샷이 포함됩니다. 실험 설명서에 이미지를 포함하는 방법에 대한 자세한 내용은 [게시 지침 및 예제 컬렉션](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1)(영문)을 참조하세요.
-* 데이터 집합이 실험에 포함되는 경우(즉, 데이터 가져오기 모듈을 통해 데이터 집합을 가져오지 않는 경우) 데이터 집합은 실험의 일부이며 갤러리에 게시됩니다. 게시하는 데이터 집합이 누구에게나 공유와 다운로드를 허용하는 사용 조건을 가지고 있는지 확인합니다. 갤러리 기여에 관한 자세한 내용은 Azure [사용 약관](https://azure.microsoft.com/support/legal/website-terms-of-use/)에 나옵니다.
+* 데이터 세트가 실험에 포함되는 경우(즉, 데이터 가져오기 모듈을 통해 데이터 세트를 가져오지 않는 경우) 데이터 세트는 실험의 일부이며 갤러리에 게시됩니다. 게시하는 데이터 집합이 누구에게나 공유와 다운로드를 허용하는 사용 조건을 가지고 있는지 확인합니다. 갤러리 기여에 관한 자세한 내용은 Azure [사용 약관](https://azure.microsoft.com/support/legal/website-terms-of-use/)에 나옵니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 **실험의 이미지 제출 또는 편집에 대한 요구 사항은 무엇인가요?**

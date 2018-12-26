@@ -8,24 +8,22 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6e0d2b881e00acc6b1fccd3196187309fc36cba2
-ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.openlocfilehash: ad75b333fc7d5d37a4ac074727e4d54b67bd0321
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35568146"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45636998"
 ---
 #### <a name="expressroute-limits"></a>ExpressRoute 제한
 구독당 ExpressRoute 리소스에는 다음과 같은 제한이 적용됩니다.
 
-| 리소스 | 기본 제한 |
+| 리소스 | 기본값/최대 한도 |
 | --- | --- |
 | 구독당 ExpressRoute 회로 |10 |
-| ARM에 대한 구독당 지역별 ExpressRoute 회로 |10 |
+| 구독당 지역별 ExpressRoute 회로(Azure Resource Manager) |10 |
 | ExpressRoute 표준을 사용할 경우 Azure 개인 피어링에 대한 최대 경로 수 |4,000 |
 | ExpressRoute 프리미엄 추가 기능을 사용할 경우 Azure 개인 피어링에 대한 최대 경로 수 |10000 |
-| ExpressRoute 표준을 사용할 경우 Azure 공용 피어링에 대한 최대 경로 수 |200 |
-| ExpressRoute 프리미엄 추가 기능을 사용할 경우 Azure 공용 피어링에 대한 최대 경로 수 |200 |
 | ExpressRoute 표준을 사용할 경우 Azure Microsoft 피어링에 대한 최대 경로 수 |200 |
 | ExpressRoute 프리미엄 추가 기능을 사용할 경우 Azure Microsoft 피어링에 대한 최대 경로 수 |200 |
 | 서로 다른 피어링 위치의 동일한 가상 네트워크에 연결된 ExpressRoute 회로의 최대 수 |4 |

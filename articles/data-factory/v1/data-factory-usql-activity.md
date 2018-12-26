@@ -33,7 +33,7 @@ Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의
 
 Data Lake Analytics U-SQL 작업이 포함된 파이프라인을 만들기 전에 Azure Data Lake Analytics 계정을 만듭니다. Azure Data Lake Analytics에 대해 알아보려면 [Azure Data Lake Analytics 시작](../../data-lake-analytics/data-lake-analytics-get-started-portal.md)을 참조하세요.
 
-Data Factory, 연결된 서비스, 데이터 집합 및 파이프라인 만들기를 위한 자세한 단계는 [첫 파이프라인 빌드하기 자습서](data-factory-build-your-first-pipeline.md) 를 검토하세요. Data Factory 편집기, Visual Studio 또는 Azure PowerShell에서 JSON 조각을 사용하여 Data Factory 엔터티를 만듭니다.
+Data Factory, 연결된 서비스, 데이터 세트 및 파이프라인 만들기를 위한 자세한 단계는 [첫 파이프라인 빌드하기 자습서](data-factory-build-your-first-pipeline.md)를 검토하세요. Data Factory 편집기, Visual Studio 또는 Azure PowerShell에서 JSON 조각을 사용하여 Data Factory 엔터티를 만듭니다.
 
 ## <a name="supported-authentication-types"></a>지원되는 인증 형식
 U-SQL 작업은 Data Lake Analytics에 대해 아래 인증 유형을 지원합니다.
@@ -222,8 +222,8 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 스크립트 정의에 대해서는 [SearchLogProcessing.txt 스크립트 정의](#sample-u-sql-script) 를 참조하세요. 
 
-## <a name="sample-input-and-output-datasets"></a>샘플 입력 및 출력 데이터 집합
-### <a name="input-dataset"></a>입력 데이터 집합
+## <a name="sample-input-and-output-datasets"></a>샘플 입력 및 출력 데이터 세트
+### <a name="input-dataset"></a>입력 데이터 세트
 이 예제에서 입력 데이터는 Azure Data Lake Store(datalake/input 폴더의 SearchLog.tsv 파일)에 있습니다. 
 
 ```json
@@ -249,7 +249,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }    
 ```
 
-### <a name="output-dataset"></a>출력 데이터 집합
+### <a name="output-dataset"></a>출력 데이터 세트
 이 예제에서 U-SQL 스크립트에서 생성한 출력 데이터는 Azure Data Lake Store(datalake/output 폴더)에 저장됩니다. 
 
 ```json
@@ -270,7 +270,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 ```
 
 ### <a name="sample-data-lake-store-linked-service"></a>샘플 Azure Data Lake Store 연결된 서비스
-다음은 입/출력 데이터 집합에서 사용되는 Azure Data Lake Store 연결된 서비스 샘플의 정의입니다. 
+다음은 입/출력 데이터 세트에서 사용되는 Azure Data Lake Store 연결된 서비스 샘플의 정의입니다. 
 
 ```json
 {

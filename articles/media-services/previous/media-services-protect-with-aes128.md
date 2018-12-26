@@ -4,7 +4,7 @@ description: Microsoft Azure Media Services를 사용하면 AES 128비트 암호
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
 ms.service: media-services
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 09/18/2018
 ms.author: juliako
-ms.openlocfilehash: 335c080519df48709ebc5c1c3c44d9386d16b790
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9f3fe36eab7dc7fd1921c4e225b5a173fe2e9243
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786072"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364876"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>AES-128 동적 암호화 및 키 전달 서비스 사용
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-aes128.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
-> 
+>  
 
 > [!NOTE]
 > 최신 버전의 Java SDK를 가져와서 Java를 사용하여 개발을 시작하려면 [Media Services용 Java 클라이언트 SDK 시작](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)을 참조하세요. <br/>
@@ -88,7 +88,7 @@ Media Services 키 배달 서비스를 사용하거나 동적 암호화도 사�
 동적 암호화를 사용하면 다중 비트 전송률 MP4 파일 또는 다중 비트 전송률 부드러운 스트리밍 원본 파일의 집합이 포함된 자산을 만들 수 있습니다. 이렇게 하면 매니페스트 또는 조각 요청의 지정된 형식에 따라 주문형 스트리밍 서버는 사용자가 선택한 프로토콜로 스트림을 받을 수 있도록 합니다. 그런 다음 단일 저장소 형식으로만 파일을 저장하고 이에 대한 비용을 지불하면 됩니다. Media Services는 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다. 자세한 내용은 [동적 패키징 개요](media-services-dynamic-packaging-overview.md)를 참조하세요.
 
 >[!NOTE]
->Azure Media Services 계정이 만들어지면 기본 스트리밍 끝점이 “중지됨” 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면, 콘텐츠를 스트리밍하려는 스트리밍 끝점이 "실행 중" 상태에 있어야 합니다. 
+>Azure Media Services 계정이 만들어지면 기본 스트리밍 엔드포인트가 “중지됨” 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면, 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 "실행 중" 상태에 있어야 합니다. 
 >
 >또한 동적 패키징 및 동적 암호화를 사용하려면 자산이 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다.
 
@@ -247,8 +247,8 @@ HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다.
 2. 다음 요소를 app.config 파일에 정의된 appSettings에 추가합니다.
 
     ```xml
-            <add key="Issuer" value="http://testacs.com"/>
-            <add key="Audience" value="urn:test"/>
+    <add key="Issuer" value="http://testissuer.com"/>
+    <add key="Audience" value="urn:test"/>
     ```
 
 ### <a id="example"></a>예제
@@ -260,13 +260,10 @@ Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮�
 
 입력 파일이 있는 폴더를 가리키도록 변수를 업데이트해야 합니다.
 
-```csharp
-    [!code-csharp[Main](../../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
-```
+[!code-csharp[Main](../../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

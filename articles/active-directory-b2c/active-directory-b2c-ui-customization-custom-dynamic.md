@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4e7cc47bddf3663cbc1c8bb5c4470020a84073e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441654"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582890"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면 쿼리 문자열에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 끝점으로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다. 
+Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면 쿼리 문자열에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 엔드포인트로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서는 사용자 지정 정책을 사용하여 *동적 콘텐츠*로 Azure AD B2C 사용자 인터페이스를 사용자 지정하는 방법에 중점을 둡니다. 시작하려면 [사용자 지정 정책에서 UI 사용자 지정](active-directory-b2c-ui-customization-custom.md)을 참조하세요. 
@@ -178,7 +178,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 3. **CORS** 창의 **허용된 원본** 상자에 다음 중 하나를 수행합니다.
 
-    * JavaScript 호출을 허용할 URL을 입력합니다.
+    * JavaScript 호출을 허용할 URL을 입력합니다. URL을 입력할 때는 모두 소문자를 사용해야 합니다.
     * 별표( * )를 입력하여 모든 원본 도메인이 허용되도록 지정합니다.
 
 4. **저장**을 선택합니다.
@@ -321,7 +321,7 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 
     a. *selfasserted* 파일을 다운로드합니다.
 
-    나. 파일 내용을 복사합니다.
+    b. 파일 내용을 복사합니다.
 
     다. 새 보기 *selfasserted*를 만듭니다.
 
@@ -331,7 +331,7 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 
     a. 확장 정책에서 `Id="api.selfasserted"`, `Id="api.localaccountsignup"` 및 `Id="api.localaccountpasswordreset"`를 포함하는 `<ContentDefinition>` 노드를 찾습니다.
 
-    나. `LoadUri` 특성을 *selfasserted* URI로 설정합니다.
+    b. `LoadUri` 특성을 *selfasserted* URI로 설정합니다.
 
 3. "8.2단계"로 돌아가서 쿼리 문자열 매개 변수를 수락하도록 코드를 변경합니다. 하지만 이번에는 *selfasserted* 함수로 변경합니다. 
 

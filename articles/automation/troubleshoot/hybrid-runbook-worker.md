@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cae7253a4bfcb4f83baf003a4d9d3c367d8f014
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 38e2589365c2f1c88145fbf068d3ed267d4a4621
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064476"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284572"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Worker 문제 해결
 
@@ -24,13 +24,13 @@ ms.locfileid: "37064476"
 
 Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고하는 에이전트를 사용합니다. 이 에이전트는 Windows의 경우 Microsoft Monitoring Agent이며, Linux의 경우 Linux용 OMS 에이전트입니다.
 
-###<a name="runbook-execution-fails"></a>시나리오: Runbook 실행 실패
+### <a name="runbook-execution-fails"></a>시나리오: Runbook 실행 실패
 
 #### <a name="issue"></a>문제
 
 Runbook 실행에 실패하고 다음 오류가 발생합니다.
 
-```
+```error
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
@@ -62,7 +62,7 @@ Hybrid Runbook Worker 기능을 실행하도록 지정된 컴퓨터가 최소 �
 
 Linux Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고하는 Linux용 OMS 에이전트에 따라 달라집니다. 작업자 등록이 실패하는 경우 다음과 같은 몇 가지 오류 원인이 있을 수 있습니다.
 
-###<a name="oms-agent-not-running"></a>시나리오: Linux용 OMS 에이전트가 실행되고 있지 않습니다.
+### <a name="oms-agent-not-running"></a>시나리오: Linux용 OMS 에이전트가 실행되고 있지 않습니다.
 
 Linux용 OMS 에이전트가 실행되고 있지 않으면 Linux Hybrid Runbook Worker가 Azure Automation과 통신할 수 없습니다. `ps -ef | grep python` 명령을 입력하여 에이전트가 실행 중인지 확인하세요. 다음과 비슷한 출력, 즉 **nxautomation** 사용자 계정을 사용하는 python 프로세스가 표시됩니다. 업데이트 관리 또는 Azure Automation 솔루션을 사용하도록 설정하지 않은 경우 다음 프로세스 중 어떤 것도 실행되지 않습니다.
 
@@ -82,7 +82,7 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 Linux용 OMS 에이전트가 실행되고 있지 않으면 `sudo /opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 서비스를 시작합니다.
 
-###<a name="class-does-not-exist"></a>시나리오: 지정된 클래스가 없음
+### <a name="class-does-not-exist"></a>시나리오: 지정된 클래스가 없음
 
 **지정된 클래스가 없습니다** 오류가 `/var/opt/microsoft/omsconfig/omsconfig.log`에서 보이는 경우 Linux용 OMS 에이전트를 업데이트해야 합니다. 다음 명령을 실행하여 OMS 에이전트를 다시 설치합니다.
 
@@ -94,7 +94,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 Windows Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고하는 Microsoft Monitoring Agent에 따라 달라집니다. 작업자 등록이 실패하는 경우 다음과 같은 몇 가지 오류 원인이 있을 수 있습니다.
 
-###<a name="mma-not-running"></a>시나리오: The Microsoft Monitoring Agent가 실행되고 있지 않습니다.
+### <a name="mma-not-running"></a>시나리오: The Microsoft Monitoring Agent가 실행되고 있지 않습니다.
 
 #### <a name="issue"></a>문제
 
@@ -108,7 +108,7 @@ Microsoft Monitoring Agent Windows 서비스가 실행되고 있지 않으면 Hy
 
 PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트가 실행 중인지 확인하세요. 서비스가 중지된 경우 PowerShell에서 `Start-Service healthservice` 명령을 입력하여 서비스를 시작하세요.
 
-###<a name="event-4502"></a> Operations Manager 로그의 4502 이벤트
+### <a name="event-4502"></a> Operations Manager 로그의 4502 이벤트
 
 #### <a name="issue"></a>문제
 

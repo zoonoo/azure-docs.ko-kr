@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 06/15/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f982e859892965379b7ffb08e15dd1cf51b9801f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 333161042e968b4baf4b962869d688fd0b696b24
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31515682"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094138"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>응용 프로그램을 배포하여 Batch 응용 프로그램 패키지에서 노드 계산
 
@@ -46,7 +46,7 @@ Azure Batch 내에서 *응용 프로그램* 이란 풀의 계산 노드에 자�
 
 ![응용 프로그램 및 응용 프로그램 패키지에 대한 개략적인 다이어그램][1]
 
-### <a name="applications"></a>응용 프로그램
+### <a name="applications"></a>애플리케이션
 Batch에서 응용 프로그램은 하나 이상의 응용 프로그램을 포함하거나 응용 프로그램에 대한 구성 옵션을 지정합니다. 예를 들어 응용 프로그램은 계산 노드에 설치할 기본 응용 프로그램 패키지 버전, 응용 프로그램 패키지를 업데이트할지 아니면 삭제할 것인지를 지정할 수 있습니다.
 
 ### <a name="application-packages"></a>응용 프로그램 패키지
@@ -98,7 +98,7 @@ Batch 서비스는 연결된 Storage 계정을 사용하여 응용 프로그램 
 > 현재 [방화벽 규칙](../storage/common/storage-network-security.md)이 구성된 Azure Storage 계정에는 응용 프로그램 패키지를 사용할 수 없습니다.
 > 
 
-Batch 서비스는 Azure Storage를 사용하여 응용 프로그램 패키지를 블록 Blob으로 저장합니다. 블록 Blob 데이터에 대한 [요금이 정상적으로 청구][storage_pricing]됩니다. 비용을 최소화할 수 있도록 응용 프로그램 패키지의 크기와 숫자에 신경 쓰고, 사용하지 않는 패키지를 주기적으로 제거해 주세요.
+Batch 서비스는 Azure Storage를 사용하여 응용 프로그램 패키지를 블록 Blob으로 저장합니다. 블록 Blob 데이터에 대해서는 [정상적으로 요금이 부과][storage_pricing]되며 각 패킷의 크기는 [최대 블록 Blob 크기](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets)를 초과할 수 없습니다. 비용을 최소화할 수 있도록 응용 프로그램 패키지의 크기와 숫자에 신경 쓰고, 사용하지 않는 패키지를 주기적으로 제거해 주세요.
 > 
 > 
 
@@ -204,8 +204,8 @@ CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(
         poolId: "myPool",
         targetDedicatedComputeNodes: 1,
-        virtualMachineSize: "small",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 // Specify the application and version to install on the compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>

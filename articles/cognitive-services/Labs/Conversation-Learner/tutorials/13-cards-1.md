@@ -1,7 +1,7 @@
 ---
-title: Conversation Learner 응용 프로그램에서 카드를 사용하는 방법, 1부 - Microsoft Cognitive Services | Microsoft Docs
+title: Conversation Learner 모델에서 카드를 사용하는 방법, 1부 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Conversation Learner 응용 프로그램에서 카드를 사용하는 방법을 알아봅니다.
+description: Conversation Learner 모델에서 카드를 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,18 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e90ccd42b21eea6139c402937be7e20513d73c84
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: da261beeec4f02dfa7c7cf9071e51dc17cf5c7cd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376206"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254386"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>카드 사용 방법(2부 중 1부)
 
 이 자습서는 봇에서 간단한 카드를 추가하고 사용하는 방법을 보여 줍니다.
 
-Conversation Learner는 봇이 시작된 디렉터리에 있는 “cards” 디렉터리에 카드 정의 파일이 있을 것으로 예상합니다.
+> [!NOTE]
+> 현재, Conversation Learner는 봇이 시작된 디렉터리에 있는 “cards” 디렉터리에 카드 정의 파일이 있을 것으로 예상합니다. 향후에 구성 가능하게 구현될 예정입니다.
+
+## <a name="video"></a>비디오
+
+[![자습서 13 미리 보기](https://aka.ms/cl-tutorial-13-preview)](https://aka.ms/blis-tutorial-13)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.
@@ -34,7 +39,7 @@ Conversation Learner는 봇이 시작된 디렉터리에 있는 “cards” 디�
 
 ### <a name="open-the-demo"></a>데모 열기
 
-Web UI의 앱 목록에서 Tutorial-13-Cards-1을 클릭합니다. 
+Web UI의 모델 목록에서 Tutorial-13-Cards-1을 클릭합니다. 
 
 ### <a name="the-card"></a>카드
 
@@ -44,8 +49,9 @@ Web UI의 앱 목록에서 Tutorial-13-Cards-1을 클릭합니다.
 
 ![](../media/tutorial13_prompt.PNG)
 
-- TextBlock 및 질문 템플릿을 확인합니다.
-- 두 개의 제출 단추와 각 단추에 대해 제출되는 텍스트가 있습니다.
+> [!NOTE]
+> 텍스트 필드에서 본문 형식 `TextBlock` 및 `{{question}}` 자리 표시자를 확인합니다.
+> 두 개의 제출 단추와 각 단추에 대해 제출되는 텍스트가 있습니다.
 
 ### <a name="actions"></a>작업
 
@@ -57,7 +63,8 @@ Web UI의 앱 목록에서 Tutorial-13-Cards-1을 클릭합니다.
 
 ![](../media/tutorial13_cardaction.PNG)
 
-질문 입력과 단추 1, 2를 확인합니다. 카드에서 질문과 해당 답변을 입력하는 템플릿 참조입니다. 엔터티 또는 텍스트와 엔터티 혼합을 참조하고 사용할 수도 있습니다.
+> [!NOTE]
+> 질문 입력과 단추 1, 2를 확인합니다. 카드에서 질문과 해당 답변을 입력하는 템플릿 참조입니다. 엔터티 또는 텍스트와 엔터티 혼합을 참조하고 사용할 수도 있습니다.
 
 눈 아이콘은 카드 모양을 보여 줍니다.
 

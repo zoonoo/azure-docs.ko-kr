@@ -1,10 +1,11 @@
 ---
-title: Excel에서 Machine Learning 웹 서비스 사용 | Microsoft Docs
-description: Excel에서 Azure Machine Learning 웹 서비스 사용
+title: Excel에서 Machine Learning Studio 웹 서비스 사용 - Azure Machine Learning Studio | Microsoft Docs
+description: Azure Machine Learning Studio를 사용하면 코드를 작성할 필요 없이 Excel에서 직접 웹 서비스를 쉽게 호출할 수 있습니다.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 3f3cdd2f-1816-487e-ab78-530e01e9788f
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: 14621e50a397bc1f1922a4c8fae638d6b42ab8ba
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7084e62df3cd4872d90661ad6b94e1ebf7b54d8d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837068"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312748"
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Excel에서 Azure Machine Learning 웹 서비스 사용
  Azure Machine Learning Studio를 사용하면 코드를 작성할 필요 없이 Excel에서 직접 웹 서비스를 쉽게 호출할 수 있습니다.

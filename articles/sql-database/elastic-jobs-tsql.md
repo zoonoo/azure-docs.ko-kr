@@ -2,18 +2,22 @@
 title: T-SQL(Transact-SQL)을 사용하여 Azure SQL Elastic Database 작업 만들기 및 관리 | Microsoft Docs
 description: T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 에이전트가 있는 여러 데이터베이스에서 스크립트를 실행합니다.
 services: sql-database
-author: jaredmoo
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 ms.author: jaredmoo
-ms.openlocfilehash: fb6e4ebd635d8afa8e679ee5bb0f5646f28f887b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+author: jaredmoo
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311407"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056790"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리
 
@@ -80,7 +84,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 --Connect to the job database specified when creating the job agent
 
 -- Add a target group containing server(s)
-EXEC [jobs].sp_add_target_group = N'ServerGroup'
+EXEC [jobs].sp_add_target_group N'ServerGroup'
 GO
 
 -- Add a server target member
@@ -184,7 +188,13 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 
 ## <a name="monitor-database-performance"></a>데이터베이스 성능 모니터링
 
-다음 예제에서는 새 데이터베이스를 만들어 여러 데이터베이스에서 성능 데이터를 수집합니다.  
+다음 예제에서는 새 데이터베이스를 만들어 여러 데이터베이스에서 성능 데이터를 수집합니다.
+
+기본적으로 작업 에이전트는 반환된 결과를 저장할 테이블을 만듭니다. 결과적으로 출력 자격 증명에 사용되는 자격 증명과 관련된 로그인을 위해서는 이를 수행할 충분한 권한이 있어야 합니다. 테이블을 미리 수동으로 만들려는 경우 다음 속성이 있어야 합니다.
+1. 결과 집합에 대한 데이터 형식 및 올바른 이름을 사용하는 열입니다.
+2. 고유 식별자의 데이터 형식을 사용하는 internal_execution_id에 대한 추가 열입니다.
+3. internal_execution_id 열에서 “IX_<TableName>_Internal_Execution_ID”로 명명된 비클러스터형 인덱스입니다.
+
 [*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
@@ -1100,7 +1110,7 @@ Arguments [ @target_group_name = ] 'target_group_name'
 대상 그룹 멤버를 제거할 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ @target_id = ] target_id  
- 제거할 대상 그룹 멤버에 할당된 대상 ID 번호입니다. target_id는 uniqueidentifier이며, 기본값은 NULL입니다.
+ 제거할 대상 그룹 멤버에 할당된 대상 ID 번호입니다. target_id는 uniqueidentifier이고, 기본값은 NULL입니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
 0(성공) 또는 1(실패)
@@ -1330,7 +1340,7 @@ GO
 
 ## <a name="resources"></a>리소스
 
- - ![항목 링크 아이콘](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "항목 링크 아이콘") [Transact-SQL 구문 표기 규칙](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ - ![항목 링크 아이콘](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "항목 링크 아이콘") [Transact-SQL 구문 표기 규칙](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>다음 단계

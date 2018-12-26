@@ -3,7 +3,7 @@ title: PowerShell을 사용하여 Azure Active Directory Domain Services 사용 
 description: PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2017
-ms.author: maheshu
-ms.openlocfilehash: acae942131903aa86601f023976b0715bf553d4d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.author: ergreenl
+ms.openlocfilehash: b58df5ebf5332688424ac6ed2eeb9679487bcdc4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215034"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240259"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 이 문서에서는 PowerShell을 사용하여 Azure AD(Azure Active Directory) Domain Services를 사용하도록 설정하는 방법을 보여 줍니다.
@@ -38,7 +38,7 @@ ms.locfileid: "36215034"
 다음 PowerShell 명령을 입력하여 Azure AD 디렉터리의 Azure AD Domain Services에 필요한 서비스 주체를 만듭니다.
 ```powershell
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
 ## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>작업 3: 'AAD DC Administrators' 그룹 만들기 및 구성
@@ -166,7 +166,7 @@ Connect-AzureAD
 Connect-AzureRmAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 # Create the delegated administration group for AAD Domain Services.
 New-AzureADGroup -DisplayName "AAD DC Administrators" `

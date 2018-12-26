@@ -1,7 +1,7 @@
 ---
-title: 미리 빌드된 엔터티를 Conversation Learner 응용 프로그램에 추가하는 방법 - Microsoft Cognitive Services | Microsoft Docs
+title: 미리 빌드된 엔터티를 Conversation Learner 모델에 추가하는 방법 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: 미리 빌드된 엔터티를 Conversation Learner 응용 프로그램에 추가하는 방법을 알아봅니다.
+description: 미리 빌드된 엔터티를 Conversation Learner 모델에 추가하는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,15 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f014464419bfac39a9e57e679fcd28a737e9ebdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cdd9ad16096c85db21829840b2bfd7acaced5942
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377679"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683508"
 ---
 # <a name="how-to-add-pre-built-entities"></a>미리 빌드된 엔터티를 추가하는 방법
-이 자습서에서는 미리 빌드된 엔터티를 Conversation Learner 응용 프로그램에 추가하는 방법을 보여 줍니다.
+이 자습서에서는 미리 빌드된 엔터티를 Conversation Learner 모델에 추가하는 방법을 보여 줍니다.
+
+## <a name="video"></a>비디오
+
+[![자습서 7 미리 보기](https://aka.ms/cl-tutorial-07-preview)](https://aka.ms/blis-tutorial-07)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.
@@ -31,9 +35,9 @@ ms.locfileid: "35377679"
 
 ## <a name="steps"></a>단계
 
-### <a name="create-the-application"></a>응용 프로그램 만들기
+### <a name="create-the-model"></a>모델 만들기
 
-1. Web UI에서 새 앱을 클릭합니다.
+1. Web UI에서 새 모델을 클릭합니다.
 2. 이름에 BuiltInEntities를 입력합니다. 그런 후 만들기를 클릭합니다.
 
 ### <a name="create-an-entity"></a>엔터티 만들기
@@ -43,24 +47,25 @@ ms.locfileid: "35377679"
     - 프로그래밍 가능 및 무효화 가능 옵션은 미리 빌드된 엔터티에 적용되지 않으므로 사용되지 않도록 설정됩니다.
 3. 만들기를 클릭합니다.
 
-![](../media/tutorial7_entities.PNG)
+![](../media/tutorial7_entities_a.PNG)
 
-### <a name="create-two-actions"></a>두 작업 만들기
+### <a name="create-two-actions"></a>두 가지 작업 만들기
 
 1. 작업, 새 작업을 차례로 클릭합니다.
-2. 응답에 'The date is $luis-datetimev2'를 입력합니다.
-3. 만들기를 클릭합니다.
+1. 응답에 'The date is $builtin-datetimev2'를 입력합니다.
+1. 필수 엔터티에 ' $builtin-datetimev2'를 입력합니다.
+1. 만들기를 클릭합니다.
 
-![](../media/tutorial7_actions.PNG)
+![](../media/tutorial7_actions_a.PNG)
 
 그런 다음, 두 번째 작업을 만듭니다.
 
 1. 작업, 새 작업을 차례로 클릭하여 두 번째 작업을 만듭니다.
-3. 응답에 'What's the date?'를 입력합니다.
-4. 실격 엔터티에 'luis-datetimev2'를 입력합니다.
-4. 만들기 클릭
+1. 응답에 'What's the date?'를 입력합니다.
+1. 실격 엔터티에 '$builtin-datetimev2'를 입력합니다.
+1. 만들기를 클릭합니다.
 
-![](../media/tutorial7_actions2.PNG)
+![](../media/tutorial7_actions2_a.PNG)
 
 이제 두 가지 작업이 있습니다.
 
@@ -74,7 +79,7 @@ ms.locfileid: "35377679"
 5. 작업에 점수 지정을 클릭합니다.
     - 이제 엔터티 메모리 섹션에 해당 날짜가 표시됩니다. 
     - 날짜 위로 마우스를 가져가면 LUIS에서 제공한 추가 데이터가 표시됩니다. 이 데이터는 유용하며 코드에서 추가로 조작할 수 있습니다. 
-6. 'The date is $luis-datetimev2'를 선택합니다.
+6. 'The date is $builtin-datetimev2'를 선택합니다.
 7. 학습 완료를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계

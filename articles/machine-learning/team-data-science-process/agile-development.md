@@ -1,25 +1,21 @@
 ---
 title: 데이터 과학 프로젝트의 Agile 개발 - Azure Machine Learning | Microsoft Docs
 description: TDSP(Team Data Science Process)를 사용하여 개발자가 프로젝트 팀 내에서 체계적이고 버전을 제어하고 공동 작업을 수행하는 방식으로 데이터 과학 프로젝트를 실행할 수 있는 방법.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: deguhath
-ms.openlocfilehash: b57b77f5adfa3fb73372ac8297f408fb339b5d79
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 9fd8714e4c9fdc89036a3b05ba835b140363c0e3
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837432"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443375"
 ---
 # <a name="agile-development-of-data-science-projects"></a>데이터 과학 프로젝트의 Agile 개발
 
@@ -31,7 +27,7 @@ ms.locfileid: "34837432"
 2. 스프린트에 **작업 항목을 추가**합니다. 
 
 > [!NOTE]
-> 다음 지침 집합에서는 VSTS(Visual Studio Team Services)를 사용하여 TDSP 팀 환경을 설정하는 데 필요한 단계에 대해 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 VSTS를 사용하여 이러한 작업을 수행하는 방법을 지정합니다.  VSTS을 사용하도록 선택하는 경우 위 목록의 (3)과 (4) 항목은 자연스럽게 얻는 이점입니다. 그룹에 다른 코드 호스팅 플랫폼이 사용되는 경우 팀 리더가 수행해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 다를 수 있습니다. 예를 들어 섹션 6 **Git 분기와 작업 항목 연결** 항목은 VSTS에서처럼 쉽지 않을 수 있습니다.
+> 다음 지침 집합에서는 Azure DevOps Services를 사용하여 TDSP 팀 환경을 설정하는 데 필요한 단계에 대해 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 Azure DevOps Services를 사용하여 이러한 작업을 수행하는 방법을 지정합니다.  Azure DevOps Services를 사용하도록 선택하는 경우 위 목록의 (3)과 (4) 항목은 자연스럽게 얻는 이점입니다. 그룹에 다른 코드 호스팅 플랫폼이 사용되는 경우 팀 리더가 수행해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 다를 수 있습니다. 예를 들어 섹션 6 **Git 분기와 작업 항목 연결** 항목은 Azure DevOps Services에서처럼 쉽지 않을 수 있습니다.
 >
 >
 
@@ -42,7 +38,7 @@ ms.locfileid: "34837432"
 
 ##  1. <a name='Terminology-1'></a>용어 
 
-TDSP 스프린트 계획 프레임워크에는 자주 사용되는 네 가지 유형의**작업 항목**, 즉 **기능**, **사용자 스토리**, **작업** 및 **버그**가 있습니다. 각 팀 프로젝트에서 모든 작업 항목에 대한 단일 백로그를 유지 관리합니다. 팀 프로젝트의 Git 리포지토리 수준에는 백로그가 없습니다. 정의는 다음과 같습니다.
+TDSP 스프린트 계획 프레임워크에는 자주 사용되는 네 가지 유형의**작업 항목**, 즉 **기능**, **사용자 스토리**, **작업** 및 **버그**가 있습니다. 각 프로젝트에서 모든 작업 항목에 대한 단일 백로그를 유지 관리합니다. 프로젝트의 Git 리포지토리 수준에는 백로그가 없습니다. 정의는 다음과 같습니다.
 
 - **기능**: 프로젝트 참여에 해당하는 기능입니다. 클라이언트와의 다른 참여는 다른 기능으로 간주됩니다. 마찬가지로 클라이언트가 있는 프로젝트의 다른 단계를 다른 기능으로 간주하는 것이 가장 좋습니다. 기능 이름을 지정하기 위해 ***ClientName-EngagementName***과 같은 스키마를 선택하면 이름 자체에서 프로젝트/참여의 컨텍스트를 쉽게 인식할 수 있습니다.
 - **스토리**: 종단 간에 기능(프로젝트)을 완료하는 데 필요한 별도의 작업 항목입니다. 스토리의 예는 다음과 같습니다.
@@ -69,14 +65,14 @@ TDSP 스프린트 계획 프레임워크에는 자주 사용되는 네 가지 �
 
 ## 2. <a name='SprintPlanning-2'></a>스프린트 계획 
 
-스프린트 계획은 프로젝트 우선 순위 지정 및 리소스 계획 및 할당에 유용합니다. 많은 데이터 과학자들이 여러 프로젝트에 참여하고 있으며 각 프로젝트는 완료하는 데 몇 달이 걸릴 수 있습니다. 프로젝트는 종종 다른 속도로 진행됩니다. VSTS 서버에서 팀 프로젝트의 작업 항목을 쉽게 생성, 관리 및 추적하고 스프린트 계획을 수행하여 프로젝트가 예상대로 진행되도록 할 수 있습니다. 
+스프린트 계획은 프로젝트 우선 순위 지정 및 리소스 계획 및 할당에 유용합니다. 많은 데이터 과학자들이 여러 프로젝트에 참여하고 있으며 각 프로젝트는 완료하는 데 몇 달이 걸릴 수 있습니다. 프로젝트는 종종 다른 속도로 진행됩니다. Azure DevOps Services에서 프로젝트의 작업 항목을 쉽게 생성, 관리 및 추적하고 스프린트 계획을 수행하여 프로젝트가 예상대로 진행되도록 할 수 있습니다. 
 
-VSTS의 스프린트 계획에 대한 단계별 지침은 [이 링크](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning)를 참조하세요. 
+Azure DevOps Services의 스프린트 계획에 대한 단계별 지침은 [이 링크](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning)를 참조하세요. 
 
 
 ## 3. <a name='AddFeature-3'></a>기능 추가  
 
-팀 프로젝트 아래에 프로젝트 리포지토리가 만들어지면 팀 **개요** 페이지로 이동하여 **작업 관리**를 클릭합니다.
+프로젝트 아래에 프로젝트 리포지토리가 만들어지면 팀 **개요** 페이지로 이동하여 **작업 관리**를 클릭합니다.
 
 ![2](./media/agile-development/2-sprint-team-overview.png)
 
@@ -161,11 +157,11 @@ VSTS의 스프린트 계획에 대한 단계별 지침은 [이 링크](https://w
 
 데이터 과학 프로세스 템플릿이 만들어진 후 TDSP 수명 주기에 해당하는 데이터 과학 작업 항목을 만들고 추적할 수 있습니다.
 
-1. 새 팀 프로젝트를 만들 때 **작업 항목 프로세스**로 "Agile\AgileDataScienceProcess"를 선택합니다.
+1. 새 프로젝트를 만들 때 **작업 항목 프로세스**로 "Agile\AgileDataScienceProcess"를 선택합니다.
 
     ![15](./media/agile-development/15-newproject.png)
 
-2. 새로 만든 팀 프로젝트로 이동하고 **작업** -> **백로그**를 클릭합니다.
+2. 새로 만든 프로젝트로 이동하고 **작업** -> **백로그**를 클릭합니다.
 
 3. **팀 설정 구성**을 클릭하여 "TDSP 프로젝트"를 볼 수 있게 만들고 "TDSP 프로젝트"를 선택한 다음 저장합니다.
 

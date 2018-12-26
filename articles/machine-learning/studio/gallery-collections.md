@@ -1,11 +1,11 @@
 ---
-title: Azure AI 갤러리 컬렉션 | Microsoft Docs
-description: Azure AI 갤러리에서 컬렉션을 검색하고 공유합니다.
+title: Azure AI Gallery 컬렉션 - Azure Machine Learning Studio | Microsoft Docs
+description: Azure AI Gallery에서 컬렉션을 사용하면 특정한 솔루션 또는 개념에 대해 사용하는 실험, API 및 기타 갤러리 항목을 그룹화할 수 있습니다. 사용하거나 나중에 참조하도록 저장하거나 공유하도록 그룹화할 수 있습니다.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
+author: ericlicoding
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.author: amlstudiodocs
 editor: cgronlun
 ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
 ms.service: machine-learning
@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 6b8cb104c734edf688d875a8e9674a660f2db4e2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b88489f826bbeab636903c7c9918f34d16b2f122
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834603"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271371"
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Azure AI 갤러리에서 컬렉션 검색 및 공유
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="collections"></a>컬렉션
-[컬렉션](https://gallery.cortanaintelligence.com/collections)을 사용하면 특정한 솔루션 또는 개념에 대해 사용하는 실험, API 및 기타 갤러리 항목을 그룹화할 수 있습니다. 사용하거나 나중에 참조하도록 저장하거나 공유하도록 그룹화할 수 있습니다.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com)에서 [컬렉션](https://gallery.cortanaintelligence.com/collections)을 사용하면 특정한 솔루션 또는 개념에 대해 사용하는 실험, API 및 기타 갤러리 항목을 그룹화할 수 있습니다. 사용하거나 나중에 참조하도록 저장하거나 공유하도록 그룹화할 수 있습니다.
 
 ## <a name="discover"></a>검색
 [갤러리에서](http://gallery.cortanaintelligence.com) 컬렉션을 찾아보려면 **추가 정보** 아래에서 **컬렉션**을 선택합니다.
@@ -100,4 +98,4 @@ ms.locfileid: "34834603"
 
 **[갤러리로 이동](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+

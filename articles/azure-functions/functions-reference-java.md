@@ -6,81 +6,85 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: Azure Functions, 함수, 이벤트 처리, 웹후크, 동적 계산, 서버를 사용하지 않는 아키텍처, Java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 11/07/2017
+ms.topic: conceptual
+ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 3f63cb5a16b74458f9b53fddaea13a61ec1196a5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5f74ee390ac327a9e697d3dc67da4ea604b64d69
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31514022"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686895"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
+[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+
 ## <a name="programming-model"></a>프로그래밍 모델 
 
-Azure 함수는 입력을 처리하고 출력을 생성하는 상태 비저장 클래스 메서드여야 합니다. 인스턴스 메서드를 작성할 수는 있지만 클래스의 인스턴스 필드에 종속되지 않아야 합니다. 모든 함수 메서드에는 `public` 액세스 한정자가 있어야 합니다.
+[트리거 및 바인딩](functions-triggers-bindings.md)의 개념은 Azure Functions의 기본입니다. 트리거는 코드 실행을 시작합니다. 바인딩을 사용하면 사용자 지정 데이터 액세스 코드를 작성하지 않고도 데이터를 함수에 전달하고 함수에서 데이터를 반환할 수 있습니다.
+
+함수는 입력을 처리하고 출력을 생성하는 상태 비저장 메서드입니다. 함수는 클래스의 인스턴스 필드에 종속되지 않습니다. 메서드 이름이 함수에 대한 항목을 정의하는 경우 모든 함수 메서드는 `public`이며 주석이 @FunctionName인 메서드는 고유해야 합니다.
+
+## <a name="folder-structure"></a>폴더 구조
+
+Azure Function Java 프로젝트의 폴더 구조는 다음과 같습니다.
+
+```
+FunctionsProject
+ | - src
+ | | - main
+ | | | - java
+ | | | | - FunctionApp
+ | | | | | - MyFirstFunction.java
+ | | | | | - MySecondFunction.java
+ | - target
+ | | - azure-functions
+ | | | - FunctionApp
+ | | | | - FunctionApp.jar
+ | | | | - host.json
+ | | | | - MyFirstFunction
+ | | | | | - function.json
+ | | | | - MySecondFunction
+ | | | | | - function.json
+ | | | | - bin
+ | | | | - lib
+ | - pom.xml
+```
+
+함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.java)과 바인딩 구성 파일(function.json)이 있습니다.
+
+하나의 프로젝트에 둘 이상의 함수를 넣을 수 있습니다. 함수를 별도의 jar에 넣지 않도록 하세요. 대상 디렉터리의 FunctionApp이 Azure의 함수 앱에 배포됩니다.
 
 ## <a name="triggers-and-annotations"></a>트리거 및 주석
 
-일반적으로 Azure 함수는 외부 트리거로 인해 호출됩니다. 함수는 해당 트리거 및 연결된 입력을 처리하고 하나 이상의 출력을 생성해야 합니다.
+ Azure 함수는 HTTP 요청, 타이머 또는 데이터 업데이트와 같은 트리거에 의해 호출됩니다. 함수는 해당 트리거 및 모든 다른 입력을 처리하고 하나 이상의 출력을 생성해야 합니다.
 
-Java 주석은 `azure-functions-java-core` 패키지에 포함되어 입력 및 출력을 메서드에 바인딩합니다. 지원되는 입력 트리거와 출력 바인딩 주석은 다음 표에 포함되어 있습니다.
-
-바인딩 | 주석
----|---
-CosmosDB | 해당 없음
-HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Mobile Apps | 해당 없음
-Notification Hubs | 해당 없음
-저장소 Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
-저장소 큐 | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
-저장소 테이블 | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
-타이머 | <ul><li>`TimerTrigger`</li></ul>
-Twilio | 해당 없음
-
-트리거 입력 및 출력은 응용 프로그램에 대한 [function.json](/azure/azure-functions/functions-reference#function-code)에서도 정의할 수 있습니다.
+[com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) 패키지에 포함된 Java 주석을 사용하여 입력 및 출력을 메서드에 바인딩합니다. 자세한 내용은 [Java 참조 문서](/java/api/com.microsoft.azure.functions.annotation)를 참조하세요.
 
 > [!IMPORTANT] 
 > Azure Storage Blob, 큐 또는 테이블 트리거를 로컬로 실행하려면 [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file)에서 Azure Storage 계정을 구성해야 합니다.
 
-주석을 사용 하는 예제:
+예제:
 
 ```java
-import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
-import com.microsoft.azure.serverless.functions.ExecutionContext;
-
 public class Function {
-    public String echo(@HttpTrigger(name = "req", methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
+    public String echo(@HttpTrigger(name = "req", 
+      methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
         String req, ExecutionContext context) {
         return String.format(req);
     }
 }
 ```
 
-주석 없이 작성된 동일한 함수:
-
-```java
-package com.example;
-
-public class MyClass {
-    public static String echo(String in) {
-        return in;
-    }
-}
-```
-
-해당하는 `function.json` 사용:
+다음은 [azure-function-maven-plugin](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-maven-plugin)에서 생성된 해당 `function.json`입니다.
 
 ```json
 {
   "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
+  "entryPoint": "com.example.Function.echo",
   "bindings": [
     {
       "type": "httpTrigger",
@@ -99,197 +103,184 @@ public class MyClass {
 
 ```
 
-## <a name="data-types"></a>데이터 형식
+## <a name="jdk-runtime-availability-and-support"></a>JDK 런타임 사용 가능성 및 지원 
 
-입력 및 출력 데이터에 대해 네이티브 형식, 사용자 지정 Java 형식 및 `azure-functions-java-core` 패키지에 정의된 Azure 특수 형식을 포함하여 Java의 모든 데이터 형식을 자유롭게 사용할 수 있습니다. Azure Functions 런타임에서는 받은 입력을 코드에서 요청한 형식으로 변환합니다.
+Java 함수 앱을 로컬에서 개발하는 데 사용할 수 있는 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/)의 [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK를 다운로드하여 사용합니다. JDK는 Windows, Linux 및 macOS에서 사용할 수 있습니다. [Azure 지원](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support)은 [적격 지원 계획](https://azure.microsoft.com/support/plans/)에서 사용할 수 있습니다.
 
-### <a name="strings"></a>문자열
+## <a name="third-party-libraries"></a>타사 라이브러리 
 
-함수의 해당 입력 매개 변수 형식이 `String` 형식인 경우 함수 메서드에 전달된 값은 문자열로 캐스팅됩니다. 
+Azure Functions는 타사 라이브러리의 사용을 지원합니다. 기본적으로 `pom.xml` 프로젝트 파일에 지정된 모든 종속성은 [`mvn package`](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage) 목표 중에 자동으로 번들로 묶어집니다. `pom.xml` 파일에 종속성으로 지정되지 않은 라이브러리의 경우 함수의 루트 디렉터리에 있는 `lib` 디렉터리에 배치합니다. `lib` 디렉터리에 배치된 종속성은 런타임에 시스템 클래스 로더에 추가됩니다.
+
+`com.microsoft.azure.functions:azure-functions-java-library` 종속성은 classpath에서 기본적으로 제공되므로 `lib` 디렉터리에 포함하지 않아도 됩니다. 또한 [여기](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies)에 나열된 종속성은 [azure-function-java-works-works](https://github.com/Azure/azure-functions-java-worker)를 통해 클래스 경로에 추가됩니다.
+
+## <a name="data-type-support"></a>데이터 형식 지원
+
+POJO(이전의 일반 Java 개체), `azure-functions-java-library`에 정의된 형식 또는 String(문자열), Integer(정수)와 같은 기본 dataType을 사용하여 입력/출력 바인딩에 바인딩할 수 있습니다.
 
 ### <a name="plain-old-java-objects-pojos"></a>이전의 일반 Java 개체(POJO)
 
-함수 메서드의 입력이 해당 Java 형식을 예상하는 경우 JSON 형식으로 지정된 문자열이 Java 형식으로 캐스팅됩니다. 이 변환을 사용하면 사용자 고유의 코드에서 변환을 구현하지 않고도 JSON 입력을 함수에 전달하고 코드에서 Java 형식으로 작업할 수 있습니다.
-
-함수에 대한 입력으로 사용되는 POJO 형식은 사용 중인 함수 메서드와 동일한 `public` 액세스 한정자여야 합니다. `public` POJO 클래스 필드를 선언할 필요가 없습니다. 예를 들어 `{ "x": 3 }` JSON 문자열은 다음 POJO 형식으로 변환될 수 있습니다.
-
-```Java
-public class MyData {
-    private int x;
-}
-```
+입력 데이터를 POJO로 변환하기 위해 [azure-function-java-worker](https://github.com/Azure/azure-functions-java-worker)에서 [gson](https://github.com/google/gson) 라이브러리를 사용합니다. 함수에 대한 입력으로 사용되는 POJO 형식은 `public`이어야 합니다.
 
 ### <a name="binary-data"></a>이진 데이터
 
-이진 데이터는 Azure Functions 코드에서 `byte[]`로 표시됩니다. function.json의 `dataType` 필드를 `binary`로 설정하여 이진 입력 또는 출력을 함수에 바인딩합니다.
-
-```json
- {
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "blob",
-      "name": "content",
-      "direction": "in",
-      "dataType": "binary",
-      "path": "container/myfile.bin",
-      "connection": "ExampleStorageAccount"
-    },
-  ]
-}
-```
-
-그런 다음 함수 코드에서 사용합니다.
+function.json의 `dataType` 필드를 `binary`로 설정하여 이진 입력 또는 출력을 `byte[]`에 바인딩합니다.
 
 ```java
-// Class definition and imports are omitted here
-public static String echoLength(byte[] content) {
-}
+   @FunctionName("BlobTrigger")
+    @StorageAccount("AzureWebJobsStorage")
+     public void blobTrigger(
+        @BlobTrigger(name = "content", path = "myblob/{fileName}", dataType = "binary") byte[] content,
+        @BindingName("fileName") String fileName,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Blob trigger function processed a blob.\n Name: " + fileName + "\n Size: " + content.length + " Bytes");
+    }
 ```
 
-`OutputBinding<byte[]>` 형식을 사용하여 이진 출력 바인딩을 만듭니다.
+null 값이 필요한 경우 `Optional<T>`를 사용합니다.
 
+## <a name="bindings"></a>바인딩
 
-## <a name="function-method-overloading"></a>함수 메서드 오버로드
+입력 및 출력 바인딩은 코드 내에서 데이터에 연결하는 선언적 방법을 제공합니다. 함수에는 여러 개의 입력 및 출력 바인딩이 있을 수 있습니다.
 
-동일한 이름이지만 다른 형식의 함수 메서드를 오버로드할 수 있습니다. 예를 들어 하나의 클래스에서 `String echo(String s)`과 `String echo(MyType s)`를 모두 포함할 수 있으며 Azure Functions 런타임에서 실제 입력 형식을 검사하여 호출할 메서드를 결정합니다(HTTP 입력의 경우 `text/plain` MIME 형식은 `String`, `application/json`은 `MyType`을 나타냄).
-
-## <a name="inputs"></a>입력
-
-입력은 Azure Functions에서 두 가지 범주로 나뉩니다. 즉 하나는 트리거 입력이고, 다른 하나는 추가 입력입니다. `function.json`에서는 사용법이 서로 다르지만, Java 코드에서는 동일합니다. 예를 들어 다음 코드 조각을 살펴보겠습니다.
+### <a name="example-input-binding"></a>입력 바인딩 예제
 
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.annotation.BindingName;
-import java.util.Optional;
+import com.microsoft.azure.functions.annotation.*;
 
-public class MyClass {
-    public static String echo(Optional<String> in, @BindingName("item") MyObject obj) {
-        return "Hello, " + in.orElse("Azure") + " and " + obj.getKey() + ".";
+public class Function {
+    @FunctionName("echo")
+    public static String echo(
+        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String inputReq,
+        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData
+        @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData,
+    ) {
+        testOutputData.setValue(new Person(httpbody + "Partition", httpbody + "Row", httpbody + "Name"));
+        return "Hello, " + inputReq + " and " + inputData.getKey() + ".";
     }
 
-    private static class MyObject {
+    public static class TestInputData {
         public String getKey() { return this.RowKey; }
         private String RowKey;
     }
-}
-```
+    public static class Person {
+        public String PartitionKey;
+        public String RowKey;
+        public String Name;
 
-`@BindingName` 주석에는 `function.json`에 정의된 바인딩/트리거의 이름을 나타내는 `String` 속성이 허용됩니다.
-
-```json
-{
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "name": "req",
-      "direction": "in",
-      "authLevel": "anonymous",
-      "methods": [ "put" ],
-      "route": "items/{id}"
-    },
-    {
-      "type": "table",
-      "name": "item",
-      "direction": "in",
-      "tableName": "items",
-      "partitionKey": "Example",
-      "rowKey": "{id}",
-      "connection": "ExampleStorageAccount"
-    },
-    {
-      "type": "http",
-      "name": "$return",
-      "direction": "out"
+        public Person(String p, String r, String n) {
+            this.PartitionKey = p;
+            this.RowKey = r;
+            this.Name = n;
+        }
     }
-  ]
 }
 ```
 
-따라서 이 함수가 호출되면 HTTP 요청 페이로드에서 `in` 인수에 대한 선택적 `String` 및 `obj` 인수에 전달된 Azure Table Storage `MyObject` 형식을 전달합니다. `Optional<T>` 유형을 사용하여 null이 될 수 있는 함수에 대한 입력을 처리합니다.
+이 함수는 HTTP 요청으로 호출됩니다. 
+- HTTP 요청 페이로드는 `String`으로 `inputReq` 인수에 전달됩니다.
+- 하나의 항목이 Azure Table Storage에서 검색되고, `TestInputData`로 `inputData` 인수에 전달됩니다.
 
-## <a name="outputs"></a>outputs
+입력 일괄 처리를 받으려면 `String[]`, `POJO[]`, `List<String>` 또는 `List<POJO>`에 바인딩할 수 있습니다.
 
-출력은 반환 값 또는 출력 매개 변수 둘 다로 표현될 수 있습니다. 출력이 하나만 있는 경우 반환 값을 사용하는 것이 좋습니다. 다중 출력의 경우 출력 매개 변수를 사용해야 합니다.
+```java
+@FunctionName("ProcessIotMessages")
+    public void processIotMessages(
+        @EventHubTrigger(name = "message", eventHubName = "%AzureWebJobsEventHubPath%", connection = "AzureWebJobsEventHubSender", cardinality = Cardinality.MANY) List<TestEventData> messages,
+        final ExecutionContext context)
+    {
+        context.getLogger().info("Java Event Hub trigger received messages. Batch size: " + messages.size());
+    }
+    
+    public class TestEventData {
+    public String id;
+}
 
-반환 값은 가장 간단한 형식의 출력입니다. 즉 모든 형식의 값을 반환하고 Azure Functions 런타임에서 이 반환 값을 실제 형식(예: HTTP 응답)으로 다시 마샬링합니다. `functions.json`에서는 출력 바인딩의 이름으로 `$return`을 사용합니다.
+```
 
-여러 출력 값을 생성하려면 `azure-functions-java-core` 패키지에 정의된 `OutputBinding<T>` 형식을 사용합니다. HTTP 응답을 만들고 메시지도 큐로 푸시해야 하는 경우 다음과 같이 작성할 수 있습니다.
+이 함수는 구성된 이벤트 허브에 새 데이터가 있을 때마다 트리거됩니다. `cardinality`가 `MANY`로 설정되면 함수는 이벤트 허브로부터 메시지의 일괄 처리를 받습니다. 이벤트 허브의 EventData는 함수 실행을 위해 `TestEventData`로 변환됩니다.
+
+### <a name="example-output-binding"></a>출력 바인딩 예제
+
+`$return`을 사용하여 출력 바인딩을 반환 값에 바인딩할 수 있습니다. 
 
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.OutputBinding;
-import com.microsoft.azure.serverless.functions.annotation.BindingName;
+import com.microsoft.azure.functions.annotation.*;
 
-public class MyClass {
-    public static String echo(String body, 
-    @QueueOutput(queueName = "messages", connection = "AzureWebJobsStorage", name = "queue") OutputBinding<String> queue) {
-        String result = "Hello, " + body + ".";
-        queue.setValue(result);
-        return result;
+public class Function {
+    @FunctionName("copy")
+    @StorageAccount("AzureWebJobsStorage")
+    @BlobOutput(name = "$return", path = "samples-output-java/{name}")
+    public static String copy(@BlobTrigger(name = "blob", path = "samples-input-java/{name}") String content) {
+        return content;
     }
 }
 ```
 
-여기에서 `function.json`에 출력 바인딩을 정의해야 합니다.
+여러 개의 출력 바인딩이 있으면 둘 중 하나에 대한 반환 값을 사용합니다.
 
-```json
-{
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "name": "req",
-      "direction": "in",
-      "authLevel": "anonymous",
-      "methods": [ "post" ]
-    },
-    {
-      "type": "queue",
-      "name": "queue",
-      "direction": "out",
-      "queueName": "messages",
-      "connection": "AzureWebJobsStorage"
-    },
-    {
-      "type": "http",
-      "name": "$return",
-      "direction": "out"
+여러 출력 값을 보내려면 `azure-functions-java-library` 패키지에 정의된 `OutputBinding<T>`를 사용합니다. 
+
+```java
+@FunctionName("QueueOutputPOJOList")
+    public HttpResponseMessage QueueOutputPOJOList(@HttpTrigger(name = "req", methods = { HttpMethod.GET,
+            HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @QueueOutput(name = "itemsOut", queueName = "test-output-java-pojo", connection = "AzureWebJobsStorage") OutputBinding<List<TestData>> itemsOut, 
+            final ExecutionContext context) {
+        context.getLogger().info("Java HTTP trigger processed a request.");
+       
+        String query = request.getQueryParameters().get("queueMessageId");
+        String queueMessageId = request.getBody().orElse(query);
+        itemsOut.setValue(new ArrayList<TestData>());
+        if (queueMessageId != null) {
+            TestData testData1 = new TestData();
+            testData1.id = "msg1"+queueMessageId;
+            TestData testData2 = new TestData();
+            testData2.id = "msg2"+queueMessageId;
+
+            itemsOut.getValue().add(testData1);
+            itemsOut.getValue().add(testData2);
+
+            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + queueMessageId).build();
+        } else {
+            return request.createResponseBuilder(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Did not find expected items in CosmosDB input list").build();
+        }
     }
-  ]
-}
-```
-## <a name="specialized-types"></a>특수 형식
 
-함수는 경우에 따라 입력과 출력을 자세히 제어해야 합니다. 요청 정보를 조작하고 HTTP 트리거의 반환 상태에 맞게 조정할 수 있도록 `azure-functions-java-core` 패키지의 특수 형식이 제공됩니다.
+     public static class TestData {
+        public String id;
+    }
+```
+
+위 함수는 HttpRequest에서 호출되고, 여러 값을 Azure Queue에 씁니다.
+
+## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage 및 HttpResponseMessage
+
+ HttpRequestMessage 및 HttpResponseMessage 형식은 `azure-functions-java-library`에 정의되어 있으며, HttpTrigger 함수에서 사용할 도우미 형식입니다.
 
 | 특수 형식      |       대상        | 일반적 용도                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    HTTP 트리거     | 메서드, 헤더 또는 쿼리 가져오기 |
-| `HttpResponseMessage<T>` | HTTP 출력 바인딩 | 200 이외의 반환 상태   |
+| `HttpResponseMessage` | HTTP 출력 바인딩 | 200 이외의 반환 상태   |
 
-> [!NOTE] 
-> `@BindingName` 주석을 사용하여 HTTP 헤더 및 쿼리를 가져올 수도 있습니다. 예를 들어 `@BindingName("name") String query`는 HTTP 요청 헤더와 쿼리를 반복하고 해당 값을 메서드에 전달합니다. 예를 들어 요청 URL이 `http://example.org/api/echo?name=test`이면 `query`는 `"test"`가 됩니다.
+## <a name="metadata"></a>Metadata
 
-### <a name="metadata"></a>Metadata
+입력 데이터와 함께 [트리거 메타데이터](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties)를 보내는 트리거는 거의 없습니다. `@BindingName` 주석을 사용하여 메타데이터를 트리거하도록 바인딩할 수 있습니다.
 
-메타데이터는 HTTP 헤더, HTTP 쿼리 및 [트리거 메타데이터](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties)와 같은 다양한 원본에서 가져옵니다. 값을 얻으려면 메타데이터 이름과 함께 `@BindingName` 주석을 사용합니다.
-
-예를 들어 요청된 URL이 `http://{example.host}/api/metadata?name=test`이면 다음 코드 조각의 `queryValue`는 `"test"`가 됩니다.
 
 ```Java
 package com.example;
 
 import java.util.Optional;
-import com.microsoft.azure.serverless.functions.annotation.*;
+import com.microsoft.azure.functions.annotation.*;
 
-public class MyClass {
+
+public class Function {
     @FunctionName("metadata")
     public static String metadata(
         @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
@@ -299,20 +290,39 @@ public class MyClass {
     }
 }
 ```
-
-## <a name="functions-execution-context"></a>함수 실행 컨텍스트
-
-`azure-functions-java-core` 패키지에 정의된 `ExecutionContext` 개체를 통해 Azure Functions 실행 환경과 상호 작용합니다. 코드에서 호출 정보와 함수 런타임 정보를 사용하려면 `ExecutionContext` 개체를 사용합니다.
-
-### <a name="logging"></a>로깅
-
-Azure Functions 런타임 로거에 대한 액세스는 `ExecutionContext` 개체를 통해 사용할 수 있습니다. 이 로거는 Azure 모니터에 연결되어 있으며, 함수를 실행하는 동안 발생하는 경고 및 오류에 대한 플래그를 지정할 수 있습니다.
-
-다음 예제 코드에서는 받은 요청 본문이 비어 있을 때 경고 메시지를 기록합니다.
+위의 예제에서 `queryValue`는 `http://{example.host}/api/metadata?name=test` Http 요청 URL에서 `name` 쿼리 문자열 매개 변수에 바인딩됩니다. 큐 트리거 메타데이터에서 `Id`에 바인딩하는 또 다른 예제는 다음과 같습니다.
 
 ```java
-import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
-import com.microsoft.azure.serverless.functions.ExecutionContext;
+ @FunctionName("QueueTriggerMetadata")
+    public void QueueTriggerMetadata(
+        @QueueTrigger(name = "message", queueName = "test-input-java-metadata", connection = "AzureWebJobsStorage") String message,@BindingName("Id") String metadataId,
+        @QueueOutput(name = "output", queueName = "test-output-java-metadata", connection = "AzureWebJobsStorage") OutputBinding<TestData> output,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Queue trigger function processed a message: " + message + " whith metadaId:" + metadataId );
+        TestData testData = new TestData();
+        testData.id = metadataId;
+        output.setValue(testData);
+    }
+```
+
+> [!NOTE]
+> 주석에 제공된 이름은 메타데이터 속성과 일치해야 합니다.
+
+## <a name="execution-context"></a>실행 컨텍스트
+
+`azure-functions-java-library`에 정의된 `ExecutionContext`에는 함수 런타임과 통신하는 도우미 메서드가 포함되어 있습니다.
+
+### <a name="logger"></a>로거
+
+`ExecutionContext`에 정의된 `getLogger`를 사용하여 함수 코드에서 로그를 기록합니다.
+
+예제:
+
+```java
+
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.annotation.*;
 
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
@@ -324,33 +334,57 @@ public class Function {
 }
 ```
 
-## <a name="environment-variables"></a>환경 변수
+## <a name="view-logs-and-trace"></a>로그 보기 및 추적
 
-보안상의 이유로 소스 코드에서 암호 정보를 추출하는 것이 좋습니다. 그러면 실수로 다른 개발자에게 자격 증명을 제공하지 않고 소스 코드 리포지토리에 코드를 게시할 수 있습니다. Azure Functions를 로컬로 실행할 때 및 함수를 Azure에 배포할 때 모두 환경 변수를 사용하여 이 작업을 수행할 수 있습니다.
+Azure CLI를 사용하여 다른 애플리케이션 로깅뿐만 아니라 Java stdout 및 stderr 로깅도 스트림할 수 있습니다. 
 
-로컬로 Azure Functions를 실행할 때 쉽게 환경 변수를 설정하려면 local.settings.json 파일에 이러한 변수를 추가하도록 선택할 수 있습니다. 변수가 함수 프로젝트의 루트 디렉터리에 없는 경우 새로 만듭니다. 파일은 다음과 같아야 합니다.
+Azure CLI를 사용하여 애플리케이션 로깅을 작성하도록 Function 애플리케이션을 구성합니다.
 
-```xml
-{
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "",
-    "AzureWebJobsDashboard": ""
-  }
-}
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
 ```
 
-`values` 맵의 각 키/값 매핑은 런타임 시 환경 변수로 사용할 수 있고 `System.getenv("<keyname>")`(예: `System.getenv("AzureWebJobsStorage")`)를 호출하여 액세스할 수 있습니다. 추가 키/값 쌍을 추가하는 것이 좋습니다.
+Azure CLI를 사용하여 함수 앱에 대한 로깅 출력을 스트리밍하려면 새 명령 프롬프트, Bash 또는 터미널 세션을 열고 다음 명령을 입력합니다.
 
-> [!NOTE]
-> 이 방법을 사용하는 경우 파일을 커밋하지 않도록 local.settings.json을 리포지토리에 추가하여 파일을 무시하도록 합니다.
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+[az webapp log tail](/cli/azure/webapp/log) 명령에는 `--provider` 옵션을 사용하여 출력을 필터링하는 옵션이 있습니다. 
 
-이제 이러한 환경 변수에 따라 코드를 사용하면 로컬로 테스트할 때 및 Azure에 배포할 때 코드가 동등하게 작동되도록 Azure Portal에 로그인하여 함수 앱 설정에서 동일한 키/값 쌍을 설정할 수 있습니다.
+Azure CLI를 사용하여 로그 파일을 단일 ZIP 파일로 다운로드하려면 새 명령 프롬프트, Bash 또는 터미널 세션을 열고 다음 명령을 입력합니다.
+
+```azurecli-interactive
+az webapp log download --resource-group resourcegroupname --name functionappname
+```
+
+이 명령을 실행하기 전에 Azure Portal 또는 Azure CLI에 로그인하는 파일 시스템이 사용하도록 설정되어 있어야 합니다.
+
+## <a name="environment-variables"></a>환경 변수
+
+Functions에서 [앱 설정](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings)(예: 서비스 연결 문자열)은 실행 중에 환경 변수로 노출됩니다. `System.getenv("AzureWebJobsStorage")`를 사용하여 이러한 설정에 액세스할 수 있습니다.
+
+예제:
+
+이름이 testAppSetting이고 값이 testAppSettingValue인 [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings)을 추가합니다.
+
+```java
+
+public class Function {
+    public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+        context.getLogger().info("testAppSetting "+ System.getenv("testAppSettingValue"));
+        return String.format(req);
+    }
+}
+
+```
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 다음 리소스를 참조하세요.
+
+Azure Function Java 개발에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions 개발자 참조](functions-reference.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
+- [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) 및 [Eclipse](functions-create-maven-eclipse.md)를 사용하여 로컬로 개발하고 디버그합니다. 
 * [Visual Studio Code를 사용하여 Java Azure Functions 원격 디버그](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
+* [Azure Functions의 Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) - `azure-functions:add` 목적을 통해 함수 생성을 간소화하고 [ZIP 파일 배포](deployment-zip-push.md)에 대한 준비 디렉터리를 준비합니다.

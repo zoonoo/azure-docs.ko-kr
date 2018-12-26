@@ -4,22 +4,21 @@ description: 이 항목에서는 Azure Media Services를 사용하여 미디어 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 780ef5c2-3bd6-4261-8540-6dee77041387
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 894b403b59624b6c42ce947169e9c9ac30ec76b9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f15ba7606136786b49eb4d6a0da097e7abf3fab4
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785852"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231664"
 ---
 # <a name="scaling-media-processing-overview"></a>미디어 처리 크기 조정 개요
 이 페이지에서는 미디어 처리의 크기를 조정하는 방법과 이유에 대해 간략하게 설명합니다. 
@@ -30,12 +29,13 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 예약 단위 유형을 지정하는 것 외에도 계정에 예약 단위를 프로비전하도록 지정할 수 있습니다. 프로비전되는 예약 단위의 수에 따라 특정 계정에서 동시에 처리할 수 있는 미디어 작업의 수가 결정됩니다. 예를 들어 계정에 5개의 예약 단위가 있는 경우 처리할 작업이 있다면 5개의 미디어 작업이 동시에 실행됩니다. 나머지 작업은 큐에 대기하다가 실행 중인 작업이 완료되면 순차적으로 처리를 위해 선택됩니다. 계정에 프로비전된 예약 단위가 없는 경우에는 작업이 순차적으로 선택됩니다. 이 경우 한 작업 완료와 다음 작업 시작 사이의 대기 시간은 시스템의 리소스 가용성에 따라 다릅니다.
 
 ## <a name="choosing-between-different-reserved-unit-types"></a>여러 예약 단위 유형 중에서 선택
-다음 테이블을 참조하여 여러 인코딩 속도 중에서 선택할 때 적절한 속도를 결정할 수 있습니다. 이 테이블에서는 테스트를 직접 수행할 수 있도록 비디오를 다운로드하는 데 사용할 수 있는 SAS URL와 몇 가지 벤치마킹 사례도 제공합니다.
+다음 표를 참조하여 여러 인코딩 속도 중에서 선택할 때 적절한 속도를 결정할 수 있습니다. 테스트를 직접 수행하기 위해 [다운로드할 수 있는 비디오](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)에서 몇 가지 벤치마크 사례도 제공됩니다.
 
-| 시나리오 | **S1** | **S2** | **S3** |
-| --- | --- | --- | --- |
-| 대상 사용 사례 |단일 비트 전송률 인코딩 <br/>SD 이하 해상도의 파일, 시간이 중요하지 않은 인코딩, 저가형 비디오. |단일 비트 전송률 및 다중 비트 전송률 인코딩.<br/>SD 및 HD 인코딩에서 모두 일반적으로 사용됨 |단일 비트 전송률 및 다중 비트 전송률 인코딩.<br/>Full HD 및 4K 해상도 비디오. 시간이 중요하며 소요 시간이 짧은 인코딩 |
-| 벤치마크 |[입력 파일: 길이 5분/640x360p/초당 29.97프레임](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>같은 해상도에서 단일 비트 전송률 MP4 파일로 인코딩할 때 약 11분이 걸립니다. |[입력 파일: 길이 5분/1280x720p/초당 29.97프레임](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>"H264 단일 비트 전송률 720p" 사전 설정을 사용하여 인코딩할 때 약 5분이 걸립니다.<br/><br/>"H264 다중 비트 전송률 720p" 사전 설정을 사용하여 인코딩할 때 약 11분 30초가 걸립니다. |[입력 파일: 길이 5분/1920x1080p/초당 29.97프레임](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/>"H264 단일 비트 전송률 1080p" 사전 설정을 사용하여 인코딩할 때 약 2.7분이 걸립니다.<br/><br/>"H264 단일 비트 전송률 1080p" 사전 설정을 사용하여 Encoding할 때 약 5.7분이 걸립니다. |
+|RU 유형|시나리오|[7분 1080p 비디오](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)에 대한 결과 예|
+|---|---|---|
+| **S1**|단일 비트 전송률 인코딩 <br/>SD 이하 해상도의 파일, 시간이 중요하지 않은 인코딩, 저가형 비디오.|"H264 단일 비트 전송률 SD 16x9"를 사용하여 단일 비트 전송률 SD 해상도 MP4 파일을 인코딩하면 10분이 걸립니다.|
+| **S2**|단일 비트 전송률 및 다중 비트 전송률 인코딩.<br/>SD 및 HD 인코딩에서 모두 일반적으로 사용됨|"H264 단일 비트 전송률 720p" 미리 설정을 사용하여 인코딩할 때 약 8분이 걸립니다.<br/><br/>"H264 다중 비트 전송률 720p" 미리 설정을 사용하여 인코딩할 때 약 16분 48초가 걸립니다.|
+| **S3**|단일 비트 전송률 및 다중 비트 전송률 인코딩.<br/>Full HD 및 4K 해상도 비디오. 시간이 중요하며 소요 시간이 짧은 인코딩|"H264 단일 비트 전송률 1080p" 미리 설정을 사용하여 인코딩할 때 약 4분이 걸립니다.<br/><br/>"H264 다중 비트 전송률 1080p" 미리 설정을 사용하여 인코딩할 때 약 8분이 걸립니다.|
 
 ## <a name="considerations"></a>고려 사항
 > [!IMPORTANT]
@@ -43,7 +43,7 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 > 
 > 
 
-* 예약된 단위는 Azure Media Indexer를 사용하는 인덱싱 작업을 비롯하여 모든 미디어 처리 병렬화에 대해 작동합니다.  그러나 인코딩과 달리 인덱싱 작업은 예약 단위가 더 빠르게 실행되어도 더 빨리 처리되지 않습니다.
+* Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분석 및 비디오 분석 작업의 경우 S3 단위 유형이 권장됩니다.
 * 공유 풀을 사용 중이어서 예약 단위가 없는 경우에는 인코딩 작업의 성능이 S1 RU와 동일해집니다. 그러나 작업이 대기된 상태로 유지될 수 있는 시간의 상한은 없으며 언제든지 작업은 최대 하나만 실행됩니다.
 
 ## <a name="billing"></a>결제
@@ -59,7 +59,7 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [포털](media-services-portal-scale-media-processing.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 

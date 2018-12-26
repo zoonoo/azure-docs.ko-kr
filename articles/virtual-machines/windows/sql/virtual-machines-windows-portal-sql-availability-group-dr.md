@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 84fa2e051c46e178e3e72709886babc8c3db7b9d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 43f3628878654a32be8aeafe1ba0d2e42e03d82f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852832"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240412"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>다른 하위 지역의 Azure Virtual Machines에서 Always On 가용성 그룹 구성
 
@@ -56,7 +56,7 @@ ms.locfileid: "29852832"
    ![가용성 그룹](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
 >[!IMPORTANT]
->이 아키텍처에서는 Azure 지역 간에 복제되는 데이터에 대해 아웃바운드 데이터 요금이 부과됩니다. [대역폭 가격 책정](http://azure.microsoft.com/pricing/details/bandwidth/)을 참조하세요.  
+>이 아키텍처에서는 Azure 지역 간에 복제되는 데이터에 대해 아웃바운드 데이터 요금이 부과됩니다. [대역폭 가격 책정](https://azure.microsoft.com/pricing/details/bandwidth/)을 참조하세요.  
 
 ## <a name="create-remote-replica"></a>원격 복제본 만들기
 
@@ -104,13 +104,13 @@ ms.locfileid: "29852832"
    - 원격 데이터 센터의 네트워크를 사용합니다.
    - 새 Azure Load Balancer에서 IP 주소를 할당합니다. 
 
-1. 새 SQL Server의 SQL Server 구성 관리자에서 [Always On 가용성 그룹을 사용하도록 설정합니다](http://msdn.microsoft.com/library/ff878259.aspx).
+1. 새 SQL Server의 SQL Server 구성 관리자에서 [Always On 가용성 그룹을 사용하도록 설정합니다](https://msdn.microsoft.com/library/ff878259.aspx).
 
 1. [새 SQL Server에서 방화벽 포트를 엽니다](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
-   열어야 하는 포트 번호는 사용자의 환경에 따라 달라집니다. 미러링 끝점 및 Azure Load Balancer 상태 프로브에 대한 포트를 엽니다.
+   열어야 하는 포트 번호는 사용자의 환경에 따라 달라집니다. 미러링 엔드포인트 및 Azure Load Balancer 상태 프로브에 대한 포트를 엽니다.
 
-1. [새 SQL Server에서 가용성 그룹에 복제본을 추가합니다](http://msdn.microsoft.com/library/hh213239.aspx).
+1. [새 SQL Server에서 가용성 그룹에 복제본을 추가합니다](https://msdn.microsoft.com/library/hh213239.aspx).
 
    원격 Azure 지역에 있는 복제본의 경우 수동 장애 조치를 사용한 비동기 복제에 대해 설정합니다.  
 
@@ -142,9 +142,9 @@ ms.locfileid: "29852832"
 
 원격 데이터 센터의 복제본은 가용성 그룹의 일부이지만 다른 서브넷에 있습니다. 이 복제본이 주 복제본이 되면 응용 프로그램 연결 시간 초과가 발생할 수 있습니다. 이 동작은 다중 서브넷 배포의 온-프레미스 가용성 그룹과 동일합니다. 클라이언트 응용 프로그램에서의 연결을 허용하려면 클라이언트 연결을 업데이트하거나 클러스터 네트워크 이름 리소스에 대해 이름 확인 캐시를 구성합니다.
 
-가급적 클라이언트 연결 문자열을 업데이트하여 `MultiSubnetFailover=Yes`를 설정합니다. [MultiSubnetFailover로 연결](http://msdn.microsoft.com/library/gg471494#Anchor_0)을 참조하세요.
+가급적 클라이언트 연결 문자열을 업데이트하여 `MultiSubnetFailover=Yes`를 설정합니다. [MultiSubnetFailover로 연결](https://msdn.microsoft.com/library/gg471494#Anchor_0)을 참조하세요.
 
-연결 문자열을 수정할 수 없는 경우 이름 확인 캐시를 구성할 수 있습니다. [다중 서브넷 가용성 그룹의 연결 시간 제한](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/)을 참조하세요.
+연결 문자열을 수정할 수 없는 경우 이름 확인 캐시를 구성할 수 있습니다. [다중 서브넷 가용성 그룹의 연결 시간 제한](https://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/)을 참조하세요.
 
 ## <a name="fail-over-to-remote-region"></a>원격 지역으로 장애 조치
 
@@ -175,12 +175,12 @@ ms.locfileid: "29852832"
 
 자세한 내용은 다음 항목을 참조하십시오.
 
-- [가용성 그룹의 계획된 수동 장애 조치 수행(SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
-- [가용성 그룹의 강제 수동 장애 조치 수행(SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
+- [가용성 그룹의 계획된 수동 장애 조치 수행(SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
+- [가용성 그룹의 강제 수동 장애 조치 수행(SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
 ## <a name="additional-links"></a>추가 링크
 
-* [Always On 가용성 그룹](http://msdn.microsoft.com/library/hh510230.aspx)
-* [Azure Virtual Machines](http://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Always On 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)
+* [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Azure Load Balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure 가용성 집합](../manage-availability.md)

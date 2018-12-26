@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 181e31530960f031dd2785b852c0ae15c21af782
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a3241e15cc72d1d50862a9dec14c23712ec4226
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186311"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406385"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for PostgreSQL 디자인
 
@@ -35,7 +35,7 @@ PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 Postg
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
-[Azure 포털](https://portal.azure.com) 에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="create-an-azure-database-for-postgresql"></a>PostgreSQL용 Azure Database 만들기
 
@@ -77,7 +77,7 @@ Azure Database for PostgreSQL 서버는 정의된 [계산 및 저장소 리소�
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성
 
-Azure Database for PostgreSQL 서비스는 서버 수준 방화벽을 사용합니다. 기본적으로 방화벽 규칙을 만들어 특정 IP 주소 범위에 대해 방화벽을 열지 않는 한 이 방화벽은 모든 외부 응용 프로그램과 도구가 서버 및 서버의 모든 데이터베이스에 연결되는 것을 방지합니다. 
+Azure Database for PostgreSQL 서비스는 서버 수준 방화벽을 사용합니다. 기본적으로 방화벽 규칙을 만들어 특정 IP 주소 범위에 대해 방화벽을 열지 않는 한 이 방화벽은 모든 외부 애플리케이션과 도구가 서버 및 서버의 모든 데이터베이스에 연결되는 것을 방지합니다. 
 
 1.  배포가 완료되면 왼쪽 메뉴에서 **모든 리소스**를 클릭하고, **mydemoserver** 이름을 입력하여 새로 만든 서버를 검색합니다. 검색 결과에 나열된 서버 이름을 클릭합니다. 서버에 대한 **개요** 페이지가 열리고 추가 구성을 위한 옵션이 제공됩니다.
 
@@ -85,7 +85,7 @@ Azure Database for PostgreSQL 서비스는 서버 수준 방화벽을 사용합�
 
 2.  서버 페이지에서 **연결 보안**을 선택합니다. 
 
-3.  **규칙 이름** 아래의 텍스트 상자를 클릭하고 연결을 위한 IP 범위를 허용 목록으로 만드는 새 방화벽 규칙을 추가합니다. 이 자습서에서는 **규칙 이름 = AllowAllIps**, **시작 IP = 0.0.0.0** 및 **종료 IP = 255.255.255.255**를 입력하여 모든 IP를 허용한 다음 **저장**을 클릭하겠습니다. 작은 IP 범위를 적용하는 특정 방화벽 규칙을 설정하여 네트워크에서 연결할 수 있습니다.
+3.  **규칙 이름** 아래의 텍스트 상자를 클릭하고 연결을 위한 IP 범위를 허용 목록으로 만드는 새 방화벽 규칙을 추가합니다. IP 범위를 입력합니다. **저장**을 클릭합니다.
 
    ![PostgreSQL용 Azure Database - 방화벽 규칙 만들기](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 

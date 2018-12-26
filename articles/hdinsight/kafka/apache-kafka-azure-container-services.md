@@ -1,29 +1,24 @@
 ---
-title: HDInsight의 Kafka로 Azure Kubernetes Service 사용 | Microsoft Docs
+title: HDInsight의 Kafka로 Azure Kubernetes Service 사용
 description: AKS(Azure Kubernetes Service)에서 호스트되는 컨테이너 이미지에서 HDInsight의 Kafka를 사용하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/07/2018
-ms.author: larryfr
-ms.openlocfilehash: f54039a0e702aa3c789363969120e000760f6ef5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 569030cc6d72d206411a73703ec0d359e033bef7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885964"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311673"
 ---
-# <a name="use-azure-kubernetes-service-with-kafka-on-hdinsight"></a>HDInsight의 Kafka로 Azure Kubernetes Service 사용
+# <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에서 Azure Kubernetes Service 사용
 
-HDInsight 클러스터의 Kafka로 AKS(Azure Kubernetes Service)를 사용하는 방법을 알아봅니다. 이 문서의 단계에서는 AKS에서 호스트되는 Node.js 응용 프로그램을 사용하여 Kafka와의 연결을 확인합니다. 이 응용 프로그램은 [kafka-node](https://www.npmjs.com/package/kafka-node) 패키지를 사용하여 Kafka와 통신합니다. AKS에서 호스트되는 백 엔드와 브라우저 클라이언트 간의 이벤트 구동 메시징에 [Socket.io](https://socket.io/)를 사용합니다.
+HDInsight 클러스터의 [Apache Kafka](https://kafka.apache.org/)에서 AKS(Azure Kubernetes Service)를 사용하는 방법을 알아봅니다. 이 문서의 단계에서는 AKS에서 호스트되는 Node.js 애플리케이션을 사용하여 Kafka와의 연결을 확인합니다. 이 애플리케이션은 [kafka-node](https://www.npmjs.com/package/kafka-node) 패키지를 사용하여 Kafka와 통신합니다. AKS에서 호스트되는 백 엔드와 브라우저 클라이언트 간의 이벤트 구동 메시징에 [Socket.io](https://socket.io/)를 사용합니다.
 
 [Apache Kafka](https://kafka.apache.org)는 실시간 스트리밍 데이터 파이프라인과 응용 프로그램을 만드는 데 사용할 수 있는 오픈 소스 분산형 스트리밍 플랫폼입니다. Azure Kubernetes Service를 사용하면 호스트하는 Kubernetes 환경이 관리되고 컨테이너화된 응용 프로그램을 쉽고 빠르게 배포할 수 있습니다. Azure Virtual Network를 사용하여 두 서비스를 연결할 수 있습니다.
 
@@ -32,7 +27,7 @@ HDInsight 클러스터의 Kafka로 AKS(Azure Kubernetes Service)를 사용하는
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Azure 구독
 
 이 문서에서는 사용자가 다음 Azure 서비스를 만들고 사용하는 것에 익숙하다고 가정합니다.
@@ -98,14 +93,14 @@ AKS 클러스터가 아직 없으면 다음 문서 중 하나를 사용하여 �
 
     다른 필드는 모두 기본값으로 남겨두고 __확인__을 선택하여 피어링을 구성합니다.
 
-## <a name="install-kafka-on-hdinsight"></a>HDInsight에 Kafka 설치
+## <a name="install-apache-kafka-on-hdinsight"></a>HDInsight에 Apache Kafka 설치
 
 HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 만든 가상 네트워크에 가입해야 합니다. Kafka 클러스터 만들기에 대한 자세한 내용은 [Kafka 클러스터 만들기](apache-kafka-get-started.md) 문서를 참조하세요.
 
 > [!IMPORTANT]
 > 클러스터를 생성할 때 __고급 설정__을 사용하여 HDInsight용으로 만든 가상 네트워크에 가입해야 합니다.
 
-## <a name="configure-kafka-ip-advertising"></a>Kafka IP 보급 구성
+## <a name="configure-apache-kafka-ip-advertising"></a>Apache Kafka IP 보급 구성
 
 다음 단계에 따라 도메인 이름 대신 IP 주소를 보급하도록 Kafka를 구성합니다.
 
@@ -157,7 +152,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 이제 Kafka와 Azure Kubernetes Service는 피어링된 가상 네트워크를 통해 통신합니다. 이 연결을 테스트하려면 다음 단계를 사용합니다.
 
-1. 테스트 응용 프로그램에서 사용되는 Kafka 항목을 만듭니다. Kafka 항목 만들기에 대한 내용은 [Kafka 클러스터 만들기](apache-kafka-get-started.md) 문서를 참조하세요.
+1. 테스트 애플리케이션에서 사용되는 Kafka 항목을 만듭니다. Kafka 토픽 만들기에 대한 내용은 [Apache Kafka 클러스터 만들기](apache-kafka-get-started.md) 문서를 참조하세요.
 
 2. [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test)에서 예제 응용 프로그램을 다운로드합니다.
 
@@ -166,7 +161,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
     * `var topic = 'mytopic'`: `mytopic`을 이 응용 프로그램에 사용되는 Kafka 항목의 이름으로 바꿉니다.
     * `var brokerHost = '176.16.0.13:9092`: `176.16.0.13`을 클러스터의 broker 호스트 중 하나의 내부 IP 주소와 바꿉니다.
 
-        클러스터에서 broker 호스트(작업자 노드)의 내부 IP 주소를 찾으려면 [Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) 문서를 참조하세요. 도메인 이름이 `wn`으로 시작하는 항목 중 하나의 IP 주소를 선택합니다.
+        클러스터에서 broker 호스트(작업자 노드)의 내부 IP 주소를 찾으려면 [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) 문서를 참조하세요. 도메인 이름이 `wn`으로 시작하는 항목 중 하나의 IP 주소를 선택합니다.
 
 4. `src` 디렉터리의 명령줄에서 종속성을 설치하고 Docker를 사용하여 배포용 이미지를 빌드합니다.
 
@@ -175,7 +170,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
     ```
 
     > [!NOTE]
-    > 이 응용 프로그램에 필요한 패키지가 리포지토리로 체크 인되기 때문에 `npm` 유틸리티를 사용하여 설치할 필요가 없습니다.
+    > 이 애플리케이션에 필요한 패키지가 리포지토리로 체크인되기 때문에 `npm` 유틸리티를 사용하여 설치할 필요가 없습니다.
 
 5. ACR(Azure Container Registry)에 로그인하여 loginServer 이름을 찾습니다.
 
@@ -202,13 +197,13 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 8. Kubernetes manifest 파일(`kafka-aks-test.yaml`)을 편집하고 `microsoft`를 4단계에서 검색된 ACR loginServer 이름으로 바꿉니다.
 
-9. 다음 명령을 사용하여 매니페스트에서 응용 프로그램 설정을 배포합니다.
+9. 다음 명령을 사용하여 매니페스트에서 애플리케이션 설정을 배포합니다.
 
     ```bash
     kubectl create -f kafka-aks-test.yaml
     ```
 
-10. 다음 명령을 사용하여 응용 프로그램의 `EXTERNAL-IP`를 감시합니다.
+10. 다음 명령을 사용하여 애플리케이션의 `EXTERNAL-IP`를 감시합니다.
 
     ```bash
     kubectl get service kafka-aks-test --watch
@@ -220,10 +215,10 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
     ![웹 페이지의 이미지](./media/apache-kafka-azure-container-services/test-web-page.png)
 
-12. 필드에 텍스트를 입력하고 __보내기__ 단추를 선택합니다. 데이터가 Kafka로 전송됩니다. 그러면 응용 프로그램의 Kafka 소비자가 메시지를 읽고 이를 __Kafka의 메시지__ 섹션에 추가합니다.
+12. 필드에 텍스트를 입력하고 __보내기__ 단추를 선택합니다. 데이터가 Kafka로 전송됩니다. 그러면 애플리케이션의 Kafka 소비자가 메시지를 읽고 이를 __Kafka의 메시지__ 섹션에 추가합니다.
 
     > [!WARNING]
-    > 메시지의 복사본을 여러 개 받을 수 있습니다. 이 문제는 대개 연결 후 브라우저를 새로 고치거나, 응용 프로그램에 대한 브라우저 연결을 여러 개 여는 경우 발생합니다.
+    > 메시지의 복사본을 여러 개 받을 수 있습니다. 이 문제는 대개 연결 후 브라우저를 새로 고치거나, 애플리케이션에 대한 브라우저 연결을 여러 개 여는 경우 발생합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -231,10 +226,10 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 * [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)
 
-* [MirrorMaker를 사용하여 HDInsight에 Kafka 복제본 만들기](apache-kafka-mirroring.md)
+* [MirrorMaker를 사용하여 HDInsight에 Apache Kafka 복제본 만들기](apache-kafka-mirroring.md)
 
-* [HDInsight의 Kafka에서 Apache Storm 사용](../hdinsight-apache-storm-with-kafka.md)
+* [HDInsight에서 Apache Storm 및 Apache Kafka 사용](../hdinsight-apache-storm-with-kafka.md)
 
-* [HDInsight의 Kafka에서 Apache Spark 사용](../hdinsight-apache-spark-with-kafka.md)
+* [HDInsight에서 Apache Spark 및 Apache Kafka 사용](../hdinsight-apache-spark-with-kafka.md)
 
-* [Azure Virtual Network를 통해 Kafka에 연결](apache-kafka-connect-vpn-gateway.md)
+* [Azure Virtual Network를 통해 Apache Kafka에 연결](apache-kafka-connect-vpn-gateway.md)

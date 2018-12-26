@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 9d5d596254f673b86650e8d9754dacdb70be0666
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 258e093acd50946e95360416f89b2ceb96ee35d3
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179797"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426471"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>표준 Load Balancer에 대한 메트릭 및 상태 진단
 
 Azure 표준 Load Balancer는 리소스에 다음과 같은 진단 기능을 제공합니다.
-* **다차원 메트릭**: 공용 및 내부 부하 분산 장치 구성에 대해 새로운 다차원 진단 기능을 제공합니다. 부하 분산 장치 리소스를 모니터링 및 관리하고 관련 문제를 해결할 수 있습니다.
+* **다차원 메트릭**: [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)를 통해 공용 및 내부 부하 분산 장치 구성에 대한 새로운 다차원 진단 기능을 제공합니다. 부하 분산 장치 리소스를 모니터링 및 관리하고 관련 문제를 해결할 수 있습니다.
 
 * **Resource Health**: Azure Portal의 Load Balancer 페이지와 Resource Health 페이지(모니터 아래)에는 표준 Load Balancer의 공용 부하 분산 장치 구성에 대한 Resource Health 섹션이 표시됩니다.
 
@@ -219,5 +219,7 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
 
 - [Standard Load Balancer](load-balancer-standard-overview.md)에 대해 자세히 알아보세요.
 - [Load Balancer 아웃바운드 연결](https://aka.ms/lboutbound)에 대해 자세히 알아봅니다.
+- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)에 대해 자세히 알아봅니다.
+- [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) 및 [REST API를 통해 메트릭을 검색하는 방법](/rest/api/monitor/metrics/list)에 대해 자세히 알아봅니다.
 
 

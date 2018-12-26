@@ -1,0 +1,46 @@
+---
+title: Azure 컨테이너 제품 필수 구성 요소 | Microsoft Docs
+description: Azure 컨테이너를 게시하기 위한 필수 구성 요소입니다.
+services: Azure, Marketplace, Cloud Partner Portal,
+documentationcenter: ''
+author: dan-wesley
+manager: Patrick.Butler
+editor: ''
+ms.assetid: ''
+ms.service: marketplace
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.topic: conceptual
+ms.date: 11/01/2018
+ms.author: pbutlerm
+ms.openlocfilehash: fd308c645593a401736a0a1ab1d336d63d900217
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50980212"
+---
+# <a name="container-publishing-prerequisites"></a>컨테이너 게시 필수 구성 요소
+
+이 문서에서는 Azure Marketplace에 컨테이너 제품을 게시하기 위한 필수 구성 요소를 설명합니다.
+
+## <a name="publishing-prerequisites"></a>게시 필수 구성 요소
+
+새 컨테이너 이미지를 게시하려면 다음 필수 구성 요소를 충족해야 합니다.
+
+- Cloud 파트너 포털에 액세스합니다. 자세한 내용은 Azure Marketplace 및 AppSource 게시 가이드를 참조하세요.
+- Azure Marketplace 약관에 대한 규약
+- Azure Container Registry에서 컨테이너 기술 자산을 호스트합니다.
+- 컨테이너 메타데이터를 사용할 수 있도록 준비합니다. 예를 들어 다음은 완전하지 않은 목록입니다.
+  - 제목
+  - 설명(HTML 형식)
+  - 로고 이미지(PNG 형식) 및 이러한 고정 이미지 크기에서: 40x40 px, 90x90 px, 115x 115 px 및 255x115 px
+- 사용 약관 및 개인정보처리방침
+- 문서화
+- 지원 연락처
+
+## <a name="next-steps"></a>다음 단계
+
+- [컨테이너 기술 자산 준비](./cpp-create-technical-assets.md)
+- [컨테이너 제품 만들기](./cpp-create-offer.md) 

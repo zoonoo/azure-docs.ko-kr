@@ -1,9 +1,8 @@
 ---
-title: Graph API를 사용한 Azure Cosmos DB .NET Framework 또는 Core 응용 프로그램 빌드 | Microsoft Docs
+title: Gremlin API를 사용하여 Azure Cosmos DB .NET Framework 또는 Core 애플리케이션 빌드
 description: Azure Cosmos DB에 연결 및 쿼리하는 데 사용할 수 있는 .NET Framework/Core 코드 샘플을 제시합니다.
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
@@ -11,18 +10,27 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c44936604d0dcea2f00f237f27d27a03491c532e
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453419"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407680"
 ---
-# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Graph API를 사용한 .NET Framework 또는 Core 응용 프로그램 빌드
+# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-gremlin-api"></a>Azure Cosmos DB는 Gremlin API를 사용한 .NET Framework 또는 Core 애플리케이션 빌드
+
+> [!div class="op_single_selector"]
+> * [Gremlin 콘솔](create-graph-gremlin-console.md)
+> * [.NET](create-graph-dotnet.md)
+> * [Java](create-graph-java.md)
+> * [Node.JS](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
+> * [PHP](create-graph-php.md)
+>  
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [Graph API](graph-introduction.md) 계정, 데이터베이스 및 그래프(컨테이너)를 만드는 방법을 보여 줍니다. 그런 후 오픈 소스 드라이버 [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)을 사용하여 콘솔 앱을 빌드하고 실행합니다.  
+이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [Gremlin API](graph-introduction.md) 계정, 데이터베이스 및 그래프(컨테이너)를 만드는 방법을 보여줍니다. 그런 후 오픈 소스 드라이버 [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)을 사용하여 콘솔 앱을 빌드하고 실행합니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -42,7 +50,7 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-이제 GitHub에서 Graph API 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
+이제 GitHub에서 Gremlin API 앱을 복제하고, 연결 문자열을 설정하고, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
@@ -67,7 +75,7 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 5. 프로젝트에서 NuGet 패키지를 복원합니다. Gremlin.Net 드라이버와 Newtonsoft.Json 패키지가 포함되어야 합니다.
 
 
-6. Nuget 패키지 관리자 또는 [nuget 명령줄 유틸리티](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools)를 사용하여 Gremlin.Net 드라이버를 수동으로 설치할 수도 있습니다. 
+6. Nuget 패키지 관리자 또는 [nuget 명령줄 유틸리티](https://docs.microsoft.com/nuget/install-nuget-client-tools)를 사용하여 Gremlin.Net 드라이버를 수동으로 설치할 수도 있습니다. 
 
     ```bash
     nuget install Gremlin.Net
@@ -75,7 +83,7 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
+이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
 
 다음 코드 조각은 모두 Program.cs 파일에서 가져옵니다.
 
@@ -134,14 +142,13 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 * 비동기 작업에 `GremlinClient` 개체를 사용하여 각 Gremlin 쿼리를 실행합니다(줄 63). 이렇게 하면 위에서 정의된 사전에서 Gremlin 쿼리를 읽습니다(줄 26).
 
     ```csharp
-    var task = gremlinClient.SubmitAsync<dynamic>(query.Value);
-    task.Wait();
+    var results = await gremlinClient.SubmitAsync<dynamic>(query.Value);
     ```
 
 * Newtonsoft.Json에서 `JsonSerializer` 클래스를 사용하여 결과를 검색하고 값을 읽습니다. 값은 그 형식이 사전으로 지정됩니다.
 
     ```csharp
-    foreach (var result in task.Result)
+    foreach (var result in results)
     {
         // The vertex results are formed as dictionaries with a nested dictionary for their properties
         string output = JsonConvert.SerializeObject(result);
@@ -153,21 +160,25 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. [Azure Portal](http://portal.azure.com/)에서 **키**를 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 그래프 데이터베이스 계정으로 이동합니다. **개요** 탭에 두 개의 엔드포인트가 표시됩니다. 
+ 
+   **.NET SDK URI** - Microsoft.Azure.Graphs 라이브러리를 사용하여 그래프 계정에 연결한 경우 이 값이 사용됩니다. 
 
-    URI 값의 첫 번째 부분을 복사합니다.
+   **Gremlin 엔드포인트** - Gremlin.Net 라이브러리를 사용하여 그래프 계정에 연결하는 경우 이 값이 사용됩니다.
 
-    ![Azure Portal에서 선택키 보기 및 복사, 키 페이지](./media/create-graph-dotnet/keys.png)
+    ![엔드포인트 복사](./media/create-graph-dotnet/endpoint.png)
+
+   이 샘플을 실행하려면 **Gremlin 엔드포인트** 값을 복사하고, 끝에서 포트 번호를 삭제합니다. 즉, URI는 `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`입니다.
 
 2. Program.cs에서 줄 19에 있는 `hostname` 변수의 `your-endpoint` 자리에 값을 붙여넣습니다. 
 
-    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
+    `"private static string hostname = "<your cosmos db account name>.gremlin.cosmosdb.azure.com";`
 
     엔드포인트 값은 이제 다음과 같이 표시됩니다.
 
     `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. 포털에서 **기본 키** 값을 복사하여 `authkey` 변수 자리에 붙여넣고, 줄 21의 `"your-authentication-key"` 자리 표시자를 바꿉니다. 
+3. 다음으로, **키** 탭으로 이동하고, 포털에서 **기본 키** 값을 복사하여 `authkey` 변수 자리에 붙여넣고, 줄 21의 `"your-authentication-key"` 자리 표시자를 바꿉니다. 
 
     `private static string authKey = "your-authentication-key";`
 
@@ -185,7 +196,7 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 
 ## <a name="run-the-console-app"></a>콘솔 앱 실행
 
-Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 응용 프로그램이 Gremlin 쿼리 명령과 콘솔의 결과를 모두 인쇄합니다.
+Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 애플리케이션이 Gremlin 쿼리 명령과 콘솔의 결과를 모두 인쇄합니다.
 
    그래프에 추가된 꼭짓점 및 에지가 콘솔 창에 표시됩니다. 스크립트가 완료되면 ENTER 키를 눌러 콘솔 창을 닫습니다.
 

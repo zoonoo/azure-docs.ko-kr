@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: 9ac7e71002a375961b8d06b44bbccce2919129e4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 09/26/2018
+ms.author: spelluru
+ms.openlocfilehash: 00c7605b09c32328a8324b13b8151a258a39dc22
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200066"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857604"
 ---
 # <a name="messages-payloads-and-serialization"></a>메시지, 페이로드 및 serialization
 
@@ -35,8 +35,8 @@ AMQP 프로토콜 수준에서 사용되는 해당 이름은 괄호로 묶어 �
 | 속성 이름                         | 설명                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype)(content-type)           | 필요에 따라 RFC2045, 섹션 5의 형식(예: `application/json`)에 따라 설명자를 사용하여 메시지의 페이로드를 설명합니다.                                                                                                                                                                                                                                                                                             |
-|  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId)(correlation-id)       | 응용 프로그램이 상관 관계(예: 회신되는 메시지의 **MessageId** 반영)를 위해 메시지에 대한 컨텍스트를 지정할 수 있도록 합니다.                                                                                                                                                                                                                                                                  |
-| [DeadLetterSource](/dotnet/api/microsoft.azure.servicebus.message.deadlettersource)                      | 배달 못 한 메시지로 처리되고 이후에 배달 못 한 메시지 큐에서 다른 엔터티로 자동 전달된 메시지에만 설정됩니다. 메시지가 배달 못 한 메시지로 처리된 엔터티를 나타냅니다. 이 속성은 읽기 전용입니다.                                                                                                                                                                                                                                  |
+|  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId)(correlation-id)       | 애플리케이션이 상관 관계(예: 회신되는 메시지의 **MessageId** 반영)를 위해 메시지에 대한 컨텍스트를 지정할 수 있도록 합니다.                                                                                                                                                                                                                                                                  |
+| [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource)                      | 배달 못 한 메시지로 처리되고 이후에 배달 못 한 메시지 큐에서 다른 엔터티로 자동 전달된 메시지에만 설정됩니다. 메시지가 배달 못 한 메시지로 처리된 엔터티를 나타냅니다. 이 속성은 읽기 전용입니다.                                                                                                                                                                                                                                  |
 | [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deliverycount)                         | 이 메시지에 대해 시도된 배달 횟수입니다. 메시지 잠금이 만료되거나 메시지가 수신자에 의해 명시적으로 중단될 때 이 횟수가 증가합니다. 이 속성은 읽기 전용입니다.                                                                                                                                                                                                                                                  |
 | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber)                | 자동 전달된 메시지의 경우, 이 속성은 원래 전송 지점에서 메시지에 처음 할당된 시퀀스 번호를 반영합니다. 이 속성은 읽기 전용입니다.                                                                                                                                                                                                                                                                |
 | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc)                       | 메시지가 수락되고 엔터티에 저장된 UTC 인스턴트입니다. 이 값은 수신자가 보낸 사람의 클럭을 신뢰하지 않으려고 할 때 신뢰할 수 있는 중립 도착 시간 표시로 사용할 수 있습니다. 이 속성은 읽기 전용입니다.                                                                                                                                                                                                   |
@@ -89,7 +89,6 @@ Java 또는 .NET Standard 변형과 달리, Service Bus API의 .NET Framework �
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -2,18 +2,18 @@
 title: Azure Import/Export를 사용하여 Azure Blob에서 데이터 내보내기 | Microsoft Docs
 description: Azure Portal에서 내보내기 작업을 만들어 Azure Blob에서 데이터를 전송하는 방법을 알아봅니다.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: eb41708c7446b3139758678c9247ffbb11da8b40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.component: common
+ms.openlocfilehash: faf8852df8b50c43affe32ede0f1e96d0bb80d3d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969268"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821245"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob 저장소에서 데이터 내보내기
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob 저장소에서 많은 양의 데이터를 안전하게 내보내는 방법에 대한 단계별 지침을 제공합니다. 서비스를 사용하려면 빈 드라이브를 Azure 데이터 센터에 배송해야 합니다. 서비스에서 저장소 계정의 데이터를 드라이브로 내보낸 다음, 드라이브를 다시 배송합니다.
@@ -23,8 +23,15 @@ ms.locfileid: "38969268"
 내보내기 작업을 만들어 Azure Blob Storage에서 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다. 다음이 필요합니다.
 
 - Import/Export 서비스에 사용할 수 있는 활성 Azure 구독이 있어야 합니다.
-- Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 저장소 계정 및 저장소 형식](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)(영문)을 참조하세요.
+- Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 저장소 계정 및 저장소 형식](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-quickstart-create-account.md)(영문)을 참조하세요.
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다.
+- FedEx/DHL 계정이 있습니다.  
+    - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
+    - 내보내기 작업의 추적 번호를 생성합니다.
+    - 모든 작업에는 별도의 추적 번호가 있어야 합니다. 추적 번호가 동일한 여러 작업은 지원되지 않습니다. 
+    - 운송업체 계정이 없는 경우, 다음으로 이동합니다.
+        - [FedEX 계정 만들기](https://www.fedex.com/en-us/create-account.html) 또는 
+        - [DHL 계정 만들기](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>1단계: 내보내기 작업 만들기
 
@@ -52,8 +59,8 @@ ms.locfileid: "38969268"
     
 3. **작업 세부 정보**에서:
 
-    - 내보낼 데이터가 있는 저장소 계정을 선택합니다. 
-    - 자동 전송 위치는 선택한 저장소 계정의 지역에 따라 자동으로 채워집니다. 
+    - 내보낼 데이터가 있는 저장소 계정을 선택합니다. 현재 위치에 가까운 저장소 계정을 사용합니다.
+    - 하차 위치는 선택한 저장소 계정의 지역을 기반으로 자동으로 채워집니다. 
     - 저장소 계정에서 빈 드라이브로 내보내려는 Blob 데이터를 지정합니다. 
     - 저장소 계정의 Blob 데이터를 모두 내보내도록 선택합니다(**모두 내보내기**).
     
@@ -78,11 +85,18 @@ ms.locfileid: "38969268"
     - 드롭다운 목록에서 운송업체를 선택합니다.
     - 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다. 
     - 완전하고 유효한 연락처 이름, 전화 번호, 이메일, 주소, 구/군/시, 우편 번호, 시/도 및 국가/지역을 제공합니다.
+
+        > [!TIP] 
+        > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
    
 5. **요약**에서:
 
     - 작업에 대한 세부 정보를 검토합니다.
     - 작업 이름과 Azure로의 배송 디스크에 제공되는 Azure 데이터 센터 배송 주소를 기록합니다. 
+
+        > [!NOTE] 
+        > 항상 Azure Portal에 기록된 데이터 센터로 디스크를 보냅니다. 디스크가 잘못된 데이터 센터로 배송되면 작업이 처리되지 않습니다.
+
     - **확인**을 클릭하여 내보내기 작업 만들기를 완료합니다.
 
 ## <a name="step-2-ship-the-drives"></a>2단계: 드라이브 배송

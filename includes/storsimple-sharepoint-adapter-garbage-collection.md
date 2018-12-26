@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 0d2fde4ce80e09db19f65134697ba0ba379e1824
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166272"
+---
 <!--author=SharS last changed: 9/17/15-->
 
 이 절차에서는 다음을 수행합니다.
@@ -28,7 +41,7 @@
        `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
 2. 웹 프런트 엔드 서버의 **중앙 관리**에서 원하는 콘텐츠 데이터베이스에 대한 **웹 응용 프로그램의 일반 설정**을 편집하여 휴지통을 일시적으로 사용하지 않도록 설정합니다. 또한 이 작업은 관련 사이트 모음에 대한 휴지통을 비웁니다. 이 작업을 수행하려면 **중앙 관리** -> **응용 프로그램 관리** -> **웹 응용 프로그램(웹 응용 프로그램 관리)** -> **SharePoint - 80** -> **일반 응용 프로그램 설정**을 클릭합니다. **휴지통 상태**를 **OFF**로 설정합니다.
    
-    ![웹 응용 프로그램의 일반 설정](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
+    ![웹 애플리케이션의 일반 설정](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
 #### <a name="to-run-the-maintainer"></a>유지 관리자를 실행하려면
 * 다음과 같이 웹 프런트 엔드 서버의 SharePoint 2013 관리 셸에서 유지 관리자를 실행합니다.

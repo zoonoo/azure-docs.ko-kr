@@ -5,7 +5,7 @@ keywords: azure 구독 양도,azure 구독 양도,azure 구독을 다른 계정�
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
@@ -14,23 +14,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
-ms.author: genli
+ms.date: 06/15/2018
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 110e2f611ba8bfc42fe17de6aa4487683db4a414
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: a841ae168119546e8be32ce6f614656f775709ee
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069879"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583315"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 소유권을 다른 계정으로 양도
 
-구독을 계정 센터의 다른 사용자로 변환하여 계정 관리자를 변경하고 구독 청구 소유권을 전달합니다. 구독을 다른 제품으로 변경하려면 [Azure 구독을 다른 제품으로 전환](billing-how-to-switch-azure-offer.md)을 참조하세요.
+구독을 계정 센터의 다른 사용자로 변환하여 계정 관리자를 변경하고 구독 청구 소유권을 전달합니다. 구독을 다른 제안으로 변경하려면 [Azure 구독을 다른 제안으로 전환](billing-how-to-switch-azure-offer.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 
 > 새 Azure AD 테넌트에 구독을 전송하는 경우 원본 테넌트에서 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)의 모든 역할 할당을 영구적으로 삭제하고 대상 테넌트에 마이그레이션하지 않습니다.
+
+> [!div class="nextstepaction"]
+> [Azure 청구 문서 개선](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Azure 구독의 소유권 양도
 
@@ -44,7 +47,7 @@ ms.locfileid: "34069879"
 
 1. [지원되는 제품 목록](#supported)과 함께 **제품** 및 **제품 ID**를 확인하여 구독이 셀프 서비스 양도에 해당되는지 확인합니다.
 
-   ![계정 센터에서 구독의 제품 ID 확인](./media/billing-subscription-transfer/image0.png)
+   ![계정 센터에서 구독의 제안 ID 확인](./media/billing-subscription-transfer/image0.png)
 1. **구독 이전**을 클릭합니다.
 
    ![Azure 계정 구독 탭](./media/billing-subscription-transfer/image1.png)
@@ -74,19 +77,18 @@ ms.locfileid: "34069879"
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>구독 소유권을 수락한 후 다음 단계
 
-1. 이제 계정 관리자가 되었습니다. 서비스 관리자, 공동 관리자 및 다른 RBAC 역할을 검토하고 업데이트합니다. 자세한 내용은 [구독 또는 서비스를 관리하는 Azure 관리자 역할 추가 또는 변경](billing-add-change-azure-subscription-administrator.md)을 참조하세요.
+1. 이제 계정 관리자가 되었습니다. 서비스 관리자, 공동 관리자 및 다른 RBAC 역할을 검토하고 업데이트합니다. 자세한 내용은 [Azure 구독 관리자 추가 또는 변경](billing-add-change-azure-subscription-administrator.md) 및 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 1. 다음을 비롯한 이 구독의 서비스와 연결된 자격 증명을 업데이트합니다.
    1. 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure 용 관리 인증서 만들기 및 업로드](../cloud-services/cloud-services-certs-create.md)
    1. 저장소와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
    1. Azure Virtual Machines 같은 서비스에 대한 원격 액세스 자격 증명. 
-1. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 [이 구독에 대한 청구 경고를 업데이트](billing-set-up-alerts.md)합니다. 
 1. 파트너와 함께 작업하는 경우 이 구독에서 파트너 ID를 업데이트하는 것이 좋습니다. [Azure Portal](https://portal.azure.com)에서 파트너 ID를 업데이트할 수 있습니다.
 
 <a id="supported"></a>
 
 ## <a name="whats-supported"></a>지원되는 내용:
 
-셀프 서비스 구독 양도는 다음 표에 나열된 제품 또는 구독 유형에 사용할 수 있습니다. 현재 평가판 또는 [AIO(Azure in Open)](https://azure.microsoft.com/offers/ms-azr-0111p/) 구독을 전송할 수 없습니다. 해결 방법을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요. [스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/) 또는 지원 플랜과 같은 다른 구독을 전송하려면 [고객 지원팀에 문의하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+셀프 서비스 구독 양도는 다음 표에 나열된 제안 또는 구독 유형에 사용할 수 있습니다. 현재 평가판 또는 [AIO(Azure in Open)](https://azure.microsoft.com/offers/ms-azr-0111p/) 구독을 전송할 수 없습니다. 해결 방법을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요. [스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/) 또는 지원 플랜과 같은 다른 구독을 전송하려면 [고객 지원팀에 문의하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | 제품 이름                                                                             | 제품 번호 |
 |----------------------------------------------------------------------------------------|--------------|
@@ -116,11 +118,11 @@ ms.locfileid: "34069879"
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>모든 것이 양도되나요? 양도 항목에 리소스 그룹, VM, 디스크 및 기타 실행 중인 서비스가 포함되나요?
 
-VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도됩니다. 그러나 설정한 [관리자 역할](billing-add-change-azure-subscription-administrator.md) 및 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md) 정책은 다른 디렉터리 간에 양도되지 않습니다. 또한 [앱 등록](../active-directory//develop/active-directory-integrating-applications.md) 및 다른 테넌트 관련 서비스는 양도되지 않습니다.
+VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도됩니다. 그러나 설정한 [관리자 역할](billing-add-change-azure-subscription-administrator.md) 및 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md) 정책은 다른 디렉터리 간에 양도되지 않습니다. 또한 [앱 등록](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) 및 다른 테넌트 관련 서비스는 양도되지 않습니다.
 
 ### <a id="no-button"></a> "구독 양도" 단추가 보이지 않는 이유는 무엇인가요?
 
-아쉽게도 셀프 서비스 구독 양도는 해당 제품 또는 국가에 사용할 수 없습니다. 구독을 양도하려면 [지원에 문의하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+아쉽게도 셀프 서비스 구독 양도는 해당 제안 또는 국가에 사용할 수 없습니다. 구독을 양도하려면 [지원에 문의하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>구독 양도로 인해 서비스 가동 중지 시간이 발생합니까?
 
@@ -155,7 +157,7 @@ VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도�
 
 ### <a name="can-the-offer-be-changed-during-a-transfer"></a>양도하는 동안 제품을 변경할 수 있습니까?
 
-제품을 동일하게 유지해야 합니다. 제품을 변경하려면 [Azure 구독을 다른 제품으로 전환](billing-how-to-switch-azure-offer.md)을 참조하세요.
+제품을 동일하게 유지해야 합니다. 제안을 변경하려면 [Azure 구독을 다른 제안으로 전환](billing-how-to-switch-azure-offer.md)을 참조하세요.
 
 ### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>다른 국가에서 사용자 계정에 대 한 구독을 양도할 수 있습니까?
 
@@ -173,6 +175,6 @@ VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도�
 
 구독 소유권을 양도할 수 없는 경우 리소스를 수동으로 마이그레이션할 수 있습니다. [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
-추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

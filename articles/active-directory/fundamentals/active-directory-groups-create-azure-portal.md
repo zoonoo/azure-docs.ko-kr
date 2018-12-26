@@ -1,59 +1,91 @@
 ---
-title: Azure AD에서 사용자에 대한 그룹 만들기 | Microsoft Docs
-description: Azure Active Directory에서 그룹을 만들고 그룹에 멤버를 추가하는 방법
+title: 기본 그룹 만들기 및 멤버 추가 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory를 사용하여 기본 그룹을 만드는 방법을 설명하는 지침입니다.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
-ms.date: 08/04/2017
+ms.date: 08/22/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 3c71c9c49413045e3a730c10e90ea3c12648b4cb
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: be3271a1105e8222ae04e17140c6e925a1c612f9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857726"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105457"
 ---
-# <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Azure Active Directory에서 그룹 만들기 및 멤버 추가
-> [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-groups-create-azure-portal.md)
-> * [PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)
+# <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가
+Azure AD(Azure Active Directory) 포털을 사용하여 기본 그룹을 만들 수 있습니다. 이 문서에서 기본 그룹은 리소스 소유자(관리자)에 의해 단일 리소스에 추가되고 해당 리소스에 액세스해야 하는 특정 멤버(직원)를 포함합니다. 동적 멤버 자격 및 규칙 만들기를 포함한 더 복잡한 시나리오의 경우 [Azure Active Directory 사용자 관리 설명서](../users-groups-roles/index.yml)를 참조하세요.
 
-이 문서는 Azure Active Directory에서 새 그룹을 만들고 채우는 방법을 설명합니다. 그룹을 사용하여 한 번에 많은 사용자 또는 장치에 라이선스 또는 사용 권한을 할당하는 등 관리 작업을 수행합니다.
+## <a name="create-a-basic-group-and-add-members"></a>기본 그룹 만들기 및 멤버 추가
+기본 그룹을 만들고 동시에 멤버를 추가할 수 있습니다.
 
-## <a name="how-do-i-create-a-group"></a>그룹을 만드는 방법
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **모든 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음, **입력**을 선택합니다.
+### <a name="to-create-a-basic-group-and-add-members"></a>기본 그룹을 만들고 멤버를 추가하려면
+1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-   ![사용자 관리 열기](./media/active-directory-groups-create-azure-portal/search-user-management.png)
-3. **사용자 및 그룹** 블레이드에서 **모든 그룹**을 선택합니다.
+2. **Azure Active Directory**, **그룹**을 선택한 다음, **새 그룹**을 선택합니다.
 
-   ![그룹 블레이드 열기](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
-4. **사용자 및 그룹 - 모든 그룹** 블레이드에서 **추가** 명령을 선택합니다.
+    ![그룹이 표시된 Azure AD](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
-   ![추가 명령 선택](./media/active-directory-groups-create-azure-portal/add-group-command.png)
-5. **그룹** 블레이드에서 그룹에 대한 이름 및 설명을 추가합니다.
-6. 그룹에 추가할 멤버를 선택하려면 **멤버 자격 유형** 상자에서 **할당**을 선택한 다음 **멤버**를 선택합니다. 그룹의 구성원을 동적으로 관리하는 방법에 대한 자세한 내용은 [특성을 사용하여 그룹 멤버 자격에 대한 고급 규칙 만들기](../users-groups-roles/groups-dynamic-membership.md)를 참조하세요.
+3. **그룹** 페이지에서 필요한 정보를 입력합니다.
 
-   ![추가할 멤버 선택](./media/active-directory-groups-create-azure-portal/select-members.png)
-7. **멤버** 블레이드에서 그룹에 추가할 하나 이상의 사용자 또는 장치를 선택하고 블레이드 아래쪽의 **선택** 단추를 선택하여 그룹에 추가합니다. **사용자** 상자는 사용자 또는 장치 이름 부분에 대한 항목 일치를 기반으로 한 표시를 필터링합니다. 와일드카드 문자는 해당 상자에서 허용되지 않습니다.
-8. 그룹에 멤버 추가를 마치면 **그룹** 블레이드에서 **만들기**를 선택합니다.    
+    ![예제 정보로 채워진 새 그룹 페이지](media/active-directory-groups-create-azure-portal/new-group-blade.png)
 
-   ![그룹 확인 만들기](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
+    - **그룹 유형(필수).** 미리 정의된 그룹 유형을 선택합니다. 다음 내용이 포함됩니다.
+        
+        - **보안**. 사용자 그룹의 공유 리소스에 대한 멤버 및 컴퓨터 액세스를 관리하는 데 사용됩니다. 예를 들어 특정 보안 정책의 보안 그룹을 만들 수 있습니다. 이렇게 하면 각 멤버에 개별적으로 권한을 추가할 필요 없이 한 번에 모든 멤버에게 권한 집합을 제공할 수 있습니다. 리소스의 액세스 관리 방법에 대한 자세한 내용은 [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)를 참조하세요.
+        
+        - **Office 365**. 공유 사서함, 일정, 파일, SharePoint 사이트 등에 대한 액세스를 멤버에게 부여하여 공동 작업 기회를 제공합니다. 이 옵션을 통해 조직 외부에 있는 사용자에게 그룹에 대한 액세스를 제공할 수 있습니다. Office 365 그룹에 대한 자세한 내용은 [Learn for Office 365 Groups](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2)(Office 365 그룹에 대한 자세한 정보)를 참조하세요.
 
+    - **그룹 이름(필수).** 기억하기 쉽고 의미 있는 그룹 이름을 추가합니다.
+
+    - **그룹 설명.** 그룹에 선택적 설명을 추가합니다.
+
+    - **멤버 자격 유형(필수).** 미리 정의된 멤버 자격 유형을 선택합니다. 다음 내용이 포함됩니다.
+
+        - **할당됨.** 특정 사용자를 이 그룹의 멤버로서, 고유한 권한을 가지도록 추가할 수 있습니다. 이 문서에서는 이 옵션을 사용합니다.
+
+        - **동적 사용자.** 동적 그룹 규칙을 사용하여 멤버를 자동으로 추가하고 제거할 수 있습니다. 멤버의 특성이 변경되면 시스템은 디렉터리의 동적 그룹 규칙을 확인하여 멤버가 규칙 요구 사항을 충족하는지(추가됨), 아니면 더 이상 규칙 요구 사항을 충족하지 않는지(제거됨) 확인합니다.
+
+        - **동적 디바이스.** 동적 그룹 규칙을 사용하여 디바이스를 자동으로 추가하고 제거할 수 있습니다. 디바이스의 특성이 변경되면 시스템은 디렉터리의 동적 그룹 규칙을 확인하여 디바이스가 규칙 요구 사항을 충족하는지(추가됨), 아니면 더 이상 규칙 요구 사항을 충족하지 않는지(제거됨) 확인합니다.
+
+        >[!Important]
+        >디바이스 또는 사용자 중 하나의 동적 그룹만 만들 수 있습니다. 또한 디바이스 소유자의 특성을 기반으로 디바이스 그룹을 만들 수는 없습니다. 디바이스 멤버 자격 규칙은 디바이스 특성만 참조할 수 있습니다. 사용자 및 디바이스의 동적 그룹을 만드는 방법에 대한 자세한 내용은 [동적 그룹 만들기 및 상태 확인](../users-groups-roles/groups-create-rule.md)을 참조하세요.
+
+4. **만들기**를 선택합니다.
+
+    그룹이 만들어지고 멤버를 추가할 준비가 되었습니다.
+
+5. **그룹** 페이지에서 **멤버** 영역을 선택한 후 **멤버 선택** 페이지에서 그룹에 추가할 멤버를 검색하기 시작합니다.
+
+    ![그룹 만들기 프로세스 중 그룹의 멤버 선택](media/active-directory-groups-create-azure-portal/select-members-create-group.png)
+
+6. 멤버 추가를 마치면 **선택**을 선택합니다.
+
+    **그룹 개요** 페이지는 현재 그룹에 추가된 멤버 수를 표시하도록 업데이트됩니다.
+
+    ![멤버 수가 강조 표시된 그룹 개요 페이지](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
 
 ## <a name="next-steps"></a>다음 단계
-이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
+이제 그룹과 하나 이상의 사용자를 추가했으므로 다음을 수행할 수 있습니다.
 
-* [기존 그룹 보기](active-directory-groups-view-azure-portal.md)
-* [그룹의 설정 관리](active-directory-groups-settings-azure-portal.md)
-* [그룹의 멤버 관리](active-directory-groups-members-azure-portal.md)
-* [그룹의 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
-* [그룹의 사용자에 대한 동적 규칙 관리](../users-groups-roles/groups-dynamic-membership.md)
+- [그룹 및 멤버 보기](active-directory-groups-view-azure-portal.md)
+
+- [그룹 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
+
+- [그룹의 사용자에 대한 동적 규칙 관리](../users-groups-roles/groups-create-rule.md)
+
+- [그룹 설정 편집](active-directory-groups-settings-azure-portal.md)
+
+- [그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
+
+- [그룹을 사용하여 SaaS 앱에 대한 액세스 관리](../users-groups-roles/groups-saasapps.md)
+
+- [PowerShell 명령을 사용하여 그룹 관리](../users-groups-roles/groups-settings-v2-cmdlets.md)
+
+- [Azure Active Directory에 Azure 구독 연결 또는 추가](active-directory-how-subscriptions-associated-directory.md)

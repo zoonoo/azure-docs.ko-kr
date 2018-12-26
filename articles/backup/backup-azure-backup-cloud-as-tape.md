@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 1/10/2017
 ms.author: saurse
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff30dd0e4c7cadabddbeddc38c28a773db68d8ff
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606497"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259607"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>장기 저장소를 테이프에서 Azure 클라우드로 이동
 Azure Backup 및 System Center Data Protection Manager 고객은 다음을 수행할 수 있습니다.
@@ -23,7 +23,7 @@ Azure Backup 및 System Center Data Protection Manager 고객은 다음을 수�
 * 백업 데이터를 더 오랜 기간 동안 보존
 * 장기 보존 시 (테이프 대신) Azure를 사용해 보세요.
 
-이 문서에서는 고객이 백업 및 보존 정책을 사용 하도록 설정하는 방법을 설명합니다. 테이프를 사용하여 장기 보존 요구 사항을 해결하는 고객들은 이제 이 기능을 사용하여 강력하고 실행 가능한 대안을 마련할 수 있습니다. 이 기능은 Azure Backup의 최신 릴리스( [여기](http://aka.ms/azurebackup_agent)에서 사용 가능)에서 사용할 수 있습니다. System Center DPM 고객은 DPM을 Azure Backup 서비스에 사용하려면 먼저 DPM 2012 R2 UR5 이상으로 업데이트해야 합니다.
+이 문서에서는 고객이 백업 및 보존 정책을 사용 하도록 설정하는 방법을 설명합니다. 테이프를 사용하여 장기 보존 요구 사항을 해결하는 고객들은 이제 이 기능을 사용하여 강력하고 실행 가능한 대안을 마련할 수 있습니다. 이 기능은 Azure Backup의 최신 릴리스( [여기](https://aka.ms/azurebackup_agent)에서 사용 가능)에서 사용할 수 있습니다. System Center DPM 고객은 DPM을 Azure Backup 서비스에 사용하려면 먼저 DPM 2012 R2 UR5 이상으로 업데이트해야 합니다.
 
 ## <a name="what-is-the-backup-schedule"></a>Backup 일정은 무엇입니까?
 백업 일정은 백업 작업의 빈도를 나타냅니다. 예를 들어, 다음 화면의 설정은 백업이 매일 오후 6시와 자정에 수행되는 것을 나타냅니다.

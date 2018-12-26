@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 68438a317b33bb7e3e784936cdfd1282ba823ad8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 380bf5cb89a165534d0084758d532613eeff480a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600241"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320495"
 ---
 # <a name="azure-maps-supported-languages"></a>Azure Maps 지원 언어
 Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습니다.  다음 표에서는 각 서비스에 지원되는 언어 코드를 제공합니다.  
   
 
-| ID         | Name                   |  지도 | 검색 | 라우팅 | 트래픽 인시던트 | JS 지도 컨트롤 | 표준 시간대 |
+| ID         | 이름                   |  지도 | 검색 | 라우팅 | 트래픽 인시던트 | JS 지도 컨트롤 | 표준 시간대 |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | af-ZA      | 아프리칸스어              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | 아랍어                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -54,6 +54,8 @@ Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습�
 | lt-LT      | 리투아니아어             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ms-MY      | 말레이어(라틴 문자)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | nb-NO      | 노르웨이어(복말)       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NGT        | 중립 참조 자료 - 사용 가능한 경우 로컬 스크립트로 된 모든 지역의 공식 언어 |   ✓     |        |         |                   |      ✓          |         |
+| NGT-Latn   | 중립 참조 자료 - 라틴 지명. 사용 가능한 경우 라틴 스크립트가 사용됩니다. |   ✓     |        |         |                   |        ✓         |          |
 | pl-PL      | 폴란드어                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | 포르투갈어(브라질)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | 포르투갈어(포르투갈)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

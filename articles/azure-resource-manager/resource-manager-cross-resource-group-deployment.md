@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5e67c60828467cce7c3b40ba17f15f44ad045920
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: fec075a744b5f47a4be7f1b960cceedfea7b9a2c
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735673"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090795"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포
 
@@ -126,8 +126,6 @@ ms.locfileid: "34735673"
 ```
 
 `resourceGroup`을 존재하지 않는 리소스 그룹의 이름으로 설정하면 배포에 실패합니다.
-
-예제 템플릿을 배포하려면 Azure PowerShell 4.0.0 이상 또는 Azure CLI 2.0.0 이상을 사용합니다.
 
 ## <a name="use-the-resourcegroup-and-subscription-functions"></a>ResourceGroup() 및 subscription() 함수 사용
 

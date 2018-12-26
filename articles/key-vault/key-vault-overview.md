@@ -12,36 +12,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f9648e15c720c076a65e84a95f4160f27eec598d
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: aae7836448ff27b4c80d7bb53e108034ee52db1c
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068601"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586294"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Key Vault란?
 
-Azure Key Vault는 보안 비밀 저장소로 작동하는 클라우드 서비스입니다.
-
-암호, 연결 문자열 및 응용 프로그램을 작동시키는 데 필요한 기타 정보가 있습니다. 이러한 정보가 있는데 보안을 유지하려고 하는 경우 Azure Key Vault가 효과적일 수 있습니다. Azure Key Vault는 응용 프로그램 비밀을 안전하게 저장하고 관리하는 데 도움을 줍니다.
-
-Key Vault를 사용하면 자격 증명 모음이라는 보안 컨테이너를 여러 개 만들 수 있습니다. 이러한 자격 증명 모음은 HSM(하드웨어 보안 모듈)에 의해 백업됩니다. 자격 증명 모음은 응용 프로그램 비밀을 중앙 집중식으로 저장하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. Key Vault는 또한 저장된 모든 것에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서의 요청 및 갱신을 처리할 수 있으므로, 강력한 인증서 수명 주기 관리 솔루션에 필요한 기능을 제공합니다.
-
- Azure Key Vault는 응용 프로그램 키와 비밀을 지원하도록 설계되었습니다. Key Vault는 사용자 암호 저장소로 사용할 수 없습니다.
+Azure Key Vault는 다음 문제를 해결하는 데 도움이 됩니다.
+- **비밀 관리** - Azure Key Vault를 토큰, 암호, 인증서, API 키 및 기타 비밀에 대한 액세스를 안전하게 저장하고 엄격히 제어하는 데 사용할 수 있습니다
+- **키 관리** - Azure Key Vault를 키 관리 솔루션으로 사용할 수도 있습니다. Azure Key Vault를 사용하면 데이터를 암호화하는 데 사용되는 암호화 키를 쉽게 만들고 제어할 수 있습니다. 
+- **인증서 관리** - Azure Key Vault는 Azure 및 내부 연결 리소스와 함께 사용할 공용 및 개인 SSL/TLS(Secure Sockets Layer/Transport Layer Security) 인증서를 쉽게 프로비전, 관리 및 배포할 수 있게 하는 서비스이기도 합니다. 
+- **하드웨어 보안 모듈로 지원되는 비밀 저장** - 비밀과 키는 HSM의 유효성을 검사하는 소프트웨어 또는 FIPS 140-2 수준 2를 통해 보호할 수 있습니다
 
 ## <a name="why-use-azure-key-vault"></a>Azure Key Vault를 사용하는 이유는?
 
 ### <a name="centralize-application-secrets"></a>응용 프로그램 비밀 중앙 집중화
 
-Azure Key Vault에 응용 프로그램 비밀을 중앙 집중식으로 저장하면 배포를 제어할 수 있습니다. 이렇게 하면 비밀이 우발적으로 누출될 가능성이 크게 감소됩니다. Key Vault를 사용하면 응용 프로그램 개발자가 더 이상 응용 프로그램에 보안 정보를 저장할 필요가 없습니다. 이렇게 하면 이 정보를 코드의 일부로 만들 필요가 없습니다. 예를 들어 응용 프로그램이 데이터베이스에 연결해야 할 수 있습니다. 연결 문자열을 앱 코드에 저장하는 대신 Key Vault에 안전하게 저장합니다.
+Azure Key Vault에 응용 프로그램 비밀을 중앙 집중식으로 저장하면 배포를 제어할 수 있습니다. Key Vault를 사용하면 비밀이 우발적으로 유출될 가능성이 대폭 감소합니다. Key Vault를 사용하면 응용 프로그램 개발자가 더 이상 응용 프로그램에 보안 정보를 저장할 필요가 없습니다. 이렇게 하면 이 정보를 코드의 일부로 만들 필요가 없습니다. 예를 들어 응용 프로그램이 데이터베이스에 연결해야 할 수 있습니다. 연결 문자열을 앱 코드에 저장하는 대신 Key Vault에 안전하게 저장합니다.
 
 Azure Key Vault에 응용 프로그램의 키 또는 비밀이 저장된 후 응용 프로그램에서 특정 버전의 비밀을 검색할 수 있는 URI를 사용하여 필요한 정보에 안전하게 액세스할 수 있습니다. 비밀 정보를 보호하기 위해 사용자 지정 코드를 작성할 필요가 없습니다.
 
-### <a name="securely-store-secrets"></a>비밀을 안전하게 저장
+### <a name="securely-store-secrets-and-keys"></a>안전하게 비밀 및 키 저장
 
-Azure에서는 업계 표준 알고리즘, 키 길이 및 HSM(하드웨어 보안 모듈)을 사용하여 키를 보호합니다. 사용되는 HSM은 FIPS(Federal Information Processing Standards) 140-2 수준 2 유효성 검사를 통과했습니다.
+Azure에서는 업계 표준 알고리즘, 키 길이 및 HSM(하드웨어 보안 모듈)을 사용하여 비밀 및 키를 보호합니다. 사용되는 HSM은 FIPS(Federal Information Processing Standards) 140-2 수준 2 유효성 검사를 통과했습니다.
 
 Key Vault에 액세스하려면 호출자(사용자 또는 응용 프로그램)가 액세스할 수 있도록 적절한 인증 및 권한 부여가 필요합니다. 인증은 호출자의 ID를 확인하는 반면 권한 부여는 수행할 수 있는 작업을 결정합니다.
 
@@ -49,7 +47,7 @@ Key Vault에 액세스하려면 호출자(사용자 또는 응용 프로그램)�
 
 Azure Key Vault는 소프트웨어 또는 하드웨어 HSM으로 보호될 수 있습니다. 추가 보증이 필요한 경우, HSM 경계를 절대로 떠나지 않는 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. Microsoft는 Thales 하드웨어 보안 모듈을 사용합니다. Thales 도구를 사용하여 HSM에서 Azure Key Vault로 키를 이동할 수 있습니다.
 
-마지막으로 Azure Key Vault는 Microsoft에서 키를 보거나 추출할 수 없게 설계되어 있습니다.
+마지막으로 Azure Key Vault는 Microsoft에서 데이터를 보거나 추출할 수 없게 설계되어 있습니다.
 
 ### <a name="monitor-access-and-use"></a>액세스 및 사용 모니터링
 
@@ -65,7 +63,7 @@ Key Vault를 두 개 만들었으면 키와 비밀이 액세스되는 방법 및
 
 중요한 데이터를 저장할 때 몇 가지 단계를 수행해야 합니다. 보안 정보는 보호되어야 하며, 수명 주기를 따라야 하며, 가용성이 높아야 합니다. Azure Key Vault는 다음을 통해 기능을 많이 간소화합니다.
 
-- HSM의 사내 지식에 대한 필요성을 제거합니다.
+- 하드웨어 보안 모듈의 사내 지식에 대한 필요성을 제거합니다.
 - 조직의 사용량 급증에 맞춰 단기간에 확장합니다.
 - 한 지역 전체와 보조 지역으로 Key Vault의 콘텐츠를 복제합니다. 이렇게 하면 고가용성이 보장되고 관리자가 장애 조치(failover)를 트리거할 수 있는 모든 작업이 필요하지 않습니다.
 - Azure CLI 및 PowerShell을 통해 표준 Azure 관리 옵션을 제공합니다.
@@ -75,7 +73,7 @@ Key Vault를 두 개 만들었으면 키와 비밀이 액세스되는 방법 및
 
 ### <a name="integrate-with-other-azure-services"></a>다른 Azure 서비스와 통합
 
-Azure의 보안 저장소인 Key Vault는 [Azure Disk Encryption](../security/azure-security-disk-encryption.md), SQL 서버 및 Azure SQL의 [항상 암호화]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 기능, [Azure 웹앱]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site)와 같은 시나리오를 단순화하는 데 사용되었습니다. Key Vault 자체는 저장소 계정, 이벤트 허브 및 로그 분석과 통합할 수 있습니다.
+Azure의 보안 저장소인 Key Vault는 [Azure Disk Encryption](../security/azure-security-disk-encryption.md), SQL 서버 및 Azure SQL Database의 [항상 암호화]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 기능, [Azure 웹앱]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site) 같은 시나리오를 단순화하는 데 사용되었습니다. Key Vault 자체는 저장소 계정, 이벤트 허브 및 로그 분석과 통합할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

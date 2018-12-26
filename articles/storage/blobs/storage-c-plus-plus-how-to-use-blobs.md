@@ -3,17 +3,17 @@ title: C++에서 개체(Blob) 저장소를 사용하는 방법 - Azure | Microso
 description: Azure Blob(개체) 저장소를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다.
 services: storage
 author: MichaelHauss
-manager: jeconnoc
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: d3297ae7bc4a5ac7e2a43d9d44a05365004b685f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: blobs
+ms.openlocfilehash: d0b0f8ef2fcc4307482b4ccffcb46410eaba33d5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38298999"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306207"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>C++에서 Blob 저장소를 사용하는 방법
 
@@ -51,7 +51,7 @@ Azure 저장소 API를 사용하여 Blob에 액세스하려는 C++ 파일의 맨
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Azure 저장소 연결 문자열 설정
-Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행할 경우, 저장소 계정의 이름 및 [Azure Portal](https://portal.azure.com)에 나열된 저장소 계정의 저장소 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 다음 형식의 저장소 연결 문자열을 제공해야 합니다. Storage 계정 및 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 정보](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.  
+Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행할 경우, 저장소 계정의 이름 및 [Azure Portal](https://portal.azure.com)에 나열된 저장소 계정의 저장소 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 다음 형식의 저장소 연결 문자열을 제공해야 합니다. Storage 계정 및 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 정보](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.  
 
 ```cpp
 // Define the connection-string with your values.

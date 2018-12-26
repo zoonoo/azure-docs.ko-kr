@@ -1,30 +1,25 @@
 ---
-title: Azure HDInsight에서 Spark 클러스터의 Jupyter 노트북에 대한 커널 | Microsoft Docs
+title: Azure HDInsight에서 Spark 클러스터의 Jupyter 노트북에 대한 커널
 description: Azure HDInsight에서 Spark 클러스터와 함께 Jupyter 노트북에 사용할 수 있는 PySpark, PySpark3 및 Spark 커널에 대해 알아봅니다.
 keywords: spark의 jupyter 노트북, jupyter spark
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 0719e503-ee6d-41ac-b37e-3d77db8b121b
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: nitinme
-ms.openlocfilehash: 58a0bf27109af3131bd102fd43e9367d267525f3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: hrasheed
+ms.openlocfilehash: ea54419f230a7988a42fd4b85be0d212ee3d14d4
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31521537"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582584"
 ---
-# <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 Spark 클러스터의 Jupyter 노트북에 대한 커널 
+# <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark 클러스터에 있는 Jupyter Notebook에 대한 커널 
 
-HDInsight Spark 클러스터는 응용 프로그램 테스트를 위해 Spark에서 Jupyter 노트북과 함께 사용할 수 있는 커널을 제공합니다. 커널은 코드를 실행하고 해석하는 프로그램입니다. 세 개의 커널은 다음과 같습니다.
+HDInsight Spark 클러스터는 애플리케이션 테스트를 위해 [Apache Spark](https://spark.apache.org/)에서 Jupyter Notebook과 함께 사용할 수 있는 커널을 제공합니다. 커널은 코드를 실행하고 해석하는 프로그램입니다. 세 개의 커널은 다음과 같습니다.
 
 - **PySpark** - Python2에서 작성한 응용 프로그램용
 - **PySpark3** - Python3에서 작성한 응용 프로그램용
@@ -73,22 +68,22 @@ HDInsight Spark 클러스터는 응용 프로그램 테스트를 위해 Spark에
           sc = SparkContext('yarn-client')
           sqlContext = HiveContext(sc)
    
-   대신 응용 프로그램에서 직접 미리 설정된 컨텍스트를 사용할 수 있습니다.
+   대신 애플리케이션에서 직접 미리 설정된 컨텍스트를 사용할 수 있습니다.
 
-- **매직 셀**입니다. PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 `%%`(예: `%%MAGIC` <args>)를 사용하여 호출할 수 있습니다. 매직 명령은 코드 셀의 첫 번째 단어여야 하고 여러 콘텐츠 줄에 허용됩니다. 매직 단어는 셀의 첫 번째 단어여야 합니다. 매직 앞에 다른 단어(주석 포함)가 있으면 오류가 발생합니다.     매직에 대한 자세한 내용은 [여기](http://ipython.readthedocs.org/en/stable/interactive/magics.html)를 참조하세요.
+- **매직 셀**입니다. PySpark 커널은 특수 명령인 일부 미리 정의된 “매직”을 제공하며 이러한 매직은 `%%`(예: `%%MAGIC` <args>)를 사용하여 호출할 수 있습니다. 매직 명령은 코드 셀의 첫 번째 단어여야 하고 여러 콘텐츠 줄에 허용됩니다. 매직 단어는 셀의 첫 번째 단어여야 합니다. 매직 앞에 다른 단어(주석 포함)가 있으면 오류가 발생합니다.     매직에 대한 자세한 내용은 [여기](http://ipython.readthedocs.org/en/stable/interactive/magics.html)를 참조하세요.
    
     다음 표에는 커널을 통해 사용할 수 있는 다양한 매직이 나열되어 있습니다.
 
    | 매직 | 예 | 설명 |
    | --- | --- | --- |
    | help |`%%help` |예제 및 설명과 함께 사용할 수 있는 모든 매직이 포함된 테이블을 생성합니다. |
-   | info |`%%info` |현재 Livy 끝점에 대한 출력 세션 정보 |
+   | info |`%%info` |현재 Livy 엔드포인트에 대한 출력 세션 정보 |
    | 구성 |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |세션 만들기에 대한 매개 변수를 구성합니다. 이미 세션이 만들어진 경우 강제 플래그(-f)가 필수이며 이렇게 하면 세션을 삭제 후 다시 만들 수 있습니다. 유효한 매개 변수 목록은 [Livy의 POST /sessions Request Body](https://github.com/cloudera/livy#request-body) 를 참조하세요. 매개 변수는 JSON 문자열로 전달되어야 하며, 아래 예제 열과 같이 매직 뒤의 다음 줄에 있어야 합니다. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |sqlContext에 대해 Hive 쿼리를 실행합니다. `-o` 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 [Pandas](http://pandas.pydata.org/) 데이터 프레임으로 유지됩니다. |
    | local |`%%local`<br>`a=1` |다음 줄의 모든 코드는 로컬로 실행됩니다. 코드는 사용 중인 커널에 관계없이 유효한 Python2 코드여야 합니다. 따라서 Notebook을 만드는 동안 **PySpark3** 또는 **Spark** 커널을 선택하더라도 셀에서 `%%local` 매직을 사용하면 해당 셀은 유효한 Python2 코드만 포함해야 합니다. |
    | 로그 |`%%logs` |현재 Livy 세션에 대한 로그를 출력합니다. |
-   | delete |`%%delete -f -s <session number>` |현재 Livy 끝점의 특정 세션을 삭제합니다. 커널 자체에 대해 시작된 세션은 삭제할 수 없습니다. |
-   | cleanup |`%%cleanup -f` |이 노트북의 세션을 포함하여 현재 Livy 끝점에 대한 모든 세션을 삭제합니다. 강제 플래그 -f는 필수입니다. |
+   | delete |`%%delete -f -s <session number>` |현재 Livy 엔드포인트의 특정 세션을 삭제합니다. 커널 자체에 대해 시작된 세션은 삭제할 수 없습니다. |
+   | cleanup |`%%cleanup -f` |이 노트북의 세션을 포함하여 현재 Livy 엔드포인트에 대한 모든 세션을 삭제합니다. 강제 플래그 -f는 필수입니다. |
 
    > [!NOTE]
    > PySpark 커널에서 추가한 매직 외에도 `%%sh`를 포함하여 [기본 제공 IPython 매직](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)도 사용할 수 있습니다. `%%sh` 매직을 사용하면 클러스터 헤드 노드에서 스크립트 및 코드 블록을 실행할 수 있습니다.
@@ -140,7 +135,7 @@ Jupyter Notebook을 여는 경우 루트 수준에서 사용할 수 있는 두 �
 > 기본 저장소로 Azure Data Lake Store를 사용하는 HDInsight 클러스터는 연결된 저장소에 노트를 저장하지 않습니다.
 >
 
-Notebook이 저장소 계정에 저장되는 방식은 HDFS와 호환됩니다. 따라서 클러스터에 SSH 연결을 설정한 경우 다음 코드 조각에 표시된 것처럼 파일 관리 명령을 사용할 수 있습니다.
+Notebook이 스토리지 계정에 저장되는 방식은 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)와 호환됩니다. 따라서 클러스터에 SSH 연결을 설정한 경우 다음 코드 조각에 표시된 것처럼 파일 관리 명령을 사용할 수 있습니다.
 
     hdfs dfs -ls /HdiNotebooks                               # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
@@ -159,19 +154,19 @@ Spark HDInsight 클러스터의 Jupyter 노트북은 Google Chrome에서만 지�
 * [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
-* [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
+* [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
+* [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
-* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
+* [Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>도구 및 확장
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Apache Spark 애플리케이션을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
 * [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)
 

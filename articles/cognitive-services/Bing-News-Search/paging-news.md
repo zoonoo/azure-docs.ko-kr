@@ -1,21 +1,21 @@
 ---
-title: 사용 가능한 문서를 페이징하는 방법 | Microsoft Docs
-description: Bing이 반환할 수 있는 모든 새 문서를 페이징하는 방법을 보여줍니다.
+title: 사용 가능한 문서를 페이징하는 방법 - Bing News Search
+titlesuffix: Azure Cognitive Services
+description: Bing New Search가 반환할 수 있는 모든 새 문서를 페이징하는 방법을 보여 줍니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: EA388F72-FA43-493B-967C-9560B3243C62
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 2c90d468536f0864d7deac073667e29e9a54692f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0507f2cfb1d75025d1b6aadccc442326a52ceebc
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372847"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739807"
 ---
 # <a name="paging-news"></a>뉴스 페이징
 
@@ -58,3 +58,6 @@ Host: api.cognitive.microsoft.com
   
 > [!NOTE]
 > 페이징은 뉴스 검색(/news/search)에만 적용되고 추세 항목(/news/trendingtopics) 또는 뉴스 카테고리(/news)에는 적용되지 않습니다.
+
+> [!NOTE]
+> `TotalEstimatedAnswers` 필드는 현재 쿼리에 대한 검색할 수 있는 검색 결과의 총 예측치입니다.  `count` 및 `offset` 매개 변수를 설정한 경우 `TotalEstimatedAnswers` 번호가 변경될 수 있습니다. 

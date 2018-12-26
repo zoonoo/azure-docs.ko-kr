@@ -1,22 +1,23 @@
 ---
-title: Project Answer Search 엔터티 쿼리 - Microsoft Cognitive Services | Microsoft Docs
+title: '빠른 시작: Project Answer Search Entity 쿼리'
+titlesuffix: Azure Cognitive Services
 description: Project Answer Search를 사용한 엔터티 쿼리
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 2b8382b791c02514e5110097700e223d98fafd6a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 09af064a1c072996171e6afa4f043e84f18612b4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376199"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467415"
 ---
-# <a name="query-for-entities"></a>엔터티 쿼리
+# <a name="quickstart-query-for-entities"></a>빠른 시작: 엔터티 쿼리
 
 쿼리에서 사람, 장소 또는 사물에 대한 정보를 요청하는 경우 응답에 `entities` 답변이 포함될 수 있습니다.  쿼리는 항상 웹 페이지를 반환하며, [팩트](fact-queries.md) 및/또는 [엔터티](entity-queries.md)는 쿼리에 종속됩니다.
 

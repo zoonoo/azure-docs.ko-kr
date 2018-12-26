@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 6039ea482b0968d48fc21ff3dfec82a2ff0db43d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 20412efac553458f3028f873bcc6d918a673f261
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715329"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838820"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Azure Lab Services의 랩 계정 관리 
 Azure Lab Services에서 랩 계정은 강의실 랩과 같은 관리되는 랩의 컨테이너입니다. 관리자는 Azure Lab Services를 사용하여 랩 계정을 설정하고 계정에 랩을 만들 수 있는 랩 소유자에게 액세스 권한을 제공합니다. 이 문서는 랩 계정을 만들거나, 모든 랩 계정을 보거나, 랩 계정을 삭제하는 방법을 설명합니다.
@@ -45,15 +45,33 @@ Azure Lab Services에서 랩 계정은 강의실 랩과 같은 관리되는 랩�
     ![랩 계정 페이지](../media/how-to-manage-lab-accounts/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>랩 작성자 역할에 사용자 추가
-강사가 클래스를 위한 랩을 만들 수 있도록 권한을 제공하려면 강사를 랩 작성자 역할에 추가합니다.
+랩 계정에서 클래스룸 랩을 설정하려면 사용자는 랩 계정에서 **랩 작성자** 역할의 멤버여야 합니다. 랩 계정을 만드는 데 사용한 계정이 이 역할에 자동으로 추가됩니다. 동일한 사용자 계정을 사용하여 클래스룸 랩을 만들려는 경우 이 단계를 건너뛸 수 있습니다. 다른 사용자 계정을 사용하여 클래스룸 랩을 만들려면 다음 단계를 수행합니다. 
 
-1. **랩 계정** 페이지에서 **액세스 제어(IAM)** 를 선택하고 도구 모음에서 **+ 추가**를 클릭합니다. 
+1. **랩 계정** 페이지에서 **액세스 제어(IAM)** 를 선택하고, 도구 모음에서 **+ 역할 할당 추가**를 클릭합니다. 
+2. **권한 추가** 페이지에서 **역할**에 대한 **랩 작성자**를 선택하고, 랩 작성자 역할에 추가할 사용자를 선택하고, **저장**을 선택합니다.
 
-    ![랩 계정 페이지](../media/tutorial-setup-lab-account/access-control.png)
-2. **권한 추가** 페이지에서 **역할**에 대한 **랩 작성자**를 선택하고, 랩 작성자 역할에 추가할 사용자를 선택하고, **저장**을 선택합니다. 
+## <a name="specify-marketplace-images-available-to-lab-owners"></a>랩 소유자에 사용할 수 있는 Marketplace 이미지 지정
+랩 계정 소유자는 랩 작성자가 랩 계정에서 랩을 만들 때 사용할 수 있는 Marketplace 이미지를 지정할 수 있습니다. 
 
-    ![랩 작성자 역할에 사용자 추가](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
+1. 왼쪽 메뉴에서 **Marketplace 이미지**를 선택합니다. 기본적으로 이미지의 전체 목록이 표시됩니다(사용 및 사용 안 함으로 설정된 이미지 모두 포함). 맨 위의 드롭다운 목록에서 **Enabled only**(사용으로 설정된 이미지만)/**Disabled only**(사용 안 함으로 설정된 이미지만) 옵션을 선택하여 사용/사용 안 함으로 설정된 이미지만 표시하도록 목록을 필터링할 수 있습니다. 
+    
+    ![Marketplace 이미지 페이지](../media/tutorial-setup-lab-account/marketplace-images-page.png)
 
+    다음 조건을 만족하는 Marketplace 이미지만 목록에 표시됩니다.
+        
+    - 단일 VM을 만듭니다.
+    - Azure Resource Manager를 사용하여 VM을 프로비전합니다.
+    - 추가 라이선스 플랜을 구입하지 않아도 됩니다.
+2. 사용하도록 설정된 Marketplace 이미지를 **사용하지 않도록 설정**하려면 다음 작업 중 하나를 수행합니다. 
+    1. 마지막 열에서 **...(줄임표)** 를 선택하고, **이미지 사용 안 함**을 선택합니다. 
+
+        ![하나의 이미지를 사용하지 않도록 설정](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. 목록에서 이미지 이름 앞의 확인란을 선택하여 목록에서 하나 이상의 이미지를 선택하고, **선택한 이미지 사용 안 함**을 선택합니다. 
+
+        ![여러 이미지를 사용하지 않도록 설정](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
+1. 마찬가지로 Marketplace 이미지를 **사용하도록 설정**하려면 다음 작업 중 하나를 수행합니다. 
+    1. 마지막 열에서 **...(줄임표)** 를 선택하고, **이미지 사용**을 선택합니다. 
+    2. 목록에서 이미지 이름 앞의 확인란을 선택하여 목록에서 하나 이상의 이미지를 선택하고, **선택한 이미지 사용**을 선택합니다. 
 
 ## <a name="view-lab-accounts"></a>랩 계정 보기
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -69,8 +87,32 @@ Azure Lab Services에서 랩 계정은 강의실 랩과 같은 관리되는 랩�
 3. 확인을 위해 **예**를 입력합니다.
 4. **삭제**를 선택합니다. 
 
-## <a name="next-steps"></a>다음 단계
-Azure Lab Services를 사용하여 랩 설정 시작합니다.
+## <a name="view-and-manage-labs-in-the-lab-account"></a>랩 계정의 랩 보기 및 관리
 
-- [클래스룸 랩 설정](tutorial-setup-classroom-lab.md)
-- [랩 설정](../tutorial-create-custom-lab.md)
+1. **랩 계정** 페이지의 왼쪽 메뉴에서 **랩**을 선택합니다.
+
+    ![계정의 랩](../media/how-to-manage-lab-accounts/labs-in-account.png)
+1. 계정에는 다음 정보가 있는 **랩** 목록이 표시됩니다. 
+    1. 랩의 이름
+    2. 랩을 만든 날짜 
+    3. 랩을 만든 사용자의 메일 주소 
+    4. 랩에 허용되는 최대 사용자 수 
+    5. 랩 상태 
+
+## <a name="delete-a-lab-in-the-lab-account"></a>랩 계정에서 랩 삭제
+이전 섹션의 지침에 따라 랩 계정의 랩 목록을 표시합니다.
+
+1. **...(줄임표)** 를 선택하고 **삭제**를 선택합니다. 
+
+    ![랩 삭제 - 단추](../media/how-to-manage-lab-accounts/delete-lab-button.png)
+2. 경고 메시지에서 **예**를 선택합니다. 
+
+
+
+## <a name="next-steps"></a>다음 단계
+다음 문서를 참조하세요.
+
+- [랩 소유자 권한으로 랩 만들기 및 관리](how-to-manage-classroom-labs.md)
+- [랩 소유자 권한으로 템플릿 설정 및 게시](how-to-create-manage-template.md)
+- [랩 소유자 권한으로 랩 사용 구성 및 제어](how-to-configure-student-usage.md)
+- [랩 사용자 권한으로 클래스룸 랩 액세스](how-to-use-classroom-lab.md)

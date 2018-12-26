@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Search를 사용하여 검색 상자에 자동 완성 추가 | Microsoft Docs'
+title: 검색 상자에 자동 완성을 추가하는 방법에 대한 자습서 - Azure Search
 description: Azure Search 자동 완성 및 제안 API를 사용하여 데이터 중심 응용 프로그램의 최종 사용자 환경을 개선하는 방법 예제.
 manager: pablocas
 author: mrcarter8
@@ -7,18 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 90e99e7d44183d70f4e348c7b9070001fa3c6329
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.custom: seodec2018
+ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37101060"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316185"
 ---
-# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>자습서: Azure Search를 사용하여 검색 상자에 자동 완성 추가 
+# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>자습서: Azure Search를 사용하여 검색 상자에 자동 완성 추가
 
-이 자습서에서는 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet)의 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), [자동 완성](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) 및 [패싯](search-faceted-navigation.md)을 사용하여 강력한 검색 상자를 구성하는 방법을 알아봅니다. *제안*은 사용자가 지금까지 입력한 내용을 바탕으로 실제 결과를 추천합니다. Azure Search의 [새 미리 보기 기능](search-api-preview.md)인 *자동 완성*은 인덱스의 용어를 제공하여 사용자가 현재 입력 중인 항목을 완성합니다. 사용자가 입력할 때 직접 다양한 검색을 제공하여 사용자 생산성을 높이고 신속 간편하게 찾는 내용을 가져오는 여러 기법을 비교해 보겠습니다.
+이 자습서에서는 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet)의 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 및 [패싯](search-faceted-navigation.md)을 사용하여 강력한 검색 상자를 구성하는 방법을 알아봅니다. *제안*은 사용자가 지금까지 입력한 내용을 바탕으로 실제 결과를 추천합니다. Azure Search의 [새 미리 보기 기능](search-api-preview.md)인 *자동 완성*은 인덱스의 용어를 제공하여 사용자가 현재 입력 중인 항목을 완성합니다. 사용자가 입력할 때 직접 다양한 검색을 제공하여 사용자 생산성을 높이고 신속 간편하게 찾는 내용을 가져오는 여러 기법을 비교해 보겠습니다.
 
 이 자습서에서는 C#을 사용하여 [Azure Search.NET 클라이언트 라이브러리](https://aka.ms/search-sdk)를 호출하고, JavaScript를 사용하여 Azure Search REST API를 직접 호출하는 ASP.NET MVC 기반 응용 프로그램을 사용합니다. 이 자습서용 응용 프로그램은 [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 샘플 데이터를 입력하는 인덱스를 대상으로 합니다. NYC Jobs 데모에서 이미 구성된 인덱스를 사용하거나, NYCJobs 샘플 솔루션에서 데이터 로더를 사용하여 자체 인덱스를 입력할 수 있습니다. 이 샘플은 [jQuery UI](https://jqueryui.com/autocomplete/) 및 [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) JavaScript 라이브러리를 사용하여 자동 완성을 지원하는 검색 상자를 빌드합니다. Azure Search와 함께 이러한 구성 요소를 사용하여 검색 상자에서 미리 입력을 통한 자동 완성을 지원하는 방법의 여러 예제를 확인합니다. 
 
@@ -26,7 +27,7 @@ ms.locfileid: "37101060"
 
 > [!div class="checklist"]
 > * 솔루션 다운로드 및 구성
-> * 응용 프로그램 설정에 검색 서비스 정보 추가
+> * 애플리케이션 설정에 검색 서비스 정보 추가
 > * 검색 입력 상자 구현
 > * 원격 원본에서 가져오는 자동 완성 목록에 대한 지원 추가 
 > * .Net SDK 및 REST API를 사용하여 제안 및 자동 완성 검색
@@ -126,7 +127,7 @@ F5를 눌러 응용 프로그램을 시작합니다.
 
 1. Controllers 디렉터리에서 HomeController.cs 파일을 엽니다. 
 
-1. InitSearch라고 하는 클래스 맨 위의 메서드가 가장 먼저 보일 것입니다.  이 항목은 Azure Search 서비스에 대해 인증된 HTTP 인덱스 클라이언트가 만듭니다.  이 과정에 대해 자세히 알아보려면 [.NET 응용 프로그램에서 Azure Search를 사용하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk) 자습서를 방문하세요.
+1. InitSearch라고 하는 클래스 맨 위의 메서드가 가장 먼저 보일 것입니다.  이 항목은 Azure Search 서비스에 대해 인증된 HTTP 인덱스 클라이언트가 만듭니다.  이 과정에 대해 자세히 알아보려면 다음 자습서를 살펴보세요. [.NET 응용 프로그램에서 Azure Search를 사용하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 1. Suggest 함수로 이동합니다.
 
@@ -214,7 +215,7 @@ $(function () {
 제안 및 자동 완성을 검색 환경에 통합합니다.  .NET SDK 또는 REST API를 직접 사용하면 사용자 입력에서의 생산성 증대를 위해 Azure Search가 어떻게 도움이 될 수 있는지 살펴봅니다.
 
 > [!div class="nextstepaction"]
-> [Autocomplete REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete)
-> [Suggestions REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/suggestions)
-> [Create Index REST API에서 패싯 인덱스 특성](https://docs.microsoft.com/en-us/rest/api/searchservice/create-index)
+> [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
+> [Create Index REST API에서 패싯 인덱스 특성](https://docs.microsoft.com/rest/api/searchservice/create-index)
 

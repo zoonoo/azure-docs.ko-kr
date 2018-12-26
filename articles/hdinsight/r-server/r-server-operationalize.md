@@ -1,23 +1,20 @@
 ---
-title: HDInsight에서 ML 서비스 운영 - Azure | Microsoft Docs
+title: HDInsight에서 ML 서비스 운영 - Azure
 description: Azure HDInsight에서 ML 서비스를 운영하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: caefe30ff567a5e24e1f4c3a11309bd35e06190c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046142"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496914"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 운영
 
@@ -40,7 +37,7 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
     Azure HDInsight에서 SSH를 사용하는 방법에 대한 지침은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-2. 관련 버전의 디렉터리를 변경하고 sudo를 통해 dot net dll을 실행합니다. 
+1. 관련 버전의 디렉터리를 변경하고 sudo를 통해 dot net dll을 실행합니다. 
 
     - Microsoft ML Server 9.1의 경우:
 
@@ -52,27 +49,27 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. 선택할 수 있는 옵션이 표시됩니다. 다음 스크린샷에 표시된 첫 번째 옵션인 **운영을 위해 ML Server 구성**을 선택합니다.
+1. 선택할 수 있는 옵션이 표시됩니다. 다음 스크린샷에 표시된 첫 번째 옵션인 **운영을 위해 ML Server 구성**을 선택합니다.
 
     ![one-box 조작화](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. 이제 ML Server를 운영하는 방법을 선택할 수 있는 옵션이 표시됩니다. 표시된 옵션에서 **A**를 입력하여 첫 번째 옵션을 선택합니다.
+1. 이제 ML Server를 운영하는 방법을 선택할 수 있는 옵션이 표시됩니다. 표시된 옵션에서 **A**를 입력하여 첫 번째 옵션을 선택합니다.
 
     ![one-box 조작화](./media/r-server-operationalize/admin-util-one-box-2.png)
 
-5. 메시지가 표시되면 로컬 관리 사용자의 암호를 입력하고 다시 입력합니다.
+1. 메시지가 표시되면 로컬 관리 사용자의 암호를 입력하고 다시 입력합니다.
 
-6. 조작이 성공했음을 알리는 출력이 표시됩니다. 메뉴에서 다른 옵션을 선택하라는 메시지도 표시됩니다. E를 선택하여 주 메뉴로 돌아갑니다.
+1. 조작이 성공했음을 알리는 출력이 표시됩니다. 메뉴에서 다른 옵션을 선택하라는 메시지도 표시됩니다. E를 선택하여 주 메뉴로 돌아갑니다.
 
     ![one-box 조작화](./media/r-server-operationalize/admin-util-one-box-3.png)
 
-7. 필요에 따라 다음과 같이 진단 테스트를 실행하여 진단 검사를 수행할 수 있습니다.
+1. 필요에 따라 다음과 같이 진단 테스트를 실행하여 진단 검사를 수행할 수 있습니다.
 
     a. 주 메뉴에서 **6**을 선택하여 진단 테스트를 실행합니다.
 
     ![one-box 조작화](./media/r-server-operationalize/diagnostic-1.png)
 
-    나. 진단 테스트 메뉴에서 **A**를 선택합니다. 메시지가 표시되면 로컬 관리 사용자에 대해 지정한 암호를 입력합니다.
+    b. 진단 테스트 메뉴에서 **A**를 선택합니다. 메시지가 표시되면 로컬 관리 사용자에 대해 지정한 암호를 입력합니다.
 
     ![one-box 조작화](./media/r-server-operationalize/diagnostic-2.png)
 
@@ -82,9 +79,9 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
     d. 표시된 메뉴 옵션에서 **E**를 입력하여 주 메뉴로 돌아간 다음 **8**을 입력하여 관리 유틸리티를 종료합니다.
 
-### <a name="long-delays-when-consuming-web-service-on-spark"></a>Spark에서 웹 서비스를 사용할 때 긴 지연 발생
+### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Apache Spark에서 웹 서비스를 사용할 때 긴 지연 발생
 
-Spark 계산 컨텍스트에서 mrsdeploy 함수로 만든 웹 서비스를 이용하려고 할 때 긴 지연이 발생하는 경우 일부 누락된 폴더를 추가해야 할 수 있습니다. Spark 응용 프로그램은 mrsdeploy 함수를 사용하여 웹 서비스에서 호출될 때마다 '*rserve2*'라는 사용자에게 속합니다. 이 문제를 해결하려면
+Apache Spark 컴퓨팅 컨텍스트에서 mrsdeploy 함수로 생성된 웹 서비스를 이용하려고 할 때 긴 지연이 발생하면 누락된 폴더를 추가해야 할 수도 있습니다. Spark 응용 프로그램은 mrsdeploy 함수를 사용하여 웹 서비스에서 호출될 때마다 '*rserve2*'라는 사용자에게 속합니다. 이 문제를 해결하려면
 
     # Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -124,7 +121,7 @@ Spark 계산 컨텍스트에서 mrsdeploy 함수로 만든 웹 서비스를 이�
 
     ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-SSH 세션이 활성화되면 컴퓨터의 12800 포트에서 발생한 트래픽이 SSH 세션을 통해 에지 노드의 12800 포트로 전달됩니다. `remoteLogin()` 메서드에서 `127.0.0.1:12800`을 사용해야 합니다. 이렇게 하면 포트 전달을 통해 에지 노드의 조작에 로그인됩니다.
+SSH 세션이 활성화되면 로컬 머신의 12800 포트에서 발생한 트래픽이 SSH 세션을 통해 에지 노드의 12800 포트로 전달됩니다. `remoteLogin()` 메서드에서 `127.0.0.1:12800`을 사용해야 합니다. 이렇게 하면 포트 전달을 통해 에지 노드의 조작에 로그인됩니다.
 
 
     library(mrsdeploy)
@@ -142,15 +139,15 @@ SSH 세션이 활성화되면 컴퓨터의 12800 포트에서 발생한 트래�
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>1단계: 작업자 노드 서비스 해제
 
-ML 서비스 클러스터는 YARN을 통해 관리되지 않습니다. 작업자 노드 서비스를 해제하지 않으면 YARN 리소스 관리자가 서버에서 사용하는 리소스를 인식하지 못하기 때문에 예상대로 작동하지 않습니다. 이 상황을 피하려면 계산 노드의 크기를 조정하기 전에 작업자 노드의 서비스를 해제하는 것이 좋습니다.
+ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)을 통해 관리되지 않습니다. 작업자 노드 서비스를 해제하지 않으면 YARN 리소스 관리자가 서버에서 사용하는 리소스를 인식하지 못하기 때문에 예상대로 작동하지 않습니다. 이 상황을 피하려면 계산 노드의 크기를 조정하기 전에 작업자 노드의 서비스를 해제하는 것이 좋습니다.
 
 작업자 노드 서비스를 해제하려면 다음 단계를 따르세요.
 
 1. 클러스터의 Ambari 콘솔에 로그인하고 **Hosts** 탭을 클릭합니다.
 
-2. 서비스 해제할 작업자 노드를 선택합니다.
+1. 서비스 해제할 작업자 노드를 선택합니다.
 
-3. **작업** > **선택한 호스트** > **호스트** > **유지 관리 모드 켜기**를 클릭합니다. 예를 들어 다음 이미지에서는 wn3과 wn4를 선택하여 서비스를 해제했습니다.  
+1. **작업** > **선택한 호스트** > **호스트** > **유지 관리 모드 켜기**를 클릭합니다. 예를 들어 다음 이미지에서는 wn3과 wn4를 선택하여 서비스를 해제했습니다.  
 
    ![작업자 노드 서비스 해제](./media/r-server-operationalize/get-started-operationalization.png)  
 
@@ -166,15 +163,15 @@ ML 서비스 클러스터는 YARN을 통해 관리되지 않습니다. 작업자
 
 1. SSH를 서비스 해제된 각 작업자 노드로 실행합니다.
 
-2. 사용자가 보유한 에게 있는 ML 서비스 클러스터와 관련된 DLL을 사용하여 관리 유틸리티를 실행합니다. ML Server 9.1의 경우 다음을 실행합니다.
+1. 사용자가 보유한 에게 있는 ML 서비스 클러스터와 관련된 DLL을 사용하여 관리 유틸리티를 실행합니다. ML Server 9.1의 경우 다음을 실행합니다.
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. **1**을 입력하여 **운영을 위해 ML Server 구성** 옵션을 선택합니다.
+1. **1**을 입력하여 **운영을 위해 ML Server 구성** 옵션을 선택합니다.
 
-4. **C**를 입력하여 `C. Compute node` 옵션을 선택합니다. 그러면 작업자 노드에 계산 노드가 구성됩니다.
+1. **C**를 입력하여 `C. Compute node` 옵션을 선택합니다. 그러면 작업자 노드에 계산 노드가 구성됩니다.
 
-5. 관리 유틸리티를 종료합니다.
+1. 관리 유틸리티를 종료합니다.
 
 ### <a name="step-3-add-compute-nodes-details-on-web-node"></a>3단계: 웹 노드에 계산 노드 세부 정보 추가
 
@@ -182,9 +179,9 @@ ML 서비스 클러스터는 YARN을 통해 관리되지 않습니다. 작업자
 
 1. SSH를 에지 노드로 실행합니다.
 
-2. `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`을 실행합니다.
+1. `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`을 실행합니다.
 
-3. “URI” 섹션을 살펴보고 작업자 노드의 IP 및 포트 세부 정보를 추가합니다.
+1. “URI” 섹션을 살펴보고 작업자 노드의 IP 및 포트 세부 정보를 추가합니다.
 
        "Uris": {
          "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",

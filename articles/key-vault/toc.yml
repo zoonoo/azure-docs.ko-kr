@@ -1,0 +1,169 @@
+items:
+- name: Key Vault 설명서
+  href: index.yml
+- name: 개요
+  items:
+  - name: Key Vault 정보
+    href: key-vault-overview.md
+- name: 빠른 시작
+  items:
+  - name: 비밀 설정 및 검색 - CLI
+    href: quick-create-cli.md
+  - name: 비밀 설정 및 검색 - PowerShell
+    href: quick-create-powershell.md
+  - name: 비밀 설정 및 검색 - 포털
+    href: quick-create-portal.md
+  - name: 비밀 설정 및 검색 - .NET
+    href: quick-create-net.md
+  - name: 비밀 설정 및 검색 - Node.js
+    href: quick-create-node.md
+  expanded: true
+- name: 자습서
+  items:
+  - name: Azure Web Apps
+    items:
+    - name: .NET에서 Azure Web App과 Azure Key Vault
+      href: tutorial-net-create-vault-azure-web-app.md
+  - name: Azure Virtual Machine
+    items:
+    - name: Linux Virtual Machine
+      items:
+      - name: .NET
+        href: tutorial-net-linux-virtual-machine.md
+      - name: Python
+        href: tutorial-python-linux-virtual-machine.md
+    - name: Windows Virtual Machine
+      items:
+      - name: .NET
+        href: tutorial-net-windows-virtual-machine.md
+      - name: Python
+        href: tutorial-python-windows-virtual-machine.md
+  - name: Azure 컨테이너
+    href: ../container-instances/container-instances-managed-identity.md
+  - name: Azure Resource Manager 템플릿
+    href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
+  - name: 키 회전 및 감사 설정
+    href: key-vault-key-rotation-log-monitoring.md
+- name: 샘플
+  items:
+  - name: 코드 샘플
+    href: https://azure.microsoft.com/resources/samples/?service=key-vault
+- name: 개념
+  items:
+  - name: Key Vault란 무엇인가요?
+    href: key-vault-whatis.md
+  - name: 키 자격 증명 모음 보안
+    href: key-vault-secure-your-key-vault.md
+  - name: 보안 권역
+    href: key-vault-ovw-security-worlds.md
+  - name: 일시 삭제
+    href: key-vault-ovw-soft-delete.md
+  - name: 관리 스토리지 계정 키 - Azure CLI
+    href: key-vault-ovw-storage-keys.md
+  - name: 관리 스토리지 계정 키 - PowerShell
+    href: key-vault-overview-storage-keys-powershell.md
+  - name: 제한
+    href: key-vault-ovw-throttling.md
+  - name: Virtual Network 서비스 엔드포인트
+    href: key-vault-overview-vnet-service-endpoints.md
+  - name: 인증, 요청 및 응답
+    href: authentication-requests-and-responses.md
+  - name: 공통 매개 변수 및 헤더
+    href: common-parameters-and-headers.md
+  - name: 키, 비밀 및 인증서 정보
+    href: about-keys-secrets-and-certificates.md
+    items:
+    - name: 인증서 시작
+      href: certificate-scenarios.md
+    - name: 인증서 생성 방법
+      href: create-certificate.md
+    - name: 인증서 만들기 모니터링 및 관리
+      href: create-certificate-scenarios.md
+- name: 방법 가이드
+  items:
+  - name: Azure Key Vault 로깅
+    href: key-vault-logging.md
+  - name: 방화벽 뒤에 액세스
+    href: key-vault-access-behind-firewall.md
+  - name: 가용성 및 중복성
+    href: key-vault-disaster-recovery-guidance.md
+  - name: 테넌트 ID 변경
+    href: key-vault-subscription-move-fix.md
+  - name: Azure CLI를 사용하여 만들기 및 관리
+    href: key-vault-manage-with-cli2.md
+  - name: CLI로 Key Vault 일시 삭제 사용
+    href: key-vault-soft-delete-cli.md
+  - name: Azure PowerShell로 Key Vault 일시 삭제 사용
+    href: key-vault-soft-delete-powershell.md
+  - name: 그룹을 사용하여 액세스 권한 부여
+    href: key-vault-group-permissions-for-apps.md
+  - name: 방화벽 및 가상 네트워크 구성
+    href: key-vault-network-security.md
+- name: 참고 자료
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.keyvault
+  - name: Azure CLI
+    href: /cli/azure/keyvault
+  - name: .NET
+    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+  - name: 자바
+    href: /java/api/overview/azure/keyvault?view=azure-java-stable
+  - name: Node.js
+    href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+  - name: Python
+    href: /python/api/overview/azure/key-vault?view=azure-python
+  - name: REST (영문)
+    href: /rest/api/keyvault
+  - name: 인증, 요청 및 응답
+    href: authentication-requests-and-responses.md
+  - name: 공통 매개 변수 및 헤더
+    href: common-parameters-and-headers.md
+  - name: 개발
+    items:
+    - name: 개발자 가이드
+      href: key-vault-developers-guide.md
+    - name: HSM 보호 키
+      href: key-vault-hsm-protected-keys.md
+    - name: .NET 2.0으로 마이그레이션
+      href: key-vault-dotnet2api-release-notes.md
+    - name: 웹앱 비밀 저장
+      href: vs-secure-secret-appsettings.md
+    - name: .NET을 사용하여 서비스 인증
+      href: service-to-service-authentication.md
+    - name: Key Vault 연결된 서비스 사용
+      href: vs-key-vault-add-connected-service.md
+- name: 리소스
+  items:
+  - name: Microsoft Learn을 통해 기술 쌓기
+    href: /learn/browse/?products=azure-key-vault
+  - name: 인증, 요청 및 응답
+    href: authentication-requests-and-responses.md
+  - name: 공통 매개 변수 및 헤더
+    href: common-parameters-and-headers.md
+  - name: 고객 데이터
+    href: key-vault-customer-data.md
+  - name: 릴리스 정보
+    href: key-vault-versions.md
+  - name: 가격
+    href: https://azure.microsoft.com/pricing/details/key-vault/
+  - name: 지역 가용성
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+  - name: SLA(서비스 수준 계약)
+    href: https://azure.microsoft.com/support/legal/sla/key-vault/
+  - name: 서비스 제한
+    href: key-vault-service-limits.md
+  - name: 서비스 상태
+    href: https://azure.microsoft.com/status/
+  - name: 서비스 업데이트
+    href: https://azure.microsoft.com/updates/?product=key-vault
+  - name: 블로그
+    href: http://blogs.technet.com/b/kv/
+- name: 제품 사용자 의견
+  href: https://feedback.azure.com/forums/906355-azure-key-vault
+ms.openlocfilehash: 6bfff2d700666ae4316d8d66e22d8ab7e769630e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715514"

@@ -4,19 +4,19 @@ description: 이 문서에서는 자산이 무엇이고 Azure Media Services가 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284841"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085814"
 ---
 # <a name="assets"></a>자산
 
@@ -34,19 +34,19 @@ Media Services v3에서 작업 입력은 자산 또는 HTTP URL에서 만들 수
 
 다음 표에서는 자산의 속성을 표시하고 해당 정의를 제공합니다.
 
-|Name|type|설명|
-|---|---|---|
-|Id|string|리소스에 대한 정규화된 리소스 ID입니다.|
-|이름|string|리소스의 이름입니다.|
-|properties.alternateId |string|자산의 대체 ID입니다.|
-|properties.assetId |string|자산 ID입니다.|
-|properties.container |string|자산 Blob 컨테이너의 이름입니다.|
-|properties.created |string|자산의 생성 날짜입니다.|
-|properties.description |string|자산 설명입니다.|
-|properties.lastModified |string|사잔을 마지막으로 수정한 날짜입니다.|
-|properties.storageAccountName |string|저장소 계정 이름입니다.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |자산 암호화 형식입니다. 없음 또는 MediaStorageEncryption 중 하나입니다.|
-|형식|string|리소스 형식입니다.|
+|이름|설명|
+|---|---|
+|id|리소스에 대한 정규화된 리소스 ID입니다.|
+|이름|리소스의 이름입니다.|
+|properties.alternateId |자산의 대체 ID입니다.|
+|properties.assetId |자산 ID입니다.|
+|properties.container |자산 Blob 컨테이너의 이름입니다.|
+|properties.created |자산의 생성 날짜입니다.|
+|properties.description|자산 설명입니다.|
+|properties.lastModified |사잔을 마지막으로 수정한 날짜입니다.|
+|properties.storageAccountName |저장소 계정 이름입니다.|
+|properties.storageEncryptionFormat |자산 암호화 형식입니다. 없음 또는 MediaStorageEncryption 중 하나입니다.|
+|형식|리소스 형식입니다.|
 
 전체 정의는 [자산](https://docs.microsoft.com/rest/api/media/assets)을 참조하세요.
 
@@ -59,18 +59,27 @@ Media Services는 자산에 대한 다음 OData 쿼리 옵션을 지원합니다
 * $top 
 * $skiptoken 
 
+연산자 설명:
+
+* Eq = 같음
+* Ne = 같지 않음
+* Ge = 크거나 같음
+* Le = 작거나 같음
+* Gt = 보다 큼
+* Lt = 보다 작음
+
 ### <a name="filteringordering"></a>필터링/순서
 
 다음 표에서는 자산 속성에 이러한 옵션을 적용하는 방법을 보여줍니다. 
 
-|Name|Filter|순서|
+|이름|Filter|순서|
 |---|---|---|
-|Id|지원:<br/>같음<br/>다음보다 큼<br/>미만|지원:<br/>오름차순<br/>내림차순|
-|이름|||
-|properties.alternateId |지원:<br/>같음||
-|properties.assetId |지원:<br/>같음||
+|id|||
+|이름|지원: Eq, Gt, Lt|지원: 오름차순 및 내림차순|
+|properties.alternateId |지원: Eq||
+|properties.assetId |지원: Eq||
 |properties.container |||
-|properties.created|지원:<br/>같음<br/>다음보다 큼<br/>미만|지원:<br/>오름차순<br/>내림차순|
+|properties.created|지원: Eq, Gt, Lt| 지원: 오름차순 및 내림차순|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
@@ -86,9 +95,12 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ### <a name="pagination"></a>페이지 매김
 
-네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 
+네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 1000입니다.
 
-쿼리 응답에 여러 항목(현재 1000개 이상)이 포함된 경우 서비스는 결과의 그 다음 페이지를 가져오는 "\@odata.nextLink" 속성을 반환합니다. 전체 결과 집합을 통해 페이지에 사용할 수 있습니다. 사용자가 페이지 크기를 구성할 수 없습니다. 
+> [!TIP]
+> 항상 다음 링크를 사용하여 컬렉션을 열거하고, 특정 페이지 크기에 따라 달라지지 않아야 합니다.
+
+쿼리 응답에 많은 항목이 포함된 경우 서비스에서 "\@odata.nextLink" 속성을 반환하여 결과의 다음 페이지를 가져옵니다. 전체 결과 집합을 통해 페이지에 사용할 수 있습니다. 페이지 크기는 구성할 수 없습니다. 
 
 (해당 변경 내용이 다운로드되지 않은 컬렉션의 일부인 경우)컬렉션을 통해 페이징하는 동안 자산이 생성되거나 삭제되면 변경 내용이 반환된 결과에 반영됩니다. 
 
@@ -106,7 +118,6 @@ while (currentPage.NextPageLink != null)
 
 나머지 예제는 [자산 - 목록](https://docs.microsoft.com/rest/api/media/assets/list)을 참조하세요.
 
-
 ## <a name="storage-side-encryption"></a>저장소 쪽 암호화
 
 미사용 자산을 보호하려면 저장소 쪽 암호화를 사용하여 자산을 암호화해야 합니다. 다음 표는 Media Services에서 저장소 쪽 암호화가 작동하는 원리를 보여줍니다.
@@ -123,5 +134,4 @@ while (currentPage.NextPageLink != null)
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [파일 스트리밍](stream-files-dotnet-quickstart.md)
+[파일 스트리밍](stream-files-dotnet-quickstart.md)

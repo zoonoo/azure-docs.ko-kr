@@ -2,24 +2,18 @@
 title: Azure Import/Export를 사용하여 속성 및 메타데이터 설정 | Microsoft Docs
 description: Azure Import/Export 도구를 실행하여 드라이브를 준비할 때 대상 BLOB에 설정할 속성과 메타데이터를 지정하는 방법을 알아봅니다.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 1ba6d157402fae0c7d7bf841d2b4e4f6b1ee1084
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: d68de35591d1b17a62278a0bc4adf2b9ee20cf02
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059408"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525004"
 ---
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>가져오기 프로세스 중에 속성 및 메타데이터 설정
 
@@ -74,4 +68,4 @@ K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.windows.net/favorit
 
 ## <a name="next-steps"></a>다음 단계
 
-* [가져오기-내보내기 서비스 메타데이터 및 속성 파일 형식](../storage-import-export-file-format-metadata-and-properties.md)
+* [Import/Export 서비스 메타데이터 및 속성 파일 형식](../storage-import-export-file-format-metadata-and-properties.md)

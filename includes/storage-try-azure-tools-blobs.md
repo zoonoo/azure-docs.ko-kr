@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 54cf1ba9648625e843ca6f4d9244c25d2d55d878
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165969"
+---
 > [!TIP]
 > 
 > Azure Storage 탐색기를 사용하여 Azure Blob Storage 리소스를 관리합니다. 

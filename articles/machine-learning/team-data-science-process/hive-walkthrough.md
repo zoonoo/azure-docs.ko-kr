@@ -1,36 +1,32 @@
 ---
 title: Azure Machine Learning에서 Hadoop 클러스터 데이터 탐색 및 모델 만들기 | Microsoft Docs
 description: HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 팀 데이터 과학 프로세스를 사용하여 모델을 빌드 및 배포합니다.
-services: machine-learning,hdinsight
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: deguhath
-ms.openlocfilehash: beb1c2f88eed8fc38bd32de113835122cfd4e9a4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 1b494f78998a03d39b18d4f9bba80642c04c483e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837330"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444208"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>실행 중인 팀 데이터 과학 프로세스: Azure HDInsight Hadoop 클러스터 사용
 이 연습에서는 종단 간 시나리오에 [TDSP(Team Data Science Process)](overview.md)를 사용합니다. [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 데이터의 모델을 Azure Machine Learning으로 빌드합니다. 
 
-더 큰 데이터 집합을 처리하는 방법을 보여 주는 연습은 [팀 데이터 과학 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용](hive-criteo-walkthrough.md)을 참조하세요.
+더 큰 데이터 세트를 처리하는 방법을 보여 주는 연습은 [팀 데이터 과학 프로세스 - 1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용](hive-criteo-walkthrough.md)을 참조하세요.
 
-IPython 노트북에서 1TB 데이터 집합을 사용하는 연습의 작업을 수행할 수도 있습니다. 자세한 내용은 [Hive ODBC 연결을 사용하여 Criteo 연습](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb)을 참조하세요.
+IPython 노트북에서 1TB 데이터 세트를 사용하는 연습의 작업을 수행할 수도 있습니다. 자세한 내용은 [Hive ODBC 연결을 사용하여 Criteo 연습](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb)을 참조하세요.
 
 ## <a name="dataset"></a>NYC Taxi Trips 데이터 집합 설명
-NYC Taxi Trip 데이터는 20GB의 압축된 CSV(쉼표로 구분된 값) 파일입니다(압축되지 않은 경우 ~48GB). 1억 7300만 개가 넘는 개별 여정이 있으며 각 여정의 요금을 포함합니다. 각 여정 레코드는 승차 및 하차 위치와 시간, 익명 처리된 hack(기사) 면허증 번호 및 medallion 번호(택시의 고유 ID)를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 집합으로 제공됩니다.
+NYC Taxi Trip 데이터는 20GB의 압축된 CSV(쉼표로 구분된 값) 파일입니다(압축되지 않은 경우 ~48GB). 1억 7300만 개가 넘는 개별 여정이 있으며 각 여정의 요금을 포함합니다. 각 여정 레코드는 승차 및 하차 위치와 시간, 익명 처리된 hack(기사) 면허증 번호 및 medallion 번호(택시의 고유 ID)를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 세트로 제공됩니다.
 
 - trip_data CSV 파일에는 여정 정보가 들어 있습니다. 여기에는 승객 수, 승하차 지점, 여정 기간 및 여정 거리가 포함됩니다. 다음은 몇 가지 샘플 레코드입니다.
    
@@ -75,7 +71,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 
 다음 세 단계를 통해 HDInsight 클러스터를 사용하는 고급 분석용 Azure 환경을 설정할 수 있습니다.
 
-1. [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md):이 저장소 계정은 Azure Blob 저장소에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터도 여기에 상주합니다.
+1. [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md):이 저장소 계정은 Azure Blob 저장소에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터도 여기에 상주합니다.
 2. [고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md). 이 단계에서는 모든 노드에 64비트 Anaconda Python 2.7이 설치된 HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터 사용자 지정하는 동안 기억해야 할 중요한 두 단계가 있습니다.
    
    * HDInsight 클러스터를 만들 때 1단계에서 만든 저장소 계정을 연결해야 합니다. 이 저장소 계정은 클러스터 내에서 처리되는 데이터에 액세스합니다.
@@ -88,7 +84,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 > 
 > 
 
-해당 공용 위치에서 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합을 컴퓨터로 복사하려면 [Azure Blob 저장소에서 데이터 이동](move-azure-blob.md)에 설명된 방법 중 하나를 사용합니다.
+해당 공용 위치에서 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 세트를 컴퓨터로 복사하려면 [Azure Blob 저장소에서 데이터 이동](move-azure-blob.md)에 설명된 방법 중 하나를 사용합니다.
 
 여기서는 AzCopy를 사용하여 데이터가 포함된 파일을 전송하는 방법을 설명합니다. AzCopy를 다운로드하여 설치하려면 [AzCopy 명령줄 유틸리티 시작](../../storage/common/storage-use-azcopy.md)의 지침을 따르세요.
 
@@ -147,7 +143,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 > 
 > 
 
-이제 NYC taxi 데이터 집합에 대한 Hive 테이블을 만들 준비가 완료되었습니다.
+이제 NYC taxi 데이터 세트에 대한 Hive 테이블을 만들 준비가 완료되었습니다.
 Hadoop 클러스터 헤드 노드의 헤드 노드 바탕 화면에서 Hadoop 명령줄을 엽니다. 다음 명령을 실행하여 Hive 디렉터리를 입력합니다.
 
     cd %hive_home%\bin
@@ -215,7 +211,7 @@ Hive 디렉터리 프롬프트에서 헤드 노드의 Hadoop 명령줄에서 다
 > 
 > 
 
-NYC taxi 데이터 집합에는 처리 및 쿼리 시간을 단축하기 위해 사용하는 월별 자연 분할 기능이 있습니다. 다음 PowerShell 명령(Hadoop 명령줄을 사용하여 Hive 디렉터리에서 실행)은 월별로 분할된 trip 및 fare Hive 테이블에 데이터를 로드합니다.
+NYC taxi 데이터 세트에는 처리 및 쿼리 시간을 단축하기 위해 사용하는 월별 자연 분할 기능이 있습니다. 다음 PowerShell 명령(Hadoop 명령줄을 사용하여 Hive 디렉터리에서 실행)은 월별로 분할된 trip 및 fare Hive 테이블에 데이터를 로드합니다.
 
     for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 
@@ -224,7 +220,7 @@ NYC taxi 데이터 집합에는 처리 및 쿼리 시간을 단축하기 위해 
     LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
     LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
 
-탐색 프로세스에서 사용된 여러 Hive 쿼리는 한 개나 두 개의 파티션 확인을 포함합니다. 그러나 이러한 쿼리는 전체 데이터 집합에서 실행될 수 있습니다.
+탐색 프로세스에서 사용된 여러 Hive 쿼리는 한 개나 두 개의 파티션 확인을 포함합니다. 그러나 이러한 쿼리는 전체 데이터 세트에서 실행될 수 있습니다.
 
 ### <a name="#show-db"></a>HDInsight Hadoop 클러스터에서 데이터베이스 표시
 HDInsight Hadoop 클러스터에서 만든 데이터베이스를 Hadoop 명령줄 창 내에 표시하려면 Hadoop 명령줄에서 다음 명령을 실행합니다.
@@ -338,7 +334,7 @@ Hive 쿼리를 사용하여 Hive 테이블에 로드된 데이터에 대한 데�
 
 여기서 첫 번째 열은 월이고, 두 번째 열은 해당 월의 여정 수입니다.
 
-Hive 디렉터리 프롬프트에서 다음 명령을 실행하여 여정 데이터 집합의 총 레코드 수를 계산할 수도 있습니다.
+Hive 디렉터리 프롬프트에서 다음 명령을 실행하여 여정 데이터 세트의 총 레코드 수를 계산할 수도 있습니다.
 
     hive -e "select count(*) from nyctaxidb.trip;"
 
@@ -347,7 +343,7 @@ Hive 디렉터리 프롬프트에서 다음 명령을 실행하여 여정 데이
     173179759
     Time taken: 284.017 seconds, Fetched: 1 row(s)
 
-trip 데이터 집합에 표시된 것과 유사한 명령을 사용하여 Hive 디렉터리 프롬프트에서 fare 데이터 집합에 대해 레코드 수를 확인하는 Hive 쿼리를 실행할 수 있습니다.
+trip 데이터 세트에 표시된 것과 유사한 명령을 사용하여 Hive 디렉터리 프롬프트에서 fare 데이터 세트에 대해 레코드 수를 확인하는 Hive 쿼리를 실행할 수 있습니다.
 
     hive -e "select month, count(*) from nyctaxidb.fare group by month;"
 
@@ -367,9 +363,9 @@ trip 데이터 집합에 표시된 것과 유사한 명령을 사용하여 Hive 
     12      13971118
     Time taken: 253.955 seconds, Fetched: 12 row(s)
 
-두 데이터 집합 모두에 대해 정확히 동일한 월별 여정 수가 반환됩니다. 이는 데이터가 올바르게 로드되었는지 확인하는 첫 번째 유효성 검사를 제공합니다.
+두 데이터 세트 모두에 대해 정확히 동일한 월별 여정 수가 반환됩니다. 이는 데이터가 올바르게 로드되었는지 확인하는 첫 번째 유효성 검사를 제공합니다.
 
-Hive 디렉터리 프롬프트에서 다음 명령을 사용하여 fare 데이터 집합의 총 레코드 수를 계산할 수 있습니다.
+Hive 디렉터리 프롬프트에서 다음 명령을 사용하여 fare 데이터 세트의 총 레코드 수를 계산할 수 있습니다.
 
     hive -e "select count(*) from nyctaxidb.fare;"
 
@@ -399,7 +395,7 @@ Hive 디렉터리 프롬프트에서 다음 명령을 사용하여 fare 데이�
     HAVING med_count > 100
     ORDER BY med_count desc;
 
-NYC taxi 데이터 집합의 medallion은 고유한 택시를 식별합니다. 특정 기간에 특정 여정 수를 초과하는 택시를 조회하여 비교적 운행량이 많은 택시를 식별할 수 있습니다. 다음 예제에서는 첫 3개월 동안 여정 수가 100건이 넘는 택시를 식별하여 쿼리 결과를 로컬 파일 **C:\temp\queryoutput.tsv**에 저장합니다.
+NYC taxi 데이터 세트의 medallion은 고유한 택시를 식별합니다. 특정 기간에 특정 여정 수를 초과하는 택시를 조회하여 비교적 운행량이 많은 택시를 식별할 수 있습니다. 다음 예제에서는 첫 3개월 동안 여정 수가 100건이 넘는 택시를 식별하여 쿼리 결과를 로컬 파일 **C:\temp\queryoutput.tsv**에 저장합니다.
 
 다음은 검사할 **sample\_hive\_trip\_count\_by\_medallion.hql** 파일의 내용입니다.
 
@@ -420,7 +416,7 @@ Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 > 
 > 
 
-데이터 집합을 탐색할 때 값 그룹의 동시 발생 횟수를 조사하는 경우가 많습니다. 이 섹션에서는 택시와 운전 기사에 대해 이 작업을 수행하는 방법에 대한 예제를 제공합니다.
+데이터 세트를 탐색할 때 값 그룹의 동시 발생 횟수를 조사하는 경우가 많습니다. 이 섹션에서는 택시와 운전 기사에 대해 이 작업을 수행하는 방법에 대한 예제를 제공합니다.
 
 **sample\_hive\_trip\_count\_by\_medallion\_license.hql** 파일은 **medallion** 및 **hack_license**에서 fare 데이터 집합을 그룹화하고 각 조합의 개수를 반환합니다. 파일 내용은 다음과 같습니다.
 
@@ -589,7 +585,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 쿼리는 승차 및 하차 위치 사이의 거리도 생성합니다. 이러한 함수의 전체 목록은 [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF)를 참조하세요.
 
-그런 다음, 이 쿼리는 쿼리 결과가 Azure Machine Learning Studio에 적합하도록 데이터를 다운 샘플링합니다. 원래 데이터 집합의 약 1%만 스튜디오로 가져옵니다.
+그런 다음, 이 쿼리는 쿼리 결과가 Azure Machine Learning Studio에 적합하도록 데이터를 다운 샘플링합니다. 원래 데이터 세트의 약 1%만 스튜디오로 가져옵니다.
 
 다음은 Machine Learning에서 모델 빌드를 위해 데이터를 준비하는 **sample\_hive\_prepare\_for\_aml\_full.hql** 파일의 내용입니다.
 
@@ -718,7 +714,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
     hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-이제 Machine Learning의 [데이터 가져오기][import-data] 모듈을 사용하여 액세스할 수 있는 내부 테이블 **nyctaxidb.nyctaxi_downsampled_dataset**가 생성되었습니다. 또한 이 데이터 집합을 사용하여 Machine Learning 모델을 빌드할 수 있습니다.  
+이제 Machine Learning의 [데이터 가져오기][import-data] 모듈을 사용하여 액세스할 수 있는 내부 테이블 **nyctaxidb.nyctaxi_downsampled_dataset**가 생성되었습니다. 또한 이 데이터 세트를 사용하여 Machine Learning 모델을 빌드할 수 있습니다.  
 
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Machine Learning의 데이터 가져오기 모듈을 사용하여 다운 샘플링된 데이터 액세스
 Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼리를 실행하려면 Machine Learning 작업 영역에 액세스할 수 있어야 합니다. 또한 클러스터의 자격 증명 및 연결된 저장소 계정에 액세스할 수 있어야 합니다.
@@ -756,7 +752,7 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
 다운 샘플링된 데이터는 기본 컨테이너에 있으므로 Machine Learning의 Hive 쿼리 결과는 매우 간단합니다. 간단히 **SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data**입니다.
 
-이제 이 데이터 집합을 Machine Learning 모델 빌드를 위한 시작 지점으로 사용할 수 있습니다.
+이제 이 데이터 세트를 Machine Learning 모델 빌드를 위한 시작 지점으로 사용할 수 있습니다.
 
 ### <a name="mlmodel"></a>Machine Learning에서 모델 빌드
 이제 [Machine Learning](https://studio.azureml.net)에서 모델 빌드 및 모델 배포를 진행할 수 있습니다. 이전에 파악된 다음과 같은 예측 문제를 해결하는 데 데이터를 사용할 수 있습니다.
@@ -765,13 +761,13 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
   **사용된 학습자:** 2클래스 로지스틱 회귀
 
-  a. 이 문제의 경우 대상(또는 클래스) 레이블은 **tipped**입니다. 다운 샘플링된 원래 데이터 집합에는 이 분류 실험의 대상 누수인 몇 가지 열이 있습니다. 특히 **tip\_class**, **tip\_amount** 및 **total\_amount**는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 고려 대상에서 제거합니다.
+  a. 이 문제의 경우 대상(또는 클래스) 레이블은 **tipped**입니다. 다운 샘플링된 원래 데이터 세트에는 이 분류 실험의 대상 누수인 몇 가지 열이 있습니다. 특히 **tip\_class**, **tip\_amount** 및 **total\_amount**는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 고려 대상에서 제거합니다.
 
   다음 다이어그램은 지정된 여정에 대해 팁이 지불되었는지 여부를 예측하는 실험을 보여 줍니다.
 
   ![실험의 다이어그램](./media/hive-walkthrough/QGxRz5A.png)
 
-  나. 이 실험의 경우 대상 레이블 분포는 약 1:1입니다.
+  b. 이 실험의 경우 대상 레이블 분포는 약 1:1입니다.
 
    다음 차트는 이진 분류 문제에 대한 팁 클래스 레이블의 분포를 보여 줍니다.
 
@@ -795,7 +791,7 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
   ![테스트 클래스 분포의 차트](./media/hive-walkthrough/Vy1FUKa.png)
 
-  나. 이 실험에서는 혼동 행렬을 사용하여 예측 정확도를 확인합니다. 다음과 같습니다.
+  b. 이 실험에서는 혼동 행렬을 사용하여 예측 정확도를 확인합니다. 다음과 같습니다.
 
   ![혼동 행렬](./media/hive-walkthrough/cxFmErM.png)
 
@@ -811,7 +807,7 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
   ![실험의 다이어그램](./media/hive-walkthrough/11TZWgV.png)
 
-  나. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수를 확인하여 예측 정확도를 측정합니다.
+  b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수를 확인하여 예측 정확도를 측정합니다.
 
   ![예측 통계의 스크린샷](./media/hive-walkthrough/Jat9mrz.png)
 
@@ -828,7 +824,7 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 ## <a name="references"></a>참조
 • [Andrés Monroy NYC Taxi Trips 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/)  
 • [Chris Whong의 FOILing NYC Taxi Trip 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [NYC Taxi 및 Limousine 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [NYC Taxi 및 Limousine 수수료 연구 및 통계](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png

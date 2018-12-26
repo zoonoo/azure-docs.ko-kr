@@ -3,24 +3,20 @@ title: Azure Functions의 트리거 및 바인딩
 description: Azure Functions에서 트리거 및 바인딩을 사용하여 코드 실행을 온라인 이벤트 및 클라우드 기반 서비스에 연결하는 방법을 알아봅니다.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: craigshoemaker
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 05/24/2018
-ms.author: tdykstra
-ms.openlocfilehash: 5e7e6608003b365d5516ca2e94a51c0710ad1125
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.date: 09/24/2018
+ms.author: cshoe
+ms.openlocfilehash: 9b2539d94c645f71b596e53429e6e0d8cc46b9ad
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061356"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016746"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -32,67 +28,11 @@ ms.locfileid: "37061356"
 
 입력 및 출력 *바인딩*은 코드에서 데이터에 연결하기 위한 선언적 방식을 제공합니다. 바인딩은 선택 사항이며 함수는 여러 개의 입력 및 출력 바인딩을 가질 수 있습니다. 
 
-트리거 및 바인딩을 통해 작업하는 서비스 세부 정보의 하드 코딩을 방지할 수 있습니다. 함수는 함수 매개 변수에서 데이터를 수신합니다(예: 큐 메시지의 콘텐츠). 함수의 반환 값, `out` 매개 변수 또는 [collector 개체](functions-reference-csharp.md#writing-multiple-output-values)를 사용하여 데이터를 보냅니다(예: 큐 메시지를 만들기 위해).
+트리거 및 바인딩을 통해 작업하는 서비스 세부 정보의 하드 코딩을 방지할 수 있습니다. 함수는 함수 매개 변수에서 데이터를 수신합니다(예: 큐 메시지의 콘텐츠). 함수의 반환 값을 사용하여 데이터를 보냅니다(예를 들어 큐 메시지를 만들기 위해). C# 및 C# 스크립트에서 데이터를 보내는 또 다른 방법은 `out` 매개 변수 및 [수집기 개체](functions-reference-csharp.md#writing-multiple-output-values)입니다.
 
 Azure Portal을 사용하여 함수를 개발하는 경우 트리거 및 바인딩은 *function.json* 파일에서 구성됩니다. 포털은 이 구성에 대한 UI를 제공하지만 **고급 편집기**로 변경하여 파일을 직접 편집할 수 있습니다.
 
 클래스 라이브러리를 만들기 위해 Visual Studio를 사용하여 함수를 개발하는 경우 특성으로 메서드 및 매개 변수를 데코레이트하여 트리거 및 바인딩을 구성합니다.
-
-## <a name="supported-bindings"></a>지원되는 바인딩
-
-[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
-
-미리 보기 상태 바인딩 또는 프로덕션 용도로 승인된 바인딩에 대한 자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요.
-
-## <a name="register-binding-extensions"></a>바인딩 확장 등록
-
-일부 개발 환경에서는 사용하려는 바인딩을 명시적으로 *등록*해야 합니다. 바인딩 확장은 NuGet 패키지에 제공되며 확장을 등록하려면 패키지를 설치합니다. 다음 테이블은 바인딩 확장을 등록하는 방법과 시기를 나타냅니다.
-
-|개발 환경 |등록<br/> (Functions 1.x)  |등록<br/> (Functions 2.x)  |
-|---------|---------|---------|
-|Azure portal|자동|[자동(프롬프트)](#azure-portal-development)|
-|Azure Functions 핵심 도구를 사용하는 로컬|자동|[핵심 도구 CLI 명령 사용](#local-development-azure-functions-core-tools)|
-|Visual Studio 2017을 사용하는 C# 클래스 라이브러리|[NuGet 도구 사용](#c-class-library-with-visual-studio-2017)|[NuGet 도구 사용](#c-class-library-with-visual-studio-2017)|
-|Visual Studio Code를 사용하는 C# 클래스 라이브러리|해당 없음|[.NET Core CLI 사용](#c-class-library-with-visual-studio-code)|
-
-다음과 같은 바인딩 유형은 HTTP, 타이머 및 Azure Storage(Blob, 큐 및 테이블)와 같은 환경 및 모든 버전에서 자동으로 등록되기 때문에 명시적인 등록이 필요하지 않은 예외 항목입니다. 
-
-### <a name="azure-portal-development"></a>Azure Portal 개발
-
-함수를 만들거나 바인딩을 추가할 때 트리거 또는 바인딩에 대한 확장에 등록이 필요한 경우 메시지가 표시됩니다. **설치**를 클릭하여 프롬프트에 응답하고 확장을 등록합니다. 소비 계획에 대해 설치는 최대 10분이 소요될 수 있습니다.
-
-지정된 함수 앱에 대해 각 확장을 한 번만 등록하면 됩니다. 
-
-### <a name="local-development-azure-functions-core-tools"></a>Azure Functions 핵심 도구 로컬 개발
-
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
-
-<a name="local-csharp"></a>
-### <a name="c-class-library-with-visual-studio-2017"></a>Visual Studio 2017을 통한 C# 클래스 라이브러리
-
-**Visual Studio 2017**의 경우 다음 예제와 같이 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 명령을 사용하여 패키지 관리자 콘솔에서 패키지를 설치할 수 있습니다.
-
-```powershell
-Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
-```
-
-지정된 바인딩에 사용할 패키지의 이름은 해당 바인딩에 대한 참조 문서에 제공됩니다. 예를 들어 [Service Bus 바인딩 참조 문서의 패키지 섹션](functions-bindings-service-bus.md#packages---functions-1x)을 참조하세요.
-
-예제의 `<target_version>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열되어 있습니다. Functions 참조 1.x 또는 2.x에 해당하는 주요 버전은 바인딩에 대한 참조 문서에 지정되어 있습니다.
-
-### <a name="c-class-library-with-visual-studio-code"></a>Visual Studio Code를 통한 C# 클래스 라이브러리
-
-**Visual Studio Code**의 경우 다음 예제와 같이 .NET Core CLI에서 [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 명령을 사용하여 명령 프롬프트에서 패키지를 설치할 수 있습니다.
-
-```terminal
-dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
-```
-
-.NET Core CLI는 Azure Functions 2.x 개발에만 사용할 수 있습니다.
-
-지정된 바인딩에 사용할 패키지의 이름은 해당 바인딩에 대한 참조 문서에 제공됩니다. 예를 들어 [Service Bus 바인딩 참조 문서의 패키지 섹션](functions-bindings-service-bus.md#packages---functions-1x)을 참조하세요.
-
-예제의 `<target_version>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열되어 있습니다. Functions 참조 1.x 또는 2.x에 해당하는 주요 버전은 바인딩에 대한 참조 문서에 지정되어 있습니다.
 
 ## <a name="example-trigger-and-binding"></a>예제 트리거 및 바인딩
 
@@ -135,11 +75,12 @@ Azure Portal에서 *function.json*의 내용을 보고 편집하려면 함수의
 ```cs
 #r "Newtonsoft.Json"
 
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
 // From an incoming queue message that is a JSON object, add fields and write to Table storage
 // The method return value creates a new row in Table Storage
-public static Person Run(JObject order, TraceWriter log)
+public static Person Run(JObject order, ILogger log)
 {
     return new Person() { 
             PartitionKey = "Orders", 
@@ -184,7 +125,7 @@ function generateRandomId() {
      [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
      public static Person Run(
          [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
-         TraceWriter log)
+         ILogger log)
      {
          return new Person() {
                  PartitionKey = "Orders",
@@ -203,6 +144,66 @@ function generateRandomId() {
  }
 ```
 
+## <a name="supported-bindings"></a>지원되는 바인딩
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+미리 보기 상태 바인딩 또는 프로덕션 용도로 승인된 바인딩에 대한 자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요.
+
+## <a name="register-binding-extensions"></a>바인딩 확장 등록
+
+일부 개발 환경에서는 사용하려는 바인딩을 명시적으로 *등록*해야 합니다. 바인딩 확장은 NuGet 패키지에 제공되며 확장을 등록하려면 패키지를 설치합니다. 다음 테이블은 바인딩 확장을 등록하는 방법과 시기를 나타냅니다.
+
+|개발 환경 |등록<br/> (Functions 1.x)  |등록<br/> (Functions 2.x)  |
+|---------|---------|---------|
+|Azure portal|자동|[자동(프롬프트)](#azure-portal-development)|
+|Azure Functions 핵심 도구를 사용하는 로컬|자동|[핵심 도구 CLI 명령 사용](#local-development-azure-functions-core-tools)|
+|Visual Studio 2017을 사용하는 C# 클래스 라이브러리|[NuGet 도구 사용](#c-class-library-with-visual-studio-2017)|[NuGet 도구 사용](#c-class-library-with-visual-studio-2017)|
+|Visual Studio Code를 사용하는 C# 클래스 라이브러리|해당 없음|[.NET Core CLI 사용](#c-class-library-with-visual-studio-code)|
+
+다음과 같은 바인딩 유형은 HTTP 및 타이머와 같은 환경 및 모든 버전에서 자동으로 등록되기 때문에 명시적인 등록이 필요하지 않은 예외 항목입니다.
+
+### <a name="azure-portal-development"></a>Azure Portal 개발
+
+이 섹션은 Functions 2.x에만 적용됩니다. 바인딩 확장은 Functions 1.x에서 명시적으로 등록될 필요가 없습니다.
+
+함수를 만들거나 바인딩을 추가할 때 트리거 또는 바인딩에 대한 확장에 등록이 필요한 경우 메시지가 표시됩니다. **설치**를 클릭하여 프롬프트에 응답하고 확장을 등록합니다. 소비 계획에 대해 설치는 최대 10분이 소요될 수 있습니다.
+
+지정된 함수 앱에 대해 각 확장을 한 번만 등록하면 됩니다. 포털에서 사용할 수 없는 지원되는 바인딩의 경우 또는 설치된 확장을 업데이트하려면 [포털에서 Azure Functions 바인딩 확장을 수동으로 설치 또는 업데이트](install-update-binding-extensions-manual.md)할 수도 있습니다.  
+
+### <a name="local-development-azure-functions-core-tools"></a>Azure Functions 핵심 도구 로컬 개발
+
+이 섹션은 Functions 2.x에만 적용됩니다. 바인딩 확장은 Functions 1.x에서 명시적으로 등록될 필요가 없습니다.
+
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+
+<a name="local-csharp"></a>
+### <a name="c-class-library-with-visual-studio-2017"></a>Visual Studio 2017을 통한 C# 클래스 라이브러리
+
+**Visual Studio 2017**의 경우 다음 예제와 같이 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 명령을 사용하여 패키지 관리자 콘솔에서 패키지를 설치할 수 있습니다.
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <target_version>
+```
+
+지정된 바인딩에 사용할 패키지의 이름은 해당 바인딩에 대한 참조 문서에 제공됩니다. 예를 들어 [Service Bus 바인딩 참조 문서의 패키지 섹션](functions-bindings-service-bus.md#packages---functions-1x)을 참조하세요.
+
+예제의 `<target_version>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열되어 있습니다. Functions 참조 1.x 또는 2.x에 해당하는 주요 버전은 바인딩에 대한 참조 문서에 지정되어 있습니다.
+
+### <a name="c-class-library-with-visual-studio-code"></a>Visual Studio Code를 통한 C# 클래스 라이브러리
+
+**Visual Studio Code**의 경우 다음 예제와 같이 .NET Core CLI에서 [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 명령을 사용하여 명령 프롬프트에서 패키지를 설치할 수 있습니다.
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <target_version>
+```
+
+.NET Core CLI는 Azure Functions 2.x 개발에만 사용할 수 있습니다.
+
+지정된 바인딩에 사용할 패키지의 이름은 해당 바인딩에 대한 참조 문서에 제공됩니다. 예를 들어 [Service Bus 바인딩 참조 문서의 패키지 섹션](functions-bindings-service-bus.md#packages---functions-1x)을 참조하세요.
+
+예제의 `<target_version>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열되어 있습니다. Functions 참조 1.x 또는 2.x에 해당하는 주요 버전은 바인딩에 대한 참조 문서에 지정되어 있습니다.
+
 ## <a name="binding-direction"></a>바인딩 방향
 
 모든 트리거와 바인딩은 *function.json* 파일에 `direction` 속성이 있습니다.
@@ -220,9 +221,11 @@ function generateRandomId() {
 * C# 클래스 라이브러리에서 출력 바인딩 특성을 메서드 반환 값에 적용합니다.
 * 다른 언어에서 *function.json*의 `name` 속성을 `$return`에 설정합니다.
 
-한 항목 초과를 작성해야 하는 경우 반환 값 대신 [collector 개체](functions-reference-csharp.md#writing-multiple-output-values)를 사용합니다. 여러 개의 출력 바인딩이 있으면 둘 중 하나에 대한 반환 값을 사용합니다.
+여러 개의 출력 바인딩이 있으면 둘 중 하나에 대한 반환 값을 사용합니다.
 
-언어 관련 예제를 참조하세요.
+C# 및 C# 스크립트에서 데이터를 출력 바인딩으로 보내는 또 다른 방법은 `out` 매개 변수 및 [수집기 개체](functions-reference-csharp.md#writing-multiple-output-values)입니다.
+
+반환 값 사용 방법을 보여주는 언어별 예제를 참조하세요.
 
 * [C#](#c-example)
 * [C# 스크립트(.csx)](#c-script-example)
@@ -236,10 +239,10 @@ function generateRandomId() {
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
@@ -247,10 +250,10 @@ public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -271,19 +274,19 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, Trace
 다음은 C# 스크립트 코드로, 그 뒤에 비동기 예제가 나와 있습니다.
 
 ```cs
-public static string Run(WorkItem input, TraceWriter log)
+public static string Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
 
 ```cs
-public static Task<string> Run(WorkItem input, TraceWriter log)
+public static Task<string> Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -304,9 +307,9 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 F# 코드는 다음과 같습니다.
 
 ```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
+let Run(input: WorkItem, log: ILogger) =
     let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
+    log.LogInformation(sprintf "F# script processed queue message '%s'" json)
     json
 ```
 
@@ -399,9 +402,9 @@ JavaScript와 같은 동적으로 형식화되는 언어의 경우 *function.jso
 [FunctionName("QueueTrigger")]
 public static void Run(
     [QueueTrigger("%input-queue-name%")]string myQueueItem, 
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 }
 ```
 
@@ -443,9 +446,9 @@ Blob 트리거에 대한 `path`는 다른 바인딩 및 함수 코드에서 blob
 
 ```csharp
 // C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+public static void Run(Stream image, string filename, Stream imageSmall, ILogger log)  
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 } 
 ```
@@ -461,9 +464,9 @@ public static void Run(
     [BlobTrigger("sample-images/{filename}")] Stream image,
     [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
     string filename,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 }
 
@@ -526,7 +529,7 @@ public static void Run(
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+      "path": "strings/{BlobName}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -542,17 +545,20 @@ public static void Run(
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public class BlobInfo
 {
     public string BlobName { get; set; }
 }
   
-public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents)
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, ILogger log)
 {
     if (blobContents == null) {
         return req.CreateResponse(HttpStatusCode.NotFound);
     } 
+
+    log.LogInformation($"Processing: {info.BlobName}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         data = $"{blobContents}"

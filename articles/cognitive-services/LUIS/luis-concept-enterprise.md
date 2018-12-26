@@ -1,20 +1,21 @@
 ---
-title: LUIS 앱의 엔터프라이즈 개념 - Azure | Microsoft Docs
+title: LUIS 앱의 엔터프라이즈 개념 - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: 대형 LUIS 앱의 디자인 개념을 이해합니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 06/05/2018
-ms.author: v-geberr
-ms.openlocfilehash: 1f501981dd4b45f4d36188ef4c2aaa6cb11881a2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: conceptual
+ms.date: 09/10/2018
+ms.author: diberry
+ms.openlocfilehash: bb4078c9131488e5077795df792de259d7c789dc
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263756"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638276"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 앱의 엔터프라이즈 전략
 엔터프라이즈 앱의 이러한 디자인 전략을 검토합니다.
@@ -27,17 +28,17 @@ LUIS 앱 요청 요금이 허용된 [할당량 요금](https://azure.microsoft.c
 
 모든 앱 간에 동일한 상위 의도를 가져오려면 첫 번째 의도와 두 번째 의도 간의 의도 예측이 LUIS에서 혼동하지 않을 만큼 충분히 폭넓은지 확인하여 음성의 사소한 변형에 대해 앱 간에 서로 다른 결과를 제공합니다. 
 
-단일 앱을 마스터로 지정합니다. 검토를 위해 제안된 모든 발화는 마스터 앱에 추가된 다음, 다시 다른 모든 앱으로 이동되어야 합니다. 이것은 앱의 전체 내보내기이거나 마스터에서 자식으로 레이블이 지정된 발화를 로드하는 것입니다. [단일 발화](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) 또는 [일괄 처리](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)를 위해 [LUIS][LUIS] 웹 사이트 또는 작성 API에서 로드할 수 있습니다. 
+단일 앱을 마스터로 지정합니다. 검토를 위해 제안된 모든 발화는 마스터 앱에 추가된 다음, 다시 다른 모든 앱으로 이동되어야 합니다. 이것은 앱의 전체 내보내기이거나 마스터에서 자식으로 레이블이 지정된 발화를 로드하는 것입니다. [단일 발언](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) 또는 [일괄 처리](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)를 위해 [LUIS](luis-reference-regions.md) 웹 사이트 또는 작성 API에서 로드할 수 있습니다. 
 
-활성 학습의 주기적인 [끝점 발화 검토](label-suggested-utterances.md)를 예약한 다음(예: 격주), 다시 학습시키고 다시 게시합니다. 
+활성 학습의 주기적인 [엔드포인트 발화 검토](luis-how-to-review-endoint-utt.md)를 예약한 다음(예: 격주), 다시 학습시키고 다시 게시합니다. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>동일한 앱에 여러 LUIS 키 할당
-LUIS 앱이 단일 키 할당량이 허용하는 것보다 많은 끝점 적중 횟수를 수신하는 경우, 더 많은 키를 만들고 LUIS 앱에 할당합니다. 트래픽 관리자 또는 부하 분산 장치를 만들어 여러 구독 키에서 끝점 쿼리를 관리합니다. 
+LUIS 앱이 단일 키 할당량이 허용하는 것보다 많은 엔드포인트 적중 횟수를 수신하는 경우, 더 많은 키를 만들고 LUIS 앱에 할당합니다. 트래픽 관리자 또는 부하 분산 장치를 만들어 여러 끝점 키에서 끝점 쿼리를 관리합니다. 
 
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>모놀리식 앱이 잘못된 의도를 반환하는 경우
 앱이 다양한 사용자 발화를 예측하도록 하려면 [디스패치 모델](#dispatch-tool-and-model)을 구현하는 것이 좋습니다. 모놀리식 앱을 분할하면 LUIS는 부모 앱과 자식 앱에서 의도를 혼동하지 않고 성공적으로 의도 간 검색에 초점을 맞출 수 있습니다. 
 
-활성 학습의 주기적인 [끝점 발화 검토](label-suggested-utterances.md)를 예약한 다음(예: 격주), 다시 학습시키고 다시 게시합니다. 
+활성 학습의 주기적인 [엔드포인트 발화 검토](luis-how-to-review-endoint-utt.md)를 예약한 다음(예: 격주), 다시 학습시키고 다시 게시합니다. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>500개 이상의 의도가 필요한 경우
 예를 들어, 500개를 초과하는 의도가 포함된 Office 길잡이를 개발하고 있다고 가정합니다. 200개의 의도는 모임 예약에 관련되고, 200개는 미리 알림에 관련되고, 200개는 동료 정보 가져오기에 관련되고, 200개는 메일 보내기에 관련된 경우, 각 그룹이 단일 앱에 있도록 의도를 그룹화한 다음, 각 의도가 포함된 최상위 앱을 만듭니다. [디스패치 도구 및 아키텍처](#dispatch-tool-and-model)를 사용하여 최상위 앱을 빌드합니다. 그런 다음, [디스패치 자습서][dispatcher-application-tutorial]에 표시된 대로 계단식 호출을 사용하도록 봇을 변경합니다. 
@@ -50,9 +51,7 @@ LUIS 앱이 단일 키 할당량이 허용하는 것보다 많은 끝점 적중 
 
 ![디스패치 아키텍처의 개념 이미지](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-부모 도메인은 LUIS에 **V Dispatch** 앱으로 기록됩니다. 
-
-![디스패치 도구에서 생성된 LUIS 앱이 포함된 LUIS 앱 목록의 스크린샷](./media/luis-concept-enterprise/dispatch.png)
+부모 도메인은 앱 목록에서 `Dispatch`라는 버전의 LUIS에 표시됩니다. 
 
 챗봇은 발화를 수신한 다음, 예측을 위해 부모 LUIS 앱으로 보냅니다. 부모 앱의 상위 예측 의도에 따라 다음에 호출되는 자식 LUIS 앱이 결정됩니다. 챗봇은 더 구체적인 예측을 위해 발화를 자식 앱으로 보냅니다.
 
@@ -65,6 +64,5 @@ LUIS 앱이 단일 키 할당량이 허용하는 것보다 많은 끝점 적중 
 
 * [일괄 테스트](luis-how-to-batch-test.md) 방법 알아보기
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
-[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[dispatch-tool]: https://aka.ms/dispatch-tool

@@ -1,24 +1,31 @@
 ---
-title: 'Azure Cosmos DB: Golang 및 Azure Portal에서 MongoDB API 콘솔 앱 빌드 | Microsoft Docs'
+title: Azure Cosmos DB는 Golang 및 Azure Portal을 사용하여 MongoDB API 콘솔 앱 빌드
 description: Azure Cosmos DB에 연결 및 쿼리하는 데 사용할 수 있는 Golang 코드 샘플을 제시합니다.
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
+author: slyons
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/21/2017
-ms.author: sngun
+ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: d1a45389e95dbd7f5f762b6dee0edc3897d0c3b8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a05ca8602ad3b5ea3135ad2ce915bdc38359bfd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38612819"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089562"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Golang 및 Azure Portal에서 MongoDB API 콘솔 앱 빌드
+# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB는 Golang 및 Azure Portal을 사용하여 MongoDB API 콘솔 앱 빌드
+
+> [!div class="op_single_selector"]
+> * [.NET](create-mongodb-dotnet.md)
+> * [Java](create-mongodb-java.md)
+> * [Node.JS](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
+> * [Xamarin](create-mongodb-xamarin.md)
+> * [Golang](create-mongodb-golang.md)
+>  
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
@@ -33,7 +40,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - [Go](https://golang.org/dl/) 및 [Go](https://golang.org/) 언어에 대한 기본 지식입니다.
-- Jetbrains의 [Gogland](https://www.jetbrains.com/go/), Microsoft의 [Visual Studio Code](https://code.visualstudio.com/) 또는 [Atom](https://atom.io/)과 같은 IDE입니다. 이 자습서에서는 Goglang을 사용합니다.
+- Jetbrains의 [GoLand](https://www.jetbrains.com/go/), Microsoft의 [Visual Studio Code](https://code.visualstudio.com/) 또는 [Atom](https://atom.io/)과 같은 IDE입니다. 이 자습서에서는 GoLand를 사용합니다.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
@@ -56,7 +63,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     go get gopkg.in/mgo.v2
     ```
 
-[mgo](http://labix.org/mgo) 드라이버(*망고*라고 읽음)는 표준 Go 코드를 따르는 매우 단순한 API하에서 풍부하고 충분한 테스트를 거쳐 엄선된 기능을 구현하는 [Go 언어](http://golang.org/)용 [MongoDB](http://www.mongodb.org/) 드라이버입니다.
+[mgo](https://labix.org/mgo) 드라이버는 표준 Go 코드를 따르는 매우 단순한 API하에서 풍부하고 충분한 테스트를 거쳐 엄선된 기능을 구현하는 [Go 언어](https://golang.org/)용 [MongoDB](https://www.mongodb.com/) 드라이버입니다.
 
 <a id="connection-string"></a>
 
@@ -82,13 +89,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [앱 실행](#run-the-app)으로 넘어갈 수 있습니다. 
+이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [앱 실행](#run-the-app)으로 넘어갈 수 있습니다. 
 
 다음 코드 조각은 모두 main.go 파일에서 가져옵니다.
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Go 앱을 Azure Cosmos DB에 연결
 
-Azure Cosmos DB는 SSL 사용이 가능한 MongoDB를 지원합니다. SSL 사용이 가능한 MongoDB에 연결하려면 [mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo)에서 **DialServer** 함수를 정의하고 [tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) 함수를 사용하여 연결을 수행해야 합니다.
+Azure Cosmos DB는 SSL 사용이 가능한 MongoDB를 지원합니다. SSL 사용이 가능한 MongoDB에 연결하려면 [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo)에서 **DialServer** 함수를 정의하고 [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) 함수를 사용하여 연결을 수행해야 합니다.
 
 다음 Golang 코드 조각은 Azure Cosmos DB MongoDB API와 Go 앱을 연결합니다. *DialInfo* 클래스는 MongoDB 클러스터와의 세션을 설정하는 옵션을 포함합니다.
 
@@ -129,7 +136,7 @@ session.SetSafe(&mgo.Safe{})
 **DialWIthInfo{}** 개체 인스턴스는 세션 개체를 만드는 데 사용됩니다. 세션이 설정되면 다음 코드 조각을 사용하여 컬렉션에 액세스할 수 있습니다.
 
 ```go
-collection := session.DB(“database”).C(“package”)
+collection := session.DB("database").C("package")
 ```
 
 <a id="create-document"></a>

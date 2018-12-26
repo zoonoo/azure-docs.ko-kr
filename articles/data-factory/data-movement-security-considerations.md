@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: c0a07cb872ec87bbf39237b74990a1fc7a74e9e8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053258"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783375"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,14 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 
 > [!NOTE]
 > Azure SQL Database와 Azure SQL Data Warehouse에 대한 모든 연결은 항상 데이터를 데이터베이스로/에서 전송하는 중에 암호화(SSL/TLS)가 필요합니다. JSON을 사용하여 파이프라인을 작성하는 동안 암호화 속성을 추가하고 연결 문자열에서 **true**로 설정합니다. Azure Storage의 경우 연결 문자열에 **HTTPS**를 사용할 수 있습니다.
+
+> [!NOTE]
+> Oracle에서 데이터를 이동하면서 전송 중에 암호화를 사용하려면 아래 옵션 중 하나를 따르세요.
+> 1. Oracle 서버에서 OAS(Oracle Advanced Security)로 이동하여 3DES(Triple-DES Encryption) 및 AES(Advanced Encryption Standard)를 지원하는 암호화 설정을 구성합니다. 자세한 내용은 [여기](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759)를 참조하세요. ADF는 Oracle에 대한 연결을 설정할 때 OAS에서 구성한 암호화 방법을 사용하도록 해당 암호화 방법을 자동으로 협상합니다.
+> 2. ADF에서는 연결 문자열에 EncryptionMethod=1을 추가할 수 있습니다(연결된 서비스). 이렇게 하면 SSL/TLS가 암호화 방법으로 사용됩니다. 이를 사용하려면 암호화 충돌을 방지하기 위해 Oracle 서버 쪽의 OAS에서 비SSL 암호화 설정을 사용하지 않도록 설정해야 합니다.
+
+> [!NOTE]
+> 사용된 TLS 버전은 1.2입니다.
 
 ### <a name="data-encryption-at-rest"></a>휴지 상태의 암호화
 일부 데이터 저장소가 미사용 데이터 암호화를 지원합니다. 이러한 데이터 저장소에 데이터 암호화 메커니즘을 사용하는 것이 좋습니다. 
@@ -122,7 +130,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 자체 호스팅 통합 런타임은 가상 네트워크의 온-프레미스 또는 Azure 가상 머신에 설치할 수 있습니다. |
 | 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(개인 피어링)           | 자체 호스팅 통합 런타임은 가상 네트워크의 온-프레미스 또는 Azure 가상 머신에 설치할 수 있습니다. |
-| 온-프레미스 | 공개 끝점이 있는 Azure 기반 서비스 | ExpressRoute(공용 피어링)            | 자체 호스팅 통합 런타임을 온-프레미스에 설치해야 합니다. |
+| 온-프레미스 | 공개 엔드포인트가 있는 Azure 기반 서비스 | ExpressRoute(공용 피어링)            | 자체 호스팅 통합 런타임을 온-프레미스에 설치해야 합니다. |
 
 다음 이미지는 ExpressRoute 및 IPSec VPN(Azure Virtual Network 사용)을 사용하여 온-프레미스 데이터베이스와 Azure 서비스 간에 데이터를 이동시키기 위한 자체 호스팅 통합 런타임의 사용법을 보여 줍니다.
 
@@ -144,8 +152,9 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 | 도메인 이름                  | 아웃바운드 포트 | 설명                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | Data Factory의 데이터 이동 서비스에 연결하기 위해 자체 호스팅 통합 런타임에서 필요합니다. |
-| `*.core.windows.net`          | 443            | [단계 복사](copy-activity-performance.md#staged-copy) 기능을 사용할 때 자체 호스팅 통합 런타임에서 Azure Storage 계정에 연결하는 데 사용됩니다. |
 | `*.frontend.clouddatahub.net` | 443            | 자체 호스팅 통합 런타임에서 Data Factory 서비스에 연결하는 데 필요합니다. |
+| `download.microsoft.com`    | 443            | 업데이트를 다운로드하기 위해 자체 호스팅 통합 런타임에서 필요합니다. 자동 업데이트를 사용하지 않도록 설정한 경우 이 사항은 건너뛰어도 됩니다. |
+| `*.core.windows.net`          | 443            | [단계 복사](copy-activity-performance.md#staged-copy) 기능을 사용할 때 자체 호스팅 통합 런타임에서 Azure Storage 계정에 연결하는 데 사용됩니다. |
 | `*.database.windows.net`      | 1433           | (선택 사항) 복사할 목적지가 Azure SQL Database 또는 Azure SQL Data Warehouse인 경우 필요합니다. 단계적 복사 기능을 사용하여 포트 1433을 열지 않고 Azure SQL Database 또는 Azure SQL Data Warehouse에 데이터를 복사합니다. |
 | `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (선택 사항) 복사할 목적지 또는 출처가 Azure Data Lake Store인 경우 필요합니다. |
 
@@ -179,7 +188,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 **자체 호스팅 통합 런타임 작동에 필요한 포트 요구 사항은 무엇입니까?**
 
-자체 호스팅 통합 런타임은 HTTP 기반 연결을 만들어서 인터넷에 액세스하게 합니다. 자체 호스팅 통합 런타임에서 이 연결을 만들려면 아웃바운드 포트 443 및 80이 열려야 합니다. 자격 증명 관리자 응용 프로그램의 경우 컴퓨터 수준(회사 방화벽 수준이 아님)에서만 인바운드 포트 8050을 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본 또는 대상으로 사용되는 경우 포트 1433도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 목록 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of-gateway) 섹션을 참조하세요. 
+자체 호스팅 통합 런타임은 HTTP 기반 연결을 만들어서 인터넷에 액세스하게 합니다. 자체 호스팅 통합 런타임에서 이 연결을 만들려면 아웃바운드 포트 443이 열려야 합니다. 자격 증명 관리자 응용 프로그램의 경우 컴퓨터 수준(회사 방화벽 수준이 아님)에서만 인바운드 포트 8050을 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본 또는 대상으로 사용되는 경우 포트 1433도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 목록 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of-gateway) 섹션을 참조하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

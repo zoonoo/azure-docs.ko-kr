@@ -2,27 +2,24 @@
 title: Azure VM에서 SQL Server로 데이터를 빠르게 병렬로 가져오기 위한 테이블 빌드 및 최적화 | Microsoft Docs
 description: SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: deguhath
-ms.openlocfilehash: 2de926746a5e6b94a458dbc1a126ab5bc86b12fe
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: f437de3043cbd3d689f85dc3524b419b1633553f
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838537"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446469"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기
+
 이 문서에서는 분할된 테이블을 만들어서 SQL Server 데이터베이스로 대량의 데이터를 병렬로 더 빨리 가져오는 방법을 설명합니다. SQL Database로 빅 데이터를 로드/전송할 때 *분할된 테이블 및 뷰*를 사용하여 SQL DB로 데이터를 가져오는 작업과 후속 쿼리의 성능을 개선할 수 있습니다. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>새 데이터베이스 및 파일 그룹 만들기
@@ -81,7 +78,7 @@ ms.locfileid: "34838537"
   함수/스키마에 따라 각 파티션에 적용되는 범위를 확인하려면 다음 쿼리를 실행합니다.
   
         SELECT psch.name as PartitionScheme,
-            prng.value AS ParitionValue,
+            prng.value AS PartitionValue,
             prng.boundary_id AS BoundaryID
         FROM sys.partition_functions AS pfun
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
@@ -102,7 +99,7 @@ ms.locfileid: "34838537"
 * 로깅 오버헤드를 최소화하기 위해 [데이터베이스를 변경](https://msdn.microsoft.com/library/bb522682.aspx)하여 트랜잭션 로깅 스키마를 BULK_LOGGED로 변경합니다. 아래는 그 예입니다.
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* 신속한 데이터 로드를 위해 대량 가져오기 작업을 병렬로 실행합니다. 빅 데이터를 SQL Server 데이터베이스로 신속하게 대량으로 가져오는 방법에 대한 팁은 [1시간 이내에 1TB 로드하기](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)를 참조하세요.
+* 신속한 데이터 로드를 위해 대량 가져오기 작업을 병렬로 실행합니다. 빅 데이터를 SQL Server 데이터베이스로 신속하게 대량으로 가져오는 방법에 대한 팁은 [1시간 이내에 1TB 로드하기](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)를 참조하세요.
 
 다음 PowerShell 스크립트는 BCP를 사용하여 병렬로 데이터를 로드하는 예입니다.
 
@@ -185,5 +182,5 @@ ms.locfileid: "34838537"
   > 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>고급 분석 프로세스 및 기술 작동 예제
-공용 데이터 집합을 포함하는 팀 데이터 과학 프로세스를 사용하는 종단 간 연습 예제는 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
+공용 데이터 세트를 포함하는 팀 데이터 과학 프로세스를 사용하는 종단 간 연습 예제는 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
 

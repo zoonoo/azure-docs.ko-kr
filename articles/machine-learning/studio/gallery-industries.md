@@ -1,10 +1,9 @@
 ---
-title: Azure AI 갤러리 산업별 솔루션 | Microsoft Docs
-description: Azure AI 갤러리에서 산업별 솔루션을 검색합니다.
+title: Azure AI Gallery 산업 솔루션 - Azure Machine Learning Studio | Microsoft Docs
+description: Azure AI Gallery의 산업 섹션은 소매, 제조, 금융, 의료 등과 같은 산업에 관련된 다양한 리소스를 제공합니다.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: ericlicoding
 editor: cgronlun
 ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
 ms.service: machine-learning
@@ -14,19 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: c1ca9c45a7bd070ba0dbcee3b428f986ebac47d3
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.custom: previous-ms.author=garye, previous-author=garyericson
+ms.author: amlstudiodocs
+ms.openlocfilehash: 4f9495027c7027f659f877930b6aabc72b361ae8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062100"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269331"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 산업별 솔루션 검색
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="industry-specific-cortana-intelligence-solutions"></a>산업별 Cortana Intelligence 솔루션
-갤러리의 **[산업](https://gallery.azure.ai/industries)** 섹션에는 다음과 같은 산업별로 다양한 리소스가 모여있습니다.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com)의 **[산업](https://gallery.azure.ai/industries)** 섹션에는 다음과 같은 산업별로 다양한 리소스가 모여있습니다.
 
 * [소매](https://gallery.azure.ai/industries/retail) - 판매 예측, 고객 이탈 예측, 가격 책정 모델 개발 등의 소매업 솔루션이 있습니다.
 * [제조](https://gallery.azure.ai/industries/manufacturing) - 장비 유지 보수 및 에너지 가격 예측과 같은 제조업 솔루션이 있습니다.
@@ -50,5 +48,5 @@ ms.locfileid: "37062100"
 
 **[갤러리로 이동 >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

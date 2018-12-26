@@ -8,16 +8,16 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 03/15/2018
-ms.openlocfilehash: af90fb4c89cf552d4c5637db08ef0acd9984b31b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 11/05/2018
+ms.openlocfilehash: a66311cb35815b5db7724a277677ad41d7afec77
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264700"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035736"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 모니터링
-서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for MySQL은 MySQL 서버를 지원하는 리소스의 동작에 대한 통찰력을 제공하는 다양한 메트릭을 제공합니다. 
+서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for MySQL은 서버의 동작에 대한 통찰력을 제공하는 다양한 메트릭을 제공합니다.
 
 ## <a name="metrics"></a>메트릭
 모든 Azure 메트릭의 빈도는 1분이고 각 메트릭은 30일의 기록을 제공합니다. 메트릭에 대한 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
@@ -31,12 +31,22 @@ Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다
 |memory_percent|메모리 백분율|백분율|사용 중인 메모리의 비율|
 |io_consumption_percent|IO 백분율|백분율|사용 중인 IO의 비율|
 |storage_percent|저장소 비율|백분율|서버의 최대값을 초과하여 사용된 저장소의 비율|
-|storage_used|저장소 사용됨|바이트|사용 중인 저장소의 양 서비스에서 사용되는 저장소에는 데이터베이스 파일, 트랜잭션 로그 및 서버 로그가 포함됩니다.|
+|storage_used|저장소 사용됨|바이트|사용 중인 저장소의 양 서비스에서 사용되는 저장소에는 데이터베이스 파일, 트랜잭션 로그 및 서버 로그가 포함될 수 있습니다.|
+|serverlog_storage_percent|서버 로그 저장소 비율|백분율|서버의 최대 서버 로그 저장소에서 사용된 서버 로그 저장소의 백분율입니다.|
+|serverlog_storage_percent|사용된 서버 로그 저장소|바이트|서버 로그 저장소에서 사용된 크기입니다.|
+|serverlog_storage_limit|서버 로그 저장소 제한|바이트|이 서버에 대한 서버 로그 저장소의 최대 크기입니다.|
 |storage_limit|저장소 제한|바이트|이 서버의 최대 저장소|
-|active_connections|전체 활성 연결|개수|서버에 대한 활성 연결 수|
-|connections_failed|실패한 전체 연결|개수|서버에 대해 실패한 연결 수|
+|active_connections|활성 연결 수|개수|서버에 대한 활성 연결 수|
+|connections_failed|실패한 연결|개수|서버에 대해 실패한 연결 수|
+|seconds_behind_master|복제 지연 시간(초)|개수|마스터 서버에 대해 복제본 서버가 지연되는 시간(초)입니다.|
+|network_bytes_egress|네트워크 아웃|바이트|활성 연결을 통한 네트워크 출력의 크기입니다.|
+|network_bytes_ingress|네트워크 인|바이트|활성 연결을 통한 네트워크 입력의 크기입니다.|
+|backup_storage_used|사용된 백업 스토리지|바이트|사용된 백업 스토리지 양.|
 
+## <a name="server-logs"></a>서버 로그
+서버에 느린 쿼리 로그를 사용할 수 있습니다. 또한 이러한 로그는 OMS Log Analytics, Event Hubs 및 저장소 계정에서 Azure 진단 로그를 통해 사용할 수 있습니다. 로깅에 대한 자세한 내용은  [서버 로그](concepts-server-logs.md) 페이지를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - 메트릭에 대한 경고 생성에 대한 지침은 [경고를 설정하는 방법](howto-alert-on-metric.md)을 참조하세요.
 - Azure Portal, REST API 또는 CLI를 사용하여 메트릭에 액세스하고 내보내는 방법에 대한 자세한 내용은 [Azure 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
+- [서버 모니터링에 대한 모범 사례](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/)는 블로그를 참조하세요.

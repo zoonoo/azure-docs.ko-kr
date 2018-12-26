@@ -2,24 +2,25 @@
 title: 웹 응용 프로그램에서 Azure Key Vault 사용 자습서 | Microsoft Docs
 description: 이 자습서에서는 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 알아볼 수 있습니다.
 services: key-vault
-author: adhurwit
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2018
-ms.author: adhurwit
-ms.openlocfilehash: 5cd764395e91a82973318da7284b28d7a43d35ea
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 10/09/2018
+ms.author: barclayn
+ms.openlocfilehash: b66c9912ba0b6508c2beb786d2327efa779c6645
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115081"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079466"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>자습서: 웹 응용 프로그램에서 Azure Key Vault 사용
-이 자습서에서는 Azure의 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 알아볼 수 있습니다. 웹 응용 프로그램에서 사용할 Azure Key Vault의 암호에 액세스하는 과정을 보여줍니다. 그런 다음, 자습서는 프로세스를 빌드하고 클라이언트 암호 대신 인증서를 사용합니다. 이 자습서는 Azure에서 웹 응용 프로그램을 만들기 위한 기본 사항을 잘 알고 있는 웹 개발자를 대상으로 합니다. 
+
+이 자습서에서는 Azure의 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 알아볼 수 있습니다. 웹 응용 프로그램에서 사용할 Azure Key Vault의 암호에 액세스하는 과정을 보여줍니다. 그런 다음, 자습서는 프로세스를 빌드하고 클라이언트 암호 대신 인증서를 사용합니다. 이 자습서는 Azure에서 웹 응용 프로그램을 만들기 위한 기본 사항을 잘 알고 있는 웹 개발자를 대상으로 합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다. 
 
@@ -27,22 +28,21 @@ ms.locfileid: "37115081"
 > * web.config 파일에 응용 프로그램 설정 추가
 > * 액세스 토큰을 가져오는 메서드 추가
 > * 응용 프로그램 시작 시 토큰 검색
-> * 인증서 사용 인증 
+> * 인증서 사용 인증
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 * Azure Key Vault의 암호에 대한 URI
-* Key Vault에 액세스할 수 있는 Azure Active Directory에 등록된 웹 응용 프로그램의 클라이언트 ID 및 클라이언트 암호
-* 웹 응용 프로그램 이 자습서에서는 Azure에 웹앱으로 배포된 ASP.NET MVC 응용 프로그램에 대한 단계를 보여줍니다.
+* 주요 자격 증명 모음에 액세스할 수 있는, Azure Active Directory에 등록된 웹 응용 프로그램의 클라이언트 ID 및 클라이언트 암호
+* 웹 응용 프로그램. 이 자습서에서는 Azure에 웹앱으로 배포된 ASP.NET MVC 응용 프로그램에 대한 단계를 보여줍니다.
 
-[Azure Key Vault 시작](key-vault-get-started.md) 단계를 완료하여 암호, 클라이언트 ID, 클라이언트 암호에 대한 URI를 가져오고 응용 프로그램을 등록합니다. 웹 응용 프로그램은 자격 증명 모음에 액세스하고 Azure Active Directory에 등록되어야 합니다. 또한 Key Vault에 대한 액세스 권한이 있어야 합니다. 그렇지 않으면 시작 자습서의 응용 프로그램 등록으로 돌아가서 나열된 단계를 반복합니다. Azure Web Apps을 만드는 방법에 대한 자세한 내용은 [Web Apps 개요](../app-service/app-service-web-overview.md)를 참조하세요.
+[Azure Key Vault 시작](key-vault-get-started.md) 단계를 완료하여 암호, 클라이언트 ID, 클라이언트 암호에 대한 URI를 가져오고 응용 프로그램을 등록합니다. 웹 응용 프로그램은 자격 증명 모음에 액세스하며 Azure Active Directory에 반드시 등록되어야 합니다. 또한 Key Vault에 대한 액세스 권한이 있어야 합니다. 그렇지 않으면 시작 자습서의 응용 프로그램 등록으로 돌아가서 나열된 단계를 반복합니다. Azure Web Apps을 만드는 방법에 대한 자세한 내용은 [Web Apps 개요](../app-service/app-service-web-overview.md)를 참조하세요.
 
-이 샘플은 수동으로 Azure Active Directory ID를 프로비전하는 방법을 사용합니다. 현재는 Azure AD ID를 자동으로 프로비전할 수 있는 [MSI(관리 서비스 ID)](https://docs.microsoft.com/azure/active-directory/msi-overview)라는 새로운 기능이 미리 보기에 포함되어 있습니다. 자세한 내용은 [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/)에 대한 샘플 및 관련된 [App Service 및 Functions를 사용하는 MSI 자습서](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)를 참조하세요. 
-
+이 샘플은 Azure Active Directory ID를 수동으로 프로비전하는 방법에 따라 다릅니다. 하지만 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 대신 사용해야 합니다. 이 샘플은 Azure AD ID를 자동으로 프로비전합니다. 자세한 내용은 [GitHub의 샘플](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) 및 관련 [App Service 및 Functions 자습서](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)를 참조하세요. Key Vault에 해당하는 [Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성 자습서](tutorial-web-application-keyvault.md)를 참조할 수도 있습니다.
 
 ## <a id="packages"></a>NuGet 패키지 추가
 
@@ -144,14 +144,19 @@ Azure 웹앱에서 이제 Azure Portal에서 AppSettings의 실제 값을 추가
 
 ```powershell
 #Create self-signed certificate and export pfx and cer files 
-$PfxFilePath = "c:\data\KVWebApp.pfx" 
-$CerFilePath = "c:\data\KVWebApp.cer" 
-$DNSName = "MyComputer.Contoso.com" 
-$Password ="MyPassword" 
+$PfxFilePath = 'KVWebApp.pfx'
+$CerFilePath = 'KVWebApp.cer'
+$DNSName = 'MyComputer.Contoso.com'
+$Password = 'MyPassword"'
+
+$StoreLocation = 'CurrentUser' #be aware that LocalMachine requires elevated privileges
+$CertBeginDate = Get-Date
+$CertExpiryDate = $CertBeginDate.AddYears(1)
+
 $SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
-$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
-Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
-Export-Certificate -cert $cert -FilePath $CerFilePath 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\$StoreLocation\My" -NotBefore $CertBeginDate -NotAfter $CertExpiryDate -KeySpec Signature
+Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw 
+Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
 .pfx에 대한 종료 날짜와 암호를 메모해 둡니다(이 예제에서는 2019년 5월 15일 및 MyPassword). 아래 스크립트에서 필요합니다. 
@@ -171,7 +176,7 @@ $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwe
 $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge -ResourceGroupName 'contosorg'
 
 # get the thumbprint to use in your app settings
 $x509.Thumbprint

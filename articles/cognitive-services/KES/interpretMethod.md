@@ -1,38 +1,42 @@
 ---
-title: Knowledge Exploration Service API의 Interpret 메서드 | Microsoft Docs
-description: Cognitive Services의 KES(Knowledge Exploration Service) API에서 Interpret 메서드를 사용하는 방법에 대해 알아봅니다.
+title: 'Interpret 메서드: Knowledge Exploration Service API'
+titlesuffix: Azure Cognitive Services
+description: KES(Knowledge Exploration Service) API에서 Interpret 메서드를 사용하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: ef68d98dacf393abf8d030b9312217ea380947d2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 45badbdbe1a7e1f2028a00d54458db35a4f7d440
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373182"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128010"
 ---
 # <a name="interpret-method"></a>interpret 메서드
+
 *interpret* 메서드는 자연어 쿼리 문자열을 사용하고 문법 및 인덱스 데이터를 기반으로 사용자 의도에 대한 형식이 지정된 해석을 반환합니다.  대화형 검색 경험을 제공하기 위해 이 메서드는 추천 자동 완성을 사용할 수 있도록 *complete* 매개 변수를 1로 설정하면 사용자가 입력하는 각 문자로 호출될 수 있습니다.
 
 ## <a name="request"></a>요청
+
 `http://<host>/interpret?query=<query>[&<options>]`
 
-Name|값| 설명
+이름|값| 설명
 ----|----|----
 쿼리    | 텍스트 문자열 | 사용자가 입력한 쿼리입니다.  complete를 1로 설정하면 쿼리는 쿼리 추천 자동 완성을 생성하기 위한 접두사로 해석됩니다.        
 complete | 0(기본값) 또는 1 | 1은 문법 및 인덱스 데이터를 기반으로 추천 자동 완성이 생성된다는 의미입니다.         
-count    | 숫자(기본값 = 10) | 반환할 최대 해석 수.         
-offset   | 숫자(기본값 = 0) | 반환할 첫 번째 해석의 인덱스입니다.  예를 들어 *count=2&offset=0*은 해석 0 및 1을 반환합니다. *count=2&offset=2*는 해석 2 및 3을 반환합니다.       
-시간 제한  | 숫자(기본값 = 1000) | 시간 제한(밀리초)입니다. 시간 제한이 경과되기 전에 찾은 해석만 반환됩니다.
+count    | 숫자(기본값=10) | 반환할 최대 해석 수.         
+offset   | 숫자(기본값=0) | 반환할 첫 번째 해석의 인덱스입니다.  예를 들어 *count=2&offset=0*은 해석 0 및 1을 반환합니다. *count=2&offset=2*는 해석 2 및 3을 반환합니다.       
+시간 제한  | 숫자(기본값=1000) | 시간 제한(밀리초)입니다. 시간 제한이 경과되기 전에 찾은 해석만 반환됩니다.
 
 *count* 및 *offset* 매개 변수를 사용하여 여러 요청에 대한 더 많은 수의 결과를 증분 방식으로 얻을 수 있습니다.
 
 ## <a name="response-json"></a>응답(JSON)
+
 JSONPath     | 설명
 ---------|---------
 $.query |요청의 *query* 매개 변수입니다.
@@ -47,6 +51,7 @@ $.interpretations[\*].rules[\*].output.value|의미 체계 출력의 값입니�
 $.aborted | 요청 시간이 초과되면 true입니다.
 
 ### <a name="parse-xml"></a>구문 분석 XML
+
 구문 분석 XML은 문법의 규칙 및 인덱스의 특성에 대해 일치하는 방법에 관한 정보가 포함된 (완료된) 쿼리를 주석 처리합니다.  다음은 학술 저서 도메인의 한 예입니다.
 
 ```xml
@@ -65,6 +70,7 @@ $.aborted | 요청 시간이 초과되면 true입니다.
 `<attr>` 요소는 `name` 특성에 의해 지정된 인덱스 특성과 일치하는 쿼리에서 범위를 구분합니다.  일치에 입력 쿼리의 동의어가 포함되는 경우 `canonical` 특성은 인덱스의 동의어와 일치하는 Canonical을 포함합니다.
 
 ## <a name="example"></a>예
+
 학술 저서 예제에서 다음 요청은 “papers by jaime” 접두사 쿼리에 대해 최대 2개의 추천 자동 완성을 반환합니다.
 
 `http://<host>/interpret?query=papers by jaime&complete=1&count=2`

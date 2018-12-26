@@ -1,19 +1,35 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: billing
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 10/19/2018
+ms.author: jroth
+ms.custom: include file
+ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458872"
+---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md) |지역당 10,000 <sup>1</sup> |지역당 10,000 |
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 VM 총 코어 수 |지역당 20<sup>1</sup> | 지원에 문의 |
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 시리즈(Dv2, F 등) 코어당 VM |지역당 20<sup>1</sup> | 지원에 문의 |
 | [공동 관리자](../articles/billing-add-change-azure-subscription-administrator.md)  |Unlimited |Unlimited |
-| [Storage 계정](../articles/storage/common/storage-create-storage-account.md)  |200 |200<sup>2</sup> |
+| 구독당 하위 지역별 [저장소 계정](../articles/storage/common/storage-quickstart-create-account.md) |200 |200<sup>2</sup> |
 | 구독당 [리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md) |980 |980 |
 | [가용성 집합](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)  |지역당 2,000개 |지역당 2,000개 |
-| 리소스 관리자 API 읽기 |시간당 15,000개 |시간당 15,000개 |
-| 리소스 관리자 API 쓰기 |시간당 1,200개 |시간당 1,200개 |
 | 리소스 관리자 API 요청 크기 |4,194,304바이트 |4,194,304바이트 |
 | 구독당 태그 수<sup>3</sup> |무제한 |무제한 |
 | 구독당 고유한 태그 계산<sup>3</sup> | 10000 | 10000 |
 | [클라우드 서비스](../articles/cloud-services/cloud-services-choose-me.md)  |해당 사항 없음<sup>4</sup> |해당 사항 없음<sup>4</sup> |
 | [선호도 그룹](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md)  |해당 사항 없음<sup>4</sup> |해당 사항 없음<sup>4</sup> |
+| 위치당 [구독 수준 배포](../articles/azure-resource-manager/deploy-to-subscription.md) | 800 | 800 |
 
 <sup>1</sup>기본 제한은 평가판, 종량제 및 Dv2, F, G 등의 시리즈와 같은 제품 범주 유형에 따라 다릅니다.
 

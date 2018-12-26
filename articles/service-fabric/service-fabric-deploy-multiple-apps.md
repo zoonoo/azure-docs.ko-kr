@@ -1,5 +1,5 @@
 ---
-title: MongoDB를 사용하는 Node.js 응용 프로그램을 Azure Service Fabric에 배포 | Microsoft Docs
+title: MongoDB를 사용하는 Node.js 애플리케이션을 Azure Service Fabric에 배포 | Microsoft Docs
 description: 여러 게스트 실행 파일을 패키지하여 Azure 서비스 패브릭 클러스터에 배포하는 방법에 대한 연습
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 9a7ab3881cd1058a60ff7d5f6e50c296f042e76e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea2f27069ca445a4d74ddc634f5c396ab13564a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206082"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248999"
 ---
 # <a name="deploy-multiple-guest-executables"></a>여러 개의 게스트 실행 파일 배포
 이 문서에서는 여러 게스트 실행 파일을 패키징하고 Azure Service Fabric에 배포하는 방법을 보여 줍니다. 단일 Service Fabric 패키지를 빌드 및 배포하는 방법은 [Service Fabric에 게스트 실행 파일 배포](service-fabric-deploy-existing-app.md) 방법을 참조하세요.
@@ -33,7 +33,7 @@ Visual Studio를 사용하여 여러 게스트 실행 파일이 포함된 응용
 * [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>수동으로 여러 게스트 실행 응용 프로그램 패키징
-또는 실행 게스트를 수동으로 패키징할 수 있습니다. 수동 패키징의 경우 이 문서에서는 [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool)에서 제공되는 Service Fabric 패키징 도구를 사용합니다.
+또는 실행 게스트를 수동으로 패키징할 수 있습니다. 수동 패키징의 경우 이 문서에서는 [http://aka.ms/servicefabricpacktool](https://aka.ms/servicefabricpacktool)에서 제공되는 Service Fabric 패키징 도구를 사용합니다.
 
 ### <a name="packaging-the-nodejs-application"></a>Node.js 응용 프로그램 패키징
 이 문서에서는 서비스 패브릭 클러스터의 노드에 Node.js가 아직 설치되지 않은 것으로 가정합니다. 결과적으로 패키징 전에 노드 응용 프로그램의 루트 디렉터리에 node.exe를 추가해야 합니다. Node.js 응용 프로그램의 디렉터리 구조(Express 웹 프레임워크 및 Jade 템플릿 엔진 사용)는 다음과 비슷합니다.
@@ -109,7 +109,7 @@ Visual Studio를 사용하여 여러 게스트 실행 파일이 포함된 응용
     </EntryPoint>
 </CodePackage>
 ```
-이 샘플에서 Node.js 웹 서버는 포트 3000에서 수신하므로 ServiceManifest.xml 파일의 끝점 정보를 아래와 같이 업데이트해야 합니다.   
+이 샘플에서 Node.js 웹 서버는 포트 3000에서 수신하므로 ServiceManifest.xml 파일의 엔드포인트 정보를 아래와 같이 업데이트해야 합니다.   
 
 ```xml
 <Resources>

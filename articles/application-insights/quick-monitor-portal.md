@@ -5,23 +5,23 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/14/2017
+ms.date: 10/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 110d1a0fe52f50f057f7ea7ccbc426706473306d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3163632f57c5dbb3d3c822b7123a75d10b15ad54
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23660551"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166205"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 응용 프로그램 모니터링 시작
 
 Azure Application Insights를 사용하면 웹 응용 프로그램의 가용성, 성능 및 사용량을 손쉽게 모니터링할 수 있습니다.  또한 사용자 보고를 기다리지 않고 응용 프로그램에서 오류를 신속하게 식별하고 진단할 수 있습니다.  앱의 성능 및 효율성에 대한 Application Insights에서 수집하는 정보를 사용하면 응용 프로그램을 유지 관리하고 개선하는 데 더 많은 정보를 갖고 선택할 수 있습니다.
 
-이 빠른 시작에서는 응용 프로그램을 분석하는 데 사용할 수 있는 다양한 방법 중 하나인 기존 ASP.NET 웹 응용 프로그램에 Application Insights를 추가하고 실시간 통계 분석을 시작하는 방법을 보여 줍니다. ASP.NET 웹 응용 프로그램이 없는 경우 [ASP.NET 웹앱 빠른 시작 만들기](../app-service/app-service-web-get-started-dotnet.md)에 따라 하나 만들 수 있습니다.
+이 빠른 시작에서는 응용 프로그램을 분석하는 데 사용할 수 있는 다양한 방법 중 하나인 기존 ASP.NET 웹 응용 프로그램에 Application Insights를 추가하고 실시간 통계 분석을 시작하는 방법을 보여 줍니다. ASP.NET 웹 응용 프로그램이 없는 경우 [ASP.NET 웹앱 빠른 시작 만들기](../app-service/app-service-web-get-started-dotnet-framework.md)에 따라 하나 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 완료하려면 다음이 필요합니다.
@@ -37,17 +37,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. Visual Studio 2017에서 프로젝트를 엽니다.
 2. 프로젝트 메뉴에서 **Application Insights 구성**을 선택합니다. Visual Studio는 응용 프로그램에 Application Insights SDK를 추가합니다.
-3. **체험하기**를 클릭하고 기본 청구 계획을 선택하고 **등록**을 클릭합니다.
 
-    ![Visual Studio에 Application Insights 추가](./media/quick-monitor-portal/add-application-insights.png)
+    > [!IMPORTANT]
+    > Application Insights를 추가하는 프로세스는 ASP.NET 템플릿 유형에 따라 다릅니다. **빈** 템플릿이나 **Azure 모바일 앱** 템플릿을 사용하는 경우에는 **프로젝트** > **Application Insights 원격 분석 추가**를 선택합니다. 다른 모든 ASP.NET 템플릿의 경우 위의 단계에서 지침을 참조하세요. 
 
-4. **디버그** 메뉴에서 **디버깅 시작**을 선택하거나 F5 키를 눌러서 응용 프로그램을 실행합니다.
+3. **시작**을 클릭합니다(Visual Studio의 이전 버전에는 **무료 시작** 단추가 있음).
+
+    ![Visual Studio에 Application Insights 추가](./media/quick-monitor-portal/add-application-insights-b.png)
+
+4. 구독을 선택하고 **등록**을 클릭합니다.
+
+5. **디버그** 메뉴에서 **디버깅 시작**을 선택하거나 F5 키를 눌러서 응용 프로그램을 실행합니다.
 
 ## <a name="confirm-app-configuration"></a>앱 구성 확인
 
 Application Insights는 실행 중인 위치에 관계 없이 응용 프로그램에 대한 원격 분석 데이터를 수집합니다. 이 데이터를 보기 시작하려면 다음 단계를 사용합니다.
 
-1. **프로젝트** -> **Application Insights** -> **디버그 세션 원격 분석 검색**을 클릭하여 Application Insights를 엽니다.  현재 세션에서 원격 분석이 표시됩니다.<BR><br>![Visual Studio에서의 원격 분석](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. **보기** -> **기타 Windows** -> **Application Insights 검색**을 클릭하여 Application Insights를 엽니다.  현재 세션에서 원격 분석이 표시됩니다.<BR><br>![Visual Studio에서의 원격 분석](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. 목록(이 예에서 홈/인덱스 가져오기)에서 첫 번째 요청을 클릭하여 요청 정보를 확인합니다. 요청에 관한 다른 중요한 정보와 함께 상태 코드 및 응답 시간이 모두 포함됩니다.<br><br>![Visual Studio에서 응답 세부 정보](media/quick-monitor-portal/request-details.png)
 
@@ -57,11 +63,11 @@ Application Insights는 실행 중인 위치에 관계 없이 응용 프로그�
 
 1. 솔루션 탐색기에서 **연결된 서비스 Application Insights** 폴더를 마우스 오른쪽 단추로 클릭하고 **Application Insights 포털 열기**를 클릭합니다.  응용 프로그램에 대한 몇 가지 정보와 다양한 옵션이 표시됩니다.
 
-    ![응용 프로그램 맵](media/quick-monitor-portal/001.png)
+    ![응용 프로그램 맵](media/quick-monitor-portal/overview-001.png)
 
-2. **앱 맵**을 클릭하여 응용 프로그램 구성 요소 간의 종속 관계에 대한 시각적 레이아웃을 봅니다.  각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
+2. **응용 프로그램 맵**을 클릭하여 응용 프로그램 구성 요소 간의 종속 관계에 대한 시각적 레이아웃을 봅니다.  각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
-    ![응용 프로그램 맵](media/quick-monitor-portal/application-map.png)
+    ![응용 프로그램 맵](media/quick-monitor-portal/application-map-001.png)
 
 3. 응용 프로그램 구성 요소 중 하나에서 **앱 분석** 아이콘 ![Application Map](media/quick-monitor-portal/app-analytics-icon.png)을 클릭합니다.  그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다.  이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다.  사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
@@ -71,7 +77,30 @@ Application Insights는 실행 중인 위치에 관계 없이 응용 프로그�
 
     ![라이브 스트림](media/quick-monitor-portal/live-stream.png)
 
-Azure에서 응용 프로그램을 호스팅할 준비가 되었으면 이제 게시할 수 있습니다. [ASP.NET 웹앱 빠른 시작 만들기](../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy)에 설명된 단계를 따릅니다.
+    Azure에서 응용 프로그램을 호스팅할 준비가 되었으면 이제 게시할 수 있습니다. [ASP.NET 웹앱 빠른 시작 만들기](../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy)에 설명된 단계를 따릅니다.
+
+5. Visual Studio를 사용하여 Application Insights 모니터링을 추가할 경우 클라이언트 쪽 모니터링을 자동으로 추가할 수 있습니다. 응용 프로그램에 수동으로 클라이언트 측 모니터링을 추가하려면 다음 JavaScript를 응용 프로그램에 추가합니다.
+
+```html
+<!-- 
+To collect user behavior analytics about your application, 
+insert the following script into each page you want to track.
+Place this code immediately before the closing </head> tag,
+and before any other scripts. Your first data will appear 
+automatically in just a few seconds.
+-->
+<script type="text/javascript">
+var appInsights=window.appInsights||function(a){
+  function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+  }({
+      instrumentationKey:"<your instrumentation key>"
+  });
+
+window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+</script>
+```
+
+자세한 내용은 GitHub 리포지토리의 [오픈 소스 JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 Azure Application Insights로 모니터링하기 위해 응용 프로그램을 활성화했습니다.  응용 프로그램에서 통계를 모니터링하고 문제를 감지하는 방법을 알아보려면 이 자습서를 계속합니다.

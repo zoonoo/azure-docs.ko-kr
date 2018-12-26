@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store Spark 성능 조정 지침 | Microsoft Docs
-description: Azure Data Lake Store Spark 성능 조정 지침
+title: Azure Data Lake Storage Gen1 Spark 성능 조정 지침 | Microsoft Docs
+description: Azure Data Lake Storage Gen1 Spark 성능 조정 지침
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: a807bea13063d2a0b3c1c71ddb6c98aa2d2568d3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d280ef50d91f2e9b5157de5ec918e496f9887681
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34197072"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127672"
 ---
-# <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-store"></a>HDInsight의 Spark 및 Azure Data Lake Store에 대한 성능 조정 지침
+# <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 Spark 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
 Spark에서 성능을 조정할 때 클러스터에서 실행될 앱 수를 고려해야 합니다.  기본적으로 HDI 클러스터에서 4개의 앱을 동시에 실행할 수 있습니다(참고: 기본 설정은 변경될 수 있음).  사용할 앱 수를 줄여서 기본 설정을 재정의하고 해당 앱에 더 많은 클러스터를 사용하도록 할 수 있습니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
-* **Azure HDInsight 클러스터** 입니다. [Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
-* **Azure Data Lake Store에서 실행 중인 Spark 클러스터**.  자세한 내용은 [HDInsight Spark 클러스터를 사용하여 Data Lake Store의 데이터 분석](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)을 참조하세요.
-* **ADLS에서 성능 조정 지침**.  일반적인 성능 개념은 [Data Lake Store 성능 조정 지침](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)을 참조하세요. 
+* **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
+* Data Lake Storage Gen1 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Data Lake Storage Gen1을 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
+* **Data Lake Storage Gen1에서 Spark 클러스터 실행**합니다.  자세한 내용은 [HDInsight Spark 클러스터를 사용하여 Data Lake Storage Gen1의 데이터 분석](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)을 참조하세요.
+* **Data Lake Storage Gen1 성능 조정 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)을 참조하세요. 
 
 ## <a name="parameters"></a>매개 변수
 
-Spark 작업을 실행할 때 ADLS에서 성능을 향상시키기 위해 조정할 수 있는 가장 중요한 설정이 있습니다.
+Spark 작업을 실행할 때 Data Lake Storage Gen1에서 성능을 향상시키기 위해 조정할 수 있는 가장 중요한 설정이 있습니다.
 
 * **Num-executors** - 실행할 수 있는 동시 태스크 수입니다.
 
@@ -51,7 +51,7 @@ Spark 작업을 실행할 때 ADLS에서 성능을 향상시키기 위해 조정
 
 ## <a name="guidance"></a>지침
 
-Data Lake Store의 데이터로 작업하는 Spark 분석 워크로드를 실행하는 동안 Data Lake Store의 성능을 극대화하려면 최신 HDInsight 버전을 사용하는 것이 좋습니다. 작업이 I/O 집약적인 경우 성능 개선을 위해 특정 매개 변수를 구성할 수 있습니다.  Azure Data Lake Store는 높은 처리량을 처리할 수 있는 확장성 높은 저장소 플랫폼입니다.  작업이 주로 읽기 또는 쓰기를 구성하는 경우 Azure Data Lake Store 간의 I/O에 대한 동시성이 증가하면 성능도 향상될 수 있습니다.
+Data Lake Storage Gen1의 데이터로 작업하는 Spark 분석 워크로드를 실행하는 동안 Data Lake Storage Gen1의 성능을 극대화하려면 최신 HDInsight 버전을 사용하는 것이 좋습니다. 작업이 I/O 집약적인 경우 성능 개선을 위해 특정 매개 변수를 구성할 수 있습니다.  Data Lake Storage Gen1은 높은 처리량을 처리할 수 있는 확장성 높은 저장소 플랫폼입니다.  작업이 주로 읽기 또는 쓰기를 구성하는 경우 Data Lake Storage Gen1 간의 I/O에 대한 동시성이 증가하면 성능도 향상될 수 있습니다.
 
 I/O 집약적인 작업에 대한 동시성을 높이는 몇 가지 일반적인 방법이 있습니다.
 
@@ -65,7 +65,7 @@ I/O 집약적인 작업에 대한 동시성을 높이는 몇 가지 일반적인
 executor-cores 수를 늘리면 더 많은 병렬 처리를 제공하므로 서로 다른 executor-cores로 실험할 수 있습니다.  더욱 복잡한 작업(operation)이 있는 작업(job)의 경우 실행기당 코어 수를 줄여야 합니다.  executor-cores가 4보다 높게 설정된 경우 가비지 수집이 부족하여 성능이 저하될 수 있습니다.
 
 **4단계: 클러스터에서 YARN 메모리 양 결정** – 이 정보는 Ambari에서 제공됩니다.  YARN으로 이동한 후 Configs 탭을 확인합니다.  이 창에 YARN 메모리가 표시됩니다.  
-참고: 이 창에 있는 동안 기본 YARN 컨테이너 크기도 확인할 수 있습니다.  YARN 컨테이너 크기는 실행기 매개 변수당 메모리와 같습니다.
+이 창에 있는 동안 기본 YARN 컨테이너 크기도 확인할 수 있습니다.  YARN 컨테이너 크기는 실행기 매개 변수당 메모리와 같습니다.
 
     Total YARN memory = nodes * YARN memory per node
 **5단계: num-executors 계산**

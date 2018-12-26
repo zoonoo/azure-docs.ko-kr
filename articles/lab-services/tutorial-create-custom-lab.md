@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636990"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467432"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>자습서: Azure DevTest Labs를 사용하여 랩 설정
 이 자습서에서는 Azure Portal을 사용하여 랩을 만듭니다. 랩 관리자는 조직에 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다. 랩 사용자(예: 개발자 및 테스터)는 랩에서 VM을 클레임하고 연결하여 사용합니다. 
@@ -31,7 +31,7 @@ ms.locfileid: "34636990"
 > * 가상 머신을 랩에 추가합니다.
 > * 사용자를 Lab User에 추가
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="create-a-lab"></a>랩 만들기
 다음 단계는 Azure Portal을 사용하여 Azure DevTest Labs에서 랩을 만드는 방법을 설명합니다. 
@@ -55,7 +55,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. **DevTest Lab** 페이지의 도구 모임에서 **+ Add**를 선택합니다. 
 
     ![추가 단추](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. **기본 선택** 페이지에서 **Ubuntu** 키워드로 검색하고 목록에서 기본 이미지 중 하나를 선택합니다. 
+1. **기본 선택** 페이지에서 키워드(예: Windows, Ubuntu)로 검색하고 목록에서 기본 이미지 중 하나를 선택합니다. 
 1. **가상 머신** 페이지에서 다음 작업을 수행합니다. 
     1. **가상 머신 이름**에서 가상 머신의 이름을 입력합니다. 
     2. **사용자 이름**의 경우 가상 머신에 대한 액세스 권한이 있는 사용자의 이름을 입력합니다. 
@@ -71,6 +71,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
         ![VM 만들기 상태](./media/tutorial-create-custom-lab/vm-creation-status.png)
 1. VM이 만들어지면 **클레임할 수 있는 가상 머신** 목록에 표시됩니다. 
+
+    > [!NOTE] 
+    > Linux VM을 랩에 추가할 때 VM에 대한 SSH 및 RDP 액세스를 활성화할 수 있습니다. VM을 만드는 동안 액세스를 활성화하지 않을 경우 VM과 연결된 네트워크 보안 그룹에 규칙을 수동으로 추가하여 SSH 및 RDP에 대한 포트를 열 수 있습니다.
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>사용자를 Lab User에 추가
 

@@ -1,25 +1,25 @@
 ---
-title: 음성 장치 SDK 라이선스 계약 | Microsoft Docs
-description: 음성 장치 SDK 라이선스 계약입니다.
-titleSuffix: Microsoft Cognitive Services
+title: 음성 디바이스 SDK 라이선스 계약
+titleSuffix: Azure Cognitive Services
+description: 음성 디바이스 SDK 라이선스 계약입니다.
 services: cognitive-services
-author: v-jerkin
-manager: noellelacharite
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/28/2018
-ms.author: v-jerkin
-ms.openlocfilehash: a601c0307045ef3db8666c705e5b24fb365f532d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: erhopf
+ms.openlocfilehash: dea27d7363210580d5f040de7ea1db770701d9c9
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376422"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466123"
 ---
-# <a name="speech-devices-sdk-license-agreement"></a>음성 장치 SDK 라이선스 계약
+# <a name="speech-devices-sdk-license-agreement"></a>음성 디바이스 SDK 라이선스 계약
 
-## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>MICROSOFT 소프트웨어 사용 조건<br>음성 장치 SDK(소프트웨어 개발 키트) 
+## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>MICROSOFT 소프트웨어 사용 조건<br>음성 디바이스 SDK(소프트웨어 개발 키트) 
 
 > 거주지(또는 비즈니스 본거지)가 미국인 경우 아래 “의무 중재 및 등급 조치 면책” 섹션을 참조하세요. 분쟁의 해결 방법에 적용됩니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "35376422"
 
 **1\. 설치 및 사용 권한.**
 
-a)  일반. 내부 비즈니스 목적을 위해 평가 및 테스트하기 위한 용도로만 사용자 장치에 소프트웨어 사본을 개수 제한 없이 설치 및 사용할 수 있습니다. Microsoft가 다른 계약에 따라 허용하지 않는 한, 라이브 운영 환경에서 소프트웨어를 사용할 수는 없습니다.
+a)  일반. 내부 비즈니스 목적을 위해 평가 및 테스트하기 위한 용도로만 사용자 디바이스에 소프트웨어 사본을 개수 제한 없이 설치 및 사용할 수 있습니다. Microsoft가 다른 계약에 따라 허용하지 않는 한, 라이브 운영 환경에서 소프트웨어를 사용할 수는 없습니다.
 
 b)  포함된 Microsoft 응용 프로그램. 소프트웨어에 다른 Microsoft 응용 프로그램이 포함될 수 있습니다. 다른 Microsoft 응용 프로그램과 함께 다른 사용 조건이 제공되지 않은 한, 이러한 사용 조건이 포함된 응용 프로그램에 적용됩니다.
 
@@ -65,7 +65,7 @@ f)  Microsoft Azure Cognitive Services, 음성 서비스를 통해서만 소프�
 
 **9\. 지원 서비스.** Microsoft는 본 계약에 따라 소프트웨어에 대하여 어떠한 지원 서비스도 제공할 의무가 없습니다. 제공되는 모든 지원은 “모든 하자와 함께” 어떠한 종류의 보증 없이 “있는 그대로” 제공됩니다.
 
-**10\. 업데이트.** 소프트웨어에서는 주기적으로 업데이트를 확인하고 다운로드하여 설치할 수 있습니다. Microsoft 또는 인증된 소스에서만 업데이트를 다운로드할 수 있습니다. Microsoft는 귀하에게 업데이트를 제공하기 위해 귀하 시스템을 업데이트해야 할 수 있습니다. 추가 알림 없이 이러한 자동 업데이트를 수신하는 것에 동의합니다. 업데이트는 기존 소프트웨어, 서비스 또는 주변 장치의 일부를 포함하지 않거나 지원하지 않을 수 있습니다.
+**10\. 업데이트.** 소프트웨어에서는 주기적으로 업데이트를 확인하고 다운로드하여 설치할 수 있습니다. Microsoft 또는 인증된 소스에서만 업데이트를 다운로드할 수 있습니다. Microsoft는 귀하에게 업데이트를 제공하기 위해 귀하 시스템을 업데이트해야 할 수 있습니다. 추가 알림 없이 이러한 자동 업데이트를 수신하는 것에 동의합니다. 업데이트는 기존 소프트웨어, 서비스 또는 주변 디바이스의 일부를 포함하지 않거나 지원하지 않을 수 있습니다.
 
 **11\. 의무 중재 및 등급 조치 면책.** 이 섹션은 거주지(또는 비즈니스 본거지)가 미국인 경우에 적용됩니다.  귀하와 Microsoft 간 분쟁이 있을 경우 귀하와 Microsoft는 60일 동안 비공식적으로 해결하려고 시도하는 것에 동의합니다. 해결할 수 없는 경우 귀하와 Microsoft는 “FAA”(연방중재법)에 따라 미국상사중재협회의 개별 의무 중재를 신청하고 판사나 배심원이 배석하는 소송을 제기하지 않는 것에 동의합니다. 대신 중립 중재자가 결정합니다. 집단 소송, 집단 중재, 대리인 일반 소송 및 다른 사람이 대리인 역할을 하는 다른 모든 법적 절차는 허용되지 않으며 쌍방의 동의 없이 개별 소송을 결합하는 것도 허용되지 않습니다. 전체 중재 계약은 더 많은 조건을 포함하며 aka.ms/arb-agreement-1에 있습니다. 귀하와 Microsoft는 이러한 조건에 동의합니다.
 
@@ -77,7 +77,7 @@ f)  Microsoft Azure Cognitive Services, 음성 서비스를 통해서만 소프�
 
 a)  오스트레일리아. 귀하는 오스트레일리아 소비자법에 따라 법적 보장을 받으며, 본 계약의 어떤 조항도 해당 권리에 영향을 주지 않습니다.
 
-b)  캐나다. 이 소프트웨어를 캐나다에서 구입한 경우 자동 업데이트 기능을 끄거나, 장치의 인터넷 연결을 해제하거나(그러나 인터넷에 다시 연결하는 경우 소프트웨어에서 업데이트 확인을 다시 시작하고 설치함), 소프트웨어를 제거하여 업데이트 수신을 중지할 수 있습니다. 제품 설명서(있는 경우)에서 특정 장치나 소프트웨어에 대한 업데이트를 해제하는 방법을 설명할 수도 있습니다.
+b)  캐나다. 이 소프트웨어를 캐나다에서 구입한 경우 자동 업데이트 기능을 끄거나, 디바이스의 인터넷 연결을 해제하거나(그러나 인터넷에 다시 연결하는 경우 소프트웨어에서 업데이트 확인을 다시 시작하고 설치함), 소프트웨어를 제거하여 업데이트 수신을 중지할 수 있습니다. 제품 설명서(있는 경우)에서 특정 디바이스나 소프트웨어에 대한 업데이트를 해제하는 방법을 설명할 수도 있습니다.
 
 c)  독일 및 오스트리아.
 

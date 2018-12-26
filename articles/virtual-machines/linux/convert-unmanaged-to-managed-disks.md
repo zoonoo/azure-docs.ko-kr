@@ -1,6 +1,6 @@
 ---
 title: Azure의 Linux 가상 머신을 비관리 디스크에서 Managed Disks로 변환 - Azure Managed Disks | Microsoft Docs
-description: Resource Manager 배포 모델에서 Azure CLI 2.0을 사용하여 Linux VM을 비관리 디스크에서 Managed Disks로 변환하는 방법
+description: Resource Manager 배포 모델에서 Azure CLI를 사용하여 Linux VM을 비관리 디스크에서 관리 디스크로 변환하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
@@ -15,18 +15,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
-ms.openlocfilehash: a3a2bbc15dd94ef09755d34a20e69c97854416b3
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 62ac70134c1bdf9d178d59723ff73561049a4bbf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30289263"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993077"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux 가상 머신을 비관리 디스크에서 Managed Disks로 변환
 
 비관리 디스크를 사용하는 기존 Linux VM(가상 머신)이 있는 경우 [Azure Managed Disks](../linux/managed-disks-overview.md)를 사용하도록 VM을 변환할 수 있습니다. 이 프로세스는 OS 디스크와 연결된 데이터 디스크를 변환합니다.
 
-이 문서에서는 Azure CLI를 사용하여 VM을 변환하는 방법을 보여 줍니다. CLI를 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+이 문서에서는 Azure CLI를 사용하여 VM을 변환하는 방법을 보여 줍니다. CLI를 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 * [Managed Disks로의 마이그레이션에 대한 FAQ](faq-for-disks.md#migrate-to-managed-disks)를 검토합니다.

@@ -1,25 +1,19 @@
 ---
-title: Azure Data Catalog 채택을 위한 접근 방식 및 프로세스 | Microsoft Docs
+title: Azure Data Catalog 채택을 위한 접근 방식 및 프로세스
 description: 이 문서에서는 비전 정의, 주요 비즈니스 사용 사례 식별, 파일럿 프로젝트 선택을 비롯한 Azure Data Catalog 도입을 고려하는 조직에 대한 접근 방식 및 프로세스를 제공합니다.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
+author: markingmyname
+ms.author: maghan
 ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: e7c104fa9b136df8ac4b94ee1e444100e2a2f969
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07323f1b0541555ef71919e026ecaf2494056dad
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406501"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Azure Data Catalog 채택을 위한 접근 방식 및 프로세스
 이 문서는 조직에서 **Azure Data Catalog** 도입을 시작하는 데 도움이 됩니다. **Azure Data Catalog**를 성공적으로 도입하려면 사용자의 비전 정의, 조직 내의 주요 업무 사용 사례 식별, 파일럿 프로젝트 선택 등 세 가지 주요 항목에 초점을 맞춥니다.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: da68c9b7ebbb1880e35bd60b12db9f920f51e13c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d87293d89e4009512494bf47f9742ea5901f909a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936158"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445365"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management 페이지 컨트롤
 Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다음 컨트롤을 제공합니다.  
@@ -32,6 +32,8 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
  매개 변수의 값은 템플릿에 대한 데이터 모델의 일부로 전달됩니다. 대부분 경우 제대로 작동하도록 각 컨트롤에 대해 제공된 예제에 붙여넣을 수 있습니다. 매개 변수 값에 대한 자세한 내용은 컨트롤을 사용할 수 있는 각 템플릿에 대한 데이터 모델 섹션을 참조할 수 있습니다.  
   
  템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)을 참조하세요.  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ## <a name="developer-portal-template-page-controls"></a>개발자 포털 템플릿 페이지 컨트롤  
   

@@ -3,7 +3,7 @@ title: Azure Service Fabric의 신뢰할 수 있는 컬렉션 개체 serializati
 description: Azure Service Fabric 신뢰할 수 있는 컬렉션 개체 serialization
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak
 ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
-ms.author: mcoskun
-ms.openlocfilehash: 8fb6f1767741e950b300fd297250a6b64656191c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: twhitney
+ms.openlocfilehash: 52e4b22a0c4acebe99ab5b9d94eeb66e917a231a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952429"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192025"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric의 신뢰할 수 있는 컬렉션 개체 serialization
 신뢰할 수 있는 컬렉션은 해당 항목을 복제하고 유지하여 컴퓨터 장애 및 정전이 발생해도 지속되도록 합니다.
@@ -136,7 +136,7 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
 ```
 
 ## <a name="upgradability"></a>업그레이드 가능성
-[롤링 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)에서는 한번에 하나의 업그레이드 도메인에서 노드의 하위 집합에 업그레이드가 적용됩니다. 이 과정에서 일부 업그레이드는 응용 프로그램의 최신 버전에, 일부 업그레이드 도메인은 응용 프로그램의 이전 버전에 적용됩니다. 롤아웃 동안 최신 버전의 응용 프로그램에서 이전 버전의 데이터를 읽을 수 있고 이전 버전의 응용 프로그램에서 최신 버전의 데이터를 읽을 수 있어야 합니다. 데이터 서식이 최신 버전과 이전 버전에서 호환되지 않으면 업그레이드가 실패하거나 데이터가 손실되거나 손상될 수도 있습니다.
+[롤링 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)에서는 한번에 하나의 업그레이드 도메인에서 노드의 하위 집합에 업그레이드가 적용됩니다. 이 과정에서 일부 업그레이드는 응용 프로그램의 최신 버전에, 일부 업그레이드 도메인은 응용 프로그램의 이전 버전에 적용됩니다. 롤아웃 동안 최신 버전의 애플리케이션에서 이전 버전의 데이터를 읽을 수 있고 이전 버전의 애플리케이션에서 최신 버전의 데이터를 읽을 수 있어야 합니다. 데이터 서식이 최신 버전과 이전 버전에서 호환되지 않으면 업그레이드가 실패하거나 데이터가 손실되거나 손상될 수도 있습니다.
 
 기본 제공 직렬 변환기를 사용하는 경우 호환성에 대해 염려할 필요가 없습니다.
 그러나 사용자 지정 직렬 변환기 또는 DataContractSerializer를 사용하는 경우 데이터가 이전 버전 및 이후 버전과 무기한 호환되어야 합니다.

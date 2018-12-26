@@ -11,21 +11,25 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 852f514a36ea640f478c5cc5ebbb137ca962703a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8e8944a9bdfa2b75f6442e03d45dfb6977c2a122
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115487"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974360"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Azure Machine Learning에서 GPU를 사용하는 방법
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 GPU(그래픽 처리 장치)는 일반적으로 특정 심층 신경망 모델을 교육할 때 발생할 수 있는 계산 집약적 작업을 처리하는 데 널리 사용됩니다. GPU를 사용하면 모델의 교육 시간을 크게 줄일 수 있습니다. 이 문서에서는 실행 대상으로 GPU가 장착된 [DSVM(Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview)을 사용하도록 Azure ML Workbench를 구성하는 방법을 알아봅니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-- 이 방법 가이드를 실행하려면 먼저 [Azure ML Workbench를 설치](../service/quickstart-installation.md)해야 합니다.
+- 이 방법 가이드를 실행하려면 먼저 [Azure ML Workbench를 설치](quickstart-installation.md)해야 합니다.
 - NVidia GPU가 장착된 컴퓨터에 액세스할 수 있어야 합니다.
     - GPU가 장착된 로컬 컴퓨터(Windows 또는 macOS)에서 직접 스크립트를 실행할 수 있습니다.
-    - GPU가 장착된 컴퓨터의 Docker 컨테이너에서도 스크립트를 실행할 수 있습니다.
+    - GPU가 장착된 Linux 머신의 Docker 컨테이너에서도 스크립트를 실행할 수 있습니다.
 
 ## <a name="execute-in-local-environment-with-gpus"></a>GPU가 장착된 _로컬_ 환경에서 실행
 GPU가 장착된 컴퓨터에 Azure ML Workbench를 설치한 후 _로컬_ 환경에 대해 실행할 수 있습니다. 로컬 환경은 다음과 같은 시스템일 수 있습니다.
@@ -86,7 +90,7 @@ C:\MyProj> az ml computetarget attach remotedocker --name "my_dsvm" --address "m
 ### <a name="configure-azure-ml-workbench-to-access-gpu"></a>GPU에 액세스하도록 Azure ML Workbench 구성
 프로젝트로 돌아가서 **파일 보기**를 열고 **새로 고침** 단추를 누릅니다. 두 개의 새 구성 파일 `my_dsvm.compute` 및 `my_dsvm.runconfig`가 보일 것입니다.
  
-`my_dsvm.compute` 파일을 엽니다. `baseDockerImage`를 `microsoft/mmlspark:plus-gpu-0.7.9`로 변경하고 새 줄 `nvidiaDocker: true`를 추가합니다. 그러면 파일에 다음 두 줄이 있을 것입니다.
+`my_dsvm.compute` 파일을 엽니다. `baseDockerImage`를 `microsoft/mmlspark:plus-gpu-0.9.9`로 변경하고 새 줄 `nvidiaDocker: true`를 추가합니다. 그러면 파일에 다음 두 줄이 있을 것입니다.
  
 ```yaml
 ...

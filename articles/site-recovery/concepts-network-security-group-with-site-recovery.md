@@ -1,20 +1,18 @@
 ---
 title: Azure Site Recovery에서 네트워크 보안 그룹 사용 | Microsoft Docs
 description: 재해 복구 및 마이그레이션을 위해 Azure Site Recovery에서 네트워크 보안 그룹을 사용하는 방법을 설명합니다.
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: b0570a7fe0cb6f334d18f82b1f06d5fa770b5af8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 11/27/2018
+ms.author: mayg
+ms.openlocfilehash: 4885be7547d404505b50c563036f260166cbc2cc
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921317"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833825"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Azure Site Recovery에서 네트워크 보안 그룹 사용
 
@@ -77,4 +75,4 @@ NSG를 만들고 구성한 경우 [테스트 장애 조치](azure-to-azure-tutor
 -   [네트워크 보안 그룹](../virtual-network/security-overview.md#network-security-groups)에 대해 자세히 알아보세요.
 -   NSG [보안 규칙](../virtual-network/security-overview.md#security-rules)에 대해 자세히 알아보세요.
 -   NSG에 대한 [효과적인 보안 규칙](../virtual-network/diagnose-network-traffic-filter-problem.md)에 대해 자세히 알아보세요.
--   응용 프로그램 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.
+-   애플리케이션 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.

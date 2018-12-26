@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: d864a663604794a249b08a7c7be471c3abba32af
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971539"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016701"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -27,7 +27,7 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 ## <a name="cluster-setup-and-management"></a>클러스터 설정 및 관리
 
-### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서를 롤백하려면 어떻게 해야 하나요?
+### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서를 롤백하려면 어떻게 해야 하나요?
 
 응용 프로그램 업그레이드를 롤백하려면 Service Fabric 클러스터 쿼럼에서 변경 내용을 커밋하기 전에 상태 오류를 감지해야 합니다. 감지된 변경 내용만 롤포워드할 수 있습니다. 모니터링되지 않은 주요 인증서 변경 내용이 있는 경우 고객 지원 서비스의 에스컬레이션 엔지니어가 클러스터를 복구해야 할 수도 있습니다.  [Service Fabric의 응용 프로그램 업그레이드](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master)는 [응용 프로그램 업그레이드 매개 변수](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)를 적용하고, 가동 중지 시간 0이라는 약속을 이행합니다.  Microsoft의 권장 응용 프로그램 업그레이드 모니터링 모드에 따라, 업데이트 도메인을 통한 자동 진행은 상태 검사 통과를 기반으로 하며, 기본 서비스 업데이트가 실패하는 경우 자동으로 롤백됩니다.
  
@@ -48,13 +48,9 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric 노드에서 OS 업데이트를 자동으로 수신하나요?
 
-당장은 아니지만, 이것 역시 Azure에서 제공하고자 하는 일반적인 요청입니다.
+일반적으로 요즘 제공되는 기능인 [Virtual Machine Scale Set 자동 OS 이미지 업데이트](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)를 사용할 수 있습니다.
 
-일단 Service Fabric 노드 아래의 운영 체제를 패치하고 최신 상태로 유지하는 [응용 프로그램을 제공](service-fabric-patch-orchestration-application.md)하고 있습니다.
-
-OS 업데이트 문제는 일반적으로 컴퓨터를 재부팅해야 하며 이로 인해 일시적인 가용성 손실이 발생합니다. Service Fabric에서 해당 서비스에 대한 트래픽을 다른 노드로 리디렉션하므로 이것 자체는 문제가 아닙니다. 하지만 OS 업데이트가 클러스터 간에 조정되지 않는다면 많은 노드가 한 번에 다운될 가능성이 있습니다. 이러한 동시 재부팅은 서비스 또는 적어도 특정 파티션(상태 저장 서비스)에 대한 총체적인 가용성 손실을 유도할 수 있습니다.
-
-향후에는 완전 자동화되고 업데이트 도메인 간에 조정되는 OS 업데이트 정책을 지원하여 재부팅하거나 다른 예기치 않은 오류가 발생해도 가용성이 유지되도록 할 것입니다.
+Azure에서 실행되지 않는 클러스터의 경우 Service Fabric 노드 아래의 운영 체제를 패치하기 위한 [을 제공](service-fabric-patch-orchestration-application.md)하고 있습니다.
 
 ### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>SF 클러스터에서 큰 가상 머신 확장 집합을 사용할 수 있나요? 
 
@@ -96,6 +92,9 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>클러스터 노드 형식(가상 머신 확장 집합)의 연결된 데이터 디스크를 암호화할 수 있나요?
 예.  자세한 내용은 [연결된 데이터 디스크를 사용하여 클러스터 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [디스크 암호화(PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) 및 [디스크 암호화(CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md)를 참조하세요.
 
+### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>클러스터 노드 형식(가상 머신 확장 집합)에서 우선 순위가 낮은 VM을 사용할 수 있나요?
+아니요. 우선 순위가 낮은 VM은 지원되지 않습니다. 
+
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>클러스터에서 바이러스 백신 프로그램을 실행하는 경우 제외해야 하는 디렉터리 및 프로세스는 무엇입니까?
 
 | **바이러스 백신 제외된 디렉터리** |
@@ -119,6 +118,12 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 | FabricRM.exe |
 | FileStoreService.exe |
  
+### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>비밀을 가져오도록 내 응용 프로그램을 KeyVault로 어떻게 인증하나요?
+다음은 응용 프로그램을 keyVault로 인증하기 위해 자격 증명을 얻기 위한 방법입니다.
+
+a. 응용 프로그램 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
+B. 가상 머신 확장 집합 MSI가 활성화된 호스트의 경우 SF 앱에 대한 간단한 PowerShell SetupEntryPoint를 개발하여 [MSI 엔드포인트에서 액세스 토큰](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)을 가져온 다음, [keyVault에서 비밀을 검색](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)할 수 있습니다.
+
 ## <a name="application-design"></a>응용 프로그램 설계
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Reliable Collection의 파티션에 대해 데이터를 쿼리하는 가장 좋은 방법은 무엇인가요?

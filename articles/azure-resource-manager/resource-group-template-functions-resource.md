@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f1271a6afba91cf75820f2e4b973b7cd42782449
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 6da2f7792df564ea3a41df37ab9b00574a205e5b
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824339"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219548"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 
 Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공합니다.
 
+* [listAccountSas](#list)
 * [listKeys](#listkeys)
 * [listSecrets](#list)
 * [list*](#list)
@@ -39,7 +40,9 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-listsecrets-and-list"></a>listKeys, listSecrets 및 list*
+## <a name="listaccountsas-listkeys-listsecrets-and-list"></a>listAccountSas, listKeys, listSecrets 및 list*
+`listAccountSas(resourceName or resourceIdentifier, apiVersion, functionValues)`
+
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
 
 `listSecrets(resourceName or resourceIdentifier, apiVersion)`
@@ -52,8 +55,9 @@ list 작업을 지원하는 모든 리소스 형식에 대한 값을 반환합�
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |예 |string |리소스에 대한 고유 식별자. |
-| apiVersion |예 |string |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
+| resourceName 또는 resourceIdentifier |yes |string |리소스에 대한 고유 식별자. |
+| apiVersion |yes |string |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
+| functionValues |아니요 |object | 함수에 대한 값이 있는 개체입니다. 저장소 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. | 
 
 ### <a name="return-value"></a>반환 값
 
@@ -80,7 +84,7 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 
 ### <a name="remarks"></a>설명
 
-**list**로 시작하는 작업은 템플릿에서 함수로 사용됩니다. 사용 가능한 작업에는 listKeys 뿐만 아니라 `list`, `listAdminKeys`, `listStatus`와 같은 작업도 포함됩니다. 그러나 요청 본문에 있는 값을 필요로 하는 **나열** 작업을 사용할 수 없습니다. 예를 들어 [나열 계정 SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) 작업은 *signedExpiry* 등의 요청 본문 매개 변수가 필요하므로 템플릿 내에서 사용할 수 없습니다.
+**list**로 시작하는 작업은 템플릿에서 함수로 사용됩니다. 사용 가능한 작업에는 listKeys 뿐만 아니라 `list`, `listAdminKeys`, `listStatus`와 같은 작업도 포함됩니다. [나열 계정 SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) 작업은 *signedExpiry* 등의 요청 본문 매개 변수가 필요합니다. 템플릿에서 이 함수를 사용하려면 본문 매개 변수 값을 가진 개체를 제공합니다.
 
 list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell 옵션이 제공됩니다.
 
@@ -100,37 +104,67 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 ### <a name="example"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)에서는 출력 섹션의 저장소 계정에서 기본 및 보조 키를 반환하는 방법을 보여줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)에서는 출력 섹션의 저장소 계정에서 기본 및 보조 키를 반환하는 방법을 보여줍니다. 또한 저장소 계정에 대한 SAS 토큰을 반환합니다. 해당 토큰을 가져오려면 개체를 listAccountSas 함수로 전달합니다. 이 예제에서는 목록 함수를 사용하는 방법을 표시할 것입니다. 일반적으로 출력 값으로 SAS 토큰을 반환하지 않고 리소스 값에서 해당 토큰을 사용합니다. 출력 값은 배포 기록에 저장되므로 안전하지 않습니다. 배포가 성공하려면 나중에 만료 시간을 지정해야 합니다.
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "storageAccountName": { 
-          "type": "string"
-      }
-  },
-  "resources": [
-    {
-      "name": "[parameters('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "referenceOutput": {
-          "type": "object",
-          "value": "[listKeys(parameters('storageAccountName'), '2016-12-01')]"
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagename": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "southcentralus"
+        },
+        "accountSasProperties": {
+            "type": "object",
+            "defaultValue": {
+                "signedServices": "b",
+                "signedPermission": "r",
+                "signedExpiry": "2018-08-20T11:00:00Z",
+                "signedResourceTypes": "s"
+            }
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('storagename')]",
+            "location": "[parameters('location')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "supportsHttpsTrafficOnly": false,
+                "accessTier": "Hot",
+                "encryption": {
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": []
+        }
+    ],
+    "outputs": {
+        "keys": {
+            "type": "object",
+            "value": "[listKeys(parameters('storagename'), '2018-02-01')]"
+        },
+        "accountSAS": {
+            "type": "object",
+            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties'))]"
+        }
     }
 }
 ``` 
@@ -138,13 +172,13 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storageAccountName=<your-storage-account>
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storagename=<your-storage-account>
 ```
 
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storageAccountName <your-storage-account>
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storagename <your-storage-account>
 ```
 
 <a id="providers" />
@@ -158,8 +192,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |예 |string |공급자의 네임스페이스입니다. |
-| resourceType |아니오 |string |지정된 네임스페이스 내의 리소스 유형입니다. |
+| providerNamespace |yes |string |공급자의 네임스페이스입니다. |
+| resourceType |아니요 |string |지정된 네임스페이스 내의 리소스 유형입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -246,9 +280,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |예 |string |리소스의 이름 또는 고유 식별자입니다. |
-| apiVersion |아니오 |string |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
-| 'Full' |아니오 |string |전체 리소스 개체를 반환할지 여부를 지정하는 값입니다. `'Full'`을 지정하지 않으면 리소스의 속성 개체만 반환됩니다. 전체 개체에는 리소스 ID 및 위치와 같은 값이 포함됩니다. |
+| resourceName 또는 resourceIdentifier |yes |string |리소스의 이름 또는 고유 식별자입니다. |
+| apiVersion |아니요 |string |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
+| 'Full' |아니요 |string |전체 리소스 개체를 반환할지 여부를 지정하는 값입니다. `'Full'`을 지정하지 않으면 리소스의 속성 개체만 반환됩니다. 전체 개체에는 리소스 ID 및 위치와 같은 값이 포함됩니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -256,13 +290,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="remarks"></a>설명
 
-reference 함수는 런타임 상태에서 값을 파생하므로 변수 섹션에서 사용할 수 없습니다. 템플릿 또는 [연결된 템플릿](resource-group-linked-templates.md#link-or-nest-a-template)의 출력 섹션에 사용할 수 있지만, [중첩된 템플릿](resource-group-linked-templates.md#link-or-nest-a-template)의 출력 섹션에는 사용할 수 없습니다. 중첩된 템플릿에서 배포된 리소스의 값을 반환하려면 중첩된 템플릿을 연결된 템플릿으로 변환합니다. 
+reference 함수는 런타임 상태에서 값을 파생하므로 변수 섹션에서 사용할 수 없습니다. 템플릿 또는 [연결된 템플릿](resource-group-linked-templates.md#link-or-nest-a-template)의 출력 섹션에 사용할 수 있지만, [중첩된 템플릿](resource-group-linked-templates.md#link-or-nest-a-template)의 출력 섹션에서는 사용할 수 없습니다. 중첩된 템플릿에서 배포된 리소스의 값을 반환하려면 중첩된 템플릿을 연결된 템플릿으로 변환합니다. 
 
 참조 함수를 사용하여 참조되는 리소스가 동일한 템플릿 내에서 프로비전되는 경우 한 리소스가 다른 리소스에 종속되도록 암시적으로 선언하고, 해당 이름별로 리소스를 참조합니다(리소스 ID 아님). 또한 dependsOn 속성도 사용할 필요가 없습니다. 참조 리소스가 배포를 완료할 때까지 함수는 평가되지 않습니다.
 
 리소스 유형에 대한 속성 이름 및 값을 보려면 outputs 섹션에서 개체를 반환하는 템플릿을 만듭니다. 해당 유형의 기존 리소스가 있는 경우 템플릿은 새로운 리소스를 배포하지 않고 개체를 반환합니다. 
 
-일반적으로 **reference** 함수를 사용하여 blob 끝점 URI 또는 정규화된 도메인 이름과 같은 개체의 특정 값을 반환합니다.
+일반적으로 **reference** 함수를 사용하여 blob 엔드포인트 URI 또는 정규화된 도메인 이름과 같은 개체의 특정 값을 반환합니다.
 
 ```json
 "outputs": {
@@ -538,11 +572,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |아니오 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceGroupName |아니오 |string |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |string |리소스의 이름입니다. |
-| resourceName2 |아니오 |string |리소스가 중첩된 경우 다음 리소스 이름 세그먼트입니다. |
+| subscriptionId |아니요 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
+| resourceGroupName |아니요 |string |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
+| resourceType |yes |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |yes |string |리소스의 이름입니다. |
+| resourceName2 |아니요 |string |리소스가 중첩된 경우 다음 리소스 이름 세그먼트입니다. |
 
 ### <a name="return-value"></a>반환 값
 

@@ -2,30 +2,25 @@
 title: Azure Event Hubs .NET Framework API 개요 | Microsoft Docs
 description: 핵심 Event Hubs .NET Framework 클라이언트 API 일부를 요약한 것입니다.
 services: event-hubs
-documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: a51d4552df2643a25ce492b8525b9aa7fa36e21c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: 46b0599e6c4d5b4cc2dd9370a28616019b79b50d
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781897"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745654"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Event Hubs .NET Framework API 개요
 
-이 문서에서는 핵심 Event Hubs .NET Framework 클라이언트 API 일부를 요약해서 설명합니다. 관리와 런타임 API 등 두 가지 범주가 있습니다. 런타임 API는 메시지를 주고받는 데 필요한 모든 작업으로 구성됩니다. 관리 작업을 사용하면 엔터티를 만들고 업데이트 및 삭제하여 Event Hubs 엔터티 상태를 관리할 수 있습니다.
+이 문서에서는 핵심 Azure Event Hubs[.NET Framework 클라이언트 API](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 일부를 요약해서 설명합니다. 관리와 런타임 API 등 두 가지 범주가 있습니다. 런타임 API는 메시지를 주고받는 데 필요한 모든 작업으로 구성됩니다. 관리 작업을 사용하면 엔터티를 만들고 업데이트 및 삭제하여 Event Hubs 엔터티 상태를 관리할 수 있습니다.
 
-[모니터링 시나리오](event-hubs-metrics-azure-monitor.md)는 관리 및 런타임 모두에 사용됩니다. .NET API에 대한 자세한 참조 설명서는 [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) 및 [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) 참조를 참조하세요.
+[모니터링 시나리오](event-hubs-metrics-azure-monitor.md)는 관리 및 런타임 모두에 사용됩니다. .NET API에 대한 자세한 참조 설명서는 [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [.NET Standard](/dotnet/api/microsoft.azure.eventhubs) 및 [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) 참고 자료를 참조하세요.
 
 ## <a name="management-apis"></a>관리 API
 
@@ -180,6 +175,7 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 Event Hubs 시나리오에 대한 자세한 내용은 다음 링크를 방문하십시오.
 
 * [Azure Event Hubs 정의](event-hubs-what-is-event-hubs.md)

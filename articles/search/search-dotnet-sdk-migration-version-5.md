@@ -3,17 +3,18 @@ title: Azure Search .NET SDK 버전 5로 업그레이드 | Microsoft Docs
 description: Azure Search .NET SDK 버전 5로 업그레이드
 author: brjohnstmsft
 manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: brjohnst
-ms.openlocfilehash: 88949f4cf0e4408f5d1e4d9c9a5833b041b5a5ab
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b08507d7685ce87a4c176385f750a72d6ae51ba3
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32778583"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091143"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK 버전 5로 업그레이드
 버전 4.0-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 참조하여 버전 5로 응용 프로그램을 업그레이드할 수 있습니다.

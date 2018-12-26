@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 4cf8390f55beeb65c1bd99594e885ed9db551d9e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f2a4b98404139abead411c20648b82d9081481f9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624236"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230192"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Java 앱을 사용하여 Azure Data Lake Analytics 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -25,13 +24,13 @@ ms.locfileid: "34624236"
 ## <a name="prerequisites"></a>필수 조건
 * **JDK(Java Development Kit) 8**(Java 버전 1.8 사용)
 * **IntelliJ** 또는 다른 적절한 Java 개발 환경. 이 문서의 지침에서는 IntelliJ를 사용합니다.
-* AAD(Azure Active Directory) 응용 프로그램을 만들고 **클라이언트 ID**, **테넌트 ID** 및 **키**를 검색합니다. AAD 응용 프로그램에 대한 자세한 내용 및 클라이언트 ID를 가져오는 방법에 대한 지침은 [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)를 참조하세요. 응용 프로그램을 만들고 키를 생성했다면 회신 URI 및 키를 포털에서 사용할 수 있습니다.
+* AAD(Azure Active Directory) 응용 프로그램을 만들고 **클라이언트 ID**, **테넌트 ID** 및 **키**를 검색합니다. AAD 응용 프로그램에 대한 자세한 내용 및 클라이언트 ID를 가져오는 방법에 대한 지침은 [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 응용 프로그램을 만들고 키를 생성했다면 회신 URI 및 키를 포털에서 사용할 수 있습니다.
 
 ## <a name="authenticating-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증
 
 다음 코드 조각은 응용 프로그램이 자체 자격 증명을 제공하는 **비대화형** 인증에 대한 코드를 제공합니다.
 
-## <a name="create-a-java-application"></a>Java 응용 프로그램 만들기
+## <a name="create-a-java-application"></a>Java 애플리케이션 만들기
 1. **명령줄 앱** 템플릿을 사용하여 IntelliJ를 열고 Java 프로젝트를 만듭니다.
 2. 화면의 왼쪽에 있는 프로젝트를 마우스 오른쪽 단추로 클릭하고 **프레임워크 지원 추가**를 클릭합니다. **Maven**을 선택하고 **확인**을 클릭합니다.
 3. 새로 만든 **"pom.xml"** 파일을 열고 **\</version>** 태그 및 **\</project>** 태그 사이에 다음 텍스트의 코드 조각을 추가합니다.
@@ -377,6 +376,6 @@ public static String GetJobStatus(UUID jobId) throws IOException, CloudException
 
 ## <a name="next-steps"></a>다음 단계
 
-* U-SQL에 대해 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
+* U-SQL에 대해 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](https://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
 * 관리 작업을 보려면 [Azure Portal을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 * 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.

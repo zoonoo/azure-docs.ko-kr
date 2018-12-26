@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Magento에서 데이터 복사 | Microsoft Docs
+title: Azure Data Factory(미리 보기)를 사용하여 Marketo에서 데이터 복사 | Microsoft Docs
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Magento에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: cdea8b6f24673186e3a3d2b44183b2c622aaaf41
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 36afc89ef583baa5484aa4e69c6969e7448c93c1
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047176"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127587"
 ---
-# <a name="copy-data-from-magento-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Magento에서 데이터 복사
+# <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Magento에서 데이터 복사
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Magento에서 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
@@ -45,12 +45,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **Magento**로 설정해야 합니다. | 예 |
-| host | Magento 인스턴스의 URL입니다. 즉, 192.168.222.110/magento3입니다.  | 예 |
-| accessToken | Magento의 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 끝점이 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
-| useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
-| usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
+| 형식 | type 속성은 **Magento**로 설정해야 합니다. | yes |
+| host | Magento 인스턴스의 URL입니다. 즉, 192.168.222.110/magento3입니다.  | yes |
+| accessToken | Magento의 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 
 **예제:**
 
@@ -73,11 +73,11 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Magento 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Magento 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Magento에서 데이터를 복사하려면 데이터 집합의 type 속성을 **MagentoObject**로 설정합니다. 이 형식의 데이터 집합에는 추가적인 형식별 속성이 없습니다.
+Magento에서 데이터를 복사하려면 데이터 세트의 type 속성을 **MagentoObject**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
 
 **예제**
 
@@ -104,8 +104,8 @@ Magento에서 데이터를 복사하려면 복사 작업의 원본 형식을 **M
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **MagentoSource**로 설정해야 합니다. | 예 |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Customers"` | 예 |
+| 형식 | 복사 작업 원본의 type 속성은 **MagentoSource**로 설정해야 합니다. | yes |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Customers"` | yes |
 
 **예제:**
 

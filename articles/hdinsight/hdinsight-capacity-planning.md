@@ -1,25 +1,20 @@
 ---
-title: Azure HDInsight의 클러스터 용량 계획 | Microsoft Docs
+title: Azure HDInsight의 클러스터 용량 계획
 description: 용량 및 성능을 위해 HDInsight 클러스터를 지정하는 방법입니다.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 8a8344388e9d31846770d5989d1ddd43fbe15336
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047482"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499106"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -43,7 +38,7 @@ HDInsight는 여러 Azure 지역에서 사용할 수 있습니다. 가장 가까
 
 ### <a name="location-of-default-storage"></a>기본 저장소의 위치
 
-Azure Storage 계정 또는 Azure Data Lake Store에 해당하는 기본 저장소는 클러스터와 동일한 위치에 있어야 합니다. Azure Storage는 모든 위치에서 사용할 수 있습니다. Data Lake Store는 일부 지역에서 사용할 수 있습니다. [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/regions/services/)의 *저장소*에서 현재 Data Lake Store 가용성을 참조하세요.
+Azure Storage 계정 또는 Azure Data Lake Store에 해당하는 기본 저장소는 클러스터와 동일한 위치에 있어야 합니다. Azure Storage는 모든 위치에서 사용할 수 있습니다. Data Lake Store Gen1은 일부 지역에서 사용할 수 있습니다. [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/regions/services/)의 *Storage*에서 현재 Data Lake Store 가용성을 참조하세요.
 
 ### <a name="location-of-existing-data"></a>기존 데이터의 위치
 
@@ -53,7 +48,7 @@ Azure Storage 계정 또는 Azure Data Lake Store에 해당하는 기본 저장�
 
 HDInsight 클러스터를 배포한 후에 추가 Azure Storage 계정을 연결하거나 다른 Data Lake Store에 액세스할 수 있습니다. 모든 저장소 계정은 클러스터와 동일한 위치에 있어야 합니다. Data Lake Store는 다른 위치에 있을 수 있으며 이 경우 데이터 읽기/쓰기 대기 시간이 발생할 수 있습니다.
 
-Azure Storage에는 [용량 제한](../azure-subscription-service-limits.md#storage-limits)이 있지만 Data Lake Store는 거의 제한이 없습니다.
+Azure Storage에는 일부 [용량 제한](../azure-subscription-service-limits.md#storage-limits)이 있지만 Data Lake Store Gen1은 사실상 제한이 없습니다.
 
 클러스터는 다른 저장소 계정 조합에 액세스할 수 있습니다. 일반적인 예제:
 
@@ -66,7 +61,7 @@ Azure Storage에는 [용량 제한](../azure-subscription-service-limits.md#stor
 
 ## <a name="choose-a-cluster-type"></a>클러스터 유형 선택
 
-클러스터 유형은 HDInsight 클러스터(Hadoop, Storm, Kafka 또는 Spark)가 실행하도록 구성되는 워크로드를 결정합니다. 사용 가능한 클러스터 형식의 대한 자세한 설명은 [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight)를 참조하세요. 각 클러스터 유형은 필요한 노드 크기 및 개수를 포함하는 배포 토폴로지를 갖습니다.
+클러스터 유형은 HDInsight 클러스터(예: [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) 또는 [Apache Spark](https://spark.apache.org/))가 실행하도록 구성되는 워크로드를 결정합니다. 사용 가능한 클러스터 형식의 대한 자세한 설명은 [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight)를 참조하세요. 각 클러스터 유형은 필요한 노드 크기 및 개수를 포함하는 배포 토폴로지를 갖습니다.
 
 ## <a name="choose-the-vm-size-and-type"></a>VM 크기 및 유형 선택
 
@@ -84,7 +79,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 ## <a name="choose-the-cluster-scale"></a>클러스터 확장 선택
 
-클러스터 확장은 VM 노드의 수량에 따라 결정됩니다. 모든 클러스터 유형에는 특정 크기를 갖는 노드 유형과 확장을 지원하는 노드 유형이 있습니다. 예를 들어 클러스터에 정확히 3개의 ZooKeeper 노드 또는 2개의 Head 노드가 필요할 수 있습니다. 분산 방식으로 데이터 처리를 수행하는 작업자 노드는 추가 작업자 노드를 추가하는 확장을 통해 이점을 얻을 수 있습니다.
+클러스터 확장은 VM 노드의 수량에 따라 결정됩니다. 모든 클러스터 유형에는 특정 크기를 갖는 노드 유형과 확장을 지원하는 노드 유형이 있습니다. 예를 들어 클러스터에 정확히 3개의 [Apache ZooKeeper](https://zookeeper.apache.org/) 노드 또는 2개의 Head 노드가 필요할 수 있습니다. 분산 방식으로 데이터 처리를 수행하는 작업자 노드는 추가 작업자 노드를 추가하는 확장을 통해 이점을 얻을 수 있습니다.
 
 클러스터 유형에 따라 작업자 노드 수를 늘리면 계산 용량(예: 추가 코어)이 더 추가되지만, 전체 클러스터가 처리되는 데이터의 메모리 내 저장소를 지원하는 데 필요한 총 메모리 양도 추가될 수 있습니다. VM 크기 및 유형을 선택하는 경우처럼 올바른 클러스터 크기 선택도 시뮬레이트된 워크로드 또는 카나리아 쿼리를 사용하여 실험적으로 진행됩니다.
 
@@ -95,7 +90,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 클러스터의 수명은 사용자의 책임입니다. 특정 시간에만 클러스터를 가동하고 실행해야 하는 경우 [Azure Data Factory를 사용하여 요청 시 클러스터를 만들 수 있습니다](hdinsight-hadoop-create-linux-clusters-adf.md). 클러스터를 프로비전하고 삭제하는 PowerShell 스크립트를 만든 다음 [Azure Automation](https://azure.microsoft.com/services/automation/)을 사용하여 해당 스크립트를 예약할 수도 있습니다.
 
 > [!NOTE]
-> 클러스터를 삭제하면 해당 기본 Hive metastore도 삭제됩니다. 다음에 클러스터를 다시 만들 때를 대비해서 metastore를 보존하려면 Azure Database 또는 Oozie와 같은 외부 메타데이터 저장소를 사용합니다.
+> 클러스터를 삭제하면 해당 기본 Hive metastore도 삭제됩니다. 다음에 클러스터를 다시 만들 때를 대비해서 metastore를 보존하려면 Azure Database 또는 [Apache Oozie](https://oozie.apache.org/)와 같은 외부 메타데이터 저장소를 사용합니다.
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>클러스터 작업 오류 격리
@@ -104,7 +99,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 로컬 컴퓨터에서 단일 노드 개발 환경을 설치하고 해당 환경에서 솔루션을 테스트할 수도 있습니다. Hortonworks는 초기 개발, 개념 증거 및 테스트에 유용한 Hadoop 기반 솔루션을 위한 단일 노드 로컬 개발 환경을 제공합니다. 자세한 내용은 [Hortonworks 샌드박스](http://hortonworks.com/products/hortonworks-sandbox/)를 참조하세요.
 
-로컬 단일 노드 클러스터의 문제를 식별하려면 실패한 작업을 다시 실행하고 입력 데이터를 조정하거나 더 작은 데이터 집합을 사용할 수 있습니다. 이러한 작업을 실행하는 방법은 플랫폼 및 응용 프로그램 유형에 따라 달라집니다.
+로컬 단일 노드 클러스터의 문제를 식별하려면 실패한 작업을 다시 실행하고 입력 데이터를 조정하거나 더 작은 데이터 세트를 사용할 수 있습니다. 이러한 작업을 실행하는 방법은 플랫폼 및 응용 프로그램 유형에 따라 달라집니다.
 
 ## <a name="quotas"></a>할당량
 
@@ -114,5 +109,5 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](hdinsight-hadoop-provision-linux-clusters.md): Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services 또는 Storm을 사용하여 HDInsight에서 클러스터를 설정 및 구성하는 방법을 알아봅니다.
+* [Apache Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md): Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services 또는 Storm을 사용하여 HDInsight에서 클러스터를 설정 및 구성하는 방법을 알아봅니다.
 * [클러스터 성능 모니터링](hdinsight-key-scenarios-to-monitor.md): 클러스터의 용량에 영향을 줄 수 있는 HDInsight 클러스터를 모니터링하는 주요 시나리오에 대해 알아봅니다.

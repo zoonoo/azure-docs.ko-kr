@@ -71,7 +71,7 @@ VPN 연결 또는 직접 개별 연결을 통해 VNet의 리소스 액세스할 
 
 ![사이트 간](./media/networking-overview/site-to-site.png)
 
-온-프레미스 VPN 장치와 Azure VPN Gateway 간에 이 연결이 설정됩니다. 이 연결 형식을 사용하면 권한을 부여한 모든 온-프레미스 리소스에서 VNet에 액세스할 수 있습니다. 이 연결은 온-프레미스 장치와 Azure VPN Gateway 간에 인터넷을 통한 암호화된 통신을 제공하는 IPSec/IKE VPN입니다. 동일한 VPN Gateway에 여러 온-프레미스 사이트를 연결할 수 있습니다. 각 사이트의 온-프레미스 VPN 장치에는 NAT를 기반으로 하지 않는 외부 연결 공용 IP 주소가 있어야 합니다. 트래픽이 인터넷을 통과하므로 사이트 간 연결의 대기 시간은 예측 가능하지 않습니다.
+온-프레미스 VPN 디바이스와 Azure VPN Gateway 간에 이 연결이 설정됩니다. 이 연결 형식을 사용하면 권한을 부여한 모든 온-프레미스 리소스에서 VNet에 액세스할 수 있습니다. 이 연결은 온-프레미스 디바이스와 Azure VPN Gateway 간에 인터넷을 통한 암호화된 통신을 제공하는 IPSec/IKE VPN입니다. 동일한 VPN Gateway에 여러 온-프레미스 사이트를 연결할 수 있습니다. 각 사이트의 온-프레미스 VPN 디바이스에는 NAT를 기반으로 하지 않는 외부 연결 공용 IP 주소가 있어야 합니다. 트래픽이 인터넷을 통과하므로 사이트 간 연결의 대기 시간은 예측 가능하지 않습니다.
 
 **ExpressRoute(개별 전용 연결)**
 
@@ -101,7 +101,7 @@ Azure Traffic Manager 서비스는 전역 DNS 부하 분산을 제공합니다. 
 
 **응용 프로그램 부하 분산**
 
-Azure Application Gateway 서비스는 ADC(Application Deliver Controller)를 서비스로 제공합니다. Application Gateway는 취약점 및 악용으로부터 웹 응용 프로그램을 보호하는 웹 응용 프로그램 방화벽을 비롯한 응용 프로그램에 대한 다양한 계층 7(HTTP/HTTPS) 부하 분산 기능을 제공합니다. Application Gateway를 통해 Application Gateway에 CPU 집약적인 SSL 종료를 오프로드하여 웹 팜 생산성을 최적화할 수도 있습니다. 
+Azure Application Gateway 서비스는 ADC(Application Deliver Controller)를 서비스로 제공합니다. Application Gateway는 취약점 및 악용으로부터 웹 응용 프로그램을 보호하는 웹 응용 프로그램 방화벽을 비롯한 응용 프로그램에 대한 다양한 계층 7(HTTP/HTTPS) 부하 분산 기능을 제공합니다. Application Gateway를 통해 애플리케이션 게이트웨이에 CPU 집약적인 SSL 종료를 오프로드하여 웹 팜 생산성을 최적화할 수도 있습니다. 
 
 Layer 7의 기타 라우팅 기능으로 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 패스 기반 라우팅 및 단일 Application Gateway 뒤에 여러 웹 사이트를 호스트할 수 있는 기능 등을 포함합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성될 수 있습니다. Application Gateway는 전적으로 Azure에 의해 관리되고, 확장성 및 고가용성을 제공합니다. 관리 효율성을 향상시키기 위한 풍부한 진단 및 로깅 기능을 제공합니다. Application Gateway에 대한 자세한 내용은 [Application Gateway 개요](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 
@@ -113,7 +113,7 @@ Layer 7의 기타 라우팅 기능으로 들어오는 트래픽의 라운드 로
 
 Azure Load Balancer는 모든 UDP 및 TCP 프로토콜에 대해 대기 시간이 낮은 고성능 계층 4 부하 분산을 제공합니다. 인바운드 및 아웃 바운드 연결을 관리합니다. 내부 부하가 분산된 공용 끝점을 구성할 수 있습니다. 서비스 가용성 관리 옵션을 검색하는 TCP 및 HTTP 상태를 사용하여 백 엔드 풀 대상에 인바운드 연결을 매핑하는 규칙을 정의할 수 있습니다. Load Balancer에 대한 자세한 내용은 [Load Balancer 개요](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 
-다음 그림에서는 외부 및 내부 부하 분산 장치를 모두 활용하는 인터넷 연결 다중 계층 응용 프로그램을 보여줍니다.
+다음 그림에서는 외부 및 내부 부하 분산 장치를 모두 활용하는 인터넷 연결 다중 계층 애플리케이션을 보여줍니다.
 
 ![부하 분산 장치](./media/networking-overview/load-balancer.png)
 
@@ -130,7 +130,7 @@ Azure에서 제공하지 않는 네트워크 기능이 필요하거나 온-프�
 
 Azure는 VNet의 모든 서브넷에 연결된 리소스가 서로 통신할 수 있도록 하는 기본 경로 테이블을 만듭니다. 다음과 같은 종류의 경로 중 하나 또는 둘 다를 구현하여 Azure에서 생성되는 기본 경로를 재정의할 수 있습니다.
 - **사용자 정의:** 각 서브넷에 대해 트래픽이 라우팅되는 위치를 제어하는 경로로 사용자 지정 경로 테이블을 만들 수 있습니다. 사용자 정의 경로에 대해 자세히 알아보려면 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참조하세요.
-- **BGP(경계 게이트웨이 프로토콜):** Azure VPN Gateway 또는 ExpressRoute 연결을 사용하여 온-프레미스 네트워크에 VNet을 연결하는 경우 VNet으로 BGP 경로를 전파할 수 있습니다. BGP는 두 개 이상의 네트워크 간에 라우팅 및 연결 정보를 교환하도록 인터넷에서 일반적으로 사용하는 표준 라우팅 프로토콜입니다. Azure Virtual Networks에서 BGP를 통해 Azure VPN Gateway 및 온-프레미스 VPN 장치(BGP 피어 또는 인접이라고 함)가 관련된 게이트웨이 또는 라우터를 거치도록 해당 접두사의 가용성 및 연결 가능성에 대한 정보를 두 게이트웨이에 제공하는 "경로"를 교환할 수 있습니다. BGP 게이트웨이가 하나의 BGP 피어에서 파악한 경로를 다른 모든 BGP 피어로 전파하여, BGP를 통해 여러 네트워크 간에 전송 라우팅을 사용할 수도 있습니다. BGP에 대한 자세한 내용은 [Azure VPN Gateway를 사용하는 BGP 개요](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참조하세요.
+- **BGP(경계 게이트웨이 프로토콜):** Azure VPN Gateway 또는 ExpressRoute 연결을 사용하여 온-프레미스 네트워크에 VNet을 연결하는 경우 VNet으로 BGP 경로를 전파할 수 있습니다. BGP는 두 개 이상의 네트워크 간에 라우팅 및 연결 정보를 교환하도록 인터넷에서 일반적으로 사용하는 표준 라우팅 프로토콜입니다. Azure Virtual Networks에서 BGP를 통해 Azure VPN Gateway 및 온-프레미스 VPN 디바이스(BGP 피어 또는 인접이라고 함)가 관련된 게이트웨이 또는 라우터를 거치도록 해당 접두사의 가용성 및 연결 가능성에 대한 정보를 두 게이트웨이에 제공하는 "경로"를 교환할 수 있습니다. BGP 게이트웨이가 하나의 BGP 피어에서 파악한 경로를 다른 모든 BGP 피어로 전파하여, BGP를 통해 여러 네트워크 간에 전송 라우팅을 사용할 수도 있습니다. BGP에 대한 자세한 내용은 [Azure VPN Gateway를 사용하는 BGP 개요](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참조하세요.
 
 ## <a name="manageability"></a>관리 효율성
 

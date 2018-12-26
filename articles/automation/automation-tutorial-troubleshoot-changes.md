@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: 변경 내용, 추적, 자동화
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 02/28/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 4d62e8e4cb778e60b39e502f09ce0aafca9b5212
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 1df3fcad8a30b0d79f40aecc353684b7356fe061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866820"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190019"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>환경 변경 문제 해결
 
@@ -32,6 +32,7 @@ ms.locfileid: "37866820"
 > * 활동 로그 연결 사용
 > * 이벤트 트리거
 > * 변경 내용 보기
+> * 경고 구성
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -41,9 +42,9 @@ ms.locfileid: "37866820"
 * 감시자, 작업 Runbook 및 감시자 태스크를 보관할 [Automation 계정](automation-offering-get-started.md)
 * 등록할 [가상 머신](../virtual-machines/windows/quick-create-portal.md)
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
@@ -66,20 +67,22 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Log Analytics에서 변경 내용 추적 사용
 
-변경 내용 추적에서 Log Analytics로 보내는 로그 데이터를 생성합니다. 쿼리를 실행하여 로그를 검색하려면 **변경 내용 추적** 창 맨 위의 **Log Analytics**를 선택합니다.
-변경 내용 추적 데이터는 **ConfigurationChange** 형식 아래에 저장됩니다. 다음 샘플 Log Analytics 쿼리는 중지된 모든 Windows 서비스를 반환합니다.
+변경 내용 추적에서 Log Analytics로 보내는 로그 데이터를 생성합니다.
+쿼리를 실행하여 로그를 검색하려면 **변경 내용 추적** 창 맨 위의 **Log Analytics**를 선택합니다.
+변경 내용 추적 데이터는 **ConfigurationChange** 형식 아래에 저장됩니다.
+다음 샘플 Log Analytics 쿼리는 중지된 모든 Windows 서비스를 반환합니다.
 
-```
+```loganalytics
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 자세한 내용은 [Azure Log Analytics](https://docs.loganalytics.io/index)를 참조하세요.
+Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 자세한 내용은 [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
 
 ## <a name="configure-change-tracking"></a>변경 내용 추적 구성
 
 변경 내용 추적을 통해 VM의 구성 변경 내용을 추적할 수 있습니다. 다음 단계에서는 레지스트리 키 및 파일의 추적을 구성하는 방법을 보여 줍니다.
- 
+
 수집하고 추적할 파일 및 레지스트리 키를 선택하려면 **변경 내용 추적** 페이지 위쪽의 **설정 편집**을 선택합니다.
 
 > [!NOTE]
@@ -92,14 +95,14 @@ Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 
 1. **Windows 레지스트리** 탭에서 **추가**를 선택합니다.
     **변경 내용 추적에 대한 Windows 레지스트리 추가** 창이 열립니다.
 
-3. **변경 내용 추적에 대해 Windows 레지스트리 추가**에 추적할 키의 정보를 입력하고 **저장**을 클릭합니다.
+1. **변경 내용 추적에 대해 Windows 레지스트리 추가**에 추적할 키의 정보를 입력하고 **저장**을 클릭합니다.
 
 |자산  |설명  |
 |---------|---------|
 |사용     | 설정 적용 여부 결정        |
 |Item Name     | 추적할 파일의 이름        |
 |그룹     | 파일을 논리적으로 그룹화하는 그룹 이름        |
-|Windows 레지스트리 키   | 파일을 검사할 경로. 예: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows 레지스트리 키   | 파일을 확인할 경로입니다(예: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup").      |
 
 ### <a name="add-a-windows-file"></a>Windows 파일 추가
 
@@ -112,8 +115,9 @@ Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 
 |사용     | 설정 적용 여부 결정        |
 |Item Name     | 추적할 파일의 이름        |
 |그룹     | 파일을 논리적으로 그룹화하는 그룹 이름        |
-|경로 입력     | 파일을 확인할 경로입니다. 예: "c:\temp\myfile.txt"       |
-|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**.|
+|경로 입력     | 파일을 확인할 경로입니다(예: "c:\temp\\\*.txt").<br>"%winDir%\System32\\\*.*"와 같은 환경 변수도 사용할 수 있습니다.         |
+|재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션은 **True** 또는 **False**입니다.|
 
 ### <a name="add-a-linux-file"></a>Linux 파일 추가
 
@@ -131,9 +135,9 @@ Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
 |sudo 사용     | 항목을 확인할 때 sudo가 사용되는지 여부를 결정합니다.         |
 |링크     | 디렉터리를 트래버스할 때 기호화된 링크에서 처리하는 방법을 결정합니다.<br> **Ignore** - 심볼 링크를 무시하고 참조된 파일/디렉터리를 포함하지 않음<br>**Follow** - 재귀 중에 심볼 링크를 따르고 참조된 파일/디렉터리도 포함<br>**Manage** - 심볼 링크를 따르고 반환된 콘텐츠의 처리를 변경하도록 허용      |
-|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**.|
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션은 **True** 또는 **False**입니다.|
 
-   > [!NOTE]   
+   > [!NOTE]
    > "Manage" 링크 옵션은 권장되지 않습니다. 파일 콘텐츠 검색은 지원되지 않습니다.
 
 ## <a name="enable-activity-log-connection"></a>활동 로그 연결 사용
@@ -167,6 +171,46 @@ VM 내에서 **작업** 아래에 있는 **변경 내용 추적**을 선택합�
 
 ![포털에서 변경 세부 정보 보기](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
+## <a name="configure-alerts"></a>경고 구성
+
+Azure Portal에서 변경 내용을 보는 기능도 유용하지만, 중지된 서비스와 같은 변경이 발생할 경우 경고를 받을 수 있으므로 더 유용합니다.
+
+중지된 서비스에 대한 경고를 추가하려면 Azure Portal에서 **모니터**로 이동합니다. 그런 다음 **Shared Services**에서 **경고**를 선택하고 **+ 새로운 경고 규칙**을 클릭합니다.
+
+**선택**을 클릭하여 리소스를 선택합니다. **리소스 선택** 페이지의 **리소스 종류별로 필터링** 드롭다운에서 **Log Analytics**를 선택합니다. Log Analytics 작업 영역을 선택한 다음, **완료**를 선택합니다.
+
+![리소스 선택](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
+
+**조건 추가** 클릭하고, **신호 논리 구성** 페이지의 테이블에서 **로그 검색 사용자 지정**을 선택합니다. 검색 쿼리 텍스트 상자에 다음 쿼리를 입력합니다.
+
+```loganalytics
+ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
+```
+
+이 조회에서는 지정된 시간 프레임에서 W3SVC 서비스가 중지된 컴퓨터를 리턴합니다.
+
+**논리 경고** 아래에서 **임계값**으로 **0**을 입력합니다. 완료되면 **완료**를 선택합니다.
+
+![신호 논리 구성](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
+
+**작업 그룹** 아래에서 **새로 만들기**를 선택합니다. 작업 그룹은 여러 경고에서 사용할 수 있는 작업의 그룹입니다. 이 작업에는 이메일 알림, Runbook, 웹후크 등이 포함되며 이에 국한되지 않습니다. 작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조하세요.
+
+**경고 세부 정보** 아래에서 경고에 대한 이름과 설명을 입력합니다. **심각도**를 **정보(심각도 2)**, **경고(심각도 1)** 또는 **위험(심각도 0)** 으로 설정합니다.
+
+**작업 그룹 이름** 상자에 경고의 이름 및 약식 이름을 입력합니다. 약식 이름은 이 그룹을 사용하여 알림을 보내는 경우 전체 작업 그룹 이름 대신 사용됩니다.
+
+**작업**에서 **메일 관리자**과 같은 작업의 이름을 입력합니다. **작업 형식**에서 **이메일/SMS/푸시/음성**을 선택합니다. **세부 정보**에서 **세부 정보 편집**을 선택합니다.
+
+![작업 그룹 추가](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+
+**이메일/SMS/푸시/음성** 창에서 이름을 입력합니다. **이메일** 확인란을 선택한 다음, 유효한 이메일 주소를 입력합니다. **메일/SMS/푸시/음성** 페이지에서 **확인**을 클릭한 다음 **작업 그룹 추가** 페이지에서 **확인**을 클릭합니다.
+
+경고 메일의 제목을 사용자 지정하려면 **규칙 만들기**의 **작업 사용자 지정** 아래에서 **메일 제목**을 선택합니다. 작업이 완료되면 **경고 규칙 만들기**를 선택합니다. 경고에서는 언제 업데이트 배포가 성공하고 해당 부분의 업데이트 배포 실행에 어떤 컴퓨터가 사용되었는지 알려줍니다.
+
+다음 이미지는 W3SVC 서비스가 중지되면 받는 예제 메일입니다.
+
+![이메일](./media/automation-tutorial-troubleshoot-changes/email.png)
+
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
@@ -178,6 +222,7 @@ VM 내에서 **작업** 아래에 있는 **변경 내용 추적**을 선택합�
 > * 활동 로그 연결 사용
 > * 이벤트 트리거
 > * 변경 내용 보기
+> * 경고 구성
 
 자세히 알아보려면 변경 내용 추적 및 인벤토리 솔루션에 대한 개요로 계속 진행하세요.
 

@@ -3,25 +3,21 @@ title: Azure Functions 개발 지침 | Microsoft Docs
 description: 프로그래밍 언어 및 바인딩에 관계 없이 Azure에서 함수를 개발하는 데 필요한 Azure Functions 개념 및 기술에 대해 알아봅니다.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords: 개발자 가이드, Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 10/12/2017
-ms.author: tdykstra
-ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: glenga
+ms.openlocfilehash: 38d73f38a5e04a42ee15c9206ce760936e3e10c9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29121749"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980307"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
@@ -59,43 +55,35 @@ function.json 파일은 함수 바인딩 및 기타 구성 설정을 정의합�
 | `name` |string |함수에서 바인딩 데이터에 사용되는 이름입니다. C#의 경우 인수 이름이며, JavaScript의 경우 키/값 목록의 키입니다. |
 
 ## <a name="function-app"></a>함수 앱
-함수 앱은 Azure App Service에서 함께 관리되는 하나 이상의 개별 함수 함수로 구성됩니다. 함수 앱의 모든 함수는 동일한 가격 책정 계획, 연속 배포 및 런타임 버전을 공유합니다. 여러 언어로 작성된 함수는 동일한 함수 앱을 공유할 수 있습니다. 함수 앱을 함수를 구성하고 전체적으로 관리하는 방법으로 생각합니다. 
+함수 앱은 함수가 실행되는 Azure의 실행 컨텍스트를 제공합니다. 함수 앱은 Azure App Service에서 함께 관리되는 하나 이상의 개별 함수 함수로 구성됩니다. 함수 앱의 모든 함수는 동일한 가격 책정 계획, 연속 배포 및 런타임 버전을 공유합니다. 함수 앱을 함수를 구성하고 전체적으로 관리하는 방법으로 생각합니다. 
 
-## <a name="runtime-script-host-and-web-host"></a>런타임(스크립트 호스트 및 웹 호스트)
-런타임 또는 스크립트 호스트는 이벤트를 수신하고, 데이터를 수집하여 보내고, 최종적으로 코드를 실행하는 기본 WebJobs SDK 호스트입니다. 
+> [!NOTE]
+> Azure Functions 런타임의 [버전 2.x](functions-versions.md)부터 함수 앱의 모든 함수는 동일한 언어로 작성되어야 합니다.
 
-HTTP 트리거를 용이하게 하기 위해 프로덕션 시나리오에서 스크립트 호스트 앞에 위치하도록 설계된 웹 호스트도 있습니다. 두 개의 호스트가 있으면 웹 호스트에서 관리하는 프런트 엔드 트래픽에서 스크립트 호스트를 격리하는 데 도움이 됩니다.
+## <a name="runtime"></a>런타임
+Azure Functions 런타임 또는 스크립트 호스트는 이벤트를 수신하고, 데이터를 수집하여 보내고, 최종적으로 코드를 실행하는 기본 호스트입니다. 이 동일한 호스트가 WebJobs SDK에서 사용됩니다.
+
+런타임에 대한 HTTP 트리거 요청을 처리하는 웹 호스트도 있습니다. 두 개의 호스트가 있으면 웹 호스트에서 관리하는 프런트 엔드 트래픽에서 런타임을 격리하는 데 도움이 됩니다.
 
 ## <a name="folder-structure"></a>폴더 구조
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Azure App Service에서 함수를 함수 앱에 배포하기 위한 프로젝트를 설정하는 경우에는, 이 폴더 구조를 사용자의 사이트 코드로 처리할 수 있습니다. 배포 시 패키지 설치 또는 코드 transpilation 수행을 위하여 지속적인 통합 및 배포 같은 기존 툴 또는 사용자 지정 배포 스크립트를 사용할 수 있습니다.
+Azure에서 함수를 함수 앱에 배포하기 위한 프로젝트를 설정하는 경우에는, 이 폴더 구조를 사용자의 사이트 코드로 처리할 수 있습니다. [패키지 배포](deployment-zip-push.md)를 사용하여 Azure의 함수 앱에 프로젝트를 배포하는 것이 좋습니다. [연속 통합 및 지속적인 배포](functions-continuous-deployment.md), Azure DevOps 등의 기존 도구를 사용할 수도 있습니다.
 
 > [!NOTE]
-> `host.json` 파일과 함수 폴더를 `wwwroot` 폴더에 직접 배포해야 합니다. 배포에 `wwwroot` 폴더를 포함하지 마세요. 그렇지 않으면 `wwwroot\wwwroot` 폴더가 만들어집니다. 
-> 
-> 
+> `host.json` 파일과 함수 폴더를 `wwwroot` 폴더에 직접 배포해야 합니다. 배포에 `wwwroot` 폴더를 포함하지 마세요. 그렇지 않으면 `wwwroot\wwwroot` 폴더가 만들어집니다.
 
 ## <a id="fileupdate"></a> 함수 앱 파일을 업데이트하는 방법
 Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 대한 코드 파일 및 *function.json* 파일을 업데이트할 수 있습니다. *package.json* 또는 *project.json* 또는 종속성 등의 다른 파일을 업로드하거나 업데이트하려면 다른 배포 방법을 사용해야 합니다.
 
 함수 앱은 App Service를 기반으로 하므로 [표준 웹앱에 사용할 수 있는 배포 옵션](../app-service/app-service-deploy-local-git.md)을 함수 앱에 모두 사용할 수도 있습니다. 함수 앱 파일을 업로드하거나 업데이트하는 데 사용할 수 있는 방법이 몇 가지 입니다. 
 
-#### <a name="to-use-app-service-editor"></a>App Service 편집기 사용하기
-1. Azure Functions 포털에서 **플랫폼 기능**을 클릭합니다.
-2. **개발 도구** 섹션에서 **App Service 편집기**를 클릭합니다.   
-   App Service 편집기가 로드된 후에 *host.json* 파일과 *wwwroot* 하위의 함수 폴더를 볼 수 있습니다. 
-5. 파일을 열어서 편집하거나, 배포 컴퓨터에서 끌어서 놓기로 파일을 업로드합니다.
-
-#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>함수 앱의 SCM(Kudu) 끝점을 사용하려면
-1. `https://<function_app_name>.scm.azurewebsites.net`로 이동합니다.
-2. **디버그 콘솔 > CMD**를 클릭합니다.
-3. `D:\home\site\wwwroot\`으로 이동하여 *host.json*을 업데이트하거나 `D:\home\site\wwwroot\<function_name>`로 이동하여 함수 파일을 업데이트합니다.
-4. 파일 그리드에서 적절한 폴더로 업로드할 파일을 끌어서 놓습니다. 파일을 삭제할 수 있는 파일 표에는 두 가지 영역이 있습니다. *.zip* 파일의 경우 "여기에 끌어 와서 업로드하고 압축을 풉니다" 레이블이 있는 상자가 나타납니다. 다른 파일 형식의 경우 "압축" 상자 외부에 파일 표를 살펴봅니다.
+#### <a name="use-local-tools-and-publishing"></a>로컬 도구 및 게시 사용
+함수 앱은 [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md) 및 [Azure Functions Core Tools](./functions-develop-local.md)를 비롯한 다양한 도구를 사용하여 작성하고 게시할 수 있습니다. 자세한 내용은 [Azure Functions를 로컬에서 코딩 및 테스트](./functions-develop-local.md)를 참조하세요.
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
-#### <a name="to-use-continuous-deployment"></a>연속 배포를 사용하려면
+#### <a name="continuous-deployment"></a>연속 배포
 [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)항목의 지침을 따릅니다.
 
 ## <a name="parallel-execution"></a>병렬 실행
@@ -103,7 +91,7 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
 
 ## <a name="functions-runtime-versioning"></a>Functions 런타임 버전 관리
 
-`FUNCTIONS_EXTENSION_VERSION` 앱 설정을 사용하여 Functions 런타임의 버전을 구성할 수 있습니다. 예를 들어 “”~1은 함수 앱이 주요 버전으로 1을 사용한다는 것을 나타냅니다. 함수 앱은 부 버전이 새로 릴리스될 때마다 업그레이드됩니다. 정확한 함수 앱 버전을 확인하는 방법을 비롯한 자세한 내용을 보려면 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
+`FUNCTIONS_EXTENSION_VERSION` 앱 설정을 사용하여 Functions 런타임의 버전을 구성할 수 있습니다. 예를 들어 “~2”는 함수 앱이 주 버전으로 2.x를 사용한다는 것을 나타냅니다. 함수 앱은 부 버전이 새로 릴리스될 때마다 업그레이드됩니다. 정확한 함수 앱 버전을 확인하는 방법을 비롯한 자세한 내용을 보려면 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
 
 ## <a name="repositories"></a>리포지토리
 Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리에 저장됩니다.

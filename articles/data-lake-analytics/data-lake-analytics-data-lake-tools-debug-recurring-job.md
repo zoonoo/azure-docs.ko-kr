@@ -3,23 +3,22 @@ title: Azure Data Lake Analytics에서 되풀이 작업 디버그
 description: Azure Data Lake Tools for Visual Studio를 사용하여 비정상적인 되풀이 작업을 디버그하는 방법을 알아봅니다.
 services: data-lake-analytics
 author: yanancai
-manager: kfile
-editor: jasonwhowell
 ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
-ms.openlocfilehash: 6a181e0cb4014f80673c1bd33e89af69c5677b37
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623573"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260043"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>비정상적인 되풀이 작업 문제 해결
 
-이 문서에서는 [Azure Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)를 사용하여 되풀이 작업 문제를 해결하는 방법을 보여 줍니다. [Azure Data Lake 및 Azure HDInsight 블로그](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/)에서 파이프라인 및 되풀이 작업에 대해 자세히 알아보세요.
+이 문서에서는 [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs)를 사용하여 되풀이 작업 문제를 해결하는 방법을 보여 줍니다. [Azure Data Lake 및 Azure HDInsight 블로그](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/)에서 파이프라인 및 되풀이 작업에 대해 자세히 알아보세요.
 
 되풀이 작업은 일반적으로 동일한 쿼리 논리 및 유사한 입력 데이터를 공유합니다. 예를 들어 매주 월요일 오전 8시에 지난 주의 주간 활성 사용자 수를 계산하는 되풀이 작업이 실행된다고 가정합니다. 이러한 작업에 대한 스크립트는 쿼리 논리를 포함하는 하나의 스크립트 템플릿을 공유합니다. 이러한 작업에 대한 입력은 지난 주에 대한 사용 현황 데이터입니다. 동일한 쿼리 논리 및 유사한 입력을 공유한다는 것은 일반적으로 이러한 작업의 성능이 유사하고 안정적임을 의미합니다. 되풀이 작업 중 하나가 갑자기 비정상적으로 수행되거나, 실패하거나, 크게 느려질 경우 다음 작업을 수행할 수 있습니다.
 
@@ -40,7 +39,7 @@ Azure Data Lake Tools for Visual Studio의 **관련 작업 보기**는 두 사�
  
 ### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>사례 2: 되풀이 작업에 대한 파이프라인을 갖고 있지만 URL은 아닌 경우
 
-Visual Studio에서 서버 탐색기 > Azure Data Lake Analytics 계정 > **파이프라인**을 통해 파이프라인 브라우저를 열 수 있습니다. (서버 탐색기에서 이 노드를 찾을 수 없으면 [최신 플러그 인을 다운로드](http://aka.ms/adltoolsvs)합니다.) 
+Visual Studio에서 서버 탐색기 > Azure Data Lake Analytics 계정 > **파이프라인**을 통해 파이프라인 브라우저를 열 수 있습니다. (서버 탐색기에서 이 노드를 찾을 수 없으면 [최신 플러그 인을 다운로드](https://aka.ms/adltoolsvs)합니다.) 
 
 ![파이프라인 노드 선택](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 

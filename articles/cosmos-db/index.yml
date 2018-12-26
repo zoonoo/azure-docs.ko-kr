@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 89bab4d2751cdbc3ba9b2303bc88dba874bc117b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723946"
 documentType: LandingData
 title: Azure Cosmos DB 설명서
 metadata:
@@ -6,22 +12,13 @@ metadata:
   title: Azure Cosmos DB 설명서 - 자습서, API 참조
   description: Azure Cosmos DB를 사용하여 전역적으로 분산된 다중 모델 데이터베이스를 사용하는 방법을 알아봅니다. 자습서는 문서, 키/값 및 그래프 데이터베이스를 빌드 및 쿼리하는 방법을 보여 줍니다.
   services: cosmos-db
-  author: mimig1
-  manager: kfile
+  author: SnehaGunda
+  ms.author: sngun
   ms.service: cosmos-db
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/26/2018
-  ms.author: mimig
-  ms.openlocfilehash: 6b922aa90000fa574c010902c2365e4ddb7035a3
-  ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/10/2018
-  ms.locfileid: "37952576"
 abstract:
-  description: Azure Cosmos DB는 전 세계에 배포된 다중 모델 데이터베이스 서비스입니다. 널리 사용되는 API 및 프로그래밍 모델을 사용하여 문서, 키-값, 전체-열 및 그래프 데이터베이스를 개발하기 위해 이 빠른 시작, 자습서 및 샘플을 사용합니다. 포괄적인 SLA를 사용하는 동안 여러 Azure 지역에 걸쳐 데이터를 복제하고 저장소에서 독립적으로 처리량의 크기를 조정하는 방법을 알아봅니다.
+  description: Azure Cosmos DB는 문서, 키-값, 넓은 열 및 그래프 데이터베이스를 지원하는 전세계로 분산된 다중 모델 데이터베이스 서비스입니다. 빠른 시작, 자습서 및 샘플을 통해 Azure Cosmos DB를 사용하는 방법을 알아봅니다.
   aside:
     image:
       alt: 
@@ -54,10 +51,10 @@ sections:
         src: media/index/graph-api.svg
       title: Gremlin API
     - href: /azure/cosmos-db/mongodb-introduction/
-      html: <p>MongoDB 데이터베이스에서 Azure Cosmos DB의 완벽히 관리된 서비스로 데이터를 마이그레이션하는 경우 MongoDB API를 사용합니다.</p>
+      html: <p>MongoDB 데이터베이스에서 Azure Cosmos DB의 완벽히 관리되는 서비스로 데이터를 마이그레이션하는 경우 Azure Cosmos DB for MongoDB API를 사용합니다.</p>
       image:
         src: media/index/mongodb-api.svg
-      title: MongoDB API
+      title: Azure Cosmos DB for MongoDB API
     - href: /azure/cosmos-db/table-introduction/
       html: <p>Azure Table 저장소에서 Azure Cosmos DB의 프리미엄 테이블 제품으로 데이터를 마이그레이션하는 경우 Table API를 사용합니다.</p>
       image:
@@ -86,12 +83,12 @@ sections:
       title: Node.js
     - image:
         src: media/index/logo_python.svg
-      title: 파이썬
+      title: Python
     - image:
         src: media/index/logo_gremlin.svg
       title: Gremlin
     - image:
-        src: https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg
+        src: https://docs.microsoft.com/media/logos/logo_gopher.svg
       title: Go
     - image:
         src: media/index/logo_xamarin.svg
@@ -106,7 +103,7 @@ sections:
       - href: 
       - href: 
       - href: /azure/cosmos-db/create-sql-api-xamarin-dotnet
-    - title: MongoDB API
+    - title: Azure Cosmos DB for MongoDB API
       values:
       - href: /azure/cosmos-db/create-mongodb-java
       - href: /azure/cosmos-db/create-mongodb-dotnet
@@ -150,11 +147,34 @@ sections:
     style: ordered
     items:
     - html: Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb-nodejs">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Gremlin</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>를 사용하여 앱 개발
-    - html: Azure Cosmos DB&#58; <a href="import-data">SQL</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Table</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>로 데이터 가져오기
+    - html: Azure Cosmos DB&#58; <a href="import-data">SQL</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Table</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>로 데이터 마이그레이션
     - html: Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Gremlin</a>을 사용하여 데이터 쿼리
-    - html: Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Gremlin</a>을 사용하여 전역 데이터베이스 복제
+    - html: Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a>을 사용하여 글로벌 데이터베이스 복제
     - html: <a href="local-emulator">에뮬레이터를 사용하여 로컬로 응용 프로그램 개발</a>
     - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Azure Cosmos DB 입력 바인딩을 사용하여 HTTP 트리거 만들기</a>
+- title: Microsoft Learn을 통해 기술 쌓기
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: " 크기 조정하도록 빌드된 Azure Cosmos DB 데이터베이스 만들기"
+      href: /learn/modules/create-cosmos-db-for-scale/
+      image:
+        src: /learn/achievements/create-cosmos-db-for-scale.svg
+        href: /learn/modules/create-cosmos-db-for-scale/
+    - title: Azure Cosmos DB 데이터베이스에서 데이터 삽입 및 쿼리
+      href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
+      image:
+        src: /learn/achievements/access-data-with-cosmos-db-and-sql-api.svg
+        href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
+    - title: Visual Studio Code에서 Azure Cosmos DB용 .NET Core 앱 빌드
+      href: /learn/modules/build-cosmos-db-app-with-vscode
+      image:
+        src: /learn/achievements/build-cosmos-db-app-with-vscode.svg
+        href: /learn/modules/build-cosmos-db-app-with-vscode
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-cosmos-db">더 많은 대화형 학습 보기...</a>
 - title: 참고 자료
   items:
   - type: list
@@ -162,12 +182,12 @@ sections:
     className: cardsD
     items:
     - title: SQL API
-      html: <p><a href="/rest/api/cosmos-db/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">.NET 변경 피드</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.js</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/cosmos-db-resource-provider/">REST 리소스 공급자</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
-    - title: MongoDB API
-      html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">유선 프로토콜</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
+      html: <p><a href="/rest/api/cosmos-db/">REST (영문)</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">.NET 변경 피드</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.JS</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/cosmos-db-resource-provider/">REST 리소스 공급자</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
+    - title: Azure Cosmos DB for MongoDB API
+      html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">유선 프로토콜</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.JS</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
     - title: 테이블 API
-      html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.js</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
+      html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST (영문)</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.JS</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
     - title: Gremlin API
-      html: <p><a href="http://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="http://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>
+      html: <p><a href="https://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="https://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>
     - title: Cassandra API
-      html: <p><a href="https://github.com/datastax/nodejs-driver">Node.js</a></p><p><a href="https://github.com/datastax/python-driver">Python</a></p><p><a href="https://github.com/datastax/java-driver">Java</a></p>
+      html: <p><a href="https://github.com/datastax/nodejs-driver">Node.JS</a></p><p><a href="https://github.com/datastax/python-driver">Python</a></p><p><a href="https://github.com/datastax/java-driver">Java</a></p>

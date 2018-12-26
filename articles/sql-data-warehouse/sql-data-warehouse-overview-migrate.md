@@ -3,19 +3,19 @@ title: SQL Data Warehouse에 솔루션 마이그레이션| Microsoft Docs
 description: Azure SQL Data Warehouse 플랫폼에 솔루션을 가져오기 위한 마이그레이션 지침
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 5a609fb2da1f9dba1247358f64b284fc3e3ef5bc
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b3e01968c74060bd0dc366609275d63753ad62dd
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523478"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306709"
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 솔루션 마이그레이션
 Azure SQL Data Warehouse로 기존 데이터베이스 솔루션을 마이그레이션하는 데 관련된 정보를 참조하세요. 

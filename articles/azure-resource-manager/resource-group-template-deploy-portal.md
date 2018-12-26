@@ -4,25 +4,23 @@ description: Azure 포털과 Azure 리소스 관리를 사용하여 리소스를
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b8a6d58ad79b591548542d69e69b71ec61af79af
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603729"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220128"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>리소스 관리자 템플릿과 Azure 포털로 리소스 배포
 
-이 항목에서는 [Azure Resource Manager](resource-group-overview.md)에서 [Azure 포털](https://portal.azure.com)을 사용하여 Azure 리소스를 배포하는 방법을 보여 줍니다. 리소스 관리에 관한 자세한 내용은 [포털을 통한 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
+이 문서에서는 [Azure Resource Manager](resource-group-overview.md)를 포함한 [Azure Portal](https://portal.azure.com)을 사용하여 Azure 리소스를 배포하는 방법을 보여줍니다. 리소스 관리에 관한 자세한 내용은 [포털을 통한 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
@@ -56,7 +54,7 @@ ms.locfileid: "34603729"
 
    ![리소스 종류 선택](./media/resource-group-template-deploy-portal/select-resource-type.png)
 
-1. 배포하려는 특정 솔루션이 보이지 않는다면 Marketplace를 검색할 수 있습니다. 예를 들어 Wordpress 솔루션을 찾으려면 **Wordpress**라고 입력을 시작하고 원하는 옵션을 선택합니다.
+1. 배포하려는 특정 솔루션이 보이지 않는다면 Marketplace에서 이를 검색할 수 있습니다. 예를 들어 Wordpress 솔루션을 찾으려면 **Wordpress**라고 입력을 시작하고 원하는 옵션을 선택합니다.
 
    ![Marketplace 검색](./media/resource-group-template-deploy-portal/search-resource.png)
 
@@ -79,6 +77,9 @@ ms.locfileid: "34603729"
 ## <a name="deploy-resources-from-custom-template"></a>사용자 지정 템플릿에서 배포
 
 배포를 실행하려고 하지만 Marketplace에서 템플릿 중 하나를 사용하지 않으려는 경우 솔루션에 대한 인프라를 정의하는 사용자 지정된 템플릿을 만들 수 있습니다. 템플릿을 만드는 방법에 대해 알아보려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](resource-group-authoring-templates.md)를 참조하세요.
+
+> [!NOTE]
+> 포털 인터페이스는 [Key Vault에서 비밀](resource-manager-keyvault-parameter.md) 참조를 지원하지 않습니다. 대신 [PowerShell](resource-group-template-deploy.md) 또는 [Azure CLI](resource-group-template-deploy-cli.md)를 사용하여 외부 URI에서 또는 로컬로 템플릿을 배포합니다.
 
 1. Portal을 통해 사용자 지정 템플릿을 배포하려면 **리소스 만들기**를 선택하고 옵션에서 선택할 수 있을 때까지 **템플릿 배포**를 검색합니다.
 
@@ -136,4 +137,4 @@ ms.locfileid: "34603729"
 * 감사 로그를 보려면 [Resource Manager로 작업 감사](resource-group-audit.md)를 참조하세요.
 * 배포 오류를 해결하려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
 * 배포 또는 리소스 그룹에서 템플릿을 검색하려면 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
-* 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance)를 참조하세요.
+* 여러 지역에서 서비스를 안전하게 출시하려면 [Azure Deployment Manager](deployment-manager-overview.md)를 참조하세요.

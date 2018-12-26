@@ -1,19 +1,20 @@
 ---
 pageTitle: Synonyms in Azure Search | Microsoft Docs
 description: 동의어를 사용하여 검색 쿼리의 범위를 확장합니다.
-authors: mhko
+author: mhko
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 03e45aae37a0c0474dbd9cc5dd5e3fddd347bd62
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fcb4314583036c2abfffdf7e5d0b5d90478dbe6b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186911"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468554"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure Search의 동의어
 
@@ -147,6 +148,8 @@ Washington, Wash., WA => WA
 동의어 기능은 검색 쿼리에 적용되고 필터 또는 패싯에는 적용되지 않습니다. 마찬가지로 제안은 원래 용어만을 기반으로 하며 동의어 일치는 응답에 나타나지 않습니다.
 
 동의어 확장은 와일드카드 검색 용어에는 적용되지 않으며 접두사, 유사 용어 및 정규식 용어는 확장되지 않습니다.
+
+동의어 확장과 와일드카드, 정규식 또는 유사 항목 검색을 적용하는 단일 쿼리를 수행해야 하는 경우 OR 구문을 사용하여 쿼리를 결합할 수 있습니다. 예를 들어 간단한 쿼리 구문에서 동의어와 와일드카드를 결합하려면 용어는 `<query> | <query>*`가 됩니다.
 
 ## <a name="tips-for-building-a-synonym-map"></a>동의어 맵 빌드에 대한 팁
 

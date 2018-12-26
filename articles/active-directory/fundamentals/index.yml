@@ -1,0 +1,53 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 4c9f26c36b0cf79c8bd28e57fc7bdec5dda22764
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45636328"
+documentType: LandingData
+title: Azure Active Directory 기본 사항 설명서
+metadata:
+  document_id: 
+  title: Azure Active Directory 기본 사항 설명서
+  description: Azure Active Directory를 사용하는 동안 사용할 수 있는 기본 개념 및 프로세스를 알아봅니다.
+  services: active-directory
+  ms.component: fundamentals
+  author: eross-msft
+  manager: mtillman
+  ms.service: active-directory
+  ms.topic: landing-page
+  ms.date: 09/07/2018
+  ms.author: lizross
+abstract:
+  description: 기본 사용자와 그룹을 만드는 방법 및 시작할 기본 환경을 만드는 방법을 비롯해 기본 Azure AD(Azure Active Directory) 개념 및 프로세스에 대해 알아봅니다.
+sections:
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: Azure Active Directory 포털을 시작하는 방법을 알아봅니다.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_portal.png
+      text: Azure AD에 액세스하여 테넌트 만들기
+      href: active-directory-access-create-new-tenant.md
+    - image:
+        src: ./media/index/i_tasks.png
+      text: 그룹 및 멤버 보기
+      href: active-directory-groups-view-azure-portal.md
+- title: 단계별 가이드
+  items:
+  - type: paragraph
+    text: Azure Active Directory 환경에서 설정할 기본 작업을 수행하는 방법 알아보기
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Azure AD Premium에 등록</a>
+    - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">사용자 지정 도메인 이름을 추가하는 방법</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">기본 그룹을 만들고 멤버를 추가하는 방법</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">그룹 소유자를 추가하는 방법</a>
+    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">새 사용자를 추가하는 방법</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal">사용자에게 역할을 할당하는 방법</a>
+    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">사용자에게 라이선스를 할당하는 방법</a>

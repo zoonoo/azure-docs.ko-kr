@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 243f0b8206166e3e054dfc423259bd3444d8a2db
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 760feae2c9b58e162dae487e240dda72099ed91b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31589835"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227980"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management FAQ
 Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 가져옵니다.
@@ -77,8 +77,8 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 예, 다음을 사용하여 프로그래밍 방식으로 API Management를 관리할 수 있습니다.
 
 * [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
-* [Microsoft Azure ApiManagement 서비스 관리 라이브러리 SDK](http://aka.ms/apimsdk)
-* [서비스 배포](https://msdn.microsoft.com/library/mt619282.aspx) 및 [서비스 관리](https://msdn.microsoft.com/library/mt613507.aspx) PowerShell cmdlet
+* [Microsoft Azure ApiManagement 서비스 관리 라이브러리 SDK](https://aka.ms/apimsdk)
+* [서비스 배포](https://docs.microsoft.com/powershell/module/wds) 및 [서비스 관리](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell cmdlet
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>관리자 그룹에 사용자를 추가하려면 어떻게 해야 합니까?
 관리자 그룹에 사용자를 추가하는 방법은 다음과 같습니다.
@@ -87,7 +87,7 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 2. 업데이트하려는 API Management 인스턴스가 있는 리소스 그룹으로 이동합니다.
 3. API Management에서 **API Management 참여자** 역할을 사용자에게 할당합니다.
 
-이제 새롭게 추가된 참여자는 Azure PowerShell [cmdlet](https://msdn.microsoft.com/library/mt613507.aspx)을 사용할 수 있습니다. 관리자 권한으로 로그인하는 방법은 다음과 같습니다.
+이제 새롭게 추가된 참여자는 Azure PowerShell [cmdlet](https://docs.microsoft.com/powershell/azure/overview)을 사용할 수 있습니다. 관리자 권한으로 로그인하는 방법은 다음과 같습니다.
 
 1. `Connect-AzureRmAccount` cmdlet을 사용하여 로그인합니다.
 2. `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`를 사용하여 서비스가 있는 구독에 컨텍스트를 설정합니다.
@@ -104,7 +104,7 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 * 다른 테넌트에 동일한 API를 호스팅할 수 있습니다.
 
 ### <a name="can-i-use-soap-with-api-management"></a>API Management와 함께 SOAP를 사용할 수 있습니까?
-이제 [SOAP 통과](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) 지원을 사용할 수 있습니다. 관리자는 해당 SOAP 서비스의 WSDL을 가져올 수 있고 Azure API Management는 SOAP 프런트 엔드를 만듭니다. 개발자 포털 설명서, 테스트 콘솔, 정책 및 분석을 SOAP 서비스에 모두 사용할 수 있습니다.
+이제 [SOAP 통과](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) 지원을 사용할 수 있습니다. 관리자는 해당 SOAP 서비스의 WSDL을 가져올 수 있고 Azure API Management는 SOAP 프런트 엔드를 만듭니다. 개발자 포털 설명서, 테스트 콘솔, 정책 및 분석을 SOAP 서비스에 모두 사용할 수 있습니다.
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>API Management 게이트웨이 IP 주소가 상수입니까? 그것을 방화벽 규칙에 사용할 수 있습니까?
 API Management의 모든 계층에서 API Management 테넌트의 공용 IP 주소(VIP)는 일부 예외를 제외하고 테넌트의 수명 동안 정적입니다. IP 주소는 다음 상황에서 변경됩니다.
@@ -126,7 +126,7 @@ AD FS(Active Directory Federation Services) 보안으로 OAuth 2.0 권한 부여
 API Management는 여러 지리적 위치에 배포할 때 [성능 트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#performance)을 사용합니다. 들어오는 트래픽은 가장 가까운 API 게이트웨이로 라우팅됩니다. 한 지역이 오프라인 상태가 되면, 들어오는 트래픽은 다음으로 가까운 게이트웨이로 자동으로 라우팅됩니다. [Traffic Manager 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)에서 라우팅 방법에 대해 자세히 알아봅니다.
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Azure Resource Manager 템플릿을 사용하여 API Management 서비스 인스턴스를 만들 수 있습니까?
-예. [Azure API Management 서비스](http://aka.ms/apimtemplate) 빠른 시작 템플릿을 참조하세요.
+예. [Azure API Management 서비스](https://aka.ms/apimtemplate) 빠른 시작 템플릿을 참조하세요.
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>백 엔드에 대해 자체 서명된 SSL 인증서를 사용할 수 있습니까?
 예. PowerShell을 통해 또는 API에 직접 전송하여 수행할 수 있습니다. 이렇게 하면 인증서 체인 유효성 검사가 사용하지 않도록 설정되며 API Management에서 백 엔드 서비스로 통신할 때 자체 서명 또는 비공개 서명된 인증서를 사용할 수 있습니다.

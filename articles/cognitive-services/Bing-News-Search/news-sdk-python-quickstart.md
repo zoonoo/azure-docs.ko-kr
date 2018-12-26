@@ -1,29 +1,32 @@
 ---
-title: News Search SDK Python 빠른 시작 | Microsoft Docs
-description: News Search SDK 콘솔 응용 프로그램을 설치합니다.
-titleSuffix: Azure News Search SDK Python quickstart
+title: '빠른 시작: 뉴스 검색 수행 - Python용 Bing News Search SDK'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작을 사용하여 Python용 Bing News Search SDK를 통해 뉴스를 검색하고 응답을 처리합니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 6d212d1477ecf583a038e33e72aab3d60f6aa050
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.custom: seodec2018
+ms.openlocfilehash: 3489a9634cecd776afc8619a81acd72a2649ec36
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377926"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261200"
 ---
-# <a name="news-search-sdk-python-quickstart"></a>News Search SDK Python 빠른 시작
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>빠른 시작: Python용 Bing News Search SDK로 뉴스 검색 수행
 
 News Search SDK는 웹 쿼리 및 구문 분석 결과에 대한 REST API 기능을 포함하고 있습니다. 
 
 [Python Bing News Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py)은 Git Hub에서 얻을 수 있습니다.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
+**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+
 Python이 없을 경우 설치하세요. SDK는 Python 2.7 3.3, 3.4, 3.5 및 3.6과 호환됩니다.
 
 Python 개발에 대한 일반 권장 사항은 [가상 환경](https://docs.python.org/3/tutorial/venv.html)을 사용하는 것입니다. [venv module](https://pypi.python.org/pypi/virtualenv)을 사용하여 가상 환경을 설치하고 초기화합니다. Python 2.7용 virtualenv를 설치해야 합니다.

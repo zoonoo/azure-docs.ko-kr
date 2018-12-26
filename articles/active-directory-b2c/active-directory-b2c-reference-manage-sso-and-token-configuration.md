@@ -1,27 +1,29 @@
 ---
 title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정 관리 | Microsoft Docs
-description: 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정을 관리하는 방법에 대해 알아봅니다.
+description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정을 관리하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/02/2017
+ms.date: 10/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 811fb8b2de59c9d324ab4acb8b0f51b4cec80aee
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c7ba1f87b877466ff4d9d11e4b3b5a6567e7ae06
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441800"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902639"
 ---
-# <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정 관리
-사용자 지정 정책을 사용하면 토큰, 세션 및 SSO(Single Sign-On) 구성에 대해 기본 정책을 통할 때와 동일한 제어가 제공됩니다.  각 설정에 대해 알아보려면 [여기](#active-directory-b2c-token-session-sso)에서 설명서를 참조하세요.
+# <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정 관리
+
+이 문서에서는 Azure AD(Active Directory)에서 [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 사용하여 토큰, 세션 및 SSO(Single Sign-On) 구성을 관리할 수 있는 방법을 설명합니다.
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>토큰 수명 및 클레임 구성
-토큰 수명에 대한 설정을 변경하려면 영향을 줄 정책의 신뢰 당사자 파일에 `<ClaimsProviders>` 요소를 추가해야 합니다.  `<ClaimsProviders>` 요소는 `<TrustFrameworkPolicy>`의 자식 요소입니다.  이 안에 토큰 수명에 영향을 주는 정보를 입력해야 합니다.  XML은 다음과 비슷합니다.
+
+토큰 수명 설정을 변경하려면 변경할 정책의 신뢰 당사자 파일에 [ClaimsProviders](claimsproviders.md) 요소를 추가합니다.  **ClaimsProviders** 요소는 [TrustFrameworkPolicy](trustframeworkpolicy.md) 요소의 자식입니다. 이 안에 토큰 수명에 영향을 주는 정보를 입력해야 합니다. XML은 다음과 비슷합니다.
 
 ```XML
 <ClaimsProviders>
@@ -43,41 +45,36 @@ ms.locfileid: "37441800"
 </ClaimsProviders>
 ```
 
-**액세스 토큰 수명** - `<Item>` 안의 값을 Key="token_lifetime_secs"(초)로 수정하여 액세스 토큰 수명을 변경할 수 있습니다.  기본 제공되는 기본값은 3600초(60분)입니다.
+위의 예제에서는 다음 값이 설정됩니다.
 
-**ID 토큰 수명** - `<Item>` 안의 값을 Key="id_token_lifetime_secs"(초)로 수정하여 ID 토큰 수명을 변경할 수 있습니다.  기본 제공되는 기본값은 3600초(60분)입니다.
+- **액세스 토큰 수명** - **token_lifetime_secs** 메타데이터 항목을 통해 액세스 토큰 수명 값이 설정됩니다. 기본값은 3600초(60분)입니다.
+- **ID 토큰 수명** - **id_token_lifetime_secs** 메타데이터 항목을 통해 ID 토큰 수명 값이 설정됩니다. 기본값은 3600초(60분)입니다.
+- **새로 고침 토큰 수명** - **refresh_token_lifetime_secs** 메타데이터 항목을 통해 새로 고침 토큰 수명 값이 설정됩니다. 기본값은 1209600초(14일)입니다.
+- **새로 고침 토큰 슬라이딩 윈도우 수명** - 새로 고침 토큰에 대한 슬라이딩 윈도우 수명을 설정하려면 **rolling_refresh_token_lifetime_secs** 메타데이터 항목의 값을 설정합니다. 기본값은 7776000(90일)입니다. 슬라이딩 윈도우 수명을 적용하지 않으려면 이 항목을 `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`로 바꿉니다.
+- **발급자(iss) 클레임** - **IssuanceClaimPattern** 메타데이터 항목을 통해 발급자(iss) 클레임을 설정합니다. 적용 가능한 값은 `AuthorityAndTenantGuid` 및 `AuthorityWithTfp`입니다.
+- **정책 ID를 나타내는 클레임 설정** - 이 값을 설정하기 위한 옵션은 `TFP`(보안 프레임워크 정책) 및 `ACR`(인증 컨텍스트 참조)입니다. 권장 값은 `TFP`입니다. `None` 값으로 **AuthenticationContextReferenceClaimPattern**을 설정하고 **OutputClaims** 항목에 다음 요소를 추가합니다.
+    
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
+    ```
 
-**새로 고침 토큰 수명** - `<Item>` 안의 값을 Key="refresh_token_lifetime_secs"(초)로 수정하여 새로 고침 토큰 수명을 변경할 수 있습니다.  기본 제공되는 기본값은 1209600초(14일)입니다.
+    ACR의 경우 **AuthenticationContextReferenceClaimPattern** 항목을 제거합니다.
 
-**새로 고침 토큰 슬라이딩 윈도우 수명** - 새로 고침 토큰에 대한 슬라이딩 윈도우 수명을 설정하려면 `<Item>` 안의 값을 Key="rolling_refresh_token_lifetime_secs"(초)로 수정합니다.  기본 제공되는 기본값은 7776000초(90일)입니다.  슬라이딩 윈도우 수명을 적용하지 않으려면 이 줄을 다음으로 바꿉니다.
-```XML
-<Item Key="allow_infinite_rolling_refresh_token">True</Item>
-```
+- **주체(sub) 클레임** - 이 옵션은 기본적으로 ObjectID입니다. 이 설정을 `Not Supported`로 전환하려면 아래 줄을 
 
-**발급자(iss) 클레임** - 발급자(iss) 클레임을 변경하려면 `<Item>` 안의 값을 Key="IssuanceClaimPattern"으로 수정합니다.  적용 가능한 값은 `AuthorityAndTenantGuid` 및 `AuthorityWithTfp`입니다.
-
-**정책 ID를 나타내는 클레임 설정** - 이 값을 설정하기 위한 옵션은 TFP(보안 프레임워크 정책) 및 ACR(인증 컨텍스트 참조)입니다.  
-TFP로 설정하는 것이 좋으며 이렇게 하려면 Key="AuthenticationContextReferenceClaimPattern"인 `<Item>`이 존재하고 값이 `None`인지 확인합니다.
-`<OutputClaims>` 항목에서 이 요소를 추가합니다.
-```XML
-<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
-```
-ACR의 경우 Key="AuthenticationContextReferenceClaimPattern"인 `<Item>`을 제거합니다.
-
-**주체(sub) 클레임** - 이 옵션은 기본적으로 ObjectID입니다. 이 값을 `Not Supported`로 전환하려면 다음을 수행합니다.
-
-다음 줄을 
-```XML
-<OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
-```
-다음 줄로 바꿉니다.
-```XML
-<OutputClaim ClaimTypeReferenceId="sub" />
-```
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+    ```
+    
+    다음 줄로 바꿉니다.
+    
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="sub" />
+    ```
 
 ## <a name="session-behavior-and-sso"></a>세션 동작 및 SSO
 
-세션 동작 및 SSO 구성을 변경하려면 `<RelyingParty>` 요소 내에 `<UserJourneyBehaviors>` 요소를 추가해야 합니다.  `<UserJourneyBehaviors>` 요소 바로 뒤에는 `<DefaultUserJourney>`가 나와야 합니다.  `<UserJourneyBehavors>` 요소 내부는 다음과 같아야 합니다.
+세션 동작 및 SSO 구성을 변경하려면 [RelyingParty](relyingparty.md) 요소 내에 **UserJourneyBehaviors** 요소를 추가합니다.  **UserJourneyBehaviors** 요소는 **DefaultUserJourney** 바로 뒤에 있어야 합니다. **UserJourneyBehavors** 요소 내부는 다음 예제와 같이 표시됩니다.
 
 ```XML
 <UserJourneyBehaviors>
@@ -86,8 +83,9 @@ ACR의 경우 Key="AuthenticationContextReferenceClaimPattern"인 `<Item>`을 �
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
-**SSO(Single Sign-On) 구성** - SSO(Single Sign-On) 구성을 변경하려면 `<SingleSignOn>` 값을 수정해야 합니다.  적용 가능한 값은 `Tenant`, `Application`, `Policy` 및 `Disabled`입니다. 
 
-**웹앱 세션 수명(분)** - 웹앱 세션 수명을 변경하려면 `<SessionExpiryInSeconds>` 요소의 값을 수정해야 합니다.  기본 제공 정책의 기본값은 86400초(1440분)입니다.
+위의 예제에서는 다음 값이 구성됩니다.
 
-**웹앱 세션 시간 제한** - 웹앱 세션 시간 제한을 변경하려면 `<SessionExpiryType>` 값을 수정해야 합니다.  적용 가능한 값은 `Absolute` 및 `Rolling`입니다.
+- **SSO(Single Sign-On)** - **SingleSignOn**을 사용하여 Single Sign-On이 구성됩니다. 적용 가능한 값은 `Tenant`, `Application`, `Policy` 및 `Suppressed`입니다. 
+- **웹앱 세션 수명(분)** - **SessionExpiryInSeconds** 요소를 사용하여 웹앱 세션 수명을 설정합니다. 기본값은 86400초(1440분)입니다.
+- **웹앱 세션 시간 제한** - **SessionExpiryType** 요소를 사용하여 웹앱 세션 시간 제한을 설정합니다. 적용 가능한 값은 `Absolute` 및 `Rolling`입니다.

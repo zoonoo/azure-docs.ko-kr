@@ -1,20 +1,21 @@
 ---
-title: 모델 테스트 및 다시 학습 - Custom Vision Service - Azure Cognitive Services | Microsoft Docs
+title: 모델 테스트 및 다시 학습 - Custom Vision Service
+titlesuffix: Azure Cognitive Services
 description: 이미지를 테스트하고 사용하여 모델을 다시 학습하는 방법을 알아봅니다.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 1933b1a45844ac99308baebe59b49687a957abfa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5830257cf246e059cbccb654462f709df981e06b
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375270"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367953"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Custom Vision Service를 사용하여 모델 테스트 및 다시 학습
 

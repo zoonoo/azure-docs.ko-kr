@@ -1,25 +1,26 @@
 ---
-title: Microsoft QnA Maker API(v4)용 Java 빠른 시작 - Azure Cognitive Services | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Text API를 사용하여 신속하게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: REST API(V4) - Java - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Text API를 사용하여 신속하게 시작할 수 있는 Java REST 기반 정보와 코드 샘플을 가져옵니다.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 36d8e5a1d9f86da94fbdbe4ff01e93ba32ce6af6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.date: 10/19/2018
+ms.author: diberry
+ms.openlocfilehash: 70fa8c5af4f00500c39ce3832e182a5532721799
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301464"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419710"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Microsoft QnA Maker API와 Java의 빠른 시작 
+# <a name="qna-maker-rest-api-with-java"></a>Java에서 QnA Maker REST API 사용 
 <a name="HOLTop"></a>
 
-이 문서에서는 Java에서 [Microsoft QnA Maker API](../Overview/overview.md)를 사용하여 다음을 수행하는 방법을 보여 줍니다.
+이 문서에서는 Java에서 [Microsoft QnA Maker API](../Overview/overview.md) 를 사용하여 다음을 수행하는 방법을 보여줍니다.
 
 - [새 기술 자료 만들기](#Create)
 - [기존 기술 자료 업데이트](#Update)
@@ -31,14 +32,16 @@ ms.locfileid: "36301464"
 - [기술 자료에 대한 정보 가져오기](#GetKB)
 - [지정된 사용자에게 속하는 모든 기술 자료에 대한 정보 가져오기](#GetKBsByUser)
 - [기술 자료 삭제](#Delete)
-- [현재 끝점 키 가져오기](#GetKeys)
-- [현재 끝점 키 다시 생성](#PutKeys)
+- [현재 엔드포인트 키 가져오기](#GetKeys)
+- [현재 엔드포인트 키 다시 생성](#PutKeys)
 - [현재 단어 변경 집합 가져오기](#GetAlterations)
 - [현재 단어 변경 집합 바꾸기](#PutAlterations)
 
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
-코드를 컴파일 및 실행하려면 [JDK 7 또는 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 필요합니다. 즐겨찾기가 있는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기로 충분합니다.
+이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks)이 필요합니다. 즐겨찾기가 있는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기로 충분합니다.
 
 **Microsoft QnA Maker API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. [Azure 대시보드](https://portal.azure.com/#create/Microsoft.CognitiveServices)의 유료 구독 키가 필요합니다.
 
@@ -50,7 +53,7 @@ ms.locfileid: "36301464"
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```java
@@ -221,7 +224,8 @@ public class CreateKB {
 
         kb.qnaList = new Question[]{q};
 
-        kb.urls = new String[]{"https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"};
+        kb.urls = new String[]{"https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"};
+
 
         return kb;
     }
@@ -261,7 +265,7 @@ public class CreateKB {
 
 **기술 자료 만들기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -300,7 +304,7 @@ public class CreateKB {
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```java
@@ -328,7 +332,7 @@ import com.google.gson.reflect.TypeToken;
 
 // Java does not natively support HTTP PATCH requests, so Apache HttpClient is required.
 /*
- * HttpClient: http://hc.apache.org/downloads.cgi
+ * HttpClient: https://hc.apache.org/downloads.cgi
  * Maven info:
  *    <dependency>
  *      <groupId>org.apache.httpcomponents</groupId>
@@ -455,13 +459,13 @@ public class UpdateKB {
         HttpPatch patch = new HttpPatch(url.toString());
         // HttpPatch implements HttpMessage, which includes addHeader. See:
         // https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPatch.html
-        // http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
+        // https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
         patch.addHeader("Content-Type", "application/json");
         // Note: Adding the Content-Length header causes the exception:
         // "Content-Length header already present."
         patch.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
         // HttpPatch implements HttpEntityEnclosingRequest, which includes setEntity. See:
-        // http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
+        // https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
         HttpEntity entity = new ByteArrayEntity(content.getBytes("UTF-8"));
         patch.setEntity(entity);
 
@@ -471,8 +475,8 @@ public class UpdateKB {
         // CloseableHttpResponse implements HttpMessage, which includes getAllHeaders. See:
         // https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/CloseableHttpResponse.html
         // Header implements NameValuePair. See:
-        // http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
-        // http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
+        // https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
+        // https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
         Map<String, List<String>> headers = new HashMap<String, List<String>>();
         for (Header header : response.getAllHeaders()) {
             List<String> list = new ArrayList<String>() {
@@ -484,9 +488,9 @@ public class UpdateKB {
         }
 
         // CloseableHttpResponse implements HttpResponse, which includes getEntity. See:
-        // http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
+        // https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
         // HttpEntity implements getContent, which returns an InputStream. See:
-        // http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
+        // https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
         StringBuilder output = new StringBuilder ();
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
         String line;
@@ -530,7 +534,8 @@ public class UpdateKB {
 
         req.add = new Add ();
         req.add.qnaList = new Question[]{q};
-        req.add.urls = new String[]{"https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"};
+        req.add.urls = new String[]{"https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"};
+
 
         return req;
     }
@@ -570,7 +575,7 @@ public class UpdateKB {
 
 **기술 자료 업데이트 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -610,7 +615,7 @@ Press any key to continue.
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```java
@@ -721,7 +726,7 @@ public class PublishKB {
 
 **기술 자료 게시 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -739,7 +744,7 @@ public class PublishKB {
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```java
@@ -891,7 +896,7 @@ public class ReplaceKB {
 
 **기술 자료 바꾸기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -909,7 +914,7 @@ public class ReplaceKB {
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```java
@@ -1010,7 +1015,7 @@ public class GetQnA {
 
 **기술 자료 다운로드 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1032,7 +1037,7 @@ public class GetQnA {
     {
       "id": 2,
       "answer": "QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.",
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "questions": [
         "Who is the target audience for the QnA Maker tool?"
       ],
@@ -1054,7 +1059,7 @@ public class GetQnA {
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
 1. `host` 값을 QnA Maker 구독에 대한 웹 사이트 이름으로 바꿉니다. 자세한 내용은 [QnA Maker 서비스 만들기](../How-To/set-up-qnamaker-service-azure.md)를 참조하세요.
-1. `endpoint_key` 값을 구독에 대해 유효한 끝점 키로 바꿉니다. 이 키는 구독 키와 동일하지 않습니다. [Get endpoint keys](#GetKeys) 메서드를 사용하여 끝점 키를 가져올 수 있습니다.
+1. `endpoint_key` 값을 구독에 대해 유효한 엔드포인트 키로 바꿉니다. 이 키는 구독 키와 동일하지 않습니다. [Get endpoint keys](#GetKeys) 메서드를 사용하여 엔드포인트 키를 가져올 수 있습니다.
 1. `kb` 값을 답변을 쿼리하려는 기술 자료의 ID로 바꿉니다. 이 기술 자료는 [Publish](#Publish) 메서드를 사용하여 이미 게시했어야 합니다.
 1. 프로그램을 실행합니다.
 
@@ -1166,7 +1171,7 @@ public class GetAnswers {
 
 **답변 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1178,7 +1183,7 @@ public class GetAnswers {
       "answer": "Yes. However, shadow copies made prior to enabling BitLocker will be automatically deleted when BitLocker is enabled on software-encrypted drives. If you are using a hardware encrypted drive, the shadow copies are retained.",
       "score": 17.3,
       "id": 62,
-      "source": "https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
+      "source": "https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
       "metadata": []
     },
 ...
@@ -1196,7 +1201,7 @@ public class GetAnswers {
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```java
@@ -1293,7 +1298,7 @@ public class GetKB {
 
 **기술 자료 세부 정보 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1304,8 +1309,8 @@ public class GetKB {
   "name": "QnA Maker FAQ",
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
     "Custom Editorial"
@@ -1323,7 +1328,7 @@ public class GetKB {
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```java
@@ -1417,7 +1422,7 @@ public class GetKBsByUser {
 
 **사용자에 대한 기술 자료 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1440,8 +1445,8 @@ public class GetKBsByUser {
       "name": "QnA Maker FAQ",
       "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
       "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
       ],
       "sources": [
         "Custom Editorial"
@@ -1463,7 +1468,7 @@ Press any key to continue.
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```java
@@ -1566,7 +1571,7 @@ public class DeleteKB {
 
 **기술 자료 삭제 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1578,13 +1583,13 @@ public class DeleteKB {
 
 <a name="GetKeys"></a>
 
-## <a name="get-endpoint-keys"></a>끝점 키 가져오기
+## <a name="get-endpoint-keys"></a>엔드포인트 키 가져오기
 
-다음 코드에서는 [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) 메서드를 사용하여 현재 끝점 키를 가져옵니다.
+다음 코드에서는 [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) 메서드를 사용하여 현재 엔드포인트 키를 가져옵니다.
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```java
@@ -1676,9 +1681,9 @@ public class GetEndpointKeys {
 }
 ```
 
-**끝점 키 가져오기 응답**
+**엔드포인트 키 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1691,13 +1696,13 @@ public class GetEndpointKeys {
 
 <a name="PutKeys"></a>
 
-## <a name="refresh-endpoint-keys"></a>끝점 키 새로 고침
+## <a name="refresh-endpoint-keys"></a>엔드포인트 키 새로 고침
 
-다음 코드에서는 [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) 메서드를 사용하여 현재 끝점 키를 다시 생성합니다.
+다음 코드에서는 [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) 메서드를 사용하여 현재 엔드포인트 키를 다시 생성합니다.
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```java
@@ -1725,7 +1730,7 @@ import com.google.gson.reflect.TypeToken;
 
 // Java does not natively support HTTP PATCH requests, so Apache HttpClient is required.
 /*
- * HttpClient: http://hc.apache.org/downloads.cgi
+ * HttpClient: https://hc.apache.org/downloads.cgi
  * Maven info:
  *    <dependency>
  *      <groupId>org.apache.httpcomponents</groupId>
@@ -1778,13 +1783,13 @@ public class RefreshKeys {
         HttpPatch patch = new HttpPatch(url.toString());
         // HttpPatch implements HttpMessage, which includes addHeader. See:
         // https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPatch.html
-        // http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
+        // https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
         patch.addHeader("Content-Type", "application/json");
         // Note: Adding the Content-Length header causes the exception:
         // "Content-Length header already present."
         patch.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
         // HttpPatch implements HttpEntityEnclosingRequest, which includes setEntity. See:
-        // http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
+        // https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
         HttpEntity entity = new ByteArrayEntity(content.getBytes("UTF-8"));
         patch.setEntity(entity);
 
@@ -1794,8 +1799,8 @@ public class RefreshKeys {
         // CloseableHttpResponse implements HttpMessage, which includes getAllHeaders. See:
         // https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/CloseableHttpResponse.html
         // Header implements NameValuePair. See:
-        // http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
-        // http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
+        // https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
+        // https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
         Map<String, List<String>> headers = new HashMap<String, List<String>>();
         for (Header header : response.getAllHeaders()) {
             List<String> list = new ArrayList<String>() {
@@ -1807,9 +1812,9 @@ public class RefreshKeys {
         }
 
         // CloseableHttpResponse implements HttpResponse, which includes getEntity. See:
-        // http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
+        // https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
         // HttpEntity implements getContent, which returns an InputStream. See:
-        // http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
+        // https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
         StringBuilder output = new StringBuilder ();
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
         String line;
@@ -1840,9 +1845,9 @@ public class RefreshKeys {
 }
 ```
 
-**끝점 키 새로 고침 응답**
+**엔드포인트 키 새로 고침 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1861,7 +1866,7 @@ public class RefreshKeys {
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```java
@@ -1955,7 +1960,7 @@ public class GetAlterations {
 
 **단어 변경 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1980,7 +1985,7 @@ public class GetAlterations {
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```java
@@ -2112,7 +2117,7 @@ public class PutAlterations {
 
 **단어 변경 바꾸기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {

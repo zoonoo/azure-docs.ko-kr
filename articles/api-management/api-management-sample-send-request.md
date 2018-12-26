@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: d7c32e5ae02e294ee88c19f058e04249c7c9969e
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29714674"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970181"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management 서비스에서 외부 서비스 사용
 Azure API Management 서비스에서 사용할 수 있는 정책은 순수하게 들어오는 요청, 보내는 응답 및 기본 구성 정보에 기반하여 다양한 범위의 유용한 작업을 수행할 수 있습니다. 그러나 API Management 정책에서 외부 서비스와 상호 작용할 수 있으면 더 많은 기회를 얻게 됩니다.
@@ -68,13 +68,13 @@ Slack에는 인바운드 웹 후크가 있습니다. 인바운드 웹 후크를 
 `send-request` 정책을 사용하면 복잡한 처리 기능을 수행하는 외부 서비스를 사용할 수 있고 이후 정책 처리에 사용할 수 있는 API 관리 서비스에 데이터를 반환할 수 있습니다.
 
 ### <a name="authorizing-reference-tokens"></a>참조 토큰 권한 부여
-API Management의 주요 기능은 백 엔드 리소스를 보호하는 것입니다. API에서 사용하는 권한 부여 서버가 [Azure Active Directory](../active-directory/active-directory-aadconnect.md)처럼 [JWT 토큰](http://jwt.io/)을 해당 OAuth2 흐름의 일부로 만드는 경우 `validate-jwt` 정책을 사용하여 토큰의 유효성을 확인할 수 있습니다. 일부 권한 부여 서버는 권한 부여 서버에 다시 호출하지 않으면 확인할 수 없는 [참조 토큰](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/)이라는 것을 만듭니다.
+API Management의 주요 기능은 백 엔드 리소스를 보호하는 것입니다. API에서 사용하는 권한 부여 서버가 [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md)처럼 [JWT 토큰](https://jwt.io/)을 해당 OAuth2 흐름의 일부로 만드는 경우 `validate-jwt` 정책을 사용하여 토큰의 유효성을 확인할 수 있습니다. 일부 권한 부여 서버는 권한 부여 서버에 다시 호출하지 않으면 확인할 수 없는 [참조 토큰](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/)이라는 것을 만듭니다.
 
 ### <a name="standardized-introspection"></a>표준화된 검사
 과거에는 권한 부여 서버를 사용하여 참조 토큰을 확인하는 표준화된 방법이 없었습니다. 그러나 최근에 제안된 표준 [RFC 7662](https://tools.ietf.org/html/rfc7662) 는 리소스 서버가 토큰의 유효성을 검사하는 방법을 정의하는 IETF에서 게시되었습니다.
 
 ### <a name="extracting-the-token"></a>토큰 추출
-첫 번째 단계는 권한 부여 헤더에서 토큰을 추출하는 작업입니다. 헤더 값은 `Bearer` 권한 부여 체계, 공백 및 권한 부여 토큰을 [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1)단위로 형식이 지정되어야 합니다. 하지만 권한 부여 체계를 생략하는 경우가 있습니다. 구문 분석할 때 이를 세려면 API Management는 헤더 값을 공간에 분할하고 반환된 문자열 배열에서 마지막 문자열을 선택합니다. 잘못된 형식의 권한 부여 헤더에 대한 해결 방법을 제공합니다.
+첫 번째 단계는 권한 부여 헤더에서 토큰을 추출하는 작업입니다. 헤더 값은 `Bearer` 권한 부여 체계, 공백 및 권한 부여 토큰을 [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1)단위로 형식이 지정되어야 합니다. 하지만 권한 부여 체계를 생략하는 경우가 있습니다. 구문 분석할 때 이를 세려면 API Management는 헤더 값을 공간에 분할하고 반환된 문자열 배열에서 마지막 문자열을 선택합니다. 잘못된 형식의 권한 부여 헤더에 대한 해결 방법을 제공합니다.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
@@ -118,7 +118,7 @@ API Management에 권한 부여 토큰이 있다면 API Management는 토큰의 
 </choose>
 ```
 
-또한 `bearer` 토큰을 사용해야 하는 방법을 설명하는 [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3)대로 API Management는 401 응답을 사용하여 `WWW-Authenticate` 헤더를 반환합니다. WWW 인증은 클라이언트에게 적절한 권한이 있는 요청을 생성하는 방법을 지시하는 데 사용됩니다. OAuth2 프레임워크에 다양한 접근 방법이 가능하기 때문에 필요한 모든 정보를 통신하기가 어렵습니다. 다행스럽게도 [클라이언트가 리소스 서버에 대한 요청 권한을 제대로 부여하는 방법을 검색](http://tools.ietf.org/html/draft-jones-oauth-discovery-00)하도록 노력하고 있습니다.
+또한 `bearer` 토큰을 사용해야 하는 방법을 설명하는 [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3)대로 API Management는 401 응답을 사용하여 `WWW-Authenticate` 헤더를 반환합니다. WWW 인증은 클라이언트에게 적절한 권한이 있는 요청을 생성하는 방법을 지시하는 데 사용됩니다. OAuth2 프레임워크에 다양한 접근 방법이 가능하기 때문에 필요한 모든 정보를 통신하기가 어렵습니다. 다행스럽게도 [클라이언트가 리소스 서버에 대한 요청 권한을 제대로 부여하는 방법을 검색](https://tools.ietf.org/html/draft-jones-oauth-discovery-00)하도록 노력하고 있습니다.
 
 ### <a name="final-solution"></a>최종 솔루션
 마지막으로 다음 정책을 얻을 수 있습니다.
@@ -157,7 +157,7 @@ API Management에 권한 부여 토큰이 있다면 API Management는 토큰의 
 </inbound>
 ```
 
-정책이 API Management 서비스를 통해 `send-request` 흐르는 요청 및 응답 프로세스에 유용한 외부 서비스를 통합하는 데 사용할 수 있는 방법에 대한 여러 가지 방법 중 하나입니다.
+`send-request` 정책이 API Management 서비스를 통해 흐르는 요청 및 응답 프로세스에 유용한 외부 서비스를 통합하는 데 사용할 수 있는 방법에 대한 여러 가지 방법 중 하나입니다.
 
 ## <a name="response-composition"></a>응답 컴퍼지션
 이전 예제에서 살펴본 대로 `send-request` 정책은 백 엔드 시스템에 대한 기본 요청을 개선하기 위해 사용되거나 백 엔드 호출의 전체 바꾸기로 사용될 수 있습니다. 이 기술을 사용하여 여러 다른 시스템에서 집계되는 복합 리소스를 쉽게 만들 수 있습니다.

@@ -14,18 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 129364c4ee5924413ed0bccb81d53b905f13d208
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b1166c34f1a0ce3f3e9be932eb6d7fb9d76389ec
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782722"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665760"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용할 때 온-프레미스 인코더를 구성하여 다중 비트 전송률 스트림을 만드는 방법
 이 토픽에서는 추가 처리를 위해 라이브 이벤트를 캡처하고 단일 비트 전송률 라이브 스트림을 AMS 채널(라이브 인코딩 사용)로 보내는 데 사용할 수 있는 온-프레미스 라이브 인코더를 나열합니다. 또한 나열된 인코더의 구성 방법을 보여 주는 자습서에 연결합니다.
-
-## <a name="elemental-live"></a>Elemental Live
-단일 비트 전송률 라이브 스트림을 AMS 채널로 전송하도록 [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) 인코더를 구성하는 방법에 대한 정보는 [Elemental Live 구성](media-services-configure-elemental-live-encoder.md)을 참조하세요.
 
 ## <a name="flash-media-live-encoder"></a>Flash Media Live Encoder
 단일 비트 전송률 라이브 스트림을 AMS 채널로 전송하도록 FMLE([Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html)) 인코더를 구성하는 방법에 대한 정보는 [FMLE 구성](media-services-configure-fmle-live-encoder.md)을 참조하세요.
@@ -38,6 +35,9 @@ ms.locfileid: "33782722"
 
 ## <a name="newtek-tricaster"></a>NewTek TriCaster
 단일 비트 전송률 라이브 스트림을 AMS 채널로 전송하도록 [Tricaster](http://newtek.com/products/tricaster-40.html) 인코더를 구성하는 방법에 대한 정보는 [Tricaster 구성](media-services-configure-tricaster-live-encoder.md)을 참조하세요.
+
+## <a name="elemental-live"></a>Elemental Live
+자세한 내용은 [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live)를 참조하세요.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

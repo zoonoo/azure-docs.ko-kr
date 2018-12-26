@@ -1,110 +1,149 @@
 ---
-title: 호출 및 응답 - Azure Cognitive Services용 Node.js 빠른 시작, Bing Web Search API | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Bing Web Search API를 사용하여 신속하게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: Node.js를 사용하여 웹 검색 수행 - Bing Web Search REST API'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작을 사용하여 Node.js를 통해 Bing Web Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: a47dfaa48acb5b4a8ffc9b9f8da98f42e7729399
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: quickstart
+ms.date: 9/26/2018
+ms.author: aahi
+ms.custom: seodec2018
+ms.openlocfilehash: 3d8b323a316dcef10a0d7beb5d1d2dd122b0e2ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374103"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255587"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-for-nodejs"></a>호출 및 응답: Node.js에 대한 첫 번째 Bing Web Search 쿼리
+# <a name="search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Bing Web Search REST API 및 Node.js를 사용하여 웹 검색
 
-Bing Web Search API는 사용자의 쿼리와 관련있다고 Bing이 확인하는 검색 결과를 반환하여 Bing.com/Search와 유사한 환경을 제공합니다. 결과에는 웹 페이지, 이미지, 비디오, 뉴스 및 엔터티와 함께 관련 검색 쿼리, 맞춤법 수정, 표준 시간대, 단위 변환, 번역 및 계산이 포함될 수 있습니다. 사용자가 얻는 결과의 종류는 사용자가 구독한 Bing Search API의 계층과 관련성에 따릅니다.
+이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 10분 내에 JSON 응답을 받습니다.
 
-이 문서에는 Bing Web Search API 쿼리를 수행하고 JSON 형식의 반환된 원시 검색 결과를 표시하는 간단한 콘솔 응용 프로그램이 포함됩니다. 이 응용 프로그램이 JavaScript에서 작성되고 Node.js에서 실행되는 반면 API는 RESTful 웹 서비스로서 HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
-이 코드를 실행하려면 [Node.js 6](https://nodejs.org/en/download/)가 필요합니다.
+* [Node.js 6](https://nodejs.org/en/download/) 이상
+* 구독 키
 
-**Bing Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
+## <a name="create-a-project-and-declare-required-modules"></a>프로젝트 만들기 및 필요한 모듈 선언
 
-## <a name="running-the-application"></a>응용 프로그램 실행
-
-응용 프로그램을 실행하려면 다음 단계를 따릅니다.
-
-1. 즐겨 찾는 IDE 또는 편집기에서 새 Node.js 프로젝트를 만듭니다.
-2. 제공된 코드를 추가합니다.
-3. `subscriptionKey` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
-4. 프로그램을 실행합니다.
+즐겨 찾는 IDE 또는 편집기에서 새 Node.js 프로젝트를 만듭니다.
+그런 다음, 아래 코드 조각을 `search.js`라는 파일의 프로젝트에 복사합니다.
 
 ```javascript
-'use strict';
-
-let https = require('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'enter key here';
-
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this host against
-// the endpoint for your Bing Web search instance in your Azure dashboard.
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/search';
-
-let term = 'Microsoft Cognitive Services';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
-    response.on('end', function () {
-        console.log('\nRelevant Headers:\n');
-        for (var header in response.headers)
-            // header keys are lower-cased by Node.js
-            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                 console.log(header + ": " + response.headers[header]);
-        body = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log('\nJSON Response:\n');
-        console.log(body);
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
-
-let bing_web_search = function (search) {
-  console.log('Searching the Web for: ' + term);
-  let request_params = {
-        method : 'GET',
-        hostname : host,
-        path : path + '?q=' + encodeURIComponent(search),
-        headers : {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
-
-    let req = https.request(request_params, response_handler);
-    req.end();
-}
-
-if (subscriptionKey.length === 32) {
-    bing_web_search(term);
-} else {
-    console.log('Invalid Bing Search API subscription key!');
-    console.log('Please paste yours into the source code.');
-}
-
+// Use this simple app to query the Bing Web Search API and get a JSON response.
+// Usage: node search.js "your query".
+const https = require('https')
 ```
 
-## <a name="json-response"></a>JSON 응답
+## <a name="set-the-subscription-key"></a>구독 키 설정
 
-샘플 응답은 다음과 같습니다. JSON의 길이를 제한하기 위해 단일 결과만 표시하고 응답의 다른 부분은 잘라냈습니다. 
+이 코드 조각은 `AZURE_SUBSCRIPTION_KEY` 환경 변수를 사용하여 구독 키를 저장하고, 코드를 배포할 때 실수로 인한 키의 노출을 방지하도록 모범 사례를 사용합니다. [여기를 클릭](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7)하여 구독 키를 조회합니다.
+
+환경 변수 사용에 익숙하지 않거나 이 앱을 가능한 빨리 실행하려는 경우 `process.env['AZURE_SUBSCRIPTION_KEY']`를 문자열로 설정한 구독 키로 바꿀 수 있습니다.
+
+```javascript
+const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
+if (!SUBSCRIPTION_KEY) {
+  throw new Error('AZURE_SUBSCRIPTION_KEY is not set.')
+}
+```
+
+## <a name="create-a-function-to-make-the-request"></a>요청을 만드는 함수 만들기
+
+이 함수는 보안 GET 요청을 만들어 검색 쿼리를 경로에 쿼리 매개 변수로 저장합니다. `encodeURIComponent`는 잘못된 문자를 이스케이프하는 데 사용되고, 구독 키는 헤더에 전달됩니다. 콜백은 `data` 이벤트를 구독하여 JSON 본문을 집계하는 [응답](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse), 모든 문제를 기록하는 `error` 이벤트 및 메시지를 완료로 간주해야 하는 시기를 알 수 있는 `end` 이벤트를 수신합니다. 완료되면 앱은 흥미로운 헤더 및 메시지 본문을 인쇄합니다. 색을 사용하여 재생하고 기본 설정에 맞도록 깊이를 설정할 수 있으며, `1`의 깊이는 응답의 유용한 요약을 제공합니다.
+
+```javascript
+function bingWebSearch(query) {
+  https.get({
+    hostname: 'api.cognitive.microsoft.com',
+    path:     '/bing/v7.0/search?q=' + encodeURIComponent(query),
+    headers:  { 'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY },
+  }, res => {
+    let body = ''
+    res.on('data', part => body += part)
+    res.on('end', () => {
+      for (var header in res.headers) {
+        if (header.startsWith("bingapis-") || header.startsWith("x-msedge-")) {
+          console.log(header + ": " + res.headers[header])
+        }
+      }
+      console.log('\nJSON Response:\n')
+      console.dir(JSON.parse(body), { colors: false, depth: null })
+    })
+    res.on('error', e => {
+      console.log('Error: ' + e.message)
+      throw e
+    })
+  })
+}
+```
+
+## <a name="get-the-query"></a>쿼리 가져오기
+
+쿼리를 찾기 위해 프로그램의 인수를 살펴보겠습니다. 첫 번째 인수는 노드에 대한 경로이고, 두 번째는 파일 이름이며, 세 번째는 쿼리입니다. 쿼리가 없는 경우 "Microsoft Cognitive Services"의 기본 쿼리가 사용됩니다.
+
+```javascript
+const query = process.argv[2] || 'Microsoft Cognitive Services'
+```
+
+## <a name="make-a-request-and-print-the-response"></a>요청 및 응답 출력
+
+이제 모두 정의되었으므로 함수를 호출해 보겠습니다!
+
+```javascript
+bingWebSearch(query)
+```
+
+## <a name="put-it-all-together"></a>모든 요소 결합
+
+마지막 단계는 코드를 실행하는 것입니다. `node search.js "<your query>"`
+
+자신의 코드와 비교하려면 여기에 있는 완전한 프로그램을 사용하세요.
+
+```javascript
+const https = require('https')
+const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
+if (!SUBSCRIPTION_KEY) {
+  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment varable')
+}
+function bingWebSearch(query) {
+  https.get({
+    hostname: 'api.cognitive.microsoft.com',
+    path:     '/bing/v7.0/search?q=' + encodeURIComponent(query),
+    headers:  { 'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY },
+  }, res => {
+    let body = ''
+    res.on('data', part => body += part)
+    res.on('end', () => {
+      for (var header in res.headers) {
+        if (header.startsWith("bingapis-") || header.startsWith("x-msedge-")) {
+          console.log(header + ": " + res.headers[header])
+        }
+      }
+      console.log('\nJSON Response:\n')
+      console.dir(JSON.parse(body), { colors: false, depth: null })
+    })
+    res.on('error', e => {
+      console.log('Error: ' + e.message)
+      throw e
+    })
+  })
+}
+const query = process.argv[2] || 'Microsoft Cognitive Services'
+bingWebSearch(query)
+```
+
+## <a name="sample-response"></a>샘플 응답
+
+Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 단일 결과를 표시하도록 잘렸습니다.
 
 ```json
 {
@@ -140,7 +179,7 @@ if (subscriptionKey.length === 32) {
           },
           {
             "name": "Emotion",
-            "url": "https://www.microsoft.com/cognitive-services/en-us/emotion-api",
+            "url": "https://www.microsoft.com/cognitive-services/emotion-api",
             "snippet": "Cognitive Services Emotion API - microsoft.com"
           },
           {
@@ -233,9 +272,4 @@ if (subscriptionKey.length === 32) {
 > [!div class="nextstepaction"]
 > [Bing Web Search 단일 페이지 앱 자습서](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>참고 항목 
-
-[Bing Web Search 개요](../overview.md)  
-[사용해 보세요](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[평가판 액세스 키 받기](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Bing Web Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

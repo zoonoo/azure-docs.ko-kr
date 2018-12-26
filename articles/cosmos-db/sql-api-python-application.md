@@ -1,10 +1,9 @@
 ---
-title: Azure Cosmos DB의 Python Flask 웹 응용 프로그램 자습서 | Microsoft Docs
+title: Azure Cosmos DB의 Python Flask 웹 애플리케이션 자습서
 description: Azure Cosmos DB를 사용하여 Azure에 호스트된 Python Flask 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법에 대한 데이터베이스 자습서를 검토합니다. 응용 프로그램 개발 솔루션을 찾습니다.
 keywords: 응용 프로그램 개발, Python flask, Python 웹 응용 프로그램, Python 웹 개발
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
@@ -12,20 +11,21 @@ ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a1a6ef61934c765eced259ddc535c018acf52fb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a2c7b7c5dc68bb96e0b54dc89f2c170cdb20c792
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38629053"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081917"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Python Flask 웹 응용 프로그램 빌드
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.JS](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 이 자습서에서는 Azure Cosmos DB를 사용하여 Azure App Service에서 호스트하는 Python Flask 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 자습서에서는 이전에 Python 및 Azure 웹 사이트를 사용해 본 경험이 있다고 가정합니다.
@@ -34,8 +34,8 @@ ms.locfileid: "38629053"
 
 1. Azure Cosmos DB 계정 만들기 및 프로비전
 2. Python Flask 응용 프로그램 만들기
-3. 웹 응용 프로그램에서 Azure Cosmos DB 연결 및 사용
-4. Azure App Service에 웹 응용 프로그램 배포
+3. 웹 애플리케이션에서 Azure Cosmos DB 연결 및 사용
+4. Azure App Service에 웹 애플리케이션 배포
 
 이 자습서를 따르면 설문 조사에 투표할 수 있는 간단한 투표 응용 프로그램을 빌드합니다.
 
@@ -62,14 +62,14 @@ ms.locfileid: "38629053"
 * [Microsoft Visual C++ Compiler for Python 2.7](https://www.microsoft.com/en-us/download/details.aspx?id=44266)
 
 ## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>1단계: Azure Cosmos DB 데이터베이스 계정 만들기
-Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거나 이 자습서에 Azure Cosmos DB 에뮬레이터를 사용하고 있는 경우 [2단계: 새 Python Flask 웹 응용 프로그램 만들기](#step-2-create-a-new-python-flask-web-application)로 건너뛸 수 있습니다.
+Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거나 이 자습서에 Azure Cosmos DB 에뮬레이터를 사용하고 있는 경우 [2단계: 새 Python Flask 웹 애플리케이션 만들기](#step-2-create-a-new-python-flask-web-application)로 건너뛸 수 있습니다.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <br/>
-이제 새 Python Flask 웹 응용 프로그램을 처음부터 만드는 방법을 살펴봅니다.
+이제 새 Python Flask 웹 애플리케이션을 처음부터 만드는 방법을 살펴봅니다.
 
-## <a name="step-2-create-a-new-python-flask-web-application"></a>2단계: 새 Python Flask 웹 응용 프로그램 만들기
+## <a name="step-2-create-a-new-python-flask-web-application"></a>2단계: 새 Python Flask 웹 애플리케이션 만들기
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 가리킨 후 **프로젝트**를 클릭합니다.
    
     **새 프로젝트** 대화 상자가 나타납니다.
@@ -88,7 +88,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
    
     환경이 성공적으로 설치될 때 출력 창은 `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.` 을 표시합니다.
 
-## <a name="step-3-modify-the-python-flask-web-application"></a>3단계: Python Flask 웹 응용 프로그램 수정
+## <a name="step-3-modify-the-python-flask-web-application"></a>3단계: Python Flask 웹 애플리케이션 수정
 ### <a name="add-the-python-flask-packages-to-your-project"></a>프로젝트에 Python Flask 패키지 추가
 프로젝트가 설정된 후 프로젝트에 Azure Cosmos DB SQL API용 Python 패키지인 pydocumentdb를 포함한 필수 Flask 패키지를 추가해야 합니다.
 
@@ -135,7 +135,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 2. 다음 코드를 forms.py 파일에 추가한 다음 파일을 저장합니다.
 
 ```python
-from flask.ext.wtf import Form
+from flask_wtf import Form
 from wtforms import RadioField
 
 class VoteForm(Form):
@@ -349,7 +349,7 @@ def vote():
    
     ![Visual Studio 솔루션 탐색기 창의 스크린샷](./media/sql-api-python-application/cosmos-db-python-solution-explorer.png)
 
-## <a name="step-4-run-your-web-application-locally"></a>4단계: 로컬에서 웹 응용 프로그램 실행
+## <a name="step-4-run-your-web-application-locally"></a>4단계: 로컬에서 웹 애플리케이션 실행
 1. **Ctrl**+**Shift**+**B**를 눌러 솔루션을 빌드합니다.
 2. 빌드가 성공하면 **F5**키를 눌러 웹 사이트를 시작합니다. 스크린에 다음이 표시되어야 합니다.
    
@@ -365,8 +365,8 @@ def vote():
     ![표시된 투표 페이지의 결과 스크린샷](./media/sql-api-python-application/cosmos-db-voting-results.png)
 6. Shift+F5를 눌러 프로젝트의 디버깅을 중지합니다.
 
-## <a name="step-5-deploy-the-web-application-to-azure"></a>5단계: Azure에 웹 응용 프로그램 배포
-이제 Azure Cosmos DB에 대해 로컬로 올바르게 작동하는 응용 프로그램을 완료했으므로 이제 web.config 파일을 만들고, 서버에서 파일을 로컬 환경에 맞게 업데이트한 다음 Azure에서 완성된 앱을 확인합니다. 이 절차는 Visual Studio 2017에 특정합니다. 다른 버전의 Visual Studio를 사용하는 경우 [Azure App Service에 게시](/visualstudio/python/publishing-to-azure)를 참조하세요.
+## <a name="step-5-deploy-the-web-application-to-azure"></a>5단계: Azure에 웹 애플리케이션 배포
+이제 Azure Cosmos DB에 대해 로컬로 올바르게 작동하는 애플리케이션을 완료했으므로 web.config 파일을 만들고, 서버에서 파일을 로컬 환경에 맞게 업데이트한 다음, Azure에서 완성된 앱을 확인합니다. 이 절차는 Visual Studio 2017에 특정합니다. 다른 버전의 Visual Studio를 사용하는 경우 [Azure App Service에 게시](/visualstudio/python/publishing-to-azure)를 참조하세요.
 
 1. Visual Studio **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 > 새 항목...** 을 선택합니다. 나타나는 대화 상자에서 **Azure web.config (Fast CGI)** 템플릿을 선택하고 **확인**을 선택합니다. 그러면 프로젝트 루트에 `web.config` 파일이 생깁니다. 
 
@@ -430,10 +430,10 @@ def vote():
 투표 페이지에 오류가 발생하고 **자습서**가 아닌 다른 이름으로 프로젝트의 이름을 지정한 경우 **\_\_init\_\_.py**가 줄에서 올바른 프로젝트 이름을 참조하도록 합니다. `import tutorial.view`
 
 ## <a name="next-steps"></a>다음 단계
-축하합니다! Azure Cosmos DB를 사용하여 첫 Python 웹 응용 프로그램을 완성하고 Azure에 게시했습니다.
+축하합니다! Azure Cosmos DB를 사용하여 첫 Python 웹 애플리케이션을 완성하고 Azure에 게시했습니다.
 
 웹 응용 프로그램에 다른 기능을 추가하려면 [Azure Cosmos DB Python SDK](sql-api-sdk-python.md)에서 사용할 수 있는 API를 검토하세요.
 
 Azure, Visual Studio 및 Python에 대한 자세한 내용은 [Python 개발자 센터](https://azure.microsoft.com/develop/python/)를 참조하세요. 
 
-추가 Python Flask 자습서는 [Flask Mega-자습서 1부: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)를 참조하세요. 
+추가 Python Flask 자습서는 [Flask Mega-자습서 1부: Hello, World!](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)를 참조하세요. 

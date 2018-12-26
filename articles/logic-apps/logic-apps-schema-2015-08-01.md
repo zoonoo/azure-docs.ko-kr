@@ -1,26 +1,21 @@
 ---
-title: 2015년 8월 1일 스키마 업데이트 미리 보기 - Azure Logic Apps | Microsoft Docs
-description: 스키마 버전 2015-08-01-preview로 Azure Logic Apps에 대한 JSON 정의 만들기
-author: stepsic-microsoft-com
-manager: jeconnoc
-editor: ''
+title: 2015년 8월 1일 미리 보기의 스키마 업데이트 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps의 논리 앱 정의에 대한 2015-08-01-preview 스키마 버전 업데이트
 services: logic-apps
-documentationcenter: ''
-ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.suite: integration
+author: stepsic-microsoft-com
+ms.author: stepsic
+ms.reviewer: klam, estfan, LADocs
+ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
-ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
-ms.author: stepsic; LADocs
-ms.openlocfilehash: 736a7cf03c7fe1e9fe976c3bcc80393bff2bada5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: dd05543c2a727f010432ecb54c2dc3e77a245de4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299871"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122780"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure Logic Apps에 대한 스키마 업데이트 - 2015년 8월 1일 미리 보기
 
@@ -199,7 +194,7 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
 
 ### <a name="your-custom-web-apis"></a>사용자 지정 Web API
 
-사용자 고유의 API(Microsoft 관리 항목 아님)를 사용하는 경우 기본 제공 **HTTP** 작업을 사용하여 호출해야 합니다. 이상적인 환경을 위해서는 API에 대한 Swagger 끝점을 노출해야 합니다. 이 끝점에서는 논리 앱 디자이너가 API에 대한 입력 및 출력을 렌더링할 수 있습니다. Swagger가 없는 경우 디자이너는 입력 및 출력을 불투명 JSON 개체로 표시할 수 있게 됩니다.
+사용자 고유의 API(Microsoft 관리 항목 아님)를 사용하는 경우 기본 제공 **HTTP** 작업을 사용하여 호출해야 합니다. 이상적인 환경을 위해서는 API에 대한 Swagger 엔드포인트를 노출해야 합니다. 이 엔드포인트에서는 논리 앱 디자이너가 API에 대한 입력 및 출력을 렌더링할 수 있습니다. Swagger가 없는 경우 디자이너는 입력 및 출력을 불투명 JSON 개체로 표시할 수 있게 됩니다.
 
 다음은 새 `metadata.apiDefinitionUrl` 속성을 보여 주는 예입니다.
 
@@ -218,7 +213,7 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
 }
 ```
 
-Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이너에서 사용 가능한 작업 목록에 자동으로 표시됩니다. 그렇지 않으면 URL에 직접 붙여 넣어야 합니다. Swagger에서 지원하는 어떤 방법으로든 API 자체를 보호할 수 있지만 Swagger 끝점을 논리 앱 디자이너에서 사용할 수 있게 하려면 끝점을 인증하지 않아야 합니다.
+Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이너에서 사용 가능한 작업 목록에 자동으로 표시됩니다. 그렇지 않으면 URL에 직접 붙여 넣어야 합니다. Swagger에서 지원하는 어떤 방법으로든 API 자체를 보호할 수 있지만 Swagger 엔드포인트를 논리 앱 디자이너에서 사용할 수 있게 하려면 엔드포인트를 인증하지 않아야 합니다.
 
 ### <a name="call-deployed-api-apps-with-2015-08-01-preview"></a>2015-08-01-preview로 배포된 API 앱 호출
 
@@ -294,7 +289,7 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
 | 작업 속성 | 설명 |
 | --- | --- |
 | `type` | `Http`다음 위치 대신`APIapp` |
-| `metadata.apiDefinitionUrl` | 논리 앱 디자이너에서 이 작업을 사용하려는 경우 다음에서 생성되는 메타데이터 끝점을 포함합니다. `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
+| `metadata.apiDefinitionUrl` | 논리 앱 디자이너에서 이 작업을 사용하려는 경우 다음에서 생성되는 메타데이터 엔드포인트를 포함합니다. `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
 | `inputs.uri` | 생성된 위치: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` | 항상 `POST` |
 | `inputs.body` | API App 매개 변수와 동일 |
@@ -412,9 +407,9 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
 
 ## <a name="native-http-listener"></a>네이티브 HTTP 수신기
 
-이제 HTTP 수신기 기능이 기본 제공됩니다. 따라서 HTTP 수신기 API App을 더 이상 배포할 필요가 없습니다. [논리 앱 끝점을 호출 가능한 상태로 만드는 방법에 대한 자세한 내용은 여기](../logic-apps/logic-apps-http-endpoint.md)를 참조하세요. 
+이제 HTTP 수신기 기능이 기본 제공됩니다. 따라서 HTTP 수신기 API App을 더 이상 배포할 필요가 없습니다. [논리 앱 엔드포인트를 호출 가능한 상태로 만드는 방법에 대한 자세한 내용은 여기](../logic-apps/logic-apps-http-endpoint.md)를 참조하세요. 
 
-이러한 변경으로 함수 `@accessKeys()`가 제거되고 필요한 경우 끝점을 가져오기 위해 `@listCallbackURL()` 함수로 대체되었습니다. 또한 이제 논리 앱에서 트리거를 하나 이상 정의해야 합니다. 워크플로를 `/run`하려는 경우 `manual`, `apiConnectionWebhook` 또는 `httpWebhook` 트리거 중 하나를 포함해야 합니다.
+이러한 변경으로 함수 `@accessKeys()`가 제거되고 필요한 경우 엔드포인트를 가져오기 위해 `@listCallbackURL()` 함수로 대체되었습니다. 또한 이제 논리 앱에서 트리거를 하나 이상 정의해야 합니다. 워크플로를 `/run`하려는 경우 `manual`, `apiConnectionWebhook` 또는 `httpWebhook` 트리거 중 하나를 포함해야 합니다.
 
 <a name="child-workflows"></a>
 
@@ -448,7 +443,7 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
 
 두 번째 향상된 내용은 들어오는 요청에 대한 전체 액세스 권한을 하위 워크플로에 부여하는 것입니다. 따라서 *queries* 섹션 및 *headers* 개체에서 매개 변수를 전달할 수 있으며 전체 본문을 완전히 정의할 수 있습니다.
 
-마지막으로, 하위 워크플로에 필요한 변경 내용이 있습니다. 이전에는 하위 워크플로를 직접 호출할 수 있었지만 이제는 상위에서 호출할 워크플로에 트리거 끝점을 정의해야 합니다. 일반적으로 `manual` 유형의 트리거를 추가한 후 상위 정의에 해당 트리거를 사용합니다. 특히 호출 중인 트리거를 항상 지정해야 하므로 `host` 속성은 `triggerName`을 포함합니다.
+마지막으로, 하위 워크플로에 필요한 변경 내용이 있습니다. 이전에는 하위 워크플로를 직접 호출할 수 있었지만 이제는 상위에서 호출할 워크플로에 트리거 엔드포인트를 정의해야 합니다. 일반적으로 `manual` 유형의 트리거를 추가한 후 상위 정의에 해당 트리거를 사용합니다. 특히 호출 중인 트리거를 항상 지정해야 하므로 `host` 속성은 `triggerName`을 포함합니다.
 
 ## <a name="other-changes"></a>기타 변경 내용
 

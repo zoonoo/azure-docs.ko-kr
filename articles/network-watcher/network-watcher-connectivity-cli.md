@@ -1,6 +1,6 @@
 ---
-title: Azure Network Watcher로 연결 문제 해결 - Azure CLI 2.0 | Microsoft Docs
-description: Azure CLI 2.0을 사용하여 Azure Network Watcher의 연결 문제 해결 기능을 사용하는 방법을 알아봅니다.
+title: Azure Network Watcher로 연결 문제 해결 - Azure CLI | Microsoft Docs
+description: Azure CLI를 사용하여 Azure Network Watcher의 연결 문제 해결 기능을 사용하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 1ce5856a5ee2c37d96483df82836d2e8b2a61d4c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ee7aff0256cf5567b4b29e6140ffb57b3717631a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182109"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978049"
 ---
-# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure Network Watcher로 연결 문제 해결
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Network Watcher로 연결 문제 해결
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 연결 문제 해결을 사용하여 가상 머신에서 지정된 엔드포인트로 직접 TCP 연결을 설정하는 방법을 알아봅니다.
@@ -224,7 +224,7 @@ pNic0/ipConfigurations/ipconfig1",
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>저장소 끝점에 대한 연결 확인
+## <a name="check-connectivity-to-a-storage-endpoint"></a>저장소 엔드포인트에 대한 연결 확인
 
 다음 예제에서는 가상 컴퓨터에서 BLOB 저장소 계정으로의 연결을 확인합니다.
 

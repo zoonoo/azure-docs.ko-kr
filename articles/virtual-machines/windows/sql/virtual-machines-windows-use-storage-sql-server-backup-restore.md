@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 39d4f452143454a345bd91f550e44c93651ff933
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0fdf768008161fbb72e48dae937a4172222dbb63
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399052"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239749"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>SQL Server 백업 및 복원에 Azure Storage 사용
 ## <a name="overview"></a>개요
 SQL Server 2012 SP1 CU2부터는 Azure Blob 저장소 서비스에 직접 SQL Server 백업을 쓸 수 있습니다. 이 기능을 사용하여 온-프레미스 SQL Server 데이터베이스 또는 Azure 가상 머신의 SQL Server 데이터베이스를 사용하여 Azure Blob service에 백업하고 Azure Blob service에서 복원할 수 있습니다. 클라우드로 Backup하면 가용성, 무제한으로 지역에서 복제되는 오프사이트 저장소, 클라우드로/에서 쉬운 데이터 마이그레이션 등의 이점이 있습니다. Transact-SQL 또는 SMO를 사용하여 BACKUP 또는 RESTORE 문을 실행할 수 있습니다.
 
-SQL Server 2016에는 여러 새 기능이 포함되어 있습니다. [파일-스냅숏 백업](http://msdn.microsoft.com/library/mt169363.aspx)을 사용하여 거의 즉시 백업을 수행하고 매우 빠르게 복원할 수 있습니다.
+SQL Server 2016에는 여러 새 기능이 포함되어 있습니다. [파일-스냅숏 백업](https://msdn.microsoft.com/library/mt169363.aspx)을 사용하여 거의 즉시 백업을 수행하고 매우 빠르게 복원할 수 있습니다.
 
 이 항목에서는 SQL 백업을 위해 Azure Storage를 사용하도록 선택하는 이유와 관련 구성 요소에 대해 설명합니다. 문서 끝에 제공되는 리소스를 사용하여 연습 과정 및 SQL Server 백업에서 이 서비스를 사용하기 위한 추가 정보에 액세스할 수 있습니다.
 
@@ -37,10 +37,10 @@ SQL Server를 백업할 때 발생하는 몇 가지 해결 과제는 다음과 �
 * **관리되는 하드웨어**: Azure 서비스를 사용하면 하드웨어 관리의 오버헤드가 없습니다. Azure 서비스에서 하드웨어를 관리하며 하드웨어 오류 방지와 중복을 위해 지역에서 복제 옵션을 제공합니다.
 * **무제한 저장소**: Azure Blob에 직접 백업할 수 있도록 설정하면 무제한 저장소에 가상으로 액세스할 수 있습니다. 또는 Azure 가상 머신 디스크로 백업하면 컴퓨터 크기에 따라 제한이 적용됩니다. 백업을 위해 Azure 가상 머신에 연결할 수 있는 디스크의 수에는 제한이 있습니다. 매우 큰 인스턴스의 경우 16개의 디스크로 제한되고 작은 인스턴스의 경우에는 디스크의 수가 더 적습니다.
 * **Backup 가용성**: Azure Blob에 저장된 Backup은 데이터베이스 연결/분리 또는 VHD 다운로드 및 연결 과정 없이도 언제 어디서나 사용 가능하며 온-프레미스 SQL Server 또는 Azure Virtual Machine에서 실행되는 다른 SQL Server에 대한 복원을 위해 쉽게 액세스할 수 있습니다.
-* **비용**: 사용하는 서비스에 대해서만 결제합니다. 오프사이트 및 백업 보관 옵션으로 비용 효율성을 추구할 수 있습니다. 자세한 내용은 [Azure 가격 계산기](http://go.microsoft.com/fwlink/?LinkId=277060 "Pricing Calculator") 및 [Azure 가격 책정 문서](http://go.microsoft.com/fwlink/?LinkId=277059 "Pricing article")를 참조하세요.
-* **스냅숏 저장소**: 데이터베이스 파일이 Azure Blob에 저장되고 SQL Server 2016을 사용하는 경우 [파일-스냅숏 백업](http://msdn.microsoft.com/library/mt169363.aspx) 을 사용하여 거의 즉각적인 백업 및 매우 빠른 복원을 수행할 수 있습니다.
+* **비용**: 사용하는 서비스에 대해서만 결제합니다. 오프사이트 및 백업 보관 옵션으로 비용 효율성을 추구할 수 있습니다. 자세한 내용은 [Azure 가격 계산기](https://go.microsoft.com/fwlink/?LinkId=277060 "Pricing Calculator") 및 [Azure 가격 책정 문서](https://go.microsoft.com/fwlink/?LinkId=277059 "Pricing article")를 참조하세요.
+* **스냅숏 저장소**: 데이터베이스 파일이 Azure Blob에 저장되고 SQL Server 2016을 사용하는 경우 [파일-스냅숏 백업](https://msdn.microsoft.com/library/mt169363.aspx) 을 사용하여 거의 즉각적인 백업 및 매우 빠른 복원을 수행할 수 있습니다.
 
-자세한 내용은 [Azure Blob Storage 서비스로 SQL Server 백업 및 복원](http://go.microsoft.com/fwlink/?LinkId=271617)을 참조하십시오.
+자세한 내용은 [Azure Blob Storage 서비스로 SQL Server 백업 및 복원](https://go.microsoft.com/fwlink/?LinkId=271617)을 참조하십시오.
 
 다음 두 섹션에서는 필수 SQL Server 구성 요소를 포함하여 Azure Blob 저장소 서비스를 소개합니다. Azure Blob 저장소 서비스로 백업하거나 서비스에서 복원하기 위해서는 구성 요소와 구성 요소 간 조작에 대해 이해하는 것이 중요합니다.
 
@@ -51,7 +51,7 @@ SQL Server를 백업할 때 발생하는 몇 가지 해결 과제는 다음과 �
 | --- | --- |
 | **Storage 계정** |저장소 계정은 모든 저장소 서비스를 사용하기 위한 출발점입니다. Azure Blob Storage 서비스에 액세스하려면 먼저 Azure Storage 계정을 만드세요. Azure Blob Storage 서비스에 대한 자세한 내용은 [Azure Blob Storage 서비스를 사용하는 방법](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **컨테이너** |컨테이너는 Blob 집합의 그룹화를 제공하며 Blob을 개수에 제한 없이 저장할 수 있습니다. SQL Server 백업을 Azure Blob service에 쓰려면 최소한 루트 컨테이너를 만들어야 합니다. |
-| **Blob** |임의 형식 및 크기의 파일입니다. Blob은 다음 URL 형식을 사용하여 주소를 지정할 수 있습니다. **https://[storage account].blob.core.windows.net/[container]/[blob]** 페이지 Blob에 대한 자세한 내용은 [블록 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요. |
+| **Blob** |임의 형식 및 크기의 파일입니다. Blob은 다음 URL 형식을 사용하여 주소를 지정할 수 있습니다. **https://[storage account].blob.core.windows.net/[container]/[blob]** 페이지 Blob에 대한 자세한 내용은 [블록 및 페이지 Blob 이해](https://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요. |
 
 ## <a name="sql-server-components"></a>SQL Server 구성 요소
 다음 SQL Server 구성 요소는 Azure Blob 저장소 서비스로 백업할 때 사용됩니다.

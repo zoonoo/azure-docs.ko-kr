@@ -11,35 +11,46 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
-ms.author: brenduns
+ms.date: 10/15/2018
+ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093182"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343846"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Azure Stack에서 테 넌 트 등록 관리
 
 *적용 대상: Azure Stack 통합 시스템*
 
-이 문서에서는 테 넌 트 등록 및 테 넌 트 사용을 추적 하는 방식을 관리 하 여 작업에 대 한 세부 정보를 포함 합니다. 목록에 추가 하거나 테 넌 트 매핑을 제거 하는 방법에 대 한 정보를 찾을 수 있습니다. 추적 사용을 관리 하려면 PowerShell 또는 청구 API 끝점을 사용할 수 있습니다.
+이 문서는 등록 작업에 대 한 정보를 포함합니다. 이러한 작업을 사용할 수 있습니다.
+- 테 넌 트 등록 관리
+- 테 넌 트 사용 현황 추적 관리
+
+목록에 추가 하거나 테 넌 트 매핑을 제거 하는 방법에 대 한 정보를 찾을 수 있습니다. 추적 사용을 관리 하려면 PowerShell 또는 청구 API 끝점을 사용할 수 있습니다. 목록에 추가 하거나 테 넌 트 매핑을 제거 하는 방법에 대 한 정보를 찾을 수 있습니다. 추적 사용을 관리 하려면 PowerShell 또는 청구 API 끝점을 사용할 수 있습니다.
 
 ## <a name="add-tenant-to-registration"></a>테 넌 트 등록에 추가
 
-Azure Active Directory (Azure AD) 테 넌 트를 사용 하 여 연결 된 Azure 구독에서 해당 사용이 보고 되는 새 테 넌 트에 등록 하려면 추가 하려는 경우이 작업을 사용 합니다.
+새 테 넌 트 등록에 추가 하려는 경우 작업을 사용 합니다. Azure Active Directory (Azure AD) 테 넌 트를 사용 하 여 연결 된 Azure 구독에서 테 넌 트 사용량이 보고 됩니다.
 
-PUT/New-azurermresource를 다시 호출할 수 있습니다, 테 넌 트와 연결 된 구독을 변경 하려는 경우에이 작업을 사용할 수 있습니다. 오래 된 매핑을 덮어씁니다.
+테 넌 트와 연결 된 구독을 변경 하려는 경우에 작업을 사용할 수 있습니다. PUT/New-azurermresource 이전 매핑 덮어쓸 것인지를 호출 합니다.
 
-하나의 Azure 구독 테 넌 트에 연결할 수 있는지 참고 합니다. 두 번째 구독을 기존 테 넌 트를 추가 하려고 하면 첫 번째 구독이 과도 하 게 작성 된입니다. 
+테 넌 트를 사용 하 여 단일 Azure 구독을 연결할 수 있습니다. 두 번째 구독을 기존 테 넌 트를 추가 하려고 하면 첫 번째 구독이 과도 하 게 작성 된입니다.
 
+### <a name="use-api-profiles"></a>API 사용 하 여 프로필
+
+등록 cmdlet은 PowerShell을 실행 하는 경우 API 프로필을 지정 해야 합니다. API 프로필에는 Azure 리소스 공급자 및 해당 API 버전 집합을 나타냅니다. 여러 Azure 클라우드를 사용 하 여 상호 작용 하는 경우 API의 올바른 버전을 사용할 수 있도록 합니다. 예를 들어 작업할 여러 클라우드를 사용 하 여 전역 Azure 및 Azure Stack을 사용 하 여 작업 하는 경우. 릴리스 날짜와 일치 하는 이름을 지정 하는 프로필입니다. 사용 해야 합니다 **2017-09-03** 프로필입니다.
+
+Azure Stack 및 API 프로필에 대 한 자세한 내용은 참조 하세요. [Azure Stack에서 관리 하는 API 버전 프로필](user/azure-stack-version-profiles.md)합니다. 를 시작 및 PowerShell 사용 하 여 API 프로필을 사용 하 여 실행에 대 한 참조 [Azure Stack에서 PowerShell 사용 하 여 API 버전 프로필](user/azure-stack-version-profiles-powershell.md)합니다.
+
+### <a name="parameters"></a>매개 변수
 
 | 매개 변수                  | 설명 |
 |---                         | --- |
 | registrationSubscriptionID | 초기 등록에 사용 된 Azure 구독입니다. |
-| customerSubscriptionID     | Azure 구독 (Azure Stack 없습니다) 등록을 위해 고객에 속하는입니다. 만들어야 클라우드 서비스 공급자 (CSP) 제안에서 합니다. 실제로이 파트너 센터를 통해 의미합니다. 고객에 게 둘 이상의 테 넌 트에이 구독의 Azure Stack에 로그인 하는 데 사용할 테 넌 트에 만들어야 합니다. |
+| customerSubscriptionID     | Azure 구독 (Azure Stack 없습니다) 등록을 위해 고객에 속하는입니다. 만들어야 파트너 센터를 통해 클라우드 서비스 공급자 (CSP) 제안에서 합니다. 고객이는 Azure Stack에 로그인 할 테 넌 트에 대 한 구독을 만든 둘 이상의 테 넌 트 있는지 확인 합니다. |
 | resourceGroup              | 등록 저장 되는 Azure에서 리소스 그룹입니다. |
 | registrationName           | Azure Stack에 등록의 이름입니다. 이 Azure에 저장 된 개체입니다. 이름은 일반적으로 폼 azurestack의 경우-CloudID, 여기서 CloudID는 Azure Stack 배포의 클라우드 ID입니다. |
 
@@ -79,10 +90,10 @@ New-azurermresource cmdlet을 사용 하 여 등록 리소스를 업데이트 �
 
 ### <a name="powershell"></a>PowerShell
 
-Get-AzureRmResovurce cmdlet를 사용 하 여 등록 된 모든 테 넌 트를 나열 합니다. Azure에 로그인 (`Add-AzureRmAccount`) 초기 등록에 사용한 계정을 사용 합니다. 테 넌 트를 추가 하는 방법의 예는 다음과 같습니다.
+등록 된 모든 테 넌 트를 나열 하려면 Get AzureRmResource cmdlet을 사용 합니다. Azure에 로그인 (`Add-AzureRmAccount`) 초기 등록에 사용한 계정을 사용 합니다. 테 넌 트를 추가 하는 방법의 예는 다음과 같습니다.
 
 ```powershell
-  Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
+  Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
 ```
 
 ### <a name="api-call"></a>API 호출
@@ -147,4 +158,4 @@ api-version=2017-06-01 HTTP/1.1`
 
 ## <a name="next-steps"></a>다음 단계
 
- - Azure Stack에서 리소스 사용 정보를 검색 하는 방법에 대 한 자세한 내용은 참조 하세요 [사용 및 Azure Stack에서 청구](/azure-stack-billing-and-chargeback.md)합니다.
+ - Azure Stack에서 리소스 사용 정보를 검색 하는 방법에 대 한 자세한 내용은 참조 하세요 [사용 및 Azure Stack에서 청구](azure-stack-billing-and-chargeback.md)합니다.

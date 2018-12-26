@@ -1,11 +1,12 @@
 ---
-title: 웹앱 템플릿을 사용한 Machine Learning 웹 서비스 사용 | Microsoft Docs
+title: 웹앱 템플릿에서 Machine Learning 웹 서비스 사용 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Marketplace에서 웹 앱을 사용하여 Azure Machine Learning의 예측 웹 서비스를 사용합니다.
 keywords: 웹 서비스, 운영, REST API, 기계 학습
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 03729a5b94b355869367e7f356e299f9afe38f75
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2c0bba4a442b73b82ebc271c3516f65954d6d8a4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835001"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311571"
 ---
 # <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>웹앱 템플릿을 사용한 Azure Machine Learning 웹 서비스 사용
 
@@ -55,7 +56,7 @@ RRS(요청-응답 서비스) 템플릿은 단일 결과를 가져오기 위해 �
 
 1. [웹 서비스 포털](https://services.azureml.net/quickstart)에서 위쪽의 **웹 서비스**를 선택합니다. 또는 기존 웹 서비스의 경우 **기존 웹 서비스**를 선택합니다.
 2. 액세스하려는 웹 서비스를 선택합니다.
-3. 기존 웹 서비스의 경우 액세스하려는 끝점을 선택합니다.
+3. 기존 웹 서비스의 경우 액세스하려는 엔드포인트를 선택합니다.
 4. 위쪽의 **소비자**를 선택합니다.
 5. 기본 또는 보조 키를 복사하고 저장합니다.
 6. RRS 템플릿을 만드는 경우 **요청-응답** URI를 복사하고 저장합니다. BES 템플릿을 만드는 경우 **Batch 요청** URI를 복사하고 저장합니다.

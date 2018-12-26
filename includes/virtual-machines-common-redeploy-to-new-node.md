@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 1c3996c3f40da496af0cd795d0873864667a1f19
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226715"
+---
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 1. 다시 배포하려는 VM을 선택하고 *설정* 블레이드에서 *다시 배포* 단추를 선택합니다. 다음 예제와 같이 '다시 배포' 단추가 포함된 **지원 및 문제 해결** 섹션을 보기 위해 아래로 스크롤해야 할 수 있습니다.
    

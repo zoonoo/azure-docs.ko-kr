@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse에 대한 질문과 대답 | Microsoft Docs
 description: 이 문서에는 고객 및 개발자를 위한 Azure SQL Data Warehouse 관련 질문과 대답이 나와 있습니다.
 services: sql-data-warehouse
 author: acomet
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971706"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306743"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse에 대한 질문과 대답
 

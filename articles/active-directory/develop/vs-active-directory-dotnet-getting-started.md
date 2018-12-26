@@ -7,17 +7,17 @@ manager: douge
 ms.assetid: 1c8b6a58-5144-4965-a905-625b9ee7b22b
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev
-ms.openlocfilehash: d521b8c85fb66b6c50d1b9f07e5f4d653e9e57b9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: aaddev, vs-azure
+ms.openlocfilehash: 437cb8b26cb33dfbb9c259e2842a59a765b78903
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784074"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144125"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Azure Active Directory(ASP.NET MVC 프로젝트) 시작
 
@@ -84,5 +84,5 @@ ms.locfileid: "31784074"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory 인증 시나리오](active-directory-authentication-scenarios.md)
-- [ASP.NET 웹앱에 Microsoft에 로그인 추가](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Azure Active Directory 인증 시나리오](authentication-scenarios.md)
+- [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v1-aspnet-webapp.md)

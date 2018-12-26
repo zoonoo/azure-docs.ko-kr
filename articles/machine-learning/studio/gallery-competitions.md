@@ -3,8 +3,9 @@ title: Azure AI 갤러리 콘테스트 | Microsoft Docs
 description: Azure AI 갤러리에서 대회를 검색합니다.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: ef74f411-bce4-4b02-aa34-902fc8d7b519
@@ -15,23 +16,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 54ca22d9a3e685f6ae1e1454569bab9d058ce4fe
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a209b53893da8f0c7e86102a703334091f982c78
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834494"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260668"
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 대회 검색
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence 대회
-**[대회](https://gallery.cortanaintelligence.com/competitions)** 는 Cortana Intelligence Suite를 사용하여 복잡한 문제를 해결하기 위해 데이터 과학자 커뮤니티와 경쟁할 멋진 기회를 제공합니다.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com)의 **[대회](https://gallery.cortanaintelligence.com/competitions)** 는 Cortana Intelligence Suite를 사용하여 복잡한 문제를 해결하기 위해 데이터 과학자 커뮤니티와 경쟁할 멋진 기회를 제공합니다.
 
 Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문에 대한 답변은 [Microsoft Cortana Intelligence 대회 관련 FAQ](competition-faq.md)를 참조하세요.
 
 ## <a name="discover"></a>검색
-**[대회](https://gallery.cortanaintelligence.com/competitions)** 페이지([aka.ms/CIComp](http://aka.ms/CIComp))에는 가장 인기 있는 대회 목록이 나와 있습니다.
+**[대회](https://gallery.cortanaintelligence.com/competitions)** 페이지([aka.ms/CIComp](https://aka.ms/CIComp))에는 가장 인기 있는 대회 목록이 나와 있습니다.
 
 ![갤러리 홈페이지에서 대회 선택](./media/gallery-competitions/select-competitions-in-gallery.png)
 

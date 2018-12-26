@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 00f255a33e9bfbec97d43bbede6116b14a096553
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cebcfb4614d1f685697bed6914f80237e175fb7b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36209870"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436559"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>자습서: Jive와 Azure Active Directory 통합
 
@@ -50,10 +50,10 @@ Jive와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Jive 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-jive-from-the-gallery"></a>갤러리에서 Jive 추가
 Jive의 Azure AD 통합을 구성하려면 갤러리의 Jive를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -64,19 +64,19 @@ Jive의 Azure AD 통합을 구성하려면 갤러리의 Jive를 관리되는 Saa
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
 
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
-4. 검색 상자에 **Jive**를 입력합니다.
+1. 검색 상자에 **Jive**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/jive-tutorial/tutorial_jive_search.png)
 
-5. 결과 창에서 **Jive**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **Jive**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/jive-tutorial/tutorial_jive_addfromgallery.png)
 
@@ -90,10 +90,10 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-3. **[Jive 테스트 사용자 만들기](#creating-a-jive-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Jive에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
+1. **[Jive 테스트 사용자 만들기](#creating-a-jive-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Jive에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -105,11 +105,11 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     ![Configure Single Sign-On][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
     ![Configure Single Sign-On](./media/jive-tutorial/tutorial_jive_samlbase.png)
 
-3. **Jive 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **Jive 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/jive-tutorial/tutorial_jive_url.png)
 
@@ -120,23 +120,23 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Jive 클라이언트 지원 팀](https://www.jivesoftware.com/services-support/)에 문의하세요.
 
-4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/jive-tutorial/tutorial_jive_certificate.png)
 
-5. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/jive-tutorial/tutorial_general_400.png)
 
-6. **Jive** 쪽에서 Single Sign-On을 구성하려면 Jive 테넌트에 관리자 권한으로 로그온합니다.
+1. **Jive** 쪽에서 Single Sign-On을 구성하려면 Jive 테넌트에 관리자 권한으로 로그온합니다.
 
-7. 메뉴 위쪽에서 "**SAML**"을 클릭합니다.
+1. 메뉴 위쪽에서 "**SAML**"을 클릭합니다.
 
     ![앱 쪽에서 Single Sign-On 구성](./media/jive-tutorial/tutorial_jive_002.png)
 
     a. **일반** 탭에서 **사용**을 선택합니다. b. "**모든 SAML 설정 저장**" 단추를 클릭합니다.
 
-8. "**IdP 메타데이터**" 탭으로 이동합니다.
+1. "**IdP 메타데이터**" 탭으로 이동합니다.
 
     ![앱 쪽에서 Single Sign-On 구성](./media/jive-tutorial/tutorial_jive_003.png)
 
@@ -144,7 +144,7 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     나. "**모든 SAML 설정 저장**" 단추를 클릭합니다.
 
-9. "**사용자 특성 매핑**" 탭으로 이동합니다.
+1. "**사용자 특성 매핑**" 탭으로 이동합니다.
 
     ![앱 쪽에서 Single Sign-On 구성](./media/jive-tutorial/tutorial_jive_004.png)
 
@@ -165,15 +165,15 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     ![Azure AD 테스트 사용자 만들기](./media/jive-tutorial/create_aaduser_01.png) 
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/jive-tutorial/create_aaduser_02.png)
 
-3. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/jive-tutorial/create_aaduser_03.png) 
 
-4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/jive-tutorial/create_aaduser_04.png)
 
@@ -203,23 +203,23 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Jive**를 선택합니다.
+1. 응용 프로그램 목록에서 **Jive**를 선택합니다.
 
     ![Configure Single Sign-On](./media/jive-tutorial/tutorial_jive_app.png) 
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     ![사용자 할당][202] 
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 할당][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 

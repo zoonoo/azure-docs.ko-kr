@@ -1,28 +1,24 @@
 ---
-title: Phoenix Query Server REST SDK - Azure HDInsight | Microsoft Docs
-description: ''
+title: Phoenix Query Server REST SDK - Azure HDInsight
+description: Azure HDInsight에서 Phoenix Query Server를 위한 REST SDK를 설치 및 사용합니다.
 services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 12/04/2017
+author: ashishthaps
 ms.author: ashishth
-ms.openlocfilehash: ef89bcea3eab92c3137a6f532398764462ae204c
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 12/04/2017
+ms.openlocfilehash: f36d89fb01e7892ef10576b7f5f0b5fa86d8a21b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164587"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314254"
 ---
-# <a name="phoenix-query-server-rest-sdk"></a>Phoenix Query Server REST SDK
+# <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
 
-[Apache Phoenix](http://phoenix.apache.org/)는 [HBase](apache-hbase-overview.md) 위에 있는 오픈 소스 대규모 병렬 관계형 데이터베이스 계층입니다. Phoenix를 사용하면 [SQLLine](apache-hbase-phoenix-squirrel-linux.md)과 같은 SSH 도구를 통해 HBase에서 SQL 유사 쿼리를 사용할 수 있습니다. 또한 Phoenix는 클라이언트 통신을 위한 2개의 전송 메커니즘인 JSON과 프로토콜 버퍼를 지원하는 씬 클라이언트인 PQS(Phoenix Query Server)라는 HTTP 서버를 제공합니다. 프로토콜 버퍼는 기본 메커니즘으로, JSON보다 좀 더 효율적인 통신을 제공합니다.
+[Apache Phoenix](http://phoenix.apache.org/)는 [Apache HBase](apache-hbase-overview.md) 기반의 오픈 소스 대규모 병렬 관계형 데이터베이스 계층입니다. Phoenix를 사용하면 [SQLLine](apache-hbase-phoenix-squirrel-linux.md)과 같은 SSH 도구를 통해 HBase에서 SQL 유사 쿼리를 사용할 수 있습니다. 또한 Phoenix는 클라이언트 통신을 위한 2개의 전송 메커니즘인 JSON과 프로토콜 버퍼를 지원하는 씬 클라이언트인 PQS(Phoenix Query Server)라는 HTTP 서버를 제공합니다. 프로토콜 버퍼는 기본 메커니즘으로, JSON보다 좀 더 효율적인 통신을 제공합니다.
 
 이 문서에서는 PQS REST SDK를 사용하여 테이블을 만들고, 행을 개별적으로 및 대량으로 Upsert하고, SQL 문을 사용하여 데이터를 선택하는 방법을 설명합니다. 예제에서는 [Apache Phoenix Query Server용 Microsoft .NET 드라이버](https://www.nuget.org/packages/Microsoft.Phoenix.Client)를 사용합니다. 이 SDK는 직렬화 형식에 대해 프로토콜 버퍼를 독점적으로 사용하는 [Apache Calcite Avatica](https://calcite.apache.org/avatica/) API에서 빌드되었습니다.
 
@@ -36,7 +32,7 @@ Apache Phoenix Query Server용 Microsoft .NET 드라이버는 다음 명령으�
 
 ## <a name="instantiate-new-phoenixclient-object"></a>새 PhoenixClient 개체 인스턴스화
 
-라이브러리 사용을 시작하려면 `Uri`을 포함하는 `ClusterCredentials`를 클러스터와 클러스터의 Hadoop 사용자 이름 및 암호로 전달해 새 `PhoenixClient` 개체를 인스턴스화합니다.
+라이브러리 사용을 시작하려면 `Uri`을 포함하는 `ClusterCredentials`를 클러스터와 클러스터의 Apache Hadoop 사용자 이름 및 암호로 전달해 새 `PhoenixClient` 개체를 인스턴스화합니다.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
@@ -544,5 +540,5 @@ FM: 5
 
 ## <a name="next-steps"></a>다음 단계 
 
-* [HDInsight의 Phoenix](../hdinsight-phoenix-in-hdinsight.md)
-* [HBase REST SDK 사용](apache-hbase-rest-sdk.md)
+* [HDInsight의 Apache Phoenix](../hdinsight-phoenix-in-hdinsight.md)
+* [Apache HBase REST SDK 사용](apache-hbase-rest-sdk.md)

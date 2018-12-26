@@ -1,22 +1,24 @@
 ---
 title: Azure Application Insights Funnels
-description: "Funnels를 사용하여 고객이 응용 프로그램과 상호 작용하는 방법을 검색하는 방법을 알아봅니다."
+description: Funnels를 사용하여 고객이 응용 프로그램과 상호 작용하는 방법을 검색하는 방법을 알아봅니다.
 services: application-insights
-documentationcenter: 
-author: mrbullwinkle
+documentationcenter: ''
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/17/2017
-ms.author: mbullwin
-ms.openlocfilehash: bbb25af888f34737f6a61cf43890ff248c4cc4de
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
+ms.openlocfilehash: 3782b322231011b544eef4ae832ba3fe2c373eb0
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725049"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Application Insights Funnels를 통해 고객이 응용 프로그램을 사용하는 방법 검색
 
@@ -37,7 +39,7 @@ ms.lasthandoff: 11/29/2017
 다음 스크린샷은 Funnels 도구가 생성하는 데이터 종류의 예를 보여 줍니다. Fabrikam 소유자는 지난 90일 동안 홈페이지를 방문한 고객 중 54.3%가 고객 티켓을 생성했다는 사실을 알 수 있습니다. 또한 고객 2,700명이 홈 페이지에서 인덱스로 들어온 것을 알 수 있습니다. 이것은 새로 고침 문제를 의미할 수 있습니다.
 
 
-![데이터가 표시된 Funnels 도구 스크린샷](./media/app-insights-understand-usage-patterns/funnel1.png)
+![데이터가 표시된 Funnels 도구 스크린샷](media/usage-funnels/funnel1.png)
 
 ### <a name="funnels-features"></a>Funnels 기능
 앞의 스크린샷에는 5개의 강조 표시된 영역이 있습니다. 이들은 Funnels의 기능입니다. 다음 목록에서는 스크린샷의 각 해당 영역을 상세히 설명합니다.

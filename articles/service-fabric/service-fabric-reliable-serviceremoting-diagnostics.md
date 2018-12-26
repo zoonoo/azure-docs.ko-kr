@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: d462ba0955a362c27b786ee6a5670eec20c52a22
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e1dec182f09eccebfe03ab9727018dbf34128acd
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206422"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275251"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Reliable Service Remoting에 대한 진단 및 성능 모니터링
 Reliable ServiceRemoting 런타임에서는 [성능 카운터](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)를 내보냅니다. 이러한 정보는 ServiceRemoting이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.
@@ -100,5 +100,5 @@ Reliable Service 런타임은 서비스 메서드의 실행과 관련하여 다�
 | Service Fabric 서비스 |요청 serialization에 걸린 평균 시간(밀리초) |응답이 클라이언트로 전송되기 전에 서비스에서 서비스 응답 메시지를 직렬화하는 데 걸린 시간(밀리초) |
 
 ## <a name="next-steps"></a>다음 단계
-* [샘플 코드](https://github.com/Azure/servicefabric-samples)
+* [샘플 코드](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric&sort=0)
 * [PerfView의 EventSource 공급자](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

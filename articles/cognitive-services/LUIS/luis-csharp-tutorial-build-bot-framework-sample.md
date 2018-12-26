@@ -1,24 +1,25 @@
 ---
-title: Azure에서 C#용 Bot Builder SDK를 사용하여 봇과 LUIS 통합 | Microsoft Docs
-description: Bot Framework를 사용하여 LUIS 응용 프로그램과 통합된 봇을 빌드합니다.
+title: C#을 사용하는 LUIS 봇 - 웹앱 봇 - Bot Framework SDK 3.0
+titleSuffix: Azure Cognitive Services
+description: C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 사전 빌드된 HomeAutomation 도메인을 사용하여 신속하게 봇 솔루션을 구현합니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
-ms.author: v-geberr
-ms.openlocfilehash: 273fca51d83f25e2657b51b68179e46f4295f92b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.date: 09/24/2018
+ms.author: diberry
+ms.openlocfilehash: 0ad95d5683ea10803c2f3986be97617051f191cf
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263883"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032277"
 ---
-# <a name="web-app-bot-using-the-luis-template-for-c"></a>C#에 LUIS 템플릿을 사용하는 웹앱 봇
+# <a name="luis-bot-in-c"></a>C#의 LUIS 봇
 
-통합형 Language Understanding을 사용하여 챗봇을 빌드합니다.
+C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 사전 빌드된 HomeAutomation 도메인을 사용하여 신속하게 봇 솔루션을 구현합니다. 해당 봇은 Bot Framework 3.x 및 Azure 웹앱 봇을 사용하여 빌드됩니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
@@ -28,8 +29,8 @@ ms.locfileid: "36263883"
 
 | 의도 | 예제 발화 | 봇 기능 |
 |:----:|:----------:|---|
-| HomeAutomation.TurnOn | 조명을 켭니다. | LUIS 의도 `HomeAutomation.TurnOn`이 검색되면 봇이 `OnIntent` 대화 상자 처리기를 호출합니다. 이 대화 상자에서는 IoT 서비스를 호출하여 장치를 켜고 장치가 켜졌다는 것을 사용자에게 알립니다. |
-| HomeAutomation.TurnOff | 침실 조명을 끕니다. | LUIS 의도 `HomeAutomation.TurnOff`이 검색되면 봇이 `OffIntent` 대화 상자 처리기를 호출합니다. 이 대화 상자에서는 IoT 서비스를 호출하여 장치를 끄고 장치가 꺼졌다는 것을 사용자에게 알립니다. |
+| HomeAutomation.TurnOn | 조명을 켭니다. | LUIS 의도 `HomeAutomation.TurnOn`이 검색되면 봇이 `OnIntent` 대화 상자 처리기를 호출합니다. 이 대화 상자에서는 IoT 서비스를 호출하여 디바이스를 켜고 디바이스가 켜졌다는 것을 사용자에게 알립니다. |
+| HomeAutomation.TurnOff | 침실 조명을 끕니다. | LUIS 의도 `HomeAutomation.TurnOff`이 검색되면 봇이 `OffIntent` 대화 상자 처리기를 호출합니다. 이 대화 상자에서는 IoT 서비스를 호출하여 디바이스를 끄고 디바이스가 꺼졌다는 것을 사용자에게 알립니다. |
 
 ## <a name="create-a-language-understanding-bot-with-bot-service"></a>Bot Service를 사용하여 Language Understanding 봇 만들기
 
@@ -46,8 +47,11 @@ ms.locfileid: "36263883"
 4. **Bot Service**에서 필수 정보를 제공하고 **만들기**를 클릭합니다. 이렇게 하면 Bot Service 및 LUIS 앱이 만들어지고 Azure에 배포됩니다. [음성 초기화](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)를 사용하려면 봇을 만들기 전에 [지역 요구 사항](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming)을 검토합니다. 
     * **앱 이름**을 봇 이름으로 설정합니다. 이 이름은 봇이 클라우드에 배포될 때 하위 도메인으로 사용됩니다(예: mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * 구독, [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App Service 계획 및 [위치](https://azure.microsoft.com/regions/)를 선택합니다.
-    * **봇 템플릿** 필드에 **Language Understanding(C#)** 템플릿을 선택합니다.
-    * **LUIS 앱 위치**를 선택합니다. 이것은 앱이 생성된 작성 [지역][LUIS]입니다.
+    * **봇 템플릿**의 경우 다음을 선택합니다.
+        * **SDK v3**
+        * **C#**
+        * **언어 이해**
+    * **LUIS 앱 위치**를 선택합니다. 이것은 앱이 생성된 작성 [지역](luis-reference-regions.md)입니다.
     * 법적 고지 사항의 확인 확인란을 선택합니다. 법적 고지 사항의 조건은 확인란 아래에 있습니다.
 
     ![Bot 서비스](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
@@ -72,7 +76,7 @@ ms.locfileid: "36263883"
 
 ## <a name="connect-your-luis-app-to-the-bot"></a>봇에 LUIS 앱 연결
 
-**응용 프로그램 설정**을 열고 **LuisAppId** 필드를 편집하여 LUIS 앱의 응용 프로그램 ID를 포함합니다. HomeAutomation LUIS 앱을 미국 서부 이외의 지역에서 만든 경우 **LuisAPIHostName**도 변경해야 합니다. **LuisAPIKey**가 작성 키로 설정되어 있습니다. 이 작성 키는 트래픽이 체험 계층 할당량을 초과하면 구독 키로 변경됩니다. 
+**응용 프로그램 설정**을 열고 **LuisAppId** 필드를 편집하여 LUIS 앱의 응용 프로그램 ID를 포함합니다. HomeAutomation LUIS 앱을 미국 서부 이외의 지역에서 만든 경우 **LuisAPIHostName**도 변경해야 합니다. **LuisAPIKey**가 작성 키로 설정되어 있습니다. 이 작성 키는 트래픽이 체험 계층 할당량을 초과하면 끝점 키로 변경됩니다. 
 
   ![Azure에서 LUIS 앱 ID 업데이트](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 
@@ -80,7 +84,7 @@ ms.locfileid: "36263883"
 > [홈 자동화 앱](luis-get-started-create-app.md)의 LUIS 앱 ID가 없는 경우, Azure에 로그인하는 데 사용하는 것과 동일한 계정을 사용하여 [LUIS](luis-reference-regions.md) 웹 사이트에 로그인합니다. 
 > 1. **내 앱**을 클릭합니다. 
 > 2. HomeAutomation 도메인에서 의도 및 엔터티를 포함하는 이전에 만든 LUIS 앱을 찾습니다.
-> 3. LUIS 앱의 **설정** 페이지에서 앱 ID를 찾아서 복사합니다. LUIS 앱이 [학습](interactive-test.md) 및 [게시](PublishApp.md)되었는지 확인합니다. 
+> 3. LUIS 앱의 **설정** 페이지에서 앱 ID를 찾아서 복사합니다. LUIS 앱이 [학습](luis-interactive-test.md) 및 [게시](luis-how-to-publish-app.md)되었는지 확인합니다. 
 
     > [!WARNING]
     > If you delete your app ID or LUIS key, the bot will stop working.
@@ -145,10 +149,10 @@ Azure Portal에서 **웹 채팅에서 테스트**를 클릭하여 봇을 테스�
    ![웹 채팅에서 HomeAutomation 봇 테스트](./media/luis-tutorial-cscharp-web-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> 봇의 코드를 수정하지 않고 LUIS 앱을 다시 학습시킬 수 있습니다. [예제 발화 추가](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) 및 [LUIS 앱 학습 및 테스트](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test)를 참조하세요. 
+> 봇의 코드를 수정하지 않고 LUIS 앱을 다시 학습시킬 수 있습니다. [예제 발화 추가](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) 및 [LUIS 앱 학습 및 테스트](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test)를 참조하세요. 
 
 ## <a name="download-the-bot-to-debug"></a>디버그할 봇 다운로드
-봇이 작동하지 않으면 프로젝트를 로컬 머신에 다운로드하고 계속 [디버그](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot)합니다. 
+봇이 작동하지 않으면 프로젝트를 로컬 머신에 다운로드하고 계속 [디버그](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot)합니다. 
 
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework에 대해 자세히 알아보기
 [Bot Framework](https://dev.botframework.com/)와 [3.x](https://github.com/Microsoft/BotBuilder) 및 [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK에 대해 자세히 알아봅니다.
@@ -170,7 +174,6 @@ Azure Portal에서 **웹 채팅에서 테스트**를 클릭하여 봇을 테스�
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[AssignedEndpointDoc]: https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
 [VisualStudio]: https://www.visualstudio.com/
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+
 <!-- tested on Win10 -->

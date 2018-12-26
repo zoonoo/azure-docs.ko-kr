@@ -2,19 +2,22 @@
 title: Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링 | Microsoft Docs
 description: Log Analytics를 사용하여 Azure SQL 데이터 동기화를 모니터링하는 방법을 알아봅니다.
 services: sql-database
-ms.date: 04/01/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
+ms.reviewer: douglasl
 manager: craigg
-ms.custom: data-sync
-ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 04/01/2018
+ms.openlocfilehash: 0a130613d6d2086fda55ca015b1c0ca77c909e3d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025412"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684616"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Log Analytics를 사용하여 SQL 데이터 동기화 모니터링 
 
@@ -94,7 +97,7 @@ Runbook을 만드는 방법에 대한 자세한 내용은 [내 첫 번째 PowerS
 
     2.  동기화 그룹 정보
 
-    3.  OMS 정보 - 이 정보는 OMS 포털 | 설정 | 연결된 원본에서 찾습니다. Log Analytics에 데이터를 보내는 방법에 대한 자세한 내용은 [HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(미리 보기)](../log-analytics/log-analytics-data-collector-api.md)을 참조하세요.
+    3.  Log Analytics 정보 이 정보는 Azure Portal | 설정 | 연결된 원본에서 찾습니다. Log Analytics에 데이터를 보내는 방법에 대한 자세한 내용은 [HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(미리 보기)](../log-analytics/log-analytics-data-collector-api.md)을 참조하세요.
 
 11. [테스트] 창에서 Runbook을 실행합니다. 성공적으로 실행되었는지 확인합니다.
 
@@ -114,7 +117,7 @@ Runbook 일정을 예약하려면 다음을 수행합니다.
 
 4.  **새 일정 만들기**를 선택합니다.
 
-5.  **되풀이**를 '되풀이'로 설정하고 원하는 간격을 설정합니다. 여기, 스크립트 및 OMS에서 동일한 간격을 사용합니다.
+5.  **되풀이**를 '되풀이'로 설정하고 원하는 간격을 설정합니다. 여기, 스크립트 및 Log Analytics에서 동일한 간격을 사용합니다.
 
 6.  **만들기**를 선택합니다.
 
@@ -126,7 +129,7 @@ Runbook 일정을 예약하려면 다음을 수행합니다.
 
 Log Analytics를 사용하는 경고를 만들려면 다음을 수행합니다. 필수 구성 요소로서 Log Analytics를 Log Analytics 작업 영역과 연결해야 합니다.
 
-1.  OMS 포털에서 **로그 검색**을 선택합니다.
+1.  Azure Portal에서 **Log Search**를 선택합니다.
 
 2.  선택한 간격 내에서 동기화 그룹별로 오류와 경고를 선택하는 쿼리를 만듭니다. 예: 
 
@@ -144,9 +147,9 @@ Log Analytics를 사용하는 경고를 만들려면 다음을 수행합니다. 
 
 6.  **저장**을 클릭합니다. 이제 오류가 발생하면 지정된 받는 사람이 전자 메일 알림을 받습니다.
 
-## <a name="create-an-oms-view-for-monitoring"></a>OMS 모니터링 보기 만들기
+## <a name="create-a-log-analytics-view-for-monitoring"></a>모니터링을 위한 Log Analytics 보기 만들기
 
-이 단계에서는 지정된 모든 동기화 그룹을 시각적으로 모니터링할 수 있는 OMS 보기를 만듭니다. 이 보기에는 다음과 같은 몇 가지 구성 요소가 포함되어 있습니다.
+이 단계에서는 지정된 모든 동기화 그룹을 시각적으로 모니터링할 수 있는 Log Analytics 보기를 만듭니다. 이 보기에는 다음과 같은 몇 가지 구성 요소가 포함되어 있습니다.
 
 -   모든 동기화 그룹에 있는 오류, 성공 및 경고 수를 보여 주는 개요 타일
 
@@ -154,9 +157,9 @@ Log Analytics를 사용하는 경고를 만들려면 다음을 수행합니다. 
 
 -   오류, 성공 및 경고 수 및 최근 오류 메시지를 보여 주는 개별 동기화 그룹 타일
 
-OMS 보기를 구성하려면 다음을 수행합니다.
+Log Analytics 보기를 구성하려면 다음을 수행합니다.
 
-1.  OMS 홈페이지 왼쪽에서 더하기 기호를 선택하여 **뷰 디자이너**를 엽니다.
+1.  Log Analytics 홈페이지 왼쪽에서 더하기 기호를 선택하여 **뷰 디자이너**를 엽니다.
 
 2.  뷰 디자이너의 위쪽 표시줄에서 **가져오기**를 선택합니다. 그런 다음 "DataSyncLogOMSView" 샘플 파일을 선택합니다.
 
@@ -193,16 +196,18 @@ OMS 보기를 구성하려면 다음을 수행합니다.
 ## <a name="next-steps"></a>다음 단계
 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
--   [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화](sql-database-sync-data.md)
--   [Azure SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
--   [Azure SQL 데이터 동기화 모범 사례](sql-database-best-practices-data-sync.md)
--   [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
-
--   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:
-    -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
-
--   [SQL 데이터 동기화 REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   개요 - [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)
+-   데이터 동기화 설정
+    - 포털에서 - [자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
+    - PowerShell 사용
+        -  [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   데이터 동기화 에이전트 - [Azure SQL 데이타 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
+-   모범 사례 - [Azure SQL 데이터 동기화에 대한 모범 사례](sql-database-best-practices-data-sync.md)
+-   문제 해결 - [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
+-   동기화 스키마 업데이트
+    -   Transact-SQL 사용 - [Azure SQL 데이터 동기화에서 스키마 변경 내용 복제 자동화](sql-database-update-sync-schema.md)
+    -   PowerShell 사용 - [PowerShell을 사용하여 기존 동기화 그룹의 동기화 스키마 업데이트](scripts/sql-database-sync-update-schema.md)
 
 SQL Database에 대한 자세한 내용은 다음을 참조하세요.
 

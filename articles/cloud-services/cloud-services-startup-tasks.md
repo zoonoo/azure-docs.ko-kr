@@ -1,9 +1,9 @@
 ---
-title: Azure 클라우드 서비스에서 시작 작업 실행 | Microsoft Docs
+title: Azure Cloud Services에서 시작 작업 실행 | Microsoft Docs
 description: 시작 작업을 통해 응용 프로그램에 대한 클라우드 서비스 환경을 준비합니다. 시작 작업의 작동 방법 및 만드는 방법을 배웁니다.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 886939be-4b5b-49cc-9a6e-2172e3c133e9
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: adegeo
-ms.openlocfilehash: 1c1b3aa86dc8211de0c07c9fb68da5685c86f551
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeconnoc
+ms.openlocfilehash: 6601eba90f3c3644d418ddd0a74746e1a12bcbd3
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22999138"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007782"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>클라우드 서비스에 대한 시작 작업 구성 및 실행 방법
 시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. 수행하려는 작업은 구성 요소 설치, COM 구성 요소 등록, 레지스트리 키 설정 또는 장기 실행 프로세스를 시작을 포함합니다.
 
 > [!NOTE]
-> 시작 작업은 가상 컴퓨터에 적용되지 않으며 클라우드 서비스 웹 및 작업자 역할에만 적용됩니다.
+> 시작 작업은 Virtual Machines에 적용되지 않으며 클라우드 서비스 웹 및 작업자 역할에만 적용됩니다.
 > 
 > 
 
 ## <a name="how-startup-tasks-work"></a>시작 작업 작동 방법
-시작 작업은 [시작] 요소 내의 [작업] 요소를 사용하여 역할이 시작되고 [작업] 파일에서 정의되기 전에 수행되는 동작입니다. 시작 작업은 흔히 배치 파일이지만 PowerShell 스크립트를 시작하는 콘솔 응용 프로그램 또는 배치 파일일 수도 있습니다.
+시작 작업은 [시작] 요소 내의 [작업] 요소를 사용하여 역할이 시작되고 [ServiceDefinition.csdef] 파일에서 정의되기 전에 수행되는 동작입니다. 시작 작업은 흔히 배치 파일이지만 PowerShell 스크립트를 시작하는 콘솔 응용 프로그램 또는 배치 파일일 수도 있습니다.
 
 환경 변수는 시작 작업으로 정보를 전달하고 로컬 저장소는 시작 작업에서 정보를 전달하는데 사용할 수 있습니다. 예를 들어 환경 변수는 설치하려는 프로그램에 경로를 지정할 수 있고 사용자 역할에 의해 나중에 읽을 수 있는 로컬 저장소에 파일을 쓸 수 있습니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "22999138"
 6. [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 메서드가 호출됩니다.
 
 ## <a name="example-of-a-startup-task"></a>시작 작업의 예
-시작 작업은 [작업] 요소의 **ServiceDefinition.csdef** 파일에서 정의됩니다. **commandLine** 특성은 시작 배치 파일 또는 콘솔 명령의 이름 및 매개 변수를 지정하고 **executionContext** 특성은 시작 작업의 권한 수준을 지정하며 **taskType** 특성은 작업이 실행될 방법을 지정합니다.
+시작 작업은 [ServiceDefinition.csdef] 요소의 **ServiceDefinition.csdef** 파일에서 정의됩니다. **commandLine** 특성은 시작 배치 파일 또는 콘솔 명령의 이름 및 매개 변수를 지정하고 **executionContext** 특성은 시작 작업의 권한 수준을 지정하며 **taskType** 특성은 작업이 실행될 방법을 지정합니다.
 
 이 예에서는 환경 변수 **MyVersionNumber**가 시작 작업에 대해 생성되고 값 "**1.0.0.0**"으로 설정됩니다.
 
@@ -88,21 +88,21 @@ EXIT /B 0
 > 
 
 ## <a name="description-of-task-attributes"></a>작업 특성 설명
-다음은 **ServiceDefinition.csdef** 파일의 [작업] 요소 특성을 설명합니다.
+다음은 **ServiceDefinition.csdef** 파일의 [ServiceDefinition.csdef] 요소 특성을 설명합니다.
 
 **commandLine** - 시작 작업에 대한 명령줄을 지정합니다.
 
 * 시작 작업을 시작하는 옵션 명령줄 매개 변수가 있는 명령입니다.
 * 자주 .cmd 또는 .bat 배치 파일의 파일 이름입니다.
 * 작업은 배포에 대한 AppRoot\\Bin 폴더에 상대적입니다. 환경 변수는 작업의 경로 및 파일을 결정하는데 확장되지 않습니다. 환경 확장이 필요한 경우 시작 작업을 호출하는 작은 .cmd 스크립트를 만들 수 있습니다.
-* 콘솔 응용 프로그램 또는 [PowerShell 스크립트](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)를 시작하는 배치 파일일 수 있습니다.
+* 콘솔 애플리케이션 또는 [PowerShell 스크립트](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)를 시작하는 배치 파일일 수 있습니다.
 
 **executionContext** -시작 작업에 대한 권한 수준을 지정합니다. 권한 수준은 제한되거나 상승될 수 있습니다.
 
 * **제한**  
-  시작 작업이 역할과 동일한 권한으로 실행됩니다. [런타임] 요소에 대한 **executionContext** 특성 또한 **제한**인 경우 사용자 권한이 사용됩니다.
+   시작 작업이 역할과 동일한 권한으로 실행됩니다. [런타임] 요소에 대한 **executionContext** 특성 또한 **제한**인 경우 사용자 권한이 사용됩니다.
 * **상승**  
-  시작 작업이 관리자 권한으로 실행됩니다. 이를 통해 시작 작업이 역할 자체의 권한 수준을 높이지 않고 프로그램을 설치하고 IIS 구성을 변경하고 기타 관리자 수준 작업을 수행할 수 있습니다.  
+   시작 작업이 관리자 권한으로 실행됩니다. 이를 통해 시작 작업이 역할 자체의 권한 수준을 높이지 않고 프로그램을 설치하고 IIS 구성을 변경하고 기타 관리자 수준 작업을 수행할 수 있습니다.  
 
 > [!NOTE]
 > 시작 작업의 권한 수준을 역할 자체와 동일하게 할 필요가 없습니다.
@@ -112,7 +112,7 @@ EXIT /B 0
 **taskType** -시작 작업이 실행되는 방식을 지정합니다.
 
 * **간단한**  
-  작업이 동기적으로 한 번에 하나씩 [작업] 파일에 지정된 순서로 실행됩니다. 하나의 **간단** 시작 작업이 0의 **errorlevel**로 끝나는 경우 다음 **간단** 시작 작업이 실행됩니다. 더 이상 실행할 **간단** 시작 작업이 없는 경우 역할 자체가 시작됩니다.   
+  작업이 동기적으로 한 번에 하나씩 [ServiceDefinition.csdef] 파일에 지정된 순서로 실행됩니다. 하나의 **간단** 시작 작업이 0의 **errorlevel**로 끝나는 경우 다음 **간단** 시작 작업이 실행됩니다. 더 이상 실행할 **간단** 시작 작업이 없는 경우 역할 자체가 시작됩니다.   
   
   > [!NOTE]
   > **간단** 작업이 0이 아닌 **errorlevel**로 끝나는 경우 인스턴스가 차단됩니다. 후속 **간단** 시작 작업과 역할 자체는 시작되지 않습니다.
@@ -121,14 +121,14 @@ EXIT /B 0
   
     배치 파일이 0의 **errorlevel**로 끝나는지 확인하려면 배치 파일 프로세스의 끝에 명령 `EXIT /B 0`을 실행합니다.
 * **백그라운드**  
-  작업이 비동기적으로 역할의 시작과 병렬로 실행됩니다.
+   작업이 비동기적으로 역할의 시작과 병렬로 실행됩니다.
 * **포그라운드**  
-  작업이 비동기적으로 역할의 시작과 병렬로 실행됩니다. **포그라운드** 및 **백그라운드** 작업 사이의 주요 차이점은 **포그라운드** 작업은 작업이 종료될 때까지 작업이 재활용 또는 종료되는 것을 방지합니다. **백그라운드** 작업은 이러한 제한이 없습니다.
+   작업이 비동기적으로 역할의 시작과 병렬로 실행됩니다. **포그라운드** 및 **백그라운드** 작업 사이의 주요 차이점은 **포그라운드** 작업은 작업이 종료될 때까지 작업이 재활용 또는 종료되는 것을 방지합니다. **백그라운드** 작업은 이러한 제한이 없습니다.
 
 ## <a name="environment-variables"></a>환경 변수
 환경 변수는 시작 작업에 정보를 전달하는 방법입니다. 예를 들어 설치할 프로그램을 포함하는 Blob에 경로를 배치하거나 역할이 사용할 포트 번호 또는 시작 작업의 기능을 제어할 설정을 배치할 수 있습니다.
 
-시작 작업에 대한 환경 변수에는 [RoleEnvironment] 클래스의 멤버에 따라 동적 환경 변수 및 환경 변수 두 가지가 있습니다. 두 변수는 모두 [작업] 파일의 [환경] 섹션에 있으며 모두 [값] 요소 및 **이름** 특성을 사용합니다.
+시작 작업에 대한 환경 변수에는 [RoleEnvironment] 클래스의 멤버에 따라 동적 환경 변수 및 환경 변수 두 가지가 있습니다. 두 변수는 모두 [ServiceDefinition.csdef] 파일의 [환경] 섹션에 있으며 모두 [값] 요소 및 **이름** 특성을 사용합니다.
 
 정적 환경 변수는 **변수** 요소의 [값] 특성을 사용합니다. 위의 예제에서는 "**1.0.0.0**"의 정적 값이 있는 환경 변수 **MyVersionNumber**를 만듭니다. 다른 예제는 "**준비**’ 또는 "**프로덕션**"의 값을 수동으로 설정하여 **StagingOrProduction** 환경 변수의 값에 따라 다른 시작 작업을 수행할 수 있는 **StagingOrProduction** 환경 변수를 만드는 것입니다.
 
@@ -160,7 +160,7 @@ RoleEnvironment 클래스의 멤버를 기반으로 한 환경 변수는 **변�
 
 [포장합니다](cloud-services-model-and-package.md) .  
 
-[작업]: cloud-services-model-and-package.md#csdef
+[ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [작업]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [시작]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [런타임]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime

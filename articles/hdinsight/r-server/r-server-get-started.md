@@ -1,30 +1,24 @@
 ---
-title: HDInsight에서 ML 서비스 시작 - Azure | Microsoft Docs
+title: HDInsight에서 ML Services 시작 - Azure
 description: ML 서비스를 포함하는 HDInsight 클러스터에서 Apache Spark를 만들고 클러스터에 R 스크립트를 제출하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: R
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: efc7ada12f722b0447712594de496e933bde3d36
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3a65b66619351462fcd9c77c3fb9b935cf99ebcc
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053435"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496463"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 시작
 
-Azure HDInsight를 사용하면 ML 서비스 클러스터를 만들 수 있습니다. 이 옵션을 사용하면 R 스크립트에서 Spark 및 MapReduce를 사용하여 분산된 계산을 실행할 수 있습니다. 이 아티클에서는 HDInsight에서 ML 서비스 클러스터를 만드는 방법 및 R 스크립트를 실행하여 분산된 R 계산에 Spark를 사용하는 방법을 알아봅니다.
+Azure HDInsight를 사용하면 ML 서비스 클러스터를 만들 수 있습니다. 이 옵션을 사용하면 R 스크립트에서 [Apache Spark](https://spark.apache.org/) 및 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)를 사용하여 분산 컴퓨팅을 실행할 수 있습니다. 이 아티클에서는 HDInsight에서 ML 서비스 클러스터를 만드는 방법 및 R 스크립트를 실행하여 분산된 R 계산에 Spark를 사용하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -43,7 +37,7 @@ Azure HDInsight를 사용하면 ML 서비스 클러스터를 만들 수 있습�
 
     * **클러스터 이름**: HDInsight 클러스터의 이름입니다.
     * **구독**: 사용할 구독을 선택합니다.
-    * **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**: HTTPS를 통해 클러스터에 액세스할 때 로그인입니다. 이러한 자격 증명을 사용하여 Ambari Web UI 또는 REST API와 같은 서비스에 액세스합니다.
+    * **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**: HTTPS를 통해 클러스터에 액세스할 때 로그인입니다. 이러한 자격 증명을 사용하여 Apache Ambari Web UI 또는 REST API와 같은 서비스에 액세스합니다.
     * **SSH(보안 셸) 사용자 이름**: SSH를 통해 클러스터에 액세스할 때 사용되는 로그인입니다. 기본적으로 암호는 클러스터 로그인 암호와 동일합니다.
     * **리소스 그룹**: 클러스터를 만들어 놓은 리소스 그룹입니다.
     * **위치**: 클러스터를 만들어 놓은 Azure 지역입니다.
@@ -58,7 +52,7 @@ Azure HDInsight를 사용하면 ML 서비스 클러스터를 만들 수 있습�
 
     * **버전**: ML Server 9.3(HDI 3.6) ML Server 9.3에 대한 릴리스 정보는 [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-machine-learning-server)에서 지원됩니다.
 
-    * **ML Server용 R Studio 커뮤니티 버전**: 기본적으로 에지 노드에 설치되는 브라우저 기반 IDE입니다. 설치하지 않으려면 확인란의 선택을 취소합니다. 설치를 선택하면 만들어진 클러스터의 포털 응용 프로그램 블레이드에서 RStudio Server 로그인에 액세스하기 위한 URL을 사용할 수 있습니다.
+    * **ML Server용 R Studio 커뮤니티 버전**: 기본적으로 에지 노드에 설치되는 브라우저 기반 IDE입니다. 설치하지 않으려면 확인란의 선택을 취소합니다. 설치를 선택하면 만들어진 클러스터의 포털 애플리케이션 블레이드에서 RStudio Server 로그인에 액세스하기 위한 URL을 사용할 수 있습니다.
 
         ![클러스터 기본 세부 정보](./media/r-server-get-started/clustertypeconfig.png)
 
@@ -180,9 +174,9 @@ ML 서비스 클러스터 에지 노드에 연결하기 위한 SSH 명령은 다
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
 
-클러스터에 대한 SSH 명령을 찾으려면 Azure Portal에서 클러스터 이름을 클릭하고, **SSH + 클러스터 로그인**을 클릭한 다음, **Hostname**에 에지 노드를 선택합니다. 그러면 에지 노드에 대한 SSH 끝점 정보가 표시됩니다.
+클러스터에 대한 SSH 명령을 찾으려면 Azure Portal에서 클러스터 이름을 클릭하고, **SSH + 클러스터 로그인**을 클릭한 다음, **Hostname**에 에지 노드를 선택합니다. 그러면 에지 노드에 대한 SSH 엔드포인트 정보가 표시됩니다.
 
-![에지 노드에 대한 SSH 끝점의 이미지](./media/r-server-get-started/sshendpoint.png)
+![에지 노드에 대한 SSH 엔드포인트의 이미지](./media/r-server-get-started/sshendpoint.png)
 
 SSH 사용자 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공용 키를 사용하는 경우, `-i` 매개 변수를 사용하고 일치하는 개인 키를 지정합니다. 예: 
 

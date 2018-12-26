@@ -4,18 +4,18 @@ description: Azure AD 셀프 서비스 암호 재설정에 대해 자주 묻는 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 7f54877f9218cbb0c2ac8cca86c580b7f1aa6c83
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 50edabb395380c8b0185736205834dd65e47317f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869753"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425270"
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -35,7 +35,7 @@ ms.locfileid: "33869753"
 
 * **Q: 내 사용자가 자신의 암호 재설정 데이터를 등록할 수 있습니까?**
 
-  > **A:** 예. 암호 재설정이 사용되고 라이선스가 부여된 경우 사용자는 암호 재설정 등록 포털(https://aka.ms/ssprsetup))로 이동하여 인증 정보를 등록할 수 있습니다. 사용자는 액세스 패널 ( http://myapps.microsoft.com) )을 통해 등록할 수도 있습니다. 액세스 패널을 통해 등록하려면 프로필 사진을 선택하고 **프로필**을 선택한 다음 **암호 재설정 등록** 옵션을 사용해야 합니다.
+  > **A:** 예. 암호 재설정이 사용되고 라이선스가 부여된 경우 사용자는 암호 재설정 등록 포털(https://aka.ms/ssprsetup))로 이동하여 인증 정보를 등록할 수 있습니다. 사용자는 액세스 패널 ( https://myapps.microsoft.com) ) 을 통해 등록할 수도 있습니다. 액세스 패널을 통해 등록하려면 프로필 사진을 선택하고 **프로필**을 선택한 다음 **암호 재설정 등록** 옵션을 사용해야 합니다.
   >
   >
 * **Q: 그룹에 대해 암호 재설정을 사용하도록 설정한 후 모든 사용자에게 이를 사용하도록 설정하려는 경우, 사용자가 다시 등록해야 하나요?**
@@ -115,7 +115,7 @@ ms.locfileid: "33869753"
   >
 * **Q: 암호 재설정으로 이동할 수 있는 위치에 대해 사용자에게 어떻게 교육할 수 있습니까?**
 
-  > **A:** [SSPR 배포](howto-sspr-deployment.md#email-based-rollout) 문서의 제안 사항을 직접 시도해 보세요.
+  > **A:** [SSPR 배포](howto-sspr-deployment.md#sample-communication) 문서의 제안 사항을 직접 시도해 보세요.
   >
   >
 * **Q: 모바일 장치에서 이 페이지를 사용할 수 있습니까?**
@@ -170,7 +170,7 @@ ms.locfileid: "33869753"
   >
 * **Q: 사용자가 암호 재설정 시 본인 확인 질문을 사용해야 하도록 정책을 구성했는데, Azure 관리자에 대해서는 다르게 구성된 것 같습니다.**
 
-  > **A:** 이는 정상적인 동작입니다. Microsoft는 Azure 관리자 역할에 강력한 기본 2-게이트 암호 재설정 정책을 적용합니다. 따라서 관리자들은 본인 확인 질문을 사용하지 않아도 됩니다. 이 정책에 대한 자세한 내용은 [Azure Active Directory의 암호 정책 및 제한 사항](concept-sspr-policy.md#administrator-password-policy-differences) 문서를 참조하세요.
+  > **A:** 이는 정상적인 동작입니다. Microsoft는 Azure 관리자 역할에 강력한 기본 2-게이트 암호 재설정 정책을 적용합니다. 따라서 관리자들은 본인 확인 질문을 사용하지 않아도 됩니다. 이 정책에 대한 자세한 내용은 [Azure Active Directory의 암호 정책 및 제한 사항](concept-sspr-policy.md) 문서를 참조하세요.
   >
   >
 * **Q: 사용자가 암호 재설정에 필요한 최대 본인 확인 질문 개수보다 많은 질문을 등록한 경우, 암호 재설정 시 어떤 본인 확인 질문이 선택되나요?**
@@ -274,15 +274,15 @@ ms.locfileid: "33869753"
   >
 * **Q: 비밀번호 쓰기 저장은 안전합니까?  해킹을 당하지 않는다고 어떻게 확신할 수 있습니까?**
 
-  > **A:** 예, 비밀번호 쓰기 저장은 안전합니다. 비밀번호 쓰기 저장 서비스에 의해 구현되는 4개의 보안 계층에 대한 자세한 내용은 [비밀번호 쓰기 저장 개요](howto-sspr-writeback.md) 문서의 [비밀번호 쓰기 저장 보안 모델](howto-sspr-writeback.md#password-writeback-security-model) 섹션을 확인하세요.
+  > **A:** 예, 비밀번호 쓰기 저장은 안전합니다. 비밀번호 쓰기 저장 서비스에 의해 구현되는 여러 보안 레이어에 대한 자세한 내용은 [비밀번호 쓰기 저장 개요](howto-sspr-writeback.md) 문서의 [비밀번호 쓰기 저장 보안](concept-sspr-writeback.md#password-writeback-security) 섹션을 확인하세요.
   >
   >
 
 ## <a name="next-steps"></a>다음 단계
 
 * [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](howto-sspr-deployment.md)
-* [암호 재설정 또는 변경](../active-directory-passwords-update-your-own-password.md)
-* [셀프 서비스 암호 재설정 등록](../active-directory-passwords-reset-register.md)
+* [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
+* [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md)
 * [라이선스 관련 질문이 있습니까?](concept-sspr-licensing.md)
 * [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
 * [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](concept-sspr-howitworks.md#authentication-methods)

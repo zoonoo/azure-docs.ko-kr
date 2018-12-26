@@ -6,6 +6,7 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 8486b0be1fb5e1385da3c7ad55f6410a1059df93
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 84dfef65c341ca8023b741a98c26081da36e9ff7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309251"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085130"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data Science Virtual Machine 기반 팀 분석 및 AI 환경 
 DSVM([Data Science Virtual Machine](overview.md))은 Azure 플랫폼에 미리 빌드된 AI(인공 지능) 및 데이터 분석용 소프트웨어를 포함한 풍부한 환경을 제공합니다. 
@@ -51,4 +52,4 @@ DSVM은 Azure 인프라 수준에서 작동하므로, IT 관리자가 엔터프�
 * [암호화](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [데이터 검색 및 거버넌스](https://docs.microsoft.com/azure/data-catalog/)
 
-[Azure 아키텍처 센터](https://docs.microsoft.com/en-us/azure/architecture/)는 클라우드 기반 분석 인프라를 빌드하고 관리하기 위한 구체적인 종단 간 아키텍처와 패턴을 제공합니다. 
+[Azure 아키텍처 센터](https://docs.microsoft.com/azure/architecture/)는 클라우드 기반 분석 인프라를 빌드하고 관리하기 위한 구체적인 종단 간 아키텍처와 패턴을 제공합니다. 

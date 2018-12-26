@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: ebe8745db06113d0508d86554bf031a4235c8e44
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045952"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249590"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 이 아티클에서는 Azure Data Factory에 대한 질문과 대답을 제공합니다.  
@@ -80,10 +80,10 @@ SSIS 워크로드를 이동하려는 경우 Data Factory를 만들고 Azure-SSIS
 
 -   프로젝트/패키지의 SSIS 카탈로그(SSISDB)를 호스트하도록 Azure SQL Database(DB)에 세 가지 추가 구성/변형을 지원합니다.
 -   VNet 서비스 엔드포인트를 포함한 Azure SQL DB
--   MI(관리되는 인스턴스)
+-   MI(Managed Instance)
 -   탄력적 풀
--   나중에 사용되지 않는 클래식 VNet에서 Azure Resource Manager VNet(Virtual Network)에 대한 지원 – 이기 능을 통해 VNet 서비스 엔드포인트/MI/온-프레미스 데이터 액세스를 포함한 Azure SQL DB에 대해 구성된 VNet에 Azure-SSIS IR(Integration Runtime)을 주입/조인할 수 있습니다. https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network를 참조하세요. 
--   SSISDB에 연결하기 위한 SQL 인증에서 AAD(Azure Active Directory) 인증에 대한 지원 - 이 기능을 통해 ADF MSI(관리 서비스 ID)로 AAD 인증을 사용할 수 있습니다.
+-   나중에 사용되지 않는 클래식 VNet에서 Azure Resource Manager VNet(Virtual Network)에 대한 지원 – 이기 능을 통해 VNet 서비스 엔드포인트/MI/온-프레미스 데이터 액세스를 포함한 Azure SQL DB에 대해 구성된 VNet에 Azure-SSIS IR(Integration Runtime)을 주입/조인할 수 있습니다. https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network를 참조하세요. 
+-   SSISDB 연결을 위한 SQL 인증을 기반으로 AAD(Azure Active Directory) 인증 지원 - 이 기능을 통해 Azure 리소스용 ADF 관리 ID를 통한 AAD 인증을 사용할 수 있습니다.
 -   AHB(Azure Hybrid Benefit) 옵션에서 상당한 비용을 절약하기 위해 고유한 온-프레미스 SQL Server 라이선스를 가져오도록 지원합니다.
 -   고급/프리미엄 기능인 추가 구성 요소/확장 및 타사 에코시스템을 설치하는 사용자 지정 설정을 사용할 수 있는 Azure-SSIS IR의 Enterprise Edition에 대한 지원입니다. https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/를 참조하세요. 
 -   ADF에서 SSIS의 심층 통합을 통해 ADF 파이프라인에서 최고 수준의 SSIS 패키지 실행 작업을 호출/트리거하고 SSMS를 통해 예약할 수 있습니다. https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/를 참조하세요. 
@@ -112,8 +112,8 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 ### <a name="activity"></a>작업
 작업은 파이프라인의 처리 단계를 나타냅니다. 예를 들어, 하나의 데이터 저장소에서 다른 데이터 저장소로 데이터를 복사하는 데 *복사* 작업을 사용할 수 있습니다. 마찬가지로 데이터를 변환하거나 분석하기 위해서 Azure HDInsight 클러스터에서 Hive 쿼리를 실행하는 Hive 작업을 사용할 수 있습니다. Data Factory는 데이터 이동 작업, 데이터 변환 작업 및 제어 작업이라는 세 종류의 작업을 지원합니다.
 
-### <a name="datasets"></a>데이터 집합
-데이터 집합은 데이터 저장소 내의 데이터 구조를 나타내며, 사용자가 활동에서 입력 또는 출력으로 사용하려는 데이터를 가리키거나 참조할 뿐입니다. 
+### <a name="datasets"></a>데이터 세트
+데이터 세트는 데이터 저장소 내의 데이터 구조를 나타내며, 사용자가 활동에서 입력 또는 출력으로 사용하려는 데이터를 가리키거나 참조할 뿐입니다. 
 
 ### <a name="linked-services"></a>연결된 서비스
 연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. 연결된 서비스는 데이터 원본에 연결을 정의하고 데이터 집합은 데이터 구조를 나타낸다고 생각하시면 됩니다. 예를 들어 Azure Storage 연결 서비스는 Azure Storage 계정에 연결할 연결 문자열을 지정합니다. 그리고 Azure Blob 데이터 집합은 Blob 컨테이너 및 데이터가 포함된 폴더를 지정합니다.

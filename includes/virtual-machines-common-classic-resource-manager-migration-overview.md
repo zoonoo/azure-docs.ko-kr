@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: 629cdf3907f45419ecfa5fce59430a163767c8fb
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d1a6ff8dbd17d2792709a1ce065bcf793154e585
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943269"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37780675"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션
 이 문서에서는 IaaS(서비스 제공 인프라) 리소스를 클래식에서 Resource Manager 배포 모델로 마이그레이션하는 방법 및 가상 네트워크 사이트 간 게이트웨이를 사용하여 구독에 공존하는 두 배포 모델의 리소스를 연결하는 방법을 설명합니다. [Azure Resource Manager 기능 및 이점](../articles/azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아볼 수 있습니다. 
 
 ## <a name="goal-for-migration"></a>마이그레이션 목표
-Resource Manager는 템플릿을 사용하여 복잡한 응용 프로그램을 배포할 수 있도록 지원하며 VM 확장을 사용하여 가상 머신을 구성하고 액세스 관리와 태깅을 통합합니다. Azure Resource Manager는 가용성 집합에 가상 머신에 대해 확장성 있는 병렬 배포를 포함합니다. 그뿐 아니라 새로운 배포 모델에서는 계산, 네트워크, 저장소의 수명 주기를 독립적으로 관리할 수 있습니다. 마지막으로 가상 네트워크에 가상 머신을 적용하여 보안 구현을 기본적으로 중요시합니다.
+Resource Manager는 템플릿을 사용하여 복잡한 애플리케이션을 배포할 수 있도록 지원하며 VM 확장을 사용하여 가상 머신을 구성하고 액세스 관리와 태깅을 통합합니다. Azure Resource Manager는 가용성 집합에 가상 머신에 대해 확장성 있는 병렬 배포를 포함합니다. 그뿐 아니라 새로운 배포 모델에서는 계산, 네트워크, 저장소의 수명 주기를 독립적으로 관리할 수 있습니다. 마지막으로 가상 네트워크에 가상 머신을 적용하여 보안 구현을 기본적으로 중요시합니다.
 
 클래식 배포 모델의 거의 모든 기능이 Azure Resource Manager의 계산, 네트워크 및 저장소에 대해 지원됩니다. Azure Resource Manager의 새로운 기능을 제대로 활용하려는 경우 클래식 배포 모델에서 기존 배포를 마이그레이션할 수 있습니다.
 
@@ -28,7 +28,7 @@ Resource Manager는 템플릿을 사용하여 복잡한 응용 프로그램을 �
 
 * Virtual Machines
 * 가용성 집합
-* Cloud Services
+* Virtual Machines가 있는 Cloud Services
 * Storage 계정
 * Virtual Network
 * VPN Gateway
@@ -46,7 +46,7 @@ Resource Manager는 템플릿을 사용하여 복잡한 응용 프로그램을 �
 * [연결되지 않은 리소스 마이그레이션](#migration-of-unattached-resources)
 
 ### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>가상 머신 마이그레이션(가상 네트워크가 아님)
-Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보안이 적용되어 있습니다. 모든 VM은 Resource Manager 모델의 가상 네트워크에 있어야 합니다. Azure 플랫폼은 마이그레이션의 일부로 VM을 다시 시작합니다(`Stop`, `Deallocate` 및 `Start`). Virtual Machines이 마이그레이션될 가상 네트워크에 대해서는 두 가지 옵션이 있습니다.
+Resource Manager 배포 모델에서는 기본적으로 애플리케이션 보안이 적용되어 있습니다. 모든 VM은 Resource Manager 모델의 가상 네트워크에 있어야 합니다. Azure 플랫폼은 마이그레이션의 일부로 VM을 다시 시작합니다(`Stop`, `Deallocate` 및 `Start`). Virtual Machines이 마이그레이션될 가상 네트워크에 대해서는 두 가지 옵션이 있습니다.
 
 * 플랫폼에서 새 가상 네트워크를 만들도록 요청하고 가상 머신을 새 가상 네트워크로 마이그레이션할 수 있습니다.
 * 가상 머신을 Resource Manager의 기존 가상 네트워크로 마이그레이션할 수 있습니다.
@@ -56,7 +56,7 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 >
 
 ### <a name="migration-of-virtual-machines-in-a-virtual-network"></a>가상 머신 마이그레이션(가상 네트워크에서)
-대부분의 VM 구성에서는 클래식과 Resource Manager 배포 모델 간에 메타데이터만 마이그레이션됩니다. 기본 VM은 동일한 네트워크의 동일한 하드웨어에서 동일한 저장소로 실행됩니다. 마이그레이션 중 특정 시간 동안 관리 평면 작업이 허용되지 않을 수 있습니다. 그러나 데이터 평면은 계속 작동합니다. 즉, 마이그레이션 중 VM(클래식) 상에서 실행되는 응용 프로그램에 가동 중지 시간이 발생하지 않습니다.
+대부분의 VM 구성에서는 클래식과 Resource Manager 배포 모델 간에 메타데이터만 마이그레이션됩니다. 기본 VM은 동일한 네트워크의 동일한 하드웨어에서 동일한 저장소로 실행됩니다. 마이그레이션 중 특정 시간 동안 관리 평면 작업이 허용되지 않을 수 있습니다. 그러나 데이터 평면은 계속 작동합니다. 즉, 마이그레이션 중 VM(클래식) 상에서 실행되는 애플리케이션에 가동 중지 시간이 발생하지 않습니다.
 
 현재 지원되지 않는 구성은 다음과 같습니다. 향후 이에 대한 지원을 추가할 경우 이 구성의 일부 VM에서 가동 중지 시간(VM 작업 중지, 할당 취소, 다시 시작 진행)이 발생할 수 있습니다.
 

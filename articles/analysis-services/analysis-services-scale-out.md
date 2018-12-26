@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4cb7b165311f57fadd63770646907ddfc0378844
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 8cfbc72e239a7a5b38cee6752803e79735e2adc9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445023"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321277"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -23,11 +23,17 @@ ms.locfileid: "37445023"
 
 일반적인 서버 배포에서는 한 서버가 처리 서버 및 쿼리 서버 역할을 모두 수행합니다. 서버 모델에 대한 클라이언트 쿼리 수가 서버 계획에 대한 QPU(쿼리 처리 단위)를 초과하거나 높은 쿼리 워크로드와 동시에 모델 처리가 발생하면 성능이 저하될 수 있습니다. 
 
-규모 확장을 사용하면 최대 7개의 추가 쿼리 복제본으로 쿼리 풀을 만들 수 있습니다(총 8개, 서버 포함). 중요한 시간에 QPU 요구를 충족시키기 위해 쿼리 복제본 수를 확장하고 언제든지 처리 서버를 쿼리 풀에서 분리할 수 있습니다. 모든 쿼리 복제본은 서버와 동일한 지역에 만들어집니다.
+스케일 아웃을 사용하면 최대 7개의 추가 쿼리 복제본 리소스로 쿼리 풀을 만들 수 있습니다(총 8개, 서버 포함). 중요한 시간에 QPU 요구를 충족시키기 위해 쿼리 복제본 수를 확장하고 언제든지 처리 서버를 쿼리 풀에서 분리할 수 있습니다. 모든 쿼리 복제본은 서버와 동일한 지역에 만들어집니다.
 
-쿼리 풀에 있는 쿼리 복제본의 수와 관계없이 처리 워크로드는 쿼리 복제본 간에 분산되지 않습니다. 단일 서버가 처리 서버 역할을 수행합니다. 쿼리 복제본은 쿼리 풀의 각 복제본 간에 동기화된 모델에 대한 쿼리만 제공합니다. 
+쿼리 풀에 있는 쿼리 복제본의 수와 관계없이 처리 워크로드는 쿼리 복제본 간에 분산되지 않습니다. 단일 서버가 처리 서버 역할을 수행합니다. 쿼리 복제본은 쿼리 풀의 각 쿼리 복제본 간에 동기화된 모델에 대한 쿼리만 제공합니다. 
 
-처리 작업이 완료되면 처리 서버와 쿼리 복제본 서버 간에 동기화를 수행해야 합니다. 처리 작업을 자동화할 때는 처리 작업이 성공적으로 완료될 때 동기화 작업을 구성하는 것이 중요합니다. PowerShell 또는 REST API를 사용하거나 포털에서 수동으로 동기화를 수행할 수 있습니다.
+스케일 아웃 시 새 쿼리 복제본이 쿼리 풀에 증분 방식으로 추가됩니다. 새 쿼리 복제본 리소스가 쿼리 풀에 포함되는 데 최대 5분 정도 걸릴 수 있습니다. 모든 새 쿼리 복제본이 구성되어 실행되면 새 클라이언트 연결에서 모든 쿼리 풀 리소스 간의 부하가 분산됩니다. 기존 클라이언트 연결은 현재 연결되어 있는 리소스에서 변경되지 않습니다.  규모 감축 시 조정할 때 쿼리 풀에서 제거되는 쿼리 풀 리소스에 대한 기존 클라이언트 연결이 종료됩니다. 규모 감축 작업이 완료되면 나머지 쿼리 풀 리소스에 다시 연결됩니다. 여기에는 최대 5분이 걸릴 수 있습니다.
+
+모델을 처리할 때 처리 작업이 완료된 후 처리 서버와 쿼리 복제본 간에 동기화를 수행해야 합니다. 처리 작업을 자동화할 때는 처리 작업이 성공적으로 완료될 때 동기화 작업을 구성하는 것이 중요합니다. PowerShell 또는 REST API를 사용하거나 포털에서 수동으로 동기화를 수행할 수 있습니다. 
+
+### <a name="separate-processing-from-query-pool"></a>쿼리 풀에서 처리 구분
+
+처리 및 쿼리 작업 모두에서 최대 성능을 내기 위해서는 쿼리 풀에서 처리 서버를 분리하도록 선택할 수 있습니다. 분리되면 기존 및 새 클라이언트 연결이 쿼리 풀에서만 쿼리 복제본에 할당됩니다. 처리 작업에만 약간의 시간이 걸리는 경우 처리 및 동기화 작업을 수행하는 데 걸리는 약간의 시간 동안 쿼리 풀에서 처리 서버를 분리한 다음, 쿼리 풀에 다시 포함시키도록 선택할 수 있습니다. 
 
 > [!NOTE]
 > 규모 확장은 표준 가격 책정 계층의 서버에서 사용할 수 있습니다. 각 쿼리 복제본은 서버와 동일한 요금으로 청구됩니다.
@@ -37,19 +43,7 @@ ms.locfileid: "37445023"
 
 ## <a name="region-limits"></a>지역 제한
 
-사용자가 구성할 수 있는 쿼리 복제본 수는 서버가 있는 지역에 따라 제한됩니다. 다음과 같은 제한이 적용됩니다.
-
-|지역  |최대 복제본 수  |
-|---------|---------|
-|미국 동부 2    |    7     |
-|미국 중서부     |    7     |
-|서유럽     |    7     |
-|미국 서부     |     7    |
-|미국 중부     |     3    |
-|동남아시아    |     3    |
-|다른 모든 하위 지역  |   1    |
-
-
+사용자가 구성할 수 있는 쿼리 복제본 수는 서버가 있는 지역에 따라 제한됩니다. 자세히 알아보려면 [지역별 가용성](analysis-services-overview.md#availability-by-region)을 참조하세요.
 
 ## <a name="monitor-qpu-usage"></a>QPU 사용량 모니터링
 
@@ -61,14 +55,13 @@ ms.locfileid: "37445023"
 
 1. Azure Portal에서 **규모 확장**을 클릭합니다. 슬라이더를 사용하여 쿼리 복제본 서버 수를 선택합니다. 선택한 복제본 수는 기존 서버에 추가됩니다.
 
-2. 쿼리 서버에서 처리 서버를 제외하려면 **쿼리 풀에서 처리 서버 구분**에서 [예]를 선택합니다.
+2. 쿼리 서버에서 처리 서버를 제외하려면 **쿼리 풀에서 처리 서버 구분**에서 [예]를 선택합니다. 기본 연결 문자열을 사용하는 클라이언트 연결(:rw 없이)은 쿼리 풀에서 복제본으로 리디렉션됩니다. 
 
    ![규모 확장 슬라이더](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
 3. 새 쿼리 복제본 서버를 프로비전하려면 **저장**을 클릭합니다. 
 
 주 서버에서 테이블 형식 모델은 복제본 서버와 동기화됩니다. 동기화가 완료되면 쿼리 풀은 들어오는 쿼리를 복제본 서버 간에 배포하기 시작합니다. 
-
 
 ## <a name="synchronization"></a>동기화 
 
@@ -87,7 +80,7 @@ ms.locfileid: "37445023"
 `POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 #### <a name="get-sync-status"></a>동기화 상태 가져오기  
-`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
 PowerShell을 사용하기 전에 [최신 AzureRM 모듈을 설치하거나 업데이트합니다](https://github.com/Azure/azure-powershell/releases). 
@@ -95,8 +88,6 @@ PowerShell을 사용하기 전에 [최신 AzureRM 모듈을 설치하거나 업�
 쿼리 복제본 수를 설정하려면 [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)를 사용합니다. 선택적 `-ReadonlyReplicaCount` 매개 변수를 지정합니다.
 
 동기화를 실행하려면 [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance)를 사용합니다.
-
-
 
 ## <a name="connections"></a>연결
 
@@ -107,6 +98,12 @@ Power BI Desktop, Excel 및 사용자 지정 앱과 같은 최종 사용자 클�
 SSMS, SSDT, PowerShell의 연결 문자열, Azure Function 앱 및 AMO의 경우 **관리 서버 이름**을 사용합니다. 관리 서버 이름에는 특별한 `:rw`(읽기/쓰기) 한정자가 포함됩니다. 모든 처리 작업은 관리 서버에서 수행됩니다.
 
 ![서버 이름](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## <a name="troubleshoot"></a>문제 해결
+
+**문제:** 사용자는 **연결 모드 'ReadOnly'에서 '\<서버 이름>' 서버 인스턴스를 찾을 수 없습니다.** 라는 오류를 받게 됩니다.
+
+**솔루션:** **쿼리 풀에서 처리 서버 분리** 옵션을 선택하면 기본 연결 문자열을 사용하는 클라이언트 연결(:rw 없이)은 쿼리 풀 복제본으로 리디렉션됩니다. 동기화가 완료되지 않았기 때문에 쿼리 풀의 복제본이 아직 온라인 상태가 아니면 리디렉션된 클라이언트 연결이 실패할 수 있습니다. 연결이 실패하지 않도록 방지하려면 스케일 아웃 및 동기화 작업이 완료될 때까지 쿼리 풀에서 처리 서버를 구분하지 않도록 선택합니다. 메모리 및 QPU 메트릭을 사용하여 동기화 상태를 모니터링할 수 있습니다.
 
 ## <a name="related-information"></a>관련 정보
 

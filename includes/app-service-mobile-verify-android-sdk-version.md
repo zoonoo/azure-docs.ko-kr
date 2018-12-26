@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 46cfb27b8bde95990d13ec4bca4e96f25cfe9dc5
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133121"
+---
 지속적인 개발로 인해 Android Studio에 설치된 Android SDK가 코드의 버전과 일치하지 않을 수도 있습니다. 이 자습서에서 언급한 Android SDK 버전은 이 문서 작성 시 최신 버전인 26입니다. 버전 번호는 SDK의 새 릴리스가 공개되면 높아질 수 있으며, 사용 가능한 최신 버전을 사용하는 것이 좋습니다.
 
 버전 불일치의 두 가지 증상은 다음과 같습니다.

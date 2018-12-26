@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: fe7384baa6740d316fb5a8ec7b1894f337d88080
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 584fca3df4fee24a4f1c7b93d5371c48be059f7b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401294"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257938"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>PowerShell을 사용하여 Azure VM에 Always On 가용성 그룹 구성
 > [!div class="op_single_selector"]
@@ -353,7 +353,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
    * **New-AzureVMConfig**는 도메인 컨트롤러 서버와 동일한 가용성 집합 이름을 사용하며 가상 머신 갤러리의 SQL Server 2012 서비스 팩 1 Enterprise Edition 이미지를 사용합니다. 또한 운영 체제 디스크를 읽기 캐싱 전용(쓰기 캐싱 없음)으로 설정합니다. VM에 연결한 별도의 데이터 디스크에 데이터베이스 파일을 마이그레이션하고 읽기 또는 쓰기 캐싱 없이 구성하는 것이 좋습니다. 그러나 운영 체제 디스크에서는 읽기 캐싱을 제거할 수 없으므로 운영 체제 디스크에서 쓰기 캐싱을 제거하는 것이 차선책입니다.
    * **Add-AzureProvisioningConfig**는 VM을 사용자가 만든 Active Directory 도메인에 가입시킵니다.
    * **Set-AzureSubnet**은 백 서브넷에 VM을 배치합니다.
-   * **Add-AzureEndpoint**는 클라이언트 응용 프로그램이 인터넷의 SQL Server 서비스 인스턴스에 액세스할 수 있도록 액세스 끝점을 추가합니다. ContosoSQL1 및 ContosoSQL2에 다른 포트가 제공됩니다.
+   * **Add-AzureEndpoint**는 클라이언트 응용 프로그램이 인터넷의 SQL Server 서비스 인스턴스에 액세스할 수 있도록 액세스 엔드포인트를 추가합니다. ContosoSQL1 및 ContosoSQL2에 다른 포트가 제공됩니다.
    * **New-AzureVM** 은 ContosoQuorum과 동일한 클라우드 서비스에 새 SQL Server VM을 만듭니다. VM을 동일한 가용성 집합에 포함하려면 동일한 클라우드 서비스에 VM을 배치해야 해야 합니다.
 4. 각 VM이 완전히 프로비전되고 각 VM이 작업 디렉터리에 원격 데스크톱 파일을 다운로드할 때까지 기다립니다. `for` 루프가 3개의 새 VM을 순환하고 각 VM에 대해 최상위 중괄호 안의 명령을 실행합니다.
 
@@ -482,7 +482,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. **Azure VM에서 Always On 가용성 그룹을 위한 장애 조치 클러스터 만들기** 에서 [CreateAzureFailoverCluster.ps1](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) 을 로컬 작업 디렉터리로 다운로드합니다. 이 스크립트를 사용하면 작동 가능한 장애 조치(Failover) 클러스터를 만들 수 있습니다. Windows 장애 조치(Failover) 클러스터링이 Azure 네트워크와 상호 작용하는 방식에 대한 중요 정보는 [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)를 참조하세요.
+7. **Azure VM에서 Always On 가용성 그룹을 위한 장애 조치 클러스터 만들기** 에서 [CreateAzureFailoverCluster.ps1](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) 을 로컬 작업 디렉터리로 다운로드합니다. 이 스크립트를 사용하면 작동 가능한 장애 조치(Failover) 클러스터를 만들 수 있습니다. Windows 장애 조치(Failover) 클러스터링이 Azure 네트워크와 상호 작용하는 방식에 대한 중요 정보는 [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)를 참조하세요.
 8. 작업 디렉터리로 변경하고 다운로드한 스크립트로 장애 조치 클러스터를 만듭니다.
 
         Set-ExecutionPolicy Unrestricted -Force
@@ -512,7 +512,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
          Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server1 -BackupAction Log
          Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server2 -NoRecovery
          Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server2 -RestoreAction Log -NoRecovery
-12. SQL Server VM에 가용성 그룹 끝점을 만들고 끝점에 적합한 권한을 설정합니다.
+12. SQL Server VM에 가용성 그룹 엔드포인트를 만들고 엔드포인트에 적합한 권한을 설정합니다.
 
          $endpoint =
              New-SqlHadrEndpoint MyMirroringEndpoint `

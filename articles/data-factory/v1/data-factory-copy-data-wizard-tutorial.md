@@ -10,22 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c0823fa839df98fa81f42bfbb3f7cd2bec6d7c1a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 85cea4bea0b1cff65464a2ad692e500efdc50c10
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582539"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095377"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>자습서: 데이터 팩터리 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager 템플릿](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -132,7 +132,7 @@ Azure Data Factory **복사 마법사**를 사용하면 지원되는 원본 데�
 12. **성능 설정** 페이지에서 **다음**을 클릭합니다. 
     
     ![복사 도구 - 성능 설정](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
-13. **요약** 페이지에서 정보를 검토하고 **마침**을 클릭합니다. 마법사는 데이터 팩터리(복사 마법사를 실행한 위치)에 두 개의 연결된 서비스, 두 개의 데이터 집합(입력 및 출력), 하나의 파이프라인을 만듭니다. 
+13. **요약** 페이지에서 정보를 검토하고 **마침**을 클릭합니다. 마법사는 데이터 팩터리(복사 마법사를 실행한 위치)에 두 개의 연결된 서비스, 두 개의 데이터 세트(입력 및 출력), 하나의 파이프라인을 만듭니다. 
     
     ![복사 도구 - 성능 설정](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
@@ -148,7 +148,7 @@ Azure Data Factory **복사 마법사**를 사용하면 지원되는 원본 데�
 
     ![활동 창 세부 정보](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)    
 
-    11, 12, 13, 14 및 15에 해당하는 날짜가 녹색으로 표시되어 있습니다. 즉 이러한 날짜에 대해 이미 출력 조각이 매일 생성되었음을 의미합니다. 또한 다이어그램 보기에서도 파이프라인과 출력 데이터 집합에 대한 이러한 색 구분이 표시됩니다. 이전 단계에서 색 구분을 기반으로 하여 두 조각이 이미 생성되었고, 하나의 조각이 현재 처리 중이며, 다른 두 조각이 처리 대기 중임을 알 수 있습니다. 
+    11, 12, 13, 14 및 15에 해당하는 날짜가 녹색으로 표시되어 있습니다. 즉 이러한 날짜에 대해 이미 출력 조각이 매일 생성되었음을 의미합니다. 또한 다이어그램 보기에서도 파이프라인과 출력 데이터 세트에 대한 이러한 색 구분이 표시됩니다. 이전 단계에서 색 구분을 기반으로 하여 두 조각이 이미 생성되었고, 하나의 조각이 현재 처리 중이며, 다른 두 조각이 처리 대기 중임을 알 수 있습니다. 
 
     이 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요.
 

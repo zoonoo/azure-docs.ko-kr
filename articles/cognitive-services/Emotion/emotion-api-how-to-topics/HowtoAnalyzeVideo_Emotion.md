@@ -1,25 +1,27 @@
 ---
-title: Emotion API를 사용한 실시간 비디오 분석 | Microsoft Docs
-description: Cognitive Services의 Emotion API를 사용하면 라이브 비디오 스트림에서 가져온 프레임을 거의 실시간으로 분석할 수 있습니다.
+title: '예: 실시간 비디오 분석 - Emotion API'
+titlesuffix: Azure Cognitive Services
+description: Emotion API를 사용하면 라이브 비디오 스트림에서 가져온 프레임을 거의 실시간으로 분석할 수 있습니다.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: sample
 ms.date: 01/25/2017
 ms.author: anroth
-ms.openlocfilehash: 3a809e729e3b697b92d9fc59351a200748bcb884
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: df955a23393c82565e8f31e59e148798a0f89bbf
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374166"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236483"
 ---
-# <a name="how-to-analyze-videos-in-real-time"></a>실시간으로 비디오를 분석하는 방법
+# <a name="example-how-to-analyze-videos-in-real-time"></a>예: 실시간으로 비디오를 분석하는 방법
 
 > [!IMPORTANT]
-> Video API 미리 보기는 2017년 10월 30일에 종료됩니다. 새 [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) 미리 보기를 사용하여 비디오에서 정보를 쉽게 추출하고 말이나 얼굴, 성격, 감정을 감지하여 검색 결과를 제시하는 등 콘텐츠 검색 경험을 향상하세요. [자세히 알아보기](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Emotion API는 2019년 2월 15일부터 더 이상 사용되지 않습니다. 이제 감정 인식 기능은 [Face API](https://docs.microsoft.com/azure/cognitive-services/face/)의 일부로 일반 공급됩니다.
 
 이 가이드에서는 라이브 비디오 스트림에서 가져온 프레임을 거의 실시간으로 분석하는 방법을 보여 줍니다. 이러한 시스템의 기본 구성 요소는 다음과 같습니다.
 - 비디오 소스에서 프레임 획득
@@ -49,13 +51,14 @@ while (true)
 
 ### <a name="parallelizing-api-calls"></a>API 호출 병렬 처리
 간단한 단일 스레드 루프는 경량 클라이언트 쪽 알고리즘에 적합하지만 클라우드 API 호출과 관련된 대기 시간에는 적합하지 않습니다. 이 문제에 대한 해결 방법은 프레임 잡기를 사용하여 장기 실행 API 호출이 병렬로 실행될 수 있도록 하는 것입니다. 예를 들어 C#에서 작업 기반 병렬 처리를 사용하여 이 작업을 완수할 수 있었습니다.
-```CSharp
+
+```csharp
 while (true)
 {
     Frame f = GrabFrame();
     if (ShouldAnalyze(f))
     {
-        var t = Task.Run(async () => 
+        var t = Task.Run(async () =>
         {
             AnalysisResult r = await Analyze(f);
             ConsumeResult(r);
@@ -63,25 +66,26 @@ while (true)
     }
 }
 ```
-그러면 각 분석이 별도의 작업에서 시작되며, 새 프레임을 계속 잡는 동안 백그라운드에서 실행할 수 있습니다. 이 경우 API 호출이 반환될 때까지 기다리는 동안 주 스레드가 차단되지 않지만, 제공된 간단한 버전인 여러 API 호출이 병렬로 발생하지 않을 수 있으며 결과가 잘못된 순서로 반환될 수 있습니다. 이로 인해 여러 스레드가 동시에 ConsumeResult() 함수를 시작할 수 있으므로 함수가 스레드로부터 안전하지 않은 경우 위험할 수 있습니다. 마지막으로, 이 간단한 코드는 생성되는 작업을 추적하지 않으므로 예외가 자동으로 사라집니다. 따라서 추가할 최종 요소는 분석 작업을 추적하고 예외를 발생시키며 장기 실행 작업을 종료하고 결과가 한 번에 하나씩, 올바른 순서로 사용되도록 하는 “소비자” 스레드입니다.
+
+이 코드로 각 분석이 별도의 작업에서 시작되며, 새 프레임을 계속 잡는 동안 백그라운드에서 실행할 수 있습니다. 이 경우 API 호출이 반환될 때까지 기다리는 동안 주 스레드가 차단되지 않지만, 제공된 간단한 버전인 여러 API 호출이 병렬로 발생하지 않을 수 있으며 결과가 잘못된 순서로 반환될 수 있습니다. 이로 인해 여러 스레드가 동시에 ConsumeResult() 함수를 시작할 수 있으므로 함수가 스레드로부터 안전하지 않은 경우 위험할 수 있습니다. 마지막으로, 이 간단한 코드는 생성되는 작업을 추적하지 않으므로 예외가 자동으로 사라집니다. 따라서 추가할 최종 요소는 분석 작업을 추적하고 예외를 발생시키며 장기 실행 작업을 종료하고 결과가 한 번에 하나씩, 올바른 순서로 사용되도록 하는 “소비자” 스레드입니다.
 
 ### <a name="a-producer-consumer-design"></a>생산자-소비자 디자인
 최종 “생산자-소비자” 시스템에서는 이전의 무한 루프와 매우 유사한 생산자 스레드가 있습니다. 그러나 분석 결과가 제공되는 즉시 사용하는 대신 생산자는 단순히 작업을 큐에 배치하여 추적합니다.
 ```CSharp
-// Queue that will contain the API call tasks. 
+// Queue that will contain the API call tasks.
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
      
-// Producer thread. 
+// Producer thread.
 while (true)
 {
-    // Grab a frame. 
+    // Grab a frame.
     Frame f = GrabFrame();
  
-    // Decide whether to analyze the frame. 
+    // Decide whether to analyze the frame.
     if (ShouldAnalyze(f))
     {
-        // Start a task that will run in parallel with this thread. 
-        var analysisTask = Task.Run(async () => 
+        // Start a task that will run in parallel with this thread.
+        var analysisTask = Task.Run(async () =>
         {
             // Put the frame, and the result/exception into a wrapper object.
             var output = new ResultWrapper(f);
@@ -95,24 +99,24 @@ while (true)
             }
             return output;
         }
-        
-        // Push the task onto the queue. 
+
+        // Push the task onto the queue.
         taskQueue.Add(analysisTask);
     }
 }
 ```
 또한 큐에서 작업을 시작하고 완료될 때까지 기다린 다음, 결과를 표시하거나 throw된 예외를 발생하는 소비자 스레드도 있습니다. 큐를 사용하면 시스템의 최대 프레임 속도를 제한하지 않고 결과가 한 번에 하나씩, 올바른 순서로 사용되도록 할 수 있습니다.
 ```CSharp
-// Consumer thread. 
+// Consumer thread.
 while (true)
 {
-    // Get the oldest task. 
+    // Get the oldest task.
     Task<ResultWrapper> analysisTask = taskQueue.Take();
  
-    // Await until the task is completed. 
+    // Await until the task is completed.
     var output = await analysisTask;
      
-    // Consume the exception or result. 
+    // Consume the exception or result.
     if (output.Exception != null)
     {
         throw output.Exception;
@@ -143,22 +147,22 @@ namespace VideoFrameConsoleApplication
     {
         static void Main(string[] args)
         {
-            // Create grabber, with analysis type Face[]. 
+            // Create grabber, with analysis type Face[].
             FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
-            
+
             // Create Face API Client. Insert your Face API key here.
             FaceServiceClient faceClient = new FaceServiceClient("<subscription key>");
 
             // Set up our Face API call.
             grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));
 
-            // Set up a listener for when we receive a new result from an API call. 
+            // Set up a listener for when we receive a new result from an API call.
             grabber.NewResultAvailable += (s, e) =>
             {
                 if (e.Analysis != null)
                     Console.WriteLine("New result received for frame acquired at {0}. {1} faces detected", e.Frame.Metadata.Timestamp, e.Analysis.Length);
             };
-            
+
             // Tell grabber to call the Face API every 3 seconds.
             grabber.TriggerAnalysisOnInterval(TimeSpan.FromMilliseconds(3000));
 
@@ -168,7 +172,7 @@ namespace VideoFrameConsoleApplication
             // Wait for keypress to stop
             Console.WriteLine("Press any key to stop...");
             Console.ReadKey();
-            
+
             // Stop, blocking until done.
             grabber.StopProcessingAsync().Wait();
         }
@@ -193,21 +197,20 @@ namespace VideoFrameConsoleApplication
 3. Visual Studio 2015에서 샘플을 열고 샘플 응용 프로그램을 빌드 및 실행합니다.
     - BasicConsoleSample의 경우 Face API 키가 [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs)에 직접 하드 코딩되어 있습니다.
     - LiveCameraSample의 경우 앱의 설정 창에 키를 입력해야 합니다. 키는 사용자 데이터로 세션 간에 지속됩니다.
-        
 
-통합할 준비가 되면, **해당 프로젝트에서 VideoFrameAnalyzer 라이브러리를 참조하면 됩니다.** 
+
+통합할 준비가 되면, **해당 프로젝트에서 VideoFrameAnalyzer 라이브러리를 참조하면 됩니다.**
 
 
 
 ## <a name="developer-code-of-conduct"></a>개발자 준수 사항
-모든 Cognitive Services와 마찬가지로 Microsoft API 및 샘플을 사용하여 개발하는 개발자는 “[Microsoft Cognitive Services에 대한 개발자 준수 사항](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)”을 따라야 합니다. 
+모든 Cognitive Services와 마찬가지로 Microsoft API 및 샘플을 사용하여 개발하는 개발자는 “[Azure Cognitive Services에 대한 개발자 준수 사항](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)”을 따라야 합니다.
 
 
-VideoFrameAnalyzer의 이미지, 음성, 비디오 또는 텍스트 해석 기능은 Microsoft Cognitive Services를 사용합니다. Microsoft는 이 앱을 통해 업로드하는 이미지, 오디오, 비디오 및 기타 데이터를 수신하며, 서비스 개선 목적으로 사용할 수 있습니다. 앱이 개인 데이터를 Microsoft Cognitive Services에 전송하는 사용자를 보호할 수 있도록 도와주시기 바랍니다. 
+VideoFrameAnalyzer의 이미지, 음성, 비디오 또는 텍스트 해석 기능은 Azure Cognitive Services를 사용합니다. Microsoft는 이 앱을 통해 업로드하는 이미지, 오디오, 비디오 및 기타 데이터를 수신하며, 서비스 개선 목적으로 사용할 수 있습니다. 앱이 개인 데이터를 Azure Cognitive Services에 전송하는 사용자를 보호할 수 있도록 도와주시기 바랍니다.
 
 
 ## <a name="summary"></a>요약
-이 가이드에서는 Face, Computer Vision 및 Emotion API를 사용하여 라이브 비디오 스트림을 거의 실시간으로 분석하는 방법과 샘플 코드를 사용하여 시작하는 방법을 배웠습니다.  [Microsoft Cognitive Services 등록 페이지](https://azure.microsoft.com/try/cognitive-services/)에서 무료 API 키를 사용하여 앱 빌드를 시작할 수 있습니다. 
+이 가이드에서는 Face, Computer Vision 및 Emotion API를 사용하여 라이브 비디오 스트림을 거의 실시간으로 분석하는 방법과 샘플 코드를 사용하여 시작하는 방법을 배웠습니다.  [Azure Cognitive Services 등록 페이지](https://azure.microsoft.com/try/cognitive-services/)에서 체험 API 키를 사용하여 앱 빌드를 시작할 수 있습니다.
 
 [GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)에서 자유롭게 피드백과 제안 사항을 말씀해 주셔도 되고, 보다 광범위한 API 피드백의 경우 [UserVoice 사이트](https://cognitive.uservoice.com/)를 이용하셔도 됩니다.
-

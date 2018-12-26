@@ -3,7 +3,7 @@ title: .NET 및 AMQP 1.0을 사용한 Azure Service Bus | Microsoft Docs
 description: AMQP를 사용하여 .NET에서 Azure Service Bus 사용
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 28b8d7a71f01d8633d020b99fbe6bc5c16f272b4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/16/2018
+ms.author: spelluru
+ms.openlocfilehash: ad789b7a65fd12abb2a6e92c7c8896677de80cec
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188500"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702241"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>AMQP 1.0을 사용하여 .NET에서 Service Bus 사용
 
@@ -29,11 +29,11 @@ AMQP 1.0 지원은 Service Bus 패키지 버전 2.1 이상에서 이용할 수 �
 
 기본적으로 Service Bus .NET 클라이언트 라이브러리는 전용 SOAP 기반 프로토콜을 사용하여 Service Bus 서비스와 통신합니다. 기본 프로토콜 대신 AMQP 1.0을 사용하려면 다음 섹션에서 설명한 대로 Service Bus 연결 문자열에서 이를 명시적으로 구성해야 합니다. AMQP 1.0을 사용하는 경우 이러한 변경 사항 외에는 응용 프로그램 코드가 변경되지 않습니다.
 
-현재 릴리스에는 AMQP 사용 시 지원되지 않는 몇 가지 API 기능이 있습니다. 지원되지 않는 이러한 기능은 뒤에 나오는 [지원되지 않는 기능, 제한 및 동작 차이](#unsupported-features-restrictions-and-behavioral-differences) 섹션에 나열되어 있습니다. AMQP를 사용하는 경우 몇 가지 고급 구성 설정도 다른 의미를 가집니다.
+현재 릴리스에는 AMQP 사용 시 지원되지 않는 몇 가지 API 기능이 있습니다. 이러한 지원되지 않는 기능은[동작의 차이](#behavioral-differences) 섹션에 나열되어 있습니다. AMQP를 사용하는 경우 몇 가지 고급 구성 설정도 다른 의미를 가집니다.
 
 ### <a name="configuration-using-appconfig"></a>App.config를 사용한 구성
 
-응용 프로그램에서는 App.config 구성 파일을 사용하여 설정을 저장하는 것이 바람직합니다. Service Bus 응용 프로그램의 경우 App.config를 사용하여 Service Bus 연결 문자열을 저장할 수 있습니다. 샘플 App.config 파일은 다음과 같습니다.
+애플리케이션에서는 App.config 구성 파일을 사용하여 설정을 저장하는 것이 바람직합니다. Service Bus 응용 프로그램의 경우 App.config를 사용하여 Service Bus 연결 문자열을 저장할 수 있습니다. 샘플 App.config 파일은 다음과 같습니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -45,7 +45,7 @@ AMQP 1.0 지원은 Service Bus 패키지 버전 2.1 이상에서 이용할 수 �
 </configuration>
 ```
 
-ph x="1" /> 설정의 값은 Service Bus에 대한 연결을 구성하는 데 사용되는 Service Bus 연결 문자열입니다. 형식은 다음과 같습니다.
+`Microsoft.ServiceBus.ConnectionString` 설정의 값은 Service Bus에 대한 연결을 구성하는 데 사용되는 Service Bus 연결 문자열입니다. 형식은 다음과 같습니다.
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 

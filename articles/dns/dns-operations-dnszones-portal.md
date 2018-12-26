@@ -3,7 +3,7 @@ title: Azure DNS에서 DNS 영역 관리 - Azure Portal | Microsoft Docs
 description: Azure Portal을 사용하여 DNS 영역을 관리할 수 있습니다. 이 문서에서는 Azure DNS에서 DNS 영역을 업데이트, 삭제 및 만드는 방법을 설명합니다.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,28 +11,28 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
-ms.author: kumud
-ms.openlocfilehash: 3fbf59010e690ac022e4363eddebe1cfbba53d13
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: d0a20de8738e8c7b2719a9de85d5fd16aa5778cf
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779042"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829685"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Azure Portal에서 DNS 영역을 관리하는 방법
 
 > [!div class="op_single_selector"]
 > * [포털](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
-> * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
+> * [Azure 클래식 CLI](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure CLI](dns-operations-dnszones-cli.md)
 
 이 문서는 Azure Portal을 사용하여 DNS 영역을 관리하는 방법을 보여줍니다. 플랫폼 간 [Azure CLI](dns-operations-dnszones-cli.md) 또는 Azure [PowerShell](dns-operations-dnszones.md)을 사용하여 DNS 영역을 관리할 수도 있습니다.
 
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
 1. Azure Portal에 로그인
-2. 허브 메뉴에서 **리소스 만들기 > 네트워킹 >** 을 클릭한 다음, **DNS 영역**을 클릭하여 DNS 영역 블레이드 만들기를 엽니다.
+2. 허브 메뉴에서 **리소스 만들기 > 네트워킹 > DNS 영역**으로 이동하여 **DNS 영역 만들기** 블레이드를 엽니다.
 
     ![DNS 영역](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "32779042"
 
 ## <a name="list-dns-zones"></a>DNS 영역 나열
 
-Azure Portal에서 **더 많은 서비스** > **네트워킹** > **DNS 영역**으로 이동합니다. 각 DNS 영역은 자체 리소스이며, 레코드 집합의 수 및 이름 서버와 같은 정보를 이 보기에서 볼 수 있습니다. **이름 서버** 열은 기본 보기에 표시되지 않으며, 이를 추가하려면 **열**을 클릭하고 **이름 서버**를 선택한 후 **완료**를 클릭합니다.
+Azure Portal에서 **더 많은 서비스** > **네트워킹** > **DNS 영역**으로 이동합니다. 각 DNS 영역은 자체 리소스이며, 레코드 집합의 수 및 이름 서버와 같은 정보를 이 보기에서 볼 수 있습니다. 열 **이름 서버**는 기본 보기에 없습니다. 이 열을 추가하려면 **열**을 클릭하고 **이름 서버**를 선택한 후 **완료**를 클릭합니다.
 
 ![DNS 영역 나열](./media/dns-operations-dnszones-portal/listzones.png)
 

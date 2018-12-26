@@ -1,25 +1,23 @@
 ---
-title: Azure에 대한 MongoDB, Angular 및 노드 자습서 - 2부 | Microsoft Docs
+title: Node.Js, MongoB API를 사용하는 Angular 앱(2부)
+titleSuffix: Azure Cosmos DB
 description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 2부
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
-editor: ''
+author: johnpapa
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
-ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: b35f003c18e19eafd3dfa9988409ceacb44e3bc4
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.date: 12/06/2018
+ms.author: jopapa
+ms.custom: seodec18
+ms.openlocfilehash: 842a321f63bce11207e6144705e9c4f68df21760
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798069"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133978"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 2부: Angular CLI를 사용하여 Node.js Express 앱 만들기 
+# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app"></a>Angular 및 Azure Cosmos DB에서 MongoDB 앱 만들기 - 2부: Node.js Express 앱 만들기
 
 이 다중 파트 자습서에서는 Express, Angular Azure Cosmos DB 데이터베이스를 포함한 Node.js로 작성된 새 [MongoDB API](mongodb-introduction.md) 앱을 만드는 방법을 보여줍니다.
 
@@ -118,10 +116,10 @@ ms.locfileid: "34798069"
 
    app.use(bodyParser.json());
    app.use(bodyParser.urlencoded({ extended: false }));
-   app.use(express.static(path.join(root, 'dist')));
+   app.use(express.static(path.join(root, 'dist/angular-cosmosdb')));
    app.use('/api', routes);
    app.get('*', (req, res) => {
-     res.sendFile('dist/index.html', {root});
+     res.sendFile('dist/angular-cosmosdb/index.html', {root});
    });
 
    app.listen(port, () => console.log(`API running on localhost:${port}`));

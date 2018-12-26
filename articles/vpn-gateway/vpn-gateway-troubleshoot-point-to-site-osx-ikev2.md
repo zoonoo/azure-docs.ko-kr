@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 1cf8195cbf65f27c71a4db18c0c61c8a25673acd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c370808d06f31f9d79c99ca0f20f613d9e335d60
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30247712"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339054"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Mac OS X VPN 클라이언트에서 지점 및 사이트 간 VPN 연결 문제 해결
 
@@ -63,10 +63,12 @@ ms.locfileid: "30247712"
 
 이전 단계를 시도했으며 모든 항목이 제대로 구성된 경우 [Wireshark](https://www.wireshark.org/#download)를 다운로드하고 패킷 캡처를 수행합니다.
 
-1. *iskmp*를 필터링하고 **IKE_SA** 패킷을 확인합니다. **페이로드: 보안 연결** 아래에서 SA 제안 세부 정보를 확인할 수 있습니다. 
+1. *isakmp*를 필터링하고 **IKE_SA** 패킷을 확인합니다. **페이로드: 보안 연결** 아래에서 SA 제안 세부 정보를 확인할 수 있습니다. 
 2. 클라이언트와 서버에 공통 집합이 있는지 확인합니다.
 
-  ![패킷](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg)
+  ![패킷](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
+  
+3. 네트워크 추적에 서버 응답이 없는 경우 Azure Portal 웹 사이트의 Azure 게이트웨이 구성 페이지에서 IKEv2 프로토콜을 사용하도록 설정했는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Microsoft 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 참조하세요.

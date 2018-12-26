@@ -1,27 +1,20 @@
 ---
-title: Azure Site Recovery를 사용하여 다중 계층 SharePoint 응용 프로그램 복제 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery 기능을 사용하여 다중 계층 SharePoint 응용 프로그램을 복제하는 방법을 설명합니다.
-services: site-recovery
-documentationcenter: ''
+title: Azure Site Recovery를 사용하여 다중 계층 SharePoint 응용 프로그램에 대한 재해 복구 설정 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery 기능을 사용하여 다중 계층 SharePoint 응용 프로그램에 대한 재해 복구를 설정하는 방법을 설명합니다.
 author: sujayt
 manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: eb5801988b6fa966a0326c39be4a267ea08500a8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1f3168cef503fed0aea09228c9bc11dfb456f2ab
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916788"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848479"
 ---
-# <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 재해 복구를 위해 다중 계층 SharePoint 응용 프로그램 복제 | Microsoft Docs
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 SharePoint 응용 프로그램에 대한 재해 복구 설정
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 SharePoint 응용 프로그램을 보호하는 방법을 자세히 설명합니다.
 
@@ -69,10 +62,10 @@ SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 �
 
 **시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
-**Hyper-V** | 예 | 예
-**VMware** | 예 | 예
-**물리적 서버** | 예 | 예
-**Azure** | 해당 없음 | 예
+**Hyper-V** | yes | yes
+**VMware** | yes | yes
+**물리적 서버** | yes | yes
+**Azure** | 해당 없음 | yes
 
 ### <a name="sharepoint-versions"></a>SharePoint 버전
 다음 SharePoint Server 버전이 지원됩니다.
@@ -122,7 +115,7 @@ SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 �
 | 온-프레미스 DNS | sharepointonprem.contoso.com | 온-프레미스 팜의 공용 IP |
 
 
-Traffic Manager 프로필에서 [기본 및 복구 끝점을 만듭니다](../traffic-manager/traffic-manager-configure-priority-routing-method.md). 온-프레미스 끝점에 대해 외부 끝점을, Azure 끝점에 대해 공용 IP를 사용합니다. 우선 순위가 온-프레미스 끝점에 더 높게 설정되었는지 확인합니다.
+Traffic Manager 프로필에서 [기본 및 복구 엔드포인트를 만듭니다](../traffic-manager/traffic-manager-configure-priority-routing-method.md). 온-프레미스 엔드포인트에 대해 외부 엔드포인트를, Azure 엔드포인트에 대해 공용 IP를 사용합니다. 우선 순위가 온-프레미스 엔드포인트에 더 높게 설정되었는지 확인합니다.
 
 Traffic Manager가 가용성 사후 장애 조치(Failover)를 자동으로 감지하기 위해서 테스트 페이지를 SharePoint 웹 계층의 특정 포트(예: 800)에 호스트합니다. 이는 SharePoint 사이트 중에서 익명 인증을 사용하도록 설정할 수 없을 경우에 해결 방법입니다.
 
@@ -130,7 +123,7 @@ Traffic Manager가 가용성 사후 장애 조치(Failover)를 자동으로 감�
 
 * 라우팅 방법 - ‘우선 순위’
 * DNS TTL(Time to live) - ‘30초’
-* 끝점 모니터 설정 - 익명 인증을 사용하도록 설정할 수 있는 경우 특정 웹 사이트 끝점을 지정할 수 있습니다. 또는 특정 포트(예: 800)에서 테스트 페이지를 사용할 수 있습니다.
+* 엔드포인트 모니터 설정 - 익명 인증을 사용하도록 설정할 수 있는 경우 특정 웹 사이트 엔드포인트를 지정할 수 있습니다. 또는 특정 포트(예: 800)에서 테스트 페이지를 사용할 수 있습니다.
 
 ## <a name="creating-a-recovery-plan"></a>복구 계획 만들기
 

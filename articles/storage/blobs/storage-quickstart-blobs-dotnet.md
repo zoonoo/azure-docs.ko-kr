@@ -1,30 +1,27 @@
 ---
-title: Azure 빠른 시작 - .NET을 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
-description: 이 빠른 시작에서는 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, .NET용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
+title: '빠른 시작: .Net을 사용하여 개체 저장소에 Blob 만들기 - Azure Storage'
+description: 이 빠른 시작에서는 .NET용 Azure Storage 클라이언트 라이브러리를 사용하여 Blob(개체) Storage에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 05/22/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 157fd47861857fedbe4886407ba464f886ef1be3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4b632d9aab89e4c8d79983855bdd12aeafb05147
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767139"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712027"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-net"></a>빠른 시작: .NET을 사용하여 BLOB 업로드, 다운로드 및 나열
+# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>빠른 시작: .Net을 사용하여 개체 저장소에 Blob 만들기
 
-이 빠른 시작에서 Azure Storage에 대해 .NET 클라이언트 라이브러리를 사용하여 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다.
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+이 빠른 시작에서는 .NET용 Azure Storage 클라이언트 라이브러리를 사용하여 Blob(개체) Storage에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 먼저 [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 Azure 저장소 계정을 만듭니다. 저장소 계정을 만드는 데 도움이 필요한 경우 [저장소 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요.
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 다음으로 운영 체제용 .NET Core 2.0을 다운로드 및 설치합니다. Windows를 실행하는 경우 원한다면 Visual Studio를 설치하고 .NET Framework를 사용할 수 있습니다. 또한 운영 체제와 사용할 편집기를 설치하도록 선택할 수도 있습니다.
 
@@ -47,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ---
 
-## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
+## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
 이 빠른 시작 가이드에서 사용되는 샘플 응용 프로그램은 기본적인 콘솔 응용 프로그램입니다. [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart)에서 샘플 응용 프로그램을 탐색할 수 있습니다.
 
@@ -63,9 +60,9 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
 
-응용 프로그램을 실행하려면 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 이 응용 프로그램 예제는 환경 변수의 연결 문자열을 읽어서 Azure Storage에 대한 요청 권한을 부여하는 데 사용합니다.
+애플리케이션을 실행하려면 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. 이 응용 프로그램 예제는 환경 변수의 연결 문자열을 읽어서 Azure Storage에 대한 요청 권한을 부여하는 데 사용합니다.
 
-연결 문자열을 복사한 후 응용 프로그램을 실행 중인 로컬 컴퓨터의 새 환경 변수에 씁니다. 환경 변수를 설정하려면 콘솔 창을 열고 사용 중인 운영 체제의 지침을 따릅니다. `<yourconnectionstring>`을 실제 연결 문자열로 바꿉니다.
+연결 문자열을 복사한 후 애플리케이션을 실행 중인 로컬 컴퓨터의 새 환경 변수에 씁니다. 환경 변수를 설정하려면 콘솔 창을 열고 사용 중인 운영 체제의 지침을 따릅니다. `<yourconnectionstring>`을 실제 연결 문자열로 바꿉니다.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -103,7 +100,7 @@ export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 
 편집기로 Visual Studio를 사용하는 경우 **F5** 키를 눌러 실행할 수 있습니다. 
 
-그렇지 않으면 응용 프로그램 디렉터리로 이동하여 `dotnet run` 명령으로 응용 프로그램을 실행합니다.
+그렇지 않으면 애플리케이션 디렉터리로 이동하여 `dotnet run` 명령으로 애플리케이션을 실행합니다.
 
 ```
 dotnet run
@@ -111,7 +108,7 @@ dotnet run
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-응용 프로그램 디렉터리로 이동하여 `dotnet run` 명령으로 응용 프로그램을 실행합니다.
+애플리케이션 디렉터리로 이동하여 `dotnet run` 명령으로 애플리케이션을 실행합니다.
 
 ```
 dotnet run
@@ -119,7 +116,7 @@ dotnet run
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-응용 프로그램 디렉터리로 이동하여 `dotnet run` 명령으로 응용 프로그램을 실행합니다.
+애플리케이션 디렉터리로 이동하여 `dotnet run` 명령으로 애플리케이션을 실행합니다.
 
 ```
 dotnet run
@@ -127,7 +124,7 @@ dotnet run
 
 ---
 
-응용 프로그램 예제의 출력은 다음 예제와 비슷합니다.
+애플리케이션 예제의 출력은 다음 예제와 비슷합니다.
 
 ```
 Azure Blob storage - .NET Quickstart sample
@@ -284,7 +281,7 @@ File.Delete(sourceFile);
 File.Delete(destinationFile);
 ```
 
-## <a name="resources-for-developing-net-applications-with-blobs"></a>Blob을 사용하는 .NET 응용 프로그램 개발을 위한 리소스
+## <a name="resources-for-developing-net-applications-with-blobs"></a>Blob을 사용하는 .NET 애플리케이션 개발을 위한 리소스
 
 Blob 저장소를 사용하는 .NET 개발에 대한 이러한 추가 리소스를 참조합니다.
 
@@ -308,5 +305,5 @@ Blob 저장소로 이미지를 업로드하는 웹앱을 만드는 방법에 대
 > [Blob Storage 작업 방법](storage-dotnet-how-to-use-blobs.md)
 
 - .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://www.microsoft.com/net/learn/get-started/)을 참조하세요.
-- Windows용 Visual Studio에서 배포할 수 있는 샘플 응용 프로그램을 탐색하려면 [Azure Blob Storage를 사용하여 .NET 사진 갤러리 웹 응용 프로그램 샘플](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)을 참조하세요.
+- Windows용 Visual Studio에서 배포할 수 있는 샘플 애플리케이션을 탐색하려면 [Azure Blob Storage를 사용하여 .NET 사진 갤러리 웹 애플리케이션 샘플](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)을 참조하세요.
  

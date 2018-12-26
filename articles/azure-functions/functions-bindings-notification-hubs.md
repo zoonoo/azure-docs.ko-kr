@@ -3,24 +3,20 @@ title: Azure Functions에 대한 Notification Hubs 바인딩
 description: Azure Functions에서 Azure 알림 허브 바인딩을 사용하는 방법을 파악합니다.
 services: functions
 documentationcenter: na
-author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+author: craigshoemaker
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
-ms.author: glenga
-ms.openlocfilehash: 4208a7be3c002bcefed273015d002cb1aee0fecd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: cshoe
+ms.openlocfilehash: 72c0db44e1f56cab190f343a87c6b453625a7f70
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467667"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996025"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions에 대한 Notification Hubs 출력 바인딩
 
@@ -32,7 +28,7 @@ Azure Notification Hubs는 사용할 PNS(플랫폼 알림 서비스)에 대해 �
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-Notification Hubs는 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet 패키지 버전 1.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub 리포지토리에 있습니다.
+Notification Hubs는 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet 패키지 버전 1.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -192,11 +188,11 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
     // The JSON format for a native APNS notification is ...
     // { "aps": { "alert": "notification message" }}  
 
-    log.Info($"Sending APNS notification of a new user");    
+    log.LogInformation($"Sending APNS notification of a new user");    
     dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
     string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants to be added (" + 
                                         user.name + ")\" }}";
-    log.Info($"{apnsNotificationPayload}");
+    log.LogInformation($"{apnsNotificationPayload}");
     await notification.AddAsync(new AppleNotification(apnsNotificationPayload));        
 }
 ```
@@ -290,7 +286,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 |**type** |해당 없음| "notificationHub"로 설정해야 합니다. |
 |**direction** |해당 없음| "out"으로 설정해야 합니다. | 
 |**name** |해당 없음| 알림 허브 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. |
-|**tagExpression** |**TagExpression** | 태그 식을 사용하면 태그 식과 일치하는 알림을 수신하도록 등록된 일련의 장치에 배달하도록 지정할 수 있습니다.  자세한 내용은 [라우팅 및 태그 식](../notification-hubs/notification-hubs-tags-segment-push-message.md)을 참조하세요. |
+|**tagExpression** |**TagExpression** | 태그 식을 사용하면 태그 식과 일치하는 알림을 수신하도록 등록된 일련의 디바이스에 배달하도록 지정할 수 있습니다.  자세한 내용은 [라우팅 및 태그 식](../notification-hubs/notification-hubs-tags-segment-push-message.md)을 참조하세요. |
 |**hubName** | **HubName** | Azure Portal에서 알림 허브 리소스의 이름입니다. |
 |**연결** | **ConnectionStringSetting** | Notification Hubs 연결 문자열을 포함하는 앱 설정의 이름입니다.  연결 문자열은 알림 허브의 *DefaultFullSharedAccessSignature* 값으로 설정해야 합니다. 이 문서의 뒷부분에 나오는 [연결 문자열 설정](#connection-string-setup)을 참조하세요.|
 |**platform** | **플랫폼** | platform 속성은 알림의 대상으로 지정된 클라이언트 플랫폼을 나타냅니다. 기본적으로 출력 바인딩에서 platform 속성을 생략하면 템플릿 알림을 사용하여 Azure Notification Hub에 구성된 플랫폼을 대상으로 지정할 수 있습니다. 일반적으로 Azure 알림 허브 알림에서 템플릿을 사용하여 플랫폼 간 알림을 보내는 방법에 대한 자세한 내용은 [템플릿](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 참조하세요. **platform**을 설정한 경우 다음 값 중 하나여야 합니다. <ul><li><code>apns</code>&mdash;Apple Push Notification Service. APNS에 대한 알림 허브를 구성하고 클라이언트 앱에서 알림을 받는 방법에 대한 자세한 내용은 [Azure Notification Hubs를 사용하여 iOS에 푸시 알림 보내기](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md)를 참조하세요.</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). ADM에 대한 Notification Hubs를 구성하고 Kindle 앱에서 알림을 받는 방법에 대한 자세한 내용은 [Kindle 앱에 대한 Notification Hubs 시작](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md)을 참조하세요.</li><li><code>gcm</code>&mdash;[Google Cloud Messaging](https://developers.google.com/cloud-messaging/). 새 버전의 GCM인 Firebase Cloud Messaging도 지원됩니다. 자세한 내용은 [Azure Notification Hubs를 사용하여 Android에 푸시 알림 보내기](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)를 참조하세요.</li><li><code>wns</code>&mdash;Windows 플랫폼을 대상으로 하는 [Windows 푸시 알림 서비스](https://msdn.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) Windows Phone 8.1 이상도 WNS에서 지원됩니다. 자세한 내용은 [Windows 유니버설 플랫폼 앱용 Notification Hubs 시작](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)을 참조하세요.</li><li><code>mpns</code>&mdash;[Microsoft 푸시 알림 서비스](https://msdn.microsoft.com/library/windows/apps/ff402558.aspx). 이 플랫폼은 Windows Phone 8 및 이전 Windows Phone 플랫폼을 지원합니다. 자세한 내용은 [Windows Phone에서 Azure Notification Hubs를 사용하여 푸시 알림 보내기](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)를 참조하세요.</li></ul> |

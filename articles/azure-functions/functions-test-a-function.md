@@ -3,26 +3,22 @@ title: Azure Functions 테스트 | Microsoft Docs
 description: Postman, cURL 및 Node.js를 사용하여 Azure 함수를 테스트합니다.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처, 테스트
 ms.assetid: c00f3082-30d2-46b3-96ea-34faf2f15f77
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/02/2017
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b4f6bf89ec5c83a497666a8a410a156c5f9bb359
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8b2605bb30d7a1442c471c8cf1483b106ca27581
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083260"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086763"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -34,9 +30,9 @@ ms.locfileid: "37083260"
 + 타이머로 트리거되는 함수
 + 테스트 응용 프로그램 또는 프레임워크
 
-이 모든 테스트 방법은 쿼리 문자열 매개 변수 또는 요청 본문을 통해 입력을 허용하는 HTTP 트리거 함수를 사용합니다. 첫 번째 섹션에서는 이 함수를 만듭니다.
+이 모든 테스트 방법은 쿼리 문자열 매개 변수 또는 요청 본문을 통해 입력을 허용하는 HTTP 트리거 함수를 사용합니다. 첫 번째 섹션에서는 Azure Portal을 사용하여 이 함수를 만듭니다.
 
-## <a name="create-a-function-for-testing"></a>테스트용 함수 만들기
+## <a name="create-a-simple-function-for-testing-using-the-azure-portal"></a>Azure Portal을 사용하여 테스트를 위한 간단한 함수 만들기
 이 자습서의 대부분에서는 함수를 만들 때 제공되는 HttpTrigger JavaScript 함수 템플릿의 약간 수정된 버전을 사용합니다. 함수를 만드는 데 도움이 필요한 경우 이 [자습서](functions-create-first-azure-function.md)를 검토하세요. [Azure Portal]에서 테스트 함수를 만들 때에는 **HttpTrigger- JavaScript** 템플릿을 선택합니다.
 
 기본 함수 템플릿은 기본적으로 요청 본문 또는 쿼리 문자열 매개 변수의 이름(`name=<your name>`)을 되돌려 주는 hello world 함수입니다.  요청 본문의 JSON 콘텐츠로 이름 및 주소를 입력할 수 있도록 코드를 업데이트할 예정입니다. 그렇게 되면 함수는 사용 가능한 경우 이를 다시 클라이언트에 표시합니다.   
@@ -189,7 +185,7 @@ Postman에서 요청 본문을 사용하여 함수를 테스트하려면
 1. 함수 앱에 대한 [Azure Portal]에서 C#, F# 또는 JavaScript Blob 트리거 함수를 만듭니다. 모니터링할 경로를 Blob 컨테이너의 이름으로 설정합니다. 예: 
 
         files
-2. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** 단추를 클릭합니다. 그런 다음 **Create**를 클릭합니다.
+2. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** 단추를 클릭합니다. 그런 다음, **만들기**를 클릭합니다.
 3. 다음 텍스트를 사용하여 텍스트 파일을 만들고 저장합니다.
 
         A text file for blob trigger function testing.
@@ -252,7 +248,7 @@ Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 
 2. 큐 함수가 모니터링할 큐 이름을 입력합니다.
 
         queue-newusers
-3. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** 단추를 클릭합니다. 그런 다음 **Create**를 클릭합니다.
+3. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** 단추를 클릭합니다. 그런 다음, **만들기**를 클릭합니다.
 4. 기본 큐 함수 템플릿 코드에 대한 로그 항목을 모니터링할 수 있도록 포털 브라우저 창을 그대로 열어 둡니다.
 
 #### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>큐에 메시지를 놓는 타이머 트리거 만들기
@@ -274,8 +270,9 @@ Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 
 
     ```cs
     using System;
+    using Microsoft.Extensions.Logging;
 
-    public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
+    public static void Run(TimerInfo myTimer, out String myQueue, ILogger log)
     {
         String newUser =
         "{\"name\":\"User testing from C# timer function\",\"address\":\"XYZ\"}";
@@ -356,7 +353,7 @@ req.end(bodyString);
 ```
 
 
-출력
+출력:
 
     C:\Users\Wesley\testing\Node.js>node testHttpTriggerExample.js
     *** Sending name and address in body ***
@@ -383,7 +380,7 @@ req.end(bodyString);
 콘솔 앱에서 이 코드를 테스트하려면 다음을 수행해야 합니다.
 
 * [app.config 파일에서 저장소 연결 문자열을 구성합니다](../storage/queues/storage-dotnet-how-to-use-queues.md).
-* 앱에 대한 매개 변수로 `name` 및 `address`를 전달합니다. 예: `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"` 이 코드는 런타임 동안 새 사용자에 대한 이름 및 주소를 명령줄 인수로 허용합니다.
+* 앱에 대한 매개 변수로 `name` 및 `address`를 전달합니다. 예: `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. 이 코드는 런타임 동안 새 사용자에 대한 이름 및 주소를 명령줄 인수로 허용합니다.
 
 C# 코드 예제:
 

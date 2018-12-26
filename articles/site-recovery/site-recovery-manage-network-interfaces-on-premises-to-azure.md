@@ -1,22 +1,20 @@
 ---
-title: 온-프레미스에서 Azure로 복제에서 Azure Site Recovery의 네트워크 인터페이스 관리 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 복제에서 네트워크 인터페이스를 관리하는 방법을 설명합니다.
-services: site-recovery
-author: mayanknayar
+title: 온-프레미스와 Azure 간 재해 복구를 위한 Azure Site Recovery의 네트워크 인터페이스 관리 | Microsoft Docs
+description: Azure Site Recovery를 사용한 온-프레미스와 Azure 간 재해 복구를 위해 네트워크 인터페이스를 관리하는 방법을 설명합니다.
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 75220d964f3e1208c85d34c1da97fab32044e62b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 11/27/2018
+ms.author: mayg
+ms.openlocfilehash: e5757cee2238f44706194da5247da7d4721762f3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917111"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837582"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>온-프레미스에서 Azure로 복제에서 가상 머신 네트워크 인터페이스 관리
-
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>온-프레미스와 Azure 간 재해 복구를 위한 가상 머신 네트워크 인터페이스 관리
 Azure의 VM(가상 머신)에는 하나 이상의 네트워크 인터페이스가 연결되어 있어야 합니다. 네트워크 인터페이스 수는 VM 크기에서 지원되는 수만큼 연결할 수 있습니다.
 
 기본적으로 Azure 가상 머신에 연결된 첫 번째 네트워크 인터페이스는 주 네트워크 인터페이스로 정의됩니다. 가상 머신의 다른 모든 네트워크 인터페이스는 보조 네트워크 인터페이스입니다. 또한 기본적으로 가상 머신의 모든 아웃바운드 트래픽은 주 네트워크 인터페이스의 기본 IP 구성에 할당된 IP 주소로 보내집니다.

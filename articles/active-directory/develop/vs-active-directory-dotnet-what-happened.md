@@ -7,17 +7,17 @@ manager: douge
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev
-ms.openlocfilehash: bd4a32575067b3de94935322ead9a7f0966d2969
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: aaddev, vs-azure
+ms.openlocfilehash: cc14f170a748f91289bbc644d5a9bef10697ce34
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784135"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427372"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>내 MVC 프로젝트(Visual Studio Azure Active Directory 연결된 서비스)의 변경 내용
 
@@ -102,7 +102,7 @@ ms.locfileid: "31784135"
 
     ```xml
     <configSections>
-      <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+      <!-- For more information on Entity Framework configuration, visit https://go.microsoft.com/fwlink/?LinkID=237468 -->
       <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
     </configSections>
 
@@ -157,12 +157,12 @@ Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 
 
 ## <a name="changes-on-azure"></a>Azure 변경 내용
 
-- 연결된 서비스를 추가할 때 선택한 도메인에 Azure AD 응용 프로그램이 생성됩니다.
+- 연결된 서비스를 추가할 때 선택한 도메인에 Azure AD 애플리케이션이 생성됩니다.
 - 해당 옵션이 선택된 경우 **디렉터리 데이터 읽기** 권한을 포함하도록 앱을 업데이트했습니다.
 
 [Azure Active Directory에 대해 자세히 알아보세요](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory 인증 시나리오](active-directory-authentication-scenarios.md)
-- [ASP.NET 웹앱에 Microsoft에 로그인 추가](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Azure Active Directory 인증 시나리오](authentication-scenarios.md)
+- [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v1-aspnet-webapp.md)

@@ -3,7 +3,7 @@ title: 키 자격 증명 모음 버전
 description: 다양한 버전의 Azure Key Vault
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: e8622dcc-59a3-4f4b-9f63-cd2232515a65
@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: beb73be66f36ccf95fe27d4d8128106cd12722a8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: bryanla
+ms.openlocfilehash: 0db090d33e165415a2e1c3a4f095a0d0a48138cb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011956"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296656"
 ---
 # <a name="key-vault-versions"></a>키 자격 증명 모음 버전
 

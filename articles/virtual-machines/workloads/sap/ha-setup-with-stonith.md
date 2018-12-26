@@ -22,9 +22,9 @@ ms.lasthandoff: 06/27/2018
 ms.locfileid: "37062023"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH를 사용하여 SUSE에서 고가용성 설정
-이 문서는 STONITH 장치를 사용하여 SUSE 운영 체제에서 고가용성을 설정하는 자세한 단계별 지침을 제공합니다.
+이 문서는 STONITH 디바이스를 사용하여 SUSE 운영 체제에서 고가용성을 설정하는 자세한 단계별 지침을 제공합니다.
 
-**고지 사항:** *이 가이드는 성공적으로 작동하는 Microsoft HANA 대규모 인스턴스 환경에서 설정을 테스트하여 작성하였습니다. Microsoft의 HANA 대규모 인스턴스 서비스 관리 팀은 운영 체제를 지원하지 않으므로 운영 체제 계층에 관한 추가 문제 해결 또는 설명은 SUSE에 문의하십시오. Microsoft 서비스 관리 팀은 STONITH 장치를 설정하고 완전히 도움을 드릴 것이며 STONITH 장치 문제에 대한 문제 해결에 참여할 수 있습니다.*
+**고지 사항:** *이 가이드는 성공적으로 작동하는 Microsoft HANA 대규모 인스턴스 환경에서 설정을 테스트하여 작성하였습니다. Microsoft의 HANA 대규모 인스턴스 서비스 관리 팀은 운영 체제를 지원하지 않으므로 운영 체제 계층에 관한 추가 문제 해결 또는 설명은 SUSE에 문의하십시오. Microsoft 서비스 관리 팀은 STONITH 디바이스를 설정하고 완전히 도움을 드릴 것이며 STONITH 디바이스 문제에 대한 문제 해결에 참여할 수 있습니다.*
 ## <a name="overview"></a>개요
 SUSE 클러스터링을 사용하여 고가용성을 설정하려면 다음 필수 구성 요소를 충족해야 합니다.
 ### <a name="pre-requisites"></a>필수 조건
@@ -41,10 +41,10 @@ SUSE 클러스터링을 사용하여 고가용성을 설정하려면 다음 필�
 - HANA 대규모 인스턴스: 2xS192(4개 소켓, 2TB)
 - HANA 버전: HANA 2.0 SP1
 - 서버 이름: sapprdhdb95(노드 1) 및 sapprdhdb96(노드 2)
-- STONITH 장치: iSCSI 기반 STONITH 장치
+- STONITH 디바이스: iSCSI 기반 STONITH 디바이스
 - HANA 대규모 인스턴스 노드 중 하나에서 NTP 설정
 
-HSR을 사용하여 HANA 대규모 인스턴스를 설정하는 경우 Microsoft 서비스 관리 팀에 STONITH 설정을 요청해야 합니다. 이미 HANA 대규모 인스턴스를 프로비전한 기존 고객으로서 기존 블레이드에 대한 STONITH 장치 설정이 필요한 경우 서비스 요청 양식(SRF)에 다음 정보를 작성하여 Microsoft 서비스 관리 팀에 제공해야 합니다. 기술 계정 관리자 또는 Microsoft의 HANA 대규모 인스턴스 온보딩 담당자를 통해 SRF 양식을 요청할 수 있습니다. 새 고객은 프로비전 시 STONITH 장치를 요청할 수 있습니다. 입력은 프로비전 요청 양식에서 사용할 수 있습니다.
+HSR을 사용하여 HANA 대규모 인스턴스를 설정하는 경우 Microsoft 서비스 관리 팀에 STONITH 설정을 요청해야 합니다. 이미 HANA 대규모 인스턴스를 프로비전한 기존 고객으로서 기존 블레이드에 대한 STONITH 디바이스 설정이 필요한 경우 서비스 요청 양식(SRF)에 다음 정보를 작성하여 Microsoft 서비스 관리 팀에 제공해야 합니다. 기술 계정 관리자 또는 Microsoft의 HANA 대규모 인스턴스 온보딩 담당자를 통해 SRF 양식을 요청할 수 있습니다. 새 고객은 프로비전 시 STONITH 디바이스를 요청할 수 있습니다. 입력은 프로비전 요청 양식에서 사용할 수 있습니다.
 
 - 서버 이름 및 서버 IP 주소(예: myhanaserver1, 10.35.0.1)
 - 위치(예: 미국 동부)
@@ -55,8 +55,8 @@ STONITH 장치가 구성되면 Microsoft 서비스 관리 팀에서 STONITH 설�
 
 STONITH를 사용하여 종단 간 HA를 설정하려면 다음 단계를 따라야 합니다.
 
-1.  SBD 장치 식별
-2.  SBD 장치 초기화
+1.  SBD 디바이스 식별
+2.  SBD 디바이스 초기화
 3.  클러스터 구성
 4.  Softdog Watchdog 설정
 5.  클러스터에 노드 조인
@@ -64,8 +64,8 @@ STONITH를 사용하여 종단 간 HA를 설정하려면 다음 단계를 따라
 7.  클러스터에 대한 리소스 구성
 8.  장애 조치(failover) 프로세스 테스트
 
-## <a name="1---identify-the-sbd-device"></a>1.   SBD 장치 식별
-이 섹션에서는 Microsoft 서비스 관리 팀이 STONITH를 구성한 후 설정에 맞는 SBD 장치를 결정하는 방법을 설명합니다. **이 섹션은 기존 고객에게만 적용됩니다**. 새 고객의 경우 Microsoft 서비스 관리 팀이 SBD 장치 이름을 제공하며 따라서 이 섹션을 건너뛸 수 있습니다.
+## <a name="1---identify-the-sbd-device"></a>1.   SBD 디바이스 식별
+이 섹션에서는 Microsoft 서비스 관리 팀이 STONITH를 구성한 후 설정에 맞는 SBD 디바이스를 결정하는 방법을 설명합니다. **이 섹션은 기존 고객에게만 적용됩니다**. 새 고객의 경우 Microsoft 서비스 관리 팀이 SBD 디바이스 이름을 제공하며 따라서 이 섹션을 건너뛸 수 있습니다.
 
 1.1 */etc/iscsi/initiatorname.isci*를 다음으로 수정 
 ``` 
@@ -86,7 +86,7 @@ iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
 
 ![iSCSIadmDiscovery.png](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
-1.4 iSCSI 장치에 로그인하는 명령을 실행하고 4개 세션을 표시합니다. 이 작업은 **두** 노드에서 모두 실행합니다.
+1.4 iSCSI 디바이스에 로그인하는 명령을 실행하고 4개 세션을 표시합니다. 이 작업은 **두** 노드에서 모두 실행합니다.
 
 ```
 iscsiadm -m node -l
@@ -100,7 +100,7 @@ rescan-scsi-bus.sh
 ```
 ![rescanscsibus.png](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
 
-1.6 장치 이름을 가져오려면 *fdisk –l* 명령을 실행합니다. 이 작업은 두 노드에서 모두 실행합니다. **178MiB** 크기를 가진 장치를 선택합니다.
+1.6 디바이스 이름을 가져오려면 *fdisk –l* 명령을 실행합니다. 이 작업은 두 노드에서 모두 실행합니다. **178MiB** 크기를 가진 장치를 선택합니다.
 
 ```
   fdisk –l
@@ -108,16 +108,16 @@ rescan-scsi-bus.sh
 
 ![fdisk-l.png](media/HowToHLI/HASetupWithStonith/fdisk-l.png)
 
-## <a name="2---initialize-the-sbd-device"></a>2.   SBD 장치 초기화
+## <a name="2---initialize-the-sbd-device"></a>2.   SBD 디바이스 초기화
 
-2.1 두 노드에서 **모두** SBD 장치를 초기화합니다.
+2.1 두 노드에서 **모두** SBD 디바이스를 초기화합니다.
 
 ```
 sbd -d <SBD Device Name> create
 ```
 ![sbdcreate.png](media/HowToHLI/HASetupWithStonith/sbdcreate.png)
 
-2.2 장치에 기록된 내용을 확인합니다. 이 작업은 두 노드에서 **모두** 실행합니다.
+2.2 디바이스에 기록된 내용을 확인합니다. 이 작업은 두 노드에서 **모두** 실행합니다.
 
 ```
 sbd -d <SBD Device Name> dump
@@ -155,7 +155,7 @@ halk2 패키지가 이미 설치되었으므로 **취소**를 클릭합니다.
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-**확인**
+ **확인**
 
 IP 주소 및 Csync2의 미리 공유한 키를 사용하여 인증을 수행합니다. csync2 -k /etc/csync2/key_hagroup을 사용하여 키 파일을 생성합니다. key_hagroup 파일을 생성한 후 클러스터의 모든 멤버에 수동으로 복사해야 합니다. **반드시 노드 1에서 노드 2로 파일을 복사해야 합니다**.
 
@@ -194,7 +194,7 @@ lsmod | grep dog
 ```
 ![lsmod-grep-dog.png](media/HowToHLI/HASetupWithStonith/lsmod-grep-dog.png)
 
-4.5 두 노드에서 **모두** SBD 장치를 시작합니다.
+4.5 두 노드에서 **모두** SBD 디바이스를 시작합니다.
 ```
 /usr/share/sbd/sbd.sh start
 ```
@@ -265,7 +265,7 @@ crm_mon
 이 예제에서는 다음 리소스를 설정하였으며, 나머지는 SUSE HA 가이드를 참조하여 구성할 수 있습니다(필요한 경우). **노드 중 한 개**에서만 이 구성을 수행합니다. 주 노드에서 수행합니다.
 
 - 클러스터 부트스트랩
-- STONITH 장치
+- STONITH 디바이스
 - 가상 IP 주소
 
 
@@ -291,7 +291,7 @@ crm configure load update crm-bs.txt
 ```
 ![crm-configure-crmbs.png](media/HowToHLI/HASetupWithStonith/crm-configure-crmbs.png)
 
-### <a name="72-stonith-device"></a>7.2 STONITH 장치
+### <a name="72-stonith-device"></a>7.2 STONITH 디바이스
 리소스 STONITH를 추가합니다. 파일을 만들고 다음 텍스트를 추가합니다.
 ```
 # vi crm-sbd.txt

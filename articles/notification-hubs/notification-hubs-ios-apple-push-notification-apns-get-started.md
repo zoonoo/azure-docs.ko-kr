@@ -16,14 +16,15 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 083b0c956055ab5b54a4af2eec57f096613cbe65
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 27172696a1b94c1571bdade27d80de6b9a82d911
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38681522"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353971"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시
+
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램으로 알림을 푸시합니다. [APNS(Apple Push Notification Service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 
@@ -45,12 +46,12 @@ ms.locfileid: "38681522"
 
 - 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [평가판 계정](https://azure.microsoft.com/free)을 만들 수 있습니다. 
 - [Windows Azure Messaging 프레임워크]
-- [Xcode]
-- iOS 10 이상 지원 장치
+-  [Xcode]
+- iOS 10 이상 지원 디바이스
 - [Apple 개발자 프로그램](https://developer.apple.com/programs/) 멤버 자격
   
   > [!NOTE]
-  > 푸시 알림에 대한 구성 요구 사항 때문에 iOS 시뮬레이터 대신 실제 iOS 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
+  > 푸시 알림에 대한 구성 요구 사항 때문에 iOS 시뮬레이터 대신 실제 iOS 디바이스(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
   
 이 자습서를 완료해야 다른 모든 iOS 앱용 Notification Hubs 자습서를 진행할 수 있습니다.
 
@@ -75,16 +76,17 @@ ms.locfileid: "38681522"
 이제 APNS를 사용하여 알림 허브를 구성했으며, 앱을 등록하고 푸시 알림을 보내기 위한 연결 문자열이 있습니다.
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Notification Hubs에 iOS 앱 연결
+
 1. Xcode에서 새 iOS 프로젝트를 만들고 **응용 프로그램 단일 보기** 템플릿을 선택합니다.
-   
+
     ![Xcode - 단일 보기 응용 프로그램][8]
-    
+
 2. 새 프로젝트에 대한 옵션을 설정하는 경우 Apple Developer 포털에서 번들 식별자를 설정할 때 사용한 것과 동일한 **제품 이름** 및 **조직 식별자**를 사용해야 합니다.
-   
+
     ![Xcode - 프로젝트 옵션][11]
-    
+
 3. [Project Navigator(프로젝트 탐색기)]에서 프로젝트 이름, **일반** 탭을 차례로 클릭한 다음 **서명**을 찾습니다. Apple Developer 계정에 적절한 팀이 선택되었는지 확인합니다. XCode는 번들 식별자에 따라 이전에 만든 프로비전 프로필을 자동으로 끌어옵니다.
-   
+
     Xcode에서 만든 새 프로비전 프로필이 보이지 않으면 서명 ID에 대한 프로필을 새로 고칩니다. 메뉴 모음에서 **Xcode**, **기본 설정**, **계정** 탭, **세부 정보 보기** 단추, 서명 ID를 차례로 클릭한 다음 오른쪽 아래 모서리에 있는 새로 고침 단추를 클릭합니다.
 
     ![Xcode - 프로비전 프로필][9]
@@ -92,100 +94,104 @@ ms.locfileid: "38681522"
 4. **기능** 탭을 선택하고 푸시 알림을 사용하도록 설정합니다.
 
     ![Xcode - 푸시 기능][12]
-   
+
 5. [Windows Azure Messaging 프레임워크]를 다운로드하고 파일의 압축을 풉니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **파일 추가** 옵션을 클릭하여 **WindowsAzureMessaging.framework** 폴더를 Xcode 프로젝트에 추가합니다. **옵션**을 선택하고, **필요한 경우 항목 복사**가 선택되었는지 확인한 다음, **추가**를 클릭합니다.
 
     ![Azure SDK 압축 해제][10]
 
 6. **HubInfo.h**라는 프로젝트에 새 헤더 파일을 추가합니다. 이 파일에는 알림 허브에 대한 상수가 들어 있습니다. 다음 정의를 추가하고 문자열 리터럴 자리 표시자를 *허브 이름* 및 앞에서 언급한 *DefaultListenSharedAccessSignature*로 바꿉니다.
 
-    ```obj-c
-        #ifndef HubInfo_h
-        #define HubInfo_h
-   
-            #define HUBNAME @"<Enter the name of your hub>"
-            #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
-   
-        #endif /* HubInfo_h */
+    ```objc
+    #ifndef HubInfo_h
+    #define HubInfo_h
+
+        #define HUBNAME @"<Enter the name of your hub>"
+        #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
+
+    #endif /* HubInfo_h */
     ```
-    
+
 7. **AppDelegate.h** 파일을 열고 다음 import 지시문을 추가합니다.
 
-    ```obj-c
-        #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
-        #import <UserNotifications/UserNotifications.h> 
-        #import "HubInfo.h"
+    ```objc
+    #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+    #import <UserNotifications/UserNotifications.h> 
+    #import "HubInfo.h"
     ```
-8. **AppDelegate.m 파일**에서 iOS 버전에 따라 **didFinishLaunchingWithOptions** 메서드에 다음 코드를 추가합니다. 이 코드는 APNS로 장치 핸들을 등록합니다.
+8. **AppDelegate.m 파일**에서 iOS 버전에 따라 **didFinishLaunchingWithOptions** 메서드에 다음 코드를 추가합니다. 이 코드는 APNS로 디바이스 핸들을 등록합니다.
 
-    ```obj-c
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
-            UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
-   
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    ```objc
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
+        UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
+
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
     ```
-   
+
 9. 동일한 파일에 다음 메서드를 추가합니다.
 
-    ```obj-c
-         - (void) application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
-           SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
-                                        notificationHubPath:HUBNAME];
-   
-            [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
-               if (error != nil) {
-                   NSLog(@"Error registering for notifications: %@", error);
-                }
-                else {
-                   [self MessageBox:@"Registration Status" message:@"Registered"];
-              }
-          }];
-         }
-   
-        -(void)MessageBox:(NSString *) title message:(NSString *)messageText
-        {
-         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
-                cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [alert show];
+    ```objc
+        - (void) application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
+        SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
+                                    notificationHubPath:HUBNAME];
+
+        [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
+            if (error != nil) {
+                NSLog(@"Error registering for notifications: %@", error);
+            }
+            else {
+                [self MessageBox:@"Registration Status" message:@"Registered"];
+            }
+        }];
         }
+
+    -(void)MessageBox:(NSString *) title message:(NSString *)messageText
+    {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:messageText preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:okAction];
+        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alert animated:YES completion:nil];
+    }
     ```
 
-    이 코드는 사용자가 HubInfo.h에서 지정한 연결 정보를 사용하여 알림 허브에 연결합니다. 그런 다음 알림 허브에서 알림을 보낼 수 있도록 해당 알림 허브에 장치 토큰을 제공합니다.
+    이 코드는 사용자가 HubInfo.h에서 지정한 연결 정보를 사용하여 알림 허브에 연결합니다. 그런 다음, 알림 허브에서 알림을 보낼 수 있도록 해당 알림 허브에 디바이스 토큰을 제공합니다.
 
 10. 같은 파일에서 앱이 활성 상태일 때 알림이 수신되는 경우 **UIAlert** 를 표시하려면 다음 메서드를 추가합니다.
 
-    ```obj-c
-            - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
-               NSLog(@"%@", userInfo);
-               [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
-           }
+    ```objc
+    - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
+        NSLog(@"%@", userInfo);
+        [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
+    }
     ```
 
-11. 오류가 없는지 확인하려면 장치에서 앱을 빌드하고 실행합니다.
+11. 오류가 없는지 확인하려면 디바이스에서 앱을 빌드하고 실행합니다.
 
 ## <a name="send-test-push-notifications"></a>테스트 푸시 알림 보내기
-[Azure Portal]에서 *테스트 보내기* 옵션을 사용하여 앱에서 알림 수신을 테스트할 수 있습니다. 이렇게 하면 테스트 푸시 알림이 장치로 전송됩니다.
+
+[Azure Portal]에서 *테스트 보내기* 옵션을 사용하여 앱에서 알림 수신을 테스트할 수 있습니다. 이렇게 하면 테스트 푸시 알림이 디바이스로 전송됩니다.
 
 ![Azure Portal - 보내기 테스트][30]
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-
 ## <a name="verify-that-your-app-receives-push-notifications"></a>앱에 푸시 알림이 수신되는지 확인
-iOS에서 푸시 알림을 테스트하려면 실제 iOS 장치에 앱을 배포해야 합니다. iOS 시뮬레이터를 사용하여 Apple 푸시 알림을 보낼 수 없습니다.
+
+iOS에서 푸시 알림을 테스트하려면 실제 iOS 디바이스에 앱을 배포해야 합니다. iOS 시뮬레이터를 사용하여 Apple 푸시 알림을 보낼 수 없습니다.
 
 1. 앱을 실행하고 등록이 성공했는지 확인한 다음 **확인**을 누릅니다.
-   
-    ![iOS 앱 푸시 알림 등록 테스트][33]
-2. 다음으로, 이전 섹션에 설명한 대로 [Azure Portal]에서 테스트 푸시 알림을 보냅니다. 
 
-3. 특정 알림 허브에서 보내는 알림을 수신하도록 등록된 모든 장치에 푸시 알림이 전송됩니다.
-   
+    ![iOS 앱 푸시 알림 등록 테스트][33]
+
+2. 다음으로, 이전 섹션에 설명한 대로 [Azure Portal]에서 테스트 푸시 알림을 보냅니다.
+
+3. 특정 알림 허브에서 보내는 알림을 수신하도록 등록된 모든 디바이스에 푸시 알림이 전송됩니다.
+
     ![iOS 앱 푸시 알림 수신 테스트][35]
 
 ## <a name="next-steps"></a>다음 단계
-이 간단한 예제에서는 등록된 모든 iOS 장치로 포시 알림을 브로드캐스트합니다. 특정 iOS 장치로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
+
+이 간단한 예제에서는 등록된 모든 iOS 디바이스로 푸시 알림을 브로드캐스트합니다. 특정 iOS 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
 
 > [!div class="nextstepaction"]
 >[특정 장치에 알림 푸시](notification-hubs-ios-xplat-segmented-apns-push-notification.md)

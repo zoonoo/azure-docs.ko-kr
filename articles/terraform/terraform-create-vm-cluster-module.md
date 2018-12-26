@@ -1,20 +1,20 @@
 ---
 title: Terraform 모듈을 사용하여 Azure에서 VM 클러스터 만들기
 description: Terraform 모듈을 사용하여 Azure에서 Windows 가상 머신 클러스터를 만드는 방법 알아보기
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, 가상 컴퓨터, 네트워크, 모듈
-author: rloutlaw
-ms.service: virtual-machines-linux
-ms.topic: article
-ms.workload: infrastructure
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 10/19/2017
-ms.custom: devops
-ms.author: routlaw
-ms.openlocfilehash: e33aef252413eeb243b03543f171d5f1e2385b48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 03c09e190fce9cbbd98cea3565dd2437f79dadf1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29952220"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666636"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>모듈 레지스트리를 사용하여 Terraform으로 VM 클러스터 만들기
 

@@ -3,8 +3,8 @@ title: Azure 진단 로그 | Microsoft Docs
 description: 고객은 Azure CDN에 대한 Log Analytics를 사용하도록 설정할 수 있습니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: v-deasim
-ms.openlocfilehash: 98a7fc5c4607115811e17a7cf6acd4e867663833
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.author: magattus
+ms.openlocfilehash: d0b804c48f3de4d4ba29ebe0785f6dd991329a53
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261307"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409257"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
@@ -29,9 +29,9 @@ Azure 진단 로그를 통해 이제 핵심 분석을 보고 다음을 포함한
  - Azure Event Hubs
  - [Log Analytics 작업 영역](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
-이 기능은 모든 가격 책정 계층에 대한 CDN 끝점에서 사용할 수 있습니다. 
+이 기능은 모든 가격 책정 계층에 대한 CDN 엔드포인트에서 사용할 수 있습니다. 
 
-Azure 진단 로그를 사용하면 사용자 지정 방식으로 사용할 수 있도록 CDN 끝점에서 다양한 원본으로 기본 사용 현황 메트릭을 내보낼 수 있습니다. 예를 들어 다음 유형의 데이터 내보내기를 수행할 수 있습니다.
+Azure 진단 로그를 사용하면 사용자 지정 방식으로 사용할 수 있도록 CDN 엔드포인트에서 다양한 원본으로 기본 사용 현황 메트릭을 내보낼 수 있습니다. 예를 들어 다음 유형의 데이터 내보내기를 수행할 수 있습니다.
 
 - 데이터를 Blob Storage로 내보내고, CSV로 내보낸 후 Excel에서 그래프를 생성합니다.
 - 데이터를 Event Hubs로 내보내고 다른 Azure 서비스의 데이터와 상관 관계를 설정합니다.
@@ -49,7 +49,7 @@ Azure 진단 로그를 사용하면 사용자 지정 방식으로 사용할 수 
 
 CDN 핵심 분석에서 로깅을 사용하도록 설정하려면 아래 단계를 따르세요.
 
-[Azure 포털](http://portal.azure.com)에 로그인합니다. 워크플로에 대한 CDN을 사용하도록 설정하지 않은 경우 계속 진행하기 전에 [Azure CDN 프로필 및 엔드포인트를 만듭니다](cdn-create-new-endpoint.md).
+[Azure Portal](http://portal.azure.com)에 로그인합니다. 워크플로에 대한 CDN을 사용하도록 설정하지 않은 경우 계속 진행하기 전에 [Azure CDN 프로필 및 엔드포인트를 만듭니다](cdn-create-new-endpoint.md).
 
 1. Azure Portal에서 **CDN 프로필**로 이동합니다.
 
@@ -95,17 +95,23 @@ Log Analytics를 사용하여 로그를 저장하려면 아래 단계를 따릅�
 
 2. **구성**을 선택하여 Log Analytics 로깅을 구성합니다. 
 
-   **OMS 작업 영역** 페이지가 표시됩니다.
+   **Log Analytics 작업 영역** 페이지가 나타납니다.
+
+    >[!NOTE] 
+    >OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.
 
     ![포털 - 진단 로그](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. **새 작업 영역 만들기**를 선택합니다.
 
-    **OMS 작업 영역** 페이지가 표시됩니다.
+    **Log Analytics 작업 영역** 페이지가 나타납니다.
+
+    >[!NOTE] 
+    >OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.
 
     ![포털 - 진단 로그](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. **OMS 작업 영역**의 경우 OMS 작업 영역 이름을 입력합니다. OMS 작업 영역 이름은 고유해야 하며 문자, 숫자 및 하이픈만 포함해야 합니다. 공백 및 밑줄은 사용할 수 없습니다. 
+4. **Log Analytics 작업 영역**으로 Log Analytics 작업 영역 이름을 입력합니다. Log Analytics 작업 영역 이름은 고유해야 하며 문자, 숫자 및 하이픈만 포함해야 합니다. 공백 및 밑줄은 사용할 수 없습니다. 
 
 5. **구독**의 경우 드롭다운 목록에서 기존 구독을 선택합니다. 
 
@@ -117,8 +123,6 @@ Log Analytics를 사용하여 로그를 저장하려면 아래 단계를 따릅�
 
 9. **확인**을 선택하여 구성을 완료합니다.
 
-    ![포털 - 진단 로그](./media/cdn-diagnostics-log/08_Workspace-resource.png)
-
 10. 작업 영역을 만든 후에 **진단 로그** 페이지에 반환됩니다. 새 Log Analytics 작업 영역의 이름을 확인합니다.
 
     ![포털 - 진단 로그](./media/cdn-diagnostics-log/09_Return-to-logging.png)
@@ -127,7 +131,7 @@ Log Analytics를 사용하여 로그를 저장하려면 아래 단계를 따릅�
 
 12. 새 Log Analytics 작업 영역을 보려면 CDN 엔드포인트 페이지에서 **분석 핵심**을 선택합니다.
 
-    ![포털 - 진단 로그](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
+    ![포털 - 진단 로그](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
     Log Analytics 작업 영역에서 데이터를 기록할 준비가 되었습니다. 해당 데이터를 사용하려면 이 문서의 후반부에서 다루고 있는 [Log Analytics 솔루션](#consuming-diagnostics-logs-from-a-log-analytics-workspace)을 사용해야 합니다.
 
@@ -168,17 +172,16 @@ Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 
 2.  저장소 계정을 찾습니다.
 3.  이 저장소 계정 아래의 **Blob 컨테이너** 노드를 확장합니다.
 4.  *“insights-logs-coreanalytics”* 라는 컨테이너를 선택합니다.
-5.  오른쪽 창에 결과가 표시되고 *resourceId=* 와 같은 첫 번째 수준에서 시작됩니다. *PT1H.json* 파일을 찾을 때까지 각 수준을 계속해서 선택합니다. 경로에 대한 설명은 다음 *Blob 경로 형식* 참고를 참조합니다.
+5.  오른쪽 창에 결과가 표시되고 *resourceId=* 와 같은 첫 번째 수준에서 시작됩니다. *PT1H.json* 파일을 찾을 때까지 각 수준을 계속해서 선택합니다. 경로에 대한 설명은 [Blob 경로 형식](cdn-azure-diagnostic-logs.md#blob-path-format)을 참조하세요.
 6.  각 blob *PT1H.json* 파일은 특정 CDN 엔드포인트 또는 사용자 지정 도메인에 대해 1시간의 분석 로그를 표시합니다.
 7.  이 JSON 파일 콘텐츠의 스키마는 핵심 분석 로그의 스키마 섹션에 설명되어 있습니다.
 
 
-> [!NOTE]
-> **Blob 경로 형식**
-> 
-> 핵심 분석 로그는 1시간 마다 생성되고 데이터는 JSON 페이로드로 단일 Azure blob 내부에 수집되고 저장됩니다. Storage 탐색기 도구는 ‘/’를 디렉터리 구분 기호로 해석하고 계층을 표시하므로 Azure blob에 대한 경로는 계층 구조가 있는 것처럼 표시되고 blob 이름을 나타냅니다. blob의 이름은 다음 명명 규칙을 따릅니다. 
-    
-    resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json
+#### <a name="blob-path-format"></a>Blob 경로 형식
+
+핵심 분석 로그는 1시간 마다 생성되고 데이터는 JSON 페이로드로 단일 Azure blob 내부에 수집되고 저장됩니다. Storage 탐색기 도구는 ‘/’를 디렉터리 구분 기호로 해석하고 계층을 표시하므로 Azure blob에 대한 경로는 계층 구조가 있는 것처럼 표시되고 blob 이름을 나타냅니다. blob의 이름은 다음 명명 규칙을 따릅니다.   
+
+```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
 
 **필드 설명:**
 
@@ -187,7 +190,7 @@ Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 
 |구독 ID    |GUID 형식에서 Azure 구독의 ID입니다.|
 |리소스 그룹 이름 |CDN 리소스가 속한 리소스 그룹의 이름입니다.|
 |프로필 이름 |CDN 프로필의 이름입니다.|
-|끝점 이름 |CDN 끝점의 이름입니다.|
+|엔드포인트 이름 |CDN 엔드포인트의 이름입니다.|
 |Year|  4자리 연도 표시(예: 2017)입니다.|
 |월| 2자리 월 표시입니다. 01=1월 ... 12=12월|
 |일|   2자리 월의 일 표시입니다.|
@@ -306,7 +309,7 @@ Log Analytics 관리 솔루션을 추가하려면 아래 단계를 따르세요.
 
 Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로그 데이터 지연
 --- | --- | ---
-1시간 지연됩니다. | 1시간 지연되고, 끝점 전파가 완료된 후 나타날 때까지 최대 2시간이 걸릴 수 있습니다. | 24시간 지연되고, 24시간 이전에 만들어진 경우 나타날 때까지 최대 2시간이 걸립니다. 최근에 만든 경우 로그가 나타날 때까지 최대 25시간이 걸릴 수 있습니다.
+1시간 지연됩니다. | 1시간 지연되고, 엔드포인트 전파가 완료된 후 나타날 때까지 최대 2시간이 걸릴 수 있습니다. | 24시간 지연되고, 24시간 이전에 만들어진 경우 나타날 때까지 최대 2시간이 걸립니다. 최근에 만든 경우 로그가 나타날 때까지 최대 25시간이 걸릴 수 있습니다.
 
 ## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>CDN 핵심 분석에 대한 진단 로그 유형
 
@@ -318,33 +321,33 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 
 |메트릭                     | 설명 | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
-| RequestCountTotal         | 이 기간 동안의 요청 적중의 총 수입니다. | 예 | 예 |예 |
-| RequestCountHttpStatus2xx | 2xx HTTP 코드(예: 200, 202)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
-| RequestCountHttpStatus3xx | 3xx HTTP 코드(예: 300, 302)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
-| RequestCountHttpStatus4xx | 4xx HTTP 코드(예: 400, 404)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
-| RequestCountHttpStatus5xx | 5xx HTTP 코드(예: 500, 504)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
-| RequestCountHttpStatusOthers | 다른 모든 HTTP 코드의 수(2xx-5xx 이외)입니다. | 예 | 예 |예 |
-| RequestCountHttpStatus200 | 200 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니오  |예 |
-| RequestCountHttpStatus206 | 206 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니오  |예 |
-| RequestCountHttpStatus302 | 302 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니오  |예 |
-| RequestCountHttpStatus304 | 304 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니오  |예 |
-| RequestCountHttpStatus404 | 404 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니오  |예 |
-| RequestCountCacheHit | 캐시 적중을 발생한 모든 요청의 수. 자산이 POP에서 클라이언트로 직접 제공되었습니다. | 예 | 예 | 아니오  |
-| RequestCountCacheMiss | 캐시 누락을 발생한 모든 요청의 수. 캐시 누락은 자산을 클라이언트에 가장 가까운 POP에서 찾을 수 없으므로 원래 시작점에서 검색되었음을 의미합니다. | 예 | 예 | 아니오 |
-| RequestCountCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 모든 요청의 수 | 예 | 예 | 아니오 |
-| RequestCountCacheUncacheable | 자산의 Cache-Control 및 Expires 헤더에 의해 캐시되지 못하여 POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타내는 자산에 대한 모든 요청의 수입니다. | 예 | 예 | 아니오 |
-| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수 | 아니오 | 예 | 아니오  |
-| EgressTotal | 아웃바운드 데이터 전송(GB) | 예 |예 |예 |
-| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다.* | 예 | 예 | 아니오  |
-| EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니오  |
-| EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니오  |
-| EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니오 |
-| EgressHttpStatusOthers | 다른 HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니오  |
-| EgressCacheHit | CDN POP/Edge의 CDN 캐시에서 직접 전달된 응답에 대한 아웃바운드 데이터 전송입니다. | 예 | 예 | 아니오 |
-| EgressCacheMiss. | 가장 가까운 POP 서버에 없으며 원본 서버에서 검색된 응답에 대한 아웃바운드 데이터 전송입니다. | 예 | 예 | 아니오 |
-| EgressCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 아웃바운드 데이터 전송 | 예 | 예 | 아니오 |
-| EgressCacheUncacheable | 자산의 Cache-Control 및/또는 Expires 헤더에 의해 캐시되지 못하여 자산에 대한 아웃바운드 데이터 전송. POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타냅니다. | 예 | 예 | 아니오 |
-| EgressCacheOthers | 다른 캐시 시나리오에 대한 아웃바운드 데이터 전송 | 아니오 | 예 | 아니오 |
+| RequestCountTotal         | 이 기간 동안의 요청 적중의 총 수입니다. | yes | 예 |yes |
+| RequestCountHttpStatus2xx | 2xx HTTP 코드(예: 200, 202)를 생성한 모든 요청의 수입니다. | yes | 예 |yes |
+| RequestCountHttpStatus3xx | 3xx HTTP 코드(예: 300, 302)를 생성한 모든 요청의 수입니다. | yes | 예 |yes |
+| RequestCountHttpStatus4xx | 4xx HTTP 코드(예: 400, 404)를 생성한 모든 요청의 수입니다. | yes | 예 |yes |
+| RequestCountHttpStatus5xx | 5xx HTTP 코드(예: 500, 504)를 생성한 모든 요청의 수입니다. | yes | 예 |yes |
+| RequestCountHttpStatusOthers | 다른 모든 HTTP 코드의 수(2xx-5xx 이외)입니다. | yes | 예 |yes |
+| RequestCountHttpStatus200 | 200 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | yes | 아니요  |yes |
+| RequestCountHttpStatus206 | 206 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | yes | 아니요  |yes |
+| RequestCountHttpStatus302 | 302 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | yes | 아니요  |yes |
+| RequestCountHttpStatus304 | 304 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | yes | 아니요  |yes |
+| RequestCountHttpStatus404 | 404 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | yes | 아니요  |yes |
+| RequestCountCacheHit | 캐시 적중을 발생한 모든 요청의 수. 자산이 POP에서 클라이언트로 직접 제공되었습니다. | yes | yes | 아니요  |
+| RequestCountCacheMiss | 캐시 누락을 발생한 모든 요청의 수. 캐시 누락은 자산을 클라이언트에 가장 가까운 POP에서 찾을 수 없으므로 원래 시작점에서 검색되었음을 의미합니다. | yes | yes | 아니요 |
+| RequestCountCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 모든 요청의 수 | yes | yes | 아니요 |
+| RequestCountCacheUncacheable | 자산의 Cache-Control 및 Expires 헤더에 의해 캐시되지 못하여 POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타내는 자산에 대한 모든 요청의 수입니다. | yes | yes | 아니요 |
+| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수 | 아니요 | yes | 아니요  |
+| EgressTotal | 아웃바운드 데이터 전송(GB) | yes |예 |yes |
+| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다.* | yes | yes | 아니요  |
+| EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | yes | yes | 아니요  |
+| EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | yes | yes | 아니요  |
+| EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | yes | yes | 아니요 |
+| EgressHttpStatusOthers | 다른 HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | yes | yes | 아니요  |
+| EgressCacheHit | CDN POP/Edge의 CDN 캐시에서 직접 전달된 응답에 대한 아웃바운드 데이터 전송입니다. | yes | yes | 아니요 |
+| EgressCacheMiss. | 가장 가까운 POP 서버에 없으며 원본 서버에서 검색된 응답에 대한 아웃바운드 데이터 전송입니다. | yes | yes | 아니요 |
+| EgressCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 아웃바운드 데이터 전송 | yes | yes | 아니요 |
+| EgressCacheUncacheable | 자산의 Cache-Control 및/또는 Expires 헤더에 의해 캐시되지 못하여 자산에 대한 아웃바운드 데이터 전송. POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타냅니다. | yes | yes | 아니요 |
+| EgressCacheOthers | 다른 캐시 시나리오에 대한 아웃바운드 데이터 전송 | 아니요 | yes | 아니요 |
 
 * 아웃바운드 데이터 전송은 CDN POP 서버에서 클라이언트로 전달되는 트래픽을 나타냅니다.
 
@@ -396,7 +399,7 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 }
 ```
 
-여기서 *time*은 통계가 보고되는 시간 범위의 시작 시간을 나타냅니다. CDN 공급자가 메트릭을 지원하지 않을 경우 double 또는 정수 값 대신 null 값이 사용됩니다. 이 null 값은 메트릭이 없음을 나타내며 값 0과는 다릅니다. 이러한 메트릭 집합은 끝점에 구성된 도메인당 1개만 유지됩니다.
+여기서 *time*은 통계가 보고되는 시간 범위의 시작 시간을 나타냅니다. CDN 공급자가 메트릭을 지원하지 않을 경우 double 또는 정수 값 대신 null 값이 사용됩니다. 이 null 값은 메트릭이 없음을 나타내며 값 0과는 다릅니다. 이러한 메트릭 집합은 엔드포인트에 구성된 도메인당 1개만 유지됩니다.
 
 예제 속성은 다음과 같습니다.
 

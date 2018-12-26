@@ -1,26 +1,27 @@
 ---
-title: Translator Speech 자습서(C#) | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Translator Speech 서비스를 사용하여 실시간으로 텍스트를 변환하는 방법을 알아봅니다.
+title: '자습서: Translator Speech API C#'
+titleSuffix: Azure Cognitive Services
+description: Translator Speech API를 사용하여 실시간으로 텍스트를 번역합니다.
 services: cognitive-services
 author: v-jerkin
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.devlang: csharp
-ms.topic: article
+ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e82c5c5ccfa6b7de8a9ec111140dad1a40ad44f6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6a53eaf2154162ab9ec85a5a75c2cd52962b53a9
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373943"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340429"
 ---
-# <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>자습서: C#의 Microsoft Translator WPF 응용 프로그램
+# <a name="tutorial-translator-speech-application-in-c"></a>자습서: C#의 Translator Speech 응용 프로그램
 
-이 자습서에서는 Azure에 있는 Microsoft Cognitive Services의 일부인 Microsoft Translator Speech 변환 서비스를 사용하는 대화형 음성 변환 도구를 간략히 살펴봅니다. 다음 방법에 대해 알아봅니다.
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+이 자습서에서는 Azure Cognitive Services의 일부인 Translator Speech API를 사용하는 대화형 음성 번역 도구를 간략히 살펴봅니다. 다음 방법을 알게 됩니다.
 
 > [!div class="checklist"]
 > * 서비스에서 지원되는 언어 목록 요청
@@ -42,7 +43,7 @@ Microsoft Azure 대시보드에서 얻을 수 있는 Translator Speech 서비스
 
 ## <a name="trying-the-translation-app"></a>변환 응용 프로그램 사용해 보기
 
-Visual Studio에서 Microsoft Speech Translator 솔루션(`SpeechTranslator.sln`)을 연 후에 F5 키를 눌러 응용 프로그램을 빌드하고 시작합니다.  프로그램의 주 창이 나타납니다.
+Visual Studio에서 Speech Translator 솔루션(`SpeechTranslator.sln`)을 연 후에 F5 키를 눌러 응용 프로그램을 빌드하고 시작합니다.  프로그램의 주 창이 나타납니다.
 
 ![[Speech Translator 주 창]](media/speech-translator-main-window.png)
 
@@ -50,15 +51,15 @@ Visual Studio에서 Microsoft Speech Translator 솔루션(`SpeechTranslator.sln`
 
 ![[Speech Translator 주 창]](media/speech-translator-settings-window.png)
 
-이 창에 Microsoft Translator Speech 구독 키를 붙여넣은 다음, **저장**을 클릭합니다. 실행 사이에서 키가 저장됩니다.
+이 창에 Translator Speech 구독 키를 붙여넣은 다음, **저장**을 클릭합니다. 실행 사이에서 키가 저장됩니다.
 
-주 창으로 돌아가서 사용하려는 오디오 입력 및 출력 장치와 [소스] 및 [대상] 언어를 선택합니다. 변환된 오디오를 들으려면 **TTS**(텍스트 음성 변환) 옵션이 선택되어 있는지 확인합니다. 말하는 대로 불확실한 부분 변환을 확인하려면 **부분 결과** 옵션을 사용하도록 설정합니다.
+주 창으로 돌아가서 사용하려는 오디오 입력 및 출력 디바이스와 [소스] 및 [대상] 언어를 선택합니다. 변환된 오디오를 들으려면 **TTS**(텍스트 음성 변환) 옵션이 선택되어 있는지 확인합니다. 말하는 대로 불확실한 부분 변환을 확인하려면 **부분 결과** 옵션을 사용하도록 설정합니다.
 
 마지막으로 **시작**을 클릭하여 변환을 시작합니다. 변환하려는 내용을 말하고, 창에 표시된 인식된 텍스트와 변환을 조사합니다. TTS 옵션을 사용하도록 설정하면 변환 내용도 들을 수 있습니다.
 
 ## <a name="obtaining-supported-languages"></a>지원되는 언어 가져오기
 
-이 문서를 작성하는 시점에서 Microsoft Translator 서비스는 텍스트 변환에 60개가 넘는 언어를 지원합니다. 음성 변환에는 더 적은 수의 언어가 지원됩니다. 이러한 언어는 전사(음성 인식) 및 합성(텍스트 음성 변환 출력의 경우)을 모두 지원해야 합니다.
+이 문서를 작성하는 시점에서 Translator Speech 서비스는 텍스트 변환에 60개가 넘는 언어를 지원합니다. 음성 변환에는 더 적은 수의 언어가 지원됩니다. 이러한 언어는 전사(음성 인식) 및 합성(텍스트 음성 변환 출력의 경우)을 모두 지원해야 합니다.
 
 즉 음성 변환의 경우 소스 언어는 전사에 지원되는 언어여야 합니다. 텍스트 결과를 원한다고 가정하는 경우 출력 언어는 텍스트 변환에 지원되는 언어 중 하나일 수 있습니다. 음성 출력을 원하는 경우 텍스트 음성 변환에 지원되는 언어로만 변환할 수 있습니다.
 
@@ -206,7 +207,7 @@ Microsoft Translator Speech 서비스를 인증하려면 Azure 구독 키를 연
 
 Translate API(`wss://dev.microsofttranslator.com/speech/translate` WebSockets 엔드포인트)는 오디오를 모노포닉, 16kHz, 부호 있는 16비트 WAVE 형식으로 변환할 수 있도록 합니다. 서비스에서 인식된 텍스트와 변환된 텍스트가 모두 포함된 하나 이상의 JSON 응답을 반환합니다. 텍스트 음성 변환이 요청되면 오디오 파일이 보내집니다.
 
-사용자는 [마이크/파일 입력] 메뉴를 사용하여 오디오 소스를 선택합니다. 오디오는 오디오 장치(예: 마이크) 또는 `.WAV` 파일에서 나올 수 있습니다.
+사용자는 [마이크/파일 입력] 메뉴를 사용하여 오디오 소스를 선택합니다. 오디오는 오디오 디바이스(예: 마이크) 또는 `.WAV` 파일에서 나올 수 있습니다.
 
 사용자가 [시작] 단추를 클릭하면 `StartListening_Click` 메서드가 호출됩니다. 그러면 이 이벤트 처리기에서 `Connect()`를 호출하여 오디오를 서비스 API 엔드포인트로 보내는 프로세스를 시작합니다. `Connect()` 메서드에서 수행하는 작업은 다음과 같습니다.
 
@@ -357,9 +358,9 @@ private void Connect()
 }
 ```
 
-`Connect()`의 상당한 부분은 변환 옵션을 유지하는 `SpeechClientOptions` 인스턴스(`SpeechClientOptions.cs` 참조)를 만드는 것과 관련되어 있습니다. 옵션에는 서비스에 연결하는 데 필요한 정보(예: 인증 키 및 호스트 이름)와 변환에 사용되는 기능이 포함됩니다. 여기서는 필드가 [Translator Speech API](http://docs.microsofttranslator.com/speech-translate.html)로 노출되는 헤더 필드와 HTTP 매개 변수에 매핑됩니다.
+`Connect()`의 상당한 부분은 변환 옵션을 유지하는 `SpeechClientOptions` 인스턴스(`SpeechClientOptions.cs` 참조)를 만드는 것과 관련되어 있습니다. 옵션에는 서비스에 연결하는 데 필요한 정보(예: 인증 키 및 호스트 이름)와 변환에 사용되는 기능이 포함됩니다. 여기서는 필드가 [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)로 노출되는 헤더 필드와 HTTP 매개 변수에 매핑됩니다.
 
-또한 `Connect()`는 변환할 음성 소스로 사용되는 오디오 입력 장치(`sampleProvider` 변수)를 만들고 초기화합니다. 이 장치는 마이크와 같은 하드웨어 입력 장치 또는 WAVE 오디오 데이터가 포함된 파일입니다.
+또한 `Connect()`는 변환할 음성 소스로 사용되는 오디오 입력 장치(`sampleProvider` 변수)를 만들고 초기화합니다. 이 디바이스는 마이크와 같은 하드웨어 입력 디바이스 또는 WAVE 오디오 데이터가 포함된 파일입니다.
 
 다음은 `speechClient` 클래스를 인스턴스화하고, 익명 함수를 후크하여 서비스의 텍스트 및 이진 응답을 처리하는 `ConnectAsync()` 메서드입니다.
 
@@ -431,4 +432,4 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
 이 코드 샘플은 Translator Speech API를 사용하는 방법을 보여 주는 다양한 기능을 갖춘 응용 프로그램입니다. 따라서 이해하기 위해 이동해야 하는 부분이 상당히 많습니다. 여기서는 가장 중요한 부분을 안내했습니다. 나머지 부분의 경우 Visual Studio에서 몇 가지 중단점을 설정하고 변환 프로세스를 진행하는 것이 좋습니다. 샘플 응용 프로그램을 이해하면 자신의 응용 프로그램에서 Translator Speech 서비스를 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator Speech API 참조](http://docs.microsofttranslator.com/speech-translate.html)
+> [Microsoft Translator Speech API 참조](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

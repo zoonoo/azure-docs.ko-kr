@@ -2,24 +2,24 @@
 title: System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버 백업
 description: System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버를 백업하는 방법을 알아봅니다.
 services: backup
-author: MaanasSaran
+author: adigan
 manager: NKolli1
 ms.service: backup
-ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: adigan
-ms.openlocfilehash: 4edec499d12261add398e5a9297f039ecfb252e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7e95fa0cc6b5f9476df68ab44e5dbc8bb5432d52
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605103"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234461"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버 백업
 이 문서에서는 System Center 2012 R2 Data Protection Manager(DPM) 서버를 구성하여 Azure Backup에 Microsoft Exchange server를 백업하는 방법을 설명합니다.  
 
 ## <a name="updates"></a>업데이트
-Azure Backup을 사용하여 DPM 서버를 성공적으로 등록하려면 System Center 2012 R2 DPM 및 Azure Backup 에이전트의 최신 버전에 대한 최신 업데이트 롤업을 설치해야 합니다. [Microsoft 카탈로그](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager)에서 최신 업데이트 롤업을 가져옵니다.
+Azure Backup을 사용하여 DPM 서버를 성공적으로 등록하려면 System Center 2012 R2 DPM 및 Azure Backup 에이전트의 최신 버전에 대한 최신 업데이트 롤업을 설치해야 합니다. [Microsoft 카탈로그](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager)에서 최신 업데이트 롤업을 가져옵니다.
 
 > [!NOTE]
 > 이 문서의 예의 경우 Azure Backup 에이전트의 2.0.8719.0 버전을 설치하고 업데이트 롤업 6을 System Center 2012 R2 DPM에 설치합니다.
@@ -27,7 +27,7 @@ Azure Backup을 사용하여 DPM 서버를 성공적으로 등록하려면 Syste
 >
 
 ## <a name="prerequisites"></a>필수 조건
-계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites) 를 모두 충족하는지 확인합니다. 이러한 필수 구성 요소는 다음과 같습니다.
+계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 를 모두 충족하는지 확인합니다. 이러한 필수 구성 요소는 다음과 같습니다.
 
 * Azure 사이트에서 백업 자격 증명 모음을 만들었습니다.
 * DPM 서버에 에이전트 및 자격 증명 모음 자격 증명을 다운로드했습니다.

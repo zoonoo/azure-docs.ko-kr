@@ -1,24 +1,25 @@
 ---
-title: Azure Content Moderator - 이미지 조정 | Microsoft Docs
+title: 이미지 조정 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 이미지 조정을 사용하여 부적절한 이미지 조정
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: c7cbc343c6e9113642d0ac79f4a4d60a404e8171
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 044aa9a127aa8130340719147314961ddb38167a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377663"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852710"
 ---
 # <a name="image-moderation"></a>이미지 조정
 
-Content Moderator의 컴퓨터 지원 이미지 조정 및 [사용자 검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 조정합니다. 텍스트 콘텐츠에 대한 이미지를 검색하고 해당 텍스트를 추출한 후 얼굴을 감지합니다. 사용자 지정 목록에서 이미지와 일치하는 사용자를 검색한 후 후속 조치를 취할 수 있습니다.
+Content Moderator의 머신 지원 이미지 조정 및 [인간 참여형 검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 조정합니다. 텍스트 콘텐츠에 대한 이미지를 검색하고 해당 텍스트를 추출한 후 얼굴을 감지합니다. 사용자 지정 목록에서 이미지와 일치하는 사용자를 검색한 후 후속 조치를 취할 수 있습니다.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>성인 및 외설 콘텐츠 평가
 
@@ -143,7 +144,7 @@ Content Moderator는 사용자 지정 이미지 목록을 관리하기 위한 �
 
 좀 더 미묘한 차이가 있는 경우 Content Moderator의 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 및 해당 API를 사용하여 사용자 중재자가 검토할 수 있게 조정 결과 및 콘텐츠를 제공합니다. 컴퓨터 할당 태그를 검토하고 최종 결정을 확인합니다.
 
-![중재자를 위한 이미지 검토](images/moderation-reviews-quickstart-dotnet.PNG)
+![사용자 중재자를 위한 이미지 검토](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>다음 단계
 

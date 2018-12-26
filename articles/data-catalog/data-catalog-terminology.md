@@ -1,25 +1,19 @@
 ---
-title: "Azure 데이터 카탈로그 용어 | Microsoft Docs"
-description: "이 문서는 Azure 데이터 카탈로그 설명서에 사용된 용어 및 개념에 대한 소개를 제공합니다."
+title: Azure 데이터 카탈로그 용어
+description: 이 문서는 Azure 데이터 카탈로그 설명서에 사용된 용어 및 개념에 대한 소개를 제공합니다.
 services: data-catalog
-documentationcenter: 
-author: steelanddata
-manager: NA
-editor: 
-tags: 
+author: markingmyname
+ms.author: maghan
 ms.assetid: 6fec74d9-4a3c-4b4b-88ba-cad5ad143331
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: b88abd01c2dbc302bfc0e783d1715710c6f8397c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0ef83af3df942b456d0036321cf88e4a1ce7afa7
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407759"
 ---
 # <a name="azure-data-catalog-terminology"></a>Azure 데이터 카탈로그 용어
 ## <a name="catalog"></a>카탈로그

@@ -3,23 +3,21 @@ title: Azure Advisor 보안 권장 사항 | Microsoft Docs
 description: Azure Advisor를 사용하여 Azure 배포의 보안을 향상시킵니다.
 services: advisor
 documentationcenter: NA
-author: KumudD
-manager: carmonm
-editor: ''
+author: kasparks
+manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumud
-ms.openlocfilehash: e8a2350744e7b967cc19d0e73686f32edf980eac
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: kasparks
+ms.openlocfilehash: d366ee02e3a5ef3c6f983c9cea23943343ab4a51
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151045"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849788"
 ---
 # <a name="advisor-security-recommendations"></a>Advisor 보안 권장 사항 관리
 

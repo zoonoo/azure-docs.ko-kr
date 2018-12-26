@@ -1,22 +1,21 @@
 ---
-title: 'Azure Container Instances 자습서 - 앱 준비 '
-description: Azure Container Instances 자습서 1/3부 - Azure Container Instances에 배포할 앱 준비
+title: 자습서 - Azure Container Instances에 사용할 컨테이너 이미지 준비
+description: Azure Container Instances 자습서 1/3부 - 컨테이너 이미지에서 Azure Container Instances에 배포할 앱 준비
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: marsma
-ms.custom: mvc
-ms.openlocfilehash: 79041123196559c5759789638228ea0dd21f2762
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: danlep
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 029b4f2d0f0f88f56ca1f3e282d8c80e76f4d5c7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163285"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186415"
 ---
-# <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>자습서: Azure Container Instances에 배포를 위한 컨테이너 만들기
+# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>자습서: Azure Container Instances에 배포할 컨테이너 이미지 만들기
 
 Azure Container Instances를 통해 어떠한 가상 머신을 프로비전하지 않고 또 더 높은 수준의 서비스를 채택하지 않고도 Azure로 Docker 컨테이너를 배포할 수 있습니다. 이 자습서에서는 Azure Container Instances를 사용하여 실행할 수 있는 컨테이너 이미지에 작은 Node.js 웹 응용 프로그램을 패키지합니다.
 
@@ -24,7 +23,7 @@ Azure Container Instances를 통해 어떠한 가상 머신을 프로비전하�
 
 > [!div class="checklist"]
 > * GitHub에서 응용 프로그램 원본 코드 복제
-> * 응용 프로그램 원본에서 컨테이너 이미지 만들기
+> * 애플리케이션 원본에서 컨테이너 이미지 만들기
 > * 로컬 Docker 환경에서 이미지 테스트
 
 자습서 2부 및 3부에서는 이미지를 Azure Container Registry에 업로드한 후 Azure Container Instances에 배포합니다.
@@ -126,7 +125,7 @@ a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 이 자습서에서는 Azure Container Instances에 배포할 수 있는 컨테이너 이미지를 만들고, 로컬에서 실행되는 것을 확인했습니다. 지금까지 다음과 같은 작업을 수행했습니다.
 
 > [!div class="checklist"]
-> * GitHub에서 응용 프로그램 소스 복제
+> * GitHub에서 애플리케이션 소스 복제
 > * 응용 프로그램 원본에서 컨테이너 이미지 만들기
 > * 컨테이너를 로컬로 테스트
 

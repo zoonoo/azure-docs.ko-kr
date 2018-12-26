@@ -2,24 +2,18 @@
 title: Azure Monitor의 Azure Storage 메트릭 | Microsoft Docs
 description: Azure Monitor에서 제공하는 새 메트릭에 대해 알아봅니다.
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: fhryo-msft
-ms.assetid: ''
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: 05021d5ab8d33e36bff16ce7d2ebacd3db72639a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.component: common
+ms.openlocfilehash: 72d324e0b5fe0c50dadc076306c9167c0492290a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035258"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625592"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Storage 메트릭
 
@@ -29,13 +23,13 @@ Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합�
 
 ## <a name="access-metrics"></a>메트릭에 액세스
 
-Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com), Azure Monitor API(REST 및 .Net) 그리고 Operation Management Suite 및 Event Hubs와 같은 분석 솔루션에서 메트릭에 액세스할 수 있습니다. 자세한 내용은 [Azure Monitor 메트릭](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)을 참조하세요.
+Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com), Azure Monitor API(REST 및 .Net) 및 분석 솔루션(예: Event Hubs)에서 메트릭에 액세스할 수 있습니다. 자세한 내용은 [Azure Monitor 메트릭](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)을 참조하세요.
 
-메트릭은 기본적으로 활성화되며 지난 30일간의 데이터에 액세스할 수 있습니다. 더 오랜 기간에 대한 데이터를 보존해야 하는 경우 메트릭 데이터를 Azure Storage 계정에 보관할 수 있습니다. Azure Monitor의 [진단 설정](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)에서 이렇게 구성합니다.
+메트릭은 기본적으로 활성화되며 지난 93일간의 데이터에 액세스할 수 있습니다. 더 오랜 기간에 대한 데이터를 보존해야 하는 경우 메트릭 데이터를 Azure Storage 계정에 보관할 수 있습니다. Azure Monitor의 [진단 설정](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)에서 이렇게 구성합니다.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Azure Portal에서 메트릭에 액세스
 
-Azure Portal에서 시간 경과에 따른 메트릭을 모니터링할 수 있습니다. 다음은 계정 수준에서 **UsedCapacity**를 보는 방법을 보여 주는 예제입니다.
+Azure Portal에서 시간 경과에 따른 메트릭을 모니터링할 수 있습니다. 다음 예에서는 계정 수준에서 **트랜잭션**을 보는 방법을 보여 줍니다.
 
 ![Azure Portal에서 메트릭에 액세스 스크린 샷](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
@@ -57,7 +51,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [REST API](/rest/api/monitor
 # Login to Azure and enter your credentials when prompted.
 > armclient login
 
-> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2017-05-01-preview
+> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2018-01-01
 
 ```
 
@@ -101,7 +95,7 @@ Blob, 테이블, 파일 또는 큐에 대한 메트릭 정의를 나열하려면
 다음 예제는 계정 차원에서 메트릭 데이터를 읽는 방법을 보여 줍니다.
 
 ```
-> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metric=Availability&api-version=2017-05-01-preview&aggregation=Average&interval=PT1H"
+> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metricnames=Availability&api-version=2018-01-01&aggregation=Average&interval=PT1H"
 
 ```
 
@@ -318,7 +312,7 @@ Blob, 테이블, 파일 또는 큐에 대한 메트릭 정의를 나열하려면
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * 파일 서비스 리소스 ID `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>Azure Monitor REST API의 리소스 ID
@@ -338,14 +332,14 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| UsedCapacity | 저장소 계정에서 사용한 저장소 양입니다. 표준 저장소 계정의 경우 이는 Blob, 테이블, 파일 및 큐에서 사용한 용량의 합계입니다. 프리미엄 저장소 계정 및 Blob 저장소 계정의 경우 BlobCapacity와 같습니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 평균 <br/> 값 예: 1024 |
+| UsedCapacity | 저장소 계정에서 사용한 저장소 양입니다. 표준 저장소 계정의 경우 이는 Blob, 테이블, 파일 및 큐에서 사용한 용량의 합계입니다. 프리미엄 저장소 계정 및 Blob 저장소 계정의 경우 BlobCapacity와 같습니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 값 예: 1024 |
 
 ### <a name="blob-storage"></a>Blob 저장소
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| BlobCapacity | 저장소 계정에 사용한 Blob 저장소의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 평균 <br/> 값 예: 1024 <br/> 차원: BlobType([정의](#metrics-dimensions)) |
-| BlobCount    | 저장소 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 값 예: 1024 <br/> 차원: BlobType([정의](#metrics-dimensions)) |
+| BlobCapacity | 저장소 계정에 사용한 Blob 저장소의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 값 예: 1024 <br/> 차원: BlobType([정의](#metrics-dimensions)) |
+| BlobCount    | 저장소 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 값 예: 1024 <br/> 차원: BlobType([정의](#metrics-dimensions)) |
 | ContainerCount    | 저장소 계정의 컨테이너 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 값 예: 1024 |
 
 ### <a name="table-storage"></a>테이블 저장소
@@ -380,12 +374,12 @@ Azure Storage는 Azure Monitor에서 다음과 같은 트랜잭션 메트릭을 
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| 트랜잭션 | 저장소 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 적용 가능한 차원: ResponseType, GeoType, ApiName([정의](#metrics-dimensions))<br/> 값 예: 1024 |
-| 수신 | 수신 데이터 양입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
-| 송신 | 송신 데이터 양입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
-| SuccessServerLatency | Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 시간입니다. 이 값은 SuccessE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다. <br/><br/> 단위: 밀리초 <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
-| SuccessE2ELatency | 저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다. <br/><br/> 단위: 밀리초 <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
-| 가용성 | 저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 총 청구 가능 요청 값을 적용 가능한 요청 수(예기치 않은 오류를 발생시킨 요청 포함)로 나누어서 계산합니다. 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다. <br/><br/> 단위: % <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 99.99 |
+| 트랜잭션 | 저장소 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 적용 가능한 차원: ResponseType, GeoType, ApiName 및 Authentication([정의](#metrics-dimensions))<br/> 값 예: 1024 |
+| 수신 | 수신 데이터 양입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 적용 가능한 차원: GeoType, ApiName 및 Authentication([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
+| 송신 | 송신 데이터 양입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 적용 가능한 차원: GeoType, ApiName 및 Authentication([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
+| SuccessServerLatency | Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 시간입니다. 이 값은 SuccessE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다. <br/><br/> 단위: 밀리초 <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName 및 Authentication([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
+| SuccessE2ELatency | 저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다. <br/><br/> 단위: 밀리초 <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName 및 Authentication([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
+| 가용성 | 저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 총 청구 가능 요청 값을 적용 가능한 요청 수(예기치 않은 오류를 발생시킨 요청 포함)로 나누어서 계산합니다. 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다. <br/><br/> 단위: % <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName 및 Authentication([정의](#metrics-dimensions)) <br/> 값 예: 99.99 |
 
 ## <a name="metrics-dimensions"></a>메트릭 차원
 
@@ -397,6 +391,7 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 | ResponseType | 트랜잭션 응답 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/><br/> <li>ServerOtherError: 설명한 것을 제외하고 모든 다른 서버 쪽 오류 </li> <li> ServerBusyError: HTTP 503 상태 코드를 반환한 인증된 요청입니다. </li> <li> ServerTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 서버 오류로 인해 시간 제한이 발생하였습니다. </li> <li> AuthorizationError: 무단 데이터 액세스 또는 인증 실패로 인해 실패한 인증된 요청입니다. </li> <li> NetworkError: 네트워크 오류로 인해 실패한 인증된 요청입니다. 가장 일반적으로 시간 제한이 만료하기 전에 클라이언트가 연결을 너무 일찍 닫은 경우에 발생합니다. </li> <li>    ClientThrottlingError: 클라이언트 쪽 제한 오류입니다. </li> <li> ClientTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 클라이언트의 네트워크 시간 제한 또는 요청 시간 제한이 저장소 서비스에서 예상한 것보다 낮은 값으로 설정된 경우 이는 예상된 시간 제한입니다. 그렇지 않은 경우 이는 ServerTimeoutError로 보고됩니다. </li> <li> ClientOtherError: 설명한 것을 제외하고 모든 다른 클라이언트 쪽 오류입니다. </li> <li> Success: 성공적인 요청|
 | GeoType | 기본 또는 보조 클러스터에서 전송되는 트랜잭션입니다. 사용 가능한 값은 기본 및 보조를 포함합니다. 이는 보조 테넌트에서 개체를 읽을 때 RA-GRS(Read Access Geo Redundant Storage)에 적용됩니다. |
 | ApiName | 작업 이름입니다. 예:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 모든 작업 이름은 [문서](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md)를 참조하세요. |
+| 인증 | 트랜잭션에 사용되는 인증 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/> <li>AccountKey: 트랜잭션이 저장소 계정 키를 사용하여 인증됩니다.</li> <li>SAS: 트랜잭션이 공유 액세스 서명을 사용하여 인증됩니다.</li> <li>OAuth: 트랜잭션이 OAuth 액세스 토큰을 사용하여 인증됩니다.</li> <li>Anonymous: 트랜잭션이 익명으로 요청됩니다. 실행 전 요청은 포함되지 않습니다.</li> <li>AnonymousPreflight: 트랜잭션이 실행 전 요청입니다.</li> |
 
 메트릭 지원 차원의 경우 해당 메트릭 값을 보려면 차원 값을 지정해야 합니다. 예를 들어 성공적인 응답에 대한 **트랜잭션** 값을 조사하는 경우 **성공**을 포함한 **ResponseType** 차원을 필터링해야 합니다. 또는 블록 Blob에 대한 **BlobCount** 값을 조사하는 경우 **BlockBlob**을 포함한 **BlobType** 차원을 필터링해야 합니다.
 
@@ -408,7 +403,11 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 
 **Azure Storage가 Managed Disks 또는 Unmanaged Disks에 대한 메트릭을 지원하나요?**
 
-예. Azure Compute는 디스크에서 메트릭을 지원합니다. 자세한 내용은 [문서](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/)를 참조하세요.
+예. Azure Compute는 디스크에서 메트릭을 지원합니다. 자세한 내용은 [문서](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)를 참조하세요.
+
+**새 메트릭을 사용하여 클래식 메트릭을 어떻게 매핑 및 마이그레이션하나요?**
+
+[Azure Storage 메트릭 마이그레이션](./storage-metrics-migration.md)에서 클래식 메트릭과 새 메트릭 간의 자세한 매핑을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

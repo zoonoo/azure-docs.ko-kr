@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 9e740dd3acce842f888e5994fe8f46222477adc1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208236"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290776"
 ---
 # <a name="performance-metrics"></a>성능 메트릭
 
@@ -31,14 +31,15 @@ ms.locfileid: "34208236"
 
 | 카운터 범주 | 카운터 이름 |
 | --- | --- |
+| 논리 디스크 | 논리적 디스크에서 사용 가능한 공간 |
 | PhysicalDisk(디스크당) | 평균 디스크 읽기 큐 길이 |
 | PhysicalDisk(디스크당) | 평균 디스크 쓰기 큐 길이 |
 | PhysicalDisk(디스크당) | 평균 디스크 초/읽기 |
 | PhysicalDisk(디스크당) | 평균 디스크 초/쓰기 |
 | PhysicalDisk(디스크당) | 디스크 읽기/초  |
 | PhysicalDisk(디스크당) | 디스크 읽기 바이트/초  |
-| PhysicalDisk(디스크당) | 디스크 쓰기/초 |
-| PhysicalDisk(디스크당) | 디스크 쓰기 바이트/초 |
+| PhysicalDisk(디스크당) |  디스크 쓰기/초 |
+| PhysicalDisk(디스크당) |  디스크 쓰기 바이트/초 |
 | 메모리 | Available MBytes |
 | PagingFile | % 사용량 |
 | 프로세서(합계) | % Processor Time |
@@ -49,6 +50,9 @@ ms.locfileid: "34208236"
 | 프로세스(서비스당) | 가상 바이트 |
 | 프로세스(서비스당) | 작업 집합 |
 | 프로세스(서비스당) | 작업 집합 - 개인 |
+| 네트워크 인터페이스(모든 인스턴스) | 받은 바이트 수 |
+| 네트워크 인터페이스(모든 인스턴스) | 보낸 바이트 수 |
+| 네트워크 인터페이스(모든 인스턴스) | 총 바이트 수 |
 | 네트워크 인터페이스(모든 인스턴스) | Output Queue Length |
 | 네트워크 인터페이스(모든 인스턴스) | Packets Outbound Discarded |
 | 네트워크 인터페이스(모든 인스턴스) | Packets Received Discarded |
@@ -65,6 +69,8 @@ ms.locfileid: "34208236"
 | .NET CLR 메모리(서비스당) | #커밋된 전체 바이트 |
 | .NET CLR 메모리(서비스당) | #예약된 전체 바이트 |
 | .NET CLR 메모리(서비스당) | #모든 힙의 바이트 |
+| .NET CLR 메모리(서비스당) | LOB(Large Object) 힙 크기 |
+| .NET CLR 메모리(서비스당) | GC 핸들 수 |
 | .NET CLR 메모리(서비스당) | #0 컬렉션 생성 |
 | .NET CLR 메모리(서비스당) | #1 컬렉션 생성 |
 | .NET CLR 메모리(서비스당) | #2 컬렉션 생성 |
@@ -76,7 +82,7 @@ Service Fabric은 상당한 양의 사용자 지정 성능 카운터를 생성�
 
 클러스터에 배포하는 응용 프로그램에서 Reliable Actors를 사용하는 경우 `Service Fabric Actor` 및 `Service Fabric Actor Method` 범주에서 카운터를 추가합니다([Service Fabric Reliable Actors 진단](service-fabric-reliable-actors-diagnostics.md) 참조).
 
-마찬가지로 Reliable Services를 사용하는 경우 카운터를 수집해야 하는 `Service Fabric Service` 및 `Service Fabric Service Method` 카운터 범주가 있습니다. 
+Reliable Services 또는 Service Remoting을 사용하는 경우에도 마찬가지로 카운터를 수집해야 하는 `Service Fabric Service` 및 `Service Fabric Service Method` 카운터 범주가 있습니다. [Service Remoting을 사용하여 모니터링](service-fabric-reliable-serviceremoting-diagnostics.md) 및 [Reliable Services 성능 카운터](service-fabric-reliable-services-diagnostics.md#performance-counters)를 참조하세요. 
 
 신뢰할 수 있는 컬렉션을 사용하는 경우 `Service Fabric Transactional Replicator`에서 `Avg. Transaction ms/Commit`을 추가하여 트랜잭션 메트릭당 평균 커밋 대기 시간을 수집하는 것이 좋습니다.
 
@@ -84,4 +90,4 @@ Service Fabric은 상당한 양의 사용자 지정 성능 카운터를 생성�
 ## <a name="next-steps"></a>다음 단계
 
 * Service Fabric에서 [플랫폼 수준의 이벤트 생성](service-fabric-diagnostics-event-generation-infra.md)에 대해 자세히 알아보기
-* [OMS 에이전트](service-fabric-diagnostics-oms-agent.md)를 통해 성능 메트릭 수집
+* [Log Analytics 에이전트](service-fabric-diagnostics-oms-agent.md)를 통해 성능 메트릭 수집

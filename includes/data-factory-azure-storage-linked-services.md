@@ -1,12 +1,25 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: e5f2afa4bc8a4b8eae523fde323d835c0c53fe8e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572437"
+---
 ### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
 **Azure Storage 연결된 서비스**에서 **계정 키**를 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있으며, 이렇게 하면 데이터 팩터리에 Azure Storage에 대한 전역 액세스가 제공됩니다. 다음 테이블은 Azure Storage 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 |형식 속성은 **AzureStorage** |적용 |
-| connectionString |connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. |적용 |
+| 형식 |형식 속성은 **AzureStorage** |yes |
+| connectionString |connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. |yes |
 
-Azure Storage에 대한 계정 키를 보거나 복사하는 단계는 [저장소 액세스 키 보기, 복사 및 다시 생성](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account)문서를 참조하세요.
+Azure Storage에 대한 계정 키를 보거나 복사하는 단계는 [액세스 키](../articles/storage/common/storage-account-manage.md#access-keys) 섹션을 참조하세요.
 
 **예제:**  
 
@@ -36,8 +49,8 @@ Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 |형식 속성은 **AzureStorageSas** |적용 |
-| sasUri |BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다.  |적용 |
+| 형식 |형식 속성은 **AzureStorageSas** |yes |
+| sasUri |BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다.  |yes |
 
 **예제:**
 

@@ -3,7 +3,7 @@ title: Azure Stack에 대 한 클라우드 서비스 공급자에 대 한 보고
 description: Azure Stack 발생 하 고 Azure에 전달 하 여 서비스 공급자 (CSP (클라우드)를 처리 하는 테 넌 트에 대 한 사용량을 추적 하는 데 필요한 인프라를 포함 합니다.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: e38f0a5e8aa911a168ee7f648692c31ecb44d4dd
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4d7d1407ff57c5adcc4790db4d2f47b70737fece
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090611"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250494"
 ---
-## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>클라우드 서비스 공급자에 대 한 보고 인프라 사용
+# <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>클라우드 서비스 공급자에 대 한 보고 인프라 사용
 
 Azure Stack 발생 하 고 Azure로 전달의 사용량을 추적 하는 데 필요한 인프라를 포함 합니다. Azure에서 Azure 상거래 사용 현황 데이터를 처리 하 고 적절 한 Azure 구독에 대 한 사용량 요금. 전역 Azure 클라우드에서 사용 현황 추적 모니터링은으로 동일한 방식으로 발생 합니다.
 
@@ -65,5 +65,5 @@ Azure 서비스와 동일한 방식으로 전자 상거래 및 파트너 센터�
 
 ## <a name="next-steps"></a>다음 단계
 
- - CSP 프로그램에 대 한 자세한 내용은 참조 하세요 [클라우드 솔루션 공급자 프로그램](https://partnercenter.microsoft.com/en-us/partner/programs)합니다.
+ - CSP 프로그램에 대 한 자세한 내용은 참조 하세요 [클라우드 솔루션 공급자 프로그램](https://partner.microsoft.com/solutions/microsoft-cloud-solutions)합니다.
  - Azure Stack에서 리소스 사용 정보를 검색 하는 방법에 대 한 자세한 내용은 참조 하세요 [사용 및 Azure Stack에서 청구](azure-stack-billing-and-chargeback.md)합니다.

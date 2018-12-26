@@ -5,16 +5,16 @@ services: cost-management
 author: bandersmsft
 ms.service: cost-management
 ms.topic: include
-ms.date: 04/26/2018
+ms.date: 09/17/2018
 ms.author: banders
 manager: dougeby
 ms.custom: include file
-ms.openlocfilehash: 1b65775ef5ad40ca9e9c1e2c96fe1c2b8d92afdc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4acc3f43f04c51e5303c8eba1d934580802312b5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32198858"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47017690"
 ---
 ## <a name="view-cost-data"></a>비용 데이터 보기
 
@@ -30,23 +30,23 @@ Azure Cost Management by Cloudyn에서는 모든 클라우드 리소스 데이�
 
 ![실제 비용 분석](./media/cost-management-create-account-view-data/actual-cost-01.png)
 
-이 예제에서 $75,970는 총 비용이며 예산은 $130,000입니다.
+이 예제에서 $122,273은 총 비용이며 예산은 $290,000입니다.
 
 이제 보고서 형식을 수정하고 Azure 비용에 대한 결과로 그룹 및 필터 범위를 좁혀서 설정하겠습니다. **날짜 범위**를 지난 30일로 설정합니다. 오른쪽 위에서 열 기호를 클릭하여 가로 막대형 차트로 형식을 지정하고 그룹 아래에서 **공급자**를 선택합니다. **공급자**의 필터를 **Azure**로 설정합니다.
 
 ![실제 비용 분석 필터링](./media/cost-management-create-account-view-data/actual-cost-02.png)
 
-이 예제에서 Azure 리소스의 총비용은 지난 30일 동안 $3,839입니다.
+이 예제에서 Azure 리소스의 총 비용은 지난 30일 동안 $3,309입니다.
 
 공급자(Azure) 표시줄을 마우스 오른쪽 단추로 클릭하고 **리소스 종류**를 드릴다운합니다.
 
 ![드릴다운](./media/cost-management-create-account-view-data/actual-cost-03.png)
 
-다음 이미지에서는 Contoso가 발생한 Azure 리소스의 비용을 보여줍니다. 총비용은 $3,839였습니다. 이 예제에서 비용의 절반 정도가 로컬 중복 저장소에 사용되고 다른 절반의 비용이 다양한 VM 인스턴스에 사용되었습니다.
+다음 이미지에서는 Contoso가 발생한 Azure 리소스의 비용을 보여줍니다. 총 비용은 $3,309였습니다. 이 예제에서 비용의 절반 정도는 Standard_A1 VM에 사용되었으며 나머지 절반은 여러 Azure 서비스 및 VM 인스턴스에 사용되었습니다.
 
 ![리소스 종류](./media/cost-management-create-account-view-data/actual-cost-04.png)
 
-리소스 종류를 마우스 오른쪽 단추로 클릭하고 **비용 엔터티**를 선택하여 리소스를 사용한 비용 엔터티 및 서비스를 봅니다. DevOps의 VM 및 작업자 서비스는 이 예제에서 각각 $486.60과 $435.71을 사용했습니다. 두 항목의 총비용은 $922입니다.
+리소스 종류를 마우스 오른쪽 단추로 클릭하고 **비용 엔터티**를 선택하여 리소스를 사용한 비용 엔터티 및 서비스를 봅니다. 다음 예제 이미지에서 로컬 중복 저장소는 리소스 유형으로 설정되어 있습니다. Contoso|Azure/Storage에서 $15.65를 사용했습니다. Engineering|Azure Storage에서 $164.25를 사용했습니다. Shared Infrastructure|Azure/Storage에서 $116.58를 사용했습니다. 서비스의 총 비용은 $296입니다.
 
 ![비용 엔터티 및 서비스](./media/cost-management-create-account-view-data/actual-cost-05.png)
 

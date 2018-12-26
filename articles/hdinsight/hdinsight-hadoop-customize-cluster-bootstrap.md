@@ -1,25 +1,20 @@
 ---
-title: 부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정 - Azure | Microsoft Docs
+title: 부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정 - Azure
 description: 부트스트랩을 사용하여 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ab2ebf0c-e961-4e95-8151-9724ee22d769
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 2fdbb8730d350023035038d60d17a5ad12c98bc0
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.author: hrasheed
+ms.openlocfilehash: bfa36cfeda514be0941481b0e4ed5ab9b3669b54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272134"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238100"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 
@@ -111,7 +106,7 @@ $MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
 # oozie-site.xml configuration
 $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 ```
-자세한 내용은 Azim Uddin의 [HDInsight 클러스터 만들기 사용자 지정](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx)블로그를 참조하세요.
+자세한 내용은 Azim Uddin의 [HDInsight 클러스터 만들기 사용자 지정](https://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx)블로그를 참조하세요.
 
 ## <a name="use-net-sdk"></a>.NET SDK 사용
 [.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap)를 참조하세요.
@@ -121,7 +116,7 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 
 ```json
 "configurations": {
-    …
+    �
     "hive-site": {
         "hive.metastore.client.connect.retry.delay": "5",
         "hive.execution.engine": "mr",

@@ -3,21 +3,18 @@ title: Azure에서 읽기 액세스 중복 저장소 액세스 오류 시뮬레�
 description: 읽기 액세스 지역 중복 저장소 액세스 오류 시뮬레이션
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: a86f54d580db6e577b878cb1701c7b969d23c129
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 044cc30a418f3c54053a6f4878f97f5c9ea9f9e2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30835605"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335115"
 ---
-# <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>읽기 액세스 중복 저장소 액세스 오류 시뮬레이션
+# <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>자습서: 읽기 액세스 중복 저장소 액세스 오류 시뮬레이션
 
 이 자습서는 시리즈의 2부입니다.  이 자습서에서는 [Fiddler](#simulate-a-failure-with-fiddler) 또는 [고정 라우팅](#simulate-a-failure-with-an-invalid-static-route)을 사용하여 [RA-GRS(읽기 액세스 지역 중복 저장소)](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 계정의 기본 엔드포인트에 대한 요청 실패를 시뮬레이션할 수 있고, 보조 엔드포인트에서 응용 프로그램을 읽도록 합니다.
 
@@ -30,7 +27,7 @@ ms.locfileid: "30835605"
 > [!div class="checklist"]
 > * 응용 프로그램 실행 및 일시 중지
 > * [Fiddler](#simulate-a-failure-with-fiddler) 또는 [잘못된 고정 경로](#simulate-a-failure-with-an-invalid-static-route)를 사용하여 실패를 시뮬레이션합니다. 
-> * 기본 끝점 복원 시뮬레이션
+> * 기본 엔드포인트 복원 시뮬레이션
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -75,7 +72,7 @@ Fiddler ScriptEditor가 시작되어 **SampleRules.js** 파일을 표시합니�
 
 ### <a name="start-and-pause-the-application"></a>응용 프로그램 시작 및 일시 중지
 
-IDE 또는 텍스트 편집기에서 응용 프로그램을 실행합니다. 응용 프로그램이 기본 끝점에서 읽기를 시작하면 콘솔 창에서 **아무 키**나 눌러 응용 프로그램을 일시 중지합니다.
+IDE 또는 텍스트 편집기에서 응용 프로그램을 실행합니다. 응용 프로그램이 기본 엔드포인트에서 읽기를 시작하면 콘솔 창에서 **아무 키**나 눌러 응용 프로그램을 일시 중지합니다.
 
 ### <a name="simulate-failure"></a>오류 시뮬레이션
 
@@ -98,13 +95,13 @@ Fiddler로 이동하여 **규칙** -> **규칙 사용자 지정...** 을 선택�
 
 응용 프로그램을 다시 시작하려면 **아무 키**를 누릅니다.
 
-응용 프로그램이 다시 실행되기 시작하면 기본 끝점에 대한 요청이 실패하기 시작합니다. 응용 프로그램이 기본 끝점으로 다시 연결을 5회 시도합니다. 5회의 실패 임계값 후에는 보조 읽기 전용 끝점에서 이미지를 요청합니다. 응용 프로그램이 보조 끝점에서 이미지를 20회 성공적으로 검색하면 응용 프로그램이 기본 끝점에 연결을 시도합니다. 그래도 기본 끝점에 연결할 수 없는 경우 응용 프로그램은 보조 끝점에서 읽기를 다시 시작합니다. 이 패턴은 이전 자습서에서 설명한 [회로 차단기](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) 패턴입니다.
+응용 프로그램이 다시 실행되기 시작하면 기본 엔드포인트에 대한 요청이 실패하기 시작합니다. 응용 프로그램이 기본 엔드포인트로 다시 연결을 5회 시도합니다. 5회의 실패 임계값 후에는 보조 읽기 전용 엔드포인트에서 이미지를 요청합니다. 응용 프로그램이 보조 엔드포인트에서 이미지를 20회 성공적으로 검색하면 응용 프로그램이 기본 엔드포인트에 연결을 시도합니다. 그래도 기본 엔드포인트에 연결할 수 없는 경우 응용 프로그램은 보조 엔드포인트에서 읽기를 다시 시작합니다. 이 패턴은 이전 자습서에서 설명한 [회로 차단기](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) 패턴입니다.
 
 ![사용자 지정된 규칙 붙여넣기](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-### <a name="simulate-primary-endpoint-restoration"></a>기본 끝점 복원 시뮬레이션
+### <a name="simulate-primary-endpoint-restoration"></a>기본 엔드포인트 복원 시뮬레이션
 
-이전 단계에서의 Fiddler 사용자 지정 규칙 집합으로, 기본 끝점에 대한 요청이 실패합니다. 기본 끝점의 작동을 다시 시뮬레이션하려면 `503` 오류를 생성하는 논리를 삭제합니다.
+이전 단계에서의 Fiddler 사용자 지정 규칙 집합으로, 기본 엔드포인트에 대한 요청이 실패합니다. 기본 엔드포인트의 작동을 다시 시뮬레이션하려면 `503` 오류를 생성하는 논리를 삭제합니다.
 
 응용 프로그램을 일시 중지하려면 **아무 키**나 누릅니다.
 
@@ -112,7 +109,7 @@ Fiddler로 이동하여 **규칙**, **규칙 사용자 지정...** 을 선택합
 
 ![사용자 지정된 규칙 제거](media/storage-simulate-failure-ragrs-account-app/figure5.png)
 
-완료되면 **아무 키**나 눌러 응용 프로그램을 다시 시작합니다. 응용 프로그램은 999 읽기에 도달할 때까지 기본 끝점에서 읽기를 계속합니다.
+완료되면 **아무 키**나 눌러 응용 프로그램을 다시 시작합니다. 응용 프로그램은 999 읽기에 도달할 때까지 기본 엔드포인트에서 읽기를 계속합니다.
 
 ![응용 프로그램 다시 시작](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
@@ -122,7 +119,7 @@ Fiddler로 이동하여 **규칙**, **규칙 사용자 지정...** 을 선택합
 
 ### <a name="start-and-pause-the-application"></a>응용 프로그램 시작 및 일시 중지
 
-IDE 또는 텍스트 편집기에서 응용 프로그램을 실행합니다. 응용 프로그램이 기본 끝점에서 읽기를 시작하면 콘솔 창에서 **아무 키**나 눌러 응용 프로그램을 일시 중지합니다. 
+IDE 또는 텍스트 편집기에서 응용 프로그램을 실행합니다. 응용 프로그램이 기본 엔드포인트에서 읽기를 시작하면 콘솔 창에서 **아무 키**나 눌러 응용 프로그램을 일시 중지합니다. 
 
 ### <a name="simulate-failure"></a>오류 시뮬레이션
 
@@ -148,9 +145,9 @@ nslookup STORAGEACCOUNTNAME.blob.core.windows.net
  
 `<destination_ip>`을 저장소 계정 IP 주소로, `<gateway_ip>`를 로컬 호스트 IP 주소로 바꿉니다. 응용 프로그램을 다시 시작하려면 **아무 키**를 누릅니다.
 
-응용 프로그램이 다시 실행되기 시작하면 기본 끝점에 대한 요청이 실패하기 시작합니다. 응용 프로그램이 기본 끝점으로 다시 연결을 5회 시도합니다. 5회의 실패 임계값 후에는 보조 읽기 전용 끝점에서 이미지를 요청합니다. 응용 프로그램이 보조 끝점에서 이미지를 20회 성공적으로 검색하면 응용 프로그램이 기본 끝점에 연결을 시도합니다. 그래도 기본 끝점에 연결할 수 없는 경우 응용 프로그램은 보조 끝점에서 읽기를 다시 시작합니다. 이 패턴은 이전 자습서에서 설명한 [회로 차단기](/azure/architecture/patterns/circuit-breaker.md) 패턴입니다.
+응용 프로그램이 다시 실행되기 시작하면 기본 엔드포인트에 대한 요청이 실패하기 시작합니다. 응용 프로그램이 기본 엔드포인트로 다시 연결을 5회 시도합니다. 5회의 실패 임계값 후에는 보조 읽기 전용 엔드포인트에서 이미지를 요청합니다. 응용 프로그램이 보조 엔드포인트에서 이미지를 20회 성공적으로 검색하면 응용 프로그램이 기본 엔드포인트에 연결을 시도합니다. 그래도 기본 엔드포인트에 연결할 수 없는 경우 응용 프로그램은 보조 엔드포인트에서 읽기를 다시 시작합니다. 이 패턴은 이전 자습서에서 설명한 [회로 차단기](/azure/architecture/patterns/circuit-breaker) 패턴입니다.
 
-### <a name="simulate-primary-endpoint-restoration"></a>기본 끝점 복원 시뮬레이션
+### <a name="simulate-primary-endpoint-restoration"></a>기본 엔드포인트 복원 시뮬레이션
 
 다시 작동하는 기본 엔드포인트를 시뮬레이션하려면 라우팅 테이블에서 기본 엔드포인트의 고정 경로를 삭제합니다. 이렇게 하면 기본 엔드포인트에 대한 모든 요청이 기본 게이트웨이를 통해 라우팅됩니다. 
 
@@ -166,7 +163,7 @@ route delete <destination_ip>
 
 ---
 
-응용 프로그램을 다시 시작하려면 **아무 키**를 누릅니다. 응용 프로그램은 999 읽기에 도달할 때까지 기본 끝점에서 읽기를 계속합니다.
+응용 프로그램을 다시 시작하려면 **아무 키**를 누릅니다. 응용 프로그램은 999 읽기에 도달할 때까지 기본 엔드포인트에서 읽기를 계속합니다.
 
 ![응용 프로그램 다시 시작](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
@@ -178,7 +175,7 @@ route delete <destination_ip>
 > [!div class="checklist"]
 > * 응용 프로그램 실행 및 일시 중지
 > * [Fiddler](#simulate-a-failure-with-fiddler) 또는 [잘못된 고정 경로](#simulate-a-failure-with-an-invalid-static-route)를 사용하여 실패를 시뮬레이션합니다. 
-> * 기본 끝점 복원 시뮬레이션
+> * 기본 엔드포인트 복원 시뮬레이션
 
 RA-GRS 저장소의 작동 방식(및 관련 위험)에 대한 자세한 내용을 보려면 다음 아티클을 참고하세요.
 

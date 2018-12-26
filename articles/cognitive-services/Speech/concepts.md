@@ -1,5 +1,6 @@
 ---
-title: 개념 | Microsoft Docs
+title: Bing Speech 개념 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Microsoft Speech Service에서 사용되는 기본 개념입니다.
 services: cognitive-services
 author: zhouwangzw
@@ -7,16 +8,18 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bc23f4fb7dfc045a0f8cc87155c31875c4de8450
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6089f053472faaa7fa8c957904f73c7061cb2d3f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373974"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344928"
 ---
 # <a name="basic-concepts"></a>기본 개념
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 이 페이지에서는 Microsoft 음성 인식 서비스에 대한 몇 가지 기본 개념에 대해 설명합니다. 응용 프로그램에서 Microsoft 음성 인식 API를 사용하기 전에 먼저 이 페이지를 참조하는 것이 좋습니다.
 
@@ -55,7 +58,7 @@ ms.locfileid: "35373974"
 
 ### <a name="telemetry"></a>원격 분석
 
-숙련된 개발자인 경우에도 음성 사용 장치 또는 응용 프로그램을 만드는 것은 어려울 수 있습니다. 스트림 기반 프로토콜은 얼핏 보기에는 어려운 것처럼 보이지만 묵음 감지와 같은 중요한 세부 정보는 전혀 새로운 것일 수 있습니다. 단일 요청/응답 쌍을 완료하기 위해 많은 메시지를 성공적으로 보내고 받아야 하기 때문에 메시지에 대한 완전하고 정확한 데이터를 수집하는 것이 *매우* 중요합니다. Microsoft Speech Service 프로토콜은 이러한 데이터의 수집을 제공합니다. 가능한 한 정확하게 필요한 데이터를 제공하기 위해 모든 노력을 기울여야 합니다. 완전하고 정확한 데이터를 제공함으로써 자신에게 도움이 됩니다. 클라이언트 구현 문제를 해결하는 데 Microsoft Speech Service 팀의 도움이 필요하면 수집한 원격 분석 데이터의 품질이 문제 분석에 매우 중요합니다.
+숙련된 개발자인 경우에도 음성 사용 디바이스 또는 애플리케이션을 만드는 것은 어려울 수 있습니다. 스트림 기반 프로토콜은 얼핏 보기에는 어려운 것처럼 보이지만 묵음 감지와 같은 중요한 세부 정보는 전혀 새로운 것일 수 있습니다. 단일 요청/응답 쌍을 완료하기 위해 많은 메시지를 성공적으로 보내고 받아야 하기 때문에 메시지에 대한 완전하고 정확한 데이터를 수집하는 것이 *매우* 중요합니다. Microsoft Speech Service 프로토콜은 이러한 데이터의 수집을 제공합니다. 가능한 한 정확하게 필요한 데이터를 제공하기 위해 모든 노력을 기울여야 합니다. 완전하고 정확한 데이터를 제공함으로써 자신에게 도움이 됩니다. 클라이언트 구현 문제를 해결하는 데 Microsoft Speech Service 팀의 도움이 필요하면 수집한 원격 분석 데이터의 품질이 문제 분석에 매우 중요합니다.
 
 > [!NOTE]
 > 음성 인식 REST API를 사용하는 경우 이 기능은 지원되지 않습니다.
@@ -77,10 +80,10 @@ Microsoft Speech Service는 일부 상태에 참여하므로 서비스 프로토
 
 | 사용 사례 | [REST API](GetStarted/GetStartedREST.md) | [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | 예 | 예 |
-| 긴 오디오(15초 초과) 변환 | 아니오 | 예 |
-| 중간 결과가 필요한 오디오 스트림 | 아니오 | 예 |
-| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아니오 | 예 |
+| 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | yes | yes |
+| 긴 오디오(15초 초과) 변환 | 아니요 | yes |
+| 중간 결과가 필요한 오디오 스트림 | 아니요 | yes |
+| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아니요 | yes |
 
  언어 또는 플랫폼에 아직 SDK가 없는 경우 [프로토콜 설명서](API-Reference-REST/websocketprotocol.md)에 따라 사용자 고유의 구현을 만들 수 있습니다.
 

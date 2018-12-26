@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2dd6ebb9e2f35eccae3b267402a4ef9b0e1b2dbe
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971009"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567165"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -28,7 +28,7 @@ ms.locfileid: "38971009"
 고객 관점과 Microsoft 작업 관점 모두에서 Microsoft Azure에서 구현된 보안 제어 모음을 더 잘 이해할 수 있도록 Microsoft Azure에서 제공되는 보안을 포괄적으로 살펴볼 수 있는 "Azure 보안 소개" 백서가 작성되었습니다.
 
 ### <a name="azure-platform"></a>Azure 플랫폼
-Azure는 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 장치를 지원하는 공용 클라우드 서비스 플랫폼입니다. Docker 통합으로 Linux 컨테이너를 실행할 수 있습니다. JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드할 수 있습니다. iOS, Android 및 Windows 장치용 백 엔드를 빌드할 수 있습니다.
+Azure는 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 디바이스를 지원하는 공용 클라우드 서비스 플랫폼입니다. Docker 통합으로 Linux 컨테이너를 실행할 수 있습니다. JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드할 수 있습니다. iOS, Android 및 Windows 디바이스용 백 엔드를 빌드할 수 있습니다.
 
 Azure 공용 클라우드 서비스는 수백만의 개발자 및 IT 전문가가 이미 믿고 사용하고 있는 동일한 수준의 기술을 지원합니다. IT 자산을 만들거나 공용 클라우드 서비스 공급자로 마이그레이션하는 경우 조직에서 제공하는 서비스와 제어를 통해 응용 프로그램과 데이터를 보호할 수 있는 해당 조직의 능력에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
 
@@ -62,7 +62,7 @@ Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위�
 | [필수 보안 교육, 백그라운드 검사](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)(영문) |  [데이터 위치에서 제어](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [일반 컨트롤 허브](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub)(영문) |[Microsoft Azure 서비스에서 데이터 위치를 관리하는 방법](http://azuredatacentermap.azurewebsites.net/)(영문)|
 | [침투 테스트](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [침입 검색, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [감사 및 로깅](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [조건부 데이터 액세스 제공](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Cloud Services 실사 검사 목록](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist)(영문) |[데이터에 누가 그리고 어떤 조건으로 액세스할 수 있는가](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [세계 첨단의 데이터 센터](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), 물리적 보안, [네트워크 보안](https://docs.microsoft.com/azure/security/security-network-overview) | [사법 기관에 대한 응답](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data)(영문) |  [서비스별, 지역별 및 산업별 규정 준수](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Microsoft Azure 서비스에서 고객 데이터를 보호하는 방법](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)(영문)|
-|  [보안 사고 대응](http://aka.ms/SecurityResponsepaper)(영문), [공동 책임](http://aka.ms/sharedresponsibility)(영문) |[엄격한 개인 정보 보호 표준](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Azure 서비스, 투명성 허브에 대한 인증 검토](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)(영문)|
+|  [보안 사고 대응](https://aka.ms/SecurityResponsepaper)(영문), [공동 책임](https://aka.ms/sharedresponsibility)(영문) |[엄격한 개인 정보 보호 표준](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Azure 서비스, 투명성 허브에 대한 인증 검토](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)(영문)|
 
 
 
@@ -74,10 +74,10 @@ Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위�
 ## <a name="operations"></a>작업
 이 섹션에서는 보안 작업의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
-### <a name="operations-management-suite-security-and-audit-dashboard"></a>Operations Management Suite 보안 및 감사 대시보드
-[OMS 보안 및 감사 솔루션](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)은 주의가 필요한 주요 문제에 대한 [기본 제공 검색 쿼리](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/)를 통해 조직의 IT 보안 상태에 대한 포괄적인 보기를 제공합니다. [보안 및 감사](https://technet.microsoft.com/library/mt484091.aspx) 대시보드는 OMS의 보완과 관련된 모든 정보를 볼 수 있는 홈 화면입니다. 이 대시보드에서 컴퓨터의 보안 상태를 대략적으로 확인할 수 있으며, 지난 24시간, 7일, 기타 사용자 지정 기간 동안 발생한 모든 이벤트를 확인할 수도 있습니다.
+### <a name="security-and-audit-dashboard"></a>보안 및 감사 대시보드
+[보안 및 감사 솔루션](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)은 주의가 필요한 주요 문제에 대한 [기본 제공 검색 쿼리](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/)를 통해 조직의 IT 보안 상태에 대한 포괄적인 보기를 제공합니다. [보안 및 감사](https://technet.microsoft.com/library/mt484091.aspx) 대시보드는 Log Analytics의 보안과 관련된 모든 정보를 볼 수 있는 홈 화면입니다. 이 대시보드에서 컴퓨터의 보안 상태를 대략적으로 확인할 수 있으며, 지난 24시간, 7일, 기타 사용자 지정 기간 동안 발생한 모든 이벤트를 확인할 수도 있습니다.
 
-또한 특정 이벤트가 검색되면 OMS 보안 및 규정 준수를 구성하여 [특정 작업을 자동으로 수행](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/)할 수 있습니다.
+또한 특정 이벤트가 검색되면 [특정 작업을 자동으로 수행](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/)하도록 보안 및 규정 준수를 구성할 수 있습니다.
 
 ### <a name="azure-resource-manager"></a>Azure 리소스 관리자
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)를 사용하면 솔루션의 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 [Azure Resource Manager 템플릿](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/)을 사용하고, 해당 템플릿은 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다.
@@ -92,11 +92,10 @@ Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제
 충돌, 오류 또는 성능 문제가 있는 경우 세부 정보에서 원격 분석 데이터를 통해 검색하여 원인을 진단할 수 있습니다. 그리고 앱의 가용성과 성능에 변경 사항이 있는 경우 서비스에서 사용자에게 전자 메일을 보냅니다. 따라서 Application Insight는 기밀성, 무결성 및 가용성 보안 3요소를 한 조로 묶어 가용성을 높이는 데 도움이 되므로 중요한 보안 도구가 됩니다.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-
-  [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) – Azure 인프라([활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs))와 개별 Azure 리소스([진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)) 모두의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다. Azure Monitor를 사용하여 Azure 로그에서 생성된 보안 관련 이벤트에 대해 사용자에게 알릴 수 있습니다.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) – Azure 인프라([활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs))와 개별 Azure 리소스([진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)) 모두의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다. Azure Monitor를 사용하여 Azure 로그에서 생성된 보안 관련 이벤트에 대해 사용자에게 알릴 수 있습니다.
 
 ### <a name="log-analytics"></a>Log Analytics
-[Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)의 [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 구성 요소 – Azure 리소스 외에도 온-프레미스 및 타사 클라우드 기반 인프라(예: AWS) 모두를 위한 IT 관리 솔루션을 제공합니다. Azure Monitor의 데이터를 Log Analytics로 직접 라우팅할 수 있으므로 전체 환경에 대한 메트릭 및 로그를 한 곳에서 볼 수 있습니다.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) – Azure 리소스 외에도 온-프레미스 및 타사 클라우드 기반 인프라(예: AWS) 모두를 위한 IT 관리 솔루션을 제공합니다. Azure Monitor의 데이터를 Log Analytics로 직접 라우팅할 수 있으므로 전체 환경에 대한 메트릭 및 로그를 한 곳에서 볼 수 있습니다.
 
 Log Analytics를 사용하면 유연한 쿼리 방법으로 대량의 보안 관련 항목을 빠르게 검색할 수 있기 때문에 이 도구는 법정 분석 및 기타 보안 분석에 유용한 도구가 될 수 있습니다. 또한 온-프레미스 [방화벽 및 프록시 로그를 Azure로 내보내고 Log Analytics를 사용하여 분석할 수 있습니다.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
@@ -107,7 +106,7 @@ Log Analytics를 사용하면 유연한 쿼리 방법으로 대량의 보안 관
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)를 사용하면 Azure 리소스의 보안에 대한 향상된 가시성과 제어를 통해 위협을 예방, 검색 및 대응할 수 있습니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
 또한 Azure Security Center는 즉시 수행할 수 있는 경고와 권장 사항을 보여 주는 단일 대시보드를 제공하여 보안 운영을 지원합니다. 종종 Azure Security Center 콘솔에서 한 번의 클릭으로 문제를 해결할 수 있습니다.
-## <a name="applications"></a>응용 프로그램
+## <a name="applications"></a>애플리케이션
 이 섹션에서는 응용 프로그램 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="web-application-vulnerability-scanning"></a>웹 응용 프로그램 취약성 스캔
@@ -120,7 +119,7 @@ Log Analytics를 사용하면 유연한 쿼리 방법으로 대량의 보안 관
 [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/)의 WAF(웹 응용 프로그램 방화벽)는 SQL 삽입, 사이트 간 스크립팅 공격, 세션 하이재킹과 같은 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다. [OWASP(Open Web Application Security Project)에서 상위 10개 일반 취약성](https://msdn.microsoft.com/library/)으로 확인된 위협으로부터 보호하는 기능이 미리 구성되어 있습니다.
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 인증 및 권한 부여
-[App Service 인증/권한 부여](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)는 앱 백 엔드에서 코드를 변경할 필요가 없도록 사용자가 응용 프로그램에 로그인하는 방법을 제공하는 기능입니다. 응용 프로그램을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다.
+[App Service 인증/권한 부여](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)는 앱 백 엔드에서 코드를 변경할 필요가 없도록 사용자가 응용 프로그램에 로그인하는 방법을 제공하는 기능입니다. 애플리케이션을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다.
 
 ### <a name="layered-security-architecture"></a>계층화된 보안 아키텍처
 [App Service 환경](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro)이 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에 배포된 격리된 런타임 환경을 제공하므로 개발자는 각 응용 프로그램 계층에 서로 다른 수준의 네트워크 액세스를 제공하는 계층화된 보안 아키텍처를 만들 수 있습니다. 일반적으로 일반 인터넷 액세스로부터 API 백 엔드를 숨기거나 API가 업스트림 웹앱에서 호출될 수 있도록 하기 원합니다. [NSG(네트워크 보안 그룹)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)은 App Service 환경을 포함하는 Azure Virtual Network 서브넷에서 사용하여 API 응용 프로그램에 대한 공용 액세스를 제한할 수 있습니다.
@@ -141,7 +140,7 @@ App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 
 
 -   웹 서버 로깅 - W3C 확장 로그 파일 형식을 사용하는 HTTP 트랜잭션에 대한 정보입니다. 이는 처리된 요청 수, 특정 IP 주소에서 들어온 요청 수 등의 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
 
-#### <a name="application-diagnostics"></a>응용 프로그램 진단
+#### <a name="application-diagnostics"></a>애플리케이션 진단
 [응용 프로그램 진단](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)을 사용하면 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 응용 프로그램 진단에는 두 가지 주요 유형의 이벤트, 즉 응용 프로그램 성능과 관련된 이벤트와 응용 프로그램 실패 및 오류와 관련된 이벤트가 있습니다. 실패와 오류는 연결, 보안 및 오류 문제로 더 자세히 구분할 수 있습니다. 오류 문제는 일반적으로 응용 프로그램 코드에서 발생하는 문제와 관련이 있습니다.
 
 응용 프로그램 진단에서 다음과 같은 방법으로 그룹화된 이벤트를 볼 수 있습니다.
@@ -194,7 +193,7 @@ Azure 저장소 서비스는 이제 CORS를 지원하므로 서비스에 대한 
 이 섹션에서는 Azure 네트워크 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="network-layer-controls"></a>네트워크 계층 제어
-네트워크 액세스 제어는 특정 장치 또는 서브넷 간의 연결을 제한하는 행위이며, 네트워크 보안의 핵심을 나타냅니다. 네트워크 액세스 제어의 목표는 가상 머신 및 서비스가 사용자가 액세스하길 원하는 사용자 및 장치에만 액세스 가능하도록 하는 것입니다.
+네트워크 액세스 제어는 특정 디바이스 또는 서브넷 간의 연결을 제한하는 행위이며, 네트워크 보안의 핵심을 나타냅니다. 네트워크 액세스 제어의 목표는 가상 머신 및 서비스가 사용자가 액세스하길 원하는 사용자 및 디바이스에만 액세스 가능하도록 하는 것입니다.
 
 #### <a name="network-security-groups"></a>네트워크 보안 그룹
 [NSG(네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)은 기본적인 상태 저장 패킷 필터링 방화벽이며, [5개 튜플](https://www.techopedia.com/definition/28190/5-tuple)에 기반하여 액세스를 제어할 수 있게 합니다. NSG는 응용 프로그램 계층 검사 또는 인증된 액세스 제어를 제공하지 않습니다. 이 그룹은 Azure Virtual Network 내의 서브넷 간에 이동하는 트래픽 및 Azure Virtual Network와 인터넷 간 트래픽을 제어하는 데 사용할 수 있습니다.
@@ -271,9 +270,9 @@ Application Gateway에 CPU 집약적인 SSL 종료를 오프로드하여("SSL �
 
 웹 공격으로부터 보호하는 중앙 집중식 웹 응용 프로그램 방화벽은 보안 관리가 훨씬 간단하고 침입 위협으로부터 응용 프로그램을 더욱 효과적으로 보호합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 응용 프로그램 게이트웨이는 웹 응용 프로그램 방화벽을 통해 응용 프로그램 게이트웨이로 쉽게 변환될 수 있습니다.
 ### <a name="traffic-manager"></a>Traffic Manager
-Microsoft [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)를 사용하면 여러 데이터 센터에 있는 서비스 끝점에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. Traffic Manager에서 지원하는 서비스 끝점에는 Azure VM, Web Apps 및 클라우드 서비스가 포함됩니다. 또한 외부, Azure가 아닌 끝점으로 Traffic Manager를 사용할 수 있습니다. Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 [트래픽 라우팅 메서드](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) 및 끝점의 상태를 기반으로 가장 적절한 끝점으로 리디렉션합니다.
+Microsoft [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)를 사용하면 여러 데이터 센터에 있는 서비스 엔드포인트에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. Traffic Manager에서 지원하는 서비스 엔드포인트에는 Azure VM, Web Apps 및 클라우드 서비스가 포함됩니다. 또한 외부, Azure가 아닌 엔드포인트로 Traffic Manager를 사용할 수 있습니다. Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 [트래픽 라우팅 메서드](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) 및 엔드포인트의 상태를 기반으로 가장 적절한 엔드포인트로 리디렉션합니다.
 
-Traffic Manager는 다양한 응용 프로그램 요구 사항, 끝점 상태 [모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 자동 장애 조치에 잘 맞는 트래픽 라우팅 메서드를 제공합니다. Traffic Manager는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
+Traffic Manager는 다양한 응용 프로그램 요구 사항, 엔드포인트 상태 [모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 자동 장애 조치에 잘 맞는 트래픽 라우팅 메서드를 제공합니다. Traffic Manager는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)는 응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다. 이 장치는 부하 분산 장치 집합에 정의된 서비스의 정상 인스턴스 간에 들어오는 트래픽을 분산하는 계층 4(TCP, UDP) 부하 분산 장치입니다. Azure Load Balancer는 다음과 같이 구성할 수 있습니다.
 
@@ -305,7 +304,7 @@ Security Center는 위협을 예방, 검색 및 대응하는 데 도움이 되�
 
 -   [서브넷 또는 가상 머신에서 네트워크 보안 그룹 사용](https://docs.microsoft.com/azure/security-center/security-center-enable-network-security-groups) - 서브넷 또는 VM에서 NSG를 사용하는 것이 좋습니다.
 
--   [인터넷 연결 끝점을 통한 액세스 제한](https://docs.microsoft.com/azure/security-center/security-center-restrict-access-through-internet-facing-endpoints) - NSG에 대한 인바운드 트래픽 규칙을 구성하는 것이 좋습니다.
+-   [인터넷 연결 엔드포인트를 통한 액세스 제한](https://docs.microsoft.com/azure/security-center/security-center-restrict-access-through-internet-facing-endpoints) - NSG에 대한 인바운드 트래픽 규칙을 구성하는 것이 좋습니다.
 
 
 ## <a name="compute"></a>컴퓨팅
@@ -346,7 +345,7 @@ AKV(Azure Key Vault) 서비스는 안전하고 가용성이 높은 위치에서 
 ### <a name="azure-security-center"></a>Azure Security Center
 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
-## <a name="identify-and-access-management"></a>ID 및 액세스 관리
+## <a name="identity-and-access-management"></a>ID 및 액세스 관리
 
 시스템, 응용 프로그램 및 데이터 보안은 ID 기반 액세스 제어로 시작합니다. Microsoft 비즈니스 제품 및 서비스에 기본 제공되는 ID 및 액세스 관리 기능을 사용하면, 권한이 없는 액세스로부터 조직 및 개인 정보를 보호하는 한편, 합법적인 사용자가 필요할 때마다 어디서나 사용할 수 있습니다.
 

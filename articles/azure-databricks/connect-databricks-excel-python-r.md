@@ -1,24 +1,20 @@
 ---
-title: Excel, Python 또는 R에서 Azure Databricks에 연결 | Microsoft Docs
+title: 'Excel, Python 또는 R에서 Azure Databricks에 연결 '
 description: Simba 드라이버를 사용하여 Azure Databricks를 Excel, Python 또는 R에 연결하는 방법을 알아봅니다.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: bbf75a03fb771aa415a26e151614cecfaa14c485
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.topic: conceptual
+ms.date: 06/27/2018
+ms.author: mamccrea
+ms.openlocfilehash: c57550a8b683ad8f184884374c4f09216417fc40
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598881"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995628"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Excel, Python 또는 R에서 Azure Databricks에 연결
 
@@ -44,7 +40,7 @@ DSN(데이터 원본 이름)은 특정 데이터 원본에 대한 정보를 포�
 
     ![Databricks 구성 가져오기](./media/connect-databricks-excel-python-r/get-databricks-jdbc-configuration.png "Databricks 구성 가져오기")
 
-3. 컴퓨터에서 응용 프로그램에 따라 **ODBC 데이터 원본** 응용 프로그램(32비트 또는 64비트)을 시작합니다. Excel에서 연결하려면 32비트 버전을 사용합니다. R 및 Python에서 연결하려면 64비트 버전을 사용합니다.
+3. 컴퓨터에서 애플리케이션에 따라 **ODBC 데이터 원본** 애플리케이션(32비트 또는 64비트)을 시작합니다. Excel에서 연결하려면 32비트 버전을 사용합니다. R 및 Python에서 연결하려면 64비트 버전을 사용합니다.
 
     ![ODBC 시작](./media/connect-databricks-excel-python-r/launch-odbc-app.png "ODBC 앱 시작")
 
@@ -100,10 +96,13 @@ Excel 통합 문서에 데이터가 있으면 분석 작업을 수행할 수 있
 
 ## <a name="connect-from-r"></a>R에서 연결
 
+> [!NOTE]
+> 이 섹션에서는 Azure Databricks를 사용하여 데스크톱에서 실행되는 R Studio 클라이언트를 통합하는 방법에 대해 설명합니다. Azure Databricks 클러스터에서 R Studio를 사용하는 방법에 대한 지침은 [Azure Databricks의 R Studio](https://docs.azuredatabricks.net/spark/latest/sparkr/rstudio.html)를 참조하세요.
+
 이 섹션에서는 R 언어 IDE를 사용하여 Azure Databricks에서 사용할 수 있는 데이터를 참조합니다. 시작하기 전에 컴퓨터에 다음을 설치해야 합니다.
 
 * R 언어에 대한 IDE입니다. 이 문서에서는 데스크톱용 RStudio를 사용합니다. [R Studio 다운로드](https://www.rstudio.com/products/rstudio/download/)에서 설치할 수 있습니다.
-* 데스크톱용 RStudio를 IDE로 사용하는 경우 [http://aka.ms/rclient/](http://aka.ms/rclient/)에서 Microsoft R Client도 설치합니다. 
+* 데스크톱용 RStudio를 IDE로 사용하는 경우 [https://aka.ms/rclient/](https://aka.ms/rclient/)에서 Microsoft R Client도 설치합니다. 
 
 RStudio를 열고 다음 단계를 수행합니다.
 

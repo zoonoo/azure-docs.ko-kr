@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307989"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228218"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
 이 문서에서는 다음을 수행하는 방법을 보여 줍니다.
@@ -41,7 +41,9 @@ ms.locfileid: "38307989"
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
 ## <a name="configure-the-windows-firewall"></a>Windows 방화벽 구성
-SQL Server 액세스를 허용하도록 Windows 방화벽을 구성합니다. 방화벽 규칙에서 SQL Server 인스턴스 및 수신기 프로브에서 사용하는 포트에 TCP 연결을 허용합니다. 자세한 지침은 [데이터베이스 엔진 액세스를 위해 Windows 방화벽 구성](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1)을 참조하세요. SQL Server 포트 및 프로브 포트에 대한 인바운드 규칙을 만듭니다.
+SQL Server 액세스를 허용하도록 Windows 방화벽을 구성합니다. 방화벽 규칙에서 SQL Server 인스턴스 및 수신기 프로브에서 사용하는 포트에 TCP 연결을 허용합니다. 자세한 지침은 [데이터베이스 엔진 액세스를 위해 Windows 방화벽 구성](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1)을 참조하세요. SQL Server 포트 및 프로브 포트에 대한 인바운드 규칙을 만듭니다.
+
+Azure 네트워크 보안 그룹을 사용하여 액세스를 제한하는 경우 허용 규칙에 백 엔드 SQL Server VM IP 주소, AG 수신기에 대한 Load Balancer 부동 IP 주소 및 클러스터 코어 IP 주소가 포함되는지 확인합니다.
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>예제 스크립트: PowerShell을 사용하여 내부 부하 분산 장치 만들기
 > [!NOTE]
@@ -102,13 +104,13 @@ foreach($VMName in $VMNames)
 ## <a name="Add-IP"></a> 예제 스크립트: PowerShell을 사용하여 기존 부하 분산 장치에 IP 주소 추가
 둘 이상의 가용성 그룹을 사용하려면 추가 IP 주소를 부하 분산 장치에 추가합니다. 각 IP 주소에는 자체 부하 분산 규칙, 프로브 포트 및 프런트 엔드 포트가 필요합니다.
 
-프런트 엔드 포트는 응용 프로그램이 SQL Server 인스턴스에 연결하는 데 사용하는 포트입니다. 다른 가용성 그룹에 대한 IP 주소는 동일한 프런트 엔드 포트를 사용할 수 있습니다.
+프런트 엔드 포트는 애플리케이션이 SQL Server 인스턴스에 연결하는 데 사용하는 포트입니다. 다른 가용성 그룹에 대한 IP 주소는 동일한 프런트 엔드 포트를 사용할 수 있습니다.
 
 > [!NOTE]
 > SQL Server 가용성 그룹의 경우 각 IP 주소에 특정 프로브 포트가 필요합니다. 예를 들어 부하 분산 장치에 있는 하나의 IP 주소가 프로브 포트 59999를 사용하는 경우 해당 부하 분산 장치의 다른 IP 주소는 프로브 포트 59999를 사용할 수 없습니다.
 
 * 부하 분산 장치 제한에 대한 자세한 내용은 **네트워킹 제한 - Azure Resource Manager**에서 [부하 분산 장치당 개인 프런트 엔드 IP](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)를 참조하세요.
-* 가용성 그룹 제한에 대한 자세한 내용은 [제한 사항(가용성 그룹)](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG)을 참조하세요.
+* 가용성 그룹 제한에 대한 자세한 내용은 [제한 사항(가용성 그룹)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG)을 참조하세요.
 
 다음 스크립트는 기존 부하 분산 장치에 새 IP 주소를 추가합니다. ILB는 부하 분산 프런트 엔드 포트에 대해 수신기 포트를 사용합니다. 이 포트는 SQL Server에서 수신 대기 중인 포트일 수 있습니다. SQL Server의 기본 인스턴스의 경우 포트는 1433입니다. 가용성 그룹에 대한 부하 분산 규칙에는 부동 IP(Direct Server Return)가 필요하므로 백 엔드 포트는 프런트 엔드 포트와 동일합니다. 사용자 환경에 맞게 변수를 업데이트합니다. 
 
@@ -186,7 +188,7 @@ $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConf
 SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자동으로 연결합니다. 
 
 > [!NOTE]
-> 지정한 포트가 두 SQL Server의 방화벽에서 열려 있는지 확인합니다. 두 서버 모두 사용하는 TCP 포트에 대한 인바운드 규칙이 필요합니다. 자세한 내용은 [방화벽 규칙 추가 또는 편집](http://technet.microsoft.com/library/cc753558.aspx)을 참조하세요. 
+> 지정한 포트가 두 SQL Server의 방화벽에서 열려 있는지 확인합니다. 두 서버 모두 사용하는 TCP 포트에 대한 인바운드 규칙이 필요합니다. 자세한 내용은 [방화벽 규칙 추가 또는 편집](https://technet.microsoft.com/library/cc753558.aspx)을 참조하세요. 
 > 
 > 
 
@@ -195,6 +197,7 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 
 * 내부 부하 분산 장치를 사용할 경우 동일한 가상 네트워크 내에서만 수신기에 액세스합니다.
 
+* Azure 네트워크 보안 그룹을 사용하여 액세스를 제한하는 경우 허용 규칙에 백 엔드 SQL Server VM IP 주소, AG 수신기에 대한 Load Balancer 부동 IP 주소 및 클러스터 코어 IP 주소가 포함되는지 확인합니다.
 
 ## <a name="for-more-information"></a>Blob에 대한 자세한 내용은
 자세한 내용은 [수동으로 Azure VM의 Always On 가용성 그룹 구성](virtual-machines-windows-portal-sql-availability-group-tutorial.md)을 참조하세요.
@@ -202,9 +205,9 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 ## <a name="powershell-cmdlets"></a>PowerShell cmdlet
 다음 PowerShell cmdlet을 사용하여 Azure 가상 머신에 대한 내부 부하 분산 장치를 만듭니다.
 
-* [New-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt619450.aspx)는 부하 분산 장치를 만듭니다. 
-* [New-AzureRMLoadBalancerFrontendIpConfig](http://msdn.microsoft.com/library/mt603510.aspx)는 부하 분산 장치에 대한 프런트 엔드 IP 구성을 만듭니다. 
-* [New-AzureRmLoadBalancerRuleConfig](http://msdn.microsoft.com/library/mt619391.aspx)는 부하 분산 장치에 대한 규칙 구성을 만듭니다. 
-* [New-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx)는 부하 분산 장치에 대한 백 엔드 주소 풀 구성을 만듭니다. 
-* [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx)는 부하 분산 장치에 대한 프로브 구성을 만듭니다.
-* [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx)는 Azure 리소스 그룹에서 부하 분산 장치를 제거합니다.
+* [New-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx)는 부하 분산 장치를 만듭니다. 
+* [New-AzureRMLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx)는 부하 분산 장치에 대한 프런트 엔드 IP 구성을 만듭니다. 
+* [New-AzureRmLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx)는 부하 분산 장치에 대한 규칙 구성을 만듭니다. 
+* [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx)는 부하 분산 장치에 대한 백 엔드 주소 풀 구성을 만듭니다. 
+* [New-AzureRmLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx)는 부하 분산 장치에 대한 프로브 구성을 만듭니다.
+* [Remove-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx)는 Azure 리소스 그룹에서 부하 분산 장치를 제거합니다.

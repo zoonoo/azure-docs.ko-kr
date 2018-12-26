@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Service Fabric 클러스터에 Java 앱 배포 | Microsoft Docs
-description: 이 자습서에서는 Azure Service Fabric 클러스터에 Java Service Fabric 응용 프로그램을 배포하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Service Fabric 클러스터에 Java Service Fabric 애플리케이션을 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,29 +15,29 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: afa9aa4ef4d3d8d8a6816d194b69271fdf0d928a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 53ad780ff0b199764c354327439fa69c360e7cb5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109677"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996811"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 응용 프로그램 배포
 
-이 자습서는 시리즈의 3부로, Azure에서 클러스터에 Service Fabric 응용 프로그램을 배포하는 방법을 보여줍니다.
+이 자습서는 시리즈의 3부로, Azure에서 클러스터에 Service Fabric 애플리케이션을 배포하는 방법을 보여줍니다.
 
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure에서 보안 Linux 클러스터 만들기
-> * 클러스터에 응용 프로그램 배포
+> * 클러스터에 애플리케이션 배포
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * [Java Service Fabric Reliable Services 응용 프로그램 빌드](service-fabric-tutorial-create-java-app.md)
 > * [로컬 클러스터에서 응용 프로그램 배포 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
-> * Azure 클러스터에 응용 프로그램 배포
+> * Azure 클러스터에 애플리케이션 배포
 > * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
 > * [CI/CD를 설정합니다](service-fabric-tutorial-java-jenkins.md).
 
@@ -46,13 +46,13 @@ ms.locfileid: "37109677"
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Mac](service-fabric-get-started-mac.md) 또는 [Linux](service-fabric-get-started-linux.md)용 Service Fabric SDK 설치
 * [Python 3 설치](https://wiki.python.org/moin/BeginnersGuide/Download)
 
 ## <a name="create-a-service-fabric-cluster-in-azure"></a>Azure에서 Service Fabric 클러스터 만들기
 
-다음 단계에서는 Service Fabric 클러스터에 응용 프로그램을 배포하는 데 요구되는 필요한 리소스를 만듭니다. 또한 ELK(Elasticsearch, Logstash, Kibana) 스택을 사용하여 솔루션의 상태를 모니터링하는 데 필요한 리소스를 설정합니다. 특히, [Event Hubs](https://azure.microsoft.com/services/event-hubs/)는 Service Fabric에서 로그에 대한 싱크로 사용됩니다. Service Fabric 클러스터에서 Logstash 인스턴스에 로그를 보내기 위해 구성됩니다.
+다음 단계에서는 Service Fabric 클러스터에 애플리케이션을 배포하는 데 요구되는 필요한 리소스를 만듭니다. 또한 ELK(Elasticsearch, Logstash, Kibana) 스택을 사용하여 솔루션의 상태를 모니터링하는 데 필요한 리소스를 설정합니다. 특히, [Event Hubs](https://azure.microsoft.com/services/event-hubs/)는 Service Fabric에서 로그에 대한 싱크로 사용됩니다. Service Fabric 클러스터에서 Logstash 인스턴스에 로그를 보내기 위해 구성됩니다.
 
 1. 터미널을 열고 필요한 도우미 스크립트와 Azure에서 리소스를 만들 템플릿을 포함하는 다음 패키지 다운로드
 
@@ -173,7 +173,7 @@ ms.locfileid: "37109677"
 
     EventHubs에 대한 SAS URL은 다음 https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken> 구조를 따릅니다. 예를 들어 https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
-12. *sfdeploy.parameters.json* 파일을 열고 이전 단계에서 다음 내용을 바꾸기
+12. *sfdeploy.parameters.json* 파일을 열고 이전 단계에서 다음 내용을 바꿉니다. [SAS-URL-STORAGE-ACCOUNT]는 8단계에서 적어 두었습니다. [SAS-URL-EVENT-HUBS]는 11단계에서 적어 두었습니다.
 
     ```json
     "applicationDiagnosticsStorageAccountName": {
@@ -187,7 +187,12 @@ ms.locfileid: "37109677"
     }
     ```
 
-13. Service Fabric 클러스터를 만들려면 다음 명령 실행
+13. **sfdeploy.parameters.json**이 열립니다. 다음 매개 변수를 변경한 다음, 파일을 저장합니다.
+    - **clusterName**. 소문자와 숫자만 사용합니다.
+    - **adminUserName**(빈 값이 아닌 값)
+    - **adminPassword**(빈 값이 아닌 값)
+
+14. Service Fabric 클러스터를 만들려면 다음 명령 실행
 
     ```bash
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
@@ -203,16 +208,16 @@ ms.locfileid: "37109677"
     </Certificates>
     ```
 
-2. 이 클러스터에 응용 프로그램을 배포하려면 클러스터에 연결을 설정할 SFCTL을 사용해야 합니다. SFCTL은 클러스터에 연결하기 위해 공용 및 개인 키가 있는 PEM 파일이 필요합니다. 다음 명령을 실행하여 공용 및 개인 키가 있는 PEM 파일을 생성합니다. 
+2. 이 클러스터에 애플리케이션을 배포하려면 클러스터에 연결을 설정할 SFCTL을 사용해야 합니다. SFCTL은 클러스터에 연결하기 위해 공용 및 개인 키가 있는 PEM 파일이 필요합니다. 다음 명령을 실행하여 공용 및 개인 키가 있는 PEM 파일을 생성합니다. 
 
     ```bash
-    openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
+    openssl pkcs12 -in <clustername>.<region>.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
     ```
 
 3. 다음 명령을 실행하여 클러스터에 연결합니다.
 
     ```bash
-    sfctl cluster select --endpoint https://testlinuxcluster.westus.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
+    sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
 4. 응용 프로그램을 배포하려면 *Voting/Scripts* 폴더로 이동해 **install.sh** 스크립트를 실행합니다.
@@ -221,7 +226,7 @@ ms.locfileid: "37109677"
     ./install.sh
     ```
 
-5. Service Fabric Explorer에 액세스하려면 좋아하는 브라우저를 열고 https://testlinuxcluster.westus.cloudapp.azure.com:19080에 입력합니다. 이 끝점에 연결하는 데 사용하려는 인증서 저장소에서 인증서를 선택합니다. Linux 컴퓨터를 사용하는 경우 Service Fabric Explorer를 보려면 *new-service-fabric-cluster-certificate.sh* 스크립트에서 생성한 인증서를 크롬으로 가져와야 합니다. Mac을 사용하는 경우 Keychain에 PFX 파일을 설치해야 합니다. 응용 프로그램이 클러스터에 설치됐음을 알립니다.
+5. Service Fabric Explorer에 액세스하려면 좋아하는 브라우저를 열고 https://testlinuxcluster.westus.cloudapp.azure.com:19080에 입력합니다. 이 엔드포인트에 연결하는 데 사용하려는 인증서 저장소에서 인증서를 선택합니다. Linux 컴퓨터를 사용하는 경우 Service Fabric Explorer를 보려면 *new-service-fabric-cluster-certificate.sh* 스크립트에서 생성한 인증서를 크롬으로 가져와야 합니다. Mac을 사용하는 경우 Keychain에 PFX 파일을 설치해야 합니다. 응용 프로그램이 클러스터에 설치됐음을 알립니다.
 
     ![SFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
@@ -229,7 +234,7 @@ ms.locfileid: "37109677"
 
     ![Voting App Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 
-7. 클러스터에서 응용 프로그램을 제거하려면 **스크립트** 폴더에서 *uninstall.sh* 스크립트 실행
+7. 클러스터에서 애플리케이션을 제거하려면 **스크립트** 폴더에서 *uninstall.sh* 스크립트 실행
 
     ```bash
     ./uninstall.sh

@@ -3,7 +3,7 @@ title: Azure Service Bus와 쌍을 이루는 연결된 네임스페이스 | Micr
 description: 쌍을 이루는 네임스페이스 구현의 세부 사항 및 비용
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.date: 09/21/2018
+ms.author: spelluru
+ms.openlocfilehash: ac663cc382fcacd4960843c25aa6c95191210116
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27159544"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395205"
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>쌍을 이루는 네임스페이스 구현의 세부 사항 및 비용의 영향
 

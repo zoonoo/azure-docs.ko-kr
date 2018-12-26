@@ -1,24 +1,31 @@
 ---
-title: Xamarin 및 Azure Cosmos DB를 사용하여 모바일 응용 프로그램 빌드 | Microsoft Docs
+title: Xamarin 및 Azure Cosmos DB를 사용하여 모바일 응용 프로그램 빌드
 description: Azure Cosmos DB를 사용하여 Xamarin iOS, Android 또는 Forms 응용 프로그램을 만드는 방법에 대한 자습서입니다. Azure Cosmos DB는 속도가 빠른 세계적 규모의 모바일 앱용 클라우드 데이터베이스입니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: b70a16c2f4c17a8cee008bee342a9c3693d1eb4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5c17325bfccef2c97378cb54d8843290cc98635
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34614495"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878009"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Xamarin 및 Azure Cosmos DB를 사용하여 모바일 응용 프로그램 빌드
 
-대부분의 모바일 앱은 클라우드에 데이터를 저장해야 하며 Azure Cosmos DB는 모바일 앱용 클라우드 데이터베이스입니다. 이 기능에는 모바일 개발자에게 필요한 모든 항목이 있습니다. 필요에 따라 규모를 조정할 수 있는 Database as a Service입니다. 사용자가 전 세계 어디에 있든 데이터를 응용 프로그램으로 투명하게 가져올 수 있습니다. [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)를 사용하면 중간 계층 없이 Azure Cosmos DB와 직접 상호 작용하도록 Xamarin 모바일 앱을 활성화할 수 있습니다.
+> [!div class="op_single_selector"]
+> * [.NET](sql-api-dotnet-application.md)
+> * [Java](sql-api-java-application.md)
+> * [Node.JS](sql-api-nodejs-application.md)
+> * [Python](sql-api-python-application.md)
+> * [Xamarin](mobile-apps-with-xamarin.md)
+> 
+
+대부분의 모바일 앱은 클라우드에 데이터를 저장해야 하며 Azure Cosmos DB는 모바일 앱용 클라우드 데이터베이스입니다. 이 기능에는 모바일 개발자에게 필요한 모든 항목이 있습니다. 필요에 따라 규모를 조정할 수 있는 Database as a Service입니다. 사용자가 전 세계 어디에 있든 데이터를 애플리케이션으로 투명하게 가져올 수 있습니다. [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)를 사용하면 중간 계층 없이 Azure Cosmos DB와 직접 상호 작용하도록 Xamarin 모바일 앱을 활성화할 수 있습니다.
 
 이 문서에서는 Xamarin 및 Azure Cosmos DB를 사용하여 모바일 앱을 빌드하는 자습서를 제공합니다. [GitHub의 Xamarin 및 Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin)에서 사용자 및 사용 권한을 관리하는 방법을 비롯하여 자습서의 전체 소스 코드를 찾을 수 있습니다.
 
@@ -27,7 +34,7 @@ Azure Cosmos DB는 모바일 앱 개발자를 위해 다음과 같은 주요 기
 
 ![모바일 앱용 Azure Cosmos DB 기능](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
-* 스키마 없는 데이터에 대한 풍부한 쿼리 Azure Cosmos DB는 데이터를 유형이 다른 컬렉션에 스키마 없는 JSON 문서로 저장합니다. 스키마 또는 인덱스에 대한 걱정 없이 [풍부하고 빠른 쿼리](sql-api-sql-query.md)를 제공합니다.
+* 스키마 없는 데이터에 대한 풍부한 쿼리 Azure Cosmos DB는 데이터를 유형이 다른 컬렉션에 스키마 없는 JSON 문서로 저장합니다. 스키마 또는 인덱스에 대한 걱정 없이 [풍부하고 빠른 쿼리](how-to-sql-query.md)를 제공합니다.
 * 빠른 처리량. Azure Cosmos DB를 사용하여 문서를 읽고 쓰는 데 몇 밀리초밖에 걸리지 않습니다. 개발자들은 필요한 처리량을 지정할 수 있고, Azure Cosmos DB는 모든 단일 지역 계정 및 평범한 일관성 수준의 모든 다중 지역 계정에 대한 99.99% 가용성 SLA 및 모든 다중 지역 데이터베이스 계정에 대한 99.999% 읽기 가용성을 제공합니다.
 * 규모가 무제한입니다. Azure Cosmos DB 컬렉션은 [앱이 증가함에 따라 증가합니다](partition-data.md). 처음에는 소규모 데이터와 초당 요청 처리량 수백 개로 시작할 수 있습니다. 이후에 컬렉션 또는 데이터베이스가 페타바이트 단위로 증가함에 따라 초당 요청 처리량을 수억 개로 확장할 수 있습니다.
 * 전역적으로 분산됩니다. 모바일 앱 사용자는 이동이 잦으며 전 세계에 퍼져 있는 경우가 자주 있습니다. Azure Cosmos DB는 [전역적으로 분산되는 데이터베이스](distribute-data-globally.md)입니다. 지도를 클릭하여 사용자에게 데이터 액세스를 제공할 수 있습니다.
@@ -77,7 +84,7 @@ Xamarin 프로젝트에서 스키마 없는 데이터에 언어가 통합된 쿼
 
   4. 앱을 수정하여 Facebook을 통해 리소스 토큰 broker에 인증하고, 로그인한 Facebook 사용자에게 리소스 토큰을 요청합니다. 그런 다음 UserItems 컬렉션에서 사용자 데이터에 액세스할 수 있습니다.  
 
-[GitHub의 리소스 토큰 broker](http://aka.ms/documentdb-xamarin-todouser)에서 이 패턴의 전체 코드 샘플을 찾을 수 있습니다. 이 다이어그램에서는 솔루션을 보여 줍니다.
+[GitHub의 리소스 토큰 broker](https://aka.ms/documentdb-xamarin-todouser)에서 이 패턴의 전체 코드 샘플을 찾을 수 있습니다. 이 다이어그램에서는 솔루션을 보여 줍니다.
 
 ![Azure Cosmos DB 사용자 및 사용 권한 브로커](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 
@@ -99,7 +106,7 @@ Azure Cosmos DB는 관리되는 Database as a Service입니다. 사용자 기반
 * [GitHub의 Xamarin 및 Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin)의 소스 코드를 봅니다.
 * [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)를 다운로드합니다.
 * [.NET 응용 프로그램](sql-api-dotnet-samples.md)에 대한 추가 코드 샘플을 찾습니다.
-* [Azure Cosmos DB의 다양한 쿼리 기능](sql-api-sql-query.md)에 대해 알아봅니다.
+* [Azure Cosmos DB의 다양한 쿼리 기능](how-to-sql-query.md)에 대해 알아봅니다.
 * [Azure Cosmos DB의 지리 공간적 지원](geospatial.md)에 대해 알아봅니다.
 
 

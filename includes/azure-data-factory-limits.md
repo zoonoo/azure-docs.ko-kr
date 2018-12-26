@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 43408ebc65d4acf581b612e8ecfb9d00679cc078
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4aa4809c57eaf26b10053d432f9191580ec143a0
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066104"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44381102"
 ---
 데이터 팩터리는 각각 다른 작업 부하에서 고객 구독이 보호되도록 하기 위해 다음 기본 제한을 적용한 다중 테넌트 서비스입니다. 지원에 문의하여 최대 한도까지 구독에 대한 제한 수를 늘릴 수 있습니다.
 
@@ -22,8 +22,8 @@ ms.locfileid: "37066104"
 | 리소스 | 기본 제한 | 최대 제한 |
 | -------- | ------------- | ------------- |
 | Azure 구독의 데이터 팩터리 | 50 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| 데이터 팩터리 내 총 엔터티(파이프라인, 데이터 집합, 트리거, 연결된 서비스, 통합 런타임) 수 | 5,000 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| 하나의 구독에 대한 Azure-SSIS Integration Runtime의 총 CPU 코어 | 100 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 데이터 팩터리 내 총 엔터티(파이프라인, 데이터 세트, 트리거, 연결된 서비스, 통합 런타임) 수 | 5,000 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 하나의 구독에 대한 Azure-SSIS Integration Runtime의 총 CPU 코어 | 128 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 파이프라인당 동시 파이프라인 실행 수 | 100 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 데이터 팩터리당 동시 파이프라인 실행 수 | 10000  | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 파이프라인당 최대 활동 수(컨테이너에 대한 내부 활동 포함) | 40 | 40 |
@@ -34,10 +34,12 @@ ms.locfileid: "37066104"
 | 최소 연속 창 트리거 간격 | 15분 | 15분 |
 | 파이프라인 활동 실행에 대한 최대 시간 제한 | 7 일 | 7 일 |
 | 파이프라인 개체에 대한 개체당 바이트<sup>1</sup> | 200KB | 200KB |
-| 데이터 집합 및 연결된 서비스 개체에 대한 개체당 바이트 <sup>1</sup> | 100KB | 2000KB |
+| 데이터 세트 및 연결된 서비스 개체에 대한 개체당 바이트 <sup>1</sup> | 100KB | 2000KB |
 | 복사 작업 실행당 데이터 통합 단위 <sup>3</sup> | 256 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | API 호출 쓰기 | 2500/시간<br/><br/> 이 제한은 Azure Data Factory가 아닌 Azure Resource Manager가 부과합니다. | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | API 호출 읽기 | 12,500/시간<br/><br/> 이 제한은 Azure Data Factory가 아닌 Azure Resource Manager가 부과합니다. | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 분당 모니터링 쿼리 | 1000 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 분당 엔터티 CRUD 작업 | 50 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
 
 ### <a name="version-1"></a>버전 1
@@ -46,10 +48,10 @@ ms.locfileid: "37066104"
 | --- | --- | --- |
 | Azure 구독의 데이터 팩터리 |50 |[지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 데이터 팩터리 내의 파이프라인sd |2500 |[지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| 데이터 팩터리 내의 데이터 집합 |5,000 |[지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| 데이터 집합당 동시 조각 |10 |10 |
+| 데이터 팩터리 내의 데이터 세트 |5,000 |[지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 데이터 세트당 동시 조각 |10 |10 |
 | 파이프라인 개체에 대한 개체당 바이트<sup>1</sup> |200KB |200KB |
-| 데이터 집합 및 연결된 서비스 개체에 대한 개체당 바이트 <sup>1</sup> |100KB |2000KB |
+| 데이터 세트 및 연결된 서비스 개체에 대한 개체당 바이트 <sup>1</sup> |100KB |2000KB |
 | 구독 내부의 HDInsight 주문형 클러스터 코어<sup>2</sup> |60 |[지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 복사 작업 실행당 클라우드 데이터 이동 단위 <sup>3</sup> |32 |[지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 파이프라인 활동 실행에 대한 재시도 횟수 |1000 |MaxInt(32비트) |

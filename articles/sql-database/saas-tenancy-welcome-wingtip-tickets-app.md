@@ -1,21 +1,24 @@
 ---
 title: Wingtips 앱 시작 - Azure SQL Database | Microsoft Docs
-description: 클라우드 환경의 Azure SQL Database에 대한 샘플 Wingtips SaaS 응용 프로그램 및 데이터베이스 테넌시 모델에 대해 알아봅니다.
+description: 클라우드 환경의 Azure SQL Database에 대한 샘플 Wingtips SaaS 애플리케이션 및 데이터베이스 테넌시 모델에 대해 알아봅니다.
 keywords: SQL Database 자습서
 services: sql-database
-author: billgib
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: billgib
+manager: craigg
 ms.date: 04/01/2018
-ms.author: billgib
-ms.openlocfilehash: 3c7d1d40af3a0b8f70302171eb13ac0a180b0bfe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a05a8ad495e33734a531405902ce34e3591bfe15
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644395"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056321"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 응용 프로그램
 
@@ -29,7 +32,7 @@ ms.locfileid: "34644395"
 
  각 샘플에는 다양한 디자인 및 관리 패턴을 살펴볼 수 있는 자습서, 관리 스크립트와 응용 프로그램 코드가 포함되어 있습니다.  각 샘플은 5분 내에 배포됩니다.  세 패턴은 모두 나란히 배포되어 디자인 및 관리의 차이를 비교할 수 있습니다.
 
-## <a name="standalone-application-per-tenant-pattern"></a>테넌트별 독립 실행형 응용 프로그램 패턴
+## <a name="standalone-application-per-tenant-pattern"></a>테넌트별 독립 실행형 애플리케이션 패턴
 
 테넌트별 독립 실행형 앱 패턴에서는 각 테넌트별 데이터베이스를 사용하여 단일 테넌트 응용 프로그램을 사용합니다. 각 테넌트의 앱과 데이터베이스는 별도의 Azure 리소스 그룹에 배포됩니다. 리소스 그룹은 서비스 공급자의 구독 또는 테넌트의 구독에 배포되어 공급자가 테넌트를 대신하여 관리할 수 있습니다. 테넌트별 독립 실행형 앱 패턴은 테넌트 격리가 가장 높은 수준으로 구현되지만, 여러 테넌트 간에 리소스를 공유할 수 없기 때문에 일반적으로 비용이 가장 높습니다.  이 패턴은 비교적 복잡한 응용 프로그램이 소수의 테넌트에 배포된 경우에 적합합니다.  독립 실행형 배포에서는 다른 패턴에 비해 각 테넌트별로 훨씬 간편하게 앱을 사용자 지정할 수 있습니다.  
 

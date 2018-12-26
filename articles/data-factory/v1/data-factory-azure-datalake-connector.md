@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake 저장소 간 데이터 복사 | Microsoft Docs
+title: Azure Data Lake Storage Gen1 간 데이터 복사 | Microsoft Docs
 description: Azure Data Factory를 사용하여 Data Lake Store 간 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8f86f43b4d8c474f338285abffb3c444f5ebc2d7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 97bd2081df8c90f885996629862f25cbec8fd2c2
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054741"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860234"
 ---
-# <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Data Factory를 사용하여 Data Lake Store 간 데이터 복사
+# <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Data Factory를 사용하여 Data Lake Storage Gen1 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1](data-factory-azure-datalake-connector.md)
 > * [버전 2(현재 버전)](../connector-azure-data-lake-store.md)
 
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 Azure Data Lake Store 커넥터](../connector-azure-data-lake-store.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [V2의 Azure Data Lake Storage Gen1 커넥터](../connector-azure-data-lake-store.md)를 참조하세요.
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Data Lake Store 간에 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 개요를 보여 주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Data Lake Storage Gen1(이전의 Azure Data Lake Store) 간에 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 개요를 보여 주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 **Azure Data Lake Store에서** 다음 데이터 저장소로 데이터를 복사할 수 있습니다.
@@ -61,10 +61,10 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 
 1. **데이터 팩터리**를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 
 2. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스**를 만듭니다. 예를 들어 Azure Blob Storage에서 Azure Data Lake Store로 데이터를 복사하는 경우 Azure Storage 계정 및 Azure Data Lake Store를 데이터 팩터리에 연결하는 두 개의 연결된 서비스를 만듭니다. Azure Data Lake Store와 관련된 연결된 서비스 속성은 [연결된 서비스 속성](#linked-service-properties) 섹션을 참조하세요. 
-2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 마지막 단계에서 설명한 예제에서는 입력 데이터가 포함된 BLOB 컨테이너 및 폴더를 지정하는 데이터 집합을 만듭니다. 그리고 Blob Storage에서 복사한 데이터를 포함하는 Data Lake Store의 폴더 및 파일 경로를 지정하는 또 다른 데이터 집합을 만듭니다. Azure Data Lake Store와 관련된 데이터 집합 속성은 [데이터 집합 속성](#dataset-properties) 섹션을 참조하세요.
-3. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 앞에서 언급한 예제에서는 BlobSource를 원본으로, AzureDataLakeStoreSink를 복사 작업의 싱크로 사용합니다. 마찬가지로 Azure Data Lake Store에서 Azure Blob Storage로 복사하는 경우 복사 작업에서 AzureDataLakeStoreSource 및 BlobSink를 사용합니다. Azure Data Lake Store와 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties) 섹션을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대한 자세한 내용을 보려면 데이터 저장소에 대한 이전 섹션의 링크를 클릭하세요.  
+2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다. 마지막 단계에서 설명한 예제에서는 입력 데이터가 포함된 BLOB 컨테이너 및 폴더를 지정하는 데이터 세트를 만듭니다. 그리고 Blob Storage에서 복사한 데이터를 포함하는 Data Lake Store의 폴더 및 파일 경로를 지정하는 또 다른 데이터 세트를 만듭니다. Azure Data Lake Store와 관련된 데이터 세트 속성은 [데이터 세트 속성](#dataset-properties) 섹션을 참조하세요.
+3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 앞에서 언급한 예제에서는 BlobSource를 원본으로, AzureDataLakeStoreSink를 복사 작업의 싱크로 사용합니다. 마찬가지로 Azure Data Lake Store에서 Azure Blob Storage로 복사하는 경우 복사 작업에서 AzureDataLakeStoreSource 및 BlobSink를 사용합니다. Azure Data Lake Store와 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties) 섹션을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대한 자세한 내용을 보려면 데이터 저장소에 대한 이전 섹션의 링크를 클릭하세요.  
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  다른 곳에서 Azure Data Lake Store로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples-for-copying-data-to-and-from-data-lake-store) 섹션을 참조하세요.
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  다른 곳에서 Azure Data Lake Store로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples-for-copying-data-to-and-from-data-lake-store) 섹션을 참조하세요.
 
 다음 섹션에서는 Data Lake Store에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -233,8 +233,8 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
     ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
-Data Lake Store에서 입력 데이터를 표시할 데이터 집합을 지정하려면 데이터 집합의 **type** 속성을 **AzureDataLakeStore**로 설정합니다. 데이터 집합의 **linkedServiceName** 속성을 Data Lake Store 연결된 서비스의 이름으로 설정합니다. 데이터 집합 정의에 사용할 수 있는 JSON 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. **구조**, **가용성** 및 **정책**과 JSON의 데이터 집합 섹션은 모든 데이터 집합 형식(예: SQL Database, Azure Blob, Azure 테이블)에 대해 유사합니다. **typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치, 서식 등에 대한 정보를 제공합니다. 
+## <a name="dataset-properties"></a>데이터 세트 속성
+Data Lake Store에서 입력 데이터를 표시할 데이터 세트를 지정하려면 데이터 세트의 **type** 속성을 **AzureDataLakeStore**로 설정합니다. 데이터 세트의 **linkedServiceName** 속성을 Data Lake Store 연결된 서비스의 이름으로 설정합니다. 데이터 세트 정의에 사용할 수 있는 JSON 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. **구조**, **가용성** 및 **정책**과 JSON의 데이터 집합 섹션은 모든 데이터 집합 형식(예: SQL Database, Azure Blob, Azure 테이블)에 대해 유사합니다. **typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치, 서식 등에 대한 정보를 제공합니다. 
 
 **AzureDataLakeStore** 형식의 데이터 집합에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
@@ -243,7 +243,7 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 집합을 지정�
 | **folderPath** |Data Lake Store의 컨테이너 및 폴더에 대한 경로입니다. |예 |
 | **fileName** |Azure Data Lake Store에 있는 파일의 이름입니다. **fileName** 속성은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>**fileName**을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>**fileName**을 지정하지 않으면 복사는 입력 데이터 집합에 대한 **folderPath**에 모든 파일을 포함합니다.<br/><br/>**fileName**이 출력 데이터 집합에 대해 지정되지 않았고 **preserveHierarchy**가 활동 싱크에 지정되지 않은 경우 생성된 파일의 이름은 Data._Guid_.txt' 형식입니다. 예제: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니오 |
 | **partitionedBy** |**partitionedBy** 속성은 선택 사항입니다. 시계열 데이터에 대한 동적 경로 및 파일 이름을 지정하는 데 사용할 수 있습니다. 예를 들어 **folderPath**는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [partitionedBy 속성](#using-partitionedby-property)을 참조하세요. |아니오 |
-| **format** | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** 서식 유형이 지원됩니다. **format**의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [Azure Data Factory에서 지원하는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md) 문서의 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 “있는 그대로” 복사하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 `format` 섹션을 건너뜁니다. |아니오 |
+| **format** | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** 서식 유형이 지원됩니다. **format**의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [Azure Data Factory에서 지원하는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md) 문서의 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 “있는 그대로” 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 `format` 섹션을 건너뜁니다. |아니오 |
 | **compression** | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. **Optimal** 및 **Fastest** 수준이 지원됩니다. 자세한 내용은 [Azure Data Factory에서 지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니오 |
 
 ### <a name="the-partitionedby-property"></a>partitionedBy 속성
@@ -272,7 +272,7 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 집합을 지정�
     { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 ],
 ```
-시계열 데이터 집합, 예약 및 조각에 대한 자세한 내용은 [Azure Data Factory의 데이터 집합](data-factory-create-datasets.md) 및 [Data Factory 예약 및 실행](data-factory-scheduling-and-execution.md) 문서를 참조하세요. 
+시계열 데이터 세트, 예약 및 조각에 대한 자세한 내용은 [Azure Data Factory의 데이터 세트](data-factory-create-datasets.md) 및 [Data Factory 예약 및 실행](data-factory-scheduling-and-execution.md) 문서를 참조하세요. 
 
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
@@ -446,7 +446,7 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 집합을 지정�
 
 **Blob 원본 및 Data Lake Store 싱크를 사용하는 파이프라인의 복사 작업**
 
-다음 예제에서 파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함합니다. 복사 작업은 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 `source` 형식은 `BlobSource`로, `sink` 형식은 `AzureDataLakeStoreSink`로 설정되어 있습니다.
+다음 예제에서 파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함합니다. 복사 작업은 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 `source` 형식은 `BlobSource`로, `sink` 형식은 `AzureDataLakeStoreSink`로 설정되어 있습니다.
 
 ```json
 {  
@@ -638,7 +638,7 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 집합을 지정�
 
 **Azure Data Lake Store 원본 및 Blob 싱크를 사용하는 파이프라인의 복사 작업**
 
-다음 예제에서 파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함합니다. 복사 작업은 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 `source` 형식은 `AzureDataLakeStoreSource`로, `sink` 형식은 `BlobSink`로 설정되어 있습니다.
+다음 예제에서 파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함합니다. 복사 작업은 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 `source` 형식은 `AzureDataLakeStoreSource`로, `sink` 형식은 `BlobSink`로 설정되어 있습니다.
 
 ```json
 {  
@@ -686,7 +686,7 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 집합을 지정�
 }
 ```
 
-복사 작업 정의에서 원본 데이터 집합의 열을 싱크 데이터 집합의 열로 매핑할 수 있습니다. 자세한 내용은 [Azure Data Factory에서 데이터 집합 열 매핑](data-factory-map-columns.md)을 참조하세요.
+복사 작업 정의에서 원본 데이터 세트의 열을 싱크 데이터 세트의 열로 매핑할 수 있습니다. 자세한 내용은 [Azure Data Factory에서 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 복사 작업 성능에 영향을 주는 요소 및 최적화하는 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md) 문서를 참조하세요.

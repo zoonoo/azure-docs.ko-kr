@@ -1,39 +1,34 @@
 ---
-title: 게시된 응용 프로그램 설치 - Dataiku DDS - Azure HDInsight | Microsoft Docs
-description: Dataiku DDS 타사 Hadoop 응용 프로그램을 설치하여 사용합니다.
+title: 게시된 응용 프로그램 설치 - Dataiku DDS - Azure HDInsight
+description: 타사 Apache Hadoop 애플리케이션 Dataiku DDS를 설치하여 사용합니다.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: facee9187528fa0c6a74f71ee73636dc23ca35ba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31394621"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499134"
 ---
-# <a name="install-published-application---dataiku-dds"></a>게시된 응용 프로그램 설치 - Dataiku DDS
+# <a name="install-published-application---dataiku-dds"></a>게시된 애플리케이션 설치 - Dataiku DDS
 
-이 문서에서는 게시된 Hadoop 응용 프로그램 [Dataiku DDS](https://www.dataiku.com/)를 Azure HDInsight에 설치하고 실행하는 방법을 설명합니다. HDInsight 응용 프로그램 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+이 문서에서는 Azure HDInsight에 [Dataiku DDS](https://www.dataiku.com/)에서 게시된 [Apache Hadoop](https://hadoop.apache.org/) 애플리케이션을 설치하고 실행하는 방법을 설명합니다. HDInsight 애플리케이션 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 애플리케이션 목록은 [타사 Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 애플리케이션을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 ## <a name="about-dataiku-dss"></a>Dataiku DSS 정보
 
-Dataiku [DSS(Data Science Studio)](https://www.dataiku.com/dss/features/connectivity/)는 데이터 과학자가 분석 솔루션을 빌드하여 제공할 수 있게 도와주는 공동 작업 데이터 과학 플랫폼입니다. DSS를 HDInsight 응용 프로그램으로 제공하면 데이터 과학을 사용하여 빅 데이터 솔루션을 빌드하고 엔터프라이즈급 및 규모에서 실행할 수 있습니다.
+Dataiku [DSS(Data Science Studio)](https://www.dataiku.com/dss/features/connectivity/)는 데이터 과학자가 분석 솔루션을 빌드하여 제공할 수 있게 도와주는 공동 작업 데이터 과학 플랫폼입니다. DSS를 HDInsight 애플리케이션으로 제공하면 데이터 과학을 사용하여 빅 데이터 솔루션을 빌드하고 엔터프라이즈급 및 규모에서 실행할 수 있습니다.
 
 DSS를 사용하여 데이터를 수집, 준비, 처리하는 완전한 분석 솔루션을 구현할 수 있습니다. 또한 DSS 솔루션은 기계 학습 모델, 시각화 및 조작에 대한 교육과 적용을 포함할 수 있습니다.
 
-Hadoop 또는 Spark 클러스터를 사용하여 HDInsight에 DSS를 설치할 수 있습니다. 실행 중인 기존 클러스터에 또는 새 클러스터를 만들 때 DSS를 설치할 수 있습니다. 또한 DSS는 Azure Blob 저장소를 커넥터로 사용하여 데이터를 읽을 수 있습니다.
+[Apache Hadoop](https://hadoop.apache.org/) 또는 [Apache Spark](https://spark.apache.org/) 클러스터를 사용하여 HDInsight에 DSS를 설치할 수 있습니다. 실행 중인 기존 클러스터에 또는 새 클러스터를 만들 때 DSS를 설치할 수 있습니다. 또한 DSS는 Azure Blob 저장소를 커넥터로 사용하여 데이터를 읽을 수 있습니다.
 
-DSS를 사용하여 프로젝트를 빌드한 다음 MapReduce 또는 Spark 작업을 생성할 수 있습니다. 이러한 작업은 HDInsight에서 기본 MapReduce 또는 Spark 작업으로 실행되므로, 필요 시 클러스터 크기를 조정할 수 있습니다.
+DSS를 사용하여 프로젝트를 빌드한 다음, [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 또는 Spark 작업을 생성할 수 있습니다. 이러한 작업은 HDInsight에서 기본 MapReduce 또는 Spark 작업으로 실행되므로, 필요 시 클러스터 크기를 조정할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -43,13 +38,13 @@ DSS를 사용하여 프로젝트를 빌드한 다음 MapReduce 또는 Spark 작�
 * 클러스터 유형: Hadoop, Spark
 * 클러스터 버전: 3.4, 3.5
 
-## <a name="install-the-dataiku-dss-published-application"></a>Dataiku DDS 게시된 응용 프로그램 설치
+## <a name="install-the-dataiku-dss-published-application"></a>Dataiku DDS 게시된 애플리케이션 설치
 
-이 응용 프로그램과 기타 사용 가능한 ISV 응용 프로그램을 설치하는 단계별 지침은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요.
+이 애플리케이션 및 사용 가능한 다른 ISV 애플리케이션을 설치하는 단계별 지침은 [타사 Apache Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요.
 
 ## <a name="launch-dataiku-dss"></a>Dataiku DSS 실행
 
-1. 설치가 끝나면 Azure Portal에서 **설정** 창으로 이동한 다음, **일반** 범주에서 **응용 프로그램**을 클릭하여 클러스터에서 DSS를 실행할 수 있습니다. [설치된 앱] 창에는 설치된 응용 프로그램이 표시됩니다.
+1. 설치가 끝나면 Azure Portal에서 **설정** 창으로 이동한 다음, **일반** 범주에서 **애플리케이션**을 클릭하여 클러스터에서 DSS를 실행할 수 있습니다. [설치된 앱] 창에 설치된 애플리케이션이 나열됩니다.
 
     ![설치된 Dataiku DSS 앱](./media/hdinsight-apps-install-dataiku/app.png)
 
@@ -71,7 +66,7 @@ DSS를 사용하여 프로젝트를 빌드한 다음 MapReduce 또는 Spark 작�
 
     ![새 프로젝트 양식](./media/hdinsight-apps-install-dataiku/new-project-form.png)
 
-4. 새 프로젝트 페이지에서 **+ 첫 번째 데이터 집합 가져오기**를 선택합니다.
+4. 새 프로젝트 페이지에서 **+ 첫 번째 데이터 세트 가져오기**를 선택합니다.
 
     ![파일 업로드](./media/hdinsight-apps-install-dataiku/import-dataset.png)
 
@@ -85,9 +80,9 @@ DSS를 사용하여 프로젝트를 빌드한 다음 MapReduce 또는 Spark 작�
 
     ![저장](./media/hdinsight-apps-install-dataiku/skip-lines.png)
 
-8. 새 데이터 집합의 이름을 입력합니다. 화면 위쪽의 필드에 **haiku_shirt_sales**를 입력한 다음, **만들기** 단추를 선택합니다.
+8. 새 데이터 세트의 이름을 입력합니다. 화면 위쪽의 필드에 **haiku_shirt_sales**를 입력한 다음, **만들기** 단추를 선택합니다.
 
-9. 데이터의 테이블 형식 보기가 표시되며, 여기서 탐색을 시작할 수 있습니다. 각 열에 대해 Dataiku Science Studio가 _파란색_ 데이터 형식을 검색했습니다(이 예에서는 구문 분석되지 않은 텍스트, 숫자 또는 날짜). 계기는 값이 형식과 일치하지 않거나(빨간색) 값이 누락된(비어 있는) 열의 비율을 나타냅니다. 이 예제 데이터 집합에서는 부서에 빈 값과 잘못된 데이터가 전부 있습니다.
+9. 데이터의 테이블 형식 보기가 표시되며, 여기서 탐색을 시작할 수 있습니다. 각 열에 대해 Dataiku Science Studio가 _파란색_ 데이터 형식을 검색했습니다(이 예에서는 구문 분석되지 않은 텍스트, 숫자 또는 날짜). 계기는 값이 형식과 일치하지 않거나(빨간색) 값이 누락된(비어 있는) 열의 비율을 나타냅니다. 이 예제 데이터 세트에서는 부서에 빈 값과 잘못된 데이터가 전부 있습니다.
 
     ![테이블 형식 보기](./media/hdinsight-apps-install-dataiku/viewing-dataset.png)
 
@@ -99,7 +94,7 @@ DSS를 사용하여 프로젝트를 빌드한 다음 MapReduce 또는 Spark 작�
 
     ![랩 단추](./media/hdinsight-apps-install-dataiku/lab-button.png)
 
-2. 랩 창이 열립니다. 랩에서 데이터 집합을 반복적으로 작업하여 익숙해질 수 있습니다. 이 자습서에서는 시각적 분석 측면을 보여줍니다. 시각적 분석 아래에서 **새로 만들기** 단추를 선택합니다. 분석의 이름을 지정하라는 메시지가 표시됩니다. 지금은 기본 이름을 그대로 사용하기로 하고, **만들기**를 클릭합니다.
+2. 랩 창이 열립니다. 랩에서 데이터 세트를 반복적으로 작업하여 익숙해질 수 있습니다. 이 자습서에서는 시각적 분석 측면을 보여줍니다. 시각적 분석 아래에서 **새로 만들기** 단추를 선택합니다. 분석의 이름을 지정하라는 메시지가 표시됩니다. 지금은 기본 이름을 그대로 사용하기로 하고, **만들기**를 클릭합니다.
 
     ![랩 만들기](./media/hdinsight-apps-install-dataiku/create-lab.png)
 

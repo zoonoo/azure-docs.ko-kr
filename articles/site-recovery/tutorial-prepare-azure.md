@@ -1,27 +1,28 @@
 ---
-title: Azure Site Recovery를 사용하여 리소스 만들기 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 온-프레미스 컴퓨터를 복제하기 위해 Azure를 준비하는 방법을 알아봅니다.
+title: Azure Site Recovery를 사용하여 온-프레미스 머신 재해 복구용 Azure 준비 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 온-프레미스 머신 재해 복구용 Azure를 준비하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5c5699d6e25b1f12f87e389011d044315baccd4d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915972"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838874"
 ---
-# <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>온-프레미스 컴퓨터 복제를 위한 Azure 리소스 준비
+# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>온-프레미스 재해 복구를 위한 Azure 리소스 준비
 
  [Azure Site Recovery](site-recovery-overview.md)는 계획된 정전 및 계획되지 않은 정전 중 비즈니스 앱 작동을 유지하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. Site Recovery는 복제, 장애 조치(failover), 복구를 포함하여 온-프레미스 컴퓨터 및 Azure VM(Virtual Machines)의 재해 복구를 오케스트레이션합니다.
 
 이 문서는 온-프레미스 VM에 대한 재해 복구를 설정하는 방법을 보여 주는 자습서 시리즈 중 첫 번째 자습서입니다. 온-프레미스 VMware VM, Hyper-V VM 또는 물리적 서버의 보호 여부와 관련이 있습니다.
 
-자습서는 특정 시나리오의 가장 간단한 배포 경로를 보여주도록 설계되었습니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 
+> [!NOTE]
+> 자습서는 특정 시나리오의 가장 간단한 배포 경로를 보여주도록 설계되었습니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 해당 시나리오에 대한 **방법** 섹션을 참조하세요.
 
 이 문서에서는 온-프레미스 VM(Hyper-V 또는 VMware)이나 Windows/Linux 물리적 서버를 Azure에 복제하려는 경우 Azure 구성 요소를 준비하는 방법을 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -31,11 +32,11 @@ ms.locfileid: "37915972"
 > * Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음은 VM 및 기타 복제 구성 요소에 대한 메타데이터 및 구성 정보를 유지합니다.
 > * Azure 네트워크 설정 장애 조치(failover) 후 만들어지는 Azure VM이 이 Azure 네트워크에 연결됩니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[Azure 포털](http://portal.azure.com)에 로그인합니다.
+[Azure Portal](http://portal.azure.com)에 로그인합니다.
 
 ## <a name="verify-account-permissions"></a>계정 권한 확인
 

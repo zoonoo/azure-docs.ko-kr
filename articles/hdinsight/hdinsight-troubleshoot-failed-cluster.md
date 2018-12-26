@@ -1,25 +1,20 @@
 ---
-title: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결 - Azure HDInsight | Microsoft Docs
+title: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결 - Azure HDInsight
 description: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 진단 및 해결
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.author: ashishth
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
-ms.author: ashishth
-ms.openlocfilehash: bd026169062788fa7587cb6357b3764fbfdb24fb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415914"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950718"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
 
@@ -62,12 +57,13 @@ Azure Portal에서 이 정보를 제공할 수 있습니다.
 
 ![HDInsight Azure Portal 정보](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-Azure CLI를 사용할 수도 있습니다.
+Azure 클래식 CLI를 사용할 수도 있습니다.
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 또 다른 옵션은 PowerShell입니다. 자세한 내용은 [Azure PowerShell을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-powershell.md)를 참조하세요.
 
@@ -105,7 +101,7 @@ HDInsight는 여러 Azure 서비스를 사용합니다. Azure HDInsight에서 �
 
 #### <a name="restart-your-cluster-services"></a>클러스터 서비스 다시 시작
 
-클러스터가 느려지면 Ambari UI 또는 Azure CLI를 통해 서비스를 다시 시작하는 방안을 고려해 봅니다. 클러스터에서 일시적인 오류가 발생할 수 있으며, 재시작은 환경을 안정시키고 성능을 향상하는 가장 빠른 방법입니다.
+클러스터가 느려지면 Ambari UI 또는 Azure 클래식 CLI를 통해 서비스를 다시 시작하는 방안을 고려해 봅니다. 클러스터에서 일시적인 오류가 발생할 수 있으며, 재시작은 환경을 안정시키고 성능을 향상하는 가장 빠른 방법입니다.
 
 ## <a name="step-3-view-your-clusters-health"></a>3단계: 클러스터 상태 확인
 

@@ -9,15 +9,16 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c51c79b85f5277496a3b8f80fe2487136a9fcbc1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 13ba4d774cbc347830c32385ba4927a0df687159
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228617"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035473"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Automation에서 Log Analytics로 작업 상태 및 작업 스트림 전달
-Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상태 및 작업 스트림을 보낼 수 있습니다. 개별 작업에 대해 Azure Portal에서 또는 PowerShell을 사용하여 작업 로그 및 작업 스트림을 볼 수 있으며 이를 통해 보다 간단한 조사가 가능합니다. 이제 Log Anaytics를 사용하여 다음을 수행할 수 있습니다.
+
+Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상태 및 작업 스트림을 보낼 수 있습니다. 이 프로세스는 작업 영역 링크 설정을 포함하지 않고 완전히 독립적입니다. 개별 작업에 대해 Azure Portal에서 또는 PowerShell을 사용하여 작업 로그 및 작업 스트림을 볼 수 있으며 이를 통해 보다 간단한 조사가 가능합니다. 이제 Log Anaytics를 사용하여 다음을 수행할 수 있습니다.
 
 * Automation 작업에 대한 통찰력 확보
 * Runbook 작업 상태(예: 실패 또는 일시 중단)를 기반으로 이메일 또는 경고 트리거
@@ -26,25 +27,25 @@ Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상태 및 
 * 시간별 작업 기록 시각화
 
 ## <a name="prerequisites-and-deployment-considerations"></a>필수 구성 요소 및 배포 고려 사항
+
 Automation 로그를 Log Analytics로 보내려면 다음이 필요합니다.
 
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)의 2016년 11월(v2.3.0) 이후 릴리스
 * Log Analytics 작업 영역. 자세한 내용은 [Log Analytics 시작](../log-analytics/log-analytics-get-started.md)을 참조하세요. 
 * Azure Automation 계정에 대한 ResourceId
 
-
 Azure Automation 계정에 대한 ResourceId를 찾으려면:
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
-Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+Get-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
 Log Analytics 작업 영역에 대한 ResourceId를 찾으려면 다음 PowerShell을 실행합니다.
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
-Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+Get-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
 두 개 이상의 Automation 계정 또는 작업 영역이 있는 경우 이전 명령의 출력에서 구성해야 하는 *이름*을 찾고 *ResourceId* 값을 복사합니다.
@@ -159,7 +160,18 @@ Automation 작업 로그를 Log Analytics로 보내기 시작했으므로 이제
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
 <br> ![Log Analytics 기록 작업 상태 차트](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
+## <a name="remove-diagnostic-settings"></a>진단 설정 제거
+
+Automation 계정에서 진단 설정을 제거하려면 다음 명령을 실행합니다.
+
+```powershell-interactive
+$automationAccountId = "[resource id of your automation account]"
+
+Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+```
+
 ## <a name="summary"></a>요약
+
 Automation 작업 상태 및 스트림 데이터를 Log Analytics로 전송하면 다음과 같은 작업을 통해 Automation 작업의 상태를 보다 정확히 파악할 수 있습니다.
 + 문제가 발생할 때 알리도록 경고 설정
 + 사용자 지정 보기와 검색 쿼리를 사용하여 runbook 결과, runbook 작업 상태 및 기타 관련된 핵심 지표 또는 메트릭 시각화.  

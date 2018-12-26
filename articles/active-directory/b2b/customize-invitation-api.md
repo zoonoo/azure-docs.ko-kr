@@ -1,21 +1,21 @@
 ---
 title: Azure Active Directory B2B 공동 작업 API 및 사용자 지정 | Microsoft Docs
-description: Azure Active Directory B2B 공동 작업은 비즈니스 파트너가 선택적으로 회사 응용 프로그램에 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다.
+description: Azure Active Directory B2B 공동 작업은 비즈니스 파트너가 선택적으로 회사 애플리케이션에 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다.
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: reference
 ms.date: 04/11/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: e53bac5bca199fe08d53f232416a1c6432148f34
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: a2a869c04034f8ca38e80e1bf10518d22e38bcbc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259752"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286999"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 공동 작업 API 및 사용자 지정
 
@@ -75,11 +75,11 @@ API는 다음과 같은 인증 모드에서 실행될 수 있습니다.
 ### <a name="app-only-mode"></a>앱 전용 모드
 앱 전용 컨텍스트에서 초대가 성공하려면 앱에 User.Invite.All 범위가 필요합니다.
 
-자세한 내용은 https://graph.microsoft.io/docs/authorization/permission_scopes를 참조하세요.
+자세한 내용은 https://developer.microsoft.com/graph/docs/authorization/permission_scopes를 참조하세요.
 
 
 ## <a name="powershell"></a>PowerShell
-이제 PowerShell을 사용하여 외부 사용자를 조직에 쉽게 추가하고 초대할 수 있습니다. cmdlet을 사용하여 초대 만들기
+PowerShell을 사용하여 외부 사용자를 조직에 쉽게 추가하고 초대할 수 있습니다. cmdlet을 사용하여 초대 만들기
 
 ```
 New-AzureADMSInvitation
@@ -92,7 +92,25 @@ New-AzureADMSInvitation
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-[https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)에서 초대 API 참조를 확인할 수 있습니다.
+### <a name="invitation-status"></a>초대 상태
+
+외부 사용자에게 초대를 보낸 후 **Get-AzureADUser** cmdlet을 사용하여 해당 사용자가 수락했는지 확인할 수 있습니다. Get-AzureADUser의 다음 속성은 외부 사용자에게 초대를 보낼 때 채워집니다.
+
+* **UserState**는 초대가 **PendingAcceptance** 또는 **Accepted**인지 여부를 나타냅니다.
+* **UserStateChangedOn**은 **UserState** 속성의 최신 변경에 대한 타임스탬프를 표시합니다.
+
+**Filter** 옵션을 사용하여 **UserState**별로 결과를 필터링할 수 있습니다. 아래 예제에서는 보류 중인 초대를 보유한 사용자만 표시하도록 결과를 필터링하는 방법을 보여 줍니다. 이 예제에서는 표시할 속성을 지정할 수 있는 **Format-List** 옵션도 보여 줍니다. 
+ 
+```
+Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
+```
+
+> [!NOTE]
+> AzureAD PowerShell 모듈 또는 AzureADPreview PowerShell 모듈의 최신 버전이 있는지 확인합니다. 
+
+## <a name="see-also"></a>참고 항목
+
+[https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)에서 초대 API 참조를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,20 +12,25 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ROBOTS: NOINDEX
+ms.openlocfilehash: 83d6f529330a05e6a7c46ad45b19f0338f93bfc7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35640645"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995094"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 이미지 분류
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 이미지 분류 방법은 많은 수의 컴퓨터 시각화 문제를 해결하는 데 사용할 수 있습니다.
 여기에는 *이미지에 개체가 있습니까?* 와 같은 질문에 답하는 건물 모델이 포함되며, 이러한 개체로 *개*, *자동차* 또는 *배* 등이 있습니다 또는 *이 환자의 망막 스캔을 통해 안과 질환에 대해 어떤 종류의 심각도가 표시됩니까?* 와 같이 더 복잡한 질문도 있습니다.
 
 이 자습서에서는 이러한 문제를 해결하는 방법에 대해 설명합니다. 심층적인 학습을 위해 [Microsoft CNTK(Cognitive Toolkit)](https://docs.microsoft.com/cognitive-toolkit/)를 사용하여 자신의 이미지 분류 모델을 학습, 평가 및 배포하는 방법을 보여 줍니다.
-예제 이미지가 제공되지만 사용자 고유의 데이터 집합을 가져와서 자신의 사용자 지정 모델을 학습할 수도 있습니다.
+예제 이미지가 제공되지만 사용자 고유의 데이터 세트를 가져와서 자신의 사용자 지정 모델을 학습할 수도 있습니다.
 
 컴퓨터 시각화 솔루션에서는 일반적으로 이미지에서 원하는 정보를 강조 표시하는 소위 *기능*을 수동으로 식별하고 구현하는 전문 지식이 필요했습니다.
 수동적인 이 접근 방식은 2012년 [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)의 유명한 [1] Deep Learning(심층 학습) 논문을 통해 변경되었으며, 현재 DNN(Deep Nural Networks, 심층 신경망)은 이러한 기능을 자동으로 찾는 데 사용됩니다.
@@ -41,7 +46,7 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
 
 - 1부 - 미리 학습된 DNN을 featurizer(패턴 변환기)로 사용하여 이미지 분류 시스템을 학습, 평가 및 배포하는 방법을 보여 주며, 출력 시 SVM(Support Vector Machine)을 학습합니다.
 - 2부 - DNN을 고정된 패턴 변환기로 사용하는 대신 구체화하는 방식과 같이 정확도를 향상시키는 방법을 보여 줍니다.
-- 3부 - 제공된 예제 이미지 대신 사용자 고유의 데이터 집합을 사용하는 방법과 필요에 따라 네트워크에서 이미지를 스크랩하여 사용자 고유의 데이터 집합을 생성하는 방법에 대해 설명합니다.
+- 3부 - 제공된 예제 이미지 대신 사용자 고유의 데이터 세트를 사용하는 방법과 필요에 따라 네트워크에서 이미지를 스크랩하여 사용자 고유의 데이터 세트를 생성하는 방법에 대해 설명합니다.
 
 기계 학습 및 CNTK에 대한 이전의 경험은 필요하지 않지만 기본 원리를 이해하는 데 도움이 됩니다. 자습서에서 보고된 정확도 숫자, 학습 시간 등은 참조용일 뿐이며, 코드 실행 시의 실제 값은 거의 틀림없이 다릅니다.
 
@@ -51,7 +56,7 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
 이 예제를 실행하기 위한 필수 조건은 다음과 같습니다.
 
 1. [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
-2. [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) - [빠른 시작 설치 가이드](../service/quickstart-installation.md)에 따라 프로그램을 설치하고 작업 영역을 만들 수 있습니다.  
+2. [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) - [빠른 시작 설치 가이드](quickstart-installation.md)에 따라 프로그램을 설치하고 작업 영역을 만들 수 있습니다.  
 3. Windows 컴퓨터 - Workbench는 Windows와 MacOS만 지원하므로 Windows OS가 필요하지만, Microsoft Cognitive Toolkit(심층 학습 라이브러리로 사용됨)는 Windows와 Linux만 지원합니다.
 4. 전용 GPU - 1부에서 SVM 학습을 실행하는 데에는 필요하지 않지만, 2부에서 설명하는 DNN을 구체화하는 데에는 필요합니다. 강력한 GPU가 부족하거나, 여러 GPU에서 학습하려거나, Windows 컴퓨터가 없는 경우 Windows 운영 체제에서 Azure의 Deep Learning Virtual Machine을 사용하는 것이 좋습니다. 한 번 클릭으로 배포 가이드에 대해서는 [여기](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)를 참조하세요. 배포가 완료되면 원격 데스크톱 연결을 통해 VM에 연결하고, Workbench를 설치한 다음, VM에서 로컬로 코드를 실행합니다.
 5. OpenCV와 같은 다양한 Python 라이브러리를 설치해야 합니다. Workbench의 *파일* 메뉴에서 *명령 프롬프트 열기*를 클릭하고 다음 명령을 실행하여 이러한 종속 항목을 설치합니다.  
@@ -95,7 +100,7 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
 
 ## <a name="data-description"></a>데이터 설명
 
-이 자습서에서는 최대 428개의 이미지로 구성된 상반신 의류 질감 데이터 집합을 실행 예제로 사용합니다. 각 이미지는 서로 다른 세 가지 질감(점 무늬, 줄 무늬, 표범 무늬) 중 하나로 주석 처리됩니다. 이 자습서를 빨리 실행할 수 있도록 이미지 수를 줄였습니다. 그러나 이 코드는 충분히 테스트되었으며 수만 개 이상의 이미지로 작동합니다. Bing Image Search를 사용하여 모든 이미지를 스크랩하고 [3부](#using-a-custom-dataset)에서 설명한 대로 주석을 직접 달았습니다. 해당 속성이 있는 이미지 URL은 */resources/fashionTextureUrls.tsv* 파일에 나열됩니다.
+이 자습서에서는 최대 428개의 이미지로 구성된 상반신 의류 질감 데이터 세트를 실행 예제로 사용합니다. 각 이미지는 서로 다른 세 가지 질감(점 무늬, 줄 무늬, 표범 무늬) 중 하나로 주석 처리됩니다. 이 자습서를 빨리 실행할 수 있도록 이미지 수를 줄였습니다. 그러나 이 코드는 충분히 테스트되었으며 수만 개 이상의 이미지로 작동합니다. 모든 이미지는 [3부](#using-a-custom-dataset)에서 설명한 대로 주석을 직접 달았습니다. 해당 속성이 있는 이미지 URL은 */resources/fashionTextureUrls.tsv* 파일에 나열됩니다.
 
 `0_downloadData.py` 스크립트는 모든 이미지를 *DATA_DIR/images/fashionTexture/* 디렉터리에 다운로드합니다. 428개 URL 중 일부가 손상되었을 수도 있습니다. 이 경우 그다지 문제가 되지 않으며, 학습 및 테스트에 맞게 이미지 수가 약간 줄었음을 의미합니다. 이 샘플에서 제공되는 모든 스크립트는 로컬로 실행되어야 하고 Docker 원격 환경 등에서 실행되면 안 됩니다.
 
@@ -157,7 +162,7 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
 ### <a name="step-4-support-vector-machine-training"></a>4단계: SVM(Support Vector Machine) 지원
 `Script: 4_trainSVM.py`
 
-마지막 단계에서 계산된 512개 부동 소수점 수 표현은 이제 SVM 분류자를 학습하는 데 사용됩니다. 이미지를 입력으로 지정하면 SVM에서 존재할 각 특성에 대한 점수를 출력합니다. 이 예제 데이터 집합에서는 '줄 무늬', '점 무늬' 및 '표범 무늬'에 대한 점수를 의미합니다.
+마지막 단계에서 계산된 512개 부동 소수점 수 표현은 이제 SVM 분류자를 학습하는 데 사용됩니다. 이미지를 입력으로 지정하면 SVM에서 존재할 각 특성에 대한 점수를 출력합니다. 이 예제 데이터 세트에서는 '줄 무늬', '점 무늬' 및 '표범 무늬'에 대한 점수를 의미합니다.
 
 `4_trainSVM.py` 스크립트는 학습 이미지를 로드하고, C 정규화(슬랙) 매개 변수의 다른 값에 대해 SVM을 학습하며, SVM을 가장 높은 정확도로 유지합니다. 분류 정확도는 콘솔에 출력되고 Workbench에 표시됩니다. 제공된 질감 데이터의 경우 이러한 값은 대략 각각 100% 및 88%여야 합니다. 마지막으로 학습된 SVM은 *DATA_DIR/proc/fashionTexture/cntkFiles/svm.np* 파일에 기록됩니다.
 
@@ -224,7 +229,7 @@ SVM 대신 신경망을 학습하는 경우 `PARAMETERS.py`의 `classifier` 변�
 <img src="media/scenario-image-classification-using-cntk/output_script_3_plot.png" alt="alt text" height="300"/>
 </p>
 
-아래 플롯에서 알 수 있듯이 제공된 데이터 집합에서 DNN 구체화를 사용한 정확도는 92.35%와 88.92%(1부) 사이입니다. 특히 ROC 영역 아래의 곡선이 앞서의 0.94에서 0.98로 자세히 구체화되어 '점선' 이미지는 크게 향상되었습니다. 작은 데이터 집합을 사용하고 있으므로 코드를 실행하는 실제 정확도는 다릅니다. 이러한 불일치는 이미지를 임의로 학습 및 테스트 집합으로 분할하는 것과 같은 확률적 효과 때문입니다.
+아래 플롯에서 알 수 있듯이 제공된 데이터 세트에서 DNN 구체화를 사용한 정확도는 92.35%와 88.92%(1부) 사이입니다. 특히 ROC 영역 아래의 곡선이 앞서의 0.94에서 0.98로 자세히 구체화되어 '점선' 이미지는 크게 향상되었습니다. 작은 데이터 세트를 사용하고 있으므로 코드를 실행하는 실제 정확도는 다릅니다. 이러한 불일치는 이미지를 임의로 학습 및 테스트 집합으로 분할하는 것과 같은 확률적 효과 때문입니다.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/roc_confMat_dnn.jpg" alt="alt text" width="700"/>
 </p>
@@ -246,7 +251,7 @@ Azure Machine Learning Workbench는 각 실행의 기록을 Azure에 저장하�
 
 ### <a name="parameter-tuning"></a>매개 변수 튜닝
 
-대부분의 기계 학습 프로젝트와 마찬가지로 새 데이터 집합에 대해 좋은 결과를 얻으려면 신중한 매개 변수 튜닝과 다양한 설계 결정에 대한 평가가 필요합니다. 이러한 작업을 지원하기 위해 지정된 모든 중요한 매개 변수와 간단한 설명이 한 곳(`PARAMETERS.py` 파일)에서 제공됩니다.
+대부분의 기계 학습 프로젝트와 마찬가지로 새 데이터 세트에 대해 좋은 결과를 얻으려면 신중한 매개 변수 튜닝과 다양한 설계 결정에 대한 평가가 필요합니다. 이러한 작업을 지원하기 위해 지정된 모든 중요한 매개 변수와 간단한 설명이 한 곳(`PARAMETERS.py` 파일)에서 제공됩니다.
 
 기능 향상을 위해 가장 가능성 있는 방법은 다음과 같습니다.
 
@@ -261,18 +266,18 @@ Azure Machine Learning Workbench는 각 실행의 기록을 Azure에 저장하�
 
 - `rf_pretrainedModelFilename`을 `ResNet_18.model`에서 `ResNet_34.model` 또는 `ResNet_50.model`로 변경하여 더 깊은 DNN을 사용해 봅니다. Resnet-50 모델은 더 깊을 뿐만 아니라 끝에서 두 번째 계층의 출력의 크기가 2,048개 부동 소수점 수입니다(ResNet-18 및 ResNet-34 모델의 경우 512개 부동 소수점 수). 이 증가된 차원은 SVM 분류자를 학습할 때 특히 유용할 수 있습니다.
 
-## <a name="part-3---custom-dataset"></a>3부 - 사용자 지정 데이터 집합
+## <a name="part-3---custom-dataset"></a>3부 - 사용자 지정 데이터 세트
 
-1부와 2부에서 제공된 상반신 의류 질감 이미지를 사용하여 이미지 분류 모델을 학습하고 평가했습니다. 이제 사용자 지정된 사용자 제공 데이터 집합을 사용하는 방법을 보여 줍니다. 또는 이 집합을 사용할 수 없는 경우 Bing Image Search를 사용하여 이러한 데이터 집합을 생성하고 주석을 추가하는 방법을 사용할 수 있습니다.
+1부와 2부에서 제공된 상반신 의류 질감 이미지를 사용하여 이미지 분류 모델을 학습하고 평가했습니다. 이제 사용자 지정된 사용자 제공 데이터 세트를 사용하는 방법을 보여 줍니다. 
 
-### <a name="using-a-custom-dataset"></a>사용자 지정 데이터 집합 사용
+### <a name="using-a-custom-dataset"></a>사용자 지정 데이터 세트 사용
 
-먼저 의류 질감 데이터의 폴더 구조를 살펴보겠습니다. 서로 다른 특성에 대한 모든 이미지가 *DATA_DIR/images/fashionTexture/* 의 *dotted*, *leopard 및 *striped* 하위 폴더 각각에 있는 상태에 유의하세요. 또한 이미지 폴더 이름이 `PARAMETERS.py` 파일에서 발생하는 방법에도 유의하세요.
+먼저 의류 질감 데이터의 폴더 구조를 살펴보겠습니다. 서로 다른 특성에 대한 모든 이미지가 *DATA_DIR/images/fashionTexture/* 의 *dotted*, *leopard* 및 *striped* 하위 폴더 각각에 있는 상태에 유의하세요. 또한 이미지 폴더 이름이 `PARAMETERS.py` 파일에서 발생하는 방법에도 유의하세요.
 ```python
 datasetName = "fashionTexture"
 ```
 
-사용자 지정 데이터 집합을 사용하는 것은 모든 이미지가 해당 특성에 따라 하위 폴더에 있는 이 폴더 구조를 재현하고, 이러한 하위 폴더를 새로운 *DATA_DIR/images/newDataSetName/* 사용자 지정 디렉터리에 복사하는 것처럼 간단합니다. 필요한 유일한 코드 변경은 `datasetName` 변수를 *newDataSetName*으로 설정하는 것입니다. 그런 다음 1-5 스크립트를 순서대로 실행하고, 모든 중간 파일을 *DATA_DIR/proc/newDataSetName/* 에 기록합니다. 다른 코드 변경은 필요하지 않습니다.
+사용자 지정 데이터 세트를 사용하는 것은 모든 이미지가 해당 특성에 따라 하위 폴더에 있는 이 폴더 구조를 재현하고, 이러한 하위 폴더를 새로운 *DATA_DIR/images/newDataSetName/* 사용자 지정 디렉터리에 복사하는 것처럼 간단합니다. 필요한 유일한 코드 변경은 `datasetName` 변수를 *newDataSetName*으로 설정하는 것입니다. 그런 다음 1-5 스크립트를 순서대로 실행하고, 모든 중간 파일을 *DATA_DIR/proc/newDataSetName/* 에 기록합니다. 다른 코드 변경은 필요하지 않습니다.
 
 각 이미지를 정확하게 하나의 특성에 할당해야 합니다. 예를 들어 '표범 무늬' 이미지가 '동물'에 속하기 때문에 '동물' 및 '표범'에 대한 특성을 사용하는 것은 올바르지 않습니다. 또한 모호하고 이에 따라 주석을 달기 어려운 이미지는 제거하는 것이 가장 좋습니다.
 
@@ -280,14 +285,23 @@ datasetName = "fashionTexture"
 
 ### <a name="image-scraping-and-annotation"></a>이미지 스크랩 및 주석
 
-학습 및 테스트를 위해 충분히 많은 수의 주석 처리된 이미지를 수집하는 것은 어려울 수 있습니다. 이 문제를 해결하는 한 가지 방법은 인터넷에서 이미지를 스크랩하는 것입니다. 예를 들어 *스트라이프 티셔츠* 쿼리에 대한 아래의 Bing Image Search 결과를 참조하세요. 예상한 대로 대부분의 이미지는 실제로 스트라이프 티셔츠입니다. 몇 가지 부정확하거나 모호한 이미지(예: 1열, 1행 또는 3열 2행)를 쉽게 식별하고 제거할 수 있습니다.
+학습 및 테스트를 위해 충분히 많은 수의 주석 처리된 이미지를 수집하는 것은 어려울 수 있습니다. 이 문제를 해결하는 한 가지 방법은 인터넷에서 이미지를 스크랩하는 것입니다.
+
+> [!IMPORTANT] 
+> 사용하는 이미지의 경우 이미지의 저작권 및 라이선스를 위반하지 않는지 확인합니다. 
+
+<!--
+For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
+-->
 
-크고 다양한 데이터 집합을 생성하려면 여러 쿼리를 사용해야 합니다. 예를 들어 7\*3 = 21개의 쿼리는 {블라우스, 후드, 풀오버, 스웨터, 셔츠, 티셔츠, 조끼} 의류 품목 및 {줄 무늬, 점 무늬, 표범 무늬} 특성의 모든 조합을 사용하여 자동으로 합성할 수 있습니다. 쿼리당 상위 50개의 이미지를 다운로드하는 경우 최대 21 * 50 = 1,050개 이미지가 됩니다.
+크고 다양한 데이터 세트를 생성하려면 여러 쿼리를 사용해야 합니다. 예를 들어 7\*3 = 21개의 쿼리는 {블라우스, 후드, 풀오버, 스웨터, 셔츠, 티셔츠, 조끼} 의류 품목 및 {줄 무늬, 점 무늬, 표범 무늬} 특성의 모든 조합을 사용하여 자동으로 합성할 수 있습니다. 쿼리당 상위 50개의 이미지를 다운로드하는 경우 최대 21 * 50 = 1,050개 이미지가 됩니다.
 
-Bing Image Search에서 이미지를 수동으로 다운로드하는 대신 [Cognitive Services Bing Image Search API](https://www.microsoft.com/cognitive-services/bing-image-search-api)를 사용하면, 쿼리 문자열에 지정된 일단의 이미지 URL을 반환하는 것이 훨씬 쉽습니다.
+<!--
+Rather than manually downloading images from Bing Image Search, it is much easier to instead use the [Cognitive Services Bing Image Search API](https://www.microsoft.com/cognitive-services/bing-image-search-api) which returns a set of image URLs given a query string.
+-->
 
 다운로드한 이미지 중 일부는 정확하거나 거의 중복된 이미지입니다(예: 이미지 해상도 또는 jpg 아티팩트에 따라 다를 수 있음). 이러한 중복은 분할되는 학습 및 테스트 집합에 동일한 이미지가 포함되지 않도록 제거해야 합니다. 해싱 기반 접근 방식을 사용하여 중복된 이미지를 제거할 수 있습니다. 이 방법은 두 단계로 작동합니다. 즉 (i) 먼저 모든 이미지에 대해 해시 문자열이 계산됩니다. (ii) 다음으로 이미지에 대한 두 번째 통과에서 아직 표시되지 않은 해시 문자열이 있는 이미지만 유지됩니다. 다른 모든 이미지는 무시됩니다. `imagehash` Python 라이브러리에서 `dhash` 방법을 찾을 수 있고 이 [블로그](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html)에서 설명하는 `hash_size` 매개 변수를 16으로 설정하여 수행합니다. 실제로 중복된 이미지 대부분을 제거할 수 있다면 중복되지 않은 이미지 일부만 제거하면 됩니다.
 
@@ -299,7 +313,7 @@ Bing Image Search에서 이미지를 수동으로 다운로드하는 대신 [Cog
 
 이 예제의 주요 특징은 다음과 같습니다.
 - 이미지 분류 모델을 학습, 평가 및 배포하는 코드입니다.
-- 데모 이미지가 제공되지만, 사용자 고유의 이미지 데이터 집합을 사용하도록 쉽게 적용할 수 있습니다(한 줄 변경).
+- 데모 이미지가 제공되지만, 사용자 고유의 이미지 데이터 세트를 사용하도록 쉽게 적용할 수 있습니다(한 줄 변경).
 - 학습 전송에 따라 한 높은 정확도 모델을 학습하도록 구현된 최첨단 전문가 기능입니다.
 - Azure Machine Learning Workbench 및 Jupyter Notebook을 사용하는 대화형 모델 개발입니다.
 

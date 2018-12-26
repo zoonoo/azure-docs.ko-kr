@@ -1,41 +1,41 @@
 ---
-title: Functions에 대한 Azure Cosmos DB 바인딩 2.x(미리 보기)
+title: Functions 2.x의 Azure Cosmos DB 바인딩
 description: Azure Functions에서 Azure Cosmos DB 트리거 및 바인딩을 사용하는 방법을 파악합니다.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: craigshoemaker
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
-ms.service: functions; cosmos-db
+ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
-ms.author: tdykstra
-ms.openlocfilehash: e40ba6bcfa1b6247f62849626d4a7803a76362a1
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.author: cshoe
+ms.openlocfilehash: 24bc0b19d03148e98083fe6d21dd3980fcdf3714
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234872"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276616"
 ---
-# <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure Functions 2.x에 대한 Azure Cosmos DB 바인딩(미리 보기)
+# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Functions 2.x의 Azure Cosmos DB 바인딩
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
-> * [버전 1 - GA](functions-bindings-cosmosdb.md)
-> * [버전 2 - 미리 보기](functions-bindings-cosmosdb-v2.md)
+> * [버전 1](functions-bindings-cosmosdb.md)
+> * [버전 2](functions-bindings-cosmosdb-v2.md)
 
 이 아티클에서는 Azure Functions 2.x에서 [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) 바인딩을 사용하는 방법을 설명합니다. Azure Functions는 Azure Cosmos DB에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
 
 > [!NOTE]
-> 이 아티클은 미리 보기 상태인 [Azure Functions 버전 2.x](functions-versions.md)에 대한 것입니다.  Functions 1.x에서 이러한 바인딩을 사용하는 방법에 대한 내용은 [Azure Functions 1.x에 대한 Azure Cosmos DB 바인딩](functions-bindings-cosmosdb.md)을 참조하세요.
+> 이 문서는 [Azure Functions 버전 2.x](functions-versions.md)용입니다.  Functions 1.x에서 이러한 바인딩을 사용하는 방법에 대한 내용은 [Azure Functions 1.x에 대한 Azure Cosmos DB 바인딩](functions-bindings-cosmosdb.md)을 참조하세요.
 >
 > 이 바인딩의 원래 이름은 DocumentDB입니다. Functions 버전 2.x에서는 트리거, 바인딩 및 패키지의 이름이 모두 Cosmos DB로 지정됩니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>지원되는 API
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
 
@@ -54,6 +54,7 @@ Azure Cosmos DB 트리거는 [Azure Cosmos DB 변경 피드](../cosmos-db/change
 * [C#](#trigger---c-example)
 * [C# 스크립트(.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 [트리거 건너뛰기 예제](#trigger---attributes)
 
@@ -66,6 +67,7 @@ using Microsoft.Azure.Documents;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -78,12 +80,12 @@ namespace CosmosDBSamplesV2
             ConnectionStringSetting = "CosmosDBConnection",
             LeaseCollectionName = "leases",
             CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> documents, 
-            TraceWriter log)
+            ILogger log)
         {
             if (documents != null && documents.Count > 0)
             {
-                log.Info($"Documents modified: {documents.Count}");
-                log.Info($"First document Id: {documents[0].Id}");
+                log.LogInformation($"Documents modified: {documents.Count}");
+                log.LogInformation($"First document Id: {documents[0].Id}");
             }
         }
     }
@@ -119,12 +121,12 @@ C# 스크립트 코드는 다음과 같습니다.
     using System;
     using Microsoft.Azure.Documents;
     using System.Collections.Generic;
-    
+    using Microsoft.Extensions.Logging;
 
-    public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
+    public static void Run(IReadOnlyList<Document> documents, ILogger log)
     {
-      log.Verbose("Documents modified " + documents.Count);
-      log.Verbose("First document Id " + documents[0].Id);
+      log.LogInformation("Documents modified " + documents.Count);
+      log.LogInformation("First document Id " + documents[0].Id);
     }
 ```
 
@@ -159,7 +161,43 @@ JavaScript 코드는 다음과 같습니다.
     }
 ```
 
-## <a name="trigger---attributes"></a>트리거 - 특성
+### <a name="trigger---java-example"></a>트리거 - Java 예제
+
+다음 예제에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [Java 함수](functions-reference-java.md)를 보여줍니다. 지정한 데이터베이스 및 컬렉션에서 삽입 또는 업데이트가 있을 때 함수가 호출됩니다.
+
+```json
+{
+    "type": "cosmosDBTrigger",
+    "name": "items",
+    "direction": "in",
+    "leaseCollectionName": "leases",
+    "connectionStringSetting": "AzureCosmosDBConnection",
+    "databaseName": "ToDoList",
+    "collectionName": "Items",
+    "createLeaseCollectionIfNotExists": false
+}
+```
+
+Java 코드는 다음과 같습니다.
+
+```java
+    @FunctionName("cosmosDBMonitor")
+    public void cosmosDbProcessor(
+        @CosmosDBTrigger(name = "items",
+            databaseName = "ToDoList",
+            collectionName = "Items",
+            leaseCollectionName = "leases",
+            createLeaseCollectionIfNotExists = true,
+            connectionStringSetting = "AzureCosmosDBConnection") String[] items,
+            final ExecutionContext context ) {
+                context.getLogger().info(items.length + "item(s) is/are changed.");
+            }
+```
+
+
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 매개 변수에 대한 `@CosmosDBTrigger` 주석을 사용합니다.  옵션 <T>를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다. 
+
+## <a name="trigger---c-attributes"></a>트리거 - C# 특성
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) 특성을 사용합니다.
 
@@ -170,13 +208,14 @@ JavaScript 코드는 다음과 같습니다.
     public static void Run(
         [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
     IReadOnlyList<Document> documents,
-        TraceWriter log)
+        ILogger log)
     {
         ...
     }
 ```
 
 전체 예제는 [트리거 - C# 예제](#trigger---c-example)를 참조하세요.
+
 
 ## <a name="trigger---configuration"></a>트리거 - 구성
 
@@ -216,10 +255,7 @@ JavaScript 코드는 다음과 같습니다.
 
 ## <a name="input"></a>입력
 
-Azure Cosmos DB 입력 바인딩은 하나 이상의 Azure Cosmos DB 문서를 검색하여 함수의 입력 매개 변수에 전달합니다. 문서 ID 또는 쿼리 매개 변수는 함수를 호출하는 트리거를 기반으로 결정할 수 있습니다. 
-
->[!NOTE]
-> Cosmos DB 계정에서 MongoDB API를 사용하는 경우 Azure Cosmos DB 입력 또는 출력 바인딩을 사용하지 마세요. 데이터가 손상될 수 있습니다.
+Azure Cosmos DB 입력 바인딩은 SQL API를 사용하여 하나 이상의 Azure Cosmos DB 문서를 검색하고, 함수의 입력 매개 변수에 전달합니다. 문서 ID 또는 쿼리 매개 변수는 함수를 호출하는 트리거를 기반으로 결정할 수 있습니다. 
 
 ## <a name="input---examples"></a>입력 - 예제
 
@@ -229,6 +265,7 @@ ID 값을 지정하여 단일 문서를 읽는 언어 관련 예제를 참조하
 * [C# 스크립트(.csx)](#input---c-script-examples)
 * [JavaScript](#input---javascript-examples)
 * [F#](#input---f-examples)
+* [Java](#input---java-examples)
 
 [입력 건너뛰기 예제](#input---attributes)
 
@@ -275,6 +312,7 @@ namespace CosmosDBSamplesV2
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -288,17 +326,17 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
                 Id = "{ToDoItemId}")]ToDoItem toDoItem,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId}");
+            log.LogInformation($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId}");
 
             if (toDoItem == null)
             {
-                log.Info($"ToDo item not found");
+                log.LogInformation($"ToDo item not found");
             }
             else
             {
-                log.Info($"Found ToDo item, Description={toDoItem.Description}");
+                log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
             }
         }
     }
@@ -317,6 +355,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -331,17 +370,17 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
                 Id = "{Query.id}")] ToDoItem toDoItem,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             if (toDoItem == null)
             {
-                log.Info($"ToDo item not found");
+                log.LogInformation($"ToDo item not found");
             }
             else
             {
-                log.Info($"Found ToDo item, Description={toDoItem.Description}");
+                log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
             }
             return new OkResult();
         }
@@ -361,6 +400,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -375,17 +415,17 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
                 Id = "{id}")] ToDoItem toDoItem,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             if (toDoItem == null)
             {
-                log.Info($"ToDo item not found");
+                log.LogInformation($"ToDo item not found");
             }
             else
             {
-                log.Info($"Found ToDo item, Description={toDoItem.Description}");
+                log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
             }
             return new OkResult();
         }
@@ -409,6 +449,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -422,13 +463,13 @@ namespace CosmosDBSamplesV2
                 ConnectionStringSetting = "CosmosDBConnection", 
                 SqlQuery = "select * from ToDoItems r where r.id = {id}")]
                 IEnumerable<ToDoItem> toDoItems,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             foreach (ToDoItem toDoItem in toDoItems)
             {
-                log.Info(toDoItem.Description);
+                log.LogInformation(toDoItem.Description);
             }
             return new OkResult();
         }
@@ -449,6 +490,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -464,12 +506,12 @@ namespace CosmosDBSamplesV2
                 ConnectionStringSetting = "CosmosDBConnection", 
                 SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")]
                 IEnumerable<ToDoItem> toDoItems,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
             foreach (ToDoItem toDoItem in toDoItems)
             {
-                log.Info(toDoItem.Description);
+                log.LogInformation(toDoItem.Description);
             }
             return new OkResult();
         }
@@ -492,6 +534,7 @@ using Microsoft.Azure.Documents.Linq;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -508,9 +551,9 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")] DocumentClient client,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             var searchterm = req.Query["searchterm"];
             if (string.IsNullOrWhiteSpace(searchterm))
@@ -520,7 +563,7 @@ namespace CosmosDBSamplesV2
 
             Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
 
-            log.Info($"Searching for: {searchterm}");
+            log.LogInformation($"Searching for: {searchterm}");
 
             IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
                 .Where(p => p.Description.Contains(searchterm))
@@ -530,7 +573,7 @@ namespace CosmosDBSamplesV2
             {
                 foreach (ToDoItem result in await query.ExecuteNextAsync())
                 {
-                    log.Info(result.Description);
+                    log.LogInformation(result.Description);
                 }
             }
             return new OkResult();
@@ -543,14 +586,31 @@ namespace CosmosDBSamplesV2
 
 ### <a name="input---c-script-examples"></a>입력 - C# 스크립트 예제
 
-이 섹션에는 다양한 원본의 ID 값을 지정하여 단일 문서를 읽는 다음과 같은 예제가 포함됩니다.
+이 섹션에는 다음 예제가 포함되어 있습니다.
 
-* 큐 트리거, 큐 메시지에서 ID 조회
-* 큐 트리거, 큐 메시지에서 ID 조회, SqlQuery 사용
+* [큐 트리거, 문자열에서 ID 조회](#queue-trigger-look-up-id-from-string-c-script)
+* [큐 트리거, 여러 문서 가져오기, SqlQuery 사용](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
+* [HTTP 트리거, 쿼리 문자열에서 ID 조회](#http-trigger-look-up-id-from-query-string-c-script)
+* [HTTP 트리거, 경로 데이터에서 ID 조회](#http-trigger-look-up-id-from-route-data-c-script)
+* [HTTP 트리거, 여러 문서 가져오기, SqlQuery 사용](#http-trigger-get-multiple-docs-using-sqlquery-c-script)
+* [HTTP 트리거, 여러 문서 가져오기, DocumentClient 사용](#http-trigger-get-multiple-docs-using-documentclient-c-script)
+
+HTTP 트리거 예제에서는 간단한 `ToDoItem` 형식을 참조합니다.
+
+```cs
+namespace CosmosDBSamplesV2
+{
+    public class ToDoItem
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
 
 [입력 건너뛰기 예제](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-queue-message-c-script"></a>큐 트리거, 큐 메시지에서 ID 조회(C# 스크립트)
+#### <a name="queue-trigger-look-up-id-from-string-c-script"></a>큐 트리거, 문자열에서 ID 조회(C# 스크립트)
 
 다음 예에서는 *function.json* 파일의 Cosmos DB 입력 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 이 함수는 단일 문서를 읽고 문서의 텍스트 값을 업데이트합니다.
 
@@ -584,7 +644,7 @@ C# 스크립트 코드는 다음과 같습니다.
 
 [입력 건너뛰기 예제](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-queue-message-using-sqlquery-c-script"></a>큐 트리거, ID 큐 메시지 조회, SqlQuery 사용(C# 스크립트)
+#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>큐 트리거, 여러 문서 가져오기, SqlQuery 사용(C# 스크립트)
 
 다음 예제에서는 *function.json* 파일의 Azure Cosmos DB 입력 바인딩 및 해당 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여 줍니다. 이 함수는 큐 트리거를 사용하여 쿼리 매개 변수를 사용자 지정하여 SQL 쿼리로 지정된 여러 문서를 검색합니다.
 
@@ -625,16 +685,280 @@ C# 스크립트 코드는 다음과 같습니다.
 
 [입력 건너뛰기 예제](#input---attributes)
 
+#### <a name="http-trigger-look-up-id-from-query-string-c-script"></a>HTTP 트리거, 쿼리 문자열에서 ID 조회(C# 스크립트)
+
+다음 예제에서는 단일 문서를 검색하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 조회할 ID를 지정하기 위해 쿼리 문자열을 사용하는 HTTP 요청에 의해 트리거됩니다. ID는 지정된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색하는 데 사용됩니다.
+
+*function.json* 파일은 다음과 같습니다.
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{Query.id}"
+    }
+  ],
+  "disabled": false
+}
+```
+
+C# 스크립트 코드는 다음과 같습니다.
+
+```cs
+using System.Net;
+using Microsoft.Extensions.Logging;
+
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    if (toDoItem == null)
+    {
+         log.LogInformation($"ToDo item not found");
+    }
+    else
+    {
+        log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+[입력 건너뛰기 예제](#input---attributes)
+
+#### <a name="http-trigger-look-up-id-from-route-data-c-script"></a>HTTP 트리거, 경로 데이터에서 ID 조회(C# 스크립트)
+
+다음 예제에서는 단일 문서를 검색하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 조회할 ID를 지정하기 위해 경로 데이터를 사용하는 HTTP 요청에 의해 트리거됩니다. ID는 지정된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색하는 데 사용됩니다.
+
+*function.json* 파일은 다음과 같습니다.
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route":"todoitems/{id}"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{id}"
+    }
+  ],
+  "disabled": false
+}
+```
+
+C# 스크립트 코드는 다음과 같습니다.
+
+```cs
+using System.Net;
+using Microsoft.Extensions.Logging;
+
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    if (toDoItem == null)
+    {
+         log.LogInformation($"ToDo item not found");
+    }
+    else
+    {
+        log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+[입력 건너뛰기 예제](#input---attributes)
+
+#### <a name="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>HTTP 트리거, 여러 문서 가져오기, SqlQuery 사용(C# 스크립트)
+
+다음 예제에서는 문서 목록을 검색하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 HTTP 요청에 의해 트리거됩니다. 쿼리는 `SqlQuery` 특성 속성에 지정됩니다.
+
+*function.json* 파일은 다음과 같습니다.
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItems",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in",
+      "sqlQuery": "SELECT top 2 * FROM c order by c._ts desc"
+    }
+  ],
+  "disabled": false
+}
+```
+
+C# 스크립트 코드는 다음과 같습니다.
+
+```cs
+using System.Net;
+using Microsoft.Extensions.Logging;
+
+public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoItem> toDoItems, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    foreach (ToDoItem toDoItem in toDoItems)
+    {
+        log.LogInformation(toDoItem.Description);
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+[입력 건너뛰기 예제](#input---attributes)
+
+#### <a name="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>HTTP 트리거, 여러 문서 가져오기, DocumentClient 사용(C# 스크립트)
+
+다음 예제에서는 문서 목록을 검색하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 HTTP 요청에 의해 트리거됩니다. 코드를 Azure Cosmos DB 바인딩에 의해 제공된 `DocumentClient` 인스턴스를 사용하여 문서 목록을 읽습니다. `DocumentClient` 인스턴스는 쓰기 작업에 사용될 수도 있습니다.
+
+*function.json* 파일은 다음과 같습니다.
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "client",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "inout"
+    }
+  ],
+  "disabled": false
+}
+```
+
+C# 스크립트 코드는 다음과 같습니다.
+
+```cs
+#r "Microsoft.Azure.Documents.Client"
+
+using System.Net;
+using Microsoft.Azure.Documents.Client;
+using Microsoft.Azure.Documents.Linq;
+using Microsoft.Extensions.Logging;
+
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, DocumentClient client, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
+    string searchterm = req.GetQueryNameValuePairs()
+        .FirstOrDefault(q => string.Compare(q.Key, "searchterm", true) == 0)
+        .Value;
+
+    if (searchterm == null)
+    {
+        return req.CreateResponse(HttpStatusCode.NotFound);
+    }
+
+    log.LogInformation($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
+    IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
+        .Where(p => p.Description.Contains(searchterm))
+        .AsDocumentQuery();
+
+    while (query.HasMoreResults)
+    {
+        foreach (ToDoItem result in await query.ExecuteNextAsync())
+        {
+            log.LogInformation(result.Description);
+        }
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+[입력 건너뛰기 예제](#input---attributes)
+
 ### <a name="input---javascript-examples"></a>입력 - JavaScript 예제
 
 이 섹션에는 다양한 원본의 ID 값을 지정하여 단일 문서를 읽는 다음과 같은 예제가 포함됩니다.
 
-* 큐 트리거, 큐 메시지에서 ID 조회
-* 큐 트리거, 큐 메시지에서 ID 조회, SqlQuery 사용
+* [큐 트리거, JSON에서 ID 조회](#queue-trigger-look-up-id-from-string-javascript)
+* [HTTP 트리거, 쿼리 문자열에서 ID 조회](#http-trigger-look-up-id-from-query-string-javascript)
+* [HTTP 트리거, 경로 데이터에서 ID 조회](#http-trigger-look-up-id-from-route-data-javascript)
+* [큐 트리거, 여러 문서 가져오기, SqlQuery 사용](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
 
 [입력 건너뛰기 예제](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-queue-message-javascript"></a>큐 트리거, 큐 메시지에서 ID 조회(JavaScript)
+#### <a name="queue-trigger-look-up-id-from-json-javascript"></a>큐 트리거, JSON에서 ID 조회(JavaScript)
 
 다음 예에서는 *function.json* 파일의 Cosmos DB 입력 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 이 함수는 단일 문서를 읽고 문서의 텍스트 값을 업데이트합니다.
 
@@ -677,7 +1001,124 @@ JavaScript 코드는 다음과 같습니다.
 
 [입력 건너뛰기 예제](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-queue-message-using-sqlquery-javascript"></a>큐 트리거, 큐 메시지에서 ID 조회, SqlQuery 사용(JavaScript)
+#### <a name="http-trigger-look-up-id-from-query-string-javascript"></a>HTTP 트리거, 쿼리 문자열에서 ID 조회(JavaScript)
+
+다음 예제에서는 단일 문서를 검색하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 조회할 ID를 지정하기 위해 쿼리 문자열을 사용하는 HTTP 요청에 의해 트리거됩니다. ID는 지정된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색하는 데 사용됩니다.
+
+*function.json* 파일은 다음과 같습니다.
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{Query.id}"
+    }
+  ],
+  "disabled": false
+}
+```
+
+JavaScript 코드는 다음과 같습니다.
+
+```javascript
+module.exports = function (context, req, toDoItem) {
+    context.log('JavaScript queue trigger function processed work item');
+    if (!toDoItem)
+    {
+        context.log("ToDo item not found");
+    }
+    else
+    {
+        context.log("Found ToDo item, Description=" + toDoItem.Description);
+    }
+
+    context.done();
+};
+```
+
+[입력 건너뛰기 예제](#input---attributes)
+
+#### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>HTTP 트리거, 경로 데이터에서 ID 조회(JavaScript)
+
+다음 예제에서는 단일 문서를 검색하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 조회할 ID를 지정하기 위해 쿼리 문자열을 사용하는 HTTP 요청에 의해 트리거됩니다. ID는 지정된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색하는 데 사용됩니다.
+
+*function.json* 파일은 다음과 같습니다.
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route":"todoitems/{id}"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{id}"
+    }
+  ],
+  "disabled": false
+}
+```
+
+JavaScript 코드는 다음과 같습니다.
+
+```javascript
+module.exports = function (context, req, toDoItem) {
+    context.log('JavaScript queue trigger function processed work item');
+    if (!toDoItem)
+    {
+        context.log("ToDo item not found");
+    }
+    else
+    {
+        context.log("Found ToDo item, Description=" + toDoItem.Description);
+    }
+
+    context.done();
+};
+```
+
+[입력 건너뛰기 예제](#input---attributes)
+
+#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>큐 트리거, 여러 문서 가져오기, SqlQuery 사용(JavaScript)
 
 다음 예제에서는 *function.json* 파일의 Azure Cosmos DB 입력 바인딩 및 해당 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여 줍니다. 이 함수는 큐 트리거를 사용하여 쿼리 매개 변수를 사용자 지정하여 SQL 쿼리로 지정된 여러 문서를 검색합니다.
 
@@ -762,6 +1203,32 @@ F# 코드는 다음과 같습니다.
 
 `project.json` 파일을 추가하려면 [F# 패키지 관리](functions-reference-fsharp.md#package)를 참조하세요.
 
+### <a name="input---java-examples"></a>입력 - Java 예제
+
+다음 예제에서는 단일 문서를 검색하는 Java 함수를 보여줍니다. 함수는 조회할 ID를 지정하기 위해 쿼리 문자열을 사용하는 HTTP 요청에 의해 트리거됩니다. ID는 지정된 데이터베이스 및 컬렉션에서 ToDoItem 문서를 검색하는 데 사용됩니다.
+
+Java 코드는 다음과 같습니다.
+
+```java
+@FunctionName("getItem")
+public String cosmosDbQueryById(
+    @HttpTrigger(name = "req",
+                  methods = {HttpMethod.GET},
+                  authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> dummy,
+    @CosmosDBInput(name = "database",
+                      databaseName = "ToDoList",
+                      collectionName = "Items",
+                      leaseCollectionName = "",
+                      id = "{Query.id}"
+                      connectionStringSetting = "AzureCosmosDBConnection") Optional<String> item,
+    final ExecutionContext context
+ ) {
+    return item.orElse("Not found");
+ }
+ ```
+
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 함수 매개 변수에 대한 `@CosmosDBInput` 주석을 사용합니다.  옵션 <T>를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다. 
+
 ## <a name="input---attributes"></a>입력 - 특성
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) 특성을 사용합니다.
@@ -794,12 +1261,9 @@ JavaScript 함수에서는 함수 종료 시 자동으로 업데이트되지 않
 
 ## <a name="output"></a>출력
 
-Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이스에 새 문서를 작성할 수 있습니다. 
+Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이스에 SQL API를 사용하여 새 문서를 작성할 수 있습니다. 
 
->[!NOTE]
-> Cosmos DB 계정에서 MongoDB API를 사용하는 경우 Azure Cosmos DB 입력 또는 출력 바인딩을 사용하지 마세요. 데이터가 손상될 수 있습니다.
-
-## <a name="output---example"></a>출력 - 예제
+## <a name="output---examples"></a>출력 - 예제
 
 언어 관련 예제를 참조하세요.
 
@@ -807,12 +1271,13 @@ Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이
 * [C# 스크립트(.csx)](#output---c-script-examples)
 * [JavaScript](#output---javascript-examples)
 * [F#](#output---f-examples)
+* [Java](#output---java-example)
 
 `DocumentClient`을 사용하는 [입력 예제](#input---c-examples)도 참조하세요.
 
 [출력 건너뛰기 예제](#output---attributes)
 
-### <a name="ouput---c-examples"></a>출력 - C# 예제
+### <a name="output---c-examples"></a>출력 - C# 예제
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
@@ -841,6 +1306,7 @@ namespace CosmosDBSamplesV2
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using System;
 
 namespace CosmosDBSamplesV2
@@ -854,12 +1320,12 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")]out dynamic document,
-            TraceWriter log)
+            ILogger log)
         {
             document = new { Description = queueMessage, id = Guid.NewGuid() };
 
-            log.Info($"C# Queue trigger function inserted one row");
-            log.Info($"Description={queueMessage}");
+            log.LogInformation($"C# Queue trigger function inserted one row");
+            log.LogInformation($"Description={queueMessage}");
         }
     }
 }
@@ -875,6 +1341,7 @@ namespace CosmosDBSamplesV2
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -888,13 +1355,13 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")]
                 IAsyncCollector<ToDoItem> toDoItemsOut,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+            log.LogInformation($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
 
             foreach (ToDoItem toDoItem in toDoItemsIn)
             {
-                log.Info($"Description={toDoItem.Description}");
+                log.LogInformation($"Description={toDoItem.Description}");
                 await toDoItemsOut.AddAsync(toDoItem);
             }
         }
@@ -905,6 +1372,15 @@ namespace CosmosDBSamplesV2
 [출력 건너뛰기 예제](#output---attributes)
 
 ### <a name="output---c-script-examples"></a>출력 - C# 스크립트 예제
+
+이 섹션에는 다음 예제가 포함되어 있습니다.
+
+* 큐 트리거, 하나의 문서 쓰기
+* 큐 트리거, IAsyncCollector를 사용하여 문서 쓰기
+
+[출력 건너뛰기 예제](#output---attributes)
+
+#### <a name="queue-trigger-write-one-doc-c-script"></a>큐 트리거, 하나의 문서 쓰기(C# 스크립트)
 
 다음 예제에서는 *function.json* 파일의 Azure Cosmos DB 출력 바인딩 및 해당 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여 줍니다. 이 함수는 다음 형식으로 JSON을 수신하는 큐에 대한 큐 입력 바인딩을 사용합니다.
 
@@ -950,10 +1426,11 @@ C# 스크립트 코드는 다음과 같습니다.
 
     using Microsoft.Azure.WebJobs.Host;
     using Newtonsoft.Json.Linq;
+    using Microsoft.Extensions.Logging;
 
-    public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
+    public static void Run(string myQueueItem, out object employeeDocument, ILogger log)
     {
-      log.Info($"C# Queue trigger function processed: {myQueueItem}");
+      log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
       dynamic employee = JObject.Parse(myQueueItem);
 
@@ -966,7 +1443,65 @@ C# 스크립트 코드는 다음과 같습니다.
     }
 ```
 
+#### <a name="queue-trigger-write-docs-using-iasynccollector"></a>큐 트리거, IAsyncCollector를 사용하여 문서 쓰기
+
 여러 문서를 만들려면 `ICollector<T>` 또는 `IAsyncCollector<T>`에 바인딩할 수 있으며, 여기서 `T`는 지원되는 형식 중 하나입니다.
+
+이 예제에서는 간단한 `ToDoItem` 형식을 참조합니다.
+
+```cs
+namespace CosmosDBSamplesV2
+{
+    public class ToDoItem
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
+
+function.json 파일은 다음과 같습니다.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "toDoItemsIn",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "todoqueueforwritemulti",
+      "connectionStringSetting": "AzureWebJobsStorage"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItemsOut",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+C# 스크립트 코드는 다음과 같습니다.
+
+```cs
+using System;
+using Microsoft.Extensions.Logging;
+
+public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, ILogger log)
+{
+    log.LogInformation($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+
+    foreach (ToDoItem toDoItem in toDoItemsIn)
+    {
+        log.LogInformation($"Description={toDoItem.Description}");
+        await toDoItemsOut.AddAsync(toDoItem);
+    }
+}
+```
 
 [출력 건너뛰기 예제](#output---attributes)
 
@@ -1070,6 +1605,7 @@ F# 코드는 다음과 같습니다.
 ```fsharp
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
+    open Microsoft.Extensions.Logging
 
     type Employee = {
       id: string
@@ -1078,8 +1614,8 @@ F# 코드는 다음과 같습니다.
       address: string
     }
 
-    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
-      log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: ILogger) =
+      log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
       let employee = JObject.Parse(myQueueItem)
       employeeDocument <-
         { id = sprintf "%s-%s" employee?name employee?employeeId
@@ -1104,6 +1640,24 @@ F# 코드는 다음과 같습니다.
 ```
 
 `project.json` 파일을 추가하려면 [F# 패키지 관리](functions-reference-fsharp.md#package)를 참조하세요.
+
+## <a name="output---java-examples"></a>출력 - Java 예제
+
+다음 예제에서는 큐 저장소의 메시지에서 데이터를 사용하여 문서를 데이터베이스에 추가하는 Java 함수를 보여줍니다.
+
+```java
+@FunctionName("getItem")
+@CosmosDBOutput(name = "database", databaseName = "ToDoList", collectionName = "Items", connectionStringSetting = "AzureCosmosDBConnection")
+public String cosmosDbQueryById(
+     @QueueTrigger(name = "msg", queueName = "myqueue-items", connection = "AzureWebJobsStorage") String message,
+     final ExecutionContext context
+)  {
+     return "{ id: " + System.currentTimeMillis() + ", Description: " + message + " }";
+   }
+```
+
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 Cosmos DB에 작성될 매개 변수에 대한 `@CosmosDBOutput` 주석을 사용합니다.  주석 매개 변수 형식은 OutputBinding<T>이어야 합니다. 여기서 T는 원시 Java 형식 또는 POJO입니다.
+
 
 ## <a name="output---attributes"></a>출력 - 특성
 
@@ -1154,13 +1708,39 @@ F# 코드는 다음과 같습니다.
 |---|---|
 | CosmosDB | [CosmosDB 오류 코드](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>host.json 설정
+
+이 섹션에서는 버전 2.x에서 이 바인딩에 사용할 수 있는 글로벌 구성 설정을 설명합니다. 버전 2.x의 글로벌 구성 설정에 대한 자세한 내용은 [Azure Functions 버전 2.x에 대한 host.json 참조](functions-host-json.md)를 참조하세요.
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "cosmosDB": {
+            "connectionMode": "Gateway",
+            "protocol": "Https",
+            "leaseOptions": {
+                "leasePrefix": "prefix1"
+            }
+        }
+    }
+}
+```  
+
+|자산  |기본값 | 설명 |
+|---------|---------|---------| 
+|GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
+|프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.| 
+|leasePrefix|해당 없음|앱의 모든 함수에서 사용할 접두사를 임대합니다.| 
+
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Cosmos DB 트리거를 사용하는 빠른 시작으로 이동](functions-create-cosmos-db-triggered-function.md)
+* [Cosmos DB로 서버를 사용하지 않는 데이터베이스 컴퓨팅에 대해 자세히 알아보기](..\cosmos-db\serverless-computing-database.md)
+* [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [Cosmos DB로 서버를 사용하지 않는 데이터베이스 컴퓨팅에 대해 자세히 알아보기](..\cosmos-db\serverless-computing-database.md)
-
-> [!div class="nextstepaction"]
-> [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
+--->

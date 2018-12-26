@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 676d5e553e2929ae09d447141ca315fd1cc448e3
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e45954389c8dd1b484a7009460c541bf35266973
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449206"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713853"
 ---
 # <a name="permissions-on-the-azureiotsolutionscom-site"></a>azureiotsolutions.com 사이트에 대한 사용 권한
 
@@ -62,7 +62,7 @@ AAD의 사용자 및 역할에 대한 자세한 내용은 다음 리소스를 �
 
 Azure 관리자 역할은 Azure 구독을 AAD 테넌트에 매핑할 수 있는 권한을 제어합니다.
 
-[Azure 공동 관리자, 서비스 관리자 및 계정 관리자를 추가 또는 변경하는 방법][lnk-admin-roles] 문서에서 Azure 관리자 역할에 대해 자세히 알아보세요.
+[Azure 구독 관리자 추가 또는 변경][lnk-admin-roles] 문서에서 Azure 관리자 역할에 대해 자세히 알아보세요.
 
 ## <a name="faq"></a>FAQ
 
@@ -93,7 +93,7 @@ IoT 솔루션 가속기에 대해 계속 알아보려면 [솔루션 가속기 �
 [img-flowchart]: media/iot-accelerators-permissions/flowchart.png
 
 [lnk-azureiotsolutions]: https://www.azureiotsolutions.com
-[lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-rm-github-repo]: https://github.com/Azure/remote-monitoring-services-dotnet
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]:../active-directory/users-groups-roles/directory-assign-admin-roles.md
@@ -102,6 +102,5 @@ IoT 솔루션 가속기에 대해 계속 알아보려면 [솔루션 가속기 �
 [lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
-[lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [lnk-customize]: iot-accelerators-remote-monitoring-customize.md

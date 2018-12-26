@@ -9,16 +9,15 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: cd8bcc9345ec73f95e8e742446522ec41c1f0f65
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970975"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956955"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights 개요 대시보드
 
@@ -28,29 +27,29 @@ Application Insights에는 응용 프로그램의 상태 및 성능을 한 눈�
 
 이제 새 개요 대시보드가 기본적으로 시작합니다.
 
-![개요 미리 보기 창](.\media\app-insights-overview-dashboard\overview.png)
+![개요 미리 보기 창](./media/app-insights-overview-dashboard/overview.png)
 
 ## <a name="better-performance"></a>향상된 성능
 
 시간 범위 선택이 간단한 한 번의 클릭 인터페이스로 간소화되었습니다.
 
-![시간 범위](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
+![시간 범위](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-03.png)
 
 성능이 전반적으로 크게 향상되었습니다. **검색** 및 **분석** 같은 인기 있는 기능에 한 번의 클릭으로 액세스합니다. 동적으로 업데이트되는 KPI 타일이 각각 해당 Application Insights 기능에 인사이트를 제공합니다. 실패한 요청에 대해 자세히 알려면 **조사** 헤더 아래에서 **오류**를 선택합니다.
 
-![오류](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
+![오류](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-04.png)
 
-## <a name="application-dashboard"></a>응용 프로그램 대시보드
+## <a name="application-dashboard"></a>애플리케이션 대시보드
 
 응용 프로그램 대시보드는 Azure의 기존 대시보드 기술을 활용하여 응용 프로그램의 상태와 성능을 완벽하게 사용자 지정할 수 있는 단일 창 보기를 제공합니다.
 
 기본 대시보드에 액세스하려면 왼쪽 위 모서리에 있는 _응용 프로그램 대시보드_를 선택합니다.
 
-![대시보드 보기](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
+![대시보드 보기](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-05.png)
 
 대시보드에 처음 액세스하는 경우 기본 보기가 시작됩니다.
 
-![대시보드 보기](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
+![대시보드 보기](./media/app-insights-overview-dashboard/0001-dashboard.png)
 
 원하는 경우 기본 보기를 유지할 수 있습니다. 또는 팀의 요구에 가장 적합하도록 대시보드에서 추가하고 삭제할 수도 있습니다.
 
@@ -59,7 +58,7 @@ Application Insights에는 응용 프로그램의 상태 및 성능을 한 눈�
 
 개요 환경으로 돌아가려면 다음을 선택합니다.
 
-![개요 단추](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+![개요 단추](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-07.png)
 
 ## <a name="next-steps"></a>다음 단계
 

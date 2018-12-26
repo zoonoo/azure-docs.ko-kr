@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 0e074e93ecbe80c3acf3481c0d33917fbe5090c6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ccc1fb20cb08cfd97d58984676ef4006e693118
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640909"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801950"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>인식 검색 기술 집합의 주석 참조하는 방법
 
@@ -89,7 +89,7 @@ Azure Blob 저장소에는 명명된 엔터티 인식을 사용하여 추출하�
   }
 ```
 
-주석이 문자열의 컬렉션이나 배열인 경우 전체로서의 배열이 아닌 구체적 구성원을 대상으로 할 수 있습니다. 위의 예제에서는 컨텍스트가 나타내는 각 노드에서 `"last"`이라는 주석을 생성합니다. 주석군을 참조하려는 경우 구문 `"/document/people/*/last"`을 사용할 수 있습니다. 특정 주석을 참조하려는 경우 명시적 인덱스를 사용할 수 있습니다: 문서에서 식별된 첫 번째 사용자의 성을 참조하기 위한 `"/document/people/1/last`". 이 구문에서 배열은 "1 인덱스"됩니다.
+주석이 문자열의 컬렉션이나 배열인 경우 전체로서의 배열이 아닌 구체적 구성원을 대상으로 할 수 있습니다. 위의 예제에서는 컨텍스트가 나타내는 각 노드에서 `"last"`이라는 주석을 생성합니다. 주석군을 참조하려는 경우 구문 `"/document/people/*/last"`을 사용할 수 있습니다. 특정 주석을 참조하려는 경우 명시적 인덱스를 사용할 수 있습니다: 문서에서 식별된 첫 번째 사용자의 성을 참조하기 위한 `"/document/people/1/last`". 이 구문에서 배열은 "1 인덱싱됨"입니다.
 
 <a name="example-3"></a>
 

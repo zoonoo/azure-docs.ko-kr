@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dfcd248be48109203e91c93231d89d1d650a4b96
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 21f5aba3acfebdcd2e93825ea34226adee5455d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25540051"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248081"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Microsoft Virtual Academy의 Azure 보안 교육 과정
 Microsoft Virtual Academy는 개발자, IT 및 데이터 전문가, 학생들이 최신 기술을 배우고 스킬을 구축하며 경력을 발전시켜 나갈 수 있게 도와 주기 위한 무료 온라인 교육을 제공합니다.
@@ -32,7 +32,7 @@ Microsoft Virtual Academy는 개발자, IT 및 데이터 전문가, 학생들이
 
 [Azure 기반 Linux의 일반 작업](https://mva.microsoft.com/en-us/training-courses/common-tasks-for-linux-on-azure-16191?l=J0Hvb7qJC_1204668937)
 
-Microsoft Azure Platform에서 Linux를 사용하는 방법에 대한 궁금증은 상세하게 소개된 강좌에서 확인할 수 있습니다. [Linux Academy](https://linuxacademy.com/)의 전문가들과 몇 가지 일반 작업을 탐색합니다. Azure에서 Linux 가상 컴퓨터(VM) 만들기, 원격 데스크톱 소프트웨어를 사용하여 Linux VM 액세스 및 가상 호스트 실행에 대해 알아봅니다. 이 과정에서는 보안 기술 및 구성을 다루고 있습니다.
+Microsoft Azure Platform에서 Linux를 사용하는 방법에 대한 궁금증은 상세하게 소개된 강좌에서 확인할 수 있습니다. [Linux Academy](https://linuxacademy.com/)의 전문가들과 몇 가지 일반 작업을 탐색합니다. Azure에서 Linux 가상 머신(VM) 만들기, 원격 데스크톱 소프트웨어를 사용하여 Linux VM 액세스 및 가상 호스트 실행에 대해 알아봅니다. 이 과정에서는 보안 기술 및 구성을 다루고 있습니다.
 
 [클라우드 보호](https://mva.microsoft.com/en-us/training-courses/secure-the-cloud-14037?l=lQIkkst0B_5300115881)
 
@@ -48,7 +48,7 @@ Microsoft 클라우드 데이터 플랫폼 솔루션의 기능과 특징에 알�
 
 [클라우드 기반 환경의 보안](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474)
 
-전문가가 [Microsoft Cloud Security for Enterprise Architects(엔터프라이즈 설계자를 위한 Microsoft 클라우드 보안)](http://www.microsoft.com/download/48121) 포스터에서 고객 책임 로드맵을 안내합니다. 또한 관리 제어 보호에 특히 중점을 두고 관리, 억제 전략, 보안 작업, 고가 자산 보호, 정보 보호, 사용자 및 장치 보안을 포함해 보안 상태의 각 부분을 현대화하기 위한 권장 사항을 제공합니다. Microsoft 사이버 보안 팀에서 고객의 클라우드 보안을 평가하고 보안 로드맵을 구축하기 위해 사용하는 것과 같은 프레임워크에서 알아봅니다.
+전문가가 [Microsoft Cloud Security for Enterprise Architects(엔터프라이즈 설계자를 위한 Microsoft 클라우드 보안)](https://www.microsoft.com/download/48121) 포스터에서 고객 책임 로드맵을 안내합니다. 또한 관리 제어 보호에 특히 중점을 두고 관리, 억제 전략, 보안 작업, 고가 자산 보호, 정보 보호, 사용자 및 디바이스 보안을 포함해 보안 상태의 각 부분을 현대화하기 위한 권장 사항을 제공합니다. Microsoft 사이버 보안 팀에서 고객의 클라우드 보안을 평가하고 보안 로드맵을 구축하기 위해 사용하는 것과 같은 프레임워크에서 알아봅니다.
 
 [Microsoft Azure IaaS 심층 분석](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888)
 
@@ -64,4 +64,4 @@ Microsoft Azure 인프라 기능을 사용하는 방법에 대해 알아봅니�
 
 [Azure Rights Management 서비스 핵심 기술](https://mva.microsoft.com/en-us/training-courses/azure-rights-management-services-core-skills-10500?l=QLoxMwuCB_1805094681)
 
-정보 보호가 조직에서 반드시 "갖춰야 할" 요구 사항인 이유와 장치와 클라우드 전반에서 이동하든지 권한 관리가 조직의 지적 재산권을 보호하는 방법을 알아봅니다. Microsoft 전문가로부터 실습 활동과 기술 노하우를 얻습니다.
+정보 보호가 조직에서 반드시 "갖춰야 할" 요구 사항인 이유와 디바이스와 클라우드 전반에서 이동하든지 권한 관리가 조직의 지적 재산권을 보호하는 방법을 알아봅니다. Microsoft 전문가로부터 실습 활동과 기술 노하우를 얻습니다.

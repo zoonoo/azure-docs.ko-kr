@@ -1,27 +1,23 @@
 ---
 title: 오류 문제 해결 및 진단 - Azure Logic Apps | Microsoft Docs
-description: 논리 앱 실패 과정 및 원인 이해
+description: Azure Logic Apps에서 워크플로 오류를 진단하고 해결하는 방법 알아보기
 services: logic-apps
-documentationcenter: ''
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: ''
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 5af99821305fe6daab8a213d0351c5a1c5936461
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 994e7945a7107815029bd415f4cc0d45bb68e335
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298793"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123690"
 ---
-# <a name="troubleshoot-and-diagnose-logic-app-failures"></a>논리 앱 오류 문제 해결 및 진단
+# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 오류를 진단하고 해결
 
 논리 앱은 앱에서 문제를 진단하고 디버깅하도록 도울 수 있는 정보를 생성합니다. Azure Portal을 통해 워크플로의 각 단계를 검토하여 논리 앱을 진단할 수 있습니다. 또는 런타임 디버깅을 위해 워크플로에 몇 가지 단계를 추가할 수 있습니다.
 
@@ -44,8 +40,8 @@ ms.locfileid: "35298793"
 
    | 상태 | 설명 | 
    | ------ | ----------- | 
-   | **성공함** | 트리거는 끝점을 확인하고 사용할 수 있는 데이터를 찾았습니다. 일반적으로 "실행됨" 상태도 이 상태와 함께 나타납니다. 그렇지 않은 트리거 정의는 `SplitOn` 또는 조건을 충족하지 않는 명령을 포함합니다. <p>이 상태는 수동 트리거, 되풀이 트리거 또는 폴링 트리거에 적용될 수 있습니다. 작업이 처리되지 않은 오류를 생성할 때 트리거가 성공적으로 실행될 수는 있지만 실행 자체는 실패할 수 있습니다. | 
-   | **생략** | 트리거는 끝점을 확인했지만 데이터가 없습니다. | 
+   | **성공함** | 트리거는 엔드포인트를 확인하고 사용할 수 있는 데이터를 찾았습니다. 일반적으로 "실행됨" 상태도 이 상태와 함께 나타납니다. 그렇지 않은 트리거 정의는 `SplitOn` 또는 조건을 충족하지 않는 명령을 포함합니다. <p>이 상태는 수동 트리거, 되풀이 트리거 또는 폴링 트리거에 적용될 수 있습니다. 작업이 처리되지 않은 오류를 생성할 때 트리거가 성공적으로 실행될 수는 있지만 실행 자체는 실패할 수 있습니다. | 
+   | **생략** | 트리거는 엔드포인트를 확인했지만 데이터가 없습니다. | 
    | **실패** | 오류가 발생했습니다. 실패한 트리거에 생성된 오류 메시지를 검토하려면 해당 트리거 시도를 선택하고 **출력**을 선택합니다. 예를 들어 유효하지 않은 입력을 찾을 수 있습니다. | 
    ||| 
 
@@ -105,15 +101,15 @@ ms.locfileid: "35298793"
 
 ## <a name="perform-runtime-debugging"></a>런타임 디버깅 수행
 
-디버깅에 도움이 되도록 하려면 트리거 및 실행 기록을 검토하는 한편 워크플로에 진단 단계를 추가할 수 있습니다. 예를 들어, HTTP 요청을 검사하고 정확한 해당 크기, 모양 및 형식을 확인할 수 있도록 [RequestBin](http://requestb.in) 서비스를 사용하는 단계를 추가할 수 있습니다.
+디버깅에 도움이 되도록 하려면 트리거 및 실행 기록을 검토하는 한편 워크플로에 진단 단계를 추가할 수 있습니다. 예를 들어, HTTP 요청을 검사하고 정확한 해당 크기, 모양 및 형식을 확인할 수 있도록 [Webhook Tester](https://webhook.site/) 서비스를 사용하는 단계를 추가할 수 있습니다.
 
-1. 개인 전용으로 브라우저에서만 표시할 수 있도록 RequestBin를 만듭니다.
+1. [Webhook Tester](https://webhook.site/)를 방문하고 생성된 고유한 URL을 복사합니다.
 
 2. 논리 앱에서 테스트하려는 본문 콘텐츠(예: 식, 다른 단계 출력)를 포함하는 HTTP POST 작업을 추가합니다.
 
-3. RequestBin의 URL을 HTTP POST 작업에 붙여넣습니다.
+3. Webhook Tester의 URL을 HTTP POST 작업에 붙여 넣습니다.
 
-4. 요청이 Logic Apps에서 생성될 때 형성되는 방식을 검토하려면 논리 앱을 실행하고 RequestBin을 새로 고칩니다.
+4. 요청이 Logic Apps에서 생성될 때 형성되는 방식을 검토하려면 논리 앱을 실행하고 Webhook Tester에서 자세한 내용을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

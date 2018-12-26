@@ -15,18 +15,18 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 79125beac6ab34b88c951a2fb9c601b93ae36e20
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9c2f094104172407992371b6738dd2fdf101a506
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642209"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985116"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>Azure에서 안전한 Service Fabric Linux 클러스터 만들기
 
-이 명령은 자체 서명된 인증서를 만들고, 키 자격 증명 모음에 추가하고, 해당 인증서를 로컬로 다운로드합니다.  새 인증서는 배포 시 클러스터를 보호하는 데 사용됩니다.  또한 새 인증서를 만드는 대신 기존 인증서를 사용할 수도 있습니다.  어쨌든 인증서의 주체 이름은 Service Fabric 클러스터에 액세스하는 데 사용하는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이렇게 일치해야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
+이 명령은 자체 서명된 인증서를 만들고, 키 자격 증명 모음에 추가하고, 해당 인증서를 로컬로 다운로드합니다.  새 인증서는 배포 시 클러스터를 보호하는 데 사용됩니다.  또한 새 인증서를 만드는 대신 기존 인증서를 사용할 수도 있습니다.  어쨌든 인증서의 주체 이름은 Service Fabric 클러스터에 액세스하는 데 사용하는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 엔드포인트 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이렇게 일치해야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
-필요한 경우 [Azure CLI 2.0](/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)을 설치합니다.
+필요한 경우 [Azure CLI](/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

@@ -3,7 +3,7 @@ title: Azure Linux Virtual Machine에서 Oracle Database 12c 데이터베이스 
 description: Azure 환경에서 Oracle Database 12c 데이터베이스를 백업하고 복구하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: v-shiuma
+author: romitgirdhar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 5/17/2017
-ms.author: rclaus
-ms.openlocfilehash: e01a347607b2c2ff82d15172756f32c9c6a474a8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/02/2018
+ms.author: rogirdh
+ms.openlocfilehash: 93fbd5bbba91b45e1afd123a2466b249302e2354
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656173"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492843"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Azure Linux Virtual Machine에서 Oracle Database 12c 데이터베이스 백업 및 복구
 
@@ -133,9 +133,9 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
     RMAN> backup database plus archivelog;
     ```
 
-### <a name="step-4-application-consistent-backup-for-linux-vms"></a>4단계: Linux VM의 응용 프로그램 일치 백업
+### <a name="step-4-application-consistent-backup-for-linux-vms"></a>4단계: Linux VM의 애플리케이션 일치 백업
 
-응용 프로그램 일치 백업은 Azure Backup의 새 기능입니다. VM 스냅숏(사전 스냅숏 및 사후 스냅숏) 이전 및 이후에 실행하는 스크립트를 만들고 선택할 수 있습니다.
+애플리케이션 일치 백업은 Azure Backup의 새 기능입니다. VM 스냅숏(사전 스냅숏 및 사후 스냅숏) 이전 및 이후에 실행하는 스크립트를 만들고 선택할 수 있습니다.
 
 1. JSON 파일을 다운로드합니다.
 
@@ -317,7 +317,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
     ![상태가 표시된 Recovery Services 자격 증명 모음 작업 페이지](./media/oracle-backup-recovery/recovery_service_11.png)
 
-11. 응용 프로그램 일치 백업의 경우 로그 파일에서 오류를 해결 합니다. 로그 파일은 /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0에 있습니다.
+11. 애플리케이션 일치 백업의 경우 로그 파일에서 오류를 해결 합니다. 로그 파일은 /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0에 있습니다.
 
 ### <a name="step-6-remove-the-database-files"></a>6단계: 데이터베이스 파일 제거 
 이 문서의 뒷부분에서는 복구 프로세스를 테스트하는 방법을 배웁니다. 복구 프로세스를 테스트하려면 먼저 데이터베이스 파일을 제거해야 합니다.
@@ -480,7 +480,7 @@ Recovery Services 자격 증명 모음에서 삭제된 파일을 복원하는 �
 
     ![복원 지점 선택](./media/oracle-backup-recovery/recover_vm_06.png)
 
-    응용 프로그램 일치 백업을 사용하는 경우 파란색 세로 막대가 나타납니다.
+    애플리케이션 일치 백업을 사용하는 경우 파란색 세로 막대가 나타납니다.
 
 6.  **복원 구성** 블레이드에서 가상 머신 이름을 선택하고 리소스 그룹을 선택한 다음, **확인**을 클릭합니다.
 

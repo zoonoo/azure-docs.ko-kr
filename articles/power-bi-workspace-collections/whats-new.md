@@ -2,26 +2,20 @@
 title: Power BI 작업 영역 컬렉션의 새로운 기능
 description: Power BI 작업 영역 컬렉션의 새로운 기능에 대한 최신 정보 얻기
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 647b571fc05dca12ab9d4db45236962e4794ef4b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 072fa8978bd4f08494191708d9a71c6c112a0629
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408254"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252056"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션의 새로운 기능
 
@@ -46,8 +40,8 @@ ms.locfileid: "31408254"
 
 **관리 API**
 
-* 보고서 및 데이터 집합 복제
-* 다른 데이터 집합에 보고서 바인딩
+* 보고서 및 데이터 세트 복제
+* 다른 데이터 세트에 보고서 바인딩
 
 **샘플**
 
@@ -78,5 +72,5 @@ ms.locfileid: "31408254"
 * 모든 **v1.0** API 호출에 사용할 수 있도록 샘플 응용 프로그램이 업데이트되었습니다.
 * Power BI 작업 영역 컬렉션은 Azure SDK, PowerShell 및 CLI에 대해 지원됩니다.
 * 사용자가 시각화 데이터를 **.csv**로 내보낼 수 있습니다.
-* 이제 동일한 모든 언어/로캘에서 Microsoft Azure로 Power BI 작업 영역 컬렉션이 지원됩니다. 자세한 내용은 [Azure - 언어](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)를 참조하세요.
+* 이제 동일한 모든 언어/로캘에서 Microsoft Azure로 Power BI 작업 영역 컬렉션이 지원됩니다. 자세한 내용은 [Azure - 언어](https://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)를 참조하세요.
 

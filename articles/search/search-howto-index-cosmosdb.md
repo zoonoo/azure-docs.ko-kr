@@ -1,21 +1,21 @@
 ---
 title: Azure Search를 위해 Azure Cosmos DB 데이터 원본 인덱싱 | Microsoft Docs
 description: 이 문서에서는 Azure Cosmos DB 데이터 원본을 사용하여 Azure Search 인덱서를 만드는 방법을 보여 줍니다.
-author: chaosrealm
-manager: jlembicz
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 05/29/2018
-ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 8206c076f9e89753adb16854a7d981c0f80c4a3a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640339"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747544"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>인덱서를 사용해서 Cosmos DB를 Azure Search에 연결
 
@@ -48,6 +48,8 @@ Azure Cosmos DB는 다양한 데이터 모델과 API를 지원하지만 Azure Se
 ## <a name="prerequisites"></a>필수 조건
 
 Cosmos DB 계정 외에도 [Azure Search 서비스](search-create-service-portal.md)가 필요합니다. 
+
+Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 여부를 선택할 수 있습니다. 기본적으로 모든 문서는 자동으로 인덱싱되지만 자동 인덱싱을 해제할 수도 있습니다. 인덱싱을 해제하면 자체 링크를 통해서나 문서 ID를 사용한 쿼리로만 문서에 액세스할 수 있습니다. Azure Search를 사용하려면 Azure Search로 인덱싱할 컬렉션에서 Cosmos DB 자동 인덱싱이 설정되어 있어야 합니다. 
 
 <a name="Concepts"></a>
 ## <a name="azure-search-indexer-concepts"></a>Azure Search 인덱서 개념
@@ -97,7 +99,8 @@ Azure Cosmos DB 인덱서를 설정하려면 인덱스, 데이터 원본, 인덱
 * **형식**: `documentdb`여야 합니다.
 * **자격 증명**:
   
-  * **connectionString**: 필수입니다. Azure Cosmos DB 데이터베이스에 대한 연결 정보를 `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` 형식으로 지정합니다. MongoDB 컬렉션의 경우 **ApiKind=MongoDb**를 연결 문자열에 추가합니다. `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb` 
+  * **connectionString**: 필수입니다. Azure Cosmos DB 데이터베이스에 대한 연결 정보를 `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` 형식으로 지정합니다. MongoDB 컬렉션의 경우 **ApiKind=MongoDb**를 연결 문자열에 추가합니다. `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  엔드포인트 URL에는 포트 번호를 사용하지 않습니다. 포트 번호를 포함하는 경우 Azure Search는 Azure Cosmos DB 데이터베이스를 인덱싱할 수 없습니다.
 * **컨테이너**:
   
   * **이름**: 필수입니다. 인덱싱할 데이터베이스 컬렉션의 ID를 지정합니다.

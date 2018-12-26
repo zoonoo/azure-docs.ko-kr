@@ -4,9 +4,6 @@ description: 기본 및 보조 IP 구성에서 부하 분산.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: na
-ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3b7971fec0aa0c354476073b01699f516f9439cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0f092c471a7908eabe481adc8c722993818840b8
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637381"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219514"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 IP 구성의 부하 분산
 
@@ -181,7 +178,7 @@ ms.locfileid: "34637381"
 
 4. **포트** 및 **백 엔드 포트**에서 기본값인 **80**을 그대로 유지합니다.
 
-5. **부동 IP(Direct Server Return)** 에서**사용**을 선택합니다.
+5. **부동 IP(Direct Server Return)** 의 경우 **사용 안 함**을 선택합니다.
 
 6. <a name="step6-6"></a>**확인**을 선택합니다.
 

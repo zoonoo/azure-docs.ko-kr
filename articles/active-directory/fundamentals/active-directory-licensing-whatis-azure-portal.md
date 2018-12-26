@@ -1,28 +1,26 @@
 ---
-title: Azure AD의 그룹 기반 라이선스란? | Microsoft Docs
-description: Azure Active Directory 그룹 기반 라이선스, 작동 방법 및 모범 사례에 대한 설명
+title: Azure Active Directory의 그룹 기반 라이선스란? | Microsoft Docs
+description: 작동 방법 및 모범 사례를 비롯한 Azure Active Directory 그룹 기반 라이선스에 대해 알아봅니다.
 services: active-directory
 keywords: Azure AD 라이선스
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 10/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c6800e5a00d2fb837538141571c105a1d21e4374
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 3f23b28c1b20155e50fddf17db90cd2a53c04855
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860464"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209822"
 ---
-# <a name="group-based-licensing-basics-in-azure-active-directory"></a>Azure Active Directory에서 그룹 기반 라이선스 기본
+# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Azure Active Directory의 그룹 기반 라이선스란?
 
 Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 제품과 같은 Microsoft 유료 클라우드 서비스에는 라이선스가 필요합니다. 이러한 라이선스는 해당 서비스에 액세스해야 하는 각 사용자에게 할당됩니다. 라이선스를 관리하기 위해 관리자는 관리 포털(Office 또는 Azure) 및 PowerShell cmdlet 중 하나를 사용합니다. Azure AD(Azure Active Directory)는 모든 Microsoft 클라우드 서비스에 대한 ID 관리를 지원하는 기본 인프라입니다. Azure AD는 사용자에 대한 라이선스 할당 상태에 대한 정보를 저장합니다.
 
@@ -30,8 +28,6 @@ Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 �
 
 이러한 문제를 해결하기 위해 이제는 Azure AD에 그룹 기반 라이선스가 포함됩니다. 그룹에 제품 라이선스를 하나 이상 할당할 수 있습니다. Azure AD는 그룹의 모든 멤버에게 라이선스가 할당되도록 합니다. 그룹에 참가하는 새 멤버에게는 적절한 라이선스가 할당됩니다. 멤버가 그룹을 떠날 때 해당 라이선스가 제거됩니다. 이렇게 하면 사용자 기준으로 조직 및 부서 구조에 변경 내용을 반영하기 위해 PowerShell을 통해 라이선스 관리를 자동화할 필요가 없습니다.
 
->[!NOTE]
->이 기능은 현재 공개 미리 보기로 제공됩니다. 변경 내용을 되돌리거나 제거할 준비를 해야 합니다. 이 기능은 공개 미리 보기 동안 모든 유료 Azure AD(Azure Active Directory) 라이선스 계획에서 사용할 수 있습니다. 그러나 기능이 일반 공급되면 일부 기능에는 하나 이상의 Azure Active Directory Premium 라이선스가 필요할 수도 있습니다.
 
 ## <a name="features"></a>기능
 
@@ -47,11 +43,11 @@ Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 �
 
 - Azure AD는 그룹 멤버 자격 변경으로 인해 발생하는 라이선스 수정을 자동으로 관리합니다. 일반적으로 라이선스 수정은 멤버 자격 변경 후 수분 내에 효과가 발생합니다.
 
-- 사용자는 지정된 라이선스 정책을 사용하는 여러 그룹의 멤버가 될 수 있습니다. 또한 사용자는 그룹 외부에서 직접 할당된 일부 라이선스를 보유할 수도 있습니다. 결과 사용자 상태는 모든 할당된 제품 및 서비스 라이선스의 조합입니다.
+- 사용자는 지정된 라이선스 정책을 사용하는 여러 그룹의 멤버가 될 수 있습니다. 또한 사용자는 그룹 외부에서 직접 할당된 일부 라이선스를 보유할 수도 있습니다. 결과 사용자 상태는 모든 할당된 제품 및 서비스 라이선스의 조합입니다. 사용자에게 여러 원본의 동일한 라이선스를 할당하는 경우 라이선스는 한 번만 사용됩니다.
 
 - 어떤 경우에는 사용자에게 라이선스를 할당할 수 없습니다. 예를 들어 테넌트에서 사용할 수 있는 라이선스가 충분하지 않거나 충돌하는 서비스를 동시에 할당했을 수 있습니다. 관리자는 Azure AD가 그룹 라이선스를 완전하게 처리할 수 없는 사용자에 대한 정보에 액세스할 수 있습니다. 그런 다음 해당 정보에 따라 수정 작업을 수행할 수 있습니다.
 
-- 공개 미리 보기 동안 그룹 기반 라이선스 관리를 사용하려면 Azure AD Basic 또는 Premium Edition에 대한 유료 또는 평가판 구독이 테넌트에 필요합니다.
+- 그룹 기반 라이선스 관리를 사용하려면 Azure AD Basic에 대한 유료 또는 평가판 구독이나 유료 또는 평가판 Office 365 Enterprise E3, Office 365 A3 이상 버전이 테넌트에 필요합니다. 이 기능을 사용하려면 라이선스가 할당된 그룹의 멤버인 각 고유 사용자에 대한 라이선스가 필요합니다. 라이선스가 할당된 그룹의 멤버가 되기 위해 사용자에게 라이선스를 할당할 필요는 없지만, 이러한 사용자를 모두 포함하려면 테넌트에 최소 개수의 라이선스는 있어야 합니다. 예를 들어, 테넌트에서 라이선스가 할당된 모든 그룹에 고유한 사용자가 총 1,000명 있는 경우, 라이선스 요구 사항을 충족하려면 1,000개 이상의 라이선스가 필요합니다.
 
 ## <a name="your-feedback-is-welcome"></a>피드백이 있으시면 언제든지 보내주세요.
 
@@ -64,4 +60,6 @@ Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 �
 * [Azure Active Directory에서 그룹에 라이선스 할당](../users-groups-roles/licensing-groups-assign.md)
 * [Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결](../users-groups-roles/licensing-groups-resolve-problems.md)
 * [Azure Active Directory에서 개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션하는 방법](../users-groups-roles/licensing-groups-migrate-users.md)
+* [Azure Active Directory에서 그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 마이그레이션하는 방법](../users-groups-roles/licensing-groups-change-licenses.md)
 * [Azure Active Directory 그룹 기반 라이선스 추가 시나리오](../users-groups-roles/licensing-group-advanced.md)
+* [Azure Active Directory의 그룹 기반 라이선싱에 대한 PowerShell 예제](../users-groups-roles/licensing-ps-examples.md)

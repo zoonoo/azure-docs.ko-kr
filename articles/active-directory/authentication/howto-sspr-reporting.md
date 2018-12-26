@@ -4,18 +4,18 @@ description: Azure AD 셀프 서비스 암호 재설정 이벤트에 대한 보�
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: df46a4de32482f9da46b81e6b0fbc55c2cc1af35
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37444245"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025008"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -23,7 +23,7 @@ ms.locfileid: "37444245"
 
 ![보고][Reporting]
 
-[Azure Portal](https://portal.azure.com/):에 있는 보고서를 통해 다음과 같은 질문에 대답할 수 있습니다.
+[Azure Portal](https://portal.azure.com/)에 있는 보고서를 통해 다음과 같은 질문에 대답할 수 있습니다.
 
 > [!NOTE]
 > 사용자는 [전역 관리자](../users-groups-roles/directory-assign-admin-roles.md)여야 하며 조직을 대신하여 이 데이터를 수집하기 위해 옵트인해야 합니다. 옵트인하려면 적어도 한 번 **보고** 탭이나 감사 로그를 방문해야 합니다. 그때까지 조직을 위해 데이터가 수집되지 않습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "37444245"
 
 ## <a name="power-bi-content-pack"></a>Power BI 콘텐츠 팩
 
-Power BI 사용자의 경우 Azure AD용 콘텐츠 팩에 SSPR에 대한 사용하기 쉬운 보고 기능이 포함되어 있습니다. 콘텐츠 팩을 사용하고 배포하는 방법에 대한 자세한 내용은 [Azure Active Directory Power BI 콘텐츠 팩 사용 방법](../active-directory-reporting-power-bi-content-pack-how-to.md)을 참조하세요. 콘텐츠 팩을 사용하면 자신의 대시보드를 만들어서 조직의 다른 사람들과 공유할 수 있습니다.
+Power BI 사용자의 경우 Azure AD용 콘텐츠 팩에 SSPR에 대한 사용하기 쉬운 보고 기능이 포함되어 있습니다. 콘텐츠 팩을 사용하고 배포하는 방법에 대한 자세한 내용은 [Azure Active Directory Power BI 콘텐츠 팩 사용 방법](../reports-monitoring/howto-power-bi-content-pack.md)을 참조하세요. 콘텐츠 팩을 사용하면 자신의 대시보드를 만들어서 조직의 다른 사람들과 공유할 수 있습니다.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Azure Portal에서 암호 관리 보고서를 보는 방법
 
@@ -54,6 +54,10 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 6. 이 보기를 암호 재설정 관련 이벤트로만 필터링하려면 창 위쪽의 **필터** 단추를 선택합니다.
 7. **필터** 메뉴에서 **범주** 드롭다운 목록을 선택하고, **셀프 서비스 암호 관리** 범주 유형으로 변경합니다.
 8. 필요에 따라 관심 있는 특정 **활동**을 선택하여 목록을 추가로 필터링합니다.
+
+### <a name="converged-registration-preview"></a>등록 수렴(미리 보기)
+
+수렴된 등록의 공개 미리 보기에 참여하는 경우 감사 로그에서 사용자 작업에 관한 정보를 **인증 방법** 범주 아래에서 찾을 수 있습니다.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure Portal의 보고서 열 설명
 
@@ -173,8 +177,8 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 ## <a name="next-steps"></a>다음 단계
 
 * [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](howto-sspr-deployment.md)
-* [암호 재설정 또는 변경](../active-directory-passwords-update-your-own-password.md)
-* [셀프 서비스 암호 재설정 등록](../active-directory-passwords-reset-register.md)
+* [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
+* [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md)
 * [라이선스 관련 질문이 있습니까?](concept-sspr-licensing.md)
 * [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
 * [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](concept-sspr-howitworks.md#authentication-methods)

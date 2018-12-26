@@ -3,27 +3,27 @@ title: Azure Event Grid로 업로드 이미지 크기 자동 조정 | Microsoft 
 description: Azure Event Grid는 Azure Storage에 BLOB 업로드를 트리거할 수 있습니다. 이 기능을 활용하여 Azure Storage에 업로드된 이미지 파일을 Azure Functions 등의 타 서비스로 보내 크기를 조절하거나 다른 향상을 수행할 수 있습니다.
 services: event-grid, functions
 author: ggailey777
-manager: cfowler
+manager: jpconnoc
 editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/20/2018
+ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f1f10e0cb552dfa938b85280f3acb302b4591426
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f08de2398174363604576874627026dcc6199ac5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295952"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104665"
 ---
-# <a name="automate-resizing-uploaded-images-using-event-grid"></a>Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
+# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
 [Azure Event Grid](overview.md)는 클라우드용 이벤트 서비스입니다. Event Grid를 사용하면 Azure 서비스나 타 리소스에서 발생하는 이벤트에 대한 구독을 만들 수 있습니다.  
 
-이 자습서는 스토리지 자습서의 2부입니다. [이전 저장소 자습서][previous-tutorial]를 확장하여 Azure Event Grid 및 Azure Functions를 통해 서버 없는 자동 미리 보기 생성을 추가합니다. Event Grid를 사용하면 [Azure Functions](..\azure-functions\functions-overview.md)가 [Azure Blob 저장소](..\storage\blobs\storage-blobs-introduction.md) 이벤트에 응답하고 업로드된 이미지의 미리 보기를 생성할 수 있습니다. BLOB 저장소 만들기 이벤트에 대해 이벤트 구독을 만듭니다. BLOB이 특정 BLOB 저장소 컨테이너에 추가되면 함수 끝점이 호출됩니다. Event Grid에서 함수 바인딩에 전달된 데이터를 사용하여 BLOB에 액세스하고 미리 보기 이미지를 생성합니다.
+이 자습서는 스토리지 자습서의 2부입니다. [이전 저장소 자습서][previous-tutorial]를 확장하여 Azure Event Grid 및 Azure Functions를 통해 서버 없는 자동 미리 보기 생성을 추가합니다. Event Grid를 사용하면 [Azure Functions](../azure-functions/functions-overview.md)가 [Azure Blob 저장소](../storage/blobs/storage-blobs-introduction.md) 이벤트에 응답하고 업로드된 이미지의 미리 보기를 생성할 수 있습니다. BLOB 저장소 만들기 이벤트에 대해 이벤트 구독을 만듭니다. BLOB이 특정 BLOB 저장소 컨테이너에 추가되면 함수 엔드포인트가 호출됩니다. Event Grid에서 함수 바인딩에 전달된 데이터를 사용하여 BLOB에 액세스하고 미리 보기 이미지를 생성합니다.
 
 Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미지 업로드 앱에 추가합니다.
 
@@ -40,9 +40,19 @@ Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-이전 BLOB 저장소 자습서 [Azure Storage로 클라우드에 이미지 데이터 업로드][previous-tutorial]를 마쳐야 합니다.
+이전 Blob 스토리지 자습서: [Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드][previous-tutorial]를 완료했습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+이전에 사용자의 구독에서 Event Grid 리소스 공급자를 등록한 적이 없는 경우, 등록되었는지 확인합니다.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.EventGrid
+```
+
+```azurecli-interactive
+az provider register --namespace Microsoft.EventGrid
+```
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -52,7 +62,7 @@ Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로�
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-Azure Functions에는 일반 저장소 계정이 필요합니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 리소스 그룹에 별도의 일반 저장소 계정을 만듭니다.
+Azure Functions에는 일반 저장소 계정이 필요합니다. [az storage account create](/cli/azure/storage/account#az-storage-account-create) 명령을 사용하여 리소스 그룹에 별도의 일반 저장소 계정을 만듭니다.
 
 Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 
 
@@ -66,7 +76,7 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기  
 
-함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 서버를 사용하지 않는 함수 코드 실행을 위한 환경을 제공합니다. [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령을 사용하여 함수 앱을 만듭니다. 
+함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 서버를 사용하지 않는 함수 코드 실행을 위한 환경을 제공합니다. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 함수 앱을 만듭니다. 
 
 다음 명령에서 `<function_app>` 자리 표시자를 고유한 함수 앱 이름으로 대체합니다. 함수 앱은 함수 앱의 기본 DNS 도메인으로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. `<general_storage_account>`의 경우 사용자가 만든 일반 저장소 계정의 이름을 대체합니다.
 
@@ -91,8 +101,10 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbnails
+myContainerName=thumbnails FUNCTIONS_EXTENSION_VERSION=~2
 ```
+
+`FUNCTIONS_EXTENSION_VERSION=~2` 설정은 함수 앱을 Azure Functions 런타임의 버전 2.x에서 실행하게 만듭니다.
 
 이제 이 함수 앱에 함수 코드 프로젝트를 배포할 수 있습니다.
 
@@ -110,9 +122,8 @@ az functionapp deployment source config --name <function_app> \
 --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-샘플 Node.js 크기 조정 기능은 [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node)에서 사용할 수 있습니다. 이 Functions 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) 명령을 사용하여 함수 앱에 배포합니다. 
-
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+샘플 Node.js 크기 조정 기능은 [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node)에서 사용할 수 있습니다. 이 Functions 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) 명령을 사용하여 함수 앱에 배포합니다.
 
 다음 명령에서 `<function_app>`은 이전에 만든 함수 앱의 이름입니다.
 
@@ -135,7 +146,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 
 ## <a name="create-an-event-subscription"></a>이벤트 구독 만들기
 
-이벤트 구독은 특정 끝점으로 보내려는 공급자 생성 이벤트를 나타냅니다. 이 경우 해당 함수에서 끝점이 노출됩니다. Azure Portal에서 함수에 알림을 전송하는 이벤트 구독을 만들려면 다음 단계를 사용합니다. 
+이벤트 구독은 특정 엔드포인트로 보내려는 공급자 생성 이벤트를 나타냅니다. 이 경우 해당 함수에서 엔드포인트가 노출됩니다. Azure Portal에서 함수에 알림을 전송하는 이벤트 구독을 만들려면 다음 단계를 사용합니다. 
 
 1. [Azure Portal](https://portal.azure.com)의 맨 아래 왼쪽에서 화살표를 클릭하여 모든 서비스를 확장하고, **필터** 필드에 *함수*를 입력한 다음, **함수 앱**을 선택합니다. 
 
@@ -147,19 +158,18 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 
 3. 표에 지정된 대로 이벤트 구독 설정을 사용합니다.
     
-    ![Azure Portal의 함수에서 이벤트 구독 만들기](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
+    ![Azure Portal의 함수에서 이벤트 구독 만들기](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
     | 설정      | 제안 값  | 설명                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Name** | imageresizersub | 새 이벤트 구독을 식별하는 이름입니다. | 
     | **항목 유형** |  Storage 계정 | 저장소 계정 이벤트 공급자를 선택합니다. | 
     | **구독** | Azure 구독 | 기본적으로 현재 Azure 구독을 선택합니다.   |
     | **리소스 그룹** | myResourceGroup | **기존 항목 사용**을 선택하고 이 자습서에서 사용한 리소스 그룹을 선택합니다.  |
-    | **인스턴스** |  Blob Storage 계정 |  만든 BLOB 저장소 계정을 선택합니다. |
+    | **리소스** |  Blob Storage 계정 |  만든 BLOB 저장소 계정을 선택합니다. |
     | **이벤트 유형** | 만든 BLOB  | 만든 **BLOB** 이외의 모든 유형을 선택 취소합니다. `Microsoft.Storage.BlobCreated` 이벤트 유형만 함수에 전달됩니다.| 
-    | **구독자 형식** |  웹 후크 |  웹 후크 또는 Event Hubs를 선택합니다. |
-    | **구독자 끝점** | autogenerated | 사용자에 대해 생성되는 끝점 URL을 사용합니다. | 
-    | **접두사 필터** | /blobServices/default/containers/images/blobs/ | **이미지** 컨테이너의 항목에 대해서만 저장소 이벤트를 필터링합니다.| 
+    | **구독자 형식** |  autogenerated |  Web Hook로 미리 정의됩니다. |
+    | **구독자 엔드포인트** | autogenerated | 사용자에 대해 생성되는 엔드포인트 URL을 사용합니다. | 
+    | **Name** | imageresizersub | 새 이벤트 구독을 식별하는 이름입니다. | 
 
 4. **만들기**를 클릭하여 이벤트 구독을 추가합니다. 그러면 Blob을 *이미지* 컨테이너에 추가할 때 `imageresizerfunc`를 트리거하는 이벤트 구독이 만들어집니다. 함수는 이미지의 크기를 조정하고 *썸네일* 컨테이너에 추가합니다.
 
@@ -190,6 +200,6 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 > [클라우드에서 응용 프로그램 데이터에 대한 보안 액세스](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 + Event Grid에 대한 소개는 [Azure Event Grid](overview.md)를 참조하세요. 
-+ Azure Functions를 다룬 다른 자습서를 살펴보려면 [Azure Logic Apps와 통합하는 함수 만들기](..\azure-functions\functions-twitter-email.md)를 참조하세요. 
++ Azure Functions를 다룬 다른 자습서를 살펴보려면 [Azure Logic Apps와 통합하는 함수 만들기](../azure-functions/functions-twitter-email.md)를 참조하세요. 
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md

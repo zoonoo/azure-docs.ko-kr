@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 75bba953a7a5737f0388e53a9f6f38dd8324eb83
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 91e9cb6b436cc78a0c5bd4769d38622abda4c04d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944541"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977573"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure에서 Linux VM 최적화
 Linux 가상 머신(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서에서는 Microsoft Azure Platform에서 해당 성능을 최적화하도록 설정하는 방법을 보여줍니다. 이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 Linux 가상 머신을 만들 수도 있습니다.  
 
 ## <a name="prerequisites"></a>필수 조건
-이 항목에서는 사용하는 Azure 구독([무료 평가판 등록](https://azure.microsoft.com/pricing/free-trial/))이 이미 있으며 Azure 구독에 VM을 이미 프로비전했다고 가정합니다. [VM을 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 전에 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 구독에 로그인했는지 확인합니다.
+이 항목에서는 사용하는 Azure 구독([무료 평가판 등록](https://azure.microsoft.com/pricing/free-trial/))이 이미 있으며 Azure 구독에 VM을 이미 프로비전했다고 가정합니다. [VM을 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 전에 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 구독에 로그인했는지 확인합니다.
 
 ## <a name="azure-os-disk"></a>Azure OS 디스크
 Azure에서 Linux VM을 만들면 이에 연결된 두 개의 디스크가 있습니다. **/dev/sda**는 OS 디스크이며 **/dev/sdb**는 임시 디스크입니다.  OS 디스크(**/dev/sda**)는 신속한 VM 부팅 시간에 최적화되고 워크로드에 좋은 성능을 제공하지 않으므로 운영 체제 이외에 사용하지 않습니다. 데이터에 대한 영구적이고 최적화된 저장소를 얻기 위해 VM에 하나 이상의 디스크를 연결하려고 합니다. 
@@ -42,7 +42,7 @@ VM 크기에 따라 A 시리즈에 16개, D 시리즈에 32개 및 G 시리즈�
 * **XFS**를 사용하는 경우 탑재 옵션 `nobarrier`을 사용하여 장벽을 사용하지 않도록 설정합니다(장벽 사용의 경우 `barrier` 옵션 사용).
 
 ## <a name="unmanaged-storage-account-considerations"></a>관리되지 않는 저장소 계정 고려 사항
-Azure CLI 2.0을 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks를 사용하는 것입니다.  이들 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다.  관리되지 않는 디스크는 저장소 계정이 필요하며 추가 성능 고려 사항이 있습니다.  관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../windows/managed-disks-overview.md)를 참조하세요.  다음 섹션에서는 관리되지 않는 디스크를 사용하는 경우에만 성능 고려 사항을 설명합니다.  권장되는 기본 저장소 솔루션은 Managed Disks를 사용하는 것입니다.
+Azure CLI를 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks를 사용하는 것입니다.  이들 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다.  관리되지 않는 디스크는 저장소 계정이 필요하며 추가 성능 고려 사항이 있습니다.  관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../windows/managed-disks-overview.md)를 참조하세요.  다음 섹션에서는 관리되지 않는 디스크를 사용하는 경우에만 성능 고려 사항을 설명합니다.  권장되는 기본 저장소 솔루션은 Managed Disks를 사용하는 것입니다.
 
 관리되지 않는 디스크를 사용하여 VM을 만들 경우 가까운 근접성을 제공하고 네트워크 대기 시간을 최소화하기 위해 VM과 동일한 지역에 위치한 저장소 계정에서 디스크를 연결해야 합니다.  각 표준 저장소 계정에는 최대 20,000IOps 및 500TB 크기의 용량이 포함됩니다.  이러한 제한은 만든 OS 디스크 및 데이터 디스크를 비롯한 약 40개의 많이 사용되는 디스크에 적용됩니다. Premium Storage 계정의 경우 최대 IOps 제한이 없지만 크기는 32TB로 제한됩니다. 
 
@@ -92,7 +92,7 @@ cat /sys/block/sda/queue/scheduler
 noop [deadline] cfq
 ```
 
-### <a name="change-the-current-device-devsda-of-io-scheduling-algorithm"></a>I/O 일정 알고리즘의 현재 장치(/dev/sda) 변경
+### <a name="change-the-current-device-devsda-of-io-scheduling-algorithm"></a>I/O 일정 알고리즘의 현재 디바이스(/dev/sda) 변경
 다음 명령을 사용합니다.  
 
 ```bash
@@ -118,7 +118,7 @@ Found memtest86+ image: /memtest86+.bin
 done
 ```
 
-Redhat 배포 패밀리의 경우 다음 명령만 필요합니다.   
+Red Hat 배포 패밀리의 경우 다음 명령만 필요합니다.   
 
 ```bash
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local

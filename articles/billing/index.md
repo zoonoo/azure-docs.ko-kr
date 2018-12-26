@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: e696f3829ce710ef38957a5f538c1a43f4ba33f5
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ed792b03a79d2dcbb77142a51ae2641c8d0bd3ad
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285851"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583333"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure 청구 및 비용 관리 설명서
 
@@ -49,9 +49,10 @@ Azure 청구를 이해하고 사용량 및 비용을 모니터링하며 계정 �
                         <h3>비용 관리</h3>
                         <p>
                         <a href="/azure/billing/billing-getting-started">예기치 않은 비용 방지</a><br/>
-                        <a href="/azure/billing/billing-set-up-alerts">청구 경고 설정</a><br/>
-                        <a href="https://azure.microsoft.com/pricing/calculator/">가격 계산</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">리소스 태그 사용</a>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">리소스 태그 사용</a><br/>
+                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">비용 분석 시작 - EA만</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">예산 만들기 및 관리 - EA만</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">최적화 권장 사항 - EA만</a>
                         </p>
                     </div>
                 </div>
@@ -101,8 +102,8 @@ Azure 청구를 이해하고 사용량 및 비용을 모니터링하며 계정 �
                         <p>
                         <a href="/azure/billing/billing-manage-access">요금 청구에 대한 액세스 권한 부여</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">청구서로 지불</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">예약 인스턴스 관리</a><br/>
-                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">예약 인스턴스 사용량</a>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Azure Reservations 관리</a><br/>
+                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Azure Reservations의 사용량</a>
                         </p>
                     </div>
                 </div>
@@ -131,11 +132,12 @@ Azure 청구를 이해하고 사용량 및 비용을 모니터링하며 계정 �
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>예약 VM 인스턴스로 비용 절감</h3>
+                        <h3>Azure Reservations를 사용하여 저장</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">예약 인스턴스란?</a> <br/>
-                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">예약 인스턴스 구입</a><br/>
-                        <a href="/azure/billing/billing-understand-vm-reservation-charges">할인 적용 방식</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">Azure Reservations란?</a> <br/>
+                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Reserved VM Instance 구입</a><br/>
+                        <a href="/azure/sql-database/sql-database-reserved-capacity?toc=/azure/billing/TOC.json">SQL Database 예약된 용량 구입</a><br/>
+                        <a href="/azure/billing/billing-understand-vm-reservation-charges">VM 할인 적용 방식</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">소프트웨어 비용 미포함</a>
                         </p>
                     </div>
@@ -166,7 +168,6 @@ Azure 청구를 이해하고 사용량 및 비용을 모니터링하며 계정 �
                 <div class="card">
                     <div class="cardText">
                         <h3>엔터프라이즈 구독: EA 포털 액세스 필요</h3>
-                        <style>.p-test:after { font-family: docons; content: "\E9D0";}</style>
                         <p>
                         <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">부서 관리<span class="docon docon-navigate-external"></span></a>
                         <br>

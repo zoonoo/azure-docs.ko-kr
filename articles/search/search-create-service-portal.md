@@ -1,6 +1,6 @@
 ---
-title: 포털에서 Azure Search 서비스 만들기 | Microsoft Docs
-description: 포털에서 Azure Search 서비스 프로비전합니다.
+title: 포털에서 Azure Search 서비스 만들기 - Azure Search
+description: Azure Portal에서 Azure Search 서비스를 프로비전합니다. 리소스 그룹, 지역 및 SKU 또는 가격 책정 계층을 선택합니다.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.custom: seodec2018
+ms.openlocfilehash: 2055ad9baff0c6acc05c9287ca1b8fb08731f8bc
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950684"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315988"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
 
@@ -28,15 +29,15 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 아니면 [MSDN 구독자 혜택을 활성화합니다](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다. 
 
 ## <a name="find-azure-search"></a>Azure Search 찾기
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 위 모퉁이에서 더하기 기호("+ 리소스 만들기")를 클릭합니다.
 3. **웹** > **Azure Search**를 선택합니다.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
-## <a name="name-the-service-and-url-endpoint"></a>서비스 및 URL 끝점의 이름
+## <a name="name-the-service-and-url-endpoint"></a>서비스 및 URL 엔드포인트의 이름
 
-서비스 이름은 API 호출이 발급되는 URL 끝점의 일부입니다.`https://your-service-name.search.windows.net` **URL** 필드에 서비스 이름을 입력합니다. 
+서비스 이름은 API 호출이 발급되는 URL 엔드포인트의 일부입니다.`https://your-service-name.search.windows.net` **URL** 필드에 서비스 이름을 입력합니다. 
 
 서비스 이름 요구 사항:
    * search.windows.net 네임스페이스 내에서 고유해야 함
@@ -58,10 +59,9 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅될 수 있습니다. 지역별로 [가격이 다를 수](https://azure.microsoft.com/pricing/details/search/) 있습니다.
 
 ## <a name="select-a-pricing-tier-sku"></a>가격 책정 계층(SKU) 선택
+[Azure Search는 현재 여러 가지 가격 책정 계층에서 제공되며](https://azure.microsoft.com/pricing/details/search/) 무료, 기본 또는 표준 등이 있습니다. 각 계층에는 자체 [용량 및 제한](search-limits-quotas-capacity.md)이 있습니다. 지침은 [가격 책정 계층 또는 SKU 선택](search-sku-tier.md) 을 참조하세요.
 
-  [Azure Search는 무료, 기본 또는 표준 등 여러 가지 가격 책정 계층에서 현재 제공됩니다](https://azure.microsoft.com/pricing/details/search/). 각 계층에는 자체 [용량 및 제한](search-limits-quotas-capacity.md)이 있습니다. 지침은 [가격 책정 계층 또는 SKU 선택](search-sku-tier.md) 을 참조하세요.
-
-이 연습에서는 서비스에 대한 표준 계층을 선택했습니다.
+표준은 프로덕션 워크로드에서 일반적으로 선택되지만 대부분의 고객은 무료 서비스를 시작합니다.
 
 서비스를 만든 후에 가격 책정 계층을 변경할 수 없습니다. 나중에 상위 또는 하위 계층이 필요한 경우 서비스를 다시 만들어야 합니다.
 

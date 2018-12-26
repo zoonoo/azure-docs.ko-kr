@@ -1,6 +1,6 @@
 ---
-title: "Windows 서버 및 작업자 역할용 Azure Application Insights | Microsoft Docs"
-description: "ASP.NET 응용 프로그램에 Application Insights SDK를 수동으로 추가하여 사용량, 가용성 및 성능을 분석합니다."
+title: Windows 서버 및 작업자 역할용 Azure Application Insights | Microsoft Docs
+description: ASP.NET 응용 프로그램에 Application Insights SDK를 수동으로 추가하여 사용량, 가용성 및 성능을 분석합니다.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: bf7921926c69fff214e94a2d0edc22b28fb8eac0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 461b1f4e72f0a47da4ccb560bfb4cfb7d0f3ccd2
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096438"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>.NET 응용 프로그램에 대한 Application Insights를 수동으로 구성
 
@@ -111,7 +112,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 ## <a name="monitor"></a> 원격 분석 보기
 [Azure 포털](https://portal.azure.com/) 로 돌아가서 Application Insights 리소스를 찾습니다.
 
-개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예:
+개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예: 
 
 ![클릭하여 추가 데이터 확인](./media/app-insights-windows-services/12-first-perf.png)
 

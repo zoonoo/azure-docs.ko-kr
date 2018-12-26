@@ -1,6 +1,6 @@
 ---
-title: Azure 리소스에 대한 Privileged Identity Management - 구독 관리 설정 | Microsoft Docs
-description: 전역 관리자가 테넌트에서 구독을 관리할 수 있는 방법에 대해 알아봅니다.
+title: 테넌트에서 구독 관리 사용 - Azure | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)을 사용하는 경우 테넌트에서 구독 관리를 사용하도록 설정하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 6aeb82ff1feb3521f3a09dc1b28186754568bb27
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bcaea64484010672a53050cb806c4256a17b19a8
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442993"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901178"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>테넌트에서 구독 관리 사용
 
@@ -79,14 +79,5 @@ ms.locfileid: "37442993"
 
 ## <a name="next-steps"></a>다음 단계
 
-[리소스 검색](pim-resource-roles-discover-resources.md)
-
-[역할 설정 구성](pim-resource-roles-configure-role-settings.md)
-
-
-
-
-
-
-
-
+- [PIM에서 관리할 Azure 리소스 검색](pim-resource-roles-discover-resources.md)
+- [PIM에서 Azure 리소스 역할 설정 구성](pim-resource-roles-configure-role-settings.md)

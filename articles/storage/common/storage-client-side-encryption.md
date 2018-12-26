@@ -1,25 +1,19 @@
 ---
 title: Microsoft Azure Storage용 .NET을 사용하는 클라이언트 쪽 암호화 | Microsoft Docs
-description: .NET용 Azure Storage 클라이언트 라이브러리는 Azure Storage 응용 프로그램의 보안을 최대화하기 위해 클라이언트 쪽 암호화 및 Azure Key Vault와의 통합을 지원합니다.
+description: .NET용 Azure Storage 클라이언트 라이브러리는 Azure Storage 애플리케이션의 보안을 최대화하기 위해 클라이언트 쪽 암호화 및 Azure Key Vault와의 통합을 지원합니다.
 services: storage
-documentationcenter: .net
-author: craigshoemaker
-manager: jeconnoc
-editor: tysonn
-ms.assetid: becfccca-510a-479e-a798-2044becd9a64
+author: tamram
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: cshoe
-ms.openlocfilehash: 723ef31c0247d2b2b5e546b4e4fb3d91a516773c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: tamram
+ms.component: common
+ms.openlocfilehash: 857ab3ad9870407b91b0fdc9c552a89fd1f4ccd4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30245450"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140522"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -154,7 +148,7 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 이 문서의 코드 예제는 암호화 정책을 설정하고 암호화된 데이터를 사용하는 방법을 보여줍니다. 하지만 Azure Key Vault를 사용하는 방법은 보여주지 않습니다. GitHub에 대한 [암호화 샘플](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)은 Key Vault 통합과 함께 Blob, 큐 및 테이블에 대한 보다 자세한 종단 간 시나리오를 보여줍니다.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 모드
-사용자는 모든 업로드 및 다운로드를 암호화해야 할 경우 작업 모드를 선택적으로 사용하도록 설정할 수 있습니다. 이 모드에서는 클라이언트에서 암호화 정책 없이 데이터를 업로드하거나 서비스에서 암호화되지 않은 데이터를 다운로드하려고 하면 실패합니다. 요청 옵션 개체의 **RequireEncryption** 속성이 이 동작을 제어합니다. 응용 프로그램이 Azure Storage에 저장된 모든 개체를 암호화하는 경우 서비스 클라이언트 개체에 대한 기본 요청 옵션에서 **RequireEncryption** 속성을 설정할 수 있습니다. 예를 들어 모든 BLOB 작업에 대한 암호화가 해당 클라이언트 개체를 통해 수행되도록 하려면 **CloudBlobClient.DefaultRequestOptions.RequireEncryption**을 **true**로 설정합니다.
+사용자는 모든 업로드 및 다운로드를 암호화해야 할 경우 작업 모드를 선택적으로 사용하도록 설정할 수 있습니다. 이 모드에서는 클라이언트에서 암호화 정책 없이 데이터를 업로드하거나 서비스에서 암호화되지 않은 데이터를 다운로드하려고 하면 실패합니다. 요청 옵션 개체의 **RequireEncryption** 속성이 이 동작을 제어합니다. 애플리케이션이 Azure Storage에 저장된 모든 개체를 암호화하는 경우 서비스 클라이언트 개체에 대한 기본 요청 옵션에서 **RequireEncryption** 속성을 설정할 수 있습니다. 예를 들어 모든 BLOB 작업에 대한 암호화가 해당 클라이언트 개체를 통해 수행되도록 하려면 **CloudBlobClient.DefaultRequestOptions.RequireEncryption**을 **true**로 설정합니다.
 
 
 ### <a name="blob-service-encryption"></a>Blob service 암호화
@@ -248,6 +242,6 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 
 ## <a name="next-steps"></a>다음 단계
 * [자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 해독](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
-* [Azure Storage Client Library for .NET NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage)
+*  [Azure Storage Client Library for .NET NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Azure Key Vault NuGet [코어](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [클라이언트](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), [확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드  
 * [Azure Key Vault 설명서](../../key-vault/key-vault-whatis.md)

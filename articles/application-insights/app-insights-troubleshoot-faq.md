@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: d7abfd1ac6f914c75297ff49462590e5b6169dbd
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 60195f135b8b0e102a36c3573a341432f2e0c784
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310017"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959310"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: 질문과 대답
 
@@ -27,7 +27,7 @@ ms.locfileid: "32310017"
 
 * [.NET 앱](app-insights-asp-net-troubleshoot-no-data.md)
 * [이미 실행 중인 앱 모니터링](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Azure 진단](app-insights-azure-diagnostics.md)
+* [Azure 진단](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Java 웹앱](app-insights-java-troubleshoot.md)
 
 *내 서버에서 데이터를 가져오지 않습니다.*
@@ -111,7 +111,7 @@ ms.locfileid: "32310017"
 
 [클라이언트 웹 페이지](app-insights-javascript.md):
 
-* [페이지 보기 수](app-insights-web-track-usage.md)
+* [페이지 보기 수](app-insights-usage-overview.md)
 * 실행되는 스크립트의 [AJAX 호출](app-insights-asp-net-dependencies.md) 요청.
 * 페이지 보기 로드 데이터
 * 사용자 및 세션 수
@@ -119,7 +119,7 @@ ms.locfileid: "32310017"
 
 다른 원본(구성한 경우):
 
-* [Azure 진단](app-insights-azure-diagnostics.md)
+* [Azure 진단](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Docker 컨테이너](app-insights-docker.md)
 * [분석으로 테이블 가져오기](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
@@ -236,14 +236,14 @@ Azure 경고는 메트릭에 대해서만 설정됩니다. 이벤트가 발생�
 
 ## <a name="are-there-data-transfer-charges-between-an-azure-web-app-and-application-insights"></a>Azure 웹앱과 Application Insights 간 데이터 전송 요금이 있나요?
 
-* Azure 웹앱이 Application Insights 컬렉션 끝점이 있는 데이터 센터에서 호스트되는 경우 무료입니다. 
-* 호스트 데이터 센터에 컬렉션 끝점이 없으면 앱의 원격 분석에 [Azure 발신 요금](https://azure.microsoft.com/pricing/details/bandwidth/)이 부과됩니다.
+* Azure 웹앱이 Application Insights 컬렉션 엔드포인트가 있는 데이터 센터에서 호스트되는 경우 무료입니다. 
+* 호스트 데이터 센터에 컬렉션 엔드포인트가 없으면 앱의 원격 분석에 [Azure 발신 요금](https://azure.microsoft.com/pricing/details/bandwidth/)이 부과됩니다.
 
-이 요금은 Application insights 리소스가 호스트되는 위치에 따라 달라지지 않습니다. 끝점의 배포에 따라 달라집니다.
+이 요금은 Application insights 리소스가 호스트되는 위치에 따라 달라지지 않습니다. 엔드포인트의 배포에 따라 달라집니다.
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Application Insights 포털에 원격 분석을 보낼 수 있나요?
 
-저희가 제공하는 SDK 및 [SDK API](app-insights-api-custom-events-metrics.md)를 사용하는 것이 좋습니다. 다양한 [플랫폼](app-insights-platforms.md)에 따라 여러 SDK 변형이 있습니다. 이러한 SDK는 버퍼링, 압축, 제한, 다시 시도 등을 처리합니다. 그러나 [수집 스키마](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) 및 [끝점 프로토콜](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md)은 공용입니다.
+저희가 제공하는 SDK 및 [SDK API](app-insights-api-custom-events-metrics.md)를 사용하는 것이 좋습니다. 다양한 [플랫폼](app-insights-platforms.md)에 따라 여러 SDK 변형이 있습니다. 이러한 SDK는 버퍼링, 압축, 제한, 다시 시도 등을 처리합니다. 그러나 [수집 스키마](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) 및 [엔드포인트 프로토콜](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md)은 공용입니다.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>인트라넷 웹 서버를 모니터링할 수 있나요?
 
@@ -251,7 +251,7 @@ Azure 경고는 메트릭에 대해서만 설정됩니다. 이벤트가 발생�
 
 ### <a name="firewall-door"></a>방화벽 문
 
-그러면 웹 서버가 https://dc.services.visualstudio.com:443 및 https://rt.services.visualstudio.com:443 끝점에 원격 분석을 전송할 수 있습니다. 
+그러면 웹 서버가 https://dc.services.visualstudio.com:443 및 https://rt.services.visualstudio.com:443 엔드포인트에 원격 분석을 전송할 수 있습니다. 
 
 ### <a name="proxy"></a>Proxy
 
@@ -278,7 +278,7 @@ _ApplicationIdProvider는 v2.6.0부터 사용 가능합니다._
 
 위의 값을 `http://<your.gateway.address>/<relative path>`로 바꾸세요.
  
-예: 
+예제: 
 ```
 http://<your.gateway.endpoint>/v2/track 
 http://<your.gateway.endpoint>/api/profiles/{0}/apiId

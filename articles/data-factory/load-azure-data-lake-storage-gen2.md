@@ -9,24 +9,27 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/06/2018
 ms.author: jingwang
-ms.openlocfilehash: 961c8dea4dbb6b6600d10b75e84a9a84c34c329b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 558b426ea85decb0309390e36910eb18719e6e99
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035606"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002530"
 ---
-# <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 미리 보기에 데이터 로드
+# <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2(미리 보기)에 데이터 로드
 
-[Azure Data Lake Storage Gen2 미리 보기](../storage/data-lake-storage/introduction.md)에서는 계층적 파일 시스템 네임스페이스 및 보안 기능을 포함한 프로토콜을 Azure Blob Storage에 추가하여 분석 프레임워크를 지속성 저장소 계층에 쉽게 연결할 수 있습니다. Data Lake Storage Gen2(미리 보기)에서 파일 시스템 인터페이스의 이점이 추가되는 동안 개체 저장소의 모든 특성이 유지됩니다.
+[Azure Data Lake Storage Gen2(미리 보기)](../storage/data-lake-storage/introduction.md)에서는 계층적 파일 시스템 네임스페이스 및 보안 기능을 포함한 프로토콜을 Azure Blob Storage에 추가하여 분석 프레임워크를 지속성 저장소 레이어에 쉽게 연결할 수 있습니다. Data Lake Storage Gen2(미리 보기)에서 파일 시스템 인터페이스의 이점이 추가되는 동안 개체 저장소의 모든 특성이 유지됩니다.
 
 Azure Data Factory는 완전히 관리되는 클라우드 기반 데이터 통합 서비스입니다. 분석 솔루션을 빌드할 때 서비스를 사용하여 풍부한 온-프레미스 및 크라우드 기반 데이터 저장소의 데이터로 레이크를 채우고 시간을 절약할 수 있습니다. 지원되는 커넥터의 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-Azure Data Factory에서는 명령줄 데이터 전송 유틸리티인 AzCopy와 반대로 스케일 아웃 관리되는 데이터 이동 솔루션을 제공합니다. ADF의 스케일 아웃 아키텍처로 인해 높은 처리량으로 데이터를 수집할 수 있습니다. 자세한 내용은 [복사 작업 성능](copy-activity-performance.md)을 참조하세요.
+Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션을 제공합니다. ADF의 스케일 아웃 아키텍처로 인해 높은 처리량으로 데이터를 수집할 수 있습니다. 자세한 내용은 [복사 작업 성능](copy-activity-performance.md)을 참조하세요.
 
 이 아티클에서는 Data Factory 복사 데이터 도구를 사용하여 _Amazon Web Services S3 서비스_의 데이터를 _Azure Data Lake Storage Gen2_로 로드하는 방법을 설명합니다. 다른 데이터 저장소 유형에서 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다.
+
+>[!TIP]
+>Azure Data Lake Storage Gen1에서 Gen2로 데이터를 복사하는 방법은 [이 연습](load-azure-data-lake-storage-gen2-from-gen1.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -46,7 +49,7 @@ Azure Data Factory에서는 명령줄 데이터 전송 유틸리티인 AzCopy와
     * **이름**: Azure 데이터 팩터리의 전역 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadADLSDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
     * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
     * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
-    * **버전**: **V2(미리 보기)** 를 선택합니다.
+    * **버전**: **V2**를 선택합니다.
     * **위치**: 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소가 다른 위치 및 지역에 있어도 됩니다. 
 
 3. **만들기**를 선택합니다.
@@ -98,7 +101,7 @@ Azure Data Factory에서는 명령줄 데이터 전송 유틸리티인 AzCopy와
    1. "저장소 계정 이름" 드롭다운 목록에서 Data Lake Storage Gen2 계정을 선택합니다.
    2. **다음**을 선택합니다.
    
-   ![Azure Data Lake Store 계정을 지정합니다.](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
+   ![Azure Data Lake Storage Gen2 계정 지정](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
 9. **출력 파일 또는 폴더 선택** 페이지에서 출력 폴더 이름으로 **copyfroms3**를 입력하고 **다음**을 선택합니다. 
 
@@ -127,11 +130,11 @@ Azure Data Factory에서는 명령줄 데이터 전송 유틸리티인 AzCopy와
 
 16. 데이터가 Data Lake Storage Gen2 계정에 복사되었는지 확인합니다.
 
-## <a name="best-practice"></a>모범 사례
+## <a name="best-practices"></a>모범 사례
 
 파일 기반 데이터 저장소에서 대규모 데이터 볼륨을 복사할 때 다음이 제안됩니다.
 
-- 파일을 각각 10TB~20TB 파일 집합으로 구분합니다.
+- 파일을 각각 10TB~30TB 파일 집합으로 분할합니다.
 - 원본 또는 싱크 데이터 저장소에서 제한을 방지하기 위해 동시 복사 실행을 너무 많이 트리거하지 않습니다. 하나의 복사 실행을 시작하고 처리량을 모니터링한 다음, 점차적으로 필요한만큼 추가할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

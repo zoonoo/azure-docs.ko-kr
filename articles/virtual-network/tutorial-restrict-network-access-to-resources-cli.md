@@ -17,29 +17,29 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: f357861a7a44b249e06f091a8693b7f2d8dd5178
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ce4ff3fe2917d4dc34718fccc740223df0c52e8e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232744"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970943"
 ---
-# <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 끝점으로 PaaS 리소스에 대한 네트워크 액세스 제한
+# <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
-가상 네트워크 서비스 끝점을 사용하면 일부 Azure 서비스 리소스에 대한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다. 리소스에 대한 인터넷 액세스를 제거할 수도 있습니다. 서비스 끝점은 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공하므로 가상 네트워크의 개인 주소 공간을 사용하여 Azure 서비스에 액세스할 수 있습니다. 서비스 끝점을 통해 Azure 리소스에 도달하는 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다. 이 문서에서는 다음 방법을 설명합니다.
+가상 네트워크 서비스 엔드포인트를 사용하면 일부 Azure 서비스 리소스에 대한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다. 리소스에 대한 인터넷 액세스를 제거할 수도 있습니다. 서비스 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공하므로 가상 네트워크의 개인 주소 공간을 사용하여 Azure 서비스에 액세스할 수 있습니다. 서비스 엔드포인트를 통해 Azure 리소스에 도달하는 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다. 이 문서에서는 다음 방법을 설명합니다.
 
 * 하나의 서브넷이 있는 가상 네트워크 만들기
-* 서브넷을 추가하고 서비스 끝점을 사용하도록 설정
+* 서브넷을 추가하고 서비스 엔드포인트를 사용하도록 설정
 * Azure 리소스를 만들고 서브넷에서만 네트워크 액세스 허용
 * 각 서브넷에 VM(가상 머신) 배포
 * 서브넷에서 리소스에 대한 액세스 확인
 * 서브넷 및 인터넷에서 리소스에 대한 액세스가 거부되는지 확인
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
@@ -62,9 +62,9 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-## <a name="enable-a-service-endpoint"></a>서비스 끝점 사용 
+## <a name="enable-a-service-endpoint"></a>서비스 엔드포인트 사용 
 
-서비스 끝점을 지원하는 서비스에 대해서만 서비스 끝점을 사용하도록 설정할 수 있습니다. [az network vnet list-endpoint-services](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services)를 사용하여 Azure 위치에서 사용할 수 있는 서비스 끝점 지원 서비스를 확인합니다. 다음 예제에서는 *eastus* 지역에서 사용할 수 있는 서비스 끝점 지원 서비스 목록을 반환합니다. 반환되는 서비스 목록은 시간이 지나면서 서비스 끝점을 사용할 수 있는 Azure 서비스가 증가함에 따라 확장됩니다.
+서비스 엔드포인트를 지원하는 서비스에 대해서만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. [az network vnet list-endpoint-services](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services)를 사용하여 Azure 위치에서 사용할 수 있는 서비스 엔드포인트 지원 서비스를 확인합니다. 다음 예제에서는 *eastus* 지역에서 사용할 수 있는 서비스 끝점 지원 서비스 목록을 반환합니다. 반환되는 서비스 목록은 시간이 지나면서 서비스 엔드포인트를 사용할 수 있는 Azure 서비스가 증가함에 따라 확장됩니다.
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -72,7 +72,7 @@ az network vnet list-endpoint-services \
   --out table
 ``` 
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 가상 네트워크에서 추가 서브넷을 만듭니다. 이 예제에서는 서브넷에 대해 *Microsoft.Storage*용 서비스 끝점이 생성됩니다. 
+[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 가상 네트워크에서 추가 서브넷을 만듭니다. 이 예제에서는 서브넷에 대해 *Microsoft.Storage*용 서비스 엔드포인트가 생성됩니다. 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -152,7 +152,7 @@ az network nsg rule create \
 
 ## <a name="restrict-network-access-to-a-resource"></a>리소스에 대한 네트워크 액세스 제한
 
-서비스 끝점에 사용할 수 있는 Azure 서비스를 통해 만든 리소스에 대한 네트워크 액세스를 제한하는 데 필요한 단계는 서비스에 따라 다릅니다. 각 서비스에 대한 특정 단계는 개별 서비스의 설명서를 참조하세요. 이 문서의 나머지 부분에는 Azure Storage 계정에 대한 네트워크 액세스를 제한하는 단계가 예제로 포함되어 있습니다.
+서비스 엔드포인트에 사용할 수 있는 Azure 서비스를 통해 만든 리소스에 대한 네트워크 액세스를 제한하는 데 필요한 단계는 서비스에 따라 다릅니다. 각 서비스에 대한 특정 단계는 개별 서비스의 설명서를 참조하세요. 이 문서의 나머지 부분에는 Azure Storage 계정에 대한 네트워크 액세스를 제한하는 단계가 예제로 포함되어 있습니다.
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
@@ -318,7 +318,7 @@ sudo mkdir /mnt/MyAzureFileShare
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-*myVmPublic* VM이 *Public* 서브넷에 배포되었으므로 액세스가 거부되고 `mount error(13): Permission denied` 오류가 수신됩니다. *Public* 서브넷에는 Azure Storage에 사용할 수 있는 서비스 끝점이 없으며 저장소 계정이 *Public* 서브넷이 아닌 *Private* 서브넷의 네트워크 액세스만 허용합니다.
+*myVmPublic* VM이 *Public* 서브넷에 배포되었으므로 액세스가 거부되고 `mount error(13): Permission denied` 오류가 수신됩니다. *Public* 서브넷에는 Azure Storage에 사용할 수 있는 서비스 엔드포인트가 없으며 저장소 계정이 *Public* 서브넷이 아닌 *Private* 서브넷의 네트워크 액세스만 허용합니다.
 
 *myVmPublic* VM에 대한 SSH 세션을 종료합니다.
 
@@ -342,6 +342,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가상 네트워크 서브넷에 대해 서비스 엔드포인트를 사용하도록 설정했습니다. 여러 Azure 서비스로 배포된 리소스에 대해 서비스 끝점을 사용하도록 설정할 수 있음을 배웠습니다. Azure Storage 계정을 만들고 저장소 계정에 대한 네트워크 액세스를 가상 네트워크 서브넷 내의 리소스로만 제한했습니다. 서비스 끝점에 대한 자세한 내용은 [서비스 끝점 개요](virtual-network-service-endpoints-overview.md) 및 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
+이 문서에서는 가상 네트워크 서브넷에 대해 서비스 엔드포인트를 사용하도록 설정했습니다. 여러 Azure 서비스로 배포된 리소스에 대해 서비스 엔드포인트를 사용하도록 설정할 수 있음을 배웠습니다. Azure Storage 계정을 만들고 저장소 계정에 대한 네트워크 액세스를 가상 네트워크 서브넷 내의 리소스로만 제한했습니다. 서비스 엔드포인트에 대한 자세한 내용은 [서비스 엔드포인트 개요](virtual-network-service-endpoints-overview.md) 및 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
 
 계정에 여러 개의 가상 네트워크가 있는 경우, 각 가상 네트워크 내의 리소스가 서로 통신할 수 있도록 두 개의 가상 네트워크를 함께 연결하는 것이 좋습니다. 방법을 알아보려면 [가상 네트워크 연결](tutorial-connect-virtual-networks-cli.md)을 참조하세요.

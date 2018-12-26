@@ -3,7 +3,8 @@ title: Azure에서 Linux(Ubuntu) 데이터 과학 Virtual Machine 프로비전 |
 description: 분석 및 기계 학습을 수행하기 위해 Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine을 구성하고 만듭니다.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
+ms.author: gokuma
 manager: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
@@ -13,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: 18465463e924c10ddc35d619992655773e12cc82
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cf5a15a55cf3f0d33edeec9440e745c9dce996c1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179710"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244868"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전
 
@@ -53,7 +53,7 @@ Linux용 데이터 과학 Virtual Machine에는 다음을 포함하여 데이터
 * 기계 학습 도구
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): 온라인, 해시, allreduce, 축소, learning2search, 활성 및 대화형 학습 등의 기술을 지원하는 속성 기계 학습 시스템
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): 기능이 향상된 빠르고 정확한 트리 구현을 제공하는 도구
-  * [Rattle](http://rattle.togaware.com/): R에서 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 하는 그래픽 도구
+  * [Rattle](https://togaware.com/rattle/): R에서 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 하는 그래픽 도구
   * [LightGBM](https://github.com/Microsoft/LightGBM): 빠른 분산형 고성능 그라데이션 향상 프레임워크
 * Java, Python, node.js, Ruby, PHP의 Azure SDK
 * Azure Machine Learning 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
@@ -63,8 +63,8 @@ Linux용 데이터 과학 Virtual Machine에는 다음을 포함하여 데이터
 데이터 과학을 수행하려면 일련의 작업에 대해 다음 작업을 반복합니다.
 
 1. 데이터 찾기, 로드 및 전처리
-2. 모델 빌드 및 테스트
-3. 지능형 응용 프로그램에서 사용하기 위해 모델 배포
+1. 모델 빌드 및 테스트
+1. 지능형 응용 프로그램에서 사용하기 위해 모델 배포
 
 데이터 과학자는 다양한 도구를 사용하여 이러한 태스크를 완료합니다. 소프트웨어의 적합한 버전을 찾은 다음 다운로드하여 컴파일하고 설치하는 데 시간이 상당히 걸릴 수 있습니다.
 
@@ -81,45 +81,40 @@ Linux용 데이터 과학 Virtual Machine을 만들려면 먼저 Azure 구독이
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Linux용 데이터 과학 Virtual Machine 만들기
 Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 다음과 같습니다.
 
-1. [Azure 포털](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)에서 가상 머신 목록으로 이동합니다.
-2. 아래의 **만들기**를 클릭하여 마법사를 실행합니다.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-3. 다음 섹션에서는 Microsoft 데이터 과학 Virtual Machine을 만드는 데 사용되는 마법사의 각 단계(위 그림의 오른쪽에 열거되어 있음)에 필요한 내용을 입력합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
+1. [Azure 포털](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu)에서 가상 머신 목록으로 이동합니다. 아직 로그인하지 않은 경우 Azure 계정에 로그인하라는 메시지가 표시될 수 있습니다. 
+1. 아래의 **만들기**를 클릭하여 마법사를 실행합니다.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. 다음 섹션에서는 Microsoft 데이터 과학 Virtual Machine을 만드는 데 사용되는 마법사의 각 단계(위 그림의 오른쪽에 열거되어 있음)에 필요한 내용을 입력합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
    
    a. **기본 사항**:
    
    * **이름**: 만들려는 데이터 과학 서버 이름
+   * **VM 디스크 유형**: SSD(반도체 드라이브)를 선호하는 경우 **프리미엄 SSD**를 선택합니다. 그렇지 않은 경우에는 **표준 HDD**를 선택합니다. 
    * **사용자 이름**: 첫 번째 계정 로그인 ID입니다.
    * **암호**: 첫 번째 계정 암호입니다. 암호 대신 SSH 공개 키를 사용할 수 있습니다.
    * **구독**: 둘 이상의 구독을 보유한 경우, 컴퓨터를 만들고 요금을 청구할 구독 하나를 선택합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
    * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용할 수 있습니다.
    * **위치**: 가장 적합한 데이터 센터를 선택합니다. 이 위치는 대개 대부분의 데이터가 저장되어 있는 위치이거나 사용자의 실제 위치에 가장 가까운 위치(이 경우 네트워크에 가장 빠르게 액세스할 수 있음)입니다.
    
-   나. **크기**:
+   b. **크기**:
    
-   * 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. **모두 보기** 를 선택하면 더 많은 VM 크기 선택 항목을 확인할 수 있습니다. GPU 학습을 위한 NC 또는 ND 클래스 VM을 선택합니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 페이지에는 GPU가 있는 영역이 나열됩니다.
+   * 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. GPU 기반 VM 인스턴스에 대해 NC 또는 ND 클래스 VM을 선택합니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 페이지에는 GPU가 있는 영역이 나열됩니다.
    
    다. **설정**:
    
-   * **디스크 유형**: SSD(반도체 드라이브)를 선호하는 경우 **프리미엄**을 선택합니다. 그렇지 않은 경우에는 **표준**을 선택합니다. GPU VM에는 표준 디스크가 필요합니다.
-   * **저장소 계정**: 구독에서 새 Azure Storage 계정을 만들거나, 마법사의 **기본 사항** 단계에서 선택했던 동일 위치의 기존 계정을 사용할 수 있습니다.
-   * **기타 매개 변수**: 대부분의 경우에는 기본값만 사용합니다. 기본값 이외의 값을 살펴보려면 정보 링크를 가리켜 특정 필드에 대한 도움말을 확인합니다.
+   * 대부분의 경우에는 기본값만 사용할 수 있습니다. 기본값 이외의 값을 살펴보려면 정보 링크를 가리켜 특정 필드에 대한 도움말을 확인합니다.
    
    d. **요약**:
    
-   * 입력한 모든 정보가 올바른지 확인합니다.
+   * 입력한 모든 정보가 올바른지 확인합니다. 사용 약관에 대한 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 계산 이외에 추가 요금이 발생하지 않습니다. 프로비전을 시작하려면 **만들기**를 클릭합니다. 
    
-   e. **구입**:
-   
-   * 프로비전을 시작하려면 **구입**을 클릭합니다. 트랜잭션의 조건에는 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 계산 이외에 추가 요금이 발생하지 않습니다.
-
-프로비전에는 5-10분 정도 소요됩니다. 프로비전의 상태는 Azure 포털에 표시됩니다.
+프로비전에는 약 5분이 걸립니다. 프로비전의 상태는 Azure 포털에 표시됩니다.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Linux용 데이터 과학 Virtual Machine에 액세스하는 방법
 
 세 가지 메서드를 사용하여 Ubuntu DSVM에 액세스할 수 있습니다.
 1. 터미널 세션에 대한 SSH
-2. 그래픽 세션에 대한 X2Go
-3. Jupyter 노트북에 대한 JupyterHub 및 JupyterLab
+1. 그래픽 세션에 대한 X2Go
+1. Jupyter 노트북에 대한 JupyterHub 및 JupyterLab
 
 ### <a name="ssh"></a>SSH
 
@@ -134,7 +129,7 @@ VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다.
 Linux VM은 이미 X2Go 서버에 프로비전되어 있어 클라이언트 연결을 사용할 수 있습니다. Linux VM 그래픽 데스크톱에 연결하려면 클라이언트에서 다음 절차를 완료합니다.
 
 1. 사용 중인 클라이언트 플랫폼용 X2Go 클라이언트를 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 다운로드하여 설치합니다.    
-2. X2Go 클라이언트를 실행하고 **새 세션**을 선택합니다. 여러 탭이 있는 구성 창이 열립니다. 다음 구성 매개 변수를 입력합니다.
+1. X2Go 클라이언트를 실행하고 **새 세션**을 선택합니다. 여러 탭이 있는 구성 창이 열립니다. 다음 구성 매개 변수를 입력합니다.
    * **세션 탭**:
      * **호스트**: Linux 데이터 과학 VM의 호스트 이름 또는 프로그램 IP 주소입니다.
      * **로그인**: Linux VM의 사용자 이름입니다.
@@ -147,9 +142,9 @@ X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이�
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub 및 JupyterLab
 
-Ubuntu DSVM은 [JupyterHub](https://github.com/jupyterhub/jupyterhub), 다중 사용자 Jupyter 서버를 실행합니다. 연결하려면 랩톱 또는 데스크톱에서 https://your-vm-ip:8000 으로 이동하고, VM을 만들고 로그인하는 데 사용한 사용자 이름 및 암호를 입력합니다. 다양한 샘플 노트북을 사용하여 찾아보고 체험할 수 있습니다.
+Ubuntu DSVM은 [JupyterHub](https://github.com/jupyterhub/jupyterhub), 다중 사용자 Jupyter 서버를 실행합니다. 연결하려면 랩톱 또는 데스크톱에서 https://your-vm-ip:8000으로 이동하고, VM을 만들고 로그인하는 데 사용한 사용자 이름 및 암호를 입력합니다. 다양한 샘플 노트북을 사용하여 찾아보고 체험할 수 있습니다.
 
-Jupyter 노트북의 차세대 JupyterLab 및 JupyterHub도 제공됩니다. 액세스하려면 JupyterHub에 로그인한 다음, https://your-vm-ip:8000/lab URL로 이동합니다. /etc/jupyterhub/jupyterhub_config.py에 이 줄을 추가하여 기본 노트북 서버로 JupyterLab을 설정할 수 있습니다.
+Jupyter 노트북의 차세대 JupyterLab 및 JupyterHub도 제공됩니다. 액세스하려면 JupyterHub에 로그인한 다음, https://your-vm-ip:8000/user/your-username/lab URL로 이동합니다. /etc/jupyterhub/jupyterhub_config.py에 이 줄을 추가하여 기본 노트북 서버로 JupyterLab을 설정할 수 있습니다.
 
     c.Spawner.default_url = '/lab'
 
@@ -210,7 +205,7 @@ R 콘솔을 시작하려면 셸에서 **R**만 입력하면 됩니다. 이렇게
 
 또한 원하는 경우 [상위 20개 R 패키지](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) 를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R** 을 입력하여 이 스크립트를 실행할 수 있습니다.  
 
-### <a name="python"></a>파이썬
+### <a name="python"></a>Python
 Anaconda Python은 Python 2.7 및 3.5 환경과 함께 설치됩니다. 2.7 환경을 _루트_라고 하며, 3.5 환경을 _py35_라고 합니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. 
 
 py35 환경은 기본값입니다. 루트(2.7) 환경을 활성화하려면:
@@ -416,16 +411,16 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 > 
 
 1. **실행**을 클릭합니다.
-2. 예제 날씨 데이터 집합을 사용할지 묻는 팝업 대화 상자가 표시됩니다. **예** 를 클릭하여 예제를 로드합니다.
-3. **모델** 탭을 클릭합니다.
-4. **실행** 을 클릭하여 의사 결정 트리를 빌드합니다.
-5. **그리기** 를 클릭하여 의사 결정 트리를 표시합니다.
-6. **포리스트** 라디오 단추를 클릭하고 **실행**을 클릭하여 임의 포리스트를 빌드합니다.
-7. **평가** 탭을 클릭합니다.
-8. **위험** 라디오 단추를 클릭하고 **실행**을 클릭하여 두 개의 위험(누적) 성능 도표를 표시합니다.
-9. **로그** 탭을 클릭하여 위 작업에 해당하는 generate R 코드를 표시합니다.
+1. 예제 날씨 데이터 집합을 사용할지 묻는 팝업 대화 상자가 표시됩니다. **예** 를 클릭하여 예제를 로드합니다.
+1. **모델** 탭을 클릭합니다.
+1. **실행** 을 클릭하여 의사 결정 트리를 빌드합니다.
+1. **그리기** 를 클릭하여 의사 결정 트리를 표시합니다.
+1. **포리스트** 라디오 단추를 클릭하고 **실행**을 클릭하여 임의 포리스트를 빌드합니다.
+1. **평가** 탭을 클릭합니다.
+1. **위험** 라디오 단추를 클릭하고 **실행**을 클릭하여 두 개의 위험(누적) 성능 도표를 표시합니다.
+1. **로그** 탭을 클릭하여 위 작업에 해당하는 generate R 코드를 표시합니다.
    현재 Rattle 릴리스의 버그로 인해, 로그 텍스트의 *Export this log ...* 앞에 *#* 문자를 삽입해야 합니다.
-10. **내보내기** 단추를 클릭하여 R 스크립트 파일 *weather_script.R*을 홈 폴더에 저장합니다.
+1. **내보내기** 단추를 클릭하여 R 스크립트 파일 *weather_script.R*을 홈 폴더에 저장합니다.
 
 이제 Rattle 및 R을 종료할 수 있습니다. 그러면 생성된 R 스크립트를 수정할 수도 있고, 언제든지 그대로 사용하여 Rattle UI 내에서 실행한 모든 작업을 반복할 수도 있습니다. 특히 R 초보자의 경우 이 손쉬운 방법을 사용하면 그래픽 인터페이스에서 분석 및 기계 학습을 신속하게 수행하는 동시에 R에서 코드를 자동으로 생성하여 수정 및/또는 학습할 수 있습니다.
 
@@ -434,6 +429,6 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 
 * [Linux용 데이터 과학 Virtual Machine의 데이터 과학](linux-dsvm-walkthrough.md) 연습은 여기에 프로비전된 Linux 데이터 과학을 사용하여 여러 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여 줍니다. 
 * 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 머신 내의 셸에서 *dsvm-more-info* 를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.  
-* [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
-* [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com) 를 방문하여 Cortana 분석 Suite을 사용하는 기계 학습 및 데이터 분석 샘플을 확인합니다.
+* [팀 데이터 과학 프로세스](https://aka.ms/tdsp)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
+* Azure AI 서비스를 사용하는 기계 학습 및 데이터 분석 샘플을 보려면 [Azure AI Gallery](https://gallery.azure.ai/)를 방문합니다.
 

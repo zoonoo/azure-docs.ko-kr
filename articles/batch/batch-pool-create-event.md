@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: danlep
-ms.openlocfilehash: bf7dfc2600c3d94faeb8d03561f6f2b30a0ee2d2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f8c0adf96d027f58a35dbe570f1b19c311cd84b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316990"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246517"
 ---
 # <a name="pool-create-event"></a>풀 만들기 이벤트
 
@@ -51,7 +51,7 @@ ms.locfileid: "30316990"
 |-------------|----------|-----------|
 |id|문자열|풀의 ID입니다.|
 |displayName|string|풀의 표시 이름입니다.|
-|vmSize|문자열|풀에 포함된 가상 머신의 크기입니다. 풀에 포함된 모든 가상 머신의 크기는 같습니다. <br/><br/> Cloud Services 풀(cloudServiceConfiguration을 사용하여 만든 풀)에 사용 가능한 가상 머신 크기에 대한 자세한 내용은 [Cloud Services에 적합한 크기](http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/)를 참조하세요. Batch는 `ExtraSmall`을 제외한 모든 Cloud Services VM 크기를 지원합니다.<br/><br/> Virtual Machines Marketplace(virtualMachineConfiguration을 사용하여 만든 풀)의 이미지를 사용한 풀에 사용 가능한 VM 크기에 대한 자세한 내용은 [Virtual Machines에 적합한 크기](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/)(Linux) 또는 [Virtual Machines에 적합한 크기](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/)(Windows)를 참조하세요. 배치는 `STANDARD_A0`및 프리미엄 저장소(`STANDARD_GS`, `STANDARD_DS` 및 `STANDARD_DSV2` 시리즈) 크기를 제외한 모든 Azure VM 크기를 지원합니다.|
+|vmSize|문자열|풀에 포함된 가상 머신의 크기입니다. 풀에 포함된 모든 가상 머신의 크기는 같습니다. <br/><br/> Cloud Services 풀(cloudServiceConfiguration을 사용하여 만든 풀)에 사용 가능한 가상 머신 크기에 대한 자세한 내용은 [Cloud Services에 적합한 크기](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/)를 참조하세요. Batch는 `ExtraSmall`을 제외한 모든 Cloud Services VM 크기를 지원합니다.<br/><br/> Virtual Machines Marketplace(virtualMachineConfiguration을 사용하여 만든 풀)의 이미지를 사용한 풀에 사용 가능한 VM 크기에 대한 자세한 내용은 [Virtual Machines에 적합한 크기](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/)(Linux) 또는 [Virtual Machines에 적합한 크기](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/)(Windows)를 참조하세요. 배치는 `STANDARD_A0`및 프리미엄 저장소(`STANDARD_GS`, `STANDARD_DS` 및 `STANDARD_DSV2` 시리즈) 크기를 제외한 모든 Azure VM 크기를 지원합니다.|
 |[cloudServiceConfiguration](#bk_csconf)|복합 형식|풀의 클라우드 서비스 구성입니다.|
 |[virtualMachineConfiguration](#bk_vmconf)|복합 형식|풀의 가상 머신 구성입니다.|
 |[networkConfiguration](#bk_netconf)|복합 형식|풀의 네트워크 구성입니다.|
@@ -65,14 +65,14 @@ ms.locfileid: "30316990"
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|요소 이름|유형|메모|
+|요소 이름|type|메모|
 |------------------|----------|-----------|
 |osFamily|문자열|풀의 가상 머신에 설치할 Azure 게스트 OS 제품군입니다.<br /><br /> 가능한 값은 다음과 같습니다.<br /><br /> **2** – OS 제품군 2이며, Windows Server 2008 R2 SP1에 해당합니다.<br /><br /> **3** – OS 제품군 3이며, Windows Server 2012에 해당합니다.<br /><br /> **4** – OS 제품군 4이며, Windows Server 2012 R2에 해당합니다.<br /><br /> 자세한 내용은 [Azure 게스트 OS 릴리스](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)를 참조하세요.|
 |targetOSVersion|문자열|풀의 가상 머신에 설치할 Azure 게스트 OS 버전입니다.<br /><br /> 기본값은 지정된 제품군의 최신 운영 체제 버전을 지정하는 **\*** 입니다.<br /><br /> 기타 허용된 값은 [Azure 게스트 OS 릴리스](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)를 참조하세요.|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|요소 이름|유형|메모|
+|요소 이름|type|메모|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|복합 형식|사용할 플랫폼 또는 Marketplace 이미지에 대한 정보를 지정합니다.|
 |nodeAgentSKUId|문자열|계산 노드에서 프로비전되는 Batch 노드 에이전트의 SKU입니다.|
@@ -80,21 +80,21 @@ ms.locfileid: "30316990"
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|요소 이름|유형|메모|
+|요소 이름|type|메모|
 |------------------|----------|-----------|
 |publisher|문자열|이미지의 게시자입니다.|
-|offer|문자열|이미지 제안입니다.|
+|제품|문자열|이미지 제안입니다.|
 |sku|문자열|이미지의 SKU입니다.|
 |버전|문자열|이미지의 버전입니다.|
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|요소 이름|유형|메모|
+|요소 이름|type|메모|
 |------------------|----------|-----------|
 |enableAutomaticUpdates|BOOLEAN|가상 머신에 자동 업데이트가 활성화되었는지 여부를 나타냅니다. 이 속성을 지정하지 않을 경우 기본값은 true입니다.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|요소 이름|유형|메모|
+|요소 이름|type|메모|
 |------------------|--------------|----------|
 |subnetId|문자열|풀의 계산 노드가 생성된 서브넷의 리소스 식별자를 지정합니다.|

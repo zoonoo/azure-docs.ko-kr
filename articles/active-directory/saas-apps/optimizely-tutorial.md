@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 016c495c29144e9c5239f026e035b650651f758f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: be56218e174e5d8b0e6bde394f2dfd40fc91e87d
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215905"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42146211"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>자습서: Optimizely와 Azure Active Directory 통합
 
@@ -49,12 +49,15 @@ Optimizely와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Optimizely 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-optimizely-from-the-gallery"></a>갤러리에서 Optimizely 추가
+
 Optimizely의 Azure AD 통합을 구성하려면 갤러리의 Optimizely를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 Optimizely를 추가하려면 다음 단계를 수행합니다.**
@@ -65,11 +68,11 @@ Optimizely의 Azure AD 통합을 구성하려면 갤러리의 Optimizely를 관�
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
-    ![응용 프로그램][2]
-    
+    ![애플리케이션][2]
+
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 4. 검색 상자에 **Optimizely**를 입력합니다.
 
@@ -79,7 +82,8 @@ Optimizely의 Azure AD 통합을 구성하려면 갤러리의 Optimizely를 관�
 
     ![Azure AD 테스트 사용자 만들기](./media/optimizely-tutorial/tutorial_optimizely_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
+
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Optimizely에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Optimizely 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Optimizely의 관련 사용자 간에 연결이 형성되어야 합니다.
@@ -105,7 +109,7 @@ Optimizely에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     ![Configure Single Sign-On][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_samlbase.png)
 
 3. **Optimizely 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
@@ -114,48 +118,67 @@ Optimizely에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://app.optimizely.net/<instance name>`
 
-    나. **식별자** 텍스트 상자에 `urn:auth0:optimizely:contoso` 패턴으로 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에 `urn:auth0:optimizely:contoso` 패턴으로 URL을 입력합니다.
 
-    > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 로그온 URL 및 식별자로 값을 업데이트하게 됩니다. 
+    > [!NOTE]
+    > 이러한 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 로그온 URL 및 식별자로 값을 업데이트하게 됩니다.
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. Optimizely 응용 프로그램에는 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대한 다음 클레임을 구성하세요. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+    
+    ![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_attribute.png)
+    
+5. **사용자 특성** 섹션에서 **기타 모든 사용자 특성 보기 및 편집**을 클릭하고 특성을 확장합니다. 표시된 각 특성에 대해 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_certificate.png) 
+    | 특성 이름 | 특성 값 |
+    | ---------------| --------------- |
+    | email | user.mail |
 
-5. **저장** 단추를 클릭합니다.
+    a. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
+
+    ![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_attribute_04.png)
+
+    ![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_attribute_05.png)
+
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 **특성 이름**을 입력합니다.
+
+    다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
+
+    d. **Ok**를 클릭합니다.
+
+6. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+
+    ![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_certificate.png)
+
+7. **저장** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_general_400.png)
 
-6. **Optimizely 구성** 섹션에서 **Optimizely 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
+8. **Optimizely 구성** 섹션에서 **Optimizely 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
 
-    ![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_configure.png) 
+    ![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_configure.png)
 
-7. **Optimizely** 쪽에서 Single Sign-On을 구성하려면 Optimizely 계정 관리자에게 문의하여 다운로드한 **인증서(Base64)** 및 **SAML Single Sign-On 서비스 URL**을 제공합니다. 
+9. **Optimizely** 쪽에서 Single Sign-On을 구성하려면 Optimizely 계정 관리자에게 문의하여 다운로드한 **인증서(Base64)** 및 **SAML Single Sign-On 서비스 URL**을 제공합니다.
 
-8. 전자 메일에 대한 응답으로 Optimizely는 로그온 URL(SP에서 시작한 SSO) 및 식별자(서비스 공급자 엔터티 ID) 값을 제공합니다.
+10. 전자 메일에 대한 응답으로 Optimizely는 로그온 URL(SP에서 시작한 SSO) 및 식별자(서비스 공급자 엔터티 ID) 값을 제공합니다.
 
-    a. Optimizely에서 제공한 **SP 시작 SSO URL**을 복사하여 Azure Portal **Optimizely 도메인 및 URL** 섹션의 **로그온 URL** 텍스트 상자에 붙여넣습니다. 
+    a. Optimizely에서 제공한 **SP 시작 SSO URL**을 복사하여 Azure Portal **Optimizely 도메인 및 URL** 섹션의 **로그온 URL** 텍스트 상자에 붙여넣습니다.
 
-    나. Optimizely에서 제공한 **서비스 공급자 엔터티 ID**를 복사하여 Azure Portal **Optimizely 도메인 및 URL** 섹션의 **식별자** 텍스트 상자에 붙여넣습니다. 
+    b. Optimizely에서 제공한 **서비스 공급자 엔터티 ID**를 복사하여 Azure Portal **Optimizely 도메인 및 URL** 섹션의 **식별자** 텍스트 상자에 붙여넣습니다.
 
-9. 다른 브라우저 창에서 Optimizely 응용 프로그램에 로그온합니다.
+11. 다른 브라우저 창에서 Optimizely 애플리케이션에 로그온합니다.
 
-10. 오른쪽 위 구석에 있는 계정 이름을 클릭하고 **계정 설정**을 클릭합니다.
-   
+12. 오른쪽 위 구석에 있는 계정 이름을 클릭하고 **계정 설정**을 클릭합니다.
+
     ![Azure AD Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
-11. 계정 탭에서 **개요** 섹션의 Single Sign-On 아래에 있는 **SSO 사용** 확인란을 선택합니다.
-   
+13. 계정 탭에서 **개요** 섹션의 Single Sign-On 아래에 있는 **SSO 사용** 확인란을 선택합니다.
+  
     ![Azure AD Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_10.png)
-    
-12. 페이지 맨 아래에 있는 **저장**
 
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
+14. 페이지 맨 아래에 있는 **저장**
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
 ![Azure AD 사용자 만들기][100]
@@ -180,12 +203,12 @@ Optimizely에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 Britta Simon의 **메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 Britta Simon의 **메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
- 
+
 ### <a name="creating-an-optimizely-test-user"></a>Optimizely 테스트 사용자 만들기
 
 이 섹션에서는 Optimizely에서 Britta Simon이라는 사용자를 만듭니다.
@@ -212,7 +235,7 @@ Optimizely에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
 
-    ![사용자 할당][201] 
+    ![사용자 할당][201]
 
 2. 응용 프로그램 목록에서 **Optimizely**를 선택합니다.
 
@@ -220,7 +243,7 @@ Optimizely에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
-    ![사용자 할당][202] 
+    ![사용자 할당][202]
 
 4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
@@ -231,19 +254,17 @@ Optimizely에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-    
+
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Optimizely 타일을 클릭하면 Optimizely 응용 프로그램에 자동으로 로그온됩니다. 
+액세스 패널에서 Optimizely 타일을 클릭하면 Optimizely 응용 프로그램에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -258,4 +279,3 @@ Optimizely에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [201]: ./media/optimizely-tutorial/tutorial_general_201.png
 [202]: ./media/optimizely-tutorial/tutorial_general_202.png
 [203]: ./media/optimizely-tutorial/tutorial_general_203.png
-

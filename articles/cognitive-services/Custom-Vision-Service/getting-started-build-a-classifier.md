@@ -1,20 +1,21 @@
 ---
-title: Custom Vision Service를 사용하여 분류자 빌드 - Azure Cognitive Services | Microsoft Docs
+title: 분류자 빌드 - Custom Vision Service
+titlesuffix: Azure Cognitive Services
 description: Custom Vision Service를 사용하여 사진에서 개체를 구별할 수 있는 분류자를 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: 6dc271c13f53a445c7d1101f5264d890208bd03c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 998900e72511a95336e4a94289c794e2a8e59feb
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374774"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364249"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Custom Vision을 사용하여 분류자를 빌드하는 방법
 
@@ -62,7 +63,7 @@ Custom Vision Service를 사용하려면 먼저 분류자를 빌드해야 합니
     |__랜드마크__|인식 가능한 자연적 및 인공적인 랜드마크에 최적화되었습니다. 이 도메인은 랜드마크가 사진에서 명확하게 표시될 때 가장 효과적입니다. 앞에 서 있는 사람이 랜드마크를 약간 가리고 있는 경우에도 도메인이 작동합니다.|
     |__소매__|쇼핑 카탈로그 또는 쇼핑 웹 사이트에 있는 이미지에 최적화되었습니다. 드레스, 바지 및 셔츠를 높은 정밀도로 분류하려는 경우 이 도메인을 사용합니다.|
     |__성인__|성인 콘텐츠와 비성인 콘텐츠 정의 향상에 최적화되었습니다. 예를 들어 수영복을 입은 사람의 이미지를 차단하려는 경우 이 도메인을 사용하여 해당 작업을 수행하는 사용자 지정 분류자를 빌드할 수 있습니다.|
-    |__압축 도메인__| 모바일 장치의 실시간 분류 제약 조건에 최적화되었습니다. 압축 도메인에서 생성된 모델을 로컬에서 실행하기 위해 내보낼 수 있습니다.|
+    |__압축 도메인__| 모바일 디바이스의 실시간 분류 제약 조건에 최적화되었습니다. 압축 도메인에서 생성된 모델을 로컬에서 실행하기 위해 내보낼 수 있습니다.|
 
     원하는 경우 나중에 도메인을 변경할 수 있습니다.
 
@@ -83,8 +84,6 @@ Custom Vision Service를 사용하려면 먼저 분류자를 빌드해야 합니
     Custom Vision Service는 이미지당 최대 6MB까지 .jpg, .png 및 .bmp 형식의 학습 이미지를 허용합니다. 예측 이미지는 이미지당 최대 4MB까지 가능합니다. 가장 짧은 가장자리가 256픽셀인 이미지를 사용하는 것이 좋습니다. 가장 짧은 가장자리가 256픽셀보다 짧은 이미지는 Custom Vision Service에서 확장됩니다.
 
     ![이미지 추가 컨트롤은 왼쪽 위와 맨 아래 가운데 단추로 표시됩니다.](./media/getting-started-build-a-classifier/add-images01.png)
-
-    ![로컬 파일 찾아보기 단추는 맨 아래 가운데에 표시됩니다.](./media/getting-started-build-a-classifier/add-images02.png)
 
     >[!NOTE] 
     > REST API를 사용하여 URL에서 학습 이미지를 로드할 수 있습니다.

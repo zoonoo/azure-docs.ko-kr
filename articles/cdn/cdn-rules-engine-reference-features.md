@@ -3,8 +3,8 @@ title: Azure CDN 규칙 엔진 기능 | Microsoft Docs
 description: Azure CDN 규칙 엔진 기능에 대한 참조 설명서입니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-deasim
-ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: magattus
+ms.openlocfilehash: d5be292c66a07f43b40d12e10e4939d9d91559e1
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011427"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395244"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN 규칙 엔진 기능
 이 문서에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 사용할 수 있는 기능에 대해 자세히 설명합니다.
@@ -30,7 +30,7 @@ ms.locfileid: "34011427"
 
 이러한 기능은 콘텐츠에 대한 액세스를 제어하도록 설계되었습니다.
 
-Name | 목적
+이름 | 목적
 -----|--------
 [액세스 거부(403)](#deny-access-403) | 모든 요청이 403 사용 권한 없음 응답으로 거부되는지 여부를 결정합니다.
 [토큰 인증](#token-auth) | 요청에 토큰 기반 인증을 적용할지 여부를 결정합니다.
@@ -43,7 +43,7 @@ Name | 목적
 
 이러한 기능은 콘텐츠가 캐시되는 시기와 방식을 사용자 지정하기 위해 설계되었습니다.
 
-Name | 목적
+이름 | 목적
 -----|--------
 [대역폭 매개 변수](#bandwidth-parameters) | 대역폭 제한 매개 변수(예: ec_rate 및 ec_prebuf)를 활성화할지 여부를 결정합니다.
 [대역폭 제한](#bandwidth-throttling) | POP(상호 접속 위치)에서 제공하는 응답에 대한 대역폭을 제한합니다.
@@ -73,7 +73,7 @@ Name | 목적
 
 이 기능은 규칙 내에 추가 정보를 제공하도록 설계되었습니다.
 
-Name | 목적
+이름 | 목적
 -----|--------
 [Comment](#comment) | 규칙 내에 메모를 추가하도록 허용합니다.
  
@@ -81,7 +81,7 @@ Name | 목적
 
 이러한 기능은 요청자 또는 응답에서 헤더를 추가, 수정 또는 삭제하도록 설계되었습니다.
 
-Name | 목적
+이름 | 목적
 -----|--------
 [Age 응답 헤더](#age-response-header) | 요청자에게 보내는 응답에 Age 응답 헤더를 포함할지 여부를 결정합니다.
 [디버그 캐시 응답 헤더](#debug-cache-response-headers) | 응답에 요청된 자산에 대한 캐시 정책 정보를 제공하는 X-EC-Debug 응답 헤더를 포함할 수 있는지 여부를 결정합니다.
@@ -94,7 +94,7 @@ Name | 목적
 
 이러한 기능은 원시 로그 파일에 저장된 데이터를 사용자 지정하도록 설계되었습니다.
 
-Name | 목적
+이름 | 목적
 -----|--------
 [사용자 지정 로그 필드 1](#custom-log-field-1) | 원시 로그 파일의 사용자 지정 로그 필드에 할당할 콘텐츠와 형식을 결정합니다.
 [로그 쿼리 문자열](#log-query-string) | 액세스 로그에 쿼리 문자열을 URL과 함께 저장할지 여부를 결정합니다.
@@ -148,7 +148,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 이러한 기능은 CDN이 원본 서버와 통신하는 방법을 제어하도록 설계되었습니다.
 
-Name | 목적
+이름 | 목적
 -----|--------
 [최대 연결 유지 요청](#maximum-keep-alive-requests) | 연결이 닫히기 전에 연결을 유지할 최대 요청 수를 정의합니다.
 [프록시 특별 헤더](#proxy-special-headers) | POP에서 원본 서버로 전달할 CDN 특정 요청 헤더의 집합을 정의합니다.
@@ -158,7 +158,7 @@ Name | 목적
 
 이러한 기능은 고급 사용자용 고급 기능을 제공합니다.
 
-Name | 목적
+이름 | 목적
 -----|--------
 [캐시 가능한 HTTP 메서드](#cacheable-http-methods) | 네트워크에서 캐시할 수 있는 추가 HTTP 메서드 집합을 결정합니다.
 [캐시 가능한 요청 본문 크기](#cacheable-request-body-size) | POST 응답을 캐시할 수 있는지 여부를 결정하는 임계값을 정의합니다.
@@ -169,7 +169,7 @@ Name | 목적
 
 이러한 기능을 통해 요청을 다른 URL로 리디렉션하거나 다시 작성할 수 있습니다.
 
-Name | 목적
+이름 | 목적
 -----|--------
 [리디렉션 추적](#follow-redirects) | 고객 원본 서버에서 반환된 Location 헤더에 정의된 호스트 이름으로 요청을 리디렉션할 수 있는지 여부를 결정합니다.
 [URL 리디렉션](#url-redirect) | Location 헤더를 통해 요청을 리디렉션합니다.
@@ -443,7 +443,7 @@ HTTP Large 플랫폼의 기본 구성을 그대로 유지하세요. 고객 원�
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
 - 국가
-- 장치
+- 디바이스
 - 에지 Cname
 - 참조 도메인
 - 요청 헤더 리터럴
@@ -497,8 +497,8 @@ application/javascript|JavaScript
 
 헤더 형식|형식|예
 -|-|-
-요청 헤더|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
-응답 헤더|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+요청 헤더|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
+응답 헤더|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 주요 정보:
 
@@ -567,7 +567,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
 - 국가
-- 장치
+- 디바이스
 - 에지 Cname
 - 참조 도메인
 - 요청 헤더 리터럴
@@ -683,7 +683,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
 - 국가
-- 장치
+- 디바이스
 - 에지 Cname
 - 참조 도메인
 - 요청 헤더 리터럴
@@ -760,7 +760,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
 - 국가
-- 장치
+- 디바이스
 - 에지 Cname
 - 참조 도메인
 - 요청 헤더 리터럴
@@ -823,7 +823,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
 - 국가
-- 장치
+- 디바이스
 - 에지 Cname
 - 참조 도메인
 - 요청 헤더 리터럴
@@ -1256,7 +1256,7 @@ WWW-Authenticate 헤더는 401 응답 코드에만 적용됩니다.
         - 요청 URL(리디렉션 이후): http:\//cdn.mydomain.com/resources/widgets.pdf  
     - 샘플 시나리오 2: 
         - 샘플 요청(에지 CNAME URL): http:\//marketing.mydomain.com/brochures/widgets.pdf 
-        - 요청 URL(리디렉션 이후): http:\//cdn.mydomain.com/resources/widgets.pdf 샘플 시나리오
+        - 요청 URL(리디렉션 이후): http:\//cdn.mydomain.com/resources/widgets.pdf
     - 샘플 시나리오 #3: 
         - 샘플 요청(에지 CNAME URL): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
         - 요청 URL(리디렉션 이후): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  

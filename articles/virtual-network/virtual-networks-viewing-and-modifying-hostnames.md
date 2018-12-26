@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2018
+ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: f4c602368368e8ef36581d3f035ff3943a8f0d8f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: afd5361774af3379dc0d4054509e318e8263dcc5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657284"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250189"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>호스트 이름 보기 및 수정
 호스트 이름으로 역할 인스턴스를 참조하려면 각 역할의 서비스 구성 파일에서 호스트 이름의 값을 설정해야 합니다. 이렇게 하려면 **역할** 요소의 **vmName** 특성에 원하는 호스트 이름을 추가합니다. **vmName** 특성의 값은 각 역할 인스턴스의 호스트 이름에 대한 기준으로 사용됩니다. 예를 들어 경우 **vmName**이 *webrole*이고 해당 역할의 인스턴스가 3개 있으면 인스턴스의 호스트 이름은 *webrole0*, *webrole1*, *webrole2*가 됩니다. 가상 머신의 호스트 이름은 가상 머신 이름을 기준으로 채워지므로 구성 파일에서 가상 머신의 호스트 이름을 지정하지 않아도 됩니다. Microsoft Azure 서비스 구성에 대한 자세한 내용은 [Azure 서비스 구성 스키마(.cscfg 파일)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -58,7 +58,7 @@ REST 클라이언트에서 다음 지침을 따릅니다.
 
 [Azure 서비스 구성 스키마(.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
-[Azure Virtual Network 구성 스키마](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Azure Virtual Network 구성 스키마](https://go.microsoft.com/fwlink/?LinkId=248093)
 
 [네트워크 구성 파일을 사용하여 DNS 설정 지정](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 

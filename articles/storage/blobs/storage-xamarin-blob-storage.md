@@ -4,17 +4,16 @@ description: Xamarin용 Azure Storage 클라이언트 라이브러리를 사용�
 services: storage
 documentationcenter: xamarin
 author: michaelhauss
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: 31dbaeb1dd998d8d27af5eff0fa293117ef7f471
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b35bec31035c0219bf34a31cb34e20f7dc3a72c5
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414211"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397032"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Xamarin에서 Blob Storage를 사용하는 방법
 
@@ -34,7 +33,7 @@ Xamarin을 사용하면 개발자들이 공유된 C# 코드베이스를 사용�
 3. 솔루션 탐색기 창에서 해당 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리**를 선택합니다. **WindowsAzure.Storage**를 검색하고 솔루션의 모든 프로젝트에 안정적인 최신 버전을 설치합니다.
 4. 프로젝트를 빌드한 후 실행합니다.
 
-이제 단추를 클릭하고 카운터를 증가시켜주는 응용 프로그램이 완료되어야 합니다.
+이제 단추를 클릭하고 카운터를 증가시켜주는 애플리케이션이 완료되어야 합니다.
 
 ## <a name="create-container-and-upload-blob"></a>컨테이너 만들기 및 blob 업로드
 다음으로 `(Portable)` 프로젝트에서 `MyClass.cs`에 일부 코드를 추가합니다. 이 코드는 컨테이너를 만들고 이 컨테이너에 Blob을 업로드합니다. `MyClass.cs` 는 다음과 같이 표시되어야 합니다.

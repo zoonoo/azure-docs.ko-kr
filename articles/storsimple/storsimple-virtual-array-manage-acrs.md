@@ -22,11 +22,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/11/2018
 ms.locfileid: "38718889"
 ---
-# <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>StorSimple 장치 관리자를 사용하여 StorSimple 가상 배열에 대한 액세스 제어 레코드 관리
+# <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>StorSimple Device Manager를 사용하여 StorSimple Virtual Array에 대한 액세스 제어 레코드 관리
 
 ## <a name="overview"></a>개요
 
-ACR(액세스 제어 레코드)을 사용하면 어떤 호스트가 StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치라고도 함)장치의 볼륨에 연결할 수 있는지 지정할 수 있습니다. ACR은 특정 볼륨으로 설정되며 호스트의 IQN(iSCSI 정규화된 이름)을 포함합니다. 호스트가 볼륨에 연결하려고 할 때 해당 장치는 IQN 이름에 대한 볼륨과 연결된 ACR을 확인하고 일치하는 경우 이 연결이 확정됩니다. 장치 관리자 서비스의 **구성** 섹션 내에 있는 **액세스 제어 레코드** 블레이드는 호스트의 해당 IQN으로 모든 액세스 제어 레코드를 표시합니다.
+ACR(액세스 제어 레코드)을 사용하면 어떤 호스트가 StorSimple Virtual Array(StorSimple 온-프레미스 가상 디바이스라고도 함)의 볼륨에 연결할 수 있는지 지정할 수 있습니다. ACR은 특정 볼륨으로 설정되며 호스트의 IQN(iSCSI 정규화된 이름)을 포함합니다. 호스트가 볼륨에 연결하려고 할 때 해당 디바이스는 IQN 이름에 대한 볼륨과 연결된 ACR을 확인하고 일치하는 경우 이 연결이 확정됩니다. Device Manager 서비스의 **구성** 섹션 내에 있는 **액세스 제어 레코드** 블레이드는 호스트의 해당 IQN으로 모든 액세스 제어 레코드를 표시합니다.
 
 ![액세스 제어 레코드 관리](./media/storsimple-virtual-array-manage-acrs/ova-manage-acrs.png)
 
@@ -81,7 +81,7 @@ ACR을 추가하려면 다음 단계를 수행합니다.
 
 ## <a name="edit-an-acr"></a>ACR 편집
 
-Azure Portal에서 장치 관리자 서비스의 **구성** 섹션 내에 있는 **액세스 제어 레코드** 블레이드를 사용하여 ACR을 편집합니다.
+Azure Portal에서 Device Manager 서비스의 **구성** 섹션 내에 있는 **액세스 제어 레코드** 블레이드를 사용하여 ACR을 편집합니다.
 
 > [!NOTE]
 > 현재 사용 중인 ACR을 수정하지 않아야 합니다. 현재 사용 중인 볼륨과 연관된 ACR을 편집하려면 먼저 볼륨을 오프라인으로 전환해야 합니다.

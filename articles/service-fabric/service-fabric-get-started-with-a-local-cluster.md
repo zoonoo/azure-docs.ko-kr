@@ -1,5 +1,5 @@
 ---
-title: Azure 마이크로 서비스 로컬로 배포 및 업그레이드 | Microsoft Docs
+title: Azure Service Fabric 서비스를 로컬로 배포 및 업그레이드 | Microsoft Docs
 description: 로컬 서비스 패브릭 클러스터를 설정하고 기존 응용 프로그램을 거기에 배포한 다음 해당 응용 프로그램을 업그레이드하는방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 244a26df25e39fd4000a8a2692edd8205e354582
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 639293a1811c35d87bd705800b8ecf62f667c0e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643246"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246721"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>로컬 클러스터에서 응용 프로그램 배포 및 업그레이드 시작
 Azure 서비스 패브릭 SDK에서는 전체 로컬 개발 환경을 포함하고 로컬 클러스터에서 응용 프로그램을 배포 및 관리하는 작업을 빠르게 시작하는 데 사용할 수 있습니다. 이 문서에서는 Windows PowerShell에서 로컬 클러스터를 만들고 기존 응용 프로그램을 거기에 배포한 다음 새 버전으로 해당 응용 프로그램을 업그레이드합니다.
@@ -54,7 +54,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
    
     이제 클러스터에 응용 프로그램 배포를 시도할 준비가 되었습니다.
 
-## <a name="deploy-an-application"></a>응용 프로그램 배포
+## <a name="deploy-an-application"></a>애플리케이션 배포
 서비스 패브릭 SDK는 응용 프로그램을 만들기 위한 다양한 개발자 도구 및 프레임워크의 집합을 포함합니다. Visual Studio에서 응용 프로그램을 만드는 방법에 관심이 있는 경우 [Visual Studio에서 서비스 패브릭 응용 프로그램 처음 만들기](service-fabric-create-your-first-application-in-visual-studio.md)를 참조하세요.
 
 이 자습서에서는 기존 샘플 응용 프로그램(WordCount라고 함)을 사용하므로 플랫폼의 관리 측면인 배포, 모니터링 및 업그레이드에 중점을 둘 수 있습니다.
@@ -71,7 +71,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
-4. [WordCount 응용 프로그램을 다운로드](http://aka.ms/servicefabric-wordcountapp) 합니다.  참고: Microsoft Edge 브라우저는 *.zip* 으로 확장된 파일을 저장합니다.  파일 확장명을 *.sfpkg*로 변경합니다.
+4. [WordCount 응용 프로그램을 다운로드](https://aka.ms/servicefabric-wordcountapp) 합니다.  참고: Microsoft Edge 브라우저는 *.zip* 으로 확장된 파일을 저장합니다.  파일 확장명을 *.sfpkg*로 변경합니다.
 5. 로컬 클러스터에 연결합니다.
    
     ```powershell
@@ -139,7 +139,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 
 응용 프로그램의 새 버전은 모음으로 시작하는 단어만 계산합니다. 업그레이드가 출시되면 응용 프로그램의 동작에 두 가지 변경 사항이 나타납니다. 첫째, 적은 단어 수가 계산되므로 수가 증가하면 속도는 느려져야 합니다. 둘째, 첫 번째 파티션에 두 개의 모음(A 및 E)이 있고 다른 모든 파티션이 각각 하나만 포함하므로 결국 개수가 다른 파티션을 앞서도록 시작해야 합니다.
 
-1. 버전 1 패키지를 다운로드한 동일한 위치에 [WordCount 버전 2 패키지를 다운로드](http://aka.ms/servicefabric-wordcountappv2) 합니다.
+1. 버전 1 패키지를 다운로드한 동일한 위치에 [WordCount 버전 2 패키지를 다운로드](https://aka.ms/servicefabric-wordcountappv2) 합니다.
 2. PowerShell 창으로 돌아가서 SDK의 업그레이드 명령을 사용하여 클러스터의 새 버전을 등록합니다. 그런 다음 fabric:/WordCount 응용 프로그램을 업그레이드하기 시작합니다.
    
     ```powershell

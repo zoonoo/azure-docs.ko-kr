@@ -3,18 +3,17 @@ title: Azure Container Instances 및 컨테이너 오케스트레이션
 description: Azure Container Instances가 컨테이너 오케스트레이터와 상호 작용하는 방법을 이해합니다
 services: container-instances
 author: seanmck
-manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 10/05/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: e1455cba004facfa03dca21544eec754f5dc60be
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165564"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803514"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances 및 컨테이너 오케스트레이터
 
@@ -55,16 +54,13 @@ Azure Container Instances를 포함한 오케스트레이터 통합이 여전히
 
 클러스터에서 가상 머신의 수를 확장한 다음, 해당 컴퓨터에 추가 컨테이너를 배포하는 대신 오케스트레이터는 단순하게 Azure Container Instances에서 추가 컨테이너를 예약하고 더 이상 필요하지 않은 경우 삭제할 수 있습니다.
 
-## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>샘플 구현: Kubernetes의 Azure Container Instances 커넥터
+## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>샘플 구현: Kubernetes용 Virtual Kubelet
 
-컨테이너 오케스트레이션 플랫폼이 Azure Container Instances와 통합하는 방법을 보여주기 위해 [Kubernetes의 샘플 커넥터][aci-connector-k8s]를 빌드하기 시작했습니다.
+[Virtual Kubelet][aci-connector-k8s] 프로젝트에서는 컨테이너 오케스트레이션 플랫폼을 Azure Container Instances와 통합하는 방법을 보여 줍니다.
 
-Kubernetes의 커넥터는 수용작업량이 무제한인 노드로 등록하고 [포드][pod-doc] 생성을 Azure Container Instances의 컨테이너 그룹으로 디스패치하여 [kubelet][kubelet-doc]을 모방합니다.
+Virtual Kubelet는 용량이 무제한인 노드로 등록한 다음 Azure Container Instances의 컨테이너 그룹인 [pods][pod-doc] 생성 작업을 디스패치하는 방식으로 Kubernetes [kubelet][kubelet-doc]의 작동 방식을 모방합니다.
 
 다른 오케스트레이터의 커넥터는 Azure Container Instances에서 컨테이너를 관리하는 신속성 및 간소성을 통해 오케스트레이터 API의 기능을 결합하기 위해 플랫폼 기본 형식과 마찬가지로 통합되어 빌드될 수 있습니다.
-
-> [!WARNING]
-> Kubernetes용 ACI 커넥터는 *실험적*이므로 프로덕션에서 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5325f23a13a181d912bbc8b26042de72855dc41e
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 3f4e7a911e98ea09376b4b6ac56e9441fe98e426
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319091"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135195"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
 
@@ -31,7 +31,7 @@ Azure Database for MySQL 서버는 정기적으로 백업되어 복원 기능을
  
 
 > [!IMPORTANT]
-> 이 방법 가이드에서는 Azure CLI 버전 2.0 이상을 사용해야 합니다. 버전을 확인하려면 Azure CLI 명령 프롬프트에서 `az --version`을 입력합니다. 설치하거나 업그레이드하려면 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+> 이 방법 가이드에서는 Azure CLI 버전 2.0 이상을 사용해야 합니다. 버전을 확인하려면 Azure CLI 명령 프롬프트에서 `az --version`을 입력합니다. 설치하거나 업그레이드하려면 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="set-backup-configuration"></a>백업 구성 설정
 
@@ -60,7 +60,7 @@ az mysql server update --name mydemoserver --resource-group myresourcegroup --ba
 ## <a name="server-point-in-time-restore"></a>서버 지정 시간 복원
 이전의 특정 시점으로 서버를 복원할 수 있습니다. 복원된 데이터는 새 서버에 복사되고 기존 서버는 그대로 유지됩니다. 예를 들어 테이블이 오늘 정오에 실수로 삭제된 경우 정오 바로 전 시간으로 복원할 수 있습니다. 그런 다음 서버의 복원된 복사본에서 누락된 테이블 및 데이터를 검색할 수 있습니다. 
 
-서버를 복원하려면 Azure CLI [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore) 명령을 사용합니다.
+서버를 복원하려면 Azure CLI [az mysql server restore](/cli/azure/mysql/server#az-mysql-server-restore) 명령을 사용합니다.
 
 ### <a name="run-the-restore-command"></a>복원 명령 실행
 
@@ -71,9 +71,10 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 `az mysql server restore` 명령에는 다음과 같은 매개 변수가 필요합니다.
-| 설정 | 제안 값 | 설명  |
+
+| 설정 | 제안 값 | 설명  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
+| resource-group |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
 | 이름 | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | 복원할 특정 시점을 선택합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 `2018-03-13T05:59:00-08:00`과 같이 현지 표준 시간대를 사용할 수 있습니다. UTC Zulu 형식을 사용할 수도 있습니다(예: `2018-03-13T13:59:00Z`). |
 | source-server | mydemoserver | 복원을 수행하려는 원본 서버의 이름 또는 ID입니다. |
@@ -108,7 +109,8 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 ```
 
 `az mysql server georestore` 명령에는 다음과 같은 매개 변수가 필요합니다.
-| 설정 | 제안 값 | 설명  |
+
+| 설정 | 제안 값 | 설명  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | 새 서버가 속하게 되는 리소스 그룹의 이름입니다.|
 |이름 | mydemoserver-georestored | 새 서버의 이름입니다. |

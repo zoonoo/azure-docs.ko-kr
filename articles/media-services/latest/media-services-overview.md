@@ -4,7 +4,7 @@ description: 이 문서에서는 Media Services에 대한 높은 수준의 개�
 services: media-services
 documentationcenter: na
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 tags: ''
 keywords: Azure Media Services, 스트림, 브로드캐스트, 라이브, 오프라인
@@ -13,32 +13,25 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 06/14/2018
+ms.date: 12/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 5205a6746f6a698768a60375e2e77db9cb535a71
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f959ce8d29975fc7c667185ef5bc2547825bccc0
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971910"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406916"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3란?
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [버전 2-GA](../previous/media-services-overview.md)
-> * [버전 3-미리 보기](media-services-overview.md)
-
-> [!NOTE]
-> Azure Media Services의 최신 버전은 미리보기에 있으며 v3라고도 합니다.
-
-Azure Media Services는 브로드캐스트 품질의 비디오 스트리밍을 구현하고, 접근성과 배포를 향상시키며, 콘텐츠를 분석하는 등 여러 작업을 수행하는 솔루션을 빌드할 수 있게 하는 클라우드 기반 플랫폼입니다. 응용 프로그램 개발자, 콜센터, 정부 기관, 엔터테인먼트 회사이든 Media Services는 현재 가장 인기있는 모바일 장치 및 브라우저를 통해 뛰어난 품질의 미디어 경험을 많은 사용자에게 제공하는 응용 프로그램을 만들 수 있도록 도와줍니다. 
+Azure Media Services는 브로드캐스트 품질의 비디오 스트리밍을 구현하고, 접근성과 배포를 향상시키며, 콘텐츠를 분석하는 등 여러 작업을 수행하는 솔루션을 빌드할 수 있게 하는 클라우드 기반 플랫폼입니다. 애플리케이션 개발자, 콜센터, 정부 기관, 엔터테인먼트 회사이든 Media Services는 현재 가장 인기있는 모바일 디바이스 및 브라우저를 통해 뛰어난 품질의 미디어 경험을 많은 사용자에게 제공하는 애플리케이션을 만들 수 있도록 도와줍니다. 
 
 ## <a name="what-can-i-do-with-media-services"></a>Media Services로 무엇을 할 수 있나요?
 
 Media Services를 사용하면 클라우드에서 다양한 미디어 워크플로를 빌드할 수 있습니다. 다음은 Media Services로 수행할 수 있는 몇 가지 예입니다.  
 
-* 다양한 브라우저 및 장치에서 재생할 수 있도록 다양한 형식의 비디오를 제공합니다. 다양한 클라이언트(모바일 장치, TV, PC 등)에 주문형 및 라이브 모두의 스트리밍 전달인 경우 비디오 및 오디오 콘텐츠를 적절하게 인코딩하고 패키징해야 합니다. 이러한 콘텐츠를 전달하고 스트리밍하는 방법을 보려면 [빠른 시작: 파일 인코딩 및 스트리밍](stream-files-dotnet-quickstart.md)을 참조하세요.
+* 다양한 브라우저 및 디바이스에서 재생할 수 있도록 다양한 형식의 비디오를 제공합니다. 다양한 클라이언트(모바일 디바이스, TV, PC 등)에 주문형 및 라이브 모두의 스트리밍 전달인 경우 비디오 및 오디오 콘텐츠를 적절하게 인코딩하고 패키징해야 합니다. 이러한 콘텐츠를 전달하고 스트리밍하는 방법을 보려면 [빠른 시작: 파일 인코딩 및 스트리밍](stream-files-dotnet-quickstart.md)을 참조하세요.
 * 축구, 야구, 대학 및 고교 스포츠 등과 같은 대규모 온라인 시청자에게 라이브 스포츠 이벤트를 스트리밍합니다. 
 * 마을 회관, 시의회 회의 및 입법 기관과 같은 공공 회의 및 행사를 방송합니다.
 * 녹화된 비디오 또는 오디오 컨텐츠를 분석합니다. 예를 들어, 고객 만족도를 높이기 위해 조직은 음성-텍스트를 추출하고 검색 인덱스 및 대시 보드를 빌드할 수 있습니다. 그런 다음 일반적인 불만, 불만의 원인 및 기타 관련 데이터 인텔리전스를 추출할 수 있습니다. 
@@ -55,7 +48,7 @@ v3은 Azure Resource Manager에서 빌드된 관리 및 운영 기능을 모두 
 이 버전은 다음과 같은 기능을 제공합니다.  
 
 * 미디어 처리 또는 분석 작업의 간단한 워크플로를 정의하는 데 도움이 되는 **변환**. 변환은 비디오 및 오디오 파일을 처리하는 방법입니다. 그런 다음 작업을 변환에 제출하여 콘텐츠 라이브러리에 있는 모든 파일을 처리하도록 이를 반복적으로 적용할 수 있습니다.
-* 비디오를 처리(인코딩 또는 분석)하는 **작업**. 입력 내용은 HTTP URL, SAS URL 또는 Azure BLOB 저장소에 있는 파일 경로를 사용하여 작업에 지정할 수 있습니다. 
+* 비디오를 처리(인코딩 또는 분석)하는 **작업**. 입력 내용은 HTTPS URL, SAS URL 또는 Azure Blob 저장소에 있는 파일 경로를 사용하여 작업에 지정할 수 있습니다. 현재 AMS v3은 HTTPS URL을 통한 청크 분할 전송 인코딩을 지원하지 않습니다.
 * 작업 진행 또는 상태, 또는 Live Channel 시작/중지 및 오류 이벤트를 모니터링하는 **알림**. 알림은 Azure Event Grid 알림 시스템과 통합됩니다. Azure Media Services에서 여러 리소스의 이벤트를 쉽게 구독할 수 있습니다. 
 * **Azure Resource Management** 템플릿은 Transforms, Streaming Endpoints, Channels 등을 만들고 배포할 수 있습니다.
 * **역할 기반 액세스 제어**는 리소스 수준에서 설정할 수 있으므로 Transforms, Channels 등과 같은 특정 리소스에 대한 액세스를 잠글 수 있습니다.
@@ -67,25 +60,73 @@ Azure Media Services v3 리소스 이름(예: 자산, 작업, 변환)은 Azure R
 
 Media Services 리소스 이름에는 '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', 작은 따옴표 또는 제어 문자가 포함될 수 없습니다. 다른 문자를 모두 허용합니다. 리소스 이름의 최대 길이는 260자입니다. 
 
-Azure Resource Manager의 이름을 지정하는 방법에 대한 자세한 내용은 [명명 요구 사항](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) 및 [명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.
+Azure Resource Manager 이름 지정에 대한 자세한 내용은 [명명 요구 사항](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) 및 [명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.
+
+## <a name="media-services-v3-api-design-principles"></a>Media Services v3 API 디자인 원칙
+
+v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드는 것입니다. v3 API는 **가져오기** 또는 **나열** 작업에서 비밀 또는 자격 증명을 반환하지 않습니다. 키는 항상 null이거나, 비어 있거나, 응답에서 삭제됩니다. 비밀 또는 자격 증명을 가져오는 별도 작업 메서드를 호출해야 합니다. 다른 API와 달리 일부 API가 비밀을 검색/표시하는 경우에 별도 동작을 사용하면 다른 RBAC 보안 권한을 설정할 수 있습니다. RBAC를 사용하여 액세스를 관리하는 방법에 대한 정보는 [RBAC를 사용하여 액세스 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)를 참조하세요.
+
+이 예제에는 다음이 포함됩니다. 
+
+* StreamingLocator의 Get에 ContentKey 값을 반환하지 않음 
+* ContentKeyPolicy의 Get에서 제한 키를 반환하지 않음 
+* 작업 HTTP 입력 URL의 서명을 제거할 쿼리 문자열의 URL 부분을 반환하지 않음
+
+다음 .NET 예제에서는 기존 정책에서 서명 키를 가져오는 방법을 보여줍니다. **GetPolicyPropertiesWithSecretsAsync**를 사용하여 키로 이동해야 합니다.
+
+```csharp
+private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
+    IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    string contentKeyPolicyName)
+{
+    ContentKeyPolicy policy = await client.ContentKeyPolicies.GetAsync(resourceGroupName, accountName, contentKeyPolicyName);
+
+    if (policy == null)
+    {
+        // Configure and create a new policy.
+        
+        . . . 
+        policy = await client.ContentKeyPolicies.CreateOrUpdateAsync(resourceGroupName, accountName, contentKeyPolicyName, options);
+    }
+    else
+    {
+        var policyProperties = await client.ContentKeyPolicies.GetPolicyPropertiesWithSecretsAsync(resourceGroupName, accountName, contentKeyPolicyName);
+        var restriction = policyProperties.Options[0].Restriction as ContentKeyPolicyTokenRestriction;
+        if (restriction != null)
+        {
+            var signingKey = restriction.PrimaryVerificationKey as ContentKeyPolicySymmetricTokenKey;
+            if (signingKey != null)
+            {
+                TokenSigningKey = signingKey.KeyValue;
+            }
+        }
+    }
+
+    return policy;
+}
+```
 
 ## <a name="how-can-i-get-started-with-v3"></a>v3는 어떻게 시작하나요?
 
-개발자인 경우 Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) 또는 REST API와 상호 작용할 수 있도록 하는 클라이언트 라이브러리를 사용하여 사용자 지정 미디어 워크플로를 손쉽게 만들고, 관리하고 유지할 수 있습니다. [여기](https://github.com/Azure-Samples/media-services-v3-rest-postman)에서 REST Postman 예제를 찾을 수 있습니다. [Azure Resource Manager 기반 REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)를 사용할 수도 있습니다.
+개발자인 경우 Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) 또는 REST API와 상호 작용할 수 있도록 하는 클라이언트 라이브러리를 사용하여 사용자 지정 미디어 워크플로를 손쉽게 만들고, 관리하고 유지할 수 있습니다.  
+
+Media Services는 기본 설정된 언어/기술에 대한 SDK를 생성하는 데 사용할 수있는 [Swagger 파일](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media)을 제공합니다.  
 
 Microsoft는 다음 클라이언트 라이브러리를 생성하고 지원합니다. 
 
-|클라이언트 라이브러리|샘플|
-|---|---|
-|[Azure CLI SDK](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)|[Azure CLI 샘플](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
-|[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[.NET 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
-|[.NET Core SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)(**.NET CLI** 탭 선택)|[.NET Core 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
-|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/mediaservices)||
-|[Node.js SDK](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Node.js 샘플](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
-|[Python SDK](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)||
-|[SDK로 이동](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)||
-
-Media Services는 기본 설정된 언어/기술에 대한 SDK를 생성하는 데 사용할 수있는 [Swagger 파일](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media)을 제공합니다.  
+|API 참조|SDK/도구|예|
+|---|---|---|---|
+|[REST 참조](https://aka.ms/ams-v3-rest-ref)|[REST SDK](https://aka.ms/ams-v3-rest-sdk)|[REST Postman 예제](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[Azure Resource Manager 기반 REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
+|[Azure CLI 참조](https://aka.ms/ams-v3-cli-ref)|[Azure CLI](https://aka.ms/ams-v3-cli)|[Azure CLI 예제](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
+|[.NET 참조](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
+||[.NET Core SDK](https://aka.ms/ams-v3-dotnet-sdk)(**.NET CLI** 탭 선택)|[.NET Core 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
+|[Java 참조](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||
+|[Node.js 예제](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js 샘플](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
+|[Python 예제](https://aka.ms/ams-v3-python-ref)|[Python SDK](https://aka.ms/ams-v3-python-sdk)||
+|[참조로 이동](https://aka.ms/ams-v3-go-ref)|[SDK로 이동](https://aka.ms/ams-v3-go-sdk)||
+|Ruby|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
 ## <a name="next-steps"></a>다음 단계
 

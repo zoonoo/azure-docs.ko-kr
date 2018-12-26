@@ -1,28 +1,58 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: a6afbd8e2ffd76ca29be294f5badbc7fa2edbc9a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650023"
 documentType: LandingData
 title: QnA Maker 설명서
 metadata:
   title: QnA Maker 설명서 - Microsoft Cognitive Services | Microsoft Docs
-  description: QnA Maker 및 작동 방법에 대해 알아봅니다.
+  description: QnA Maker 서비스 및 질문 및 답변에서 이 서비스의 기술 자료를 사용하는 방법에 대해 알아봅니다.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: tulasim88
+  manager: cgronlun
   ms.service: cognitive-services
   ms.component: qna-maker
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/15/2018
-  ms.author: nolachar
-  ms.openlocfilehash: c09fb4449b5ea86b35694203d9b7b3fc93b1fa68
-  ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/28/2018
-  ms.locfileid: "37087853"
+  ms.date: 12/18/2018
+  ms.author: tulasim
 abstract:
-  description: <a href="https://qnamaker.ai">QnA Maker</a>를 사용하면 FAQ 문서 또는 URL 및 제품 설명서와 같은 반구조적 내용에서 질문과 대답 서비스를 사용할 수 있습니다.
+  description: QnA Maker는 데이터 위에 대화형 질문 및 답변 레이어를 만드는 클라우드 기반 API 서비스입니다. QnA Maker를 사용하면 FAQ 문서, URL 및 제품 설명서와 같은 반구조적 내용에서 질문과 대답 서비스를 사용할 수 있습니다. QnA Maker 서비스는 기술 자료에서 가장 적합한 QnA 답변과 매칭하는 방식으로 사용자의 자연어 질문에 답합니다.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ../media/index/qnamaker-landing-page-video.png
+      width: 250
+    title: QnA Maker를 사용하여 몇 분 안에 봇 빌드(8:54)
+    href: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
+    width: 250
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/qnamaker/overview/overview
+      html: <p>QnA Maker에 대해 알아봅니다.</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: QnA Maker란?
+    - href: /azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base
+      html: <p>기술 자료를 만들고, 학습하고, 게시하는 방법을 알아봅니다.</p>
+      image:
+        src: ../media/index/i_tasks.svg
+      title: 기술 자료 만들기, 학습 및 게시
+    - href: /azure/cognitive-services/qnamaker/concepts/data-sources-supported
+      html: <p>기술 자료를 게시하는 방법을 알아봅니다.</p>
+      image:
+        src: ../media/index/i_tasks.svg
+      title: 데이터 원본 이해
 - title: 5분 빠른 시작
   items:
   - type: paragraph
@@ -48,8 +78,17 @@ sections:
       href: Quickstarts/create-new-kb-nodejs
     - image:
         src: media/index/logo_python.svg
-      text: 파이썬
+      text: Python
       href: Quickstarts/create-new-kb-python
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: QnA Maker를 사용하여 애플리케이션을 개발하는 방법을 알아봅니다.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-publish-query-in-portal">기술 자료 및 답변 질문 만들기</a></li>
+    - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-qna-bot">QnA Maker 봇 만들기</a></li>
 - title: 참고 자료
   items:
   - type: list

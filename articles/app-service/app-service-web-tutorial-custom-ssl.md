@@ -1,5 +1,5 @@
 ---
-title: Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩 | Microsoft 문서
+title: 기존 사용자 지정 SSL 인증서 바인딩 - Azure App Service | Microsoft Docs
 description: Azure App Service의 웹앱, 모바일 앱 백 엔드 또는 API 앱에 사용자 지정 SSL 인증서를 바인딩하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: nodejs
@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 08/24/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.custom: seodec18
+ms.openlocfilehash: 57046b9e199fbe5e88d0ea7fa25248641693508a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293332"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256998"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>자습서: Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩
 
-Azure Web Apps는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 신뢰할 수 있는 인증 기관에서 구매한 사용자 지정 SSL 인증서를 [Azure Web Apps](app-service-web-overview.md)에 바인딩하는 방법을 보여 줍니다. 완료하면 사용자 지정 DNS 도메인의 HTTPS 끝점에서 웹앱에 액세스할 수 있습니다.
+Azure Web Apps는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 신뢰할 수 있는 인증 기관에서 구매한 사용자 지정 SSL 인증서를 [Azure Web Apps](app-service-web-overview.md)에 바인딩하는 방법을 보여 줍니다. 완료하면 사용자 지정 DNS 도메인의 HTTPS 엔드포인트에서 웹앱에 액세스할 수 있습니다.
 
 ![사용자 지정 SSL 인증서가 포함된 웹앱](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -64,45 +64,7 @@ App Service에서 인증서를 사용하려면 인증서가 다음 요구 사항
 > [!NOTE]
 > **ECC(타원 곡선 암호화) 인증서**는 App Service에서 사용할 수 있지만 이 문서에서는 다루지 않습니다. ECC 인증서를 만드는 정확한 단계에서 인증 기관을 사용하세요.
 
-## <a name="prepare-your-web-app"></a>웹앱 준비
-
-사용자 지정 SSL 인증서를 웹앱에 바인딩하려면 [App Service 가격](https://azure.microsoft.com/pricing/details/app-service/)이 **기본**, **표준** 또는 **프리미엄** 계층에 있어야 합니다. 이 단계에서는 웹앱이 지원되는 가격 책정 계층에 있음을 확인합니다.
-
-### <a name="log-in-to-azure"></a>Azure에 로그인
-
-[Azure 포털](https://portal.azure.com)을 엽니다.
-
-### <a name="navigate-to-your-web-app"></a>웹앱으로 이동
-
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 웹앱의 이름을 클릭합니다.
-
-![웹앱 선택](./media/app-service-web-tutorial-custom-ssl/select-app.png)
-
-웹앱의 관리 페이지에 연결되었습니다.  
-
-### <a name="check-the-pricing-tier"></a>가격 책정 계층 확인
-
-웹앱 페이지의 왼쪽 탐색 영역에서 **설정** 섹션으로 스크롤하고 **강화(App Service 계획)** 를 선택합니다.
-
-![강화 메뉴](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
-
-웹앱이 **F1** 또는 **D1** 계층이 아닌지 확인합니다. 웹앱의 현재 계층이 진한 파란색 상자로 강조 표시됩니다.
-
-![가격 책정 계층 확인](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
-
-사용자 지정 SSL은 **F1** 또는 **D1** 계층에서 지원되지 않습니다. 강화해야 하는 경우 다음 섹션의 단계를 수행합니다. 그렇지 않은 경우 **스케일업** 페이지를 닫고 [SSL 인증서 업로드 및 바인딩](#upload)으로 건너뜁니다.
-
-### <a name="scale-up-your-app-service-plan"></a>App Service 계획 강화
-
-유료 계층(**B1**, **B2**, **B3**, 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기**를 클릭합니다.
-
-**Apply**를 클릭합니다.
-
-![가격 책정 계층 선택](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
-
-다음 알림이 표시되면 강화 작업이 완료됩니다.
-
-![강화 알림](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 <a name="upload"></a>
 
@@ -177,9 +139,9 @@ App Service에서 인증서 업로드가 완료되면 **SSL 설정** 페이지�
 >
 >
 
-**SSL 유형**에서 **[SNI(서버 이름 표시)](http://en.wikipedia.org/wiki/Server_Name_Indication)** 또는 IP 기반 SSL을 사용할지 선택합니다.
+**SSL 유형**에서 **[SNI(서버 이름 표시)](https://en.wikipedia.org/wiki/Server_Name_Indication)** 또는 IP 기반 SSL을 사용할지 선택합니다.
 
-- **SNI 기반 SSL** - 여러 개의 SNI 기반 SSL 바인딩을 추가할 수 있습니다. 이 옵션을 사용하면 여러 SSL 인증서로 같은 IP 주소의 여러 도메인을 보호할 수 있습니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원합니다. [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication)(서버 이름 표시)에서 더 포괄적인 브라우저 지원 정보를 찾을 수 있습니다.
+- **SNI 기반 SSL** - 여러 개의 SNI 기반 SSL 바인딩을 추가할 수 있습니다. 이 옵션을 사용하면 여러 SSL 인증서로 같은 IP 주소의 여러 도메인을 보호할 수 있습니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원합니다. [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)(서버 이름 표시)에서 더 포괄적인 브라우저 지원 정보를 찾을 수 있습니다.
 - **IP 기반 SSL** - IP 기반 SSL 바인딩 하나만 추가할 수 있습니다. 이 옵션을 사용하면 전용 공용 IP 주소를 보호하는 데 하나의 SSL 인증서만 사용할 수 있습니다. 여러 도메인을 보호하려면 동일한 SSL 인증서를 사용하여 모두 보호해야 합니다. 이 옵션은 SSL 바인딩의 일반적인 옵션입니다.
 
 **바인딩 추가**를 클릭합니다.
@@ -237,11 +199,11 @@ A 레코드를 웹앱에 매핑한 경우 이 새로운 전용 IP 주소로 도�
 - `http://contoso.com`
 - `http://www.contoso.com`
 
-## <a name="enforce-tls-1112"></a>TLS 1.1/1.2 적용
+## <a name="enforce-tls-versions"></a>TLS 버전 적용
 
-[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0은 기본적으로 앱에서 허용되며, 더 이상 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) 같은 산업 표준에서 안전한 것으로 간주되지 않습니다. 더 높은 TLS 버전을 적용하려면 다음이 단계를 수행합니다.
+앱에는 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)와 같이 업계 표준에서 권장되는 TLS 수준인 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2가 기본적으로 허용됩니다. 다른 TLS 버전을 적용하려면 다음 단계를 수행합니다.
 
-웹앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정**을 선택합니다. 그런 다음, **TLS 버전**에서 원하는 최소 TLS 버전을 선택합니다.
+웹앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정**을 선택합니다. 그런 다음, **TLS 버전**에서 원하는 최소 TLS 버전을 선택합니다. 이 설정은 인바운드 호출만 제어합니다. 
 
 ![TLS 1.1 또는 1.2 적용](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
@@ -298,7 +260,9 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>공용 인증서(선택 사항)
-앱이 인증서 인증이 필요한 외부 서비스에 액세스할 수 있도록 [공용 인증서](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)를 웹앱에 업로드할 수 있습니다.  앱에서 공용 인증서를 로드 및 사용하는 방법에 대한 자세한 내용은 [Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load)을 참조하세요.  App Service Environments에서 앱에도 공용 인증서를 사용할 수 있습니다. LocalMachine 인증서 저장소에 인증서를 저장해야 하는 경우 App Service Environments에서 웹앱을 사용해야 합니다. 자세한 내용은 [웹앱에 공용 인증서를 구성하는 방법](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)을 참조하세요.
+앱이 클라이언트로써 원격 리소스에 액세스해야 하고 원격 리소스에 인증서 인증이 필요한 경우 웹앱에 [공용 인증서](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)를 업로드하면 됩니다. 앱의 SSL 바인딩에는 공용 인증서가 필요하지 않습니다.
+
+앱에서 공용 인증서를 로드 및 사용하는 방법에 대한 자세한 내용은 [Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load)을 참조하세요. App Service Environments의 앱에도 공용 인증서를 사용할 수 있습니다. LocalMachine 인증서 저장소에 인증서를 저장해야 하는 경우 App Service Environments에서 웹앱을 사용해야 합니다. 자세한 내용은 [웹앱에 공용 인증서를 구성하는 방법](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)을 참조하세요.
 
 ![공용 인증서 업로드](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

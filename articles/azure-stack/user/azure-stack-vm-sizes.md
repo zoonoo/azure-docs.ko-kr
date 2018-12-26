@@ -3,23 +3,22 @@ title: Azure Stack에서 지원 되는 가상 머신 크기 | Microsoft Docs
 description: Azure Stack에서 지원 되는 VM 크기에 대 한 참조입니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: brenduns
-ms.openlocfilehash: bfdfc2ff879db11f5a8ba35898069b2b937c49b0
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.date: 12/01/2018
+ms.author: mabrigg
+ms.reviewer: kivenkat
+ms.openlocfilehash: 5127b748111f993f95f940f4add81c42a032e038
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928984"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722091"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack에서 지원 되는 가상 머신 크기
 
@@ -29,9 +28,13 @@ ms.locfileid: "37928984"
 
 ## <a name="general-purpose"></a>범용 가상 컴퓨터
 
-범용 VM 크기에는 분산 된 CPU 대 메모리 비율을 제공합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버 사용 됩니다.
+범용 VM 크기는 분산 된 CPU 대 메모리 비율을 제공합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버 사용 됩니다. 각 데이터 디스크는 기본 A 시리즈를 제외한 프리미엄 VM 크기에 대 한 IOPS는 2300까지. 기본 A에 대 한 데이터 디스크 크기는 500 IOPS.
 
 ### <a name="basic-a"></a>Basic A
+
+> [!NOTE]
+> *기본 A* 가상 머신 크기에 대 한 현재 퇴직 [virtual machine scale sets 만들기](../azure-stack-compute-add-scalesets.md) (VMSS) 포털을 통해. 이 크기를 사용 하 여 VMSS를 만들려면, PowerShell 또는 템플릿을 사용 합니다.
+
 |Size - Size\Name |vCPU     |메모리 | 최대 임시 디스크 크기 | 최대 OS 디스크 처리량: IOPS | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크 처리량 (IOPS) | 최대 NIC 수 |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20GB   |300  | 300  |1 / 1 x 300  |1   |

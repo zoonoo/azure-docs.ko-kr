@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/21/2018
+ms.author: cephalin
+ms.openlocfilehash: 36b41d8d6b488eabe1c2985ec8a3ad5ecb2cce76
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331259"
+---
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이전 단계에서 Azure 리소스를 리소스 그룹에 만들었습니다. 이러한 리소스가 나중에 필요하지 않을 경우에는 리소스 그룹을 삭제하여 해당 리소스를 삭제할 수 있습니다.

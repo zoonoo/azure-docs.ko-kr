@@ -1,31 +1,31 @@
 ---
-title: Azure Cost Management에 대한 질문과 대답 | Microsoft Docs
-description: Azure Cost Management에 대한 일반적인 질문에 대한 답변을 제공합니다.
+title: Azure의 Cloudyn에 대한 질문과 대답 | Microsoft Docs
+description: Cloudyn에 대한 일반적인 질문에 대한 답변을 제공합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 11/14/2018
 ms.topic: troubleshooting
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 0742e1e96e03840f138dde2bca7b2bcda1e49dfe
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 3b137a170edf2be13fa4999947994ee12a374aa9
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298412"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276281"
 ---
-# <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure Cost Management에 대한 질문과 대답
+# <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn에 대한 질문과 대답
 
-이 문서에서는 Azure Cost Management(Cloudyn이라고도 함)에 대한 몇 가지 일반적인 질문을 다룹니다. Cost Management에 대한 질문이 있는 경우 [FAQs for Azure Cost Management](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn)(Azure Cost Management에 대한 질문과 대답)에서 질문할 수 있습니다.
+이 문서에서는 Cloudyn에 대한 몇 가지 일반적인 질문을 다룹니다. Cloudyn에 대한 질문이 있을 경우 [Cloudyn에 대 한 FAQ](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-cloudyn-cost-management?forum=Cloudyn)로 문의할 수 있습니다.
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>간접 기업의 일반적인 설정 문제를 해결하는 방법은 무엇일까요?
 
 Cloudyn 포털을 처음 사용할 때 기업 계약 또는 CSP(클라우드 솔루션 공급자) 사용자의 경우 다음과 같은 메시지가 나타날 수 있습니다.
 
-- “지정된 API 키가 최상위 수준 등록 키가 아닙니다”가 **Azure Cost Management 설정** 마법사에 표시됨
+- “지정된 API 키가 최상위 수준 등록 키가 아닙니다”가 **Cloudyn 설정** 마법사에 표시되었습니다.
 - “직접 등록 – 아니요”가 기업 계약 포털에 표시됨
 - “지난 30일 간의 사용 데이터가 없습니다. 배포자에게 Azure 계정에 대해 표시를 사용하도록 설정했는지 문의하세요”가 Cloudyn 포털에 표시
 
@@ -35,9 +35,9 @@ Cloudyn 포털을 처음 사용할 때 기업 계약 또는 CSP(클라우드 솔
 
 1. 재판매인은 계정에 대해 _표시_를 사용하도록 설정해야 합니다. 지침은 [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide)(간접 고객 온보딩 가이드)를 참조하세요.
 
-2. Cloudyn에 사용할 기업 계약 키를 생성합니다. 지침은 [Azure EA 추가](https://support.cloudyn.com/hc/en-us/articles/210429585-Adding-Your-AZURE-EA) 또는 [EA 등록 ID 및 API 키를 찾는 방법](https://youtu.be/u_phLs_udig)을 참조하세요.
+2. Cloudyn에 사용할 기업 계약 키를 생성합니다. 지침은 [Azure EA 추가](quick-register-ea.md#register-with-cloudyn) 또는 [EA 등록 ID 및 API 키를 찾는 방법](https://youtu.be/u_phLs_udig)을 참조하세요.
 
-Azure 서비스 관리자만 Cost Management를 사용하도록 설정할 수 있습니다. 공동 관리자 권한이 충분하지 않습니다.
+Azure 서비스 관리자만 Cloudyn을 사용하도록 설정할 수 있습니다. 공동 관리자 권한이 충분하지 않습니다.
 
 Cloudyn을 설정하기 위해 Azure Enterprise Agreement API 키를 생성하려면 먼저 다음 지침에 따라 Azure Billing API를 사용하도록 설정해야 합니다.
 
@@ -74,7 +74,7 @@ Optimizer 권장 사항 데이터가 표시되지 않는다면 계정이 비활�
 
 먼저 사용자 계정이 *initiallySuspended*를 가져오는 가장 일반적인 시나리오를 살펴보겠습니다.
 
-> Admin1은 Microsoft 클라우드 솔루션 공급자 또는 기업계약 사용자일 수 있습니다. 해당 조직에서 Cost Management를 사용할 준비가 되었습니다.  Admin1이 Azure Portal을 통해 등록하고 Cloudyn 포털에 로그인합니다. Cost Management 서비스를 등록하고 Cloudyn 포털에 로그인하는 사람이므로 *기본 관리자*가 됩니다. Admin1은 사용자 계정을 만들지 않습니다. 그러나 Cloudyn 포털을 사용하여 Azure 계정을 만들고 엔터티 계층 구조를 설정합니다. Admin1이 테넌트 관리자인 Admin2에게 Cost Management에 등록하고 Cloudyn 포털에 로그인해야 한다고 알립니다.
+> Admin1은 Microsoft 클라우드 솔루션 공급자 또는 기업계약 사용자일 수 있습니다. 해당 조직에서 Cloudyn을 사용할 준비가 되었습니다.  Admin1이 Azure Portal을 통해 등록하고 Cloudyn 포털에 로그인합니다. Cloudyn 서비스를 등록하고 Cloudyn 포털에 로그인하는 사람이므로 *기본 관리자*가 됩니다. Admin1은 사용자 계정을 만들지 않습니다. 그러나 Cloudyn 포털을 사용하여 Azure 계정을 만들고 엔터티 계층 구조를 설정합니다. Admin1이 테넌트 관리자인 Admin2에게 Cloudyn에 등록하고 Cloudyn 포털에 로그인해야 한다고 알립니다.
 
 > Admin2가 Azure Portal을 통해 등록합니다. 그러나 Cloudyn 포털에 로그인을 시도할 때 계정이 **일시 중단**되었다는 오류가 표시됩니다. 기본 관리자인 Admin1이 계정 일시 중단에 대한 알림을 받습니다. Admin1은 Admin2의 계정을 활성화하고 해당 엔터티에 대한 *관리자 엔터티 액세스* 권한을 부여해야 하며, 사용자 관리 액세스를 허용하고 사용자 계정을 활성화합니다.
 
@@ -94,13 +94,13 @@ Cloudyn의 메일 주소를 Azure의 기본 주소에서 변경하면 계정이 
 
 계정 중 하나가 잠기는 경우를 대비하여 적어도 두 개의 Cloudyn 관리자 계정을 만드는 것이 좋습니다.
 
-Cloudyn 포털에 로그인할 수 없는 경우 올바른 Azure Cost Management URL을 사용하여 Cloudyn 포털에 로그인했는지 확인합니다. [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade)를 사용합니다.
+Cloudyn 포털에 로그인할 수 없는 경우 올바른 URL을 사용하여 Cloudyn에 로그인했는지 확인합니다. [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade)를 사용합니다.
 
 Cloudyn 직접 URL https://app.cloudyn.com은 사용하지 마세요.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Azure 자격 증명으로 활성화되지 않은 계정을 활성화하는 방법
 
-Cloudyn에서 Azure 계정을 발견하면 즉시 비용 기반 보고서에 비용 데이터가 제공됩니다. 그러나 Cloudyn이 사용 및 성능 데이터를 제공하려면 Azure 자격 증명을 계정에 등록해야 합니다. 지침은 [Azure Resource Manager 추가](https://support.cloudyn.com/hc/en-us/articles/212784085-Adding-Azure-Resource-Manager)를 참조하세요.
+Cloudyn에서 Azure 계정을 발견하면 즉시 비용 기반 보고서에 비용 데이터가 제공됩니다. 그러나 Cloudyn이 사용 및 성능 데이터를 제공하려면 Azure 자격 증명을 계정에 등록해야 합니다. 자세한 내용은 [계정 추가 또는 구독 업데이트](activate-subs-accounts.md#add-an-account-or-update-a-subscription)를 참조하세요.
 
 계정에 Azure 자격 증명을 추가하려면 Cloudyn 포털에서 구독이 아닌 계정 이름 오른쪽에 있는 편집 기호를 선택합니다.
 
@@ -108,10 +108,7 @@ Azure 자격 증명이 Cloudyn에 추가될 때까지 계정은 _비활성화_�
 
 ## <a name="how-do-i-add-multiple-accounts-and-entities-to-an-existing-subscription"></a>기존 구독에 여러 계정 및 엔터티를 추가하려면 어떻게 할까요?
 
-추가 엔터티는 Cloudyn 구독에 기업계약을 추가하는 데 사용됩니다. 다음 링크는 엔터티를 추가하는 방법을 설명합니다.
-
-- [Adding an Entity](https://support.cloudyn.com/hc/en-us/articles/212016145-Adding-an-Entity)(엔터티 추가) 문서
-- [Defining your hierarchy with Cost Entities](https://support.cloudyn.com/hc/en-us/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities)(비용 엔터티를 사용하여 계층 구조 정의) 비디오
+추가 엔터티는 Cloudyn 구독에 기업계약을 추가하는 데 사용됩니다. 자세한 내용은 [엔터티 만들기 및 관리](tutorial-user-access.md#create-and-manage-entities)를 참조하세요.
 
 CSP의 경우:
 
@@ -139,6 +136,14 @@ Cloudyn은 이전 날짜의 전체 데이터를 사용할 수 있을 때 이전 
 
 Azure에서 Cloudyn으로 데이터를 보내는 데 지연이 발생하면 데이터가 계속 Azure에 기록됩니다. 연결이 복원되면 데이터가 Cloudyn으로 전송됩니다.
 
+## <a name="cost-fluctuations-in-cloudyn-cost-reports"></a>Cloudyn 비용 보고서의 비용 변동
+
+비용 보고서는 클라우드 서비스 공급자가 업데이트된 청구 파일을 보낼 때마다 비용 변동을 표시할 수 있습니다. 일반적인 일별 또는 월별 보고 일정 외에 클라우드 서비스 공급자에게서 새 파일을 받을 경우 비용 변동이 발생합니다. 비용 변경은 Cloudyn 다시 계산으로 발생하지 않습니다.
+
+월 전체에 걸쳐 클라우드 서비스 공급자가 보낸 모든 청구 파일은 일별 비용을 예측한 결과입니다. 때때로 데이터는 자주 - 경우에 따라 하루에도 여러 번 업데이트됩니다. Azure보다는 AWS를 사용하여 더 자주 업데이트됩니다. 이전 달에 대한 비용 청구 계산을 완료하고 최종 청구 파일을 받을 때 비용 총계는 안정적으로 유지되어야 합니다. 대개 그 달의 10일까지입니다.
+
+클라우드 서비스 공급자에게서 비용 조정을 받을 경우 변경이 발생합니다. 크레딧 수신은 하나의 예제입니다. 해당 월을 마감한 지 몇 개월 후에 변경이 발생할 수 있습니다. 클라우드 서비스 공급자가 다시 계산을 할 때마다 변경 내용이 표시됩니다. Cloudyn은 모든 조정이 다시 계산되는지 확인하기 위해 해당 기록 데이터를 업데이트합니다. 또한 비용이 보고서에 정확하게 표시되는지 확인합니다.
+
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>직접 CSP가 간접 CSP 고객 또는 파트너를 위해 Cloudyn 액세스를 구성하는 방법은 무엇인가요?
 
 지침은 [Cloudyn에서 간접 CSP 액세스 구성](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn)을 참조하세요.
@@ -147,9 +152,9 @@ Azure에서 Cloudyn으로 데이터를 보내는 데 지연이 발생하면 데�
 
 Azure Resource Manager 액세스를 추가하고 데이터를 수집한 후에는 **최적화 프로그램** 옵션이 표시됩니다. Azure Resource Manager 액세스를 활성화하려면 [Azure 자격 증명으로 활성화되지 않은 계정을 활성화하는 방법](#how-do-i-activate-unactivated-accounts-with-azure-credentials)을 참조하세요.
 
-## <a name="is-cost-managementcloudyn-agent-based"></a>Cost Management/Cloudyn 에이전트 기반인가요?
+## <a name="is-cloudyn-agent-based"></a>Cloudyn 에이전트 기반인가요?
 
-번호 에이전트는 사용되지 않습니다. VM에 대한 Azure 가상 머신 메트릭 데이터는 Microsoft Insights API에서 수집합니다. Azure VM에서 메트릭 데이터를 수집하려면 VM의 진단 설정을 켜야 합니다.
+아니요. 에이전트는 사용되지 않습니다. VM에 대한 Azure 가상 머신 메트릭 데이터는 Microsoft Insights API에서 수집합니다. Azure VM에서 메트릭 데이터를 수집하려면 VM의 진단 설정을 켜야 합니다.
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Cloudyn 보고서는 보고서당 두 개 이상의 AD 테넌트를 표시합니까?
 

@@ -2,18 +2,18 @@
 title: Azure Site Recovery를 사용하여 VMware VM 및 실제 서버 장애 복구에 대해 Azure의 프로세스 서버 설정 | Microsoft Docs
 description: 이 아티클에서는 Azure VM을 VMware에 장애 복구하도록 Azure에서 프로세스 서버를 설정하는 방법을 설명합니다.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: raynew
-ms.openlocfilehash: 20c3642bb9f9ad5089c37bb6da8562e570896cb4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 11/27/2018
+ms.author: ramamill
+ms.openlocfilehash: 099576b1a4c5c28aab7672aaeb9274bc0beb96bf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308483"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842325"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>장애 복구를 위해 Azure에서 프로세스 서버 설정
 
@@ -24,6 +24,7 @@ ms.locfileid: "38308483"
 [다시 보호](vmware-azure-reprotect.md) 및 [장애 복구](vmware-azure-failback.md) 프로세스에 대해 자세히 알아봅니다.
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
+
 
 ## <a name="deploy-a-process-server-in-azure"></a>Azure에서 프로세스 서버 배포
 

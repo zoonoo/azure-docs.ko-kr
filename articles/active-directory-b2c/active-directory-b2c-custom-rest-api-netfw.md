@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ab91fd9ffac48a7fafbfd6e518e863ee057c6b43
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e3d938c4464fc5141b97f85220bf096920e17d00
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448012"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339596"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합
 
@@ -74,7 +74,7 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
 
 6. **확인**을 선택하여 프로젝트를 만듭니다.
 
-## <a name="step-2-prepare-the-rest-api-endpoint"></a>2단계: REST API 끝점 준비
+## <a name="step-2-prepare-the-rest-api-endpoint"></a>2단계: REST API 엔드포인트 준비
 
 ### <a name="step-21-add-data-models"></a>2.1단계 데이터 모델 추가
 모델은 RESTful 서비스에서 입력 클레임 및 출력 클레임 데이터를 나타냅니다. 코드에서는 입력 클레임 모델을 JSON 문자열에서 C# 개체(모델)로 역직렬화하여 입력 데이터를 읽습니다. ASP.NET Web API는 자동으로 출력 클레임 모델을 다시 JSON으로 역직렬화하고 HTTP 응답 메시지의 본문에 직렬화된 데이터를 기록합니다. 
@@ -242,9 +242,9 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 ```
 
 ## <a name="step-5-add-a-claims-provider"></a>5단계: 클레임 공급자 추가 
-모든 클레임 공급자에는 끝점을 지정하는 하나 이상의 기술 프로필 및 클레임 공급자와 통신하는 데 필요한 프로토콜이 있어야 합니다. 
+모든 클레임 공급자에는 엔드포인트를 지정하는 하나 이상의 기술 프로필 및 클레임 공급자와 통신하는 데 필요한 프로토콜이 있어야 합니다. 
 
-클레임 공급자에는 다양한 이유로 여러 기술 프로필이 있을 수 있습니다. 예를 들어 클레임 공급자가 여러 프로토콜을 지원하거나, 끝점이 다른 기능을 가질 수 있거나 릴리스가 다양한 보증 수준을 가진 클레임을 포함할 수 있기 때문에 여러 기술 프로필을 정의할 수 있습니다. 다른 사용자 경험이 아닌 하나의 사용자 경험에서 중요한 클레임을 해제하기 위해 허용할 수도 있습니다. 
+클레임 공급자에는 다양한 이유로 여러 기술 프로필이 있을 수 있습니다. 예를 들어 클레임 공급자가 여러 프로토콜을 지원하거나, 엔드포인트가 다른 기능을 가질 수 있거나 릴리스가 다양한 보증 수준을 가진 클레임을 포함할 수 있기 때문에 여러 기술 프로필을 정의할 수 있습니다. 다른 사용자 경험이 아닌 하나의 사용자 경험에서 중요한 클레임을 해제하기 위해 허용할 수도 있습니다. 
 
 다음 XML 코드 조각에는 두 가지 기술 프로필을 포함하는 클레임 공급자 노드가 포함됩니다.
 
@@ -366,7 +366,7 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
   "exp": 1507125903,
   "nbf": 1507122303,
   "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
   "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",

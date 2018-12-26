@@ -4,18 +4,18 @@ description: Stream Analytics 작업에서 쿼리를 테스트하는 방법
 keywords: 이 문서에서는 Azure Portal을 사용하여 Azure Stream Analytics 작업을 테스트하고, 입력을 샘플링하고, 샘플 데이터를 업로드하는 방법을 설명합니다.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
 manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 3dc9091934f3db8ededc13f74d2f302eccace4d6
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 139ad76826f3e67577beba0369f6d4425e242af9
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312993"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978352"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>샘플 데이터로 Stream Analytics 쿼리 테스트
 
@@ -29,9 +29,7 @@ Azure Stream Analytics를 사용하면 작업을 시작하거나 중지하지 �
 
 3. Stream Analytics 작업 페이지의 **작업 토폴로지** 제목 아래에서 **쿼리**를 선택하여 쿼리 편집기 창을 엽니다. 
 
-4. 샘플 입력 데이터로 쿼리를 테스트하려면 아무 입력을 마우스 오른쪽 단추로 클릭합니다.  **파일에서 샘플 데이터 업로드**를 선택합니다.
-
-   데이터가 JSON 형식이어야 합니다. 데이터가 CSV 등의 다른 형식인 경우 업로드하기 전에 JSON으로 변환해야 합니다. [CSV-JSON 변환기](http://www.convertcsv.com/csv-to-json.htm)와 같은 오픈 소스 변환 도구를 사용하여 데이터를 JSON으로 변환할 수 있습니다.
+4. 샘플 입력 데이터로 쿼리를 테스트하려면 아무 입력을 마우스 오른쪽 단추로 클릭합니다.  **파일에서 샘플 데이터 업로드**를 선택합니다. 데이터는 JSON, CSV 또는 AVRO로 직렬화되어야 합니다. 샘플 입력은 압축되지 않고 UTF-8로 인코딩되어야 합니다. 포털의 CSV 입력 테스트에는 쉼표(,) 구분 기호만 지원됩니다.
 
     ![Stream Analytics 쿼리 편집기 쿼리 테스트](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

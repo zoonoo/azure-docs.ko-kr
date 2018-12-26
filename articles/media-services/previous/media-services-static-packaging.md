@@ -4,7 +4,7 @@ description: 이 토픽에서는 Azure Media Packager를 사용하여 수행되�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0582628e-a525-4a78-90ac-9f7fc1cd909f
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 808f25ee2c0b72f557ec72d159318e25cb7387ab
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 9af5ebe9f37127656c7f61357240d4e69a28812b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "33786132"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243132"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Azure Media Packager를 사용하여 정적 패키징 작업 수행
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "33786132"
 > 
 
 ## <a name="overview"></a>개요
-인터넷을 통해 디지털 비디오를 배달하려면 미디어를 압축해야 합니다. 디지털 비디오 파일은 대용량이기 때문에 인터넷을 통해 전달하거나 고객의 장치에서 제대로 표시하지 못할 수 있습니다. Encoding은 고객이 미디어를 볼 수 있도록 비디오 및 오디오를 압축하는 과정입니다. 비디오가 인코딩되면 다양한 파일 컨테이너에 저장할 수 있습니다. 컨테이너에 인코딩된 미디어를 배치하는 프로세스를 패키징이라고 합니다. 예를 들어 MP4 파일을 Azure Media Packager를 사용하여 부드러운 스트리밍 또는 HLS 콘텐츠로 변환할 수 있습니다. 
+인터넷을 통해 디지털 비디오를 배달하려면 미디어를 압축해야 합니다. 디지털 비디오 파일은 대용량이기 때문에 인터넷을 통해 전달하거나 고객의 디바이스에서 제대로 표시하지 못할 수 있습니다. Encoding은 고객이 미디어를 볼 수 있도록 비디오 및 오디오를 압축하는 과정입니다. 비디오가 인코딩되면 다양한 파일 컨테이너에 저장할 수 있습니다. 컨테이너에 인코딩된 미디어를 배치하는 프로세스를 패키징이라고 합니다. 예를 들어 MP4 파일을 Azure Media Packager를 사용하여 부드러운 스트리밍 또는 HLS 콘텐츠로 변환할 수 있습니다. 
 
 Media Services는 동적 및 정적 패키징을 지원합니다. 정적 패키징을 사용하는 경우 고객에게 필요한 각 형식으로 콘텐츠 복사본을 만들어야 합니다. 동적 패키징을 사용하는 경우 적응 비트 전송률 MP4 또는 부드러운 스트리밍 파일의 집합이 포함된 자산을 만들기만 하면 됩니다. 이렇게 하면 매니페스트 또는 조각 요청의 지정된 형식에 따라 주문형 스트리밍 서버는 사용자가 선택한 프로토콜로 스트림을 받을 수 있도록 합니다. 따라서 사용자는 단일 저장소 형식으로 파일을 저장하고 해당 파일에 대한 요금을 지불하기만 하면 되며, Media Services 서비스에서 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다.
 
@@ -48,7 +48,7 @@ Media Services는 동적 및 정적 패키징을 지원합니다. 정적 패키�
 * 정적 암호화를 사용하여 PlayReady로 HLSv3 보호
 
 ## <a name="validating-adaptive-bitrate-mp4s-encoded-with-external-encoders"></a>외부 인코더로 인코딩된 적응 비트 전송률 MP4 유효성 검사
-Media Services 인코더로 인코드되지 않은 적응 비트 전송률(다중 비트 전송률) MP4 파일 집합을 사용하려는 경우 추가 처리 전에 파일을 확인해야 합니다. Media Services Packager는 MP4 파일 집합이 포함된 자산 유효성을 검사하고 자산이 부드러운 스트리밍 또는 HLS로 패키징할 수 있는지 여부를 확인할 수 있습니다. 유효성 검사 작업이 실패하면 작업을 처리 중이었던 작업이 오류와 함께 완료됩니다. XML은 [Azure Media Packager용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx) 문서에 나온 유효성 검사에 대한 사전 설정을 정의합니다.
+Media Services 인코더로 인코드되지 않은 적응 비트 전송률(다중 비트 전송률) MP4 파일 집합을 사용하려는 경우 추가 처리 전에 파일을 확인해야 합니다. Media Services Packager는 MP4 파일 집합이 포함된 자산 유효성을 검사하고 자산이 부드러운 스트리밍 또는 HLS로 패키징할 수 있는지 여부를 확인할 수 있습니다. 유효성 검사 작업이 실패하면 작업을 처리 중이었던 작업이 오류와 함께 완료됩니다. XML은 [Azure Media Packager용 작업 사전 설정](https://msdn.microsoft.com/library/azure/hh973635.aspx) 문서에 나온 유효성 검사에 대한 사전 설정을 정의합니다.
 
 > [!NOTE]
 > 미디어 인코더 표준을 사용하여 생성하거나 Media Services Packager를 사용하여 런타임 문제를 방지하기 위해 콘텐츠 유효성을 검사합니다. 주문형 스트리밍 서버가 런타임에 원본 파일을 구문 분석할 수 없는 경우 HTTP 1.1 오류 "415 지원되지 않는 미디어 유형"을 받게 됩니다. 반복적으로 서버가 소스 파일에 대한 구문 분석 장애를 일으키면 주문형 스트리밍 서버의 성능에 영향을 주며 다른 요청에 사용할 수 있는 대역폭을 줄일 수 있습니다. Azure Media Services에서는 주문형 스트리밍 서비스에 대해 SLA(서비스 수준 약정)를 제공하지만 서버가 위에서 설명한 방식으로 잘못 사용되면 이 SLA는 적용될 수 없습니다.
@@ -82,7 +82,7 @@ Media Services Packager를 사용하여 MP4 파일의 유효성을 검사하려�
 
 적응 비트 전송률 MP4를 설정하면 동적 패키징을 활용할 수 있습니다. 동적 패키징을 사용하면 추가 패키징 없이 지정된 프로토콜의 스트림을 배달할 수 있습니다. 자세한 내용은 [동적 패키징](media-services-dynamic-packaging-overview.md)을 참조하세요.
 
-다음 코드 예제는 Azure Media Services .NET SDK 확장을 사용합니다.  입력된 MP4 파일 및 .ism 파일이 있는 폴더를 가리키도록 코드를 업데이트합니다. 또한 MediaPackager_ValidateTask.xml 파일이 있는 곳도 동일합니다. 이 XML 파일은 [Azure Media Packager용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx) 문서에서 정의됩니다.
+다음 코드 예제는 Azure Media Services .NET SDK 확장을 사용합니다.  입력된 MP4 파일 및 .ism 파일이 있는 폴더를 가리키도록 코드를 업데이트합니다. 또한 MediaPackager_ValidateTask.xml 파일이 있는 곳도 동일합니다. 이 XML 파일은 [Azure Media Packager용 작업 사전 설정](https://msdn.microsoft.com/library/azure/hh973635.aspx) 문서에서 정의됩니다.
 
 ```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
@@ -258,13 +258,13 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 Media Services는 현재 Microsoft PlayReady 라이선스를 배달하는 서비스를 제공합니다. 이 문서의 예제에서는 Media Services PlayReady 라이선스 배달 서비스를 구성하는 방법을 보여 줍니다(아래 코드에 정의된 ConfigureLicenseDeliveryService 메서드 참조). Media Services PlayReady 라이선스 배달 서비스에 대한 자세한 내용은 [PlayReady 동적 암호화 및 License Delivery 서비스 사용](media-services-protect-with-playready-widevine.md)을 참조하세요.
 
 > [!NOTE]
-> PlayReady로 암호화된 MPEG DASH를 배달하려면 useSencBox 및 adjustSubSamples 속성([Azure Media Encryptor용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973610.aspx) 문서에서 설명)을 true로 설정하여 CENC 옵션을 사용합니다.  
+> PlayReady로 암호화된 MPEG DASH를 배달하려면 useSencBox 및 adjustSubSamples 속성([Azure Media Encryptor용 작업 사전 설정](https://msdn.microsoft.com/library/azure/hh973610.aspx) 문서에서 설명)을 true로 설정하여 CENC 옵션을 사용합니다.  
 > 
 > 
 
 입력된 MP4 파일이 있는 폴더를 가리키도록 다음 코드를 업데이트합니다.
 
-또한 MediaPackager_MP4ToSmooth.xml 및 MediaEncryptor_PlayReadyProtection.xml 파일이 있는 곳도 동일합니다. MediaPackager_MP4ToSmooth.xml은 [Azure Media Packager용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx)에서 정의되고 MediaEncryptor_PlayReadyProtection.xml은 [Azure Media Encryptor용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973610.aspx) 문서에서 정의됩니다. 
+또한 MediaPackager_MP4ToSmooth.xml 및 MediaEncryptor_PlayReadyProtection.xml 파일이 있는 곳도 동일합니다. MediaPackager_MP4ToSmooth.xml은 [Azure Media Packager용 작업 사전 설정](https://msdn.microsoft.com/library/azure/hh973635.aspx)에서 정의되고 MediaEncryptor_PlayReadyProtection.xml은 [Azure Media Encryptor용 작업 사전 설정](https://msdn.microsoft.com/library/azure/hh973610.aspx) 문서에서 정의됩니다. 
 
 이 예제에서는 MediaEncryptor_PlayReadyProtection.xml 파일을 동적으로 업데이트하는데 사용할 수 있는 UpdatePlayReadyConfigurationXMLFile 메서드를 정의합니다. 키 시드를 사용할 수 있는 경우 CommonEncryption.GeneratePlayReadyContentKey 메서드를 사용하여 keySeedValue 및 KeyId 값에 따라 콘텐츠 키를 생성할 수 있습니다.
 
@@ -712,7 +712,7 @@ AES-128을 사용하여 HLS를 암호화하려는 경우 동적 암호화(권장
 > 
 > 
 
-이 섹션의 예에서는 mezzanine 파일(이 경우 MP4)을 다중 비트 전송률 MP4 파일로 인코딩한 다음 MP4를 부드러운 스트리밍으로 패키징합니다. 그런 다음 부드러운 스트리밍을 고급 암호화 표준(AES) 128비트 스트림 암호화로 암호화된 HTTP 라이브 스트리밍(HLS)으로 패키징합니다. 입력된 MP4 파일이 있는 폴더를 가리키도록 다음 코드를 업데이트합니다. 또한 MediaPackager_MP4ToSmooth.xml 및 MediaPackager_SmoothToHLS.xml 구성 파일이 있는 곳도 동일합니다. 이러한 파일에 대한 정의는 [Azure Media Packager용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx) 문서에서 찾을 수 있습니다.
+이 섹션의 예에서는 mezzanine 파일(이 경우 MP4)을 다중 비트 전송률 MP4 파일로 인코딩한 다음 MP4를 부드러운 스트리밍으로 패키징합니다. 그런 다음 부드러운 스트리밍을 고급 암호화 표준(AES) 128비트 스트림 암호화로 암호화된 HTTP 라이브 스트리밍(HLS)으로 패키징합니다. 입력된 MP4 파일이 있는 폴더를 가리키도록 다음 코드를 업데이트합니다. 또한 MediaPackager_MP4ToSmooth.xml 및 MediaPackager_SmoothToHLS.xml 구성 파일이 있는 곳도 동일합니다. 이러한 파일에 대한 정의는 [Azure Media Packager용 작업 사전 설정](https://msdn.microsoft.com/library/azure/hh973635.aspx) 문서에서 찾을 수 있습니다.
 
 ```csharp
     using System;
@@ -997,7 +997,7 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 
 Media Services는 현재 Microsoft PlayReady 라이선스를 배달하는 서비스를 제공합니다. 이 문서의 예제에서는 Media Services PlayReady 라이선스 배달 서비스를 구성하는 방법을 보여 줍니다(아래 코드에 정의된 **ConfigureLicenseDeliveryService** 메서드 참조). 
 
-입력된 MP4 파일이 있는 폴더를 가리키도록 다음 코드를 업데이트합니다. 또한 MediaPackager_MP4ToSmooth.xml, MediaPackager_SmoothToHLS.xml 및 MediaEncryptor_PlayReadyProtection.xml 파일이 있는 곳도 동일합니다. MediaPackager_MP4ToSmooth.xml 및 MediaPackager_SmoothToHLS.xml은 [Azure Media Packager용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx)에서 정의되고 MediaEncryptor_PlayReadyProtection.xml은 [Azure Media Encryptor용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973610.aspx) 문서에서 정의됩니다.
+입력된 MP4 파일이 있는 폴더를 가리키도록 다음 코드를 업데이트합니다. 또한 MediaPackager_MP4ToSmooth.xml, MediaPackager_SmoothToHLS.xml 및 MediaEncryptor_PlayReadyProtection.xml 파일이 있는 곳도 동일합니다. MediaPackager_MP4ToSmooth.xml 및 MediaPackager_SmoothToHLS.xml은 [Azure Media Packager용 작업 사전 설정](https://msdn.microsoft.com/library/azure/hh973635.aspx)에서 정의되고 MediaEncryptor_PlayReadyProtection.xml은 [Azure Media Encryptor용 작업 사전 설정](https://msdn.microsoft.com/library/azure/hh973610.aspx) 문서에서 정의됩니다.
 
 ```csharp
     using System;

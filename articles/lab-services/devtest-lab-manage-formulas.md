@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 40c30958c5e0e24f2b35475848c1828df4a40d0c
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 47699925f057aab25fe6f7c1c7d0b0620e7e4dbe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "33781922"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227997"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs 수식 관리
 
@@ -38,7 +38,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 ### <a name="create-a-formula-from-a-base"></a>기준에서 수식 만들기
 다음 단계에서는 사용자 지정 이미지, Marketplace 이미지 또는 다른 수식에서 수식을 만드는 과정을 안내합니다.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 
@@ -61,7 +61,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
     * **수식 이름** - 수식의 이름을 입력합니다. 이 값은 VM을 만들 때 기본 이미지 목록에 표시됩니다. 이름 입력 시에 유효성이 검사되고, 유효하지 않으면, 유효한 이름에 필요한 사항을 알려주는 메시지가 표시됩니다.
     * **설명** - 수식에 대한 의미 있는 설명을 입력합니다. 이 값은 VM을 만들 때 수식의 상황에 맞는 메뉴에서 볼 수 있습니다.
     * **사용자 이름** - 관리자 권한이 부여된 사용자 이름을 입력합니다.
-    * **암호** - 지정된 사용자에 대해 사용하려는 암호와 연결된 값을 입력하거나 드롭다운 목록에서 선택합니다. 비밀에 대한 자세한 내용은 [Azure DevTest Labs: 개인 비밀 저장소](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/)를 참조하세요.
+    * **암호** - 지정된 사용자에 대해 사용하려는 암호와 연결된 값을 입력하거나 드롭다운 목록에서 선택합니다. 키 자격 증명 모음에 비밀을 저장하고 랩 리소스를 만들 때 이 비밀을 사용하는 방법을 알아보려면 [Azure Key Vault에 비밀 저장](devtest-lab-store-secrets-in-key-vault.md)을 참조하세요.
     * **가상 머신 디스크 유형** - HDD(하드 디스크 드라이브) 또는 SSD(반도체 드라이브)를 지정하여 이 기본 이미지를 사용하여 프로비전된 가상 머신에 허용된 저장소 디스크 유형을 나타냅니다.
     * **가상 머신 크기** - 만들려는 VM의 프로세서 코어, RAM 크기 및 하드 드라이브 크기를 지정하는 미리 정의된 항목 중 하나를 선택합니다. 
     * **아티팩트** - **아티팩트 추가** 블레이드를 선택하여 열고 여기에서 기본 이미지에 추가하려는 아티팩트를 선택하고 구성합니다. 아티팩트에 대한 자세한 내용은 [Azure DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)를 참조하세요.
@@ -86,7 +86,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 > 
 > 
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.  
 4. 랩의 **개요** 블레이드에서 수식을 만들 VM을 선택합니다.
@@ -103,7 +103,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 ## <a name="modify-a-formula"></a>수식 수정
 수식을 수정하려면 다음 단계를 수행합니다.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.  
 4. 랩의 블레이드에서 **수식(재사용 가능 기준)** 을 선택합니다.
@@ -115,7 +115,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 ## <a name="delete-a-formula"></a>수식 삭제
 수식을 삭제하려면 다음 단계를 수행합니다.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.  
 4. 랩의 **설정** 블레이드에서 **수식**을 선택합니다.

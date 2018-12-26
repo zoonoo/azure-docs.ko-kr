@@ -1,33 +1,28 @@
 ---
-title: 게시된 응용 프로그램 설치 - H2O Sparkling Water - Azure HDInsight | Microsoft Docs
-description: 타사의 Hadoop 응용 프로그램 H2O Sparkling Water를 설치하여 사용합니다.
+title: 게시된 응용 프로그램 설치 - H2O Sparkling Water - Azure HDInsight
+description: 타사의 Hadoop 애플리케이션 H2O Sparkling Water를 설치하여 사용합니다.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: e3c80fe824d87c15a710b133c8e6cddf4ee0e096
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d2aeb41c2fcc11c37ec56707932eabcf63e026a0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856558"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497200"
 ---
-# <a name="install-published-application---h2o-sparkling-water"></a>게시된 응용 프로그램 설치 - H2O Sparkling Water
+# <a name="install-published-application---h2o-sparkling-water"></a>게시된 애플리케이션 설치 - H2O Sparkling Water
 
-이 문서에서는 게시된 Hadoop 응용 프로그램 [H20 Sparkling Water](http://www.h2o.ai/)를 Azure HDInsight에 설치하고 실행하는 방법을 설명합니다. HDInsight 응용 프로그램 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+이 문서에서는 [H20 Sparkling Water](http://www.h2o.ai/)에 게시된 [Apache Hadoop](https://hadoop.apache.org/) 애플리케이션을 Azure HDInsight에 설치하고 실행하는 방법을 설명합니다. HDInsight 애플리케이션 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 애플리케이션 목록은 [타사 Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 애플리케이션을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 ## <a name="about-h2o-sparkling-water"></a>H2O Sparkling Water 정보
 
-H2O Sparkling Water는 선형 확장성을 갖춘 완벽하게 분산된 오픈 소스 메모리 내 기계 학습 플랫폼입니다. H2O Sparkling Water를 사용하여 H2O의 빠르고 확장성 있는 기계 학습 알고리즘을 Spark 기능과 결합할 수 있습니다. Sparkling Water가 있으면 사용자는 H2O Flow UI를 사용하여 Scala, R 및 Python에서 계산을 수행할 수 있습니다.
+H2O Sparkling Water는 선형 확장성을 갖춘 완벽하게 분산된 오픈 소스 메모리 내 기계 학습 플랫폼입니다. H2O Sparkling Water를 사용하여 H2O의 빠르고 확장성 있는 기계 학습 알고리즘을 [Apache Spark](https://spark.apache.org/) 기능과 결합할 수 있습니다. Sparkling Water가 있으면 H2O Flow UI를 사용하여 [Scala](https://www.scala-lang.org/), R 및 Python에서 계산을 유도할 수 있습니다.
 
 다음은 H2O Sparkling Water의 특징입니다.
 
@@ -52,13 +47,13 @@ H2O Sparkling Water는 선형 확장성을 갖춘 완벽하게 분산된 오픈 
 * 클러스터 유형: Spark
 * 클러스터 버전: 3.5 또는 3.6
 
-## <a name="install-the-h2o-sparkling-water-published-application"></a>H2O Sparkling Water 게시된 응용 프로그램 설치
+## <a name="install-the-h2o-sparkling-water-published-application"></a>H2O Sparkling Water 게시된 애플리케이션 설치
 
-이 응용 프로그램과 기타 사용 가능한 ISV 응용 프로그램을 설치하는 단계별 지침은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요.
+이 애플리케이션 및 사용 가능한 다른 ISV 애플리케이션을 설치하는 단계별 지침은 [타사 Apache Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요.
 
 ## <a name="launch-h2o-sparkling-water"></a>H2O Sparkling Water 실행
 
-1. 설치가 끝나면 Azure Portal에서 Jupyter Notebook(`https://<ClusterName>.azurehdinsight.net/jupyter`)을 열고 클러스터에서 H2O Sparkling Water(h2o-sparklingwater)를 사용할 수 있습니다. 포털의 클러스터 창에서 **클러스터 대시보드**를 선택한 다음, **Jupyter Notebook**을 선택하여 Jupyter에 액세스할 수도 있습니다. 자격 증명을 입력하라는 메시지가 표시됩니다. 클러스터를 만들 때 지정한 클러스터의 Hadoop 자격 증명을 입력합니다.
+1. 설치가 끝나면 [Jupyter Notebooks](https://jupyter.org/)(`https://<ClusterName>.azurehdinsight.net/jupyter`)을 열고 Azure Portal의 클러스터에서 H2O Sparkling Water(h2o-sparklingwater)를 사용할 수 있습니다. 포털의 클러스터 창에서 **클러스터 대시보드**를 선택한 다음, **Jupyter Notebook**을 선택하여 Jupyter에 액세스할 수도 있습니다. 자격 증명을 입력하라는 메시지가 표시됩니다. 클러스터를 만들 때 지정한 클러스터의 Hadoop 자격 증명을 입력합니다.
 
 2. Jupyter에 H2O-PySparkling-Examples, PySpark Examples 및 Scala Examples의 3개 폴더가 있습니다. **H2O-PySparkling-Examples** 폴더를 선택합니다.
 

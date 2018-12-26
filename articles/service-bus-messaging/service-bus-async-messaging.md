@@ -3,7 +3,7 @@ title: Service Bus 비동기 메시징 | Microsoft Docs
 description: Azure Service Bus 비동기 메시지에 대한 설명입니다.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
-ms.author: sethm
-ms.openlocfilehash: e48e95d99847e68bdb218b341ad2fbcd44eb31f4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 09/26/2018
+ms.author: spelluru
+ms.openlocfilehash: 9bacce96e65a7aef611bec3ddae8b1872d5f9fae
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28929989"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391466"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>비동기 메시징 패턴 및 고가용성
 

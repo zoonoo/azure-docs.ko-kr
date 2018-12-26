@@ -9,15 +9,15 @@ ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
-ms.openlocfilehash: d06b44246b694c0d2a83503ecd1ae0cedfadd9ec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ccc3ced06a6b5ac36df9e7294a9b4cf17d0dedf3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723162"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Application Insights 리소스를 만들기 위한 PowerShell 스크립트
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/19/2018
 
 PowerShell을 사용하여 새 리소스의 생성을 자동화할 수 있습니다.
 
-예를 들어 모바일 장치 앱을 개발하는 경우, 언제든지 고객이 사용 중인 앱에는 게시된 여러 버전이 있을 가능성이 있습니다. 혼합된 서로 다른 버전의 원격 분석 결과를 가져오지 않으려고 합니다. 따라서 각 빌드에 대한 새 리소스를 만드는 빌드 프로세스를 가져옵니다.
+예를 들어 모바일 디바이스 앱을 개발하는 경우, 언제든지 고객이 사용 중인 앱에는 게시된 여러 버전이 있을 가능성이 있습니다. 혼합된 서로 다른 버전의 원격 분석 결과를 가져오지 않으려고 합니다. 따라서 각 빌드에 대한 새 리소스를 만드는 빌드 프로세스를 가져옵니다.
 
 > [!NOTE]
 > 모든 리소스 집합을 동시에 만들려면 [Azure 템플릿을 사용하여 리소스를 만드는](app-insights-powershell.md) 것이 좋습니다.

@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: adamab
-ms.openlocfilehash: dafada5cecbc6345da46bc3a32fc3b91eb72313a
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.author: cwatson
+ms.openlocfilehash: a9ca57ce916dc3f9bc8d451063596519d1d6649c
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295514"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391348"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
@@ -120,7 +120,7 @@ Azure는 여러 리소스의 배포를 오케스트레이션하는 기능을 제
 
 __이 문서의 끝에서 작동 중인 전체 템플릿을 볼 수 있습니다.__
 
-템플릿을 작성한 후에는 [REST API](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create) 또는 [포털의 템플릿 배포 페이지](https://portal.azure.com/#create/Microsoft.Template)를 사용하여 배포할 수 있습니다.
+템플릿을 작성한 후에는 [REST API](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az-group-deployment-create) 또는 [포털의 템플릿 배포 페이지](https://portal.azure.com/#create/Microsoft.Template)를 사용하여 배포할 수 있습니다.
 
 다음은 두 가지 버전의 대시보드 JSON 예제입니다. 첫 번째는 리소스에 이미 바인딩된 포털에서 내보낸 버전입니다. 두 번째는 모든 VM에 프로그래밍 방식으로 바인딩하고 Azure Resource Manager를 사용하여 배포할 수 있는 템플릿 버전입니다.
 

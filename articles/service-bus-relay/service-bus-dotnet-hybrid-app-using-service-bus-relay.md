@@ -1,9 +1,9 @@
 ---
 title: Azure WCF Relay 하이브리드 온-프레미스/클라우드 응용 프로그램(.NET) | Microsoft Docs
-description: Azure WCF 릴레이를 사용하여 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램을 만드는 방법에 대해 알아봅니다.
+description: Azure Relay를 사용하여 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스를 노출하는 방법을 알아봅니다.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
@@ -12,38 +12,51 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/02/2017
-ms.author: sethm
-ms.openlocfilehash: fe13de5f83fe18a85f8d46d0eee039159e1a60e9
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 11/01/2018
+ms.author: spelluru
+ms.openlocfilehash: 2972d04d1617b755bb6c2ff60d9922accdd09f2a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
-ms.locfileid: "29346444"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614840"
 ---
-# <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Azure WCF 릴레이를 사용하는 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램
-
-이 문서에서는 Microsoft Azure 및 Visual Studio로 하이브리드 클라우드 응용 프로그램을 구축하는 방법을 보여줍니다. 이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 30분 이내에 여러 Azure 리소스를 사용하는 응용 프로그램을 클라우드에서 실행할 수 있습니다.
-
-다음 내용을 배웁니다.
+# <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Azure Relay를 사용하여 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스 노출 
+이 문서에서는 Microsoft Azure 및 Visual Studio로 하이브리드 클라우드 응용 프로그램을 구축하는 방법을 보여줍니다. 여러 Azure 리소스를 사용하고 클라우드에서 실행하는 애플리케이션을 만들 수 있습니다.
 
 * 웹 서비스를 만들거나 기존 웹 서비스를 웹 솔루션에서 사용할 수 있도록 변경하는 방법
 * Azure WCF 릴레이 서비스를 사용하여 Azure 응용 프로그램과 다른 위치에서 호스트되는 웹 서비스 사이에 데이터를 공유하는 방법
 
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
+이 자습서에서 다음과 같은 단계를 수행합니다.
+
+> [!div class="checklist"]
+> * 시나리오 검토
+> * 네임스페이스 만들기
+> * 온-프레미스 서버 만들기
+> * ASP .NET 애플리케이션 만들기
+> * 로컬로 앱 실행
+> * Azure에 웹앱 배포
+> * Azure에서 앱 실행
+
+## <a name="prerequisites"></a>필수 조건
+
+이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
+
+- Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+- [Visual Studio 2015 이상](http://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
+- Azure SDK for .NET [SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 설치합니다.
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>하이브리드 솔루션에 유용한 Azure 릴레이
-
 비즈니스 솔루션은 일반적으로 새로운 고유 비즈니스 요구 사항에 부합하도록 작성된 사용자 지정 코드와 이미 있는 솔루션 및 시스템에서 제공하는 기존 기능의 조합으로 구성됩니다.
 
 솔루션 설계자는 확장 요구 사항을 더 간편하게 처리하고 운영 비용을 낮추기 위해 클라우드를 사용하기 시작했습니다. 클라우드를 사용하면 솔루션의 구성 요소로 활용할 기존 서비스 자산이 회사 방화벽 내부에 위치하게 되며 클라우드 솔루션에서 이 자산에 쉽게 액세스할 수 없게 됩니다. 다수의 내부 서비스는 회사 네트워크 가장자리에서 쉽게 노출될 수 있는 방식으로 빌드되거나 호스트되지 않습니다.
 
 [Azure Relay](https://azure.microsoft.com/services/service-bus/)는 회사 네트워크 인프라에 대한 침입적인 변경 없이도 회사 범위 외부에 있는 솔루션에서 기존 WCF(Windows Communication Foundation) 웹 서비스에 안전하게 액세스할 수 있게 만드는 사용 사례를 위해 고안되었습니다. 이러한 릴레이 서비스는 기존 환경 내에 계속 호스트되지만 클라우드 호스트 릴레이 서비스에 들어오는 세션 및 요청에 대한 수신을 위임합니다. 또한 Azure Relay는 [SAS(공유 액세스 서명](../service-bus-messaging/service-bus-sas.md)) 인증을 사용하여 이러한 서비스에 무단으로 액세스하지 못하도록 보호합니다.
 
-## <a name="solution-scenario"></a>솔루션 시나리오
+## <a name="review-the-scenario"></a>시나리오 검토
 이 자습서에서는 제품 재고 페이지에 제품 목록을 표시할 수 있는 ASP.NET 웹 사이트를 만듭니다.
 
-![][0]
+![시나리오][0]
 
 이 자습서는 기존 온-프레미스 시스템에 제품 정보가 있으며 해당 시스템에 도달하는 데 Azure 릴레이를 사용하는 개발자를 대상으로 합니다. 간단한 콘솔 응용 프로그램에서 실행되며 메모리 내 제품 집합에서 지원되는 웹 서비스에서 이를 시뮬레이션합니다. 개발자는 자신의 컴퓨터에서 이 콘솔 응용 프로그램을 실행하여 Azure에 웹 역할을 배포할 수 있습니다. 이렇게 함으로써, 개발자의 컴퓨터가 하나 이상의 방화벽 및 NAT(Network Address Translation) 계층 뒤에 위치하는 것이 거의 확실한 경우에도 Azure 데이터 센터에서 실행 중인 웹 역할이 실제로 개발자의 컴퓨터에 호출되는 것을 확인하게 됩니다.
 
@@ -52,39 +65,36 @@ ms.locfileid: "29346444"
 Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로드하고 개발 환경을 설정해야 합니다.
 
 1. SDK [다운로드 페이지](https://azure.microsoft.com/downloads/)에서 .NET용 Azure SDK를 설치합니다.
-2. **.NET** 열에서 사용 중인 [Visual Studio](http://www.visualstudio.com) 버전을 클릭합니다. 이 자습서의 단계에서는 Visual Studio 2017을 사용합니다.
+2. **.NET** 열에서 사용 중인 [Visual Studio](https://www.visualstudio.com) 버전을 클릭합니다. 이 자습서의 단계에서는 Visual Studio 2017을 사용합니다.
 3. 설치 관리자를 실행할지 또는 저장할지를 묻는 메시지가 표시되면 **실행**을 클릭합니다.
 4. **웹 플랫폼 설치 관리자**에서 **설치**를 클릭하여 설치를 계속합니다.
 5. 설치가 완료되면 앱을 개발하기 시작하는 데 필요한 내용이 모두 준비된 것입니다. SDK에는 Visual Studio에서 Azure 응용 프로그램을 쉽게 개발할 수 있는 도구가 포함되어 있습니다.
 
 ## <a name="create-a-namespace"></a>네임스페이스 만들기
+첫 단계는 네임스페이스를 만들고 [SAS(공유 액세스 서명)](../service-bus-messaging/service-bus-sas.md) 키를 확보합니다. 네임스페이스는 릴레이 서비스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 서비스 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 서비스 네임스페이스 및 SAS 키 조합은 Azure에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
 
-Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 Azure 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. [여기의 지침](relay-create-namespace-portal.md)을 따라 릴레이 네임스페이스를 만듭니다.
+[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="create-an-on-premises-server"></a>온-프레미스 서버 만들기
-
-먼저, (모의) 온-프레미스 제품 카탈로그 시스템을 빌드합니다. 매우 간단합니다. 통합하려는 전체 서비스 표면이 있는 실제 온-프레미스 제품 카탈로그 시스템을 나타내는 것으로 생각하면 됩니다.
-
-이 프로젝트는 Visual Studio 콘솔 응용 프로그램으로, [Azure Service Bus NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)를 사용하여 Service Bus 라이브러리 및 구성 설정을 포함합니다.
+먼저, 시뮬레이션된 온-프레미스 제품 카탈로그 시스템을 빌드합니다.  이 프로젝트는 Visual Studio 콘솔 응용 프로그램으로, [Azure Service Bus NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)를 사용하여 Service Bus 라이브러리 및 구성 설정을 포함합니다.
 
 ### <a name="create-the-project"></a>프로젝트 만들기
-
 1. 관리자 권한을 사용하여 Microsoft Visual Studio를 시작합니다. 이렇게 하려면 Visual Studio 프로그램 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭합니다.
 2. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 3. **설치된 템플릿**의 **Visual C#** 에 있는 **콘솔 앱(.NET Framework)** 을 클릭합니다. **이름** 상자에서 이름을 **ProductsServer**로 입력합니다.
 
-   ![][11]
+   ![새 프로젝트 대화 상자][11]
 4. **확인**을 클릭하여 **ProductsServer** 프로젝트를 만듭니다.
-5. Visual Studio용 NuGet 패키지 관리자를 이미 설치한 경우 다음 단계로 건너뜁니다. 그렇지 않으면 [NuGet][NuGet]을 방문하여 [NuGet 설치](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)를 클릭합니다. 나타나는 메시지에 따라 NuGet 패키지 관리자를 설치한 후 Visual Studio를 다시 시작합니다.
+5. Visual Studio용 NuGet 패키지 관리자를 이미 설치한 경우 다음 단계로 건너뜁니다. 그렇지 않으면 [NuGet][NuGet]을 방문하여 [NuGet 설치](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)를 클릭합니다. 나타나는 메시지에 따라 NuGet 패키지 관리자를 설치한 다음, Visual Studio를 다시 시작합니다.
 6. 솔루션 탐색기에서 **ProductsServer** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
 7. **찾아보기** 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. **WindowsAzure.ServiceBus** 패키지를 선택합니다.
 8. **설치**를 클릭하고 사용 약관에 동의합니다.
 
-   ![][13]
+   ![NuGet 패키지 선택][13]
 
-   필요한 클라이언트 어셈블리가 이제 참조됩니다.
+   필수 클라이언트 어셈블리가 이제 참조됩니다.
 8. 제품 계약의 새 클래스를 추가합니다. 솔루션 탐색기에서 **ProductsServer** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다.
-9. **이름** 상자에서 이름을 **ProductsContract.cs**로 입력합니다. 그런 다음 **추가**를 클릭합니다.
+9. **이름** 상자에서 이름을 **ProductsContract.cs**로 입력합니다. 그런 다음, **추가**를 클릭합니다.
 10. **ProductsContract.cs**에서 네임스페이스 정의를 다음 코드로 바꿉니다. 이 코드는 서비스의 계약을 정의합니다.
 
     ```csharp
@@ -175,7 +185,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
         }
     }
     ```
-12. 솔루션 탐색기에서 **App.config** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. `<system.ServiceModel>` 요소의 아래쪽에서(여전히 `<system.ServiceModel>` 내에 있음) 다음 XML 코드를 추가합니다. *yourServiceNamespace*를 네임스페이스의 이름으로 바꾸고 *yourKey*를 앞에서 포털에서 검색한 SAS 키로 바꿔야 합니다.
+12. 솔루션 탐색기에서 **App.config** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. `<system.ServiceModel>` 요소의 아래이지만 `<system.ServiceModel>` 내에서 다음 XML 코드를 추가합니다. *yourServiceNamespace*를 네임스페이스의 이름으로 바꾸고, *yourKey*를 미리 포털에서 검색한 SAS 키로 바꿔야 합니다.
 
     ```xml
     <system.serviceModel>
@@ -213,7 +223,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 
 ## <a name="create-an-aspnet-application"></a>ASP.NET 응용 프로그램 만들기
 
-이 섹션에서는 제품 서비스에서 검색한 데이터를 표시하는 간단한 ASP.NET 응용 프로그램을 빌드합니다.
+이 섹션에서는 제품 서비스에서 검색한 데이터를 표시하는 간단한 ASP.NET 애플리케이션을 빌드합니다.
 
 ### <a name="create-the-project"></a>프로젝트 만들기
 
@@ -221,21 +231,21 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 2. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 3. **설치된 템플릿**에서 **Visual C#** 아래에 있는 **ASP.NET 웹 응용 프로그램(.NET Framework)** 을 클릭합니다. 프로젝트의 이름을 **ProductsPortal**로 지정합니다. 그런 후 **OK**를 클릭합니다.
 
-   ![][15]
+   ![새 프로젝트 대화 상자][15]
 
 4. **새 ASP.NET 웹 응용 프로그램** 대화 상자의 **ASP.NET 템플릿** 목록에서 **MVC**를 클릭합니다.
 
-   ![][16]
+   ![ASP.NET 웹 애플리케이션 선택][16]
 
 6. **인증 변경** 단추를 클릭합니다. **인증 변경** 대화 상자에서 **인증 없음**을 선택했는지 확인한 다음 **확인**을 클릭합니다. 이 자습서의 경우 사용자 로그인이 필요하지 않은 앱을 배포하고 있습니다.
 
-    ![][18]
+    ![인증 지정][18]
 
 7. **새 ASP.NET 웹 응용 프로그램** 대화 상자로 돌아와서 **확인**을 클릭하여 MVC 앱을 만듭니다.
-8. 이제 새 웹앱에 대한 Azure 리소스를 구성해야 합니다. [이 문서의 Azure 섹션에 게시](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure)의 단계에 따릅니다. 그런 다음, 이 자습서로 돌아가 다음 단계를 진행합니다.
-10. 솔루션 탐색기에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. **이름** 상자에서 이름을 **Product.cs**로 입력합니다. 그런 다음 **추가**를 클릭합니다.
+8. 이제 새 웹앱에 대한 Azure 리소스를 구성해야 합니다. [이 문서의 Azure 섹션에 게시](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard)의 단계에 따릅니다. 그런 다음, 이 자습서로 돌아가 다음 단계를 진행합니다.
+10. 솔루션 탐색기에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. **이름** 상자에서 이름을 **Product.cs**로 입력합니다. 그런 다음, **추가**를 클릭합니다.
 
-    ![][17]
+    ![제품 모델 만들기][17]
 
 ### <a name="modify-the-web-application"></a>웹 응용 프로그램 수정
 
@@ -279,7 +289,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 5. **내 ASP.NET 응용 프로그램**과 일치하는 모든 항목을 **Northwind Traders 제품**으로 변경합니다.
 6. **홈**, **정보** 및 **연락처** 링크를 제거합니다. 다음 예제에서 강조 표시된 코드를 삭제합니다.
 
-    ![][41]
+    ![생성된 목록 항목 삭제][41]
 
 7. 솔루션 탐색기에서 Views\Home 폴더를 확장하고 **Index.cshtml**을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. 파일의 전체 내용을 다음 코드로 바꿉니다.
 
@@ -318,7 +328,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
    ```
 8. 지금까지 진행한 작업의 정확도를 확인하려면 **Ctrl+Shift+B**를 눌러 프로젝트를 빌드하면 됩니다.
 
-### <a name="run-the-app-locally"></a>로컬에서 앱 실행
+### <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
 응용 프로그램을 실행하여 작동하는지 확인합니다.
 
@@ -326,19 +336,19 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 2. Visual Studio에서 **F5** 키를 누릅니다.
 3. 응용 프로그램이 브라우저에 실행되는 것으로 나타나야 합니다.
 
-   ![][21]
+   ![웹 응용 프로그램][21]
 
 ## <a name="put-the-pieces-together"></a>부분 연결
 
 다음 단계는 온-프레미스 제품 서버를 ASP.NET 응용 프로그램과 연결하는 것입니다.
 
-1. 아직 열려 있지 않은 경우 [ASP.NET 응용 프로그램 만들기](#create-an-aspnet-application) 섹션에서 만든 **ProductsPortal** 프로젝트를 Visual Studio에서 다시 엽니다.
+1. 아직 열려 있지 않은 경우 [ASP.NET 애플리케이션 만들기](#create-an-aspnet-application) 섹션에서 만든 **ProductsPortal** 프로젝트를 Visual Studio에서 다시 엽니다.
 2. "온-프레미스 서버 만들기" 섹션의 단계와 비슷하게 프로젝트 참조에 NuGet 패키지를 추가합니다. 솔루션 탐색기에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
 3. **WindowsAzure.ServiceBus**를 검색하고 **WindowsAzure.ServiceBus** 항목을 선택합니다. 그런 다음 설치를 완료하고 이 대화 상자를 닫습니다.
 4. 솔루션 탐색기에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **기존 항목**을 클릭합니다.
 5. **ProductsServer** 콘솔 프로젝트에서 **ProductsContract.cs** 파일로 이동합니다. ProductsContract.cs를 클릭하여 강조 표시합니다. **추가** 옆의 아래쪽 화살표를 클릭한 다음 **링크로 추가**를 클릭합니다.
 
-   ![][24]
+   ![링크로 추가][24]
 
 6. 이제 Visual Studio 편집기에서 **HomeController.cs** 파일을 열고 네임스페이스 정의를 다음 코드로 바꿉니다. *yourServiceNamespace*를 서비스 네임스페이스의 이름으로 바꾸고 *yourKey*를 SAS 키로 바꿔야 합니다. 이렇게 하면 클라이언트에서 온-프레미스 서비스를 호출하여 호출 결과를 반환합니다.
 
@@ -386,13 +396,13 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 9. **ProductsPortal**에 데이터를 표시하기 위해서는 **ProductsServer**가 실행 중이어야 합니다. 솔루션 탐색기에서 **ProductsPortal** 솔루션을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다. **속성 페이지** 대화 상자가 표시됩니다.
 10. 왼쪽에서 **시작 프로젝트**를 클릭합니다. 오른쪽에서 **여러 시작 프로젝트**를 클릭합니다. **ProductsServer** 및 **ProductsPortal** 모두에 대한 작업으로 **시작**이 설정되어 순서대로 나타나는지 확인합니다.
 
-      ![][25]
+      ![여러 개의 시작 프로젝트][25]
 
 11. **속성** 대화 상자에서 왼쪽에 있는 **프로젝트 종속성**을 클릭합니다.
 12. **프로젝트** 목록에서 **ProductsServer**를 클릭합니다. **ProductsPortal**이 선택되지 않았는지 확인합니다.
 13. **프로젝트** 목록에서 **ProductsPortal**을 클릭합니다. **ProductsServer**가 선택되어 있는지 확인합니다.
 
-    ![][26]
+    ![프로젝트 종속성][26]
 
 14. **속성 페이지** 대화 상자에서 **확인**을 클릭합니다.
 
@@ -400,7 +410,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 
 응용 프로그램을 로컬로 테스트하려면 Visual Studio에서 **F5** 키를 누릅니다. 온-프레미스 서버(**ProductsServer**)가 먼저 시작된 후 브라우저 창에서 **ProductsPortal** 응용 프로그램이 시작되어야 합니다. 이제 제품 서비스 온-프레미스 시스템에서 검색된 제품 재고 목록 데이터가 표시됩니다.
 
-![][10]
+![웹 응용 프로그램][10]
 
 **ProductsPortal** 페이지에서 **새로 고침**을 누릅니다. 페이지를 새로 고칠 때마다 **ProductsServer**에서 `GetProducts()`가 호출되면 서버 앱에 메시지가 표시되는 것을 확인하게 됩니다.
 
@@ -419,45 +429,44 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 
 2. 다음 단계에서 URL이 필요하므로 배포된 웹앱의 URL을 복사합니다. 또한 Visual Studio의 Azure App Service 활동 창에서 이 URL을 가져올 수도 있습니다.
 
-  ![][9]
+  ![배포된 앱의 URL][9]
 
 3. 실행 중인 응용 프로그램을 중지하려면 브라우저 창을 닫습니다.
 
 ### <a name="set-productsportal-as-web-app"></a>웹앱으로 ProductsPortal 설정
 
-클라우드에서 응용 프로그램을 실행하기 전에 Visual Studio 내에서 **ProductsPortal**이 웹앱으로 시작되는지 확인해야 합니다.
+클라우드에서 애플리케이션을 실행하기 전에 Visual Studio 내에서 **ProductsPortal**이 웹앱으로 시작되는지 확인해야 합니다.
 
 1. Visual Studio에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다.
 2. 왼쪽 열에서 **웹**을 클릭합니다.
 3. **작업 시작** 섹션에서 **시작 URL** 단추를 클릭하고 텍스트 상자에 이전에 배포한 웹앱의 URL을 입력합니다(예: `http://productsportal1234567890.azurewebsites.net/`).
 
-    ![][27]
+    ![시작 URL][27]
 
 4. Visual Studio의 **파일** 메뉴에서 **모두 저장**을 클릭합니다.
 5. Visual Studio의 빌드 메뉴에서 **솔루션 다시 빌드**를 클릭합니다.
 
 ## <a name="run-the-application"></a>응용 프로그램 실행
 
-1. F5를 눌러 응용 프로그램을 빌드 및 실행합니다. 온-프레미스 서버(**ProductsServer** 콘솔 응용 프로그램)가 먼저 시작된 후에 아래 스크린샷과 같이 **ProductsPortal** 응용 프로그램이 브라우저 창에서 시작되어야 합니다. 다시, 제품 재고에 제품 서비스 온-프레미스 시스템에서 검색된 데이터가 나열되며 해당 데이터가 웹앱에 표시됩니다. URL을 확인하여 **ProductsPortal**이 클라우드에서 Azure 웹앱으로 실행 중인지 확인합니다.
+1. F5를 눌러 응용 프로그램을 빌드 및 실행합니다. 다음 스크린샷에 표시된 대로 온-프레미스 서버(**ProductsServer** 콘솔 애플리케이션)가 먼저 시작된 다음, **ProductsPortal** 애플리케이션이 브라우저 창에서 시작되어야 합니다. 제품 재고는 제품 서비스 온-프레미스 시스템에서 검색된 데이터를 나열하고, 웹앱에서 해당 데이터를 표시합니다. URL을 확인하여 **ProductsPortal**이 클라우드에서 Azure 웹앱으로 실행 중인지 확인합니다.
 
-   ![][1]
+   ![Azure에서 웹앱 실행][1]
 
    > [!IMPORTANT]
    > **ProductsServer** 콘솔 응용 프로그램이 실행 중이어야 하며 **ProductsPortal** 응용 프로그램에 데이터를 제공할 수 있어야 합니다. 브라우저에 오류가 표시되면 **ProductsServer**가 다음 메시지를 로드하고 표시할 때까지 몇 초 기다립니다. 그런 다음 브라우저에서 **새로 고침**을 누릅니다.
    >
    >
 
-   ![][37]
+   ![서버의 출력][37]
 2. 브라우저로 돌아가 **ProductsPortal** 페이지에서 **새로 고침**을 누릅니다. 페이지를 새로 고칠 때마다 **ProductsServer**에서 `GetProducts()`가 호출되면 서버 앱에 메시지가 표시되는 것을 확인하게 됩니다.
 
-    ![][38]
+    ![업데이트된 출력][38]
 
 ## <a name="next-steps"></a>다음 단계
+다음 자습서를 진행합니다. 
 
-Azure 릴레이에 대한 자세한 내용은 다음 리소스를 참조하세요.  
-
-* [Azure 릴레이란?](relay-what-is-it.md)  
-* [Azure 릴레이 사용 방법](relay-wcf-dotnet-get-started.md)  
+> [!div class="nextstepaction"]
+>[네트워크 외부의 WCF 클라이언트에 온-프레미스 WCF 서비스 노출](service-bus-relay-tutorial.md)
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png

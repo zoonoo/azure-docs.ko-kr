@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 0049468330a9fcb26f023de2a8adb5dfd1544321
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436809"
 documentType: LandingData
 title: Azure SQL Database 설명서
 metadata:
@@ -7,19 +13,13 @@ metadata:
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   author: CarlRabeler
-  manager: carigg
+  manager: craigg
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang: 
-  ms.topic: landing-page
-  ms.date: 04/01/2018
+  ms.topic: overview
+  ms.date: 07/07/2018
   ms.author: carlrab
-  ms.openlocfilehash: 5fcfe7b12acc943224d3c3158f2b39b4c35de1ee
-  ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/09/2018
-  ms.locfileid: "37916152"
 abstract:
   description: Azure SQL Database는 최신의 안정적인 Microsoft SQL Server 데이터베이스 엔진 버전을 기반으로 하는 관계형 DBaaS(Database-as-a-Service)입니다. SQL Database는 안정적이고 안전한 고성능 데이터베이스로, 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 데이터 기반 응용 프로그램 및 웹 사이트를 빌드하는 데 사용할 수 있습니다. 빠른 시작, 자습서 및 샘플을 통해 SQL Database를 사용하는 방법을 알아보세요.
   aside:
@@ -39,35 +39,50 @@ sections:
     columns: 3
     items:
     - href: /azure/sql-database/sql-database-technical-overview
-      html: <p><a href="/azure/sql-database/sql-database-high-availability">항상 사용 가능한</a> PaaS 데이터베이스는 SQL Server 데이터베이스 엔진의 안정적인 최신 버전에서 항상 실행되고 <a href="/azure/sql-database/sql-database-automated-backups">자동 데이터베이스 백업</a>을 사용하여 OS가 패치됩니다.</p>
+      html: <p>PaaS 데이터베이스는 SQL Server 데이터베이스 엔진의 안정적인 최신 버전에서 항상 실행되고 99.99% 가용성이 있는 OS가 패치됩니다.</p>
       image:
         src: media/index/i_managed.svg
       title: 완전히 관리
     - href: /azure/sql-database/sql-database-service-tiers
-      html: <p><a href="/azure/sql-database/sql-database-service-tiers">유연한 성능 계층</a>의 요구 사항에 맞게 가격/성능 비율을 조정하여 매월 5$의 경제적인 가격에 강력한 80개 코어 데이터베이스를 사용합니다.</p>
+      html: <p>유연한 서비스 계층의 요구 사항에 맞게 가격/성능 비율을 조정하여 매월 5$의 경제적인 가격에 강력한 80개 코어 데이터베이스를 사용합니다.</p>
       image:
         src: media/index/i_perftier.svg
-      title: 가격/성능 계층
-    - href: /azure/sql-database/sql-database-scale-resources
-      html: <p>응용 프로그램의 성능을 향상시키기 위해 필요에 따라 데이터베이스를 쉽게 <a href="/azure/sql-database/sql-database-single-database-scale">강화</a>하거나, <a href="/azure/sql-database/sql-database-read-scale-out">확장</a>하거나 분할합니다.</p>
+      title: 가격/서비스 계층
+    - href: /azure/sql-database/sql-database-scalability-index
+      html: <p>응용 프로그램의 성능을 향상시키기 위해 필요에 따라 데이터베이스를 쉽게 강화하거나, 확장하거나, 분할합니다.</p>
       image:
         src: media/index/i_scale.svg
-      title: 확장성 및 탄력성
-    - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
-      html: <p>서비스에 기본 제공된 인텔리전스를 통해 <a href="/azure/sql-database/sql-database-automatic-tuning">데이터베이스 성능을 자동으로 조정</a>하고, 데이터베이스에서 <a href="/azure/sql-database/sql-advanced-threat-protection">위협을 식별</a>하고, <a href="/azure/sql-database/sql-vulnerability-assessment">취약점</a>을 식별할 수 있습니다.</p>
-      image:
-        src: media/index/i_intelligence.svg
-      title: 기본 제공 인텔리전스
-    - href: /azure/sql-database/sql-database-servers-databases
-      html: <p>예측 가능한 성능을 포함한 단일 데이터베이스를 필요로 하는 <a href="/azure/sql-database/saas-tenancy-app-design-patterns">SaaS 프로그램</a> 및 마이크로서비스에 대해 <a href="/azure/sql-database/sql-database-managed-instance">논리 서버에서 호스트되는 단일 데이터베이스</a>를 사용합니다.</p>
+      title: 확장성
+    - href: /azure/sql-database/sql-database-single-index
+      html: <p>예측 가능한 성능의 단일 데이터베이스가 필요한 SaaS 응용 프로그램 및 마이크로서비스에 논리 서버에서 호스트되는 단일 데이터베이스를 사용합니다.</p>
       image:
         src: media/index/i_db.svg
       title: 단일 데이터베이스
-    - href: /azure/sql-database/sql-database-managed-instance
-      html: <p><a href="/azure/sql-database/sql-database-managed-instance">관리되는 인스턴스</a>를 사용하여 데이터베이스 코드 변경 없이 또는 최소한으로 Azure PaaS에 쉽게 <a href="azure/sql-database/sql-database-managed-instance-migrate">온-프레미스 데이터베이스를 마이그레이션</a>합니다.</p>
+    - href: /azure/sql-database/sql-database-elastic-pool
+      html: <p>SQL Database 탄력적 풀은 사용 요구가 다양하고 예측하기 어려운 여러 데이터베이스를 관리하고 크기를 조정하기 위한 간단하고 비용 효과적인 솔루션입니다.</p>
+      image:
+        src: media/index/i_elasticpool.svg
+      title: 탄력적 풀
+    - href: /azure/sql-database/sql-database-managed-instance-index
+      html: <p>Managed Instance를 사용하여 데이터베이스 코드 변경 없이 또는 최소한으로 완전히 관리되는 Azure PaaS 데이터베이스 서비스에 온-프레미스 데이터베이스를 쉽게 마이그레이션합니다.</p>
       image:
         src: media/index/i_mi.svg
       title: 관리되는 인스턴스
+    - href: /azure/sql-database/sql-database-paas
+      html: <p>기본 제공 고가용성, 자동화된 백업 및 지역 복제는 유지 관리 작업, 인프라 또는 하드웨어 오류가 비즈니스를 중단하지 않도록 방지합니다.</p>
+      image:
+        src: media/index/gear.svg
+      title: 서비스로서의 플랫폼
+    - href: /azure/sql-database/sql-database-security-index
+      html: <p>Azure AD 인증, Virtual Network, 방화벽, Always Encrypted 연결을 사용하여 데이터베이스를 보호합니다. 기본 제공 보안을 사용하여 위협 및 취약성을 식별합니다.</p>
+      image:
+        src: media/index/i_security.svg
+      title: 고급 보안
+    - href: /azure/sql-database/sql-database-monitoring-tuning-index
+      html: <p>기본 제공 모니터링 및 인텔리전스를 통해 데이터베이스를 실행하고 관리하는 비용을 크게 줄이고 애플리케이션의 성능과 보안을 모두 극대화할 수 있습니다.</p>
+      image:
+        src: media/index/i_intelligence.svg
+      title: 모니터링 및 튜닝
 - title: 5분 빠른 시작
   items:
   - type: paragraph
@@ -91,15 +106,15 @@ sections:
     - title: 단일 SQL Database 만들기
       values:
       - href: /azure/sql-database/sql-database-get-started-portal
-      - href: /azure/sql-database/sql-database-get-started-cli
-      - href: /azure/sql-database/sql-database-get-started-powershell
+      - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
+      - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
       - href: 
-    - title: SQL 관리되는 인스턴스 만들기
+    - title: SQL Managed Instance 만들기
       values:
-      - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
-      - href: 
+      - href: /azure/sql-database/sql-database-managed-instance-get-started
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
-      - href: 
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: SQL 탄력적 풀 만들기
       values:
       - href: 
@@ -117,15 +132,15 @@ sections:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-    - title: 관리되는 인스턴스 크기 조정
+    - title: Managed Instance 크기 조정
       values:
       - href: 
-      - href: 
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
       - href: 
-    - title: 관리되는 인스턴스에 대한 Azure 네트워크 구성
+    - title: Managed Instance에 대한 Azure 네트워크 구성
       values:
-      - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+      - href: /azure/sql-database/sql-database-managed-instance-get-started
       - href: 
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
@@ -137,9 +152,22 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> 또는 <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>을 사용하여 새 SQL Database에 대한 스키마를 생성 및 설계
-    - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">기존 SQL Server 데이터베이스를 Azure SQL Database를 사용하도록 마이그레이션</a>
+    - html: <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">데이터베이스 복원</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> 또는 <a href="/azure/sql-database/sql-database-import">BACPAC 가져오기</a>를 사용하여 Azure에 기존 데이터베이스 마이그레이션
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">SQL Database 보안 설정</a>
-    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">지역 분산 데이터베이스 구현</a>
+    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">지역 복제 데이터베이스</a>를 전세계에 사용하여 데이터 배포
+- title: Microsoft Learn을 통해 기술 쌓기
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure SQL Database를 프로비전하여 응용 프로그램 데이터 저장
+      href: /learn/modules/provision-azure-sql-db/
+      image:
+        src: /learn/achievements/provision-azure-sql-db.svg
+        href: /learn/modules/provision-azure-sql-db/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-sql-database">더 많은 대화형 학습 보기...</a>
 - title: 무료 Pluralsight 동영상 교육
   items:
   - type: list
@@ -174,6 +202,6 @@ sections:
     - title: REST (영문)
       html: <p><a href="/rest/api/sql/">REST API 참조</a></p>
     - title: SQL Server 도구
-      html: <p><a href="https://msdn.microsoft.com/library/mt238365.aspx">SQL Server 도구</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SSMS(SQL Server Management Studio)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SSDT(SQL Server Data Tools)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">SQL Database 관리 라이브러리 패키지</a></p>
+      html: <p><a href="https://msdn.microsoft.com/library/mt238365.aspx">SQL Server 도구</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SSMS(SQL Server Management Studio)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SSDT(SQL Server Data Tools)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://docs.microsoft.com/sql/tools/sqlpackage">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">SQL Database 관리 라이브러리 패키지</a></p>
     - title: SQL Server 드라이버
       html: <p><a href="https://msdn.microsoft.com/library/mt654049.aspx">SQL Server 드라이버</a></p><p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p><p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p><p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>

@@ -4,16 +4,16 @@
 ## [Data Lake Analytics란?](data-lake-analytics-overview.md)
 
 # 시작하기
-## [Azure 포털](data-lake-analytics-get-started-portal.md)
+## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Azure CLI](data-lake-analytics-get-started-cli2.md)
+## [Azure CLI](data-lake-analytics-get-started-cli.md)
 
 # 방법
 
 ## Data Lake Analytics 관리
-### [Azure 포털](data-lake-analytics-manage-use-portal.md)
+### [Azure Portal](data-lake-analytics-manage-use-portal.md)
 ### 명령 줄
 #### [Azure CLI](data-lake-analytics-manage-use-cli.md)
 #### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
@@ -21,7 +21,7 @@
 #### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
-#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+#### [Node.JS](data-lake-analytics-manage-use-nodejs.md)
 ### [사용자 추가](data-lake-analytics-add-users.md)
 ### [정책](data-lake-analytics-policies.md)
 ### [보안 작업 폴더](data-lake-analytics-secure.md)
@@ -59,17 +59,21 @@
 #### [사용자 지정 코드](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [로컬 실행 및 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)
 
+## U-SQL 작업 예약
+### [SSIS를 사용하여 작업 예약](data-lake-analytics-schedule-jobs-ssis.md)
+
 ## 연속 통합 및 연속 배포
 ### [개요](data-lake-analytics-cicd-overview.md)
+### [어셈블리 등록](data-lake-analytics-cicd-manage-assemblies.md)
 ### [테스트 설정](data-lake-analytics-cicd-test.md)
 ### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 
 # 참고 자료
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
-## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
-## [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/data-lake-analytics?view=azure-python)
-## [REST](/rest/api/datalakeanalytics/)
+## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)
+## [REST (영문)](/rest/api/datalakeanalytics/)
 ## [CLI](https://docs.microsoft.com/cli/azure/dla)
 
 # 리소스

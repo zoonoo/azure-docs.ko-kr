@@ -4,31 +4,30 @@ description: 이 자습서의 단계에 따라서 Azure Media Services를 사용
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: 0216a95a5209f5545b34e446904b3215950c6fbc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a8d2cf577a6b637e910c283ba8c70d9ea4eedfbb
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638112"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334128"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>자습서: API를 사용하여 비디오 업로드, 인코딩 및 스트리밍
 
-Media Services를 사용하면 다양한 브라우저 및 장치에서 재생할 수 있는 형식으로 미디어 파일을 인코딩할 수 있습니다. 예를 들어 Apple의 HLS 또는 MPEG DASH 형식으로 콘텐츠를 스트림할 수 있습니다. 스트림하기 전에 고품질 디지털 미디어 파일을 인코딩해야 합니다. 인코딩 지침은 [인코딩 개념](encoding-concept.md)을 참조하세요. 이 자습서는 로컬 비디오 파일을 업로드하고 업로드된 파일을 인코딩합니다. 콘텐츠를 인코딩하여 HTTPS URL을 통해 액세스할 수 있게 만듭니다. 자세한 내용은 [HTTP URL에서 작업 입력 만들기](job-input-from-http-how-to.md)를 참조하세요.
+Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에서 재생할 수 있는 형식으로 미디어 파일을 인코딩할 수 있습니다. 예를 들어 콘텐츠를 Apple의 HLS 또는 MPEG DASH 형식으로 스트림할 수 있습니다. 스트림하기 전에 고품질 디지털 미디어 파일을 인코딩해야 합니다. 인코딩 지침은 [인코딩 개념](encoding-concept.md)을 참조하세요. 이 자습서는 로컬 비디오 파일을 업로드하고 업로드된 파일을 인코딩합니다. 콘텐츠를 인코딩하여 HTTPS URL을 통해 액세스할 수 있게 만듭니다. 자세한 내용은 [HTTP URL에서 작업 입력 만들기](job-input-from-http-how-to.md)를 참조하세요.
 
 ![비디오 재생](./media/stream-files-tutorial-with-api/final-video.png)
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.    
 
 > [!div class="checklist"]
-> * Media Services 계정 만들기
 > * Media Services API 액세스
 > * 샘플 앱 구성
 > * 업로드, 인코딩 및 스트림하는 코드 검사
@@ -40,7 +39,14 @@ Media Services를 사용하면 다양한 브라우저 및 장치에서 재생할
 
 ## <a name="prerequisites"></a>필수 조건
 
-Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)을 사용할 수 있습니다.
+- Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)을 사용할 수 있습니다.
+- CLI를 로컬로 설치하여 사용하려면 이 문서에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+
+    현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령은 Azure Cloud Shell에서 작동하지 않습니다. CLI를 로컬로 사용하는 것이 좋습니다.
+
+- [Media Services 계정 만들기](create-account-cli-how-to.md)
+
+    리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
@@ -51,10 +57,6 @@ Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https
  ```
 
 샘플은 [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles) 폴더에 있습니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -72,7 +74,7 @@ Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https
 6. StreamingLocator를 만듭니다.
 7. 스트리밍 URL을 빌드합니다.
 
-### <a name="start-using-media-services-apis-with-net-sdk"></a>.NET SDK로 Media Services API 사용하기
+### <a name="a-idstartusingdotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />.NET SDK로 Media Services API 사용하기
 
 .NET으로 Media Services API를 사용하려면 **AzureMediaServicesClient** 개체를 만들어야 합니다. 개체를 만들려면 Azure AD를 사용하여 클라이언트가 Azure에 연결하는 데 필요한 자격 증명을 제공해야 합니다. 아티클의 시작 부분에서 복제한 코드에서 **GetCredentialsAsync** 함수는 로컬 구성 파일에 제공된 자격 증명에 따라 ServiceClientCredentials 개체를 만듭니다. 
 
@@ -99,7 +101,7 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>로드된 파일을 인코딩하는 Transform 및 Job 만들기
-Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job**을 제출합니다. 새로운 비디오에 대해 새 Job을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform**이라고 합니다. 자세한 내용은 [Transform 및 Job](transform-concept.md)을 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 장치로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
+Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job**을 제출합니다. 새로운 비디오에 대해 새 Job을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform**이라고 합니다. 자세한 내용은 [Transform 및 Job](transform-concept.md)을 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 디바이스로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
 
 #### <a name="transform"></a>변환
 
@@ -185,11 +187,11 @@ Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다. **CloudShell** 도구를 사용하면 됩니다.
+이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다.
 
-**CloudShell**에서 다음 명령을 실행합니다.
+다음 CLI 명령을 실행합니다.
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

@@ -1,10 +1,10 @@
 ---
 title: Azure Marketplace 배포할 제품 준비 및 테스트 | Microsoft Docs
-description: Azure Marketplace에 제품을 배포하기 전에 마케팅 콘텐츠를 제공하고 가격 계획을 구성하며 테스트하는 방법에 대한 자세한 지침입니다.
+description: Azure Marketplace에 제안을 배포하기 전에 마케팅 콘텐츠를 제공하고 가격 계획을 구성하며 테스트하는 방법에 대한 자세한 지침입니다.
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
-ms.author: mbaldwin
-ms.openlocfilehash: 5bec9ac89487a824b9de9209547f0b96fa5fe678
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: hascipio
+ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29947273"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714962"
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>마케팅 콘텐츠로 제품 만들기 완료
-이 게시 프로세스 단계에서는 Azure Marketplace의 특정 마케팅 콘텐츠와 제품 및/또는 SKU에 대한 세부 정보를 제공해야 합니다. 예를 들어 제품 및/또는 SKU를 스테이징으로 푸시하는 데 필요한 제품 설명, 회사 로고, 가격 계획, 세부 계획 정보 및 기타 정보를 제공합니다. 이 정보는 Azure 포털에서 마케팅 콘텐츠로 사용됩니다. [게시 포털][link-pubportal]에서 이 프로세스를 시작합니다.
+이 게시 프로세스 단계에서는 Azure Marketplace의 특정 마케팅 콘텐츠와 제품 및/또는 SKU에 대한 세부 정보를 제공해야 합니다. 예를 들어 제안 및/또는 SKU를 스테이징으로 푸시하는 데 필요한 제안 설명, 회사 로고, 가격 계획, 세부 계획 정보 및 기타 정보를 제공합니다. 이 정보는 Azure 포털에서 마케팅 콘텐츠로 사용됩니다. [게시 포털][link-pubportal]에서 이 프로세스를 시작합니다.
 
 ## <a name="step-1-provide-marketplace-marketing-content"></a>1단계: Marketplace 마케팅 콘텐츠 제공
 **영어가 기본값이며 지원되는 유일한 언어입니다.** 필드에 제공된 모든 정보가 영어로 되어 있는지 확인하세요. 스테이징으로 푸시하기 전에는 언제든지 모든 정보를 편집할 수 있습니다.
@@ -37,17 +37,18 @@ ms.locfileid: "29947273"
    > 
 
 ### <a name="details-and-plans"></a>세부 정보 및 계획
-1. **세부 정보** 탭에 제품 제목(최대 50자), 제품 요약(최대 100자), 긴 요약(최대 256자), 제품 설명(최대 1300자), 로고 입력
+1. 
+  **세부 정보** 탭에 제품 제목(최대 50자), 제품 요약(최대 100자), 긴 요약(최대 256자), 제품 설명(최대 1300자), 로고 입력
 2. **계획** 탭에 계획 제목(최대 50자), 요약(최대 100자), 계획 설명(최대 2000자)을 입력합니다.
    
    > [!NOTE]
-   > 다음 HTML 태그를 사용하여 요약, 자세한 요약, 제품 및 계획에 대한 설명의 서식을 지정할 수 있습니다. 허용되는 HTML 태그는 h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], strong, em, b, i입니다.
+   > 다음 HTML 태그를 사용하여 요약, 자세한 요약, 제안 및 계획에 대한 설명의 서식을 지정할 수 있습니다. 허용되는 HTML 태그는 h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], strong, em, b, i입니다.
    > 
    > 
-3. 제품 및 계획 설명에 중복 텍스트는 입력하지 않습니다.
-4. 계획의 제목 및 자세한 제품 요약에 중복 텍스트는 입력하지 않습니다.
-5. 계획의 제목 및 제품 요약에 중복 텍스트는 입력하지 않습니다.
-6. 여러 계획이 있는 제품에 대해 동일한 계획 제목을 입력하지 마세요.
+3. 제안 및 계획 설명에 중복 텍스트는 입력하지 않습니다.
+4. 계획의 제목 및 자세한 제안 요약에 중복 텍스트는 입력하지 않습니다.
+5. 계획의 제목 및 제안 요약에 중복 텍스트는 입력하지 않습니다.
+6. 여러 계획이 있는 제안에 대해 동일한 계획 제목을 입력하지 마세요.
 7. 각 크기별로 하나씩 PNG 형식으로 필요한 사양(게시 포털에서 언급한)의 이미지를 업로드합니다.
 8. 로고가 아래에서 설명한 Azure Marketplace 로고 지침에 부합하는지 확인합니다.
    
@@ -78,8 +79,8 @@ ms.locfileid: "29947273"
 **대표 로고 아이콘에 대한 추가 지침(선택 사항)**
 
 * 대표 로고는 선택 사항입니다. 게시자는 대표 로고를 업로드하지 않아도 됩니다. **그러나 일단 업로드되면 대표 로고를 게시 포털에서 삭제할 수 없습니다. 이때 파트너는 대표 아이콘에 대한 Azure Marketplace 지침을 따라야 합니다. 그러지 않으면 제품이 프로덕션으로 승인되지 않습니다.**
-* 게시자 표시 이름, 계획 제목 및 제품의 자세한 요약은 흰색 글꼴 색으로 표시됩니다. 따라서 대표 아이콘의 백그라운드는 밝은 색으로 두지 않아야 합니다. 대표 아이콘에는 검은색, 흰색 및 투명한 배경이 허용되지 않습니다.
-* 제품이 나열되면 대표 로고 안에 게시자 표시 이름, 계획 제목, 자세한 제품 요약과 만들기 버튼이 프로그래밍 방식으로 포함됩니다. 따라서 대표 로고를 디자인할 때 이런 내용을 입력하지 않아야 합니다. 텍스트(즉, 게시자 표시 이름, 계획 제목, 제품의 자세한 요약)는 프로그래밍 방식으로 포함되므로 오른쪽에 빈 공간을 남겨둡니다. 텍스트의 오른쪽 빈 공간은 415x100이어야 합니다(왼쪽에서 370px만큼 오프셋됨).
+* 게시자 표시 이름, 계획 제목 및 제안의 자세한 요약은 흰색 글꼴 색으로 표시됩니다. 따라서 대표 아이콘의 백그라운드는 밝은 색으로 두지 않아야 합니다. 대표 아이콘에는 검은색, 흰색 및 투명한 배경이 허용되지 않습니다.
+* 제안이 나열되면 대표 로고 안에 게시자 표시 이름, 계획 제목, 자세한 제안 요약과 만들기 버튼이 프로그래밍 방식으로 포함됩니다. 따라서 대표 로고를 디자인할 때 이런 내용을 입력하지 않아야 합니다. 텍스트(즉, 게시자 표시 이름, 계획 제목, 제안의 자세한 요약)는 프로그래밍 방식으로 포함되므로 오른쪽에 빈 공간을 남겨둡니다. 텍스트의 오른쪽 빈 공간은 415x100이어야 합니다(왼쪽에서 370px만큼 오프셋됨).
   
   ![drawing](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
@@ -104,18 +105,24 @@ ms.locfileid: "29947273"
 
 ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
-**참고:** Virtual Machine 제품의 경우 Azure Portal에서 제품/SKU가 준비되면 아래에 지정된 필드를 변경할 수 없습니다.
 
-* **제품 식별자:** [게시 포털 -> Virtual Machines -> 사용자 제품 -> VM 이미지 탭 -> 제품 식별자]
-* **SKU 식별자:** [게시 포털 -> Virtual Machines -> 제품 선택 -> SKU 탭 -> SKU 추가]
+  **참고:** Virtual Machine 제품의 경우 Azure Portal에서 제품/SKU가 준비되면 아래에 지정된 필드를 변경할 수 없습니다.
+
+* 
+  **제품 식별자:** [게시 포털 -&gt; Virtual Machines -&gt; 사용자 제품 -&gt; VM 이미지 탭 -&gt; 제품 식별자]
+* 
+  **SKU 식별자:** [게시 포털 -&gt; Virtual Machines -&gt; 제품 선택 -&gt; SKU 탭 -&gt; SKU 추가]
 * **게시자 네임스페이스:** [게시 포털 -> Virtual Machines -> 연습 탭 -> 회사에 대한 정보 제공("2단계 회사 등록" 참조) -> 게시자 네임스페이스 -> 네임스페이스]
 
 Virtual Machine 제품의 경우 Azure Marketplace에서 제품/SKU가 나열되면 아래에 지정된 필드를 변경할 수 없습니다.
 
-* **제품 식별자:** [게시 포털 -> Virtual Machines -> 제품 선택 -> VM 이미지 -> 제품 식별자]
-* **SKU 식별자:** [게시 포털 -> Virtual Machines -> 제품 선택 -> SKU 탭 -> SKU 추가]
+* 
+  **제품 식별자:** [게시 포털 -&gt; Virtual Machines -&gt; 제품 선택 -&gt; VM 이미지 -&gt; 제품 식별자]
+* 
+  **SKU 식별자:** [게시 포털 -&gt; Virtual Machines -&gt; 제품 선택 -&gt; SKU 탭 -&gt; SKU 추가]
 * **게시자 네임스페이스:** [게시 포털 -> Virtual Machines -> 연습 탭 -> 회사에 대한 정보 제공(2단계 등록 참조) -> 게시자 네임스페이스 -> 네임스페이스]
-* **포트:** [게시 포털 -> Virtual Machines -> 사용자 제품 -> VM 이미지 탭 -> 포트 열기]
+* 
+  **포트:** [게시 포털 -&gt; Virtual Machines -&gt; 사용자 제품 -&gt; VM 이미지 탭 -&gt; 포트 열기]
 * **나열된 SKU의 가격 책정 변경**
 * **나열된 SKU의 청구 모델 변경**
 * **나열된 SKU의 청구 지역 제거**
@@ -131,7 +138,8 @@ Virtual Machine 제품의 경우 Azure Marketplace에서 제품/SKU가 나열되
 | 무료 계층 |요금제가 항상 무료입니다. |
 | 요금제 마이그레이션(즉, 변환 또는 업그레이드/다운그레이드) |사용자가 현재 요금제에서 파트너가 정한 허용 가능한 다른 요금제로 이동하는 개념입니다. |
 
-**제품 유형별 사용 가능한 가격 책정 모델**
+
+  **제품 유형별 사용 가능한 가격 책정 모델**
 
 > [!IMPORTANT]
 > 제품 유형별로 사용 가능한 특정 가격 책정 모델은 다양합니다. 아래 표를 참조하세요.
@@ -140,8 +148,8 @@ Virtual Machine 제품의 경우 Azure Marketplace에서 제품/SKU가 나열되
 
 |  | 기본만 | 사용량 과금만 | 기본 + 사용량 과금 |
 | --- | --- | --- | --- |
-| 가상 컴퓨터 이미지 |아니요 |예 |아니오 |
-| 개발자 서비스 |예 |예 |예 |
+| 가상 컴퓨터 이미지 |아니요 |yes |아니요 |
+| 개발자 서비스 |yes |예 |yes |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. VM 가격 설정
 가상 머신의 경우 현재, 다음 **3가지 형식의 청구 모델**
@@ -152,16 +160,20 @@ Virtual Machine 제품의 경우 Azure Marketplace에서 제품/SKU가 나열되
 * **무료 평가판:** 시간별 모델의 또 다른 버전입니다. 여기서 고객은 VM을 배포한 후 처음 30일 동안 소프트웨어 비용을 청구하지 않습니다(무료). 30일 후에는 시간별 모델에서 게시자가 설정한 비율에 따라 시간당 단위로 요금이 청구됩니다.
 * **BYOL(사용자 라이선스 필요):** 게시자는 VM에서 실행되는 소프트웨어의 라이선스를 관리합니다.
 
-**중요:** Azure Marketplace에서 제품/SKU가 나열되면 아래에 지정된 필드를 변경할 수 없습니다.
+
+  **중요:** Azure Marketplace에서 제품/SKU가 나열되면 아래에 지정된 필드를 변경할 수 없습니다.
 
 * **나열된 SKU의 가격 책정 변경**
 * **나열된 SKU의 청구 모델 변경**
 * **나열된 SKU의 청구 지역 제거**
 * **나열된 SKU의 데이터 디스크 수 변경**
-* **제품 식별자:** [게시 포털 -> Virtual Machines -> 제품 선택 -> VM 이미지 -> 제품 식별자]
-* **SKU 식별자:** [게시 포털 -> Virtual Machines -> 제품 선택 -> SKU 탭 -> SKU 추가]
+* 
+  **제품 식별자:** [게시 포털 -&gt; Virtual Machines -&gt; 제품 선택 -&gt; VM 이미지 -&gt; 제품 식별자]
+* 
+  **SKU 식별자:** [게시 포털 -&gt; Virtual Machines -&gt; 제품 선택 -&gt; SKU 탭 -&gt; SKU 추가]
 * **게시자 네임스페이스:** [게시 포털 -> Virtual Machines -> 연습 탭 -> 회사에 대한 정보 제공(2단계 등록 참조) -> 게시자 네임스페이스 -> 네임스페이스]
-* **포트:** [게시 포털 -> Virtual Machines -> 사용자 제품 -> VM 이미지 탭 -> 포트 열기]
+* 
+  **포트:** [게시 포털 -&gt; Virtual Machines -&gt; 사용자 제품 -&gt; VM 이미지 탭 -&gt; 포트 열기]
 
 ### <a name="sell-to-countries-of-the-sku"></a>SKU "구매처" 국가
 SKU를 사용할 수 있는 위치를 신중하게 고려해야 합니다. 일부 국가는 "Microsoft 송금"으로 분류되고, 일부 국가는 "ISV 송금"으로 분류됩니다.
@@ -178,7 +190,8 @@ SKU를 사용할 수 있는 위치를 신중하게 고려해야 합니다. 일�
 아래의 단계를 수행하여 SKU에 대한 시간별 가격 책정 모델을 설정하세요.
 
 1. [게시 포털](https://publish.windowsazure.com)에 로그인합니다.
-2. **가상 머신** 탭으로 이동하고 제품을 선택합니다.
+2. 
+  **가상 머신** 탭으로 이동하고 제품을 선택합니다.
 3. 왼쪽 메뉴에서 **SKUS** 탭을 클릭합니다.
 4. SKU가 "시간당 청구 모델"로 표시되는지 확인합니다. 그렇지 않은 경우 **편집** 버튼을 클릭하여 요금 청구 모델을 되돌립니다. 창이 열립니다. '청구 및 라이선스를 Azure 외부에서 수행(사용자 라이선스 필요)' 확인란을 선택 취소하고 변경 내용을 저장합니다.
 5. SKU 배포의 30일 무료 평가판을 사용하도록 설정하려는 경우 "무료 평가판이 있나요?" 질문에 대해 "1개월" 옵션을 선택합니다. 그렇지 않은 경우 "평가판 없음" 옵션을 선택합니다. 이제 아래 제공된 단계를 따릅니다.
@@ -207,7 +220,8 @@ SKU를 사용할 수 있는 위치를 신중하게 고려해야 합니다. 일�
 아래의 단계를 수행하여 SKU에 대한 BYOL 가격 책정 모델을 설정하세요.
 
 1. [게시 포털](https://publish.windowsazure.com)에 로그인합니다.
-2. **가상 머신** 탭으로 이동하고 제품을 선택합니다.
+2. 
+  **가상 머신** 탭으로 이동하고 제품을 선택합니다.
 3. 왼쪽 메뉴에서 **SKUS** 탭을 클릭합니다.
 4. SKU가 "Bring your own license SKU"(사용자 라이선스 필요)로 표시되는지 확인합니다. 그렇지 않은 경우 편집 버튼을 클릭하여 요금 청구 모델을 되돌립니다. 창이 열립니다. '청구 및 라이선스를 Azure 외부에서 수행(사용자 라이선스 필요)' 확인란을 선택하고 변경 내용을 저장합니다.
    
@@ -221,7 +235,8 @@ SKU를 사용할 수 있는 위치를 신중하게 고려해야 합니다. 일�
 ### <a name="22-set-your-developer-service-prices"></a>2.2. 개발자 서비스 가격 설정
 요금제는 기본 + 사용량 과금의 모든 조합이 가능합니다. 여기서 기본은 월별 가격이고 초과분은 사용량에 따른 가격입니다. 자세한 내용은 다음을 참조하세요.
 
-**예:** Contoso 개발자 서비스 제공 사항
+
+  **예:** Contoso 개발자 서비스 제공 사항
 
 | 계획 | 가격 | 포함되는 내용 | 마이그레이션 경로 |
 | --- | --- | --- | --- |
@@ -252,33 +267,41 @@ SKU를 사용할 수 있는 위치를 신중하게 고려해야 합니다. 일�
 
 ![drawing](media/marketplace-publishing-push-to-staging/acom-catalog-02.png)
 
-*Azure Marketplace 웹 사이트에서 제품 목록*
+
+  *Azure Marketplace 웹 사이트에서 제품 목록*
 
 ![drawing](media/marketplace-publishing-push-to-staging/acom-listing-details-01.png)
 
-*Azure Marketplace 웹 사이트에서 제품 설명 정보*
+
+  *Azure Marketplace 웹 사이트에서 제품 설명 정보*
 
 ![drawing](media/marketplace-publishing-push-to-staging/acom-listing-details-02.png)
 
-*Azure Marketplace 웹 사이트에서 제품 설명 가격 책정 정보*
+
+  *Azure Marketplace 웹 사이트에서 제품 설명 가격 책정 정보*
 
 ### <a name="azure-portal"></a>Azure Portal
 ![drawing](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
-*Azure Portal의 제품 목록*
+
+  *Azure Portal의 제품 목록*
 
 ![drawing](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
 
-*Azure 포털의 제품 설명 정보*
+
+  *Azure Portal의 제품 설명 정보*
 
 ## <a name="next-steps"></a>다음 단계
 Marketplace 콘텐츠를 로드했으므로 스테이징에서 제품 테스트를 진행하겠습니다. 그러나 제품 유형별로 다양한 단계에 따라 아래 목록에서 적절한 제품 유형을 선택해야 합니다.
 
-* [스테이징에서 VM 제품 테스트](marketplace-publishing-vm-image-test-in-staging.md)
-* [준비 단계에서 솔루션 템플릿 제품 테스트](marketplace-publishing-solution-template-test-in-staging.md)
+* 
+  [스테이징에서 VM 제품 테스트](marketplace-publishing-vm-image-test-in-staging.md)
+* 
+  [준비 단계에서 솔루션 템플릿 제품 테스트](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## <a name="see-also"></a>참고 항목
-* [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
+* 
+  [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
 [img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg

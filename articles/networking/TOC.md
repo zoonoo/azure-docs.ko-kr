@@ -1,7 +1,7 @@
 # 개요
 ## [Azure 네트워킹 정보](networking-overview.md)
 ## 아키텍처
-### [가상 데이터 센터](networking-virtual-datacenter.md)
+### [가상 데이터 센터](/azure/architecture/vdc/networking-virtual-datacenter)
 ### [여러 네트워크 경로를 포함한 비대칭 라우팅](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [네트워크 설계 보안](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [허브-스포크 토폴로지](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
@@ -13,11 +13,16 @@
 ### [가상 네트워크](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [크로스 프레미스 연결 - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [크로스 프레미스 연결 - 개별 전용](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### 백 엔드 연결 상호 운용성
+#### [접두사 및 테스트 설정](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)
+#### [테스트 설정 구성](connectivty-interoperability-configuration.md?toc=%2fazure%2fnetworking%2ftoc.json)
+#### [제어 평면 분석](connectivty-interoperability-control-plane.md?toc=%2fazure%2fnetworking%2ftoc.json)
+#### [데이터 평면 분석](connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ##  개념
 ### [가상 네트워크](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [네트워크 부하 분산](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [응용 프로그램 부하 분산](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [응용 프로그램 부하 분산](../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS](../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS 기반 트래픽 분산](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [온-프레미스 연결 - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -30,7 +35,7 @@
 # 방법
 ## 인터넷 연결
 ### [네트워크 부하 분산 공용 서버](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [응용 프로그램 부하 분산 공용 서버](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [응용 프로그램 부하 분산 공용 서버](../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [웹 응용 프로그램 보호](../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [위치 간 트래픽 배포](../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## 내부 연결
@@ -60,14 +65,14 @@
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
 ## [.Net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)
-## [Node.js](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
-## [REST](https://msdn.microsoft.com/library/mt163658.aspx)
+## [Node.JS](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
+## [REST (영문)](https://msdn.microsoft.com/library/mt163658.aspx)
 
 # 리소스
 ## [작성자 템플릿](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [커뮤니티 템플릿](https://azure.microsoft.com/resources/templates/)
-## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
+## [네트워킹 블로그](https://azure.microsoft.com/blog/topics/networking)
 ## [가격](https://azure.microsoft.com/pricing)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [국가별 가용성](https://azure.microsoft.com/regions/services/)

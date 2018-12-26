@@ -1,127 +1,67 @@
 ---
-title: 모바일 서비스(VMware/Azure 물리적 서버) 설치 | Microsoft Docs
-description: 모바일 서비스 에이전트를 설치하여 Azure Site Recovery를 사용하여 온-프레미스 VMware VM 및 실제 서버를 보호하는 방법에 대해 알아봅니다.
+title: VMware VM 및 물리적 서버와 Azure 간 재해 복구를 위한 모바일 서비스 설치 | Microsoft Docs
+description: Azure Site Recovery 서비스를 사용한 VMware VM 및 물리적 서버와 Azure 간 재해 복구를 위해 모바일 서비스 에이전트를 설치하는 방법을 알아봅니다.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: bc0ec09e28c5540eb919ac4e5f970f877ae27e44
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 14be544c53bf3393466cfa33b2ad815f07d0005d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37919090"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007419"
 ---
-# <a name="install-the-mobility-service"></a>모바일 서비스 설치 
+# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 모바일 서비스 설치
 
-Site Recovery 모바일 서비스는 Azure에 복제하려는 VMware VM 및 실제 서버에 설치됩니다. 서비스는 컴퓨터에서 데이터 쓰기를 캡처하여 프로세스 서버로 전달합니다. Azure에 복제하려는 모든 컴퓨터에 모바일 서비스(VMware VM 또는 물리적 서버)를 배포합니다. 다음 방법을 사용하여 보호하려는 서버 및 VMware VM에 모바일 서비스를 배포할 수 있습니다.
+[Azure Site Recovery](site-recovery-overview.md)를 사용하여 VMware VM 및 물리적 서버에 대한 재해 복구를 설정할 경우 각 온-프레미스 VMware VM 및 물리적 서버에 [Site Recovery Mobility 서비스](vmware-physical-mobility-service-overview.md)를 설치합니다.  Mobility 서비스는 머신에 기록된 데이터를 캡처하고 이를 Site Recovery 프로세스 서버에 전달합니다.
 
+## <a name="install-on-windows-machine"></a>Windows 머신에 설치
 
-* [System Center Configuration Manager와 같은 소프트웨어 배포 도구를 사용하여 설치](vmware-azure-mobility-install-configuration-mgr.md)
-* [Azure Automation 및 자동화 DSC(필요한 상태 구성)를 사용하여 설치](vmware-azure-mobility-deploy-automation-dsc.md)
-* [UI에서 수동으로 설치](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui)
-* [명령 프롬프트에서 수동으로 설치](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt)
-* [Site Recovery 강제 설치를 사용하여 설치](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
+보호하려는 각 Windows 머신에서 다음을 수행합니다.
 
+1. 머신과 프로세스 서버 간에 네트워크가 연결되어 있는지 확인합니다. 별도의 프로세스 서버를 설정하지 않은 경우에는 기본적으로 구성 서버에서 실행 중입니다.
+1. 프로세스 서버가 컴퓨터에 액세스하는 데 사용할 수 있는 계정을 작성합니다. 계정에는 관리자 권한(로컬 또는 도메인)이 있어야 합니다. 강제 설치 및 에이전트 업데이트의 경우에만 이 계정을 사용합니다.
+2. 도메인 계정을 사용하지 않는 경우 다음과 같이 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다.
+    - HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 레지스트리 키에서 새 DWORD: **LocalAccountTokenFilterPolicy**를 추가합니다. 값을 **1**로 설정합니다.
+    -  명령 프롬프트에서 이렇게 하려면 다음 명령을 실행합니다.  
+   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+3. 보호하려는 머신의 Windows 방화벽에서 **방화벽을 통해 앱 또는 기능 허용**을 선택합니다. **파일 및 프린터 공유**와 **WMI(Windows Management Instrumentation)** 를 사용하도록 설정합니다. 도메인에 속하는 컴퓨터의 경우 GPO(그룹 정책 개체)를 사용하여 방화벽 설정을 구성할 수 있습니다.
 
->[!IMPORTANT]
-> 9.7.0.0 버전부터 Mobility Service 설치 관리자는 Windows VM에 사용 가능한 최신 [Azure VM 에이전트](../virtual-machines/extensions/features-windows.md#azure-vm-agent)도 설치합니다. 컴퓨터가 Azure로 장애 조치되는 경우에는 VM 확장 사용에 대한 에이전트 설치 필수 조건을 충족합니다.
+   ![방화벽 설정](./media/vmware-azure-install-mobility-service/mobility1.png)
 
-## <a name="prerequisites"></a>필수 조건
-서버에 모바일 서비스를 수동으로 설치하기 전에 이러한 필수 조건 단계를 완료합니다.
-1. 구성 서버에 로그인한 후 관리자로 명령 프롬프트 창을 엽니다.
-2. 디렉터리를 Bin 폴더로 변경하고 암호 파일을 만듭니다.
+4. CSPSConfigtool에서 만든 계정을 추가합니다. 이 작업을 수행하려면 구성 서버에 로그인합니다.
+5. **cspsconfigtool.exe**를 엽니다. 바탕 화면에서 바로 가기로 사용할 수 있으며, %ProgramData%\home\svsystems\bin 폴더에 있습니다.
+6. **계정 관리** 탭에서 **계정 추가**를 선택합니다.
+7. 만든 계정을 추가합니다.
+8. 컴퓨터에서 복제를 사용할 때 사용할 자격 증명을 입력합니다.
 
-    ```
-    cd %ProgramData%\ASR\home\svsystems\bin
-    genpassphrase.exe -v > MobSvc.passphrase
-    ```
-3. 암호 파일을 안전한 위치에 저장합니다. 이 파일은 Mobility Service를 설치하는 동안 사용됩니다.
-4. 지원되는 모든 운영 체제에 대한 모바일 서비스 설치 관리자는 %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository 폴더에 있습니다.
+## <a name="install-on-linux-machine"></a>Linux 머신에 설치
 
-### <a name="mobility-service-installer-to-operating-system-mapping"></a>모바일 서비스 설치 관리자와 운영 체제 매핑
+보호하려는 각 Linux 머신에서 다음을 수행합니다.
 
-| 설치 관리자 파일 템플릿 이름| 운영 체제 |
-|---|--|
-|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1(64비트) </br> Windows Server 2012(64비트) </br> Windows Server 2012 R2(64비트) </br> Windows Server 2016(64비트) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux(RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9(64비트 전용) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9(64비트 전용) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux(RHEL) 7.1, 7.2, 7.3(64비트 전용) </br> CentOS 7.0, 7.1, 7.2, 7.3(64비트 전용) |
-|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3(64비트만 해당)|
-|Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4(64비트만 해당)|
-|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5(64비트만 해당)|
-|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04(64비트만 해당)|
-|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS 서버(64비트 전용)|
-|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7(64비트 전용)|
-|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8(64비트 전용)|
+1. Linux 머신과 프로세스 서버 간에 네트워크가 연결되어 있는지 확인합니다.
+2. 프로세스 서버가 컴퓨터에 액세스하는 데 사용할 수 있는 계정을 작성합니다. 계정은 원본 Linux 서버의 **루트** 사용자여야 합니다. 푸시 설치 및 업데이트의 경우에만 이 계정을 사용합니다.
+3. 원본 Linux 서버의 /etc/hosts 파일에 로컬 호스트 이름을 모든 네트워크 어댑터와 연결된 IP 주소에 매핑하는 항목이 있는지 확인합니다.
+4. 복제하려는 컴퓨터에 최신 openssh, openssh-server 및 openssl 패키지를 설치합니다.
+5. SSH(보안 셸)가 22 포트에서 사용되고 실행 중인지 확인합니다.
+4. sshd_config 파일에서 SFTP 하위 시스템 및 암호 인증을 사용하도록 설정합니다. 이 작업을 수행하려면 **루트**로 로그인합니다.
+5. **/etc/ssh/sshd_config** 파일에서 **PasswordAuthentication**으로 시작하는 줄을 찾습니다.
+6. 줄의 주석 처리를 제거하고 값을 **예**로 변경합니다.
+7. **Subsystem**으로 시작하는 줄을 찾아서 주석 처리를 제거합니다.
 
+      ![Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
 
-## <a name="install-mobility-service-manually-by-using-the-gui"></a>GUI를 사용하여 수동으로 모바일 서비스 설치
+8. **sshd** 서비스를 다시 시작합니다.
+9. CSPSConfigtool에서 만든 계정을 추가합니다. 이 작업을 수행하려면 구성 서버에 로그인합니다.
+10. **cspsconfigtool.exe**를 엽니다. 바탕 화면에서 바로 가기로 사용할 수 있으며, %ProgramData%\home\svsystems\bin 폴더에 있습니다.
+11. **계정 관리** 탭에서 **계정 추가**를 선택합니다.
+12. 만든 계정을 추가합니다.
+13. 컴퓨터에서 복제를 사용할 때 사용할 자격 증명을 입력합니다.
 
->[!IMPORTANT]
-> 구성 서버를 사용하여 Azure 구독/지역 간에 Azure IaaS 가상 머신을 복제하는 경우 명령줄 기반 설치 메서드를 사용합니다.
+## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
-
-## <a name="install-mobility-service-manually-at-a-command-prompt"></a>명령 프롬프트에서 수동으로 모바일 서비스 설치
-
-### <a name="command-line-installation-on-a-windows-computer"></a>Windows 컴퓨터에서 명령줄 설치
-[!INCLUDE [site-recovery-install-mob-svc-win-cmd](../../includes/site-recovery-install-mob-svc-win-cmd.md)]
-
-### <a name="command-line-installation-on-a-linux-computer"></a>Linux 컴퓨터에서 명령줄 설치
-[!INCLUDE [site-recovery-install-mob-svc-lin-cmd](../../includes/site-recovery-install-mob-svc-lin-cmd.md)]
+Mobility Service를 설치한 후 Azure Portal에서 **+복제**를 선택하여 이러한 VM 보호를 시작합니다. VMware VM(vmware-azure-enable-replication.md) 및 [물리적 서버](physical-azure-disaster-recovery.md#enable-replication)에 대한 복제 활성화에 대해 자세히 알아보세요.
 
 
-## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>Azure Site Recovery에서 강제 설치를 사용하여 모바일 서비스 설치
-Site Recovery를 사용하여 Mobility Service의 강제 설치를 수행할 수 있습니다. 모든 대상 컴퓨터는 다음과 같은 전제 조건을 충족해야 합니다.
-
-[!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
-
-[!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
-
-
-> [!NOTE]
-Mobility Service를 설치한 후 Azure Portal에서 **+복제**를 선택하여 이러한 VM 보호를 시작합니다.
-
-## <a name="update-mobility-service"></a>모바일 서비스를 업데이트합니다.
-
-> [!WARNING]
-> 보호된 서버에서 Mobility Service의 업데이트를 시작하기 전에 배포의 일부인 구성 서버, 확장 프로세스 서버 및 마스터 대상 서버를 업데이트했는지 확인하세요.
-
-1. Azure Portal에서 *자격 증명 모음 이름* > **복제된 항목 보기**로 이동합니다.
-2. 구성 서버를 최신 버전으로 업데이트한 경우 “새 Site Recovery 복제 에이전트 업데이트를 사용할 수 있습니다. 설치하려면 클릭하세요.”라는 알림이 표시됩니다.
-
-     ![복제된 항목 창](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
-3. 이 알림을 선택하여 가상 머신 선택 페이지를 엽니다.
-4. Mobile Service를 업그레이드하려는 가상 머신을 선택하고 **확인**을 선택합니다.
-
-     ![복제된 항목 VM 목록](.\media\vmware-azure-install-mobility-service\update-okpng.png)
-
-선택한 가상 머신 각각에 대한 Mobility Service 업데이트 작업이 시작됩니다.
-
-> [!NOTE]
-> Mobility Service를 설치하는 데 사용되는 계정의 암호를 업데이트하는 방법에 대해 [자세히 알아봅니다](vmware-azure-manage-configuration-server.md).
-
-## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Windows Server 컴퓨터에서 모바일 서비스 제거
-Windows Server 컴퓨터에서 모바일 서비스를 제거하려면 다음 방법 중 하나를 사용합니다.
-
-### <a name="uninstall-by-using-the-gui"></a>GUI를 사용하여 제거
-1. 제어판에서 **프로그램**을 선택합니다.
-2. **Microsoft Azure Site Recovery 모바일 서비스/마스터 대상 서버**를 선택한 다음 **제거**를 선택합니다.
-
-### <a name="uninstall-at-a-command-prompt"></a>명령 프롬프트에서 제거
-1. 관리자로 명령 프롬프트 창을 엽니다.
-2. 모바일 서비스를 제거하려면 다음 명령을 실행합니다.
-
-    ```
-    MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
-    ```
-
-## <a name="uninstall-mobility-service-on-a-linux-computer"></a>Linux 컴퓨터에서 모바일 서비스 제거
-1. Linux 서버에서 **루트** 사용자로 로그인합니다.
-2. 터미널에서 /user/local/ASR로 이동합니다.
-3. 모바일 서비스를 제거하려면 다음 명령을 실행합니다.
-
-    ```
-    uninstall.sh -Y
-    ```

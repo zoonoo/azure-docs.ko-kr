@@ -1,33 +1,56 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 53e50e0ca02b3c837d71d8384a8b3d968fd4e929
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607714"
 documentType: LandingData
-title: Speech Service 설명서(미리 보기)
+title: Speech Services 설명서
 metadata:
-  title: Speech Service 설명서 - 자습서, 빠른 시작, API 참조 - Cognitive Services | Microsoft Docs
-  meta.description: The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications, such as voice command control and dialog, natural speech conversation, speech transcription and dictation, and speech translation.
+  title: Speech Services 설명서 - 자습서, 빠른 시작, API 참조
+  titleSuffix: Azure Cognitive Services
+  description: Speech Services는 애플리케이션에 강력한 음성 지원 기능을 추가하는 손쉬운 방법을 개발자에게 제공합니다. 음성 명령 컨트롤과 대화 상자, 자연 음성 대화, 음성 전사와 받아쓰기 및 음성 번역을 예로 들 수 있습니다.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: nitinme
+  manager: cgronlun
   layout: LandingPage
   ms.service: cognitive-services
   ms.component: speech-service
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/16/2018
-  ms.author: nolachar
-  ms.openlocfilehash: 2b82b50972c2c61c9dda5d1b1862c0c4cc8a9052
-  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/17/2018
-  ms.locfileid: "39070113"
+  ms.date: 12/06/2018
+  ms.author: erhopf
+  ms.custom: seodec18
 abstract:
-  description: Microsoft Speech Service는 개발자에게 <a href="rest-apis">REST API</a>, <a href="speech-sdk">C#, C++ 또는 Java SDK</a>를 사용한 음성 명령 제어, 전사 및 받아쓰기와 같은 강력한 음성 지원 기능을 응용 프로그램에 추가할 수 있는 편리한 방법을 제공합니다.<p>Speech Service를 통해 특수 어휘, 시끄러운 환경 및 다양한 말하기 방식을 수용하도록 <a href="how-to-customize-speech-models">음성 텍스트 변환</a> 모델을 사용자 지정할 수 있습니다. 사용자 지정한 <a href="https://cris.ai/Home/customvoice">음성 텍스트 변환</a> 및 <a href="https://www.microsoft.com/translator/customization.aspx">음성 번역</a>도 사용할 수 있습니다.<p>자세한 내용은 <a href="overview">Speech Service란?</a>을 참조하세요.
+  description: Speech Services 및 Speech SDK를 사용하여 앱에 음성 지원 기능을 추가하는 방법을 알아봅니다. Speech SDK를 사용하여 <i>음성 텍스트 변환</i>(음성 인식/SR), <i>의도</i>, <i>번역</i> 및 <i>텍스트 음성 변환</i>(TTS) 기능을 앱에 추가할 수 있습니다. 또한 Speech Service에는 HTTP 요청을 수행할 수 있는 모든 프로그래밍 언어를 사용하여 작동되는 REST API도 있습니다.
 sections:
-- title: 10분 빠른 시작
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/speech-service/overview
+      html: <p>Azure Speech Services에 대해 알아봅니다.</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Speech Service란?
+    - href: /azure/cognitive-services/speech-service/get-started
+      html: <p>무료로 가입하세요.</p>
+      image:
+        src: ../media/index/i_get-started.svg
+      title: Speech Service에 가입
+    - href: /azure/cognitive-services/speech-service/speech-devices-sdk
+      html: <p>음성 지원 하드웨어 참조에 대해 알아봅니다.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Speech Devices SDK
+- title: 5분 빠른 시작
   items:
   - type: paragraph
-    text: Speech SDK를 설치하여 시작하는 방법을 알아봅니다.
+    text: 화살표 링크를 선택하여 SDK를 다운로드하고, 설치하고, 사용하는 방법 알아보기 <img src="media/index/link.jpg" height="15" width="15"></img>.
   - type: table
     style: dataMatrix
     columns:
@@ -40,13 +63,30 @@ sections:
     - image:
         src: media/index/logo_netcore.svg
     - image:
-        src: media/index/logo_java.svg
+        src: media/index/logo_java.jpg
     - image:
-        src: media/index/logo_rest_sr.svg
+        src: media/index/logo_python.svg
     - image:
-        src: media/index/logo_rest_tts.svg
+        src: media/index/logo_objc.jpg
+    - image:
+        src: media/index/logo_nodejs.svg
+    - image:
+        src: media/index/logo_js.svg
+    - image:
+        src: media/index/logo_rest.svg
     rows:
-    - title: Windows
+    - title: Windows 10(x64)
+      values:
+      - href: quickstart-csharp-uwp
+      - href: quickstart-csharp-windows
+      - href: quickstart-cpp-windows
+      - href: quickstart-csharp-dotnetcore-windows
+      - href: quickstart-java-jre
+      - href: quickstart-python
+      - href: 
+      - href: quickstart-js-node
+      - href: 
+    - title: Windows 10(x86)
       values:
       - href: quickstart-csharp-uwp
       - href: quickstart-csharp-windows
@@ -55,14 +95,31 @@ sections:
       - href: 
       - href: 
       - href: 
-    - title: Linux
+      - href: quickstart-js-node
+      - href: 
+    - title: Linux(x64)
+      values:
+      - href: 
+      - href: 
+      - href: quickstart-cpp-linux
+      - href: quickstart-csharp-dotnetcore-windows
+      - href: quickstart-java-jre
+      - href: quickstart-python
+      - href: 
+      - href: quickstart-js-node
+      - href: 
+    - title: Linux(x86)
       values:
       - href: 
       - href: 
       - href: quickstart-cpp-linux
       - href: 
       - href: 
-    - title: Android SDK
+      - href: 
+      - href: 
+      - href: quickstart-js-node
+      - href: 
+    - title: Android(ARM32/64)
       values:
       - href: 
       - href: 
@@ -71,7 +128,42 @@ sections:
       - href: quickstart-java-android
       - href: 
       - href: 
-    - title: 장치 SDK
+      - href: 
+      - href: 
+    - title: Android(x86/x64)
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: quickstart-java-android
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: iOS(ARM64)
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: quickstart-objectivec-ios
+      - href: 
+      - href: 
+    - title: macOS(x64)
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: quickstart-python
+      - href: 
+      - href: quickstart-js-node
+      - href: 
+    - title: 디바이스 SDK(ARM64)
       values:
       - href: 
       - href: 
@@ -80,26 +172,74 @@ sections:
       - href: speech-devices-sdk
       - href: 
       - href: 
-    - title: 웹
+      - href: 
+      - href: 
+    - title: 브라우저
       values:
       - href: 
       - href: 
       - href: 
       - href: 
       - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: quickstart-js-browser
+    - title: REST (영문)
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
       - href: rest-apis
-      - href: rest-apis
-- title: 샘플 및 참조
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: Speech Service를 사용하여 응용 프로그램을 개발하는 방법을 알아봅니다.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="speech-to-text-sample.md">음성 텍스트 변환(SR)</a><br/>
+    - html: <a href="intent.md">의도 인식</a><br/>
+    - html: <a href="translation.md">번역</a>
+- title: 샘플
+  items:
+  - type: paragraph
+    text: 'GitHub에서 Speech Service에 대한 샘플 찾기:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Service SDK 샘플</a><br/>
+    - html: <a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Device SDK 샘플</a><br/>
+- title: 참고 자료
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: 예
-      html: <ul><li><a href="speech-to-text-sample.md">음성 인식</a></li><li><a href="intent.md">의도 인식</a></li><li><a href="translation.md">번역</a></li></ul>
-    - title: API 참조
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API(UWP 및 .NET Standard 포함)</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li>음성 SDK에 대한 <a href="https://aka.ms/csspeech/javaref">Java API</a><br>및 음성 장치 SDK</li></ul>
-- title: Speech Devices SDK
-  items:
-  - type: paragraph
-    text: 통합형 Speech Service를 도입하여 음성 지원 장치 개발용으로 최적화된 통합 하드웨어/소프트웨어 플랫폼인 <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>가 제공됩니다. 모든 형식의 응용 프로그램에 대한 앰비언트 장치를 개발하는 데 적합한 이 SDK를 사용하면 브랜드에 고유한 사용자 지정 <I>절전 모드 해제 단어</I>를 정의할 수 있습니다. 하드웨어는 보다 정확한 음성 인식을 위해 다중 채널 원본을 통한 잡음 제거, 원거리 음성(far-field voice) 및 빔 형성(beamforming)을 비롯한 탁월한 오디오 처리 기술을 제공합니다.
+    - title: SDK 참조
+      html: >
+        <p><a href="https://aka.ms/csspeech/csharpref">C# API(UWP 및 .NET)</a></p>
+
+        <p><a href="https://aka.ms/csspeech/cppref">C++ API</a></p>
+
+        <p><a href="https://aka.ms/csspeech/javaref">Java API</a></p>
+
+        <p><a href="https://aka.ms/csspeech/pythonref">Python API</a></p>
+
+        <p><a href="https://aka.ms/csspeech/objectivecref">Objective-C API</a></p>
+
+        <p><a href="https://aka.ms/csspeech/javascriptref">JavaScript API</a></p>
+    - title: REST API
+      html: >
+        <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">REST API</a></p>
+    - title: PowerShell
+      html: >
+        <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>

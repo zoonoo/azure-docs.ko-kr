@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 3accc31f433e6db40c7d1de2b56dfbd4180b4933
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 6db451ab7de50039c38b59612dd2ab1c61c35e7b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265185"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271253"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Azure Portal을 사용하여 Azure Database for MySQL의 메트릭에 대한 경고를 설정합니다. 
 
@@ -29,8 +29,8 @@ ms.locfileid: "35265185"
 
 다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다.
 * [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [명령줄 인터페이스(CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [명령줄 인터페이스(CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Azure Portal에서 메트릭에 대한 경고 규칙 만들기
@@ -48,7 +48,7 @@ ms.locfileid: "35265185"
 
    | 설정 | 설명  |
    |---------|---------|
-   | Name | 경고 규칙의 이름을 제공합니다. 이 값은 경고 알림 전자 메일로 전송됩니다. |
+   | 이름 | 경고 규칙의 이름을 제공합니다. 이 값은 경고 알림 전자 메일로 전송됩니다. |
    | 설명 | 경고 규칙에 대한 간단한 설명을 제공합니다. 이 값은 경고 알림 전자 메일로 전송됩니다. |
    | 경고 대상: | 이러한 종류의 경고에 대한 **메트릭**을 선택합니다. |
    | 구독 | 이 필드는 Azure Database for MySQL을 호스트하는 구독으로 미리 채워져 있습니다. |
@@ -82,5 +82,5 @@ ms.locfileid: "35265185"
 
 
 ## <a name="next-steps"></a>다음 단계
-* [경고에서의 webhook 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md)에 대해 자세히 알아봅니다.
+* [경고에서의 webhook 구성](../azure-monitor/platform/alerts-webhooks.md)에 대해 자세히 알아봅니다.
 * 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.

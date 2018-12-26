@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: d1f638c9825ea5eedf6eaee0e0ca2ccfd5a491bc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c3c79e7bd68e7c96b57ea66951c080b7d952ee8c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "33933711"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441760"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>개발자 포털 페이지의 스타일 사용자 지정
 
@@ -39,8 +39,11 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 3가지 �
 
 ## <a name="prerequisites"></a>필수 조건
 
++ [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 + 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 + 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="customize-the-developer-portal"></a>개발자 포털 사용자 지정
 
@@ -82,5 +85,4 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 3가지 �
 > * **개발자** 포털 페이지의 요소 스타일 사용자 지정
 > * 변경 내용 보기
 
-> [!div class="nextstepaction"]
-> [템플릿을 사용하여 Azure API Management 개발자 포털 사용자 지정](api-management-developer-portal-templates.md)
+[템플릿을 사용하여 Azure API Management 개발자 포털을 사용자 지정하는 방법](api-management-developer-portal-templates.md)을 알아보는 데 관심이 있을 수도 있습니다.

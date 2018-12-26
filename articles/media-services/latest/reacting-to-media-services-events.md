@@ -4,21 +4,21 @@ description: Azure Event Grid를 사용하여 Media Services 이벤트를 구독
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 969957d53824bd70440e5529b83bc830bb5d9cc4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3541a5b33aa0bb98d9381b51caefc63b6aa677ad
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782692"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377551"
 ---
-# <a name="reacting-to-media-services-events"></a>Media Services 이벤트에 대응
+# <a name="handling-event-grid-events"></a>Event Grid 이벤트 처리
 
 Media Services 이벤트를 사용하면 응용 프로그램이 최신 서버리스 아키텍처를 사용하여 다른 이벤트(예: 작업 상태 변경 이벤트)에 대응할 수 있습니다. 복잡한 코드나 비용이 많이 들고 비효율적인 폴링 서비스가 없어도 이렇게 할 수 있습니다. 대신, 이벤트는 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)를 통해 [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)와 같은 이벤트 처리기로 푸시 되거나 Webhook으로도 푸시 되며, 요금은 사용한 만큼만 청구됩니다. 가격 책정에 대한 자세한 내용은 [Event Grid 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/)을 참조하세요.
 
@@ -26,11 +26,20 @@ Media Services 이벤트의 가용성은 Event Grid [가용성](../../event-grid
 
 ## <a name="available-media-services-events"></a>사용 가능한 Media Services 이벤트
 
-Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다.  현재 Media Services 이벤트 구독에 다음 이벤트 유형을 포함할 수 있습니다.  
+Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다.  현재 Media Services 이벤트 구독에 다음 이벤트를 포함할 수 있습니다.  
 
 |이벤트 이름|설명|
 |----------|-----------|
 | Microsoft.Media.JobStateChange| 작업의 상태가 변경되면 발생합니다. |
+| Microsoft.Media.LiveEventConnectionRejected | 인코더의 연결 시도가 거부됩니다. |
+| Microsoft.Media.LiveEventEncoderConnected | 인코더에서 라이브 이벤트와의 연결을 설정합니다. |
+| Microsoft.Media.LiveEventEncoderDisconnected | 인코더에서 연결을 끊습니다. |
+| Microsoft.Media.LiveEventIncomingDataChunkDropped | 미디어 서버가 너무 늦거나 타임스탬프가 겹치기 때문에 데이터 청크가 삭제됩니다(새 데이터 청크의 타임스탬프가 이전 데이터 청크의 종료 시간보다 이전임). |
+| Microsoft.Media.LiveEventIncomingStreamReceived | 미디어 서버에서 스트림 또는 연결의 각 트랙에 대한 첫 번째 데이터 청크를 받습니다. |
+| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 미디어 서버에서 오디오 및 비디오 스트림이 동기화되지 않았음을 감지합니다. 사용자 환경이 영향을 받지 않으므로 이 이벤트는 경고로 사용합니다. |
+| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | 미디어 서버에서 외부 인코더로부터 들어오는 두 비디오 스트림 중 동기화되지 않은 것을 감지합니다. 사용자 환경이 영향을 받지 않으므로 이 이벤트는 경고로 사용합니다. |
+| Microsoft.Media.LiveEventIngestHeartbeat | 라이브 이벤트가 실행될 때 각 트랙에 대해 20초마다 게시됩니다. 수집 상태 요약을 제공합니다. |
+| Microsoft.Media.LiveEventTrackDiscontinuityDetected | 미디어 서버에서 들어오는 트랙의 불연속성을 감지합니다. |
 
 ## <a name="event-schema"></a>이벤트 스키마
 

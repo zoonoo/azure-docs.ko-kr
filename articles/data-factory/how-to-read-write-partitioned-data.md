@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 24464d110b00508cfb3fde4ab1a050773511e255
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053713"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091052"
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Azure Data Factory에서 분할된 데이터를 읽거나 쓰는 방법
-버전 1에서 Azure Data Factory는 SliceStart/SliceEnd/WindowStart/WindowEnd 시스템 변수를 사용하여 분할된 데이터 읽기 또는 쓰기를 지원했습니다. 현재 버전의 Data Factory에서는 파이프라인 매개 변수와 트리거의 시작 시간/예약된 시간을 매개 변수 값으로 사용하여 이 동작을 수행할 수 있습니다. 
+
+Azure Data Factory 버전 1에서는 **SliceStart**, **SliceEnd**, **WindowStart** 및 **WindowEnd** 시스템 변수를 사용하여 분할된 데이터를 읽거나 쓸 수 있었습니다. 현재 버전의 Data Factory에서는 파이프라인 매개 변수와 트리거의 시작 시간/예약된 시간을 매개 변수 값으로 사용하여 이 동작을 수행할 수 있습니다. 
 
 ## <a name="use-a-pipeline-parameter"></a>파이프라인 매개 변수 사용 
-버전 1에서는 다음 예제와 같이 partitionedBy 속성과 SliceStart 시스템 변수를 사용할 수 있었습니다. 
+
+Data Factory 버전 1에서는 다음 예제와 같이 **partitionedBy** 속성과 **SliceStart** 시스템 변수를 사용할 수 있었습니다. 
 
 ```json
 "folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
@@ -35,13 +37,13 @@ ms.locfileid: "37053713"
 ],
 ```
 
-partitonedBy 속성에 대한 자세한 내용은 [버전 1 Azure Blob 커넥터](v1/data-factory-azure-blob-connector.md#dataset-properties) 문서를 참조하세요. 
+**partitonedBy** 속성에 대한 자세한 내용은 [Azure Data Factory를 사용하여 다른 곳에서 Azure Blob Storage로 또는 그 반대로 데이터를 복사](v1/data-factory-azure-blob-connector.md#dataset-properties)를 참조하세요. 
 
-현재 버전의 Data Factory에서 이 동작을 수행하는 한 가지 방법은 다음 작업을 수행하는 것입니다. 
+현재 버전의 Data Factory에서 이 작업을 수행하려면: 
 
-1. type 문자열의 **파이프라인 매개 변수**를 정의합니다. 다음 예에서 파이프라인 매개 변수의 이름은 **windowStartTime**입니다. 
-2. 데이터 집합 정의에서 **folderPath**를 파이프라인 매개 변수의 값을 참조하도록 설정합니다. 
-3. 요청 시 파이프라인을 호출할 때 매개 변수에 대한 실제 값을 전달합니다. 또는 런타임에 트리거의 시작 시간/예약된 시간을 동적으로 전달합니다. 
+1. 형식 **문자열**의 *파이프라인 매개 변수*를 정의합니다. 다음 예제에서 파이프라인 매개 변수의 이름은 **windowStartTime**입니다. 
+2. 데이터 세트 정의에서 **folderPath**를 파이프라인 매개 변수의 값을 참조하도록 설정합니다. 
+3. 요청 시 파이프라인을 호출할 때 매개 변수의 실제 값을 전달합니다. 또한 런타임에서 트리거의 시작 시간 또는 예약된 시간을 동적으로 전달할 수 있습니다. 
 
 ```json
 "folderPath": {
@@ -50,7 +52,8 @@ partitonedBy 속성에 대한 자세한 내용은 [버전 1 Azure Blob 커넥터
 },
 ```
 
-## <a name="pass-in-value-from-a-trigger"></a>트리거에서 값 전달
+## <a name="pass-in-a-value-from-a-trigger"></a>트리거에서 값 전달
+
 다음 연속 창 트리거 정의에서 트리거의 창 시작 시간은 **windowStartTime** 파이프라인 매개 변수의 값으로 전달됩니다. 
 
 ```json
@@ -80,7 +83,7 @@ partitonedBy 속성에 대한 자세한 내용은 [버전 1 Azure Blob 커넥터
 
 ## <a name="example"></a>예
 
-다음은 샘플 데이터 집합 정의입니다.
+다음은 샘플 데이터 세트 정의입니다.
 
 ```json
 {
@@ -176,4 +179,6 @@ partitonedBy 속성에 대한 자세한 내용은 [버전 1 Azure Blob 커넥터
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이 파이프라인으로 데이터 팩터리를 만드는 전체 연습은 [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요. 
+
+파이프라인이 있는 데이터 팩터리를 만드는 방법의 전체 연습은 [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요. 
+

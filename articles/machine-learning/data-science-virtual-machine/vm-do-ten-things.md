@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2017
+ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: a5f0961a99eac805e82cbc5e5d61c485f8661ba0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595755"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250920"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -32,7 +32,7 @@ Windows DSVM(데이터 과학 Virtual Machine)은 다양한 데이터 탐색 및
 2. Jupyter Notebook에서 Python 2, Python 3 그리고 성능 위주로 설계된 R의 엔터프라이즈급 버전인 Microsoft R을 사용하여 브라우저에서 데이터 실험
 3. 클라이언트 응용 프로그램이 간단한 웹 서비스 인터페이스를 사용하여 모델에 액세스할 수 있도록 Azure Machine Learning에서 R 및 Python을 사용하여 구축된 모델 배포
 4. Azure Portal 또는 Powershell을 사용하여 Azure 리소스 관리
-5. Azure File Storage를 DSVM에 탑재 가능한 드라이브로 만들어 저장소 공간을 확장하고 전체 팀에서 대규모 데이터 집합/코드 공유
+5. Azure File Storage를 DSVM에 탑재 가능한 드라이브로 만들어 저장소 공간을 확장하고 전체 팀에서 대규모 데이터 세트/코드 공유
 6. GitHub를 사용하여 팀과 코드를 공유하고 사전 설치된 Git 클라이언트(Git Bash Git GUI)를 사용하여 리포지토리에 액세스
 7. Azure Blob Storage, Azure Data Lake, Azure HDInsight(Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse, 데이터베이스 등의 다양한 Azure 데이터 및 분석 서비스에 액세스
 8. DSVM에 사전 설치된 Power BI Desktop을 사용하여 보고서 및 대시보드를 구축하여 클라우드에 배포
@@ -47,7 +47,7 @@ Windows DSVM(데이터 과학 Virtual Machine)은 다양한 데이터 탐색 및
 **필수 구성 요소**
 
 * Azure 구독이 필요합니다. [여기](https://azure.microsoft.com/free/)서 평가판에 등록할 수 있습니다.
-* Azure 포털에서 데이터 과학 Virtual Machine을 프로비전하는 방법에 대한 지침은 [가상 머신 만들기](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm)에서 확인할 수 있습니다.
+* Azure 포털에서 데이터 과학 Virtual Machine을 프로비전하는 방법에 대한 지침은 [가상 머신 만들기](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)에서 확인할 수 있습니다.
 
 ## <a name="1-explore-data-and-develop-models-using-microsoft-ml-server-or-python"></a>1. Microsoft ML 서버 또는 Python을 사용하여 데이터 탐색 및 모델 개발
 R 및 Python 같은 언어를 사용하여 DSVM에서 바로 데이터를 분석할 수 있습니다.
@@ -56,7 +56,7 @@ R의 경우 시작 메뉴나 바탕 화면에서, 또는 Visual Studio용 R 도�
 
 Python의 경우 PTVS(Python Tools for Visual Studio) 확장 기능이 사전 설치된 Visual Studio Community Edition 같은 IDE를 사용할 수 있습니다. 기본적으로 Python 3.6에서만 루트 conda 환경이 PTVS에서 구성됩니다. Anaconda Python 2.7을 사용하려면 다음 단계를 수행해야 합니다.
 
-* **도구** -> **Python 도구** -> **Python 환경**으로 이동한 다음 Visual Studio 2015 Community Edition에서 "**+ 사용자 지정**"을 클릭하여 각 버전에 대해 사용자 지정 환경을 만듭니다.
+* **도구** -> **Python 도구** -> **Python 환경**으로 이동한 다음, Visual Studio Community Edition에서 "**+ 사용자 지정**"을 클릭하여 각 버전에 대해 사용자 지정 환경을 만듭니다.
 * 설명을 입력하고 Anaconda Python 2.7에 대해 환경 접두사 경로를 *c:\anaconda\envs\python2*로 설정합니다.
 * **자동 감지**를 클릭한 다음 **적용**을 클릭하여 환경을 저장합니다.
 
@@ -64,9 +64,9 @@ Visual Studio에서 사용자 지정 환경 설정이 다음과 같이 표시됩
 
 ![PTVS 설치](./media/vm-do-ten-things/PTVSSetup.png)
 
-Python 환경을 만드는 방법에 대한 자세한 내용은 [PTVS 설명서](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) 를 참조하세요.
+Python 환경을 만드는 방법에 대한 자세한 내용은 [PTVS 설명서](https://aka.ms/ptvsdocs) 를 참조하세요.
 
-이제 새 Python 프로젝트를 만들 수 있도록 설정되어 있습니다. **파일** -> **새로 만들기** -> **프로젝트** -> **Python**으로 이동하고 작성하는 Python 응용 프로그램의 종류를 선택합니다. 현재 프로젝트에 대한 Python 환경을 원하는 버전(Anaconda 2.7 또는 3.6)으로 설정할 수 있습니다. **Python 환경**을 마우스 오른쪽 단추로 클릭하고 **Python 환경 추가/제거**를 선택한 다음, 원하는 환경을 선택합니다. 제품 [설명서](https://github.com/Microsoft/PTVS/wiki) 페이지에서 PTVS 작업에 대한 자세한 정보를 찾을 수 있습니다.
+이제 새 Python 프로젝트를 만들 수 있도록 설정되어 있습니다. **파일** -> **새로 만들기** -> **프로젝트** -> **Python**으로 이동하고 작성하는 Python 응용 프로그램의 종류를 선택합니다. 현재 프로젝트에 대한 Python 환경을 원하는 버전(Python 2.7 또는 3.6)으로 설정할 수 있습니다. **Python 환경**을 마우스 오른쪽 단추로 클릭하고 **Python 환경 추가/제거**를 선택한 다음, 원하는 환경을 선택합니다. 제품 [설명서](https://aka.ms/ptvsdocs)에서 PTVS 작업에 대한 자세한 정보를 찾을 수 있습니다.
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Jupyter Notebook에서 Python 또는 R을 사용하여 데이터 탐색 및 모델링
 Jupyter Notebook은 데이터 탐색 및 모델링을 위한 브라우저 기반 "IDE"를 제공하는 강력한 환경입니다. Jupyter Notebook에서 Python 2, Python 3 또는 R(오픈 소스 및 Microsoft R 서버 모두)을 사용할 수 있습니다.
@@ -175,7 +175,7 @@ settings.json 파일 구조:
     ep <- publishWebService(ws, fun = sleepyPredict, name="sleepy lm", inputSchema = sleepstudy, data.frame=TRUE)
 
 #### <a name="consume-the-model-deployed-in-azure-machine-learning"></a>Azure Machine Learning에 배포된 모델 사용
-클라이언트 응용 프로그램의 모델을 사용하기 위해 Azure Machine Learning 라이브러리를 사용하여 끝점을 확인하는 `services` API 호출을 통해 게시된 웹 서비스를 이름으로 조회합니다. 그런 다음 `consume` 함수를 호출하여 예측할 데이터 프레임을 전달합니다.
+클라이언트 응용 프로그램의 모델을 사용하기 위해 Azure Machine Learning 라이브러리를 사용하여 엔드포인트를 확인하는 `services` API 호출을 통해 게시된 웹 서비스를 이름으로 조회합니다. 그런 다음 `consume` 함수를 호출하여 예측할 데이터 프레임을 전달합니다.
 다음 코드는 모델을 Azure Machine Learning 웹 서비스로 게시하는 데 사용됩니다.
 
     library(AzureML)
@@ -199,7 +199,7 @@ Azure 구독 및 클라우드 리소스를 관리하려는 경우 브라우저�
 바탕 화면의 바로 가기 또는 시작 메뉴의 "Microsoft Azure Powershell"을 사용하여 Azure Powershell을 실행할 수 있습니다. Windows Powershell 스크립트를 사용하여 Azure 구독 및 리소스를 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Powershell 설명서](../../powershell-azure-resource-manager.md) 를 참조하세요.
 
 ## <a name="5-extend-your-storage-space-with-a-shared-file-system"></a>5. 공유 파일 시스템으로 저장소 공간 확장
-데이터 과학자는 팀 내에서 대용량 데이터 집합, 코드 또는 기타 리소스를 공유할 수 있습니다. DSVM 자체에는 약 45GB의 사용 가능한 공간이 있습니다. 저장소를 확장하려면 Azure 파일 서비스를 사용하여 하나 이상의 DSVM 인스턴스에 파일을 탑재하거나 REST API를 통해 액세스하면 됩니다.  [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) 또는 [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md)을 사용하여 추가 전용 데이터 디스크를 추가할 수도 있습니다. 
+데이터 과학자는 팀 내에서 대용량 데이터 세트, 코드 또는 기타 리소스를 공유할 수 있습니다. DSVM 자체에는 약 45GB의 사용 가능한 공간이 있습니다. 저장소를 확장하려면 Azure 파일 서비스를 사용하여 하나 이상의 DSVM 인스턴스에 파일을 탑재하거나 REST API를 통해 액세스하면 됩니다.  [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) 또는 [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md)을 사용하여 추가 전용 데이터 디스크를 추가할 수도 있습니다. 
 
 > [!NOTE]
 > Azure 파일 서비스 공유의 최대 공간은 5TB이고 개별 파일 크기 제한은 1TB입니다. 
@@ -251,7 +251,7 @@ Visual Studio에서 동일한 복제 작업을 수행할 수 있습니다. 아�
 
 ![Visual Studio의 Git](./media/vm-do-ten-things/VSGit.PNG)
 
-github.com에서 제공하는 여러 리소스를 통해 Git를 사용하여 GitHub 리포지토리를 작업하는 방법에 대한 자세한 내용을 찾을 수 있습니다. [참고 자료](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) 를 보시면 많은 도움이 될 것입니다.
+github.com에서 제공하는 여러 리소스를 통해 Git를 사용하여 GitHub 리포지토리를 작업하는 방법에 대한 자세한 내용을 찾을 수 있습니다. [참고 자료](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) 를 보시면 많은 도움이 될 것입니다.
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7. 다양한 Azure 데이터 및 분석 서비스에 액세스
 ### <a name="azure-blob"></a>Azure Blob
@@ -433,7 +433,7 @@ Visual Studio에서 다음 U-SQL 쿼리를 사용할 수 있습니다.
 
 **Data Lake의 데이터 쿼리: U SQL**
 
-Azure Data Lake에 데이터 집합이 수집되면 [U-SQL 언어](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md)를 사용하여 데이터를 쿼리하고 탐색할 수 있습니다. U-SQL 언어는 T-SQL과 비슷하지만 C#의 일부 기능이 결합되어 사용자가 사용자 지정 모듈, 사용자 정의 함수 등을 작성할 수 있습니다. 이전 단계의 스크립트를 사용할 수 있습니다.
+Azure Data Lake에 데이터 세트가 수집되면 [U-SQL 언어](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md)를 사용하여 데이터를 쿼리하고 탐색할 수 있습니다. U-SQL 언어는 T-SQL과 비슷하지만 C#의 일부 기능이 결합되어 사용자가 사용자 지정 모듈, 사용자 정의 함수 등을 작성할 수 있습니다. 이전 단계의 스크립트를 사용할 수 있습니다.
 
 서버에 쿼리가 제출되면 잠시 후 **Azure Data Lake 탐색기**에서 tripdata_summary.CSV 파일이 표시되며, 이 파일을 마우스 오른쪽 단추로 클릭하여 데이터를 미리 볼 수 있습니다.
 
@@ -452,7 +452,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 ![Azure Blob Storage 계정 만들기](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
-* [Azure 포털](../team-data-science-process/customize-hadoop-cluster.md)
+*  [Azure 포털](../team-data-science-process/customize-hadoop-cluster.md)
   
   * HDInsight 클러스터를 만들 때 만든 저장소 계정을 HDInsight 클러스터와 연결합니다. 이 저장소 계정은 클러스터 내에서 처리할 수 있는 데이터에 액세스하는 데 사용됩니다.
 
@@ -790,9 +790,9 @@ Machine Learning Studio의 **판독기** 모듈을 사용하여 Hadoop 클러스
 
 ![판독기 모듈 속성](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
 
-그러면 채점된 데이터 집합을 볼 수 있습니다.
+그러면 채점된 데이터 세트를 볼 수 있습니다.
 
-![채점된 데이터 집합 보기](./media/vm-do-ten-things/AML_Model_Results.PNG)
+![채점된 데이터 세트 보기](./media/vm-do-ten-things/AML_Model_Results.PNG)
 
 ### <a name="azure-sql-data-warehouse--databases"></a>Azure SQL Data Warehouse 및 데이터베이스
 Azure SQL Data Warehouse는 엔터프라이즈급 SQL Server 환경의 서비스로 탄력적인 데이터 웨어하우스입니다.
@@ -806,10 +806,10 @@ DSVM에서 Azure Cosmos DB에 액세스하기 위한 다음과 같은 필수 조
 
 1. Azure Cosmos DB Python SDK는 DSVM에 이미 설치되어 있습니다(업데이트하려면 명령 프롬프트에서 ```pip install pydocumentdb --upgrade``` 실행).
 2. [Azure Portal](https://portal.azure.com)에서 Azure Cosmos DB 계정과 데이터베이스를 만듭니다.
-3. [여기](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)서 "Azure Cosmos DB 마이그레이션 도구"를 다운로드하여 원하는 디렉터리에 추출합니다.
+3. [여기](https://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)서 "Azure Cosmos DB 마이그레이션 도구"를 다운로드하여 원하는 디렉터리에 추출합니다.
 4. 마이그레이션 도구(Cosmos DB 마이그레이션 도구를 설치한 디렉터리 dtui.exe)에 다음 명령 매개 변수를 사용하여 [공용 Blob](https://cahandson.blob.core.windows.net/samples/volcano.json)에 저장된 JSON 데이터(화산 데이터)를 Cosmos DB로 가져옵니다. 아래의 원본 및 대상 위치를 다음 매개 변수와 함께 입력합니다.
    
-    /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
+    `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
 데이터를 가져온 후에는 Jupyter로 이동하여 *DocumentDBSample*이라는 제목의 Notebook을 열 수 있습니다. 이 Notebook에는 Azure Cosmos DB에 액세스하여 몇 가지 기본 쿼리를 수행할 수 있는 Python 코드가 포함되어 있습니다. 서비스 [설명서 페이지](https://docs.microsoft.com/azure/cosmos-db/)를 방문하여 Cosmos DB에 대해 자세히 알아볼 수 있습니다.
 

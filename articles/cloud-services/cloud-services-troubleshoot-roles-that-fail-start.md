@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 36966151b616a14e429807feb63df93503e7b249
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a73559e233f647d5bf0812a5acdf5e19f05b0858
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29875337"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255424"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>시작에 실패한 클라우드 서비스 역할의 문제 해결
 시작에 실패한 Azure Cloud Services 역할에 관련된 일반적인 문제 및 솔루션은 다음과 같습니다.
@@ -33,14 +33,14 @@ ms.locfileid: "29875337"
 누락된 DLL 또는 어셈블리의 증상은 다음과 같을 수 있습니다.
 
 * 역할 인스턴스가 **초기화 중**, **사용 중** 및 **중지** 상태를 반복하고 있습니다.
-* 역할 인스턴스가 **준비** 로 이동했지만 웹 응용 프로그램을 탐색하면 페이지가 나타나지 않습니다.
+* 역할 인스턴스가 **준비** 로 이동했지만 웹 애플리케이션을 탐색하면 페이지가 나타나지 않습니다.
 
 이러한 문제를 조사하기 위해 권장되는 여러 가지 방법이 있습니다.
 
 ## <a name="diagnose-missing-dll-issues-in-a-web-role"></a>웹 역할에서 누락된 DLL 문제 진단
 웹 역할에 배포된 웹 사이트로 이동하고 브라우저가 다음과 유사한 서버 오류를 표시하는 경우 DLL이 없음을 나타낼 수 있습니다.
 
-!['/' 응용 프로그램의 서버 오류.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
+!['/' 애플리케이션의 서버 오류.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
 ## <a name="diagnose-issues-by-turning-off-custom-errors"></a>사용자 지정 오류를 해제하여 문제 진단
 웹 역할에 대해 web.config가 사용자 지정 오류 모드를 꺼짐으로 설정하고 서비스를 다시 배포하도록 구성하여 오류 정보를 더 자세하게 볼 수 있습니다.
@@ -70,17 +70,17 @@ ms.locfileid: "29875337"
 7. `IPconfig`를 입력합니다.
 8. IPV4 주소 값을 적습니다.
 9. Internet Explorer를 엽니다.
-10. 웹 응용 프로그램의 주소 및 이름을 입력합니다. 예: `http://<IPV4 Address>/default.aspx`.
+10. 웹 애플리케이션의 주소 및 이름을 입력합니다. 예: `http://<IPV4 Address>/default.aspx`.
 
 웹 사이트를 탐색하면 이제 더 구체적인 오류 메시지가 반환됩니다.
 
-* '/' 응용 프로그램의 서버 오류.
+* '/' 애플리케이션의 서버 오류.
 * 설명: 현재 웹 요청을 실행하는 동안 처리되지 않은 예외가 발생했습니다. 오류에 대한 자세한 내용 및 코드에서 어디에 기반하는지는 스택 추적을 검토합니다.
 * 예외 세부 정보: System.IO.FIleNotFoundException: 파일이나 어셈블리를 로드할 수 없습니다 'Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ 또는 해당 종속성 중 하나입니다. 시스템은 지정된 파일을 찾을 수 없습니다.
 
 예: 
 
-!['/' 응용 프로그램의 명시적 서버 오류](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
+!['/' 애플리케이션의 명시적 서버 오류](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
 ## <a name="diagnose-issues-by-using-the-compute-emulator"></a>계산 에뮬레이터를 사용하여 문제 진단
 Microsoft Azure 계산 에뮬레이터를 사용하여 누락된 종속성 및 web.config 오류 문제를 진단하고 해결할 수 있습니다.
@@ -125,4 +125,4 @@ IntelliTrace를 사용하는 서비스를 배포하려면 다음 단계를 수�
 ## <a name="next-steps"></a>다음 단계
 클라우드 서비스에 대한 [문제해결 문서](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) 를 더 봅니다.
 
-Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.
+Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.

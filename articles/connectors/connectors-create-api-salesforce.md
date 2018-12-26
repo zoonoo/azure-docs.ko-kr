@@ -1,63 +1,72 @@
 ---
-title: 논리 앱에서 Salesforce 커넥터 사용 방법 알아보기 | Microsoft Docs
-description: Azure 앱 서비스로 논리 앱을 만듭니다. Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공합니다.
+title: Azure Logic Apps에서 Salesforce에 연결 | Microsoft Docs
+description: Azure Logic Apps를 사용하여 Salesforce 레코드를 모니터링하고 관리하는 작업 및 워크플로 자동화
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 10/05/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 4278837bb5653b66223374aa728bdc81b279fff7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: 292d517f2c99974f4674a4c94472a0a320320ce4
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237304"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233840"
 ---
-# <a name="get-started-with-the-salesforce-connector"></a>Salesforce 커넥터 시작
-Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공합니다.
+# <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Salesforce 리소스 모니터링, 만들기 및 관리
 
-[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/quickstart-create-first-logic-app-workflow.md) 시작할 수 있습니다.
+Azure Logic Apps 및 Salesforce 커넥터를 사용하여 레코드, 작업 및 개체 같은 Salesforce 리소스에 대한 자동화된 작업 및 워크플로를 만들 수 있습니다. 예를 들어:
 
-## <a name="connect-to-salesforce-connector"></a>Salesforce 커넥터에 연결
-논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. [연결](connectors-overview.md)은 논리 앱과 다른 서비스 간의 연결을 제공합니다.  
+* 레코드를 만들거나 변경할 때 모니터링합니다. 
+* 삽입, 업데이트 및 삭제 작업을 포함하여 작업 및 레코드를 만들고 가져오고 관리합니다.
 
-### <a name="create-a-connection-to-salesforce-connector"></a>Salesforce 커넥터에 대한 연결 만들기
-> [!INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforce.md)]
-> 
-> 
+Salesforce 트리거를 사용하여 Salesforce에서 응답을 가져오고 출력을 다른 작업에 사용하게 할 수 있습니다. 논리 앱에서 작업을 사용하여 Salesforce 리소스로 다양한 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="use-a-salesforce-connector-trigger"></a>Salesforce 커넥터 트리거 사용
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
+## <a name="prerequisites"></a>필수 조건
 
-> [!INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
-> 
-> 
+* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
 
-## <a name="add-a-condition"></a>조건 추가
-> [!INCLUDE [Steps to create a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
-> 
-> 
+* [Salesforce 계정](https://salesforce.com/)
 
-## <a name="use-a-salesforce-connector-action"></a>Salesforce 커넥터 작업 사용
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
-> [!INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
-> 
-> 
+* Salesforce 계정에 액세스하려는 논리 앱입니다. Salesforce 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). Salesforce 동작을 사용하려면, 예를 들어 **되풀이** 트리거와 같은 다른 트리거를 통해 논리 앱을 시작합니다.
 
-## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+## <a name="connect-to-salesforce"></a>Salesforce에 연결
 
-[커넥터 세부 정보](/connectors/salesforce/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
+
+1. 경로를 선택합니다. 
+
+   * 빈 논리 앱의 경우 검색 상자에서 필터로 "salesforce"를 입력합니다. 
+   트리거 목록에서 원하는 트리거를 선택합니다. 
+
+     또는
+
+   * 기존 논리 앱의 경우 작업을 추가하려는 단계에서 **새 단계**를 선택합니다. 검색 상자에 필터로 "salesforce"를 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
+
+1. Salesforce에 로그인하라는 메시지가 표시되면 로그인하고 액세스를 허용합니다.
+
+   자격 증명을 통해 Salesforce에 대한 연결을 만들고 데이터에 액세스하는 권한이 논리 앱에 부여됩니다.
+
+1. 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
+
+## <a name="connector-reference"></a>커넥터 참조
+
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/salesforce/)를 검토하세요.
+
+## <a name="get-support"></a>지원 받기
+
+* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
+* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

@@ -1,48 +1,46 @@
 ---
-title: 인덱스 만들기(포털 - Azure Search) | Microsoft Docs
-description: Azure Portal을 사용하여 인덱스를 만듭니다.
+title: 포털에서 Azure Search 인덱스 만들기 | Microsoft Docs
+description: 기본 제공 포털 인덱스 디자이너를 사용하여 Azure Search에 대한 인덱스를 만드는 방법에 대해 알아봅니다.
 manager: cgronlun
 author: heidisteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: quickstart
-ms.date: 06/20/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 722f1eb989fb8c160def4024b1aa967a47b87697
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bb1ba5e860dab237b3f6e16205b5e4cbad45e6e3
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203872"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990849"
 ---
-# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Search 인덱스 만들기
+# <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Search 인덱스를 만드는 방법
 
-Azure Portal에서 기본 제공되는 인덱스 디자이너를 사용하여 Azure Search 서비스에서 실행할 [검색 인덱스](search-what-is-an-index.md)를 프로토타입화하거나 만듭니다. 
+Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되는 [검색 인덱스](search-what-is-an-index.md)를 만드는 데 유용한 기본 제공 인덱스 디자이너를 포털에 포함합니다. 이 도구는 스키마 생성에 사용됩니다. 정의를 저장하면 빈 인덱스가 Azure Search에서 완전히 표현됩니다. 검색 가능한 데이터로 로드하는 방식은 사용자가 정합니다.
 
-또는 [.NET](search-create-index-dotnet.md) 또는 [REST](search-create-index-rest-api.md) API를 사용하여 인덱스를 만듭니다.
+인덱스 디자이너는 인덱스를 만들기 위한 유일한 방법입니다. 프로그래밍 방식으로 [.NET](search-create-index-dotnet.md) 또는 [REST](search-create-index-rest-api.md) API를 사용하여 인덱스를 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) 및 [Azure Search 서비스](search-create-service-portal.md)를 사용하는 것으로 가정합니다.  
+이 문서에서는 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) 및 [Azure Search 서비스](search-create-service-portal.md)를 사용하는 것으로 가정합니다.
 
-## <a name="find-your-search-service"></a>검색 서비스 찾기
-1. Azure Portal 페이지에 로그인하고 [구독에 대한 검색 서비스](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)를 검토합니다.
-2. Azure Search 서비스를 선택합니다.
+## <a name="open-index-designer-and-name-an-index"></a>인덱스 디자이너를 열고 인덱스 이름 지정
 
-## <a name="name-the-index"></a>인덱스 이름 지정
+1. [Azure Portal](https://portal.azure.com)에 로그인하여 서비스 대시보드를 엽니다. 표시줄에서 **모든 서비스**를 클릭하면 현재 구독에서 기존 "검색 서비스"를 검색할 수 있습니다. 
 
-1. 페이지 맨 위에 있는 명령 모음에서 **인덱스 추가** 단추를 클릭합니다.
-2. Azure Search 인덱스를 명명합니다. 
+2.  페이지 맨 위에 있는 명령 모음에서 **인덱스 추가** 단추를 클릭합니다.
+
+3. Azure Search 인덱스를 명명합니다. 인덱스 이름은 인덱싱 및 쿼리 작업에서 참조됩니다. 인덱스 이름은 인덱스로의 연결 및 Azure Search REST API에서 HTTP 요청을 보내는 데 사용된 끝점 URL의 일부가 됩니다.
+
    * 문자로 시작합니다.
    * 소문자, 숫자 또는 대시(“-”)만 사용합니다.
    * 이름은 60자로 제한합니다.
 
-  인덱스 이름은 인덱스로의 연결 및 Azure Search REST API에서 HTTP 요청을 보내는 데 사용된 끝점 URL의 일부가 됩니다.
-
 ## <a name="define-the-fields-of-your-index"></a>인덱스의 필드 정의
 
-인덱스 컴퍼지션은 인덱스에서 검색 가능한 데이터를 정의하는 *필드 컬렉션*을 포함합니다. 구체적으로 말하면, 개별적으로 업로드하는 문서 구조를 지정합니다. 필드 컬렉션에는 필드가 사용되는 방식을 결정하는 인덱스 특성과 함께 이름 및 형식이 지정된 필수 및 옵션 필드가 포함됩니다.
+인덱스 컴퍼지션은 인덱스에서 검색 가능한 데이터를 정의하는 *필드 컬렉션*을 포함합니다. 필드 컬렉션은 모두 개별적으로 업로드하는 문서 구조를 지정합니다. 필드 컬렉션에는 필드가 사용되는 방식을 결정하는 인덱스 특성과 함께 이름 및 형식이 지정된 필수 및 옵션 필드가 포함됩니다.
 
 1. **인덱스 추가** 블레이드에서 **필드 >** 를 클릭하여 필드 정의 블레이드를 엽니다. 
 
@@ -63,6 +61,7 @@ Azure Portal에서 기본 제공되는 인덱스 디자이너를 사용하여 Az
 2. 다음으로, 각 특성의 맨 위에 있는 확인란을 사용하여 모든 필드에 대한 설정을 일괄적으로 사용한 후 필요하지 않은 일부 필드의 확인란은 선택적으로 해제합니다. 예를 들어 문자열 필드는 일반적으로 검색할 수 있습니다. 이와 같이 **조회 가능** 및 **검색 가능**을 클릭하여 검색 결과에서 필드 값을 반환할 수 있을 뿐만 아니라 해당 필드에서 전체 텍스트 검색을 허용할 수 있습니다. 
 
 <a name="design"></a>
+
 ## <a name="design-guidance-for-setting-attributes"></a>특성 설정을 위한 디자인 지침
 
 언제든지 새 필드를 추가할 수 있지만 기존 필드 정의는 인덱스 수명 동안 잠겨 있습니다. 이러한 이유로 개발자는 일반적으로 포털을 사용하여 간단한 인덱스를 만들거나 아이디어를 테스트하거나 포털 페이지를 사용하여 설정을 조회합니다. 인덱스를 쉽게 다시 작성할 수 있도록 코드 기반 접근 방식을 따르는 경우 인덱스 대한 빈번한 반복 디자인이 보다 효율적입니다.

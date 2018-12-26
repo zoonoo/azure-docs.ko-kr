@@ -1,22 +1,19 @@
 ---
-title: '빠른 시작: 여러 입력을 사용하여 워크플로 제출 | Microsoft Docs'
+title: '빠른 시작: 여러 입력을 사용하여 워크플로 제출 - Microsoft Genomics'
 titleSuffix: Azure
 description: 빠른 시작은 msgen 클라이언트가 설치되어 있고 서비스를 통해 샘플 데이터를 성공적으로 실행했다고 가정합니다.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlund
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
 ms.topic: quickstart
 ms.date: 02/05/2018
-ms.openlocfilehash: 7aeb4d5ad939cefcf8300b78b4afcc9d91ca0624
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1007d81a73ce9f183f997354188e534274b2fe95
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29119998"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730365"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>동일한 샘플의 여러 입력을 사용하여 워크플로 제출
 

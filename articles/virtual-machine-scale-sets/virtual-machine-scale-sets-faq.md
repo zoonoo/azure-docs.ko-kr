@@ -3,7 +3,7 @@ title: Azure 가상 머신 확장 집합에 대한 FAQ | Microsoft Docs
 description: 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
-ms.author: negat
+ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: bf73f9419732e93c1f32f2fb39d3acee02f49b64
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 40af55e48e0097f1ad6cb52a76b78fab40c2074c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34656444"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447183"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -49,7 +49,7 @@ Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 �
 
 **Q.** 사용자 지정 이미지를 사용하여 크기 집합을 어떻게 만드나요?
 
-**A.** VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로 사용합니다. 사용자 지정 VM 이미지를 만들고 사용하는 방법에 대한 자습서의 경우 [Azure CLI 2.0](tutorial-use-custom-image-cli.md) 또는 [Azure PowerShell](tutorial-use-custom-image-powershell.md)을 사용할 수 있습니다.
+**A.** VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로 사용합니다. 사용자 지정 VM 이미지를 만들고 사용하는 방법에 대한 자습서의 경우 [Azure CLI](tutorial-use-custom-image-cli.md) 또는 [Azure PowerShell](tutorial-use-custom-image-powershell.md)을 사용할 수 있습니다.
 
 **Q.** 내 크기 집합 용량을 20에서 15로 줄이면, 어떤 VM이 제거되나요?
 
@@ -65,14 +65,14 @@ Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 �
 
 **Q.** 크기 집합은 Azure 가용성 집합과 작업이 가능한가요?
 
-**A.** 지역(비 영역) 확장 집합 설정은 *배치 그룹*을 사용합니다. 각각은 5개의 장애 도메인과 5개의 업데이트 도메인이 있는 암시적 가용성 집합으로 역할을 하도록 구성될 수 있습니다. 100개 이상의 VM 확장 집합은 여러 배치 그룹으로 확장합니다. 배치 그룹에 대한 자세한 내용은 [대규모 가상 머신 크기 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. VM의 가용성 집합은 동일한 가상 네트워크에 VM의 확장 집합으로 존재할 수 있습니다. 일반적인 구성은 가용성 집합에서 고유한 구성이 필요한 제어 노드 VM을 배치하고 확장 집합에 데이터 노드를 배치하는 것입니다.
+**A.** 지역(비 영역) 확장 집합은 *배치 그룹*을 사용합니다. 5개의 장애 도메인과 5개의 업데이트 도메인이 있는 암시적 가용성 집합으로 역할을 합니다. 100개 이상의 VM 확장 집합은 여러 배치 그룹으로 확장합니다. 배치 그룹에 대한 자세한 내용은 [대규모 가상 머신 크기 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. VM의 가용성 집합은 동일한 가상 네트워크에 VM의 확장 집합으로 존재할 수 있습니다. 일반적인 구성은 가용성 집합에서 고유한 구성이 필요한 제어 노드 VM을 배치하고 확장 집합에 데이터 노드를 배치하는 것입니다.
 
 **Q.** 확장 집합은 Azure 가용성 영역과 작업이 가능한가요?
 
 **A.** 예! 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
 
 
-## <a name="autoscale"></a>Autoscale
+## <a name="autoscale"></a>자동 크기 조정
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Azure 자동 크기 조정에 대한 모범 사례는 무엇인가요?
 
@@ -129,12 +129,12 @@ PowerShell 또는 Azure CLI를 통해 가상 머신 확장 집합의 메트릭�
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 조정을 설정하려면 어떻게 하나요?
 
-PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 조정을 설정하려면 [가상 머신 확장 집합의 크기를 자동으로 조정](tutorial-autoscale-powershell.md)을 참조하세요. [Azure CLI 2.0](tutorial-autoscale-cli.md) 및 [Azure 템플릿](tutorial-autoscale-template.md)으로 자동 크기 조정을 구성할 수도 있습니다.
+PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 조정을 설정하려면 [가상 머신 확장 집합의 크기를 자동으로 조정](tutorial-autoscale-powershell.md)을 참조하세요. [Azure CLI](tutorial-autoscale-cli.md) 및 [Azure 템플릿](tutorial-autoscale-template.md)으로 자동 크기 조정을 구성할 수도 있습니다.
 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>VM을 중지(할당 취소)한 경우 VM이 자동 크기 조정 작업의 일부로 시작되었나요?
 
-아니요. 자동 크기 조정 규칙에 확장 집합의 일부로 추가 VM 인스턴스가 필요한 경우 새 VM 인스턴스가 생성됩니다. 중지(할당 취소)된 VM 인스턴스는 자동 크기 조정 이벤트의 일부로 시작되지 않습니다. 그러나 중지(할당 취소)된 VM은 VM 인스턴스 ID의 순서에 따라 모든 VM 인스턴스를 삭제할 수 있는 것과 같은 방식으로, 인스턴스 수에 따라 자동 크기 조정 이벤트의 일부로 삭제할 수 있습니다.
+ 아니요. 자동 크기 조정 규칙에 확장 집합의 일부로 추가 VM 인스턴스가 필요한 경우 새 VM 인스턴스가 생성됩니다. 중지(할당 취소)된 VM 인스턴스는 자동 크기 조정 이벤트의 일부로 시작되지 않습니다. 그러나 중지(할당 취소)된 VM은 VM 인스턴스 ID의 순서에 따라 모든 VM 인스턴스를 삭제할 수 있는 것과 같은 방식으로, 인스턴스 수에 따라 자동 크기 조정 이벤트의 일부로 삭제할 수 있습니다.
 
 
 
@@ -268,9 +268,9 @@ Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있�
  
 linuxConfiguration 요소 이름 | 필수 | 형식 | 설명
 --- | --- | --- | --- |  ---
-ssh | 아니오 | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
-경로 | 예 | 문자열 | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
-keyData | 예 | 문자열 | base64로 인코딩된 SSH 공개 키를 지정합니다.
+ssh | 아니요 | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
+경로 | yes | 문자열 | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
+keyData | yes | 문자열 | base64로 인코딩된 SSH 공개 키를 지정합니다.
 
 예제는 [101-vm-sshkey GitHub 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)을 참조하세요.
 
@@ -371,7 +371,7 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 가상 머신 확장 집합 및 VM에서 인증서가 JSON 개체에 래핑되어야 합니다. 
 
-또한 콘텐츠 형식 application/x-pkcs12도 지원됩니다. application/x-pkcs12 사용에 대한 지침을 보려면 [Azure Key Vault의 PFX 인증서](http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/)를 참조하세요.
+또한 콘텐츠 형식 application/x-pkcs12도 지원됩니다. 
  
 현재 .cer 파일은 지원하지 않습니다. .cer 파일을 사용하려면 .pfx 컨테이너로 내보냅니다.
 
@@ -387,7 +387,7 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/TrustCenter/Compliance/PCI)를 참조하세요.
 
-### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>[Azure 관리 서비스 ID](https://docs.microsoft.com/azure/active-directory/msi-overview)가 가상 머신 확장 집합에서 작동하나요?
+### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>[Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/msi-overview)는 가상 머신 확장 집합과 함께 작동하나요?
 
 예. Azure 빠른 시작 템플릿에서 일부 예제 MSI 템플릿을 확인할 수 있습니다. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
@@ -519,7 +519,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
  
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>집합의 모든 VM NIC에 적용되도록 확장 집합에 NSG(네트워크 보안 그룹)를 할당할 수 있나요?
 
-예. 네트워크 프로필의 networkInterfaceConfigurations 섹션에서 참조하여 네트워크 보안 그룹을 확장 집합에 직접 적용할 수 있습니다. 예:
+예. 네트워크 프로필의 networkInterfaceConfigurations 섹션에서 참조하여 네트워크 보안 그룹을 확장 집합에 직접 적용할 수 있습니다. 예제:
 
 ```json
 "networkProfile": {
@@ -599,7 +599,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>확장 집합에서 사용하는 DNS 서버를 구성하려면 어떻게 해야 하나요?
 
-사용자 지정 DNS 구성을 포함한 가상 머신 확장 집합을 만들려면 dnsSettings JSON 패킷을 확장 집합 networkInterfaceConfigurations 섹션에 추가합니다. 예:
+사용자 지정 DNS 구성을 포함한 가상 머신 확장 집합을 만들려면 dnsSettings JSON 패킷을 확장 집합 networkInterfaceConfigurations 섹션에 추가합니다. 예제:
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -608,7 +608,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>각 VM에 공용 IP 주소를 할당하도록 확장 집합을 구성하려면 어떻게 해야 하나요?
 
-각 VM에 공용 IP 주소를 할당하는 가상 머신 확장 집합을 만들려면 Microsoft.Compute/virtualMachineScaleSets 리소스의 API 버전이 2017-03-30인지 확인하고 _publicipaddressconfiguration_ JSON 패킷을 확장 집합 ipConfigurations 섹션에 추가합니다. 예:
+각 VM에 공용 IP 주소를 할당하는 가상 머신 확장 집합을 만들려면 Microsoft.Compute/virtualMachineScaleSets 리소스의 API 버전이 2017-03-30인지 확인하고 _publicipaddressconfiguration_ JSON 패킷을 확장 집합 ipConfigurations 섹션에 추가합니다. 예제:
 
 ```json
     "publicipaddressconfiguration": {
@@ -705,7 +705,7 @@ Azure Portal의 가상 머신 확장 집합에서 VM 수를 변경하려면 가�
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
-OMS 포털에서 필수 workspaceId 및 workspaceKey를 찾을 수 있습니다. 개요 페이지에서 설정 타일을 클릭합니다. 위쪽에서 연결된 원본 탭을 클릭합니다.
+Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey를 찾을 수 있습니다. 개요 페이지에서 설정 타일을 클릭합니다. 위쪽에서 연결된 원본 탭을 클릭합니다.
 
 참고: 확장 집합 _upgradePolicy_를 수동으로 설정한 경우 이에 대한 업그레이드를 호출하여 집합의 모든 VM에 확장을 적용해야 합니다. CLI에서는 _az vmss update-instances_입니다.
 

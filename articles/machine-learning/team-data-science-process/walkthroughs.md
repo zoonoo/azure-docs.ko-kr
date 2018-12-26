@@ -2,25 +2,21 @@
 title: Azure에서 Team Data Science Process 실행 연습 | Microsoft Docs
 description: 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법입니다.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: deguhath
-ms.openlocfilehash: ce5d99e7fbae761a01dbbac218ce96ac9fabd442
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 28586d960bab75704a0aae6e39517ae83a74d60e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838996"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495898"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Azure에서 Team Data Science Process 실행 연습
 
@@ -32,7 +28,6 @@ ms.locfileid: "34838996"
 이러한 연습 예제가 해당 각 플랫폼에서 제공하는 것의 간략한 설명입니다.
 
 
-- [Azure Machine Learning Workbench](walkthroughs-aml-with-tdsp.md) 이러한 연습 자습서 및 샘플에서는 Azure Machine Learning Workbench를 사용하여 Team Data Science 구조적 프로젝트를 만들어 자연어 처리 및 분류를 수행하는 방법을 보여 줍니다.
 - [PySpark 및 Scala를 사용하여 HDInsight Spark 연습](walkthroughs-spark.md) 이러한 연습에서는 Azure Spark 클러스터에서 PySpark 및 Scala를 사용하여 예측 분석을 수행합니다.
 - [Hive를 사용하여 HDInsight Hadoop 연습](walkthroughs-hdinsight-hadoop.md) 이 연습에서는 HDInsight Hadoop 클러스터와 Hive를 사용하여 예측 분석을 수행합니다.
 - [U-SQL을 사용하여 Azure Data Lake 연습](walkthroughs-azure-data-lake.md) 이러한 연습은 예측 분석을 수행하는 데 Azure Data Lake와 함께 U-SQL을 사용합니다.
@@ -47,5 +42,5 @@ Team Data Science Process를 구성하는 주요 구성의 논의는 [Team Data 
 
 데이터 과학 프로젝트를 구성하는 데 사용할 수 있는 Team Data Science Process 수명 주기의 논의는 [Team Data Science Process 수명 주기](lifecycle.md)를 참조하세요. 수명 주기는 일반적으로 프로젝트가 실행될 때 시작부터 끝까지 따라야 하는 단계를 간략하게 설명합니다. 
 
-Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 토픽에 대한 개요는 [데이터 과학 프로세스](http://aka.ms/datascienceprocess)를 참조하세요. 
+Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 토픽에 대한 개요는 [데이터 과학 프로세스](https://aka.ms/datascienceprocess)를 참조하세요. 
 

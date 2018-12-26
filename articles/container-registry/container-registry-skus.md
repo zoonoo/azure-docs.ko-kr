@@ -2,18 +2,17 @@
 title: Azure Container Registry SKU
 description: Azure Container Registry에서 사용할 수 있는 서로 다른 서비스 계층을 비교합니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
-ms.author: marsma
-ms.openlocfilehash: a8dcc6fc60b80a19c4edebd57fdad5bb10cfdd0b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/30/2018
+ms.author: danlep
+ms.openlocfilehash: 80ee1033ef7a5fee849126ab2b614de18b71e051
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165217"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855853"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
 
@@ -21,16 +20,14 @@ ACR(Azure Container Registry)은 다중 서비스 계층(즉, SKU)에서 사용 
 
 | SKU | 관리 | 설명 |
 | --- | :-------: | ----------- |
-| **Basic** | 예 | 개발자가 Azure Container Registry에 대해 배울 수 있는 비용 최적화된 진입점입니다. Basic 레지스트리는 Standard 및 Premium(Azure Active Directory 인증 통합, 이미지 삭제 및 웹 후크)과 동일한 프로그래밍 성능을 가지고 있지만 크기와 사용량 제약이 있습니다. |
-| **Standard** | 예 | Standard 레지스트리는 Basic과 동일한 성능을 제공하되, 저장소 제한과 이미지 처리량이 증가합니다. Standard 레지스트리는 대부분의 프로덕션 시나리오 요구를 충족합니다. |
-| **Premium** | 예 | Premium 레지스트리는 저장소 및 동시 작업 수 등의 제약에 더 높은 한도를 제공하여 대규모 시나리오가 가능합니다. Premium은 많은 이미지 처리 수용작업량을 제공하는 것 이외에도, 여러 지역 전반에서 단일 레지스트리를 관리하기 위한 [지역에서 복제][container-registry-geo-replication]와 같은 기능을 추가하여 각 배포에서 네트워크에 가까운 레지스트리를 유지합니다. |
-| 클래식 | 아니오 | Classic 레지스트리 SKU는 Azure에서 Azure Container Registry 서비스의 초기 릴리스를 지원했습니다. Classic 레지스트리는 사용자 구독에서 Azure가 만드는 저장소 계정에서 지원하며 ACR가 처리량 증가 및 지역에서 복제 등의 더 높은 수준의 기능을 제공할 수 있는 기능을 제한합니다. 제한된 기능으로 인해 앞으로 Classic SKU를 폐기할 계획입니다. |
+| **Basic** | yes | 개발자가 Azure Container Registry에 대해 배울 수 있는 비용 최적화된 진입점입니다. Basic 레지스트리는 Standard 및 Premium(Azure Active Directory 인증 통합, 이미지 삭제 및 웹 후크)과 동일한 프로그래밍 성능을 갖습니다. 그렇지만 포함된 저장소 및 이미지 처리량은 더 낮은 사용량 시나리오에 가장 적합합니다. |
+| **Standard** | yes | Standard 레지스트리는 Basic과 동일한 성능을 제공하되, 포함된 저장소 제한과 이미지 처리량은 더 높습니다. Standard 레지스트리는 대부분의 프로덕션 시나리오 요구를 충족합니다. |
+| **Premium** | yes | Premium 레지스트리는 포함된 저장소 및 동시 작업 수가 가장 높으며 고용량 시나리오를 지원합니다. Premium은 많은 이미지 처리량을 제공하는 것 외에도, 여러 지역 전반에서 단일 레지스트리를 관리하기 위한 [지역에서 복제][container-registry-geo-replication] 및 이미지 태그 서명을 위한 [콘텐츠 신뢰(미리 보기)](container-registry-content-trust.md)와 같은 기능을 추가적으로 제공합니다. |
+| 클래식<sup>1</sup> | 아니요 | SKU는 Azure에서 Azure Container Registry 서비스의 초기 릴리스를 지원했습니다. Classic 레지스트리는 사용자 구독에서 Azure가 만드는 저장소 계정에서 지원하며 ACR가 처리량 증가 및 지역에서 복제 등의 더 높은 수준의 기능을 제공할 수 있는 기능을 제한합니다. |
+
+<sup>1</sup> 클래식 SKU는 **2019년 3월**부터 **사용되지 않습니다**. 모든 새 컨테이너 레지스트리에는 기본, 표준 또는 프리미엄을 사용하세요.
 
 상위 수준 SKU를 선택하면 더 많은 성능 및 확장성을 제공하지만 모든 관리되는 SKU는 동일한 프로그래밍 방식 기능을 제공합니다. 여러 서비스 계층을 사용하여 Basic로 시작한 다음 레지스트리 사용량 증가에 따라 Standard 및 Premium으로 변환할 수 있습니다.
-
-> [!NOTE]
-> Classic 레지스트리 SKU 폐기가 계획되어 있으므로, 모든 새로운 레지스트리에는 Basic, Standard 또는 Premium을 사용하는 것이 좋습니다. 기존 Classic 레지스트리 전환 방법에 대한 자세한 내용은 [Classic 레지스트리 업그레이드][container-registry-upgrade]를 참조하세요.
->
 
 ## <a name="managed-vs-unmanaged"></a>관리되는 레지스트리와 관리되지 않는 레지스트리 비교
 
@@ -41,6 +38,9 @@ Basic, Standard 및 Premium SKU는 *관리되는* 레지스트리로 통칭하�
 관리되는 레지스트리는 Azure에서 완전히 관리하는 이미지 저장소를 사용합니다. 즉, 이미지를 저장하는 저장소 계정은 Azure 구독 내에서 표시되지 않습니다. [Azure Container Registry의 컨테이너 이미지 저장소][container-registry-storage]에서 자세히 설명한 대로 관리되는 레지스트리 SKU 중 하나를 사용하여 얻는 여러 가지 이점이 있습니다. 이 문서는 관리되는 레지스트리 SKU와 해당 기능에 중점을 둡니다.
 
 ### <a name="unmanaged-classic"></a>관리되지 않는(Classic)
+
+> [!IMPORTANT]
+> 클래식 SKU는 더 이상 사용되지 않으며 2019년 3월 이후에는 사용할 수 없습니다. 모든 새 레지스트리에는 기본, 표준 또는 프리미엄을 사용하세요.
 
 Classic 레지스트리는 Classic 레지스트리를 지원하는 저장소 계정이 *사용자의* Azure 구독에 상주한다는 점에서 "관리되지 않습니다". 따라서 컨테이너 이미지가 저장되는 저장소 계정의 관리를 담당해야 합니다. 관리되지 않는 레지스트리를 사용하면 필요에 따라 SKU 간에 전환할 수 없으며(관리되는 레지스트리로 [업그레이드][container-registry-upgrade] 대신) 관리되는 레지스트리의 몇 가지 기능을 사용할 수 없습니다(예: 컨테이너 이미지 삭제 [지역에서 복제][container-registry-geo-replication] 및 [웹후크][container-registry-webhook]).
 
@@ -101,7 +101,7 @@ GitHub에서 [ACR 로드맵][acr-roadmap]에 방문하여 예정된 서비스 �
 [container-registry-uservoice]: https://feedback.azure.com/forums/903958-azure-container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-update]: /cli/azure/acr#az_acr_update
+[az-acr-update]: /cli/azure/acr#az-acr-update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
 [container-registry-storage]: container-registry-storage.md

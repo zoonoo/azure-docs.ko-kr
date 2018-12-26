@@ -1,9 +1,9 @@
 ---
-title: 자습서 - Azure CLI 2.0을 사용하여 확장 집합에 응용 프로그램 설치 | Microsoft Docs
-description: Azure CLI 2.0을 사용하여 사용자 지정 스크립트 확장이 있는 가상 머신 확장 집합에 응용 프로그램을 설치하는 방법을 알아봅니다.
+title: 자습서 - Azure CLI를 사용하여 확장 집합에 응용 프로그램 설치 | Microsoft Docs
+description: Azure CLI를 사용하여 사용자 지정 스크립트 확장이 있는 가상 머신 확장 집합에 응용 프로그램을 설치하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: fe1fd957176762c5cc04145f56559b50667c476c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 913d1b9125bcfa57334e70dcca44965fdb3d5ba6
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606528"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242061"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli-20"></a>자습서: Azure CLI 2.0을 사용하여 가상 머신 확장 집합에 응용 프로그램 설치
-확장 집합의 VM(가상 머신) 인스턴스에서 응용 프로그램을 실행하려면 먼저 응용 프로그램 구성 요소 및 필요한 파일을 설치해야 합니다. 이전 자습서에서는 사용자 지정 VM 이미지를 만들고 사용하여 VM 인스턴스를 배포하는 방법을 알아보았습니다. 이 사용자 지정 이미지에는 수동 응용 프로그램 설치 및 구성이 포함되어 있습니다. 또한 각 VM 인스턴스가 배포된 후에 확장 집합에 응용 프로그램 설치를 자동화하거나 이미 확장 집합에서 실행되는 응용 프로그램을 업데이트할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합에 응용 프로그램 설치
+확장 집합의 VM(가상 머신) 인스턴스에서 애플리케이션을 실행하려면 먼저 애플리케이션 구성 요소 및 필요한 파일을 설치해야 합니다. 이전 자습서에서는 사용자 지정 VM 이미지를 만들고 사용하여 VM 인스턴스를 배포하는 방법을 알아보았습니다. 이 사용자 지정 이미지에는 수동 애플리케이션 설치 및 구성이 포함되어 있습니다. 또한 각 VM 인스턴스가 배포된 후에 확장 집합에 애플리케이션 설치를 자동화하거나 이미 확장 집합에서 실행되는 애플리케이션을 업데이트할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 확장 집합에 응용 프로그램 자동 설치
+> * 확장 집합에 애플리케이션 자동 설치
 > * Azure 사용자 지정 스크립트 확장 사용
-> * 확장 집합에서 실행되는 응용 프로그램 업데이트
+> * 확장 집합에서 실행되는 애플리케이션 업데이트
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.29 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.29 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Azure 사용자 지정 스크립트 확장이란?
 사용자 지정 스크립트 확장은 Azure VM에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트는 Azure 저장소 또는 GitHub에서 다운로드하거나 확장 런타임에서 Azure Portal에 제공할 수 있습니다.
 
-사용자 지정 스크립트 확장은 Azure Resource Manager 템플릿과 통합되며, Azure CLI 2.0, Azure PowerShell, Azure Portal 또는 REST API에서 사용할 수도 있습니다. 자세한 내용은 [사용자 지정 스크립트 확장 개요](../virtual-machines/linux/extensions-customscript.md)를 참조하세요.
+사용자 지정 스크립트 확장은 Azure Resource Manager 템플릿과 통합되며, Azure CLI, Azure PowerShell, Azure Portal 또는 REST API에서 사용할 수도 있습니다. 자세한 내용은 [사용자 지정 스크립트 확장 개요](../virtual-machines/linux/extensions-customscript.md)를 참조하세요.
 
-Azure CLI를 통해 사용자 지정 스크립트 확장을 사용하려면 가져올 파일과 실행할 명령을 정의하는 JSON 파일을 만듭니다. 이러한 JSON 정의는 일관된 응용 프로그램 설치를 적용하기 위해 확장 집합 배포 전체에서 다시 사용할 수 있습니다.
+Azure CLI를 통해 사용자 지정 스크립트 확장을 사용하려면 가져올 파일과 실행할 명령을 정의하는 JSON 파일을 만듭니다. 이러한 JSON 정의는 일관된 애플리케이션 설치를 적용하기 위해 확장 집합 배포 전체에서 다시 사용할 수 있습니다.
 
 
 ## <a name="create-custom-script-extension-definition"></a>사용자 지정 스크립트 확장 정의 만들기
 작동 중인 사용자 지정 스크립트 확장을 확인하기 위해 NGINX 웹 서버를 설치하고 확장 집합 VM 인스턴스의 호스트 이름을 출력하는 확장 집합을 만들어 보겠습니다. 다음 사용자 지정 스크립트 확장 정의는 GitHub에서 샘플 스크립트를 다운로드하고, 필요한 패키지를 설치한 다음, VM 인스턴스 호스트 이름을 기본 HTML 페이지에 작성합니다.
 
-현재 셸에서 *customConfig.json*이라는 파일을 만들고 다음 구성을 붙여넣습니다. 예를 들어 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. 원하는 모든 편집기를 사용할 수 있습니다. Cloud Shell에서 `sensible-editor cloudConfig.json`을 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 확인합니다.
+현재 셸에서 *customConfig.json*이라는 파일을 만들고 다음 구성을 붙여넣습니다. 예를 들어 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. 원하는 모든 편집기를 사용할 수 있습니다. Cloud Shell에서 `sensible-editor customConfig.json`을 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 확인합니다.
 
 ```json
 {
@@ -94,7 +94,7 @@ az vmss extension set \
   --settings @customConfig.json
 ```
 
-확장 집합의 각 VM 인스턴스는 GitHub에서 스크립트를 다운로드하고 실행합니다. 더 복잡한 예제에서는 여러 응용 프로그램 구성 요소와 파일을 설치할 수 있습니다. 확장 집합의 크기를 강화하면 새 VM 인스턴스에서 자동으로 동일한 사용자 지정 스크립트 확장 정의를 적용하고 필요한 응용 프로그램을 설치합니다.
+확장 집합의 각 VM 인스턴스는 GitHub에서 스크립트를 다운로드하고 실행합니다. 더 복잡한 예제에서는 여러 애플리케이션 구성 요소와 파일을 설치할 수 있습니다. 확장 집합의 크기를 강화하면 새 VM 인스턴스에서 자동으로 동일한 사용자 지정 스크립트 확장 정의를 적용하고 필요한 애플리케이션을 설치합니다.
 
 
 ## <a name="test-your-scale-set"></a>확장 집합 테스트
@@ -130,9 +130,9 @@ az network public-ip show \
 
 
 ## <a name="update-app-deployment"></a>앱 배포 업데이트
-확장 집합의 수명 주기 전체에서 응용 프로그램의 업데이트된 버전을 배포해야 할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 업데이트된 배포 스크립트를 참조한 다음, 해당 확장을 확장 집합에 다시 적용할 수 있습니다. 이전 단계에서 확장 집합을 만든 경우 `--upgrade-policy-mode`가 *automatic*으로 설정되어 있습니다. 이 설정을 사용하면 확장 집합의 VM 인스턴스에서 자동으로 업데이트하여 응용 프로그램의 최신 버전을 적용할 수 있습니다.
+확장 집합의 수명 주기 전체에서 애플리케이션의 업데이트된 버전을 배포해야 할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 업데이트된 배포 스크립트를 참조한 다음, 해당 확장을 확장 집합에 다시 적용할 수 있습니다. 이전 단계에서 확장 집합을 만든 경우 `--upgrade-policy-mode`가 *automatic*으로 설정되어 있습니다. 이 설정을 사용하면 확장 집합의 VM 인스턴스에서 자동으로 업데이트하여 애플리케이션의 최신 버전을 적용할 수 있습니다.
 
-현재 셸에서 *customConfigv2.json*이라는 파일을 만들고 다음 구성을 붙여넣습니다. 이 정의는 업데이트된 *v2* 버전의 응용 프로그램 설치 스크립트를 실행합니다.
+현재 셸에서 *customConfigv2.json*이라는 파일을 만들고 다음 구성을 붙여넣습니다. 이 정의는 업데이트된 *v2* 버전의 애플리케이션 설치 스크립트를 실행합니다.
 
 ```json
 {
@@ -167,12 +167,12 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure CLI 2.0을 사용하여 확장 집합에 응용 프로그램을 자동으로 설치하고 업데이트하는 방법을 알아보았습니다.
+이 자습서에서는 Azure CLI를 사용하여 확장 집합에 응용 프로그램을 자동으로 설치하고 업데이트하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 확장 집합에 응용 프로그램 자동 설치
+> * 확장 집합에 애플리케이션 자동 설치
 > * Azure 사용자 지정 스크립트 확장 사용
-> * 확장 집합에서 실행되는 응용 프로그램 업데이트
+> * 확장 집합에서 실행되는 애플리케이션 업데이트
 
 확장 집합을 자동으로 크기 조정하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 

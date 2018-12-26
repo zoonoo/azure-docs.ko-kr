@@ -3,19 +3,19 @@ title: LUIS 미리 빌드된 엔터티 phone number 참조 - Azure | Microsoft D
 titleSuffix: Azure
 description: 이 문서에는 LUIS(Language Understanding)의 phone number 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0f72b807b9b0ec110a80d67babb1c45902b8c810
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 11/27/2018
+ms.author: diberry
+ms.openlocfilehash: 9a8fcbaf946f936d7a6d6d883a0416fce9d0c158
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321565"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441719"
 ---
 # <a name="phonenumber-entity"></a>Phonenumber 엔터티
 `phonenumber` 엔터티는 국가 코드를 포함하는 다양한 전화 번호를 추출합니다. 이 엔터티를 이미 학습했기 때문에 응용 프로그램에 예제 발언을 추가할 필요가 없습니다. `phonenumber` 엔터티는 `en-us` 문화권에서만 지원됩니다. 

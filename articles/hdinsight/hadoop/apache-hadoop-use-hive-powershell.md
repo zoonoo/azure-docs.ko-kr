@@ -1,37 +1,32 @@
 ---
-title: HDInsight에서 PowerShell과 Hadoop Hive 사용 - Azure | Microsoft Docs
-description: PowerShell을 사용하여 HDInsight의 Hadoop에서 Hive 쿼리 실행
+title: HDInsight에서 PowerShell과 Apache Hive 사용 - Azure
+description: PowerShell을 사용하여 HDInsight의 Apache Hadoop에서 Hive 쿼리를 실행합니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: cb795b7c-bcd0-497a-a7f0-8ed18ef49195
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: d72d5223373043648aeb3d783477781dbce35f6d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: hrasheed
+ms.openlocfilehash: 4927c76c1bb6be6c27d2e559e6d1292008b3643b
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164577"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162353"
 ---
-# <a name="run-hive-queries-using-powershell"></a>PowerShell을 사용하여 Hive 쿼리 실행
+# <a name="run-apache-hive-queries-using-powershell"></a>PowerShell을 사용하여 Apache Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-이 문서는 Azure 리소스 그룹 모드에서 Azure PowerShell을 사용하여 HDInsight 클러스터의 Hadoop에서 Hive 쿼리를 실행하는 예제를 제공합니다.
+이 문서는 Azure 리소스 그룹 모드에서 Azure PowerShell을 사용하여 HDInsight 클러스터의 Apache Hadoop에서 Hive 쿼리를 실행하는 예제를 제공합니다.
 
 > [!NOTE]
 > 이 문서에는 예제에 사용된 HiveQL 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에서 사용된 HiveQL에 대한 자세한 내용은 [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight 클러스터 버전 3.4 이상의 Linux 기반 Hadoop
+* HDInsight 클러스터 버전 3.4 이상의 Linux 기반 Apache Hadoop
 
   > [!IMPORTANT]
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -64,7 +59,7 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
 
         .\hivejob.ps1
 
-    스크립트를 실행할 때 클러스터에 대한 클러스터 이름 및 HTTPS/관리자 계정 자격 증명을 입력하라는 메시지가 표시됩니다. Azure 구독에 로그인하라는 메시지도 표시될 수 있습니다.
+    스크립트를 실행할 때 클러스터 이름 및 HTTPS/클러스터 관리자 계정 자격 증명을 입력하라는 메시지가 표시됩니다. Azure 구독에 로그인하라는 메시지도 표시될 수 있습니다.
 
 3. 작업이 완료되면 다음 텍스트와 유사한 정보가 반환됩니다.
 
@@ -88,7 +83,7 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > **Here-Strings**에 대한 자세한 내용은 <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Windows PowerShell Here-Strings 사용</a>을 참조하세요.
+   > **Here-Strings**에 대한 자세한 내용은 <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">Windows PowerShell Here-Strings 사용</a>을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

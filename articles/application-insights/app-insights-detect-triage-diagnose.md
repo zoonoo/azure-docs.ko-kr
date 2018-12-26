@@ -9,23 +9,22 @@ ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
-ms.date: 06/26/2017
+ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b83d08b9dac4fccc033ad4537afd343a6fbe02c2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: cb106abaff2446fdbc2d025ae96c95745bc53150
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23660598"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728058"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps용 Application Insights 개요
 
 [Application Insights](app-insights-overview.md)를 사용하면 앱이 라이브 상태일 때 앱의 성능과 사용 방식을 신속하게 파악할 수 있습니다. 문제가 있는 경우 문제에 대해 알려주며 영향을 평가하고 원인을 확인하는 데 도움을 줍니다.
 
-웹 응용 프로그램을 개발하는 팀의 사례는 다음과 같습니다.
+웹 애플리케이션을 개발하는 팀의 사례는 다음과 같습니다.
 
 * *"몇 일 전에 '사소한' 핫픽스가 배포되었습니다. 광범위한 테스트 패스를 실행하지 않았지만 안타깝게도 예기치 못한 변경 사항 일부가 페이로드에 병합되었으며 이는 프런트 엔드 및 백 엔드 사이의 비호환성을 유발합니다. 즉시, 서버 예외 사항이 급증했고 경고가 발생했으며 상황을 인식하도록 했습니다. Application Insights 포털에서 몇 번의 클릭만으로 문제를 줄이기 위해 예외 사항 호출 스택에서 충분한 정보를 얻었습니다. 즉시 롤백하고 손상을 제한했습니다. Application Insights는 DevOps 사이클에서 이 부분을 매우 쉽고 조치할 수 있도록 합니다."*
 
@@ -64,7 +63,7 @@ Marcela Markova는 OBS 팀에서 선임 개발자이며 온라인 성능 모니�
 ## <a name="monitor-performance"></a>성능 모니터링
 Application Insights의 개요 페이지에는 [주요 메트릭](app-insights-web-monitor-performance.md)을 보여 주는 차트가 있습니다.
 
-![다양한 메트릭](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
+![개요 성능 KPI 그래프 스크린샷](./media/app-insights-detect-triage-diagnose/overview-graphs.png)
 
 브라우저 페이지 로드 시간은 웹 페이지에서 직접 전송한 원격 분석에서 파생됩니다. 서버 응답 시간, 서버 요청 수 및 실패한 요청 수는 웹 서버에서 측정되며 여기에서 Application Insights로 전송됩니다.
 
@@ -72,7 +71,7 @@ Marcela는 서버 응답 그래프 때문에 약간 걱정을 하고 있습니�
 
 Marcela는 서버 차트를 엽니다.
 
-![다양한 메트릭](./media/app-insights-detect-triage-diagnose/06.png)
+![다양한 메트릭](./media/app-insights-detect-triage-diagnose/002-servers.png)
 
 서버 차트에 리소스 한계의 징후는 없어 보이므로 서버 응답 차트의 범프는 단순한 우연인 것 같습니다.
 
@@ -154,7 +153,7 @@ TrackException은 스택 복사본을 보내기 때문에 예외 사항을 보�
 ## <a name="monitor-proactively"></a>사전 모니터링
 Marcela는 가만히 앉아서 경고를 기다리고 있지는 않습니다. 매든 재배포 후 곧바로 예외 수뿐 아니라 가장 느린 요청의 전체적인 수치 및 표 모두 [응답 시간](app-insights-web-monitor-performance.md)을 살펴봅니다.  
 
-![응답 시간 그래프 및 서버 응답 시간 표.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![응답 시간 그래프 및 서버 응답 시간 표.](./media/app-insights-detect-triage-diagnose/response-time.png)
 
 일반적으로 매주 마지막을 비교하여 모든 배포의 성능 효과를 평가할 수 있습니다. 갑작스러운 악화가 있는 경우 관련 개발자와 함께 해당 수치를 높입니다.
 
@@ -169,8 +168,6 @@ Marcela는 가만히 앉아서 경고를 기다리고 있지는 않습니다. �
 
 사용자의 어느 부분에 영향을 미치나요? 대략적인 답을 얻으려면 실패율을 세션 수로 나눕니다.
 
-![실패한 요청 및 세션 차트](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
-
 느린 응답이 있는 경우 가장 느린 응답 요청의 테이블과 각 페이지의 사용 빈도를 비교합니다.
 
 차단된 시나리오는 얼마나 중요한가요? 특정 사용자 이야기를 차단하는 기능적 문제가 있는 경우 큰 문제인가요? 고객이 요금을 지불할 수 없는 경우라면 심각한 문제입니다. 고객이 화면 색상 기본 설정을 변경할 수 없는 경우라면 기다릴 수 있습니다. 이벤트 또는 예외 사항의 세부 정보 또는 느린 페이지의 ID는 고객이 문제를 겪고 있는 위치를 말해 줍니다.
@@ -180,18 +177,18 @@ Marcela는 가만히 앉아서 경고를 기다리고 있지는 않습니다. �
 
 **언제 발생하나요?** 이벤트 및 메트릭 차트에서 제공하는 기록 보기를 통해 가능한 원인과 효과를 쉽게 연관지을 수 있습니다. 응답 시간 또는 예외 속도에 간헐적인 최대치가 있으면 요청 수를 살펴 봅니다. 동시에 최대치로 올라가는 경우 리소스 문제일 수 있습니다. 더 많은 CPU 또는 메모리를 할당해야 하나요? 또는 부하를 관리할 수 없는 종속성인가요?
 
-**원인이 무엇인가요?**  예를들어 고객이 계정서를 원할 때 특정 요청 유형의 성능에서 갑작스러운 하락이 있는 경우, 웹 응용 프로그램보다는 외부 하위 시스템일 가능성이 있습니다. 메트릭 탐색기에서 종속성 실패 비율 및 종속성 기간 비율을 선택하여 감지한 문제가 있는 과거 몇 시간 또는 몇 일에 대한 기록을 비교합니다. 연관된 변경 내용이 있는 경우 외부 하위 시스템 때문일 수 있습니다.  
+**원인이 무엇인가요?**   예를들어 고객이 계정서를 원할 때 특정 요청 유형의 성능에서 갑작스러운 하락이 있는 경우, 웹 응용 프로그램보다는 외부 하위 시스템일 가능성이 있습니다. 메트릭 탐색기에서 종속성 실패 비율 및 종속성 기간 비율을 선택하여 감지한 문제가 있는 과거 몇 시간 또는 몇 일에 대한 기록을 비교합니다. 연관된 변경 내용이 있는 경우 외부 하위 시스템 때문일 수 있습니다.  
 
 
 ![종속성 오류 및 종속성에 대한 호출 기간 차트](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 일부 느린 종속성 문제는 지리적 위치 문제입니다. Fabrikam 은행은 Azure 가상 컴퓨터를 사용하며, 의도치 않게 다른 국가에 웹 서버 및 계정 서버가 있음을 발견했습니다. 그 중 하나를 마이그레이션하여 극적인 개선이 이루어졌습니다.
 
-**무엇을 했나요?** 문제가 종속성에 있는 것으로 나타나지 않고 항상 있지 않는 경우, 최근 변경 내용으로 인한 것일 수 있습니다. 메트릭 및 이벤트 차트에서 제공하는 기록적 관점을 통해 갑작스러운 변경 내용과 배포를 쉽게 연관지을 수 있습니다. 이는 문제에 대한 검색 범위를 좁힙니다. 응용 프로그램 코드에서 성능을 저하시킨 줄을 확인하려면 Application Insights Profiler를 사용하도록 설정합니다. [Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링](./app-insights-profiler.md)을 참조하세요. Profiler를 사용하도록 설정하고 나면 다음과 같은 추적이 표시됩니다. 이 예제에서는 *GetStorageTableData* 메서드로 인해 문제가 발생했음을 쉽게 확인할 수 있습니다.  
+**무엇을 했나요?**  문제가 종속성에 있는 것으로 나타나지 않고 항상 있지 않는 경우, 최근 변경 내용으로 인한 것일 수 있습니다. 메트릭 및 이벤트 차트에서 제공하는 기록적 관점을 통해 갑작스러운 변경 내용과 배포를 쉽게 연관지을 수 있습니다. 이는 문제에 대한 검색 범위를 좁힙니다. 응용 프로그램 코드에서 성능을 저하시킨 줄을 확인하려면 Application Insights Profiler를 사용하도록 설정합니다. [Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링](./app-insights-profiler.md)을 참조하세요. Profiler를 사용하도록 설정하고 나면 다음과 같은 추적이 표시됩니다. 이 예제에서는 *GetStorageTableData* 메서드로 인해 문제가 발생했음을 쉽게 확인할 수 있습니다.  
 
 ![App Insights Profiler 추적](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
-**무엇이 일어나고 있나요?** 일부 문제가 드물게만 발생하고 오프라인 테스트를 통해서는 추적하기 어려울 수 있습니다. 최대한 할 수 있는 일은 실시간으로 발생할 때 버그를 확보하려고 노력하는 것입니다. 예외 보고서에서 스택 덤프를 점검할 수 있습니다. 또한 자주 사용하는 로깅 프레임워크 또는 TrackTrace()나 TrackEvent()를 사용하여 추적 호출을 작성할 수 있습니다.  
+**무엇이 일어나고 있나요?**  일부 문제가 드물게만 발생하고 오프라인 테스트를 통해서는 추적하기 어려울 수 있습니다. 최대한 할 수 있는 일은 실시간으로 발생할 때 버그를 확보하려고 노력하는 것입니다. 예외 보고서에서 스택 덤프를 점검할 수 있습니다. 또한 자주 사용하는 로깅 프레임워크 또는 TrackTrace()나 TrackEvent()를 사용하여 추적 호출을 작성할 수 있습니다.  
 
 Fabrikam은 계좌 간 이체에 간헐적인 문제가 있었으나 특정 계좌 유형에만 발생하지는 않았습니다. 자세히 이해하기 위해 계좌 유형을 각각의 호출에 속성으로 연결하여 코드에서 주요 포인트로 TrackTrace() 호출을 삽입했습니다. 이를 통해 진단 검색에서 해당 추적을 필터링하기 쉬워졌습니다. 또한 속성 및 측정값으로 매개 변수 값을 추적 호출에 연결했습니다.
 
@@ -203,7 +200,6 @@ Fabrikam 은행 개발팀은 보다 구조화된 접근법으로 Application Ins
 * Application Insights 개요 페이지에서 특정 측정값을 기준으로 성능 목표를 설정합니다.
 * 'funnels.'를 통해 사용자 진행률을 측정하는 메트릭과 같이 시작부터 응용 프로그램에 성능 측정값을 디자인합니다.  
 
-
 ## <a name="monitor-user-activity"></a>사용자 활동 모니터링
 응답 시간이 일관적으로 양호하고 예외가 거의 없으면 개발 팀에서 유용성으로 넘어갈 수 있습니다. 사용자의 경험을 개선하는 방법과 더 많은 사용자가 원하는 목표를 달성하도록 유도하는 방법에 대해 고민할 수 있습니다.
 
@@ -211,7 +207,7 @@ Application Insights는 사용자가 앱으로 수행할 작업에 대해 알아
 
 예를 들어 웹 사이트를 통한 일반적인 사용자 여정에는 명확한 "깔때기"가 있습니다. 많은 고객들이 다양한 유형의 대출 금리를 살펴봅니다. 견적서를 작성하는 단계로 넘어가는 고객은 그보다 수가 적습니다. 견적서를 작성한 고객 중에서 일부만 다음 단계로 넘어가서 대출을 실행합니다.
 
-![페이지 보기 수](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![페이지 보기 수](./media/app-insights-detect-triage-diagnose/funnel.png)
 
 빠져나가는 고객의 수가 가장 많은 영역을 고려하면, 깔때기형 차트의 아래쪽을 통해 더 많은 사용자를 받는 방법에 대해 작업할 수 있습니다. 일부의 경우 사용자 환경(UX) 실패일 수 있습니다. 예를 들어 '다음' 단추를 찾기 어렵거나 지침이 분명하지 않습니다. 탈퇴에 가장 중요한 비즈니스 이유는 대출 이율이 너무 높기 때문일 수 있습니다.
 
@@ -234,6 +230,6 @@ Application Insights는 사용자가 앱으로 수행할 작업에 대해 알아
 * [ASP.NET 웹 응용 프로그램](app-insights-asp-net.md)
 * [Java 웹 응용 프로그램](app-insights-java-get-started.md)
 * [Node.js 웹 응용 프로그램](app-insights-nodejs.md)
-* [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) 또는 [Azure](app-insights-azure.md)에서 호스트되는 이미 배포된 앱
+* [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) 또는 [Azure](app-insights-overview.md)에서 호스트되는 이미 배포된 앱
 * [웹 페이지](app-insights-javascript.md) - 단일 페이지 앱 또는 일반 웹 페이지 - 독립적으로 또는 다른 서버 옵션과 함께 사용
 * [가용성 테스트](app-insights-monitor-web-app-availability.md) - 공용 인터넷에서 앱 테스트

@@ -4,7 +4,7 @@ description: 이 항목에서는 Azure 주문형 미디어 인코더를 대략�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: f44f5cffd105d958c7d6552a170150623a0701ea
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c02d3483a98c358e53964d3932944b5d2dad9c53
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34638458"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240276"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요 및 비교
 ## <a name="encoding-overview"></a>Encoding 개요
@@ -31,7 +31,7 @@ Media Services로 시작하는 경우 코덱과 파일 형식 간의 차이점�
 Media Services는 적응 비트 전송률 MP4 또는 부드러운 스트리밍 인코딩 콘텐츠를 Media Services에서 지원되는 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다.
 
 > [!NOTE]
-> AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
+> AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다. 
 
 Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
 
@@ -51,7 +51,7 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 [형식 및 코덱](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>기본 설정
-미디어 인코더 표준은 [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
+미디어 인코더 표준은 [여기](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
 
 ### <a name="input-and-output-metadata"></a>입력 및 출력 메타데이터
 인코더 입력 메타데이터는 [여기](media-services-input-metadata-schema.md)에서 설명합니다.

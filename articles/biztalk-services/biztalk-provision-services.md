@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 61776b19ba0ee273b78e3b0a6f610e5701251dd0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26632723"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261964"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Azure Portal을 사용하여 BizTalk Services 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "26632723"
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!TIP]
-> Azure 포털에 로그인하려면 Azure 계정과 Azure 구독이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. [Azure 무료 평가판](http://go.microsoft.com/fwlink/p/?LinkID=239738)을 참조하세요.
+> Azure 포털에 로그인하려면 Azure 계정과 Azure 구독이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. [Azure 무료 평가판](https://go.microsoft.com/fwlink/p/?LinkID=239738)을 참조하세요.
 
 
 ## <a name="CreateService"></a>BizTalk 서비스 만들기
@@ -84,7 +84,7 @@ Access Control Service ID는 응용 프로그램이나 클라이언트가 Access
 <br/><br/>
 Azure 계정에는 여러 구독이 있을 수 있으며, 허용된 모든 사용자가 관리할 수 있습니다. 예를 들어 Azure 계정 소유자는 <em>BizTalkServiceSubscription</em>이라는 구독을 만들고, 회사 내의 BizTalk 관리자(예: ContosoBTSAdmins@live.com)에게 이 구독에 대한 액세스를 제공합니다. 이 시나리오에서 BizTalk 관리자는 Azure에 로그인하고 구독의 모든 호스팅 서비스(Azure BizTalk Services 포함)에 대해 전체 관리자 권한을 가집니다. BizTalk 관리자는 Azure 계정 소유자가 아니므로 대금 청구 정보에 대한 액세스 권한이 없습니다.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">Azure에서 구독 및 Storage 계정 관리</a>에 자세한 내용이 나와 있습니다.
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=267577">Azure에서 구독 및 Storage 계정 관리</a>에 자세한 내용이 나와 있습니다.
 </td>
 </tr>
 <tr>
@@ -93,7 +93,7 @@ Azure 계정에는 여러 구독이 있을 수 있으며, 허용된 모든 사�
 <br/><br/>
 BizTalk 서비스를 만들 때 기존 Azure SQL Server, Azure SQL Database를 사용하거나 새로운 서버 또는 데이터베이스를 자동으로 만들 수 있습니다.
 <br/><br/>
-SQL Database 크기는 자동으로 구성됩니다.  일반적으로 기본 크기는 BizTalk 서비스에 사용하기에 충분합니다. 크기를 변경하면 가격이 영향을 받습니다. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930">Azure SQL Database의 계정 및 대금 청구</a>
+SQL Database 크기는 자동으로 구성됩니다.  일반적으로 기본 크기는 BizTalk 서비스에 사용하기에 충분합니다. 크기를 변경하면 가격이 영향을 받습니다. <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930">Azure SQL Database의 계정 및 대금 청구</a>
  참조<br/><br/>
 <strong>참고</strong>
 <br/>
@@ -123,7 +123,7 @@ BizTalk 서비스를 만들 때 기존 Storage 계정을 사용하거나 새 Sto
 <br/><br/>
 Storage 계정을 만들면 기본 키와 보조 키가 자동으로 만들어집니다. 이러한 키는 Storage 계정에 대한 액세스를 제어합니다. BizTalk 서비스는 자동으로 기본 키를 사용합니다.
 <br/><br/>
-자세한 내용은 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285671">저장소</a>를 참조하세요.
+자세한 내용은 <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285671">저장소</a>를 참조하세요.
 </td>
 </tr>
 
@@ -165,7 +165,7 @@ Azure BizTalk 서비스를 만들면 **하이브리드 연결** 탭을 사용할
  하이브리드 연결을 만들고 관리하는 방법을 비롯한 자세한 내용은 [하이브리드 연결](integration-hybrid-connection-overview.md) 을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)도 익숙해질 수 있습니다. 응용 프로그램에 BizTalk 서비스를 사용할 준비가 되었습니다. 응용 프로그램을 만들려면 [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
+BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)도 익숙해질 수 있습니다. 응용 프로그램에 BizTalk 서비스를 사용할 준비가 되었습니다. 애플리케이션을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동합니다.
 
 ## <a name="see-also"></a>참고 항목
 * [BizTalk Services: Editions 차트](biztalk-editions-feature-chart.md)<br/>
@@ -173,8 +173,8 @@ BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk Services: 대시�
 * [BizTalk Services: Backup 및 복원](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: 제한](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: 발급자 이름 및 발급자 키](biztalk-issuer-name-issuer-key.md)<br/>
-* [Azure BizTalk Services SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [하이브리드 연결](integration-hybrid-connection-overview.md)
+* [Azure BizTalk Services SDK로 시작하는 방법](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [VNet](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png

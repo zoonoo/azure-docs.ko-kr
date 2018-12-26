@@ -2,21 +2,20 @@
 title: Azure Cloud Storage에서 구조화되지 않은 데이터 검색
 description: Azure Search를 사용하여 구조화되지 않은 데이터 검색
 author: roygara
-manager: timlt
 services: storage
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/12/2017
-ms.author: rogara
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 930b735eb03aea6ce701b694ca527049b4c3f24d
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 902009d7807b1ce340000c271350af1c37231d77
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
-ms.locfileid: "23451640"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181195"
 ---
-# <a name="search-unstructured-data-in-cloud-storage"></a>클라우드 저장소의 구조화되지 않은 데이터 검색
+# <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>자습서: 클라우드 저장소에서 구조화되지 않은 데이터 검색
 
 이 자습서에서는 Azure Blob에 저장된 데이터를 사용하는 [Azure Search](../../search/search-what-is-azure-search.md)를 사용하여 구조화되지 않은 데이터를 검색하는 방법에 대해 알아봅니다. 구조화되지 않은 데이터는 사전 정의된 방식으로 구성되어 있지 않거나 데이터 모델이 없는 데이터입니다. 예는 .txt 파일입니다.
 
@@ -38,7 +37,7 @@ ms.locfileid: "23451640"
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-[Azure 포털](http://portal.azure.com) 에 로그인합니다.
+[Azure Portal](http://portal.azure.com)에 로그인합니다.
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 

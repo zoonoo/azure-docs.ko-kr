@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a9a6e513d95df5dafba82556f74ec209529ff58d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 521bf044f280b91f668d42d760ba2a726b555f12
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294914"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822673"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights로 웹앱 및 서비스 심층 진단
 ## <a name="why-do-i-need-application-insights"></a>Application Insights가 필요한 이유는 무엇일까요?
@@ -37,11 +37,11 @@ Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와
 
 지금 지긋이 나이를 먹은 분들은 컴퓨터 한 대에 하나의 프로그램만 실행하던 단순한 시절을 기억하실 겁니다. 그때는 개발자가 출시 전에 철저히 테스트를 했고, 한 번 출시한 프로그램을 다시 들여다 보거나 그에 대해 생각할 필요가 없었습니다. 당시 사용자들은 오랫동안 남아 있는 버그를 참는 수밖에 없었습니다. 
 
-오늘날 상황은 매우 다릅니다. 여러분의 앱은 수많은 장치에서 실행되고, 각 장치에서 정확히 똑같은 동작을 보장하기 어려워졌습니다. 클라우드에서 앱을 호스팅하면 버그를 신속히 고칠 수 있지만, 끊임없는 경쟁과 자주 새로운 기능을 출시해야 한다는 부담에 시달립니다. 
+오늘날 상황은 매우 다릅니다. 여러분의 앱은 수많은 디바이스에서 실행되고, 각 디바이스에서 정확히 똑같은 동작을 보장하기 어려워졌습니다. 클라우드에서 앱을 호스팅하면 버그를 신속히 고칠 수 있지만, 끊임없는 경쟁과 자주 새로운 기능을 출시해야 한다는 부담에 시달립니다. 
 
 이러한 환경에서 버그 수를 확고히 통제하는 방법은 자동화된 단위 테스트뿐입니다. 출시할 때마다 모든 것을 직접 다시 테스트할 수는 없습니다. 이제 단위 테스트는 빌드 과정에서 일반화되었습니다. Xamarin Test Cloud와 같은 도구는 여러 브라우저 버전에서 자동 UI 테스트를 제공합니다. 이러한 테스트 체계를 사용하면 앱에서 발견되는 버그 비율을 최소한으로 유지할 수 있습니다.
 
-일반적인 웹 응용 프로그램에는 여러 라이브 구성 요소가 있습니다. (브라우저 또는 장치 앱에서) 클라이언트와 웹 서버 외에도 상당한 백 엔드가 처리될 가능성이 있습니다. 백 엔드는 구성 요소의 파이프라인 또는 공동 작업의 느슨한 컬렉션입니다. 그 대부분은 개발자가 통제하지 못하고, 의존해야 하는 외부 서비스일 것입니다.
+일반적인 웹 응용 프로그램에는 여러 라이브 구성 요소가 있습니다. (브라우저 또는 디바이스 앱에서) 클라이언트와 웹 서버 외에도 상당한 백 엔드가 처리될 가능성이 있습니다. 백 엔드는 구성 요소의 파이프라인 또는 공동 작업의 느슨한 컬렉션입니다. 그 대부분은 개발자가 통제하지 못하고, 의존해야 하는 외부 서비스일 것입니다.
 
 이러한 구성에서는 라이브 시스템 자체를 제외한 모든 가능한 오류 모드를 테스트하거나 예측하기는 어렵고 비용도 많이 듭니다. 
 
@@ -82,7 +82,7 @@ Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와
 ## <a name="case-study-real-madrid-fc"></a>사례 연구: Real Madrid F.C.
 [Real Madrid Football Club](http://www.realmadrid.com/) 의 웹 서비스는 전 세계 4억 5,000만 명의 팬에게 서비스를 제공합니다. 팬들은 웹 브라우저와 클럽 모바일 앱을 통해 액세스합니다. 팬은 입장권을 예매할 수 있을 뿐만 아니라 경기 결과, 선수, 예정 경기에 대한 정보와 비디오 클립에도 액세스할 수 있습니다. 골인 수 등의 필터로 검색도 가능합니다. 또한, 소셜 미디어에도 링크되어 있습니다. 사용자 경험은 매우 개인화되어 있으며, 팬의 참여를 유도하기 위해 양방향 통신으로 설계되었습니다.
 
-솔루션은 [Microsoft Azure의 서비스 및 응용 프로그램 시스템](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx)입니다. 확장성은 핵심 요구 사항입니다. 트래픽은 변동이 심하고 경기 무렵이나 도중에 매우 높아질 수 있습니다.
+솔루션은 [Microsoft Azure의 서비스 및 응용 프로그램 시스템](https://www.microsoft.com/inculture/sports/real-madrid/)입니다. 확장성은 핵심 요구 사항입니다. 트래픽은 변동이 심하고 경기 무렵이나 도중에 매우 높아질 수 있습니다.
 
 Real Madrid에게는 시스템 성능을 모니터링하는 것이 매우 중요합니다. Azure Application Insights는 시스템 전체에 대한 종합적인 개관을 제공하여 안정적이고 높은 수준의 서비스를 보장합니다. 
 
@@ -152,7 +152,7 @@ Application Insights가 예외를 기록하면 Visual Studio에서 데이터 포
 디버그할 때는 원격 분석을 개발 컴퓨터에 보관하는 옵션이 있습니다. Visual Studio에서 볼 수는 있지만 포털에 전송하지는 않습니다. 이 로컬 옵션은 디버깅과 프로덕션 원격 분석이 섞이지 않도록 방지합니다.
 
 ### <a name="build-annotations"></a>빌드 주석
-Visual Studio Team Services를 사용하여 앱을 빌드하고 배포한다면 포털에 있는 차트에 배포 주석이 나타납니다. 최신 릴리스가 메트릭에 영향을 미칠 경우, 그 결과가 명확히 나타납니다.
+Azure DevOps를 사용하여 앱을 빌드하고 배포한다면 포털에 있는 차트에 배포 주석이 나타납니다. 최신 릴리스가 메트릭에 영향을 미칠 경우, 그 결과가 명확히 나타납니다.
 
 ![빌드 주석](./media/app-insights-devops/070.png)
 
@@ -172,7 +172,7 @@ Visual Studio Team Services를 사용하여 앱을 빌드하고 배포한다면 
 ## <a name="next-steps"></a>다음 단계
 Application Insights로 시작하기가 쉽습니다. 기본 옵션:
 
-* 이미 실행 중인 웹앱을 계측합니다. 모든 내장 성능 원격 분석을 제공합니다. [Java](app-insights-java-live.md), [IIS 서버](app-insights-monitor-performance-live-website-now.md) 및 [Azure Web Apps](app-insights-azure.md)에서 사용할 수 있습니다.
+* 이미 실행 중인 웹앱을 계측합니다. 모든 내장 성능 원격 분석을 제공합니다. [Java](app-insights-java-live.md), [IIS 서버](app-insights-monitor-performance-live-website-now.md) 및 [Azure Web Apps](app-insights-overview.md)에서 사용할 수 있습니다.
 * 개발 중에 프로젝트를 계측합니다. [ASP.NET](app-insights-asp-net.md) 또는 [Java](app-insights-java-get-started.md) 앱, [Node.js](app-insights-nodejs.md), 여러 가지 [기타 유형](app-insights-platforms.md) 호스트에 적용할 수 있습니다. 
 * 짧은 코드 조각을 추가하여 [아무 웹 페이지](app-insights-javascript.md) 나 계측합니다.
 

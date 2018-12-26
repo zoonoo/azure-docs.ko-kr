@@ -1,23 +1,23 @@
 ---
-title: Bing Spell Check API(Azure의 Microsoft Cognitive Services)를 사용하여 Spell Check 결과 가져오기 | Microsoft Docs
+title: '자습서: Bing Spell Check API를 사용하여 맞춤법 검사 결과 가져오기'
+titlesuffix: Azure Cognitive Services
 description: Bing Spell Check을 사용하는 방법을 보여 줍니다.
 services: cognitive-services
-author: v-jaswel
-manager: kamrani
-ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/28/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 4e4cdbb8a3d6ab01888d8f273083155c33eb06c1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: aahi
+ms.openlocfilehash: d0cfc952511ac0d8e1328f7b01fe5eeb2b4f7e48
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374047"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160549"
 ---
-# <a name="build-a-web-page-spell-check-client"></a>웹 페이지 Spell Check 클라이언트 빌드
+# <a name="tutorial-build-a-web-page-spell-check-client"></a>자습서: 웹 페이지 맞춤법 검사 클라이언트 빌드
 
 이 자습서에서는 사용자가 Bing Spell Check API를 쿼리할 수 있게 하는 웹 페이지 빌드합니다.
 
@@ -68,7 +68,7 @@ HTML 헤더 정보를 추가하고 다음과 같이 스크립트 섹션을 시�
 
 getSubscriptionKey 함수는 Bing Spell Check API 키를 반환합니다. 로컬 저장소(즉, 쿠키)에서 데이터를 검색하거나 필요한 경우 사용자에게 묻는 메시지를 표시합니다.
 
-getSubscriptionKey 함수를 시작하고 다음과 같은 쿠키 이름을 선언합니다.
+getSubscriptionKey 함수를 시작하고 쿠키 이름을 다음과 같이 선언합니다.
 
 ```html
 getSubscriptionKey = function() {
@@ -106,7 +106,7 @@ getSubscriptionKeyCookie 도우미 함수는 Bing Spell Check API 키의 값을 
     }
 ```
 
-getSubscriptionKeyLocalStorage 도우미 함수는 먼저 적절한 쿠키를 조회하여 Bing Spell Check API 키를 검색하려고 합니다. 쿠키가 없는 경우에 키 값을 사용자에게 묻는 메시지를 표시합니다. 그런 다음, 기본 값을 반환합니다.
+getSubscriptionKeyLocalStorage 도우미 함수는 먼저 적절한 쿠키를 조회하여 Bing Spell Check API 키를 검색하려고 합니다. 쿠키가 없는 경우에 키 값을 사용자에게 묻는 메시지를 표시합니다. 다음 반환합니다.
 
 ```html
     function getSubscriptionKeyLocalStorage() {
@@ -148,7 +148,7 @@ getSubscriptionKey 도우미 함수는 하나의 매개 변수 **무효화**를 
 
 ## <a name="helper-functions"></a>도우미 함수
 
-사전 도우미 함수는 [사전](https://www.w3schools.com/tags/tag_pre.asp) HTML 태그를 사용하여 미리 서식이 지정된 텍스트를 반환합니다.
+pre 도우미 함수는 [pre](https://www.w3schools.com/tags/tag_pre.asp) HTML 태그를 사용하여 미리 서식이 지정된 텍스트를 반환합니다.
 
 ```html
 function pre(text) {
@@ -206,7 +206,7 @@ Bing Spell Check API 키의 값에 **Ocp-Apim-Subscription-Key** 헤더를 설�
     request.setRequestHeader("Ocp-Apim-Subscription-Key", key);
 ```
 
-엔드포인트에서 응답을 처리합니다. 상태가 200(정상)인 경우 결과를 표시하고, 그렇지 않은 경우 오류 정보를 표시합니다.
+엔드포인트에서 응답을 처리합니다. 상태가 200(OK)이면 결과를 표시하고, 200이 아니면 오류 정보를 표시합니다.
 
 ```html
     request.addEventListener("load", function() {
@@ -322,4 +322,4 @@ Bing 로고를 표시합니다.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [요구 사항 사용 및 표시](../UseAndDisplayRequirements.md)
+> [사용 및 표시 요구 사항](../UseAndDisplayRequirements.md)

@@ -2,24 +2,19 @@
 title: Azure RA-GRS(Read-Access Geo Redundant Storage)를 사용하여 항상 사용 가능한 응용 프로그램 설계 | Microsoft Docs
 description: Azure RA-GRS 저장소를 사용하여 가동 중단을 처리할 만큼 유연하면서 항상 사용 가능한 응용 프로그램을 설계하는 방법입니다.
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
-ms.openlocfilehash: f7f3f2d99e5582a1bcb672cc176258dfff9c3217
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: common
+ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322933"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231366"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS를 사용하여 항상 사용 가능한 응용 프로그램 설계
 
@@ -27,12 +22,14 @@ Azure Storage와 같은 클라우드 기반 인프라의 일반적인 기능은 
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-이 문서에서는 GRS 및 RA-GRS에 초점을 맞춥니다. GRS를 사용하면 세 개의 데이터 복사본이 저장소 계정을 설정할 때 선택된 주 지역에 유지됩니다. 세 개의 추가 복사본은 Azure에서 지정된 보조 지역에 비동기적으로 유지됩니다. RA-GRS는 보조 복사본에 대해 읽기 액세스를 갖는다는 점을 제외하면 GRS와 동일합니다. 다양한 Azure Storage 중복 옵션에 대한 자세한 내용은 [Azure Storage 복제](https://docs.microsoft.com/azure/storage/storage-redundancy)를 참조하세요. 복제 문서는 주 지역과 보조 지역의 페어링도 보여줍니다.
+이 문서에서는 GRS 및 RA-GRS에 초점을 맞춥니다. GRS를 사용하면 세 개의 데이터 복사본이 저장소 계정을 설정할 때 선택된 주 지역에 유지됩니다. 세 개의 추가 복사본은 Azure에서 지정된 보조 지역에 비동기적으로 유지됩니다. RA-GRS는 보조 복사본에 대한 읽기 권한을 사용하여 지역 중복 저장소를 제공합니다.
+
+보조 지역과 쌍을 이루는 주 지역에 대한 정보는 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조합니다.
 
 이 문서에는 코드 조각이 포함되어 있고 끝 부분에는 다운로드하여 실행할 수 있는 전체 샘플에 대한 링크가 있습니다.
 
 > [!NOTE]
-> Azure Storage는 이제 고가용성 응용 프로그램을 빌드하기 위한 ZRS(영역 중복 저장소)를 지원합니다. ZRS는 많은 응용 프로그램의 중복성 요구 사항에 대한 간단한 솔루션을 제공합니다. ZRS는 하드웨어 오류 또는 단일 데이터 센터에 영향을 주는 심각한 재해 방지를 제공합니다. 자세한 내용은 [ZRS(영역 중복 저장소): 고가용성 Azure Storage 응용 프로그램](storage-redundancy-zrs.md)을 참조하세요.
+> Azure Storage는 이제 고가용성 애플리케이션을 빌드하기 위한 ZRS(영역 중복 스토리지)를 지원합니다. ZRS는 많은 애플리케이션의 중복성 요구 사항에 대한 간단한 솔루션을 제공합니다. ZRS는 하드웨어 오류 또는 단일 데이터 센터에 영향을 주는 심각한 재해 방지를 제공합니다. 자세한 내용은 [ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션](storage-redundancy-zrs.md)을 참조하세요.
 
 ## <a name="key-features-of-ra-grs"></a>RA-GRS의 주요 기능
 
@@ -48,7 +45,7 @@ RA-GRS에 맞게 응용 프로그램을 설계할 경우 다음과 같은 주요
 
 * 주 지역의 데이터에 대한 접근성에 영향을 미치는 주요한 문제가 있으면 Azure 팀에서 지역 장애 조치(failover)를 트리거할 수 있고, 그러면 주 지역을 가리키는 DNS 항목이 보조 지역을 가리키도록 변경됩니다.
 
-* 지역 장애 조치(failover)가 발생하면 Azure는 새로운 보조 지역을 선택하고 그 위치에 데이터를 복제한 다음 보조 DNS 항목으로 그 위치를 가리킵니다. 저장소 계정이 복제를 마칠 때까지 보조 끝점을 사용할 수 없습니다. 자세한 내용은 [Azure Storage 중단이 발생할 경우 수행할 작업](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance)을 참조하세요.
+* 지역 장애 조치(failover)가 발생하면 Azure는 새로운 보조 지역을 선택하고 그 위치에 데이터를 복제한 다음 보조 DNS 항목으로 그 위치를 가리킵니다. 저장소 계정이 복제를 마칠 때까지 보조 엔드포인트를 사용할 수 없습니다. 자세한 내용은 [Azure Storage 중단이 발생할 경우 수행할 작업](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance)을 참조하세요.
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>RA-GRS를 사용하는 경우 응용 프로그램 설계 고려 사항
 
@@ -116,19 +113,19 @@ RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데
 
 *   **SecondaryThenPrimary**
 
-**LocationMode**를 **PrimaryThenSecondary**로 설정한 경우 기본 끝점에 대한 초기 읽기 요청이 다시 시도 가능한 오류로 인해 실패하면 클라이언트는 보조 끝점에 대해 또 다른 읽기 요청을 자동으로 수행합니다. 오류가 서버 시간 초과 오류이면 클라이언트는 서버로부터 재시도 가능한 오류를 수신하기 전에 시간 제한이 만료될 때까지 대기해야 합니다.
+**LocationMode**를 **PrimaryThenSecondary**로 설정한 경우 기본 엔드포인트에 대한 초기 읽기 요청이 다시 시도 가능한 오류로 인해 실패하면 클라이언트는 보조 엔드포인트에 대해 또 다른 읽기 요청을 자동으로 수행합니다. 오류가 서버 시간 초과 오류이면 클라이언트는 서버로부터 재시도 가능한 오류를 수신하기 전에 시간 제한이 만료될 때까지 대기해야 합니다.
 
 재시도 가능한 오류에 대응하는 방법을 결정하는 시나리오는 기본적으로 두 가지입니다.
 
-*   격리된 문제이고 기본 끝점에 대한 후속 요청이 재시도 가능한 오류를 반환하지 않습니다. 이런 경우가 발생할 수 있는 예는 일시적인 네트워크 오류가 있는 경우입니다.
+*   격리된 문제이고 기본 엔드포인트에 대한 후속 요청이 재시도 가능한 오류를 반환하지 않습니다. 이런 경우가 발생할 수 있는 예는 일시적인 네트워크 오류가 있는 경우입니다.
 
     이 시나리오에서는 **LocationMode**를 **PrimaryThenSecondary**로 설정하더라도 이런 경우가 드물게 발생하기 때문에 현저한 성능 저하가 없습니다.
 
 *   주 지역에 있는 하나 이상의 저장소 서비스에 문제가 있고 주 지역에서 해당 서비스에 대한 모든 후속 요청이 일정 기간 동안 재시도 가능한 오류를 반환할 가능성이 높습니다. 이러한 예는 주 지역에 완전히 액세스할 수 없는 경우입니다.
 
-    이 시나리오에서는 모든 읽기 요청이 기본 끝점을 먼저 시도하고, 시간 제한이 만료되기를 기다린 다음, 보조 끝점으로 전환하기 때문에 성능 저하가 있습니다.
+    이 시나리오에서는 모든 읽기 요청이 기본 엔드포인트를 먼저 시도하고, 시간 제한이 만료되기를 기다린 다음, 보조 엔드포인트로 전환하기 때문에 성능 저하가 있습니다.
 
-이 시나리오에서는 기본 끝점에 계속되는 문제가 있는지 식별하고 **LocationMode** 속성을 **SecondaryOnly**로 설정하여 모든 읽기 요청을 보조 끝점으로 바로 보내야 합니다. 이 때 응용 프로그램을 읽기 전용 모드에서 실행하도록 변경해야 합니다. 이 방법은 [회로 차단기 패턴](https://msdn.microsoft.com/library/dn589784.aspx)이라고 합니다.
+이 시나리오에서는 기본 엔드포인트에 계속되는 문제가 있는지 식별하고 **LocationMode** 속성을 **SecondaryOnly**로 설정하여 모든 읽기 요청을 보조 엔드포인트로 바로 보내야 합니다. 이 때 응용 프로그램을 읽기 전용 모드에서 실행하도록 변경해야 합니다. 이 방법은 [회로 차단기 패턴](https://msdn.microsoft.com/library/dn589784.aspx)이라고 합니다.
 
 ### <a name="update-requests"></a>업데이트 요청
 
@@ -140,7 +137,7 @@ RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데
 
 ### <a name="how-to-implement-the-circuit-breaker-pattern"></a>회로 차단기 패턴을 구현하는 방법
 
-기본 끝점에 계속되는 문제가 있는지 식별하려면 클라이언트에 재시도 가능한 오류가 발생하는 빈도를 모니터링합니다. 각각의 경우가 다르기 때문에 보조 끝점으로 전환하고 응용 프로그램을 읽기 전용 모드에서 실행하기로 결정하는 데 사용할 임계값을 결정해야 합니다. 예를 들어 성공하지 못하고 연속해서 10번 실패하면 전환을 수행하도록 결정할 수 있습니다. 또 다른 예는 2분 동안 요청의 90%가 실패하면 전환하도록 하는 것입니다.
+기본 엔드포인트에 계속되는 문제가 있는지 식별하려면 클라이언트에 재시도 가능한 오류가 발생하는 빈도를 모니터링합니다. 각각의 경우가 다르기 때문에 보조 엔드포인트로 전환하고 응용 프로그램을 읽기 전용 모드에서 실행하기로 결정하는 데 사용할 임계값을 결정해야 합니다. 예를 들어 성공하지 못하고 연속해서 10번 실패하면 전환을 수행하도록 결정할 수 있습니다. 또 다른 예는 2분 동안 요청의 90%가 실패하면 전환하도록 하는 것입니다.
 
 첫 번째 시나리오에서는 실패 개수만 유지했다가 최대값에 도달하기 전에 성공하면 개수를 다시 0으로 설정합니다. 두 번째 시나리오의 경우 이를 구현하는 한 가지 방법은 MemoryCache 개체(.NET용)를 사용하는 것입니다. 각 요청에 대해 캐시에 CacheItem을 추가하고, 성공(1) 또는 실패(0)에 값을 설정하고, 만료 시간을 지금(또는 원하는 시간 제약 조건)부터 2분으로 설정합니다. 항목의 만료 시간에 도달하면 항목이 자동으로 제거됩니다. 이렇게 하면 2분 기간으로 롤링하게 됩니다. 저장소 서비스에 요청할 때마다 먼저 MemoryCache 개체 전반에 Linq 쿼리를 사용하여 값의 합계를 구하고 개수로 나눠서 성공 비율을 계산합니다. 성공 비율이 일정한 임계값(예: 10%) 아래로 떨어지면 계속하기 전에 읽기 요청에 대한 **LocationMode** 속성을 **SecondaryOnly**로 설정하고 응용 프로그램을 읽기 전용 모드로 전환합니다.
 
@@ -152,7 +149,7 @@ RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데
 
 보조 지역으로 전환하고 응용 프로그램을 읽기 전용 모드에서 실행하도록 변경할 때를 결정하기 위해 주 지역에서 재시도 빈도를 모니터링하는 주요 옵션은 세 가지입니다.
 
-*   저장소 요청에 전달하는 [**OperationContext**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 개체의 [**Retrying**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) 이벤트에 대해 처리기를 추가합니다. 이 방법은 이 문서에 표시되어 있고 함께 제공되는 샘플에 사용되어 있습니다. 이러한 이벤트는 클라이언트가 요청을 재시도할 때마다 발생하기 때문에 기본 끝점에서 재시도 가능한 오류가 클라이언트에 발생하는 빈도를 추적할 수 있습니다.
+*   저장소 요청에 전달하는 [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 개체의 [**Retrying**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) 이벤트에 대해 처리기를 추가합니다. 이 방법은 이 문서에 표시되어 있고 함께 제공되는 샘플에 사용되어 있습니다. 이러한 이벤트는 클라이언트가 요청을 재시도할 때마다 발생하기 때문에 기본 엔드포인트에서 재시도 가능한 오류가 클라이언트에 발생하는 빈도를 추적할 수 있습니다.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -163,7 +160,7 @@ RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데
     };
     ```
 
-*   사용자 지정 다시 시도 정책의 [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 메서드에서 다시 시도가 발생할 때마다 사용자 지정 코드를 실행할 수 있습니다. 이렇게 하면 다시 시도가 발생하는 때를 기록하는 것 외에 다시 시도 동작을 수정할 수 있는 기회도 갖게 됩니다.
+*   사용자 지정 다시 시도 정책의 [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 메서드에서 다시 시도가 발생할 때마다 사용자 지정 코드를 실행할 수 있습니다. 이렇게 하면 다시 시도가 발생하는 때를 기록하는 것 외에 다시 시도 동작을 수정할 수 있는 기회도 갖게 됩니다.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -191,11 +188,11 @@ RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데
     }
     ```
 
-*   세 번째 방법은 기본 저장소 끝점의 상태를 파악하기 위해 더미 읽기 요청(예: 소규모 Blob 읽기)을 사용하여 기본 저장소 끝점에 계속해서 ping을 실행하는 사용자 지정 모니터링 구성 요소를 응용 프로그램에 구현하는 것입니다. 이렇게 하려면 리소스가 소비되지만 그 양은 많지 않습니다. 임계값에 도달하는 문제가 발견되면 **SecondaryOnly** 및 읽기 전용 모드로 전환을 수행합니다.
+*   세 번째 방법은 기본 저장소 엔드포인트의 상태를 파악하기 위해 더미 읽기 요청(예: 소규모 Blob 읽기)을 사용하여 기본 저장소 엔드포인트에 계속해서 ping을 실행하는 사용자 지정 모니터링 구성 요소를 응용 프로그램에 구현하는 것입니다. 이렇게 하려면 리소스가 소비되지만 그 양은 많지 않습니다. 임계값에 도달하는 문제가 발견되면 **SecondaryOnly** 및 읽기 전용 모드로 전환을 수행합니다.
 
-일정 시점에 기본 끝점을 사용하도록 다시 전환하고 업데이트를 허용하는 것이 좋습니다. 위의 앞쪽에 나열된 두 가지 방법 중 하나를 사용하면 임의의 선택된 시간이 지나거나 선택된 횟수만큼 작업이 수행된 후 기본 끝점으로 다시 전환하고 업데이트 모드를 사용하도록 설정할 수 있습니다. 그런 다음 다시 시도 논리를 다시 적용할 수 있습니다. 문제가 수정되면 기본 끝점을 계속 사용하고 업데이트를 허용하게 됩니다. 문제가 지속되면 설정해 놓은 조건에 실패한 후 다시 한 번 보조 끝점 및 읽기 전용 모드로 전환됩니다.
+일정 시점에 기본 엔드포인트를 사용하도록 다시 전환하고 업데이트를 허용하는 것이 좋습니다. 위의 앞쪽에 나열된 두 가지 방법 중 하나를 사용하면 임의의 선택된 시간이 지나거나 선택된 횟수만큼 작업이 수행된 후 기본 엔드포인트로 다시 전환하고 업데이트 모드를 사용하도록 설정할 수 있습니다. 그런 다음 다시 시도 논리를 다시 적용할 수 있습니다. 문제가 수정되면 기본 엔드포인트를 계속 사용하고 업데이트를 허용하게 됩니다. 문제가 지속되면 설정해 놓은 조건에 실패한 후 다시 한 번 보조 엔드포인트 및 읽기 전용 모드로 전환됩니다.
 
-세 번째 시나리오의 경우 기본 저장소 끝점에 대한 ping이 다시 성공하게 되면 스위치를 **PrimaryOnly**로 다시 트리거하고 업데이트를 계속 허용할 수 있습니다.
+세 번째 시나리오의 경우 기본 저장소 엔드포인트에 대한 ping이 다시 성공하게 되면 스위치를 **PrimaryOnly**로 다시 트리거하고 업데이트를 계속 허용할 수 있습니다.
 
 ## <a name="handling-eventually-consistent-data"></a>결과적으로 일치하는 데이터 처리
 
@@ -221,7 +218,7 @@ RA-GRS는 주 지역에서 보조 지역으로 트랜잭션을 복제하는 방�
 
 응용 프로그램에 재시도 가능한 오류가 발생하는 경우 예상대로 작동하는지를 테스트하는 것이 중요합니다. 예를 들어 응용 프로그램이 문제를 감지하면 보조 지역 및 읽기 전용 모드로 전환했다가 주 지역을 다시 사용할 수 있게 되면 다시 전환하는지 테스트해야 합니다. 이렇게 하려면 재시도 가능한 오류를 시뮬레이션하고 이것이 발생하는 빈도를 제어할 수 있는 방법이 필요합니다.
 
-[Fiddler](http://www.telerik.com/fiddler)를 사용하면 스크립트에서 HTTP 요청을 가로채서 수정할 수 있습니다. 이 스크립트는 기본 끝점에서 오는 응답을 식별하고 HTTP 상태 코드를 Storage 클라이언트 라이브러리에서 재시도 가능한 오류로 인식하는 코드로 변경할 수 있습니다. 이 코드 조각은 **employeedata** 테이블에 대한 읽기 요청에 대한 응답을 가로채서 502 상태를 반환하는 Fiddler 스크립트의 간단한 예를 보여줍니다.
+[Fiddler](http://www.telerik.com/fiddler)를 사용하면 스크립트에서 HTTP 요청을 가로채서 수정할 수 있습니다. 이 스크립트는 기본 엔드포인트에서 오는 응답을 식별하고 HTTP 상태 코드를 Storage 클라이언트 라이브러리에서 재시도 가능한 오류로 인식하는 코드로 변경할 수 있습니다. 이 코드 조각은 **employeedata** 테이블에 대한 읽기 요청에 대한 응답을 가로채서 502 상태를 반환하는 Fiddler 스크립트의 간단한 예를 보여줍니다.
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -241,4 +238,4 @@ static function OnBeforeResponse(oSession: Session) {
 
 * LastSyncTime 설정 방법에 대한 다른 예제를 비롯한 읽기 액세스 지역 중복에 대한 자세한 내용은 [Windows Azure Storage 중복 작업 및 읽기 액세스 지역 중복 저장소](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)를 참조하세요.
 
-* 기본 끝점과 보조 끝점 간에 전환을 수행하는 방법을 보여주는 전체 샘플은 [Azure 샘플 – RA-GRS 저장소에서 회로 차단 패턴 사용](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)을 참조하세요.
+* 기본 엔드포인트와 보조 엔드포인트 간에 전환을 수행하는 방법을 보여주는 전체 샘플은 [Azure 샘플 – RA-GRS 저장소에서 회로 차단 패턴 사용](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)을 참조하세요.

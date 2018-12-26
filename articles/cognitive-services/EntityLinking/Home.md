@@ -1,24 +1,25 @@
 ---
-title: Entity Linking Intelligence Service API | Microsoft Docs
-description: Cognitive Services의 엔터티 링크 작업에 Entity Linking Intelligence Service API를 사용하는 방법을 알아봅니다.
+title: Entity Linking Intelligence Service API란?
+titlesuffix: Azure Cognitive Services
+description: 엔터티 링크 작업에 Entity Linking Intelligence Service API를 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: overview
 ms.date: 03/28/2016
 ms.author: davl
-ms.openlocfilehash: 662295c42a421fe76892e6e5aac7b7e7178d6155
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b0f839e8f33e9ff48d2ad526621167a89e3b9be8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373006"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366185"
 ---
-# <a name="entity-linking-intelligence-service-api"></a>Entity Linking Intelligence Service API
+# <a name="what-is-the-entity-linking-intelligence-service-api"></a>Entity Linking Intelligence Service API란?
 
-개발자의 엔터티 링크 관련 작업을 도와주기 위해 개발된 웹 서비스인 Microsoft Entity Linking Intelligence Service를 시작합니다.
+개발자의 엔터티 링크 관련 작업을 도와주기 위해 개발된 웹 서비스인 Entity Linking Intelligence Service를 시작합니다.
 
 ## <a name="entity-linking"></a>엔터티 연결
 

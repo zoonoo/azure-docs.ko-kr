@@ -2,27 +2,24 @@
 title: Azure의 SQL Server에서 데이터 샘플링 | Microsoft Docs
 description: Azure의 SQL Server에서 데이터 샘플링
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: cgeonlun
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: 33c030d4-5cca-4cc9-99d7-2bd13a3926af
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 74dcef9e927fc537cba56b03fcbfb9528c952ad0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 6483ba9f070252f58e0e3706472939dbfab12b59
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837874"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445041"
 ---
 # <a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
+
 이 문서에서는 SQL 또는 Python 프로그래밍 언어를 사용하여 Azure의 SQL Server에 저장된 데이터를 샘플링하는 방법을 보여줍니다. 또한 샘플링된 데이터를 파일에 저장하고, Azure blob에 업로드한 다음, Azure Machine Learning Studio로 읽어 들여 Azure Machine Learning으로 이동하는 방법을 보여 줍니다.
 
 Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) 라이브러리에 연결하기 위해 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 라이브러리를 사용하여 샘플링을 수행합니다.
@@ -32,12 +29,8 @@ Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) �
 > 
 > 
 
-다음 **메뉴**는 다양한 저장소 환경에서 데이터를 샘플링하는 방법을 설명하는 문서로 연결되는 링크입니다. 
-
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
-
 **데이터를 샘플링하는 이유**
-분석할 데이터 집합이 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 그러면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해집니다. [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
+분석할 데이터 세트가 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 그러면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해집니다. [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
 
 이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
 
@@ -119,7 +112,7 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
 ![판독기 blob][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>실행 중인 팀 데이터 과학 프로세스 예제
-공용 데이터 집합을 사용하여 팀 데이터 과학 프로세스 예제를 진행하려면 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
+공용 데이터 세트를 사용하여 팀 데이터 과학 프로세스 예제를 진행하려면 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

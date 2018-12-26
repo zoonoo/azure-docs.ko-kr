@@ -1,24 +1,25 @@
 ---
-title: Microsoft Translator Text API 언어 메서드 | Microsoft Docs
-description: Microsoft Translator Text API 언어 메서드를 사용합니다.
+title: Translator Text API 언어 메서드
+titlesuffix: Azure Cognitive Services
+description: Translator Text API 언어 메서드를 사용합니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 93c06218a560faf439f05903438d021b372ce257
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 51f15bd9c75f24be0d477d10de55c93a51cfbf3f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376438"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129644"
 ---
-# <a name="text-api-30-languages"></a>Text API 3.0: 언어
+# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: 언어
 
-현재 Text API의 다른 작업에서 지원하는 언어 집합을 가져옵니다. 
+현재 Translator Text API의 다른 작업에서 지원되는 언어 집합을 가져옵니다. 
 
 ## <a name="request-url"></a>요청 URL
 
@@ -40,7 +41,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
   <tr>
     <td>scope</td>
-    <td>*선택적 매개 변수*<br/>반환할 언어의 그룹을 정의하는 쉼표로 구분된 이름 목록입니다. 허용 그룹 이름은 `translation`, `transliteration` 및 `dictionary`입니다. 범위가 지정되지 않는 경우 모든 그룹이 반환됩니다. 그러면 `scope=translation,transliteration,dictionary`를 전달하는 것과 동일합니다. 시나리오에 적합한 지원되는 언어의 집합을 결정하려면 [응답 개체](#response-body)에 대한 설명을 참조하세요.</td>
+    <td>*선택적 매개 변수*입니다.<br/>반환할 언어의 그룹을 정의하는 쉼표로 구분된 이름 목록입니다. 허용 그룹 이름은 `translation`, `transliteration` 및 `dictionary`입니다. 범위가 지정되지 않는 경우 모든 그룹이 반환됩니다. 그러면 `scope=translation,transliteration,dictionary`를 전달하는 것과 동일합니다. 시나리오에 적합한 지원되는 언어의 집합을 결정하려면 [응답 개체](#response-body)에 대한 설명을 참조하세요.</td>
   </tr>
 </table> 
 

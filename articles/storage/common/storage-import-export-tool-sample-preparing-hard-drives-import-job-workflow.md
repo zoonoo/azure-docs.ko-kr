@@ -2,24 +2,18 @@
 title: Azure Import/Export 가져오기 작업을 위해 하드 드라이브를 준비하는 샘플 워크플로 | Microsoft Docs
 description: Azure Import/Export 서비스에서 가져오기 작업을 위해 드라이브를 준비하는 전체 과정에 대한 연습을 참조하세요.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.openlocfilehash: 60139ff36b66432620591ceaf201e046ad30217f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: b21c378d58590e33c7b6aeffe627ce5602074fa2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059538"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524623"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>가져오기 작업을 위해 하드 드라이브를 준비하는 샘플 워크플로
 
@@ -31,12 +25,12 @@ ms.locfileid: "23059538"
 
 |위치|설명|데이터 크기|
 |--------------|-----------------|-----|
-|H:\Video\ |비디오 컬렉션|12TB|
+|H:\Video\ |비디오 컬렉션|12 TB|
 |H:\Photo\ |사진 컬렉션|30GB|
 |K:\Temp\FavoriteMovie.ISO|Blu-Ray™ 디스크 이미지|25GB|
 |\\\bigshare\john\music\ |네트워크 공유에서 음악 파일 컬렉션|10 GB|
 
-## <a name="storage-account-destinations"></a>저장소 계정 대상
+## <a name="storage-account-destinations"></a>Storage 계정 대상
 
 가져오기 작업은 저장소 계정의 다음 대상으로 데이터를 가져옵니다.
 
@@ -118,7 +112,7 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-더 많은 데이터를 추가해야 하는 경우 Initialdataset과 동일한 형식의 다른 데이터 집합 파일을 만듭니다.
+더 많은 데이터를 추가해야 하는 경우 Initialdataset과 동일한 형식의 다른 데이터 세트 파일을 만듭니다.
 
 **두 번째 세션의 경우:**
 

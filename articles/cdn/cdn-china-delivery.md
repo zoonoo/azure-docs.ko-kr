@@ -3,8 +3,8 @@ title: Azure CDN를 사용한 중국 콘텐츠 전송 | Microsoft Docs
 description: Azure CDN(콘텐츠 전송 네트워크)을 사용하여 중국 사용자에게 콘텐츠를 배달하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 59788f301bb501103babd55a2ac37102932f4dcf
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ce136a341809b1a485e86337f428b4685eba22f7
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259800"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093549"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Azure CDN를 사용한 중국 콘텐츠 전송
 
@@ -40,7 +40,7 @@ Azure CDN 글로벌 및 Azure CDN 중국은 다음의 특징이 있습니다.
 
      - 4개의 가격 책정 계층: Microsoft 표준, Verizon 표준, Verizon 프리미엄 및 Akamai 표준
 
-     - [설명서](https://docs.microsoft.com/en-us/azure/cdn/)
+     - [설명서](https://docs.microsoft.com/azure/cdn/)
 
 - Azure CDN 중국:
 
@@ -63,7 +63,7 @@ Azure CDN 중국에 대한 자세한 정보는 다음을 참조합니다.
 
 - [Azure Content Delivery Network 사용](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
 
-- [중국 내 Azure 서비스 제공 여부](https://docs.microsoft.com/en-us/azure/china/china-get-started-service-availability)
+- [중국 내 Azure 서비스 제공 여부](https://docs.microsoft.com/azure/china/china-get-started-service-availability)
 
 
 

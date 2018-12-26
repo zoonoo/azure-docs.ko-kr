@@ -7,17 +7,17 @@ manager: douge
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev
-ms.openlocfilehash: 8cd15c59bbe536dba9adb6f44c07844eaf030b55
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: aaddev, vs-azure
+ms.openlocfilehash: 82449c3a8154142a64aa264f72d2dec75fe2f23c
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784890"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42139969"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Azure Active Directory의 연결된 서비스를 사용하여 오류 진단
 
@@ -94,4 +94,4 @@ MVC 프로젝트에서 Windows 인증을 감지하기 위해 연결된 서비스
 
 인증 유형을 변경하려면 호환되지 않는 인증 유형을 제거하고 연결된 서비스를 다시 추가해 보세요.
 
-자세한 내용은 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
+자세한 내용은 [Azure AD의 인증 시나리오](authentication-scenarios.md)를 참조하세요.

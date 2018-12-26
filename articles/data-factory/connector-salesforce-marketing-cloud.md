@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Salesforce Marketing Cloud에서 데이터 복사 | Microsoft Docs
+title: Azure Data Factory(미리 보기)를 사용하여 Salesforce Marketing Cloud에서 데이터 복사 | Microsoft Docs
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Salesforce Marketing Cloud에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: a68090ea32c7ba4155aa5474067c5cce6f1ee30b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 07c58ea964d6af1ffe1a447d8b52879753f1951c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055503"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123354"
 ---
-# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce Marketing Cloud에서 데이터 복사
+# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Salesforce Marketing Cloud에서 데이터 복사
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Salesforce Marketing Cloud에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
@@ -45,12 +45,12 @@ Salesforce Marketing Cloud 연결된 서비스에 다음 속성이 지원됩니�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **SalesforceMarketingCloud**로 설정되어야 합니다. | 예 |
-| clientId | Salesforce Marketing Cloud 응용 프로그램과 관련된 클라이언트 ID입니다.  | 예 |
-| clientSecret | Salesforce Marketing Cloud 응용 프로그램과 관련된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하거나, ADF에 안전하게 저장하거나, Azure Key Vault에 암호를 저장하도록 선택하고 데이터 복사를 수행하는 경우 여기에서 ADF 복사 작업을 끌어올 수 있습니다. [Key Vault에서 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 끝점이 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
-| useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
-| usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
+| 형식 | 형식 속성은 **SalesforceMarketingCloud**로 설정되어야 합니다. | yes |
+| clientId | Salesforce Marketing Cloud 응용 프로그램과 관련된 클라이언트 ID입니다.  | yes |
+| clientSecret | Salesforce Marketing Cloud 응용 프로그램과 관련된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하거나, ADF에 안전하게 저장하거나, Azure Key Vault에 암호를 저장하도록 선택하고 데이터 복사를 수행하는 경우 여기에서 ADF 복사 작업을 끌어올 수 있습니다. [Key Vault에서 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | yes |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 
 **예제:**
 
@@ -74,11 +74,11 @@ Salesforce Marketing Cloud 연결된 서비스에 다음 속성이 지원됩니�
 
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Salesforce Marketing Cloud 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Salesforce Marketing Cloud 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Salesforce Marketing Cloud에서 데이터를 복사하려면 데이터 집합의 형식 속성을 **SalesforceMarketingCloudObject**로 설정합니다. 이 형식의 데이터 집합에는 추가적인 형식별 속성이 없습니다.
+Salesforce Marketing Cloud에서 데이터를 복사하려면 데이터 세트의 형식 속성을 **SalesforceMarketingCloudObject**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
 
 **예제**
 
@@ -105,8 +105,8 @@ Salesforce Marketing Cloud에서 데이터를 복사하려면 복사 작업의 �
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 **SalesforceMarketingCloudSource**로 설정해야 합니다. | 예 |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 예 |
+| 형식 | 복사 작업 원본의 형식 속성을 **SalesforceMarketingCloudSource**로 설정해야 합니다. | yes |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | yes |
 
 **예제:**
 

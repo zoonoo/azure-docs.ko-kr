@@ -2,25 +2,21 @@
 title: Azure AD 응용 프로그램 프록시 커넥터 이해 | Microsoft Docs
 description: Azure AD 응용 프로그램 프록시 커넥터에 대한 기본 사항을 제공합니다.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/28/2018
+ms.topic: conceptual
+ms.date: 11/15/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.custom: it-pro
-ms.openlocfilehash: 74e6428cf0536a7c8016be6cdf29071128bf4a3b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.reviewer: japere
+ms.openlocfilehash: dce9c26d9f836a2238642521be4d88ba089058d7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025364"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445961"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 응용 프로그램 프록시 커넥터 이해
 
@@ -33,6 +29,23 @@ ms.locfileid: "37025364"
 ## <a name="requirements-and-deployment"></a>요구 사항 및 배포
 
 응용 프로그램 프록시를 성공적으로 배포하려면 커넥터가 하나 이상 필요하지만, 복원력을 높이기 위해 두 개 이상을 사용하는 것이 좋습니다. Windows Server 2012 R2 또는 2016 컴퓨터에 커넥터를 설치합니다. 커넥터는 응용 프로그램 프록시 서비스 및 게시하는 온-프레미스 응용 프로그램과 통신할 수 있어야 합니다. 
+
+### <a name="windows-server"></a>Windows Server
+애플리케이션 프록시 커넥터를 설치할 수 있는 Windows Server 2012 R2 이상을 실행하는 서버가 필요합니다. 서버를 Azure의 애플리케이션 프록시 서비스 및 게시 중인 온-프레미스 애플리케이션에 연결해야 합니다.
+
+Windows Server는 TLS 1.2를 사용하도록 설정한 후 애플리케이션 프록시 커넥터를 설치해야 합니다. 버전 1.5.612.0 이하의 기존 커넥터는 추가 공지가 있을 때까지 이전 버전의 TLS에서 계속 작동됩니다. TLS 1.2를 사용하도록 설정하려면:
+
+1. 다음 레지스트리 키를 설정합니다.
+    
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. 서버 다시 시작
+
 
 커넥터 서버의 네트워크 요구 사항에 대한 자세한 내용은 [응용 프로그램 프록시를 시작하고 커넥터 설치](application-proxy-enable.md)를 참조하세요.
 
@@ -79,7 +92,7 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* 이 컴퓨터의 연결은 800개로 제한됩니다. 다른 모든 컴퓨터에서 기본적으로 연결을 200개로 제한했습니다.
+\* 이 컴퓨터에서 .NET 권장 설정 이외의 기본 연결 제한 중 일부가 발생했습니다. 지원 서비스에 문의하여 테넌트의 이 제한을 변경하기 전에, 기본 설정으로 테스트를 실행하는 것이 좋습니다.
  
 >[!NOTE]
 >4, 8, 16개 코어 컴퓨터 간에 최대 TPS는 크게 차이가 없습니다. 주요 차이점은 예상 대기 시간입니다.  

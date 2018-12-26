@@ -1,28 +1,22 @@
 ---
 title: Storage Client Library for C++을 사용하여 Azure Storage 리소스 나열 | Microsoft Docs
 description: Microsoft Azure Storage Client Library for C++에서 목록 API를 사용하여 컨테이너, Blob, 큐, 테이블 및 엔터티를 열거하는 방법에 대해 배웁니다.
-documentationcenter: .net
 services: storage
 author: dineshmurthy
-manager: jahogg
-editor: tysonn
-ms.assetid: 33563639-2945-4567-9254-bc4a7e80698f
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
-ms.openlocfilehash: 9844412739f4f6f95416f81347f0f2eeeca62bea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 6384af5368fe722d6c9307d56d8a071ebcd17bf0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059668"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226977"
 ---
-# <a name="list-azure-storage-resources-in-c"></a>C++에서 Azure 저장소 리소스 나열
-목록 작업은 Azure 저장소를 사용하는 다양한 배포 시나리오에 중요합니다. 이 문서에서는 Microsoft Azure Storage Client Library for C++에서 제공된 API 목록을 사용하여 Microsoft Azure 저장소에서 개체를 보다 효율적으로 열거하는 방법에 대해 설명합니다.
+# <a name="list-azure-storage-resources-in-c"></a>C++에서 Azure Storage 리소스 나열
+목록 작업은 Azure Storage를 사용하는 다양한 배포 시나리오에 중요합니다. 이 문서에서는 Microsoft Azure Storage Client Library for C++에서 제공된 API 목록을 사용하여 Microsoft Azure 저장소에서 개체를 보다 효율적으로 열거하는 방법에 대해 설명합니다.
 
 > [!NOTE]
 > 이 가이드는 [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp)를 통해 사용할 수 있는 Azure Storage Client Library for C++ 버전 2.x을(를) 대상으로 합니다.
@@ -40,7 +34,7 @@ Storage Client Library는 Azure 저장소에서 개체를 나열 또는 쿼리�
 이러한 각 메서드는 다른 시나리오에 대해 다른 오버로드를 사용하여 표시됩니다.
 
 ## <a name="asynchronous-versus-synchronous"></a>비동기 및 동기
-Storage Client Library for C++는 [C++ REST 라이브러리](https://github.com/Microsoft/cpprestsdk) 상단에 기본 제공되어 있기 때문에 [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html)를 사용하여 기본적으로 비동기 작업을 지원합니다. 예:
+Storage Client Library for C++는 [C++ REST 라이브러리](https://github.com/Microsoft/cpprestsdk) 상단에 기본 제공되어 있기 때문에 [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html)를 사용하여 기본적으로 비동기 작업을 지원합니다. 예: 
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -147,7 +141,7 @@ do
 } while (!token.empty());
 ```
 
-세그먼트의 *max_results* 매개 변수를 지정하여 응용 프로그램에 대한 성능 고려 사항을 충족하도록 요청 수와 메모리 사용량 사이의 균형을 조절할 수 있습니다.
+세그먼트의 *max_results* 매개 변수를 지정하여 애플리케이션에 대한 성능 고려 사항을 충족하도록 요청 수와 메모리 사용량 사이의 균형을 조절할 수 있습니다.
 
 또한 분할된 목록 API를 사용하지만 "greedy" 스타일로 로컬 모음에 데이터를 저장하는 경우, 규모별로 주의 깊게 로컬 모음에서 데이터 저장을 처리하도록 코드를 리펙터링하는 것이 좋습니다.
 
@@ -182,7 +176,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 
 lazy 목록은 동기화 모드에서만 사용할 수 있습니다.
 
-greedy 목록에 비해 lazy 목록은 필요한 경우에만 데이터를 가져옵니다. 내부적으로 다음 반복기가 다음 세그먼트로 이동할 때에만 Azure 저장소에서 데이터를 가져옵니다. 따라서 메모리 사용량이 한계 크기로 제어되며 작업이 빠릅니다.
+greedy 목록에 비해 lazy 목록은 필요한 경우에만 데이터를 가져옵니다. 내부적으로 다음 반복기가 다음 세그먼트로 이동할 때에만 Azure Storage에서 데이터를 가져옵니다. 따라서 메모리 사용량이 한계 크기로 제어되며 작업이 빠릅니다.
 
 lazy 목록 API는 Storage Client Library for C++ 버전 2.2.0에 포함됩니다.
 
@@ -197,10 +191,10 @@ lazy 목록 API는 Storage Client Library for C++ 버전 2.2.0에 포함됩니�
 ## <a name="next-steps"></a>다음 단계
 Azure 저장소 및 Storage Client Library for C++에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [C++에서 Blob 저장소를 사용하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [C++에서 테이블 저장소를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [C++에서 큐 저장소를 사용하는 방법](../storage-c-plus-plus-how-to-use-queues.md)
+* [C++에서 Blob Storage를 사용하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [C++에서 Queue Storage를 사용하는 방법](../storage-c-plus-plus-how-to-use-queues.md)
 * [Azure Storage Client Library for C++ API 설명서](http://azure.github.io/azure-storage-cpp/)
-* [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
-* [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure Storage 팀 블로그](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)
 

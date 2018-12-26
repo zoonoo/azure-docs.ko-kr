@@ -3,51 +3,51 @@ title: 미리 작성된 도메인 참조 - Azure | Microsoft Docs
 titleSuffix: Azure
 description: LUIS(Language Understanding Intelligent Services)에서 미리 작성된 의도 및 엔터티 컬렉션에 해당하는 미리 작성된 도메인에 대한 참조입니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 14c53bd25913922a0cd7cc438ad0fbe8b4663dd1
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.date: 11/26/2018
+ms.author: diberry
+ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061967"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335626"
 ---
 # <a name="prebuilt-domain-reference"></a>미리 작성된 도메인 참조
 이 참조는 LUIS에서 제공하는 의도 및 엔터티의 미리 작성된 컬렉션에 해당하는 [미리 작성된 도메인](luis-how-to-use-prebuilt-domains.md)에 대한 정보를 제공합니다.
 
-반대로, [사용자 지정 도메인](create-new-app.md)은 의도 및 모델 없이 시작합니다. 사용자 지정 모델에 미리 작성된 도메인 의도 및 엔터티를 추가할 수 있습니다.
+반대로, [사용자 지정 도메인](luis-how-to-start-new-app.md)은 의도 및 모델 없이 시작합니다. 사용자 지정 모델에 미리 작성된 도메인 의도 및 엔터티를 추가할 수 있습니다.
 
 ## <a name="list-of-prebuilt-domains"></a>미리 작성된 도메인 목록
 LUIS는 20가지의 미리 작성된 도메인을 제공합니다. 
 
-| 미리 작성된 도메인 | 설명 | 지원되는 언어 |
+| 미리 빌드된 도메인 | 설명 | 지원되는 언어 |
 | ---------------- |-----------------------|:------:|
-| Calendar | Calendar 도메인은 약속을 추가, 삭제 또는 편집하고, 참가자 가용성을 확인하고, 일정 이벤트에 대한 정보를 찾기 위한 의도 및 엔터티를 제공합니다.| ko-KR<br/> zh-CN |
-| Camera | Camera 도메인은 사진을 촬영하고, 비디오를 녹화하고, 비디오를 응용 프로그램으로 브로드캐스트하기 위한 의도 및 엔터티를 제공합니다.| ko-KR |
-| 통신 | 메시지 전송 및 전화 통화| ko-KR <br/> zh-CN |
-| Entertainment  | 음악, 동영상, TV 관련 쿼리 처리| ko-KR |
-| 이벤트 | 콘서트, 축제, 스포츠 게임 및 코미디 쇼 티켓 예약| ko-KR |
-| Fitness | 피트니스 활동 추적과 관련된 요청 처리| ko-KR |
-| 게임 | 멀티플레이 게임의 게임 파티와 관련된 요청 처리| ko-KR |
-| HomeAutomation | 조명 및 어플라이언스와 같은 스마트 홈 장치 제어| ko-KR<br/> zh-CN |
-| MovieTickets | 영화관의 영화 티켓 예약| ko-KR |
-| Music | 뮤직 플레이어에서 음악 재생| ko-KR<br/> zh-CN |
-| 참고 | Note 도메인은 메모 생성, 편집 및 찾기와 관련된 의도 및 엔터티를 제공합니다.| ko-KR<br/> zh-CN |
-| OnDevice | OnDevice 도메인은 장치 제어와 관련된 의도 및 엔터티를 제공합니다.| ko-KR<br/> zh-CN |
-| Places  | 회사, 기관, 식당, 공용 공간 및 주소와 같은 장소 관련 쿼리 처리| ko-KR<br/> zh-CN |
-| 미리 알림 | 미리 알림 생성, 편집 및 찾기와 관련된 요청 처리| ko-KR<br/> zh-CN |
-| RestaurantReservation | 식당 예약에 대한 관리 요청 처리| ko-KR<br/> zh-CN |
-| Taxi | 택시 예약 처리| ko-KR<br/> zh-CN |
-| 번역 | 텍스트를 대상 언어로 번역| ko-KR<br/> zh-CN |
-| TV | TV 제어| ko-KR |
-| 공공 시설  | "도움말", "반복”, “다시 시작”과 같이 많은 도메인에서 공통되는 요청 처리| ko-KR |
-| Weather | 날씨 보고서 및 예측 가져오기| ko-KR<br/> zh-CN |
-| 웹 | 웹 사이트 탐색| ko-KR<br/> zh-CN |
+| Calendar | Calendar 도메인은 약속을 추가, 삭제 또는 편집하고, 참가자 가용성을 확인하고, 일정 이벤트에 대한 정보를 찾기 위한 의도 및 엔터티를 제공합니다.| en-US<br/> zh-CN |
+| Camera | Camera 도메인은 사진을 촬영하고, 비디오를 녹화하고, 비디오를 응용 프로그램으로 브로드캐스트하기 위한 의도 및 엔터티를 제공합니다.| en-US |
+| 통신 | 메시지 전송 및 전화 통화| en-US <br/> zh-CN |
+| Entertainment  | 음악, 동영상, TV 관련 쿼리 처리| en-US |
+| 이벤트 | 콘서트, 축제, 스포츠 게임 및 코미디 쇼 티켓 예약| en-US |
+| Fitness | 피트니스 활동 추적과 관련된 요청 처리| en-US |
+| 게임 | 멀티플레이 게임의 게임 파티와 관련된 요청 처리| en-US |
+| HomeAutomation | 조명 및 어플라이언스와 같은 스마트 홈 디바이스 제어| en-US<br/> zh-CN |
+| MovieTickets | 영화관의 영화 티켓 예약| en-US |
+| 음악 | 뮤직 플레이어에서 음악 재생| en-US<br/> zh-CN |
+| 참고 | Note 도메인은 메모 생성, 편집 및 찾기와 관련된 의도 및 엔터티를 제공합니다.| en-US<br/> zh-CN |
+| OnDevice | OnDevice 도메인은 디바이스 제어와 관련된 의도 및 엔터티를 제공합니다.| en-US<br/> zh-CN |
+| 장소  | 회사, 기관, 식당, 공용 공간 및 주소와 같은 장소 관련 쿼리 처리| en-US<br/> zh-CN |
+| 미리 알림 | 미리 알림 생성, 편집 및 찾기와 관련된 요청 처리| en-US<br/> zh-CN |
+| RestaurantReservation | 식당 예약에 대한 관리 요청 처리| en-US<br/> zh-CN |
+| Taxi | 택시 예약 처리| en-US<br/> zh-CN |
+| 번역 | 텍스트를 대상 언어로 번역| en-US<br/> zh-CN |
+| TV | TV 제어| en-US |
+| 공공 시설  | "도움말", "반복”, “다시 시작”과 같이 많은 도메인에서 공통되는 요청 처리| en-US |
+| Weather | 날씨 보고서 및 예측 가져오기| en-US<br/> zh-CN |
+| 웹 | 웹 사이트 탐색| en-US<br/> zh-CN |
 
 각 도메인에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
@@ -102,7 +102,7 @@ Communication 도메인은 전자 메일, 메시지 및 전화 통화와 관련�
 | AssignContactNickname| 연락처에 애칭을 할당합니다.|Isaac을 아빠로 변경 <br/>Jim의 애칭 편집<br/>Patti Owens에 애칭 추가|
 | CallVoiceMail| 사용자의 음성 메일에 연결합니다.|내 음성 사서함 상자에 연결 <br/>음성 사서함<br/>음성 사서함 연결|
 | CheckIMStatus| Skype에서 연락처의 상태를 확인합니다.|Jim의 온라인 상태가 자리 비움으로 설정되어 있나요? <br/>Carol과 채팅할 수 있나요?|
-| Confirm| 작업을 확인합니다.|예<br/>확인<br/>좋습니다.<br/>이 전자 메일을 보내려고 합니다.<br/>|
+| Confirm| 작업을 확인합니다.|yes<br/>확인<br/>좋습니다.<br/>이 전자 메일을 보내려고 합니다.<br/>|
 | Dial| 전화 통화를 합니다.|Jim에게 전화하기<br/>311 번호를 누르세요.<br/>|
 | FindContact| 연락처 정보를 이름으로 찾습니다.|Carol의 번호 찾기<br/>Carol의 번호 표시<br/>|
 | FindSpeedDial| 전화 번호를 설정할 단축번호와 단축번호를 설정할 전화 번호를 찾습니다.|내 다이얼 번호 5는 무엇인가요?<br/>설정된 단축번호가 있나요?<br/>941-5555-333의 다이얼 번호는 무엇인가요?|
@@ -129,7 +129,7 @@ Communication 도메인은 전자 메일, 메시지 및 전화 통화와 관련�
 ### <a name="entities"></a>엔터티
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| AudioDeviceType | 오디오 장치(스피커, 헤드셋, 마이크 등)의 종류입니다.| 발표자<br/>핸즈프리<br/>Bluetooth|
+| AudioDeviceType | 오디오 디바이스(스피커, 헤드셋, 마이크 등)의 종류입니다.| 발표자<br/>핸즈프리<br/>Bluetooth|
 | Category | 메시지 또는 전자 메일의 범주입니다.| 중요<br/>높은 우선 순위|
 | ContactAttribute | 사용자가 조회하는 연락처의 특성입니다.| Birthdays<br/>주소<br/>전화 번호|
 | ContactName | 연락처 또는 메시지 받는 사람의 이름입니다.| Carol<br/>Jim<br/>Chris|
@@ -154,7 +154,7 @@ Entertainment 도메인은 영화, 음악, 게임 및 TV 쇼 검색과 관련된
 | ContentRating | 영화에 대한 G 또는 R과 같은 미디어 콘텐츠 등급입니다.|어린이 비디오입니다.<br/>PG 등급입니다.|
 | Genre | 영화, 게임, 앱 또는 노래의 장르입니다.|코미디<br/>드라마<br/>오락용|
 | 키워드| 특성을 지정하는 제네릭 검색 키워드는 좀 더 구체적인 미디어 슬롯에 존재하지 않습니다.|사운드 트랙<br/>문리버<br/>Amelia Earhart|
-| 언어 | 영화에 대한 G 또는 R과 같은 미디어 콘텐츠 등급입니다.|프랑스어<br/>영어<br/>한국어|
+| 언어 | 영화 또는 노래의 음성 언어와 같이 미디어에서 사용되는 언어입니다.|프랑스어<br/>영어<br/>한국어|
 | MediaFormat | 미디어 형식을 지정하는 추가적인 특별 기술 유형입니다.|HD 동영상<br/>3D 동영상<br/>다운로드 가능|
 | MediaSource | 미디어 획득을 위한 스토어 또는 마켓플레이스입니다.|Netflix<br/>Prime|
 | MediaSubTypes| 영화 및 게임보다 작은 미디어 유형입니다.|데모<br/>Dlc<br/>트레일러|
@@ -178,7 +178,7 @@ Events 도메인은 콘서트, 축제, 스포츠 게임 및 코미디 쇼와 같
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
 | 주소 | 이벤트 위치 또는 주소입니다. |Palo Alto<br/>300 112th Ave SE <br/> 시애틀 |
-| Name | 이벤트의 이름입니다.|Shakespeare in the Park|
+| 이름 | 이벤트의 이름입니다.|Shakespeare in the Park|
 | PlaceName| 이벤트 위치 이름입니다.|루브르<br/>오페라 하우스<br/>브로드웨이|
 | PlaceType | 이벤트가 열릴 위치의 유형입니다.|카페<br/>극장<br/>라이브러리|
 | type | 이벤트의 유형입니다.|콘서트<br/>스포츠 게임|
@@ -221,21 +221,21 @@ Gaming 도메인은 멀티플레이어 게임의 게임 파티 관리와 관련�
 
 
 ## <a name="homeautomation"></a>HomeAutomation 
-HomeAutomation 도메인은 조명 및 어플라이언스와 같은 스마트 홈 장치 제어와 관련된 의도 및 엔터티를 제공합니다.
+HomeAutomation 도메인은 조명 및 어플라이언스와 같은 스마트 홈 디바이스 제어와 관련된 의도 및 엔터티를 제공합니다.
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| TurnOff| 장치를 끄거나, 닫거나, 잠금을 해제합니다.|조명 끄기<br/>커피 메이커 중지<br/>차고 문 닫기|
-|TurnOn| 장치를 켜거나 장치를 특정 설정 또는 모드로 지정합니다.|커피 메이커 켜기<br/>내 커피 메이커를 켤 수 있나요?<br/>자동 온도 조절기를 72도로 설정합니다.|
+| TurnOff| 디바이스를 끄거나, 닫거나, 잠금을 해제합니다.|조명 끄기<br/>커피 메이커 중지<br/>차고 문 닫기|
+|TurnOn| 디바이스를 켜거나 디바이스를 특정 설정 또는 모드로 지정합니다.|커피 메이커 켜기<br/>내 커피 메이커를 켤 수 있나요?<br/>자동 온도 조절기를 72도로 설정합니다.|
 
 
 ### <a name="entities"></a>엔터티
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| 장치 | 켜거나 끌 수 있는 장치 유형입니다.|커피 메이커<br/>자동 온도 조절기<br/>조명|
-| 작업 | 장치의 설정 상태입니다.|lock<br/>열기<br/>on<br/>끄기|
-| 공간 | 장치가 있는 위치 또는 방입니다.|거실<br/>침실<br/>주방|
+| 디바이스 | 켜거나 끌 수 있는 디바이스 유형입니다.|커피 메이커<br/>자동 온도 조절기<br/>조명|
+| 작업(Operation) | 디바이스의 설정 상태입니다.|lock<br/>open<br/>on<br/>끄기|
+| 공간 | 디바이스가 있는 위치 또는 방입니다.|거실<br/>침실<br/>주방|
 
 ## <a name="movietickets"></a>MovieTickets 
 MovieTickets 도메인은 영화관의 영화 티켓 예약과 관련된 의도 및 엔터티를 제공합니다.
@@ -275,22 +275,22 @@ Skip to the next song
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| DecreaseVolume | 장치 볼륨을 줄입니다.|트랙 볼륨 낮추기<br/>볼륨 작게|
-| IncreaseVolume | 장치 볼륨을 높입니다.|트랙 볼륨 높이기<br/>볼륨 크게|
+| DecreaseVolume | 디바이스 볼륨을 줄입니다.|트랙 볼륨 낮추기<br/>볼륨 작게|
+| IncreaseVolume | 디바이스 볼륨을 높입니다.|트랙 볼륨 높이기<br/>볼륨 크게|
 | Mute |재생 음악을 음소거합니다.|노래 음소거<br/>트랙 음소거<br/>음악 음소거 |
 | 일시 중지 | 음악 재생을 일시 중지합니다.|일시 중지<br/>음악 일시 중지<br/>트랙 일시 중지|
-| PlayMusic | 장치에서 음악을 재생합니다.|Kevin Durant 재생<br/>Coldplay의 Paradise 재생<br/>Adele의 Hello 재생|
+| PlayMusic | 디바이스에서 음악을 재생합니다.|Kevin Durant 재생<br/>Coldplay의 Paradise 재생<br/>Adele의 Hello 재생|
 | Repeat |음악 재생을 반복합니다.|노래 반복<br/>트랙 다시 재생<br/>음악 반복|
 | 다시 시작 | 음악 재생을 다시 시작합니다.|노래 다시 시작<br/>음악 다시 시작<br/>일시 중지 해제|
 | SkipBack | 한 트랙 뒤로 건너뜁니다.|다음 노래로 이동<br/>다음 곡 재생|
 | SkipForward |한 트랙 앞으로 건너뜁니다.|이전 곡 재생<br/>이전 트랙으로 돌아가기 |
 | 중지 | 음악 재생에 관련된 작업을 중지합니다. |이 앨범 재생을 중지합니다.|
-| Unmute | 음악 재생 장치의 음소거를 해제합니다.| 음소거를 해제합니다.|
+| Unmute | 음악 재생 디바이스의 음소거를 해제합니다.| 음소거를 해제합니다.|
 
 ### <a name="entities"></a>엔터티
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| ArtistName | 장치에서 재생할 미디어와 관련된 배우, 감독, 프로듀서, 작가, 음악가 또는 예술가입니다.|Elvis Presley<br/>Taylor Swift<br/>Adele<br/>Mozart|
+| ArtistName | 디바이스에서 재생할 미디어와 관련된 배우, 감독, 프로듀서, 작가, 음악가 또는 예술가입니다.|Elvis Presley<br/>Taylor Swift<br/>Adele<br/>Mozart|
 | Genre | 요청된 음악의 장르입니다.|컨트리 음악<br/>브로드웨이 클래식<br/>바로크 시대의 고전 음악 재생|
 
 ## <a name="note"></a>참고 
@@ -327,7 +327,7 @@ Remove all items from my vacation list
 | 제목 | 메모의 제목입니다.|식료품<br/>통화할 사람<br/>할 일|
 
 ## <a name="ondevice"></a>OnDevice 
-OnDevice 도메인은 장치 제어와 관련된 의도 및 엔터티를 제공합니다.
+OnDevice 도메인은 디바이스 제어와 관련된 의도 및 엔터티를 제공합니다.
 
 ### <a name="examples"></a>예
 ```
@@ -339,42 +339,42 @@ Can you make the screen brighter?
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| AreYouListening | 장치가 수신 대기 중인지 문의합니다.|켜져 있나요?<br/>수신 증인가요?|
-|CloseApplication|장치 응용 프로그램을 닫습니다.|비디오 플레이어 닫기|
-|FileBug|장치의 버그를 정리합니다.|버그를 정리하세요.<br/>버그를 정리해줄 수 있나요?<br/>이 버그를 보고하겠습니다.|
+| AreYouListening | 디바이스가 수신 대기 중인지 문의합니다.|켜져 있나요?<br/>수신 증인가요?|
+|CloseApplication|디바이스 응용 프로그램을 닫습니다.|비디오 플레이어 닫기|
+|FileBug|디바이스의 버그를 정리합니다.|버그를 정리하세요.<br/>버그를 정리해줄 수 있나요?<br/>이 버그를 보고하겠습니다.|
 |GoBack|한 단계 뒤로 돌아가거나 이전 단계로 돌아가도록 요청합니다.|돌아가세요.<br/>이전 화면으로 이동<br/>돌아가서 수신 중지|
 |도움말| 도움을 요청합니다.|도와주세요.<br/>안녕하세요.<br/>어떻게 해야 합니까?<br/>도움이 필요합니다.| 
-|LocateDevice|장치를 찾습니다.|내 휴대폰을 찾을 수 있나요?<br/>Tom의 iphone 찾기<br/>내 휴대폰 찾기|
-|LogIn|장치를 사용하여 서비스에 로그인합니다.|로그인하세요.<br/>Facebook 로그인<br/>LinkedIn에 로그인|
-|LogOut|장치를 사용하여 서비스에서 로그아웃합니다.|내 휴대폰에서 로그오프<br/>Twitter에 로그온<br/>로그아웃|
-|MainMenu|장치의 주 메뉴를 표시합니다.|보기 메뉴|
-|OpenApplication|장치에서 응용 프로그램을 엽니다.|경보를 여세요.<br/>카메라 켜기<br/>일정 시작|
-|OpenSetting|장치에서 설정을 엽니다.|네트워크 설정을 엽니다.|
-|PairDevice|장치와 쌍으로 연결합니다.|Bluetooth 신호를 휴대폰에 연결하는 데 도움을 줄 수 있나요?<br/>Bluetooth를 켜고 랩톱에 연결<br/>Bluetooth 신호를 랩톱에 연결|
-|PowerOff | 장치를 끕니다.|내 컴퓨터를 종료할 수 있나요?<br/>Shutdown<br/>내 휴대폰 끄기|
+|LocateDevice|디바이스를 찾습니다.|내 휴대폰을 찾을 수 있나요?<br/>Tom의 iphone 찾기<br/>내 휴대폰 찾기|
+|LogIn|디바이스를 사용하여 서비스에 로그인합니다.|로그인하세요.<br/>Facebook 로그인<br/>LinkedIn에 로그인|
+|LogOut|디바이스를 사용하여 서비스에서 로그아웃합니다.|내 휴대폰에서 로그오프<br/>Twitter에 로그온<br/>로그아웃|
+|MainMenu|디바이스의 주 메뉴를 표시합니다.|보기 메뉴|
+|OpenApplication|디바이스에서 응용 프로그램을 엽니다.|경보를 여세요.<br/>카메라 켜기<br/>일정 시작|
+|OpenSetting|디바이스에서 설정을 엽니다.|네트워크 설정을 엽니다.|
+|PairDevice|디바이스와 쌍으로 연결합니다.|Bluetooth 신호를 휴대폰에 연결하는 데 도움을 줄 수 있나요?<br/>Bluetooth를 켜고 랩톱에 연결<br/>Bluetooth 신호를 랩톱에 연결|
+|PowerOff | 디바이스를 끕니다.|내 컴퓨터를 종료할 수 있나요?<br/>Shutdown<br/>내 휴대폰 끄기|
 |QueryBattery|배터리 수명에 대한 정보를 얻습니다.|배터리 수명을 표시합니다.<br/>내 배터리 상태<br/>남아 있는 배터리 용량은 얼마나 되나요?<br/>배터리 표시|
 |QueryWifi|WiFi에 대한 정보를 얻습니다.|WiFi 정보를 얻습니다.|
-|다시 시작|장치를 다시 시작합니다.|다시 시작하세요.|
-|RingDevice| 장치를 분실한 경우 찾기 위해 벨소리를 내도록 요청합니다.|휴대폰이 울리도록 합니다.| 
-|SetBrightness|장치 밝기를 설정합니다.|밝기를 중간으로 설정<br/>밝기를 높음으로 설정<br/>밝기를 낮음으로 설정|
-|SetupDevice|장치 설치를 시작합니다.|OS 설치 프로그램을 설치합니다.<br/>설치하세요.<br/>자동으로 설치|
+|다시 시작|디바이스를 다시 시작합니다.|다시 시작하세요.|
+|RingDevice| 디바이스를 분실한 경우 찾기 위해 벨소리를 내도록 요청합니다.|휴대폰이 울리도록 합니다.| 
+|SetBrightness|디바이스 밝기를 설정합니다.|밝기를 중간으로 설정<br/>밝기를 높음으로 설정<br/>밝기를 낮음으로 설정|
+|SetupDevice|디바이스 설치를 시작합니다.|OS 설치 프로그램을 설치합니다.<br/>설치하세요.<br/>자동으로 설치|
 |ShowAppBar|앱 바를 표시합니다.|응용 프로그램 표시줄 표시<br/>응용 프로그램 표시줄<br/>응용 프로그램 표시줄을 표시하겠습니다.|
 |ShowContextMenu|상황에 맞는 메뉴를 표시합니다.|상황에 맞는 메뉴를 표시하겠습니다.<br/>상황에 맞는 메뉴<br/>상황에 맞는 메뉴는 표시할 수 있나요?|
-|절전|장치를 절전 모드로 전환합니다.|절전 모드로 전환<br/>절전<br/>내 컴퓨터 절전 모드|
-|SwitchApplication|장치에서 사용하도록 응용 프로그램을 전환합니다.|내 미디어 플레이어로 전환합니다.|
-|TurnDownBrightness|장치 밝기를 줄입니다.|화면을 흐리게 표시합니다.|
-|TurnOffSetting|장치 설정을 해제합니다.|Bluetooth 비활성화<br/>데이터 사용 안 함<br/>Bluetooth 연결 끊기|
-|TurnOnSetting|장치 설정을 켭니다.|다른 <br/> 꺼짐|
-|TurnUpBrightness|장치 밝기를 높입니다.|화면을 더 밝게 만들 수 있나요?|
+|절전|디바이스를 절전 모드로 전환합니다.|절전 모드로 전환<br/>절전<br/>내 컴퓨터 절전 모드|
+|SwitchApplication|디바이스에서 사용하도록 응용 프로그램을 전환합니다.|내 미디어 플레이어로 전환합니다.|
+|TurnDownBrightness|디바이스 밝기를 줄입니다.|화면을 흐리게 표시합니다.|
+|TurnOffSetting|디바이스 설정을 해제합니다.|Bluetooth 비활성화<br/>데이터 사용 안 함<br/>Bluetooth 연결 끊기|
+|TurnOnSetting|디바이스 설정을 켭니다.|다른 <br/> 꺼짐|
+|TurnUpBrightness|디바이스 밝기를 높입니다.|화면을 더 밝게 만들 수 있나요?|
 
 ### <a name="entities"></a>엔터티
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| AppName | 장치의 응용 프로그램 이름입니다.|SoundCloud<br/>YouTube|
-| BrightnessLevel | 장치의 밝기 수준을 설정합니다.|100%<br/>50<br/>40%|
-| ContactName | 장치에 있는 연락처의 이름입니다.|Paul<br/>Marlen Max|
-| DeviceType | 장치의 유형입니다. |Phone<br/>Kindle<br/>랩톱|
-| MediaType | 장치에서 처리하는 미디어 유형입니다.|음악<br/>영화<br/>TV 쇼|
+| AppName | 디바이스의 응용 프로그램 이름입니다.|SoundCloud<br/>YouTube|
+| BrightnessLevel | 디바이스의 밝기 수준을 설정합니다.|100%<br/>50<br/>40%|
+| ContactName | 디바이스에 있는 연락처의 이름입니다.|Paul<br/>Marlen Max|
+| DeviceType | 디바이스의 유형입니다. |Phone<br/>Kindle<br/>랩톱|
+| MediaType | 디바이스에서 처리하는 미디어 유형입니다.|음악<br/>영화<br/>TV 쇼|
 | SettingType | 사용자가 편집하려는 설정 또는 설정 패널의 유형입니다.|WiFi<br/>무선 네트워크<br/>색 구성표<br/>알림 센터|
 
 ## <a name="places"></a>Places  
@@ -444,7 +444,7 @@ restart|
 | RouteAvoidanceCriteria | 특정 경로를 피하는 기준(예: 사고, 건설 또는 통행료) | 통행료 <br/>건설<br/>Route 11|
 | ServiceProvided | 회사 또는 장소가 제공하는 서비스(예: 헤어컷, 제설기, 경치)입니다. | 헤어컷<br/>정비<br/>배관공|
 | TransportationCompany | 전송 공급업체의 이름입니다.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | 교통 유형입니다.|버스<br/>교육<br/>Driving|
+| TransportationType | 교통 유형입니다.|버스<br/>학습<br/>Driving|
 
 ## <a name="reminder"></a>미리 알림 
 reminder 도메인은 미리 알림 생성, 편집 및 찾기에 대한 의도 및 엔터티를 제공합니다.
@@ -525,7 +525,7 @@ Cancel my Uber
 | PlaceName | 현지 회사, 식당, 공공 명소 또는 기관의 이름입니다. |중앙 공원<br/>세이프웨이<br/>월마트|
 | PlaceType| 택시 예약을 요청할 장소 유형입니다.|식당<br/>Opera<br/>영화관|
 | TransportationCompany | 전송 공급업체의 이름입니다.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | 교통 유형입니다.|버스<br/>교육<br/>Driving|
+| TransportationType | 교통 유형입니다.|버스<br/>학습<br/>Driving|
 
 ## <a name="translate"></a>번역 
 Translate 도메인은 텍스트를 대상 언어로 번역하는 것과 관련된 의도 및 엔터티를 제공합니다.

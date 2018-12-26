@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 2172acfd61188c09693b9c7dacf37ff7a638d7f4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9d64ad70ea49f7fbffd8bd6a5a77177fe490b832
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169944"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229665"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Azure에서 심층 학습 Virtual Machine 프로비전 
 
-DLVM(딥 러닝 Virtual Machine)은 심층 학습 모델을 빠르게 학습하기 위해 GPU 기반 VM 인스턴스를 더 쉽게 사용할 수 있도록 특별히 구성된 [DSVM(데이터 과학 Virtual Machine)](http://aka.ms/dsvm) 변형입니다. Windows 2016 또는 Ubuntu DSVM을 기반으로 하여 지원됩니다. DLVM은 동일한 코어 VM 이미지를 공유하므로 DSVM에서 사용할 수 있는 풍부한 도구 집합을 모두 공유합니다. 
+DLVM(딥 러닝 Virtual Machine)은 심층 학습 모델을 빠르게 학습하기 위해 GPU 기반 VM 인스턴스를 더 쉽게 사용할 수 있도록 특별히 구성된 [DSVM(데이터 과학 Virtual Machine)](https://aka.ms/dsvm) 변형입니다. Windows 2016 또는 Ubuntu DSVM을 기반으로 하여 지원됩니다. DLVM은 동일한 코어 VM 이미지를 공유하므로 DSVM에서 사용할 수 있는 풍부한 도구 집합을 모두 공유합니다. 
 
 DLVM에는 몇 가지 AI용 도구가 포함되어 있습니다. 즉 인기 있는 심층 학습 프레임워크의 GPU 버전(예: Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer), 이미지와 텍스트 데이터를 획득하고 전처리하는 도구, 데이터 과학 모델링 및 개발 작업용 도구(예: Microsoft R Server Developer Edition, Anaconda Python, Python 및 R용 Jupyter 노트북, Python 및 R용 IDE, SQL 데이터베이스 및 기타 여러 데이터 과학) 및 ML 도구 등입니다. 
 

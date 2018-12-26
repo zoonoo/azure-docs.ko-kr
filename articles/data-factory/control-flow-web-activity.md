@@ -21,7 +21,7 @@ ms.lasthandoff: 06/27/2018
 ms.locfileid: "37055729"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 작업
-웹 작업은 Data Factory 파이프라인에서 사용자 지정 REST 끝점을 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 집합 및 연결된 서비스를 전달할 수 있습니다. 
+웹 작업은 Data Factory 파이프라인에서 사용자 지정 REST 끝점을 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다. 
 
 ## <a name="syntax"></a>구문
 
@@ -71,7 +71,7 @@ URL | 대상 끝점 및 경로입니다. | 문자열(또는 resultType 문자열
 headers | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 문자열(또는 resultType 문자열이 있는 식) | 예, Content-Type 헤더가 필요합니다. `"headers":{ "Content-Type":"application/json"}`
 본문 | 끝점에 전송된 페이로드를 나타냅니다.  | 문자열(또는 resultType 문자열이 있는 식). <br/><br/>[요청 페이로드 스키마](#request-payload-schema) 섹션에서 요청 페이로드의 스키마를 참조하세요. | POST/PUT 메서드에 필요합니다.
 인증 | 끝점을 호출하는 데 사용되는 인증 방법입니다. 지원되는 형식은 "Basic" 또는 "ClientCertificate"입니다. 자세한 내용은 [인증](#authentication) 섹션을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열(또는 resultType 문자열이 있는 식) | 아니오
-데이터 집합 | 끝점에 전달되는 데이터 집합의 목록입니다. | 데이터 집합 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
+데이터 세트 | 끝점에 전달되는 데이터 집합의 목록입니다. | 데이터 세트 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
 linkedServices | 끝점에 전달되는 연결된 서비스 목록입니다. | 연결된 서비스 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
 
 > [!NOTE]
@@ -114,7 +114,7 @@ PFX 파일의 base64로 인코딩된 콘텐츠 및 암호를 지정합니다.
 }
 ```
 ## <a name="request-payload-schema"></a>요청 페이로드 스키마
-POST/PUT 메서드를 사용하는 경우 body 속성은 끝점에 전송되는 페이로드를 나타냅니다. 연결된 서비스 및 데이터 집합을 페이로드의 일부로 전달할 수 있습니다. 페이로드 스키마는 다음과 같습니다. 
+POST/PUT 메서드를 사용하는 경우 body 속성은 끝점에 전송되는 페이로드를 나타냅니다. 연결된 서비스 및 데이터 세트를 페이로드의 일부로 전달할 수 있습니다. 페이로드 스키마는 다음과 같습니다. 
 
 ```json
 {

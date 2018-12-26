@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 39fc5ef36bb581c3a81c9948fda048f6cb75eb7e
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: daab61a0ea9321b0fb918c60688215c80088e0bc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102089"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243354"
 ---
 # <a name="biztalk-services-throttling"></a>BizTalk Services: 제한
 
@@ -42,10 +42,10 @@ Azure BizTalk Services는 제한 상태(일반 상태와 제한된 상태) 및 �
 ## <a name="runtime-behavior"></a>런타임 동작
 Azure BizTalk Services가 제한 상태에 들어가면 다음과 같은 상황이 발생합니다.
 
-* 조정은 역할 인스턴스별로 적용됩니다. 예:<br/>
+* 조정은 역할 인스턴스별로 적용됩니다. 예: <br/>
   RoleInstanceA가 제한 중입니다. RoleInstanceB는 제한하고 있지 않습니다. 이런 경우 RoleInstanceB의 메시지가 예상대로 처리됩니다. RoleInstanceA의 메시지는 취소되고 다음과 같은 오류를 표시하며 실패합니다.<br/><br/>
   **서버가 사용 중입니다. 나중에 다시 시도하세요.**<br/><br/>
-* 어떤 끌어오기 원본도 메시지를 폴링하거나 다운로드하지 않습니다. 예를 들면 다음과 같습니다.<br/>
+* 어떤 끌어오기 원본도 메시지를 폴링하거나 다운로드하지 않습니다. 예: <br/>
   파이프라인이 외부 FTP 원본에서 메시지를 끌어옵니다. 끌어오기를 수행하는 역할 인스턴스가 제한 상태로 전환됩니다. 이런 경우 역할 인스턴스가 제한을 중지할 때까지 파이프라인에서 추가 메시지 다운로드를 중지합니다.
 * 클라이언트에서 메시지를 다시 제출할 수 있도록 응답이 클라이언트로 전송됩니다.
 * 제한이 해결될 때까지 기다려야 합니다. 특히 낮은 임계값에 도달할 때까지 기다려야 합니다.
@@ -57,15 +57,15 @@ Azure BizTalk Services가 제한 상태에 들어가면 다음과 같은 상황�
 * Azure SQL Database 서버에는 기본 제공 제한도 있습니다.
 
 ## <a name="additional-azure-biztalk-services-topics"></a>추가 Azure BizTalk Services 항목
-* [Azure BizTalk Services SDK 설치](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [자습서: Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [Azure BizTalk Services SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [Azure BizTalk Services SDK 설치](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [자습서: Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Azure BizTalk Services SDK로 시작하는 방법](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>참고 항목
-* [BizTalk Services: Developer, Basic, Standard 및 Premium Editions 차트](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services: 프로비저닝 상태 차트](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [BizTalk Services: Backup 및 복원](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [BizTalk Services: 발급자 이름 및 발급자 키](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [BizTalk Services: Developer, Basic, Standard 및 Premium Editions 차트](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [BizTalk Services: 프로비저닝 상태 차트](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk Services: Backup 및 복원](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk Services: 발급자 이름 및 발급자 키](https://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 

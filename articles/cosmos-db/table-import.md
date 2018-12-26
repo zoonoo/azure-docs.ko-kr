@@ -1,25 +1,23 @@
 ---
-title: Azure Cosmos DB 테이블 API를 사용하여 사용할 데이터 가져오기 | Microsoft Docs
-description: Azure Cosmos DB Table API를 사용하여 데이터를 가져오는 방법을 알아봅니다.
-services: cosmos-db
+title: Azure Cosmos DB에서 Table API 계정으로 기존 데이터 마이그레이션
+description: Azure Cosmos DB에서 온-프레미스 또는 클라우드 데이터를 Azure Table API 계정으로 마이그레이션하거나 가져오는 방법을 알아봅니다.
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/28/2017
+ms.date: 12/07/2017
 ms.author: sngun
-ms.openlocfilehash: e4e783d131c4ceee9315b3442ee504e662157d8c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.custom: seodec18
+ms.openlocfilehash: b2256f16d284cb079231e271a7fc06c25c381c8a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856810"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137687"
 ---
-# <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Azure Cosmos DB Table API를 사용하여 데이터 가져오기
+# <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정으로 데이터 마이그레이션
 
-이 자습서에서는 Azure Cosmos DB [테이블 API](table-introduction.md)로 사용할 데이터 가져오기에 대한 지침을 제공합니다. Azure Table Storage에 저장된 데이터가 있는 경우 데이터 마이그레이션 도구 또는 AzCopy를 사용하여 데이터를 가져올 수 있습니다. 데이터가 Azure Cosmos DB 테이블 API(미리 보기) 계정에 저장된 경우 데이터 마이그레이션 도구를 사용하여 데이터를 마이그레이션해야 합니다. 데이터를 가져오면 Azure Cosmos DB가 제공하는 프리미엄 기능(턴키 방식의 글로벌 배포, 전용 처리량, 99번째 백분위수에서 1자리 밀리초 대기 시간, 보장된 고가용성 및 자동 보조 인덱싱)을 활용할 수 있습니다.
+이 자습서에서는 Azure Cosmos DB [테이블 API](table-introduction.md)로 사용할 데이터 가져오기에 대한 지침을 제공합니다. Azure Table 저장소에 저장된 데이터가 있는 경우 데이터 마이그레이션 도구 또는 AzCopy를 사용하여 데이터를 Azure Cosmos DB Table API로 가져올 수 있습니다. 데이터가 Azure Cosmos DB 테이블 API(미리 보기) 계정에 저장된 경우 데이터 마이그레이션 도구를 사용하여 데이터를 마이그레이션해야 합니다. 
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -30,7 +28,9 @@ ms.locfileid: "37856810"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 처리량 늘리기: 데이터 마이그레이션 기간은 개별 컨테이너 또는 컨테이너 집합에 대해 설정한 처리량에 따라 다릅니다. 대량 데이터 마이그레이션의 경우 처리량을 늘려야 합니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. Azure Portal에서 처리량을 늘리는 방법에 대한 자세한 내용은 Azure Cosmos DB의 성능 수준 및 가격 책정 계층을 참조하세요.
+* **처리량 증가:** 데이터 마이그레이션 기간은 개별 컨테이너 또는 컨테이너 세트에 대해 설정한 처리량에 따라 달라집니다. 대량 데이터 마이그레이션의 경우 처리량을 늘려야 합니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. Azure Portal에서 처리량을 늘리는 방법에 대한 자세한 내용은 Azure Cosmos DB의 성능 수준 및 가격 책정 계층을 참조하세요.
+
+* **Azure Cosmos DB 리소스 만들기:** 데이터 마이그레이션을 시작하기 전에 Azure Portal에서 모든 테이블을 미리 만듭니다. 데이터베이스 수준 처리량이 있는 Azure Cosmos DB 계정으로 마이그레이션하는 경우에는 Azure Cosmos DB 테이블을 만들 때 파티션 키를 제공해야 합니다.
 
 ## <a name="data-migration-tool"></a>데이터 마이그레이션 도구
 
@@ -39,11 +39,11 @@ ms.locfileid: "37856810"
 테이블 데이터 마이그레이션을 수행하려면 다음 작업을 완료하세요.
 
 1. 마이그레이션 도구를 [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool)에서 다운로드합니다.
-2. 시나리오에 맞는 명령줄 인수를 사용하여 `dt.exe`를 실행합니다.
+2. 시나리오에 맞는 명령줄 인수를 사용하여 `dt.exe`를 실행합니다. `dt.exe`에서 사용하는 형식은 다음과 같습니다.
 
-dt.exe는 다음과 같은 형식의 명령을 받습니다.
-
+   ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
+```
 
 명령에 대한 옵션은 다음과 같습니다.
 
@@ -89,7 +89,7 @@ Azure Cosmos DB 테이블 API를 마이그레이션 대상으로 정의할 때�
     /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
 
 <a id="azure-table-storage"></a>
-### <a name="sample-command-source-is-azure-table-storage"></a>명령 예제: 원본이 Azure Table Storage인 경우
+### <a name="sample-command-source-is-azure-table-storage"></a>명령 샘플: 원본이 Azure Table 스토리지인 경우
 
 Azure Table Storage에서 테이블 API로 가져오는 방법을 보여주는 명령줄 예제는 다음과 같습니다.
 
@@ -97,7 +97,7 @@ Azure Table Storage에서 테이블 API로 가져오는 방법을 보여주는 �
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
-### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>명령 예제: 원본이 Azure Cosmos DB 테이블 API(미리 보기)인 경우
+### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>명령 샘플: 원본이 Azure Cosmos DB Table API(미리 보기)인 경우
 
 테이블 API 미리 보기에서 테이블 API GA로 가져오는 명령줄 예제는 다음과 같습니다.
 
@@ -105,7 +105,7 @@ dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.com; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 
-## <a name="azcopy-command"></a>AzCopy 명령
+## <a name="migrate-data-by-using-azcopy"></a>AzCopy를 사용하여 데이터 마이그레이션
 
 AzCopy 명령줄 유틸리티를 사용하는 것은 Azure Table Storage에서 Azure Cosmos DB 테이블 API로 데이터를 마이그레이션하는 다른 옵션입니다. AzCopy를 사용하려면 먼저 [Table Storage에서 데이터 내보내기](../storage/common/storage-use-azcopy.md#export-data-from-table-storage)에 설명된 대로 데이터를 내보낸 다음 [Azure Cosmos DB 테이블 API](../storage/common/storage-use-azcopy.md#import-data-into-table-storage)에 설명된 대로 Azure Cosmos DB로 데이터를 가져옵니다.
 

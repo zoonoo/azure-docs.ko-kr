@@ -1,24 +1,27 @@
 ---
-title: Microsoft Speech Service 인증 | Microsoft Docs
-description: Microsoft Speech API를 사용하기 위한 인증을 요청합니다.
+title: Bing Speech 인증 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Bing Speech API를 사용하기 위한 인증 요청
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e36168cf3ff938af44f1028c2d26fd475d60b148
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e3bfdcfaaf752321997636811b282ea920e6144a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373839"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344203"
 ---
 # <a name="authenticate-to-the-speech-api"></a>Speech API 인증
 
-Speech Service에서 인증을 지원하기 위해 사용하는 항목은 다음과 같습니다.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+Bing Speech에서 인증을 지원하기 위해 사용하는 항목은 다음과 같습니다.
 
 - 구독 키
 - 권한 부여 토큰
@@ -31,7 +34,7 @@ Speech Service를 사용하려면 먼저 Cognitive Services(이전의 Project Ox
 
 Speech REST API를 사용하려면 요청 헤더의 `Ocp-Apim-Subscription-Key` 필드에 구독 키를 전달해야 합니다.
 
-Name| 형식| 설명
+이름| 형식| 설명
 ----|-------|------------
 Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 

@@ -2,24 +2,19 @@
 title: Microsoft Azure Storage 데이터 이동 라이브러리를 사용하여 데이터 전송 | Microsoft Docs
 description: 데이터 이동 라이브러리를 사용하여 Blob과 파일 콘텐츠간에 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다.
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.component: common
+ms.openlocfilehash: e62023f5aeca73973598430ed357e8e9800a17f8
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2018
-ms.locfileid: "27564742"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732246"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Microsoft Azure Storage 데이터 이동 라이브러리를 사용하여 데이터 전송
 
@@ -39,11 +34,11 @@ Microsoft Azure Storage 데이터 이동 라이브러리는 Azure Storage Blob �
 
 **필요한 항목**
 
-* [Contact.java](https://code.visualstudio.com/)
-* [Azure 저장소 계정](storage-create-storage-account.md#create-a-storage-account)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Azure 저장소 계정](storage-quickstart-create-account.md)
 
 > [!NOTE]
-> 이 가이드는 [Azure Storage](https://azure.microsoft.com/services/storage/)에 대해 잘 알고 있다는 것을 가정합니다. 그렇지 않은 경우 [Azure Storage 소개](storage-introduction.md) 설명서가 도움이 됩니다. 가장 중요한 점은 데이터 이동 라이브러리의 사용을 시작하려면 [Storage 계정을 만들어야](storage-create-storage-account.md#create-a-storage-account) 합니다.
+> 이 가이드는 [Azure Storage](https://azure.microsoft.com/services/storage/)에 대해 잘 알고 있다는 것을 가정합니다. 그렇지 않은 경우 [Azure Storage 소개](storage-introduction.md) 설명서가 도움이 됩니다. 가장 중요한 점은 데이터 이동 라이브러리의 사용을 시작하려면 [Storage 계정을 만들어야](storage-quickstart-create-account.md) 합니다.
 > 
 > 
 

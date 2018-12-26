@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 9d05c41e7ebf9d1cc0735da8853e4ad1617eb810
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aab6e5247830ee444bcab0b15bda34e4464aaad1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610500"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565482"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Logic Apps 및 Azure Cosmos DB를 사용하여 환자에게 HL7 FHIR 의료 기록 변경 통지
 
@@ -134,7 +134,7 @@ Azure Cosmos DB SQL .NET API에서 [`CreateDocumentChangeFeedQuery`](https://msd
             /// <returns></returns>
             [Metadata("Get New or Modified FHIR Documents",
                 "Query for new or modifed FHIR Documents By Resource Type " +
-                "from Last Run Date or Begining of Collection creation"
+                "from Last Run Date or Beginning of Collection creation"
             )]
             [SwaggerResponse(HttpStatusCode.OK, type: typeof(Task<dynamic>))]
             [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modifed Documents found")]

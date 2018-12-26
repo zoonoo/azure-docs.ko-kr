@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: a612ffd5a68e34cb0a367a6a883495ef26aeb4bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401024"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238168"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Azure Virtual Machines에서 자동으로 Always On 가용성 그룹 구성: Resource Manager
 
@@ -42,12 +42,12 @@ ms.locfileid: "29401024"
 
 자습서를 시작하기 전에 다음을 확인하세요.
 
-* Azure 계정이 있습니다. 계정이 없는 경우 [평가판 계정에 등록](http://azure.microsoft.com/pricing/free-trial/)합니다.
+* Azure 계정이 있습니다. 계정이 없는 경우 [평가판 계정에 등록](https://azure.microsoft.com/pricing/free-trial/)합니다.
 * GUI를 사용하여 가상 머신 갤러리에서 SQL Server 가상 머신을 프로비전하는 방법을 이미 알고 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 머신 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
-* 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
+* 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
 > [!NOTE]
-> SharePoint와 가용성 그룹을 사용하는 것에 관심이 있는 경우 [SharePoint 2013에 대해 SQL Server 2012 Always On 가용성 그룹 구성](http://technet.microsoft.com/library/jj715261.aspx)을 참조하세요.
+> SharePoint와 가용성 그룹을 사용하는 것에 관심이 있는 경우 [SharePoint 2013에 대해 SQL Server 2012 Always On 가용성 그룹 구성](https://technet.microsoft.com/library/jj715261.aspx)을 참조하세요.
 >
 >
 
@@ -125,7 +125,7 @@ Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 
 * **SQL Server 가상 머신 크기**는 SQL Server를 실행하는 두 가상 머신의 크기입니다. 워크로드에 적합한 가상 머신 크기를 선택합니다. 자습서에서 이 환경을 빌드하는 경우 **DS2**를 사용합니다. 프로덕션 워크로드에서 워크로드를 지원할 수 있는 가상 머신 크기를 선택합니다. 대부분의 프로덕션 워크로드에서는 **DS4** 이상이 필요합니다. 템플릿은 이 크기의 두 가상 머신을 빌드하고 각 컴퓨터에 SQL Server를 설치합니다. 자세한 내용은 [가상 머신의 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 > [!NOTE]
-> Azure는 SQL Server의 Enterprise Edition을 설치합니다. 비용은 버전 및 가상 머신 크기에 따라 다릅니다. 현재 비용에 대한 자세한 내용은 [가상 머신 가격 책정](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)을 참조하세요.
+> Azure는 SQL Server의 Enterprise Edition을 설치합니다. 비용은 버전 및 가상 머신 크기에 따라 다릅니다. 현재 비용에 대한 자세한 내용은 [가상 머신 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)을 참조하세요.
 >
 >
 
@@ -161,8 +161,8 @@ Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 
 
 저장소 공간 및 저장소 풀에 대한 자세한 내용은 다음을 참조하세요.
 
-* [저장소 공간 개요](http://technet.microsoft.com/library/hh831739.aspx)
-* [Windows Server Backup 및 Storage 풀](http://technet.microsoft.com/library/dn390929.aspx)
+* [저장소 공간 개요](https://technet.microsoft.com/library/hh831739.aspx)
+* [Windows Server Backup 및 Storage 풀](https://technet.microsoft.com/library/dn390929.aspx)
 
 SQL Server 구성 모범 사례에 대한 자세한 내용은 [Azure 가상 머신의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.
 

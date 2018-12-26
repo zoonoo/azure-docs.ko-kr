@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 8cb7cd84e68420006e7c598c224580c9150ab1c7
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34070501"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979202"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -41,6 +41,7 @@ ms.locfileid: "34070501"
 
 - [응용 프로그램 관리 및 모니터링에 도움이 될 수 있는 Azure Portal의 예정된 클라우드 서비스 기능은 무엇인가요?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [IIS에서 로그 디렉터리에 작성을 중지하는 이유는 무엇인가요?](#why-does-iis-stop-writing-to-the-log-directory)
+- [Cloud Services에 대해 WAD 로깅을 활성화하려면 어떻게 할까요?](#how-do-i-enable-wad-logging-for-cloud-services)
 
 **네트워크 구성**
 
@@ -125,7 +126,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있는 기능이 곧 제공됩니다. [New-AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0)를 사용하여 각 위치 값을 설정할 수 있습니다.
+Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있는 기능이 곧 제공됩니다. [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-4.0.0)를 사용하여 각 위치 값을 설정할 수 있습니다.
 
 인스턴스 수준에서 메트릭을 모니터링할 수 있습니다. 추가 모니터링 기능은 [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)에서 제공합니다.
 
@@ -138,6 +139,15 @@ Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있�
 자세한 내용은 다음 문서를 참조하세요.
 * [Azure Storage에서 진단 데이터 저장 및 보기](cloud-services-dotnet-diagnostics-storage.md)
 * [클라우드 서비스에서 IIS 로그 작성 중지](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+
+### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Cloud Services에 대해 WAD 로깅을 활성화하려면 어떻게 할까요?
+다음 옵션을 통해 WAD(Windows Azure 진단) 로깅을 활성화할 수 있습니다.
+1. [Visual Studio에서 활성화](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [.Net 코드를 통해 활성화](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+3. [Powershell을 통해 활성화](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+
+Cloud Services의 현재 WAD 설정을 가져오기 위해 [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd를 사용하거나 "Cloud Services --> 확장" 블레이드에서 포털을 통해 볼 수 있습니다.
+
 
 ## <a name="network-configuration"></a>네트워크 구성
 
@@ -205,9 +215,9 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 ## <a name="permissions"></a>권한
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Cloud Services에 역할 기반 액세스를 구현하려면 어떻게 할까요?
-Cloud Services는 Azure Resource Manager 기반 서비스가 아니므로 RBAC(역할 기반 Access Control) 모델을 지원하지 않습니다.
+Cloud Services는 Azure Resource Manager 기반 서비스가 아니므로 RBAC(역할 기반 액세스 제어) 모델을 지원하지 않습니다.
 
-[Azure RBAC와 클래식 구독 관리자 비교](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators)를 참조하세요.
+[Azure의 다양한 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
 
 ## <a name="remote-desktop"></a>원격 데스크톱
 
@@ -238,7 +248,7 @@ Azure 진단을 Cloud Services용 Application Insights와 통합하는 방법에
 
 Cloud Services용 Application Insights를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Cloud Services용 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)를 참조하세요.
 
-Cloud Services용 Azure 진단 로깅을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Cloud Services 및 가상 머신에 대한 진단 설정](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)을 참조하세요.
+Cloud Services용 Azure 진단 로깅을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Cloud Services 및 가상 머신에 대한 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)을 참조하세요.
 
 ## <a name="generic"></a>일반
 
@@ -285,7 +295,7 @@ Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다
 시작 작업에서 PowerShell 스크립트를 사용하여 맬웨어 방지 확장을 사용하도록 설정할 수 있습니다. 다음 문서에 나온 단계를 따라 구현합니다. 
  
 - [PowerShell 시작 작업 만들기](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 맬웨어 방지 배포 시나리오 및 포털에서 활성화하는 방법에 대한 자세한 내용은 [맬웨어 방지 배포 시나리오](../security/azure-security-antimalware.md#antimalware-deployment-scenarios)를 참조하세요.
 

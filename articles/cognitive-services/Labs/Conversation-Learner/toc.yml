@@ -48,6 +48,8 @@
       href: tutorials/15-branching-and-undo.md
     - name: 버전 관리 및 태그 지정
       href: tutorials/16-versioning-and-tagging.md
+    - name: 하이브리드 봇
+      href: tutorials/17-hybrid-bots.md
     - name: 데모 - 암호 재설정
       href: tutorials/demo-password-reset.md
     - name: 데모 - 피자 주문

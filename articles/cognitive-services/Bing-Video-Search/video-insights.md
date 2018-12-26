@@ -1,21 +1,21 @@
 ---
-title: 비디오 인사이트 가져오기 | Microsoft Docs
+title: 동영상 인사이트 얻기 - Bing Video Search
+titlesuffix: Azure Cognitive Services
 description: Bing Video Search API를 사용하여 비디오에 대한 자세한 정보를 가져오는 방법을 보여 줍니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 30ECF4E2-E4F0-491B-9FA8-971BC96AB7B6
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 4e804f168307ca8f206152b11e59652497678e42
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: af6056507cb70ab33bee5955ddf7bd0f77fd04eb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376902"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219994"
 ---
 # <a name="get-insights-about-a-video"></a>비디오에 대한 인사이트 가져오기
 
@@ -36,7 +36,7 @@ ms.locfileid: "35376902"
     ],
 ```
 
-다음 GET 요청을 비디오 세부 정보 끝점으로 보냅니다. [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) 쿼리 매개 변수를 `videoId` 토큰으로 설정합니다. 가져올 인사이트를 지정하려면 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) 쿼리 매개 변수를 설정합니다. 모든 인사이트를 가져오려면 `modules`를 All로 설정합니다. 응답에는 사용 가능한 경우 요청한 모든 인사이트가 포함됩니다.
+다음 GET 요청을 비디오 세부 정보 엔드포인트로 보냅니다. [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) 쿼리 매개 변수를 `videoId` 토큰으로 설정합니다. 가져올 인사이트를 지정하려면 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) 쿼리 매개 변수를 설정합니다. 모든 인사이트를 가져오려면 `modules`를 All로 설정합니다. 응답에는 사용 가능한 경우 요청한 모든 인사이트가 포함됩니다.
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  

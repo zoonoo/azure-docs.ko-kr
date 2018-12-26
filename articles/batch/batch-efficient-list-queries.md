@@ -12,28 +12,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 08/02/2017
+ms.date: 06/26/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 950e422b3076e5abd5db6dd0ac452fa1c2d500d0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 6bc31e8541797930583e41fb6efbb6473cd4b894
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129271"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004458"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>쿼리를 만들어서 효율적으로 Batch 리소스 나열
 
-여기에서 [Batch .NET][api_net] 라이브러리를 사용하여 작업, 태스크 및 계산 노드를 쿼리할 때 서비스에서 반환되는 데이터의 양을 줄여 Azure Batch 응용 프로그램의 성능을 향상시키는 방법을 알아봅니다.
+여기서는 [Batch .NET][api_net] 라이브러리를 사용하여 작업, 태스크, 계산 노드 및 기타 리소스를 쿼리할 때 서비스에서 반환되는 데이터의 양을 줄여 Azure Batch 응용 프로그램의 성능을 향상시키는 방법을 알아봅니다.
 
 거의 모든 Batch 응용 프로그램은 정기적으로 Batch 서비스를 쿼리하는 특정 형식의 모니터링 또는 다른 작업을 수행해야 합니다. 예를 들어 대기 중인 태스크가 작업에 남아 있는지 여부를 확인하려면 작업의 모든 태스크에 대한 데이터를 가져와야 합니다. 풀의 노드 상태를 확인하려면 풀의 모든 노드에서 데이터를 가져와야 합니다. 이 문서에서는 가장 효율적인 방법으로 이러한 쿼리를 실행하는 방법에 대해 설명합니다.
 
 > [!NOTE]
-> Batch 서비스는 작업 내 태스크를 계산하는 일반적인 시나리오에 대한 특별한 API 지원을 제공합니다. 목록 쿼리를 사용하는 대신, [Get Task Counts][rest_get_task_counts] 연산을 호출할 수 있습니다. Get Task Counts 연산은 보류 중, 실행 중 또는 완료 태스크 수, 성공 또는 실패한 태스크 수를 나타냅니다. Get Task Counts는 목록 쿼리보다 더 효율적입니다. 자세한 내용은 [상태별 작업 계수(미리 보기)](batch-get-task-counts.md)를 참조하세요. 
->
-> 2017-06-01.5.1 이전의 Batch 서비스 버전에서는 Get Task Counts 연산을 사용할 수 없습니다. 이전 버전의 서비스를 사용하는 경우, 대신 목록 쿼리를 사용하여 작업의 태스크를 계산하세요.
->
-> 
+> Batch 서비스는 작업 내 태스크를 카운팅하고 Batch 풀의 계산 노드를 카운팅하는 일반적인 시나리오에 대한 특수 API 지원을 제공합니다. 목록 쿼리를 사용하는 대신, [Get Task Counts][rest_get_task_counts] 및 [List Pool Node Counts][rest_get_node_counts] 연산을 호출할 수 있습니다. 이러한 연산은 목록 쿼리보다 효율적이지만 제한된 정보를 반환합니다. [상태별 태스크 및 계산 노드 카운팅](batch-get-resource-counts.md)을 참조하세요. 
+
 
 ## <a name="meet-the-detaillevel"></a>DetailLevel 충족
 프로덕션 Batch 응용 프로그램에서 작업, 태스크 및 계산 노드 같은 엔터티가 수천 개 있을 수 있습니다. 이러한 리소스에 대한 정보를 요청할 때는 잠재적으로 각 쿼리에서 대량의 데이터를 Batch 서비스에서 응용 프로그램으로 "아슬아슬하게 전달"해야 합니다. 쿼리에서 반환하는 항목의 수와 정보의 형식을 제한하여 쿼리의 속도를 높이고, 그 결과로 응용 프로그램의 성능도 향상시킬 수 있습니다.
@@ -297,4 +294,5 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
-[rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job
+[rest_get_task_counts]: /rest/api/batchservice/get-the-task-counts-for-a-job
+[rest_get_node_counts]: /rest/api/batchservice/account/listpoolnodecounts

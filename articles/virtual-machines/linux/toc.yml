@@ -1,537 +1,556 @@
+items:
 - name: Linux VM 설명서
   href: index.yml
 - name: 개요
   items:
-    - name: Virtual Machines 정보
-      href: overview.md
+  - name: Virtual Machines 정보
+    href: overview.md
 - name: 빠른 시작
-  expanded: true
   items:
-    - name: VM 만들기 - Azure CLI
-      href: quick-create-cli.md
-    - name: VM 만들기 - 포털
-      href: quick-create-portal.md
-    - name: VM 만들기 - Azure PowerShell
-      href: quick-create-powershell.md
+  - name: VM 만들기 - Azure CLI
+    href: quick-create-cli.md
+  - name: VM 만들기 - 포털
+    href: quick-create-portal.md
+  - name: VM 만들기 - Azure PowerShell
+    href: quick-create-powershell.md
+  expanded: true
 - name: 자습서
   items:
-    - name: 1 - VM 만들기/관리
-      href: tutorial-manage-vm.md
-    - name: 2 - 디스크 만들기/관리
-      href: tutorial-manage-disks.md
-    - name: 3 – 구성 자동화
-      href: tutorial-automate-vm-deployment.md
-    - name: 4 - VM 이미지 만들기
-      href: tutorial-custom-images.md
-    - name: 5 - 고가용성 VM
-      href: tutorial-availability-sets.md
-    - name: 6 - VM 확장 집합 만들기
-      href: tutorial-create-vmss.md
-    - name: 7 - VM 부하 분산
-      href: tutorial-load-balancer.md
-    - name: 8 - 네트워킹 관리
-      href: tutorial-virtual-network.md
-    - name: 9 - 가상 머신 Backup
-      href: tutorial-backup-vms.md
-    - name: 10 - VM 제어
-      href: tutorial-govern-resources.md
-    - name: 11 - VM 모니터링 및 업데이트
-      href: tutorial-monitoring.md
-    - name: 12 - VM 보안 관리
-      href: tutorial-azure-security.md
-    - name: 13 - Jenkins 배포
-      href: tutorial-jenkins-github-docker-cicd.md
-    - name: 14 - Team Services를 사용하는 CI/CD
-      href: tutorial-build-deploy-jenkins.md
-    - name: 15a - LAMP 스택 만들기
-      href: tutorial-lamp-stack.md
-    - name: 15b - LEMP 스택 만들기
-      href: tutorial-lemp-stack.md
-    - name: 15c - MEAN 스택 만들기
-      href: tutorial-mean-stack.md
-    - name: 16 - SSL로 웹 서버 보안
-      href: tutorial-secure-web-server.md
+  - name: 1 - VM 만들기/관리
+    href: tutorial-manage-vm.md
+  - name: 2 - 디스크 만들기/관리
+    href: tutorial-manage-disks.md
+  - name: 3 – 구성 자동화
+    href: tutorial-automate-vm-deployment.md
+  - name: 4 - VM 이미지 만들기
+    href: tutorial-custom-images.md
+  - name: 5 - 고가용성 VM
+    href: tutorial-availability-sets.md
+  - name: 6 - VM 확장 집합 만들기
+    href: tutorial-create-vmss.md
+  - name: 7 - VM 부하 분산
+    href: tutorial-load-balancer.md
+  - name: 8 - 네트워킹 관리
+    href: tutorial-virtual-network.md
+  - name: 9 - 가상 머신 Backup
+    href: tutorial-backup-vms.md
+  - name: 10 - VM 제어
+    href: tutorial-govern-resources.md
+  - name: 11 - VM 모니터링 및 업데이트
+    href: tutorial-monitoring.md
+  - name: 12 - VM 보안 관리
+    href: tutorial-azure-security.md
+  - name: 13 - Jenkins 배포
+    href: tutorial-jenkins-github-docker-cicd.md
+  - name: 14 - Azure Pipelines를 사용하는 CI/CD
+    href: tutorial-build-deploy-jenkins.md
+  - name: 15a - LAMP 스택 만들기
+    href: tutorial-lamp-stack.md
+  - name: 15b - LEMP 스택 만들기
+    href: tutorial-lemp-stack.md
+  - name: 15c - MEAN 스택 만들기
+    href: tutorial-mean-stack.md
+  - name: 16 - SSL로 웹 서버 보안
+    href: tutorial-secure-web-server.md
 - name: 샘플
   items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
+  - name: Azure CLI
+    href: cli-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
 - name: 개념
   items:
-    - name: Azure 리소스 관리자
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: 지역 및 가용성
-      href: regions-and-availability.md
-    - name: VM 유형 및 크기
-      href: sizes.md
+  - name: Azure 리소스 관리자
+    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: 지역 및 가용성
+    href: regions-and-availability.md
+  - name: VM 유형 및 크기
+    href: sizes.md
+    items:
+    - name: 범용 가상 컴퓨터
+      href: sizes-general.md
       items:
-        - name: 범용 가상 컴퓨터
-          href: sizes-general.md
-          items:
-            - name: B-시리즈 버스터블
-              href: b-series-burstable.md
-        - name: Compute에 최적화
-          href: sizes-compute.md
-        - name: 메모리에 최적화
-          href: sizes-memory.md
-          items:
-            - name: 제한된 vCPU
-              href: constrained-vcpu.md
-        - name: Storage에 최적화
-          href: sizes-storage.md
-        - name: GPU에 최적화
-          href: sizes-gpu.md
-          items:
-            - name: GPU 드라이버 설정
-              href: n-series-driver-setup.md
-        - name: 고성능 계산
-          href: sizes-hpc.md
-        - name: 이전 세대
-          href: sizes-previous-gen.md
-        - name: Azure 계산 단위(ACU)
-          href: acu.md
-        - name: 벤치마크 점수
-          href: compute-benchmark-scores.md
-    - name: 보증 배포
-      href: endorsed-distros.md
-    - name: 유지 관리 및 업데이트
-      href: maintenance-and-updates.md
-    - name: 디스크 저장소
-      href: about-disks-and-vhds.md
+      - name: B-시리즈 버스터블
+        href: b-series-burstable.md
+    - name: Compute에 최적화
+      href: sizes-compute.md
+    - name: 메모리에 최적화
+      href: sizes-memory.md
       items:
-        - name: Managed Disks
-          href: managed-disks-overview.md
-        - name: Premium Storage
-          href: premium-storage.md
-        - name: 프리미엄 저장소 성능
-          href: premium-storage-performance.md
-        - name: Standard Storage
-          href: standard-storage.md
-        - name: 디스크에 대한 확장성 목표
-          href: disk-scalability-targets.md
-        - name: 디스크의 복구 및 재해 복구
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: 네트워킹
-      href: network-overview.md
-    - name: 자동 크기 조정 응용 프로그램
-      href: autoscale.md
-    - name: 인프라 자동화
-      href: infrastructure-automation.md
-    - name: 보안 및 정책
-      href: security-policy.md
-    - name: 모니터링
-      href: monitor.md
-    - name: Backup 및 복구
-      href: backup-recovery.md
-    - name: 고성능 컴퓨팅
-      href: high-performance-computing.md
-    - name: 배포 고려 사항
+      - name: 제한된 vCPU
+        href: constrained-vcpu.md
+    - name: Storage에 최적화
+      href: sizes-storage.md
+    - name: GPU에 최적화
+      href: sizes-gpu.md
       items:
-        - name: 인프라 지침
-          href: infrastructure-example.md
-        - name: vCPU 할당량
-          href: quotas.md
+      - name: GPU 드라이버 설정
+        href: n-series-driver-setup.md
+    - name: 고성능 계산
+      href: sizes-hpc.md
+    - name: 이전 세대
+      href: sizes-previous-gen.md
+    - name: Azure 계산 단위(ACU)
+      href: acu.md
+    - name: 벤치마크 점수
+      href: compute-benchmark-scores.md
+  - name: 보증 배포
+    href: endorsed-distros.md
+  - name: 유지 관리 및 업데이트
+    href: maintenance-and-updates.md
+  - name: 디스크 저장소
+    href: about-disks-and-vhds.md
+    items:
+    - name: Managed Disks
+      href: managed-disks-overview.md
+    - name: 프리미엄 SSD
+      href: premium-storage.md
+    - name: 표준 SSD
+      href: disks-standard-ssd.md
+    - name: Ultra SSD
+      href: disks-ultra-ssd.md
+    - name: 프리미엄 저장소 성능
+      href: premium-storage-performance.md
+    - name: Standard Storage
+      href: standard-storage.md
+    - name: 디스크에 대한 확장성 목표
+      href: disk-scalability-targets.md
+    - name: 디스크의 복구 및 재해 복구
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+  - name: 네트워킹
+    href: network-overview.md
+  - name: 자동 크기 조정 응용 프로그램
+    href: autoscale.md
+  - name: 인프라 자동화
+    href: infrastructure-automation.md
+  - name: 보안 및 정책
+    href: security-policy.md
+  - name: 상태 및 수명 주기
+    href: states-lifecycle.md
+  - name: 모니터링
+    href: monitor.md
+  - name: Backup 및 복구
+    href: backup-recovery.md
+  - name: 고성능 컴퓨팅
+    href: high-performance-computing.md
+  - name: 배포 고려 사항
+    items:
+    - name: 인프라 지침
+      href: infrastructure-example.md
+    - name: vCPU 할당량
+      href: quotas.md
 - name: 방법 가이드
   items:
-    - name: VM 만들기
+  - name: VM 만들기
+    items:
+    - name: CLI 사용
+      href: create-cli-complete.md
+    - name: 템플릿 사용
+      href: create-ssh-secured-vm-from-template.md
+    - name: REST API 사용
+      href: create-vm-rest-api.md
+    - name: VM 복사 또는 복제
+      href: copy-vm.md
+  - name: VM 보안
+    items:
+    - name: 암호화
+      href: encrypt-disks.md
+    - name: 액세스 제어 사용
+      href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: 정책 사용
+      href: policy.md
+    - name: 주요 자격 증명 모음 만들기
+      href: key-vault-setup.md
+    - name: SSH 키 생성 및 사용
       items:
-        - name: CLI 사용
-          href: create-cli-complete.md
-        - name: 템플릿 사용
-          href: create-ssh-secured-vm-from-template.md
-        - name: REST API 사용
-          href: create-vm-rest-api.md
-        - name: VM 복사 또는 복제
-          href: copy-vm.md
-    - name: VM 보안
+      - name: Linux 또는 macOS
+        href: mac-create-ssh-keys.md
+      - name: 'Windows '
+        href: ssh-from-windows.md
+      - name: 자세한 단계
+        href: create-ssh-keys-detailed.md
+  - name: VM 보호
+    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    items:
+    - name: 단일 VM 백업
+      href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: 여러 VM 백업
+      href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: 디스크 복원
+      href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: 개별 파일 복원
+      href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: VM 관리
+    items:
+    - name: VM 사용량
+      href: vm-usage.md
+    - name: 일반 CLI 작업
+      href: cli-manage.md
+    - name: VM 이동
+      href: move-vm.md
+    - name: VM 크기 변경
+      href: change-vm-size.md
+    - name: OS 디스크 교환
+      href: os-disk-swap.md
+    - name: 시간 동기화
+      href: time-sync.md
+    - name: VM에 태그 지정
+      href: tag.md
+    - name: VM에서 스크립트 실행
+      href: run-scripts-in-vm.md
       items:
-        - name: 암호화
-          href: encrypt-disks.md
-        - name: 액세스 제어 사용
-          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 정책 사용
-          href: policy.md
-        - name: 주요 자격 증명 모음 만들기
-          href: key-vault-setup.md
-        - name: SSH 키 생성 및 사용
-          items:
-            - name: Linux 또는 macOS
-              href: mac-create-ssh-keys.md
-            - name: 'Windows '
-              href: ssh-from-windows.md
-            - name: 자세한 단계
-              href: create-ssh-keys-detailed.md
-    - name: VM 보호
-      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: 사용자 지정 스크립트 확장
+        href: ../extensions/custom-script-linux.md
+      - name: 명령 실행
+        href: run-command.md
+    - name: 원격 데스크톱 사용
+      href: use-remote-desktop.md
+    - name: VM을 Azure Active Directory에 가입시키기
+      displayName: AAD
       items:
-        - name: 단일 VM 백업
-          href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 여러 VM 백업
-          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 디스크 복원
-          href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 개별 파일 복원
-          href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: VM 관리
+      - name: Red Hat Enterprise Linux
+        href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+      - name: CentOS
+        href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+      - name: Ubuntu
+        href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
+    - name: Azure Active Directory 자격 증명으로 로그인
+      href: login-using-aad.md
+    - name: 업데이트 및 패치
       items:
-        - name: VM 선불 - 예약된 인스턴스
-          href: prepay-reserved-vm-instances.md
-        - name: VM 사용량
-          href: vm-usage.md
-        - name: 일반 CLI 작업
-          href: cli-manage.md
-        - name: VM 이동
-          href: move-vm.md
-        - name: VM 크기 변경
-          href: change-vm-size.md
-        - name: OS 디스크 교환
-          href: os-disk-swap.md
-        - name: VM에 태그 지정
-          href: tag.md
-        - name: VM에서 스크립트 실행
-          href: run-scripts-in-vm.md
-          items:
-            - name: 사용자 지정 스크립트 확장
-              href: ../extensions/custom-script-linux.md
-            - name: 명령 실행
-              href: run-command.md
-        - name: 원격 데스크톱 사용
-          href: use-remote-desktop.md
-        - name: VM을 Azure Active Directory에 가입시키기
-          items:
-            - name: Red Hat Enterprise Linux
-              href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
-            - name: CentOS
-              href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
-            - name: Ubuntu
-              href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
-        - name: Azure Active Directory 자격 증명으로 로그인
-          href: login-using-aad.md
-        - name: 업데이트 및 패치
-          items:
-            - name: Red Hat 업데이트 인프라
-              href: update-infrastructure-redhat.md
-        - name: Azure VM 에이전트
-          items:
-            - name: 개요
-              href: ../extensions/agent-linux.md
-            - name: 에이전트 업데이트
-              href: update-agent.md
-        - name: 계획된 유지 보수
-          href: maintenance-notifications.md
-        - name: 투기적 실행 완화
-          href: mitigate-se.md
-        - name: 예약된 이벤트
-          href: scheduled-events.md
-        - name: 모니터 메타데이터
-          href: instance-metadata-service.md
-        - name: REST로 사용 메트릭 가져오기
-          href: metrics-vm-usage-rest.md
-    - name: 이미지 사용
+      - name: Red Hat 업데이트 인프라
+        href: update-infrastructure-redhat.md
+    - name: Azure VM 에이전트
       items:
-        - name: 이미지 검색 및 사용
-          href: cli-ps-findimage.md
-        - name: 사용자 지정 이미지 만들기
-          items:
-            - name: 일반 단계
-              href: create-upload-generic.md
-            - name: Ubuntu
-              href: create-upload-ubuntu.md
-            - name: CentOS
-              href: create-upload-centos.md
-            - name: Red Hat
-              href: redhat-create-upload-vhd.md
-            - name: Debian
-              href: debian-create-upload-vhd.md
-            - name: SUSE
-              href: suse-create-upload-vhd.md
-            - name: Oracle Linux
-              href: oracle-create-upload-vhd.md
-            - name: OpenBSD
-              href: create-upload-openbsd.md
-            - name: FreeBSD
-              href: freebsd-intro-on-azure.md
-        - name: VM을 이미지에 캡처
-          href: capture-image.md
-        - name: Packer로 이미지 빌드
-          href: build-image-with-packer.md
-        - name: 기존 디스크 다운로드
-          href: download-vhd.md
-    - name: 가용성 및 규모
+      - name: 개요
+        href: ../extensions/agent-linux.md
+      - name: 에이전트 업데이트
+        href: update-agent.md
+    - name: 계획된 유지 보수
+      href: maintenance-notifications.md
+    - name: 투기적 실행 완화
+      href: mitigate-se.md
+    - name: 예약된 이벤트
+      href: scheduled-events.md
+    - name: 모니터 메타데이터
+      href: instance-metadata-service.md
+    - name: REST로 사용 메트릭 가져오기
+      href: metrics-vm-usage-rest.md
+  - name: 비용 관리
+    items:
+    - name: VM 선불 - Azure 예약
+      href: prepay-reserved-vm-instances.md
+    - name: SUSE 소프트웨어에 대한 선불
+      href: prepay-suse-software-charges.md
+    - name: Azure 예약이란?
+      href: ../../billing/billing-save-compute-costs-reservations.md
+    - name: VM 인스턴스 크기 유연성
+      href: reserved-vm-instance-size-flexibility.md
+  - name: 이미지 사용
+    items:
+    - name: 공유 이미지 갤러리(미리 보기)
       items:
-        - name: Autoscale
-          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 고가용성
-          href: manage-availability.md
-        - name: 수직 확장
-          href: vertical-scaling-automation.md
-        - name: 가용성 영역에서 VM 만들기
-          href: create-cli-availability-zone.md
-    - name: 자동화 도구 사용
+      - name: 개요
+        href: shared-image-galleries.md
+      - name: CLI를 사용하여 공유 이미지 만들기
+        href: shared-images.md
+      - name: 공유 이미지 문제 해결
+        href: troubleshooting-shared-images.md
+    - name: 이미지 검색 및 사용
+      href: cli-ps-findimage.md
+    - name: 사용자 지정 이미지 만들기
       items:
-        - name: Ansible
-          items:
-            - name: 설치 및 구성
-              href: ansible-install-configure.md
-            - name: 기본 VM 만들기
-              href: ansible-create-vm.md
-            - name: 완전한 VM 만들기
-              href: ansible-create-complete-vm.md
-        - name: Terraform
-          items:
-            - name: 설치 및 구성
-              href: terraform-install-configure.md
-            - name: 완전한 VM 만들기
-              href: terraform-create-complete-vm.md
-        - name: Cloud-init
-          items:
-            - name: Cloud-init 개요
-              href: using-cloud-init.md
-            - name: VM 호스트 이름 구성
-              href: cloudinit-update-vm-hostname.md
-            - name: VM에서 패키지 업데이트
-              href: cloudinit-update-vm.md
-            - name: VM에 사용자 추가
-              href: cloudinit-add-user.md
-            - name: 스왑 파일 구성
-              href: cloudinit-configure-swapfile.md
-            - name: 기존 Bash 스크립트 실행
-              href: cloudinit-bash-script.md
-            - name: Cloud-init를 위해 기존 VM 준비
-              href: cloudinit-prepare-custom-image.md
-        - name: Jenkins
-          href: ../../jenkins/overview.md
-          items:
-            - name: Jenkins 서버 만들기
-              href: ../../jenkins/install-jenkins-solution-template.md
-            - name: VM 에이전트를 사용하여 크기 조정
-              href: ../../jenkins/jenkins-azure-vm-agents.md
-            - name: Storage에 아티팩트 게시
-              href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
-            - name: Jenkins 보안
-              href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
-    - name: 컨테이너 실행
+      - name: 일반 단계
+        href: create-upload-generic.md
+      - name: Ubuntu
+        href: create-upload-ubuntu.md
+      - name: CentOS
+        href: create-upload-centos.md
+      - name: Red Hat
+        href: redhat-create-upload-vhd.md
+      - name: Debian
+        href: debian-create-upload-vhd.md
+      - name: SUSE
+        href: suse-create-upload-vhd.md
+      - name: Oracle Linux
+        href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
+      - name: FreeBSD
+        href: freebsd-intro-on-azure.md
+    - name: VM을 이미지에 캡처
+      href: capture-image.md
+    - name: Packer로 이미지 빌드
+      href: build-image-with-packer.md
+    - name: Azure의 RHEL 이미지
+      href: rhel-images.md
+    - name: 기존 디스크 다운로드
+      href: download-vhd.md
+  - name: 가용성 및 규모
+    items:
+    - name: 자동 크기 조정
+      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: 고가용성
+      href: manage-availability.md
+    - name: 수직 확장
+      href: vertical-scaling-automation.md
+    - name: 가용성 영역에서 VM 만들기
+      href: create-cli-availability-zone.md
+  - name: 자동화 도구 사용
+    items:
+    - name: Ansible
       items:
-        - name: Docker 호스트 만들기
-          href: dockerextension.md
-        - name: Docker 컴퓨터 사용
-          href: docker-machine.md
-        - name: Docker Compose 사용
-          href: docker-compose-quickstart.md
-    - name: 응용 프로그램 실행
+      - name: 설치 및 구성
+        href: ansible-install-configure.md
+      - name: Linux VM 만들기
+        href: ansible-create-vm.md
+      - name: Linux VM 관리
+        href: ansible-manage-linux-vm.md
+    - name: Terraform
       items:
-        - name: Cloud Foundry
-          items:
-            - name: 개요
-              href: cloudfoundry-get-started.md
-            - name: 첫 번째 앱 배포
-              href: cloudfoundry-deploy-your-first-app.md
-        - name: OpenShift
-          items:
-            - name: OpenShift 개요
-              href: openshift-get-started.md
-            - name: OpenShift 필수 구성 요소
-              href: openshift-prerequisites.md
-            - name: OpenShift Origin
-              href: openshift-origin.md
-            - name: OpenShift Container Platform
-              href: openshift-container-platform.md
-            - name: OpenShift 사후 배포 작업
-              href: openshift-post-deployment.md
-            - name: 배포 문제 해결
-              href: openshift-troubleshooting.md
-        - name: Azure의 SAP
-          href: ../workloads/sap/get-started.md
-        - name: Oracle
-          href: ../workloads/oracle/oracle-database-quick-create.md
-        - name: Elasticsearch
-          href: tutorial-elasticsearch.md
-        - name: FreeBSD 패킷 필터
-          href: freebsd-pf-nat.md
-        - name: 데이터베이스
-          items:
-            - name: MySQL
-              href: mysql-install.md
-            - name: SUSE의 MySQL
-              href: mysql-on-opensuse.md
-            - name: MongoDB
-              href: install-mongodb.md
-            - name: PostgreSQL
-              href: postgresql-install.md
-            - name: Linux의 MS SQL
-              href: /sql/linux/sql-server-linux-azure-virtual-machine
-        - name: 고성능 컴퓨팅(HPC)
-          href: hpcpack-cluster-options.md
-          items:
-            - name: NAMD 실행
-              href: classic/hpcpack-cluster-namd.md
-            - name: NVIDIA GPU 드라이버 설치
-              href: n-series-driver-setup.md
-    - name: 저장소 관리
+      - name: 설치 및 구성
+        href: terraform-install-configure.md
+      - name: 완전한 VM 만들기
+        href: terraform-create-complete-vm.md
+    - name: Cloud-init
       items:
-        - name: 디스크 FAQ
-          href: faq-for-disks.md
-        - name: 디스크 추가
-          items:
-            - name: Azure CLI
-              href: add-disk.md
-            - name: Azure portal
-              href: attach-disk-portal.md
-        - name: 디스크 분리
-          href: detach-disk.md
-        - name: 디스크 크기 조정
-          href: expand-disks.md
-        - name: 디스크 스냅숏
-          href: snapshot-copy-managed-disk.md
-        - name: 관리되지 않는 디스크 백업
-          href: incremental-snapshots.md
-        - name: Managed Disks로 변환
-          href: convert-unmanaged-to-managed-disks.md
-        - name: 디스크를 표준 또는 프리미엄으로 변환
-          href: convert-disk-storage.md
-        - name: VM에 파일 복사
-          href: copy-files-to-linux-vm-using-scp.md
-        - name: Azure Site Recovery를 사용하여 프리미엄 저장소로 마이그레이션
-          href: migrate-to-premium-storage-using-azure-site-recovery.md
-        - name: 연결되지 않은 디스크 찾기
-          href: find-unattached-disks.md
-        - name: 파일 저장소 사용
-          href: mount-azure-file-storage-on-linux-using-smb.md
-        - name: 템플릿을 사용하여 디스크 배포
-          href: using-managed-disks-template-deployments.md
-        - name: Write Accelerator 사용
-          href: how-to-enable-write-accelerator.md
-        - name: 성능 최적화
-          href: optimization.md
-          items:
-            - name: 소프트웨어 RAID 구성
-              href: configure-raid.md
-            - name: LVM 구성
-              href: configure-lvm.md
-    - name: 네트워킹 관리
+      - name: Cloud-init 개요
+        href: using-cloud-init.md
+      - name: VM 호스트 이름 구성
+        href: cloudinit-update-vm-hostname.md
+      - name: VM에서 패키지 업데이트
+        href: cloudinit-update-vm.md
+      - name: VM에 사용자 추가
+        href: cloudinit-add-user.md
+      - name: 스왑 파일 구성
+        href: cloudinit-configure-swapfile.md
+      - name: 기존 Bash 스크립트 실행
+        href: cloudinit-bash-script.md
+      - name: Cloud-init를 위해 기존 VM 준비
+        href: cloudinit-prepare-custom-image.md
+    - name: Jenkins
+      href: ../../jenkins/overview.md
       items:
-        - name: 가상 네트워크 만들기
-          href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: VM에 대한 포트 열기
-          href: nsg-quickstart.md
-        - name: 공용 IP 주소 할당
-          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 여러 NIC 사용
-          href: multiple-nics.md
-        - name: 가속 네트워킹 사용
-          href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 공용 DNS 이름 할당
-          href: portal-create-fqdn.md
-        - name: 연결되지 않은 NIC 찾기 및 삭제
-          href: find-unattached-nics.md
-        - name: DNS 확인
-          href: azure-dns.md
-          items:
-            - name: 내부 DNS 사용
-              href: static-dns-name-resolution-for-linux-on-azure.md
-    - name: VM 확장 사용
-      href: ../extensions/overview.md
-    - name: VM 마이그레이션
+      - name: Jenkins 서버 만들기
+        href: ../../jenkins/install-jenkins-solution-template.md
+      - name: VM 에이전트를 사용하여 크기 조정
+        href: ../../jenkins/jenkins-azure-vm-agents.md
+      - name: Storage에 아티팩트 게시
+        href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
+      - name: Jenkins 보안
+        href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
+  - name: 컨테이너 실행
+    items:
+    - name: Docker 호스트 만들기
+      href: dockerextension.md
+    - name: Docker 컴퓨터 사용
+      href: docker-machine.md
+    - name: Docker Compose 사용
+      href: docker-compose-quickstart.md
+  - name: 응용 프로그램 실행
+    items:
+    - name: Cloud Foundry
       items:
-        - name: AWS 및 온-프레미스 VM 마이그레이션
-          href: ../windows/on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-          items:
-            - name: AWS(Amazon Web Services)에서 Azure로 마이그레이션
-              href: ../windows/aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 온-프레미스 VM 업로드
-              href: upload-vhd.md
-            - name: Azure Site Recovery 사용
-              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 클래식에서 Azure Resource Manager로 마이그레이션
-          href: migration-classic-resource-manager-overview.md
-          items:
-            - name: 마이그레이션에 대한 고찰
-              href: migration-classic-resource-manager-deep-dive.md
-            - name: 마이그레이션 계획
-              href: migration-classic-resource-manager-plan.md
-            - name: CLI를 사용하여 마이그레이션
-              href: migration-classic-resource-manager-cli.md
-            - name: 일반적인 마이그레이션 오류
-              href: migration-classic-resource-manager-errors.md
-            - name: 마이그레이션을 위한 커뮤니티 도구
-              href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: FAQ
-              href: migration-classic-resource-manager-faq.md
-    - name: 문제 해결
+      - name: 개요
+        href: cloudfoundry-get-started.md
+      - name: 첫 번째 앱 배포
+        href: cloudfoundry-deploy-your-first-app.md
+    - name: OpenShift
       items:
-        - name: SSH 연결
-          href: troubleshoot-ssh-connection.md
-          items:
-            - name: 자세한 문제 해결
-              href: detailed-troubleshoot-ssh-connection.md
-        - name: Linux VM 암호 재설정
-          href: reset-password.md
-        - name: 시스템 다시 부팅 이해
-          href: understand-vm-reboot.md
-        - name: 부트 진단
-          href: boot-diagnostics.md
-        - name: 직렬 콘솔
-          href: serial-console.md
-        - name: 응용 프로그램에 액세스
-          href: troubleshoot-app-connection.md
-        - name: 할당 오류
-          href: allocation-failure.md
-        - name: 할당 오류 - 클래식 VM
-          href: allocation-failure-classic.md
-        - name: 배포 문제
-          href: troubleshoot-deploy-vm.md
-        - name: VM 만들기
-          href: troubleshoot-deployment-new-vm.md
-        - name: 장치 이름이 변경됨
-          href: troubleshoot-device-names-problems.md
-        - name: 새 Azure 노드에 VM 다시 배포
-          href: redeploy-to-new-node.md
-        - name: 일반적인 오류 메시지
-          href: error-messages.md
-        - name: VM 복구 액세스
-          items:
-            - name: Azure CLI
-              href: troubleshoot-recovery-disks.md
-            - name: Azure portal
-              href: troubleshoot-recovery-disks-portal.md
-        - name: 연결된 VHD
-          items:
-            - name: 저장소 리소스 삭제 오류
-              href: storage-resource-deletion-errors.md
-            - name: VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우
-              href: unexpected-reboots-attached-vhds.md
+      - name: OpenShift 개요
+        href: openshift-get-started.md
+      - name: OpenShift 필수 구성 요소
+        href: openshift-prerequisites.md
+      - name: OpenShift Container Platform
+        href: openshift-container-platform.md
+      - name: OKD
+        href: openshift-okd.md
+      - name: Azure Stack
+        href: openshift-azure-stack.md
+      - name: OpenShift 사후 배포 작업
+        href: openshift-post-deployment.md
+      - name: 배포 문제 해결
+        href: openshift-troubleshooting.md
+    - name: Azure의 SAP
+      href: ../workloads/sap/get-started.md
+    - name: Oracle
+      href: ../workloads/oracle/oracle-database-quick-create.md
+    - name: Elasticsearch
+      href: tutorial-elasticsearch.md
+    - name: FreeBSD 패킷 필터
+      href: freebsd-pf-nat.md
+    - name: 데이터베이스
+      items:
+      - name: MySQL
+        href: mysql-install.md
+      - name: SUSE의 MySQL
+        href: mysql-on-opensuse.md
+      - name: MongoDB
+        href: install-mongodb.md
+      - name: PostgreSQL
+        href: postgresql-install.md
+      - name: Linux의 MS SQL
+        href: /sql/linux/sql-server-linux-azure-virtual-machine
+    - name: 고성능 컴퓨팅(HPC)
+      href: hpcpack-cluster-options.md
+      items:
+      - name: NAMD 실행
+        href: classic/hpcpack-cluster-namd.md
+      - name: NVIDIA GPU 드라이버 설치
+        href: n-series-driver-setup.md
+    - name: IBM Db2 pureScale
+      items:
+      - name: 아키텍처
+        href: ibm-db2-purescale-azure.md
+      - name: 배포
+        href: deploy-ibm-db2-purescale-azure.md
+  - name: 저장소 관리
+    items:
+    - name: 디스크 FAQ
+      href: faq-for-disks.md
+    - name: 디스크 추가
+      items:
+      - name: Azure CLI
+        href: add-disk.md
+      - name: Azure portal
+        href: attach-disk-portal.md
+    - name: 디스크 분리
+      href: detach-disk.md
+    - name: 디스크 크기 조정
+      href: expand-disks.md
+    - name: 디스크 스냅숏
+      href: snapshot-copy-managed-disk.md
+    - name: 관리되지 않는 디스크 백업
+      href: incremental-snapshots.md
+    - name: Managed Disks로 변환
+      href: convert-unmanaged-to-managed-disks.md
+    - name: 디스크를 표준 또는 프리미엄으로 변환
+      href: convert-disk-storage.md
+    - name: VM에 파일 복사
+      href: copy-files-to-linux-vm-using-scp.md
+    - name: Azure Site Recovery를 사용하여 프리미엄 저장소로 마이그레이션
+      href: migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: 연결되지 않은 디스크 찾기
+      href: find-unattached-disks.md
+    - name: 파일 저장소 사용
+      href: mount-azure-file-storage-on-linux-using-smb.md
+    - name: 템플릿을 사용하여 디스크 배포
+      href: using-managed-disks-template-deployments.md
+    - name: 쓰기 가속기 사용
+      href: how-to-enable-write-accelerator.md
+    - name: Ultra SSD 사용
+      href: disks-enable-ultra-ssd.md
+    - name: 성능 최적화
+      href: optimization.md
+      items:
+      - name: 소프트웨어 RAID 구성
+        href: configure-raid.md
+      - name: LVM 구성
+        href: configure-lvm.md
+  - name: 네트워킹 관리
+    items:
+    - name: 가상 네트워크 만들기
+      href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: VM에 대한 포트 열기
+      href: nsg-quickstart.md
+    - name: 공용 IP 주소 할당
+      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: 여러 NIC 사용
+      href: multiple-nics.md
+    - name: 가속 네트워킹 사용
+      href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: 공용 DNS 이름 할당
+      href: portal-create-fqdn.md
+    - name: 연결되지 않은 NIC 찾기 및 삭제
+      href: find-unattached-nics.md
+    - name: DNS 확인
+      href: azure-dns.md
+      items:
+      - name: 내부 DNS 사용
+        href: static-dns-name-resolution-for-linux-on-azure.md
+  - name: 관리되는 ID 구성
+    items:
+    - name: 포털
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: CLI
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: PowerShell
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Azure Resource Manager 템플릿
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: REST (영문)
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+    - name: Azure SDK
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+  - name: VM 확장 사용
+    href: ../extensions/overview.md
+  - name: VM 마이그레이션
+    items:
+    - name: AWS 및 온-프레미스 VM 마이그레이션
+      href: ../windows/on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: AWS(Amazon Web Services)에서 Azure로 마이그레이션
+        href: ../windows/aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: 온-프레미스 VM 업로드
+        href: upload-vhd.md
+      - name: Azure Site Recovery 사용
+        href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: 클래식에서 Azure Resource Manager로 마이그레이션
+      href: migration-classic-resource-manager-overview.md
+      items:
+      - name: 마이그레이션에 대한 고찰
+        href: migration-classic-resource-manager-deep-dive.md
+      - name: 마이그레이션 계획
+        href: migration-classic-resource-manager-plan.md
+      - name: CLI를 사용하여 마이그레이션
+        href: migration-classic-resource-manager-cli.md
+      - name: 일반적인 마이그레이션 오류
+        href: migration-classic-resource-manager-errors.md
+      - name: 마이그레이션을 위한 커뮤니티 도구
+        href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: FAQ
+        href: migration-classic-resource-manager-faq.md
 - name: 참고 자료
   items:
-    - name: Azure CLI
-      href: /cli/azure/vm
-    - name: PowerShell
-      href: /powershell/azureps-cmdlets-docs
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.management.compute
-    - name: 자바
-      href: /java/api
-    - name: Node.js
-      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
-    - name: 파이썬
-      href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
-      href: /rest/api/compute
+  - name: Azure CLI
+    href: /cli/azure/vm
+  - name: PowerShell
+    href: /powershell/azureps-cmdlets-docs
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.compute
+  - name: 자바
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST (영문)
+    href: /rest/api/compute
 - name: 리소스
   items:
-    - name: 작성자 템플릿
-      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: 커뮤니티 템플릿
-      href: 'https://azure.microsoft.com/documentation/templates'
-    - name: 가격
-      href: 'https://azure.microsoft.com/pricing/details/#Linux'
-    - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: 스택 오버플로
-      href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
-    - name: 동영상
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
-    - name: FAQ
-      href: faq.md
+  - name: 작성자 템플릿
+    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Microsoft Learn을 통해 기술 쌓기
+    href: /learn/browse/?products=azure-virtual-machines
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
+  - name: 커뮤니티 템플릿
+    href: https://azure.microsoft.com/documentation/templates
+  - name: 가격
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: 국가별 가용성
+    href: https://azure.microsoft.com/regions/services/
+  - name: 스택 오버플로
+    href: http://stackoverflow.com/questions/tagged/azure-virtual-machine
+  - name: 동영상
+    href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+  - name: FAQ
+    href: faq.md
+- name: 문제 해결
+  href: ../troubleshooting/index.md
+ms.openlocfilehash: fbf98c5c016d6a64c68c4459b4d27ce5c2f46da6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652655"

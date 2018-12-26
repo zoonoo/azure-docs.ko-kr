@@ -1,26 +1,25 @@
 ---
-title: ".NET SDK: Azure Data Lake Store에서의 계정 관리 작업 | Microsoft Docs"
-description: "Azure Data Lake Store .NET SDK를 사용하여 Data Lake Store에서 계정 관리 작업을 수행합니다."
+title: '.NET SDK: Azure Data Lake Storage Gen1의 계정 관리 작업 | Microsoft Docs'
+description: Azure Data Lake Storage Gen1 .NET SDK를 사용하여 Data Lake Storage Gen1 계정에서 계정 관리 작업 수행
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/30/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cb44fb1cbc279f12f970237f1498a570a63544bd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2ed9f534c0eb27601243428f8e4b9d95db5d16b0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123915"
 ---
-# <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>.NET SDK를 사용한 Azure Data Lake Store의 계정 관리 작업
+# <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용한 Azure Data Lake Storage Gen1의 계정 관리 작업
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
@@ -28,17 +27,17 @@ ms.lasthandoff: 02/01/2018
 >
 >
 
-이 문서에서는 .NET SDK를 사용하여 Data Lake Store에서 계정 관리 작업을 수행하는 방법을 알아봅니다. 계정 관리 작업에는 Data Lake Store 계정 만들기, Azure 구독에서 계정 나열, 계정 삭제 등이 포함됩니다.
+이 문서에서는 .NET SDK를 사용하여 Azure Data Lake Storage Gen1에서 계정 관리 작업을 수행하는 방법을 알아봅니다. 계정 관리 작업에는 Data Lake Storage Gen1 계정 만들기, Azure 구독에서 계정 나열, 계정 삭제 등이 포함됩니다.
 
-.NET SDK를 사용하여 Data Lake Store에서 데이터 관리 작업을 수행하는 방법에 대한 지침은 [.NET SDK를 사용한 Data Lake Store의 파일 시스템 작업](data-lake-store-data-operations-net-sdk.md)을 참조하세요.
+.NET SDK를 사용하여 Data Lake Storage Gen1에서 데이터 관리 작업을 수행하는 방법에 대한 지침은 [.NET SDK를 사용한 Data Lake Storage Gen1의 파일 시스템 작업](data-lake-store-data-operations-net-sdk.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Visual Studio 2013, 2015 또는 2017**. 아래 지침에서는 Visual Studio 2017을 사용합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-## <a name="create-a-net-application"></a>.NET 응용 프로그램 만들기
-1. Visual Studio를 열고 콘솔 응용 프로그램을 만듭니다.
+## <a name="create-a-net-application"></a>.NET 애플리케이션 만들기
+1. Visual Studio를 열고 콘솔 애플리케이션을 만듭니다.
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
 
@@ -46,7 +45,7 @@ ms.lasthandoff: 02/01/2018
    | --- | --- |
    | Category |Templates/Visual C#/Windows |
    | Template |콘솔 응용 프로그램 |
-   | Name |CreateADLApplication |
+   | 이름 |CreateADLApplication |
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 5. NuGet 패키지를 프로젝트에 추가합니다.
 
@@ -90,7 +89,7 @@ ms.lasthandoff: 02/01/2018
 
                 private static void Main(string[] args)
                 {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net"; 
+                    _adlsAccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net"; 
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; 
                     _location = "East US 2";
                     _subId = "<SUBSCRIPTION-ID>";                    
@@ -102,26 +101,26 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="authentication"></a>인증
 
-* 응용 프로그램에 대한 최종 사용자 인증의 경우 [.NET SDK를 사용한 Data Lake Store의 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
-* 응용 프로그램에 대한 서비스 간 인증의 경우 [.NET SDK를 사용한 Data Lake Store의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.
+* 응용 프로그램에 대한 최종 사용자 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
+* 응용 프로그램에 대한 서비스 간 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.
 
 ## <a name="create-client-object"></a>클라이언트 개체 만들기
-다음 코드 조각은 계정 만들기, 계정 삭제 등과 같은 서비스에 계정 관리 요청을 발급하는 데 사용되는 Data Lake Store 계정 클라이언트 개체를 만듭니다.
+다음 코드 조각은 계정 만들기, 계정 삭제 등과 같은 서비스에 계정 관리 요청을 발급하는 데 사용되는 Data Lake Storage Gen1 계정 클라이언트 개체를 만듭니다.
 
     // Create client objects and set the subscription ID
     _adlsClient = new DataLakeStoreAccountManagementClient(armCreds) { SubscriptionId = _subId };
     
-## <a name="create-a-data-lake-store-account"></a>Data Lake 저장소 계정 만들기
-다음 코드 조각은 Data Lake Store 계정 클라이언트 개체를 만드는 동안 사용자가 제공한 Azure 구독에 Data Lake Store 계정을 만듭니다.
+## <a name="create-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정 만들기
+다음 코드 조각은 Data Lake Storage Gen1 계정 클라이언트 개체를 만드는 동안 사용자가 제공한 Azure 구독에 Data Lake Storage Gen1 계정을 만듭니다.
 
-    // Create Data Lake Store account
+    // Create Data Lake Storage Gen1 account
     var adlsParameters = new DataLakeStoreAccount(location: _location);
     _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
 
-## <a name="list-all-data-lake-store-accounts-within-a-subscription"></a>구독 내 모든 Data Lake Store 계정 나열
-클래스 정의에 다음 메서드를 추가합니다. 다음 코드는 지정된 Azure 구독 내에서 모든 Data Lake Store 계정을 나열합니다.
+## <a name="list-all-data-lake-storage-gen1-accounts-within-a-subscription"></a>구독 내 모든 Data Lake Storage Gen1 계정 나열
+클래스 정의에 다음 메서드를 추가합니다. 다음 코드 조각은 지정된 Azure 구독에 있는 모든 Data Lake Storage Gen1 계정을 나열합니다.
 
-    // List all Data Lake Store accounts within the subscription
+    // List all Data Lake Storage Gen1 accounts within the subscription
     public static List<DataLakeStoreAccountBasic> ListAdlStoreAccounts()
     {
         var response = _adlsClient.Account.List(_adlsAccountName);
@@ -136,15 +135,15 @@ ms.lasthandoff: 02/01/2018
         return accounts;
     }
 
-## <a name="delete-a-data-lake-store-account"></a>Data Lake 저장소 계정 삭제
-다음 코드 조각은 이전에 만든 Data Lake Store 계정을 삭제합니다.
+## <a name="delete-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정 삭제
+다음 코드 조각은 이전에 만든 Data Lake Storage Gen1 계정을 삭제합니다.
 
-    // Delete Data Lake Store account
+    // Delete Data Lake Storage Gen1 account
     _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
 ## <a name="see-also"></a>참고 항목
-* [.NET SDK를 사용한 Data Lake Store의 파일 시스템 작업](data-lake-store-data-operations-net-sdk.md)
-* [Data Lake Store .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [.NET SDK를 사용한 Data Lake Storage Gen1의 파일 시스템 작업](data-lake-store-data-operations-net-sdk.md)
+* [Data Lake Storage Gen1 .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>다음 단계
-* [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
+* [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)

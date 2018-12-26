@@ -1,0 +1,60 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 89aad876eb087817c8514b4268a18fa20925f810
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52166791"
+documentType: LandingData
+title: Azure SQL Database - Platform as a Service
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: Azure SQL Database - Platform as a Service
+  meta.description: Learn about the PaaS capabilities of Azure SQL Database.
+  services: sql-database
+  author: jovanpop-msft
+  manager: craigg
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: overview
+  ms.date: 11/11/2018
+  ms.author: jovanpop-msft
+sections:
+- items:
+  - type: paragraph
+    text: Azure SQL Database는 사용자의 개입 없이도 업그레이드, 패치, 백업 및 모니터링과 같은 데이터베이스 관리 기능 대부분을 처리하는 완전히 관리되는 PaaS(Platform as a Service) 데이터베이스 엔진입니다. Azure SQL Database는 SQL Server 데이터베이스 엔진의 안정적인 최신 버전에서 항상 실행되고 99.99% 가용성이 있는 OS가 패치됩니다. Azure SQL Database에 기본 제공되는 PaaS 기능을 사용하면 비즈니스에 중요한 도메인 특정 데이터베이스 관리 및 최적화 작업에 집중할 수 있습니다.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - title: 비즈니스 연속성
+      href: /azure/sql-database/sql-database-business-continuity
+      html: <p>Azure SQL Database를 사용하면 기업은 특히 컴퓨팅 인프라와 관련해서 중단이 발생하는 경우에도 계속 운영될 수 있습니다.</p>
+    - title: 고가용성
+      href: /azure/sql-database/sql-database-high-availability
+      html: <p>Azure SQL Database는 유지 관리 및 가동 중지 시간에 관계없이 99.99%의 시간 동안 데이터베이스가 작동 및 실행되도록 보장합니다.</p>
+    - title: 자동화된 백업
+      href: /azure/sql-database/sql-database-automated-backups
+      html: <p>Azure SQL Database는 데이터베이스 백업을 자동으로 만들고 Azure RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하여 지리적 중복을 제공합니다.</p>
+    - title: 장기 백업 보존
+      href: /azure/sql-database/sql-database-long-term-retention
+      html: <p>Azure SQL Database를 사용하면 지정된 SQL Database 전체 백업을 최대 10년 동안 저장할 수 있습니다.</p>
+    - title: 지역에서 복제
+      href: /azure/sql-database/sql-database-geo-replication-overview
+      html: <p>Azure SQL Database를 사용하면 동일하거나 다른 데이터 센터(지역)에서 데이터베이스의 읽기 가능한 복제본을 만들 수 있습니다.</p>
+    - title: 리소스 크기 조정
+      href: /azure/sql-database/sql-database-scale-resources
+      html: <p>Azure SQL Database를 사용하면 장기 프로비저닝 없이도 더 많은 리소스(CPU, 메모리, 스토리지)를 쉽게 추가할 수 있습니다.</p>
+- title: 추가 리소스
+  items:
+  - type: paragraph
+    text: Azure SQL Database는 데이터베이스를 좀 더 쉽게 관리하는 데 사용할 수 있는 추가 기본 제공 PaaS 기능 세트를 제공합니다.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sql-database/sql-database-security-index">고급 보안</a>은 데이터베이스의 위협 및 취약성을 감지하고 데이터를 보호할 수 있도록 합니다.
+    - html: <a href="/azure/sql-database/sql-database-automatic-tuning">자동 튜닝</a>은 작업을 분석하고, 인덱스를 추가하고, 사용되지 않는 인덱스를 제거하고, 쿼리 계획 문제를 자동으로 해결하여 애플리케이션의 성능을 최적화할 수 있는 권장 사항을 제공합니다.
+    - html: <a href="/azure/log-analytics/log-analytics-azure-sql">기본 제공 모니터링 기능</a>을 사용하여 데이터베이스 및 작업 성능에 대한 인사이트를 얻고 성능 문제를 해결할 수 있습니다.
+    - html: <a href="/azure/sql-database/sql-database-intelligent-insights">기본 제공 인텔리전스</a>는 작업의 잠재적 문제를 자동으로 식별하고 문제를 해결하는 데 도움이 될 수 있는 권장 사항을 제공합니다.

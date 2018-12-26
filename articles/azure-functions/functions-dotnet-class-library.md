@@ -3,24 +3,20 @@ title: Azure Functions C# 개발자 참조
 description: C#을 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 12/12/2017
-ms.author: tdykstra
-ms.openlocfilehash: bde7a7788fd01bcbcc63296c0513af8eb4196021
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 09/12/2018
+ms.author: glenga
+ms.openlocfilehash: bdae72f5ed4ebed87842ade05ec7a6bc21d349dc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970182"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086644"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -40,10 +36,24 @@ Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니
 Visual Studio에서 **Azure Functions** 프로젝트 템플릿은 다음 파일이 포함된 C# 클래스 라이브러리 프로젝트를 만듭니다.
 
 * [host.json](functions-host-json.md) -로컬로 또는 Azure에서 실행될 경우 프로젝트의 모든 함수에 영향을 주는 구성 설정을 저장합니다.
-* [local.settings.json](functions-run-local.md#local-settings-file) - 로컬로 실행될 때 사용되는 앱 설정 및 연결 문자열을 저장합니다.
+* [local.settings.json](functions-run-local.md#local-settings-file) - 로컬로 실행될 때 사용되는 앱 설정 및 연결 문자열을 저장합니다. 이 파일은 암호를 포함하며 Azure의 함수 앱에 게시되지 않습니다. 대신 [앱 설정을 함수 앱에 추가](functions-develop-vs.md#function-app-settings)해야 합니다.
+
+프로젝트를 빌드할 때 빌드 출력 디렉터리에 다음과 같은 폴더 구조가 생성됩니다.
+
+```
+<framework.version>
+ | - bin
+ | - MyFirstFunction
+ | | - function.json
+ | - MySecondFunction
+ | | - function.json
+ | - host.json
+```
+
+이 디렉터리는 Azure의 함수 앱에 배포되는 디렉터리입니다. Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 [NuGet 패키지로 프로젝트에 추가](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017)됩니다.
 
 > [!IMPORTANT]
-> 빌드 프로세스는 각 함수에 대해 *function.json* 파일을 만듭니다. 이 *function.json* 파일은 직접 편집할 수 없습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 기능을 사용하지 않도록 설정하려면 [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) 특성을 사용합니다. 예를 들어 부울 앱 설정 MY_TIMER_DISABLED를 추가하고 함수에 `[Disable("MY_TIMER_DISABLED")]`를 적용합니다. 그런 다음 앱 설정을 변경하여 사용하거나 사용하지 않도록 설정할 수 있습니다.
+> 빌드 프로세스는 각 함수에 대해 *function.json* 파일을 만듭니다. 이 *function.json* 파일은 직접 편집할 수 없습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 함수를 사용하지 않도록 설정하는 방법을 알아보려면 [함수를 사용하지 않도록 설정하는 방법](disable-function.md#functions-2x---c-class-libraries)을 참조하세요.
 
 ## <a name="methods-recognized-as-functions"></a>함수로 인식되는 메서드
 
@@ -55,9 +65,9 @@ public static class SimpleExample
     [FunctionName("QueueTrigger")]
     public static void Run(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
     }
 } 
 ```
@@ -88,9 +98,9 @@ public static class SimpleExampleWithOutput
     public static void Run(
         [QueueTrigger("myqueue-items-source")] string myQueueItem, 
         [Queue("myqueue-items-destination")] out string myQueueItemCopy,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+        log.LogInformation($"CopyQueueMessage function processed: {myQueueItem}");
         myQueueItemCopy = myQueueItem;
     }
 }
@@ -109,10 +119,10 @@ public static class BindingExpressionsExample
     public static void Run(
         [QueueTrigger("%queueappsetting%")] string myQueueItem,
         DateTimeOffset insertionTime,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"Message content: {myQueueItem}");
-        log.Info($"Created at: {insertionTime}");
+        log.LogInformation($"Message content: {myQueueItem}");
+        log.LogInformation($"Created at: {insertionTime}");
     }
 }
 ```
@@ -195,11 +205,13 @@ npm을 사용하여 핵심 도구를 설치하는 경우 Visual Studio에서 사
 
 ## <a name="binding-to-method-return-value"></a>메서드 반환 값에 바인딩
 
-메서드 반환 값에 특성을 적용하여 출력 바인딩에 대한 메서드 반환 값을 사용할 수 있습니다. 예제를 보려면 [트리거 및 바인딩](functions-triggers-bindings.md#using-the-function-return-value)을 참조하세요.
+메서드 반환 값에 특성을 적용하여 출력 바인딩에 대한 메서드 반환 값을 사용할 수 있습니다. 예제를 보려면 [트리거 및 바인딩](functions-triggers-bindings.md#using-the-function-return-value)을 참조하세요. 
+
+성공적인 함수 실행이 항상 출력 바인딩으로 전달할 반환 값을 생성하는 경우에만 반환 값을 사용합니다. 그렇지 않으면 다음 섹션에 나와 있는 것처럼 `ICollector` 또는 `IAsyncCollector`를 사용합니다.
 
 ## <a name="writing-multiple-output-values"></a>여러 출력 값 쓰기
 
-출력 바인딩에 여러 값을 쓰려면 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 형식을 사용합니다. 이러한 형식은 메서드가 완료될 때 출력 바인딩에 기록되는 쓰기 전용 컬렉션입니다.
+출력 바인딩에 여러 값을 쓰거나 성공적인 함수 호출이 출력 바인딩에 전달할 값을 생성하지 않는 경우 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 형식을 사용합니다. 이러한 형식은 메서드가 완료될 때 출력 바인딩에 기록되는 쓰기 전용 컬렉션입니다.
 
 이 예제에서는 `ICollector`를 사용하여 동일한 큐에 여러 큐 메시지를 씁니다.
 
@@ -209,21 +221,19 @@ public static class ICollectorExample
     [FunctionName("CopyQueueMessageICollector")]
     public static void Run(
         [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
-        [Queue("myqueue-items-destination")] ICollector<string> myQueueItemCopy,
-        TraceWriter log)
+        [Queue("myqueue-items-destination")] ICollector<string> myDestinationQueue,
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
-        myQueueItemCopy.Add($"Copy 1: {myQueueItem}");
-        myQueueItemCopy.Add($"Copy 2: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 1: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 2: {myQueueItem}");
     }
 }
 ```
 
 ## <a name="logging"></a>로깅
 
-C#의 스트리밍 로그에 대한 출력을 기록하려면 `TraceWriter` 형식의 인수를 포함합니다. 이름을 `log`로 하는 것이 좋습니다. Azure Functions에서 `Console.Write`를 사용하지 마세요. 
-
-`TraceWriter`는 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs)에 정의되어 있습니다. `TraceWriter`에 대한 로그 수준은 [host.json](functions-host-json.md)에서 구성할 수 있습니다.
+C#의 스트리밍 로그에 대한 출력을 기록하려면 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 포함합니다. 이름을 `log`로 하는 것이 좋습니다. Azure Functions에서 `Console.Write`를 사용하지 마세요.
 
 ```csharp
 public static class SimpleExample
@@ -231,9 +241,9 @@ public static class SimpleExample
     [FunctionName("QueueTrigger")]
     public static void Run(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
     }
 } 
 ```
@@ -253,13 +263,15 @@ public static class AsyncExample
         [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
         [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
         CancellationToken token,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"BlobCopy function processed.");
+        log.LogInformation($"BlobCopy function processed.");
         await blobInput.CopyToAsync(blobOutput, 4096, token);
     }
 }
 ```
+
+`out` 매개 변수는 비동기 함수에 사용할 수 없습니다. 출력 바인딩에는 [함수 반환 값](#binding-to-method-return-value) 또는 [수집기 개체](#writing-multiple-output-values)를 대신 사용합니다.
 
 ## <a name="cancellation-tokens"></a>취소 토큰
 
@@ -297,11 +309,11 @@ public static class CancellationTokenExample
 public static class EnvironmentVariablesExample
 {
     [FunctionName("GetEnvironmentVariables")]
-    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
     {
-        log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-        log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
-        log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+        log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+        log.LogInformation(GetEnvironmentVariable("AzureWebJobsStorage"));
+        log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
     }
 
     public static string GetEnvironmentVariable(string name)
@@ -346,9 +358,9 @@ public static class IBinderExample
     public static void Run(
         [QueueTrigger("myqueue-items-source-4")] string myQueueItem,
         IBinder binder,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"CreateBlobUsingBinder function processed: {myQueueItem}");
+        log.LogInformation($"CreateBlobUsingBinder function processed: {myQueueItem}");
         using (var writer = binder.Bind<TextWriter>(new BlobAttribute(
                     $"samples-output/{myQueueItem}", FileAccess.Write)))
         {
@@ -371,9 +383,9 @@ public static class IBinderExampleMultipleAttributes
     public async static Task RunAsync(
             [QueueTrigger("myqueue-items-source-binder2")] string myQueueItem,
             Binder binder,
-            TraceWriter log)
+            ILogger log)
     {
-        log.Info($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
+        log.LogInformation($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
         var attributes = new Attribute[]
         {
         new BlobAttribute($"samples-output/{myQueueItem}", FileAccess.Write),

@@ -1,30 +1,25 @@
 ---
-title: PowerShell 및 Azure HDInsight를 사용하여 Sqoop 작업 실행 | Microsoft Docs
-description: 워크스테이션에서 Azure PowerShell을 사용하여 Hadoop 클러스터와 Azure SQL 데이터베이스 간에 Sqoop 가져오기 및 내보내기를 실행하는 방법을 알아봅니다.
-editor: cgronlun
-manager: jhubbard
+title: PowerShell 및 Azure HDInsight를 사용하여 Apache Sqoop 작업 실행
+description: 워크스테이션에서 Azure PowerShell을 사용하여 Apache Hadoop 클러스터와 Azure SQL 데이터베이스 간에 Apache Sqoop 가져오기 및 내보내기를 실행하는 방법에 대해 알아봅니다.
+ms.reviewer: jasonh
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: bbb6f53a-e019-4d01-92bd-92c208c760b6
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 138e295bd81a4446568d92171d952b3b0a0374a2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: hrasheed
+ms.openlocfilehash: 23dae8a6f0651ee6b753c4b29112eb733103b9e1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202410"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631447"
 ---
-# <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop용 Azure PowerShell을 사용하여 Sqoop 작업 실행
+# <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop용 Azure PowerShell을 사용하여 Apache Sqoop 작업 실행
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Azure PowerShell을 통해 Azure HDInsight에서 Sqoop 작업을 실행하여 HDInsight 클러스터와 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스 간에 가져오기 및 내보내기를 수행하는 방법에 대해 알아봅니다.
+HDInsight 클러스터와 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스 간에 가져오고 내보내려면 Azure PowerShell을 사용하여 Azure HDInsight에서 Apache Sqoop 작업을 실행하는 방법에 대해 알아봅니다.
 
 > [!NOTE]
 > 이 문서의 절차는 Windows 기반 또는 Linux 기반 HDInsight 클러스터에서 사용할 수 있지만, Windows 클라이언트에서만 작동합니다. 다른 방법을 선택하려면 이 문서의 위쪽에 있는 탭 선택기를 사용하세요. 

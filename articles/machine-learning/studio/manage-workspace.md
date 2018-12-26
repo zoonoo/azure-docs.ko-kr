@@ -1,10 +1,11 @@
 ---
-title: Machine Learning 작업 영역 관리 | Microsoft Docs
+title: Machine Learning 작업 영역 관리 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Machine Learning 작업 영역에 대한 액세스를 관리하고, ML API 웹 서비스를 배포 및 관리합니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: daf3d413-7a77-4beb-9a7a-6b4bdf717719
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 8c8e65d5fd7efd1f9212b76e1a72b91a0ea07272
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c470d10b933b31d4cfe151fb541c2182562a2805
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835069"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314107"
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 관리
 
@@ -33,7 +34,7 @@ Azure Portal에서 Machine Learning 작업 영역을 관리할 수 있습니다.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="use-the-azure-portal"></a>Azure 포털 사용
+## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
 Azure Portal에서 작업 영역을 관리하려면:
 
@@ -51,7 +52,7 @@ Azure Portal에서 작업 영역을 관리하려면:
 > [!NOTE]
 > 새로운 웹 서비스를 배포 또는 관리하려면 웹 서비스가 배포된 구독에 대한 참여자 또는 관리자 역할을 할당받아야 합니다. Machine Learning 작업 영역에 다른 사용자를 초대하는 경우 구독에 대한 참여자 또는 관리자 역할을 할당해야 해당 사용자가 웹 서비스를 배포하거나 관리할 수 있습니다. 
 > 
->액세스 권한 설정에 대한 자세한 내용은 [Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기](../../role-based-access-control/role-assignments-users.md)를 참조하세요.
+>액세스 권한 설정에 대한 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Resource Manager 템플릿을 사용하여 Machine Learning을 배포](deploy-with-resource-manager-template.md)하는 방법에 대해 자세히 알아봅니다. 

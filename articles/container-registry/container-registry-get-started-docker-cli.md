@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d729a45b28ad02a652c265974d46fe1aaf752198
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 24cccd4745d611196046168f0125e7ef2a184e15
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576494"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI를 사용하여 개인 Docker 컨테이너 레지스트리로 이미지 밀어넣기 및 끌어오기
 
@@ -23,18 +24,18 @@ Azure Container Registry는 [Docker Hub](https://hub.docker.com/)에서 공개 D
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Azure Container Registry** - Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI 2.0](container-registry-get-started-azure-cli.md)을 사용합니다.
+* **Azure Container Registry** - Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
 * **Docker CLI** - 로컬 컴퓨터를 Docker 호스트로 설정하고 Docker CLI 명령에 액세스하려면 [Docker](https://docs.docker.com/engine/installation/)를 설치합니다.
 
 ## <a name="log-in-to-a-registry"></a>레지스트리에 로그인
 
-개인 컨테이너 레지스트리에 대해 [몇 가지 방법으로 인증](container-registry-authentication.md)할 수 있습니다. 명령줄에서 작업할 때 권장되는 방법은 Azure CLI 명령 [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login)입니다. 예를 들어 이름이 *myregistry*인 레지스트리에 로그인하려면
+개인 컨테이너 레지스트리에 대해 [몇 가지 방법으로 인증](container-registry-authentication.md)할 수 있습니다. 명령줄에서 작업할 때 권장되는 방법은 Azure CLI 명령 [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login)입니다. 예를 들어 이름이 *myregistry*인 레지스트리에 로그인하려면
 
 ```azurecli
 az acr login --name myregistry
 ```
 
-[docker login](https://docs.docker.com/engine/reference/commandline/login/)을 사용하여 로그인할 수도 있습니다. 다음 예제는 Azure Active Directory [서비스 주체](../active-directory/active-directory-application-objects.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 [서비스 주체를 할당](container-registry-authentication.md#service-principal)할 수 있습니다.
+[docker login](https://docs.docker.com/engine/reference/commandline/login/)을 사용하여 로그인할 수도 있습니다. 다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 [서비스 주체를 할당](container-registry-authentication.md#service-principal)할 수 있습니다.
 
 ```Bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -115,7 +116,7 @@ Nginx 이미지가 더 이상 필요하지 않으면 [docker rmi](https://docs.d
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Azure 컨테이너 레지스트리에서 이미지를 제거하려면 Azure CLI 명령 [az acr repository delete](/cli/azure/acr/repository#az_acr_repository_delete)를 사용합니다. 예를 들어, 다음 명령은 태그에서 참조하는 매니페스트, 모든 연결된 계층 데이터, 기타 해당 매니페스트를 참조하는 모든 태그를 삭제합니다.
+Azure 컨테이너 레지스트리에서 이미지를 제거하려면 Azure CLI 명령 [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete)를 사용합니다. 예를 들어, 다음 명령은 태그에서 참조하는 매니페스트, 모든 연결된 계층 데이터, 기타 해당 매니페스트를 참조하는 모든 태그를 삭제합니다.
 
 ```azurecli
 az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest

@@ -7,20 +7,20 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 07/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 765f9c4600f762efdd7d57681529751e99c13894
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797178"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232383"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>다중 테넌트 SaaS 응용 프로그램 및 Azure Search에 대한 디자인 패턴
 다중 테넌트 응용 프로그램은 다른 테넌트의 데이터를 보거나 공유할 수 없는 임의 개수의 테넌트에 동일한 서비스와 기능을 제공하는 응용 프로그램입니다. 이 문서에서는 Azure Search를 사용하여 작성된 다중 테넌트 응용 프로그램에 대한 테넌트 격리 전략에 대해 설명합니다.
 
 ## <a name="azure-search-concepts"></a>Azure Search 개념
-Search-as-a-Service 솔루션인 Azure Search는 개발자가 인프라를 관리하거나 정보 검색 전문가가 아니더라도 응용 프로그램에 다양한 검색 환경을 추가할 수 있도록 합니다. 데이터는 서비스에 업로드된 후 클라우드에 저장됩니다. Azure Search API에 대한 간단한 요청을 사용하여 데이터를 수정 및 검색할 수 있습니다. 서비스의 개요는 [이 문서](http://aka.ms/whatisazsearch)에서 확인할 수 있습니다. 디자인 패턴에 대해 논의하기 전에 Azure Search의 일부 개념을 이해해야 합니다.
+Search-as-a-Service 솔루션인 Azure Search는 개발자가 인프라를 관리하거나 정보 검색 전문가가 아니더라도 응용 프로그램에 다양한 검색 환경을 추가할 수 있도록 합니다. 데이터는 서비스에 업로드된 후 클라우드에 저장됩니다. Azure Search API에 대한 간단한 요청을 사용하여 데이터를 수정 및 검색할 수 있습니다. 서비스의 개요는 [이 문서](https://aka.ms/whatisazsearch)에서 확인할 수 있습니다. 디자인 패턴에 대해 논의하기 전에 Azure Search의 일부 개념을 이해해야 합니다.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Search 서비스, 인덱스, 필드 및 문서
 Azure Search를 사용하는 경우 *Search 서비스*를 구독하게 됩니다. 데이터가 Azure Search에 업로드되면 Search 서비스 내의 *인덱스* 에 저장됩니다. 하나의 서비스 내에 많은 수의 인덱스가 있을 수 있습니다. 데이터베이스의 익숙한 개념을 사용하기 위해 검색 서비스를 데이터베이스에, 서비스 내의 인덱스를 데이터베이스 내의 테이블에 비유할 수 있습니다.
@@ -43,10 +43,8 @@ Azure Search에는 각 계층이 각기 다른 [제한 및 할당량](search-lim
 | 서비스당 최대 복제본 |3 |12 |12 |12 |12 |
 | 서비스당 최대 파티션 |1 |12 |12 |12 |3 |
 | 서비스당 최대 검색 단위(복제본*파티션) |3 |36 |36 |36 |36(파티션 최대 3개) |
-| 서비스당 최대 문서 |1백만 |1억 8천만 |7억 2천만 |14억 |6억 |
-| 서비스당 최대 저장소 |2 GB |300GB |1.2TB |2.4TB |600GB |
-| 파티션당 최대 문서 |1백만 |1천 5백만 |6천만 |1억 2천만 |2억 |
-| 파티션당 최대 저장소 |2 GB |25GB |100GB |200GB |200GB |
+| 서비스당 최대 저장소 |2GB |300GB |1.2TB |2.4TB |600GB |
+| 파티션당 최대 저장소 |2GB |25GB |100GB |200GB |200GB |
 | 서비스당 최대 인덱스 |5 |50 |200 |200 |3000(인덱서/파티션 최대 1000) |
 
 #### <a name="s3-high-density"></a>S3 고밀도
@@ -118,7 +116,7 @@ Azure Search에서 다중 테넌트 시나리오를 모델링하기 위한 위�
 
 테넌트당 서비스 및 테넌트당 인덱스 모델은 충분히 작은 범위가 아니므로 훨씬 더 미세한 세밀성을 얻기 위헤 인덱스를 모델링할 수 있습니다.
 
-단일 인덱스가 다양한 클라이언트 끝점에 대해 다르게 동작하도록 하기 위해 가능한 각 클라이언트에 대한 특정 값을 지정하는 필드를 인덱스에 추가할 수 있습니다. 클라이언트가 Azure Search를 호출하여 인덱스를 쿼리 또는 수정할 때마다 클라이언트 응용 프로그램의 코드는 쿼리 시에 Azure Search의 [필터](https://msdn.microsoft.com/library/azure/dn798921.aspx) 기능을 사용하여 해당 필드에 대해 적절한 값을 지정합니다.
+단일 인덱스가 다양한 클라이언트 엔드포인트에 대해 다르게 동작하도록 하기 위해 가능한 각 클라이언트에 대한 특정 값을 지정하는 필드를 인덱스에 추가할 수 있습니다. 클라이언트가 Azure Search를 호출하여 인덱스를 쿼리 또는 수정할 때마다 클라이언트 응용 프로그램의 코드는 쿼리 시에 Azure Search의 [필터](https://msdn.microsoft.com/library/azure/dn798921.aspx) 기능을 사용하여 해당 필드에 대해 적절한 값을 지정합니다.
 
 이 방법을 사용하면 별도의 사용자 계정, 별도의 사용 권한 수준 및 완전 별도의 응용 프로그램 기능을 얻을 수 있습니다.
 
@@ -128,7 +126,7 @@ Azure Search에서 다중 테넌트 시나리오를 모델링하기 위한 위�
 > 
 
 ## <a name="next-steps"></a>다음 단계
-Azure Search는 대부분의 응용 프로그램에 적합한 방법입니다. [이 서비스의 강력한 기능을 자세히 읽어 보세요](http://aka.ms/whatisazsearch). 다중 테넌트 응용 프로그램에 대한 다양한 디자인 패턴을 평가할 때 [다양한 가격 책정 계층](https://azure.microsoft.com/pricing/details/search/) 및 해당 [서비스 제한](search-limits-quotas-capacity.md)을 고려하여 모든 규모의 응용 프로그램 워크로드 및 아키텍처에 가장 잘 맞게 Azure Search를 조정할 수 있습니다.
+Azure Search는 대부분의 응용 프로그램에 적합한 방법입니다. [이 서비스의 강력한 기능을 자세히 읽어 보세요](https://aka.ms/whatisazsearch). 다중 테넌트 응용 프로그램에 대한 다양한 디자인 패턴을 평가할 때 [다양한 가격 책정 계층](https://azure.microsoft.com/pricing/details/search/) 및 해당 [서비스 제한](search-limits-quotas-capacity.md)을 고려하여 모든 규모의 응용 프로그램 워크로드 및 아키텍처에 가장 잘 맞게 Azure Search를 조정할 수 있습니다.
 
 Azure Search 및 다중 테넌트 시나리오에 대한 질문은 azuresearch_contact@microsoft.com으로 보내 주세요.
 

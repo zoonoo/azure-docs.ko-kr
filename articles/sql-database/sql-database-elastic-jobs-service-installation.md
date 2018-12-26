@@ -2,28 +2,36 @@
 title: 탄력적 데이터베이스 작업 설치 | Microsoft Docs
 description: 탄력적 작업 기능의 설치에 대한 단계별 안내
 services: sql-database
-manager: craigg
-author: ddove
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 5760ca693f347068e03770b348d88b3b2adbf678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: c2fb3ae20ea2b6ba71408a734c1e0c82cbeb699c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645615"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233578"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Elastic Database 작업 설치 개요
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+
 [**Elastic Database 작업**](sql-database-elastic-jobs-overview.md)은 PowerShell이나 Azure Portal을 통해 설치할 수 있습니다. PowerShell 패키지를 설치한 경우에만 PowerShell API를 사용하여 작업을 만들고 관리할 수 있습니다. 또한 PowerShell API는 현재 포털보다 훨씬 더 많은 기능을 제공합니다.
 
 포털을 통해 기존 **탄력적 풀**에서 **Elastic Database 작업**을 이미 설치한 경우 최신 Powershell 미리 보기에는 기존 설치를 업그레이드하는 스크립트가 포함되어 있습니다. PowerShell API를 통해 노출된 새로운 기능을 활용하려면 최신 **Elastic Database 작업** 구성 요소로 설치를 업그레이드하는 것이 좋습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. 무료 평가판에 대해서는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* Azure PowerShell. [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376)를 사용하여 최신 버전을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
+* Azure PowerShell. [웹 플랫폼 설치 관리자](https://go.microsoft.com/fwlink/p/?linkid=320376)를 사용하여 최신 버전을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 * [NuGet 명령줄 유틸리티](https://nuget.org/nuget.exe)는 Elastic Database 작업 패키지를 설치하는 데 사용됩니다. 자세한 내용은 http://docs.nuget.org/docs/start-here/installing-nuget을 참조하세요.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Elastic Database 작업 PowerShell 패키지 다운로드 및 가져오기
@@ -88,7 +96,7 @@ ms.locfileid: "34645615"
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>스탠더드 버전에 대한 서비스 수준 목표를 제공합니다. 이 매개 변수의 기본값은 S0입니다. Azure SQL Database가 해당 SLO를 사용하도록 하는 매개 변수 값 S0/S1/S2/S3/S4/S6/S9/S12가 허용됩니다. SQL Database SLO에 대한 자세한 내용은 [Elastic Database 작업 구성 요소 및 가격 책정](sql-database-elastic-jobs-overview.md#components-and-pricing)을 참조하세요.</td>
+    <td>Standard 버전에 대한 계산 크기를 제공합니다. 이 매개 변수의 기본값은 S0입니다. Azure SQL Database에서 해당 계산 크기로 사용하도록 허용되는 매개 변수 값은 S0/S1/S2/S3/S4/S6/S9/S12입니다. SQL Database 계산 크기에 대한 자세한 내용은 [Elastic Database 작업 구성 요소 및 가격](sql-database-elastic-jobs-overview.md#components-and-pricing)을 참조하세요.</td>
 </tr>
 
 </tr>

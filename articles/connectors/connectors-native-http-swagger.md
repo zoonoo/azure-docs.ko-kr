@@ -1,30 +1,26 @@
 ---
-title: Azure Logic Apps용 HTTP + Swagger 커넥터를 사용하여 REST 끝점 호출 | Microsoft Docs
-description: HTTP + Swagger 커넥터를 통해 Logic Apps에서 REST 끝점에 연결
+title: Azure Logic Apps에서 REST 엔드포인트 호출 | Microsoft Docs
+description: Azure Logic Apps에서 HTTP + Swagger를 사용하여 REST 엔드포인트와 통신하는 작업 및 워크플로를 자동화
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
+tags: connectors
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/18/2016
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 4e4421b0dfe0f29c3d50764b9ca04471c73a1450
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296522"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123175"
 ---
-# <a name="get-started-with-the-http--swagger-action"></a>HTTP + Swagger 동작 시작
+# <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP + Swagger 커넥터를 사용하여 REST 엔드포인트 호출
 
-논리 앱 워크플로에서 HTTP + Swagger 동작을 사용할 경우 [Swagger 문서](https://swagger.io)를 통해 REST 끝점에 대한 최고급 커넥터를 만들 수 있습니다. 최고급 논리 앱 디자이너 환경이 있는 모든 REST 끝점을 호출하도록 Logic Apps를 확장할 수도 있습니다.
+논리 앱 워크플로에서 HTTP + Swagger 동작을 사용할 경우 [Swagger 문서](https://swagger.io)를 통해 REST 엔드포인트에 대한 최고급 커넥터를 만들 수 있습니다. 최고급 논리 앱 디자이너 환경이 있는 모든 REST 엔드포인트를 호출하도록 Logic Apps를 확장할 수도 있습니다.
 
 커넥터로 Logic Apps를 만드는 방법을 알아보려면 [새 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
 
@@ -43,7 +39,7 @@ HTTP + Swagger 트리거 및 동작은 [HTTP 동작](connectors-native-http.md)�
     ![HTTP + Swagger 동작 선택](./media/connectors-native-http-swagger/using-action-1.png)
 4. Swagger 문서에 대한 URL을 입력합니다.
    
-   * 논리 앱 디자이너에서 작동하려면 URL이 HTTPS 끝점이어야 하고 CORS를 사용할 수 있어야 합니다.
+   * 논리 앱 디자이너에서 작동하려면 URL이 HTTPS 엔드포인트여야 하고 CORS를 사용할 수 있어야 합니다.
    * Swagger 문서가 이 요구 사항을 충족하지 않는 경우 [CORS가 설정된 Azure Storage를 사용](#hosting-swagger-from-storage) 하여 문서를 저장할 수 있습니다.
 5. **다음** 을 클릭하여 Swagger 문서를 읽고 렌더링합니다.
 6. HTTP 호출에 필요한 모든 매개 변수를 추가합니다.

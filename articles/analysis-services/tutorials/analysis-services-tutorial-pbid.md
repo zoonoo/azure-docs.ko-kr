@@ -2,17 +2,18 @@
 title: 자습서 - Power BI Desktop을 사용하여 Azure Analysis Services에 연결 | Microsoft Docs
 author: minewiskan
 manager: kfile
+description: Power BI Desktop을 사용하여 Azure Analysis Services에 연결하는 방법을 알아봅니다.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 4096b9f77ba841abfcb4f29f2827aefacf22103f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0025655b3df8ddfb91857bbd56c04507ac6bca5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446591"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993972"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>자습서: Power BI Desktop을 사용하여 연결
 
@@ -29,7 +30,7 @@ ms.locfileid: "37446591"
 - adventureworks 샘플 모델 데이터베이스에 대한 [*읽기*](../analysis-services-server-admins.md) 권한이 있어야 합니다.
 - [최신 Power BI Desktop을 설치합니다](https://powerbi.microsoft.com/desktop).
 
-## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 이 자습서에서는 포털에 로그인하여 서버 이름만 가져옵니다. 일반적으로 사용자는 서버 관리자에서 서버 이름을 가져옵니다.
 
 [포털](https://portal.azure.com/)에 로그인합니다.
@@ -51,7 +52,7 @@ Power BI Desktop에서 서버에 연결하려면 먼저 서버 이름이 필요�
 
    ![서버 이름 및 모델 데이터베이스 지정](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aas-servername.png)
 
-3. 메시지가 표시되면 로그인 자격 증명을 입력합니다. 입력한 계정에는 적어도 adventureworks 샘플 모델 데이터베이스에 대한 읽기 권한이 있어야 합니다.
+3. 메시지가 표시되면 자격 증명을 입력합니다. 입력한 계정에는 적어도 adventureworks 샘플 모델 데이터베이스에 대한 읽기 권한이 있어야 합니다.
 
     adventureworks 모델은 Power BI Desktop에서 [보고서] 보기의 빈 보고서와 함께 열립니다. **필드** 목록에는 숨겨지지 않은 모델 개체가 모두 표시됩니다. 연결 상태는 오른쪽 아래 모서리에 표시됩니다.
 

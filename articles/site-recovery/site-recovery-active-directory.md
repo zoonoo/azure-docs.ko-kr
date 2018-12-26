@@ -1,22 +1,22 @@
 ---
-title: Azure Site Recovery로 Active Directory 및 DNS 보호 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 Active Directory에 대한 재해 복구 솔루션을 구현하는 방법에 대해 설명합니다.
+title: Azure Site Recovery를 사용하여 Active Directory 및 DNS에 대한 재해 복구 설정 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 Active Directory 및 DNS에 대한 재해 복구 솔루션을 구현하는 방법에 대해 설명합니다.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: e8094c582af6ea03f5ffcc4f61914488891cb556
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: f96ed8659fc2f49b89199a813f9fab9d5f4af5a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920892"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232174"
 ---
-# <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Azure Site Recovery로 Active Directory 및 DNS 보호
+# <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
 
 SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램이 올바르게 작동하려면 Active Directory 및 DNS 인프라가 필요합니다. 응용 프로그램에 대한 재해 복구 솔루션을 설정할 때 응용 프로그램이 제대로 작동하도록 하려면 다른 응용 프로그램 구성 요소를 복구하기 전에 Active Directory 및 DNS를 복구해야 합니다.
 
@@ -31,13 +31,10 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램
 
 ## <a name="replicate-the-domain-controller"></a>도메인 컨트롤러 복제
 
-도메인 컨트롤러 또는 DNS를 호스트하는 하나 이상의 VM에 [Site Recovery 복제](#enable-protection-using-site-recovery)를 설정해야 합니다. 환경에 [여러 도메인 컨트롤러](#environment-with-multiple-domain-controllers)가 있는 경우 대상 사이트에도 [추가 도메인 컨트롤러](#protect-active-directory-with-active-directory-replication)를 설치해야 합니다. 추가 도메인 컨트롤러는 Azure 또는 보조 온-프레미스 데이터 센터에 있을 수 있습니다.
-
-### <a name="single-domain-controller"></a>단일 도메인 컨트롤러
-약간의 응용 프로그램과 단일 도메인 컨트롤러가 있는 경우 전체 사이트를 함께 장애 조치(failover)할 수 있습니다. 이 경우 Site Recovery를 사용하여 도메인 컨트롤러를 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 복제하는 것이 좋습니다. [테스트 장애 조치(failover)](#test-failover-considerations)에도 동일한 복제 도메인 컨트롤러 또는 DNS 가상 머신을 사용할 수 있습니다.
-
-### <a name="multiple-domain-controllers"></a>여러 도메인 컨트롤러
-환경에 많은 응용 프로그램과 둘 이상의 도메인 컨트롤러가 있거나 응용 프로그램 몇 개를 동시에 장애 조치(failover)하려는 경우 Site Recovery로 도메인 컨트롤러 가상 머신을 복제하는 동시에 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 [추가 도메인 컨트롤러](#protect-active-directory-with-active-directory-replication)를 설정하는 것이 좋습니다. [테스트 장애 조치(failover)](#test-failover-considerations)의 경우 Site Recovery에서 복제한 도메인 컨트롤러를 사용할 수 있습니다. 장애 조치(failover)의 경우 대상 사이트의 추가 도메인 컨트롤러를 사용할 수 있습니다.
+- 도메인 컨트롤러 또는 DNS를 호스트하는 하나 이상의 VM에 [Site Recovery 복제](#enable-protection-using-site-recovery)를 설정해야 합니다.
+- 환경에 [여러 도메인 컨트롤러](#environment-with-multiple-domain-controllers)가 있는 경우 대상 사이트에도 [추가 도메인 컨트롤러](#protect-active-directory-with-active-directory-replication)를 설치해야 합니다. 추가 도메인 컨트롤러는 Azure 또는 보조 온-프레미스 데이터 센터에 있을 수 있습니다.
+- 약간의 응용 프로그램과 단일 도메인 컨트롤러가 있는 경우 전체 사이트를 함께 장애 조치(failover)할 수 있습니다. 이 경우 Site Recovery를 사용하여 도메인 컨트롤러를 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 복제하는 것이 좋습니다. [테스트 장애 조치(failover)](#test-failover-considerations)에도 동일한 복제 도메인 컨트롤러 또는 DNS 가상 머신을 사용할 수 있습니다.
+- - 환경에 많은 응용 프로그램과 둘 이상의 도메인 컨트롤러가 있거나 응용 프로그램 몇 개를 동시에 장애 조치(failover)하려는 경우 Site Recovery로 도메인 컨트롤러 가상 머신을 복제하는 동시에 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 [추가 도메인 컨트롤러](#protect-active-directory-with-active-directory-replication)를 설정하는 것이 좋습니다. [테스트 장애 조치(failover)](#test-failover-considerations)의 경우 Site Recovery에서 복제한 도메인 컨트롤러를 사용할 수 있습니다. 장애 조치(failover)의 경우 대상 사이트의 추가 도메인 컨트롤러를 사용할 수 있습니다.
 
 ## <a name="enable-protection-with-site-recovery"></a>Site Recovery를 사용하여 보호 사용
 
@@ -47,7 +44,7 @@ Site Recovery를 사용하여 도메인 컨트롤러 또는 DNS를 호스트하�
 Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장애 조치(failover)](#test-failover-considerations)에 사용됩니다. 다음 요구 사항을 충족하는지 확인합니다.
 
 1. 도메인 컨트롤러가 글로벌 카탈로그 서버입니다.
-2. 도메인 컨트롤러는 테스트 장애 조치(failover)하는 동안 필요한 역할에 대한 FSMO 역할 소유자여야 합니다. 그렇지 않으면 이러한 역할은 장애 조치(failover) 후 [점유](http://aka.ms/ad_seize_fsmo)되어야 합니다.
+2. 도메인 컨트롤러는 테스트 장애 조치(failover)하는 동안 필요한 역할에 대한 FSMO 역할 소유자여야 합니다. 그렇지 않으면 이러한 역할은 장애 조치(failover) 후 [점유](https://aka.ms/ad_seize_fsmo)되어야 합니다.
 
 ### <a name="configure-vm-network-settings"></a>VM 네트워크 설정 구성
 도메인 컨트롤러 또는 DNS를 호스트하는 가상 머신의 경우 Site Recovery에서 복제된 가상 머신의 **계산 및 네트워크** 설정 아래에서 네트워크 설정을 구성합니다. 이렇게 하면 장애 조치(failover) 후 가상 머신이 올바른 네트워크에 연결됩니다.
@@ -96,7 +93,7 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 
 
 ### <a name="remove-references-to-other-domain-controllers"></a>다른 도메인 컨트롤러에 대한 참조 제거
-테스트 장애 조치(failover)를 시작하는 경우 테스트 네트워크에 있는 모든 도메인 컨트롤러를 포함하지 않습니다. 프로덕션 환경에 존재하는 다른 도메인 컨트롤러에 대한 참조를 제거하려면 누락된 도메인 컨트롤러에 대해 [FSMO Active Directory 역할을 점유](http://aka.ms/ad_seize_fsmo)하고 [메타데이터 정리](https://technet.microsoft.com/library/cc816907.aspx)를 수행해야 할 수도 있습니다.
+테스트 장애 조치(failover)를 시작하는 경우 테스트 네트워크에 있는 모든 도메인 컨트롤러를 포함하지 않습니다. 프로덕션 환경에 존재하는 다른 도메인 컨트롤러에 대한 참조를 제거하려면 누락된 도메인 컨트롤러에 대해 [FSMO Active Directory 역할을 점유](https://aka.ms/ad_seize_fsmo)하고 [메타데이터 정리](https://technet.microsoft.com/library/cc816907.aspx)를 수행해야 할 수도 있습니다.
 
 
 ### <a name="issues-caused-by-virtualization-safeguards"></a>가상화 세이프가드로 인한 문제
@@ -183,12 +180,14 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    자세한 내용은 [글로벌 카탈로그 서버를 사용하여 사용자 로그온을 확인해야 한다는 요구 사항을 해제하는 방법](http://support.microsoft.com/kb/241789)을 참조하세요.
+    자세한 내용은 [글로벌 카탈로그 서버를 사용하여 사용자 로그온을 확인해야 한다는 요구 사항을 해제하는 방법](https://support.microsoft.com/kb/241789)을 참조하세요.
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>다른 컴퓨터에서 DNS 및 도메인 컨트롤러
-DNS가 도메인 컨트롤러와 같은 가상 머신에 없는 경우 테스트 장애 조치(failover)를 위한 DNS 가상 머신을 만들어야 합니다. DNS와 도메인 컨트롤러가 동일한 가상 머신에 없는 경우에는 이 섹션을 건너뛸 수 있습니다.
 
-새 DNS 서버를 사용하고 모든 필요한 영역을 만들 수 있습니다. 예를 들어, Active Directory 도메인이 contoso.com인 경우 이름이 contoso.com인 DNS 영역을 만들 수 있습니다. 다음과 같이 Active Directory에 해당하는 항목을 DNS에서 업데이트해야 합니다.
+동일한 VM에서 도메인 컨트롤러 및 DNS를 실행 중인 경우 이 프로시저를 건너뛰어도 됩니다.
+
+
+DNS가 도메인 컨트롤러와 동일한 VM에 있지 않은 경우 테스트 장애 조치(failover)를 위한 DNS VM을 만들어야 합니다. 새 DNS 서버를 사용하고 모든 필요한 영역을 만들 수 있습니다. 예를 들어, Active Directory 도메인이 contoso.com인 경우 이름이 contoso.com인 DNS 영역을 만들 수 있습니다. 다음과 같이 Active Directory에 해당하는 항목을 DNS에서 업데이트해야 합니다.
 
 1. 복구 계획의 다른 가상 머신을 시작하기 전에 이러한 설정이 준비되었는지 확인합니다.
    * 영역 이름은 포리스트 루트 이름 영역을 따서 지어야 합니다.

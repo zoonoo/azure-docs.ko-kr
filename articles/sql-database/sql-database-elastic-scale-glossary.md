@@ -2,20 +2,22 @@
 title: Elastic Database 도구 용어집 | Microsoft Docs
 description: 탄력적 데이터베이스 도구에 쓰이는 용어 설명.
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 4ab938bc556d5e3dea8b7ec093f590ff1746ea29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 7af8e25fa46155d5054d494485de336c68caa7f2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647547"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239069"
 ---
 # <a name="elastic-database-tools-glossary"></a>Elastic Database 도구 용어집
 Azure SQL Database의 [Elastic Database 도구](sql-database-elastic-scale-introduction.md), 기능에 대해 정의된 용어는 다음과 같습니다. 이 도구는 [분할 데이터베이스 맵](sql-database-elastic-scale-shard-map-management.md)을 관리하는 데 사용하며 [클라이언트 라이브러리](sql-database-elastic-database-client-library.md), [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md), [탄력적 풀](sql-database-elastic-pool.md), [쿼리](sql-database-elastic-query-overview.md)를 포함합니다. 
@@ -79,7 +81,7 @@ Azure SQL Database의 [Elastic Database 도구](sql-database-elastic-scale-intro
 
 **분할**: 하나의 분할된 데이터베이스에서 다른(일반적으로 새로운) 분할된 데이터베이스로 몇 개의 shardlet을 이동하는 작업입니다. 분할 키는 사용자가 분할 지점으로 지정합니다.
 
-**수직적 크기 조정**: 개별 분할된 데이터베이스의 성능 수준을 확장 또는 축소하는 작업입니다. 예를 들어, 표준에서 프리미엄(더 많은 컴퓨팅 리소스 결과)으로 분할된 데이터베이스를 변경합니다. 
+**수직적 크기 조정**: 개별 분할된 데이터베이스의 계산 크기를 확장 또는 축소하는 작업입니다. 예를 들어, 표준에서 프리미엄(더 많은 컴퓨팅 리소스 결과)으로 분할된 데이터베이스를 변경합니다. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

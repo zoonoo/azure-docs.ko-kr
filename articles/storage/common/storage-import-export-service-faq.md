@@ -2,18 +2,18 @@
 title: Azure Import/Export 서비스에 대한 FAQ | Microsoft Docs
 description: Azure Import/Export 서비스에 대한 질문과 대답을 참고합니다.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
-ms.openlocfilehash: d324025a50346415de8232af4adc487a5d907331
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.component: common
+ms.openlocfilehash: b53f679f6f93dd5d4889fbe51f8b5caf62fc1a36
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031399"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236724"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export 서비스: 질문과 대답 
 Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전송할 때 발생할 수 있는 질문 및 답변은 다음과 같습니다. 질문과 대답은 다음과 같은 범주로 정렬됩니다.
@@ -44,18 +44,18 @@ Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전�
 
 ### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>가져오기/내보내기 작업에 사용할 드라이브를 Microsoft에서 구입할 수 있습니까?
 
-아니요. 가져오기 및 내보내기 작업에 대해 사용자가 자체 드라이브를 발송해야 합니다.
+ 아니요. 가져오기 및 내보내기 작업에 대해 사용자가 자체 드라이브를 발송해야 합니다.
 
 
 ## <a name="preparing-disks-for-importexport"></a>Import/Export할 디스크 준비
 
 ### <a name="can-i-skip-the-drive-preparation-step-for-an-import-job-can-i-prepare-a-drive-without-copying"></a>가져오기 작업에서 드라이브 준비 단계를 건너뛸 수 있나요? 복사하지 않고 드라이브를 준비할 수 있나요?
 
-아니요. 데이터를 가져오는 데 사용되는 드라이브는 Azure WAImportExport 도구를 사용하여 준비되어야 합니다. 도구를 사용하여 드라이브에 데이터를 복사합니다.
+ 아니요. 데이터를 가져오는 데 사용되는 드라이브는 Azure WAImportExport 도구를 사용하여 준비되어야 합니다. 도구를 사용하여 드라이브에 데이터를 복사합니다.
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>내보내기 작업을 만들 때 디스크를 준비해야 하나요?
 
-아니요. 일부 사전 검사를 수행하는 것이 좋습니다. 필요한 디스크 수를 확인하려면 WAImportExport 도구의 PreviewExport 명령을 사용합니다. 자세한 내용은 [내보내기 작업에 대한 드라이브 사용량 미리 보기](https://msdn.microsoft.com/library/azure/dn722414.aspx)를 참조하세요. 명령을 통해 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob의 드라이브 사용량을 미리 볼 수 있습니다. 또한 내보내기 작업에 대해 제공될 하드 드라이브에서 읽고 쓸 수 있는지 확인합니다.
+ 아니요. 일부 사전 검사를 수행하는 것이 좋습니다. 필요한 디스크 수를 확인하려면 WAImportExport 도구의 PreviewExport 명령을 사용합니다. 자세한 내용은 [내보내기 작업에 대한 드라이브 사용량 미리 보기](https://msdn.microsoft.com/library/azure/dn722414.aspx)를 참조하세요. 명령을 통해 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob의 드라이브 사용량을 미리 볼 수 있습니다. 또한 내보내기 작업에 대해 제공될 하드 드라이브에서 읽고 쓸 수 있는지 확인합니다.
 
 ## <a name="importexport-jobs"></a>Import/Export 작업
 
@@ -104,7 +104,7 @@ Azure 데이터 센터에서는 지원 요구 사항에 맞지 않는 드라이�
 
 ### <a name="does-the-service-format-the-drives-before-returning-them"></a>서비스가 드라이브를 반환하기 전에 포맷하나요?
 
-아니요. 모든 드라이브는 BitLocker로 암호화되어 있습니다.
+ 아니요. 모든 드라이브는 BitLocker로 암호화되어 있습니다.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>이 서비스를 통해 가져오는 데이터에 액세스하려면 어떻게 하나요?
 
@@ -112,14 +112,14 @@ Azure Portal 또는 [저장소 탐색기](https://docs.microsoft.com/azure/vs-az
 
 ### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>가져오기 작업을 완료한 후에 저장소 계정에서 데이터는 어떻게 표시되나요? 디렉터리 계층 구조가 유지되나요?
 
-가져오기 작업을 위해 하드 드라이브를 준비할 때 대상은 데이터 집합 CSV의 DstBlobPathOrPrefix 필드로 지정됩니다. 이는 하드 드라이브로부터 데이터가 복사되는 저장소 계정의 대상 컨테이너입니다. 이 대상 컨테이너 내에 하드 드라이브의 폴더에 대해 가상 디렉터리가 만들어지며 파일에 대해 Blob이 만들어집니다. 
+가져오기 작업을 위해 하드 드라이브를 준비할 때 대상은 데이터 세트 CSV의 DstBlobPathOrPrefix 필드로 지정됩니다. 이는 하드 드라이브로부터 데이터가 복사되는 저장소 계정의 대상 컨테이너입니다. 이 대상 컨테이너 내에 하드 드라이브의 폴더에 대해 가상 디렉터리가 만들어지며 파일에 대해 Blob이 만들어집니다. 
 
 ### <a name="if-a-drive-has-files-that-already-exist-in-my-storage-account-does-the-service-overwrite-existing-blobs-or-files"></a>저장소 계정에 이미 있는 파일이 드라이브에 있는 경우 서비스가 기존 Blob 또는 파일을 덮어쓰나요?
 
 경우에 따라 다릅니다. 드라이브를 준비할 때 데이터 집합 CSV 파일에 있는 Disposition:<rename|no-overwrite|overwrite>라는 필드를 사용하여 대상 파일을 덮어쓰거나 무시해야 하는지를 지정할 수 있습니다. 기본적으로 서비스는 기존 Blob 또는 파일을 덮어쓰지 않고 새 파일의 이름을 변경합니다.
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>WAImportExport 도구는 32비트 운영 체제와 호환되나요?
-아니요. WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 OS의 전체 목록은 [지원되는 운영 체제]()로 이동합니다. 
+ 아니요. WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 OS의 전체 목록은 [지원되는 운영 체제](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements)로 이동합니다. 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure Import/Export에서 지원하는 최대 블록 Blob 및 페이지 Blob 크기는 무엇인가요?
@@ -131,7 +131,7 @@ Azure Portal 또는 [저장소 탐색기](https://docs.microsoft.com/azure/vs-az
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Azure Import/Export는 AES-256 암호화를 지원하나요?
 Azure Import/Export 서비스는 기본적으로 AES-128 bitlocker 암호화를 사용합니다. 데이터를 복사하기 전에 bitlocker로 수동으로 암호화하여 AES-256으로 변경할 수 있습니다. 
 
-- [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)을 사용하는 경우 샘플 명령은 아래와 같습니다.
+- [WAImportExport V1](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)을 사용하는 경우 샘플 명령은 아래와 같습니다.
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```

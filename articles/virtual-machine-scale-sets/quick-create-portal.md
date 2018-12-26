@@ -4,7 +4,7 @@ description: Azure Portal에서 가상 머신 확장 집합을 빠르게 만드�
 keywords: 가상 머신 크기 집합
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
-ms.author: cynthn
-ms.openlocfilehash: fb3a3e1cec0d6ec15495e677e7bead1c02445803
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: zarhoads
+ms.openlocfilehash: 723f1d36f22e11aff3af195e4c8adf7a3f8722ab
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38680961"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464799"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신 확장 집합 만들기
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 리소스 사용량(예: CPU, 메모리 요구량 또는 네트워크 트래픽)에 따라 자동으로 크기를 조정하는 규칙을 정의할 수 있습니다. 그러면 Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 이 빠른 시작에서는 Azure Portal에서 가상 머신 확장 집합을 만듭니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
@@ -69,7 +69,7 @@ RHEL, CentOS, Ubuntu 또는 SLES와 같은 Windows Server 이미지 또는 Linux
 - Windows 확장 집합의 경우 `104.42.1.19:50001`에서 RDP를 사용하여 VM 인스턴스에 연결합니다.
 - Linux 확장 집합의 경우 `ssh azureuser@104.42.1.19 -p 50001`에서 SSH를 사용하여 VM 인스턴스에 연결합니다.
 
-대화 상자가 나타나면 확장 집합을 만들 때 이전 단계에서 지정한 자격 증명을 입력합니다. 확장 집합 인스턴스는 정상적으로 상호 작용할 수 있는 기본 VM입니다. 확장 집합 인스턴스에서 응용 프로그램을 배포하고 실행하는 방법에 대한 자세한 내용은 [가상 머신 확장 집합에 응용 프로그램 배포](virtual-machine-scale-sets-deploy-app.md)를 참조하세요.
+대화 상자가 나타나면 확장 집합을 만들 때 이전 단계에서 지정한 자격 증명을 입력합니다. 확장 집합 인스턴스는 정상적으로 상호 작용할 수 있는 기본 VM입니다. 확장 집합 인스턴스에서 애플리케이션을 배포하고 실행하는 방법에 대한 자세한 내용은 [가상 머신 확장 집합에 애플리케이션 배포](virtual-machine-scale-sets-deploy-app.md)를 참조하세요.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

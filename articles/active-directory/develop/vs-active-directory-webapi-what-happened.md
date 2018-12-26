@@ -7,17 +7,17 @@ manager: douge
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev
-ms.openlocfilehash: b8303ccf6fc96e8d0708c9e414fdf511e0cf2fdf
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: aaddev, vs-azure
+ms.openlocfilehash: 04732d6541fd6132360d4c235b35979c70772922
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31785164"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141395"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>내 WebAPI 프로젝트(Visual Studio Azure Active Directory 연결 서비스)의 변경 내용
 
@@ -25,7 +25,7 @@ ms.locfileid: "31785164"
 > - [시작](vs-active-directory-webapi-getting-started.md)
 > - [변경된 내용](vs-active-directory-webapi-what-happened.md)
 
-이 아티클에서는 [Visual Studio를 사용하여 Azure Active Directory의 연결된 서비스](vs-active-directory-add-connected-service.md)를 추가할 때 ASP.NET WebAPI, ASP.NET 단일 페이지 응용 프로그램 및 ASP.NET Azure API 프로젝트의 정확한 변경 내용을 설명합니다. 이는 Visual Studio 2015의 ASP.NET Azure 모바일 서비스 프로젝트에도 적용됩니다.
+이 아티클에서는 [Visual Studio를 사용하여 Azure Active Directory의 연결된 서비스](vs-active-directory-add-connected-service.md)를 추가할 때 ASP.NET WebAPI, ASP.NET 단일 페이지 애플리케이션 및 ASP.NET Azure API 프로젝트의 정확한 변경 내용을 설명합니다. 이는 Visual Studio 2015의 ASP.NET Azure 모바일 서비스 프로젝트에도 적용됩니다.
 
 연결된 서비스를 사용한 작업에 대한 자세한 내용은 [시작](vs-active-directory-webapi-getting-started.md)을 참조하세요.
 
@@ -122,12 +122,12 @@ Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 
 
 ## <a name="changes-on-azure"></a>Azure 변경 내용
 
-- 연결된 서비스를 추가할 때 선택한 도메인에 Azure AD 응용 프로그램이 생성됩니다.
+- 연결된 서비스를 추가할 때 선택한 도메인에 Azure AD 애플리케이션이 생성됩니다.
 - 해당 옵션이 선택된 경우 **디렉터리 데이터 읽기** 권한을 포함하도록 앱을 업데이트했습니다.
 
 [Azure Active Directory에 대해 자세히 알아보세요](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory 인증 시나리오](active-directory-authentication-scenarios.md)
-- [ASP.NET 웹앱에 Microsoft에 로그인 추가](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Azure Active Directory 인증 시나리오](authentication-scenarios.md)
+- [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v1-aspnet-webapp.md)

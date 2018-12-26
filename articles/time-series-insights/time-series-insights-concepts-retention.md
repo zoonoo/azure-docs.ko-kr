@@ -5,20 +5,27 @@ ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
 ms.author: anshan
-manager: kfile
+manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: c8fad0d626fc0b9754f7f04c8000f48976eb766b
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: e265a66b841530d1133d760ebdcdf56046d1aee1
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293098"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364133"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Time Series Insights의 데이터 보존 기간 이해
+
 이 아티클에서는 TSI(Time Series Insights) 환경의 데이터 보존 기간에 영향을 주는 두 가지 설정을 설명합니다.
+
+## <a name="video"></a>비디오: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>이 비디오에서는 Time Series Insights 데이터 보존 및 이에 대한 계획을 세우는 방법을 설명합니다.</br>
+
+> [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
 각 TSI 환경에는 **데이터 보존 시간**을 제어하는 설정이 있습니다. 값의 범위는 1~400일입니다. 데이터는 환경 저장소 용량 또는 보존 기간(1-400) 중 더 빠른 시간을 기준으로 삭제됩니다.
 
@@ -60,7 +67,7 @@ ms.locfileid: "36293098"
    - 데이터 보존 기간에 도달하면 데이터가 삭제되므로 환경을 최대 용량 미만으로 유지하세요.
 
 ### <a name="example-3"></a>예 3:
-보존 동작이 **수신 일시 중지**로 구성된 환경을 생각해 보세요. 이 예제에서는 **데이터 보존 기간** 60일로 구성됩니다. **용량**은 S1의 3개 단위로 설정됩니다. 이 환경에 매일 2GB 데이터가 수신된다고 가정하겠습니다. 이 환경에서 최대 용량에 도달하면 수신이 일시 중지됩니다. 이때 수신이 다시 시작되거나 ‘수신 계속’이 활성화될 때까지 환경에 동일한 데이터 집합이 표시됩니다(이전 데이터를 삭제하여 새 데이터를 위한 공간 확보). 
+보존 동작이 **수신 일시 중지**로 구성된 환경을 생각해 보세요. 이 예제에서는 **데이터 보존 기간** 60일로 구성됩니다. **용량**은 S1의 3개 단위로 설정됩니다. 이 환경에 매일 2GB 데이터가 수신된다고 가정하겠습니다. 이 환경에서 최대 용량에 도달하면 수신이 일시 중지됩니다. 이때 수신이 다시 시작되거나 ‘수신 계속’이 활성화될 때까지 환경에 동일한 데이터 세트가 표시됩니다(이전 데이터를 삭제하여 새 데이터를 위한 공간 확보). 
 
 수신이 다시 시작되면:
 - 이벤트 원본이 수신한 순서대로 데이터가 흐릅니다.

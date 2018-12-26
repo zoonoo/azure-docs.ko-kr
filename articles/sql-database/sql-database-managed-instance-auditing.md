@@ -1,39 +1,43 @@
 ---
-title: Azure SQL Database 관리되는 인스턴스 감사 | Microsoft Azure
-description: T-SQL을 사용하여 Azure SQL Database 관리되는 인스턴스 감사를 시작하는 방법을 알아봅니다.
+title: Azure SQL Database Managed Instance 감사 | Microsoft Docs
+description: T-SQL을 사용하여 Azure SQL Database Managed Instance 감사를 시작하는 방법을 알아봅니다.
 services: sql-database
-author: giladm
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/19/2018
-ms.author: giladm
-ms.openlocfilehash: 71929be456de4b798da48bb202969deb71e1c371
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+f1_keywords:
+- mi.azure.sqlaudit.general.f1
+author: ronitr
+ms.author: ronitr
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 375e1a0ba4be9483986c088195e380e856d32a67
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648856"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093751"
 ---
-# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL Database 관리되는 인스턴스 감사 시작
+# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL Database Managed Instance 감사 시작
 
-[Azure SQL Database 관리되는 인스턴스](sql-database-managed-instance.md) 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 기록합니다. 또한
+[Azure SQL Database Managed Instance](sql-database-managed-instance.md) 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 기록합니다. 또한
 - 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
 - 감사를 사용하면 규정을 완전히 준수한다고 보장할 수는 없지만 규정 표준을 보다 쉽게 준수할 수 있습니다. 표준 규정 준수를 지원하는 Azure 프로그램에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/compliance/)를 참조하세요.
 
 
 ## <a name="set-up-auditing-for-your-server"></a>서버에 대한 감사 설정
 
-다음 섹션에서는 관리되는 인스턴스에 대한 감사 구성을 설명합니다.
+다음 섹션에서는 Managed Instance에 대한 감사 구성을 설명합니다.
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 다음 단계에서는 감사 로그가 저장되는 Azure Storage **컨테이너**를 만듭니다.
 
    - 감사 로그를 저장할 Azure Storage로 이동합니다.
 
      > [!IMPORTANT]
-     > 동일한 지역의 저장소 계정을 관리되는 인스턴스 서버로 사용하여 지역 간 읽기/쓰기를 방지합니다.
+     > 동일한 지역의 저장소 계정을 Managed Instance 서버로 사용하여 지역 간 읽기/쓰기를 방지합니다.
 
    - 저장소 계정에서 **개요**로 이동한 다음, **Blob**을 클릭합니다.
 
@@ -43,7 +47,7 @@ ms.locfileid: "34648856"
 
      ![탐색 창][2]
 
-   - 컨테이너 **이름**을 지정하고 공용 액세스 수준을 **개인**으로 설정한 다음,**확인**을 클릭합니다.
+   - 컨테이너 **이름**을 지정하고 공용 액세스 수준을 **개인**으로 설정한 다음, **확인**을 클릭합니다.
 
      ![탐색 창][3]
 
@@ -55,7 +59,7 @@ ms.locfileid: "34648856"
 
      ![탐색 창][5]
 
-3. 다음 단계에서는 저장소 계정에 관리되는 인스턴스 감사 액세스 권한을 부여하는 데 사용되는 Azure Storage **SAS 토큰**을 생성합니다.
+3. 다음 단계에서는 저장소 계정에 Managed Instance 감사 액세스 권한을 부여하는 데 사용되는 Azure Storage **SAS 토큰**을 생성합니다.
 
    - 이전 단계에서 컨테이너를 만든 Azure Storage 계정으로 이동합니다.
 
@@ -82,7 +86,7 @@ ms.locfileid: "34648856"
 
      ![탐색 창][8]
 
-4. SSMS(SQL Server Management Studio)를 통해 관리되는 인스턴스에 연결합니다.
+4. SSMS(SQL Server Management Studio)를 통해 Managed Instance에 연결합니다.
 
 5. 다음 T-SQL 문을 실행하여 이전 단계에서 만든 컨테이너 URL 및 SAS 토큰으로 **새 자격 증명을 만듭니다**.
 
@@ -103,16 +107,16 @@ ms.locfileid: "34648856"
 
     지정되지 않은 경우 `RETENTION_DAYS` 기본값은 0(무제한 보존)입니다.
 
-    추가 정보:
-    - [관리되는 인스턴스, Azure SQL DB 및 SQL Server 간의 감사 차이점](#subheading-3)
+    추가 정보는 다음을 참조하세요.
+    - [Managed Instance, Azure SQL DB 및 SQL Server 간의 감사 차이점](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
     - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-7. SQL Server에 대한 서버 감사 사양 또는 데이터베이스 감사 사양 만들기:
-    - [서버 감사 사양 만들기 T-SQL 가이드](https://docs.microsoft.com/ sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [데이터베이스 감사 사양 만들기 T-SQL 가이드](https://docs.microsoft.com/ sql/t-sql/statements/create-database-audit-specification-transact-sql)
+7. SQL Server의 경우와 마찬가지로, 서버 감사 사양 또는 데이터베이스 감사 사양을 만듭니다.
+    - [서버 감사 사양 만들기 T-SQL 가이드](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+    - [데이터베이스 감사 사양 만들기 T-SQL 가이드](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-8. 6단계에서 만든 서버 감사를 사용하도록 설정:
+8. 6단계에서 만든 서버 감사를 사용하도록 설정합니다.
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
@@ -128,21 +132,21 @@ ms.locfileid: "34648856"
 - 감사 로그 사용 방법의 전체 목록은 [SQL 데이터베이스 감사 시작](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing)을 참조하세요.
 
 > [!IMPORTANT]
-> Azure Portal(‘감사 레코드’ 창)에서 감사 레코드를 보는 방법은 현재 관리되는 인스턴스에 사용할 수 없습니다.
+> Azure Portal(‘감사 레코드’ 창)에서 감사 레코드를 보는 방법은 현재 Managed Instance에 사용할 수 없습니다.
 
-## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>관리되는 인스턴스, Azure SQL Database 및 SQL Server 간의 감사 차이점
+## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>Managed Instance, Azure SQL Database 및 SQL Server 간의 감사 차이점
 
-관리되는 인스턴스, Azure SQL Database 및 SQL Server 온-프레미스의 SQL Audit 간의 주요 차이점은 다음과 같습니다.
+Managed Instance, Azure SQL Database 및 SQL Server 온-프레미스의 SQL Audit 간의 주요 차이점은 다음과 같습니다.
 
-- 관리되는 인스턴스의 SQL Audit는 서버 수준에서 작동하며, `.xel` 로그 파일을 Azure Blob 저장소 계정에 저장합니다.
+- Managed Instance의 SQL Audit는 서버 수준에서 작동하며, `.xel` 로그 파일을 Azure Blob Storage 계정에 저장합니다.
 - Azure SQL Database에서 SQL Audit는 데이터베이스 수준에서 작동합니다.
 - SQL Server 온-프레미스/가상 머신의 SQL Audit는 서버 수준에서 작동하지만, 파일 시스템/Windows 이벤트 로그에 이벤트를 저장합니다.
 
-관리되는 인스턴스의 XEvent 감사는 Azure Blob 저장소 대상을 지원합니다. 파일 및 Windows 로그는 **지원되지 않습니다**.
+Managed Instance의 XEvent 감사는 Azure Blob Storage 대상을 지원합니다. 파일 및 Windows 로그는 **지원되지 않습니다**.
 
 Azure Blob 저장소에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이점은 다음과 같습니다.
 - 새 `TO URL` 구문이 제공되고 `.xel` 파일이 배치되는 Azure Blob Storage 컨테이너의 URL을 지정할 수 있습니다.
-- 관리되는 인스턴스에서 Windows 파일 공유에 액세스할 수 없으므로 `TO FILE` 구문은 **지원되지 않습니다**.
+- Managed Instance에서 Windows 파일 공유에 액세스할 수 없으므로 `TO FILE` 구문은 **지원되지 않습니다**.
 - 종료 옵션은 **지원되지 않습니다**.
 - `queue_delay` 0은 **지원되지 않습니다**.
 

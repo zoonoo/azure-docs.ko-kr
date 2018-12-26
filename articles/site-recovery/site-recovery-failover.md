@@ -1,21 +1,22 @@
 ---
-title: 사이트 복구에서 장애 조치(failover) | Microsoft Docs
-description: Azure Site Recovery는 가상 머신 및 실제 서버의 복제, 장애 조치 및 복구를 조정합니다. Azure로 또는 보조 데이터 센터로 장애 조치에 대해 알아봅니다.
+title: Azure Site Recovery를 사용하여 재해 복구 중 장애 조치(failover) | Microsoft Docs
+description: Azure Site Recovery 서비스를 사용하여 재해 복구하는 동안 VM 및 물리적 서버를 장애 조치하는 방법에 대해 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: ponatara
-ms.openlocfilehash: 3ef52030f694b0f9ccf2bd10545918a4fae9f2ee
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: 6e16529740377b9a082fda4f3e4409b57441715e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918308"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215160"
 ---
-# <a name="failover-in-site-recovery"></a>사이트 복구에서 장애 조치
+# <a name="fail-over-vms-and-physical-servers"></a>VM 및 물리적 서버 장애 조치 
+
 이 문서에서는 Site Recovery에서 보호하는 가상 머신 및 물리적 서버를 장애 조치하는 방법에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -31,14 +32,14 @@ ms.locfileid: "37918308"
 
 
 ## <a name="run-a-failover"></a>장애 조치(Failover) 실행
-이 절차에서는 [복구 계획](site-recovery-create-recovery-plans.md)에 대한 장애 조치를 실행하는 방법을 설명합니다. 또는 **복제된 항목** 페이지에서 단일 가상 머신 또는 물리적 서버에 대한 장애 조치를 실행할 수 있습니다.
+이 절차에서는 [복구 계획](site-recovery-create-recovery-plans.md)에 대한 장애 조치를 실행하는 방법을 설명합니다. 또는 [여기](vmware-azure-tutorial-failover-failback.md#run-a-failover-to-azure)에 설명된 대로 **복제된 항목** 페이지에서 단일 가상 머신 또는 물리적 서버에 대한 장애 조치(failover)를 실행할 수 있습니다.
 
 
 ![장애 조치(failover)](./media/site-recovery-failover/Failover.png)
 
 1. **복구 계획** > *recoveryplan_name*을 선택합니다. **장애 조치(Failover)** 를 클릭합니다.
 2. **장애 조치(Failover)** 화면에서 장애 조치할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
-    1.  **최신**(기본값): 이 옵션은 Site Recovery 서비스에 전송된 모든 데이터를 먼저 처리하여 작업을 시작합니다. 데이터를 처리하면 각 가상 머신에 복구 지점을 만듭니다. 이 복구 지점은 장애 조치 중에 가상 머신에서 사용됩니다. 이 옵션은 장애 조치를 트리거했을 때 Site Recovery 서비스로 복제된 모든 데이터가 장애 조치 후에 만들어진 가상 머신에 있게 되므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
+    1.  **최신**: 이 옵션은 Site Recovery 서비스에 전송된 모든 데이터를 먼저 처리하여 작업을 시작합니다. 데이터를 처리하면 각 가상 머신에 복구 지점을 만듭니다. 이 복구 지점은 장애 조치 중에 가상 머신에서 사용됩니다. 이 옵션은 장애 조치를 트리거했을 때 Site Recovery 서비스로 복제된 모든 데이터가 장애 조치 후에 만들어진 가상 머신에 있게 되므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
     1.  **가장 최근에 처리된 시점**: 복구 계획의 모든 가상 머신을 Site Recovery 서비스에서 이미 처리한 최근 복구 지점으로 장애 조치합니다. 가상 머신의 테스트 장애 조치(Failover)를 수행할 때 가장 최근에 처리된 복구 지점의 타임스탬프도 표시됩니다. 복구 계획의 장애 조치를 수행하는 경우 개별 가상 머신으로 이동하여 **최근 복구 지점** 타일을 살펴보면 이 정보를 얻을 수 있습니다. 처리되지 않은 데이터를 처리하느라 소요되는 시간이 없기 때문에 이 옵션은 낮은 RTO(복구 시간 목표) 장애 조치(Failover) 옵션을 제공합니다.
     1.  **최신 응용 프로그램 일치**: 복구 계획의 모든 가상 머신을 Site Recovery 서비스에서 이미 처리한 최신 응용 프로그램 일치 복구 지점으로 장애 조치합니다. 가상 컴퓨터의 테스트 장애 조치(Failover)를 수행할 때 최신 앱 일치 복구 지점의 타임스탬프도 표시됩니다. 복구 계획의 장애 조치를 수행하는 경우 개별 가상 컴퓨터로 이동하여 **최근 복구 지점** 타일을 살펴보면 이 정보를 얻을 수 있습니다.
     1.  **최신 다중 VM 처리**: 이 옵션은 다중 VM 일관성이 켜져 있는 하나 이상의 가상 머신이 포함된 복구 계획에만 사용할 수 있습니다. 복제 그룹에 속하는 가상 머신은 공통된 최신 다중 VM 일관성 복구 지점으로 장애 조치(failover)됩니다. 다른 가상 머신은 최근에 처리된 복구 지점으로 장애 조치(failover)됩니다.  
@@ -104,18 +105,19 @@ Site Recovery를 사용하여 보호되는 가상 머신/물리적 서버는 **�
 
 다른 모든 경우에는 이러한 중간 단계가 필요하지 않으며 장애 조치(failover)에 소요되는 시간이 짧아집니다.
 
-
-
-
-
 ## <a name="using-scripts-in-failover"></a>장애 조치에서 스크립트 사용
 장애 조치를 수행하는 동안 특정 작업을 자동화할 수 있습니다. [복구 계획](site-recovery-create-recovery-plans.md)에서 스크립트 또는 [Azure Automation runbook](site-recovery-runbook-automation.md)을 사용하여 자동화할 수 있습니다.
 
 ## <a name="post-failover-considerations"></a>장애 조치 후 고려 사항
 장애 조치 후 다음 권장 사항을 고려하는 것이 좋습니다.
 ### <a name="retaining-drive-letter-after-failover"></a>장애 조치 후 드라이브 문자 유지
-장애 조치 후 가상 머신에서 드라이브 문자를 유지하려면 가상 머신에 대한 **SAN 정책**을 **OnlineAll**로 설정하면 됩니다. [자세히 알아보기](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+장애 조치 후 가상 머신에서 드라이브 문자를 유지하려면 가상 머신에 대한 **SAN 정책**을 **OnlineAll**로 설정하면 됩니다. [자세히 알아보기](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>장애 조치(Failover) 후 Azure VM에 연결할 준비
+
+장애 조치(Failover) 후 RDP/SSH를 사용하여 Azure VM에 연결하려면 [여기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)에서 표에 요약된 요구 사항을 따릅니다.
+
+[여기](site-recovery-failover-to-azure-troubleshoot.md)에 설명된 단계에 따라 장애 조치(failover) 후 연결 문제를 해결합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

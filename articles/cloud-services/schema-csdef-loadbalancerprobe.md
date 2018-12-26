@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 6cd56c9b04fc4657cedf845e7f111005a8dee183
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f7b0ba3b4797149798037dee0188850eff6baf1d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360056"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003291"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services 정의 LoadBalancerProbe 스키마
 부하 분산 장치 프로브는 UDP 끝점과 역할 인스턴스의 끝점에서 고객이 정의한 상태 프로브입니다. `LoadBalancerProbe`는 독립 실행형 요소가 아닙니다. 서비스 정의 파일의 웹 역할 또는 작업자 역할과 결합됩니다. `LoadBalancerProbe`는 하나 이상의 역할에서 사용할 수 있습니다.

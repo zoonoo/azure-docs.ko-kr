@@ -2,24 +2,24 @@
 title: Azure Service Fabric에서 작업하도록 Mac OS X에서 개발 환경 설정 | Microsoft Docs
 description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Mac OS X에서 응용 프로그램을 빌드할 수 있습니다.
 services: service-fabric
-documentationcenter: java
-author: sayantancs
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: java
+ms.devlang: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
-ms.author: saysa
-ms.openlocfilehash: 15df54d37ffe26b9e1e6228591716fef9ae12dc8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: suhuruli
+ms.openlocfilehash: 8473b2e202dd408cce6658f3ca349d884a28dc3a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641869"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160476"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
     >
     >권장되는 방식은 디먼 구성 설정을 Docker에서 직접 수정하는 것입니다. **Docker 아이콘**을 선택한 다음 **기본 설정** > **디먼** > **고급**을 선택합니다.
     >
-    >대규모 응용 프로그램을 테스트할 때에는 Docker에 할당된 리소스를 늘리는 것이 좋습니다. 이렇게 하려면 **Docker 아이콘**을 선택한 다음, **고급**을 선택하여 코어 및 메모리 수를 조정합니다.
+    >대규모 애플리케이션을 테스트할 때에는 Docker에 할당된 리소스를 늘리는 것이 좋습니다. 이렇게 하려면 **Docker 아이콘**을 선택한 다음, **고급**을 선택하여 코어 및 메모리 수를 조정합니다.
 
 2. 새 디렉터리에서 Service Fabric 이미지를 빌드할 `Dockerfile` 파일을 만듭니다.
 
@@ -82,7 +82,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
 
     >[!NOTE]
     >컨테이너에 추가 프로그램 또는 종속성을 추가하도록 이 파일을 조정할 수 있습니다.
-    >예를 들어 `RUN apt-get install nodejs -y`를 추가하면 게스트 실행 파일인 `nodejs` 응용 프로그램에 대한 지원이 허용됩니다.
+    >예를 들어 `RUN apt-get install nodejs -y`를 추가하면 게스트 실행 파일인 `nodejs` 애플리케이션에 대한 지원이 허용됩니다.
     
     >[!TIP]
     > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조하세요.
@@ -99,7 +99,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
 4. 이제 필요할 때마다 다음을 실행하여 신속하게 Service Fabric의 로컬 복사를 시작할 수 있습니다.
 
     ```bash 
-    docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
     ```
 
     >[!TIP]
@@ -118,7 +118,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
 
 
 
-6. 작업을 모두 마쳤으면 이 명령을 사용하여 컨테이너를 중지하고 정리할 수 있습니다.
+6. 작업을 모두 마쳤으면 이 명령을 사용하여 컨테이너를 중지하고 정리합니다.
 
     ```bash 
     docker rm -f sftestcluster
@@ -135,7 +135,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
 [Service Fabric CLI](service-fabric-cli.md#cli-mac)의 지침에 따라 Mac에 Service Fabric CLI(`sfctl`)를 설치합니다.
 CLI 명령은 클러스터, 응용 프로그램 및 서비스를 비롯한 Service Fabric 엔터티와의 상호 작용을 지원합니다.
 
-1. 응용 프로그램을 배포하기 전에 클러스터에 연결하려면 아래 명령을 실행합니다. 
+1. 애플리케이션을 배포하기 전에 클러스터에 연결하려면 아래 명령을 실행합니다. 
 
 ```bash
 sfctl cluster select --endpoint http://localhost:19080
@@ -157,14 +157,16 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
     ```bash
     npm install -g yo
     ```
-3. 시작 [설명서](service-fabric-get-started-linux.md)의 단계를 수행하여 원하는 Yeoman 생성기를 설치합니다. Yeoman을 사용하여 Service Fabric 응용 프로그램을 만들려면 다음 단계를 수행합니다.
+3. 시작 [설명서](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)의 단계를 수행하여 원하는 Yeoman 생성기를 설치합니다. Yeoman을 사용하여 Service Fabric 응용 프로그램을 만들려면 다음 단계를 수행합니다.
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
     npm install -g generator-azuresfguest      # for Service Fabric Guest executables
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
-4. Mac에서 Service Fabric Java 응용 프로그램을 빌드하려면 JDK 버전 1.8 및 Gradle을 호스트 컴퓨터에 설치해야 합니다. 다음과 같이 [HomeBrew](https://brew.sh/)를 사용하여 소프트웨어를 설치할 수 있습니다. 
+4. 생성기를 설치한 후에는 각각 `yo azuresfguest` 또는 `yo azuresfcontainer`를 실행하여 게스트 실행 파일 또는 컨테이너 서비스를 만듭니다.
+
+5. Mac에서 Service Fabric Java 응용 프로그램을 빌드하려면 JDK 버전 1.8 및 Gradle을 호스트 컴퓨터에 설치해야 합니다. 다음과 같이 [HomeBrew](https://brew.sh/)를 사용하여 소프트웨어를 설치할 수 있습니다. 
 
     ```bash
     brew update

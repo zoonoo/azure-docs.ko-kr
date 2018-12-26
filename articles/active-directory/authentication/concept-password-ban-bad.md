@@ -4,18 +4,18 @@ description: Azure AD 동적으로 금지된 암호를 사용하여 환경에서
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 89cbe386d87c6ccb81df7fabd86b197bb69e41e1
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 4c5fead0a7f4634a8f5ee005114d24cae9a2590f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291958"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739827"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>조직에서 잘못된 암호 제거
 
@@ -54,21 +54,20 @@ Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 
-전역 금지 암호 목록의 이점은 Azure AD(Azure Active Directory)의 모든 사용자에게 적용됩니다.
-
-사용자 지정 금지 암호 목록에는 Azure AD Basic 라이선스가 필요합니다.
-
-Windows Server Active Directory용 Azure AD 암호 보호에는 Azure AD Premium 라이선스가 필요합니다. 
+|   | 전역 금지 암호 목록을 사용하여 Azure AD 암호 보호 | 사용자 지정 금지 암호 목록을 사용하여 Azure AD 암호 보호|
+| --- | --- | --- |
+| 클라우드 전용 사용자 | Azure AD Free | Azure AD Basic |
+| 온-프레미스 Windows Server Active Directory에서 동기화된 사용자 | Azure AD Premium P1 또는 P2 | Azure AD Premium P1 또는 P2 |
 
 비용을 비롯한 추가 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
 
 ## <a name="what-do-users-see"></a>사용자에게 표시되는 내용
 
-사용자가 암호를 차단 목록에 있는 암호로 변경하려고 하면 다음과 같은 오류 메시지가 표시됩니다.
+사용자가 암호를 금지된 문자열로 재설정하려고 하면 다음과 같은 오류 메시지가 표시됩니다.
 
 암호에 쉽게 추측할 수 있는 단어, 구 또는 패턴이 포함되어 있습니다. 다른 암호로 다시 시도하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [사용자 지정 금지 암호 목록 구성](howto-password-ban-bad.md)
-* [온-프레미스에서 Azure AD 암호 보호 에이전트 사용](howto-password-ban-bad-on-premises.md)
+* [온-프레미스에서 Azure AD 암호 보호 에이전트 사용](howto-password-ban-bad-on-premises-deploy.md)

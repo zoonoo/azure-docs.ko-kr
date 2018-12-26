@@ -1,40 +1,40 @@
 ---
-title: Java를 사용하여 Azure Device Provisioning Service에 TPM 장치 등록 | Microsoft Docs
-description: Azure 빠른 시작 - Java 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 TPM 장치 등록
-author: dsk-2015
-ms.author: dkshir
+title: Java를 사용하여 Azure Device Provisioning Service에 TPM 디바이스 등록 | Microsoft Docs
+description: Azure 빠른 시작 - Java 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 TPM 디바이스 등록 이 빠른 시작에서는 개별 등록을 사용합니다.
+author: wesmc7777
+ms.author: wesmc
 ms.date: 12/20/2017
-ms.topic: quickstatrt
+ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 5e40f8c72d3e95d13405190d8aec9fa52a9ed951
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4c494eda7126a21223f65a7e52c220fca93b2e39
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630683"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184664"
 ---
-# <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Java 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 장치 등록
+# <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Java 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
 
-다음 단계에서는 샘플 Java 응용 프로그램을 통해 [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 사용하여 시뮬레이션된 TPM 장치를 Azure IoT Hub Device Provisioning Service에 프로그래밍 방식으로 등록하는 방법을 보여 줍니다. Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 이 문서에서는 Windows 개발 컴퓨터를 사용하여 등록 프로세스를 안내합니다.
+다음 단계에서는 샘플 Java 애플리케이션을 통해 [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 사용하여 Azure IoT Hub Device Provisioning Service에서 시뮬레이션된 TPM 디바이스에 대한 개별 등록을 프로그래밍 방식으로 만드는 방법을 보여 줍니다. Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 이 문서에서는 Windows 개발 컴퓨터를 사용하여 등록 프로세스를 안내합니다.
 
-계속 진행하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service를 설정](./quick-setup-auto-provision.md)하고 [TPM 장치를 시뮬레이션](quick-create-simulated-device.md#simulatetpm)해야 합니다.
+계속 진행하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service를 설정](./quick-setup-auto-provision.md)하고 [TPM 디바이스를 시뮬레이션](quick-create-simulated-device.md#simulatetpm)해야 합니다.
 
 <a id="setupdevbox"></a>
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비 
 
-1. 컴퓨터에 [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 설치되어 있는지 확인합니다. 
+1. 컴퓨터에 [Java SE Development Kit 8](https://aka.ms/azure-jdks)이 설치되어 있는지 확인합니다. 
 
-2. Java 설치 환경 변수를 설정합니다. `PATH` 변수에는 *jdk1.8.x\bin* 디렉터리의 전체 경로가 포함되어야 합니다. 컴퓨터의 첫 번째 Java 설치인 경우 `JAVA_HOME`이라는 새 환경 변수를 만들고 *jdk1.8.x* 디렉터리의 전체 경로를 가리키도록 지정합니다. Windows 컴퓨터에서 이 디렉터리는 일반적으로 *C:\\Program Files\\Java\\* 폴더에 있으며, Windows 컴퓨터의 **제어판**에서 **시스템 환경 변수 편집**을 검색하여 환경 변수를 만들거나 편집할 수 있습니다. 
+2. Java 설치 환경 변수를 설정합니다. `PATH` 변수에는 *jdk1.8.x\bin* 디렉터리의 전체 경로가 포함되어야 합니다. 컴퓨터의 첫 번째 Java 설치인 경우 `JAVA_HOME`이라는 새 환경 변수를 만들고 *jdk1.8.x* 디렉터리의 전체 경로를 가리키도록 지정합니다. Windows 머신에서 이 디렉터리는 *C:\\Program Files\\Java\\* 폴더에 있으며, Windows 머신의 **제어판**에서 **시스템 환경 변수 편집**을 검색하여 환경 변수를 만들거나 편집할 수 있습니다. 
 
-  명령 창에서 다음 명령을 실행하여 Java가 컴퓨터에 성공적으로 설치되었는지 확인할 수 있습니다.
+   명령 창에서 다음 명령을 실행하여 Java가 컴퓨터에 성공적으로 설치되었는지 확인할 수 있습니다.
 
     ```cmd\sh
     java -version
@@ -55,9 +55,9 @@ ms.locfileid: "34630683"
 
 ## <a name="download-and-modify-the-java-sample-code"></a>Java 샘플 코드 다운로드 및 수정
 
-이 섹션에서는 TPM 장치에 대한 프로비전 세부 정보를 샘플 코드에 추가하는 방법을 보여 줍니다. 
+이 섹션에서는 TPM 디바이스에 대한 프로비전 세부 정보를 샘플 코드에 추가하는 방법을 보여줍니다. 
 
-1. 명령 프롬프트를 엽니다. Java 서비스 SDK를 사용하여 장치 등록 코드 샘플에 대한 GitHub 리포지토리를 복제합니다.
+1. 명령 프롬프트를 엽니다. Java 서비스 SDK를 사용하여 디바이스 등록 코드 샘플에 대한 GitHub 리포지토리를 복제합니다.
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -67,7 +67,7 @@ ms.locfileid: "34630683"
 
     1. 다음과 같이 포털에서 프로비전 서비스에 대한 `[Provisioning Connection String]`을 추가합니다.
         1. [Azure Portal](https://portal.azure.com)에서 프로비전 서비스로 이동합니다. 
-        2. **공유 액세스 정책**을 열고 *EnrollmentWrite* 권한이 있는 정책을 선택합니다.
+        2. **공유 액세스 정책**을 열고, *EnrollmentWrite* 권한이 있는 정책을 선택합니다.
         3. **기본 키 연결 문자열**을 복사합니다. 
 
             ![포털에서 프로비전 연결 문자열 가져오기](./media/quick-enroll-device-tpm-java/provisioning-string.png)  
@@ -78,8 +78,8 @@ ms.locfileid: "34630683"
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    2. TPM 장치 세부 정보를 추가합니다.
-        1. [TPM 장치 시뮬레이션](quick-create-simulated-device.md#simulatetpm) 섹션으로 이어지는 단계에 따라 TPM 장치 시뮬레이션에 대한 *등록 ID* 및 *TPM 인증 키*를 가져옵니다.
+    2. TPM 디바이스 세부 정보를 추가합니다.
+        1. [TPM 디바이스 시뮬레이션](quick-create-simulated-device.md#simulatetpm) 섹션으로 이어지는 단계에 따라 TPM 디바이스 시뮬레이션에 대한 *등록 ID* 및 *TPM 인증 키*를 가져옵니다.
         2. 이전 단계 출력의 **_등록 ID_** 와 **_인증 키_** 를 사용하여 **_ServiceEnrollmentSample.java_** 샘플 코드 파일의 `[RegistrationId]` 및 `[TPM Endorsement Key]`를 바꿉니다.
         
             ```Java
@@ -103,7 +103,7 @@ ms.locfileid: "34630683"
             individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
             ```
 
-    4. 샘플 코드를 조사합니다. 개별 TPM 장치 등록을 생성, 업데이트, 쿼리 및 삭제합니다. 포털에서 성공적으로 등록되었는지 확인하려면 _ServiceEnrollmentSample.java_ 파일 끝에 다음 코드 줄을 일시적으로 주석 처리합니다.
+    4. 샘플 코드를 조사합니다. 개별 TPM 디바이스 등록을 생성, 업데이트, 쿼리 및 삭제합니다. 포털에서 성공적으로 등록되었는지 확인하려면 _ServiceEnrollmentSample.java_ 파일 끝에 다음 코드 줄을 일시적으로 주석 처리합니다.
     
         ```Java
         // *********************************** Delete info of individualEnrollment ************************************
@@ -136,7 +136,7 @@ ms.locfileid: "34630683"
 
 4. 성공적으로 등록되었는지 출력 창을 확인합니다. 
 
-5. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 클릭하고 **개별 등록** 탭을 선택합니다. 이제 시뮬레이션된 TPM 장치의 *등록 ID*가 나열됩니다. 
+5. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 클릭하고 **개별 등록** 탭을 선택합니다. 이제 시뮬레이션된 TPM 디바이스의 *등록 ID*가 나열됩니다. 
 
     ![포털에서 성공적인 TPM 등록 확인](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
@@ -144,11 +144,11 @@ ms.locfileid: "34630683"
 Java 서비스 샘플을 탐색하려면 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
 
 1. 컴퓨터에서 Java 샘플 출력 창을 닫습니다.
-1. TPM 장치를 시뮬레이션하기 위해 만든 TPM 시뮬레이터 창을 닫습니다.
-1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 클릭한 다음, **개별 등록** 탭을 선택합니다. 이 빠른 시작을 사용하여 등록한 장치의 *등록 ID*를 선택하고, 블레이드 위쪽의 **삭제** 단추를 클릭합니다. 
+1. TPM 디바이스를 시뮬레이션하기 위해 만든 TPM 시뮬레이터 창을 닫습니다.
+1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 클릭한 다음, **개별 등록** 탭을 선택합니다. 이 빠른 시작을 사용하여 등록한 디바이스의 *등록 ID*를 선택하고, 블레이드 위쪽의 **삭제** 단추를 클릭합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 시뮬레이션된 TPM 장치를 Device Provisioning Service에 등록했습니다. 장치 프로비전에 대해 자세히 알아보려면 Azure Portal에서 Device Provisioning Service 설치에 대한 자습서를 살펴보세요. 
+이 빠른 시작에서는 시뮬레이션된 TPM 디바이스를 Device Provisioning Service에 등록했습니다. 디바이스 프로비전에 대해 자세히 알아보려면 Azure Portal에서 Device Provisioning Service 설치에 대한 자습서를 살펴보세요. 
 
 > [!div class="nextstepaction"]
-> [Azure IoT Hub Device Provisioning 서비스 자습서](./tutorial-set-up-cloud.md)
+> [Azure IoT Hub Device Provisioning Service 자습서](./tutorial-set-up-cloud.md)

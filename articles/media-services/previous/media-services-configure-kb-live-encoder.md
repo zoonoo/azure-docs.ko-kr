@@ -12,18 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 11/04/2018
 ms.author: juliako;dbgeorge
-ms.openlocfilehash: 25077cd9338a2764c6dff9e755812033685f6641
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f6d4fcf5e6ec8029bb0e7c303849fdceef5bace7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783602"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012091"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Haivision KB 라이브 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
 > [!div class="op_single_selector"]
-> * [Elemental Live](media-services-configure-elemental-live-encoder.md)
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -36,7 +35,7 @@ ms.locfileid: "33783602"
 ## <a name="prerequisites"></a>필수 조건
 *   SSW v5.01 이상을 실행하여 Haivision KB 인코더에 액세스합니다.
 * [Azure Media Services 계정 만들기](media-services-portal-create-account.md)
-* 실행 중인 스트리밍 끝점이 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)
+* 실행 중인 스트리밍 엔드포인트가 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 엔드포인트 관리](media-services-portal-manage-streaming-endpoints.md)
 * 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.
 * 이 도구를 시작하고 AMS 계정에 연결합니다.
 
@@ -62,7 +61,7 @@ ms.locfileid: "33783602"
 -   코덱: H.264
 -   프로필: 높음(수준 4.0)
 -   비트 전송률: 5,000kbps
--   키 프레임: 2초(60초)
+-   키 프레임: 2초(60프레임)
 -   프레임 속도: 30
 
 Audio:

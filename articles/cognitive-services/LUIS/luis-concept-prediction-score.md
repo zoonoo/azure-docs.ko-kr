@@ -1,25 +1,26 @@
 ---
-title: LUIS에서 반환된 예측 점수 이해 - Azure | Microsoft Docs
-description: LUIS에서 예측 점수가 의미하는 내용 알아보기
+title: 예측 점수 - 의도, 엔터티 - LUIS
+titleSuffix: Azure Cognitive Services
+description: 예측 점수는 예측 결과에 대한 LUIS의 신뢰도를 나타냅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 31c101a23892df8599b8cdc0f67647fefb969490
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: conceptual
+ms.date: 10/15/2018
+ms.author: diberry
+ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265991"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264389"
 ---
 # <a name="prediction-score"></a>예측 점수
 예측 점수는 예측 결과에 대한 LUIS의 신뢰도를 나타냅니다. 
 
-예측 점수는 일반적으로 영(0)과 일(1) 사이입니다. 신뢰도가 높은 LUIS 점수의 예는 0.99입니다. 신뢰도 점수의 예는 0.01입니다. 
+예측 점수는 0(영)과 1(일) 사이입니다. 신뢰도가 높은 LUIS 점수의 예는 0.99입니다. 신뢰도 점수의 예는 0.01입니다. 
 
 |점수 값|신뢰도|
 |--|--|
@@ -28,7 +29,7 @@ ms.locfileid: "36265991"
 |0.01|낮은 신뢰도|
 |0|확실한 불일치|
 
-발화에 낮은 신뢰도 점수가 반환되면 LUIS는 [LUIS][LUIS] 웹 사이트 **의도** 페이지에서 빨간색 윤곽선이 있는 식별된 **레이블이 지정된 의도**를 사용하여 해당 발화를 강조 표시합니다. 
+발언의 신뢰도 점수가 낮으면 LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트 **의도** 페이지에서 빨간색 윤곽선이 있는 식별된 **레이블이 지정된 의도**를 사용하여 해당 발언을 강조 표시합니다. 
 
 ![점수 불일치](./media/luis-concept-score/score-discrepancy.png)
 
@@ -37,8 +38,10 @@ ms.locfileid: "36265991"
 
 상위 점수의 근접성이 우려된다면 모든 의도의 점수를 반환해야 합니다. 단어 선택 및 정렬을 통해 차이를 나타내는 두 개의 의도에 발화를 추가하거나, 챗봇과 같은 LUIS 호출 응용 프로그램이 두 개의 상위 의도를 처리하는 방법을 프로그래밍 방식으로 선택하도록 할 수 있습니다. 
 
+점수가 너무 가깝게 매겨진 두 가지 의도는 비결정적 학습으로 인해 반전될 수 있습니다. 최고 점수가 두 번째로 높은 점수가 될 수 있고 두 번째로 높은 점수가 최고 점수가 될 수 있습니다. 이를 방지하려면 두 가지 의도를 구분하는 상황 및 단어를 선택하여 해당 발언의 최고 두 가지 의도 각각에 대해 예제 발언을 추가합니다. 두 가지 의도에는 동일한 수의 예제 발언이 있어야 합니다. 학습으로 인한 반전을 방지할 수 있는 일반적인 분리 기준은 15%의 점수 차이입니다.
+
 ## <a name="return-prediction-score-for-all-intents"></a>모든 의도의 예측 점수 반환
-테스트 또는 끝점 결과에는 모든 의도가 포함될 수 있습니다. 이 구성은 [끝점](https://aka.ms/v1-endpoint-api-docs)에서 `verbose=true` 쿼리 문자열 이름/값 쌍을 사용하여 설정됩니다. 
+테스트 또는 엔드포인트 결과에는 모든 의도가 포함될 수 있습니다. 이 구성은 [엔드포인트](https://aka.ms/v1-endpoint-api-docs)에서 `verbose=true` 쿼리 문자열 이름/값 쌍을 사용하여 설정됩니다. 
 
 ## <a name="review-intents-with-similar-scores"></a>유사한 점수를 가진 의도 검토
 올바른 의도가 식별되는지, 다음 식별된 의도의 점수가 여러 발화에 일관되게 상당히 더 낮은지 확인하려면 모든 의도의 점수를 검토하는 것이 좋습니다. 
@@ -58,8 +61,9 @@ ms.locfileid: "36265991"
 
 챗봇에 의도의 신뢰도를 나타내는 특정 LUIS 점수가 필요한 경우에는 상위 두 의도 간 점수 차이를 사용해야 합니다. 이렇게 하면 학습에서 변형 유연성이 제공됩니다. 
 
+## <a name="punctuation"></a>문장 부호
+문장 부호는 LUIS에서 별도 토큰입니다. 끝에 마침표가 포함된 발언과 포함되지 않은 발언은 별도의 두 발언이며 두 가지 다른 예측이 이루어질 수 있습니다. 모델이 [예제 발언](luis-concept-utterance.md)(문장 부호를 포함하거나 포함하지 않음) 또는 [패턴](luis-concept-patterns.md)(`I am applying for the {Job} position[.]` 특수 구문을 사용하여 문장 부호를 무시하는 것이 더 쉬움)에서 문장 부호를 처리하는지 확인합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 LUIS 앱에 엔터티를 추가하는 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md)를 참조하세요.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

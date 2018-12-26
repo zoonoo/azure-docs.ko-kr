@@ -3,7 +3,7 @@ title: Windows용 Azure VM 확장 및 기능 | Microsoft Docs
 description: 확장이 제공하거나 개선하는 기능별로 그룹화하여 Azure 가상 머신에 사용할 수 있는 확장을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
+ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9e147e2cbe5ff42562d6fcfab62460df48f3d65
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e3b9de282b95b27a04ac6d182b1045e18e65c5f6
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809729"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025908"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -43,7 +43,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automatio
 
 ## <a name="prerequisites"></a>필수 조건
 
-VM에서 확장을 처리하려면 Azure Linux 에이전트를 설치해야 합니다. 일부 개별 확장에는 리소스에 대한 액세스 권한 또는 종속성 같은 필수 구성 요소가 있습니다.
+VM에서 확장을 처리하려면 Azure Windows 에이전트를 설치해야 합니다. 일부 개별 확장에는 리소스에 대한 액세스 권한 또는 종속성 같은 필수 구성 요소가 있습니다.
 
 ### <a name="azure-vm-agent"></a>Azure VM 에이전트
 
@@ -57,7 +57,8 @@ Azure VM 에이전트는 Azure VM과 Azure 패브릭 컨트롤러 간 상호 작
 
 #### <a name="supported-oses"></a>지원되는 OS
 
-Windows 게스트 에이전트는 여러 OS에서 실행되지만 확장 프레임워크는 OS 확장에 대한 제한이 있습니다. 자세한 내용은 [이 아티클](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems)을 참조하세요.
+Windows 게스트 에이전트는 여러 OS에서 실행되지만 확장 프레임워크는 OS 확장에 대한 제한이 있습니다. 자세한 내용은 [이 문서](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+)(영문)를 읽어보세요.
 
 일부 확장은 모든 OS에서 지원되지 않으며 *오류 코드 51, ‘지원되지 않는 OS’* 를 내보낼 수 있습니다. 지원 가능성에 대한 개별 확장 설명서를 확인합니다.
 
@@ -66,7 +67,7 @@ Windows 게스트 에이전트는 여러 OS에서 실행되지만 확장 프레�
 확장 패키지는 Azure Storage 확장 리포지토리에서 다운로드되고, 확장 상태 업로드는 Azure Storage에 게시됩니다. 에이전트의 [지원](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 버전을 사용하는 경우 에이전트를 사용하여 에이전트 통신을 위한 Azure 패브릭 컨트롤러에 통신을 리디렉션할 수 있는 것처럼 VM 지역에서 Azure Storage에 대한 액세스 권한을 허용하지 않아도 됩니다. 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
 
 > [!IMPORTANT]
-> 게스트 방화벽을 사용하여 *168.63.129.1*에 대한 액세스를 차단한 경우 확장은 위와 관계 없이 실패합니다.
+> 게스트 방화벽을 사용하여 *168.63.129.16*에 대한 액세스를 차단한 경우 확장은 위와 관계 없이 실패합니다.
 
 에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 응용 프로그램이므로 요구 사항이 다릅니다. Azure Storage에 대한 액세스 권한이 필요한 확장의 경우 [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스할 수 있습니다.
 
@@ -135,7 +136,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzureRmVMExtension` 명령을 사용하여 VM 확장을 시작할 수 있습니다. 자세한 내용은 [Set-AzureRmVMExtension 참조](https://msdn.microsoft.com/library/mt603745.aspx)를 참조하세요.
+`Set-AzureRmVMExtension` 명령을 사용하여 VM 확장을 시작할 수 있습니다. 자세한 내용은 [Set-AzureRmVMExtension 참조](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension)를 참조하세요.
 
 
 ### <a name="azure-portal"></a>Azure portal

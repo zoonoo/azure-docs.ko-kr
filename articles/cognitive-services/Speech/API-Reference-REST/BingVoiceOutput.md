@@ -1,5 +1,6 @@
 ---
 title: Microsoft Speech Service의 Text to Speech API | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Text to Speech API를 사용하여 다양한 음성과 언어로 실시간 텍스트 음성 변환을 제공할 수 있습니다.
 services: cognitive-services
 author: priyaravi20
@@ -7,16 +8,18 @@ manager: yanbo
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: 4b633cefa37c11511a8171d5a7f61b03dfaa4466
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: db69a9e3beb819600109603a8c0129547db57fa5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374254"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343030"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing Text to Speech API
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## <a name="Introduction"></a>소개
 
@@ -37,15 +40,15 @@ Content-Length: 0
 
 토큰 액세스에 필요한 헤더 정보는 다음과 같습니다.
 
-Name| 형식 | 설명
+이름| 형식 | 설명
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | 구독 키
 
-토큰 서비스는 JWT 액세스 토큰을 `text/plain`으로 반환합니다. 그런 다음, JWT는 문자열 `Bearer`가 앞에 추가된 인증 헤더로 음성 끝점에 `Base64 access_token`으로 전달됩니다. 예: 
+토큰 서비스는 JWT 액세스 토큰을 `text/plain`으로 반환합니다. 그런 다음, JWT는 문자열 `Bearer`가 앞에 추가된 인증 헤더로 음성 엔드포인트에 `Base64 access_token`으로 전달됩니다. 예: 
 
 `Authorization: Bearer [Base64 access_token]`
 
-클라이언트가 다음 끝점을 사용하여 텍스트 음성 변환 서비스에 액세스해야 합니다.
+클라이언트가 다음 엔드포인트를 사용하여 텍스트 음성 변환 서비스에 액세스해야 합니다.
 
 `https://speech.platform.bing.com/synthesize`
 
@@ -188,7 +191,7 @@ Microsoft Text-to-Speech API는 W3C [SSML(Speech Synthesis Markup Language) 버�
 
 로캘 | 성별 | 서비스 이름 매핑
 ---------|--------|------------
-ar-EG* | Female | “Microsoft Server Speech Text to Speech Voice(ar-EG, Hoda)”
+ar-EG* | Female | "Microsoft Server Speech Text to Speech Voice(ar-EG, Hoda)"
 ar-SA | Male | “Microsoft Server Speech Text to Speech Voice(ar-SA, Naayf)”
 bg-BG | Male | “Microsoft Server Speech Text to Speech Voice(bg-BG, Ivan)”
 ca-ES | Female | “Microsoft Server Speech Text to Speech Voice(ca-ES, HerenaRUS)”
@@ -196,13 +199,13 @@ cs-CZ | Male | “Microsoft Server Speech Text to Speech Voice(cs-CZ, Jakub)”
 da-DK | Female | “Microsoft Server Speech Text to Speech Voice(da-DK, HelleRUS)”
 de-AT | Male | “Microsoft Server Speech Text to Speech Voice(de-AT, Michael)”
 de-CH | Male | “Microsoft Server Speech Text to Speech Voice(de-CH, Karsten)”
-de-DE | Female | “Microsoft Server Speech Text to Speech Voice(de-DE, Hedda)”
-de-DE | Female | “Microsoft Server Speech Text to Speech Voice(de-DE, HeddaRUS)”
+de-DE | Female | "Microsoft Server Speech Text to Speech Voice(de-DE, Hedda) "
+de-DE | Female | "Microsoft Server Speech Text to Speech Voice(de-DE, HeddaRUS)"
 de-DE | Male | “Microsoft Server Speech Text to Speech Voice(de-DE, Stefan, Apollo)”
 el-GR | Male | “Microsoft Server Speech Text to Speech Voice(el-GR, Stefanos)”
 en-AU | Female | “Microsoft Server Speech Text to Speech Voice(en-AU, Catherine)”
 en-AU | Female | “Microsoft Server Speech Text to Speech Voice(en-AU, HayleyRUS)”
-en-CA | Female | “Microsoft Server Speech Text to Speech Voice(en-CA, Linda)”
+en-CA | Female | "Microsoft Server Speech Text to Speech Voice(en-CA, Linda)"
 en-CA | Female | “Microsoft Server Speech Text to Speech Voice(en-CA, HeatherRUS)”
 en-GB | Female | “Microsoft Server Speech Text to Speech Voice(en-GB, Susan, Apollo)”
 en-GB | Female | “Microsoft Server Speech Text to Speech Voice(en-GB, HazelRUS)”
@@ -231,14 +234,13 @@ hi-IN | Female | “Microsoft Server Speech Text to Speech Voice(hi-IN, Kalpana,
 hi-IN | Female | “Microsoft Server Speech Text to Speech Voice(hi-IN, Kalpana)”
 hi-IN | Male | “Microsoft Server Speech Text to Speech Voice(hi-IN, Hemant)”
 hr-HR | Male | “Microsoft Server Speech Text to Speech Voice(hr-HR, Matej)”
-hu-HU | Male | “Microsoft Server Speech Text to Speech Voice(hu-HU, Szabolcs)”
-id-ID | Male | “Microsoft Server Speech Text to Speech Voice(id-ID, Andika)”
+hu-HU | Male | “Microsoft Server Speech Text to Speech Voice(hr-HR, Matej)”
+id-ID | Male | "Microsoft Server Speech Text to Speech Voice(id-ID, Andika)"
 it-IT | Male | “Microsoft Server Speech Text to Speech Voice(it-IT, Cosimo, Apollo)”
+it-IT | Female | "Microsoft Server Speech Text to Speech Voice(it-IT, LuciaRUS)"
 ja-JP | Female | “Microsoft Server Speech Text to Speech Voice(ja-JP, Ayumi, Apollo)”
 ja-JP | Male | “Microsoft Server Speech Text to Speech Voice(ja-JP, Ichiro, Apollo)”
 ja-JP | Female | “Microsoft Server Speech Text to Speech Voice(ja-JP, HarukaRUS)”
-ja-JP | Female | “Microsoft Server Speech Text to Speech Voice(ja-JP, LuciaRUS)”
-ja-JP | Male | “Microsoft Server Speech Text to Speech Voice(ja-JP, EkaterinaRUS)”
 ko-KR | Female | “Microsoft Server Speech Text to Speech Voice(ko-KR, HeamiRUS)”
 ms-MY | Male | “Microsoft Server Speech Text to Speech Voice(ms-MY, Rizwan)”
 nb-NO | Female | “Microsoft Server Speech Text to Speech Voice(nb-NO, HuldaRUS)”
@@ -250,6 +252,7 @@ pt-PT | Female | “Microsoft Server Speech Text to Speech Voice(pt-PT, HeliaRUS
 ro-RO | Male | “Microsoft Server Speech Text to Speech Voice(ro-RO, Andrei)”
 ru-RU | Female | “Microsoft Server Speech Text to Speech Voice(ru-RU, Irina, Apollo)”
 ru-RU | Male | “Microsoft Server Speech Text to Speech Voice(ru-RU, Pavel, Apollo)”
+ru-RU | Female | "Microsoft Server Speech Text to Speech Voice(ru-RU, EkaterinaRUS)"
 sk-SK | Male | “Microsoft Server Speech Text to Speech Voice(sk-SK, Filip)”
 sl-SI | Male | “Microsoft Server Speech Text to Speech Voice(sl-SI, Lado)”
 sv-SE | Female | “Microsoft Server Speech Text to Speech Voice(sv-SE, HedvigRUS)”

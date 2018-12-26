@@ -2,26 +2,20 @@
 title: Power BI 작업 영역 컬렉션이란?
 description: Power BI Embedded를 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램으로 통합할 수 있으므로 사용자 지정 솔루션을 빌드할 필요가 없습니다.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 0bd6ba74d176ed1db1e8f1f1b38646182da2c379
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 73b13dcea84ba322072217c3feacebdefb3bf1e6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412580"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052042"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션이란?
 
@@ -54,15 +48,15 @@ Azure의 다른 서비스와 같이 Power BI 작업 영역 컬렉션의 리소�
 
 ## <a name="workspace"></a>작업 영역
 
-**작업 영역** 은 데이터 집합 및 보고서를 포함할 수 있는 Power BI 콘텐츠의 컨테이너입니다. **작업 영역** 은 처음 만들 때 비어 있습니다. Power BI Desktop을 사용하여 콘텐츠를 작성하고 [Power BI REST API](https://msdn.microsoft.com/library/mt711504.aspx)를 사용하여 프로그래밍 방식으로 PBIX를 작업 영역에 배치합니다. 또한 Power BI Desktop을 사용하는 대신 프로그래밍 방식으로 데이터 집합을 만든 다음 응용 프로그램 내에서 보고서를 만들 수 있습니다.
+**작업 영역** 은 데이터 집합 및 보고서를 포함할 수 있는 Power BI 콘텐츠의 컨테이너입니다. **작업 영역** 은 처음 만들 때 비어 있습니다. Power BI Desktop을 사용하여 콘텐츠를 작성하고 [Power BI REST API](https://msdn.microsoft.com/library/mt711504.aspx)를 사용하여 프로그래밍 방식으로 PBIX를 작업 영역에 배치합니다. 또한 Power BI Desktop을 사용하는 대신 프로그래밍 방식으로 데이터 세트를 만든 다음 응용 프로그램 내에서 보고서를 만들 수 있습니다.
 
 ## <a name="using-workspace-collections-and-workspaces"></a>작업 영역 컬렉션 및 작업 영역 사용
 
 **작업 영역 컬렉션** 및 **작업 영역**은 빌드할 응용 프로그램의 디자인에 가장 적합한 방법으로 사용되거나 구성되는 콘텐츠의 컨테이너입니다. 컨테이너 내에서 콘텐츠를 정렬할 수 있는 다양한 방법이 있습니다. 하나의 작업 영역 내에 모든 콘텐츠를 배치한 다음 나중에 앱 토큰을 사용하여 고객 간 콘텐츠를 더 세분화하는 방법을 선택할 수 있습니다. 또한 고객이 어느 정도 구분이 되도록 모든 고객을 분할된 작업 영역에 배치하는 방법을 선택할 수 있습니다. 또는 고객이 아닌 지역으로 사용자를 구성하는 방법을 선택할 수 있습니다. 이 유연한 디자인을 사용하면 콘텐츠를 구성할 가장 좋은 방법을 선택할 수 있습니다.
 
-## <a name="cached-datasets"></a>캐시된 데이터 집합
+## <a name="cached-datasets"></a>캐시된 데이터 세트
 
-캐시된 데이터 집합을 사용할 수 있습니다.  그러나 캐시된 데이터가 **Microsoft Power BI 작업 영역 컬렉션**에 로드되면 새로 고칠 수 없습니다. 캐시된 데이터 집합은 DirectQuery를 사용하는 대신 Power BI Desktop으로 데이터를 가져왔다는 것을 의미합니다.
+캐시된 데이터 세트를 사용할 수 있습니다.  그러나 캐시된 데이터가 **Microsoft Power BI 작업 영역 컬렉션**에 로드되면 새로 고칠 수 없습니다. 캐시된 데이터 세트는 DirectQuery를 사용하는 대신 Power BI Desktop으로 데이터를 가져왔다는 것을 의미합니다.
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>앱 토큰으로 인증 및 권한 부여
 
@@ -80,7 +74,7 @@ Azure의 다른 서비스와 같이 Power BI 작업 영역 컬렉션의 리소�
 
 ## <a name="create-or-edit-reports-within-your-application"></a>응용 프로그램 내에서 보고서 만들기 또는 편집
 
-이제 Power BI Desktop을 사용하지 않고도 응용 프로그램에서 직접 기존 보고서를 편집하거나 새 보고서를 만들 수 있습니다. 이렇게 하려면 작업 영역 내에 데이터 집합이 있어야 합니다.
+이제 Power BI Desktop을 사용하지 않고도 응용 프로그램에서 직접 기존 보고서를 편집하거나 새 보고서를 만들 수 있습니다. 이렇게 하려면 작업 영역 내에 데이터 세트가 있어야 합니다.
 
 ## <a name="see-also"></a>참고 항목
 

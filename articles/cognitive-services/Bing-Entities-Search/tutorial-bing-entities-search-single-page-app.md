@@ -1,20 +1,21 @@
 ---
-title: Bing Entity Search 단일 페이지 웹앱 | Microsoft Docs
+title: '자습서: Bing Entity Search 단일 페이지 웹앱'
+titlesuffix: Azure Cognitive Services
 description: 단일 페이지 웹 응용 프로그램에서 Bing Entity Search API를 사용하는 방법을 보여줍니다.
 services: cognitive-services
-author: v-jerkin
-manager: ehansen
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/08/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 91c60913cd806baf100e5511cbf59299bf9a84f0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: aahi
+ms.openlocfilehash: 6bf3944017075ee04fe6ed3472a0cbe12d7f8ba0
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377455"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162010"
 ---
 # <a name="tutorial-single-page-web-app"></a>자습서: 단일 페이지 웹앱
 
@@ -27,7 +28,7 @@ Bing Entity Search API를 사용하면 *엔터티* 및 *장소*에 대한 정보
 
 이 자습서에서는 Bing Entity Search API를 사용하여 이 페이지에 검색 결과를 표시하는 단일 페이지 웹 응용 프로그램을 빌드합니다. 응용 프로그램에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다.
 
-API를 통해 위치별로 결과의 우선 순위를 지정할 수 있습니다. 모바일 앱에서는 장치에 해당 위치를 요청할 수 있습니다. 웹앱에서는 `getPosition()` 함수를 사용할 수 있습니다. 그러나 이 호출은 보안 컨텍스트에서만 작동하며, 정확한 위치를 제공하지 않을 수 있습니다. 사용자가 해당 위치가 아닌 위치의 주변 엔터티를 검색할 수도 있습니다.
+API를 통해 위치별로 결과의 우선 순위를 지정할 수 있습니다. 모바일 앱에서는 디바이스에 해당 위치를 요청할 수 있습니다. 웹앱에서는 `getPosition()` 함수를 사용할 수 있습니다. 그러나 이 호출은 보안 컨텍스트에서만 작동하며, 정확한 위치를 제공하지 않을 수 있습니다. 사용자가 해당 위치가 아닌 위치의 주변 엔터티를 검색할 수도 있습니다.
 
 따라서 앱은 Bing 지도 서비스를 사용하여 사용자가 입력한 위치에서 위도와 경도를 얻습니다. 사용자가 랜드마크 이름(“스페이스 니들”) 또는 전체 또는 부분 주소("뉴욕시")를 입력하면 Bing 지도 API가 좌표를 제공합니다.
 
@@ -532,11 +533,11 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 
     npm install -g cors-proxy-server
 
-HTML 파일에서 Bing Web Search 끝점을 다음으로 변경합니다.
+다음으로, HTML 파일에서 Bing Web Search 엔드포인트를 변경합니다.
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-마지막으로, 다음 명령을 사용하여 CORS 프록시를 시작합니다.
+마지막으로 다음 명령을 사용하여 CORS 프록시를 시작합니다.
 
     cors-proxy-server
 

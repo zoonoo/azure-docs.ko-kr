@@ -2,20 +2,20 @@
 title: Azure의 데이터 웨어하우스 개발을 위한 리소스 | Microsoft Docs
 description: SQL Data Warehouse에 대한 개발 개념, 디자인 결정, 권장 사항 및 코딩 기술입니다.
 services: sql-data-warehouse
-author: ckarst
-manager: craigg-msft
+author: kevinvngo
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 08/29/2018
+ms.author: kevinvngo
 ms.reviewer: igorstan
-ms.openlocfilehash: d9a272b2f43e080cd44b7179fe6f9dc55507142b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5cb3b3b261bcb762187b165e297225080b0fee81
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31601807"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306061"
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL Data Warehouse에 대한 디자인 결정 및 코딩 기술
 SQL Data Warehouse에 대한 주요 디자인 결정, 권장 사항 및 코딩 기술을 더 잘 이해하려면 다음 개발 문서를 살펴보세요.

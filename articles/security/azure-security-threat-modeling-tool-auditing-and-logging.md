@@ -3,23 +3,23 @@ title: 감사 및 로깅 - Microsoft 위협 모델링 도구 - Azure | Microsoft
 description: 위협 모델링 도구에 노출되는 위협 완화
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 8837dfaf156e5a4d07598f2c58694663a9ff5580
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: 990f300055f7c0c7132dd44271dea73044649fc5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029984"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307001"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>보안 프레임: 감사 및 로깅 | 완화 
 | 제품/서비스 | 문서 |
@@ -230,7 +230,7 @@ ms.locfileid: "37029984"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | <p>여러 장치가 필드 게이트웨이에 연결하는 경우 개별 장치에 대한 연결 시도 및 인증 상태(성공 또는 실패)를 기록하고 필드 게이트웨이에 유지해야 합니다.</p><p>또한 필드 게이트웨이에서 개별 장치의 IoT Hub 자격 증명을 유지하는 경우 이러한 자격 증명이 검색될 때 감사를 수행해야 합니다. 로그를 장기간 보존할 수 있도록 Azure IoT Hub/저장소에 주기적으로 로그를 업로드하는 프로세스를 개발합니다.</p> |
+| **단계** | <p>여러 디바이스가 필드 게이트웨이에 연결하는 경우 개별 디바이스에 대한 연결 시도 및 인증 상태(성공 또는 실패)를 기록하고 필드 게이트웨이에 유지해야 합니다.</p><p>또한 필드 게이트웨이에서 개별 디바이스의 IoT Hub 자격 증명을 유지하는 경우 이러한 자격 증명이 검색될 때 감사를 수행해야 합니다. 로그를 장기간 보존할 수 있도록 Azure IoT Hub/스토리지에 주기적으로 로그를 업로드하는 프로세스를 개발합니다.</p> |
 
 ## <a id="logging-cloud-gateway"></a>클라우드 게이트웨이에 적절한 감사 및 로깅 적용
 
@@ -241,4 +241,4 @@ ms.locfileid: "37029984"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [IoT Hub 작업 모니터링 소개](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
-| **단계** | <p>IoT Hub 작업 모니터링을 통해 모은 감사 데이터를 수집하고 저장하도록 설계합니다. 다음 모니터링 범주를 사용하도록 설정합니다.</p><ul><li>장치 ID 작업</li><li>장치-클라우드 통신</li><li>클라우드-장치 통신</li><li>연결</li><li>파일 업로드</li></ul>|
+| **단계** | <p>IoT Hub 작업 모니터링을 통해 모은 감사 데이터를 수집하고 저장하도록 설계합니다. 다음 모니터링 범주를 사용하도록 설정합니다.</p><ul><li>디바이스 ID 작업</li><li>디바이스-클라우드 통신</li><li>클라우드-장치 통신</li><li>연결</li><li>파일 업로드</li></ul>|

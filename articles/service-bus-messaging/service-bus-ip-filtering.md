@@ -8,14 +8,14 @@ manager: timlt
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: e009bb9120fafc6edf60b68fab3336b9d1add507
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: c6e9eef762d4a9eb95685d94c61ce10d499bb155
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035295"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884806"
 ---
 # <a name="use-ip-filters"></a>IP 필터 사용
 
@@ -45,9 +45,11 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 예를 들어 70.37.104.0/24 범위의 주소를 수락하고 그 외의 주소는 거부하려는 경우 그리드에 있는 첫 번째 규칙이 주소 범위 70.37.104.0/24를 수락해야 합니다. 다음 규칙은 0.0.0.0/0 범위를 사용하여 모든 주소를 거부해야 합니다.
 
 > [!NOTE]
-> IP 주소를 거부하면 다른 Azure 서비스(예: Azure Stream Analytics, Azure Virtual Machines 또는 포털의 장치 탐색기)가 Service Bus와 상호 작용하는 것을 막을 수 있습니다.
+> IP 주소를 거부하면 다른 Azure 서비스(예: Azure Stream Analytics, Azure Virtual Machines 또는 포털의 Device Explorer)가 Service Bus와 상호 작용하는 것을 막을 수 있습니다.
 
 ### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 가상 네트워크 규칙 만들기
+
+> ![중요]Virtual Network는 **프리미엄 계층** Service Bus에서만 지원됩니다.
 
 다음과 같은 Resource Manager 템플릿을사용 하면 기존 Service Bus 네임스페이스에 가상 네트워크 규칙을 추가할 수 있습니다.
 

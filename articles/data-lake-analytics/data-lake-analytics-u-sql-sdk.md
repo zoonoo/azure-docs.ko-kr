@@ -5,16 +5,15 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737074"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238797"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Azure Data Lake U-SQL SDK를 사용하여 U-SQL 실행 및 테스트
 
@@ -37,7 +36,7 @@ Data Lake U-SQL SDK에는 다음과 같은 종속성이 필요합니다.
 
     ![Data Lake Tools for Visual Studio의 Windows 10 SDK 로컬 실행](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - [Visual Studio용 Data Lake 도구](http://aka.ms/adltoolsvs)를 설치합니다. 미리 패키지된 Visual C++ 및 Windows SDK 파일은 C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK에서 찾을 수 있습니다. 이 경우 U-SQL 로컬 컴파일러는 이러한 종속성을 자동으로 찾을 수 없습니다. 이에 대한 CppSDK 경로를 지정해야 합니다. 파일을 다른 위치로 복사하거나 그대로 사용할 수 있습니다.
+    - [Visual Studio용 Data Lake 도구](https://aka.ms/adltoolsvs)를 설치합니다. 미리 패키지된 Visual C++ 및 Windows SDK 파일은 C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK에서 찾을 수 있습니다. 이 경우 U-SQL 로컬 컴파일러는 이러한 종속성을 자동으로 찾을 수 없습니다. 이에 대한 CppSDK 경로를 지정해야 합니다. 파일을 다른 위치로 복사하거나 그대로 사용할 수 있습니다.
 
 ## <a name="understand-basic-concepts"></a>기본 개념 이해
 
@@ -73,7 +72,7 @@ U-SQL 스크립트를 로컬로 실행하면 컴파일 중에 현재 실행 중�
 | | |\_ScopeCodeGenEngine\_.*|컴파일러 출력|생성된 네이티브 코드|
 | | |참조된 어셈블리|어셈블리 참조|참조된 어셈블리 파일|
 | | |deployed_resources|리소스 배포|리소스 배포 파일|
-| | |xxxxxxxx.xxx[1..n]\_\*.*|실행 로그|실행 단계에 대한 로그|
+| | |xxxxxxxx.xxx[1..n]\_\*.\*|실행 로그|실행 단계에 대한 로그|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>명령줄에서 SDK 사용

@@ -2,18 +2,17 @@
 title: Azure Container Instances의 Azure Container Registry를 사용하여 인증
 description: Azure Active Directory 서비스 주체를 사용하여 Azure Container Instances에서 개인 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: marsma
-ms.openlocfilehash: daa9c098de0c410bd4033cc62ee911631eb3b634
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: danlep
+ms.openlocfilehash: 32b1788d73e1c323d93b40b778bc64a1ba45c4ad
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768229"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855836"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Azure Container Instances의 Azure Container Registry를 사용하여 인증
 
@@ -23,9 +22,9 @@ Azure AD(Azure Active Directory) 서비스 주체를 사용하여 Azure Containe
 
 ## <a name="when-to-use-a-service-principal"></a>서비스 주체를 사용하는 경우
 
-자동 또는 무인 방식으로 컨테이너 인스턴스를 만드는 응용 프로그램이나 서비스에서처럼 **헤드리스 시나리오**에서는 ACI의 인증에 서비스 주체를 사용해야 합니다.
+자동 또는 무인 방식으로 컨테이너 인스턴스를 만드는 애플리케이션이나 서비스에서처럼 **헤드리스 시나리오**에서는 ACI의 인증에 서비스 주체를 사용해야 합니다.
 
-예를 들어 야간에 실행되는 자동화된 스크립트가 있고 데이터를 처리하기 위해 [작업 기반 컨테이너 인스턴스](../container-instances/container-instances-restart-policy.md)를 만드는 경우, 풀 전용(읽기 권한자) 권한이 있는 서비스 주체를 사용하여 레지스트리에 인증할 수 있습니다. 그런 다음 서비스 주체의 자격 증명을 순환시키거나 다른 서비스와 응용 프로그램에 영향을 주지 않으면서 액세스를 완전히 철회할 수 있습니다.
+예를 들어 야간에 실행되는 자동화된 스크립트가 있고 데이터를 처리하기 위해 [작업 기반 컨테이너 인스턴스](../container-instances/container-instances-restart-policy.md)를 만드는 경우, 풀 전용(읽기 권한자) 권한이 있는 서비스 주체를 사용하여 레지스트리에 인증할 수 있습니다. 그런 다음, 서비스 주체의 자격 증명을 순환시키거나 다른 서비스와 애플리케이션에 영향을 주지 않으면서 액세스를 완전히 철회할 수 있습니다.
 
 레지스트리 [관리 사용자](container-registry-authentication.md#admin-account)가 비활성화된 경우에도 서비스 주체를 사용해야 합니다.
 

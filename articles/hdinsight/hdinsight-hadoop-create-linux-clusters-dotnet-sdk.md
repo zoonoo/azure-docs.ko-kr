@@ -1,30 +1,27 @@
 ---
-title: .NET를 사용하여 Hadoop 클러스터 만들기 - Azure HDInsight | Microsoft Docs
-description: HDInsight .NET SDK를 사용하여 Linux 기반 HDInsight에서 Hadoop, HBase, Storm 또는 Spark 클러스터를 만드는 방법을 알아봅니다.
+title: .NET를 사용하여 Apache Hadoop 클러스터 만들기 - Azure HDInsight
+description: HDInsight .NET SDK를 사용하여 HDInsight용 Linux에서 Apache Hadoop, Apache HBase, Apache Storm 또는 Apache Spark 클러스터를 만드는 방법을 알아봅니다.
 services: hdinsight
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: jgao
-ms.openlocfilehash: a0e5bf4afcd1d02c81597efdab8ff349e6adf856
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 08/16/2018
+ms.author: mamccrea
+ms.openlocfilehash: 943d5aeccf949c1dd494dc8ec8fda0d782527749
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952929"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035684"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 
-.NET SDK를 사용하여 Azure HDInsight 클러스터에서 Hadoop 클러스터를 만드는 방법을 알아봅니다.
+.NET SDK를 사용하여 Azure HDInsight 클러스터에서 Apache Hadoop 클러스터를 만드는 방법을 알아봅니다.
 
 > [!IMPORTANT]
 > 이 문서의 단계에서는 하나의 작업자 노드가 있는 클러스터를 만듭니다. 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
@@ -36,7 +33,7 @@ ms.locfileid: "37952929"
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* **Azure Storage 계정** [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
+* **Azure Storage 계정** [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 * **Visual Studio 2013, Visual Studio 2015 또는 Visual Studio 2017**
 
 ## <a name="create-clusters"></a>클러스터 만들기
@@ -163,12 +160,12 @@ ms.locfileid: "37952929"
             static TokenCloudCredentials GetTokenCloudCredentials(string TenantId, string ClientId, string SubscriptionId)
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
-                var tokenAuthResult = authContext.AcquireToken("https://management.core.windows.net/", 
+                var tokenAuthResult = authContext.AcquireTokenAsync("https://management.core.windows.net/",
                     ClientId, 
                     new Uri("urn:ietf:wg:oauth:2.0:oob"), 
-                    PromptBehavior.Always, 
+                    new PlatformParameters(PromptBehavior.Always), 
                     UserIdentifier.AnyUser);
-                return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
+                return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.Result.AccessToken);
             }
             /// <summary>
             /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
@@ -376,7 +373,7 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하여 클러스터 작업을 수행하는 방법을 알아봅니다. 
 
 ### <a name="hadoop-clusters"></a>Hadoop 클러스터
-* [HDInsight에서 하이브 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 

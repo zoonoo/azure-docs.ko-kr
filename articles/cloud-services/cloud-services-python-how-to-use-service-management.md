@@ -14,15 +14,15 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: b89f1aad46621d35728934ea068a5893ba674094
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: df949b65ac4a193c9e7bdb6ee3c32d7026f7c93d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29124802"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782967"
 ---
 # <a name="use-service-management-from-python"></a>Python에서 서비스 관리 사용
-이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. [Python용 Azure SDK](https://github.com/Azure/azure-sdk-for-python)의 **ServiceManagementService** 클래스는 [Azure Portal][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다. 클라우드 서비스, 배포, 데이터 관리 서비스, 가상 머신 만들기, 업데이트 및 삭제에 이 기능을 사용할 수 있습니다. 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 응용 프로그램을 빌드하는 데 유용할 수 있습니다.
+이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. [Python용 Azure SDK](https://github.com/Azure/azure-sdk-for-python)의 **ServiceManagementService** 클래스는 [Azure Portal][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다. 클라우드 서비스, 배포, 데이터 관리 서비스, 가상 머신 만들기, 업데이트 및 삭제에 이 기능을 사용할 수 있습니다. 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 애플리케이션을 빌드하는 데 유용할 수 있습니다.
 
 ## <a name="WhatIs"> </a>서비스 관리 정의
 Azure Service Management API는 [Azure Portal][management-portal]을 통해 사용할 수 있는 대부분의 서비스 관리 기능에 대해 프로그래밍 방식의 액세스를 제공합니다. Python용 Azure SDK를 사용하여 클라우드 서비스 및 저장소 계정을 관리할 수 있습니다.
@@ -52,7 +52,7 @@ Python용 Azure SDK는 REST API인 [Service Management API][svc-mgmt-rest-api]�
 
     openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-Azure 인증서에 대한 자세한 내용은 [Azure Cloud Services 인증서 개요](cloud-services-certs-create.md)를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html)(영문)의 자료를 참조하세요.
+Azure 인증서에 대한 자세한 내용은 [Azure Cloud Services 인증서 개요](cloud-services-certs-create.md)를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html)의 자료를 참조하세요.
 
 이러한 파일을 만든 후 `.cer` 파일을 Azure에 업로드합니다. [Azure Portal][management-portal]의 **설정** 탭에서 **업로드**를 선택합니다. `.pem` 파일을 저장한 위치를 적어 둡니다.
 
@@ -402,7 +402,7 @@ VM 이미지를 캡처하려면 먼저 **capture\_vm\_image** 메서드를 호�
 ## <a name="What's Next"> </a>다음 단계
 서비스 관리의 기본 사항을 배웠으므로 이제 [Azure Python SDK에 대한 전체 API 참조 설명서](http://azure-sdk-for-python.readthedocs.org/)에 액세스하고 쉽게 복잡한 작업을 수행하여 Python 응용 프로그램을 관리할 수 있습니다.
 
-자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
+자세한 내용은 [Python 개발자 센터](https://azure.microsoft.com/develop/python/)를 참조하세요.
 
 [What is service management?]: #WhatIs
 [Concepts]: #Concepts
@@ -426,4 +426,4 @@ VM 이미지를 캡처하려면 먼저 **capture\_vm\_image** 메서드를 호�
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[cloud service]:/services/cloud-services/
+[cloud service]:/azure/cloud-services/

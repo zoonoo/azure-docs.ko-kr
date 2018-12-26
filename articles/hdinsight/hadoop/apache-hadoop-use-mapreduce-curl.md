@@ -1,29 +1,24 @@
 ---
-title: HDInsight에서 Hadoop과 MapReduce 및 Curl 사용 - Azure | Microsoft Docs
-description: 원격으로 Curl을 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업을 실행하는 방법에 대해 알아봅니다.
+title: HDInsight에서 Apache Hadoop으로 MapReduce 및 Curl 사용 - Azure
+description: Curl을 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업을 원격으로 실행하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: bc6daf37-fcdc-467a-a8a8-6fb2f0f773d1
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: eeecdb6432c4ab13b051c9a9dba1e7f14ce40f91
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: hrasheed
+ms.openlocfilehash: afa9b57d9c0e2acf81b5307273ac038e92073655
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400217"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632297"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업 실행
+# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
 
-HDInsight 클러스터의 Hadoop에서 WebHCat REST API를 사용하여 MapReduce 작업을 실행하는 방법에 대해 배웁니다. Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight와 함께 작용하는 방법을 설명하기 위해 사용됩니다.
+HDInsight 클러스터의 Apache Hadoop에서 WebHCat REST API를 사용하여 MapReduce 작업을 실행하는 방법에 대해 배웁니다. Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight와 함께 작용하는 방법을 설명하기 위해 사용됩니다.
 
 > [!NOTE]
 > Linux 기반 Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 [HDInsight의 Linux 기반 Hadoop에 대해 알아야 할 정보](../hdinsight-hadoop-linux-information.md) 문서를 참조하세요.
@@ -146,7 +141,7 @@ HDInsight 클러스터의 Hadoop에서 WebHCat REST API를 사용하여 MapReduc
 
 6. 작업 상태가 `SUCCEEDED`로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달되는 `statusdir` 매개 변수에는 출력 파일의 위치가 포함됩니다. 이 예제에서 위치는 `/example/curl`입니다. 이 주소는 작업의 출력을 클러스터 기본 저장소인 `/example/curl`에 저장합니다.
 
-[Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)을 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure CLI에서 Blob을 사용하는 방법에 대한 자세한 내용은 [Azure Storage에서 Azure CLI 2.0 사용](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) 문서를 참조하세요.
+[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure CLI에서 Blob을 사용하는 방법에 대한 자세한 내용은 [Azure Storage에서 Azure CLI 사용](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) 문서를 참조하세요.
 
 ## <a id="nextsteps"></a>다음 단계
 

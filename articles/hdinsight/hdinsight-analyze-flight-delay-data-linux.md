@@ -1,29 +1,24 @@
 ---
-title: '자습서: HDInsight에서 Hive를 사용하여 ETL(추출, 변환, 로드) 작업 수행 - Azure | Microsoft Docs'
-description: HDInsight에서 Hive를 사용하여 원시 CSV 데이터 집합에서 데이터를 추출하고, 변환한 다음, Sqoop을 사용하여 변환된 데이터를 Azure SQL 데이터베이스로 로드하는 방법을 알아봅니다.
+title: '자습서: HDInsight에서 Hive를 사용하여 ETL(추출, 변환, 로드) 작업 수행 - Azure '
+description: 원시 CSV 데이터 세트에서 데이터를 추출하고, HDInsight에서 Hive를 사용하여 변환한 다음, Apache Sqoop을 사용하여 변환된 데이터를 Azure SQL 데이터베이스로 로드하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: larryfr
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 1abc0a8ed9aec1082a4710647f6c03c87e1fd1d2
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: c0123008e5b15d6d3edce27245a7ed1fa6c431e7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098232"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015056"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드
 
-이 자습서에서는 원시 CSV 데이터 파일을 사용하고, HDInsight 클러스터 저장소로 가져온 다음, Azure HDInsight에서 Apache Hive를 사용하여 데이터를 변환합니다. 데이터가 변환된 후 Apache Sqoop을 사용하여 Azure SQL 데이터베이스로 해당 데이터를 로드합니다. 이 문서에서는 공개적으로 사용할 수 있는 비행 데이터를 사용합니다.
+이 자습서에서는 원시 CSV 데이터 파일을 사용하고, HDInsight 클러스터 스토리지로 가져온 다음, Azure HDInsight에서 [Apache Hive](https://hive.apache.org/)를 사용하여 데이터를 변환합니다. 데이터가 변환된 후 [Apache Sqoop](http://sqoop.apache.org/)을 사용하여 Azure SQL Database로 해당 데이터를 로드합니다. 이 문서에서는 공개적으로 사용할 수 있는 비행 데이터를 사용합니다.
 
 > [!IMPORTANT]
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 Azure HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -46,13 +41,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **HDInsight의 Linux 기반 Hadoop 클러스터** 새 Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 단계는 [HDInsight에서 Hadoop 사용하기 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* **HDInsight의 Linux 기반 Hadoop 클러스터** 새 Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 단계는 [HDInsight에서 Apache Hadoop 사용 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 * **Azure SQL Database**. Azure SQL Database를 대상 데이터 저장소로 사용합니다. SQL Database가 없는 경우 [Azure Portal에서 Azure SQL Database 만들기](../sql-database/sql-database-get-started.md)를 참조하세요.
 
-* **Azure CLI 2.0**. Azure CLI를 설치하지 않은 경우 자세한 단계는 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+* **Azure CLI**. Azure CLI를 설치하지 않은 경우 자세한 단계는 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
-* **SSH 클라이언트** 자세한 내용은 [SSH를 사용하여 HDInsight(Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* **SSH 클라이언트** 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="download-the-flight-data"></a>비행 데이터 다운로드
 
@@ -60,7 +55,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. 페이지에서 다음 값을 선택합니다.
 
-   | Name | 값 |
+   | 이름 | 값 |
    | --- | --- |
    | Filter Year |2013 |
    | Filter Period |January |
@@ -107,7 +102,7 @@ HDInsight 클러스터와 연결된 저장소로 데이터를 업로드하는 �
 
 ## <a name="transform-data-using-a-hive-query"></a>Hive 쿼리를 사용하여 데이터 변환
 
-HDInsight 클러스터에서 Hive 작업을 실행하는 여러 가지 방법이 있습니다. 이 섹션에서는 Beeline을 사용하여 Hive 작업을 실행합니다. Hive 작업 실행의 다른 메서드에 대한 정보는 [HDInsight의 Hive 사용](./hadoop/hdinsight-use-hive.md)을 참조하세요.
+HDInsight 클러스터에서 Hive 작업을 실행하는 여러 가지 방법이 있습니다. 이 섹션에서는 [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline%E2%80%93CommandLineShell)을 사용하여 Hive 작업을 실행합니다. Hive 작업 실행의 다른 메서드에 대한 정보는 [HDInsight의 Apache Hive 사용](./hadoop/hdinsight-use-hive.md)을 참조하세요.
 
 Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로 데이터를 가져옵니다.
 
@@ -274,7 +269,7 @@ Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로
 
 5. `exit` at the `1>`를 입력하여 tsql 유틸리티를 종료합니다.
 
-## <a name="export-data-to-sql-database-using-sqoop"></a>Sqoop을 사용하여 SQL 데이터베이스로 데이터 내보내기
+## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Apache Sqoop을 사용하여 SQL Database로 데이터 내보내기
 
 이전 섹션에서는 `/tutorials/flightdelays/output`에서 변환된 데이터를 복사했습니다. 이 섹션에서는 Sqoop을 사용하여 '/tutorials/flightdelays/output`에서 Azure SQL 데이터베이스에서 만든 테이블로 데이터를 내보냅니다. 
 
@@ -316,27 +311,27 @@ Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로
 이 자습서에서는 HDInsight에서 Apache Hadoop 클러스터를 사용하여 데이터 작업 추출, 변환 및 로드를 수행하는 방법을 배웠습니다. 다음 자습서로 진행하여 Azure Data Factory를 사용하여 주문형 HDInsight Hadoop 클러스터를 만드는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
->[Azure Data Factory를 사용하여 HDInsight에서 주문형 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-adf.md)
+>[Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-adf.md)
 
 HDInsight에서 데이터 사용에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [자습서: Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
-* [HDInsight에서 Hive 사용][hdinsight-use-hive]
-* [HDInsight에서 Pig 사용][hdinsight-use-pig]
-* [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
+* [HDInsight에서 Apache Hive 사용][hdinsight-use-hive]
+* [HDInsight에서 Apache Pig 사용][hdinsight-use-pig]
+* [HDInsight에서 Apache Hadoop용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 * [HDInsight용 Python 스트리밍 MapReduce 프로그램 개발][hdinsight-develop-streaming]
-* [HDInsight에서 Oozie 사용][hdinsight-use-oozie]
-* [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop]
+* [HDInsight에서 Apache Oozie 사용][hdinsight-use-oozie]
+* [HDInsight에서 Apache Sqoop 사용][hdinsight-use-sqoop]
 
 
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md

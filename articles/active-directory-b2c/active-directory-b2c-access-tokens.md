@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 58a0a1e8be7ad5a119204b52b5263943dcef0192
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2043e0fc9fa63903073311856e7e8d31fb34c506
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441229"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015352"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: 액세스 토큰 요청
 
-액세스 토큰(Azure AD B2C의 응답에서 **액세스\_토큰**으로 표시됨)은 클라이언트가 웹 API와 같은 [권한 부여 서버](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics)로 보호되는 리소스에 액세스하는 데 사용할 수 있는 보안 토큰의 형식입니다. 액세스 토큰은 [JWT](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens)로 표시되고 원하는 리소스 서버에 대한 정보 및 서버에 부여된 사용 권한을 포함합니다. 리소스 서버를 호출할 때 액세스 토큰은 HTTP 요청에 있어야 합니다.
+액세스 토큰(Azure AD B2C의 응답에서 **액세스\_토큰**으로 표시됨)은 클라이언트가 웹 API와 같은  [권한 부여 서버](active-directory-b2c-reference-protocols.md)로 보호되는 리소스에 액세스하는 데 사용할 수 있는 보안 토큰의 형식입니다. 액세스 토큰은 [JWT](active-directory-b2c-reference-tokens.md)로 표시되고 원하는 리소스 서버에 대한 정보 및 서버에 부여된 사용 권한을 포함합니다. 리소스 서버를 호출할 때 액세스 토큰은 HTTP 요청에 있어야 합니다.
 
 이 문서에서는 **액세스\_토큰**을 얻기 위해 클라이언트 응용 프로그램 및 웹 API를 구성하는 방법을 설명합니다.
 
@@ -37,22 +37,22 @@ ms.locfileid: "37441229"
 ### <a name="register-a-web-api"></a>웹 API 등록
 
 1. Azure Portal의 Azure AD B2C 기능 메뉴에서 **응용 프로그램**을 클릭합니다.
-1. 메뉴의 위쪽에서 **+추가**를 클릭합니다.
-1. 소비자에게 응용 프로그램을 설명하는 응용 프로그램의 **이름** 을 입력합니다. 예를 들어 "Contoso API"를 입력할 수 있습니다.
-1. **웹앱/ 웹 API 포함** 스위치를 **예**로 설정합니다.
-1. **회신 URL**에 대한 임의 값을 입력합니다. 예를 들어 `https://localhost:44316/`을 입력합니다. API가 Azure AD B2C에서 직접 토큰을 받지 않아야 하므로 값은 중요하지 않습니다.
-1. **앱 ID URI**를 입력합니다. Web API에 사용되는 식별자입니다. 예를 들어 상자에 '참고'를 입력합니다. **앱 ID URI**는 `https://{tenantName}.onmicrosoft.com/notes`가 됩니다.
-1. **만들기** 를 클릭하여 응용 프로그램을 등록합니다.
-1. 방금 만든 응용 프로그램을 클릭하고, 나중에 코드에서 사용할 전역적으로 고유한 **응용 프로그램 클라이언트 ID** 를 적어둡니다.
+2. 메뉴의 위쪽에서 **+추가**를 클릭합니다.
+3. 소비자에게 애플리케이션을 설명하는 애플리케이션의 **이름** 을 입력합니다. 예를 들어 "Contoso API"를 입력할 수 있습니다.
+4. **웹앱/ 웹 API 포함** 스위치를 **예**로 설정합니다.
+5. **회신 URL**에 대한 임의 값을 입력합니다. 예를 들어 `https://localhost:44316/`을 입력합니다. API가 Azure AD B2C에서 직접 토큰을 받지 않아야 하므로 값은 중요하지 않습니다.
+6. **앱 ID URI**를 입력합니다. Web API에 사용되는 식별자입니다. 예를 들어 상자에 '참고'를 입력합니다. **앱 ID URI**는 `https://{tenantName}.onmicrosoft.com/notes`가 됩니다.
+7. **만들기** 를 클릭하여 응용 프로그램을 등록합니다.
+8. 방금 만든 애플리케이션을 클릭하고, 나중에 코드에서 사용할 전역적으로 고유한 **애플리케이션 클라이언트 ID** 를 적어둡니다.
 
 ### <a name="publishing-permissions"></a>권한 게시
 
 권한과 유사한 범위는 앱에서 API를 호출하는 경우에 필요합니다. 범위의 일부 예는 "읽기" 또는 "쓰기"입니다. 웹 또는 네이티브 앱이 API에서 "읽기"를 원한다고 가정합니다. 앱은 Azure AD B2C를 호출하고 범위 "읽기"에 대한 액세스를 제공하는 액세스 토큰을 요청합니다. Azure AD B2C가 이러한 액세스 토큰을 내보내기 위해 앱은 특정 API에서 "읽기"에 대한 권한을 부여 받아야 합니다. 이렇게 하려면 API는 먼저 "읽기" 범위를 게시해야 합니다.
 
 1. Azure AD B2C **응용 프로그램** 메뉴 내에서 웹 API 응용 프로그램("Contoso API")을 엽니다.
-1. **게시된 범위**를 클릭합니다. 다른 응용 프로그램에 부여할 수 있는 사용 권한(범위)을 정의한 위치입니다.
-1. 필요에 따라 **범위 값**을 추가합니다(예: "읽기"). 기본적으로 "user_impersonation" 범위를 정의합니다. 원하는 경우 이를 무시할 수 있습니다. **범위 이름** 열에 범위에 대한 설명을 입력합니다.
-1. **저장**을 클릭합니다.
+2. **게시된 범위**를 클릭합니다. 다른 응용 프로그램에 부여할 수 있는 사용 권한(범위)을 정의한 위치입니다.
+3. 필요에 따라 **범위 값**을 추가합니다(예: "읽기"). 기본적으로 "user_impersonation" 범위를 정의합니다. 원하는 경우 이를 무시할 수 있습니다. **범위 이름** 열에 범위에 대한 설명을 입력합니다.
+4. **저장**을 클릭합니다.
 
 > [!IMPORTANT]
 > **범위 이름**은 **범위 값**에 대한 설명입니다. 범위를 사용할 때 **범위 값**을 사용해야 합니다.
@@ -62,24 +62,24 @@ ms.locfileid: "37441229"
 API가 범위를 게시하도록 구성되면 클라이언트 응용 프로그램은 Azure Portal을 통해 해당 범위 권한을 부여 받아야 합니다.
 
 1. Azure AD B2C 기능 메뉴의 **응용 프로그램** 메뉴로 이동합니다.
-1. 이미 없는 클라이언트 응용 프로그램([웹앱](active-directory-b2c-app-registration.md#register-a-web-app) 또는 [네이티브 클라이언트](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app))을 등록합니다. 시작 지점부터 이 가이드를 따르는 경우 클라이언트 응용 프로그램을 등록해야 합니다.
-1. **API 액세스**를 클릭합니다.
-1. **추가**를 클릭합니다.
-1. 웹 API 및 부여하려는 범위(권한)를 선택합니다.
-1. **확인**을 클릭합니다.
+2. 이미 없는 클라이언트 응용 프로그램([웹앱](active-directory-b2c-app-registration.md) 또는 [네이티브 클라이언트](active-directory-b2c-app-registration.md))을 등록합니다. 시작 지점부터 이 가이드를 따르는 경우 클라이언트 응용 프로그램을 등록해야 합니다.
+3. **API 액세스**를 클릭합니다.
+4. **추가**를 클릭합니다.
+5. 웹 API 및 부여하려는 범위(권한)를 선택합니다.
+6. **확인**을 클릭합니다.
 
 > [!NOTE]
 > Azure AD B2C는 클라이언트 응용 프로그램 사용자의 동의를 묻지 않습니다. 대신 모든 동의는 위에서 설명한 응용 프로그램 간에 구성된 권한에 따라 관리자에 의해 제공됩니다. 응용 프로그램에 대한 권한 부여가 해지되면 이전에 해당 권한을 획득할 수 있었던 모든 사용자는 더 이상 권한을 획득할 수 없습니다.
 
 ## <a name="requesting-a-token"></a>토큰 요청
 
-액세스 토큰을 요청할 때 클라이언트 응용 프로그램에서 요청의 **범위** 매개 변수에서 원하는 권한을 지정해야 합니다. 예를 들어 `https://contoso.onmicrosoft.com/notes`의 **앱 ID URI**가 있는 API에 대한 **범위 값** "읽기"를 지정하기 위해 범위는 `https://contoso.onmicrosoft.com/notes/read`가 됩니다. 다음은 `/authorize` 끝점에 대한 인증 코드 요청의 예입니다.
+액세스 토큰을 요청할 때 클라이언트 응용 프로그램에서 요청의 **범위** 매개 변수에서 원하는 권한을 지정해야 합니다. 예를 들어 `https://contoso.onmicrosoft.com/notes`의 **앱 ID URI**가 있는 API에 대한 **범위 값** "읽기"를 지정하기 위해 범위는 `https://contoso.onmicrosoft.com/notes/read`가 됩니다. 다음은 `/authorize` 엔드포인트에 대한 인증 코드 요청의 예입니다.
 
 > [!NOTE]
 > 현재 사용자 지정 도메인은 액세스 토큰과 함께 지원되지 않습니다. 요청 URL에서 tenantName.onmicrosoft.com 도메인을 사용해야 합니다.
 
 ```
-https://login.microsoftonline.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 같은 요청에 여러 권한을 얻기 위해 단일 **범위** 매개 변수에 공백으로 구분된 여러 항목을 추가할 수 있습니다. 예: 
@@ -112,9 +112,9 @@ OpenID Connect 표준은 몇 가지 특별한 "범위" 값을 지정합니다. �
 
 ## <a name="the-returned-token"></a>반환된 토큰
 
-성공적으로 생성된 **액세스\_토큰**(`/authorize` 또는 `/token` 끝점에서)에 다음 클레임이 표시됩니다.
+성공적으로 생성된 **액세스\_토큰**(`/authorize` 또는 `/token` 엔드포인트에서)에 다음 클레임이 표시됩니다.
 
-| Name | 클레임 | 설명 |
+| 이름 | 클레임 | 설명 |
 | --- | --- | --- |
 |대상 |`aud` |토큰에서 액세스를 부여하는 단일 리소스의 **응용 프로그램 ID**입니다. |
 |범위 |`scp` |리소스에 부여된 권한입니다. 여러 부여된 권한은 공백으로 구분됩니다. |

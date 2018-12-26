@@ -1,34 +1,30 @@
 ---
-title: 내부 기본 부하 분산 장치 만들기 - Azure CLI 2.0 | Microsoft Docs
-description: Azure CLI 2.0을 사용하여 내부 부하 분산 장치를 만드는 방법을 알아봅니다.
+title: 내부 기본 부하 분산 장치 만들기 - Azure CLI | Microsoft Docs
+description: Azure CLI를 사용하여 내부 부하 분산 장치를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 92e464aa4e0dcb7199b6db44d2c28db5b6d1673c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 369c47a48d49a91985f7a9534230e04cff1e7ce6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38676089"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413692"
 ---
-# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
+# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Azure CLI를 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
 이 문서에서는 VM 부하를 분산하는 내부 부하 분산 장치를 만드는 방법을 보여 줍니다. 부하 분산 장치를 테스트하려면 Ubuntu 서버를 실행하는 두 개의 VM(가상 머신)을 배포하여 웹 응용 프로그램의 부하를 분산합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -89,7 +85,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create)를 사용하여 *myFrontEndPool* 프런트 엔드 풀에서 80 포트를 수신 대기하고, 마찬가지로 80 포트를 통해 *myBackEndPool* 백 엔드 주소 풀에 부하 분산된 네트워크 트래픽을 보내는 *myLoadBalancerRuleWeb* 부하 분산 장치 규칙을 만듭니다. 
+부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create)를 사용하여 *myFrontEnd* 프런트 엔드 풀의 80 포트에서 수신 대기하고, 마찬가지로 80 포트를 통해 부하 분산된 네트워크 트래픽을 *myBackEndPool* 백 엔드 주소 풀에 보내는 *myHTTPRule* 부하 분산 장치 규칙을 만듭니다. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -110,7 +106,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-nics"></a>NIC 만들기
 
-[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 두 개의 네트워크 인터페이스를 만들고, 개인 IP 주소에 연결합니다. 
+[az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용하여 두 개의 네트워크 인터페이스를 만들고, 개인 IP 주소에 연결합니다. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -130,7 +126,7 @@ done
 
 ### <a name="create-an-availability-set"></a>가용성 집합 만들기
 
-[az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)를 사용하여 가용성 집합을 만듭니다.
+[az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)를 사용하여 가용성 집합을 만듭니다.
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -184,7 +180,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 가상 머신을 만듭니다.
+[az vm create](/cli/azure/vm#az-vm-create)를 사용하여 가상 머신을 만듭니다.
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -228,7 +224,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupILB

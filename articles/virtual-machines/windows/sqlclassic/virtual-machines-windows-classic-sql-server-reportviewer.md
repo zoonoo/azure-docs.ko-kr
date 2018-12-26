@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: af8a4a9c25005925bed3ddb78ced618e669f7f09
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 514e85fc61240834d8db152ece65a4f9cce9023e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31424621"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250410"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Azure에서 호스트되는 웹 사이트에서 ReportViewer 사용
 > [!IMPORTANT] 
@@ -56,13 +56,13 @@ ASP.NET 응용 프로그램 온-프레미스를 호스트할 때 ReportViewer �
 ### <a name="to-add-a-reference-to-microsoftreportviewercommon"></a>Microsoft.ReportViewer.Common에 대한 참조를 추가하려면
 * 프로젝트의 **참조** 노드를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택한 다음 .NET 탭에서 어셈블리를 선택하고 **확인**을 클릭합니다.
 
-### <a name="to-make-the-assemblies-locally-accessible-by-your-aspnet-application"></a>ASP.NET 응용 프로그램에서 어셈블리를 로컬로 액세스할 수 있도록 하려면
+### <a name="to-make-the-assemblies-locally-accessible-by-your-aspnet-application"></a>ASP.NET 애플리케이션에서 어셈블리를 로컬로 액세스할 수 있도록 하려면
 1. **참조** 폴더에서 Microsoft.ReportViewer.Common 어셈블리를 클릭하여 해당 속성을 속성 창에 표시합니다.
 2. 속성 창에서 **로컬 복사** 를 True로 설정합니다.
 3. Microsoft.ReportViewer.WebForms에 대해 1단계 및 2단계를 반복합니다.
 
 ### <a name="to-get-reportviewer-language-pack"></a>ReportViewer 언어 팩을 가져오려면
-1. [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=317386)에서 적절한 Microsoft Report Viewer 2012 런타임 재배포 가능 패키지를 설치합니다.
+1. [Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?LinkId=317386)에서 적절한 Microsoft Report Viewer 2012 런타임 재배포 가능 패키지를 설치합니다.
 2. 드롭다운 목록에서 언어를 선택하면 페이지가 해당 다운로드 센터 페이지로 리디렉션됩니다.
 3. **다운로드** 를 클릭하여 ReportViewerLP.exe의 다운로드를 시작합니다.
 4. ReportViewerLP.exe를 다운로드한 후 **실행**을 클릭하여 즉시 설치하거나 **저장**을 클릭하여 컴퓨터에 저장합니다. **저장**을 클릭하는 경우 파일을 저장하는 폴더의 이름을 기억해 두세요.
@@ -72,13 +72,13 @@ ASP.NET 응용 프로그램 온-프레미스를 호스트할 때 ReportViewer �
 ### <a name="to-configure-for-localized-reportviewer-control"></a>지역화된 ReportViewer 컨트롤을 구성하려면
 1. 위에서 지정한 지침에 따라 Microsoft Report Viewer 2012 런타임 재배포 가능 패키지를 다운로드하여 설치합니다.
 2. 프로젝트에 <language> 폴더를 만들어 관련 리소스 어셈블리 파일을 복사합니다. 복사할 리소스 어셈블리 파일은 **Microsoft.ReportViewer.Webforms.Resources.dll** 및 **Microsoft.ReportViewer.Common.Resources.dll**입니다. 리소스 어셈블리 파일을 선택하고 속성 창에서 **출력 디렉터리에 복사**를 “**항상 복사**”로 설정합니다.
-3. 웹 프로젝트의 문화권 및 UI 문화권을 설정합니다. ASP.NET 웹 페이지의 문화권 및 UI 문화권을 설정하는 방법에 대한 자세한 내용은 [ASP.NET 웹 페이지 세계화를 위해 문화권 및 UI 문화권 설정 방법](http://go.microsoft.com/fwlink/?LinkId=237461)을 참조하세요.
+3. 웹 프로젝트의 문화권 및 UI 문화권을 설정합니다. ASP.NET 웹 페이지의 문화권 및 UI 문화권을 설정하는 방법에 대한 자세한 내용은 [ASP.NET 웹 페이지 세계화를 위해 문화권 및 UI 문화권 설정 방법](https://go.microsoft.com/fwlink/?LinkId=237461)을 참조하세요.
 
 ## <a name="configuring-authentication-and-authorization"></a>인증 및 권한 부여 구성
 ReportViewer는 적절한 자격 증명을 사용하여 보고서 서버로 인증해야 하고 원하는 보고서에 액세스하는 보고서 서버에서 자격 증명의 권한을 부여해야 합니다. 인증에 대한 자세한 내용은 [Reporting Services 보고서 뷰어 컨트롤 및 Microsoft Azure 가상 머신 기반 보고서 서버](https://msdn.microsoft.com/library/azure/dn753698.aspx)백서를 참조하세요.
 
-## <a name="publish-the-aspnet-web-application-to-azure"></a>Azure에 ASP.NET 웹 응용 프로그램 게시
-Azure에 ASP.NET 웹 응용 프로그램을 게시하기 위한 지침은 [Visual Studio에서 Azure에 웹 응용 프로그램 마이그레이션 및 게시 방법](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) 및 [Web Apps 및 ASP.NET 시작](../../../app-service/app-service-web-get-started-dotnet.md)을 참조하세요.
+## <a name="publish-the-aspnet-web-application-to-azure"></a>Azure에 ASP.NET 웹 애플리케이션 게시
+Azure에 ASP.NET 웹 애플리케이션을 게시하기 위한 지침은 [Visual Studio에서 Azure에 웹 애플리케이션 마이그레이션 및 게시 방법](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) 및 [Web Apps 및 ASP.NET 시작](../../../app-service/app-service-web-get-started-dotnet.md)을 참조하세요.
 
 > [!IMPORTANT]
 > Azure 배포 프로젝트 추가 또는 Azure 클라우드 서비스 프로젝트 추가 명령이 솔루션 탐색기의 바로 가기 메뉴에 나타나지 않으면 프로젝트에 대한 대상 프레임워크를 .NET Framework 4로 변경해야 할 수 있습니다.
@@ -88,7 +88,7 @@ Azure에 ASP.NET 웹 응용 프로그램을 게시하기 위한 지침은 [Visua
 > 
 
 ## <a name="resources"></a>리소스
-[Microsoft 보고서](http://go.microsoft.com/fwlink/?LinkId=205399)
+[Microsoft 보고서](https://go.microsoft.com/fwlink/?LinkId=205399)
 
 [Azure Virtual Machines의 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
 

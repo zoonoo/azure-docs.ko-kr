@@ -93,7 +93,7 @@ ms.locfileid: "33778446"
     ?spatialFilter=intersects(%27POINT%20LONGITUDE%20LATITUDE)%27)&$format=json&key=QUERY_KEY
     ```
 
-    Bing 맵은 장치가 지역 구분 내에 있는지 여부를 확인하기 위해 자동으로 계산을 수행합니다. 브라우저(또는 cURL)를 통해 요청을 실행하면 표준 JSON 응답을 받습니다.
+    Bing 맵은 디바이스가 지역 구분 내에 있는지 여부를 확인하기 위해 자동으로 계산을 수행합니다. 브라우저(또는 cURL)를 통해 요청을 실행하면 표준 JSON 응답을 받습니다.
 
     ![](./media/notification-hubs-geofence/bing-maps-json.png)
 
@@ -223,7 +223,7 @@ ms.locfileid: "33778446"
 
     ![](./media/notification-hubs-geofence/vs-startup-project.png)
 
-    프로젝트는 이미 대상 장치에 푸시 알림을 전송하도록 구성되었으므로 두 가지가 필요합니다. 알림 허브에 맞는 연결 문자열을 지정하고 사용자가 지역 구분 내에 있는 경우 알림을 보내도록 경계 식별을 추가합니다.
+    프로젝트는 이미 대상 디바이스에 푸시 알림을 전송하도록 구성되었으므로 두 가지가 필요합니다. 알림 허브에 맞는 연결 문자열을 지정하고 사용자가 지역 구분 내에 있는 경우 알림을 보내도록 경계 식별을 추가합니다.
 4. 연결 문자열을 구성하려면 `Models` 폴더에서 `Notifications.cs`를 엽니다. `NotificationHubClient.CreateClientFromConnectionString` 함수는 [Azure Portal](https://portal.azure.com)에서 얻을 수 있는 알림 허브에 대한 정보를 포함해야 합니다(**설정**에서 **액세스 정책** 페이지를 살펴봄). 업데이트된 구성 파일을 저장합니다.
 5. Bing 맵 API 결과에 대한 모델을 만듭니다. `Models` 폴더를 열고 **추가** > **클래스**를 선택하는 것이 가장 쉬운 방법입니다. 이름을 `GeofenceBoundary.cs`로 지정합니다. 완료되면 첫 번째 섹션에서 가져온 API 응답에서 JSON을 복사합니다. Visual Studio에서 **편집** > **선택하여 붙여넣기** > **JSON을 클래스로 붙여넣기**를 사용합니다. 
 

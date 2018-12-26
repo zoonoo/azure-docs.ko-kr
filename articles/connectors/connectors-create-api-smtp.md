@@ -1,73 +1,81 @@
 ---
-title: Azure Logic Apps의 SMTP 커넥터 | Microsoft Docs
-description: Azure 앱 서비스로 논리 앱을 만듭니다. SMTP에 연결하여 전자 메일을 보냅니다.
+title: Azure Logic Apps에서 SMTP에 연결 | Microsoft Docs
+description: Azure Logic Apps를 사용하여 SMTP(Simple Mail Transfer Protocol) 계정을 통해 이메일을 전송하는 작업 및 워크플로 자동화
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 07/15/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 516110abc1786d99bc719d47d61475cdc2ebcc4b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296070"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230508"
 ---
-# <a name="get-started-with-the-smtp-connector"></a>SMTP 커넥터 시작
-SMTP에 연결하여 전자 메일을 보냅니다.
+# <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SMTP 계정에서 이메일 보내기
 
-[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/quickstart-create-first-logic-app-workflow.md) 시작할 수 있습니다.
+Azure Logic Apps 및 SMTP(Simple Mail Transfer Protocol) 커넥터를 사용하여 SMTP 계정에서 이메일을 전송하는 자동화된 작업 및 워크플로를 만들 수 있습니다. 또한 다른 작업에서 SMTP 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 SMTP에서 이메일을 보낸 후 Slack 커넥터를 사용하여 Slack 팀에 알릴 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+
+* SMTP 계정 및 사용자 자격 증명
+
+  자격 증명을 통해 SMTP 계정에 대한 연결을 만들고 액세스하는 권한이 논리 앱에 부여됩니다.
+
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
+
+* SMTP 계정에 액세스하려는 논리 앱입니다. SMTP 작업을 사용하려면 Salesforce 계정이 있는 경우 Salesforce 트리거와 같은 트리거를 사용하여 논리 앱을 시작합니다.
+
+  예를 들어 **레코드가 만들어지는 경우** Salesforce 트리거를 사용하여 논리 앱을 시작할 수 있습니다. 
+  이 트리거는 잠재 고객과 같은 새 레코드가 Salesforce에서 만들어질 때마다 발생합니다. 
+  그런 다음, SMTP **이메일 보내기** 작업을 사용하여 이 트리거를 따를 수 있습니다. 이런 방식으로 새 레코드가 만들어질 때 논리 앱은 새 레코드에 대한 SMTP 계정에서 이메일을 보냅니다.
 
 ## <a name="connect-to-smtp"></a>SMTP에 연결
-논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. [연결](connectors-overview.md)은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 SMTP에 연결하려면 먼저 SMTP *연결*이 필요합니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 입력합니다. 따라서 SMTP 예제에서는 SMTP에 대한 연결을 만들기 위해 연결 이름, SMTP 서버 주소 및 사용자 로그인 정보에 대한 자격 증명이 필요합니다.  
 
-### <a name="create-a-connection-to-smtp"></a>SMTP에 대한 연결 만들기
-> [!INCLUDE [Steps to create a connection to SMTP](../../includes/connectors-create-api-smtp.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## <a name="use-an-smtp-trigger"></a>SMTP 트리거 사용
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
-이 예제에서 SMTP에는 고유한 트리거가 없습니다. 따라서 **Salesforce - 개체를 만들 때** 트리거를 사용합니다. 이 트리거는 Salesforce에서 새 개체를 만들 때 활성화됩니다. 이 예제에서는 Salesforce에서 새 잠재 고객이 생성될 때마다 새 잠재 고객이 생성되었다는 알림과 함께 SMTP 커넥터를 사용하여 *메일 보내기* 작업이 발생하도록 설정합니다.
+1. SMTP 작업을 추가하려는 마지막 단계에서 **새 단계**를 선택합니다. 
 
-1. 논리 앱 디자이너에서 검색 상자에 *salesforce* 를 입력한 후 **Salesforce - 개체를 만들 때** 트리거를 선택합니다.  
-   ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
-2. **개체를 만들 때** 컨트롤이 표시됩니다.
-   ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. **개체 형식** 을 선택하고 개체 목록에서 *Lead* 를 선택합니다. 이 단계에서는 Salesforce에서 새 잠재 고객을 만들 때마다 논리 앱에 알리는 트리거를 만듭니다.  
-   ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
-4. 트리거를 만들었습니다.  
-   ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
+   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
+   표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
 
-## <a name="use-an-smtp-action"></a>SMTP 작업 사용
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-overview.md#logic-app-concepts)
+1. 검색 상자에서 필터로 "smtp"를 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 
-이제 트리거가 추가되었으므로 다음 단계를 사용하여 Salesforce에서 새 잠재 고객이 생성될 때 발생하는 SMTP 작업을 추가합니다.
+1. 메시지가 표시되면 이 연결 정보를 제공합니다.
 
-1. **+ 새 단계**를 선택하여 새 잠재 고객이 생성될 때 수행할 작업을 추가합니다.  
-   ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
-2. **작업 추가**를 선택합니다. 수행할 동작을 검색할 수 있는 검색 상자가 열립니다.  
-   ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
-3. *smtp*를 입력하여 SMTP와 관련된 작업을 검색합니다.  
-4. 새 잠재 고객이 생성될 때 수행할 작업으로 **SMTP - 전자 메일 보내기**를 선택합니다. 작업 제어 블록이 열립니다. 아직 수행하지 않은 경우 디자이너 블록에서 smtp 연결을 설정해야 합니다.  
-   ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)    
-5. **SMTP - 전자 메일 보내기** 블록에 원하는 전자 메일 정보를 입력합니다.  
-   ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
-6. 워크플로를 활성화하려면 작업을 저장합니다.  
+   | 자산 | 필수 | 설명 |
+   |----------|----------|-------------|
+   | **연결 이름** | yes | SMTP 서버에 대한 연결의 이름 | 
+   | **SMTP 서버 주소** | yes | SMTP 서버에 대한 주소 | 
+   | **사용자 이름** | yes | SMTP 계정에 대한 사용자 이름 | 
+   | **암호** | yes | SMTP 계정에 대한 암호 | 
+   | **SMTP 서버 포트** | 아니요 | 사용하려는 SMTP 서버의 특정 포트 | 
+   | **SSL 사용?** | 아니요 | SSL 암호화를 설정하거나 해제합니다. | 
+   |||| 
 
-## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+1. 선택한 작업에 필요한 정보를 입력합니다. 
 
-[커넥터 세부 정보](/connectors/smtpconnector/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
+1. 논리 앱을 저장하거나 논리 앱의 워크플로 빌드를 계속합니다.
 
-## <a name="more-connectors"></a>추가 커넥터
-[API 목록](apis-list.md)으로 돌아갑니다.
+## <a name="connector-reference"></a>커넥터 참조
+
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/smtpconnector/)를 검토하세요.
+
+## <a name="get-support"></a>지원 받기
+
+* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

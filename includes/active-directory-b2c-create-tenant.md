@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: 623f95eac029e808746d5d08fa088eba134592dd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133096"
+---
 **리소스 만들기** 단추를 클릭합니다. **마켓플레이스 검색** 필드에 `Azure Active Directory B2C`를 입력합니다.
 
 ![강조 표시된 추가 단추와 마켓플레이스 검색 필드의 Azure Active Directory B2C 텍스트](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)

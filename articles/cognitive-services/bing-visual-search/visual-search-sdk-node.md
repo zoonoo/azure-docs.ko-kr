@@ -1,23 +1,23 @@
 ---
-title: Visual Search SDK Node 빠른 시작 | Microsoft Docs
-description: Visual Search SDK Node 콘솔 응용 프로그램을 설치합니다.
+title: '빠른 시작: Bing Visual Search SDK, Node'
 titleSuffix: Azure Cognitive Services
+description: Visual Search SDK Node 콘솔 응용 프로그램을 설치합니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 51797f4b674224b4348f3f51518a5b087fd2329a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: cca39fb16c47eb13887f6198833dafc64974d301
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961899"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444463"
 ---
-# <a name="visual-search-sdk-node-quickstart"></a>Visual Search SDK Node 빠른 시작
+# <a name="quickstart-bing-visual-search-sdk-node"></a>빠른 시작: Bing Visual Search SDK Node 
 
 Bing Visual Search SDK는 웹 요청 및 구문 분석 결과에 대한 REST API의 기능을 사용합니다.
 [Node Visual Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js)은 Git Hub에서 얻을 수 있습니다.
@@ -28,11 +28,21 @@ Bing Visual Search SDK는 웹 요청 및 구문 분석 결과에 대한 REST API
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Cognitive Services API 키는 SDK 호출을 인증하는 데 필요합니다. [평가판 키]((https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7))에 등록합니다. 평가판 키는 초당 한 번의 호출로 7일 동안 유효합니다. 프로덕션 시나리오의 경우 [액세스 키를 구입하세요](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). [가격 책정 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/)도 참조하세요.
+* 이 빠른 시작의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
+
+Azure Portal에서 구독을 시작하려면
+1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
+2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
+3. 새 리소스에 대해 `Name`을 입력합니다.
+4. `Pay-As-You-Go` 구독을 선택합니다.
+5. `S9` 가격 책정 계층을 선택합니다.
+6. `Enable`을 클릭하여 구독을 시작합니다.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
 
-* `npm install Microsoft.Azure.CognitiveServices.Search.VisualSearch`을 실행합니다.
+Bing Visual Search SDK를 사용하여 콘솔 애플리케이션을 설치하려면:
+* `npm install ms-rest-azure` 실행
+* `npm install azure-cognitiveservices-search-visualSearch`을 실행합니다.
 
 <a name="client"></a>
 ## <a name="visual-search-client"></a>Visual Search 클라이언트
@@ -219,7 +229,7 @@ function sample() {
         },
         async function () {
             let imageInfo = { url: "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80" };
-            let filters = { site: "www.bing.com" };
+            let filters = { site: "pinterest.com" };
             let knowledgeRequest = { filters: filters };
             let visualSearchRequest = JSON.stringify({ imageInfo: imageInfo, knowledgeRequest: knowledgeRequest });
             let visualSearchResults;
@@ -265,7 +275,7 @@ function sample() {
             }
         },
         async function () {
-            var imageInsightsToken = "bcid_113F29C079F18F385732D8046EC80145*ccid_oV/QcH95*mid_687689FAFA449B35BC11A1AE6CEAB6F9A9B53708*thid_R.113F29C079F18F385732D8046EC80145";
+            var imageInsightsToken = "bcid_CA6BDBEA28D57D52E0B9D4B254F1DF0D*ccid_6J+8V1zi*thid_R.CA6BDBEA28D57D52E0B9D4B254F1DF0D";
             let cropArea = { top: 0.1, bottom: 0.5, left: 0.1, right: 0.9 };
             let imageInfo = { imageInsightsToken: imageInsightsToken, cropArea: cropArea };
             let visualSearchRequest = JSON.stringify({ imageInfo: imageInfo });

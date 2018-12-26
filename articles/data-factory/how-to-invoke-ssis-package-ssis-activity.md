@@ -8,30 +8,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 07/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5ff397e8b13d56b3b034854c507f8bef05008812
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: cda439973c584a57cadc30de7fb931732682de00
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054724"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092460"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
 이 문서에서는 SSIS 패키지 실행 작업을 사용하여 Azure Data Factory 파이프라인에서 SSIS 패키지를 실행하는 방법에 대해 설명합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-### <a name="azure-sql-database"></a>Azure SQL Database 
-이 문서의 연습에서는 SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 사용합니다. Azure SQL 관리되는 인스턴스(미리 보기)를 사용할 수도 있습니다.
+**Azure SQL Database**. 이 문서의 연습에서는 SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 사용합니다. Azure SQL Database Managed Instance를 사용할 수도 있습니다.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 만들기
 Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md)의 단계별 지침에 따라 만듭니다.
 
-## <a name="data-factory-ui-azure-portal"></a>Data Factory UI(Azure Portal )
+## <a name="run-a-package-in-the-azure-portal"></a>Azure Portal에서 패키지 실행
 이 섹션에서는 Data Factory UI를 사용하여 SSIS 패키지를 실행하는 SSIS 패키지 실행 작업이 있는 Data Factory 파이프라인을 만듭니다.
 
 ### <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
@@ -56,7 +55,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
     리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
-4. **버전**에 **V2**를 선택합니다.
+4. **버전**에 대해 **V2**를 선택합니다.
 5. 데이터 팩터리의 **위치** 를 선택합니다. Data Factory에서 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 위치에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.
@@ -76,7 +75,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
     ![시작 페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 2. **작업** 도구 상자에서 **일반**을 펼치고, **SSIS 패키지 실행** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 
 
-   ![SSIS 작업을 디자이너 화면으로 끌기](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
+   ![SSIS 패키지 실행 작업을 디자이너 화면으로 끌기](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
 
 3. SSIS 패키지 실행 작업에 대한 속성의 **일반** 탭에서 작업 이름과 설명을 입력합니다. 선택적 시간 제한 및 다시 시도 값을 설정합니다.
 
@@ -92,11 +91,15 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 
 ### <a name="optionally-parameterize-the-activity"></a>필요에 따라 활동을 매개 변수화
 
-필요에 따라 Data Factory 시스템 변수를 참조할 수 있는 값, 식 또는 함수를 **고급** 탭에서 JSON 형식의 프로젝트 또는 패키지 매개 변수에 할당합니다. 예를 들어 다음 스크린샷에 표시된 것처럼 Data Factory 파이프라인 매개 변수를 SSIS 프로젝트 또는 패키지 매개 변수에 할당할 수 있습니다.
+필요에 따라 SSIS 패키지 작업 실행 상자의 아래쪽에서 “소스 코드 보기” 단추 또는 파이프라인 영역의 오른쪽 위 모서리에서 “코드” 단추를 사용하여 Data Factory 시스템 변수를 참조할 수 있는 값, 식 또는 함수를 JSON 형식으로 프로젝트 또는 패키지 매개 변수에 할당합니다. 예를 들어 다음 스크린샷에 표시된 것처럼 Data Factory 파이프라인 매개 변수를 SSIS 프로젝트 또는 패키지 매개 변수에 할당할 수 있습니다.
 
-![SSIS 패키지 실행 작업에 매개 변수 추가](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+![SSIS 패키지 실행 작업의 JSON 스크립트 편집](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
 
-### <a name="run-and-monitor-the-pipeline"></a>파이프라인 실행 및 모니터링
+![SSIS 패키지 실행 작업에 매개 변수 추가](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
+
+![SSIS 패키지 실행 작업에 매개 변수 추가](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
+
+### <a name="run-the-pipeline"></a>파이프라인 실행
 이 섹션에서는 파이프라인 실행을 트리거한 후 모니터링합니다. 
 
 1. 파이프라인 실행을 트리거하려면 도구 모음에서 **트리거**를 클릭하고 **지금 트리거**를 클릭합니다. 
@@ -105,15 +108,17 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 
 2. **파이프라인 실행** 창에서 **마침**을 선택합니다. 
 
-3. 왼쪽의 **모니터** 탭으로 전환합니다. 다른 정보(예: 실행 시작 시간)와 함께 파이프라인 실행 및 해당 상태를 확인합니다. 보기를 새로 고치려면 **새로 고침**을 클릭합니다.
+### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
+
+1. 왼쪽의 **모니터** 탭으로 전환합니다. 다른 정보(예: 실행 시작 시간)와 함께 파이프라인 실행 및 해당 상태를 확인합니다. 보기를 새로 고치려면 **새로 고침**을 클릭합니다.
 
     ![파이프라인 실행](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-4. **작업** 열에서 **작업 실행 보기** 링크를 클릭합니다. 파이프라인에는 하나의 작업(SSIS 패키지 실행 작업)만 있으므로 하나의 작업 실행만 파이프라인으로 표시됩니다.
+2. **작업** 열에서 **작업 실행 보기** 링크를 클릭합니다. 파이프라인에는 하나의 작업(SSIS 패키지 실행 작업)만 있으므로 하나의 작업 실행만 파이프라인으로 표시됩니다.
 
     ![작업 실행](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 
-5. Azure SQL 서버의 SSISDB 데이터베이스에 대해 다음 **쿼리**를 실행하여 패키지가 실행되었는지 확인할 수 있습니다. 
+3. Azure SQL 서버의 SSISDB 데이터베이스에 대해 다음 **쿼리**를 실행하여 패키지가 실행되었는지 확인할 수 있습니다. 
 
     ```sql
     select * from catalog.executions
@@ -121,20 +126,21 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 
     ![패키지 실행 확인](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-6. 파이프라인 작업 실행의 출력에서 SSISDB 실행 ID를 가져올 수 있고 더 포괄적인 실행 로그 및 SSMS에서 오류 메시지를 확인하는 ID를 사용할 수도 있습니다.
+4. 파이프라인 작업 실행의 출력에서 SSISDB 실행 ID를 가져올 수 있고 더 포괄적인 실행 로그 및 SSMS에서 오류 메시지를 확인하는 ID를 사용할 수도 있습니다.
 
     ![실행 ID를 가져옵니다.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 
-> [!NOTE]
-> 또한 파이프라인이 일정대로(시간별, 일별, 등) 실행되도록 파이프라인에 대해 예약된 트리거를 만들 수도 있습니다. 예를 들어 [데이터 팩터리 만들기 - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule)를 참조하세요.
+### <a name="schedule-the-pipeline-with-a-trigger"></a>트리거를 사용하여 파이프라인 예약
 
-## <a name="azure-powershell"></a>Azure PowerShell
-이 섹션에서는 Azure PowerShell을 사용하여 SSIS 패키지를 실행하는 SSIS 작업이 있는 Data Factory 파이프라인을 만듭니다. 
+또한 파이프라인이 일정대로(시간별, 일별, 등) 실행되도록 파이프라인에 대해 예약된 트리거를 만들 수도 있습니다. 예를 들어 [데이터 팩터리 만들기 - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule)를 참조하세요.
+
+## <a name="run-a-package-with-powershell"></a>PowerShell을 사용하여 패키지 실행
+이 섹션에서는 Azure PowerShell을 사용하여 SSIS 패키지를 실행하는 SSIS 패키지 실행 작업이 있는 Data Factory 파이프라인을 만듭니다. 
 
 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다. 
 
 ### <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
-Azure-SSIS IR이 있는 동일한 데이터 팩터리를 사용하거나 별도의 데이터 팩터리를 만들 수 있습니다. 다음 절차에서는 데이터 팩터리를 만드는 단계를 설명합니다. SSIS 작업이 있는 파이프라인을 이 데이터 팩터리에 만듭니다. SSIS 작업은 SSIS 패키지를 실행합니다. 
+Azure-SSIS IR이 있는 동일한 데이터 팩터리를 사용하거나 별도의 데이터 팩터리를 만들 수 있습니다. 다음 절차에서는 데이터 팩터리를 만드는 단계를 설명합니다. SSIS 패키지 실행 작업이 있는 파이프라인을 이 데이터 팩터리에 만듭니다. SSIS 패키지 실행 작업으로 SSIS 패키지를 실행합니다. 
 
 1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름을 지정하고, 명령을 실행합니다. 예: `"adfrg"` 
    
@@ -174,10 +180,10 @@ Azure-SSIS IR이 있는 동일한 데이터 팩터리를 사용하거나 별도�
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 **참여자** 또는 **소유자** 역할의 구성원이거나, 또는 Azure 구독의 **관리자**이어야 합니다.
-* 현재 미국 동부, 미국 동부 2, 유럽 서부 및 동남 아시아 지역에서만 Data Factory를 사용하여 데이터 팩터리를 만들 수 있습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
-### <a name="create-a-pipeline-with-an-ssis-activity"></a>SSIS 작업이 있는 파이프라인 만들기 
-이 단계에서는 SSIS 작업이 있는 파이프라인을 만듭니다. 이 작업은 SSIS 패키지를 실행합니다. 
+### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>SSIS 패키지 실행 작업으로 파이프라인 만들기 
+이 단계에서는 SSIS 패키지 실행 작업으로 파이프라인을 만듭니다. 이 작업은 SSIS 패키지를 실행합니다. 
 
 1. 다음 예제와 비슷한 내용이 포함된 **RunSSISPackagePipeline.json**이라는 JSON 파일을 **C:\ADF\RunSSISPackage** 폴더에 만듭니다.
 
@@ -200,9 +206,9 @@ Azure-SSIS IR이 있는 동일한 데이터 팩터리를 사용하거나 별도�
                     "runtime": "x64",
                     "loggingLevel": "Basic",
                     "packageLocation": {
-                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
+                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
                     },
-                    "environmentPath":   "FolderName/EnvironmentName",
+                    "environmentPath":   "FolderName/EnvironmentName",
                     "projectParameters": {
                         "project_param_1": {
                             "value": "123"
@@ -240,7 +246,7 @@ Azure-SSIS IR이 있는 동일한 데이터 팩터리를 사용하거나 별도�
                         }
                     },
                     "propertyOverrides": {
-                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
+                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
                             "value": 8,
                             "isSensitive": false
                         }
@@ -277,7 +283,7 @@ Azure-SSIS IR이 있는 동일한 데이터 팩터리를 사용하거나 별도�
     Parameters        : {[inputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification], [outputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
     ```
 
-### <a name="create-a-pipeline-run"></a>파이프라인 실행 만들기
+### <a name="run-the-pipeline"></a>파이프라인 실행
 **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 사용하여 파이프라인을 실행합니다. Cmdlet은 향후 모니터링을 위해 파이프라인 실행 ID를 캡처합니다.
 
 ```powershell
@@ -286,7 +292,7 @@ $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataF
                                              -PipelineName $DFPipeLine.Name
 ```
 
-### <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
+### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
 
 다음 PowerShell 스크립트를 실행하여 데이터 복사가 완료될 때까지 지속적으로 파이프라인 실행 상태를 검사합니다. PowerShell 창에서 다음 스크립트를 복사/붙여넣기하고 ENTER 키를 누릅니다. 
 
@@ -311,7 +317,7 @@ while ($True) {
 
 Azure Portal을 사용하여 파이프라인을 모니터링 할 수도 있습니다. 단계별 지침은 [파이프라인 모니터링](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)을 참조하세요.
 
-### <a name="create-a-trigger"></a>트리거 만들기
+### <a name="schedule-the-pipeline-with-a-trigger"></a>트리거를 사용하여 파이프라인 예약
 이전 단계에서는 파이프라인을 주문형으로 실행했습니다. 일정 트리거를 만들어 파이프라인을 예약형으로 실행할 수도 있습니다(매시간, 매일 등).
 
 1. **C:\ADF\RunSSISPackage** 폴더에 다음 내용이 포함된 **MyTrigger.json**이라는 JSON 파일을 만듭니다. 
@@ -377,7 +383,6 @@ Azure Portal을 사용하여 파이프라인을 모니터링 할 수도 있습�
     ```sql
     select * from catalog.executions
     ```
-
 
 ## <a name="next-steps"></a>다음 단계
 다음 블로그 게시물을 참조하십시오.

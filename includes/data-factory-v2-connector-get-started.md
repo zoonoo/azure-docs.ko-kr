@@ -1,13 +1,26 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 8f00a683895faa4813f79fbba2b24ec3f7155eb1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572447"
+---
 <!--
     Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-다음과 같은 도구 또는 SDK 중 하나를 사용하여 복사 작업으로 파이프라인을 만들 수 있습니다. 링크를 선택하면 복사 작업으로 파이프라인을 만드는 단계별 지침을 안내하는 자습서로 이동됩니다. 
+다음 도구 또는 SDK 중 하나를 사용하여 파이프라인에 복사 작업을 사용할 수 있습니다. 단계별 지침을 보려면 링크를 선택하세요.
 
 - [데이터 복사 도구](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
-- [Azure 포털](../articles/data-factory/quickstart-create-data-factory-portal.md)
+- [Azure Portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
 - [.NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
 - [Python SDK](../articles/data-factory/quickstart-create-data-factory-python.md)
 - [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)
 - [REST API](../articles/data-factory/quickstart-create-data-factory-rest-api.md)
-- [Azure Resource Manager 템플릿](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md). 
+- [Azure Resource Manager 템플릿](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md)
 

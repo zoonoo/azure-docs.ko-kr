@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3c3f9a0d0dc40de6c62c21dab0f11a501829ef11
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3d0d468674a2284e9925c1410f2bb8bcbde8f73f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640968"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575313"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>인식 검색을 위한 문제 해결 팁
 
@@ -23,7 +23,7 @@ ms.locfileid: "34640968"
 
 아직 그렇게 하지 않은 경우 BLOB 데이터 원본에 인식 검색 보강을 적용하려면 [자습서: 인식 검색 API를 호출하는 방법 알아보기](cognitive-search-quickstart-blob.md)를 단계별로 실행합니다.
 
-## <a name="tip-1-start-with-a-small-dataset"></a>팁 1: 작은 데이터 집합으로 시작
+## <a name="tip-1-start-with-a-small-dataset"></a>팁 1: 작은 데이터 세트로 시작
 문제를 신속하게 찾는 최상의 방법은 문제를 해결할 수 있는 속도를 높이는 것입니다. 인덱싱 시간을 줄이는 최상의 방법은 인덱싱할 문서 수를 줄이는 것입니다. 
 
 약간의 문서/레코드를 사용하여 데이터 원본을 만들어 시작합니다. 문서 샘플에는 인덱싱할 다양한 문서가 잘 표현되어 있어야 합니다. 
@@ -33,7 +33,7 @@ ms.locfileid: "34640968"
 ## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>팁 2: 데이터 원본 자격 증명이 올바른지 확인
 데이터 원본 연결을 사용하는 인덱서를 정의하기까지 연결의 유효성은 검사되지 않습니다. 인덱서가 데이터에 액세스할 수 없다는 오류가 표시되면 다음을 확인합니다.
 - 연결 문자열이 올바릅니다. 특히 SAS 토큰을 만드는 경우 Azure Search에서 예상한 형식을 사용하는지 확인합니다. 지원되는 다른 형식에 대해 알려면 [자격 증명을 지정하는 방법 섹션](
-https://docs.microsoft.com/en-us/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials)을 참조합니다.
+https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials)을 참조합니다.
 - 인덱서의 사용자 컨테이너 이름은 올바릅니다.
 
 ## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>팁 3: 일부 오류가 있는 경우라도 작동 조건 참조
@@ -100,7 +100,7 @@ https://docs.microsoft.com/en-us/azure/search/search-howto-indexing-azure-blob-s
 ## <a name="tip-7-increase-indexing-throughput"></a>팁 7: 인덱싱 처리량 증가
 
 [병렬 인덱싱](search-howto-large-index.md)의 경우 여러 컨테이너에 데이터를 또는 동일한 컨테이너 내부에 여러 가상 폴더를 저장합니다. 그런 다음, 여러 데이터 원본 및 인덱서 쌍을 만듭니다. 모든 인덱서는 동일한 기술 집합을 사용하며 동일한 대상 검색 인덱스에 쓸 수 있으므로 검색 앱이 이 분할을 알 필요가 없습니다.
-자세한 내용은 [큰 데이터 집합 인덱싱](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)을 참조합니다.
+자세한 내용은 [큰 데이터 세트 인덱싱](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)을 참조합니다.
 
 ## <a name="see-also"></a>참고 항목
 + [빠른 시작: 포털에서 인식 검색 파이프라인 만들기](cognitive-search-quickstart-blob.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: d65b86cc63a4fd39824a6421afd5ce9abb7fd270
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200982"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023828"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>대역폭/처리량 테스트(NTTTCP)
 
@@ -29,11 +29,10 @@ Azure에서 네트워크 처리량 성능을 테스트하는 경우 테스트할
 
 #### <a name="deploying-vms-for-testing"></a>테스트를 위해 VM 배포
 이 테스트의 목적에 맞게, 이러한 두 VM은 동일한 클라우드 서비스 또는 동일한 가용성 집합에 있어야 합니다. 그래야 내부 IP를 사용하고 테스트에서 부하 분산 장치를 제외할 수 있습니다. VIP로 테스트할 수 있지만 이러한 종류의 테스트는 이 문서에서 다루지 않습니다.
- 
+ 
 수신기의 IP 주소를 기록해 둡니다. 해당 IP를 "a.b.c.r"로 지칭하겠습니다.
 
-VM의 코어 수를 기록해 둡니다. 이것을 "\#num\_cores"로 지칭하겠습니다.
- 
+VM의 코어 수를 기록해 둡니다. 이것을 "\#num\_cores" 로 지칭하겠습니다.
 송신기 VM과 수신기 VM에서 300초(또는 5분) 동안 NTTTCP 테스트를 실행합니다.
 
 팁: 이 테스트를 처음 설정할 때는 더 빠른 피드백을 얻기 위해 테스트 기간을 더 짧게 유지할 수 있습니다. 이 도구가 예상대로 작동하면 가장 정확한 결과를 얻기 위해 테스트 기간을 300초로 연장합니다.
@@ -54,9 +53,9 @@ VM의 코어 수를 기록해 둡니다. 이것을 "\#num\_cores"로 지칭하�
 
 #### <a name="get-ntttcp-onto-the-vms"></a>VM에 NTTTCP를 가져옵니다.
 
-최신 버전 <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>를 다운로드합니다.
+최신 버전을 다운로드합니다(<https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>).
 
-또는 <https://www.bing.com/search?q=ntttcp+download>\<로 이동되면 최신 버전을 검색합니다. 첫 번째로 검색되는 항목을 클릭합니다.
+또는 이동된 경우 검색합니다(<https://www.bing.com/search?q=ntttcp+download>\<). 첫 번째로 검색되는 항목입니다.
 
 NTTTCP를 c:\\tools와 같은 별도 폴더에 추가하는 것을 고려합니다.
 
@@ -67,7 +66,7 @@ NTTTCP를 c:\\tools와 같은 별도 폴더에 추가하는 것을 고려합니�
 
 netsh advfirewall firewall add rule program=\<PATH\>\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
-예를 들어 ntttcp.exe를 "c:\\tools" 폴더에 복사한 경우 명령은 다음과 같습니다. 
+예를 들어 ntttcp.exe를 "c:\\tools" 폴더에 복사한 경우 명령은 다음과 같습니다. 
 
 netsh advfirewall firewall add rule program=c:\\tools\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
@@ -84,7 +83,7 @@ ntttcp -r –m 8,\*,10.0.0.4 -t 300
 
 수신기에서 NTTTCP를 시작합니다(PowerShell이 아닌 **CMD에서 실행**).
 
-ntttcp -s –m 8,\*,10.0.0.4 -t 300 
+ntttcp -s –m 8,\*,10.0.0.4 -t 300 
 
 결과를 기다립니다.
 
@@ -97,19 +96,19 @@ Linux VM(송신기 및 수신기 둘 다)에서 다음 명령을 실행하여 VM
 
 CentOS - Git 설치:
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
 Ubuntu - Git 설치:
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
 둘 다에서 만들고 설치합니다.
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
 Windows 예제와 같이 Linux 수신기의 IP를 10.0.0.4로 가정합니다.
@@ -125,7 +124,7 @@ ntttcp -r -t 300
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
+ 
 시간 매개 변수를 지정하지 않을 경우 기본 테스트 시간은 60초입니다.
 
 ## <a name="testing-between-vms-running-windows-and-linux"></a>Windows 및 LINUX가 실행되는 VM 간의 테스트:

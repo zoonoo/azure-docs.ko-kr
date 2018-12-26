@@ -2,26 +2,18 @@
 title: Azure VPN Gateway | Microsoft Docs
 description: VPN Gateway란 무엇이고, VPN Gateway를 사용하여 Azure 가상 네트워크에 연결하는 방법은 무엇인지 알아봅니다. IPsec/IKE 사이트 간 크로스-프레미스 및 VNet 대 VNet 솔루션은 물론 지점과 사이트 간 VPN을 포함합니다.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
-ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/19/2018
+ms.date: 10/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 01052d8058d1b1e3a03f584ad66da2ad79f4c425
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d35e7cfbf55d0dc53214bbb7b1153c3270c611c2
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193209"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471325"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 
@@ -31,7 +23,7 @@ VPN Gateway는 공용 인터넷을 통해 Azure 가상 네트워크와 온-프�
 
 가상 네트워크 게이트웨이는 *게이트웨이 서브넷*이라는 사용자가 만든 특정 서브넷에 배포되는 둘 이상의 가상 머신으로 구성됩니다. 게이트웨이 서브넷에 있는 VM은 가상 네트워크 게이트웨이를 만들 때 생성됩니다. VM을 구성한 가상 네트워크 게이트웨이는 라우팅 테이블 및 게이트웨이에 특정한 게이트웨이 서비스를 포함합니다. 가상 네트워크 게이트웨이의 일부인 VM은 직접 구성할 수 없고 게이트웨이 서브넷에 추가 리소스를 배포해서는 안 됩니다.
 
-가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다. 가상 네트워크 게이트웨이를 만들 때 게이트웨이 VM은 게이트웨이 서브넷에 배포되고 지정한 설정으로 구성됩니다. 사용자가 구성하는 설정 중 하나는 게이트웨이 유형입니다. 게이트웨이 유형 ‘vpn’은 만든 가상 네트워크 게이트웨이의 유형이 VPN 게이트웨이임을 지정합니다. VPN Gateway를 만든 후에 해당 VPN Gateway와 다른 VPN Gateway(VNet 대 VNet) 간에 IPsec/IKE VPN 터널 연결을 만들거나, VPN Gateway와 온-프레미스 VPN 장치 간(사이트 간)의 크로스-프레미스 IPsec/IKE VPN 터널 연결을 생성할 수 있습니다. 지점과 사이트 간 VPN 연결(IKEv2 또는 SSTP를 통한 VPN)을 생성하여 회의실의 또는 집과 같은 원격 위치에서 가상 네트워크에 연결할 수 있습니다.
+가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다. 가상 네트워크 게이트웨이를 만들 때 게이트웨이 VM은 게이트웨이 서브넷에 배포되고 지정한 설정으로 구성됩니다. 사용자가 구성하는 설정 중 하나는 게이트웨이 유형입니다. 게이트웨이 유형 ‘vpn’은 만든 가상 네트워크 게이트웨이의 유형이 VPN 게이트웨이임을 지정합니다. VPN Gateway를 만든 후에 해당 VPN Gateway와 다른 VPN Gateway(VNet 대 VNet) 간에 IPsec/IKE VPN 터널 연결을 만들거나, VPN Gateway와 온-프레미스 VPN 디바이스 간(사이트 간)의 크로스-프레미스 IPsec/IKE VPN 터널 연결을 생성할 수 있습니다. 지점과 사이트 간 VPN 연결(IKEv2 또는 SSTP를 통한 VPN)을 생성하여 회의실의 또는 집과 같은 원격 위치에서 가상 네트워크에 연결할 수 있습니다.
 
 ## <a name="configuring"></a>VPN Gateway 구성
 
@@ -77,7 +69,7 @@ VPN Gateway 연결에 사용할 수 있는 다양한 구성이 있다는 사실�
 
 ### <a name="S2S"></a>사이트 간
 
-S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통한 연결입니다. S2S 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. S2S 연결은 공용 IP 주소가 할당되어 있고 NAT 다음에 위치하지 않는 온-프레미스에 있는 VPN 장치를 필요로 합니다. VPN 장치 선택에 대한 자세한 내용은 [VPN Gateway FAQ - VPN 장치](vpn-gateway-vpn-faq.md#s2s)를 참조하세요.
+S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통한 연결입니다. S2S 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. S2S 연결은 공용 IP 주소가 할당되어 있고 NAT 다음에 위치하지 않는 온-프레미스에 있는 VPN 디바이스를 필요로 합니다. VPN 디바이스 선택에 대한 자세한 내용은 [VPN Gateway FAQ - VPN 디바이스](vpn-gateway-vpn-faq.md#s2s)를 참조하세요.
 
 ![Azure VPN Gateway 사이트 간 연결 예제](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
@@ -95,7 +87,7 @@ S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터�
 
 P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 솔루션은 집 또는 회의실과 같은 원격 위치에서 Azure VNet에 연결하려는 재택 근무자에게 유용합니다. 또한 P2S VPN은 VNet에 연결해야 하는 클라이언트가 몇 개만 있는 경우 S2S VPN 대신 사용할 수 있는 유용한 솔루션입니다.
 
-S2S 연결과 달리 P2S 연결은 온-프레미스 공용 IP 주소 또는 VPN 장치가 필요하지 않습니다. P2S 연결과 S2S 연결에 대한 구성 요구 사항이 모두 충족될 경우 동일한 VPN Gateway를 통해 두 연결을 함께 사용할 수 있습니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요.
+S2S 연결과 달리 P2S 연결은 온-프레미스 공용 IP 주소 또는 VPN 디바이스가 필요하지 않습니다. P2S 연결과 S2S 연결에 대한 구성 요구 사항이 모두 충족될 경우 동일한 VPN Gateway를 통해 두 연결을 함께 사용할 수 있습니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요.
 
 
 ![Azure VPN Gateway 지점 및 사이트 연결 예제](./media/vpn-gateway-about-vpngateways/point-to-site.png)

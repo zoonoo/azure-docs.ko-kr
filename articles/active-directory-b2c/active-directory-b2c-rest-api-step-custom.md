@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 74a84a72b76a8095db69c5d2cf1cf21c9cdad0a6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: dddb42f53d4bb59113df937799bd4de10d31491c
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447985"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338782"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 오케스트레이션 단계로 통합
 
@@ -44,7 +44,7 @@ IEF는 클레임으로 데이터를 보내고 다시 클레임으로 데이터�
 ## <a name="prerequisites"></a>필수 조건
 
 - [시작](active-directory-b2c-get-started-custom.md)에서 설명한 대로 로컬 계정 등록/로그인을 완료하도록 구성된 Azure AD B2C 테넌트
-- 상호 작용할 REST API 끝점 이 연습에서는 간단한 웹후크 Azure 함수 앱을 예제로 사용합니다.
+- 상호 작용할 REST API 엔드포인트 이 연습에서는 간단한 웹후크 Azure 함수 앱을 예제로 사용합니다.
 - *권장*: [유효성 검증 단계로 REST API 클레임 교환을](active-directory-b2c-rest-api-validation-custom.md) 완료
 
 ## <a name="step-1-prepare-the-rest-api-function"></a>1단계 - REST API 함수 준비
@@ -245,7 +245,7 @@ ProfileEdit.xml RP(신뢰 당사자) 파일을 편집하고 `<TechnicalProfile I
   "exp": 1493053292,
   "nbf": 1493049692,
   "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "sub": "a58e7c6c-7535-4074-93da-b0023fbaf3ac",
   "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
   "acr": "b2c_1a_trustframeworkprofileedit",

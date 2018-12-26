@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: dwgeo
-ms.openlocfilehash: b6aca2928465b73e35ac15f01bb776b1f69add0b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 204a2122f38306f2c883436fb13397b45fd91980
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783122"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254624"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>클라이언트가 Azure Media Services 키 배달 서비스로 토큰을 전달하는 방법 알아보기
 고객은 플레이어가 키를 얻을 수 있도록 인증을 위해 Azure Media Services 키 배달 서비스로 토큰을 전달하는 방법에 대해 자주 질문합니다. Media Services는 SWT(단순 웹 토큰) 및 JWT(JSON Web Token) 형식을 지원합니다. 토큰 인증은 시스템에서 일반적인 암호화 또는 AES(Advanced Encryption Standard) 봉투 암호화의 수행 여부와 상관없이 모든 키 형식에 적용할 수 있습니다.
@@ -52,7 +52,7 @@ ms.locfileid: "33783122"
     ```
     인증 토큰을 토큰 요소에 넣습니다.
 
-- 대체 HLS(HTTP 라이브 스트리밍) 재생 목록을 통해. iOS/Safari에서 AES + HLS 재생에 대한 토큰 인증을 구성해야 할 경우 토큰에서 직접 보낼 수 있는 방법은 없습니다. 이 시나리오를 사용하도록 재생 목록을 대체하는 방법에 대한 자세한 내용은 이 [블로그 게시물](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)을 참조하세요.
+- 대체 HLS(HTTP 라이브 스트리밍) 재생 목록을 통해. iOS/Safari에서 AES + HLS 재생에 대한 토큰 인증을 구성해야 할 경우 토큰에서 직접 보낼 수 있는 방법은 없습니다. 이 시나리오를 사용하도록 재생 목록을 대체하는 방법에 대한 자세한 내용은 이 [블로그 게시물](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

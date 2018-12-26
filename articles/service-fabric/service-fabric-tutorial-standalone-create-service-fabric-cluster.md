@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: 7ba5fa1d4c5b87d1c4828ee98dae36f415d37c20
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344158"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240344"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>자습서: Service Fabric 클러스터 설치 및 만들기
 
@@ -37,7 +37,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Windows Server용 Service Fabric 패키지 다운로드
 
-Service Fabric은 독립 실행형 Service Fabric 클러스터를 만드는 설치 패키지를 제공합니다.  로컬 컴퓨터에 [설치 패키지를 다운로드](http://go.microsoft.com/fwlink/?LinkId=730690)합니다.  성공적으로 다운로드되면 EC2 인스턴스에 대한 RDP 연결을 통해 복사하고, 바탕 화면에 붙여넣습니다.
+Service Fabric은 독립 실행형 Service Fabric 클러스터를 만드는 설치 패키지를 제공합니다.  로컬 컴퓨터에 [설치 패키지를 다운로드](https://go.microsoft.com/fwlink/?LinkId=730690)합니다.  성공적으로 다운로드되면 EC2 인스턴스에 대한 RDP 연결을 통해 복사하고, 바탕 화면에 붙여넣습니다.
 
 zip 파일을 선택하고 바로 가기 메뉴를 열고 **모두 추출** > **추출**을 선택합니다.  파일을 추출하면 바탕 화면에 zip 파일 이름과 동일한 폴더를 생성합니다.
 
@@ -63,7 +63,7 @@ zip 파일을 선택하고 바로 가기 메뉴를 열고 **모두 추출** > **
 
 그런 다음, 몇 가지 속성을 업데이트해야 합니다.  34줄에서 진단 저장소에 대한 연결 문자열을 수정해야 합니다. `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`로 표시되어야 합니다.
 
-마지막으로 구성의 `nodeTypes` 섹션에 Windows에서 사용할 임시 포트를 매핑하는 새 섹션을 추가합니다.  구성 파일은 다음과 같이 표시됩니다.
+마지막으로 구성의 `nodeTypes` 섹션에 Windows에서 사용할 임시 포트를 매핑하는 새 섹션을 추가합니다.  구성 파일은 다음과 비슷합니다.
 
 ```json
 "applicationPorts": {
@@ -141,7 +141,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 > [!div class="checklist"]
 > * 연결 문자열 구성
-> * 응용 프로그램 빌드
+> * 애플리케이션 빌드
 > * 응용 프로그램 실행
 > * 연결 수의 유효성 검사
 

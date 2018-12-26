@@ -5,15 +5,15 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 05/29/2018
+ms.date: 11/11/2018
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 7454e96a2a05bf89a0455674a4f144534c374c71
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4dde0a47f0452da2dd951df86ccb6e02a44521ed
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38733296"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616642"
 ---
 ## <a name="access-the-media-services-api"></a>Media Services API 액세스
 
@@ -23,7 +23,7 @@ Azure Media Services API에 연결하려면 Azure AD 서비스 주체 인증을 
 
 다음 명령은 `json` 출력을 반환합니다.
 
-```azurecli-interactive
+```azurecli
 az ams account sp create --account-name amsaccount --resource-group amsResourceGroup
 ```
 
@@ -31,21 +31,21 @@ az ams account sp create --account-name amsaccount --resource-group amsResourceG
 
 ```json
 {
-  "AadClientId": "00000000-4cdd-418a-8a72-0755ace03de5",
+  "AadClientId": "00000000-0000-0000-0000-000000000000",
   "AadEndpoint": "https://login.microsoftonline.com",
-  "AadSecret": "00000000-02f5-4bf2-9057-1c4f7baff155",
-  "AadTenantId": "00000000-86f1-41af-91ab-2d7cd011db47",
-  "AccountName": "amsaccount22",
+  "AadSecret": "00000000-0000-0000-0000-000000000000",
+  "AadTenantId": "00000000-0000-0000-0000-000000000000",
+  "AccountName": "amsaccount",
   "ArmAadAudience": "https://management.core.windows.net/",
   "ArmEndpoint": "https://management.azure.com/",
   "Region": "West US 2",
-  "ResourceGroup": "amsResourceGroup2",
-  "SubscriptionId": "00000000-6753-4ca2-b1ae-193798e2c9d8"
+  "ResourceGroup": "amsResourceGroup",
+  "SubscriptionId": "00000000-0000-0000-0000-000000000000"
 }
 ```
 
 응답에서 `xml`을 가져오려면 다음 명령을 사용합니다.
 
-```azurecli-interactive
+```azurecli
 az ams account sp create --account-name amsaccount --resource-group amsResourceGroup --xml
 ```

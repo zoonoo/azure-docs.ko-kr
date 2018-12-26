@@ -1,9 +1,9 @@
 ---
-title: 이 문서에서는 Azure 스택 혜택 및 계획을 업데이트 하는 방법을 배웁니다 | Microsoft Docs
-description: 이 문서에서는 기존 Azure 스택 제공 및 계획 보기 및 수정 하는 방법을 설명 합니다.
+title: 이 문서에서는 Azure Stack 제품 및 계획을 업데이트 하는 방법을 알아봅니다 | Microsoft Docs
+description: 이 문서에서는 기존 Azure Stack 제품 및 계획 보기 및 수정 하는 방법을 설명 합니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,44 +13,49 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.custom: mvc
-ms.date: 06/07/2018
-ms.author: brenduns
+ms.date: 07/30/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: a84148a3ac31d51ff30cebffab00e5fec8fdaa87
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: f6b85d2197a4db9cdfc526e5857e4b6ce707beb2
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35238509"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076794"
 ---
-# <a name="azure-stack-add-on-plans"></a>Azure 스택 추가 기능 계획
-Azure 스택 연산자로 원하는 서비스와 사용자가 구독할 수에 대 한 적용 가능한 할당량 포함 하는 계획을 만듭니다. 이러한 [ *계획 기본* ](azure-stack-create-plan.md) 사용자에 게 제공 해야 하는 핵심 서비스를 포함 하 고 제안 당 한 개의 기본 계획을 하나만 지정할 수 있습니다. 제안을 수정 해야 하는 경우 사용할 수 있습니다 *추가 기능이 계획* 컴퓨터, 저장소, 확장 하는 계획을 수정할 수 있는 또는 초기 제공 하는 기본 계획 할당량을 네트워크입니다. 
+# <a name="azure-stack-add-on-plans"></a>Azure Stack 추가 요금제
 
-하지만 단일 계획에 결합 하는 모든 경우에 따라 최적의 계획 및 추가 기능 계획을 사용 하는 추가 서비스를 제공 하는 기본을 사용할 하는 것이 좋습니다. 예를 들어, 모든 PaaS 서비스 계획 추가 기능으로 처리 된 기본 계획의 일환으로 IaaS 서비스를 제공 하도록 결정할 수 있습니다. Azure 스택 환경에서 리소스의 사용을 제어 하 계획을 사용할 수도 있습니다. 예를 들어 모든 사용자가 리소스 사용에 주의 해야 합니다 (필요한 서비스)에 따라 비교적 작은 기본 계획이 있을 수 있습니다 및 사용자가 용량에 도달 하는 대로 하는 경고를 발생 시킬 리소스 할당 사용 이미 했으며 자신의 할당 된 계획에 기반 합니다. 사용자는 여기에서 추가 리소스에 대 한 사용 가능한 추가 기능 계획을 선택할 수 있습니다. 
+Azure Stack 운영자를 수정 하려면 추가 기능 계획을 만들를 [ *기본 계획* ](azure-stack-create-plan.md) 추가 서비스를 제공 하거나 확장 하려는 경우 *컴퓨터*, *저장소* , 또는 *네트워크* 할당량이 기본 계획 초기 제안 초과 합니다. 추가 요금제는 기본 계획을 수정 하 고는 사용자 구독을 선택할 수 있는 선택적 확장. 
+
+단일 계획에서 결합 하는 모든 경우 최적의 경우가 있습니다. 다른 자료를 계획 하 고 다음 추가 요금제를 사용 하 여 추가 서비스를 제공 해야 할 수 있습니다. 예를 들어 기본 계획의 일부로 추가 요금제로 처리 하는 모든 PaaS 서비스를 사용 하 여 IaaS 서비스를 제공 하도록 결정할 수 있습니다.
+
+추가 요금제를 사용 하는 이유는 리소스 사용에 주의 해야 하는 사용자를 돕는 것입니다. 이렇게 하려면 (필요한 서비스)에 따라 비교적 작은 할당량을 포함 하는 기본 계획을 사용 하 여 시작할 수 있습니다. 그런 다음 사용자 용량에 도달 하면, 이러한는 경고는 사용한 자신의 할당 된 계획에 따라 리소스를 할당 하는. 여기에서 사용자는 추가 리소스를 제공 하는 추가 요금제를 선택한 수 없습니다.
 
 > [!NOTE]
-> 사용자는 추가 기능이 계획에 추가 하는 기존 제공 구독 추가 리소스 표시 한 시간 걸릴 수입니다. 
+> 할당량을 확장 하는 추가 요금제를 사용 하지 않으려는 경우에 수도 있습니다 [할당량의 원래 구성 편집](azure-stack-quota-types.md#to-edit-a-quota)합니다. 
+
+기존 제품 구독에는 추가 요금제를 추가 하는 사용자, 추가 리소스를 표시 한 시간 걸릴 수 있습니다. 
 
 ## <a name="create-an-add-on-plan"></a>추가 기능 계획 만들기
-기존 제안을 수정 하 여 추가 기능 계획 생성 됩니다.
+추가 요금제는 기존 제품을 수정 하 여 생성 됩니다.
 
-1. 클라우드 관리자 권한으로 Azure 스택 관리자 포털에 로그인 합니다.
-2. 에 사용 되는 동일한 단계에 따라 [새 기본 계획](azure-stack-create-plan.md) 이전에 제공 되지 않은 서비스를 제공 하는 새 계획을 만듭니다. 이 예제에서는 키 자격 증명 모음 (Microsoft.KeyVault) 서비스를 새 계획에 포함 됩니다.
-3. 관리자 포털에서 클릭 **제공** 한 다음 제안 하는 추가 기능 계획으로 업데이트를 선택 합니다.
+1. 클라우드 관리자는 Azure Stack 관리자 포털에 로그인 합니다.
+2. 하는 데 동일한 단계를 수행 [기본 계획을 새로 만들려면](azure-stack-create-plan.md) 된 이전에 제공 되는 서비스를 제공 합니다. 새 계획을 만듭니다. 이 예제에서는 키 자격 증명 모음 (Microsoft.KeyVault) 서비스를 새 계획에 포함 됩니다.
+3. 관리자 포털에서 클릭 **제공** 한 다음 추가 기능 계획으로 업데이트 하는 제품을 선택 합니다.
 
    ![](media/create-add-on-plan/1.PNG)
 
-4.  제공 속성의 아래쪽으로 스크롤하여 선택 **추가 기능이 계획**합니다. **추가**를 클릭합니다.
+4.  선택한 제품 속성의 아래쪽으로 스크롤하여 **추가 기능 계획**합니다. **추가**를 클릭합니다.
    
     ![](media/create-add-on-plan/2.PNG)
 
-5. 추가할 계획을 선택 합니다. 이 예제에서는 계획 이라고 **키 자격 증명 모음 계획**, 클릭 하 고 **선택** 제품에 계획을 추가 하려면. 계획 제품에 성공적으로 추가 된 알림을 받게 됩니다.
+5. 추가할 계획을 선택 합니다. 이 예제에서는 계획 이라고 **키 자격 증명 모음 계획**합니다. 계획을 선택한 후 클릭 **선택** 계획 제품에 추가 합니다. 계획 제품에 성공적으로 추가 된 알림을 받게 됩니다.
    
     ![](media/create-add-on-plan/3.PNG)
 
-6. 새 추가 기능 계획 있는지 확인 하려면 제품에 포함 된 계획이 나열 된 추가 기능 목록을 검토 합니다.
+6. 새 추가 기능 계획을 확인 하는 제품에 포함 된 계획이 나열 된 추가 기능 목록을 검토 합니다.
    
     ![](media/create-add-on-plan/4.PNG)
 
 ## <a name="next-steps"></a>다음 단계
-[제품 만들기](azure-stack-create-offer.md)
+[제안 만들기](azure-stack-create-offer.md)

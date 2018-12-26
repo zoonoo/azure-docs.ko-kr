@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management에 대한 액세스 권한을 제공하는 방법 - Azure | Microsoft Docs
-description: PIM을 관리할 수 있도록 Azure Active Directory Privileged Identity Management 확장을 사용하여 사용자에 역할을 추가하는 방법을 알아봅니다.
+title: PIM 관리를 위해 다른 관리자에게 액세스 권한 부여 - Azure | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)을 관리하기 위해 다른 관리 기관에 액세스 권한을 부여하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,49 +9,82 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: protection
-ms.date: 06/06/2017
+ms.component: pim
+ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d7f5e5aeba522ca75bba7c74d62147a3ff5edd95
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9d5fce5a80ac1f281fdbe6afe7f9a97816807ccc
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723315"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287090"
 ---
-# <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management를 관리하기 위해 액세스 권한 제공
-조직에 대한 Azure AD Privileged Identity Management (PIM)을 사용하는 전역 관리자는 자동적으로 역할 할당 및 PIM에 대한 액세스를 가집니다. 하지만, 기본적으로 다른 전역 관리자를 포함하여 아무도 쓰기 액세스 권한을 갖지 못합니다. 다른 전역 관리자, 보안 관리자 및 보안 판독기에는 Azure AD PIM에 대한 읽기 전용 액세스 권한이 있습니다. PIM에 대한 액세스를 제공하기 위해 첫 번째 사용자가 다른 사용자를 **권한 있는 역할 관리자** 역할에 할당할 수 있습니다.
+# <a name="grant-access-to-other-administrators-to-manage-pim"></a>PIM 관리를 위해 다른 관리자에게 액세스 권한 부여
+
+조직에 대한 Azure AD PIM(Privileged Identity Management)을 사용하는 전역 관리자는 자동적으로 역할 할당 및 PIM에 대한 액세스를 가집니다. 하지만, 기본적으로 다른 전역 관리자를 포함하여 아무도 쓰기 액세스 권한을 갖지 못합니다. 다른 전역 관리자, 보안 관리자 및 보안 읽기 권한자에는 PIM에 대한 읽기 전용 액세스 권한이 있습니다. PIM에 대한 액세스 권한을 부여하기 위해 첫 번째 사용자가 다른 사용자를 **권한 있는 역할 관리자** 역할에 할당할 수 있습니다.
 
 > [!NOTE]
-> Azure AD PIM 관리에 Azure MFA가 필요합니다. Azure MFA에 대해 Microsoft 계정을 등록할 수 없기 때문에 Microsoft 계정으로 로그인하는 사용자는 Azure AD PIM에 액세스할 수 없습니다.
-> 
-> 
+> PIM 관리에 Azure MFA가 필요합니다. Azure MFA에 대해 Microsoft 계정을 등록할 수 없기 때문에 Microsoft 계정으로 로그인하는 사용자는 PIM에 액세스할 수 없습니다.
 
 한 명의 사용자가 잠긴 경우 또는 해당 계정이 삭제된 경우 최소한 두 명의 사용자가 항상 권한 있는 역할 관리자 역할에 있어야 합니다.
 
-## <a name="give-another-user-access-to-manage-pim"></a>PIM을 관리하기 위해 다른 사용자에게 액세스 권한 제공
-1. [Azure 포털](https://portal.azure.com/) 에 로그인하고 대시보드에서 **Azure AD Privileged Identity Management** 앱을 선택합니다.
-2. **권한 있는 역할 관리** > **권한 있는 역할 관리자** > **추가**를 선택합니다.
-   
-    ![권한 있는 역할 관리자 추가 - 스크린샷](./media/pim-how-to-give-access-to-pim/PIM_add_PRA.png)
-3. 관리되는 사용자 추가 블레이드에서 1 단계는 이미 완료된 상태입니다. 2 단계를 선택하여, **사용자를 선택** 하고 추가할 사용자를 검색합니다.
-   
-    ![사용자 선택 - 스크린 샷](./media/pim-how-to-give-access-to-pim/PIM_select_users.png)
-4. 검색 결과에서 사용자를 선택하고 **완료**를 클릭합니다.
-5. **확인** 을 클릭하여 선택 내용을 저장합니다. 선택한 사용자가 권한 있는 역할 관리자 목록에 나타납니다.
-   
-   * 다른 사람에게 새 역할을 할당할 때마다 자동으로 해당 역할을 활성화할 자격이 있는 것으로 설정됩니다. 영구적으로 역할에 지정하려면 목록에서 사용자를 클릭합니다. 사용자 정보 메뉴에서 **make perm** (영구 지정)을 선택합니다.
-6. 사용자에게 [Azure AD Privileged Identity Management 시작](pim-getting-started.md)링크를 보냅니다.
+## <a name="grant-access-to-manage-pim"></a>PIM을 관리하기 위한 액세스 권한 부여
 
-## <a name="remove-another-users-access-rights-for-managing-pim"></a>PIM 관리에 대한 다른 사용자의 액세스 권한 제거
-권한 있는 역할 관리자 역할에서 사용자를 제거하기 전에 항상 두 명의 사용자가 이 역할에 할당되어 있는지 확인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-1. PIM 대시보드에서 역할 **권한 있는 역할 관리자**를 클릭합니다.  현재 해당 역할 상태인 사용자 목록이 표시됩니다.
-2. 사용자 목록에서 사용자를 클릭합니다.
-3. **제거**를 클릭합니다.  확인 메시지가 나타납니다.
-4. 역할로부터 사용자를 제거하려면 **예** 를 클릭합니다.
+1. **Azure AD Privileged Identity Management**를 엽니다.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+1. **Azure AD 디렉터리 역할**을 클릭합니다.
+
+1. **역할**을 클릭합니다.
+
+    ![PIM Azure AD 디렉터리 역할 - 역할](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+
+1. **권한 있는 역할 관리자** 역할을 클릭하여 멤버 페이지를 엽니다.
+
+    ![권한 있는 역할 관리자 - 멤버](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
+
+1. **멤버 추가**를 클릭하여 관리되는 멤버 추가 창을 엽니다.
+
+1. **멤버 선택**을 클릭하여 멤버 선택 창을 엽니다.
+
+    ![권한 있는 역할 관리자 - 멤버 선택](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
+
+1. 멤버를 선택한 다음 **선택**을 클릭합니다.
+
+1. **확인**을 클릭하여 해당 멤버가 **권한 있는 역할 관리자** 역할에 적합하도록 지정합니다.
+
+    PIM의 다른 사람에게 새 역할을 할당하면 자동으로 해당 역할을 활성화할 **자격**이 있는 것으로 구성됩니다.
+
+1. 멤버를 영구적으로 지정하려면 권한 있는 역할 관리자 멤버 목록에서 해당 사용자를 클릭합니다.
+
+1. **자세한**, **영구 상태로 만들기**를 차례로 클릭하여 할당을 영구로 만듭니다.
+
+    ![권한 있는 역할 관리자 - 영구 상태로 만들기](./media/pim-how-to-give-access-to-pim/pim-pra-make-permanent.png)
+
+1. 사용자에게 [PIM 사용 시작](pim-getting-started.md) 링크를 보냅니다.
+
+## <a name="remove-access-to-manage-pim"></a>PIM을 관리하기 위한 액세스 권한 제거
+
+권한 있는 역할 관리자 역할에서 사용자를 제거하기 전에 항상 두 명 이상의 사용자가 이 역할에 할당되어 있는지 확인합니다.
+
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+
+1. **Azure AD Privileged Identity Management**를 엽니다.
+
+1. **Azure AD 디렉터리 역할**을 클릭합니다.
+
+1. **역할**을 클릭합니다.
+
+1. **권한 있는 역할 관리자** 역할을 클릭하여 멤버 페이지를 엽니다.
+
+1. 제거하려는 사용자 옆에 확인 표시를 추가하고 **멤버 제거**를 클릭합니다.
+
+    ![권한 있는 역할 관리자 - 멤버 제거](./media/pim-how-to-give-access-to-pim/pim-pra-remove-member.png)
+
+1. 역할에서 멤버를 제거할 것인지 묻는 메시지가 표시되면 **예**를 클릭합니다.
+
 ## <a name="next-steps"></a>다음 단계
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [PIM 사용 시작](pim-getting-started.md)

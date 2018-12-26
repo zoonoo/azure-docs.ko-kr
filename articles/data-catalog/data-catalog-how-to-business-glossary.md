@@ -1,25 +1,19 @@
 ---
-title: "Azure Data Catalog에서 관리 태그 지정을 위한 비즈니스 용어집 설정 | Microsoft Docs"
-description: "Azure Data Catalog의 비즈니스 용어집에서 일반적인 비즈니스 어휘를 정의하고 등록된 데이터 자산에 태그를 지정하는 데 사용하는 방법을 안내하는 문서."
+title: Azure Data Catalog에서 관리 태그 지정을 위한 비즈니스 용어집 설정
+description: Azure Data Catalog의 비즈니스 용어집에서 일반적인 비즈니스 어휘를 정의하고 등록된 데이터 자산에 태그를 지정하는 데 사용하는 방법을 안내하는 문서.
 services: data-catalog
-documentationcenter: 
-author: steelanddata
-manager: NA
-editor: 
-tags: 
+author: markingmyname
+ms.author: maghan
 ms.assetid: b3d63dbe-1ae7-499f-bc46-42124e950cd6
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: a80b7fd0c21851a6670431e9b8647ca5cf5f51ec
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9c5d7ac792f2a68d6187c7c2831b1e7404f41f30
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409425"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>관리 태그 지정을 위한 비즈니스 용어집 설정
 ## <a name="introduction"></a>소개
@@ -30,7 +24,7 @@ Azure Data Catalog는 데이터 원본 검색을 제공하여 사용자가 분�
 하지만 태그 지정이 자체적으로 문제를 유발하는 경우도 있습니다. 태그 지정을 통해 발생할 수 있는 문제의 예:
 
 * 일부 자산에 대해서는 약어를 사용하고 다른 자산에는 확장된 텍스트를 사용하는 경우. 자산에 동일한 태그를 지정하는 것이 목적이긴 하지만, 이렇게 비일관적으로 작업하면 자산을 검색하는데 방해가 됩니다.
-* 의미의 잠재적 변형은 컨텍스트에 따라 다릅니다. 예를 들어, 고객 데이터 집합의 *Revenue*라는 태그는 고객별 매출을 의미하지만, 분기별 판매 데이터 집합에서는 회사의 분기별 수입을 의미할 수 있습니다.  
+* 의미의 잠재적 변형은 컨텍스트에 따라 다릅니다. 예를 들어, 고객 데이터 세트의 *Revenue*라는 태그는 고객별 매출을 의미하지만, 분기별 판매 데이터 세트에서는 회사의 분기별 수입을 의미할 수 있습니다.  
 
 이러한 문제 및 그 밖의 유사한 문제를 해결하기 위해, 데이터 카탈로그에 비즈니스 용어집이 포함됩니다.
 

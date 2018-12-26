@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 8b22b4238b20f56727d1c7858094328ab8817dad
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b7e6c4911081d3b83ed99ab7316cb6fd810a0d60
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624927"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048728"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 R 코드로 U-SQL 스크립트 확장
 
@@ -98,8 +97,8 @@ U-SQL 스크립트를 사용하여 DEPLOY RESOURCE 문과 함께 R 스크립트�
 * 일단 U-SQL에서 R 입력 데이터 프레임을 만들거나 `stringsAsFactors: true` 리듀서 매개 변수를 설정하여 U-SQL 문자열을 R 코드의 요소로 변환할 수 있습니다.
 
 ### <a name="schemas"></a>스키마
-* U-SQL 데이터 집합에는 열 이름이 중복될 수 없습니다.
-* U-SQL 데이터 집합 열 이름은 문자열이어야 합니다.
+* U-SQL 데이터 세트에는 열 이름이 중복될 수 없습니다.
+* U-SQL 데이터 세트 열 이름은 문자열이어야 합니다.
 * 열 이름은 U-SQL 및 R 스크립트에서 동일해야 합니다.
 * 읽기 전용 열이 UDO의 출력 스키마의 일부이면 U-SQL 테이블에 자동으로 다시 주입되기 때문에 이 읽기 전용 열은 출력 데이터 프레임의 일부가 될 수 없습니다.
 

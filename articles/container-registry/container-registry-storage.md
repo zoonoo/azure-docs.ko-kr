@@ -2,18 +2,17 @@
 title: Azure Container Registry의 이미지 저장소
 description: 보안, 중복성 및 용량을 포함하여 Docker 컨테이너 이미지가 Azure Container Registry에 저장되는 방식에 대한 세부 정보입니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: marsma
-ms.openlocfilehash: 92e60b4213cb80d193a7c35f68b8f9fd099481d7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: danlep
+ms.openlocfilehash: ba3c6a6bd4fb330eb64b5408eb72095f4de46a7b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165098"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856652"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Azure Container Registry의 컨테이너 이미지 저장소
 
@@ -21,7 +20,7 @@ ms.locfileid: "32165098"
 
 ## <a name="encryption-at-rest"></a>미사용 시 암호화
 
-레지스트리의 모든 컨테이너 이미지는 미사용 시 암호화됩니다. Azure는 저장하기 전에 이미지를 자동으로 암호화하고, 응용 프로그램 및 서비스가 이미지를 끌어올 때 즉석에서 이미지의 암호를 해독합니다.
+레지스트리의 모든 컨테이너 이미지는 미사용 시 암호화됩니다. Azure는 저장하기 전에 이미지를 자동으로 암호화하고, 애플리케이션 및 서비스가 이미지를 끌어올 때 즉석에서 이미지의 암호를 해독합니다.
 
 ## <a name="geo-redundant-storage"></a>지역 중복 저장소
 
@@ -43,7 +42,7 @@ Azure는 지역 중복 저장소 체계를 사용하여 컨테이너 이미지�
 | 태그들 | 제한 없음|
 | Storage | 5TB |
 
-저장소 및 태그 수가 매우 많으면 레지스트리 성능에 영향을 줄 수 있습니다. [Azure CLI](/cli/azure/acr), ACR [REST API](/rest/api/containerregistry/) 또는 [Azure Portal][portal]을 레지스트리 유지 관리 루틴의 일부로 활용하여 사용하지 않는 리포지토리, 태그 및 이미지를 주기적으로 삭제합니다. 리포지토리, 이미지 및 태그와 같은 삭제된 레지스트리 리소스는 삭제 후 복구할 수 *없습니다*.
+저장소 및 태그 수가 매우 많으면 레지스트리 성능에 영향을 줄 수 있습니다. 레지스트리 유지 관리 루틴의 일환으로 사용하지 않은 리포지토리, 태그 및 이미지를 주기적으로 삭제합니다. 리포지토리, 이미지 및 태그와 같은 삭제된 레지스트리 리소스는 삭제 후 복구할 수 *없습니다*. 레지스트리 리소스를 삭제하는 방법에 대한 자세한 내용은 [Azure Container Registry에서 컨테이너 이미지 삭제](container-registry-delete.md)를 참조하세요.
 
 ## <a name="storage-cost"></a>저장소 비용
 

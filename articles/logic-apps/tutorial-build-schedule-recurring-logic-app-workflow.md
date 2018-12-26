@@ -1,28 +1,23 @@
 ---
-title: 스케줄러 기반 자동화 워크플로 빌드 - Azure Logic Apps | Microsoft Docs
-description: 이 자습서에서는 Azure Logic Apps를 사용하여 스케줄러 기반의 되풀이 자동화 워크플로를 만드는 방법을 보여줍니다.
-author: ecfan
-manager: jeconnoc
-editor: ''
+title: 자동화된 일정 기반 워크플로 빌드 - Azure Logic Apps | Microsoft Docs
+description: '자습서: Azure Logic Apps를 사용하여 자동화된 일정 기반 되풀이 워크플로를 만드는 방법'
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: 84779d3e56b089c34e6556368008d794e634d535
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8a8c8c7abf5b6f0f2a870f6983c7e855db1e0192
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300772"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231817"
 ---
-# <a name="check-traffic-with-a-scheduler-based-logic-app"></a>스케줄러 기반 논리 앱으로 트래픽 확인
+# <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Azure Logic Apps로 일정에 따른 트래픽 확인
 
 Azure Logic Apps는 일정에 따라 실행되는 워크플로를 자동화하는 데 도움을 줍니다. 이 자습서에서는 평일 아침마다 실행되어 트래픽을 포함한 두 장소 간의 이동 시간을 확인하는 스케줄러 트리거를 사용하여 [논리 앱](../logic-apps/logic-apps-overview.md)을 빌드하는 방법을 보여줍니다. 시간이 특정 제한을 초과하면 논리 앱에서는 이동 시간 및 목적지에 도달하는 데 걸리는 추가 시간이 포함된 이메일을 보냅니다.
 
@@ -336,7 +331,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

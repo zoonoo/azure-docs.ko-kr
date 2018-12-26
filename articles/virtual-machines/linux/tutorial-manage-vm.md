@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure CLI로 Linux VM 만들기 및 관리 | Microsoft Docs
-description: 이 자습서에서는 Azure CLI 2.0을 사용하여 Azure에서 Linux VM을 만들고 관리하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure CLI를 사용하여 Azure에서 Linux VM을 만들고 관리하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e7338da637d92520bc5f67de9d3d2bdae3204e35
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930038"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613429"
 ---
-# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>자습서 - Azure CLI 2.0으로 Linux VM 만들기 및 관리
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서 - Azure CLI로 Linux VM 만들기 및 관리
 
 Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machines 배포 항목에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
 
@@ -36,7 +36,7 @@ Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환�
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroupVM --location eastus
 
 리소스 그룹은 VM을 만들거나 수정할 때 지정되며 이 자습서 전체에서 확인할 수 있습니다.
 
-## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-virtual-machine"></a>가상 머신 만들기
 
 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 명령을 사용하여 가상 머신을 만듭니다. 
 
@@ -262,7 +262,7 @@ Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 이 �
 | 할당 취소됨 | 가상 컴퓨터가 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. 할당 취소됨 상태의 가상 머신에는 계산 요금이 발생하지 않습니다. |
 | - | 가상 머신의 전원 상태가 알 수 없음을 나타냅니다. |
 
-### <a name="find-power-state"></a>전원 상태 찾기
+### <a name="find-the-power-state"></a>전원 상태 찾기
 
 특정 VM의 상태를 검색하려면 [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) 명령을 사용합니다. 가상 머신 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다. 
 
@@ -273,7 +273,7 @@ az vm get-instance-view \
     --query instanceView.statuses[1] --output table
 ```
 
-출력
+출력:
 
 ```azurecli-interactive 
 ode                DisplayStatus    Level

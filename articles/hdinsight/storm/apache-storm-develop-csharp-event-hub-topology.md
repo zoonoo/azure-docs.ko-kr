@@ -1,32 +1,27 @@
 ---
-title: Storm으로 Event Hubs에서 이벤트 처리 - Azure HDInsight | Microsoft Docs
+title: Storm으로 Event Hubs에서 이벤트 처리 - Azure HDInsight
 description: HDInsight Tools for Visual Studio를 사용하여 Visual Studio에서 만든 C# Storm 토폴로지로 Azure Event Hubs의 데이터를 처리하는 방법에 대해 알아봅니다.
 services: hdinsight,notification hubs
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: ''
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: larryfr
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 475a63937ed09b4ce875465c0eb3488ce92c38be
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 027c8155c84959ca429eb9b093a155ac22aaf324
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419543"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582216"
 ---
-# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>HDInsight의 Storm(C#)으로 Azure Event Hubs에서 이벤트 처리
+# <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)
 
-HDInsight의 Apache Storm에서 Azure Event Hubs를 사용하는 방법에 대해 알아봅니다. 이 문서는 C# Storm 토폴로지를 사용하여 Event Hubs에서 데이터를 읽고 씁니다.
+HDInsight의 [Apache Storm](http://storm.apache.org/)에서 Azure Event Hubs를 사용하는 방법에 대해 알아봅니다. 이 문서는 C# Storm 토폴로지를 사용하여 Event Hubs에서 데이터를 읽고 씁니다.
 
 > [!NOTE]
-> 이 프로젝트의 Java 버전은 [HDInsight의 Storm(Java)으로 Azure Event Hubs에서 이벤트 처리](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)를 참조하세요.
+> 이 프로젝트의 Java 버전은 [HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)를 참조하세요.
 
 ## <a name="scpnet"></a>SCP.NET
 
@@ -120,11 +115,11 @@ topologyBuilder.SetJavaBolt(
 
 * [Azure Event Hub](../../event-hubs/event-hubs-create.md)
 
-* [Azure .NET SDK](http://azure.microsoft.com/downloads/)
+* [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 * [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 
-* 개발 환경에서 Java JDK 1.8 이상. JDK 다운로드는 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html)에서 사용할 수 있습니다.
+* 개발 환경에서 Java JDK 1.8 이상. JDK 다운로드는 [Oracle](https://aka.ms/azure-jdks)에서 사용할 수 있습니다.
 
   * **JAVA_HOME** 환경 변수가 Java를 포함하고 있는 디렉터리를 가리켜야 합니다.
   * **%JAVA_HOME%/bin** 디렉터리가 경로에 있어야 합니다.
@@ -141,7 +136,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 설정을 보고 **공유 액세스 정책**을 선택합니다. **+ 추가**를 선택하여 다음 정책을 추가합니다.
 
-   | Name | 권한 |
+   | 이름 | 권한 |
    | --- | --- |
    | 기록기 |보내기 |
    | 판독기 |수신 대기 |
@@ -230,4 +225,4 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 * [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)
 * [SCP 프로그래밍 가이드](apache-storm-scp-programming-guide.md)
-* [HDInsight의 Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)
+* [HDInsight의 Apache Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)

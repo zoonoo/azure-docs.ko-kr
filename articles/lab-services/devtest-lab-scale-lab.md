@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a179c0c6b777ee6b2afdd0f2e9267d247665d8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38675968"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248251"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>DevTest Labs의 할당량 및 한도 규모 조정
 DevTest Labs에서 작업할 때 일부 Azure 리소스에 대한 특정 기본 한도가 있으며 이 한도가 DevTest Labs 서비스에 영향을 미칠 수 있습니다. 이러한 한도를 **할당량**이라고 합니다.
@@ -35,7 +35,7 @@ DevTest Labs에서 작업할 때 일부 Azure 리소스에 대한 특정 기본 
 ## <a name="view-your-usage-and-quotas"></a>사용량 및 할당량 보기
 다음 단계에서는 특정 Azure 리소스에 대한 구독의 현재 할당량 그리고 사용한 각 할당량의 비율을 보는 방법을 보여 줍니다.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. **추가 서비스**를 선택한 후 목록에서 **청구**를 선택합니다.
 1. 청구 블레이드에서 구독을 선택합니다.
 4. **사용량 + 할당량**을 선택합니다.
@@ -49,7 +49,7 @@ DevTest Labs에서 작업할 때 일부 Azure 리소스에 대한 특정 기본 
 ## <a name="requesting-more-resources-in-your-subscription"></a>구독에 더 많은 리소스 요청
 할당량 제한에 도달하는 경우 [Azure 구독 및 서비스 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits)의 설명에 따라 구독의 기본 리소스 한도를 최대 한도까지 늘릴 수 있습니다.
 
-다음 단계에서는 [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)을 통해 할당량 증가를 요청하는 방법을 보여 줍니다.
+다음 단계에서는 [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)을 통해 할당량 증가를 요청하는 방법을 보여 줍니다.
 
 1. **추가 서비스**, **청구**, **사용량 + 할당량**을 차례로 선택합니다.
 1. 사용량 + 할당량 블레이드에서 **증가 요청** 단추를 선택합니다.

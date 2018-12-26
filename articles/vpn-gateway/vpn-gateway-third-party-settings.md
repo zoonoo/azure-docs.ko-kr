@@ -1,6 +1,6 @@
 ---
-title: Azure VPN Gateway에 대해 커뮤니티에서 제안한 타사 VPN 또는 방화벽 장치 설정 | Microsoft Docs
-description: Azure VPN Gateway에 대해 커뮤니티에서 제안한 타사 VPN 또는 방화벽 장치 설정에 대해 알아봅니다.
+title: Azure VPN Gateway에 대해 커뮤니티에서 제안한 타사 VPN 또는 방화벽 디바이스 설정 | Microsoft Docs
+description: Azure VPN Gateway에 대해 커뮤니티에서 제안한 타사 VPN 또는 방화벽 디바이스 설정에 대해 알아봅니다.
 services: vpn-gateway
 documentationcenter: ''
 author: chadmath
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2018
+ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: d64830d8664ab65bbd9dbe3bc40eb997007d8910
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 77b1de3a9def525fbffb2a0ae49bbcbaea835c58
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267240"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093879"
 ---
-# <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Azure VPN Gateway에 대해 커뮤니티에서 제안한 타사 VPN 또는 방화벽 장치 설정
+# <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Azure VPN Gateway에 대해 커뮤니티에서 제안한 타사 VPN 또는 방화벽 디바이스 설정
 
-이 문서에서는 Azure VPN Gateway와 함께 사용되는 타사 VPN 또는 방화벽 장치에 대해 제안된 몇 가지 솔루션을 제공합니다.
+이 문서에서는 Azure VPN Gateway와 함께 사용되는 타사 VPN 또는 방화벽 디바이스에 대해 제안된 몇 가지 솔루션을 제공합니다.
 
 > [!Note]
-> 타사 VPN 또는 방화벽 장치에 대한 기술 지원은 장치 공급업체에서 제공합니다. 
+> 타사 VPN 또는 방화벽 디바이스에 대한 기술 지원은 디바이스 공급업체에서 제공합니다. 
 
 ## <a name="more-information"></a>자세한 정보
 
-다음 표에는 몇 가지 일반적인 장치 및 관련 도움말이 나열되어 있습니다.
+다음 표에는 몇 가지 일반적인 디바이스 및 관련 도움말이 나열되어 있습니다.
 
 |제품    |참고 자료                                                |
 |-----------|-----------------------------------------------------------|

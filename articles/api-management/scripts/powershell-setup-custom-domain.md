@@ -13,16 +13,16 @@ ms.topic: sample
 ms.date: 12/14/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: b120f3d2731601652d46f71206637bacdda023cc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 26c3bef832e4f1ab4450b18cbc2e2736514e7169
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38239850"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267650"
 ---
 # <a name="set-up-custom-domain"></a>사용자 지정 도메인 설정
 
-이 샘플 스크립트는 API Management 서비스의 프록시 및 포털 끝점에 사용자 지정 도메인을 설정합니다.
+이 샘플 스크립트는 API Management 서비스의 프록시 및 포털 엔드포인트에 사용자 지정 도메인을 설정합니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -46,4 +46,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/overview)를 참조하세요.
 
-Azure API Management에 대한 추가 Azure PowerShell 샘플은 [PowerShell 샘플](../powershell-samples.md)에서 확인할 수 있습니다.
+Azure API Management에 대한 추가 Azure PowerShell 샘플은 [PowerShell 샘플](../powershell-samples.md)에서 찾을 수 있습니다.

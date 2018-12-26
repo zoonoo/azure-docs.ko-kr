@@ -9,14 +9,16 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: panosper
-ms.openlocfilehash: a929869b36387b3257b672308ceca36c84ff8cae
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8e3d5e0e2b70d8f97099103ed369e48dd74d56e2
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373374"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341364"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Custom Speech Service 질문과 대답
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)] 
 
 여기 FAQ에서 질문에 대한 답변을 찾을 수 없는 경우에는 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive)와 [UserVoice](https://cognitive.uservoice.com/)에서 Custom Speech Service 커뮤니티에 문의해 보세요.
 
@@ -90,7 +92,7 @@ ms.locfileid: "35373374"
 **질문**: 어떤 종류의 데이터를 수집해야 하나요?
 
 **답변**: 응용 프로그램 시나리오 및 사용 사례와 최대한 가까운 데이터를 수집해야 합니다.
-즉, 데이터 컬렉션은 장치, 환경 및 화자 유형과 관련하여 대상 응용 프로그램 및 사용자와 일치해야 합니다. 일반적으로 최대한 광범위한 화자의 데이터를 수집해야 합니다. 
+즉, 데이터 컬렉션은 디바이스, 환경 및 화자 유형과 관련하여 대상 응용 프로그램 및 사용자와 일치해야 합니다. 일반적으로 최대한 광범위한 화자의 데이터를 수집해야 합니다. 
 
 **질문**: 어떻게 수집해야 하나요? 
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c777d5376614f7afe59342dc5a9fbfa37ca4556
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ab238e31ba022427dc55fec842f3e89e72fa530a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441059"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238882"
 ---
 # <a name="manage-database-roles-and-users"></a>데이터베이스 역할 및 사용자 관리
 
@@ -135,8 +135,8 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
   
 |테이블|DAX 식|  
 |-----------|--------------------|  
-|지역|=Region[Country]=”USA”|  
-|ProductCategory|=ProductCategory[Name]=”Bicycles”|  
+|지역|=Region[Country]="USA"|  
+|ProductCategory|=ProductCategory[Name]="Bicycles"|  
 |트랜잭션|=Transactions[Year]=2016|  
   
  결과적으로 멤버는 고객이 USA에 있고, 제품 범주는 bicycles이며, 연도는 2016년인 데이터 행을 쿼리할 수 있습니다. 사용자는 이러한 권한을 부여하는 다른 역할의 멤버가 아닌 한 USA 외부의 거래, bicycles가 아닌 거래 또는 2016년에 수행되지 않은 거래를 쿼리할 수 없습니다.

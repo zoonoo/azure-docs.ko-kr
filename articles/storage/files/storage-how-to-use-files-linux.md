@@ -2,24 +2,18 @@
 title: Linux에서 Azure Files 사용 | Microsoft Docs
 description: Linux에서 SMB를 통해 Azure 파일 공유를 탑재하는 방법을 알아봅니다.
 services: storage
-documentationcenter: na
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: 6edc37ce-698f-4d50-8fc1-591ad456175d
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
-ms.openlocfilehash: ec900182e2fe201ee598518076c6a75a7ac057c2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.component: files
+ms.openlocfilehash: 4b844fe50623782f23c1819c14eb7626eb9506cf
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839572"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614951"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 [SMB 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 이 문서에서는 Azure 파일 공유를 탑재하는 두 가지 방법을 보여 줍니다. 하나는 요청 시 `mount` 명령을 사용하여 탑재하고, 다른 하나는 `/etc/fstab`에 항목을 만들어 부팅 시 탑재하는 방법입니다.
@@ -28,15 +22,28 @@ ms.locfileid: "34839572"
 > 온-프레미스 또는 다른 Azure 지역과 같이 호스트되는 Azure 지역 외부에 Azure 파일 공유를 탑재하려면 OS에서 SMB 3.0 암호화 기능을 지원해야 합니다.
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Linux 및 cifs-utils 패키지와 함께 Azure 파일 공유를 탑재하기 위한 필수 조건
-* **설치된 cifs-utils 패키지를 사용할 수 있는 Linux 배포판을 선택합니다.**  
-    다음 Linux 배포판을 Azure 갤러리에서 사용할 수 있습니다.
+<a id="smb-client-reqs"></a>
+* **탑재 요구 사항에 따라 Linux 배포판을 선택합니다.**  
+      SMB 2.1 및 SMB 3.0을 통해 Azure Files를 탑재할 수 있습니다. 클라이언트 온-프레미스 또는 다른 Azure 지역의 연결에서 Azure Files는 SMB 2.1(또는 암호화되지 않은 SMB 3.0)을 거부합니다. 저장소 계정에 *보안 전송 필요*가 사용하도록 설정된 경우 Azure Files는 암호화된 SMB 3.0을 사용한 연결만 허용됩니다.
+    
+    SMB 3.0 암호화 지원은 Linux 커널 버전 4.11에서 도입되었으며 널리 사용되는 Linux 배포판의 이전 커널 버전에 백포트되었습니다. 이 문서를 게시하는 시점에 Azure 갤러리에서 다음 배포판이 이 테이블 헤더에서 지정된 탑재 옵션을 지원합니다. 
 
-    * Ubuntu Server 14.04+
-    * RHEL 7+
-    * CentOS 7+
-    * Debian 8+
-    * openSUSE 13.2+
-    * SUSE Linux Enterprise Server 12
+* **해당 탑재 기능으로 최소 권장되는 버전(SMB 버전 2.1 및 SMB 버전 3.0)**    
+    
+    |   | SMB 2.1 <br>(동일한 Azure 지역 내에서 VM에 탑재) | SMB 3.0 <br>(온-프레미스 및 지역 간 탑재) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+    
+    Linux 배포판이 여기 나열되지 않은 경우 다음 명령을 사용하여 Linux 커널 버전을 확인할 수 있습니다.    
+
+   ```bash
+   uname -r
+   ```    
 
 * <a id="install-cifs-utils"></a>**cifs-utils 패키지가 설치됩니다.**  
     cifs-utils는 원하는 Linux 배포판의 패키지 관리자를 사용하여 설치할 수 있습니다. 
@@ -61,22 +68,7 @@ ms.locfileid: "34839572"
     ```
 
     다른 배포판에서는 적절한 패키지 관리자를 사용하거나 [소스에서 컴파일합니다](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
-
-* <a id="smb-client-reqs"></a>**SMB 클라이언트 요구 사항을 이해합니다.**  
-    SMB 2.1 및 SMB 3.0을 통해 Azure Files를 탑재할 수 있습니다. 클라이언트 온-프레미스 또는 다른 Azure 지역의 연결에서 Azure Files는 SMB 2.1(또는 암호화되지 않은 SMB 3.0)을 거부합니다. 저장소 계정에 *보안 전송 필요*가 사용하도록 설정된 경우 Azure Files는 암호화된 SMB 3.0을 사용한 연결만 허용됩니다.
     
-    SMB 3.0 암호화 지원은 Linux 커널 버전 4.11에서 도입되었으며 널리 사용되는 Linux 배포판의 이전 커널 버전에 백포트되었습니다. 이 문서를 게시하는 시점에 Azure 갤러리에서 다음 배포판이 이 기능을 지원합니다.
-
-    - Ubuntu Server 16.04+
-    - openSUSE 42.3+
-    - SUSE Linux Enterprise Server 12 SP3+
-    
-    Linux 배포판이 여기 나열되지 않은 경우 다음 명령을 사용하여 Linux 커널 버전을 확인할 수 있습니다.
-
-    ```bash
-    uname -r
-    ```
-
 * **탑재된 공유의 디렉터리/파일 권한을 결정합니다**. 아래 예제에서는 모든 사용자에게 읽기, 쓰기 및 실행 권한을 부여하기 위해 권한 `0777`을 사용합니다. 다른 [chmod 권한](https://en.wikipedia.org/wiki/Chmod)으로 바꿀 수 있습니다. 
 
 * **Storage 계정 이름**: Azure 파일 공유를 탑재하려면 Storage 계정의 이름이 필요합니다.
@@ -115,7 +107,7 @@ ms.locfileid: "34839572"
 3. **파일 공유를 위한 사용자 이름(저장소 계정 이름) 및 암호(저장소 계정 키)를 저장할 자격 증명 파일을 만듭니다.** `<storage-account-name>` 및 `<storage-account-key>`를 사용자 환경에 대한 적절한 정보로 바꾸어야 합니다. 
 
     ```bash
-    if [ -d "/etc/smbcredentials" ]; then
+    if [ ! -d "/etc/smbcredentials" ]; then
         sudo mkdir /etc/smbcredentials
     fi
 
@@ -125,7 +117,7 @@ ms.locfileid: "34839572"
     fi
     ```
 
-4. **하나의 루트만 암호 파일을 읽거나 수정할 수 있도록 자격 증명 파일의 권한을 변경합니다.** 저장소 계정 키는 기본적으로 저장소 계정에 대한 상위 관리자 암호이므로, 루트만 액세스할 수 있는 파일에서 사용 권한을 설정하는 것은 더 낮은 권한 사용자가 저장소 계정 키를 검색할 수 없도록 하는 데 중요합니다.   
+4. **하나의 루트만 암호 파일을 읽거나 수정할 수 있도록 자격 증명 파일의 권한을 변경합니다.** 스토리지 계정 키는 기본적으로 스토리지 계정에 대한 상위 관리자 암호이므로, 루트만 액세스할 수 있는 파일에서 사용 권한을 설정하는 것은 더 낮은 권한 사용자가 스토리지 계정 키를 검색할 수 없도록 하는 데 중요합니다.   
 
     ```bash
     sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred

@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2214436b193932e5b3b80c190f7754a0436b7ed8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f344424c372f65cd8bfe5779cc65f0e866e58a11
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376390"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633974"
 ---
 # <a name="how-to-use-alternative-inputs"></a>대체 입력을 사용하는 방법
 
 이 자습서는 학습 인터페이스에서 “대체 입력” 필드를 사용자 입력에 사용하는 방법을 보여 줍니다.
+
+## <a name="video"></a>비디오
+
+[![자습서 8 미리 보기](https://aka.ms/cl-tutorial-08-preview)](https://aka.ms/blis-tutorial-08)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.
@@ -31,28 +35,28 @@ ms.locfileid: "35376390"
 
 ## <a name="steps"></a>단계
 
-### <a name="create-the-application"></a>응용 프로그램 만들기
+### <a name="create-the-model"></a>모델 만들기
 
-1. Web UI에서 새 앱을 클릭합니다.
+1. Web UI에서 새 모델을 클릭합니다.
 2. 이름에 AlternativeInputs를 입력합니다. 만들기를 클릭합니다.
 
 ### <a name="create-an-entity"></a>엔터티 만들기
 
 1. 엔터티, 새 엔터티를 차례로 클릭합니다.
-2. 엔터티 이름에 city를 입력합니다.
+2. 엔터티 이름에 도시를 입력합니다.
 3. 만들기를 클릭합니다.
 
 ### <a name="create-three-actions"></a>세 가지 작업 만들기
 
 1. 작업, 새 작업을 차례로 클릭합니다.
 2. 응답에 'Which city do you want?'를 입력합니다.
-3. Disqualifying(실격) 엔터티에 $city를 입력합니다.
-3. 만들기 클릭
+3. 실격 엔터티에 $city를 입력합니다.
+3. 만들기 클릭 
 
 그런 다음, 두 번째 작업을 만듭니다.
 
 1. 작업, 새 작업을 차례로 클릭합니다.
-3. 응답에 ‘The weather in the $city is probably sunny’를 입력합니다.
+3. 응답에 '$city의 날씨는 아마도 맑습니다'를 입력합니다.
 4. 필수 엔터티, $city를 입력합니다.
 4. 만들기를 클릭합니다.
 
@@ -61,22 +65,22 @@ ms.locfileid: "35376390"
 1. 작업, 새 작업을 차례로 클릭합니다.
 3. 응답에 ‘Try asking for the weather’를 입력합니다.
     - ‘what can the system do?’와 같은 사용자 질문에 대한 응답에 포함됩니다.
-4. Disqualifying(실격) 엔터티에 $city를 입력합니다.
-4. 만들기 클릭
+4. 실격 엔터티에 $city를 입력합니다.
+4. 만들기 클릭 
 
 이제 세 가지 작업이 있습니다.
 
 ### <a name="train-the-bot"></a>봇 학습
 
-1. Train Dialogs(학습 대화), New Train Dialog(새 학습 대화)를 차례로 클릭합니다.
+1. 학습 대화 상자, 새 학습 대화 상자를 차례로 클릭합니다.
 2. ‘what's the weather’를 입력합니다.
 3. Score Actions(작업에 점수 지정)를 클릭하고 ‘Which city do you want?’를 선택합니다.
 2. ‘denver’를 입력합니다.
 3. ‘denver’를 두 번 클릭하고 도시를 선택합니다.
     - 그러면 도시 엔터티로 표시됩니다.
-5. Score Actions(작업에 점수 지정)를 클릭합니다.
-    - denver는 현재 도시 엔터티에 있습니다. 
-6. 'The weather in $city is probably sunny'를 선택합니다.
+5. 작업에 점수 지정을 클릭합니다.
+    - ‘denver’는 현재 도시 엔터티에 있습니다. 
+6. '$city의 날씨는 아마도 맑습니다'를 선택합니다.
 7. 학습 완료를 클릭합니다.
 
 또 다른 예제 대화 상자를 추가합니다.
@@ -87,16 +91,16 @@ ms.locfileid: "35376390"
 2. ‘What's the weather in seattle’을 입력합니다.
 3. ‘seattle’을 두 번 클릭하고 도시를 선택합니다.
     - 그러면 도시 엔터티로 표시됩니다.
-5. Score Actions(작업에 점수 지정)를 클릭합니다.
-    - seattle은 현재 도시 엔터티에 있습니다. 
-6. 'The weather in $city is probably sunny'를 선택합니다.
+5. 작업에 점수 지정을 클릭합니다.
+    - ‘seattle’은 현재 도시 엔터티에 있습니다. 
+6. '$city의 날씨는 아마도 맑습니다'를 선택합니다.
 7. 학습 완료를 클릭합니다.
 
 의미 체계가 위와 유사한 내용을 사용자가 말하면 어떻게 되는지 살펴보겠습니다.
 
 1. 새 작업, 새 학습 대화 상자를 차례로 클릭합니다.
 2. ‘help’를 입력합니다.
-3. Score Actions(작업에 점수 지정)를 클릭합니다.
+3. 작업에 점수 지정을 클릭합니다.
     - 두 가지 잠재적 응답의 점수가 매우 가깝습니다. 이는 모델에서 두 작업 간의 경계가 혼동됨을 알려 줍니다.
 6. Abandon Teaching and Confirm(학습 중단 및 확인)을 클릭합니다.
 
@@ -133,8 +137,10 @@ ms.locfileid: "35376390"
     3. 변경 내용 제출을 클릭합니다.
 4. 왼쪽 창에서 ‘denver’를 클릭하여 선택합니다.
     1. 대체 입력 추가에 ‘'for denver’를 입력합니다.
-    2. ‘forecast for austin’을 입력합니다.
-        - 전체 문구가 강조 표시됩니다. 문구를 클릭한 다음, 빨간색 x를 클릭합니다. austin을 선택하고 도시를 클릭합니다.
+    1. ‘forecast for austin’을 입력합니다.
+        - 오류 메시지가 나타납니다. '텍스트 변형에는 원래 입력 텍스트와 동일하게 검색된 엔터티가 포함되어야 합니다.'
+        - 'austin'이라는 단어를 클릭합니다.
+        - 'austin'에 대한 엔터티를 선택할 수 있는 팝업이 나타납니다. **도시**를 클릭합니다.
         - 변경 내용 제출을 클릭합니다.
     1. 완료를 클릭하면 모델이 다시 학습됩니다.
 
@@ -144,7 +150,7 @@ ms.locfileid: "35376390"
 
 1. 새 학습 대화를 클릭합니다.
 2. ‘what are you capabilities’를 입력합니다.
-3. Score Actions(작업에 점수 지정)를 클릭합니다.
+3. 작업에 점수 지정을 클릭합니다.
     - 이제 점수가 다음 작업을 더 명확하게 식별하며, 이는 모델의 확실성을 나타냅니다.
 2. ‘Try asking for weather’를 선택합니다.
 6. 학습 완료를 클릭합니다.

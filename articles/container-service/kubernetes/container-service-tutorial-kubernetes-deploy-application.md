@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service 자습서 - 응용 프로그램 배포
+title: (사용되지 않음) Azure Container Service 자습서 - 애플리케이션 배포
 description: Azure Container Service 자습서 - 응용 프로그램 배포
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 49fd4a9407bd46963037b0f7078cfe257d841627
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: dafbb8d1221d5e9c6194611ad338b3714a089cea
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100265"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998792"
 ---
-# <a name="run-applications-in-kubernetes"></a>Kubernetes에서 응용 프로그램 실행
+# <a name="deprecated-run-applications-in-kubernetes"></a>(사용되지 않음) Kubernetes에서 애플리케이션 실행
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 자습서의 업데이트된 버전은 [자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 실행](../../aks/tutorial-kubernetes-deploy-application.md)을 참조하세요.
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 7개 중 4단계인 이 자습서에서는 응용 프로그램 예제를 Kubernetes 클러스터에 배포합니다. 완료되는 단계는 다음과 같습니다.
 
@@ -27,7 +30,7 @@ ms.locfileid: "37100265"
 > * Kubernetes에서 응용 프로그램 실행
 > * 응용 프로그램 테스트
 
-후속 자습서에서는 이 응용 프로그램을 규모 확장하고, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
+후속 자습서에서는 이 애플리케이션을 규모 확장하고, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
 
 이 자습서에서는 Kubernetes 개념에 대한 기본적인 이해가 있다고 가정하며 Kubernetes에 대한 자세한 정보는 [Kubernetes 설명서](https://kubernetes.io/docs/home/)를 참조하세요.
 
@@ -43,7 +46,7 @@ ms.locfileid: "37100265"
 
 이 자습서에서는 ACR(Azure Container Registry)을 사용하여 컨테이너 이미지를 저장했습니다. 응용 프로그램을 실행하기 전에 Kubernetes 매니페스트 파일에서 ACR 로그인 서버 이름을 업데이트해야 합니다.
 
-[az acr list](/cli/azure/acr#az_acr_list) 명령을 사용하여 ACR 로그인 서버 이름을 가져옵니다.
+[az acr list](/cli/azure/acr#az-acr-list) 명령을 사용하여 ACR 로그인 서버 이름을 가져옵니다.
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -73,7 +76,7 @@ containers:
 kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
-출력
+출력:
 
 ```bash
 deployment "azure-vote-back" created
@@ -86,7 +89,7 @@ service "azure-vote-front" created
 
 인터넷에 응용 프로그램을 노출하는 [Kubernetes 서비스](https://kubernetes.io/docs/concepts/services-networking/service/)가 생성됩니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 
 
-진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service](https://review.docs.microsoft.com/azure/container-service/container-service-kubernetes-walkthrough?branch=pr-en-us-17681) 명령을 사용합니다.
+진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 명령을 사용합니다.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
@@ -113,7 +116,7 @@ azure-vote-front   10.0.42.158   52.179.23.131 80:31873/TCP   2m
 > * Kubernetes에서 응용 프로그램 실행
 > * 응용 프로그램 테스트
 
-다음 자습서로 이동하여 Kubernetes 응용 프로그램과 기본 Kubernetes 인프라를 모두 크기 조정하는 방법에 대해 알아봅니다. 
+다음 자습서로 이동하여 Kubernetes 애플리케이션과 기본 Kubernetes 인프라를 모두 크기 조정하는 방법에 대해 알아봅니다. 
 
 > [!div class="nextstepaction"]
 > [Kubernetes 응용 프로그램 및 인프라 크기 조정](./container-service-tutorial-kubernetes-scale.md)

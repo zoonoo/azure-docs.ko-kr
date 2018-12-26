@@ -1,19 +1,19 @@
 ---
-title: Azure에서 온-프레미스로 장애 조치(failover)하기 위해 Linux 마스터 대상 서버 설치 | Microsoft Docs
-description: Linux 가상 머신을 다시 보호하려면 Linux 마스터 대상 서버가 필요합니다. 설치 방법에 대해 알아봅니다.
+title: 온-프레미스 사이트로 장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치 | Microsoft Docs
+description: Azure Site Recovery를 사용한 VMware VM과 Azure 간 재해 복구 중에 온-프레미스 사이트로 장애 복구(failback)를 위한 Linux 마스터 대상 서버를 설치하는 방법을 알아봅니다.
 author: nsoneji
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4443d8fcbf40240e1a7bd718416e522192b4efb3
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921072"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212372"
 ---
-# <a name="install-a-linux-master-target-server"></a>Linux 마스터 대상 서버 설치
+# <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
 
 보호된 가상 머신이 Windows 가상 머신인 경우 Windows 마스터 대상이 필요합니다. Linux 가상 머신인 경우 Linux 마스터 대상이 필요합니다. 다음 단계를 읽고 Linux 마스터 대상을 만들고 설치하는 방법에 대해 알아보세요.
@@ -276,7 +276,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
     `echo <passphrase> >passphrase.txt`
 
-    예: 
+    예제: 
 
        `echo itUx70I47uxDuUVY >passphrase.txt`
     
@@ -288,7 +288,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 
-    예: 
+    예제: 
     
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
@@ -319,7 +319,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
-    예: 
+    예제: 
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt

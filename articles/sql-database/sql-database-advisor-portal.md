@@ -2,19 +2,22 @@
 title: 성능 권장 사항 적용 - Azure SQL Database | Microsoft Docs
 description: Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 있는 성능 권장 사항을 찾을 수 있습니다.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: danimir
+ms.author: danil
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: d52838aa65ade8e2dfac75089ee82b4b1bae5257
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f445e7544891d85ab37f1f6e80e1855580b3b570
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644198"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272772"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 
@@ -26,7 +29,7 @@ Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 �
 
 다음 단계를 사용하여 Azure Portal에서 성능 권장 사항을 찾을 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 서비스** > **SQL 데이터베이스**로 이동한 다음, 데이터베이스를 선택합니다.
 3. **성능 권장 사항**으로 이동하여 선택된 데이터베이스의 사용 가능한 권장 사항을 봅니다.
 
@@ -102,7 +105,7 @@ Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 �
     ![권장된 인덱스](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> 현재 **DROP_INDEX** 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 응용 프로그램과 호환되지 않으므로 이러한 경우에는 사용하도록 설정해서는 안 됩니다.
+> **DROP_INDEX** 옵션은 현재 파티션 전환 및 인덱스 힌트를 사용하는 응용 프로그램과 호환되지 않습니다. 
 >
 
 원하는 구성을 선택한 후 적용을 클릭합니다.
@@ -113,7 +116,7 @@ Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 �
 *수동으로 실행된 인덱스는 성능에 미치는 서비스 영향에 대해 모니터링하고 유효성 검사를 실시하지 않으므로* 필요한 경우 인덱스 생성 후 인덱스를 성능을 향상시키거나 조절 또는 삭제하기 위해 모니터링하는 것이 좋습니다. 인덱스 만들기에 대한 세부 정보는 [CREATE INDEX (TRANSACT-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)를 참조하세요.
 
 ### <a name="canceling-recommendations"></a>권장 사항 취소
-**보류 중**, **확인 중** 또는 **성공** 상태에 있는 권장 사항은 취소할 수 있습니다. **실행 중** 상태의 권장 사항은 취소할 수 없습니다.
+**보류 중**, **유효성 검사 중** 또는 **성공** 상태에 있는 권장 사항은 취소할 수 있습니다. **실행 중** 상태의 권장 사항은 취소할 수 없습니다.
 
 1. **튜닝 기록** 영역에서 권장 사항을 선택하면 **권장 사항 세부 정보** 페이지가 열립니다.
 2. **취소** 를 클릭하여 권장 사항을 적용하는 과정을 중단합니다.
@@ -125,7 +128,7 @@ Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 �
 |:--- |:--- |
 | Pending |권장 사항 적용 명령을 수신했고 실행이 예약됩니다. |
 | 실행 중 |권장 사항을 적용 중입니다. |
-| 확인 중 |권장 사항이 성공적으로 적용되면 서비스가 성능을 측정합니다. |
+| 유효성 검사 중 |권장 사항이 성공적으로 적용되면 서비스가 성능을 측정합니다. |
 | 성공 |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
 | 오류 |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
 | 되돌리기 |권장 사항이 적용되었지만 효율적이지 않은 것으로 간주되어 자동으로 되돌리고 있습니다. |

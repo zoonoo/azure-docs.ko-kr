@@ -1,25 +1,35 @@
 ---
-title: Bing Image Search 단일 페이지 웹앱 | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: 단일 페이지 웹 응용 프로그램에서 Bing Image Search API를 사용하는 방법을 보여줍니다.
+title: '자습서: 단일 페이지 웹앱 빌드 - Bing Visual Search'
+titleSuffix: Azure Cognitive Services
+description: 단일 페이지 웹 응용 프로그램에서 Bing Visual Search API를 사용하는 방법을 보여줍니다.
 services: cognitive-services
-author: brapel
-manager: ehansen
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 10/04/2017
-ms.author: v-brapel
-ms.openlocfilehash: 303d7745167d2ea25fda083ed99881ac4e0a7ec7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: aahi
+ms.openlocfilehash: fe7159e88bd70ba8af23909559264fa5f210ef10
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376414"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443900"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>자습서: Visual Search 단일 페이지 웹앱
 
 Bing Visual Search API에서는 Bing.com/images에 표시된 이미지 세부 정보와 비슷한 환경을 제공합니다. Visual Search를 사용하면 이미지를 지정하고 시각적으로 유사한 이미지, 쇼핑 원본, 해당 이미지를 포함한 웹 페이지 등의 이미지에 대한 인사이트를 얻을 수 있습니다. 
+
+이 자습서의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
+
+Azure Portal에서 구독을 시작하려면
+1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
+2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
+3. 새 리소스에 대해 `Name`을 입력합니다.
+4. `Pay-As-You-Go` 구독을 선택합니다.
+5. `S9` 가격 책정 계층을 선택합니다.
+6. `Enable`을 클릭하여 구독을 시작합니다.
 
 이 자습서에서는 Bing Image Search 자습서에서 단일 페이지 웹앱을 확장합니다([단일 페이지 웹앱](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md) 참조). 이 자습서를 시작하는 전체 소스 코드는 [단일 페이지 웹앱(소스 코드)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md)을 참조하세요. 이 자습서의 최종 소스 코드는 [Visual Search 단일 페이지 웹앱](tutorial-bing-visual-search-single-page-app-source.md)을 참조하세요.
 

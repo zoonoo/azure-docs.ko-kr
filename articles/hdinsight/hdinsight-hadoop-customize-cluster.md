@@ -1,24 +1,20 @@
 ---
-title: 스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정 - Azure | Microsoft Docs
+title: 스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정 - Azure
 description: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다.
 services: hdinsight
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 3a63e216-4163-40c1-aa04-6b42fd0162ad
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/05/2016
-ms.author: nitinme
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 50ef40b3ea3bc8c768e8b4266ef50ad02e02f026
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 8923dcb4c35bbf90a6f68bd296bb9a862c5ff07d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950617"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230804"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>스크립트 작업을 사용하여 Windows 기반 HDInsight 클러스터 사용자 지정
 **스크립트 동작** 은 클러스터 생성 과정 중 클러스터에 추가 소프트웨어를 설치하기 위해 [사용자 지정 스크립트](hdinsight-hadoop-script-actions.md) 를 호출하는 데 사용될 수 있습니다.
@@ -50,7 +46,7 @@ HDInsight 클러스터를 사용자 지정하는 방법은 추가 Azure Storage 
 
 HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 여러 스크립트를 제공합니다.
 
-| Name | 스크립트 |
+| 이름 | 스크립트 |
 | --- | --- |
 | **Spark 설치** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1` [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]을 참조하세요. |
 | **R 설치** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1` [HDInsight 클러스터에서 R 설치 및 사용](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster)을 참조하세요. |
@@ -68,7 +64,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
     <table border='1'>
         <tr><th>자산</th><th>값</th></tr>
-        <tr><td>Name</td>
+        <tr><td>이름</td>
             <td>스크립트 작업의 이름을 지정합니다.</td></tr>
         <tr><td>스크립트 URI</td>
             <td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI를 지정합니다. s</td></tr>
@@ -283,7 +279,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 5. **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>HDInsight 클러스터에서 사용하는 오픈 소스 소프트웨어 지원
-Microsoft Azure HDInsight 서비스는 Hadoop에 형성된 오픈 소스 기술의 에코시스템을 사용하여 클라우드에 빅 데이터 응용 프로그램을 빌드할 수 있는 유연한 플랫폼입니다. Microsoft Azure에서는 **Azure 지원 FAQ 웹 사이트** 의 <a href="http://azure.microsoft.com/support/faq/" target="_blank">지원 범위</a>섹션에 설명된 대로 일반적인 수준의 오픈 소스 기술을 제공합니다. HDInsight 서비스는 아래에 설명된 일부 구성 요소에 대해 추가 수준의 지원을 제공합니다.
+Microsoft Azure HDInsight 서비스는 Hadoop에 형성된 오픈 소스 기술의 에코시스템을 사용하여 클라우드에 빅 데이터 응용 프로그램을 빌드할 수 있는 유연한 플랫폼입니다. Microsoft Azure에서는 **Azure 지원 FAQ 웹 사이트** 의 <a href="https://azure.microsoft.com/support/faq/" target="_blank">지원 범위</a>섹션에 설명된 대로 일반적인 수준의 오픈 소스 기술을 제공합니다. HDInsight 서비스는 아래에 설명된 일부 구성 요소에 대해 추가 수준의 지원을 제공합니다.
 
 HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는 두 가지 유형이 있습니다.
 

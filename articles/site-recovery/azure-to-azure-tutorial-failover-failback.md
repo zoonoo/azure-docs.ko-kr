@@ -1,20 +1,20 @@
 ---
-title: Azure Site Recovery를 사용하여 보조 Azure 지역에 복제된 Azure VM 장애 조치(failover) 및 장애 복구(failback)
-description: Azure Site Recovery를 사용하여 Azure VM 복제를 보조 Azure 지역에 장애 조치(failover) 및 장애 복구(failback)하는 방법을 알아봅니다.
+title: Azure Site Recovery 서비스를 사용하여 재해 복구를 위해 보조 Azure 지역에 복제된 Azure IaaS VM에 대한 장애 조치(failover) 및 장애 복구(failback)를 수행합니다.
+description: Azure Site Recovery 서비스를 사용하여 재해 복구를 위해 보조 Azure 지역에 복제된 Azure VM에 대한 장애 조치(failover) 및 장애 복구(failback)를 수행하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 61b354dfd6f704eb0677991c02f28de08e49ee37
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 93928d7eb84ce986c8a9322188183e4c3dd76d99
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917502"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847867"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure VM 장애 조치(Failover) 및 장애 복구
 
@@ -28,12 +28,13 @@ ms.locfileid: "37917502"
 > * 보조 VM 장애 복구(failback)
 > * 보조 지역으로 주 VM 다시 보호
 
-
+> [!NOTE]
+> 이 자습서는 대상 영역으로 장애 조치하여 최소 사용자 지정으로 복구하는 단계로 사용자를 안내하기 위한 것입니다. 네트워킹 고려 사항, 자동화 또는 문제 해결을 포함해 장애 조치와 관련된 다양한 측면에 대해 자세히 알아보고 싶다면 Azure VM에 대한 ‘방법’에 있는 문서를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - [재해 복구 드릴](azure-to-azure-tutorial-dr-drill.md)을 완료하여 모든 항목이 예상대로 작동하는지 확인합니다.
-- 테스트 장애 조치(failover)를 실행하기 전에 VM 속성을 확인합니다. VM은 [Azure 요구 사항](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions)을 준수해야 합니다.
+- 테스트 장애 조치(failover)를 실행하기 전에 VM 속성을 확인합니다. VM은 [Azure 요구 사항](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)을 준수해야 합니다.
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>보조 지역으로 장애 조치(failover) 실행
 
@@ -71,4 +72,4 @@ VM의 장애 조치(failover) 후 주 지역에 다시 복제되도록 다시 �
 
 ## <a name="fail-back-to-the-primary-region"></a>주 지역으로 장애 복구(failback)
 
-VM이 다시 보호된 후 필요에 따라 주 지역으로 장애 복구(failback)할 수 있습니다. 이렇게 하려면 [장애 조치(failover)](#run-a-failover) 지침을 따르세요.
+VM이 다시 보호된 후 필요에 따라 주 지역으로 장애 복구(failback)할 수 있습니다. 이렇게 하려면 이 문서의 설명에 따라 보조 지역에서 주 지역으로의 장애 조치(failover)를 설정하세요.

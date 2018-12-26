@@ -1,29 +1,25 @@
 ---
-title: B2B 모니터링을 위한 X12 추적 스키마 - Azure Logic Apps | Microsoft Docs
-description: X12 추적 스키마를 사용하여 Azure 통합 계정의 트랜잭션에서 B2B 메시지를 모니터링합니다.
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: B2B 메시지에 대한 X12 추적 스키마 - Azure Logic Apps | Microsoft Docs
+description: 엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps 통합 계정에서 B2B 메시지를 모니터링하는 X12 추적 스키마 만들기
 services: logic-apps
-documentationcenter: ''
-ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 385ff73d780f62f19af2face591cd0b2291ef396
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: cfd195f2f812c8b2e09058d325d0dbb6f7a60d59
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300976"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125604"
 ---
-# <a name="start-or-enable-tracking-of-x12-messages-to-monitor-success-errors-and-message-properties"></a>X12 메시지의 추적을 시작 또는 사용하여 성공, 오류 및 메시지 속성을 모니터링합니다.
-기업 간(B2B) 트랜잭션을 모니터링하기 위해 Azure 통합 계정에서 이러한 X12 추적 스키마를 사용할 수 있습니다.
+# <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Azure Logic Apps 통합 계정에서 X12 메시지를 추적하는 스키마 만들기
+
+기업 간(B2B) 트랜잭션의 성공, 오류 및 메시지 속성을 모니터링하려면 통합 계정에 X12 추적 스키마를 사용하면 됩니다.
 
 * X12 트랜잭션 집합 추적 스키마
 * X12 트랜잭션 집합 승인 추적 스키마
@@ -33,33 +29,33 @@ ms.locfileid: "35300976"
 * X12 기능 그룹 승인 추적 스키마
 
 ## <a name="x12-transaction-set-tracking-schema"></a>X12 트랜잭션 집합 추적 스키마
-````java
 
-    {
-            "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "senderQualifier": "",
-                "senderIdentifier": "",
-                "receiverQualifier": "",
-                "receiverIdentifier": "",
-                "agreementName": ""
-            },
-            "messageProperties": {
-                "direction": "",
-                "interchangeControlNumber": "",
-                "functionalGroupControlNumber": "",
-                "transactionSetControlNumber": "",
-                "CorrelationMessageId": "",
-                "messageType": "",
-                "isMessageFailed": "",
-                "isTechnicalAcknowledgmentExpected": "",
-                "isFunctionalAcknowledgmentExpected": "",
-                "needAk2LoopForValidMessages":  "",
-                "segmentsCount": ""
-            }
-    }
-````
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "interchangeControlNumber": "",
+      "functionalGroupControlNumber": "",
+      "transactionSetControlNumber": "",
+      "CorrelationMessageId": "",
+      "messageType": "",
+      "isMessageFailed": "",
+      "isTechnicalAcknowledgmentExpected": "",
+      "isFunctionalAcknowledgmentExpected": "",
+      "needAk2LoopForValidMessages":  "",
+      "segmentsCount": ""
+   }
+}
+```
 
 | 자산 | type | 설명 |
 | --- | --- | --- |
@@ -81,40 +77,41 @@ ms.locfileid: "35300976"
 | isFunctionalAcknowledgmentExpected | BOOLEAN | X12 규약에서 기능 승인이 구성되었는지 여부 필수 사항입니다. |
 | needAk2LoopForValidMessages | BOOLEAN | 유효한 메시지에 AK2 루프가 필요한지 여부 필수 사항입니다. |
 | segmentsCount | Integer | X12 트랜잭션 집합의 세그먼트의 수 (선택 사항) |
+||||
 
 ## <a name="x12-transaction-set-acknowledgement-tracking-schema"></a>X12 트랜잭션 집합 승인 추적 스키마
-````java
 
-    {
-            "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "senderQualifier": "",
-                "senderIdentifier": "",
-                "receiverQualifier": "",
-                "receiverIdentifier": "",
-                "agreementName": ""
-            },
-            "messageProperties": {
-                "direction": "",
-                "interchangeControlNumber": "",
-                "functionalGroupControlNumber": "",
-                "isaSegment": "",
-                "gsSegment": "",
-                "respondingfunctionalGroupControlNumber": "",
-                "respondingFunctionalGroupId": "",
-                "respondingtransactionSetControlNumber": "",
-                "respondingTransactionSetId": "",
-                "statusCode": "",
-                "processingStatus": "",
-                "CorrelationMessageId": ""
-                "isMessageFailed": "",
-                "ak2Segment": "",
-                "ak3Segment": "",
-                "ak5Segment": ""
-            }
-    }
-````
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "interchangeControlNumber": "",
+      "functionalGroupControlNumber": "",
+      "isaSegment": "",
+      "gsSegment": "",
+      "respondingfunctionalGroupControlNumber": "",
+      "respondingFunctionalGroupId": "",
+      "respondingtransactionSetControlNumber": "",
+      "respondingTransactionSetId": "",
+      "statusCode": "",
+      "processingStatus": "",
+      "CorrelationMessageId": "",
+      "isMessageFailed": "",
+      "ak2Segment": "",
+      "ak3Segment": "",
+      "ak5Segment": ""
+   }
+}
+```
 
 | 자산 | type | 설명 |
 | --- | --- | --- |
@@ -142,36 +139,37 @@ ms.locfileid: "35300976"
 | ak2Segment | 문자열 | 수신된 기능 그룹 내의 트랜잭션 집합에 대한 승인 (선택 사항) |
 | ak3Segment | 문자열 | 데이터 세그먼트의 오류를 보고합니다. (선택 사항) |
 | ak5Segment | 문자열 | AK2 세그먼트에 식별된 트랜잭션 집합이 허용되는지 또는 거부되는지와 그 이유를 보고합니다. (선택 사항) |
+||||
 
 ## <a name="x12-interchange-tracking-schema"></a>X12 교환 추적 스키마
-````java
 
-    {
-            "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "senderQualifier": "",
-                "senderIdentifier": "",
-                "receiverQualifier": "",
-                "receiverIdentifier": "",
-                "agreementName": ""
-            },
-            "messageProperties": {
-                "direction": "",
-                "interchangeControlNumber": "",
-                "isaSegment": "",
-                "isTechnicalAcknowledgmentExpected": "",
-                "isMessageFailed": "",
-                "isa09": "",
-                "isa10": "",
-                "isa11": "",
-                "isa12": "",
-                "isa14": "",
-                "isa15": "",
-                "isa16": ""
-            }
-    }
-````
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "interchangeControlNumber": "",
+      "isaSegment": "",
+      "isTechnicalAcknowledgmentExpected": "",
+      "isMessageFailed": "",
+      "isa09": "",
+      "isa10": "",
+      "isa11": "",
+      "isa12": "",
+      "isa14": "",
+      "isa15": "",
+      "isa16": ""
+   }
+}
+```
 
 | 자산 | type | 설명 |
 | --- | --- | --- |
@@ -194,33 +192,35 @@ ms.locfileid: "35300976"
 | isa14 | 문자열 | X12 승인이 요청되었습니다. (선택 사항) |
 | isa15 | 문자열 | 테스트 또는 프로덕션에 대한 표시기 (선택 사항) |
 | isa16 | 문자열 | 요소 구분 기호 (선택 사항) |
+||||
 
 ## <a name="x12-interchange-acknowledgement-tracking-schema"></a>X12 교환 승인 추적 스키마
-````java
-    {
-            "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "senderQualifier": "",
-                "senderIdentifier": "",
-                "receiverQualifier": "",
-                "receiverIdentifier": "",
-                "agreementName": ""
-            },
-            "messageProperties": {
-                "direction": "",
-                "interchangeControlNumber": "",
-                "isaSegment": "",
-                "respondingInterchangeControlNumber": "",
-                "isMessageFailed": "",
-                "statusCode": "",
-                "processingStatus": "",
-                "ta102": "",
-                "ta103": "",
-                "ta105": ""
-            }
-    }
-````
+
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "interchangeControlNumber": "",
+      "isaSegment": "",
+      "respondingInterchangeControlNumber": "",
+      "isMessageFailed": "",
+      "statusCode": "",
+      "processingStatus": "",
+      "ta102": "",
+      "ta103": "",
+      "ta105": ""
+   }
+}
+```
 
 | 자산 | type | 설명 |
 | --- | --- | --- |
@@ -241,38 +241,39 @@ ms.locfileid: "35300976"
 | ta102 | 문자열 | 교환 날짜 (선택 사항) |
 | ta103 | 문자열 | 교환 시간 (선택 사항) |
 | ta105 | 문자열 | 교환 노트 코드 (선택 사항) |
+||||
 
 ## <a name="x12-functional-group-tracking-schema"></a>X12 기능 그룹 추적 스키마
-````java
 
-    {
-            "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "senderQualifier": "",
-                "senderIdentifier": "",
-                "receiverQualifier": "",
-                "receiverIdentifier": "",
-                "agreementName": ""
-            },
-            "messageProperties": {
-                "direction": "",
-                "interchangeControlNumber": "",
-                "functionalGroupControlNumber": "",
-                "gsSegment": "",
-                "isTechnicalAcknowledgmentExpected": "",
-                "isFunctionalAcknowledgmentExpected": "",
-                "isMessageFailed": "",
-                "gs01": "",
-                "gs02": "",
-                "gs03": "",
-                "gs04": "",
-                "gs05": "",
-                "gs07": "",
-                "gs08": ""
-            }
-    }
-````
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "interchangeControlNumber": "",
+      "functionalGroupControlNumber": "",
+      "gsSegment": "",
+      "isTechnicalAcknowledgmentExpected": "",
+      "isFunctionalAcknowledgmentExpected": "",
+      "isMessageFailed": "",
+      "gs01": "",
+      "gs02": "",
+      "gs03": "",
+      "gs04": "",
+      "gs05": "",
+      "gs07": "",
+      "gs08": ""
+   }
+}
+```
 
 | 자산 | type | 설명 |
 | --- | --- | --- |
@@ -297,36 +298,38 @@ ms.locfileid: "35300976"
 | gs05 | 문자열 | 기능 그룹 시간 (선택 사항) |
 | gs07 | 문자열 | 담당 에이전시 코드 (선택 사항) |
 | gs08 | 문자열 | 버전/릴리스/산업 식별자 코드 (선택 사항) |
+||||
 
 ## <a name="x12-functional-group-acknowledgement-tracking-schema"></a>X12 기능 그룹 승인 추적 스키마
-````java
-    {
-            "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "senderQualifier": "",
-                "senderIdentifier": "",
-                "receiverQualifier": "",
-                "receiverIdentifier": "",
-                "agreementName": ""
-            },
-            "messageProperties": {
-                "direction": "",
-                "interchangeControlNumber": "",
-                "functionalGroupControlNumber": "",
-                "isaSegment": "",
-                "gsSegment": "",
-                "respondingfunctionalGroupControlNumber": "",
-                "respondingFunctionalGroupId": "",
-                "isMessageFailed": "",
-                "statusCode": "",
-                "processingStatus": "",
-                "ak903": "",
-                "ak904": "",
-                "ak9Segment": ""
-            }
-    }
-````
+
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "interchangeControlNumber": "",
+      "functionalGroupControlNumber": "",
+      "isaSegment": "",
+      "gsSegment": "",
+      "respondingfunctionalGroupControlNumber": "",
+      "respondingFunctionalGroupId": "",
+      "isMessageFailed": "",
+      "statusCode": "",
+      "processingStatus": "",
+      "ak903": "",
+      "ak904": "",
+      "ak9Segment": ""
+   }
+}
+```
 
 | 자산 | type | 설명 |
 | --- | --- | --- |
@@ -350,10 +353,16 @@ ms.locfileid: "35300976"
 | ak903 | 문자열 | 수신된 트랜잭션 집합 수 (선택 사항) |
 | ak904 | 문자열 | 식별된 기능 그룹에서 승인된 트랜잭션 집합 수 (선택 사항) |
 | ak9Segment | 문자열 | AK1 세그먼트에 식별된 기능 그룹이 허용되는지 또는 거부되는지와 그 이유 (선택 사항) |
+|||| 
+
+## <a name="b2b-protocol-tracking-schemas"></a>B2B 프로토콜 추적 스키마
+
+스키마를 추적하는 B2B 프로토콜에 대한 정보는 다음을 참조하세요.
+
+* [AS2 추적 스키마](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)   
+* [B2B 사용자 지정 추적 스키마](logic-apps-track-integration-account-custom-tracking-schema.md)
 
 ## <a name="next-steps"></a>다음 단계
-* [B2B 메시지 모니터링에 대해 자세히 알아보기](logic-apps-monitor-b2b-message.md)
-* [AS2 추적 스키마에 대해 자세히 알아보기](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
-* [B2B 사용자 지정 추적 스키마](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)에 대해 자세히 알아봅니다.
+
+* [B2B 메시지 모니터링](logic-apps-monitor-b2b-message.md)에 대해 자세히 알아봅니다.
 * [Log Analytics에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)에 대해 알아봅니다.
-* [엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md)에 대해 알아봅니다.  

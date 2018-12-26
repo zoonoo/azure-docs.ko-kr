@@ -3,20 +3,21 @@ title: .NET Core 및 Visual Studio를 사용하여 클라우드에서 Kubernetes
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: zr-msft
+ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-manager: douge
-ms.openlocfilehash: 452746e897f95f12a25522ea9f37ca0254a12d6d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: aeaa56d192899ef12b698ebbc5f19305f79f4ff1
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38612872"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706265"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Azure Dev Spaces에서 .NET Core 및 Visual Studio를 사용하여 시작
 
@@ -27,9 +28,39 @@ ms.locfileid: "38612872"
 - 독립적으로 별도의 두 서비스를 개발하고, Kubernetes의 DNS 서비스 검색을 사용하여 다른 서비스를 호출합니다.
 - 팀 환경에서 코드를 생산적으로 개발하고 테스트합니다.
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+> [!Note]
+> **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하거나 이 페이지에 의견을 게시하세요.
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+
+## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Space에 사용하도록 설정된 Kubernetes 클러스터 만들기
+
+1. http://portal.azure.com에서 Azure Portal에 로그인합니다.
+1. **리소스 만들기**를 선택하고 **Kubernetes**를 검색한 후 **Kubernetes Service** > **만들기**를 선택합니다.
+
+   AKS 클러스터 만들기 양식의 각 머리글 아래에 있는 다음 단계를 완료합니다.
+
+    - **프로젝트 세부 정보**: Azure 구독과 새로운 또는 기존 Azure 리소스 그룹을 선택합니다.
+    - **클러스터 세부 정보**: 이름, 지역(현재는 미국 동부, 미국 동부 2, 미국 중부, 서유럽, 미국 서부 2, 동남 아시아, 캐나다 중부 또는 캐나다 동부를 선택해야 함), 버전 및 AKS 클러스터의 DNS 이름 접두사를 입력합니다.
+    - **규모**: AKS 에이전트 노드의 VM 크기 및 노드 수를 선택합니다. Azure Dev Spaces를 시작하는 경우 노드 하나만 있으면 모든 기능을 탐색할 수 있습니다. 노드 수는 클러스터 배포 후 언제든지 쉽게 조정할 수 있습니다. AKS 클러스터를 만든 후에는 VM 크기를 변경할 수 없습니다. 하지만 규모를 확장해야 하는 경우 AKS 클러스터를 배포한 후 간단하게 더 큰 VM이 있는 새 AKS 클러스터를 만들고 Dev Spaces를 사용하여 해당 클러스터를 다시 배포하면 됩니다.
+
+   Kubernetes 버전 1.9.6 이상을 선택해야 합니다.
+
+   ![Kubernetes 구성 설정](media/common/Kubernetes-Create-Cluster-2.PNG)
+
+   완료되면 **다음: 인증**을 선택합니다.
+
+1. RBAC(역할 기반 액세스 제어)에 대해 원하는 설정을 선택합니다. Azure Dev Spaces는 RBAC를 사용하거나 사용하지 않도록 설정한 클러스터를 지원합니다.
+
+    ![RBAC 설정](media/common/k8s-RBAC.PNG)
+
+1. Http 응용 프로그램 라우팅을 사용하도록 설정합니다.
+
+   ![Http 응용 프로그램 라우팅 사용](media/common/Kubernetes-Create-Cluster-3.PNG)
+
+    > [!Note]
+    > 기존 클러스터에서 [Http 응용 프로그램 라우팅](/azure/aks/http-application-routing)을 사용하도록 설정하려면 `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing` 명령을 사용합니다.
+
+1. **검토 + 만들기**를 선택한 후 완료되면 **만들기**를 선택합니다.
 
 ## <a name="get-the-visual-studio-tools"></a>Visual Studio 도구 가져오기
 1. 최신 버전의 [Visual Studio 2017](https://www.visualstudio.com/vs/) 설치
@@ -50,7 +81,6 @@ Visual Studio 2017에서 새 프로젝트를 만듭니다. 현재 프로젝트�
 대화 상자의 상단에 있는 두 개의 드롭다운에서 **웹 응용 프로그램 (모델-보기-컨트롤러)** 템플릿을 선택하고, **.NET Core** 및 **ASP.NET Core 2.0**을 대상으로 하고 있는지 확인합니다. **확인**을 클릭하여 프로젝트를 만듭니다.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
-
 
 ### <a name="enable-dev-spaces-for-an-aks-cluster"></a>AKS 클러스터에 대한 개발 환경을 사용하도록 설정
 
@@ -73,6 +103,9 @@ Azure Dev Spaces에서 작동하도록 설정되지 않은 클러스터를 선�
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 **확인**을 선택합니다.
+
+> [!IMPORTANT]
+> Azure Dev Spaces 구성 프로세스는 클러스터에서 `azds` 네임스페이스를 제거합니다(있는 경우).
 
  이 작업을 수행하기 위한 백그라운드 작업이 시작됩니다. 완료하는 데 몇 분 정도 걸립니다. 아직 생성 중인지 확인하려면 다음 그림과 같이 상태 표시줄의 왼쪽 아래 모서리에 있는 **백그라운드 작업** 아이콘 위로 포인터를 이동합니다.
 

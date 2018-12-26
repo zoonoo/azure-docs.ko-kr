@@ -8,48 +8,40 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 67ea7a9ea1a1be4fd0780f8b8ce22f1a133615e0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615872"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622094"
 ---
-# <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB에 대한 Power BI 자습서: Power BI 커넥터를 사용하여 데이터 시각화
-[PowerBI.com](https://powerbi.microsoft.com/) 은 사용자 및 조직에 중요한 데이터로 대시보드와 보고서를 만들어 공유할 수 있는 온라인 서비스입니다.  Power BI 데스크톱은 다양한 데이터 원본에서 데이터를 검색하고, 데이터를 병합 및 변환하며, 강력한 보고서 및 시각화를 제작하고, 보고서를 Power BI에 게시할 수 있는 전용 보고서 제작 도구입니다.  Power BI Desktop의 최신 버전에서는 이제 Power BI용 Azure Cosmos DB 커넥터를 통해 Azure Cosmos DB 계정에 연결할 수 있습니다.   
+# <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI 커넥터를 사용하여 Azure Cosmos DB 데이터 시각화
 
-이 Power BI 자습서에서는 Power BI Desktop의 Azure Cosmos DB 계정에 연결하고, 탐색기를 사용하여 데이터를 추출할 컬렉션으로 이동하고, Power BI Desktop 쿼리 편집기를 사용하여 JSON 데이터를 테이블 형식으로 변환하고, 보고서를 빌드하여 PowerBI.com에 게시하는 단계를 안내합니다.
+[Power BI](https://powerbi.microsoft.com/)는 대시보드 및 보고서를 만들고 공유할 수 있는 온라인 서비스입니다. Power BI Desktop은 다양한 데이터 원본에서 데이터를 검색할 수 있는 보고서 제작 도구입니다. Azure Cosmos DB는 Power BI Desktop에서 사용할 수 있는 데이터 원본 중 하나입니다. Power BI용 Azure Cosmos DB 커넥터를 사용하여 Azure Cosmos DB 계정에 Power BI Desktop을 연결할 수 있습니다.  Azure Cosmos DB 데이터를 Power BI로 가져온 후 변환하고, 보고서를 만든 후 Power BI에 게시할 수 있습니다.   
 
-이 Power BI 자습서를 완료하고 나면 다음을 알게 됩니다.  
-
-* Power BI Desktop을 사용하여 Azure Cosmos DB의 데이터로 보고서를 빌드하는 방법
-* Power BI Desktop에서 Azure Cosmos DB 계정에 연결하는 방법
-* Power BI 데스크톱의 컬렉션에서 데이터를 검색하는 방법
-* Power BI 데스크톱에서 중첩된 JSON 데이터를 변환하는 방법
-* PowerBI.com에서 내 보고서를 게시 및 공유하는 방법
+이 문서에서는 Azure Cosmos DB 계정을 Power BI Desktop에 연결하는 데 필요한 단계를 설명합니다. 연결된 후에는 컬렉션으로 이동하고, 데이터를 추출하고, JSON 데이터를 표 형식으로 변환한 후 Power BI에 보고서를 게시합니다.
 
 > [!NOTE]
-> Azure Cosmos DB용 Power BI 커넥터는 데이터 추출 및 변환을 위해 Power BI Desktop에 연결합니다. Power BI Desktop에서 만든 보고서를 PowerBI.com에 게시할 수 있습니다. Azure Cosmos DB 데이터의 직접 추출 및 변환은 PowerBI.com에서 수행할 수 없습니다. 
+> Azure Cosmos DB용 Power BI 커넥터는 Power BI Desktop에 연결됩니다. Power BI Desktop에서 만든 보고서를 PowerBI.com에 게시할 수 있습니다. Azure Cosmos DB 데이터의 직접 추출은 PowerBI.com에서 수행할 수 없습니다. 
 
 > [!NOTE]
-> MongoDB API를 사용하여 Azure Cosmos DB를 Power BI에 연결하려면 [Simba MongoDB ODBC 드라이버](http://www.simba.com/drivers/mongodb-odbc-jdbc/)를 사용해야 합니다.
+> Azure Cosmos DB와 Power BI 커넥터 연결은 현재 Azure Cosmos DB SQL API 및 Gremlin API 계정에서만 지원됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 Power BI 자습서의 지침을 따르기 전에 다음 리소스에 액세스할 수 있는지 확인하세요.
 
-* [최신 버전의 Power BI Desktop](https://powerbi.microsoft.com/desktop).
-* 데모 계정 또는 Azure Cosmos DB 계정의 데이터에 액세스합니다.
-  * 데모 계정은 이 자습서에 표시된 화산 데이터로 채워집니다. 이 데모 계정은 SLA와 연결되지 않으며 데모용으로만 의미가 있습니다.  Microsoft는 계정 종료, 키 변경, 액세스 제한, 데이터 변경 및 삭제 등을 망라하여, 언제든 사전 고지나 이유 없이 이 데모 계정을 수정할 권리가 있습니다.
-    * URL: https://analytics.documents.azure.com
-    * 읽기 전용 키: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
-  * 또는 고유 계정을 만들려면 [Azure Portal을 사용하여 Azure Cosmos DB 데이터베이스 계정 만들기](https://azure.microsoft.com/documentation/articles/create-account/)를 참조하세요. 그런 다음 이 자습서에서 사용된 것과 유사하지만 GeoJSON 블록이 포함되지 않은 샘플 화산 데이터를 가져오려면 [NOAA 사이트](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5)를 참조하고, [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)를 사용하여 데이터를 가져옵니다.
+* [최신 버전의 Power BI Desktop 다운로드](https://powerbi.microsoft.com/desktop).
 
-PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.  무료 Power BI 및 Power BI Pro에 대한 자세한 내용은 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)을 참조하세요.
+* GitHub에서 [샘플 화산 데이터](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json)를 다운로드합니다.
+
+* [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)를 사용하여 [Azure Cosmos DB 데이터베이스 계정을 만들고](https://azure.microsoft.com/documentation/articles/create-account/) 화산 데이터를 가져옵니다.
+
+PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.  Power BI 및 Power BI Pro에 대한 자세한 내용은 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)을 참조하세요.
 
 ## <a name="lets-get-started"></a>이제 시작하겠습니다.
-이 자습서에서는 전세계 화산을 연구하는 지질학자라고 보겠습니다.  화산 데이터는 Azure Cosmos DB 계정에 저장되며 JSON 문서는 다음 샘플 문서와 같습니다.
+이 자습서에서는 전세계 화산을 연구하는 지질학자라고 보겠습니다. 화산 데이터는 Azure Cosmos DB 계정에 저장되며, JSON 문서 형식은 다음과 같습니다.
 
     {
         "Volcano Name": "Rainier",
@@ -68,41 +60,33 @@ PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어�
           "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
-Azure Cosmos DB 계정에서 화산 데이터를 검색하고 다음 보고서와 같은 대화형 Power BI 보고서에서 데이터를 시각화하려고 합니다.
+Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI 보고서에서 데이터를 시각화할 것입니다.
 
-![Power BI 커넥터를 사용하여 이 Power BI 자습서를 완료하여 Power BI Desktop 화산 보고서를 사용하여 데이터를 시각화할 수 있습니다.](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
+1. Power BI Desktop을 실행합니다.
 
-해 볼 준비가 되셨나요? 이제 시작하겠습니다.
-
-1. 워크스테이션에서 Power BI 데스크톱을 실행합니다.
-2. Power BI 데스크톱이 시작되면 *시작* 화면이 표시됩니다.
+2. 시작 화면에서 직접 **데이터를 가져오고**, **최근 원본** 또는 **다른 보고서를 열 수** 있습니다. 화면을 닫으려면 오른쪽 상단 모서리의 “X”를 선택합니다. Power BI 데스크톱의 **보고서** 뷰가 표시됩니다.
    
-    ![Power BI 데스크톱 시작 화면 - Power BI 커넥터](./media/powerbi-visualize/power_bi_connector_welcome.png)
-3. **시작** 화면에서 직접 데이터를 **가져오고** , 최근 **원본을 보거나** , 다른 보고서를 직접 *열 수* 있습니다.  화면을 닫으려면 오른쪽 상단 모서리의 X를 클릭합니다. Power BI 데스크톱의 **보고서** 뷰가 표시됩니다.
-   
-    ![Power BI 데스크톱 보고서 보기 - Power BI 커넥터](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
-4. **홈** 리본 메뉴를 선택한 다음 **데이터 가져오기**를 클릭합니다.  **데이터 가져오기** 창이 나타납니다.
-5. **Azure**를 클릭하고 **Azure Cosmos DB(베타)** 를 선택한 다음, **연결**을 클릭합니다. 
+   ![Power BI 데스크톱 보고서 보기 - Power BI 커넥터](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
+
+3. **홈** 리본 메뉴를 선택한 다음 **데이터 가져오기**를 클릭합니다.  **데이터 가져오기** 창이 나타납니다.
+
+4. **Azure**를 클릭하고 **Azure Cosmos DB(베타)** 를 선택한 다음, **연결**을 클릭합니다. 
 
     ![Power BI 데스크톱 데이터 가져오기 - Power BI 커넥터](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
-6. **커넥터 미리 보기** 페이지에서 **계속**을 클릭합니다. **Azure Cosmos DB** 창이 나타납니다.
-7. 아래와 같이 데이터를 검색할 Azure Cosmos DB 계정 끝점 URL을 지정한 다음, **확인**을 클릭합니다. 자신의 계정을 사용하려는 경우 Azure Portal의 **[키](manage-account.md#keys)** 블레이드에 있는 URI 상자에서 URL을 검색할 수 있습니다. 데모 계정을 사용하려면 URL로 `https://analytics.documents.azure.com`을 입력합니다. 
+
+5. **커넥터 미리 보기** 페이지에서 **계속**을 클릭합니다. **Azure Cosmos DB** 창이 나타납니다.
+
+6. 아래와 같이 데이터를 검색할 Azure Cosmos DB 계정 엔드포인트 URL을 지정한 다음, **확인**을 클릭합니다. 자신의 계정을 사용하려면 Azure Portal의 **키** 블레이드에 있는 URI 상자에서 URL을 검색할 수 있습니다. 필요에 따라 데이터베이스 이름, 컬렉션 이름을 제공하거나 탐색기를 사용하여 데이터를 가져오는 위치를 식별하는 데이터베이스 및 컬렉션을 선택할 수도 있습니다.
    
-    데이터베이스 이름, 컬렉션 이름 및 SQL 문을 비워 둡니다. 이러한 필드는 선택 사항입니다.  대신 데이터의 출처를 식별하기 위해 탐색기를 사용하여 데이터베이스와 컬렉션을 선택합니다.
+7. 처음으로 이 엔드포인트에 연결하는 경우 계정 키를 입력하라는 메시지가 표시됩니다. 자신의 계정을 사용하는 경우 Azure Portal의 **읽기 전용 키** 블레이드에 있는 **기본 키** 상자에서 키를 검색합니다. 적절한 키를 입력하고 **연결**을 클릭합니다.
    
-    ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 데스크톱 연결 창](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-8. 처음으로 이 끝점에 연결하는 경우 계정 키를 입력하라는 메시지가 표시됩니다. 자신의 계정을 사용하는 경우 Azure Portal의 **[읽기 전용 키](manage-account.md#keys)** 블레이드에 있는 **기본 키** 상자에서 키를 검색합니다. 데모 계정의 경우 키는 `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`입니다. 적절한 키를 입력하고 **연결**을 클릭합니다.
-   
-    보고서를 작성할 때는 읽기 전용 키를 사용하는 것이 좋습니다.  이렇게 하면 불필요하게 마스터 키가 잠재적인 보안 위험에 노출되는 것을 방지할 수 있습니다. 읽기 전용 키는 Azure 포털의 [키](manage-account.md#keys) 블레이드에서 가져오거나, 위에서 제공한 데모 계정 정보를 사용할 수 있습니다.
-   
-    ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 계정 키](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
+   보고서를 작성할 때는 읽기 전용 키를 사용하는 것이 좋습니다. 이렇게 하면 불필요하게 마스터 키가 잠재적인 보안 위험에 노출되는 것을 방지할 수 있습니다. 읽기 전용 키는 Azure Portal의 **키** 블레이드에서 사용할 수 있습니다. 
     
-    > [!NOTE] 
-    > "지정된 데이터베이스를 찾을 수 없습니다."라는 오류가 발생할 경우 이 [Power BI 문제](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200) 커뮤니티의 문제 해결 단계를 참조하세요.
-    
-9. 계정이 성공적으로 연결되면 **탐색기** 창이 표시됩니다.  **탐색기**는 계정의 데이터베이스 목록을 표시합니다.
-10. 보고서의 데이터를 가져올 데이터베이스를 클릭하여 확장합니다. 데모 계정을 사용하는 경우 **volcanodb**를 선택합니다.   
-11. 이제 검색할 데이터가 들어 있는 컬렉션을 선택합니다. 데모 계정을 사용하는 경우 **volcano1**을 선택합니다.
+8. 계정이 성공적으로 연결되면 **탐색기** 창이 표시됩니다. **탐색기**는 계정의 데이터베이스 목록을 표시합니다.
+
+9. 보고서의 데이터를 가져올 데이터베이스를 클릭하여 확장하고, **volcanodb**(데이터베이스 이름은 다를 수 있음)를 선택합니다.   
+
+10. 이제 검색할 데이터포를 함하는 컬렉션을 선택하고 **volcano1**(컬렉션 이름은 다를 수 있음)을 선택합니다.
     
     미리 보기 창에는 **레코드** 항목의 목록이 표시됩니다.  문서는 Power BI에서 **레코드** 형식으로 나타납니다. 마찬가지로, 문서 내의 중첩된 JSON 블록도 **레코드**입니다.
     
@@ -170,7 +154,6 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 5. 이제 맵에 화산의 상승 위치에 따른 크기의 버블로 각 화산의 위치를 시각적으로 나타내는 버블 집합이 표시됩니다.
 6. 이제 기본 보고서를 만들었습니다.  다른 시각화 요소를 추가하여 보고서를 상세히 사용자 지정할 수 있습니다.  여기서는 화산 유형 슬라이서를 추가하여 보고서를 대화형으로 구성했습니다.  
    
-    ![Azure Cosmos DB에 대한 Power BI 자습서 완료 시의 최종 Power BI Desktop 보고서 스크린샷](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
 7. 파일 메뉴에서 **저장**을 클릭하고 파일을 PowerBITutorial.pbix로 저장합니다.
 
 ## <a name="publish-and-share-your-report"></a>보고서 게시 및 공유
@@ -186,13 +169,13 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 ## <a name="create-a-dashboard-in-powerbicom"></a>PowerBI.com에서 대시보드 만들기
 이제 보고서가 있으니 PowerBI.com에서 공유하겠습니다.
 
-보고서를 Power BI 데스크톱에서 PowerBI.com에 게시하는 경우 PowerBI.com 테넌트에 **보고서** 및 **데이터 집합**을 생성합니다. 예를 들어 **PowerBITutorial**이라는 보고서를 PowerBI.com에 게시한 후 PowerBI.com의 **보고서** 및 **데이터 집합** 섹션 모두에서 PowerBITutorial이 표시됩니다.
+보고서를 Power BI 데스크톱에서 PowerBI.com에 게시하는 경우 PowerBI.com 테넌트에 **보고서** 및 **데이터 세트**를 생성합니다. 예를 들어 **PowerBITutorial**이라는 보고서를 PowerBI.com에 게시한 후 PowerBI.com의 **보고서** 및 **데이터 세트** 섹션 모두에서 PowerBITutorial이 표시됩니다.
 
-   ![PowerBI.com에서 새 보고서 및 데이터 집합의 스크린샷](./media/powerbi-visualize/powerbi-reports-datasets.png)
+   ![PowerBI.com에서 새 보고서 및 데이터 세트의 스크린샷](./media/powerbi-visualize/powerbi-reports-datasets.png)
 
 공유할 수 있는 대시보드를 만들려면 PowerBI.com 보고서의 **라이브 페이지 고정** 단추를 클릭합니다.
 
-   ![PowerBI.com에서 새 보고서 및 데이터 집합의 스크린샷](./media/powerbi-visualize/power-bi-pin-live-tile.png)
+   ![PowerBI.com에서 새 보고서 및 데이터 세트의 스크린샷](./media/powerbi-visualize/power-bi-pin-live-tile.png)
 
 그런 다음 [보고서에서 타일을 고정](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) 의 지침을 따라 새 대시보드를 만듭니다. 
 

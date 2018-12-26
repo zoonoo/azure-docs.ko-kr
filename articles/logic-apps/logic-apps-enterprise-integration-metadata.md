@@ -1,28 +1,23 @@
 ---
 title: 통합 계정 아티팩트 메타데이터 관리 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps에 대한 통합 계정에서 아티팩트 메타데이터 추가 또는 검색
-author: padmavc
-manager: jeconnoc
-editor: ''
+description: 엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps의 통합 계정에서 아티팩트 메타데이터 추가 또는 검색
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 02/23/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 3e7ef6aef9bc1062ae0f76adfbaf086961fcaa94
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 537014c2780fe94cfb35806759f8bcbd974c4c95
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298368"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128806"
 ---
-# <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Logic Apps에 대한 통합 계정에서 아티팩트 메타데이터 관리
+# <a name="manage-artifact-metadata-from-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps의 통합 계정에서 아티팩트 메타데이터 관리
 
 통합 계정에서 아티팩트에 대한 사용자 지정 메타데이터를 정의하고 논리 앱에 대한 런타임 동안 해당 메타데이터를 검색할 수 있습니다. 예를 들어 파트너, 규약, 스키마 및 맵 등의 아티팩트에 대해 메타데이터를 지정할 수 있습니다. 모두 키-값 쌍을 사용해서 메타데이터를 저장합니다. 
 

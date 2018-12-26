@@ -1,27 +1,23 @@
 ---
-title: SCP.NET 프로그래밍 가이드 | Microsoft Docs
-description: HDInsight의 Storm 사용을 위해 SCP.NET을 사용하여 .NET 기반 Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
+title: Azure HDInsight의 Storm에 대한 SCP.NET 프로그래밍 가이드
+description: Azure HDInsight에서 실행되는 Storm과 함께 사용할 수 있도록 SCP.NET을 사용하여 .NET 기반 Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: raviperi
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 34192ed0-b1d1-4cf7-a3d4-5466301cf307
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2016
-ms.author: raviperi
-ms.openlocfilehash: 0f4c021bc209c99e1b3f34b34bf5ba0549eb48f9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31421558"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496860"
 ---
 # <a name="scp-programming-guide"></a>SCP 프로그래밍 가이드
-SCP는 안정적이며 일관성 있는 실시간 고성능 데이터 처리 응용 프로그램을 빌드하기 위한 플랫폼입니다. 이 플랫폼은 OSS 커뮤니티에서 디자인한 스트림 처리 시스템인 [Apache Storm](http://storm.incubator.apache.org/)을 기반으로 구축되었습니다. Nathan Marz가 디자인한 Storm은 Twitter에서 오픈 소스 방식으로 제공되며, 매우 안정적인 분산 방식 조정과 상태 관리를 수행하는 데 사용할 수 있는 또 다른 Apache 프로젝트인 [Apache ZooKeeper](http://zookeeper.apache.org/)를 활용합니다. 
+SCP는 안정적이며 일관성 있는 실시간 고성능 데이터 처리 애플리케이션을 빌드하기 위한 플랫폼입니다. 이 플랫폼은 OSS 커뮤니티에서 디자인한 스트림 처리 시스템인 [Apache Storm](http://storm.incubator.apache.org/)을 기반으로 구축되었습니다. Nathan Marz가 디자인한 Storm은 Twitter에서 오픈 소스 방식으로 제공되며, 매우 안정적인 분산 방식 조정과 상태 관리를 수행하는 데 사용할 수 있는 또 다른 Apache 프로젝트인 [Apache ZooKeeper](http://zookeeper.apache.org/)를 활용합니다. 
 
 SCP 프로젝트를 통해 Windows에서 Storm을 포팅할 수 있을 뿐 아니라 Windows 에코시스템용 확장 및 사용자 지정도 추가할 수 있습니다. 이 확장에는 .NET 개발자 환경과 라이브러리가 포함되고 사용자 지정에는 Windows 기반 배포가 포함됩니다. 
 
@@ -44,7 +40,7 @@ SCP를 기반으로 데이터 처리 응용 프로그램을 빌드하려면 몇 
 * 입력 데이터를 처리한 다음 데이터베이스 등의 외부 저장소에 데이터를 저장하도록 Bolt를 디자인 및 구현합니다.
 * 토폴로지를 디자인한 다음 제출하고 실행합니다. 토폴로지는 꼭짓점 및 꼭짓점 간의 데이터 흐름을 정의합니다. SCP는 토폴로지 사양을 가져온 다음 Storm 클러스터에 배포합니다. 이 클러스터의 각 논리 노드에서 개별 꼭짓점이 실행됩니다. Storm 작업 스케줄러가 장애 조치(failover) 및 확장을 처리합니다.
 
-이 문서에서는 몇 가지 간단한 예를 통해 SCP를 사용하여 데이터 처리 응용 프로그램을 빌드하는 방법을 안내합니다.
+이 문서에서는 몇 가지 간단한 예를 통해 SCP를 사용하여 데이터 처리 애플리케이션을 빌드하는 방법을 안내합니다.
 
 ## <a name="scp-plugin-interface"></a>SCP 플러그 인 인터페이스
 SCP 플러그 인(응용 프로그램)은 개발 단계 중에 Visual Studio 내에서도 독립적으로 실행할 수 있고 프로덕션 환경에 배포한 후에 Storm 파이프라인에 연결할 수도 있습니다. SCP 플러그 인 작성 방법은 다른 표준 Windows 콘솔 응용 프로그램 작성 방법과 같습니다. SCP.NET 플랫폼에서는 Spout/Bolt용 인터페이스를 선언하며, 사용자 플러그 인 코드는 이러한 인터페이스를 구현해야 합니다. 이러한 디자인은 기본적으로 사용자가 자신의 비즈니스 논리를 실행하는 데 주력하고 나머지 작업은 SCP.NET 플랫폼이 처리하도록 하기 위한 것입니다.
@@ -211,7 +207,7 @@ Context는 응용 프로그램에 실행 환경을 제공합니다. 각 ISCPPlug
 ### <a name="statestore"></a>StateStore
 `StateStore` 은(는) 메타데이터 서비스, 단조 시퀀스 생성 및 비대기 조정 기능을 제공합니다. `StateStore`을(를) 기반으로 하여 분산 잠금, 분산 큐, 장벽 및 트랜잭션 서비스를 비롯한 높은 수준의 분산형 동시성 추상화를 작성할 수 있습니다.
 
-SCP 응용 프로그램은 `State` 개체를 사용하여 ZooKeeper에 일부 정보를 영구 보존할 수 있습니다(특히 트랜잭션 토폴로지의 경우). 따라서 트랜잭션 Spout 작동이 중단되어 다시 시작되는 경우 응용 프로그램이 ZooKeeper에서 필요한 정보를 검색하여 파이프라인을 다시 시작할 수 있습니다.
+SCP 애플리케이션은 `State` 개체를 사용하여 [Apache ZooKeeper](https://zookeeper.apache.org/)에 일부 정보를 영구 보존할 수 있습니다(특히 트랜잭션 토폴로지의 경우). 따라서 트랜잭션 Spout 작동이 중단되어 다시 시작되는 경우 응용 프로그램이 ZooKeeper에서 필요한 정보를 검색하여 파이프라인을 다시 시작할 수 있습니다.
 
 `StateStore` 개체는 기본적으로 다음 메서드를 포함합니다.
 
@@ -359,12 +355,12 @@ SCP.NET에는 트랜잭션 토폴로지를 정의하는 다음 함수가 추가�
 | **새 함수** | **매개 변수** | **설명** |
 | --- | --- | --- |
 | **tx-topolopy** |topology-name<br />spout-map<br />bolt-map |토폴로지 이름, &nbsp;Spout 정의 맵 및 Bolt 정의 맵으로 트랜잭션 토폴로지를 정의합니다. |
-| **scp-tx-spout** |exec-name<br />args<br />fields |트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Spout의 출력 필드입니다. |
+| **scp-tx-spout** |exec-name<br />args<br />fields |트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br /> ***fields*** 는 Spout의 출력 필드입니다. |
 | **scp-tx-batch-bolt** |exec-name<br />args<br />fields |트랜잭션 Batch Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />Fields는 Bolt의 출력 필드입니다. |
-| **scp-tx-commit-bolt** |exec-name<br />args<br />fields |트랜잭션 커밋 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Bolt의 출력 필드입니다. |
+| **scp-tx-commit-bolt** |exec-name<br />args<br />fields |트랜잭션 커밋 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br /> ***fields*** 는 Bolt의 출력 필드입니다. |
 | **nontx-topolopy** |topology-name<br />spout-map<br />bolt-map |토폴로지 이름, &nbsp; Spout 정의 맵 및 Bolt 정의 맵으로 비트랜잭션 토폴로지를 정의합니다. |
-| **scp-spout** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Spout의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
-| **scp-bolt** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Bolt의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
+| **scp-spout** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br /> ***fields*** 는 Spout의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
+| **scp-bolt** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br /> ***fields*** 는 Bolt의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
 
 SCP.NET에는 다음 키워드가 정의되어 있습니다.
 
@@ -646,9 +642,9 @@ ISCPBatchBolt 인스턴스를 만들면 입력 매개 변수에서 `txAttempt`�
 이 예제는 기본적으로 HelloWorld와 같습니다. 차이점은 사용자 코드가 DLL로 컴파일되며 토폴로지가 SCPHost.exe를 사용하여 제출된다는 것뿐입니다. 자세한 설명은 "SCP 호스트 모드" 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-SCP를 사용하여 만든 Storm 토폴로지 예제는 다음 문서를 참조하세요.
+SCP를 사용하여 만든 Apache Storm 토폴로지 예제는 다음 문서를 참조하세요.
 
 * [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)
-* [HDInsight의 Storm으로 Azure Event Hubs에서 이벤트 처리](apache-storm-develop-csharp-event-hub-topology.md)
-* [HDInsight의 Storm을 사용하여 Event Hubs에서 차량 센서 데이터 처리](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
-* [Azure Event Hubs에서 HBase로 ETL(추출, 변환 및 로드)](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
+* [HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리](apache-storm-develop-csharp-event-hub-topology.md)
+* [HDInsight의 Apache Storm을 사용하여 Event Hubs의 차량 센서 데이터 처리](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
+* [Azure Event Hubs에서 Apache HBase로 ETL(추출, 변환 및 로드)](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)

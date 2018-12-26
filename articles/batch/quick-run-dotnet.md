@@ -2,24 +2,24 @@
 title: Azure 빠른 시작 - Batch 작업 실행 - .NET
 description: Batch .NET 클라이언트 라이브러리를 사용하여 Batch 작업 및 태스크를 빠르게 실행합니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/16/2018
-ms.author: danlep
+ms.date: 11/29/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c13a01b392b9bbc93fff2e997cb6d168a441ad07
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31513829"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679922"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>빠른 시작: .NET API를 사용하여 첫 번째 Azure Batch 작업 실행
 
-이 빠른 시작에서는 Azure Batch .NET API를 기반으로 하여 빌드된 C# 응용 프로그램에서 Azure Batch 작업을 실행합니다. 응용 프로그램은 여러 개의 입력 데이터 파일을 Azure 저장소에 업로드한 다음, Batch 계산 노드(가상 머신)의 *풀*을 만듭니다. 그런 다음 *태스크*를 실행하는 샘플 *작업*을 만들어 기본 명령을 사용하여 풀에서 각 입력 파일을 처리합니다. 이 빠른 시작을 완료하면, Batch 서비스의 주요 개념을 이해하고 더 큰 규모의 더 실제적인 작업으로 Batch를 시도할 준비가 됩니다.
+이 빠른 시작에서는 Azure Batch .NET API를 기반으로 하여 빌드된 C# 애플리케이션에서 Azure Batch 작업을 실행합니다. 응용 프로그램은 여러 개의 입력 데이터 파일을 Azure 저장소에 업로드한 다음, Batch 계산 노드(가상 머신)의 *풀*을 만듭니다. 그런 다음 *태스크*를 실행하는 샘플 *작업*을 만들어 기본 명령을 사용하여 풀에서 각 입력 파일을 처리합니다. 이 빠른 시작을 완료하면, Batch 서비스의 주요 개념을 이해하고 더 큰 규모의 더 실제적인 작업으로 Batch를 시도할 준비가 됩니다.
 
 ![빠른 시작 앱 워크플로](./media/quick-run-dotnet/sampleapp.png)
 
@@ -27,7 +27,7 @@ ms.locfileid: "31513829"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio IDE](https://www.visualstudio.com/vs)(Visual Studio 2015 또는 최신 버전) 
+* Linux, macOS 또는 Windows의 경우 [Visual Studio 2017](https://www.visualstudio.com/vs) 또는 [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) 
 
 * Batch 계정 및 연결된 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요. 
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 `BatchDotNetQuickstart.sln`(Visual Studio 솔루션 파일)이 있는 디렉터리로 이동합니다.
 
-Visual Studio에서 솔루션 파일을 열고 `program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예: 
+Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예: 
 
 ```csharp
 // Batch account credentials
@@ -60,18 +60,20 @@ private const string StorageAccountName = "mystorageaccount";
 private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ==";
 ```
 
+[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
+
 ## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
 
-작업에서 Batch 워크플로를 보려면 응용 프로그램을 빌드하고 실행합니다. 응용 프로그램이 실행되면 코드를 검토하여 응용 프로그램의 각 부분에서 수행하는 작업을 알아봅니다. 
+작동 중인 Batch 워크플로를 보려면 Visual Studio 또는 명령줄에서 `dotnet build` 및 `dotnet run` 명령을 사용하여 응용 프로그램을 빌드 및 실행합니다. 애플리케이션이 실행되면 코드를 검토하여 애플리케이션의 각 부분에서 수행하는 작업을 알아봅니다. 예를 들어 Visual Studio의 경우 다음과 같습니다.
 
 * [솔루션 탐색기]에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션 빌드**를 클릭합니다. 
 
 * 메시지가 표시되면 모든 NuGet 패키지 복원을 확인합니다. 누락된 패키지를 다운로드해야 하는 경우 [NuGet 패키지 관리자](https://docs.nuget.org/consume/installing-nuget)가 설치되어 있는지 확인합니다.
 
-그런 다음 실행합니다. 샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 첫 번째 계산 노드가 실행되는 즉시 실행되도록 태스크를 큐에 넣습니다. [Azure Portal](https://portal.azure.com)에서 배치 계정으로 이동하여 풀, 계산 노드, 작업 및 태스크를 모니터링합니다.
+그런 다음 실행합니다. 샘플 애플리케이션을 실행하는 경우 콘솔 출력은 다음과 유사합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 첫 번째 계산 노드가 실행되는 즉시 실행되도록 태스크를 큐에 넣습니다. [Azure Portal](https://portal.azure.com)에서 배치 계정으로 이동하여 풀, 계산 노드, 작업 및 태스크를 모니터링합니다.
 
 ```
-Sample start: 12/4/2017 4:02:54 PM
+Sample start: 11/16/2018 4:02:54 PM
 
 Container [input] created.
 Uploading file taskdata0.txt to container [input]...
@@ -95,7 +97,7 @@ stderr:
 ...
 ```
 
-기본 구성에서 응용 프로그램을 실행하는 경우 일반적인 실행 시간은 약 5분입니다. 초기 풀 설정에 가장 많은 시간이 걸립니다. 작업을 다시 실행하려면 이전 실행의 작업은 삭제하는 대신 풀은 삭제하지 않습니다. 미리 구성된 풀에서 작업은 몇 초 내에 완료됩니다.
+기본 구성에서 애플리케이션을 실행하는 경우 일반적인 실행 시간은 약 5분입니다. 초기 풀 설정에 가장 많은 시간이 걸립니다. 작업을 다시 실행하려면 이전 실행의 작업은 삭제하는 대신 풀은 삭제하지 않습니다. 미리 구성된 풀에서 작업은 몇 초 내에 완료됩니다.
 
 
 ## <a name="review-the-code"></a>코드 검토
@@ -122,9 +124,9 @@ CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```csharp
 List<string> inputFilePaths = new List<string>
 {
-    @"..\..\taskdata0.txt",
-    @"..\..\taskdata1.txt",
-    @"..\..\taskdata2.txt"
+    "taskdata0.txt",
+    "taskdata1.txt",
+    "taskdata2.txt"
 };
 
 List<ResourceFile> inputFiles = new List<ResourceFile>();
@@ -141,45 +143,54 @@ foreach (string filePath in inputFilePaths)
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
 
 using (BatchClient batchClient = BatchClient.Open(cred))
-...    
+...
 ```
 
 ### <a name="create-a-pool-of-compute-nodes"></a>계산 노드 풀 만들기
 
 Batch 풀을 만들려면 앱에서 [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) 메서드를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Windows Server 이미지에 대한 [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference)를 지정합니다. Batch는 Azure Marketplace의 다양한 Linux 및 Windows Server 이미지와 사용자 지정 VM 이미지를 지원합니다.
 
-노드 수(`PoolNodeCount`)와 VM 크기(`PoolVMSize`)는 상수로 정의됩니다. 샘플은 기본적으로 *Standard_A1_v2* 크기인 2개 노드로 구성되는 풀을 만듭니다. 제안된 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다. 
+노드 수(`PoolNodeCount`)와 VM 크기(`PoolVMSize`)는 상수로 정의됩니다. 샘플은 기본적으로 *Standard_A1_v2* 크기인 2개 노드로 구성되는 풀을 만듭니다. 제안된 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
 
 [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) 메서드는 풀을 Batch 서비스에 제출합니다.
 
 ```csharp
-ImageReference imageReference = new ImageReference(
-    publisher: "MicrosoftWindowsServer",
-    offer: "WindowsServer",
-    sku: "2012-R2-Datacenter-smalldisk",
-    version: "latest");
 
-VirtualMachineConfiguration virtualMachineConfiguration =
-new VirtualMachineConfiguration(
-   imageReference: imageReference,
-   nodeAgentSkuId: "batch.node.windows amd64");
-
-try
+private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
 {
-    CloudPool pool = batchClient.PoolOperations.CreatePool(
-    poolId: PoolId,
-    targetDedicatedComputeNodes: PoolNodeCount,
-    virtualMachineSize: PoolVMSize,
-    virtualMachineConfiguration: virtualMachineConfiguration);
-
-    pool.Commit();
+    return new VirtualMachineConfiguration(
+        imageReference: imageReference,
+        nodeAgentSkuId: "batch.node.windows amd64");
 }
+
+private static ImageReference CreateImageReference()
+{
+    return new ImageReference(
+        publisher: "MicrosoftWindowsServer",
+        offer: "WindowsServer",
+        sku: "2016-datacenter-smalldisk",
+        version: "latest");
+}
+
+private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
+{
+    try
+    {
+        CloudPool pool = batchClient.PoolOperations.CreatePool(
+            poolId: PoolId,
+            targetDedicatedComputeNodes: PoolNodeCount,
+            virtualMachineSize: PoolVMSize,
+            virtualMachineConfiguration: vmConfiguration);
+
+        pool.Commit();
+    }
 ...
 
 ```
+
 ### <a name="create-a-batch-job"></a>Batch 작업 만들기
 
-Batch 작업은 하나 이상의 태스크에 대한 논리적 그룹입니다. 작업에는 우선 순위 및 태스크를 실행할 풀과 같은 태스크에 공통적으로 적용되는 설정이 포함됩니다. 앱은 [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) 메서드를 사용하여 풀에 작업을 만듭니다. 
+Batch 작업은 하나 이상의 태스크에 대한 논리적 그룹입니다. 작업에는 우선 순위 및 태스크를 실행할 풀과 같은 태스크에 공통적으로 적용되는 설정이 포함됩니다. 앱은 [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) 메서드를 사용하여 풀에 작업을 만듭니다.
 
 [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) 메서드는 작업을 Batch 서비스에 제출합니다. 처음에는 작업에 태스크가 없습니다.
 
@@ -190,15 +201,16 @@ try
     job.Id = JobId;
     job.PoolInformation = new PoolInformation { PoolId = PoolId };
 
-    job.Commit(); 
+    job.Commit();
 }
-...       
+...
 ```
 
 ### <a name="create-tasks"></a>태스크 만들기
+
 앱에서 [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) 개체의 목록을 만듭니다. 각 태스크는 [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) 속성을 사용하여 `ResourceFile` 입력 개체를 처리합니다. 이 샘플에서는 명령줄에서 `type` Windows 명령을 실행하여 입력 파일을 표시합니다. 이 명령은 간단한 데모용 예제입니다. Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 계산 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
 
-그런 다음 앱은 계산 노드에서 실행되도록 큐에 넣는 [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask) 메서드를 사용하여 작업에 태스크를 추가합니다. 
+그런 다음 앱은 계산 노드에서 실행되도록 큐에 넣는 [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask) 메서드를 사용하여 작업에 태스크를 추가합니다.
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -214,7 +226,7 @@ for (int i = 0; i < inputFiles.Count; i++)
 
 batchClient.JobOperations.AddTask(JobId, tasks);
 ```
- 
+
 ### <a name="view-task-output"></a>태스크 출력 보기
 
 앱에서 태스크를 모니터링하는 [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor)를 만들어 해당 태스크가 완료되었는지 확인합니다. 그런 다음 앱에서 [CloudTask.ComputeNodeInformation](/dotnet/api/microsoft.azure.batch.cloudtask.computenodeinformation) 속성을 사용하여 완료된 각 태스크에서 생성된 `stdout.txt` 파일을 표시합니다. 태스크가 성공적으로 실행되면 태스크 명령의 출력이 `stdout.txt`에 기록됩니다.
@@ -238,7 +250,7 @@ foreach (CloudTask task in completedtasks)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Batch .NET API를 통해 빌드된 작은 앱을 실행하여 Batch 풀과 Batch 작업을 만들었습니다. 작업에서 샘플 태스크를 실행했고, 노드에서 만들어진 출력을 다운로드했습니다. 이제 Batch 서비스의 핵심 개념을 이해 했으므로 더 큰 규모의 더 실제적인 작업 부하로 Batch를 시도할 준비가 되었습니다. Azure Batch에 대해 자세히 알아보고 실제 응용 프로그램으로 병렬 작업을 단계별로 진행하려면 Batch .NET 자습서로 계속 진행하세요.
+이 빠른 시작에서는 Batch .NET API를 통해 빌드된 작은 앱을 실행하여 Batch 풀과 Batch 작업을 만들었습니다. 작업에서 샘플 태스크를 실행했고, 노드에서 만들어진 출력을 다운로드했습니다. 이제 Batch 서비스의 핵심 개념을 이해 했으므로 더 큰 규모의 더 실제적인 작업 부하로 Batch를 시도할 준비가 되었습니다. Azure Batch에 대해 자세히 알아보고 실제 애플리케이션으로 병렬 작업을 단계별로 진행하려면 Batch .NET 자습서로 계속 진행하세요.
 
 
 > [!div class="nextstepaction"]

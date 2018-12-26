@@ -1,56 +1,65 @@
 ---
-title: Azure AD에서 그룹의 멤버 관리 | Microsoft Docs
-description: Azure Active Directory의 그룹에서 사용자 및 장치를 추가 또는 제거하는 방법
+title: Azure Active Directory를 사용하여 그룹 멤버를 추가하거나 제거하는 방법 | Microsoft Docs
+description: Azure Active Directory를 사용하여 그룹에서 사용자 및 디바이스를 추가하거나 제거하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 08/28/2017
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: 947b0c11aba211530e3ae25d6617079bcaf2995f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 7c1a83d83dcbf247550c66602a6f53d4ef0d7930
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860496"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733367"
 ---
-# <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트의 사용자에 대한 그룹 멤버 자격 관리
-이 문서는 Azure AD(Azure Active Directory)에서 그룹의 멤버를 관리하는 방법을 설명합니다.
+# <a name="how-to-add-or-remove-group-members-using-azure-active-directory"></a>방법: Azure Active Directory를 사용하여 그룹 멤버 추가 또는 제거
+Azure Active Directory를 사용하여 그룹 멤버를 계속 추가하거나 제거할 수 있습니다.
 
-## <a name="how-do-i-find-the-members-and-manage-them"></a>어떻게 멤버를 찾고 관리하나요?
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **모든 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음, **입력**을 선택합니다.
+## <a name="to-add-group-members"></a>그룹 멤버를 추가하려면
 
-   ![사용자 관리 열기](./media/active-directory-groups-members-azure-portal/search-user-management.png)
-3. **사용자 및 그룹** 블레이드에서 **모든 그룹**을 선택합니다.
+1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-   ![그룹 블레이드 열기](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
-4. **사용자 및 그룹 - 모든 그룹** 블레이드에서 그룹을 선택합니다.
-5. **그룹 - *groupname*** 블레이드에서 **멤버**를 선택합니다.
+2. **Azure Active Directory**를 선택한 다음, **그룹**을 선택합니다.
 
-   ![멤버 블레이드 열기](./media/active-directory-groups-members-azure-portal/view-group-members.png)
-6. 그룹에 멤버를 추가하려면 **그룹 - 멤버** 블레이드에서 **멤버 추가**를 선택합니다.
+3. **그룹 - 모든 그룹** 페이지에서 멤버를 추가할 그룹을 검색하여 선택합니다. 이 경우에 이전에 만든 그룹인 **MDM 정책 - 서부**를 사용합니다.
 
-   ![멤버 추가 명령](./media/active-directory-groups-members-azure-portal/add-group-members-command.png)
-7. **멤버** 블레이드에서 그룹에 추가할 하나 이상의 사용자 또는 장치를 선택하고 블레이드 아래쪽의 **선택** 단추를 선택하여 그룹에 추가합니다. **사용자** 상자는 사용자 또는 장치 이름 부분에 대한 항목 일치를 기반으로 한 표시를 필터링합니다. 와일드카드 문자는 해당 상자에서 허용되지 않습니다.
-8. 그룹에서 멤버를 제거하려면 **그룹 - 멤버** 블레이드에서 멤버를 선택합니다.
-9. ***membername*** 블레이드에서 **제거** 명령을 선택하고 프롬프트에서 선택 내용을 확인합니다.
+    ![그룹 - 그룹 이름이 강조 표시된 모든 그룹 페이지](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
-   ![멤버 제거 명령](./media/active-directory-groups-members-azure-portal/remove-group-members-command.png)
-10. 그룹의 멤버 변경을 마치면 **저장**을 선택합니다.
+4. **MDM 정책 - 서부 개요** 페이지의 **관리** 영역에서 **멤버**를 선택합니다.
 
-## <a name="additional-information"></a>추가 정보
-이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
+    ![멤버 옵션이 강조 표시된 MDM 정책 - 서부 개요 페이지](media/active-directory-groups-members-azure-portal/group-overview-blade.png)
 
-* [기존 그룹 보기](active-directory-groups-view-azure-portal.md)
-* [새 그룹을 만들고 멤버 추가](active-directory-groups-create-azure-portal.md)
-* [그룹의 설정 관리](active-directory-groups-settings-azure-portal.md)
-* [그룹의 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
-* [그룹의 사용자에 대한 동적 규칙 관리](../users-groups-roles/groups-dynamic-membership.md)
+5. **멤버 추가**를 선택하고, 그룹에 추가할 멤버를 각각 검색하고 선택한 다음, **선택**을 선택합니다.
+
+    멤버를 성공적으로 추가했다는 메시지가 표시됩니다.
+
+    ![멤버에 대한 검색이 표시된 멤버 추가 페이지](media/active-directory-groups-members-azure-portal/update-members.png)
+
+6. 그룹에 추가된 모든 멤버 이름을 보려면 화면을 새로 고칩니다.
+
+## <a name="to-remove-group-members"></a>그룹 멤버를 제거하려면
+
+1. **그룹 - 모든 그룹** 페이지에서 멤버를 제거할 그룹을 검색하여 선택합니다. 다시 **MDM 정책 - 서부**를 사용합니다.
+
+2. **관리** 영역에서 **멤버**를 선택하고, 제거할 멤버의 이름을 검색하여 선택한 다음, **제거**를 선택합니다.
+
+    ![제거 옵션을 포함한 멤버 정보 페이지](media/active-directory-groups-members-azure-portal/remove-members-from-group.png)
+
+## <a name="next-steps"></a>다음 단계
+
+- [그룹 및 멤버 보기](active-directory-groups-view-azure-portal.md)
+
+- [그룹 설정 편집](active-directory-groups-settings-azure-portal.md)
+
+- [그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
+
+- [그룹의 사용자에 대한 동적 규칙 관리](../users-groups-roles/groups-create-rule.md)
+
+- [Azure Active Directory에 Azure 구독 연결 또는 추가](active-directory-how-subscriptions-associated-directory.md)

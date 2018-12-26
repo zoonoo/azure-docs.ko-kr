@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management를 사용하여 Azure 리소스에 대한 역할 할당 | Microsoft Docs
-description: PIM의 역할을 할당하는 방법을 설명합니다.
+title: PIM에서 Azure 리소스 역할 할당 | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할을 할당하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,69 +10,122 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
-ms.date: 04/02/2018
+ms.component: pim
+ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: da5a0e41c476a75f230e2d2645e7f5befd644a93
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: daf83baf5f5c3a2b7bbfe39e043e2b8411d6dd06
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441433"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465778"
 ---
-# <a name="assign-roles-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management를 사용하여 Azure 리소스에 대한 역할 할당
+# <a name="assign-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할 할당
 
-## <a name="assign-roles"></a>역할 할당
+Azure AD PIM에서는 기본 제공 Azure 리소스 역할뿐만 아니라 사용자 지정 역할(다음을 포함하지만 이에 국한되지 않음)도 관리할 수 있습니다.
 
-**역할** 창을 볼 때 역할에 사용자 또는 그룹을 할당하려면 역할을 선택한 후 **사용자 추가**를 선택합니다. 
-
-![“사용자 추가” 단추가 있는 “역할” 창](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
-
-**멤버** 창에서 **사용자 추가**를 선택할 수도 있습니다.
-
-![“사용자 추가” 단추가 있는 “멤버” 창](media/azure-pim-resource-rbac/rbac-assign-roles-2.png)
-
-
-**멤버** 창에서 사용자 또는 그룹을 추가하는 경우 다음을 수행해야 합니다. 
-
-1. 사용자 또는 그룹을 선택하기 전에 **역할 선택** 창에서 역할을 선택합니다.
-
-   ![“역할 선택” 창](media/azure-pim-resource-rbac/rbac-assign-roles-select-role.png)
-
-2. 디렉터리에서 사용자 또는 그룹을 선택합니다.
-
-3. 드롭다운 메뉴에서 적절한 할당 유형을 선택합니다. 
-
-   - **Just-In-Time:** 지정된 기간 동안 또는 무기한(역할 설정에서 구성한 경우)으로 사용자 또는 그룹 구성원에게 역할에 대해 적격하지만 비영구적인 액세스 권한을 제공합니다. 
-   - **직접:** 사용자 또는 그룹 구성원이 역할 할당을 활성화할 필요가 없습니다(영구적 액세스라고 함). 작업 완료 시 액세스가 더 이상 필요하지 않은 단기적인 사용 사례에서는 직접 할당을 사용하는 것이 좋습니다. 대기 근무 또는 시간이 중요한 활동을 예로 들 수 있습니다.
-
-4. 할당이 영구적이어야 하는 경우(Just-In-Time 할당에 대해 영구적으로 자격이 있거나 직접 할당이 영구적으로 활성화된) **할당 유형** 상자 아래의 확인란을 선택합니다.
-
-   ![“할당 유형” 상자 및 관련 확인란이 있는 “멤버 자격 설정” 창](media/azure-pim-resource-rbac/rbac-assign-roles-settings.png)
-
-   >[!NOTE]
-   >다른 관리자가 역할 설정에서 각 할당 유형에 대해 최대 할당 기간을 지정한 경우에는 해당 확인란을 수정할 수 없습니다.
-
-   특정 할당 기간을 지정하려면 확인란의 선택을 취소하고 시작 및/또는 종료 날짜/시간 상자를 수정합니다.
-
-   ![시작 날짜, 시작 시간, 종료 날짜, 종료 시간을 지정하는 상자가 있는 “멤버 자격 설정” 창](media/azure-pim-resource-rbac/rbac-assign-roles-duration.png)
-
-
-## <a name="manage-role-assignments"></a>역할 할당 관리
-
-관리자는 왼쪽 창에서 **역할** 또는 **멤버**를 선택하여 역할 할당을 관리할 수 있습니다. **역할**을 선택하면 관리자가 자신의 관리 작업을 특정 역할에 지정할 수 있습니다. **멤버**를 선택하면 리소스에 대한 모든 사용자 및 그룹 역할 할당이 표시됩니다.
-
-![“역할” 창](media/azure-pim-resource-rbac/rbac-assign-roles-roles.png)
-
-![“멤버” 창](media/azure-pim-resource-rbac/rbac-assign-roles-members.png)
+- 소유자
+- 사용자 액세스 관리자
+- 참가자
+- 보안 관리자
+- 보안 관리자 등
 
 >[!NOTE]
-활성화가 보류 중인 역할이 있는 경우 멤버 자격을 볼 때 알림 배너가 창의 위쪽에 표시됩니다.
+소유자 또는 사용자 액세스 관리자 역할에 할당된 사용자 또는 그룹 구성원 및 Azure AD에서 구독 관리를 사용할 수 있는 전역 관리자는 리소스 관리자입니다. 이러한 관리자는 Azure 리소스용 PIM을 사용하여 역할을 할당하고, 역할 설정을 구성하며, 액세스를 검토할 수 있습니다. [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 목록을 참조하세요.
 
+## <a name="assign-a-role"></a>역할 할당
 
-## <a name="modify-existing-assignments"></a>기존 할당 수정
+사용자를 Azure 리소스 역할에 대해 적격 사용자로 지정하려면 다음 단계를 따릅니다.
 
-사용자/그룹 세부 정보 보기에서 기존 할당을 수정하려면 작업 모음에서 **설정 변경**을 선택합니다. 할당 유형을 **Just-In-Time** 또 **직접**으로 변경합니다.
+1. [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할의 구성원인 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-![“설정 변경” 단추가 있는 “사용자 세부 정보” 창](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+    다른 관리자에게 PIM 관리를 위한 액세스 권한을 부여하는 방법에 대한 자세한 내용은 [다른 관리자에게 PIM을 관리하기 위한 액세스 권한 부여](pim-how-to-give-access-to-pim.md)를 참조하세요.
+
+1. **Azure AD Privileged Identity Management**를 엽니다.
+
+    Azure Portal에서 PIM을 아직 시작하지 않은 경우 [PIM 사용](pim-getting-started.md)으로 이동합니다.
+
+1. **Azure 리소스**를 클릭합니다.
+
+1. **리소스 필터**를 사용하여 관리되는 리소스의 목록을 필터링합니다.
+
+    ![관리할 Azure 리소스 목록](./media/pim-resource-roles-assign-roles/resources-list.png)
+
+1. 관리하려는 리소스(예: 구독 또는 관리 그룹)를 클릭합니다.
+
+1. 관리 아래에서 **역할**을 클릭하여 Azure 리소스에 대한 역할 목록을 표시합니다.
+
+    ![Azure 리소스 역할](./media/pim-resource-roles-assign-roles/resources-roles.png)
+
+1. **멤버 추가**를 클릭하여 새 할당 창을 엽니다.
+
+1. **역할 선택**을 클릭하여 역할 창을 엽니다.
+
+    ![새 할당 창](./media/pim-resource-roles-assign-roles/resources-select-role.png)
+
+1. 할당하려는 역할을 클릭하고 **선택**을 클릭합니다.
+
+    멤버 선택 또는 그룹 창이 열립니다.
+
+1. 역할에 할당하려는 멤버 또는 그룹을 클릭하고 **선택**을 클릭합니다.
+
+    ![멤버 또는 그룹 선택 창](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
+
+    멤버 자격 설정 창이 열립니다.
+
+1. **할당 유형** 목록에서 **적격** 또는 **활성**을 선택합니다.
+
+    ![멤버 자격 설정 창](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
+
+    Azure 리소스에서 PIM은 두 개의 고유한 할당 형식을 제공합니다.
+
+    - **적격** 할당에는 역할을 사용하는 작업을 수행하기 위해 역할의 멤버가 필요합니다. 작업은 MFA(Multi-Factor Authentication) 검사를 수행하고, 비즈니스 근거를 제공하거나 지정된 승인자의 승인을 요청하는 과정을 포함할 수 있습니다.
+
+    - **활성** 할당에는 역할을 사용하는 작업을 수행하기 위해 멤버가 필요하지 않습니다. 활성으로 할당된 멤버에게는 항상 역할에 할당된 권한이 있습니다.
+
+1. 할당을 영구적으로 지정하려면(영구적으로 적격 또는 영구적으로 할당됨) **영구적으로** 확인란을 선택합니다.
+
+    역할 설정에 따라 이 확인란이 나타나지 않거나 수정 가능하지 않을 수 있습니다.
+
+1. 특정 할당 기간을 지정하려면 확인란의 선택을 취소하고 시작 및/또는 종료 날짜/시간 상자를 수정합니다.
+
+    ![멤버 자격 설정 - 날짜 및 시간](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
+
+1. 여기까지 마쳤으면 **완료**를 클릭합니다.
+
+    ![새 할당 - 추가](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
+
+1. 새 역할 할당을 만들려면 **추가**를 클릭합니다. 상태 알림이 표시됩니다.
+
+    ![새 할당 - 알림](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
+
+## <a name="update-or-remove-an-existing-role-assignment"></a>기존 역할 할당 업데이트 또는 제거
+
+기존 역할 할당을 업데이트하거나 제거하려면 다음 단계를 수행합니다.
+
+1. **Azure AD Privileged Identity Management**를 엽니다.
+
+1. **Azure 리소스**를 클릭합니다.
+
+1. 관리하려는 리소스(예: 구독 또는 관리 그룹)를 클릭합니다.
+
+1. 관리 아래에서 **역할**을 클릭하여 Azure 리소스에 대한 역할 목록을 표시합니다.
+
+    ![Azure 리소스 역할 - 역할 선택](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
+
+1. 업데이트 또는 제거하려는 역할을 클릭합니다.
+
+1. **적격 역할** 또는 **활성 역할** 탭에서 역할 할당을 찾습니다.
+
+    ![역할 할당 업데이트 또는 제거](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
+
+1. **업데이트** 또는 **제거**를 클릭하여 역할 할당을 업데이트하거나 제거합니다.
+
+    역할 할당을 확장하는 방법에 대한 내용은 [PIM에서 Azure 리소스 역할 확장 또는 갱신](pim-resource-roles-renew-extend.md)을 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+- [PIM에서 Azure 리소스 역할 확장 또는 갱신](pim-resource-roles-renew-extend.md)
+- [PIM에서 Azure 리소스 역할 설정 구성](pim-resource-roles-configure-role-settings.md)
+- [PIM에서 Azure AD 디렉터리 역할 할당](pim-how-to-add-role-to-user.md)

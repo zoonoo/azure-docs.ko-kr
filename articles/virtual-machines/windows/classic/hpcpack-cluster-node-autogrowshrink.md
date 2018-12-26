@@ -74,7 +74,7 @@ HPC 팩 클러스터에 Azure "버스트" 노드를 배포하거나 Azure VM에 
 
     여기서,
 
-    **DisplayName** - Azure 활성 응용 프로그램 표시 이름입니다. 응용 프로그램이 없는 경우 Azure Active Directory에서 만들어집니다.
+    **DisplayName** - Azure 활성 응용 프로그램 표시 이름입니다. 애플리케이션이 없는 경우 Azure Active Directory에서 만들어집니다.
 
     **HomePage** - 응용 프로그램의 홈 페이지입니다. 앞의 예제에서와 같이 더미 URL을 구성할 수 있습니다.
 
@@ -187,7 +187,7 @@ Set-HpcClusterProperty –ExcludeNodeGroups <group1,group2,group3>
 * **HPC 팩 2012 R2 업데이트 1 이상 클러스터** - **AzureAutoGrowShrink.ps1** 스크립트는 %CCP_HOME%bin 폴더에 설치됩니다. 클러스터 헤드 노드는 온-프레미스 또는 Azure VM에 배포할 수 있습니다. 온-프레미스 헤드 노드 및 Azure "버스트" 노드로 시작하려면 [HPC 팩으로 하이브리드 클러스터 설정](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) 을 참조하세요. Azure VM에 HPC 팩 클러스터를 빠르게 배포하려면 [HPC 팩 IaaS 배포 스크립트](hpcpack-cluster-powershell-script.md)를 참조하세요. 또는 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)을 사용하세요.
 * **Azure PowerShell 1.4.0** - 현재 스크립트는 이 특정 버전의 Azure PowerShell에 따라 다릅니다.
 * **Azure 버스트 노드가 포함된 클러스터의 경우** - HPC 팩이 설치된 클라이언트 컴퓨터 또는 헤드 노드에서 스크립트를 실행합니다. 클라이언트 컴퓨터에서 실행할 경우 $env:CCP_SCHEDULER 변수가 헤드 노드를 가리키도록 설정합니다. Azure "버스트" 노드는 클러스터에 추가되어 있어야 하지만, 배포되지 않음 상태일 수 있습니다.
-* **Azure VM Resource Manager 배포 모델에서 배포된 클러스터의 경우** - Resource Manager 배포 모델에 배포된 Azure VM 클러스터의 경우 스크립트는 Azure 인증을 위한 두 가지 방법을 지원합니다. `Connect-AzureRmAccount`을 실행하여 스크립트를 실행할 때마다 Azure 계정에 로그인하거나 서비스 주체가 인증서를 사용하여 인증하도록 구성합니다. HPC 팩은 **ConfigARMAutoGrowShrinkCert.ps** 스크립트를 제공하여 인증서를 가진 서비스 주체를 만듭니다. 스크립트는 Azure AD(Azure Active Directory) 응용 프로그램 및 서비스 주체를 만들고 서비스 주체에 참가자 역할을 할당합니다. 스크립트를 실행하려면 Azure PowerShell을 관리자로 시작하고 다음 명령을 실행합니다.
+* **Azure VM Resource Manager 배포 모델에서 배포된 클러스터의 경우** - Resource Manager 배포 모델에 배포된 Azure VM 클러스터의 경우 스크립트는 Azure 인증을 위한 두 가지 방법을 지원합니다. `Connect-AzureRmAccount`을 실행하여 스크립트를 실행할 때마다 Azure 계정에 로그인하거나 서비스 주체가 인증서를 사용하여 인증하도록 구성합니다. HPC 팩은 **ConfigARMAutoGrowShrinkCert.ps** 스크립트를 제공하여 인증서를 가진 서비스 주체를 만듭니다. 스크립트는 Azure AD(Azure Active Directory) 애플리케이션 및 서비스 주체를 만들고 서비스 주체에 참가자 역할을 할당합니다. 스크립트를 실행하려면 Azure PowerShell을 관리자로 시작하고 다음 명령을 실행합니다.
 
     ```powershell
     cd $env:CCP_HOME\bin

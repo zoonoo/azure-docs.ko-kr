@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: eb4a28b5a57d7e301e800cd4ad87c56b7c5df6d2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9b7e66e6789c1f24bbd784c9c3533ee2e2d678dc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701838"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981426"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI를 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -36,11 +36,11 @@ ms.locfileid: "38701838"
 * 다른 서브넷에 VM(가상 머신) 배포
 * NVA를 통해 한 서브넷에서 다른 서브넷으로 트래픽 라우팅
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="create-a-route-table"></a>경로 테이블 만들기
 
@@ -53,7 +53,7 @@ az group create \
   --location eastus
 ``` 
 
-[az network route-table create](/cli/azure/network/route#az_network_route_table_create)를 사용하여 경로 테이블을 만듭니다. 다음 예제에서는 *myRouteTablePublic*이라는 경로 테이블을 만듭니다. 
+[az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)를 사용하여 경로 테이블을 만듭니다. 다음 예제에서는 *myRouteTablePublic*이라는 경로 테이블을 만듭니다. 
 
 ```azurecli-interactive 
 # Create a route table
@@ -64,7 +64,7 @@ az network route-table create \
 
 ## <a name="create-a-route"></a>경로 만들기
 
-[az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)를 사용하여 경로 테이블에 경로를 만듭니다. 
+[az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)를 사용하여 경로 테이블에 경로를 만듭니다. 
 
 ```azurecli-interactive
 az network route-table route create \
@@ -145,7 +145,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-VM 내 운영 체제 또는 VM 내에서 실행 중인 응용 프로그램도 네트워크 트래픽을 전달할 수 있어야 합니다. [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set)를 사용하여 VM의 운영 체제 내에서 IP 전달을 활성화합니다.
+VM 내 운영 체제 또는 VM 내에서 실행 중인 애플리케이션도 네트워크 트래픽을 전달할 수 있어야 합니다. [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set)를 사용하여 VM의 운영 체제 내에서 IP 전달을 활성화합니다.
 
 ```azurecli-interactive
 az vm extension set \

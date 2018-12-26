@@ -3,7 +3,7 @@ title: Azure Resource Manager 템플릿을 사용하여 Service Bus 토픽 구�
 description: Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 9e0aaf58-0214-4bca-bd00-d29c08f9b1bc
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
-ms.author: sethm
-ms.openlocfilehash: 4650bb3b24172e2c649a67f52e37294fb1bb7e4f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/11/2018
+ms.author: spelluru
+ms.openlocfilehash: 7774d67d02b2b0f0080cbff2ffc3606b99450f26
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38506270"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404964"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
 
@@ -43,7 +43,7 @@ Azure 리소스 명명 규칙의 사례 및 패턴에 대한 자세한 내용은
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>배포할 항목
+## <a name="what-do-you-deploy"></a>배포할 항목
 
 이 템플릿을 사용하여 토픽, 구독 및 규칙(필터)이 있는 Service Bus 네임스페이스를 배포합니다.
 
@@ -51,15 +51,15 @@ Azure 리소스 명명 규칙의 사례 및 패턴에 대한 자세한 내용은
 
 ## <a name="what-are-rules-filters"></a>규칙(필터)란?
 
-대부분의 시나리오에서 특정 특성을 가진 메시지를 다른 방법으로 처리해야 합니다. 사용자 지정 프로세스를 사용하도록 설정하려면 구독을 구성하여 특정 속성을 갖는 메시지를 찾은 다음 해당 속성에 수정 작업을 수행하도록 구독을 구성합니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하지만 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 구독 필터를 사용하여 수행합니다. 규칙(필터)에 대한 자세한 내용은 [규칙 및 작업](service-bus-queues-topics-subscriptions.md#rules-and-actions)을 참조하세요.
+대부분의 시나리오에서 특정 특성을 가진 메시지를 다른 방법으로 처리해야 합니다. 사용자 지정 프로세스를 사용하도록 설정하려면 구독을 구성하여 특정 속성을 갖는 메시지를 찾은 다음 해당 속성에 수정 작업을 수행하도록 구독을 구성합니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하지만 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 구독 필터를 사용하여 이 복사 작업을 수행합니다. 규칙(필터)에 대한 자세한 내용은 [규칙 및 작업](service-bus-queues-topics-subscriptions.md#rules-and-actions)을 참조하세요.
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
 [![Azure에 배포](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>매개 변수
 
-Azure Resource Manager와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의해야 합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters` 라는 섹션을 포함합니다. 배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
+Azure Resource Manager를 사용하여 템플릿 배포 시에 지정하려는 값의 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters` 라는 섹션을 포함합니다. 배포하는 프로젝트나 배포 대상 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
 
 템플릿은 다음 매개 변수를 정의합니다.
 

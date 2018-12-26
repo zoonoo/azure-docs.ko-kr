@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2017
-ms.author: mbullwin; antonfr
-ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: antonfr
+ms.author: mbullwin
+ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868937"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960823"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -46,7 +47,7 @@ Application Insights가 응용 프로그램 성능이 다음과 같은 방식 �
 알림에는 진단 정보가 포함되어 있습니다. 예를 들면 다음과 같습니다.
 
 
-![다음은 서버 응답 시간 성능 저하 검색의 예입니다.](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![다음은 서버 응답 시간 성능 저하 검색의 예입니다.](media/app-insights-proactive-performance-diagnostics/server_response_time_degradation.png)
 
 1. **심사**. 이 알림은 영향을 받은 사용자 수 또는 작업의 수를 보여 줍니다. 문제에 우선 순위를 할당하는 데 도움이 될 수 있습니다.
 2. **범위**. 이 문제가 모든 트래픽에 영향을 주나요? 아니면 일부 페이지에만 영향을 주나요? 특정 브라우저 또는 위치로 제한되나요? 이 정보는 알림에서 얻을 수 있습니다.
@@ -60,7 +61,7 @@ Application Insights가 응용 프로그램 성능이 다음과 같은 방식 �
 
 스마트 검색 알림은 기본적으로 사용되도록 설정되며 [Application Insights 리소스에 대해 액세스 권한이 있는 소유자, 기고자 및 읽기 권한자](app-insights-resources-roles-access-control.md)에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
   
-  ![스마트 검색 설정](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  ![스마트 검색 설정](media/app-insights-proactive-performance-diagnostics/smart_detection_configuration.png)
   
   * 스마트 검색 전자 메일에서 **구독 취소** 링크를 사용하여 전자 메일 알림 수신을 중지할 수 있습니다.
 
@@ -69,7 +70,7 @@ Application Insights가 응용 프로그램 성능이 다음과 같은 방식 �
 ## <a name="faq"></a>FAQ
 
 * *그렇다면, 내 데이터를 확인하나요?*
-  * 번호 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [비공개](app-insights-data-retention-privacy.md)입니다.
+  * 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [비공개](app-insights-data-retention-privacy.md)입니다.
 * *Application Insights를 통해 수집되는 모든 데이터를 분석하나요?*
   * 현재는 암호화되지 않습니다. 현재는 요청 응답 시간, 종속성 응답 시간 및 페이지 로드 시간을 분석합니다. 추가 메트릭에 대한 분석은 현재 서비스를 위해 작업 중입니다.
 
@@ -85,7 +86,7 @@ Application Insights가 응용 프로그램 성능이 다음과 같은 방식 �
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).
 * 이것이 *메트릭 경고[를 대신하나요](app-insights-alerts.md)?*
-  * 번호  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
+  * 아니요.  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
 
 
 * *알림에 대한 응답으로 아무 작업도 수행하지 않을 경우 미리 알림이 제공되나요?*
@@ -142,7 +143,7 @@ Application Insights가 응용 프로그램 성능이 다음과 같은 방식 �
 
 예제 종속성 성능 저하 알림:
 
-![다음은 종속성 기간 저하 검색 예제입니다.](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![다음은 종속성 기간 저하 검색 예제입니다.](media/app-insights-proactive-performance-diagnostics/dependency_duration_degradation.png)
 
 여기서 알 수 있는 정보:
 
@@ -184,8 +185,8 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 
 * [프로파일러](app-insights-profiler.md) 
 * [스냅숏 디버거](app-insights-snapshot-debugger.md)
-* [분석](app-insights-analytics-tour.md)
-* [분석 스마트 진단](app-insights-analytics-diagnostics.md)
+* [분석](../log-analytics/query-language/get-started-analytics-portal.md)
+* [분석 스마트 진단](app-insights-analytics.md)
 
 스마트 감지는 완전히 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: b2561f4b1b5ef27f389114c85f0646b968f7765e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 0c21ba3df6805c053f3d318d1ca3734a89c2ab60
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36269564"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400191"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 Managed Disks 사용
 
@@ -96,7 +96,7 @@ Azure Managed Disks를 사용하면 디스크가 최상위 리소스가 되며 �
 
 ### <a name="default-managed-disk-settings"></a>기본 관리 디스크 설정
 
-관리 디스크를 사용하여 VM을 만들기 위해 저장소 계정 리소스를 만들지 않아도 되며 다음과 같이 가상 머신 리소스를 업데이트할 수 있습니다. 특히 `apiVersion`은 `2017-03-30`를 반영하며 `osDisk` 및 `dataDisks`는 VHD에 대한 특정 URI를 더 이상 참조하지 않습니다. 추가 속성을 지정하지 않고 배포할 경우 디스크는 [표준 LRS 저장소](../articles/storage/common/storage-redundancy.md)를 사용합니다. 이름을 지정하지 않으면 OS 디스크에 대해 `<VMName>_OsDisk_1_<randomstring>` 형식을, 각 데이터 디스크에 대해 `<VMName>_disk<#>_<randomstring>`을 사용합니다. 기본적으로 Azure Disk Encryption은 사용하지 않으며 OS 디스크에 대한 캐싱은 읽기/쓰기이고 데이터 디스크에 대한 캐싱은 없음입니다. 아래 예에서 여전히 저장소 계정 종속성이 있음을 알 수 있습니다. 이는 진단 저장소에만 해당되며 디스크 저장소에는 필요하지 않습니다.
+관리 디스크를 사용하여 VM을 만들기 위해 저장소 계정 리소스를 만들지 않아도 되며 다음과 같이 가상 머신 리소스를 업데이트할 수 있습니다. 특히 `apiVersion`은 `2017-03-30`를 반영하며 `osDisk` 및 `dataDisks`는 VHD에 대한 특정 URI를 더 이상 참조하지 않습니다. 추가 속성을 지정하지 않고 배포할 경우 디스크는 VM의 크기에 따라 Storage 형식을 사용합니다. 예를 들어 프리미엄 지원 VM 크기(Standard_D2s_v3과 같이 이름에 "s"를 포함한 크기)를 사용하는 경우 시스템에서는 Premium_LRS 저장소를 사용합니다. 디스크의 SKU 설정을 사용하여 Storage 형식을 지정합니다. 이름을 지정하지 않으면 OS 디스크에 대해 `<VMName>_OsDisk_1_<randomstring>` 형식을, 각 데이터 디스크에 대해 `<VMName>_disk<#>_<randomstring>`을 사용합니다. 기본적으로 Azure Disk Encryption은 사용하지 않으며 OS 디스크에 대한 캐싱은 읽기/쓰기이고 데이터 디스크에 대한 캐싱은 없음입니다. 아래 예에서 여전히 저장소 계정 종속성이 있음을 알 수 있습니다. 이는 진단 저장소에만 해당되며 디스크 저장소에는 필요하지 않습니다.
 
 ```json
 {
@@ -256,4 +256,4 @@ REST API 사양에 대한 전체 정보를 찾으려면 [관리 디스크 REST A
 * 관리 디스크에 대해 자세히 알아보려면 [Azure Managed Disks 개요](../articles/virtual-machines/windows/managed-disks-overview.md) 문서를 참조하세요.
 * [Microsoft.Compute/virtualMachines 템플릿 참조](/azure/templates/microsoft.compute/virtualmachines) 문서를 방문하여 가상 컴퓨터 리소스에 대한 템플릿 참조 설명서를 검토하세요.
 * [Microsoft.Compute/disks 템플릿 참조](/azure/templates/microsoft.compute/disks) 문서를 방문하여 디스크 리소스에 대한 템플릿 참조 설명서를 검토하세요.
-* Azure Virtual Machine Scale Sets에서 관리 디스크를 사용하는 방법에 대한 내용은 [확장 집합으로 데이터 디스크 사용](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) 문서를 참조하세요.
+* Azure Virtual Machine Scale Sets에서 관리 디스크를 사용하는 방법에 대한 내용은 [확장 집합으로 데이터 디스크 사용](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) 문서를 참조하세요.

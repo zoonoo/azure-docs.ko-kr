@@ -1,34 +1,26 @@
 ---
 title: 'ExpressRoute 회로 수정: PowerShell: Azure 클래식 | Microsoft Docs'
 description: 이 문서에서는 ExpressRoute 클래식 배포 모델 회로 상태를 확인하고, 업데이트 또는 삭제하고, 프로비전을 해제하는 단계를 설명합니다.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.topic: conceptual
+ms.date: 07/26/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 457bb74fa15d31fecbf668038ac880cafb8a897d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2ac8403c5375c2448be0bf2348775ce3350570c0
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "24102837"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161365"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute 회로 수정(클래식)
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
 >
 
@@ -38,11 +30,42 @@ ms.locfileid: "24102837"
 
 **Azure 배포 모델 정보**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-최신 버전의 Azure SM(서비스 관리) PowerShell 모듈 설치 Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell cmdlet 시작](/powershell/azure/overview)에 나온 지침을 따르세요.
+최신 버전의 Azure SM(서비스 관리) PowerShell 모듈 및 ExpressRoute 모듈을 설치합니다.  다음 예제를 사용할 때는 최신 버전의 cmdlet이 출시되면 버전 번호(이 예제에서는 5.1.1)가 변경된다는 점에 주의하세요.
+
+```powershell
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+```
+
+Azure PowerShell에 대한 자세한 정보가 필요한 경우 [Azure PowerShell cmdlet 시작](/powershell/azure/overview)에서 Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침을 참조하세요.
+
+Azure 계정에 로그인하려면 다음 예제를 사용합니다.
+
+1. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
+
+  ```powershell
+  Connect-AzureRmAccount
+  ```
+2. 계정에 대한 구독을 확인합니다.
+
+  ```powershell
+  Get-AzureRmSubscription
+  ```
+3. 둘 이상의 구독이 있는 경우 사용할 구독을 선택합니다.
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
+
+4. 다음 cmdlet을 사용하여 클래식 배포 모델용 PowerShell에 Azure 구독을 추가합니다.
+
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ## <a name="get-the-status-of-a-circuit"></a>회로 상태 가져오기
 

@@ -14,19 +14,19 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 88e3ab3cc03cc1e760672120bc5c484af1ba4722
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a7ced71f2d0a8c5d956bbdbcd8fcae485aee3fc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778378"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241578"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Java에서 Notification Hubs를 사용하는 방법
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 이 항목에서는 완전히 지원되는 새 공식 Azure 알림 허브 Java SDK의 주요 기능에 대해 설명합니다. 이 프로젝트는 오픈 소스 프로젝트이며 [Java SDK]에서 전체 SDK 코드를 확인할 수 있습니다. 
 
-일반적으로는 MSDN 항목 [Notification Hubs REST API](http://msdn.microsoft.com/library/dn223264.aspx)에서 설명하는 것처럼 Notification Hubs REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 Notification Hubs 기능에 액세스할 수 있습니다. 이 Java SDK는 Java에서 이러한 REST 인터페이스에 대한 씬 래퍼를 제공합니다. 
+일반적으로는 MSDN 항목 [Notification Hubs REST API](https://msdn.microsoft.com/library/dn223264.aspx)에서 설명하는 것처럼 Notification Hubs REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 Notification Hubs 기능에 액세스할 수 있습니다. 이 Java SDK는 Java에서 이러한 REST 인터페이스에 대한 씬 래퍼를 제공합니다. 
 
 현재 SDK에 포함되어 있는 기능은 다음과 같습니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "33778378"
 
 ## <a name="sdk-usage"></a>SDK 사용
 ### <a name="compile-and-build"></a>컴파일 및 빌드
-[Maven]
+ [Maven]
 
 빌드하려면 다음 코드를 사용합니다.
 
@@ -141,7 +141,7 @@ ms.locfileid: "33778378"
 모든 컬렉션 쿼리는 $top 및 연속 토큰을 지원합니다.
 
 ### <a name="installation-api-usage"></a>설치 API 사용
-설치 API는 등록 관리 대신 사용할 수 있는 메커니즘입니다. 올바르지 않거나 비효율적인 방식으로 수행하기 쉬운 중요한 등록을 여러 개 유지 관리하는 대신 이제는 단일 설치 개체를 사용할 수 있습니다. 이 경우 설치에는 푸시 채널(장치 토큰), 태그, 템플릿, 보조 타일(WNS 및 APNS의 경우) 등 필요한 모든 항목이 포함됩니다. 더 이상 ID를 가져오기 위해 서비스를 호출할 필요가 없으며 GUID나 다른 식별자를 생성하여 장치에 저장한 다음 푸시 채널(장치 토큰)과 함께 백 엔드로 전송하기만 하면 됩니다. 백 엔드에서는 CreateOrUpdateInstallation만 단일 호출하면 됩니다. 이 호출은 완전 멱등 방식이므로 필요한 경우 다시 시도해도 됩니다.
+설치 API는 등록 관리 대신 사용할 수 있는 메커니즘입니다. 올바르지 않거나 비효율적인 방식으로 수행하기 쉬운 중요한 등록을 여러 개 유지 관리하는 대신 이제는 단일 설치 개체를 사용할 수 있습니다. 이 경우 설치에는 푸시 채널(디바이스 토큰), 태그, 템플릿, 보조 타일(WNS 및 APNS의 경우) 등 필요한 모든 항목이 포함됩니다. 더 이상 ID를 가져오기 위해 서비스를 호출할 필요가 없으며 GUID나 다른 식별자를 생성하여 장치에 저장한 다음 푸시 채널(장치 토큰)과 함께 백 엔드로 전송하기만 하면 됩니다. 백 엔드에서는 CreateOrUpdateInstallation만 단일 호출하면 됩니다. 이 호출은 완전 멱등 방식이므로 필요한 경우 다시 시도해도 됩니다.
 
 Amazon Kindle Fire의 경우 예제:
 
@@ -274,7 +274,7 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
         Notification n = Notification.createTemplateNotification(prop);
         hub.sendNotification(n);
 
-이제 Java 코드를 실행하면 대상 장치에 나타나는 알림이 생성되어야 합니다.
+이제 Java 코드를 실행하면 대상 디바이스에 나타나는 알림이 생성되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 항목에서는 Notification Hubs에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
@@ -288,11 +288,11 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
   * [인증된 사용자에게 플랫폼 간 알림 보내기]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Notification Hubs 시작]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
-[속보 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
-[지역화된 속보 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[인증된 사용자에게 알림 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
-[인증된 사용자에게 플랫폼 간 알림 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Notification Hubs 시작]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[속보 보내기]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[지역화된 속보 보내기]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[인증된 사용자에게 알림 보내기]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[인증된 사용자에게 플랫폼 간 알림 보내기]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Maven]: http://maven.apache.org/
 

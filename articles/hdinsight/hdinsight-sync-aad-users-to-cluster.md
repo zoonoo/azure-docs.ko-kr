@@ -1,45 +1,40 @@
 ---
-title: Azure Active Directory 사용자를 클러스터와 동기화 - Azure HDInsight | Microsoft Docs
+title: Azure Active Directory 사용자를 클러스터와 동기화 - Azure HDInsight
 description: Azure Active Directory에서 인증된 사용자를 클러스터와 동기화합니다.
 services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+author: ashishthaps
 ms.author: ashishth
-ms.openlocfilehash: f2deaaa31a4d0e8a91d048b538e9251a8eb9e1b7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: mamccrea
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 09/24/2018
+ms.openlocfilehash: b63f2566220d556f9695687dc743a7d47e27acf1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409284"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984316"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory 사용자를 HDInsight 클러스터와 동기화
 
-[도메인에 가입된 HDInsight 클러스터](hdinsight-domain-joined-introduction.md)는 Azure AD(Azure Active Directory) 사용자에 대해 강력한 인증을 사용하고, RBAC(*역할 기반 액세스 제어*) 정책을 사용할 수 있습니다. Azure AD에 사용자 및 그룹을 추가하면 클러스터에 액세스해야 하는 사용자를 동기화할 수 있습니다.
+[ESP(Enterprise Security Package)가 포함된 HDInsight 클러스터](hdinsight-domain-joined-introduction.md)는 Azure AD(Azure Active Directory) 사용자에 대해 강력한 인증을 사용하고, RBAC(*역할 기반 액세스 제어*) 정책도 사용할 수 있습니다. Azure AD에 사용자 및 그룹을 추가하면 클러스터에 액세스해야 하는 사용자를 동기화할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-아직 수행하지 않은 경우 [도메인에 가입된 HDInsight 클러스터를 만듭니다](hdinsight-domain-joined-configure.md).
+아직 하지 않은 경우 [Enterprise Security Package가 포함된 HDInsight 클러스터를 만듭니다](hdinsight-domain-joined-configure.md).
 
 ## <a name="add-new-azure-ad-users"></a>새 Azure AD 사용자 추가
 
 호스트를 보려면 Ambari 웹 UI를 엽니다. 각 노드는 새 무인 업그레이드 설정으로 업데이트됩니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 도메인에 가입된 클러스터와 연결된 Azure AD 디렉터리로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 ESP 클러스터와 연결된 Azure AD 디렉터리로 이동합니다.
 
 2. 왼쪽 메뉴에서 **모든 사용자**를 선택한 후 **새 사용자**를 선택합니다.
 
     ![모든 사용자 창](./media/hdinsight-sync-aad-users-to-cluster/aad-users.png)
 
-3. 새 사용자 양식을 완료합니다. 클러스터 기반 사용 권한 할당을 위해 만든 그룹을 선택합니다. 이 예제에서는 새 사용자를 할당할 수 있는 "HiveUsers"라는 그룹을 만듭니다. 도메인에 가입된 클러스터를 만들기 위한 [예제 지침](hdinsight-domain-joined-configure.md)에는 2개의 그룹인 `HiveUsers` 및 `AAD DC Administrators`가 포함되어 있습니다.
+3. 새 사용자 양식을 완료합니다. 클러스터 기반 사용 권한 할당을 위해 만든 그룹을 선택합니다. 이 예제에서는 새 사용자를 할당할 수 있는 "HiveUsers"라는 그룹을 만듭니다. ESP 클러스터를 만들기 위한 [예제 지침](hdinsight-domain-joined-configure.md)에는 2개의 그룹인 `HiveUsers` 및 `AAD DC Administrators`의 추가가 포함됩니다.
 
     ![새 사용자 창](./media/hdinsight-sync-aad-users-to-cluster/aad-new-user.png)
 
@@ -80,10 +75,10 @@ ms.locfileid: "31409284"
     }
     ```
 
-4. 동기화 상태를 보려면 이전 명령에서 반환된 `href` 값을 사용하여 새 `curl` 명령을 실행합니다.
+4. 동기화 상태를 보려면 새 `curl` 명령을 실행합니다.
 
     ```bash
-    curl -u admin:<YOUR PASSWORD> http://hn0-hadoop.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1
+    curl -u admin:<YOUR PASSWORD> https://<YOUR CLUSTER NAME>.azurehdinsight.net/api/v1/ldap_sync_events/1
     ```
     
     응답은 다음과 같아야 합니다.
@@ -153,6 +148,6 @@ ms.locfileid: "31409284"
 
 ## <a name="see-also"></a>참고 항목
 
-* [도메인에 가입된 HDInsight에서 Hive 정책 구성](hdinsight-domain-joined-run-hive.md)
-* [도메인에 가입된 HDInsight 클러스터 관리](hdinsight-domain-joined-manage.md)
+* [ESP가 포함된 HDInsight에서 Hive 정책 구성](hdinsight-domain-joined-run-hive.md)
+* [ESP가 포함된 HDInsight 클러스터 관리](hdinsight-domain-joined-manage.md)
 * [사용자에게 Ambari 권한 부여](hdinsight-authorize-users-to-ambari.md)

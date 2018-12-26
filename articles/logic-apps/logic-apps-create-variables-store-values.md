@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 0efce9fbbbd241f335f08bb258b6ba343982fdb9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299191"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231630"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Azure Logic Apps에서 값을 저장 및 관리하기 위한 변수 만들기
 
@@ -71,9 +71,9 @@ ms.locfileid: "35299191"
 
    | 자산 | 필수 | 값 |  설명 |
    |----------|----------|-------|--------------|
-   | Name | 예 | <*variable-name*> | 증가할 변수의 이름입니다. | 
-   | type | 예 | <*variable-type*> | 변수의 데이터 형식입니다. | 
-   | 값 | 아니오 | <*start-value*> | 변수의 초기 값 <p><p>**팁**: 선택 사항이지만, 변수의 시작 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
+   | 이름 | yes | <*variable-name*> | 증가할 변수의 이름입니다. | 
+   | type | yes | <*variable-type*> | 변수의 데이터 형식입니다. | 
+   | 값 | 아니요 | <*start-value*> | 변수의 초기 값 <p><p>**팁**: 선택 사항이지만, 변수의 시작 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
    ||||| 
 
    ![변수 초기화](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -207,8 +207,8 @@ ms.locfileid: "35299191"
 
    | 자산 | 필수 | 값 |  설명 |
    |----------|----------|-------|--------------|
-   | Name | 예 | <*variable-name*> | 증가할 변수의 이름입니다. | 
-   | 값 | 아니오 | <*increment-value*> | 변수를 증가하는 데 사용되는 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 증가하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
+   | 이름 | yes | <*variable-name*> | 증가할 변수의 이름입니다. | 
+   | 값 | 아니요 | <*increment-value*> | 변수를 증가하는 데 사용되는 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 증가하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
    |||| 
 
    예:  
@@ -327,8 +327,8 @@ ms.locfileid: "35299191"
 
 | 자산 | 필수 | 값 |  설명 |
 |----------|----------|-------|--------------|
-| Name | 예 | <*variable-name*> | 감소할 변수의 이름입니다. | 
-| 값 | 아니오 | <*increment-value*> | 변수를 감소하기 위한 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 감소하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
+| 이름 | yes | <*variable-name*> | 감소할 변수의 이름입니다. | 
+| 값 | 아니요 | <*increment-value*> | 변수를 감소하기 위한 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 감소하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. | 
 ||||| 
 
 디자이너에서 코드 보기 편집기로 전환하는 경우, **변수 감소** 작업은 논리 앱 정의 내에서 다음과 같이 JSON 형식으로 표시됩니다.
@@ -362,8 +362,8 @@ ms.locfileid: "35299191"
 
 | 자산 | 필수 | 값 |  설명 | 
 |----------|----------|-------|--------------| 
-| Name | 예 | <*variable-name*> | 변경할 변수의 이름입니다. | 
-| 값 | 예 | <*new-value*> | 변수에 할당할 값입니다. 둘 다 데이터 형식이 같아야 합니다. | 
+| 이름 | yes | <*variable-name*> | 변경할 변수의 이름입니다. | 
+| 값 | yes | <*new-value*> | 변수에 할당할 값입니다. 둘 다 데이터 형식이 같아야 합니다. | 
 ||||| 
 
 > [!NOTE]
@@ -420,8 +420,8 @@ ms.locfileid: "35299191"
 
 | 자산 | 필수 | 값 |  설명 | 
 |----------|----------|-------|--------------| 
-| Name | 예 | <*variable-name*> | 변경할 변수의 이름입니다. | 
-| 값 | 예 | <*append-value*> | 추가하려는 값으로, 임의 형식일 수 있습니다. | 
+| 이름 | yes | <*variable-name*> | 변경할 변수의 이름입니다. | 
+| 값 | yes | <*append-value*> | 추가하려는 값으로, 임의 형식일 수 있습니다. | 
 |||||  
 
 디자이너에서 코드 보기 편집기로 전환하는 경우, **배열 변수에 추가** 작업은 논리 앱 정의 내에서 다음과 같이 JSON 형식으로 표시됩니다.
@@ -456,7 +456,7 @@ ms.locfileid: "35299191"
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

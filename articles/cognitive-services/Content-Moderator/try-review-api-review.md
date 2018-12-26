@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator에서 사용자 검토를 사용하여 콘텐츠 조정 | Microsoft Docs
+title: API 콘솔을 통한 사용자 검토를 사용하여 콘텐츠 조정 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Content Moderator API 콘솔에서 사용자 검토를 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: e9faf595e65ba4475a743e4cb45919fd30fbd6e8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bb95341a09f09ce8020f34476e720270fd401909
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372999"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219756"
 ---
 # <a name="create-reviews-from-the-api-console"></a>API 콘솔에서 검토 만들기
 

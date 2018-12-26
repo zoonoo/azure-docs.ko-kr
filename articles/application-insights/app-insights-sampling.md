@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 03/24/2017
-ms.author: mbullwin; vitalyg
-ms.openlocfilehash: 53753a3202362c73356e8e39bfca9d813f6387e0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.date: 10/02/2018
+ms.reviewer: vitalyg
+ms.author: mbullwin
+ms.openlocfilehash: 7fca6ffa9efa3eed9f7c74ee89ad8bb9651494bb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869906"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044708"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -34,7 +35,7 @@ ms.locfileid: "33869906"
 * 샘플링을 포털의 사용량 및 예상 비용 페이지나 ASP.NET SDK의 .config 파일 또는 Java SDK의 ApplicationInsights.xml 파일에서 수동으로 설정하여 네트워크 트래픽을 줄일 수도 있습니다.
 * 사용자 지정 이벤트를 기록하고 일련의 이벤트가 유지되는지 아니면 함께 무시되는지 확인하려는 경우 동일한 OperationId 값을 갖는지 확인합니다.
 * 샘플링 약수 *n*은 `itemCount` 속성의 각 레코드에서 보고되며 이는 검색의 이름 "요청 개수" 또는 "이벤트 개수"에 나타납니다. 샘플링이 작업 중이지 않을 때 `itemCount==1`입니다.
-* 분석 쿼리를 작성하는 경우 [샘플링을 고려](app-insights-analytics-tour.md#counting-sampled-data)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
+* 분석 쿼리를 작성하는 경우 [샘플링을 고려](../log-analytics/query-language/aggregations.md)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
 
 ## <a name="types-of-sampling"></a>샘플링 유형
 다음은 세 가지 대체 샘플링 방법입니다.
@@ -47,7 +48,7 @@ ms.locfileid: "33869906"
 적응 또는 고정 비율 샘플링이 작업 중인 경우 수집 샘플링은 비활성화됩니다.
 
 ## <a name="ingestion-sampling"></a>수집 샘플링
-이 샘플링 형식은 웹 서버, 브라우저 및 장치의 원격 분석이 Application Insights 서비스 끝점에 도달하는 지점에서 작동합니다. 앱에서 전송되는 원격 분석 트래픽을 줄이지는 않지만 Application Insights에서 처리 및 보존(및 청구)되는 양을 줄입니다.
+이 샘플링 형식은 웹 서버, 브라우저 및 디바이스의 원격 분석이 Application Insights 서비스 엔드포인트에 도달하는 지점에서 작동합니다. 앱에서 전송되는 원격 분석 트래픽을 줄이지는 않지만 Application Insights에서 처리 및 보존(및 청구)되는 양을 줄입니다.
 
 앱이 월간 할당량을 자주 초과하지만 SDK 기반의 샘플링 유형 중 하나를 사용할 옵션이 없는 경우 이 샘플링 유형을 사용합니다. 
 
@@ -69,7 +70,7 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 ## <a name="adaptive-sampling-at-your-web-server"></a>웹 서버의 적응 샘플링
 적응 샘플링은 ASP.NET v 2.0.0-beta3 이상용 Application Insights SDK에 사용할 수 있으며, 기본적으로 사용하도록 설정됩니다. 
 
-적응 샘플링은 웹 서버 앱에서 Application Insights 서비스 끝점으로 보내는 원격 분석의 양에 영향을 줍니다. 이 양은 지정된 최대 트래픽 속도 내에서 유지되도록 자동으로 조정됩니다.
+적응 샘플링은 웹 서버 앱에서 Application Insights 서비스 엔드포인트로 보내는 원격 분석의 양에 영향을 줍니다. 이 양은 지정된 최대 트래픽 속도 내에서 유지되도록 자동으로 조정됩니다.
 
 적은 양의 원격 분석에서는 작동하지 않으므로 사용량이 적은 웹 사이트 또는 디버그 중인 앱은 영향을 받지 않습니다.
 
@@ -249,7 +250,7 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
                 <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
                 <Add name = "SamplingPercentage" value = "50" />
             </Processor>
-        </BuilrInProcessors>
+        </BuiltInProcessors>
     <TelemetryProcessors/>
 ```
 
@@ -281,7 +282,7 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
     ...
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.UseSampling(10.0); // percentage
 
     // If you have other telemetry processors:
@@ -326,9 +327,12 @@ ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>샘플링이 작업 중인지 어떻게 알 수 있나요?
 적용된 위치에 관계 없이 실제 샘플링 주기를 검색하려면 다음과 같은 [분석 쿼리](app-insights-analytics.md) 를 사용합니다.
 
-    requests | where timestamp > ago(1d)
-    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
-    | render areachart 
+```
+union * 
+| where timestamp > ago(1d)
+| summarize 100/avg(itemCount) by bin(timestamp, 1h), itemType
+| render timechart 
+```
 
 보존된 각 레코드에서 `itemCount` 은 나타내는 원래 레코드 수를 나타내며 1 + 이전에 삭제된 레코드의 수와 같습니다. 
 

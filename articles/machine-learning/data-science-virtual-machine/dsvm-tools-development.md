@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: b8b0b8934b51080c3583281673183c1498c26417
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408312"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50237880"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine의 개발 도구
 
@@ -77,7 +77,7 @@ DSVM(데이터 과학 Virtual Machine)은 많이 사용되는 여러 도구와 I
 | ------------- | ------------- |
 | 무엇인가요?   | Python 언어용 클라이언트 IDE    |
 | 지원되는 DSVM 버전      | Linux      |
-| 일반적인 사용 용도      |  R 개발     |
+| 일반적인 사용 용도      |  Python 개발     |
 | 사용/실행 방법      | Linux에서 바탕 화면 바로 가기(`/usr/bin/pycharm`)      |
 | DSVM의 관련 도구      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 

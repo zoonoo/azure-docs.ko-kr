@@ -8,25 +8,25 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 06/20/2018
-ms.author: sngun
-ms.openlocfilehash: e4a3b3a482f56065c54525a4d9cd7971f50f5b2a
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.date: 11/02/2018
+ms.author: moderakh
+ms.openlocfilehash: c8b8397e5d51b67895a6a95ed6d1611813a9aaf6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300682"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300849"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -38,7 +38,7 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](http://netty.io/)를 지�
 
 <tr><td>**SDK 다운로드**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**API 설명서**</td><td>[Java API 참조 설명서](https://azure.github.io/azure-cosmosdb-java/)</td></tr>
+<tr><td>**API 설명서**</td><td>[Java API 참조 설명서](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client?view=azure-java-stable)</td></tr>
 
 <tr><td>**SDK에 참여**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
@@ -48,10 +48,33 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](http://netty.io/)를 지�
 
 <tr><td>**성능 팁**</td><td>[Github 추가 정보](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
 
-<tr><td>**지원되는 최소 런타임**</td><td>[JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)</td></tr>
+<tr><td>**지원되는 최소 런타임**</td><td>[JDK 8](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+* 패키징 버그를 수정했습니다.
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* 쓰기 재시도 경로의 NPE 버그를 수정했습니다.
+* 엔드포인트 관리의 NPE 버그를 수정했습니다.
+* 취약한 종속성을 업그레이드했습니다([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* 문제 해결을 위한 Netty 네트워크 로깅 지원이 추가되었습니다.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* 다중 지역 쓰기 지원이 추가되었습니다.
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* 프록시에 대한 지원이 추가되었습니다.
+* 리소스 토큰 권한 부여에 대한 지원이 추가되었습니다.
+* 대용량 파티션 키([github #63](https://github.com/Azure/azure-cosmosdb-java/issues/63))를 처리할 때 발생하는 버그가 수정되었습니다.
+* 설명서가 개선되었습니다.
+* SDK가 더욱 세분화된 모듈로 재구성되었습니다.
+
+### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
+* 영어가 아닌 로캘에 대한 버그가 수정되었습니다([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* 충돌 리소스에 도우미 메서드가 추가되었습니다.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * 성능상의 이유 및 라이선싱 때문에 jackson에 의한 org.json 종속성이 대체되었습니다([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
@@ -99,6 +122,11 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.2.2](#2.2.2) |2018년 11월 8일|--- |
+| [2.2.1](#2.2.1) |2018년 11월 2일|--- |
+| [2.2.0](#2.2.0) |2018년 9월 22일|--- |
+| [2.1.0](#2.1.0) |2018년 9월 5일|--- |
+| [2.0.1](#2.0.1) |2018년 8월 16일|--- |
 | [2.0.0](#2.0.0) |2018년 6월 20일|--- |
 | [1.0.2](#1.0.2) |2018년 5월 18일|--- |
 | [1.0.1](#1.0.1) |2018년 4월 20일|--- |

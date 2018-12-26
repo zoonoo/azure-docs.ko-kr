@@ -3,23 +3,23 @@ title: Azure Security Center에서 사용자 데이터 관리 | Microsoft Docs
 description: " Azure Security Center에서 사용자 데이터를 관리하는 방법을 알아봅니다. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
-ms.author: terrylan
-ms.openlocfilehash: 2495bae5c63cdafe049ec39f71ab53106c5f2df7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: rkarlin
+ms.openlocfilehash: 8417b342dc032f46fddd6c57b82c402cc6c1a10d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660217"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967728"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Azure Security Center에서 사용자 데이터 관리
 이 아티클에서는 Azure Security Center에서 사용자 데이터를 관리하는 방법에 대한 정보를 제공합니다. 사용자 데이터 관리에는 데이터에 액세스하거나, 데이터를 삭제하거나, 내보내는 기능이 포함됩니다.

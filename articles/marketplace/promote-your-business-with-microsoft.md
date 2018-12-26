@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: b2b0a0bbc91115de22eda98df91fb104eb5972ed
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: b02ab403c82fd781af72c3b1f08e843c3fc770e3
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826057"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094946"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Microsoft를 통한 비즈니스 홍보  
 Microsoft는 파트너(여러분)를 지원하고 Marketplace의 상점에서 여러분의 앱 또는 제품 판매를 간소화하고자 합니다. Marketplace 목록에 추가하면 Marketplace에서 프로그램 및 리소스에 액세스할 수 있습니다. 
 
-MPN(Microsoft 파트너 네트워크)에 아직 등록하지 않은 경우 계속하기 전에 이 로그인을 수행합니다.  
+MPN(Microsoft 파트너 네트워크)에 아직 등록하지 않은 경우 계속하기 전에 이 작업을 수행합니다.  
 *   MPN에 대한 자세한 내용은 [partner.microsoft.com](https://partner.microsoft.com)에 있는 Microsoft 파트너 네트워크 페이지를 방문하세요.  
 
 MPN은 다음 항목에 대한 지침을 제공합니다.  

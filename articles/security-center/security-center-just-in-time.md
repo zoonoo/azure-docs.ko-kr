@@ -3,23 +3,23 @@ title: Azure Security Center에서 Just-In-Time 가상 머신 액세스 | Micros
 description: 이 문서에서는 Azure Security Center에서 Just-In-Time VM 액세스가 Azure 가상 머신에 대한 액세스를 제어하는 데 어떻게 도움이 되는지 보여 줍니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2018
-ms.author: terrylan
-ms.openlocfilehash: 60a5de16f4146e112a85d74634c662e228a0854f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 10/10/2018
+ms.author: rkarlin
+ms.openlocfilehash: 72acf0f06bbed0129ff322b10a7faf16fd94f712
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640560"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314748"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Just-In-Time를 사용하여 가상 머신 액세스 관리
 
@@ -108,6 +108,36 @@ Security Center에서 Just-In-Time 사용을 권장하는 기본 포트를 확�
 
 3. **확인**을 선택합니다.
 
+> [!NOTE]
+>[JIT VM 액세스]가 VM에 대해 사용하도록 설정된 경우 Azure Security Center에서는 이와 연관된 네트워크 보안 그룹에서 선택된 포트에 대해 모든 인바운드 트래픽 거부 규칙을 생성합니다. 이 규칙은 네트워크 보안 그룹의 최고 우선 순위이거나 이미 존재하는 기존 규칙보다 우선 순위가 낮습니다. 규칙이 안전한지 여부를 판별하는 Azure Security Center에서 수행하는 분석에 따라 결정됩니다.
+>
+
+
+## <a name="set-just-in-time-within-a-vm"></a>VM 내의 Just-In-Time 설정
+
+VM에서 Just-In-Time 액세스를 쉽게 롤아웃할 수 있도록 하려면 VM 내에서 직접 Just-In-Time 액세스만 허용하도록 VM을 설정하면 됩니다.
+
+1. Azure Portal에서 **가상 머신**을 선택합니다.
+2. Just-In-Time 액세스로 제한하려는 가상 머신을 클릭합니다.
+3. 메뉴에서 **구성**을 클릭합니다.
+4. **Just-In-Time 액세스**에서 **Just-In-Time 정책 사용**을 클릭합니다. 
+
+이렇게 하면 다음 설정을 사용한 VM Just-In-Time 액세스를 설정합니다.
+
+- Windows 서버:
+    - RDP 포트 3389
+    - 3시간 액세스
+    - 허용된 원본 IP 주소는 요청당 설정됨
+- Linux 서버:
+    - SSH 포트 22
+    - 3시간 액세스
+    - 허용된 원본 IP 주소는 요청당 설정됨
+     
+VM에 이미 Just-In-Time이 사용 설정된 경우 구성 페이지로 이동하면 Just-In-Time이 사용하도록 설정되었으며 링크를 사용해 Azure Security Center에서 정책을 열어 설정을 보고 변경할 수 있음을 확인할 수 있습니다.
+
+![vm의 jit 구성](./media/security-center-just-in-time/jit-vm-config.png)
+
+
 ## <a name="requesting-access-to-a-vm"></a>VM에 대한 액세스 요청
 
 VM에 대한 액세스를 요청하려면
@@ -162,33 +192,77 @@ VM의 Just-In-Time 정책을 편집하기 위해 **구성됨** 탭이 사용됩�
 
   **활동 로그**는 시간, 날짜 및 구독과 함께 해당 VM에 대한 이전 작업의 필터링된 보기를 제공합니다.
 
-  ![활동 로그 보기][5]
-
 **여기를 클릭하여 모든 항목을 CSV로 다운로드하세요.** 를 선택하여 로그 정보를 다운로드할 수 있습니다.
 
 필터를 수정하고 **적용**을 선택하여 검색 및 로그를 만듭니다.
 
-## <a name="using-just-in-time-vm-access-via-powershell"></a>PowerShell을 통해 Just-In-Time VM 액세스 사용
+## <a name="using-just-in-time-vm-access-via-rest-apis"></a>REST API를 통해 Just-In-Time VM 액세스 사용
 
-PowerShell을 통해 Just-In-Time 솔루션을 사용하려면 [최신](/powershell/azure/install-azurerm-ps) 버전의 Azure PowerShell 버전이 있어야 합니다.
-그러면 PowerShell 갤러리에서 [최신](https://aka.ms/asc-psgallery) Azure Security Center를 설치해야 합니다.
+Just-In-Time VM 액세스 기능은 Azure Security Center API를 통해 사용할 수 있습니다. 이 API를 통해 구성된 VM에 대한 정보를 가져오고 새로 추가하고 VM에 대한 액세스를 요청하는 등을 할 수 있습니다. Just-In-Time REST API에 대한 자세한 정보는 [JIT 네트워크 액세스 정책](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies)을 참조합니다.
 
-### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>VM에 대한 Just-In-Time 정책 구성
+## <a name="using-just-in-time-vm-access-via-powershell"></a>PowerShell을 통해 Just-In-Time VM 액세스 사용 
 
-특정 VM에서 Just-In-Time 정책을 구성하려면 PowerShell 세션에서 Set-ASCJITAccessPolicy 명령을 실행해야 합니다.
-cmdlet 설명서에서 자세히 알아보세요.
+PowerShell을 통해 Just-In-Time VM 액세스 솔루션을 사용하려면 공식 Azure Security Center PowerShell cmdlet, 특히 `Set-AzureRmJitNetworkAccessPolicy`를 사용하세요.
+
+다음 예에서는 특정 VM의 Just-In-Time VM 액세스 정책을 설정하고 다음 내용을 설정합니다.
+1.  포트 22 및 3389를 닫습니다.
+2.  승인된 요청에 대해 열 수 있도록 최대 기간을 3시간으로 설정합니다.
+3.  액세스를 요청하는 사용자가 소스 IP 주소를 제어하고 승인된 Just-In-Time 액세스 요청 시 성공적인 세션을 설정할 수 있도록 허용합니다.
+
+이 작업을 완수하려면 PowerShell에서 다음을 실행하세요.
+
+1.  VM에 대한 Just-In-Time VM 액세스 정책을 보유하는 변수를 할당합니다.
+
+        $JitPolicy = (@{
+         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+        ports=(@{
+             number=22;
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
+             maxRequestAccessDuration="PT3H"},
+             @{
+             number=3389;
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
+             maxRequestAccessDuration="PT3H"})})
+
+2.  VM Just-In-Time VM 액세스 정책을 배열에 삽입합니다.
+    
+        $JitPolicyArr=@($JitPolicy)
+
+3.  선택한 VM에서 Just-In-Time VM 액세스 정책을 구성합니다.
+    
+        Set-AzureRmJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 ### <a name="requesting-access-to-a-vm"></a>VM에 대한 액세스 요청
 
-Just-In-Time 솔루션으로 보호되는 특정 VM에 액세스하려면 PowerShell 세션에서 Invoke-ASCJITAccess를 실행해야 합니다.
-cmdlet 설명서에서 자세히 알아보세요.
+다음 예에서는 포트 22를 특정 IP 주소 및 특정 시간 동안 열도록 요청된 특정 VM에 대한 Just-In-Time VM 액세스 요청을 확인할 수 있습니다.
+
+PowerShell에서 다음 내용을 실행하세요.
+1.  VM 요청 액세스 속성을 구성합니다.
+
+        $JitPolicyVm1 = (@{
+          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+        ports=(@{
+           number=22;
+           endTimeUtc="2018-09-17T17:00:00.3658798Z";
+           allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
+2.  VM 액세스 요청 매개 변수를 배열에 삽입합니다.
+
+        $JitPolicyArr=@($JitPolicyVm1)
+3.  액세스 요청을 보냅니다(1단계에서 얻은 리소스 ID 사용).
+
+        Start-AzureRmJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+
+자세한 내용은 PowerShell cmdlet 설명서를 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Security Center에서 Just-In-Time VM 액세스가 Azure 가상 머신에 대한 액세스를 제어하는 데 어떻게 도움이 되는지 알아보았습니다.
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-- [보안 정책 설정](security-center-policies.md) - Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+- [보안 정책 설정](security-center-azure-policy.md) - Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 - [보안 권장 사항 관리](security-center-recommendations.md) - 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
 - [보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 - [보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.

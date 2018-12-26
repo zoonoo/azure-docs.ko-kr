@@ -2,23 +2,18 @@
 title: Azure Storage 테이블 데이터 암호화 | Microsoft Docs
 description: Azure Storage에서 테이블 데이터 암호화에 대해 알아봅니다.
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/11/2018
 ms.author: sngun
-ms.openlocfilehash: 082e8a54cc8625a4bbdea2157f73874dbc86fde2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: tables
+ms.openlocfilehash: 8a7b61705f6efc5a76212fdd1345a022f58e0686
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660353"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526469"
 ---
 # <a name="encrypt-table-data"></a>테이블 데이터 암호화
 .NET Azure Storage 클라이언트 라이브러리는 작업 삽입 및 삭제의 문자열 엔터티 속성 암호화를 지원합니다. 암호화된 문자열은 서비스에 이진 속성으로 저장되고 암호 해독 후에는 다시 문자열로 변환됩니다.    

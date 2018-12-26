@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/25/2018
+ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: b2dafbcf0e41e7387157590e145f74430686321c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 68ae5628d8b6aeeec6c1549e3d29d48bc8906a2d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307122"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994192"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Azure를 사용하여 Xamarin.Forms 앱 만들기
 
@@ -58,7 +58,7 @@ Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. [Azure 포털]로 이동합니다.
+1. [Azure Portal]로 이동합니다.
 
 2. Mobile Apps에 대한 설정 블레이드에서 **빠른 시작**(배포 아래) > **Xamarin.Forms**를 차례로 클릭합니다. 3단계 아래에서 **새 앱 만들기**가 선택되어 있지 않으면 클릭합니다.  그런 다음 **다운로드** 단추를 클릭합니다.
 
@@ -72,7 +72,7 @@ Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설
 
 ### <a name="visual-studio-for-mac"></a>Mac용 Visual Studio
 
-1. [Azure 포털]로 이동합니다.
+1. [Azure Portal]로 이동합니다.
 
 2. Mobile Apps에 대한 설정 블레이드에서 **빠른 시작**(배포 아래) > **Xamarin.Forms**를 차례로 클릭합니다. 3단계 아래에서 **새 앱 만들기**가 선택되어 있지 않으면 클릭합니다.  그런 다음 **다운로드** 단추를 클릭합니다.
 
@@ -88,7 +88,7 @@ Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설
 
 ## <a name="optional-run-the-android-project"></a>(선택 사항) Android 프로젝트 실행
 
-이 섹션에서는 Xamarin.Android 프로젝트를 실행합니다. Android 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
+이 섹션에서는 Xamarin.Android 프로젝트를 실행합니다. Android 디바이스를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
 ### <a name="visual-studio"></a>Visual Studio
 
@@ -120,7 +120,7 @@ Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설
 
 ## <a name="optional-run-the-ios-project"></a>(선택 사항) iOS 프로젝트 실행
 
-이 섹션에서는 iOS 장치용 Xamarin.iOS 프로젝트를 실행합니다. iOS 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
+이 섹션에서는 iOS 디바이스용 Xamarin.iOS 프로젝트를 실행합니다. iOS 디바이스를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
 ### <a name="visual-studio"></a>Visual Studio
 
@@ -152,7 +152,7 @@ Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설
 
 ## <a name="optional-run-the-windows-project"></a>(선택 사항) Windows 프로젝트 실행
 
-이 섹션에서는 Windows 장치에 대한 Xamarin.Forms UWP(유니버설 Windows 플랫폼) 프로젝트를 실행합니다. Windows 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
+이 섹션에서는 Windows 디바이스에 대한 Xamarin.Forms UWP(유니버설 Windows 플랫폼) 프로젝트를 실행합니다. Windows 디바이스를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
 ### <a name="visual-studio"></a>Visual Studio
 
@@ -181,7 +181,9 @@ Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설
 
 ## <a name="troubleshooting"></a>문제 해결
 
-솔루션을 빌드하는 데 문제가 발생한 경우 NuGet 패키지 관리자를 실행하고 최신 버전의 Xamarin.Forms로 업데이트하고, Android 프로젝트에서 Xamarin.Android 지원 패키지를 업데이트합니다. 빠른 시작 프로젝트는 항상 최신 버전을 포함하지 않을 수 있습니다.
+솔루션을 빌드하는 데 문제가 발생한 경우 NuGet 패키지 관리자를 실행하고 최신 버전의 `Xamarin.Forms`로 업데이트하고, Android 프로젝트에서 `Xamarin.Android` 지원 패키지를 업데이트합니다. 빠른 시작 프로젝트는 항상 최신 버전을 포함하지 않을 수 있습니다.
+
+Android 프로젝트에서 참조하는 모든 지원 패키지의 버전이 동일해야 합니다. [Azure Mobile Apps NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)에는 Android 플랫폼에 대한 `Xamarin.Android.Support.CustomTabs` 종속성이 있으므로 프로젝트에서 최신 지원 패키지를 사용하는 경우 충돌 방지를 위해 필수 버전이 포함된 이 패키지를 직접 설치해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -210,5 +212,5 @@ Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설
 
 <!-- URLs. -->
 [Install Xamarin]: https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/
-[Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure 포털]: https://portal.azure.com/
+[Mobile app SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
+[Azure Portal]: https://portal.azure.com/

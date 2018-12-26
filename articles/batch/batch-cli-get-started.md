@@ -12,27 +12,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 09/28/2017
+ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df808078ffe6eedf8abaa32a94edaaf1355b7fc6
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 9b5c1df8776b63fc8ceecfa0377e74c757ba503c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129907"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950151"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 
-Azure CLI 2.0은 Azure 리소스를 관리하기 위한 Azure의 새로운 명령줄 환경입니다. macOS, Linux 및 Windows에서 사용할 수 있습니다. Azure CLI 2.0은 명령줄에서 Azure 리소스를 관리하고 관리하는 데 최적화되어 있습니다. Azure CLI를 사용하여 Azure Batch 계정을 관리하고 풀, 작업 및 태스크와 같은 리소스를 관리할 수 있습니다. Azure CLI를 사용하면 Batch API, Azure Portal, Batch PowerShell cmdlet으로 수행하는 여러 동일한 작업을 스크립팅할 수 있습니다.
+Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다. macOS, Linux 및 Windows에서 사용할 수 있습니다. Azure CLI는 명령줄에서 Azure 리소스를 관리하고 관리하는 데 최적화되어 있습니다. Azure CLI를 사용하여 Azure Batch 계정을 관리하고 풀, 작업 및 태스크와 같은 리소스를 관리할 수 있습니다. Azure CLI를 사용하면 Batch API, Azure Portal, Batch PowerShell cmdlet으로 수행하는 여러 동일한 작업을 스크립팅할 수 있습니다.
 
-이 문서에서는 Batch와 함께 [Azure CLI 버전 2.0](https://docs.microsoft.com/cli/azure)을 사용하는 방법에 대해 간략히 설명합니다. Azure에서 CLI를 사용하는 방법에 대한 개요는 [Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조하세요.
-
-최신 버전의 Azure CLI 버전 2.0을 사용하는 것이 좋습니다. 버전 2.0에 대한 자세한 내용은 [현재 일반적으로 사용할 수 있는 Azure CLI 2.0](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/)을 참조하세요.
+이 문서에서는 Batch와 함께 [Azure CLI 버전 2.0](https://docs.microsoft.com/cli/azure)을 사용하는 방법에 대해 간략히 설명합니다. Azure에서 CLI를 사용하는 방법에 대한 개요는 [Azure CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조하세요.
 
 ## <a name="set-up-the-azure-cli"></a>Azure CLI 설치
 
-Azure CLI를 설치하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)에서 설명하는 단계를 수행합니다.
+[Azure Cloud Shell](../cloud-shell/overview.md)에서 최신 Azure CLI를 실행할 수 있습니다. Azure CLI를 로컬로 설치하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)에서 설명하는 단계를 수행합니다.
 
 > [!TIP]
 > 서비스 업데이트 및 향상을 최대한 활용하기 위해 Azure CLI 설치를 자주 업데이트하는 것이 좋습니다.
@@ -49,12 +47,9 @@ Azure CLI를 설치하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/a
 
 확실하지 않은 경우 `-h` 명령줄 옵션을 사용하여 모든 Azure CLI 명령에 대한 도움말을 봅니다.
 
-> [!NOTE]
-> 이전 버전의 Azure CLI에서는 CLI 명령 앞에 `azure`를 사용하여 시작했습니다. 버전 2.0에서는 이제 모든 명령 앞에 `az`를 사용하여 시작합니다. 버전 2.0과 함께 새 구문을 사용하려면 스크립트를 업데이트해야 합니다.
->
->  
 
-또한 [Batch용 Azure CLI 명령](https://docs.microsoft.com/cli/azure/batch)에 대한 자세한 내용은 Azure CLI 참조 설명서를 참조하세요. 
+
+또한 [Batch용 Azure CLI 명령](/cli/azure/batch)에 대한 자세한 내용은 Azure CLI 참조 설명서를 참조하세요. 
 
 ## <a name="log-in-and-authenticate"></a>로그인 및 인증
 
@@ -65,12 +60,12 @@ Batch와 함께 Azure CLI를 사용하려면 로그인하고 인증해야 합니
 
 ### <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure에 로그인할 수 있는 몇 가지 방법이 있으며, [Azure CLI 2.0으로 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)에서 자세히 설명하고 있습니다.
+Azure에 로그인할 수 있는 몇 가지 방법이 있으며, [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)에서 자세히 설명하고 있습니다.
 
-1. [대화형으로 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). 명령줄에서 Azure CLI 명령을 직접 실행하면 대화형으로 로그인합니다.
-2. [서비스 주체를 사용하여 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). 스크립트 또는 응용 프로그램에서 Azure CLI 명령을 실행할 때 서비스 주체를 사용하여 로그인합니다.
+1. [대화형으로 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). 명령줄에서 Azure CLI 명령을 직접 실행하면 대화형으로 로그인합니다.
+2. [서비스 주체를 사용하여 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). 스크립트 또는 응용 프로그램에서 Azure CLI 명령을 실행할 때 서비스 주체를 사용하여 로그인합니다.
 
-이 문서에서는 Azure에 대화형으로 로그인하는 방법을 보여 줍니다. 명령줄에서 [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login)을 입력합니다.
+이 문서에서는 Azure에 대화형으로 로그인하는 방법을 보여 줍니다. 명령줄에서 [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login)을 입력합니다.
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -85,7 +80,7 @@ az login
 
 ### <a name="log-in-to-your-batch-account"></a>Batch 계정에 로그인
 
-Azure CLI를 사용하여 풀, 작업 및 태스크와 같은 Batch 리소스를 관리하려면 배치 계정에 로그인하여 인증해야 합니다. Batch 서비스에 로그인하려면 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) 명령을 사용합니다. 
+Azure CLI를 사용하여 풀, 작업 및 태스크와 같은 Batch 리소스를 관리하려면 배치 계정에 로그인하여 인증해야 합니다. Batch 서비스에 로그인하려면 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login) 명령을 사용합니다. 
 
 Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
@@ -97,7 +92,7 @@ Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
     Azure AD의 이점은 RBAC(역할 기반 액세스 제어)를 제공한다는 것입니다. RBAC를 사용하면 사용자의 액세스 권한이 계정 키 소유 여부에 관계 없이 할당된 역할에 따라 달라집니다. 계정 키를 관리하는 대신 RBAC 역할을 관리하고 Azure AD에서 액세스와 인증을 처리하도록 할 수 있습니다.  
 
-     Azure AD를 사용하여 Batch 계정에 로그인하려면 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) 명령을 호출합니다. 
+     Azure AD를 사용하여 Batch 계정에 로그인하려면 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login) 명령을 호출합니다. 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -105,7 +100,7 @@ Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
 - **공유 키 인증 사용**
 
-    [공유 키 인증](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key)은 계정 액세스 키를 사용하여 Batch 서비스에 대한 Azure CLI 명령을 인증합니다.
+    [공유 키 인증](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key)은 계정 액세스 키를 사용하여 Batch 서비스에 대한 Azure CLI 명령을 인증합니다.
 
     Batch 명령을 자동으로 호출하도록 Azure CLI 스크립트를 만드는 경우 공유 키 인증 또는 Azure AD 서비스 주체를 사용할 수 있습니다. 일부 시나리오에서는 공유 키 인증을 사용하는 것이 서비스 주체를 만드는 것보다 더 간단할 수 있습니다.  
 
@@ -117,9 +112,9 @@ Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
 [샘플 셸 스크립트](#sample-shell-scripts) 섹션에서 나열하는 예제에서는 Azure AD와 공유 키를 모두 사용하는 Azure CLI로 Batch 계정에 로그인하는 방법을 보여 줍니다.
 
-## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Azure Batch CLI 템플릿 및 파일 전송 사용(미리 보기)
+## <a name="use-azure-batch-cli-extension-commands"></a>Azure Batch CLI 확장 명령 사용
 
-Azure CLI를 사용하여 코드를 작성하지 않고 종단 간 일괄 작업을 실행할 수 있습니다. Batch 템플릿 파일은 Azure CLI로 풀, 작업 및 태스크 만들기를 지원합니다. Azure CLI를 사용하여 작업 입력 파일을 Batch 계정과 연결된 Azure Storage 계정에 업로드하고 여기에서 작업 출력 파일을 다운로드할 수 있습니다. 자세한 내용은 [Azure Batch CLI 템플릿 및 파일 전송 사용(미리 보기)](batch-cli-templates.md)을 참조하세요.
+Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작성하지 않고 일괄 작업을 처음부터 끝까지 실행할 수 있습니다. 확장에서 지원하는 Batch 명령은 JSON 템플릿을 사용하여 Azure CLI로 풀, 작업 및 태스크를 만들 수 있습니다. 또한 확장 CLI 명령을 사용하여 작업 입력 파일을 Batch 계정과 연결된 Azure Storage 계정에 업로드하고 여기에서 작업 출력 파일을 다운로드할 수 있습니다. 자세한 내용은 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
 
 ## <a name="script-examples"></a>스크립트 예제
 
@@ -176,12 +171,11 @@ Azure CLI 문제를 해결할 때 도움이 될 수 있는 팁은 다음과 같�
 * `--json` 옵션을 사용하여 **명령 출력을 JSON으로** 볼 수 있습니다. 예를 들어 `az batch pool show pool001 --json` 은 JSON 형식으로 pool001의 속성을 표시합니다. 그런 다음 이 출력을 복사하고 수정하여 `--json-file` 에서 사용할 수 있습니다(이 문서의 앞부분에서 [JSON 파일](#json-files) 참조).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
-
 ## <a name="next-steps"></a>다음 단계
 
 * Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
 * Batch 리소스에 대한 자세한 내용은 [개발자를 위한 Azure Batch 개요](batch-api-basics.md)를 참조하세요.
-* 코드를 작성하지 않고 Batch 템플릿을 사용하여 풀, 작업 및 태스크를 만드는 방법은 [Azure Batch CLI 템플릿 및 파일 전송 사용(미리 보기)](batch-cli-templates.md)을 참조하세요.
+* 코드를 작성하지 않고 Batch 템플릿을 사용하여 풀, 작업 및 태스크를 만드는 방법은 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx

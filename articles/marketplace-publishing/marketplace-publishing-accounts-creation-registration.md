@@ -3,8 +3,8 @@ title: 게시자 계정 만들기 및 등록 | Microsoft Docs
 description: Microsoft 개발자 계정을 만들고 승인 시 Azure Marketplace에서 다양한 제품 유형을 판매할 수 있는 지침입니다.
 services: Azure Marketplace
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: mbaldwin
-ms.openlocfilehash: 69da37cbf5691fe94b9550200e259711e9e201d4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: hascipio
+ms.openlocfilehash: 3b1d0a7476cff2be00aa44bb8b859261099298d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179336"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236693"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Microsoft 개발자 계정 만들기
 이 문서에서는 Azure Marketplace에서 승인된 Microsoft 개발자가 되기 위해 필요한 계정 만들기 및 등록 과정을 안내합니다.
@@ -42,9 +42,9 @@ ms.locfileid: "32179336"
 
 * 회사 도메인에 속하지만 단일 개인이 아닌 전자 메일 주소(예: windowsapps@fabrikam.com)를 사용하여 Microsoft 계정을 만듭니다.
 * 이 Microsoft 계정에 대한 액세스를 최대한 적은 수의 개발자로 제한합니다.
-* 개발자 계정에 액세스해야 하는 모든 사람을 포함하는 회사 전자 메일 배포 목록을 설정하고 보안 정보에 이 전자 메일 주소를 추가합니다. 이렇게 하면 목록에 있는 모든 직원이 필요할 때 보안 코드를 받고 Microsoft 계정의 보안 정보를 관리할 수 있습니다. 배포 목록을 설정할 수 없는 경우 개인 전자 메일 계정 소유자는 메시지가 표시되면(예: 새 보안 정보가 계정에 추가되거나 새 장치에서 액세스해야 하는 경우) 보안 코드에 액세스하여 공유할 수 있어야 합니다.
+* 개발자 계정에 액세스해야 하는 모든 사람을 포함하는 회사 전자 메일 배포 목록을 설정하고 보안 정보에 이 전자 메일 주소를 추가합니다. 이렇게 하면 목록에 있는 모든 직원이 필요할 때 보안 코드를 받고 Microsoft 계정의 보안 정보를 관리할 수 있습니다. 배포 목록을 설정할 수 없는 경우 개인 전자 메일 계정 소유자는 메시지가 표시되면(예: 새 보안 정보가 계정에 추가되거나 새 디바이스에서 액세스해야 하는 경우) 보안 코드에 액세스하여 공유할 수 있어야 합니다.
 * 확장할 필요가 없고 핵심 팀 구성원에 액세스할 수 있는 회사 전화 번호를 추가합니다.
-* 일반적으로 개발자가 신뢰할 수 있는 장치를 사용하여 회사의 개발자 계정에 로그인하도록 합니다. 모든 핵심 팀 구성원은 이러한 신뢰할 수 있는 장치에 액세스할 수 있어야 합니다. 이렇게 하면 계정에 액세스할 때 보안 코드를 전송할 필요성이 줄어듭니다.
+* 일반적으로 개발자가 신뢰할 수 있는 디바이스를 사용하여 회사의 개발자 계정에 로그인하도록 합니다. 모든 핵심 팀 구성원은 이러한 신뢰할 수 있는 디바이스에 액세스할 수 있어야 합니다. 이렇게 하면 계정에 액세스할 때 보안 코드를 전송할 필요성이 줄어듭니다.
 * 신뢰할 수 없는 PC에서 계정에 액세스할 수 있도록 해야 하는 경우 해당 액세스를 최대 5명의 개발자로 제한합니다. 이상적으로는 이러한 개발자가 동일한 지리적 네트워크 위치를 공유하는 컴퓨터에서 계정에 액세스해야 합니다.
 * [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage)에서 회사의 보안 정보를 자주 검토하여 모두 최신 정보인지 확인합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "32179336"
 4. 이제 Microsoft 개발자 센터에서 새 Microsoft 계정을 사용할 준비가 되었습니다.
 
 ## <a name="2-register-your-account-in-microsoft-developer-center"></a>2. Microsoft 개발자 센터에서 계정 등록
-Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용됩니다. 등록자는 회사의 정식 담당자여야 하며 신원을 확인할 수 있는 개인 정보를 제공해야 합니다. 등록자는 회사에서 공유되는 Microsoft 계정을 사용해야 하며 **동일한 계정을 Azure 게시 포털에서도 사용해야 합니다.** 계정 만들기를 시작하기 전에 회사에 Microsoft 개발자 센터 계정이 아직 없는지 확인해야 합니다. 프로세스 중에 회사 주소 정보, 은행 계좌 정보 및 세금 정보를 수집합니다. 이러한 정보는 일반적으로 재무 또는 업무 연락처에서 확인할 수 있습니다.
+Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용됩니다. 등록자는 회사의 정식 담당자여야 하며 신원을 확인할 수 있는 개인 정보를 제공해야 합니다. 등록자는 회사에서 공유되는 Microsoft 계정을 사용해야 하며 **동일한 계정을 Azure 게시 포털에서도 사용해야 합니다.**  계정 만들기를 시작하기 전에 회사에 Microsoft 개발자 센터 계정이 아직 없는지 확인해야 합니다. 프로세스 중에 회사 주소 정보, 은행 계좌 정보 및 세금 정보를 수집합니다. 이러한 정보는 일반적으로 재무 또는 업무 연락처에서 확인할 수 있습니다.
 
 > [!IMPORTANT]
 > 제품 만들기 및 배포의 여러 단계를 진행하기 위해서는 다음 개발자 프로필 구성 요소를 완료해야 합니다.
@@ -98,7 +98,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
     ![drawing](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
 
    > [!WARNING]
-   > **"판매" 국가:** Azure Marketplace에서 서비스를 판매하기 위해서는 등록된 법인이 승인된 위의 “판매” 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 자세한 내용은 [Marketplace 참가 정책](http://go.microsoft.com/fwlink/?LinkID=526833)을 참조하세요.
+   > **"판매" 국가:** Azure Marketplace에서 서비스를 판매하기 위해서는 등록된 법인이 승인된 위의 “판매” 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 자세한 내용은 [Marketplace 참가 정책](https://go.microsoft.com/fwlink/?LinkID=526833)을 참조하세요.
    >
    >
 5. "계정 형식"으로 **회사**를 선택하고 **다음** 단추를 클릭합니다.
@@ -127,11 +127,11 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
 9. 결제 정보를 입력하여 해당 계정에 대한 비용을 지불합니다. 등록 비용을 부담하는 프로모션 코드를 가지고 있는 경우 여기에 프로모션 코드를 입력할 수 있습니다. 그렇지 않은 경우 신용 카드 정보(또는 지원되는 시장에서 PayPal)를 제공합니다. 작업을 마쳤으면 **다음**을 클릭하여 **"검토 화면"** 으로 이동합니다.
 
     ![drawing](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
-10. 계정 정보를 검토하고 모든 정보가 올바른지 확인합니다. 그런 다음 [Microsoft Azure Marketplace 판매자 계약](http://go.microsoft.com/fwlink/?LinkID=699560)의 약관을 읽고 동의합니다. 확인란을 선택하여 이러한 약관을 읽고 동의했음을 나타냅니다.
+10. 계정 정보를 검토하고 모든 정보가 올바른지 확인합니다. 그런 다음 [Microsoft Azure Marketplace 판매자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)의 약관을 읽고 동의합니다. 확인란을 선택하여 이러한 약관을 읽고 동의했음을 나타냅니다.
 11. **마침** 을 클릭하여 등록을 확인합니다. 메일 주소로 확인 메시지를 보냅니다.
-12. 무료 제품만 게시할 계획인 경우 **Azure Marketplace 게시 포털로 이동** 을 클릭하여 이 문서의 섹션 3, [게시 포털에서 계정 등록](#3-register-your-account-in-the-publishing-portal)을 건너뛰어도 됩니다.
+12. 무료 제안만 게시할 계획인 경우 **Azure Marketplace 게시 포털로 이동**을 클릭하여 이 문서의 섹션 3, [게시 포털에서 계정 등록](#3-register-your-account-in-the-publishing-portal)을 건너뛰어도 됩니다.
 
-상업용 제품(예: 시간별로 요금이 청구되는 Virtual Machine 제품)을 게시할 계획인 경우 개발자 센터 계정에서 세금 및 은행 정보를 완료해야 하는 **계정 정보 업데이트**를 클릭합니다.
+상업용 제안(예: 시간별로 요금이 청구되는 Virtual Machine 제안)을 게시할 계획인 경우 개발자 센터 계정에서 세금 및 은행 정보를 완료해야 하는 **계정 정보 업데이트**를 클릭합니다.
 
 나중에 세금 및 은행 정보를 업데이트하려는 경우 다음 섹션(예: 이 문서의 섹션 3, [게시 포털에서 계정 등록](#3-register-your-account-in-the-publishing-portal))으로 이동했다가 Azure 게시 포털의 링크를 사용하여 나중에 다시 돌아올 수 있습니다.
 
@@ -189,7 +189,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
     ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddTax_05.png)
 
 ## <a name="3-register-your-account-in-the-publishing-portal"></a>3. 게시 포털에서 계정 등록
-[게시 포털](http://publish.windowsazure.com) 은 제품을 게시하고 관리하는 데 사용됩니다.
+[게시 포털](http://publish.windowsazure.com)은 제품을 게시하고 관리하는 데 사용됩니다.
 
 1. 새 Chrome Incognito 또는 Internet Explorer InPrivate 검색 세션을 열어 개인 계정에 로그인되지 않았는지 확인합니다.
 2. [http://publish.windowsazure.com](http://publish.windowsazure.com)로 이동합니다.
@@ -211,7 +211,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
 >
 
 1. 공동 관리자 전자 메일 ID가 MSA(Microsoft 계정)인지 확인합니다. 그렇지 않은 경우 이 [링크](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1)를 사용하여 MSA로 등록합니다.
-2. 공동 관리자를 추가하려고 하기 전에 관리자 계정 아래에 있는지 하나 이상의 응용 프로그램이 있는지 확인합니다.
+2. 공동 관리자를 추가하려고 하기 전에 관리자 계정 아래에 있는지 하나 이상의 애플리케이션이 있는지 확인합니다.
 3. 위 단계를 수행했으면 공동 관리자 전자 메일 ID를 사용하여 게시 포털에 로그인한 후 다시 로그아웃합니다.
 4. 이제 관리자 전자 메일 ID를 사용하여 게시 포털에 로그인합니다.
 5. 게시자->계정 선택->관리자->공동 관리자 추가로 이동합니다(아래 스크린샷 참조).

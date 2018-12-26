@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: matt1883
 ms.author: mahi
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
-ms.date: 06/02/2018
-ms.openlocfilehash: 560f36dc64480fd6aceaa50226b191ee40d2486f
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.date: 06/29/2018
+ms.openlocfilehash: 5bd8763234aa02d68b6e86b7259fcf10b4ef4ac5
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959851"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684287"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -56,7 +55,7 @@ Connect-AzureRmAccount -SubscriptionId $subId
 Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
-## <a name="saving-authenticaiton-context"></a>인증 컨텍스트 저장
+## <a name="saving-authentication-context"></a>인증 컨텍스트 저장
 
 `Connect-AzureRmAccount` cmdlet은 항상 자격 증명을 묻는 메시지를 표시합니다. 다음 cmdlet을 사용하면 메시지가 표시되지 않게 할 수 있습니다.
 
@@ -156,13 +155,13 @@ Add-AdlAnalyticsDataSource -Account $adla -DataLakeStore $AzureDataLakeStoreName
 
 ```powershell
 # List all the data sources
-Get-AdlAnalyticsDataSource -Name $adla
+Get-AdlAnalyticsDataSource -Account $adla
 
 # List attached Data Lake Store accounts
-Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "DataLakeStore"
+Get-AdlAnalyticsDataSource -Account $adla | where -Property Type -EQ "DataLakeStore"
 
 # List attached Storage accounts
-Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "Blob"
+Get-AdlAnalyticsDataSource -Account $adla | where -Property Type -EQ "Blob"
 ```
 
 ## <a name="submit-u-sql-jobs"></a>U-SQL 작업 제출
@@ -504,26 +503,26 @@ function Test-Administrator
 구독 이름에서
 
 ```powershell
-function Get-TenantIdFromSubcriptionName( [string] $subname )
+function Get-TenantIdFromSubscriptionName( [string] $subname )
 {
     $sub = (Get-AzureRmSubscription -SubscriptionName $subname)
     $sub.TenantId
 }
 
-Get-TenantIdFromSubcriptionName "ADLTrainingMS"
+Get-TenantIdFromSubscriptionName "ADLTrainingMS"
 ```
 
 구독 ID에서:
 
 ```powershell
-function Get-TenantIdFromSubcriptionId( [string] $subid )
+function Get-TenantIdFromSubscriptionId( [string] $subid )
 {
     $sub = (Get-AzureRmSubscription -SubscriptionId $subid)
     $sub.TenantId
 }
 
 $subid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-Get-TenantIdFromSubcriptionId $subid
+Get-TenantIdFromSubscriptionId $subid
 ```
 
 "contoso.com"과 같은 도메인 주소에서
@@ -556,5 +555,5 @@ foreach ($sub in $subs)
 
 ## <a name="next-steps"></a>다음 단계
 * [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
-* [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI 2.0](data-lake-analytics-get-started-cli2.md)을 사용하여 Data Lake Analytics 시작
+* [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Azure CLI](data-lake-analytics-get-started-cli.md)를 사용하여 Data Lake Analytics 시작
 * [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md)를 사용하여 Azure Data Lake Analytics 관리 

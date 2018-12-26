@@ -13,15 +13,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: dccdd6518dd97299150892a5629809ea7f708838
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: afb6c8345cd71e7d39b7f3a0b2307c99cf31b449
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209358"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253340"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Windows Server용 Service Fabric 독립 실행형 패키지의 내용
-[다운로드된](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric 독립 실행형 패키지에서 다음 파일을 찾을 수 있습니다.
+[다운로드된](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric 독립 실행형 패키지에서 다음 파일을 찾을 수 있습니다.
 
 | **파일 이름** | **간단한 설명** |
 | --- | --- |
@@ -33,7 +33,7 @@ ms.locfileid: "34209358"
 | TestConfiguration.ps1 |Cluster.json에 지정된 대로 인프라를 분석하는 PowerShell 스크립트입니다. |
 | DownloadServiceFabricRuntimePackage.ps1 |배포 컴퓨터가 인터넷에 연결되지 않은 시나리오에 대한 대역 외 최신 런타임 패키지 다운로드에 사용되는 PowerShell 스크립트입니다. |
 | DeploymentComponentsAutoextractor.exe |독립 실행형 패키지 스크립트에서 사용하는 배포 구성 요소를 포함하는 자동 압축 풀기 아카이브입니다. |
-| EULA_ENU.txt |Microsoft Azure Service Fabric 독립 실행형 Windows Server 패키지를 사용하기 위한 사용 조건입니다. 현재 [EULA 사본을 다운로드](http://go.microsoft.com/fwlink/?LinkID=733084)할 수 있습니다. |
+| EULA_ENU.txt |Microsoft Azure Service Fabric 독립 실행형 Windows Server 패키지를 사용하기 위한 사용 조건입니다. 현재 [EULA 사본을 다운로드](https://go.microsoft.com/fwlink/?LinkID=733084)할 수 있습니다. |
 | Readme.txt |릴리스 정보 및 기본 설치 지침에 연결합니다. 이 문서에 포함된 지침의 일부입니다. |
 | ThirdPartyNotice.rtf |패키지에 있는 타사 소프트웨어에 대한 고지입니다. |
 | Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |지원을 위해 Microsoft에 추적 로그를 수집한 후 Microsoft에 업로드하기 위해 요청 시 실행되는 StandaloneLogCollector.exe입니다. |

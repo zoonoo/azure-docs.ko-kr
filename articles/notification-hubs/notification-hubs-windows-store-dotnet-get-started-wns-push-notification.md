@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c3bb170800508d5a546573850f445b2a8991ea8c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 37d9f433f39b60609870913a13f23e5a6e419476
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597747"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246500"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-이 자습서에서는 알림 허브를 만들어 UWP(유니버설 Windows 플랫폼) 앱에 푸시 알림을 보냅니다. WNS(Windows 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 새 Windows 스토어 앱을 만듭니다. 그런 다음, 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
+이 자습서에서는 알림 허브를 만들어 UWP(유니버설 Windows 플랫폼) 앱에 푸시 알림을 보냅니다. WNS(Windows 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 새 Windows 스토어 앱을 만듭니다. 그런 다음, 알림 허브를 사용하여 앱을 실행하는 모든 디바이스로 푸시 알림을 브로드캐스트할 수 있습니다.
 
 > [!NOTE]
 > [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal)에서 이 자습서에 대해 완료된 코드를 찾을 수 있습니다.
@@ -41,7 +41,7 @@ ms.locfileid: "38597747"
 
 
 ## <a name="prerequisites"></a>필수 조건
-- **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) 이상 버전
 - [UWP 앱 개발 도구 설치](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - 활성 Windows 스토어 계정
@@ -57,7 +57,7 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
 1. 앱의 이름을 입력한 다음, **제품 이름 예약**을 선택합니다. 이렇게 하면 앱을 새로 Windows 스토어에 등록하게 됩니다.
 
     ![앱 이름 저장](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-1. **앱 관리**를 확장하고, **WNS/MPNS**, **WNS/MPNS**를 차례로 선택한 다음, **Live 서비스 사이트**를 선택합니다. Microsoft 계정으로 로그인 새 탭에서 **응용 프로그램 등록 포털**이 열립니다. 또는 [응용 프로그램 등록 포털](http://apps.dev.microsoft.com)로 직접 이동하고, 이 페이지로 이동하도록 응용 프로그램 이름을 선택할 수 있습니다.
+1. **앱 관리**를 확장하고, **WNS/MPNS**, **WNS/MPNS**를 차례로 선택한 다음, **Live 서비스 사이트**를 선택합니다. Microsoft 계정으로 로그인 새 탭에서 **응용 프로그램 등록 포털**이 열립니다. 또는 [응용 프로그램 등록 포털](https://apps.dev.microsoft.com)로 직접 이동하고, 이 페이지로 이동하도록 응용 프로그램 이름을 선택할 수 있습니다.
 
     ![WNS MPNS 페이지](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
 1.   **응용 프로그램 비밀** 암호 및 **패키지 SID(보안 식별자)** 를 메모해 둡니다.
@@ -93,7 +93,7 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
 1. **대상** 및 **최소** 플랫폼 버전에 대한 기본값을 그대로 적용하고, **확인**을 선택합니다. 
 2. 솔루션 탐색기에서 Windows 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어**를 선택한 후 **응용 프로그램을 스토어에 연결...** 을 선택합니다. **응용 프로그램을 Windows 스토어에 연결** 마법사가 나타납니다.
 3. 마법사에서 Microsoft 계정으로 로그인합니다.
-4. 2단계에서 등록한 앱을 선택하고 **다음**을 선택한 후 **연결**을 선택합니다. 이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
+4. 2단계에서 등록한 앱을 선택하고 **다음**을 선택한 후 **연결**을 선택합니다. 이렇게 하면 필요한 Windows 스토어 등록 정보가 애플리케이션 매니페스트에 추가됩니다.
 5. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 선택합니다. **NuGet 패키지 관리** 창이 열립니다.
 6. 검색 상자에 **WindowsAzure.Messaging.Managed**를 입력하고 **설치**를 선택한 다음, 사용 약관에 동의합니다.
    
@@ -166,7 +166,7 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 포털 또는 콘솔 앱을 사용하여 모든 Windows 장치로 브로드캐스트 알림을 보냈습니다. 특정 장치로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
+이 자습서에서는 포털 또는 콘솔 앱을 사용하여 모든 Windows 디바이스로 브로드캐스트 알림을 보냈습니다. 특정 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
 
 > [!div class="nextstepaction"]
 >[특정 장치에 알림 푸시](

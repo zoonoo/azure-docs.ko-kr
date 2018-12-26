@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 344ed971dd4a869cfbdc363222d772dcc3191199
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916043"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308127"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
@@ -148,12 +148,52 @@ SuSE Linux는 symlink를 사용하여 인증서 목록을 유지 관리하므로
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Site Recovery URL 또는 IP 범위에 대한 아웃바운드 연결(오류 코드 151037 또는 151072)
 
-Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 대한 아웃바운드 연결이 필요합니다. VM이 방화벽 뒤에 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 오류 메시지 중 하나가 표시될 수 있습니다.
+Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 대한 아웃바운드 연결이 필요합니다. VM이 방화벽 뒤에 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 문제 중 하나가 발생할 수 있습니다.
 
-**오류 코드** | **가능한 원인** | **권장 사항**
---- | --- | ---
-151037<br></br>**메시지**: Site Recovery에 Azure 가상 머신을 등록하지 못했습니다. | - VM에서 NSG를 사용하여 아웃바운드 액세스를 제어하고 있으며 아웃바운드 액세스에 필요한 IP 범위가 허용 목록에 없습니다.</br></br>- 타사 방화벽 도구를 사용하고 있으며 필요한 IP 범위/URL이 허용 목록에 없습니다.</br>| - 방화벽 프록시를 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 URL 또는 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [방화벽 프록시 지침](https://aka.ms/a2a-firewall-proxy-guidance)을 참조하세요.</br></br>- NSG 규칙을 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [네트워크 보안 그룹 지침](https://aka.ms/a2a-nsg-guidance)을 참조하세요.
-151072<br></br>**메시지**: Site Recovery 구성이 실패했습니다. | Site Recovery 서비스 끝점에 연결할 수 없습니다. | - 방화벽 프록시를 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 URL 또는 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [방화벽 프록시 지침](https://aka.ms/a2a-firewall-proxy-guidance)을 참조하세요.</br></br>- NSG 규칙을 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [네트워크 보안 그룹 지침](https://aka.ms/a2a-nsg-guidance)을 참조하세요.
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>문제 1: Site Recovery에 Azure 가상 머신을 등록하지 못했습니다(151195). </br>
+- **가능한 원인** </br>
+  - DNS를 확인할 수 없어 사이트 복구 엔드포인트에 대한 연결을 설정할 수 없습니다.
+  - 가상 머신을 장애 조치(failover)했지만 DR 지역에서 DNS 서버에 도달할 수 없는 경우 재보호 기간에 자주 발생합니다.
+  
+- **해결 방법**
+   - 사용자 지정 DNS를 사용하는 경우 재해 복구 지역에서 DNS 서버에 액세스할 수 있는지 확인합니다. 사용자 지정 DNS가 있는지 확인하려면 VM > 재해 복구 네트워크 > DNS 서버로 이동합니다. 가상 머신에서 DNS 서버에 액세스를 시도합니다. 액세스할 수 없는 경우 DNS 서버를 장애 조치(failover)하거나 DR 네트워크와 DNS 사이를 연결하여 액세스 가능하게 만듭니다.
+  
+    ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+ 
+
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>문제 2: Site Recovery 구성이 실패했습니다(151196).
+- **가능한 원인** </br>
+  - Office 365 인증에 연결하여 IP4 엔드포인트를 식별할 수 없습니다.
+
+- **해결 방법**
+  - Azure Site Recovery는 인증을 위해 Office 365 IP 범위에 액세스할 수 있어야 합니다.
+    Azure NSG(네트워크 보안 그룹) 규칙/방화벽 프록시를 사용하여 VM의 아웃바운드 네트워크 연결을 제어하는 경우 O365 IP 범위로의 통신을 허용해야 합니다. AAD에 해당하는 모든 IP 주소에 대한 액세스를 허용하는 [AAD(Azure Active Directory) 서비스 태그](../virtual-network/security-overview.md#service-tags) 기반 NSG 규칙을 만드세요.
+        - 나중에 AAD(Azure Active Directory)에 새 주소가 추가될 때 새 NSG 규칙을 만들어야 합니다.
+
+
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>문제 3: Site Recovery 구성이 실패했습니다(151197).
+- **가능한 원인** </br>
+  - Azure Site Recovery 서비스 엔드포인트에 연결할 수 없습니다.
+
+- **해결 방법**
+  - Azure Site Recovery는 지역에 따라 [Site Recovery IP 범위](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)에 액세스할 수 있어야 합니다. 가상 머신에서 필요한 ip 범위에 액세스할 수 있는지 확인합니다.
+    
+
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>문제 4: 네트워크 트래픽이 온-프레미스 프록시 서버를 통과할 때 A2A 복제가 실패했습니다(151072).
+ - **가능한 원인** </br>
+   - 사용자 지정 프록시 설정이 유효하지 않으며 ASR Mobility Service 에이전트가 IE에서 프록시 설정을 자동으로 검색하지 않았습니다.
+
+
+ - **해결 방법**
+  1.    Mobility Service 에이전트는 Windows의 경우 IE에서 Linux의 경우 /etc/environment에서 프록시 설정을 검색합니다.
+  2.  ASR Mobility Service에 대해서만 프록시를 설정하려는 경우 다음 위치에 있는 ProxyInfo.conf에서 프록시 세부 정보를 제공할 수 있습니다.</br>
+      - ***Linux***에서 ``/usr/local/InMage/config/``
+      - ***Windows***에서 ``C:\ProgramData\Microsoft Azure Site Recovery\Config``
+  3.    ProxyInfo.conf에는 다음 INI 형식의 프록시 설정이 있어야 합니다. </br>
+                   *[proxy]*</br>
+                   *Address=http://1.2.3.4*</br>
+                   *Port=567*</br>
+  4. ASR Mobility Service 에이전트는 ***인증되지 않은 프록시***만 지원합니다.
 
 ### <a name="fix-the-problem"></a>문제 해결
 [필요한 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필요한 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)가 허용 목록에 있도록 하려면 [네트워킹 지침 문서](site-recovery-azure-to-azure-networking-guidance.md)의 단계에 따릅니다.
@@ -177,6 +217,13 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>"복제를 사용하도록 설정"에서 선택할 Azure VM을 표시할 수 없음
 
+ **원인 1: 리소스 그룹 및 원본 가상 머신이 서로 다른 위치에 있음** <br>
+현재 Azure Site Recovery에서는 원본 지역 리소스 그룹과 가상 머신이 같은 위치에 있어야 합니다. 같은 위치에 있지 않으면 보호 기간에 가상 머신을 찾을 수 없습니다.
+
+**원인 2: 리소스 그룹이 선택한 구독에 포함되지 않음** <br>
+제공된 구독에 포함되지 않은 경우, 보호 시 리소스 그룹을 찾을 수 없습니다. 리소스 그룹이 사용 중인 구독에 속하는지 확인합니다.
+
+ **원인 3: 부실 구성** <br>
 복제를 사용하려는 VM이 보이지 않는 경우 Azure VM에 남아 있는 부실한 Site Recovery 구성이 그 원인일 수 있습니다. 다음과 같은 경우 Azure VM에 부실 구성이 남겨질 수 있습니다.
 
 - Site Recovery를 사용하여 Azure VM에 대해 복제를 사용하도록 설정한 후 VM에서 명시적으로 복제를 사용하지 않도록 설정하지 않으면서 Site Recovery 자격 증명 모음을 삭제했습니다.
@@ -185,6 +232,11 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 ### <a name="fix-the-problem"></a>문제 해결
 
 [부실 ASR 구성 스크립트를 제거](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)하고 Azure VM의 부실 Site Recovery 구성을 제거할 수 있습니다. 부실 구성을 제거하면 VM이 보일 것입니다.
+
+## <a name="unable-to-select-virtual-machine-for-protection"></a>보호를 위해 가상 머신을 선택할 수 없음 
+ **원인 1: 가상 머신의 일부 확장이 실패하거나 응답하지 않는 상태로 설치됨** <br>
+ [가상 머신] > [설정] > [확장]으로 이동하여 실패한 상태의 확장자가 있는지 확인합니다. 실패한 확장을 제거하고 가상 머신 보호를 다시 시도합니다.<br>
+ **원인 2: [VM의 프로비저닝 상태가 잘못됨](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>VM의 프로비전 상태가 잘못되었습니다(오류 코드 150019).
 
@@ -200,6 +252,21 @@ VM에서 복제를 사용하도록 설정하려면 프로비전 상태가 **성�
 
 - **provisioningState**가 **실패**이면 지원 서비스에 문제 해결을 위한 세부 정보를 문의합니다.
 - **provisioningState**가 **업데이트 중**이면 또 다른 확장을 배포할 수 있습니다. VM에서 계속 진행되는 작업이 있는지 확인한 후, 해당 작업이 완료될 때까지 기다렸다가 실패한 Site Recovery **복제 사용** 작업을 다시 시도합니다.
+
+## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>대상 가상 네트워크를 선택할 수 없음 - [네트워크 선택] 탭이 회색으로 표시됩니다.
+
+**원인 1: VM이 '대상 네트워크'에 이미 매핑된 네트워크에 연결된 경우**
+- 원본 VM이 가상 네트워크의 일부이고 동일한 가상 네트워크의 다른 VM이 대상 리소스 그룹의 네트워크와 이미 매핑되어 있으면 기본적으로 네트워크 선택 드롭다운이 비활성화됩니다.
+
+![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
+
+**원인 2: 이전에 Azure Site Recovery를 사용하여 VM을 보호했고 복제를 사용하지 않도록 설정한 경우**
+ - VM의 복제를 사용하지 않도록 설정하면 네트워크 매핑을 삭제하지 않습니다. VM이 보호되었던 복구 서비스 자격 증명 모음에서 삭제되어야 합니다. </br>
+ [복구 서비스 자격 증명 모음] > [Site Recovery 인프라] > [네트워크 매핑]으로 이동합니다. </br>
+ ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
+ - 재해 복구 설정 중에 구성된 대상 네트워크는 초기 설정 후에 VM이 보호된 후에 변경할 수 있습니다. </br>
+ ![Modify_NW_mapping](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
+ - 네트워크 매핑을 변경하면 특정 네트워크 매핑을 사용하는 모든 보호된 VM에 영향을 줍니다.
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM+/볼륨 섀도 복사본 서비스 오류(오류 코드 151025)

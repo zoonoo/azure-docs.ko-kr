@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 41319ba446994da1669e58e33008a943e74ab417
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bf5cb2851acdcf1f9353e88fc2f2caa3c356804e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331393"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230371"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Kindle 앱에 대한 Notification Hubs 시작
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "36331393"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android 사이트</a>에서 Android SDK(Eclipse를 사용한다고 가정)를 가져옵니다.
+* <a href="https://go.microsoft.com/fwlink/?LinkId=389797">Android 사이트</a>에서 Android SDK(Eclipse를 사용한다고 가정)를 가져옵니다.
 * <a href="https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html">개발 환경 설정</a>의 단계에 따라 Kindle에 대한 개발 환경을 설정합니다.
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>개발자 포털에 새 앱 추가
@@ -51,7 +51,7 @@ ms.locfileid: "36331393"
 2. **응용 프로그램 키**를 복사합니다.
    
     ![][1]
-3. 포털에서 앱의 이름을 클릭한 다음 **Device Messaging** 탭을 클릭합니다.
+3. 포털에서 앱의 이름을 클릭한 다음, **Device Messaging** 탭을 클릭합니다.
    
     ![][2]
 4. **Create a New Security Profile**을 클릭한 다음 새 보안 프로필(예: **TestAdm 보안 프로필**)을 만듭니다. 그런 다음 **Save**를 클릭합니다.
@@ -264,7 +264,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 3. Eclipse에서 앱을 실행합니다.
 
 > [!NOTE]
-> 문제가 발생하면 에뮬레이터 또는 장치의 시간을 확인합니다. 시간 값이 정확해야 합니다. Kindle 에뮬레이터의 시간을 변경하려면 Android SDK 플랫폼 도구 디렉터리에서 다음 명령을 실행할 수 있습니다.
+> 문제가 발생하면 에뮬레이터 또는 디바이스의 시간을 확인합니다. 시간 값이 정확해야 합니다. Kindle 에뮬레이터의 시간을 변경하려면 Android SDK 플랫폼 도구 디렉터리에서 다음 명령을 실행할 수 있습니다.
 > 
 
 ```
@@ -287,7 +287,7 @@ static void Main(string[] args)
 ![][7]
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 백 엔드에 등록된 모든 Kindle 장치로 브로드캐스트 알림을 보냈습니다. 특정 Kindle 장치로 알림을 푸시하는 방법을 알아보려면 다음 자습서의 작업을 진행합니다. 다음 자습서는 특정 Android 장치로 알림을 푸시하는 방법을 보여줍니다. 하지만 특정 Kindle 장치에 알림을 푸시할 때도 동일한 논리를 사용할 수 있습니다. 
+이 자습서에서는 백 엔드에 등록된 모든 Kindle 디바이스로 브로드캐스트 알림을 보냈습니다. 특정 Kindle 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서의 작업을 진행합니다. 다음 자습서는 특정 Android 디바이스로 알림을 푸시하는 방법을 보여줍니다. 하지만 특정 Kindle 디바이스에 알림을 푸시할 때도 동일한 논리를 사용할 수 있습니다. 
 
 > [!div class="nextstepaction"]
 >[특정 장치에 알림 푸시](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)

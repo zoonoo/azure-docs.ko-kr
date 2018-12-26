@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: aa1e4d588f367351f0bed10370c7d67d50dd9927
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: abc1e835fa153fc5d061cca5a3eb009931240332
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763054"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276335"
 ---
 # <a name="sfctl-is"></a>sfctl is
 쿼리하고 인프라 서비스에 명령을 보냅니다.
@@ -41,7 +41,7 @@ ms.locfileid: "34763054"
 |인수|설명|
 | --- | --- |
 | --command[필수] | 호출할 명령의 텍스트입니다. 명령의 콘텐츠는 인프라에 따라 다릅니다. |
-| --service-id | 인프라 서비스의 ID입니다. <br><br> 'fabric' URI 스키마가 없는 인프라 서비스의 전체 이름입니다. 이 매개 변수는 실행 중인 하나 이상의 인프라 서비스 인스턴스가 있는 클러스터에만 필요합니다. |
+| --service-id | 인프라 서비스의 ID입니다. <br><br> 'fabric\:' URI 스키마가 없는 인프라 서비스의 전체 이름입니다. 이 매개 변수는 실행 중인 하나 이상의 인프라 서비스 인스턴스가 있는 클러스터에만 필요합니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -76,6 +76,7 @@ ms.locfileid: "34763054"
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI [설정](service-fabric-cli.md)

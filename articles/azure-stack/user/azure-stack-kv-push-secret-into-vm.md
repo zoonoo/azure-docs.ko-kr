@@ -1,9 +1,9 @@
 ---
-title: Azure 스택에 안전 하 게 저장 된 인증서와 함께 가상 컴퓨터를 배포 | Microsoft Docs
-description: 가상 컴퓨터를 배포 하 고 놓아서 인증서 스택 Azure 주요 자격 증명 모음을 사용 하 여 강제 하는 방법에 알아봅니다
+title: Azure Stack에서 안전 하 게 저장된 된 인증서를 사용 하 여 가상 머신 배포 | Microsoft Docs
+description: 가상 컴퓨터를 배포 하 고 Azure Stack에서 key vault를 사용 하 여 인증서를 끌어 푸시 방법 알아보기
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
@@ -12,52 +12,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: 05278ee4b0dc1f2c22f40bfcff4f9d7342017c0f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 08/15/2018
+ms.author: sethm
+ms.openlocfilehash: aef706d18d558f5fe321735c7f93361a5ef50606
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108759"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139690"
 ---
-# <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>가상 컴퓨터를 만들고는 스택 Azure 키 자격 증명 모음에서 검색 한 인증서를 설치 합니다.
+# <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>가상 머신 만들기 및 Azure Stack key vault에서 검색 한 인증서를 설치 합니다.
 
-*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
+*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-주요 자격 증명 모음 인증서가 설치 되어 있는 Azure 스택 가상 컴퓨터 (VM)를 만드는 방법에 알아봅니다.
+설치 된 키 자격 증명 모음 인증서를 사용 하 여 Azure Stack 가상 머신 (VM) 만들기는 방법을 알아봅니다.
 
 ## <a name="overview"></a>개요
 
-인증서를 Active Directory 인증 또는 웹 트래픽을 암호화와 같은 대부분의 시나리오에서 사용 됩니다. 암호를 스택 Azure 키 자격 증명 모음에서으로 인증서를 안전 하 게 저장할 수 있습니다. Azure 스택 키 자격 증명 모음을 사용 하 여의 이점은 다음과 같습니다.
+인증서는 Active Directory에 인증 또는 웹 트래픽을 암호화와 같은 대부분의 시나리오에서 사용 됩니다. Azure Stack key vault에 비밀을 안전 하 게 인증서를 저장할 수 있습니다. Azure Stack Key Vault를 사용 하는 이점은 다음과 같습니다.
 
-* 인증서는 스크립트, 명령줄 기록 또는 서식 파일에 노출 되지 않습니다.
-* 인증서 관리 프로세스가 간소화 됩니다.
-* 인증서에 액세스 하는 키의 제어할을 수 있습니다.
+* 인증서는 스크립트, 명령줄 기록 또는 템플릿에 노출 되지 않습니다.
+* 인증서 관리 프로세스를 간소화 됩니다.
+* 키의 인증서 액세스를 제어할 수 있습니다.
 
 ### <a name="process-description"></a>프로세스 설명
 
-다음 단계는 가상 컴퓨터에 인증서를 푸시하는 데 필요한 프로세스를 설명 합니다.
+다음 단계는 가상 컴퓨터에 인증서를 푸시하기 위해 필요한 프로세스를 설명 합니다.
 
-1. 비밀 키 자격 증명 모음을 만듭니다.
+1. 비밀을 Key Vault를 만듭니다.
 2. Azuredeploy.parameters.json 파일을 업데이트 합니다.
 3. 템플릿 배포
 
 > [!NOTE]
-> VPN을 통해 연결 되어 있는 경우 Azure 스택 개발 키트 또는 외부 클라이언트에서 다음이 단계를 사용할 수 있습니다.
+> VPN을 통해 연결 되어 있는 경우 외부 클라이언트 또는 Azure Stack 개발 키트에서 다음이 단계를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-* 키 자격 증명 모음 서비스를 포함 하는 서비스를 구독 해야 합니다.
-* [Azure 스택에 대 한 PowerShell을 설치 합니다.](azure-stack-powershell-install.md)
-* [Azure 스택 사용자의 PowerShell 환경 구성](azure-stack-powershell-configure-user.md)
+* Key Vault 서비스를 포함 하는 제품을 구독 해야 합니다.
+* [Azure Stack 용 PowerShell을 설치 합니다.](azure-stack-powershell-install.md)
+* [Azure Stack 사용자의 PowerShell 환경 구성](azure-stack-powershell-configure-user.md)
 
-## <a name="create-a-key-vault-secret"></a>키 자격 증명 모음 암호 만들기
+## <a name="create-a-key-vault-secret"></a>Key Vault 비밀 만들기
 
-다음 스크립트는.pfx 형식으로 인증서를 만듭니다 주요 자격 증명 모음을 만들고는 암호로 키 자격 증명 모음에 인증서를 저장 합니다.
+다음 스크립트를.pfx 형식으로 인증서를 만듭니다 key vault를 만들고 비밀을 key vault에 인증서를 저장 합니다.
 
 > [!IMPORTANT]
-> 사용 해야 합니다는 `-EnabledForDeployment` 주요 자격 증명 모음을 만들 때 매개 변수입니다. 이 매개 변수를 사용 하면 키 자격 증명 모음에서 Azure 리소스 관리자 템플릿을 참조할 수 있습니다.
+> 사용 해야는 `-EnabledForDeployment` key vault를 만들 때 매개 변수입니다. 이 매개 변수를 사용 하면 Azure Resource Manager 템플릿에서 key vault를 참조할 수 있습니다.
 
 ```powershell
 
@@ -120,13 +120,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-앞의 스크립트를 실행 하면 출력 비밀 URI를 포함 합니다. 이 URI를 적어 둡니다. 참조 해야는 [푸시 인증서를 Windows 리소스 관리자 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)합니다. 다운로드는 [푸시 인증서 windows vm 템플릿을](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) 개발 컴퓨터에는 폴더입니다. 이 폴더에는 `azuredeploy.json` 및 `azuredeploy.parameters.json` 파일을 다음 단계에서 필요 합니다.
+앞의 스크립트를 실행 하면 출력 비밀 URI를 포함 합니다. 이 URI를 기록해 둡니다. 참조 해야 합니다 [푸시 인증서를 Windows Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)합니다. 다운로드 합니다 [푸시 인증서 windows vm 템플릿을](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) 개발 컴퓨터에 폴더입니다. 이 폴더에는 `azuredeploy.json` 및 `azuredeploy.parameters.json` 파일을 다음 단계에서 필요 합니다.
 
-수정 된 `azuredeploy.parameters.json` 환경 값에 따라 파일입니다. 특별 한 관심의 매개 변수는 자격 증명 모음 이름, 자격 증명 모음 리소스 그룹 및 암호 (앞의 스크립트에서 생성) 대로 URI입니다. 다음 파일은 매개 변수 파일의 예:
+수정 된 `azuredeploy.parameters.json` 환경 값에 따라 파일입니다. 특별 한 관심 매개 변수는 자격 증명 모음 이름, 자격 증명 모음 리소스 그룹 및 암호 (이전 스크립트에서 생성) 하는 대로 URI는 합니다. 다음 파일은 매개 변수 파일의 예입니다.
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Azuredeploy.parameters.json 파일 업데이트
 
-Azuredeploy.parameters.json 파일은 vaultName, 비밀 URI, VmName, 및 사용자 환경에 따라 다른 값을 업데이트 합니다. 다음 JSON 파일 템플릿 매개 변수 파일의 예를 보여 줍니다.
+vaultName, 비밀 URI, VmName, 및 사용자 환경에 따라 다른 값을 사용 하 여 azuredeploy.parameters.json 파일을 업데이트 합니다. 다음 JSON 파일 템플릿 매개 변수 파일의 예를 보여 줍니다.
 
 ```json
 {
@@ -174,20 +174,20 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-템플릿이 성공적으로 배포 되 면 그 결과 다음과 같은 출력:
+템플릿이 성공적으로 배포 되 면 다음과 같이 출력 결과:
 
 ![템플릿 배포 결과](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-Azure 스택 배포 중 가상 컴퓨터에 인증서를 푸시합니다. 인증서의 위치는 VM의 운영 체제에 따라 다릅니다.
+Azure Stack 배포 중 가상 컴퓨터에 인증서를 푸시합니다. 인증서의 위치는 VM의 운영 체제에 따라 달라 집니다.
 
-* Windows에서 인증서는 LocalMachine 인증서의 위치에 있는 사용자 제공 되는 인증서 저장소에 추가 됩니다.
-* Linux에서 인증서 아래에 배치 됩니다 /var/lib/waagent 디렉터리에 파일 이름의 &lt;UppercaseThumbprint&gt;.crt X509에 대 한 인증서 파일 및 &lt;UppercaseThumbprint&gt;.prv 개인 키에 대 한 .
+* Windows, 사용자가 제공한 인증서 저장소를 사용 하 여 LocalMachine 인증서 위치에 인증서 추가 됩니다.
+* Linux에서 인증서 아래에 배치 됩니다 /var/lib/waagent 디렉터리에 파일 이름의 &lt;UppercaseThumbprint&gt;.crt는 x509 인증서 파일 및 &lt;UppercaseThumbprint&gt;.prv 개인 키에 대 한 .
 
 ## <a name="retire-certificates"></a>인증서를 사용 중지
 
-인증서의 사용을 중지 하는 것은 인증서 관리 프로세스의 일부입니다. 인증서의 이전 버전을 삭제할 수 없지만 사용 하 여 비활성화할 수 있습니다는 `Set-AzureKeyVaultSecretAttribute` cmdlet.
+인증서 관리 프로세스의 일부인 인증서를 사용 중지 합니다. 인증서의 이전 버전을 삭제할 수 없지만 사용 하 여 비활성화할 수 있습니다는 `Set-AzureKeyVaultSecretAttribute` cmdlet.
 
-다음 예제는 데 사용할 인증서를 사용 하지 않도록 설정 하는 방법을 보여 줍니다. 에 대 한 사용자 지정 값을 사용 하 여는 **VaultName**, **이름**, 및 **버전** 매개 변수입니다.
+다음 예제에서는 인증서를 사용 하지 않도록 설정 하는 방법을 보여 줍니다. 에 대 한 고유한 값을 사용 합니다 **VaultName**, **이름**, 및 **버전** 매개 변수입니다.
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
@@ -196,4 +196,4 @@ Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Vers
 ## <a name="next-steps"></a>다음 단계
 
 * [Key Vault 암호를 사용하여 VM 배포](azure-stack-kv-deploy-vm-with-secret.md)
-* [응용 프로그램이 키 자격 증명 모음에 액세스 하도록 허용](azure-stack-kv-sample-app.md)
+* [응용 프로그램이 Key Vault에 액세스 하도록 허용](azure-stack-kv-sample-app.md)

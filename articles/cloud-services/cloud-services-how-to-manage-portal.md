@@ -3,7 +3,7 @@ title: 일반적인 클라우드 서비스 관리 작업 | Microsoft Docs
 description: Azure Portal에서 Cloud Services를 관리하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: adegeo
-ms.openlocfilehash: e60bf5c82e68d49abaa44d80ac9fafba2d8265da
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: jeconnoc
+ms.openlocfilehash: e9f4153c68f0a2a4ce83f900ff63152311163ff6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29121198"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038579"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Azure Portal에서 Cloud Services 관리
 Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습니다.
@@ -32,7 +32,7 @@ Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습�
 클라우드 서비스 규모를 조정하는 데 관한 자세한 내용은 [포털에서 클라우드 서비스 크기 자동 조정 구성](cloud-services-how-to-scale-portal.md)을 참조하세요.
 
 ## <a name="update-a-cloud-service-role-or-deployment"></a>클라우드 서비스 역할 또는 배포 업데이트
-클라우드 서비스에 대한 응용 프로그램 코드를 업데이트 해야 하는 경우 클라우드 서비스 블레이드에서 **업데이트** 를 사용합니다. 단일 역할이나 모든 역할을 업데이트할 수 있습니다. 업데이트하려면 새 서비스 패키지 및 서비스 구성 파일을 업로드하면 됩니다.
+클라우드 서비스에 대한 애플리케이션 코드를 업데이트해야 하는 경우 클라우드 서비스 블레이드에서 **업데이트**를 사용합니다. 단일 역할이나 모든 역할을 업데이트할 수 있습니다. 업데이트하려면 새 서비스 패키지 및 서비스 구성 파일을 업로드하면 됩니다.
 
 1. [Azure Portal][Azure portal]에서 업데이트하려는 클라우드 서비스를 선택합니다. 이렇게 하면 클라우드 서비스 인스턴스 블레이드가 열립니다.
 
@@ -83,7 +83,7 @@ Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습�
 
 - 프로덕션 슬롯에 정적 IP 주소를 사용하려는 경우에는 스테이징 슬롯에 대해서도 하나를 예비해 두어야 합니다. 그러지 않으면 교체가 실패합니다.
 
-- 역할의 모든 인스턴스는 교체를 수행하기 전에 실행해야 합니다. Azure Portal의 **개요** 블레이드에서 인스턴스의 상태를 확인할 수 있습니다. 또는 Windows PowerShell에서 [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) 명령을 사용할 수 있습니다.
+- 역할의 모든 인스턴스는 교체를 수행하기 전에 실행해야 합니다. Azure Portal의 **개요** 블레이드에서 인스턴스의 상태를 확인할 수 있습니다. 또는 Windows PowerShell에서 [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) 명령을 사용할 수 있습니다.
 
 게스트 OS 업데이트 및 서비스 복구 작업으로 인해 배포 교환이 실패할 수도 있습니다. 자세한 내용은 [클라우드 서비스 배포 문제 해결](cloud-services-troubleshoot-deployment-problems.md)을 참조하세요.
 

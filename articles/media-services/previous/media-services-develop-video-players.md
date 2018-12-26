@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 71d8b020fe96094c15965fd82615e3182e333990
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d7f55022dc526f44251814ac953787d6652e6f90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783462"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237046"
 ---
 # <a name="develop-video-player-applications"></a>비디오 플레이어 응용 프로그램 개발
 ## <a name="overview"></a>개요
-Azure Media Services는 iOS 장치, Android 장치, Windows, Windows Phone, Xbox 및 셋톱 박스를 포함한 대부분의 플랫폼에서 풍부한 동적 클라이언트 플레이어 응용 프로그램을 만드는 데 필요한 도구를 제공합니다. 또한 이 토픽에서는 Azure Media Services의 스트리밍 미디어를 사용할 수 있는 클라이언트 응용 프로그램을 개발하는 데 사용할 수 있는 SDK 및 플레이어 프레임워크 링크를 제공합니다.
+Azure Media Services는 iOS 디바이스, Android 디바이스, Windows, Windows Phone, Xbox 및 셋톱 박스를 포함한 대부분의 플랫폼에서 풍부한 동적 클라이언트 플레이어 애플리케이션을 만드는 데 필요한 도구를 제공합니다. 또한 이 토픽에서는 Azure Media Services의 스트리밍 미디어를 사용할 수 있는 클라이언트 응용 프로그램을 개발하는 데 사용할 수 있는 SDK 및 플레이어 프레임워크 링크를 제공합니다.
 
 >[!NOTE]
->AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
+>AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다. 
  
 ## <a name="azure-media-player"></a>Azure Media Player
-[Azure Media Player](http://aka.ms/ampinfo)는 다양한 브라우저 및 장치의 Microsoft Azure Media Services에서 미디어 콘텐츠를 재생하기 위해 작성된 웹 비디오 플레이어입니다. Azure Media Player는 풍부해진 적응 스트리밍 환경을 제공할 수 있는 HTML5, 미디어 원본 확장(MSE) 및 암호화된 미디어 확장(EME) 등의 업계 표준을 활용합니다. 이러한 표준을 장치 또는 브라우저에서 사용할 수 없는 경우, Azure Media Player는 Flash 및 Silverlight를 대체 기술로 사용합니다. 사용된 재생 기술에 관계 없이 개발자는 API에 액세스하기 위한 통합된 JavaScript 인터페이스가 있어야 합니다. 이렇게 하면 Azure Media Services에서 제공하는 콘텐츠를 추가 작업 없이 광범위한 장치 및 브라우저에서 재생할 수 있습니다.
+[Azure Media Player](https://aka.ms/ampinfo)는 다양한 브라우저 및 장치의 Microsoft Azure Media Services에서 미디어 콘텐츠를 재생하기 위해 작성된 웹 비디오 플레이어입니다. Azure Media Player는 풍부해진 적응 스트리밍 환경을 제공할 수 있는 HTML5, 미디어 원본 확장(MSE) 및 암호화된 미디어 확장(EME) 등의 업계 표준을 활용합니다. 이러한 표준을 디바이스 또는 브라우저에서 사용할 수 없는 경우, Azure Media Player는 Flash 및 Silverlight를 대체 기술로 사용합니다. 사용된 재생 기술에 관계 없이 개발자는 API에 액세스하기 위한 통합된 JavaScript 인터페이스가 있어야 합니다. 이렇게 하면 Azure Media Services에서 제공하는 콘텐츠를 추가 작업 없이 광범위한 디바이스 및 브라우저에서 재생할 수 있습니다.
 
 Microsoft Azure Media Services에서 컨텐츠를 DASH, 부드러운 스트리밍 및 HLS 스트리밍 형식으로 제공하여 재생할 수 있습니다. Azure Media Player는 이러한 다양한 형식을 고려하여 플랫폼/브라우저 기능에 따라 최상의 링크를 자동으로 재생합니다. Microsoft Azure Media Services에서 PlayReady 암호화 또는 AES 128 비트 봉투 암호화로 자산의 동적 암호화를 사용할 수 있습니다. 적절하게 구성된 경우 Azure Media Player를 사용하여 PlayReady의 및 AES 128 비트 암호화된 콘텐츠를 암호 해독할 수 있습니다. 
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure Media Player](http://aka.ms/ampinfo)
-* [Azure Media Player 서비스 설명서](http://aka.ms/ampdocs) 
+* [Azure Media Player](https://aka.ms/ampinfo)
+* [Azure Media Player 서비스 설명서](https://aka.ms/ampdocs) 
 * [Azure Media Player 시작 블로그](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
-* [최신 Azure Media Player 관련 최신 정보를 얻으려면 등록](http://aka.ms/ampsignup)
-* [새로운 기능 요청, 아이디어, 사용자 의견 추가](http://aka.ms/ampuservoice) 
+* [최신 Azure Media Player 관련 최신 정보를 얻으려면 등록](https://aka.ms/ampsignup)
+* [새로운 기능 요청, 아이디어, 사용자 의견 추가](https://aka.ms/ampuservoice) 
 
 ## <a name="other-tools-for-creating-player-applications"></a>플레이어 응용 프로그램을 만들기 위한 다른 도구
 또한 다음 SDK 중 하나를 사용할 수도 있습니다.
@@ -49,11 +49,11 @@ Microsoft Azure Media Services에서 컨텐츠를 DASH, 부드러운 스트리�
 * [Microsoft Media Platform: 플레이어 프레임워크](http://playerframework.codeplex.com/) 
 * [HTML5 플레이어 프레임워크 설명서](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [OSMF용 Microsoft 부드러운 스트리밍 플러그인](https://www.microsoft.com/download/details.aspx?id=36057) 
-* [Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스](http://aka.ms/sspk) 
-* [XBOX 비디오 응용 프로그램 개발](http://xbox.create.msdn.com/) 
+* [Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스](https://aka.ms/sspk) 
+* [XBOX 비디오 응용 프로그램 개발](https://xbox.create.msdn.com/) 
 
 ## <a name="advertising"></a>광고
-Azure Media Services는 Windows 미디어 플랫폼: 플레이어 프레임워크를 통해 광고 삽입에 대한 지원을 제공합니다. 광고를 지원하는 플레이어 프레임워크는 Windows 8, Silverlight, Windows Phone 8 및 iOS 장치에 사용할 수 있습니다. 각 플레이어 프레임워크는 플레이어 응용 프로그램을 구현하는 방법을 보여주는 샘플 코드를 포함합니다. 미디어에 삽입할 수 있는 서로 다른 세 종류의 광고가 있습니다.
+Azure Media Services는 Windows 미디어 플랫폼: 플레이어 프레임워크를 통해 광고 삽입에 대한 지원을 제공합니다. 광고를 지원하는 플레이어 프레임워크는 Windows 8, Silverlight, Windows Phone 8 및 iOS 디바이스에 사용할 수 있습니다. 각 플레이어 프레임워크는 플레이어 응용 프로그램을 구현하는 방법을 보여주는 샘플 코드를 포함합니다. 미디어에 삽입할 수 있는 서로 다른 세 종류의 광고가 있습니다.
 
 선형-기본 비디오를 일시 중지하는 전체 프레임 광고
 

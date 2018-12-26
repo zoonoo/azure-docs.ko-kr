@@ -2,23 +2,25 @@
 title: Azure Machine Learning 모델 관리에 대한 개념적 개요 | Microsoft Docs
 description: 이 문서에서는 Azure Machine Learning 모델 관리에 대한 개념을 설명합니다.
 services: machine-learning
-author: nk773
-ms.author: padou
-manager: mwinkle
-ms.reviewer: jasonwhowell, mldocs
+author: chris-lauren
+ms.author: clauren
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 6fac3fa0207d942c5a7f5fa438ba8262ea5b7a22
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: b89e80051ec53649a3da8fadcf412c58c177525c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832230"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260211"
 ---
 # <a name="azure-machine-learning-model-management"></a>Azure Machine Learning 모델 관리
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 Azure Machine Learning 모델 관리를 사용하면 기계 학습 워크플로 및 모델을 관리하고 배포할 수 있습니다. 
 
@@ -32,7 +34,7 @@ Azure Machine Learning 모델 관리를 사용하면 기계 학습 워크플로 
 
 Azure Machine Learning 모델 관리는 모델 버전의 레지스트리를 제공합니다. 또한 Machine Learning 컨테이너를 REST API로 패키지하고 배치하도록 자동화된 워크플로를 제공합니다. 모델 및 해당 런타임 종속성은 예측 API를 사용하여 Linux 기반 Docker 컨테이너에 패키지됩니다. 
 
-Azure Machine Learning 계산 환경은 모델을 호스팅하는 확장 가능한 클러스터를 설정하고 관리하는 데 도움이 됩니다. 계산 환경은 Azure Container Services를 기반으로 합니다. Azure Container Services는 다음과 같은 기능이 있는 Machine Learning API를 REST API 끝점으로 자동으로 제공합니다.
+Azure Machine Learning 계산 환경은 모델을 호스팅하는 확장 가능한 클러스터를 설정하고 관리하는 데 도움이 됩니다. 계산 환경은 Azure Container Services를 기반으로 합니다. Azure Container Services는 다음과 같은 기능이 있는 Machine Learning API를 REST API 엔드포인트로 자동으로 제공합니다.
 
 - 인증
 - 부하 분산
@@ -72,7 +74,7 @@ Azure Machine Learning 모델 관리에서 사용하는 정보는 다음과 같�
 - [Kubernetes 기반 Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
 - 온-프레미스 컨테이너 서비스
 - 개발 환경
-- IoT 장치
+- IoT 디바이스
 
 이러한 Docker 기반 컨테이너 이미지는 예측을 생성하는 데 필요한 모든 종속성을 자체적으로 포함하고 있습니다. 
 
@@ -81,7 +83,7 @@ Azure Machine Learning 모델 관리를 사용하면 단일 명령으로 ML 계�
 
 - 규모에서 짧은 대기 시간 예측
 - 부하 분산
-- ML 끝점 자동 크기 조정
+- ML 엔드포인트 자동 크기 조정
 - API 키 권한 부여
 - API Swagger 문서
 

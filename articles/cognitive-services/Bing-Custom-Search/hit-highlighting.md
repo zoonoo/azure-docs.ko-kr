@@ -1,21 +1,21 @@
 ---
-title: 'Bing Custom Search: 장식 표식을 사용하여 텍스트를 강조 표시 | Microsoft Docs'
+title: 장식 표식을 사용하여 텍스트 강조 표시 - Bing Custom Search
+titlesuffix: Azure Cognitive Services
 description: 검색 응답에서 텍스트 장식을 사용하도록 설정하는 방법을 보여줍니다.
 services: cognitive-services
-author: brapel
-manager: ehansen
-ms.assetid: 5365B568-EA55-4D97-8FBE-0AF60158D4D5
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: d2d0070865aa29257ac827bbb4fc313d87ea7282
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: maheshb
+ms.openlocfilehash: 1ab99a8a024103f4a15154ee5b76e7dc21da4ae6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373038"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162112"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>장식 표식을 사용하여 텍스트를 강조 표시
 

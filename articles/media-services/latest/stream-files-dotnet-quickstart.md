@@ -4,28 +4,26 @@ description: 이 빠른 시작의 단계에 따라 새로운 Azure Media Service
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 keywords: Azure Media Services, 스트림
 ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/08/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: e17a800ff61822a5040737e479c3e1855eeb8893
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fc8fc1af51332df032e864c84791791a38bc8601
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701041"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612223"
 ---
 # <a name="quickstart-stream-video-files---net"></a>빠른 시작: 비디오 파일 스트리밍 - .NET
 
-> [!NOTE]
-> Azure Media Services의 최신 버전은 미리보기에 있으며 v3라고도 합니다. v3 API를 사용하기 시작하려면 이 빠른 시작에서 설명한 대로 새 Media Services 계정을 만들어야 합니다. 
-
-이 빠른 시작은 Azure Media Services를 사용하여 다양한 브라우저 및 장치에서 비디오 스트리밍을 시작하는 것이 얼마나 쉬운지 보여줍니다. 이 항목의 샘플에서는 콘텐츠를 인코딩하여 HTTPS URL을 통해 액세스할 수 있게 만듭니다. 
+이 빠른 시작은 Azure Media Services를 사용하여 다양한 브라우저 및 디바이스에서 비디오 스트리밍을 인코딩하고 시작하는 것이 얼마나 쉬운지 보여 줍니다. 입력 내용은 HTTPS URL, SAS URL 또는 Azure Blob 저장소에 있는 파일 경로를 사용하여 지정할 수 있습니다.
+이 항목의 샘플에서는 콘텐츠를 인코딩하여 HTTPS URL을 통해 액세스할 수 있게 만듭니다. 현재 AMS v3은 HTTPS URL을 통한 청크 분할 전송 인코딩을 지원하지 않습니다.
 
 빠른 시작이 끝나면 비디오를 스트리밍 할 수 있습니다.  
 
@@ -35,14 +33,19 @@ ms.locfileid: "34701041"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)을 사용할 수 있습니다.
+- Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)을 사용할 수 있습니다.
+- CLI를 로컬로 설치하여 사용하기 위해 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+
+    현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령만 Azure Cloud Shell에서 작동합니다. CLI를 로컬로 사용하는 것이 좋습니다.
+
+- [Media Services 계정 만들기](create-account-cli-how-to.md)
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
 다음 명령을 사용하여 스트리밍 .NET 샘플이 포함된 GitHub 리포지토리를 컴퓨터에 복제합니다.  
 
  ```bash
- git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
+ git clone http://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
 샘플은 [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) 폴더에 있습니다.
@@ -58,14 +61,6 @@ Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https
 7. 스트리밍 URL을 빌드합니다.
 
 샘플의 각 기능이 무엇을 하는지에 관한 설명은 코드를 검토하고 [이 소스 파일 ](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs)의 주석을 확인합니다.
-
-## <a name="log-in-to-azure"></a>Azure에 로그인
-
-[Azure 포털](http://portal.azure.com) 에 로그인합니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -95,11 +90,11 @@ Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작을 위해 만든 Media Services 및 저장소 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 리소스 그룹을 삭제합니다. **CloudShell** 도구를 사용하면 됩니다.
+이 빠른 시작을 위해 만든 Media Services 및 저장소 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 리소스 그룹을 삭제합니다.
 
-**CloudShell**에서 다음 명령을 실행합니다.
+다음 CLI 명령을 실행합니다.
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

@@ -3,7 +3,7 @@ title: Azure 또는 독립 실행형 클러스터의 .NET Service Fabric 앱에�
 description: Azure 클러스터 또는 독립 실행형 클러스터에 호스트된 .NET Service Fabric 응용 프로그램에 로깅을 추가하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: thraka
+author: rwike77
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/27/2018
-ms.author: adegeo
-ms.openlocfilehash: ed9aaf67b4f6749ea6d505a51fbc76e3d1cf0870
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: ryanwi
+ms.openlocfilehash: 42a6430162f3bafd3ec3ce2a3c523f6f5755914a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204875"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001381"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Service Fabric 응용 프로그램에 로깅 추가
 
@@ -103,7 +103,7 @@ internal sealed class ServiceEventSource : EventSource
 
 ## <a name="microsoftextensionslogging"></a>Microsoft.Extensions.Logging
 
-ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Logging))은 응용 프로그램에 대한 표준 로깅 API를 제공하는 로깅 프레임워크입니다. 다른 로깅 백 엔드에 대한 지원을 ASP.NET Core 로깅에 연결할 수 있습니다. 이렇게 하면 많은 코드를 변경할 필요 없이 응용 프로그램의 로깅에 대한 다양한 지원이 처리됩니다.
+ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Logging))은 애플리케이션에 대한 표준 로깅 API를 제공하는 로깅 프레임워크입니다. 다른 로깅 백 엔드에 대한 지원을 ASP.NET Core 로깅에 연결할 수 있습니다. 이렇게 하면 많은 코드를 변경할 필요 없이 응용 프로그램의 로깅에 대한 다양한 지원이 처리됩니다.
 
 1. 계측하려는 프로젝트에 **Microsoft.Extensions.Logging** NuGet 패키지를 추가합니다. 또한 공급자 패키지를 추가합니다. 자세한 내용은 [ASP.NET Core 로그인](https://docs.microsoft.com/aspnet/core/fundamentals/logging)(영문)을 참조하세요.
 2. **Microsoft.Extensions.Logging**에 대한 **using** 지시문을 서비스 파일에 추가합니다.

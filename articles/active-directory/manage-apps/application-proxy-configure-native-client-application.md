@@ -10,27 +10,27 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/31/2018
+ms.topic: conceptual
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5c231ce09add63c6e46dee0c76bbe64c438ff820
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b4476579665b0e6b574827d1bec06233560038a8
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161546"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621091"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용하는 방법
 
-웹 응용 프로그램뿐만 아니라 ADAL(Azure AD Authentication Library)로 구성된 네이티브 클라이언트 앱을 게시하는 데 Azure Active Directory 응용 프로그램 프록시를 사용할 수도 있습니다. 네이티브 클라이언트 앱은 장치에 설치되는 반면 웹앱은 브라우저를 통해 액세스되므로 웹앱과 다릅니다. 
+웹 응용 프로그램뿐만 아니라 ADAL(Azure AD Authentication Library)로 구성된 네이티브 클라이언트 앱을 게시하는 데 Azure Active Directory 응용 프로그램 프록시를 사용할 수도 있습니다. 네이티브 클라이언트 앱은 디바이스에 설치되는 반면 웹앱은 브라우저를 통해 액세스되므로 웹앱과 다릅니다. 
 
 응용 프로그램 프록시는 헤더에 전송된 Azure AD가 발급한 토큰을 수락하여 네이티브 클라이언트 앱을 지원합니다. 응용 프로그램 프록시 서비스는 사용자를 대신해서 인증을 수행합니다. 이 솔루션은 인증에 대해 응용 프로그램 토큰을 사용하지 않습니다. 
 
 ![최종 사용자, Azure Active Directory 및 게시된 응용 프로그램 간의 관계](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-인증을 처리하고 다양한 클라이언트 환경을 지원하는 Azure AD 인증 라이브러리를 사용하여 네이티브 응용 프로그램을 게시합니다. 응용 프로그램 프록시는 [Web API 시나리오에 대한 네이티브 응용 프로그램](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api)에 맞습니다. 
+인증을 처리하고 다양한 클라이언트 환경을 지원하는 Azure AD 인증 라이브러리를 사용하여 네이티브 응용 프로그램을 게시합니다. 응용 프로그램 프록시는 [Web API 시나리오에 대한 네이티브 응용 프로그램](../develop/native-app.md)에 맞습니다. 
 
 이 문서에서는 응용 프로그램 프록시 및 Azure AD 인증 라이브러리를 사용하여 네이티브 응용 프로그램을 게시하는 네 가지 단계를 안내합니다. 
 
@@ -48,7 +48,7 @@ ms.locfileid: "34161546"
    ![새 앱 등록 만들기](./media/application-proxy-configure-native-client-application/create.png)
 5. **만들기**를 선택합니다.
 
-새 앱 등록 만들기에 대한 자세한 정보는 [Azure Active Directory와 응용 프로그램 통합](./../develop/active-directory-integrating-applications.md)을 참조하세요.
+새 앱 등록 만들기에 대한 자세한 정보는 [Azure Active Directory와 응용 프로그램 통합](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요.
 
 
 ## <a name="step-3-grant-access-to-other-applications"></a>3단계: 다른 응용 프로그램에 액세스 허용
@@ -96,6 +96,6 @@ ADAL을 이러한 매개 변수로 편집하면 사용자가 회사 네트워크
 
 ## <a name="next-steps"></a>다음 단계
 
-네이티브 응용 프로그램 흐름에 대한 자세한 내용은 [Web API에 대한 네이티브 응용 프로그램](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api)을 참조하세요.
+네이티브 응용 프로그램 흐름에 대한 자세한 내용은 [Web API에 대한 네이티브 응용 프로그램](../develop/native-app.md)을 참조하세요.
 
-[응용 프로그램 프록시에 대한 Single Sign-On](application-proxy-single-sign-on.md) 설정에 대한 자세히 알아보세요.
+[응용 프로그램 프록시에 대한 Single Sign-On](what-is-single-sign-on.md#single- sign-on-methods) 설정에 대한 자세히 알아보세요.

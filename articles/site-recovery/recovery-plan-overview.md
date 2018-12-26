@@ -1,29 +1,24 @@
 ---
-title: Azure Site Recovery에서 복구 계획 사용 | Microsoft Docs
-description: Azure Site Recovery에서 복구 계획에 대해 알아봅니다.
-services: site-recovery
-documentationcenter: ''
+title: Azure Site Recovery를 사용하여 재해 복구에서 복구 계획 사용 | Microsoft Docs
+description: Azure Site Recovery 서비스를 사용하여 재해 복구에 대한 복구 계획을 사용하는 방법을 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 011c9acb5d34e15f65b64d59867e7501f0720a08
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 463a7fc51cac6160fbb97fc53077d0b5eda80533
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920120"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215194"
 ---
 # <a name="about-recovery-plans"></a>복구 계획 정보
 
 이 문서는 [Azure Site Recovery](site-recovery-overview.md)에서 복구 계획을 설명합니다.
 
 복구 계획은 복구 그룹으로 컴퓨터를 수집합니다. 순서, 지침 및 수행할 작업을 추가하여 계획을 사용자 지정할 수 있습니다. 계획을 정의한 후에 장애 조치(failover)를 실행할 수 있습니다.
-
-
 
 
 

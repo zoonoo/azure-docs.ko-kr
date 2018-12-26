@@ -1,24 +1,19 @@
 ---
-title: Azure Data Catalog의 새로운 기능 | Microsoft Docs
+title: Azure Data Catalog의 새로운 기능
 description: 이 문서는 Azure Data Catalog에 추가된 새로운 기능의 개요를 제공합니다.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
+author: markingmyname
+ms.author: maghan
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 86c8e8c10811b1478ae2c853f1efef5b6b5caa83
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860006"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406331"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 데이터 카탈로그의 새로운 기능
 **Azure Data Catalog**에 대한 업데이트는 정기적으로 릴리스됩니다. 일부 릴리스에서 백 엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 이 페이지는 Azure Data Catalog 서비스에 추가된 새로운 사용자용 기능을 강조 표시합니다.
@@ -27,7 +22,7 @@ ms.locfileid: "37860006"
 2017년 11월을 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
 * 데이터 카탈로그 포털에서 특정 비즈니스 용어에 대한 직접 연결을 지원합니다. 사용자가 비즈니스 용어의 링크를 복사하여 문서, 이메일, 보고서 또는 기타 위치에 포함시켜 용어 정의에 직접 연결할 수 있습니다.
-* Azure Active Directory 서비스 주체를 지원합니다. 데이터 카탈로그 관리자는 서비스 주체를 사용하여 카탈로그에 액세스하도록 클라이언트 응용 프로그램을 인증하고, 사용자 및 보안 그룹에 권한을 부여하는 것처럼 그러한 응용 프로그램에게도 특정 권한을 부여할 수 있습니다. 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/active-directory-application-objects.md)를 참조하세요.
+* Azure Active Directory 서비스 주체를 지원합니다. 데이터 카탈로그 관리자는 서비스 주체를 사용하여 카탈로그에 액세스하도록 클라이언트 애플리케이션을 인증하고, 사용자 및 보안 그룹에 권한을 부여하는 것처럼 그러한 애플리케이션에게도 특정 권한을 부여할 수 있습니다. 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 * 데이터 카탈로그 데이터 원본 등록 도구를 사용하여 Azure SQL Database 및 Azure SQL Data Warehouse 데이터 원본에 연결할 때 Azure Active Directory 인증을 지원합니다. 자세한 내용은 [SQL Database 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](../sql-database/sql-database-aad-authentication.md)을 참조하세요.
 
 
@@ -151,7 +146,7 @@ ms.locfileid: "37860006"
 ## <a name="whats-new-for-march-2016"></a>2016년 3월의 새로운 기능
 2016년 3월을 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-* Azure Data Catalog 서비스의 검색 기능 및 카탈로그 자산 관리 기능에 프로그래밍 방식으로 액세스하기 위한 통합 REST API 끝점. 이 검색 API 끝점 및 카탈로그 API 끝점은 더 이상 사용되지 않으며 2016년 3월 21일에 중단되었습니다. API의 의미 체계에 대한 변경 사항은 없습니다. 끝점 URI만 변경되었습니다. 자세한 내용은 [Azure Data Catalog REST API 참조](https://msdn.microsoft.com/library/azure/mt267595.aspx)를 참조하세요. API 샘플을 보려면 [Azure Data Catalog 개발자 샘플](data-catalog-samples.md)을 참조하세요.
+* Azure Data Catalog 서비스의 검색 기능 및 카탈로그 자산 관리 기능에 프로그래밍 방식으로 액세스하기 위한 통합 REST API 엔드포인트. 이 검색 API 엔드포인트 및 카탈로그 API 엔드포인트는 더 이상 사용되지 않으며 2016년 3월 21일에 중단되었습니다. API의 의미 체계에 대한 변경 사항은 없습니다. 엔드포인트 URI만 변경되었습니다. 자세한 내용은 [Azure Data Catalog REST API 참조](https://msdn.microsoft.com/library/azure/mt267595.aspx)를 참조하세요. API 샘플을 보려면 [Azure Data Catalog 개발자 샘플](data-catalog-samples.md)을 참조하세요.
 
 ## <a name="whats-new-for-february-2016"></a>2016년 2월의 새로운 기능
 2016년 2월을 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
@@ -166,7 +161,7 @@ ms.locfileid: "37860006"
 
 * 추가 데이터 원본의 수동 등록을 지원합니다. 사용자는 이제 Azure Data Catalog 포털에서 "수동 항목 만들기"를 사용하거나 Azure Data Catalog REST API를 사용하여 다음 데이터 원본을 등록할 수 있습니다.
   * OData - 함수, 엔터티 집합 및 엔터티 컨테이너
-  * HTTP - 파일, 끝점, 보고서 및 사이트
+  * HTTP - 파일, 엔드포인트, 보고서 및 사이트
   * 파일 시스템 - 파일
   * SharePoint - 목록
   * FTP - 파일 및 디렉터리

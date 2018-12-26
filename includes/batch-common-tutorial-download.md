@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: batch
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: a8ea55a40f1ee4681b6aec147e02b7bce6f1d7cf
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279771"
+---
 ### <a name="retrieve-output-files"></a>출력 파일 검색
 
 Azure Portal을 사용하여 ffmpeg 작업에서 생성된 출력 MP3 파일을 다운로드할 수 있습니다. 

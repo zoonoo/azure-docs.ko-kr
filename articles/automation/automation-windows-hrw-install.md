@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e449e6e457c4fa568b5a4de5823014b4dcea82d0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 83820440a6304886785a175b27614b45fdb98b13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064541"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252227"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -30,7 +30,7 @@ Windows Hybrid Runbook Worker를 설치 및 구성하려면 2가지 방법을 �
 Windows Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습니다.
 
 * Windows Server 2012 이상
-* Windows PowerShell 4.0 이상([WMF 4.0 다운로드](https://www.microsoft.com/download/details.aspx?id=40855)) 안정성을 높일 수 있게 Windows PowerShell 5.1([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))을 권장합니다.
+* Windows PowerShell 5.1 이상([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))
 * .NET Framework 4.6.2 이상
 * 코어 2개
 * RAM 4GB
@@ -49,13 +49,13 @@ Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에�
 
 다음 단계에 따라 Windows Hybrid Worker 역할의 설치와 구성을 자동화합니다.
 
-1. Hybrid Runbook Worker 역할을 실행하는 컴퓨터에서 직접 또는 사용자 환경의 다른 컴퓨터에서 [PowerShell 갤러리](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/DisplayScript)의 새로 OnPremiseHybridWorker.ps1 스크립트를 다운로드합니다. 스크립트를 작업자에 복사합니다.
+1. Hybrid Runbook Worker 역할을 실행하는 컴퓨터에서 직접 또는 사용자 환경의 다른 컴퓨터에서 [PowerShell 갤러리](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker)의 새로 OnPremiseHybridWorker.ps1 스크립트를 다운로드합니다. 스크립트를 작업자에 복사합니다.
 
    New-OnPremiseHybridWorker.ps1 스크립트에는 실행 중 다음 매개 변수가 필요합니다.
 
    * *AutomationAccountName*(필수): Automation 계정의 이름
    * *AAResourceGroupName*(필수): Automation 계정과 연결된 리소스 그룹의 이름
-   * *OMSResourceGroupName*(선택 사항): Operations Management Suite 작업 영역에 대한 리소스 그룹의 이름 이 리소스 그룹을 지정하지 않으면 *AAResourceGroupName*을 사용합니다. 
+   * *OMSResourceGroupName*(선택 사항): Log Analytics 작업 영역에 대한 리소스 그룹의 이름 이 리소스 그룹을 지정하지 않으면 *AAResourceGroupName*을 사용합니다. 
    * *HybridGroupName*(필수): 이 시나리오를 지원하는 Runbook에 대한 대상으로 지정할 Hybrid Runbook Worker 그룹의 이름
    * *SubscriptionID*(필수): Automation 계정이 있는 Azure 구독 ID
    * *WorkspaceName*(선택 사항): Log Analytics 작업 영역 이름 Log Analytics 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다.
@@ -63,8 +63,8 @@ Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에�
      > [!NOTE]
      > 현재 Log Analytics와 통합되도록 지원되는 Automation 영역은 **오스트레일리아 남동부**, **미국 동부 2**, **동남 아시아** 및 **유럽 서부**뿐입니다. 이러한 영역 중 하나에 Automation 계정에 없는 경우 스크립트에서 Log Analytics 작업 영역을 만들지만 연결할 수 없다고 경고합니다.
 
-1. 컴퓨터에서 관리자 모드의 **시작** 화면에서 **Windows PowerShell**을 엽니다.
-1. PowerShell 명령줄 셸에서 다운로드한 스크립트가 포함된 폴더로 이동합니다. *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* 및 *-WorkspaceName* 매개 변수의 값을 변경합니다. 그런 다음, 스크립트를 실행합니다.
+2. 컴퓨터에서 관리자 모드의 **시작** 화면에서 **Windows PowerShell**을 엽니다.
+3. PowerShell 명령줄 셸에서 다운로드한 스크립트가 포함된 폴더로 이동합니다. *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* 및 *-WorkspaceName* 매개 변수의 값을 변경합니다. 그런 다음, 스크립트를 실행합니다.
 
      > [!NOTE]
      > 스크립트를 실행한 후에 Azure 인증을 요청하는 메시지가 나타납니다. 구독 관리자 역할의 멤버이자 구독의 공동 관리자인 계정으로 *로그인해야* 합니다.
@@ -75,9 +75,9 @@ Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에�
    -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
    ```
 
-1. NuGet 설치에 동의를 요청하는 메시지가 표시되고 Azure 자격 증명으로 인증을 받도록 요구됩니다.
+4. NuGet 설치에 동의를 요청하는 메시지가 표시되고 Azure 자격 증명으로 인증을 받도록 요구됩니다.
 
-1. 스크립트가 완료되면 **Hybrid Worker 그룹** 페이지에 새 그룹 및 멤버 수가 표시됩니다. 기존 그룹인 경우 멤버 수가 증가합니다. **Hybrid Worker 그룹** 페이지의 목록에서 그룹을 선택하고 **Hybrid Worker** 타일을 선택합니다. **Hybrid Worker** 페이지에서 나열된 그룹의 각 멤버를 확인합니다.
+5. 스크립트가 완료되면 **Hybrid Worker 그룹** 페이지에 새 그룹 및 멤버 수가 표시됩니다. 기존 그룹인 경우 멤버 수가 증가합니다. **Hybrid Worker 그룹** 페이지의 목록에서 그룹을 선택하고 **Hybrid Worker** 타일을 선택합니다. **Hybrid Worker** 페이지에서 나열된 그룹의 각 멤버를 확인합니다.
 
 ### <a name="manual-deployment"></a>수동 배포
 
@@ -132,7 +132,7 @@ Azure portal의 **키 관리** 페이지에서 이 cmdlet에 필요한 정보를
 
 Runbook은 Azure Automation 환경에 설치된 모듈에 정의된 활동 및 cmdlet을 사용할 수 있습니다. 이러한 모듈은 온-프레미스 컴퓨터에 자동으로 배포되지 않으므로 수동으로 설치해야 합니다. 단, 기본적으로 설치되어 Azure Automation의 모든 Azure 서비스 및 활동에 사용되는 cmdlet에 대한 액세스를 제공하는 Azure 모듈은 예외입니다.
 
-Hybrid Runbook Worker 기능의 주 목적은 로컬 리소스를 관리하는 것이므로 이러한 리소스를 지원하는 모듈을 설치해야 할 수 있습니다. Windows PowerShell 모듈 설치에 대한 자세한 내용은 [모듈 설치](http://msdn.microsoft.com/library/dd878350.aspx)를 참조하세요. 
+Hybrid Runbook Worker 기능의 주 목적은 로컬 리소스를 관리하는 것이므로 이러한 리소스를 지원하는 모듈을 설치해야 할 수 있습니다. Windows PowerShell 모듈 설치에 대한 자세한 내용은 [모듈 설치](https://msdn.microsoft.com/library/dd878350.aspx)를 참조하세요. 
 
 설치된 모듈은 Hybrid Worker가 자동으로 가져올 수 있도록 **PSModulePath** 환경 변수가 참조하는 위치에 있어야 합니다. 상세 정보는 [PSModulePath 설치 경로 수정](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx)을 참조하세요.
 

@@ -3,7 +3,7 @@ title: Azure DNS 위임 개요 | Microsoft Docs
 description: 도메인 위임을 변경하고 Azure DNS 이름 서버를 사용하여 도메인 호스팅을 제공하는 방법을 이해합니다.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
@@ -12,13 +12,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
-ms.author: kumud
-ms.openlocfilehash: fc79999d240baf18ccf5923908c98791c4e7e7bb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: victorh
+ms.openlocfilehash: a00cc00dee3a505f88abef3ecf99f49aa027c30b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237331"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170507"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Azure DNS를 사용하여 DNS 영역 위임
 
@@ -45,7 +45,7 @@ DNS 서버에는 다음 두 가지 유형이 있습니다.
 
 Azure DNS는 권한이 있는 DNS 서비스를 제공합니다.  재귀 DNS 서비스를 제공하지 않습니다. Azure의 Cloud Services 및 VM은 자동으로 구성하여 Azure 인프라의 일부로 제공되는 재귀 DNS 서비스를 별도로 사용합니다. 이러한 DNS 설정을 변경하는 방법에 대한 정보는 [Azure에서 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조하세요.
 
-PC 또는 모바일 장치의 DNS 클라이언트는 일반적으로 재귀적 DNS 서버를 호출하여 클라이언트 응용 프로그램에 필요한 DNS 쿼리를 수행합니다.
+PC 또는 모바일 디바이스의 DNS 클라이언트는 일반적으로 재귀적 DNS 서버를 호출하여 클라이언트 애플리케이션에 필요한 DNS 쿼리를 수행합니다.
 
 재귀적 DNS 서버는 'www.contoso.com'과 같은 DNS 레코드에 대한 쿼리를 받을 경우 먼저 'contoso.com' 도메인에 대한 영역을 호스트하는 이름 서버를 찾아야 합니다. 이름 서버를 찾으려면 루트 이름 서버에서 시작하여 'com' 영역을 호스트하는 이름 서버를 찾습니다. 그런 다음 'com' 이름 서버를 쿼리하여 'contoso.com' 영역을 호스트하는 이름 서버를 찾습니다.  끝으로, 이러한 이름 서버에 'www.contoso.com'을 쿼리할 수 있습니다.
 

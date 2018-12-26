@@ -1,22 +1,23 @@
 ---
-title: Entity Linking API 시작 | Microsoft Docs
-description: Cognition Services의 Entity Linking API를 사용하여 텍스트를 분석하고, 명명된 엔터티를 기술 자료의 관련 항목에 연결합니다.
+title: '자습서: Entity Linking 앱 빌드 - C#'
+titlesuffix: Azure Cognitive Services
+description: Entity Linking API를 사용하여 텍스트를 분석하고, 명명된 엔터티를 기술 자료의 관련 항목에 연결합니다.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 54c4a3bbb3637c248bd7705ed291633368b542c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373255"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365641"
 ---
-# <a name="get-started-with-entity-linking-api-in-c35"></a>C#에서 Entity Linking API 시작
+# <a name="tutorial-build-an-entity-linking-app-with-c"></a>자습서: C#을 사용하여 Entity Linking 앱 빌드
 
 Microsoft의 Entity Linking은 텍스트를 분석하고 명명된 엔터티를 기술 자료의 관련 항목에 연결하기 위한 자연어 처리 도구입니다. 
 
@@ -54,7 +55,7 @@ Cognitive Services의 Entity Linking은 NuGet.org 패키지로 릴리스되며 �
  ![프로젝트에 포함된 nuget 라이브러리](./Images/NugetLibraryInProject.png)
  
 ### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">4단계: 앱의 XAML에 입력 및 출력 텍스트 블록 추가</a>
-**솔루션 탐색기**에서 ** MainPage.xaml **로 이동한 다음, 파일을 두 번 클릭하면 새 창에서 열립니다. 편의를 위해 **디자이너** 탭에서 **XAML** 단추를 두 번 클릭할 수 있습니다. 그러면 **비주얼 디자이너**가 숨겨지고 코드 보기에 대한 모든 공간이 예약됩니다.
+**솔루션 탐색기**에서 **MainPage.xaml**로 이동한 다음, 파일을 두 번 클릭하면 새 창에서 열립니다. 편의를 위해 **디자이너** 탭에서 **XAML** 단추를 두 번 클릭할 수 있습니다. 그러면 **비주얼 디자이너**가 숨겨지고 코드 보기에 대한 모든 공간이 예약됩니다.
 
  ![프로젝트에 포함된 nuget 라이브러리](./Images/UWPMainPage.png)
  

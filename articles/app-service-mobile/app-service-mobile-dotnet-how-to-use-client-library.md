@@ -1,6 +1,6 @@
 ---
-title: App Service Mobile Apps로 관리되는 클라이언트 라이브러리 작업(Windows) | Microsoft Docs
-description: Windows 및 Xamarin 앱에서 Azure App Service Mobile Apps용 .NET 클라이언트를 사용하는 방법에 대해 알아봅니다.
+title: App Service Mobile Apps로 관리되는 클라이언트 라이브러리 작업 | Microsoft Docs
+description: Windows 및 Xamarin 앱에서 Azure App Service Mobile Apps용 .NET 클라이언트 라이브러리를 사용하는 방법을 알아봅니다.
 services: app-service\mobile
 documentationcenter: ''
 author: conceptdev
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: f0f28d4b6573e4e6fecf0e6dd84814d4fc66cd60
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4709d3afce890941689396200347b3212d85159d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050501"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280863"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -40,14 +40,14 @@ ms.locfileid: "37050501"
 * Windows Phone 8.1
 * Silverlight 응용 프로그램을 제외한 Windows Phone 8.0
 
-"서버-흐름" 인증은 표시된 UI에 웹 보기를 사용합니다.  장치가 웹 보기 UI를 표시할 수 없는 경우 다른 인증 방법이 필요합니다.  따라서 이 SDK는 Watch 유형 또는 그와 비슷하게 제한된 장치에는 적합하지 않습니다.
+"서버-흐름" 인증은 표시된 UI에 웹 보기를 사용합니다.  디바이스가 웹 보기 UI를 표시할 수 없는 경우 다른 인증 방법이 필요합니다.  따라서 이 SDK는 Watch 유형 또는 그와 비슷하게 제한된 디바이스에는 적합하지 않습니다.
 
 ## <a name="setup"></a>설정 및 필수 조건
 하나 이상의 테이블에 포함된 모바일 앱 백 엔드 프로젝트를 이미 만들고 게시했다고 가정합니다.  이 토픽에 사용되는 코드에서, 테이블은 이름이 `TodoItem`(이)고 `Id`, `Text` 및 `Complete` 열이 있습니다. 이 테이블은 [Azure Mobile Apps 빠른 시작 자습서][1]를 완료할 때 만들었던 것과 동일한 테이블입니다.
 
 C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음 클래스입니다.
 
-```
+```csharp
 public class TodoItem
 {
     public string Id { get; set; }
@@ -62,7 +62,7 @@ public class TodoItem
 
 [JsonPropertyAttribute][6]는 클라이언트 필드와 테이블 필드 간의 *PropertyName* 매핑을 정의하는 데 사용됩니다.
 
-Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.NET 서버 SDK 토픽][7] 또는 [Node.js 서버 SDK 토픽][8]을 참조하세요. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 **Azure Portal** 에서 [Azure Portal]설정을 사용할 수도 있습니다.
+Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.NET 서버 SDK 토픽][7] 또는 [Node.js 서버 SDK 토픽][8]을 참조하세요. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 [Azure Portal] 에서 **쉬운 테이블**설정을 사용할 수도 있습니다.
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>방법: 관리되는 클라이언트 SDK 패키지 설치
 다음 메서드 중 하나를 사용하여 [NuGet][9]에서 Mobile Apps용 관리되는 클라이언트 SDK 패키지를 설치합니다.
@@ -72,9 +72,12 @@ Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.
 
 기본 활동 파일에 다음 **using** 문을 추가합니다.
 
-```
+```csharp
 using Microsoft.WindowsAzure.MobileServices;
 ```
+
+> [!NOTE]
+> Android 프로젝트에서 참조하는 모든 지원 패키지의 버전이 동일해야 합니다. SDK에는 Android 플랫폼에 대한 `Xamarin.Android.Support.CustomTabs` 종속성이 있으므로 프로젝트에서 최신 지원 패키지를 사용하는 경우 충돌 방지를 위해 필수 버전이 포함된 이 패키지를 직접 설치해야 합니다.
 
 ### <a name="symbolsource"></a>방법: Visual Studio에서 디버그 작업
 Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource][10]에 있습니다.  SymbolSource를 Visual Studio와 통합하려면 [SymbolSource 지침][11]을 참조하세요.
@@ -82,7 +85,7 @@ Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource][10]에 있
 ## <a name="create-client"></a>Mobile Apps 클라이언트 만들기
 다음 코드는 모바일 앱 백 엔드에 액세스하는 데 사용되는 [MobileServiceClient][12] 개체를 만듭니다.
 
-```
+```csharp
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
@@ -109,13 +112,13 @@ var client = new MobileServiceClient("MOBILE_APP_URL");
 ### <a name="instantiating"></a>방법: 테이블 참조 만들기
 백 엔드 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체의 함수를 호출합니다. 다음과 같이 [GetTable] 메서드를 호출하여 테이블에 대한 참조를 구합니다.
 
-```
+```csharp
 IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
 ```
 
-반환된 개체는 형식화된 직렬화 모델을 사용합니다. 형식화되지 않은 직렬화 모델도 지원됩니다. 다음 예제는 [형식화되지 않은 테이블에 참조를 만듭니다.]
+반환된 개체는 형식화된 직렬화 모델을 사용합니다. 형식화되지 않은 직렬화 모델도 지원됩니다. 다음 예제는 [형식화되지 않은 테이블에 참조를 만듭니다].
 
-```
+```csharp
 // Get an untyped table reference
 IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 ```
@@ -137,7 +140,7 @@ IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 ### <a name="filtering"></a>방법: 반환된 데이터 필터링
 다음 코드는 쿼리에 `Where` 절을 포함하여 데이터를 필터링하는 방법을 보여줍니다. 이 코드에서는 `todoTable`에서 해당 `Complete` 속성이 `false`인 모든 항목을 반환합니다. [Where] 함수는 테이블에 대한 쿼리에 행 필터링 조건자를 적용합니다.
 
-```
+```csharp
 // This query filters out completed TodoItems and items without a timestamp.
 List<TodoItem> items = await todoTable
     .Where(todoItem => todoItem.Complete == false)
@@ -146,13 +149,13 @@ List<TodoItem> items = await todoTable
 
 브라우저 개발자 도구 또는 [Fiddler]와 같은 메시지 검사 소프트웨어를 사용하여 백 엔드에 전송된 요청의 URI를 볼 수 있습니다. 이 요청 URI에서 알 수 있듯이 쿼리 문자열이 수정됩니다.
 
-```
+```csharp
 GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 ```
 
 이 OData 요청은 서버 SDK에 의해 SQL 쿼리로 변환됩니다.
 
-```
+```csharp
 SELECT *
     FROM TodoItem
     WHERE ISNULL(complete, 0) = 0
@@ -160,7 +163,7 @@ SELECT *
 
 `Where` 메서드에 전달되는 함수는 조건을 임의의 수만큼 가질 수 있습니다.
 
-```
+```csharp
 // This query filters out completed TodoItems where Text isn't null
 List<TodoItem> items = await todoTable
     .Where(todoItem => todoItem.Complete == false && todoItem.Text != null)
@@ -169,7 +172,7 @@ List<TodoItem> items = await todoTable
 
 이 예는 서버 SDK에 의해 SQL 쿼리로 변환됩니다.
 
-```
+```csharp
 SELECT *
     FROM TodoItem
     WHERE ISNULL(complete, 0) = 0
@@ -178,7 +181,7 @@ SELECT *
 
 이 쿼리는 여러 절로 분할될 수도 있습니다.
 
-```
+```csharp
 List<TodoItem> items = await todoTable
     .Where(todoItem => todoItem.Complete == false)
     .Where(todoItem => todoItem.Text != null)
@@ -202,7 +205,7 @@ List<TodoItem> items = await todoTable
 ### <a name="sorting"></a>방법: 반환된 데이터 정렬
 다음 코드는 쿼리에 [OrderBy] 또는 [OrderByDescending] 함수를 포함하여 데이터를 정렬하는 방법을 보여 줍니다. `todoTable`의 항목을 `Text` 필드를 기준으로 오름차순 정렬한 항목을 반환합니다.
 
-```
+```csharp
 // Sort items in ascending order by Text field
 MobileServiceTableQuery<TodoItem> query = todoTable
                 .OrderBy(todoItem => todoItem.Text)
@@ -217,7 +220,7 @@ List<TodoItem> items = await query.ToListAsync();
 ### <a name="paging"></a>방법: 페이지에서 데이터 반환
 기본적으로 백 엔드는 첫 50개 행만 반환합니다. [Take] 메서드를 호출하여 반환 행 수를 늘릴 수 있습니다. `Take` 을(를) [Skip] 메서드와 함께 사용하면 쿼리에서 반환되는 전체 데이터 집합의 특정 "페이지"가 요청됩니다. 다음 쿼리를 실행하면 테이블에서 맨 위에 있는 세 개의 항목을 반환합니다.
 
-```
+```csharp
 // Define a filtered query that returns the top 3 items.
 MobileServiceTableQuery<TodoItem> query = todoTable.Take(3);
 List<TodoItem> items = await query.ToListAsync();
@@ -225,7 +228,7 @@ List<TodoItem> items = await query.ToListAsync();
 
 수정된 다음 쿼리는 처음 세 개 결과를 건너뛰고 그 다음 세 개 결과를 반환합니다. 이 쿼리는 두 번째 데이터 "페이지"를 생성하며, 페이지 크기는 세 개 항목입니다.
 
-```
+```csharp
 // Define a filtered query that skips the top 3 items and returns the next 3 items.
 MobileServiceTableQuery<TodoItem> query = todoTable.Skip(3).Take(3);
 List<TodoItem> items = await query.ToListAsync();
@@ -233,7 +236,7 @@ List<TodoItem> items = await query.ToListAsync();
 
 [IncludeTotalCount] 메서드는 지정된 페이징/제한 절을 무시하고, 반환되었어야 할 *모든* 레코드의 총 개수를 요청합니다.
 
-```
+```csharp
 query = query.IncludeTotalCount();
 ```
 
@@ -248,7 +251,7 @@ query = query.IncludeTotalCount();
 ### <a name="selecting"></a>방법: 특정 열 선택
 쿼리에 [Select] 절을 추가하면 결과에 포함할 속성 집합을 지정할 수 있습니다. 예를 들어 다음 코드는 하나의 필드만 선택하는 방법 및 여러 필드를 선택하고 형식을 지정하는 방법을 보여 줍니다.
 
-```
+```csharp
 // Select one field -- just the Text
 MobileServiceTableQuery<TodoItem> query = todoTable
                 .Select(todoItem => todoItem.Text);
@@ -264,7 +267,7 @@ List<string> items = await query.ToListAsync();
 
 지금까지 설명한 모든 함수는 가산적이므로 계속해서 연결 상태를 유지할 수 있습니다. 연결된 각 호출은 더 많은 쿼리에 영향을 줍니다. 한 가지 예를 더 들면 다음과 같습니다.
 
-```
+```csharp
 MobileServiceTableQuery<TodoItem> query = todoTable
                 .Where(todoItem => todoItem.Complete == false)
                 .Select(todoItem => todoItem.Text)
@@ -276,7 +279,7 @@ List<string> items = await query.ToListAsync();
 ### <a name="lookingup"></a>방법: ID를 기준으로 데이터 조회
 [LookupAsync] 함수를 사용하여 데이터베이스에서 특정 ID를 가진 개체를 조회할 수 있습니다.
 
-```
+```csharp
 // This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
 TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 ```
@@ -284,7 +287,7 @@ TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6
 ### <a name="untypedqueries"></a>방법: 형식화되지 않은 쿼리 실행
 형식화되지 않은 테이블 개체를 사용하여 쿼리를 실행하는 경우 다음 예제와 같이 [ReadAsync]를 호출하여 OData 쿼리 문자열을 명시적으로 지정해야 합니다.
 
-```
+```csharp
 // Lookup untyped data using OData
 JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 ```
@@ -294,7 +297,7 @@ JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$o
 ### <a name="inserting"></a>방법: 모바일 앱 백 엔드에 데이터 삽입
 모든 클라이언트 형식은 **ID**라는 멤버를 포함해야 하며 이는 기본적으로 문자열입니다. 이 **ID** 는 CRUD 작업 및 오프라인 동기화를 수행하는 데 필요합니다. 다음 코드는 [InsertAsync] 메서드를 사용하여 테이블에 새 행을 삽입하는 방법을 보여 줍니다. 매개 변수에는 .NET 개체로 삽입할 데이터가 포함되어 있습니다.
 
-```
+```csharp
 await todoTable.InsertAsync(todoItem);
 ```
 
@@ -303,7 +306,7 @@ await todoTable.InsertAsync(todoItem);
 
 형식화되지 않은 데이터를 삽입하려는 경우 Json.NET을 활용할 수 있습니다.
 
-```
+```csharp
 JObject jo = new JObject();
 jo.Add("Text", "Hello World");
 jo.Add("Complete", false);
@@ -312,7 +315,7 @@ var inserted = await table.InsertAsync(jo);
 
 다음은 메일 주소를 고유 문자열 id로 사용하는 예제입니다.
 
-```
+```csharp
 JObject jo = new JObject();
 jo.Add("id", "myemail@emaildomain.com");
 jo.Add("Text", "Hello World");
@@ -329,7 +332,7 @@ Mobile Apps는 테이블의 **id** 열에 대한 고유한 사용자 지정 문�
 
 문자열 ID 값이 삽입된 레코드에 설정되지 않은 경우 모바일 앱 백 엔드는 해당 ID에 대한 고유한 값을 생성합니다. [Guid.NewGuid] 메서드를 사용하여 클라이언트나 백엔드에서 고유한 ID 값을 생성할 수 있습니다.
 
-```
+```csharp
 JObject jo = new JObject();
 jo.Add("id", Guid.NewGuid().ToString("N"));
 ```
@@ -337,13 +340,13 @@ jo.Add("id", Guid.NewGuid().ToString("N"));
 ### <a name="modifying"></a>방법: 모바일 앱 백 엔드의 데이터 수정
 다음 코드는 [UpdateAsync] 메서드를 사용하여 새로운 정보가 포함된 같은 ID로 기존 기록을 업데이트하는 방법을 보여줍니다. 매개 변수에는 .NET 개체로 업데이트할 데이터가 포함되어 있습니다.
 
-```
+```csharp
 await todoTable.UpdateAsync(todoItem);
 ```
 
 형식화되지 않은 데이터를 업데이트하려는 경우 다음과 같이 [Json.NET] 을 활용할 수 있습니다.
 
-```
+```csharp
 JObject jo = new JObject();
 jo.Add("id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 jo.Add("Text", "Hello World");
@@ -356,13 +359,13 @@ var inserted = await table.UpdateAsync(jo);
 ### <a name="deleting"></a>방법: 모바일 앱 백 엔드의 데이터 삭제
 다음 코드는 [DeleteAsync] 메서드를 사용하여 기존 인스턴스를 삭제하는 방법을 보여 줍니다. 인스턴스는 `todoItem`에 설정된 `id` 필드로 식별됩니다.
 
-```
+```csharp
 await todoTable.DeleteAsync(todoItem);
 ```
 
 형식화되지 않은 데이터를 삭제하려면 다음과 같이 Json.NET을 이용할 수 있습니다.
 
-```
+```csharp
 JObject jo = new JObject();
 jo.Add("id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 await table.DeleteAsync(jo);
@@ -377,7 +380,7 @@ Mobile Apps는 Mobile App 백 엔드의 각 테이블에 대해 정의된 `versi
 
 낙관적 동시성을 사용하기 위해 `version` 시스템 속성의 테이블 클래스에 대해 열을 정의합니다. 예: 
 
-```
+```csharp
 public class TodoItem
 {
     public string Id { get; set; }
@@ -396,14 +399,14 @@ public class TodoItem
 
 형식화되지 않은 테이블을 사용하는 응용 프로그램은 다음과 같이 테이블의 `SystemProperties`에 대해 `Version` 플래그를 설정하여 낙관적 동시성을 사용합니다.
 
-```
+```csharp
 //Enable optimistic concurrency by retrieving version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 ```
 
 낙관적 동시성을 사용하는 것 외에도 [UpdateAsync]를 호출할 때 코드에서 `MobileServicePreconditionFailedException<T>` 예외를 검색해야 합니다.  업데이트된 레코드에 올바른 `version` 을(를) 적용하여 충돌을 해결하고 해결된 레코드로 [UpdateAsync] 를 호출합니다. 다음 코드는 감지된 쓰기 충돌을 해결하는 방법을 보여 줍니다.
 
-```
+```csharp
 private async void UpdateToDoItem(TodoItem item)
 {
     MobileServicePreconditionFailedException<TodoItem> exception = null;
@@ -464,7 +467,7 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 ### <a name="binding"></a>방법: Mobile Apps 데이터를 Windows 사용자 인터페이스에 바인딩
 이 섹션에서는 반환된 데이터 개체를 Windows 앱의 UI 요소를 사용해서 표시하는 방법을 보여 줍니다.  다음 예제 코드는 완료되지 않은 항목에 대한 쿼리를 사용하여 목록의 소스에 바인딩합니다. [MobileServiceCollection]은 Mobile Apps 인식 바인딩 컬렉션을 만듭니다.
 
-```
+```csharp
 // This query filters out completed TodoItems.
 MobileServiceCollection<TodoItem, TodoItem> items = await todoTable
     .Where(todoItem => todoItem.Complete == false)
@@ -480,7 +483,7 @@ lb.ItemsSource = items;
 
 관리되는 런타임의 일부 컨트롤은 [ISupportIncrementalLoading]이라는 인터페이스를 지원합니다. 이 인터페이스에서는 사용자가 스크롤할 때 컨트롤이 추가 데이터를 요청할 수 있습니다. 컨트롤에서 발생하는 호출을 자동으로 처리하는 [MobileServiceIncrementalLoadingCollection]을 통해 유니버설 Windows 앱용으로 이 인터페이스를 기본적으로 지원합니다. 다음과 같이 Windows 앱에서 `MobileServiceIncrementalLoadingCollection` 을 사용합니다.
 
-```
+```csharp
 MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 items = todoTable.Where(todoItem => todoItem.Complete == false).ToIncrementalLoadingCollection();
 
@@ -490,7 +493,7 @@ lb.ItemsSource = items;
 
 Windows Phone 8 및 "Silverlight" 앱에서 새 컬렉션을 사용하려면 `IMobileServiceTableQuery<T>` 및 `IMobileServiceTable<T>`에서 `ToCollection` 확장 메서드를 사용합니다. 데이터를 로드하려면 `LoadMoreItemsAsync()`를 호출합니다.
 
-```
+```csharp
 MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 await items.LoadMoreItemsAsync();
 ```
@@ -502,7 +505,7 @@ await items.LoadMoreItemsAsync();
 ### <a name="pagesize"></a>페이지 크기 변경
 Azure Mobile Apps는 기본적으로 요청당 최대 50개의 항목을 반환합니다.  클라이언트와 서버 모두에서 최대 페이지 크기를 늘려 페이징 크기를 변경할 수 있습니다.  요청된 페이지 크기를 늘리려면 `PullAsync()`를 사용하는 경우 `PullOptions`를 지정합니다.
 
-```
+```csharp
 PullOptions pullOptions = new PullOptions
     {
         MaxPageSize = 100
@@ -525,7 +528,7 @@ PullOptions pullOptions = new PullOptions
 
 테이블 참조를 만들기 전에, 로컬 저장소를 준비해야 합니다.
 
-```
+```csharp
 var store = new MobileServiceSQLiteStore(Constants.OfflineDbPath);
 store.DefineTable<TodoItem>();
 
@@ -535,12 +538,12 @@ await this.client.SyncContext.InitializeAsync(store);
 
 클라이언트를 만든 후 저장소 초기화는 일반적으로 즉시 이루어집니다.  **OfflineDbPath**는 모든 플랫폼에서 사용하기에 적합한 이름이어야 합니다.  경로가 정규화 된 경로인 경우 (즉, 슬래시로 시작), 해당 경로를 사용 합니다.  경로가 정규화되지 않은 경우 파일은 플랫폼 특정 위치에 배치됩니다.
 
-* IOS 및 Android 장치에 대한 기본 경로는 "개인 파일" 폴더입니다.
-* Windows 장치에 대한 기본 경로는 응용 프로그램별 "AppData" 폴더입니다.
+* IOS 및 Android 디바이스에 대한 기본 경로는 "개인 파일" 폴더입니다.
+* Windows 디바이스에 대한 기본 경로는 응용 프로그램별 "AppData" 폴더입니다.
 
 `GetSyncTable<>` 메서드를 사용하여 테이블 참조를 가져올 수 있습니다.
 
-```
+```csharp
 var table = client.GetSyncTable<TodoItem>();
 ```
 
@@ -549,7 +552,7 @@ var table = client.GetSyncTable<TodoItem>();
 ### <a name="syncoffline"></a>오프라인 테이블 동기화
 기본적으로 오프라인 테이블은 백 엔드와 동기화되지 않습니다.  동기화는 두 부분으로 분할됩니다.  새 항목 다운로드에서 별도로 변경 내용을 푸시할 수 있습니다.  다음은 일반적인 동기화 메서드입니다.
 
-```
+```csharp
 public async Task SyncAsync()
 {
     ReadOnlyCollection<MobileServiceTableOperationError> syncErrors = null;
@@ -602,7 +605,7 @@ SDK는 레코드를 끌어오기 전에 암시적 `PushAsync()`을(를) 수행�
 `PullAsync()` 메서드에서 충돌 처리가 발생합니다.  온라인 테이블과 같은 방식으로 충돌을 처리할 수 있습니다.  충돌은 삽입, 업데이트 또는 삭제하는 동안 이를 대신하여 `PullAsync()`이 호출될 때 충돌이 생성됩니다. 여러 충돌이 발생하는 경우 단일 MobileServicePushFailedException에 함께 포함됩니다.  각 오류를 개별적으로 처리합니다.
 
 ## <a name="#customapi"></a>사용자 지정 API 작업
-사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 끝점을 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다.
+사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 엔드포인트를 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다.
 
 클라이언트에서 [InvokeApiAsync] 메서드 중 하나를 호출하여 사용자 지정 API를 호출합니다. 예를 들어 다음 코드 줄은 백 엔드에서 **completeAll** API로 POST 요청을 보냅니다.
 
@@ -623,7 +626,7 @@ InvokeApiAsync를 사용하여 Azure Mobile Apps로 정의되지 않은 WebAPI�
 ## <a name="authentication"></a>사용자 인증
 Mobile Apps는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Directory와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [앱에 인증 추가]자습서를 참조하세요.
 
-두 가지의 인증 흐름이 지원 됩니다: *클라이언트 관리* 및 *서버 관리* 흐름입니다. 서버 관리 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 관리 흐름의 경우 공급자 특정 장치별 SDK를 사용하므로 장치 특정 기능을 통해 더욱 강력한 통합이 가능합니다.
+두 가지의 인증 흐름이 지원 됩니다: *클라이언트 관리* 및 *서버 관리* 흐름입니다. 서버 관리 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 관리 흐름의 경우 공급자 특정 디바이스별 SDK를 사용하므로 디바이스 특정 기능을 통해 더욱 강력한 통합이 가능합니다.
 
 > [!NOTE]
 > 프로덕션 앱에서 클라이언트 관리 흐름을 사용하는 것이 좋습니다.
@@ -643,7 +646,6 @@ Mobile Apps는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Dire
 
 * [Active Directory 인증 라이브러리](#adal)
 * [Facebook 또는 Google](#client-facebook)
-* [Live SDK](#client-livesdk)
 
 #### <a name="adal"></a>Active Directory 인증 라이브러리를 사용하여 사용자 인증
 Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 인증을 시작하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다.
@@ -655,13 +657,13 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
    * **INSERT-AUTHORITY-HERE** 를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다. 이 값은 [Azure Portal]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
    * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
    * **INSERT-CLIENT-ID-HERE** 를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
-   * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 끝점으로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 비슷해야 합니다.
+   * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 비슷해야 합니다.
 
      각 플랫폼에 필요한 코드는 다음과 같습니다.
 
      **Windows:**
 
-    ```
+    ```csharp
     private MobileServiceUser user;
     private async Task AuthenticateAsync()
     {
@@ -697,7 +699,7 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
 
      **Xamarin.iOS**
 
-    ```
+    ```csharp
     private MobileServiceUser user;
     private async Task AuthenticateAsync(UIViewController view)
     {
@@ -725,7 +727,7 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
 
      **Xamarin.Android**
 
-    ```
+    ```csharp
     private MobileServiceUser user;
     private async Task AuthenticateAsync()
     {
@@ -763,7 +765,7 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
 #### <a name="client-facebook"></a>Facebook 또는 Google의 토큰을 사용하는 Single Sign-On
 다음과 같은 Facebook 또는 Google용 코드 조각에 나온 대로 클라이언트 흐름을 사용할 수 있습니다.
 
-```
+```csharp
 var token = new JObject();
 // Replace access_token_value with actual value of your access token obtained
 // using the Facebook or Google SDK.
@@ -794,66 +796,10 @@ private async Task AuthenticateAsync()
 }
 ```
 
-#### <a name="client-livesdk"></a>Live SDK와 함께 Microsoft 계정을 사용한 단일 로그인
-사용자를 인증하려면 먼저 Microsoft 계정 개발자 센터에서 앱을 등록해야 합니다. 모바일 앱 백 엔드의 등록 세부 정보를 구성합니다. Microsoft 계정 등록을 만들어서 모바일 앱 백 엔드에 연결하려면 [Microsoft 계정 로그인을 사용하도록 앱 등록]의 단계를 완료합니다. Microsoft Store 및 Windows Phone 8/Silverlight 버전의 앱이 둘 다 있는 경우 Microsoft Store 버전을 먼저 등록합니다.
-
-다음 코드는 Live SDK를 사용하여 인증하고 반환된 토큰을 사용하여 모바일 앱 백 엔드에 로그인합니다.
-
-```
-private LiveConnectSession session;
-    //private static string clientId = "<microsoft-account-client-id>";
-private async System.Threading.Tasks.Task AuthenticateAsync()
-{
-
-    // Get the URL the Mobile App backend.
-    var serviceUrl = App.MobileService.ApplicationUri.AbsoluteUri;
-
-    // Create the authentication client for Microsoft Store using the service URL.
-    LiveAuthClient liveIdClient = new LiveAuthClient(serviceUrl);
-    //// Create the authentication client for Windows Phone using the client ID of the registration.
-    //LiveAuthClient liveIdClient = new LiveAuthClient(clientId);
-
-    while (session == null)
-    {
-        // Request the authentication token from the Live authentication service.
-        // The wl.basic scope should always be requested.  Other scopes can be added
-        LiveLoginResult result = await liveIdClient.LoginAsync(new string[] { "wl.basic" });
-        if (result.Status == LiveConnectSessionStatus.Connected)
-        {
-            session = result.Session;
-
-            // Get information about the logged-in user.
-            LiveConnectClient client = new LiveConnectClient(session);
-            LiveOperationResult meResult = await client.GetAsync("me");
-
-            // Use the Microsoft account auth token to sign in to App Service.
-            MobileServiceUser loginResult = await App.MobileService
-                .LoginWithMicrosoftAccountAsync(result.Session.AuthenticationToken);
-
-            // Display a personalized sign-in greeting.
-            string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
-            var message = string.Format("You are now logged in - {0}", loginResult.UserId);
-            var dialog = new MessageDialog(message, title);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
-        }
-        else
-        {
-            session = null;
-            var dialog = new MessageDialog("You must log in.", "Login Required");
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
-        }
-    }
-}
-```
-
-자세한 내용은 [Windows Live SDK] 문서를 참조하세요.
-
 ### <a name="serverflow"></a>서버 관리 인증
 ID 공급자를 등록하고 나면, 공급자의 [LoginAsync] 값을 사용하여 MobileServiceClient의 [LoginAsync] 메서드를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
 
-```
+```csharp
 private MobileServiceUser user;
 private async System.Threading.Tasks.Task Authenticate()
 {
@@ -886,7 +832,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우, [LoginAsync] 값을 공�
 ### <a name="caching"></a>인증 토큰 캐시
 경우에 따라 공급자의 인증 토큰을 저장하여 첫 번째 인증 후 login 메서드에 대한 호출을 방지할 수 있습니다.  Microsoft Store 및 UWP 앱은 [PasswordVault] 를 사용하여 다음과 같이 성공적인 로그인 후 현재 인증 토큰을 캐시할 수 있습니다.
 
-```
+```csharp
 await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
 
 PasswordVault vault = new PasswordVault();
@@ -896,7 +842,7 @@ vault.Add(new PasswordCredential("Facebook", client.currentUser.UserId,
 
 UserId 값은 자격 증명의 사용자 이름으로 저장되며 토큰은 암호로 저장됩니다. 이후 시작 시 캐시된 자격 증명에 대한 **PasswordVault** 를 확인할 수 있습니다. 다음 예제는 검색될 때 캐시된 자격 증명을 사용하고 그렇지 않으면 백 엔드로 인증을 다시 시도합니다.
 
-```
+```csharp
 // Try to retrieve stored credentials.
 var creds = vault.FindAllByResource("Facebook").FirstOrDefault();
 if (creds != null)
@@ -914,7 +860,7 @@ else
 
 사용자를 로그아웃할 때 다음과 같이 저장된 자격 증명도 삭제해야 합니다.
 
-```
+```csharp
 client.Logout();
 vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 ```
@@ -923,7 +869,7 @@ Xamarin 앱은 [Xamarin.Auth] API를 사용하여 **Account** 개체에 자격 �
 
 클라이언트 관리 인증을 사용하는 경우 Facebook 또는 Twitter와 같은 공급자로부터 얻은 액세스 토큰을 캐시할 수도 있습니다. 다음과 같이 백 엔드에서 새 인증 토큰을 요청하기 위해 이 토큰을 제공할 수 있습니다.
 
-```
+```csharp
 var token = new JObject();
 // Replace <your_access_token_value> with actual value of your access token
 token.Add("access_token", "<your_access_token_value>");
@@ -942,7 +888,7 @@ await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 ### <a name="register-for-push"></a>방법: 푸시 알림 등록
 Mobile Apps 클라이언트를 사용하면 Azure Notification Hubs로 푸시 알림을 등록할 수 있습니다. 등록할 때 플랫폼 특정 푸시 알림 서비스(PNS)에서 구하는 핸들을 가져옵니다. 그런 다음 등록을 만들 때 태그와 함께 이 값을 제공합니다. 다음 코드는 Windows 알림 서비스(WNS)를 통한 푸시 알림에 Windows 앱을 등록합니다.
 
-```
+```csharp
 private async void InitNotificationsAsync()
 {
     // Request a push notification channel.
@@ -956,7 +902,7 @@ private async void InitNotificationsAsync()
 WNS에 푸시하는 경우, [Microsoft Store 패키지 SID를 가져와야](#package-sid) 합니다.  템플릿 등록 방법을 비롯하여 Windows 앱에 대한 자세한 내용은 [앱에 푸시 알림 추가]를 참조하세요.
 
 클라이언트에서 태그 요청은 지원되지 않습니다.  태그 요청은 등록에서 자동으로 삭제됩니다.
-태그로 장치를 등록하려는 경우 사용자를 대신해 Notification Hubs API를 사용하여 등록을 수행하는 사용자 지정 API를 만듭니다.  `RegisterNativeAsync()` 메서드 대신에 [사용자 지정 API를 호출합니다.](#customapi)
+태그로 디바이스를 등록하려는 경우 사용자를 대신해 Notification Hubs API를 사용하여 등록을 수행하는 사용자 지정 API를 만듭니다.  `RegisterNativeAsync()` 메서드 대신에 [사용자 지정 API를 호출합니다.](#customapi)
 
 ### <a name="package-sid"></a>방법: Microsoft Store 패키지 SID 가져오기
 Microsoft Store 앱에서 푸시 알림 사용에 패키지 SID가 필요합니다.  패키지 SID를 수신하려면 Microsoft Store에 응용 프로그램을 등록합니다.
@@ -979,14 +925,14 @@ iOS 또는 Android 플랫폼에서 실행되는 앱을 등록하려면 Xamarin �
 ### <a name="register-xplat"></a>방법: 플랫폼 간 알림을 보내기 위해 푸시 템플릿 등록
 템플릿을 등록하려면 다음과 같이 템플릿으로 `RegisterAsync()` 메서드를 사용합니다.
 
-```
+```csharp
 JObject templates = myTemplates();
 MobileService.GetPush().RegisterAsync(channel.Uri, templates);
 ```
 
 템플릿은 `JObject` 형식이어야 하며 다음 JSON 형식으로 여러 템플릿을 포함할 수 있습니다.
 
-```
+```csharp
 public JObject myTemplates()
 {
     // single template for Windows Notification Service toast
@@ -1011,7 +957,7 @@ public JObject myTemplates()
 
 또한 **RegisterAsync()** 메서드는 보조 타일을 허용할 수 있습니다.
 
-```
+```csharp
 MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
 ```
 
@@ -1023,7 +969,7 @@ MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObj
 ### <a name="errors"></a>방법: 오류 처리
 백 엔드에서 오류가 발생하는 경우 클라이언트 SDK가 `MobileServiceInvalidOperationException`을 발생시킵니다.  다음 예제에서는 백 엔드에서 반환되는 예외를 처리하는 방법을 보여 줍니다.
 
-```
+```csharp
 private async void InsertTodoItem(TodoItem todoItem)
 {
     // This code inserts a new TodoItem into the database. When the operation completes
@@ -1045,7 +991,7 @@ private async void InsertTodoItem(TodoItem todoItem)
 ### <a name="headers"></a>방법: 요청 헤더 사용자 지정
 특정 앱 시나리오를 지원하려면 모바일 앱 백 엔드와의 통신을 사용자 지정해야 할 수 있습니다. 예를들어, 모든 보내는 요청이나 변경 응답 상태 코드에 사용자 지정 헤더를 추가하고자 할 수 있습니다. 다음 예제와 같이 사용자 지정 [DelegatingHandler]를 사용할 수 있습니다.
 
-```
+```csharp
 public async Task CallClientWithHandler()
 {
     MobileServiceClient client = new MobileServiceClient("AppUrl", new MyHandler());
@@ -1096,7 +1042,7 @@ public class MyHandler : DelegatingHandler
 [앱에 인증 추가]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Azure Mobile Apps에서 오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
 [앱에 푸시 알림 추가]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Microsoft 계정 로그인을 사용하도록 앱 등록]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Register your app to use a Microsoft account login]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Active Directory 로그인에 대한 App Service를 구성하는 방법]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
@@ -1106,7 +1052,7 @@ public class MyHandler : DelegatingHandler
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
 [GetTable]: https://msdn.microsoft.com/library/azure/jj554275(v=azure.10).aspx
-[형식화되지 않은 테이블에 참조를 만듭니다.]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
+[형식화되지 않은 테이블에 참조를 만듭니다]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
 [DeleteAsync]: https://msdn.microsoft.com/library/azure/dn296407(v=azure.10).aspx
 [IncludeTotalCount]: https://msdn.microsoft.com/library/azure/dn250560(v=azure.10).aspx
 [InsertAsync]: https://msdn.microsoft.com/library/azure/dn296400(v=azure.10).aspx
@@ -1128,7 +1074,6 @@ public class MyHandler : DelegatingHandler
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
 [Windows 개발자 센터]: https://dev.windows.com/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
-[Windows Live SDK]: https://msdn.microsoft.com/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [Notification Hubs API]: https://msdn.microsoft.com/library/azure/dn495101.aspx

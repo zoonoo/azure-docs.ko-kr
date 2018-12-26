@@ -1,29 +1,24 @@
 ---
-title: Apache Kafka 규모 늘리기 - Azure HDInsight | Microsoft Docs
+title: Apache Kafka 규모 늘리기 - Azure HDInsight
 description: 확장성을 높이기 위해 Azure HDInsight에서 Apache Kafka 클러스터에 대해 관리 디스크를 구성하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 1a104f4b4dee340f43c1dba01b83cb80e138a9ec
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1df23a35e16d4ba3562ebbc9d89a7a8003afc784
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626727"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498948"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka에 대한 확장성 및 저장소 구성
 
-HDInsight에서 Apache Kafka에 사용된 관리 디스크 수를 구성하는 방법을 알아봅니다.
+HDInsight에서 [Apache Kafka](https://kafka.apache.org/)에 사용된 관리 디스크 수를 구성하는 방법을 알아봅니다.
 
 HDInsight의 Kafka는 HDInsight 클러스터에서 가상 머신의 로컬 디스크를 사용합니다. Kafka는 입출력이 매우 많으며 높은 처리량을 제공하고 노드당 더 많은 저장소를 제공하기 위해 [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)를 사용합니다. Kafka에는 기존 VHD(가상 하드 드라이브)가 사용된 경우 각 노드는 1TB로 제한됩니다. 관리 디스크를 통해 여러 디스크를 사용하여 클러스터에서 노드당 16TB를 달성할 수 있습니다.
 
@@ -58,11 +53,11 @@ Kafka 클러스터에서 작업자 노드에 사용된 디스크 수를 제어�
 
 ## <a name="next-steps"></a>다음 단계
 
-HDInsight에서 Kafka를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+HDInsight에서 Apache Kafka를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [MirrorMaker를 사용하여 HDInsight에 Kafka 복제본 만들기](apache-kafka-mirroring.md)
-* [HDInsight의 Kafka에서 Apache Storm 사용](../hdinsight-apache-storm-with-kafka.md)
-* [HDInsight의 Kafka에서 Apache Spark 사용](../hdinsight-apache-spark-with-kafka.md)
-* [Azure Virtual Network를 통해 Kafka에 연결](apache-kafka-connect-vpn-gateway.md)
+* [MirrorMaker를 사용하여 HDInsight에 Apache Kafka 복제본 만들기](apache-kafka-mirroring.md)
+* [HDInsight에서 Apache Storm 및 Apache Kafka 사용](../hdinsight-apache-storm-with-kafka.md)
+* [HDInsight에서 Apache Spark 및 Apache Kafka 사용](../hdinsight-apache-spark-with-kafka.md)
+* [Azure Virtual Network를 통해 Apache Kafka에 연결](apache-kafka-connect-vpn-gateway.md)
 
-* [Kafka와 관리 디스크에 대한 HDInsight 블로그](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)
+* [Apache Kafka와 관리 디스크에 대한 HDInsight 블로그](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)

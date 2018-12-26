@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: cd19c0e51ca1ac7863058d7c3944400719508f9b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213200"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281662"
 ---
 # <a name="introduction-to-auto-scaling"></a>자동 크기 조정 소개
 자동 크기 조정은 서비스가 보고하는 로드 또는 리소스의 사용량에 따라 서비스를 동적으로 조정하는 Service Fabric의 추가 기능입니다. 자동 크기 조정 기능은 뛰어난 탄력성을 제공하며 필요에 따라 서비스의 인스턴스 또는 파티션을 추가로 프로비전할 수 있습니다. 전체 자동 크기 조정 프로세스는 자동화되고 투명합니다. 서비스에 정책을 설정하면 서비스 수준에서 수동으로 크기 조정 작업을 수행할 필요가 없습니다. 자동 크기 조정은 서비스 생성 시 또는 서비스를 업데이트하여 언제든지 설정할 수 있습니다.
@@ -28,7 +28,9 @@ ms.locfileid: "34213200"
 * 내 게이트웨이의 모든 인스턴스가 평균적으로 두 개를 초과하는 코어를 사용하는 경우 한 개를 초과하는 인스턴스를 추가하여 게이트웨이 서비스를 규모 확장합니다. 매시간 이 작업을 수행하지만 총 인스턴스 수가 7개를 초과하지 않아야 합니다.
 * 게이트웨이의 모든 인스턴스가 평균적으로 0.5개 미만의 코어를 사용하는 경우 하나의 인스턴스를 제거하여 서비스 크기를 조정합니다. 매시간 이 작업을 수행하지만 총 인스턴스 수가 3개 미만이어서는 안됩니다.
 
-자동 크기 조정은 컨테이너와 일반 Service Fabric 서비스 모두에서 지원됩니다. 이 문서의 나머지 부분에서는 크기 조정 정책, 자동 크기 조정을 사용하거나 사용하지 않도록 설정하는 방법 및 이 기능을 사용하는 방법에 대한 예제를 제공합니다.
+자동 크기 조정은 컨테이너와 일반 Service Fabric 서비스 모두에서 지원됩니다. 자동 크기 조정을 사용하기 위해 Service Fabric 런타임 버전 6.2 이상에서 실행해야 합니다. 
+
+이 문서의 나머지 부분에서는 크기 조정 정책, 자동 크기 조정을 사용하거나 사용하지 않도록 설정하는 방법 및 이 기능을 사용하는 방법에 대한 예제를 제공합니다.
 
 ## <a name="describing-auto-scaling"></a>자동 크기 조정 설명
 자동 크기 조정 정책은 Service Fabric 클러스터의 각 서비스에 대해 정의할 수 있습니다. 각 크기 조정 정책은 두 부분으로 구성됩니다.
@@ -41,13 +43,13 @@ ms.locfileid: "34213200"
 현재 자동 크기 조정에 대해 지원되는 메커니즘에는 두 가지가 있습니다. 첫 번째 메커니즘은 [인스턴스](service-fabric-concepts-replica-lifecycle.md)를 추가하거나 제거하여 자동 크기 조정을 수행하는 상태 비저장 서비스 또는 컨테이너에 사용됩니다. 상태 저장 서비스와 상태 비저장 서비스는 모두 서비스의 명명된 [파티션](service-fabric-concepts-partitioning.md)을 추가하거나 제거하여 자동 크기 조정을 수행할 수도 있습니다.
 
 > [!NOTE]
-> 현재 서비스당 하나의 크기 조정 정책만 지원합니다.
+> 현재 서비스당 하나의 크기 조정 정책 및 크기 조정 정책당 하나의 크기 조정 트리거만 지원됩니다.
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>인스턴스 기반 크기 조정을 사용하는 평균 파티션 로드 트리거
 첫 번째 트리거 형식은 상태 비저장 서비스 파티션에서 인스턴스의 로드를 기반으로 합니다. 메트릭 로드는 먼저 파티션의 모든 인스턴스에 대한 로드를 얻기 위해 다듬어진 다음, 파티션의 모든 인스턴스에서 이러한 값의 평균이 구해집니다. 서비스의 크기 조정 시기를 결정하는 세 가지 요소가 있습니다.
 
 * _하위 로드 임계값_은 서비스가 **규모 감축**되는 시기를 결정하는 값입니다. 파티션에 있는 모든 인스턴스의 평균 로드가 이 값 미만이면 서비스가 규모 감축됩니다.
-* _상위 로드 임계값_은 서비스가 **규모 확장**되는 시기를 결정하는 값입니다. 파티션에 있는 모든 인스턴스의 평균 로드가 이 값 미만이면 서비스가 규모 확장됩니다.
+* _상위 로드 임계값_은 서비스가 **규모 확장**되는 시기를 결정하는 값입니다. 파티션에 있는 모든 인스턴스의 평균 로드가 이 값보다 높으면 서비스가 규모 확장됩니다.
 * _크기 조정 간격_은 트리거를 검사할 빈도를 결정합니다. 트리거를 확인하여 크기 조정이 필요한 경우 메커니즘이 적용됩니다. 크기 조정이 필요하지 않으면 아무 작업도 수행되지 않습니다. 두 경우 모두, 크기 조정 간격이 다시 만료되기 전에는 트리거가 다시 확인되지 않습니다.
 
 이 트리거는 상태 비저장 서비스(상태 비저장 컨테이너 또는 Service Fabric 서비스)에서만 사용할 수 있습니다. 서비스에 여러 파티션이 있는 경우 트리거는 각 파티션에 대해 개별적으로 평가되고 각 파티션에는 독립적으로 적용되는 지정된 메커니즘이 포함됩니다. 따라서 이 경우 서비스의 일부 파티션은 규모 확장되고 일부는 규모 감축되며 일부는 로드에 따라 동시에 크기 조정되지 않을 수 있습니다.
@@ -117,10 +119,10 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 두 번째 트리거는 한 서비스에 있는 모든 파티션의 로드를 기반으로 합니다. 메트릭 로드는 먼저 파티션의 모든 복제본 또는 인스턴스에 대한 로드를 얻기 위해 다듬어집니다. 상태 저장 서비스의 경우, 파티션의 로드는 주 복제본의 로드로 간주되는 반면, 상태 비저장 서비스의 경우, 파티션의 로드는 파티션에 있는 모든 인스턴스의 평균 로드입니다. 서비스의 모든 파티션에서 이러한 값의 평균이 구해지며 이 값은 자동 크기 조정을 트리거하는 데 사용됩니다. 이전 메커니즘과 마찬가지로 서비스의 크기 조정 시기를 결정하는 세 가지 요소가 있습니다.
 
 * _하위 로드 임계값_은 서비스가 **규모 감축**되는 시기를 결정하는 값입니다. 서비스에 있는 모든 파티션의 평균 로드가 이 값 미만이면 서비스가 규모 감축됩니다.
-* _상위 로드 임계값_은 서비스가 **규모 확장**되는 시기를 결정하는 값입니다. 서비스에 있는 모든 파티션의 평균 로드가 이 값 미만이면 서비스가 규모 확장됩니다.
+* _상위 로드 임계값_은 서비스가 **규모 확장**되는 시기를 결정하는 값입니다. 서비스에 있는 모든 파티션의 평균 로드가 이 값을 초과하면 서비스가 규모 확장됩니다.
 * _크기 조정 간격_은 트리거를 검사할 빈도를 결정합니다. 트리거를 확인하여 크기 조정이 필요한 경우 메커니즘이 적용됩니다. 크기 조정이 필요하지 않으면 아무 작업도 수행되지 않습니다. 두 경우 모두, 크기 조정 간격이 다시 만료되기 전에는 트리거가 다시 확인되지 않습니다.
 
-이 트리거는 상태 저장 및 상태 비저장 서비스와 함께 사용할 수 있습니다. 이 트리거와 함께 사용할 수 있는 유일한 메커니즘은 AddRemoveIncrementalNamedParitionScalingMechanism입니다. 서비스가 규모 확장되면 새 파티션이 추가되고 서비스가 규모 감축되면 기존 파티션 중 하나가 제거됩니다. 서비스를 만들거나 업데이트할 때 확인되는 제한 사항이 있으며 이러한 조건이 충족되지 않으면 서비스 만들기/업데이트가 실패합니다.
+이 트리거는 상태 저장 및 상태 비저장 서비스와 함께 사용할 수 있습니다. 이 트리거와 함께 사용할 수 있는 유일한 메커니즘은 AddRemoveIncrementalNamedPartitionScalingMechanism입니다. 서비스가 규모 확장되면 새 파티션이 추가되고 서비스가 규모 감축되면 기존 파티션 중 하나가 제거됩니다. 서비스를 만들거나 업데이트할 때 확인되는 제한 사항이 있으며 이러한 조건이 충족되지 않으면 서비스 만들기/업데이트가 실패합니다.
 * 명명된 파티션 구성표가 해당 서비스에 사용되어야 합니다.
 * 파티션 이름은 “0”, “1” 등과 같이 연속된 정수여야 합니다.
 * 첫 번째 파티션 이름은 “0”이어야 합니다.
@@ -136,6 +138,9 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 * _최대 파티션 수_는 크기 조정의 상한을 정의합니다. 서비스의 파티션 수가 이 한계에 도달하면 로드에 관계없이 서비스가 규모 확장되지 않습니다. 값 -1을 지정하여 이 제한을 생략할 수 있으며, 이 경우 서비스는 가능한 최대로 규모 확장됩니다(한계는 클러스터의 실제 용량).
 * _최소 인스턴스 수_는 크기 조정의 하한을 정의합니다. 서비스의 파티션 수가 이 한계에 도달하면 로드에 관계없이 서비스가 규모 감축되지 않습니다.
 
+> [!WARNING] 
+> AddRemoveIncrementalNamedPartitionScalingMechanism을 상태 저장 서비스와 함께 사용하면 Service Fabric이 **알림 또는 경고 없이** 파티션을 추가 또는 제거합니다. 크기 조정 메커니즘이 트리거되면 데이터의 다시 분할이 수행되지 않습니다. 강화 작업의 경우 새 파티션은 비어 있고 규모 축소 작업의 경우 **파티션은**포함된 모든 데이터와 함께 삭제됩니다.
+
 ## <a name="setting-auto-scaling-policy"></a>자동 크기 조정 정책 설정
 
 ### <a name="using-application-manifest"></a>응용 프로그램 매니페스트 사용
@@ -143,7 +148,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 <ServiceScalingPolicies>
     <ScalingPolicy>
         <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>
-        <AddRemoveIncrementalNamedParitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
+        <AddRemoveIncrementalNamedPartitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
     </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
@@ -152,7 +157,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 FabricClient fabricClient = new FabricClient();
 StatefulServiceUpdateDescription serviceUpdate = new StatefulServiceUpdateDescription();
 AveragePartitionLoadScalingTrigger trigger = new AverageServiceLoadScalingTrigger();
-PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedParitionScalingMechanism();
+PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedPartitionScalingMechanism();
 mechanism.MaxPartitionCount = 4;
 mechanism.MinPartitionCount = 1;
 mechanism.ScaleIncrement = 1;
@@ -168,7 +173,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 ```
 ### <a name="using-powershell"></a>Powershell 사용
 ```posh
-$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedParitionScalingMechanism
+$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedPartitionScalingMechanism
 $mechanism.MinPartitionCount = 1
 $mechanism.MaxPartitionCount = 3
 $mechanism.ScaleIncrement = 2

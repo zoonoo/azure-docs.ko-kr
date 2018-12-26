@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: d4b84904db703d1e8e78240cb971250672ef9615
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 69e0e8282ee0b8503fe11a57b8ba6037247822dd
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753290"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160504"
 ---
 # <a name="restore-an-app-in-azure"></a>Azure에서 앱 복원
 이 문서에서는 이전에 백업한 [Azure App Service](../app-service/app-service-web-overview.md)에서 앱을 복원하는 방법을 보여 줍니다([Azure에서 앱 백업](web-sites-backup.md) 참조). 요청 시 연결된 데이터베이스와 함께 앱을 이전 상태로 복원하거나, 원래 앱의 백업 중 하나를 기반으로 하여 새 앱을 만들 수 있습니다. Azure App Service는 백업 및 복원을 위해 다음과 같은 데이터베이스를 지원합니다.
@@ -49,6 +49,11 @@ ms.locfileid: "36753290"
    
    > [!WARNING]
    > **덮어쓰기**를 선택하면 현재 앱의 기존 데이터를 모두 지우고 덮어씁니다. **확인**을 클릭하기 전에 수행하려는 작업이 정확히 맞는지 확인하세요.
+   > 
+   > 
+   
+   > [!WARNING]
+   > 데이터를 복구하는 동안 App Service가 데이터베이스에 데이터를 쓰는 경우 기본 키 및 데이터 손실 위반 같은 증상이 발생할 수 있습니다. 먼저 App Service를 중지한 후 데이터베이스를 복원하는 것이 좋습니다.
    > 
    > 
    

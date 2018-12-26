@@ -4,23 +4,19 @@ description: 클래식 배포 모델에서 PowerShell을 사용하여 내부 부
 services: load-balancer
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: ''
-tags: azure-service-management
-ms.assetid: 3be93168-3787-45a5-a194-9124fe386493
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: 8b896705d90b51c056172c285a00dabeed54ebf2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f8a24a12521d678cee0e255677881760828d1e1f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697137"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414712"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>PowerShell을 사용하여 내부 부하 분산 장치(클래식) 만들기 시작
 
@@ -42,8 +38,8 @@ ms.locfileid: "38697137"
 
 내부 부하 분산 장치 집합과 이 집합으로 해당 트래픽을 전송할 서버를 만들려면 다음을 수행해야 합니다.
 
-1. 부하 분산 집합의 서버 간에 부하가 분산될 들어오는 트래픽의 끝점이 되는 내부 부하 분산의 인스턴스를 만듭니다.
-2. 들어오는 트래픽을 수신할 가상 머신에 해당하는 끝점을 추가합니다.
+1. 부하 분산 집합의 서버 간에 부하가 분산될 들어오는 트래픽의 엔드포인트가 되는 내부 부하 분산의 인스턴스를 만듭니다.
+2. 들어오는 트래픽을 수신할 가상 머신에 해당하는 엔드포인트를 추가합니다.
 3. 부하가 분산될 트래픽을 전송하는 서버가 해당 트래픽을 내부 부하 분산 인스턴스의 VIP(가상 IP) 주소로 전송하도록 구성합니다.
 
 ### <a name="step-1-create-an-internal-load-balancing-instance"></a>1단계: 내부 부하 분산 인스턴스 만들기
@@ -61,7 +57,7 @@ Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb �
 
 이 [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) Windows PowerShell cmdlet 사용에서는 DefaultProbe 매개 변수 집합이 사용됩니다. 추가 매개 변수 집합에 대한 자세한 내용은 [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx)를 참조하세요.
 
-### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>2단계: 내부 부하 분산 인스턴스에 끝점 추가
+### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>2단계: 내부 부하 분산 인스턴스에 엔드포인트 추가
 
 다음은 예제입니다.
 
@@ -77,7 +73,7 @@ $ilb="ilbset"
 Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 ```
 
-### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>3단계: 새 내부 부하 분산 끝점으로 트래픽을 전송하도록 서버 구성
+### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>3단계: 새 내부 부하 분산 엔드포인트로 트래픽을 전송하도록 서버 구성
 
 해당 트래픽의 부하가 분산될 서버에서 내부 부하 분산 인스턴스의 새 IP 주소(VIP)를 사용하도록 구성해야 합니다. 이 주소는 내부 부하 분산 인스턴스가 수신 대기하는 주소입니다. 대부분의 경우 내부 부하 분산 인스턴스의 VIP에 대한 DNS 레코드를 추가하거나 수정하기만 하면 됩니다.
 
@@ -117,7 +113,7 @@ Get-AzureInternalLoadBalancer 명령 표시에서 IP 주소를 확인하고 필�
 * 두 기존 데이터베이스 서버 이름은 DB1, DB2입니다.
 * 웹 계층의 웹 서버는 개인 IP 주소를 사용하여 데이터베이스 계층의 데이터베이스 서버에 연결합니다. 다른 옵션은 가상 네트워크에 자체 DNS를 사용하고 내부 부하 분산 장치 집합에 A 레코드를 수동으로 등록하는 것입니다.
 
-다음 명령은 **ILBset** 라는 새 내부 부하 분산 인스턴스를 구성하고 2개의 데이터베이스 서버에 해당하는 가상 머신에 끝점을 추가합니다.
+다음 명령은 **ILBset** 라는 새 내부 부하 분산 인스턴스를 구성하고 2개의 데이터베이스 서버에 해당하는 가상 머신에 엔드포인트를 추가합니다.
 
 ```powershell
 $svc="mytestcloud"
@@ -138,7 +134,7 @@ Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epnam
 
 ## <a name="remove-an-internal-load-balancing-configuration"></a>내부 부하 분산 구성 제거
 
-내부 부하 분산 장치 인스턴스에서 끝점인 가상 컴퓨터를 제거하려면 다음 명령을 사용합니다.
+내부 부하 분산 장치 인스턴스에서 엔드포인트인 가상 컴퓨터를 제거하려면 다음 명령을 사용합니다.
 
 ```powershell
 $svc="<Cloud service name>"

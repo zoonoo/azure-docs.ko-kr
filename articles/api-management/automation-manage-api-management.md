@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 10b483c70f7b5a3d767815306d8a690b1b9a5faf
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fee93d01f0462cbee1a3e1110c56fb57220f8004
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30161849"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956860"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Azure Automation을 사용하여 Azure API Management를 관리
 이 가이드에서는 Azure Automation 서비스 및 이를 사용하여 Azure API Management의 관리를 간소화하는 방법에 대해 소개합니다.
@@ -34,9 +34,9 @@ Azure Automation에서 자동으로 실행되도록 클라우드 관리 작업�
 ## <a name="how-can-azure-automation-help-manage-azure-api-management"></a>Azure Automation을 통해 Azure API Management를 쉽게 관리하려면 어떻게 해야 하나요?
 API Management는 [Azure API Management API용 Windows PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/?view=azurermps-5.5.0#api_management/)을 사용하여 Azure Automation에서 관리할 수 있습니다. Azure Automation 내에서 cmdlet을 사용하여 API Management 작업을 수행하도록 PowerShell 워크플로 스크립트를 작성할 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
 
-다음은 Automation을 통해 API Management를 사용하는 몇 가지 예입니다.
+다음은 PowerShell을 통해 API Management를 사용하는 몇 가지 예입니다.
 
-* [Azure API Management – 백업 및 복원에 PowerShell 사용](https://blogs.msdn.microsoft.com/katriend/2015/10/02/azure-api-management-using-powershell-for-backup-and-restore/)
+* [API Management에 대한 Azure PowerShell 샘플](https://docs.microsoft.com/azure/api-management/powershell-samples)
 
 ## <a name="next-steps"></a>다음 단계
 Azure Automation의 기본 사항과 Azure Automation을 사용하여 Azure API Management를 관리하는 방법을 알아보았으므로, 이제 다음 링크에 따라 더 자세히 알아보세요.

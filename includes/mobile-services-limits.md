@@ -1,8 +1,20 @@
-
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: 4f0cb05214cf391d0ac2a75511473a3ddf9778dd
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279778"
+---
 | 계층: | 무료 | BASIC | 표준 |
 | --- | --- | --- | --- |
 | API 호출 |500 K |1.5 M / 단위 |15 M / 단위 |
-| 활성 장치 |500 |Unlimited |Unlimited |
+| 활성 디바이스 |500 |Unlimited |Unlimited |
 | 크기 조정 |해당 없음 |최대 6개 |무제한 단위 |
 | 푸시 알림 |Notification Hubs 무료 계층 포함, 최대 1 M 밀어넣기 |Notification Hubs 기본 계층 포함, 최대 10 M 밀어넣기 |Notification Hubs 표준 계층 포함, 최대 10 M 밀어넣기 |
 | 실시간 메시징 /<br/>웹 소켓 |제한적 |350 / 모바일 서비스 |Unlimited |

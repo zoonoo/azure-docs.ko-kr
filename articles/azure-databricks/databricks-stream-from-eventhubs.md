@@ -1,25 +1,21 @@
 ---
-title: '자습서: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍 | Microsoft Docs'
+title: '자습서: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍 '
 description: Event Hubs를 통해 Azure Databricks를 사용하여 Twitter에서 스트리밍 데이터를 수집하고 거의 실시간으로 데이터를 읽습니다.
 services: azure-databricks
-documentationcenter: ''
 author: lenadroid
-manager: cgronlun
-editor: cgronlun
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: a06ee5b03521fa2e0a711f5194cf01b32e7cea37
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 6e75e549486fb260f3ccbdead7fe1dea02593f3c
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308699"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707149"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>자습서: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍
 
@@ -27,7 +23,7 @@ ms.locfileid: "36308699"
 
 이 자습서를 마치면 Twitter에서 "Azure"라는 용어가 포함된 트윗을 스트리밍하고 Azure Databricks에서 트윗을 읽었을 것입니다.
 
-다음 그림에서는 응용 프로그램 흐름을 보여줍니다.
+다음 그림에서는 애플리케이션 흐름을 보여줍니다.
 
 ![Event Hubs를 사용하는 Azure Databricks](./media/databricks-stream-from-eventhubs/databricks-eventhubs-tutorial.png "Event Hubs를 사용하는 Azure Databricks")
 
@@ -102,13 +98,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     * 클러스터의 이름을 입력합니다.
     * 이 문서에서는 **4.0** 런타임을 사용하여 클러스터를 만듭니다.
-    * **Terminate after ____ minutes of inactivity**(비활성 ____분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
+    * **비활성 \_\_분 후 종료** 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
     **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
 ## <a name="create-a-twitter-application"></a>Twitter 응용 프로그램 만들기
 
-트윗 스트림을 받으려면 Twitter에 응용 프로그램을 만듭니다. 다음 지침에 따라 Twitter 응용 프로그램을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
+트윗 스트림을 받으려면 Twitter에 애플리케이션을 만듭니다. 다음 지침에 따라 Twitter 애플리케이션을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
 
 1. 웹 브라우저에서 [Twitter 응용 프로그램 관리](https://apps.twitter.com/)로 이동하고 **새 앱 만들기**를 선택합니다.
 
@@ -118,11 +114,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![Twitter 응용 프로그램 세부 정보](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details.png "Twitter 응용 프로그램 세부 정보")
 
-3. 응용 프로그램 페이지에서 **키 및 액세스 토큰** 탭을 선택하고, **소비자 키** 및 **소비자 비밀**에 대한 값을 복사합니다. 또한 **내 액세스 토큰 만들기**를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀**에 대한 값을 복사합니다.
+3. 애플리케이션 페이지에서 **키 및 액세스 토큰** 탭을 선택하고, **소비자 키** 및 **소비자 비밀**에 대한 값을 복사합니다. 또한 **내 액세스 토큰 만들기**를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀**에 대한 값을 복사합니다.
 
     ![Twitter 응용 프로그램 세부 정보](./media/databricks-stream-from-eventhubs/twitter-app-key-secret.png "Twitter 응용 프로그램 세부 정보")
 
-Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러한 값은 자습서의 뒷부분에서 필요합니다.
+Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한 값은 자습서의 뒷부분에서 필요합니다.
 
 ## <a name="attach-libraries-to-spark-cluster"></a>Spark 클러스터에 라이브러리 연결
 
@@ -371,7 +367,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 ![Databricks 클러스터 중지](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Databricks 클러스터 중지")
 
-클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **Terminate after __ minutes of inactivity**(비활성 __분 후 종료) 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
+클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **비활성 \_\_분 후 종료** 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 다음 방법에 대해 알아보았습니다.

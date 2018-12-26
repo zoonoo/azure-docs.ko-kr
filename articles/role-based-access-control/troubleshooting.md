@@ -11,29 +11,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 186bcf26639f5cff2dcbf1e805913ac7edab7df4
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d1a0e46fe348bbc60a4d02a4727a9bb27cb26742
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437369"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223299"
 ---
-# <a name="troubleshooting-rbac-in-azure"></a>Azure의 RBAC 문제 해결
+# <a name="troubleshoot-rbac-in-azure"></a>Azure의 RBAC 문제 해결
 
-이 문서에서는 RBAC(역할 기반 액세스 제어)에 대한 일반적인 질문에 대해 답변을 제공합니다. 따라서 Azure Portal에서 역할을 사용할 때 예상되는 상황을 이해하고 액세스 문제를 해결하는 데 도움이 될 수 있습니다. 이러한 세 가지 역할이 모든 리소스 유형에 적용됩니다.
+이 문서에서는 RBAC(역할 기반 액세스 제어)에 대한 일반적인 질문에 대해 답변을 제공합니다. 따라서 Azure Portal에서 역할을 사용할 때 예상되는 상황을 이해하고 액세스 문제를 해결하는 데 도움이 될 수 있습니다.
 
-* 소유자  
-* 기여자  
-* 판독기  
+## <a name="web-app-features-that-require-write-access"></a>쓰기 액세스 권한이 필요한 웹앱 기능
 
-소유자와 기여자 모두 관리 환경에 대한 모든 권한을 갖지만, 기여자는 다른 사용자나 그룹에 액세스 권한을 부여할 수 없습니다. 독자 역할은 좀 더 복잡하므로 시간을 들여 파악해야 합니다. 액세스 부여 방법에 대한 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](role-assignments-portal.md)를 참조하세요.
-
-## <a name="app-service"></a>App Service
-### <a name="write-access-capabilities"></a>쓰기 액세스 기능
 사용자에게 단일 웹앱에 대한 읽기 전용 액세스를 부여하면 예상치 않게 일부 기능을 사용하지 못할 수 있습니다. 다음 관리 기능을 사용하려면 참여자나 소유자에게 제공되는 웹앱에 대한 **쓰기** 권한이 필요하며, 읽기 전용 시나리오에서는 이러한 기능을 사용할 수 없습니다.
 
 * 시작, 중지 등의 명령
@@ -49,7 +43,8 @@ ms.locfileid: "37437369"
 
 이러한 타일에 액세스할 수 없는 경우 관리자에게 웹앱에 대한 참가자 권한을 요청해야 합니다.
 
-### <a name="dealing-with-related-resources"></a>관련 리소스 사용
+## <a name="web-app-resources-that-require-write-access"></a>쓰기 액세스 권한이 필요한 웹앱 리소스
+
 웹앱에서 몇 가지 리소스가 상호 연동되는 경우 웹앱의 구조가 복잡해집니다. 아래에는 웹 사이트 몇 개가 포함된 일반적인 리소스 그룹이 나와 있습니다.
 
 ![웹앱 리소스 그룹](./media/troubleshooting/website-resource-model.png)
@@ -70,14 +65,8 @@ ms.locfileid: "37437369"
 * Application Insights 구성 요소  
 * 웹 테스트  
 
-## <a name="azure-functions"></a>Azure 기능
-[Azure Functions](../azure-functions/functions-overview.md)의 일부 기능에는 쓰기 액세스 권한이 있어야 합니다. 예를 들어 사용자가 읽기 역할에 할당된 경우 함수 앱 내에서 함수를 볼 수 없습니다. 포털에서는 **(액세스 권한 없음)** 을 표시합니다.
+## <a name="virtual-machine-features-that-require-write-access"></a>쓰기 액세스 권한이 필요한 가상 머신 기능
 
-![함수 앱 액세스 권한 없음](./media/troubleshooting/functionapps-noaccess.png)
-
-판독기는 **플랫폼 기능** 탭을 클릭한 다음, **모든 설정**을 클릭하여 함수 앱(웹앱과 유사)에 관련된 일부 설정을 볼 수 있지만 이러한 설정을 수정할 수 없습니다.
-
-## <a name="virtual-machine"></a>가상 머신
 웹앱과 마찬가지로 가상 머신 블레이드의 일부 기능 역시 가상 머신 또는 리소스 그룹의 기타 리소스에 대한 쓰기 권한이 있어야 사용할 수 있습니다.
 
 가상 머신은 도메인 이름, 가상 네트워크, 저장소 계정 및 경고 규칙과 관련이 있습니다.
@@ -96,6 +85,18 @@ ms.locfileid: "37437369"
 * 경고 규칙  
 
 이러한 타일에 액세스할 수 없는 경우 관리자에게 리소스 그룹에 대한 참가자 권한을 요청합니다.
+
+## <a name="azure-functions-and-write-access"></a>Azure Functions 및 쓰기 액세스
+
+[Azure Functions](../azure-functions/functions-overview.md)의 일부 기능에는 쓰기 액세스 권한이 있어야 합니다. 예를 들어 사용자가 읽기 역할에 할당된 경우 함수 앱 내에서 함수를 볼 수 없습니다. 포털에서는 **(액세스 권한 없음)** 을 표시합니다.
+
+![함수 앱 액세스 권한 없음](./media/troubleshooting/functionapps-noaccess.png)
+
+판독기는 **플랫폼 기능** 탭을 클릭한 다음, **모든 설정**을 클릭하여 함수 앱(웹앱과 유사)에 관련된 일부 설정을 볼 수 있지만 이러한 설정을 수정할 수 없습니다.
+
+## <a name="rbac-changes-are-not-being-detected"></a>RBAC 변경 내용이 인식되지 않음
+
+Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 데이터를 캐시합니다. 역할 할당을 만들거나 삭제하는 경우 변경 내용이 적용되는 데 최대 30분이 걸릴 수 있습니다. Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하는 경우 로그아웃 및 로그인하여 역할 할당 변경 내용을 강제로 새로 고칠 수 있습니다. REST API 호출을 사용하여 역할 할당을 변경하는 경우 액세스 토큰을 새로 고쳐 강제로 새로 고칠 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [RBAC 및 Azure Portal을 사용하여 액세스 관리](role-assignments-portal.md)

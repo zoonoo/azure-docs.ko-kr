@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 948b55a4a72837c9fb6bdfbc0e45dc0c3ba81feb
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e79eb2473760fd1eb7ccc3816ac73cce7c801f3e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224755"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445367"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>자습서: StatusPage와 Azure Active Directory 통합
 
@@ -49,10 +49,10 @@ StatusPage와의 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 StatusPage 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-statuspage-from-the-gallery"></a>갤러리에서 StatusPage 추가
 StatusPage의 Azure AD 통합을 구성하려면 갤러리의 StatusPage를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -63,19 +63,19 @@ StatusPage의 Azure AD 통합을 구성하려면 갤러리의 StatusPage를 관�
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
-4. 검색 상자에 **StatusPage**를 입력합니다.
+1. 검색 상자에 **StatusPage**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/statuspage-tutorial/tutorial_statuspage_search.png)
 
-5. 결과 창에서 **StatusPage**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **StatusPage**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/statuspage-tutorial/tutorial_statuspage_addfromgallery.png)
 
@@ -89,10 +89,10 @@ StatusPage에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 
 StatusPage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-3. **[StatusPage 테스트 사용자 만들기](#creating-a-statuspage-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 StatusPage에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
+1. **[StatusPage 테스트 사용자 만들기](#creating-a-statuspage-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 StatusPage에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -104,11 +104,11 @@ StatusPage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Configure Single Sign-On][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_samlbase.png)
 
-3. **StatusPage 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **StatusPage 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_url.png)
 
@@ -125,35 +125,35 @@ StatusPage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     | `https://<subdomain>.statuspage.io/sso/saml/consume` |
 
     > [!NOTE]
-    > [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)에서 StatusPage 지원 팀에 문의하여 Single Sign-On을 구성하는 데 필요한 메타데이터를 요청합니다. 
+    >  [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)에서 StatusPage 지원 팀에 문의하여 Single Sign-On을 구성하는 데 필요한 메타데이터를 요청합니다. 
     >
     >a. 메타데이터에서 발급자 값을 복사한 다음 **식별자** 텍스트 상자에 붙여넣습니다.
     >
     >나. 메타데이터에서 회신 URL을 복사한 다음 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_certificate.png) 
 
-5. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_general_400.png)
 
-6. **StatusPage 구성** 섹션에서 **StatusPage 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
+1. **StatusPage 구성** 섹션에서 **StatusPage 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_configure.png) 
 
-7. 다른 웹 브라우저 창에서 StatusPage 회사 사이트에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 StatusPage 회사 사이트에 관리자로 로그인합니다.
 
-8. 주 도구 모음에서 **계정 관리**를 클릭합니다.
+1. 주 도구 모음에서 **계정 관리**를 클릭합니다.
    
     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_06.png) 
 
-10. **Single Sign-On** 탭을 클릭합니다. 
+1. **Single Sign-On** 탭을 클릭합니다. 
    
     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_07.png) 
 
-11. SSO 설정 페이지에서 다음 단계를 수행합니다.
+1. SSO 설정 페이지에서 다음 단계를 수행합니다.
    
     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
@@ -180,15 +180,15 @@ StatusPage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Azure AD 테스트 사용자 만들기](./media/statuspage-tutorial/create_aaduser_01.png) 
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
     ![Azure AD 테스트 사용자 만들기](./media/statuspage-tutorial/create_aaduser_02.png) 
 
-3. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/statuspage-tutorial/create_aaduser_03.png) 
 
-4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/statuspage-tutorial/create_aaduser_04.png) 
 
@@ -210,25 +210,25 @@ StatusPage는 적시에 프로비전을 지원합니다. 이미 [Azure AD Single
 
 1. StatusPage 회사 사이트에 관리자 권한으로 로그인합니다.
 
-2. 위쪽 메뉴에서 **계정 관리**를 클릭합니다.
+1. 위쪽 메뉴에서 **계정 관리**를 클릭합니다.
 
     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
-3. **팀 멤버** 탭을 클릭합니다. 
+1. **팀 멤버** 탭을 클릭합니다. 
    
     ![Azure AD 테스트 사용자 만들기](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
 
-4. **팀 멤버 추가**를 클릭합니다. 
+1. **팀 멤버 추가**를 클릭합니다. 
    
     ![Azure AD 테스트 사용자 만들기](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
-5. 관련된 텍스트 상자에 프로비전할 유효한 사용자의 **메일 주소**, **이름** 및 **성**을 입력합니다. 
+1. 관련된 텍스트 상자에 프로비전할 유효한 사용자의 **메일 주소**, **이름** 및 **성**을 입력합니다. 
    
     ![Azure AD 테스트 사용자 만들기](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 
-6. **역할**로 **클라이언트 관리자**를 선택합니다.
+1. **역할**로 **클라이언트 관리자**를 선택합니다.
 
-7. **계정 만들기**를 클릭합니다.
+1. **계정 만들기**를 클릭합니다.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -242,23 +242,23 @@ StatusPage는 적시에 프로비전을 지원합니다. 이미 [Azure AD Single
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **StatusPage**를 선택합니다.
+1. 응용 프로그램 목록에서 **StatusPage**를 선택합니다.
 
     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_app.png) 
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     ![사용자 할당][202] 
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 할당][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 

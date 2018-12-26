@@ -1,22 +1,23 @@
 ---
 title: 여러 Azure SQL Database에 대해 보고 쿼리 실행 | Microsoft Docs
 description: 분산 쿼리를 사용한 교차 테넌트 보고
-keywords: SQL Database 자습서
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
-ms.topic: conceptuals
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewers: billgib,ayolubek
+manager: craigg
 ms.date: 04/01/2018
-ms.author: billgib
-ms.reviewer: sstein; AyoOlubeko
-ms.openlocfilehash: 4738f20ad647e65abffdb65ef350c3c0ad4d2f8f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e23b679d6c81d1a4103f010a9d13c35e80d4d2af
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646105"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240991"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>분산 쿼리를 사용한 교차 테넌트 보고
 
@@ -35,7 +36,7 @@ ms.locfileid: "34646105"
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
 
-* Wingtip Tickets SaaS Database Per Tenant 앱이 배포됩니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS Database Per Tenant 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
+* Wingtip Tickets SaaS Database Per Tenant 앱이 배포됩니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS Database Per Tenant 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 * SSMS(SQL Server Management Studio)가 설치되었습니다. SSMS를 다운로드하고 설치하려면 [SSMS(SQL Server Management Studio) 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 참조하세요.
 
@@ -50,7 +51,7 @@ SaaS 응용 프로그램을 사용했을 때의 장점은 응용 프로그램 �
 
 탄력적 쿼리는 테넌트 데이터베이스에 쿼리를 배포하여 라이브 프로덕션 데이터에 즉시 정보를 제공합니다. 탄력적 쿼리가 잠재적으로 많은 데이터베이스에서 데이터를 가져오면 쿼리 대기 시간이 단일 다중 테넌트 데이터베이스에 제출되는 해당 쿼리보다 높아질 수 있습니다. 헤드 데이터베이스에 반환되는 데이터를 최소화하도록 쿼리를 디자인합니다. 탄력적 쿼리는 자주 사용되는 문서 또는 복잡한 분석 쿼리나 보고서를 빌드하는 경우와 달리 적은 양의 실시간 데이터를 쿼리하는 데 적합합니다. 쿼리 성능이 좋지 않은 경우 [실행 계획](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan)을 보고 원격 데이터베이스에 푸시되는 쿼리의 부분 및 반환되는 데이터의 양을 확인할 수 있습니다. 테넌트 데이터를 분석 쿼리에 최적화된 데이터베이스 또는 데이터 웨어하우스로 추출하는 경우 복잡한 집계 또는 분석 처리를 필요로 하는 쿼리가 효율적으로 제공됩니다. 이 패턴은 [테넌트 분석 자습서](saas-tenancy-tenant-analytics.md)에서 설명됩니다. 
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database Per Tenant 응용 프로그램 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database Per Tenant 애플리케이션 스크립트 가져오기
 
 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 
@@ -64,7 +65,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 
 ## <a name="explore-the-global-views"></a>전역 뷰 탐색
 
-Wingtip Tickets SaaS Database Per Tenant 응용 프로그램에서는 각각의 테넌트에 데이터베이스가 부여됩니다. 따라서 데이터베이스 테이블에 담긴 데이터의 범위가 단일 테넌트 범위로 제한됩니다. 그러나 탄력적 쿼리는 모든 데이터베이스에 쿼리할 경우 테넌트 별로 분할된 단일 논리 데이터베이스의 일부인 경우와 같이 해당 데이터를 처리합니다. 
+Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 테넌트에 데이터베이스가 부여됩니다. 따라서 데이터베이스 테이블에 담긴 데이터의 범위가 단일 테넌트 범위로 제한됩니다. 그러나 탄력적 쿼리는 모든 데이터베이스에 쿼리할 경우 테넌트 별로 분할된 단일 논리 데이터베이스의 일부인 경우와 같이 해당 데이터를 처리합니다. 
 
 이 패턴을 시뮬레이션하기 위해 '전역' 뷰 집합이 전역적으로 쿼리되는 각 테이블에 테넌트 ID를 프로젝션하는 테넌트 데이터베이스에 추가됩니다. 예를 들어 *VenueEvents* 보기는 계산된 *VenueId*를 *이벤트* 테이블에서 프로젝션된 열에 추가합니다. 마찬가지로 *VenueTicketPurchases* 및 *VenueTickets* 뷰는 해당 테이블로부터 계산된 *VenueId* 열을 추가합니다. *VenueId* 열이 있으면 쿼리를 병렬화하여 적합한 원격 테넌트 데이터베이스에 푸시하기 위해 Elastic 쿼리에서 사용하는 뷰입니다. 이렇게 하면 반환되는 데이터의 양이 크게 줄어듭니다. 그 결과 많은 쿼리의 성능이 크게 증가합니다. 이러한 전역 보기는 모든 테넌트 데이터베이스에서 미리 생성됩니다.
 

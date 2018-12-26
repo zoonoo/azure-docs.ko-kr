@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 338df0e258f66b6639e59a4fe31b6cfb6c283dd3
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 16275ddc4d4ad85bdac54244ceeec568603fdfef
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045530"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112102"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>복사 작업의 스키마 매핑
 이 문서에서는 Azure Data Factory 복사 작업에서 데이터 복사를 수행할 때 원본 데이터의 스키마 매핑과 데이터 형식을 싱크 데이터에 매핑하는 방법을 설명합니다. 
@@ -30,9 +30,9 @@ ms.locfileid: "37045530"
 1. 원본에서 데이터를 읽고 원본 스키마를 결정합니다.
 
     * 메타데이터가 있는 데이터베이스/파일(Avro/ORC/Parquet/헤더 있는 텍스트)처럼 데이터 저장소/파일 형식으로 미리 정의된 데이터 원본의 경우, 원본 스키마는 쿼리 결과나 파일 메타데이터에서 추출됩니다.
-    * Azure Table/Cosmos DB처럼 유연한 스키마가 있는 데이터 원본의 경우 원본 스키마는 쿼리 결과에서 유추됩니다. 데이터 집합에서 "structure"를 제공하여 이를 덮어쓸 수 있습니다.
-    * 헤더 없는 텍스트 파일의 경우 기본 열 이름은 "Prop_0", "Prop_1" 패턴으로 생성되며 데이터 집합에서 "structure"를 제공하여 이를 덮어쓸 수 있습니다.
-    * Dynamics 원본의 경우 데이터 집합 “structure” 섹션에서 스키마 정보를 제공해야 합니다.
+    * Azure Table/Cosmos DB처럼 유연한 스키마가 있는 데이터 원본의 경우 원본 스키마는 쿼리 결과에서 유추됩니다. 데이터 세트에서 "structure"를 제공하여 이를 덮어쓸 수 있습니다.
+    * 헤더 없는 텍스트 파일의 경우 기본 열 이름은 "Prop_0", "Prop_1" 패턴으로 생성되며 데이터 세트에서 "structure"를 제공하여 이를 덮어쓸 수 있습니다.
+    * Dynamics 원본의 경우 데이터 세트 “structure” 섹션에서 스키마 정보를 제공해야 합니다.
 
 2. 지정된 경우 명시적 열 매핑을 적용합니다.
 
@@ -43,11 +43,11 @@ ms.locfileid: "37045530"
 
 ### <a name="explicit-column-mapping"></a>명시적 열 매핑
 
-복사 작업의 **typeProperties** 섹션에 **columnMappings**를 지정하여 명시적 열 매핑을 수행할 수 있습니다. 이 시나리오에서는 "structure" 섹션이 입력과 출력 데이터 집합 모두에 필요합니다. 열 매핑은 **원본 데이터 집합 "structure"의 전체 열 또는 하위 집합을 싱크 데이터 집합 "structure"** 의 모든 열에 매핑하는 것을 지원합니다. 다음은 예외가 발생하는 오류 조건입니다.
+복사 작업의 **typeProperties** 섹션에 **columnMappings**를 지정하여 명시적 열 매핑을 수행할 수 있습니다. 이 시나리오에서는 "structure" 섹션이 입력과 출력 데이터 세트 모두에 필요합니다. 열 매핑은 **원본 데이터 세트 "structure"의 전체 열 또는 하위 집합을 싱크 데이터 세트 "structure"** 의 모든 열에 매핑하는 것을 지원합니다. 다음은 예외가 발생하는 오류 조건입니다.
 
-* 원본 데이터 저장소 쿼리 결과에 입력 데이터 집합 "structure" 섹션에서 지정한 열 이름이 없습니다.
-* 싱크 데이터 저장소(미리 정의된 스키마가 있는 경우)에 출력 데이터 집합 "structure" 섹션에서 지정한 열 이름이 없습니다.
-* 매핑에서 지정한 것보다 싱크 데이터 집합의 "structure"에 열이 더 많거나 적습니다.
+* 원본 데이터 저장소 쿼리 결과에 입력 데이터 세트 "structure" 섹션에서 지정한 열 이름이 없습니다.
+* 싱크 데이터 저장소(미리 정의된 스키마가 있는 경우)에 출력 데이터 세트 "structure" 섹션에서 지정한 열 이름이 없습니다.
+* 매핑에서 지정한 것보다 싱크 데이터 세트의 "structure"에 열이 더 많거나 적습니다.
 * 중복 매핑
 
 #### <a name="explicit-column-mapping-example"></a>명시적 열 매핑 예
@@ -152,7 +152,7 @@ ms.locfileid: "37045530"
 
 ### <a name="supported-data-types"></a>지원되는 데이터 원본
 
-데이터 팩터리는 다음 중간 데이터 형식을 지원합니다. [데이터 집합 구조](concepts-datasets-linked-services.md#dataset-structure) 구성에서 형식 정보를 입력할 때 아래 값을 지정할 수 있습니다.
+데이터 팩터리는 다음 중간 데이터 형식을 지원합니다. [데이터 세트 구조](concepts-datasets-linked-services.md#dataset-structure) 구성에서 형식 정보를 입력할 때 아래 값을 지정할 수 있습니다.
 
 * Byte[]
 * BOOLEAN
@@ -175,19 +175,19 @@ ms.locfileid: "37045530"
 * CSV/Avro 등의 파일 원본의 경우 전체 열 목록이 있는 원본 구조를 통해 형식 변환을 선언해야 합니다(원본 측 열 이름 및 싱크 측 형식).
 * 관계형 원본(예: SQL/Oracle)의 경우 형식 변환은 쿼리 문에서의 명시적 형식 캐스팅을 통해 이루어져야 합니다.
 
-## <a name="when-to-specify-dataset-structure"></a>데이터 집합 "structure"를 지정하는 경우
+## <a name="when-to-specify-dataset-structure"></a>데이터 세트 "structure"를 지정하는 경우
 
-아래 시나리오에서 데이터 집합의 “structure”가 필요합니다.
+아래 시나리오에서 데이터 세트의 “structure”가 필요합니다.
 
-* 복사 중 파일 원본에 대해 [명시적 데이터 형식 변환](#explicit-data-type-conversion) 적용(입력 데이터 집합)
-* 복사 중 [명시적 열 매핑](#explicit-column-mapping) 적용(입력 및 출력 데이터 집합 모두)
-* Dynamics 365/CRM 원본에서 복사(입력 데이터 집합)
-* 원본이 JSON 파일이 아닐 때 Cosmos DB를 중첩 개체에 복사(출력 데이터 집합)
+* 복사 중 파일 원본에 대해 [명시적 데이터 형식 변환](#explicit-data-type-conversion) 적용(입력 데이터 세트)
+* 복사 중 [명시적 열 매핑](#explicit-column-mapping) 적용(입력 및 출력 데이터 세트 모두)
+* Dynamics 365/CRM 원본에서 복사(입력 데이터 세트)
+* 원본이 JSON 파일이 아닐 때 Cosmos DB를 중첩 개체에 복사(출력 데이터 세트)
 
-아래 시나리오에서는 데이터 집합의 “structure”가 필요합니다.
+아래 시나리오에서는 데이터 세트의 “structure”가 필요합니다.
 
-* 헤더 없는 텍스트 파일에서 복사(입력 데이터 집합). 해당하는 싱크 열과 일치하는 텍스트 파일의 열 이름을 지정하여 명시적 열 매핑으로부터 저장할 수 있습니다.
-* Azure Table/Cosmos DB 등, 유연한 스키마가 있는 데이터 저장소에서 복사하면(입력 데이터 집합) 각각의 작업 실행 중에 맨 위 행을 기준으로 복사 작업이 스키마를 유추하는 것이 아니라 원하는 데이터(열)가 복사되게 보장할 수 있습니다. 
+* 헤더 없는 텍스트 파일에서 복사(입력 데이터 세트). 해당하는 싱크 열과 일치하는 텍스트 파일의 열 이름을 지정하여 명시적 열 매핑으로부터 저장할 수 있습니다.
+* Azure Table/Cosmos DB 등, 유연한 스키마가 있는 데이터 저장소에서 복사하면(입력 데이터 세트) 각각의 작업 실행 중에 맨 위 행을 기준으로 복사 작업이 스키마를 유추하는 것이 아니라 원하는 데이터(열)가 복사되게 보장할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

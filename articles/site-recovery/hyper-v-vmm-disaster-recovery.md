@@ -5,15 +5,16 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: tutorial
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4cc4da130d9253bf40e5d02806088a95b2195e7c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: MVC
+ms.openlocfilehash: 040d0dae7bb16e0c2a79640812b18ad75754ca3e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531724"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846609"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>보조 온-프레미스 사이트에 Hyper-V VM 재해 복구 설정
 

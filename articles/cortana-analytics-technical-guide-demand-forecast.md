@@ -1,25 +1,21 @@
 ---
-title: 에너지 수요 예측 기술 가이드 | Microsoft Docs
+title: 에너지 수요 예측 기술 가이드
 description: 에너지 수요 예측을 위한 Microsoft Cortana Intelligence 솔루션 템플릿 기술 가이드입니다.
-services: cortana-analytics
-documentationcenter: ''
-author: yijichen
-manager: ilanr9
-editor: yijichen
-ms.assetid: 7f1a866b-79b7-4b97-ae3e-bc6bebe8c756
-ms.service: cortana-analytics
+services: machine-learning
+author: garyericson
+manager: cgronlun
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2016
-ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: garye
+ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "27600149"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427066"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 기술 가이드
 ## <a name="overview"></a>**개요**
@@ -51,7 +47,7 @@ ms.locfileid: "27600149"
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 서비스는 [Azure Event Hub](#azure-event-hub) 서비스의 입력 스트림에서 거의 실시간으로 분석을 제공하는 데 사용되며 [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/) 서비스에서 나중에 처리할 들어오는 모든 원시 이벤트를 [Azure Storage](https://azure.microsoft.com/services/storage/) 서비스에 보관할 뿐만 아니라 [Power BI](https://powerbi.microsoft.com) 대시보드에 결과를 게시합니다.
 
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight 사용자 지정 집계
-Azure HDInsight 서비스는 Azure Stream Analytics 서비스를 사용하여 보관된 원시 이벤트에 집계를 제공하도록 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트(Azure Data Factory에서 오케스트레이션됨)를 실행하는 데 사용됩니다.
+Azure HDInsight 서비스는 Azure Stream Analytics 서비스를 사용하여 보관된 원시 이벤트에 집계를 제공하도록 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트(Azure Data Factory에서 오케스트레이션됨)를 실행하는 데 사용됩니다.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 서비스는 수신된 입력이 제공된 특정 하위 지역의 향후 전력 소비량을 예측하는 데 사용됩니다(Azure 데이터 팩터리에서 오케스트레이션된).
@@ -67,9 +63,9 @@ Azure HDInsight 서비스는 Azure Stream Analytics 서비스를 사용하여 �
 ## <a name="how-to-bring-in-your-own-data"></a>**사용자 고유 데이터를 가져오는 방법**
 이 섹션은 Azure에 사용자 고유 데이터를 가져오는 방법 및 이 아키텍처에 가져오는 데이터에 대한 변경 내용이 필요한 영역을 설명합니다.
 
-가져오는 데이터 집합은 이 솔루션 템플릿에 사용되는 데이터 집합과 일치하지 않을 수 있습니다. 사용자 고유 데이터로 작업하기 위해 이 템플릿을 수정하는 과정에서는 데이터 및 요구 사항을 이해하는 것이 중요합니다. Azure Machine Learning 서비스를 처음 접하는 경우 [첫 번째 실험을 만드는 방법](machine-learning/studio/create-experiment.md)의 예제를 사용하여 소개를 확인할 수 있습니다.
+가져오는 데이터 세트는 이 솔루션 템플릿에 사용되는 데이터 세트와 일치하지 않을 수 있습니다. 사용자 고유 데이터로 작업하기 위해 이 템플릿을 수정하는 과정에서는 데이터 및 요구 사항을 이해하는 것이 중요합니다. Azure Machine Learning 서비스를 처음 접하는 경우 [첫 번째 실험을 만드는 방법](machine-learning/studio/create-experiment.md)의 예제를 사용하여 소개를 확인할 수 있습니다.
 
-다음 섹션에서는 새 데이터 집합을 도입할 때 수정해야 하는 템플릿의 섹션을 설명합니다.
+다음 섹션에서는 새 데이터 세트를 도입할 때 수정해야 하는 템플릿의 섹션을 설명합니다.
 
 ### <a name="azure-event-hub"></a>Azure Event Hub
 [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) 서비스는 CSV 또는 JSON 형식 중 하나로 허브에 게시할 수 있는 데이터에 매우 일반적입니다. Azure 이벤트 허브에서 특별한 처리가 발생하지 않지만 공급되는 데이터를 이해하는 것이 중요합니다.
@@ -79,7 +75,7 @@ Azure HDInsight 서비스는 Azure Stream Analytics 서비스를 사용하여 �
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 서비스는 데이터 스트림에서 읽고 원하는 수의 원본으로 데이터를 출력하여 거의 실시간 분석을 제공하는 데 사용됩니다.
 
-에너지 솔루션 템플릿에 대한 수요 예측의 경우 Azure Stream Analytics 쿼리는 각각 Azure Event Hub 서비스에서 입력으로 이벤트를 사용하고 2개의 고유 위치에 출력되는 2개의 하위 쿼리로 구성됩니다. 이러한 출력은 하나의 Power BI 데이터 집합 및 하나의 Azure Storage 위치로 구성됩니다.
+에너지 솔루션 템플릿에 대한 수요 예측의 경우 Azure Stream Analytics 쿼리는 각각 Azure Event Hub 서비스에서 입력으로 이벤트를 사용하고 2개의 고유 위치에 출력되는 2개의 하위 쿼리로 구성됩니다. 이러한 출력은 하나의 Power BI 데이터 세트 및 하나의 Azure Storage 위치로 구성됩니다.
 
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 쿼리는 다음으로 찾을 수 있습니다.
 
@@ -93,27 +89,27 @@ Azure HDInsight 서비스는 Azure Stream Analytics 서비스를 사용하여 �
 
 Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analytics 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx) 에서 찾을 수 있습니다.
 
-이 솔루션에서 Power BI 대시보드에 들어오는 데이터 스트림에 대한 거의 실시간 분석 정보로 데이터 집합을 출력하는 Azure Stream Analytics 작업은 이 솔루션 템플릿의 일부로 제공됩니다. 들어오는 데이터 형식에 대한 암시적 지식이 있기 때문에 이러한 쿼리는 데이터 형식에 기반하여 변경되어야 합니다.
+이 솔루션에서 Power BI 대시보드에 들어오는 데이터 스트림에 대한 거의 실시간 분석 정보로 데이터 세트를 출력하는 Azure Stream Analytics 작업은 이 솔루션 템플릿의 일부로 제공됩니다. 들어오는 데이터 형식에 대한 암시적 지식이 있기 때문에 이러한 쿼리는 데이터 형식에 기반하여 변경되어야 합니다.
 
 다른 Azure Stream Analytics 작업은 모든 [Event Hub](https://azure.microsoft.com/services/event-hubs/) 이벤트를 [Azure Storage](https://azure.microsoft.com/services/storage/)에 출력하여 전체 이벤트 정보는 저장소로 스트리밍되므로 데이터 형식에 관계 없이 변경이 필요하지 않습니다.
 
 ### <a name="azure-data-factory"></a>Azure 데이터 팩터리
 [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/) 서비스는 데이터의 이동 및 처리를 오케스트레이션합니다. 에너지 솔루션 템플릿에 대한 수요 예측에서 데이터 팩터리는 다양한 기술을 사용하여 데이터를 이동 및 처리하는 12개의 [파이프라인](data-factory/concepts-pipelines-activities.md)으로 구성됩니다.
 
-  솔루션의 배포로 만든 솔루션 템플릿 다이어그램의 맨 아래의 데이터 팩터리 노드를 열어 데이터 팩터리에 액세스할 수 있습니다. Azure Portal에서 데이터 팩터리가 표시됩니다. 데이터 집합에서 오류가 표시되는 경우 데이터 생성기가 시작되기 전에 배포된 데이터로 인한 것이므로 이러한 오류를 무시할 수 있습니다. 이러한 오류가 발생해도 데이터 팩터리가 제대로 작동합니다.
+  솔루션의 배포로 만든 솔루션 템플릿 다이어그램의 맨 아래의 데이터 팩터리 노드를 열어 데이터 팩터리에 액세스할 수 있습니다. Azure Portal에서 데이터 팩터리가 표시됩니다. 데이터 세트에서 오류가 표시되는 경우 데이터 생성기가 시작되기 전에 배포된 데이터로 인한 것이므로 이러한 오류를 무시할 수 있습니다. 이러한 오류가 발생해도 데이터 팩터리가 제대로 작동합니다.
 
 이 섹션에서는 [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/)에 포함된 필요한 [파이프라인](data-factory/concepts-pipelines-activities.md) 및 [작업](data-factory/concepts-pipelines-activities.md)을 설명합니다. 솔루션의 다이어그램 보기는 다음과 같습니다.
 
 ![](media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
 
-이 팩터리의 5개 파이프라인은 데이터를 분할하고 집계하는 데 사용되는 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 포함합니다. 언급했듯이 스크립트는 설치하는 동안 만든 [Azure Storage](https://azure.microsoft.com/services/storage/) 계정에 있습니다. 해당 위치는 demandforecasting\\\\script\\\\hive\\\\(또는 https://[솔루션 이름].blob.core.windows.net/demandforecasting)입니다.
+이 팩터리의 5개 파이프라인은 데이터를 분할하고 집계하는 데 사용되는 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 포함합니다. 언급했듯이 스크립트는 설치하는 동안 만든 [Azure Storage](https://azure.microsoft.com/services/storage/) 계정에 있습니다. 해당 위치는 demandforecasting\\\\script\\\\hive\\\\(또는 https://[솔루션 이름].blob.core.windows.net/demandforecasting)입니다.
 
-[Azure Stream Analytics](#azure-stream-analytics-1) 쿼리와 유사하게 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 들어오는 데이터 형식에 대한 암시적 지식을 가지며 이러한 쿼리는 데이터 형식 및 [기능 엔지니어링](machine-learning/team-data-science-process/create-features.md) 요구 사항에 따라 변경해야 합니다.
+[Azure Stream Analytics](#azure-stream-analytics-1) 쿼리와 유사하게 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 들어오는 데이터 형식에 대한 암시적 지식을 가지며 이러한 쿼리는 데이터 형식 및 [기능 엔지니어링](machine-learning/team-data-science-process/create-features.md) 요구 사항에 따라 변경해야 합니다.
 
 #### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업이라는 단일 작업으로 이루어져 있습니다. 이는 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하여 스트리밍된 수요 데이터를 변전소 수준에서 10초 간격으로 시간별 하위 지역 수준으로 집계하고, Azure Stream Analytics 작업을 통해 [Azure Storage](https://azure.microsoft.com/services/storage/)에 배치하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용합니다.
+이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업이라는 단일 작업으로 이루어져 있습니다. 이는 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하여 스트리밍된 수요 데이터를 변전소 수준에서 10초 간격으로 시간별 하위 지역 수준으로 집계하고, Azure Stream Analytics 작업을 통해 [Azure Storage](https://azure.microsoft.com/services/storage/)에 배치하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용합니다.
 
-이 분할 작업에 대한 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateDemandRegion1Hr.hql***입니다.
+이 분할 작업에 대한 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateDemandRegion1Hr.hql***입니다.
 
 #### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
 이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 다음 두 작업을 포함합니다.
@@ -121,7 +117,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 * Hive 스크립트를 실행하여 시간별 과거 수요 데이터를 변전소 수준, 시간별 하위 지역 수준으로 집계하고 Azure Stream Analytics 작업 중에 Azure Storage에 입력하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용하는 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업
 * [복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업.
 
-이 작업에 대한 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateDemandHistoryRegion.hql***입니다.
+이 작업에 대한 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateDemandHistoryRegion.hql***입니다.
 
 #### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
 이 [파이프라인](data-factory/concepts-pipelines-activities.md) 은 여러 작업을 포함하고 해당 최종 결과는 이 솔루션 템플릿과 연결된 Azure Machine Learning 실험의 점수가 매겨진 예측입니다. 각각 ADF 파이프라인에 전달된 다양한 RegionID로 수행되는 서로 다른 하위 지역과 각 하위 지역에 대한 hive 스크립트를 처리한다는 점만 제외하고 거의 동일합니다.  
@@ -163,27 +159,27 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 이 섹션은 Azure Machine Learning(콜드 경로)의 예측 결과뿐 아니라 Azure Stream Analytics(실행 부하 과다 경로)에서 실시간으로 데이터를 시각화하도록 Power BI 대시보드를 설정하는 방법을 설명합니다.
 
 ### <a name="setup-hot-path-dashboard"></a>실행 부하 과다 경로 대시보드 설정
-다음 단계에서는 솔루션 배포 시 생성된 Stream Analytics 작업에서 실시간으로 데이터 출력을 시각화하는 방법을 안내합니다. 다음 단계를 수행하려면 [Power BI 온라인](http://www.powerbi.com/) 계정이 필요합니다. 계정이 없는 경우 [새로 만들](https://powerbi.microsoft.com/pricing)수 있습니다.
+다음 단계에서는 솔루션 배포 시 생성된 Stream Analytics 작업에서 실시간으로 데이터 출력을 시각화하는 방법을 안내합니다. 다음 단계를 수행하려면 [Power BI 온라인](https://www.powerbi.com/) 계정이 필요합니다. 계정이 없는 경우 [새로 만들](https://powerbi.microsoft.com/pricing)수 있습니다.
 
 1. Azure Stream Analytics(ASA)에 Power BI 출력을 추가합니다.
 
    * [Azure Stream Analytics 및 Power BI: 스트리밍 데이터의 실시간 가시성에 대한 실시간 분석 대시보드](stream-analytics/stream-analytics-power-bi-dashboard.md)의 지침에 따라 Power BI 대시보드로 Azure Stream Analytics 작업의 출력을 설정해야 합니다.
    * [Azure Portal](https://portal.azure.com)에서 스트림 분석 작업을 찾습니다. 작업의 이름은 솔루션 이름+"streamingjob"+난수+"asapbi"(예: demostreamingjob123456asapbi)여야 합니다.
    * ASA 작업에 PowerBI 출력을 추가합니다. **출력 별칭**을 **‘PBIoutput’** 으로 설정합니다. **데이터 집합 이름**과 **테이블 이름**을 **‘EnergyStreamData’** 로 설정합니다. 출력을 추가했으면 페이지 하단에서 **"시작"** 을 클릭하여 Stream Analytics 작업을 시작합니다. 확인 메시지가 표시되어야 합니다(예: “스트림 분석 작업 myteststreamingjob12345asablob 성공”).
-2. [Power BI 온라인](http://www.powerbi.com)
+2.  [Power BI 온라인](https://www.powerbi.com)
 
-   * 내 작업 영역의 왼쪽 패널 데이터 집합 섹션에서 Power BI의 왼쪽 패널에 새 데이터 집합이 표시되는 것을 확인할 수 있습니다. 이전 단계에서 Azure Stream Analytics에서 푸시한 스트리밍 데이터입니다.
-   * ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
+   * 내 작업 영역의 왼쪽 패널 데이터 세트 섹션에서 Power BI의 왼쪽 패널에 새 데이터 세트가 표시되는 것을 확인할 수 있습니다. 이전 단계에서 Azure Stream Analytics에서 푸시한 스트리밍 데이터입니다.
+   *  ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
 3. "Demand by Timestamp(타임스탬프별 수요)" 타일을 만듭니다.
 
-   * 왼쪽 패널 데이터 집합 섹션에서 데이터 집합 **'EnergyStreamData'** 를 클릭합니다.
+   * 왼쪽 패널 데이터 세트 섹션에서 데이터 세트 **'EnergyStreamData'** 를 클릭합니다.
    * **"꺾은선형 차트"** 아이콘 ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic8.png)을 클릭합니다.
    * **필드** 패널에서 'EnergyStreamData'를 클릭합니다.
    * **"타임스탬프"** 를 클릭하고 "축" 아래에 표시되는지 확인합니다. **"로드"** 를 클릭하고 "값" 아래에 표시되는지 확인합니다.
    * 위의 **저장** 을 클릭하고 "EnergyStreamDataReport"로 보고서 이름을 지정합니다. “EnergyStreamDataReport”라는 보고서가 왼쪽의 탐색기 창에서 보고서 섹션에 표시됩니다.
    * 이 꺾은선형 차트의 오른쪽 위 모서리에서 **"시각적 개체 고정"**![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) 아이콘을 클릭하면 "대시보드에 고정" 창이 대시보드를 선택하도록 표시될 수 있습니다. “EnergyStreamDataReport”를 선택한 후 “고정”을 클릭합니다.
    * 대시보드의 이 타일 위로 마우스를 이동하고 오른쪽 위 모서리에서 "편집" 아이콘을 클릭하여 제목을 "타임스탬프별 수요"로 변경할 수 있습니다.
-4. 적절한 데이터 집합에 따라 다른 대시보드 타일을 만듭니다. 최종 대시보드 보기는 다음과 같습니다. ![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
+4. 적절한 데이터 세트에 따라 다른 대시보드 타일을 만듭니다. 최종 대시보드 보기는 다음과 같습니다. ![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
 
 ### <a name="setup-cold-path-dashboard"></a>콜드 경로 대시보드 설정
 콜드 경로 데이터 파이프라인에서 중요한 목표는 각 하위 지역의 수요 예측을 가져오는 것입니다. Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQL 데이터베이스에 연결합니다.
@@ -211,7 +207,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
    * 팝 아웃 창에서 **"서버"** 및 **"데이터베이스"** 를 사용자 고유 서버 및 데이터베이스 이름으로 바꾼 다음 **"확인"** 을 클릭합니다. 서버 이름의 경우 포트 1433을 지정했는지 확인합니다(**YourSolutionName.database.windows.net, 1433**). 화면에 나타나는 경고 메시지를 무시합니다.
    * 다음 팝 아웃 창에서 왼쪽 창에 두 가지 옵션이 표시됩니다(**Windows** 및 **데이터베이스**). **"데이터베이스"** 를 클릭하고 **"사용자 이름"** 및 **"암호"** 를 입력합니다(처음으로 솔루션을 배포하고 Azure SQL 데이터베이스를 만들 때 입력한 사용자 이름 및 암호). ***이러한 설정을 적용할 수준 선택***에서 데이터베이스 수준 옵션을 선택합니다. 그런 다음 **"연결"** 을 클릭합니다.
    * 이전 페이지로 안내된 후 창을 닫습니다. 메시지가 나타나면 **적용**을 클릭합니다. 마지막으로 **저장** 단추를 클릭하여 변경 내용을 저장합니다. Power BI 파일은 이제 서버에 대한 연결을 설정합니다. 시각화가 비어 있는 경우 범례의 오른쪽 위 모퉁이의 지우개 아이콘을 클릭하여 모든 데이터를 시각화하도록 시각화의 선택 항목을 해제해야 합니다. 새로 고침 단추를 사용하여 시각화에 새 데이터를 반영합니다. 처음에 데이터 팩터리는 3시간마다 새로 고치도록 예약되어 있으므로 시각화에는 시드 데이터만 나타납니다. 3시간 후 데이터를 새로 고치면 시각화에 적용된 새 예측이 표시됩니다.
-3. (선택 사항) 콜드 경로 대시보드를 [Power BI 온라인](http://www.powerbi.com/)에 게시합니다. 이 단계는 Power BI 계정(또는 Office 365 계정)이 필요합니다.
+3. (선택 사항) 콜드 경로 대시보드를 [Power BI 온라인](https://www.powerbi.com/)에 게시합니다. 이 단계는 Power BI 계정(또는 Office 365 계정)이 필요합니다.
 
    * **"게시"** 를 클릭하고 몇 초 후 녹색 확인 표시로 "Power BI에 게시 성공!"을 창이 나타납니다. 다음 “Power BI에서 demoprediction.pbix 열기” 링크를 클릭합니다. 자세한 지침을 찾으려면 [Power BI 데스크톱에서 게시](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop)를 참조하세요.
    * 새 대시보드를 만들려면 왼쪽 창의 **대시보드** 섹션 옆의 **+** 기호를 클릭합니다. 이 새 대시보드에 대해 "Demand Forecasting Demo(수요 예측 데모)" 이름을 입력합니다.
@@ -221,7 +217,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic7.png)
 4. (선택 사항) 데이터 원본 새로 고침을 예약합니다.
 
-   * 데이터 새로 고침을 예약하려면 **EnergyBPI-Final** 데이터 집합 위로 마우스를 가져가고 ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png)를 클릭한 다음 **새로 고침 예약**을 선택합니다.
+   * 데이터 새로 고침을 예약하려면 **EnergyBPI-Final** 데이터 세트 위로 마우스를 가져가고 ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png)를 클릭한 다음, **새로 고침 예약**을 선택합니다.
      **참고:** 경고 메시지가 표시되는 경우 **자격 증명 편집**을 클릭하고 데이터베이스 자격 증명이 1단계에서 설명된 것과 동일한지 확인합니다.
 
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic4.png)
@@ -235,7 +231,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 다음 두 가지 도구는 구독에서 에너지 솔루션 템플릿에 대한 수요 예측을 실행하는 데 필요한 총 비용을 더 이해하는 데 사용할 수 있습니다.
 
 * [Microsoft Azure 비용 추정 도구(온라인)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure 비용 추정 도구(데스크톱)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure 비용 추정 도구(데스크톱)](https://www.microsoft.com/download/details.aspx?id=43376)
 
 ## <a name="acknowledgements"></a>**승인**
 이 문서는 Microsoft 소속 데이터 과학자 Yijing Chen과 소프트웨어 엔지니어 Qiu Min이 작성하였습니다.

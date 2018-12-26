@@ -2,7 +2,7 @@
 title: Azure Media Services 출력 메타데이터 스키마 | Microsoft 문서
 description: 이 항목에서는 Azure Media Services 출력 메타데이터 스키마에 대한 개요를 제공합니다.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 4babceb9454a229903c54aab7083c5e5ed138b8e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e92bcd412071d1a991a0bd3ec7b28df9f509c54c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783832"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250889"
 ---
 # <a name="output-metadata"></a>출력 메타데이터
 ## <a name="overview"></a>개요
@@ -38,7 +38,7 @@ ms.locfileid: "33783832"
 인코딩 작업에 대한 AssetFile 항목의 컬렉션입니다.  
 
 ### <a name="child-elements"></a>자식 요소
-| Name | 설명 |
+| 이름 | 설명 |
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |AssetFiles 콜렉션의 일부인 [AssetFile 요소](media-services-output-metadata-schema.md)입니다. |
 
@@ -46,14 +46,14 @@ ms.locfileid: "33783832"
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| Name | type | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
 | **Name**<br/><br/> 필수 |**xs:string** |미디어 자산 파일 이름입니다. |
 | **크기**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:long** |자산 파일의 크기(바이트)입니다. |
 | **Duration**<br/><br/> 필수 |**xs:duration** |콘텐츠 재생 시간입니다. |
 
 ### <a name="child-elements"></a>자식 요소
-| Name | 설명 |
+| 이름 | 설명 |
 | --- | --- |
 | **Sources** |이 AssetFile을 생성하기 위해 처리된 입력/원본 미디어 파일의 컬렉션입니다. 자세한 내용은 [Source 요소](media-services-output-metadata-schema.md)를 참조하세요. |
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 자세한 내용은 [VideoTracks 요소](media-services-output-metadata-schema.md)를 참조하세요. |
@@ -65,7 +65,7 @@ ms.locfileid: "33783832"
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="child-elements"></a>자식 요소
-| Name | 설명 |
+| 이름 | 설명 |
 | --- | --- |
 | **원본**<br/><br/> minOccurs="1" maxOccurs="unbounded" |이 자산을 생성할 때 사용되는 입력/원본 파일입니다. 자세한 내용은 [Source 요소](media-services-output-metadata-schema.md)를 참조하세요. |
 
@@ -75,7 +75,7 @@ ms.locfileid: "33783832"
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| Name | type | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
 | **Name**<br/><br/> 필수 |**xs:string** |입력 원본 파일 이름입니다. |
 
@@ -85,7 +85,7 @@ ms.locfileid: "33783832"
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="child-elements"></a>자식 요소
-| Name | 설명 |
+| 이름 | 설명 |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |부모 AssetFile의 특정 비디오 트랙입니다. 자세한 내용은 [VideoTrack 요소](media-services-output-metadata-schema.md#VideoTrack)를 참조하세요. |
 
@@ -95,7 +95,7 @@ ms.locfileid: "33783832"
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| Name | type | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 비디오 트랙의 0 기준 인덱스입니다. **참고:** 이 **ID**가 반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. |
 | **FourCC**<br/><br/> 필수 |**xs:string** |비디오 코덱 FourCC 코드입니다. |
@@ -117,7 +117,7 @@ ms.locfileid: "33783832"
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="child-elements"></a>자식 요소
-| Name | 설명 |
+| 이름 | 설명 |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |부모 AssetFile의 특정 오디오 트랙입니다. 자세한 내용은 [AudioTrack 요소](media-services-output-metadata-schema.md)를 참조하세요. |
 
@@ -127,7 +127,7 @@ ms.locfileid: "33783832"
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| Name | type | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 오디오 트랙의 0 기준 인덱스입니다. **참고:** 반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. |
 | **Codec** |**xs:string** |오디오 트랙 코덱 문자열입니다. |
@@ -138,7 +138,7 @@ ms.locfileid: "33783832"
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |wFormatTag 형식 샘플당 비트입니다. |
 
 ### <a name="child-elements"></a>자식 요소
-| Name | 설명 |
+| 이름 | 설명 |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |음량 측정 결과 매개 변수입니다. 자세한 내용은 [LoudnessMeteringResultParameters 요소](media-services-output-metadata-schema.md)를 참조하세요. |
 
@@ -148,7 +148,7 @@ ms.locfileid: "33783832"
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| Name | type | 설명 |
+| 이름 | type | 설명 |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |**DPLM**(Dolby Professional Loudness Metering) 개발 키트 버전입니다. |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> 필수 |**xs:int** |DPLM을 통해 생성되며, LoudnessMetering을 설정할 때 필요합니다. |

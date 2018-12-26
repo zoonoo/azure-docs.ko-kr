@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9a65237b3eba6c9878d73148f0143f20dd60dd79
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a3a007bf19a28e6f361837856f83a191a761ef9b
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636551"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247417"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>PowerShell을 사용하여 Azure DevTest Labs의 랩에 마켓플레이스 이미지 추가
 
@@ -38,7 +38,7 @@ ms.locfileid: "34636551"
 
 | 명령 | 메모 |
 |---|---|
-| [Find-AzureRmResource](/module/azurerm.resources/find-azurermresource) | 지정된 매개 변수를 기반으로 리소스를 검색합니다. |
+| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | 지정된 매개 변수를 기반으로 리소스를 검색합니다. |
 | [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | 리소스를 가져옵니다. |
 | [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | 리소스를 수정합니다. |
 | [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | 리소스를 만듭니다. |

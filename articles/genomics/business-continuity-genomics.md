@@ -1,23 +1,21 @@
 ---
 title: 비즈니스 연속성 - Microsoft Genomics | Microsoft Docs
 titleSuffix: Azure
-description: Microsoft Genomics에서 비즈니스 연속성을 지원하는 방식
+description: 이 개요에서는 Microsoft Genomics가 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다. 데이터 손실을 야기할 수 있는 Azure 지역 가동 중단과 같은 재해 이벤트에서 복구하기 위한 옵션에 대해 알아봅니다.
 keywords: 비즈니스 연속성, 재해 복구
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 04/06/2018
-ms.openlocfilehash: cb3825cb89aff386c4f7c3f3b0d771d73fe637b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: be678648ab93fcbdfd0a0baa1b01dcb273060ce2
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31426572"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729455"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Microsoft Genomics를 사용한 비즈니스 연속성 개요
 이 개요에서는 Microsoft Genomics가 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다. 데이터 손실을 야기할 수 있는 Azure 지역 가동 중단과 같은 재해 이벤트에서 복구하기 위한 옵션에 대해 알아봅니다. 

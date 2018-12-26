@@ -1,26 +1,26 @@
 ---
-title: 기술 자료를 가져오는 방법 - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: 미리 보기 기술 자료 마이그레이션 - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: 기술 자료를 가져오는 방법
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: ce8f98f9bdb37d5f326e942fe5b5e815e5272c56
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35383160"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365563"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>내보내기-가져오기를 사용하여 기술 자료 마이그레이션
 QnA Maker는 2018년 5월 7일에 \\\build\ 컨퍼런스에서 일반 공급을 발표했습니다. QnA Maker GA에는 Azure에 빌드된 새로운 아키텍처가 있습니다. QnA Maker 무료 미리 보기로 만들어진 기술 자료는 QnA Maker GA로 마이그레이션해야 합니다. QnA Maker 미리 보기는 2018년 11월에 지원 중단될 예정입니다. QnA Maker GA의 변경 내용에 대한 자세한 내용은 QnA Maker GA 알림 [블로그 게시물](https://aka.ms/qnamakerga-blog)을 참조하세요.
 
-이제 QnA Maker에는 [가격 모델](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/)이 있습니다.
+이제 QnA Maker에는 [가격 모델](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)이 있습니다.
 
 필수 조건
 > [!div class="checklist"]
@@ -38,9 +38,7 @@ QnA Maker는 2018년 5월 7일에 \\\build\ 컨퍼런스에서 일반 공급을 
 
     ![기술 자료 다운로드](../media/qnamaker-how-to-migrate-kb/preview-download.png)
 
-4. Azure 자격 증명을 사용하여 [QnA Maker 포털](https://qnamaker.ai)에 로그인하고 **새 서비스 만들기**를 클릭합니다.
-
-    ![기술 자료 만들기 ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+4. Azure 자격 증명을 사용하여 [QnA Maker 포털](https://qnamaker.ai)에 로그인하고 **기술 자료 문서 만들기**를 클릭합니다.
     
 5. 아직 QnA Maker 서비스를 만들지 않은 경우 **QnA 서비스 만들기**를 선택합니다. 이미 만들었으면 2단계의 드롭다운 목록에서 QnA Maker 서비스를 선택합니다. 기술 자료를 호스트할 QnA Maker 서비스를 선택합니다.
 
@@ -63,7 +61,7 @@ QnA Maker는 2018년 5월 7일에 \\\build\ 컨퍼런스에서 일반 공급을 
 
 9. 테스트 패널을 사용하여 새 기술 자료를 **테스트**합니다. [기술 자료 테스트](../How-To/test-knowledge-base.md) 방법을 알아보세요.
 10. 기술 자료를 **게시**합니다. [기술 자료 게시](../How-To/publish-knowledge-base.md) 방법을 알아보세요.
-11. 응용 프로그램 또는 봇 코드에서 아래 끝점을 사용합니다. 여기에서 [QnA 봇을 만드는](../Tutorials/create-qna-bot.md) 방법을 참조하세요.
+11. 응용 프로그램 또는 봇 코드에서 아래 엔드포인트를 사용합니다. 여기에서 [QnA 봇을 만드는](../Tutorials/create-qna-bot.md) 방법을 참조하세요.
 
     ![QnA Maker 값](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 

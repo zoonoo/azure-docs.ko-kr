@@ -4,24 +4,34 @@ description: 이 문서에서는 웹 브라우저에서 Azure Time Series Insigh
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: kfile
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: d3b8973e8798e5b1f32d9e882db8a06ad7486ed8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f4a9d09aa701d490e8391d68435e672ff49c771c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295341"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364236"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 이 문서에서는 Time Series Insights 탐색기 웹앱의 다양한 기능과 옵션을 살펴봅니다. 웹 브라우저에서 Time Series Insights 탐색기를 사용하여 데이터를 시각화할 수 있습니다.
  
 Azure Time Series Insights는 완전히 관리되는 분석, 저장 및 시각화 서비스이며 수십억 개의 IoT 이벤트를 동시에 간편하게 탐색 및 분석할 수 있습니다. 데이터에 대한 글로벌 보기를 제공하므로 사용자는 IoT 솔루션의 유효성을 빠르게 검사할 수 있으며, 숨겨진 동향을 찾고, 문제를 찾아내고, 거의 실시간으로 근본 원인 분석을 수행할 수 있도록 지원하는 기능을 통해, 큰 비용이 수반되는 중요 업무용 장치의 가동 중지 시간을 방지할 수 있습니다. Time Series Insights 탐색기는 현재 공개 미리 보기로 제공됩니다.
+
+## <a name="video"></a>비디오:
+
+이 비디오에서는 Time Series Insights 탐색기를 사용하여 데이터를 쿼리하는 방법을 설명합니다. 
+
+이 비디오는 비디오 Time Series Insights에 기반합니다.  
+<span style="color:blue">Azure IoT 솔루션 액셀러레이터를 사용하여 Time Series Insights 시작하기</span>
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -55,7 +65,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
       - **조건자**: 조건자 옵션을 사용하면 아래와 같은 연산자를 사용하여 이벤트를 빠르게 필터링할 수 있습니다. 선택/클릭하여 검색을 수행하면 검색을 바탕으로 조건자가 자동으로 업데이트됩니다.      지원되는 연산자는 다음과 같습니다.
 
-         |작업  |지원되는 형식  |메모  |
+         |작업(Operation)  |지원되는 형식  |메모  |
          |---------|---------|---------|
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |

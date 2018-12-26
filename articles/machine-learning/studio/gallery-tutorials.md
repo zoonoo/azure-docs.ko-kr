@@ -1,10 +1,11 @@
 ---
-title: Azure AI 갤러리 자습서 | Microsoft Docs
+title: Azure AI Gallery 자습서 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure AI 갤러리에서 자습서를 검색하고 공유합니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 70f0eb31-7dca-4907-a5d7-504357dcd889
@@ -15,18 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 3ca7897455f763237533aa15680fbfcf805cdaf9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ea0b6e3a4275c2d09c76bd57ec4e838413638d6e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834729"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311826"
 ---
 # <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Azure AI 갤러리에서 자습서 검색 및 공유
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="tutorials"></a>자습서
-Azure AI 갤러리는 기계 학습 기술 및 개념을 안내하는 여러 [자습서](https://gallery.cortanaintelligence.com/tutorials)를 제공합니다. 또한 자습서는 기계 학습 문제를 해결하기 위한 고급 방법을 설명할 수도 있습니다.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com)는 기계 학습 기술 및 개념을 안내하는 여러 [자습서](https://gallery.cortanaintelligence.com/tutorials)를 제공합니다. 또한 자습서는 기계 학습 문제를 해결하기 위한 고급 방법을 설명할 수도 있습니다.
 
 ## <a name="discover"></a>검색
 [갤러리에서](http://gallery.cortanaintelligence.com) 자습서를 찾아보려면 **추가 정보** 아래에 있는 **자습서**를 선택합니다.

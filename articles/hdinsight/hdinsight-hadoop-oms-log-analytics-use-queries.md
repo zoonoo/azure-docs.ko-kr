@@ -1,24 +1,20 @@
 ---
-title: Azure Log Analytics를 쿼리하여 Azure HDInsight 클러스터 모니터링 | Microsoft Docs
+title: Azure Log Analytics를 쿼리하여 Azure HDInsight 클러스터 모니터링
 description: Azure Log Analytics에서 쿼리를 실행하여 HDInsight 클러스터에서 실행되는 작업을 모니터링하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 61467d702f3123085fd7e067a8d56c30331c5bc6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 11/05/2018
+ms.author: hrasheed
+ms.openlocfilehash: a4c4017d7fa798559817c281d159148ec675d158
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401101"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281356"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics를 쿼리하여 HDInsight 클러스터 모니터링
 
@@ -30,26 +26,17 @@ Azure HDInsight 클러스터에서 Azure Log Analytics를 사용하는 방법에
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight 클러스터에서 Azure Log Analytics를 사용하도록 구성되어 있어야 합니다. 지침은 [HDInsight 클러스터에서 Azure Log Analytics 사용](hdinsight-hadoop-oms-log-analytics-tutorial.md)을 참조하세요.
-
-* [Log Analytics에 HDInsight 클러스터 관리 솔루션 추가](hdinsight-hadoop-oms-log-analytics-management-solutions.md)에서 설명한 대로 [Log Analytics](../operations-management-suite/operations-management-suite-overview.md) 작업 영역에 HDInsight 클러스터와 관련된 관리 솔루션이 추가되어 있어야 합니다.
+* Azure Log Analytics를 사용하도록 HDInsight 클러스터를 구성하고, HDInsight 클러스터와 관련된 Log Analytics 관리 솔루션이 작업 영역에 추가되어 있어야 합니다. 지침은 [HDInsight 클러스터에서 Azure Log Analytics 사용](hdinsight-hadoop-oms-log-analytics-tutorial.md)을 참조하세요.
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>HDInsight 클러스터 메트릭 분석
 
 HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알아봅니다.
 
-1. Azure Portal에서 Azure Log Analytics에 연결한 HDInsight 클러스터를 엽니다.
-2. **모니터링**을 클릭한 다음 **OMS 대시보드 열기**를 클릭합니다.
+1. Azure Portal에서 HDInsight 클러스터에 연결된 Log Analytics 작업 영역을 엽니다.
+2. **로그 검색** 타일을 선택합니다.
+3. Azure Log Analytics를 사용하도록 구성된 모든 HDInsight 클러스터에 대해 모든 사용 가능한 메트릭을 검색하려면 검색 상자에 다음 쿼리를 입력한 다음, **실행**을 선택합니다.
 
-    ![OMS 대시보드 열기](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "OMS 대시보드 열기")
-
-2. 왼쪽 메뉴에서 **로그 검색**을 클릭합니다.
-
-    ![로그 검색 열기](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "로그 검색 열기")
-
-3. Azure Log Analytics를 사용하도록 구성된 모든 HDInsight 클러스터에 대해 모든 메트릭을 검색하려면 검색 상자에 다음 쿼리를 입력한 다음 **ENTER**를 누릅니다.
-
-        `search *` 
+        search *
 
     ![모든 메트릭 검색](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "모든 메트릭 검색")
 
@@ -57,12 +44,10 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 
     ![모든 메트릭 검색 출력](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "모든 메트릭 검색 출력")
 
-5. 왼쪽 창의 **형식**에서 심층적으로 분석하려는 메트릭을 선택하고 **적용**을 클릭합니다. 다음 스크린샷은 `metrics_resourcemanager_queue_root_default_CL` 형식을 선택한 것입니다. 
+5. 왼쪽 창의 **형식**에서 심층적으로 분석하려는 메트릭을 선택한 다음, **적용**을 선택합니다. 다음 스크린샷은 `metrics_resourcemanager_queue_root_default_CL` 형식을 선택한 것입니다.
 
     > [!NOTE]
-    > **[+]자세히** 단추를 클릭하여 원하는 메트릭을 찾을 수도 있습니다. 또한 **적용** 단추는 목록의 아래쪽에 있으므로 스크롤해야 볼 수 있습니다.
-    > 
-    >    
+    > **[+]자세히** 단추를 선택하여 원하는 메트릭을 찾을 수도 있습니다. 또한 **적용** 단추는 목록의 아래쪽에 있으므로 스크롤해야 볼 수 있습니다.
 
     텍스트 상자의 쿼리가 다음 스크린샷에서 강조 표시된 상자에 표시된 내용으로 변경됩니다.
 
@@ -80,16 +65,9 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 
 특정 시간 범위 중의 오류 메시지를 검색하는 방법을 알아봅니다. 다음에 나오는 단계는 관심 있는 오류 메시지에 도달할 수 있는 방법에 대한 하나의 예입니다. 찾으려는 오류를 확인할 수 있는 속성을 사용하면 됩니다.
 
-1. Azure Portal에서 Azure Log Analytics에 연결한 HDInsight 클러스터를 엽니다.
-2. **모니터링**을 클릭하고 **OMS 대시보드 열기**를 클릭합니다.
-
-    ![OMS 대시보드 열기](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "OMS 대시보드 열기")
-
-2. OMS 포털의 홈 화면에서 **로그 검색**을 클릭합니다.
-
-    ![로그 검색 열기](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "로그 검색 열기")
-
-3. Azure Log Analytics를 사용하도록 구성된 모든 HDInsight 클러스터의 모든 오류 메시지를 검색하려면 검색 상자에 다음 쿼리를 입력한 다음 **ENTER**를 누릅니다. 
+1. Azure Portal에서 HDInsight 클러스터에 연결된 Log Analytics 작업 영역을 엽니다.
+2. **로그 검색** 타일을 선택합니다.
+3. Azure Log Analytics를 사용하도록 구성된 모든 HDInsight 클러스터의 모든 오류 메시지를 검색하려면 검색 상자에 다음 쿼리를 입력한 다음, **실행**을 선택합니다. 
 
          search "Error"
 
@@ -97,8 +75,8 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 
     ![모든 오류 검색 출력](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "모든 오류 검색 출력")
 
-5. 왼쪽 창의 **형식** 범주 아래에서 심층적으로 분석하려는 오류 형식을 선택하고 **적용**을 클릭합니다.  결과가 사용자가 선택한 오류 형식만 표시하도록 구체화된 것을 볼 수 있습니다.
-7. 왼쪽 창에서 사용할 수 있는 옵션을 사용하여 이 특정 오류 목록을 자세히 분석할 수 있습니다. 예를 들면 다음과 같습니다. 
+4. 왼쪽 창의 **형식** 범주에서 심층적으로 분석하려는 오류 형식을 선택한 다음, **적용**을 선택합니다.  결과가 사용자가 선택한 오류 형식만 표시하도록 구체화된 것을 볼 수 있습니다.
+5. 왼쪽 창에서 사용할 수 있는 옵션을 사용하여 이 특정 오류 목록을 자세히 분석할 수 있습니다. 예: 
 
     - 특정 작업자 노드의 오류 메시지 보기
 
@@ -108,46 +86,40 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 
         ![특정 오류 검색 출력](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "특정 오류 검색 출력")
 
-9. 특정 오류 보기 **[+]자세히 표시**를 클릭하면 실제 오류 메시지를 볼 수 있습니다.
+6. 특정 오류 보기 **[+]자세히 표시**를 선택하면 실제 오류 메시지를 볼 수 있습니다.
 
     ![특정 오류 검색 출력](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "특정 오류 검색 출력")
 
 ## <a name="create-alerts-for-tracking-events"></a>추적 이벤트에 대한 경고 만들기
 
-경고를 만드는 첫 번째 단계는 경고를 트리거하는 쿼리에 도달하는 것입니다. 간단히 하기 위해 HDInsight 클러스터에서 실행되는 실패한 응용 프로그램 목록을 제공하는 다음 쿼리를 사용하겠습니다.
+경고를 만드는 첫 번째 단계는 경고를 트리거하는 쿼리에 도달하는 것입니다. 경고를 만들려는 모든 쿼리를 사용할 수 있습니다.
 
-    metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
+1. Azure Portal에서 HDInsight 클러스터에 연결된 Log Analytics 작업 영역을 엽니다.
+2. **로그 검색** 타일을 선택합니다.
+3. 경고를 만들려는 항목에 대해 다음 쿼리를 실행한 다음, **실행**을 선택합니다.
 
-경고를 만들려는 모든 쿼리를 사용할 수 있습니다.
+        metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
 
-1. Azure Portal에서 Azure Log Analytics에 연결한 HDInsight 클러스터를 엽니다.
-2. **모니터링**을 클릭한 다음 **OMS 대시보드 열기**를 클릭합니다.
+    쿼리는 HDInsight 클러스터에서 실행되는 실패한 응용 프로그램의 목록을 제공합니다.
 
-    ![OMS 대시보드 열기](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "OMS 대시보드 열기")
-
-2. OMS 포털의 홈 화면에서 **로그 검색**을 클릭합니다.
-
-    ![로그 검색 열기](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "로그 검색 열기")
-
-3. 경고를 만들려는 항목에 대해 다음 쿼리를 실행한 다음 **ENTER**를 누릅니다.
-
-        metrics_resourcemanager_queue_root-default-CL | where AppsFailed_d > 0
-
-4. 페이지 위쪽에서 **경고**를 클릭합니다.
+4. 페이지 맨 위에서 **새 경고 규칙**을 선택합니다.
 
     ![쿼리를 입력하여 경고 만들기](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "쿼리를 입력하여 경고 만들기")
 
-4. **경고 규칙 추가** 창에서 쿼리 및 기타 세부 정보를 입력하여 경고를 만든 다음 **저장**을 클릭합니다.
+5. **규칙 만들기** 창에서 쿼리 및 기타 세부 정보를 입력하여 경고를 만든 다음, **경고 규칙 만들기**를 선택합니다.
 
     ![쿼리를 입력하여 경고 만들기](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "쿼리를 입력하여 경고 만들기")
 
-    스크린샷은 경고 쿼리가 출력을 반환하면 메일 알림을 보내는 구성을 보여 줍니다.
+기존 경고를 편집하거나 삭제하려면 다음을 수행합니다.
 
-5. 기존 경고를 편집하거나 삭제할 수도 있습니다. 이렇게 하려면 OMS 포털의 모든 페이지에서 **설정** 아이콘을 클릭합니다.
+1. Azure Portal에서 Log Analytics 작업 영역을 엽니다.
+2. 왼쪽 메뉴에서 **경고**를 선택합니다.
+3. 편집하거나 삭제하려는 경고를 선택합니다.
+4. **저장**, **취소**, **사용 안 함** 및 **삭제**와 같은 옵션이 있습니다.
 
-    ![쿼리를 입력하여 경고 만들기](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png "쿼리를 입력하여 경고 만들기")
+    ![HDInsight Log Analytics 경고 삭제 편집](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-6. **설정** 페이지에서 **경고**를 클릭하여 만든 경고를 확인합니다. 경고를 사용하거나 사용하지 않도록 설정하거나, 편집하거나, 삭제할 수도 있습니다. 자세한 내용은 [Log Analytics에서 경고 규칙 작업](../log-analytics/log-analytics-alerts-creating.md)을 참조하세요.
+자세한 내용은 [Log Analytics에서 경고 규칙 작업](../log-analytics/log-analytics-alerts-creating.md)을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 589366bc3a079cdf1cacc21982cd03a1ff6d74ce
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 35b1b9492b7bcd09c79cb5bd2509a6cfea205ae9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220780"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445469"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>자습서: UNIFI와 Azure Active Directory 통합
 
@@ -49,10 +49,10 @@ UNIFI와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 UNIFI 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-unifi-from-the-gallery"></a>갤러리에서 UNIFI 추가
 UNIFI의 Azure AD 통합을 구성하려면 갤러리의 UNIFI를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -63,19 +63,19 @@ UNIFI의 Azure AD 통합을 구성하려면 갤러리의 UNIFI를 관리되는 S
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
-4. 검색 상자에 **UNIFI**를 입력합니다.
+1. 검색 상자에 **UNIFI**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/unifi-tutorial/tutorial_unifi_search.png)
 
-5. 결과 패널에서 **UNIFI**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **UNIFI**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/unifi-tutorial/tutorial_unifi_addfromgallery.png)
 
@@ -89,10 +89,10 @@ UNIFI에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 할�
 UNIFI에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-3. **[UNIFI 테스트 사용자 만들기](#creating-a-unifi-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 UNIFI에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
+1. **[UNIFI 테스트 사용자 만들기](#creating-a-unifi-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 UNIFI에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -104,51 +104,51 @@ UNIFI에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Configure Single Sign-On][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_samlbase.png)
 
-3. **UNIFI 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **UNIFI 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_url1.png)
 
     **식별자** 텍스트 상자에 해당 값으로 `INVIEWlabs`를 입력합니다. 
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
+1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
 
     ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_url2.png)
 
     **로그온 URL** 텍스트 상자에서 URL `https://app.discoverunifi.com/login`을 입력합니다.
 
-5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_certificate.png) 
 
-6. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_general_400.png)
     
-7. **UNIFI 구성** 섹션에서 **UNIFI 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
+1. **UNIFI 구성** 섹션에서 **UNIFI 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_configure.png)
 
-8. 다른 웹 브라우저 창에서 **UNIFI** 회사 사이트에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 **UNIFI** 회사 사이트에 관리자로 로그인합니다.
 
-9. **사용자**를 클릭합니다.
+1. **사용자**를 클릭합니다.
 
     ![Configure Single Sign-On](./media/unifi-tutorial/app1.png) 
 
-10. **새 ID 공급자 추가**를 클릭합니다.
+1. **새 ID 공급자 추가**를 클릭합니다.
 
     ![Configure Single Sign-On](./media/unifi-tutorial/app2.png)
 
-11. **ID 공급자 추가** 섹션에서 다음 단계를 수행합니다.   
+1. **ID 공급자 추가** 섹션에서 다음 단계를 수행합니다.    
 
     ![Configure Single Sign-On](./media/unifi-tutorial/app3.png) 
 
     a. **공급자 이름** 텍스트 상자에 ID 공급자의 이름을 입력합니다.
 
-    나. **공급자 URL** 텍스트 상자에 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 붙여넣습니다.
+    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **공급자 URL** 텍스트 상자에 붙여넣습니다.
 
     다. Azure Portal에서 다운로드한 인증서를 메모장에서 열고 **---BEGIN CERTIFICATE---** 및 **---END CERTIFICATE---** 태그를 제거하고 나머지 내용을 **인증서** 텍스트 상자에 붙여넣습니다.
 
@@ -169,15 +169,15 @@ UNIFI에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Azure AD 테스트 사용자 만들기](./media/unifi-tutorial/create_aaduser_01.png) 
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
     ![Azure AD 테스트 사용자 만들기](./media/unifi-tutorial/create_aaduser_02.png) 
 
-3. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/unifi-tutorial/create_aaduser_03.png) 
 
-4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/unifi-tutorial/create_aaduser_04.png) 
 
@@ -205,30 +205,30 @@ UNIFI에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **UNIFI**를 선택합니다.
+1. 응용 프로그램 목록에서 **UNIFI**를 선택합니다.
 
     ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_app.png) 
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     ![사용자 할당][202] 
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 할당][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 UNIFI 타일을 클릭하면 UNIFI 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

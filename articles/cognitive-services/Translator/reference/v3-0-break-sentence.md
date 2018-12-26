@@ -1,22 +1,23 @@
 ---
-title: Microsoft Translator Text API BreakSentence 메서드 | Microsoft Docs
-description: Microsoft Translator Text API BreakSentence 메서드를 사용합니다.
+title: Translator Text API BreakSentence 메서드
+titlesuffix: Azure Cognitive Services
+description: Translator Text API BreakSentence 메서드를 사용합니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 8ce6644d21b397ea0e7f2e71e3c3a5a96638eec5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1202d49688bfd6aee50d1fa21c10423c071c6d92
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377535"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124986"
 ---
-# <a name="text-api-30-breaksentence"></a>Text API 3.0: BreakSentence
+# <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
 
 텍스트에서 문장 경계의 위치를 식별합니다.
 

@@ -1,20 +1,21 @@
 ---
-title: Microsoft Cognitive Services용 Computer Vision API | Microsoft Docs
-description: Computer Vision API에 있는 고급 알고리즘을 사용하여 Microsoft Cognitive Services에서 이미지를 처리하고 정보를 반환할 수 있습니다.
+title: Computer Vision API란?
+titlesuffix: Azure Cognitive Services
+description: Computer Vision API는 개발자에게 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: 86e0441c600162e479c678d3cb1dbeaad423ddb5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 09a7f02df1102e42bc45b4615a2af4235372bcdc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377222"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957030"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Computer Vision API 버전 1.0이란?
 
@@ -37,18 +38,18 @@ ms.locfileid: "35377222"
 * [썸네일로 사용할 사진 자르기](#Thumbnails)
 
 ## <a name="requirements"></a>요구 사항
-* 지원되는 입력 방법: application/octet stream 또는 이미지 URL 형식의 원시 이미지 이진
-* 지원되는 이미지 형식: JPEG, PNG, GIF, BMP
-* 이미지 파일 크기: 4MB 미만
-* 이미지 크기: 50 x 50 픽셀 초과
+* 지원되는 입력 방법: application/octet stream 또는 이미지 URL 형식의 원시 이미지 이진.
+* 지원되는 이미지 형식: JPEG, PNG, GIF, BMP.
+* 이미지 파일 크기: 4MB 미만.
+* 이미지 크기: 50 x 50픽셀 초과.
 
 ## <a name="tagging-images"></a>이미지에 태그 지정
-Computer Vision API에서는 2,000가지 이상의 인식할 수 있는 사물, 생물, 경치 및 작업을 기준으로 태그를 반환합니다. 태그가 모호하거나 누구나 알 수 있는 것이 아닌 경우 API 응답은 알려진 설정의 컨텍스트에서 태그의 의미를 명확히 설명하는 ‘힌트’를 제공합니다. 태그는 분류로 구성되지 않으며 상속 계층이 없습니다. 콘텐츠 태그 컬렉션은 완전한 문장으로 작성되고, 사람이 읽을 수 있는 언어로 표시되는 이미지 ‘설명’의 토대가 됩니다. 이 시점에서 이미지 설명에 대해 지원되는 언어는 영어뿐입니다.
+Computer Vision API에서는 수천 개의 인식할 수 있는 사물, 생물, 경치 및 작업을 기준으로 태그를 반환합니다. 태그가 모호하거나 누구나 알 수 있는 것이 아닌 경우 API 응답은 알려진 설정의 컨텍스트에서 태그의 의미를 명확히 설명하는 ‘힌트’를 제공합니다. 태그는 분류로 구성되지 않으며 상속 계층이 없습니다. 콘텐츠 태그 컬렉션은 완전한 문장으로 작성되고, 사람이 읽을 수 있는 언어로 표시되는 이미지 ‘설명’의 토대가 됩니다. 이 시점에서 이미지 설명에 대해 지원되는 언어는 영어뿐입니다.
 
 이미지를 업로드하거나 이미지 URL을 지정한 후 Computer Vision API의 알고리즘은 이미지에서 식별된 사물, 생물 및 작업을 기준으로 태그를 출력합니다. 태그 지정은 전면에 있는 사람과 같은 주 피사체로 제한되지 않고 설정(실내 또는 옥외), 가구, 도구, 식물, 동물, 액세서리, 가젯 등도 포함합니다.
 
 ### <a name="example"></a>예
-![House_Yard](./Images/house_yard.jpg) '
+![House_Yard](./Images/house_yard.png) '
 
 ```json
 Returned Json
@@ -95,15 +96,15 @@ Computer Vision API는 태그 지정 및 설명 외에도 이전 버전에서 �
 ### <a name="the-86-category-concept"></a>86개 범주 개념
 다음 다이어그램에 표시된 86개 개념 목록에 따라 이미지에서 찾은 시각적 기능을 대분류에서 소분류까지 분류할 수 있습니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)를 참조하세요.
 
-![범주 분석](./Images/analyze_categories.jpg)
+![범주 분석](./Images/analyze_categories.png)
 
 이미지                                                  | response
 ------------------------------------------------------ | ----------------
-![여성 지붕](./Images/woman_roof.jpg)                 | 사람
-![가족 사진](./Images/family_photo.jpg)             | people_crowd
-![귀여운 개](./Images/cute_dog.jpg)                     | animal_dog
-![옥외 산](./Images/mountain_vista.jpg)       | outdoor_mountain
-![비전 분석 음식 빵](./Images/bread.jpg)       | food_bread
+![여성 지붕](./Images/woman_roof.png)                 | 사람
+![가족 사진](./Images/family_photo.png)             | people_crowd
+![귀여운 개](./Images/cute_dog.png)                     | animal_dog
+![옥외 산](./Images/mountain_vista.png)       | outdoor_mountain
+![비전 분석 음식 빵](./Images/bread.png)       | food_bread
 
 ## <a name="identifying-image-types"></a>이미지 형식 식별
 이미지를 분류하는 몇 가지 방법이 있습니다. Computer Vision API는 부울 플래그를 설정하여 이미지가 흑백인지, 컬러인지를 나타낼 수 있습니다. 플래그를 설정하여 이미지가 선 그리기인지 여부를 나타낼 수도 있습니다. 또한 이미지가 클립 아트인지 여부를 나타내고 0-3의 눈금에 품질을 표시할 수 있습니다.
@@ -120,16 +121,16 @@ Computer Vision API는 태그 지정 및 설명 외에도 이전 버전에서 �
 
 이미지|response
 ----|----
-![비전 분석 치즈 클립 아트](./Images/cheese_clipart.jpg)|3 좋은 클립 아트
-![비전 분석 주택 야드](./Images/house_yard.jpg)|0 클립 아트 아님
+![비전 분석 치즈 클립 아트](./Images/cheese_clipart.png)|3 좋은 클립 아트
+![비전 분석 주택 야드](./Images/house_yard.png)|0 클립 아트 아님
 
 ### <a name="line-drawing-type"></a>선 그리기 형식
 이미지가 선 그리기인지 여부를 감지합니다.
 
 이미지|response
 ----|----
-![비전 분석 사자 그리기](./Images/lion_drawing.jpg)|True
-![비전 분석 꽃](./Images/flower.jpg)|False
+![비전 분석 사자 그리기](./Images/lion_drawing.png)|True
+![비전 분석 꽃](./Images/flower.png)|False
 
 ### <a name="faces"></a>얼굴
 사진에서 사람 얼굴을 감지하고 얼굴 좌표, 얼굴 사각형, 성별 및 연령을 생성합니다. 이러한 시각적 기능은 얼굴에 대해 생성된 메타데이터의 하위 집합입니다. 얼굴에 대해 보다 광범위한 메타데이터(얼굴 식별, 포즈 감지 등)를 생성하려면 Face API를 사용합니다.  
@@ -159,7 +160,7 @@ HTTP POST 호출을 수행하여 선택한 모델만 분석합니다. 이 옵션
 Computer Vision API의 알고리즘은 이미지의 콘텐츠를 분석합니다. 이 분석은 완전한 문장의, 사람이 읽을 수 있는 언어로 표시되는 ‘설명’의 토대가 됩니다. 설명은 이미지에서 찾은 내용을 요약합니다. Computer Vision API의 알고리즘은 이미지에서 식별된 개체를 기준으로 다양한 설명을 생성합니다. 설명이 각각 평가되고 신뢰도 점수가 생성됩니다. 그런 다음, 가장 높은 신뢰도 점수부터 가장 낮은 점수 순으로 정렬된 목록이 반환됩니다. 이 기술을 사용하여 이미지 캡션을 생성하는 봇의 예는 [여기](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption)에서 찾을 수 있습니다.  
 
 ### <a name="example-description-generation"></a>예제 설명 생성
-![B&W 건물](./Images/bw_buildings.jpg) '
+![B&W 건물](./Images/bw_buildings.png) '
 ```json
  Returned Json
 
@@ -202,18 +203,18 @@ Computer Vision 알고리즘은 이미지에서 색을 추출합니다. 추출�
 
 이미지                                                       | 전경 |백그라운드| 색
 ----------------------------------------------------------- | --------- | ------- | ------
-![옥외 산](./Images/mountain_vista.jpg)            | 검정     | 검정   | 흰색
-![비전 분석 꽃](./Images/flower.jpg)               | 검정     | 흰색   | 흰색, 검정, 녹색
-![비전 분석 학습 스테이션](./Images/train_station.jpg) | 검정     | 검정   | 검정
+![옥외 산](./Images/mountain_vista.png)            | 검정     | 검정   | 흰색
+![비전 분석 꽃](./Images/flower.png)               | 검정     | 흰색   | 흰색, 검정, 녹색
+![비전 분석 학습 스테이션](./Images/train_station.png) | 검정     | 검정   | 검정
 
 ### <a name="accent-color"></a>강조 색
 이미지에서 추출된 색으로, 주요 색과 채도를 혼합하여 사용자에게 가장 잘 맞는 색을 나타냅니다.
 
 이미지                                                       | response
 ----------------------------------------------------------- | ----
-![옥외 산](./Images/mountain_vista.jpg)            | #BC6F0F
-![비전 분석 꽃](./Images/flower.jpg)               | #CAA501
-![비전 분석 학습 스테이션](./Images/train_station.jpg) | #484B83
+![옥외 산](./Images/mountain_vista.png)            | #BC6F0F
+![비전 분석 꽃](./Images/flower.png)               | #CAA501
+![비전 분석 학습 스테이션](./Images/train_station.png) | #484B83
 
 
 ### <a name="black--white"></a>흑백
@@ -221,8 +222,8 @@ Computer Vision 알고리즘은 이미지에서 색을 추출합니다. 추출�
 
 이미지                                                      | response
 ---------------------------------------------------------- | ----
-![비전 분석 건물](./Images/bw_buildings.jpg)      | True
-![비전 분석 주택 야드](./Images/house_yard.jpg)      | False
+![비전 분석 건물](./Images/bw_buildings.png)      | True
+![비전 분석 주택 야드](./Images/house_yard.png)      | False
 
 ## <a name="flagging-adult-content"></a>성인 콘텐츠에 플래그 지정
 다양한 시각적 범주 중 성인/외설 그룹을 사용하면 성인용 자료를 검색하고 성적인 콘텐츠를 포함하는 이미지 표시를 제한할 수 있습니다. 사용자의 기본 설정에 맞게 슬라이딩 눈금에 성인/외설 콘텐츠 검색 필터를 설정할 수 있습니다.
@@ -249,7 +250,7 @@ OCR은 25개 언어를 지원합니다. 해당 언어는 아랍어, 중국어 �
 - 단어 시작 부분에 있는 너무 크거나 누락된 대문자
 - 아래 첨자, 위 첨자 또는 취소선 텍스트
 
-제한 사항: 텍스트가 많은 사진에서는 부분적으로 인식된 단어에서 가양성이 발생할 수 있습니다. 일부 사진, 특히 텍스트가 없는 사진에서는 이미지 형식에 따라 정밀도에 큰 차이가 있을 수 있습니다.
+ 제한 사항: 텍스트가 많은 사진에서는 부분적으로 인식된 단어에서 가양성이 발생할 수 있습니다. 일부 사진, 특히 텍스트가 없는 사진에서는 이미지 형식에 따라 정밀도에 큰 차이가 있을 수 있습니다.
 
 ## <a name="recognize-handwritten-text"></a>필기한 텍스트 인식
 이 기술을 통해 노트, 편지, 에세이, 화이트보드, 양식 등에서 필기한 텍스트를 감지하여 추출할 수 있습니다. 이 기술은 흰색 종이, 노란색 스티커 메모 및 화이트보드와 같은 다양한 표면 및 배경에서 작동합니다.
@@ -257,20 +258,20 @@ OCR은 25개 언어를 지원합니다. 해당 언어는 아랍어, 중국어 �
 필기한 텍스트 인식은 시간과 수고를 줄여주고, 텍스트를 기록할 필요 없이 텍스트 이미지를 촬영할 수 있게 하여 생산성을 높일 수 있습니다. 메모를 디지털화할 수 있습니다. 이러한 디지털화를 통해 빠르고 쉬운 검색을 구현할 수 있습니다. 또한 종이 문서를 줄여줍니다.
 
 입력 요구 사항:
-- 지원되는 이미지 형식은 JPEG, PNG, BMP입니다.
+- 지원되는 이미지 형식: JPEG, PNG 및 BMP.
 - 이미지 파일 크기는 4MB 미만이어야 합니다.
 - 이미지 크기는 최소 40 x 40, 최대 3200 x 3200이어야 합니다.
 
 참고: 이 기술은 현재 미리 보기로 제공되고 있으며, 영어 텍스트에만 사용할 수 있습니다.
 
 ## <a name="generating-thumbnails"></a>썸네일 생성
-썸네일은 전체 크기 이미지의 작은 표현입니다. 휴대폰, 태블릿, PC 등 장치가 다양해지면서 각기 다른 UX(사용자 환경) 레이아웃과 썸네일 크기가 필요하게 되었습니다. 이 Computer Vision API 기능은 스마트 자르기를 사용하여 문제 해결을 지원합니다.
+썸네일은 전체 크기 이미지의 작은 표현입니다. 휴대폰, 태블릿, PC 등 디바이스가 다양해지면서 각기 다른 UX(사용자 환경) 레이아웃과 썸네일 크기가 필요하게 되었습니다. 이 Computer Vision API 기능은 스마트 자르기를 사용하여 문제 해결을 지원합니다.
 
-이미지를 업로드하면 고품질의 썸네일이 생성되고, Computer Vision API 알고리즘이 이미지 내의 개체를 분석합니다. 그런 다음, ROI(‘관심 영역’)의 요구 사항에 맞게 이미지를 자릅니다. 출력은 아래 그림과 같이 특수 프레임워크 내에 표시됩니다. 사용자 요구를 수용하기 위해 원래 이미지의 가로 세로 비율과 다른 가로 세로 비율을 사용하여 생성된 썸네일을 표시할 수 있습니다.
+이미지를 업로드하면 고품질의 썸네일이 생성되고, Computer Vision API 알고리즘이 이미지 내의 개체를 분석합니다. 그런 다음, ‘관심 영역’의 요구 사항에 맞게 이미지를 자릅니다. 출력은 아래 그림과 같이 특수 프레임워크 내에 표시됩니다. 사용자 요구를 수용하기 위해 원래 이미지의 가로 세로 비율과 다른 가로 세로 비율을 사용하여 생성된 썸네일을 표시할 수 있습니다.
 
 썸네일 알고리즘은 다음과 같이 작동합니다.
 
-1. 이미지에서 방해가 되는 요소를 제거하고 주 개체인 ROI(‘관심 영역’)를 인식합니다.
+1. 이미지에서 방해가 되는 요소를 제거하고 주 개체인 ‘관심 영역’을 인식합니다.
 2. 식별된 관심 영역에 따라 이미지를 자릅니다.
 3. 대상 썸네일 크기에 맞게 가로 세로 비율을 변경합니다.
 

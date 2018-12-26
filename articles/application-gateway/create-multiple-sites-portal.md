@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/28/2017
 ms.author: victorh
-ms.openlocfilehash: 144ddf171fa4b242fb8cbdc176bcd2e05bdc611d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356021"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993306"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 응용 프로그램 게이트웨이 생성 및 구성
 
@@ -37,20 +37,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-[http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인
 
 ## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
-가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 응용 프로그램 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 응용 프로그램 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
+가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
 
 1. Azure Portal의 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
-3. 응용 프로그램 게이트웨이에 대해 다음 값을 입력합니다.
+3. 애플리케이션 게이트웨이에 대해 다음 값을 입력합니다.
 
     - *myAppGateway* - 응용 프로그램 게이트웨이의 이름
     - *myResourceGroupAG* - 새 리소스 그룹의 이름
 
-    ![새 응용 프로그램 게이트웨이 만들기](./media/create-multiple-sites-portal/application-gateway-create.png)
+    ![새 애플리케이션 게이트웨이 만들기](./media/create-multiple-sites-portal/application-gateway-create.png)
 
 4. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
 5. **가상 네트워크 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 가상 네트워크에 대해 다음 값을 입력합니다.
@@ -64,8 +64,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 6. **확인**을 클릭하여 가상 네트워크 및 서브넷을 만듭니다.
 7. **공용 IP 주소 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 공용 IP 주소의 이름을 입력합니다. 이 예제에서 공용 IP 주소의 이름은 *myAGPublicIPAddress*입니다. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
-8. 수신기 구성에 대한 기본값을 수락하고 웹 응용 프로그램 방화벽을 사용하지 않도록 유지한 다음, **확인**을 클릭합니다.
-9. 요약 페이지에서 설정을 검토한 다음, **확인**을 클릭하여 네트워크 리소스와 응용 프로그램 게이트웨이를 만듭니다. 응용 프로그램 게이트웨이가 생성되는 데 몇 분이 걸릴 수 있습니다. 배포가 완료될 때까지 기다렸다가 다음 섹션으로 이동합니다.
+8. 수신기 구성에 대한 기본값을 수락하고 웹 애플리케이션 방화벽을 사용하지 않도록 유지한 다음, **확인**을 클릭합니다.
+9. 요약 페이지에서 설정을 검토한 다음, **확인**을 클릭하여 네트워크 리소스와 애플리케이션 게이트웨이를 만듭니다. 애플리케이션 게이트웨이가 생성되는 데 몇 분이 걸릴 수 있습니다. 배포가 완료될 때까지 기다렸다가 다음 섹션으로 이동합니다.
 
 ### <a name="add-a-subnet"></a>서브넷 추가
 
@@ -78,7 +78,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
 
-이 예제에서는 응용 프로그램 게이트웨이에 대한 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 트래픽이 올바르게 라우팅되는지 확인하기 위해 가상 머신에 IIS도 설치합니다.
+이 예제에서는 애플리케이션 게이트웨이에 대한 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 트래픽이 올바르게 라우팅되는지 확인하기 위해 가상 머신에 IIS도 설치합니다.
 
 1. **새로 만들기**를 클릭합니다.
 2. **Compute**를 클릭한 다음, 추천 목록에서 **Windows Server 2016 Datacenter**를 선택합니다.
@@ -104,7 +104,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다. 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -160,7 +160,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-cname-record-in-your-domain"></a>도메인에서 CNAME 레코드 만들기
 
-응용 프로그램 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. A 레코드를 사용할 경우 응용 프로그램 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 권장되지 않습니다.
+애플리케이션 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. A 레코드를 사용할 경우 응용 프로그램 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 권장되지 않습니다.
 
 1. **모든 리소스**를 클릭한 다음, **myAGPublicIPAddress**를 클릭합니다.
 
@@ -168,7 +168,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 2. DNS 주소를 복사하고 도메인에서 새 CNAME 레코드에 대한 값으로 사용합니다.
 
-## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
 1. 브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
 

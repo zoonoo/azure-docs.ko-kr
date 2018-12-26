@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 04/05/2018
+ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6949ab89cf806818783c86199e6df334e263b046
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fdb856f92bf790df0065cfc74ce5896f1d10c47b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440884"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954109"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Azure Active Directory B2C란?
 
-Azure AD(Azure Active Directory) B2C는 응용 프로그램을 사용할 때 고객이 자신의 프로필을 등록, 로그인 및 관리하는 방법을 사용자 지정하고 제어할 수 있는 ID 관리 서비스입니다. 여기에는 iOS, Android 및 .NET용으로 개발된 응용 프로그램이 포함됩니다. Azure AD B2C를 사용하면 고객의 ID를 보호하면서 이러한 작업을 수행할 수 있습니다.
+Azure AD(Azure Active Directory) B2C는 응용 프로그램을 사용할 때 고객이 응용 프로그램과 상호 작용하는 방법을 사용자 지정하고 제어할 수 있는 ID 관리 서비스입니다. 이 상호 작용에는 고객이 응용 프로그램을 사용할 때의 가입, 로그인 및 프로필 관리가 포함됩니다. iOS, Android 및 .NET용 응용 프로그램을 선택할 수 있습니다. Azure AD B2C를 사용하면 고객의 ID를 보호하면서 이러한 작업을 수행할 수 있습니다.
 
 Azure AD B2C에 등록된 응용 프로그램을 구성하여 다양한 ID 관리 작업을 수행할 수 있습니다. 일부 사례:
 
@@ -41,9 +41,9 @@ Azure AD B2C에 등록된 응용 프로그램을 구성하여 다양한 ID 관�
 
 ### <a name="customer-interaction"></a>고객 상호 작용
 
-Azure AD B2C는 모든 고객 환경에 대해 [OpenID Connect](https://openid.net/connect/)를 지원합니다. OpenID Connect의 Azure AD B2C 구현에서 응용 프로그램은 Azure AD B2C로 인증 요청을 발급하여 이러한 사용자 이동을 시작합니다. 요청의 결과는 `id_token`입니다. 이 보안 토큰은 고객 ID를 나타냅니다.
+Azure AD B2C는 모든 고객 환경에 대해 [OpenID Connect](https://openid.net/connect/)를 지원합니다. OpenID Connect의 Azure AD B2C 구현에서 응용 프로그램은 Azure AD B2C로 인증 요청을 발급하여 이러한 사용자 이동을 시작합니다. 요청의 결과는 `id_token`입니다. 이 보안 토큰은 고객 ID를 정의합니다.
 
-Azure AD B2C를 사용하는 모든 응용 프로그램은 Azure Portal을 사용하여 Azure AD B2C 테넌트에 등록되어야 합니다. 등록 프로세스는 값을 수집하고 응용 프로그램에 할당합니다. 이 값에는 응용 프로그램을 고유하게 식별하는 응용 프로그램 ID와, 응답을 다시 전달하는 데 사용할 수 있는 리디렉션 URI가 포함됩니다.
+Azure AD B2C를 사용하는 모든 응용 프로그램은 Azure Portal을 사용하여 Azure AD B2C 테넌트에 등록되어야 합니다. 등록 프로세스는 값을 수집하고 응용 프로그램에 할당합니다. 이 값에는 응용 프로그램을 고유하게 식별하는 응용 프로그램 ID가 포함됩니다. 리디렉션 URI는 응답을 다시 응용 프로그램으로 보내는 데 사용하도록 정의됩니다.
 
 모든 응용 프로그램의 상호 작용은 높은 수준에서 비슷한 패턴을 따릅니다.
 
@@ -58,7 +58,7 @@ Azure AD B2C를 사용하는 모든 응용 프로그램은 Azure Portal을 사�
 
 Azure AD B2C는 순서대로 ID 공급자, 고객, 기타 시스템 및 로컬 디렉터리와 상호 작용하여 ID 작업을 완료합니다. 예를 들어 고객을 로그인하게 하고 새 고객을 등록하거나 암호를 다시 설정합니다. 다자간 트러스트를 설정하고 이러한 단계를 완료하는 기본 플랫폼을 ID 경험 프레임워크라고 합니다. 이 프레임워크 및 정책(사용자 경험 또는 신뢰 프레임워크 정책이라고도 함)은 명시적으로 행위자, 동작, 프로토콜, 완료할 단계의 순서를 정의합니다.
 
-Azure AD B2C는 여러 가지 방법으로 응용 프로그램에 대한 서비스 거부 및 암호 공격으로부터 보호합니다. Azure AD B2C는 SYN 쿠키, 속도 및 연결 제한과 같은 검색 및 완화 기술을 사용하여 서비스 거부 공격으로부터 리소스를 보호합니다. 무차별 암호 대입 공격 및 사전 암호 공격에 대해서는 완화도 포함됩니다.
+Azure AD B2C는 응용 프로그램에 대한 서비스 거부 및 암호 공격으로부터 보호합니다. Azure AD B2C는 SYN 쿠키, 속도 및 연결 제한과 같은 검색 및 완화 기술을 사용하여 서비스 거부 공격으로부터 리소스를 보호합니다. 무차별 암호 대입 공격 및 사전 암호 공격에 대해서는 완화도 포함됩니다.
 
 #### <a name="built-in-policies"></a>기본 제공 정책
 
@@ -72,9 +72,9 @@ Azure AD B2C에 전송되는 각 요청은 정책을 지정합니다. 정책은 
 
 #### <a name="custom-policies"></a>사용자 지정 정책 
 
-[사용자 지정 정책](active-directory-b2c-overview-custom.md)은 Azure AD B2C 테넌트에서 ID 경험 프레임워크의 동작을 정의하는 구성 파일입니다. 다양한 작업을 수행할 수 있게 사용자 지정 정책은 완전히 편집할 수 있습니다. 사용자 지정 정책은 계층 구조 체인에서 서로를 참조하는 하나 또는 여러 XML 형식 파일로 표시됩니다. 
+[사용자 지정 정책](active-directory-b2c-overview-custom.md)은 Azure AD B2C 테넌트에서 [ID 경험 프레임워크](trustframeworkpolicy.md)의 동작을 정의하는 구성 파일입니다. 다양한 작업을 수행할 수 있게 사용자 지정 정책을 변경할 수 있습니다. 사용자 지정 정책은 계층 구조 체인에서 서로를 참조하는 하나 또는 여러 XML 형식 파일입니다. 
 
-Azure AD B2C 테넌트에서는 필요에 따라 다양한 형식의 여러 사용자 지정 정책을 사용할 수 있고 다른 응용 프로그램에서 다시 사용할 수 있습니다. 이러한 유연성 덕분에 코드 변경 없이 또는 최소한의 변경으로 고객 ID 환경을 정의하고 수정할 수 있습니다. HTTP 인증 요청에 특수 쿼리 매개 변수를 추가하여 정책을 사용할 수 있습니다.
+Azure AD B2C 테넌트에서는 필요에 따라 다양한 형식의 사용자 지정 정책을 사용할 수 있고 다른 응용 프로그램에서 다시 사용할 수 있습니다. 이러한 유연성 덕분에 코드 변경 없이 또는 최소한의 변경으로 고객 ID 환경을 정의하고 수정할 수 있습니다. HTTP 인증 요청에 특수 쿼리 매개 변수를 추가하여 정책을 사용합니다.
 
 사용자 지정 정책은 다음과 같은 방식으로 사용자 경험을 제어하는 데 사용됩니다.
 
@@ -84,23 +84,23 @@ Azure AD B2C 테넌트에서는 필요에 따라 다양한 형식의 여러 사�
 
 ### <a name="identity-providers"></a>ID 공급자
 
-ID 공급자는 사용자 ID를 인증하고 보안 토큰을 발급하는 서비스입니다. Azure AD B2C에서는 Microsoft 계정, Facebook, Amazon 등을 비롯한 다양한 ID 공급자를 테넌트에서 구성할 수 있습니다. 
+ID 공급자는 사용자 ID를 인증하고 보안 토큰을 발급하는 서비스입니다. Azure AD B2C에서는 [Microsoft 계정](active-directory-b2c-setup-msa-app.md), [Facebook](active-directory-b2c-setup-fb-app.md) 또는 [Amazon](active-directory-b2c-setup-amzn-app.md) 등을 비롯한 다양한 ID 공급자를 테넌트에서 구성할 수 있습니다. 
 
 Azure AD B2C 테넌트에서 ID 공급자를 구성하려면 응용 프로그램 식별자 또는 클라이언트 식별자와, 자신이 만든 ID 공급자 응용 프로그램의 암호나 클라이언트 암호를 기록해야 합니다. 그런 다음, 이 식별자와 암호를 사용하여 응용 프로그램을 구성합니다.
 
 ### <a name="user-interface-experience"></a>사용자 인터페이스 환경
 
-고객에게 표시되는 대부분의 HTML 및 CSS 콘텐츠는 제어가 가능합니다. 페이지 UI 사용자 지정 기능을 사용하면 모든 정책의 모양과 느낌을 사용자 지정할 수 있습니다. 또한 응용 프로그램과 Azure AD B2C 간에 브랜드와 시각적 개체 일관성을 유지할 수 있습니다.
+고객에게 표시되는 대부분의 HTML 및 CSS 콘텐츠는 제어가 가능합니다. 페이지 UI 사용자 지정 기능을 사용하면 모든 정책의 모양과 느낌을 사용자 지정할 수 있습니다. 이 사용자 지정 기능을 통해 응용 프로그램과 Azure AD B2C 간에 브랜드와 시각적 개체 일관성을 유지할 수 있습니다.
 
 Azure AD B2C는 소비자의 브라우저에서 코드를 실행하고 CORS(원본 간 리소스 공유)라는 최신 방법을 사용합니다. 먼저, 사용자 지정된 HTML 콘텐츠가 있는 정책에서 URL을 지정합니다. Azure AD B2C는 UI 요소를 URL에서 로드된 HTML 콘텐츠와 병합한 다음 고객에게 해당 페이지를 표시합니다.
 
-쿼리 문자열에서 Azure AD B2C에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 끝점으로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다.
+쿼리 문자열에서 Azure AD B2C에 매개 변수를 보냅니다. 매개 변수를 HTML 엔드포인트로 전달하면 페이지 콘텐츠가 동적으로 변경됩니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경합니다.
 
 ## <a name="how-do-i-get-started-with-azure-ad-b2c"></a>Azure AD B2C를 시작하는 방법
 
 Azure AD B2C에서 테넌트는 조직을 나타내며 사용자의 디렉터리입니다. 각 Azure AD B2C 테넌트는 서로 전혀 다르고 다른 Azure AD B2C 테넌트와 별개입니다. 테넌트는 응용 프로그램을 사용하기 위해 가입한 고객 관련 정보를 포함합니다. 암호, 프로필 데이터, 권한 등을 예로 들 수 있습니다.
 
-모든 기능을 활성화하고 사용 요금을 지불하기 위해 Azure 구독에 Azure AD B2C테넌트를 연결해야 합니다. Azure AD B2C 고객이 응용 프로그램에 로그인하도록 허용하려면 Azure AD B2C 테넌트에 응용 프로그램을 등록해야 합니다.
+모든 기능을 활성화하고 사용 요금을 지불하기 위해 Azure 구독에 Azure AD B2C테넌트를 연결합니다. 고객이 응용 프로그램에 로그인할 수 있게 하려면 Azure AD B2C 테넌트에 등록합니다.
 
 Azure AD B2C를 사용하도록 응용 프로그램을 구성하기에 앞서 Azure AD B2C 테넌트를 만들고 응용 프로그램을 등록해야 합니다. 응용 프로그램을 등록하려면 [자습서: Azure AD B2C를 통한 가입 및 로그인을 사용하도록 응용 프로그램 등록](tutorial-register-applications.md)의 단계를 완료합니다.
   
@@ -115,4 +115,4 @@ Node.js를 사용한 단일 페이지 응용 프로그램 개발자인 경우 [�
 자습서를 계속해 나가면서 가입 및 로그인 환경에 대한 응용 프로그램 구성을 시작해 봅니다.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure AD B2C를 가입 및 로그인에 사용하도록 응용 프로그램 등록](tutorial-register-applications.md)
+> [자습서: Azure Active Directory B2C 테넌트 만들기](tutorial-create-tenant.md)

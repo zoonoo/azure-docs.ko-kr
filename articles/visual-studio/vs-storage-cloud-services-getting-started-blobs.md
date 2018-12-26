@@ -7,16 +7,17 @@ manager: douge
 ms.assetid: 1144a958-f75a-4466-bb21-320b7ae8f304
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 2df69d9f180303f6c14433140d862c017b97148d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7f832164a41c2107a2cb9fdca3530b1f5d785cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796893"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253604"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -63,7 +64,7 @@ Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액
 
 ## <a name="create-a-container-in-code"></a>코드에서 컨테이너 만들기
 > [!NOTE]
-> ASP.NET의 Azure Storage에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx) 을 참조하세요. 다음 예제의 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
+> ASP.NET의 Azure Storage에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](https://msdn.microsoft.com/library/hh191443.aspx) 을 참조하세요. 다음 예제의 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
 > 
 > 
 
@@ -143,7 +144,7 @@ Azure Storage는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분의
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-선택적으로, **ListBlobs** 메서드의 **UseFlatBlobListing** 매개 변수를 **true**로 설정할 수 있습니다. 이 경우 디렉터리에 관계없이 모든 Blob이 **CloudBlockBlob**으로 반환됩니다. 다음은 **ListBlobs**호출입니다.
+선택적으로 **ListBlobs** 메서드의 **UseFlatBlobListing** 매개 변수를 **true**로 설정할 수 있습니다. 이 경우 디렉터리에 관계없이 모든 Blob이 **CloudBlockBlob**으로 반환됩니다. 다음은 **ListBlobs**호출입니다.
 
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, true))

@@ -3,23 +3,23 @@ title: Azure Security Center 조사에서 사용자 데이터 관리 | Microsoft
 description: " Azure Security Center 조사 기능에서 사용자 데이터를 관리하는 방법을 알아봅니다. "
 services: operations-management-suite
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: operations-management-suite
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2018
-ms.author: terrylan
-ms.openlocfilehash: 6685db4eeda72928753c74c64b4b26539ccb1eb9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 11/20/2018
+ms.author: rkarlin
+ms.openlocfilehash: 9e845d005af9481919472d8baba0aea17a877a5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660209"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992340"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Azure Security Center 조사에서 사용자 데이터 관리
 이 아티클에서는 Azure Security Center 조사 기능에서 사용자 데이터를 관리하는 방법에 대한 정보를 제공합니다. 조사 데이터는 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)에 저장되고 Security Center에 노출됩니다. 사용자 데이터 관리에는 데이터를 삭제하거나, 내보내는 기능이 포함됩니다.
@@ -58,3 +58,4 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 ## <a name="next-steps"></a>다음 단계
 사용자 데이터를 관리하는 방법에 대한 자세한 내용은 [Azure Security Center에서 사용자 데이터 관리](security-center-privacy.md)를 참조하세요.
+Log Analytics에서 개인 데이터 삭제에 관해 자세히 알아보려면 [개인 데이터를 내보내고 삭제하는 방법](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)을 참조하세요.

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: b6de6331b4d829f183c8b5dc03d6a29095a47479
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7dc60c18e105c9be190b5bfede786f61a65feec3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049335"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416939"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 주의할 사항:
 
 * 처리량은 다음 수식을 사용하여 계산됩니다. [원본에서 읽은 데이터의 크기]/[복사 작업 실행 기간]
-* 테이블의 성능 참조 번호는 [TPC-H](http://www.tpc.org/tpch/) 데이터 집합을 사용하여 단일 복사 작업 실행을 통해 측정된 것입니다.
+* 테이블의 성능 참조 번호는 [TPC-H](http://www.tpc.org/tpch/) 데이터 세트를 사용하여 단일 복사 작업 실행을 통해 측정된 것입니다. 파일 기반 저장소용 테스트 파일은 크기가 10GB인 파일 여러 개입니다.
 * Azure 데이터 저장소에서는 원본 및 싱크는 동일한 Azure 지역에 있습니다.
 * 온-프레미스와 클라우드 데이터 저장소 간 하이브리드 복사의 경우 각 자체 호스팅 Integration Runtime 노드는 아래 사양을 사용하는 데이터 저장소에서 분리된 컴퓨터에서 실행되었습니다. 단일 작업이 실행 중인 경우 복사 작업은 테스트 컴퓨터의 CPU, 메모리 또는 네트워크 대역폭의 작은 부분만 사용합니다.
     <table>
@@ -76,7 +76,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 
 > [!TIP]
-> 허용되는 기본 최대 DIU(데이터 통합 단위)보다 많은 DIU를 사용하여 처리량을 높일 수 있으며, 클라우드 간 복사 작업 실행의 경우 32입니다. 예를 들어 100개 DIU를 사용하는 경우, **1.0GBps** 속도로 Azure Blob에서 Azure Data Lake Store로 데이터 복사를 수행할 수 있습니다. 이 기능과 지원되는 시나리오에 대한 자세한 내용은 [데이터 통합 단위](#data-integration-units) 섹션을 참조하세요. DIU를 더 많이 요청하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
+> DIU(데이터 통합 단위)를 더 많이 사용하면 더 높은 처리량을 얻을 수 있습니다. 예를 들어 100개 DIU를 사용하는 경우, **1.0GBps** 속도로 Azure Blob에서 Azure Data Lake Store로 데이터 복사를 수행할 수 있습니다. 이 기능과 지원되는 시나리오에 대한 자세한 내용은 [데이터 통합 단위](#data-integration-units) 섹션을 참조하세요. 
 
 ## <a name="data-integration-units"></a>데이터 통합 단위
 
@@ -94,7 +94,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 작업 실행을 모니터링할 때 복사 작업 출력에서 각 복사 실행을 위해 실제로 사용되는 데이터 통합 단위를 확인할 수 있습니다. 자세한 내용은 [복사 작업 모니터링](copy-activity-overview.md#monitoring)을 참조하세요.
 
 > [!NOTE]
-> 처리량을 높이기 위해 더 많은 DIU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 8 이상의 설정은 현재 **Blob Storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP에서 여러 파일을 다른 클라우드 데이터 저장소로 복사**하는 경우에만 작동합니다.
+> **4를 초과**하는 DIU 설정은 현재 **Blob Storage/Data Lake Storage/Amazon S3/cloud FTP/cloud SFTP에서 여러 파일을 다른 클라우드 데이터 저장소로 복사하는 경우에만 작동합니다.**.
 >
 
 **예제:**

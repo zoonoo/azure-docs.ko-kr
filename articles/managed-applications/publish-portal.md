@@ -1,6 +1,6 @@
 ---
-title: 포털을 통해 Azure 관리되는 응용 프로그램 게시 | Microsoft Docs
-description: 조직의 구성원을 위한 Azure 관리되는 응용 프로그램을 Azure Portal을 사용하여 만드는 방법을 보여 줍니다.
+title: 포털을 통해 Azure 관리되는 애플리케이션 게시 | Microsoft Docs
+description: 조직의 구성원을 위한 Azure 관리되는 애플리케이션을 Azure Portal을 사용하여 만드는 방법을 보여 줍니다.
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 69d31a7199347574e8866b275ec17ba3997d80c2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e52acd8587203c4729ac2bcd6e4bbc09620ead86
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305126"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096039"
 ---
-# <a name="publish-a-service-catalog-application-through-azure-portal"></a>Azure Portal을 통해 서비스 카탈로그 응용 프로그램 게시
+# <a name="publish-a-service-catalog-application-through-azure-portal"></a>Azure Portal을 통해 서비스 카탈로그 애플리케이션 게시
 
-조직의 구성원을 위한 Azure [관리되는 응용 프로그램](overview.md)을 Azure Portal을 사용하여 게시할 수 있습니다. 예를 들어 조직 표준을 준수하도록 하는 IT 부서에서 관리되는 응용 프로그램을 게시할 수 있습니다. 이러한 관리되는 응용 프로그램은 Azure Marketplace가 아닌 서비스 카탈로그를 통해 사용할 수 있습니다.
+조직의 구성원을 위한 Azure [관리되는 애플리케이션](overview.md)을 Azure Portal을 사용하여 게시할 수 있습니다. 예를 들어 조직 표준을 준수하도록 하는 IT 부서에서 관리되는 응용 프로그램을 게시할 수 있습니다. 이러한 관리되는 애플리케이션은 Azure Marketplace가 아닌 서비스 카탈로그를 통해 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-관리되는 응용 프로그램을 게시하려면 리소스를 관리할 ID를 지정합니다. Azure Active Directory 사용자 그룹을 지정하는 것이 좋습니다. 새 Azure Active Directory 사용자 그룹을 만들려면 [그룹을 만들고 Azure Active Directory에 구성원 추가](../active-directory/active-directory-groups-create-azure-portal.md)를 참조하세요. 
+관리되는 애플리케이션을 게시하려면 리소스를 관리할 ID를 지정합니다. Azure Active Directory 사용자 그룹을 지정하는 것이 좋습니다. 새 Azure Active Directory 사용자 그룹을 만들려면 [그룹을 만들고 Azure Active Directory에 구성원 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. 
 
-관리되는 응용 프로그램 정의가 포함된 .zip 파일은 URI를 통해 제공되어야 합니다.  저장소 Blob에 .zip 파일을 업로드하는 것이 좋습니다. 
+관리되는 애플리케이션 정의가 포함된 .zip 파일은 URI를 통해 제공되어야 합니다. 저장소 Blob에 .zip 파일을 업로드하는 것이 좋습니다. 
 
 ## <a name="create-managed-application-with-portal"></a>포털을 사용하여 관리되는 응용 프로그램 만들기
 
@@ -62,5 +62,5 @@ ms.locfileid: "34305126"
 ## <a name="next-steps"></a>다음 단계
 
 * 관리되는 응용 프로그램에 대한 소개는 [관리되는 응용 프로그램 개요](overview.md)를 참조하세요.
-* 관리되는 응용 프로그램 예제는 [Azure 관리되는 응용 프로그램의 샘플 프로젝트](sample-projects.md)를 참조하세요.
+* 관리되는 애플리케이션 예제는 [Azure 관리되는 애플리케이션의 샘플 프로젝트](sample-projects.md)를 참조하세요.
 * 관리되는 응용 프로그램에 대한 UI 정의 파일을 만드는 방법은 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.

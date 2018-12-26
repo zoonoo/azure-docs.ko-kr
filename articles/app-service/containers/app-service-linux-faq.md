@@ -1,11 +1,11 @@
 ---
 title: Linux의 Azure App Service에 대한 FAQ | Microsoft Docs
 description: Linux의 Azure App Service에 대한 FAQ.
-keywords: Azure App Service, 웹앱, faq, linux, oss
+keywords: Azure App Service, 웹앱, FAQ, Linux, OS, 컨테이너에 대한 웹앱, 다중 컨테이너, 다중 컨테이너
 services: app-service
 documentationCenter: ''
-author: ahmedelnably
-manager: cfowler
+author: yili
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
-ms.author: msangapu
-ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 10/30/2018
+ms.author: yili
+ms.openlocfilehash: 94e61cf5bf4f629dfd776cf9ea2ae54233e91dc6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222980"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417585"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -66,7 +66,7 @@ Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니�
 
 예.
 
-***웹 배포*를 사용하여 내 웹앱을 설정할 수 있나요?**
+***WebDeploy/MSDeploy* 를 사용하여 내 웹앱을 배포할 수 있나요?**
 
 예. `WEBSITE_WEBDEPLOY_USE_SCM`이라는 앱 설정을 *false*로 설정해야 합니다.
 
@@ -74,7 +74,7 @@ Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니�
 
 Linux 웹앱에 대한 Git 배포가 실패하면 다음 옵션 중 하나를 선택하여 응용 프로그램 코드를 배포할 수 있습니다.
 
-- 지속적인 업데이트(미리 보기) 기능 사용: Azure 지속적인 업데이트를 사용하도록 Team Services Git 리포지토리 또는 GitHub 리포지토리에 앱의 소스 코드를 저장할 수 있습니다. 자세한 내용은 [Linux 웹앱에 지속적인 업데이트를 구성하는 방법](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)을 참조하세요.
+- 지속적인 업데이트(미리 보기) 기능 사용: Azure 지속적인 업데이트를 사용하도록 Azure DevOps Git 리포지토리 또는 GitHub 리포지토리에 앱의 소스 코드를 저장할 수 있습니다. 자세한 내용은 [Linux 웹앱에 지속적인 업데이트를 구성하는 방법](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)을 참조하세요.
 
 - [ZIP 배포 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) 사용: 이 API를 사용하려면 [웹앱에 SSH를 실행하고](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) 코드를 배포할 폴더로 이동합니다. 다음 코드를 실행합니다.
 
@@ -92,7 +92,7 @@ Linux 웹앱에 대한 Git 배포가 실패하면 다음 옵션 중 하나를 �
 
 ```nodejs
 var io = require('socket.io')(server,{
-  perMessageDeflate :false
+  perMessageDeflate :false
 });
 ```
 
@@ -123,7 +123,7 @@ var io = require('socket.io')(server,{
 
 **개인 레지스트리 옵션에서 이미지 이름의 형식은 무엇인가요?**
 
-개인 레지스트리 URL(예: myacr.azurecr.io/dotnet:latest)을 포함하여 전체 이미지 이름을 추가합니다. 사용자 지정 포트를 사용하는 이미지 이름은 [포털을 통해 입력할 수 없습니다](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). `docker-custom-image-name`을 설정하려면 [`az` 명령줄 도구](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set)를 사용합니다.
+개인 레지스트리 URL(예: myacr.azurecr.io/dotnet:latest)을 포함하여 전체 이미지 이름을 추가합니다. 사용자 지정 포트를 사용하는 이미지 이름은 [포털을 통해 입력할 수 없습니다](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). `docker-custom-image-name`을 설정하려면 [`az` 명령줄 도구](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)를 사용합니다.
 
 **사용자 지정 컨테이너 이미지에 포트를 두 개 이상 표시할 수 있나요?**
 
@@ -144,6 +144,35 @@ SCM 사이트는 별도의 컨테이너에서 실행됩니다. 사용자가 앱 
 **사용자 지정 컨테이너에서 HTTPS를 구현해야 하나요?**
 
 아니요. 플랫폼에서는 공유 프런트 엔드에서 HTTPS 종료를 처리합니다.
+
+## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Docker Compose 및 Kubernetes를 사용한 다중 컨테이너
+
+**다중 컨테이너를 사용하도록 ACR(Azure Container Registry)을 구성하려면 어떻게 할까요?**
+
+다중 컨테이너에서 ACR을 사용하기 위해 **모든 컨테이너 이미지**는 동일한 ACR 레지스트리 서버에 호스트되어야 합니다. 동일한 레지스트리 서버에 위치하면 응용 프로그램 설정을 만든 다음, Docker Compose 또는 Kubernetes 구성 파일을 업데이트하여 ACR 이미지 이름을 포함해야 합니다.
+
+다음 응용 프로그램 설정을 만듭니다.
+
+- DOCKER_REGISTRY_SERVER_USERNAME
+- DOCKER_REGISTRY_SERVER_URL(전체 URL, 예: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_PASSWORD(ACR 설정에서 관리자 액세스 사용)
+
+구성 파일 내에서 다음 예제와 같이 ACR 이미지를 참조합니다.
+
+```yaml
+image: <server-name>.azurecr.io/<image-name>:<tag>
+```
+
+**인터넷에 액세스할 수 있는 컨테이너를 알려면 어떻게 할까요?**
+
+- 하나의 컨테이너만이 액세스에 열릴 수 있습니다.
+- 포트 80 및 8080만이 액세스될 수 있습니다(노출된 포트)
+
+우선 순위로 액세스할 수 있는 컨테이너를 결정하는 규칙은 다음과 같습니다.
+
+- 컨테이너 이름으로 설정된 응용 프로그램 설정 `WEBSITES_WEB_CONTAINER_NAME`
+- 포트 80 또는 8080을 정의하는 첫 번째 컨테이너
+- 위의 조건이 모두 true가 아닌 경우 파일에 정의된 첫 번째 컨테이너는 액세스될 수 있습니다(노출됨).
 
 ## <a name="pricing-and-sla"></a>가격 및 SLA
 

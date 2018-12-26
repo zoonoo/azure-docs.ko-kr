@@ -1,31 +1,26 @@
 ---
-title: HDInsight에서 Curl을 통해 Hadoop Hive 사용 - Azure | Microsoft Docs
-description: 원격으로 Curl을 사용하여 HDInsight에 Pig 작업을 제출하는 방법에 대해 알아봅니다.
+title: HDInsight에서 Curl과 Apache Hadoop Hive 사용 - Azure
+description: Curl을 사용하여 HDInsight에 Apache Pig 작업을 원격으로 제출하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 6ce18163-63b5-4df6-9bb6-8fcbd4db05d8
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: f602cf45165625ec252f2e29cb9b0e5ed878f3a8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: hrasheed
+ms.openlocfilehash: cff24991263ece54c143e5da8a3eb2a9e5b4af18
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170257"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634501"
 ---
-# <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행
+# <a name="run-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop과 함께 Hive 쿼리 실행
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Hadoop으로 Hive 쿼리를 실행하는 방법에 대해 알아보세요.
+WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Apache Hadoop과 함께 Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -176,7 +171,7 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Hadoop으로
 
 6. 작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 경우 `/example/rest`)가 포함됩니다. 이 주소는 클러스터 기본 저장소의 `example/curl` 디렉터리에 출력을 저장합니다.
 
-    [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure Storage에서 Azure CLI를 사용하는 방법에 대한 자세한 내용은 [Azure Storage에서 Azure CLI 2.0 사용](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) 문서를 참조하세요.
+    [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure Storage에서 Azure CLI를 사용하는 방법에 대한 자세한 내용은 [Azure Storage에서 Azure CLI 사용](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) 문서를 참조하세요.
 
 ## <a id="nextsteps"></a>다음 단계
 
@@ -194,8 +189,6 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 * [Linux 기반 HDInsight에서 Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
 
 이 문서에 사용된 REST API에 대한 자세한 내용은 [WebHCat 참조](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) 문서를 참조하세요.
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

@@ -1,3 +1,16 @@
+---
+author: spelluru
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: spelluru
+ms.openlocfilehash: ef6d5d22f70d5fff38f90b457a7c945ab59fc67c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331249"
+---
 ## <a name="what-are-service-bus-topics-and-subscriptions"></a>Service Bus 토픽 및 구독 정의
 Service Bus 토픽 및 구독은 *게시/구독* 메시징 통신 모델을 지원합니다. 토픽 및 구독을 사용하는 경우 분산 응용 프로그램의 구성 요소가 서로 직접 통신하지 않고 중간자 역할을 하는 토픽을 통해 메시지를 교환합니다.
 
@@ -10,7 +23,7 @@ Service Bus 토픽 및 구독은 *게시/구독* 메시징 통신 모델을 지�
 Service Bus 토픽 및 구독을 사용하면 다수의 사용자와 응용 프로그램에 대해 많은 메시지를 확장하고 처리할 수 있습니다.
 
 ## <a name="create-a-namespace"></a>네임스페이스 만들기
-Azure에서 Service Bus 토픽 및 구독 사용을 시작하려면 먼저 *서비스 네임스페이스*를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
+Azure에서 Service Bus 토픽 및 구독 사용을 시작하려면 먼저 *서비스 네임스페이스*를 만들어야 합니다. 네임스페이스는 애플리케이션 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
 
 네임스페이스를 만들려면
 

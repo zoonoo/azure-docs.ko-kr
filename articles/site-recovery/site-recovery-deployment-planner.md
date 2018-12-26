@@ -1,27 +1,20 @@
 ---
-title: VMware에서 Azure로의 Azure Site Recovery Deployment Planner | Microsoft Docs
-description: Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
-services: site-recovery
-documentationcenter: ''
+title: Azure로 VMware VM 재해 복구를 위한 Azure Site Recovery Deployment Planner 정보 | Microsoft Docs
+description: Azure로 VMware VM 재해 복구를 위한 Azure Site Recovery Deployment Planner에 대해 알아봅니다.
 author: nsoneji
 manager: garavd
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 66dda70e2f9b4c0235434fd91a061b43e2489bdf
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5aade5a2ad0b0f51c5bd7f53ed0ee191950aa7c4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915863"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213324"
 ---
-# <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware에서 Azure로 Azure Site Recovery Deployment Planner
+# <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
 
 ## <a name="overview"></a>개요
@@ -72,7 +65,7 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 
 | | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
 --|--|--|--|--|--
-지원되는 시나리오 |예|예|아니오|예*|아니오
+지원되는 시나리오 |yes|yes|아니요|예*|아니요
 지원되는 버전 | vCenter 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | 해당 없음 |Windows Server 2016, Windows Server 2012 R2|해당 없음
 지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|해당 없음|Hyper-V 클러스터, Hyper-V 호스트|해당 없음|
 Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| 해당 없음 |여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| 해당 없음
@@ -84,8 +77,8 @@ Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 �
 
 | 서버 요구 사항 | 설명|
 |---|---|
-|프로파일링 및 처리량 측정| <ul><li>운영 체제: Windows Server 2016 또는 Windows Server 2012 R2<br>(적어도 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)을 일치하는 것이 이상적)</li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual Studio 2012용 Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 평균 3개의 디스크가 있는 1,000개의 VM 가정하에 30일 동안 프로파일링)</li><li>VMware vCenter 통계 수준 설정은 2 이상으로 설정되어야 합니다.</li><li>443 포트 허용: Site Recovery Deployment Planner는 이 포트를 사용하여 vCenter 서버/ESXi 호스트에 연결합니다.</ul></ul>|
-| 보고서 생성 | Excel 2013 이상이 설치된 Windows PC 또는 Windows Server |
+|프로파일링 및 처리량 측정| <ul><li>운영 체제: Windows Server 2016 또는 Windows Server 2012 R2<br>(적어도 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)을 일치하는 것이 이상적)</li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual Studio 2012용 Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 평균 3개의 디스크가 있는 1,000개의 VM 가정하에 30일 동안 프로파일링)</li><li>VMware vCenter 통계 수준 설정은 1 이상일 수 있습니다.</li><li>vCenter 포트 허용(기본 443): Site Recovery Deployment Planner는 이 포트를 사용하여 vCenter 서버/ESXi 호스트에 연결합니다.</ul></ul>|
+| 보고서 생성 | Excel 2013 이상이 설치된 Windows PC 또는 Windows Server<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012용 Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)은 VM의 최신 VM 구성 정보를 가져오기 위해 보고서 생성 명령에 사용자 옵션을 전달하는 경우에만 필요합니다. Depolyment Planner는 vCenter 서버에 연결됩니다. vCenter 포트(기본값 443)를 vCenter 서버에 연결하도록 허용합니다.</li>|
 | 사용자 권한 | 프로파일링 중에 VMware vCenter 서버/VMware vSphere ESXi 호스트에 액세스하는 데 사용되는 사용자 계정에 대한 읽기 전용 권한 |
 
 > [!NOTE]

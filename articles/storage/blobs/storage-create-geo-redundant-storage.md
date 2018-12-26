@@ -1,25 +1,24 @@
 ---
 title: Azure에서 응용 프로그램 데이터의 고가용성 지원 | Microsoft Docs
-description: 읽기 액세스 지역 중복 저장소를 사용하여 응용 프로그램 데이터의 고가용성을 지원하세요.
+description: 읽기 액세스 지역 중복 스토리지를 사용하여 애플리케이션 데이터의 고가용성을 지원하세요.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
 ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 8cf96059b1bbfbad24bf28fec9ddb0aa930adbad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: blobs
+ms.openlocfilehash: 162b30444a22ea193d93e8a6a2c7374dcd2f5fd3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193777"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415987"
 ---
-# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Azure Storage를 통해 응용 프로그램 데이터의 고가용성 지원
+# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>자습서: Azure 저장소를 통해 응용 프로그램 데이터의 고가용성 향상
 
-이 자습서는 Azure에서 응용 프로그램 데이터의 고가용성을 높이는 방법을 보여 주는 시리즈 중 제1부입니다. 작업을 완료하면 [RA-GRS](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)(읽기 액세스 지역 중복 저장소) 계정으로 Blob을 업로드하고 검색하는 콘솔 응용 프로그램을 갖게 됩니다. RA-GRS는 주 지역에서 보조 지역으로 트랜잭션을 복제하는 방식으로 작동합니다. 복제 프로세스는 보조 지역의 데이터가 결과적으로 일치하도록 보장합니다. 이 응용 프로그램은 [회로 차단기](/azure/architecture/patterns/circuit-breaker) 패턴을 사용하여 연결할 끝점을 결정하고 오류가 시뮬레이션되면 보조 끝점으로 전환합니다.
+이 자습서는 Azure에서 응용 프로그램 데이터의 고가용성을 높이는 방법을 보여 주는 시리즈 중 제1부입니다. 작업을 완료하면 [RA-GRS](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)(읽기 액세스 지역 중복)스토리지 계정으로 Blob을 업로드하고 검색하는 콘솔 애플리케이션을 갖게 됩니다. RA-GRS는 주 지역에서 보조 지역으로 트랜잭션을 복제하는 방식으로 작동합니다. 복제 프로세스는 보조 지역의 데이터가 결과적으로 일치하도록 보장합니다. 이 응용 프로그램은 [회로 차단기](/azure/architecture/patterns/circuit-breaker) 패턴을 사용하여 연결할 엔드포인트를 결정하고 오류가 시뮬레이션되면 보조 끝점으로 전환합니다.
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
@@ -27,7 +26,7 @@ ms.locfileid: "32193777"
 > * 저장소 계정 만들기
 > * 샘플 다운로드
 > * 연결 문자열 설정
-> * 콘솔 응용 프로그램 실행
+> * 콘솔 애플리케이션 실행
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -47,10 +46,10 @@ ms.locfileid: "32193777"
 * [Python용 Azure Storage SDK](https://github.com/Azure/azure-storage-python) 다운로드 및 설치
 * (선택 사항) [Fiddler](https://www.telerik.com/download/fiddler) 다운로드 및 설치
 
-# <a name="java-tabjava"></a>[Java](#tab/java)
+# <a name="java-tabjava"></a>[Java] (#tab/java)
 
 * 명령줄에서 작동할 수 있게 [Maven](http://maven.apache.org/download.cgi) 설치 및 구성
-* [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 설치 및 구성
+* [JDK](https://aka.ms/azure-jdks) 설치 및 구성
 
 ---
 
@@ -89,7 +88,7 @@ ms.locfileid: "32193777"
 
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-[샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)하고, storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드할 수 있습니다. 샘플 프로젝트는 콘솔 응용 프로그램을 포함합니다.
+[샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)하고, storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드할 수 있습니다. 샘플 프로젝트는 콘솔 애플리케이션을 포함합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
@@ -102,8 +101,8 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-tabjava"></a>[Java](#tab/java)
-[샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-java-ha-ra-grs)하고 storage-java-ragrs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드할 수 있습니다. 샘플 프로젝트에는 기본 Java 응용 프로그램이 포함되어 있습니다.
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+[샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-java-ha-ra-grs)하고 storage-java-ragrs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드할 수 있습니다. 샘플 프로젝트에는 기본 Java 애플리케이션이 포함되어 있습니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
@@ -113,7 +112,7 @@ git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 
 ## <a name="set-the-connection-string"></a>연결 문자열 설정
 
-응용 프로그램에서 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 이 연결 문자열은 응용 프로그램을 실행하는 로컬 컴퓨터의 환경 변수 내에 저장하는 것이 좋습니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
+응용 프로그램에서 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 이 연결 문자열은 애플리케이션을 실행하는 로컬 컴퓨터의 환경 변수 내에 저장하는 것이 좋습니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
 
 Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. 기본 또는 보조 키에서 **연결 문자열**을 복사합니다. 운영 체제에 따라 다음 명령 중 하나를 실행하여 \<yourconnectionstring\>을 실제 연결 문자열로 바꿉니다. 이 명령은 로컬 컴퓨터에 환경 변수를 저장합니다. Windows에서 사용 중인 **명령 프롬프트** 또는 셸을 다시 로드할 때까지 환경 변수를 사용할 수 없습니다. 다음 샘플에서 **\<storageConnectionString\>** 을 바꿉니다.
 
@@ -126,19 +125,19 @@ setx storageconnectionstring "\<yourconnectionstring\>"
 ---
 
 
-## <a name="run-the-console-application"></a>콘솔 응용 프로그램 실행
+## <a name="run-the-console-application"></a>콘솔 애플리케이션 실행
 
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 Visual Studio에서 **F5** 키를 누르거나 **시작**을 클릭하여 응용 프로그램 디버깅을 시작합니다. Visual Studio는 구성된 경우 누락된 NuGet 패키지를 자동으로 복원합니다. 자세한 내용은 [패키지 복원으로 패키지 설치 및 다시 설치](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview)에서 확인하세요.
 
-콘솔 창에서 시작하고 응용 프로그램이 실행을 시작합니다. 응용 프로그램은 **HelloWorld.png** 이미지를 솔루션에서 저장소 계정으로 업로드합니다. 응용 프로그램은 해당 이미지를 보조 RA-GRS 끝점으로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 끝점을 나타내고 **S**는 보조 끝점을 나타냅니다.
+콘솔 창에서 시작하고 애플리케이션이 실행을 시작합니다. 응용 프로그램은 **HelloWorld.png** 이미지를 솔루션에서 저장소 계정으로 업로드합니다. 응용 프로그램은 해당 이미지를 보조 RA-GRS 엔드포인트로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 끝점을 나타내고 **S**는 보조 끝점을 나타냅니다.
 
 ![콘솔 앱 실행](media/storage-create-geo-redundant-storage/figure3.png)
 
-샘플 코드에서 `Program.cs` 파일의 `RunCircuitBreakerAsync` 작업은 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) 메서드를 사용하여 저장소 계정에서 이미지를 다운로드하는 데 사용합니다. 다운로드하기 전에 [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet)가 정의됩니다. 작업 컨텍스트는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도하는 경우 생성되는 이벤트 처리기를 정의합니다.
+샘플 코드에서 `Program.cs` 파일의 `RunCircuitBreakerAsync` 작업은 [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 저장소 계정에서 이미지를 다운로드하는 데 사용합니다. 다운로드하기 전에 [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet)가 정의됩니다. 작업 컨텍스트는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도하는 경우 생성되는 이벤트 처리기를 정의합니다.
 
 # <a name="python-tabpython"></a>[Python] (#tab/python) 
-터미널 또는 명령 프롬프트에서 응용 프로그램을 실행하려면 **circuitbreaker.py** 디렉터리로 이동한 다음, `python circuitbreaker.py`를 입력합니다. 응용 프로그램은 **HelloWorld.png** 이미지를 솔루션에서 저장소 계정으로 업로드합니다. 응용 프로그램은 해당 이미지를 보조 RA-GRS 끝점으로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 끝점을 나타내고 **S**는 보조 끝점을 나타냅니다.
+터미널 또는 명령 프롬프트에서 응용 프로그램을 실행하려면 **circuitbreaker.py** 디렉터리로 이동한 다음, `python circuitbreaker.py`를 입력합니다. 응용 프로그램은 **HelloWorld.png** 이미지를 솔루션에서 저장소 계정으로 업로드합니다. 응용 프로그램은 해당 이미지를 보조 RA-GRS 엔드포인트로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S**로 나타납니다. 여기서 **P**는 기본 끝점을 나타내고 **S**는 보조 끝점을 나타냅니다.
 
 ![콘솔 앱 실행](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -148,10 +147,10 @@ Storage 개체 retry 함수는 선형 다시 시도 정책으로 설정됩니다
  
 다운로드하기 전에 Service 개체 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 및 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 함수가 정의됩니다. 이러한 함수는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도할 때 발생하는 이벤트 처리기를 정의합니다.  
 
-# <a name="java-tabjava"></a>[Java](#tab/java)
-다운로드한 응용 프로그램 폴더로 범위가 지정된 터미널 또는 명령 프롬프트를 열어 응용 프로그램을 실행할 수 있습니다. 여기에서 `mvn compile exec:java`를 입력하여 응용 프로그램을 실행합니다. 그런 다음, 응용 프로그램은 **HelloWorld.png** 이미지를 디렉터리에서 저장소 계정으로 업로드하고, 이미지가 보조 RA-GRS 끝점에 복제되었는지 확인합니다. 검사가 완료되면 다운로드하는 끝점을 다시 보고하는 동안 응용 프로그램은 이미지를 반복해서 다운로드하기 시작합니다.
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+다운로드한 응용 프로그램 폴더로 범위가 지정된 터미널 또는 명령 프롬프트를 열어 응용 프로그램을 실행할 수 있습니다. 여기에서 `mvn compile exec:java`를 입력하여 응용 프로그램을 실행합니다. 그런 다음, 응용 프로그램은 **HelloWorld.png** 이미지를 디렉터리에서 저장소 계정으로 업로드하고, 이미지가 보조 RA-GRS 엔드포인트에 복제되었는지 확인합니다. 검사가 완료되면 다운로드하는 엔드포인트를 다시 보고하는 동안 응용 프로그램은 이미지를 반복해서 다운로드하기 시작합니다.
 
-Storage 개체 retry 함수는 선형 다시 시도 정책을 사용하도록 설정됩니다. retry 함수는 요청을 다시 시도할지 여부를 결정하고, 각 다시 시도 사이에 대기할 시간(초)을 지정합니다. **BlobRequestOptions**의 **LocationMode** 속성은 **PRIMARY\_THEN\_SECONDARY**로 설정됩니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
+Storage 개체 retry 함수는 선형 다시 시도 정책을 사용하도록 설정됩니다. retry 함수는 요청을 다시 시도할지 여부를 결정하고, 각 다시 시도 사이에 대기할 시간(초)을 지정합니다. **BlobRequestOptions**의 **LocationMode** 속성은 **PRIMARY\_THEN\_SECONDARY**로 설정됩니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 애플리케이션이 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
 
 ---
 
@@ -161,7 +160,7 @@ Storage 개체 retry 함수는 선형 다시 시도 정책을 사용하도록 �
 
 ### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
 
-이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `OperationContextRetrying` 이벤트 처리기가 호출됩니다. 응용 프로그램에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)가 `SecondaryOnly`로 변경됩니다. 이 설정을 사용하면 응용 프로그램이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 끝점이 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
+이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `OperationContextRetrying` 이벤트 처리기가 호출됩니다. 응용 프로그램에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)가 `SecondaryOnly`로 변경됩니다. 이 설정을 사용하면 응용 프로그램이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 엔드포인트가 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
  
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -212,7 +211,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 ### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
 
-이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `retry_callback` 이벤트 처리기가 호출됩니다. 응용 프로그램에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python)가 `SECONDARY`로 변경됩니다. 이 설정을 사용하면 응용 프로그램이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 끝점이 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.  
+이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `retry_callback` 이벤트 처리기가 호출됩니다. 응용 프로그램에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python)가 `SECONDARY`로 변경됩니다. 이 설정을 사용하면 응용 프로그램이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 엔드포인트가 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.  
 
 ```python
 def retry_callback(retry_context):
@@ -250,9 +249,9 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-tabjava"></a>[Java](#tab/java)
+# <a name="java-tabjava"></a>[Java] (#tab/java)
 
-**BlobRequestOptions**의 **LocationMode** 속성이 **PRIMARY\_THEN\_SECONDARY**로 설정된 경우 Java를 사용하여 콜백 처리기를 정의할 필요가 없습니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
+**BlobRequestOptions**의 **LocationMode** 속성이 **PRIMARY\_THEN\_SECONDARY**로 설정된 경우 Java를 사용하여 콜백 처리기를 정의할 필요가 없습니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 애플리케이션이 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
 
 ```java
     BlobRequestOptions myReqOptions = new BlobRequestOptions();
@@ -267,15 +266,15 @@ def response_callback(response):
 
 ## <a name="next-steps"></a>다음 단계
 
-시리즈의 파트 1에서는 다음과 같이 RA-GRS 저장소 계정으로 응용 프로그램의 고가용성을 지원하는 방법에 대해 알아봤습니다.
+시리즈의 파트 1에서는 다음과 같이 RA-GRS 스토리지 계정으로 애플리케이션의 고가용성을 지원하는 방법에 대해 알아봤습니다.
 
 > [!div class="checklist"]
 > * 저장소 계정 만들기
 > * 샘플 다운로드
 > * 연결 문자열 설정
-> * 콘솔 응용 프로그램 실행
+> * 콘솔 애플리케이션 실행
 
-시리즈의 파트 2로 진행하여 오류를 시뮬레이션하고 보조 RA-GRS 끝점을 사용하도록 응용 프로그램을 강제하는 방법을 알아 보세요.
+시리즈의 파트 2로 진행하여 오류를 시뮬레이션하고 보조 RA-GRS 엔드포인트를 사용하도록 응용 프로그램을 강제하는 방법을 알아 보세요.
 
 > [!div class="nextstepaction"]
 > [기본 저장소 끝점 연결 오류 시뮬레이션](storage-simulate-failure-ragrs-account-app.md)

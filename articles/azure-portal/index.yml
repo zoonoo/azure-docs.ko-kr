@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: ceab905b2baf87446238d44151146b5066e55335
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079743"
+documentType: LandingData
+title: Azure Portal 사용자 지정 설명서
+metadata:
+  description: Azure Portal을 사용자 지정하는 방법에 대해 알아보세요.
+  services: azure portal
+  documentationcenter: ''
+  author: cwatson-cat
+  manager: dougeby
+  editor: ''
+  ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
+  ms.service: azure-portal
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.tgt_pltfrm: na
+  ms.workload: na
+  ms.date: 10/08/2018
+  ms.author: cwatson
+abstract:
+  description: Azure Portal은 웹 기반 통합 콘솔로, 간단한 웹앱에서 복잡한 클라우드 응용 프로그램까지 모든 것을 빌드, 관리 및 모니터링할 수 있습니다. 여기에는 사용자 지정 가능한 대시보드 및 접근성 옵션이 포함됩니다.
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/azure-preview-portal-supported-browsers-devices
+      html: <p>모든 최신 데스크톱, 태블릿 디바이스 및 브라우저에서 Azure Portal을 실행하세요.</p>
+      title: 지원되는 브라우저 및 디바이스
+    - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
+      html: <p>Azure Portal에서 대비 또는 색 구성표를 변경하세요.</p>
+      title: 고대비 켜기
+    - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
+      html: <p>Azure Portal 전반에서 작동하는 바로 가기 키에 대해 알아보세요.</p>
+      title: 바로 가기 키
+    - href: /azure/azure-portal/azure-portal-dashboards
+      html: <p>여러 개의 대시보드를 만들고 Azure 구독에 액세스할 수 있는 다른 사용자와 공유하세요.</p>
+      title: Azure 대시보드 만들기 및 공유
+    - href: /azure/azure-portal/azure-portal-dashboard-share-access
+      html: <p>조직의 다른 사용자와 대시보드를 게시하고 공유하세요.</p>
+      title: RBAC를 사용하여 대시보드 공유
+    - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
+      html: <p>조직용 대시보드를 프로그래밍 방식으로 만들기 및 게시</p>
+      title: Azure 대시보드를 프로그래밍 방식으로 만들기

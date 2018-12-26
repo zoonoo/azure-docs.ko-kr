@@ -2,24 +2,27 @@
 title: XTP 메모리 내 저장소 모니터링 | Microsoft Docs
 description: XTP 메모리 내 저장소 사용, 용량을 예측 및 모니터링합니다. 41823 용량 오류를 해결합니다.
 services: sql-database
-author: jodebrui
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: monitor
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: jodebrui
 ms.author: jodebrui
-ms.openlocfilehash: f74c9bf06cad8b84d08baf7a0a0504b9cb729bf4
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: ac7b568d95b9a2c382b1c167965942f0733012c4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308682"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874926"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>메모리 내 OLTP 저장소 모니터링
 [메모리 내 OLTP](sql-database-in-memory.md)를 사용하는 경우 메모리 최적화 테이블 및 테이블 변수에 있는 데이터는 메모리 내 OLTP 저장소에 상주합니다. 각 프리미엄 및 중요 비즈니스용 서비스 계층에는 최대 메모리 내 OLTP 저장소 크기가 포함됩니다. [DTU 기반 리소스 제한 - 단일 데이터베이스](sql-database-dtu-resource-limits-single-databases.md), [DTU 기반 리소스 제한 - 탄력적 풀](sql-database-dtu-resource-limits-elastic-pools.md), [vCore 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md) 및 [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.
 
-이 제한이 초과되면 삽입 및 업데이트 작업이 실패할 수 있습니다(독립 실행형 데이터베이스의 경우 오류 41823, 탄력적 풀의 경우 오류 41840). 해당 시점에서 데이터를 삭제하여 메모리를 회수하거나 데이터베이스의 성능 계층을 업그레이드해야 합니다.
+이 제한이 초과되면 삽입 및 업데이트 작업이 실패할 수 있습니다(단일 데이터베이스의 경우 오류 41823, 탄력적 풀의 경우 오류 41840). 해당 시점에서 데이터를 삭제하여 메모리를 회수하거나 데이터베이스의 성능 계층 또는 계산 크기를 업그레이드해야 합니다.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>데이터가 메모리 내 OLTP 저장소 용량에 맞는지 여부 결정
 다른 서비스 계층의 저장소 용량을 결정합니다. [DTU 기반 리소스 제한 - 단일 데이터베이스](sql-database-dtu-resource-limits-single-databases.md), [DTU 기반 리소스 제한 - 탄력적 풀](sql-database-dtu-resource-limits-elastic-pools.md), [vCore 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md) 및 [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.
@@ -29,7 +32,7 @@ ms.locfileid: "36308682"
 테이블 및 테이블 변수 행뿐만 아니라 인덱스가 최대 사용자 데이터 크기를 계산합니다. 또한 ALTER TABLE은 전체 테이블 및 인덱스의 새 버전을 만들기 위해 충분한 공간이 필요합니다.
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
-메모리 내 저장소 사용량을 [Azure Portal](https://portal.azure.com/)에서 성능 계층에 대한 저장소 용량 비율로 모니터링할 수 있습니다. 
+메모리 내 저장소 사용량을 [Azure Portal](https://portal.azure.com/)에서 계산 크기에 대한 저장소 용량 비율로 모니터링할 수 있습니다. 
 
 1. 데이터베이스 블레이드에서 리소스 사용률 상자를 찾고 편집을 클릭합니다.
 2. 메트릭 `In-Memory OLTP Storage percentage`을 참조하세요.
@@ -41,7 +44,7 @@ ms.locfileid: "36308682"
 
 
 ## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>메모리 내 OLTP 저장소 부족 상황 수정 - 오류 41823 및 41840
-데이터베이스에서 메모리 내 OLTP 저장소 용량에 도달하면 독립 실행형 데이터베이스의 경우 오류 메시지 41823 또는 탄력적 풀의 경우 오류 41840과 함께 INSERT, UPDATE, ALTER 및 CREATE 작업이 실패할 수 있습니다. 두 오류 모두 활성 트랜잭션이 중단됩니다.
+데이터베이스에서 메모리 내 OLTP 저장소 용량에 도달하면 단일 데이터베이스의 경우 오류 메시지 41823 또는 탄력적 풀의 경우 오류 41840과 함께 INSERT, UPDATE, ALTER 및 CREATE 작업이 실패할 수 있습니다. 두 오류 모두 활성 트랜잭션이 중단됩니다.
 
 오류 메시지 41823 및 41840은 데이터베이스 또는 풀에서 메모리에 최적화된 테이블 및 테이블 변수가 최대 메모리 내 OLTP 저장소 크기에 도달했음을 나타냅니다.
 

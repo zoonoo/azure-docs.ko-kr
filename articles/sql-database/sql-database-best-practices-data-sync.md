@@ -2,18 +2,22 @@
 title: Azure SQL 데이터 동기화에 대한 모범 사례 | Microsoft Docs
 description: Azure SQL 데이터 동기화의 구성 및 실행에 대한 모범 사례를 알아봅니다.
 services: sql-database
-ms.date: 04/01/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
+ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 10/22/2018
+ms.openlocfilehash: fa5ce7264fd003e0a49d6408acae070577879cdd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025348"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686622"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 데이터 동기화의 모범 사례 
 
@@ -67,6 +71,10 @@ Azure SQL Database는 단일 자격 증명 집합만 지원합니다. 이 제약
 
 SQL 데이터 동기화를 프로덕션에 사용하기 전에 초기 및 지속적인 동기화 성능을 테스트하세요.
 
+#### <a name="empty-tables-provide-the-best-performance"></a>빈 테이블은 최상의 성능 제공
+
+빈 테이블은 초기화 시 최상의 성능을 제공합니다. 대상 테이블이 비어 있으면 데이터 동기화에서 대량 삽입을 사용하여 데이터를 로드합니다. 그렇지 않으면 데이터 동기화에서 행 단위로 비교 및 삽입하여 충돌을 확인합니다. 하지만 성능 문제가 없는 경우 이미 데이터가 들어 있는 테이블 간에 동기화를 설정할 수 있습니다.
+
 ### <a name="provisioning-destination-databases"></a> 대상 데이터베이스 프로비전
 
 SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제공합니다.
@@ -75,16 +83,16 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 #### <a name="autoprovisioning-limitations"></a>자동 프로비전 제한 사항
 
-다음은 SQL 데이터 동기화의 자동 프로비전 제한 사항입니다.
+다음은 SQL 데이터 동기화의 자동 프로비전에 대한 제한 사항입니다.
 
--   대상 테이블에 생성된 열만 선택합니다.  
-    동기화 그룹의 일부가 아닌 열은 대상 테이블에 프로비전되지 않습니다.
--   인덱스는 선택한 열에 대해서만 생성됩니다.  
-    원본 테이블 인덱스에 동기화 그룹의 일부가 아닌 열이 있으면 해당 인덱스는 대상 테이블에서 프로비전되지 않습니다.  
+-   대상 테이블에 생성된 열만 선택합니다. 동기화 그룹의 일부가 아닌 열은 대상 테이블에 프로비전되지 않습니다.
+-   인덱스는 선택한 열에 대해서만 생성됩니다. 원본 테이블 인덱스에 동기화 그룹의 일부가 아닌 열이 있으면 해당 인덱스는 대상 테이블에서 프로비전되지 않습니다.  
 -   XML 형식 열의 인덱스는 프로비전되지 않습니다.  
 -   CHECK 제약 조건은 프로비전되지 않습니다.  
 -   원본 테이블의 기존 트리거는 프로비전되지 않습니다.  
 -   보기 및 저장 프로시저는 대상 데이터베이스에 생성되지 않습니다.
+-   외래 키 제약 조건에 대한 UPDATE CASCADE 및 ON DELETE CASCADE 작업은 대상 테이블에서 다시 생성되지 않습니다.
+-   전체 자릿수가 28보다 큰 소수 또는 숫자 열이 있는 경우, SQL 데이터 동기화에서 동기화 중에 전환 오버플로 문제가 발생할 수 있습니다. 소수 또는 숫자 열의 전체 자릿수를 28 이하로 제한하는 것이 좋습니다.
 
 #### <a name="recommendations"></a>권장 사항
 
@@ -211,14 +219,18 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 ## <a name="next-steps"></a>다음 단계
 SQL 데이터 동기화에 대한 자세한 내용은 다음 항목을 참조하세요.
 
--   [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화](sql-database-sync-data.md)
--   [Azure SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
--   [Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
--   [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)  
--   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:  
-    -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)  
-    -   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [SQL 데이터 동기화 REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
+-   개요 - [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)
+-   데이터 동기화 설정
+    - 포털에서 - [자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
+    - PowerShell 사용
+        -  [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   데이터 동기화 에이전트 - [Azure SQL 데이타 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
+-   모니터 - [Log Analytics를 사용하여 SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
+-   문제 해결 - [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
+-   동기화 스키마 업데이트
+    -   Transact-SQL 사용 - [Azure SQL 데이터 동기화에서 스키마 변경 내용 복제 자동화](sql-database-update-sync-schema.md)
+    -   PowerShell 사용 - [PowerShell을 사용하여 기존 동기화 그룹의 동기화 스키마 업데이트](scripts/sql-database-sync-update-schema.md)
 
 SQL Database에 대한 자세한 내용은 다음 항목을 참조하세요.
 

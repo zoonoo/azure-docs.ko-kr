@@ -1,5 +1,5 @@
 ---
-title: Azure 클라우드에서 Docker 컨테이너 호스팅
+title: (사용되지 않음) Azure 클라우드에서 Docker 컨테이너 호스팅
 description: Azure 컨테이너 서비스는 컨테이너화된 응용 프로그램을 실행하는 미리 구성된 가상 머신의 클러스터를 간단히 만들고 구성하고 관리하는 방법을 제공합니다.
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d89e9b4dcfe44648f1e3ddd95fb01b62a36295df
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 348bde94bc01e00777603af8ac078d5e319d732c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166340"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001993"
 ---
-# <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Azure Container Service를 사용한 Docker 컨테이너 호스팅 소개 
+# <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(사용되지 않음) Azure Container Service를 사용한 Docker 컨테이너 호스팅 솔루션 소개 
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Azure 컨테이너 서비스를 사용하면 컨테이너화된 응용 프로그램을 실행하는 미리 구성된 가상 머신의 클러스터를 보다 간편하게 만들고 구성하고 관리할 수 있습니다. Azure 컨테이너 서비스는 일반적인 오픈 소스 예약 및 오케스트레이션 도구의 최적화된 구성을 사용합니다. 이를 통해 기존 기술을 사용하거나 크고 확장된 커뮤니티 전문 지식의 본문을 이용하여 Microsoft Azure의 컨테이너 기반 응용 프로그램을 배포하고 관리할 수 있습니다.
 
@@ -27,10 +29,10 @@ Azure 컨테이너 서비스는 Docker 컨테이너 형식을 활용하여 응�
 Azure 컨테이너 서비스를 사용하면 오케스트레이션 계층의 이식성을 포함하여 응용 프로그램 이식성을 유지하면서 Azure의 엔터프라이즈급 기능을 활용할 수 있습니다.
 
 ## <a name="using-azure-container-service"></a>Azure 컨테이너 서비스 사용
-Azure 컨테이너 서비스를 사용하는 우리의 목표는 현재 우리 고객들 사이에서 인기 있는 오픈 소스 도구 및 기술을 사용하여 컨테이너 호스팅 환경을 제공하는 것입니다. 이를 위해 사용자가 선택한 Orchestrator에 대한 표준 API 끝점을 노출합니다(DC/OS, Docker Swarm 또는 Kubernetes). 이러한 끝점을 사용하면 해당 끝점과 통신할 수 있는 모든 소프트웨어를 활용할 수 있습니다. 예를 들어 Docker Swarm 끝점의 경우 Docker CLI(명령줄 인터페이스)를 사용하도록 선택할 수 있고 DC/OS의 경우 DCOS CLI를 선택할 수 있습니다. Kubernetes의 경우 `kubectl`을 선택할 수 있습니다.
+Azure 컨테이너 서비스를 사용하는 우리의 목표는 현재 우리 고객들 사이에서 인기 있는 오픈 소스 도구 및 기술을 사용하여 컨테이너 호스팅 환경을 제공하는 것입니다. 이를 위해 사용자가 선택한 Orchestrator에 대한 표준 API 엔드포인트를 노출합니다(DC/OS, Docker Swarm 또는 Kubernetes). 이러한 엔드포인트를 사용하면 해당 엔드포인트와 통신할 수 있는 모든 소프트웨어를 활용할 수 있습니다. 예를 들어 Docker Swarm 엔드포인트의 경우 Docker CLI(명령줄 인터페이스)를 사용하도록 선택할 수 있고 DC/OS의 경우 DCOS CLI를 선택할 수 있습니다. Kubernetes의 경우 `kubectl`을 선택할 수 있습니다.
 
 ## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Azure 컨테이너 서비스를 사용하여 Docker 클러스터 만들기
-Azure Container Service를 사용하기 시작하려면 포털을 통해(**Azure Container Service**에 대한 Marketplace 검색) Azure Resource Manager 템플릿([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) 또는 [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes))을 사용하거나 [Azure CLI 2.0](container-service-create-acs-cluster-cli.md)을 사용하여 Azure Container Service 클러스터를 배포합니다. 추가 또는 고급 Azure 구성을 포함하도록 제공된 빠른 시작 템플릿을 수정할 수 있습니다. 자세한 내용은 [Azure Container Service 클러스터 배포](container-service-deployment.md)를 참조하세요.
+Azure Container Service를 사용하기 시작하려면 포털을 통해(**Azure Container Service**에 대한 Marketplace 검색) Azure Resource Manager 템플릿([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) 또는 [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes))을 사용하거나 [Azure CLI](container-service-create-acs-cluster-cli.md)를 사용하여 Azure Container Service 클러스터를 배포합니다. 추가 또는 고급 Azure 구성을 포함하도록 제공된 빠른 시작 템플릿을 수정할 수 있습니다. 자세한 내용은 [Azure Container Service 클러스터 배포](container-service-deployment.md)를 참조하세요.
 
 ## <a name="deploying-an-application"></a>응용 프로그램 배포
 Azure Container Service는 오케스트레이션을 위해 Docker Swarm, DC/OS 또는 Kubernetes 옵션을 제공합니다. 응용 프로그램을 배포하는 방법은 선택한 Orchestrator에 따라 달라집니다.
@@ -55,7 +57,8 @@ DC/OS 및 Apache Mesos는 다음과 같은 인상적인 기능 집합을 포함�
 ![Azure 컨테이너 서비스의 DC/OS Universe](media/dcos/universe.png)
 
 #### <a name="using-marathon"></a>Marathon 사용
-Marathon은 cgroups의 서비스 또는 Docker 형식의 컨테이너(Azure 컨테이너 서비스의 경우)에 대한 클러스터 전체 초기화 및 제어 시스템입니다. Marathon은 응용 프로그램을 배포할 수 있는 웹 UI를 제공합니다. 사용자는 배포 시 DNS\_PREFIX 및 REGION이 모두 정의된 `http://DNS_PREFIX.REGION.cloudapp.azure.com`과 유사한 URL에서 웹 UI에 액세스할 수 있습니다. 물론, 사용자는 자체 DNS 이름을 제공할 수도 있습니다. Marathon 웹 UI를 사용하여 컨테이너를 실행하는 방법에 대한 자세한 내용은 [Marathon 웹 UI를 통한 DC/OS 컨테이너 관리](container-service-mesos-marathon-ui.md)를 참조하세요.
+Marathon은 cgroups의 서비스 또는 Docker 형식의 컨테이너(Azure 컨테이너 서비스의 경우)에 대한 클러스터 전체 초기화 및 제어 시스템입니다. Marathon은 응용 프로그램을 배포할 수 있는 웹 UI를 제공합니다. `http://DNS_PREFIX.REGION.cloudapp.azure.com`처럼 표시되는 URL에서 여기에 액세스할 수 있습니다.
+여기서 DNS\_PREFIX 및 REGION은 둘 다 배포 시 정의됩니다. 물론, 사용자는 자체 DNS 이름을 제공할 수도 있습니다. Marathon 웹 UI를 사용하여 컨테이너를 실행하는 방법에 대한 자세한 내용은 [Marathon 웹 UI를 통한 DC/OS 컨테이너 관리](container-service-mesos-marathon-ui.md)를 참조하세요.
 
 ![Marathon 응용 프로그램 목록](media/dcos/marathon-applications-list.png)
 
@@ -102,4 +105,4 @@ Azure Container Service를 사용하여 응용 프로그램 빌드(빌드 2016)
 
 ## <a name="next-steps"></a>다음 단계
 
-[포털](container-service-deployment.md) 또는 [Azure CLI 2.0](container-service-create-acs-cluster-cli.md)을 사용하여 컨테이너 서비스 클러스터 배포.
+[포털](container-service-deployment.md) 또는 [Azure CLI](container-service-create-acs-cluster-cli.md)를 사용하여 컨테이너 서비스 클러스터를 배포합니다.

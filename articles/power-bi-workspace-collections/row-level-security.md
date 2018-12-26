@@ -2,29 +2,23 @@
 title: Power BI 작업 영역 컬렉션으로 행 수준 보안
 description: Power BI 작업 영역 컬렉션으로 행 수준 보안에 대한 세부 정보
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 09a0de1efc909b72192f9d8584edd0fda5e6217d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 80208c83c96ba78db052017c2baa3bc0db63953f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856354"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258853"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 행 수준 보안
 
-보고서 또는 데이터 집합 내의 특정 데이터에 대한 사용자 액세스를 제한하는 데 RLS(행 수준 보안)를 사용하여 여러 다양한 사용자가 모두 서로 다른 데이터를 보면서 동일한 보고서를 사용할 수 있도록 합니다. Power BI 작업 영역 컬렉션은 RLS로 구성된 데이터 집합을 지원합니다.
+보고서 또는 데이터 세트 내의 특정 데이터에 대한 사용자 액세스를 제한하는 데 RLS(행 수준 보안)를 사용하여 여러 다양한 사용자가 모두 서로 다른 데이터를 보면서 동일한 보고서를 사용할 수 있도록 합니다. Power BI 작업 영역 컬렉션은 RLS로 구성된 데이터 세트를 지원합니다.
 
 ![Power BI 작업 영역 컬렉션의 행 수준 보안 흐름](media/row-level-security/flow-1.png)
 
@@ -41,13 +35,13 @@ RLS를 활용하기 위해서는 사용자, 역할 및 규칙이라는 세 가�
 
 ### <a name="example"></a>예
 
-이 문서의 나머지 부분에서는 RLS를 작성하는 예를 제공한 후 포함된 응용 프로그램 내에서 이를 사용하는 것을 보여 줍니다. 이 예에서는 [소매 분석 샘플](http://go.microsoft.com/fwlink/?LinkID=780547) PBIX 파일을 사용합니다.
+이 문서의 나머지 부분에서는 RLS를 작성하는 예를 제공한 후 포함된 응용 프로그램 내에서 이를 사용하는 것을 보여 줍니다. 이 예에서는 [소매 분석 샘플](https://go.microsoft.com/fwlink/?LinkID=780547) PBIX 파일을 사용합니다.
 
 ![예제 판매 보고서](media/row-level-security/scenario-2.png)
 
 소매 분석 샘플은 특정 소매 체인에 속하는 모든 상점에 대한 판매를 보여 줍니다. RLS가 없다면 어떤 지역 관리자가 로그인하여 보고서를 보든지 동일한 데이터를 보게 됩니다. 고위 경영진은 각 지역 관리자가 자신이 관리하는 상점에 대한 판매만 보도록 결정했으며 이를 위해 RLS를 사용할 수 있습니다.
 
-RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가 열리면 다이어그램 보기로 전환하여 스키마를 볼 수 있습니다.
+RLS는 Power BI Desktop으로 작성됩니다. 데이터 세트 및 보고서가 열리면 다이어그램 보기로 전환하여 스키마를 볼 수 있습니다.
 
 ![Power BI Desktop의 모델 다이어그램](media/row-level-security/diagram-view-3.png)
 
@@ -93,7 +87,7 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가
 1. **파일** -> **옵션 및 설정** -> **미리 보기 기능** -> **DirectQuery에 대해 양방향 교차 필터링 활성화**.
 2. **파일** -> **옵션 및 설정** -> **DirectQuery** -> **DirectQuery 모드에서 무제한 측정값 허용**.
 
-양방향 교차 필터링에 대해 알아보려면 [SQL Server Analysis Services 2016 및 Power BI Desktop에서 양방향 교차 필터링](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) 백서를 다운로드하세요.
+양방향 교차 필터링에 대해 알아보려면 [SQL Server Analysis Services 2016 및 Power BI Desktop에서 양방향 교차 필터링](https://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) 백서를 다운로드하세요.
 
 그러면 Power BI Desktop에서 수행해야 할 모든 작업이 마무리되지만 Power BI Embedded에서 작업을 정의한 RLS 규칙을 만들기 위해 몇 가지 작업을 수행해야 합니다. 응용 프로그램에서 사용자가 인증 및 권한 부여되고 특정 Power BI Embedded 보고서에 사용자 액세스를 부여하는 데 앱 토큰이 사용됩니다. Power BI Embedded는 사용자가 누구인지에 대한 어떠한 특정한 정보도 포함하지 않습니다. RLS가 작동하기 위해서는 앱 토큰의 일부로 추가 컨텍스트를 전달해야 합니다.
 

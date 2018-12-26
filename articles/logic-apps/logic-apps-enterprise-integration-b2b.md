@@ -1,27 +1,23 @@
 ---
-title: B2B 솔루션 만들기 - Azure Logic Apps | Microsoft Docs
-description: 엔터프라이즈 통합 팩의 B2B 기능을 사용하여 Logic Apps에서 데이터를 수신합니다.
+title: B2B 엔터프라이즈 통합 만들기 - Azure Logic Apps | Microsoft Docs
+description: 엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps에서 B2B 데이터 수신
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: a27a413ba9a0d974cf90fe842d5fc325ab308a56
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ad7a29f4a554d599b17576921542b1ac6e403911
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298120"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127767"
 ---
-# <a name="receive-data-in-logic-apps-with-the-b2b-features-in-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩의 B2B 기능을 사용하여 Logic Apps에서 데이터 수신
+# <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 B2B 데이터 수신
 
 파트너와 규약이 있는 통합 계정을 만들면 [엔터프라이즈 통합 팩](logic-apps-enterprise-integration-overview.md)을 사용하여 논리 앱을 위한 B2B 워크플로를 만들 준비가 되었습니다.
 

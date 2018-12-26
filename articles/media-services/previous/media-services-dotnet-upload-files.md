@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 4b7383c4d2ee29a77120531041389b944a787763
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261868"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444632"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>.NET을 사용하여 Media Services 계정에 파일 업로드
 > [!div class="op_single_selector"]
@@ -199,16 +199,18 @@ IngestManifestAsset는 대량 수집을 위한 대량 IngestManifest와 자산�
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
 ```
 
-IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성에서 제공하는 Blob 저장소 컨테이너 URI에 자산 파일을 업로드할 수 있는 고속 클라이언트 응용 프로그램을 사용할 수 있습니다. 주목할 만한 고속 업로드 서비스 중 하나는 [Azure 응용 프로그램용 Aspera On Demand](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6)입니다. 다음 코트 예제와 같이 코드를 작성하여 자산 파일을 업로드할 수도 있습니다.
+IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성에서 제공하는 Blob 스토리지 컨테이너 URI에 자산 파일을 업로드할 수 있는 고속 클라이언트 애플리케이션을 사용할 수 있습니다. 
+
+다음 코드에서는 .NET SDK를 사용하여 자산 파일을 업로드하는 방법을 보여 줍니다.
 
 ```csharp
-    static void UploadBlobFile(string destBlobURI, string filename)
+    static void UploadBlobFile(string containerName, string filename)
     {
         Task copytask = new Task(() =>
         {
             var storageaccount = new CloudStorageAccount(new StorageCredentials(_storageAccountName, _storageAccountKey), true);
             CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
-            CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
+            CloudBlobContainer blobContainer = blobClient.GetContainerReference(containerName);
 
             string[] splitfilename = filename.Split('\\');
             var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);

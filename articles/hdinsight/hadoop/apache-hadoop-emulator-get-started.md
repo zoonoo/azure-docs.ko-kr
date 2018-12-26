@@ -1,30 +1,25 @@
 ---
-title: Hadoop 샌드박스 사용에 대한 자세한 정보 - 에뮬레이터 - Azure HDInsight | Microsoft Docs
-description: 'Hadoop 에코 시스템을 사용하는 방법에 대해 알아보려면 Azure 가상 머신에서 Hortonworks의 Hadoop 샌드박스를 설정할 수 있습니다. '
+title: Apache Hadoop 샌드박스 사용에 대해 알아보기 - 에뮬레이터 - Azure HDInsight
+description: 'Apache Hadoop 에코 시스템을 사용하는 방법에 대해 알아보려면 Azure 가상 머신에서 Hortonworks의 Hadoop 샌드박스를 설정할 수 있습니다. '
 keywords: Hadoop 에뮬레이터, Hadoop 샌드박스
-editor: cgronlun
-manager: jhubbard
+ms.reviewer: jasonh
 services: hdinsight
-author: nitinme
-documentationcenter: ''
-tags: azure-portal
-ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: nitinme
-ms.openlocfilehash: 0b4daa8c832d40457b19ffe4aee1a365796b2435
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: hrasheed
+ms.openlocfilehash: 074e2dd932cada5ae46ee0423dbc29fc8bc7495d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401135"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016779"
 ---
-# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>가상 머신의 에뮬레이터인 Hadoop 샌드박스 시작
+# <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>가상 머신의 에뮬레이터인 Apache Hadoop 샌드박스 시작
 
-Hadoop 에코 시스템에 대해 알아보기 위해 가상 머신에서 Hortonworks의 Hadoop 샌드박스를 설치하는 방법을 알아봅니다. 이 샌드박스는 Hadoop, HDFS(Hadoop Distributed File System) 및 작업 제출에 대해 알아보는 로컬 개발 환경을 제공합니다. Hadoop에 익숙해졌으면 HDInsight 클러스터를 만들어 Azure에서 Hadoop 사용을 시작할 수 있습니다. 시작 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+Hadoop 에코 시스템에 대해 알아보기 위해 가상 머신에서 Hortonworks의 Apache Hadoop 샌드박스를 설치하는 방법을 알아봅니다. 이 샌드박스는 Hadoop, HDFS(Hadoop Distributed File System) 및 작업 제출에 대해 알아보는 로컬 개발 환경을 제공합니다. Hadoop에 익숙해졌으면 HDInsight 클러스터를 만들어 Azure에서 Hadoop 사용을 시작할 수 있습니다. 시작 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * [Oracle VirtualBox](https://www.virtualbox.org/) [여기](https://www.virtualbox.org/wiki/Downloads)에서 다운로드하여 설치합니다.
@@ -32,7 +27,7 @@ Hadoop 에코 시스템에 대해 알아보기 위해 가상 머신에서 Horton
 
 
 ## <a name="download-and-install-the-virtual-machine"></a>가상 컴퓨터 다운로드 및 설치
-1. [Hortonworks 다운로드](http://hortonworks.com/downloads/#sandbox)로 이동합니다.
+1. [Hortonworks 다운로드](https://hortonworks.com/downloads/#sandbox)로 이동합니다.
 
 2. **VIRTUALBOX용 다운로드**를 클릭하여 VM 기반 최신 Hortonworks 샌드박스를 다운로드합니다. 다운로드가 시작되기 전에 Hortonworks에 등록하라는 메시지가 표시됩니다. 네트워크 속도에 따라 다운로드하는 데 1 ~ 2 시간이 걸립니다.
    
@@ -83,6 +78,6 @@ Hadoop 에코 시스템에 대해 알아보기 위해 가상 머신에서 Horton
 
 ## <a name="next-steps"></a>다음 단계
 * [Hortonworks Sandbox와 Visual Studio를 사용하는 방법 알아보기](../hdinsight-hadoop-emulator-visual-studio.md)
-* [Hortonworks Sandbox의 방법 알아보기](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop 자습서 - HDP 시작](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Hortonworks Sandbox의 방법 알아보기](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Hadoop 자습서 - HDP 시작](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 314920d4aae2bd364ea93451fcbda2034a36cc7e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bde451a2a01a8baa347f093a1b56525dcead00f3
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332102"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855309"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
 
-가상 네트워크 피어링을 만들고 변경하거나 삭제하는 방법을 알아봅니다. 가상 네트워크 피어링은 Azure 백본 네트워크를 통해 가상 네트워크를 연결할 수 있습니다. 피어링된 후 가상 네트워크는 여전히 별도의 리소스로 관리됩니다. 가상 네트워크 피어링을 처음 접하는 경우 [가상 네트워크 피어링 개요](virtual-network-peering-overview.md)를 참조하거나 [자습서](tutorial-connect-virtual-networks-portal.md)를 완료하여 자세히 알아볼 수 있습니다.
+가상 네트워크 피어링을 만들고 변경하거나 삭제하는 방법을 알아봅니다. 가상 네트워크 피어링은 Azure 백본 네트워크를 통해 동일한 지역 및 여러 지역(글로벌 VNet 피어링)에 있는 네트워크를 연결할 수 있습니다. 피어링된 후 가상 네트워크는 여전히 별도의 리소스로 관리됩니다. 가상 네트워크 피어링을 처음 접하는 경우 [가상 네트워크 피어링 개요](virtual-network-peering-overview.md)를 참조하거나 [자습서](tutorial-connect-virtual-networks-portal.md)를 완료하여 자세히 알아볼 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -33,7 +33,7 @@ ms.locfileid: "36332102"
 - 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
 - 포털을 사용하는 경우 https://portal.azure.com을 열고, 피어링을 사용하는 데 [필요한 권한](#permissions)이 있는 계정으로 로그인합니다.
 - 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 피어링을 사용하고 Azure와 연결을 만드는 데 [필요한 권한](#permissions)을 가진 계정으로 `Connect-AzureRmAccount`도 실행해야 합니다.
-- 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.31 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI를 로컬로 실행 중인 경우 피어링을 사용하고 Azure와 연결을 만드는 데 [필요한 권한](#permissions)을 가진 계정으로 `az login`도 실행해야 합니다.
+- 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.31 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI를 로컬로 실행 중인 경우 피어링을 사용하고 Azure와 연결을 만드는 데 [필요한 권한](#permissions)을 가진 계정으로 `az login`도 실행해야 합니다.
 
 Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permissions)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이나 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당되어야 합니다.
 
@@ -49,7 +49,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 6. <a name="add-peering"></a>다음 설정에 대한 값을 입력하거나 선택합니다.
     - **이름:** 피어링의 이름은 가상 네트워크 내에서 고유해야 합니다.
     - **가상 네트워크 배포 모델:** 피어링하려는 가상 네트워크를 배포한 배포 모델을 선택합니다.
-    - **리소스 ID를 알고 있음:** 피어링하려는 가상 네트워크에 대한 읽기 권한이 있는 경우 이 확인란을 선택 취소된 상태로 둡니다. 피어링하려는 가상 네트워크 또는 구독에 대한 읽기 권한이 없는 경우 이 확인란을 선택합니다. 확인란을 선택할 때 나타난 **리소스 ID** 상자에 피어링하려는 가상 네트워크의 전체 리소스 ID를 입력합니다. 입력하는 리소스 ID는 이 가상 네트워크와 동일한 또는 [지원되는 다른](#requirements-and-constraints) Azure [지역](https://azure.microsoft.com/regions)에 있는 가상 네트워크의 리소스 ID여야 합니다. 전체 리소스 ID는 /subscriptions/<Id>/resourceGroups/<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/<가상 네트워크 이름>과 유사합니다. 가상 네트워크의 속성을 확인하여 가상 네트워크의 리소스 ID를 알 수 있습니다. 가상 네트워크의 속성을 확인하는 방법을 알아보려면 [가상 네트워크 관리](manage-virtual-network.md#view-virtual-networks-and-settings)를 참조하세요.
+    - **리소스 ID를 알고 있음:** 피어링하려는 가상 네트워크에 대한 읽기 권한이 있는 경우 이 확인란을 선택 취소된 상태로 둡니다. 피어링하려는 가상 네트워크 또는 구독에 대한 읽기 권한이 없는 경우 이 확인란을 선택합니다. 확인란을 선택할 때 나타난 **리소스 ID** 상자에 피어링하려는 가상 네트워크의 전체 리소스 ID를 입력합니다. 입력하는 리소스 ID는 이 가상 네트워크와 동일한 또는 [지원되는 다른](#requirements-and-constraints) Azure [지역](https://azure.microsoft.com/regions)에 있는 가상 네트워크의 리소스 ID여야 합니다. 전체 리소스 ID는 /subscriptions/<Id>/resourceGroups/<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/<가상 네트워크 이름>과 유사합니다. 가상 네트워크의 속성을 확인하여 가상 네트워크의 리소스 ID를 알 수 있습니다. 가상 네트워크의 속성을 확인하는 방법을 알아보려면 [가상 네트워크 관리](manage-virtual-network.md#view-virtual-networks-and-settings)를 참조하세요. 구독이 피어링을 만드는 가상 네트워크가 포함된 구독과 다른 Azure Active Directory 테넌트에 연결되어 있는 경우 먼저 각 테넌트의 사용자를 [게스트 사용자](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory)로 상대 테넌트에 추가합니다.
     - **구독:** 피어링하려는 가상 네트워크의 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)을 선택합니다. 계정이 읽기 권한이 있는 구독 수에 따라 하나 이상의 구독이 나열됩니다. **리소스 ID** 확인란을 선택한 경우 이 설정을 사용할 수 없습니다.
     - **가상 네트워크:** 피어링하려는 가상 네트워크를 선택합니다. 두 Azure 배포 모델 중 하나를 통해 만든 가상 네트워크를 선택할 수 있습니다. 다른 지역에서 가상 네트워크를 선택하려는 경우 [지원되는 영역](#cross-region)에서 가상 네트워크를 선택해야 합니다. 목록에 가상 네트워크가 표시되게 하려면 가상 네트워크에 대한 읽기 권한이 있어야 합니다. 가상 네트워크가 나열되지만, 회색으로 표시된 경우 가상 네트워크의 주소 공간이 이 가상 네트워크의 주소 공간과 겹치기 때문일 수 있습니다. 가상 네트워크 주소 공간이 겹치면 피어링할 수 없습니다. **리소스 ID** 확인란을 선택한 경우 이 설정을 사용할 수 없습니다.
     - **가상 네트워크 액세스 허용:** 두 가상 네트워크 간 통신을 사용하도록 설정하려면 **사용**(기본값)을 선택합니다. 가상 네트워크 간 통신을 사용하도록 설정하면 어느 쪽 가상 네트워크에든 연결된 리소스가 같은 가상 네트워크에 연결된 것처럼 같은 대역폭 및 대기 시간으로 서로 통신할 수 있습니다. 두 가상 네트워크의 리소스 간 모든 통신은 Azure 개인 네트워크를 통해 이루어집니다. 네트워크 보안 그룹에 대한 **VirtualNetwork** 서비스 태그는 가상 네트워크와 피어링된 가상 네트워크를 포함합니다. 네트워크 보안 그룹 서비스 태그에 대한 자세한 내용은 [네트워크 보안 그룹 개요](security-overview.md#service-tags)를 참조하세요. 트래픽이 피어링된 가상 네트워크로 흐르지 않게 하려면 **사용 안 함**을 선택합니다. 가상 네트워크를 다른 가상 네트워크와 피어링했지만, 종종 두 가상 네트워크 간 트래픽 흐름을 비활성화하려는 경우에도 **사용 안 함**을 선택할 수 있습니다. 피어링을 삭제하고 다시 만드는 것보다 사용/사용 안 함을 설정하는 것이 더 편리함을 알 수 있습니다. 이 설정을 사용하지 않도록 설정하면 피어링된 가상 네트워크 간에 트래픽이 흐르지 않습니다.
@@ -112,12 +112,11 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 ## <a name="requirements-and-constraints"></a>요구 사항 및 제약 조건 
 
-- <a name="cross-region"></a>동일한 또는 다른 지역에 있는 가상 네트워크를 피어링할 수 있습니다. 두 가상 네트워크가 *동일한* 지역에 있는 경우에는 다음과 같은 제약 조건이 적용되지 않지만 가상 네트워크가 전역에 피어링되는 경우에는 적용됩니다. 
-    - 가상 네트워크는 Azure 국가별 클라우드를 제외한 모든 Azure 공용 클라우드 지역에 있을 수 있습니다.
-    - 하나의 가상 네트워크의 리소스는 피어링된 가상 네트워크에 있는 Azure 내부 부하 분산 장치의 IP 주소와 통신할 수 없습니다. 함께 통신하는 부하 분산 장치 및 리소스는 동일한 가상 네트워크에 있어야 합니다.
-    - 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용할 수 없습니다. 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용하려면 피어링에서 두 가상 네트워크는 동일한 지역에 있어야 합니다. 
-    - 다음 VM 형식을 통해 전역적으로 피어링된 가상 네트워크를 통한 통신은 지원되지 않습니다. [고성능 계산](../virtual-machines/windows/sizes-hpc.md) 및 [GPU](../virtual-machines/windows/sizes-gpu.md) 여기에는 H, NC, NV, NCv2, NCv3 및 ND 시리즈 VM이 포함됩니다.
-- 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독에 있을 수도 있습니다. 다른 구독에서 가상 네트워크를 피어링하는 경우 두 구독 모두는 같은 Azure Active Directory 테넌트에 연결되어야 합니다. 아직 AD 테넌트가 없는 경우 빠르게 [만들](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) 수 있습니다. [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)를 사용하여 다른 Active Directory 테넌트에 연결된 다른 구독에 있는 2개의 가상 네트워크를 연결할 수 있습니다.
+- <a name="cross-region"></a>동일한 또는 다른 지역에 있는 가상 네트워크를 피어링할 수 있습니다. 다른 지역의 가상 네트워크 피어링을 *글로벌 피어링*이라고도 합니다. 
+- 글로벌 피어링을 만들 때 피어링된 가상 네트워크는 Azure 국가별 클라우드를 제외한 모든 Azure 공용 클라우드 지역에 있을 수 있습니다. 국가별 클라우드의 동일한 지역에 있는 가상 네트워크만 피어링할 수 있습니다.
+- 하나의 가상 네트워크의 리소스는 전역적으로 피어링된 가상 네트워크에 있는 Azure 내부 부하 분산 장치의 프런트 엔드 IP 주소와 통신할 수 없습니다. 서로 통신하는 부하 분산 장치 및 리소스는 동일한 지역의 동일한 가상 네트워크에 있어야 합니다. 하지만 피어링된 가상 네트워크가 동일한 지역에 있어도 두 가상 네트워크의 리소스는 피어링에 있는 두 가상 네트워크 중 하나의 Azure 내부 부하 분산 장치 프런트 엔드 IP 주소를 사용하여 통신할 수 있습니다.
+- 전역적으로 피어링된 가상 네트워크에서 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용할 수 없습니다. 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용하려면 피어링된 가상 네트워크가 동일한 지역에 있어야 합니다.
+- 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독에 있을 수도 있습니다. 다른 구독에서 가상 네트워크를 피어링하는 경우 두 구독이 같은 Azure Active Directory 테넌트에 연결되어 있을 수도 있고 다른 테넌트에 연결되어 있을 수도 있습니다. 아직 AD 테넌트가 없는 경우 빠르게 [만들](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) 수 있습니다. Portal에서는 다른 Azure Active Directory 테넌트에 연결된 구독의 가상 네트워크에 대한 피어링이 지원되지 않습니다. CLI, PowerShell 또는 템플릿을 사용할 수는 있습니다.
 - 피어링하는 가상 네트워크에 겹치지 않는 IP 주소 공간이 있어야 합니다.
 - 가상 네트워크가 다른 가상 네트워크와 피어링되면 가상 네트워크에 주소 범위를 추가하거나 가상 네트워크에서 주소 범위를 삭제할 수 없습니다. 주소 범위를 추가하거나 제거하려면 피어링을 삭제하고 주소 범위를 추가하거나 제거한 다음 피어링을 다시 만듭니다. 가상 네트워크에 주소 범위를 추가하거나 가상 네트워크에서 주소 범위를 제거하려면 [가상 네트워크 관리](manage-virtual-network.md)를 참조하세요.
 - Resource Manager를 통해 배포된 두 가상 네트워크 또는 Resource Manager를 통해 배포된 가상 네트워크와 클래식 배포 모델을 통해 배포된 가상 네트워크를 피어링할 수 있습니다. 클래식 배포 모델을 통해 만든 두 가상 네트워크를 피어링할 수는 없습니다. Azure 배포 모델에 익숙하지 않은 경우 [Azure 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서를 읽어보세요. [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)를 사용하여 클래식 배포 모델을 통해 만든 두 가상 네트워크는 연결할 수 없습니다.
@@ -144,7 +143,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 계정이 이전 역할 중 하나에 할당되지 않은 경우 다음 표에서 필요한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 할당되어야 합니다.
 
-| 조치 | Name |
+| 조치 | 이름 |
 |---|---|
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | 가상 네트워크 A에서 가상 네트워크 B로의 피어링을 만들어야 합니다. 가상 네트워크 A는 가상 네트워크(Resource Manager)이어야 함                            |
 | Microsoft.Network/virtualNetworks/peer/action                   | 가상 네트워크 B(Resource Manager)에서 가상 네트워크 A로의 피어링을 만들어야 함                                                                                |

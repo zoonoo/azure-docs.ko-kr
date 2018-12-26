@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d37dbb85dc85ee8bae0447f18f771dc658de18e3
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f32574dc0a3fd61c21e8c9a7c1ec93c7d366d384
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060241"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408849"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -49,7 +49,7 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
 | **필수 패키지** | **설명** | **최소 버전**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C 라이브러리| 2.5-12 |
-|Openssl| OpenSSL 라이브러리 | 0.9.8e 또는 1.0|
+|Openssl| OpenSSL 라이브러리 | 1.0(TLS 1.1 및 TLS 1.2가 지원됨)|
 |Curl | cURL 웹 클라이언트 | 7.15.5|
 |Python-ctypes | |
 |PAM | 플러그형 인증 모듈|
@@ -69,7 +69,9 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
          Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
-1. 다음 명령을 실행하여 Linux용 OMS 에이전트를 설치합니다. \<WorkspaceID\> 및 \<WorkspaceKey\>를 작업 영역에서 적절한 값으로 바꿉니다.
+1. 다음 명령을 실행하여 Linux용 Log Analytics 에이전트를 설치합니다. \<WorkspaceID\> 및 \<WorkspaceKey\>를 작업 영역에서 적절한 값으로 바꿉니다.
+
+  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
    ```bash
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>

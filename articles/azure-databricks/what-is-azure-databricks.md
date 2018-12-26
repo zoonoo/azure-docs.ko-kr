@@ -1,31 +1,27 @@
 ---
-title: Azure Databricks란? | Microsoft Docs
+title: Azure Databricks란?
 description: Azure Databricks란 무엇이고 Databricks의 Spark를 Azure로 가져오는 방법은 무엇인지 알아보세요. Azure Databricks는 Microsoft Azure Cloud Services 플랫폼에 대해 최적화된 Apache Spark 기반 분석 플랫폼입니다.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: c621962c8ff0dcdb5070a81c5732012cb0898394
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f6a2f89828dbc13ca716ccb40bb05234b7e31464
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599741"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418809"
 ---
 # <a name="what-is-azure-databricks"></a>Azure Databricks란?
 
 Azure Databricks는 Microsoft Azure Cloud Services 플랫폼에 대해 최적화된 Apache Spark 기반 분석 플랫폼입니다. Apache Spark의 기반으로 설계된 Databricks는 Azure와 통합되어 원클릭 설정, 간소화된 워크플로 및 데이터 과학자, 데이터 엔지니어, 비즈니스 분석가가 공동 작업할 수 있도록 하는 대화형 작업 영역을 제공합니다.
 
-![Azure Databricks란? ] (./media/what-is-azure-databricks/azure-databricks-overview.png "Azure Databricks란?")
+![Azure Databricks란? ](./media/what-is-azure-databricks/azure-databricks-overview.png "Azure Databricks란?")
 
 ## <a name="apache-spark-based-analytics-platform"></a>Apache Spark 기반 분석 플랫폼
 
@@ -91,7 +87,7 @@ Azure Databricks는 Azure Active Directory 통합, 역할 기반 제어 및 데�
 Azure Databricks는 Azure 데이터베이스 및 저장소(SQL Data Warehouse, Cosmos DB, Data Lake Store 및 Blob Storage)와 밀접하게 통합됩니다. 
 
 ## <a name="integration-with-power-bi"></a>Power BI와 통합
-Power BI와의 풍부한 통합을 통해 Azure Databricks는 유용한 정보를 빠르고 쉽게 찾아 공유할 수 있습니다. JDBC/ODBC 클러스터 끝점을 통해 Tableau 소프트웨어와 같은 다른 BI 도구도 사용할 수 있습니다.
+Power BI와의 풍부한 통합을 통해 Azure Databricks는 유용한 정보를 빠르고 쉽게 찾아 공유할 수 있습니다. JDBC/ODBC 클러스터 엔드포인트를 통해 Tableau 소프트웨어와 같은 다른 BI 도구도 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

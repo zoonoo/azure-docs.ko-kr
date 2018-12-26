@@ -3,7 +3,7 @@ title: Azure Active Directory 자격 증명을 사용하여 Linux VM에 로그�
 description: 이 방법 문서에서는 사용자 로그인을 위해 Azure Active Directory 인증을 사용하도록 Linux VM을 만들고 구성하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/16/2018
-ms.author: iainfou
-ms.openlocfilehash: 96cc7aeb5fd1c64dc3793a801a4a5b759e7558b9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 06/17/2018
+ms.author: cynthn
+ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652875"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334638"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure에서 Azure Active Directory 인증을 사용하여 Linux 가상 머신에 로그인(미리 보기)
 
@@ -35,19 +35,20 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
   - 로컬 관리자 계정에 대한 의존성을 줄임으로써 자격 증명 손실/도난, 약한 자격 증명을 구성하는 사용자 등을 걱정할 필요가 없습니다.
   - Azure AD 디렉터리에 구성된 암호 복잡성 및 암호 수명 정책을 통해 Linux VM을 보호할 수 있습니다.
   - Azure 가상 머신에 대한 로그인의 보안을 강화하려면 다단계 인증을 구성하면 됩니다.
-  - Azure Active Directory를 사용하여 Linux VM에 로그인하는 기능은 [Federation Services](../../active-directory/connect/active-directory-aadconnectfed-whatis.md)를 사용하는 고객에게도 적용됩니다.
+  - Azure Active Directory를 사용하여 Linux VM에 로그인하는 기능은 [Federation Services](../../active-directory/hybrid/how-to-connect-fed-whatis.md)를 사용하는 고객에게도 적용됩니다.
 
 - **원활한 공동 작업:** RBAC(역할 기반 액세스 제어)를 사용하여 지정된 VM에 로그인하는 사용자를 일반 사용자로 또는 관리자 권한으로 지정할 수 있습니다. 사용자가 팀에 조인하거나 나가는 경우 적절한 액세스 권한을 부여하도록 VM에 대한 RBAC 정책을 업데이트할 수 있습니다. 이 환경은 불필요한 SSH 공개 키를 제거하기 위해 VM을 삭제하는 것보다 훨씬 더 간단합니다. 직원이 조직을 나가고 해당 사용자 계정을 비활성화하거나 Azure AD에서 제거한 경우 더 이상 리소스에 액세스할 수 없습니다.
 
-### <a name="supported-azure-regions-and-linux-distributions"></a>지원되는 Azure 지역 및 Linux 배포
+## <a name="supported-azure-regions-and-linux-distributions"></a>지원되는 Azure 지역 및 Linux 배포
 
 현재 이 기능의 미리 보기 기간 동안 다음과 같은 Linux 배포가 지원됩니다.
 
 | 배포 | 버전 |
 | --- | --- |
 | CentOS | CentOS 6.9 및 CentOS 7.4 |
-| RedHat Enterprise Linux | RHEL 7 | 
-| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 및 Ubuntu Server 17.10 |
+| Debian | Debian 9 |
+| RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, Ubuntu Server 17.10 및 Ubuntu Server 18.04 |
 
 현재 이 기능의 미리 보기 기간 동안 다음과 같은 Azure 지역이 지원됩니다.
 
@@ -58,7 +59,7 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.31 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.31 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-linux-virtual-machine"></a>Linux 가상 머신 만들기
 
@@ -116,7 +117,7 @@ az role assignment create \
 > [!NOTE]
 > AAD 도메인과 로그온 사용자 이름 도메인이 일치하지 않으면 *--assignee*의 사용자 이름 외에도 *--assignee-object-id*가 있는 사용자 계정의 개체 ID를 지정해야 합니다. [az ad user list](/cli/azure/ad/user#az-ad-user-list)를 사용하여 사용자 계정의 개체 ID를 가져올 수 있습니다.
 
-RBAC를 사용하여 Azure 구독 리소스에 대한 액세스 권한을 관리하는 방법에 대한 자세한 내용은 [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md) 또는 [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md) 사용을 참조하세요.
+RBAC를 사용하여 Azure 구독 리소스에 대한 액세스 권한을 관리하는 방법에 대한 자세한 내용은 [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md) 또는 [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md) 사용을 참조하세요.
 
 Linux 가상 머신에 로그인하는 특정 사용자에 대해 다단계 인증을 요구하도록 Azure AD를 구성할 수도 있습니다. 자세한 내용은 [클라우드에서 Azure Multi-Factor Authentication 시작](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)을 참조하세요.
 
@@ -134,7 +135,7 @@ Azure AD 자격 증명을 사용하여 Azure Linux 가상 머신에 로그인합
 ssh -l azureuser@contoso.onmicrosoft.com publicIps
 ```
 
-[https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)에서 일회용 코드를 사용하여 Azure AD에 로그인하라는 메시지가 표시됩니다. 다음 예제와 같이 일회용 코드를 복사하고, 장치 로그인 페이지에 붙여넣습니다.
+[https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)에서 일회용 코드를 사용하여 Azure AD에 로그인하라는 메시지가 표시됩니다. 다음 예제와 같이 일회용 코드를 복사하고, 디바이스 로그인 페이지에 붙여넣습니다.
 
 ```bash
 ~$ ssh -l azureuser@contoso.onmicrosoft.com 13.65.237.247
@@ -146,6 +147,20 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
     You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
 
 브라우저 창을 닫고, SSH 프롬프트를 돌아가서, **Enter** 키를 누릅니다. 이제 할당된 대로 *VM 사용자* 또는 *VM 관리자*와 같은 역할 권한이 있는 Azure Linux 가상 머신에 로그인했습니다. 사용자 계정에 *가상 머신 관리자 로그인* 역할이 할당된 경우 `sudo`을 사용하여 루트 권한이 필요한 명령을 실행할 수 있습니다.
+
+## <a name="sudo-and-aad-login"></a>Sudo 및 AAD 로그인
+
+sudo를 처음 실행하면 두 번째에는 인증이 요청됩니다. sudo를 실행하기 위해 다시 인증하고 싶지 않다면 sudoer 파일(`/aad/etc/sudoers.d/aad_admins`)을 편집하고 다음 줄로 교체할 수 있습니다.
+
+```bash
+%aad_admins ALL=(ALL) ALL
+```
+다음 줄로 바꿉니다.
+
+```bash
+%aad_admins ALL=(ALL) NOPASSWD:ALL
+```
+
 
 ## <a name="troubleshoot-sign-in-issues"></a>로그인 문제 해결
 
@@ -178,4 +193,4 @@ Access denied
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Active Directory에 대한 자세한 내용은 [Azure Active Directory란?](../../active-directory/active-directory-whatis.md) 및 [Azure Active Directory를 시작하는 방법](../../active-directory/get-started-azure-ad.md)을 참조하세요.
+Azure Active Directory에 대한 자세한 내용은 [Azure Active Directory란?](../../active-directory/fundamentals/active-directory-whatis.md)을 참조하세요.

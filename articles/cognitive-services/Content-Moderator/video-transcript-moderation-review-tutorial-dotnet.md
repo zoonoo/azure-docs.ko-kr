@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator - .NET에서 비디오 및 대본 조정 | Microsoft Docs
+title: '자습서: .NET에서 비디오 및 대본 조정 - Content Moderator'
+titlesuffix: Azure Cognitive Services
 description: .NET에서 비디오 및 대본을 조정하기 위해 Content Moderator를 사용하는 방법입니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0f851c030a05880d79a998ed4b4a941082c057b9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d156c481e3c16105ad85cbc793d93306a310d5ef
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865474"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567114"
 ---
-# <a name="video-and-transcript-moderation-tutorial"></a>비디오 및 대본 조정 자습서
+# <a name="tutorial-video-and-transcript-moderation"></a>자습서: 비디오 및 대본 조정
 
 Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서 비디오를 조정하고 비디오 검토를 만들 수 있습니다. 
 

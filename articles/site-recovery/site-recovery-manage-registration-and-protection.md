@@ -1,19 +1,18 @@
 ---
 title: 서버 제거 및 보호 사용 안 함 | Microsoft Docs
 description: 이 문서에서는 사이트 복구 자격 증명 모음에서 서버 등록을 취소하고 가상 머신 및 물리적 서버의 보호를 사용하지 않도록 설정하는 방법을 설명합니다.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: rajani-janaki-ram
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: raynew
-ms.openlocfilehash: 998cebdf8b63013128d91571f2610df7d6752e81
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 11/27/2018
+ms.author: rajani-janaki-ram
+ms.openlocfilehash: 8e8cabe48f7f1036986a896d0449798f4aea2522
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918784"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844569"
 ---
 # <a name="remove-servers-and-disable-protection"></a>서버 제거 및 보호 사용 안 함
 
@@ -35,7 +34,7 @@ VMware VM 또는 Windows/Linux 물리적 서버를 Azure에 복제하는 경우 
 3. VMM 서버의 ID를 메모해 둡니다.
 4. 제거할 VMM 서버의 클라우드에서 복제 정책을 연결 해제합니다.  **사이트 복구 인프라** > **System Center VMM** >  **복제 정책**에서 연결된 정책을 두 번 클릭합니다. 클라우드를 마우스 오른쪽 단추로 클릭하고 > **연결 해제**를 클릭합니다.
 5. VMM 서버 또는 활성 노드를 삭제합니다. **사이트 복구 인프라** > **System Center VMM** > **VMM 서버**에서 서버를 마우스 오른쪽 단추로 클릭하고 > **삭제**를 클릭합니다.
-6. VMM 서버가 연결 분리 상태인 경우 VMM 서버에서 [정리 스크립트](http://aka.ms/asr-cleanup-script-vmm)를 다운로드하여 실행합니다. 기본(LocalMachine) 범위에 대한 실행 정책을 변경하려면 **관리자 권한으로 실행** 옵션으로 PowerShell을 엽니다. 스크립트에서 제거할 VMM 서버의 ID를 지정합니다. 이 스크립트는 서버에서 등록 및 클라우드 페어링을 제거합니다.
+6. VMM 서버가 연결 분리 상태인 경우 VMM 서버에서 [정리 스크립트](https://aka.ms/asr-cleanup-script-vmm)를 다운로드하여 실행합니다. 기본(LocalMachine) 범위에 대한 실행 정책을 변경하려면 **관리자 권한으로 실행** 옵션으로 PowerShell을 엽니다. 스크립트에서 제거할 VMM 서버의 ID를 지정합니다. 이 스크립트는 서버에서 등록 및 클라우드 페어링을 제거합니다.
 5. 모든 보조 VMM 서버에서 정리 스크립트를 실행합니다.
 6. 공급자가 설치된 다른 모든 수동 VMM 클러스터 노드에서 정리 스크립트를 실행합니다.
 7. VMM 서버에서 공급자를 수동으로 제거합니다. 클러스터가 있는 경우 모든 노드에서 제거합니다.
@@ -52,7 +51,7 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
 5. Hyper-V 호스트가 **연결 분리** 상태인 경우 제거한 각각의 Hyper-V 호스트에서 다음 스크립트를 실행합니다. 스크립트는 서버에서 설정을 정리하고 자격 증명 모음에서 설정을 등록 취소합니다.
 
 
-
+```powershell
         pushd .
         try
         {
@@ -113,7 +112,7 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
                 "Registry keys removed."
             }
 
-            # First retrive all the certificates to be deleted
+            # First retrieve all the certificates to be deleted
             $ASRcerts = Get-ChildItem -Path cert:\localmachine\my | where-object {$_.friendlyname.startswith('ASR_SRSAUTH_CERT_KEY_CONTAINER') -or $_.friendlyname.startswith('ASR_HYPER_V_HOST_CERT_KEY_CONTAINER')}
             # Open a cert store object
             $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("My","LocalMachine")
@@ -132,7 +131,7 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
             Write-Host "FAILED" -ForegroundColor "Red"
         }
         popd
-
+```
 
 
 ## <a name="disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure"></a>VMware VM 또는 물리적 서버(VMware에서 Azure로)에 대해 보호 사용 안 함
@@ -159,10 +158,12 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
     > **제거** 옵션을 선택한 경우 다음 스크립트 집합을 실행하여 온-프레미스 Hyper-V 서버의 복제 설정을 정리합니다.
 1. 원본 Hyper-V 호스트 서버에서 가상 머신에 대한 복제를 제거합니다. SQLVM1을 가상 머신 이름으로 바꾸고 관리 권한이 있는 PowerShell에서 스크립트를 실행합니다.
 
-
-    
-    $vmName = "SQLVM1"  $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"  $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  $replicationService.RemoveReplicationRelationship($vm.__PATH)
-    
+```powershell
+    $vmName = "SQLVM1"
+    $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"
+    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
+    $replicationService.RemoveReplicationRelationship($vm.__PATH)
+```
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>System Center VMM에서 Azure로 시나리오를 사용하여 Azure에 복제하는 Hyper-V 가상 컴퓨터에 보호 사용 안 함
 
@@ -174,17 +175,20 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
 
     > [!NOTE]
     > **제거** 옵션을 선택한 경우 다음 스크립트를 실행하여 온-프레미스 VMM 서버의 복제 설정을 정리합니다.
-3. VMM 콘솔에서 PowerShell을 사용하여(관리 권한 필요) 원본 VMM 서버에서 이 스크립트를 실행합니다. 자리 표시자 **SQLVM1**을 가상 머신의 이름으로 바꿉니다.
+3. VMM 콘솔에서 PowerShell을 사용하여(관리자 권한 필요) 원본 VMM 서버에서 이 스크립트를 실행합니다. 자리 표시자 **SQLVM1**을 가상 머신의 이름으로 바꿉니다.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
 4. 위의 단계는 VMM 서버에서 복제 설정을 지웁니다. Hyper-V 호스트 서버에서 실행하는 가상 컴퓨터의 복제를 중지하려면 이 스크립트를 실행합니다. SQLVM1을 가상 컴퓨터의 이름으로 바꾸고 host01.contoso.com을 Hyper-V 호스트 서버의 이름으로 바꿉니다.
 
-    
-    $vmName = "SQLVM1"  $hostName  = "host01.contoso.com"  $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName  $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName  $replicationService.RemoveReplicationRelationship($vm.__PATH)
-    
-       
- 
+```powershell
+    $vmName = "SQLVM1"
+    $hostName  = "host01.contoso.com"
+    $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName
+    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
+    $replicationService.RemoveReplicationRelationship($vm.__PATH)
+```
+
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario"></a>System Center VMM에서 Azure로 시나리오를 사용하여 보조 VMM에 복제하는 Hyper-V 가상 머신에 보호 사용 안 함
 
 1. **보호된 항목** > **복제된 항목**에서 컴퓨터를 마우스 오른쪽 단추로 클릭한 후 **복제 사용 안 함**을 클릭합니다.
@@ -195,7 +199,7 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
 > [!NOTE]
 > **제거** 옵션을 선택한 경우 다음 스크립트를 실행하여 온-프레미스 VMM 서버의 복제 설정을 정리합니다.
 
-3. VMM 콘솔에서 PowerShell을 사용하여(관리 권한 필요) 원본 VMM 서버에서 이 스크립트를 실행합니다. 자리 표시자 **SQLVM1**을 가상 컴퓨터의 이름으로 바꿉니다.
+3. VMM 콘솔에서 PowerShell을 사용하여(관리자 권한 필요) 원본 VMM 서버에서 이 스크립트를 실행합니다. 자리 표시자 **SQLVM1**을 가상 머신의 이름으로 바꿉니다.
 
          $vm = get-scvirtualmachine -Name "SQLVM1"
          Set-SCVirtualMachine -VM $vm -ClearDRProtection

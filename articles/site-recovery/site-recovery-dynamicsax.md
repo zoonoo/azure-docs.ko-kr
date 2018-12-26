@@ -1,29 +1,22 @@
 ---
-title: Azure Site Recovery를 사용하여 다중 계층 Dynamics AX 배포 복제 | Microsoft Docs
-description: 이 문서는 Azure Site Recovery를 사용하여 Dynamics AX를 복제 및 보호하는 방법에 대해 설명합니다.
-services: site-recovery
-documentationcenter: ''
+title: Azure Site Recovery를 사용하여 다중 계층 Dynamics AX 배포에 대한 재해 복구 설정 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 Dynamics AX에 대한 재해 복구를 설정하는 방법을 설명합니다.
 author: asgang
 manager: rochakm
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 931cc628dccc77a026791b27a7a8159b37c585d4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e2cba8cb53e73bd1fc25f1fe43fa0365247e2bd2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919566"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210825"
 ---
-# <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 Dynamics AX 응용 프로그램 복제
+# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>다중 계층 Dynamics AX 응용 프로그램에 대한 재해 복구 설정 
 
-## <a name="overview"></a>개요
+
 
 
  Dynamics AX는 여러 위치 간 프로세스를 표준화하고 리소스를 관리하며 규정 준수를 간소화하려는 기업들에게 가장 인기 있는 ERP 솔루션 중 하나입니다. 응용 프로그램은 조직에 매우 중요하므로 재해 발생 시 최소한의 시간으로 응용 프로그램이 가동될 수 있어야 합니다.
@@ -52,9 +45,9 @@ Site Recovery를 사용하여 Dynamics AX 응용 프로그램의 재해 복구�
 
 **시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
-**Hyper-V** | 예 | 예
-**VMware** | 예 | 예
-**물리적 서버** | 예 | 예
+**Hyper-V** | yes | yes
+**VMware** | yes | yes
+**물리적 서버** | yes | yes
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Site Recovery를 사용하여 Dynamics AX 응용 프로그램의 재해 복구를 활성화
 ### <a name="protect-your-dynamics-ax-application"></a>Dynamics AX 응용 프로그램 보호
@@ -99,7 +92,7 @@ Dynamics AX 클라이언트 및 Application Object Server VM의 경우 Site Reco
 
 * 고정 IP를 사용하는 경우 **대상 IP** 텍스트 상자에 VM이 사용할 IP를 지정합니다.
 
-    ![네트워크 설정 ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)에서도 확인할 수 있습니다.
+    ![네트워크 설정 ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. 복구 계획 만들기

@@ -5,7 +5,7 @@ keywords: 종량제 업그레이드
 services: ''
 documentationcenter: ''
 author: jlian
-manager: jlian
+manager: alherz
 editor: ''
 tags: billing
 ms.assetid: 0b4ac8f3-3df0-478a-8a07-b18b40f0cf5f
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
-ms.author: jlian
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86c733f138e9926fb13c2c1cb404cc9b61f4780e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c9e5c877b2989f827eb5b157757708e09f1bbc3f
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769174"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274707"
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>평가판 또는 Microsoft Imagine Azure 구독을 종량제로 업그레이드
 
@@ -37,3 +37,8 @@ Azure 계정 센터에서 [평가판](https://azure.microsoft.com/free/)이나 [
     ![구독을 업그레이드할 것인지 확인하기 위해 선택할 항목을 보여 스크린샷](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
  평가판 구독에서 업그레이드하는 경우 구독을 만든 날로부터 30일 동안 남은 크레딧이 유지됩니다. 12개월 동안 체험 서비스에 액세스할 수 있습니다.
+ 
+ 업그레이드 후에 [구독을 양도](billing-subscription-transfer.md)하려는 경우, 구독 제품 ID가 **MS-AZR-003P**로 변경될 때까지 기다려야 합니다. 다음과 같은 경우, 제품 ID가 변경됩니다.
+
+* 남은 크레딧을 모두 사용한 경우 또는
+* 평가판이 시작된 이후 30일이 지난 경우

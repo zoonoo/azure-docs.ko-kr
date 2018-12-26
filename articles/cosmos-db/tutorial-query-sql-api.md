@@ -1,23 +1,19 @@
 ---
-title: Azure Cosmos DB에서 SQL을 사용하여 쿼리하는 방법 | Microsoft Docs
+title: Azure Cosmos DB에서 SQL을 사용하여 쿼리하는 방법
 description: Azure Cosmos DB에서 SQL을 사용하여 쿼리하는 방법을 알아봅니다.
 services: cosmos-db
 author: rafats
-manager: kfile
-editor: ''
-tags: ''
+ms.author: rafats
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: rafats
-ms.openlocfilehash: 5f5a98f0f28eba499b7ea3fa76944c21cf8bf8db
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 7f8c3f6d11ba7551cb0d0c9398b46bb001b9b75b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958871"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832635"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>자습서: SQL API를 사용하여 Azure Cosmos DB 쿼리
 
@@ -65,7 +61,7 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md)는 SQL을 사용하여 문
 Azure Portal의 [데이터 탐색기]를 사용하여 [REST API 및 SDK](sql-api-sdk-dotnet.md)를 통해 쿼리를 실행할 수 있으며, 기존 샘플 데이터 집합에 대해 쿼리를 실행하는 [쿼리 실습](https://www.documentdb.com/sql/demo)도 사용할 수 있습니다.
 
 SQL 쿼리에 대한 자세한 내용은 다음을 참조하세요.
-* [SQL 쿼리 및 SQL 구문](sql-api-sql-query.md)
+* [SQL 쿼리 및 SQL 구문](how-to-sql-query.md)
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -2,18 +2,17 @@
 title: Azure Container Registry의 모범 사례
 description: 다음 모범 사례에 따라 Azure Container Registry를 효과적으로 사용하는 방법을 알아봅니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
-ms.topic: quickstart
-ms.date: 04/10/2018
-ms.author: marsma
-ms.openlocfilehash: 1272a4b547a4ba650678ce083a44bde3a5a3e583
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.topic: article
+ms.date: 09/27/2018
+ms.author: danlep
+ms.openlocfilehash: e22acc6e698d9b14a55145d8f23f5f773e6c39fd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768263"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857706"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry의 모범 사례
 
@@ -57,7 +56,7 @@ Azure Container Registry에서 인증할 때 두 가지 기본 시나리오, 즉
 
 | type | 예제 시나리오  | 권장 방법 |
 |---|---|---|
-| 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) |
+| 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | 헤드리스/서비스 ID | 사용자가 직접 참여하지 않은 파이프라인 빌드 및 배포 | [서비스 주체](container-registry-authentication.md#service-principal) |
 
 Azure Container Registry 인증에 대한 자세한 내용은 [Azure Container Registry로 인증](container-registry-authentication.md)을 참조하세요.
@@ -66,31 +65,25 @@ Azure Container Registry 인증에 대한 자세한 내용은 [Azure Container R
 
 각 [컨테이너 레지스트리 SKU][container-registry-skus]의 저장소 제약 조건은 일반적인 시나리오(시작의 경우 **기본**, 대다수 프로덕션 응용 프로그램의 경우 **표준** 및 대규모 성능과 [지역 복제][container-registry-geo-replication]의 경우 **프리미엄**)와 일치하도록 설계되었습니다. 레지스트리 수명 동안에 미사용 콘텐츠는 정기적으로 삭제하여 크기를 관리해야 합니다.
 
-Azure Portal의 컨테이너 레지스트리 **개요**에서 레지스트리의 현재 사용량을 확인할 수 있습니다.
+Azure CLI 명령 [az acr show-usage][az-acr-show-usage]를 사용하여 레지스트리의 현재 크기를 표시합니다.
+
+```console
+$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+NAME      LIMIT         CURRENT VALUE    UNIT
+--------  ------------  ---------------  ------
+Size      536870912000  185444288        Bytes
+Webhooks  100                            Count
+```
+
+Azure Portal의 레지스트리 **개요**에서도 현재 저장소 사용량을 확인할 수 있습니다.
 
 ![Azure Portal의 레지스트리 사용량 정보][registry-overview-quotas]
 
-[Azure CLI][azure-cli] 또는 [Azure Portal][azure-portal]을 사용하여 레지스트리의 크기를 관리할 수 있습니다. 관리되는 SKU(기본, 표준, 프리미엄)만 리포지토리 및 이미지 삭제를 지원합니다. 기본 레지스트리에서 리포지토리, 이미지 또는 태그를 삭제할 수 없습니다.
+### <a name="delete-image-data"></a>이미지 데이터 삭제
 
-### <a name="delete-in-azure-cli"></a>Azure CLI에서 삭제
+Azure Container Registry는 컨테이너 레지스트리에서 이미지 데이터를 삭제하는 여러 가지 방법을 지원합니다. 태그 또는 매니페스트 다이제스트를 기준으로 이미지를 삭제할 수도 있고 전체 리포지토리를 삭제할 수도 있습니다.
 
-[az acr repository delete][az-acr-repository-delete] 명령을 사용하여 리포지토리 또는 리포지토리 내의 콘텐츠를 삭제합니다.
-
-리포지토리 내의 모든 태그 및 이미지 계층 데이터를 포함하여 해당 리포지토리를 삭제하려면 [az acr repository delete][az-acr-repository-delete]를 실행할 때 리포지토리 이름만 지정합니다. 다음 예제에서는 *myapplication* 리포지토리와 해당 리포지토리 내의 모든 태그 및 이미지 레이어 데이터를 삭제합니다.
-
-```azurecli
-az acr repository delete --name myregistry --repository myapplication
-```
-
-또한 `--tag` 및 `--manifest` 인수를 사용하여 리포지토리에서 이미지 데이터를 삭제할 수도 있습니다. 이러한 인수에 대한 자세한 내용은 [az acr repository delete 명령 참조][az-acr-repository-delete]를 참조하세요.
-
-### <a name="delete-in-azure-portal"></a>Azure Portal에서 삭제
-
-Azure Portal의 레지스트리에서 리포지토리를 삭제하려면 먼저 컨테이너 레지스트리로 이동합니다. 그런 다음 **서비스** 아래에서 **리포지토리**를 선택하고 삭제할 리포지토리를 마우스 오른쪽 단추로 클릭합니다. 해당 리포지토리 및 포함된 Docker 이미지를 삭제하려면 **삭제**를 선택합니다.
-
-![Azure Portal에서 리포지토리 삭제][delete-repository-portal]
-
-또한 비슷한 방식으로 리포지토리에서 태그를 삭제할 수도 있습니다. 리포지토리로 이동하여 **태그** 아래에서 삭제할 태그를 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다.
+태그가 없는 이미지(“누락된” 이미지 또는 “분리된” 이미지라고도 함)를 포함한 이미지 데이터를 레지스트리에서 삭제하는 방법에 대한 자세한 내용은 [Azure Container Registry에서 컨테이너 이미지 삭제](container-registry-delete.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -101,7 +94,8 @@ Azure Container Registry는 각각 서로 다른 기능을 제공하는 SKU라�
 [registry-overview-quotas]: ./media/container-registry-best-practices/registry-overview-quotas.png
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-show-usage]: /cli/azure/acr#az-acr-show-usage
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md

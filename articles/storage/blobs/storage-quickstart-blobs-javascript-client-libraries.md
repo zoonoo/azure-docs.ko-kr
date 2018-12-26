@@ -3,29 +3,32 @@ title: Azure 빠른 시작 - 브라우저에서 JavaScript 및 HTML을 사용하
 description: Blob Service의 인스턴스를 사용하여 HTML 페이지에서 JavaScript를 사용하여 Blob을 업로드, 나열 및 삭제하는 방법을 알아봅니다.
 services: storage
 keywords: 저장소, Javascript, html
-author: craigshoemaker
-manager: jeconnoc
+author: tamram
 ms.custom: mvc
 ms.service: storage
-ms.author: cshoe
-ms.date: 04/06/2018
+ms.author: tamram
+ms.date: 11/14/2018
 ms.topic: quickstart
-ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: blobs
+ms.openlocfilehash: c72cd83af2b06b19b285d3c939c0d45b995464d9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419107"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711485"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>빠른 시작: 브라우저에서 JavaScript/HTML을 사용하여 Blob 업로드, 나열 및 삭제
+
 이 빠른 시작은 브라우저에서 전적으로 실행되는 코드의 Blob을 관리하는 방법을 보여줍니다. 여기에 사용된 방법은 Blob 저장소 계정에 대한 보호된 액세스를 보장하도록 필요한 보안 조치를 사용하는 방법을 보여줍니다. 이 빠른 시작을 완료하려면 [Azure 구독](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)이 필요합니다.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+## <a name="prerequisites"></a>필수 조건
+
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="setting-up-storage-account-cors-rules"></a>저장소 계정 CORS 규칙 설정 
-웹 응용 프로그램이 클라이언트에서 Blob 저장소에 액세스하려면 [원본 간 리소스 공유](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 또는 CORS를 사용하도록 계정을 구성해야 합니다. 
+웹 애플리케이션이 클라이언트에서 BLOB 스토리지에 액세스하려면 [원본 간 리소스 공유](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 또는 CORS를 사용하도록 계정을 구성해야 합니다. 
 
 Azure Portal로 돌아가서 저장소 계정을 선택합니다. 새 CORS 규칙을 정의하려면 **설정** 섹션으로 돌아가서 **CORS** 링크를 클릭합니다. 그런 다음, **추가** 단추를 클릭하여 **CORS 규칙 추가** 창을 엽니다. 이 빠른 시작의 경우 공개 CORS 규칙을 만듭니다.
 
@@ -49,7 +52,7 @@ Azure Portal로 돌아가서 저장소 계정을 선택합니다. 새 CORS 규�
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>공유 액세스 서명 만들기
-SAS(공유 액세스 서명)는 Blob 저장소에 대한 요청을 인증하기 위해 브라우저에서 실행되는 코드에 사용됩니다. SAS를 사용하면 클라이언트는 계정 액세스 키나 연결 문자열을 없이도 인증할 수 있습니다. SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+SAS(공유 액세스 서명)는 Blob 저장소에 대한 요청을 인증하기 위해 브라우저에서 실행되는 코드에 사용됩니다. SAS를 사용하면 클라이언트는 계정 액세스 키 또는 연결 문자열 없이 저장소 리소스에 대한 액세스 권한을 부여할 수 있습니다. SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 SAS는 Azure Cloud Shell 또는 Azure Storage 탐색기를 통해 Azure CLI를 사용하여 만들 수 있습니다. 다음 표에서는 CLI를 사용하여 SAS를 생성하기 위해 값을 제공해야 하는 매개 변수에 대해 설명합니다.
 
@@ -88,13 +91,13 @@ SAS가 생성되었으니 콘솔에 반환된 값을 텍스트 편집기에 복�
 
 ## <a name="implement-the-html-page"></a>HTML 페이지 구현
 
-### <a name="set-up-the-web-application"></a>웹 응용 프로그램 설정
+### <a name="set-up-the-web-application"></a>웹 애플리케이션 설정
 Azure Storage JavaScript 클라이언트 라이브러리는 파일 시스템에서 직접 작동하지 않으므로 웹 서버에서 제공해야 합니다. 따라서 다음 단계에서는 Node.js로 간단한 로컬 웹 서버를 사용하는 방법에 대해 자세히 설명합니다.
 
 > [!NOTE]
 > 이 섹션에서는 Node.js가 컴퓨터에 설치되어 있어야 하는 로컬 웹 서버를 만드는 방법을 보여줍니다. Node.js를 설치하지 않으려면 로컬 웹 서버를 실행하는 다른 방법을 사용할 수 있습니다.
 
-먼저 프로젝트에 사용할 새 폴더를 만들고 이름을 *azure-blobs-javascript*라고 지정합니다. 그런 다음, *azure-blobs-javascript* 폴더에서 명령 프롬프트를 열고 다음 명령을 입력하여 응용 프로그램이 웹 서버 모듈을 설치하도록 준비합니다.
+먼저 프로젝트에 사용할 새 폴더를 만들고 이름을 *azure-blobs-javascript*라고 지정합니다. 그런 다음, *azure-blobs-javascript* 폴더에서 명령 프롬프트를 열고 다음 명령을 입력하여 애플리케이션이 웹 서버 모듈을 설치하도록 준비합니다.
 
 ```bash
 npm init -y
@@ -136,7 +139,7 @@ npm start
         
         <button id="delete-button">Delete</button>
     </body>
-    <script src="scripts/azure-storage.blob.min.js"></script>
+    <script src="scripts/azure-storage.blob.min.js" charset="utf-8"></script>
     <script>
         // Blob-related code goes here
     </script>

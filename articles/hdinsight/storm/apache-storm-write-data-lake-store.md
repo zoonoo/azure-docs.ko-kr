@@ -1,28 +1,24 @@
 ---
-title: Apache Storm에서 Storage/Data Lake Store에 쓰기 - Azure HDInsight | Microsoft Docs
-description: Apache Storm을 사용하여 HDInsight용 HDFS 호환 저장소에 쓰는 방법을 알아봅니다. Azure Storage 또는 Azure Data Lake Store는 HDInsight용 HDFS 호환 저장소를 제공합니다. 이 문서 및 관련 예제에서는 HdfsBolt 구성 요소를 사용하여 HDInsight 클러스터에서 Storm의 기본 저장소에 쓰는 방법을 보여 줍니다.
+title: Apache Storm에서 Storage/Data Lake Store에 쓰기 - Azure HDInsight
+description: Apache Storm을 사용하여 HDInsight용 HDFS 호환 저장소에 쓰는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: na
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 1df98653-a6c8-4662-a8c6-5d288fc4f3a6
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 7a314ada1c25b57b6d1701bf414a42a58397e1f0
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 524195372abde91b302ee03c13152f234ef56406
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903135"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498253"
 ---
-# <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 HDFS에 쓰기
+# <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기
 
-Storm을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 저장소에 데이터를 쓰는 방법에 대해 알아봅니다. HDInsight는 Azure Storage 및 Azure Data Lake Store를 모두 HDFS 호환 저장소로 사용할 수 있습니다. Storm은 HDFS에 데이터를 쓰는 [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 구성 요소를 제공합니다. 이 문서는 HdfsBolt에서 두 가지 유형의 저장소에 쓰는 방법에 대한 정보를 제공합니다. 
+[Apache Storm](http://storm.apache.org/)을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 스토리지에 데이터를 쓰는 방법에 대해 알아봅니다. HDInsight는 Azure Storage 및 Azure Data Lake Store를 모두 HDFS 호환 저장소로 사용할 수 있습니다. Storm은 HDFS에 데이터를 쓰는 [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 구성 요소를 제공합니다. 이 문서는 HdfsBolt에서 두 가지 유형의 저장소에 쓰는 방법에 대한 정보를 제공합니다. 
 
 > [!IMPORTANT]
 > 이 문서에서 사용되는 예제 토폴로지는 HDInsight의 Storm에 포함된 구성 요소를 사용합니다. 다른 Apache Storm 클러스터와 함께 Azure Data Lake Store를 사용하려면 수정해야 할 수도 있습니다.
@@ -33,7 +29,7 @@ Storm을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 �
 
 이 프로젝트를 컴파일하기 위해 개발 환경에 필요한 구성 요소는 다음과 같습니다.
 
-* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
+* [Java JDK 1.8](https://aka.ms/azure-jdks) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -133,7 +129,7 @@ bolts:
 * `rotationPolicy`: 파일을 회전하는 시기를 정의합니다. 이 예제에서는 회전이 수행되지 않습니다.
 * `hdfs-bolt`: 이전 구성 요소를 `HdfsBolt` 클래스의 구성 매개 변수로 사용합니다.
 
-Flux 프레임워크에 대한 자세한 내용은 [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html)을 참조하세요.
+Flux 프레임워크에 대한 자세한 내용은 [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html)을 참조하세요.
 
 ## <a name="configure-the-cluster"></a>클러스터 구성
 
@@ -157,7 +153,7 @@ HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내�
 
 ## <a name="deploy-and-run-the-topology"></a>토폴로지 배포 및 실행
 
-1. 다음 명령을 사용하여 HDInsight 클러스터에 토폴로지를 복사합니다. **USER** 를 클러스터를 만들 때 사용한 SSH 사용자 이름으로 대체합니다. **CLUSTERNAME**은 클러스터 이름으로 바꿉니다.
+1. 다음 명령을 사용하여 HDInsight 클러스터에 토폴로지를 복사합니다. **USER** 를 클러스터를 만들 때 사용한 SSH 사용자 이름으로 대체합니다. **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다.
    
         scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs-1.0-SNAPSHOT.jar
    
@@ -166,7 +162,7 @@ HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내�
    > [!NOTE]
    > HDInsight에서의 `scp` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-2. 업로드가 완료되면 SSH를 사용하여 HDInsight 클러스터에 연결하도록 다음을 사용합니다. **USER** 를 클러스터를 만들 때 사용한 SSH 사용자 이름으로 대체합니다. **CLUSTERNAME**은 클러스터 이름으로 바꿉니다.
+2. 업로드가 완료되면 SSH를 사용하여 HDInsight 클러스터에 연결하도록 다음을 사용합니다. **USER** 를 클러스터를 만들 때 사용한 SSH 사용자 이름으로 대체합니다. **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다.
    
         ssh USER@CLUSTERNAME-ssh.azurehdinsight.net
    
@@ -223,5 +219,5 @@ Storm 토폴로지가 중지될 때까지 실행되거나 클러스터가 삭제
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Storm을 사용하여 Azure Data Lake Store에 쓰는 방법을 알아보았으므로 다른 [HDInsight에 대한 Storm 예제](apache-storm-example-topology.md)를 검색합니다.
+Apache Storm을 사용하여 Azure Storage 및 Azure Data Lake Store에 쓰는 방법을 알아보았으면, 다른 [HDInsight용 Apache Storm 예제](apache-storm-example-topology.md)를 알아보세요.
 

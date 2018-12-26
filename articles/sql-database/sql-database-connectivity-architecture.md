@@ -1,24 +1,27 @@
 ---
 title: Azure SQL Database 연결 아키텍처 | Microsoft Docs
-description: 이 문서에서는 Azure 내부 또는 Azure 외부의 Azure SQLDB 연결 아키텍처에 대해 설명합니다.
+description: 이 문서에서는 Azure 내부 또는 Azure 외부의 Azure SQL Database 연결 아키텍처에 대해 설명합니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/24/2018
-ms.author: carlrab
-ms.openlocfilehash: 628d1bd3c38237db1d49826646bba989e158ed99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: srdan-bozovic-msft
+ms.author: srbozovi
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 11/02/2018
+ms.openlocfilehash: 11133a24f4446478dcc7f38ed50eb36de8843442
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644439"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978404"
 ---
-# <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 연결 아키텍처 
+# <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 연결 아키텍처
 
-이 문서에서는 Azure SQL Database 연결 아키텍처에 대해 설명하고 다양한 구성 요소가 Azure SQL Database의 인스턴스에 트래픽을 전달하는 방법에 대해 설명합니다. 이러한 Azure SQL Database 연결 구성 요소는 Azure 내에서 연결하는 클라이언트와 Azure 외부에서 연결하는 클라이언트를 사용하여 Azure 데이터베이스에 네트워크 트래픽을 전달합니다. 또한 이 문서에서는 연결되는 방법을 변경하는 스크립트 샘플 및 기본 연결 설정을 변경하는 데 관련된 고려 사항을 제공합니다. 
+이 문서에서는 Azure SQL Database 연결 아키텍처에 대해 설명하고 다양한 구성 요소가 Azure SQL Database의 인스턴스에 트래픽을 전달하는 방법에 대해 설명합니다. 이러한 Azure SQL Database 연결 구성 요소는 Azure 내에서 연결하는 클라이언트와 Azure 외부에서 연결하는 클라이언트를 사용하여 Azure 데이터베이스에 네트워크 트래픽을 전달합니다. 또한 이 문서에서는 연결되는 방법을 변경하는 스크립트 샘플 및 기본 연결 설정을 변경하는 데 관련된 고려 사항을 제공합니다.
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
 
@@ -26,23 +29,32 @@ ms.locfileid: "34644439"
 
 ![아키텍처 개요](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
-
 다음 단계는 Azure SQL Database SLB(소프트웨어 부하 분산 장치) 및 Azure SQL Database 게이트웨이를 통해 Azure SQL Database에 연결이 설정되는 방법을 설명합니다.
 
-- Azure 내부 또는 Azure 외부의 클라이언트는 공용 IP 주소를 포함하고 포트 1433에서 수신 대기하는 SLB에 연결합니다.
+- 클라이언트는 공용 IP 주소를 포함하고 포트 1433에서 수신 대기하는 SLB에 연결합니다.
 - SLB는 Azure SQL Database 게이트웨이에 트래픽을 전달합니다.
-- 게이트웨이는 트래픽을 올바른 프록시 미들웨어로 리디렉션합니다.
-- 프록시 미들웨어는 적절한 Azure SQL Database에 트래픽을 리디렉션합니다.
+- 효과적인 연결 정책에 따라 게이트웨이는 트래픽을 올바른 프록시 미들웨어로 리디렉션 또는 프록시합니다.
+- 프록시 미들웨어는 적절한 Azure SQL 데이터베이스에 트래픽을 전달합니다.
 
 > [!IMPORTANT]
 > 이러한 각 구성 요소는 보호 네트워크 및 앱 계층에서 기본 제공되는 DDoS(distributed denial of service)를 배포합니다.
->
+
+## <a name="connection-policy"></a>연결 정책
+
+Azure SQL Database는 SQL Database 서버의 연결 정책 설정에 대한 다음 세 가지 옵션을 지원합니다.
+
+- **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드로 직접 연결을 설정합니다. 연결을 활성화하려면 클라이언트는 지역에서 Azure SQL Database 게이트웨이 IP 주소 뿐만 아니라 모든 Azure IP 주소에 대한 아웃바운드 방화벽 규칙을 허용해야 합니다([서비스 태그](../virtual-network/security-overview.md#service-tags)와 함께 NSG(네트워크 보안 그룹)를 사용하여 시도). 패킷은 데이터베이스로 직접 이동하므로 대기 시간 및 처리량의 성능이 향상됩니다.
+- **프록시:** 이 모드에서 모든 연결은 Azure SQL Database 게이트웨이를 통해 프록시됩니다. 연결을 활성화하려면 클라이언트는 Azure SQL Database 게이트웨이 IP 주소만 허용하는 아웃바운드 방화벽 규칙이 있어야 합니다(일반적으로 지역당 두 개의 IP 주소). 이 모드를 선택하면 워크로드의 특성에 따라 더 높은 대기 시간 및 더 낮은 처리량이 발생할 수 있습니다. 가장 낮은 대기 시간 및 높은 처리량을 위해 프록시 연결 정책을 통해 리디렉션 연결 정책을 사용하는 것이 좋습니다.
+- **기본값:** 연결 정책을 프록시 또는 리디렉션 중 하나로 명시적으로 변경하지 않는 한 생성 후 모든 서버에 적용되는 연결 정책입니다. 실제 정책은 Azure(리디렉션) 내에서 또는 Azure(프록시) 외부에서 연결이 발생하는지 여부에 따라 달라집니다.
 
 ## <a name="connectivity-from-within-azure"></a>Azure 내부에서 연결
 
-Azure 내부에서 연결하는 경우 연결에는 기본적으로 **리디렉션** 연결 정책이 있습니다. **리디렉션** 정책의 경우 TCP 세션 이후 연결이 Azure SQL Database로 설정되고 대상 가상 IP가 Azure SQL Database 게이트웨이에서 프록시 미들웨어의 대상 가상 IP로 변경되어 클라이언트 세션이 프록시 미들웨어로 리디렉션됩니다. 그런 다음 모든 후속 패킷은 Azure SQL Database 게이트웨이를 무시하고 프록시 미들웨어를 통해 직접 전달됩니다. 아래 다이어그램은 이 트래픽 흐름을 보여줍니다.
+2018년 11월 10일 이후에 생성된 서버의 Azure 내부에서 연결하는 경우 연결에는 기본적으로 **리디렉션** 연결 정책이 있습니다. **리디렉션** 정책의 경우 TCP 세션 이후 연결이 Azure SQL Database로 설정되고 대상 가상 IP가 Azure SQL Database 게이트웨이에서 프록시 미들웨어의 대상 가상 IP로 변경되어 클라이언트 세션이 프록시 미들웨어로 리디렉션됩니다. 그런 다음 모든 후속 패킷은 Azure SQL Database 게이트웨이를 무시하고 프록시 미들웨어를 통해 직접 전달됩니다. 아래 다이어그램은 이 트래픽 흐름을 보여줍니다.
 
 ![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
+
+> [!IMPORTANT]
+> 2018년 11월 10일 이전에 SQL Database 서버를 만든 경우 연결 정책은 **프록시**로 명시적으로 설정됩니다. 서비스 엔드포인트를 사용하는 경우 더 나은 성능을 사용하도록 설정하려면 연결 정책을 **리디렉션**으로 변경하는 것이 좋습니다. 연결 정책을 **리디렉션**으로 변경하는 경우 NSG에서 아래에 나열된 Azure SQL Database 게이트웨이 IP에 아웃바운드를 허용하는 것으로 충분하지 않으면 모든 Azure SQL Database IP에 아웃바운드를 허용해야 합니다. NSG(네트워크 보안 그룹) 서비스 태그의 도움을 받아 수행할 수 있습니다. 자세한 내용은 [서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
 
 ## <a name="connectivity-from-outside-of-azure"></a>Azure 외부에서 연결
 
@@ -64,11 +76,18 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시*
 | 캐나다 중부 | 40.85.224.249 | |
 | 캐나다 동부 | 40.86.226.166 | |
 | 미국 중부 | 23.99.160.139 | 13.67.215.62 |
+| 중국 동부 1 | 139.219.130.35 | |
+| 중국 동부 2 | 40.73.82.1 | |
+| 중국 북부 1 | 139.219.15.17 | |
+| 중국 북부 2 | 40.73.50.0 | |
 | 동아시아 | 191.234.2.139 | 52.175.33.150 |
 | 미국 동부 1 | 191.238.6.43 | 40.121.158.30 |
 | 미국 동부 2 | 191.239.224.107 | 40.79.84.180 * |
-| 인도 중부 | 104.211.96.159  | |
-| 인도 남부 | 104.211.224.146  | |
+| 프랑스 중부 | 40.79.137.0 | 40.79.129.1 |
+| 독일 중부 | 51.4.144.100 | |
+| 독일 북동부 | 51.5.144.179 | |
+| 인도 중부 | 104.211.96.159 | |
+| 인도 남부 | 104.211.224.146 | |
 | 인도 서부 | 104.211.160.80 | |
 | 일본 동부 | 191.237.240.43 | 13.78.61.196 |
 | 일본 서부 | 191.238.68.11 | 104.214.148.156 |
@@ -81,11 +100,11 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시*
 | 영국 북부 | 13.87.97.210 | |
 | 영국 남부 1 | 51.140.184.11 | |
 | 영국 남부 2 | 13.87.34.7 | |
-| 영국 서부 | 51.141.8.11  | |
+| 영국 서부 | 51.141.8.11 | |
 | 미국 중서부 | 13.78.145.25 | |
 | 서유럽 | 191.237.232.75 | 40.68.37.158 |
 | 미국 서부 1 | 23.99.34.75 | 104.42.238.205 |
-| 미국 서부 2 | 13.66.226.202  | |
+| 미국 서부 2 | 13.66.226.202 | |
 ||||
 
 \* **참고:** *미국 동부 2*에는 `52.167.104.0`의 3차 IP 주소도 있습니다.
@@ -157,14 +176,14 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Azure CLI 2.0을 통해 연결 설정을 변경하는 스크립트
+## <a name="script-to-change-connection-settings-via-azure-cli"></a>Azure CLI를 통해 연결 설정을 변경하는 스크립트
 
 > [!IMPORTANT]
-> 이 스크립트에는 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)이 필요합니다.
->
+> 이 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다.
 
 다음 CLI 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.
 
+```azurecli-interactive
 <pre>
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
@@ -172,13 +191,14 @@ sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-grou
 # Set URI
 id="$sqlserverid/connectionPolicies/Default"
 
-# Get current connection policy 
+# Get current connection policy
 az resource show --ids $id
 
-# Update connection policy 
+# Update connection policy
 az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
+```
 
 ## <a name="next-steps"></a>다음 단계
 

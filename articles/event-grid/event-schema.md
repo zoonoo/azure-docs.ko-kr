@@ -6,22 +6,22 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 04/17/2018
+ms.date: 07/20/2018
 ms.author: babanisa
-ms.openlocfilehash: 3e0b7fd825b8e985cea2c32301986b3a7f8bb619
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: f7be7e5f5e51a47b95d39047af9bcf08e463ca34
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304065"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186114"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 이벤트 스키마
 
-이 문서에서는 모든 이벤트에 존재하는 속성과 스키마를 설명합니다. 이벤트는 5개의 필수 문자열 속성 집합과 필수 데이터 개체로 구성됩니다. 속성은 모든 게시자에서 모든 이벤트에 공통입니다. 데이터 개체에는 각 게시자에만 적용되는 속성이 포함됩니다. 시스템 항목에 대한 이러한 속성은 Azure Storage 또는 Event Hubs와 같은 리소스 공급자에 따라 다릅니다.
+이 문서에서는 모든 이벤트에 존재하는 속성과 스키마를 설명합니다. 이벤트는 5개의 필수 문자열 속성 집합과 필수 데이터 개체로 구성됩니다. 속성은 모든 게시자에서 모든 이벤트에 공통입니다. 데이터 개체에는 각 게시자에만 적용되는 속성이 있습니다. 시스템 항목에 대한 이러한 속성은 Azure Storage 또는 Event Hubs와 같은 리소스 공급자에 따라 다릅니다.
 
-이벤트 원본은 여러 이벤트 개체를 포함할 수 있는 배열의 Azure Event Grid에 이벤트를 전송합니다. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 배열의 각 이벤트는 64KB로 제한됩니다. 이벤트 또는 배열이 크기 제한을 초과하는 경우 응답 **413 페이로드가 너무 큼**을 받습니다.
+이벤트 원본은 여러 이벤트 개체를 포함할 수 있는 배열의 Azure Event Grid에 이벤트를 전송합니다. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 배열의 각 이벤트는 64KB로 제한됩니다. 이벤트 또는 배열이 크기 제한보다 클 경우 응답 **413 페이로드가 너무 큼**을 받습니다.
 
-Event Grid는 단일 이벤트를 포함하는 배열의 구독자에게 이벤트를 보냅니다. 이 동작은 나중에 변경할 수 있습니다.
+Event Grid는 단일 이벤트가 있는 배열의 구독자에게 이벤트를 보냅니다. 이 동작은 나중에 변경할 수 있습니다.
 
 [이벤트 스키마 저장소](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane)에서 Event Grid 이벤트에 대한 JSON 스키마 및 각 Azure 게시자의 데이터 페이로드를 찾을 수 있습니다.
 
@@ -78,7 +78,7 @@ Event Grid는 단일 이벤트를 포함하는 배열의 구독자에게 이벤�
 
 ## <a name="event-properties"></a>이벤트 속성
 
-모든 이벤트에는 다음과 같은 동일한 최상위 수준 데이터가 포함됩니다.
+모든 이벤트에는 다음과 같은 동일한 최상위 수준 데이터가 있습니다.
 
 | 자산 | type | 설명 |
 | -------- | ---- | ----------- |
@@ -94,11 +94,14 @@ Event Grid는 단일 이벤트를 포함하는 배열의 구독자에게 이벤�
 데이터 개체의 속성에 대해 자세히 알아보려면 이벤트 원본을 참조하십시오.
 
 * [Azure 구독(관리 작업)](event-schema-subscriptions.md)
+* [컨테이너 레지스트리](event-schema-container-registry.md)
 * [Blob storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
-* [Service Bus](event-schema-service-bus.md)
-* [IoT 허브](event-schema-iot-hub.md)
+* 
+  [IoT Hub](event-schema-iot-hub.md)
+* [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [리소스 그룹(관리 작업)](event-schema-resource-groups.md)
+* [Service Bus](event-schema-service-bus.md)
 
 사용자 지정 항목의 경우 이벤트 게시자가 데이터 개체를 결정합니다. 최상위 수준 데이터에는 표준 리소스 정의 이벤트와 동일한 필드가 있어야 합니다.
 

@@ -9,14 +9,14 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: search
-ms.date: 05/17/2018
+ms.date: 06/28/2018
 ms.author: HeidiSteen
-ms.openlocfilehash: ce5771777762414a0229cf83425c2f3601cb979a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b5cb60bf16a4c904c9a6060113eba8b4d3a671ef
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660225"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112605"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Azure Search Service REST api-version 2017-11-11-Preview
 이 문서에서는 `api-version=2017-11-11-Preview` 버전의 Azure Search Service REST API를 설명하면서 아직 일반 공개되지 않은 실험적 기능을 제공합니다.
@@ -27,11 +27,11 @@ ms.locfileid: "34660225"
 
 ## <a name="new-in-2017-11-11-preview"></a>2017-11-11-Preview의 새로운 기능
 
-지금 공개 미리 보기 상태인 [인식 검색](cognitive-search-concept-intro.md)은 텍스트가 아닌 원본 및 구분되지 않는 텍스트에서 잠재적인 정보를 찾아 이를 Azure Search에서 전체 텍스트 검색 가능한 콘텐츠로 변환하는 Azure Search의 새로운 보강 기능입니다.
+[**자동 완성**](search-autocomplete-tutorial.md)은 검색 표시줄에 보완적인 자동 완성 환경을 추가하는 기존의 [추천 단어 API](https://docs.microsoft.com/rest/api/searchservice/suggestions)를 결합합니다. 자동 완성은 후속 검색에 대한 쿼리 문자열로 선택할 수 있는 후보 쿼리 용어를 반환합니다. 추천 단어는 부분적인 입력에 대한 응답으로 실제 문서를 반환합니다. 검색 결과는 즉시 제공되며, 검색어 입력의 길이가 길어지고 좀 더 구체화됨에 따라 동적으로 변경됩니다.
 
-미리 보기 REST API에서는 다음 리소스가 도입되거나 수정되었습니다. 다른 모든 REST API는 GA 버전을 호출하든 미리 보기 버전을 호출하든 상관없이 동일합니다.
+지금 공개 미리 보기 상태인 [**인식 검색**](cognitive-search-concept-intro.md)은 텍스트가 아닌 원본 및 구분되지 않는 텍스트에서 잠재적인 정보를 찾아 이를 Azure Search에서 전체 텍스트 검색 가능한 콘텐츠로 변환하는 Azure Search의 새로운 보강 기능입니다. 미리 보기 REST API에서는 다음 리소스가 도입되거나 수정되었습니다. 다른 모든 REST API는 GA 버전을 호출하든 미리 보기 버전을 호출하든 상관없이 동일합니다.
 
-+ [기술 집합 만들기(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [기술 집합 작업(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/skillset-operations)
 
 + [인덱서 만들기(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 

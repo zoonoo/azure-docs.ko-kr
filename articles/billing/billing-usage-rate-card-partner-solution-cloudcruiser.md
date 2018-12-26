@@ -4,7 +4,7 @@ description: 경험으로 해당 제품에 Azure 청구 API를 통합하여 Micr
 services: ''
 documentationcenter: ''
 author: tonguyen
-manager: tonguyen
+manager: mumami
 editor: ''
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
-ms.author: mobandyo
-ms.openlocfilehash: 487636ffb0efc35c282e14d835c6669ed9d47315
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: erikre
+ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771500"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275958"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>클라우드 크루저 및 Microsoft Azure 청구 API 통합
 이 문서는 새로운 Microsoft Azure 청구 API로부터 수집한 정보를 Cloud Cruiser에서 워크플로 비용 시뮬레이션 및 분석에 사용할 수 있는 방법을 설명합니다.
@@ -114,9 +114,9 @@ Cloud Cruiser에서 서비스를 정의하는 여러 가지 방법이 있습니�
 
 ## <a name="azure-usage-api"></a>Azure 사용량 API
 ### <a name="introduction"></a>소개
-Microsoft는 최근에 Azure 사용량 API를 도입했습니다. 이제 구독자는 사용량 데이터를 프로그래밍 방식으로 가져와서 소비량을 파악할 수 있습니다. Cloud Cruiser 고객은 이 API를 통해 제공되는 풍부한 데이터 집합의 장점을 활용할 수 있습니다.
+Microsoft는 최근에 Azure 사용량 API를 도입했습니다. 이제 구독자는 사용량 데이터를 프로그래밍 방식으로 가져와서 소비량을 파악할 수 있습니다. Cloud Cruiser 고객은 이 API를 통해 제공되는 풍부한 데이터 세트의 장점을 활용할 수 있습니다.
 
-Cloud Cruiser는 사용량 API와의 통합을 다양한 방법으로 사용할 수 있습니다. API를 통해 제공되는 세분성(시간당 사용량 정보) 및 리소스 메타데이터 정보는 유연한 쇼백 또는 차지백 모델을 지원하는 데 필요한 데이터 집합을 제공합니다. 
+Cloud Cruiser는 사용량 API와의 통합을 다양한 방법으로 사용할 수 있습니다. API를 통해 제공되는 세분성(시간당 사용량 정보) 및 리소스 메타데이터 정보는 유연한 쇼백 또는 차지백 모델을 지원하는 데 필요한 데이터 세트를 제공합니다. 
 
 이 자습서에서는 Cloud Cruiser에서 사용량 API 정보를 활용하는 예를 하나 살펴보겠습니다. 보다 구체적으로 설명하자면, Azure에서 리소스 그룹을 만들고, 계정 구조에 대한 태그를 연결한 다음 Cloud Cruiser로 태그 정보를 가져와서 처리하는 과정을 설명할 것입니다.
 

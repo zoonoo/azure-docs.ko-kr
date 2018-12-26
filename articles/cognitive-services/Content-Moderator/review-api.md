@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator - 조정 작업과 사람이 참여하는 검토 | Microsoft Docs
+title: 조정 작업 및 사람이 참여하는 검토 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 최상의 결과를 위해 기계 지원 조정에 사람이 직접 참여하는 감독을 적용합니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/21/2018
 ms.author: sajagtap
-ms.openlocfilehash: 35b3cdaa410712c3fd08d3df4ebe4c83e3955d50
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b4a2f62b1c9cefb716cb217baf7389c3e7c790b8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373254"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223258"
 ---
 # <a name="moderation-jobs-and-reviews"></a>조정 작업 및 검토
 

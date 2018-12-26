@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 5c6192fdf235b5ecb1148b024da7b11f844e9321
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 21c2c9ab0300ed5eac9ceebbd88627ea091b3389
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081086"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954473"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 이 자습서에서는 Azure PowerShell을 사용하여 Spark 작업 및 주문형 HDInsight 연결된 서비스를 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     if __name__ == "__main__":
         main()
     ```
-2. **&lt;storageAccountName&gt;** 을 Azure Storage 계정 이름으로 바꿉니다. 그런 다음, 파일을 저장합니다. 
+2. **&lt;storageAccountName&gt;** 을 Azure Storage 계정 이름으로 바꿉니다. 그런 다음 파일을 저장합니다. 
 3. Azure Blob Storage에 아직 없는 경우 **adftutorial**이라는 컨테이너를 만듭니다. 
 4. **spark**라는 폴더를 만듭니다.
 5. **spark** 폴더 아래에 **script**라는 하위 폴더를 만듭니다. 
@@ -135,7 +135,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - **hostSubscriptionId** - &lt;subscriptionID&gt;를 Azure 구독의 ID로 바꿉니다. 이 구독에 주문형 HDInsight 클러스터가 만들어집니다. 
 - **tenant** - &lt;tenantID&gt;를 Azure 테넌트의 ID로 바꿉니다. 
-- **servicePrincipalId**, **servicePrincipalKey** - &lt;servicePrincipalID&gt; 및 &lt;servicePrincipalKey&gt;를 Azure Active Directory에 있는 서비스 주체의 ID와 키로 바꿉니다. 이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)를 참조하세요. 
+- **servicePrincipalId**, **servicePrincipalKey** - &lt;servicePrincipalID&gt; 및 &lt;servicePrincipalKey&gt;를 Azure Active Directory에 있는 서비스 주체의 ID와 키로 바꿉니다. 이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 
 - **clusterResourceGroup** - &lt;resourceGroupOfHDICluster&gt;를 HDInsight 클러스터를 만들어야 하는 리소스 그룹의 이름으로 바꿉니다. 
 
 > [!NOTE]
@@ -190,7 +190,7 @@ JSON 파일에서 연결된 서비스 및 파이프라인 정의를 작성했습
     $resourceGroupName = "ADFTutorialResourceGroup" 
     ```
 
-    **Data Factory Name. 전역적으로 고유해야 합니다.** 
+    **데이터 팩터리 이름. 전역적으로 고유해야 합니다.** 
     ```powershell
     $dataFactoryName = "MyDataFactory09102017"
     ```

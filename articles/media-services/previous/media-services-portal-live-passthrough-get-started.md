@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: e4f786eeb8994e44f827e5158811cae4a60453cc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2bb56ff6eaf311bee33b07ecb319127645db9961
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780639"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235108"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Azure Portal을 사용하여 온-프레미스 인코더로 라이브 스트림을 수행하는 방법
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -48,9 +48,9 @@ ms.locfileid: "33780639"
 다음 단계에서는 통과 배달을 위해 구성된 채널을 사용하는 일반적인 라이브 스트리밍 응용 프로그램을 만드는 것과 관련된 작업에 대해 설명합니다. 이 자습서에는 통과 채널 및 라이브 이벤트를 생성 및 관리하는 방법을 보여 줍니다.
 
 >[!NOTE]
->콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태에 있는지 확인합니다. 
+>콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있는지 확인합니다. 
     
-1. 비디오 카메라를 컴퓨터에 연결합니다. 다중 비트 전송률 RTMP 또는 조각화된 MP4 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
+1. 비디오 카메라를 컴퓨터에 연결합니다. 다중 비트 전송률 RTMP 또는 조각화된 MP4 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](https://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
    
     이 단계는 채널을 만든 후에도 수행할 수 있습니다.
 2. 통과 채널을 만들고 시작합니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc5ae7d3feae769a8366f68f412f3b79fa8eb00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76b89c15a12810f98e6324ca93cf581f9b852c88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109061"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259941"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>클라우드 솔루션 공급자 프로그램용 StorSimple: 질문과 대답
 
@@ -50,7 +50,7 @@ StorSimple은 사용량 기준 서비스입니다. 가상 배열 및 Azure의 �
 독립 실행형 StorSimple 서비스와 함께 사용할 수 있는 것과 동일한 SKU입니다. 
 
 ### <a name="is-there-any-difference-between-the-storsimple-directly-purchased-from-microsoft-under-ea-and-storsimple-as-a-part-of-csp"></a>EA 아래에서 Microsoft로부터 직접 구입하는 StorSimple과 CSP의 일부로 구입하는 StorSimple에 차이점이 있습니까?
-아니요. CSP에서 고객은 하나의 송장에서 SVA(StorSimple 가상 배열)와 함께 CSP 파트너에서 제공하는 다른 서비스를 구입할 수도 있습니다. StorSimple 8000 시리즈 물리적 장치를 조달하는 경우 고객은 여전히 EA 경로를 통해야 합니다. 
+ 아니요. CSP에서 고객은 하나의 송장에서 SVA(StorSimple 가상 배열)와 함께 CSP 파트너에서 제공하는 다른 서비스를 구입할 수도 있습니다. StorSimple 8000 시리즈 물리적 디바이스를 조달하는 경우 고객은 여전히 EA 경로를 통해야 합니다. 
 
 ### <a name="in-which-markets-is-storsimple-available-for-csp-at-launch"></a>어떤 시장에서 시작 시 CSP용 StorSimple을 사용할 수 있습니까?
 CSP용 StorSimple 가상 배열은 현재 StorSimple을 사용할 수 있는 모든 시장에서 제공됩니다. 자세한 내용은 [StorSimple을 사용할 수 있는 지역 목록](https://azure.microsoft.com/regions/services/)으로 이동합니다.
@@ -72,12 +72,12 @@ CSP용 StorSimple 가상 배열은 현재 StorSimple을 사용할 수 있는 모
 파트너 센터를 통해 고객의 계정에 StorSimple 가상 배열 구독을 추가할 수 있습니다. 또한 Azure Portal을 사용하여 구독에 사용자를 추가할 수 있습니다.
 
 ### <a name="is-the-azure-portal-approach-the-same-as-other-services-for-csp"></a>Azure Portal 접근 방법은 CSP에 대한 다른 서비스와 동일합니까? 
-예. CSP용 StorSimple 가상 배열을 사용하는 경우 파트너가 Azure Portal에 액세스하는 가장 좋은 방법은 고객 및 구독을 관리할 수 있는 [파트너 센터](http://partnercenter.microsoft.com/)를 통하는 것입니다. StorSimple 구독을 관리하려면 파트너 또는 고객(부여된 권한에 따라)은 Azure Portal에 로그인해야 합니다. 
+예. CSP용 StorSimple 가상 배열을 사용하는 경우 파트너가 Azure Portal에 액세스하는 가장 좋은 방법은 고객 및 구독을 관리할 수 있는 [파트너 센터](https://partnercenter.microsoft.com/)를 통하는 것입니다. StorSimple 구독을 관리하려면 파트너 또는 고객(부여된 권한에 따라)은 Azure Portal에 로그인해야 합니다. 
 
 ### <a name="is-microsoft-shipping-a-new-portal-for-storsimple-for-csp"></a>Microsoft는 CSP용 StorSimple에 대한 새 포털을 제공합니까? 
-아니요. Azure Portal을 통해 CSP에서 StorSimple 가상 배열을 관리할 수 있습니다.
+ 아니요. Azure Portal을 통해 CSP에서 StorSimple 가상 배열을 관리할 수 있습니다.
 
-### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>고객을 위해 독립 실행형 StorSimple 구독을 프로비전했습니다. 장치를 관리하려면 Azure Portal을 사용해야 합니까? 
+### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>고객을 위해 독립 실행형 StorSimple 구독을 프로비전했습니다. 디바이스를 관리하려면 Azure Portal을 사용해야 합니까? 
 예. 
 
 ### <a name="is-the-microsoft-account-team-compensated-as-a-result-of-sales-of-storsimple-through-csp"></a>Microsoft 계정 팀은 CSP를 통해 StorSimple의 판매 결과로 보정됩니까?
@@ -93,8 +93,8 @@ CSP에서 StorSimple에 대한 지원 모델은 CSP의 다른 Azure 서비스의
 
 CSP용 StorSimple에 대한 자세한 내용은 다음으로 이동합니다.
 
-- [Microsoft 클라우드 솔루션 공급자 프로그램](https://partner.microsoft.com/Membership)
-- [파트너 센터](http://partnercenter.microsoft.com/) 
+- [Microsoft Cloud 솔루션 공급자 프로그램](https://partner.microsoft.com/Membership)
+- [파트너 센터](https://partnercenter.microsoft.com/) 
 
 
 ## <a name="next-steps"></a>다음 단계

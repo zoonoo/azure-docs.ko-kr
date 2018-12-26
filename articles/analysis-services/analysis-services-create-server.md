@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 92209d82a6db18b7f1e1a5adbb52c1899bf4593f
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: ef4099130878813378fb277c45b5d352cbe822a7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950702"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000159"
 ---
 # <a name="quickstart-create-a-server---portal"></a>빠른 시작: 서버 만들기 - 포털
 
@@ -22,9 +22,9 @@ ms.locfileid: "37950702"
 ## <a name="prerequisites"></a>필수 조건 
 
 * **Azure 구독**: [Azure 평가판](https://azure.microsoft.com/offers/ms-azr-0044p/)으로 이동하여 계정을 만들 수 있습니다.
-* **Azure Active Directory**: 구독이 Azure Active Directory와 연결되어야 합니다. 또한 해당 Azure Active Directory의 계정으로 Azure에 로그인해야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
+* **Azure Active Directory**: 구독이 Azure Active Directory 테넌트와 연결되어야 합니다. 또한 해당 Azure Active Directory의 계정으로 Azure에 로그인해야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인 
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인 
 
 [포털에 로그인](https://portal.azure.com)
 
@@ -40,11 +40,11 @@ ms.locfileid: "37950702"
    * **서버 이름**: 서버를 참조하는 데 사용되는 고유한 이름을 입력합니다.
    * **구독**: 이 서버와 연결할 구독을 선택합니다.
    * **리소스 그룹**: 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다. 리소스 그룹은 Azure 리소스 컬렉션을 관리할 수 있도록 디자인되었습니다. 자세한 내용은 [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 참조하세요.
-   * **위치**: 이 Azure 데이터 센터 위치는 서버를 호스팅합니다. 가장 큰 사용자 기반에 가장 가까운 위치를 선택합니다.
+   * **위치**: 이 Azure 데이터 센터 위치는 서버를 호스트합니다. 가장 큰 사용자 기반에 가장 가까운 위치를 선택합니다.
    * **가격 책정 계층**: 가격 책정 계층을 선택합니다. 테스트하고 샘플 모델 데이터베이스를 설치하려는 경우 체험판 **D1** 계층을 선택합니다. 자세한 내용은 [Azure Analysis Services 가격 책정](https://azure.microsoft.com/pricing/details/analysis-services/)을 참조하세요. 
     * **관리자**: 기본적으로 로그인하는 계정이 됩니다. Azure Active Directory에서 다른 계정을 선택할 수 있습니다.
-    * **백업 저장소 설정**: 선택 사항입니다. [저장소 계정](../storage/common/storage-introduction.md)이 이미 있는 경우 모델 데이터베이스 백업에 대한 기본값으로 지정할 수 있습니다. [백업 및 복원](analysis-services-backup.md) 설정을 나중에 지정할 수도 있습니다.
-    * **저장소 키 만료**: 선택 사항입니다. 저장소 키 만료 시간을 지정합니다.
+    * **백업 스토리지 설정**: 선택 사항입니다. [저장소 계정](../storage/common/storage-introduction.md)이 이미 있는 경우 모델 데이터베이스 백업에 대한 기본값으로 지정할 수 있습니다. [백업 및 복원](analysis-services-backup.md) 설정을 나중에 지정할 수도 있습니다.
+    * **스토리지 키 만료**: 선택 사항입니다. 저장소 키 만료 시간을 지정합니다.
 
 서버를 만드는 데 걸리는 시간은 보통 1분 미만입니다. **포털에 추가**를 선택한 경우 새 서버를 보려면 포털로 이동합니다. 또는 **모든 서비스** > **Analysis Services**로 이동하여 서버가 준비되었는지 확인합니다.
 

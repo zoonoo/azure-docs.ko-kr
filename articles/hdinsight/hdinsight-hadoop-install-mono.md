@@ -1,26 +1,20 @@
 ---
-title: HDInsight에서 Mono 설치 또는 업데이트 - Azure | Microsoft Docs
+title: HDInsight에서 Mono 설치 또는 업데이트 - Azure
 description: HDInsight 클러스터에서 특정 버전의 Mono를 사용하는 방법을 알아봅니다. Mono는 Linux 기반 HDInsight 클러스터에서 .NET 응용 프로그램을 실행하는 데 사용됩니다.
 services: hdinsight
-documentationCenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
+ms.author: hrasheed
 ms.custom: hdinsightactive
-ms.openlocfilehash: 165f1d8175c7c7b58a5eec02a208b81fe73cb5f9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9daf0d45c9bb24192750991e7bf84fa3614c970d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400438"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011037"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>HDInsight에서 Mono 설치 또는 업데이트
 
@@ -50,7 +44,7 @@ __요구 사항__:
 
 ## <a name="to-use-the-script"></a>스크립트 사용
 
-HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) 문서를 참조하세요. Azure Portal, Azure PowerShell 또는 Azure CLI에서 이 스크립트를 사용할 수 있습니다.
+HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) 문서를 참조하세요. Azure Portal, Azure PowerShell 또는 Azure Classic CLI에서 이 스크립트를 사용할 수 있습니다.
 
 스크립트 동작 문서를 진행하는 동안 다음 URI를 사용합니다.
 

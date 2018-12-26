@@ -3,7 +3,7 @@ title: Azure VM에서 Oracle 데이터베이스 만들기 | Microsoft Docs
 description: Azure 환경에서 Oracle Database 12c 데이터베이스를 신속하게 가동하고 실행합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rickstercdn
+author: romitgirdhar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/17/2017
-ms.author: rclaus
-ms.openlocfilehash: 8ff463b89b395947a66db6d067b6ba32281087ba
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 08/02/2018
+ms.author: rogirdh
+ms.openlocfilehash: 9f6e5dab5059086efc1e00c78b85296ff2b7a48c
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688069"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139154"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Azure VM에서 Oracle 데이터베이스 만들기
 
 이 가이드에서는 Oracle 12c 데이터베이스를 만들기 위해 Azure CLI를 사용하여 [Oracle 마켓플레이스 갤러리 이미지](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview)에서 Azure 가상 머신을 배포하는 방법에 대해 자세히 설명합니다. 서버가 배포된 후 Oracle 데이터베이스를 구성하려면 SSH를 통해 연결합니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -41,7 +41,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-virtual-machine"></a>가상 머신 만들기
 
 VM(가상 머신)을 만들려면 [az vm create](/cli/azure/vm#az_vm_create) 명령을 사용합니다. 
 
@@ -77,7 +77,7 @@ VM을 만든 후 Azure CLI는 다음 예제와 비슷한 정보를 표시합니�
 VM으로 SSH 세션을 만들려면 다음 명령을 사용합니다. 해당 IP 주소를 VM의 `publicIpAddress` 값으로 바꿉니다.
 
 ```bash 
-ssh <publicIpAddress>
+ssh azureuser@<publicIpAddress>
 ```
 
 ## <a name="create-the-database"></a>데이터베이스 만들기
@@ -269,9 +269,9 @@ Oracle 데이터베이스는 기본적으로 VM을 다시 시작할 때 자동�
 
 ## <a name="open-ports-for-connectivity"></a>연결을 위한 포트 열기
 
-마지막 작업은 일부 외부 끝점을 구성하는 것입니다. VM을 보호하는 Azure 네트워크 보안 그룹을 설정하려면 먼저 VM에서 SSH 세션을 종료합니다(이전 단계에서 다시 부팅 할 때 SSH에서 제외되어 있어야 함). 
+마지막 작업은 일부 외부 엔드포인트를 구성하는 것입니다. VM을 보호하는 Azure 네트워크 보안 그룹을 설정하려면 먼저 VM에서 SSH 세션을 종료합니다(이전 단계에서 다시 부팅 할 때 SSH에서 제외되어 있어야 함). 
 
-1.  Oracle 데이터베이스에 원격으로 액세스하는 데 사용하는 끝점을 열려면 다음과 같이 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. 
+1.  Oracle 데이터베이스에 원격으로 액세스하는 데 사용하는 엔드포인트를 열려면 다음과 같이 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -283,7 +283,7 @@ Oracle 데이터베이스는 기본적으로 VM을 다시 시작할 때 자동�
         --destination-port-range 1521
     ```
 
-2.  Oracle EM Express에 원격으로 액세스하는 데 사용하는 끝점을 열려면 다음과 같이 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
+2.  Oracle EM Express에 원격으로 액세스하는 데 사용하는 엔드포인트를 열려면 다음과 같이 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
 
     ```azurecli-interactive
     az network nsg rule create \

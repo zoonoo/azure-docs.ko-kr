@@ -56,7 +56,7 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
 | [Azure HDInsight 클러스터에서 Hive 스크립트를 실행하여 데이터 변환](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |이 템플릿을 배포하면 Azure HDInsight Hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터를 변환하는 파이프라인으로 Azure Data Factory가 만들어집니다. |
 
 ## <a name="samples-in-azure-portal"></a>Azure Portal의 샘플
-데이터 팩터리의 홈 페이지에 있는 **샘플 파이프라인** 을 사용하여 데이터 팩터리에 샘플 파이프라인 및 관련된 엔터티(데이터 집합 및 연결된 서비스)를 배포합니다.
+데이터 팩터리의 홈 페이지에 있는 **샘플 파이프라인** 타일을 사용하여 데이터 팩터리에 샘플 파이프라인 및 관련된 엔터티(데이터 세트 및 연결된 서비스)를 배포합니다.
 
 1. 데이터 팩터리를 만들거나 기존 데이터 팩터리를 엽니다. Data Factory를 만드는 단계는 [Data Factory를 사용하여 Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 2. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **샘플 파이프라인** 타일을 클릭합니다.

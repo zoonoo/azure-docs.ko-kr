@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 278539a2451eb15c7148b75497798e81f5370a57
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 38f93f5415282d2f976d9f3acc2b0a7aeead6c3d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182767"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093357"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Azure Search에서 다국어 문서에 대한 인덱스 만들기
 > [!div class="op_single_selector"]

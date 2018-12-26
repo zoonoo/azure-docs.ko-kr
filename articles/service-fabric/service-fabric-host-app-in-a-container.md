@@ -3,7 +3,7 @@ title: Azure Service Fabric에 컨테이너의 .NET 앱 배포 | Microsoft Docs
 description: Visual Studio를 사용하여 기존.NET 응용 프로그램을 컨테이너화하고 Service Fabric에서 로컬로 컨테이너를 디버그하는 방법에 대해 알아봅니다. 컨테이너화된 응용 프로그램을 Azure 컨테이너 레지스트리에 푸시하고 Service Fabric 클러스터에 배포합니다. Azure에 배포하는 경우 응용 프로그램은 Azure SQL DB를 사용하여 데이터를 유지합니다.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
-ms.author: ryanwi
-ms.openlocfilehash: 6fe314125440096d21a1276defd082c4e1997b8e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: twhitney
+ms.openlocfilehash: 2b53b8a97f4e794110dc482db09a0d376247a678
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642685"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299642"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너의 .NET 응용 프로그램 배포
 
@@ -61,7 +61,7 @@ Fabrikam Fiber CallCenter 응용 프로그램이 오류 없이 빌드되고 실�
 ## <a name="create-an-azure-sql-db"></a>Azure SQL DB 만들기
 Fabrikam Fiber CallCenter 응용 프로그램을 프로덕션 환경에서 실행하는 경우 데이터는 데이터베이스에 유지돼야 합니다. 현재는 컨테이너에 데이터를 유지할 수 있는 방법이 없으므로 프로덕션 데이터를 컨테이너로 SQL Server에 저장할 수 없습니다.
 
-[Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell)를 권장합니다. Azure에서 SQL Server DB를 설정하고 실행하려면 다음 스크립트를 실행합니다.  필요에 따라 스크립트 변수를 수정합니다. *clientIP*는 개발 컴퓨터의 IP 주소입니다.  회사 방화벽을 갖추고 있다면 개발 컴퓨터의 IP 주소는 인터넷에 노출된 IP 주소가 아닐 수 있습니다.  컴퓨터의 IP 주소를 나열하는 [Azure Portal](https://portal.azure.com)을 통해 SQL 데이터베이스에 대한 서버 방화벽 규칙을 설정할 수도 있습니다.
+[Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell)를 권장합니다. Azure에서 SQL Server DB를 설정하고 실행하려면 다음 스크립트를 실행합니다.  필요에 따라 스크립트 변수를 수정합니다. *clientIP*는 개발 컴퓨터의 IP 주소입니다. 스크립트에서 출력되는 서버의 이름을 적어 두세요. 
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -82,7 +82,7 @@ $adminlogin = "ServerAdmin"
 $password = "Password@123"
 
 # The IP address of your development computer that accesses the SQL DB.
-$clientIP = "24.18.117.76"
+$clientIP = "<client IP>"
 
 # The database name.
 $databasename = "call-center-db"
@@ -109,13 +109,15 @@ New-AzureRmSqlDatabase  -ResourceGroupName $dbresourcegroupname `
 
 Write-Host "Server name is $servername"
 ```
+> [!TIP]
+> 회사 방화벽을 갖추고 있다면 개발 컴퓨터의 IP 주소는 인터넷에 노출된 IP 주소가 아닐 수 있습니다. er데이터베이스가 방화벽 규칙에 대해 올바른 IP 주소를 가지고 있는지 확인하려면 [Azure portal](https://portal.azure.com)로 이동하여 SQL Databases 섹션에서 데이터베이스를 찾습니다. 이름을 클릭한 다음, 개요 섹션에서 “서버 방화벽 설정”을 클릭합니다. "클라이언트 IP 주소"는 개발 머신의 IP 주소입니다. "AllowClient" 규칙의 IP 주소와 일치하는지 확인합니다.
 
 ## <a name="update-the-web-config"></a>웹 구성 업데이트
-**FabrikamFiber.Web** 프로젝트로 돌아가 **web.config** 파일의 연결 문자열이 컨테이너의 SQL Server를 가리키도록 업데이트합니다.  이전 스크립트에서 만든 서버용 연결 문자열의 *서버* 부분을 업데이트합니다. 
+**FabrikamFiber.Web** 프로젝트로 돌아가 **web.config** 파일의 연결 문자열이 컨테이너의 SQL Server를 가리키도록 업데이트합니다.  연결 문자열의 *서버* 부분을 이전 스크립트에서 만든 서버 이름으로 업데이트합니다. "fab-fiber-751718376.database.windows.net"와 같은 형식입니다.
 
 ```xml
-<add name="FabrikamFiber-Express" connectionString="Server=tcp:fab-fiber-1300282665.database.windows.net,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
-<add name="FabrikamFiber-DataWarehouse" connectionString="Server=tcp:fab-fiber-1300282665.database.windows.net,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
+<add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
+<add name="FabrikamFiber-DataWarehouse" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
   
 ```
 >[!NOTE]
@@ -140,15 +142,17 @@ $registry = New-AzureRMContainerRegistry -ResourceGroupName $acrresourcegroupnam
 ```
 
 ## <a name="create-a-service-fabric-cluster-on-azure"></a>Azure에서 Service Fabric 클러스터 만들기
-Service Fabric 응용 프로그램은 네트워크에 연결된 가상 머신 또는 물리적 머신의 집합인 클러스터에서 실행됩니다.  Azure에 응용 프로그램을 배포하기 전에 먼저 Azure에서 Service Fabric 클러스터를 만듭니다.
+Service Fabric 애플리케이션은 네트워크에 연결된 가상 머신 또는 물리적 머신의 집합인 클러스터에서 실행됩니다.  Azure에 애플리케이션을 배포하기 전에 Azure에서 Service Fabric 클러스터를 만듭니다.
 
 다음을 수행할 수 있습니다.
-- Visual Studio에서 테스트 클러스터를 만듭니다. 이 옵션을 사용하면 기본 설정 구성으로 Visual Studio에서 직접 보안 클러스터를 만들 수 있습니다. 
+- Visual Studio에서 테스트 클러스터를 만듭니다. 이 옵션을 사용하면 기본 설 구성으로 Visual Studio에서 직접 보안 클러스터정를 만들 수 있습니다. 
 - [템플릿에서 보안 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
 이 자습서는 테스트 시나리오에 적합한 Visual Studio에서 클러스터를 만듭니다. 어떤 다른 방법으로 클러스터를 만들거나 기존 클러스터를 사용하는 경우 연결 엔트포인트를 복사해 붙여넣거나 구독에서 선택할 수 있습니다. 
 
-클러스터를 만들 때 실행 중인 컨테이너를 지원하는 SKU를 선택합니다. 클러스터 노드의 Windows Server OS는 컨테이너의 Windows Server OS와 호환되어야 합니다. 자세히 알아보려면 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 기본적으로 이 자습서에서는 Windows Server 2016 LTSC를 기반으로 하는 Docker 이미지를 만듭니다. 이 이미지를 기반으로 하는 컨테이너는 컨테이너로 Windows Server 2016 Datacenter를 사용하여 만든 클러스터에서 실행됩니다. 그러나 클러스터를 만들거나 컨테이너로 Windows Server Datacenter 코어 1709를 기반으로 하는 기존 클러스터를 사용하는 경우 컨테이너가 기반으로 하는 Windows Server OS 이미지를 변경해야 합니다. **FabrikamFiber.Web** 프로젝트에서 **Dockerfile**을 열고, 기존 `FROM` 문을 주석으로 처리하고(`windowsservercore-ltsc`에 따라) `windowsservercore-1709`에 따라 `FROM` 문의 주석 처리를 제거합니다. 
+시작하기 전에 솔루션 탐색기에서 FabrikamFiber.Web->PackageRoot->ServiceManifest.xml을 엽니다. **엔드포인트**에 나열된 웹 프런트 엔드에 대한 포트를 적어 두세요. 
+
+클러스터를 만드는 경우 다음을 수행합니다. 
 
 1. 솔루션 탐색기에서 응용 프로그램 프로젝트 **FabrikamFiber.CallCenterApplication**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
@@ -158,21 +162,29 @@ Service Fabric 응용 프로그램은 네트워크에 연결된 가상 머신 �
         
 4. **클러스터 만들기** 대화 상자에서 다음 설정을 수정합니다.
 
-    1. **클러스터 이름** 필드에서 클러스터의 이름뿐만 아니라 사용하려는 구독과 위치도 지정합니다.
-    2. 선택 사항: 노드 수를 수정할 수 있습니다. 기본적으로 Service Fabric 시나리오를 테스트하는 데 필요한 최소 세 개의 노드가 있습니다.
-    3. **인증서** 탭을 선택합니다. 이 탭에서 클러스터의 인증서를 보호하는 데 사용할 암호를 입력합니다. 이 인증서는 클러스터를 안전하게 보호하는 데 도움이 됩니다. 인증서를 저장하려는 위치의 경로를 수정할 수도 있습니다. 또한 응용 프로그램을 클러스터에 게시하는 데 필요한 단계이므로 Visual Studio에서 사용자에 대한 인증서를 가져올 수도 있습니다.
-    4. **VM 세부 정보** 탭을 선택합니다. 클러스터를 구성하는 VM(Virtual Machines)에 사용할 암호를 지정합니다. 사용자 이름과 암호를 사용하여 VM에 원격으로 연결할 수 있습니다. 또한 VM 컴퓨터 크기를 선택해야 하며, 필요한 경우 VM 이미지를 변경할 수도 있습니다.
-    5. **고급** 탭에서 클러스터를 배포하는 경우 부하 분산 장치에서 열려는 응용 프로그램 포트를 나열합니다. 솔루션 탐색기에서 FabrikamFiber.Web->PackageRoot->ServiceManifest.xml을 엽니다.  웹 프런트 엔드용 포트는 **엔드포인트**에 나열됩니다.  또한 응용 프로그램 로그 파일을 라우팅하는 데 사용할 기존 Application Insights 키를 추가할 수도 있습니다.
-    6. 설정 수정을 마쳤으면 **만들기** 단추를 선택합니다. 
-5. 만들기가 완료되는 데 몇 분이 걸립니다. 클러스터가 완전히 만들어지면 출력 창에 표시됩니다.
+    a. **클러스터 이름** 필드에서 클러스터의 이름뿐만 아니라 사용하려는 구독과 위치도 지정합니다. 클러스터 리소스 그룹의 이름을 적어 두세요.
+
+    b. 선택 사항: 노드 수를 수정할 수 있습니다. 기본적으로 Service Fabric 시나리오를 테스트하는 데 필요한 최소 세 개의 노드가 있습니다.
+
+    다. **인증서** 탭을 선택합니다. 이 탭에서 클러스터의 인증서를 보호하는 데 사용할 암호를 입력합니다. 이 인증서는 클러스터를 안전하게 보호하는 데 도움이 됩니다. 인증서를 저장하려는 위치의 경로를 수정할 수도 있습니다. 또한 애플리케이션을 클러스터에 게시하는 데 필요한 단계이므로 Visual Studio에서 사용자에 대한 인증서를 가져올 수도 있습니다.
+
+    d. **VM 세부 정보** 탭을 선택합니다. 클러스터를 구성하는 VM(Virtual Machines)에 사용할 암호를 지정합니다. 사용자 이름과 암호를 사용하여 VM에 원격으로 연결할 수 있습니다. 또한 VM 컴퓨터 크기를 선택해야 하며, 필요한 경우 VM 이미지를 변경할 수도 있습니다. 
+
+    > [!IMPORTANT]
+    >실행 중인 컨테이너를 지원하는 SKU를 선택합니다. 클러스터 노드의 Windows Server OS는 컨테이너의 Windows Server OS와 호환되어야 합니다. 자세히 알아보려면 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 기본적으로 이 자습서에서는 Windows Server 2016 LTSC를 기반으로 하는 Docker 이미지를 만듭니다. 이 이미지를 기반으로 하는 컨테이너는 컨테이너로 Windows Server 2016 Datacenter를 사용하여 만든 클러스터에서 실행됩니다. 그러나 클러스터를 만들거나 컨테이너로 Windows Server Datacenter 코어 1709를 기반으로 하는 기존 클러스터를 사용하는 경우 컨테이너가 기반으로 하는 Windows Server OS 이미지를 변경해야 합니다. **FabrikamFiber.Web** 프로젝트에서 **Dockerfile**을 열고, 기존 `FROM` 문을 주석으로 처리하고(`windowsservercore-ltsc`에 따라) `windowsservercore-1709`에 따라 `FROM` 문의 주석 처리를 제거합니다. 
+
+    e. **고급** 탭에서 클러스터를 배포하는 경우 부하 분산 장치에서 열려는 응용 프로그램 포트를 나열합니다. 이 포트는 클러스터를 만들기 전에 적어 둔 포트입니다. 또한 애플리케이션 로그 파일을 라우팅하는 데 사용할 기존 Application Insights 키를 추가할 수도 있습니다.
+
+    f. 설정 수정을 마쳤으면 **만들기** 단추를 선택합니다. 
+1. 만들기가 완료되는 데 몇 분이 걸립니다. 클러스터가 완전히 만들어지면 출력 창에 표시됩니다.
     
 
 ## <a name="allow-your-application-running-in-azure-to-access-the-sql-db"></a>Azure에서 실행 중인 응용 프로그램이 SQL DB에 액세스 허용
-이전에 로컬로 실행 중인 응용 프로그램에 액세스 권한을 부여하기 위해 SQL 방화벽 규칙을 만들었습니다.  다음으로 Azure에서 실행 중인 응용 프로그램이 SQL DB에 액세스할 수 있도록 설정해야 합니다.  Service Fabric 클러스터에 대한 [가상 네트워크 서비스 엔드포인트](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)를 만든 다음, 해당 엔트포인트가 SQL DB에 액세스할 수 있는 규칙을 만듭니다.
+이전에 로컬로 실행 중인 응용 프로그램에 액세스 권한을 부여하기 위해 SQL 방화벽 규칙을 만들었습니다.  다음으로 Azure에서 실행 중인 응용 프로그램이 SQL DB에 액세스할 수 있도록 설정해야 합니다.  Service Fabric 클러스터에 대한 [가상 네트워크 서비스 엔드포인트](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)를 만든 다음, 해당 엔트포인트가 SQL DB에 액세스할 수 있는 규칙을 만듭니다. 클러스터를 만들 때 적어 둔 클러스터 리소스 그룹 변수를 지정합니다. 
 
 ```powershell
 # Create a virtual network service endpoint
-$clusterresourcegroup = "fabrikamfiber.callcenterapplication_RG"
+$clusterresourcegroup = "<cluster resource group>"
 $resource = Get-AzureRmResource -ResourceGroupName $clusterresourcegroup -ResourceType Microsoft.Network/virtualNetworks | Select-Object -first 1
 $vnetName = $resource.Name
 
@@ -215,14 +227,17 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
   -VirtualNetworkRuleName $VNetRuleName `
   -VirtualNetworkSubnetId $subnetID;
 ```
-## <a name="deploy-the-application-to-azure"></a>Azure에 응용 프로그램 배포
+## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 응용 프로그램이 준비되면 Visual Studio에서 직접 Azure의 클러스터에 배포할 수 있습니다.  솔루션 탐색기에서 응용 프로그램 프로젝트 **FabrikamFiber.CallCenterApplication**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.  **연결 엔트포인트**에서 이전에 만든 클러스터의 엔드포인트를 선택합니다.  **Azure Container Registry**에서 이전에 만든 컨테이너 레지스트리를 선택합니다.  Azure에서 응용 프로그램을 클러스터에 배포하려면 **게시**를 클릭합니다.
 
 ![응용 프로그램 게시][publish-app]
 
-출력 창의 배포 진행률을 따릅니다.  응용 프로그램을 배포할 때 클러스터 주소와 응용 프로그램 포트에서 브라우저와 유형을 엽니다. 예: http://http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/
+출력 창의 배포 진행률을 따릅니다.  응용 프로그램을 배포할 때 클러스터 주소와 응용 프로그램 포트에서 브라우저와 유형을 엽니다. 예: http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/
 
 ![Fabrikam 웹 샘플][fabrikam-web-page-deployed]
+
+## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Service Fabric 클러스터와의 CI/CD(지속적인 통합 및 지속적인 배포) 설정
+Azure DevOps를 사용하여 Service Fabric 클러스터에 대한 CI/CD 응용 프로그램 배포를 구성하는 방법을 알아보려면 [자습서: Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)를 참조하세요. 이 자습서에 설명된 프로세스는 이 (FabrikamFiber) 프로젝트와 동일하므로, Voting 샘플 다운로드 과정을 건너뛰고 리포지토리 이름으로 Voting 대신 FabrikamFiber를 사용합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 완료된 경우 만든 모든 리소스를 제거해야 합니다.  가장 간단한 방법은 Service Fabric 클러스터, Azure SQL DB 및 Azure Container Registry를 포함하는 리소스 그룹을 제거하는 것입니다.
@@ -251,8 +266,7 @@ Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
 > * Azure Container Registry 만들기
 > * Azure에 Service Fabric 응용 프로그램 배포
 
-자습서의 다음 부분에서는 [컨테이너에 대한 모니터링](service-fabric-tutorial-monitoring-wincontainers.md)을 설정하는 방법을 알아봅니다.
-
+자습서의 다음 부분에서 [Service Fabric 클러스터에 CI/CD로 컨테이너 응용 프로그램 배포](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md) 방법을 알아봅니다.
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
 [link-azure-powershell-install]: /powershell/azure/install-azurerm-ps

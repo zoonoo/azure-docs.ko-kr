@@ -3,7 +3,7 @@ title: .NET SDK를 사용하여 Azure DNS에서 DNS 영역 및 레코드 집합 
 description: .NET SDK를 사용하여 Azure DNS에서 DNS 영역 및 레코드 집합을 만드는 방법입니다.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 ms.assetid: eed99b87-f4d4-4fbf-a926-263f7e30b884
 ms.service: dns
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
-ms.author: kumud
-ms.openlocfilehash: 645bf755cc3cb4036104145765196fc97039c551
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: a814c543b9f4bfe6717e639342d82ed13dac35b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772299"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954609"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 
@@ -28,12 +28,12 @@ ms.locfileid: "32772299"
 
 일반적으로 고유한 사용자 자격 증명 대신 전용 계정을 통해 Azure 리소스에 대한 프로그래밍 방식의 액세스를 부여합니다. 이러한 전용 계정을 '서비스 주체' 계정이라고 합니다. Azure DNS SDK 샘플 프로젝트를 사용하려면 먼저 서비스 주체 계정을 만들고 올바른 사용 권한을 할당해야 합니다.
 
-1. [이러한 지침](../azure-resource-manager/resource-group-authenticate-service-principal.md) 에 따라 서비스 주체 계정을 만듭니다(Azure DNS SDK 샘플 프로젝트는 암호 기반 인증을 가정함).
+1. [이러한 지침](../active-directory/develop/howto-authenticate-service-principal-powershell.md) 에 따라 서비스 주체 계정을 만듭니다(Azure DNS SDK 샘플 프로젝트는 암호 기반 인증을 가정함).
 2. 리소스 그룹을 만듭니다([방법은 여기에서 확인](../azure-resource-manager/resource-group-template-deploy-portal.md)).
 3. Azure RBAC를 사용하여 서비스 주체 계정 'DNS 영역 참가자' 권한을 리소스 그룹에 부여합니다([방법은 다음과 같음](../role-based-access-control/role-assignments-portal.md)).
 4. Azure DNS SDK 샘플 프로젝트를 사용하는 경우 'program.cs' 파일을 다음과 같이 편집합니다.
 
-   * 1단계에서 사용한 대로 tenatId, clientId(계정 ID라고도 함), 비밀(서비스 주체 계정 암호) 및 subscriptionId에 대한 올바른 값을 삽입합니다.
+   * 1단계에서 사용한 대로 `tenantId`, `clientId`(계정 ID라고도 함), `secret`(서비스 주체 계정 암호) 및 `subscriptionId`에 대한 올바른 값을 삽입합니다.
    * 2단계에서 선택한 리소스 그룹 이름을 입력합니다.
    * 선택한 DNS 영역 이름을 입력합니다.
 
@@ -59,7 +59,7 @@ using Microsoft.Azure.Management.Dns.Models;
 
 ## <a name="initialize-the-dns-management-client"></a>DNS 관리 클라이언트 초기화
 
-*DnsManagementClient* 에는 DNS 영역 및 레코드 집합 관리에 필요한 메서드 및 속성이 들어 있습니다.  다음 코드는 서비스 주체 계정에 로그인하고 DnsManagementClient 개체를 만듭니다.
+`DnsManagementClient`에는 DNS 영역 및 레코드 집합 관리에 필요한 메서드 및 속성이 들어 있습니다.  다음 코드는 서비스 주체 계정에 로그인하고 `DnsManagementClient` 개체를 만듭니다.
 
 ```cs
 // Build the service credentials and DNS management client
@@ -72,7 +72,7 @@ dnsClient.SubscriptionId = subscriptionId;
 
 DNS 영역을 만들려면 먼저 "영역" 개체가 DNS 영역 매개 변수를 포함하도록 만듭니다. DNS 영역은 특정 지역에 연결되어 있지 않기 때문에 위치가 '전역'으로 설정됩니다. 이 예제에서는 [Azure Resource Manager '태그'](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) 도 영역에 추가합니다.
 
-실제로 Azure DNS에서 영역을 만들거나 업데이트하려면 영역 매개 변수를 포함하는 영역 개체를 *DnsManagementClient.Zones.CreateOrUpdateAsyc* 메서드에 전달해야 합니다.
+실제로 Azure DNS에서 영역을 만들거나 업데이트하려면 영역 매개 변수를 포함하는 영역 개체를 `DnsManagementClient.Zones.CreateOrUpdateAsyc` 메서드에 전달해야 합니다.
 
 > [!NOTE]
 > DnsManagementClient는 동기('CreateOrUpdate'), 비동기('CreateOrUpdateAsync') 또는 HTTP 응답에 액세스 권한을 가진 비동기('CreateOrUpdateWithHttpMessagesAsync') 등 세 가지 작업 모드를 지원합니다.  응용 프로그램 요구 사항에 따라 이러한 모드 중 하나를 선택할 수 있습니다.
@@ -98,7 +98,7 @@ var dnsZone = await dnsClient.Zones.CreateOrUpdateAsync(resourceGroupName, zoneN
 
 DNS 레코드는 레코드 집합으로 관리됩니다. 레코드 집합은 영역 내에서 동일한 이름과 레코드 형식을 가진 레코드의 집합입니다.  레코드 집합 이름은 정규화된 DNS 이름이 아닌 영역 이름에 상대적입니다.
 
-레코드 집합을 만들거나 업데이트하려면 "RecordSet" 매개 변수 개체를 만들어서 *DnsManagementClient.RecordSets.CreateOrUpdateAsync*로 전달합니다. DNS 영역의 경우 동기('CreateOrUpdate'), 비동기('CreateOrUpdateAsync') 또는 HTTP 응답에 액세스 권한을 가진 비동기('CreateOrUpdateWithHttpMessagesAsync') 등 세 가지 작업 모드가 있습니다.
+레코드 집합을 만들거나 업데이트하려면 “RecordSet” 매개 변수 개체를 만들어서 `DnsManagementClient.RecordSets.CreateOrUpdateAsync`로 전달합니다. DNS 영역의 경우 동기('CreateOrUpdate'), 비동기('CreateOrUpdateAsync') 또는 HTTP 응답에 액세스 권한을 가진 비동기('CreateOrUpdateWithHttpMessagesAsync') 등 세 가지 작업 모드가 있습니다.
 
 DNS 영역의 경우 레코드 집합에 대한 작업에는 낙관적 동시성에 대한 지원이 포함되어 있습니다.  이 예제에서는 'If-Match' 또는 'If-None-Match'가 지정되지 않았기 때문에 레코드 집합이 항상 만들어집니다.  이 호출은 이 DNS 영역에 있는 동일한 이름과 레코드 형식으로 모든 기존 레코드 집합을 덮어씁니다.
 
@@ -122,7 +122,7 @@ var recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName
 
 ## <a name="get-zones-and-record-sets"></a>영역 및 레코드 집합 가져오기
 
-*DnsManagementClient.Zones.Get* 및 *DnsManagementClient.RecordSets.Get* 메서드는 각각 개별 영역 및 레코드 집합을 검색합니다. RecordSets은 해당 형식, 이름 및 속해 있는 영역(및 리소스 그룹)으로 식별됩니다. 영역은 해당 이름 및 속해 있는 리소스 그룹으로 식별됩니다.
+`DnsManagementClient.Zones.Get` 및 `DnsManagementClient.RecordSets.Get` 메서드는 각각 개별 영역 및 레코드 집합을 검색합니다. RecordSets은 해당 형식, 이름 및 속해 있는 영역(및 리소스 그룹)으로 식별됩니다. 영역은 해당 이름 및 속해 있는 리소스 그룹으로 식별됩니다.
 
 ```cs
 var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);

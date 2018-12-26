@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 84766ba4cf9e844184752bc44d2e0a471b97db27
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159131"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963597"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -31,7 +31,7 @@ Microsoft Azure 용어집은 Azure 플랫폼용 클라우드 용어의 간단한
 
 ## <a name="account"></a>계정
 Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정입니다. 계정이 기존 회사, 학교나 개인 Microsoft 계정 또는 Office 365 사용자 이름 및 암호 중 하나일 수 있지만 Azure 계정이라고 말합니다. [평가판](https://azure.microsoft.com)에 등록할 때 Azure 구독을 관리하기 위해 계정을 만들 수도 있습니다.  
-[Office 365 계정을 사용하여 Azure 구독에 등록](billing/billing-use-existing-office-365-account-azure-subscription.md) 및 [로그인하는 데 사용할 수 있는 계정](active-directory/active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
+[Office 365 계정을 사용하여 Azure 구독에 등록](billing/billing-use-existing-office-365-account-azure-subscription.md) 및 [로그인하는 데 사용할 수 있는 계정](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
 
 ## <a name="api-app"></a>API 앱
 [App Service 앱](#app-service-app)의 다른 이름입니다.
@@ -47,7 +47,7 @@ Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정�
 Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델](resource-manager-deployment-model.md) 중 하나입니다(새 모델은 Azure Resource Manager임). 일부 Azure 서비스는 Resource Manager 배포 모델만 지원하고 일부는 클래식 배포 모델만 지원하며 일부는 둘 모두를 지원합니다. 각 Azure 서비스에 대한 설명서에는 지원되는 모델이 지정되어 있습니다.
 
 ## <a name="cli"></a>Azure CLI(명령줄 인터페이스)
-Windows, macOS 및 Linux에서 Azure 서비스를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다.  일부 서비스 또는 서비스 기능은 PowerShell 또는 CLI를 통해서만 관리할 수 있습니다. [Azure CLI 2.0](/cli/azure)을 참조하세요.
+Windows, macOS 및 Linux에서 Azure 서비스를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다.  일부 서비스 또는 서비스 기능은 PowerShell 또는 CLI를 통해서만 관리할 수 있습니다. [Azure CLI](/cli/azure)를 참조하세요.
 
 ## <a name="powershell"></a>Azure PowerShell
 Windows PC에서 명령줄을 통해 Azure 서비스를 관리하는 명령줄 인터페이스입니다. 일부 서비스 또는 서비스 기능은 PowerShell 또는 CLI를 통해서만 관리할 수 있습니다.
@@ -66,15 +66,15 @@ Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델
 
 ## <a name="geo-replication"></a>지역에서 복제
 지역 쌍 내의 Blob, 테이블 및 큐와 같은 콘텐츠를 자동으로 복제하는 프로세스입니다.  
-[Azure SQL Database의 활성 지역 복제](sql-database/sql-database-geo-replication-overview.md)를 참조하세요.
-<!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
+[Azure SQL Database의 활성 지역 복제](sql-database/sql-database-geo-replication-overview.md)
+<!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->를 참조하세요.
 
 ## <a name="image"></a>이미지
 개수에 관계없이 여러 가상 머신을 만드는 데 사용할 수 있는 운영 체제 및 응용 프로그램 구성을 포함하는 파일입니다. Azure에는 두 가지 유형의 이미지, 즉 VM 이미지와 OS 이미지가 있습니다. VM 이미지에는 운영 체제 및 이미지를 만들 때 가상 머신에 연결된 모든 디스크가 포함됩니다. OS 이미지에는 데이터 디스크 구성 없이 일반화된 운영 체제만 포함되어 있습니다.  
 [PowerShell 또는 CLI로 Azure의 Windows 가상 머신 이미지 이동 및 선택](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 ## <a name="limits"></a>제한
-만들 수 있는 리소스 수 또는 도달할 수 있는 성능 벤치마크입니다. 제한은 일반적으로 구독, 서비스 및 제공 사항에 연결됩니다.  
+만들 수 있는 리소스 수 또는 도달할 수 있는 성능 벤치마크입니다. 제한은 일반적으로 구독, 서비스 및 제안에 연결됩니다.  
 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md)을 참조하세요.
 
 ## <a name="load-balancer"></a>부하 분산 장치
@@ -83,7 +83,7 @@ Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델
 ## <a name="mobile-app"></a>모바일 앱
 [App Service 앱](#app-service-app)의 다른 이름입니다.
 
-## <a name="offer"></a>offer
+## <a name="offer"></a>제품
 Azure 구독에 적용되는 가격 책정, 신용 및 관련 조건입니다.  
 [Azure 제안 세부 정보 페이지](https://azure.microsoft.com/support/legal/offer-details/)
 
@@ -126,8 +126,8 @@ Azure Storage의 Azure Blob, 큐, 테이블 및 파일 서비스에 대한 액�
 [Azure Storage 계정 정보](storage/common/storage-create-storage-account.md)를 참조하세요.
 
 ## <a name="subscription"></a>subscription
-Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약입니다. 구독 가격 책정 및 관련 조건은 구독에 대해 선택된 제공 사항에 따라 제어됩니다.
-[Microsoft 온라인 정기가입 계약](https://azure.microsoft.com/support/legal/subscription-agreement/) 및 [Azure 구독과 Azure Active Directory의 연관 관계](active-directory/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
+Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약입니다. 구독 가격 책정 및 관련 조건은 구독에 대해 선택된 제안에 따라 제어됩니다.
+[Microsoft 온라인 정기가입 계약](https://azure.microsoft.com/support/legal/subscription-agreement/) 및 [Azure 구독과 Azure Active Directory의 연관 관계](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
 ## <a name="tag"></a>tag
 관리 또는 청구에 대한 요구 사항에 따라 리소스를 분류할 수 있도록 하는 인덱싱 용어입니다. 복잡한 리소스 컬렉션이 있는 경우 태그를 사용하여 이러한 자산을 가장 적합한 방식으로 시각화할 수 있습니다. 예를 들어 조직에서 비슷한 역할을 제공하거나 동일한 부서에 속한 리소스를 태그로 지정할 수 있습니다.  

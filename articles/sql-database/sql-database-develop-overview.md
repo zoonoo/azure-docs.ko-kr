@@ -2,20 +2,22 @@
 title: SQL Database 응용 프로그램 개발 개요 | Microsoft 문서
 description: 사용 가능한 연결 라이브러리 및 SQL Database에 연결하는 응용 프로그램에 대한 모범 사례를 알아봅니다.
 services: sql-database
-author: stevestein
-manager: craigg
-ms.reviewer: genemi
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 2194293d23e5db277f2ff7aa207c298533f74571
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.reviewer: genemi
+manager: craigg
+ms.date: 06/20/2018
+ms.openlocfilehash: 707e10f77bf00ed12f09a23e490105f52ceed4ab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308869"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241602"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 응용 프로그램 개발 개요
 이 문서는 Azure SQL Database에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.
@@ -35,9 +37,9 @@ ms.locfileid: "36308869"
 ## <a name="resource-limitations"></a>리소스 제한
 Azure SQL Database는 리소스 관리와 제한 적용이라는 서로 다른 두 메커니즘을 사용하는 데이터베이스에서 사용 가능한 리소스를 관리합니다. 자세한 내용은 다음을 참조하세요.
 
-- [DTU 기반 리소스 모델 제한 - 단일 데이터베이스](sql-database-dtu-resource-limits-elastic-pools.md)
-- [DTU 기반 리소스 모델 제한 - 단일 데이터베이스](sql-database-dtu-resource-limits-elastic-pools.md)
-- [vCore 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md)
+- [DTU 기반 리소스 모델 제한 - Single Database](sql-database-dtu-resource-limits-single-databases.md)
+- [DTU 기반 리소스 모델 제한 - 탄력적 풀](sql-database-dtu-resource-limits-elastic-pools.md)
+- [vCore 기반 리소스 제한 - Single Database](sql-database-vcore-resource-limits-single-databases.md)
 - [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>보안
@@ -59,7 +61,7 @@ SQL Database에 연결하는 동안 일시적인 오류가 발생하면, 코드�
 
 ## <a name="managing-connections"></a>연결 관리
 * 클라이언트 연결 논리에서 기본 시간 제한을 30초로 재정의합니다.  기본값 15초는 인터넷에 종속된 연결 시간으로 너무 짧습니다.
-* [연결 풀](http://msdn.microsoft.com/library/8xx3tyca.aspx)을 사용하는 경우 프로그램에서 활발하게 사용하지 않고 다시 사용할 준비를 하지 않으면 연결을 즉시 닫아야 합니다.
+* [연결 풀](https://msdn.microsoft.com/library/8xx3tyca.aspx)을 사용하는 경우 프로그램에서 활발하게 사용하지 않고 다시 사용할 준비를 하지 않으면 연결을 즉시 닫아야 합니다.
 
 ## <a name="network-considerations"></a>네트워크 고려 사항
 * 클라이언트 프로그램을 호스팅하는 컴퓨터에서 방화벽이 포트 1433에서 발신 TCP 통신을 허용하는지 확인합니다.  추가 정보: [Azure SQL Database 방화벽 구성](sql-database-configure-firewall-settings.md).

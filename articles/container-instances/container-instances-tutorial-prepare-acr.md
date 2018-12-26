@@ -1,22 +1,21 @@
 ---
-title: Azure Container Instances 자습서 - Azure Container Registry 준비
-description: Azure Container Instances 자습서 2/3부 - Azure Container Registry 준비
+title: 자습서 - Azure Container Instances에 사용할 컨테이너 레지스트리 준비
+description: Azure Container Instances 자습서 2/3부 - Azure 컨테이너 레지스트리를 준비하여 이미지 푸시
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: marsma
-ms.custom: mvc
-ms.openlocfilehash: a23e6af506b503a666837f01665e2cad9d1ec5b6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: danlep
+ms.custom: seodec18, mvc
+ms.openlocfilehash: eeb0fe5b19f23e101eab9393dca64e1e13bf6922
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167421"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188925"
 ---
-# <a name="tutorial-deploy-and-use-azure-container-registry"></a>자습서: Azure Container Registry 배포 및 사용
+# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>자습서: Azure 컨테이너 레지스트리를 배포하고 컨테이너 이미지 푸시
 
 세 부분으로 이루어진 자습서의 두 번째 부분입니다. 자습서의 [1부](container-instances-tutorial-prepare-app.md)에서는 Node.js 웹 응용 프로그램에 사용할 Docker 컨테이너 이미지를 만들었습니다. 이 자습서에서는 이 이미지를 Azure Container Registry에 푸시합니다. 컨테이너 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기](container-instances-tutorial-prepare-app.md)로 돌아갑니다.
 
@@ -221,10 +220,10 @@ v1
 [nodejs]: http://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-acr-create]: /cli/azure/acr#az_acr_create
-[az-acr-login]: /cli/azure/acr#az_acr_login
-[az-acr-repository-list]: /cli/azure/acr/repository#az_acr_list
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
-[az-acr-show]: /cli/azure/acr#az_acr_show
-[az-group-create]: /cli/azure/group#az_group_create
+[az-acr-create]: /cli/azure/acr#az-acr-create
+[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-repository-list]: /cli/azure/acr/repository#az-acr-list
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
+[az-acr-show]: /cli/azure/acr#az-acr-show
+[az-group-create]: /cli/azure/group#az-group-create
 [azure-cli-install]: /cli/azure/install-azure-cli

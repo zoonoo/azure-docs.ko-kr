@@ -1,18 +1,18 @@
 ---
-title: " Azure Site Recovery를 사용하여 물리적 서버 재해 복구를 위한 구성 서버 관리 | Microsoft Docs"
-description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 Azure에 대한 물리적 서버 재해 복구를 위해 기존 구성 서버를 관리하는 방법을 설명합니다.
+title: Azure Site Recovery를 사용한 온-프레미스 물리적 서버와 Azure 간 재해 복구를 위한 구성 서버 관리 | Microsoft Docs
+description: 이 문서에서는 물리적 서버와 Azure 간 재해 복구를 위한 Azure Site Recovery 구성 서버를 관리하는 방법을 설명합니다.
 services: site-recovery
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/11/2018
-ms.author: anoopkv
-ms.openlocfilehash: 580d32a51f6b38916ddccd46784b80b1179c29c4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 11/27/2018
+ms.author: ramamill
+ms.openlocfilehash: 62a9fd6eee15618e7153fd84030840b429e214ed
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598866"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833519"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>물리적 서버 재해 복구용 구성 서버 관리
 
@@ -37,12 +37,12 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 | IIS | - 기존의 기본 웹 사이트 없음 <br> - [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용  <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/응용 프로그램 없음<br>|
 | NIC 유형 | VMXNET3(VMware VM으로 배포될 경우) |
 | IP 주소 유형 | 공용 |
-| 인터넷 액세스 | 서버에서 다음 URL에 액세스해야 합니다. <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi(스케일 아웃 프로세스 서버에는 필요하지 않음) <br> - time.nist.gov <br> - time.windows.com |
+| 인터넷 액세스 | 서버에서 다음 URL에 액세스해야 합니다. <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi(스케일 아웃 프로세스 서버에는 필요하지 않음) <br> - time.nist.gov <br> - time.windows.com |
 | 포트 | 443(컨트롤 채널 오케스트레이션)<br>9443(데이터 전송)|
 
 ## <a name="download-the-latest-installation-file"></a>최신 설치 파일 다운로드
 
-구성 서버 설치 파일의 최신 버전은 Site Recovery 포털에서 사용할 수 있습니다. 또한 [Microsoft 다운로드 센터](http://aka.ms/unifiedsetup)에서 직접 다운로드할 수 있습니다.
+구성 서버 설치 파일의 최신 버전은 Site Recovery 포털에서 사용할 수 있습니다. 또한 [Microsoft 다운로드 센터](https://aka.ms/unifiedsetup)에서 직접 다운로드할 수 있습니다.
 
 1. Azure Portal에 로그온하고 Recovery Services 자격 증명 모음으로 이동합니다.
 2. **Site Recovery 인프라** > **구성 서버**(VMware 및 물리적 컴퓨터용 아래)로 이동합니다.
@@ -98,7 +98,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 
 ### <a name="sample-usage"></a>샘플 사용
   ```
-  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
   UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
   ```

@@ -3,7 +3,7 @@ title: Azure 가상 머신 확장 집합을 수직으로 규모 조정 | Microso
 description: Azure Automation을 사용하여 모니터링 경고에 대한 응답으로 Virtual Machine을 수직으로 확장하는 방법
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: negat
-ms.openlocfilehash: 6e4733e023d1dc27fb099216f9afea07fe07446c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: 8080cdf78333eed9541311ba67221c713341a21a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781822"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741575"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 사용하여 수직으로 규모 조정
 이 문서에서는 다시 프로비저닝을 사용하거나 사용하지 않고 Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 수직으로 확장하는 방법을 설명합니다. 확장 집합에 있지 않은 VM의 수직 규모 조정에 대해서는 [Azure Automation을 사용하여 Azure 가상 머신을 수직으로 확장](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.

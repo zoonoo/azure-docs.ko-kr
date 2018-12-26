@@ -2,19 +2,19 @@
 title: 자습서 - Azure PowerShell에서 게시/구독 채널 및 토픽 필터를 사용하여 소매점 재고 분류 업데이트 | Microsoft Docs
 description: 이 자습서에서는 토픽과 구독에서 메시지를 보내고 받는 방법과 Azure PowerShell을 사용하여 필터 규칙을 추가하고 사용하는 방법을 알아봅니다.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
-ms.date: 05/22/2018
+ms.author: spelluru
+ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 824235cfdae6df9d852875281346e35a18277f74
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fdf97234e840de5fdd2811f3cdae8dd4cdc76a22
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531663"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229155"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>자습서: PowerShell 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -32,7 +32,7 @@ Microsoft Azure Service Bus는 응용 프로그램과 서비스 간에 정보를
 
 이 시나리오의 예는 여러 소매점에 대한 재고 분류 업데이트입니다. 이 시나리오에서 각 상점 또는 상점 집합은 해당 분류를 업데이트하기 위한 메시지를 받습니다. 이 자습서에서는 구독과 필터를 사용하여 이 시나리오를 구현하는 방법을 보여 줍니다. 먼저 3개의 구독이 포함된 토픽을 만들고. 몇 가지 규칙과 필터를 추가한 다음, 토픽과 구독에서 메시지를 보내고 받습니다.
 
-![큐](./media/service-bus-quickstart-powershell/quick-start-queue.png)
+![토픽](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만듭니다.
 
@@ -40,16 +40,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 �
 
 이 자습서를 완료하려면 다음을 설치했어야 합니다.
 
-1. [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](http://www.visualstudio.com/vs) 이상
+1. [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
 
 이 자습서에서는 최신 버전의 Azure PowerShell을 실행해야 합니다. 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성][]을 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-다음 명령을 실행하여 Azure에 로그온합니다. Cloud Shell에서 PowerShell 명령을 실행하는 경우에는 다음 단계가 필요하지 않습니다. 
+다음 명령을 실행하여 Azure에 로그인합니다. Cloud Shell에서 PowerShell 명령을 실행하는 경우에는 다음 단계가 필요하지 않습니다. 
 
 1. Service Bus PowerShell 모듈을 설치합니다.
 

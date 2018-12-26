@@ -1,29 +1,24 @@
 ---
-title: 'HDInsight에서 Hadoop 디버그: 로그 보기 및 오류 메시지 해석 - Azure | Microsoft Docs'
+title: 'HDInsight에서 Apache Hadoop 디버그: 로그 보기 및 오류 메시지 해석 - Azure '
 description: PowerShell을 사용하여 HDInsight를 관리할 때 표시될 수 있는 오류 메시지와 복구를 위해 수행할 수 있는 단계에 대해 알아봅니다.
 services: hdinsight
-tags: azure-portal
-editor: cgronlun
-manager: jhubbard
+ms.reviewer: jasonh
 author: ashishthaps
-documentationcenter: ''
-ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 8952e1381d81d153a170f35dd3cfd3f60cd4f73a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404759"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634637"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop 로그 분석
 
-Azure HDInsight의 Hadoop 클러스터 각각에는 기본 파일 시스템으로 사용되는 Azure 저장소 계정이 있습니다. 이 Storage 계정을 기본 Storage 계정이라고 합니다. 클러스터는 기본 Storage 계정의 Azure Table Storage 및 Blob Storage를 사용하여 로그를 저장합니다.  클러스터용 기본 저장소 계정을 알아보려면 [HDInsight의 Hadoop 클러스터 관리](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account)를 참조하세요. 로그는 클러스터를 삭제한 후에 Storage 계정에 유지됩니다.
+Azure HDInsight의 Apache Hadoop 클러스터 각각에는 기본 파일 시스템으로 사용되는 Azure Storage 계정이 있습니다. 이 Storage 계정을 기본 Storage 계정이라고 합니다. 클러스터는 기본 Storage 계정의 Azure Table Storage 및 Blob Storage를 사용하여 로그를 저장합니다.  클러스터용 기본 저장소 계정을 알아보려면 [HDInsight의 Hadoop 클러스터 관리](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account)를 참조하세요. 로그는 클러스터를 삭제한 후에 Storage 계정에 유지됩니다.
 
 ## <a name="logs-written-to-azure-tables"></a>Azure 테이블에 기록된 로그
 
@@ -64,7 +59,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 테이블 저장�
 * Excel용 파워 쿼리
 
 #### <a name="use-power-query-for-excel"></a>Excel용 파워 쿼리 사용
-파워 쿼리는 [Microsoft Excel용 파워 쿼리](http://www.microsoft.com/en-us/download/details.aspx?id=39379)에서 설치할 수 있습니다. 시스템 요구 사항은 다운로드 페이지를 참조하세요.
+파워 쿼리는 [Microsoft Excel용 파워 쿼리](https://www.microsoft.com/en-us/download/details.aspx?id=39379)에서 설치할 수 있습니다. 시스템 요구 사항은 다운로드 페이지를 참조하세요.
 
 **파워 쿼리를 사용하여 서비스 로그 열기 및 분석**
 
@@ -83,7 +78,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 테이블 저장�
 7. **확인** 을 클릭하여 데이터를 가져옵니다.
 8. **TraceLevel**, 역할 및 **ComponentName** 열을 선택한 다음 리본 메뉴에서 **그룹별** 컨트롤을 클릭합니다.
 9. 그룹별 대화 상자에서 **확인** 을 클릭합니다.
-10. **적용 및 닫기**를 클릭합니다.
+10. ** 적용 및 닫기**를 클릭합니다.
 
 이제 Excel을 사용하여 필요에 따라 필터링하고 정렬할 수 있습니다. 문제가 발생할 때 문제를 드릴 다운하기 위해 다른 열(예: 메시지)을 포함하려하지만 위에서 설명한 열을 선택하고 그룹화하면 Hadoop 서비스를 사용하여 발생하는 사항에 훌륭한 그림을 제공합니다. Setuplog 및 hadoopinstalllog 테이블에 동일한 개념을 적용할 수 있습니다.
 
@@ -136,7 +131,7 @@ Azure Portal에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스
 
 이러한 오류 메시지 중 일부는 Azure 포털에서 HDInsight 클러스터를 관리할 때도 발생할 수 있습니다. 하지만 이때 발생할 수 있는 다른 오류 메시지는 해당 컨텍스트에서 가능한 수정 작업의 제약 조건으로 인해 세분화하기 어렵습니다. 다른 오류 메시지는 뚜렷한 해결 방법이 있는 경우 제공됩니다. 
 
-### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **설명**: Hive 및 Oozie 메타스토어에 사용자 지정 설정을 사용하려면 하나 이상의 구성 요소에 대한 Azure SQL 데이터베이스 세부 정보를 제공하세요.
 * **해결 방법**: 사용자가 올바른 SQL Azure 메타스토어를 제공하고 요청을 다시 시도해야 합니다.  
 
@@ -293,11 +288,11 @@ Azure Portal에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스
 * **해결 방법**: 구독 ID가 올바른지 확인한 후 작업을 다시 시도하세요.
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
-* **설명**: DNS *yourDnsUrl*을(를) 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
+* **설명**: DNS *yourDnsUrl*을(를) 확인할 수 없습니다. Blob 엔드포인트에 정규화된 URL을 지정했는지 확인하세요.  
 * **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 *http://* 로 시작하고 *.com*으로 끝나는 것을 포함하여 완전히 유효해야 합니다.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
-* **설명**: *yourDnsUrl*리소스의 위치를 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
+* **설명**: *yourDnsUrl*리소스의 위치를 확인할 수 없습니다. Blob 엔드포인트에 정규화된 URL을 지정했는지 확인하세요.  
 * **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 *http://* 로 시작하고 *.com*으로 끝나는 것을 포함하여 완전히 유효해야 합니다.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable

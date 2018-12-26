@@ -1,0 +1,122 @@
+items:
+- name: Azure 데이터 탐색기 설명서
+  href: index.yml
+- name: 개요
+  items:
+  - name: 데이터 탐색기란?
+    href: data-explorer-overview.md
+- name: 빠른 시작
+  items:
+  - name: 클러스터 만들기 - Azure Portal
+    href: create-cluster-database-portal.md
+  - name: 데이터 수집
+    items:
+    - name: 데이터 스트리밍 - 이벤트 허브
+      href: ingest-data-event-hub.md
+    - name: 스트리밍 데이터 - Kafka
+      href: ingest-data-kafka.md
+    - name: 데이터 일괄 처리 - Python
+      href: python-ingest-data.md
+    - name: 데이터 일괄 처리 - Node SDK
+      href: node-ingest-data.md
+    - name: 데이터 일괄 처리 - .NET Standard SDK
+      href: net-standard-ingest-data.md
+  - name: 쿼리 데이터
+    items:
+    - name: 웹 UI
+      href: web-query-data.md
+    - name: Python
+      href: python-query-data.md
+  - name: 데이터 가상화
+    items:
+    - name: Power BI - 커넥터
+      href: power-bi-connector.md
+    - name: Power BI - 가져온 쿼리
+      href: power-bi-imported-query.md
+    - name: Power BI - SQL 쿼리
+      href: power-bi-sql-query.md
+- name: 자습서
+  items:
+  - name: Power BI에서 데이터 시각화
+    href: visualize-power-bi.md
+- name: 개념
+  items:
+  - name: 데이터 수집 개요
+    displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
+    href: ingest-data-overview.md
+  - name: 시계열 분석
+    href: time-series-analysis.md
+  expanded: true
+- name: 방법 가이드
+  items:
+  - name: 시작
+    items:
+    - name: 쿼리 쓰기
+      href: write-queries.md
+    - name: 샘플 데이터 수집
+      href: ingest-sample-data.md
+    expanded: true
+  - name: 관리
+    items:
+    - name: 데이터베이스 권한 관리
+      href: manage-database-permissions.md
+    - name: 클러스터 상태 확인
+      href: check-cluster-health.md
+    - name: 클러스터 크기 조정 관리
+      href: manage-cluster-scaling.md
+    - name: 데이터 삭제
+      href: delete-data.md
+  - name: 다른 도구와 함께 작동
+    items:
+    - name: Python을 사용하여 Databricks에서 연결
+      href: connect-from-databricks.md
+    - name: Jupyter Notebook 및 Kqlmagic을 사용하여 데이터 분석
+      href: kqlmagic.md
+    - name: Grafana의 데이터 시각화
+      href: grafana.md
+  - name: 문제 해결
+    items:
+    - name: 클러스터 만들기
+      href: troubleshoot-create-cluster.md
+    - name: 클러스터에 연결
+      href: troubleshoot-connect-cluster.md
+    - name: 데이터베이스 및 테이블 작업
+      href: troubleshoot-database-table.md
+- name: 참고 자료
+  items:
+  - name: 쿼리 언어
+    href: /azure/kusto/query/
+  - name: 관리 명령
+    href: /azure/kusto/management/
+  - name: API
+    href: /azure/kusto/api/
+  - name: 도구
+    href: /azure/kusto/tools/
+  - name: 개념
+    href: /azure/kusto/concepts/
+- name: 리소스
+  items:
+  - name: 블로그
+    href: https://azure.microsoft.com/blog/tag/azure-data-explorer/
+  - name: 포럼
+    items:
+    - name: 스택 오버플로
+      href: https://stackoverflow.com/questions/tagged/azure-data-explorer
+    - name: Microsoft 기술 커뮤니티
+      href: https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto
+    - name: MSDN 포럼
+      href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
+  - name: 제품 사용자 의견
+    href: http://aka.ms/adefeedback
+  - name: 가격
+    href: https://azure.microsoft.com/pricing/details/data-explorer/
+  - name: 요금 계산기
+    href: http://aka.ms/adecostestimator
+  - name: 서비스 업데이트
+    href: https://azure.microsoft.com/updates/?product=data-explorer
+ms.openlocfilehash: fdde75acc0d975db194108458ca308c459b4f9a7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653019"

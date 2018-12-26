@@ -1,30 +1,23 @@
 ---
-title: 인덱스 쿼리(포털 - Azure Search) | Microsoft Docs
-description: Azure Portal의 검색 탐색기에서 검색 쿼리를 실행합니다.
+title: Azure Search의 인덱스를 쿼리하기 위한 검색 탐색기 | Microsoft Docs
+description: 검색 탐색기를 사용하여 Azure Search의 인덱스를 쿼리하는 방법을 알아봅니다.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 07/10/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: a3592bd0c304dfb78374eeba432c0d28203980c9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 520d9e7b1899c54d922ff6fb77e0901f9609b029
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790511"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004136"
 ---
-# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Azure Portal에서 Search Explorer를 사용하여 Azure Search 인덱스 쿼리
-> [!div class="op_single_selector"]
-> * [개요](search-query-overview.md)
-> * [포털](search-explorer.md)
-> * [.NET](search-query-dotnet.md)
-> * [REST (영문)](search-query-rest-api.md)
-> 
-> 
+# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>검색 탐색기를 사용하여 Azure Search의 인덱스를 쿼리하는 방법 
 
-이 문서에서는 Azure Portal에서 **Search Explorer**를 사용하여 Azure Search 인덱스를 쿼리하는 방법을 보여줍니다. Search Explorer를 사용하여 서비스에서 기존 인덱스에 단일 또는 전체 Lucene 쿼리 문자열을 제출할 수 있습니다.
+이 문서에서는 Azure Portal에서 **검색 탐색기**를 사용하여 기존 Azure Search 인덱스를 쿼리하는 방법을 보여줍니다. 검색 탐색기를 사용하여 서비스에서 기존 인덱스에 단일 또는 전체 Lucene 쿼리 문자열을 제출할 수 있습니다.
 
 ## <a name="open-the-service-dashboard"></a>서비스 대시보드 열기
 1. [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)의 왼쪽에 있는 점프 표시줄에서 **모든 리소스**를 클릭합니다.
@@ -36,15 +29,15 @@ ms.locfileid: "31790511"
 
    ![](./media/search-explorer/pick-index.png)
 
-## <a name="open-search-explorer"></a>Search Explorer 열기
+## <a name="open-search-explorer"></a>검색 탐색기 열기
 
-Search Explorer 타일을 클릭하여 검색 표시줄 및 결과 창을 슬라이드로 엽니다.
+검색 탐색기 타일을 클릭하여 검색 표시줄 및 결과 창을 슬라이드로 엽니다.
 
    ![](./media/search-explorer/search-explorer-tile.png)
 
 ## <a name="start-searching"></a>검색 시작
 
-Search Explorer를 사용하는 경우 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)를 지정하여 쿼리를 작성할 수 있습니다.
+검색 탐색기를 사용하는 경우 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)를 지정하여 쿼리를 작성할 수 있습니다.
 
 1. **쿼리 문자열**에서 쿼리를 입력한 다음 **검색** 키를 누릅니다. 
 

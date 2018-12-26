@@ -1,10 +1,10 @@
 ---
-title: Azure CDN 끝점에 자산 미리 로드 | Microsoft Docs
-description: Azure CDN 끝점에 캐시된 콘텐츠를 미리 로드하는 방법을 알아봅니다.
+title: Azure CDN 엔드포인트에 자산 미리 로드 | Microsoft Docs
+description: Azure CDN 엔드포인트에 캐시된 콘텐츠를 미리 로드하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
 ms.service: cdn
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: mazha
-ms.openlocfilehash: bf3161d756759e4b278e48ad7a49615e4a73d17f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: magattus
+ms.openlocfilehash: d2dc8ad1e4b7e429dc758a96e49aa4825ae108e5
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150137"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091320"
 ---
-# <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Azure CDN 끝점에 자산 미리 로드
+# <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트에 자산 미리 로드
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 기본적으로 자산은 요청하는 경우에만 캐시됩니다. 가장자리 서버에 콘텐츠가 아직 캐시되지 않았고 원본 서버에 요청을 전달해야 하기 때문에 각 지역의 첫 번째 요청은 이후의 요청보다 더 오래 걸릴 수 있습니다. 이러한 첫 번째 지연을 방지하려면 자산을 미리 로드합니다. 더 나은 고객 경험을 제공할 뿐 아니라 캐시된 자산을 미리 로드하면 원본 서버에서 네트워크 트래픽을 줄일 수 있습니다.
@@ -34,12 +34,12 @@ ms.locfileid: "32150137"
 이 자습서는 모든 Azure CDN 에지 노드에 캐시된 콘텐츠 미리 로드에 대해 안내합니다.
 
 ## <a name="to-pre-load-assets"></a>자산을 미리 로드하려면
-1. [Azure Portal](https://portal.azure.com)에서 미리 로드하려는 끝점을 포함하는 CDN 프로필로 이동합니다. 프로필 창이 열립니다.
+1. [Azure Portal](https://portal.azure.com)에서 미리 로드하려는 엔드포인트를 포함하는 CDN 프로필로 이동합니다. 프로필 창이 열립니다.
     
-2. 목록에서 끝점을 클릭합니다. 끝점 창이 열립니다.
-3. CDN 끝점 창에서 **로드**를 선택합니다.
+2. 목록에서 엔드포인트를 클릭합니다. 엔드포인트 창이 열립니다.
+3. CDN 엔드포인트 창에서 **로드**를 선택합니다.
    
-    ![CDN 끝점 창](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
+    ![CDN 엔드포인트 창](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
    
     **로드** 창이 열립니다.
    
@@ -67,7 +67,7 @@ ms.locfileid: "32150137"
 > 
 
 ## <a name="see-also"></a>참고 항목
-* [Azure CDN 끝점 제거](cdn-purge-endpoint.md)
-* [Azure CDN REST API 참조: 끝점에서 콘텐츠 미리 로드](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Azure CDN REST API 참조: 끝점에서 콘텐츠 제거](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
+* [Azure CDN 엔드포인트 제거](cdn-purge-endpoint.md)
+* [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 미리 로드](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 제거](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

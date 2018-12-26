@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.reviewer: quying
+ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970554"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362061"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
 가상 컴퓨터 (VM)에서 SQL 인스턴스를 호스트할 수 있습니다 [Azure Stack](azure-stack-poc.md), 또는 SQL 리소스 공급자 인스턴스에 연결할 수 있는 만큼 Azure Stack 환경 외부 VM.
+
+> [!NOTE]
+> SQL 리소스 공급자 서버에 SQL 데이터베이스를 만들어야 합니다. 청구 되는 사용자 구독에 SQL 호스팅 서버를 만들어야 하는 동안 기본 공급자 구독에 SQL 리소스 공급자를 만들어야 합니다. 리소스 공급자 서버는 사용자 데이터베이스를 호스트에 사용할 수 없습니다.
 
 ## <a name="overview"></a>개요
 
@@ -38,13 +41,16 @@ SQL 호스팅 서버를 추가 하기 전에 다음 필수 및 일반 요구 사
 
 * 전용 리소스 공급자 및 사용자 작업에 사용할 SQL 인스턴스를 지정 합니다. 다른 소비자에 의해 사용 되는 SQL 인스턴스를 사용할 수 없습니다. 이 제한 사항은 App Services에도 적용 됩니다.
 * (아래 설명 참조) 리소스 공급자에 대 한 적절 한 권한 수준을 사용 하 여 계정을 구성 합니다.
-* 여러분이 SQL 인스턴스 및 해당 호스트를 관리 하는 일을 담당 합니다.  리소스 공급자 하지 업데이트 적용, 백업, 처리 또는 처리 하는 예를 들어, 회전 자격 증명입니다.
+* SQL 인스턴스 및 해당 호스트를 관리 하기 위한 담당 합니다.  리소스 공급자 하지 업데이트 적용, 백업, 처리 또는 처리 하는 예를 들어, 회전 자격 증명입니다.
 
 ### <a name="sql-server-virtual-machine-images"></a>SQL Server 가상 머신 이미지
 
 SQL IaaS 가상 머신 이미지 Marketplace 관리 기능을 통해 사용할 수 있습니다. 이러한 이미지는 Azure에서 사용할 수 있는 SQL Vm와 동일 합니다.
 
 항상 최신 버전을 다운로드할 수 있는지 확인 합니다 **SQL IaaS 확장** 마켓플레이스 항목을 사용 하 여 SQL VM을 배포 하기 전에 합니다. IaaS 확장 및 해당 포털을 자동으로 패치 하는 등 추가 기능을 제공 하 고 백업 하는 향상 된 기능입니다. 이 확장에 대 한 자세한 내용은 참조 하세요. [SQL Server 에이전트 확장을 사용 하 여 Azure Virtual Machines에서 관리 작업을 자동화](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)합니다.
+
+> [!NOTE]
+> SQL IaaS 확장 _필요한_ marketplace에서 Windows 이미지의 모든 SQL에 대 한 VM 확장을 다운로드 하지 않은 경우 배포에 실패 합니다. Linux 기반 SQL 가상 머신 이미지를 사용 하 여 사용 되지 않습니다.
 
 템플릿을 포함 하 여 SQL Vm을 배포 하기 위한 다른 옵션은는 [Azure Stack 빠른 시작 갤러리](https://github.com/Azure/AzureStack-QuickStart-Templates)합니다.
 
@@ -78,15 +84,15 @@ SQL sysadmin 보다 낮은 권한을 가진 관리자를 만들 수 있습니다
 
 1. 서비스 관리자로 Azure Stack 연산자 포털에 로그인 합니다.
 
-2. 선택 **찾아보기** &gt; **관리 리소스** &gt; **SQL 호스팅 서버**합니다.
+2. 선택 **모든 서비스** &gt; **관리 리소스** &gt; **SQL 호스팅 서버**합니다.
 
    ![SQL 호스팅 서버](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   아래 **SQL 호스팅 서버**, 리소스 공급자의 백 엔드로 사용 되는 SQL Server의 인스턴스에 SQL 리소스 공급자를 연결할 수 있습니다.
+   아래 **SQL 호스팅 서버**, 리소스 공급자의 백 엔드로 사용할 SQL Server 인스턴스의 SQL 리소스 공급자를 연결할 수 있습니다.
 
-   ![SQL 어댑터 대시보드](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![SQL 어댑터 대시보드](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. 온 **SQL 호스팅 서버 추가**, SQL Server 인스턴스에 대 한 연결 세부 정보를 제공 합니다.
+3. 클릭 **추가** 후에 SQL Server 인스턴스에 대 한 연결 세부 정보를 제공 하 고는 **SQL 호스팅 서버 추가** 블레이드입니다.
 
    ![SQL 호스팅 서버를 추가 합니다.](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
@@ -125,7 +131,7 @@ SQL Always On 인스턴스를 구성 하려면 추가 단계가 필요 하며 3 
   GO
   ```
 
-참고를 가용성 그룹 대괄호로 묶어야 합니다.
+가용성 그룹 대괄호로 묶어야 합니다.
 
 보조 노드에서 다음 SQL 명령을 실행 합니다.
 
@@ -167,23 +173,24 @@ SQL Always On 인스턴스를 구성 하려면 추가 단계가 필요 하며 3 
    > 동일한 SKU에서 Always On 인스턴스를 사용 하 여 독립 실행형 서버를 혼합할 수 없습니다. 오류가 첫 번째 호스팅 서버 결과 추가한 후 유형을 혼합 하려고 합니다.
 
 ## <a name="sku-notes"></a>SKU 정보
-
-서비스 제공을 구분 하기 위해 Sku를 사용할 수 있습니다. 예를 들어, 다음과 같은 특징이 있는 Sql 인스턴스를 할 수 있습니다.
+SKU 용량 및 성능과 같은 서버 기능을 설명 하는 SKU 이름을 사용 합니다. 사용자가 적절 한 SKU를 해당 데이터베이스를 배포 하는 데 대 한 지원으로 이름이 사용 됩니다. 예를 들어 다음 특징에 따라 서비스 제공을 구분 하기 위해 SKU 이름을 사용할 수 있습니다.
   
 * 큰 용량
 * 고성능
 * 고가용성
 
-Sku는 특정 사용자 또는이 릴리스에서 그룹에 할당할 수 없습니다.
-
- Sku는 포털에 표시 되도록 한 시간이 걸릴 수 있습니다. 사용자는 SKU를 완벽 하 게 만들 때까지 데이터베이스를 만들 수 없습니다.
-
->[!TIP]
->반영 하는 SKU 이름을 사용 하 여 용량 및 성능과 같은 SKU의 서버 기능을 설명 합니다. 사용자가 적절 한 SKU를 해당 데이터베이스를 배포 하는 데 대 한 지원으로 이름이 사용 됩니다.
-
 모범 사례로, SKU에서 모든 호스팅 서버가 동일한 리소스 및 성능 특징 있어야 합니다.
 
-## <a name="make-the-sql-databases-available-to-users"></a>사용자에 게 SQL 데이터베이스 제공
+Sku는 특정 사용자 또는 그룹에 할당할 수 없습니다.
+
+Sku는 포털에 표시 되도록 한 시간이 걸릴 수 있습니다. 사용자는 SKU를 완벽 하 게 만들 때까지 데이터베이스를 만들 수 없습니다.
+
+SKU를 편집 하려면로 이동 **모든 서비스** > **SQL 어댑터** > **Sku**합니다. 수정, 필요한 내용을 변경 하 고 클릭 하 고 SKU 선택 **저장** 변경 내용을 저장 합니다. 더 이상 필요 없는 하는 SKU를 삭제 하려면로 이동 **모든 서비스** > **SQL 어댑터** > **Sku**합니다. 선택한 SKU 이름을 마우스 오른쪽 단추로 클릭 **삭제** 삭제 합니다.
+
+> [!TIP]
+> 편집 하거나 동일한 위치에 SQL 리소스 공급자 할당량을 삭제할 수 있습니다.
+
+## <a name="make-sql-databases-available-to-users"></a>사용자에 게 SQL database를 사용할 수 있도록
 
 계획 및 제품은 사용자에 대 한 SQL database에서 사용할 수 있도록 만듭니다. 추가 합니다 **Microsoft.SqlAdapter** 새 할당량을 만들고 서비스를 계획 합니다.
 

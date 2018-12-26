@@ -1,6 +1,6 @@
 ---
 title: Node.js에서 원격 모니터링으로 Raspberry Pi 프로비전 - Azure | Microsoft Docs
-description: Node.js에 작성된 응용 프로그램을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 장치를 연결하는 방법을 설명합니다.
+description: Node.js에 작성된 응용 프로그램을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,18 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 78647612fc747ec328279536d82fb31bb4858688
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 696bd6ec80f39e8a9f3418426a754ffc038171e2
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309779"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325085"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>원격 모니터링 솔루션 가속기에 Raspberry Pi 장치 연결(Node.js)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스 연결(Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-이 자습서에서는 원격 모니터링 솔루션 가속기에 물리적 장치를 연결하는 방법을 보여줍니다. 이 자습서에서는 최소한의 리소스 제약 조건으로 환경에 적합한 옵션인 Node.js를 사용합니다.
+이 자습서에서는 원격 모니터링 솔루션 가속기에 물리적 디바이스를 연결하는 방법을 보여줍니다. 이 자습서에서는 최소한의 리소스 제약 조건으로 환경에 적합한 옵션인 Node.js를 사용합니다.
 
 ### <a name="required-hardware"></a>필수 하드웨어
 
@@ -63,7 +63,7 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
 
     ```sh
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
-    sudo apt-get install nodejs -y
+    sudo apt-get install nodejs npm
     ```
 
 1. 다음 명령을 사용하여 Node.js v6.11.4를 성공적으로 설치했는지 확인합니다.
@@ -87,8 +87,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
 1. 샘플 앱을 완료해야 하는 패키지를 다운로드하고 설치하려면 다음 명령을 실행합니다.
 
     ```sh
-    npm init
-    npm install async azure-iot-device azure-iot-device-mqtt --save
+    npm install async azure-iot-device azure-iot-device-mqtt
     ```
 
 1. `remotemonitoring` 폴더에 **remote_monitoring.js**라는 파일을 만듭니다. 텍스트 편집기에서 이 파일을 엽니다. Raspberry Pi에서 `nano` 또는 `vi` 텍스트 편집기를 사용할 수 있습니다.
@@ -103,7 +102,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
     var async = require('async');
     ```
 
-1. 다음 변수 선언을 `require` 문 뒤에 추가합니다. 자리 표시자 값 `{device connection string}`을 원격 모니터링 솔루션에서 프로비전한 장치에 대해 기록한 값으로 바꿉니다.
+1. 다음 변수 선언을 `require` 문 뒤에 추가합니다. 자리 표시자 값 `{device connection string}`을 원격 모니터링 솔루션에서 프로비전한 디바이스에 대해 기록한 값으로 바꿉니다.
 
     ```nodejs
     var connectionString = '{device connection string}';
@@ -137,7 +136,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
     var deviceOnline = true;
     ```
 
-1. 다음 변수를 추가하여 솔루션에 보내는 reported 속성을 정의합니다. 이러한 속성은 장치에서 사용하는 메서드 및 원격 분석을 설명하는 메타데이터를 포함합니다.
+1. 다음 변수를 추가하여 솔루션에 보내는 reported 속성을 정의합니다. 이러한 속성은 디바이스에서 사용하는 메서드 및 원격 분석을 설명하는 메타데이터를 포함합니다.
 
     ```nodejs
     var reportedProperties = {
@@ -209,7 +208,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
     }
     ```
 
-1. 다음 제네릭 함수를 추가하여 솔루션에서 직접 메서드 호출을 처리합니다. 함수는 호출된 직접 메서드에 대한 정보를 표시하지만, 이 샘플에서는 어떤 방식으로도 장치를 수정하지 않습니다. 솔루션은 직접 메서드를 사용하여 장치에서 작동합니다.
+1. 다음 제네릭 함수를 추가하여 솔루션에서 직접 메서드 호출을 처리합니다. 함수는 호출된 직접 메서드에 대한 정보를 표시하지만, 이 샘플에서는 어떤 방식으로도 디바이스를 수정하지 않습니다. 솔루션은 직접 메서드를 사용하여 디바이스에서 작동합니다.
 
     ```nodejs
     function onDirectMethod(request, response) {
@@ -439,7 +438,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
 
 1. **remote_monitoring.js** 파일에 변경 내용을 저장합니다.
 
-1. 샘플 응용 프로그램을 시작하려면 Raspberry Pi의 명령 프롬프트에서 다음 명령을 실행합니다.
+1. 샘플 애플리케이션을 시작하려면 Raspberry Pi의 명령 프롬프트에서 다음 명령을 실행합니다.
 
     ```sh
     node remote_monitoring.js

@@ -1,22 +1,24 @@
 ---
-title: "Azure Application Insights 사용 영향 | Microsoft docs"
-description: "여러 속성이 앱 일부의 전환율에 미칠 수 있는 영향을 분석합니다."
+title: Azure Application Insights 사용 영향 | Microsoft docs
+description: 여러 속성이 앱 일부의 전환율에 미칠 수 있는 영향을 분석합니다.
 services: application-insights
-documentationcenter: 
-author: mrbullwinkle
+documentationcenter: ''
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2018
-ms.author: mbullwin ; daviste
-ms.openlocfilehash: d76db02647ce878343f60fc84cf063c5b7833438
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: 6bc18d73f66c1ede777d579b764127f034d9f0ca
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725729"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights를 사용하여 영향 분석
 

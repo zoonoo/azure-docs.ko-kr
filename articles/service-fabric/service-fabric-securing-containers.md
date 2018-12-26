@@ -3,7 +3,7 @@ title: Azure Service Fabric에서 실행되는 컨테이너에 인증서 가져�
 description: 이제 Service Fabric 컨테이너 서비스에 인증서 파일을 가져오는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: f234a6f6ca56d1833aac53f490feb5f667a6bf1b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney, subramar
+ms.openlocfilehash: d49c16741f581b2ad09dc173e8380fdf77391dbe
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208219"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299064"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Service Fabric에서 실행되는 컨테이너에 인증서 파일 가져오기
 
@@ -31,7 +31,7 @@ ms.locfileid: "34208219"
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Windows 클러스터의 경우 응용 프로그램을 시작할 때 런타임은 인증서를 읽고 각 인증서의 PFX 파일 및 암호를 생성합니다. 다음과 같은 환경 변수를 사용하여 컨테이너 내에서 이 PFX 파일 및 암호에 액세스할 수 있습니다. 
+Windows 클러스터의 경우 애플리케이션을 시작할 때 런타임은 인증서를 읽고 각 인증서의 PFX 파일 및 암호를 생성합니다. 다음과 같은 환경 변수를 사용하여 컨테이너 내에서 이 PFX 파일 및 암호에 액세스할 수 있습니다. 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password
@@ -41,7 +41,7 @@ Linux 클러스터의 경우 인증서(PEM)가 X509StoreName으로 지정된 저
 * Certificates_ServicePackageName_CodePackageName_CertName_PEM
 * Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
 
-또는 필요한 형식의 인증서가 있고 컨테이너 내에서 인증서에 액세스하려는 경우 앱 패키지에 데이터 패키지를 만들고 응용 프로그램 매니페스트 내에서 다음을 지정합니다.
+또는 필요한 형식의 인증서가 있고 컨테이너 내에서 인증서에 액세스하려는 경우 앱 패키지에 데이터 패키지를 만들고 애플리케이션 매니페스트 내에서 다음을 지정합니다.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">

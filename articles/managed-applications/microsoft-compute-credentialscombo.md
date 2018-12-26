@@ -11,23 +11,35 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 914e354265754a05476e96411d35e6cb04183213
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0412d55fe60524cde404e6a640723d3259e020e1
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261057"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586243"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI 요소
 Windows 및 Linux 암호와 SSH 공개 키에 대한 유효성 검사가 포함된 기본 제공 컨트롤 그룹입니다.
 
 ## <a name="ui-sample"></a>UI 샘플
-![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
+
+Windows의 경우 사용자에게 다음과 같이 표시됩니다.
+
+![Microsoft.Compute.CredentialsCombo 창](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+
+암호가 선택된 Linux의 경우 사용자에게 다음과 같이 표시됩니다.
+
+![Microsoft.Compute.CredentialsCombo Linux 암호](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+
+SSH 공개 키가 선택된 Linux의 경우 사용자에게 다음과 같이 표시됩니다.
+
+![Microsoft.Compute.CredentialsCombo Linux 키](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>스키마
-`osPlatform`이 **Windows**이면 다음 스키마가 사용됩니다.
+Windows의 경우 다음 스키마를 사용합니다.
+
 ```json
 {
   "name": "element1",
@@ -41,8 +53,8 @@ Windows 및 Linux 암호와 SSH 공개 키에 대한 유효성 검사가 포함�
   },
   "constraints": {
     "required": true,
-    "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
-    "customValidationMessage": "The password must contain at least 8 characters, with at least 1 letter and 1 number."
+    "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
+    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false
@@ -52,7 +64,8 @@ Windows 및 Linux 암호와 SSH 공개 키에 대한 유효성 검사가 포함�
 }
 ```
 
-`osPlatform`이 **Linux**이면 다음 스키마가 사용됩니다.
+**Linux**의 경우 다음 스키마를 사용합니다.
+
 ```json
 {
   "name": "element1",
@@ -70,8 +83,8 @@ Windows 및 Linux 암호와 SSH 공개 키에 대한 유효성 검사가 포함�
   },
   "constraints": {
     "required": true,
-    "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
-    "customValidationMessage": "The password must contain at least 8 characters, with at least 1 letter and 1 number."
+    "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
+    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false,
@@ -84,22 +97,23 @@ Windows 및 Linux 암호와 SSH 공개 키에 대한 유효성 검사가 포함�
 
 ## <a name="remarks"></a>설명
 - `osPlatform`을 지정해야 하며 **Windows** 또는 **Linux**일 수 있습니다.
-- `constraints.required`을 **true**로 설정하면 암호 또는 SSH 공개 키 텍스트 상자에서 유효성을 성공적으로 검사하기 위한 값을 포함해야 합니다. 기본값은 **true**입니다.
+- `constraints.required`가 **true**로 설정되면 암호 또는 SSH 공개 키 텍스트 상자에 유효성을 성공적으로 검사하기 위한 값이 있어야 합니다. 기본값은 **true**입니다.
 - `options.hideConfirmation`을 **true**로 설정하면 사용자의 암호를 확인하는 두 번째 텍스트 상자가 숨겨집니다. 기본값은 **false**입니다.
 - `options.hidePassword`를 **true**로 설정하면 암호 인증을 사용하는 옵션이 숨겨집니다. `osPlatform`이 **Linux**인 경우에만 사용할 수 있습니다. 기본값은 **false**입니다.
 - 허용되는 암호에 대한 추가 제한 조건은 `customPasswordRegex` 속성을 사용하여 구현할 수 있습니다. 암호가 사용자 지정 유효성 검사에 실패하면 `customValidationMessage`의 문자열이 표시됩니다. 두 속성의 기본값은 **null**입니다.
 
 ## <a name="sample-output"></a>샘플 출력
-`osPlatform`이 **Windows**이거나 사용자가 SSH 공개 키 대신 암호를 제공한 경우 예상되는 출력은 다음과 같습니다.
+`osPlatform`이 **Windows**이거나, `osPlatform`이 **Linux**이고 사용자가 SSH 공개 키 대신 암호를 제공한 경우 컨트롤에서 다음 출력을 반환합니다.
 
 ```json
 {
   "authenticationType": "password",
-  "password": "p4ssw0rd",
+  "password": "p4ssw0rddem0",
 }
 ```
 
-사용자가 SSH 공개 키를 제공한 경우 예상되는 출력은 다음과 같습니다.
+`osPlatform`이 **Linux**이고 사용자가 SSH 공개 키를 제공한 경우 컨트롤에서 다음 출력을 반환합니다.
+
 ```json
 {
   "authenticationType": "sshPublicKey",

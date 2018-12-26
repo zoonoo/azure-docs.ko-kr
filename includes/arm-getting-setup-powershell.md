@@ -1,3 +1,16 @@
+---
+author: sdwheeler
+ms.service: azure-powershell
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sewhee
+ms.openlocfilehash: 5f224ab3b0040bcba6b99d8db744e9dbde4a63c9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572467"
+---
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>리소스 관리자 템플릿에 대한 PowerShell 설정
 리소스 관리자에서 Azure PowerShell을 사용하려면 먼저 올바른 Windows PowerShell 및 Azure PowerShell 버전이 있어야 합니다.
 
@@ -19,7 +32,7 @@ Windows PowerShell 버전 3.0 또는 4.0이 있는지 확인합니다. Windows P
     PSRemotingProtocolVersion      2.2
 
 
-**PSVersion** 값이 3.0 또는 4.0인지 확인합니다. 그렇지 않으면 [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)을 참조하세요.
+**PSVersion** 값이 3.0 또는 4.0인지 확인합니다. 그렇지 않으면 [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)을 참조하세요.
 
 ### <a name="set-your-azure-account-and-subscription"></a>Azure 계정 및 구독 설정
 Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.

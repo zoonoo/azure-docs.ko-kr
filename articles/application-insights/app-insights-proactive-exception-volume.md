@@ -1,23 +1,23 @@
 ---
-title: "스마트 검색 - Azure Application Insights에서 예외 볼륨의 비정상적인 증가 | Microsoft Docs"
-description: "Azure Application Insights에서 응용 프로그램 예외를 모니터링하여 예외 볼륨의 비정상적인 패턴을 확인합니다."
+title: 스마트 검색 - Azure Application Insights에서 예외 볼륨의 비정상적인 증가 | Microsoft Docs
+description: Azure Application Insights에서 응용 프로그램 예외를 모니터링하여 예외 볼륨의 비정상적인 패턴을 확인합니다.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8030f3331a03170bb265c417a57725544bdc7d3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: a6e7e8e01ccb623a3ff340c318c9c238c919cb38
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726953"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>예외 볼륨의 비정상적인 증가(미리 보기)
 

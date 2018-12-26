@@ -3,23 +3,23 @@ title: Linux에 설치된 Azure Security Center 및 Azure Virtual Machines | Mic
 description: 이 문서는 Azure Security Center에서 Azure Virtual Machines를 보호할 수 있는 방법을 이해하도록 돕습니다.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: d75750372c240edfa821c692cd6254f4ad60f4c4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5ec77d7bcc3715946c4574bca17f280a9f483b45
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895996"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340951"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Linux에 설치된 Azure Security Center 및 Azure Virtual Machines
 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
@@ -31,7 +31,7 @@ Security Center를 사용하면 가상 머신의 보안 설정에 가시성을 �
 
 * 권장된 구성 규칙으로 운영 체제(OS) 보안 설정
 * 시스템 보안 및 누락된 중요 업데이트
-* 끝점 보호 권장 사항
+* 엔드포인트 보호 권장 사항
 * 디스크 암호화 유효성 검사
 * 네트워크 기반 공격([표준 버전](https://azure.microsoft.com/pricing/details/security-center/)에서만 사용할 수 있음)
 
@@ -57,7 +57,7 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 ![보안 정책](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig1.png)
 
 > [!NOTE]
-> 사용 가능한 각 **방지 정책**을 알아보려면 [보안 정책 설정](security-center-policies.md) 문서를 참조하세요.
+> 사용 가능한 각 **방지 정책**을 알아보려면 [보안 정책 설정](tutorial-security-policy.md) 문서를 참조하세요.
 > 
 
 ## <a name="manage-security-recommendations"></a>보안 권장 사항 관리
@@ -71,7 +71,7 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 | [OS 취약성 해결](security-center-remediate-os-vulnerabilities.md) |OS 구성을 권장 구성 규칙과 정렬하라는 권장 사항입니다. 예를 들어 암호 저장을 허용하지 않습니다. |
 | [시스템 업데이트 적용](security-center-apply-system-updates.md) |누락된 시스템 보안 및 중요 업데이트를 VM에 배포하는 것이 좋습니다. |
 | [시스템 업데이트 후 다시 부팅](security-center-apply-system-updates.md#reboot-after-system-updates) |시스템 업데이트 적용 프로세스를 완료하려면 VM을 다시 부팅하는 것이 좋습니다. |
-| [VM 에이전트 사용](security-center-enable-vm-agent.md) |VM 에이전트가 필요한 VM을 확인할 수 있습니다. 패치 검색, 기준 검색 및 맬웨어 방지 프로그램을 프로비전하려면 VM에 VM 에이전트가 설치되어 있어야 합니다. Azure Marketplace에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. [VM 에이전트 및 확장 - 2부](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) 문서에 VM 에이전트 설치 방법이 설명되어 있습니다. |
+| [VM 에이전트 사용](security-center-enable-vm-agent.md) |VM 에이전트가 필요한 VM을 확인할 수 있습니다. 패치 검색, 기준 검색 및 맬웨어 방지 프로그램을 프로비전하려면 VM에 VM 에이전트가 설치되어 있어야 합니다. Azure Marketplace에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. [VM 에이전트 및 확장 - 2부](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) 문서에 VM 에이전트 설치 방법이 설명되어 있습니다. |
 | [디스크 암호화 적용](security-center-apply-disk-encryption.md) |Azure 디스크 암호화(Windows 및 Linux VM)를 사용하여 VM 디스크를 암호화하는 것이 좋습니다. VM에서 OS 및 데이터 볼륨에 암호화를 사용하는 것이 좋습니다. |
 
 
@@ -80,19 +80,19 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 > 
 
 ## <a name="monitor-security-health"></a>보안 상태 모니터링
-구독의 리소스에 대한 [보안 정책](security-center-policies.md) 을 활성화한 후에 보안 센터는 리소스의 보안을 분석하여 잠재적 취약성을 식별합니다.  **리소스 보안 상태** 블레이드의 문제와 함께 리소스의 보안 상태를 볼 수 있습니다. **리소스 보안** 상태 타일에서 **가상 머신**을 클릭하면 VM에 대한 권장 사항이 포함된 **가상 머신** 블레이드가 열립니다. 
+구독의 리소스에 대한 [보안 정책](tutorial-security-policy.md) 을 활성화한 후에 보안 센터는 리소스의 보안을 분석하여 잠재적 취약성을 식별합니다.  **리소스 보안 상태** 블레이드의 문제와 함께 리소스의 보안 상태를 볼 수 있습니다. **리소스 보안** 상태 타일에서 **가상 머신**을 클릭하면 VM에 대한 권장 사항이 포함된 **가상 머신** 블레이드가 열립니다. 
 
 ![보안 상태](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
 ## <a name="manage-and-respond-to-security-alerts"></a>보안 경고 관리 및 응답
-보안 센터는 방화벽 및 끝점 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. [검색 기능](security-center-detection-capabilities.md)의 다양한 집계를 활용하여 보안 센터는 신속하게 문제를 조사하고 가능한 공격을 해결하는 방법에 대한 권장 사항을 제공할 수 있도록 우선 순위가 지정된 보안 경고를 생성할 수 있습니다.
+보안 센터는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. [검색 기능](security-center-detection-capabilities.md)의 다양한 집계를 활용하여 보안 센터는 신속하게 문제를 조사하고 가능한 공격을 해결하는 방법에 대한 권장 사항을 제공할 수 있도록 우선 순위가 지정된 보안 경고를 생성할 수 있습니다.
 
 ![보안 경고](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 
 보안 경고를 선택하여 해당 경고를 트리거하는 이벤트 및 공격을 완화하기 위해 수행해야 하는 단계(있는 경우)에 대해 자세히 알아봅니다. 보안 경고는 [형식](security-center-alerts-type.md) 및 날짜별로 그룹화됩니다.
 
 ## <a name="monitor-security-health"></a>보안 상태 모니터링
-구독의 리소스에 대한 [보안 정책](security-center-policies.md) 을 활성화한 후에 보안 센터는 리소스의 보안을 분석하여 잠재적 취약성을 식별합니다.  **리소스 보안 상태** 블레이드의 문제와 함께 리소스의 보안 상태를 볼 수 있습니다. **리소스 보안** 상태 타일에서 **가상 머신**을 클릭하면 VM에 대한 권장 사항이 포함된 **가상 머신** 블레이드가 열립니다. 
+구독의 리소스에 대한 [보안 정책](tutorial-security-policy.md) 을 활성화한 후에 보안 센터는 리소스의 보안을 분석하여 잠재적 취약성을 식별합니다.  **리소스 보안 상태** 블레이드의 문제와 함께 리소스의 보안 상태를 볼 수 있습니다. **리소스 보안** 상태 타일에서 **가상 머신**을 클릭하면 VM에 대한 권장 사항이 포함된 **가상 머신** 블레이드가 열립니다. 
 
 ![보안 상태](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig4.png)
 
@@ -104,7 +104,7 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 ## <a name="see-also"></a>참고 항목
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-policies.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 

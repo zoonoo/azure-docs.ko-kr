@@ -1,24 +1,20 @@
 ---
-title: 딥 다이브 분석 - 고급 분석 - Azure HDInsight | Microsoft Docs
+title: 딥 다이브 분석 - 고급 분석 - Azure HDInsight
 description: 고급 분석에서 알고리즘을 사용하여 빅 데이터를 처리하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: ea6ffa9d07be719c43ca33cfca76876c161d69bc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 40536aae15f2ae9fa5e186cdbea1f75f7d264437
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048474"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047143"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -77,7 +73,7 @@ HDInsight에는 고급 분석 워크플로에 대한 몇 가지 기계 학습 �
 
 ### <a name="r-and-ml-services"></a>R 및 ML 서비스
 
-HDInsight의 일부로서, 대량 데이터 집합 및 모델과 함께 사용할 준비가 된 [ML 서비스](../r-server/r-server-overview.md)를 사용하여 HDInsight 클러스터를 만들 수 있습니다. 새로운 이 기능은 클러스터 설치 및 유지 관리에 대한 오버헤드 없이 HDInsight를 통해 주문형으로 크기를 조정할 수 있는 친숙한 R 인터페이스를 데이터 과학자 및 통계 전문가에게 제공합니다.
+HDInsight의 일부로서, 대량 데이터 세트 및 모델과 함께 사용할 준비가 된 [ML 서비스](../r-server/r-server-overview.md)를 사용하여 HDInsight 클러스터를 만들 수 있습니다. 새로운 이 기능은 클러스터 설치 및 유지 관리에 대한 오버헤드 없이 HDInsight를 통해 주문형으로 크기를 조정할 수 있는 친숙한 R 인터페이스를 데이터 과학자 및 통계 전문가에게 제공합니다.
 
 ### <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning 및 Hive
 
@@ -85,13 +81,13 @@ HDInsight의 일부로서, 대량 데이터 집합 및 모델과 함께 사용�
 
 ### <a name="spark-and-deep-learning"></a>Spark 및 딥 러닝
 
-[딥 러닝](https://www.microsoft.com/research/group/dltc/)은 인간 두뇌의 생물학적 프로세스에서 영감을 얻은 *DNN(딥 신경망)* 을 사용하는 기계 학습의 한 분야입니다. 많은 연구자들은 딥 러닝이 인공 지능에 대한 유망한 접근 방식이라고 봅니다. 딥 러닝의 예로 언어 변환기, 이미지 인식 시스템 및 컴퓨터 추론이 있습니다. 딥 러닝에서 자체의 작업을 진행하도록 지원하기 위해 Microsoft는 추가 비용이 없고 사용하기 쉬운 오픈 소스 [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/)를 개발했습니다. 이 도구 키트는 광범위한 Microsoft 제품, 규모에 맞게 딥 러닝을 배포해야 하는 요구 사항이 있는 전세계 회사 및 최신 알고리즘 및 기술에 관심이 있는 학생들이 광범위하게 사용하고 있습니다. 
+[딥 러닝](https://www.microsoft.com/research/group/dltc/)은 인간 두뇌의 생물학적 프로세스에서 영감을 얻은 *DNN(딥 신경망)* 을 사용하는 기계 학습의 한 분야입니다. 많은 연구자들은 딥 러닝이 인공 지능에 대한 유망한 접근 방식이라고 봅니다. 딥 러닝의 예로 언어 변환기, 이미지 인식 시스템 및 컴퓨터 추론이 있습니다. 딥 러닝에서 자체의 작업을 진행하도록 지원하기 위해 Microsoft는 추가 비용이 없고 사용하기 쉬운 오픈 소스 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)를 개발했습니다. 이 도구 키트는 광범위한 Microsoft 제품, 규모에 맞게 딥 러닝을 배포해야 하는 요구 사항이 있는 전세계 회사 및 최신 알고리즘 및 기술에 관심이 있는 학생들이 광범위하게 사용하고 있습니다. 
 
 ## <a name="scenario---score-images-to-identify-patterns-in-urban-development"></a>시나리오 - 도시 개발 패턴을 식별하기 위한 이미지 점수 매기기
 
 HDInsight를 사용하는 고급 분석 기계 학습 파이프라인의 예를 살펴보겠습니다.
 
-이 시나리오에서는 HDInsight Spark 클러스터에서 PySpark를 사용하여 Azure Blob Storage 계정에 저장된 큰 이미지 컬렉션에 대한 점수를 매기기 위해 Microsoft의 CNTK(Cognitive Toolkit) 딥 러닝 프레임워크에서 생성된 DNN이 조작될 수 있는 방법을 보여 줍니다. 이 방법은 일반적인 DNN 사용 사례와 항공 이미지 분류에 적용되며, 도시 개발의 최근 패턴을 식별하는 데 사용할 수 있습니다.  미리 학습된 이미지 분류 모델이 사용됩니다. 이 모델은 [CIFAR-10 데이터 집합](https://www.cs.toronto.edu/~kriz/cifar.html)에서 미리 학습되어 보류 중인 10,000개 이미지에 적용되었습니다.
+이 시나리오에서는 HDInsight Spark 클러스터에서 PySpark를 사용하여 Azure Blob Storage 계정에 저장된 큰 이미지 컬렉션에 대한 점수를 매기기 위해 Microsoft의 CNTK(Cognitive Toolkit) 딥 러닝 프레임워크에서 생성된 DNN이 조작될 수 있는 방법을 보여 줍니다. 이 방법은 일반적인 DNN 사용 사례와 항공 이미지 분류에 적용되며, 도시 개발의 최근 패턴을 식별하는 데 사용할 수 있습니다.  미리 학습된 이미지 분류 모델이 사용됩니다. 이 모델은 [CIFAR-10 데이터 세트](https://www.cs.toronto.edu/~kriz/cifar.html)에서 미리 학습되어 보류 중인 10,000개 이미지에 적용되었습니다.
 
 이 고급 분석 시나리오에는 다음 세 가지 주요 작업이 있습니다.
 
@@ -99,13 +95,13 @@ HDInsight를 사용하는 고급 분석 기계 학습 파이프라인의 예를 
 2. 사용자 지정 스크립트를 실행하여 Azure HDInsight Spark 클러스터의 모든 노드에 Microsoft Cognitive Toolkit를 설치합니다. 
 3. HDInsight Spark 클러스터에 미리 작성된 Jupyter 노트북을 업로드하여 Spark Python API(PySpark)를 통해 학습된 Microsoft Cognitive Toolkit 딥 러닝 모델을 Azure Blob Storage 계정의 파일에 적용합니다. 
 
-이 예에서는 Alex Krizhevsky, Vinod Nair 및 Geoffrey Hinton이 컴파일하고 배포한 CIFAR-10 이미지 집합을 사용합니다. CIFAR-10 데이터 집합에는 상호 배타적인 10개의 클래스에 속하는 60,000개의 32×32 컬러 이미지가 포함되어 있습니다.
+이 예에서는 Alex Krizhevsky, Vinod Nair 및 Geoffrey Hinton이 컴파일하고 배포한 CIFAR-10 이미지 집합을 사용합니다. CIFAR-10 데이터 세트에는 상호 배타적인 10개의 클래스에 속하는 60,000개의 32×32 컬러 이미지가 포함되어 있습니다.
 
 ![이미지](./media/apache-hadoop-deep-dive-advanced-analytics/ml-images.png)
 
-데이터 집합에 대한 자세한 내용은 Alex Krizhevsky의 [작은 이미지에서 여러 계층의 기능 학습](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf)을 참조하세요.
+데이터 세트에 대한 자세한 내용은 Alex Krizhevsky의 [작은 이미지에서 여러 계층의 기능 학습](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf)을 참조하세요.
 
-데이터 집합은 50,000개 이미지의 학습 집합과 10,000개 이미지의 테스트 집합으로 분할되었습니다. 첫 번째 집합은 Cognitive Toolkit GitHub 리포지토리에서 [이 자습서](https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Classification/ResNet)에 따라 Microsoft Cognitive Toolkit를 사용하여 20개 계층 딥 합성곱 ResNet(deep convolutional residual network) 모델을 학습하는 데 사용되었습니다. 나머지 10,000개의 이미지는 모델의 정확도를 테스트하는 데 사용되었습니다. 여기서 분산 컴퓨팅이 작동됩니다. 이미지를 사전 처리하고 점수를 매기는 작업은 매우 쉽게 병렬 처리할 수 있습니다. 보유 중인 저장된 학습 모델을 다음과 같이 사용했습니다.
+데이터 세트는 50,000개 이미지의 학습 집합과 10,000개 이미지의 테스트 집합으로 분할되었습니다. 첫 번째 집합은 Cognitive Toolkit GitHub 리포지토리에서 [이 자습서](https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Classification/ResNet)에 따라 Microsoft Cognitive Toolkit를 사용하여 20개 계층 딥 합성곱 ResNet(deep convolutional residual network) 모델을 학습하는 데 사용되었습니다. 나머지 10,000개의 이미지는 모델의 정확도를 테스트하는 데 사용되었습니다. 여기서 분산 컴퓨팅이 작동됩니다. 이미지를 사전 처리하고 점수를 매기는 작업은 매우 쉽게 병렬 처리할 수 있습니다. 보유 중인 저장된 학습 모델을 다음과 같이 사용했습니다.
 
 * PySpark를 사용하여 이미지와 학습된 모델을 클러스터의 작업자 노드에 배포했습니다.
 * Python을 사용하여 HDInsight Spark 클러스터의 각 노드에서 이미지를 사전 처리했습니다.

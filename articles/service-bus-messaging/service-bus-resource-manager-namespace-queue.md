@@ -3,7 +3,7 @@ title: Azure Resource Manager 템플릿을 사용하여 Azure Service Bus 네임
 description: Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 및 큐 만들기
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
-ms.author: sethm
-ms.openlocfilehash: 47e29050ca78ee116f3c4dee0ecb53a6a71a866b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/11/2018
+ms.author: spelluru
+ms.openlocfilehash: 4010f1582b726993a5540898492c76aa543fa2d9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232105"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407742"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 및 큐 만들기
 
@@ -45,8 +45,7 @@ ms.locfileid: "38232105"
 
 이 템플릿으로 큐가 있는 Service Bus 네임스페이스를 배포합니다.
 
-
-  [Service Bus 큐](service-bus-queues-topics-subscriptions.md#queues)는 하나 이상의 경쟁 소비자에게 FIFO(선입선출) 메시지 배달을 제공합니다.
+[Service Bus 큐](service-bus-queues-topics-subscriptions.md#queues)는 하나 이상의 경쟁 소비자에게 FIFO(선입선출) 메시지 배달을 제공합니다.
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 

@@ -1,21 +1,21 @@
 ---
-title: PowerShell을 사용하여 보조 사이트에 Virtual Machine Manager 클라우드의 Hyper-V VM 복제(Azure Resource Manager) | Microsoft Docs
-description: PowerShell을 사용하여 보조 Virtual Machine Manager 사이트에 Virtual Machine Manager 클라우드의 Hyper-V VM을 복제하는 방법을 설명합니다(Resource Manager).
+title: Azure Site Recovery 및 PowerShell을 사용하여 VMM 클라우드의 Hyper-V VM과 보조 사이트 간 재해 복구 설정 | Microsoft Docs
+description: Azure Site Recovery 및 PowerShell을 사용하여 VMM 클라우드의 Hyper-V VM과 보조 VMM 사이트 간 재해 복구를 설정하는 방법을 설명합니다.
 services: site-recovery
-author: sujaytalasila
+author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 0fecc7ba48daf396c3d25969cdda5891bdf08232
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: f0ce189ebbec6991a1ec316219d45b96cc85f202
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917968"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845946"
 ---
-# <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell을 사용하여 Hyper-V VM을 보조 사이트에 복제(Resource Manager)
+# <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell을 사용하여 Hyper-V VM과 보조 사이트 간 재해 복구 설정(Resource Manager)
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 System Center Virtual Machine Manager 클라우드에서 보조 온-프레미스 사이트의 Virtual Machine Manager 클라우드로 Hyper-V VM을 복제하기 위한 단계를 자동화하는 것을 보여 줍니다.
 
@@ -73,7 +73,7 @@ Azure PowerShell을 사용할 준비가 되었는지 확인합니다.
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
 2. 새 Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음 개체를 나중에 사용할 변수에 저장합니다. 
 
-        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
+        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
     Get-AzureRMRecoveryServicesVault cmdlet을 사용하여 자격 증명 모음 개체를 만든 후 검색할 수 있습니다.
 

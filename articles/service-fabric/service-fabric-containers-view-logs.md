@@ -3,7 +3,7 @@ title: Azure Service Fabric에서 컨테이너 로그 보기 | Microsoft Docs
 description: Service Fabric Explorer를 사용하여 실행 중인 Service Fabric 컨테이너 서비스에 대한 컨테이너 로그를 보는 방법을 설명합니다.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
-ms.author: ryanwi
-ms.openlocfilehash: c8b6bc791700e6811f5681ee70329e4d2ac05991
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.author: twhitney
+ms.openlocfilehash: 85623f5acfb33d73774e5898e3f8937b4e07a5a9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824614"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299081"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Service Fabric 컨테이너 서비스에 대한 로그 보기
 Azure Service Fabric은 컨테이너 오케스트레이터이며 [Windows 및 Linux 컨테이너](service-fabric-containers-overview.md)를 모두 지원합니다.  이 문서에서는 문제를 진단하고 해결할 수 있도록 실행 중인 컨테이너 서비스 또는 비활성 컨테이너의 컨테이너 로그를 보는 방법을 설명합니다.
 
 ## <a name="access-the-logs-of-a-running-container"></a>실행 중인 컨테이너의 로그에 액세스
-컨테이너 로그는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)를 사용하여 액세스할 수 있습니다.  웹 브라우저에서 [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer)로 이동하여 클러스터의 관리 끝점에서 Service Fabric Explorer를 엽니다.  
+컨테이너 로그는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)를 사용하여 액세스할 수 있습니다.  웹 브라우저에서 [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer)로 이동하여 클러스터의 관리 엔드포인트에서 Service Fabric Explorer를 엽니다.  
 
 컨테이너 로그는 컨테이너 서비스 인스턴스가 실행 중인 클러스터 노드에 있습니다. 예를 들어, [Linux Voting 샘플 응용 프로그램](service-fabric-quickstart-containers-linux.md)의 웹 프런트 엔드 컨테이너 로그를 가져옵니다. 트리 보기에서 **Cluster**>**Applications**>**VotingType**>**fabric:/Voting/azurevotefront**를 확장합니다.  그런 다음 파티션(이 예제의 d1aa737e-f22a-e347-be16-eec90be24bc1)을 확장하고 해당 컨테이너가 클러스터 노드 *_lnxvm_0*에서 실행되고 있는지 확인합니다.
 

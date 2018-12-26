@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226546"
+---
 Resource Manager 명령 및 템플릿에서 Azure CLI와 리소스 그룹을 사용하여 Azure 리소스 및 워크로드를 배포하려면 Azure 계정이 필요합니다. 계정이 없는 경우 [여기에서 무료 Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 얻을 수 있습니다.
 
 이미 Azure CLI를 설치하여 구독에 연결하지 않은 경우, [Azure CLI 설치](../articles/cli-install-nodejs.md)를 참조하고, `azure config mode arm`를 사용해 모드를 `arm`에 설정하고, `azure login` 명령을 사용하여 Azure에 연결합니다.
@@ -5,14 +18,15 @@ Resource Manager 명령 및 템플릿에서 Azure CLI와 리소스 그룹을 사
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
-- Azure CLI 10 - 클래식 및 리소스 관리 배포 모델용 CLI(이 문서)
-- [Azure CLI 2.0](../articles/virtual-machines/linux/cli-manage.md) - 리소스 관리 배포 모델용 차세대 CLI
+- Azure 클래식 CLI - 클래식 및 리소스 관리 배포 모델용 CLI(이 문서)
+- [Azure CLI](../articles/virtual-machines/linux/cli-manage.md) - 리소스 관리 배포 모델용 차세대 CLI
 
-## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Azure CLI의 기본 Azure Resource Manager 명령
-이 문서에서는 Azure 구독에서 리소스(주로 VM)를 관리하고 상호 작용하기 위해 Azure CLI에서 사용하려는 기본 명령에 대해 설명합니다.  특정 명령줄 스위치 및 옵션에 대해 자세한 도움이 필요할 경우 `azure <command> <subcommand> --help` 또는 `azure help <command> <subcommand>`를 입력하여 온라인 명령 도움말 및 옵션을 사용할 수 있습니다.
+## <a name="basic-azure-resource-manager-commands-in-azure-classic-cli"></a>Azure 클래식 CLI의 기본 Azure Resource Manager 명령
+
+이 문서에서는 Azure 구독에서 리소스(주로 VM)를 관리하고 상호 작용하기 위해 Azure 클래식 CLI에서 사용하려는 기본 명령에 대해 설명합니다.  특정 명령줄 스위치 및 옵션에 대해 자세한 도움이 필요할 경우 `azure <command> <subcommand> --help` 또는 `azure help <command> <subcommand>`를 입력하여 온라인 명령 도움말 및 옵션을 사용할 수 있습니다.
 
 > [!NOTE]
-> 이러한 예제에는 템플릿 기반 작업이 포함되지 않으며 이 작업은 일반적으로 리소스 관리자의 VM 배포에 사용하는 것이 좋습니다. 자세한 내용은 [Azure Resource Manager에서 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+> 이러한 예제에는 템플릿 기반 작업이 포함되지 않으며 이 작업은 일반적으로 리소스 관리자의 VM 배포에 사용하는 것이 좋습니다. 자세한 내용은 [Azure Resource Manager에서 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 머신 배포 및 관리](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 > 
 > 
 

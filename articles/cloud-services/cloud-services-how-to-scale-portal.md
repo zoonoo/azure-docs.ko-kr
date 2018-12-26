@@ -3,7 +3,7 @@ title: 포털에서 클라우드 서비스의 크기를 자동으로 조정하�
 description: 포털을 사용하여 Azure에서 클라우드 서비스 웹 역할 또는 작업자 역할에 대한 자동 크기 조정 규칙을 구성하는 방법에 대해 알아봅니다.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 701d4404-5cc0-454b-999c-feb94c1685c0
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 0eea38cdb9827ab6e322025ff344ebbab0e83da3
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.author: jeconnoc
+ms.openlocfilehash: 29ee71e7946145e50cc875df96b674abec3e12df
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27992275"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004339"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>포털에서 클라우드 서비스 크기 자동 조정을 구성하는 방법
 
@@ -29,17 +29,17 @@ ms.locfileid: "27992275"
 > 이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 중점을 둡니다. 가상 머신(클래식)를 직접 만든 경우 이 가상 머신은 클라우드 서비스에서 호스트됩니다. 표준 가상 머신을 [가용성 집합](../virtual-machines/windows/classic/configure-availability-classic.md)에 연결하여 규모를 조정하고 수동으로 켜거나 끌 수 있습니다.
 
 ## <a name="considerations"></a>고려 사항
-응용 프로그램의 크기 조정을 구성하기 전에 다음 내용을 고려해야 합니다.
+애플리케이션의 크기 조정을 구성하기 전에 다음 내용을 고려해야 합니다.
 
 * 크기 조정은 코어 사용량의 영향을 받습니다.
 
-    역할 인스턴스가 클수록 더 많은 코어를 사용합니다. 응용 프로그램의 크기는 구독에 대한 코어 제한 내에서만 조정할 수 있습니다. 예를 들어 구독의 코어 제한이 20이라고 해보겠습니다. 중간 크기의 클라우드 서비스 두 대에서 응용 프로그램을 실행할 경우(총 코어 수 4개), 구독에 있는 다른 클라우드 서비스 배포를 나머지 16코어까지만 확장할 수 있습니다. 크기에 대한 자세한 내용은 [클라우드 서비스 크기](cloud-services-sizes-specs.md)를 참조하세요.
+    역할 인스턴스가 클수록 더 많은 코어를 사용합니다. 애플리케이션의 크기는 구독에 대한 코어 제한 내에서만 조정할 수 있습니다. 예를 들어 구독의 코어 제한이 20이라고 해보겠습니다. 중간 크기의 클라우드 서비스 두 대에서 애플리케이션을 실행할 경우(총 코어 수 4개), 구독에 있는 다른 클라우드 서비스 배포를 나머지 16코어까지만 확장할 수 있습니다. 크기에 대한 자세한 내용은 [클라우드 서비스 크기](cloud-services-sizes-specs.md)를 참조하세요.
 
 * 큐 메시지 임계값에 따라 크기를 조정할 수 있습니다. 큐 사용 방법에 대한 자세한 내용은 [Queue Storage 서비스를 사용하는 방법](../storage/queues/storage-dotnet-how-to-use-queues.md)을 참조하세요.
 
 * 구독에 연결된 다른 리소스의 크기도 조정할 수 있습니다.
 
-* 응용 프로그램의 가용성을 높이려면 응용 프로그램이 두 개 이상의 역할 인스턴스와 함께 배포되는지 확인해야 합니다. 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
+* 애플리케이션의 가용성을 높이려면 애플리케이션이 두 개 이상의 역할 인스턴스와 함께 배포되는지 확인해야 합니다. 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
 * 자동 크기 조정은 모든 역할이 **준비** 상태에 있는 경우에만 발생합니다.  
 

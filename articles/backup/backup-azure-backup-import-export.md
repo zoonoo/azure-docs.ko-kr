@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 5ef44ccf87bc5e40b57dc7fc997c9a827c93484b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b55c5bc6096186e338d6960190169d5f4acc777d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831461"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955136"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup의 오프라인 백업 워크플로
 Azure Backup은 데이터를 Azure에 처음 전체 백업하는 동안 네트워크 및 저장소 비용을 절약하는 여러 가지 기본 제공 효율성 향상 기능이 있습니다. 초기 "전체" 백업은 일반적으로 많은 양의 데이터를 전송하며 델타/증분만 전송하는 후속 백업에 비해 네트워크 대역폭을 더 많이 요구합니다. 오프라인 시드 프로세스를 통해 Azure Backup은 디스크를 사용하여 오프라인 백업 데이터를 Azure에 업로드할 수 있습니다.
@@ -54,7 +54,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
 * Azure Backup 에이전트를 실행하는 컴퓨터에 Azure PowerShell 3.7.0이 필요합니다. [Azure PowerShell 3.7.0 버전을 다운로드하여 설치](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017)하는 것이 좋습니다.
 * Azure Backup 에이전트를 실행하는 컴퓨터에 Microsoft Edge 또는 Internet Explorer 11이 설치되어 있고 JavaScript가 활성화되어 있는지 확인합니다. 
 * Recovery Services 자격 증명 모음과 동일한 구독에 Azure Storage 계정을 만듭니다. 
-* Azure Active Directory 응용 프로그램을 만드는 데 [필요한 권한](../azure-resource-manager/resource-group-create-service-principal-portal.md)이 있는지 확인합니다. 오프라인 백업 워크플로는 Azure Storage 계정과 연결된 구독에 Azure Active Directory 응용 프로그램을 만듭니다. 응용 프로그램의 목표는 Azure Backup에 오프라인 백업 워크플로에 필요한 Azure Import 서비스에 대해 안전하고 범위가 지정된 액세스를 제공하는 것입니다. 
+* Azure Active Directory 응용 프로그램을 만드는 데 [필요한 권한](../active-directory/develop/howto-create-service-principal-portal.md)이 있는지 확인합니다. 오프라인 백업 워크플로는 Azure Storage 계정과 연결된 구독에 Azure Active Directory 응용 프로그램을 만듭니다. 응용 프로그램의 목표는 Azure Backup에 오프라인 백업 워크플로에 필요한 Azure Import 서비스에 대해 안전하고 범위가 지정된 액세스를 제공하는 것입니다. 
 * Azure Storage 계정이 포함된 구독에 Microsoft.ImportExport 리소스 공급자를 등록합니다. 리소스 공급자 등록하려면:
     1. 주 메뉴에서 **구독**을 클릭합니다.
     2. 여러 구독에 등록한 경우 오프라인 백업에 사용하는 구독을 선택합니다. 구독을 하나만 사용하는 경우에는 구독이 나타납니다.

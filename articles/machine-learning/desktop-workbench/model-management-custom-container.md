@@ -7,18 +7,23 @@ ms.author: tedway
 manager: mwinkle
 ms.reviewer: mldocs, raymondl
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 3/26/2018
-ms.openlocfilehash: 715b4c1f02622b015e4118ac38edd9fe6a051ed7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.date: 03/26/2018
+ROBOTS: NOINDEX
+ms.openlocfilehash: e49743de817bc1fe92afcbc80764771f6df66c56
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834712"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271269"
 ---
 # <a name="customize-the-container-image-used-for-azure-ml-models"></a>Azure ML 모델에 사용되는 컨테이너 이미지 사용자 지정
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 이 문서에서는 Azure Machine Learning 모델에 대한 컨테이너 이미지를 사용자 지정하는 방법을 설명합니다.  Azure ML Workbench는 Machine Learning 모델을 배포하는 데 컨테이너를 사용합니다. 모델은 종속성과 함께 배포되며 Azure ML은 모델, 종속성 및 관련 파일로부터 이미지를 만듭니다.
 

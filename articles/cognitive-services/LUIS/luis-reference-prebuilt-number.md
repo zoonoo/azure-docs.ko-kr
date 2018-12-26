@@ -3,19 +3,19 @@ title: LUIS 미리 빌드된 엔터티 number 참조 - Azure | Microsoft Docs
 titleSuffix: Azure
 description: 이 문서에는 LUIS(Language Understanding)의 number 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: aa0b389a0694a3b742259fd42bed08055fbbadbe
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 11/26/2018
+ms.author: diberry
+ms.openlocfilehash: b3ac42f5ecd1dc14055b0767e057a1da093042f9
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321535"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334570"
 ---
 # <a name="number-entity"></a>Number 엔터티
 숫자 값은 다양한 방식으로 정보를 정량화하고, 표현하고, 설명하는 데 사용됩니다. 이 문서에서는 가능한 예제 중 일부만 제공합니다. LUIS는 사용자 발언에서 변형을 해석하고 일관된 숫자 값을 반환합니다. 이 엔터티를 이미 학습했기 때문에 number를 포함하는 예제 발언을 응용 프로그램 의도에 추가할 필요가 없습니다. 
@@ -25,7 +25,7 @@ Number는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/
 
 ## <a name="examples-of-number-resolution"></a>Number 해결 예제
 
-| 발언        | 엔터티   | 해결 방법 |
+| 발화        | 엔터티   | 해결 방법 |
 | ------------- |:----------------:| --------------:|
 | ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      | 
 | ```1,000 people```        | ```"1,000"```    |   ```"1000"```      |

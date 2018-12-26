@@ -1,25 +1,23 @@
 ---
-title: Azure에 대한 MongoDB, Angular 및 노드 자습서 - 3부 | Microsoft Docs
+title: Node.Js, MongoB API를 사용하는 Angular 앱(3부)
+titleSuffix: Azure Cosmos DB
 description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 3부
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
-editor: ''
+author: johnpapa
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
-ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: eba96be567094a3e2e3977f505d4e4a67f0b5cea
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.date: 12/06/2018
+ms.author: jopapa
+ms.custom: seodec18
+ms.openlocfilehash: b34155fc8f40a1dc51aaf236a78da5f5ee0511ae
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798307"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134508"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 3부: Angular에서 UI 빌드
+# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Angular 및 Azure Cosmos DB에서 MongoDB 앱 만들기 - 3부: Angular를 사용하여 UI 빌드
 
 이 다중 파트 자습서에서는 Express 및 Angular와 Node.js로 작성된 새 [MongoDB API](mongodb-introduction.md) 앱을 만들고 Azure Cosmos DB 데이터베이스에 연결하는 방법을 보여줍니다.
 
@@ -112,8 +110,8 @@ ms.locfileid: "34798307"
 
     @Component({
       selector: 'app-heroes',
-      templateUrl: './heroes.component.html'
-        styleUrls: ['./heroes.component.scss']
+      templateUrl: './heroes.component.html',
+      styleUrls: ['./heroes.component.scss']
     })
     export class HeroesComponent implements OnInit {
       addingHero = false;

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: ff9cfd0f1f3d8ee62b7f93d88023b3dedce3e7be
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a7a861ccff168655d866d8c9205160bface79c9e
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711735"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913413"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱으로 계정을 인증하도록 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "34711735"
 
 ## <a name="register-desktop-app"></a>데스크톱 앱 등록
 
-Azure Active Directory에서 [액세스 토큰](../active-directory/develop/active-directory-dev-glossary.md#access-token)을 받으려면 먼저 응용 프로그램을 테넌트에 [등록](../active-directory/develop/active-directory-dev-glossary.md#application-registration)해야 합니다. 앱을 등록하면 테넌트에서 앱에 대한 [응용 프로그램 ID](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id)가 만들어집니다. 
+Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 받으려면 먼저 응용 프로그램을 테넌트에 [등록](../active-directory/develop/developer-glossary.md#application-registration)해야 합니다. 앱을 등록하면 테넌트에서 앱에 대한 [응용 프로그램 ID](../active-directory/develop/developer-glossary.md#application-id-client-id)가 만들어집니다. 
 
 Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -54,8 +54,8 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
     | 설정      | 제안 값  | 설명                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | 내 샘플 WPF 앱 | 소비자에게 앱을 설명하는 **이름**을 입력합니다. | 
-    | **웹앱/웹 API 포함** | 아니오 | 데스크톱 앱에 대해 **아니요**를 선택합니다. |
-    | **네이티브 클라이언트 포함** | 예 | 이 앱은 데스크톱 앱이므로 네이티브 클라이언트로 간주됩니다. |
+    | **웹앱/웹 API 포함** | 아니요 | 데스크톱 앱에 대해 **아니요**를 선택합니다. |
+    | **네이티브 클라이언트 포함** | yes | 이 앱은 데스크톱 앱이므로 네이티브 클라이언트로 간주됩니다. |
     | **URI 리디렉션** | 기본값 | Azure AD B2C가 OAuth 2.0 응답에서 사용자 에이전트를 리디렉션하는 고유한 식별자입니다. |
     | **사용자 지정 리디렉션 URI** | `com.onmicrosoft.contoso.appname://redirect/path` | 이 URI에 토큰을 보내도록 `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path` 정책을 입력합니다. |
     
@@ -86,7 +86,7 @@ Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 
     | **Name** | SiUpIn | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **B2C_1_** 이 붙습니다. 샘플 코드에서는 전체 정책 이름(**B2C_1_SiUpIn**)을 사용합니다. | 
     | **ID 공급자** | 이메일 등록 | ID 공급자는 사용자를 고유하게 식별하는 데 사용됩니다. |
     | **등록 특성** | 표시 이름 및 우편 번호 | 등록 시 사용자로부터 수집할 특성을 선택합니다. |
-    | **응용 프로그램 클레임** | 표시 이름, 우편 번호, 새 사용자, 사용자의 개체 ID | [액세스 토큰](../active-directory/develop/active-directory-dev-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/active-directory-dev-glossary.md#claim)을 선택합니다. |
+    | **응용 프로그램 클레임** | 표시 이름, 우편 번호, 새 사용자, 사용자의 개체 ID | [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/developer-glossary.md#claim)을 선택합니다. |
 
 2. **만들기**를 클릭하여 정책을 만듭니다. 
 
@@ -103,7 +103,7 @@ Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 
     | **Name** | SiPe | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **B2C_1_** 이 붙습니다. 샘플 코드에서는 전체 정책 이름(**B2C_1_SiPe**)을 사용합니다. | 
     | **ID 공급자** | 로컬 계정 로그인 | ID 공급자는 사용자를 고유하게 식별하는 데 사용됩니다. |
     | **프로필 특성** | 표시 이름 및 우편 번호 | 사용자가 프로필 편집 시 수정할 수 있는 특성을 선택합니다. |
-    | **응용 프로그램 클레임** | 표시 이름, 우편 번호, 사용자의 개체 ID | 프로필을 성공적으로 편집한 후에 [액세스 토큰](../active-directory/develop/active-directory-dev-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/active-directory-dev-glossary.md#claim)을 선택합니다. |
+    | **응용 프로그램 클레임** | 표시 이름, 우편 번호, 사용자의 개체 ID | 프로필을 성공적으로 편집한 후에 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/developer-glossary.md#claim)을 선택합니다. |
 
 2. **만들기**를 클릭하여 정책을 만듭니다. 
 
@@ -119,7 +119,7 @@ Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | SSPR | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **B2C_1_** 이 붙습니다. 샘플 코드에서는 전체 정책 이름(**B2C_1_SSPR**)을 사용합니다. | 
     | **ID 공급자** | 이메일 주소를 사용하여 암호 재설정 | 사용자를 고유하게 식별하는 데 사용되는 ID 공급자입니다. |
-    | **응용 프로그램 클레임** | 사용자의 개체 ID | 암호를 성공적으로 다시 설정한 후에 [액세스 토큰](../active-directory/develop/active-directory-dev-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/active-directory-dev-glossary.md#claim)을 선택합니다. |
+    | **응용 프로그램 클레임** | 사용자의 개체 ID | 암호를 성공적으로 다시 설정한 후에 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/developer-glossary.md#claim)을 선택합니다. |
 
 2. **만들기**를 클릭하여 정책을 만듭니다. 
 
@@ -127,7 +127,7 @@ Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 
 
 데스크톱 앱을 등록하고 정책을 만들었으니, 이제 앱에서 Azure AD B2C 테넌트를 사용하도록 구성해야 합니다. 이 자습서에서는 샘플 데스크톱 앱을 구성합니다. 
 
-GitHub에서 [zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)하거나 샘플을 복제합니다.
+GitHub에서 [zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)하고, [리포지토리를 찾거나](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) 샘플을 복제합니다.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git

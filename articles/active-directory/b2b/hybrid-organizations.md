@@ -4,18 +4,18 @@ description: Azure AD B2B 공동 작업을 사용하여 온-프레미스 및 클
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b9a74a4e44fefd389a309b776e50d76d362ee9d8
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 773ae5aefab59e79822c0320773753b47cfefdeb
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267245"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983872"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>하이브리드 조직에 대한 Azure Active Directory B2B 공동 작업
 

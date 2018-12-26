@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 시작 | Microsoft Docs'
 description: Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/23/2018
-ms.author: maheshu
-ms.openlocfilehash: d5b81a6d4bdda24208673e42757807aba60fea97
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: conceptual
+ms.date: 11/27/2018
+ms.author: ergreenl
+ms.openlocfilehash: cac1814057b5adbb75d9484b332bd3f8aaa31a18
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263978"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446861"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 
@@ -42,6 +42,22 @@ ms.locfileid: "36263978"
 
 3. 완료되면 **확인**을 클릭하여 마법사의 **요약** 페이지로 이동합니다.
 
+## <a name="configure-synchronization"></a>동기화 구성
+
+Azure AD Domain Services에서는 Azure AD에서 사용할 수 있는 모든 사용자 및 그룹의 전체 동기화 중 하나를 허용하거나 특정 그룹만 동기화하려면 범위가 지정된 동기화를 선택할 수 있습니다. 전체 동기화를 선택하는 경우 나중에 범위가 지정된 동기화를 선택할 수 **없습니다**. 범위가 지정된 동기화에 대한 자세한 내용은 [Azure AD Domain Services 범위가 지정된 동기화 문서](active-directory-ds-scoped-synchronization.md)를 참조하세요.
+
+### <a name="full-synchronization"></a>전체 동기화
+
+1. 전체 동기화의 경우 이미 전체가 선택되어 있으므로 화면 맨 아래에서 "확인"만 클릭하면 됩니다.
+    ![전체 동기화](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+
+### <a name="scoped-synchronization"></a>범위가 지정된 동기화
+
+1. 동기화 단추를 "범위 지정됨"으로 설정/해제하면 그룹 선택 페이지가 표시됩니다. 이 페이지에서 관리형 도메인에 동기화되도록 이미 선택된 그룹을 확인할 수 있습니다.
+    ![범위가 지정된 동기화](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+2. 맨 위 탐색 모음에서 **그룹 선택**을 클릭합니다. 여기에서 그룹 선택기가 측면에 표시됩니다. 이 선택기를 사용하여 Azure AD Domain Services로 동기화할 모든 추가 그룹을 선택합니다. 완료되면 **선택**을 클릭하여 그룹 선택기를 닫고 선택한 목록에 해당 그룹을 추가합니다.
+    ![범위가 지정된 동기화 그룹 선택](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+3. **확인**을 클릭하여 요약 페이지로 이동합니다.
 
 ## <a name="deploy-your-managed-domain"></a>관리되는 도메인 배포
 

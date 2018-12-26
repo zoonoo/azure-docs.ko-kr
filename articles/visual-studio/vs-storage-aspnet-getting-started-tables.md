@@ -7,16 +7,17 @@ manager: douge
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 39456380769e1c3b790d2bbc6fdf9c04c983d054
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 518e14b991aa110a6ed55f984a66cd386a618f0f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531392"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228966"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Azure Table Storage 및 Visual Studio 연결 서비스 시작
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -30,7 +31,7 @@ Azure 테이블 저장소를 사용하면 많은 양의 구조화된 데이터�
 ## <a name="prerequisites"></a>필수 조건
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure 저장소 계정](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Azure 저장소 계정](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -172,7 +173,7 @@ Azure 테이블 저장소를 사용하면 많은 양의 구조화된 데이터�
   
     ![테이블 만들기](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-    앞에서 언급했듯이 테이블이 없고 만들어진 경우에만 **CloudTable.CreateIfNotExists** 메서드에서 **true**를 반환합니다. 따라서 테이블이 있을 때 앱을 실행하면 메서드에서 **false**를 반환합니다. 앱을 여러 번 실행하려면 앱을 다시 실행하기 전에 테이블을 삭제해야 합니다. **CloudTable.Delete** 메서드를 통해 테이블 삭제를 수행할 수 있습니다. 또한 [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) 또는 [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 테이블을 삭제할 수도 있습니다.  
+    앞에서 언급했듯이 테이블이 없고 만들어진 경우에만 **CloudTable.CreateIfNotExists** 메서드에서 **true**를 반환합니다. 따라서 테이블이 있을 때 앱을 실행하면 메서드에서 **false**를 반환합니다. 앱을 여러 번 실행하려면 앱을 다시 실행하기 전에 테이블을 삭제해야 합니다. **CloudTable.Delete** 메서드를 통해 테이블 삭제를 수행할 수 있습니다. 또한 [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) 또는 [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 테이블을 삭제할 수도 있습니다.  
 
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
 

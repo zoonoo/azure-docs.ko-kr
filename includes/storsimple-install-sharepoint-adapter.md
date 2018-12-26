@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: ad45b117df545c361f17c299bee47b314a408b06
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166288"
+---
 <!--author=SharS last changed: 9/17/15-->
 
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터를 설치하려면
@@ -6,7 +19,7 @@
 3. 인증서를 두 번 클릭합니다. SharePoint용 StorSimple 어댑터 설치 마법사가 시작됩니다. **다음** 을 클릭하여 설치를 시작합니다.
    
     ![StorSimple 어댑터 설정 시작 페이지](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup1-include.png)
-4. SharePoint용 StorSimple 어댑터 설치 구성 페이지에서 설치 위치를 선택하고 StorSimple 장치의 DATA 0 네트워크 인터페이스에 대한 IP 주소를 입력하고 **다음**을 클릭합니다. 
+4. SharePoint용 StorSimple 어댑터 설치 구성 페이지에서 설치 위치를 선택하고 StorSimple 디바이스의 DATA 0 네트워크 인터페이스에 대한 IP 주소를 입력하고 **다음**을 클릭합니다. 
    
     ![StorSimple 어댑터 설정 구성 페이지](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup2-include.png) 
 5. 설치 확인 페이지에서 **설치**를 클릭합니다.

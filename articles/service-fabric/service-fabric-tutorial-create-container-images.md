@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 컨테이너 이미지 만들기 | Microsoft Docs
-description: 이 자습서에서는 다중 컨테이너 Service Fabric 응용 프로그램에 대한 컨테이너 이미지를 만드는 방법을 알아봅니다.
+description: 이 자습서에서는 다중 컨테이너 Service Fabric 애플리케이션에 대한 컨테이너 이미지를 만드는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
@@ -16,19 +16,19 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a2814ff299d1bfb003b6133e2b75b47a312f8728
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f2e8ce7dc6102471f95f6332d9cb01a6cb4f4f54
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114043"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313788"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>자습서: Linux Service Fabric 클러스터에서 컨테이너 이미지 만들기
 
-이 자습서는 Linux Service Fabric 클러스터에서 컨테이너를 사용하는 방법을 보여 주는 자습서 시리즈의 1부입니다. 이 자습서에서는 Service Fabric과 함께 사용할 수 있도록 다중 컨테이너 응용 프로그램이 준비됩니다. 후속 자습서에서 이러한 이미지는 Service Fabric 응용 프로그램의 일부로 사용됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서는 Linux Service Fabric 클러스터에서 컨테이너를 사용하는 방법을 보여 주는 자습서 시리즈의 1부입니다. 이 자습서에서는 Service Fabric과 함께 사용할 수 있도록 다중 컨테이너 응용 프로그램이 준비됩니다. 후속 자습서에서 이러한 이미지는 Service Fabric 애플리케이션의 일부로 사용됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * GitHub에서 응용 프로그램 원본 복제
+> * GitHub에서 애플리케이션 원본 복제
 > * 응용 프로그램 원본에서 컨테이너 이미지 만들기
 > * ACR(Azure Container Registry) 인스턴스 배포
 > * ACR에 대한 컨테이너 이미지 태그 지정
@@ -41,10 +41,10 @@ ms.locfileid: "37114043"
 > * [컨테이너를 사용하여 Service Fabric 응용 프로그램 빌드 및 실행](service-fabric-tutorial-package-containers.md)
 > * [Service Fabric에서 장애 조치(failover) 및 크기 조정이 처리되는 방법](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Service Fabric에 대한 Linux 개발 환경 설정 [여기](service-fabric-get-started-linux.md)의 지침을 따라 Linux 환경을 설정합니다.
-* 이 자습서에는 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+* 이 자습서에는 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 * 또한 사용 가능한 Azure 구독이 있어야 합니다. 평가판에 자세한 내용은 [여기](https://azure.microsoft.com/free/)로 이동합니다.
 
 ## <a name="get-application-code"></a>응용 프로그램 코드 가져오기
@@ -59,7 +59,7 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-솔루션에는 두 개의 폴더 및 'docker-compose.yml' 파일이 포함됩니다. 'azure-vote' 폴더는 이미지를 빌드하는 데 사용되는 Dockerfile과 함께 Python 프런트 엔드 서비스를 포함합니다. 'Voting' 디렉터리는 클러스터에 배포된 Service Fabric 응용 프로그램 패키지를 포함합니다. 이러한 디렉터리는 이 자습서에 필요한 자산을 포함합니다.
+솔루션에는 두 개의 폴더 및 ‘docker-compse.yml’ 파일이 포함됩니다. 'azure-vote' 폴더는 이미지를 빌드하는 데 사용되는 Dockerfile과 함께 Python 프런트 엔드 서비스를 포함합니다. 'Voting' 디렉터리는 클러스터에 배포된 Service Fabric 응용 프로그램 패키지를 포함합니다. 이러한 디렉터리는 이 자습서에 필요한 자산을 포함합니다.
 
 ## <a name="create-container-images"></a>컨테이너 이미지 만들기
 
@@ -68,6 +68,8 @@ cd service-fabric-containers/Linux/container-tutorial/
 ```bash
 docker build -t azure-vote-front .
 ```
+> [!Note]
+> 사용 권한이 거부된 경우 sudo 없이 Docker를 사용하는 방법에 대해 [이](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) 설명서를 따릅니다.
 
 이 명령은 필요한 모든 종속성을 Docker 허브에서 가져와야 하므로 다소 시간이 걸릴 수 있습니다. 완료되면 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 명령을 사용하여 만든 이미지를 확인합니다.
 
@@ -206,10 +208,10 @@ azure-vote-front
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Github에서 응용 프로그램을 끌어오고 컨테이너 이미지를 만들고 레지스트리로 밀어 넣었습니다. 다음 단계가 완료되었습니다.
+이 자습서에서는 GitHub에서 애플리케이션을 끌어오고 컨테이너 이미지를 만들고 레지스트리로 밀어 넣었습니다. 다음 단계가 완료되었습니다.
 
 > [!div class="checklist"]
-> * GitHub에서 응용 프로그램 원본 복제
+> * GitHub에서 애플리케이션 원본 복제
 > * 응용 프로그램 원본에서 컨테이너 이미지 만들기
 > * ACR(Azure Container Registry) 인스턴스 배포
 > * ACR에 대한 컨테이너 이미지 태그 지정

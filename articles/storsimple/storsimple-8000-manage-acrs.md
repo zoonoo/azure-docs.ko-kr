@@ -1,6 +1,6 @@
 ---
 title: StorSimple에서 액세스 제어 레코드 관리 | Microsoft Docs
-description: ACR(액세스 제어 레코드)을 사용하여 어떤 호스트가 StorSimple 장치의 볼륨에 연결할 수 있는지 지정하는 방법에 대해 설명합니다.
+description: ACR(액세스 제어 레코드)을 사용하여 어떤 호스트가 StorSimple 디바이스의 볼륨에 연결할 수 있는지 지정하는 방법에 대해 설명합니다.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -24,7 +24,7 @@ ms.locfileid: "38597500"
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>StorSimple 관리자 서비스를 사용하여 액세스 제어 레코드 관리
 
 ## <a name="overview"></a>개요
-ACR(액세스 제어 레코드)을 사용하면 어떤 호스트가 StorSimple 장치의 볼륨에 연결할 수 있는지 지정할 수 있습니다. ACR은 특정 볼륨으로 설정되며 호스트의 IQN(iSCSI 정규화된 이름)을 포함합니다. 호스트가 볼륨에 연결하려고 할 때 해당 장치는 IQN 이름에 대한 볼륨과 연결된 ACR을 확인하고 일치하는 경우 이 연결이 확정됩니다. StorSimple 장치 관리자 서비스 블레이드의 **구성** 섹션 내에 있는 액세스 제어 레코드는 호스트의 해당 IQN으로 모든 액세스 제어 레코드를 표시합니다.
+ACR(액세스 제어 레코드)을 사용하면 어떤 호스트가 StorSimple 디바이스의 볼륨에 연결할 수 있는지 지정할 수 있습니다. ACR은 특정 볼륨으로 설정되며 호스트의 IQN(iSCSI 정규화된 이름)을 포함합니다. 호스트가 볼륨에 연결하려고 할 때 해당 디바이스는 IQN 이름에 대한 볼륨과 연결된 ACR을 확인하고 일치하는 경우 이 연결이 확정됩니다. StorSimple 디바이스 관리자 서비스 블레이드의 **구성** 섹션 내에 있는 액세스 제어 레코드는 호스트의 해당 IQN으로 모든 액세스 제어 레코드를 표시합니다.
 
 이 자습서에서는 다음과 같은 일반적인 ACR 관련 작업을 설명합니다.
 
@@ -44,13 +44,13 @@ Windows Server 2012를 실행하는 Windows 호스트의 IQN을 가져오려면 
 
 
 ## <a name="add-an-access-control-record"></a>액세스 제어 레코드 추가
-StorSimple 장치 관리자 서비스 블레이드의 **구성** 섹션을 사용하여 ACR을 추가합니다. 일반적으로 하나의 볼륨으로 하나의 ACR을 연결합니다.
+StorSimple 디바이스 관리자 서비스 블레이드의 **구성** 섹션을 사용하여 ACR을 추가합니다. 일반적으로 하나의 볼륨으로 하나의 ACR을 연결합니다.
 
 ACR을 추가하려면 다음 단계를 수행합니다.
 
 #### <a name="to-add-an-acr"></a>ACR을 추가하려면
 
-1. StorSimple 장치 관리자 서비스로 이동한 후 서비스 이름을 두 번 클릭하고 **구성** 섹션 내에서 **액세스 제어 레코드**를 클릭합니다.
+1. StorSimple 디바이스 관리자 서비스로 이동한 후 서비스 이름을 두 번 클릭하고 **구성** 섹션 내에서 **액세스 제어 레코드**를 클릭합니다.
 2. **액세스 제어 레코드** 블레이드에서 **+ ACR 추가**를 클릭합니다.
 
     ![ACR 추가 클릭](./media/storsimple-8000-manage-acrs/createacr1.png)
@@ -71,7 +71,7 @@ ACR을 추가하려면 다음 단계를 수행합니다.
 
 
 ## <a name="edit-an-access-control-record"></a>액세스 제어 레코드 편집
-StorSimple 장치 관리자 서비스 블레이드의 **구성** 섹션을 사용하여 ACR을 편집합니다.
+StorSimple 디바이스 관리자 서비스 블레이드의 **구성** 섹션을 사용하여 ACR을 편집합니다.
 
 > [!NOTE]
 > 현재 사용하지 않고 있는 ACR만 수정하는 것이 좋습니다. 현재 사용 중인 볼륨과 연관된 ACR을 편집하려면 먼저 볼륨을 오프라인으로 전환해야 합니다.
@@ -79,7 +79,7 @@ StorSimple 장치 관리자 서비스 블레이드의 **구성** 섹션을 사�
 ACR을 편집하려면 다음 단계를 수행합니다.
 
 #### <a name="to-edit-an-access-control-record"></a>액세스 제어 레코드를 편집하려면
-1.  StorSimple 장치 관리자 서비스로 이동한 후 서비스 이름을 두 번 클릭하고 **구성** 섹션 내에서 **액세스 제어 레코드**를 클릭합니다.
+1.  StorSimple 디바이스 관리자 서비스로 이동한 후 서비스 이름을 두 번 클릭하고 **구성** 섹션 내에서 **액세스 제어 레코드**를 클릭합니다.
 
     ![액세스 제어 레코드로 이동](./media/storsimple-8000-manage-acrs/createacr1.png)
 
@@ -99,7 +99,7 @@ ACR을 편집하려면 다음 단계를 수행합니다.
 
    
 ## <a name="delete-an-access-control-record"></a>액세스 제어 레코드 삭제
-StorSimple 장치 관리자 서비스 블레이드의 **구성** 섹션을 사용하여 ACR을 삭제합니다.
+StorSimple 디바이스 관리자 서비스 블레이드의 **구성** 섹션을 사용하여 ACR을 삭제합니다.
 
 > [!NOTE]
 > 현재 사용하지 않고 있는 ACR만 삭제할 수 있습니다. 현재 사용 중인 볼륨과 연관된 ACR을 삭제하려면 먼저 볼륨을 오프라인으로 전환해야 합니다.
@@ -107,7 +107,7 @@ StorSimple 장치 관리자 서비스 블레이드의 **구성** 섹션을 사�
 액세스 제어 레코드를 삭제하려면 다음 단계를 수행합니다.
 
 #### <a name="to-delete-an-access-control-record"></a>액세스 제어 레코드를 삭제하려면
-1.  StorSimple 장치 관리자 서비스로 이동한 후 서비스 이름을 두 번 클릭하고 **구성** 섹션 내에서 **액세스 제어 레코드**를 클릭합니다.
+1.  StorSimple 디바이스 관리자 서비스로 이동한 후 서비스 이름을 두 번 클릭하고 **구성** 섹션 내에서 **액세스 제어 레코드**를 클릭합니다.
 
     ![액세스 제어 레코드로 이동](./media/storsimple-8000-manage-acrs/createacr1.png)
 

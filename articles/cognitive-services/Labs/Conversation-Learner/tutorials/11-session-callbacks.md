@@ -1,7 +1,7 @@
 ---
-title: Conversation Learner 응용 프로그램에서 세션 콜백을 사용하는 방법 - Microsoft Cognitive Services | Microsoft Docs
+title: Conversation Learner 모델에서 세션 콜백을 사용하는 방법 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Conversation Learner 응용 프로그램에서 세션 콜백을 사용하는 방법을 알아봅니다.
+description: Conversation Learner 모델에서 세션 콜백을 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f8970620c1f0f87ccae13d031092a048144ffb19
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 73fb2a3f10476550bbe6bd20c387a1cc2a7727d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376254"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246483"
 ---
-# <a name="how-to-use-session-callbacks-with-a-conversation-learner-application"></a>Conversation Learner 응용 프로그램에서 세션 콜백을 사용하는 방법
+# <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Conversation Learner 모델에서 세션 콜백을 사용하는 방법
 
 이 자습서는 onSessionStart 및 onSessionEnd 콜백을 보여 줍니다.
 
+## <a name="video"></a>비디오
+
+[![자습서 11 미리 보기](https://aka.ms/cl-tutorial-11-preview)](https://aka.ms/blis-tutorial-11)
+
 ## <a name="requirements"></a>요구 사항
-이 자습서를 수행하려면 “tutorialSessionCallbacks.ts” 봇이 실행 중이어야 합니다.
+이 자습서를 수행하려면 `tutorialSessionCallbacks` 봇이 실행 중이어야 합니다.
 
     npm run tutorial-session-callbacks
 
@@ -35,19 +39,19 @@ ms.locfileid: "35376254"
 
 ### <a name="open-the-demo"></a>데모 열기
 
-앱 목록에서 Tutorial-11-SessionCallbacks를 클릭합니다. 
+모델 목록에서 Tutorial-11-SessionCallbacks를 클릭합니다. 
 
 ### <a name="entities"></a>엔터티
 
-응용 프로그램에 네 개의 엔터티를 정의했습니다.
+모델에는 4가지 엔터티가 정의됩니다.
 
 ![](../media/tutorial11_entities.PNG)
 
-한 가지 주의할 사항은 BotName이 프로그래밍 엔터티라는 것입니다.  이 값은 세션을 시작할 때 봇에서 설정됩니다.
+한 가지 주의할 사항은 BotName이 프로그래밍 엔터티라는 것입니다.  이 엔터티는 세션을 시작할 때 봇에서 설정됩니다.
 
 ### <a name="actions"></a>작업
 
-네 가지 작업을 만들었습니다. 
+모델에는 4가지 작업이 정의됩니다.
 
 ![](../media/tutorial11_actions.PNG)
 
@@ -70,7 +74,7 @@ ms.locfileid: "35376254"
 이 메서드는 둘 다 선택 사항입니다.
 
 - OnSessionStartCallback: 이 메서드는 BotName 엔터티를 설정합니다.
-- OnSessionEndCallback: 지울 내용을 지정할 수 있습니다. 사용자 이름과 사용자 전화 번호를 제외한 모든 엔터티가 지워집니다.
+- OnSessionEndCallback: 보존할 내용을 지정할 수 있습니다. 사용자 이름과 사용자 전화 번호를 제외한 모든 엔터티가 지워집니다.
 
 ### <a name="try-the-bot"></a>봇 사용해 보기
 

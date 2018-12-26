@@ -3,7 +3,7 @@ title: Azure Service Bus-Event Grid 통합 개요 | Microsoft Docs
 description: Service Bus 메시지 및 Event Grid 통합에 대한 설명
 services: service-bus-messaging
 documentationcenter: .net
-author: ChristianWolf42
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/15/2018
-ms.author: chwolf
-ms.openlocfilehash: fbea3d4b6bb82ac002550434d737f27c441d439e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 09/15/2018
+ms.author: spelluru
+ms.openlocfilehash: 2173a24eb3bbaafe9dcf25461eb5357ba3a6e7ad
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187109"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166902"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
 
@@ -129,9 +129,9 @@ Service Bus 네임스페이스로 이동하여 여기에 표시된 바와 같이
 2. 왼쪽 창에서 **Event Grid**를 선택합니다. 
 3. **이벤트 구독**을 선택합니다.  
 
-   다음 이미지는 몇 가지 Event Grid 구독이 있는 네임스페이스를 표시합니다.
+   다음 이미지는 Event Grid 구독이 있는 네임스페이스를 표시합니다.
 
-   ![20][]
+   ![Event Grid 구독](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
 
    다음 이미지는 특정 필터링 없이 함수 또는 웹 후크를 구독하는 방법을 보여줍니다.
 
@@ -176,10 +176,10 @@ New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBS
 ## <a name="next-steps"></a>다음 단계
 
 * Service Bus 및 Event Grid [예제](service-bus-to-event-grid-integration-example.md)를 가져옵니다.
-* [Event Grid](https://docs.microsoft.com/azure/azure-functions/)에 대해 자세히 알아봅니다.
+* [Event Grid](https://docs.microsoft.com/azure/event-grid/)에 대해 자세히 알아봅니다.
 * [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)에 대해 자세히 알아봅니다.
 * [Logic Apps](https://docs.microsoft.com/azure/logic-apps/)에 대해 자세히 알아봅니다.
-* [Service Bus](https://docs.microsoft.com/azure/azure-functions/)에 대한 자세히 알아봅니다.
+* [Service Bus](https://docs.microsoft.com/azure/service-bus/)에 대한 자세히 알아봅니다.
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

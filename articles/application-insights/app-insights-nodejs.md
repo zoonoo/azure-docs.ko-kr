@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights를 사용하여 Node.js 서비스 모니터링 | Microsoft Docs"
-description: "Application Insights를 사용하여 Node.js 서비스의 성능을 모니터링하고 문제를 진단합니다."
+title: Azure Application Insights를 사용하여 Node.js 서비스 모니터링 | Microsoft Docs
+description: Application Insights를 사용하여 Node.js 서비스의 성능을 모니터링하고 문제를 진단합니다.
 services: application-insights
 documentationcenter: nodejs
 author: mrbullwinkle
@@ -9,15 +9,15 @@ ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b8e35a953c936949af0d496345f537ad85fc359
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2ac309afc6b25f7fdb4667b767ead59cae3b696
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877323"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
@@ -47,11 +47,11 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 
 1. [Azure Portal][portal]에 로그인합니다.
-2. **리소스 만들기** > **개발자 도구** > **Application Insights**를 선택합니다. 리소스에는 원격 분석 데이터를 수신하기 위한 끝점, 이 데이터 저장소, 저장된 보고서 및 대시보드, 규칙 및 경고 구성이 포함됩니다.
+2. **리소스 만들기** > **개발자 도구** > **Application Insights**를 선택합니다. 리소스에는 원격 분석 데이터를 수신하기 위한 엔드포인트, 이 데이터 저장소, 저장된 보고서 및 대시보드, 규칙 및 경고 구성이 포함됩니다.
 
   ![Application Insights 리소스 만들기](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 
-3. 리소스 만들기 페이지의 **응용 프로그램 유형** 상자에서 **Node.js 응용 프로그램**을 선택합니다. 앱 유형에 따라 생성되는 기본 대시보드 및 보고서가 결정됩니다. (모든 Application Insights 리소스는 모든 언어 및 플랫폼에서 데이터를 수집할 수 있습니다.)
+3. 리소스 만들기 페이지의 **애플리케이션 유형** 상자에서 **Node.js Application**을 선택합니다. 앱 유형에 따라 생성되는 기본 대시보드 및 보고서가 결정됩니다. (모든 Application Insights 리소스는 모든 언어 및 플랫폼에서 데이터를 수집할 수 있습니다.)
 
   ![새 Application Insights 리소스 양식](./media/app-insights-nodejs/04-create_appinsights_resource.png)
 
@@ -87,13 +87,13 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 ### <a name="monitor"></a> 앱 모니터링
 
-SDK는 Node.js 런타임 및 일부 일반적인 타사 모듈에 대한 원격 분석을 자동으로 수집합니다. 응용 프로그램을 사용하여 이 데이터를 생성합니다.
+SDK는 Node.js 런타임 및 일부 일반적인 타사 모듈에 대한 원격 분석을 자동으로 수집합니다. 애플리케이션을 사용하여 이 데이터를 생성합니다.
 
 그런 다음, [Azure Portal][portal]에서 이전에 만든 Application Insights 리소스로 이동합니다. **타임라인 개요**에서 먼저 몇 가지 데이터 요소를 찾습니다. 더 자세한 데이터를 보려면 차트에서 다른 구성 요소를 선택합니다.
 
 ![첫 번째 데이터 요소](./media/app-insights-nodejs/12-first-perf.png)
 
-앱에 대해 검색된 토폴로지를 보려면 **응용 프로그램 맵** 단추를 선택합니다. 자세한 내용을 보려면 맵에서 구성 요소를 선택합니다.
+앱에 대해 검색된 토폴로지를 보려면 **애플리케이션 맵** 단추를 선택합니다. 자세한 내용을 보려면 맵에서 구성 요소를 선택합니다.
 
 ![간단한 앱 맵](./media/app-insights-nodejs/06-appinsights_appmap.png)
 
@@ -105,7 +105,7 @@ SDK는 Node.js 런타임 및 일부 일반적인 타사 모듈에 대한 원격 
 
 SDK는 제출할 데이터를 일괄 처리하기 때문에 항목이 포털에 표시될 때까지 지연될 수 있습니다. 리소스에 데이터가 보이지 않으면 다음 해결 방법 중 몇 가지를 시도해 보세요.
 
-* 응용 프로그램을 계속 사용합니다. 더 많은 작업을 수행하여 더 많은 원격 분석을 생성합니다.
+* 애플리케이션을 계속 사용합니다. 더 많은 작업을 수행하여 더 많은 원격 분석을 생성합니다.
 * 포털 리소스 보기에서 **새로 고침**을 클릭합니다. 차트는 자체에서 주기적으로 새로 고치지만, 수동으로 새로 고침하면 즉시 새로 고쳐집니다.
 * [필요한 발신 포트](app-insights-ip-addresses.md)가 열려 있는지 확인합니다.
 * [검색](app-insights-diagnostic-search.md)을 사용하여 특정 이벤트를 찾습니다.
@@ -211,7 +211,7 @@ server.on("listening", () => {
 ## <a name="next-steps"></a>다음 단계
 
 * [포털에서 원격 분석 모니터링](app-insights-dashboards.md)
-* [원격 분석에 분석 쿼리 작성](app-insights-analytics-tour.md)
+* [원격 분석에 분석 쿼리 작성](../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->
 

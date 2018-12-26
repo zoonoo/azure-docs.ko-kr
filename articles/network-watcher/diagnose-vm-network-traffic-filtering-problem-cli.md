@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2f6011103c86895c455b284a0982636a0d31fbe7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4be1fac519ee0a7bcd61bd4cced4d829c275679d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180473"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990113"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>빠른 시작: 가상 머신 네트워크 트래픽 필터 문제 진단 - Azure CLI
 
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. CLI 버전을 확인한 후 `az login`을 실행하여 Azure와의 연결을 만듭니다. 이 빠른 시작에서 CLI 명령은 Bash 셸에서 실행하도록 형식이 지정됩니다.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. CLI 버전을 확인한 후 `az login`을 실행하여 Azure와의 연결을 만듭니다. 이 빠른 시작에서 CLI 명령은 Bash 셸에서 실행하도록 형식이 지정됩니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
@@ -52,7 +52,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-VM을 만드는 데 몇 분이 걸립니다. VM이 만들어지고 CLI에서 출력을 반환할 때까지 나머지 단계를 진행하지 마십시오.
+VM을 만드는 데 몇 분이 걸립니다. VM이 만들어지고 CLI에서 출력을 반환할 때까지 나머지 단계를 진행하지 마세요.
 
 ## <a name="test-network-communication"></a>네트워크 통신 테스트
 

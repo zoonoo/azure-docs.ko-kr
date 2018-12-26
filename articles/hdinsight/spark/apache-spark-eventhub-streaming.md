@@ -1,28 +1,24 @@
 ---
-title: '자습서: Azure HDInsight의 Apache Spark로 Azure Event Hubs에서 데이터 처리 | Microsoft Docs'
+title: '자습서: Azure HDInsight의 Apache Spark로 Azure Event Hubs에서 데이터 처리 '
 description: Azure HDInsight의 Apache Spark를 Azure Event Hubs에 연결하고 스트리밍 데이터를 처리합니다.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.author: jgao
-ms.openlocfilehash: 9b59f5d58234aaf8f8385f722d6659548e066933
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 11/06/2018
+ms.openlocfilehash: 537ae87fa694a8b0e82cb2830dd8ad1f62986093
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781412"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496419"
 ---
-# <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>자습서: HDInsight에서 Azure Event Hubs 및 Spark를 사용하여 트윗 처리
+# <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>자습서: HDInsight에서 Azure Event Hubs 및 Apache Spark를 사용하여 트윗 처리
 
-이 자습서에서는 Apache Spark 스트리밍 응용 프로그램을 만들어 Azure 이벤트 허브로 트윗을 보내고, 다른 응용 프로그램을 만들어 이벤트 허브에서 트윗을 읽는 방법을 알아봅니다. Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개요](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)를 참조하세요. HDInsight는 Azure에서 Spark 클러스터에 동일한 스트리밍 기능을 제공합니다.
+이 자습서에서는 [Apache Spark](https://spark.apache.org/) 스트리밍 애플리케이션을 만들어 Azure 이벤트 허브로 트윗을 보내고, 다른 애플리케이션을 만들어 이벤트 허브에서 트윗을 읽는 방법을 알아봅니다. Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개요](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)를 참조하세요. HDInsight는 Azure에서 Spark 클러스터에 동일한 스트리밍 기능을 제공합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -37,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-twitter-application"></a>Twitter 응용 프로그램 만들기
 
-트윗 스트림을 받으려면 Twitter에 응용 프로그램을 만듭니다. 다음 지침에 따라 Twitter 응용 프로그램을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
+트윗 스트림을 받으려면 Twitter에 애플리케이션을 만듭니다. 다음 지침에 따라 Twitter 응용 프로그램을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
 
 1. [Twitter 응용 프로그램 관리](https://apps.twitter.com/)로 이동합니다.
 2. **새 앱 만들기**를 선택합니다.
@@ -77,18 +73,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ![Spark 스트리밍 예제에 대한 이벤트 허브 이름 제공](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Spark 스트리밍 예제에 대한 이벤트 허브 이름 제공")
 5. **만들기**를 선택하여 네임스페이스를 만듭니다.
 
-6. 다음 지침을 사용하여 이벤트 허브 네임스페이스를 엽니다.
+7. 다음 지침을 사용하여 이벤트 허브 네임스페이스를 엽니다.
 
     1. 포털에서 **모든 서비스**를 선택합니다.
     2. 필터 상자에 **이벤트 허브**를 입력합니다.
-    3. 만든 네임스페이스를 두 번 클릭합니다.
+    3. 새로 만든 네임스페이스를 선택합니다.
     4. **+ 이벤트 허브**를 선택합니다.
 
-6. Event Hubs 네임스페이스 목록에서 새로 만든 네임스페이스를 선택합니다.      
-5. **Event Hubs**를 선택한 다음, **+ 이벤트 허브**를 선택하여 새 이벤트 허브를 만듭니다.
-  
-
-6. 다음 값을 입력합니다.
+8. 다음 값을 입력합니다.
 
     - 이름: 이벤트 허브의 이름을 지정합니다.
     - 파티션 수: 10
@@ -96,12 +88,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    
     ![Spark 스트리밍 예제에 대한 이벤트 허브 세부 정보 제공](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Spark 스트리밍 예제에 대한 이벤트 허브 세부 정보 제공")
 
-7. **만들기**를 선택합니다.
-8. 네임스페이스에 대해 **공유 액세스 정책**을 선택한 다음(이벤트 허브 공유 액세스 정책이 아님), **RootManageSharedAccessKey**를 선택합니다.
+9. **만들기**를 선택합니다.
+10. 네임스페이스에 대해 **공유 액세스 정책**을 선택한 다음(이벤트 허브 공유 액세스 정책이 아님), **RootManageSharedAccessKey**를 선택합니다.
     
      ![Spark 스트리밍 예제에 대한 이벤트 허브 정책 설정](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Spark 스트리밍 예제에 대한 이벤트 허브 정책 설정")
 
-9. **기본 키** 및 **연결 문자열-기본 키**의 값을 저장하여 자습서의 뒷부분에서 사용합니다.
+11. **기본 키** 및 **연결 문자열-기본 키**의 값을 저장하여 자습서의 뒷부분에서 사용합니다.
 
      ![Spark 스트리밍 예제에 대한 이벤트 허브 정책 키 보기](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "Spark 스트리밍 예제에 대한 이벤트 허브 정책 키 보기")
 
@@ -110,7 +102,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Jupyter 노트북을 만들고, **SendTweetsToEventHub**라는 이름을 지정해야 합니다. 
 
-1. 다음 코드를 실행하여 외부 Maven 라이브러리를 추가합니다.
+1. 다음 코드를 실행하여 외부 Apache Maven 라이브러리를 추가합니다.
 
     ```
     %%configure
@@ -192,7 +184,7 @@ Jupyter 노트북을 만들고, **SendTweetsToEventHub**라는 이름을 지정�
 
 다른 Jupyter 노트북을 만들고, **ReadTweetsFromEventHub**라는 이름을 지정해야 합니다. 
 
-1. 다음 코드를 실행하여 외부 Maven 라이브러리를 추가합니다.
+1. 다음 코드를 실행하여 외부 Apache Maven 라이브러리를 추가합니다.
 
     ```
     %%configure -f
@@ -208,7 +200,7 @@ Jupyter 노트북을 만들고, **SendTweetsToEventHub**라는 이름을 지정�
     val eventHubNSConnStr = "<Event hub namespace connection string>"
     val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build 
     
-    val customEventhubParameters = EventHubsConf(connectionString).setMaxEventsPerTrigger(5)
+    val customEventhubParameters = EventHubsConf(connStr).setMaxEventsPerTrigger(5)
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
     //incomingStream.printSchema    
     
@@ -226,9 +218,9 @@ Jupyter 노트북을 만들고, **SendTweetsToEventHub**라는 이름을 지정�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-HDInsight를 사용하면 데이터가 Azure Storage 또는 Azure Data Lake Store에 저장되므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 다음 자습서의 작업을 바로 수행하려는 경우 클러스터를 유지할 수 있습니다.
+HDInsight를 사용하면 데이터가 Azure Storage 또는 Azure Data Lake Store에 저장되므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 다음 자습서에서 즉시 작업하려면 클러스터를 유지하는 것이 좋습니다. 그렇지 않으면 계속 진행하여 클러스터를 삭제합니다.
 
-Azure Portal에서 클러스터를 열고, **삭제**를 선택합니다.
+Azure Portal에서 클러스터를 열고 **삭제**를 선택합니다.
 
 ![HDInsight 클러스터 삭제](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
 

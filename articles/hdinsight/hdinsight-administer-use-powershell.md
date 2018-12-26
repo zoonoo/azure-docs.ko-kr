@@ -1,30 +1,25 @@
 ---
-title: PowerShell을 사용하여 HDInsight에서 Hadoop 클러스터 관리 - Azure | Microsoft Docs
-description: Azure PowerShell을 사용하여 HDInsight에서 Hadoop 클러스터에 대해 관리 작업을 수행하는 방법에 대해 알아봅니다.
+title: PowerShell을 사용하여 HDInsight에서 Apache Hadoop 클러스터 관리 - Azure
+description: Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터에 대한 관리 작업을 수행하는 방법에 대해 알아봅니다.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
-ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
+ms.reviewer: tyfox
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 656ad3673835bb30499931d20fe715e85418b1c3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 11/06/2018
+ms.author: tylerfox
+ms.openlocfilehash: 8454a22b02f28ece45ce04464f8f2658f745b53e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200829"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163347"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있습니다. 이 문서에서는 Azure PowerShell을 사용하여 Azure HDInsight에서 Hadoop 클러스터를 관리하는 방법을 설명합니다. HDInsight PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조][hdinsight-powershell-reference]를 참조하세요.
+Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있습니다. 이 문서에서는 Azure PowerShell을 사용하여 Azure HDInsight의 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리하는 방법을 알아봅니다. HDInsight PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조](https://msdn.microsoft.com/library/azure/dn479228.aspx)를 참조하세요.
 
 **필수 구성 요소**
 
@@ -46,7 +41,7 @@ Get-Module *azure*
 이전 버전을 제거하려면 제어판에서 프로그램 및 기능을 실행합니다.
 
 ## <a name="create-clusters"></a>클러스터 만들기
-[Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+ [Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 
 ## <a name="list-clusters"></a>클러스터 나열
 현재 구독의 클러스터를 모두 나열하려면 다음 명령을 사용합니다.
@@ -85,12 +80,12 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 
 HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노드 수를 변경하는 영향은 다음과 같습니다.
 
-* Hadoop은
+* Apache Hadoop
 
     모든 보류 중인 또는 실행 중인 작업에 영향을 주지 않고 실행되는 Hadoop 클러스터의 작업자 노드 수를 원활하게 늘릴 수 있습니다. 작업이 진행 중인 동안에 새 작업을 제출할 수 있습니다. 크기 조정 작업의 오류는 정상적으로 처리되므로 클러스터는 항상 기능 상태로 남아 있습니다.
 
     데이터 노드 수를 줄여 Hadoop 클러스터를 축소하면 클러스터의 서비스 중 일부가 다시 시작됩니다. 서비스를 다시 시작하면 실행 중인 작업과 보류 중인 작업이 크기 조정 작업을 완료하지 못하고 실패합니다. 그러나 작업이 완료되면 작업을 다시 제출할 수 있습니다.
-* HBase
+* Apache HBase
 
     HBase 클러스터가 실행 중인 동안 데이터 노드를 원활하게 추가하거나 제거할 수 있습니다. 지역 서버는 크기 조정 작업을 완료하는 몇 분 안에 자동으로 균형을 맞춥니다. 그러나 클러스터의 헤드 노드에 로그인한 다음 명령 프롬프트 창에서 다음 명령을 실행하여 자동으로 지역 서버의 균형을 맞출 수도 있습니다.
 
@@ -100,7 +95,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
     >balancer
     ```
 
-* Storm
+* Apache Storm
 
     실행 중인 동안 Storm 클러스터에 데이터 노드를 원활하게 추가하거나 제거할 수 있습니다. 하지만 크기 조정 작업이 성공적으로 완료되면 다시 토폴로지 균형을 조정해야 합니다.
 
@@ -132,7 +127,7 @@ Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount
 
 
 ## <a name="grantrevoke-access"></a>액세스 권한 부여/해지
-HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다(이러한 모든 서비스에 RESTful 끝점이 있음).
+HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다(이러한 모든 서비스에 RESTful 엔드포인트가 있음).
 
 * ODBC
 * JDBC
@@ -212,41 +207,41 @@ $resourceGroupName = $cluster.ResourceGroup
 
 
 ## <a name="submit-jobs"></a>작업 제출
-**MapReduce 작업을 제출하려면**
+**Apache Hadoop MapReduce 작업을 제출하려면**
 
-[Windows 기반 HDInsight에서 Hadoop MapReduce 샘플 실행](hdinsight-run-samples.md)을 참조하세요.
+[HDInsight에 포함된 Apache Hadoop MapReduce 예제 실행](hadoop/apache-hadoop-run-samples-linux.md)을 참조하세요.
 
-**Hive 작업을 제출하려면**
+**Apache Hive 작업을 제출하려면**
 
-[PowerShell을 사용하여 Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-powershell.md)을 참조하세요.
+[PowerShell을 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-powershell.md)을 참조하세요.
 
-**Pig 작업을 제출하려면**
+**Apache Pig 작업을 제출하려면**
 
-[PowerShell을 사용하여 Pig 작업 실행](hadoop/apache-hadoop-use-pig-powershell.md)을 참조하세요.
+[PowerShell을 사용하여 Apache Pig 작업 실행](hadoop/apache-hadoop-use-pig-powershell.md)을 참조하세요.
 
-**Sqoop 작업을 제출하려면**
+**Apache Sqoop 작업을 제출하려면**
 
-[HDInsight와 함께 Sqoop 사용](hadoop/hdinsight-use-sqoop.md)을 참조하세요.
+[HDInsight에서 Apache Sqoop 사용](hadoop/hdinsight-use-sqoop.md)을 참조하세요.
 
-**Oozie 작업을 제출하려면**
+**Apache Oozie 작업을 제출하려면**
 
-[Hadoop과 함께 Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](hdinsight-use-oozie.md)을 참조하세요.
+[Apache Hadoop과 함께 Apache Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](hdinsight-use-oozie.md)을 참조하세요.
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob 저장소에 데이터 업로드
 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-* [HDInsight Cmdlet 참조 설명서][hdinsight-powershell-reference]
+* [HDInsight Cmdlet 참조 설명서](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Azure Portal을 사용하여 HDInsight 관리][hdinsight-admin-portal]
 * [명령줄 인터페이스를 사용하여 HDInsight 관리][hdinsight-admin-cli]
 * [HDInsight 클러스터 만들기][hdinsight-provision]
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
-* [프로그래밍 방식으로 Hadoop 작업 제출][hdinsight-submit-jobs]
+* [프로그래밍 방식으로 Apache Hadoop 작업 제출][hdinsight-submit-jobs]
 * [Azure HDInsight 시작][hdinsight-get-started]
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

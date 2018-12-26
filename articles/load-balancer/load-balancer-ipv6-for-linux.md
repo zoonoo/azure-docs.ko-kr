@@ -1,26 +1,25 @@
 ---
-title: Linux VM에 대한 DHCPv6 구성 | Microsoft Docs
+title: Linux VM에 대한 DHCPv6 구성
+titlesuffix: Azure Load Balancer
 description: Linux VM에 대한 DHCPv6를 구성하는 방법
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
 keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot
-ms.assetid: b32719b6-00e8-4cd0-ba7f-e60e8146084b
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 6248ed2f55fb5bbcc2061af6ce1dedf2bd31ccad
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ea1ef845f55fbdadeea1992e167ef6568572abc9
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30261850"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141716"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Linux VM에 대한 DHCPv6 구성
 

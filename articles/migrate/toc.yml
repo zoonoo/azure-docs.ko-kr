@@ -1,70 +1,99 @@
+items:
 - name: Azure Migrate 설명서
   href: index.yml
 - name: 개요
   items:
-    - name: Azure Migrate 정보
-      href: migrate-overview.md
+  - name: Azure Migrate 정보
+    href: migrate-overview.md
 - name: 자습서
   items:
-    - name: VMware VM 검색 및 평가
-      href: tutorial-assessment-vmware.md
+  - name: VMware VM 검색 및 평가
+    href: tutorial-assessment-vmware.md
 - name: 개념
   items:
-    - name: 수집기 정보
-      href: concepts-collector.md
-    - name: 평가 계산
-      href: concepts-assessment-calculation.md
-    - name: 종속성 시각화 정보
-      href: concepts-dependency-visualization.md
+  - name: 수집기 정보
+    href: concepts-collector.md
+  - name: 수집기 버전 업그레이드
+    href: concepts-collector-upgrade.md
+  - name: 평가 계산
+    href: concepts-assessment-calculation.md
+  - name: 종속성 시각화 정보
+    href: concepts-dependency-visualization.md
 - name: 방법 가이드
   items:
-    - name: Contoso 마이그레이션 시리즈
-      items:
-        - name: 1. Contoso-마이그레이션 개요
-          href: contoso-migration-overview.md
-        - name: 2. Contoso-Azure 인프라 배포
-          href: contoso-migration-infrastructure.md
-        - name: 3. Contoso-Azure로 마이그레이션할 온-프레미스 리소스 평가
-          href: contoso-migration-assessment.md
-        - name: 4. Contoso-Azure VM 및 Azure SQL 관리되는 인스턴스에서 앱 다시 호스트
-          href: contoso-migration-rehost-vm-sql-managed-instance.md
-        - name: 5. Contoso-Azure VM에서 앱 다시 호스트
-          href: contoso-migration-rehost-vm.md
-        - name: 6. Contoso-Azure VM 및 Azure SQL Server AlwaysOn 가용성 그룹에서 앱 다시 호스트
-          href: contoso-migration-rehost-vm-sql-ag.md
-        - name: 7. Contoso-Azure VM에서 Linux 앱 다시 호스트
-          href: contoso-migration-rehost-linux-vm.md
-        - name: 8. Contoso-Azure VM 및 Azure MySQL에서 Linux 앱 다시 호스트
-          href: contoso-migration-rehost-linux-vm-mysql.md
-        - name: 9. Contoso-Azure Web Apps 및 Azure SQL Database에서 앱 리팩터링
-          href: contoso-migration-refactor-web-app-sql.md
-        - name: 10. Contoso-Azure Web Apps 및 Azure MySQL에서 Linux 앱 리팩터링
-          href: contoso-migration-refactor-linux-app-service-mysql.md
-        - name: 11. Contoso-TFS를 VSTS로 마이그레이션
-          href: contoso-migration-tfs-vsts.md
-        - name: 12. Contoso-Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경
-          href: contoso-migration-rearchitect-container-sql.md
-        - name: 13. Contoso-Azure에서 앱 다시 빌드
-          href: contoso-migration-rebuild.md
-    - name: 대규모 환경 검색 및 평가
-      href: how-to-scale-assessment.md
-    - name: 컴퓨터 그룹화
-      href: how-to-create-a-group.md
-    - name: 컴퓨터 종속성을 사용하여 컴퓨터 그룹화
-      href: how-to-create-group-machine-dependencies.md
-    - name: 그룹 종속성을 사용하여 그룹 상세 검색
-      href: how-to-create-group-dependencies.md
-    - name: 평가 사용자 지정
-      href: how-to-modify-assessment.md
-    - name: 평가 후 컴퓨터 마이그레이션
-      href: how-to-get-migration-tool.md
-    - name: Azure Migrate 문제 해결
-      href: troubleshooting-general.md
+  - name: 마이그레이션 모범 사례
+    items:
+    - name: 마이그레이션 이후 관리 및 보안에 대한 모범 사례
+      href: migrate-best-practices-security-management.md
+    - name: 마이그레이션 이후 네트워킹에 대한 모범 사례
+      href: migrate-best-practices-networking.md
+    - name: 마이그레이션 이후 비용 및 크기 조정에 대한 모범 사례
+      href: migrate-best-practices-costs.md
+  - name: Contoso 마이그레이션 시리즈
+    items:
+    - name: 1. Contoso-마이그레이션 개요
+      href: contoso-migration-overview.md
+    - name: 2. Contoso-Azure 인프라 배포
+      href: contoso-migration-infrastructure.md
+    - name: 3. Contoso-Azure로 마이그레이션할 온-프레미스 리소스 평가
+      href: contoso-migration-assessment.md
+    - name: 4. Contoso-Azure VM 및 Azure SQL Database Managed Instance에서 앱 다시 호스트
+      href: contoso-migration-rehost-vm-sql-managed-instance.md
+    - name: 5. Contoso-Azure VM에서 앱 다시 호스트
+      href: contoso-migration-rehost-vm.md
+    - name: 6. Contoso-Azure VM 및 Azure SQL Server AlwaysOn 가용성 그룹에서 앱 다시 호스트
+      href: contoso-migration-rehost-vm-sql-ag.md
+    - name: 7. Contoso-Azure VM에서 Linux 앱 다시 호스트
+      href: contoso-migration-rehost-linux-vm.md
+    - name: 8. Contoso-Azure VM 및 Azure MySQL에서 Linux 앱 다시 호스트
+      href: contoso-migration-rehost-linux-vm-mysql.md
+    - name: 9. Contoso-Azure Web Apps 및 Azure SQL Database에서 앱 리팩터링
+      href: contoso-migration-refactor-web-app-sql.md
+    - name: 10. Contoso-Azure Web Apps 및 Azure MySQL에서 Linux 앱 리팩터링
+      href: contoso-migration-refactor-linux-app-service-mysql.md
+    - name: 11. Contoso-Azure DevOps Services로 TFS 마이그레이션
+      href: contoso-migration-tfs-vsts.md
+    - name: 12. Contoso-Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경
+      href: contoso-migration-rearchitect-container-sql.md
+    - name: 13. Contoso-Azure에서 앱 다시 빌드
+      href: contoso-migration-rebuild.md
+    - name: 14. Contoso-마이그레이션 크기 조정
+      href: contoso-migration-scale.md
+  - name: 대규모 환경 검색 및 평가
+    href: how-to-scale-assessment.md
+  - name: 컴퓨터 그룹화
+    href: how-to-create-a-group.md
+  - name: 컴퓨터 종속성을 사용하여 컴퓨터 그룹화
+    href: how-to-create-group-machine-dependencies.md
+  - name: 그룹 종속성을 사용하여 그룹 상세 검색
+    href: how-to-create-group-dependencies.md
+  - name: 평가 사용자 지정
+    href: how-to-modify-assessment.md
+  - name: 평가 후 컴퓨터 마이그레이션
+    href: how-to-get-migration-tool.md
+  - name: Azure Migrate 문제 해결
+    href: troubleshooting-general.md
 - name: 리소스
   items:
-    - name: Azure Migrate
-      href: 'https://azure.microsoft.com/migrate'
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: FAQ
-      href: resources-faq.md
+  - name: FAQ
+    href: resources-faq.md
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/migrate/
+  - name: 가격
+    href: https://azure.microsoft.com/pricing/details/azure-migrate/
+  - name: UserVoice
+    href: http://aka.ms/AzureMigrateUservoice
+  - name: 포럼
+    href: http://aka.ms/AzureMigrateForum
+  - name: 블로그
+    href: https://azure.microsoft.com/blog/tag/azure-migrate/
+  - name: Azure Migrate
+    href: https://azure.microsoft.com/migrate
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: fb184cad3dc639912260d760ed9d2e44a076822a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074828"

@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: e3e8c843437558c6d5d3a3c39bed1e647f852b18
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: f7e500fb5856c7eec48a371042244b44dd944779
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593401"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063782"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Xamarin Forms 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "27593401"
 ## <a name="overview"></a>개요
 이 항목에서는 클라이언트 응용 프로그램에서 App Service 모바일 앱의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 App Service가 지원하는 ID 공급자를 사용하여 Xamarin.Forms 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 앱에서 인증이 완료되고 권한이 부여되고 나면 사용자 ID 값이 표시되고 제한된 테이블 데이터에 액세스할 수 있게 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 자습서를 통한 최상의 결과를 얻기 위해 먼저 [Xamarin.Forms 앱 만들기][1] 자습서를 완료하는 것이 좋습니다. 이 자습서를 완료하면 다중 플랫폼 TodoList 앱인 Xamarin.Forms 프로젝트가 생깁니다.
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 인증 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용][2]을 참조하세요.
@@ -119,7 +119,7 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
 8. 변경 내용을 저장하고 이식 가능한 클래스 라이브러리 프로젝트를 다시 빌드하여 오류가 없는지 확인합니다.
 
 ## <a name="add-authentication-to-the-android-app"></a>Android 앱에 인증 추가
-이 섹션에는 Android 앱 프로젝트에서 **IAuthenticate** 인터페이스를 구현하는 방법을 보여 줍니다. Android 장치를 지원하지 않는 경우 이 섹션을 건너뜁니다.
+이 섹션에는 Android 앱 프로젝트에서 **IAuthenticate** 인터페이스를 구현하는 방법을 보여 줍니다. Android 디바이스를 지원하지 않는 경우 이 섹션을 건너뜁니다.
 
 1. Visual Studio 또는 Xamarin Studio에서 **droid** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭합니다.
 2. F5 키를 눌러 디버거에서 프로젝트를 실행하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다. 백 엔드에서 액세스를 인증된 사용자만으로 제한했기 때문에 401 코드가 생성됩니다.
@@ -188,8 +188,14 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
     이 코드를 사용하면 앱이 로드되기 전에 인증자가 초기화됩니다.
 8. 앱을 다시 빌드하고 실행한 후 선택한 인증 공급자를 사용하여 로그인하고 인증된 사용자로 데이터에 액세스할 수 있는지 확인합니다.
 
+### <a name="troubleshooting"></a>문제 해결
+
+**응용 프로그램 작동이 중단되고 `Java.Lang.NoSuchMethodError: No static method startActivity`** 메시지가 표시됨
+
+지원 패키지의 충돌 현상이 Visual Studio에서는 경고로만 표시되는데 런타임에 응용 프로그램 작동이 중단되고 이 예외가 표시되는 경우가 있습니다. 이 경우에는 프로젝트에서 참조하는 모든 지원 패키지의 버전이 동일한지 확인해야 합니다. [Azure Mobile Apps NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)에는 Android 플랫폼에 대한 `Xamarin.Android.Support.CustomTabs` 종속성이 있으므로 프로젝트에서 최신 지원 패키지를 사용하는 경우 충돌 방지를 위해 필수 버전이 포함된 이 패키지를 직접 설치해야 합니다.
+
 ## <a name="add-authentication-to-the-ios-app"></a>iOS 앱에 인증 추가
-이 섹션에는 iOS 앱 프로젝트에서 **IAuthenticate** 인터페이스를 구현하는 방법을 보여 줍니다. iOS 장치를 지원하지 않는 경우 이 섹션을 건너뜁니다.
+이 섹션에는 iOS 앱 프로젝트에서 **IAuthenticate** 인터페이스를 구현하는 방법을 보여 줍니다. iOS 디바이스를 지원하지 않는 경우 이 섹션을 건너뜁니다.
 
 1. Visual Studio 또는 Xamarin Studio에서 **iOS** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭합니다.
 2. F5 키를 눌러 디버거에서 프로젝트를 실행하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다. 백 엔드에서 액세스를 인증된 사용자만으로 제한했기 때문에 401 응답이 생성됩니다.
@@ -256,7 +262,7 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
 9. 앱을 다시 빌드하고 실행한 후 선택한 인증 공급자를 사용하여 로그인하고 인증된 사용자로 데이터에 액세스할 수 있는지 확인합니다.
 
 ## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>Windows 10(Phone 포함) 앱 프로젝트에 인증 추가
-이 섹션에는 Windows 10 앱 프로젝트에서 **IAuthenticate** 인터페이스를 구현하는 방법을 보여 줍니다. 동일한 단계가 UWP(유니버설 Windows 플랫폼) 프로젝트에도 적용되지만 **UWP** 프로젝트(명시된 변경 내용 포함)를 사용합니다. Windows 장치를 지원하지 않는 경우 이 섹션을 건너뜁니다.
+이 섹션에는 Windows 10 앱 프로젝트에서 **IAuthenticate** 인터페이스를 구현하는 방법을 보여 줍니다. 동일한 단계가 UWP(유니버설 Windows 플랫폼) 프로젝트에도 적용되지만 **UWP** 프로젝트(명시된 변경 내용 포함)를 사용합니다. Windows 디바이스를 지원하지 않는 경우 이 섹션을 건너뜁니다.
 
 1. Visual Studio에서 **UWP** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 클릭합니다.
 2. F5 키를 눌러 디버거에서 프로젝트를 실행하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다. 백 엔드에서 액세스를 인증된 사용자만으로 제한했기 때문에 401 응답이 발생합니다.
@@ -338,7 +344,7 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
 
 * [앱에 푸시 알림 추가](app-service-mobile-xamarin-forms-get-started-push.md)
 
-  앱에 푸시 알림 지원을 추가하고 모바일 앱 백 엔드를 구성하여 푸시 알림을 보내는 Azure Notification Hubs를 사용하는 방법을 알아봅니다.
+   앱에 푸시 알림 지원을 추가하고 모바일 앱 백 엔드를 구성하여 푸시 알림을 보내는 Azure Notification Hubs를 사용하는 방법을 알아봅니다.
 * [앱에 오프라인 동기화 사용](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 
   모바일 앱 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4b027f6cd57dfa48ba2e230371ffcad97b1f8ec4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b16ac10e10655bbc7e41d9336378228097ca19ff
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445112"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014723"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: 암호에 복잡성 요구 사항 구성
 
@@ -38,11 +38,10 @@ Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용�
 
 ## <a name="how-to-configure-password-complexity"></a>암호 복잡성을 구성하는 방법
 
-1. 다음 단계에 따라 [Azure AD B2C 설정으로 이동](active-directory-b2c-app-registration.md#navigate-to-b2c-settings)합니다.
 1. **등록 또는 로그인 정책**을 엽니다.
-1. 정책을 선택하고 **편집**을 클릭합니다.
-1. **암호 복잡성**을 엽니다.
-1. 이 정책에 대한 암호 복잡성을 **단순**, **강력** 또는 **사용자 지정**으로 변경합니다.
+2. 정책을 선택하고 **편집**을 클릭합니다.
+3. **암호 복잡성**을 엽니다.
+4. 이 정책에 대한 암호 복잡성을 **단순**, **강력** 또는 **사용자 지정**으로 변경합니다.
 
 ### <a name="comparison-chart"></a>비교 차트
 

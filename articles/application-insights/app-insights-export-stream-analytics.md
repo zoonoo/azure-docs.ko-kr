@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 874a338c27262de29b1806352ec3ade068c188e0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 86e37a186536a2037d3cc46cb1cc69c1a7a651f6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294237"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719430"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics를 사용하여 Application Insights에서 내보낸 데이터 처리
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)는 [Application Insights에서 내보낸](app-insights-export-telemetry.md) 데이터를 처리하는 위한 이상적인 도구입니다. Stream Analytics는 다양한 원본의 데이터를 가져와서 변환하고 필터링한 다음 다양한 싱크로 라우팅할 수 있습니다.
@@ -93,7 +93,7 @@ ms.locfileid: "35294237"
 
 연속 내보내기 Blob에서 입력을 가져오도록 설정합니다.
 
-![](./media/app-insights-export-stream-analytics/SA005.png)
+![](./media/app-insights-export-stream-analytics/SA0005.png)
 
 이제 앞에서 기록해 둔 Storage 계정의 기본 액세스 키가 필요합니다. 이 키를 Storage 계정 키로 설정합니다.
 
@@ -124,7 +124,7 @@ ms.locfileid: "35294237"
 
 ![새 채널을 선택하고, 출력, 추가, Power BI를 클릭합니다.](./media/app-insights-export-stream-analytics/SA010.png)
 
-**회사 또는 학교 계정** 을 제공하여 Stream Analytics에 Power BI 리소스에 대한 액세스 권한을 부여합니다. 그런 다음 출력 및 대상 Power BI 데이터 집합과 테이블의 이름을 지정합니다.
+**회사 또는 학교 계정** 을 제공하여 Stream Analytics에 Power BI 리소스에 대한 액세스 권한을 부여합니다. 그런 다음, 출력 및 대상 Power BI 데이터 세트와 테이블의 이름을 지정합니다.
 
 ## <a name="set-the-query"></a>쿼리 설정
 쿼리는 입력에서 출력으로 번역을 제어합니다.
@@ -203,13 +203,13 @@ Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다.
 > 
 > 
 
-회사 또는 학교 계정을 사용하여 Power BI를 열고 Stream Analytics 작업의 출력으로 정의된 데이터 집합 및 테이블을 선택합니다.
+회사 또는 학교 계정을 사용하여 Power BI를 열고 Stream Analytics 작업의 출력으로 정의된 데이터 세트 및 테이블을 선택합니다.
 
-![Power BI에서 데이터 집합과 필드를 선택합니다.](./media/app-insights-export-stream-analytics/200.png)
+![Power BI에서 데이터 세트와 필드를 선택합니다.](./media/app-insights-export-stream-analytics/200.png)
 
-이제 [Power BI](https://powerbi.microsoft.com)의 보고서 및 대시보드에서 이 데이터 집합을 사용할 수 있습니다.
+이제 [Power BI](https://powerbi.microsoft.com)의 보고서 및 대시보드에서 이 데이터 세트를 사용할 수 있습니다.
 
-![Power BI에서 데이터 집합과 필드를 선택합니다.](./media/app-insights-export-stream-analytics/210.png)
+![Power BI에서 데이터 세트와 필드를 선택합니다.](./media/app-insights-export-stream-analytics/210.png)
 
 ## <a name="no-data"></a>데이터가 없나요?
 * [날짜 형식](#set-path-prefix-pattern) 을 YYYY-MM-DD(대시 사용)로 정확하게 설정했는지 확인합니다.

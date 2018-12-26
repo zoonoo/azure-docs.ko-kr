@@ -13,21 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 59d6b960a40910b8b2fe72f6c3b149608ee8b8ad
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 49956234c00129508254b96d7d63a4b30af3ad55
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798073"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037586"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
 
-이 연습에 설명된 데이터 과학 작업은 [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)에 설명된 단계를 따릅니다. 이 프로세스는 데이터 과학자 팀이 지능적인 응용 프로그램을 빌드하는 전체 수명 주기를 효율적으로 공동 작업할 수 있도록 데이터 과학에 대한 체계적인 접근 방법을 제공합니다. 또한 데이터 과학 프로세스는 개별 사용자가 수행할 수 있는 데이터 과학을 위한 반복되는 프레임워크를 제공합니다.
+이 연습에 설명된 데이터 과학 작업은 [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview)에 설명된 단계를 따릅니다. 이 프로세스는 데이터 과학자 팀이 지능적인 응용 프로그램을 빌드하는 전체 수명 주기를 효율적으로 공동 작업할 수 있도록 데이터 과학에 대한 체계적인 접근 방법을 제공합니다. 또한 데이터 과학 프로세스는 개별 사용자가 수행할 수 있는 데이터 과학을 위한 반복되는 프레임워크를 제공합니다.
 
-이 연습에서는 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 집합을 분석합니다. 이는 스팸 또는 햄(스팸이 아니라는 의미)으로 표시되는 메일 집합이며 메일의 내용에 대한 일부 통계도 포함합니다. 포함되어 있는 통계는 다음 한 섹션에만 설명되어 있습니다.
+이 연습에서는 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 세트를 분석합니다. 이는 스팸 또는 햄(스팸이 아니라는 의미)으로 표시되는 메일 집합이며 메일의 내용에 대한 일부 통계도 포함합니다. 포함되어 있는 통계는 다음 한 섹션에만 설명되어 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있어야 합니다.
@@ -38,11 +38,11 @@ Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있�
 * 더 부드러운 스크롤 경험을 원할 경우 VMS FireFox 브라우저의 about:config에서 gfx.xrender.enabled 플래그를 전환합니다. [여기에서 자세한 내용을 알아보세요](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). *mousewheel.enable_pixel_scrolling*을 False로 전환해 보세요. [여기의 지침을 참조하세요.](https://support.mozilla.org/en-US/questions/981140)
 * **AzureML 계정**. 아직 없을 경우 [AzureML 홈 페이지](https://studio.azureml.net/)에서 새 계정을 등록합니다. 시작할 수 있도록 무료 사용 계층을 제공합니다.
 
-## <a name="download-the-spambase-dataset"></a>spambase 데이터 집합 다운로드
+## <a name="download-the-spambase-dataset"></a>spambase 데이터 세트 다운로드
 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 집합은 4601개의 예제만 포함하는 비교적 작은 데이터 집합입니다. 이 데이터 집합은 리소스 요구 사항을 적절하게 유지하도록 하므로 데이터 과학 VM의 몇 가지 주요 기능을 보여 줄 때 사용하기 적합한 크기입니다.
 
 > [!NOTE]
-> 이 연습은 D2 v2 크기의 Linux 데이터 과학 Virtual Machine에서 만들었습니다. 이 크기의 DSVM은 이 연습의 절차를 처리할 수 있습니다.
+> 이 연습은 D2 v2 크기의 Linux Data Science Virtual Machine(CentOS Edition)에서 만들었습니다. 이 크기의 DSVM은 이 연습의 절차를 처리할 수 있습니다.
 >
 >
 
@@ -61,7 +61,7 @@ Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있�
     cat spambase.data >> headers
     mv headers spambaseHeaders.data
 
-각 메일의 데이터 집합에는 여러 가지 종류의 통계가 있습니다.
+각 메일의 데이터 세트에는 여러 가지 종류의 통계가 있습니다.
 
 * ***word\_freq\_WORD***와 같은 열은 메일에서 *WORD*와 일치하는 단어의 백분율을 나타냅니다. 예를 들어 *word\_freq\_make*가 1인 경우에는 *make*가 메일에 있는 모든 단어의 1%입니다.
 * ***char\_freq\_CHAR***과 같은 열은 메일에 있는 모든 문자 중 *CHAR* 문자의 백분율을 나타냅니다.
@@ -70,19 +70,15 @@ Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있�
 * ***capital\_run\_length\_total***는 모든 대문자 시퀀스의 총 길이입니다.
 * ***spam*** 은 메일이 스팸으로 간주되는지 여부를 나타냅니다(1 = 스팸, 0 = 스팸이 아님).
 
-## <a name="explore-the-dataset-with-microsoft-r-open"></a>Microsoft R Open을 사용하여 데이터 집합 탐색
+## <a name="explore-the-dataset-with-microsoft-r-open"></a>Microsoft R Open을 사용하여 데이터 세트 탐색
 R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning을 수행해 보겠습니다. 데이터 과학 VM은 [Microsoft R Open](https://mran.revolutionanalytics.com/open/)이 미리 설치된 상태로 제공됩니다. 이 R 버전의 다중 스레드 수학 라이브러리는 다양한 단일 스레드 버전보다 더 나은 성능을 제공합니다. Microsoft R Open은 CRAN 패키지 리포지토리의 스냅숏을 사용하여 재현 가능성을 제공합니다.
 
 이 연습에서 사용하는 코드 샘플의 복사본을 얻으려면 git를 사용하여 VM에 미리 설치된 **Azure-Machine-Learning-Data-Science** 리포지토리를 복제합니다. Git 명령줄 도구에서 다음을 실행합니다.
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-터미널 창을 열고 R 대화형 콘솔을 통해 새 R 세션을 시작합니다.
+터미널 창을 열고 R 대화형 콘솔을 통해 새 R 세션을 시작하거나, 머신에 사전 설치된 RStudio를 사용합니다.
 
-> [!NOTE]
-> 다음 절차에 RStudio를 사용할 수도 있습니다. RStudio를 설치하려면 터미널에서 다음 명령을 실행합니다. `./Desktop/DSVM\ tools/installRStudio.sh`
->
->
 
 데이터를 가져오고 환경을 설정하려면 다음을 실행합니다.
 
@@ -97,7 +93,7 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 
     str(data)
 
-이렇게 하면 각 변수 유형과 데이터 집합의 처음 몇 개의 값을 보여 줍니다.
+이렇게 하면 각 변수 유형과 데이터 세트의 처음 몇 개의 값을 보여 줍니다.
 
 *spam* 열은 정수로 읽었지만 실제로는 범주 변수(또는 요소)입니다. 해당 형식을 설정하려면
 
@@ -129,14 +125,14 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 이러한 예제를 통해 다른 열의 비슷한 도표를 작성하여 포함되어 있는 데이터를 탐색할 수 있습니다.
 
 ## <a name="train-and-test-an-ml-model"></a>ML 모델 학습 및 테스트
-이제 스팸 또는 햄을 포함하도록 데이터 집합에서 메일을 분류하는 기계 학습 모델을 몇 가지 학습하겠습니다. 이 섹션에서 의사 결정 트리 모델 및 임의 포리스트 모델을 학습하고 해당 예측의 정확도를 테스트합니다.
+이제 스팸 또는 햄을 포함하도록 데이터 세트에서 메일을 분류하는 기계 학습 모델을 몇 가지 학습하겠습니다. 이 섹션에서 의사 결정 트리 모델 및 임의 포리스트 모델을 학습하고 해당 예측의 정확도를 테스트합니다.
 
 > [!NOTE]
 > 다음 코드에 사용되는 rpart(재귀 분할 및 회귀 트리) 패키지는 이미 데이터 과학 VM에 설치되어 있습니다.
 >
 >
 
-먼저 데이터 집합을 학습 및 테스트 집합으로 분할합니다.
+먼저 데이터 세트를 학습 및 테스트 집합으로 분할합니다.
 
     rnd <- runif(dim(data)[1])
     trainSet = subset(data, rnd <= 0.7)
@@ -167,7 +163,7 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
     accuracy <- sum(diag(t))/sum(t)
     accuracy
 
-임의 포리스트 모델도 살펴보겠습니다. 임의 포리스트는 다양한 의사 결정 트리를 학습하고 모든 개별 의사 결정 트리의 분류 모드인 클래스를 출력합니다. 학습 데이터 집합에 지나치게 맞추는 의사 결정 트리 모델의 추세를 바로잡음으로써 더 강력한 기계 학습 접근 방식을 제공합니다.
+임의 포리스트 모델도 살펴보겠습니다. 임의 포리스트는 다양한 의사 결정 트리를 학습하고 모든 개별 의사 결정 트리의 분류 모드인 클래스를 출력합니다. 학습 데이터 세트에 지나치게 맞추는 의사 결정 트리 모델의 추세를 바로잡음으로써 더 강력한 기계 학습 접근 방식을 제공합니다.
 
     require(randomForest)
     trainVars <- setdiff(colnames(data), 'spam')
@@ -193,6 +189,7 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 
 **AzureML** 패키지를 로드한 다음 DSVM의 R 세션에서 토큰 및 작업 영역 ID로 변수 값을 설정합니다.
 
+    if(!require("AzureML")) install.packages("AzureML")
     require(AzureML)
     wsAuth = "<authorization-token>"
     wsID = "<workspace-id>"
@@ -207,36 +204,35 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 
 입력으로 기능을 사용하고 예측된 값을 반환 하는 예측 함수가 필요합니다.
 
-    predictSpam <- function(char_freq_dollar, word_freq_remove, word_freq_hp) {
-        predictDF <- predict(model.rpart, data.frame("char_freq_dollar" = char_freq_dollar,
-        "word_freq_remove" = word_freq_remove, "word_freq_hp" = word_freq_hp))
-        return(colnames(predictDF)[apply(predictDF, 1, which.max)])
+    predictSpam <- function(newdata) {
+      predictDF <- predict(model.rpart, newdata = newdata)
+      return(colnames(predictDF)[apply(predictDF, 1, which.max)])
     }
+
 
 **publishWebService** 함수를 사용하여 AzureML에 predictSpam 함수를 게시합니다.
 
-    spamWebService <- publishWebService("predictSpam",
-        "spamWebService",
-        list("char_freq_dollar"="float", "word_freq_remove"="float","word_freq_hp"="float"),
-        list("spam"="int"),
-        wsID, wsAuth)
+    spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
 
-이 함수는 **predictSpam** 함수를 가져와서 입력 및 출력이 정의된 **spamWebService**라는 웹 서비스를 만들고 새 끝점에 대한 정보를 반환합니다.
 
-다음 명령을 사용하여 API 끝점 및 액세스 키를 포함하여 게시된 웹 서비스의 세부 정보를 봅니다.
+이 함수는 **predictSpam** 함수를 가져와서 입력 및 출력이 정의된 **spamWebService**라는 웹 서비스를 만들고 새 엔드포인트에 대한 정보를 반환합니다.
 
-    spamWebService[[2]]
+다음 명령을 통해 API 엔드포인트 및 액세스 키를 포함하여 게시된 최신 웹 서비스의 세부 정보를 봅니다.
+
+    s<-tail(services(ws, name = "spamWebService"), 1)
+    ep <- endpoints(ws,s)
+    ep
 
 테스트 집합의 처음 10개의 행에 대해 작업을 수행하려면
 
-    consumeDataframe(spamWebService$endpoints[[1]]$PrimaryKey, spamWebService$endpoints[[1]]$ApiLocation, smallTestSet[1:10, 1:3])
+    consume(ep, smallTestSet[1:10, ])
 
 
 ## <a name="use-other-tools-available"></a>사용 가능한 다른 도구 사용
 나머지 섹션에서는 Linux 데이터 과학 VM에 설치된 일부 도구의 사용 방법을 보여 줍니다. 설명할 도구 목록은 다음과 같습니다.
 
 * XGBoost
-* 파이썬
+* Python
 * Jupyterhub
 * Rattle
 * PostgreSQL 및 Squirrel SQL
@@ -261,7 +257,7 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 
 XGBoost는 python 또는 명령줄에서 호출할 수도 있습니다.
 
-## <a name="python"></a>파이썬
+## <a name="python"></a>Python
 Python을 사용하여 개발하는 경우를 위해 Anaconda Python 배포 2.7 및 3.5가 DSVM에 설치되었습니다.
 
 > [!NOTE]
@@ -269,7 +265,7 @@ Python을 사용하여 개발하는 경우를 위해 Anaconda Python 배포 2.7 
 >
 >
 
-spambase 데이터 집합의 일부를 읽고 scikit-learn에서 벡터 컴퓨터를 지원하는 메일을 분류해 보겠습니다.
+spambase 데이터 세트의 일부를 읽고 scikit-learn에서 벡터 컴퓨터를 지원하는 메일을 분류해 보겠습니다.
 
     import pandas
     from sklearn import svm    
@@ -283,9 +279,9 @@ spambase 데이터 집합의 일부를 읽고 scikit-learn에서 벡터 컴퓨�
 
     clf.predict(X.ix[0:20, :])
 
-AzureML 끝점을 게시하는 방법을 보여 주기 위해 이전에 R 모델을 게시할 때처럼 3개의 변수를 사용하여 더 간단한 모델을 만들어 보겠습니다.
+AzureML 엔드포인트를 게시하는 방법을 보여 주기 위해 이전에 R 모델을 게시할 때처럼 3개의 변수를 사용하여 더 간단한 모델을 만들어 보겠습니다.
 
-    X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
+    X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
     clf = svm.SVC()
     clf.fit(X, y)
@@ -363,7 +359,7 @@ DSVM에서 Anaconda 배포에는 Jupyter 노트북, Python R을 공유하는 플
 
 Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데이터를 로드하거나 탐색하는 등 [데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)의 단계에 해당합니다. 데이터 과학 프로세스는 탭을 통해 왼쪽에서 오른쪽으로 진행됩니다. 하지만 마지막 탭에는 Rattle에서 실행하는 R 명령의 로그가 있습니다.
 
-데이터 집합을 로드하고 구성하려면
+데이터 세트를 로드하고 구성하려면
 
 * 파일을 로드하려면 **데이터** 탭을 선택한 다음
 * **파일 이름** 옆에 있는 선택기를 선택하고 **spambaseHeaders.data**를 선택합니다.
@@ -388,11 +384,11 @@ Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데
 * **실행**을 선택합니다.
 * 권장 최대 변수는 40개라는 경고 메시지가 표시됩니다. 도표를 보려면 **예** 를 선택합니다.
 
-여기서 몇 가지 흥미로운 상관 관계를 볼 수 있습니다. 예를 들어 "technology"는 "HP" 및 "labs"와 굉장히 상호 관련되어 있습니다. 데이터 집합 기부자의 지역 번호가 650이기 때문에 "650"과도 아주 밀접하게 상호 관련됩니다.
+여기서 몇 가지 흥미로운 상관 관계를 볼 수 있습니다. 예를 들어 "technology"는 "HP" 및 "labs"와 굉장히 상호 관련되어 있습니다. 데이터 세트 기부자의 지역 번호가 650이기 때문에 "650"과도 아주 밀접하게 상호 관련됩니다.
 
 단어 사이의 상관 관계에 대한 숫자 값은 탐색 창에서 사용할 수 있습니다. 예를 들어 "technology"가 "your" 및 "money"와 부정적으로 상호 관련되어 있다는 점도 흥미로운 사실입니다.
 
-Rattle은 몇 가지 일반적인 문제를 처리하기 위해 데이터 집합을 변환할 수 있습니다. 예를 들어 기능 크기 재조정, 누락 값 귀속, 이상값 처리 및 데이터가 누락된 관찰이나 변수를 제거할 수 있습니다. Rattle은 관찰 및/또는 변수 간의 연결 규칙을 식별할 수도 있습니다. 이러한 탭은 이 소개용 연습에 대한 범위를 벗어납니다.
+Rattle은 몇 가지 일반적인 문제를 처리하기 위해 데이터 세트를 변환할 수 있습니다. 예를 들어 기능 크기 재조정, 누락 값 귀속, 이상값 처리 및 데이터가 누락된 관찰이나 변수를 제거할 수 있습니다. Rattle은 관찰 및/또는 변수 간의 연결 규칙을 식별할 수도 있습니다. 이러한 탭은 이 소개용 연습에 대한 범위를 벗어납니다.
 
 Rattle은 클러스터 분석을 수행할 수도 있습니다. 출력을 더 쉽게 읽을 수 있도록 일부 기능을 제외하겠습니다. **데이터** 탭에서 다음 10개의 항목을 제외하고 각 변수 옆에 있는 **무시**를 선택합니다.
 
@@ -432,7 +428,7 @@ Rattle의 뛰어난 기능 중 하나는 여러 기계 학습 방법을 실행�
 >
 
 ## <a name="postgresql--squirrel-sql"></a>PostgreSQL 및 Squirrel SQL
-DSVM은 PostgreSQL이 설치된 상태로 제공됩니다. PostgreSQL은 정교한 오픈 소스 관계형 데이터베이스입니다. 이 섹션에서는 PostgreSQL에 스팸 데이터 집합을 로드한 다음 쿼리하는 방법을 보여 줍니다.
+DSVM은 PostgreSQL이 설치된 상태로 제공됩니다. PostgreSQL은 정교한 오픈 소스 관계형 데이터베이스입니다. 이 섹션에서는 PostgreSQL에 스팸 데이터 세트를 로드한 다음, 쿼리하는 방법을 보여 줍니다.
 
 데이터를 로드하기 전에 먼저 localhost에서 암호 인증을 허용해야 합니다. 명령 프롬프트에서:
 
@@ -493,7 +489,7 @@ PostgreSQL용 대화형 터미널인 psql을 기본 제공 postgres 사용자로
 로컬 서버에 연결을 설정하려면
 
 * **Windows**를 선택한 다음 **별칭 보기**를 선택합니다.
-* **+** 단추를 선택하여 새 별칭을 만듭니다.
+*  **+** 단추를 선택하여 새 별칭을 만듭니다.
 * 이름을 *스팸 데이터베이스*라고 지정하고 **드라이버** 드롭다운 목록에서 **PostgreSQL**을 선택합니다.
 * URL을 *jdbc:postgresql://localhost/spam*으로 설정합니다.
 * *사용자 이름* 및 *암호*를 입력합니다.
@@ -548,6 +544,6 @@ sqlcmd를 사용하여 쿼리:
 Squirrel SQL을 사용하여 쿼리할 수도 있습니다. ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***에 있을 수 있는 Microsoft MSSQL Server JDBC 드라이버를 사용하여 PostgreSQL과 비슷한 단계를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 항목에 대한 개요는 [팀 데이터 과학 프로세스](http://aka.ms/datascienceprocess)를 참조하세요.
+Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 항목에 대한 개요는 [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview)를 참조하세요.
 
 특정 시나리오에 대한 팀 데이터 과학 프로세스의 단계를 보여 주는 다른 종단 간 연습에 대한 설명은 [팀 데이터 과학 프로세스 연습](../team-data-science-process/walkthroughs.md)을 참조하세요. 또한 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 설명합니다.

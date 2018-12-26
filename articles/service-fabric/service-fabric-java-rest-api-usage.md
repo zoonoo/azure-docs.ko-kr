@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: bc5302b9af023b04fb6b1654ac13e9fc02e0a465
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 987959742335940dca8eb57c54d593aea90dec15
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206269"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111187"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java 클라이언트 API
 
@@ -104,8 +104,8 @@ Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로�
             .build();
         ServiceFabricClientAPIs client = new ServiceFabricClientAPIsImpl(simpleClient);
     ```
-4. 클라이언트 개체를 사용하고 필요에 따라 적절하게 호출합니다. 다음은 클라이언트 개체의 사용법을 보여 주는 몇 가지 예제입니다. 여기서는 아래의 API를 사용하기 전에 응용 프로그램 패키지가 빌드되어 이미지 저장소에 업로드되었다고 가정합니다.
-    * 응용 프로그램 프로비전
+4. 클라이언트 개체를 사용하고 필요에 따라 적절하게 호출합니다. 다음은 클라이언트 개체의 사용법을 보여 주는 몇 가지 예제입니다. 여기서는 아래의 API를 사용하기 전에 애플리케이션 패키지가 빌드되어 이미지 저장소에 업로드되었다고 가정합니다.
+    * 애플리케이션 프로비전
     
         ```java
             ApplicationTypeImageStorePath imageStorePath = new ApplicationTypeImageStorePath();

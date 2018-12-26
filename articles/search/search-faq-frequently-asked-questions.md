@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: d731faffe1b2448670a5fafa0278ff8c7fb21722
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 1491fdb0f208100619e569f9a74d5e697a0065a6
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792735"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841680"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search - FAQ(질문과 대답)
 
@@ -45,7 +45,13 @@ Azure Search에서는 여러 데이터 원본, [다국어 언어 분석](https:/
 
 언제든 [인덱스 정의를 가져올 수](https://docs.microsoft.com/rest/api/searchservice/get-index) 있지만 클라우드 시스템에서 실행되는 *채워진* 인덱스를 로컬 시스템에 다운로드하거나 다른 Azure Search 서비스로 이동하기 위한 인덱스 추출, 스냅숏 또는 백업-복원 기능은 없습니다.
 
-인덱스는 사용자가 작성한 코드에서 구축 및 채워지며 클라우드에서는 오직 Azure Search 상에서 실행됩니다. 일반적으로 인덱스를 다른 서비스로 이동하려는 고객은 새 끝점을 사용하게 코드를 편집한 다음 인덱싱을 다시 실행하여 그렇게 하게 됩니다. 스냅숏 만들기나 인덱스 백업 기능이 필요한 경우 [사용자 의견](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index)을 남겨 주시기 바랍니다.
+인덱스는 사용자가 작성한 코드에서 구축 및 채워지며 클라우드에서는 오직 Azure Search 상에서 실행됩니다. 일반적으로 인덱스를 다른 서비스로 이동하려는 고객은 새 엔드포인트를 사용하게 코드를 편집한 다음 인덱싱을 다시 실행하여 그렇게 하게 됩니다. 스냅숏 만들기나 인덱스 백업 기능이 필요한 경우 [사용자 의견](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index)을 남겨 주시기 바랍니다.
+
+### <a name="can-i-restore-my-index-or-service-once-it-is-deleted"></a>내 인덱스 또는 서비스가 삭제된 경우 복원할 수 있나요?
+
+아니요, 인덱스 또는 서비스는 복원할 수 없습니다. Azure Search 인덱스를 삭제한 경우 작업이 최종이며 인덱스를 복구할 수 없습니다. Azure Search 서비스를 삭제한 경우 서비스의 모든 인덱스는 영구적으로 삭제됩니다. 또한 하나 이상의 Azure Search 서비스를 포함하는 Azure 리소스 그룹을 삭제하는 경우 모든 서비스가 영구적으로 삭제됩니다.  
+
+인덱스, 인덱서, 데이터 원본 및 기술 집합 같은 리소스를 복원하려면 코드에서 다시 만들어야 합니다. 인덱스의 경우 외부 원본에서 데이터를 다시 인덱스해야 합니다. 따라서 Azure SQL Database 또는 Cosmos DB와 같은 다른 데이터 저장소에 원래 데이터의 마스터 복사본 또는 백업을 유지하는 것이 좋습니다.
 
 ### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexershttpsdocsmicrosoftcomazuresearchsearch-howto-connecting-azure-sql-database-to-azure-search-using-indexers"></a>SQL 데이터베이스 복제본에서 인덱싱할 수 있나요?([Azure SQL Database 인덱서](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers)에 적용)
 

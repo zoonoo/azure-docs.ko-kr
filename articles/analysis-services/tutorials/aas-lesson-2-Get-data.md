@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e10f6cdb60a2c03bfb42e46f179546b623d625dd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b7aaadb6237a3b16d166d3bc931fddc70fb4a792
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443769"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427623"
 ---
 # <a name="get-data"></a>데이터 가져오기
 
@@ -52,11 +52,11 @@ ms.locfileid: "37443769"
   
 5.  탐색기에서 **AdventureWorksDW2014** 데이터베이스를 선택한 다음 **확인**을 클릭합니다. 그러면 데이터베이스에 대한 연결이 생성됩니다. 
   
-6.  탐색기에서 다음 테이블에 대한 확인란을 선택합니다. **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** 및 **FactInternetSales**.  
+6.  탐색기에서 **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** 및 **FactInternetSales** 테이블에 대한 확인란을 선택한 다음, **편집**을 클릭합니다.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-확인을 클릭하면 쿼리 편집기가 열립니다. 다음 섹션에서 가져오려는 데이터만 선택합니다.
+    쿼리 편집기가 열립니다. 다음 섹션에서 가져오려는 데이터만 선택합니다.
 
   
 ## <a name="filter-the-table-data"></a>테이블 데이터 필터링  

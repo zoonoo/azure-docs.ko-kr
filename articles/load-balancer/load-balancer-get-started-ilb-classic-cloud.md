@@ -4,22 +4,19 @@ description: 클래식 배포 모델에서 PowerShell을 사용하여 내부 부
 services: load-balancer
 documentationcenter: na
 author: genlin
-manager: cshepard
-tags: azure-service-management
-ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: 96a7c5b21d78dcc84a32fbfc8835542d64a5d7af
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: fb543e705c613ee1e69564e391080cf5f8357ba5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067761"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417381"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>클라우드 서비스를 위한 내부 부하 분산 장치(클래식) 만들기 시작
 
@@ -33,7 +30,7 @@ ms.locfileid: "34067761"
 
 ## <a name="configure-internal-load-balancer-for-cloud-services"></a>클라우드 서비스에 대한 내부 부하 분산 장치 구성하기
 
-내부 부하 분산 장치는 가상 머신 및 클라우드 서비스를 모두 지원합니다. 지역 가상 네트워크 외부에 있는 클라우드 서비스에 생성된 내부 부하 분산 장치 끝점은 해당 클라우드 서비스 내에서만 액세스할 수 있습니다.
+내부 부하 분산 장치는 가상 머신 및 클라우드 서비스를 모두 지원합니다. 지역 가상 네트워크 외부에 있는 클라우드 서비스에 생성된 내부 부하 분산 장치 엔드포인트는 해당 클라우드 서비스 내에서만 액세스할 수 있습니다.
 
 아래 샘플에 나와 있는 것처럼 클라우드 서비스에서 첫 번째 배포를 만드는 동안 내부 부하 분산 장치 구성을 설정해야 합니다.
 
@@ -70,7 +67,7 @@ Visual Studio에서 클라우드 배포용 서비스 구성 파일(.cscfg)을 �
 
 ### <a name="step-2"></a>2단계
 
-내부 부하 분산에 끝점을 추가하려면 서비스 정의(.csdef) 파일을 변경합니다. 역할 인스턴스가 만들어지는 순간 서비스 정의 파일이 내부 부하 분산에 역할 인스턴스를 추가합니다.
+내부 부하 분산에 엔드포인트를 추가하려면 서비스 정의(.csdef) 파일을 변경합니다. 역할 인스턴스가 만들어지는 순간 서비스 정의 파일이 내부 부하 분산에 역할 인스턴스를 추가합니다.
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">

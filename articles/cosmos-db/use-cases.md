@@ -7,14 +7,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/7/2017
+ms.date: 05/07/2017
 ms.author: sngun
-ms.openlocfilehash: 15a4e2fa981617c538edf3731bf9457bf172213c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 50bc70fa18bc8fb04e4f8117340c66665204282c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113122"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251076"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>일반적인 Azure Cosmos DB 사용 사례
 이 문서에서는 Azure Cosmos DB의 몇 가지 일반적인 사용 사례를 간략하게 설명합니다.  이 문서의 권장 사항은 Cosmos DB로 응용 프로그램을 개발할 때 시작점 역할을 합니다.   
@@ -29,7 +29,7 @@ ms.locfileid: "37113122"
 ## <a name="introduction"></a>소개
 [Azure Cosmos DB](../cosmos-db/introduction.md)는 전 세계에 배포된 Microsoft 데이터베이스 서비스입니다. 서비스는 고객이 원하는 수의 지역에서 처리량 및 저장소 크기를 탄력적 및 독립적으로 조정할 수 있도록 설계되었습니다. Azure Cosmos DB는 처리량, 대기 시간, 가용성 및 일관성을 포괄하는 총체적인 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/cosmos-db/)을 제공하는, 현재 출시된 최초의 전역 분산 데이터베이스 서비스입니다. 
 
-Azure Cosmos DB는 광범위한 응용 프로그램 및 사용 사례에서 사용되는, 전역으로 분산된 다중 모델 데이터베이스입니다. 낮은 응답 시간(밀리초)이 필요하며 신속하게 전역으로 크기를 조정해야 하는 [서버가 없는](http://azure.com/serverless) 응용 프로그램에 적합합니다. 여러 데이터 모델(키-값, 문서, 그래프 및 칼럼 형식) 및 [MongoDB API](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Graph API(Gremlin)](graph-introduction.md) 및 [Tables API](table-introduction.md) 등의 많은 데이터 액세스용 API를 기본적으로, 그리고 확장 가능한 방식으로 지원합니다. 
+Azure Cosmos DB는 광범위한 응용 프로그램 및 사용 사례에서 사용되는, 전역으로 분산된 다중 모델 데이터베이스입니다. 낮은 응답 시간(밀리초)이 필요하며 신속하게 전역으로 크기를 조정해야 하는 [서버가 없는](http://azure.com/serverless) 응용 프로그램에 적합합니다. 여러 데이터 모델(키-값, 문서, 그래프 및 칼럼 형식) 및 [MongoDB API](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin API](graph-introduction.md) 및 [Tables API](table-introduction.md) 등의 많은 데이터 액세스용 API를 기본적으로, 그리고 확장 가능한 방식으로 지원합니다. 
 
 전역으로 분산하려는 고성능 응용 프로그램에 적합한 Azure Cosmos DB의 몇 가지 특성은 다음과 같습니다.
 
@@ -43,11 +43,11 @@ Azure Cosmos DB는 광범위한 응용 프로그램 및 사용 사례에서 사�
 이러한 특성은 낮은 응답 시간이 필요하고 방대한 양의 읽기 및 쓰기를 처리해야 하는 웹, 모바일, 게임 및 IoT 응용 프로그램에 유용합니다.
 
 ## <a name="iot-and-telematics"></a>IoT 및 텔레매틱스
-IoT 사용 사례는 일반적으로 데이터를 수집, 처리 및 저장하는 방법에서 일부 패턴을 공유합니다.  먼저 이러한 시스템이 다양한 로컬의 장치 센서에서 데이터 버스트를 수집해야 합니다. 다음으로 이러한 시스템이 스트리밍 데이터를 처리 및 분석하여 실시간 통찰력을 끌어냅니다. 그런 다음 배치 분석에 사용할 수 있도록 데이터를 콜드 저장소에 보관합니다. Microsoft Azure 제품은 Azure Cosmos DB, Azure Event Hubs, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight 및 PowerBI를 비롯한 IoT 사용 사례에 적용할 수 있는 다양한 서비스를 제공합니다. 
+IoT 사용 사례는 일반적으로 데이터를 수집, 처리 및 저장하는 방법에서 일부 패턴을 공유합니다.  먼저 이러한 시스템이 다양한 로컬의 디바이스 센서에서 데이터 버스트를 수집해야 합니다. 다음으로 이러한 시스템이 스트리밍 데이터를 처리 및 분석하여 실시간 통찰력을 끌어냅니다. 그런 다음 배치 분석에 사용할 수 있도록 데이터를 콜드 저장소에 보관합니다. Microsoft Azure 제품은 Azure Cosmos DB, Azure Event Hubs, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight 및 PowerBI를 비롯한 IoT 사용 사례에 적용할 수 있는 다양한 서비스를 제공합니다. 
 
 ![Azure Cosmos DB IoT 참조 아키텍처](./media/use-cases/iot.png)
 
-Azure Event Hubs는 짧은 대기 시간으로 높은 처리량 데이터 수집을 제공하기 때문에 데이터 버스트를 수집할 수 있습니다. 실시간으로 처리해야 하는 수집된 데이터는 분석을 위해 Azure Stream Analytics로 전달할 수 있습니다. 임시 쿼리를 위해 데이터를 Azure Cosmos DB에 로드할 수 있습니다. 데이터가 Azure Cosmos DB에 로드되고 나면 데이터를 쿼리할 수 있습니다. 또한 새 데이터와 기존 데이터의 변경 내용을 변경 피드에서 읽을 수 있습니다. 변경 피드는 영구적이며, Cosmos DB 컬렉션에 대한 변경 내용을 저장하는 로그만 순서대로 추가합니다. 실시간 분석의 일부로 Azure Cosmos DB의 모든 데이터 또는 변경된 데이터만 참조 데이터로 사용할 수 있습니다. 또한 Pig, Hive 또는 Map/Reduce 작업을 위해 Azure Cosmos DB 데이터를 HDInsight에 연결하여 데이터를 추가로 구체화하고 처리할 수 있습니다.  그런 다음 보고를 위해 구체화된 데이터가 Azure Cosmos DB에 다시 로드됩니다.   
+Azure Event Hubs는 짧은 대기 시간으로 높은 처리량 데이터 수집을 제공하기 때문에 데이터 버스트를 수집할 수 있습니다. 실시간으로 처리해야 하는 수집된 데이터는 분석을 위해 Azure Stream Analytics로 전달할 수 있습니다. 임시 쿼리를 위해 데이터를 Azure Cosmos DB에 로드할 수 있습니다. 데이터가 Azure Cosmos DB에 로드되고 나면 데이터를 쿼리할 수 있습니다. 또한 새 데이터와 기존 데이터의 변경 내용을 변경 피드에서 읽을 수 있습니다. 변경 피드는 영구적이며, Cosmos DB 컨테이너에 대한 변경 내용을 저장하는 로그만 순서대로 추가합니다. 실시간 분석의 일부로 Azure Cosmos DB의 모든 데이터 또는 변경된 데이터만 참조 데이터로 사용할 수 있습니다. 또한 Pig, Hive 또는 Map/Reduce 작업을 위해 Azure Cosmos DB 데이터를 HDInsight에 연결하여 데이터를 추가로 구체화하고 처리할 수 있습니다.  그런 다음 보고를 위해 구체화된 데이터가 Azure Cosmos DB에 다시 로드됩니다.   
 
 Azure Cosmos DB, EventHub 및 Storm을 사용한 샘플 IoT 솔루션은 [GitHub의 hdinsight-storm-examples 리포지토리](https://github.com/hdinsight/hdinsight-storm-examples/)를 참조하세요.
 
@@ -56,7 +56,7 @@ IoT용 Azure 제품에 대한 자세한 내용은 [사물 인터넷 만들기](h
 ## <a name="retail-and-marketing"></a>소매 및 마케팅
 Azure Cosmos DB는 Windows 스토어 및 XBox Live를 실행하는 Microsoft 고유의 전자 상거래 플랫폼에서 광범위하게 사용됩니다. 또한 카탈로그 데이터 저장 및 주문 처리 파이프라인의 이벤트 소싱을 위해 소매 업계에서 사용됩니다.
 
-카탈로그 데이터 사용 시나리오에는 사용자, 장소 및 제품과 같은 엔터티의 특성 집합 저장 및 쿼리가 포함됩니다. 카탈로그 데이터의 몇 가지 예로 사용자 계정, 제품 카탈로그, IoT 장치 레지스트리, BOM 시스템 등이 있습니다. 이 데이터의 특성은 다양하며, 시간에 따라 응용 프로그램 요구 사항에 맞게 변경될 수 있습니다.
+카탈로그 데이터 사용 시나리오에는 사용자, 장소 및 제품과 같은 엔터티의 특성 집합 저장 및 쿼리가 포함됩니다. 카탈로그 데이터의 몇 가지 예로 사용자 계정, 제품 카탈로그, IoT 디바이스 레지스트리, BOM 시스템 등이 있습니다. 이 데이터의 특성은 다양하며, 시간에 따라 응용 프로그램 요구 사항에 맞게 변경될 수 있습니다.
 
 제품 카탈로그의 예로 자동차 부품 공급업체를 고려해 보세요. 각 부품에는 모든 부품이 공유하는 공통 특성 외에 고유한 특성이 있을 수 있습니다. 또한 특정 부품의 특성이 다음 연도에 새 모델이 출시될 때는 변경될 수 있습니다. Azure Cosmos DB는 유연한 스키마와 계층형 데이터를 지원하므로 제품 카탈로그 데이터를 저장하는 데 적합합니다.
 

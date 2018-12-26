@@ -3,7 +3,7 @@ title: Azure Stack 인프라 백업 서비스 모범 사례 | Microsoft Docs
 description: 배포 하 고 치명적인 오류가 발생 하는 경우 데이터 손실 위험을 완화 하려면 데이터 센터에서 Azure Stack을 관리 하는 경우 몇 가지 모범 사례를 따르면 됩니다.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 11/05/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 06a2d4ab12d2a7e03a538a98f5232a417fb39e4f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: cca5fe492032c74a9922780f197065e9c2b40ad3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969472"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966137"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>인프라 Backup 서비스에 대 한 유용한 정보
 
@@ -34,7 +34,7 @@ ms.locfileid: "38969472"
 
 ### <a name="deployment"></a>배포
 
-각 Azure Stack 클라우드에 배포 된 후 인프라 Backup을 사용 합니다. 도구로 AzureStack-연산자 관리 API 끝점에 대 한 액세스를 사용 하 여 모든 클라이언트/서버에서 백업을 예약할 수 있습니다.
+각 Azure Stack 클라우드에 배포 된 후 인프라 Backup을 사용 합니다. Azure Stack PowerShell을 사용 하 여 연산자 관리 API 끝점에 대 한 액세스를 사용 하 여 모든 클라이언트/서버에서 백업을 예약할 수 있습니다.
 
 ### <a name="networking"></a>네트워킹
 
@@ -46,13 +46,12 @@ ms.locfileid: "38969472"
 
 키를 안전한 위치 (예를 들어 공용 Azure Key Vault 비밀)에 저장 되어야 합니다. Azure Stack 다시 배포 하는 동안이 키를 사용 해야 합니다. 
 
-![키를 안전한 위치를 저장 합니다.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
+![키를 안전한 위치를 저장 합니다.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
 ## <a name="operational-best-practices"></a>운영 모범 사례
 
 ### <a name="backups"></a>Backup
 
- - 인프라 백업 컨트롤러 주문형 트리거될 수 해야 합니다. 하루에 두 번 이상 백업 하는 것이 좋습니다.
  - 백업 작업에는 관리 환경 또는 사용자 응용 프로그램에 가동 중지 시간 없이 이므로 시스템이 실행 되는 동안 실행 합니다. 20-40 분는 적절 한 부하가 있는 솔루션에 대 한 백업 작업을 예상 합니다.
  - 지침을 제공 하는 OEM을 사용 하 여 수동으로 백업 네트워크 스위치와 하드웨어 수명 주기 호스트 (HLH) 저장 되어야 합니다는 인프라 백업 컨트롤러 저장소 제어 평면 백업 데이터 같은 백업 공유에. 스위치 및 HLH 구성 영역 폴더에 저장 하는 것이 좋습니다. Azure Stack의 여러 인스턴스를 동일한 지역에 있는 경우에 배율 단위에 속하는 각 구성에 대 한 식별자를 사용 하는 것이 좋습니다.
 
@@ -95,5 +94,6 @@ Oem 지역 폴더 아래에 있는 해당 구성 요소에 대 한 백업 데이
 
 ## <a name="next-steps"></a>다음 단계
 
- - 에 대 한 참조 자료를 검토 합니다 [인프라 Backup 서비스](azure-stack-backup-reference.md)합니다.  
- - 사용 하도록 설정 합니다 [인프라 백업 서비스](azure-stack-backup-enable-backup-console.md)합니다.
+에 대 한 참조 자료를 검토 합니다 [인프라 Backup 서비스](azure-stack-backup-reference.md)합니다.
+
+사용 하도록 설정 합니다 [인프라 백업 서비스](azure-stack-backup-enable-backup-console.md)합니다.

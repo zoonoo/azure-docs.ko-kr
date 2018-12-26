@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1d11b7d8f008c8ba000530e0486562882bfe3db3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 650effed388dde4419e2ff6aede2f0468551a959
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193896"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276689"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 입력 매개 변수
 
@@ -31,7 +31,7 @@ Azure Automation에서 PowerShell 및 [PowerShell 워크플로 Runbook](automati
 | **속성** | **설명** |
 |:--- |:--- |
 | type |필수 사항입니다. 매개 변수 값에 필요한 데이터 형식입니다. 모든 .NET 형식이 유효합니다. |
-| Name |필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 하고 문자, 숫자 또는 밑줄 문자를 포함할 수 있습니다. 문자로 시작해야 합니다. |
+| 이름 |필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 하고 문자, 숫자 또는 밑줄 문자를 포함할 수 있습니다. 문자로 시작해야 합니다. |
 | 필수 |선택 사항입니다. 매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. 이 값을 **$true**로 설정한 경우 Runbook이 시작될 때 값을 지정해야 합니다. 이 값을 **$false**로 설정한 경우 값은 선택 사항입니다. |
 | 기본값 |선택 사항입니다. Runbook이 시작될 때 값을 전달하지 않으면 매개 변수에 대해 사용될 값을 지정합니다. 기본값을 매개 변수에 대해 설정할 수 있으며 필수 설정에 관계 없이 자동으로 매개 변수를 선택적으로 만듭니다. |
 
@@ -73,6 +73,10 @@ Runbook에 object 형식 입력 매개 변수가 있는 경우 값에 전달하�
 ```powershell
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
+> [!NOTE]
+> `$null` 기본값을 가진 선택적인 `[String]` 유형 매개 변수에 값을 전달하지 않으면 이 매개 면수의 값이 `$null`이 **아니라** 빈 문자열이 됩니다.
+> 
+> 
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>그래픽 Runbook에서 입력 매개 변수 구성
 
@@ -80,7 +84,7 @@ Runbook에 object 형식 입력 매개 변수가 있는 경우 값에 전달하�
 
 Azure로 인증하는 [**Azure 실행 계정으로 Runbook 인증**](automation-sec-configure-azure-runas-account.md).
 
-가상 머신의 속성을 가져오는 [**Get-AzureRmVm**](https://msdn.microsoft.com/library/mt603718.aspx).
+가상 머신의 속성을 가져오는 [**Get-AzureRmVm**](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm).
 
 You can use the [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) activity to output the names of virtual machines. **Get-AzureRmVm** 활동은 **가상 머신 이름** 및 **리소스 그룹 이름**과 같은 두 개의 매개 변수를 수락합니다. 이러한 매개 변수가 Runbook을 시작할 때마다 다른 값을 필요할 수 있기 때문에 Runbook에 입력 매개 변수를 추가할 수 있습니다. 입력 매개 변수를 추가하는 단계는 다음과 같습니다.
 
@@ -92,7 +96,7 @@ You can use the [**Write-Output**](https://technet.microsoft.com/library/hh84992
    
    | **속성** | **설명** |
    |:--- |:--- |
-   | Name |필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 하고 문자, 숫자 또는 밑줄 문자를 포함할 수 있습니다. 문자로 시작해야 합니다. |
+   | 이름 |필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 하고 문자, 숫자 또는 밑줄 문자를 포함할 수 있습니다. 문자로 시작해야 합니다. |
    | 설명 |선택 사항입니다. 입력 매개 변수의 목적에 대한 설명입니다. |
    | type |선택 사항입니다. 매개 변수 값에 필요한 데이터 형식입니다. 지원되는 매개 변수 형식은 **문자열**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** 및 **개체**입니다. 데이터 형식이 선택되어 있지 않으면 **문자열**에 대한 기본값으로 지정됩니다. |
    | 필수 |선택 사항입니다. 매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. **예**를 선택한 경우 Runbook이 시작될 때 값을 지정해야 합니다. **아니오**를 선택한 경우 Runbook이 시작될 때 값이 필요하지 않고 기본값이 설정됩니다. |
@@ -147,7 +151,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>PowerShell cmdlet을 사용하여 게시된 Runbook 시작 및 매개 변수 할당
 
-* **Azure Resource Manager cmdlet:**[Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)을 사용하여 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
+* **Azure Resource Manager cmdlet:**[Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)을 사용하여 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
   
   **예제:**
   
@@ -156,7 +160,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Azure 클래식 배포 모델 cmdlet:** [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx)을 사용하여 기본 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
+* **Azure 클래식 배포 모델 cmdlet:** [Start-AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook)을 사용하여 기본 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
   
   **예제:**
   
@@ -226,9 +230,8 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
   ```
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>REST API를 사용하여 Runbook 시작 및 매개 변수 할당
-다음 요청 URI가 있는 **PUT** 메서드를 사용하여 Azure Automation REST API를 통해 Runbook 작업을 만들고 시작할 수 있습니다.
+다음 요청 URI가 있는 **PUT** 메서드를 사용하여 Azure Automation REST API를 통해 Runbook 작업을 만들고 시작할 수 있습니다. https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
-    https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
 요청 URI에서 다음 매개 변수를 바꿉니다.
 

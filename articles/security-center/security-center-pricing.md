@@ -3,23 +3,23 @@ title: 보안 강화를 위해 Security Center의 표준 계층으로 업그레�
 description: 이 문서에서는 Azure Security Center에 대한 가격 책정 정보를 제공합니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
-ms.author: terrylan
-ms.openlocfilehash: 0a8fb526602692db6737842c24649b686bea5dad
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.date: 08/06/2018
+ms.author: rkarlin
+ms.openlocfilehash: 5129ea20dcf6c866d5391a6a3aad5c54a6fa81af
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23473941"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313074"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>보안 강화를 위해 Security Center의 표준 계층으로 업그레이드
 Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으로 통합 보안 관리 및 고급 위협 보호 기능을 제공합니다. 또한 하이브리드 클라우드 작업을 확인하고 제어하는 기능, 위협에 대한 노출을 줄이는 적극적인 방어 기능, 그리고 빠르게 발전하는 사이버 공격에 대응할 수 있는 지능형 검색 기능을 제공합니다.
@@ -28,14 +28,15 @@ Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으�
 Security Center는 두 계층으로 제공됩니다.
 
 - 모든 Azure 구독에서 자동으로 사용하도록 설정되는 **무료** 계층에서는 Azure 리소스를 보호할 수 있도록 보안 정책, 지속적인 보안 평가 및 실행 가능한 보안 권장 사항을 제공합니다.
-- **표준** 계층의 경우 무료 계층의 기능이 사설 클라우드 및 기타 공용 클라우드에서 실행되는 작업으로 확장 적용되며, 하이브리드 클라우드 작업 전반에 걸쳐 통합 보안 관리 및 위협 방지 기능이 제공됩니다. 또한 표준 계층에서는 기본 제공 행동 분석 및 Machine Learning을 사용하여 공격 및 제로 데이 익스플로잇을 식별하는 고급 위협 검색 기능, 네트워크 공격과 맬웨어에 대한 노출을 줄여 주는 액세스 및 응용 프로그램 컨트롤 등도 추가로 제공합니다. 표준 계층은 처음 60일 동안 무료입니다.
+- **표준** 계층의 경우 무료 계층의 기능이 사설 클라우드 및 기타 공용 클라우드에서 실행되는 작업으로 확장 적용되며, 하이브리드 클라우드 작업 전반에 걸쳐 통합 보안 관리 및 위협 방지 기능이 제공됩니다. 또한 표준 계층에서는 기본 제공 행동 분석 및 Machine Learning을 사용하여 공격 및 제로 데이 익스플로잇을 식별하는 고급 위협 검색 기능, 네트워크 공격과 맬웨어에 대한 노출을 줄여 주는 액세스 및 응용 프로그램 컨트롤 등도 추가로 제공합니다. 표준 계층은 처음 60일 동안 무료입니다. Security Center 표준은 VM, App Service, SQL 서버를 포함한 Azure 리소스를 지원합니다. Azure Security Center 표준을 사용하는 경우 리소스 종류에 따라 지원을 옵트아웃할 수 있습니다. 
+
 
 자세한 내용은 Security Center [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 ## <a name="try-standard-free-for-60-days"></a>60일 표준 계층 무료 사용
 표준 계층은 처음 60일간 무료로 제공됩니다. 60일 종료 시 서비스를 계속 사용하기로 선택하는 경우 사용량에 대한 요금이 자동으로 부과되기 시작합니다.
 
-전체 Azure 구독을 표준 계층으로 업그레이드할 수도 있고(구독 내의 모든 리소스에 계층이 상속됨), 특정 리소스 그룹만 업그레이드하는 고유한 정책을 정의할 수도 있습니다.
+전체 Azure 구독을 구독 내의 모든 리소스에서 상속되는 표준 계층으로 업그레이드할 수 있습니다.
 
 표준 계층 얻기:
 
@@ -43,12 +44,12 @@ Security Center는 두 계층으로 제공됩니다.
 2. 표준으로 업그레이드하려는 경우 구독을 선택합니다.
 3. **보안 정책** 블레이드에서 **가격 책정 계층**을 선택합니다.
 4. **표준**을 선택하여 업그레이드합니다.
-5. **Save**를 클릭합니다.
+5. **저장**을 클릭합니다.
 
-![보안 인시던트][1]
+![Security Center 가격 책정](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> 모든 Security Center 기능을 사용하도록 설정하려면 해당하는 가상 컴퓨터가 포함된 구독이나 리소스 그룹에 표준 가격 책정 계층을 적용해야 합니다. 작업 영역에 대해 가격 책정을 구성해도 Just-In-Time VM 액세스, 적응형 응용 프로그램 제어 및 Azure 리소스에 대한 네트워크 검색 기능은 사용하도록 설정되지 않습니다.
+> 모든 Security Center 기능을 사용하도록 설정하려면 해당하는 가상 머신이 포함된 구독이나 리소스 그룹에 표준 가격 책정 계층을 적용해야 합니다. 작업 영역에 대해 가격 책정을 구성해도 Just-In-Time VM 액세스, 적응형 응용 프로그램 제어 및 Azure 리소스에 대한 네트워크 검색 기능은 사용하도록 설정되지 않습니다.
 >
 >
 

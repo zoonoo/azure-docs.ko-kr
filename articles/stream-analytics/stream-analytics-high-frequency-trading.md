@@ -7,14 +7,14 @@ ms.author: zhongc
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/05/2017
-ms.openlocfilehash: cf04cf92f204b89c0641a23ba38b05dbcad409b2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 85f80ef1ea776d48d9c2f8091568d40dbf46db46
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30910989"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716477"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Stream Analytics에서 자주 발생하는 거래 시뮬레이션
 SQL 언어와 JavaScript UDF(사용자 정의 함수) 및 UDA(사용자 정의 집계)를 Azure Stream Analytics에 결합하면 사용자가 고급 분석을 수행할 수 있습니다. 고급 분석에는 온라인 기계 학습 교육 및 점수 매기기와 상태 저장 프로세스 시뮬레이션이 포함될 수 있습니다. 이 문서는 자주 발생하는 거래 시나리오에서 연속 학습 및 평가를 수행하는 Azure Stream Analytics 작업에서 선형 회귀를 수행하는 방법을 설명합니다.
@@ -444,7 +444,7 @@ JavaScript UDA는 `init` 함수에서 모든 누적기를 초기화하고, 모�
 ## <a name="summary"></a>요약
 Azure Stream Analytics에서 다소 복잡한 쿼리를 사용하여 매우 현실적인 자주 발생하는 거래 모델을 구현할 수 있습니다. 기본 제공 선형 회귀 함수가 없기 때문에 모델을 5개에서 2개의 입력 변수로 간소화해야 합니다. 하지만 꼭 원하신다면 차원이 높고 복잡한 알고리즘을 JavaScript UDA로 구현할 수 있습니다. 
 
-JavaScript UDA를 제외한 대부분의 쿼리는 [Azure Stream Analytics Tool for Visual Studio](stream-analytics-tools-for-visual-studio.md)를 통해 Visual Studio에서 테스트하고 디버깅할 수 있습니다. 작성자가 초기 쿼리를 작성한 후에 Visual Studio에서 쿼리를 테스트하고 디버깅하는 데 30분 미만이 소요되었습니다. 
+JavaScript UDA를 제외한 대부분의 쿼리는 [Azure Stream Analytics Tool for Visual Studio](stream-analytics-tools-for-visual-studio-install.md)를 통해 Visual Studio에서 테스트하고 디버깅할 수 있습니다. 작성자가 초기 쿼리를 작성한 후에 Visual Studio에서 쿼리를 테스트하고 디버깅하는 데 30분 미만이 소요되었습니다. 
 
 현재 Visual Studio에서 UDA를 디버깅할 수 없습니다. JavaScript 코드를 단계별로 실행하는 기능에서 이 기능을 사용하도록 하고 있습니다. 또한 UDA에 도달하는 필드의 이름은 소문자입니다. 쿼리 테스트 중에 명백한 동작이 아닙니다. 하지만 Azure Stream Analytics 호환성 수준 1.1에서는 필드 이름 대소문자를 유지하므로 동작이 보다 자연스럽습니다.
 

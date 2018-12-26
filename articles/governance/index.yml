@@ -1,0 +1,71 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 78d5f767f137b8b1e925b95efb60136353401ce9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298623"
+documentType: LandingData
+title: Azure 관리 - 거버넌스
+metadata:
+  title: Azure 관리 - 거버넌스
+  description: 명시적 설계와 규칙을 통해 일관성 있게 환경을 관리하는 데 사용할 수 있는 개념과 Azure 서비스 그리고 준수를 위한 감사 방법을 알아봅니다.
+  services: governance
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: governance
+  ms.topic: landing-page
+  ms.date: 09/18/2018
+  ms.author: dacoulte
+abstract:
+  description: Azure 거버넌스는 다양한 Azure 리소스를 대규모로 관리할 수 있도록 설계된 개념 및 서비스 컬렉션입니다. 이러한 서비스는 논리적인 방식의 구독 구성 및 구조화 기능, 재사용 가능한 Azure 네이티브 리소스 패키지 만들기 및 배포 기능, 리소스 정의, 감사, 교정 기능 등을 제공합니다. 이 페이지에서는 이들 개념과 서비스 그리고 현재 사용자 환경에서 각각의 요소를 사용하도록 설정하고 활용하는 방법을 자세히 알아볼 수 있습니다.
+  aside:
+    image:
+      alt: 
+      height: 225
+      src: ./media/video.png
+      width: 250
+    title: Azure 거버넌스를 사용하여 리소스에 대한 속도 및 제어 제공(1:47)
+    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
+    width: 250
+sections:
+- title: 구성 요소 및 서비스
+- items:
+  - type: list
+    style: cards
+    className: cardsD
+    columns: 2
+    items:
+    - href: ./management-groups/overview
+      html: <p>구조적인 방식으로 다른 거버넌스 서비스 배포를 지원하는 논리적 계층 구조로 구독을 그룹화하고 구성하는 방법을 알아봅니다.<br /></p>
+      image:
+        src: ./media/management-groups-illustration.svg
+      title: 관리 그룹
+    - href: ./resource-graph/
+      html: <p>강력한 명령줄 도구(Azure CLI 및 Azure PowerShell 지원)를 사용하여 Azure 리소스에 대한 복잡한 세부 정보를 빠르게 쿼리합니다. 대규모로 리소스를 검색하려면 복잡한 반복 스크립트가 필요했던 정보를 찾아 공개합니다.</p>
+      image:
+        src: ./media/resource-graph-illustration.svg
+      title: Resource Graph
+    - href: ./policy/
+      html: <p>표준을 정의하여 사용자 환경의 리소스에 적용합니다. 원치 않는 리소스가 만들어지는 것을 방지하고, 추가 요소를 사용하여 새 리소스를 향상시키고, 이미 환경에 있는 리소스를 감사 및 교정합니다.</p>
+      image:
+        src: ./media/policy-illustration.svg
+      title: 정책
+    - href: ./blueprints/
+      html: <p>일관성 있고 반복 가능한 환경을 만들도록 동적으로 구독에 배포할 수 있는 <i>아티팩트</i>(리소스 그룹, 정책, 역할 할당, 리소스 관리자 템플릿 등)로 구성된 Azure 네이티브 패키지를 만듭니다.</p>
+      image:
+        src: ./media/blueprints-illustration.svg
+      title: Blueprints
+- title: 구현
+- items:
+  - type: list
+    style: cards
+    className: cardsZ
+    columns: 3
+    items:
+    - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+      html: <p>과거에는 기업에서 인프라부터 소프트웨어까지 모든 수준의 기술을 직접 소유하고 책임을 졌습니다. 하지만 이제는 기업에서 클라우드를 활용하여 필요에 따라 리소스를 프로비전하고 소비하는 형태로 기술 활용 방식을 바꿀 수 있습니다.</p>
+      title: 엔터프라이즈 클라우드 채택
+    - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+      html: <p>관리자는 비즈니스 그룹 및 개발자가 자신의 목표를 신속하게 충족하도록 하면서도 워크로드가 조직의 최소 거버넌스 요구 사항을 충족하도록 지원할 수 있습니다.<br /><br /></p>
+      title: 엔터프라이즈 스캐폴드

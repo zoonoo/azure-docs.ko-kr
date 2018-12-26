@@ -1,0 +1,39 @@
+items:
+- name: Azure NetApp Files 설명서
+  href: index.md
+- name: 개요
+  items:
+  - name: Azure NetApp Files 소개
+    href: azure-netapp-files-introduction.md
+  - name: 스토리지 계층 구조 이해
+    href: azure-netapp-files-understand-storage-hierarchy.md
+- name: 빠른 시작
+  items:
+  - name: Azure NetApp Files에 등록
+    href: azure-netapp-files-register.md
+  - name: NetApp 계정 만들기
+    href: azure-netapp-files-create-netapp-account.md
+  - name: 용량 풀 설정
+    href: azure-netapp-files-set-up-capacity-pool.md
+  - name: Azure NetApp Files에 서브넷 위임
+    href: azure-netapp-files-delegate-subnet.md
+  - name: Azure NetApp Files에 대한 볼륨 만들기
+    href: azure-netapp-files-create-volumes.md
+  - name: 볼륨에 대한 내보내기 정책 구성(선택 사항)
+    href: azure-netapp-files-configure-export-policy.md
+- name: 방법 가이드
+  items:
+  - name: 볼륨 관리
+    href: azure-netapp-files-manage-volumes.md
+  - name: 가상 머신에 대한 볼륨 탑재 또는 분리
+    href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+  - name: 스냅숏 관리
+    href: azure-netapp-files-manage-snapshots.md
+  - name: 용량 풀 또는 볼륨 크기 조정
+    href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+ms.openlocfilehash: 9e500904c2249fe1f419e4e8e3657bb083f0143b
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53414221"

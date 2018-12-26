@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 0b920d21486fc0003d8b11bef79bd44be4b28adf
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: de0ddbc041d6f177e5bfcd24d593b8d63a8e1e23
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030617"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248730"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
 
@@ -235,7 +235,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 1. 없는 경우 **입력** 블레이드를 닫습니다.
 
-2. 작업 블레이드에서 **쿼리** 상자를 클릭합니다. Azure에서는 작업에 대해 구성된 입력 및 출력을 나열하고 데이터가 출력으로 전송됨에 따라 사용자가 입력 스트림을 변환하는 쿼리를 작성할 수 있도록 합니다.
+2. **개요** 블레이드에서 쿼리 상자의 오른쪽 위에 있는 **쿼리 편집**을 클릭합니다. Azure에서는 작업에 대해 구성된 입력 및 출력을 나열하고 데이터가 출력으로 전송됨에 따라 사용자가 입력 스트림을 변환하는 쿼리를 작성할 수 있도록 합니다.
 
 3. TwitterWpfClient 응용 프로그램이 실행되고 있는지 확인합니다. 
 

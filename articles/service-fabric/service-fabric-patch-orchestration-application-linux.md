@@ -1,6 +1,6 @@
 ---
-title: Linux용 Azure Service Fabric 패치 오케스트레이션 응용 프로그램 | Microsoft Docs
-description: Linux Service Fabric 클러스터에 운영 체제 패치를 자동화하는 응용 프로그램입니다.
+title: Linux용 Azure Service Fabric 패치 오케스트레이션 애플리케이션 | Microsoft Docs
+description: Linux Service Fabric 클러스터에 운영 체제 패치를 자동화하는 애플리케이션입니다.
 services: service-fabric
 documentationcenter: .net
 author: novino
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971269"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285155"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Linux 운영 체제 패치
 
@@ -114,14 +114,14 @@ ms.locfileid: "38971269"
 
 ### <a name="disable-automatic-os-update-on-all-nodes"></a>모든 노드에서 자동 OS 업데이트 사용 안 함
 
-자동 OS 업데이트로 가용성이 손실되거나 실행 중인 응용 프로그램의 동작이 변경될 수 있습니다. 패치 오케스트레이션 앱은 기본적으로 각 클러스터 노드에서 이러한 시나리오를 방지하도록 자동 OS 업데이트를 사용하지 않으려 합니다.
+자동 OS 업데이트로 가용성이 손실되거나 실행 중인 애플리케이션의 동작이 변경될 수 있습니다. 패치 오케스트레이션 앱은 기본적으로 각 클러스터 노드에서 이러한 시나리오를 방지하도록 자동 OS 업데이트를 사용하지 않으려 합니다.
 Ubuntu의 경우 [무인 업그레이드](https://help.ubuntu.com/community/AutomaticSecurityUpdates)는 패치 오케스트레이션 앱에서 비활성화됩니다.
 
 ## <a name="download-the-app-package"></a>앱 패키지 다운로드
 
-설치 스크립트와 함께 응용 프로그램을 [보관 링크](https://go.microsoft.com/fwlink/?linkid=867984)에서 다운로드할 수 있습니다.
+설치 스크립트와 함께 애플리케이션을 [보관 링크](https://go.microsoft.com/fwlink/?linkid=867984)에서 다운로드할 수 있습니다.
 
-sfpkg 형식의 응용 프로그램은 [sfpkg 링크](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 응용 프로그램을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
+sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA_v2.0.2.sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 애플리케이션을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
 
 ## <a name="configure-the-app"></a>앱 구성
 
@@ -141,29 +141,29 @@ sfpkg 형식의 응용 프로그램은 [sfpkg 링크](https://go.microsoft.com/f
 
 
 > [!TIP]
-> OS 업데이트가 즉시 처리되도록 하려면 응용 프로그램 배포 시간에 관한 `UpdateFrequency`를 설정합니다. 예를 들어 5노드 테스트 클러스터가 있고 약 5PM UTC에 앱을 배포할 계획이라고 가정할 수 있습니다. 응용 프로그램 업그레이드 또는 배포에 최대 30분이 소요된다고 가정하는 경우 UpdateFrequency를 "매일, 17:30:00"으로 설정합니다.
+> OS 업데이트가 즉시 처리되도록 하려면 애플리케이션 배포 시간에 관한 `UpdateFrequency`를 설정합니다. 예를 들어 5노드 테스트 클러스터가 있고 약 5PM UTC에 앱을 배포할 계획이라고 가정할 수 있습니다. 애플리케이션 업그레이드 또는 배포에 최대 30분이 소요된다고 가정하는 경우 UpdateFrequency를 "매일, 17:30:00"으로 설정합니다.
 
 ## <a name="deploy-the-app"></a>앱 배포
 
 1. 모든 필수 구성 요소 단계를 완료하여 클러스터를 준비합니다.
 2. 다른 Service Fabric 앱과 마찬가지로 패치 오케스트레이션 앱을 배포합니다. PowerShell 또는 Azure Service Fabric CLI를 사용하여 앱을 배포할 수 있습니다. [PowerShell을 사용하여 응용 프로그램 배포 및 제거](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) 또는 [Azure Service Fabric CLI를 사용하여 응용 프로그램 배포](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)의 단계를 따릅니다.
-3. 배포 시 응용 프로그램을 구성하려면 `ApplicationParamater`를 `New-ServiceFabricApplication` cmdlet 또는 제공된 스크립트에 전달합니다. 사용자 편의를 위해 powershell(Deploy.ps1) 및 bash(Deploy.sh) 스크립트는 응용 프로그램과 함께 제공됩니다. 스크립트를 사용하려면 다음을 수행합니다.
+3. 배포 시 애플리케이션을 구성하려면 `ApplicationParameter`를 `New-ServiceFabricApplication` cmdlet 또는 제공된 스크립트에 전달합니다. 사용자 편의를 위해 powershell(Deploy.ps1) 및 bash(Deploy.sh) 스크립트는 애플리케이션과 함께 제공됩니다. 스크립트를 사용하려면 다음을 수행합니다.
 
     - Service Fabric 클러스터에 연결합니다.
-    - 배포 스크립트를 실행합니다. 필요에 따라 스크립트에 응용 프로그램 매개 변수를 전달합니다. 예: .\Deploy.ps1 -ApplicationParameter @{ UpdateFrequency = "Daily, 11:00:00"} OR ./Deploy.sh "{\"UpdateFrequency\":\"Daily, 11:00:00\"}" 
+    - 배포 스크립트를 실행합니다. 필요에 따라 스크립트에 애플리케이션 매개 변수를 전달합니다. 예: .\배포.ps1 -ApplicationParameter @{ UpdateFrequency = "Daily, 11:00:00"} 또는 ./배포.sh "{\"UpdateFrequency\":\"매일, 11:00:00\"}" 
 
 > [!NOTE]
 > 스크립트 및 응용 프로그램 폴더 PatchOrchestrationApplication을 동일한 디렉터리에 유지합니다.
 
 ## <a name="upgrade-the-app"></a>앱 업그레이드
 
-기존 패치 오케스트레이션 앱을 업그레이드하려면 [PowerShell을 사용하여 Service Fabric 응용 프로그램 업그레이드](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-tutorial-powershell) 또는 [Azure Service Fabric CLI를 사용하여 Service Fabric 응용 프로그램 업그레이드](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-upgrade)의 단계를 따릅니다.
+기존 패치 오케스트레이션 앱을 업그레이드하려면 [PowerShell을 사용하여 Service Fabric 애플리케이션 업그레이드](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-tutorial-powershell) 또는 [Azure Service Fabric CLI를 사용하여 Service Fabric 애플리케이션 업그레이드](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-upgrade)의 단계를 따릅니다.
 
 ## <a name="remove-the-app"></a>앱 제거
 
-응용 프로그램을 제거하려면 [PowerShell을 사용하여 응용 프로그램 배포 및 제거](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) 또는 [Azure Service Fabric CLI를 사용하여 응용 프로그램 제거](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-delete)의 단계를 따릅니다.
+애플리케이션을 제거하려면 [PowerShell을 사용하여 애플리케이션 배포 및 제거](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) 또는 [Azure Service Fabric CLI를 사용하여 애플리케이션 제거](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-delete)의 단계를 따릅니다.
 
-사용자 편의를 위해 powershell(Undeploy.ps1) 및 bash(Undeploy.sh) 스크립트는 응용 프로그램과 함께 제공됩니다. 스크립트를 사용하려면 다음을 수행합니다.
+사용자 편의를 위해 powershell(Undeploy.ps1) 및 bash(Undeploy.sh) 스크립트는 애플리케이션과 함께 제공됩니다. 스크립트를 사용하려면 다음을 수행합니다.
 
   - Service Fabric 클러스터에 연결합니다.
   - 스크립트 Undeploy.ps1 또는 Undeploy.sh를 실행합니다.
@@ -234,9 +234,9 @@ RejectedList | 기본값은 ""입니다. | 이 업데이트에 대한 거부된 
 
 업데이트 결과를 쿼리하려면 클러스터에 로그인합니다. 그런 다음, 주 코디네이터 서비스의 복제본 주소를 찾아 브라우저에서 URL을 입력합니다(http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetResults).
 
-코디네이터 서비스의 REST 끝점에는 동적 포트가 있습니다. 정확한 URL을 확인하려면 Service Fabric Explorer를 참조하세요. 예를 들어 `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetResults`에 결과가 제공됩니다.
+코디네이터 서비스의 REST 엔드포인트에는 동적 포트가 있습니다. 정확한 URL을 확인하려면 Service Fabric Explorer를 참조하세요. 예를 들어 `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetResults`에 결과가 제공됩니다.
 
-![REST 끝점의 이미지](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
+![REST 엔드포인트의 이미지](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
 
 ## <a name="diagnosticshealth-events"></a>진단/상태 이벤트
 
@@ -244,7 +244,7 @@ RejectedList | 기본값은 ""입니다. | 이 업데이트에 대한 거부된 
 
 Service Fabric 런타임 로그의 일부로 패치 오케스트레이션 앱 로그가 수집됩니다.
 
-선택한 진단 도구/파이프라인을 통해 로그를 캡처하려고 합니다. 패치 오케스트레이션 응용 프로그램은 다음의 고정된 공급자 ID를 사용하여 [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netstandard-2.0)를 통해 이벤트를 기록합니다.
+선택한 진단 도구/파이프라인을 통해 로그를 캡처하려고 합니다. 패치 오케스트레이션 애플리케이션은 다음의 고정된 공급자 ID를 사용하여 [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netstandard-2.0)를 통해 이벤트를 기록합니다.
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -354,9 +354,9 @@ a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스
 
 ### <a name="the-health-of-the-cluster-goes-to-error-while-the-update-installs"></a>업데이트가 설치되는 동안 클러스터의 상태가 오류로 전환됨
 
-잘못된 업데이트는 특정 노드 또는 업그레이드 도메인에 있는 응용 프로그램 또는 클러스터의 상태를 중단시킬 수 있습니다. 패치 오케스트레이션 앱은 클러스터가 다시 정상 상태가 될 때까지 후속 업데이트 작업을 중단합니다.
+잘못된 업데이트는 특정 노드 또는 업그레이드 도메인에 있는 애플리케이션 또는 클러스터의 상태를 중단시킬 수 있습니다. 패치 오케스트레이션 앱은 클러스터가 다시 정상 상태가 될 때까지 후속 업데이트 작업을 중단합니다.
 
-관리자가 개입하여 이전에 설치된 업데이트로 인해 응용 프로그램 또는 클러스터가 비정상 상태가 된 이유를 확인해야 합니다.
+관리자가 개입하여 이전에 설치된 업데이트로 인해 애플리케이션 또는 클러스터가 비정상 상태가 된 이유를 확인해야 합니다.
 
 ## <a name="disclaimer"></a>고지 사항
 
@@ -370,5 +370,8 @@ a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스
 ### <a name="version-200"></a>버전 2.0.0
 - 공개 릴리스
 
-### <a name="version-201-latest"></a>버전 2.0.1(최신)
+### <a name="version-201"></a>버전 2.0.1
 - 최신 Service Fabric SDK를 사용하여 앱을 다시 컴파일함
+
+### <a name="version-202-latest"></a>버전 2.0.2(최신)
+- 다시 시작하는 동안 상태 경고가 남아 있는 문제가 해결되었습니다.

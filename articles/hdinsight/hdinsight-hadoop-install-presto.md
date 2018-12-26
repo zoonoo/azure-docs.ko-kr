@@ -1,27 +1,26 @@
 ---
-title: Azure HDInsight Linux 클러스터에 Presto 설치 | Microsoft Docs
+title: Azure HDInsight Linux 클러스터에 Presto 설치
 description: 스크립트 작업을 사용하여 Linux 기반 HDInsight Hadoop 클러스터에 Presto 및 Airpal을 설치하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 32b7925b7414f00dfdd7d5c8a45b3601bf58942e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: ce1e82971f10541bf3a67d46b48c5fc93b5432b4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401817"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687081"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 Presto 설치 및 사용
 
 이 문서에서는 스크립트 작업을 사용하여 HDInsight Hadoop 클러스터에 Presto를 설치하는 방법에 대해 알아봅니다. 또한 기존 Presto HDInsight 클러스터에 Airpal을 설치하는 방법에 대해 알아봅니다.
+
+HDInsight는 또한 Apache Hadoop 클러스터에 대한 Starburst Presto 애플리케이션을 제공합니다. 자세한 내용은 [Azure HDInsight에 타사 애플리케이션 설치](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)를 참조하세요.
 
 > [!IMPORTANT]
 > 이 문서의 단계에는 Linux를 사용하는 **HDInsight 3.5 Hadoop 클러스터**가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 버전](hdinsight-component-versioning.md)을 참조하세요.
@@ -43,19 +42,19 @@ ms.locfileid: "31401817"
 
 1. [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-hadoop-create-linux-clusters-portal.md)의 단계를 사용하여 클러스터 프로비전을 시작합니다. **사용자 지정** 클러스터 만들기 흐름을 사용하여 클러스터를 만듭니다. 클러스터는 다음 요구 사항을 충족해야 합니다.
 
-    * HDInsight 버전 3.5를 사용하는 Hadoop 클러스터여야 합니다.
+    * HDInsight 버전 3.6을 사용하는 Hadoop 클러스터여야 합니다.
 
-    * 데이터 저장소로 Azure Storage를 사용해야 합니다. 저장소 옵션으로 Azure Data Lake Store를 사용하는 클러스터에서 Presto 사용은 아직 지원되지 않습니다. 
+    * 데이터 저장소로 Azure Storage를 사용해야 합니다. 스토리지 옵션으로 Azure Data Lake Store를 사용하는 클러스터에서 Presto 사용은 아직 옵션이 아닙니다.
 
     ![사용자 지정 옵션을 사용하여 HDInsight 클러스터 만들기](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
-2. **고급 설정** 영역에서 **스크립트 작업**을 선택하고 아래 정보를 제공합니다.
+2. **고급 설정** 영역에서 **스크립트 작업**을 선택하고 아래 정보를 제공합니다. 또한 스크립트 유형에 대한 "Presto 설치" 옵션을 선택할 수 있습니다.
    
    * **이름**: 스크립트 동작의 이름을 입력합니다.
    * **Bash 스크립트 URI**: `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
    * **HEAD**: 이 옵션 선택
    * **WORKER**: 이 옵션을 선택합니다.
-   * **ZOOKEEPER**: 이 확인란의 선택 취소
+   * **ZOOKEEPER**: 이 확인란은 공백으로 둡니다.
    * **PARAMETERS**: 이 필드는 공백으로 둡니다.
 
 
@@ -64,7 +63,7 @@ ms.locfileid: "31401817"
 4. [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-hadoop-create-linux-clusters-portal.md)에서 설명한 대로 클러스터를 계속 프로비전합니다.
 
     > [!NOTE]
-    > Azure PowerShell, Azure CLI, HDInsight .NET SDK 또는 Azure Resource Manager 템플릿을 스크립트 동작을 적용하는 데 사용할 수도 있습니다. 이미 실행 중인 클러스터에도 스크립트 동작을 적용할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+    > Azure PowerShell, Azure 클래식 CLI, HDInsight .NET SDK 또는 Azure Resource Manager 템플릿을 사용하여 스크립트 동작을 적용할 수도 있습니다. 이미 실행 중인 클러스터에도 스크립트 동작을 적용할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
     > 
     > 
 

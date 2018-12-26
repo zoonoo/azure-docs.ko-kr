@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5dc1a4bc1de3560338e1734e73ad04910535be5b
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 9602b8ff4d0df15b030626d5e2cfeca9bcc2bd5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751305"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284117"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure Automation에서 Runbook 출력 및 메시지
-대부분의 Azure Automation Runbook에는 사용자에게 표시되는 오류 메시지와 같은 일종의 출력 형식 또는 다른 워크플로에서 사용할 복합 개체가 있습니다. Windows PowerShell은 [여러 스트림](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure Automation은 이러한 스트림에서 각각 다르게 작동하고 runbook을 만들 경우 각각을 사용하는 방법은 모범 사례를 따라야 합니다.
+대부분의 Azure Automation Runbook에는 사용자에게 표시되는 오류 메시지와 같은 일종의 출력 형식 또는 다른 워크플로에서 사용할 복합 개체가 있습니다. Windows PowerShell은 [여러 스트림](https://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure Automation은 이러한 스트림에서 각각 다르게 작동하고 runbook을 만들 경우 각각을 사용하는 방법은 모범 사례를 따라야 합니다.
 
 다음 표에서는 게시된 Runbook을 실행할 경우와 [Runbook을 테스트](automation-testing-runbook.md)할 경우 모두에 Azure Portal의 각 스트림 및 해당 동작을 간략히 설명합니다. 각 스트림에 대한 자세한 내용은 후속 섹션에 제공됩니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "36751305"
 ## <a name="output-stream"></a>출력 스트림
 출력 스트림이 올바르게 실행되면 스크립트 또는 워크플로에 의해 생성된 개체의 출력을 위한 것입니다. Azure Automation에서 이 스트림은 주로 [현재 runbook을 호출하는 부모 runbook](automation-child-runbooks.md)에서 사용할 수 있도록 의도한 개체에 사용됩니다. 부모 runbook에서 [runbook 인라인을 호출](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution)하는 경우 출력 스트림에서 부모 runbook에 데이터를 반환합니다. Runbook이 다른 Runbook에서 호출되지 않는다는 사실을 알고 있는 경우 출력 스트림을 사용하여 다시 사용자에게 일반 정보를 전달해야 합니다. 그러나 모범 사례로 일반적으로 [자세한 정보 표시 스트림](#verbose-stream) 을 사용하여 사용자에게 일반 정보를 전달해야 합니다.
 
-[쓰기 출력](http://technet.microsoft.com/library/hh849921.aspx) 을 사용하거나 runbook에서 자체 줄에 개체를 배치하여 출력 스트림에 데이터를 쓸 수 있습니다.
+[쓰기 출력](https://technet.microsoft.com/library/hh849921.aspx) 을 사용하거나 runbook에서 자체 줄에 개체를 배치하여 출력 스트림에 데이터를 쓸 수 있습니다.
 
 ```PowerShell
 #The following lines both write an object to the output stream.
@@ -64,18 +64,22 @@ Workflow Test-Runbook
 
 Runbook 작업에 대한 출력 스트림은 다음과 같습니다.
 
-    Output inside of function
-    Output outside of function
+```output
+Output inside of function
+Output outside of function
+```
 
 Runbook 작업에 대한 자세한 정보 표시 스트림은 다음과 같습니다.
 
-    Verbose outside of function
-    Verbose inside of function
+```output
+Verbose outside of function
+Verbose inside of function
+```
 
 Runbook을 게시하고 시작하기 전에 자세한 정보 표시 스트림 출력을 얻기 위해 Runbook 설정에서 자세한 정보 표시 로깅을 켜야 합니다.
 
 ### <a name="declaring-output-data-type"></a>출력 데이터 형식 선언
-워크플로는 [OutputType 특성](http://technet.microsoft.com/library/hh847785.aspx)을 사용하여 해당 출력의 데이터 형식을 지정할 수 있습니다. 이 특성은 런타임 시 영향을 주지 않지만 runbook의 예상된 출력에서 디자인 타임에 runbook 작성자에게 표시를 제공합니다. Runbook용 도구 집합이 계속 진화하기 때문에 디자인 타임에 출력 데이터 형식을 선언하는 일이 더욱 중요해지고 있습니다. 결과적으로 만든 runbook에서 이 선언을 포함하는 것이 모범 사례입니다.
+워크플로는 [OutputType 특성](https://technet.microsoft.com/library/hh847785.aspx)을 사용하여 해당 출력의 데이터 형식을 지정할 수 있습니다. 이 특성은 런타임 시 영향을 주지 않지만 runbook의 예상된 출력에서 디자인 타임에 runbook 작성자에게 표시를 제공합니다. Runbook용 도구 집합이 계속 진화하기 때문에 디자인 타임에 출력 데이터 형식을 선언하는 일이 더욱 중요해지고 있습니다. 결과적으로 만든 runbook에서 이 선언을 포함하는 것이 모범 사례입니다.
 
 다음은 예제 출력 형식의 목록입니다.
 
@@ -120,7 +124,7 @@ Workflow Test-Runbook
 ### <a name="warning-and-error-streams"></a>경고 및 오류 스트림
 경고 및 오류 스트림은 Runbook에서 발생하는 문제를 로그하기 위한 것입니다. Runbook을 실행하는 경우 작업 기록에 기록되며 Runbook을 테스트할 경우 Azure Portal에서 테스트 출력 창에 포함됩니다. 기본적으로 runbook은 경고 또는 오류 이후에 계속 실행됩니다. 메시지를 만들기 전에 runbook의 [기본 설정 변수](#preference-variables) 를 설정하여 runbook이 경고 또는 오류로 일시 중단해야 할지를 지정할 수 있습니다. 예를 들어 runbook이 예외와 마찬가지로 오류로 인해 일시 중단이 발생하려면 **$ErrorActionPreference** 를 중지로 설정합니다.
 
-[Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) 또는 [Write-Error](http://technet.microsoft.com/library/hh849962.aspx) cmdlet를 사용하여 경고 또는 오류 메시지를 만듭니다. 또한 활동은 이러한 스트림에 쓸 수 있습니다.
+[Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) 또는 [Write-Error](https://technet.microsoft.com/library/hh849962.aspx) cmdlet를 사용하여 경고 또는 오류 메시지를 만듭니다. 또한 활동은 이러한 스트림에 쓸 수 있습니다.
 
 ```PowerShell
 #The following lines create a warning message and then an error message that will suspend the runbook.
@@ -131,11 +135,11 @@ Write-Error –Message "This is an error message that will stop the runbook beca
 ```
 
 ### <a name="verbose-stream"></a>자세한 정보 표시 스트림
-자세한 정보 표시 메시지 스트림은Runbook 작업에 대한 일반 정보입니다. [디버그 스트림](#Debug) 을 runbook에서 사용할 수 없기 때문에 디버그 정보에 자세한 정보 표시 메시지를 사용해야 합니다. 기본적으로 게시된 Runbook에서 자세한 정보 표시 메시지는 작업 기록에 저장되지 않습니다. 자세한 정보 표시 메시지를 저장하기 위해 Azure Portal에 있는 Runbook의 구성 탭에서 게시된 Runbook을 상세 레코드 기록으로 구성합니다. 대부분의 경우 성능상의 이유로 runbook에 대한 자세한 정보 표시 레코드를 기록하지 않는 기본 설정을 유지해야 합니다. 옵션을 켜서 문제를 해결하거나 runbook 디버그합니다.
+자세한 정보 표시 메시지 스트림은Runbook 작업에 대한 일반 정보입니다. [디버그 스트림](#debug-stream) 을 runbook에서 사용할 수 없기 때문에 디버그 정보에 자세한 정보 표시 메시지를 사용해야 합니다. 기본적으로 게시된 Runbook에서 자세한 정보 표시 메시지는 작업 기록에 저장되지 않습니다. 자세한 정보 표시 메시지를 저장하기 위해 Azure Portal에 있는 Runbook의 구성 탭에서 게시된 Runbook을 상세 레코드 기록으로 구성합니다. 대부분의 경우 성능상의 이유로 runbook에 대한 자세한 정보 표시 레코드를 기록하지 않는 기본 설정을 유지해야 합니다. 옵션을 켜서 문제를 해결하거나 runbook 디버그합니다.
 
 [runbook을 테스트](automation-testing-runbook.md)할 경우 runbook이 자세한 정보 표시 레코드를 기록하도록 구성되면 자세한 정보 표시 메시지는 표시되지 않습니다. [runbook을 테스트](automation-testing-runbook.md)하는 동안 자세한 정보 표시 메시지를 표시하려면 $VerbosePreference 변수를 계속으로 설정해야 합니다. 해당 변수를 설정하면, 자세한 정보 표시 메시지가 Azure Portal의 테스트 출력 창에 표시됩니다.
 
-[Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) cmdlet를 사용하여 자세한 정보 표시 메시지를 만듭니다.
+[Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) cmdlet를 사용하여 자세한 정보 표시 메시지를 만듭니다.
 
 ```PowerShell
 #The following line creates a verbose message.
@@ -149,10 +153,10 @@ Write-Verbose –Message "This is a verbose message."
 ## <a name="progress-records"></a>진행률 레코드
 Runbook을 구성하여(Azure 포털의 runbook 구성 탭에서) 진행률 레코드를 기록하는 경우 각 작업을 실행하는 전과 후에 작업 기록에 레코드를 기록합니다. 대부분의 경우 성능을 최대화하기 위해 runbook에 대한 진행률 레코드를 기록하지 않는 기본 설정을 유지해야 합니다. 옵션을 켜서 문제를 해결하거나 runbook 디버그합니다. runbook을 테스트할 경우 runbook이 진행률 레코드를 기록하도록 구성되면 진행률 메시지는 표시되지 않습니다.
 
-[Write-progress](http://technet.microsoft.com/library/hh849902.aspx) cmdlet은 대화형 사용자로 사용하기 위한 것이기 때문에 runbook에 유효하지 않습니다.
+[Write-progress](https://technet.microsoft.com/library/hh849902.aspx) cmdlet은 대화형 사용자로 사용하기 위한 것이기 때문에 runbook에 유효하지 않습니다.
 
 ## <a name="preference-variables"></a>기본 설정 변수
-Windows PowerShell은 [기본 설정 변수](http://technet.microsoft.com/library/hh847796.aspx) 를 사용하여 다른 출력 스트림에 전송된 데이터에 대응하는 방법을 결정합니다. Runbook에서 이러한 변수를 설정하여 다른 스트림으로 전송된 데이터에 응답하는 방식을 제어할 수 있습니다.
+Windows PowerShell은 [기본 설정 변수](https://technet.microsoft.com/library/hh847796.aspx) 를 사용하여 다른 출력 스트림에 전송된 데이터에 대응하는 방법을 결정합니다. Runbook에서 이러한 변수를 설정하여 다른 스트림으로 전송된 데이터에 응답하는 방식을 제어할 수 있습니다.
 
 다음 테이블은 유효 및 기본값으로 runbook에서 사용할 수 있는 기본 설정 변수를 나열 합니다. 이 테이블은 runbook에서 유효한 값만을 포함합니다. 추가 값은 Azure Automation 외부의 Windows PowerShell에서 사용되는 경우 기본 설정 변수로 유효합니다.
 
@@ -175,7 +179,7 @@ Windows PowerShell은 [기본 설정 변수](http://technet.microsoft.com/librar
 Runbook의 작업 탭의 Azure 포털에서 Runbook 작업의 세부 정보를 볼 수 있습니다. 작업 요약에는 작업 및 발생하는 모든 예외에 대한 일반 정보 외에도 입력 매개 변수 및 [출력 스트림](#output-stream)이 표시합니다. 세부 정보 표시 및 진행률 레코드를 기록하도록 Runbook을 구성하면 [자세한 정보 표시 스트림](#verbose-stream) 및 [진행률 레코드](#progress-records) 외에도 [출력 스트림](#output-stream) 및 [경고 및 오류 스트림](#warning-and-error-streams)의 메시지가 기록에 포함됩니다.
 
 ### <a name="windows-powershell"></a>Windows PowerShell
-Windows PowerShell에서 [Get AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) cmdlet을 사용하여 runbook에서 출력 및 메시지를 검색할 수 있습니다. cmdlet은 작업의 ID를 필요로 하고 반환하는 스트림을 지정하는 스트림을 호출한 매개 변수가 있습니다. **Any**를 지정하여 작업에 모든 스트림을 반환할 수 있습니다.
+Windows PowerShell에서 [Get AzureAutomationJobOutput](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjoboutput) cmdlet을 사용하여 runbook에서 출력 및 메시지를 검색할 수 있습니다. cmdlet은 작업의 ID를 필요로 하고 반환하는 스트림을 지정하는 스트림을 호출한 매개 변수가 있습니다. **Any**를 지정하여 작업에 모든 스트림을 반환할 수 있습니다.
 
 다음 예제는 샘플 runbook를 시작한 다음 완료되기를 기다립니다. 완료되면 해당 출력 스트림을 작업에서 수집합니다.
 

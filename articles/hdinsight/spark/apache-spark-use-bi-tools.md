@@ -1,29 +1,24 @@
 ---
-title: '자습서: Azure HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석 | Microsoft Docs'
-description: Microsoft Power BI를 사용하여 Spark 데이터 저장 HDInsight 클러스터 시각화
+title: '자습서: Azure HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석 '
+description: Microsoft Power BI를 사용하여 Apache Spark 데이터 저장 HDInsight 클러스터 시각화
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: jgao
-ms.openlocfilehash: ece0132573f25f4d288309d2e7bb6710f8fd9519
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e862000df1edc5101c0768f1f96c11953f1485c7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771170"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583281"
 ---
-# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Spark 데이터 분석 
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석 
 
-Microsoft Power BI를 사용하여 Azure HDInsight의 Apache Spark 클러스터에서 데이터를 시각화하는 방법을 알아봅니다.
+[Microsoft Power BI](https://powerbi.microsoft.com/)를 사용하여 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)의 [Apache Spark](https://spark.apache.org/) 클러스터에서 데이터를 시각화하는 방법을 알아봅니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -39,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="verify-the-data"></a>데이터 확인
 
-[이전 자습서](apache-spark-load-data-run-query.md)에서 만든 Jupyter 노트북은 `hvac` 테이블을 만드는 코드를 포함합니다. 이 테이블은 **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv** 모든 HDInsight Spark 클러스터에서 사용 가능한 CSV 파일을 기반으로 합니다. 데이터를 확인하려면 다음 절차를 따릅니다.
+[이전 자습서](apache-spark-load-data-run-query.md)에서 만든 [Jupyter Notebook](https://jupyter.org/)은 `hvac` 테이블을 만드는 코드를 포함합니다. 이 테이블은 **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv** 모든 HDInsight Spark 클러스터에서 사용 가능한 CSV 파일을 기반으로 합니다. 데이터를 확인하려면 다음 절차를 따릅니다.
 
 1. Jupyter 노트북에서 다음 코드를 붙여넣은 다음 **Shift + Enter**를 누릅니다. 코드가 테이블의 존재 여부를 확인합니다.
 
@@ -83,13 +78,13 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
     ![HDInsight Apache Spark에서 Power BI Desktop으로 데이터 가져오기](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Apache Spark BI에서 Power BI로 데이터 가져오기")
 
 
-2. 검색 상자에 `Spark`를 입력하고 **Azure HDInsight Spark(베타)** 를 선택한 후 **연결**을 클릭합니다.
+2. 검색 상자에 `Spark`를 입력하고 **Azure HDInsight Spark**를 선택한 후 **연결**을 클릭합니다.
 
     ![Apache Spark BI에서 Power BI로 데이터 가져오기](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Apache Spark BI에서 Power BI로 데이터 가져오기")
 
 3. 클러스터 URL을 입력하고(`mysparkcluster.azurehdinsight.net` 양식으로), **DirectQuery**를 선택한 다음 **확인**을 클릭합니다.
 
-    Spark와 함께 데이터 연결 모드 중 하나를 사용할 수 있습니다. DirectQuery를 사용하는 경우 변경 내용은 전체 데이터 집합을 새로 고치지 않고 보고서에 반영됩니다. 데이터를 가져오는 경우 변경 내용을 보려면 데이터 집합을 새로 고쳐야 합니다. DirectQuery를 사용하는 방법 및 경우에 대한 자세한 내용은 [Power BI에서 DirectQuery 사용](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/)을 참조하세요. 
+    Spark와 함께 데이터 연결 모드 중 하나를 사용할 수 있습니다. DirectQuery를 사용하는 경우 변경 내용은 전체 데이터 세트를 새로 고치지 않고 보고서에 반영됩니다. 데이터를 가져오는 경우 변경 내용을 보려면 데이터 집합을 새로 고쳐야 합니다. DirectQuery를 사용하는 방법 및 경우에 대한 자세한 내용은 [Power BI에서 DirectQuery 사용](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/)을 참조하세요. 
 
 4. HDInsight 로그인 계정 정보를 입력한 다음 **연결**을 클릭합니다. 기본 계정 이름은 *admin*입니다.
 
@@ -124,14 +119,14 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 
 ### <a name="publish-the-report-to-the-power-bi-service-optional"></a>Power BI 서비스에 보고서 게시(선택 사항)
 
-Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보드를 공유할 수 있습니다. 이 섹션에서는 먼저 데이터 집합과 보고서를 게시합니다. 그런 다음 보고서를 대시보드에 고정합니다. 대시보드는 보고서에 있는 데이터 하위 집합에 집중하는 데 일반적으로 사용되며 보고서에 하나의 시각화만이 있지만 단계를 수행하는 데 여전히 유용합니다.
+Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보드를 공유할 수 있습니다. 이 섹션에서는 먼저 데이터 세트와 보고서를 게시합니다. 그런 다음 보고서를 대시보드에 고정합니다. 대시보드는 보고서에 있는 데이터 하위 집합에 집중하는 데 일반적으로 사용되며 보고서에 하나의 시각화만이 있지만 단계를 수행하는 데 여전히 유용합니다.
 
 1. Power BI Desktop을 엽니다.
 2. **홈** 탭에서 **게시**를 클릭합니다.
 
     ![Power BI Desktop에서 게시](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Power BI Desktop에서 게시")
 
-2. 데이터 집합 및 보고서를 게시하려는 작업 영역을 선택한 다음 **선택**을 클릭합니다. 다음 이미지에서 기본 **내 작업 영역**이 선택됩니다.
+2. 데이터 세트 및 보고서를 게시하려는 작업 영역을 선택한 다음, **선택**을 클릭합니다. 다음 이미지에서 기본 **내 작업 영역**이 선택됩니다.
 
     ![데이터 집합 및 보고서를 게시하려는 작업 영역 선택](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "데이터 집합 및 보고서를 게시하려는 작업 영역 선택") 
 
@@ -155,7 +150,7 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
     ![왼쪽 창의 보고서 아래에 나열된 보고서](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "왼쪽 창의 보고서 아래에 나열된 보고서")
 
-    왼쪽 창의 **데이터 집합** 아래에 나열된 **BuildingTemperature**도 표시됩니다.
+    왼쪽 창의 **데이터 세트** 아래에 나열된 **BuildingTemperature**도 표시됩니다.
 
     이제 Power BI Desktop에서 만든 시각적 개체를 Power BI 서비스에서 사용할 수 있습니다. 
 
@@ -181,14 +176,14 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
 1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
-2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](http://go.microsoft.com/fwlink/?LinkId=616229).
+2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](https://go.microsoft.com/fwlink/?LinkId=616229).
 
 1. Launch Tableau Desktop. In the left pane, from the list of server to connect to, click **Spark SQL**. If Spark SQL is not listed by default in the left pane, you can find it by click **More Servers**.
 2. In the Spark SQL connection dialog box, provide the values as shown in the screenshot, and then click **OK**.
 
     ![Connect to a cluster for Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Connect to a cluster for Apache Spark BI")
 
-    The authentication drop-down lists **Microsoft Azure HDInsight Service** as an option, only if you installed the [Microsoft Spark ODBC Driver](http://go.microsoft.com/fwlink/?LinkId=616229) on the computer.
+    The authentication drop-down lists **Microsoft Azure HDInsight Service** as an option, only if you installed the [Microsoft Spark ODBC Driver](https://go.microsoft.com/fwlink/?LinkId=616229) on the computer.
 3. On the next screen, from the **Schema** drop-down, click the **Find** icon, and then click **default**.
 
     ![Find schema for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "Find schema for Apache Spark BI")
@@ -219,9 +214,9 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
-- Power BI를 사용하여 Spark 데이터 시각화
+- Power BI를 사용하여 Apache Spark 데이터 시각화.
 
 다음 문서로 진행하여 Spark에 등록된 데이터를 Power BI와 같은 BI 분석 도구로 가져오는 방법을 확인하세요. 
 > [!div class="nextstepaction"]
-> [Spark 스트리밍 작업 실행](apache-spark-eventhub-streaming.md)
+> [Apache Spark 스트리밍 작업 실행](apache-spark-eventhub-streaming.md)
 

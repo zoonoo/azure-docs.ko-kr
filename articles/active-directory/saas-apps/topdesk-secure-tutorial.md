@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 132803377554ecb4494d8b4ca6db7aa2f5f3aff1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8529dfda5ee4a7fc3360f91163b7f5f5bbf6c6ff
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225231"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42140306"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>자습서: TOPdesk - Secure와 Azure Active Directory 통합
 
@@ -50,12 +50,14 @@ TOPdesk - Secure와 Azure AD 통합을 구성하려면 다음 항목이 필요�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
+
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 TOPdesk - Secure 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-topdesk---secure-from-the-gallery"></a>갤러리에서 TOPdesk - Secure 추가
+
 TOPdesk - Secure가 Azure AD에 통합되도록 구성하려면 갤러리의 TOPdesk - Secure를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 TOPdesk - Secure를 추가하려면 다음 단계를 수행합니다.**
@@ -67,7 +69,7 @@ TOPdesk - Secure가 Azure AD에 통합되도록 구성하려면 갤러리의 TOP
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
-    
+
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
@@ -103,7 +105,7 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     ![Single Sign-On 구성 링크][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Single Sign-On 대화 상자](./media/topdesk-secure-tutorial/tutorial_topdesk-secure_samlbase.png)
 
 3. **TOPdesk - Secure 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
@@ -112,11 +114,11 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<companyname>.topdesk.net`
 
-    나. **식별자** 텍스트 상자에서 `https://<companyname>.topdesk.net/tas/secure/login/verify` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<companyname>.topdesk.net/tas/secure/login/verify` 패턴을 사용하여 URL을 입력합니다.
 
     다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<companyname>.topdesk.net/tas/public/login/saml`
 
-    > [!NOTE] 
+    > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 회신 URL은 자습서의 뒷부분에서 설명합니다. 이러한 값을 얻으려면 [TOPdesk - Secure 클라이언트 지원 팀](http://www.topdesk.com/us/support)에 문의하세요. 
 
 4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
@@ -130,7 +132,7 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 6. **TOPdesk - Secure 구성** 섹션에서 **TOPdesk - Secure 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![TOPdesk - Secure 구성](./media/topdesk-secure-tutorial/tutorial_topdesk-secure_configure.png)
-    
+
 7. **TOPdesk - Secure** 회사 사이트에 관리자 권한으로 로그온합니다.
 
 8. **TOPdesk** 메뉴에서 **설정**을 클릭합니다.
@@ -148,50 +150,48 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 11. **SAML 로그인** 구성 섹션의 **보안** 섹션에서 다음 단계를 수행합니다.
 
     ![기술 설정](./media/topdesk-secure-tutorial/ic790855.png "기술 설정")
-   
+
     a. **다운로드** 를 클릭하여 공용 메타데이터 파일을 다운로드한 다음 컴퓨터에 로컬 저장합니다.
-   
-    나. 메타데이터 파일을 열고 **AssertionConsumerService** 노드를 찾습니다.
-    
+
+    b. 메타데이터 파일을 열고 **AssertionConsumerService** 노드를 찾습니다.
+
     ![Assertion Consumer Service](./media/topdesk-secure-tutorial/ic790856.png "Assertion Consumer Service")
-   
+
     다. **AssertionConsumerService** 값을 복사하고 이 값을 **TOPdesk - Secure 도메인 및 URL** 섹션의 회신 URL 텍스트 상자에 붙여넣습니다.
 
 12. 인증서 파일을 만들려면 다음 단계를 수행하십시오.
-    
+
     ![인증서](./media/topdesk-secure-tutorial/ic790606.png "인증서")
-    
+
     a. Azure Portal에서 다운로드한 메타데이터 파일을 엽니다.
 
-    나. **fed:ApplicationServiceType**의 **xsi:type**을 가진 **RoleDescriptor** 노드를 확장합니다.
+    b. **fed:ApplicationServiceType**의 **xsi:type**을 가진 **RoleDescriptor** 노드를 확장합니다.
 
     다. **X509Certificate** 노드의 값을 복사합니다.
 
     d. 복사한 **X509Certificate** 값을 컴퓨터에 파일로 로컬 저장합니다.
 
 13. **공용** 섹션에서 **추가**를 클릭합니다.
-    
+
     ![추가](./media/topdesk-secure-tutorial/ic790607.png "추가")
 
 14. **SAML 구성 도우미** 대화 상자 페이지에서 다음 단계를 수행합니다.
-    
+
     ![SAML 구성 도우미](./media/topdesk-secure-tutorial/ic790608.png "SAML 구성 도우미")
-    
+
     a. Azure Portal에서 다운로드한 메타데이터 파일을 업로드하려면 **페더레이션 메타데이터**에서 **찾아보기**를 클릭합니다.
 
-    나. 인증서 파일을 업로드하려면 **인증서(RSA)** 에서 **찾아보기**를 클릭합니다.
+    b. 인증서 파일을 업로드하려면 **인증서(RSA)** 에서 **찾아보기**를 클릭합니다.
 
-    다. TOPdesk 지원팀에서 받은 로고 파일을 업로드하려면 **로고 아이콘**에서 **찾아보기**를 클릭합니다.
+    다. **개인 키(RSA, PKCS8, DER)** 의 경우 사용자 고유의 개인 키를 업로드하거나 [TOPdesk- 보안 클라이언트 지원 팀](http://www.topdesk.com/us/support)에 문의하여 개인 키를 받을 수 있습니다.
 
-    d. **사용자 이름 특성** 텍스트 상자에서 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
+    d. TOPdesk 지원팀에서 받은 로고 파일을 업로드하려면 **로고 아이콘**에서 **찾아보기**를 클릭합니다.
 
-    e. **이름 표시** 텍스트 상자에 구성할 이름을 입력합니다.
+    e. **사용자 이름 특성** 텍스트 상자에서 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
 
-    f. **저장**을 클릭합니다.
+    f. **이름 표시** 텍스트 상자에 구성할 이름을 입력합니다.
 
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
+    g. **저장**을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -224,30 +224,32 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
- 
+
 ### <a name="create-a-topdesk---secure-test-user"></a>TOPdesk - Secure 테스트 사용자 만들기
 
 Azure AD 사용자가 TOPdesk - Secure에 로그인 할 수 있도록 하려면 TOPdesk - Secure으로 프로비전되어야 합니다.  
 TOPdesk - Secure의 경우 프로비전은 수동 작업입니다.
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>사용자 프로비전을 구성하려면
+
 1. **TOPdesk - Secure** 회사 사이트에 관리자 권한으로 로그온합니다.
+
 2. 위쪽 메뉴에서 **TOPdesk \> 새로 만들기 \> 지원 파일 \> 연산자** 순으로 클릭합니다.
-   
+
     ![연산자](./media/topdesk-secure-tutorial/ic790610.png "연산자")
 
 3. **새로운 연산자** 대화 상자 페이지에서 다음 단계를 수행합니다.
-   
+
     ![새로운 연산자](./media/topdesk-secure-tutorial/ic790611.png "새로운 연산자")
-   
+
     a. **일반** 탭을 클릭합니다.
-   
-    나. **성** 텍스트 상자에서 사용자의 성을 입력합니다(예: **Simon**).
-   
+
+    b. **성** 텍스트 상자에서 사용자의 성을 입력합니다(예: **Simon**).
+
     다. **위치** 섹션에서 계정에 대한 **사이트**를 선택합니다.
-   
+
     d. **TOPdesk 로그인** 섹션의 **로그인 이름** 텍스트 상자에서 사용자의 로그인 이름을 입력합니다.
-   
+
     e. **저장**을 클릭합니다.
 
 > [!NOTE]
@@ -263,7 +265,7 @@ TOPdesk - Secure의 경우 프로비전은 수동 작업입니다.
 
 1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
 
-    ![사용자 할당][201] 
+    ![사용자 할당][201]
 
 2. 응용 프로그램 목록에서 **TOPdesk-Secure**를 선택합니다.
 
@@ -282,13 +284,13 @@ TOPdesk - Secure의 경우 프로비전은 수동 작업입니다.
 6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-    
+
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 TOPdesk - Secure 타일을 클릭하면 TOPdesk - Secure 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
@@ -308,4 +310,3 @@ TOPdesk - Secure의 경우 프로비전은 수동 작업입니다.
 [201]: ./media/topdesk-secure-tutorial/tutorial_general_201.png
 [202]: ./media/topdesk-secure-tutorial/tutorial_general_202.png
 [203]: ./media/topdesk-secure-tutorial/tutorial_general_203.png
-

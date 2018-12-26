@@ -1,39 +1,39 @@
 ---
-title: Azure Cost Management를 위한 저장소 계정 구성 | Microsoft Docs
-description: 이 문서에서는 Azure Cost Management를 위한 Azure Storage 계정 및 AWS 저장소 버킷 구성 방법을 설명합니다.
+title: Azure에서 Cloudyn을 위한 저장소 계정 구성 | Microsoft Docs
+description: 이 문서에서는 Cloudyn을 위한 Azure Storage 계정 및 AWS 저장소 버킷 구성 방법을 설명합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: e37604e5cd36cfed016ef596060459011ec32d35
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 398472df7caf0f702f43bc9d025d1e6ad7dcdd7e
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297838"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275082"
 ---
-# <a name="configure-storage-accounts-for-cost-management"></a>Cost Management를 위해 저장소 계정 구성
+# <a name="configure-storage-accounts-for-cloudyn"></a>Cloudyn을 위한 저장소 계정 구성
 
-<!--- intent: As a Cost Management user, I want to configure Cost Management to use my cloud service provider storage account to store my reports. -->
+<!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
-Cost Management 보고서를 Cloudyn 포털, Azure Storage 또는 AWS 저장소 버킷에 저장할 수 있습니다. Cloudyn 포털에 보고서를 저장하는 것은 무료입니다. 그러나 클라우드 서비스 공급자의 저장소에 보고서를 저장하는 것은 선택 사항이며 추가 비용이 발생합니다. 이 문서는 보고서를 저장하도록 Azure Storage 계정 및 AWS(Amazon Web Services) 저장소 버킷을 구성하는 데 도움을 줍니다.
+Cloudyn 보고서를 Cloudyn 포털, Azure Storage 또는 AWS 저장소 버킷에 저장할 수 있습니다. Cloudyn 포털에 보고서를 저장하는 것은 무료입니다. 그러나 클라우드 서비스 공급자의 저장소에 보고서를 저장하는 것은 선택 사항이며 추가 비용이 발생합니다. 이 문서는 보고서를 저장하도록 Azure Storage 계정 및 AWS(Amazon Web Services) 저장소 버킷을 구성하는 데 도움을 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 Azure Storage 계정 또는 Amazon 저장소 버킷이 있어야 합니다.
 
-Azure Storage 계정이 없는 경우 만들어야 합니다. Azure Storage 계정 생성에 대한 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
+Azure Storage 계정이 없는 경우 만들어야 합니다. Azure Storage 계정 생성에 대한 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 
 AWS 단순 저장소 서비스(S3) 버킷이 없는 경우 만들어야 합니다. S3 버킷 생성에 대한 자세한 내용은 [버킷 만들기](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)를 참조하세요.
 
 ## <a name="configure-your-azure-storage-account"></a>Azure Storage 계정 구성
 
-Cost Management에 사용할 Azure Storage를 구성하는 과정은 간단합니다. 저장소 계정에 대한 세부 정보를 수집하고 Cloudyn 포털에 복사합니다.
+Cloudyn에 사용할 Azure Storage를 구성하는 과정은 간단합니다. 저장소 계정에 대한 세부 정보를 수집하고 Cloudyn 포털에 복사합니다.
 
 1. http://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. **모든 서비스**를 선택하고 **저장소 계정**을 선택한 후 사용하려는 저장소 계정으로 스크롤한 다음, 해당 계정을 선택합니다.
@@ -163,4 +163,4 @@ Cloudyn 역할 또는 사용자에게 버킷에 대한 PutObject 권한을 제�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Cost Management 보고서 이해](understanding-cost-reports.md)를 검토하여 Cost Management 보고서의 기본 구조 및 기능에 대해 알아보세요.
+- [Cloudyn 보고서 이해](understanding-cost-reports.md)를 검토하여 Cloudyn 보고서의 기본 구조 및 기능에 대해 알아보세요.

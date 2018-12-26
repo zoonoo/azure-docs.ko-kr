@@ -12,23 +12,23 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c62869d1ec0dca1859972e817fe1e5e2c1f4c1eb
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d5216a4a21fbbded4a10429c658f4842db225657
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797865"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161721"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -53,6 +53,44 @@ ms.locfileid: "34797865"
 
 Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md)의 최신 버전에 대응하는 기능이 있습니다.
 
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
+
+* System.Net.Security가 4.3.2로 업데이트되었습니다.
+
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+
+* 진단 추적이 향상되었습니다.
+
+### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
+
+* 다중 지역 요청 일시적인 오류에 대한 복원력이 강화되었습니다.
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+
+* 다중 지역 쓰기 지원이 추가되었습니다.
+* TOP 및 MaxBufferedItemCount를 사용하여 파티션 간 쿼리 성능 향상 기능입니다.
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+
+* 요청 취소 지원이 추가되었습니다.
+* 지역에 따라 기본 설정 위치를 자동으로 채우는 SetCurrentLocation이 ConnectionPolicy에 추가되었습니다.
+* 개별 파티션의 문서를 일치시키지 않는 필터 및 Min/Max를 사용한 파티션 간 쿼리의 버그가 수정되었습니다.
+* 이제 DocumentClient 메서드에는 IDocumentClient를 포함하는 패리티가 있습니다.
+* 설정된 연결 수를 줄이도록 직접 TCP 전송 스택이 업데이트되었습니다.
+* 비 Windows 클라이언트에 대한 직접 모드 TCP에 대한 지원이 추가되었습니다.
+
+### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
+
+* 요청 취소 지원이 추가되었습니다.
+* 지역에 따라 기본 설정 위치를 자동으로 채우는 SetCurrentLocation이 ConnectionPolicy에 추가되었습니다.
+* 개별 파티션의 문서를 일치시키지 않는 필터 및 Min/Max를 사용한 파티션 간 쿼리의 버그가 수정되었습니다.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
+
+* 이제 DocumentClient 메서드에는 IDocumentClient를 포함하는 패리티가 있습니다.
+* 설정된 연결 수를 줄이도록 직접 TCP 전송 스택이 업데이트되었습니다.
+* 비 Windows 클라이언트에 대한 직접 모드 TCP에 대한 지원이 추가되었습니다.
+
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 
 * FeedOptions에 ConsistencyLevel 속성이 추가되었습니다.
@@ -66,7 +104,7 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotne
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
-* 세션 일관성 수준을 사용하는 경우 일시적 “Microsoft.Azure.Documents.NotFoundException: 읽기 세션을 입력 세션 토큰에 사용할 수 없습니다” 오류로 이어지는 특정 경합 조건에 도달하는 버그가 수정되었습니다.
+* 세션 일관성 수준을 사용하는 경우 일시적인 "Microsoft.Azure.Documents.NotFoundException: 읽기 세션을 입력 세션 토큰에 사용할 수 없습니다." 오류가 발생하는 특정 경합 조건에 도달하는 버그가 수정되었습니다.
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
@@ -151,12 +189,12 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotne
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
-* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](sql-api-sql-query.md#Aggregates)을 참조하세요.
+* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](how-to-sql-query.md#Aggregates)을 참조하세요.
 * 분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
-Azure Cosmos DB .NET Core SDK를 사용하면 Windows, Mac 및 Linux에서 실행하는 빠른 플랫폼 간 [ASP.NET Core](https://www.asp.net/core) 및 [.NET Core](https://www.microsoft.com/net/core#windows) 앱을 빌드할 수 있습니다. Azure Cosmos DB .NET Core SDK 최신 릴리스는 [Xamarin](https://www.xamarin.com)과 완벽하게 호환되며 iOS, Android 및 Mono(Linux)를 대상으로 하는 응용 프로그램을 빌드하는 데 사용됩니다.  
+Azure Cosmos DB .NET Core SDK를 사용하면 Windows, Mac 및 Linux에서 실행하는 빠른 플랫폼 간 [ASP.NET Core](https://www.asp.net/core) 및 [.NET Core](https://www.microsoft.com/net/core#windows) 앱을 빌드할 수 있습니다. Azure Cosmos DB .NET Core SDK 최신 릴리스는 [Xamarin](https://www.xamarin.com)과 완벽하게 호환되며 iOS, Android 및 Mono(Linux)를 대상으로 하는 응용 프로그램을 빌드하는 데 사용됩니다.  
 
 ### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 
@@ -174,6 +212,11 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](sql-api-s
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |2018년 10월 15일 |--- |
+| [2.1.2](#2.1.2) |2018년 10월 4일 |--- |
+| [2.1.1](#2.1.1) |2018년 9월 27일 |--- |
+| [2.1.0](#2.1.0) |2018년 9월 21일 |--- |
+| [2.0.0](#2.0.0) |2018년 9월 7일 |--- |
 | [1.9.1](#1.9.1) |2018년 3월 9일 |--- |
 | [1.8.2](#1.8.2) |2018년 2월 21일 |--- |
 | [1.8.1](#1.8.1) |2018년 2월 5일 |--- |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e6f722afead39c8a0ba940d9e2cb54d1f197d143
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6cfa3e0cb23f13b50c0fb7cd4f07a8d53c0f3186
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442283"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340769"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: 인증 프로토콜
 Azure AD B2C(Azure Active Directory B2C)는 두 개의 업계 표준 프로토콜인 OpenID Connect 및 OAuth 2.0을 지원하여 앱에 대한 Identity-as-a-Service를 제공합니다. 서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현에는 약간의 차이가 있을 수 있습니다. 
@@ -31,18 +31,18 @@ Azure AD B2C를 사용하는 모든 앱은 [Azure 포털](https://portal.azure.c
 * 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI** 또는 **패키지 식별자**.
 * 다른 몇 가지 시나리오 관련 값. 자세한 내용은 [응용 프로그램을 등록하는 방법](active-directory-b2c-app-registration.md)을 참조하세요.
 
-앱을 등록하면 앱이 끝점에 요청을 전송하여 Azure AD(Azure Active Directory)와 통신합니다.
+앱을 등록하면 앱이 엔드포인트에 요청을 전송하여 Azure AD(Azure Active Directory)와 통신합니다.
 
 ```
-https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
-https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize
+https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 ```
 
 거의 모든 OAuth 및 OpenID Connect 흐름에서 다음과 같이 네 주체가 교환에 포함됩니다.
 
 ![OAuth 2.0 역할](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
-* **권한 부여 서버**는 Azure AD 끝점입니다. 사용자 정보 및 액세스와 관련된 모든 것을 안전하게 처리합니다. 또한 흐름에서 당사자 간의 트러스트 관계를 처리합니다. 사용자 ID를 확인하고 리소스에 대한 액세스 권한을 부여 및 해지하고, 토큰을 발급합니다. ID 공급자라고도 합니다.
+* **권한 부여 서버**는 Azure AD 엔드포인트입니다. 사용자 정보 및 액세스와 관련된 모든 것을 안전하게 처리합니다. 또한 흐름에서 당사자 간의 트러스트 관계를 처리합니다. 사용자 ID를 확인하고 리소스에 대한 액세스 권한을 부여 및 해지하고, 토큰을 발급합니다. ID 공급자라고도 합니다.
 
 * **리소스 소유자** 는 일반적으로 최종 사용자입니다. 데이터를 소유하는 당사자이며 제3자가 해당 데이터 또는 리소스에 액세스하도록 허용할 권한이 있습니다.
 

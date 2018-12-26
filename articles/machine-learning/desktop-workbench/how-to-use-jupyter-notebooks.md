@@ -7,23 +7,27 @@ ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 07076a1d551d4dfb513deabaedb650a3262bbeab
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c59969d5a56bd2eb4eb8c490d4f1b5af20d7f056
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830992"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998698"
 ---
 # <a name="use-jupyter-notebooks-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench에서 Jupyter Notebook 사용
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 Azure Machine Learning Workbench는 Jupyter Notebook과의 통합을 통해 대화형 데이터 과학 실험을 지원합니다. 이 문서에서는 이 기능을 효과적으로 사용하여 대화형 데이터 과학 실험의 속도와 품질을 높이는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-- [Azure Machine Learning 계정을 만들고 Azure Machine Learning Workbench를 설치합니다](../service/quickstart-installation.md).
+- [Azure Machine Learning 계정을 만들고 Azure Machine Learning Workbench를 설치합니다](quickstart-installation.md).
 - [Jupyter Notebook](http://jupyter.org/)에 익숙해집니다. 이 문서는 Jupyter 사용 방법에 대한 설명을 다루진 않습니다.
 
 ## <a name="jupyter-notebook-architecture"></a>Jupyter Notebook 아키텍처
@@ -110,7 +114,7 @@ Copy and paste this URL into your browser when you connect for the first time, t
 
 ## <a name="use-magic-commands-to-manage-experiments"></a>매직 명령을 사용하여 실험 관리
 
-노트북 셀에서 [매직 명령](http://ipython.readthedocs.io/en/stable/interactive/magics.html)을 사용하여 실행 기록을 추적하고 모델 또는 데이터 집합과 같은 출력을 저장할 수 있습니다.
+노트북 셀에서 [매직 명령](http://ipython.readthedocs.io/en/stable/interactive/magics.html)을 사용하여 실행 기록을 추적하고 모델 또는 데이터 세트와 같은 출력을 저장할 수 있습니다.
 
 개별 노트북 셀 실행을 추적하려면 `%azureml history on` 매직 명령을 사용합니다. 기록을 켜면 각 셀 실행이 실행 기록의 항목으로 표시됩니다.
 

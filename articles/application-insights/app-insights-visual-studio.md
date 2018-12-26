@@ -1,23 +1,26 @@
 ---
-title: "Visual Studio에서 Azure Application Insights로 응용 프로그램 디버그 | Microsoft Docs"
-description: "디버깅 및 프로덕션 중에 웹앱 성능 분석 및 진단입니다."
+title: Visual Studio에서 Azure Application Insights로 응용 프로그램 디버그 | Microsoft Docs
+description: 디버깅 및 프로덕션 중에 웹앱 성능 분석 및 진단입니다.
 services: application-insights
 documentationcenter: .net
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.assetid: 2059802b-1131-477e-a7b4-5f70fb53f974
 ms.service: application-insights
-ms.workload: tbd
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: mbullwin
-ms.openlocfilehash: 656c62e7227eef967696715f0882114631249c6c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
+ms.openlocfilehash: 2d035883534430e76d251b22dfc95d34e4eb03cd
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723570"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Visual Studio에서 Azure Application Insights로 응용 프로그램 디버그
 Visual Studio(2015 이상)에서 [Azure Application Insights](app-insights-overview.md)의 원격 분석을 사용하여 디버깅 및 프로덕션의 성능을 분석하고 ASP.NET 웹앱의 문제를 진단할 수 있습니다.
@@ -77,7 +80,7 @@ Search 창에서 예외 보고서가 표시됩니다. (일부 ASP.NET 응용 프
 ## <a name="trends"></a>추세
 추세는 시간이 지남에 따라 앱의 동작 방식을 시각화하는 도구입니다. 
 
-Application Insights 도구 모음 단추 또는 Application Insights Search 창에서 **원격 분석 추세 탐색**을 선택합니다. 시작하려면 일반적인 5개의 쿼리 중 하나를 선택합니다. 원격 분석 유형, 시간 범위 및 기타 속성에 따라 서로 다른 데이터 집합을 분석할 수 있습니다. 
+Application Insights 도구 모음 단추 또는 Application Insights Search 창에서 **원격 분석 추세 탐색**을 선택합니다. 시작하려면 일반적인 5개의 쿼리 중 하나를 선택합니다. 원격 분석 유형, 시간 범위 및 기타 속성에 따라 서로 다른 데이터 세트를 분석할 수 있습니다. 
 
 데이터에서 잘못된 부분을 찾으려면 "유형 보기" 드롭다운에서 비정상 옵션 중 하나를 선택합니다. 창의 아래쪽에서 필터링 옵션을 사용하면 쉽게 원격 분석의 특정 하위 집합을 쉽게 찾을 수 있습니다.
 

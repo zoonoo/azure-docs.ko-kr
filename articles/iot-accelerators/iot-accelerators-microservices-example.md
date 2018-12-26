@@ -1,19 +1,18 @@
 ---
 title: 마이크로 서비스 변경 및 다시 배포 | Microsoft 문서 도구
 description: 이 자습서에서는 Remote Monitoring에서 마이크로 서비스를 변경하고 다시 배포하는 방법을 보여줍니다.
-author: giyeh
-manager: hegate
-ms.author: giyeh
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: de42e68116c147d81ed0211426bfa813d070b121
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0b206d7b56fc8a65c422a4ce22b2f5585e71c8da
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627997"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219428"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>마이크로 서비스 사용자 지정 및 다시 배포
 
@@ -47,28 +46,29 @@ ms.locfileid: "34627997"
 2. Postman을 다운로드한 곳을 찾아 엽니다.
 3. Postman에서 GET에 다음 값을 입력합니다. http://localhost:8080/iothubmanager/v1/status.
 4. 반환을 보고 "상태": "OK:Alive and Well"을 확인해야 합니다.
-![Alive and Well Postman Message](./media/iot-accelerators-microservices-example/postman-alive-well.png)
+
+    ![Alive and Well Postman 메시지](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
 ## <a name="change-the-status-and-build-the-image"></a>상태 변경 및 이미지 빌드
 
 이제 Iot Hub Manager 마이크로 서비스의 상태 메시지를 "New Edits Made Here!"로 변경합니다. 그런 후 이 새로운 상태로 도커 이미지를 다시 빌드합니다. 문제가 발생하면 [문제 해결](#Troubleshoot) 섹션을 참조하세요.
 
 1. 터미널이 열려 있는지 확인하고 원격 모니터링 솔루션을 복제한 디렉토리로 변경합니다. 
-2. 디렉토리를 "..azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/WebService/v1/Controllers"로 변경합니다.
+2. 디렉터리를 “azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/WebService/v1/Controllers”로 변경합니다.
 3. 원하는 텍스트 편집기나 IDE에서 StatusController.cs를 엽니다. 
 4. 다음 코드를 찾습니다.
 
-    ```javascript
+    ```csharp
     return new StatusApiModel(true, "Alive and well");
     ```
 
     아래의 코드로 변경하여 저장합니다.
 
-    ```javascript
+    ```csharp
     return new StatusApiModel(true, "New Edits Made Here!");
     ```
 
-5. 터미널로 돌아가서 이제 다음 디렉토리로 변경합니다. "...azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/scripts/docker".
+5. 터미널로 돌아가서 이제 다음 디렉터리로 변경합니다. “azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker”
 6. 새로운 도커 이미지를 빌드하려면 다음을 입력합니다.
 
     ```cmd/sh
@@ -113,24 +113,24 @@ ms.locfileid: "34627997"
 ## <a name="update-your-remote-monitoring-solution"></a>원격 모니터링 솔루션 업데이트
 이제 도커 허브에서 새로운 도커 이미지를 가져오려면 로컬 docker-compose.yml을 업데이트해야 합니다. 문제가 발생하면 [문제 해결](#Troubleshoot) 섹션을 참조하세요.
 
-1. 터미널로 돌아가서 다음 디렉토리로 변경합니다. "..azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
+1. 터미널로 돌아가서 다음 디렉터리로 변경합니다. “azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local”
 2. 원하는 텍스트 편집기나 IDE에서 docker-compose.yml을 엽니다.
 3. 다음 코드를 찾습니다.
 
     ```docker
-    image: azureiotpcs/pcs-auth-dotnet:testing
+    image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
     아래의 이미지처럼 보이도록 변경하여 저장합니다.
 
     ```cmd/sh
-    image: [docker ID]/pcs-auth-dotnet:testing
+    image: [docker ID]/iothub-manager-dotnet:testing
     ```
 
 ## <a name="view-the-new-response-status"></a>새 응답 상태보기
 Remote Monitoring 솔루션의 로컬 인스턴스를 재배포하고 Postman에서 새로운 상태 응답을 확인하여 마칩니다.
 
-1. 터미널로 돌아가서 이제 다음 디렉토리로 변경합니다. "..azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
+1. 터미널로 돌아가서 이제 다음 디렉터리로 변경합니다. “azure-iot-pcs-remote-monitoring-dotnet/scripts/local”
 2. 터미널에 다음 명령을 입력하여 Remote Monitoring 솔루션의 로컬 인스턴스를 시작합니다.
 
     ```cmd/sh
@@ -187,7 +187,7 @@ Remote Monitoring 솔루션의 로컬 인스턴스를 재배포하고 Postman에
 > * 새로운 도커 이미지 가져오기
 > * 변경 사항 시각화 
 
-다음으로 시도할 것은 [Remote Monitoring 솔루션에서 장치 시뮬레이터 마이크로 서비스를 사용자 지정](iot-accelerators-remote-monitoring-test.md)하는 것입니다.
+다음으로 시도할 것은 [Remote Monitoring 솔루션에서 디바이스 시뮬레이터 마이크로 서비스를 사용자 지정](iot-accelerators-microservices-example.md)하는 것입니다.
 
 원격 모니터링 솔루션에 대한 자세한 개발자 정보는 다음을 참조하세요.
 

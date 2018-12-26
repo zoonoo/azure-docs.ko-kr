@@ -1,23 +1,23 @@
 ---
-title: 원격 모니터링 솔루션의 아키텍처 - Azure | Microsoft Docs
-description: 원격 모니터링 솔루션 가속기의 아키텍처 둘러보기.
+title: 원격 모니터링 솔루션 가속기 개요 - Azure | Microsoft Docs
+description: 원격 모니터링 솔루션 가속기의 개요입니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: f0f43826c50679cb3de88aef466795cbb9e9e76f
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757436"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139495"
 ---
-# <a name="remote-monitoring-solution-accelerator-architecture"></a>원격 모니터링 솔루션 가속기 아키텍처
+# <a name="remote-monitoring-solution-accelerator-overview"></a>원격 모니터링 솔루션 가속기 개요
 
-원격 모니터링 [솔루션 가속기](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)는 원격 위치에서 여러 컴퓨터에 대한 종단간 모니터링 솔루션을 구현합니다. 솔루션은 비즈니스 시나리오의 제네릭 구현을 제공하는 핵심 Azure 서비스를 결합합니다. 솔루션을 고유한 구현을 위한 시작점으로 사용하고 사용자의 특정 비즈니스 요구 사항에 맞게 [사용자 지정](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)할 수 있습니다.
+원격 모니터링 [솔루션 가속기](../iot-accelerators/about-iot-accelerators.md)는 원격 위치에서 여러 컴퓨터에 대한 종단간 모니터링 솔루션을 구현합니다. 솔루션은 비즈니스 시나리오의 제네릭 구현을 제공하는 핵심 Azure 서비스를 결합합니다. 솔루션을 고유한 구현을 위한 시작점으로 사용하고 사용자의 특정 비즈니스 요구 사항에 맞게 [사용자 지정](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)할 수 있습니다.
 
 이 문서에서는 작동 방식을 이해할 수 있도록 원격 모니터링 솔루션의 핵심 요소 중 일부를 안내합니다. 이 정보는 다음 항목을 도울 수 있습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "34757436"
 
 ## <a name="logical-architecture"></a>논리 아키텍처
 
-다음 다이어그램은 [IoT 아키텍처](../iot-accelerators/iot-accelerators-what-is-azure-iot.md)에 오버레이된 원격 모니터링 솔루션 가속기의 논리적 구성 요소에 대해 설명합니다.
+다음 다이어그램은 [IoT 아키텍처](../iot-fundamentals/iot-introduction.md)에 오버레이된 원격 모니터링 솔루션 가속기의 논리적 구성 요소에 대해 설명합니다.
 
 ![논리 아키텍처](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -38,79 +38,103 @@ ms.locfileid: "34757436"
 > [!TIP]
 > 마이크로 서비스 아키텍처에 대한 자세한 내용은 [.NET 응용 프로그램 아키텍처](https://www.microsoft.com/net/learn/architecture) 및 [마이크로 서비스: 클라우드에서 제공하는 응용 프로그램 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)을 참조하세요.
 
-## <a name="device-connectivity"></a>장치 연결
+## <a name="device-connectivity"></a>디바이스 연결
 
-이 솔루션은 논리적 구조의 장치 연결 부분에 다음과 같은 구성 요소를 포함합니다.
+이 솔루션은 논리적 구조의 디바이스 연결 부분에 다음과 같은 구성 요소를 포함합니다.
 
-### <a name="simulated-devices"></a>시뮬레이션된 장치
+### <a name="physical-devices"></a>물리적 디바이스
 
-이 솔루션에는 솔루션의 종단 간 흐름을 테스트하기 위해 시뮬레이션된 장치 풀을 관리할 수 있는 마이크로 서비스가 포함되어 있습니다. 시뮬레이션된 장치는:
+물리적 디바이스를 솔루션에 연결할 수 있습니다. Azure IoT 디바이스 SDK를 사용하여 시뮬레이션된 디바이스의 동작을 구현할 수 있습니다.
 
-* 장치-클라우드 원격 분석을 생성합니다.
+물리적 디바이스를 솔루션 포털의 대시보드에서 프로비전할 수 있습니다.
+
+### <a name="device-simulation-microservice"></a>디바이스 시뮬레이션 마이크로 서비스
+
+솔루션에는 솔루션 포털에서 시뮬레이션된 디바이스 풀을 관리하여 솔루션의 종단 간 흐름을 테스트할 수 있게 하는 [디바이스 시뮬레이션 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation)가 포함됩니다. 시뮬레이션된 디바이스의 특징:
+
+* 디바이스-클라우드 원격 분석을 생성합니다.
 * IoT Hub의 클라우드-장치 메서드 호출에 응답합니다.
 
-마이크로 서비스는 시뮬레이션을 생성, 시작 및 중지할 수 있는 RESTful 끝점을 제공합니다. 각 시뮬레이션은 원격 분석을 보내고 메서드 호출에 응답하는 다양한 유형의 가상 장치 집합으로 구성됩니다.
+마이크로 서비스는 시뮬레이션을 생성, 시작 및 중지할 수 있는 RESTful 엔드포인트를 제공합니다. 각 시뮬레이션은 원격 분석을 보내고 메서드 호출에 응답하는 다양한 유형의 가상 디바이스 집합으로 구성됩니다.
 
-시뮬레이션된 장치를 솔루션 포털의 대시보드에서 프로비전할 수 있습니다.
+시뮬레이션된 디바이스를 솔루션 포털의 대시보드에서 프로비전할 수 있습니다.
 
-### <a name="physical-devices"></a>물리적 장치
+### <a name="iot-hub"></a>IoT Hub
 
-물리적 장치를 솔루션에 연결할 수 있습니다. Azure IoT 장치 SDK를 사용하여 시뮬레이션된 장치의 동작을 구현할 수 있습니다.
-
-물리적 장치를 솔루션 포털의 대시보드에서 프로비전할 수 있습니다.
-
-### <a name="iot-hub-and-the-iot-manager-microservice"></a>IoT Hub 및 IoT 관리자 마이크로 서비스
-
-[IoT Hub](../iot-hub/index.yml)는 장치에서 클라우드로 전송된 데이터를 수집하고 `telemetry-agent` 마이크로 서비스에서 사용할 수 있도록 합니다.
+[IoT 허브](../iot-hub/index.yml)는 물리적 장치 및 시뮬레이션된 장치에서 보낸 원격 분석을 수집합니다. IoT 허브를 사용하면 IoT 솔루션 백 엔드의 서비스에서 원격 분석을 사용하여 처리할 수 있습니다.
 
 또한 솔루션에서 IoT Hub는:
 
-* 포털에 연결하도록 허용되는 모든 장치의 ID 및 인증 키를 저장하는 ID 레지스트리를 유지 관리합니다. ID 레지스트리를 통해 장치를 활성화 및 비활성화할 수 있습니다.
-* 솔루션 포털을 대신하여 장치에서 메서드를 호출합니다.
-* 등록된 모든 장치에 대한 장치 쌍을 유지 관리합니다. 장치 쌍은 장치에서 보고한 속성 값을 저장합니다. 또한 장치 쌍은 다음에 연결할 때 검색하는 장치에 대해 솔루션 포털에서 설정한 desired 속성을 저장합니다.
-* 여러 장치에 대한 속성을 설정하거나 여러 장치에서 메서드를 호출하는 작업을 예약합니다.
-
-솔루션에는 다음과 같이 IoT Hub와의 상호 작용을 처리하기 위한 `iot-manager` 마이크로 서비스가 포함됩니다.
-
-* IoT 장치 만들기 및 관리.
-* 장치 쌍 관리.
-* 장치에 대한 메서드 호출.
-* IoT 자격 증명 관리.
-
-또한 이 서비스는 IoT Hub 쿼리를 실행하여 사용자 정의 그룹에 속하는 장치를 검색합니다.
-
-마이크로 서비스는 장치와 장치 쌍을 관리하고 메서드를 호출하며 IoT Hub 쿼리를 실행하는 RESTful 끝점을 제공합니다.
+* 포털에 연결하도록 허용되는 모든 디바이스의 ID 및 인증 키를 저장하는 ID 레지스트리를 유지 관리합니다.
+* 솔루션 가속기를 대신하여 디바이스에서 메서드를 호출합니다.
+* 등록된 모든 디바이스에 대한 디바이스 쌍을 유지 관리합니다. 디바이스 쌍은 디바이스에서 보고한 속성 값을 저장합니다. 또한 디바이스 쌍은 다음에 연결할 때 검색하는 디바이스에 대해 솔루션 포털에서 설정한 desired 속성을 저장합니다.
+* 여러 디바이스에 대한 속성을 설정하거나 여러 디바이스에서 메서드를 호출하는 작업을 예약합니다.
 
 ## <a name="data-processing-and-analytics"></a>데이터 처리 및 분석
 
 이 솔루션은 논리적 구조의 데이터 처리 및 분석 부분에 다음과 같은 구성 요소를 포함합니다.
 
-### <a name="device-telemetry"></a>장치 원격 분석
+### <a name="iot-hub-manager-microservice"></a>IoT Hub 관리자 마이크로 서비스
 
-이 솔루션에는 장치 원격 분석을 처리하는 마이크로 서비스가 2개 포함됩니다.
+솔루션에는 다음과 같은 IoT Hub와의 상호 작용을 처리하는 [IoT Hub 관리자 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager)가 포함됩니다.
 
-[telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) 마이크로 서비스:
+* IoT 디바이스 만들기 및 관리.
+* 디바이스 쌍 관리.
+* 디바이스에 대한 메서드 호출.
+* IoT 자격 증명 관리.
 
-* Azure Cosmos DB에 원격 분석 데이터를 저장합니다.
-* 장치에서 원격 분석 스트림을 분석합니다.
-* 정의된 규칙에 따라 알람을 생성합니다.
+또한 이 서비스는 IoT Hub 쿼리를 실행하여 사용자 정의 그룹에 속하는 디바이스를 검색합니다.
 
-알람은 Azure Cosmos DB에 저장됩니다.
+마이크로 서비스는 디바이스와 디바이스 쌍을 관리하고 메서드를 호출하며 IoT Hub 쿼리를 실행하는 RESTful 엔드포인트를 제공합니다.
 
-[원격 분석 에이전트](https://github.com/Azure/telemetry-agent-dotnet) 마이크로 서비스를 통해 솔루션 포털은 장치에서 전송된 원격 분석 데이터를 읽을 수 있습니다. 또한 솔루션 포털은 이 서비스를 사용하여 다음을 수행합니다.
+### <a name="device-telemetry-microservice"></a>디바이스 원격 분석 마이크로 서비스
 
-* 알람을 트리거하는 임계값과 같은 모니터링 규칙을 정의합니다.
-* 지난 알람 목록을 검색합니다.
+[장치 원격 분석 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry)는 Time Series Insights에 저장된 장치 원격 분석에 대한 읽기 액세스를 위한 RESTful 엔드포인트를 제공합니다. 또한 RESTful 엔드포인트를 사용하면 규칙의 CRUD 작업 및 저장소의 경보 정의에 대한 읽기/쓰기 액세스를 수행할 수 있습니다.
 
-마이크로 서비스에 제공되는 RESTful 끝점을 사용하여 원격 분석, 규칙 및 알람을 관리합니다.
+### <a name="storage-adapter-microservice"></a>저장소 어댑터 마이크로 서비스
 
-### <a name="storage"></a>Storage
+[저장소 어댑터 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/storage-adapter)는 키-값 쌍을 관리하고, 저장소 서비스 의미 체계를 추상화하며, Azure Cosmos DB를 사용하여 모든 형식의 데이터를 저장하는 간단한 인터페이스를 제공합니다.
 
-[storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) 마이크로 서비스는 솔루션 가속기에 사용되는 기본 저장소 서비스 앞에 있는 어댑터입니다. 간단한 컬렉션 및 키-값 저장소를 제공합니다.
+값은 컬렉션으로 구성됩니다. 개별 값에서 작업하거나 전체 컬렉션을 가져올 수 있습니다. 복잡한 데이터 구조는 클라이언트에서 직렬화되고, 간단한 텍스트 페이로드로 관리됩니다.
 
-솔루션 가속기의 표준 배포는 Azure Cosmos DB를 기본 저장소 서비스로 사용합니다.
+이 서비스는 키-값 쌍의 CRUD 작업에 대한 RESTful 엔드포인트를 제공합니다. 값
 
-Azure Cosmos DB 데이터베이스는 솔루션 가속기에 데이터를 저장합니다. **storage-adapter** 마이크로 서비스는 저장소 서비스에 액세스하는 솔루션의 다른 마이크로 서비스에 대한 어댑터 역할을 합니다.
+### <a name="azure-cosmos-db"></a>Azure Cosmos DB
+
+솔루션 가속기 배포에서는 [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)를 사용하여 규칙, 경보, 구성 설정 및 기타 모든 콜드 스토리지를 저장합니다.
+
+### <a name="azure-stream-analytics-manager-microservice"></a>Azure Stream Analytics 관리자 마이크로 서비스
+
+[Azure Stream Analytics 관리자 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/asa-manager)는 구성 설정, 시작 및 중지, 상태 모니터링을 포함한 ASA(Azure Stream Analytics) 작업을 관리합니다.
+
+ASA 작업은 두 개의 참조 데이터 집합에서 지원됩니다. 한 데이터 집합은 규칙을 정의하고, 다른 하나는 디바이스 그룹을 정의합니다. 규칙 참조 데이터는 디바이스 원격 분석 마이크로 서비스에서 관리되는 정보로부터 생성됩니다. Azure Stream Analytics 관리자 마이크로 서비스는 원격 분석 규칙을 스트림 처리 논리로 변환합니다.
+
+디바이스 그룹 참조 데이터는 들어오는 원격 분석 메시지에 적용할 규칙 그룹을 식별하는 데 사용됩니다. 디바이스 그룹은 구성 마이크로 서비스에서 관리되며, Azure IoT Hub 디바이스 쌍 쿼리를 사용합니다.
+
+ASA 작업은 저장소 및 분석을 위해 원격 분석을 연결된 디바이스에서 Time Series Insight로 전달합니다.
+
+### <a name="azure-stream-analytics"></a>Azure Stream Analytics
+
+[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)는 장치에서 대량으로 스트림되는 데이터를 검사할 수 있는 이벤트 처리 엔진입니다.
+
+### <a name="azure-time-series-insights"></a>Azure Time Series Insights
+
+[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/)는 솔루션 가속기에 연결된 장치의 원격 분석을 저장합니다. 또한 솔루션 웹 UI에서 디바이스 원격 분석을 시각화하고 쿼리할 수 있습니다.
+
+> [!NOTE]
+> Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 저장소에 Cosmos DB를 사용합니다.
+
+### <a name="configuration-microservice"></a>구성 마이크로 서비스
+
+[구성 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)는 솔루션 가속기의 장치 그룹, 솔루션 설정 및 사용자 설정의 CRUD 작업에 대한 RESTful 엔드포인트를 제공합니다. 저장소 어댑터 마이크로 서비스와 함께 작동하여 구성 데이터를 유지합니다.
+
+### <a name="authentication-and-authorization-microservice"></a>인증 및 권한 부여 마이크로 서비스
+
+[인증 및 권한 부여 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth)는 솔루션 가속기에 액세스하도록 권한이 부여된 사용자를 관리합니다. 사용자 관리는 [OpenId Connect](http://openid.net/connect/)를 지원하는 모든 ID 서비스 공급자를 사용하여 수행할 수 있습니다.
+
+### <a name="azure-active-directory"></a>Azure Active Directory
+
+솔루션 가속기 배포에서는 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)를 OpenID Connect 공급자로 사용합니다. Azure Active Directory는 사용자 정보를 저장하고, JWT 토큰 서명의 유효성을 검사하기 위한 인증서를 제공합니다.
 
 ## <a name="presentation"></a>프레젠테이션
 
@@ -122,18 +146,20 @@ Azure Cosmos DB 데이터베이스는 솔루션 가속기에 데이터를 저장
 * CSS 스타일이 적용됩니다.
 * AJAX 호출을 통해 공용 마이크로 서비스와 상호 작용합니다.
 
-사용자 인터페이스는 모든 솔루션 가속기 기능을 제공하고 다음과 같은 다른 서비스와 상호 작용합니다.
+사용자 인터페이스는 모든 솔루션 가속기 기능을 제공하고, 다음과 같은 다른 마이크로 서비스와 상호 작용합니다.
 
-* 사용자 데이터를 보호하는 [인증](https://github.com/Azure/pcs-auth-dotnet) 마이크로 서비스.
-* IoT 장치를 나열 및 관리하는 [iothub-관리자](https://github.com/Azure/iothub-manager-dotnet) 마이크로 서비스.
+* 사용자 데이터를 보호하는 인증 및 권한 부여 마이크로 서비스
+* IoT 디바이스를 나열하고 관리하는 IoT Hub 관리자 마이크로 서비스
 
-[ui-config](https://github.com/Azure/pcs-config-dotnet) 마이크로 서비스를 사용하면 사용자 인터페이스로 구성 설정을 저장 및 검색할 수 있습니다.
+사용자 인터페이스는 Azure Time Series Insights 탐색기를 통합하여 디바이스 원격 분석에 대한 쿼리 및 분석을 수행할 수 있습니다.
+
+구성 마이크로 서비스를 사용하면 사용자 인터페이스로 구성 설정을 저장하고 검색할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-소스 코드와 개발자 문서를 탐색하려면 다음 두 가지 주요 GitHub 리포지토리 중 하나를 시작하십시오.
+소스 코드와 개발자 설명서를 탐색하려면 다음 두 GitHub 리포지토리 중 하나를 시작합니다.
 
-* [Azure IoT(.NET)로 원격 모니터링을 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Azure IoT(.NET)로 원격 모니터링을 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 * [Azure IoT(Java)로 원격 모니터링을 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
 자세한 솔루션 아키텍처 다이어그램:

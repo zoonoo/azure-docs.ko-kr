@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 34248d75c190aa4636c39f087d399d946b589d58
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0ee2654b313f453f7485c89c789edc8efc068d7b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442652"
 ---
 # <a name="create-an-external-app-service-environment"></a>외부 App Service Environment 만들기 #
 
@@ -40,7 +41,7 @@ ASE를 만든 후에는 다음을 변경할 수 없습니다.
 - 서브넷 크기
 
 > [!NOTE]
-> VNet을 선택하고 서브넷을 지정하는 경우 향후 성장을 수용하기에 충분한지 확인합니다. 주소 128개를 포함할 수 있는 `/25` 크기를 사용하는 것이 좋습니다.
+> VNet을 선택하고 서브넷을 지정할 때 향후 성장 및 확장 요구 사항을 수용하기에 충분한지 확인합니다. 주소 256개를 포함할 수 있는 `/24` 크기를 사용하는 것이 좋습니다.
 >
 
 ## <a name="three-ways-to-create-an-ase"></a>ASE를 만드는 세 가지 방법 ##
@@ -63,36 +64,27 @@ App Service 계획을 만들면서 ASE를 만드는 경우 다음을 수행합�
 
     ![웹앱 만들기][1]
 
-2. 사용 중인 구독을 선택합니다. 앱 및 ASE는 동일한 구독에 생성됩니다.
+1. 구독을 선택합니다. 앱 및 ASE는 동일한 구독에 생성됩니다.
 
-3. 리소스 그룹을 선택하거나 만듭니다. 리소스 그룹을 사용하여 관련된 Azure 리소스를 하나의 단위로 관리할 수 있습니다. 리소스 그룹은 앱에 대해 역할 기반 Access Control 규칙을 설정하려는 경우 유용합니다. 자세한 내용은 [Azure Resource Manager 개요][ARMOverview]를 참조하세요.
+1. 리소스 그룹을 선택하거나 만듭니다. 리소스 그룹을 사용하여 관련된 Azure 리소스를 하나의 단위로 관리할 수 있습니다. 리소스 그룹은 앱에 대해 역할 기반 Access Control 규칙을 설정하려는 경우 유용합니다. 자세한 내용은 [Azure Resource Manager 개요][ARMOverview]를 참조하세요.
 
-4. OS를 선택합니다. 
+1. OS(Windows, Linux 또는 Docker)를 선택합니다. 
 
-    * ASE에서 Linux 앱을 호스트하는 것은 새로운 미리 보기 기능이므로, 현재 프로덕션 워크로드를 실행 중인 ASE에는 Linux 앱을 추가하지 않는 것이 좋습니다. 
-    * ASE에 Linux 앱을 추가하게 되면 ASE도 미리 보기 모드가 됩니다. 
-
-5. App Service 계획을 선택한 다음 **새로 만들기**를 선택합니다. Linux 웹앱 및 Windows 웹앱은 동일한 App Service 계획에는 있을 수 없지만 동일한 App Service 환경에는 있을 수 있습니다. 
+1. App Service 계획을 선택한 다음 **새로 만들기**를 선택합니다. Linux 웹앱 및 Windows 웹앱은 동일한 App Service 계획에는 있을 수 없지만 동일한 App Service 환경에는 있을 수 있습니다. 
 
     ![새 App Service 계획][2]
 
-6. **위치** 드롭다운 목록에서 ASE를 만들려는 영역을 선택합니다. 기존 ASE를 선택하는 경우 새 ASE가 생성되지 않습니다. App Service 계획이 선택한 ASE에 만들어집니다. 
+1. **위치** 드롭다운 목록에서 ASE를 만들려는 영역을 선택합니다. 기존 ASE를 선택하는 경우 새 ASE가 생성되지 않습니다. App Service 계획이 선택한 ASE에 만들어집니다. 
 
-    > [!NOTE]
-    > ASE의 Linux는 현재 **미국 서 부, 미국 동부, 유럽 서부, 유럽 북부, 오스트레일리아 동부, 동남 아시아**의 6개 지역에서만 가능합니다. ASE의 Linux는 미리 보기 기능이므로, 이 미리 보기 전에 만든 ASE는 선택하지 않도록 합니다.
-    >
-
-7. **가격 책정 계층**을 선택하고, **격리** 가격 책정 SKU 중 하나를 선택합니다. **격리** SKU 카드를 선택하고 ASE가 아닌 위치를 선택하면 새 ASE가 해당 위치에 만들어집니다. ASE를 만드는 프로세스를 시작하려면 **선택**을 선택합니다. **격리** SKU는 ASE에서만 사용할 수 있습니다. 또한 **격리**가 아닌 ASE의 다른 가격 책정 SKU를 사용할 수 없습니다. 
-
-    * ASE의 Linux 미리 보기에서는 격리된 SKU에 50% 할인이 적용됩니다(ASE 자체에 대한 고정 요금에는 할인이 적용되지 않음).
+1. **가격 책정 계층**을 선택하고, **격리** 가격 책정 SKU 중 하나를 선택합니다. **격리** SKU 카드를 선택하고 ASE가 아닌 위치를 선택하면 새 ASE가 해당 위치에 만들어집니다. ASE를 만드는 프로세스를 시작하려면 **선택**을 선택합니다. **격리** SKU는 ASE에서만 사용할 수 있습니다. 또한 **격리**가 아닌 ASE의 다른 가격 책정 SKU를 사용할 수 없습니다. 
 
     ![가격 책정 계층 선택][3]
 
-8. ASE의 이름을 입력합니다. 이 이름은 앱에 주소를 지정할 수 있는 이름에 사용됩니다. ASE의 이름이 _appsvcenvdemo_인 경우 도메인 이름은 *.appsvcenvdemo.p.azurewebsites.net*입니다. *mytestapp*이라는 앱을 만든 경우 mytestapp.appsvcenvdemo.p.azurewebsites.net으로 주소를 지정할 수 있습니다. 이름에 공백을 사용할 수 없습니다. 대문자를 사용한 경우 도메인 이름은 해당 이름의 소문자 버전이 됩니다.
+1. ASE의 이름을 입력합니다. 이 이름은 앱에 주소를 지정할 수 있는 이름에 사용됩니다. ASE의 이름이 _appsvcenvdemo_인 경우 도메인 이름은 *.appsvcenvdemo.p.azurewebsites.net*입니다. *mytestapp*이라는 앱을 만든 경우 mytestapp.appsvcenvdemo.p.azurewebsites.net으로 주소를 지정할 수 있습니다. 이름에 공백을 사용할 수 없습니다. 대문자를 사용한 경우 도메인 이름은 해당 이름의 소문자 버전이 됩니다.
 
     ![새 App Service 계획 이름][4]
 
-9. Azure 가상 네트워킹 세부 정보를 지정합니다. **새로 만들기** 또는 **기존 항목 선택** 중 하나를 선택합니다. 선택한 영역에 VNet이 있는 경우에만 기존 VNet을 선택할 수 있는 옵션을 사용할 수 있습니다. **새로 만들기**를 선택한 경우 VNet에 대한 이름을 입력합니다. 해당 이름으로 새로운 Resource Manager VNet이 만들어집니다. 선택한 지역의 주소 공간 `192.168.250.0/23`을 사용합니다. **기존 항목 선택**을 선택하는 경우 다음 항목이 필요합니다.
+1. Azure 가상 네트워킹 세부 정보를 지정합니다. **새로 만들기** 또는 **기존 항목 선택** 중 하나를 선택합니다. 선택한 영역에 VNet이 있는 경우에만 기존 VNet을 선택할 수 있는 옵션을 사용할 수 있습니다. **새로 만들기**를 선택한 경우 VNet에 대한 이름을 입력합니다. 해당 이름으로 새로운 Resource Manager VNet이 만들어집니다. 선택한 지역의 주소 공간 `192.168.250.0/23`을 사용합니다. **기존 항목 선택**을 선택하는 경우 다음 항목이 필요합니다.
 
     a. 여러 개의 항목이 있는 경우 VNet 주소 블록을 선택합니다.
 
@@ -102,7 +94,7 @@ App Service 계획을 만들면서 ASE를 만드는 경우 다음을 수행합�
 
     d. 서브넷 IP 범위를 선택합니다.
 
-10. **만들기**를 선택하여 ASE를 만듭니다. App Service 계획 및 앱이 만들어집니다. ASE, App Service 계획 및 앱은 동일한 구독 및 동일한 리소스 그룹에 위치합니다. ASE에 별도 리소스 그룹이 필요하거나 ILB ASE가 필요한 경우 단계에 따라 단독으로 ASE를 만듭니다.
+1. **만들기**를 선택하여 ASE를 만듭니다. App Service 계획 및 앱이 만들어집니다. ASE, App Service 계획 및 앱은 동일한 구독 및 동일한 리소스 그룹에 위치합니다. ASE에 별도 리소스 그룹이 필요하거나 ILB ASE가 필요한 경우 단계에 따라 단독으로 ASE를 만듭니다.
 
 ## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>사용자 지정 Docker 이미지를 함께 사용하여 ASE 및 Linux 웹앱 만들기
 
@@ -110,31 +102,25 @@ App Service 계획을 만들면서 ASE를 만드는 경우 다음을 수행합�
 
     ![웹앱 만들기][7]
 
-2. 사용 중인 구독을 선택합니다. 앱 및 ASE는 동일한 구독에 생성됩니다.
+1. 구독을 선택합니다. 앱 및 ASE는 동일한 구독에 생성됩니다.
 
-3. 리소스 그룹을 선택하거나 만듭니다. 리소스 그룹을 사용하여 관련된 Azure 리소스를 하나의 단위로 관리할 수 있습니다. 리소스 그룹은 앱에 대해 역할 기반 Access Control 규칙을 설정하려는 경우 유용합니다. 자세한 내용은 [Azure Resource Manager 개요][ARMOverview]를 참조하세요.
+1. 리소스 그룹을 선택하거나 만듭니다. 리소스 그룹을 사용하여 관련된 Azure 리소스를 하나의 단위로 관리할 수 있습니다. 리소스 그룹은 앱에 대해 역할 기반 Access Control 규칙을 설정하려는 경우 유용합니다. 자세한 내용은 [Azure Resource Manager 개요][ARMOverview]를 참조하세요.
 
-4. App Service 계획을 선택한 다음 **새로 만들기**를 선택합니다. Linux 웹앱 및 Windows 웹앱은 동일한 App Service 계획에는 있을 수 없지만 동일한 App Service 환경에는 있을 수 있습니다. 
+1. App Service 계획을 선택한 다음 **새로 만들기**를 선택합니다. Linux 웹앱 및 Windows 웹앱은 동일한 App Service 계획에는 있을 수 없지만 동일한 App Service 환경에는 있을 수 있습니다. 
 
     ![새 App Service 계획][8]
 
-5. **위치** 드롭다운 목록에서 ASE를 만들려는 영역을 선택합니다. 기존 ASE를 선택하는 경우 새 ASE가 생성되지 않습니다. App Service 계획이 선택한 ASE에 만들어집니다. 
+1. **위치** 드롭다운 목록에서 ASE를 만들려는 영역을 선택합니다. 기존 ASE를 선택하는 경우 새 ASE가 생성되지 않습니다. App Service 계획이 선택한 ASE에 만들어집니다. 
 
-    > [!NOTE]
-    > ASE의 Linux는 현재 **미국 서 부, 미국 동부, 유럽 서부, 유럽 북부, 오스트레일리아 동부, 동남 아시아**의 6개 지역에서만 가능합니다. ASE의 Linux는 미리 보기 기능이므로, 이 미리 보기 전에 만든 ASE는 선택하지 않도록 합니다.
-    >
-
-6. **가격 책정 계층**을 선택하고, **격리** 가격 책정 SKU 중 하나를 선택합니다. **격리** SKU 카드를 선택하고 ASE가 아닌 위치를 선택하면 새 ASE가 해당 위치에 만들어집니다. ASE를 만드는 프로세스를 시작하려면 **선택**을 선택합니다. **격리** SKU는 ASE에서만 사용할 수 있습니다. 또한 **격리**가 아닌 ASE의 다른 가격 책정 SKU를 사용할 수 없습니다. 
-
-    * ASE의 Linux 미리 보기에서는 격리된 SKU에 50% 할인이 적용됩니다(ASE 자체에 대한 고정 요금에는 할인이 적용되지 않음).
+1. **가격 책정 계층**을 선택하고, **격리** 가격 책정 SKU 중 하나를 선택합니다. **격리** SKU 카드를 선택하고 ASE가 아닌 위치를 선택하면 새 ASE가 해당 위치에 만들어집니다. ASE를 만드는 프로세스를 시작하려면 **선택**을 선택합니다. **격리** SKU는 ASE에서만 사용할 수 있습니다. 또한 **격리**가 아닌 ASE의 다른 가격 책정 SKU를 사용할 수 없습니다. 
 
     ![가격 책정 계층 선택][3]
 
-7. ASE의 이름을 입력합니다. 이 이름은 앱에 주소를 지정할 수 있는 이름에 사용됩니다. ASE의 이름이 _appsvcenvdemo_인 경우 도메인 이름은 *.appsvcenvdemo.p.azurewebsites.net*입니다. *mytestapp*이라는 앱을 만든 경우 mytestapp.appsvcenvdemo.p.azurewebsites.net으로 주소를 지정할 수 있습니다. 이름에 공백을 사용할 수 없습니다. 대문자를 사용한 경우 도메인 이름은 해당 이름의 소문자 버전이 됩니다.
+1. ASE의 이름을 입력합니다. 이 이름은 앱에 주소를 지정할 수 있는 이름에 사용됩니다. ASE의 이름이 _appsvcenvdemo_인 경우 도메인 이름은 *.appsvcenvdemo.p.azurewebsites.net*입니다. *mytestapp*이라는 앱을 만든 경우 mytestapp.appsvcenvdemo.p.azurewebsites.net으로 주소를 지정할 수 있습니다. 이름에 공백을 사용할 수 없습니다. 대문자를 사용한 경우 도메인 이름은 해당 이름의 소문자 버전이 됩니다.
 
     ![새 App Service 계획 이름][4]
 
-8. Azure 가상 네트워킹 세부 정보를 지정합니다. **새로 만들기** 또는 **기존 항목 선택** 중 하나를 선택합니다. 선택한 영역에 VNet이 있는 경우에만 기존 VNet을 선택할 수 있는 옵션을 사용할 수 있습니다. **새로 만들기**를 선택한 경우 VNet에 대한 이름을 입력합니다. 해당 이름으로 새로운 Resource Manager VNet이 만들어집니다. 선택한 지역의 주소 공간 `192.168.250.0/23`을 사용합니다. **기존 항목 선택**을 선택하는 경우 다음 항목이 필요합니다.
+1. Azure 가상 네트워킹 세부 정보를 지정합니다. **새로 만들기** 또는 **기존 항목 선택** 중 하나를 선택합니다. 선택한 영역에 VNet이 있는 경우에만 기존 VNet을 선택할 수 있는 옵션을 사용할 수 있습니다. **새로 만들기**를 선택한 경우 VNet에 대한 이름을 입력합니다. 해당 이름으로 새로운 Resource Manager VNet이 만들어집니다. 선택한 지역의 주소 공간 `192.168.250.0/23`을 사용합니다. **기존 항목 선택**을 선택하는 경우 다음 항목이 필요합니다.
 
     a. 여러 개의 항목이 있는 경우 VNet 주소 블록을 선택합니다.
 
@@ -144,12 +130,12 @@ App Service 계획을 만들면서 ASE를 만드는 경우 다음을 수행합�
 
     d. 서브넷 IP 범위를 선택합니다.
 
-9.  “컨테이너 구성”을 선택합니다.
+1.  “컨테이너 구성”을 선택합니다.
     * 사용자 지정 이미지 이름을 입력합니다(Azure Container Registry, Docker 허브 및 개인 레지스트리를 사용할 수 있음). 사용자 고유의 사용자 지정 컨테이너를 사용하지 않으려는 경우, 코드를 가져오고, 위 지침에 따라 Linux의 App Service로 기본 제공 이미지를 사용할 수 있습니다. 
 
     ![컨테이너 구성][9]
 
-10. **만들기**를 선택하여 ASE를 만듭니다. App Service 계획 및 앱이 만들어집니다. ASE, App Service 계획 및 앱은 동일한 구독 및 동일한 리소스 그룹에 위치합니다. ASE에 별도 리소스 그룹이 필요하거나 ILB ASE가 필요한 경우 단계에 따라 단독으로 ASE를 만듭니다.
+1. **만들기**를 선택하여 ASE를 만듭니다. App Service 계획 및 앱이 만들어집니다. ASE, App Service 계획 및 앱은 동일한 구독 및 동일한 리소스 그룹에 위치합니다. ASE에 별도 리소스 그룹이 필요하거나 ILB ASE가 필요한 경우 단계에 따라 단독으로 ASE를 만듭니다.
 
 
 ## <a name="create-an-ase-by-itself"></a>단독으로 ASE 만들기 ##
@@ -158,19 +144,19 @@ ASE 독립 실행형을 만드는 경우 내부에는 아무것도 없습니다.
 
 1. Azure Marketplace에서 **App Service Environment**를 검색하거나 **리소스 만들기** > **웹 모바일** > **App Service Environment**를 선택합니다. 
 
-2. ASE의 이름을 입력합니다. 이 이름은 ASE에서 만든 앱에 사용됩니다. 이름이 *mynewdemoase*인 경우 하위 도메인 이름은 *.mynewdemoase.p.azurewebsites.net*입니다. *mytestapp*이라는 앱을 만든 경우 mytestapp.mynewdemoase.p.azurewebsites.net으로 주소를 지정할 수 있습니다. 이름에 공백을 사용할 수 없습니다. 대문자를 사용한 경우 도메인 이름은 해당 이름의 소문자 버전이 됩니다. ILB를 사용하는 경우 ASE 이름이 하위 도메인에서 사용되지 않는 대신 ASE를 만드는 동안에 명시적으로 지정됩니다.
+1. ASE의 이름을 입력합니다. 이 이름은 ASE에서 만든 앱에 사용됩니다. 이름이 *mynewdemoase*인 경우 하위 도메인 이름은 *.mynewdemoase.p.azurewebsites.net*입니다. *mytestapp*이라는 앱을 만든 경우 mytestapp.mynewdemoase.p.azurewebsites.net으로 주소를 지정할 수 있습니다. 이름에 공백을 사용할 수 없습니다. 대문자를 사용한 경우 도메인 이름은 해당 이름의 소문자 버전이 됩니다. ILB를 사용하는 경우 ASE 이름이 하위 도메인에서 사용되지 않는 대신 ASE를 만드는 동안에 명시적으로 지정됩니다.
 
     ![ASE 이름 지정][5]
 
-3. 사용 중인 구독을 선택합니다. 또한 이 구독은 ASE의 모든 앱이 사용하는 것입니다. 다른 구독에 있는 VNet에 ASE를 배치할 수 없습니다.
+1. 구독을 선택합니다. 또한 이 구독은 ASE의 모든 앱이 사용하는 것입니다. 다른 구독에 있는 VNet에 ASE를 배치할 수 없습니다.
 
-4. 새 리소스 그룹을 선택하거나 지정합니다. ASE에 사용되는 리소스 그룹은 VNet에 사용되는 것과 동일해야 합니다. 기존 VNet을 선택하는 경우 ASE에 대한 리소스 그룹을 선택하는 작업은 VNet의 선택을 반영하도록 업데이트됩니다. *Resource Manager 템플릿을 사용하는 경우 VNet 리소스 그룹과 다른 리소스 그룹으로 ASE를 만들 수 있습니다.* 템플릿에서 ASE를 만들려면 [템플릿에서 App Service Environment 만들기][MakeASEfromTemplate]를 참조하세요.
+1. 새 리소스 그룹을 선택하거나 지정합니다. ASE에 사용되는 리소스 그룹은 VNet에 사용되는 것과 동일해야 합니다. 기존 VNet을 선택하는 경우 ASE에 대한 리소스 그룹을 선택하는 작업은 VNet의 선택을 반영하도록 업데이트됩니다. *Resource Manager 템플릿을 사용하는 경우 VNet 리소스 그룹과 다른 리소스 그룹으로 ASE를 만들 수 있습니다.* 템플릿에서 ASE를 만들려면 [템플릿에서 App Service Environment 만들기][MakeASEfromTemplate]를 참조하세요.
 
     ![리소스 그룹 선택][6]
 
-5. VNet 및 위치를 선택합니다. 새 VNet을 만들거나 기존 VNet을 선택할 수 있습니다. 
+1. VNet 및 위치를 선택합니다. 새 VNet을 만들거나 기존 VNet을 선택할 수 있습니다. 
 
-    * 새 VNet을 선택하면 이름 및 위치를 지정할 수 있습니다. 이러한 ASE에서 Linux 앱을 호스트하려는 경우 현재 **미국 서부, 미국 동부, 유럽 서부, 유럽 북부, 오스트레일리아 동부, 동남아시아**의 6개 지역만 지원됩니다. 
+    * 새 VNet을 선택하면 이름 및 위치를 지정할 수 있습니다. 
     
     * 새 VNet의 주소 범위는 192.168.250.0/23이고 default라는 서브넷이 있습니다. 서브넷은 192.168.250.0/24로 정의되어 있습니다. Resource Manager VNet만 선택할 수 있습니다. **VIP 형식**을 선택하면 ASE가 인터넷(외부)에서 직접 액세스할 수 있는지 또는 ILB를 사용하는지를 결정합니다. 이러한 옵션에 대한 자세한 내용은 [App Service Environment에서 내부 부하 분산 장치 만들기 및 사용][MakeILBASE]을 참조하세요. 
 
@@ -195,7 +181,7 @@ ASEv1에 대해 자세히 알아보려면 [App Service Environment v1 소개][AS
 [6]: ./media/how_to_create_an_external_app_service_environment/createexternalase-network.png
 [7]: ./media/how_to_create_an_external_app_service_environment/createexternalase-createwafc.png
 [8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-aspcreatewafc.png
-[8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
+[9]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
 
 
 

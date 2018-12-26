@@ -1,22 +1,21 @@
 ---
-title: 'Azure Cosmos DB: SQL API에 대한 Java 예제 | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL API에 대한 Java 예제'
 description: CRUD 작업을 포함하여 Azure Cosmos DB SQL API를 사용하는 일반적인 작업에 대한 Java 예제를 GitHub에서 찾아봅니다.
 keywords: NoSQL 예제
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: sample
 ms.date: 02/08/2018
 ms.author: sngun
-ms.openlocfilehash: ec13a594750132bc016d1383eb4b0a08fdf6114e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 135613be26ed0ebc5dfd180112fabb0401f60027
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831832"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874178"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API에 대한 Java 예제
 
@@ -71,8 +70,8 @@ Eclipse를 사용하거나 Maven을 사용하여 명령줄에서 샘플을 실�
 
 Eclipse에서 실행하려면
 * Eclipse에서 기본 부모 프로젝트 pom.xml 파일을 로드합니다. documentdb-examples가 자동으로 로드됩니다.
-* 샘플을 실행하려면 유효한 Azure Cosmos DB 끝점이 필요합니다. 끝점은 `src/test/java/com/microsoft/azure/documentdb/examples/AccountCredentials.java`에서 읽어옵니다.
-* Eclipse JUnit 구성 실행에서 끝점 자격 증명을 VM 인수로 전달하거나, 끝점 자격 증명을 AccountCredentials.java에 넣을 수 있습니다.
+* 샘플을 실행하려면 유효한 Azure Cosmos DB 엔드포인트가 필요합니다. 엔드포인트는 `src/test/java/com/microsoft/azure/documentdb/examples/AccountCredentials.java`에서 읽어옵니다.
+* Eclipse JUnit 구성 실행에서 엔드포인트 자격 증명을 VM 인수로 전달하거나, 엔드포인트 자격 증명을 AccountCredentials.java에 넣을 수 있습니다.
     ```bash
     -DACCOUNT_HOST="https://REPLACE_THIS.documents.azure.com:443/" -DACCOUNT_KEY="REPLACE_THIS"
     ```
@@ -80,7 +79,7 @@ Eclipse에서 실행하려면
 
 명령줄에서 실행하려면
 * 샘플을 실행하는 다른 방법은 Maven을 사용하는 것입니다.
-* Maven을 실행하고 Azure Cosmos DB 끝점 자격 증명을 전달합니다.
+* Maven을 실행하고 Azure Cosmos DB 엔드포인트 자격 증명을 전달합니다.
     ```bash
     mvn test -DACCOUNT_HOST="https://REPLACE_THIS_WITH_YOURS.documents.azure.com:443/" -DACCOUNT_KEY="REPLACE_THIS_WITH_YOURS"
     ```
@@ -123,7 +122,7 @@ Eclipse에서 실행하려면
 | --- | --- |
 | [인덱스 만들기 및 인덱싱 정책 설정](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L125-L141) | [Index](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._index)<br>[IndexingPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._indexing_policy) |
 
-인덱싱에 대한 자세한 내용은 [Azure Cosmos DB 인덱싱 정책](indexing-policies.md)을 참조하세요.
+인덱싱에 대한 자세한 내용은 [Azure Cosmos DB 인덱싱 정책](index-policy.md)을 참조하세요.
 
 ## <a name="query-examples"></a>쿼리 예제
 [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java) 파일은 다음 작업을 수행하는 방법을 보여 줍니다.
@@ -133,7 +132,7 @@ Eclipse에서 실행하려면
 | [단순한 교차 파티션 문서 쿼리 수행](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L108-L129) | [DocumentClient.queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydocuments)<br>[FeedOptions.setEnableCrossPartitionQuery](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setenablecrosspartitionquery) |
 | [쿼리별 정렬](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L132-L154) | [FeedResponse<T>.getQueryIterator](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response.getqueryiterator) |
 
-쿼리를 작성하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 내에서 SQL 쿼리](sql-api-sql-query.md)를 참조하세요.
+쿼리를 작성하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 내에서 SQL 쿼리](how-to-sql-query.md)를 참조하세요.
 
 ## <a name="offer-examples"></a>제안 예제
 [OfferCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) 파일은 다음 작업을 수행하는 방법을 보여 줍니다.

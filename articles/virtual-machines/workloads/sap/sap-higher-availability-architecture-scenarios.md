@@ -211,7 +211,7 @@ ms.locfileid: "34657556"
 
 > 이 섹션은 다음에 적용됩니다.
 >
-> ![Windows][Logo_Windows] Windows 및 ![Linux][Logo_Linux] Linux
+> ![ Windows][Logo_Windows] Windows 및 ![Linux][Logo_Linux] Linux
 >
 
 Linux에서 WSFC(Windows Server 장애 조치(failover) 클러스터링) 또는 Pacemaker와 같은 기능을 사용하지 않기로 결정한 경우(현재 SLES[SUSE Linux Enterprise Server] 12 이상에서만 지원) Azure VM 다시 시작이 사용됩니다. 이 기능은 Azure 물리적 서버 인프라 및 전반적인 기본 Azure 플랫폼의 계획되었거나 계획되지 않은 가동 중지 시간에서 SAP 시스템을 보호합니다.
@@ -239,7 +239,7 @@ Azure 인프라 고가용성 및 관리 디스크를 사용하는 SAP NetWeaver 
 
 * SAP 응용 프로그램 서버의 고가용성
 
-    SAP 응용 프로그램 서버 인스턴스는 중복 구성 요소입니다. 각 SAP 응용 프로그램 서버 인스턴스는 다른 Azure 장애 및 업그레이드 도메인에서 실행되는 고유한 VM에 배포됩니다. 자세한 내용은 [장애 도메인][planning-guide-3.2.1] 및 [업그레이드 도메인][planning-guide-3.2.2] 섹션을 참조하세요. 
+    SAP 애플리케이션 서버 인스턴스는 중복 구성 요소입니다. 각 SAP 응용 프로그램 서버 인스턴스는 다른 Azure 장애 및 업그레이드 도메인에서 실행되는 고유한 VM에 배포됩니다. 자세한 내용은 [장애 도메인][planning-guide-3.2.1] 및 [업그레이드 도메인][planning-guide-3.2.2] 섹션을 참조하세요. 
 
     Azure 가용성 집합을 사용하여 이 구성을 확인할 수 있습니다. 자세한 내용은 [Azure 가용성 집합][planning-guide-3.2.3] 섹션을 참조하세요. 
 

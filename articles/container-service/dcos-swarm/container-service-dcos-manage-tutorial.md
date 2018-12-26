@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service 자습서 - DC/OS 관리
+title: (사용되지 않음) Azure Container Service 자습서 - DC/OS 관리
 description: Azure Container Service 자습서 - DC/OS 관리
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 28c217430dcbc8ee17998742c31888e06dddf96f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: fe943ae5ac7894cdd8d8e104615cea670513b7eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902149"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000414"
 ---
-# <a name="azure-container-service-tutorial---manage-dcos"></a>Azure Container Service 자습서 - DC/OS 관리
+# <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(사용되지 않음) Azure Container Service 자습서 - DC/OS 관리
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS는 컨테이너화된 최신 응용 프로그램 실행을 위한 분산 플랫폼을 제공합니다. Azure Container Service를 통해 프로덕션이 준비된 DC/OS 클러스터를 프로비전하는 작업은 간단하고 빠릅니다. 이 빠른 시작에서는 DC/OS 클러스터를 배포하고 기본 워크로드를 실행하는 데 필요한 기본 단계를 자세히 설명합니다.
 
@@ -24,17 +26,17 @@ DC/OS는 컨테이너화된 최신 응용 프로그램 실행을 위한 분산 �
 > * ACS DC/OS 클러스터 만들기
 > * 클러스터에 연결
 > * DC/OS CLI 설치
-> * 클러스터에 응용 프로그램 배포
-> * 클러스터에서 응용 프로그램 크기 조정
+> * 클러스터에 애플리케이션 배포
+> * 클러스터에서 애플리케이션 크기 조정
 > * DC/OS 클러스터 노드 크기 조정
 > * 기본 DC/OS 관리
 > * DC/OS 클러스터 삭제
 
-이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="create-dcos-cluster"></a>DC/OS 클러스터 만들기
 
-먼저 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+먼저 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
 다음 예제에서는 *westeurope* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -42,7 +44,7 @@ DC/OS는 컨테이너화된 최신 응용 프로그램 실행을 위한 분산 �
 az group create --name myResourceGroup --location westeurope
 ```
 
-다음으로 [az acs create](/cli/azure/acs#az_acs_create) 명령을 사용하여 DC/OS 클러스터를 만듭니다.
+다음으로 [az acs create](/cli/azure/acs#az-acs-create) 명령을 사용하여 DC/OS 클러스터를 만듭니다.
 
 다음 예제에서는 *myDCOSCluster*라는 DC/OS 클러스터를 만들고 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  
 
@@ -72,7 +74,7 @@ sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 
 ## <a name="install-dcos-cli"></a>DC/OS CLI 설치
 
-[az acs dcos install-cli](/azure/acs/dcos#install-cli) 명령을 사용하여 DC/OS 클라이언트를 설치합니다. Azure Cloud Shell을 사용하는 경우 DC/OS CLI가 이미 설치되어 있습니다. macOS 또는 Linux에서 Azure CLI를 실행하는 경우 sudo를 사용하여 이 명령을 실행해야 합니다.
+[az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli) 명령을 사용하여 DC/OS 클라이언트를 설치합니다. Azure Cloud Shell을 사용하는 경우 DC/OS CLI가 이미 설치되어 있습니다. macOS 또는 Linux에서 Azure CLI를 실행하는 경우 sudo를 사용하여 이 명령을 실행해야 합니다.
 
 ```azurecli
 az acs dcos install-cli
@@ -133,9 +135,9 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 /test   32   1     0/1    ---       ---      False      DOCKER   None
 ```
 
-## <a name="scale-marathon-application"></a>Marathon 응용 프로그램 크기 조정
+## <a name="scale-marathon-application"></a>Marathon 애플리케이션 크기 조정
 
-이전 예제에서는 단일 인스턴스 응용 프로그램을 만들었습니다. 응용 프로그램의 세 가지 인스턴스를 사용할 수 있도록 이 배포를 업데이트하려면 **marathon-app.json** 파일을 열고 인스턴스 속성을 3으로 업데이트합니다.
+이전 예제에서는 단일 인스턴스 애플리케이션을 만들었습니다. 애플리케이션의 세 가지 인스턴스를 사용할 수 있도록 이 배포를 업데이트하려면 **marathon-app.json** 파일을 열고 인스턴스 속성을 3으로 업데이트합니다.
 
 ```json
 {
@@ -186,7 +188,7 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 ACS DC/OS 클러스터는 인터넷에 액세스할 수 있는 공용 노드 집합과 인터넷에 액세스할 수 없는 개인 노드 집합이라는 두 개의 노드 집합으로 구성됩니다. 기본 집합은 개인 노드이며 마지막 예제에서 사용했습니다.
 
-응용 프로그램이 인터넷에 액세스할 수 있도록 만들려면 공개 노드 집합에 배포합니다. 그러려면 `acceptedResourceRoles` 개체에 `slave_public` 값을 입력합니다.
+애플리케이션이 인터넷에 액세스할 수 있도록 만들려면 공개 노드 집합에 배포합니다. 그러려면 `acceptedResourceRoles` 개체에 `slave_public` 값을 입력합니다.
 
 **nginx public.json**이라는 파일을 만들어서 여기에 다음과 같은 내용을 복사합니다.
 
@@ -238,15 +240,15 @@ az network public-ip list --resource-group myResourceGroup --query "[?contains(n
 
 ## <a name="scale-dcos-cluster"></a>DC/OS 클러스터 크기 조정
 
-이전의 예에서 응용 프로그램은 여러 인스턴스로 확장되었습니다. 더 많거나 적은 계산 수용작업량을 제공하도록 DC/OS 인프라를 확장할 수도 있습니다. 그러려면 [az acs scale]() 명령을 사용합니다. 
+이전의 예에서 애플리케이션은 여러 인스턴스로 확장되었습니다. 더 많거나 적은 계산 수용작업량을 제공하도록 DC/OS 인프라를 확장할 수도 있습니다. 그러려면 [az acs scale](/cli/azure/acs#az-acs-scale) 명령을 사용합니다. 
 
-DC/OS 에이전트의 현재 수를 보려면 [az acs show](/cli/azure/acs#az_acs_show) 명령을 사용합니다.
+DC/OS 에이전트의 현재 수를 보려면 [az acs show](/cli/azure/acs#az-acs-show) 명령을 사용합니다.
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-개수를 5로 늘리려면 [az acs scale](/cli/azure/acs#az_acs_scale) 명령을 사용합니다. 
+개수를 5로 늘리려면 [az acs scale](/cli/azure/acs#az-acs-scale) 명령을 사용합니다. 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
@@ -254,7 +256,7 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 ## <a name="delete-dcos-cluster"></a>DC/OS 클러스터 삭제
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, DC/OS 클러스터 및 모든 관련된 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, DC/OS 클러스터 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait
@@ -268,8 +270,8 @@ az group delete --name myResourceGroup --no-wait
 > * ACS DC/OS 클러스터 만들기
 > * 클러스터에 연결
 > * DC/OS CLI 설치
-> * 클러스터에 응용 프로그램 배포
-> * 클러스터에서 응용 프로그램 크기 조정
+> * 클러스터에 애플리케이션 배포
+> * 클러스터에서 애플리케이션 크기 조정
 > * DC/OS 클러스터 노드 크기 조정
 > * DC/OS 클러스터 삭제
 

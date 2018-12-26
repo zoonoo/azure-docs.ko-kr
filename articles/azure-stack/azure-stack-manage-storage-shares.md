@@ -6,23 +6,22 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: b0e694e4-3575-424c-afda-7d48c2025a62
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: cdfdaf9195f14e3cbe3db2a4507bd91a3133a26e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071388"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249900"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack에 대 한 저장소 용량 관리
+# <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack에 대 한 저장소 용량 관리 
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
@@ -86,10 +85,15 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
 - **사용 된 용량** 테 넌 트 데이터와 연결 된 메타 데이터를 저장 하는 파일의 모든 범위에서 사용 되는 바이트의 데이터 양입니다.
 
 ### <a name="use-the-administrator-portal"></a>관리자 포털 사용
-클라우드 운영자로 서 모든 공유의 저장소 용량을 보려면 관리 포털을 사용할 수 있습니다. **저장소로 이동** > **파일 공유** 사용량 정보를 볼 수 있는 파일 공유 목록을 엽니다.
-![예: 저장소 파일 공유](media/azure-stack-manage-storage-shares/storage-file-shares.png)
-- **총** 공유에 사용할 수 있는 바이트의 총 공간입니다. 이 공간 데이터 및 저장소 서비스에서 유지 되는 메타 데이터에 사용 됩니다.
-- **사용 되는** 테 넌 트 데이터와 연결 된 메타 데이터를 저장 하는 파일의 모든 범위에서 사용 되는 바이트의 데이터 양입니다.
+클라우드 운영자로 서 모든 공유의 저장소 용량을 보려면 관리 포털을 사용할 수 있습니다.
+
+1. 에 로그인 합니다 [관리자 포털](https://adminportal.local.azurestack.external)합니다.
+2. 선택 **모든 서비스** > **저장소** 사용량 정보를 볼 수 있는 파일 공유 목록을 엽니다. 
+
+  ![예: 저장소 파일 공유](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+
+  - **총** 공유에 사용할 수 있는 바이트의 총 공간입니다. 이 공간 데이터 및 저장소 서비스에서 유지 되는 메타 데이터에 사용 됩니다.
+  - **사용 되는** 테 넌 트 데이터와 연결 된 메타 데이터를 저장 하는 파일의 모든 범위에서 사용 되는 바이트의 데이터 양입니다.
 
 ### <a name="storage-space-alerts"></a>저장소 공간 경고
 관리 포털을 사용 하면 공간 부족에 있는 공유에 대 한 경고가 표시 됩니다.
@@ -134,7 +138,7 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
 > Blob 컨테이너에 대 한 마이그레이션의 powershell을 사용 해야 하는 오프 라인 작업입니다. 마이그레이션 완료 될 때까지 마이그레이션하는 컨테이너에 대 한 모든 blob 오프 라인 상태로 유지 하 고 사용할 수 없습니다. 모든 진행 중인 마이그레이션 완료 될 때까지 Azure Stack 업그레이드 피해 야 합니다.
 
 #### <a name="to-migrate-containers-using-powershell"></a>PowerShell을 사용 하 여 컨테이너를 마이그레이션하려면
-1. 했는지 확인 [Azure PowerShell 설치 및 구성](http://azure.microsoft.com/documentation/articles/powershell-install-configure/)합니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](http://go.microsoft.com/fwlink/?LinkId=394767)을 참조하세요.
+1. 했는지 확인 [Azure PowerShell 설치 및 구성](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)합니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](https://go.microsoft.com/fwlink/?LinkId=394767)을 참조하세요.
 2.  마이그레이션하려는 공유에 데이터를 이해 하려면 컨테이너를 검사 합니다. 볼륨의 마이그레이션에 대 한 최상의 후보 컨테이너를 식별 하려면 사용 합니다 **Get AzsStorageContainer** cmdlet:
 
     ````PowerShell  

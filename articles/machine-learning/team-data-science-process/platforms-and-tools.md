@@ -1,27 +1,23 @@
 ---
 title: 데이터 과학 팀 프로젝트용 플랫폼 및 도구 - Azure | Microsoft Docs
 description: Team Data Science Process를 표준화하는 기업에서 사용할 수 있는 데이터 및 분석 리소스를 항목별로 정리하고 설명합니다.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 3d4d217fba55b8329937575042f0ac909aad09e9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838479"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446452"
 ---
-# <a name="platforms-and-tools-for-data-science-team-projects"></a>데이터 과학 팀 프로젝트용 플랫폼 및 도구
+# <a name="platforms-and-tools-for-data-science-projects"></a>데이터 과학 프로젝트용 플랫폼 및 도구
 
 Microsoft는 클라우드 또는 온 프레미스 플랫폼 모두에 대해 광범위한 데이터 및 분석 서비스와 리소스를 제공합니다. 데이터 과학 프로젝트의 실행이 효율적이고 확장 가능하게 되도록 배포할 수 있습니다. 추적 가능하고, 버전을 제어하고, 공동 작업을 수행하는 방식으로 데이터 과학 프로젝트를 구현하는 팀에 대한 지침은 [TDSP(Team Data Science Process)](overview.md)에서 제공됩니다.  이 프로세스를 표준화하는 데이터 과학 팀에서 처리하는 인력 역할 및 관련 작업에 대한 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
 
@@ -39,7 +35,7 @@ TDSP를 사용하는 데이터 과학 팀에서 사용할 수 있는 데이터 �
 
 ## <a name="data-science-virtual-machine-dsvm"></a>DSVM(데이터 과학 Virtual Machine)
 
-Microsoft에서 Windows 및 Linux 모두에 제공하는 데이터 과학 가상 컴퓨터에는 데이터 과학 모델링 및 개발 작업을 위한 인기 있는 도구가 포함되어 있습니다. 이러한 도구는 다음과 같습니다.
+Microsoft에서 Windows 및 Linux 모두에 제공하는 데이터 과학 가상 머신에는 데이터 과학 모델링 및 개발 작업을 위한 인기 있는 도구가 포함되어 있습니다. 이러한 도구는 다음과 같습니다.
 
 - Microsoft R Server Developer Edition 
 - Enthought Python 배포
@@ -68,7 +64,7 @@ Microsoft의 TDSP 팀은 Azure HDInsight Spark Clusters를 사용하여 Python�
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
-Azure SQL Data Warehouse를 사용하면 과도하게 프로비전하거나 요금을 과도하게 지급하지 않고 계산 리소스를 몇 초 만에 쉽게 크기 조정할 수 있습니다. 또한 계산 리소스의 사용을 일시 중지하는 고유한 옵션을 제공하므로 클라우드 비용을 자유롭게 더 효율적으로 관리할 수 있습니다. 확장 가능한 계산 리소스를 배포하는 기능을 사용하면 모든 데이터를 Azure SQL Data Warehouse로 가져올 수 있습니다. 저장소 비용은 최소화되며, 분석하려는 데이터 집합 부분에 대해서만 계산을 실행할 수 있습니다. 
+Azure SQL Data Warehouse를 사용하면 과도하게 프로비전하거나 요금을 과도하게 지급하지 않고 계산 리소스를 몇 초 만에 쉽게 크기 조정할 수 있습니다. 또한 계산 리소스의 사용을 일시 중지하는 고유한 옵션을 제공하므로 클라우드 비용을 자유롭게 더 효율적으로 관리할 수 있습니다. 확장 가능한 계산 리소스를 배포하는 기능을 사용하면 모든 데이터를 Azure SQL Data Warehouse로 가져올 수 있습니다. 저장소 비용은 최소화되며, 분석하려는 데이터 세트 부분에 대해서만 계산을 실행할 수 있습니다. 
 
 Azure SQL Data Warehouse에 대한 자세한 내용은 [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse) 웹 사이트를 참조하세요. SQL Data Warehouse를 사용하여 종단 간 고급 분석 솔루션을 빌드하는 방법은 [실행 중인 Team Data Science Process: SQL Data Warehouse 사용](sqldw-walkthrough.md)을 참조하세요.
 
@@ -102,9 +98,9 @@ Azure 파일 저장소를 프로젝트 팀 구성원과 프로젝트 데이터�
 
 R Services(In-Database)는 새 정보를 발견할 수 있는 지능형 응용 프로그램을 개발하고 배포하기 위한 플랫폼을 제공합니다. R 커뮤니티에서 제공하는 많은 패키지를 포함하여 풍부하고 강력한 R 언어를 사용하여 SQL Server 데이터에서 모델을 만들고 예측을 생성할 수 있습니다. R Services(In-Database)는 R 언어를 SQL Server와 통합하므로 분석이 데이터와 가깝게 유지되며, 이에 따라 데이터 이동과 관련된 비용 및 보안 위험이 제거됩니다.
 
-R Services(In-Database)는 포괄적인 SQL Server 도구 및 기술 집합을 통해 오픈 소스 R 언어를 지원합니다. 탁월한 성능, 보안, 안정성 및 관리 효율성을 제공합니다. 편리하고 친숙한 도구를 사용하여 R 솔루션을 배포할 수 있습니다. 프로덕션 응용 프로그램에서 R 런타임을 호출하고 Transact-SQL을 사용하여 예측 및 시각적 개체를 검색할 수 있습니다. 또한 ScaleR 라이브러리를 사용하여 R 솔루션의 규모와 성능을 향상시킵니다. 자세한 내용은 [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx)를 참조하세요.
+R Services(In-Database)는 포괄적인 SQL Server 도구 및 기술 집합을 통해 오픈 소스 R 언어를 지원합니다. 탁월한 성능, 보안, 안정성 및 관리 효율성을 제공합니다. 편리하고 친숙한 도구를 사용하여 R 솔루션을 배포할 수 있습니다. 프로덕션 응용 프로그램에서 R 런타임을 호출하고 Transact-SQL을 사용하여 예측 및 시각적 개체를 검색할 수 있습니다. 또한 ScaleR 라이브러리를 사용하여 R 솔루션의 규모와 성능을 향상시킵니다. 자세한 내용은 [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services)를 참조하세요.
 
-Microsoft의 TDSP 팀은 SQL Server 2016 R Services에서 R 프로그래머용 및 SQL 개발자용 데이터 과학 솔루션을 빌드하는 방법을 보여 주는 두 가지 종단 간 연습을 게시했습니다. **R 프로그래머**의 경우 [데이터 과학 종단 간 연습](https://msdn.microsoft.com/library/mt612857.aspx)을 참조하세요. **SQL 개발자**의 경우 [SQL 개발자용 In-Database 고급 분석(자습서)](https://msdn.microsoft.com/library/mt683480.aspx)을 참조하세요.
+Microsoft의 TDSP 팀은 SQL Server 2016 R Services에서 R 프로그래머용 및 SQL 개발자용 데이터 과학 솔루션을 빌드하는 방법을 보여 주는 두 가지 종단 간 연습을 게시했습니다. **R 프로그래머**의 경우 [데이터 과학 종단 간 연습](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)을 참조하세요. **SQL 개발자**의 경우 [SQL 개발자용 In-Database 고급 분석(자습서)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)을 참조하세요.
 
 
 ## <a name="appendix"></a>부록: 데이터 과학 프로젝트를 설정하는 도구
@@ -126,7 +122,7 @@ Linux(CentOS) 컴퓨터에 Git를 설치하려면 다음 bash 명령을 실행�
 
 ### <a name="generate-public-ssh-key-on-linux-centos-machines"></a>Linux(CentOS) 컴퓨터에서 공개 SSH 키 생성
 
-Linux(CentOS) 컴퓨터를 사용하여 git 명령을 실행하는 경우 VSTS 서버에 공개 SSH 키를 추가해야 VSTS 서버에서 이 컴퓨터를 인식할 수 있습니다. 먼저 공개 SSH 키를 생성한 다음, VSTS 보안 설정 페이지의 SSH 공개 키에 이 키를 추가해야 합니다. 
+Linux(CentOS) 컴퓨터를 사용하여 git 명령을 실행하는 경우 Azure DevOps Services에 공개 SSH 키를 추가해야 Azure DevOps Services에서 이 컴퓨터를 인식할 수 있습니다. 먼저 공개 SSH 키를 생성한 다음, Azure DevOps Services 보안 설정 페이지의 SSH 공개 키에 이 키를 추가해야 합니다. 
 
 - SSH 키를 생성하려면 다음 두 명령을 실행합니다. 
 
@@ -136,7 +132,7 @@ Linux(CentOS) 컴퓨터를 사용하여 git 명령을 실행하는 경우 VSTS �
 ![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - *ssh-rsa*가 포함된 ssh 키 전체를 복사합니다. 
-- VSTS 서버에 로그인합니다. 
+- Azure DevOps Services에 로그인합니다. 
 - 페이지의 오른쪽 위 모서리에 있는 **<사용자 이름\>** 을 클릭하고 **보안**을 클릭합니다. 
     
     ![](./media/platforms-and-tools/resources-2-user-setting.png)
@@ -152,4 +148,4 @@ Linux(CentOS) 컴퓨터를 사용하여 git 명령을 실행하는 경우 VSTS �
 
 **특정 시나리오** 에 대한 프로세스의 모든 단계를 보여 주는 종합적인 전체 연습도 제공됩니다. 이러한 단계는 [예제 연습](walkthroughs.md) 항목에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 보여 줍니다. 
 
-Azure Machine Learning Studio를 사용하는 Team Data Science Process의 단계를 실행하는 예제는 [Azure ML 사용](http://aka.ms/datascienceprocess) 학습 경로를 참조하세요.
+Azure Machine Learning Studio를 사용하는 Team Data Science Process의 단계를 실행하는 예제는 [Azure ML 사용](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 학습 경로를 참조하세요.

@@ -1,35 +1,30 @@
 ---
-title: '자습서: HDInsight에서 Spark Machine Learning 응용 프로그램 빌드 | Microsoft Docs'
+title: '자습서: Azure HDInsight에서 Spark 기계 학습 응용 프로그램 빌드'
 description: Jupyter Notebook을 사용하여 HDInsight Spark 클러스터에서 Apache Spark Machine Learning 응용 프로그램을 빌드하는 방법에 대한 단계별 지침입니다.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/07/2018
-ms.author: jgao
-ms.openlocfilehash: 70876196eb6b37065a663afa56ed496a0e9755db
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770908"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580573"
 ---
-# <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>자습서: HDInsight에서 Spark Machine Learning 응용 프로그램 빌드 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>자습서: HDInsight에서 Apache Spark 기계 학습 애플리케이션 빌드 
 
-이 자습서에서는 Jupyter Notebook을 사용하여 Azure HDInsight에 대한 Apache Spark Machine Learning 응용 프로그램을 빌드하는 방법을 알아봅니다. 
+이 자습서에서는 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Azure HDInsight에 대한 [Apache Spark](https://spark.apache.org/) 기계 학습 애플리케이션을 빌드하는 방법을 알아봅니다. 
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html)는 분류, 회귀, 클러스터링, 공동 작업 필터링, 차원 감소, 기본 최적화 기본 요소 등 일반적인 학습 알고리즘 및 유틸리티로 구성된 Spark의 확장 가능한 기계 학습 라이브러리입니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Spark Machine Learning 응용 프로그램 개발
+> * Apache Spark 기계 학습 애플리케이션 개발
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -47,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Spark MLlib를 사용하여 Spark Machine Learning 응용 프로그램 개발
 
-이 응용 프로그램에서는 문서 분류를 수행하는 데 Spark [ML 파이프라인](https://spark.apache.org/docs/2.2.0/ml-pipeline.html)을 사용합니다. ML 파이프라인은 사용자가 실제 기계 학습 파이프라인을 만들고 조정하는 데 도움이 되는 DataFrame을 기반으로 빌드된 균일한 상위 수준 API 집합을 제공합니다. 파이프라인에서 기능 벡터 및 레이블을 사용하여 문서를 단어로 분할하고, 단어를 숫자 기능 벡터로 변환하며, 마지막으로 예측 모델을 빌드합니다. 다음 단계에 따라 응용 프로그램을 만듭니다.
+이 애플리케이션에서는 문서 분류를 수행하는 데 Spark [ML 파이프라인](https://spark.apache.org/docs/2.2.0/ml-pipeline.html)을 사용합니다. ML 파이프라인은 사용자가 실제 기계 학습 파이프라인을 만들고 조정하는 데 도움이 되는 DataFrame을 기반으로 빌드된 균일한 상위 수준 API 집합을 제공합니다. 파이프라인에서 기능 벡터 및 레이블을 사용하여 문서를 단어로 분할하고, 단어를 숫자 기능 벡터로 변환하며, 마지막으로 예측 모델을 빌드합니다. 다음 단계에 따라 응용 프로그램을 만듭니다.
 
 1. PySpark 커널을 사용하여 Jupyter 노트북을 만듭니다. 자세한 지침은 [Jupyter 노트북 만들기](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)를 참조하세요.
 2. 이 시나리오에 필요한 형식을 가져옵니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **SHIFT + ENTER**를 누릅니다. 
@@ -85,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         return LabeledDocument((values[6]), textValue, hot)
 
     # Load the raw HVAC.csv file, parse it using the function
-    data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    data = sc.textFile("/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
     documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
     training = documents.toDF()
@@ -195,7 +190,7 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
-* Spark Machine Learning 응용 프로그램 개발
+* Apache Spark 기계 학습 애플리케이션 개발
 
 다음 자습서로 이동하여 Spark용 IntelliJ IDEA 작업을 사용하는 방법을 알아봅니다. 
 

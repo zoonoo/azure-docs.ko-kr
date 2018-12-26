@@ -1,27 +1,23 @@
 ---
-title: XML 유효성 검사 - Azure Logic Apps | Microsoft Docs
-description: 엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps 및 B2B 시나리오에 대한 스키마로 XML 유효성 검사
+title: B2B 엔터프라이즈 통합용 XML 유효성 검사 - Azure Logic Apps | Microsoft Docs
+description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 솔루션용 스키마로 XML 유효성 검사
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 901f0e576d28ab163fe2c46dff0594a338fbaf73
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e25f4e633b8cf9030bb0ce395f093f630db59f38
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299602"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121116"
 ---
-# <a name="validate-xml-for-enterprise-integration"></a>엔터프라이즈 통합에 대한 XML 유효성 검사
+# <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 XML 유효성 검사
 
 종종 B2B 시나리오에서 규약을 맺은 파트너는 데이터 처리를 시작하기 위해 먼저 교환하는 메시지가 유효한지 확인해야 합니다. 엔터프라이즈 통합 팩의 XML 유효성 검사 커넥터를 사용하여 미리 정의된 스키마에 대해 문서의 유효성을 검사할 수 있습니다.
 
@@ -57,7 +53,7 @@ ms.locfileid: "35299602"
 
 이제 유효성 검사 커넥터 설정이 끝났습니다. 실제 응용 프로그램에서는 유효성을 검사한 데이터를 SalesForce와 같은 LOB(기간 업무) 앱에 저장하려고 할 수도 있습니다. 유효성을 검사한 출력을 Salesforce에 보내려면 작업을 추가합니다.
 
-유효성 검사 작업을 테스트하려면 HTTP 끝점에 대해 요청을 수행합니다.
+유효성 검사 작업을 테스트하려면 HTTP 엔드포인트에 대해 요청을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")   

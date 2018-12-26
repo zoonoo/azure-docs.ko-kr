@@ -1,29 +1,24 @@
 ---
-title: HBase 및 Phoenix 백업 및 복제 설정 - Azure HDInsight | Microsoft Docs
+title: Apache HBase 및 Apache Phoenix 백업 및 복제 설정 - Azure HDInsight
 description: HBase 및 Phoenix에 대한 백업 및 복제를 설정합니다.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: f43edaf16784e5ba5cc3d2b39df285582954210b
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 568d63f984980e91b4dc059211dcf0eaceb73820
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165335"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164231"
 ---
-# <a name="set-up-backup-and-replication-for-hbase-and-phoenix-on-hdinsight"></a>HDInsight에서 HBase 및 Phoenix에 대한 백업 및 복제 설정
+# <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>HDInsight에서 Apache HBase 및 Apache Phoenix에 대한 백업 및 복제 설정
 
-HBase는 데이터 손실 방지를 위한 몇 가지 방법을 지원합니다.
+Apache HBase는 데이터 손실을 방지하기 위한 몇 가지 방법을 지원합니다.
 
 * `hbase` 폴더 복사
 * 내보낸 후 가져오기
@@ -106,7 +101,7 @@ CopyTable을 사용하여 다른 클러스터의 테이블에 복사하려면 `p
 
     <destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>
 
-* `<ZooKeeperQuorum>`은 ZooKeeper 노드의 쉼표로 구분된 목록입니다. 예를 들어 다음과 같습니다.
+* `<ZooKeeperQuorum>`은 쉼표로 구분된 Apache ZooKeeper 노드 목록입니다. 예를 들어 다음과 같습니다.
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
@@ -114,7 +109,7 @@ CopyTable을 사용하여 다른 클러스터의 테이블에 복사하려면 `p
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net:2181:/hbase-unsecure
 
-HDInsight 클러스터에 대해 이러한 값을 검색하는 방법에 대한 자세한 내용은 이 문서의 [수동으로 ZooKeeper 쿼럼 목록 수집](#manually-collect-the-zookeeper-quorum-list)을 참조하세요.
+HDInsight 클러스터에 대해 이러한 값을 검색하는 방법에 대한 자세한 내용은 이 문서의 [수동으로 Apache ZooKeeper 쿼럼 목록 수집](#manually-collect-the-apache-zookeeper-quorum-list)을 참조하세요.
 
 또한 CopyTable 유틸리티는 복사할 행의 시간 범위를 지정하고 복사할 테이블의 열 패밀리의 하위 집합을 지정하는 매개 변수도 지원합니다. CopyTable에서 지원하는 매개 변수의 전체 목록을 보려면 CopyTable을 매개 변수 없이 실행합니다.
 
@@ -125,7 +120,7 @@ CopyTable은 대상 테이블에 복사될 원본 테이블 내용 전체를 스
 > [!NOTE]
 > 테이블 간의 데이터 복사를 자동화하려면 GitHub의 [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) 리포지토리에 있는 `hdi_copy_table.sh` 스크립트를 참조하세요.
 
-### <a name="manually-collect-the-zookeeper-quorum-list"></a>수동으로 ZooKeeper 쿼럼 목록 수집
+### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>수동으로 Apache ZooKeeper 쿼럼 목록 수집
 
 앞에서 설명한 대로 두 HDInsight 클러스터가 동일한 가상 네트워크에 있는 경우 내부 호스트 이름 확인이 자동으로 수행됩니다. VPN Gateway로 연결된 별도의 두 개 가상 네트워크에 있는 HDInsight 클러스터에 대해 CopyTable을 사용하려면, 쿼럼에 있는 Zookeeper 노드의 호스트 IP 주소를 제공해야 합니다.
 
@@ -206,8 +201,8 @@ HBase 복제는 원본 클러스터에서 최소한의 오버헤드로 비동기
 5. 원본 테이블에서 대상 테이블로 기존 데이터를 복사합니다.
 6. 복제는 원본 테이블의 새 데이터 수정 내용을 대상 테이블에 자동으로 복사합니다.
 
-HDInsight에서 복제를 사용하도록 설정하려면 실행 중인 원본 HDInsight 클러스터에 스크립트 동작을 적용합니다. 클러스터에서 복제를 사용하도록 설정하거나 Azure 리소스 관리 템플릿을 사용하여 가상 네트워크에서 만든 샘플 클러스터에서 복제를 실험하는 연습은 [HBase 복제 구성](apache-hbase-replication.md)을 참조하세요. 이 문서에는 Phoenix 메타데이터의 복제를 사용하도록 설정하기 위한 지침도 포함되어 있습니다.
+HDInsight에서 복제를 사용하도록 설정하려면 실행 중인 원본 HDInsight 클러스터에 스크립트 동작을 적용합니다. 클러스터에서 복제를 사용하도록 설정하거나 Azure 리소스 관리 템플릿을 사용하여 가상 네트워크에서 만든 샘플 클러스터에서 복제를 실험하는 연습은 [Apache HBase 복제 구성](apache-hbase-replication.md)을 참조하세요. 이 문서에는 Phoenix 메타데이터의 복제를 사용하도록 설정하기 위한 지침도 포함되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HBase 복제 구성](apache-hbase-replication.md)
+* [Apache HBase 복제 구성](apache-hbase-replication.md)

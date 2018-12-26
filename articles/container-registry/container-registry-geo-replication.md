@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: e4695428b03961f5e899007609dfb1088dde77a8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 784174c1fb2427441e0ed1a13b147d2440539fa9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768212"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870341"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
@@ -27,7 +27,7 @@ ms.locfileid: "33768212"
 * 둘 이상의 지역에서 레지스트리를 단일하게 관리
 
 ## <a name="example-use-case"></a>사용 사례
-Contoso는 미국, 캐나다, 유럽에서 공개 웹 사이트를 운영하고 있습니다. Contoso는 미국, 캐나다, 유럽 시장에 네트워크와 가까운 곳에 위치한 로컬 콘텐츠를 제공하기 위해 미국 서부, 미국 동부, 캐나다 중부 및 유럽 서부에서 [Azure Container Service](/azure/container-service/kubernetes/)(ACS) Kubernetes 클러스터를 실행합니다. Docker 이미지로서 배포된 웹 사이트 응용 프로그램은 모든 지역에서 동일한 코드와 이미지를 사용합니다. 해당 지역의 로컬 콘텐츠는 지역별로 고유하게 프로비전된 데이터베이스에서 가져옵니다. 각 지역별 배포는 로컬 데이터베이스와 리소스에 대해 고유한 구성을 갖습니다.
+Contoso는 미국, 캐나다, 유럽에서 공개 웹 사이트를 운영하고 있습니다. Contoso는 미국, 캐나다, 유럽 시장에 네트워크와 가까운 곳에 위치한 로컬 콘텐츠를 제공하기 위해 미국 서부, 미국 동부, 캐나다 중부 및 유럽 서부에서 [Azure Container Service](/azure/container-service/kubernetes/)(ACS) Kubernetes 클러스터를 실행합니다. Docker 이미지로서 배포된 웹 사이트 애플리케이션은 모든 지역에서 동일한 코드와 이미지를 사용합니다. 해당 지역의 로컬 콘텐츠는 지역별로 고유하게 프로비전된 데이터베이스에서 가져옵니다. 각 지역별 배포는 로컬 데이터베이스와 리소스에 대해 고유한 구성을 갖습니다.
 
 워싱턴주 시애틀에 있는 개발팀은 미국 서부 데이터 센터를 이용합니다.
 
@@ -36,8 +36,8 @@ Contoso는 미국, 캐나다, 유럽에서 공개 웹 사이트를 운영하고 
 Contoso가 지리적 복제 기능을 시용하기 전에는 미국 서부 소재의 미국 기반 레지스트리와 추가로 유럽 서부 소재의 레지스트리가 있었습니다. 개발팀은 이렇게 여러 지역에 서비스를 제공하기 위해 두 개의 레지스트리로 이미지를 밀어넣어야 했습니다.
 
 ```bash
-docker push contoso.azurecr.io/pubic/products/web:1.2
-docker push contosowesteu.azurecr.io/pubic/products/web:1.2
+docker push contoso.azurecr.io/public/products/web:1.2
+docker push contosowesteu.azurecr.io/public/products/web:1.2
 ```
 ![복수의 레지스트리에서 가져오기](media/container-registry-geo-replication/before-geo-replicate-pull.png)<br />*복수의 레지스트리에서 가져오기*
 

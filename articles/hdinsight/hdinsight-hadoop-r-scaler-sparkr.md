@@ -1,25 +1,19 @@
 ---
-title: Azure HDInsight에서 ScaleR 및 SparkR 사용 | Microsoft Docs
+title: Azure HDInsight에서 ScaleR 및 SparkR 사용
 description: HDInsight의 ML 서비스에서 ScaleR 및 SparkR 사용
 services: hdinsight
-documentationcenter: ''
-author: bradsev
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.author: bradsev
-ms.openlocfilehash: 2b16135e83ba52f7a2e6bd214791910db80634bc
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: da486b25a9a35cb4f00d6e5a4689d5be3d270e36
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952844"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013278"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 
@@ -33,7 +27,7 @@ ms.locfileid: "37952844"
 
 이 문서의 단계에서는 사용자가 R 및 ML Server의 [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) 라이브러리에 대한 중간 수준의 지식을 보유하고 있다고 가정합니다. 이 시나리오를 진행하는 동안 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)도 소개됩니다.
 
-## <a name="the-airline-and-weather-datasets"></a>항공사 및 날씨 데이터 집합
+## <a name="the-airline-and-weather-datasets"></a>항공사 및 날씨 데이터 세트
 
 항공편 데이터는 [미국 정부 아카이브](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)에서 사용할 수 있습니다. [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip)에서 zip 파일로도 사용 가능합니다.
 
@@ -337,7 +331,7 @@ joinedDF5 <- rename(joinedDF4,
 
 ## <a name="save-results-to-csv-for-exchange-with-scaler"></a>ScaleR과 교환하기 위해 CSV로 결과 저장
 
-이것으로 SparkR을 사용하는 데 필요한 조인이 완료됩니다. ScaleR에 입력할 수 있도록 최종적인 "joinedDF5" Spark DataFrame의 데이터를 CSV로 저장한 다음 SparkR 세션을 닫습니다. 80개의 개별 파티션에 결과 CSV를 저장하도록 SparkR에 명시적으로 지시하여 ScaleR 처리에서 병렬로 충분하게 처리할 수 있도록 합니다.
+이것으로 SparkR을 사용하는 데 필요한 조인이 완료됩니다. ScaleR에 입력할 수 있도록 최종적인 “joinedDF5” Spark DataFrame의 데이터를 CSV로 저장한 다음 SparkR 세션을 닫습니다. 80개의 개별 파티션에 결과 CSV를 저장하도록 SparkR에 명시적으로 지시하여 ScaleR 처리에서 병렬로 충분하게 처리할 수 있도록 합니다.
 
 ```
 logmsg('output the joined data from Spark to CSV') 
@@ -355,7 +349,7 @@ rxHadoopRemove(file.path(dataDir, "joined5Csv/_SUCCESS"))
 
 ## <a name="import-to-xdf-for-use-by-scaler"></a>ScaleR에서 사용할 XDF로 가져오기
 
-ScaleR 텍스트 데이터 원본을 통해 모델링하기 위해 조인된 항공사 및 날짜 데이터의 CSV 파일을 그대로 사용합니다. 하지만 데이터 집합에서 여러 작업 실행 시 더 효율적이므로 먼저 XDF로 가져옵니다.
+ScaleR 텍스트 데이터 원본을 통해 모델링하기 위해 조인된 항공사 및 날짜 데이터의 CSV 파일을 그대로 사용합니다. 하지만 데이터 세트에서 여러 작업 실행 시 더 효율적이므로 먼저 XDF로 가져옵니다.
 
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
@@ -512,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>다른 곳에서 점수 매기기
 
-또한, 다른 플랫폼의 데이터에 점수를 매기기 위해 이 모델을 사용할 수도 있습니다. RDS 파일로 저장한 다음 전송하여 해당 RDS를 SQL Server R 서비스 등의 대상 점수 매기기 환경으로 가져옵니다. 모델이 빌드된 요소 수준과 점수를 매길 데이터의 요소 수준이 일치하는지 확인하는 것이 중요합니다. 이러한 일치는 ScaleR의 `rxCreateColInfo()` 함수를 통해 모델링 데이터와 관련된 열 정보를 추출하고 저장한 다음, 해당 열 정보를 입력 데이터 원본에 적용하여 예측함으로써 구현할 수 있습니다. 다음 예제에서는 테스트 데이터 집합의 몇 개 행만 저장하고 예측 스크립트에서 이 샘플의 열 정보를 추출하여 사용합니다.
+또한, 다른 플랫폼의 데이터에 점수를 매기기 위해 이 모델을 사용할 수도 있습니다. RDS 파일로 저장한 다음 전송하여 해당 RDS를 SQL Server R 서비스 등의 대상 점수 매기기 환경으로 가져옵니다. 모델이 빌드된 요소 수준과 점수를 매길 데이터의 요소 수준이 일치하는지 확인하는 것이 중요합니다. 이러한 일치는 ScaleR의 `rxCreateColInfo()` 함수를 통해 모델링 데이터와 관련된 열 정보를 추출하고 저장한 다음, 해당 열 정보를 입력 데이터 원본에 적용하여 예측함으로써 구현할 수 있습니다. 다음 예제에서는 테스트 데이터 세트의 몇 개 행만 저장하고 예측 스크립트에서 이 샘플의 열 정보를 추출하여 사용합니다.
 
 ```
 # save the model and a sample of the test dataset 

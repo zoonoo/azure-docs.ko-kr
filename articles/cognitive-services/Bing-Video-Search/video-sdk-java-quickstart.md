@@ -1,30 +1,32 @@
 ---
-title: Bing Video Search SDK Java 빠른 시작 | Microsoft Docs
-description: Bing Video Search SDK 콘솔 응용 프로그램을 설치하는 방법을 알아봅니다.
+title: '빠른 시작: Bing Video Search SDK, Java'
 titleSuffix: Azure Cognitive Services
+description: Bing Video Search SDK 콘솔 응용 프로그램을 설치하는 방법을 알아봅니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/18/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1d9ccd88de4b91060861c39ab20f6a203c820384
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: a50771fddc15ab0ec284fa7f42539f1f8dcce40d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377934"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308650"
 ---
-# <a name="bing-video-search-sdk-java-quickstart"></a>Bing Video Search SDK Java 빠른 시작
+# <a name="quickstart-bing-video-search-sdk-java"></a>빠른 시작: Bing Video Search SDK Java
 
 Bing Video Search SDK는 비디오 쿼리 및 구문 분석 결과에 대한 REST API 기능을 제공합니다.
 
 [Java Bing Video Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch)은 Git Hub에서 얻을 수 있습니다.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
-**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다. Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Video Search SDK 종속성을 설치합니다. Maven POM 파일에는 다음 선언이 필요합니다.
+**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+
+Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Video Search SDK 종속성을 설치합니다. Maven POM 파일에는 다음 선언이 필요합니다.
 ```
   <dependencies>
     <dependency>

@@ -1,30 +1,27 @@
 ---
 title: Azure SQL Data Warehouse를 사용하여 테넌트 데이터베이스에 대해 분석 쿼리 실행 | Microsoft Docs
-description: 여러 Azure SQL Database 데이터베이스에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다.
-keywords: SQL Database 자습서
+description: Azure SQL Database, SQL Data Warehouse, Azure Data Factory 또는 Power BI에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다.
 services: sql-database
-documentationcenter: ''
-author: anumjs
-manager: craigg
-editor: MightyPen
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: ''
+ms.subservice: scenario
+ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/08/2017
+author: anumjs
 ms.author: anjangsh
-ms.openlocfilehash: c7580e5481288695d3b5dea8fd0547f5f2c4c2b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: MightyPen
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644004"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056599"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Azure SQL Database, SQL Data Warehouse, Data Factory 및 Power BI를 사용한 SaaS 분석 탐색
 
-이 자습서에서는 통합형 분석 시나리오를 처음부터 끝까지 살펴봅니다. 시나리오는 테넌트 데이터에 대한 분석을 통해 소프트웨어 공급 업체가 스마트한 결정을 내리는 데 도움을 받는 방법을 보여 줍니다. 각 테넌트 데이터베이스에서 추출된 데이터에 분석을 적용하여 테넌트 동작을 살펴보게 됩니다. 테넌트가 샘플 응용 프로그램인 Wingtip Tickets SaaS 응용 프로그램을 사용하는 방식도 확인하게 됩니다. 이 시나리오는 다음과 같이 3단계로 구성됩니다. 
+이 자습서에서는 통합형 분석 시나리오를 처음부터 끝까지 살펴봅니다. 시나리오는 테넌트 데이터에 대한 분석을 통해 소프트웨어 공급 업체가 스마트한 결정을 내리는 데 도움을 받는 방법을 보여 줍니다. 각 테넌트 데이터베이스에서 추출된 데이터를 사용하여 분석을 통해 샘플 Wingtip Tickets SaaS 애플리케이션을 비롯한 테넌트 동작을 살펴보게 됩니다. 이 시나리오는 다음과 같이 3단계로 구성됩니다. 
 
 1.  각 테넌트 데이터베이스에서 분석 저장소로 **데이터를 추출**합니다. 이 경우는 SQL Data Warehouse입니다.
 2.  분석 처리를 위해 **추출된 데이터를 최적화**합니다.
@@ -74,8 +71,8 @@ SaaS 응용 프로그램은 클라우드에서 방대한 양의 테넌트 데이
 > 이 자습서에서는 현재 미리 보기가 제한된 Azure Data Factory의 기능을 사용합니다(연결된 서비스 매개 변수화). 이 자습서를 수행하려는 경우 [여기에](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu) 구독 ID를 제공합니다. 구독을 사용하도록 설정하는 즉시 확인을 전송합니다.
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
-- Wingtip Tickets SaaS Database Per Tenant 응용 프로그램이 배포되어 있어야 합니다. 5분 이내에 배포하려면 [Wingtip SaaS 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
-- Wingtip Tickets SaaS Database Per Tenant 스크립트와 응용 프로그램 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)를 GitHub에서 다운로드해야 합니다. 다운로드 지침을 참조하세요. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제*해야 합니다.
+- Wingtip Tickets SaaS Database Per Tenant 애플리케이션이 배포되어 있어야 합니다. 5분 이내에 배포하려면 [Wingtip SaaS 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
+- Wingtip Tickets SaaS Database Per Tenant 스크립트와 애플리케이션 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)를 GitHub에서 다운로드해야 합니다. 다운로드 지침을 참조하세요. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제*해야 합니다.
 - Power BI Desktop이 설치되어 있어야 합니다. [Power BI Desktop 다운로드](https://powerbi.microsoft.com/downloads/).
 - 추가 테넌트 배치가 프로비전되어 있어야 합니다. [**테넌트 프로비전 자습서**](saas-dbpertenant-provision-and-catalog.md)를 참조하세요.
 
@@ -135,14 +132,14 @@ Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이�
 ## <a name="extract-load-and-transform-data"></a>데이터 ELT(추출, 로드, 변환)
 Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레이션하는 데 사용됩니다. 이 자습서에서는 각 테넌트 데이터베이스에서 **rawTickets**, **rawCustomers**, **rawEvents** 및 **rawVenues**의 4개 SQL 보기로부터 데이터를 추출합니다. 이러한 뷰에는 행사장 Id가 포함되어 데이터 웨어하우스의 각 행사장과 데이터를 구별할 수 있습니다. 데이터는 데이터 웨어하우스에서 **raw_Tickets**, **raw_customers**, **raw_Events** 및 **raw_Venue** 드의 해당 준비 테이블로 로드됩니다. 저장된 프로시저는 원시 데이터를 변환하여 **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** 및 **dim_Dates** 등의 스타 스키마 테이블을 채웁니다.
 
-이전 섹션에서 데이터 팩터리를 포함하여 필요한 Azure 리소스를 배포하고 초기화했습니다. 배포된 데이터 팩터리는 테넌트 데이터를 추출, 로드 및 변환하는 데 필요한 파이프라인, 데이터 집합, 연결된 서비스 등을 포함합니다. 데이터를 데이터베이스에서 데이터 웨어하우스로 이동하려면 이러한 개체를 추가 탐색한 다음, 파이프라인을 트리거해 봅니다.
+이전 섹션에서 데이터 팩터리를 포함하여 필요한 Azure 리소스를 배포하고 초기화했습니다. 배포된 데이터 팩터리는 테넌트 데이터를 추출, 로드 및 변환하는 데 필요한 파이프라인, 데이터 세트, 연결된 서비스 등을 포함합니다. 데이터를 데이터베이스에서 데이터 웨어하우스로 이동하려면 이러한 개체를 추가 탐색한 다음, 파이프라인을 트리거해 봅니다.
 
 ### <a name="data-factory-pipeline-overview"></a>데이터 팩터리 파이프라인 개요
 이 섹션에서는 데이터 팩터리에서 만든 개체를 탐색합니다. 다음 그림에서는 이 자습서에 사용된 ADF 파이프라인의 전체 워크플로에 대해 설명합니다. 나중에 파이프라인을 탐색하고서 먼저 결과를 확인하려는 경우 다음 섹션 **파이프라인 실행 트리거**로 건너뜁니다.
 
 ![adf_overview](media/saas-tenancy-tenant-analytics/adf-data-factory.PNG)
 
-개요 페이지에서 왼쪽 패널의 **작성자** 탭으로 전환하고 세 [파이프라인](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 및 세 [데이터 집합](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)이 있는지 확인합니다.
+개요 페이지에서 왼쪽 패널의 **작성자** 탭으로 전환하고 세 [파이프라인](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 및 세 [데이터 세트](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)가 있는지 확인합니다.
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
 중첩된 세 파이프라인은 SQLDBToDW, DBCopy 및 TableCopy입니다.
@@ -157,7 +154,7 @@ Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레�
 
 ![adf_linkedservices](media/saas-tenancy-tenant-analytics/linkedservices.JPG)
 
-세 연결된 서비스에 상응하면서, 파이프라인 활동에서 입력 또는 출력으로 사용하는 데이터를 참조하는 세 데이터 집합이 있습니다. 사용된 연결 및 매개 변수를 확인하려면 각 데이터 집합을 탐색합니다. _AzureBlob_은 각 원본의 추적기 열 뿐만 아니라 원본 및 대상 테이블과 열을 포함하는 구성 파일을 가리킵니다.
+세 연결된 서비스에 상응하면서, 파이프라인 활동에서 입력 또는 출력으로 사용하는 데이터를 참조하는 세 데이터 세트가 있습니다. 사용된 연결 및 매개 변수를 확인하려면 각 데이터 세트를 탐색합니다. _AzureBlob_은 각 원본의 추적기 열 뿐만 아니라 원본 및 대상 테이블과 열을 포함하는 구성 파일을 가리킵니다.
   
 ### <a name="data-warehouse-pattern-overview"></a>데이터 웨어하우스 패턴 개요
 SQL Data Warehouse는 테넌트 데이터에 대해 집계를 수행하기 위한 분석 저장소로 사용됩니다. 이 샘플에서 PolyBase는 SQL Data Warehouse에 데이터를 로드하는 데 사용됩니다. 원시 데이터는 스타 스키마 테이블로 변환된 행을 추적하는 ID 열이 있는 준비 테이블에 로드됩니다. 다음 이미지는 ![loadingpattern](media/saas-tenancy-tenant-analytics/loadingpattern.JPG) 같은 부하 패턴을 보여줍니다.
@@ -230,7 +227,7 @@ SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사
 
 각 이벤트에 대한 Contoso Concert Hall의 시간에 따른 누적 티켓 판매량을 표시한 이 차트는 모든 이벤트에 사람들이 몰려들지 않는다는 것을 보여 줍니다. 필터 옵션을 이리저리 조정하여 다른 행사장의 판매량 추세도 확인해 봅니다.
 
-티켓 판매량 패턴을 파악하면 Wingtip Tickets가 비즈니스 모델을 최적화할 방향을 찾게 될 수도 있습니다. 모든 테넌트에게 동일한 요금을 부과하는 대신 서로 다른 성과 수준을 갖는 등급별 서비스 모델을 도입하는 것이 좋을 수도 있습니다. 하루에 더 많은 티켓을 판매해야 하는 대형 행사장에는 높은 SLA(서비스 수준 계약)를 갖는 높은 등급을 제안할 수 있습니다. 이러한 행사장에서는 데이터베이스당 리소스 한도가 더 높은 풀에 자신의 데이터베이스를 배치할 수 있습니다. 각 서비스 등급에 시간당 판매량을 할당하고, 할당량이 초과되면 추가 요금을 부과할 수도 있을 것입니다. 주기적으로 판매량이 급증하는 대형 행사장이라면 높은 등급의 서비스를 이용하는 것이 이익이 될 것입니다. 또한, Wingtip Tickets은 서비스의 수익을 더 효율적으로 높일 수 있게 됩니다.
+티켓 판매량 패턴을 파악하면 Wingtip Tickets가 비즈니스 모델을 최적화할 방향을 찾게 될 수도 있습니다. 모든 테넌트에 동일한 요금을 부과하는 대신 서로 다른 계산 크기를 갖는 등급별 서비스 모델을 도입하는 것이 좋을 수도 있습니다. 하루에 더 많은 티켓을 판매해야 하는 대형 행사장에는 높은 SLA(서비스 수준 계약)를 갖는 높은 등급을 제안할 수 있습니다. 이러한 행사장에서는 데이터베이스당 리소스 한도가 더 높은 풀에 자신의 데이터베이스를 배치할 수 있습니다. 각 서비스 등급에 시간당 판매량을 할당하고, 할당량이 초과되면 추가 요금을 부과할 수도 있을 것입니다. 주기적으로 판매량이 급증하는 대형 행사장이라면 높은 등급의 서비스를 이용하는 것이 이익이 될 것입니다. 또한, Wingtip Tickets은 서비스의 수익을 더 효율적으로 높일 수 있게 됩니다.
 
 한편, Wingtip Tickets의 고객들은 자신들이 지불하는 서비스 요금보다 티켓 판매량이 현저히 떨어진다고 불만을 토로하고 있습니다. 데이터를 분석하여 성적이 좋지 않은 행사장의 티켓 판매량을 높일 방안이 있는지 확인해 볼 수 있습니다. 판매량이 높아지면 서비스의 체감 가치가 높아지게 됩니다. fact_Tickets를 마우스 오른쪽 단추로 클릭하고 **새 측정값**을 선택합니다. **AverageTicketsSold**라는 새 측정값에 다음과 같은 식을 입력합니다.
 

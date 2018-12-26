@@ -1,20 +1,21 @@
 ---
-title: Bing Visual Search SDK ImageInsightsToken 자습서 | Microsoft Docs
+title: '자습서: ImageInsightsToken - Bing Visual Search'
+titlesuffix: Azure Cognitive Services
 description: ImageInsightsToken에서 지정한 이미지의 URL을 가져오기 위해 Bing Visual Search SDK를 사용하는 방법.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 578fa90f504920030b488d2b8fa3a2d0232cccce
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 62780500d29c891182d3869bf0ba3ccdc5e2f715
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753600"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441064"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>자습서: Bing Visual Search SDK ImageInsightsToken 및 결과
 Visual Search SDK에는 `ImageInsightsToken`을 반환하는 이전 검색에서 온라인으로 이미지를 찾는 옵션이 포함됩니다.  이 예제는 `ImageInsightsToken`을 가져와 후속 검색에서 토큰을 사용합니다.  코드는 `ImageInsightsToken`을 Bing에 보내고 Bing Search URL 및 온라인에서 찾은 비슷한 이미지의 URL을 포함하는 결과를 반환합니다.
@@ -24,7 +25,17 @@ Visual Studio 2017. 필요하면 여기(https://www.visualstudio.com/vs/communit
 Cognitive Services API 키는 SDK 호출을 인증하는 데 필요합니다. 평가판 키에 등록합니다. 평가판 키는 초당 한 번의 호출로 7일 동안 유효합니다. 프로덕션 시나리오의 경우 액세스 키를 구입하세요. 가격 책정 정보도 참조하세요.
 .NET core SDK 및 .net core 1.1 앱을 실행하는 기능입니다. 여기(https://www.microsoft.com/net/download/)에서 코어, 프레임워크 및 런타임을 가져올 수 있습니다.
 
-##<a name="application-dependencies"></a>응용 프로그램 종속성
+이 자습서의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
+
+Azure Portal에서 구독을 시작하려면
+1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
+2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
+3. 새 리소스에 대해 `Name`을 입력합니다.
+4. `Pay-As-You-Go` 구독을 선택합니다.
+5. `S9` 가격 책정 계층을 선택합니다.
+6. `Enable`을 클릭하여 구독을 시작합니다.
+
+## <a name="application-dependencies"></a>응용 프로그램 종속성
 Bing Web Search SDK를 사용하여 콘솔 응용 프로그램을 설정하려면 Visual Studio의 솔루션 탐색기에서 NuGet 패키지 관리 옵션을 찾습니다. 추가:
 * Microsoft.Azure.CognitiveServices.Search.VisualSearch
 * Microsoft.Azure.CognitiveServices.Search.ImageSearchpackage 패키지입니다.
@@ -36,7 +47,8 @@ NuGet Web Search SDK 패키지 설치는 다음을 포함한 종속성도 설치
 * Newtonsoft.Json
 
 ## <a name="get-the-imageinsightstoken-from-image-search"></a>Image Search에서 ImageInsightsToken 가져오기
-이 예제는 다음 방법으로 얻은 `ImageInsightsToken`을 사용합니다.  이 호출에 대한 자세한 내용은 [Image Search SDK C# 빠른 시작](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)을 참조합니다.
+
+이 예제는 다음 방법으로 얻은 `ImageInsightsToken`을 사용합니다.  이 호출에 대한 자세한 내용은 [Image Search SDK C# 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)을 참조합니다.
 
 코드는 'Canadian Rockies'에 대한 쿼리의 결과를 검색하고 ImageInsightsToken을 가져옵니다. 첫 번째 이미지의 인사이트 토큰, 썸네일 URL 및 이미지 콘텐츠 URL을 인쇄합니다.  메서드는 후속 Visual Search 요청에서 사용하기 위해 `ImageInsightsToken`을 반환합니다.
 
@@ -85,12 +97,15 @@ NuGet Web Search SDK 패키지 설치는 다음을 포함한 종속성도 설치
 ```
 
 ## <a name="specify-the-imageinsightstoken-for-visual-search-request"></a>Visual Search 요청에 대해 ImageInsightsToken 지정
+
 이 예제에서는 이전 메서드에서 반환한 인사이트 토큰을 사용합니다. 다음 코드는 `ImageInsightsToken`에서 `ImageInfo` 개체를 만들고 ImageInfo 개체를 `VisualSearchRequest`로 로드합니다. `VisualSearchRequest`에 대한 `ImageInfo`에서 `ImageInsightsToken` 지정
 
 ```
 ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: insightsTok);
 ```
+
 ## <a name="use-visual-search-to-find-images-from-an-imageinsightstoken"></a>ImageInsightsToken에서 이미지를 찾으려면 Visual Search 사용
+
 `VisualSearchRequest`는 `ImageInfo` 개체에서 검색할 이미지에 대한 정보를 포함합니다.  `VisualSearchMethodAsync` 메서드가 결과를 가져옵니다.
 ```
 // An image binary is not necessary here, as the image is specified by insights token.
@@ -134,7 +149,8 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
         }
     }
 ```
-이러한 데이터 형식에 대한 자세한 내용은 [이미지 - Visual Search](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)를 참조합니다.
+이러한 데이터 형식에 대한 자세한 내용은 [이미지 - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)를 참조합니다.
+
 ## <a name="complete-code"></a>전체 코드
 
 다음 코드는 앞의 예제를 실행합니다. 후속 요청에서 `ImageInsightsToken`을 보냅니다. 그런 다음, 각 ActionType에 대한 Bing 검색 URL을 인쇄합니다. ActionType이 `PagesIncluding`이면 코드는 `Data`에서 `ImageObject` 항목을 가져옵니다.  `Data`는 웹 페이지의 이미지 URL인 값의 목록을 포함합니다.  결과 Visual Search URL을 복사하여 브라우저에 붙여넣어 결과를 표시합니다. ContentUrl 항목을 복사하여 브라우저에 붙여넣어 이미지를 표시합니다.
@@ -282,5 +298,6 @@ namespace VisualSearchFeatures
 }
 
 ```
+
 ## <a name="next-steps"></a>다음 단계
-[Visual Search 응답](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview?branch=pr-en-us-44614#the-response)
+[Visual Search 응답](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

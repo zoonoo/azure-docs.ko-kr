@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
 ms.author: dimazaid
-ms.openlocfilehash: ee0e78402515a733731e6faf21b09886674cda51
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d2d0e878aed5b200852e56a29ce0430305d4efc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452416"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251545"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>개요
-이 자습서에서는 Azure Notification Hubs를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. ASP.NET WebAPI 백 엔드는 클라이언트를 인증하는 데 사용 됩니다. 백 엔드가 클라이언트 응용 프로그램 사용자를 인증하는 경우 알림 등록에 자동으로 태그를 추가합니다. 백 엔드는 이 태그를 사용하여 특정 사용자에게 알림을 보냅니다. 
+이 자습서에서는 Azure Notification Hubs를 사용하여 특정 디바이스에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. ASP.NET WebAPI 백 엔드는 클라이언트를 인증하는 데 사용 됩니다. 백 엔드가 클라이언트 응용 프로그램 사용자를 인증하는 경우 알림 등록에 자동으로 태그를 추가합니다. 백 엔드는 이 태그를 사용하여 특정 사용자에게 알림을 보냅니다. 
 
 > [!NOTE]
 > 이 자습서에 대해 완료된 코드는 [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)에서 찾을 수 있습니다. 
@@ -213,7 +213,7 @@ ms.locfileid: "38452416"
         ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
     }
     ```
-1. **App.xaml.cs** 파일을 엽니다. `InitNotificationsAsync()` in the `OnLaunched()` 에 대한 호출을 찾습니다. `InitNotificationsAsync()`에 대한 호출을 주석으로 처리하거나 삭제합니다. 단추 처리기는 알림 등록을 초기화합니다.
+1. **App.xaml.cs** 파일을 엽니다.  `InitNotificationsAsync()` in the `OnLaunched()` 에 대한 호출을 찾습니다. `InitNotificationsAsync()`에 대한 호출을 주석으로 처리하거나 삭제합니다. 단추 처리기는 알림 등록을 초기화합니다.
 
     ```csharp
     protected override void OnLaunched(LaunchActivatedEventArgs e)
@@ -222,7 +222,7 @@ ms.locfileid: "38452416"
     ```
 1. **WindowsApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가**를 클릭한 다음, **클래스**를 클릭합니다. 클래스 이름을 **RegisterClient.cs**로 지정하고 **확인**을 클릭하여 클래스를 생성합니다.
    
-   이 클래스는 푸시 알림에 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 래핑합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](http://msdn.microsoft.com/library/dn743807.aspx)를 로컬로 저장합니다. 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 저장소에 저장된 인증 토큰을 사용합니다.
+   이 클래스는 푸시 알림에 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 래핑합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](https://msdn.microsoft.com/library/dn743807.aspx)를 로컬로 저장합니다. 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 저장소에 저장된 인증 토큰을 사용합니다.
 2. RegisterClient.cs 파일의 맨 위에 다음 `using` 문을 추가합니다.
 
     ```csharp   
@@ -330,7 +330,7 @@ ms.locfileid: "38452416"
    
     ![][14]
 5. 그런 다음, **받는 사람 사용자 이름 태그** 필드에 등록한 사용자 이름을 입력합니다. 알림 메시지를 입력하고 **Send Push(푸시 전송)** 를 클릭합니다.
-6. 일치하는 사용자 이름 태그로 등록된 장치만 이 알림 메시지를 받습니다.
+6. 일치하는 사용자 이름 태그로 등록된 디바이스만 이 알림 메시지를 받습니다.
    
     ![][15]
 

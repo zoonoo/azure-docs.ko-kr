@@ -1,5 +1,5 @@
 ---
-title: Azure Application Gatewaty URL 기반 콘텐츠 라우팅 개요
+title: Azure Application Gateway URL 기반 콘텐츠 라우팅 개요
 description: 이 문서에서는 Application Gateway URL 기반 콘텐츠 라우팅, UrlPathMap 구성 및 PathBasedRouting 규칙에 대한 개요를 제공합니다.
 documentationcenter: na
 services: application-gateway
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
-ms.openlocfilehash: eaecb731d6f64bf7dd15d9a9b11739fd3fbc983e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cf3e051e4833c6b654e5ff89cd084911521b3d67
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160548"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049242"
 ---
-# <a name="azure-application-gatewaty-url-path-based-routing-overview"></a>Azure Application Gatewaty URL 경로 기반 라우팅 개요
+# <a name="azure-application-gateway-url-path-based-routing-overview"></a>Azure Application Gateway URL 경로 기반 라우팅 개요
 
 URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트래픽을 백 엔드 서버 풀로 라우팅할 수 있습니다. 
 

@@ -3,7 +3,7 @@ title: Storage 탐색기로 Azure Blob Storage 리소스 관리 | Microsoft Docs
 description: Storage 탐색기로 Azure Blob 컨테이너 및 Blob 관리
 services: storage
 documentationcenter: na
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 2207bac1ef7cb6393d7dc173f96ddda719bcdfdf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528531"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422055"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Storage 탐색기로 Azure Blob Storage 리소스 관리
 ## <a name="overview"></a>개요
 [Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md)는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다.
-Blob 저장소를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage 탐색기를 사용하여 Blob 컨테이너 및 Blob으로 작업하는 방법을 알아봅니다.
+Blob 스토리지를 사용하여 세상에 공개적으로 표시하거나 애플리케이션 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage 탐색기를 사용하여 Blob 컨테이너 및 Blob으로 작업하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서의 단계를 완료하려면 다음과 같이 하는 것이 필요합니다.
 
-* [Storage 탐색기 다운로드 및 설치](http://www.storageexplorer.com)
+* [Storage 탐색기 다운로드 및 설치](https://www.storageexplorer.com)
 * [Azure 저장소 계정 또는 서비스에 연결](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Blob 컨테이너 만들기
@@ -199,7 +199,7 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
 
      1. 열려는 blob을 선택합니다.
      2. 기본 창 도구 모음에서 **열기**를 선택합니다.
-     3. Blob은 blob의 기본 파일 형식과 연결된 응용 프로그램을 사용하여 다운로드하고 엽니다.
+     3. Blob은 blob의 기본 파일 형식과 연결된 애플리케이션을 사용하여 다운로드하고 엽니다.
    * **blob을 클립보드에 복사**
 
      1. 복사하려는 blob을 선택합니다.
@@ -213,7 +213,7 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
      3. 확인 대화 상자에서 **확인** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [최신 Storage 탐색기 릴리스 정보 및 비디오](http://www.storageexplorer.com)를 보세요.
+* [최신 Storage 탐색기 릴리스 정보 및 비디오](https://www.storageexplorer.com)를 보세요.
 * [Azure blob, 테이블, 큐 및 파일을 사용하여 응용 프로그램을 작성](https://azure.microsoft.com/documentation/services/storage/)하는 방법 알아보기.
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

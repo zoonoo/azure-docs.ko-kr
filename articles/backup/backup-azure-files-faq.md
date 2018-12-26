@@ -2,18 +2,18 @@
 title: Azure Files 백업 FAQ
 description: 이 문서에서는 Azure 파일 공유를 보호하는 방법을 자세히 설명합니다.
 services: backup
-author: markgalioto
-ms.author: markgal
+author: rayne-wiselman
+ms.author: raynew
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: de91559d9c3626bdd07c2e497a8aa0b124f00b57
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 9ef3525d7867d0ef01b6f17035039d4a4e6def93
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434843"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874568"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 이 문서에서는 Azure Files 백업에 대한 일반적인 질문에 대답합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -71,7 +71,7 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 미리 보기 동안에는 자격 증명 모음당 최대 50개의 저장소 계정에서 Azure 파일 공유를 보호할 수 있습니다. 또한 자격 증명 모음당 최대 200개의 Azure 파일 공유를 보호할 수 있습니다.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>동일한 저장소 계정의 두 파일 공유를 서로 다른 자격 증명 모음에서 보호할 수 있나요?
-아니요. 한 저장소 계정의 모든 파일 공유는 동일한 자격 증명 모음에서만 보호할 수 있습니다.
+ 아니요. 한 저장소 계정의 모든 파일 공유는 동일한 자격 증명 모음에서만 보호할 수 있습니다.
 
 ## <a name="backup"></a>Backup
 

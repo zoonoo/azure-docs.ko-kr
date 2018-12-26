@@ -1,25 +1,19 @@
 ---
-title: "Azure 데이터 카탈로그 릴리스 정보 | Microsoft Docs"
-description: "Azure Data Catalog에 대한 릴리스 정보입니다."
+title: Azure 데이터 카탈로그 릴리스 정보
+description: Azure Data Catalog에 대한 릴리스 정보입니다.
 services: data-catalog
-documentationcenter: 
-author: steelanddata
-manager: NA
-editor: 
-tags: 
+author: markingmyname
+ms.author: maghan
 ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 249c3a690638bb91d060443d591d8e52791f50ae
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 12b8161cc5845bca749c34188835cef1d92b299a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404554"
 ---
 # <a name="azure-data-catalog-release-notes"></a>Azure 데이터 카탈로그 릴리스 정보
 ## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Azure 데이터 카탈로그의 2015년 11월 20일 릴리스 정보

@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator에서 사용자 지정 목록을 사용하여 이미지 조정 | Microsoft Docs
+title: API와 함께 사용자 지정 목록을 사용하여 이미지 조정 - Content Moderator
+titlesuffix: Azure Content Moderator
 description: Content Moderator API 콘솔에서 사용자 지정 이미지 목록을 시험 사용합니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: 2d714f017be16d978ffbb877a2b7e78e1caf9169
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5e573262879b6a16e3cd530757900b86228ae299
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373327"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219960"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>API 콘솔에서 사용자 지정 이미지 목록을 사용하여 조정
 
@@ -35,7 +36,7 @@ Azure Content Moderator에서 [목록 관리 API](https://westus.dev.cognitive.m
 - 목록에 대한 변경 내용이 새 검색에 포함되도록 인덱스를 새로 고칩니다.
 
 ## <a name="use-the-api-console"></a>API 콘솔 사용
-온라인 콘솔에서 API를 시험 사용할 수 있으려면 먼저 구독 키가 필요합니다. **Ocp-Apim-Subscription-Key** 상자의 **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
+온라인 콘솔에서 API를 테스트하려면 구독 키가 필요합니다. 구독 키는 **Ocp-Apim-Subscription-Key** 상자의 **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
 
 ## <a name="refresh-search-index"></a>검색 인덱스 새로 고침
 

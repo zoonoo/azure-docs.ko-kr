@@ -3,7 +3,7 @@ title: Azure Active Directory Domain Services 개요 | Microsoft Docs
 description: Azure Active Directory Azure Active Directory Domain Services 개요
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/26/2017
-ms.author: maheshu
-ms.openlocfilehash: 9c22ed1cca49e3e8789c3da5b7bd59d9aeb3ce42
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.author: ergreenl
+ms.openlocfilehash: c424ae1865a710593e509372dc2424c0b8b516a0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218458"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155170"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure AD(Active Directory) Domain Services
 ## <a name="overview"></a>개요
@@ -65,7 +65,7 @@ Azure AD 도메인 서비스에서 프로비전되는 관리된 도메인의 두
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>하이브리드 조직을 위한 Azure AD 도메인 서비스
 하이브리드 IT 인프라를 가진 조직은 클라우드 리소스 및 온-프레미스 리소스를 혼합하여 사용합니다. 이러한 조직에서는 해당 온-프레미스 디렉터리에서 Azure AD 테넌트에 ID 정보를 동기화합니다. 하이브리드 조직에서는 온-프레미스 응용 프로그램, 특히 레거시 디렉터리 인식 응용 프로그램을 클라우드에 더 마이그레이션할 방법을 찾기 때문에 Azure AD 도메인 서비스는 유용할 수 있습니다.
 
-Litware Corporation은 해당 온-프레미스 디렉터리에서 Azure AD 테넌트에 ID 정보를 동기화하기 위해 [Azure AD Connect](../active-directory/active-directory-aadconnect.md)를 배포했습니다. 동기화되는 ID 정보는 사용자 계정, 인증을 위한 자격 증명 해시 및 그룹 멤버 자격을 포함합니다.
+Litware Corporation은 해당 온-프레미스 디렉터리에서 Azure AD 테넌트에 ID 정보를 동기화하기 위해 [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)를 배포했습니다. 동기화되는 ID 정보는 사용자 계정, 인증을 위한 자격 증명 해시 및 그룹 멤버 자격을 포함합니다.
 
 > [!NOTE]
 > **암호 동기화는 Azure AD 도메인 서비스를 사용하려는 하이브리드 조직에 필수입니다**. 이러한 요구 사항은 NTLM 또는 Kerberos 인증 방법을 통해 이러한 사용자를 인증하기 위해 Azure AD 도메인 서비스에서 제공하는 관리된 도메인에서 사용자의 자격 증명이 필요하기 때문입니다.

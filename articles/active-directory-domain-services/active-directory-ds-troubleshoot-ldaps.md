@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: dbe2715d76f18daf87b65871c26d73205ec2f7fd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e3a31749407f9ec0494e8452b602ed9966c5ab83
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218846"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504212"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - 보안 LDAP 구성 문제 해결
 
@@ -58,7 +58,7 @@ ms.locfileid: "36218846"
 
 **경고 메시지:**
 
-*관리되는 도메인에 대한 보안 LDAP 인증서는 XX에 만료됩니다.*
+*관리되는 도메인에 대한 보안 LDAP 인증서는 [date]]에 만료됩니다.*
 
 **해결 방법:**
 

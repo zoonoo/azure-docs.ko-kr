@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: .NET 및 MongoDB API에서 Xamarin.Forms 앱 빌드 | Microsoft Docs'
+title: Azure Cosmos DB는 .NET 및 MongoDB API를 사용하여 Xamarin.Forms 앱 빌드
 description: Azure Cosmos DB MongoDB API에 연결 및 쿼리하는 데 사용할 수 있는 Xamarin 코드 샘플을 제시합니다.
 services: cosmos-db
 author: codemillmatt
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.custom: quickstart, xamarin
@@ -11,14 +10,23 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 42e2a7f57cbe40dbef8469e4e9ca020f4346a897
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ece6780803809829e69fccc320ae65a0c7b0f94b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309898"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089261"
 ---
 # <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>빠른 시작: .NET 및 Azure Portal에서 MongoDB API Xamarin.Forms 앱 빌드
+
+> [!div class="op_single_selector"]
+> * [.NET](create-mongodb-dotnet.md)
+> * [Java](create-mongodb-java.md)
+> * [Node.JS](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
+> * [Xamarin](create-mongodb-xamarin.md)
+> * [Golang](create-mongodb-golang.md)
+>  
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
@@ -148,7 +156,7 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. [Azure Portal](http://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열**을 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 화면의 오른쪽에서 복사 단추를 사용하여 다음 단계에서 기본 연결 문자열을 복사합니다.
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열**을 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 화면의 오른쪽에서 복사 단추를 사용하여 다음 단계에서 기본 연결 문자열을 복사합니다.
 
 2. **TaskList.Core** 프로젝트의 **Helpers** 디렉터리에서 **APIKeys.cs** 파일을 엽니다.
 
@@ -164,7 +172,7 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 2. **모든 NuGet 패키지 복원**을 클릭합니다.
 3. **TaskList.Android**를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
 4. F5 키를 눌러 응용 프로그램 디버깅을 시작합니다.
-5. iOS에서 실행하려는 경우 먼저 컴퓨터는 Mac에 연결됩니다(수행하는 방법에 대한 [지침](https://docs.microsoft.com/en-us/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)은 다음과 같음).
+5. iOS에서 실행하려는 경우 먼저 컴퓨터는 Mac에 연결됩니다(수행하는 방법에 대한 [지침](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)은 다음과 같음).
 6. **TaskList.iOS** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
 7. F5 키를 클릭하여 응용 프로그램 디버깅을 시작합니다.
 

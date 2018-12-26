@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a1801af582e9e4bfa82dab4b5916c164fcf3bb76
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: d098d38c39788dee7f4a3852d07a762b36fd9a4f
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161566"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333754"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 게시된 앱에 대해 사용자 지정 홈 페이지 설정
 
@@ -35,7 +35,7 @@ ms.locfileid: "34161566"
 - *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx*를 홈페이지 URL로 설정합니다. 
 
 >[!NOTE]
->사용자에게 게시된 응용 프로그램에 대한 액세스 권한을 제공하면 [Azure AD 액세스 패널](../active-directory-saas-access-panel-introduction.md) 및 [Office 365 앱 시작 관리자](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher)에 앱이 표시됩니다.
+>사용자에게 게시된 응용 프로그램에 대한 액세스 권한을 제공하면 [Azure AD 액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md) 및 [Office 365 앱 시작 관리자](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher)에 앱이 표시됩니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -62,7 +62,7 @@ ms.locfileid: "34161566"
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Azure AD PowerShell 모듈 설치
 
-PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전에 Azure AD PowerShell 모듈을 설치합니다. Graph API 끝점을 사용하는 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131)에서 패키지를 다운로드할 수 있습니다. 
+PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전에 Azure AD PowerShell 모듈을 설치합니다. Graph API 엔드포인트를 사용하는 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131)에서 패키지를 다운로드할 수 있습니다. 
 
 패키지를 설치하려면 다음 단계를 따르세요.
 
@@ -72,7 +72,7 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
      Install-Module -Name AzureAD
     ```
     관리자가 아닌 사용자로 명령을 실행하는 경우 `-scope currentuser` 옵션을 사용합니다.
-2. 설치 도중 Nuget.org에서 두 개의 패키지를 설치하려면 **Y**를 선택합니다. 두 개의 패키지가 모두 필요합니다. 
+2. 설치 도중 Nuget.org에서 두 개의 패키지를 설치하려면 **Y**를 선택합니다. 두 개의 패키지가 모두 필요합니다. 
 
 ### <a name="find-the-objectid-of-the-app"></a>앱의 ObjectID 찾기
 
@@ -92,14 +92,14 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 3. 홈페이지 URL을 기준으로 앱을 찾습니다. **Azure Active Directory** > **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**으로 이동하여 포털에서 URL을 찾을 수 있습니다. 이 예제에서는 *sharepoint-iddemo*를 사용합니다.
 
     ```
-    Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
+    Get-AzureADApplication | where { $_.Homepage -like "sharepoint-iddemo" } | fl DisplayName, Homepage, ObjectID
     ```
 4. 여기에 표시된 것과 비슷한 결과가 표시되어야 합니다. 다음 섹션에서 사용할 ObjectID GUID를 복사합니다.
 
     ```
     DisplayName : SharePoint
-    Homepage    : https://sharepoint-iddemo.msappproxy.net/
-    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+    Homepage    : https://sharepoint-iddemo.msappproxy.net/
+    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 ### <a name="update-the-home-page-url"></a>홈페이지 URL 업데이트
@@ -117,13 +117,13 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 2. 변경 내용을 저장하기 위해 비어 있는 응용 프로그램 개체를 만듭니다. 이 변수는 업데이트하려는 값을 보유합니다. 이 단계에서는 아무 것도 만들어지지 않습니다.
 
     ```
-    $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
+    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
-3. 홈페이지 URL을 원하는 값으로 설정합니다. 값은 게시된 앱의 하위 도메인 경로여야 합니다. 예를 들어 홈페이지 URL을 *https://sharepoint-iddemo.msappproxy.net/* 에서 *https://sharepoint-iddemo.msappproxy.net/hybrid/* 로 변경하면 앱 사용자가 사용자 지정 홈페이지로 바로 이동합니다.
+3. 홈페이지 URL을 원하는 값으로 설정합니다. 값은 게시된 앱의 하위 도메인 경로여야 합니다. 예를 들어 홈페이지 URL을 `https://sharepoint-iddemo.msappproxy.net/`에서 `https://sharepoint-iddemo.msappproxy.net/hybrid/`로 변경하면 앱 사용자가 사용자 지정 홈페이지로 바로 이동합니다.
 
     ```
-    $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
+    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
 4. "1단계: 앱의 ObjectID 찾기"에서 복사한 GUID(ObjectID)를 사용하여 업데이트합니다.
 

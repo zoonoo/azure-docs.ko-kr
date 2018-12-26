@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 847056acd2d97391782dcac1874a2739b7f5825c
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 4584104e9c9833b5f3f586581dd5a58f420fe0bd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27741220"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165342"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Service Bus 메시징을 통한 분산 추적 및 상관관계
 
@@ -45,9 +45,9 @@ Microsoft Azure Service Bus 메시징에는 생산자와 소비자가 이러한 
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/)는 자동 요청 및 종속성 추적을 포함하여 다양한 성능 모니터링 기능을 제공합니다.
 
 프로젝트 유형에 따라 Application Insights SDK를 설치합니다.
-- [ASP.NET](../application-insights/app-insights-asp-net.md) 버전 2.5-beta2 이상
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) 버전 2.2.0-beta2 이상.
-이러한 링크는 SDK 설치, 리소스 만들기 및 SDK 구성(필요한 경우)에 대한 세부 정보를 제공합니다. 비 ASP.NET 응용 프로그램의 경우 [콘솔 응용 프로그램용 Azure Application Insights](../application-insights/application-insights-console.md) 문서를 참조하세요.
+- [ASP.NET](../application-insights/app-insights-asp-net.md) - 버전 2.5-beta2 이상 설치
+- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) - 버전 2.2.0-beta2 이상 설치
+이러한 링크는 SDK 설치, 리소스 만들기 및 SDK 구성(필요한 경우)에 대한 세부 정보를 제공합니다. 비 ASP.NET 애플리케이션의 경우 [콘솔 애플리케이션용 Azure Application Insights](../application-insights/application-insights-console.md) 문서를 참조하세요.
 
 [메시지 처리기 패턴](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)을 사용하여 메시지를 처리하는 경우 특별히 수행할 작업이 없습니다. 서비스에서 수행하는 모든 Service Bus 호출이 자동으로 추적되고 다른 원격 분석 항목과 상호 연결됩니다. 또는 수동 메시지 처리 추적은 다음 예제를 참조하세요.
 
@@ -147,7 +147,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 모든 이벤트에는 ‘Entity’ 및 ‘Endpoint’ 속성도 있으며, 아래 표에서는 생략되었습니다.
   * `string Entity` - 엔터티(큐, 토픽 등) 이름
-  * `Uri Endpoint` - Service Bus 끝점 URL
+  * `Uri Endpoint` - Service Bus 엔드포인트 URL
 
 각 ‘Stop’ 이벤트에는 `TaskStatus` 비동기 작업이 완료된 `Status` 속성이 있으며, 다음 표에서는 이 속성도 간단한 설명을 위해 생략되었습니다.
 
@@ -155,33 +155,33 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 | 작업 이름 | 추적된 API | 특정 페이로드 속성|
 |----------------|-------------|---------|
-| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> Messages - 전송 중인 메시지 목록 |
-| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Message Message - 처리 중인 메시지<br/>DateTimeOffset ScheduleEnqueueTimeUtc - 예약된 메시지 오프셋<br/>long SequenceNumber - 예약된 메시지의 시퀀스 번호(‘Stop’ 이벤트 페이로드) |
-| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | long SequenceNumber - 취소할 메시지의 시퀀스 번호 | 
-| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) |int RequestedMessageCount - 수신할 수 있는 최대 메시지 수<br/>IList<Message> Messages - 수신된 메시지 목록(‘Stop’ 이벤트 페이로드) |
-| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | int FromSequenceNumber - 메시지 배치를 찾아볼 시작 지점<br/>int RequestedMessageCount - 검색할 메시지 수<br/>IList<Message> Messages - 수신된 메시지 목록(‘Stop’ 이벤트 페이로드) |
-| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | IEnumerable<long> SequenceNumbers - 수신할 시퀀스 번호가 포함된 목록<br/>IList<Message> Messages - 수신된 메시지 목록(‘Stop’ 이벤트 페이로드) |
-| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | IList<string> LockTokens - 완료할 해당 메시지의 잠금 토큰이 포함된 목록|
-| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | string LockToken - 중단할 해당 메시지의 잠금 토큰 |
-| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | string LockToken - 지연할 해당 메시지의 잠금 토큰 | 
-| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | string LockToken - 배달 못한 편지로 처리할 해당 메시지의 잠금 토큰 | 
-| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | string LockToken - 잠금을 갱신할 해당 메시지의 잠금 토큰<br/>DateTime LockedUntilUtc - 새 잠금 토큰 만료 날짜 및 시간(UTC 형식) (‘Stop’ 이벤트 페이로드)|
-| Microsoft.Azure.ServiceBus.Process | [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler)에 제공되는 메시지 처리기 람다 함수 | Message Message - 처리 중인 메시지 |
-| Microsoft.Azure.ServiceBus.ProcessSession | [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler)에 제공되는 메시지 세션 처리기 람다 함수 | Message Message - 처리 중인 메시지<br/>IMessageSession Session - 처리 중인 세션 |
-| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | RuleDescription Rule - 추가할 규칙을 제공하는 규칙 설명 |
-| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | string RuleName - 제거할 규칙의 이름 |
-| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | IEnumerable<RuleDescription> Rules- 구독과 연결된 모든 규칙 ('Stop' 페이로드만 해당) |
-| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | string SessionId - 메시지에 있는 세션 ID |
-| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | string SessionId - 메시지에 있는 세션 ID<br/>byte [] State - 세션 상태(‘Stop’ 이벤트 페이로드) |
-| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | string SessionId - 메시지에 있는 세션 ID<br/>byte [] State - 세션 상태 |
-| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | string SessionId - 메시지에 있는 세션 ID |
-| Microsoft.Azure.ServiceBus.Exception | 모든 계측된 API| Exception Exception - 예외 인스턴스 |
+| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` - 전송 중인 메시지 목록 |
+| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` - 처리 중인 메시지<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` - 예약된 메시지 오프셋<br/>`long SequenceNumber` - 예약된 메시지의 시퀀스 번호(‘Stop’ 이벤트 페이로드) |
+| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | `long SequenceNumber` - 취소할 메시지의 시퀀스 번호 | 
+| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) | `int RequestedMessageCount` - 수신할 수 있는 최대 메시지 수<br/>`IList<Message> Messages` - 수신된 메시지 목록(‘Stop’ 이벤트 페이로드) |
+| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | `int FromSequenceNumber` - 메시지 배치를 찾아볼 시작 지점<br/>`int RequestedMessageCount` - 검색할 메시지 수<br/>`IList<Message> Messages` - 수신된 메시지 목록(‘Stop’ 이벤트 페이로드) |
+| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | `IEnumerable<long> SequenceNumbers` - 수신할 시퀀스 번호가 포함된 목록<br/>`IList<Message> Messages` - 수신된 메시지 목록(‘Stop’ 이벤트 페이로드) |
+| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | `IList<string> LockTokens` - 완료할 해당 메시지의 잠금 토큰이 포함된 목록|
+| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | `string LockToken` - 중단할 해당 메시지의 잠금 토큰 |
+| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | `string LockToken` - 지연할 해당 메시지의 잠금 토큰 | 
+| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | `string LockToken` - 배달 못한 편지로 처리할 해당 메시지의 잠금 토큰 | 
+| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | `string LockToken` - 잠금을 갱신할 해당 메시지의 잠금 토큰<br/>`DateTime LockedUntilUtc` - 새 잠금 토큰 만료 날짜 및 시간(UTC 형식) (‘Stop’ 이벤트 페이로드)|
+| Microsoft.Azure.ServiceBus.Process | [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler)에 제공되는 메시지 처리기 람다 함수 | `Message Message` - 처리 중인 메시지 |
+| Microsoft.Azure.ServiceBus.ProcessSession | [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler)에 제공되는 메시지 세션 처리기 람다 함수 | `Message Message` - 처리 중인 메시지<br/>`IMessageSession Session` - 처리 중인 세션 |
+| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | `RuleDescription Rule` - 추가할 규칙을 제공하는 규칙 설명 |
+| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | `string RuleName` - 제거할 규칙의 이름 |
+| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | `IEnumerable<RuleDescription> Rules` - 구독과 연결된 모든 규칙 ('Stop' 페이로드만 해당) |
+| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | `string SessionId` - 메시지에 있는 세션 ID |
+| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | `string SessionId` - 메시지에 있는 세션 ID<br/>`byte [] State` - 세션 상태(‘Stop’ 이벤트 페이로드) |
+| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | `string SessionId` - 메시지에 있는 세션 ID<br/>`byte [] State` - 세션 상태 |
+| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | `string SessionId` - 메시지에 있는 세션 ID |
+| Microsoft.Azure.ServiceBus.Exception | 모든 계측된 API| `Exception Exception` - 예외 인스턴스 |
 
 모든 이벤트에서 현재 작업 컨텍스트가 포함된 `Activity.Current`에 액세스할 수 있습니다.
 
 #### <a name="logging-additional-properties"></a>추가 속성 기록
 
-`Activty.Current`는 현재 작업과 해당 부모의 자세한 컨텍스트를 제공합니다. 자세한 내용은 [활동 설명서](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)를 참조하세요.
+`Activity.Current`는 현재 작업과 해당 부모의 자세한 컨텍스트를 제공합니다. 자세한 내용은 [활동 설명서](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)를 참조하세요.
 Service Bus 계측은 `Activity.Current.Tags`에 추가 정보를 제공하며, 사용 가능한 경우 `MessageId` 및 `SessionId`가 포함됩니다.
 
 ‘Receive’, ‘Peek’ 및 ‘ReceiveDeferred’ 이벤트를 추적하는 활동에는 `RelatedTo` 태그도 포함될 수 있습니다. 이 태그는 결과로 수신된 메시지의 `Diagnostic-Id` 목록을 포함합니다.
@@ -227,7 +227,6 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Application Insights 상관관계](../application-insights/application-insights-correlation.md)
 * [Application Insights 종속성 모니터링](../application-insights/app-insights-asp-net-dependencies.md) - REST, SQL 또는 다른 외부 리소스의 속도가 느려지는지 확인합니다.
 * [Application Insights .NET SDK를 통한 사용자 지정 작업 추적](../application-insights/application-insights-custom-operations-tracking.md)

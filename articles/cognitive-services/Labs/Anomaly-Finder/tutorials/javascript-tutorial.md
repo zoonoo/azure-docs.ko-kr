@@ -1,22 +1,25 @@
 ---
-title: 변칙 검색 Javacript 앱 - Microsoft Cognitive Services | Microsoft Docs
-description: Microsoft Cognitive Services의 변칙 검색 API를 사용하는 Javacript 웹앱을 탐색합니다. 원래 데이터 요소를 API에 전송하고 예상 값과 변칙 요소를 가져옵니다.
+title: '자습서: Javascript를 사용하여 변칙 검색'
+titlesuffix: Azure Cognitive Services
+description: 변칙 검색 API를 사용하는 Javacript 웹앱을 탐색합니다. 원래 데이터 요소를 API에 전송하고 예상 값과 변칙 요소를 가져옵니다.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 42c3941a05efe8b74f818cd99f3606b3073892a9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cd65a5275fac651968197c9000b2d4cd3962693b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453172"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883706"
 ---
-# <a name="anomaly-detection-javascript-application"></a>변칙 검색 Javascript 응용 프로그램
+# <a name="tutorial-anomaly-detection-with-javascript-application"></a>자습서: Javascript 응용 프로그램을 사용하여 변칙 검색
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 변칙을 검색하기 위해 변칙 검색 REST API를 사용하는 웹 응용 프로그램을 탐색합니다. 예제는 시계열 데이터를 구독 키가 있는 변칙 검색 API에 제출한 후 API에서 각 데이터 요소에 대한 모든 변칙 요소와 예상 값을 가져옵니다.
 

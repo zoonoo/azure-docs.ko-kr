@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 68ad44bae0856ff000f2847049a15a946d83c0a3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c635a869506918ab7ee032df349eb307987c1284
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168540"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432282"
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Azure Container Service 및 Azure Container Registry에서 Draft를 사용하여 응용 프로그램 빌드 및 Kubernetes에 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "32168540"
       az group create --name draft --location eastus
       ```
 
-2. [az acr create](/cli/azure/acr#az_acr_create)를 사용하여 ACR 이미지 레지스트리를 만들고 `--admin-enabled` 옵션이 `true`로 설정되어 있는지 확인합니다.
+2. [az acr create](/cli/azure/acr#az-acr-create)를 사용하여 ACR 이미지 레지스트리를 만들고 `--admin-enabled` 옵션이 `true`로 설정되어 있는지 확인합니다.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```
@@ -41,7 +41,7 @@ ms.locfileid: "32168540"
 
 ## <a name="create-an-azure-container-service-with-kubernetes"></a>Kubernetes로 Azure Container Service 만들기
 
-이제 [az acs create](/cli/azure/acs#az_acs_create)를 통해 Kubernetes를 `--orchestrator-type` 값으로 사용하여 ACS 클러스터를 만들 준비가 되었습니다.
+이제 [az acs create](/cli/azure/acs#az-acs-create)를 통해 Kubernetes를 `--orchestrator-type` 값으로 사용하여 ACS 클러스터를 만들 준비가 되었습니다.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
@@ -221,7 +221,7 @@ Draft는 자체에서 만든 각 Helm 차트, 즉 작업 중인 각 응용 프�
     ```
 
 2. 도메인에 대한 DNS 영역을 만듭니다.
-[az network dns zone create](/cli/azure/network/dns/zone#az_network_dns_zone_create) 명령을 사용하여 DNS 컨트롤을 도메인에 대한 Azure DNS에 위임할 이름 서버를 가져옵니다.
+[az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) 명령을 사용하여 DNS 컨트롤을 도메인에 대한 Azure DNS에 위임할 이름 서버를 가져옵니다.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {

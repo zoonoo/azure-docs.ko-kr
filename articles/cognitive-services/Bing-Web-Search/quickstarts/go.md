@@ -1,104 +1,197 @@
 ---
-title: Azure Cognitive Services, Bing Web Search API에 대한 Go 빠른 시작 | Microsoft Docs
-description: Go 언어를 사용하여 Azure의 Microsoft Cognitive Services에서 Bing Web Search API 쿼리를 빠르게 시작합니다.
+title: '빠른 시작: Go를 사용하여 웹 검색 수행 - Bing Web Search REST API'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작을 사용하여 Go를 통해 Bing Web Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
-author: Nhoya
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 03/09/2018
-ms.author: rosh
-ms.reviewer: nhoyadx@gmail.com, v-gedod
-ms.openlocfilehash: 86cb67d46bca40c83c2f175ab7fdf6fbf52cb02f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: aahi
+ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
+ms.custom: seodec2018
+ms.openlocfilehash: 97b9a75802441a9360291d334b9920366a1c9450
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374494"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255638"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-in-go"></a>호출 및 응답: Go의 첫 번째 Bing Web Search 쿼리
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>빠른 시작: Bing Web Search REST API 및 Go를 사용하여 웹 검색
 
-Bing Web Search API는 Bing.com과 유사하며 사용자 쿼리와 관련된 검색 결과를 반환합니다. 결과에는 관련 검색 쿼리, 맞춤법 수정, 표준 시간대, 단위 변환, 번역 및 계산과 함께 웹 페이지, 이미지, 비디오, 뉴스 및 엔터티가 포함될 수 있습니다. 결과는 구독한 Bing Search API의 계층과 관련성에 따라 달라집니다.
+이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 10분 내에 JSON 응답을 받습니다.  
 
-API에 대한 자세한 내용은 [API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)를 참조하세요.
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
+
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-**Bing Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
+이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
-[Go 이진 파일](https://golang.org/dl/)을 설치합니다.
- 
-이 자습서는 **핵심** 라이브러리만 사용하므로 외부 종속성이 없습니다.
+* [Go 이진 파일](https://golang.org/dl/)
+* 구독 키
 
-## <a name="core-libraries"></a>핵심 라이브러리
+이 빠른 시작에는 **핵심** 라이브러리만 필요하며 외부 종속성이 없습니다.  
 
-`http`을 사용하여 끝점에 요청을 전송하고, `ioutil`을 사용하여 응답을 읽고, `time` 및 `json`을 사용하여 JSON을 처리하고, `fmt`를 사용하여 출력을 인쇄합니다.
+## <a name="create-a-project-and-import-core-libraries"></a>프로젝트 만들기 및 핵심 라이브러리 가져오기
 
-```
+즐겨찾는 IDE 또는 편집기에서 새 Go 프로젝트를 만듭니다. 그런 다음, 요청하기 위해 `net/http`, 응답을 읽기 위해 `ioutil`, JSON을 처리하기 위해 `time` 및 `encoding/json`, 출력하기 위해 `fmt`를 가져옵니다.
+
+```go
 package main
-
 import (
     "fmt"
     "net/http"
-    "io/iutil"
+    "io/ioutil"
     "time"
     "encoding/json"
 )
 ```
 
-## <a name="define-variables"></a>변수 정의
-API 끝점 및 검색어를 설정합니다.
+## <a name="create-a-struct-to-format-the-search-results"></a>검색 결과 형식을 지정하는 구조체 만들기
 
-```
-//This is the valid endpoint at the time of the writing
-const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
-//API token
-token := "YOUR-ACCESS-KEY"
-searchTerm := "Microsoft Cognitive Services"
+`BingAnswer` 구조체는 응답에 제공되는 데이터 형식을 지정합니다.
+
+```go
+// This struct formats the answers provided by the Bing Web Search API.
+type BingAnswer struct {
+        Type         string `json:"_type"`
+        QueryContext struct {
+                OriginalQuery string `json:"originalQuery"`
+        } `json:"queryContext"`
+        WebPages struct {
+                WebSearchURL          string `json:"webSearchUrl"`
+                TotalEstimatedMatches int    `json:"totalEstimatedMatches"`
+                Value                 []struct {
+                        ID               string    `json:"id"`
+                        Name             string    `json:"name"`
+                        URL              string    `json:"url"`
+                        IsFamilyFriendly bool      `json:"isFamilyFriendly"`
+                        DisplayURL       string    `json:"displayUrl"`
+                        Snippet          string    `json:"snippet"`
+                        DateLastCrawled  time.Time `json:"dateLastCrawled"`
+                        SearchTags       []struct {
+                                Name    string `json:"name"`
+                                Content string `json:"content"`
+                        } `json:"searchTags,omitempty"`
+                        About []struct {
+                                Name string `json:"name"`
+                        } `json:"about,omitempty"`
+                } `json:"value"`
+        } `json:"webPages"`
+        RelatedSearches struct {
+                ID    string `json:"id"`
+                Value []struct {
+                        Text         string `json:"text"`
+                        DisplayText  string `json:"displayText"`
+                        WebSearchURL string `json:"webSearchUrl"`
+                } `json:"value"`
+        } `json:"relatedSearches"`
+        RankingResponse struct {
+                Mainline struct {
+                        Items []struct {
+                                AnswerType  string `json:"answerType"`
+                                ResultIndex int    `json:"resultIndex"`
+                                Value       struct {
+                                        ID string `json:"id"`
+                                } `json:"value"`
+                        } `json:"items"`
+                } `json:"mainline"`
+                Sidebar struct {
+                        Items []struct {
+                                AnswerType string `json:"answerType"`
+                                Value      struct {
+                                        ID string `json:"id"`
+                                } `json:"value"`
+                        } `json:"items"`
+                } `json:"sidebar"`
+        } `json:"rankingResponse"`
+}
 ```
 
-## <a name="building-and-sending-the-request"></a>요청 빌드 및 전송
+## <a name="declare-the-main-function-and-define-variables"></a>main 함수 선언 및 변수 정의  
 
+이 코드는 main 함수를 선언하고 필요한 변수를 설정합니다. 엔드포인트가 올바른지 확인하고 `token` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `searchTerm` 값을 바꿔 검색 쿼리를 사용자 지정할 수 있습니다.
+
+```go
+// Declare the main function. This is required for all Go programs.
+func main() {
+// Verify the endpoint URI and replace the token string with a valid subscription key.  
+    const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
+    token := "YOUR-ACCESS-KEY"
+    searchTerm := "Microsoft Cognitive Services"
+
+// The remaining code in this quickstart goes in the main function.
+
+}
 ```
-//Declare a new GET request
+
+## <a name="construct-a-request"></a>요청 구성
+
+이 코드는 HTTP 요청을 선언하고, 헤더와 페이로드를 삽입하고, 클라이언트를 인스턴스화합니다.
+
+```go
+// Declare a new GET request.
 req, err := http.NewRequest("GET", endpoint, nil)
 if err != nil {
     panic(err)
 }
-//Add the payload to the request
+
+// Add the payload to the request.  
 param := req.URL.Query()
 param.Add("q", searchTerm)
-//Encoding the payload
 req.URL.RawQuery = param.Encode()
 
-//Insert the API token in the request header
+// Insert the request header.  
 req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
-//create new client
+// Instantiate a client.  
 client := new(http.Client)
-//Send the request
+```
+
+## <a name="make-a-request"></a>요청하기
+
+이 코드를 사용하여 Bing Web Search API를 호출하고, 응답이 반환되면 연결을 닫습니다.
+
+```go
+// Send the request to Bing.  
 resp, err := client.Do(req)
 if err != nil {
     panic(err)
 }
-//Close the response body at the function exit
-defer resp.Body.Close() 
-```
 
-## <a name="printing-the-answer"></a>응답 인쇄
-검색 결과는 `resp` 변수에 포함됩니다. 변수에서 응답 본문을 인쇄합니다.
-
-```
+// Close the connection.
+defer resp.Body.Close()
 body, err := ioutil.ReadAll(resp.Body)
 if err != nil {
     panic(err)
 }
-//Convert body from byte to string.
-fmt.Println(string(body))
 ```
 
-## <a name="put-everything-together"></a>모든 항목을 함께 넣기
+## <a name="handle-the-response"></a>응답 처리
 
+앞에서 만든 구조체를 기억하고 있나요? 이 구조체를 사용하여 응답 형식을 지정하고, 검색 결과를 출력합니다.
+
+```go
+// Create a new answer.  
+ans := new(BingAnswer)
+err = json.Unmarshal(body, &ans)
+if err != nil {
+    fmt.Println(err)
+}
+// Iterate over search results and print the result name and URL.
+for _, result := range ans.WebPages.Value {
+    fmt.Println(result.Name, "||", result.URL)
+}
 ```
+
+## <a name="put-it-all-together"></a>모든 요소 결합
+
+마지막 단계는 코드의 유효성을 검사하고 실행하는 것입니다! 자신의 코드와 비교하려면 여기에 있는 완전한 프로그램을 사용하세요.
+
+```go
 package main
 import (
     "fmt"
@@ -108,7 +201,7 @@ import (
     "encoding/json"
 )
 
-//The struct that will contain the answer
+// The is the struct for the data returned by Bing.
 type BingAnswer struct {
         Type         string `json:"_type"`
         QueryContext struct {
@@ -163,51 +256,76 @@ type BingAnswer struct {
         } `json:"rankingResponse"`
 }
 
+// Verify the endpoint URI and replace the token string with a valid subscription key.  
 func main() {
     const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/search"
     token := "YOUR-ACCESS-KEY"
     searchTerm := "Microsoft Cognitive Services"
-    
+
+    // Declare a new GET request.
     req, err := http.NewRequest("GET", endpoint, nil)
     if err != nil {
         panic(err)
     }
-    
+
+    // Add the payload to the request.  
     param := req.URL.Query()
     param.Add("q", searchTerm)
     req.URL.RawQuery = param.Encode()
 
+    // Insert the request header.  
     req.Header.Add("Ocp-Apim-Subscription-Key", token)
-    
+
+    // Create a new client.  
     client := new(http.Client)
+
+    // Send the request to Bing.  
     resp, err := client.Do(req)
     if err != nil {
         panic(err)
     }
-    defer resp.Body.Close() 
+
+    // Close the response.
+    defer resp.Body.Close()
     body, err := ioutil.ReadAll(resp.Body)
     if err != nil {
         panic(err)
     }
-    //creating a new answer struct
+
+    // Create a new answer.  
     ans := new(BingAnswer)
     err = json.Unmarshal(body, &ans)
     if err != nil {
          fmt.Println(err)
     }
-    //Iterate over search results
+
+    // Iterate over search results and print the result name and URL.
     for _, result := range ans.WebPages.Value {
-         //Printing result name and URL
          fmt.Println(result.Name, "||", result.URL)
     }
 
 }
 ```
 
+## <a name="sample-response"></a>샘플 응답  
+
+Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 `BingAnswer` 구조체를 사용하여 형식이 지정되었으며 `result.Name`와 `result.URL`을 표시합니다.
+
+```go
+Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
+Cognitive Services | Microsoft Azure || https://azure.microsoft.com/services/cognitive-services/
+Cognitive Service Try experience | Microsoft Azure || https://azure.microsoft.com/try/cognitive-services/
+What is Microsoft Cognitive Services? | Microsoft Docs || https://docs.microsoft.com/azure/cognitive-services/Welcome
+Microsoft Cognitive Toolkit || https://www.microsoft.com/en-us/cognitive-toolkit/
+Microsoft Customers || https://customers.microsoft.com/en-us/search?sq=%22Microsoft%20Cognitive%20Services%22&ff=&p=0&so=story_publish_date%20desc
+Microsoft Enterprise Services - Microsoft Enterprise || https://enterprise.microsoft.com/en-us/services/
+Microsoft Cognitive Services || https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
+Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/magazine/mt742868.aspx  
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-[Bing Web Search 개요](../overview.md)  
-[체험해 보기](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[평가판 액세스 키 가져오기](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-[Bing Web Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+> [!div class="nextstepaction"]
+> [Bing Web Search 단일 페이지 앱 자습서](../tutorial-bing-web-search-single-page-app.md)
 
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

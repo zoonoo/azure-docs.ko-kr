@@ -2,22 +2,26 @@
 title: Azure Import/Export를 사용하여 Azure Storage 간에 데이터 전송 | Microsoft Docs
 description: Azure Portal에서 가져오기 및 내보내기 작업을 만들어 Azure Storage 간에 데이터를 전송하는 방법에 대해 알아봅니다.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 83ba437e699eb150e86e6c89e478377394966419
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: common
+ms.openlocfilehash: 480d67917abf3a8aaca64aa9aae30be5acf55e11
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232680"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528559"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure Import/Export 서비스란?
 
-Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob 저장소 및 Azure Files로 가져올 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob 저장소에서 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 하나 이상의 디스크에 있는 데이터를 Azure Blob 저장소 또는 Azure Files로 가져올 수 있습니다. 
+Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob 저장소 및 Azure Files로 가져올 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob 저장소에서 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 하나 이상의 디스크 드라이브에 있는 데이터를 Azure Blob Storage 또는 Azure Files로 가져올 수 있습니다. 
+
+자신의 디스크 드라이브를 제공하고 Azure Import/Export 서비스로 데이터를 전송합니다. Microsoft에서 제공하는 디스크 드라이브를 사용할 수도 있습니다. 
+
+Microsoft에서 제공하는 디스크 드라이브를 사용하여 데이터를 전송하려는 경우 [Azure Data Box Disk](../../databox/data-box-disk-overview.md)를 사용하여 Azure로 데이터를 가져올 수 있습니다. Microsoft는 주문당 총 40TB 용량의 암호화된 SSD(solid-state disk) 드라이브를 5개까지 지역 이동 통신 사업자를 통해 데이터 센터에 제공합니다. 신속하게 디스크 드라이브를 구성하고, USB 3.0 연결을 통해 디스크 드라이브에 데이터를 복사하고, Azure에 다시 디스크 드라이브를 제공할 수 있습니다. 자세한 내용은 [Azure Data Box Disk 개요](../../databox/data-box-disk-overview.md)로 이동합니다.
 
 ## <a name="azure-importexport-usecases"></a>Azure Import/Export 사용 사례
 
@@ -32,23 +36,23 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
 
 Import/Export 서비스는 다음 구성 요소를 사용합니다.
 
-- **Import/Export**서비스: Azure Portal에서 사용할 수 있는 이 서비스는 가져오기 및 내보내기 작업만을 들고 추적하는 데 도움이 됩니다.  
+- **Import/Export 서비스**: Azure Portal에서 사용할 수 있는 이 서비스는 데이터 가져오기(업로드) 및 내보내기(다운로드) 작업을 만들고 추적하는 데 도움이 됩니다.  
 
 - **WAImportExport 도구**: 이 도구는 다음 작업을 수행하는 명령줄 도구입니다. 
-    - 가져오기용으로 발송할 드라이브를 준비합니다.
+    - 가져오기용으로 발송할 디스크 드라이브를 준비합니다.
     - 드라이브에 데이터를 편리하게 복사할 수 있도록 합니다.
     - Bitlocker를 사용하여 드라이브의 데이터를 암호화합니다.
     - 가져오기 생성 동안 사용되는 드라이브 저널 파일을 생성합니다.
     - 내보내기 작업에 필요한 드라이브 수를 식별하는 데 도움이 됩니다.
+    
+> [!NOTE]
+> WAImportExport 도구는 버전 1 및 버전 2의 두 버전으로 사용할 수 있습니다. 다음이 권장됩니다.
+> - Azure Blob 저장소로 가져오기/내보내기를 수행하는 경우 버전 1 
+> - Azure 파일로 데이터를 가져오는 경우 버전 2
+>
+> WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 특정 운영 체제 버전을 확인하려면 [Azure Import/Export 요구 사항](storage-import-export-requirements.md#supported-operating-systems)을 참조하세요.
 
-    이 도구는 버전 1 및 버전 2의 두 버전으로 사용할 수 있습니다. 다음이 권장됩니다.
-
-    - Azure Blob 저장소로 가져오기/내보내기를 수행하는 경우 버전 1 
-    - Azure 파일로 데이터를 가져오는 경우 버전 2
-
-    WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 특정 운영 체제 버전을 확인하려면 [Azure Import/Export 요구 사항](storage-import-export-requirements.md#supported-operating-systems)을 참조하세요.
-
-- **디스크**: SSD(반도체 드라이브) 또는 HDD(하드 디스크 드라이브)를 Azure 데이터 센터로 발송할 수 있습니다. 가져오기 작업을 만들 때는 사용자 데이터가 포함된 디스크 드라이브를 발송합니다. 내보내기 작업을 만들 때는 Azure 데이터 센터로 빈 드라이브를 발송합니다. 특정 디스크 유형에 대해 알아보려면 [지원되는 디스크 유형](storage-import-export-requirements.md#supported-hardware)을 참조하세요.
+- **디스크 드라이브**: SSD(반도체 드라이브) 또는 HDD(하드 디스크 드라이브)를 Azure 데이터 센터로 발송할 수 있습니다. 가져오기 작업을 만들 때는 사용자 데이터가 포함된 디스크 드라이브를 발송합니다. 내보내기 작업을 만들 때는 Azure 데이터 센터로 빈 드라이브를 발송합니다. 특정 디스크 유형에 대해 알아보려면 [지원되는 디스크 유형](storage-import-export-requirements.md#supported-hardware)을 참조하세요.
 
 ## <a name="how-does-importexport-work"></a>Import/Export 작업 작동 방식
 
@@ -56,26 +60,25 @@ Azure Import/Export 서비스를 사용하면 작업을 만들어 Azure Blob 및
 
 작업은 내보내기 또는 가져오기 작업일 수 있습니다. 가져오기 작업을 사용하면 Azure Blob 또는 Azure Files로 데이터를 가져올 수 있고, 내보내기 작업을 사용하면 Azure Blob에서 파일을 내보낼 수 있습니다. 가져오기 작업의 경우 사용자 데이터가 포함된 드라이브를 발송합니다. 내보내기 작업을 만들 때는 Azure 데이터 센터로 빈 드라이브를 발송합니다. 각 경우에 작업당 최대 10개의 디스크 드라이브를 발송할 수 있습니다.
 
-> [!IMPORTANT]
-> Azure Files로는 데이터를 내보낼 수 없습니다.
-
-이 섹션에서는 가져오기 및 내보내기 작업에 관련된 단계를 개략적으로 설명합니다. 
-
-
 ### <a name="inside-an-import-job"></a>가져오기 작업 내부
 
 가져오기 작업은 개략적으로 다음 단계를 포함합니다.
 
 1. Azure Storage의 데이터에 대해 가져올 데이터, 필요한 드라이브 수, 대상 blob 위치를 결정합니다.
-2. WAImportExport 도구를 사용하여 데이터를 드라이브에 복사합니다. BitLocker로 디스크를 암호화합니다.
+2. WAImportExport 도구를 사용하여 데이터를 드라이브에 복사합니다. BitLocker로 디스크 드라이브를 암호화합니다.
 3. Azure Portal에서 대상 저장소 계정에 가져오기 작업을 만듭니다. 드라이브 저널 파일을 업로드합니다.
-2. 드라이브를 다시 발송하기 위한 반송 주소 및 운송업체 계정 번호를 제공합니다.
-3. 작업을 만드는 동안 제공된 배송지 주소로 디스크 드라이브를 발송합니다.
-4. 가져오기 작업 세부 정보에서 배송 추적 번호를 업데이트하고 가져오기 작업을 제출합니다.
-5. 드라이브는 Azure 데이터 센터에서 수신 및 처리됩니다.
-6. 드라이브는 운송업체 계정을 사용하여 가져오기 작업에 제공된 반송 주소로 배송됩니다.
-  
-    ![그림 1: 가져오기 작업 흐름](./media/storage-import-export-service/importjob.png)
+4. 드라이브를 다시 발송하기 위한 반송 주소 및 운송업체 계정 번호를 제공합니다.
+5. 작업을 만드는 동안 제공된 배송지 주소로 디스크 드라이브를 발송합니다.
+6. 가져오기 작업 세부 정보에서 배송 추적 번호를 업데이트하고 가져오기 작업을 제출합니다.
+7. 드라이브는 Azure 데이터 센터에서 수신 및 처리됩니다.
+8. 드라이브는 운송업체 계정을 사용하여 가져오기 작업에 제공된 반송 주소로 배송됩니다.
+
+> [!NOTE]
+> 로컬(데이터 센터 국가 내) 배송의 경우 국내 운송업체 계정 공유 
+>
+> 해외(데이터 센터 국가 외) 배송의 경우 국제 운송업체 계정 공유
+
+ ![그림 1: 가져오기 작업 흐름](./media/storage-import-export-service/importjob.png)
 
 데이터 가져오기에 대한 단계별 지침을 보려면 다음으로 이동합니다.
 
@@ -99,8 +102,13 @@ Azure Import/Export 서비스를 사용하면 작업을 만들어 Azure Blob 및
 8. 드라이브는 Azure 데이터 센터에서 수신 및 처리됩니다.
 9. 드라이브는 BitLocker로 암호화하고, 키는 Azure Portal을 통해 사용할 수 있습니다.  
 10. 드라이브는 운송업체 계정을 사용하여 가져오기 작업에 제공된 반송 주소로 배송됩니다.
+
+> [!NOTE]
+> 로컬(데이터 센터 국가 내) 배송의 경우 국내 운송업체 계정 공유 
+>
+> 해외(데이터 센터 국가 외) 배송의 경우 국제 운송업체 계정 공유
   
-    ![그림 2: 내보내기 작업 흐름](./media/storage-import-export-service/exportjob.png)
+ ![그림 2: 내보내기 작업 흐름](./media/storage-import-export-service/exportjob.png)
 
 데이터 내보내기에 대한 단계별 지침을 알아보려면 [Azure Blob에서 데이터 내보내기](storage-import-export-data-from-blobs.md)를 참조하세요.
 
@@ -113,7 +121,7 @@ Azure Import/Export 서비스는 모든 Azure 저장소 계정으로의 데이�
 
 |국가  |국가  |국가  |국가  |
 |---------|---------|---------|---------|
-|미국 동부    | 북유럽        | 인도 중부        |미국 정부 아이오와         |
+|미국 동부    | 북유럽        | 인도 중부        |미국 아이오와 주 정부         |
 |미국 서부     |서유럽         | 인도 남부        | 미국 국방부 동부        |
 |미국 동부 2    | 동아시아        |  인도 서부        | 미국 국방부 중부        |
 |미국 서부 2     | 동남아시아        | 캐나다 중부        | 중국 동부         |

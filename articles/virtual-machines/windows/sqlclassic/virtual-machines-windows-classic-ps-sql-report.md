@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: edfae3a56bc13e4c41a1676bfc0f4e8cf4cd9d30
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 32be473ab93231805cdae097e3e984a2e74da973
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425081"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233085"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
 > [!IMPORTANT] 
@@ -40,7 +40,7 @@ ms.locfileid: "31425081"
   * 코어 할당량을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. VM 크기 정보는 [Azure에 대한 Virtual Machine 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * **Windows PowerShell 스크립팅**: 이 항목에서는 Windows PowerShell의 기본 작동 지식이 있다고 가정합니다. Windows PowerShell을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
   
-  * [Windows Server에서 Windows PowerShell 시작](https://technet.microsoft.com/library/hh847814.aspx)
+  * [Windows Server에서 Windows PowerShell 시작](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell)
   * [Windows PowerShell 시작](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## <a name="step-1-provision-an-azure-virtual-machine"></a>1단계: Azure Virtual Machine 프로비전
@@ -75,10 +75,10 @@ ms.locfileid: "31425081"
    * **지역/선호도 그룹/Virtual Network**: 최종 사용자에게 가장 가까운 지역을 선택합니다.
    * **Storage 계정**: 자동으로 생성된 Storage 계정을 사용합니다.
    * **가용성 집합**: 없습니다.
-   * **끝점** **원격 데스크톱** 및 **PowerShell** 끝점을 그대로 유지한 다음 사용자 환경에 따라 HTTP 또는 HTTPS 끝점을 추가합니다.
+   * **엔드포인트** **원격 데스크톱** 및 **PowerShell** 엔드포인트를 그대로 유지한 다음 사용자 환경에 따라 HTTP 또는 HTTPS 엔드포인트를 추가합니다.
      
      * **HTTP**: 기본 공용 포트 및 개인 포트가 **80**입니다. 80 이외의 개인 포트를 사용하는 경우 HTTP 스크립트에서 **$HTTPport = 80** 을 수정합니다.
-     * **HTTPS**: 기본 공용 포트 및 개인 포트가 **443**입니다. 보안 모범 사례는 개인 포트를 변경하고 개인 포트를 사용하도록 방화벽 및 보고서 서버를 구성하는 것입니다. 끝점에 대한 자세한 내용은 [Virtual Machine으로 끝점을 설정하는 방법](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. 443 이외의 포트를 사용하는 경우 HTTPS 스크립트에서 매개 변수 **$HTTPsport = 443** 을 변경합니다.
+     * **HTTPS**: 기본 공용 포트 및 개인 포트가 **443**입니다. 보안 모범 사례는 개인 포트를 변경하고 개인 포트를 사용하도록 방화벽 및 보고서 서버를 구성하는 것입니다. 엔드포인트에 대한 자세한 내용은 [Virtual Machine으로 엔드포인트를 설정하는 방법](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. 443 이외의 포트를 사용하는 경우 HTTPS 스크립트에서 매개 변수 **$HTTPsport = 443** 을 변경합니다.
    * 다음을 클릭합니다. ![다음](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. 마법사의 마지막 페이지에서 기본 **VM 에이전트 설치** 를 선택한 상태로 유지합니다. 이 항목의 단계에서 VM 에이전트를 이용하지 않지만 이 VM을 유지하려는 경우 VM 에이전트 및 확장을 사용하면 CM이 향상됩니다.  VM 에이전트에 대한 자세한 내용은 [VM 에이전트 및 확장 – 1부](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)를 참조하세요. AD 실행을 설치한 기본 확장 중 하나가 VM 데스크톱에서 내부 IP 및 여유 드라이브 공간 같은 시스템 정보를 표시하는 “BGINFO” 확장입니다.
 9. 완료를 클릭합니다. ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
@@ -90,7 +90,7 @@ ms.locfileid: "31425081"
 
 VM에서 HTTPS를 사용하려면 신뢰할 수 있는 SSL 인증서가 필요합니다. 시나리오에 따라 다음 두 방법 중 하나를 사용할 수 있습니다.
 
-* CA(인증 기관)에서 발급하고 Microsoft에서 신뢰하는 유효한 SSL 인증서. CA 루트 인증서는 Microsoft 루트 인증서 프로그램을 통해 배포되어야 합니다. 이 프로그램에 대한 자세한 내용은 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(구성원 CA)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) 및 [Microsoft 루트 인증서 프로그램 소개](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx)를 참조하세요.
+* CA(인증 기관)에서 발급하고 Microsoft에서 신뢰하는 유효한 SSL 인증서. CA 루트 인증서는 Microsoft 루트 인증서 프로그램을 통해 배포되어야 합니다. 이 프로그램에 대한 자세한 내용은 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(구성원 CA)](https://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) 및 [Microsoft 루트 인증서 프로그램 소개](https://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx)를 참조하세요.
 * 자체 서명된 인증서. 자체 서명된 인증서는 프로덕션 환경에 권장되지 않습니다.
 
 ### <a name="to-use-a-certificate-created-by-a-trusted-certificate-authority-ca"></a>신뢰할 수 있는 CA(인증 기관)에서 만든 인증서를 사용하려면
@@ -126,7 +126,7 @@ VM이 프로비전되었을 때 자체 서명된 인증서가 VM에 만들어졌
       
        ![로그인에 VM 이름 포함](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. Mmc.exe를 실행합니다. 자세한 내용은 [방법: MMC 스냅인을 사용하여 인증서 보기](https://msdn.microsoft.com/library/ms788967.aspx)를 참조하세요.
-   3. 콘솔 응용 프로그램 **파일** 메뉴에서 **인증서** 스냅인을 추가하고 메시지가 표시되면 **컴퓨터 계정**을 선택한 후 **다음**을 클릭합니다.
+   3. 콘솔 애플리케이션 **파일** 메뉴에서 **인증서** 스냅인을 추가하고 메시지가 표시되면 **컴퓨터 계정**을 선택한 후, **다음**을 클릭합니다.
    4. 관리할 **로컬 컴퓨터**를 선택한 후 **마침**을 클릭합니다.
    5. **확인**을 클릭한 다음 **인증서 - 개인** 노드를 확장한 다음 **인증서**를 클릭합니다. 인증서 이름은 VM의 DNS 이름을 따서 지정되고 **cloudapp.net**으로 끝납니다. 인증서 이름을 마우스 오른쪽 단추로 클릭하고 **복사**를 클릭합니다.
    6. **T신뢰할 수 있는 루트 인증 기관** 노드를 확장한 다음 **인증서**를 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 클릭합니다.
@@ -474,7 +474,7 @@ Windows PowerShell을 사용하여 보고서 서버를 구성하려면 다음 �
    * **스크립트를 실행하기 전에**값 쌍 사이의 공백을 제거합니다. 예를 들어 af1160b64b288d890a8212ff6ba9c3664f319048입니다.
 7. **$httpsport** 매개 변수를 수정합니다. 
    
-   * HTTPS 끝점에 포트 443을 사용한 경우 스크립트에서 이 매개 변수를 업데이트할 필요가 없습니다. 그렇지 않은 경우 VM에서 HTTPS 개인 끝점을 구성할 때 선택한 포트 값을 사용합니다.
+   * HTTPS 엔드포인트에 포트 443을 사용한 경우 스크립트에서 이 매개 변수를 업데이트할 필요가 없습니다. 그렇지 않은 경우 VM에서 HTTPS 개인 엔드포인트를 구성할 때 선택한 포트 값을 사용합니다.
 8. **$DNSName** 매개 변수를 수정합니다. 
    
    * 스크립트가 와일드카드 인증서 $DNSName= "+"에 대해 구성됩니다. 와일드카드 인증서 바인딩에 대해 구성하지 않으려면 $DNSName="+"를 주석으로 처리하고 전체 $DNSNAme 참조인 ##$DNSName="$server.cloudapp.net” 줄을 사용하도록 설정합니다.
@@ -506,7 +506,7 @@ PowerShell 스크립트를 실행하여 보고서 서버를 구성하지 않으�
 6. 기본적으로 RS는 IP가 “모두 할당됨"으로 HTTP 포트 80에 대해 구성됩니다. HTTPS를 추가하려면:
    
    1. **SSL 인증서**에서: 사용하려는 인증서를 선택합니다. 예를 들어 [VM 이름].cloudapp.net입니다. 인증서가 나열되지 않은 경우 VM에서 인증서를 설치하고 신뢰하는 방법이 설명된 **2단계: 서버 인증서 만들기** 섹션을 참조하세요.
-   2. **SSL 포트**에서: 443을 선택합니다. VM에 다른 개인 포트를 사용하여 HTTPS 개인 끝점을 구성한 경우 해당 값을 여기에 사용합니다.
+   2. **SSL 포트**에서: 443을 선택합니다. VM에 다른 개인 포트를 사용하여 HTTPS 개인 엔드포인트를 구성한 경우 해당 값을 여기에 사용합니다.
    3. **적용** 을 클릭하고 작업이 완료되기를 기다립니다.
 7. 왼쪽 창에서 **데이터베이스**를 클릭합니다.
    
@@ -526,7 +526,7 @@ PowerShell 스크립트를 실행하여 보고서 서버를 구성하지 않으�
 > 
 > 
 
-가상 머신의 보고서 관리자 또는 보고서 서버에 원격으로 연결하려면 VM에서 TCP 끝점이 필요합니다. 이는 VM의 방화벽에서 동일한 포트를 여는 데 필요합니다. VM이 프로비전되었을 때 끝점이 만들어졌습니다.
+가상 머신의 보고서 관리자 또는 보고서 서버에 원격으로 연결하려면 VM에서 TCP 엔드포인트가 필요합니다. 이는 VM의 방화벽에서 동일한 포트를 여는 데 필요합니다. VM이 프로비전되었을 때 엔드포인트가 만들어졌습니다.
 
 이 섹션에서는 방화벽 포트를 여는 방법에 대한 기본 정보를 제공합니다. 자세한 내용은 [보고서 서버 액세스를 위한 방화벽 구성](https://technet.microsoft.com/library/bb934283.aspx)
 
@@ -538,7 +538,7 @@ PowerShell 스크립트를 실행하여 보고서 서버를 구성하지 않으�
 HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립트를 적절하게 수정합니다. Windows 방화벽에서 포트 **443** 을 열려면 다음을 완료합니다.
 
 1. 관리자 권한으로 Windows PowerShell 창을 엽니다.
-2. VM에서 HTTPS 끝점을 구성할 때 443 이외의 포트를 사용한 경우 다음 명령에서 포트를 업데이트하고 명령을 실행합니다.
+2. VM에서 HTTPS 엔드포인트를 구성할 때 443 이외의 포트를 사용한 경우 다음 명령에서 포트를 업데이트하고 명령을 실행합니다.
    
         New-NetFirewallRule -DisplayName “Report Server (TCP on port 443)” -Direction Inbound –Protocol TCP –LocalPort 443
 3. 명령이 완료되면 **Ok** 가 명령 프롬프트에 표시됩니다.
@@ -586,7 +586,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
   
   * [Microsoft SQL Server Data Tools - Visual Studio 2013용 비즈니스 인텔리전스](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Visual Studio 2012용 비즈니스 인텔리전스](https://www.microsoft.com/download/details.aspx?id=36843)
-  * [SSDT-BI(SQL Server Data Tools 및 SQL Server Business Intelligence)](http://curah.microsoft.com/30004/sql-server-data-tools-ssdt-and-sql-server-business-intelligence)
+  * [SSDT-BI(SQL Server Data Tools 및 SQL Server Business Intelligence)](https://docs.microsoft.com/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi)
 * **SQL Server Data Tools: 원격**: 로컬 컴퓨터에서 SQL Server Data Tools로 Reporting Services 보고서가 포함된 Reporting Services 프로젝트를 만듭니다. 웹 서비스 URL에 연결하도록 프로젝트를 구성합니다.
   
     ![SSRS 프로젝트의 SSDT 프로젝트 속성](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
@@ -598,8 +598,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 ## <a name="more-information"></a>추가 정보
 ### <a name="resources"></a>리소스
-* SQL Server Business Intelligence 및 SharePoint 2013의 단일 서버 배포와 관련된 유사한 내용은 [Windows PowerShell을 사용하여 SQL Server BI 및 SharePoint 2013에서 Azure VM 만들기](https://msdn.microsoft.com/library/azure/dn385843.aspx)를 참조하세요.
-* SQL Server Business Intelligence 및 SharePoint 2013의 다중 서버 배포와 관련된 유사한 내용은 [Azure Virtual Machines에서 SQL Server Business Intelligence 배포](https://msdn.microsoft.com/library/dn321998.aspx)를 참조하세요.
+* SQL Server Business Intelligence 및 SharePoint 2013의 단일 서버 배포와 관련된 유사한 내용은 [Windows PowerShell을 사용하여 SQL Server BI 및 SharePoint 2013에서 Azure VM 만들기](https://blogs.technet.microsoft.com/ptsblog/2013/10/24/use-powershell-to-create-a-windows-azure-vm-with-sql-server-bi-and-sharepoint-2013/)를 참조하세요.
 * Azure Virtual Machines에서 SQL Server Business Intelligence 배포와 관련된 일반 정보는 [Azure Virtual Machines에서 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)를 참조하세요.
 * Azure 계산 요금의 비용에 대한 자세한 내용은 [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines)의 Virtual Machines 탭을 참조하세요.
 

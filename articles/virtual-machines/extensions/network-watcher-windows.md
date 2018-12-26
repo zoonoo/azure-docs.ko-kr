@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 29f346b2a42f8d12e26bd59fbab86d763d3f29f0
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2f07107ad63ddd04e67528bf4f409dabf4a4d0c0
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944715"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142192"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Windows용 Network Watcher 에이전트 가상 머신 확장
 
@@ -29,7 +29,7 @@ ms.locfileid: "33944715"
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)는 Azure 네트워크에 대한 모니터링을 허용하는 네트워크 성능 모니터링, 진단 및 분석 서비스입니다. Network Watcher 에이전트 가상 머신 확장은 Azure 가상 머신에서 요청 시 네트워크 트래픽 캡처 및 기타 고급 기능을 위한 요구 사항입니다.
 
 
-이 문서에서는 Windows용 Network Watcher 에이전트 가상 머신 확장에 대해 지원되는 플랫폼 및 배포 옵션을 설명합니다. 에이전트 설치는 가상 머신을 중단하거나, 다시 부팅이 필요하지 않습니다.
+이 문서에서는 Windows용 Network Watcher 에이전트 가상 머신 확장에 대해 지원되는 플랫폼 및 배포 옵션을 설명합니다. 에이전트 설치는 가상 머신을 중단하거나, 다시 부팅이 필요하지 않습니다. 배포하는 가상 머신에 확장을 배포할 수 있습니다. 가상 머신이 Azure 서비스에서 배포되는 경우 가상 머신에서 확장 설치의 허용 여부를 결정하는 서비스에 대한 설명서를 확인합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

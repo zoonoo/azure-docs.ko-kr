@@ -2,25 +2,21 @@
 title: Azure에서 PySpark 및 Scala를 사용하여 HDInsight Spark 연습 | Microsoft Docs
 description: 예측 분석을 수행하기 위해 Azure HDInsight Spark에서 PySpark 및 Scala 사용을 보여 주는 Team Data Science Process의 예제입니다.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 05f8748be8fd14bef212ee7bd5c2320f1b577536
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: a7697d2be1a43af93109bb7bbdab50828275f5aa
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838962"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446402"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Azure에서 PySpark 및 Scala를 사용하여 HDInsight Spark 데이터 과학 연습
 
@@ -44,7 +40,7 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Azure Spark에서 Scala를 사용하여 택시 팁 예측
 
-[Azure에서 Spark와 함께 Scala 사용](scala-walkthrough.md) 연습은 뉴욕 택시의 데이터를 사용하여 팁 지불 여부 및 예상되는 지불 금액의 범위를 예측합니다. Azure HDInsight Spark 클러스터에서 Spark MLlib(Machine Learning 라이브러리) 및 SparkML 패키지를 사용하여 감독 Machine Learning 작업에 대해 Scala를 사용하는 방법을 보여 줍니다. [데이터 과학 프로세스](http://aka.ms/datascienceprocess): 데이터 수집 및 탐색, 시각화, 기능 엔지니어링, 모델링, 모델 사용으로 이루어진 작업을 단계별로 안내합니다. 작성된 모델은 로지스틱 및 선형 회귀, 임의 포리스트 및 그라데이션 향상된 트리를 포함합니다.
+[Azure에서 Spark와 함께 Scala 사용](scala-walkthrough.md) 연습은 뉴욕 택시의 데이터를 사용하여 팁 지불 여부 및 예상되는 지불 금액의 범위를 예측합니다. Azure HDInsight Spark 클러스터에서 Spark MLlib(Machine Learning 라이브러리) 및 SparkML 패키지를 사용하여 감독 Machine Learning 작업에 대해 Scala를 사용하는 방법을 보여 줍니다. [데이터 과학 프로세스](https://aka.ms/datascienceprocess): 데이터 수집 및 탐색, 시각화, 기능 엔지니어링, 모델링, 모델 사용으로 이루어진 작업을 단계별로 안내합니다. 작성된 모델은 로지스틱 및 선형 회귀, 임의 포리스트 및 그라데이션 향상된 트리를 포함합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

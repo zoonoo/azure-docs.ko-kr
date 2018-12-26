@@ -3,8 +3,8 @@ title: Azure CDN에서 파일을 압축하여 성능 향상 | Microsoft Docs
 description: Azure CDN에서 파일을 압축하여 파일 전송 속도를 개선하고 페이지 로드 성능을 향상시키는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: bdff57275cf123079004ada732fe782d98399d71
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/13/2018
+ms.author: magattus
+ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260399"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997276"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
 파일 압축은 파일이 서버에서 전송되기 전에 파일 크기를 줄여서 파일 전송 속도를 개선하고 페이지 로드 성능을 높이는 간단하고 효과적인 방법입니다. 파일 압축을 통해 대역폭 비용을 절감하고 사용자에게 반응이 빠른 환경을 제공할 수 있습니다.
@@ -35,7 +35,7 @@ ms.locfileid: "35260399"
 - **Akamai의 Azure CDN Standard** 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다. 
 - **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우 일반적으로 10분 이내에 전파가 완료됩니다. 
 >
-> CDN 끝점에 처음으로 압축을 설정하는 경우 압축 설정이 POP까지 전파되도록 1-2시간 기다렸다가 문제를 해결합니다.
+> CDN 엔드포인트에 처음으로 압축을 설정하는 경우 압축 설정이 POP까지 전파되도록 1-2시간 기다렸다가 문제를 해결합니다.
 > 
 > 
 
@@ -50,9 +50,9 @@ ms.locfileid: "35260399"
 
 1. CDN 프로필 페이지에서 관리하려는 CDN 엔드포인트를 선택합니다.
    
-    ![CDN 프로필 끝점](./media/cdn-file-compression/cdn-endpoints.png)
+    ![CDN 프로필 엔드포인트](./media/cdn-file-compression/cdn-endpoints.png)
    
-    CDN 끝점 페이지가 열립니다.
+    CDN 엔드포인트 페이지가 열립니다.
 2. **압축**을 선택합니다.
 
     ![CDN 압축 선택](./media/cdn-file-compression/cdn-compress-select-std.png)
@@ -65,6 +65,10 @@ ms.locfileid: "35260399"
    
    > [!TIP]
    > 가능하지만 압축된 형식에 압축을 적용하는 것은 좋지 않습니다. 예를 들면 ZIP, MP3, MP4 또는 JPG 등이 있습니다.
+   > 
+   
+   > [!NOTE]
+   > MIME 형식의 기본 목록을 수정하는 것은 현재 Microsoft의 Azure CDN 표준에서 지원되지 않습니다.
    > 
  
 5. 변경 후 **저장**을 선택합니다.
@@ -98,13 +102,14 @@ ms.locfileid: "35260399"
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Microsoft의 Azure CDN 표준 프로필
 
-**Microsoft의 Azure CDN 표준** 프로필의 경우, 모든 파일이 압축에 적합합니다. 그러나 파일은 [압축용으로 구성된](#enabling-compression) MIME 형식이어야 합니다.
+**Microsoft의 Azure CDN 표준** 프로필의 경우에는 적합한 파일만 압축됩니다. 파일은 다음 조건을 충족해야 압축할 수 있습니다. -[압축용으로 구성된](#enabling-compression) MIME 형식의 파일이어야 합니다.
+-1KB보다 커야 합니다. -8MB보다 작아야 합니다.
 
 이러한 프로필은 다음과 같은 압축 인코딩을 지원합니다.
 - gzip(GNU zip)
 - brotli 
  
-요청에서 두 가지 이상의 압축 형식을 지원하는 경우 해당 압축 형식은 brotli 압축보다 우선합니다.
+요청에서 두 가지 이상의 압축 형식을 지원하는 경우 brotli 압축이 우선적으로 사용됩니다.
 
 자산에 대한 요청이 gzip 압축을 지정하고 캐시의 요청 결과가 누락된 경우 Azure CDN은 POP 서버에서 직접 자산의 gzip 압축을 수행합니다. 이후 압축된 파일은 캐시에서 제공됩니다.
 

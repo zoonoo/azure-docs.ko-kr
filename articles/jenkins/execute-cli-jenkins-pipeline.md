@@ -1,26 +1,19 @@
 ---
-title: Jenkins로 Azure CLI 실행 | Microsoft Docs
+title: Jenkins로 Azure CLI 실행
 description: Azure CLI를 사용하여 Jenkins 파이프라인을 통해 Azure에 Java 웹앱을 배포하는 방법을 알아봅니다.
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-ms.assetid: ''
 ms.service: jenkins
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
+keywords: Jenkins, Azure, DevOps, App Service, CLI
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 6/7/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 2b568bd22858a42178e2821e0e97a3b4ebdfccd5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b9ca8848da543bbfb27246109c3a4ab97eb6bc58
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28926933"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974921"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins 및 Azure CLI를 사용해 Azure App Service에 배포
 Azure에 Java 웹앱을 배포하기 위해 [Jenkins 파이프라인](https://jenkins.io/doc/book/pipeline/)에서 Azure CLI를 사용할 수 있습니다. 이 자습서에서는 Azure VM에서 CI/CD 파이프라인을 만들며 다음 방법이 포함됩니다.
@@ -33,7 +26,7 @@ Azure에 Java 웹앱을 배포하기 위해 [Jenkins 파이프라인](https://je
 > * Jenkins 파이프라인 만들기
 > * 파이프라인 실행 및 웹앱 확인
 
-이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. 버전을 확인하려면 `az --version`을 실행합니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. 버전을 확인하려면 `az --version`을 실행합니다. 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -57,13 +50,13 @@ sudo apt-get install -y maven
 Azure CLI를 실행하려면 Azure 자격 증명이 필요합니다.
 
 * Jenkins 대시보드 내에서 **자격 증명->시스템->** 을 클릭합니다. **전역 자격 증명(제한 없음)** 을 클릭합니다.
-* **자격 증명 추가**를 클릭한 다음 구독 ID, 클라이언트 ID, 클라이언트 암호 및 OAuth 2.0 토큰 끝점을 입력하여 [Microsoft Azure 서비스 주체](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)를 추가합니다. 이후 단계에서 사용할 ID를 제공합니다.
+* **자격 증명 추가**를 클릭한 다음 구독 ID, 클라이언트 ID, 클라이언트 암호 및 OAuth 2.0 토큰 엔드포인트를 입력하여 [Microsoft Azure 서비스 주체](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)를 추가합니다. 이후 단계에서 사용할 ID를 제공합니다.
 
 ![자격 증명 추가](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Java 웹앱을 배포하기 위한 Azure App Service 만들기
 
-[az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) CLI 명령을 사용하여 **무료** 가격 책정 계층과 함께 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스를 정의합니다. App Service 계획에 할당된 모든 응용 프로그램은 이들 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
+[az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) CLI 명령을 사용하여 **무료** 가격 책정 계층과 함께 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스를 정의합니다. App Service 계획에 할당된 모든 애플리케이션은 이들 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -92,7 +85,7 @@ az appservice plan create \
 
 ### <a name="create-an-azure-web-app"></a>Azure Web App 만들기
 
- [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) CLI 명령을 사용하여 `myAppServicePlan` App Service 계획에서 웹앱 정의를 만듭니다. 웹앱 정의는 응용 프로그램에 액세스하는 URL을 제공하고 Azure에 코드를 배포하는 몇 가지 옵션을 구성합니다. 
+ [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) CLI 명령을 사용하여 `myAppServicePlan` App Service 계획에서 웹앱 정의를 만듭니다. 웹앱 정의는 응용 프로그램에 액세스하는 URL을 제공하고 Azure에 코드를 배포하는 몇 가지 옵션을 구성합니다. 
 
 ```azurecli-interactive
 az webapp create \
@@ -122,7 +115,7 @@ az webapp create \
 
 ### <a name="configure-java"></a>Java 구성 
 
-[az appservice web config update](/cli/azure/appservice/web/config#az_appservice_web_config_update) 명령으로 앱에 필요한 Java 런타임 구성을 설정합니다.
+[az appservice web config update](/cli/azure/webapp/config#az-appservice-web-config-update) 명령으로 앱에 필요한 Java 런타임 구성을 설정합니다.
 
 다음 명령은 최근 Java 8 JDK 및 [Apache Tomcat](http://tomcat.apache.org/) 8.0에서 실행되도록 웹앱을 구성합니다.
 

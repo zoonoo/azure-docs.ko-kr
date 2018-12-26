@@ -1,22 +1,27 @@
 ---
-title: Linguistic Analysis API의 분석기 명명 체계 | Microsoft Docs
-description: Linguistic Analysis API가 분석기에 대한 명명 체계를 사용하여 유연성과 정확도를 모두 허용하는 방법을 알아봅니다.
+title: 분석기 명명 구조 - Linguistic Analysis API
+titlesuffix: Azure Cognitive Services
+description: Linguistic Analysis API 분석기 명명 구조를 통해 유연성과 정확도가 구현되는 방식을 알아봅니다.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
-ms.openlocfilehash: 2729b7126e82862660fc8e1a995cc87ae996ea03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: f8c7aba2b853f3916c2d01d94d49090a4b3e36a0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372990"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237234"
 ---
 # <a name="analyzer-names"></a>분석기 이름
+
+> [!IMPORTANT]
+> Linguistic Analysis 미리 보기는 2018년 8월 9일부로 서비스 해제되었습니다. 텍스트 처리 및 분석에는 [Azure Machine Learning 텍스트 분석 모듈](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics)을 사용하는 것이 좋습니다.
 
 우리는 분석기에서 유연성을 허용하고 이름이 의미하는 바를 정확하게 이해하기 위해 다소 복잡한 명명 체계를 분석기에 사용합니다.
 분석기 이름은 ID, 종류, 사양, 구현의 네 부분으로 구성됩니다.

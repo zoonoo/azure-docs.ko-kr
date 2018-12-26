@@ -3,7 +3,7 @@ title: Azure Event Hubs 캡처 연습 | Microsoft Docs
 description: Azure Python SDK를 통해 Event Hubs 캡처 기능을 사용하는 방법을 보여 주는 샘플입니다.
 services: event-hubs
 documentationcenter: ''
-author: djrosanova
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
-ms.author: sethm
-ms.openlocfilehash: 97cadbde2ddedade1a8688f1380b9ff9194613e7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: 76102e1238346cbbb8f5159d2ffcd94c788c16d6
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28016460"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140562"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Event Hubs 캡처 연습: Python
 
 캡처는 Azure Event Hubs의 기능입니다. 이 기능을 사용하여 Event Hub의 스트리밍 데이터를 선택한 Azure Blob Storage 계정에 자동으로 전달할 수 있습니다. 이 기능을 통해 손쉽게 실시간 스트리밍 데이터에 대한 일괄 처리를 수행할 수 있습니다. 이 문서에서는 Python과 함께 Event Hubs 캡처를 사용하는 방법을 설명합니다. Event Hubs 캡처에 대한 자세한 내용은 [개요 문서](event-hubs-capture-overview.md)를 참조하세요.
 
-이 샘플에서는 [Azure Python SDK](https://azure.microsoft.com/develop/python/)를 사용하여 캡처 기능을 보여 줍니다. sender.py 프로그램이 JSON 형식으로 Event Hubs에 시뮬레이트된 환경 원격 분석을 보냅니다. Event Hub는 캡처 기능을 사용하여 이 데이터를 Blob Storage에 일괄적으로 쓰도록 구성되어 있습니다. capturereader.py 앱이 이러한 Blob을 읽고 장치당 추가 파일을 만듭니다. 그런 다음 .csv 파일에 데이터를 씁니다.
+이 샘플에서는 [Azure Python SDK](https://azure.microsoft.com/develop/python/)를 사용하여 캡처 기능을 보여 줍니다. sender.py 프로그램이 JSON 형식으로 Event Hubs에 시뮬레이트된 환경 원격 분석을 보냅니다. Event Hub는 캡처 기능을 사용하여 이 데이터를 Blob Storage에 일괄적으로 쓰도록 구성되어 있습니다. capturereader.py 앱이 이러한 Blob을 읽고 디바이스당 추가 파일을 만듭니다. 그런 다음 .csv 파일에 데이터를 씁니다.
 
 ## <a name="what-youll-accomplish"></a>수행할 작업
 
@@ -81,7 +81,7 @@ ms.locfileid: "28016460"
 ## <a name="create-a-python-script-to-read-your-capture-files"></a>캡처 파일을 읽는 Python 스크립트 만들기
 
 1. 창을 채우고 **만들기**를 선택합니다.
-2. **capturereader.py**라는 스크립트를 만듭니다. 이 스크립트는 캡처된 파일을 읽고 장치마다 파일을 만들어 해당 장치에 대한 데이터만 씁니다.
+2. **capturereader.py**라는 스크립트를 만듭니다. 이 스크립트는 캡처된 파일을 읽고 디바이스마다 파일을 만들어 해당 디바이스에 대한 데이터만 씁니다.
 3. capturereader.py에 다음 코드를 붙여넣습니다.
    
    ```python

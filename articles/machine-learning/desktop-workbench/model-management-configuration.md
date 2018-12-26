@@ -7,18 +7,23 @@ ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 6802d1dfc360a48d8085ff07a8d4488ee1751e33
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832104"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968716"
 ---
 # <a name="model-management-setup"></a>모델 관리 설치
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="overview"></a>개요
 이 문서는 Azure ML 모델 관리를 사용하여 Machine Learning 모델을 웹 서비스로 배포 및 관리하는 방법을 설명합니다. 
@@ -146,7 +151,7 @@ az ml env set -n [environment name] -g [resource group]
 >
 
 >[!NOTE] 
->HTTPS 끝점을 만들려면 az ml env setup에서 --cert-name 및 --cert-pem 옵션을 사용하여 클러스터를 만들 때 SSL 인증서를 지정합니다. 이렇게 하면 제공된 인증서를 사용하여 보호된 https에서 요청을 처리하도록 클러스터가 설정됩니다. 설정이 완료되면 클러스터의 FQDN을 가리키는 CNAME DNS 레코드를 만듭니다.
+>HTTPS 엔드포인트를 만들려면 az ml env setup에서 --cert-name 및 --cert-pem 옵션을 사용하여 클러스터를 만들 때 SSL 인증서를 지정합니다. 이렇게 하면 제공된 인증서를 사용하여 보호된 https에서 요청을 처리하도록 클러스터가 설정됩니다. 설정이 완료되면 클러스터의 FQDN을 가리키는 CNAME DNS 레코드를 만듭니다.
 
 ### <a name="create-an-account"></a>계정 만들기
 계정은 모델 배포를 위해 반드시 필요합니다. 이 작업은 계정당 한 번만 수행하면 되며, 여러 배포에서 동일한 계정을 다시 사용할 수 있습니다.

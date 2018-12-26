@@ -1,0 +1,128 @@
+items:
+- name: 보고 및 모니터링 설명서
+  href: index.yml
+- name: 개요
+  items:
+  - name: Azure AD 보고서란?
+    href: overview-reports.md
+  - name: Azure AD 모니터링이란?
+    href: overview-monitoring.md
+- name: 빠른 시작
+  items:
+  - name: 보고서
+    items:
+    - name: 로그인 보고서 다운로드
+      href: quickstart-download-sign-in-report.md
+    - name: 감사 보고서 다운로드
+      href: quickstart-download-audit-report.md
+    - name: 명명된 위치 구성
+      href: quickstart-configure-named-locations.md
+    - name: Power BI 콘텐츠 팩 설치
+      href: quickstart-install-power-bi-content-pack.md
+  - name: 모니터링
+    items:
+    - name: 저장소 계정으로 로그 라우팅
+      href: quickstart-azure-monitor-route-logs-to-storage-account.md
+  expanded: true
+- name: 자습서
+  items:
+  - name: 보고서
+    items:
+    - name: 인증서를 사용하여 보고 API에 액세스
+      href: tutorial-access-api-with-certificates.md
+    - name: 로그인 로그를 다운로드하는 스크립트 생성
+      href: tutorial-signin-logs-download-script.md
+  - name: 모니터링
+    items:
+    - name: 이벤트 허브로 로그 스트리밍
+      href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: 활동 로그를 Splunk와 통합
+      href: tutorial-integrate-activity-logs-with-splunk.md
+- name: 개념
+  items:
+  - name: 보고서
+    items:
+    - name: 감사 로그
+      href: concept-audit-logs.md
+    - name: 로그인 로그
+      href: concept-sign-ins.md
+    - name: 위험한 로그인
+      href: concept-risky-sign-ins.md
+    - name: 위험 이벤트
+      href: concept-risk-events.md
+    - name: 위험에 노출된 사용자
+      href: concept-user-at-risk.md
+    - name: Reporting API
+      href: concept-reporting-api.md
+  - name: 모니터링
+    items:
+    - name: Azure Monitor의 Azure AD 로그
+      href: concept-activity-logs-azure-monitor.md
+- name: 방법 가이드
+  items:
+  - name: 보고서
+    items:
+    - name: 활동 보고서 찾기
+      href: howto-find-activity-reports.md
+    - name: 사용자에 대한 로그인 오류 문제 해결
+      href: howto-troubleshoot-sign-in-errors.md
+    - name: 위험 플래그가 지정된 사용자 수정
+      href: howto-remediate-users-flagged-for-risk.md
+    - name: Azure AD용 Power BI 콘텐츠 팩 보고서 사용
+      href: howto-power-bi-content-pack.md
+    - name: Reporting API를 위한 필수 구성 요소 구성
+      href: howto-configure-prerequisites-for-reporting-api.md
+  - name: 모니터링
+    items:
+    - name: 활동 로그를 Log Analytics와 통합
+      href: howto-integrate-activity-logs-with-log-analytics.md
+    - name: Log Analytics에서 활동 로그 분석
+      href: howto-analyze-activity-logs-log-analytics.md
+    - name: Azure AD에 대한 Log Analytics 보기 설치 및 사용
+      href: howto-install-use-log-analytics-views.md
+    - name: 활동 로그를 SumoLogic과 통합
+      href: howto-integrate-activity-logs-with-sumologic.md
+    - name: 활동 로그를 ArcSight와 통합
+      href: howto-integrate-activity-logs-with-arcsight.md
+  - name: 문제 해결
+    items:
+    - name: 누락된 감사 데이터
+      href: troubleshoot-missing-audit-data.md
+    - name: 다운로드에서 누락된 데이터
+      href: troubleshoot-missing-data-download.md
+    - name: 보고를 위한 Graph API에 액세스할 수 없음
+      href: troubleshoot-graph-api.md
+    - name: Power BI 콘텐츠 팩의 오류
+      href: troubleshoot-content-pack.md
+  expanded: true
+- name: 참고 자료
+  items:
+  - name: 보고서
+    items:
+    - name: 감사 로그 API 참조
+      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
+    - name: 로그인 로그 API 참조
+      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin
+    - name: 감사 활동
+      href: reference-audit-activities.md
+    - name: 데이터 보존 정책
+      href: reference-reports-data-retention.md
+    - name: 보고 대기 시간
+      href: reference-reports-latencies.md
+    - name: 로그인 오류 코드
+      href: reference-sign-ins-error-codes.md
+    - name: 질문과 대답
+      href: reports-faq.md
+  - name: 모니터링
+    items:
+    - name: 감사 로그 스키마
+      href: reference-azure-monitor-audit-log-schema.md
+    - name: 로그인 로그 스키마
+      href: reference-azure-monitor-sign-ins-log-schema.md
+  expanded: true
+ms.openlocfilehash: 9f5447c644d49c3c1919bb933762392b987b45f6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870137"

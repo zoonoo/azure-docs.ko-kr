@@ -2,32 +2,28 @@
 title: Azure Functions 런타임 개요 | Microsoft Docs
 description: Azure Functions 런타임 미리 보기 개요
 services: functions
-documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: ''
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 557f071e2cd8d4f639c881274e6e74a8fb745859
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4d11af1edc13fa675bef5cf9067dbe95646abff1
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
-ms.locfileid: "26290229"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091920"
 ---
-# <a name="azure-functions-runtime-overview"></a>Azure Functions 런타임 개요
+# <a name="azure-functions-runtime-overview-preview"></a>Azure Functions 런타임 개요(미리 보기)
 
-Azure Functions 런타임은Azure Functions 프로그래밍 모델 온-프레미스의 간편성 및 유연성을 활용하는 새로운 방법을 제공합니다. Azure Functions와 같은 오픈 소스 루트 기술을 기반으로 하는 Azure Functions 런타임은 온-프레미스에 배포되어 클라우드 서비스와 거의 동일한 개발 환경을 제공합니다.
+Azure Functions 런타임(미리 보기)은 Azure Functions 프로그래밍 모델 온-프레미스의 간편성 및 유연성을 활용하는 새로운 방법을 제공합니다. Azure Functions와 같은 오픈 소스 루트 기술을 기반으로 하는 Azure Functions 런타임은 온-프레미스에 배포되어 클라우드 서비스와 거의 동일한 개발 환경을 제공합니다.
 
 ![Azure Functions 런타임 미리 보기 포털][1]
 
-Azure Functions 런타임은 클라우드로 커밋하기 전에 Azure Functions를 사용해볼 수 있는 방법을 제공합니다. 이러한 방식으로 빌드하는 코드 자산을 마이그레이션 시 클라우드로 가져올 수 있습니다.  또한 이 런타임은 온-프레미스 컴퓨터의 예비 Compute 능력을 사용하여 야간에 배치 프로세스를 실행하는 것과 같은 새로운 옵션을 가능하게 합니다. 조직 내에서 장치를 사용하여 온-프레미스 및 클라우드의 다른 시스템으로 조건에 따라 데이터를 전송할 수도 있습니다.
+Azure Functions 런타임은 클라우드로 커밋하기 전에 Azure Functions를 사용해볼 수 있는 방법을 제공합니다. 이러한 방식으로 빌드하는 코드 자산을 마이그레이션 시 클라우드로 가져올 수 있습니다.  또한 이 런타임은 온-프레미스 컴퓨터의 예비 Compute 능력을 사용하여 야간에 배치 프로세스를 실행하는 것과 같은 새로운 옵션을 가능하게 합니다. 조직 내에서 디바이스를 사용하여 온-프레미스 및 클라우드의 다른 시스템으로 조건에 따라 데이터를 전송할 수도 있습니다.
 
 Azure Functions 런타임은 다음 두 부분으로 구성됩니다.
 

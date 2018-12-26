@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 20fea7f4f4ccf852045d53ba06c3f8fcbdd1d60d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c926c67a330648e09c1fd8133164f64582ad9a34
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959834"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701078"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Azure 플랫폼에 람다 아키텍처 구현 
 
@@ -29,11 +29,6 @@ Azure에서 람다 아키텍처를 구현하려면 다음 기술을 결합하여
 * [Spark-Azure Cosmos DB 커넥터](spark-connector.md)
 
 이 문서에서는 원래의 다중 계층 설계를 기반으로 한 람다 아키텍처의 기본 사항과 작업을 간소화하는 "재개발된" 람다 아키텍처의 이점에 대해 설명합니다.  
-
-람다 아키텍처와 람다 아키텍처 샘플에서 사용할 수 있는 리소스에 대한 개요는 다음 비디오를 참조하세요.
-
-> [!VIDEO https:///channel9.msdn.com/Events/Connect/2017/T135/player]
->
 
 ## <a name="what-is-a-lambda-architecture"></a>람다 아키텍처란?
 [Nathan Marz](https://twitter.com/nathanmarz)가 기술한 대로, 람다 아키텍처는 일괄 처리 및 짧은 대기 시간 시나리오를 처리하기 위한 확장 가능하고 내결함성이 있는 일반적인 데이터 처리 아키텍처입니다.
@@ -116,7 +111,7 @@ Azure Cosmos DB 변경 피드에 대한 자세한 내용은 다음을 참조하�
 * [스트림 처리 변경: Azure CosmosDB 변경 피드 + Apache Spark](https://azure.microsoft.com/blog/stream-processing-changes-azure-cosmosdb-change-feed-apache-spark/)
 
 ## <a name="batch-and-serving-layers"></a>일괄 처리 및 서비스 계층
-새 데이터가 Azure Cosmos DB(속도 계층에 사용되는 변경 피드)에 로드되기 때문에 **마스터 데이터 집합**(변경 불가능한 추가 전용 원시 데이터 집합)이 있는 위치입니다. 이제부터는 HDInsight(Apache Spark)를 사용하여 다음 이미지와 같이 **일괄 처리 계층**에서 **서비스 계층**으로 미리 계산 기능을 수행합니다.
+새 데이터가 Azure Cosmos DB(속도 계층에 사용되는 변경 피드)에 로드되기 때문에 **마스터 데이터 세트**(변경 불가능한 추가 전용 원시 데이터 세트)가 있는 위치입니다. 이제부터는 HDInsight(Apache Spark)를 사용하여 다음 이미지와 같이 **일괄 처리 계층**에서 **서비스 계층**으로 미리 계산 기능을 수행합니다.
 
 ![일괄 처리 계층 및 서비스 계층을 강조 표시한 람다 아키텍처 다이어그램](./media/lambda-architecture/lambda-architecture-batch-serve.png)
 
@@ -129,7 +124,7 @@ Azure Cosmos DB 변경 피드에 대한 자세한 내용은 다음을 참조하�
  5. 일괄 처리 보기와 실시간 보기의 결과를 병합하거나 개별적으로 ping하여 모든 쿼리에 응답할 수 있습니다.
 
 ### <a name="code-example-pre-computing-batch-views"></a>코드 예제: 미리 계산된 일괄 처리 보기
-Apache Spark에서 Azure Cosmos DB로 연결되는 **마스터 데이터 집합**에 대해 미리 계산된 보기를 실행하는 방법을 보여 주기 위해, 노트북에 있는 [람다 아키텍처 재개발 - 일괄 처리 계층](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) 및 [람다 아키텍처 재개발 - 일괄 처리 및 서비스 계층](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) 코드 조각을 사용합니다. 이 시나리오에서는 Azure Cosmos DB에 저장된 Twitter 데이터를 사용합니다.
+Apache Spark에서 Azure Cosmos DB로 연결되는 **마스터 데이터 세트**에 대해 미리 계산된 보기를 실행하는 방법을 보여 주기 위해, 노트북에 있는 [람다 아키텍처 재개발 - 일괄 처리 계층](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) 및 [람다 아키텍처 재개발 - 일괄 처리 및 서비스 계층](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) 코드 조각을 사용합니다. 이 시나리오에서는 Azure Cosmos DB에 저장된 Twitter 데이터를 사용합니다.
 
 아래 PySpark 코드를 사용하여 Azure Cosmos DB 내의 Twitter 데이터에 대한 구성 연결을 만드는 것으로 시작해 보겠습니다.
 
@@ -206,7 +201,7 @@ tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
  
 #### <a name="resources"></a>리소스
 
-완전한 코드 샘플은 [azure-cosmosdb-spark/lambda/samples](vhttps://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)를 참조하세요.
+완전한 코드 샘플은 [azure-cosmosdb-spark/lambda/samples](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)를 참조하세요.
 * 여기에는 람다 아키텍처 재개발 - 일괄 처리 계층 [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) 및
 * 람다 아키텍처 재개발 - 일괄 처리 및 서비스 계층 [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb)가 있습니다.
 
@@ -261,7 +256,7 @@ var streamingQuery = streamingQueryWriter.start()
 
 이 설계를 사용하면 Azure Cosmos DB와 HDInsight의 두 가지 관리 서비스만 필요합니다. 이와 결합하여 람다 아키텍처의 일괄 처리, 서비스 및 속도 계층을 처리합니다. 이 경우 작업뿐만 아니라 데이터 흐름도 간소화합니다. 
  1. 모든 데이터는 처리를 위해 Azure Cosmos DB에 푸시됩니다.
- 2. 일괄 처리 계층에는 마스터 데이터 집합(변경 불가능한 추가 전용 원시 데이터 집합)이 있으며, 일괄 처리 보기가 미리 계산됩니다.
+ 2. 일괄 처리 계층에는 마스터 데이터 세트(변경 불가능한 추가 전용 원시 데이터 세트)가 있으며, 일괄 처리 보기가 미리 계산됩니다.
  3. 서비스 계층에는 빠른 쿼리에 대한 데이터의 일괄 처리 보기가 있습니다.
  4. 속도 계층은 서비스 계층에 대한 처리 시간을 보정하고 최근 데이터만 처리합니다.
  5. 일괄 처리 보기와 실시간 보기의 결과를 병합하여 모든 쿼리에 응답할 수 있습니다.
@@ -286,4 +281,4 @@ Cosmos DB와 Spark를 아직 연결하지 않았으면 [azure-cosmosdb-spark](ht
 * [변경 피드 데모](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
 * [Azure Cosmos DB 변경 피드 및 Apache Spark를 사용하여 스트림 처리 변경](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
 
-또한 [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html)(Apache Spark SQL, DataFrame 및 데이터 집합 가이드) 및 [Azure HDInsight의 Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 문서를 검토할 수도 있습니다.
+또한 [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html)(Apache Spark SQL, DataFrame 및 데이터 세트 가이드) 및 [Azure HDInsight의 Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 문서를 검토할 수도 있습니다.

@@ -3,7 +3,7 @@ title: Azure Relay .NET Standard API 개요 | Microsoft Docs
 description: Azure Relay .NET Standard API 개요
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b1da9ac1-811b-4df7-a22c-ccd013405c40
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
-ms.author: sethm
-ms.openlocfilehash: aa1863a44f00ae17f63b02c7c247b2c9fd9925f6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: spelluru
+ms.openlocfilehash: a6a1706c8d1e849fd1bb4309c46063dd3f9439c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28016436"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700143"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Azure Relay 하이브리드 연결 .NET Standard API 개요
 
@@ -63,7 +63,7 @@ catch (ArgumentException ae)
 
 ## <a name="hybrid-connection-stream"></a>하이브리드 연결 스트림
 
-[HybridConnectionStream][HCStream] 클래스는 [HybridConnectionClient][HCClient] 또는 [HybridConnectionListener][HCListener]로 작업하는지에 상관 없이 Azure Relay 끝점에서 데이터를 송수신하는 데 사용되는 기본 개체입니다.
+[HybridConnectionStream][HCStream] 클래스는 [HybridConnectionClient][HCClient] 또는 [HybridConnectionListener][HCListener]로 작업하는지에 상관 없이 Azure Relay 엔드포인트에서 데이터를 송수신하는 데 사용되는 기본 개체입니다.
 
 ### <a name="getting-a-hybrid-connection-stream"></a>하이브리드 연결 스트림 가져오기
 
@@ -120,7 +120,7 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### <a name="sending-data"></a>데이터 전송
 
-연결을 설정하면 Relay 끝점으로 메시지를 보낼 수 있습니다. 연결 개체는 [스트림](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx)을 상속하기 때문에 데이터를 `byte[]`로 전송합니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
+연결을 설정하면 Relay 엔드포인트로 메시지를 보낼 수 있습니다. 연결 개체는 [스트림](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx)을 상속하기 때문에 데이터를 `byte[]`로 전송합니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");

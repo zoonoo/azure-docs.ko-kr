@@ -3,7 +3,7 @@ title: Azure Relay Node API 개요 | Microsoft Docs
 description: Relay Node API 개요
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b7d6e822-7c32-4cb5-a4b8-df7d009bdc85
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
-ms.author: sethm
-ms.openlocfilehash: 696e3f77a283cc31d3c8f6007a839480ae8eb984
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: spelluru
+ms.openlocfilehash: bf0173f9c9802be689f7f3a893d381a251a2b16a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019462"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701139"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Relay 하이브리드 연결 Node API 개요
 
@@ -48,7 +48,7 @@ listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 
 ```
 
-도우미 메서드는 이 패키지와 함께 사용하기 위한 것이지만 웹 또는 장치 클라이언트에서 수신기 또는 보낸 사람을 만들 수 있도록 Node 서버에서 사용할 수도 있습니다. 서버는 수명이 짧은 토큰을 포함하는 URI를 전달하여 이러한 메서드를 사용합니다. 또한 이러한 URI는 WebSocket 핸드셰이크에 대한 HTTP 헤더 설정을 지원하지 않는 일반적인 WebSocket 스택을 통해 사용할 수 있습니다. URI에 권한 부여 토큰을 포함하는 것은 그러한 라이브러리 외부 사용 시나리오에 주로 지원됩니다. 
+도우미 메서드는 이 패키지와 함께 사용하기 위한 것이지만 웹 또는 디바이스 클라이언트에서 수신기 또는 보낸 사람을 만들 수 있도록 Node 서버에서 사용할 수도 있습니다. 서버는 수명이 짧은 토큰을 포함하는 URI를 전달하여 이러한 메서드를 사용합니다. 또한 이러한 URI는 WebSocket 핸드셰이크에 대한 HTTP 헤더 설정을 지원하지 않는 일반적인 WebSocket 스택을 통해 사용할 수 있습니다. URI에 권한 부여 토큰을 포함하는 것은 그러한 라이브러리 외부 사용 시나리오에 주로 지원됩니다. 
 
 #### <a name="createrelaylistenuri"></a>createRelayListenUri
 

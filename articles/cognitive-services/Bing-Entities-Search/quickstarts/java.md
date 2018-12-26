@@ -1,31 +1,31 @@
 ---
-title: Azure Cognitive Services, Bing Entity Search API에 대한 Java 빠른 시작 | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Bing Entity Search API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
+title: '빠른 시작: Bing Entity Search API, Ruby'
+titlesuffix: Azure Cognitive Services
+description: Bing Entity Search API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 9b11471e08360cb5fe92f1506516bf88dd5ee72a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: aahi
+ms.openlocfilehash: 20a9e9b9c52d45c0f1c933f82e81d2d9a6f73edd
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377334"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313880"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-java"></a>Microsoft Bing Entity Search API 및 Java에 대한 빠른 시작 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-java"></a>빠른 시작: Ruby를 통해 Bing Entity Search API 사용 
 
-이 문서에서는 Java와 함께 [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API를 사용하는 방법을 보여 줍니다.
+이 문서에서는 Java와 함께 [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)  API를 사용하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 필요합니다. 즐겨 찾는 Java IDE를 사용할 수도 있지만 텍스트 편집기로도 충분합니다.
+이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks)이 필요합니다. 즐겨 찾는 Java IDE를 사용할 수도 있지만 텍스트 편집기로도 충분합니다.
 
-**Bing Entity Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
+**Bing Entity Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="search-entities"></a>엔터티 검색
 

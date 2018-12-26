@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 06/02/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecb0919b68516fdb886ea745d963349ff29f83b4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867327"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215415"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제
 
@@ -146,13 +146,13 @@ PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할�
 
 ## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>감사 로그를 사용하여 그룹 기반 라이선스 작업 모니터링
 
-[Azure AD 감사 로그](./../active-directory-reporting-activity-audit-logs.md#audit-logs)를 사용하여 다음을 비롯한 그룹 기반 라이선스와 관련된 모든 작업을 확인할 수 있습니다.
+[Azure AD 감사 로그](../reports-monitoring/concept-audit-logs.md#audit-logs)를 사용하여 다음을 비롯한 그룹 기반 라이선스와 관련된 모든 작업을 확인할 수 있습니다.
 - 그룹에 대한 라이선스를 변경한 사용자
 - 시스템에서 그룹 라이선스 변경 처리를 시작한 시점 및 종료한 시점
 - 그룹 라이선스 할당의 결과로 사용자에게 이뤄진 라이선스 변경
 
 >[!NOTE]
-> 감사 로그는 포털의 Azure Active Directory 섹션에 있는 대부분의 블레이드에서 제공됩니다. 사용자가 액세스하는 위치에 따라 블레이드 컨텍스트와 관련된 작업을 표시하도록 필터를 미리 적용할 수 있습니다. 예상한 결과가 표시되지 않는 경우 [필터링 옵션](./../active-directory-reporting-activity-audit-logs.md#filtering-audit-logs)을 검토하거나 [**Azure Active Directory > 작업 > 감사 로그**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit)에서 필터링되지 않은 감사 로그에 액세스합니다.
+> 감사 로그는 포털의 Azure Active Directory 섹션에 있는 대부분의 블레이드에서 제공됩니다. 사용자가 액세스하는 위치에 따라 블레이드 컨텍스트와 관련된 작업을 표시하도록 필터를 미리 적용할 수 있습니다. 예상한 결과가 표시되지 않는 경우 [필터링 옵션](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs)을 검토하거나 [**Azure Active Directory > 작업 > 감사 로그**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit)에서 필터링되지 않은 감사 로그에 액세스합니다.
 
 ### <a name="find-out-who-modified-a-group-license"></a>라이선스 그룹을 수정한 사용자 확인
 
@@ -213,21 +213,19 @@ PowerShell 또는 Graph API를 통해 그룹을 삭제하려고 할 때 비슷�
 
 - 그룹 기반 라이선스는 현재 다른 그룹을 포함하는 그룹(중첩된 그룹)을 지원하지 않습니다. 중첩된 그룹에 라이선스를 적용하는 경우 그룹의 최상위 수준 사용자 멤버에게만 라이선스가 적용됩니다.
 
-- 해당 기능은 보안 그룹과 함께 사용해야 합니다. Office 그룹은 현재 지원되지 않으며 라이선스 할당 프로세스에서 이러한 그룹을 사용할 수 없습니다.
+- 이 기능은 보안 그룹 및 securityEnabled가 TRUE인 Office 365 그룹에만 사용할 수 있습니다.
 
 - [Office 365 관리자 포털](https://portal.office.com )은 현재 그룹 기반 라이선스를 지원하지 않습니다. 사용자가 그룹에서 라이선스를 상속받는 경우 이 라이선스는 Office 관리 포털에 일반 사용자 라이선스로 표시됩니다. 해당 라이선스를 수정하거나 라이선스를 제거하려고 시도하는 경우 포털에서 오류 메시지를 반환합니다. 상속된 그룹 라이선스는 사용자가 직접 수정할 수 없습니다.
 
-- 사용자가 그룹에서 제거되고 라이선스를 상실하는 경우 해당 라이선스(예: SharePoint Online)의 서비스 계획이 **일시 중단됨** 상태로 설정됩니다. 서비스 계획은 최종 사용 안 함 상태로 설정되지 않습니다. 이 예방 조치를 통해 관리자가 그룹 멤버 자격 관리에서 실수하는 경우 사용자 데이터를 실수로 제거하지 않도록 방지할 수 있습니다.
-
 - 대규모 그룹(예: 100,000명의 사용자)에 대해 라이선스를 할당하거나 수정하면 성능에 영향을 줄 수 있습니다. 특히 Azure AD 자동화에서 생성된 변경 볼륨은 Azure AD와 온-프레미스 시스템 간의 디렉터리 동기화 성능에 부정적인 영향을 줄 수 있습니다.
 
-- 로드가 높은 특정 경우에서 라이선스 처리는 지연될 수 있으며 그룹 라이선스 추가/제거 또는 그룹에서 사용자 추가/제거와 같은 변경 내용은 처리되는 데 시간이 오래 걸릴 수 있습니다. 변경 내용이 처리되는 데 24시간 이상이 걸리는 경우 조사를 허용하도록 [지원 티켓을 열어](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest)주세요. *일반 공급*에 도달하기 전에 이 기능의 성능 특징을 향상시킬 예정입니다.
+- 동적 그룹을 사용하여 사용자의 멤버 자격을 관리하는 경우 사용자가 그룹의 일부인지를 확인합니다. 이 작업은 라이선스 할당에 필요합니다. 그렇지 않으면, 동적 그룹의 [멤버 자격 규칙에 대한 처리 상태를 확인](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule)합니다. 
+
+- 부하가 높은 특정 상황에서는 그룹에 대한 라이선스 변경 내용 또는 기존 라이선스가 있는 그룹에 대한 멤버 자격 변경 내용을 처리하는 데 시간이 오래 걸릴 수 있습니다. 변경 내용이 60K 사용자 이하의 그룹 크기를 처리하는 데 24시간 이상이 걸리는 경우 Microsoft에서 조사할 수 있도록 [지원 티켓을 열어주세요](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest). 
 
 - 라이선스 관리 자동화는 모든 유형의 환경 변경 사항에 자동으로 응답하지 않습니다. 예를 들어 라이선스가 부족하여 일부 사용자가 오류 상태에 있을 수 있습니다. 사용 가능한 사용자 수를 확보하기 위해 직접 할당된 일부 라이선스를 다른 사용자에게서 제거할 수 있습니다. 그러나 시스템은 이러한 변경에 자동으로 대응하지 않고 해당 오류 상태에 있는 사용자를 수정합니다.
 
   이러한 제한 사항을 해결하려면 Azure AD의 **그룹** 블레이드로 이동하여 **다시 처리**를 클릭하면 됩니다. 이 명령은 해당 그룹의 모든 사용자를 처리하고 가능한 경우 오류 상태를 해결합니다.
-
-- 그룹 기반 라이선스는 Exchange Online에서 중복된 프록시 주소 구성으로 인해 사용자에게 라이선스 할당할 수 없는 경우 오류를 기록하지 않습니다. 이러한 사용자는 라이선스 할당 중에 건너뜁니다. 이 문제를 식별하고 해결하는 방법에 대한 자세한 내용은 [이 섹션](licensing-groups-resolve-problems.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -237,3 +235,5 @@ PowerShell 또는 Graph API를 통해 그룹을 삭제하려고 할 때 비슷�
 * [Azure Active Directory에서 그룹에 라이선스 할당](licensing-groups-assign.md)
 * [Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결](licensing-groups-resolve-problems.md)
 * [Azure Active Directory에서 개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션하는 방법](licensing-groups-migrate-users.md)
+* [Azure Active Directory에서 그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 마이그레이션하는 방법](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Azure Active Directory의 그룹 기반 라이선싱에 대한 PowerShell 예제](../users-groups-roles/licensing-ps-examples.md)

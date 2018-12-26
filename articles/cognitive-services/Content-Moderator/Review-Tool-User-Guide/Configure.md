@@ -9,14 +9,14 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: a3432a1d8f424fbe78570f47b774c6e7942e16b1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2ffed5e561cf9988ec10ecb7e10318d148281057
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372903"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51851541"
 ---
-# <a name="about-review-tool-settings"></a>검토 도구 설정 정보 #
+# <a name="review-tool-settings"></a>검토 도구 설정 #
 
 검토 도구 대시보드의 [설정] 탭을 사용하면 여러 구성 요소를 간편하게 정의하고 변경할 수 있습니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "35372903"
 
 ## <a name="connectors"></a>커넥터 ##
 
-워크플로는 커넥터를 사용하여 검토 도구와 통신함으로써 기능을 추가합니다. 검토 도구는 콘텐츠를 조정하는 기본 워크플로가 포함된 Content Moderator API를 호출합니다. 검토 도구에 등록하면 Moderator API 자격 증명이 자동으로 프로비전됩니다. 또한 커넥터를 사용할 수 있는 한, 다른 커넥터 API 통합을 지원합니다. 즉시 사용할 수 있는 몇 가지 커넥터가 준비되어 있습니다.
+워크플로는 커넥터를 사용하여 검토 도구와 통신함으로써 기능을 추가합니다. 검토 도구는 콘텐츠를 조정하는 기본 워크플로가 포함된 Content Moderator API를 호출합니다. 검토 도구에 가입하면 Moderator API 자격 증명이 자동으로 프로비전됩니다. 또한 커넥터를 사용할 수 있는 한, 다른 커넥터 API 통합을 지원합니다. 즉시 사용할 수 있는 몇 가지 커넥터가 준비되어 있습니다.
 
 [커넥터 탭](connectors.md)에서는 커넥터를 관리할 수 있습니다. 커넥터를 추가 또는 삭제하고, 특정 커넥터에 대한 구독 키를 찾을 수 있습니다. [연결]을 클릭하면 사용자 지정 워크플로에 커넥터를 추가할 수 있습니다. 
 

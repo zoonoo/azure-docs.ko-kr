@@ -1,21 +1,21 @@
 ---
-title: Azure IoT Hub Device Provisioning 서비스를 사용하여 X.509 CA 인증서에 대해 소유 증명을 수행하는 방법 | Microsoft Docs
-description: DPS 서비스를 사용하여 X.509 CA 인증서를 확인하는 방법
-author: bryanla
-ms.author: bryanla
+title: Azure IoT Hub Device Provisioning Service를 사용하여 X.509 CA 인증서에 대해 소유 증명을 수행하는 방법 | Microsoft Docs
+description: Device Provisioning 서비스를 사용하여 X.509 CA 인증서를 확인하는 방법
+author: wesmc7777
+ms.author: wesmc
 ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: dfd45a68934250978fa8ac0cc9cebabcf8bad597
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6a6782c5e1cd7b5f42b619cd52470b640813a905
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629697"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145432"
 ---
-# <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Device Provisioning 서비스를 사용하여 X.509 CA 인증서에 대해 소유 증명을 수행하는 방법
+# <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Device Provisioning Service를 사용하여 X.509 CA 인증서에 대해 소유 증명을 수행하는 방법
 
 확인된 X.509 CA(인증 기관) 인증서는 프로비전 서비스에 업로드되고 등록되며 서비스를 사용하여 소유 증명을 수행한 CA 인증서입니다. 
 
@@ -24,7 +24,7 @@ ms.locfileid: "34629697"
 2. 확인 코드를 제목으로 사용하여 X.509 확인 인증서를 만들고 X.509 CA 인증서와 연결된 개인 키를 사용하여 인증서에 서명합니다.
 3. 서비스에 서명된 확인 인증서를 업로드합니다. 서비스는 확인된 CA 인증서의 공개 부분을 사용하여 확인 인증서의 유효성을 검사합니다. 따라서 CA 인증서의 개인 키를 소유했는지 확인합니다.
 
-확인된 인증서는 등록 그룹을 사용하는 경우 중요한 역할을 수행합니다. 인증서 소유권을 확인하면 인증서의 업로더가 인증서의 개인 키를 소유했는지 확인하여 추가 보안 계층을 제공합니다. 확인을 통해 트래픽을 찾아낸 악성 행위자가 중간 인증서를 추출하고, 해당 인증서를 사용하여 고유한 프로비전 서비스에서 등록 그룹을 만들고, 효과적으로 장치를 하이재킹하지 않도록 방지합니다. 인증서 체인에서 루트 또는 중간 인증서의 소유권을 증명하여 해당 등록 그룹의 일부로 등록하는 장치에 대한 리프 인증서를 생성하는 권한이 있는지 입증합니다. 이로 인해 등록 그룹에서 구성된 루트 또는 중간 인증서는 확인된 인증서여야 하거나 서비스에 인증할 때 장치가 나타내는 인증서 체인에서 확인된 인증서로 롤업되어야 합니다. 등록 그룹에 대해 자세히 알아보려면 [X.509 인증서](concepts-security.md#x509-certificates) 또는 [X.509 인증서를 사용하여 프로비전 서비스에 대한 장치 액세스 제어](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)를 참조하세요.
+확인된 인증서는 등록 그룹을 사용하는 경우 중요한 역할을 수행합니다. 인증서 소유권을 확인하면 인증서의 업로더가 인증서의 개인 키를 소유했는지 확인하여 추가 보안 계층을 제공합니다. 확인을 통해 트래픽을 찾아낸 악성 행위자가 중간 인증서를 추출하고, 해당 인증서를 사용하여 고유한 프로비전 서비스에서 등록 그룹을 만들고, 효과적으로 디바이스를 하이재킹하지 않도록 방지합니다. 인증서 체인에서 루트 또는 중간 인증서의 소유권을 증명하여 해당 등록 그룹의 일부로 등록하는 디바이스에 대한 리프 인증서를 생성하는 권한이 있는지 입증합니다. 이로 인해 등록 그룹에서 구성된 루트 또는 중간 인증서는 확인된 인증서여야 하거나 서비스에 인증할 때 디바이스가 나타내는 인증서 체인에서 확인된 인증서로 롤업되어야 합니다. 등록 그룹에 대해 자세히 알아보려면 [X.509 인증서](concepts-security.md#x509-certificates) 또는 [X.509 인증서를 사용하여 프로비전 서비스에 대한 디바이스 액세스 제어](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)를 참조하세요.
 
 ## <a name="register-the-public-part-of-an-x509-certificate-and-get-a-verification-code"></a>X.509 인증서의 공개 부분 등록 및 확인 코드 가져오기
 
@@ -55,10 +55,9 @@ Microsoft는 서명된 확인 인증서를 만들 수 있는 도구 및 샘플�
 
 - **Azure IoT Hub C SDK**는 확인 코드를 사용하여 CA 및 리프 인증서를 만들고 소유 증명을 수행하기 위해 PowerShell(Windows) 및 Bash(Linux) 스크립트를 제공합니다. 작업 폴더에 시스템과 관련된 [파일](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)을 다운로드하고 [CA 인증서 관리 추가 정보](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 의 지침에 따라 CA 인증서에서 소유 증명을 수행할 수 있습니다. 
 - **Azure IoT Hub C# SDK**에는 [그룹 인증서 확인 샘플](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample)이 포함됩니다. 이 기능은 소유 증명을 수행하는 데 사용할 수 있습니다.
-- IoT Hub 설명서의 [CA 서명 X.509 인증서를 관리하는 PowerShell 스크립트](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates)의 단계를 수행할 수 있습니다. 특히, [X.509 CA 인증서의 소유권 증명](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode)이라는 섹션에 언급된 스크립트를 수행합니다.
  
 > [!IMPORTANT]
-> 소유 증명을 수행하는 것 외에도 이전에 언급된 PowerShell 및 Bash 스크립트를 통해 장치를 인증하고 프로비전하는 데 사용할 수 있는 루트 인증서, 중간 인증서 및 리프 인증서를 만들 수 있습니다. 이러한 인증서는 개발 용도로만 사용되어야 합니다. 프로덕션 환경에서 사용되지 않아야 합니다. 
+> 소유 증명을 수행하는 것 외에도 이전에 언급된 PowerShell 및 Bash 스크립트를 통해 디바이스를 인증하고 프로비전하는 데 사용할 수 있는 루트 인증서, 중간 인증서 및 리프 인증서를 만들 수 있습니다. 이러한 인증서는 개발 용도로만 사용되어야 합니다. 프로덕션 환경에서 사용되지 않아야 합니다. 
 
 설명서 및 SDK에서 제공된 PowerShell 및 Bash 스크립트는 [OpenSSL](https://www.openssl.org/)을 사용합니다. 소유 증명을 수행할 수 있도록 OpenSSL 또는 기타 타사 도구를 사용할 수도 있습니다. SDK와 함께 제공되는 도구에 대한 자세한 내용은 [SDK에 제공된 도구를 사용하는 방법](how-to-use-sdk-tools.md)을 참조하세요. 
 
@@ -73,8 +72,8 @@ Microsoft는 서명된 확인 인증서를 만들 수 있는 도구 및 샘플�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 포털을 사용하여 등록 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 장치 등록 관리](how-to-manage-enrollments.md)를 참조하세요.
-- 서비스 SDK를 사용하여 등록 그룹을 만드는 방법에 대한 자세한 내용은 [서비스 SDK에서 장치 등록 관리](how-to-manage-enrollments-sdks.md)를 참조하세요.
+- 포털을 사용하여 등록 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 디바이스 등록 관리](how-to-manage-enrollments.md)를 참조하세요.
+- 서비스 SDK를 사용하여 등록 그룹을 만드는 방법에 대한 자세한 내용은 [서비스 SDK에서 디바이스 등록 관리](how-to-manage-enrollments-sdks.md)를 참조하세요.
 
 
 

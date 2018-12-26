@@ -1,45 +1,74 @@
 ---
-title: Azure Logic Apps의 ProjectOnline 커넥터 | Microsoft Docs
-description: Azure 앱 서비스로 논리 앱을 만듭니다. Project Online은 PPM(프로젝트 포트폴리오 관리) 및 Microsoft의 일상 업무를 위한 유연한 온라인 솔루션입니다. 조직에서는 Office 365를 통해 지원되는 Project Online을 통해 강력한 프로젝트 관리 기능을 신속하게 시작하여 어디서든지 모든 장치의 프로젝트와 프로젝트 포트폴리오 투자를 계획하고 우선 순위를 정하며 관리할 수 있습니다.
+title: Azure Logic Apps에서 Project Online에 연결 | Microsoft Docs
+description: Azure Logic Apps를 사용하여 Project Online 프로젝트, 작업 및 리소스를 모니터링하고 만들고 관리하는 워크플로 자동화
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: aaf357b1fe2c0b9b5874ee296c9141cf757e2300
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: 663363d05c1875d22a0ecc0478abcf7e0ec89c99
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295359"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230372"
 ---
-# <a name="get-started-with-the-projectonline-connector"></a>ProjectOnline 커넥터 시작
-Project Online은 PPM(프로젝트 포트폴리오 관리) 및 Microsoft의 일상 업무를 위한 유연한 온라인 솔루션입니다. 조직에서는 Office 365를 통해 지원되는 Project Online을 통해 강력한 프로젝트 관리 기능을 신속하게 시작하여 어디서든지 모든 장치의 프로젝트와 프로젝트 포트폴리오 투자를 계획하고 우선 순위를 정하며 관리할 수 있습니다.
+# <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Project Online 프로젝트, 작업 및 리소스 관리
 
-이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
+Azure Logic Apps 및 Project Online 커넥터를 사용하면 Office 365를 통해 Project Online에서 프로젝트, 작업 및 리소스에 대한 자동화된 작업 및 워크플로를 만들 수 있습니다. 워크플로를 통해 이러한 작업 및 다른 작업을 수행할 수 있습니다. 예를 들어:
 
-## <a name="create-a-connection-to-projectonline"></a>ProjectOnline에 대한 연결 만들기
-ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 속성에 대한 세부 정보를 제공해야 합니다. 
+* 새 프로젝트, 작업 또는 리소스를 만들 때 모니터링합니다. 또는 새 프로젝트를 게시할 때 모니터링합니다.
+* 새 프로젝트, 작업 또는 리소스를 만듭니다.
+* 기존 프로젝트 또는 작업을 나열합니다.
+* 프로젝트를 체크 아웃, 체크 인 및 게시합니다.
 
-| 자산 | 필수 | 설명 |
-| --- | --- | --- |
-| 신뢰 |예 |ProjectOnline 자격 증명 제공 |
+Project Online을 사용하면 강력한 프로젝트 관리 기능을 제공하여 어디서든지 거의 모든 디바이스에서 프로젝트와 프로젝트 포트폴리오 투자를 계획하고, 우선 순위를 정하며, 관리할 수 있습니다. Project Online 트리거를 사용하여 Project Online에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 작업을 사용하여 Project Online에서 다양한 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-> [!INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
-> 
+## <a name="prerequisites"></a>필수 조건
 
-## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
 
-[커넥터 세부 정보](/connectors/projectonline/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
+* [Office 365 계정](https://www.office.com/)을 통해 사용할 수 있는 Project Online, 
 
-## <a name="more-connectors"></a>추가 커넥터
-[API 목록](apis-list.md)으로 돌아갑니다.
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
+
+* Project Online 데이터에 액세스하려는 논리 앱입니다. Project Online 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). Project Online 작업을 사용하려면, 예를 들어 **되풀이** 트리거 같은 다른 트리거를 통해 논리 앱을 시작합니다.
+
+## <a name="connect-to-project-online"></a>Project Online에 연결
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
+
+1. 경로를 선택합니다. 
+
+   * 빈 논리 앱의 경우 검색 상자에서 필터로 "Project Online"을 입력합니다. 
+   트리거 목록에서 원하는 트리거를 선택합니다. 
+
+     또는
+
+   * 기존 논리 앱의 경우 작업을 추가하려는 단계에서 **새 단계**를 선택합니다. 검색 상자에서 필터로 "Project Online"을 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
+
+1. Project Online에 로그인하라는 메시지가 표시된 경우 지금 로그인하세요.
+
+   자격 증명을 통해 Project Online에 대한 연결을 만들고 데이터에 액세스하는 권한이 논리 앱에 부여됩니다.
+
+1. 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
+
+## <a name="connector-reference"></a>커넥터 참조
+
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/projectonline/)를 검토하세요.
+
+## <a name="get-support"></a>지원 받기
+
+* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure에서 첫 번째 Java 웹앱 만들기
+title: Java 웹앱 만들기 - Azure App Service
 description: 기본 Java 앱을 배포하여 App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: ''
@@ -14,24 +14,24 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.custom: seodec18
+ms.openlocfilehash: b9321241f174a97976b2f150a9bd6c3547f0dc20
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283931"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253163"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure에서 첫 번째 Java 웹앱 만들기
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 [Eclipse IDE for Java EE Developers](http://www.eclipse.org/)를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여 줍니다.
+[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 [Eclipse IDE for Java EE Developers](https://www.eclipse.org/)를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여 줍니다.
 
 > [!NOTE]
 >
 > 이 빠른 시작의 단계에서는 Eclipse IDE를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여주지만, IntelliJ IDEA Ultimate Edition 또는 Community Edition을 사용할 수 있습니다. 자세한 내용은 [IntelliJ를 사용하여 Azure용 Hello World 웹앱 만들기](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)를 참조하세요.
 >
 
-이 빠른 시작을 완료하면 웹 브라우저에서 응용 프로그램을 봤을 때 다음 그림과 같이 표시됩니다.
+이 빠른 시작을 완료하면 웹 브라우저에서 애플리케이션을 봤을 때 다음 그림과 같이 표시됩니다.
 
 !["Hello Azure!" 예제 웹앱](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "30283931"
 
 이 빠른 시작을 완료하려면 다음을 설치합니다.
 
-* 무료 <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. 이 빠른 시작은 Eclipse Neon을 사용합니다.
+* 무료 <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. 이 빠른 시작은 Eclipse Neon을 사용합니다.
 * <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Eclipse용 Azure 도구 키트</a>.
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Eclipse에서 **파일** > **새로 만들기** > **동적 웹 프로젝트**를
 
 ### <a name="add-a-jsp-page"></a>JSP 페이지 추가
 
-프로젝트 탐색기가 표시되지 않으면 복원합니다.
+프로젝트 탐색기 표시되지 않으면 복원합니다.
 
 ![Eclipse용 Java EE 작업 영역](./media/app-service-web-get-started-java/pe.png)
 
@@ -110,7 +110,7 @@ Azure 계정에 로그인하면 **웹앱 배포** 대화 상자가 나타납니�
 
 ### <a name="create-app-service-dialog-box"></a>App Service 만들기 대화 상자
 
-기본 값으로 **App Service 만들기** 대화 상자가 나타납니다. 다음 이미지에 나타난 숫자 **170602185241**과는 다른 숫자가 대화 상자에 나타날 수 있습니다.
+기본 값으로 **App Service 만들기** 대화 상자가 나타납니다. 다음 이미지에 표시된 숫자 **170602185241**은 대화 상자에 따라 달라집니다.
 
 ![App Service 만들기 대화 상자](./media/app-service-web-get-started-java/cas1.png)
 
@@ -122,7 +122,7 @@ Azure 계정에 로그인하면 **웹앱 배포** 대화 상자가 나타납니�
 * **App Service 계획** 탭에서:
 
   * **새로 만들기**: App Service 계획의 이름인 기본값을 유지합니다.
-  * **위치**: **서유럽** 또는 인접 위치를 선택합니다.
+  * **위치**: **유럽 서부** 또는 인접 위치를 선택합니다.
   * **가격 책정 계층**: 무료 옵션을 선택합니다. 기능의 경우 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 참조하세요.
 
    ![App Service 만들기 대화 상자](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)

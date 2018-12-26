@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service 자습서 - Kubernetes 모니터링
+title: (사용되지 않음) Azure Container Service 자습서 - Kubernetes 모니터링
 description: Azure Container Service 자습서 - Log Analytics를 사용하여 Kubernetes 모니터링
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 04/05/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 17398a9f74e40a7d513912d654fa609d9837d805
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6f95aa701228730682c0122dc1fd46d8a2537ce1
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165411"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001604"
 ---
-# <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Log Analytics를 사용하여 Kubernetes 클러스터 모니터링
+# <a name="deprecated-monitor-a-kubernetes-cluster-with-log-analytics"></a>(사용되지 않음) Log Analytics를 사용하여 Kubernetes 클러스터 모니터링
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 자습서의 업데이트된 버전은 [컨테이너용 Azure Monitor(미리 보기) 개요](../../azure-monitor/insights/container-insights-overview.md)를 참조하세요.
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Kubernetes 클러스터 및 컨테이너를 모니터링하는 것은 중요하며, 특히 여러 앱을 사용하여 대규모의 프로덕션 클러스터를 관리하는 경우 그렇습니다.
 
@@ -143,17 +146,17 @@ omsagent   3         3         3         0            3           <none>        
 
 ## <a name="access-monitoring-data"></a>모니터링 데이터 액세스
 
-Log Analytics 포털 또는 Azure Portal의 [컨테이너 솔루션](../../log-analytics/log-analytics-containers.md)을 통해 컨테이너 모니터링 데이터를 보고 분석합니다.
+Log Analytics 포털 또는 Azure Portal의 [컨테이너 솔루션](../../azure-monitor/insights/containers.md)을 통해 컨테이너 모니터링 데이터를 보고 분석합니다.
 
 [Log Analytics 포털](https://mms.microsoft.com)을 사용하여 컨테이너 솔루션을 설치하려면 **솔루션 갤러리**로 이동합니다. 그런 다음 **컨테이너 솔루션**을 추가합니다. 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview)에서 컨테이너 솔루션을 추가합니다.
 
 Log Analytics 포털의 대시보드에서 **컨테이너** 요약 타일을 찾습니다. 타일을 클릭하면 컨테이너 이벤트, 오류, 상태, 이미지 인벤토리, CPU 및 메모리 사용량과 같은 세부 정보를 볼 수 있습니다. 더 세부적인 정보를 보려면 아무 타일에서 행을 클릭하거나 [로그 검색](../../log-analytics/log-analytics-log-searches.md)을 수행합니다.
 
-![OMS 포털의 컨테이너 대시보드](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
+![Azure Portal의 컨테이너 대시보드](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
 마찬가지로 Azure Portal에서 **Log Analytics**로 이동하고 작업 영역 이름을 선택합니다. **컨테이너** 요약 타일을 보려면 **솔루션** > **컨테이너**를 클릭합니다. 세부 정보를 보려면 타일을 클릭합니다.
 
-모니터링 데이터 쿼리 및 분석에 대한 자세한 지침은 [Azure Log Analytics 설명서](../../log-analytics/index.yml)를 참조하세요.
+모니터링 데이터 쿼리 및 분석에 대한 자세한 지침은 [Azure Log Analytics 설명서](../../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

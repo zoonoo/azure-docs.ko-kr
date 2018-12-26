@@ -1,24 +1,20 @@
 ---
-title: Azure Cloud Shell에서 Databricks CLI 사용 | Microsoft Docs
+title: 'Azure Cloud Shell에서 Databricks CLI 사용 '
 description: Azure Cloud Shell에서 Databricks CLI를 사용하는 방법을 알아봅니다.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: c20ad02f962fbee22bb16653c5eab351d9f3de17
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: mamccrea
+ms.openlocfilehash: dae481fb477223f149404c6a09cad024bc15cd90
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598728"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416710"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Azure Cloud Shell에서 Databricks CLI 사용
 
@@ -36,13 +32,13 @@ Azure Cloud Shell에서 Databricks CLI를 사용하여 Databricks에서 작업�
  
 2. 오른쪽 위 모서리에서 **Cloud Shell** 아이콘을 클릭합니다.
 
-   ![Cloud Shell 시작](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Excel에서 ODBC 시작")
+   ![Cloud Shell 시작](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Azure Cloud Shell 시작")
 
-3. Cloud Shell 환경에 대해 **Bash**를 선택했는지 확인합니다. 다음 스크린샷과 같이 드롭다운 옵션에서 선택할 수 있습니다.
+3. Cloud Shell 환경에 대해 **Bash**를 선택해야 합니다. 다음 스크린샷과 같이 드롭다운 옵션에서 선택할 수 있습니다.
 
-   ![Cloud Shell 시작](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Excel에서 ODBC 시작") 
+   ![Cloud Shell 환경에 대해 Bash 선택](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Bash 선택") 
 
-4. Databtricks CLI를 설치할 수 있는 가상 환경을 만듭니다. 아래 코드 조각에서는 `databrickscli`라는 가상 환경을 만듭니다.
+4. Databricks CLI를 설치할 수 있는 가상 환경을 만듭니다. 아래 코드 조각에서는 `databrickscli`라는 가상 환경을 만듭니다.
 
        virtualenv -p /usr/bin/python2.7 databrickscli
 
@@ -60,11 +56,9 @@ Azure Cloud Shell에서 Databricks CLI를 사용하여 Databricks에서 작업�
 
     다음과 같은 메시지가 표시됩니다.
 
-    * Databricks 호스트를 입력하라는 메시지가 표시됩니다. `https://eastus2.azuredatabricks.net` 형식의 값을 입력합니다. 여기서 **eastus2**는 Azure Databricks 작업 영역을 만든 Azure 영역입니다.
+    * 먼저 Databricks 호스트를 입력하라는 메시지가 표시됩니다. 해당 값을 `https://eastus2.azuredatabricks.net` 형식으로 입력합니다. 여기서 **eastus2**는 Azure Databricks 작업 영역을 만든 Azure 영역입니다.
 
-    * 사용자 이름을 입력하라는 메시지가 표시됩니다. **토큰**을 입력합니다.
-
-    * 마지막으로, 암호를 입력하라는 메시지가 표시됩니다. 앞에서 만든 토큰을 입력합니다.
+    * 다음으로, 토큰을 입력하라는 메시지가 표시됩니다. 앞에서 만든 토큰을 입력합니다.
 
 이러한 단계가 완료되면 Azure Cloud Shell에서 Databricks CLI를 사용할 수 있습니다.
 

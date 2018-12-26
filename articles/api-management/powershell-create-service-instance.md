@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: 8ed6df3a0aee500192e401f1089925bf6e2d84d8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0863734e92d251700c00562acc98a3bf31f8fb68
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38472630"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965175"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>새 Azure API Management 서비스 인스턴스 만들기
 
@@ -29,7 +29,7 @@ Azure APIM(API Management)을 사용하여 조직은 외부, 파트너 및 내�
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
+Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 

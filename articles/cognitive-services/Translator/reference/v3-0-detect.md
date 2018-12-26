@@ -1,22 +1,23 @@
 ---
-title: Microsoft Translator Text API 검색 메서드 | Microsoft Docs
-description: Microsoft Translator Text API 검색 메서드를 사용합니다.
+title: Translator Text API 검색 메서드
+titlesuffix: Azure Cognitive Services
+description: Translator Text API 검색 메서드를 사용합니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 7e81e91230e1ada4423d77d22134b1b64df65d9d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6698960cca39fb49fe8ba6e79b957be469ea7c50
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377526"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126125"
 ---
-# <a name="text-api-30-detect"></a>Text API 3.0: 검색
+# <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: 검색
 
 텍스트의 언어를 식별합니다.
 
@@ -60,7 +61,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*선택 사항*입니다.<br/>요청을 고유하게 식별하는 클라이언트 생성 GUID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
+    <td>*선택 사항*입니다.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
   </tr>
 </table> 
 

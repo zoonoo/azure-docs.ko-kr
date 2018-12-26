@@ -1,5 +1,5 @@
 ---
-title: .NET Core 웹앱을 만들고 Linux의 App Service에 배포 | Microsoft Docs
+title: Linux에서 .NET Core 웹앱 만들기 - Azure App Service | Microsoft Docs
 description: 몇 분 안에 Linux의 App Service에 첫 번째 .NET Core Hello World 앱을 배포합니다.
 keywords: azure app service, 웹앱, dotnet, core, linux, oss
 services: app-service
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 89973581d7c6aa99ab671d5bd04f258898e9235e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: seodec18
+ms.openlocfilehash: f074c6184652ced133a7253bee3cc7a8a556c574
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306840"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251796"
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Linux의 App Service에서 .NET Core 웹앱 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "38306840"
 > 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_의 App Service에 배포하려면 [Azure에서 ASP.NET Core 웹앱 만들기](../app-service-web-get-started-dotnet.md)를 참조하세요.
 >
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 Linux의 App Service에서 [.NET Core](https://docs.microsoft.com/aspnet/core/) 앱을 만드는 방법을 보여줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git를 사용하여 웹앱에 .NET Core 코드를 배포합니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 Linux의 App Service에서 [.NET Core](https://docs.microsoft.com/aspnet/core/) 앱을 만드는 방법을 보여줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git를 사용하여 웹앱에 .NET Core 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -59,12 +59,13 @@ cd hellodotnetcore
 dotnet new web
 ```
 
-## <a name="run-the-app-locally"></a>로컬에서 앱 실행
+## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
+
+응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 
 
 NuGet 패키지를 복원하고 앱을 실행합니다.
 
 ```bash
-dotnet restore
 dotnet run
 ```
 

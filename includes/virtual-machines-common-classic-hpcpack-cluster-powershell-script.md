@@ -1,7 +1,16 @@
-
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 2df08968ad66bd330611b975c045c9e9c9b240aa
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227474"
+---
 사용자의 환경과 선택 사항에 따라 스크립트를 사용하여 Azure 가상 네트워크, 저장소 계정, 클라우드 서비스, 도메인 컨트롤러, 원격 또는 로컬 SQL 데이터베이스, 헤드 노드, 추가 클러스터 노드를 포함한 모든 클러스터 인프라를 만들 수 있습니다. 또는 스크립트에서 기존 Azure 인프라를 사용하여 HPC 클러스터 노드만 만들 수도 있습니다.
 
 HPC 팩 클러스터 계획에 대한 배경 정보는 HPC 팩 2012 R2 TechNet 라이브러리에서 [제품 평가 및 계획](https://technet.microsoft.com/library/jj899596.aspx)과 [시작하기](https://technet.microsoft.com/library/jj899590.aspx) 콘텐츠를 참조하세요.
@@ -25,7 +34,7 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 * **ConfigFile**: HPC 클러스터를 설명하는 구성 파일의 파일 경로를 지정합니다. 자세한 내용은 이 토픽의 구성 파일 또는 스크립트가 포함된 폴더의 Manual.rtf 파일을 참조하세요.
 * **AdminUserName**: 사용자 이름을 지정합니다. 스크립트로 도메인 포리스트를 만든 경우 모든 VM의 로컬 관리자 사용자 이름과 도메인 관리자 이름이 됩니다. 도메인 포리스트가 이미 있는 경우에는 로컬 관리자 이름으로 도메인 사용자를 지정하여 HPC 팩을 설치합니다.
 * **AdminPassword**: 관리자의 암호를 지정합니다. 명령줄에서 이 매개 변수를 지정하지 않은 경우 스크립트에서 암호를 입력하라는 메시지를 표시합니다.
-* **HPCImageName**(선택 사항): HPC 클러스터를 배포하는 데 사용하는 HPC 팩 VM 이미지 이름을 지정합니다. Microsoft에서 제공한 Azure 마켓플레이스의 HPC 팩 이미지여야 합니다. 이 매개 변수를 지정하지 않을 경우(일반적으로 지정하는 것이 좋음) 스크립트에서 최근 게시된 [HPC Pack 2012 R2 이미지](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)를 선택합니다. 최신 이미지는 HPC Pack 2012 R2 업데이트 3이 설치된 Windows Server 2012 R2 Datacenter를 기준으로 합니다.
+* **HPCImageName**(선택 사항): HPC 클러스터를 배포하는 데 사용하는 HPC 팩 VM 이미지 이름을 지정합니다. Microsoft에서 제공한 Azure Marketplace의 HPC 팩 이미지여야 합니다. 이 매개 변수를 지정하지 않을 경우(일반적으로 지정하는 것이 좋음) 스크립트에서 최근 게시된 [HPC Pack 2012 R2 이미지](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)를 선택합니다. 최신 이미지는 HPC Pack 2012 R2 업데이트 3이 설치된 Windows Server 2012 R2 Datacenter를 기준으로 합니다.
   
   > [!NOTE]
   > 유효한 HPC 팩 이미지를 지정하지 않으면 배포가 실패합니다.
@@ -41,7 +50,7 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
   > 
   > 
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 예제는 *MyConfigFile.xml*구성 파일을 사용하여 HPC 팩 클러스터를 만들며 클러스터 설치를 위한 관리자 자격 증명을 지정합니다.
 
 ```PowerShell

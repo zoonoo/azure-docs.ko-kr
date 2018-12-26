@@ -10,15 +10,15 @@ ms.component: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: it-pro
+ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 24a6956d3f2289f6ac8ad85e2f48252cc1a4a633
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858758"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957941"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 응용 프로그램에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -44,7 +44,7 @@ HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 �
 
 이에 따라 사용자는 초기 Azure Active Directory 페이지를 건너뛸 수 있습니다. 이 프로세스를 “로그인 자동 가속”이라고 합니다.
 
-로그인에 대한 다른 IdP로 테넌트가 페더레이션되는 경우 자동 가속을 사용하면 사용자 로그인이 더 간소화됩니다.  개별 응용 프로그램에 대해 자동 가속을 구성할 수 있습니다.
+로그인에 대한 다른 IdP로 테넌트가 페더레이션되는 경우 자동 가속을 사용하면 사용자 로그인이 더 간소화됩니다.  개별 애플리케이션에 대해 자동 가속을 구성할 수 있습니다.
 
 >[!NOTE]
 >자동 가속에 대해 응용 프로그램을 구성하는 경우 게스트 사용자는 로그인할 수 없습니다. 인증을 위해 페더레이션된 IdP로 사용자를 바로 보내는 경우 Azure Active Directory 로그인 페이지로 다시 돌아갈 방법이 없습니다. 다른 테넌트 또는 Microsoft 계정과 같은 외부 IdP로 이동해야 할 수도 있는 게스트 사용자는 홈 영역 검색 단계가 생략되므로 해당 응용 프로그램에 로그인할 수 없습니다.  
@@ -227,7 +227,7 @@ HRD 정책이 구성되어 있는 응용 프로그램을 확인하려면 **Get-A
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
 #### <a name="step-5-youre-done"></a>5단계: 완료되었습니다!
-응용 프로그램을 통해 새 정책이 작동 중인지 확인합니다.
+애플리케이션을 통해 새 정책이 작동 중인지 확인합니다.
 
 ### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>예제: HRD 정책이 구성된 응용 프로그램 나열
 
@@ -261,6 +261,6 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>다음 단계
-- Azure AD에서 인증이 작동하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../develop/active-directory-authentication-scenarios.md)를 참조하세요.
+- Azure AD에서 인증이 작동하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)를 참조하세요.
 - 사용자 Single Sign-On에 대한 자세한 내용은 [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](configure-single-sign-on-portal.md)을 참조하세요.
-- 모든 개발자 관련 콘텐츠에 대한 개요는 [Active Directory 개발자 가이드](../develop/active-directory-developers-guide.md)를 참조하세요.
+- 모든 개발자 관련 콘텐츠에 대한 개요는 [Active Directory 개발자 가이드](../develop/v1-overview.md)를 참조하세요.

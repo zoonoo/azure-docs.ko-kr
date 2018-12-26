@@ -1,3 +1,16 @@
+---
+author: wesmc7777
+ms.service: redis-cache
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: wesmc
+ms.openlocfilehash: 2c96604093542c2697c691ad8fb8bf11e77e2d0b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572426"
+---
 프리미엄 캐시를 만들려면 [Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 만들기** > **데이터베이스** > **Redis Cache**를 클릭합니다.
 
 ![캐시 만들기](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)

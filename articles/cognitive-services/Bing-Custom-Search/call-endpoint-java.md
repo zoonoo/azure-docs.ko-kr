@@ -1,42 +1,43 @@
 ---
-title: Java - Bing Custom Search - Microsoft Cognitive Services를 사용하여 엔드포인트 호출
+title: '빠른 시작: Java를 사용하여 엔드포인트 호출 - Bing Custom Search'
+titlesuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스에서 검색 결과를 요청하는 방법을 보여줍니다.
 services: cognitive-services
-author: brapel
-manager: ehansen
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
-ms.openlocfilehash: 03d622e3c7a3315238f2bceedae529bbe06af299
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: aahi
+ms.openlocfilehash: 5b4494f7840dd9b32cad88ecda800e4dac9c4d8a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35382962"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315922"
 ---
-# <a name="call-bing-custom-search-endpoint-java"></a>Bing Custom Search 엔드포인트 호출(Java)
+# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>빠른 시작: Bing Custom Search 엔드포인트 호출(Java)
 
 이 빠른 시작에서는 Java로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스에서 검색 결과를 요청하는 방법을 보여줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건
+
 이 빠른 시작을 완료하려면 다음이 필요합니다.
-- 사용자 지정 검색 인스턴스. [처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
 
+- 바로 사용할 수 있는 사용자 지정 검색 인스턴스. [처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
 - 설치된 [Java](https://www.java.com).
-
-- [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 및 **Bing Search API**. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
+- 구독 키 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)을 정품 인증하면 구독 키를 받을 수 있습니다. Azure 대시보드에서 유료 구독 키를 사용할 수도 있습니다([Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 참조).   [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="run-the-code"></a>코드 실행
 
-Bing Custom Search 엔드포인트를 호출하려면 다음 단계를 수행합니다.
+이 예제를 실행하려면 다음 단계를 수행합니다.
 
-1. 원하는 Java IDE를 사용하여 패키지를 만듭니다.
-2. CustomSrchJava.java 파일을 만들고 다음 코드를 파일에 복사합니다.
-3. **YOUR-SUBSCRIPTION-KEY** 및 **YOUR-CUSTOM-CONFIG-ID**를 해당 키 및 구성 ID로 바꿉니다.
-
-    ``` Java
+1. 원하는 Java IDE를 사용하여 패키지를 만듭니다.  
+  
+2. 패키지에 CustomSrchJava.java라는 파일을 만들고 다음 코드를 복사합니다. **YOUR-SUBSCRIPTION-KEY** 및 **YOUR-CUSTOM-CONFIG-ID**를 구독 키와 구성 ID로 바꿉니다.  
+  
+    ```java
     import java.io.InputStream;
     import java.net.URL;
     import java.net.URLEncoder;
@@ -58,9 +59,9 @@ Bing Custom Search 엔드포인트를 호출하려면 다음 단계를 수행합
         static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
         static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
     
-        static String searchTerm = "Microsoft";  // Replace with search term specific to your defined sources.
+        static String searchTerm = "Microsoft";  // Replace with search term specific to your search scenario.
     
-        public static SearchResults SearchImages (String searchQuery) throws Exception {
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
             // construct URL of search request (endpoint + query string)
             URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
             HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -96,15 +97,15 @@ Bing Custom Search 엔드포인트를 호출하려면 다음 단계를 수행합
     
         public static void main (String[] args) {
             if (subscriptionKey.length() != 32) {
-                System.out.println("Invalid Bing Search API subscription key!");
+                System.out.println("Invalid Custom Search subscription key!");
                 System.out.println("Please paste yours into the source code.");
                 System.exit(1);
             }
     
             try {
-                System.out.println("Searching the Web for: " + searchTerm);
+                System.out.println("Searching your slice of the Web for: " + searchTerm);
     
-                SearchResults result = SearchImages(searchTerm);
+                SearchResults result = SearchWeb(searchTerm);
     
                 System.out.println("\nRelevant HTTP Headers:\n");
                 for (String header : result.relevantHeaders.keySet())
@@ -121,7 +122,7 @@ Bing Custom Search 엔드포인트를 호출하려면 다음 단계를 수행합
     }
     
     // Container class for search results encapsulates relevant headers and JSON data
-    class SearchResults{
+    static class SearchResults{
         HashMap<String, String> relevantHeaders;
         String jsonResponse;
         SearchResults(HashMap<String, String> headers, String json) {
@@ -130,8 +131,8 @@ Bing Custom Search 엔드포인트를 호출하려면 다음 단계를 수행합
         }
     
     }
-    
-    ```
+    ```  
+  
 4. 프로그램을 실행합니다.
     
 ## <a name="next-steps"></a>다음 단계

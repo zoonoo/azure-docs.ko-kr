@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 Java 앱에 대한 Jenkins 구성 | Microsoft Docs
-description: 이 자습서에서는 Java Service Fabric 응용 프로그램을 배포하기 위해 Jenkins를 사용하여 연속 통합을 설정하는 방법을 알아봅니다.
+description: 이 자습서에서는 Java Service Fabric 애플리케이션을 배포하기 위해 Jenkins를 사용하여 연속 통합을 설정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -12,25 +12,25 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 59e36a2c8b719f2e8e3fd6aec20b91605221d8b2
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109446"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162225"
 ---
-# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>자습서: Service Fabric에서 Java 응용 프로그램에 CI/CD를 사용하도록 Jenkins 환경 구성
+# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>자습서: Service Fabric에서 Java 애플리케이션에 CI/CD를 사용하도록 Jenkins 환경 구성
 
-이 자습서는 시리즈의 5부입니다. 여기서는 Jenkins를 사용하여 응용 프로그램에 업그레이드를 배포하는 방법을 설명합니다. 이 자습서에서는 Service Fabric Jenkins 플러그 인이 클러스터에 응답 응용 프로그램을 배포하기 위해 Voting 응용프로그램을 호스팅하는 Github 리포지토리와 결합하는 데 사용됩니다.
+이 자습서는 시리즈의 5부입니다. 여기서는 Jenkins를 사용하여 응용 프로그램에 업그레이드를 배포하는 방법을 설명합니다. 이 자습서에서는 Voting(투표) 애플리케이션을 호스팅하는 GitHub 리포지토리와 함께 Service Fabric Jenkins 플러그 인을 사용하여 해당 애플리케이션을 클러스터에 배포합니다.
 
 시리즈 5부에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * 컴퓨터에 Service Fabric Jenkins 컨테이너 배포
 > * Service Fabric에 배포하기 위한 Jenkins 환경 설정
-> * 응용 프로그램 업그레이드
+> * 애플리케이션 업그레이드
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -53,15 +53,15 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 1. Service Fabric Jenkins 컨테이너 이미지를 끌어옵니다. ``docker pull rapatchi/jenkins:v10`` 이 이미지는 미리 설치된 Service Fabric Jenkins 플러그 인과 함께 제공됩니다.
 
-2. 탑재된 로컬 컴퓨터에 인증서가 있는 위치를 사용하여 컨테이너 이미지 실행
+1. Azure 인증서가 탑재된 로컬 머신에 저장된 위치를 사용하여 컨테이너 이미지를 실행합니다.
 
     ```bash
-    docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
-3. 컨테이너 이미지 인스턴스 ID를 가져옵니다. 명령 ``docker ps –a``를 사용하여 모든 Docker 컨테이너를 나열할 수 있습니다.
+1. 컨테이너 이미지 인스턴스 ID를 가져옵니다. 명령 ``docker ps –a``를 사용하여 모든 Docker 컨테이너를 나열할 수 있습니다.
 
-4. 다음 명령을 실행하여 Jenkins 인스턴스의 암호를 검색합니다.
+1. 다음 명령을 실행하여 Jenkins 인스턴스의 암호를 검색합니다.
 
     ```sh
     docker exec [first-four-digits-of-container-ID] cat /var/jenkins_home/secrets/initialAdminPassword
@@ -71,7 +71,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
     * 이 암호는 ``http://<HOST-IP>:8080``인 포털에서 Jenkins 대시보드에 로그인하는 데 필요합니다.
     * 처음으로 로그인한 후 고유의 사용자 계정을 만들거나 관리자 계정을 사용할 수 있습니다.
 
-5. [새 SSH 키 생성 및 SSH 에이전트에 추가](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)에서 설명한 단계를 사용하여 Jenkins를 사용하도록 GitHub을 설정합니다. 명령은 Docker 컨테이너에서 실행되기 때문에 Linux 환경에 대한 지침을 따릅니다.
+1. [새 SSH 키 생성 및 SSH 에이전트에 추가](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)에서 설명한 단계를 사용하여 Jenkins를 사용하도록 GitHub을 설정합니다. 명령은 Docker 컨테이너에서 실행되기 때문에 Linux 환경에 대한 지침을 따릅니다.
     * GitHub에서 제공한 지침을 사용하여 SSH 키를 생성합니다. 다음으로 리포지토리를 호스팅하는 GitHub 계정에 SSH 키를 추가합니다.
     * (호스트가 아닌) Jenkins Docker 셸에서 이전 링크에 언급된 명령을 실행합니다.
     * 호스트에서 Jenkins 셸에 로그인하려면 다음 명령을 사용합니다.
@@ -84,23 +84,23 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Jenkins 작업 만들기 및 구성
 
-1. 첫째, Github에서 Voting 프로젝트를 호스팅하는 데 사용할 수 있는 리포지토리가 없는 경우 만드세요. 리포지토리는 이 자습서의 나머지에 대해 **dev_test**라고 합니다.
+1. 먼저 GitHub에서 Voting 프로젝트를 호스팅하는 데 사용할 수 있는 리포지토리가 없는 경우 새로 만듭니다. 리포지토리는 이 자습서의 나머지에 대해 **dev_test**라고 합니다.
 
-2. Jenkins 대시보드에 **새 항목**을 만듭니다.
+1. ``http://<HOST-IP>:8080``의 Jenkins 대시보드에 **새 항목**을 만듭니다.
 
-3. 항목 이름을 입력합니다(예: **MyJob**). **자유로운 프로젝트**를 선택하고 **확인**을 클릭합니다.
+1. 항목 이름을 입력합니다(예: **MyJob**). **자유로운 프로젝트**를 선택하고 **확인**을 클릭합니다.
 
-4. 작업 페이지로 이동하여 **구성**을 클릭합니다.
+1. 작업 페이지로 이동하여 **구성**을 클릭합니다.
 
    a. 일반 섹션에서 **GitHub 프로젝트**에 대한 확인란을 선택하고 GitHub 프로젝트 URL을 지정합니다. 이 URL은 Jenkins CI/CD(연속 통합, 연속 배포) 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트합니다(예: ``https://github.com/testaccount/dev_test``).
 
-   나. **소스 코드 관리** 섹션 아래에서 **Git**를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트하는 리포지토리 URL을 지정합니다(예: *https://github.com/testaccount/dev_test.git*). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
+   b. **소스 코드 관리** 섹션 아래에서 **Git**를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 애플리케이션을 호스트하는 리포지토리 URL을 지정합니다(예: *https://github.com/testaccount/dev_test.git*). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
 
-5. Jenkins와 통신할 수 있도록 리포지토리를 호스팅하는 *GitHub*을 구성합니다. 다음 단계를 사용하세요.
+1. Jenkins와 통신할 수 있도록 리포지토리를 호스팅하는 *GitHub*을 구성합니다. 다음 단계를 사용하세요.
 
    a. GitHub 리포지토리 페이지로 이동합니다. **설정** > **통합 및 서비스**로 이동합니다.
 
-   나. **서비스 추가**를 선택하고 **Jenkins**를 입력하고 **Jenkins-GitHub 플러그 인**을 선택합니다.
+   b. **서비스 추가**를 선택하고 **Jenkins**를 입력하고 **Jenkins-GitHub 플러그 인**을 선택합니다.
 
    다. Jenkins Webhook URL을 입력합니다(기본적으로 ``http://<PublicIPorFQDN>:8081/github-webhook/``이여야 함). **서비스 추가/업데이트**를 클릭합니다.
 
@@ -108,15 +108,15 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
    ![Service Fabric Jenkins 구성](./media/service-fabric-tutorial-java-jenkins/jenkinsconfiguration.png)
 
-6. **트리거 빌드** 섹션 아래에서 원하는 빌드 옵션을 선택합니다. 이 예에서는 리포지토리에 일부 푸시가 발생할 때마다 빌드를 트리거하려고 합니다. 따라서 **GITScm 폴링에 대한 GitHub 후크 트리거**를 선택합니다.
+1. **트리거 빌드** 섹션 아래에서 원하는 빌드 옵션을 선택합니다. 이 예에서는 리포지토리에 일부 푸시가 발생할 때마다 빌드를 트리거하려고 합니다. 따라서 **GITScm 폴링에 대한 GitHub 후크 트리거**를 선택합니다.
 
-7. **빌드 섹션** 아래 **빌드 단계 추가** 드롭다운에서 **Gradle 스크립트 호출** 옵션을 선택합니다. 고급 메뉴가 열리는 위젯에서 응용 프로그램에 대한 **루트 빌드 스크립트**의 경로를 지정합니다. 지정된 경로에서 build.gradle을 선택하면 이에 따라 적절하게 작동합니다.
+1. **빌드 섹션** 아래 **빌드 단계 추가** 드롭다운에서 **Gradle 스크립트 호출** 옵션을 선택합니다. 고급 메뉴가 열리는 위젯에서 애플리케이션에 대한 **루트 빌드 스크립트**의 경로를 지정합니다. 지정된 경로에서 build.gradle을 선택하면 이에 따라 적절하게 작동합니다.
 
     ![Service Fabric Jenkins 빌드 작업](./media/service-fabric-tutorial-java-jenkins/jenkinsbuildscreenshot.png)
 
-8. **빌드 후 작업** 드롭다운에서 **Service Fabric 프로젝트 배포**를 선택합니다. 여기에서 Jenkins가 컴파일한 Service Fabric 응용 프로그램을 배포한 클러스터 세부 정보를 제공해야 합니다. 인증서 경로가 볼륨이 탑재(/tmp/myCerts)됐던 위치에 있습니다.
+1. **빌드 후 작업** 드롭다운에서 **Service Fabric 프로젝트 배포**를 선택합니다. 여기에서 Jenkins가 컴파일한 Service Fabric 응용 프로그램을 배포한 클러스터 세부 정보를 제공해야 합니다. 인증서 경로가 볼륨이 탑재(/tmp/myCerts)됐던 위치에 있습니다.
 
-    또한 응용 프로그램을 배포하는 데 사용된 추가 세부 정보를 제공할 수 있습니다. 응용프로그램 세부 정보에 대한 예제는 다음 스크린샷을 참조하세요.
+    또한 응용 프로그램을 배포하는 데 사용된 추가 세부 정보를 제공할 수 있습니다. 애플리케이션 세부 정보에 대한 예제는 다음 스크린샷을 참조하세요.
 
     ![Service Fabric Jenkins 빌드 작업](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
 
@@ -124,7 +124,9 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
     > 이 클러스터는 Service Fabric을 사용하여 Jenkins 컨테이너 이미지를 배포하는 경우에 Jenkins 컨테이너 응용 프로그램을 호스팅하는 것과 동일할 수 있습니다.
     >
 
-## <a name="update-your-existing-application"></a>기존 응용 프로그램 업데이트
+1. **저장**을 클릭합니다.
+
+## <a name="update-your-existing-application"></a>기존 애플리케이션 업데이트
 
 1. **Service Fabric Voting 샘플 V2**를 사용하여 *VotingApplication/VotingWebPkg/Code/wwwroot/index.html* 파일의 HTML의 제목을 업데이트합니다.
 
@@ -140,7 +142,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
     </div>
     ```
 
-2. **ApplicationTypeVersion** 및 **ServiceManifestVersion** 버전을 *Voting/VotingApplication/ApplicationManifest.xml* 파일에서 **2.0.0**으로 업데이트합니다.
+1. **ApplicationTypeVersion** 및 **ServiceManifestVersion** 버전을 *Voting/VotingApplication/ApplicationManifest.xml* 파일에서 **2.0.0**으로 업데이트합니다.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
@@ -167,7 +169,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
     </ApplicationManifest>
     ```
 
-3. **ServiceManifest**에서 **버전** 필드 및 *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* 파일의 **CodePackage** 태그에서 **버전** 필드를 **2.0.0**으로 업데이트합니다.
+1. **ServiceManifest**에서 **버전** 필드 및 *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* 파일의 **CodePackage** 태그에서 **버전** 필드를 **2.0.0**으로 업데이트합니다.
 
     ```xml
     <CodePackage Name="Code" Version="2.0.0">
@@ -179,13 +181,13 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
     </CodePackage>
     ```
 
-4. 응용 프로그램 업그레이드를 수행하는 Jenkins 작업을 초기화하려면 Github 리포지토리에 새 변경 내용을 푸시하십시오.
+1. 애플리케이션 업그레이드를 수행하는 Jenkins 작업을 초기화하려면 새 변경 내용을 GitHub 리포지토리로 푸시합니다.
 
-5. Service Fabric Explorer에서 **응용 프로그램** 드롭다운을 클릭합니다. 업그레이드의 상태를 확인하려면 **진행 중인 업그레이드** 탭을 클릭합니다.
+1. Service Fabric Explorer에서 **응용 프로그램** 드롭다운을 클릭합니다. 업그레이드의 상태를 확인하려면 **진행 중인 업그레이드** 탭을 클릭합니다.
 
     ![업그레이드 진행 중](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-6. **http://\<Host-IP>:8080**에 액세스하는 경우 완벽한 기능으로 Voting 응용 프로그램이 작동되고 실행됩니다.
+1. **http://\<Host-IP>:8080**에 액세스하는 경우 완벽한 기능으로 Voting 응용 프로그램이 작동되고 실행됩니다.
 
     ![로컬 Voting 앱](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 
@@ -196,6 +198,6 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 > [!div class="checklist"]
 > * 컴퓨터에 Service Fabric Jenkins 컨테이너 배포
 > * Service Fabric에 배포하기 위한 Jenkins 환경 설정
-> * 응용 프로그램 업그레이드
+> * 애플리케이션 업그레이드
 
 * 다른 [Java 샘플](https://github.com/Azure-Samples/service-fabric-java-getting-started) 체크 아웃

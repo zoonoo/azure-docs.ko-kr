@@ -1,8 +1,25 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: storage
+author: roygara
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49960211"
+---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>증분 스냅숏을 사용하여 Azure 관리되지 않는 VM 디스크 백업
 ## <a name="overview"></a>개요
-Azure 저장소는 Blob의 스냅숏을 만드는 기능을 제공합니다. 스냅숏은 해당 시점에 Blob 상태를 캡처합니다. 이 문서에서는 스냅숏을 사용하여 가상 컴퓨터 디스크의 백업을 유지 관리할 수 있는 시나리오에 대해 설명합니다. Azure 백업 및 복구 서비스를 사용하지 않도록 선택하고 가상 컴퓨터 디스크에 대한 사용자 지정 백업 전략을 만들 때 이 방법론을 사용할 수 있습니다.
+Azure Storage는 Blob의 스냅숏을 만드는 기능을 제공합니다. 스냅숏은 해당 시점에 Blob 상태를 캡처합니다. 이 문서에서는 스냅숏을 사용하여 가상 머신 디스크의 백업을 유지 관리할 수 있는 시나리오에 대해 설명합니다. Azure Backup 및 복구 서비스를 사용하지 않도록 선택하고 가상 컴퓨터 디스크에 대한 사용자 지정 백업 전략을 만들 때 이 방법론을 사용할 수 있습니다.
 
-Azure 가상 컴퓨터 디스크는 Azure 저장소에 페이지 Blob으로 저장됩니다. 이 문서에서 가상 컴퓨터 디스크에 대한 백업 전략을 설명했으므로 페이지 Blob의 컨텍스트에서 스냅숏을 참조합니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)를 참조하세요.
+Azure 가상 머신 디스크는 Azure Storage에 페이지 Blob으로 저장됩니다. 이 문서에서 가상 머신 디스크에 대한 백업 전략을 설명했으므로 페이지 Blob의 컨텍스트에서 스냅숏을 참조합니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)를 참조하세요.
 
 ## <a name="what-is-a-snapshot"></a>스냅숏은 무엇입니까?
 Blob 스냅숏은 특정 시점에 캡처된 Blob의 읽기 전용 버전입니다. 스냅숏이 생성된 후에는 읽거나 복사하거나 삭제할 수 있지만 수정할 수는 없습니다. 스냅숏을 사용하면 특정 시점에서 표시된 대로 Blob을 백업할 수 있습니다. REST 버전 2015-04-05까지 전체 스냅숏을 복사하는 기능이 있었습니다. REST 버전 2015-07-08 이상에서는 증분 스냅숏을 복사할 수도 있습니다.
@@ -16,7 +33,7 @@ Blob 스냅숏은 특정 시점에 캡처된 Blob의 읽기 전용 버전입니�
 > 
 
 ### <a name="back-up-disks-using-snapshots"></a>스냅숏을 사용하여 디스크 백업
-가상 컴퓨터 디스크에 대한 백업 전략으로 디스크 또는 페이지 Blob의 스냅숏을 주기적으로 작성할 수 있으며 [Blob 복사](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) 작업 또는 [AzCopy](../articles/storage/common/storage-use-azcopy.md)와 같은 도구를 사용하여 스냅숏을 다른 저장소 계정에 복사할 수 있습니다. 스냅숏을 다른 이름으로 대상 페이지 Blob에 복사할 수 있습니다. 그러면 생성되는 대상 페이지 Blob은 스냅숏이 아닌 쓰기 가능한 페이지 Blob입니다. 이 문서 뒷부분에서는 스냅숏을 사용하여 가상 컴퓨터 디스크를 백업하는 단계에 대해 설명합니다.
+가상 머신 디스크에 대한 백업 전략으로 디스크 또는 페이지 Blob의 스냅숏을 주기적으로 작성할 수 있으며 [Blob 복사](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) 작업 또는 [AzCopy](../articles/storage/common/storage-use-azcopy.md)와 같은 도구를 사용하여 스냅숏을 다른 저장소 계정에 복사할 수 있습니다. 스냅숏을 다른 이름으로 대상 페이지 Blob에 복사할 수 있습니다. 그러면 생성되는 대상 페이지 Blob은 스냅숏이 아닌 쓰기 가능한 페이지 Blob입니다. 이 문서 뒷부분에서는 스냅숏을 사용하여 가상 컴퓨터 디스크를 백업하는 단계에 대해 설명합니다.
 
 ### <a name="restore-disks-using-snapshots"></a>스냅숏을 사용하여 디스크 복원
 디스크를 백업 스냅숏 중 하나에서 이전에 캡처된 안정적인 버전으로 복원할 때 기본 페이지 Blob에 대해 스냅숏을 복사할 수 있습니다. 스냅숏이 기본 페이지 Blob으로 올라간 후 스냅숏은 유지되지만 읽고 쓰기가 가능한 복사본으로 해당 원본을 덮어쓰게 됩니다. 이 문서의 뒷부분에서는 해당 스냅숏에서 디스크의 이전 버전을 복원하는 단계에 대해 설명합니다.
@@ -29,7 +46,7 @@ Blob 스냅숏은 특정 시점에 캡처된 Blob의 읽기 전용 버전입니�
 * 기본 Blob의 백업 복사본을 유지하려면 이 프로세스를 반복합니다.
 
 ## <a name="incremental-snapshot-copy"></a>증분 스냅숏 복사
-[GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) API의 새로운 기능은 페이지 Blob 또는 디스크의 스냅숏을 백업하는 더 좋은 방법을 제공합니다. API는 기본 Blob와 스냅숏 간의 변경 내용 목록을 반환하며 이로 인해 백업 계정에 사용되는 저장소 공간의 양이 줄어듭니다. API는 프리미엄 저장소 뿐만 아니라 표준 저장소에 페이지 Blob을 지원합니다. 이 API를 사용하여 Azure VM에 대한 빠르고 효율적인 백업 솔루션을 빌드할 수 있습니다. 이 API는 REST 버전 2015-07-08 이상에서 사용할 수 있습니다.
+[GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) API의 새로운 기능은 페이지 Blob 또는 디스크의 스냅숏을 백업하는 더 좋은 방법을 제공합니다. API는 기본 Blob와 스냅숏 간의 변경 내용 목록을 반환하며 이로 인해 백업 계정에 사용되는 저장소 공간의 양이 줄어듭니다. API는 Premium Storage 뿐만 아니라 Standard Storage에 페이지 Blob을 지원합니다. 이 API를 사용하여 Azure VM에 대한 빠르고 효율적인 백업 솔루션을 빌드할 수 있습니다. 이 API는 REST 버전 2015-07-08 이상에서 사용할 수 있습니다.
 
 증분 스냅숏 복사를 통해 다음 간의 차이를 하나의 저장소 계정에서 다른 저장소 계정으로 복사할 수 있습니다.
 
@@ -49,7 +66,7 @@ Blob 스냅숏은 특정 시점에 캡처된 Blob의 읽기 전용 버전입니�
 다음을 수행하여 증분 스냅숏 복사를 구현할 수 있습니다.
 
 * [Blob 스냅숏](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob)을 사용하여 기본 Blob의 스냅숏을 만듭니다.
-* [Blob 복사](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)를 사용하여 스냅숏을 대상 백업 저장소 계정에 복사합니다. 이것이 백업 페이지 Blob입니다. 백업 페이지 Blob의 스냅숏을 만들고 백업 계정에 저장합니다.
+* [복사 Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)을 사용하여 스냅숏을 동일한 Azure 지역 또는 다른 Azure 지역의 대상 백업 저장소 계정에 복사합니다. 이것이 백업 페이지 Blob입니다. 백업 페이지 Blob의 스냅숏을 만들고 백업 계정에 저장합니다.
 * Blob 스냅숏을 사용하여 기본 Blob의 또 다른 스냅숏을 만듭니다.
 * [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges)를 사용하여 기본 Blob의 첫 번째 스냅숏과 두 번째 스냅숏 간의 차이를 만듭니다. 새 매개 변수 **prevsnapshot**을 사용하여 차이를 만들려는 스냅숏의 날짜/시간 값을 지정합니다. 이 매개 변수가 존재하는 경우 REST 응답에는 페이지 지우기를 포함하여 대상 스냅숏과 이전 스냅숏 간의 변경된 페이지만 포함됩니다.
 * [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) 를 사용하여 이러한 변경 내용을 백업 페이지 Blob에 적용합니다.
@@ -62,7 +79,7 @@ Blob 스냅숏은 특정 시점에 캡처된 Blob의 읽기 전용 버전입니�
 
 프리미엄 저장소 P30 디스크가 연결된 DS 시리즈 Azure VM을 고려합니다. *mypremiumdisk*라는 P30 디스크는 *mypremiumaccount*라는 프리미엄 저장소 계정에 저장됩니다. *mybackupstdaccount*라는 표준 저장소 계정은 *mypremiumdisk*의 백업을 저장하는 데 사용됩니다. 12시간마다 *mypremiumdisk* 의 스냅숏을 유지하려고 합니다.
 
-저장소 계정 및 디스크 만들기에 대해 알아보려면 [Azure 저장소 계정 정보](../articles/storage/storage-create-storage-account.md)를 참조하세요.
+저장소 계정을 만드는 방법에 대해 알아보려면 [저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)를 참조하세요.
 
 Azure VM 백업에 대해 알아보려면 [Azure VM 백업 계획](../articles/backup/backup-azure-vms-introduction.md)을 참조하세요.
 
@@ -96,5 +113,5 @@ Azure VM 백업에 대해 알아보려면 [Azure VM 백업 계획](../articles/b
 다음 링크를 사용하여 Blob의 스냅숏을 만들고 VM 백업 인프라를 계획하는 방법을 알아봅니다.
 
 * [Blob의 스냅숏 만들기](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
-* [VM 백업 인프라 계획](../articles/backup/backup-azure-vms-introduction.md)
+* [VM Backup 인프라 계획](../articles/backup/backup-azure-vms-introduction.md)
 

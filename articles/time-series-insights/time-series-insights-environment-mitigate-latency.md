@@ -4,19 +4,19 @@ description: 이 문서에서는 Azure Time Series Insights에서 대기 시간�
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: jasonh
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: bbd5e7d91e982a3dce320ea10a7fe8da435ff212
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: e301afaa2fed2b00599fbdde8178203965280c0d
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293777"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364996"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure Time Series Insights에서 모니터링을 수행하고 제한을 축소하여 대기 시간 줄이기
 들어오는 데이터의 양이 사용자의 환경 구성을 초과하면 Azure Time Series Insights에서 대기 시간 또는 제한이 발생할 수 있습니다.
@@ -30,6 +30,11 @@ ms.locfileid: "36293777"
 - 많은 양의 기록 이벤트를 이벤트 원본으로 푸시하면 지연이 발생합니다. Time Series Insights를 확인해야 합니다.
 - 원격 분석을 사용하여 참조 데이터를 결합하면 이벤트 크기가 더 커집니다.  제한 관점에서, 패킷 크기가 32KB인 수신 데이터 패킷은 각각 1KB 크기의 32개 이벤트로 처리됩니다. 최대 허용 이벤트 크기는 32KB입니다. 32KB보다 큰 데이터 패킷은 잘립니다.
 
+## <a name="video"></a>비디오: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>이 비디오에서는 Time Series Insights 데이터 수신 동작과 그 계획 방법을 다룹니다.</br>
+
+> [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
 ## <a name="monitor-latency-and-throttling-with-alerts"></a>경고를 사용하여 대기 시간 및 제한 모니터링
 
@@ -52,15 +57,15 @@ ms.locfileid: "36293777"
 |**수신된 메시지**   | 모든 Event Hubs 또는 IoT Hub 이벤트 원본에서 읽은 메시지 수입니다.        |
 |**저장된 수신 바이트**     | 저장되어 쿼리에 사용할 수 있는 총 이벤트 크기입니다. 크기는 속성 값에 대해서만 계산됩니다.        |
 |**저장된 수신 이벤트**     |   저장되어 쿼리에 사용할 수 있는 일반 이벤트 수입니다.      |
-|**수신된 메시지 시간 지연**    |  메시지가 이벤트 원본의 큐에 대기되는 시간과 수신 처리되는 시간 간의 차이입니다.      |
+|**수신된 메시지 시간 지연**    |  메시지가 이벤트 원본의 큐에 대기되는 시간과 수신 처리되는 시간 간의 차이(초)입니다.      |
 |**수신된 메시지 수 지연**    |  이벤트 원본 파티션에서 마지막 큐에 대기된 메시지의 시퀀스 번호와 수신 처리되는 메시지의 시퀀스 번호 간의 차이입니다.      |
 
 
 ![대기 시간](media/environment-mitigate-latency/latency.png)
 
-제한이 적용되는 경우 TSI에서 메시지가 이벤트 원본을 거치는 실제 시간이 되기까지 몇 분이 남았는지를 나타내는 *수신된 메시지 시간 지연* 값을 볼 수 있습니다(약 30-60초의 인덱싱 시간 제외).  *수신된 메시지 수 지연*에도 값이 표시되므로 메시지가 뒤에 몇 개나 더 남아 있는지 알 수 있습니다.  이러한 차이를 해소하는 가장 쉬운 방법은 작업 환경의 용량을 차이가 극복될 수 있는 크기로 늘리는 것입니다.  
+제한이 적용되는 경우 TSI에서 메시지가 이벤트 원본을 거치는 실제 시간이 되기까지 몇 초가 남았는지를 나타내는 *수신된 메시지 시간 지연* 값을 볼 수 있습니다(약 30-60초의 인덱싱 시간 제외).  *수신된 메시지 수 지연*에도 값이 표시되므로 메시지가 뒤에 몇 개나 더 남아 있는지 알 수 있습니다.  이러한 차이를 해소하는 가장 쉬운 방법은 작업 환경의 용량을 차이가 극복될 수 있는 크기로 늘리는 것입니다.  
 
-예를 들어, 단일 단위 S1 환경을 사용하며 5백만 개의 지연된 메시지가 남아 있는 경우 하루 동안 이 차이를 따라잡기 위해 작업 환경의 크기를 6개 단위로 늘릴 수 있습니다.  더 빠르게 따라잡기 위해 더 크게 늘릴 수도 있습니다.  이러한 문제는 처음에 환경을 프로비전할 때 발생하는 일반적인 문제로, 이미 이벤트가 들어 있는 이벤트 원본에 연결하거나 많은 기록 데이터를 대량으로 업로드할 때 특히 두드러집니다.
+예를 들어, 단일 단위 S1 환경을 사용하며 5백만 개의 지연된 메시지가 남아 있는 경우 하루 동안 이 차이를 따라잡기 위해 작업 환경의 크기를 6개 단위로 늘릴 수 있습니다.  더 빠르게 따라잡기 위해 더 크게 늘릴 수도 있습니다.  캐치업 시간은 처음에 환경을 프로비전할 때 일반적으로 발생하고, 이미 이벤트가 포함된 이벤트 원본에 연결하거나 많은 기록 데이터를 대량으로 업로드할 때 특히 두드러집니다.
 
 또 다른 방법은 **저장된 수신 이벤트** 경고를 2시간 동안의 전체 환경 용량보다 약간 낮게 설정하는 것입니다.  이 경고는 용량이 일정한지 이해하는 데 도움이 되며 대기 시간이 길어질 가능성이 높다는 것을 나타냅니다.  
 

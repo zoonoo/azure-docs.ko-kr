@@ -1,27 +1,29 @@
 ---
-title: Azure CLI 예제–Azure Media Services | Microsoft Docs
-description: Azure Media Services에 대한 Azure CLI 예제
+title: Azure CLI 예제 – Azure Media Services | Microsoft Docs
+description: Azure Media Services 서비스용 Azure CLI 예제를 제공합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: ''
-ms.date: 04/15/2018
+ms.custom: seodec18
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: acc92662aa5b727656a8eda368ba6d78a87d9ecd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9df9279a3922fa639385657660d6d0f4a55b5a4d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640892"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132775"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Azure Media Services에 대한 Azure CLI 예제
 
-다음 표에는 Azure Media Services에 대한 Azure CLI 예제의 링크가 포함되어 있습니다.
+다음 표에는 Azure Media Services용 Azure CLI 예제의 링크가 포함되어 있습니다.
+
+## <a name="examples"></a>예
 
 |  |  |
 |---|---|
@@ -39,4 +41,4 @@ ms.locfileid: "34640892"
 
 ## <a name="see-also"></a>참고 항목
 
-[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

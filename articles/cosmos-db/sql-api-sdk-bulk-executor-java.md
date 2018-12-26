@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/07/2018
+ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: f7784883bca4773d69d94b04e7ec24a89ecd88c1
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 3483a2cf30421e96bc408516bab5c3c304fdce0d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300699"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632510"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java Bulk Executor 라이브러리: 다운로드 정보
 
@@ -24,11 +24,11 @@ ms.locfileid: "36300699"
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > * [Bulk Executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -46,6 +46,6 @@ ms.locfileid: "36300699"
 
 <tr><td>**시작**</td><td>[Bulk Executor 라이브러리 Java SDK 시작](bulk-executor-java.md)</td></tr>
 
-<tr><td>**지원되는 최소 런타임**</td><td>JDK 7</td></tr>
+<tr><td>**지원되는 최소 런타임**</td><td>[JDK(Java Development Kit) 7 이상](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 

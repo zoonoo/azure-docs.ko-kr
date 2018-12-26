@@ -1,25 +1,20 @@
 ---
-title: PowerShell를 사용하여 Hadoop 클러스터 만들기 - Azure HDInsight | Microsoft Docs
-description: Azure PowerShell을 사용하여 Linux 기반 HDInsight에서 Hadoop, HBase, Storm 또는 Spark 클러스터를 만드는 방법에 대해 알아봅니다.
+title: PowerShell를 사용하여 Apache Hadoop 클러스터 만들기 - Azure HDInsight
+description: Azure PowerShell을 사용하여 HDInsight용 Linux에서 Apache Hadoop, Apache HBase, Apache Storm 또는 Apache Spark 클러스터를 만드는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 4208deca-d64a-45e1-8948-2673d5d7678c
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 11e98117a93f541f6f88b213f59dcf4aba3e7f36
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.author: hrasheed
+ms.openlocfilehash: 76bef5fcae8e95a52b7a35fdbb657db5dde01bc3
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045214"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035189"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
@@ -28,7 +23,7 @@ ms.locfileid: "37045214"
 Azure PowerShell은 Microsoft Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. 이 문서에서는 Azure PowerShell을 사용하여 Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 정보를 제공합니다. 또한 예제 스크립트도 포함됩니다.
 
 > [!NOTE]
-> Azure PowerShell은 Windows 클라이언트에서만 사용할 수 있습니다. Linux, Unix 또는 Mac OS X 클라이언트를 사용하는 경우 Azure CLI를 사용하여 클러스터 만들기에 대한 정보에 대해 [Azure CLI를 사용하여 Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md) 를 참조하세요.
+> Azure PowerShell은 Windows 클라이언트에서만 사용할 수 있습니다. Linux, Unix 또는 Mac OS X 클라이언트를 사용하는 경우 클래식 CLI를 사용하는 방법에 대한 자세한 내용은 [Azure 클래식 CLI를 사용하여 Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 이 절차를 시작하기 전에 다음이 있어야 합니다.
@@ -71,7 +66,7 @@ SSH 사용자에 대해 지정한 값은 클러스터의 SSH 사용자를 만드
 
 또한 `New-AzureRmHDInsightClusterConfig` cmdlet을 사용하여 HDInsight 구성 개체를 만들 수 있습니다. 그런 다음 이 구성 개체를 수정하여 클러스터에 대한 추가 구성 옵션을 사용하도록 설정합니다. 마지막으로 `New-AzureRmHDInsightCluster` cmdlet의 `-Config` 매개 변수를 사용하여 구성을 사용합니다.
 
-다음 스크립트는 HDInsight 클러스터 형식에서 ML 서비스를 구성하도록 구성 개체를 만듭니다. 이 구성은 에지 노드, RStudio, 추가 저장소 계정을 활성화합니다.
+다음 스크립트는 HDInsight 클러스터 유형에 R Server를 구성하기 위해 구성 개체를 만듭니다. 이 구성은 에지 노드, RStudio, 추가 저장소 계정을 활성화합니다.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 
@@ -97,7 +92,7 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음 리소스를
 
 ### <a name="hadoop-clusters"></a>Hadoop 클러스터
 
-* [HDInsight에서 하이브 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: db4a0d1f288394276cd400e7a060cfb3662b34f0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f18892d32a385b41f3325623e21da1dd25af7253
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912001"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744710"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Linux VM에 예정된 이벤트
 
@@ -51,7 +51,7 @@ Windows에서 예약된 이벤트에 대한 자세한 내용은 [Windows VM에 �
 
 ## <a name="the-basics"></a>기본 사항  
 
-  메타데이터 서비스는 VM 내에서 액세스할 수 있는 REST 끝점을 사용하여 VM을 실행하는 정보를 공개합니다. 이 정보는 라우팅할 수 없는 IP를 통해 사용할 수 있으므로 VM 외부에 공개되지 않습니다.
+  메타데이터 서비스는 VM 내에서 액세스할 수 있는 REST 엔드포인트를 사용하여 VM을 실행하는 정보를 공개합니다. 이 정보는 라우팅할 수 없는 IP를 통해 사용할 수 있으므로 VM 외부에 공개되지 않습니다.
 
 ### <a name="scope"></a>범위
 예약된 이벤트는 다음으로 전달됩니다.
@@ -62,12 +62,12 @@ Windows에서 예약된 이벤트에 대한 자세한 내용은 [Windows VM에 �
 
 따라서 이벤트의 `Resources` 필드를 확인하여 영향을 받는 VM을 식별합니다.
 
-### <a name="endpoint-discovery"></a>끝점 검색
+### <a name="endpoint-discovery"></a>엔드포인트 검색
 VNET 사용 VM의 경우 메타데이터 서비스를 정적 경로 조정 불가능 IP `169.254.169.254`에서 사용할 수 있습니다. 예약된 이벤트의 최신 버전에 대한 전체 엔드포인트는 다음과 같습니다. 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
 
-클라우드 서비스 및 클래식 VM의 기본 사례처럼 VM이 가상 네트워크에 생성되지 않은 경우 사용할 IP 주소를 검색하려면 추가 논리가 필요합니다. [호스트 끝점을 검색](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)하는 방법을 알아보려면 이 샘플을 참조하세요.
+클라우드 서비스 및 클래식 VM의 기본 사례처럼 VM이 가상 네트워크에 생성되지 않은 경우 사용할 IP 주소를 검색하려면 추가 논리가 필요합니다. [호스트 엔드포인트를 검색](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)하는 방법을 알아보려면 이 샘플을 참조하세요.
 
 ### <a name="version-and-region-availability"></a>버전 및 지역 가용성
 예약된 이벤트 서비스의 버전이 지정됩니다. 버전은 필수이며 현재 버전은 `2017-08-01`입니다.
@@ -125,12 +125,12 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 ### <a name="event-properties"></a>이벤트 속성
 |자산  |  설명 |
 | - | - |
-| EventId | 이 이벤트의 GUID(Globally Unique Identifier)입니다. <br><br> 예: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventId | 이 이벤트의 GUID(Globally Unique Identifier)입니다. <br><br> 예제: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | 이 이벤트로 인해 발생하는 결과입니다. <br><br> 값 <br><ul><li> `Freeze`: VM이 몇 초간 일시 중지되도록 예약됩니다. CPU가 일시 중단되지만 메모리, 열려 있는 파일 또는 네트워크 연결에는 영향을 미치지 않습니다. <li>`Reboot`: VM이 다시 부팅되도록 예약됩니다. (비영구 메모리가 손실됩니다.) <li>`Redeploy`: VM이 다른 노드로 이동되도록 예약됩니다. (사용 후 삭제 디스크가 손실됩니다.) |
 | ResourceType | 이 이벤트가 영향을 주는 리소스 형식입니다. <br><br> 값 <ul><li>`VirtualMachine`|
-| 리소스| 이 이벤트가 영향을 주는 리소스 목록입니다. 이 목록은 하나의 [업데이트 도메인](manage-availability.md)에서 컴퓨터를 포함하도록 보장하지만 UD의 모든 컴퓨터를 포함할 수는 없습니다. <br><br> 예: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| 리소스| 이 이벤트가 영향을 주는 리소스 목록입니다. 이 목록은 하나의 [업데이트 도메인](manage-availability.md)에서 컴퓨터를 포함하도록 보장하지만 UD의 모든 컴퓨터를 포함할 수는 없습니다. <br><br> 예제: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | 이 이벤트의 상태입니다. <br><br> 값 <ul><li>`Scheduled`: `NotBefore` 속성에 지정된 시간 이후 시작하도록 이 이벤트를 예약합니다.<li>`Started`: 이 이벤트가 시작되었습니다.</ul> `Completed` 또는 유사한 상태가 제공되지 않았습니다. 이벤트가 완료되면 더 이상 반환되지 않습니다.
-| NotBefore| 이 시간이 지난 후 이 이벤트가 시작될 수 있습니다. <br><br> 예: <br><ul><li> 2016년 9월 19일 월요일 18:29:47 GMT  |
+| NotBefore| 이 시간이 지난 후 이 이벤트가 시작될 수 있습니다. <br><br> 예제: <br><ul><li> 2016년 9월 19일 월요일 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>이벤트 예약
 각 이벤트는 이벤트 유형에 따라 향후 최소한의 시간으로 예약됩니다. 이 시간은 이벤트의 `NotBefore` 속성에 반영됩니다. 
@@ -158,7 +158,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 #### <a name="bash-sample"></a>Bash 샘플
 ```
-curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 

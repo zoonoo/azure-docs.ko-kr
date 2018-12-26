@@ -1,11 +1,11 @@
 ---
-title: Azure AI 갤러리 Jupyter Notebooks | Microsoft Docs
-description: Azure AI 갤러리에서 Jupyter Notebooks를 검색합니다.
+title: Azure AI Gallery Jupyter Notebook - Azure Machine Learning Studio | Microsoft Docs
+description: Azure AI 갤러리에서 Jupyter Notebooks를 검색합니다. 갤러리의 노트북은 자습서는 물론 고급 기계 학습 기술 및 솔루션에 대한 설명을 제공합니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
+author: ericlicoding
+ms.custom: seodec18
+ms.author: amlstudiodocs
 editor: cgronlun
 ms.assetid: 556e0671-1b50-4bcb-92eb-889962310633
 ms.service: machine-learning
@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 336949d3c3c23041d1907ae2b2a9151ca626d94f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b927b63744c9871c2a2d5451c685714c2d2ea6de
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834644"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268226"
 ---
 # <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 Jupyter Notebooks 검색
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="jupyter-notebooks"></a>Jupyter 노트북
-**[Jupyter 노트북](https://gallery.cortanaintelligence.com/notebooks)** 은 하나의 단일 대화형 캔버스에 코드, 데이터 시각화 및 문서를 포함합니다.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com)의 **[Jupyter Notebook](https://gallery.cortanaintelligence.com/notebooks)** 은 하나의 단일 대화형 캔버스에 코드, 데이터 시각화 및 문서를 포함합니다.
 갤러리의 노트북은 자습서는 물론 고급 기계 학습 기술 및 솔루션에 대한 설명을 제공합니다.
 
 ## <a name="discover"></a>검색
@@ -70,5 +68,5 @@ Studio의 **노트북** 페이지에 다른 노트북과 함께 해당 노트북
 
 **[갤러리로 이동 >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

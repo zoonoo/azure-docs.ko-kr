@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 03/20/2018
-ms.openlocfilehash: b34fd81532e27960d0dd92f172790aee3cd82ca5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 11/01/2018
+ms.openlocfilehash: 5cb51a412738c2361bbe30ecd1415f81c3f85c9c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639421"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959038"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL 서버 만들기
 
@@ -50,7 +50,7 @@ PostgreSQL 서버용 Azure Database를 만들려면 다음 단계를 따릅니�
     서버 관리자 로그인 |*myadmin*| 서버에 연결할 경우 사용할 사용자 고유의 로그인 계정입니다. 관리자 로그인 이름은 **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** 또는 **public**이 될 수 없습니다. **pg_** 로 시작할 수 없습니다.
     암호 |사용자 암호| 서버 관리자 계정의 새 암호입니다. 8-128자여야 합니다. 암호에는 영어 대문자, 영어 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등)의 세 가지 범주에 속하는 문자가 포함되어야 합니다.
     위치|사용자와 가장 가까운 지역| 사용자에게 가장 가까운 위치입니다.
-    버전|최신 버전| 다른 특정 요구 사항이 없는 한 최신 PostgreSQL 버전입니다.
+    버전|최신 주 버전| 다른 특정 요구 사항이 없는 한 최신 PostgreSQL 주 버전입니다.
     가격 책정 계층  | **범용**, **4세대**, **2개 vCore**, **5GB**, **7일**, **지역 중복** | 새 서버에 대한 계산, 저장소 및 백업 구성입니다. **가격 책정 계층**을 선택합니다. 그런 다음, **범용** 탭을 선택합니다. *4세대*, *2개 vCore*, *5GB* 및 *7일*은 **세대 계산**, **vCore**, **저장소** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 둘 수 있습니다. 지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. 이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
 
     > [!IMPORTANT]
@@ -78,13 +78,10 @@ PostgreSQL용 Azure Database는 서버 수준에서 방화벽을 만듭니다. �
 
 3. **방화벽 규칙** 아래의 **규칙 이름** 열에서 빈 텍스트 상자를 선택하여 방화벽 규칙을 만들기 시작합니다. 
 
-    이 빠른 시작에서는 서버에 대해 모든 IP 주소를 허용해 보겠습니다. 각 열에 있는 텍스트 상자에 다음 값을 입력합니다.
+   텍스트 상자에 서버에 액세스하는 클라이언트의 이름, 시작 및 종료 IP 범위를 입력합니다. 단일 IP인 경우 시작 IP 및 종료 IP에 동일한 값을 사용합니다.
 
-    규칙 이름 | 시작 IP | 종료 IP 
-    ---|---|---
-    AllowAllIps | 0.0.0.0 | 255.255.255.255
-
-     ![방화벽 규칙 설정](./media/quickstart-create-database-portal/5-firewall-2.png)
+   ![방화벽 규칙 설정](./media/quickstart-create-database-portal/5-firewall-2.png)
+     
 
 4. **연결 보안** 페이지의 위쪽 도구 모음에서 **저장**을 선택합니다. 계속하기 전에 연결 보안 업데이트가 성공적으로 완료되었다는 알림이 나타날 때까지 기다립니다.
 
@@ -100,21 +97,13 @@ PostgreSQL 서버용 Azure Database를 만들 때 **postgres**라는 기본 데�
 
  ![서버 [개요] 페이지](./media/quickstart-create-database-portal/6-server-name.png)
 
-## <a name="connect-to-the-postgresql-database-by-using-psql-in-cloud-shell"></a>Cloud Shell에서 psql을 사용하여 PostgreSQL 데이터베이스에 연결
+## <a name="connect-to-the-postgresql-database-using-psql"></a>psql을 사용하여 PostgreSQL 데이터베이스에 연결
 
-Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 여러 응용 프로그램이 있습니다. 이제 psql 명령줄 유틸리티를 사용하여 서버에 연결하는 방법을 자세히 설명해 보겠습니다. 추가 소프트웨어를 설치할 필요 없이 여기에 설명된 대로 웹 브라우저 및 Azure Cloud Shell을 사용할 수 있습니다. 사용자의 컴퓨터에 로컬로 psql 유틸리티가 설치되어 있는 경우 여기에서 연결할 수도 있습니다.
+Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 여러 응용 프로그램이 있습니다. 클라이언트 컴퓨터에 PostgreSQL이 설치되어 있는 경우 [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 로컬 인스턴스를 사용하여 Azure PostgreSQL 서버에 연결할 수 있습니다. 이제 psql 명령줄 유틸리티를 사용하여 Azure PostgreSQL 서버에 연결해 보겠습니다.
 
-1. 위쪽 탐색 창에서 터미널 기호를 선택하여 Cloud Shell을 엽니다.
+1. 셸에서 psql 명령줄을 입력하여 Azure Database for PostgreSQL 서버의 데이터베이스에 연결합니다.
 
-   ![Azure Cloud Shell 터미널 기호](./media/quickstart-create-database-portal/7-cloud-console.png)
-
-2. Cloud Shell이 브라우저에서 열리며 여기서 Bash 셸 명령을 입력할 수 있습니다.
-
-   ![Cloud Shell Bash 프롬프트](./media/quickstart-create-database-portal/8-bash.png)
-
-3. Cloud Shell 프롬프트에 psql 명령줄을 입력하여 PostgreSQL 서버용 Azure Database의 데이터베이스에 연결합니다.
-
-    [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 유틸리티를 사용하여 PostgreSQL 서버용 Azure Database에 연결하려면 다음 형식을 사용합니다.
+    [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 유틸리티를 사용하여 PostgreSQL 서버용 Azure Database에 연결하려면 다음 형식을 사용합니다.
     ```bash
     psql --host=<yourserver> --port=<port> --username=<server admin login> --dbname=<database name>
     ```
@@ -138,7 +127,7 @@ Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 �
     ---|---|---
     암호 | 관리자 암호 | 입력한 암호 문자는 Bash 프롬프트에 표시되지 않습니다. 모든 문자가 입력되면 Enter 키를 눌러 인증하고 연결합니다.
 
-    연결되면 psql 유틸리티에 sql 명령을 입력할 수 있는 postgres 프롬프트가 표시됩니다. 초기 연결 출력에서는 Cloud Shell의 psql이 Azure Database for PostgreSQL 서버와 다른 버전일 수 있으므로 경고가 표시될 수 있습니다. 
+    연결되면 psql 유틸리티에 sql 명령을 입력할 수 있는 postgres 프롬프트가 표시됩니다. 초기 연결 출력에서는 사용하는 psql이 Azure Database for PostgreSQL 서버와 다른 버전일 수 있으므로 경고가 표시될 수 있습니다. 
     
     psql 출력의 예:
     ```bash
@@ -152,30 +141,30 @@ Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 �
     ```
 
     > [!TIP]
-    > 방화벽이 Cloud Shell의 IP 주소를 허용하도록 구성되지 않은 경우 다음 오류가 발생합니다.
+    > 방화벽이 클라이언트의 IP 주소를 허용하도록 구성되지 않은 경우 다음 오류가 발생합니다.
     > 
-    > "psql: FATAL: "0.0.0.0" 호스트, user "myadmin" 사용자, database "postgres" 데이터베이스에 대한 pg_hba.conf 항목이 없습니다. SSL on FATAL: SSL 연결이 필요합니다. SSL 옵션을 지정하고 다시 시도하세요.
+    > "psql: FATAL: "<IP address>" 호스트, user "myadmin", database "postgres"에 대한 pg_hba.conf 항목이 없습니다. SSL on FATAL: SSL 연결이 필요합니다. SSL 옵션을 지정하고 다시 시도하세요.
     > 
     > 이 오류를 해결하려면 서버 구성이 문서의 “서버 수준 방화벽 규칙 구성” 섹션에 있는 단계와 일치하는지 확인합니다.
 
-4. 프롬프트에서 다음 명령을 입력하여 "mypgsqldb"라는 빈 데이터베이스를 만듭니다.
+2. 프롬프트에서 다음 명령을 입력하여 "mypgsqldb"라는 빈 데이터베이스를 만듭니다.
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
     이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 
 
-5. 프롬프트에서 다음 명령을 실행하여 새로 만든 **mypgsqldb** 데이터베이스에 대한 연결로 전환합니다.
+3. 프롬프트에서 다음 명령을 실행하여 새로 만든 **mypgsqldb** 데이터베이스에 대한 연결로 전환합니다.
     ```bash
     \c mypgsqldb
     ```
 
-6. `\q`를 입력한 다음, Enter 키를 선택하여 psql을 종료합니다. 완료되면 Cloud Shell을 닫을 수 있습니다.
+4. `\q`를 입력한 다음, Enter 키를 선택하여 psql을 종료합니다. 
 
-Cloud Shell에서 psql을 통해 Azure Database for PostgreSQL 서버에 연결하고, 빈 사용자 데이터베이스를 만들었습니다. 다른 일반적인 도구인 pgAdmin을 사용하여 연결하려면 다음 섹션으로 진행합니다.
+psql을 통해 Azure Database for PostgreSQL 서버에 연결하고, 빈 사용자 데이터베이스를 만들었습니다. 다른 일반적인 도구인 pgAdmin을 사용하여 연결하려면 다음 섹션으로 진행합니다.
 
 ## <a name="connect-to-the-postgresql-server-using-pgadmin"></a>pgAdmin을 사용하여 PostgreSQL 서버에 연결
 
-pgAdmin은 PostgreSQL에서 사용되는 오픈 소스 도구입니다. [pgAdmin 웹 사이트](http://www.pgadmin.org/)에서 pgAdmin을 설치할 수 있습니다. 사용 중인 pgAdmin 버전이 이 빠른 시작에 사용된 버전과 다를 수 있습니다. 추가 지침이 필요하면 pgAdmin 설명서를 참조하세요.
+pgAdmin은 PostgreSQL에서 사용되는 오픈 소스 도구입니다. [pgAdmin 웹 사이트](https://www.pgadmin.org/)에서 pgAdmin을 설치할 수 있습니다. 사용 중인 pgAdmin 버전이 이 빠른 시작에 사용된 버전과 다를 수 있습니다. 추가 지침이 필요하면 pgAdmin 설명서를 참조하세요.
 
 1. 클라이언트 컴퓨터에서 pgAdmin 응용 프로그램을 엽니다.
 

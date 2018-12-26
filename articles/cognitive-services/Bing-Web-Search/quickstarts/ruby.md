@@ -1,62 +1,112 @@
 ---
-title: 호출 및 응답 - Azure Cognitive Services용 Ruby 빠른 시작, Bing Web Search API | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Bing Web Search API를 사용하여 신속하게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: Ruby를 사용하여 웹 검색 수행 - Bing Web Search API'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작을 사용하여 Ruby를 통해 Bing Web Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: b0f5c395fcdf043f4111f63ef16f0d33d5257e74
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: aahi
+ms.custom: seodec2018
+ms.openlocfilehash: 911d90229473d6972f07ed0a75af487a27008fa5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374070"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249671"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-in-ruby"></a>호출 및 응답: Ruby에서 첫 번째 Bing Web Search 쿼리
+# <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>빠른 시작: Ruby를 사용하여 Bing Web Search API 호출  
 
-Bing Web Search API는 사용자의 쿼리와 관련있다고 Bing이 확인하는 검색 결과를 반환하여 Bing.com/Search와 유사한 환경을 제공합니다. 결과에는 웹 페이지, 이미지, 비디오, 뉴스 및 엔터티와 함께 관련 검색 쿼리, 맞춤법 수정, 표준 시간대, 단위 변환, 번역 및 계산이 포함될 수 있습니다. 사용자가 얻는 결과의 종류는 사용자가 구독한 Bing Search API의 계층과 관련성에 따릅니다.
+이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 10분 내에 JSON 응답을 받습니다.  
 
-이 문서에는 Bing Web Search API 쿼리를 수행하고 JSON 형식의 반환된 원시 검색 결과를 표시하는 간단한 콘솔 응용 프로그램이 포함됩니다. Ruby에서 이 응용 프로그램이 작성되는 반면 API는 RESTful 웹 서비스로서 HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
-예제 코드를 실행하려면 [Ruby 2.4 이상](https://www.ruby-lang.org/en/downloads/)이 필요합니다.
+* [Ruby 2.4 이상](https://www.ruby-lang.org/en/downloads/)
+* 구독 키
 
-**Bing Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
+## <a name="create-a-project-and-declare-required-modules"></a>프로젝트 만들기 및 필요한 모듈 선언
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+즐겨 찾는 IDE 또는 편집기에서 새 Ruby 프로젝트를 만듭니다. 그런 다음, 요청에는 `net/https`, URI 처리에는 `uri`, 응답 구문 분석에는 `json`이 필요합니다.
 
-응용 프로그램을 실행하려면 다음 단계를 따릅니다.
+```ruby
+require 'net/https'
+require 'uri'
+require 'json'
+```
 
-1. 즐겨찾는 IDE 또는 편집기에서 새 Ruby 프로젝트를 만듭니다.
-2. 제공된 코드를 추가합니다.
-3. `accessKey` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
-4. 프로그램을 실행합니다.
+## <a name="define-variables"></a>변수 정의
+
+계속하기 전에 몇 가지 변수를 설정해야 합니다. `$uri` 및 `path`가 올바른지 확인하고 `accessKey` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `term` 값을 바꿔 검색 쿼리를 사용자 지정할 수 있습니다.
+
+```ruby
+accessKey = "YOUR_SUBSCRIPTION_KEY"
+uri  = "https://api.cognitive.microsoft.com"
+path = "/bing/v7.0/search"
+term = "Microsoft Cognitive Services"
+
+if accessKey.length != 32 then
+    puts "Invalid Bing Search API subscription key!"
+    puts "Please paste yours into the source code."
+    abort
+end
+```
+
+## <a name="make-a-request"></a>요청하기
+
+이 코드를 사용하여 요청하고 응답을 처리합니다.
+
+```ruby
+# Construct the endpoint uri.
+uri = URI(uri + path + "?q=" + URI.escape(term))
+puts "Searching the Web for: " + term
+
+# Create the request.
+request = Net::HTTP::Get.new(uri)
+request['Ocp-Apim-Subscription-Key'] = accessKey
+
+# Get the response.
+response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+    http.request(request)
+end
+```
+
+## <a name="print-the-response"></a>응답 출력
+
+헤더의 유효성을 검사하고, 응답 데이터의 형식을 JSON으로 지정한 다음, 결과를 출력합니다.
+
+```ruby
+puts "\nRelevant Headers:\n\n"
+response.each_header do |key, value|
+    # Header names are lower-cased.
+    if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
+        puts key + ": " + value
+    end
+end
+
+puts "\nJSON Response:\n\n"
+puts JSON::pretty_generate(JSON(response.body))
+```
+
+## <a name="put-it-all-together"></a>모든 요소 결합
+
+마지막 단계는 코드의 유효성을 검사하고 실행하는 것입니다! 자신의 코드와 비교하려면 여기에 있는 완전한 프로그램을 사용하세요.
 
 ```ruby
 require 'net/https'
 require 'uri'
 require 'json'
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
 accessKey = "enter key here"
-
-# Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-# search APIs.  In the future, regional endpoints may be available.  If you
-# encounter unexpected authorization errors, double-check this value against
-# the endpoint for your Bing Web search instance in your Azure dashboard.
-
 uri  = "https://api.cognitive.microsoft.com"
 path = "/bing/v7.0/search"
-
 term = "Microsoft Cognitive Services"
 
 if accessKey.length != 32 then
@@ -66,7 +116,6 @@ if accessKey.length != 32 then
 end
 
 uri = URI(uri + path + "?q=" + URI.escape(term))
-
 puts "Searching the Web for: " + term
 
 request = Net::HTTP::Get.new(uri)
@@ -78,7 +127,6 @@ end
 
 puts "\nRelevant Headers:\n\n"
 response.each_header do |key, value|
-    # header names are coerced to lowercase
     if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
         puts key + ": " + value
     end
@@ -88,9 +136,9 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## <a name="json-response"></a>JSON 응답
+## <a name="sample-response"></a>샘플 응답
 
-샘플 응답은 다음과 같습니다. JSON의 길이를 제한하기 위해 단일 결과만 표시하고 응답의 다른 부분은 잘라냈습니다. 
+Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 단일 결과를 표시하도록 잘렸습니다.
 
 ```json
 {
@@ -219,9 +267,4 @@ puts JSON::pretty_generate(JSON(response.body))
 > [!div class="nextstepaction"]
 > [Bing Web Search 단일 페이지 앱 자습서](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>참고 항목 
-
-[Bing Web Search 개요](../overview.md)  
-[사용해 보세요](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[평가판 액세스 키 받기](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Bing Web Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

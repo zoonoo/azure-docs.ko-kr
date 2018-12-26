@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 2d70aff4cc569a194740fdab9373b7e11a1fcb15
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 7107c4ebd3f7df5966dd4c66aa8f453bd4f3d1d6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084351"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228354"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>PowerShell을 사용하여 Notification Hubs 배포 및 관리
 ## <a name="overview"></a>개요
-이 문서는 PowerShell을 사용하여 Azure Notification Hubs를 만들기 및 관리 방법을 보여줍니다. 다음과 같은 일반적인 자동화 작업은이 항목에 표시됩니다.
+이 문서는 PowerShell을 사용하여 Azure Notification Hubs를 만들기 및 관리 방법을 보여줍니다. 다음과 같은 일반적인 자동화 작업은 이 문서에 표시됩니다.
 
 * 알림 허브 만들기
 * 자격 증명 설정
@@ -89,10 +89,10 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 이 스크립트 부분에서는 4개의 로컬 변수를 설정합니다. 
 
-1. `$Namespace` : 알림 허브를 만들려는 네임스페이스 이름으로 설정합니다.
-2. `$Path` : 새 알림 허브의 이름으로 설정합니다.  예를 들면 "MyHub"와 같습니다.    
-3. `$WnsPackageSid` : [Windows 개발자 센터](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)의 Windows 앱용 패키지 SID로 설정합니다.
-4. `$WnsSecretkey`: [Windows 개발자 센터](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)의 Windows 앱 비밀 키로 설정합니다.
+1. `$Namespace`: 알림 허브를 만들려는 네임스페이스 이름으로 설정합니다.
+2. `$Path`: 새 알림 허브의 이름으로 설정합니다.  예를 들면 "MyHub"와 같습니다.    
+3. `$WnsPackageSid`: [Windows 개발자 센터](https://developer.microsoft.com/en-us/windows)의 Windows 앱용 패키지 SID로 설정합니다.
+4. `$WnsSecretkey`: [Windows 개발자 센터](https://developer.microsoft.com/en-us/windows)의 Windows 앱 비밀 키로 설정합니다.
 
 이러한 변수를 네임스페이스에 연결하고 새 알림 허브를 만들어서 Windows 앱용 WNS 자격 증명으로 WNS(Windows Notification Services) 알림을 처리합니다. 패키지SID 및 보안 키를 얻는 방법에 대한 정보는 [Notification Hubs 시작](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서를 참조하세요. 
 
@@ -147,8 +147,8 @@ else
 
 ## <a name="additional-resources"></a>추가 리소스
 * [PowerShell을 사용하여 Service Bus 관리](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-* [PowerShell 스크립트를 사용하여 Service Bus 큐, 토픽 및 구독을 만드는 방법](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [PowerShell 스크립트를 사용하여 Service Bus 네임스페이스 및 Event Hub를 만드는 방법](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [PowerShell 스크립트를 사용하여 Service Bus 큐, 토픽 및 구독을 만드는 방법](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [PowerShell 스크립트를 사용하여 Service Bus 네임스페이스 및 Event Hub를 만드는 방법](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
 즉시 사용 가능한 스크립트도 다운로드 가능합니다.
 
@@ -158,8 +158,8 @@ else
 [구성원 제안]: http://azure.microsoft.com/pricing/member-offers/
 [평가판]: http://azure.microsoft.com/pricing/free-trial/
 [Azure PowerShell 설치 및 구성]: /powershell/azureps-cmdlets-docs
-[Notification Hubs용 .NET API]: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
-[Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
-[New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
-[Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
+[Notification Hubs용 .NET API]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+[Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
+[New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbauthorizationrule
 

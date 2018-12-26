@@ -2,24 +2,21 @@
 title: 예측 유지 관리 솔루션에 대한 Azure AI 가이드 | Microsoft Docs
 description: 여러 수직 산업 분야에서 예측 유지 관리 솔루션을 구동하는 데이터 과학에 대해 포괄적으로 설명합니다.
 services: machine-learning
-author: fboylu
+author: marktab
 manager: cgronlun
-editor: ''
-ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
+editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: fboylu
-ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.author: tdsp
+ms.custom: (previous author=fboylu, ms.author=fboylu)
+ms.openlocfilehash: 1538357a744e4a2c885b6552ca94efc6642d2880
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938012"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444922"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 가이드
 
@@ -162,7 +159,7 @@ PdM를 통해 모든 사용 사례 또는 비즈니스 문제를 효과적으로
 |_비행기 엔진 부품 오류_ | 다양한 부품의 상태에 대한 정보를 제공하는 비행기의 센서에서 수집된 데이터입니다. 유지 관리 레코드를 통해 구성 요소 오류가 발생한 시기 및 교체된 시기를 식별할 수 있습니다.|
 |_ATM 오류_ | 각 트랜잭션(현금/수표 예금) 및 현금 인출에 대한 센서 판독값입니다. 지폐 간 간격 측정값, 지폐 두께, 지폐 공급 거리, 현금 특성 등에 대한 정보입니다. 오류 코드, 복구 정보, 현금 인출기가 채워진 마지막 시간을 제공하는 유지 관리 레코드입니다.|
 |_풍력 터빈 오류_ | 센서는 온도, 바람 방향, 생성된 전기, 발전기 속도 등 터빈 상태를 모니터링합니다. 다양한 지역에 위치한 풍력 발전소의 여러 풍력 터빈에서 데이터를 수집합니다. 일반적으로 각 터빈은 여러 센서가 고정된 시간 간격으로 릴레이 측정값을 읽도록 합니다.|
-|_회로 차단기 오류_ | 수정, 예방 및 체계적 작업을 포함하는 유지 관리 로그입니다. 열기 및 닫기 작업 등 회로 차단기에 전송된 자동 및 수동 명령이 포함된 운영 데이터입니다. 제조 날짜, 위치, 모델 등 장치 메타데이터입니다. 전압 수준, 지리적 위치, 주변 조건 등 회로 차단기 사양입니다.|
+|_회로 차단기 오류_ | 수정, 예방 및 체계적 작업을 포함하는 유지 관리 로그입니다. 열기 및 닫기 작업 등 회로 차단기에 전송된 자동 및 수동 명령이 포함된 운영 데이터입니다. 제조 날짜, 위치, 모델 등 디바이스 메타데이터입니다. 전압 수준, 지리적 위치, 주변 조건 등 회로 차단기 사양입니다.|
 |_엘리베이터 도어 오류_| 엘리베이터 종류, 제조 날짜, 유지 관리 빈도, 건물 종류 등 엘리베이터 메타데이터입니다. 도어 주기의 수, 평균 도어 닫기 시간 등 운영 정보입니다. 원인을 포함한 오류 기록입니다.|
 |_휠 오류_ | 휠 가속, 절단되는 경우, 주행 거리, 속도 등을 측정하는 센서 데이터입니다. 제조업체, 제조 날짜와 같은 휠에 대한 고정 정보입니다. 주문 날짜 및 수량을 추적하는 부품 주문 데이터베이스에서 유추된 오류 데이터입니다.|
 |_지하철 차량문 오류_ | 문을 열고 닫을 때 차량문의 현재 상태 등 기타 운영 데이터입니다. 고정 데이터에는 자산 식별자, 시간 및 조건 값 열이 포함됩니다.|
@@ -232,12 +229,12 @@ PdM의 다른 유용한 기술은 데이터에서 이상을 감지하는 알고�
 
 | 자산 ID | Time | <Feature Columns> | 레이블 |
 | ---- | ---- | --- | --- |
-| A123 |1일차 | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. | 에서도 확인할 수 있습니다. |
-| A123 |2일차 | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. | 에서도 확인할 수 있습니다. |
-| ...  |...   | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. | 에서도 확인할 수 있습니다. |
-| B234 |1일차 | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. | 에서도 확인할 수 있습니다. |
-| B234 |2일차 | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. | 에서도 확인할 수 있습니다. |
-| ...  |...   | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. | 에서도 확인할 수 있습니다. |
+| A123 |1일차 | . . . | . |
+| A123 |2일차 | . . . | . |
+| ...  |...   | . . . | . |
+| B234 |1일차 | . . . | . |
+| B234 |2일차 | . . . | . |
+| ...  |...   | . . . | . |
 
 기능 엔지니어링의 마지막 단계는 대상 변수의 **레이블 지정**입니다. 이 프로세스는 모델링 기술에 따라 달라집니다. 차례로 모델링 기술은 사용 가능한 데이터의 비즈니스 문제 및 특성에 따라 달라집니다. 레이블 지정은 다음 섹션에서 설명합니다.
 
@@ -312,7 +309,7 @@ PdM의 다른 유용한 기술은 데이터에서 이상을 감지하는 알고�
 
 가장 일반적인 방법은 예제를 _k_ 접기로 임의 분할하는 _K 접기 교차 유효성 검사_입니다. 각 하이퍼 매개 변수 값 집합에서 학습 알고리즘을 _k_번 실행합니다. 반복 시마다 현재 접기의 예제를 유효성 검사 집합으로 사용하고 나머지 예제를 학습 집합으로 사용합니다. 학습 예제를 통해 알고리즘을 학습하고 유효성 검사 예제를 통해 성능 메트릭을 계산합니다. 이 루프의 끝에서 _k_ 성능 메트릭의 평균을 계산합니다. 하이퍼 매개 변수 값의 각 집합에서 최상의 평균 성능을 제공하는 값을 선택합니다. 하이퍼 매개 변수를 선택하는 작업은 본질적으로 실험적 경우가 많습니다.
 
-PdM 문제에서 데이터는 여러 데이터 원본에서 가져온 이벤트의 시계열로 기록됩니다. 이러한 레코드는 레이블이 지정된 시간에 따라 정렬할 수 있습니다. 따라서 데이터 집합을 학습 및 유효성 검사 집합으로 _임의_ 분할하는 경우 _일부 학습 예제는 일부 유효성 검사 예제보다 시간상 뒤에 있게 됩니다_. 모델을 학습하기 _전에_ 도착한 일부 데이터를 기반으로 하이퍼 매개 변수 값의 향후 성능이 예측됩니다. 특히 시계열이 고정되지 않고 시간에 따라 변화하는 경우 이러한 예측은 지나치게 낙관적일 수 있습니다. 결과적으로 선택된 하이퍼 매개 변수 값은 최적이 아닐 수 있습니다.
+PdM 문제에서 데이터는 여러 데이터 원본에서 가져온 이벤트의 시계열로 기록됩니다. 이러한 레코드는 레이블이 지정된 시간에 따라 정렬할 수 있습니다. 따라서 데이터 세트를 학습 및 유효성 검사 집합으로 _임의_ 분할하는 경우 _일부 학습 예제는 일부 유효성 검사 예제보다 시간상 뒤에 있게 됩니다_. 모델을 학습하기 _전에_ 도착한 일부 데이터를 기반으로 하이퍼 매개 변수 값의 향후 성능이 예측됩니다. 특히 시계열이 고정되지 않고 시간에 따라 변화하는 경우 이러한 예측은 지나치게 낙관적일 수 있습니다. 결과적으로 선택된 하이퍼 매개 변수 값은 최적이 아닐 수 있습니다.
 
 권장된 방법은 예제를 학습 및 유효성 검사 집합으로 _시간 종속_ 방식으로 분할하는 것입니다. 이 경우에 모든 유효성 검사 예제가 모든 학습 예제보다 시간상 뒤에 있게 됩니다. 하이퍼 매개 변수 값의 각 집합에서 학습 데이터 집합에 대한 알고리즘을 학습합니다. 동일한 유효성 검사 집합에 대한 모델의 성능을 측정합니다. 최고의 성능을 보여주는 하이퍼 매개 변수 값을 선택합니다. 학습/유효성 검사 분할에 의해 선택된 하이퍼 매개 변수 값은 교차 유효성 검사에 의해 임의 선택된 값보다 향후 모델 성능이 더 우수합니다.
 
@@ -347,9 +344,9 @@ RUL을 예측하는 데 사용되는 회귀 모델은 유출 문제의 영향을
 ### <a name="handling-imbalanced-data"></a>불균형 데이터 처리
 분류 문제에서 한 클래스에 다른 클래스보다 더 많은 예제가 있는 경우 이 데이터 집합을 _불균형_하다고 합니다. 이상적으로 서로 다른 클래스를 구분할 수 있으려면 학습 데이터의 각 클래스에 충분한 대표값이 있는 것이 좋습니다. 한 클래스가 데이터의 10% 미만이면 데이터는 불균형이라고 간주됩니다. 대표값이 부족한 클래스는 _소수 클래스_라고 합니다.
 
-PdM에서는 하나의 클래스가 다른 클래스에 비해 심각하게 대표값이 부족한 불균형 데이터 집합 문제에 직면하게 됩니다. 경우에 따라 소수 클래스는 총 데이터 요소의 0.001%만을 구성할 수 있습니다. 클래스 불균형은 PdM에서만 발생하지 않습니다. 오류 및 잘못된 부분이 드물게 발생하는 다른 도메인의 경우 비슷한 문제(예: 부정 행위 감지 및 네트워크 침입)가 발생합니다. 이러한 오류는 소수 클래스 예제를 구성합니다.
+PdM에서는 하나의 클래스가 다른 클래스에 비해 심각하게 대표값이 부족한 불균형 데이터 세트 문제에 직면하게 됩니다. 경우에 따라 소수 클래스는 총 데이터 요소의 0.001%만을 구성할 수 있습니다. 클래스 불균형은 PdM에서만 발생하지 않습니다. 오류 및 잘못된 부분이 드물게 발생하는 다른 도메인의 경우 비슷한 문제(예: 부정 행위 감지 및 네트워크 침입)가 발생합니다. 이러한 오류는 소수 클래스 예제를 구성합니다.
 
-데이터의 클래스 불균형이 발생하면 전체 오류율을 최소화하는 것을 목표로 하므로 대부분의 표준 학습 알고리즘의 성능이 저하됩니다. 99% 음수와 1% 양수 예제를 포함한 데이터 집합의 경우 모든 인스턴스의 레이블을 음수로 지정하여 99% 정확도를 가진 모델을 보여줄 수 있습니다. 하지만 해당 모델은 모든 양수 예제를 잘못 분류합니다. 따라서 정확도가 높더라도 알고리즘은 유용하지 않습니다. 따라서 _오류율에 대한 전체 정확도_와 같은 기존의 평가 메트릭만으로는 불균형 학습에서 충분하지 않습니다. 불균형 데이터 집합이 존재하는 경우 다른 메트릭을 모델 평가에 사용합니다.
+데이터의 클래스 불균형이 발생하면 전체 오류율을 최소화하는 것을 목표로 하므로 대부분의 표준 학습 알고리즘의 성능이 저하됩니다. 99% 음수와 1% 양수 예제를 포함한 데이터 집합의 경우 모든 인스턴스의 레이블을 음수로 지정하여 99% 정확도를 가진 모델을 보여줄 수 있습니다. 하지만 해당 모델은 모든 양수 예제를 잘못 분류합니다. 따라서 정확도가 높더라도 알고리즘은 유용하지 않습니다. 따라서 _오류율에 대한 전체 정확도_와 같은 기존의 평가 메트릭만으로는 불균형 학습에서 충분하지 않습니다. 불균형 데이터 세트가 존재하는 경우 다른 메트릭을 모델 평가에 사용합니다.
 - 자릿수
 - 회수
 - F1 점수
@@ -404,7 +401,7 @@ PdM에서 정상 예제보다 소수 클래스를 구성하는 오류에 더 관
 
 앞서 설명한 대로 PdM에 대한 모델 운영화는 다른 기능과 다릅니다. 일반적으로 변칙 검색 및 오류 감지가 포함된 시나리오에서는 _온라인 점수 매기기_(_실시간 점수 매기기_라고도 함)를 구현합니다. 여기에서 모델은 들어오는 각 레코드의 _점수를 매기고_ 예측을 반환합니다. 변칙 검색의 경우 예측은 비정상적으로 발생했음을 나타냅니다(예: 1클래스 SVM). 오류 검색의 경우 오류의 형식이나 클래스가 검색됩니다.
 
-반면, PdM은 _일괄 처리 점수 매기기_를 포함합니다. 모델 서명을 준수하기 위해 새 데이터의 기능은 학습 데이터와 같은 방식으로 설계되어야 합니다. 새 데이터에 일반적인 대량 데이터 집합의 경우 기능은 기간 동안 집계되고 일괄 처리로 점수가 매겨집니다. 일괄 처리 점수 매기기는 [Spark](http://spark.apache.org/) 또는 [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics)와 같은 분산된 시스템에서 일반적으로 수행됩니다. 최적이 아닌 몇 가지 대안이 있습니다.
+반면, PdM은 _일괄 처리 점수 매기기_를 포함합니다. 모델 서명을 준수하기 위해 새 데이터의 기능은 학습 데이터와 같은 방식으로 설계되어야 합니다. 새 데이터에 일반적인 대량 데이터 세트의 경우 기능은 기간 동안 집계되고 일괄 처리로 점수가 매겨집니다. 일괄 처리 점수 매기기는 [Spark](http://spark.apache.org/) 또는 [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics)와 같은 분산된 시스템에서 일반적으로 수행됩니다. 최적이 아닌 몇 가지 대안이 있습니다.
 - 스트리밍 데이터 엔진은 기간 동안 메모리를 집계하도록 지원합니다. 따라서 온라인 점수 매기기를 지원한다고 할 수 있습니다. 하지만 이러한 시스템은 짧은 기간에 집중된 데이터 또는 긴 기간 동안 희소한 요소에 적합합니다. PdM 시나리오에서와 볼 수 있듯이 긴 기간 동안 집중된 데이터를 측정할 수 없습니다.
 - 일괄 처리 점수 매기기가 지원되지 않는 경우 한 번에 작은 일괄 처리로 새 데이터를 처리하도록 온라인 점수 매기기를 조정하는 방법이 있습니다.
 
@@ -414,31 +411,30 @@ PdM에서 정상 예제보다 소수 클래스를 구성하는 오류에 더 관
 
 | # | 제목 | 설명 |
 |--:|:------|-------------|
-| 1 | [Azure 예측 유지 관리 Machine Learning 샘플](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |다음 N번째 단위에서 오류를 예측하는 PdM 샘플입니다. 이 샘플은 Azure ML Workbench 프로젝트로 작성되었으며 PdM 초보자에게 가장 적합합니다. 이 샘플과 관련된 [추가 설명서](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance)입니다.|
-| 2 | [Azure 예측 유지 관리 솔루션 템플릿](https://github.com/Azure/AI-PredictiveMaintenance) | 여러 PdM 시나리오를 설명하는 종단 간 프레임워크입니다. 이 템플릿에서는 두 가지 시나리오를 제공합니다. 첫 번째는 실시간 오류 조건 분류의 새로운 사용 사례입니다. 두 번째 시나리오는 솔루션 [1]을 이 솔루션 템플릿으로 단순히 통합한 것입니다. 동일하게 배포된 인프라를 다시 사용하여 다른 기존 또는 새로운 시나리오를 추가하는 방법을 보여줍니다.|
+| 2 | [Azure 예측 유지 관리 솔루션 템플릿](https://github.com/Azure/AI-PredictiveMaintenance) | IoT 원격 모니터링의 컨텍스트에서 예측 유지 관리 시나리오를 지원할 수 있는 전체 Azure 인프라 및 ML 모델링을 보여 주는 오픈 소스 솔루션 템플릿입니다. |
 | 3 | [예측 유지 관리에 대한 딥 러닝](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | [이 샘플의 블로그 게시물](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance)에서 예측 유지 관리에 LSTM(Long Short-Term Memory) 네트워크(되풀이 신경망의 클래스)를 사용하는 데모 솔루션을 포함한 Azure Notebook입니다.|
 | 4 | [R의 예측 유지 관리 모델링 가이드](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | R에서 스크립트를 사용하는 PdM 모델링 가이드입니다.|
 | 5 | [우주 항공에 대한 Azure 예측 유지 관리](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | 비행기 유지 관리에 대해 Azure ML v1.0에 기반한 첫 번째 PdM 솔루션 템플릿 중 하나입니다. 이 가이드는 이 프로젝트에서 시작되었습니다. |
 | 6 | [Azure AI Toolkit for IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | TensorFlow를 사용하는 IoT Edge의 AI입니다. 도구 모음은 Azure IoT Edge와 호환 가능한 Docker 컨테이너에 있는 도구 모음 패키지 딥 러닝 모델이며 REST API로 해당 모델을 노출합니다.
 | 7 | [Azure IoT 예측 유지 관리](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - 미리 구성된 솔루션입니다. IoT Suite를 사용하는 비행기 유지 관리 PdM 템플릿입니다. 동일한 프로젝트와 연결된 [다른 문서](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) 및 [연습](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough)입니다. |
 | 8 | [SQL Server R Services를 사용한 예측 유지 관리 템플릿](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | R 서비스에 기반한 잔여 수명 시나리오의 데모입니다. |
-| 9 | [예측 유지 관리 모델링 가이드](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | AzureML v1.0에서 [실험](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) 및 [데이터 집합](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) 및 [Azure Notebook](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) 및 [실험](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)에서 R을 사용하여 엔지니어링된 비행기 유지 관리 데이터 집합 기능|
+| 9 | [예측 유지 관리 모델링 가이드](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | AzureML v1.0에서 [실험](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) 및 [데이터 세트](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) 및 [Azure Notebook](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) 및 [실험](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)에서 R을 사용하여 엔지니어링된 비행기 유지 관리 데이터 세트 기능|
 
 ## <a name="training-resources-for-predictive-maintenance"></a>예측 유지 관리에 대한 교육 리소스
 
-[예측 유지 관리에 대한 Azure AI 학습 경로](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md)에서는 PdM 문제에서 사용되는 알고리즘 및 기술을 넘어 개념 및 수학을 깊이 이해할 수 있는 교육 자료를 제공합니다. 
-
-Microsoft Azure에서는 일반적인 AI 개념 및 사례에 대한 무료 콘텐츠 및 교육을 제공합니다.
+Microsoft Azure는 일반적인 AI 개념과 연습에 대한 콘텐츠 및 학습 외에도 PdM 기술의 기본 개념을 학습할 수 있는 경로를 제공합니다.
 
 | 학습 리소스  | 가용성 |
 |:-------------------|--------------|
-| [Azure의 AI 개발자](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | 공용 |
-| [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | 공용 |
+| [트리 및 임의 포리스트를 사용한 PdM에 대한 학습 경로](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | 공용 | 
+| [심층 학습을 사용한 PdM에 대한 학습 경로](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | 공용 |
+| [Azure의 AI 개발자](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | 공용 |
+| [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | 공용 |
 | [GitHub의 Azure AI 학습](https://github.com/Azure/connectthedots/blob/master/readme.md) | 공용 |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | 공용 |
 | [Microsoft AI YouTube 웨비나](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | 공용 |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | 공용 |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | Microsoft 파트너의 경우 |
-| [Microsoft 파트너 네트워크](http://learningportal.microsoft.com) | Microsoft 파트너의 경우 |
+| [LearnAI@MS](https://learnanalytics.microsoft.com) | 파트너 |
+| [Microsoft 파트너 네트워크](https://learningportal.microsoft.com) | 파트너 |
 
 또한 AI에서 무료 MOOCS(대규모 오픈 온라인 강의)는 스탠퍼드 및 MIT와 같은 교육 기관 및 기타 교육 회사에서 온라인으로 제공합니다.

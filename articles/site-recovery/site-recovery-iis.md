@@ -1,23 +1,22 @@
 ---
-title: Azure Site Recovery를 사용하여 다중 계층 IIS 기반 웹 응용 프로그램 복제 | Microsoft Docs
+title: Azure Site Recovery를 사용하여 다중 계층 IIS 기반 웹 응용 프로그램에 대한 재해 복구 설정 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 IIS 웹 팜 가상 머신을 복제하는 방법을 알아봅니다.
-services: site-recovery
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 830ced767a34302a635b9e685a2aee60c95fc81f
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 49435665ae1e99dd2b9696e5e5bb048e438dcc4c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920851"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832959"
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 응용 프로그램 복제
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 응용 프로그램에 대한 재해 복구 설정
 
-응용 프로그램 소프트웨어는 조직에서 비즈니스 생산성의 엔진입니다. 다양한 웹 응용 프로그램은 조직 내 여러 용도로 사용될 수 있습니다. 급여 처리, 재무 및 고객 지향 웹 사이트에 사용되는 응용 프로그램과 같은 일부 응용 프로그램은 조직에 중요할 수 있습니다. 생산성 저하를 방지하려면 조직에서 이러한 응용 프로그램을 지속적으로 작동하고 실행해야 합니다. 더 중요한 것은 이러한 응용 프로그램을 일관되게 사용할 수 있게 되면 조직의 브랜드 또는 이미지가 손상되지 않도록 하는 데 도움이 될 수 있습니다.
+애플리케이션 소프트웨어는 조직에서 비즈니스 생산성의 엔진입니다. 다양한 웹 애플리케이션은 조직 내 여러 용도로 사용될 수 있습니다. 급여 처리, 재무 및 고객 지향 웹 사이트에 사용되는 응용 프로그램과 같은 일부 응용 프로그램은 조직에 중요할 수 있습니다. 생산성 저하를 방지하려면 조직에서 이러한 응용 프로그램을 지속적으로 작동하고 실행해야 합니다. 더 중요한 것은 이러한 응용 프로그램을 일관되게 사용할 수 있게 되면 조직의 브랜드 또는 이미지가 손상되지 않도록 하는 데 도움이 될 수 있습니다.
 
 중요한 웹 응용 프로그램은 일반적으로 웹, 데이터베이스 및 응용 프로그램이 서로 다른 계층에 있는 다중 계층 응용 프로그램으로 설정됩니다. 여러 계층으로 분산되는 것 외에도, 응용 프로그램은 각 계층에 여러 서버를 사용하여 트래픽 부하를 분산할 수도 있습니다. 또한 다양한 계층 간 및 웹 서버 상의 매핑은 고정 IP 주소를 기반으로 할 수 있습니다. 장애 조치 시, 특히 웹 서버에 여러 웹 사이트가 구성된 경우 이러한 매핑 중 일부를 업데이트해야 합니다. 웹 응용 프로그램에서 SSL을 사용하는 경우 인증서 바인딩을 업데이트해야 합니다.
 
@@ -61,10 +60,10 @@ ARR, IIS 서버, 응용 프로그램 서버 및 SQL Server가 있는 IIS 기반 
 
 시나리오 | 보조 사이트 대상 | Azure 대상
 --- | --- | ---
-Hyper-V | 예 | 예
-VMware | 예 | 예
-물리적 서버 | 아니오 | 예
-Azure|해당 없음|예
+Hyper-V | yes | yes
+VMware | yes | yes
+물리적 서버 | 아니요 | yes
+Azure|해당 없음|yes
 
 ## <a name="replicate-virtual-machines"></a>가상 머신 복제
 
@@ -75,7 +74,7 @@ Azure|해당 없음|예
 ![Site Recovery 계산 및 네트워크 창에서 대상 IP를 설정하는 방법을 보여 주는 스크린샷](./media/site-recovery-active-directory/dns-target-ip.png)
 
 ## <a name="create-a-recovery-plan"></a>복구 계획 만들기
-복구 계획은 장애 조치(failover) 시에 다중 계층 응용 프로그램에서 여러 계층의 시퀀싱을 지원합니다. 시퀀싱은 응용 프로그램의 일관성을 유지하는 데 도움이 됩니다. 다중 계층 웹 응용 프로그램에 대한 복구 계획을 만드는 경우 [Site Recovery를 사용하여 복구 계획 만들기](site-recovery-create-recovery-plans.md)에서 설명한 단계를 수행합니다.
+복구 계획은 장애 조치(failover) 시에 다중 계층 응용 프로그램에서 여러 계층의 시퀀싱을 지원합니다. 시퀀싱은 애플리케이션의 일관성을 유지하는 데 도움이 됩니다. 다중 계층 웹 응용 프로그램에 대한 복구 계획을 만드는 경우 [Site Recovery를 사용하여 복구 계획 만들기](site-recovery-create-recovery-plans.md)에서 설명한 단계를 수행합니다.
 
 ### <a name="add-virtual-machines-to-failover-groups"></a>장애 조치 그룹에 가상 머신 추가
 일반적인 다중 계층 IIS 웹 응용 프로그램을 구성하는 요소는 다음과 같습니다.
@@ -98,7 +97,7 @@ IIS 웹 팜 기능이 제대로 작동하려면 장애 조치 후 또는 테스�
 #### <a name="dns-update"></a>DNS 업데이트
 DNS가 동적 DNS 업데이트로 구성된 경우 가상 머신은 일반적으로 시작할 때 DNS를 새 IP 주소로 업데이트합니다. DNS를 가상 머신의 새 IP 주소로 업데이트하는 명시적 단계를 추가하려면 복구 계획 그룹에 장애 조치 후 작업으로 [DNS의 IP를 업데이트하는 스크립트](https://aka.ms/asr-dns-update)를 추가합니다.  
 
-#### <a name="connection-string-in-an-applications-webconfig"></a>응용 프로그램의 web.config에 있는 연결 문자열
+#### <a name="connection-string-in-an-applications-webconfig"></a>애플리케이션의 web.config에 있는 연결 문자열
 연결 문자열은 웹 사이트에서 통신하는 데이터베이스를 지정합니다. 연결 문자열에 데이터베이스 가상 머신의 이름이 포함되어 있으면 장애 조치 후 추가 단계가 필요하지 않습니다. 응용 프로그램은 데이터베이스와 자동으로 통신할 수 있습니다. 또한 데이터베이스 가상 머신의 IP 주소가 유지되면 연결 문자열을 업데이트할 필요가 없습니다. 
 
 연결 문자열에서 IP 주소를 사용하여 데이터베이스 가상 머신을 참조하는 경우 장애 조치 후에 업데이트해야 합니다. 예를 들어 다음 연결 문자열은 IP 주소가 127.0.1.2인 데이터베이스를 가리킵니다.
@@ -112,7 +111,7 @@ DNS가 동적 DNS 업데이트로 구성된 경우 가상 머신은 일반적으
 
 웹 계층에서 연결 문자열을 업데이트하려면 복구 계획에서 그룹 3 뒤에 [IIS 연결 업데이트 스크립트](https://aka.ms/asr-update-webtier-script-classic)를 추가합니다.
 
-#### <a name="site-bindings-for-the-application"></a>응용 프로그램에 대한 사이트 바인딩
+#### <a name="site-bindings-for-the-application"></a>애플리케이션에 대한 사이트 바인딩
 모든 사이트는 바인딩 정보로 구성됩니다. 바인딩 정보에는 바인딩 유형, IIS 서버에서 사이트에 대한 요청을 수신 대기하는 IP 주소, 포트 번호 및 사이트에 대한 호스트 이름이 포함됩니다. 장애 조치 중에 연결된 IP 주소가 변경되면 이러한 바인딩을 업데이트해야 할 수 있습니다.
 
 > [!NOTE]

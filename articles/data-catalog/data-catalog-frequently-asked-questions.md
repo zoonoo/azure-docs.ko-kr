@@ -1,25 +1,19 @@
 ---
-title: "Azure Data Catalog에 대한 질문과 대답 | Microsoft Docs"
-description: "데이터 원본 검색, 주석 및 관리에 대한 기능을 포함한 Azure Data Catalog에 대한 질문과 대답입니다."
+title: Azure 데이터 카탈로그에 대한 질문과 대답
+description: 데이터 원본 검색, 주석 및 관리에 대한 기능을 포함한 Azure Data Catalog에 대한 질문과 대답입니다.
 services: data-catalog
-documentationcenter: 
-author: steelanddata
-manager: NA
-editor: 
-tags: 
+author: markingmyname
+ms.author: maghan
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 1f69912e654ac243a0c4f30426d17ce4199e498f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231467"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 데이터 카탈로그에 대한 질문과 대답
 이 문서는 Azure Data Catalog 서비스와 관련된 질문에 대한 대답을 제공합니다.
@@ -105,7 +99,7 @@ ms.lasthandoff: 01/19/2018
 전문가는 데이터 개체에 대해 정보에 근거한 관점을 가진 사람입니다. 개체에는 여러 전문가가 있을 수 있습니다. 전문가가 개체에 대한 “소유자”가 될 필요는 없습니다. 쉽게 말해 전문가는 데이터 사용 방법과 사용 목적을 아는 사람입니다.
 
 ## <a name="how-do-i-share-information-with-the-data-catalog-team-if-i-encounter-problems"></a>문제가 발생했을 때 데이터 카탈로그 팀과 정보를 공유하려면 어떻게 하나요?
-문제를 보고하고, 정보를 공유하며, 질문을 하려면 [Azure Data Catalog 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)으로 이동합니다.
+문제를 보고하고, 정보를 공유하며, 질문을 하려면 [Azure Data Catalog 포럼](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)으로 이동합니다.
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>카탈로그에서 관심이 있는 다른 데이터 원본과 함께 작업하나요?
 Microsoft는 데이터 카탈로그에 더 많은 데이터 원본을 추가하는 작업을 활발히 하고 있습니다. 특정 데이터 원본이 지원되는지 확인하려는 경우 [Azure 피드백 포럼의 Data Catalog](https://feedback.azure.com/forums/906052-data-catalog)로 이동하여 제안하시기 바랍니다. 또는 이미 제안되어 있는 경우 제안에 의견을 더해 주시기 바랍니다.
@@ -133,4 +127,4 @@ Azure Data Catalog를 Power BI의 데이터 카탈로그가 진화한 것으로 
 카탈로그에 이미 등록된 데이터 자산에 대한 메타데이터를 업데이트하려면 단순히 해당 자산을 포함하는 데이터 원본을 다시 등록하면 됩니다. 테이블이나 뷰에서 추가 또는 제거되는 열과 같이 데이터 원본의 변경 사항은 카탈로그에서 업데이트되지만, 사용자가 제공한 주석은 유지됩니다.
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>내 질문에 대답이 없습니다. 어디에서 답변을 찾을 수 있나요?
-[Azure Data Catalog 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)으로 이동합니다. 게시된 질문을 여기에서 찾을 수 있습니다.
+[Azure Data Catalog 포럼](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)으로 이동합니다. 게시된 질문을 여기에서 찾을 수 있습니다.

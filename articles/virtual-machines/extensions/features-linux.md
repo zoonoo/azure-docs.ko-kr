@@ -3,7 +3,7 @@ title: Linux용 Azure VM 확장 및 기능 | Microsoft Docs
 description: 확장이 제공하거나 개선하는 기능별로 그룹화하여 Azure 가상 머신에 사용할 수 있는 확장을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
-ms.openlocfilehash: 760f832bc12bccbf1cce77db25bf60413ad9a36b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33945005"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037001"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -54,7 +54,8 @@ Azure VM 에이전트는 Azure VM과 Azure 패브릭 컨트롤러 간 상호 작
 
 #### <a name="supported-oses"></a>지원되는 OS
 
-Linux 에이전트는 여러 OS에서 실행되지만 확장 프레임워크는 OS 확장에 대한 제한이 있습니다. 자세한 내용은 [이 문서](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems)를 참조하세요.
+Linux 에이전트는 여러 OS에서 실행되지만 확장 프레임워크는 OS 확장에 대한 제한이 있습니다. 자세한 내용은 [이 문서](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+)(영문)를 읽어보세요.
 
 일부 확장은 모든 OS에서 지원되지 않으며 *오류 코드 51, ‘지원되지 않는 OS’* 를 내보낼 수 있습니다. 지원 가능성에 대한 개별 확장 설명서를 확인합니다.
 
@@ -63,9 +64,9 @@ Linux 에이전트는 여러 OS에서 실행되지만 확장 프레임워크는 
 확장 패키지는 Azure Storage 확장 리포지토리에서 다운로드되고, 확장 상태 업로드는 Azure Storage에 게시됩니다. 에이전트의 [지원](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 버전을 사용하는 경우 에이전트를 사용하여 에이전트 통신을 위한 Azure 패브릭 컨트롤러에 통신을 리디렉션할 수 있는 것처럼 VM 지역에서 Azure Storage에 대한 액세스 권한을 허용하지 않아도 됩니다. 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
 
 > [!IMPORTANT]
-> 게스트 방화벽을 사용하여 *168.63.129.1*에 대한 액세스를 차단한 경우 확장은 위와 관계 없이 실패합니다.
+> 게스트 방화벽을 사용하여 *168.63.129.16*에 대한 액세스를 차단한 경우 확장은 위와 관계 없이 실패합니다.
 
-에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 응용 프로그램이므로 요구 사항이 다릅니다. Azure Storage에 대한 액세스 권한이 필요한 확장의 경우 [Storage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스할 수 있습니다.
+에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 응용 프로그램이므로 요구 사항이 다릅니다. Azure Storage에 대한 액세스 권한이 필요한 확장의 경우 [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스할 수 있습니다.
 
 Linux 에이전트에는 에이전트 트래픽 요청을 리디렉션하기 위한 프록시 서버 지원이 있습니다. 단, 이 프록시 서버 지원은 확장을 적용하지 않습니다. 프록시로 작동하려면 각 개별 확장을 구성해야 합니다.
 
@@ -83,7 +84,7 @@ Azure VM 확장은 기존 VM에서 실행됩니다. 이러한 기능은 이미 �
 
 다음 방법을 사용하여 기존 VM에 대해 확장을 실행할 수 있습니다.
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예에서는 *myResourceGroup*이라는 리소스 그룹의 *myVM*이라는 VM에 대해 사용자 지정 스크립트 확장을 실행합니다.
 
@@ -259,7 +260,7 @@ Goal state agent: 2.2.18
 
 ‘목표 상태 에이전트’는 자동 업데이트 버전입니다.
 
-항상 에이전트에 대한 자동 업데이트([AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent))를 사용하는 것이 가장 좋습니다. 자동 업데이트를 사용하지 않으면 에이전트를 계속 수동으로 업데이트해야 하고 버그 및 보안 수정을 사용하지 못하게 됩니다.
+항상 에이전트에 대한 자동 업데이트([AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent))를 사용하는 것이 가장 좋습니다. 자동 업데이트를 사용하지 않으면 에이전트를 계속 수동으로 업데이트해야 하고 버그 및 보안 수정을 사용하지 못하게 됩니다.
 
 #### <a name="extension-updates"></a>확장 업데이트
 
@@ -408,7 +409,7 @@ az vm extension delete \
 | Linux용 사용자 지정 스크립트 확장 |Azure Virtual Machine에 대해 스크립트 실행 |[Linux용 사용자 지정 스크립트 확장](custom-script-linux.md) |
 | VM 액세스 확장 |Azure Virtual Machine에 대한 액세스 권한 복구 |[VM 액세스 확장](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure 진단 확장 |Azure 진단 관리 |[Azure 진단 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM 액세스 확장 |사용자 및 자격 증명 관리 |[Linux용 VM 액세스 확장](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure VM 액세스 확장 |사용자 및 자격 증명 관리 |[Linux용 VM 액세스 확장](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>다음 단계
 

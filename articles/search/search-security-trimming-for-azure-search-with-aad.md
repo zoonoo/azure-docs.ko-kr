@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 75017a1a3a400ca5390210225f26a6c5f3bb7c47
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856167"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684640"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터
 
@@ -28,7 +28,7 @@ ms.locfileid: "37856167"
 - 그룹 식별자 필터를 사용하여 검색 요청 실행
 
 >[!NOTE]
-> 이 문서의 샘플 코드 조각은 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](http://aka.ms/search-dotnet-howto)를 참조하세요. 
+> 이 문서의 샘플 코드 조각은 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](https://aka.ms/search-dotnet-howto)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -63,7 +63,7 @@ Microsoft Graph는 REST API를 통해 AAD에 프로그래밍 방식으로 액세
 
 사용자 및 그룹 멤버 자격은 유동적이며, 조직 규모가 클수록 더욱 그렇습니다. 조직 멤버 자격의 변경 내용을 선택할 수 있을 만큼 사용자 및 그룹 ID를 빌드하는 코드를 충분히 자주 실행해야 합니다. 마찬가지로, Azure Search 인덱스에는 허용된 사용자 및 리소스의 현재 상태를 반영하도록 비슷한 업데이트 일정이 필요합니다.
 
-### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomgraphdocsapi-referencev10apigrouppostgroups"></a>1단계: [AAD 그룹](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/group_post_groups) 만들기 
+### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apigrouppostgroups"></a>1단계: [AAD 그룹](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_post_groups) 만들기 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomgraphdocsapi-referencev10apiuserpostusers"></a>2단계: [AAD 사용자](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_post_users) 만들기 
+### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apiuserpostusers"></a>2단계: [AAD 사용자](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users) 만들기 
 ```csharp
 User user = new User()
 {
@@ -98,7 +98,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>4단계: 그룹 식별자 캐시
-필요에 따라 네트워크 대기 시간을 줄이기 위해, 검색 요청이 실행되면 캐시에서 그룹이 반환되어 AAD로의 왕복 시간을 단축하도록 사용자 그룹 연결을 캐시할 수 있습니다. (AAD Batch API)[https://developer.microsoft.com/graph/docs/concepts/json_batching]를 사용하여 여러 사용자가 있는 단일 HTTP 요청을 보내고 캐시를 작성할 수 있습니다.
+필요에 따라 네트워크 대기 시간을 줄이기 위해, 검색 요청이 실행되면 캐시에서 그룹이 반환되어 AAD로의 왕복 시간을 단축하도록 사용자 그룹 연결을 캐시할 수 있습니다. [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching)를 사용하여 여러 사용자가 있는 단일 Http 요청을 보내고 캐시를 빌드할 수 있습니다.
 
 Microsoft Graph는 많은 양의 요청을 처리하도록 설계되었습니다. 요청이 너무 많이 발생하면 Microsoft Graph가 HTTP 상태 코드 429와 함께 요청을 실패합니다. 자세한 내용은 [Microsoft Graph 제한](https://developer.microsoft.com/graph/docs/concepts/throttling)을 참조하세요.
 

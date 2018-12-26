@@ -3,7 +3,7 @@ title: Azure API Management 정책을 설정 및 편집하는 방법 | Microsoft
 description: 이 항목에서는 Azure API Management 정책을 설정하거나 편집하는 방법을 보여 줍니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cflower
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: aaf86a440328e27c8c47b809536951eeaf2104b9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936700"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008269"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Azure API Management 정책을 설정 및 편집하는 방법
 
@@ -33,15 +33,14 @@ ms.locfileid: "33936700"
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. APIM 인스턴스로 이동합니다.
 3. **API** 탭을 클릭합니다.
+
+    ![정책 편집](./media/set-edit-policies/code-editor.png)
+
 4. 이전에 가져온 API 중 하나를 선택합니다.
 5. **디자인** 탭을 선택합니다.
 6. 정책을 적용하려는 작업을 선택합니다. 모든 작업에 정책을 적용하려는 경우 **모든 작업**을 선택합니다.
-7. **인바운드** 또는 **아웃바운드** 연필 옆에 있는 삼각형을 클릭합니다.
-8. **코드 편집기** 항목을 선택합니다.
-
-    ![정책 편집](./media/set-edit-policies/set-edit-policies01.png)
-
-9. 원하는 정책 코드를 적절한 블록 중 하나에 붙여넣습니다.
+7. **인바운드 처리** 또는 **아웃바운드 처리** 섹션에서 **</>**(코드 편집기) 아이콘을 선택합니다.
+8. 원하는 정책 코드를 적절한 블록 중 하나에 붙여넣습니다.
          
         <policies>
              <inbound>

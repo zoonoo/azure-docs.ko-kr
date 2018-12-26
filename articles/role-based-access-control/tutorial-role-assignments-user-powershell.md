@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/11/2018
 ms.author: rolyon
-ms.openlocfilehash: 4eeae864721040bda18409b48abf5d33b81ca609
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cac585b36c3b5969a18c941215b623443850cd4c
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295901"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301731"
 ---
 # <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>자습서: RBAC 및 Azure PowerShell을 사용하여 사용자에게 액세스 권한 부여
 
@@ -31,7 +31,7 @@ ms.locfileid: "36295901"
 > * 액세스 권한 나열
 > * 액세스 권한 제거
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -109,7 +109,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 사용자에게 액세스 권한을 부여하려면 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) 명령을 사용하여 역할을 할당합니다. 보안 주체, 역할 정의 및 범위를 지정해야 합니다.
 
-1. [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) 명령을 사용하여 구독 ID를 가져옵니다.
+1. [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) 명령을 사용하여 구독 ID를 가져옵니다.
 
     ```azurepowershell
     Get-AzureRmSubscription

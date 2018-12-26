@@ -1,6 +1,6 @@
 ---
 title: Windows AWS VM을 Azure로 이동 | Microsoft Docs
-description: Azure PowerShell을 사용하여 AWS(Amazon Web Services) EC2 Windows 인스턴스를 Azure Virtual Machines로 이동합니다.
+description: AWS(Amazon Web Services) EC2 Windows 인스턴스를 Azure 가상 머신으로 이동합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: cb5b68e7bd0a1b247327e7147fe38eae19395f50
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3fa890b02c791f26f3f25bf2418b105d1116ca75
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726536"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094429"
 ---
-# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>PowerShell을 사용하여 AWS(Amazon Web Services)에서 Azure로 Windows VM 이동
+# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>AWS(Amazon Web Services)에서 Azure 가상 머신으로 Windows VM 이동
 
 워크로드를 호스팅하기 위해 Azure 가상 머신을 평가하는 경우 기존 AWS(Amazon Web Services) EC2 Windows VM 인스턴스를 내보낸 다음 VHD(가상 하드 디스크)를 Azure로 업로드할 수 있습니다. VHD를 업로드하면 VHD에서 Azure로 새 VM을 만들 수 있습니다. 
 

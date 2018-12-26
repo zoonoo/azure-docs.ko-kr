@@ -10,19 +10,22 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: ba779ebcbc791f9caa60948feeb38b88a23ef379
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5387eeacc78875ac0f38f96a6c83fb3f5791775e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640665"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167622"
 ---
 #    <a name="text-merge-cognitive-skill"></a>텍스트 병합 인식 기술
 
 **텍스트 병합** 기술은 필드 컬렉션에서 단일 필드로 텍스트를 통합합니다. 
 
+> [!NOTE]
+> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
+
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Util.TextMerger
+Microsoft.Skills.Text.MergeSkill
 
 ## <a name="skill-parameters"></a>기술 매개 변수
 
@@ -101,7 +104,7 @@ Microsoft.Skills.Util.TextMerger
         ]
     },
     {
-      "@odata.type": "#Microsoft.Skills.Util.TextMerger",
+      "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
       "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
@@ -119,7 +122,7 @@ Microsoft.Skills.Util.TextMerger
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetname" : "merged_text"
+          "name": "mergedText", "targetName" : "merged_text"
         }
       ]
     }

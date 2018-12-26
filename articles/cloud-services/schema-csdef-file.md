@@ -10,25 +10,25 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: b7735dbf-8e91-4d1b-89f7-2f17e9302469
 caps.latest.revision: 42
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: d5e086a952e18e477177634e5c197c27d4a5cc5f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9cb78362b5c0613d6ed6820bbf8e6d3275ab4787
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359019"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250665"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Azure Cloud Services 정의 스키마(.csdef 파일)
-서비스 정의 파일은 응용 프로그램에 대한 서비스 모델을 정의합니다. 파일은 클라우드 서비스에 사용할 수 있는 역할에 대한 정의가 포함되며, 서비스 끝점을 지정하고, 서비스에 대한 구성 설정을 설정합니다. 구성 설정 값은 [Cloud Service(클래식) 구성 스키마](http://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35)에 설명된 대로 서비스 구성 파일에서 설정됩니다.
+서비스 정의 파일은 응용 프로그램에 대한 서비스 모델을 정의합니다. 파일은 클라우드 서비스에 사용할 수 있는 역할에 대한 정의가 포함되며, 서비스 엔드포인트를 지정하고, 서비스에 대한 구성 설정을 설정합니다. 구성 설정 값은 [Cloud Service(클래식) 구성 스키마](https://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35)에 설명된 대로 서비스 구성 파일에서 설정됩니다.
 
 기본적으로 Azure 진단 구성 스키마 파일은 `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` 디렉터리에 설치됩니다. `<version>`을 [Azure SDK](http://www.windowsazure.com/develop/downloads/)의 설치된 버전으로 바꿉니다.
 
 서비스 정의 파일의 기본 확장명은 .csdef입니다.
 
 ## <a name="basic-service-definition-schema"></a>기본 서비스 정의 스키마
-서비스 정의 파일은 `ServiceDefinition` 요소를 하나 포함해야 합니다. 서비스 정의는 하나 이상의 역할(`WebRole` 또는 `WorkerRole`) 요소를 포함해야 합니다. 단일 정의에 정의된 역할을 최대 25개 포함할 수 있으며 역할 유형과 함께 사용할 수 있습니다. 또한 서비스 정의는 특정 내부 끝점과 통신할 수 있는 역할을 제한하는 선택적 `NetworkTrafficRules` 요소를 포함합니다. 서비스 정의는 고객이 정의한 끝점의 상태 프로브를 포함하는 선택적 `LoadBalancerProbes` 요소를 포함합니다.
+서비스 정의 파일은 `ServiceDefinition` 요소를 하나 포함해야 합니다. 서비스 정의는 하나 이상의 역할(`WebRole` 또는 `WorkerRole`) 요소를 포함해야 합니다. 단일 정의에 정의된 역할을 최대 25개 포함할 수 있으며 역할 유형과 함께 사용할 수 있습니다. 또한 서비스 정의는 특정 내부 엔드포인트와 통신할 수 있는 역할을 제한하는 선택적 `NetworkTrafficRules` 요소를 포함합니다. 서비스 정의는 고객이 정의한 엔드포인트의 상태 프로브를 포함하는 선택적 `LoadBalancerProbes` 요소를 포함합니다.
 
 서비스 정의 파일의 기본 형식은 다음과 같습니다.
 

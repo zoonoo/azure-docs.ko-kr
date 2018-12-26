@@ -2,18 +2,22 @@
 title: PowerShell을 사용하여 Azure SQL Database 탄력적 작업 에이전트 만들기 | Microsoft Docs
 description: PowerShell을 사용하여 탄력적 작업 에이전트를 만드는 방법을 알아봅니다.
 services: sql-database
-author: johnpaulkee
-manager: craigg
 ms.service: sql-database
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: tutorial
-ms.date: 06/14/2018
+author: johnpaulkee
 ms.author: joke
-ms.openlocfilehash: dc2776e0f3b14d5fd2375f735c18345c32ca743a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.reviwer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 9b38e1b6ba55fab46965fdc7a73ab608e1e6b754
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033737"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877805"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기
 
@@ -35,18 +39,25 @@ ms.locfileid: "37033737"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-최신 미리 보기 **AzureRM.Sql** 모듈을 설치하여 탄력적 작업 cmdlet을 가져옵니다. 이렇게 하려면 관리자 권한 명령 프롬프트에서 관리자 권한으로 다음 명령을 실행합니다.
+**AzureRM.Sql** 4.8.1-미리 보기 모듈을 설치하여 최신 탄력적 작업 cmdlet을 가져옵니다. 관리자 권한으로 PowerShell에서 다음 명령을 실행합니다.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
 Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
 
-# You may need to restart the powershell session
 # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
 Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 
+# Restart your powershell session with administrative access
+
 # Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
-Install-Module -Name AzureRM.Sql -AllowPrerelease -Force
+Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
+
+# Import the AzureRM.Sql 4.8.1 module
+Import-Module AzureRM.Sql -RequiredVersion 4.8.1
+
+# Confirm if module successfully imported - if the imported version is 4.8.1, then continue
+Get-Module AzureRM.Sql
 ```
 
 ## <a name="create-required-resources"></a>필수 리소스 만들기

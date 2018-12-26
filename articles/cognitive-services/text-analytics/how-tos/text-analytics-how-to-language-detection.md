@@ -6,21 +6,24 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: f8e2d9a36533c298addcf42d3cb2061e9c2d1ac7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 984a027a1fe2f9c894701058452490bdf12b66c4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373870"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338739"
 ---
-# <a name="how-to-detect-language-in-text-analytics"></a>Text Analytics에서 언어를 감지하는 방법
+# <a name="example-how-to-detect-language-in-text-analytics"></a>예제: Text Analytics에서 언어를 감지하는 방법
 
 [언어 감지 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)는 텍스트 입력을 평가하고, 각 문서에 대해 분석 강도를 나타내는 점수가 있는 언어 식별자를 반환합니다. Text Analytics는 최대 120개 언어를 인식합니다.
 
 이 기능은 알 수 없는 언어로 된 임의의 텍스트를 수집하는 콘텐츠 저장소에 유용합니다. 이 분석의 결과를 구문 분석하여 입력 문서에서 사용된 언어를 판별할 수 있습니다. 또한 응답에서는 모델의 신뢰도가 반영된 점수(0과 1 사이의 값)를 반환합니다.
+
+> [!TIP]
+> Text Analytics는 언어 검색을 위한 Linux 기반 Docker 컨테이너 이미지도 제공하므로 데이터와 가까이 [Text Analytics 컨테이너를 설치하고 실행](text-analytics-how-to-install-containers.md)할 수 있습니다.
 
 ## <a name="preparation"></a>준비
 
@@ -49,7 +52,7 @@ id, text 형식의 JSON 문서가 있어야 합니다.
             },                
             {
                 "id": "5",
-                "text": "Этот документ находится на английском языке."
+                "text": "Этот документ на английском языке."
             }
         ]
     }
@@ -59,9 +62,9 @@ id, text 형식의 JSON 문서가 있어야 합니다.
 
 요청 정의에 대한 자세한 내용은 [텍스트 분석 API를 호출하는 방법](text-analytics-how-to-call-api.md)에서 찾을 수 있습니다. 편의상 다음 사항을 다시 설명합니다.
 
-+ **POST** 요청을 만듭니다. 이 요청에 대한 [언어 감지 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) 설명서를 검토합니다.
++ **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [언어 감지 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)를 검토합니다.
 
-+ 언어 감지에 대한 HTTP 엔드포인트를 설정합니다. `/languages` 리소스를 포함해야 합니다(예: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`).
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 언어 검색을 위한 HTTP 엔드포인트를 설정합니다. `/languages` 리소스를 포함해야 합니다(예: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`).
 
 + Text Analytics 작업에 대한 액세스 키가 포함되도록 요청 헤더를 설정합니다. 자세한 내용은 [엔드포인트 및 액세스 키를 찾는 방법](text-analytics-how-to-access-key.md)을 참조하세요.
 

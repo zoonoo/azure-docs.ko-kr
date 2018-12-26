@@ -1,28 +1,24 @@
 ---
-title: Visual Studio용 R 도구에서 작업 제출 - Azure HDInsight | Microsoft Docs
+title: Visual Studio용 R 도구에서 작업 제출 - Azure HDInsight
 description: 로컬 Visual Studio 컴퓨터에서 HDInsight 클러스터로 R 작업을 제출합니다.
 services: hdinsight
-documentationcenter: ''
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
+author: maxluk
+ms.author: maxluk
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: maxluk
-ms.openlocfilehash: eb7b538737e54b2c3d8a32e2ba65f7e0762a302c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d9d34441f36ea60141ed2659b3e33efdaac94ad3
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047159"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497117"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
 
-RTVS([Visual Studio용 R 도구](https://www.visualstudio.com/vs/rtvs/))는 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 및 [Visual Studio 2015 업데이트 3](http://go.microsoft.com/fwlink/?LinkId=691129) 이상의 Community(무료), Professional 및 Enterprise 버전에 대한 무료, 오픈 소스 확장입니다.
+RTVS([Visual Studio용 R 도구](https://www.visualstudio.com/vs/rtvs/))는 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 및 [Visual Studio 2015 업데이트 3](https://go.microsoft.com/fwlink/?LinkId=691129) 이상의 Community(무료), Professional 및 Enterprise 버전에 대한 무료, 오픈 소스 확장입니다.
 
 RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https://docs.microsoft.com/visualstudio/rtvs/debugging) 등을 통해 [R 대화형 창](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl)(REPL), intellisense(코드 완성), [플롯 시각화](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data)와 같은 도구를 제공하여 R 워크플로를 개선합니다.
 
@@ -68,7 +64,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>HDInsight ML 서비스 클러스터에 작업 제출
 
-PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Client를 사용하여, 로컬 클라이언트에서 HDInsight 클러스터로 분산 `RevoScaleR` 함수를 실행하는 계산 컨텍스트를 만들 수 있습니다. `RxSpark`를 통해 사용자 이름, Hadoop 클러스터의 Edge 노드, SSH 스위치 등을 지정하여 계산 컨텍스트를 만듭니다.
+PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Client를 사용하여, 로컬 클라이언트에서 HDInsight 클러스터로 분산 `RevoScaleR` 함수를 실행하는 계산 컨텍스트를 만들 수 있습니다. `RxSpark`를 통해 사용자 이름, Apache Hadoop 클러스터의 Edge 노드, SSH 스위치 등을 지정하여 컴퓨팅 컨텍스트를 만듭니다.
 
 1. 에지 노드의 호스트 이름을 찾으려면 Azure에서 HDInsight ML 서비스 클러스터 창을 연 다음, 개요 창의 상단 메뉴에서 **SSH(보안 셸)** 를 선택합니다.
 
@@ -136,7 +132,7 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
 
         ![복사된 파일](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
 
-6. 현재 Spark 컨텍스트의 사용이 끝났으면 중지해야 합니다. 여러 컨텍스트를 한 번에 실행할 수 없습니다.
+6. 현재 Apache Spark 컨텍스트의 사용이 끝나면 중지해야 합니다. 여러 컨텍스트를 한 번에 실행할 수 없습니다.
 
     ```R
     rxStopEngine(mySparkCluster)

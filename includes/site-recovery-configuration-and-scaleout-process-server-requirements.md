@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: bc1beb53c5919914919e666ecf1836ec45d32ccf
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: ade53ba29d165b3b33ef25dabda25c4e60022608
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319729"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "40133477"
 ---
 **구성/프로세스 서버 요구 사항**
 
@@ -36,7 +36,7 @@ IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대
 | 
 **네트워크 설정** | 
 IP 주소 유형 | 공용 
-인터넷 액세스 | 서버에서 이러한 URL에 액세스해야 합니다(직접 또는 프록시를 통해). <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi(구성 서버를 설정하는 경우) <br> - time.nist.gov <br> - time.windows.com 
+인터넷 액세스 | 서버에서 이러한 URL에 액세스해야 합니다(직접 또는 프록시를 통해). <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https:\//management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF에는 다음 URL에 대한 액세스 권한도 필요합니다. <br> - https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//auth.gfx.ms <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com <br> - https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 포트 | 443(컨트롤 채널 오케스트레이션)<br>9443(데이터 전송) 
 NIC 유형 | VMXNET3(구성 서버가 VMware VM인 경우)
  | 
@@ -48,7 +48,7 @@ MYSQL | MySQL을 설치해야 합니다. 수동으로 설치할 수도 있고 Si
 
 **CPU** | **메모리** | **캐시 디스크** | **데이터 변경률** | **복제된 컴퓨터**
 --- | --- | --- | --- | ---
-vCPU 8대<br/><br/> 2개 소켓 * 4코어 @ 2.5GHz | 16GB | 300GB | 500GB 이하 | 컴퓨터 100대 미만
-vCPU 12대<br/><br/> 2개 소켓 * 6코어 @ 2.5GHz | 18GB | 600GB | 500GB-1TB | 컴퓨터 100-150대
-vCPU 16대<br/><br/> 2개 소켓 * 8코어 @ 2.5GHz | 32GB | 1TB | 1-2TB | 컴퓨터 150-200대
+vCPU 8대<br/><br/> 2개 소켓 * 4코어 \@ 2.5GHz | 16GB | 300GB | 500GB 이하 | 컴퓨터 100대 미만
+vCPU 12대<br/><br/> 2개 소켓 * 6코어 \@ 2.5GHz | 18GB | 600GB | 500GB-1TB | 컴퓨터 100-150대
+vCPU 16대<br/><br/> 2개 소켓 * 8코어 \@ 2.5GHz | 32GB | 1TB | 1-2TB | 컴퓨터 150-200대
 

@@ -1,23 +1,25 @@
 ---
-title: Computer Vision API를 사용한 실시간 비디오 분석 | Microsoft Docs
-description: Cognitive Services의 Computer Vision API를 사용하여 라이브 비디오 스트림에서 가져온 프레임을 거의 실시간으로 분석하는 방법을 알아봅니다.
+title: '예: Computer Vision API를 사용한 실시간 비디오 분석'
+titlesuffix: Azure Cognitive Services
+description: Computer Vision API를 사용하여 라이브 비디오 스트림에서 가져온 프레임을 거의 실시간으로 분석하는 방법을 알아봅니다.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: d75b1a887e5e4557d5464d8062e1bde628e7adab
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 058f2ad58665a88d2d3cf3ce20b43ac0fad30000
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374167"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983198"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>실시간으로 비디오를 분석하는 방법
 이 가이드에서는 라이브 비디오 스트림에서 가져온 프레임을 거의 실시간으로 분석하는 방법을 보여 줍니다. 이러한 시스템의 기본 구성 요소는 다음과 같습니다.
+
 - 비디오 소스에서 프레임 획득
 - 분석할 프레임 선택
 - API에 이러한 프레임 제출
@@ -59,10 +61,10 @@ while (true)
     }
 }
 ```
-그러면 각 분석이 별도의 작업에서 시작되며, 새 프레임을 계속 잡는 동안 백그라운드에서 실행할 수 있습니다. 이 경우 API 호출이 반환될 때까지 기다리는 동안 주 스레드가 차단되지 않지만, 제공된 간단한 버전인 여러 API 호출이 병렬로 발생하지 않을 수 있으며 결과가 잘못된 순서로 반환될 수 있습니다. 이로 인해 여러 스레드가 동시에 ConsumeResult() 함수를 시작할 수 있으므로 함수가 스레드로부터 안전하지 않은 경우 위험할 수 있습니다. 마지막으로, 이 간단한 코드는 생성되는 작업을 추적하지 않으므로 예외가 자동으로 사라집니다. 따라서 추가할 최종 요소는 분석 작업을 추적하고 예외를 발생시키며 장기 실행 작업을 종료하고 결과가 한 번에 하나씩, 올바른 순서로 사용되도록 하는 “소비자” 스레드입니다.
+이 방법을 사용하면 각 분석이 별도의 작업에서 시작되며, 새 프레임을 계속 잡는 동안 백그라운드에서 실행할 수 있습니다. 그러면 API 호출이 반환될 때까지 기다리는 동안 주 스레드가 차단되지 않지만, 제공된 간단한 버전인 여러 API 호출이 병렬로 발생하지 않을 수 있으며 결과가 잘못된 순서로 반환될 수 있습니다. 이 방법을 사용하면 여러 스레드가 동시에 ConsumeResult() 함수를 시작할 수 있으므로 함수가 스레드로부터 안전하지 않은 경우 위험할 수 있습니다. 마지막으로, 이 간단한 코드는 생성되는 작업을 추적하지 않으므로 예외가 자동으로 사라집니다. 따라서 추가할 최종 요소는 분석 작업을 추적하고 예외를 발생시키며 장기 실행 작업을 종료하고 결과가 한 번에 하나씩, 올바른 순서로 사용되도록 하는 “소비자” 스레드입니다.
 
 ### <a name="a-producer-consumer-design"></a>생산자-소비자 디자인
-최종 “생산자-소비자” 시스템에서는 이전의 무한 루프와 매우 유사한 생산자 스레드가 있습니다. 그러나 분석 결과가 제공되는 즉시 사용하는 대신 생산자는 단순히 작업을 큐에 배치하여 추적합니다.
+최종 “생산자-소비자” 시스템에서는 이전의 무한 루프와 유사한 생산자 스레드가 있습니다. 그러나 분석 결과가 제공되는 즉시 사용하는 대신 생산자는 단순히 작업을 큐에 배치하여 추적합니다.
 ```CSharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
@@ -199,11 +201,11 @@ namespace VideoFrameConsoleApplication
 모든 Cognitive Services와 마찬가지로 Microsoft API 및 샘플을 사용하여 개발하는 개발자는 “[Microsoft Cognitive Services에 대한 개발자 준수 사항](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)”을 따라야 합니다. 
 
 
-VideoFrameAnalyzer의 이미지, 음성, 비디오 또는 텍스트 해석 기능은 Microsoft Cognitive Services를 사용합니다. Microsoft는 이 앱을 통해 업로드하는 이미지, 오디오, 비디오 및 기타 데이터를 수신하며, 서비스 개선 목적으로 사용할 수 있습니다. 앱이 개인 데이터를 Microsoft Cognitive Services에 전송하는 사용자를 보호할 수 있도록 도와주시기 바랍니다. 
+VideoFrameAnalyzer의 이미지, 음성, 비디오 또는 텍스트 해석 기능은 Azure Cognitive Services를 사용합니다. Microsoft는 이 앱을 통해 업로드하는 이미지, 오디오, 비디오 및 기타 데이터를 수신하며, 서비스 개선 목적으로 사용할 수 있습니다. 앱이 개인 데이터를 Azure Cognitive Services에 전송하는 사용자를 보호할 수 있도록 도와주시기 바랍니다. 
 
 
 ## <a name="summary"></a>요약
-이 가이드에서는 Face, Computer Vision 및 Emotion API를 사용하여 라이브 비디오 스트림을 거의 실시간으로 분석하는 방법과 샘플 코드를 사용하여 시작하는 방법을 배웠습니다. [Microsoft Cognitive Services 등록 페이지](https://azure.microsoft.com/try/cognitive-services/)에서 무료 API 키를 사용하여 앱 빌드를 시작할 수 있습니다. 
+이 가이드에서는 Face, Computer Vision 및 Emotion API를 사용하여 라이브 비디오 스트림을 거의 실시간으로 분석하는 방법과 샘플 코드를 사용하여 시작하는 방법을 배웠습니다. [Microsoft Cognitive Services 등록 페이지](https://azure.microsoft.com/try/cognitive-services/)에서 체험 API 키를 사용하여 앱 빌드를 시작할 수 있습니다. 
 
 [GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)에서 자유롭게 피드백과 제안 사항을 말씀해 주셔도 되고, 보다 광범위한 API 피드백의 경우 [UserVoice 사이트](https://cognitive.uservoice.com/)를 이용하셔도 됩니다.
 

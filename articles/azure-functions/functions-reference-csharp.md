@@ -3,24 +3,20 @@ title: Azure Functions C# 스크립트 개발자 참조
 description: C# 스크립트를 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 12/12/2017
-ms.author: tdykstra
-ms.openlocfilehash: 1706eaeaa59f09f343d831f0c09f98210eadb820
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: glenga
+ms.openlocfilehash: d1127834732a6fc82e0331370a6c4173e9f61dcf
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970839"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685415"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 스크립트(.csx) 개발자 참조
 
@@ -39,6 +35,29 @@ Azure Functions에 대한 C# 스크립트 환경은 [Azure WebJobs SDK](https://
 *.csx* 형식을 사용하면 "상용구"를 덜 작성하고 C# 함수를 작성하는 데 집중할 수 있습니다. 네임스페이스 및 클래스의 모든 항목을 래핑하는 대신 `Run` 메서드만 정의합니다. 일반적으로 파일의 시작 부분에 모든 어셈블리 참조 및 네임스페이스를 포함합니다.
 
 함수 앱의 *.csx* 파일은 인스턴스가 초기화될 때 컴파일됩니다. 이 컴파일 단계는 콜드 시작 등의 방식이 C# 클래스 라이브러리에 비해 C# 스크립트 함수를 실행하는 데 더 오래 걸릴 수 있음을 의미합니다. 이 컴파일 단계는 C# 스크립트 함수가 C# 클래스 라이브러리와 달리 Azure Portal에서 편집 가능한 이유를 나타내기도 합니다.
+
+## <a name="folder-structure"></a>폴더 구조
+
+C# 스크립트 프로젝트에 필요한 폴더 구조는 다음과 같습니다.
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.csx)과 바인딩 구성 파일(function.json)이 있습니다.
+
+Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](functions-triggers-bindings.md#local-development-azure-functions-core-tools)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
 
 ## <a name="binding-to-arguments"></a>인수에 바인딩
 
@@ -62,12 +81,13 @@ Azure Functions에 대한 C# 스크립트 환경은 [Azure WebJobs SDK](https://
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Queue;
 using System;
 
-public static void Run(CloudQueueMessage myQueueItem, TraceWriter log)
+public static void Run(CloudQueueMessage myQueueItem, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem.AsString}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem.AsString}");
 }
 ```
 
@@ -109,9 +129,11 @@ POCO 클래스에는 각 속성에 대해 정의된 Getter 및 setter가 있어�
 ```csharp
 #load "mylogger.csx"
 
-public static void Run(TimerInfo myTimer, TraceWriter log)
+using Microsoft.Extensions.Logging;
+
+public static void Run(TimerInfo myTimer, ILogger log)
 {
-    log.Verbose($"Log by run.csx: {DateTime.Now}");
+    log.LogInformation($"Log by run.csx: {DateTime.Now}");
     MyLogger(log, $"Log by MyLogger: {DateTime.Now}");
 }
 ```
@@ -119,9 +141,9 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 예제 *mylogger.csx*:
 
 ```csharp
-public static void MyLogger(TraceWriter log, string logtext)
+public static void MyLogger(ILogger log, string logtext)
 {
-    log.Verbose(logtext);
+    log.LogInformation(logtext);
 }
 ```
 
@@ -133,12 +155,13 @@ HTTP 트리거를 위한 *run.csx* 예제:
 #load "..\shared\order.csx"
 
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Order> outputQueueItem, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Order> outputQueueItem, ILogger log)
 {
-    log.Info("C# HTTP trigger function received an order.");
-    log.Info(req.ToString());
-    log.Info("Submitting to processing queue.");
+    log.LogInformation("C# HTTP trigger function received an order.");
+    log.LogInformation(req.ToString());
+    log.LogInformation("Submitting to processing queue.");
 
     if (req.orderId == null)
     {
@@ -158,11 +181,12 @@ public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Ord
 #load "..\shared\order.csx"
 
 using System;
+using Microsoft.Extensions.Logging;
 
-public static void Run(Order myQueueItem, out Order outputQueueItem,TraceWriter log)
+public static void Run(Order myQueueItem, out Order outputQueueItem, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed order...");
-    log.Info(myQueueItem.ToString());
+    log.LogInformation($"C# Queue trigger function processed order...");
+    log.LogInformation(myQueueItem.ToString());
 
     outputQueueItem = myQueueItem;
 }
@@ -202,30 +226,30 @@ public class Order
 
 *function.json*에서 이름 `$return`을 사용하여 출력 바인딩에 메서드 반환 값을 사용할 수 있습니다. 예제를 보려면 [트리거 및 바인딩](functions-triggers-bindings.md#using-the-function-return-value)을 참조하세요.
 
+성공적인 함수 실행이 항상 출력 바인딩으로 전달할 반환 값을 생성하는 경우에만 반환 값을 사용합니다. 그렇지 않으면 다음 섹션에 나와 있는 것처럼 `ICollector` 또는 `IAsyncCollector`를 사용합니다.
+
 ## <a name="writing-multiple-output-values"></a>여러 출력 값 쓰기
 
-출력 바인딩에 여러 값을 쓰려면 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 형식을 사용합니다. 이러한 형식은 메서드가 완료될 때 출력 바인딩에 기록되는 쓰기 전용 컬렉션입니다.
+출력 바인딩에 여러 값을 쓰거나 성공적인 함수 호출이 출력 바인딩에 전달할 값을 생성하지 않는 경우 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 형식을 사용합니다. 이러한 형식은 메서드가 완료될 때 출력 바인딩에 기록되는 쓰기 전용 컬렉션입니다.
 
 이 예제에서는 `ICollector`를 사용하여 동일한 큐에 여러 큐 메시지를 씁니다.
 
 ```csharp
-public static void Run(ICollector<string> myQueueItem, TraceWriter log)
+public static void Run(ICollector<string> myQueue, ILogger log)
 {
-    myQueueItem.Add("Hello");
-    myQueueItem.Add("World!");
+    myQueue.Add("Hello");
+    myQueue.Add("World!");
 }
 ```
 
 ## <a name="logging"></a>로깅
 
-C#의 스트리밍 로그에 대한 출력을 기록하려면 `TraceWriter` 형식의 인수를 포함합니다. 이름을 `log`로 하는 것이 좋습니다. Azure Functions에서 `Console.Write`를 사용하지 마세요. 
-
-`TraceWriter`는 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs)에 정의되어 있습니다. `TraceWriter`에 대한 로그 수준은 [host.json](functions-host-json.md)에서 구성할 수 있습니다.
+C#의 스트리밍 로그에 대한 출력을 기록하려면 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 포함합니다. 이름을 `log`로 하는 것이 좋습니다. Azure Functions에서 `Console.Write`를 사용하지 마세요.
 
 ```csharp
-public static void Run(string myBlob, TraceWriter log)
+public static void Run(string myBlob, ILogger log)
 {
-    log.Info($"C# Blob trigger function processed: {myBlob}");
+    log.LogInformation($"C# Blob trigger function processed: {myBlob}");
 }
 ```
 
@@ -245,6 +269,8 @@ public async static Task ProcessQueueMessageAsync(
     await blobInput.CopyToAsync(blobOutput, 4096);
 }
 ```
+
+`out` 매개 변수는 비동기 함수에 사용할 수 없습니다. 출력 바인딩에는 [함수 반환 값](#binding-to-method-return-value) 또는 [수집기 개체](#writing-multiple-output-values)를 대신 사용합니다.
 
 ## <a name="cancellation-tokens"></a>취소 토큰
 
@@ -282,8 +308,9 @@ public static void Run(
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 ```
 
 다음 네임스페이스를 자동으로 가져오므로 다음은 선택적입니다.
@@ -307,8 +334,9 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 ```
 
 다음 어셈블리는 Azure Functions 호스팅 환경에 의해 자동으로 추가됩니다.
@@ -336,8 +364,10 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 ## <a name="referencing-custom-assemblies"></a>사용자 지정 어셈블리 참조
 
 사용자 지정 어셈블리를 참조하려면 *공유* 어셈블리 또는 *전용* 어셈블리를 사용합니다.
-- 공유 어셈블리는 함수 앱 내의 모든 함수에서 공유됩니다. 사용자 지정 어셈블리를 참조하려면 [함수 앱 루트 폴더](functions-reference.md#folder-structure)(wwwroot)의 `bin` 폴더에 해당 어셈블리를 업로드합니다. 
-- 전용 어셈블리는 지정된 함수 컨텍스트의 일부이며 여러 버전의 테스트용 로드를 지원합니다. 전용 어셈블리는 함수 디렉터리의 `bin` 폴더에 업로드해야 합니다. `#r "MyAssembly.dll"`과 같은 파일 이름을 사용하여 어셈블리를 참조합니다. 
+
+* 공유 어셈블리는 함수 앱 내의 모든 함수에서 공유됩니다. 사용자 지정 어셈블리를 참조하려면 [함수 앱 루트 폴더](functions-reference.md#folder-structure)(wwwroot)의 `bin` 폴더에 해당 어셈블리를 업로드합니다.
+
+* 전용 어셈블리는 지정된 함수 컨텍스트의 일부이며 여러 버전의 테스트용 로드를 지원합니다. 전용 어셈블리는 함수 디렉터리의 `bin` 폴더에 업로드해야 합니다. `#r "MyAssembly.dll"`과 같은 파일 이름을 사용하여 어셈블리를 참조합니다.
 
 함수 폴더에 파일을 업로드하는 방법에 대한 내용은 [패키지 관리](#using-nuget-packages)에 대한 섹션을 참조하세요.
 
@@ -346,34 +376,27 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 함수 스크립트 파일을 포함하는 디렉터리는 어셈블리 변경 내용이 자동으로 감시됩니다. 다른 디렉터리의 어셈블리 변경 내용을 감시하려면 [host.json](functions-host-json.md)의 `watchDirectories` 목록에 해당 디렉터리를 추가합니다.
 
 ## <a name="using-nuget-packages"></a>NuGet 패키지 사용
+C# 함수에서 NuGet 패키지를 사용하려면 *extensions.csproj* 파일을 함수 앱의 파일 시스템에 있는 함수의 폴더에 업로드합니다. 다음은 *Microsoft.ProjectOxford.Face* 버전 *1.1.0*에 참조를 추가하는 예제 *extensions.csproj* 파일입니다.
 
-C# 함수에서 NuGet 패키지를 사용하려면 *project.json* 파일을 함수 앱의 파일 시스템에 있는 함수의 폴더에 업로드합니다. 다음은 Microsoft.ProjectOxford.Face 버전 1.1.0에 참조를 추가하는 예제 *project.json* 파일입니다.
-
-```json
-{
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "Microsoft.ProjectOxford.Face": "1.1.0"
-      }
-    }
-   }
-}
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net46</TargetFramework>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ProjectOxford.Face" Version="1.1.0" />
+    </ItemGroup>
+</Project>
 ```
-
-Azure Functions 1.x에서는 .NET Framework 4.6만 지원되므로 *project.json* 파일이 다음과 같이 `net46`을 지정하도록 합니다.
-
-*project.json* 파일을 업로드하는 경우 런타임은 패키지를 가져오고 패키지 어셈블리에 참조를 자동으로 추가합니다. `#r "AssemblyName"` 지시문을 추가할 필요가 없습니다. NuGet 패키지에 정의된 형식을 사용하려면 필요한 `using` 문을 *run.csx* 파일에 추가하기만 하면 됩니다. 
-
-함수 런타임에서 NuGet 복원은 `project.json` 및 `project.lock.json`를 비교하여 작동합니다. 파일의 날짜와 타임스탬프가 일치하지 **않으면** NuGet에서는 복원을 실행하고 업데이트된 패키지를 다운로드합니다. 그러나 파일의 날짜 및 타임스탬프가 **일치하는** 경우 NuGet은 복원을 수행하지 않습니다. 따라서 `project.lock.json`을 배포하면 NuGet이 패키지 복원을 건너뛰므로 배포해서는 안 됩니다. 잠금 파일의 배포를 방지하려면 `project.lock.json`을 `.gitignore` 파일에 추가합니다.
 
 사용자 지정 NuGet 피드를 사용하려면 함수 앱 루트의 *Nuget.Config* 파일에서 피드를 지정합니다. 자세한 내용은 참조 [NuGet 동작 구성](/nuget/consume-packages/configuring-nuget-behavior)을 참조하세요.
 
-### <a name="using-a-projectjson-file"></a>project.json 파일 사용
+### <a name="using-a-extensionscsproj-file"></a>extensions.csproj 파일 사용
 
 1. Azure Portal에서 함수를 엽니다. 로그 탭에 패키지 설치 출력이 표시됩니다.
-2. project.json 파일을 업로드하려면 Azure Functions 개발자 참조 토픽의 [함수 앱 파일을 업데이트하는 방법](functions-reference.md#fileupdate)에 설명되어 있는 방법 중 하나를 사용합니다.
-3. *project.json* 파일을 업로드하면 함수의 스트리밍 로그에 다음 예제와 같은 출력이 표시됩니다.
+2. *extensions.csproj* 파일을 업로드하려면 Azure Functions 개발자 참조 항목의 [함수 앱 파일을 업데이트하는 방법](functions-reference.md#fileupdate)에 설명되어 있는 방법 중 하나를 사용합니다.
+3. *extensions.csproj* 파일을 업로드하면 함수의 스트리밍 로그에 다음 예제와 같은 출력이 표시됩니다.
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -383,7 +406,7 @@ Azure Functions 1.x에서는 .NET Framework 4.6만 지원되므로 *project.json
 2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
 2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
 2016-04-04T19:02:50.261
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\Project.json...
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
 2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
 2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
 2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.
@@ -397,11 +420,11 @@ Azure Functions 1.x에서는 .NET Framework 4.6만 지원되므로 *project.json
 환경 변수 또는 앱 설정 값을 가져오려면 다음 코드 예제와 같이 `System.Environment.GetEnvironmentVariable`을 사용합니다.
 
 ```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
+public static void Run(TimerInfo myTimer, ILogger log)
 {
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
-    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
 }
 
 public static string GetEnvironmentVariable(string name)
@@ -410,8 +433,6 @@ public static string GetEnvironmentVariable(string name)
         System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
 }
 ```
-
-[System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) 속성은 앱 설정 값을 가져오는 대체 API지만, 다음과 같이 `GetEnvironmentVariable`을 사용하는 것이 좋습니다.
 
 <a name="imperative-bindings"></a> 
 

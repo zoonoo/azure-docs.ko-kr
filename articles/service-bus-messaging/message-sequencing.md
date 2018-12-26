@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
-ms.author: sethm
-ms.openlocfilehash: a67a9d01f686c6aa8a569239667ae14d7bf087a9
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 09/25/2018
+ms.author: spelluru
+ms.openlocfilehash: 631c4334b1e2ca37dfc87709718b6639c2762c5c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200737"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857689"
 ---
 # <a name="message-sequencing-and-timestamps"></a>메시지 순서 지정 및 타임스탬프 
 
@@ -50,7 +50,6 @@ ms.locfileid: "28200737"
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

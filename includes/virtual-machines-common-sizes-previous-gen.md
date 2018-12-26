@@ -5,15 +5,15 @@ services: virtual-machines-windows, virtual-machines-linux
 author: cynthn
 ms.service: multiple
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 4b4dcb16adf207b775bd8411848d9e5d69c397a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 36902edd7b2df472960d19b8ef9a4ebd4cdfe695
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34669801"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906683"
 ---
 이 문서에서는 이전 세대의 가상 머신 크기에 대한 정보를 제공합니다. 이러한 크기를 계속 사용할 수 있지만 새로운 세대도 사용 가능합니다.
 
@@ -21,6 +21,10 @@ ms.locfileid: "34669801"
 ## <a name="ds-series"></a>DS 시리즈
 
 ACU: 160
+
+Premium Storage: 지원됨
+
+Premium Storage 캐싱: 지원됨
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -34,6 +38,10 @@ ACU: 160
 ## <a name="ds-series---memory-optimized"></a>DS 시리즈 - 메모리에 최적화
 
 ACU: 160 <sup>1</sup>
+
+Premium Storage: 지원됨
+
+Premium Storage 캐싱: 지원됨
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -50,6 +58,10 @@ ACU: 160 <sup>1</sup>
 
 ACU: 160
 
+Premium Storage: 지원되지 않음
+
+Premium Storage 캐싱: 지원되지 않음
+
 | 크기         | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D1  | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 4 / 4x500                         | 2 / 500                 |
@@ -63,6 +75,10 @@ ACU: 160
 
 ACU: 160
 
+Premium Storage: 지원되지 않음
+
+Premium Storage 캐싱: 지원되지 않음
+
 | 크기         | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
@@ -75,6 +91,10 @@ ACU: 160
 ## <a name="a-series---compute-intensive-instances"></a>A-시리즈 - 계산 집약적 인스턴스
 
 ACU: 225
+
+Premium Storage: 지원되지 않음
+
+Premium Storage 캐싱: 지원되지 않음
 
 A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 응용 프로그램, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 응용 프로그램을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다.  이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 
@@ -93,6 +113,10 @@ A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. �
 
 ACU: 50-100
 
+Premium Storage: 지원되지 않음
+
+Premium Storage 캐싱: 지원되지 않음
+
 | 크기 | vCPU | 메모리: GiB | 임시 저장소(HDD) GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 <sup>1</sup> |1 |0.768 |20 |1 |1x500 |2 / 100 |
@@ -108,6 +132,7 @@ ACU: 50-100
 <sup>1</sup> A0 크기는 실제 하드웨어에서 과도하게 구독됩니다. 이 특정 크기만 다른 고객 배포가 실행 중인 워크로드의 성능에 영향을 줄 수 있습니다. 상대적인 성능은 예상 기준으로 아래에 대략적으로 나와 있으며 약 15%의 변동성이 적용됩니다.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>CLI 및 PowerShell을 사용하는 Standard A0-A4
+
 클래식 배포 모델에서는 CLI와 PowerShell 간에 일부 VM 크기 이름이 약간 다릅니다.
 
 * Standard_A0은 ExtraSmall 
@@ -117,6 +142,10 @@ ACU: 50-100
 * Standard_A4는 ExtraLarge
 
 ## <a name="basic-a"></a>Basic A
+
+Premium Storage: 지원되지 않음
+
+Premium Storage 캐싱: 지원되지 않음
 
 기본 계층 크기는 부하 분산, 크기 자동 조정 또는 메모리 집약 가상 머신이 필요하지 않은 개발 워크로드 및 기타 응용 프로그램에 기본적으로 사용됩니다.
 

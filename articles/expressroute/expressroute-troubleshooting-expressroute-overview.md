@@ -41,22 +41,22 @@ ms.locfileid: "36753452"
 
 위의 다이어그램에서 숫자는 주요 네트워크 지점을 나타냅니다. 이 문서에서 네트워크 지점은 관련 번호로 자주 참조됩니다.
 
-ExpressRoute 연결 모델(Cloud Exchange Co-location, 지점 간 이더넷 연결 또는 Any-to-Any(IPVPN))에 따라 네트워크 지점 3 및 4는 스위치(계층 2 장치)일 수 있습니다. 위의 다이어그램에서 보여 주는 주요 네트워크 지점은 다음과 같습니다.
+ExpressRoute 연결 모델(Cloud Exchange Co-location, 지점 간 이더넷 연결 또는 Any-to-Any(IPVPN))에 따라 네트워크 지점 3 및 4는 스위치(계층 2 디바이스)일 수 있습니다. 위의 다이어그램에서 보여 주는 주요 네트워크 지점은 다음과 같습니다.
 
-1.  고객 계산 장치(예: 서버 또는 PC)
+1.  고객 계산 디바이스(예: 서버 또는 PC)
 2.  CE: 고객 에지 라우터 
 3.  PE(CE 연결): 고객 에지 라우터에 연결되는 공급자 에지 라우터/스위치입니다. 이 문서에서는 PE-CE라고 합니다.
 4.  PE(MSEE 연결): MSEE에 연결되는 공급자 에지 라우터/스위치입니다. 이 문서에서는 PE-MSEE라고 합니다.
 5.  MSEE: MSEE(Microsoft Enterprise Edge) ExpressRoute 라우터
 6.  VNet(Virtual Network) 게이트웨이
-7.  Azure VNet의 계산 장치
+7.  Azure VNet의 계산 디바이스
 
-연결 모델로 Cloud Exchange Co-location 또는 지점 간 이더넷 연결을 사용하는 경우 고객 에지 라우터(2)에서 MSEE(5)와의 BGP 피어링을 설정합니다. 네트워크 지점 3과 4는 여전히 존재하지만 계층 2 장치로 다소 투명하게 됩니다.
+연결 모델로 Cloud Exchange Co-location 또는 지점 간 이더넷 연결을 사용하는 경우 고객 에지 라우터(2)에서 MSEE(5)와의 BGP 피어링을 설정합니다. 네트워크 지점 3과 4는 여전히 존재하지만 계층 2 디바이스로 다소 투명하게 됩니다.
 
 Any-to-Any(IPVPN) 연결 모델을 사용하는 경우 PE(MSEE 연결)(4)에서 MSEE(5)와의 BGP 피어링을 설정합니다. 그러면 경로가 IPVPN 서비스 공급자 네트워크를 통해 고객 네트워크로 다시 전파됩니다.
 
 >[!NOTE]
->ExpressRoute 고가용성을 위해 MSEE(5)와 PE-MSEE(4) 간에 중복 쌍의 BGP 세션이 필요합니다. 고객 네트워크와 PE-CE 간에도 중복 쌍의 네트워크 경로를 사용하는 것이 좋습니다. 그러나 Any-to-Any(IPVPN) 연결 모델에서는 단일 CE 장치(2)가 하나 이상의 PE(3)에 연결될 수 있습니다.
+>ExpressRoute 고가용성을 위해 MSEE(5)와 PE-MSEE(4) 간에 중복 쌍의 BGP 세션이 필요합니다. 고객 네트워크와 PE-CE 간에도 중복 쌍의 네트워크 경로를 사용하는 것이 좋습니다. 그러나 Any-to-Any(IPVPN) 연결 모델에서는 단일 CE 디바이스(2)가 하나 이상의 PE(3)에 연결될 수 있습니다.
 >
 >
 

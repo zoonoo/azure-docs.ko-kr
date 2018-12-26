@@ -3,7 +3,7 @@ title: Service Bus 배달 못 한 편지 큐 | Microsoft Docs
 description: Azure Service Bus 배달 못 한 편지 큐의 개요
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
-ms.author: sethm
-ms.openlocfilehash: a82d70e7bf776bf470d14e7f061774ccbb136316
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 09/26/2018
+ms.author: spelluru
+ms.openlocfilehash: df69406bd0a6e09f66262ce66f8eeb7cada2422a
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28925665"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393988"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus 배달 못 한 편지 큐의 개요
 

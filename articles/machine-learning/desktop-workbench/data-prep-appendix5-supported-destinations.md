@@ -7,20 +7,25 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 4aee24150524c270084ae8ec22f09df94b6e9f36
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: f3d7d10db8cdeb4a1a409650f17d2fc39bf7971f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831713"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969511"
 ---
 # <a name="supported-data-exports-for-this-preview"></a>이 미리 보기에 대해 지원되는 데이터 내보내기 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 여러 다른 형식으로 내보내는 것이 가능합니다. 이러한 형식을 이용하여 데이터 준비 결과를 Machine Learning 워크플로의 나머지 부분에 통합하기 전에 데이터 준비 중간 결과를 유지할 수 있습니다.
 
 ## <a name="types"></a>형식 
@@ -35,13 +40,13 @@ ms.locfileid: "34831713"
 
 
 ### <a name="parquet"></a>Parquet 
-데이터 집합을 Parquet으로 저장소에 기록합니다.
+데이터 세트를 Parquet으로 저장소에 기록합니다.
 
-Parquet은 형식으로써 저장소에서 다양한 형태를 취할 수 있습니다. 작은 데이터 집합의 경우 단일 .parquet 파일이 사용되기도 합니다. 다양한 Python 라이브러리가 단일 .parquet 파일에 대한 읽기와 쓰기를 지원합니다. 
+Parquet은 형식으로써 저장소에서 다양한 형태를 취할 수 있습니다. 작은 데이터 세트의 경우 단일 .parquet 파일이 사용되기도 합니다. 다양한 Python 라이브러리가 단일 .parquet 파일에 대한 읽기와 쓰기를 지원합니다. 
 
 현재 Azure Machine Learning Workbench는 로컬 대화형 사용 중 Parquet에 쓰기를 위해 PyArrow Python 라이브러리를 사용합니다. 다시 말해서 단일 파일 parquet이 로컬 대화형 사용 중 지원되는 유일한 Parquet 출력 형식입니다.
 
-Spark의 규모 확장 실행 중 Azure Machine Learning Workbench는 Spark의 Parquet 읽기 및 쓰기 기능을 사용합니다. Parquet에 대한 Apache Spark의 기본 출력 형식(현재 하나만 지원됨)은 Hive 데이터 집합과 구조가 비슷합니다. 다시 말해 폴더에는 각각 큰 데이터 집합의 작은 파티션인 다수의 .parquet 파일이 있습니다. 
+Spark의 규모 확장 실행 중 Azure Machine Learning Workbench는 Spark의 Parquet 읽기 및 쓰기 기능을 사용합니다. Parquet에 대한 Apache Spark의 기본 출력 형식(현재 하나만 지원됨)은 Hive 데이터 세트와 구조가 비슷합니다. 다시 말해 폴더에는 각각 큰 데이터 세트의 작은 파티션인 다수의 .parquet 파일이 있습니다. 
 
 #### <a name="caveats"></a>주의 사항 
 Parquet은 형식으로써 비교적 신생이라 서로 다른 라이브러리 간에 일부 구현 불일치가 있습니다. 예를 들어, Spark는 Parquet에 쓸 때 열 이름으로 유효한 문자에 제한을 둡니다. PyArrow는 그렇지 않습니다. 다음 문자는 열 이름에 사용할 수 없습니다. 

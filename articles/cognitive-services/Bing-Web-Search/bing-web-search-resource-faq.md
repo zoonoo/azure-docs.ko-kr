@@ -1,23 +1,24 @@
 ---
-title: Azure에서 Bing Web Search API에 대한 FAQ(질문과 대답) | Microsoft Docs
-description: Azure에서 Microsoft Cognitive Services Bing Web Search API에 대한 일반적인 질문에 대한 대답을 가져옵니다.
+title: FAQ(질문과 대답) - Bing Web Search API
+titleSuffix: Azure Cognitive Services
+description: Bing Web Search API와 관련된 일반적인 질문에 대한 답변을 얻습니다.
 services: cognitive-services
-author: v-jerkin
-manager: jhubbard
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 321f571c48f2231d1ced43848cdefd17adaa1a08
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: aahi
+ms.openlocfilehash: dbff161f96949100703451a64875079288574014
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373126"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162437"
 ---
-# <a name="frequently-asked-questions-faq-about-bing-web-search-api-cognitive-services"></a>Bing Web Search API(Cognitive Services)에 대한 FAQ(질문과 대답)
- 
+# <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
+
  Azure에서 Microsoft Cognitive Services용 Bing Web Search API와 관련된 개념, 코드 및 시나리오에 대한 일반적인 질문에 대한 대답을 찾습니다.
 
 ## <a name="response-headers-in-javascript"></a>JavaScript에서 응답 헤더
@@ -27,7 +28,7 @@ Bing Web Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 |||
 |-|-|
 |`X-MSEdge-ClientID`|Bing에서 사용자에게 할당한 고유한 ID|
-|`BingAPIs-Market`|요청을 이행하는 데 사용된 시장|
+|`BingAPIs-Market`|요청을 이행하는 데 사용된 지역/국가|
 |`BingAPIs-TraceId`|이 요청에 대한 Bing API 서버의 로그 항목(지원용)|
 
 클라이언트 ID를 유지하고 후속 요청과 함께 반환하는 것이 특히 중요합니다. 이렇게 하면 검색은 검색 결과의 순위 지정에서 과거 컨텍스트를 사용하고 일관된 사용자 환경도 제공합니다.
@@ -52,9 +53,9 @@ Bing Web Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 
 ## <a name="response-headers-in-production"></a>프로덕션에서 응답 헤더
 
-이전 응답에서 설명한 CORS 프록시 방식은 개발, 테스트 및 학습에 적합합니다. 
+이전 응답에서 설명한 CORS 프록시 방식은 개발, 테스트 및 학습에 적합합니다.
 
-그러나 프로덕션 환경에서는 Bing Web Search API를 사용하는 웹 페이지와 동일한 도메인에서 서버 쪽 스크립트를 호스트해야 합니다. 이 스크립트는 실제로 웹 페이지 JavaScript의 요청에 따라 API 호출을 수행하고 헤더를 포함한 모든 결과를 다시 클라이언트로 전달해야 합니다. 두 리소스(페이지 및 스크립트)가 원본을 공유하므로 CORS는 작동하지 않으며 특수 헤더로 웹 페이지의 JavaScript에서 액세스할 수 있습니다. 
+그러나 프로덕션 환경에서는 Bing Web Search API를 사용하는 웹 페이지와 동일한 도메인에서 서버 쪽 스크립트를 호스트해야 합니다. 이 스크립트는 실제로 웹 페이지 JavaScript의 요청에 따라 API 호출을 수행하고 헤더를 포함한 모든 결과를 다시 클라이언트로 전달해야 합니다. 두 리소스(페이지 및 스크립트)가 원본을 공유하므로 CORS는 작동하지 않으며 특수 헤더가 웹 페이지의 JavaScript에 액세스할 수 있습니다.
 
 이 방법은 또한 API 키가 서버 쪽 스크립트에서만 필요하기 때문에 API 키가 공개적으로 노출되지 않도록 합니다. 이 스크립트는 다른 메서드를 사용하여 요청이 승인되었는지 확인할 수 있습니다.
 
@@ -64,4 +65,4 @@ Bing Web Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 
- [스택 오버플로: Cognitive Services](http://stackoverflow.com/questions/tagged/bing-api)
+ [Stack Overflow: Cognitive Services](http://stackoverflow.com/questions/tagged/bing-api)

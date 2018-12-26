@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 3e895a6ea9bccc0d210f43748edb3eea80ddc6ad
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b2179f9d81a2dad877c8ae58471f7440eb9edbe7
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625083"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050994"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 Python 코드로 U-SQL 스크립트 확장
 
@@ -79,8 +78,8 @@ U-SQL용 Python 확장을 사용하면 개발자가 Python 코드를 대량으�
 ### <a name="schemas"></a>스키마
 
 * Pandas의 인덱스 벡터는 U-SQL에서 지원되지 않습니다. Python 함수의 모든 입력 데이터 프레임에는 항상 0부터 시작하여 행 수에서 1을 뺀 인덱스까지 64비트의 숫자 인덱스가 있습니다. 
-* U-SQL 데이터 집합에는 중복된 열 이름을 사용할 수 없습니다.
-* 문자열이 아닌 U-SQL 데이터 집합 열 이름입니다. 
+* U-SQL 데이터 세트에는 중복된 열 이름을 사용할 수 없습니다.
+* 문자열이 아닌 U-SQL 데이터 세트 열 이름입니다. 
 
 ### <a name="python-versions"></a>Python 버전
 Python 3.5.1(Windows용으로 컴파일)만 지원됩니다. 

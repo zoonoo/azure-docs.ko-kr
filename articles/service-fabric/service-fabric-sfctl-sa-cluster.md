@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: ffdbff7edc5af187071615c8b1e61790b3a38429
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d7f33bf0657ca2a6888387b7651706f9de537bb4
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763958"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494359"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 독립 실행형 Service Fabric 클러스터를 관리합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "34763958"
 ## <a name="sfctl-sa-cluster-config"></a>sfctl sa-cluster config
 Service Fabric 독립 실행형 클러스터 구성을 가져옵니다.
 
-Service Fabric 독립 실행형 클러스터 구성을 가져옵니다. 클러스터 구성에는 클러스터, 보안 구성, 오류 및 업그레이드 도메인 토폴로지 등의 다양한 노드 형식을 포함하는 클러스터의 속성이 들어 있습니다.
+클러스터 구성에는 클러스터, 보안 구성, 오류 및 업그레이드 도메인 토폴로지 등의 다양한 노드 형식을 포함하는 클러스터의 속성이 들어 있습니다.
 
 ### <a name="arguments"></a>인수
 
@@ -63,7 +63,8 @@ Service Fabric 독립 실행형 클러스터의 구성 업그레이드를 시작
 
 |인수|설명|
 | --- | --- |
-| --cluster-config            [필수] | 클러스터 구성입니다. |
+| --cluster-config            [필수] | 클러스터에 적용될 클러스터 구성입니다. |
+| --application-health-policies | 오류를 발생시키기 전의 비정상 응용 프로그램 형식 이름 및 최대 비율 쌍의 JSON 인코딩된 사전. |
 | --delta-unhealthy-nodes | 업그레이드 중 허용되는 델타 상태 저하의 최대 비율입니다. 허용되는 값은 0~100의 정수 값입니다. |
 | --health-check-retry | 응용 프로그램 또는 클러스터가 정상이 아닌지 상태 확인을 수행하는 시도 사이의 시간입니다.  기본값\: PT0H0M0S. |
 | --health-check-stable | 응용 프로그램 또는 클러스터에서 정상을 유지해야 하는 시간입니다.  기본값\: PT0H0M0S. |
@@ -85,6 +86,10 @@ Service Fabric 독립 실행형 클러스터의 구성 업그레이드를 시작
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
 
+### <a name="examples"></a>예
+
+클러스터 구성 업데이트 시작 sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-cluster upgrade-status
 Service Fabric 독립 실행형 클러스터의 클러스터 구성 업그레이드 상태를 가져옵니다.
 
@@ -105,6 +110,7 @@ Service Fabric 독립 실행형 클러스터의 클러스터 구성 업그레이
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI [설정](service-fabric-cli.md)

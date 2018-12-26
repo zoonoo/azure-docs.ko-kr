@@ -4,20 +4,28 @@ description: 이 문서에서는 Azure Time Series Insights 환경에서 발생�
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: venkatja
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
-ms.openlocfilehash: dbd32d57206b611a37b5349e5971d2efe272ee1a
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 399c7b000360a73a9bab06b046be21c9d93a1c70
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292877"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367132"
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Time Series Insights 환경에서 문제 진단 및 해결
+
+이 문서에서는 Time Series Insights 환경에서 보일 수 있는 몇 가지 문제를 설명합니다. 잠재적인 원인 및 해결 방법을 제안합니다.
+
+## <a name="video"></a>비디오: 
+
+### <a name="in-this-video-we-cover-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>이 비디오에서는 일반적인 Time Series Insight 고객의 어려움과 문제를 완화하는 방법에 대해 설명합니다.</br>
+
+> [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
 ## <a name="problem-1-no-data-is-shown"></a>문제 1: 데이터가 표시되지 않음
 [Azure Time Series Insights 탐색기](https://insights.timeseries.azure.com)에서 데이터가 표시되지 않을 때는 다음과 같은 몇 가지 일반적인 원인이 있습니다.
@@ -31,7 +39,7 @@ Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 
    ![Iot Hub 서비스 연결 권한](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
    위의 이미지에 표시된 것처럼 **iothubowner** 및 **서비스** 정책에는 모두 **서비스 연결** 사용 권한이 있으므로 둘 중 하나가 작동합니다.
-   
+
 * 이벤트 허브의 경우 **수신** 사용 권한이 있는 키를 제공해야 합니다.
 
    ![이벤트 허브 수신 사용 권한](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)

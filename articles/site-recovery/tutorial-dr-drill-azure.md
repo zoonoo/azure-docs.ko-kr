@@ -2,16 +2,18 @@
 title: Azure Site Recovery를 사용하여 Azure로 온-프레미스 컴퓨터 재해 복구 드릴 실행 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 재해 복구 드릴을 실행하는 방법에 대해 알아봅니다.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: af8062fc0134975542c8a5ec420c790f33996154
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.custom: MVC
+ms.openlocfilehash: 094f781f68b6eeb86c91364570be46fee2e568ef
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920174"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832551"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 
@@ -19,7 +21,7 @@ ms.locfileid: "37920174"
 
 온-프레미스 VMware VM 또는 Hyper-V VM에 대한 재해 복구를 Azure에 설정하는 방법을 보여주는 자습서 시리즈 중 네 번째 자습서입니다.
 
-이 자습서에서는 여러분이 처음 세 자습서를 완료한 것으로 간주합니다. 
+이 자습서에서는 여러분이 처음 세 자습서를 완료한 것으로 간주합니다.
     - [첫 번째 자습서](tutorial-prepare-azure.md)에서는 VMware 재해 복구에 필요한 Azure 구성 요소를 설정했습니다.
     - [두 번째 자습서](vmware-azure-tutorial-prepare-on-premises.md)에서는 재해 복구용 온-프레미스 구성 요소를 준비하고 필수 구성 요소를 살펴보았습니다.
     - [세 번째 자습서](vmware-azure-tutorial.md)에서는 온-프레미스 VMware VM에 복제를 설정하고 활성화했습니다.
@@ -32,7 +34,7 @@ ms.locfileid: "37920174"
 > * 장애 조치(failover) 후 Azure VM에 연결할 준비
 > * 단일 컴퓨터에 대해 테스트 장애 조치(failover) 실행
 
-이 자습서는 다음을 수행합니다.
+
 
 ## <a name="verify-vm-properties"></a>VM 속성 확인
 
@@ -43,6 +45,14 @@ ms.locfileid: "37920174"
 3. **계산 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, 가용성 집합 및 관리 디스크 설정을 수정할 수 있습니다.
 4. 장애 조치(failover) 후 Azure VM이 배치될 네트워크/서브넷 및 할당되는 IP 주소를 포함한 네트워크 설정을 보고 수정할 수 있습니다.
 5. **디스크**에서 VM의 운영 체제 및 데이터 디스크에 대한 정보를 볼 수 있습니다.
+
+## <a name="create-a-network-for-test-failover"></a>테스트 장애 조치(Failover)를 위한 네트워크 만들기
+
+테스트 장애 조치(Failover)를 위해 각 VM에 대한 **Compute 및 네트워크** 설정의 특정 프로덕션 복구 사이트 네트워크와는 격리된 네트워크를 선택합니다. 사용자가 만드는 Azure Virtual Network는 기본적으로 다른 네트워크와 격리됩니다. 테스트 네트워크는 프로덕션 네트워크와 비슷해야 합니다.
+
+- 테스트 네트워크에는 프로덕션 네트워크와 같은 수의 서브넷이 있어야 합니다. 서브넷의 이름은 같아야 합니다.
+- 테스트 네트워크에는 동일한 IP 주소 범위를 사용해야 합니다.
+- 테스트 네트워크의 DNS를 **Compute 및 네트워크** 설정의 DNS VM에 대해 지정된 IP 주소로 업데이트합니다. 자세한 내용은 [Active Directory의 테스트 장애 조치(failover) 시 고려 사항](site-recovery-active-directory.md#test-failover-considerations)을 읽어보세요.
 
 ## <a name="run-a-test-failover-for-a-single-vm"></a>VM에 대해 테스트 장애 조치(failover) 실행
 
@@ -64,6 +74,12 @@ ms.locfileid: "37920174"
 7. 테스트 장애 조치(failover) 중에 만든 Azure VM을 삭제하려면 VM에서 **테스트 장애 조치(failover) 정리**를 클릭합니다. **참고**에서 테스트 장애 조치와 관련된 모든 관측 내용을 기록하고 저장합니다.
 
 일부 시나리오에서는 장애 조치(failover)를 위해서는 추가 처리가 필요하며 이러한 작업을 완료하는 데는 약 8~10분이 소요됩니다. VMware Linux 컴퓨터, DHCP 서비스가 사용되도록 설정되지 않은 VMware VM과 부팅 드라이버인 storvsc, vmbus, storflt, intelide, atapi가 없는 VMware VM의 경우 테스트 장애 조치(failover)가 더 오래 걸릴 수 있습니다.
+
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>장애 조치(Failover) 후 Azure VM에 연결할 준비
+
+장애 조치(Failover) 후 RDP/SSH를 사용하여 Azure VM에 연결하려면 [여기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)에서 표에 요약된 요구 사항을 따릅니다.
+
+[여기](site-recovery-failover-to-azure-troubleshoot.md)에 설명된 단계에 따라 장애 조치(failover) 후 연결 문제를 해결합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

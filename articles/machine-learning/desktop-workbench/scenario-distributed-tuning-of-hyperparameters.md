@@ -11,14 +11,19 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 6347500b8968394a922969dd3dd2f00dd51cb6dd
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ROBOTS: NOINDEX
+ms.openlocfilehash: f74889cdf727bc132723d16df295849769001ce9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035360"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951970"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 하이퍼 매개 변수의 분산 튜닝
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 이 시나리오에서는 Azure Machine Learning Workbench를 사용하여 scikit-learn API를 구현하는 Machine Learning 알고리즘에서 하이퍼 매개 변수의 분산 튜닝을 확장하는 방법을 보여줍니다. 원격 Docker 컨테이너와 Spark 클러스터를 하이퍼 매개 변수를 튜닝하는 실행 백 엔드로 구성하고 사용하는 방법을 보여줍니다.
 
@@ -31,14 +36,14 @@ ms.locfileid: "37035360"
 
 많은 Machine Learning 알고리즘에는 하이퍼 매개 변수라는 하나 이상의 노브가 있어야 합니다. 이러한 노브를 사용하면 사용자 지정 메트릭(예: 정확성, AUC, RMSE)에 따라 측정된 이후 데이터에 대한 성능을 최적화하도록 알고리즘을 튜닝할 수 있습니다. 데이터 과학자는 학습 데이터에 대한 모델을 작성할 때 및 이후 테스트 데이터를 표시하기 전에 하이퍼 매개 변수의 값을 제공해야 합니다. 모델이 알 수 없는 알려진 테스트 데이터에 대한 성능을 향상하도록 학습 데이터에 따라 하이퍼 매개 변수의 값을 설정할 수 있으려면 어떻게 할까요? 
     
-하이퍼 매개 변수를 튜닝하는 일반적인 기술은 *교차 유효성 검사*와 결합된 *그리드 검색*입니다. 교차 유효성 검사는 학습 집합에서 학습된 모델이 테스트 집합을 예측하는 정도를 평가하는 기술입니다. 먼저 이 기술을 사용하여 데이터 집합을 K단계로 나누고 라운드 로빈 방식으로 K번 알고리즘을 학습합니다. “보류된 단계”를 제외한 모든 단계에서 이를 수행합니다. 보류된 K단계에서 K 모델 메트릭의 평균 값을 계산합니다. *교차 유효성 검사된 성능 예측*이라는 평균 값은 K 모델을 만들 때 사용되는 하이퍼 매개 변수의 값에 따라 달라집니다. 하이퍼 매개 변수를 튜닝하는 경우 후보 하이퍼 매개 변수 값의 공간을 검색하여 교차 유효성 검사 성능 추정을 최적화하는 값을 찾습니다. 그리드 검색은 일반적인 검색 기술입니다. 그리드 검색에서 여러 하이퍼 매개 변수의 후보 값 공간은 개별 하이퍼 매개 변수의 후보 값 집합의 교차곱입니다. 
+하이퍼 매개 변수를 튜닝하는 일반적인 기술은 *교차 유효성 검사*와 결합된 *그리드 검색*입니다. 교차 유효성 검사는 학습 집합에서 학습된 모델이 테스트 집합을 예측하는 정도를 평가하는 기술입니다. 먼저 이 기술을 사용하여 데이터 세트를 K단계로 나누고 라운드 로빈 방식으로 K번 알고리즘을 학습합니다. “보류된 단계”를 제외한 모든 단계에서 이를 수행합니다. 보류된 K단계에서 K 모델 메트릭의 평균 값을 계산합니다. *교차 유효성 검사된 성능 예측*이라는 평균 값은 K 모델을 만들 때 사용되는 하이퍼 매개 변수의 값에 따라 달라집니다. 하이퍼 매개 변수를 튜닝하는 경우 후보 하이퍼 매개 변수 값의 공간을 검색하여 교차 유효성 검사 성능 추정을 최적화하는 값을 찾습니다. 그리드 검색은 일반적인 검색 기술입니다. 그리드 검색에서 여러 하이퍼 매개 변수의 후보 값 공간은 개별 하이퍼 매개 변수의 후보 값 집합의 교차곱입니다. 
 
 교차 유효성 검사를 사용하는 그리드 검색은 시간이 오래 걸릴 수 있습니다. 알고리즘에 5개의 후보 값을 가진 5개의 하이퍼 매개 변수가 있으면 K=5단계를 사용합니다. 그 다음, 5<sup>6</sup>=15625개 모델을 학습하여 그리드 검색을 완료합니다. 다행히 교차 유효성 검사를 사용하는 그리드 검색은 병렬 프로시저이며 이러한 모든 모델은 병렬로 학습할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
-* Workbench를 설치하고 계정을 만들기 위해 [빠른 시작 설치 및 만들기](../service/quickstart-installation.md)에 따라 설치된 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)의 복사본
+* Workbench를 설치하고 계정을 만들기 위해 [빠른 시작 설치 및 만들기](quickstart-installation.md)에 따라 설치된 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)의 복사본
 * 이 시나리오에서는 Docker 엔진이 로컬로 설치된 Windows 10 또는 MacOS에서 Azure ML Workbench를 실행 중이라고 가정합니다. 
 * 원격 Docker 컨테이너를 사용하는 시나리오를 실행하려면 [지침](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm)에 따라 Ubuntu DSVM(데이터 과학 Virtual Machine)을 프로비전합니다. 적어도 8개의 코어와 28GB의 메모리가 있는 가상 머신을 사용하는 것이 좋습니다. 가상 머신의 D4 인스턴스에는 이러한 용량이 포함됩니다. 
 * 이 시나리오를 Spark 클러스터에서 실행하려면 이러한 [지침](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)에 따라 Spark HDInsight 클러스터를 프로비전합니다. 헤더 및 작업자 노드 모두에서 다음 구성을 포함한 클러스터를 사용하는 것이 좋습니다.
@@ -50,11 +55,11 @@ ms.locfileid: "37035360"
 
      **문제 해결**: Azure 구독에는 사용할 수 있는 코어 수에 할당량이 있을 수 있습니다. Azure Portal에서는 총 코어 수가 할당량을 초과하는 클러스터를 만들 수 없습니다. 할당량을 찾으려면 Azure Portal에서 구독 섹션으로 이동하고 클러스터를 배포하는 데 사용되는 구독을 클릭하고 **사용량+할당량**을 클릭합니다. 일반적으로 할당량은 Azure 지역별로 정의되고 충분한 코어를 사용 가능한 지역에서 Spark 클러스터를 배포하도록 선택할 수 있습니다. 
 
-* 데이터 집합을 저장하는 데 사용되는 Azure Storage 계정을 만듭니다. [지침](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)에 따라 저장소 계정을 만듭니다.
+* 데이터 세트를 저장하는 데 사용되는 Azure Storage 계정을 만듭니다. [지침](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)에 따라 저장소 계정을 만듭니다.
 
 ## <a name="data-description"></a>데이터 설명
 
-[TalkingData 데이터 집합](https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data)을 사용합니다. 이 데이터 집합에는 휴대폰에 있는 앱의 이벤트가 있습니다. 휴대폰 및 최근에 사용자가 생성한 이벤트의 종류에 따라 휴대폰 사용자의 성별 및 연령 범주를 예측하는 것이 목표입니다.  
+[TalkingData 데이터 집합](https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data)을 사용합니다. 이 데이터 세트에는 휴대폰에 있는 앱의 이벤트가 있습니다. 휴대폰 및 최근에 사용자가 생성한 이벤트의 종류에 따라 휴대폰 사용자의 성별 및 연령 범주를 예측하는 것이 목표입니다.  
 
 ## <a name="scenario-structure"></a>시나리오 구조
 이 시나리오는 GitHub 리포지토리에 여러 폴더가 있습니다. 코드 및 구성 파일은 **코드** 폴더에 있고 모든 설명서는 **문서** 폴더에 있고 모든 이미지는 **이미지** 폴더에 있습니다. 루트 폴더에는 이 시나리오에 대한 간단한 요약을 포함하는 추가 정보 파일이 있습니다.
@@ -146,18 +151,18 @@ spark-sklearn 패키지를 사용하여 하이퍼 매개 변수의 분산 튜닝
 ### <a name="data-ingestion"></a>데이터 수집
 이 시나리오의 코드는 데이터가 Azure Blob Storage에 저장되었다고 가정합니다. 데이터를 Kaggle 사이트에서 컴퓨터에 다운로드하고 Blob Storage에 업로드하는 방법을 보여줍니다. 그런 다음 Blob Storage에서 데이터를 읽는 방법을 보여줍니다. 
 
-Kaggle에서 데이터를 다운로드하려면 [데이터 집합 페이지](https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data)로 이동하고 다운로드 단추를 클릭합니다. Kaggle에 로그인하라는 요청을 받습니다. 로그인한 후에 데이터 집합 페이지로 다시 리디렉션됩니다. 처음 7개의 파일을 선택하고 다운로드 단추를 클릭하여 왼쪽 열에서 다운로드합니다. 다운로드한 파일의 전체 크기는 289MB입니다. Blob Storage에 이러한 파일을 업로드하려면 저장소 계정에 blob Storage 컨테이너 '데이터 집합'을 만듭니다. 저장소 계정의 Azure 페이지로 이동하고 Blob을 클릭하고 +컨테이너를 클릭하여 수행할 수 있습니다. '데이터 집합'을 이름으로 입력하고 확인을 클릭합니다. 다음 스크린샷에서는 다음과 같은 단계를 보여줍니다.
+Kaggle에서 데이터를 다운로드하려면 [데이터 세트 페이지](https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data)로 이동하고 다운로드 단추를 클릭합니다. Kaggle에 로그인하라는 요청을 받습니다. 로그인한 후에 데이터 세트 페이지로 다시 리디렉션됩니다. 처음 7개의 파일을 선택하고 다운로드 단추를 클릭하여 왼쪽 열에서 다운로드합니다. 다운로드한 파일의 전체 크기는 289MB입니다. Blob Storage에 이러한 파일을 업로드하려면 저장소 계정에 blob Storage 컨테이너 '데이터 세트'를 만듭니다. 저장소 계정의 Azure 페이지로 이동하고 Blob을 클릭하고 +컨테이너를 클릭하여 수행할 수 있습니다. '데이터 세트'를 이름으로 입력하고 확인을 클릭합니다. 다음 스크린샷에서는 다음과 같은 단계를 보여줍니다.
 
 ![Blob 열기](media/scenario-distributed-tuning-of-hyperparameters/open_blob.png)
 ![컨테이너 열기](media/scenario-distributed-tuning-of-hyperparameters/open_container.png)
 
-그런 후에 목록에서 데이터 집합 컨테이너를 선택하고 업로드 단추를 클릭합니다. Azure Portal에서는 여러 파일을 동시에 업로드할 수 있습니다. "Blob 업로드" 섹션에서 폴더 단추를 클릭하고, 데이터 집합의 모든 파일을 선택하고, 열기를 클릭한 후 업로드를 클릭합니다. 다음 스크린샷은 이러한 단계를 보여 줍니다.
+그런 후에 목록에서 데이터 세트 컨테이너를 선택하고 업로드 단추를 클릭합니다. Azure Portal에서는 여러 파일을 동시에 업로드할 수 있습니다. "Blob 업로드" 섹션에서 폴더 단추를 클릭하고, 데이터 세트의 모든 파일을 선택하고, 열기를 클릭한 후 업로드를 클릭합니다. 다음 스크린샷은 이러한 단계를 보여 줍니다.
 
 ![Blob 업로드](media/scenario-distributed-tuning-of-hyperparameters/upload_blob.png) 
 
 인터넷 연결에 따라 파일을 업로드하는 데 몇 분이 걸립니다. 
 
-코드에서 [Azure Storage SDK](https://docs.microsoft.com/en-us/python/azure/)를 사용하여 Blob Storage에서 현재 실행 환경으로 데이터 집합을 다운로드합니다. 다운로드는 load_data.py 파일의 load\_data() 함수에서 수행됩니다. 이 코드를 사용하려면 <ACCOUNT_NAME> 및 <ACCOUNT_KEY>를 데이터 집합을 호스트하는 저장소 계정의 이름 및 기본 키로 바꿔야 합니다. 저장소 계정의 Azure 페이지에서 왼쪽 위 모서리에 계정 이름이 표시됩니다. 계정 키를 가져오려면 저장소 계정의 Azure 페이지에서 선택키를 선택하고(데이터 수집 섹션의 첫 번째 스크린샷 참조) 키 열의 첫 번째 행에서 긴 문자열을 복사합니다.
+코드에서 [Azure Storage SDK](https://docs.microsoft.com/python/azure/)를 사용하여 Blob Storage에서 현재 실행 환경으로 데이터 세트를 다운로드합니다. 다운로드는 load_data.py 파일의 load\_data() 함수에서 수행됩니다. 이 코드를 사용하려면 <ACCOUNT_NAME> 및 <ACCOUNT_KEY>를 데이터 집합을 호스트하는 저장소 계정의 이름 및 기본 키로 바꿔야 합니다. 저장소 계정의 Azure 페이지에서 왼쪽 위 모서리에 계정 이름이 표시됩니다. 계정 키를 가져오려면 저장소 계정의 Azure 페이지에서 선택키를 선택하고(데이터 수집 섹션의 첫 번째 스크린샷 참조) 키 열의 첫 번째 행에서 긴 문자열을 복사합니다.
  
 ![선택키](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 

@@ -4,7 +4,7 @@ description: Azure Virtual Machine Scale Sets에 대한 디자인 고려 사항�
 keywords: linux 가상 머신, 가상 머신 크기 집합
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
-ms.author: negat
-ms.openlocfilehash: 8c9253caad8b85b25e3142429c1e23be6f92dd64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: manayar
+ms.openlocfilehash: 1c99b7a3eecdd7938b4813647afb9e48fb0173a0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652402"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739280"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
 이 문서에서는 Virtual Machine Scale Sets를 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine Scale Sets에 대한 자세한 내용은 [Virtual Machine Scale Sets 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.
@@ -33,8 +33,8 @@ ms.locfileid: "34652402"
 
 - 확장 집합 구성을 지정하고 나면 추가 VM을 병렬로 배포하도록 *용량* 속성을 업데이트할 수 있습니다. 이 방법은 다수의 개별 VM을 병렬로 배포하는 작업을 오케스트레이션하는 스크립트를 작성하는 것보다 좋습니다.
 - [Azure 자동 크기 조정을 사용하여 확장 집합의 크기를 자동으로 조정](./virtual-machine-scale-sets-autoscale-overview.md)할 수 있지만 개별 VM의 경우는 불가능합니다.
-- [확장 집합 VM을 이미지로 다시 설치](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm)할 수 있지만 [개별 VM의 경우는 불가능합니다](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- 안정성 향상과 배포 시간 단축을 위해 확장 집합 VM을 [오버프로비전](./virtual-machine-scale-sets-design-overview.md)할 수 있습니다. 이 작업을 수행하는 사용자 지정 코드를 작성하지 않는 한 개별 VM을 과도하게 프로비전할 수 없습니다.
+- [확장 집합 VM을 이미지로 다시 설치](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage)할 수 있지만 [개별 VM의 경우는 불가능합니다](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+- 안정성 향상과 배포 시간 단축을 위해 확장 집합 VM을 [오버프로비전](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning)할 수 있습니다. 이 작업을 수행하는 사용자 지정 코드를 작성하지 않는 한 개별 VM을 과도하게 프로비전할 수 없습니다.
 - 확장 집합 내 전체 VM에 대한 업그레이드 롤아웃을 수월하게 만들도록 [업그레이드 정책](./virtual-machine-scale-sets-upgrade-scale-set.md)을 지정할 수 있습니다. 개별 VM의 경우 업데이트를 직접 오케스트레이션해야 합니다.
 
 ### <a name="vm-specific-features"></a>VM 특정 기능
@@ -62,7 +62,7 @@ Azure Managed Disks로 정의되지 않은 확장 집합은 사용자가 생성�
 ## <a name="overprovisioning"></a>오버프로비전
 확장 집합은 현재 VM을 “오버프로비전”하도록 기본적으로 설정되어 있습니다. 오버프로비전을 켜면 확장 집합은 실제로 사용자가 요청한 것보다 더 많은 VM을 작동한 다음 요청된 VM 수가 성공적으로 프로비전되면 추가 VM을 삭제합니다. 오버프로비전은 프로비전 성공률을 높이고 배포 시간을 절약합니다. 추가 VM에 대한 추가 비용은 청구되지 않으며 할당량 한도에 포함되지 않습니다.
 
-오버프로비전을 사용하면 프로비전 성공률이 향상되지만 나타난 다음 사라지는 추가 VM을 처리하도록 설계되지 않은 응용 프로그램에서 동작이 혼란스러워질 수 있습니다. 오버프로비전을 해제하려면 템플릿에 `"overprovision": "false"` 문자열이 있어야 합니다. 자세한 내용은 [확장 집합 REST API 설명서](/rest/api/virtualmachinescalesets/create-or-update-a-set)에서 찾을 수 있습니다.
+오버프로비전을 사용하면 프로비전 성공률이 향상되지만 나타난 다음, 사라지는 추가 VM을 처리하도록 설계되지 않은 애플리케이션에서 동작이 혼란스러워질 수 있습니다. 오버프로비전을 해제하려면 템플릿에 `"overprovision": "false"` 문자열이 있어야 합니다. 자세한 내용은 [확장 집합 REST API 설명서](/rest/api/virtualmachinescalesets/create-or-update-a-set)에서 찾을 수 있습니다.
 
 확장 집합이 사용자 관리 저장소를 사용하고 오버프로비전을 해제하는 경우 저장소 계정당 20개 이상의 VM을 가질 수 있지만 IO 성능상의 이유로 40개 이상은 권장되지 않습니다. 
 

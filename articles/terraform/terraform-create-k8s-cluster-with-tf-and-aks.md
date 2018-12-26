@@ -1,18 +1,20 @@
 ---
 title: AKS(Azure Kubernetes Service) 및 Terraform을 사용하여 Kubernetes 클러스터 만들기
 description: Azure Kubernetes Service 및 Terraform을 사용하여 Kubernetes 클러스터를 만드는 방법을 설명하는 자습서
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, 가상 머신, Azure, kubernetes
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 06/11/2018
-ms.topic: article
-ms.openlocfilehash: bd00a0cc8446802a03570edd58949a46c0769101
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.topic: tutorial
+ms.date: 09/08/2018
+ms.openlocfilehash: fb4eabb247e6a4fe5550b2b23d34862c789bfaa1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303236"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232327"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service 및 Terraform을 사용하여 Kubernetes 클러스터 만들기
 [AKS(Azure Kubernetes Service)](/azure/aks/)는 호스팅된 Kubernetes 환경을 관리하므로 컨테이너 오케스트레이션에 대한 전문 지식 없이 컨테이너화된 응용 프로그램을 빠르고 쉽게 배포하고 관리할 수 있습니다. 또한 응용 프로그램을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.
@@ -30,7 +32,7 @@ ms.locfileid: "35303236"
 
 - **Terraform 구성**: [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)(Terraform 및 Azure 액세스 구성) 문서의 지침을 따릅니다.
 
-- **Azure 서비스 주체**: [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal)(Azure CLI 2.0으로 Azure 서비스 주체 만들기) 문서의 **Create the service principal(서비스 주체 만들기)** 섹션에 나온 지침을 따릅니다. appId, displayName, 암호, 테넌트를 기록해 둡니다.
+- **Azure 서비스 주체**: [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) 문서의 **서비스 주체 만들기** 섹션에 나온 지침을 따릅니다. appId, displayName, 암호, 테넌트를 기록해 둡니다.
 
 ## <a name="create-the-directory-structure"></a>디렉터리 구조 만들기
 첫 번째 단계는 연습용 Terraform 구성 파일을 넣을 디렉터리를 만드는 것입니다.
@@ -68,13 +70,13 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
     vi main.tf
     ```
 
-1. I 키를 선택하여 삽입 모드를시작합니다.
+1. I 키를 선택하여 삽입 모드를 시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
     ```JSON
     provider "azurerm" {
-        version = "=1.5.0"
+        version = "~>1.5"
     }
 
     terraform {
@@ -100,7 +102,7 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
     vi k8s.tf
     ```
 
-1. I 키를 선택하여 삽입 모드를시작합니다.
+1. I 키를 선택하여 삽입 모드를 시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
@@ -127,7 +129,7 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
         agent_pool_profile {
             name            = "default"
             count           = "${var.agent_count}"
-            vm_size         = "Standard_D2"
+            vm_size         = "Standard_DS2_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }
@@ -165,7 +167,7 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
     vi variables.tf
     ```
 
-1. I 키를 선택하여 삽입 모드를시작합니다.
+1. I 키를 선택하여 삽입 모드를 시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
@@ -215,7 +217,7 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
     vi output.tf
     ```
 
-1. I 키를 선택하여 삽입 모드를시작합니다.
+1. I 키를 선택하여 삽입 모드를 시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
@@ -293,7 +295,14 @@ Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합�
 
     ![“terraform init” 결과의 예](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. `terraform plan` 명령을 실행하여 인프라 요소를 정의하는 Terraform 계획을 만듭니다. 이 명령은 두 값, 즉 **var.client_id** 및 **var.client_secret**을 요청합니다. **var.client_id** 변수의 경우, 서비스 주체와 연결된 **appId** 값을 입력합니다. **var.client_secret** 변수의 경우, 서비스 주체와 연결된 **password** 값을 입력합니다.
+1. 서비스 주체 자격 증명 내보내기 &lt;your-client-id> 및 &lt;your-client-secret> 자리 표시자를 각각 서비스 주체와 연결된 **appId** 및 **password** 값으로 바꿉니다.
+
+    ```bash
+    export TF_VAR_client_id=<your-client-id>
+    export TF_VAR_client_secret=<your-client-secret>
+    ```
+
+1. `terraform plan` 명령을 실행하여 인프라 요소를 정의하는 Terraform 계획을 만듭니다. 
 
     ```bash
     terraform plan -out out.plan
@@ -363,6 +372,6 @@ Cloud Shell 세션의 시간이 초과되면 다음 단계를 수행하여 복�
 이 문서에서는 Terraform 및 AKS를 사용하여 Kubernetes 클러스터를 만드는 방법을 알아봤습니다. Azure의 Terraform에 대해 자세히 알아볼 수 있는 몇 가지 추가 리소스는 다음과 같습니다. 
 
  [Microsoft.com의 Terraform 허브](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure 공급자 설명서](http://aka.ms/terraform)  
- [Terraform Azure 공급자 원본](http://aka.ms/tfgit)  
- [Terraform Azure 모듈](http://aka.ms/tfmodules)
+ [Terraform Azure 공급자 설명서](https://aka.ms/terraform)  
+ [Terraform Azure 공급자 원본](https://aka.ms/tfgit)  
+ [Terraform Azure 모듈](https://aka.ms/tfmodules)

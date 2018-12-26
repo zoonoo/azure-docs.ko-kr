@@ -1,5 +1,16 @@
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 9158e6bfe07fc5d06b0685d77eff26644b594a8b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264297"
+---
 VM 확장은 다음과 같은 작업에 도움이 될 수 있습니다.
 
 * 보안 및 ID 기능 수정(예: 계정 값 재설정 및 맬웨어 방지 프로그램)
@@ -31,10 +42,10 @@ VM 에이전트는 다음과 같은 상황에서 사용됩니다.
       $vm.VM.ProvisionGuestAgent = $TRUE
       Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
-* 설치된 VM 에이전트를 포함하는 VM 이미지를 만들 때. VM 에이전트가 있는 이미지가 존재하면 해당 이미지를 Azure에 업로드할 수 있습니다. Windows VM의 경우 [Windows VM 에이전트 .msi 파일](http://go.microsoft.com/fwlink/?LinkID=394789)을 다운로드하여 VM 에이전트를 설치합니다. Linux VM의 경우 <https://github.com/Azure/WALinuxAgent>에 있는 GitHub 리포지토리에서 VM 에이전트를 설치합니다. Linux에서 VM 에이전트를 설치하는 방법에 대한 자세한 내용은 [Azure Linux VM 에이전트 사용자 가이드](../articles/virtual-machines/extensions/agent-linux.md)를 참조하세요.
+* 설치된 VM 에이전트를 포함하는 VM 이미지를 만들 때. VM 에이전트가 있는 이미지가 존재하면 해당 이미지를 Azure에 업로드할 수 있습니다. Windows VM의 경우 [Windows VM 에이전트 .msi 파일](https://go.microsoft.com/fwlink/?LinkID=394789)을 다운로드하여 VM 에이전트를 설치합니다. Linux VM의 경우 <https://github.com/Azure/WALinuxAgent>에 있는 GitHub 리포지토리에서 VM 에이전트를 설치합니다. Linux에서 VM 에이전트를 설치하는 방법에 대한 자세한 내용은 [Azure Linux VM 에이전트 사용자 가이드](../articles/virtual-machines/extensions/agent-linux.md)를 참조하세요.
 
 > [!NOTE]
-> PaaS에서는 VM 에이전트를 **WindowsAzureGuestAgent**라고 하며 웹 및 작업자 역할 VM에서 항상 사용할 수 있습니다. (자세한 내용은 [Azure 역할 아키텍처](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx)를 참조하세요.) 역할 VM에 대한 VM 에이전트는 이제 영구적 Virtual Machines와 동일한 방식으로 클라우드 서비스 VM에 확장을 추가할 수 있습니다. 영구 VM과 역할 VM의 VM 확장 간 가장 큰 차이점은 VM 확장을 추가할 때입니다. 역할 VM의 경우 확장은 클라우드 서비스에 처음 추가된 다음, 해당 클라우드 서비스 내 배포로 이어집니다.
+> PaaS에서는 VM 에이전트를 **WindowsAzureGuestAgent**라고 하며 웹 및 작업자 역할 VM에서 항상 사용할 수 있습니다. (자세한 내용은 [Azure 역할 아키텍처](https://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx)를 참조하세요.) 역할 VM에 대한 VM 에이전트는 이제 영구적 Virtual Machines와 동일한 방식으로 클라우드 서비스 VM에 확장을 추가할 수 있습니다. 영구 VM과 역할 VM의 VM 확장 간 가장 큰 차이점은 VM 확장을 추가할 때입니다. 역할 VM의 경우 확장은 클라우드 서비스에 처음 추가된 다음, 해당 클라우드 서비스 내 배포로 이어집니다.
 >
 > 사용 가능한 모든 역할 VM 확장을 나열하려면 [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) cmdlet을 사용합니다.
 >

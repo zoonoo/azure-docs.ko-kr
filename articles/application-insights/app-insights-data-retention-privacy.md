@@ -11,17 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/07/2017
+ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0ee712b24478b52dfc5864e59e885e3b9dd6137b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1994c714f691177b526b44e277fea705d18b4335
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294069"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245701"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 저장소
-
 
 앱에 [Azure Application Insights][start] SDK를 설치하는 경우 앱에 대한 원격 분석을 클라우드로 보냅니다. 담당하는 개발자는 전송되는 데이터가 정확한 내용, 데이터에 발생한 내용, 데이터를 제어할 수 있는 방법을 알고자 합니다. 특히 중요한 데이터를 보낼 수 있는지, 저장되었는지 및 얼마나 안전한지를 파악합니다. 
 
@@ -45,7 +44,7 @@ Application Insights 서비스는 원격 분석 데이터를 저장하고 분석
 
 예를 들어 데이터베이스 또는 외부 도구에 Application Insights 서비스에서 내보낸 데이터가 있을 수 있습니다. 서비스에서 가져와야 하는 특수 키를 사용하여 각 도구를 제공합니다. 필요한 경우 키를 해지할 수 있습니다. 
 
-Application Insights SDK는 다음과 같은 응용 프로그램 형식에 사용할 수 있습니다. 고유한 J2EE 또는 ASP.NET 서버 또는 Azure에서 호스팅된 웹 서비스, 웹 클라이언트 즉, 웹 페이지에서 실행되는 코드, 데스크톱 앱 및 서비스, Windows Phone, iOS 및 Android 같은 장치 앱. 모두 동일한 서비스에 원격 분석을 보냅니다.
+Application Insights SDK는 다음과 같은 응용 프로그램 형식에 사용할 수 있습니다. 고유한 J2EE 또는 ASP.NET 서버 또는 Azure에서 호스팅된 웹 서비스, 웹 클라이언트 즉, 웹 페이지에서 실행되는 코드, 데스크톱 앱 및 서비스, Windows Phone, iOS 및 Android 같은 디바이스 앱. 모두 동일한 서비스에 원격 분석을 보냅니다.
 
 ## <a name="what-data-does-it-collect"></a>어떤 데이터를 수집하나요?
 ### <a name="how-is-the-data-is-collected"></a>데이터는 어떻게 수집되나요?
@@ -64,7 +63,7 @@ Application Insights SDK는 다음과 같은 응용 프로그램 형식에 사�
 * [웹 서버 원격 분석](app-insights-asp-net.md) - HTTP가 요청합니다.  URI, 요청, 응답 코드, 클라이언트 IP 주소를 처리하는 데 걸린 시간입니다. 세션 ID.
 * [웹 페이지](app-insights-javascript.md) -페이지, 사용자 및 세션 수입니다. 페이지 로드 시간. 예외. Ajax 호출.
 * 성능 카운터 - 메모리, CPU, IO, 네트워크 선점입니다.
-* 클라이언트 및 서버 컨텍스트 - OS, 로캘, 장치 형식, 브라우저, 화면 해상도입니다.
+* 클라이언트 및 서버 컨텍스트 - OS, 로캘, 디바이스 형식, 브라우저, 화면 해상도입니다.
 * [예외](app-insights-asp-net-exceptions.md) 및 작동 중단 - **스택 덤프**, 작성 ID, CPU 형식입니다. 
 * [종속성](app-insights-asp-net-dependencies.md) - REST, SQL, AJAX와 같은 외부 서비스를 호출합니다. URI 또는 연결 문자열, 시간, 성공, 명령입니다.
 * [가용성 테스트](app-insights-monitor-web-app-availability.md) - 테스트, 단계, 응답의 기간입니다.
@@ -91,6 +90,8 @@ Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에
 
 집계 데이터(즉, 메트릭 탐색기에 표시되는 개수, 평균 및 기타 통계 데이터)는 90일 동안 1분 단위로 보존됩니다.
 
+[디버그 스냅숏](app-insights-snapshot-debugger.md)은 7일 동안 저장됩니다. 이 보존 정책은 응용 프로그램 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
+
 ## <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 데이터는 사용자 및 조직 계정이 있는 경우 팀 멤버에게 표시됩니다. 
 
@@ -104,12 +105,12 @@ Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사�
 
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>내 앱을 미국, 유럽 또는 동남 아시아에서 호스트해야 한다는 뜻인가요?
-* 번호 응용 프로그램은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
+*  아니요. 응용 프로그램은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
 
 ## <a name="how-secure-is-my-data"></a>내 데이터는 어느 정도 안전한가요?
-Application Insights는 Azure 서비스입니다. 보안 정책은 [Azure 보안, 개인 정보 보호 및 규정 준수 백서](http://go.microsoft.com/fwlink/?linkid=392408)에 설명되어 있습니다.
+Application Insights는 Azure 서비스입니다. 보안 정책은 [Azure 보안, 개인 정보 보호 및 규정 준수 백서](https://go.microsoft.com/fwlink/?linkid=392408)에 설명되어 있습니다.
 
-데이터는 Microsoft Azure 서버에 저장됩니다. Azure Portal 계정의 경우 [Azure 보안, 개인 정보 및 규정 준수 문서](http://go.microsoft.com/fwlink/?linkid=392408)에 계정 제한 사항이 설명되어 있습니다.
+데이터는 Microsoft Azure 서버에 저장됩니다. Azure Portal 계정의 경우 [Azure 보안, 개인 정보 및 규정 준수 문서](https://go.microsoft.com/fwlink/?linkid=392408)에 계정 제한 사항이 설명되어 있습니다.
 
 Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있습니다. Microsoft에서는 사용자가 허락한 경우에만, 그리고 Application Insights 사용을 지원하는 데 필요한 경우에 사용자 데이터에 액세스합니다. 
 
@@ -126,32 +127,117 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 모든 데이터는 데이터 센터 간에 이동할 때 암호화됩니다.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>내 응용 프로그램에서 Application Insights 서버로 전송 중에 데이터가 암호화되나요?
-예. 웹 서버, 장치 및 HTTPS 웹 페이지를 포함하여 거의 모든 SDK에서 https를 사용하여 포털로 데이터를 보냅니다. 유일한 예외는 일반 HTTP 웹 페이지에서 전송된 데이터입니다. 
+예. 웹 서버, 디바이스 및 HTTPS 웹 페이지를 포함하여 거의 모든 SDK에서 https를 사용하여 포털로 데이터를 보냅니다. 유일한 예외는 일반 HTTP 웹 페이지에서 전송된 데이터입니다.
 
-## <a name="personally-identifiable-information"></a>개인 식별이 가능한 정보
-#### <a name="could-personally-identifiable-information-pii-be-sent-to-application-insights"></a>PII(개인 식별이 가능한 정보)가 Application Insights에 전송될 수 있나요?
-예, 전송할 수 있습니다. 
+## <a name="does-the-sdk-create-temporary-local-storage"></a>SDK에서 임시 로컬 저장소를 작성하나요?
 
-일반 지침:
+예, 엔드포인트에 도달할 수 없는 경우 특정 원격 분석 채널은 로컬에 데이터를 지속합니다. 영향을 받는 프레임워크 및 원격 분석 채널을 확인하려면 아래를 검토하세요.
 
-* 대부분의 표준 원격 분석(즉, 코드를 작성하지 않고 전송된 원격 분석)은 명시적 PII를 포함하지 않습니다. 그러나 이벤트 컬렉션에서 유추하여 개인을 식별할 수 있습니다.
-* 예외 및 추적 메시지는 PII를 포함할 수 있습니다.
-* 사용자 지정 원격 분석(즉, API 또는 로그 추적을 사용하여 코드로 작성하는 TrackEvent와 같은 호출)은 선택한 모든 데이터를 포함할 수 있습니다.
 
-이 문서의 끝에 있는 표에 수집되는 데이터에 대한 자세한 설명이 포함되어 있습니다.
+로컬 저장소를 이용하는 원격 분석 채널은 사용자 응용 프로그램을 실행하는 특정 계정으로 제한된 TEMP 또는 APPDATA 디렉터리에 임시 파일을 작성합니다. 이는 엔드포인트를 일시적으로 사용할 수 없거나 조정 제한에 도달했을 때 발생할 수 있습니다. 이 문제가 해결되면 원격 분석 채널이 모든 새 지속 데이터 및 지속된 데이터 전송을 재개합니다.
 
-#### <a name="am-i-responsible-for-complying-with-laws-and-regulations-in-regard-to-pii"></a>PII와 관련된 법률 및 규정을 준수해야 하나요?
-예. 데이터의 수집 및 사용은 법률 및 규정과 Microsoft Online Services 사용 약관을 준수해야 합니다.
 
-응용 프로그램이 수집하는 데이터 및 데이터 사용 방법에 대해 고객에게 적절하게 알려야 합니다.
+이 영구 데이터는 **암호화되지 않으며** 개인 데이터 컬렉션을 사용하지 않도록 데이터 수집 정책을 재구조화하는 것이 좋습니다. (자세한 정보는 [개인 데이터를 내보내고 삭제하는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) 참조)
+
+
+고객이 특정 보안 요구 사항으로 이 디렉터리를 구성해야 하는 경우 프레임워크별로 구성할 수 있습니다. 응용 프로그램을 실행하는 프로세스에 이 디렉터리에 대한 쓰기 액세스 권한이 있는지 확인하세요. 그러나 의도하지 않은 사용자가 원격 분석을 읽을 수 없도록 보호되었는지도 확인하세요.
+
+### <a name="java"></a>자바
+
+`C:\Users\username\AppData\Local\Temp`는 데이터를 지속하는 데 사용됩니다. 이 위치는 구성 디렉터리에서 구성할 수 없으며 이 폴더에 대한 액세스 권한은 필수 자격 증명이 있는 특정 사용자로 제한됩니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72) 참조)
+
+###  <a name="net"></a>.Net
+
+기본적으로 `ServerTelemetryChannel`은 현재 사용자의 로컬 앱 데이터 폴더 `%localAppData%\Microsoft\ApplicationInsights` 또는 임시 폴더`%TMP%`를 사용합니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) 참조)
+
+
+구성 파일:
+```
+<TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
+    <StorageFolder>D:\NewTestFolder</StorageFolder>
+</TelemetryChannel>
+```
+
+코드:
+
+- 구성 파일에서 ServerTelemetryChannel 제거
+- 이 코드 조각을 구성에 추가:
+```
+ServerTelemetryChannel channel = new ServerTelemetryChannel();
+channel.StorageFolder = @"D:\NewTestFolder";
+channel.Initialize(TelemetryConfiguration.Active);
+TelemetryConfiguration.Active.TelemetryChannel = channel;
+```
+
+### <a name="netcore"></a>NetCore
+
+기본적으로 `ServerTelemetryChannel`은 현재 사용자의 로컬 앱 데이터 폴더 `%localAppData%\Microsoft\ApplicationInsights` 또는 임시 폴더`%TMP%`를 사용합니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) 참조) Linux 환경에서는 저장소 폴더를 지정하지 않으면 로컬 저장소가 비활성화됩니다.
+
+다음 코드 조각은  `Startup.cs`  클래스의 `ConfigureServices()`  메서드에서 `ServerTelemetryChannel.StorageFolder`를 설정하는 방법을 보여줍니다.
+
+```
+services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
+```
+
+(자세한 정보는 [AspNetCore 사용자 지정 구성](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) 참조 )
+
+### <a name="nodejs"></a>Node.js
+
+기본적으로 `%TEMP%/appInsights-node{INSTRUMENTATION KEY}`이(가) 데이터를 지속하는 데 사용됩니다. 이 폴더에 대한 액세스 권한은 현재 사용자 및 관리자로 제한됩니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) 참조)
+
+[Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384)에 있는 정적 변수 `Sender.TEMPDIR_PREFIX`의 런타임 값을 변경하여 폴더 접두사 `appInsights-node`을(를) 재정의할 수 있습니다.
+
+
+
+## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>TLS 1.2를 사용하여 데이터를 Application Insights에 보내려면 어떻게 할까요?
+
+Application Insights 엔드포인트에 전송 중인 데이터를 보호하려면 고객이 적어도 TLS(전송 계층 보안) 1.2 이상을 사용하도록 해당 응용 프로그램을 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)이 취약한 것으로 나타났습니다. 따라서 현재 이전 버전과 호환성을 허용하기 위해 작동하지만 **사용하지 않는 것이 좋으며** 업계는 이러한 이전 프로토콜에 대한 지원을 중단하도록 빠르게 변화하고 있습니다. 
+
+[PCI 보안 표준 위원회](https://www.pcisecuritystandards.org/)는 이전 버전의 TLS/SSL를 사용하지 않고 추가 보안 프로토콜을 업그레이드하는 [최종 기한인 2018년 6월 30일](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf)을 설정했습니다. Azure가 레거시 지원을 삭제하면 응용 프로그램/클라이언트가 TLS 1.2를 통해 통신할 수 없는 경우 Application Insights에 데이터를 보낼 수 없게 됩니다. 응용 프로그램의 TLS 지원을 테스트하고 유효성을 검사하는 응용 프로그램에서 사용하는 방법은 언어/프레임워크뿐만 아니라 운영 체제/플랫폼에 따라 달라집니다.
+
+TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 자동으로 검색하고 활용할 수 있도록 플랫폼 수준 보안 기능을 중단할 수 있으므로 반드시 필요하지 않다면 응용 프로그램이 TLS 1.2만을 사용하도록 명시적으로 설정하지 않는 것이 좋습니다. 특정 TLS/SSL 버전의 하드 코딩을 확인하려면 응용 프로그램 코드에 대해 철저한 감사를 수행하는 것이 좋습니다.
+
+### <a name="platformlanguage-specific-guidance"></a>플랫폼/언어 특정 지침
+
+|플랫폼/언어 | 지원 | 추가 정보 |
+| --- | --- | --- |
+| Azure App Services  | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요.  |
+| Azure 함수 앱 | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요. |
+|.NET | 지원됨, 구성이 버전에 따라 다릅니다. | .NET 4.7 이전 버전에 대한 자세한 구성 정보는 [이러한 지침](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 참조하세요.  |
+|상태 모니터 | 지원됨, 구성이 필요합니다. | 상태 모니터는 [OS 구성](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 구성](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 사용하여 TLS 1.2를 지원합니다.
+|Node.js |  지원됨, v10.5.0에서 구성이 필요할 수 있습니다. | 응용 프로그램 특정 구성에 대해 [공식 Node.js TLS/SSL 설명서](https://nodejs.org/api/tls.html)를 사용합니다. |
+|자바 | 지원됨, TLS 1.2에 대한 JDK 지원이 [JDK 6 업데이트 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 및 [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html)에서 추가되었습니다. | JDK 8은 [기본적으로 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)를 사용합니다.  |
+|Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다.  | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
+| Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
+| Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면 |
+| Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원됨, 하지만 기본적으로 활성화되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
+| Windows Server 2008 SP2 | TLS 1.2에 대한 지원에는 업데이트가 필요합니다. | Windows Server 2008 SP2에서 [TLS 1.2에 대한 지원을 추가하는 업데이트](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)를 참조하세요. |
+|Windows Vista |  지원되지 않습니다. | 해당 없음
+
+### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Linux 배포에서 실행 중인 OpenSSL 버전을 확인합니다.
+
+설치한 OpenSSL 버전을 확인하려면 터미널을 열고 다음을 실행합니다.
+
+```terminal
+openssl version -a
+```
+
+### <a name="run-a-test-tls-12-transaction-on-linux"></a>Linux에서 테스트 TLS 1.2 트랜잭션을 실행합니다.
+
+Linux 시스템이 TLS 1.2를 통해 통신할 수 있는지 확인하기 위해 기본 예비 테스트를 실행하려면: 터미널을 열고 다음을 실행합니다.
+
+```terminal
+openssl s_client -connect bing.com:443 -tls1_2
+```
+
+## <a name="personal-data-stored-in-application-insights"></a>Application Insights에 저장된 개인 데이터
+
+[Application Insights 개인 데이터 아티클](../log-analytics/log-analytics-personal-data-mgmt.md)에서는 이 문제를 자세히 설명합니다.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>내 사용자가 Application Insights를 끌 수 있나요?
 직접 끌 수는 없습니다. 사용자가 Application Insights를 끄기 위해 작동할 수 있는 스위치는 제공되지 않습니다.
 
 그러나 응용 프로그램에서 이러한 기능을 구현할 수 있습니다. 모든 SDK에는 원격 분석 수집을 끄는 API 설정이 포함되어 있습니다. 
-
-#### <a name="my-application-is-unintentionally-collecting-sensitive-information-can-application-insights-scrub-this-data-so-it-isnt-retained"></a>내 응용 프로그램이 의도하지 않게 중요한 정보를 수집하고 있습니다. Application Insights에서 이 데이터가 보존되지 않도록 삭제할 수 있나요?
-Application Insights는 데이터를 필터링하거나 삭제하지 않습니다. 데이터를 적절하게 관리하여 이러한 데이터가 Application Insights로 전송되지 않도록 해야 합니다.
 
 ## <a name="data-sent-by-application-insights"></a>Application Insights에서 보내는 데이터
 SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 있습니다. [Application Insights - 개요][start]를 참조하세요. 각 구성 요소마다 다른 데이터를 보냅니다.
@@ -175,10 +261,10 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | 수집되는 데이터 클래스 | 포함(전체 목록 아님) |
 | --- | --- |
 | **속성** |**임의 데이터 - 코드에 의해 결정됨** |
-| DeviceContext |ID, IP, 로캘, 장치 모델, 네트워크, 네트워크 종류, OEM 이름, 화면 해상도, 역할 인스턴스, 역할 이름, 장치 유형 |
+| DeviceContext |ID, IP, 로캘, 디바이스 모델, 네트워크, 네트워크 종류, OEM 이름, 화면 해상도, 역할 인스턴스, 역할 이름, 디바이스 유형 |
 | ClientContext  |OS, 로캘, 언어, 네트워크, 창 해상도 |
 | 세션 |세션 ID |
-| ServerContext |컴퓨터 이름, 로캘, OS, 장치, 사용자 세션, 사용자 컨텍스트, 작업 |
+| ServerContext |컴퓨터 이름, 로캘, OS, 디바이스, 사용자 세션, 사용자 컨텍스트, 작업 |
 | 유추 |IP 주소, 타임스탬프, OS, 브라우저에서 지리적 위치 유추 |
 | 메트릭 |메트릭 이름 및 값 |
 | 이벤트 |이벤트 이름 및 값 |

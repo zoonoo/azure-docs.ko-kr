@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator를 사용하여 이미지 조정 | Microsoft Docs
+title: API 콘솔을 사용하여 이미지 조정 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Content Moderator API 콘솔에서 이미지 조정을 테스트합니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: fec54826c70ae10e56c68406f629c56639985295
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a88eb1e0fc91fb47a95c8b1fea84cfac32674266
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373110"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224971"
 ---
 # <a name="moderate-images-from-the-api-console"></a>API 콘솔에서 이미지 조정
 

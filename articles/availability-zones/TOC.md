@@ -1,6 +1,6 @@
 
 # Azure 복원력
-## [Azure 복원력 기능 페이지](http://azure.microsoft.com/features/resiliency)
+## [Azure 복원력 기능 페이지](https://azure.microsoft.com/features/resiliency)
 ## [Azure용 복원 응용 프로그램 디자인](https://docs.microsoft.com/azure/architecture/resiliency/)
 
 # 고가용성
@@ -38,7 +38,7 @@
 ### [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
-#### [SQL Database를 사용하는 가용성 영역](../sql-database/sql-database-high-availability.md#availability-zones)
+#### [SQL Database를 사용하는 가용성 영역](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 
 ### Storage
 #### [영역 중복 저장소](../storage/common/storage-redundancy-zrs.md)

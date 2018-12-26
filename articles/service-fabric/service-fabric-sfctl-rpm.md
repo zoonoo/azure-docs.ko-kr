@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 5e7cf1b28e8f38f0539e0084e1f745e0dab4dec3
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: a8ac3899b6ae80668c4472f24b508ba6ba7e2644
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763615"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275315"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 복구 관리자 서비스에 쿼리하고 명령을 보냅니다.
@@ -98,6 +98,7 @@ ms.locfileid: "34763615"
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI [설정](service-fabric-cli.md)

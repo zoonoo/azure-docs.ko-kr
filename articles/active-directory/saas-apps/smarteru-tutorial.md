@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 65848473139036cc431b9a142c8c0a375505f383
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 12c7a2751b980ef7951be9043a62dbb1ec50a63d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225645"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>자습서: SmarterU와 Azure Active Directory 통합
 
@@ -49,10 +49,10 @@ SmarterU와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 SmarterU 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-smarteru-from-the-gallery"></a>갤러리에서 SmarterU 추가
 SmarterU의 Azure AD 통합을 구성하려면 갤러리의 SmarterU를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -63,19 +63,19 @@ SmarterU의 Azure AD 통합을 구성하려면 갤러리의 SmarterU를 관리�
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
-4. 검색 상자에 **SmarterU**를 입력합니다.
+1. 검색 상자에 **SmarterU**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/smarteru-tutorial/tutorial_smarteru_search.png)
 
-5. 결과 창에서 **SmarterU**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **SmarterU**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/smarteru-tutorial/tutorial_smarteru_addfromgallery.png)
 
@@ -89,10 +89,10 @@ SmarterU에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 �
 SmarterU에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-3. **[SmarterU 테스트 사용자 만들기](#creating-a-smarteru-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 SmarterU에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
+1. **[SmarterU 테스트 사용자 만들기](#creating-a-smarteru-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 SmarterU에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -104,33 +104,33 @@ SmarterU에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Configure Single Sign-On][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Configure Single Sign-On](./media/smarteru-tutorial/tutorial_smarteru_samlbase.png)
 
-3. **SmarterU 도메인 및 URL** 섹션에서 다음 단계를 수행합니다. 
+1. **SmarterU 도메인 및 URL** 섹션에서 다음 단계를 수행합니다. 
 
     ![Configure Single Sign-On](./media/smarteru-tutorial/tutorial_smarteru_url.png)
 
     **식별자** 텍스트 상자에 URL `https://www.smarteru.com/`을 입력합니다.
 
-4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/smarteru-tutorial/tutorial_smarteru_certificate.png) 
 
-5. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/smarteru-tutorial/tutorial_general_400.png)
 
-6. 다른 웹 브라우저 창에서 SmarterU 회사 사이트에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 SmarterU 회사 사이트에 관리자로 로그인합니다.
 
-7. 위쪽의 도구 모음에서 **계정 설정**을 클릭합니다.
+1. 위쪽의 도구 모음에서 **계정 설정**을 클릭합니다.
    
-    ![계정 설정](./media/smarteru-tutorial/IC777326.png "계정 설정")
+    ![계정 설정](./media/smarteru-tutorial/accountsettings.png)
 
-8. 계정 구성 페이지에서 다음 단계를 수행합니다.
+1. 계정 구성 페이지에서 다음 단계를 수행합니다.
    
-    ![외부 권한 부여](./media/smarteru-tutorial/IC777327.png "외부 권한 부여") 
+    ![외부 기관](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
  
       a. **외부 권한 부여를 사용하도록 설정**을 선택합니다.
   
@@ -138,11 +138,13 @@ SmarterU에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
   
       다. **사용자 기본 로그인** 섹션에서 **SmarterU** 탭을 선택합니다.
   
-      d. **Okta 사용**을 선택합니다.
+      d. **SAML 사용**을 선택합니다.
   
-      e. 다운로드한 메타데이터 파일의 내용을 복사한 다음 **Okta 메타데이터** 텍스트 상자에 붙여넣습니다.
+      e. 다운로드한 메타데이터 파일의 내용을 복사한 다음, **IdP 메타데이터** 텍스트 상자에 붙여넣습니다.
+      
+      f. **식별자 특성/클레임**을 선택합니다.
   
-      f. **저장**을 클릭합니다.
+      g. **저장**을 클릭합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
@@ -159,15 +161,15 @@ SmarterU에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Azure AD 테스트 사용자 만들기](./media/smarteru-tutorial/create_aaduser_01.png) 
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
     ![Azure AD 테스트 사용자 만들기](./media/smarteru-tutorial/create_aaduser_02.png) 
 
-3. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/smarteru-tutorial/create_aaduser_03.png) 
 
-4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/smarteru-tutorial/create_aaduser_04.png) 
 
@@ -189,11 +191,11 @@ SmarterU의 경우 프로비전은 수동 작업입니다.
 
 1. **SmarterU** 테넌트에 로그인하십시오.
 
-2. **사용자**로 이동하십시오.
+1. **사용자**로 이동하십시오.
 
-3. 사용자 섹션에서 다음 단계를 수행합니다.
+1. 사용자 섹션에서 다음 단계를 수행합니다.
    
-    ![새 사용자](./media/smarteru-tutorial/IC777329.png "새 사용자")  
+    ![새 사용자](./media/smarteru-tutorial/adduser.png)  
 
     a. **+사용자**를 클릭합니다.
     
@@ -219,30 +221,30 @@ SmarterU의 경우 프로비전은 수동 작업입니다.
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **SmarterU**를 선택합니다.
+1. 응용 프로그램 목록에서 **SmarterU**를 선택합니다.
 
     ![Configure Single Sign-On](./media/smarteru-tutorial/tutorial_smarteru_app.png) 
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     ![사용자 할당][202] 
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 할당][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
  
 액세스 패널에서 SmarterU 타일을 클릭하면 SmarterU 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 
 ## <a name="additional-resources"></a>추가 리소스

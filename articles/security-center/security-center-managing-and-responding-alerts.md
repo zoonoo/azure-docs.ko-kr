@@ -3,34 +3,34 @@ title: Azure Security Center에서 보안 경고 관리| Microsoft Docs
 description: 이 문서는 Azure Security Center 기능을 사용하여 보안 경고를 관리하고 대응하는 데 도움이 됩니다.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
-ms.author: yurid
-ms.openlocfilehash: d088223aa2ea40d5bb9cf0e492e87ef054d86348
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 11/22/2018
+ms.author: rkarlin
+ms.openlocfilehash: 779efdd509460ac8175b3922097d701edf8b9b68
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365374"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311231"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 대응
 이 문서는 Azure Security Center를 사용하여 보안 경고를 관리하고 대응하는 데 도움이 됩니다.
 
 > [!NOTE]
-> 고급 감지를 사용하도록 설정하려면 Azure Security Center 표준으로 업그레이드합니다. 무료 60일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-policies.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Azure Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
+> 고급 감지를 사용하도록 설정하려면 Azure Security Center 표준으로 업그레이드합니다. 무료 60일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-azure-policy.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Azure Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
 >
 >
 
 ## <a name="what-are-security-alerts"></a>보안 경고란?
-보안 센터는 방화벽 및 끝점 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. 우선 순위가 지정된 보안 경고의 목록은 문제를 신속하게 조사해야 하는 정보 및 공격을 해결하는 방법에 대한 권장 사항과 함께 보안 센터에 표시됩니다.
+보안 센터는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. 우선 순위가 지정된 보안 경고의 목록은 문제를 신속하게 조사해야 하는 정보 및 공격을 해결하는 방법에 대한 권장 사항과 함께 보안 센터에 표시됩니다.
 
 
 > [!NOTE]
@@ -57,11 +57,26 @@ ms.locfileid: "34365374"
 * **날짜**: 이벤트가 발생한 날짜입니다.
 * **상태**: 해당 경고에 대한 현재 상태입니다. 다음과 같은 두 가지 종류의 상태가 있습니다.
   * **활성**: 보안 경고가 감지되었습니다.
+  * **해제됨**: 사용자가 보안 경고를 해제했습니다. 일반적으로 이 상태는 조사를 거쳐 실제 공격이 아닌 것으로 밝혀졌거나 완화된 경고에 사용됩니다.
 * **심각도**: 심각도 수준(높음, 중간 또는 낮음)입니다.
 
 > [!NOTE]
 > Security Center에서 생성된 보안 경고는 Azure 활동 로그에도 나타납니다. Azure 활동 로그에 액세스하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)를 참조하세요.
 >
+
+
+### <a name="alert-severity"></a>경고 심각도
+
+> [!NOTE]
+> 경고 심각도는 포털과 REST API에서 다르게 표시되며, 차이점은 아래 목록에 나와 있습니다.
+
+-   **높음**: 리소스가 손상될 가능성이 높습니다. 지금 즉시 리소스를 살펴보아야 합니다. Security Center는 경고 실행에 사용되는 악의적 의도와 결과 둘 다에서 신뢰성이 높습니다. 자격 증명 훔치기에 많이 사용되는 Mimikatz처럼 알려진 악의적 도구 실행을 검색하는 경고를 예로 들 수 있습니다. 
+-   **중간(REST API에서는 Low)**: 리소스의 손상 가능성을 나타내는 의심스러운 활동입니다.
+Security Center의 분석 또는 결과 신뢰도는 보통이며 악의적 의도의 신뢰도는 보통부터 높음 사이입니다. 일반적으로 기계 학습 또는 변칙 기반 검색입니다. 비정상적인 위치에서의 로그인 시도를 예로 들 수 있습니다.
+-   **낮음(REST API에서는 Information)**: 무해한 양성 또는 차단된 공격일 수 있습니다. 
+    - Security Center는 신뢰도가 높지 않기 때문에 의도가 악의적이고 작업은 악의적이지 않을 수 있습니다. 예를 들어 로그 지우기는 공격자가 흔적을 숨기려 시도할 때 발생할 수도 있지만, 대부분은 관리자가 수행하는 일상적인 작업입니다.
+    - Security Center는 일반적으로 공격을 차단하더라도 살펴볼 가치가 있는 흥미로운 사례가 아닌 경우에는 사용자에게 알리지 않습니다. 
+-   **정보(REST API에서는 Silent)**: 보안 인시던트로 드릴다운하거나 특정 경고 ID가 있는 REST API를 사용하는 경우 정보 경고만 표시됩니다. 일반적으로 한 인시던트는 여러 경고로 구성되며, 그 중 일부는 오직 정보 제공만을 위해 단독으로 표시될 수 있지만 다른 경고의 컨텍스트에서는 자세히 살펴볼 필요가 있습니다. 
 
 ### <a name="filtering-alerts"></a>경고 필터링
 날짜, 상태 및 심각도를 기반으로 경고를 필터링할 수 있습니다. 경고의 필터링은 보안 경고 보기의 범위를 좁혀야 하는 시나리오에 유용할 수 있습니다. 예를 들어 시스템에서 잠재적 위반을 조사하고 있기 때문에 최근 24시간 동안 발생한 보안 경고를 해결하려고 할 수 있습니다.
@@ -94,4 +109,4 @@ Security Center에서 제안하는 수정은 보안 경고에 따라 다릅니�
 * [Azure Security Center 감지 기능](security-center-detection-capabilities.md)
 * [Azure Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

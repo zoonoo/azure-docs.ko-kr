@@ -1,24 +1,25 @@
 ---
-title: Azure에서 Node.js용 Bot Builder SDK를 사용하여 봇과 LUIS 통합 | Microsoft Docs
+title: Node.js를 사용하는 LUIS 봇 - 웹앱 봇 - Bot Framework SDK 3.0
+titleSuffix: Azure Cognitive Services
 description: Bot Framework를 사용하여 LUIS 응용 프로그램과 통합된 봇을 빌드합니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
-ms.author: v-geberr
-ms.openlocfilehash: 5d9b78977457f818b964adb16ebb5e9e5872aa2c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.date: 09/24/2018
+ms.author: diberry
+ms.openlocfilehash: 0bd191da3f2625bc202ee66100e7dac25d9d65de
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264976"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042332"
 ---
-# <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Node.js용 Bot Builder SDK를 사용하여 봇과 LUIS 통합
+# <a name="luis-bot-in-nodejs"></a>Node.js의 LUIS 봇
 
-이 자습서에서는 LUIS 앱과 통합된 [Bot Framework][BotFramework]를 사용하여 봇을 빌드하는 과정을 안내합니다.
+Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 사전 빌드된 HomeAutomation 도메인을 사용하여 신속하게 봇 솔루션을 구현합니다. 이 봇은 Bot Framework 3.x 및 Azure 웹앱 봇을 사용하여 빌드됩니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
@@ -28,8 +29,8 @@ ms.locfileid: "36264976"
 
 | 의도 | 예제 발화 | 봇 기능 |
 |:----:|:----------:|---|
-| HomeAutomation.TurnOn | 조명을 켭니다. | `HomeAutomation.TurnOn`이 검색되면 봇이 `TurnOnDialog`를 호출합니다. 이 대화 상자에서는 IoT 서비스를 호출하여 장치를 켜고 장치가 켜졌다는 것을 사용자에게 알립니다. |
-| HomeAutomation.TurnOff | 침실 조명을 끕니다. | `HomeAutomation.TurnOff`이 검색되면 봇이 `TurnOffDialog`를 호출합니다. 이 대화 상자에서는 IoT 서비스를 호출하여 장치를 끄고 장치가 꺼졌다는 것을 사용자에게 알립니다. |
+| HomeAutomation.TurnOn | 조명을 켭니다. | `HomeAutomation.TurnOn`이 검색되면 봇이 `TurnOnDialog`를 호출합니다. 이 대화 상자에서는 IoT 서비스를 호출하여 디바이스를 켜고 디바이스가 켜졌다는 것을 사용자에게 알립니다. |
+| HomeAutomation.TurnOff | 침실 조명을 끕니다. | `HomeAutomation.TurnOff`이 검색되면 봇이 `TurnOffDialog`를 호출합니다. 이 대화 상자에서는 IoT 서비스를 호출하여 디바이스를 끄고 디바이스가 꺼졌다는 것을 사용자에게 알립니다. |
 
 
 ## <a name="create-a-language-understanding-bot-with-bot-service"></a>Bot Service를 사용하여 Language Understanding 봇 만들기
@@ -45,7 +46,10 @@ ms.locfileid: "36264976"
 3. **Bot Service** 블레이드에서 필요한 정보를 제공하고 **만들기**를 선택합니다. 이렇게 하면 Bot Service 및 LUIS 앱이 만들어지고 Azure에 배포됩니다. [음성 초기화](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)를 사용하려면 봇을 만들기 전에 [지역 요구 사항](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming)을 검토합니다. 
     * **앱 이름**을 봇 이름으로 설정합니다. 이 이름은 봇이 클라우드에 배포될 때 하위 도메인으로 사용됩니다(예: mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * 구독, [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App Service 계획 및 [위치](https://azure.microsoft.com/regions/)를 선택합니다.
-    * **봇 템플릿** 필드에 **Language Understanding(Node.js)** 템플릿을 선택합니다.
+    * **봇 템플릿**의 경우 다음을 선택합니다.
+        * **SDK v3**
+        * **Node.JS**
+        * **언어 이해**
     * **LUIS 앱 위치**를 선택합니다. 이것은 앱이 생성된 작성 [지역][LUIS]입니다.
     * 법적 고지 사항의 확인 확인란을 선택합니다. 법적 고지 사항의 조건은 확인란 아래에 있습니다.
 
@@ -70,7 +74,7 @@ ms.locfileid: "36264976"
 
 3. 위쪽 탐색 모음에서 웹앱 봇 이름 `homeautomationluisbot`을 선택합니다. 
 
-4. 드롭다운 목록에서 **Kudu 콘솔**을 선택합니다.
+4. 드롭다운 목록에서 **Kudu 콘솔 열기**를 선택합니다.
 
 5. 새 브라우저 창이 열립니다. 콘솔에서 다음 명령을 입력합니다.
 
@@ -235,7 +239,7 @@ Azure Portal에서 **웹 채팅에서 테스트**를 선택하여 봇을 테스�
    ![웹 채팅에서 HomeAutomation 봇 테스트](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> 봇이 항상 올바른 의도나 엔터티를 인식하지는 않는다는 것을 알게 되면 더 많은 예제 발화를 제공하여 학습시키는 방식으로 LUIS 앱 성능을 개선합니다. 봇의 코드를 수정하지 않고 LUIS 앱을 다시 학습시킬 수 있습니다. [예제 발화 추가](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) 및 [LUIS 앱 학습 및 테스트](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test)를 참조하세요.
+> 봇이 항상 올바른 의도나 엔터티를 인식하지는 않는다는 것을 알게 되면 더 많은 예제 발화를 제공하여 학습시키는 방식으로 LUIS 앱 성능을 개선합니다. 봇의 코드를 수정하지 않고 LUIS 앱을 다시 학습시킬 수 있습니다. [예제 발화 추가](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) 및 [LUIS 앱 학습 및 테스트](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test)를 참조하세요.
 
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework에 대해 자세히 알아보기
 [Bot Framework](https://dev.botframework.com/)와 [3.x](https://github.com/Microsoft/BotBuilder) 및 [4.x](https://github.com/Microsoft/botbuilder-js) SDK에 대해 자세히 알아봅니다.

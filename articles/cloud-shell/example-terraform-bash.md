@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8512c04cb0efc698ca688724c3806291bb02d200
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386523"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947651"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Azure Cloud Shell에서 Bash의 Terraform을 사용하여 배포
 이 문서에서는 Terraform [AzureRM 공급자](https://www.terraform.io/docs/providers/azurerm/index.html)로 리소스 그룹을 만드는 과정을 안내합니다. 
@@ -26,9 +26,9 @@ ms.locfileid: "29386523"
 [Hashicorp Terraform](https://www.terraform.io/)은 API를 선언적 구성 파일로 체계화하는 공개 소스 도구로, 팀 구성원간에 공유하여 편집, 검토 및 버전 관리할 수 있습니다. Microsoft AzureRM 공급자는 AzureRM API를 통해 Azure Resource Manager에서 지원하는 리소스와 상호 작용하는 데 사용됩니다. 
 
 ## <a name="automatic-authentication"></a>자동 인증
-Terraform은 기본적으로 Cloud Shell의 Bash에 설치됩니다. 또한 Cloud Shell은 기본 Azure CLI 2.0 구독을 자동으로 인증하여 Terraform Azure 모듈을 통해 리소스를 배포합니다.
+Terraform은 기본적으로 Cloud Shell의 Bash에 설치됩니다. 또한 Cloud Shell은 기본 Azure CLI 구독을 자동으로 인증하여 Terraform Azure 모듈을 통해 리소스를 배포합니다.
 
-Terraform은 설정된 Azure CLI 2.0 기본 구독을 사용합니다. 기본 구독을 업데이트하려면 다음을 실행합니다.
+Terraform은 설정된 기본 Azure CLI 구독을 사용합니다. 기본 구독을 업데이트하려면 다음을 실행합니다.
 
 ```azurecli-interactive
 az account set --subscription mySubscriptionName
@@ -144,7 +144,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 [Terraform Apply 명령](https://www.terraform.io/docs/commands/apply.html)은 원하는 구성 상태에 도달하는 데 필요한 변경 사항을 적용하기 위해 사용됩니다.
 
-### <a name="verify-deployment-with-azure-cli-20"></a>Azure CLI 2.0으로 배포 확인
+### <a name="verify-deployment-with-azure-cli"></a>Azure CLI로 배포 확인
 리소스가 프로비저닝에 성공했는지 확인하려면 `az group show -n myRgName`을 실행합니다.
 
 ```azcliinteractive

@@ -5,20 +5,25 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
-ms.openlocfilehash: e91d3e4bfb1cba6f45b0106b3fabe5bef7e0e079
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: eceeeb30331031c51e5208e301441d17096b4a00
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831427"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972983"
 ---
 # <a name="data-preparations-python-extensions"></a>데이터 준비 Python 확장
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 기본 제공 기능 사이의 격차를 해소하기 위해 Azure Machine Learning 데이터 준비에는 여러 수준의 확장성이 포함되어 있습니다. 이 문서에서는 Python 스크립트를 통해 확장성을 설명합니다. 
 
 ## <a name="custom-code-steps"></a>사용자 지정 코드 단계 

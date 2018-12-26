@@ -2,18 +2,18 @@
 title: Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버 배포 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버를 관리하는 방법을 설명합니다.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/06/2018
-ms.author: raynew
-ms.openlocfilehash: 841176d8c5f215d18edf25b1f191792b37555fa9
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 11/18/2018
+ms.author: ramamill
+ms.openlocfilehash: 8b67947412055d0c0b9f39cb49961e435393cec9
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318122"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162605"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -38,11 +38,11 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 | **CPU** | **메모리** | **캐시 디스크 크기** | **데이터 변경률** | **보호된 컴퓨터** |
 | --- | --- | --- | --- | --- |
-| 8개 vCPU(2개 소켓 * 4코어 @ 2.5GHz) |16GB |300GB |500GB 이하 |100대 미만의 컴퓨터를 복제합니다. |
-| 12개 vCPU(2개 소켓 * 6코어 @ 2.5GHz) |18GB |600GB |500GB ~ 1TB |100 ~ 150대 컴퓨터를 복제합니다. |
-| 16개 vCPU(2개 소켓 * 8코어 @ 2.5GHz) |32GB |1TB |1TB ~ 2TB |150 ~ 200대 컴퓨터를 복제합니다. |
+| 8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz) |16GB |300GB |500GB 이하 |100대 미만의 컴퓨터를 복제합니다. |
+| 12개 vCPU(2개 소켓 * 6코어 \@ 2.5GHz) |18GB |600GB |500GB ~ 1TB |100 ~ 150대 컴퓨터를 복제합니다. |
+| 16개 vCPU(2개 소켓 * 8코어 \@ 2.5GHz) |32GB |1TB |1TB ~ 2TB |150 ~ 200대 컴퓨터를 복제합니다. |
 
-둘 이상의 VMware VM을 복제하는 경우 [용량 계획 고려 사항](/site-recovery-plan-capacity-vmware.md)을 참조하세요. VMware 복제를 위한 [Deployment Planner 도구](site-recovery-deployment-planner.md)를 실행합니다.
+둘 이상의 VMware VM을 복제하는 경우 [용량 계획 고려 사항](site-recovery-plan-capacity-vmware.md)을 참조하세요. VMware 복제를 위한 [Deployment Planner 도구](site-recovery-deployment-planner.md)를 실행합니다.
 
 ## <a name="download-the-template"></a>템플릿 다운로드
 
@@ -81,7 +81,7 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 
 1. VSphere 클라이언트 인벤토리에서 VM을 마우스 오른쪽 단추로 클릭하고 **설정 편집**을 선택합니다.
 2. **하드웨어**에서 **추가** > **이더넷 어댑터**를 선택합니다. 그런 후 **다음**을 선택합니다.
-3. 어댑터 유형 및 네트워크를 선택합니다. 
+3. 어댑터 유형 및 네트워크를 선택합니다.
 4. VM이 켜질 때 가상 NIC에 연결하려면 **전원이 켜지면 연결**을 선택합니다. 그런 다음, **다음** > **마침** > **확인**을 선택합니다.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Azure Site Recovery 서비스에 구성 서버 등록
@@ -99,8 +99,10 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 
 1. 구성 서버 관리 마법사에서 **연결 설정**을 선택한 다음, 프로세스 서버가 VM에서 복제 트래픽을 수신할 때 사용할 NIC를 선택합니다. 그런 다음 **저장**을 선택합니다. 이 설정은 구성된 후에 변경할 수 없습니다.
 2. **Recovery Services 자격 증명 모음 선택**에서 Microsoft Azure에 로그인하고, Azure 구독을 선택한 다음, 관련 리소스 그룹 및 자격 증명 모음을 선택합니다.
-    >[!NOTE]
+
+    > [!NOTE]
     > Recovery Services 자격 증명 모음은 등록되면 변경할 수 없습니다.
+
 3. **타사 소프트웨어 설치**에서 다음을 수행합니다.
 
     |시나리오   |수행할 단계  |
@@ -115,17 +117,37 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 8. **구성 완료**를 선택하여 등록을 완료합니다.
 9. 등록이 완료되면 Azure Portal을 열고, **Recovery Services 자격 증명 모음** > **관리** > **Site Recovery 인프라** > **구성 서버**에서 구성 서버와 VMware 서버가 나열되어 있는지 확인합니다.
 
-## <a name="faq"></a>FAQ
-
-1. 구성 서버가 다른 용도로 설치된 VM을 사용할 수 있나요? **아니요**, 구성 서버는 단일 용도의 서버여야 하며, 공유 서버로 사용하는 것은 지원되지 않습니다.
-2. 구성 서버에 이미 등록된 자격 증명 모음을 새로 만든 자격 증명 모음으로 전환할 수 있나요? **아니요**, 구성 서버에 등록된 후에는 자격 증명 모음을 변경할 수 없습니다.
-3. 물리적 컴퓨터와 가상 머신을 모두 보호하는 데 동일한 구성 서버를 사용할 수 있나요? **예**, 물리적 컴퓨터와 가상 머신을 복제하는 데 동일한 구성 서버를 사용할 수 있습니다. 그러나 물리적 컴퓨터로의 장애 복구는 지원되지 않습니다.
-4. 구성 서버는 어디에 사용되나요? 구성 서버 및 해당 기능에 대한 자세한 내용은 [여기](vmware-azure-architecture.md)에 나와 있는 Azure Site Recovery 아키텍처를 참조하세요.
-5. 최신 버전의 구성 서버는 어디서 찾을 수 있나요? [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 직접 다운로드할 수 있습니다. [여기](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)에 나와 있는 구성 서버 업그레이드 단계에 대한 문서를 참조하세요.
-
 ## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
 
-구성 서버를 최신 버전으로 업그레이드하려면 [여기에서](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) 지정된 단계를 읽어 보세요.
+구성 서버를 최신 버전으로 업그레이드하려면 다음 [단계](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 따르세요.
+
+## <a name="manage-the-configuration-server"></a>구성 서버 관리
+
+진행 중인 복제가 중단되지 않도록 하려면 구성 서버가 자격 증명 모음에 등록된 후 구성 서버의 IP 주소가 변경되지 않아야 합니다. [여기](vmware-azure-manage-configuration-server.md)에서 일반 구성 서버 관리 작업에 대해 자세히 알아볼 수 있습니다.
+
+## <a name="faq"></a>FAQ
+
+1. 구성 서버가 설치된 VM을 다른 용도로 사용할 수 있나요?
+
+    **아니요**, 구성 서버 용도로만 VM을 사용하는 것이 좋습니다. 재해 복구를 효율적으로 관리하려면 [필수 구성 요소](#prerequisites)에 설명된 사양을 모두 따라야 합니다.
+2. 구성 서버에 이미 등록된 자격 증명 모음을 새로 만든 자격 증명 모음으로 전환할 수 있나요?
+
+    **아니요**, 구성 서버에 등록된 후에는 자격 증명 모음을 변경할 수 없습니다.
+3. 물리적 컴퓨터와 가상 머신을 모두 보호하는 데 동일한 구성 서버를 사용할 수 있나요?
+
+    **예**, 물리적 머신과 가상 머신을 복제하는 데 동일한 구성 서버를 사용할 수 있습니다. 그러나 물리적 머신은 VMware VM으로만 장애 복구(failback)할 수 있습니다.
+4. 구성 서버의 용도는 무엇이고, 어디서 사용되나요?
+
+    구성 서버 및 해당 기능에 대해 자세히 알아보려면 [VMware를 Azure 복제 아키텍처로](vmware-azure-architecture.md)를 참조하세요.
+5. 최신 버전의 구성 서버는 어디서 찾을 수 있나요?
+
+    포털을 통해 구성 서버를 업그레이드하는 단계는 [구성 서버 업그레이드](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 참조하세요. [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 직접 다운로드할 수도 있습니다.
+6. 구성 서버의 암호는 어디서 다운로드할 수 있나요?
+
+    암호를 다운로드하려면 [이 문서](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)를 참조하세요.
+7. 자격 증명 모음 등록 키는 어디서 다운로드할 수 있나요?
+
+    **Recovery Services 자격 증명 모음**에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 통해 다운로드합니다. 서버에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 파일을 다운로드합니다.
 
 ## <a name="troubleshoot-deployment-issues"></a>배포 문제 해결
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4ad7a6fb032c805072fd9608fb8058a70aa12914
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f56c9f916e0bbbf380347af2ec3f17645063494d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441834"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340353"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: OpenID Connect로 웹 로그인
 OpenID Connect는 웹 응용 프로그램에 사용자를 안전하게 로그인하는 데 사용할 수 있도록 OAuth 2.0을 기반으로 하여 빌드된 인증 프로토콜입니다. OpenID Connect의 Azure AD B2C(Azure Active Directory B2C) 구현을 사용하여 웹 응용 프로그램의 등록, 로그인 및 기타 ID 관리 환경을 Azure AD( Azure Active Directory)로 아웃소싱할 수 있습니다. 이 가이드에서는 언어에 관계 없이 이 작업을 수행하는 방법을 보여 줍니다. 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
@@ -30,13 +30,13 @@ Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으�
 [사용자 고유의 B2C 테넌트, 응용 프로그램 및 정책을 가져오는](#use-your-own-b2c-directory)방법을 알아봅니다.
 
 ## <a name="send-authentication-requests"></a>인증 요청 보내기
-웹앱이 사용자를 인증하고 정책을 실행해야 하는 경우 사용자를 `/authorize` 끝점으로 보낼 수 있습니다. 이는 정책에 따라 사용자가 실제로 작업을 수행하는 흐름의 대화형 부분입니다.
+웹앱이 사용자를 인증하고 정책을 실행해야 하는 경우 사용자를 `/authorize` 엔드포인트로 보낼 수 있습니다. 이는 정책에 따라 사용자가 실제로 작업을 수행하는 흐름의 대화형 부분입니다.
 
 이 요청에서 클라이언트는 `p` 매개 변수를 실행하기 위해 `scope` 매개 변수 및 정책에서 사용자로부터 가져와야 할 사용 권한을 나타냅니다. 각각 서로 다른 정책을 사용하는 세 가지 예제가 다음 섹션에서 제공됩니다(쉽게 읽을 수 있도록 줄 바꿈 적용). 각 요청의 작동 방식에 대해 이해하려면 요청을 브라우저에 붙여 넣고 실행합니다.
 
 #### <a name="use-a-sign-in-policy"></a>로그인 정책 사용
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -49,7 +49,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 #### <a name="use-a-sign-up-policy"></a>등록 정책 사용
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -62,7 +62,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 #### <a name="use-an-edit-profile-policy"></a>편집 프로필 정책 사용
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -124,17 +124,17 @@ ID 토큰을 받는 것만으로는 사용자를 인증할 수 없습니다. ID 
 
 기본 설정의 언어에 따라 JWT의 유효성 검사에 사용할 수 있는 다양한 공개 소스 라이브러리가 있습니다. 고유한 유효성 검사 논리를 구현하는 것보다 이러한 옵션을 탐색하는 것이 좋습니다. 여기의 정보는 올바르게 해당 라이브러리를 사용하는 방법을 파악하는 데 도움이 됩니다.
 
-Azure AD B2C에는 앱이 런타임에 Azure AD B2C에 대한 정보를 가져올 수 있게 해주는 OpenID Connect 메타데이터 끝점이 있습니다. 이 정보에는 끝점, 토큰 콘텐츠 및 토큰 서명 키가 포함됩니다. B2C 테넌트에서 각 정책에 대한 JSON 메타데이터 문서가 있습니다. 예를 들어 `fabrikamb2c.onmicrosoft.com`의 `b2c_1_sign_in` 정책에 대한 메타데이터 문서는 다음 위치에 있습니다.
+Azure AD B2C에는 앱이 런타임에 Azure AD B2C에 대한 정보를 가져올 수 있게 해주는 OpenID Connect 메타데이터 엔드포인트가 있습니다. 이 정보에는 엔드포인트, 토큰 콘텐츠 및 토큰 서명 키가 포함됩니다. B2C 테넌트에서 각 정책에 대한 JSON 메타데이터 문서가 있습니다. 예를 들어 `fabrikamb2c.onmicrosoft.com`의 `b2c_1_sign_in` 정책에 대한 메타데이터 문서는 다음 위치에 있습니다.
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
 이 구성 문서의 속성 중 하나가 `jwks_uri`이며, 동일한 정책에 대한 값은 다음과 같습니다.
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
 ID 토큰에 서명하는 데 사용된 정책(및 메타데이터를 가져올 위치)을 결정하려면 두 가지 옵션이 있습니다. 먼저 정책 이름이 ID 토큰의 `acr` 클레임에 포함됩니다. ID 토큰에서 클레임을 구문 분석하는 방법에 대한 내용은 [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)를 참조하세요. 다른 옵션은 요청을 실행할 때 `state` 매개 변수의 값에 정책을 인코딩한 다음 이를 디코딩하여 어떤 정책을 사용할지 결정하는 것입니다. 두 방법 중 하나는 유효합니다.
 
-OpenID Connect 메타데이터 끝점에서 메타데이터 문서를 가져오면 이 끝점에 있는 RSA 256 공개 키를 사용하여 ID 토큰의 서명에 대한 유효성을 검사할 수 있습니다. 지정된 시점에 이 끝점에 나열된 키가 여러 개 있을 수 있으며, 각 키는 `kid` 클레임으로 식별됩니다. ID 토큰의 헤더에는 `kid` 클레임도 포함되어 있으며, 이는 이러한 키 중에서 ID 토큰 서명에 사용된 키를 나타냅니다. 자세한 내용은 [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)(특히 [토큰 유효성 검사](active-directory-b2c-reference-tokens.md#token-validation) 섹션)를 참조하세요.
+OpenID Connect 메타데이터 엔드포인트에서 메타데이터 문서를 가져오면 이 엔드포인트에 있는 RSA 256 공개 키를 사용하여 ID 토큰의 서명에 대한 유효성을 검사할 수 있습니다. 지정된 시점에 이 엔드포인트에 나열된 키가 여러 개 있을 수 있으며, 각 키는 `kid` 클레임으로 식별됩니다. ID 토큰의 헤더에는 `kid` 클레임도 포함되어 있으며, 이는 이러한 키 중에서 ID 토큰 서명에 사용된 키를 나타냅니다. 자세한 내용은 [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)(특히 [토큰 유효성 검사](active-directory-b2c-reference-tokens.md#token-validation) 섹션)를 참조하세요.
 <!--TODO: Improve the information on this-->
 
 ID 토큰의 서명에 대한 유효성을 검사한 후에는 확인해야 할 몇 가지 클레임이 있습니다. 예:
@@ -156,11 +156,11 @@ ID 토큰의 유효성을 검사한 후에는 사용자가 포함된 세션을 �
 ## <a name="get-a-token"></a>토큰 가져오기
 웹앱에서 정책만 실행해야 하는 경우 다음 몇 가지 섹션을 건너뛸 수 있습니다. 이러한 섹션은 Web API에 대해 인증된 호출을 수행해야 하며 Azure AD B2C로도 보호되는 웹앱에만 적용할 수 있습니다.
 
-`response_type=code+id_token`을 사용하여 `POST` 요청을 `/token` 끝점으로 보내 원하는 리소스에 대한 토큰에 대해 얻은 권한 부여 코드를 사용할 수 있습니다. 현재 토큰을 요청할 수 있는 리소스는 앱 자체의 백 엔드 웹 API뿐입니다. 자신에게 토큰을 요청하는 데 사용된 규칙은 앱의 클라이언트 ID를 범위로 사용하는 것입니다.
+`response_type=code+id_token`을 사용하여 `POST` 요청을 `/token` 엔드포인트로 보내 원하는 리소스에 대한 토큰에 대해 얻은 권한 부여 코드를 사용할 수 있습니다. 현재 토큰을 요청할 수 있는 리소스는 앱 자체의 백 엔드 웹 API뿐입니다. 자신에게 토큰을 요청하는 데 사용된 규칙은 앱의 클라이언트 ID를 범위로 사용하는 것입니다.
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://fabrikamb2c.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -222,11 +222,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ## <a name="refresh-the-token"></a>토큰 새로 고침
-ID 토큰은 수명이 짧습니다. 리소스에 계속 액세스하려면 만료된 후 새로 고쳐야 합니다. 이렇게 하려면 다른 `POST` 요청을 `/token` 끝점에 제출하면 됩니다. 이번에는 `code` 매개 변수 대신 `refresh_token` 매개 변수를 제공합니다.
+ID 토큰은 수명이 짧습니다. 리소스에 계속 액세스하려면 만료된 후 새로 고쳐야 합니다. 이렇게 하려면 다른 `POST` 요청을 `/token` 엔드포인트에 제출하면 됩니다. 이번에는 `code` 매개 변수 대신 `refresh_token` 매개 변수를 제공합니다.
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://fabrikamb2c.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -280,10 +280,10 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 ## <a name="send-a-sign-out-request"></a>로그아웃 요청 보내기
 앱에서 사용자를 로그아웃시키려는 경우 앱의 쿠키를 삭제하거나 그렇지 않은 경우 사용자로 세션을 지우는 것은 충분하지 않습니다. 또한 로그아웃할 Azure AD로 사용자를 리디렉션해야 합니다. 그러지 않으면 사용자가 자격 증명을 다시 입력하지 않고 앱을 다시 인증할 수 있습니다. 이는 Azure AD를 사용하는 유효한 Single Sign-On 세션이 있기 때문입니다.
 
-"ID 토큰 유효성 검사" 섹션의 앞부분에서 설명한 OpenID Connect 메타데이터 문서에 나열된 `end_session` 끝점으로 사용자를 리디렉션할 수 있습니다.
+"ID 토큰 유효성 검사" 섹션의 앞부분에서 설명한 OpenID Connect 메타데이터 문서에 나열된 `end_session` 엔드포인트로 사용자를 리디렉션할 수 있습니다.
 
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
 p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
@@ -294,7 +294,7 @@ p=b2c_1_sign_in
 | post_logout_redirect_uri |권장 |성공적으로 로그아웃한 후에 사용자가 리디렉션되는 URL입니다. 포함되지 않은 경우 Azure AD B2C에서 사용자에게 일반 메시지를 표시합니다. |
 
 > [!NOTE]
-> 사용자를 `end_session` 끝점에 연결하면 Azure AD B2C를 사용하여 일부 사용자의 Single Sign-On 상태가 해제되지만, 사용자의 소셜 IDP(ID 공급자) 세션에서 해당 사용자를 로그아웃하지는 않습니다. 사용자가 다음 로그인하는 동안 같은 IDP를 선택하는 경우 자격 증명을 입력하지 않아도 다시 인증됩니다. 사용자가 B2C 응용 프로그램에서 로그아웃하려는 경우 반드시 Facebook 계정을 로그아웃하려는 것은 아닙니다. 그러나 로컬 계정의 경우 사용자의 세션이 올바르게 종료됩니다.
+> 사용자를 `end_session` 엔드포인트에 연결하면 Azure AD B2C를 사용하여 일부 사용자의 Single Sign-On 상태가 해제되지만, 사용자의 소셜 IDP(ID 공급자) 세션에서 해당 사용자를 로그아웃하지는 않습니다. 사용자가 다음 로그인하는 동안 같은 IDP를 선택하는 경우 자격 증명을 입력하지 않아도 다시 인증됩니다. 사용자가 B2C 응용 프로그램에서 로그아웃하려는 경우 반드시 Facebook 계정을 로그아웃하려는 것은 아닙니다. 그러나 로컬 계정의 경우 사용자의 세션이 올바르게 종료됩니다.
 > 
 > 
 

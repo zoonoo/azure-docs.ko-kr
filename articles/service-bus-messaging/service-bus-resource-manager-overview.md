@@ -3,7 +3,7 @@ title: Resource Manager 템플릿을 사용하여 Azure Service Bus 리소스 �
 description: Azure Resource Manager 템플릿을 사용하여 자동으로 Service Bus 리소스 만들기
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
-ms.author: sethm
-ms.openlocfilehash: c8d84de608ccf3d9a9293c20c07c10a00b73da68
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 09/11/2018
+ms.author: spelluru
+ms.openlocfilehash: 5693307f9d032ad544a44eabd19126700c5a4099
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598288"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407164"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 리소스 만들기
 
@@ -137,7 +137,7 @@ Azure Resource Manager 배포 템플릿에 대한 모든 내용은 [Azure Resour
 
 ### <a name="create-a-parameters-file-optional"></a>매개 변수 파일 만들기(옵션)
 
-옵션인 매개 변수 파일을 사용하려면 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) 파일을 복사합니다. `serviceBusNamespaceName` 값을 이 배포에 만들려는 서비스 버스 네임스페이스의 이름으로 바꾸고, `serviceBusQueueName` 값을 만들려는 큐의 이름으로 바꿉니다.
+옵션인 매개 변수 파일을 사용하려면 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) 파일을 복사합니다. `serviceBusNamespaceName` 값을 이 배포에 만들려는 Service Bus 네임스페이스의 이름으로 바꾸고, `serviceBusQueueName` 값을 만들려는 큐의 이름으로 바꿉니다.
 
 ```json
 {
@@ -207,7 +207,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 
 ### <a name="create-the-deployment"></a>배포 만들기
 
-새 배포를 만들려면 `New-AzureRmResourceGroupDeployment` cmdlet을 실행하고 메시지가 표시되면 필요한 매개 변수를 입력합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름 및 템플릿 파일의 경로 또는 URL이 포함됩니다. **Mode** 매개 변수가 지정되지 않은 경우 기본값 **Incremental**이 사용됩니다. 자세한 내용은 [증분 및 전체 배포](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments)를 참조하세요.
+새 배포를 만들려면 `New-AzureRmResourceGroupDeployment` cmdlet을 실행하고 메시지가 표시되면 필요한 매개 변수를 입력합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름 및 템플릿 파일의 경로 또는 URL이 포함됩니다. **Mode** 매개 변수가 지정되지 않은 경우 기본값 **Incremental**이 사용됩니다. 자세한 내용은 [증분 및 전체 배포](../azure-resource-manager/deployment-modes.md)를 참조하세요.
 
 다음 명령은 PowerShell 창에서 세 매개 변수의 입력을 요청합니다.
 
@@ -227,7 +227,7 @@ New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyD
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-[전체](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) 배포를 실행하려면 **Mode** 매개 변수를 **Complete**로 설정합니다.
+[전체](../azure-resource-manager/deployment-modes.md) 배포를 실행하려면 **Mode** 매개 변수를 **Complete**로 설정합니다.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

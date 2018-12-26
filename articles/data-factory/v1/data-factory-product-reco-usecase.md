@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3328a7c80a05a48b3c04ad5492a7eafe62059681
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a940b1d2184961d907f72ad072270dad3571e844
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622468"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229256"
 ---
 # <a name="use-case---product-recommendations"></a>사용 사례 - 제품 추천
-Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  이 제품군에 대한 자세한 내용은 [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) 페이지를 참조하세요. 이 문서에서는 Azure 사용자가 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 이미 해결하고 구현한 경험이 있는 일반적인 사용 사례를 설명합니다.
+Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  이 제품군에 대한 자세한 내용은 [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) 페이지를 참조하세요. 이 문서에서는 Azure 사용자가 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 이미 해결하고 구현한 경험이 있는 일반적인 사용 사례를 설명합니다.
 
 ## <a name="scenario"></a>시나리오
 일반적으로 온라인 소매점은 제품을 구매할 고객이 관심 있어할 가능성이 높은 제품을 제시하여 제품을 구매하도록 유도하려고 합니다. 이를 수행하기 위해 온라인 소매점은 특정 사용자에 대해 개인 설정된 제품 추천을 사용하여 사용자의 온라인 환경을 사용자 지정해야 합니다. 이러한 개인 설정된 권장 사항은 현재 또는 과거 쇼핑 동작 데이터, 제품 정보, 새로 도입된 브랜드, 제품 및 고객 구분 데이터를 기반으로 만들어집니다.  또한 사용자의 전반적인 사용 동작을 분석한 내용을 기반으로 사용자에게 제품 추천을 제공할 수 있습니다.

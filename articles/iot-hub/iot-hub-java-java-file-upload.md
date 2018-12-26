@@ -1,70 +1,73 @@
 ---
-title: Java를 사용하여 장치에서 Azure IoT Hub로 파일 업로드 | Microsoft Docs
-description: Java용 Azure IoT 장치 SDK를 사용하여 장치에서 클라우드로 파일을 업로드하는 방법입니다. 업로드된 파일은 Azure Storage blob 컨테이너에 저장됩니다.
+title: Java를 사용하여 디바이스에서 Azure IoT Hub로 파일 업로드 | Microsoft Docs
+description: Java용 Azure IoT 디바이스 SDK를 사용하여 디바이스에서 클라우드로 파일을 업로드하는 방법입니다. 업로드된 파일은 Azure Storage blob 컨테이너에 저장됩니다.
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 09580f3bb5d6f6f5ccb15adddf0cf1f9e19c2210
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 11b283bf3557fd14663e1789ce19af48b9aa9db2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619406"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824067"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>IoT Hub를 사용하여 장치에서 클라우드로 파일 업로드
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
 이 자습서에서는 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기](iot-hub-java-java-c2d.md) 자습서의 코드를 기반으로 작성되었으며 [IoT Hub의 파일 업로드 기능](iot-hub-devguide-file-upload.md)을 사용하여 [Azure Blob Storage](../storage/index.yml)에 파일을 업로드하는 방법을 보여 줍니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-- 파일을 업로드하기 위한 Azure blob URI를 장치에 안전하게 제공합니다.
-- IoT Hub 파일 업로드 알림을 사용하여 앱 백 엔드에서 파일 처리를 트리거합니다.
+* 파일을 업로드하기 위한 Azure blob URI를 디바이스에 안전하게 제공합니다.
 
-[IoT Hub 시작](iot-hub-java-java-getstarted.md) 및 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기](iot-hub-java-java-c2d.md) 자습서는 IoT Hub의 기본적인 장치-클라우드 및 클라우드-장치 메시징 기능을 보여 줍니다. [장치-클라우드 메시지 프로세스](tutorial-routing.md) 자습서에서는 장치-클라우드 메시지를 Azure Blob 저장소에 안정적으로 저장하는 방법에 대해 설명합니다. 그러나 일부 시나리오에서는 장치에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 장치-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예: 
+* IoT Hub 파일 업로드 알림을 사용하여 앱 백 엔드에서 파일 처리를 트리거합니다.
+
+[IoT Hub에 원격 분석 데이터 보내기(Java)](quickstart-send-telemetry-java.md) 및 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기(Java)](iot-hub-java-java-c2d.md) 자습서는 IoT Hub의 기본적인 장치-클라우드 및 클라우드-장치 메시징 기능을 보여줍니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 장치-클라우드 메시지를 Azure Blob 저장소에 안정적으로 저장하는 방법에 대해 설명합니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예: 
 
 * 이미지가 포함된 대형 파일
 * 동영상
 * 자주 샘플링되는 진동 데이터
 * 특정 형태의 전처리된 데이터
 
-이러한 파일은 일반적으로 [Azure Data Factory](../data-factory/introduction.md) 또는 [Hadoop](../hdinsight/index.yml) 스택과 같은 도구를 사용하여 클라우드에서 배치 방식으로 처리됩니다. 장치에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
+이러한 파일은 일반적으로 [Azure Data Factory](../data-factory/introduction.md) 또는 [Hadoop](../hdinsight/index.yml) 스택과 같은 도구를 사용하여 클라우드에서 배치 방식으로 처리됩니다. 디바이스에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
 
 이 자습서의 끝 부분에서는 다음 두 개의 Java 콘솔 앱을 실행합니다.
 
 * **simulated-device** - [IoT Hub를 사용하여 클라우드-장치 메시지 보내기] 자습서에서 만든 앱의 수정된 버전입니다. 이 앱은 IoT Hub에서 제공하는 SAS URI를 사용하여 저장소에 파일을 업로드합니다.
+
 * **read-file-upload-notification** - IoT Hub에서 파일 업로드 알림을 받습니다.
 
 > [!NOTE]
-> IoT Hub는 Azure IoT 장치 SDK를 통해 많은 장치 플랫폼 및 언어(C, .NET 및 Javascript 포함)를 지원합니다. Azure IoT Hub에 장치를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요.
+> IoT Hub는 Azure IoT 디바이스 SDK를 통해 많은 디바이스 플랫폼 및 언어(C, .NET 및 Javascript 포함)를 지원합니다. Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot)를 참조하세요.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 최신 [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* 최신 [Java SE Development Kit 8](https://aka.ms/azure-jdks)
+
 * [Maven 3](https://maven.apache.org/install.html)
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](http://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
+
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
-## <a name="upload-a-file-from-a-device-app"></a>장치 앱에서 파일 업로드
+## <a name="upload-a-file-from-a-device-app"></a>디바이스 앱에서 파일 업로드
 
-이 섹션에서는 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기](iot-hub-java-java-c2d.md)에서 만든 장치 앱을 수정하여 IoT Hub에서 파일을 업로드하도록 만듭니다.
+이 섹션에서는 [IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기](iot-hub-java-java-c2d.md)에서 만든 디바이스 앱을 수정하여 IoT Hub에서 파일을 업로드하도록 만듭니다.
 
 1. 이미지 파일을 `simulated-device` 폴더에 복사하고 파일 이름을 `myimage.png`로 바꿉니다.
 
-1. 텍스트 편집기를 사용하여 `simulated-device\src\main\java\com\mycompany\app\App.java` 파일을 엽니다.
+2. 텍스트 편집기를 사용하여 `simulated-device\src\main\java\com\mycompany\app\App.java` 파일을 엽니다.
 
-1. **App** 클래스에 변수 선언을 추가합니다.
+3. **App** 클래스에 변수 선언을 추가합니다.
 
     ```java
     private static String fileName = "myimage.png";
     ```
 
-1. 파일 업로드 상태 콜백 메시지를 처리하려면 다음 중첩 클래스를 **App** 클래스에 추가합니다.
+4. 파일 업로드 상태 콜백 메시지를 처리하려면 다음 중첩 클래스를 **App** 클래스에 추가합니다.
 
     ```java
     // Define a callback method to print status codes from IoT Hub.
@@ -76,7 +79,7 @@ ms.locfileid: "38619406"
     }
     ```
 
-1. 이미지를 IoT Hub에 업로드하려면 IoT Hub에 이미지를 업로드하도록 다음 메서드를 **App** 클래스에 추가합니다.
+5. 이미지를 IoT Hub에 업로드하려면 IoT Hub에 이미지를 업로드하도록 다음 메서드를 **App** 클래스에 추가합니다.
 
     ```java
     // Use IoT Hub to upload a file asynchronously to Azure blob storage.
@@ -90,7 +93,7 @@ ms.locfileid: "38619406"
     }
     ```
 
-1. 다음 코드 조각에 나와 있는 것처럼, **uploadFile** 메서드를 호출하도록 **main** 메서드를 수정합니다.
+6. 다음 코드 조각에 나와 있는 것처럼, **uploadFile** 메서드를 호출하도록 **main** 메서드를 수정합니다.
 
     ```java
     client.open();
@@ -110,7 +113,7 @@ ms.locfileid: "38619406"
     MessageSender sender = new MessageSender();
     ```
 
-1. 다음 명령을 사용하여 **simulated-device** 앱을 작성하고 오류가 있는지 확인합니다.
+7. 다음 명령을 사용하여 **simulated-device** 앱을 작성하고 오류가 있는지 확인합니다.
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -128,9 +131,9 @@ IoT Hub가 이 섹션을 완료하려면 **iothubowner** 연결 문자열이 필
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-file-upload-notification -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-1. 명령 프롬프트에서 새 `read-file-upload-notification` 폴더로 이동합니다.
+2. 명령 프롬프트에서 새 `read-file-upload-notification` 폴더로 이동합니다.
 
-1. 텍스트 편집기를 사용하여 `read-file-upload-notification` 폴더에서 `pom.xml` 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 의존성을 추가하면 IoT Hub 서비스와 통신하기 위해 응용 프로그램에서 **iothub-java-service-client** 패키지를 사용할 수 있습니다.
+3. 텍스트 편집기를 사용하여 `read-file-upload-notification` 폴더에서 `pom.xml` 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 의존성을 추가하면 IoT Hub 서비스와 통신하기 위해 애플리케이션에서 **iothub-java-service-client** 패키지를 사용할 수 있습니다.
 
     ```xml
     <dependency>
@@ -143,11 +146,11 @@ IoT Hub가 이 섹션을 완료하려면 **iothubowner** 연결 문자열이 필
     > [!NOTE]
     > [Maven 검색](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client**의 최신 버전을 확인할 수 있습니다.
 
-1. `pom.xml` 파일을 저장하고 닫습니다.
+4. `pom.xml` 파일을 저장하고 닫습니다.
 
-1. 텍스트 편집기를 사용하여 `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` 파일을 엽니다.
+5. 텍스트 편집기를 사용하여 `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` 파일을 엽니다.
 
-1. 파일에 다음 **import** 문을 추가합니다.
+6. 파일에 다음 **import** 문을 추가합니다.
 
     ```java
     import com.microsoft.azure.sdk.iot.service.*;
@@ -157,7 +160,7 @@ IoT Hub가 이 섹션을 완료하려면 **iothubowner** 연결 문자열이 필
     import java.util.concurrent.Executors;
     ```
 
-1. 다음 클래스 수준 변수를 **앱** 클래스에 추가합니다.
+7. 다음 클래스 수준 변수를 **앱** 클래스에 추가합니다.
 
     ```java
     private static final String connectionString = "{Your IoT Hub connection string}";
@@ -165,7 +168,7 @@ IoT Hub가 이 섹션을 완료하려면 **iothubowner** 연결 문자열이 필
     private static FileUploadNotificationReceiver fileUploadNotificationReceiver = null;
     ```
 
-1. 콘솔에 파일을 업로드하는 정보를 인쇄하려면 다음 중첩 클래스를 **App** 클래스에 추가합니다.
+8. 콘솔에 파일을 업로드하는 정보를 인쇄하려면 다음 중첩 클래스를 **App** 클래스에 추가합니다.
 
     ```java
     // Create a thread to receive file upload notifications.
@@ -173,7 +176,7 @@ IoT Hub가 이 섹션을 완료하려면 **iothubowner** 연결 문자열이 필
       public void run() {
         try {
           while (true) {
-            System.out.println("Recieve file upload notifications...");
+            System.out.println("Receive file upload notifications...");
             FileUploadNotification fileUploadNotification = fileUploadNotificationReceiver.receive();
             if (fileUploadNotification != null) {
               System.out.println("File Upload notification received");
@@ -192,7 +195,7 @@ IoT Hub가 이 섹션을 완료하려면 **iothubowner** 연결 문자열이 필
     }
     ```
 
-1. 파일 업로드 알림을 수신하는 스레드를 시작하려면 다음 코드를 **main** 메서드에 추가합니다.
+9. 파일 업로드 알림을 수신하는 스레드를 시작하려면 다음 코드를 **main** 메서드에 추가합니다.
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException, Exception {
@@ -220,9 +223,9 @@ IoT Hub가 이 섹션을 완료하려면 **iothubowner** 연결 문자열이 필
     }
     ```
 
-1. `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` 파일을 저장하고 닫습니다.
+10. `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` 파일을 저장하고 닫습니다.
 
-1. 다음 명령을 사용하여 **read-file-upload-notification** 앱을 작성하고 오류가 있는지 확인합니다.
+11. 다음 명령을 사용하여 **read-file-upload-notification** 앱을 작성하고 오류가 있는지 확인합니다.
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -258,39 +261,12 @@ mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 장치에서 파일 업로드를 단순화하기 위해 IoT Hub의 파일 업로드 기능을 사용하는 방법을 알아보았습니다. 다음 문서를 사용하여 IoT Hub 기능 및 시나리오를 계속 탐색할 수 있습니다.
+이 자습서에서는 디바이스에서 파일 업로드를 단순화하기 위해 IoT Hub의 파일 업로드 기능을 사용하는 방법을 알아보았습니다. 다음 문서를 사용하여 IoT Hub 기능 및 시나리오를 계속 탐색할 수 있습니다.
 
-* [프로그래밍 방식으로 IoT Hub 만들기][lnk-create-hub]
-* [C SDK 소개][lnk-c-sdk]
-* [Azure IoT SDK][lnk-sdks]
+* [프로그래밍 방식으로 IoT Hub 만들기](iot-hub-rm-template-powershell.md)
+* [C SDK 소개](iot-hub-device-sdk-c-intro.md)
+* [Azure IoT SDK](iot-hub-devguide-sdks.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
-
-<!-- Images. -->
-
-[50]: ./media/iot-hub-csharp-csharp-file-upload/run-apps1.png
-[1]: ./media/iot-hub-csharp-csharp-file-upload/image-properties.png
-[2]: ./media/iot-hub-csharp-csharp-file-upload/file-upload-project-csharp1.png
-[3]: ./media/iot-hub-csharp-csharp-file-upload/enable-file-notifications.png
-
-<!-- Links -->
-
-
-
-[Azure IoT 개발자 센터]: http://azure.microsoft.com/develop/iot
-
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account
-[lnk-configure-upload]: iot-hub-configure-file-upload.md
-[Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-
-[lnk-create-hub]: iot-hub-rm-template-powershell.md
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-
-
+* [IoT Edge에서 장치 시뮬레이션](../iot-edge/tutorial-simulate-device-linux.md)

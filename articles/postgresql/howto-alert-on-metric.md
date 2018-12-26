@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b4b15998276dd6c32e9c15622aa0251c6c066085
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b57827cb4e8c1105c88b6fab217e17d6cf4db056
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29690257"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271235"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL의 메트릭에 대한 경고 설정 
 
@@ -28,9 +28,9 @@ ms.locfileid: "29690257"
 * Webhook를 호출합니다.
 
 다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다.
-* [Azure 포털](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [명령줄 인터페이스(CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [명령줄 인터페이스(CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Azure Portal에서 메트릭에 대한 경고 규칙 만들기
@@ -48,7 +48,7 @@ ms.locfileid: "29690257"
 
    | 설정 | 설명  |
    |---------|---------|
-   | Name | 경고 규칙의 이름을 제공합니다. 이 값은 경고 알림 전자 메일로 전송됩니다. |
+   | 이름 | 경고 규칙의 이름을 제공합니다. 이 값은 경고 알림 전자 메일로 전송됩니다. |
    | 설명 | 경고 규칙에 대한 간단한 설명을 제공합니다. 이 값은 경고 알림 전자 메일로 전송됩니다. |
    | 경고 대상: | 이러한 종류의 경고에 대한 **메트릭**을 선택합니다. |
    | 구독 | 이 필드는 Azure Database for PostgreSQL을 호스트하는 구독으로 미리 채워져 있습니다. |
@@ -81,5 +81,5 @@ ms.locfileid: "29690257"
 * 알림 수신을 일시적으로 중지하거나 다시 시작하려면 경로를 **사용 안 함** 또는 **사용**으로 설정.
 
 ## <a name="next-steps"></a>다음 단계
-* [경고에서의 webhook 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md)에 대해 자세히 알아봅니다.
+* [경고에서의 webhook 구성](../azure-monitor/platform/alerts-webhooks.md)에 대해 자세히 알아봅니다.
 * 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.

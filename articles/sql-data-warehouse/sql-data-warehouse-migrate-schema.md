@@ -3,19 +3,19 @@ title: SQL Data Warehouse로 스키마 마이그레이션| Microsoft Docs
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse로 스키마를 마이그레이션하기 위한 팁
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: fb1085450a16acb0f9a06a9dea9d91fc5ca23363
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 51ad7eed0bf37194b1e5ff2c605b39246e9a1191
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525168"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301185"
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>SQL Data Warehouse로 스키마 마이그레이션
 SQL Data Warehouse에 SQL 스키마를 마이그레이션하기 위한 지침입니다. 

@@ -3,7 +3,7 @@ title: 자습서 - Azure에서 Jenkins를 사용하여 개발 파이프라인 �
 description: 자습서 - 이 자습서에서는 각 코드 커밋의 GitHub에서 가져오고 앱을 실행하기 위해 새 Docker 컨테이너를 빌드하는 Azure에서 Jenkins 가상 머신을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 1a29d58ca96793c44878a6755cc74edeab6a7c4b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931731"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470849"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>자습서 - Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기
 
@@ -37,7 +37,7 @@ ms.locfileid: "37931731"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-jenkins-instance"></a>Jenkins 인스턴스 만들기
 [처음 부팅 시 Linux 가상 머신을 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)에 대한 이전 자습서에서 cloud-init를 사용하여 VM 사용자 지정을 자동화하는 방법을 배웠습니다. 이 자습서는 cloud-init 파일을 사용하여 VM에 Jenkins 및 Docker를 설치합니다. 널리 사용되는 오픈 소스 자동화 서버인 Jenkins는 Azure와 원활하게 통합되어 CI(지속적인 통합) 및 CD(지속적인 업데이트)를 지원합니다. Jenkins 사용 방법에 대한 자세한 자습서는 [Jenkins Azure Hub](https://docs.microsoft.com/azure/jenkins/)를 참조하세요.
@@ -151,7 +151,7 @@ Jenkins 웹 사이트에서 홈 페이지에서 **새 작업 만들기**를 선�
 - **일반** 섹션에서 **GitHub 프로젝트**를 선택하고 *https://github.com/cynthn/nodejs-docs-hello-world*와 같은 포크된 리포지토리 URL을 입력합니다.
 - **소스 코드 관리** 섹션에서 **Git**을 선택하고 *https://github.com/cynthn/nodejs-docs-hello-world.git*과 같은 포크된 리포지토리 *.git* URL을 입력합니다.
 - **트리거 빌드**에서 **GITscm 폴링에 대한 GitHub 후크 트리거**를 선택합니다.
-- **빌드** 섹션 아래에서 **빌드 단계 추가**를 선택합니다. **셸 실행**을 선택한 다음 명령 창에 `echo "Testing"` 명령을 입력합니다.
+- **빌드** 섹션 아래에서 **빌드 단계 추가**를 선택합니다. **셸 실행**을 선택한 다음 명령 창에 `echo "Test"` 명령을 입력합니다.
 - 작업 창 맨 아래에서 **저장**을 선택합니다.
 
 
@@ -241,7 +241,7 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 > * 앱에 대한 Docker 이미지 만들기
 > * 새 Docker 이미지를 빌드한 GitHub 커밋 및 앱을 실행하는 업데이트 확인
 
-Visual Studio Team Services와 Jenkins를 통합하는 방법에 대한 자세한 내용을 보려면 다음 자습서로 이동합니다.
+Azure DevOps Services와 Jenkins를 통합하는 방법에 대한 자세한 내용을 보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [Jenkins 및 Team Services를 사용하여 앱 배포](tutorial-build-deploy-jenkins.md)
+> [Jenkins 및 Azure DevOps Services를 사용하여 앱 배포](tutorial-build-deploy-jenkins.md)

@@ -3,23 +3,23 @@ title: Azure Security Center에서 보안 솔루션 통합 | Microsoft Docs
 description: Azure Security Center를 파트너와 통합하여 Azure 리소스의 전반적인 보안을 강화하는 방법에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
-ms.author: terrylan
-ms.openlocfilehash: 594588bfaf328c687bb43f2d958ff928a521c5ab
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.date: 11/26/2018
+ms.author: rkarlin
+ms.openlocfilehash: bbdda5012e6132940d00ae23a6d26469b0216fd0
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888935"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335443"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -27,36 +27,37 @@ ms.locfileid: "37888935"
 ## <a name="integrated-azure-security-solutions"></a>통합된 Azure 보안 솔루션
 Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게 사용할 수 있습니다. 이점은 다음과 같습니다.
 
-- 
-  **배포 간소화**: Security Center에서는 통합된 파트너 솔루션의 간결한 프로비전을 제공합니다. 맬웨어 방지 및 취약성 평가와 같은 솔루션의 경우 Security Center는 가상 머신에 필요한 에이전트를 프로비전할 수 있습니다. 또한 방화벽 어플라이언스의 경우 Security Center는 필요한 네트워크 구성을 충분히 고려할 수 있습니다.
+- **배포 간소화**: Security Center에서는 통합된 파트너 솔루션의 간결한 프로비전을 제공합니다. 맬웨어 방지 및 취약성 평가와 같은 솔루션의 경우 Security Center는 가상 머신에 필요한 에이전트를 프로비전할 수 있습니다. 또한 방화벽 어플라이언스의 경우 Security Center는 필요한 네트워크 구성을 충분히 고려할 수 있습니다.
 - **통합된 감지**: 파트너 솔루션의 보안 이벤트는 자동으로 수집, 집계되며 Security Center 알림 및 사고의 일부로 표시됩니다. 또한 이러한 이벤트는 다른 원본의 감지를 결합하여 고급 위협 감지 기능을 제공합니다.
 - **통합된 상태 모니터링 및 관리**: 고객은 통합된 상태 이벤트를 사용하여 한 눈에 모든 파트너 솔루션을 모니터링할 수 있습니다. 기본 관리는 파트너 솔루션을 사용하여 고급 설정에 쉽게 액세스하여 사용할 수 있습니다.
 
 현재 통합 보안 솔루션에는 다음이 포함됩니다.
 
-- 엔드포인트 보호([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) 및 [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection))
+- 엔드포인트 보호([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) 및 [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))
 - 웹 응용 프로그램 방화벽([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) 및 [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - 차세대 방화벽([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) 및 [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - 취약점 평가([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) 및 [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
-> Rapid7은 미리 보기 상태입니다.
+> 대부분의 보안 공급업체가 자신들의 어플라이언스에서 외부 에이전트를 실행하는 것을 금지하고 있기 때문에 Security Center는 파트너 가상 어플라이언스에 Microsoft Monitoring Agent를 설치하지 않습니다.
 >
 >
 
-끝점 보호 통합 환경은 솔루션에 따라 다를 수 있습니다. 다음 표에는 각 솔루션의 환경에 대한 자세한 정보가 나와 있습니다.
 
-| 끝점 보호               | 플랫폼                             | Security Center 설치 | Security Center 검색 |
+| 엔드포인트 보호               | 플랫폼                             | Security Center 설치 | Security Center 검색 |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender(Microsoft 맬웨어 방지 프로그램)                  | Windows Server 2016                   | 아니오, OS에 기본 제공           | 예                       |
-| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2 | 확장을 통해                | 예                       |
-| Trend Micro - 모든 버전         | Windows Server 제품군                 | 아니오                           | 예                       |
-| Symantec v12.1.1100+              | Windows Server 제품군                 | 아니오                           | 예                       |
-| McAfee v10+                       | Windows Server 제품군                 | 아니오                           | 예                       |
-| Kaspersky                         | Windows Server 제품군                 | 아니오                           | 아니오                        |
-| Sophos                            | Windows Server 제품군                 | 아니오                           | 아니오                        |
+| Windows Defender(Microsoft 맬웨어 방지 프로그램)                  | Windows Server 2016                   | 아니오, OS에 기본 제공           | yes                       |
+| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해                | yes                       |
+| Trend Micro - 모든 버전         | Windows Server 제품군                 | 아니요                           | yes                       |
+| Symantec v12.1.1100+              | Windows Server 제품군                 | 아니요                           | yes                       |
+| McAfee v10+                       | Windows Server 제품군                 | 아니요                           | yes                       |
+| Kaspersky                         | Windows Server 제품군                 | 아니요                           | 아니요                        |
+| Sophos                            | Windows Server 제품군                 | 아니요                           | 아니요                        |
 
-
+> [!NOTE]
+> Windows Server 2008 R2 가상 머신에서 SCEP(System Center Endpoint Protection)의 검색을 위해서는 PowerShell 3.0(또는 상위 버전)이 설치된 후 SCEP가 설치되어야 합니다.
+>
+>
 
 ## <a name="how-security-solutions-are-integrated"></a>보안 솔루션을 통합하는 방법
 Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩니다. 또한 다음을 비롯한 다른 보안 데이터 원본에 연결할 수 있습니다.
@@ -74,9 +75,9 @@ Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩
 
 2. **Microsoft Azure 메뉴**에서 **Security Center**를 선택합니다. **Security Center - 개요**가 열립니다.
 
-  ![Security Center 개요](./media/security-center-partner-integration/overview.png)
+3. Security Center 메뉴에서 **보안 솔루션**을 선택합니다.
 
-3. **개요**에서 **보안 솔루션**을 선택합니다.
+  ![Security Center 개요](./media/security-center-partner-integration/overview.png)
 
 **보안 솔루션**에서 통합된 Azure 보안 솔루션의 상태에 대한 정보를 보고 기본 관리 작업을 수행할 수 있습니다. 또한 CEF(공통 이벤트 형식)에서 Azure Active Directory Identity Protection 알림 및 방화벽 로그와 같은 다른 형식의 보안 데이터 원본을 연결할 수 있습니다.
 
@@ -119,4 +120,4 @@ Security Center는 CEF(일반 이벤트 형식) 로그를 전달할 수 있는 �
 * [Security Center에서 보안 상태 모니터링](security-center-monitoring.md) Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) Security Center 사용에 관한 질문과 대답에 대한 답을 가져옵니다.
-* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

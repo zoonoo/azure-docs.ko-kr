@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-ms.openlocfilehash: 09d1649f0ca0cf4ca464d95b29461cad3fe51788
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f868c4d63209da641b4faa336e7ef78b36ef6454
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
-ms.locfileid: "22710136"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165444"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>ExpressRoute 및 사이트 간 공존 연결 구성(클래식)
 > [!div class="op_single_selector"]
@@ -29,13 +29,13 @@ ms.locfileid: "22710136"
 > 
 > 
 
-사이트 간 VPN 및 ExpressRoute를 구성하는 기능이 있으면 여러 장점이 있습니다. 사이트 간 VPN을 Exress 경로에 대한 안전한 장애 조치(failover) 경로로 구성하거나 사이트 간 VPN을 사용하여 ExpressRoute를 통해 연결되지 않은 사이트에 연결할 수 있습니다. 이 문서에서는 두 시나리오 모두를 구성하는 단계를 설명합니다. 이 문서는 클래식 배포 모델에 적용됩니다. 이 구성은 포털에서 사용할 수 없습니다.
+사이트 간 VPN 및 ExpressRoute를 구성하는 기능이 있으면 여러 장점이 있습니다. 사이트 간 VPN을 ExpressRoute의 보안 장애 조치 경로로 구성하거나, 사이트 간 VPN을 사용하여 ExpressRoute를 통해 연결되지 않은 사이트에 연결할 수 있습니다. 이 문서에서는 두 시나리오 모두를 구성하는 단계를 설명합니다. 이 문서는 클래식 배포 모델에 적용됩니다. 이 구성은 포털에서 사용할 수 없습니다.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **Azure 배포 모델 정보**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 > [!IMPORTANT]
 > ExpressRoute 회로는 아래 지침을 수행하기 전에 미리 구성되어야 합니다. 다음 단계를 수행하기 전에 [ExpressRoute 회로 만들기](expressroute-howto-circuit-classic.md) 및 [라우팅 구성](expressroute-howto-routing-classic.md)을 위해 지침을 수행했는지 확인합니다.
@@ -80,7 +80,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
     가상 네트워크가 아직 없는 경우 이 절차에서는 클래식 배포 모델을 사용하여 새 가상 네트워크를 만들고 새 ExpressRoute 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 구성하려면 이 문서의 [새 가상 네트워크 및 공존 연결을 만들려면](#new)섹션에 있는 단계를 따릅니다.
 * 이미 클래식 배포 모델 VNet이 있는 경우
   
-    기존 사이트 간 VPN 또는 ExpressRoute에 연결된 가상 네트워크가 이미 있을 수 있습니다. [기존 VNet에 대해 공존 연결을 구성하려면](#add) 문서 섹션에서는 게이트웨이를 삭제한 다음 새 ExpressRoute 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 새 연결을 만들 때 지정된 순서대로 단계를 완료해야 합니다. 게이트웨이 및 연결을 만들 때 다른 문서의 지침을 사용하지 마세요.
+    기존 사이트 간 VPN 또는 ExpressRoute에 연결된 가상 네트워크가 이미 있을 수 있습니다. [기존 VNet에 대해 공존 연결을 구성하려면](#add) 문서 섹션에서는 게이트웨이를 삭제한 다음, 새 ExpressRoute 및 사이트 간 VPN 연결을 만드는 과정을 설명합니다. 새 연결을 만들 때 지정된 순서대로 단계를 완료해야 합니다. 게이트웨이 및 연결을 만들 때 다른 문서의 지침을 사용하지 마세요.
   
     이 절차에서 함께 사용할 수 있는 연결을 만들려면 게이트웨이를 삭제한 다음 공존할 수 있는 새 게이트웨이를 구성해야 합니다. 이 경우 게이트웨이 및 연결을 삭제하고 다시 만드는 동안 크로스-프레미스 연결을 위한 가동 중지 시간이 발생하지만 VM 또는 서비스를 새 가상 네트워크로 마이그레이션할 필요는 없습니다. VM 및 서비스는 그렇게 구성된 경우 게이트웨이를 구성하는 동안 부하 분산 장치를 통해 계속 통신할 수 있습니다.
 
@@ -154,7 +154,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
         OperationDescription : Get-AzureVirtualNetworkGateway
         OperationId          : 42773656-85e1-a6b6-8705-35473f1e6f6a
         OperationStatus      : Succeeded
-7. 로컬 사이트 VPN 게이트웨이 엔터티를 만듭니다. 이 명령은 온-프레미스 VPN Gateway를 구성하지 않습니다. 대신, Azure VPN 게이트웨이를 연결할 수 있도록 공용 IP 주소 및 온-프레미스 주소 공간과 같은 로컬 게이트웨이 설정을 제공할 수 있게 해줍니다.
+7. 로컬 사이트 VPN 게이트웨이 엔터티를 만듭니다. 이 명령은 온-프레미스 VPN Gateway를 구성하지 않습니다. 대신, Azure VPN Gateway를 연결할 수 있도록 공용 IP 주소 및 온-프레미스 주소 공간과 같은 로컬 게이트웨이 설정을 제공할 수 있게 해줍니다.
    
    > [!IMPORTANT]
    > 사이트 간 VPN의 로컬 사이트는 netcfg에 정의되지 않습니다. 대신, 다음 cmdlet을 사용하여 로컬 사이트 매개 변수를 지정해야 합니다. 포털 또는 netcfg 파일을 사용하여 정의할 수 없습니다.
@@ -183,8 +183,8 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
         OperationStatus      : Succeeded
 
 
-1. 새 게이트웨이에 연결할 로컬 VPN 장치를 구성합니다. VPN 장치를 구성할 때 6단계에서 검색한 정보를 사용합니다. VPN 장치 구성에 대한 자세한 내용은 [VPN 장치 구성](../vpn-gateway/vpn-gateway-about-vpn-devices.md)을 참조하세요.
-2. Azure의 사이트 간 VPN 게이트웨이를 로컬 게이트웨이에 연결합니다.
+1. 새 게이트웨이에 연결할 로컬 VPN 디바이스를 구성합니다. VPN 디바이스를 구성할 때 6단계에서 검색한 정보를 사용합니다. VPN 디바이스 구성에 대한 자세한 내용은 [VPN 디바이스 구성](../vpn-gateway/vpn-gateway-about-vpn-devices.md)을 참조하세요.
+2. Azure의 사이트 간 VPN Gateway를 로컬 게이트웨이에 연결합니다.
    
     이 예제에서 connectedEntityId는 `Get-AzureLocalNetworkGateway`를 실행하여 찾을 수 있는 로컬 게이트웨이 ID입니다. virtualNetworkGatewayId는 `Get-AzureVirtualNetworkGateway` cmdlet을 사용하여 찾을 수 있습니다. 이 단계를 수행하면 사이트 간 VPN 연결을 통해 로컬 네트워크와 Azure 간의 연결이 설정됩니다.
 

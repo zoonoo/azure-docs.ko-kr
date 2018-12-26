@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 4/03/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 90a28162fb1f455c154ad4d2da7beac6bc785bc7
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 00fc04afd26da2ef5741eec308835bb8c897c26b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301039"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077344"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>클러스터에 대해 Log Analytics 설정
 
@@ -72,123 +72,28 @@ Windows를 사용하는 경우 다음 단계를 계속 진행하여 클러스터
 Log Analytics 작업 영역에 추가한 Service Fabric 분석 솔루션이 이제 클러스터의 플랫폼 및 응용 프로그램 로그 표에 제대로 연결되었습니다. 같은 방식으로 작업 영역에 추가적인 원본을 추가할 수 있습니다.
 
 
-## <a name="deploy-log-analytics-by-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Log Analytics 배포
+## <a name="deploy-log-analytics-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Log Analytics 배포
 
 Resource Manager 템플릿을 사용하여 클러스터를 배포하는 경우 템플릿은 새 Log Analytics 작업 영역을 만들고, 작업 영역에 Service Fabric 솔루션을 추가하고, 적절한 저장소 테이블에서 데이터를 읽도록 구성합니다.
 
-[이 샘플 템플릿](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms)을 사용하고 요구 사항에 맞게 수정할 수 있습니다.
+[이 샘플 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure)을 사용하고 요구 사항에 맞게 수정할 수 있습니다. 이 템플릿은 다음을 수행합니다.
 
-다음과 같이 수정합니다.
-1. *template.json* 파일에 정의된 매개 변수에 다음 코드 조각을 추가하여 매개 변수에 `omsWorkspaceName` 및 `omsRegion`을 추가합니다. 기본값을 원하는 대로 자유롭게 수정합니다. 또한 *parameters.json* 파일에 새 매개 변수 두 개를 추가하여 리소스 배포에 대한 해당 값을 정의합니다.
-    
-    ```json
-    "omsWorkspacename": {
-        "type": "string",
-        "defaultValue": "sfomsworkspace",
-        "metadata": {
-            "description": "Name of your Log Analytics Workspace"
-        }
-    },
-    "omsRegion": {
-        "type": "string",
-        "defaultValue": "East US",
-        "allowedValues": [
-            "West Europe",
-            "East US",
-            "Southeast Asia"
-        ],
-        "metadata": {
-            "description": "Specify the Azure Region for your Log Analytics workspace"
-        }
-    }
-    ```
+* 5 노드 Service Fabric 클러스터 만들기
+* Log Analytics 작업 영역 및 Service Fabric 솔루션 만들기
+* 작업 영역에 2개 샘플 성능 카운터를 수집 및 보내도록 Log Analytics 에이전트 구성
+* Service Fabric을 수집하도록 WAD 구성 및 Azure Storage 테이블로 전송(WADServiceFabric*EventTable)
+* 이러한 테이블에서 이벤트를 읽도록 Log Analytics 작업 영역 구성
 
-    `omsRegion` 값은 특정 값 집합을 준수해야 합니다. 클러스터 배포에 가장 가까운 값을 선택합니다.
 
-2. 응용 프로그램 로그를 Log Analytics로 보내는 경우 먼저 `applicationDiagnosticsStorageAccountType` 및 `applicationDiagnosticsStorageAccountName`이 템플릿에 매개 변수로 포함되어 있는지 확인합니다. 포함되어 있지 않으면 변수 섹션에 추가하고 필요에 따라 값을 편집합니다. 앞의 형식에 따라 매개 변수로 포함할 수도 있습니다.
+AzureRM PowerShell 모듈에서 `New-AzureRmResourceGroupDeployment` API를 사용하여 템플릿을 Resource Manager 업그레이드로 클러스터에 배포할 수 있습니다. 예제 명령은 다음과 같습니다.
 
-    ```json
-    "applicationDiagnosticsStorageAccountType": "Standard_LRS",
-    "applicationDiagnosticsStorageAccountName": "[toLower(concat('oms', uniqueString(resourceGroup().id), '3' ))]"
-    ```
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -TemplateFile "<templatefile>.json" 
+``` 
 
-3. Service Fabric 솔루션을 템플릿의 변수에 추가합니다.
+Azure Resource Manager는 이 명령이 기존 리소스에 대한 업데이트임을 감지합니다. 기존 배포를 구동하는 템플릿과 제공된 새 템플릿 간의 변경 내용만 처리합니다.
 
-    ```json
-    "solution": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
-    "solutionName": "ServiceFabric"
-    ```
-
-4. 리소스 섹션의 끝에서 Service Fabric 클러스터 리소스가 선언된 위치 뒤에 다음을 추가합니다.
-
-    ```json
-    {
-        "apiVersion": "2015-11-01-preview",
-        "location": "[parameters('omsRegion')]",
-        "name": "[parameters('omsWorkspacename')]",
-        "type": "Microsoft.OperationalInsights/workspaces",
-        "properties": {
-            "sku": {
-                "name": "Free"
-            }
-        },
-        "resources": [
-            {
-                "apiVersion": "2015-11-01-preview",
-                "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('omsWorkspacename'))]",
-                "type": "storageinsightconfigs",
-                "dependsOn": [
-                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]",
-                    "[concat('Microsoft.Storage/storageAccounts/', parameters('applicationDiagnosticsStorageAccountName'))]"
-                ],
-                "properties": {
-                    "containers": [ ],
-                    "tables": [
-                        "WADServiceFabric*EventTable",
-                        "WADWindowsEventLogsTable",
-                        "WADETWEventTable"
-                    ],
-                    "storageAccount": {
-                        "id": "[resourceId('Microsoft.Storage/storageaccounts/', parameters('applicationDiagnosticsStorageAccountName'))]",
-                        "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName')),'2015-06-15').key1]"
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "apiVersion": "2015-11-01-preview",
-        "location": "[parameters('omsRegion')]",
-        "name": "[variables('solution')]",
-        "type": "Microsoft.OperationsManagement/solutions",
-        "id": "[resourceId('Microsoft.OperationsManagement/solutions/', variables('solution'))]",
-        "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('OMSWorkspacename'))]"
-        ],
-        "properties": {
-            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
-        },
-        "plan": {
-            "name": "[variables('solution')]",
-            "publisher": "Microsoft",
-            "product": "[Concat('OMSGallery/', variables('solutionName'))]",
-            "promotionCode": ""
-        }
-    }
-    ```
-    
-    > [!NOTE]
-    > `applicationDiagnosticsStorageAccountName`을 변수로 추가한 경우 이에 대한 각 참조를 `parameters('applicationDiagnosticsStorageAccountName')` 대신 `variables('applicationDiagnosticsStorageAccountName')`으로 수정해야 합니다.
-
-5. AzureRM PowerShell 모듈에서 `New-AzureRmResourceGroupDeployment` API를 사용하여 템플릿을 리소스 관리자 업그레이드로 클러스터에 배포합니다. 예제 명령은 다음과 같습니다.
-
-    ```powershell
-    New-AzureRmResourceGroupDeployment -ResourceGroupName "sfcluster1" -TemplateFile "<path>\template.json" -TemplateParameterFile "<path>\parameters.json"
-    ``` 
-
-    Azure Resource Manager는 이 명령이 기존 리소스에 대한 업데이트임을 감지합니다. 기존 배포를 구동하는 템플릿과 제공된 새 템플릿 간의 변경 내용만 처리합니다.
-
-## <a name="deploy-log-analytics-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 Log Analytics 배포
+## <a name="deploy-log-analytics-with-azure-powershell"></a>Azure PowerShell을 사용하여 Log Analytics 배포
 
 `New-AzureRmOperationalInsightsWorkspace` 명령을 사용하여 PowerShell을 통해 Log Analytics 리소스를 배포할 수도 있습니다. 이 방법을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)을 설치했는지 확인합니다. 이 스크립트를 사용하여 새 Log Analytics 작업 영역을 만들고 여기에 Service Fabric 솔루션을 추가합니다. 
 
@@ -218,9 +123,9 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 완료되면 이전 섹션의 단계에 따라 Log Analytics를 해당 저장소 계정에 연결합니다.
 
-PowerShell을 사용하여 Log Analytics 작업 영역에 다른 솔루션을 추가하거나 다른 수정 작업을 할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Log Analytics 관리](../log-analytics/log-analytics-powershell-workspace-configuration.md)를 참조하세요.
+PowerShell을 사용하여 Log Analytics 작업 영역에 다른 솔루션을 추가하거나 다른 수정 작업을 할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Log Analytics 관리](../azure-monitor/platform/powershell-workspace-configuration.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 노드에 [Log Analytics 에이전트를 배포](service-fabric-diagnostics-oms-agent.md)하여 성능 카운터를 수집하고 컨테이너에 대한 docker 통계 및 로그를 수집합니다.
 * Log Analytics의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능 알아보기
-* [뷰 디자이너를 사용하여 Log Analytics에서 사용자 지정 보기 만들기](../log-analytics/log-analytics-view-designer.md)
+* [뷰 디자이너를 사용하여 Log Analytics에서 사용자 지정 보기 만들기](../azure-monitor/platform/view-designer.md)

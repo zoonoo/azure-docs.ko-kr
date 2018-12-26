@@ -1,26 +1,18 @@
 ---
 title: 경로 기반 VPN 게이트웨이 만들기 - Azure Portal | Microsoft Docs
-description: Azure Portal을 사용하여 빠르게 경로 기반 VPN 게이트웨이 만들기
+description: Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 550f655f6eac5a114636978255578eb3753e0d4b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7139b2de79b4e092ca761a4e51061c233e6031b5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30918135"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470305"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기
 
@@ -54,12 +46,12 @@ ms.locfileid: "30918135"
 2. 가상 네트워크 페이지에서 **서브넷**을 클릭하여 **VNet1 - 서브넷** 페이지를 확장합니다.
 3. 맨 위에 있는 **+게이트웨이 서브넷**을 클릭하여 **서브넷 추가** 페이지를 엽니다.
 
-  ![게이트웨이 서브넷 추가](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "게이트웨이 서브넷 추가")
+  ![게이트웨이 서브넷 추가](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "게이트웨이 서브넷 추가")
 4. 서브넷의 **이름**에 필수 값 ‘GatewaySubnet’이 자동으로 채워집니다. 자동으로 채워진 **주소 범위** 값을 다음 값과 일치하도록 조정합니다.
 
   **주소 범위(CIDR 블록)**: 10.1.255.0/27
 
-  ![게이트웨이 서브넷 추가](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "게이트웨이 서브넷 추가")
+  ![게이트웨이 서브넷 추가](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "게이트웨이 서브넷 추가")
 5. 게이트웨이 서브넷을 만들려면 페이지 맨 아래에서 **확인**을 클릭합니다.
 
 ## <a name="gwvalues"></a>게이트웨이 설정 구성
@@ -74,41 +66,27 @@ ms.locfileid: "30918135"
   - **SKU**: VpnGw1
   - **위치**: 미국 동부
   - **가상 네트워크**: **가상 네트워크/가상 네트워크 선택**을 클릭하여 **가상 네트워크 선택** 페이지를 엽니다. **VNet1**을 선택합니다.
+  - **공용 IP 주소**: VPN 게이트웨이에 연결되는 공용 IP 주소 개체를 지정합니다. VPN Gateway가 생성될 때 공용 IP 주소가 이 개체에 동적으로 할당됩니다. 현재 VPN Gateway는 *동적* 공용 IP 주소 할당만 지원합니다. 하지만 IP 주소가 VPN Gateway에 할당된 후 변경되는 것은 아닙니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 공용 IP 주소가 변경됩니다. VPN Gateway의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드 시에는 변경되지 않습니다.
 
-  ![게이트웨이 설정 구성](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "게이트웨이 설정 구성")
+    - **새로 만들기**를 선택한 상태로 둡니다.
+    - 텍스트 상자에서 공용 IP 주소의 **이름**을 입력합니다. 이 연습에서는 **VNet1GWIP**를 사용합니다.<br>
 
-## <a name="pip"></a>공용 IP 주소 만들기
-
-VPN 게이트웨이에는 동적으로 할당된 공용 IP 주소가 있어야 합니다. VPN 게이트웨이에 대한 연결을 만들 때 온-프레미스 장치가 연결하는 IP 주소입니다.
-
-1. 공용 IP 주소를 요청하려면 **첫 번째 IP 구성 게이트웨이 IP 구성 만들기**를 선택합니다.
-
-  ![첫 번째 IP 구성](./media/create-routebased-vpn-gateway-portal/add-public-ip-address.png "첫 번째 IP 구성")
-2. **공용 IP 선택 페이지**에서 **+ 새로 만들기**를 클릭하여 **공용 IP 주소 만들기** 페이지를 엽니다.
-3. 다음 값을 사용하여 설정을 구성합니다.
-
-  - **이름**: **VNet1GWIP**
-  - **SKU**: **기본**
-
-  ![공용 IP 만들기](./media/create-routebased-vpn-gateway-portal/public-ip-address-name.png "PIP 만들기")
-4. 이 페이지의 맨 아래에서 **확인**을 클릭하여 변경 내용을 저장합니다.
+    ![게이트웨이 설정 구성](./media/create-routebased-vpn-gateway-portal/gw.png "게이트웨이 설정 구성")
 
 ## <a name="creategw"></a>VPN 게이트웨이 만들기
 
 1. **가상 네트워크 게이트웨이 만들기** 페이지의 설정을 확인합니다. 필요한 경우, 값을 조정합니다.
-
-  ![VPN 게이트웨이 만들기](./media/create-routebased-vpn-gateway-portal/create-vpn-gateway.png "VPN 게이트웨이 만들기")
 2. 페이지의 맨 아래에서 **만들기**를 클릭합니다.
 
-**만들기**를 클릭하면 설정의 유효성이 검사되고 **가상 네트워크 게이트웨이 배포** 타일이 대시보드에 나타납니다. VPN 게이트웨이를 만드는 데 최대 45분이 걸릴 수 있습니다. 완료 상태를 확인하기 위해 포털 페이지를 새로 고쳐야 할 수 있습니다.
+  **만들기**를 클릭하면 설정의 유효성이 검사되고 **가상 네트워크 게이트웨이 배포** 타일이 대시보드에 나타납니다. VPN 게이트웨이를 만드는 데 최대 45분이 걸릴 수 있습니다. 완료 상태를 확인하기 위해 포털 페이지를 새로 고쳐야 할 수 있습니다.
 
 ## <a name="viewgw"></a>VPN 게이트웨이 보기
 
-1. 게이트웨이가 생성된 후 포털에서 VNet1로 이동합니다. VPN 게이트웨이가 개요 페이지에 연결된 장치로 나타납니다.
+1. 게이트웨이가 생성된 후 포털에서 VNet1로 이동합니다. VPN 게이트웨이가 개요 페이지에 연결된 디바이스로 나타납니다.
 
   ![연결된 장치](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "연결된 장치")
 
-2. 장치 목록에서 **VNet1GW**를 클릭하여 자세한 정보를 확인합니다.
+2. 디바이스 목록에서 **VNet1GW**를 클릭하여 자세한 정보를 확인합니다.
 
   ![VPN 게이트웨이 보기](./media/create-routebased-vpn-gateway-portal/view-gateway.png "VPN 게이트웨이 보기")
 

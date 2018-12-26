@@ -1,7 +1,20 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 36a014fbff30c32a7149a83907c9586bc3b2f01a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165512"
+---
 <!--author=SharS last changed: 11/18/16-->
 
 #### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell을 통해 정기적인 업데이트를 설치하려면
-1. 장치 직렬 콘솔을 열고 옵션 1, **모든 권한으로 로그인**을 선택합니다. 암호를 입력합니다. 기본 암호는 *Password1*입니다. 
+1. 디바이스 직렬 콘솔을 열고 옵션 1, **모든 권한으로 로그인**을 선택합니다. 암호를 입력합니다. 기본 암호는 *Password1*입니다. 
 2. 명령 프롬프트에 다음을 입력합니다.
    
      `Get-HcsUpdateAvailability`

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: d57229ad79909aa0334cc623d727b733a1ec73f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652011"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011941"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 데이터 관리자 솔루션 개요
 
 ## <a name="overview"></a>개요
 
-Microsoft Azure StorSimple은 클라우드 저장소를 온-프레미스 솔루션의 확장으로 사용하여 자동으로 온-프레미스 솔루션 및 클라우드에서 데이터를 계층화합니다. 최대 효율성 및 비용 절감을 위해 데이터는 중복 제거 및 압축된 형식으로 클라우드에 저장됩니다. 데이터가 StorSimple 형식으로 저장되면 사용하려고 할 수 있는 다른 클라우드 응용 프로그램에서 쉽게 사용할 수 없게 됩니다.
+Microsoft Azure StorSimple은 클라우드 저장소를 온-프레미스 솔루션의 확장으로 사용하여 자동으로 온-프레미스 솔루션 및 클라우드에서 데이터를 계층화합니다. 최대 효율성 및 비용 절감을 위해 데이터는 중복 제거 및 압축된 형식으로 클라우드에 저장됩니다. 데이터가 StorSimple 형식으로 저장되면 사용하려고 할 수 있는 다른 클라우드 애플리케이션에서 쉽게 사용할 수 없게 됩니다.
 
 StorSimple 데이터 관리자를 사용하면 클라우드의 StorSimple 형식 데이터를 원활하게 액세스하고 사용할 수 있습니다. StorSimple 형식을 기본 Blob 및 파일로 변환하여 Azure Media Services, Azure HDInsights, Azure Machine Learning 등의 다른 서비스에서 사용할 수 있도록 합니다.
 
@@ -33,7 +33,7 @@ StorSimple 데이터 관리자를 사용하면 클라우드의 StorSimple 형식
 
 ## <a name="how-it-works"></a>작동 원리
 
-StorSimple 데이터 관리자 서비스는 StorSimple 8000 시리즈 온-프레미스 장치에서 클라우드의 StorSimple 데이터를 식별합니다. 클라우드의 StorSimple 데이터는 중복 제거되고 압축된 StorSimple 형식입니다. 이 데이터 관리자 서비스는 StorSimple 형식 데이터를 추출하여 Azure Blob 및 Azure Files 등의 다른 형식으로 변환하는 API를 제공합니다. 이러한 변환된 데이터는 Azure HDInsight 및 Azure Media Services에서 쉽게 사용될 수 있습니다. 따라서 이러한 데이터 변환을 통해 이러한 서비스는 StorSimple 8000 시리즈 온-프레미스 장치에서 변환된 StorSimple 데이터에 작동할 수 있습니다. 이 흐름은 다음 다이어그램에서 설명됩니다.
+StorSimple 데이터 관리자 서비스는 StorSimple 8000 시리즈 온-프레미스 디바이스에서 클라우드의 StorSimple 데이터를 식별합니다. 클라우드의 StorSimple 데이터는 중복 제거되고 압축된 StorSimple 형식입니다. 이 데이터 관리자 서비스는 StorSimple 형식 데이터를 추출하여 Azure Blob 및 Azure Files 등의 다른 형식으로 변환하는 API를 제공합니다. 이러한 변환된 데이터는 Azure HDInsight 및 Azure Media Services에서 쉽게 사용될 수 있습니다. 따라서 이러한 데이터 변환을 통해 이러한 서비스는 StorSimple 8000 시리즈 온-프레미스 디바이스에서 변환된 StorSimple 데이터에 작동할 수 있습니다. 이 흐름은 다음 다이어그램에서 설명됩니다.
 
 ![높은 수준의 다이어그램](./media/storsimple-data-manager-overview/storsimple-data-manager-overview2.png)
 
@@ -65,14 +65,14 @@ StorSimple 데이터 관리자는 다음 7개 지역에서 사용할 수 있습�
 ## <a name="choosing-a-region"></a>지역 선택
 
 다음이 권장됩니다.
- - 원본 저장소 계정(StorSimple 장치와 연결된 계정) 및 대상 저장소 계정(데이터를 네이티브 형식으로 유지하려는 계정)은 같은 Azure 지역에 있는 것이 좋습니다.
+ - 원본 저장소 계정(StorSimple 디바이스와 연결된 계정) 및 대상 저장소 계정(데이터를 네이티브 형식으로 유지하려는 계정)은 같은 Azure 지역에 있는 것이 좋습니다.
  - StorSimple 저장소 계정을 포함하는 지역에서 데이터 관리자 및 작업 정의를 불러옵니다. 이것이 가능하지 않은 경우, 가장 가까운 Azure 지역에서 데이터 관리자를 불러온 다음, StorSimple 저장소 계정과 동일한 지역에 작업 정의를 만듭니다. 
 
     StorSimple 저장소 계정이 작업 정의 생성을 지원하는 26개 지역 중 하나에 있지 않으면, 대기 시간이 길어지고 전송 요금이 높아질 수 있으므로 StorSimple 데이터 관리자를 실행하지 않는 것이 좋습니다.
 
 ## <a name="security-considerations"></a>보안 고려 사항
 
-StorSimple 데이터 관리자는 StorSimple 형식에서 네이티브 형식으로 변환하기 위해 서비스 데이터 암호화 키가 필요합니다. 서비스 데이터 암호화 키는 첫 번째 장치가 StorSimple 서비스에 등록될 때 생성됩니다. 이 키에 대한 자세한 내용은 [StorSimple 보안](storsimple-8000-security.md)으로 이동합니다.
+StorSimple 데이터 관리자는 StorSimple 형식에서 네이티브 형식으로 변환하기 위해 서비스 데이터 암호화 키가 필요합니다. 서비스 데이터 암호화 키는 첫 번째 디바이스가 StorSimple 서비스에 등록될 때 생성됩니다. 이 키에 대한 자세한 내용은 [StorSimple 보안](storsimple-8000-security.md)으로 이동합니다.
 
 입력으로 제공되는 서비스 데이터 암호화 키는 데이터 관리자를 만들 때 생성되는 Key Vault에 저장됩니다. 이 자격 증명 모음은 StorSimple 데이터 관리자와 동일한 Azure 지역에 있습니다. 이 키는 데이터 관리자 서비스를 삭제하면 삭제됩니다.
 
@@ -85,6 +85,14 @@ StorSimple 데이터 관리자는 StorSimple 형식에서 네이티브 형식으
 ## <a name="managing-personal-information"></a>개인 정보 관리
 
 StorSimple Data Manager는 개인 정보를 수집하거나 표시하지 않습니다. 자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
+
+## <a name="known-limitations"></a>알려진 제한 사항
+
+서비스에는 현재 다음과 같은 제한 사항이 있습니다.
+- StorSimple Data Manager는 현재 BitLocker 암호화된 볼륨으로 작동되지 않습니다. 암호화된 드라이브를 사용하여 서비스를 실행하려는 경우 작업 오류가 표시됩니다.
+- 파일의 일부 메타데이터(ACL 포함)는 변환된 데이터 내에 유지되지 않습니다.
+- 이 서비스는 NTFS 볼륨에서만 작동합니다.
+- 파일 경로 길이는 256자 이하이어야 하며 그렇지 않은 경우 작업이 실패합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
-ms.openlocfilehash: 21ed7dd1120958576651703283a0732e3843546d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8aad769da4d1c831dc0222c39daf86801a4f850b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777460"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244290"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs 다양한 푸시
 ## <a name="overview"></a>개요
@@ -33,10 +33,10 @@ ms.locfileid: "33777460"
 
 1. 앱 백 엔드:
    * 백 엔드 데이터베이스/로컬 저장소에 풍부한 페이로드(이 경우 이미지)를 저장합니다.
-   * 이 풍부한 알림의 ID를 장치에 보냅니다.
-2. 장치의 앱:
+   * 이 풍부한 알림의 ID를 디바이스에 보냅니다.
+2. 디바이스의 앱:
    * 받은 ID로 풍부한 페이로드를 요청하는 백 엔드에 연결합니다.
-   * 데이터 검색이 완료되면 장치에서 사용자에게 알림을 보내고 사용자가 자세한 내용을 보기 위해 탭하면 즉시 페이로드를 표시합니다.
+   * 데이터 검색이 완료되면 디바이스에서 사용자에게 알림을 보내고 사용자가 자세한 내용을 보기 위해 탭하면 즉시 페이로드를 표시합니다.
 
 ## <a name="webapi-project"></a>WebAPI 프로젝트
 1. Visual Studio에서 **사용자에게 알림** 자습서에서 만든 [AppBackend](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) 프로젝트를 엽니다.
@@ -94,10 +94,10 @@ ms.locfileid: "33777460"
         }
    
    > [!NOTE]
-   > (선택 사항) 프로젝트 리소스를 추가하고 얻는 방법에 대한 자세한 내용은 [Visual C#을 사용하여 리소스를 포함 및 액세스하는 방법](http://support.microsoft.com/kb/319292)을 참조하세요.
+   > (선택 사항) 프로젝트 리소스를 추가하고 얻는 방법에 대한 자세한 내용은 [Visual C#을 사용하여 리소스를 포함 및 액세스하는 방법](https://support.microsoft.com/kb/319292)을 참조하세요.
    > 
    > 
-7. **NotificationsController.cs**에서 **NotificationsController**를 다음 조각으로 다시 정의합니다. 그러면 초기 자동 풍부한 알림 ID가 장치에 전송되고 클라이언트 쪽에서 이미지를 검색할 수 있습니다.
+7. **NotificationsController.cs**에서 **NotificationsController**를 다음 조각으로 다시 정의합니다. 그러면 초기 자동 풍부한 알림 ID가 디바이스에 전송되고 클라이언트 쪽에서 이미지를 검색할 수 있습니다.
    
         // Return http response with image binary
         public HttpResponseMessage Get(int id) {
@@ -126,8 +126,8 @@ ms.locfileid: "33777460"
    
             return Request.CreateResponse(HttpStatusCode.OK);
         }
-8. 이제 모든 장치에서 액세스할 수 있도록 이 앱을 Azure 웹 사이트에 다시 배포합니다. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
-9. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인하여 기존 또는 새로운 웹 사이트를 선택하며, **연결** 탭의 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 끝점* 이라고 합니다. **게시**를 클릭합니다.
+8. 이제 모든 디바이스에서 액세스할 수 있도록 이 앱을 Azure 웹 사이트에 다시 배포합니다. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+9. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인하여 기존 또는 새로운 웹 사이트를 선택하며, **연결** 탭의 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 엔드포인트* 라고 합니다. **게시**를 클릭합니다.
 
 ## <a name="modify-the-ios-project"></a>iOS 프로젝트 수정
 알림의 *id* 만 보내도록 앱 백 엔드를 수정했으므로 해당 ID를 처리하고 백 엔드에서 풍부한 메시지를 검색하도록 iOS 앱을 변경합니다.
@@ -219,7 +219,7 @@ ms.locfileid: "33777460"
        // Get home view controller from stack on navigation controller
        homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
        hvc.deviceToken = deviceToken;
-2. 그런 다음 **AppDelegate.m** 에 다음 메서드를 추가하여 끝점에서 이미지를 검색하고 검색이 완료되면 로컬 알림을 보냅니다. 자리 표시자 `{backend endpoint}` 를 해당 백 엔드 끝점으로 대체해야 합니다.
+2. 그런 다음 **AppDelegate.m** 에 다음 메서드를 추가하여 엔드포인트에서 이미지를 검색하고 검색이 완료되면 로컬 알림을 보냅니다. 자리 표시자 `{backend endpoint}` 를 해당 백 엔드 엔드포인트로 대체해야 합니다.
    
        NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
    
@@ -347,7 +347,7 @@ ms.locfileid: "33777460"
        }
 
 ## <a name="run-the-application"></a>응용 프로그램 실행
-1. XCode에서는 실제 iOS 장치에서 앱을 실행합니다(푸시 알림은 시뮬레이터에서 작동하지 않음).
+1. XCode에서는 실제 iOS 디바이스에서 앱을 실행합니다(푸시 알림은 시뮬레이터에서 작동하지 않음).
 2. iOS 앱 UI에서 인증에 대해 동일한 값의 사용자 이름과 암호를 입력하고 **로그인**을 클릭합니다.
 3. **푸시 보내기** 를 클릭하면 앱 내 경고가 표시됩니다. **더 보기**를 클릭하면 앱 백 엔드에 포함되도록 선택한 이미지가 표시됩니다.
 4. **푸시 보내기** 를 클릭하고 즉시 장치의 홈 단추를 누를 수도 있습니다. 곧 푸시 알림을 받게 됩니다. 푸시 알림을 탭하거나 More를 클릭하면 앱과 풍부한 이미지 콘텐츠가 표시됩니다.

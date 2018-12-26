@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: eb35563bc21fc48d304f216e7b34cc9a77f35e83
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 030c9bf32da7b635066a744270739251b9bf3d03
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265365"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984709"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Azure Portal에서 서버 로그 구성 및 액세스
 
@@ -27,7 +27,7 @@ Azure Portal에서 [Azure Database for MySQL 서버 로그](concepts-server-logs
 ## <a name="configure-logging"></a>로깅 구성
 MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다. 
 
-1. [Azure Portal](http://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. Azure Database for MySQL 서버를 선택합니다.
 

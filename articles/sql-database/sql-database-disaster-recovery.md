@@ -2,20 +2,22 @@
 title: SQL Database 재해 복구 | Microsoft Docs
 description: Azure SQL Database 활성 지역 복제 및 지역 복원 기능을 사용하여 하위 지역 데이터 센터 중단 또는 오류로부터 데이터베이스를 복구하는 방법에 대해 알아봅니다.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/04/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ba59d39fb07dfe9c9772fa4bea6922df052f0385
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 07/16/2018
+ms.openlocfilehash: f04b17ec052e4d55ccb39c803b2d690589cb27d2
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645214"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161678"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대한 장애 조치
 Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공합니다.
@@ -27,7 +29,7 @@ Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공�
 비즈니스 연속성 시나리오와 이러한 시나리오를 지원하는 기능에 대해 알아보려면 [비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.
 
 > [!NOTE]
-> 영역 중복 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 풀(미리 보기)을 사용하는 경우 복구 프로세스가 자동화되고 이 자료의 나머지 부분이 적용되지 않습니다. 
+> 영역 중복 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 풀을 사용하는 경우, 복구 프로세스가 자동화되고 이 자료의 나머지 부분이 적용되지 않습니다. 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>가동 중단 이벤트에 대비
 장애 조치(Failover) 그룹 또는 지역 중복 백업을 사용하여 다른 데이터 영역으로 성공적으로 복구하려면 이러한 요구가 발생하고 원활한 복구를 보장하기 위해 잘 정의된 단계가 문서화되고 테스트된 경우 다른 데이터 센터 가동 중단에 대비해서 서버를 새로운 주 서버로 준비해야 합니다. 이러한 준비 단계는 다음과 같습니다.

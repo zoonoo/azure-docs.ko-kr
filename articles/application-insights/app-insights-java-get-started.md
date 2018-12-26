@@ -3,28 +3,29 @@ title: Azure Application Insights로 Java 웹앱 분석 | Microsoft Docs
 description: 'Application Insights를 사용하여 Java 웹앱에 대한 응용 프로그램 성능 모니터링. '
 services: application-insights
 documentationcenter: java
-author: mrbullwinkle
+author: lgayhardt
 manager: carmonm
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/14/2017
-ms.author: mbullwin
-ms.openlocfilehash: a1212befd1cc6aaf74bc596459aa5be1ef689813
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.topic: conceptual
+ms.date: 10/09/2018
+ms.author: lagayhar
+ms.openlocfilehash: 2538bbf32b41e51796e333c11b7af6c091a71ede
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309092"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
 
 [Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 응용 프로그램의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. Application insights를 사용하여 [성능 문제 및 예외를 진단, 검색](app-insights-detect-triage-diagnose.md)하고 사용자가 수행할 작업을 추적하는 [코드를 작성][api]할 수 있습니다.
 
-![샘플 데이터](./media/app-insights-java-get-started/5-results.png)
+![개요 샘플 데이터 스크린샷](./media/app-insights-java-get-started/overview-graphs.png)
 
 Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱을 지원합니다.
 
@@ -34,6 +35,8 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 * [Microsoft Azure](https://azure.microsoft.com/)구독.
 
 *이미 라이브 상태인 웹앱이 있는 경우 다른 절차에 따라 [웹 서버에서 런타임으로 SDK를 추가](app-insights-java-live.md)할 수 있습니다. 해당 다른 절차는 코드를 다시 작성할 필요가 없지만 사용자 활동을 추적하는 코드를 작성하는 옵션이 없습니다.*
+
+Spring 프레임워크를 선호하는 경우 [Application Insights 가이드를 사용하도록 Spring Boot 이니셜라이저 앱을 구성](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)해 보세요.
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Application Insights 계측 키 가져오기
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
@@ -174,52 +177,65 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
 구성 클래스에서 Application Insights `WebRequestTrackingFilter`를 등록합니다.
 
 ```Java
-package devCamp.WebApp.configurations;
+package <yourpackagename>.configurations;
 
-    import javax.servlet.Filter;
+import javax.servlet.Filter;
 
-    import org.springframework.boot.web.servlet.FilterRegistrationBean;
-    import org.springframework.context.annotation.Bean;
-    import org.springframework.core.Ordered;
-    import org.springframework.beans.factory.annotation.Value;
-    import org.springframework.context.annotation.Configuration;
-    import com.microsoft.applicationinsights.TelemetryConfiguration;
-    import com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.Ordered;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+import com.microsoft.applicationinsights.TelemetryConfiguration;
+import com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter;
 
+@Configuration
+public class AppInsightsConfig {
 
-    @Configuration
-    public class AppInsightsConfig {
-
-    //Initialize AI TelemetryConfiguration via Spring Beans
-        @Bean
-        public String telemetryConfig() {
-            String telemetryKey = System.getenv("APPLICATION_INSIGHTS_IKEY");
-            if (telemetryKey != null) {
-                TelemetryConfiguration.getActive().setInstrumentationKey(telemetryKey);
-            }
-            return telemetryKey;
+    @Bean
+    public String telemetryConfig() {
+        String telemetryKey = System.getenv("<instrumentation key>");
+        if (telemetryKey != null) {
+            TelemetryConfiguration.getActive().setInstrumentationKey(telemetryKey);
         }
-    
-    //Set AI Web Request Tracking Filter
-        @Bean
-        public FilterRegistrationBean aiFilterRegistration(@Value("${spring.application.name:application}") String applicationName) {
-           FilterRegistrationBean registration = new FilterRegistrationBean();
-           registration.setFilter(new WebRequestTrackingFilter(applicationName));
-           registration.setName("webRequestTrackingFilter");
-           registration.addUrlPatterns("/*");
-           registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 10);
-           return registration;
-       } 
-
-    //Set up AI Web Request Tracking Filter
-        @Bean(name = "WebRequestTrackingFilter")
-        public Filter webRequestTrackingFilter(@Value("${spring.application.name:application}") String applicationName) {
-            return new WebRequestTrackingFilter(applicationName);
-        }   
+        return telemetryKey;
     }
+
+    /**
+     * Programmatically registers a FilterRegistrationBean to register WebRequestTrackingFilter
+     * @param webRequestTrackingFilter
+     * @return Bean of type {@link FilterRegistrationBean}
+     */
+    @Bean
+    public FilterRegistrationBean webRequestTrackingFilterRegistrationBean(WebRequestTrackingFilter webRequestTrackingFilter) {
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setFilter(webRequestTrackingFilter);
+        registration.addUrlPatterns("/*");
+        registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 10);
+        return registration;
+    }
+
+
+    /**
+     * Creates bean of type WebRequestTrackingFilter for request tracking
+     * @param applicationName Name of the application to bind filter to
+     * @return {@link Bean} of type {@link WebRequestTrackingFilter}
+     */
+    @Bean
+    @ConditionalOnMissingBean
+
+    public WebRequestTrackingFilter webRequestTrackingFilter(@Value("${spring.application.name:application}") String applicationName) {
+        return new WebRequestTrackingFilter(applicationName);
+    }
+
+
+}
 ```
 
-[!NOTE] Spring Boot 1.3.8 이하를 사용하는 경우 FilterRegistrationBean을 아래 줄로 바꿉니다.
+> [!NOTE]
+> Spring Boot 1.3.8 이하를 사용하는 경우 FilterRegistrationBean을 아래 줄로 바꿉니다.
+
 ```Java
     import org.springframework.boot.context.embedded.FilterRegistrationBean;
 ```
@@ -227,7 +243,6 @@ package devCamp.WebApp.configurations;
 이 클래스는 `WebRequestTrackingFilter`가 http 필터 체인에서 첫 번째 필터가 되도록 구성합니다. 또한 사용 가능한 경우 운영 체제 환경 변수에서 계측 키를 끌어옵니다.
 
 > Spring Boot 응용 프로그램이고 고유한 Spring MVC가 구성되었기 때문에 Spring MVC를 구성하지 않고 웹 http 필터 구성을 사용합니다. Spring MVC 특정 구성은 아래 섹션을 참조하세요.
-
 
 ### <a name="applications-using-webxml"></a>Web.xml를 사용하는 응용 프로그램
 프로젝트에서 web.xml 파일을 찾아 열고, 응용 프로그램 필터가 구성된 웹앱 노드 아래에 다음 코드를 병합합니다.
@@ -246,6 +261,11 @@ package devCamp.WebApp.configurations;
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+   <!-- This listener handles shutting down the TelemetryClient when an application/servlet is undeployed. -->
+    <listener>
+      <listener-class>com.microsoft.applicationinsights.web.internal.ApplicationInsightsServletContextListener</listener-class>
+    </listener>
 ```
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Spring Web MVC 3.1 이상을 사용하는 경우
@@ -322,7 +342,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 * Windows 서버에 다음을 설치합니다.
 
-  * [Microsoft Visual C++ 재배포 가능 패키지](http://www.microsoft.com/download/details.aspx?id=40784)
+  * [Microsoft Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
 
     (이 구성 요소를 통해 성능 카운터를 사용할 수 있게 됩니다.)
 
@@ -400,6 +420,30 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ### <a name="unix-performance-counters"></a>Unix 성능 카운터
 * [Application Insights 플러그 인과 함께 collectd를 설치](app-insights-java-collectd.md) 하여 광범위한 시스템 및 네트워크 데이터를 얻을 수 있습니다.
 
+## <a name="local-forwarder"></a>로컬 전달자
+
+[로컬 전달자](https://docs.microsoft.com/azure/application-insights/local-forwarder)는 다양한 SDK 및 프레임워크에서 Application Insights 또는 [OpenCensus](https://opencensus.io/) 원격 분석을 수집하고 Application Insights로 경로를 지정하는 에이전트입니다. Windows 및 Linux에서 실행할 수 있습니다.
+
+```xml
+<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
+<DeveloperMode>false</DeveloperMode>
+<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+<!-- The properties below are optional. The values shown are the defaults for each property -->
+<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
+<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
+</Channel>
+```
+
+SpringBoot 스타터를 사용하는 경우 구성 파일(application.properies)에 다음을 추가합니다.
+
+```yml
+azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
+azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
+azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
+```
+
+기본값은 SpringBoot application.properties 및 applicationinsights.xml 구성에 모두 동일합니다.
+
 ## <a name="get-user-and-session-data"></a>사용자 및 세션 데이터 가져오기
 이제 웹 서버에서 원격 분석을 보내려 합니다. 응용 프로그램을 전체적으로 파악하기 위해 모니터링을 추가할 수 있습니다.
 
@@ -448,7 +492,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[eclipse]: app-insights-java-eclipse.md
+[eclipse]: app-insights-java-quick-start.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-javascript.md

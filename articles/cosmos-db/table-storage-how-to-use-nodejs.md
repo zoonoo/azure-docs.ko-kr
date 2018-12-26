@@ -1,21 +1,20 @@
 ---
-title: Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법 | Microsoft Docs
+title: Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 19e152b8cb8f18a616af647b31a4f35998f47858
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b00c7168891c848f4b153acb1bf09728b7a78908
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798222"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106484"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -56,7 +55,7 @@ Azure Storage 또는 Azure Cosmos DB를 사용하려면 저장소 REST 서비스
 3. **ls** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
-응용 프로그램에서 아래 코드를 **server.js** 파일의 맨 위에 추가합니다.
+애플리케이션에서 아래 코드를 **server.js** 파일의 맨 위에 추가합니다.
 
 ```nodejs
 var azure = require('azure-storage');
@@ -69,8 +68,8 @@ Azure 모듈은 AZURE_STORAGE_ACCOUNT 및 AZURE_STORAGE_ACCESS_KEY 또는 AZURE_
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
-## <a name="add-an-azure-comsos-db-connection"></a>Azure Cosmos DB 연결 추가
-Azure Cosmos DB 연결을 추가하려면 **TableService** 개체를 만들고 계정 이름, 기본 키 및 끝점을 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열**에서 이러한 값을 복사할 수 있습니다. 예: 
+## <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB 연결 추가
+Azure Cosmos DB 연결을 추가하려면 **TableService** 개체를 만들고 계정 이름, 기본 키 및 엔드포인트를 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열**에서 이러한 값을 복사할 수 있습니다. 예: 
 
 ```nodejs
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -123,7 +122,7 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 * **PartitionKey** - 엔터티가 저장된 파티션을 확인합니다.
 * **RowKey** - 파티션에 있는 엔터티를 고유하게 식별합니다.
 
-**PartitionKey**와 **RowKey**는 모두 문자열 값이어야 합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.
+**PartitionKey**와 **RowKey**는 모두 문자열 값이어야 합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](https://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.
 
 다음은 엔터티를 정의하는 경우의 예입니다. **dueDate**는 **Edm.DateTime** 형식으로 정의됩니다. 유형 지정은 선택적이며 지정하지 않을 경우 유형이 유추됩니다.
 
@@ -163,7 +162,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 });
 ```
 
-작업에 성공할 경우 `result` 값에는 삽입한 레코드의 [ETag](http://en.wikipedia.org/wiki/HTTP_ETag)가 포함되고 `response` 값에는 작업에 대한 정보가 포함됩니다.
+작업에 성공할 경우 `result` 값에는 삽입한 레코드의 [ETag](https://en.wikipedia.org/wiki/HTTP_ETag)가 포함되고 `response` 값에는 작업에 대한 정보가 포함됩니다.
 
 예제 응답:
 
@@ -203,7 +202,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예: 
 >
 >       entity2['.metadata'].etag = currentEtag;
-> 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error`가 반환됩니다.
+> 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 애플리케이션의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error`가 반환됩니다.
 >
 >
 
@@ -394,9 +393,11 @@ var host = tableSvc.host;
 
 SAS 소유자가 테이블에 액세스할 때 필요하므로 호스트 정보도 제공해야 합니다.
 
-그러고 나면 클라이언트 응용 프로그램에서 **TableServiceWithSAS** 에 SAS를 사용하여 테이블에 대한 작업을 수행합니다. 다음 예에서는 테이블을 연결하고 쿼리를 수행합니다.
+그러고 나면 클라이언트 애플리케이션에서 **TableServiceWithSAS**에 SAS를 사용하여 테이블에 대한 작업을 수행합니다. 다음 예에서는 테이블을 연결하고 쿼리를 수행합니다. tableSAS의 형식에 대해서는 [공유 액세스 서명 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)을 참조하세요. 
 
 ```nodejs
+// Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
+
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
 var query = azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');

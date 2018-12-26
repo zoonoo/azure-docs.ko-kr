@@ -7,20 +7,23 @@ ms.author: akannava
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.openlocfilehash: b9ea51139fded3d55f0a73024163b7fa943c0ebb
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: f7dac645ef0b732b7f3087a06c74385871d5b1c9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834695"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238339"
 ---
 # <a name="logging-api-reference"></a>로깅 API 참조
 
-Azure ML의 로깅 라이브러리를 사용하면 나중에 분석하기 위해 기록 서비스로 추적되는 메트릭과 파일을 프로그램에서 내보낼 수 있습니다. 현재는 몇 가지 기본적인 메트릭 및 파일 유형이 지원되며 지원되는 유형 집합은 향후 Python 패키지 릴리스와 함께 증가될 것입니다.
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+Azure ML의 로깅 라이브러리를 사용하면 나중에 분석하기 위해 기록 서비스로 추적되는 메트릭과 파일을 프로그램에서 내보낼 수 있습니다. 
 
 ## <a name="uploading-metrics"></a>메트릭 업로드
 

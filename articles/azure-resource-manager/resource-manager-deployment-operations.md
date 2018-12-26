@@ -5,26 +5,24 @@ services: azure-resource-manager,virtual-machines
 documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 04/23/2018
+ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 523ea3bf5d41231ab3281f9d8eb1fac8c3dfb55f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9320e3089e02e1ca6b6bcce0287946baaf0558d9
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359148"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452040"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 배포 작업 보기
 
-Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 중에 오류가 나타날 때 작업을 보는 데 가장 많은 관심을 가질 수 있으므로 이 문서에서는 실패한 작업을 보는 것에 대해 중점적으로 설명합니다. 포털은 쉽게 오류를 찾고 잠재적 해결 방법을 확인할 수 있는 인터페이스를 제공합니다.
+Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 중에 오류가 발생했을 때 수행 중이던 작업을 확인하려는 경우가 가장 많을 것이므로, 이 문서에서는 실패한 작업을 확인하는 과정을 중점적으로 설명합니다. 포털은 쉽게 오류를 찾고 잠재적 해결 방법을 확인할 수 있는 인터페이스를 제공합니다.
 
 감사 로그 또는 배포 작업을 확인하여 배포 문제를 해결할 수 있습니다. 이 문서에서는 두 가지 방법을 모두 보여줍니다. 특정 배포 오류에 대한 도움말은 [Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 
@@ -67,7 +65,13 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
   Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-2. 각 배포에는 여러 작업이 포함되어 있습니다. 각 작업은 배포 프로세스의 단계를 나타냅니다. 배포에서 무엇이 잘못 되었는지 검색하려면 일반적으로 배포 작업에 대한 세부 정보를 확인해야 합니다. **Get-AzureRmResourceGroupDeploymentOperation**을 사용하여 작업의 상태를 확인할 수 있습니다.
+1. 상관 관계 ID를 가져오려면 다음 코드를 사용합니다.
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+  ```
+
+1. 각 배포에는 여러 작업이 포함되어 있습니다. 각 작업은 배포 프로세스의 단계를 나타냅니다. 배포에서 무엇이 잘못 되었는지 검색하려면 일반적으로 배포 작업에 대한 세부 정보를 확인해야 합니다. **Get-AzureRmResourceGroupDeploymentOperation**을 사용하여 작업의 상태를 확인할 수 있습니다.
 
   ```powershell 
   Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -85,7 +89,7 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-3. 실패한 작업에 대한 자세한 정보를 얻으려면 상태가 **Failed** 인 작업에 대한 속성을 검색합니다.
+1. 실패한 작업에 대한 자세한 정보를 얻으려면 상태가 **Failed** 인 작업에 대한 속성을 검색합니다.
 
   ```powershell
   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -108,7 +112,7 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
   ```
 
     작업의 serviceRequestId 및 trackingId를 확인하세요. serviceRequestId는 기술 지원과 함께 배포 문제를 해결할 때 유용할 수 있습니다. 특정 작업에 집중하기 위해 trackingId는 다음 단계에서 사용할 예정입니다.
-4. 특정 실패한 작업에 대한 상태 메시지를 얻으려면 다음 명령을 사용합니다.
+1. 특정 실패한 작업에 대한 상태 메시지를 얻으려면 다음 명령을 사용합니다.
 
   ```powershell
   ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -121,7 +125,7 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Azure의 모든 배포 작업에는 요청 및 응답 콘텐츠가 포함됩니다. 요청 콘텐츠는 배포하는 동안 Azure에 보낸 콘텐츠입니다(예: VM, OS 디스크 및 기타 리소스). 응답 콘텐츠는 Azure가 배포 요청에서 다시 보낸 콘텐츠입니다. 배포하는 동안 **DeploymentDebugLogLevel** 매개 변수를 사용하여 요청 및/또는 응답을 로그에 보존하도록 지정할 수 있습니다. 
+1. Azure의 모든 배포 작업에는 요청 및 응답 콘텐츠가 포함됩니다. 요청 콘텐츠는 배포하는 동안 Azure에 보낸 콘텐츠입니다(예: VM, OS 디스크 및 기타 리소스). 응답 콘텐츠는 Azure가 배포 요청에서 다시 보낸 콘텐츠입니다. 배포하는 동안 **DeploymentDebugLogLevel** 매개 변수를 사용하여 요청 및/또는 응답을 로그에 보존하도록 지정할 수 있습니다. 
 
   로그에서 해당 정보를 가져오고 다음 PowerShell 명령을 사용하여 로컬에 저장합니다.
 

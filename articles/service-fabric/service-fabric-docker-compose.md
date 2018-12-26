@@ -3,7 +3,7 @@ title: Azure Service Fabric Docker Compose 배포 미리 보기
 description: Azure Service Fabric은 Service Fabric을 사용하여 기존 컨테이너를 보다 쉽게 조정할 수 있도록 Docker Compose 형식을 수락합니다. 이 지원은 현재 미리 보기로 제공되고 있습니다.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 43845a55589be9550e64b4a491b7d3675fb22e8c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: twhitney, subramar
+ms.openlocfilehash: 743fedd35bc45618f728ba71056f5dabc2fc1ed9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641784"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300645"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Azure Service Fabric의 Docker Compose 배포 지원(미리 보기)
 
@@ -122,6 +122,15 @@ sfctl compose upgrade-status --deployment-name TestContainerApp
 * 볼륨 및 배포 > 볼륨
 
 클러스터는 [Service Fabric 리소스 관리](service-fabric-resource-governance.md)에 설명된 대로 리소스 제한을 적용하도록 설정합니다. 다른 모든 Docker Compose 지시문은 이 미리 보기에서 지원되지 않습니다.
+
+### <a name="ports-section"></a>포트 섹션
+
+Service Fabric 서비스 수신기에서 사용될 포트 섹션에서 http 또는 https 프로토콜을 지정합니다. 이렇게 하면 역방향 프록시가 요청을 전달할 수 있는 이름 지정 서비스를 사용하여 엔드포인트 프로토콜이 올바르게 게시되도록 합니다.
+* 비보안 Service Fabric 계산 서비스에 라우팅하려면 **/http**를 지정합니다. 예를 들면 **"80:80/http"** 와 같습니다.
+* 보안 Service Fabric 계산 서비스에 라우팅하려면 **/http**를 지정합니다. 예를 들면 **"443:443/https"** 와 같습니다.
+
+> [!NOTE]
+> 올바른 Service Fabric 수신기 URL을 등록하기 위해 /http 및 /https 포트 섹션 구문은 Service Fabric에 특정됩니다.  프로그래밍 방식으로 Docker 계산 파일 구문의 유효성을 검사하면 유효성 검사 오류가 발생할 수 있습니다.
 
 ## <a name="servicednsname-computation"></a>ServiceDnsName 계산
 

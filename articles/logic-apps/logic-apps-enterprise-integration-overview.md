@@ -1,27 +1,23 @@
 ---
-title: B2B에 대한 엔터프라이즈 통합 - Azure Logic Apps | Microsoft Docs
-description: 엔터프라이즈 통합 팩을 사용한 Logic Apps에 대한 B2B 워크플로 작성 및 엔터프라이즈 통합 시나리오 지원
+title: B2B 엔터프라이즈 통합 개요 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 엔터프라이즈 통합 솔루션용 자동화 B2B 워크플로 빌드
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 25349d48d88b64568fef0f5a6bac5950da15196b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d37d5cb2b89b82bd9741dee0946b3a77d456b22a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298640"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405755"
 ---
-# <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>개요: 엔터프라이즈 통합 팩을 사용한 B2B 시나리오 및 통신
+# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>개요: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps을 사용한 B2B 엔터프라이즈 통합 시나리오
 
 Azure Logic Apps에 대한 B2B(기업 간) 워크플로 및 원활한 통신을 위해 Microsoft의 클라우드 기반 솔루션인 엔터프라이즈 통합 팩을 통한 엔터프라이즈 통합 시나리오를 사용하도록 설정할 수 있습니다. 조직에서는 다른 프로토콜 및 형식을 사용하더라도 전자 방식으로 메시지를 교환할 수 있습니다. 이 팩은 여려 다른 형식을 조직의 시스템에서 해석하고 처리할 수 있는 형식으로 변환합니다. 조직은 [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) 및 [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md)를 비롯한 업계 표준 프로토콜을 통해 메시지를 교환할 수 있습니다. 암호화 및 디지털 서명 둘 다를 사용하여 메시지를 보호할 수 있습니다.
 
@@ -37,7 +33,7 @@ BizTalk Server 또는 Microsoft Azure BizTalk Services를 잘 알고 있다면 �
 
 ## <a name="how-to-get-started-with-enterprise-integration"></a>엔터프라이즈 통합을 시작하는 방법
 
-**Azure Portal**에서 Logic App Designer를 통한 엔터프라이즈 통합 팩을 사용하여 B2B 앱을 구축하고 관리할 수 있습니다. [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Logic Apps PowerShell 항목")을 사용하여 Logic Apps를 관리할 수도 있습니다.
+**Azure Portal**에서 Logic App Designer를 통한 엔터프라이즈 통합 팩을 사용하여 B2B 앱을 구축하고 관리할 수 있습니다. [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp "Logic Apps PowerShell")을 사용하여 Logic Apps를 관리할 수도 있습니다.
 
 Azure Portal에서 앱을 만들기 전에 수행해야 하는 고급 단계는 다음과 같습니다.
 
@@ -74,5 +70,5 @@ Azure Logic Apps의 B2B 기능을 사용하는 [완벽하게 작동하는 샘플
 * [엔터프라이즈 통합 커넥터](../connectors/apis-list.md "엔터프라이즈 통합 팩 커넥터에 대해 알아보기")
 * [통합 계정 메타데이터](../logic-apps/logic-apps-enterprise-integration-metadata.md "통합 계정 메타데이터에 대해 알아보기")
 * [B2B 메시지 모니터링](logic-apps-monitor-b2b-message.md "B2B 메시지를 모니터링하는 방법에 대해 알아보기")
-* [OMS 포털에서 B2B 메시지 추적](logic-apps-track-b2b-messages-omsportal.md "OMS 포털에서 B2B 메시지를 추적하는 방법에 대해 알아보기")
+* [Azure Log Analytics에서 B2B 메시지 추적](logic-apps-track-b2b-messages-omsportal.md "Azure Log Analytics에서 B2B 메시지 추적에 대해 자세히 알아보기")
 

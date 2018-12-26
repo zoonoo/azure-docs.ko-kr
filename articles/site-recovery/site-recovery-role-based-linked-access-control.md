@@ -1,22 +1,19 @@
 ---
-title: 역할 기반 액세스 제어를 사용하여 Azure Site Recovery 관리 | Microsoft Docs
-description: 이 문서에서는 RBAC(역할 기반 Access Control)를 적용 및 사용하여 Azure Site Recovery 배포를 관리하는 방법을 설명합니다.
+title: RBAC(역할 기반 액세스 제어)를 사용하여 Azure Site Recovery 액세스 관리 | Microsoft Docs
+description: 이 문서에서는 RBAC(역할 기반 액세스 제어)를 적용하여 Azure Site Recovery 액세스를 관리하는 방법을 설명합니다.
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 07/06/2018
-author: mayanknayar
+ms.date: 10/16/2018
+author: mayurigupta13
 ms.topic: conceptual
-ms.author: manayar
-ms.openlocfilehash: dfd880b6ff3a7e199ea259acc5e5ec59f89c897d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: mayg
+ms.openlocfilehash: 19d41d8c9b1a54cefc09190531b064d640048385
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919729"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212049"
 ---
-# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>역할 기반 액세스 제어를 사용하여 Site Recovery 액세스 관리
+# <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)를 사용하여 Site Recovery 액세스 관리
 
 Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 팀 내 책임을 구분하고, 특정 작업을 수행하는 데 필요한 사용자에게 특정 액세스 권한만 부여할 수 있습니다.
 

@@ -1,25 +1,21 @@
 ---
 title: Azure Site Recovery를 사용하여 Windows VM을 Azure Premium Storage로 마이그레이션 | Microsoft Docs
 description: Site Recovery를 사용하여 Azure Premium Storage에 기존 가상 머신을 마이그레이션합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다.
-services: virtual-machines-windows
+services: virtual-machines-windows,storage
 cloud: Azure
-documentationcenter: na
 author: luywang
-manager: jeconnoc
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 8a7becc1dc5a2556ace249b7a743836ebf4cc048
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: disks
+ms.openlocfilehash: 7378331e5f7540d807c76511226fcd2ed99883fa
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779454"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404140"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
 
@@ -80,9 +76,11 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 
 ### <a name="step-1-create-a-recovery-services-vault"></a>1단계: Recovery Services 자격 증명 모음 만들기
 
-1. [Azure 포털](https://portal.azure.com)을 엽니다.
-2. **리소스 만들기** > **관리** > **Backup 및 Site Recovery(OMS)** 를 선택합니다. 또는 **찾아보기** > **Recovery Services 자격 증명 모음** > **추가**를 선택하면 됩니다. 
-3. VM이 복제될 지역을 지정합니다. 동일한 지역에 마이그레이션하려는 경우 원본 VM 및 원본 저장소 계정이 있는 영역을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
+2. **리소스 만들기** > **관리** > **Backup 및 Site Recovery(OMS)** 를 선택합니다. 또는 **찾아보기** > **Recovery Services 자격 증명 모음** > **추가**를 선택하면 됩니다.
+   >[!NOTE]
+   >Backup 및 Site Recovery는 이전에 ![OMS 제품군](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)에 포함되었습니다.
+1. VM이 복제될 지역을 지정합니다. 동일한 지역에 마이그레이션하려는 경우 원본 VM 및 원본 저장소 계정이 있는 영역을 선택합니다. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>2단계: 보호 목표 선택 
 

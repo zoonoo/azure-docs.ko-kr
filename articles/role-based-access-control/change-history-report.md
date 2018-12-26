@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 10e0df78d75763dfcf8636983c9f9092b78b9c3b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437652"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967898"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>RBAC 변경 사항에 대한 활동 로그 보기
 
@@ -46,7 +46,7 @@ ms.locfileid: "37437652"
 |Filter  |값  |
 |---------|---------|
 |이벤트 범주     | <ul><li>관리</li></ul>         |
-|작업     | <ul><li>역할 할당 만들기</li> <li>역할 할당 삭제</li> <li>사용자 지정 역할 정의 만들기 또는 업데이트</li> <li>사용자 지정 역할 정의 삭제</li></ul>      |
+|작업(Operation)     | <ul><li>역할 할당 만들기</li> <li>역할 할당 삭제</li> <li>사용자 지정 역할 정의 만들기 또는 업데이트</li> <li>사용자 지정 역할 정의 삭제</li></ul>      |
 
 
 활동 로그에 대한 자세한 내용은 [활동 로그의 이벤트 보기](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)를 참조하세요.
@@ -117,15 +117,15 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 기본적인 시작 단계는 다음과 같습니다.
 
-1. [Log Analytics 작업 영역을 만듭니다](../log-analytics/log-analytics-quick-create-workspace.md).
+1. [Log Analytics 작업 영역을 만듭니다](../azure-monitor/learn/quick-create-workspace.md).
 
-1. 작업 영역에 대해 [활동 로그 분석 솔루션을 구성](../log-analytics/log-analytics-activity.md#configuration)합니다.
+1. 작업 영역에 대해 [활동 로그 분석 솔루션을 구성](../azure-monitor/platform/collect-activity-logs.md#configuration)합니다.
 
-1. [작업 로그를 봅니다](../log-analytics/log-analytics-activity.md#using-the-solution). 활동 로그 분석 개요 페이지로 빠르게 이동하는 방법은 **Log Analytics** 옵션을 클릭하는 것입니다.
+1. [작업 로그를 봅니다](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). 활동 로그 분석 개요 페이지로 빠르게 이동하는 방법은 **Log Analytics** 옵션을 클릭하는 것입니다.
 
    ![포털의 Log Analytics 옵션](./media/change-history-report/azure-log-analytics-option.png)
 
-1. 선택적으로 [로그 검색](../log-analytics/log-analytics-log-search.md) 페이지 또는 [고급 분석 포털](https://docs.loganalytics.io/docs/Learn)을 사용하여 로그를 쿼리하고 봅니다. 이러한 두 옵션에 대한 자세한 내용은 [로그 검색 페이지 또는 고급 분석 포털](../log-analytics/log-analytics-log-search-portals.md)을 참조하세요.
+1. 선택적으로 [로그 검색](../log-analytics/log-analytics-log-search.md) 페이지 또는 [고급 분석 포털](../azure-monitor/log-query/get-started-portal.md)을 사용하여 로그를 쿼리하고 봅니다. 이러한 두 옵션에 대한 자세한 내용은 [로그 검색 페이지 또는 고급 분석 포털](../azure-monitor/log-query/portals.md)을 참조하세요.
 
 다음은 대상 리소스 공급자가 구성한 새 역할 할당을 반환하는 쿼리입니다.
 

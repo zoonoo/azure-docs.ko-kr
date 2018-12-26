@@ -1,28 +1,24 @@
 ---
-title: HDInsight의 Hive 및 Java UDF(사용자 정의 함수) - Azure | Microsoft Docs
-description: Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제 UDF는 텍스트 문자열 테이블을 소문자로 변환합니다.
+title: HDInsight에서 Apache Hive와 함께 사용할 Java UDF(사용자 정의 함수) 만들기 - Azure
+description: Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제 UDF는 텍스트 문자열 테이블을 소문자로 변환합니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 00af8ca67af6ba3242c0fee6c50640944768ec4c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: hrasheed
+ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200761"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634076"
 ---
-# <a name="use-a-java-udf-with-hive-in-hdinsight"></a>HDInsight에서 Hive와 함께 Java UDF 사용
+# <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive와 함께 Java UDF 사용
 
-Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제의 Java UDF는 텍스트 문자열 테이블을 모두 소문자로 변환합니다.
+Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제의 Java UDF는 텍스트 문자열 테이블을 모두 소문자로 변환합니다.
 
 ## <a name="requirements"></a>요구 사항
 
@@ -225,7 +221,7 @@ Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 �
     SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
     ```
 
-    이 쿼리는 테이블에서 장치 플랫폼(Android, Windows, iOS 등)을 선택하고 문자열을 소문자로 변환한 다음 표시하게 됩니다. 출력은 다음 텍스트와 유사합니다.
+    이 쿼리는 테이블에서 디바이스 플랫폼(Android, Windows, iOS 등)을 선택하고 문자열을 소문자로 변환한 다음 표시하게 됩니다. 출력은 다음 텍스트와 유사합니다.
 
         +----------+--+
         |   _c0    |

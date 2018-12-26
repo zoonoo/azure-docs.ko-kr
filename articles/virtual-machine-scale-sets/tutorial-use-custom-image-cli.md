@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure CLI 2.0을 사용하여 확장 집합에서 사용자 지정 VM 이미지 사용 | Microsoft Docs
-description: Azure CLI 2.0을 사용하여 가상 머신 확장 집합을 배포하는 데 사용할 수 있는 사용자 지정 VM 이미지를 만드는 방법을 알아봅니다.
+title: 자습서 - Azure CLI를 사용하여 확장 집합에서 사용자 지정 VM 이미지 사용 | Microsoft Docs
+description: Azure CLI를 사용하여 가상 머신 확장 집합을 배포하는 데 사용할 수 있는 사용자 지정 VM 이미지를 만드는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,15 +16,15 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8024033c8eb059fd0c7cc8d226a630f2bc47f01b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5eee55846bd6f5821be1e40b969a35f5e50bd205
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618328"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967373"
 ---
-# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>자습서: Azure CLI 2.0을 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용
-확장 집합을 만들 때 VM 인스턴스 배포 시 사용할 이미지를 지정합니다. VM 인스턴스가 배포된 후 작업의 수를 줄이려면 사용자 지정 VM 이미지를 사용할 수 있습니다. 이 사용자 지정 VM 이미지에는 필요한 모든 응용 프로그램 설치 또는 구성이 포함됩니다. 확장 집합에서 만들어진 모든 VM 인스턴스는 사용자 지정 VM 이미지를 사용하며, 응용 프로그램 트래픽을 처리할 준비가 되어 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용
+확장 집합을 만들 때 VM 인스턴스 배포 시 사용할 이미지를 지정합니다. VM 인스턴스가 배포된 후 작업의 수를 줄이려면 사용자 지정 VM 이미지를 사용할 수 있습니다. 이 사용자 지정 VM 이미지에는 필요한 모든 애플리케이션 설치 또는 구성이 포함됩니다. 확장 집합에서 만들어진 모든 VM 인스턴스는 사용자 지정 VM 이미지를 사용하며, 애플리케이션 트래픽을 처리할 준비가 되어 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * VM 만들기 및 사용자 지정
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.29 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.29 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 
 ## <a name="create-and-configure-a-source-vm"></a>원본 VM 만들기 및 구성
@@ -63,7 +63,7 @@ VM의 공용 IP 주소는 [az vm create](/cli/azure/vm#az_vm_create) 명령의 �
 ssh azureuser@<publicIpAddress>
 ```
 
-VM을 사용자 지정하기 위해 기본 웹 서버를 설치해 보겠습니다. 확장 집합의 VM 인스턴스가 배포되면 웹 응용 프로그램을 실행하는 데 필요한 모든 패키지가 포함되어 있습니다. 다음과 같이 `apt-get`을 사용하여 *NGINX*를 설치합니다.
+VM을 사용자 지정하기 위해 기본 웹 서버를 설치해 보겠습니다. 확장 집합의 VM 인스턴스가 배포되면 웹 애플리케이션을 실행하는 데 필요한 모든 패키지가 포함되어 있습니다. 다음과 같이 `apt-get`을 사용하여 *NGINX*를 설치합니다.
 
 ```bash
 sudo apt-get install -y nginx
@@ -107,7 +107,7 @@ az image create \
 
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>사용자 지정 VM 이미지에서 확장 집합 만들기
-[az vmss create](/cli/az/vmss#az_vmss_create)를 사용하여 확장 집합을 만듭니다. *UbuntuLTS* 또는 *CentOS*와 같은 플랫폼 이미지 대신 사용자 지정 VM 이미지의 이름을 지정합니다. 다음 예제에서는 이전 단계의 *myImage* 사용자 지정 이미지를 사용하는 *myScaleSet*이라는 확장 집합을 만듭니다.
+[az vmss create](/cli/azure/vmss#az-vmss-create)를 사용하여 확장 집합을 만듭니다. *UbuntuLTS* 또는 *CentOS*와 같은 플랫폼 이미지 대신 사용자 지정 VM 이미지의 이름을 지정합니다. 다음 예제에서는 이전 단계의 *myImage* 사용자 지정 이미지를 사용하는 *myScaleSet*이라는 확장 집합을 만듭니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -160,7 +160,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure CLI 2.0을 사용하여 확장 집합에 대한 사용자 지정 VM 이미지를 만들고 사용하는 방법을 알아보았습니다.
+이 자습서에서는 Azure CLI를 사용하여 확장 집합에 대한 사용자 지정 VM 이미지를 만들고 사용하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * VM 만들기 및 사용자 지정
@@ -168,7 +168,7 @@ az group delete --name myResourceGroup --no-wait --yes
 > * 사용자 지정 VM 이미지 만들기
 > * 사용자 지정 VM 이미지를 사용하는 확장 집합 배포
 
-응용 프로그램을 확장 집합에 배포하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
+애플리케이션을 확장 집합에 배포하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [확장 집합에 응용 프로그램 배포](tutorial-install-apps-cli.md)

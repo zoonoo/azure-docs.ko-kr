@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: b802c7b96bd8d0cfa56347d45542495caf69d7e4
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824713"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231637"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: 모범 사례 및 참조 아키텍처
 
@@ -28,7 +28,7 @@ DDoS(분산 서비스 거부) 복원력을 설계하려면 다양한 오류 모�
 
 ## <a name="types-of-attacks"></a>공격 유형
 
-DDoS는 응용 프로그램 리소스를 고갈시키려는 공격 유형입니다. 공격 목표는 응용 프로그램의 가용성과 합법적인 요청을 처리하는 기능을 약화시키는 것입니다. 최근에는 공격이 점점 정교해지고 그 규모와 영향도 점점 커지고 있습니다. 인터넷을 통해 공개적으로 도달 가능한 모든 끝점은 DDoS 공격의 대상이 될 수 있습니다.
+DDoS는 응용 프로그램 리소스를 고갈시키려는 공격 유형입니다. 공격 목표는 응용 프로그램의 가용성과 합법적인 요청을 처리하는 기능을 약화시키는 것입니다. 최근에는 공격이 점점 정교해지고 그 규모와 영향도 점점 커지고 있습니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다.
 
 Azure는 DDoS 공격으로부터 지속적으로 보호하는 기능을 제공합니다. 이 보호 기능은 기본적으로 추가 비용 없이 Azure 플랫폼에 통합됩니다. 
 
@@ -48,7 +48,7 @@ DDoS 공격은 볼륨, 프로토콜 및 리소스라는 세 가지 범주로 분
 
 ### <a name="protocol-attacks"></a>프로토콜 공격
 
-프로토콜 공격은 응용 프로그램 프로토콜을 대상으로 합니다. 방화벽, 응용 프로그램 서버 및 부하 분산 장치 등의 인프라 장치에서 사용할 수 있는 모든 리소스를 남김 없이 사용하려고 시도합니다. 프로토콜 공격은 형식이 잘못되었거나 프로토콜 이상이 있는 패킷을 사용합니다. 이 공격은 대량의 열린 요청, 서버 및 기타 통신 장치 응답을 보내고 패킷 응답을 기다립니다. 대상이 열린 요청에 응답하려고 하면 결국 시스템이 크래시를 일으킵니다.
+프로토콜 공격은 응용 프로그램 프로토콜을 대상으로 합니다. 방화벽, 응용 프로그램 서버 및 부하 분산 디바이스 등의 인프라 디바이스에서 사용할 수 있는 모든 리소스를 남김 없이 사용하려고 시도합니다. 프로토콜 공격은 형식이 잘못되었거나 프로토콜 이상이 있는 패킷을 사용합니다. 이 공격은 대량의 열린 요청, 서버 및 기타 통신 디바이스 응답을 보내고 패킷 응답을 기다립니다. 대상이 열린 요청에 응답하려고 하면 결국 시스템이 크래시를 일으킵니다.
 
 프로토콜 기반 DDoS 공격의 대표적인 예는 TCP SYN 초과입니다. 이 공격에서 TCP SYN 요청의 연속으로 대상에 과부하를 일으키려고 합니다. 대상이 응답하지 않게 만드는 것이 공격 목표입니다. 응용 프로그램 레이어 공격과 달리 2016 Dyn 중단은 Dyn의 DNS 서버 포트 53을 대상으로 하는 TCP SYN 초과로 구성됩니다.
 
@@ -75,7 +75,7 @@ Azure 고객은 Microsoft 모범 사례를 검토하고 오류에 대한 설계 
 Microsoft Azure에서 실행되는 서비스를 보호하기 위해 응용 프로그램 아키텍처를 정확하게 이해하고 [소프트웨어 품질의 5가지 핵심 요소](https://docs.microsoft.com/azure/architecture/guide/pillars)에 집중해야 합니다.
 일반적인 트래픽 볼륨, 응용 프로그램과 다른 응용 프로그램 간의 연결 모델, 공용 인터넷에 노출되는 서비스 엔드포인트를 알아야 합니다.
 
-응용 프로그램 자체를 대상으로 하는 서비스 거부 공격을 처리할 수 있도록 응용 프로그램의 복원력을 높이는 것이 가장 중요합니다. [SDL(Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx)부터 보안 및 개인 정보 보호 기능이 Azure 플랫폼에 기본 제공됩니다. SDL은 모든 개발 단계에서 보안 문제를 해결하고 Azure를 지속적으로 업데이트하여 더욱 안전하게 보호합니다.
+응용 프로그램 자체를 대상으로 하는 서비스 거부 공격을 처리할 수 있도록 응용 프로그램의 복원력을 높이는 것이 가장 중요합니다.  [SDL(Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx)부터 보안 및 개인 정보 보호 기능이 Azure 플랫폼에 기본 제공됩니다. SDL은 모든 개발 단계에서 보안 문제를 해결하고 Azure를 지속적으로 업데이트하여 더욱 안전하게 보호합니다.
 
 ### <a name="design-for-scalability"></a>확장성을 위한 디자인
 
@@ -88,7 +88,7 @@ Microsoft Azure에서 실행되는 서비스를 보호하기 위해 응용 프�
 심층 방어의 개념은 다양한 방어 전략을 사용하여 위험을 관리하는 것입니다. 응용 프로그램에서 보안 방어를 계층화하면 공격이 성공할 가능성이 줄어듭니다. Azure 플랫폼의 기본 제공 기능을 사용하여 안전한 응용 프로그램 디자인을 구현하는 것이 좋습니다.
 
 예를 들어 공격 위험이 증가하면 응용 프로그램의 크기(*노출 영역*)도 커집니다. 부하 분산 장치([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) 및 [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md))에 필요하지 않은 노출된 IP 주소 공간 및 수신 대기 포트를 종료하기 위해 허용 목록을 사용하여 노출 영역을 줄일 수 있습니다. [NSG(네트워크 보안 그룹)](../virtual-network/security-overview.md)는 공격 노출을 줄이기 위한 또 다른 방법입니다.
-[서비스 태그](/virtual-network/security-overview.md#service-tags) 및 [응용 프로그램 보안 그룹](/virtual-network/security-overview.md#application-security-groups)을 사용하여 보안 규칙을 만드는 복잡성을 최소화하고 응용 프로그램 구조의 기본 확장으로 네트워크 보안을 구성할 수 있습니다.
+[서비스 태그](../virtual-network/security-overview.md#service-tags) 및 [응용 프로그램 보안 그룹](../virtual-network/security-overview.md#application-security-groups)을 사용하여 보안 규칙을 만드는 복잡성을 최소화하고 응용 프로그램 구조의 기본 확장으로 네트워크 보안을 구성할 수 있습니다.
 
 가능하면 [가상 네트워크](../virtual-network/virtual-networks-overview.md)에 Azure 서비스를 배포해야 합니다. 이렇게 하면 서비스 리소스가 비공개 IP 주소를 통해 통신할 수 있습니다. 가상 네트워크의 Azure 서비스 트래픽은 공용 IP 주소를 원본 IP 주소로 사용합니다. [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 사용하던 기존 방식에서 서비스 트래픽이 가상 네트워크의 Azure 서비스에 액세스할 때 가상 네트워크 비공개 주소를 원본 IP 주소로 사용하도록 전환됩니다.
 
@@ -126,7 +126,7 @@ Azure DDoS Protection Basic 서비스를 통해 고객을 보호하고 다른 �
 
 #### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS Protection 원격 분석, 모니터링 및 경고
 
-DDoS Protection 표준은 DDoS 공격이 진행되는 동안 [Azure Monitor](/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)를 통해 풍부한 원격 분석을 노출합니다. DDoS Protection에서 사용하는 Azure Monitor 메트릭 중 하나에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통한 고급 분석에 Splunk(Azure Event Hubs), Azure Log Analytics 및 Azure Storage와 로깅을 통합할 수 있습니다.
+DDoS Protection 표준은 DDoS 공격이 진행되는 동안 [Azure Monitor](../azure-monitor/overview.md)를 통해 풍부한 원격 분석을 노출합니다. DDoS Protection에서 사용하는 Azure Monitor 메트릭 중 하나에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통한 고급 분석에 Splunk(Azure Event Hubs), Azure Log Analytics 및 Azure Storage와 로깅을 통합할 수 있습니다.
 
 ##### <a name="ddos-mitigation-policies"></a>DDoS 완화 정책
 
@@ -265,8 +265,8 @@ N 계층 아키텍처를 구현하는 방법은 여러 가지가 있습니다. �
 
 #### <a name="paas-web-application"></a>PaaS 웹 응용 프로그램
 
-이 참조 아키텍처는 단일 지역에서 Azure App Service 응용 프로그램을 실행하는 방법을 보여줍니다. 이 아키텍처는 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) 및 [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)를 사용하는 웹 응용 프로그램에 관한 일련의 검증된 사례를 보여줍니다.
-대기 지역은 장애 조치(failover) 시나리오에 대해 설정되어 있습니다.
+이 참조 아키텍처는 단일 지역에서 Azure App Service 응용 프로그램을 실행하는 방법을 보여줍니다. 이 아키텍처는  [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/)  및  [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)를 사용하는 웹 애플리케이션에 대한 일련의 검증된 사례를 보여줍니다.
+장애 조치(failover) 시나리오에 대해 대기 지역을 설정합니다.
 
 ![PaaS 웹 응용 프로그램에 대한 참조 아키텍처 다이어그램](media/azure-ddos-best-practices/image11.png)
 
@@ -300,6 +300,6 @@ Azure Traffic Manager는 들어오는 요청을 한 지역의 Application Gatewa
 
 * [Azure DDoS Protection 제품 페이지](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Azure DDoS Protection 블로그](http://aka.ms/ddosblog)
+* [Azure DDoS Protection 블로그](https://aka.ms/ddosblog)
 
 * [Azure DDoS Protection 설명서](../virtual-network/ddos-protection-overview.md)

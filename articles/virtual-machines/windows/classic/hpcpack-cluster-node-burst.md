@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: eee9183321f21676271c8a9c7e023c80c4daf554
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7d42c026975a18c7574e4bc64ec28ab3ed0082bc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915110"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248455"
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Azure의 HPC 팩 클러스터에 주문형 "버스트" 노드 추가
 Azure에서 [Microsoft HPC 팩](https://technet.microsoft.com/library/cc514029) 클러스터를 설정하는 경우 미리 구성된 계산 노드 VM을 유지하지 않고 클러스터 용량을 신속하게 확장 또는 축소할 수 있는 방법을 원할 것입니다. 이 문서에서는 "버스트" 노드(클라우드 서비스에서 실행되는 작업자 역할 인스턴스)를 Azure의 헤드 노드에 계산 리소스로 추가하는 방법을 보여줍니다. 
@@ -68,7 +68,7 @@ Azure 노드를 계산 리소스로 추가하려면 헤드 노드에 관리 인�
 
 2. **관리 인증서** > **업로드**를 클릭합니다.
 
-관리 인증서 구성에 대한 추가 옵션을 보려면 [Azure 버스트 배포를 위한 Azure 관리 인증서 구성 시나리오](http://technet.microsoft.com/library/gg481759.aspx)를 참조하세요.
+관리 인증서 구성에 대한 추가 옵션을 보려면 [Azure 버스트 배포를 위한 Azure 관리 인증서 구성 시나리오](https://technet.microsoft.com/library/gg481759.aspx)를 참조하세요.
 
 ## <a name="step-3-deploy-azure-nodes-to-the-cluster"></a>단계 3: 클러스터에 Azure 노드 배포
 이 시나리오에서 Azure 노드를 추가 및 시작하는 단계는 온-프레미스 헤드 노드의 단계와 일반적으로 동일합니다. 자세한 내용은 [Microsoft HPC 팩을 사용하여 Azure 노드를 배포하는 단계](https://technet.microsoft.com/library/gg481758.aspx)에서 다음 섹션을 참조하세요.
@@ -79,7 +79,7 @@ Azure 노드를 계산 리소스로 추가하려면 헤드 노드에 관리 인�
 
 노드를 추가 및 시작하면 클러스터 작업을 실행하는 데 사용할 수 있습니다.
 
-Azure 노드를 배포할 때 문제가 발생할 경우 [Microsoft HPC Pack을 사용하여 Azure 노드 배포 시 문제 해결](http://technet.microsoft.com/library/jj159097.aspx)을 참조하세요.
+Azure 노드를 배포할 때 문제가 발생할 경우 [Microsoft HPC Pack을 사용하여 Azure 노드 배포 시 문제 해결](https://technet.microsoft.com/library/jj159097.aspx)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 버스트 노드에 계산 집약적 인스턴스 크기를 사용하려는 경우 [고성능 계산 VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 고려 사항을 참조하세요.

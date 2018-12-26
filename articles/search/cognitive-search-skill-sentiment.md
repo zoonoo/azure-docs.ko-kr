@@ -4,8 +4,6 @@ description: Azure Search 보강 파이프라인의 이미지 파일에서 감�
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,16 +11,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1ddbba5b881cd05a997cd24a9396d5b722376e6f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e4028c3a810de41efe217e6dd4347fc3bc6bf16
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786762"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730887"
 ---
 #   <a name="sentiment-cognitive-skill"></a>감성 인식 기술
 
 **감성** 기술은 긍정과 부정 지속성에 따라 구조화되지 않은 텍스트를 평가하고 각 레코드에 대해 0과 1 사이의 점수를 반환합니다. 점수가 1에 가까울수록 긍정적 감정을 나타내고 점수가 0에 가까울수록 부정적 감정을 나타냅니다.
+
+> [!NOTE]
+> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SentimentSkill
@@ -118,4 +119,4 @@ Microsoft.Skills.Text.SentimentSkill
 ## <a name="see-also"></a>참고 항목
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
-+ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

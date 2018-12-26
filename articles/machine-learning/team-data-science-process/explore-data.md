@@ -1,36 +1,31 @@
 ---
 title: 팀 데이터 과학 프로세스에서 데이터 탐색 | Microsoft Docs
 description: 다양한 저장소 환경에서 데이터를 탐색하는 방법
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 6eae8772-f479-4627-bb12-64f6d1440b22
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
-ms.author: deguhath
-ms.openlocfilehash: 168d2852d8905735b450850c8bb32a1ae07a620d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.date: 11/08/2018
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 261cb608aa5404b836ec3f5b1eecfa7ba4036978
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837296"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441261"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>팀 데이터 과학 프로세스에서 데이터 탐색
-이 문서에서는 데이터 과학 프로세스에 일반적으로 사용되는 4개의 서로 다른 저장소 환경에서 데이터를 탐색하는 방법을 설명합니다.
 
-* **Azure blob 컨테이너** 데이터는 [Panda](http://pandas.pydata.org/) Python 패키지를 사용하여 탐색합니다.
-* **SQL Server 데이터** 데이터는 SQL을 사용하거나 Python과 같은 프로그래밍 언어를 사용하여 탐색합니다.
-* **Hive 테이블** 데이터는 Hive 쿼리를 사용하여 탐색합니다.
-* **Azure Machine Learning(AML) Studio** 데이터는 AML 모듈을 사용하여 탐색합니다.
+데이터 탐색은 [팀 데이터 과학 프로세스](overview.md)의 단계입니다.
 
-다음 **메뉴** 는 다양한 저장소 환경에서 데이터를 탐색하기 위해 이러한 도구를 사용하는 방법을 설명하는 토픽에 연결되는 링크입니다. 
+다음 문서에서는 데이터 과학 프로세스에 일반적으로 사용되는 3개의 서로 다른 스토리지 환경에서 데이터를 탐색하는 방법을 설명합니다.
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+* [Panda](http://pandas.pydata.org/) Python 패키지를 사용하여 [Azure blob 컨테이너](explore-data-blob.md) 데이터를 탐색합니다.
+* [SQL Server](explore-data-sql-server.md) 데이터는 SQL을 사용하거나 Python과 같은 프로그래밍 언어를 사용하여 탐색합니다.
+* [Hive 테이블](explore-data-hive-tables.md) 데이터는 Hive 쿼리를 사용하여 탐색합니다.
 
+또한 비디오, [Azure Machine Learning Studio의 데이터 사전 처리](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)는 Azure Machine Learning Studio의 데이터를 정리하고 변환하기 위해 일반적으로 사용되는 모듈에 대해 설명합니다.

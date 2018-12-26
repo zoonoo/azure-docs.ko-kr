@@ -1,26 +1,21 @@
 ---
-title: Azure 구독 제한 및 할당량 | Microsoft Docs
+title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 여기에는 최대값과 함께 제한을 늘리는 방법에 대한 정보가 포함됩니다.
-services: ''
-documentationcenter: ''
+services: multiple
 author: rothja
 manager: jeffreyg
-editor: ''
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 11/05/2018
 ms.author: byvinyal
-ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bd20ea58c7693b3be8f583810384aa26dde572d8
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610775"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219565"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -40,7 +35,8 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 
 > [!NOTE]
 > Azure 리소스 그룹의 리소스에 대한 할당량은 구독을 통해 지역별로 액세스할 수 있으며, 구독별로는 액세스할 수 없는데 서비스 관리 할당량이 구독별로 액세스되기 때문입니다. vCPU 할당량을 한 예로 살펴보겠습니다. vCPU를 지원하는 할당량 증가를 요청해야 하는 경우 어떤 지역에서 얼마나 많은 vCPU를 사용할 것인지 결정한 다음, 원하는 금액 및 지역에 대한 Azure 리소스 그룹 vCPU 할당량에 대해 특정 요청을 만들어야 합니다. 따라서 유럽 서부 지역에서 30개의 vCPU를 사용하여 응용 프로그램을 실행해야 하는 경우, 유럽 서부에서 30개의 vCPU를 구체적으로 요청해야 합니다. 하지만 다른 지역에는 vCPU 할당량이 증가하지 않고 유럽 서부만 30개의 vCPU 할당량이 갖게 됩니다.
-> <!-- --> 따라서 어떤 한 지역의 워크로드에 필요한 Azure 리소스 그룹 할당량을 결정하고 배포를 고려하는 각 지역에서 해당 금액을 요청하는 것이 유용할 수 있습니다. 특정 지역의 현재 할당량 검색에 대한 자세한 내용은 [배포 문제 해결](resource-manager-common-deployment-errors.md) 을 참조하세요.
+> <!-- -->
+> 따라서 어떤 한 지역에서 워크로드에 필요한 Azure 리소스 그룹 할당량을 결정하고 배포를 고려 중인 각 지역에서 해당 금액을 요청하는 것이 유용할 수 있습니다. 특정 지역의 현재 할당량 검색에 대한 자세한 내용은 [배포 문제 해결](resource-manager-common-deployment-errors.md) 을 참조하세요.
 >
 >
 
@@ -52,33 +48,37 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Azure Database for MySQL](#azure-database-for-mysql)
+* [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
+* [Azure Monitor](#monitor-limits)
+* [Azure Policy](#azure-policy-limits)
 * [Azure Redis 캐시(영문)](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
+* [Batch AI](#batch-ai-limits)
 * [BizTalk Services](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [컨테이너 레지스트리](#container-registry-limits)
-* [Kubernetes 서비스](#container-service-aks-limits)
+* [Kubernetes 서비스](#kubernetes-service-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [Database Migration Service](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
-* 
-  [IoT Hub](#iot-hub-limits)
+* [Azure Firewall](#azure-firewall-limits)
+* [Front Door](#azure-front-door-service-limits)
+* [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning 서비스](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
 * [관리 ID](#managed-identity-limits)
 * [Media Services](#media-services-limits)
-* [모바일 고객 관리](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
-* [모니터](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [네트워킹](#networking-limits)
 * [Network Watcher](#network-watcher-limits)
@@ -88,7 +88,8 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Scheduler](#scheduler-limits)
 * [이를 통해 검색](#search-limits)
 * [Service Bus](#service-bus-limits)
-* [사이트 복구](#site-recovery-limits)
+* [SignalR 서비스](#signalr-service-limits)
+* [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
 * [Storage](#storage-limits)
@@ -100,13 +101,13 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Virtual Machine Scale Sets](#virtual-machine-scale-sets-limits)
 
 ### <a name="subscription-limits"></a>구독 제한
-#### <a name="subscription-limits"></a>구독 제한
+#### <a name="subscription-limits---azure-service-management-classic-resources"></a>구독 제한 - Azure Service Management(클래식 리소스)
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### <a name="subscription-limits---azure-resource-manager"></a>구독 제한 - Azure Resource Manager
 Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다음과 같은 제한이 적용됩니다. Azure 리소스 관리자에서 변경되지 않는 제한은 아래에 나열되지 않습니다. 이러한 제한에 대해서는 이전 테이블을 참조하세요.
 
-리소스 관리자 요청의 제한 처리에 대한 정보는 [리소스 관리자 요청 제한](resource-manager-request-limits.md)을 참조하세요.
+Resource Manager API 읽기 및 쓰기 제한은 [Resource Manager 요청 제한](resource-manager-request-limits.md)을 참조하세요.
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
@@ -143,6 +144,8 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 #### <a name="application-gateway-limits"></a>Application Gateway 제한
+
+다음 표는 달리 언급하지 않는 한 v1, v2, 표준 및 WAF SKU에 적용됩니다.
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### <a name="network-watcher-limits"></a>Network Watcher 제한
@@ -154,11 +157,19 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 #### <a name="dns-limits"></a>DNS 제한
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
-### <a name="storage-limits"></a>저장소 제한
-Storage 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage/common/storage-scalability-targets.md)를 참조하세요.
+#### <a name="azure-firewall-limits"></a>Azure Firewall 제한
+[!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
 
+#### <a name="azure-front-door-service-limits"></a>Azure Front Door Service 제한
+[!INCLUDE [azure-front-door-service-limits](../includes/front-door-limits.md)]
+
+### <a name="storage-limits"></a>저장소 제한
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+Storage 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage/common/storage-scalability-targets.md)를 참조하세요.
+
+#### <a name="storage-resource-provider-limits"></a>Storage 리소스 공급자 제한 
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -170,7 +181,7 @@ Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성�
 
 [!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
 
-#### <a name="azure-file-sync-limits"></a>Azure File Sync 한도
+#### <a name="azure-file-sync-limits"></a>Azure 파일 동기화 한도
 [!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-files-scale-targets.md)]
 
 #### <a name="azure-queue-storage-limits"></a>Azure Queue 저장소 용량 한도
@@ -199,7 +210,7 @@ Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성�
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 ### <a name="app-service-limits"></a>App Service 제한
-다음 App Service 제한에는 Web Apps, Mobile Apps, API Apps 및 Logic Apps에 대한 제한이 포함됩니다.
+다음 App Service 제한에는 Web Apps, Mobile Apps 및 API Apps에 대한 제한이 포함됩니다.
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
@@ -209,6 +220,9 @@ Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성�
 ### <a name="batch-limits"></a>Batch 제한
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
+### <a name="batch-ai-limits"></a>Batch AI 제한
+[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
+
 ### <a name="biztalk-services-limits"></a>BizTalk Services 제한
 다음 표에서는 Azure Biztalk 서비스에 대한 제한을 보여 줍니다.
 
@@ -217,8 +231,11 @@ Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성�
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 제한
 Azure Cosmos DB는 어떠한 응용 프로그램의 요구도 처리하도록 처리량과 저장소 크기를 조정할 수 있는 뛰어난 확장성의 데이터베이스입니다. Azure Cosmos DB가 제공하는 규모에 대한 궁금한 사항은 askcosmosdb@microsoft.com에 메일을 보내 주세요.
 
-### <a name="mobile-engagement-limits"></a>모바일 참여 제한
-[!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
+### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
+Azure Database for MySQL 제한은 [Azure Database for MySQL의 제한 사항](mysql/concepts-limits.md)을 참조하세요.
+
+### <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
+Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한 사항](postgresql/concepts-limits.md)을 참조하세요.
 
 ### <a name="search-limits"></a>검색 제한
 가격 책정 계층은 검색 서비스의 용량 및 제한을 결정합니다. 계층은 다음을 포함합니다.
@@ -261,7 +278,7 @@ Azure Cosmos DB는 어떠한 응용 프로그램의 요구도 처리하도록 �
 ### <a name="iot-hub-limits"></a>IoT Hub 제한
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
-### <a name="iot-hub-device-provisioning-service-limits"></a>IoT Hub Device Provisioning 서비스 제한
+### <a name="iot-hub-device-provisioning-service-limits"></a>IoT Hub Device Provisioning Service 제한
 [!INCLUDE [azure-iotdps-limits](../includes/iot-dps-limits.md)]
 
 ### <a name="data-factory-limits"></a>데이터 팩터리 제한
@@ -288,6 +305,9 @@ Azure Cosmos DB는 어떠한 응용 프로그램의 요구도 처리하도록 �
 ### <a name="azure-maps-limits"></a>Azure Maps 제한
 [!INCLUDE [maps-limits](../includes/maps-limits.md)]
 
+### <a name="azure-policy-limits"></a>Azure Policy 제한
+[!INCLUDE [policy-limits](../includes/azure-policy-limits.md)]
+
 ### <a name="storsimple-system-limits"></a>StorSimple 시스템 제한
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
@@ -296,6 +316,9 @@ Azure Cosmos DB는 어떠한 응용 프로그램의 요구도 처리하도록 �
 
 ### <a name="backup-limits"></a>Backup 제한
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+
+### <a name="signalr-service-limits"></a>SignalR Service 제한
+[!INCLUDE [signalr-service-limits](../includes/signalr-service-limits.md)]
 
 ### <a name="site-recovery-limits"></a>사이트 복구 제한
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]

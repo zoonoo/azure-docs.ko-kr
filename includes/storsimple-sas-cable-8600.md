@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 792589f4aa2a80c05378224ffe4e4d1dad2f935c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166374"
+---
 <!--author=alkohli last changed:02/22/16-->
 
 #### <a name="to-attach-the-sas-cables"></a>SAS 케이블을 연결하려면
@@ -26,14 +39,14 @@
    2. 제공된 SAS 케이블을 사용하여 EBOD 포트를 포트 A에 연결합니다.
    3. 컨트롤러 0의 EBOD 포트를 EBOD 컨트롤러 0의 포트 A에 연결해야 합니다. 컨트롤러 1의 EBOD 포트를 EBOD 컨트롤러 1의 포트 A에 연결해야 합니다. 지침은 다음 그림을 참조하세요. 
       
-      ![장치에 대한 SAS 케이블 연결](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
+      ![디바이스에 대한 SAS 케이블 연결](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
       
       **SAS 케이블 연결**
       
       | 레이블 | 설명 |
       |:--- |:--- |
       | 문자열(UTF-8 형식) 또는 |기본 인클로저 |
-      | B |EBOD 인클로저 |
+      | b |EBOD 인클로저 |
       | 1 |컨트롤러 0 |
       | 2 |컨트롤러 1 |
       | 3 |EBOD 컨트롤러 0 |

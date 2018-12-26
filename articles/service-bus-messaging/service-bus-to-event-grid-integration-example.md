@@ -3,7 +3,7 @@ title: Azure Service Bus-Event Grid 통합 예제 | Microsoft Docs
 description: 이 아티클에서는 Service Bus 메시지 및 Event Grid 통합 예제를 제공합니다.
 services: service-bus-messaging
 documentationcenter: .net
-author: ChristianWolf42
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/15/2018
-ms.author: chwolf
-ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 09/15/2018
+ms.author: spelluru
+ms.openlocfilehash: 55798af8d8e2b50614a3eee51b330c5b4fa0f918
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189394"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409579"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Azure Service Bus-Azure Event Grid 통합 예제
 
@@ -46,13 +46,13 @@ Service Bus 프리미엄 네임스페이스를 만들고 두 개의 구독이 �
 
 1. [ GitHub azure-service-bus 리포지토리](https://github.com/Azure/azure-service-bus/)를 복제합니다.
 
-2. Visual Studio에서 *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* 폴더로 이동하여 *SBEventGridIntegration.sln* 파일을 엽니다.
+1. Visual Studio에서 *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* 폴더로 이동하여 *SBEventGridIntegration.sln* 파일을 엽니다.
 
-3. **MessageSender** 프로젝트로 이동한 다음, **Program.cs**를 선택합니다.
+1. **MessageSender** 프로젝트로 이동한 다음, **Program.cs**를 선택합니다.
 
    ![8][]
 
-4. 토픽 이름과 연결 문자열을 입력하고 다음 콘솔 응용 프로그램 코드를 실행합니다.
+1. 토픽 이름과 연결 문자열을 입력하고 다음 콘솔 애플리케이션 코드를 실행합니다.
 
     ```CSharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
@@ -63,9 +63,9 @@ Service Bus 프리미엄 네임스페이스를 만들고 두 개의 구독이 �
 
 시나리오 전체를 수행하려면 적어도 현재 진행 중인 이벤트를 디버그하고 살펴볼 수 있는 작은 테스트 함수가 필요합니다.
 
-1. Azure Portal에서 새 Azure Functions 응용 프로그램을 만듭니다. Azure 함수의 기본 사항을 알아보려면 [Azure Functions 설명서](https://docs.microsoft.com/azure/azure-functions/)를 참조합니다.
+1. Azure Portal에서 새 Azure Functions 애플리케이션을 만듭니다. Azure 함수의 기본 사항을 알아보려면 [Azure Functions 설명서](https://docs.microsoft.com/azure/azure-functions/)를 참조합니다.
 
-2. 새로 만든 함수에서 더하기 기호(+)를 선택하여 HTTP 트리거 함수를 추가합니다.
+1. 새로 만든 함수에서 더하기 기호(+)를 선택하여 HTTP 트리거 함수를 추가합니다.
 
     ![2][]
     
@@ -73,9 +73,9 @@ Service Bus 프리미엄 네임스페이스를 만들고 두 개의 구독이 �
 
     ![3][]
 
-3. **웹후크 + API** 단추, **CSharp**, **이 함수 만들기**를 차례로 선택합니다.
+1. **웹후크 + API** 단추, **CSharp**, **이 함수 만들기**를 차례로 선택합니다.
  
-4. 함수에 다음 코드를 붙여 넣습니다.
+1. 함수에 다음 코드를 붙여 넣습니다.
 
     ```CSharp
     #r "Newtonsoft.Json"
@@ -121,7 +121,7 @@ Service Bus 프리미엄 네임스페이스를 만들고 두 개의 구독이 �
     }
     ```
 
-5. **저장 및 실행**을 선택합니다.
+1. **저장 및 실행**을 선택합니다.
 
 ## <a name="connect-the-function-and-namespace-via-event-grid"></a>Event Grid를 통해 함수와 네임스페이스 연결
 
@@ -133,16 +133,16 @@ Azure Event Grid 구독을 만들려면 다음을 수행합니다.
 
     ![20][]
 
-2. **이벤트 구독**을 선택합니다.  
+1. **이벤트 구독**을 선택합니다.  
     **이벤트 구독** 창이 열립니다. 다음 이미지에서는 필터를 적용하지 않고 Azure 함수나 웹후크 구독에 대한 양식을 표시 합니다.
 
     ![21][]
 
-3. 표시된 것처럼 양식을 작성하고 **접미사 필터** 상자에서 관련 필터를 입력해야 합니다.
+1. 표시된 것처럼 양식을 작성하고 **접미사 필터** 상자에서 관련 필터를 입력해야 합니다.
 
-4. **만들기**를 선택합니다.
+1. **만들기**를 선택합니다.
 
-5. “필수 구성 요소” 섹션에서 설명했듯이 Service Bus 토픽으로 메시지를 보내고 Azure Functions 모니터링 기능을 통해 이벤트가 흐르고 있는지 확인합니다.
+1. “필수 구성 요소” 섹션에서 설명했듯이 Service Bus 토픽으로 메시지를 보내고 Azure Functions 모니터링 기능을 통해 이벤트가 흐르고 있는지 확인합니다.
 
 그 다음 단계는 함수와 Service Bus 네임스페이스를 연결하는 것입니다. 이 예에서는 Azure Portal을 사용합니다. 이 단계를 수행하기 위해 PowerShell 또는 Azure CLI를 사용하는 방법을 알아보려면 [Azure Service Bus-Azure Event Grid 통합 개요](service-bus-to-event-grid-integration-concept.md)를 참조합니다.
 
@@ -160,26 +160,26 @@ Azure Event Grid 구독을 만들려면 다음을 수행합니다.
 
     ![10][]
 
-2. 다음 코드에서 연결 문자열을 입력합니다.
+1. 다음 코드에서 연결 문자열을 입력합니다.
 
     ```Csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     ```
 
-3. Azure Portal에서 "테스트 함수 설정" 섹션에서 만든 Azure 함수에 대한 게시 프로필을 다운로드합니다.
+1. Azure Portal에서 "테스트 함수 설정" 섹션에서 만든 Azure 함수에 대한 게시 프로필을 다운로드합니다.
 
     ![11][]
 
-4. Visual Studio에서 **SBEventGridIntegration**을 마우스 오른쪽 단추로 클릭하고 **Publish**를 선택합니다. 
+1. Visual Studio에서 **SBEventGridIntegration**을 마우스 오른쪽 단추로 클릭하고 **Publish**를 선택합니다. 
 
-5. 전에 다운로드한 게시 프로필에 대한 **게시** 창에서 **프로필 가져오기**를 선택한 다음, **게시**를 선택합니다.
+1. 전에 다운로드한 게시 프로필에 대한 **게시** 창에서 **프로필 가져오기**를 선택한 다음, **게시**를 선택합니다.
 
     ![12][]
 
-6. 새 Azure 함수를 게시한 후에는 새 Azure 함수를 가리키는 새 Azure Event Grid 구독을 만듭니다.  
+1. 새 Azure 함수를 게시한 후에는 새 Azure 함수를 가리키는 새 Azure Event Grid 구독을 만듭니다.  
     **끝 문자** 상자에서 Service Bus 구독 이름이 될 올바른 필터를 적용합니다.
 
-7. 앞에서 만든 Azure Service Bus 토픽에 메시지를 보내고 Azure Portal의 Azure Functions 로그에서 이벤트가 흐르고 있으며 메시지가 수신되는지 모니터링합니다.
+1. 앞에서 만든 Azure Service Bus 토픽에 메시지를 보내고 Azure Portal의 Azure Functions 로그에서 이벤트가 흐르고 있으며 메시지가 수신되는지 모니터링합니다.
 
     ![12-1][]
 
@@ -195,22 +195,22 @@ Azure Event Grid 구독을 만들려면 다음을 수행합니다.
 
     ![14][]
 
-2. 다음을 수행하여 정보를 추가합니다.
+1. 다음을 수행하여 정보를 추가합니다.
 
     a. **리소스 이름** 상자에서 고유한 네임스페이스 이름을 입력합니다. 
 
-    나. **고급 옵션** 아래 **접미사 필터** 상자에서 구독에 대한 필터를 입력합니다.
+    b. **고급 옵션** 아래 **접미사 필터** 상자에서 구독에 대한 필터를 입력합니다.
 
-3. 토픽 구독에서 메시지를 수신하려면 Service Bus 수신 작업을 추가합니다.  
+1. 토픽 구독에서 메시지를 수신하려면 Service Bus 수신 작업을 추가합니다.  
     마지막 작업이 다음 이미지에 표시됩니다.
 
     ![15][]
 
-4. 다음 이미지에 표시된 것처럼 완료 이벤트를 추가옵니다.
+1. 다음 이미지에 표시된 것처럼 완료 이벤트를 추가옵니다.
 
     ![16][]
 
-5. “필수 구성 요소” 섹션에서 설명한 것처럼 논리 앱을 저장하고 Service Bus 토픽을 보냅니다.  
+1. “필수 구성 요소” 섹션에서 설명한 것처럼 논리 앱을 저장하고 Service Bus 토픽을 보냅니다.  
     논리 앱 실행을 관찰합니다. 실행에 대한 더 많은 데이터를 보려면 **개요**를 선택한 다음, **실행 기록** 아래에서 데이터를 봅니다.
 
     ![17][]

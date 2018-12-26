@@ -3,19 +3,19 @@ title: 메모리 및 동시성 제한 - Azure SQL Data Warehouse | Microsoft Doc
 description: Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에 할당된 메모리 및 동시성 제한을 살펴봅니다.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/10/2018
+ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 802dbcdf797147d4f4dcf7835aea9c952127113e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ab90b4431a0f8d3a4ee70869e053174f89f23dba
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652271"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785218"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 메모리 및 동시성 제한
 Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에 할당된 메모리 및 동시성 제한을 살펴봅니다. 자세한 내용을 참고하고 워크로드 관리 계획에 이러한 기능을 적용하려면 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 확인하세요. 
@@ -27,10 +27,11 @@ Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에
 
 ### <a name="gen2"></a>2세대
 
-2세대는 1세대보다 쿼리당 2.5배 더 많은 메모리를 제공합니다. 이 추가 메모리를 통해 2세대에서 빠른 성능을 제공할 수 있습니다.  2세대의 성능 수준은 DW1000c에서 DW30000c까지입니다. 
+2세대는 1세대보다 쿼리당 2.5배 더 많은 메모리를 제공합니다. 이 추가 메모리를 통해 2세대에서 빠른 성능을 제공할 수 있습니다.  2세대의 성능 수준은 DW500c에서 DW30000c까지입니다. 
 
 | 성능 수준 | 계산 노드 | 계산 노드당 배포 | 데이터 웨어하우스당 메모리 크기(GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW500c            | 1             | 60                             |   300                          |
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
 | DW2000c           | 4             | 15                             |  1200                          |
@@ -75,6 +76,7 @@ Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에
 
 | 서비스 수준 | 최대 동시 쿼리 수 | 사용 가능한 동시성 슬롯 수 |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| DW500c        | 20                         |   20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
@@ -90,7 +92,7 @@ Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에
 **동적 리소스 클래스**
 
 > [!NOTE]
-> 2세대의 smallrc 리소스 클래스는 서비스 수준이 증가함에 따라 동적으로 메모리를 추가하며 최대 32개의 동시 쿼리만 지원합니다.  smallrc에서 사용하는 동시성 슬롯과 메모리는 서비스 수준이 증가함에 따라 증가합니다. 
+> 2세대의 smallrc 리소스 클래스는 서비스 수준이 높아짐에 따라 동적으로 메모리를 추가하며, 동시 쿼리를 DW1000c에서는 32개까지, DW500c에서는 20개까지만 지원합니다.  인스턴스 크기가 DW1500c를 초과하도록 조정되면 smallrc에서 사용하는 동시성 슬롯과 메모리는 서비스 수준이 높아짐에 따라 증가합니다. 
 >
 >
 
@@ -98,6 +100,7 @@ Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에
 
 | 서비스 수준 | 최대 동시 쿼리 수 | 사용 가능한 동시성 슬롯 수 | smallrc에서 사용되는 슬롯 | mediumrc에서 사용되는 슬롯 | largerc에서 사용되는 슬롯 | xlargerc에서 사용되는 슬롯 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
+| DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |
 | DW2000c       | 32                         |   80                        | 2                     |  8                     |  17                   |  56                    |

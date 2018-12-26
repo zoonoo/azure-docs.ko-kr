@@ -5,16 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 06/04/2018
+ms.date: 11/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 199998f193f375137d499913e9ce966f85ed863c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eff7ccc40cd31e604cc4e54b6da9421d1d0b4f4e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38727542"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53439232"
 ---
+### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 엔드포인트를 몇 개까지 지정할 수 있습니까?
+
+게이트웨이 SKU에 따라 다릅니다. 지원되는 연결 수에 대한 자세한 내용은 [게이트웨이 SKU](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku)를 참조하세요.
+
 ### <a name="supportedclientos"></a>지점 및 사이트 간 연결에 사용할 수 있는 클라이언트 운영 체제는 무엇인가요?
 
 다음과 같은 클라이언트 운영 체제가 지원됩니다.
@@ -26,18 +30,11 @@ ms.locfileid: "38727542"
 * Windows Server 2012 R2(64비트 전용)
 * Windows Server 2016(64비트 전용)
 * 윈도우 10
-* Mac OS X 버전 10.11(El Capitan)
-* Mac OS X 버전 10.12(Sierra)
+* Mac OS X 버전 10.11 이상
 * Linux(StrongSwan)
 * iOS
 
->[!NOTE]
->[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
->
-
-### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 끝점을 몇 개까지 지정할 수 있습니까?
-
-최대 128개의 VPN 클라이언트에서 가상 네트워크에 동시에 연결할 수 있도록 지원합니다.
+[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>지점 및 사이트 간 기능을 사용하여 프록시와 방화벽을 트래버스할 수 있습니까?
 
@@ -61,7 +58,7 @@ Azure에서는 두 가지 형식의 지점 및 사이트 VPN 옵션을 지원합
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>지점 및 사이트 간 클라이언트를 여러 가상 네트워크에 동시에 연결하도록 구성할 수 있습니까?
 
-아니요. 지점 및 사이트 간 클라이언트만이 가상 네트워크 게이트웨이가 있는 VNet의 리소스에 연결할 수 있습니다.
+ 아니요. 지점 및 사이트 간 클라이언트만이 가상 네트워크 게이트웨이가 있는 VNet의 리소스에 연결할 수 있습니다.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>사이트 간 연결 또는 지점 및 사이트 간 연결을 통해 어느 정도의 처리량을 제공할 수 있습니까?
 
@@ -69,7 +66,7 @@ VPN 터널의 정확한 처리량을 유지하는 것은 어렵습니다. IPsec�
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>SSTP 및/또는 IKEv2를 지원하는 지점 및 사이트 간 연결에 소프트웨어 VPN 클라이언트를 사용할 수 있나요?
 
-아니요. SSTP의 경우 Windows에서 네이티브 VPN 클라이언트를 사용하고 IKEv2의 경우 Mac에서 네이티브 VPN 클라이언트를 사용할 수 있습니다. 지원되는 클라이언트 운영 체제 목록을 참조하세요.
+ 아니요. SSTP의 경우 Windows에서 네이티브 VPN 클라이언트를 사용하고 IKEv2의 경우 Mac에서 네이티브 VPN 클라이언트를 사용할 수 있습니다. 지원되는 클라이언트 운영 체제 목록을 참조하세요.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure는 Windows에서 IKEv2 VPN을 지원합니까?
 
@@ -79,17 +76,17 @@ IKEv2에 대해 Windows 10 또는 Server 2016을 준비하려면:
 
 1. 업데이트를 설치합니다.
 
-  | OS 버전 | Date | 번호/링크 |
-  |---|---|---|---|
-  | Windows Server 2016<br>Windows 10 버전 1607 | 2018년 1월 17일 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
-  | Windows 10 버전 1703 | 2018년 1월 17일 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
-  |  |  |  |  |
+   | OS 버전 | Date | 번호/링크 |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10 버전 1607 | 2018년 1월 17일 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 버전 1703 | 2018년 1월 17일 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   |  |  |  |  |
 
 2. 레지스트리 키 값을 설정합니다. 레지스트리에 “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD 키를 만들거나 1로 설정합니다.
 
 ### <a name="what-happens-when-i-configure-both-sstp-and-ikev2-for-p2s-vpn-connections"></a>P2S VPN 연결에 대해 SSTP 및 IKEv2를 모두 구성되면 어떻게 되나요?
 
-혼합된 환경(Windows 및 Mac 장치로 구성)에서 SSTP 및 IKEv2 모두를 구성하는 경우 Windows VPN 클라이언트는 항상 IKEv2 터널을 먼저 시도하지만 IKEv2 연결이 실패하는 경우 SSTP로 대체합니다. MacOSX는 IKEv2를 통해서만 연결합니다.
+혼합된 환경(Windows 및 Mac 디바이스로 구성)에서 SSTP 및 IKEv2 모두를 구성하는 경우 Windows VPN 클라이언트는 항상 IKEv2 터널을 먼저 시도하지만 IKEv2 연결이 실패하는 경우 SSTP로 대체합니다. MacOSX는 IKEv2를 통해서만 연결합니다.
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>Azure는 P2S VPN에 대해 Windows나 Mac 이외에 다른 어떤 플랫폼을 지원합니까?
 

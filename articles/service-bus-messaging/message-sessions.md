@@ -11,18 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
-ms.author: sethm
-ms.openlocfilehash: 551432cd13c16fdd5423c46ed9c6f740353808f8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 09/02/2018
+ms.author: spelluru
+ms.openlocfilehash: f1f796f7dc0a5ca4e1143f07303c218117e745e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30181642"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314322"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>메시지 세션: FIFO(처음 들어간 것부터 사용) 
 
 Microsoft Azure Service Bus 세션을 사용하면 관련 메시지의 무제한 시퀀스를 공동으로 순서를 지정하여 처리할 수 있습니다. Service Bus에서 FIFO 보장을 실현하려면 세션을 사용합니다. Service Bus는 메시지 간 관계의 특징에 대한 규범이 아니며 메시지 시퀀스가 시작되거나 끝나는 위치를 결정하는 특정 모델을 정의하지 않습니다.
+
+> [!NOTE]
+> Service Bus의 기본 계층에서는 세션을 지원하지 않습니다. 표준 및 프리미엄 계층은 세션을 지원합니다. 자세한 내용은 [Service Bus 가격](service-bus-pricing-billing.md)을 참조하세요.
 
 발신자는 메시지를 토픽이나 큐에 제출할 때 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 속성을 세션에 고유한 응용 프로그램 정의 식별자로 설정하여 세션을 만들 수 있습니다. AMQP 1.0 프로토콜 수준에서 이 값은 *group-id* 속성에 매핑됩니다.
 
@@ -81,7 +84,6 @@ Service Bus 측면에서 메시지 세션 상태는 한 개 메시지 크기의 
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

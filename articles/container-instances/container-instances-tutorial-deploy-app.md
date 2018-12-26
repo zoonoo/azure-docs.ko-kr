@@ -1,22 +1,21 @@
 ---
-title: Azure Container Instances 자습서 - 앱 배포
-description: Azure Container Instances 자습서 3/3부 - 응용 프로그램 배포
+title: '자습서: Azure Container Instances에 컨테이너 앱 배포'
+description: Azure Container Instances 자습서 3/3부 - Azure Container Instances에 컨테이너 애플리케이션 배포
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: marsma
-ms.custom: mvc
-ms.openlocfilehash: 1268ed0f5c46e0f65e1bf5381f2baca95fa0b915
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: danlep
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610602"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191108"
 ---
-# <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>자습서: Azure Container Instances에 컨테이너 배포
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>자습서: Azure Container Instances에 컨테이너 애플리케이션 배포
 
 3부작 시리즈의 마지막 자습서입니다. 시리즈의 앞부분에서는 [컨테이너 이미지를 만들어](container-instances-tutorial-prepare-app.md) [Azure Container Registry에 푸시했습니다](container-instances-tutorial-prepare-acr.md). 이 문서에서는 Azure Container Instances에 컨테이너를 배포하여 이 시리즈를 완료합니다.
 
@@ -24,7 +23,7 @@ ms.locfileid: "34610602"
 
 > [!div class="checklist"]
 > * Azure Container Registry에서 Azure Container Instances에 컨테이너 배포
-> * 브라우저에서 실행 중인 응용 프로그램 보기
+> * 브라우저에서 실행 중인 애플리케이션 보기
 > * 컨테이너의 로그 표시
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -53,10 +52,10 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 
 ### <a name="deploy-container"></a>컨테이너 배포
 
-이제 [az container create][az-container-create] 명령을 사용하여 컨테이너를 배포합니다. `<acrLoginServer>` 및 `<acrPassword>`를 이전 두 개의 명령에서 얻은 값으로 바꿉니다. `<acrName>`을 컨테이너 레지스트리의 이름으로 바꿉니다.
+이제 [az container create][az-container-create] 명령을 사용하여 컨테이너를 배포합니다. `<acrLoginServer>` 및 `<acrPassword>`를 이전 두 개의 명령에서 얻은 값으로 바꿉니다. `<acrName>`을 컨테이너 레지스트리의 이름으로 바꾸고 `<aciDnsLabel>`을 원하는 DNS 이름으로 바꿉니다.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 몇 초 정도 지나면 Azure에서 초기 응답이 수신됩니다. `--dns-name-label` 값은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유해야 합니다. 명령을 실행한 결과 **DNS 이름 레이블** 오류 메시지가 표시되는 경우에는 이전 명령의 값을 수정합니다.
@@ -138,8 +137,8 @@ az group delete --name myResourceGroup
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-container-create]: /cli/azure/container#az_container_create
-[az-container-show]: /cli/azure/container#az_container_show
-[az-group-delete]: /cli/azure/group#az_group_delete
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show
+[az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [prepare-app]: ./container-instances-tutorial-prepare-app.md

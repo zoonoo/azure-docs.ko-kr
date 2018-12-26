@@ -207,9 +207,9 @@ Azure에서 VM을 만들면 VM에 연결하고 Windows에서 드라이버가 설
 1. 인터넷 브라우저에서 Azure [Portal](https://portal.azure.com)을 열고 Azure 계정으로 로그인합니다.
 2. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *myVm*을 입력합니다. 검색 결과에서 표시되는 **myVm**을 클릭합니다. **연결** 단추 아래에서 **만드는 중**이 표시되는 경우 Azure에서 VM 만들기를 아직 완료하지 않은 것입니다. 따라서 **연결** 단추 아래에서 **만드는 중**가 더 이상 표시되지 않는 경우에만 개요의 왼쪽 위 모서리에 있는 **연결**을 클릭합니다.
 3. [가상 머신 만들기](#create-the-virtual-machine)에서 입력한 사용자 이름과 암호를 입력합니다. Azure에서 Windows VM에 연결된 적이 없는 경우 [가상 머신에 연결](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine)을 참조하세요.
-4. [Windows 시작] 단추를 마우스 오른쪽 단추로 클릭한 다음 **장치 관리자**를 클릭합니다. **네트워크 어댑터** 노드를 펼칩니다. 다음 그림과 같이 **Mellanox ConnectX-3 Virtual Function Ethernet Adapter**가 나타나는지 확인합니다.
+4. [Windows 시작] 단추를 마우스 오른쪽 단추로 클릭한 다음 **디바이스 관리자**를 클릭합니다. **네트워크 어댑터** 노드를 펼칩니다. 다음 그림과 같이 **Mellanox ConnectX-3 Virtual Function Ethernet Adapter**가 나타나는지 확인합니다.
 
-    ![장치 관리자](./media/create-vm-accelerated-networking/device-manager.png)
+    ![디바이스 관리자](./media/create-vm-accelerated-networking/device-manager.png)
 
 이제 가속화된 네트워킹을 VM에 사용할 수 있습니다.
 

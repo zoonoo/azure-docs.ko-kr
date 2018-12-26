@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 배포 시나리오 | Microsoft 
 description: Azure AD 도메인 서비스용 배포 시나리오
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/21/2017
-ms.author: maheshu
-ms.openlocfilehash: be8d565ea16849302b743e5619afd3f21703bd1e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.author: ergreenl
+ms.openlocfilehash: b660bb2675332612b73879e95b89ace9c7714bbf
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218690"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155289"
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>배포 시나리오 및 사용 사례
 이 섹션에서는 Azure AD(Active Directory) 도메인 서비스에서 이익이 되는 몇 가지 시나리오 및 사용 사례를 살펴보겠습니다.

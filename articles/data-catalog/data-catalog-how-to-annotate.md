@@ -1,25 +1,19 @@
 ---
-title: "데이터 원본에 주석을 추가하는 방법 | Microsoft Docs"
-description: "Azure 데이터 카탈로그의 데이터 자산에 친숙한 이름, 태그, 설명 및 전문가를 포함한 주석을 추가하는 방법을 강조 표시한 방법 문서"
+title: Azure Data Catalog에서 데이터 원본에 주석을 추가하는 방법
+description: Azure 데이터 카탈로그의 데이터 자산에 친숙한 이름, 태그, 설명 및 전문가를 포함한 주석을 추가하는 방법을 강조 표시한 방법 문서
 services: data-catalog
-documentationcenter: 
-author: steelanddata
-manager: NA
-editor: 
-tags: 
+author: markingmyname
+ms.author: maghan
 ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: f9dd68380773e3cdb93cf1033ccd1b55d9f69305
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 39fd84882b42a1890358991b62afc1e393f6daa9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407835"
 ---
 # <a name="how-to-annotate-data-sources"></a>데이터 원본에 주석을 추가하는 방법
 ## <a name="introduction"></a>소개

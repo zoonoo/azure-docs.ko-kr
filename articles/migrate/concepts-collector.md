@@ -1,224 +1,249 @@
 ---
-title: Azure Migrate의 Collector 어플라이언스 | Microsoft Docs
-description: Collector 어플라이언스에 대한 개요 및 구성 방법을 제공합니다.
-author: ruturaj
+title: Azure Migrate의 Collector 어플라이언스 정보 | Microsoft Docs
+description: Azure Migrate의 Collector 어플라이언스에 대한 정보를 제공합니다.
+author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
-ms.author: ruturajd
+ms.date: 10/30/2018
+ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: d0f36370f5093f8c1d06c83a62532b3854597fa4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211672"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241194"
 ---
-# <a name="collector-appliance"></a>Collector 어플라이언스
+# <a name="about-the-collector-appliance"></a>Collector 어플라이언스 정보
 
-[Azure Migrate](migrate-overview.md)는 Azure로 마이그레이션하는 온-프레미스 워크로드를 평가합니다. 이 문서는 Collector 어플라이언스 사용 방법에 대한 정보를 제공합니다.
+ 이 문서에서는 Azure Migrate Collector에 대한 정보를 제공합니다.
+
+Azure Migrate Collector는 Azure로 마이그레이션하기 전에 [Azure Migrate](migrate-overview.md) 서비스를 통해 평가를 진행하기 위해 온-프레미스 vCenter 환경을 검색하는 데 사용할 수 있는 간편한 어플라이언스입니다.  
+
+## <a name="discovery-methods"></a>검색 방법
+
+Collector 어플라이언스에 대해 일회성 검색과 연속 검색의 두 가지 옵션이 제공됩니다.
+
+### <a name="one-time-discovery"></a>일회성 검색
+
+Collector 어플라이언스가 vCenter Server와 일회성 통신을 수행하여 VM에 대한 메타데이터를 수집합니다. 이 방법을 사용하는 경우의 특징은 다음과 같습니다.
+
+- 어플라이언스가 Azure Migrate 프로젝트에 계속 연결되어 있지 않습니다.
+- 검색이 끝난 후 온-프레미스 환경의 변경 내용이 Azure Migrate에 반영되지 않습니다. 변경 내용을 반영하려면 같은 프로젝트에서 동일 환경을 다시 검색해야 합니다.
+- 어플라이언스는 VM의 성능 데이터를 수집할 때 vCenter Server에 저장된 기록 성능 데이터를 사용하며 지난 달의 성능 기록을 수집합니다.
+- 이전 성능 데이터를 수집하려면 vCenter Server의 통계 설정을 수준 3으로 설정해야 합니다. 수준을 3으로 설정한 후에는 vCenter에서 성능 카운터를 수집할 때까지 하루 이상 기다려야 합니다. 따라서 적어도 하루 뒤에 검색을 실행하는 것이 좋습니다. 1주일 또는 1개월의 성능 데이터를 기준으로 환경을 평가하려면 그에 맞게 대기해야 합니다.
+- 이 검색 방법에서 Azure Migrate는 각 메트릭에 대한 평균 카운터를 수집합니다(최대 카운터 대신). 따라서 결과 값의 크기가 작을 수 있습니다. 연속 검색 옵션을 사용하여 보다 정확한 크기의 결과를 얻는 것이 좋습니다.
+
+### <a name="continuous-discovery"></a>연속 검색
+
+수집기 어플라이언스는 Azure Migrate 프로젝트에 지속적으로 연결되어 VM 성능 데이터를 지속적으로 수집합니다.
+
+- Collector가 온-프레미스 환경을 지속적으로 프로파일링하여 20초마다 실시간 사용률 데이터를 수집합니다.
+- 어플라이언스는 20초 샘플을 롤업하고 15분마다 데이터 요소를 하나씩 만듭니다.
+- 데이터 요소를 만들기 위해 어플라이언스는 20초 샘플에서 최고 값을 선택하여 Azure로 전송합니다.
+- 이 모델은 성능 데이터를 수집할 때 vCenter Server 통계 설정을 사용하지 않습니다.
+- 언제든지 Collector에서 연속 프로파일링을 중지할 수 있습니다.
+
+응용 프로그램은 성능 데이터를 연속적으로 수집할 뿐이며 온-프레미스 환경의 구성 변경(예: VM 추가, 삭제, 디스크 추가 등)은 탐지하지 않습니다. 온-프레미스 환경에서 구성 변경이 있으면 다음을 통해 포털에 변경 내용을 반영할 수 있습니다.
+
+- 항목 추가(VM, 디스크, 코어 등): 이러한 변경을 Azure Portal에 반영하려면 어플라이언스의 검색을 멈추었다가 다시 시작하면 됩니다. 이렇게 하면 Azure Migrate 프로젝트에서 변경 내용이 업데이트됩니다.
+
+- VM삭제: 어플라이언스 설계 방식으로 인해 VM 삭제는 검색을 중지했다 시작해도 반영되지 않습니다. 이후 검색의 데이터는 기존 검색에 추가되는 것이지 기존 검색을 덮어쓰는 것이 아니기 때문입니다. 이 경우에는 그룹에서 VM을 제거하고 평가를 다시 계산하여 포털에서 VM을 간단히 무시하면 됩니다.
+
+> [!NOTE]
+> 연속 검색 기능은 미리 보기 상태입니다. 이 방법은 세부 성능 데이터를 수집하고 정확한 크기 조정을 제공하므로 이 방법을 사용하는 것이 좋습니다.
+
+## <a name="deploying-the-collector"></a>Collector 배포
+
+OVF 템플릿을 사용하여 Collector 어플라이언스를 배포할 수 있습니다.
+
+- Azure Portal의 Azure Migrate 프로젝트에서 OVF 템플릿을 다운로드합니다. 다운로드한 파일을 vCenter Server로 가져와서 Collector 어플라이언스 VM을 설정합니다.
+- OVF에서 VMware가 코어 4개, 8GB RAM, 80GB 디스크 1개로 VM을 설정합니다. 운영 체제는 Windows Server 2012 R2(64비트)입니다.
+- Collector를 실행하면 Collector가 Azure Migrate에 연결할 수 있는지를 확인하기 위해 여러 가지 필수 구성 요소 확인이 실행됩니다.
+
+- Collector를 만드는 방법에 대해 [자세히 알아보세요](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+
+## <a name="collector-prerequisites"></a>Collector 필수 구성 요소
+
+Collector는 몇 가지 필수 구성 요소 확인을 통과해야 인터넷을 통해 Azure Migrate 서비스에 연결하고 검색된 데이터를 업로드할 수 있습니다.
+
+- **인터넷 연결 확인**: Collector는 인터넷에 직접 연결하거나 프록시를 통해 연결할 수 있습니다.
+    - 필수 구성 요소 확인에서는 [필수 및 선택적 URL](#connect-to-urls)에 대한 연결을 확인합니다.
+    - 인터넷에 직접 연결하는 경우에는 Collector가 필수 URL에 연결할 수 있는지를 확인하는 것 외에는 별도의 작업을 수행하지 않아도 됩니다.
+    - 프록시를 통해 연결하는 경우에는 [아래 요구 사항](#connect-via-a-proxy)을 참조하세요.
+- **시간 동기화 확인**: 서비스에 대한 요청이 인증되도록 하려면 Collector가 인터넷 시간 서버와 동기화되어야 합니다.
+    - 시간 유효성을 검사할 수 있도록 Collector에서 portal.azure.com URL에 연결할 수 있어야 합니다.
+    - 컴퓨터가 동기화되지 않은 경우에는 Collector VM의 시계 시간을 현재 시간과 일치하도록 변경해야 합니다. 이렇게 하려면 VM에서 관리자 프롬프트를 열고 **w32tm /tz**를 실행하여 표준 시간대를 확인합니다. 그런 후에 **w32tm /resync**를 실행하여 시간을 동기화합니다.
+- **Collector 서비스가 실행되고 있는지 확인**: Azure Migrate Collector 서비스가 Collector VM에서 실행되고 있어야 합니다.
+    - 서비스는 시스템이 부팅될 때 자동으로 시작됩니다.
+    - 서비스가 실행되고 있지 않으면 제어판에서 서비스를 시작합니다.
+    - Collector 서비스가 vCenter Server에 연결하여 VM 메타데이터 및 성능 데이터를 수집한 다음 Azure Migrate 서비스로 전송합니다.
+- **Check VMware PowerCLI 6.5가 설치되어 있는지 확인**: Collector VM에 VMware PowerCLI 6.5 PowerShell 모듈이 설치되어 있어야 해당 VM이 vCenter Server와 통신할 수 있습니다.
+    - Collector가 모듈을 설치하는 데 필요한 URL에 액세스할 수 있으면 Collector 배포 중에 모듈이 자동으로 설치됩니다.
+    - 배포 중에 Collector가 모듈을 설치할 수 없는 경우에는 [모듈을 수동 설치](#install-vwware-powercli-module-manually)해야 합니다.
+- **vCenter Server에 대한 연결 확인**: Collector는 vCenter Server에 연결하여 VM, 해당 메타데이터 및 성능 카운터를 쿼리할 수 있어야 합니다. 연결을 위한 [필수 구성 요소를 확인](#connect-to-vcenter-server)하세요.
+
+
+### <a name="connect-to-the-internet-via-a-proxy"></a>프록시를 통해 인터넷에 연결
+
+- 프록시 서버에 인증이 필요한 경우 Collector를 설정할 때 사용자 이름과 암호를 지정할 수 있습니다.
+- 프록시 서버의 IP 주소/FQDN은 *http://IPaddress* 또는 *http://FQDN*으로 지정해야 합니다.
+- HTTP 프록시만 지원됩니다. HTTPS 기반 프록시 서버는 Collector에서 지원되지 않습니다.
+- 프록시 서버가 가로채는 프록시인 경우에는 Collector VM으로 프록시 인증서를 가져와야 합니다.
+    1. Collector VM에서 **시작 메뉴** > **컴퓨터 인증서 관리**로 이동합니다.
+    2. 인증서 도구의 **인증서 - 로컬 컴퓨터** 아래에서 **신뢰할 수 있는 게시자** > **인증서**를 찾습니다.
+
+        ![인증서 도구](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+    3. 프록시 인증서를 Collector VM에 복사합니다. 네트워크 관리자에게 인증서를 받아야 할 수 있습니다.
+    4. 인증서를 두 번 클릭하여 연 다음 **인증서 설치**를 클릭합니다.
+    5. 인증서 가져오기 마법사 > 저장 위치에서 **로컬 컴퓨터**를 선택합니다.
+
+    ![인증서 저장 위치](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+    6. **모든 인증서를 다음 저장소에 저장** > **찾아보기** > **신뢰할 수 있는 게시자**를 선택하고 **마침**을 클릭하여 인증서를 가져옵니다.
+
+    ![인증서 저장소](./media/concepts-intercepting-proxy/certificate-store.png)
+
+    7. 인증서를 제대로 가져왔는지, 그리고 인터넷 연결 필수 구성 요소 확인이 정상적으로 작동하는지 확인합니다.
 
 
 
-## <a name="overview"></a>개요
 
-Azure Migrate Collector는 온-프레미스 vCenter 환경을 검색하는 데 사용할 수 있는 경량 어플라이언스입니다. 이 어플라이언스는 온-프레미스 VMware 컴퓨터를 검색하여 관련 메타데이터를 Azure Migrate 서비스에 보냅니다.
+### <a name="connect-to-urls"></a>URL에 연결
 
-Collector 어플라이언스는 Azure Migrate 프로젝트에서 다운로드할 수 있는 OVF입니다. 4코어, 8GB RAM 및 80GB 디스크가 한 개 있는 VMware 가상 머신을 인스턴스화합니다. 어플라이언스의 운영 체제는 Windows Server 2012 R2(64 비트)입니다.
+특정 URL 목록에 연결해 보는 방식으로 연결 확인의 유효성을 검사합니다.
 
-Collector는 다음 단계에 따라 만들 수 있습니다. - [Collector VM을 만드는 방법](tutorial-assessment-vmware.md#create-the-collector-vm)
+**URL** | **세부 정보**  | **필수 구성 요소 확인**
+--- | --- | ---
+*.portal.azure.com | Azure 서비스와의 연결과 시간 동기화를 확인합니다. | URL에 액세스할 수 있어야 합니다.<br/><br/> URL에 연결할 수 없으면 필수 구성 요소 확인은 실패합니다.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| PowerShell vCenter PowerCLI 모듈을 다운로드하는 데 사용됩니다. | 필요에 따라 URL에 액세스하면 됩니다.<br/><br/> 필수 구성 요소 확인은 실패하지 않습니다.<br/><br/> Collector VM에서 자동 모듈 설치가 실패합니다. 모듈을 수동으로 설치해야 합니다.
 
-## <a name="collector-communication-diagram"></a>수집기 통신 다이어그램
+
+### <a name="install-vmware-powercli-module-manually"></a>수동으로 VMware PowerCLI 모듈 설치
+
+1. [이 단계](https://blogs.vmware.com/PowerCLI/2017/04/powercli-install-process-powershell-gallery.html)에 따라 모듈을 설치합니다. 이러한 단계에서는 온라인 및 오프라인 설치 방법을 모두 설명합니다.
+2. Collector VM이 오프라인 상태여서 인터넷에 액세스할 수 있는 다른 컴퓨터에 모듈을 설치하려는 경우 해당 컴퓨터에서 Collector VM으로 VMware.* 파일을 복사해야 합니다.
+3. 설치 후에는 필수 구성 요소 확인을 다시 시작하여 PowerCLI가 설치되었는지를 확인할 수 있습니다.
+
+### <a name="connect-to-vcenter-server"></a>vCenter Server에 연결
+
+Collector는 vCenter Server에 연결하여 VM 메타데이터 및 성능 카운터를 쿼리합니다. 해당 연결을 위해 필요한 사항은 다음과 같습니다.
+
+- vCenter Server 버전 5.5, 6.0 및 6.5만 지원됩니다.
+- 검색용으로 아래에 요약되어 있는 권한이 있는 읽기 전용 계정이 필요합니다. 해당 계정을 통해 액세스 가능한 데이터 센터만 검색을 위해 액세스할 수 있습니다.
+- 기본적으로는 FQDN 또는 IP 주소를 사용하여 vCenter Server에 연결합니다. vCenter Server가 다른 포트에서 수신 대기하는 경우에는 *IPAddress:Port_Number* 또는 *FQDN:Port_Number* 형식을 사용하여 해당 포트에 연결합니다.
+- 저장 및 네트워킹용으로 성능 데이터를 수집하려면 vCenter Server의 통계 설정을 수준 3으로 설정해야 합니다.
+- 수준이 3보다 낮으면 검색은 작동하지만 성능 데이터는 수집되지 않습니다. 데이터가 수집되는 카운터도 있지만, 그 외의 카운터는 0으로 설정됩니다.
+- 저장 및 네트워킹용 성능 데이터가 수집되지 않는 경우에 권장되는 평가 크기는 CPU 및 메모리의 성능 데이터와 디스크 및 네트워크 어댑터의 구성 데이터를 기준으로 합니다.
+- Collector에는 vCenter Server에 대한 네트워크 시야가 있어야 합니다.
+
+#### <a name="account-permissions"></a>계정 권한
+
+**계정** | **권한**
+--- | ---
+읽기 전용 사용자 계정(최소) | 데이터 센터 개체 –> 자식 개체에 전파, role=Read 전용   
+
+
+## <a name="collector-communications"></a>Collector 통신
+
+Collector는 아래 다이어그램과 표에 요약되어 있는 방식으로 통신을 합니다.
 
 ![수집기 통신 다이어그램](./media/tutorial-assessment-vmware/portdiagram.PNG)
 
 
-| 구성 요소      | 통신 대상   | 필요한 포트                            | 이유                                   |
-| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
-| 데이터 수집기      | Azure Migrate 서비스 | TCP 443                                  | 수집기는 SSL 포트 443을 통해 서비스와 통신할 수 있어야 합니다. |
-| 데이터 수집기      | vCenter Server        | 기본값 443                             | 수집기는 vCenter Server와 통신할 수 있어야 합니다. 기본적으로 443에서 vCenter에 연결합니다. vCenter가 다른 포트에서 수신 대기하는 경우 해당 포트는 수집기에서 송신 포트로 제공되어야 합니다. |
-| 데이터 수집기      | RDP|   | TCP 3389 | 수집기 컴퓨터로 RDP할 수 있는 사용자의 경우 |
-
-
-
-
-
-## <a name="collector-pre-requisites"></a>Collector 필수 조건
-
-Collector는 Azure Migrate 서비스에 연결하여 검색된 데이터를 업로드할 수 있도록 몇 가지 필수 조건 검사를 통과해야 합니다. 이 문서에서는 각 필수 구성 요소를 살펴보고 필요한 이유를 파악합니다.
-
-### <a name="internet-connectivity"></a>인터넷 연결
-
-검색된 컴퓨터 정보를 전송하려면 수집기 어플라이언스가 인터넷에 연결되어야 합니다. 컴퓨터는 다음 두 가지 방법 중 하나로 인터넷에 연결할 수 있습니다.
-
-1. 인터넷에 직접 연결되도록 Collector를 구성할 수 있습니다.
-2. 프록시 서버를 통해 연결하도록 Collector를 구성할 수 있습니다.
-    * 프록시 서버에 인증이 필요한 경우 연결 설정에서 사용자 이름과 암호를 지정할 수 있습니다.
-    * 프록시 서버의 IP 주소/FQDN은 http://IPaddress 또는 http://FQDN 형식이어야 합니다. HTTP 프록시만 지원됩니다.
-
-> [!NOTE]
-> HTTPS 기반 프록시 서버는 수집기에서 지원되지 않습니다.
-
-#### <a name="whitelisting-urls-for-internet-connection"></a>인터넷 연결을 위한 URL 허용 목록
-
-Collector가 제공된 설정을 통해 인터넷에 연결할 수 있으면 필수 조건 검사가 완료된 것입니다. 다음 표에 있는 URL 목록에 연결하여 연결 확인의 유효성을 검사합니다. URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 다음과 같은 필수 URL을 허용 목록에 포함해야 합니다.
-
-**URL** | **목적**  
---- | ---
-*.portal.azure.com | Azure 서비스와의 연결을 확인하고 시간 동기화 문제의 유효성을 검사하는 데 필요합니다.
-
-또한 이 검사는 다음 URL에 대한 연결의 유효성을 검사하려고 하지만, 액세스할 수 없더라도 검사에 실패하지는 않습니다. 다음 URL에 대한 허용 목록을 구성하는 것은 선택 사항이지만 필수 조건 검사를 줄이려면 수동 단계를 진행해야 합니다.
-
-**URL** | **목적**  | **허용 목록을 만들지 않으면 어떻게 되나요?**
+**Collector 통신 대상** | **포트** | **세부 정보**
 --- | --- | ---
-*.oneget.org:443 | powershell 기반 vCenter PowerCLI 모듈을 다운로드하는 데 필요합니다. | PowerCLI 설치에 실패합니다. 모듈을 수동으로 설치합니다.
-*.windows.net:443 | powershell 기반 vCenter PowerCLI 모듈을 다운로드하는 데 필요합니다. | PowerCLI 설치에 실패합니다. 모듈을 수동으로 설치합니다.
-*.windowsazure.com:443 | powershell 기반 vCenter PowerCLI 모듈을 다운로드하는 데 필요합니다. | PowerCLI 설치에 실패합니다. 모듈을 수동으로 설치합니다.
-*.powershellgallery.com:443 | powershell 기반 vCenter PowerCLI 모듈을 다운로드하는 데 필요합니다. | PowerCLI 설치에 실패합니다. 모듈을 수동으로 설치합니다.
-*.msecnd.net:443 | powershell 기반 vCenter PowerCLI 모듈을 다운로드하는 데 필요합니다. | PowerCLI 설치에 실패합니다. 모듈을 수동으로 설치합니다.
-*.visualstudio.com:443 | powershell 기반 vCenter PowerCLI 모듈을 다운로드하는 데 필요합니다. | PowerCLI 설치에 실패합니다. 모듈을 수동으로 설치합니다.
+Azure Migrate 서비스 | TCP 443 | Collector는 SSL 443을 통해 Azure Migrate 서비스와 통신합니다.
+vCenter Server | TCP 443 | Collector는 vCenter Server와 통신할 수 있어야 합니다.<br/><br/> 기본적으로는 443에서 vCenter에 연결합니다.<br/><br/> vCenter Server가 다른 포트에서 수신 대기하는 경우에는 해당 포트가 Collector에서 송신 포트로 제공되어야 합니다.
+RDP | TCP 3389 |
 
-### <a name="time-is-in-sync-with-the-internet-server"></a>인터넷 서버와 시간 동기화
 
-서비스에 대한 요청이 인증되었는지 확인하려면 Collector가 인터넷 시간 서버와 동기화 되어야 합니다. 시간 유효성을 검사할 수 있도록 Collector에서 portal.azure.com URL에 연결할 수 있어야 합니다. 컴퓨터가 동기화되지 않은 경우, Collector VM의 시계 시간이 현재 시간과 일치하도록 다음과 같이 변경해야 합니다.
+## <a name="securing-the-collector-appliance"></a>Collector 어플라이언스 보호
 
-1. VM에서 관리자 명령 프롬프트를 엽니다.
-1. 표준 시간대를 확인하려면 w32tm /tz 명령을 실행합니다.
-1. 시간을 동기화하려면 w32tm /resync 명령을 실행합니다.
+다음 단계를 통해 Collector 어플라이언스를 보호하는 것이 좋습니다.
 
-### <a name="collector-service-should-be-running"></a>Collector 서비스를 실행 중이어야 함
+- 관리자 암호를 권한이 없는 당사자와 공유하거나 분실하지 않도록 주의합니다.
+- 사용 중이 아니면 어플라이언스를 종료합니다.
+- 보안된 네트워크에 어플라이언스를 배치합니다.
+- 마이그레이션 완료되면 어플라이언스 인스턴스를 삭제합니다.
+- 또한 마이그레이션 후에는 디스크 백업 파일(VMDK)을 삭제합니다. 해당 디스크에는 vCenter 자격 증명이 캐시되어 있을 수도 있기 때문입니다.
 
-Azure Migrate Collector 서비스를 시스템에서 실행 중이어야 합니다. 서비스는 시스템이 부팅될 때 자동으로 시작됩니다. 서비스를 실행하고 있지 않으면 제어판을 통해 *Azure Migrate Collector* 서비스를 시작할 수 있습니다. Collector 서비스는 vCenter 서버에 연결하고 컴퓨터 메타데이터 및 성능 데이터를 수집하여 서비스로 전송하는 작업을 담당합니다.
+## <a name="os-license-in-the-collector-vm"></a>Collector VM의 OS 라이선스
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5
+Collector는 180일 동안 유효한 Windows Server 2012 R2 평가 라이선스와 함께 제공됩니다. Collector VM의 평가 기간이 만료되면 새 OVA를 다운로드하여 새 어플라이언스를 만드는 것이 좋습니다.
 
-Collector가 vCenter Server와 통신하고 시스템 세부 정보 및 성능 데이터를 쿼리할 수 있도록 VMware PowerCLI PowerShell 모듈을 설치해야 합니다. PowerShell 모듈은 필수 조건 검사의 일환으로 자동으로 다운로드되고 설치됩니다. 자동 다운로드를 수행하려면 몇 가지 URL을 허용 목록에 추가해야 하며, 그렇게 하지 않으면 해당 URL을 허용 목록에 추가하여 액세스를 제공하거나 모듈을 수동으로 설치해야 합니다.
+## <a name="updating-the-os-of-the-collector-vm"></a>Collector VM의 OS 업데이트
 
-다음 단계를 사용하여 수동으로 모듈을 설치합니다.
+Collector 어플라이언스에는 180일 동안 사용 가능한 평가 라이선스가 포함되어 있지만 어플라이언스가 자동으로 종료되지 않도록 어플라이언스의 OS를 지속적으로 업데이트해야 합니다.
 
-1. 인터넷 연결 없이 Collector에 PowerCli를 설치하려면 [이 링크](https://blogs.vmware.com/PowerCLI/2017/04/powercli-install-process-powershell-gallery.html)에 있는 단계를 수행합니다.
-2. 인터넷에 액세스할 수 있는 다른 컴퓨터에 PowerShell 모듈을 설치한 다음, 해당 컴퓨터에서 Collector 컴퓨터로 VMware. * 파일을 복사합니다.
-3. 필수 조건 검사를 다시 시작하여 PowerCLI가 설치되었는지 확인합니다.
+- Collector를 60일 동안 업데이트하지 않으면 컴퓨터 자동 종료가 시작됩니다.
+- 검색을 실행 중인 경우에는 60일이 지났더라도 컴퓨터가 꺼지지 않으며 검색이 완료된 후 컴퓨터가 꺼집니다.
+- Collector를 사용한 지 60일이 지났다면 Windows 업데이트를 실행하여 컴퓨터를 항상 업데이트된 상태로 유지하는 것이 좋습니다.
 
-## <a name="connecting-to-vcenter-server"></a>vCenter Server에 연결
+## <a name="upgrading-the-collector-appliance-version"></a>Collector 어플라이언스 버전 업그레이드
 
-Collector는 vCenter Server에 연결되어야 하고 가상 머신, 가상 머신의 메타데이터 및 성능 카운터를 쿼리할 수 있어야 합니다. 이 데이터는 프로젝트에서 평가를 계산하는 데 사용됩니다.
+OVA를 다시 다운로드하지 않고도 Collector를 최신 버전으로 업그레이드할 수 있습니다.
 
-1. vCenter Server에 연결하려면, 다음 표에 제시된 권한이 있는 읽기 전용 계정을 사용하여 검색을 실행합니다.
-
-    |Task  |필요한 역할/계정  |권한  |
-    |---------|---------|---------|
-    |수집기 어플라이언스 기반 검색    | 최소한 읽기 전용 사용자 필요        |데이터 센터 개체 –> 자식 개체에 전파, role=Read 전용         |
-
-2. 지정된 vCenter 계정으로 액세스할 수 있는 데이터 센터만 검색을 위해 액세스할 수 있습니다.
-3. vCenter Server에 액세스하려면 vCenter FQDN/IP 주소를 지정해야 합니다. 기본적으로 포트 443을 통해 연결됩니다. 다른 포트 번호에서 수신 대기하도록 vCenter를 구성한 경우, IPAddress: Port_Number 또는 FQDN: Port_Number 형식으로 서버 주소의 일부를 지정할 수 있습니다.
-4. vCenter Server에 대한 통계 설정은 배포를 시작하기 전에 수준 3으로 설정해야 합니다. 수준이 3보다 낮은 경우 검색이 완료되지만 저장소 및 네트워크에 대한 성능 데이터는 수집되지 않습니다. 이 경우에 권장되는 평가 크기는 CPU 및 메모리의 성능 데이터와 디스크 및 네트워크 어댑터의 구성 데이터를 기반으로 합니다. 수집되는 데이터와 수집된 데이터가 평가에 미치는 영향에 대해 [자세히 알아보세요](./concepts-collector.md).
-5. Collector에는 vCenter Server에 대한 네트워크 시야가 있어야 합니다.
-
-> [!NOTE]
-> vCenter Server 버전 5.5, 6.0 및 6.5만 공식적으로 지원됩니다.
-
-> [!IMPORTANT]
-> 모든 카운터는 올바르게 수집되도록 통계 수준에 대한 가장 높은 일반적인 수준(3)을 설정하는 것이 좋습니다. vCenter가 낮은 수준으로 설정된 경우 몇 가지 카운터만 완벽히 수집되고 나머지는 0으로 설정됩니다. 그러면 평가는 불완전한 데이터를 표시합니다.
-
-### <a name="selecting-the-scope-for-discovery"></a>검색 범위 선택
-
-vCenter에 연결되면 검색할 범위를 선택할 수 있습니다. 범위를 선택하면 지정된 vCenter 인벤토리 경로의 모든 가상 머신이 검색됩니다.
-
-1. 범위는 데이터센터, 폴더 또는 ESXi 호스트일 수 있습니다.
-2. 범위는 한 번에 하나만 선택할 수 있습니다. 가상 머신을 더 많이 선택하려면 검색 하나를 완료하고 새 범위로 검색 프로세스를 다시 시작합니다.
-3. *가상 머신이 1500대 미만*인 범위만 선택할 수 있습니다.
-
-## <a name="specify-migration-project"></a>마이그레이션 프로젝트 지정
-
-온-프레미스 vCenter가 연결되고 범위가 지정되면, 검색 및 평가에 사용할 마이그레이션 프로젝트 세부 정보를 지정할 수 있습니다. 프로젝트 ID와 키를 지정하고 연결합니다.
-
-## <a name="start-discovery-and-view-collection-progress"></a>검색 시작 및 컬렉션 진행률 보기
-
-검색이 시작되면 vCenter 가상 머신이 검색되고 해당 메타데이터 및 성능 데이터가 서버로 전송됩니다. 진행 상태에도 다음 ID가 표시됩니다.
-
-1. Collector ID: Collector 컴퓨터에 부여되는 고유 ID입니다. ID는 다양한 검색 전체에서 지정된 시스템에 대해 변경되지 않습니다. 이 ID는 Microsoft 지원에 문제를 보고할 때 사용할 수 있습니다.
-2. 세션 ID: 진행 중인 컬렉션 작업에 대한 고유 ID입니다. 검색 작업이 완료되면 포털에서 동일한 세션 ID를 참조할 수 있습니다. 이 ID는 컬렉션 작업마다 변경됩니다. 오류가 발생하면 이 ID를 Microsoft 지원에 보고할 수 있습니다.
-
-### <a name="what-data-is-collected"></a>수집되는 데이터
-
-컬렉션 작업은 선택된 가상 머신에 대해 다음과 같은 정적 메타데이터를 검색합니다.
-
-1. VM 표시 이름(vCenter)
-2. VM의 인벤토리 경로(vCenter의 호스트/폴더)
-3. IP 주소
-4. MAC 주소
-5. 운영 체제
-5. 코어, 디스크, NIC 수
-6. 메모리 크기, 디스크 크기
-7. VM, 디스크 및 네트워크의 성능 카운터는 아래 표를 참조하세요.
-
-다음 표에는 수집된 성능 카운터가 나열되어 있고 특정 카운터가 수집되지 않으면 영향을 받는 평가 결과도 나열되어 있습니다.
-
-|카운터                                  |Level    |장치 단위 수준  |영향 평가                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |해당 없음                |권장되는 VM 크기 및 비용                    |
-|mem.usage.average                        | 1       |해당 없음                |권장되는 VM 크기 및 비용                    |
-|virtualDisk.read.average                 | 2       |2                 |디스크 크기, 저장소 비용 및 VM 크기         |
-|virtualDisk.write.average                | 2       |2                 |디스크 크기, 저장소 비용 및 VM 크기         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |디스크 크기, 저장소 비용 및 VM 크기         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |디스크 크기, 저장소 비용 및 VM 크기         |
-|net.received.average                     | 2       |3                 |VM 크기 및 네트워크 비용                        |
-|net.transmitted.average                  | 2       |3                 |VM 크기 및 네트워크 비용                        |
-
-> [!WARNING]
-> 방금 더 높은 통계 수준을 설정한 경우 성능 카운터를 생성하는 데 하루가 걸립니다. 따라서 하루 뒤에 검색을 실행하는 것이 좋습니다.
-
-### <a name="time-required-to-complete-the-collection"></a>컬렉션을 완료하는 데 필요한 시간입니다.
-
-Collector는 컴퓨터 데이터를 검색하여 프로젝트로 보내기만 합니다. 검색된 데이터가 포털에 표시되고 평가 생성이 시작되기까지 프로젝트에 시간이 더 걸릴 수 있습니다.
-
-정적 메타데이터를 프로젝트에 보내는 데 최대 15분이(선택한 범위에 있는 가상 머신의 수를 기반으로) 소요됩니다. 정적 메타데이터를 포털에서 사용할 수 있게 되면, 포털에 컴퓨터 목록이 표시되고 그룹 만들기를 시작할 수 있습니다. 컬렉션 작업이 완료되고 프로젝트가 데이터를 처리할 때까지 평가를 생성할 수 없습니다. Collector에서 컬렉션 작업이 완료된 후, 포털에서 성능 데이터를 사용할 수 있게 되기까지는 선택한 범위에 있는 가상 머신의 수에 따라 최대 1시간이 걸릴 수 있습니다.
-
-## <a name="locking-down-the-collector-appliance"></a>수집기 어플라이언스 잠금
-수집기 어플라이언스에서 지속적인 Windows 업데이트를 실행하는 것이 좋습니다. 수집기가 45일 동안 업데이트되지 않으면, 수집기는 컴퓨터를 자동 종료하기 시작합니다. 검색을 실행 중인 경우 45일의 기간이 경과되어도 컴퓨터는 꺼지지 않습니다. 검색 작업이 완료된 후 컴퓨터가 꺼집니다. 45일 이상 수집기를 사용 중인 경우 Windows 업데이트를 실행하여 컴퓨터를 항상 업데이트된 상태로 유지하는 것이 좋습니다.
-
-또한 다음 단계를 통해 어플라이언스를 보호하는 것이 좋습니다.
-1. 관리자 암호를 권한이 없는 주체와 공유하거나 잃어버리지 마십시오.
-2. 사용 중이 아니면 어플라이언스를 종료합니다.
-3. 보안된 네트워크에 어플라이언스를 배치합니다.
-4. 마이그레이션 작업이 완료되면 어플라이언스 인스턴스를 삭제합니다. 디스크에 캐시된 vCenter 자격 증명이 있을 수 있으므로 디스크 백업 파일(VMDK)을 삭제해야 합니다.
-
-## <a name="how-to-upgrade-collector"></a>수집기를 업그레이드하는 방법
-
-다시 한 번의 OVA를 다운로드하지 않고 수집기를 최신 버전으로 업그레이드할 수 있습니다.
-
-1. 최신 [업그레이드 패키지](https://aka.ms/migrate/col/upgrade_9_11)(버전 1.0.9.11)를 다운로드합니다.
+1. [목록의 최신 업그레이드 패키지](concepts-collector-upgrade.md)를 다운로드합니다.
 2. 다운로드한 핫픽스가 안전한지 확인하려면 관리자 권한 명령 창을 열고 다음 명령을 실행하여 Zip 파일에 대한 해시를 생성합니다. 생성된 해시는 특정 버전에 대해 언급된 해시와 일치해야 합니다.
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
+    (예제 사용량 C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
 3. Zip 파일을 Azure Migrate 수집기 가상 머신(수집기 어플라이언스)에 복사합니다.
 4. Zip 파일을 마우스 오른쪽 단추로 클릭하고 모두 압축 풀기를 선택합니다.
 5. Setup.ps1 단추를 마우스 오른쪽 단추로 클릭하고 PowerShell과 함께 실행을 선택하고 화면의 지시를 따라 업데이트를 설치합니다.
 
-### <a name="list-of-updates"></a>업데이트 목록
+## <a name="discovery-process"></a>검색 프로세스
 
-#### <a name="upgrade-to-version-10911"></a>버전 1.0.9.11로 업그레이드
+어플라이언스를 설정한 후에는 검색을 실행할 수 있습니다. 검색 작동 방식은 다음과 같습니다.
 
-업그레이드 [패키지 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)에 대한 해시 값
+- 범위를 기준으로 검색을 실행합니다. 지정된 vCenter 인벤토리 경로에 있는 모든 VM이 검색됩니다.
+    - 범위는 한 번에 하나씩 설정합니다.
+    - 범위에는 VM을 1,500개까지 포함할 수 있습니다.
+    - 범위는 데이터 센터, 폴더 또는 ESXi 호스트일 수 있습니다.
+- vCenter Server에 연결한 후에는 수집용 마이그레이션 프로젝트를 지정하여 연결합니다.
+- VM이 검색되며 해당 메타데이터와 성능 데이터가 Azure로 전송됩니다. 이러한 작업은 수집 작업의 일부분입니다.
+    - Collector 어플라이언스에는 모든 검색에서 특정 컴퓨터에 대해 동일하게 유지되는 특정 Collector ID가 지정됩니다.
+    - 실행 중인 수집 작업에는 특정 세션 ID가 지정됩니다. ID는 각 수집 작업마다 변경되며 문제 해결 시에 사용할 수 있습니다.
 
-**알고리즘** | **해시 값**
---- | ---
-MD5 | 0e36129ac5383b204720df7a56b95a60
-SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
-SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
+### <a name="collected-metadata"></a>수집된 메타데이터
 
-#### <a name="upgrade-to-version-1097"></a>버전 1.0.9.7로 업그레이드
+Collector 어플라이언스는 VM에 대해 다음 정적 메타데이터를 검색합니다.
 
-업그레이드 [패키지 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)에 대한 해시 값
+- vCenter Server의 VM 표시 이름
+- VM의 인벤토리 경로(vCenter Server의 호스트/폴더)
+- IP 주소
+- MAC 주소
+- 운영 체제
+- 코어, 디스크, NIC 수
+- 메모리 크기, 디스크 크기
+- VM, 디스크 및 네트워크의 성능 카운터
 
-**알고리즘** | **해시 값**
---- | ---
-MD5 | 01ccd6bc0281f63f2a672952a2a25363
-SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
-SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
+#### <a name="performance-counters"></a>성능 카운터
+
+- **일회성 검색**: 일회성 검색에서 카운터를 수집할 때는 다음 사항에 유의하세요.
+
+    - 구성 메타데이터를 수집하여 프로젝트로 전송하려면 최대 15분이 걸릴 수 있습니다.
+    - 구성 데이터를 수집한 후에 성능 데이터를 포털에서 사용할 수 있을 때까지는 최대 1시간이 걸릴 수 있습니다.
+    - 메타데이터가 포털에서 사용 가능해지면 VM 목록이 표시되며, 평가용으로 그룹 만들기를 시작할 수 있습니다.
+- **연속 검색**: 연속 검색 시에는 다음 사항에 유의하세요.
+    - VM의 구성 데이터는 검색을 시작하고 1시간 후에 사용 가능합니다.
+    - 성능 데이터는 2시간 후부터 사용 가능해집니다.
+    - 검색을 시작한 후 어플라이언스가 환경을 프로파일링하도록 1일 이상 기다렸다가 평가를 작성해야 합니다.
+
+**카운터** | **Level** | **장치 단위 수준** | **평가에 미치는 영향**
+--- | --- | --- | ---
+cpu.usage.average | 1 | 해당 없음 | 권장되는 VM 크기 및 비용  
+mem.usage.average | 1 | 해당 없음 | 권장되는 VM 크기 및 비용  
+virtualDisk.read.average | 2 | 2 | 디스크 크기, 저장소 비용 및 VM 크기 계산
+virtualDisk.write.average | 2 | 2  | 디스크 크기, 저장소 비용 및 VM 크기 계산
+virtualDisk.numberReadAveraged.average | 1 | 3 |  디스크 크기, 저장소 비용 및 VM 크기 계산
+virtualDisk.numberWriteAveraged.average | 1 | 3 |   디스크 크기, 저장소 비용 및 VM 크기 계산
+net.received.average | 2 | 3 |  VM 크기 계산                          |
+net.transmitted.average | 2 | 3 | VM 크기 계산     
 
 ## <a name="next-steps"></a>다음 단계
 

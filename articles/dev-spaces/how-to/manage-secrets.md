@@ -4,20 +4,19 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: zr-msft
+ms.author: zarhoads
 ms.date: 05/11/2018
 ms.topic: article
 ms.technology: azds-kubernetes
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
-manager: douge
-ms.openlocfilehash: b77d862f578ddc374dbb58117b4ea58eb973e5fe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 49e9a974dc01548c250f0b0a8b9b5afac5f286ff
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198316"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705500"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Azure Dev Space로 작업할 때 비밀을 관리하는 방법
 

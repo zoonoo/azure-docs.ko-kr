@@ -7,18 +7,21 @@ ms.author: roastala
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: 3c9bcce67bb802a8596416b55ef61a51ab2900bd
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6167e10219791466ca275ff02cc051e3227634e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831533"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980045"
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Apache Spark에 대한 Microsoft Machine Learning 라이브러리를 사용하는 방법
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="introduction"></a>소개
 
@@ -30,7 +33,7 @@ ms.locfileid: "34831533"
 ## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드를 단계별로 실행하려면 다음을 수행해야 합니다.
-- [Azure Machine Learning Workbench 설치](../service/quickstart-installation.md)
+- [Azure Machine Learning Workbench 설치](quickstart-installation.md)
 - [Azure HDInsight Spark 클러스터 설치](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
 
 ## <a name="run-your-experiment-in-docker-container"></a>Docker 컨테이너에서 실험 실행

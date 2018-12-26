@@ -3,7 +3,7 @@ title: Azure Policy를 사용하여 VM 확장 설치 제한 | Microsoft Docs
 description: Azure Policy를 사용하여 VM 확장 배포를 제한합니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
@@ -12,19 +12,19 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
-ms.author: danis;cynthn
-ms.openlocfilehash: 8e65b82730884947633688db9ed50080b96e0b8e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: roiyz;cynthn
+ms.openlocfilehash: 529758a7b9fe4c8b669ade72273335389020fb65
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "33944885"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451206"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Azure Policy를 사용하여 Linux VM의 확장 설치 제한
 
 Linux VM에서 특정 확장을 사용하거나 설치하지 못하도록 하려면 CLI를 사용하여 리소스 그룹 내의 VM 확장을 제한하는 Azure 정책을 만들 수 있습니다. 
 
-이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 Azure Cloud Shell 내의 CLI를 사용합니다. Azure CLI를 로컬에서 실행하려면 버전 2.0.26 이상을 설치해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 Azure Cloud Shell 내의 CLI를 사용합니다. Azure CLI를 로컬에서 실행하려면 버전 2.0.26 이상을 설치해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="create-a-rules-file"></a>규칙 파일 만들기
 

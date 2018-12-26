@@ -3,20 +3,23 @@ title: Azure Application Insights의 사용자, 세션 및 이벤트 분석 | Mi
 description: 웹앱의 사용자 인구 통계 분석입니다.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2018
-ms.author: mbullwin; daviste
-ms.openlocfilehash: 3ac738d6b3c0f1f3579a9b644a03a01f1509173a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: 6fd8adab93f5741afe6d3eab0c50ca50a327fbff
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140335"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Application Insights의 사용자, 세션 및 이벤트 분석
 
@@ -46,10 +49,10 @@ Application Insights 포털에 사용자, 세션 또는 이벤트 블레이드�
 * 사용한 사람: 사용자 지정 이벤트 및 페이지 보기를 선택합니다.
 * 기간: 시간 범위를 선택합니다.
 * 기준: 기간 또는 기타 속성(예: 브라우저 또는 도시) 중에서 데이터를 버킷팅하는 방법을 선택합니다.
-* 분할 기준: 데이터를 분할하거나 분리하는 기준 속성을 선택합니다. 
-* 필터 추가: 속성(예: 브라우저 또는 도시)을 기준으로 특정 사용자, 세션 또는 이벤트로 쿼리를 제한합니다. 
- 
-## <a name="saving-and-sharing-reports"></a>보고서 저장 및 공유 
+* 분할 기준: 데이터를 분할하거나 분리하는 기준 속성을 선택합니다. 
+* 필터 추가: 속성(예: 브라우저 또는 도시)을 기준으로 특정 사용자, 세션 또는 이벤트로 쿼리를 제한합니다. 
+ 
+## <a name="saving-and-sharing-reports"></a>보고서 저장 및 공유 
 사용자 보고서를 내 보고서 섹션에서 사용자 본인만 볼 수 있게 저장하거나, 공유 보고서 섹션에서 이 Application Insights 리소스에 액세스할 수 있는 모든 사용자와 공유할 수 있습니다.
 
 사용자, 세션 또는 이벤트 보고서에 대한 링크를 공유하려면 도구 모음에서 **공유**를 클릭한 다음, 링크를 복사합니다.

@@ -1,22 +1,24 @@
 ---
-title: Knowledge Exploration Service API의 데이터 형식 | Microsoft Docs
-description: Cognitive Services의 KES(Knowledge Exploration Service) API에 사용되는 데이터 형식을 알아봅니다.
+title: 데이터 형식 - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: KES(Knowledge Exploration Service) API의 데이터 형식을 알아봅니다.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: a763505ac6458d68df74ae73e71029b81202ec8b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2c67ff1f7a3713b9418458bb7904a35808532293
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372863"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129287"
 ---
 # <a name="data-format"></a>데이터 형식
+
 데이터 파일은 인덱싱할 개체 목록을 설명합니다.
 파일의 각 줄은 UTF-8 인코딩을 사용하여 개체의 특성 값을 [JSON 형식](http://json.org/)으로 지정합니다.
 [스키마](SchemaFormat.md)에 정의된 특성 외에도, 각 개체에는 개체 간의 상대 로그 확률을 지정하는 선택적 "logprob" 특성이 있습니다.

@@ -1,21 +1,21 @@
 ---
-title: QnAMaker 문제 해결 | Microsoft Docs
-titleSuffix: Azure
-description: QnAMaker 런타임 문제를 해결하는 방법
+title: 문제 해결 - QnAMaker
+titlesuffix: Azure Cognitive Services
+description: QnAMaker는 사용자의 Azure 계정에 호스트된 구성 요소로 구성됩니다. 디버깅 과정에서 사용자가 QnAMaker Azure 리소스를 조작하거나 QnAMaker 지원 팀에 설치에 대한 추가 정보를 제공해야 할 수도 있습니다.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 06/04/2018
-ms.author: saneppal
-ms.openlocfilehash: 23847c81a39ea392b6e64575406c9dc338b852de
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: ad3c01ebf37c8b544830b281144090694eeadfcd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35383232"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033733"
 ---
 # <a name="qnamaker-troubleshooting"></a>QnAMaker 문제 해결
 QnAMaker는 사용자의 Azure 계정에 호스트된 구성 요소로 구성됩니다. 디버깅 과정에서 사용자가 QnAMaker Azure 리소스를 조작하거나 QnAMaker 지원 팀에 설치에 대한 추가 정보를 제공해야 할 수도 있습니다.

@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 08/06/2017
 ms.author: sajagtap
-ms.openlocfilehash: 97879747bbfde2247e41847d8d68bf7f19530ecb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 655c4b6d142c9f792a3b16c6b20d53efef51ea5b
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372782"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852829"
 ---
 # <a name="review-moderated-images"></a>조정된 이미지 검토
 
@@ -24,21 +24,21 @@ ms.locfileid: "35372782"
 2.  [Try(시도)] 탭을 클릭하고 검토할 일부 이미지를 업로드합니다.
 3.  [검토] 탭을 클릭하고 [이미지]를 선택합니다.
 
-  ![이미지 검토 옵션](images/review-images-1.png)
+  ![검토 이미지 옵션이 강조 표시된 검토 도구를 보여주는 Chrome 브라우저](images/review-images-1.png)
 
   이미지는 검토 도구에서 할당한 레이블과 함께 표시됩니다. 이미지를 검토하는 동안 팀의 다른 검토자가 해당 이미지를 사용할 수 없습니다.
 
 4.  화면에 표시되는 이미지 수를 조정하려면 “표시할 검토” 슬라이더(1)를 이동합니다. 태그가 지정되었거나 지정되지 않은 단추(2)를 클릭하여 이미지를 적절히 정렬합니다. 태그(3)를 클릭하여 설정 또는 해제합니다.
 
-  ![이미지 검토 찾아보기](images/review-images-2.png)
+  ![검토에 대한 태그가 지정된 이미지를 사용하는 검토 도구를 보여주는 Chrome 브라우저](images/review-images-2.png)
  
 5.  이미지에 대한 자세한 정보를 보려면 미리 보기의 줄임표를 클릭하고 **세부 정보 보기** 옵션을 클릭합니다. 이미지를 하위 팀에 할당하려면 **다음으로 이동** 옵션을 선택합니다.
  
-  ![세부 정보 보기 및 하위 팀으로 이동 옵션](images/review-images-3.png)
+  ![보기 세부 정보 옵션이 강조 표시된 이미지](images/review-images-3.png)
 
 6. 세부 정보 페이지에서 이미지 조정 정보를 찾아봅니다.
 
-  ![이미지 세부 정보 보기](images/review-images-4.png)
+  ![별도 창에서 나열된 조정 세부 정보를 사용하는 이미지](images/review-images-4.png)
  
 7.  태그 할당을 검토하여 필요에 따라 업데이트한 후에는 **다음**을 클릭하여 검토를 제출합니다.
 

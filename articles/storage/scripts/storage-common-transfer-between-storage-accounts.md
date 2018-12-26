@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: rogarana
-ms.openlocfilehash: 970315c5d597d691454f9dea0a76f2c0dc4a40ec
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 58e2275398216f29764d54d1a230959e86eda0b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "29360720"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253264"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 저장소 계정 간에 Blob 마이그레이션
 
@@ -30,7 +30,7 @@ ms.locfileid: "29360720"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-또한 이 샘플에는 [Windows에서 최신 버전의 AzCopy](http://aka.ms/downloadazcopy)가 필요합니다. 기본 설치 디렉터리는 `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`입니다.
+또한 이 샘플에는 [Windows에서 최신 버전의 AzCopy](https://aka.ms/downloadazcopy)가 필요합니다. 기본 설치 디렉터리는 `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`입니다.
 
 이 샘플에서는 원본 저장소 계정 이름과 키, 대상 저장소 계정 이름과 키 및 AzCopy.exe의 전체 파일 경로(기본 디렉터리에 설치되지 않은 경우)를 사용합니다.
 

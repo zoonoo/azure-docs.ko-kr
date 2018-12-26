@@ -4,19 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: zr-msft
+ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-manager: douge
-ms.openlocfilehash: 024e31ad1c6aeafdfc606404e8f1e7cd0b83656f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 4b45cf6d986aa8bf404e77e7a6cf0005183f1133
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933394"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706571"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 팀 개발
 
@@ -33,7 +32,7 @@ ms.locfileid: "37933394"
 
 ### <a name="run-mywebapi"></a>*mywebapi* 실행
 1. *별도의 VS Code 창*에서 `mywebapi` 폴더를 엽니다.
-1. **명령 팔레트**(**보기 | 명령 팔레트** 메뉴를 사용하여)를 열고, 자동 완성을 사용하여 입력하고 이 명령을 선택합니다. `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces` 
+1. **명령 팔레트**(**보기 | 명령 팔레트** 메뉴를 사용하여)를 열고, 자동 완성을 사용하여 입력하고 이 명령을 선택합니다. `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces` 이 명령은 배포 프로젝트를 구성하는 `azds prep` 명령과 혼동하면 안됩니다.
 1. F5 키를 누르고, 서비스가 빌드되고 배포될 때까지 기다립니다. VS Code 디버그 막대가 표시되면 준비가 되었음을 알 수 있습니다.
 1. 엔드포인트 URL을 적어둡니다. 이는 http://localhost:\<portnumber\>과 비슷합니다. **팁: VS Code 상태 표시줄에 클릭 가능한 URL이 표시됩니다.** 컨테이너가 로컬로 실행되는 것처럼 보이지만, 실제로는 Azure의 개발 환경에서 실행되고 있습니다. localhost 주소를 사용하는 이유는 `mywebapi`에서 공용 엔드포인트를 정의하지 않았고 이로 인해 Kubernetes 인스턴스 내에서만 액세스할 수 있기 때문입니다. 편의상 로컬 컴퓨터에서 개인 서비스와 쉽게 상호 작용할 수 있도록 Azure Dev Spaces는 Azure에서 실행되는 컨테이너에 대한 임시 SSH 터널을 만듭니다.
 1. `mywebapi`에서 준비가 되면 브라우저를 localhost 주소로 엽니다. `mywebapi` 서비스의 응답("Hello from mywebapi(mywebapi에서 보낸 Hello)")이 표시됩니다.
@@ -62,6 +61,7 @@ ms.locfileid: "37933394"
        });
     });
     ```
+ 4. `server.js`의 끝에서 `server.close()` 줄을 *제거*합니다.
 
 위의 코드 예제는 `azds-route-as` 헤더를 수신 요청에서 발신 요청으로 전달합니다. 나중에 이를 통해 공동 작업 개발 팀에 어떻게 도움이 되는지 살펴보겠습니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "37933394"
 
 ## <a name="learn-about-team-development"></a>팀 개발 알아보기
 
-[!INCLUDE[](includes/team-development-1.md)]
+[!INCLUDE [](../../includes/team-development-1.md)]
 
 이제 작동을 확인합니다.
 1. `mywebapi`에 대한 VS Code 창으로 이동하고, 기본 `/` GET 처리기에 대한 코드를 편집합니다. 예를 들어 다음과 같습니다.
@@ -87,11 +87,28 @@ ms.locfileid: "37933394"
     });
     ```
 
-[!INCLUDE[](includes/team-development-2.md)]
+[!INCLUDE [](../../includes/team-development-2.md)]
 
-[!INCLUDE[](includes/well-done.md)]
+### <a name="well-done"></a>모두 완료되었습니다!
+시작 가이드를 완료했습니다! 다음 방법에 대해 알아보았습니다.
 
-[!INCLUDE[](includes/clean-up.md)]
+> [!div class="checklist"]
+> * Azure에서 관리되는 Kubernetes 클러스터를 사용하여 Azure Dev Spaces를 설정합니다.
+> * 컨테이너에서 반복적으로 코드를 개발합니다.
+> * 독립적으로 별도의 두 서비스를 개발하고, Kubernetes의 DNS 서비스 검색을 사용하여 다른 서비스를 호출합니다.
+> * 팀 환경에서 코드를 생산적으로 개발하고 테스트합니다.
+
+Azure Dev Spaces를 알아보았으므로 [팀 멤버와 개발 공간을 공유](how-to/share-dev-spaces.md)하고 함께 공동 작업을 수행하는 것이 얼마나 쉬운지 알 수 있습니다.
+
+## <a name="clean-up"></a>정리
+모든 개발 환경 및 그 안에서 실행되는 서비스를 포함하여 클러스터에서 Azure Dev Spaces 인스턴스를 완전히 삭제하려면 `az aks remove-dev-spaces` 명령을 사용합니다. 이 작업은 되돌릴 수 없습니다. 클러스터에서 Azure Dev Spaces에 대한 지원을 추가할 수 있지만 마치 다시 시작하는 것 같을 것입니다. 이전 서비스와 공간을 복원할 수 없습니다.
+
+다음 예제에서는 활성 구독에 Azure Dev Spaces 컨트롤러를 나열한 다음, 리소스 그룹 'myaks-rg'에서 AKS 클러스터 'myaks'와 연결되는 Azure Dev Spaces 컨트롤러를 삭제합니다.
+
+```cmd
+    azds controller list
+    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+```
 
 
 

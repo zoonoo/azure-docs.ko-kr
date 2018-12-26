@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/20/2018
-ms.openlocfilehash: 72f8211ecc0534b15402911de8fc0ec3d541a835
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.date: 08/31/2018
+ms.openlocfilehash: 6135e4a0182f3af7db54eab974e4c307402185ab
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294907"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666079"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Azure Database for MySQL에 데이터를 복제합니다.
 
@@ -29,16 +29,17 @@ ms.locfileid: "36294907"
 ## <a name="limitations-and-considerations"></a>제한 사항 및 고려 사항
 
 ### <a name="data-not-replicated"></a>데이터가 복제되지 않음
-주 서버의 [*mysql 시스템 데이터베이스*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html)는 복제되지 않습니다. 주 서버에서 계정 및 사용 권한에 대한 변경 내용은 복제되지 않습니다. 주 서버에서 계정을 만들고 이 계정으로 복제 서버에 액세스해야 하는 경우 복제 서버 쪽에서 동일한 계정을 수동으로 만듭니다. 시스템 데이터베이스에 포함된 테이블을 이해하려면 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/system-database.html)를 참조합니다.
+마스터 서버의 [*mysql 시스템 데이터베이스*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html)는 복제되지 않습니다. 마스터 서버에서 계정 및 사용 권한에 대한 변경 내용은 복제되지 않습니다. 마스터 서버에서 계정을 만들고 이 계정으로 복제 서버에 액세스해야 하는 경우 복제 서버 쪽에서 동일한 계정을 수동으로 만듭니다. 시스템 데이터베이스에 포함된 테이블을 이해하려면 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/system-database.html)를 참조합니다.
 
 ### <a name="requirements"></a>요구 사항
-- 주 서버 버전은 MySQL 버전 5.6 이상이어야 합니다. 
-- 주 서버 및 복제 서버 버전은 동일해야 합니다. 예를 들어 둘 다 MySQL 버전 5.6이거나 둘 다 MySQL 버전 5.7이어야 합니다.
+- 마스터 서버 버전은 MySQL 버전 5.6 이상이어야 합니다. 
+- 마스터 서버 및 복제 서버 버전은 동일해야 합니다. 예를 들어 둘 다 MySQL 버전 5.6이거나 둘 다 MySQL 버전 5.7이어야 합니다.
 - 각 표에는 기본 키가 있어야 합니다.
-- 주 서버는 MySQL InnoDB 엔진을 사용해야 합니다.
-- 사용자는 이진 로깅을 구성하고 주 서버에서 새 사용자를 만들 수 있는 권한이 있어야 합니다.
+- 마스터 서버는 MySQL InnoDB 엔진을 사용해야 합니다.
+- 사용자는 이진 로깅을 구성하고 마스터 서버에서 새 사용자를 만들 수 있는 권한이 있어야 합니다.
 
 ### <a name="other"></a>기타
+- 데이터 내부 복제는 범용 및 메모리에 최적화 가격 책정 계층에서만 지원됩니다.
 - GTID(전역 트랜잭션 식별자)는 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계

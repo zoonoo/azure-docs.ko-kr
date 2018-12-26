@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2017
+ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 664f31d64ac037acea2fb45a8d8b813da52b6da5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b8e9a5591c33368698172d996d5c8ac699ad4602
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294703"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335200"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights.NET SDK는  NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 응용 프로그램에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정하여 모듈을 활성화하거나 비활성화하고 이 중 일부 모듈의 매개 변수를 설정할 수 있습니다.
@@ -75,7 +75,7 @@ HTTP 요청의 [응답 시간 및 결과 코드](app-insights-asp-net.md) 를 �
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 패키지
-* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - [관찰되지 않은 작업 예외](http://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx)를 추적합니다.
+* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - [관찰되지 않은 작업 예외](https://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx)를 추적합니다.
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - 작업자 역할, Windows 서비스 및 콘솔 응용 프로그램에 대한 처리되지 않은 예외를 추적합니다.
 * [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet 패키지.
 
@@ -126,14 +126,14 @@ Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](https://msdn.micr
 * `OperationNameTelemetryInitializer`은 `RequestTelemetry`의 `Name` 속성과 HTTP 메서드를 기반으로 한 모든 원격 분석 아이템의 `Operation` 컨텍스트의 `Name` 속성을 업데이트뿐만 아니라 ASP.NET MVC 컨트롤러와 요청을 처리하는 데 작업을 불러옵니다.
 * `OperationIdTelemetryInitializer` 또는 `OperationCorrelationTelemetryInitializer`는 자동으로 생성된 `RequestTelemetry.Id`를 사용하여 요청을 처리하는 동안 추적된 모든 원격 분석 항목의 `Operation.Id` 컨텍스트 속성을 업데이트합니다.
 * `SessionTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application Insights JavaScript 계측 코드에 의해 제공된 `ai_session` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `Session` 컨텍스트의 `Id` 속성을 업데이트합니다.
-* `SyntheticTelemetryInitializer` 또는 `SyntheticUserAgentTelemetryInitializer`는 가용성 테스트 또는 검색 엔진 봇과 같은 가상 소스에서 요청을 처리하는 경우 모든 원격 분석 항목의 `User`, `Session` 및 `Operation` 컨텍스트 속성을 업데이트합니다. 기본적으로 [메트릭 탐색기](app-insights-metrics-explorer.md) 는 가상 원격 분석을 표시하지 않습니다.
+* `SyntheticTelemetryInitializer` 또는 `SyntheticUserAgentTelemetryInitializer`는 가용성 테스트 또는 검색 엔진 봇과 같은 가상 원본에서 요청을 처리하는 경우, 모든 원격 분석 항목의 `User`, `Session` 및 `Operation` 컨텍스트 속성을 업데이트합니다. 기본적으로 [메트릭 탐색기](app-insights-metrics-explorer.md) 는 가상 원격 분석을 표시하지 않습니다.
 
     `<Filters>` 는 요청의 식별 속성을 설정합니다.
 * `UserTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application insights JavaScript 계측 코드에 의해 제공된 `ai_user` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `User` 컨텍스트의 `Id` 및 `AcquisitionDate`속성을 업데이트합니다.
 * `WebTestTelemetryInitializer` 는 [가용성 테스트](app-insights-monitor-web-app-availability.md)의 HTTP 요청에 대한 사용자 ID, 세션 ID 및 가상 원본 속성을 설정합니다.
   `<Filters>` 는 요청의 식별 속성을 설정합니다.
 
-Service Fabric에서 실행되는 .NET 응용 프로그램에 대해 `Microsoft.ApplicationInsights.ServiceFabric` NuGet 패키지를 포함할 수 있습니다. 이 패키지에는 Service Fabric 속성을 원격 분석 항목에 추가하는 `FabricTelemetryInitializer`가 포함되어 있습니다. 자세한 내용은 이 NuGet 패키지에 의해 추가된 속성에 대한 [GitHub 페이지](https://go.microsoft.com/fwlink/?linkid=848457)를 참조하세요.
+Service Fabric에서 실행되는 .NET 응용 프로그램에 대해 `Microsoft.ApplicationInsights.ServiceFabric` NuGet 패키지를 포함할 수 있습니다. 이 패키지에는 Service Fabric 속성을 원격 분석 항목에 추가하는 `FabricTelemetryInitializer`가 포함되어 있습니다. 자세한 내용은 이 NuGet 패키지에 의해 추가된 속성에 대한 [GitHub 페이지](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md)를 참조하세요.
 
 ## <a name="telemetry-processors-aspnet"></a>원격 분석 프로세서(ASP.NET)
 원격 분석 프로세서는 각 원격 분석 항목을 SDK에서 포털에 보내기 전에 필터링하고 수정할 수 있습니다.
@@ -215,7 +215,7 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 ```
 
 #### <a name="maxtransmissionstoragecapacityinmb"></a>MaxTransmissionStorageCapacityInMB
-로컬 디스크에서 영구 저장소에 할당되는 최대 크기(MB)를 결정합니다. 이 저장소는 Application Insights 끝점으로 전송하지 못한 원격 분석 항목을 유지하는 데 사용됩니다. 저장소 크기를 충족하면 새 원격 분석 항목이 삭제됩니다.
+로컬 디스크에서 영구 저장소에 할당되는 최대 크기(MB)를 결정합니다. 이 저장소는 Application Insights 엔드포인트로 전송하지 못한 원격 분석 항목을 유지하는 데 사용됩니다. 저장소 크기를 충족하면 새 원격 분석 항목이 삭제됩니다.
 
 * 최소: 1
 * 최대: 100
@@ -232,7 +232,30 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
    </ApplicationInsights>
 ```
 
+#### <a name="local-forwarder"></a>로컬 전달자
 
+[로컬 전달자](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder)는 다양한 SDK 및 프레임워크에서 Application Insights 또는 [OpenCensus](https://opencensus.io/) 원격 분석을 수집하고 Application Insights로 경로를 지정하는 에이전트입니다. Windows 및 Linux에서 실행할 수 있습니다. 로컬 전달자는 Application Insights Java SDK와 함께 사용하는 경우 [라이브 메트릭](app-insights-live-stream.md) 및 적응 샘플링을 완벽하게 지원합니다.
+
+```xml
+<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
+<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+
+<!-- The properties below are optional. The values shown are the defaults for each property -->
+
+<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
+<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
+</Channel>
+```
+
+SpringBoot 스타터를 사용하는 경우 구성 파일(application.properties)에 다음을 추가합니다.
+
+```yml
+azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
+azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
+azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
+```
+
+기본값은 SpringBoot application.properties 및 applicationinsights.xml 구성에 모두 동일합니다.
 
 ## <a name="instrumentationkey"></a>InstrumentationKey
 데이터가 표시되는 Application Insights 리소스를 결정합니다. 일반적으로 각 응용 프로그램에 대해 별도 키를 사용하여 별도 리소스를 만듭니다.
@@ -248,7 +271,7 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
       Microsoft.ApplicationInsights.Extensibility.
         TelemetryConfiguration.Active.InstrumentationKey =
           // - for example -
-          WebConfigurationManager.Settings["ikey"];
+          WebConfigurationManager.AppSettings["ikey"];
       //...
 ```
 
@@ -317,7 +340,7 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApp
 
 구성된 계측 키/응용 프로그램 ID 쌍을 사용하는 정적 공급자입니다.
 
-이 클래스에는 속성 `Defined`가 있으며, 이는 계측 키 - 응용 프로그램 ID 쌍의 사전<string,string>입니다.
+이 클래스에는 `Defined` 속성이 있으며, 이는 계측 키/응용 프로그램 ID 쌍의 사전<string,string>입니다.
 
 이 클래스에는 선택적 속성 `Next`가 있습니다. 이는 구성에서 존재하지 않는 계측 키가 요청되는 경우 사용할 다른 공급자를 구성하는 데 사용할 수 있습니다.
 

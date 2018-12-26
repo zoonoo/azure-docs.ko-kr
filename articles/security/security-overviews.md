@@ -9,24 +9,24 @@ editor: TomSh
 ms.assetid: ''
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
-ms.author: ''
-ms.openlocfilehash: eb311f4443d213325ab153b45f27a49246db1286
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: tomsh
+ms.openlocfilehash: b4af979ba23e5ef4d009ce2d808dacdffca2c4ec
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181534"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498099"
 ---
 # <a name="azure-security-technical-overviews"></a>Azure 보안 기술 개요
 
 
 * [Azure 데이터베이스 보안 개요](azure-database-security-overview.md)
 * [Azure 암호화 개요](security-azure-encryption-overview.md)
-* [Azure ID 관리 보안 개요](security-azure-encryption-overview.md)
+* [Azure ID 관리 보안 개요](security-identity-management-overview.md)
 * [Azure 네트워크 보안 개요](security-network-overview.md)
 * [Azure 운영 보안 개요](azure-operational-security-overview.md)
 * [Azure 보안 관리 및 모니터링 개요](security-management-and-monitoring-overview.md)

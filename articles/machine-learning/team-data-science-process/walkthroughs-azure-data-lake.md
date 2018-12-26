@@ -2,25 +2,21 @@
 title: U-SQL을 사용하여 Azure Data Lake 데이터 과학 연습 | Microsoft Docs
 description: 예측 분석을 수행하기 위해 Azure Data Lake에서 U-SQL의 사용을 안내하는 예제입니다.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: c2779fd99c0cce6eb4e8a9d0c3b8b2c886ac99e1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 2f01ec6dc97dccbca15c61d4f1a087f6f1a9abe2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838615"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444225"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>U-SQL을 사용하여 Azure Data Lake 데이터 과학 연습
 

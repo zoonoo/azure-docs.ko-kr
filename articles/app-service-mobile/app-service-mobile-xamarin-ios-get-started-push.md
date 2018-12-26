@@ -14,128 +14,141 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: b8d5a8d8725e2e9412cef7c377b17a77f34be27d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 32a8c36d223e2b0c12f5d82ec748af66ae841b01
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473651"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819025"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Xamarin.iOS 앱에 푸시 알림 추가
+
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>개요
-이 자습서에서는 푸시 알림을 [Xamarin.iOS 빠른 시작](app-service-mobile-xamarin-ios-get-started.md) 프로젝트에 추가하여 레코드가 삽입될 때마다 장치에 푸시 알림이 전송됩니다.
+
+이 자습서에서는 푸시 알림을 [Xamarin.iOS 빠른 시작](app-service-mobile-xamarin-ios-get-started.md) 프로젝트에 추가하여 레코드가 삽입될 때마다 디바이스에 푸시 알림이 전송됩니다.
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+
 * [Xamarin.iOS 빠른 시작 자습서](app-service-mobile-xamarin-ios-get-started.md) 를 완료합니다.
-* 실제 iOS 장치. 푸시 알림은 iOS 시뮬레이터에서 지원되지 않습니다.
+* 실제 iOS 디바이스. 푸시 알림은 iOS 시뮬레이터에서 지원되지 않습니다.
 
 ## <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>Apple 개발자 포털의 푸시 알림에 대한 앱 등록
+
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
 ## <a name="configure-your-mobile-app-to-send-push-notifications"></a>푸시 알림을 전송하도록 모바일 앱 구성
+
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
 ## <a name="update-the-server-project-to-send-push-notifications"></a>푸시 알림을 전송하도록 서버 프로젝트 업데이트
+
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 ## <a name="configure-your-xamarinios-project"></a>Xamarin.iOS 프로젝트 구성
+
 [!INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
 ## <a name="add-push-notifications-to-your-app"></a>앱에 푸시 알림 추가
+
 1. **QSTodoService**에서 **AppDelegate**가 모바일 클라이언트를 가져올 수 있도록 다음 속성을 추가합니다.
-   
-            public MobileServiceClient GetClient {
-            get
-            {
-                return client;
-            }
-            private set
-            {
-                client = value;
-            }
-        }
-2. 다음 `using` 문을 **AppDelegate.cs** 파일의 맨 위에 추가합니다.
-   
-        using Microsoft.WindowsAzure.MobileServices;
-        using Newtonsoft.Json.Linq;
-3. **AppDelegate**에서 **FinishedLaunching** 이벤트를 재정의합니다.
-   
-        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+
+    ```csharp
+    public MobileServiceClient GetClient {
+        get
         {
-            // registers for push for iOS8
-            var settings = UIUserNotificationSettings.GetSettingsForTypes(
-                UIUserNotificationType.Alert
-                | UIUserNotificationType.Badge
-                | UIUserNotificationType.Sound,
-                new NSSet());
-   
-            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
-            UIApplication.SharedApplication.RegisterForRemoteNotifications();
-   
-            return true;
+            return client;
         }
-4. 동일한 파일에서 **RegisteredForRemoteNotifications** 이벤트를 재정의합니다. 이 코드에서는 서버에서 지원하는 모든 플랫폼에서 전송되는 간단한 템플릿 알림을 등록하게 됩니다.
-   
+        private set
+        {
+            client = value;
+        }
+    }
+    ```
+
+2. 다음 `using` 문을 **AppDelegate.cs** 파일의 맨 위에 추가합니다.
+
+    ```csharp
+    using Microsoft.WindowsAzure.MobileServices;
+    using Newtonsoft.Json.Linq;
+    ```
+
+3. **AppDelegate**에서 **FinishedLaunching** 이벤트를 재정의합니다.
+
+   ```csharp
+    public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+    {
+        // registers for push for iOS8
+        var settings = UIUserNotificationSettings.GetSettingsForTypes(
+            UIUserNotificationType.Alert
+            | UIUserNotificationType.Badge
+            | UIUserNotificationType.Sound,
+            new NSSet());
+
+        UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+        UIApplication.SharedApplication.RegisterForRemoteNotifications();
+
+        return true;
+    }
+    ```
+
+4. 동일한 파일에서 `RegisteredForRemoteNotifications` 이벤트를 재정의합니다. 이 코드에서는 서버에서 지원하는 모든 플랫폼에서 전송되는 간단한 템플릿 알림을 등록하게 됩니다.
+
     Notification Hubs를 사용하는 템플릿에 대한 자세한 내용은 [템플릿](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 참조하세요.
 
-        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+    ```csharp
+    public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+    {
+        MobileServiceClient client = QSTodoService.DefaultService.GetClient;
+
+        const string templateBodyAPNS = "{\"aps\":{\"alert\":\"$(messageParam)\"}}";
+
+        JObject templates = new JObject();
+        templates["genericMessage"] = new JObject
         {
-            MobileServiceClient client = QSTodoService.DefaultService.GetClient;
+            {"body", templateBodyAPNS}
+        };
 
-            const string templateBodyAPNS = "{\"aps\":{\"alert\":\"$(messageParam)\"}}";
+        // Register for push with your mobile app
+        var push = client.GetPush();
+        push.RegisterAsync(deviceToken, templates);
+    }
+    ```
 
-            JObject templates = new JObject();
-            templates["genericMessage"] = new JObject
-            {
-                {"body", templateBodyAPNS}
-            };
+5. 그런 다음 **DidReceivedRemoteNotification** 이벤트를 재정의합니다.
 
-            // Register for push with your mobile app
-            var push = client.GetPush();
-            push.RegisterAsync(deviceToken, templates);
-        }
+   ```csharp
+    public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+    {
+        NSDictionary aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
 
+        string alert = string.Empty;
+        if (aps.ContainsKey(new NSString("alert")))
+            alert = (aps [new NSString("alert")] as NSString).ToString();
 
-1. 그런 다음 **DidReceivedRemoteNotification** 이벤트를 재정의합니다.
-   
-        public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+        //show alert
+        if (!string.IsNullOrEmpty(alert))
         {
-            NSDictionary aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
-   
-            string alert = string.Empty;
-            if (aps.ContainsKey(new NSString("alert")))
-                alert = (aps [new NSString("alert")] as NSString).ToString();
-   
-            //show alert
-            if (!string.IsNullOrEmpty(alert))
-            {
-                UIAlertView avAlert = new UIAlertView("Notification", alert, null, "OK", null);
-                avAlert.Show();
-            }
+            UIAlertView avAlert = new UIAlertView("Notification", alert, null, "OK", null);
+            avAlert.Show();
         }
+    }
+    ```
 
 이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
 
 ## <a name="test"></a>앱에서 푸시 알림 테스트
+
 1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
-   
+
    > [!NOTE]
    > 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
-   > 
-   > 
+
 2. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
 3. 알림이 수신되는지 확인하고, **확인** 을 클릭하여 알림을 해제합니다.
 4. 2단계를 반복하여 앱을 즉시 닫은 후 알림이 표시되는지 확인합니다.
 
 이 자습서를 성공적으로 완료했습니다.
-
-<!-- Images. -->
-
-<!-- URLs. -->
-
-
-

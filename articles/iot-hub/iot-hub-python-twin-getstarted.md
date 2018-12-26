@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 쌍 시작(Python) | Microsoft Docs
-description: Azure IoT Hub 장치 쌍을 사용하여 태그를 추가한 다음 IoT Hub 쿼리를 사용하는 방법입니다. Python용 Azure IoT SDK를 사용하여 시뮬레이션된 장치 앱 및 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
+title: Azure IoT Hub 디바이스 쌍 시작(Python) | Microsoft Docs
+description: Azure IoT Hub 디바이스 쌍을 사용하여 태그를 추가한 다음, IoT Hub 쿼리를 사용하는 방법입니다. Python용 Azure IoT SDK를 사용하여 시뮬레이션된 디바이스 앱 및 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -9,14 +9,14 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: kgremban
-ms.openlocfilehash: 08e457febaa7522cac86e63c0c187d1e8e49daff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5086c831f45fd9c8e411fb02b21d03795d747c8a
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619368"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514182"
 ---
-# <a name="get-started-with-device-twins-python"></a>장치 쌍 시작(Python)
+# <a name="get-started-with-device-twins-python"></a>디바이스 쌍 시작(Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 이 자습서의 끝 부분에 다음의 두 Python 콘솔 앱이 설치됩니다.
@@ -39,12 +39,20 @@ ms.locfileid: "38619368"
 > `azure-iothub-service-client` 및 `azure-iothub-device-client`에 대한 *pip* 패키지는 현재 Windows OS에만 사용할 수 있습니다. Linux/Mac OS의 경우 [Python용 개발 환경 준비][lnk-python-devbox] 게시물에서 Linux 및 Mac OS에 해당하는 섹션을 참조하세요.
 > 
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>IoT 허브에 대한 연결 문자열 검색
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>IoT 허브에서 새 디바이스 등록
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
-이 섹션에서는 **{장치 ID}** 와 연결된 장치 쌍에 위치 메타데이터를 추가하는 Python 콘솔 앱을 만듭니다. 그런 다음 IoT Hub에 저장된 장치 쌍을 쿼리하여 Redmond에 있는 장치를 선택한 다음 셀룰러 연결을 보고하는 장치를 선택합니다.
+이 섹션에서는 **{디바이스 ID}** 와 연결된 디바이스 쌍에 위치 메타데이터를 추가하는 Python 콘솔 앱을 만듭니다. 그런 다음 IoT Hub에 저장된 디바이스 쌍을 쿼리하여 Redmond에 있는 디바이스를 선택한 다음 셀룰러 연결을 보고하는 디바이스를 선택합니다.
 
 1. 명령 프롬프트를 열고 **Python용 Azure IoT Hub 서비스 SDK**를 설치합니다. SDK를 설치한 후 명령 프롬프트를 닫습니다.
 
@@ -62,7 +70,7 @@ ms.locfileid: "38619368"
     from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
     from iothub_service_client import IoTHubDeviceTwin, IoTHubError
     ```
-2. 다음 코드를 추가하고, `[IoTHub Connection String]` 및 `[Device Id]`의 자리 표시자를 이전 섹션에서 만든 IoT Hub의 연결 문자열 및 장치 ID로 바꿉니다.
+2. 다음 코드를 추가하고, `[IoTHub Connection String]` 및 `[Device Id]`의 자리 표시자를 이전 섹션에서 만든 IoT Hub의 연결 문자열 및 디바이스 ID로 바꿉니다.
    
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -120,7 +128,7 @@ ms.locfileid: "38619368"
             print ( "IoTHub sample stopped" )
     ```
    
-    **레지스트리** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 코드는 먼저 **레지스트리** 개체를 초기화한 다음, **deviceId**에 대한 장치 쌍을 업데이트하고, 마지막으로 두 개의 쿼리를 실행합니다. 첫 번째는 **Redmond43** 공장에 위치한 장치의 장치 쌍만을 선택하고, 두 번째는 또한 셀룰러 네트워크를 통해서 연결된 장치만을 선택하도록 쿼리를 구체화합니다.
+    **레지스트리** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 코드는 먼저 **레지스트리** 개체를 초기화한 다음, **deviceId**에 대한 디바이스 쌍을 업데이트하고, 마지막으로 두 개의 쿼리를 실행합니다. 첫 번째는 **Redmond43** 공장에 위치한 디바이스의 디바이스 쌍만을 선택하고, 두 번째는 또한 셀룰러 네트워크를 통해서 연결된 디바이스만을 선택하도록 쿼리를 구체화합니다.
    
 1. **AddTagsAndQuery.py**의 끝부분에 다음 코드를 추가하고 **iothub_service_sample_run** 함수를 구현합니다.
    
@@ -141,10 +149,10 @@ ms.locfileid: "38619368"
    
     ![첫 번째 쿼리][1]
 
-다음 섹션에서는 연결 정보를 보고하고 이전 섹션의 쿼리 결과를 변경하는 장치 앱을 만듭니다.
+다음 섹션에서는 연결 정보를 보고하고 이전 섹션의 쿼리 결과를 변경하는 디바이스 앱을 만듭니다.
 
-## <a name="create-the-device-app"></a>장치 앱 만들기
-이 섹션에서는 **{장치 ID}** 로 허브에 연결하는 Python 콘솔 앱을 만들고 셀룰러 네트워크를 사용하여 연결된 정보를 포함하도록 장치 쌍의 reported 속성을 업데이트합니다.
+## <a name="create-the-device-app"></a>디바이스 앱 만들기
+이 섹션에서는 **{디바이스 ID}** 로 허브에 연결하는 Python 콘솔 앱을 만들고 셀룰러 네트워크를 사용하여 연결된 정보를 포함하도록 디바이스 쌍의 reported 속성을 업데이트합니다.
 
 1. 명령 프롬프트를 열고 **Python용 Azure IoT Hub 서비스 SDK**를 설치합니다. SDK를 설치한 후 명령 프롬프트를 닫습니다.
 
@@ -162,7 +170,7 @@ ms.locfileid: "38619368"
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
     ```
 
-2. 다음 코드를 추가하고, `[IoTHub Device Connection String]`의 자리 표시자를 이전 섹션에서 만든 IoT Hub 장치의 연결 문자열로 바꿉니다.
+2. 다음 코드를 추가하고, `[IoTHub Device Connection String]`의 자리 표시자를 이전 섹션에서 만든 IoT Hub 디바이스의 연결 문자열로 바꿉니다.
    
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
@@ -175,7 +183,7 @@ ms.locfileid: "38619368"
     SEND_REPORTED_STATE_CONTEXT = 0
     ```
 
-1. 다음 코드를 **ReportConnectivity.py** 파일에 추가하여 장치 쌍 기능을 구현합니다.
+1. 다음 코드를 **ReportConnectivity.py** 파일에 추가하여 디바이스 쌍 기능을 구현합니다.
 
     ```python
     def device_twin_callback(update_state, payload, user_context):
@@ -224,7 +232,7 @@ ms.locfileid: "38619368"
             print ( "IoTHubClient sample stopped" )
     ```   
 
-    **Client** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **클라이언트** 개체를 초기화한 다음 장치에 대한 장치 쌍을 검색하고, 연결 정보로 reported 속성을 업데이트합니다.
+    **Client** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **클라이언트** 개체를 초기화한 다음 디바이스에 대한 디바이스 쌍을 검색하고, 연결 정보로 reported 속성을 업데이트합니다.
 
 1. **ReportConnectivity.py**의 끝부분에 다음 코드를 추가하고 **iothub_client_sample_run** 함수를 구현합니다.
    
@@ -235,28 +243,28 @@ ms.locfileid: "38619368"
         iothub_client_sample_run()
     ```
 
-1. 장치 앱 실행
+1. 디바이스 앱 실행
    
     ```cmd/sh
     python ReportConnectivity.py
     ```
    
-    장치 쌍이 업데이트되었다는 확인 메시지가 표시됩니다.
+    디바이스 쌍이 업데이트되었다는 확인 메시지가 표시됩니다.
 
     ![업데이트 쌍][2]
 
-6. 장치가 연결 정보를 보고했으므로 두 쿼리 모두에 나타나야 합니다. 뒤로 돌아가서 쿼리를 다시 실행합니다.
+6. 디바이스가 연결 정보를 보고했으므로 두 쿼리 모두에 나타나야 합니다. 뒤로 돌아가서 쿼리를 다시 실행합니다.
    
     ```cmd/sh
     python AddTagsAndQuery.py
     ```
    
-    이번에는 **{장치 ID}** 가 두 쿼리 결과에 모두 나타나야 합니다.
+    이번에는 **{디바이스 ID}** 가 두 쿼리 결과에 모두 나타나야 합니다.
    
     ![두 번째 쿼리][3]
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure Portal에서 새 IoT Hub를 구성한 다음, IoT Hub의 ID 레지스트리에서 장치 ID를 만들었습니다. 백 엔드 앱에서 tags로 장치 메타데이터를 추가하고, 장치 쌍에서 장치 연결 정보를 보고하는 시뮬레이션된 장치 앱을 작성했습니다. 또한 레지스트리를 사용하여 이 정보를 쿼리하는 방법도 살펴보았습니다.
+이 자습서에서는 Azure Portal에서 새 IoT Hub를 구성한 다음, IoT Hub의 ID 레지스트리에서 디바이스 ID를 만들었습니다. 백 엔드 앱에서 tags로 디바이스 메타데이터를 추가하고, 디바이스 쌍에서 디바이스 연결 정보를 보고하는 시뮬레이션된 디바이스 앱을 작성했습니다. 또한 레지스트리를 사용하여 이 정보를 쿼리하는 방법도 살펴보았습니다.
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
@@ -284,13 +292,13 @@ ms.locfileid: "38619368"
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 
-[lnk-iothub-getstarted]: iot-hub-python-getstarted.md
+[lnk-iothub-getstarted]: quickstart-send-telemetry-python.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/quickstart-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-[lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-twin-how-to-configure]: tutorial-device-twins.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
-[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md

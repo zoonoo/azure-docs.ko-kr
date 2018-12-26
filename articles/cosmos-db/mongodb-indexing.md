@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: 3979c2a10707936c54c0d55ebcc85c470cabc3aa
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ad04976136fc8db04dbe52bf78bea49a9149e5db
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294533"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312700"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB: MongoDB API에서 인덱싱
 
@@ -41,7 +41,7 @@ Azure Cosmos DB MongoDB API는 Azure Cosmos DB의 자동 인덱스 관리 기능
 >[!important] 
 > 현재 컬렉션이 비어 있는 경우에만 고유 인덱스를 만들 수 있습니다(문서를 포함하지 않음). 
 
-다음 명령은 "student_id" 필드에 고유 인덱스를 만듭니다.
+다음 명령은 “student_id” 필드에 고유 인덱스를 만듭니다.
 
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} ) 
@@ -83,7 +83,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {
 
 특정 컬렉션에서 문서 만료를 활성화하려면 ["TTL index"(Time to Live 인덱스)](../cosmos-db/time-to-live.md)를 만들어야 합니다. TTL 인덱스는 "expireAfterSeconds" 값을 가진 _ts 필드의 인덱스입니다.
  
-예:
+예제:
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 ```
@@ -99,6 +99,5 @@ globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 현재 컬렉션에 문서가 포함되지 않은 경우에만 고유 인덱스를 만들 수 있습니다. 인기 있는 MongoDB 마이그레이션 도구는 데이터를 가져온 후 고유 인덱스를 만들도록 시도합니다. 이 문제를 방지하기 위해 사용자는 마이그레이션 도구를 허용하는 대신 해당 컬렉션 및 고유 인덱스를 수동으로 만드는 것이 좋습니다(```mongorestore```의 경우 이 동작은 명령줄에서 --noIndexRestore 플래그를 사용하여 수행됨).
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?](../cosmos-db/indexing-policies.md)
+* [Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?](../cosmos-db/index-policy.md)
 * [TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료](../cosmos-db/time-to-live.md)
-* [Azure Cosmos DB MongoDB API의 데이터 만료](../cosmos-db/mongodb-ttl.md)

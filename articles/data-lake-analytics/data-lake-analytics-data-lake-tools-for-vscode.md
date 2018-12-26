@@ -2,20 +2,19 @@
 title: Azure Data Lake Tools for Visual Studio Code 사용
 description: Azure Data Lake Tools for Visual Studio Code를 사용하여 U-SQL 스크립트를 만들고, 테스트하고, 실행하는 방법에 대해 알아봅니다.
 services: data-lake-analytics
+ms.service: data-lake-analytics
 author: Jejiang
 ms.author: jejiang
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
-ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: 79cd1a04c99891e5146ad20cfd36b8bd4fe4d893
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e470d27ccfea68f628b793f9afd695bb363e295a
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261487"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630838"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools for Visual Studio Code 사용
 
@@ -25,7 +24,7 @@ ms.locfileid: "35261487"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure Data Lake Tools for VS Code는 Windows, Linux 및 MacOS를 지원합니다.  
+Azure Data Lake Tools for VS Code는 Windows, Linux 및 macOS를 지원합니다. U-SQL 로컬 실행 및 로컬 디버그가 Windows에서만 작동합니다.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
@@ -221,6 +220,8 @@ U-SQL 로컬은 Data Lake Analytics에 코드가 게시되기 전에 로컬 데�
 - C# 코드 숨김을 디버그합니다. 
 - 코드를 단계별로 실행합니다. 
 - 로컬에서 스크립트의 유효성을 검사합니다.
+
+로컬 실행 및 로컬 디버그 기능은 Windows 환경에서만 작동하며 macOS 및 Linux 기반 운영 체제에서는 지원되지 않습니다.
 
 로컬 실행 및 로컬 디버그에 대한 지침은 [Visual Studio Code로 U-SQL 로컬 실행 및 로컬 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)를 참조하세요.
 

@@ -2,18 +2,17 @@
 title: Azure Container Registry 웹후크
 description: 레지스트리 리포지토리 중 하나에서 특정 작업이 수행되는 경우 웹후크를 사용하여 이벤트를 트리거하는 방법을 알아봅니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/02/2017
-ms.author: marsma
-ms.openlocfilehash: aff8f1b18c60610ff1d231661fe142eb6c69f3d7
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.date: 08/20/2017
+ms.author: danlep
+ms.openlocfilehash: 350ae16aa66276e7e64c5c35718dca74a70f499e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887576"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854102"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry 웹후크 사용
 
@@ -36,7 +35,7 @@ Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 �
 
 | 값 | 설명 |
 |---|---|
-| Name | 웹후크에 지정하려는 이름입니다. 소문자와 숫자만 포함할 수 있으며 길이는 5-50자여야 합니다. |
+| 이름 | 웹후크에 지정하려는 이름입니다. 소문자와 숫자만 포함할 수 있으며 길이는 5-50자여야 합니다. |
 | 서비스 URI | 웹후크가 POST 알림을 보내야 하는 URI입니다. |
 | 사용자 지정 헤더 | POST 요청과 함께 전달하려는 헤더입니다. "키: 값" 형식이어야 합니다. |
 | 트리거 동작 | 웹후크를 트리거하는 동작입니다. 현재 웹후크는 이미지 밀어넣기 및/또는 삭제 동작에 의해 트리거될 수 있습니다. |
@@ -49,7 +48,7 @@ Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 �
 
 ## <a name="create-webhook-azure-cli"></a>웹후크 Azure CLI 만들기
 
-Azure CLI를 사용하여 웹후크를 만들려면 [az acr webhook create](/cli/azure/acr/webhook#az_acr_webhook_create) 명령을 사용합니다.
+Azure CLI를 사용하여 웹후크를 만들려면 [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) 명령을 사용합니다.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -59,17 +58,17 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-portal"></a>Azure portal
 
-컨테이너 이미지 밀어넣기 및 삭제 작업에서 웹후크를 사용하기 전에 **Ping** 단추를 사용하여 테스트할 수 있습니다. Ping은 지정된 끝점에 일반 POST 요청을 보내고 응답을 기록합니다. ping 기능을 사용하면 웹후크를 올바르게 구성했는지 확인하는 데 도움이 될 수 있습니다.
+컨테이너 이미지 밀어넣기 및 삭제 작업에서 웹후크를 사용하기 전에 **Ping** 단추를 사용하여 테스트할 수 있습니다. Ping은 지정된 엔드포인트에 일반 POST 요청을 보내고 응답을 기록합니다. ping 기능을 사용하면 웹후크를 올바르게 구성했는지 확인하는 데 도움이 될 수 있습니다.
 
 1. 테스트하려는 웹후크를 선택합니다.
 2. 맨 위의 도구 모음에서 **Ping**을 선택합니다.
-3. **HTTP 상태** 열에서 끝점의 응답을 확인합니다.
+3. **HTTP 상태** 열에서 엔드포인트의 응답을 확인합니다.
 
 ![Azure Portal의 ACR 웹후크 만들기 UI](./media/container-registry-webhook/webhook-02.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용하여 ACR 웹후크를 테스트하려면 [az acr webhook ping](/cli/azure/acr/webhook#az_acr_webhook_ping) 명령을 사용합니다.
+Azure CLI를 사용하여 ACR 웹후크를 테스트하려면 [az acr webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping) 명령을 사용합니다.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
@@ -95,4 +94,14 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ## <a name="next-steps"></a>다음 단계
 
+### <a name="webhook-schema-reference"></a>Webhook 스키마 참조
+
+Azure Container Registry에서 내보낸 JSON 이벤트 페이로드의 형식 및 속성에 대한 내용은 webhook 스키마 참조를 참조하세요.
+
 [Azure Container Registry 웹후크 스키마 참조](container-registry-webhook-reference.md)
+
+### <a name="event-grid-events"></a>Event Grid 이벤트
+
+이 문서에서 설명한 기본 레지스트리 webhook 이벤트 외에도 Azure Container Registry는 Event Grid로 이벤트를 내보낼 수 있습니다.
+
+[빠른 시작: Event Grid로 컨테이너 레지스트리 이벤트 전송](container-registry-event-grid-quickstart.md)

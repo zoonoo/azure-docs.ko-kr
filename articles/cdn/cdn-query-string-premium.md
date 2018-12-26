@@ -3,8 +3,8 @@ title: 쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어 - 프리�
 description: Azure CDN 쿼리 문자열 캐싱은 웹 요청에 쿼리 문자열이 포함된 경우 파일이 캐시되는 방식을 제어합니다. 이 문서에서는 Verizon 제품의 Azure CDN Premium에서 쿼리 문자열 캐싱을 설명합니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: 3777689af72f580645826a1ca4e31ca84bd65dab
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.author: magattus
+ms.openlocfilehash: 2f0a361d53489e22ccc8e41406e5b86b423ea2f6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260837"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091405"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어 - 프리미엄 계층
 > [!div class="op_single_selector"]

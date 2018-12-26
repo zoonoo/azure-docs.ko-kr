@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/10/2017
 ms.author: trinadhk
-ms.openlocfilehash: 358c7b0e61d1c85e236007c2495941a31502431a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 01aacaecba8c5a4adf1dab5483a2f921df9314c0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606862"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252533"
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 업그레이드된 Backup 자격 증명 모음 
 이 문서에서는 Recovery Services 자격 증명 모음이 제공하는 것, 기존 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것과 관련한 질문과 대답, 업그레이드 후 단계에 대한 개요를 제공합니다. Recovery Services 자격 증명 모음은 백업 데이터를 보관하는 Backup 자격 증명 모음에 해당하는 Azure Resource Manager입니다. 일반적으로 데이터는 온-프레미스 또는 Azure에서 VM(가상 머신), 워크로드, 서버 또는 워크스테이션에 대한 구성 정보 또는 데이터의 사본입니다.
@@ -26,13 +26,13 @@ Recovery Services 자격 증명은 Azure의 Azure Resource Manager 모델에 기
 
 - **백업 데이터 보호 기능 향상**: Recovery Services 자격 증명 모음에서 Azure Backup은 클라우드 백업을 보호하는 보안 기능을 제공합니다. 이러한 보안 기능을 통해 백업을 보호하고 프로덕션 및 백업 서버가 손상된 경우에도 클라우드 백업에서 데이터를 안전하게 복구할 수 있습니다. [자세히 알아보기](backup-azure-security-feature.md)
 
-- **하이브리드 IT 환경을 위한 중심 모니터링**: Recovery Services 자격 증명 모음에서 [Azure IaaS VM](backup-azure-manage-vms.md)뿐만 아니라 중앙 포털에서 [온-프레미스 자산](backup-azure-manage-windows-server.md#manage-backup-items)도 모니터링할 수 있습니다. [자세히 알아보기](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **하이브리드 IT 환경을 위한 중심 모니터링**: Recovery Services 자격 증명 모음에서 [Azure IaaS VM](backup-azure-manage-vms.md)뿐만 아니라 중앙 포털에서 [온-프레미스 자산](backup-azure-manage-windows-server.md#manage-backup-items)도 모니터링할 수 있습니다. [자세히 알아보기](https://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
 - **RBAC(역할 기반 Access Control)**: RBAC는 Azure에서 세밀한 액세스 관리 제어를 제공합니다. [Azure는 다양한 기본 제공 역할을 제공](../role-based-access-control/built-in-roles.md)하고 Azure Backup에는 3가지 [복구 지점을 관리하는 기본 제공 역할](backup-rbac-rs-vault.md)이 포함됩니다. Recovery Services 자격 증명 모음은 RBAC와 호환되어 백업을 제한하고 정의된 집합의 사용자 역할에 대한 액세스를 복원합니다. [자세히 알아보기](backup-rbac-rs-vault.md)
 
-- **Azure Virtual Machines의 모든 구성 보호**: Recovery Services 자격 증명 모음은 프리미엄 디스크, Managed Disks 및 암호화된 VM을 비롯한 Resource Manager 기반 VM을 보호합니다. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하면 서비스 관리자 기반 VM을 Resource Manager 기반 VM으로 업그레이드할 수 있습니다. 자격 증명 모음을 업그레이드하는 동안 서비스 관리자 기반 VM 복구 지점을 유지하고 업그레이드된(Resource Manager 사용 가능) VM에 대한 보호를 구성할 수 있습니다. [자세히 알아보기](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
+- **Azure Virtual Machines의 모든 구성 보호**: Recovery Services 자격 증명 모음은 프리미엄 디스크, Managed Disks 및 암호화된 VM을 비롯한 Resource Manager 기반 VM을 보호합니다. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하면 서비스 관리자 기반 VM을 Resource Manager 기반 VM으로 업그레이드할 수 있습니다. 자격 증명 모음을 업그레이드하는 동안 서비스 관리자 기반 VM 복구 지점을 유지하고 업그레이드된(Resource Manager 사용 가능) VM에 대한 보호를 구성할 수 있습니다. [자세히 알아보기](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
-- **IaaS VM에 대한 인스턴트 복원**: Recovery Services 자격 증명 모음을 사용하여 전체 VM을 복원하지 않고 IaaS VM의 파일 및 폴더를 복원할 수 있습니다. 그러면 복원 시간이 빨라집니다. IaaS VM에 대한 인스턴트 복원은 Windows 및 Linux VM 모두에서 제공됩니다. [자세히 알아보기](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
+- **IaaS VM에 대한 인스턴트 복원**: Recovery Services 자격 증명 모음을 사용하여 전체 VM을 복원하지 않고 IaaS VM의 파일 및 폴더를 복원할 수 있습니다. 그러면 복원 시간이 빨라집니다. IaaS VM에 대한 인스턴트 복원은 Windows 및 Linux VM 모두에서 제공됩니다. [자세히 알아보기](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 > [!NOTE]
 > 2.0.9083.0 이전의 MARS 에이전트를 통해 Backup 자격 증명 모음에 등록된 항목이 있는 경우, 모든 Recovery Services 자격 증명 모음의 이점을 누릴 수 있게 [최신 MARS 에이전트]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe) 버전을 다운로드합니다.  
@@ -62,16 +62,16 @@ Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 **업그레이드 계획이 진행 중인 백업에 영향을 주나요?**</br>
-번호 진행 중인 백업은 업그레이드 전후에도 중단되지 않고 계속됩니다.
+아니요. 진행 중인 백업은 업그레이드 전후에도 중단되지 않고 계속됩니다.
 
 **이 업그레이드로 기존 도구는 어떻게 되나요?**</br>
 기존 자동화 또는 도구를 리소스 관리자 배포 모델로 업데이트하여 업그레이드 후에도 계속 작동되도록 해야 합니다. [리소스 관리자 배포 모델](backup-client-automation.md)에 대한 PowerShell cmdlet 참조를 확인하세요.
 
 **업그레이드한 후에 롤백할 수 있나요?**</br>
-번호 리소스를 성공적으로 업그레이드한 후에는 롤백이 지원되지 않습니다.
+아니요. 리소스를 성공적으로 업그레이드한 후에는 롤백이 지원되지 않습니다.
 
 **클래식 자격 증명 모음을 업그레이드한 이후를 볼 수 있나요?**</br>
-번호 클래식 자격 증명을 업그레이드한 이후를 보거나 관리할 수 없습니다. 자격 증명 모음에 있는 모든 관리 작업에 새 Azure Portal을 사용할 수만 있습니다.
+아니요. 클래식 자격 증명을 업그레이드한 이후를 보거나 관리할 수 없습니다. 자격 증명 모음에 있는 모든 관리 작업에 새 Azure Portal을 사용할 수만 있습니다.
 
 **내 업그레이드된 자격 증명 모음에서 MARS 에이전트로 보호되는 서버가 표시되지 않는 이유**</br>
 자격 증명 모음에서 MARS 에이전트로 보호되는 모든 서버를 보려면 최신 MARS 에이전트를 설치해야 합니다. 최신 에이전트 버전은 [여기]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe)에서 다운로드할 수 있습니다.

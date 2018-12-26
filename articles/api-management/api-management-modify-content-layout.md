@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: 4a372b54ace87816b9e7cccbd38466331b5ebfc7
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 91463520547ca534048bba77d3b979b462ded6b5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437599"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442355"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Azure API Management에서 개발자 포털의 페이지 콘텐츠 및 레이아웃 수정
 Azure API Management에는 개발자 포털을 사용자 지정하는 기본적인 방법이 세 가지 있습니다.
@@ -27,6 +27,8 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 * [페이지 레이아웃 요소 및 정적 페이지의 콘텐츠 편집][modify-content-layout](이 가이드에 설명되어 있음)
 * [개발자 포털 전반의 페이지 요소에 사용된 스타일 업데이트][customize-styles]
 * [포털에서 생성된 페이지에 사용된 템플릿 수정][portal-templates](예: API 문서, 제품, 사용자 인증 등)
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="page-structure"> </a>개발자 포털 페이지의 구조
 

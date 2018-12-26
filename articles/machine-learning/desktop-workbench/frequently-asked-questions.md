@@ -7,20 +7,23 @@ ms.author: serinak
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 8a0d26a1ba1ca5fa7a3bd5cfca078ee6c94b229d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 45cf987d9af7b7dd0e8f05056b49ba56835603e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831578"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313946"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 질문과 대답
 
-Azure Machine Learning은 기계 학습 및 AI 모델을 만들고 테스트, 관리 및 배포할 수 있는 완전히 관리되는 Azure 서비스입니다. 서비스 및 다운로드 가능 응용 프로그램은 클라우드, 온-프레미스 및 Edge를 이용하여 처리 능력, 속도 및 유연성을 가진 학습, 배포, 관리 및 모니터링을 제공하는 코드 우선 방식을 제공합니다. 또는 Azure Machine Learning Studio는 코딩이 필요하지 않은 브라우저 기반의 시각적 끌어서 놓기 저작 환경을 제공합니다. 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+Azure Machine Learning은 기계 학습 및 AI 모델을 만들고 테스트, 관리 및 배포할 수 있는 완전히 관리되는 Azure 서비스입니다. 서비스 및 다운로드 가능 애플리케이션은 클라우드, 온-프레미스 및 Edge를 이용하여 처리 능력, 속도 및 유연성을 가진 학습, 배포, 관리 및 모니터링을 제공하는 코드 우선 방식을 제공합니다. 또는 Azure Machine Learning Studio는 코딩이 필요하지 않은 브라우저 기반의 시각적 끌어서 놓기 저작 환경을 제공합니다. 
 
 ## <a name="general-product-questions"></a>일반적인 제품 질문
 
@@ -31,10 +34,6 @@ Azure Blob Storage 및 Azure Container Registry는 Azure Machine Learning에서 
 **Azure Machine Learning은 SQL Server 2017의 Microsoft Machine Learning 서비스와 어떤 관계가 있습니까?**   
 
 SQL Server 2017의 Machine Learning 서비스는 기계 학습 작업을 데이터베이스 워크플로에 통합하도록 확장 및 크기 조정할 수 있는 플랫폼입니다. 온-프레미스 솔루션이 필요한, 예를 들어 데이터 이동이 많은 비용을 초래하고 부적합한 시나리오에 최적입니다. 반면에 클라우드 또는 하이브리드 워크로드는 새 Azure 서비스에 매우 적합합니다. 
-
-**Python 및 R을 모두 지원합니까? C++ 등의 다른 프로그래밍 언어의 경우 어떻습니까?**
-
-현재 지원 Python만 지원합니다. R 통합에 대해 연구 중이며 곧 사용할 수 있게 될 것으로 예상합니다. 
 
 **Azure Machine Learning은 Spark용 Microsoft Machine Learning과 어떤 관계가 있습니까?**
 
@@ -113,11 +112,11 @@ Azure Machine Learning Workbench는 전문 데이터 과학자를 위해 만든 
 
 **Workbench는 IDE인가요?**
 
-번호 Machine Learning Workbench는 Jupyter Notebooks, Visual Studio Code 및 PyCharm 같은 인기 있는 IDE에 대한 자매 제품으로 설계되었지만 완전한 기능을 하는 IDE가 아닙니다. Machine Learning Workbench는 몇 가지 기본적인 텍스트 편집 기능을 제공하지만 디버깅, IntelliSense 및 기타 널리 사용되는 IDE 기능을 지원하지 않습니다. 코드 배포, 편집 및 디버깅을 위해서는 사용자가 즐겨 쓰는 IDE를 사용하는 것이 좋습니다. 또한 [AI용 Visual Studio Code 도구](https://www.visualstudio.com/downloads/ai-tools-vscode)를 사용해 볼 수 있습니다.
+아니요. Machine Learning Workbench는 Jupyter Notebooks, Visual Studio Code 및 PyCharm 같은 인기 있는 IDE에 대한 자매 제품으로 설계되었지만 완전한 기능을 하는 IDE가 아닙니다. Machine Learning Workbench는 몇 가지 기본적인 텍스트 편집 기능을 제공하지만 디버깅, IntelliSense 및 기타 널리 사용되는 IDE 기능을 지원하지 않습니다. 코드 배포, 편집 및 디버깅을 위해서는 사용자가 즐겨 쓰는 IDE를 사용하는 것이 좋습니다. 또한 [AI용 Visual Studio Code 도구](https://www.visualstudio.com/downloads/ai-tools-vscode)를 사용해 볼 수 있습니다.
 
 **Azure Machine Learning Workbench 사용은 유료입니까?**
 
-번호 Azure Machine Learning Workbench는 무료 응용 프로그램입니다. 필요한 만큼 많은 컴퓨터에 많은 사용자를 위해 다운로드할 수 있습니다. Azure Machine Learning Workbench를 사용하려면 실험 계정이 있어야 합니다. 에서도 확인할 수 있습니다.  
+아니요. Azure Machine Learning Workbench는 무료 응용 프로그램입니다. 필요한 만큼 많은 컴퓨터에 많은 사용자를 위해 다운로드할 수 있습니다. Azure Machine Learning Workbench를 사용하려면 실험 계정이 있어야 합니다. .  
 
 **명령줄 기능을 지원하나요?**
 
@@ -172,4 +171,4 @@ Workbench의 데이터 준비 도구는 현재 다음 형식에서의 수집을 
 
 **Azure Machine Learning은 Microsoft Cognitive Toolkit와 어떤 관계가 있나요?**
 
-[Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/)는 새 도구 및 서비스에서 지원하는 많은 프레임워크 중 하나입니다. Cognitive Toolkit은 Feed-Forward Deep Neural Networks, Convolutional Nets, Sequence-to-Sequence 및 Recurrent Networks 등 인기 있는 기계 학습 모델을 사용하고 조합할 수 있는 통합된 심층 학습 도구 키트입니다. Microsoft Cognitive Toolkit에 대한 자세한 내용을 확인하려면 당사 [제품 설명서](https://docs.microsoft.com/cognitive-toolkit/)를 참조하세요. 
+[Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/)는 새 도구 및 서비스에서 지원하는 많은 프레임워크 중 하나입니다. Cognitive Toolkit은 Feed-Forward Deep Neural Networks, Convolutional Nets, Sequence-to-Sequence 및 Recurrent Networks 등 인기 있는 기계 학습 모델을 사용하고 조합할 수 있는 통합된 심층 학습 도구 키트입니다. Microsoft Cognitive Toolkit에 대한 자세한 내용을 확인하려면 당사 [제품 설명서](https://docs.microsoft.com/cognitive-toolkit/)를 참조하세요. 

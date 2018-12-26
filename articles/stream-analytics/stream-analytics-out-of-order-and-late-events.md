@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f0ee486d9ff4c05269da23866edad281aa627889
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912018"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113897"
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics 이벤트 순서 고려 사항
 
-## <a name="arrival-time-and-application-time"></a>도착 시간 및 응용 프로그램 시간
+## <a name="arrival-time-and-application-time"></a>도착 시간 및 애플리케이션 시간
 
-이벤트의 임시 데이터 스트림에서는 각 이벤트에 타임스탬프가 할당됩니다. Azure Stream Analytics는 도착 시간이나 응용 프로그램 시간 중 하나를 사용하여 각 이벤트에 타임스탬프를 할당합니다. 이벤트에 할당된 타임스탬프는 **System.Timestamp** 열에 있습니다. 
+이벤트의 임시 데이터 스트림에서는 각 이벤트에 타임스탬프가 할당됩니다. Azure Stream Analytics는 도착 시간이나 애플리케이션 시간 중 하나를 사용하여 각 이벤트에 타임스탬프를 할당합니다. 이벤트에 할당된 타임스탬프는 **System.Timestamp** 열에 있습니다. 
 
-도착 시간은 이벤트가 소스에 도달하면 입력 소스에서 할당됩니다. 이벤트 허브 입력의 경우 **EventEnqueuedTime** 속성을 사용하고 Blob 입력의 경우 [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) 속성을 사용하여 도착 시간에 액세스할 수 있습니다. 
+도착 시간은 이벤트가 소스에 도달하면 입력 소스에서 할당됩니다. Event Hubs 입력의 경우 **EventEnqueuedUtcTime** 속성을 사용하고, IoT Hub의 경우 **IoTHub.EnqueuedTime** 속성을 사용하고, Blob 입력의 경우 [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) 속성을 사용하여 도착 시간에 액세스할 수 있습니다. 
 
-응용 프로그램 시간은 이벤트 생성 시에 할당되며 페이로드의 일부분입니다. 응용 프로그램 시간을 기준으로 이벤트를 처리하려면 select 쿼리에서 **Timestamp by** 절을 사용합니다. **Timestamp by** 절이 없으면 이벤트는 도착 시간을 기준으로 처리됩니다. 
+애플리케이션 시간은 이벤트 생성 시에 할당되며 페이로드의 일부분입니다. 응용 프로그램 시간을 기준으로 이벤트를 처리하려면 select 쿼리에서 **Timestamp by** 절을 사용합니다. **Timestamp by** 절이 없으면 이벤트는 도착 시간을 기준으로 처리됩니다. 
 
 Azure Stream Analytics는 타임스탬프 순서로 출력을 생성하며 잘못된 순서 데이터를 처리하기 위한 설정을 제공합니다.
 
@@ -46,14 +46,14 @@ Azure Stream Analytics 작업은 다음과 같은 경우에 여러 타임라인�
 * 정렬됨(따라서 지연됨)
 * 사용자 지정 정책에 따라 시스템에 의해 조정됨
 
-응용 프로그램 시간을 기준으로 처리할 때 Stream Analytics에서는 지연 이벤트와 잘못된 순서 이벤트를 허용합니다. 다음 설정은 Azure Portal의 **이벤트 순서 지정** 옵션에서 사용할 수 있습니다. 
+애플리케이션 시간을 기준으로 처리할 때 Stream Analytics에서는 지연 이벤트와 잘못된 순서 이벤트를 허용합니다. 다음 설정은 Azure Portal의 **이벤트 순서 지정** 옵션에서 사용할 수 있습니다. 
 
 ![Stream Analytics 이벤트 처리](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
 
 ### <a name="late-arrival-tolerance"></a>지연 도착 허용 시간
-지연 도착 허용 시간은 응용 프로그램 시간을 기준으로 처리할 때만 적용할 수 있습니다. 그렇지 않은 경우 이 설정은 무시됩니다.
+지연 도착 허용 시간은 애플리케이션 시간을 기준으로 처리할 때만 적용할 수 있습니다. 그렇지 않은 경우 이 설정은 무시됩니다.
 
-지연 도착 허용 시간은 도착 시간과 응용 프로그램 시간 사이의 최대 차이입니다. 이벤트가 지연 도착 허용 시간보다 늦게 도착하면(예: 응용 프로그램 시간 *app_t* < 도착 시간 *arr_t* - 지연 도착 정책 허용 시간 *late_t*), 이벤트는 최대 지연 도착 허용 시간(*arr_t* - *late_t*)으로 조정됩니다. 지연 도착 시간은 이벤트 생성 시간과 입력 소스에서 이벤트를 수신하는 시간 사이의 최대 지연입니다. 
+지연 도착 허용 시간은 도착 시간과 애플리케이션 시간 사이의 최대 차이입니다. 이벤트가 지연 도착 허용 시간보다 늦게 도착하면(예: 응용 프로그램 시간 *app_t* < 도착 시간 *arr_t* - 지연 도착 정책 허용 시간 *late_t*), 이벤트는 최대 지연 도착 허용 시간(*arr_t* - *late_t*)으로 조정됩니다. 지연 도착 시간은 이벤트 생성 시간과 입력 소스에서 이벤트를 수신하는 시간 사이의 최대 지연입니다. 
 
 같은 입력 스트림이나 여러 입력 스트림의 여러 파티션이 결합될 때의 지연 도착 허용 시간은 모든 파티션이 새 데이터 도착을 대기하는 최대 시간입니다. 
 
@@ -82,7 +82,7 @@ Stream Analytics가 “잘못된 순서 허용 시간” 이내에 수신된 이
    5. **응용 프로그램 시간** = 00:06:00, **도착 시간** = 00:10:04, **System.Timestamp** = 00:07:00 - 응용 프로그램 시간이 잘못된 순서 허용 시간보다 이전이므로 조정됨
 
 ### <a name="practical-considerations"></a>실제 고려 사항
-앞서 설명한 것처럼 지연 도착 허용 시간은 응용 프로그램 시간과 도착 시간 사이의 최대 차이입니다. 응용 프로그램 시간에 따라 처리할 경우, 구성된 지연 도착 허용 시간보다 늦은 이벤트는 잘못된 순서 허용 시간 설정이 적용되기 전에 조정됩니다. 따라서 유효 잘못된 순서 이벤트는 지연 도착 허용 시간 및 잘못된 순서 허용 시간의 최소값입니다.
+앞서 설명한 것처럼 지연 도착 허용 시간은 응용 프로그램 시간과 도착 시간 사이의 최대 차이입니다. 애플리케이션 시간에 따라 처리할 경우, 구성된 지연 도착 허용 시간보다 늦은 이벤트는 잘못된 순서 허용 시간 설정이 적용되기 전에 조정됩니다. 따라서 유효 잘못된 순서 이벤트는 지연 도착 허용 시간 및 잘못된 순서 허용 시간의 최소값입니다.
 
 스트림 내의 잘못된 순서 이벤트에 대한 이유는 다음과 같습니다.
 * 보낸 사람 간의 클록 스큐(clock skew)
@@ -111,12 +111,12 @@ Stream Analytics가 “잘못된 순서 허용 시간” 이내에 수신된 이
 
 구성은 예제 2와 동일합니다. 그러나 파티션 중 하나에서 데이터가 부족할 경우 추가 지연 도착 허용 시간만큼 출력이 지연될 수 있습니다.
 
-## <a name="handling-event-producers-with-differing-timelines"></a>다른 타임라인으로 이벤트 생산자 처리
-경우에 따라 단일 입력 이벤트 스트림에는 개별 장치와 같은 여러 이벤트 생산자에서 시작되는 이벤트가 포함됩니다. 이전에 설명한 이유로 인해 이러한 이벤트가 잘못된 순서로 도착할 수 있습니다. 이러한 시나리오에서는 이벤트 생산자 전체에는 잘못된 순서가 많을 수 있지만 단일 생산자 이벤트 내의 잘못된 순서는 적거나 존재하지 않을 수 있습니다.
+## <a name="handling-event-producers-with-differing-timelines-with-substreams"></a>"하위 스트림"을 사용하여 다른 타임라인의 이벤트 생산자 처리
+경우에 따라 단일 입력 이벤트 스트림에는 개별 디바이스와 같은 여러 이벤트 생산자에서 시작되는 이벤트가 포함됩니다. 이전에 설명한 이유로 인해 이러한 이벤트가 잘못된 순서로 도착할 수 있습니다. 이러한 시나리오에서는 이벤트 생산자 전체에는 잘못된 순서가 많을 수 있지만 단일 생산자 이벤트 내의 잘못된 순서는 적거나 존재하지 않을 수 있습니다.
 
 Azure Stream Analytics는 잘못된 순서 이벤트를 처리하기 위한 일반적인 메커니즘을 제공합니다. 이러한 메커니즘을 사용하면 지연(낙오된 이벤트가 시스템에 도달하기를 기다리는 동안), 삭제되거나 조정된 이벤트 또는 두 이벤트가 모두 처리됩니다.
 
-대부분의 경우에는 원하는 쿼리가 서로 다른 이벤트 생산자의 이벤트를 개별적으로 처리하고 있습니다. 예를 들어 장치별로 창별 이벤트를 집계할 수 있습니다. 이러한 경우 다른 이벤트 생산자가 포착할 때까지 기다리는 동안 하나의 이벤트 생산자에 해당하는 출력을 지연할 필요가 없습니다. 즉, 생산자 간의 시간차를 처리할 필요가 없습니다. 무시해도 됩니다.
+대부분의 경우에는 원하는 쿼리가 서로 다른 이벤트 생산자의 이벤트를 개별적으로 처리하고 있습니다. 예를 들어 디바이스별로 창별 이벤트를 집계할 수 있습니다. 이러한 경우 다른 이벤트 생산자가 포착할 때까지 기다리는 동안 하나의 이벤트 생산자에 해당하는 출력을 지연할 필요가 없습니다. 즉, 생산자 간의 시간차를 처리할 필요가 없습니다. 무시해도 됩니다.
 
 물론 이는 출력 이벤트 자체가 타임스탬프와 관련하여 순서가 잘못되었음을 의미합니다. 다운스트림 소비자는 해당 동작을 처리할 수 있어야 합니다. 그러나 출력의 모든 이벤트가 올바릅니다.
 

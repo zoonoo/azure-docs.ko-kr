@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator에서 텍스트 조정 API를 사용하여 텍스트 조정 | Microsoft Docs
+title: 텍스트 조정 API를 사용하여 텍스트 조정 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 온라인 콘솔에서 텍스트 조정 API를 사용하여 텍스트 조정을 시험 사용해 보세요.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: ed696c31a886626819414c45eb7995edaf161fff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95fd5507287a9294f4fca6af9cc5f01f0ea9fe1c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374526"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219790"
 ---
 # <a name="moderate-text-from-the-api-console"></a>API 콘솔에서 텍스트 조정
 
@@ -22,7 +23,7 @@ Azure Content Moderator에서 [텍스트 조정 API](https://westus.dev.cognitiv
 
 
 ## <a name="get-your-api-key"></a>API key 가져오기
-온라인 콘솔에서 API를 시험 사용할 수 있으려면 먼저 구독 키가 필요합니다. **Ocp-Apim-Subscription-Key** 상자의 **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
+온라인 콘솔에서 API를 시험 사용할 수 있으려면 먼저 구독 키가 필요합니다. 구독 키는 **Ocp-Apim-Subscription-Key** 상자의 **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
 
 ## <a name="navigate-to-the-api-reference"></a>API 참조로 이동
 [텍스트 조정 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)로 이동합니다. 

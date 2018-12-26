@@ -39,9 +39,9 @@ ms.locfileid: "37929154"
 
 ## <a name="initialize-a-new-data-disk-in-linux"></a>Linux에서 새 데이터 디스크 초기화
 1. VM에 SSH를 사용합니다. 자세한 내용은 [Linux를 실행하는 가상 머신에 로그온하는 방법][Logon]을 참조하세요.
-2. 이제 초기화할 데이터 디스크의 장치 식별자를 찾아야 합니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
+2. 이제 초기화할 데이터 디스크의 디바이스 식별자를 찾아야 합니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
    
-    a) 다음 명령과 같이 로그에서 SCSI 장치를 grep합니다.
+    a) 다음 명령과 같이 로그에서 SCSI 디바이스를 grep합니다.
    
     ```bash
     sudo grep SCSI /var/log/messages
@@ -55,7 +55,7 @@ ms.locfileid: "37929154"
    
     또는
    
-    b) `lsscsi` 명령을 사용하여 장치 ID를 확인합니다. `lsscsi`는 `yum install lsscsi`(Red Hat 기반 배포) 또는 `apt-get install lsscsi`(Debian 기반 배포)를 통해 설치할 수 있습니다. *lun* , 즉 **논리 단위 번호**를 사용하여 원하는 디스크를 찾을 수 있습니다. 예를 들어 연결한 디스크의 *lun*은 `azure vm disk list <virtual-machine>`에서 다음과 같이 쉽게 확인할 수 있습니다.
+    b) `lsscsi` 명령을 사용하여 디바이스 ID를 확인합니다. `lsscsi`는 `yum install lsscsi`(Red Hat 기반 배포) 또는 `apt-get install lsscsi`(Debian 기반 배포)를 통해 설치할 수 있습니다. *lun* , 즉 **논리 단위 번호**를 사용하여 원하는 디스크를 찾을 수 있습니다. 예를 들어 연결한 디스크의 *lun*은 `azure vm disk list <virtual-machine>`에서 다음과 같이 쉽게 확인할 수 있습니다.
 
     ```azurecli
     azure vm disk list myVM
@@ -85,7 +85,7 @@ ms.locfileid: "37929154"
     ```
    
     각 행의 튜플에 있는 마지막 숫자는 *lun*입니다. 자세한 내용은 `man lsscsi`를 참조하세요.
-3. 프롬프트에서 다음 명령을 입력하여 장치를 만듭니다.
+3. 프롬프트에서 다음 명령을 입력하여 디바이스를 만듭니다.
    
     ```bash
     sudo fdisk /dev/sdc
@@ -93,7 +93,7 @@ ms.locfileid: "37929154"
 
 4. 프롬프트가 표시되면 **n**을 입력하여 파티션을 만듭니다.
 
-    ![장치 만들기](./media/attach-disk/fdisknewpartition.png)
+    ![디바이스 만들기](./media/attach-disk/fdisknewpartition.png)
 
 5. 프롬프트가 표시되면 **p** 를 입력하여 파티션을 주 파티션으로 지정합니다. **1** 을 입력하여 첫 번째 파티션으로 설정한 다음 Enter 키를 입력하여 실린더에 대한 기본값을 적용합니다. 일부 시스템에서 실린더 대신 첫 번째 및 마지막 섹터의 기본값이 표시될 수 있습니다. 이러한 기본값을 수락하도록 선택할 수 있습니다.
 
@@ -109,7 +109,7 @@ ms.locfileid: "37929154"
 
     ![디스크 변경 내용 쓰기](./media/attach-disk/fdiskwritedisk.png)
 
-8. 이제 새 파티션에 파일 시스템을 만들 수 있습니다. 장치 ID에 파티션 번호를 추가합니다(다음 예제에서는 `/dev/sdc1`). 다음 예제에서는 /dev/sdc1에 ext4 파티션을 만듭니다.
+8. 이제 새 파티션에 파일 시스템을 만들 수 있습니다. 디바이스 ID에 파티션 번호를 추가합니다(다음 예제에서는 `/dev/sdc1`). 다음 예제에서는 /dev/sdc1에 ext4 파티션을 만듭니다.
    
     ```bash
     sudo mkfs -t ext4 /dev/sdc1
@@ -138,7 +138,7 @@ ms.locfileid: "37929154"
 
 11. /etc/fstab에 새 드라이브를 추가합니다.
    
-    다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 /etc/fstab 파일에 추가해야 합니다. 또한 /etc/fstab에 UUID(Universally Unique IDentifier)를 사용하여 장치 이름(즉, /dev/sdc1) 대신 드라이브를 가리키는 것이 좋습니다. UUID를 사용하면 운영 체제에서 부팅하는 동안 디스크 오류를 감지하므로 올바르지 않은 디스크가 지정된 위치에 탑재되지 않으며 나머지 데이터 디스크는 해당 장치 ID에 할당됩니다. 새 드라이브의 UUID를 찾으려면 **blkid** 유틸리티를 사용할 수 있습니다.
+    다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 /etc/fstab 파일에 추가해야 합니다. 또한 /etc/fstab에 UUID(Universally Unique IDentifier)를 사용하여 디바이스 이름(즉, /dev/sdc1) 대신 드라이브를 가리키는 것이 좋습니다. UUID를 사용하면 OS에서 부팅하는 동안 디스크 오류를 감지하므로 올바르지 않은 디스크가 지정된 위치에 탑재되지 않으며 나머지 데이터 디스크는 해당 디바이스 ID에 할당됩니다. 새 드라이브의 UUID를 찾으려면 **blkid** 유틸리티를 사용할 수 있습니다.
    
     ```bash
     sudo -i blkid
@@ -161,7 +161,7 @@ ms.locfileid: "37929154"
     sudo vi /etc/fstab
     ```
 
-    이 예제에서는 이전 단계에서 만든 새 **/dev/sdc1** 장치의 UUID 값과 탑재 지점 **/datadrive**를 사용합니다. **/etc/fstab** 파일의 끝에 다음 줄을 추가합니다.
+    이 예제에서는 이전 단계에서 만든 새 **/dev/sdc1** 디바이스의 UUID 값과 탑재 지점 **/datadrive**를 사용합니다. **/etc/fstab** 파일의 끝에 다음 줄을 추가합니다.
 
     ```sh
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2

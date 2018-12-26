@@ -15,20 +15,20 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d2e4a014a0f7bb7f94885528abc930d2b243318b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 96daacef134ca60cb497907a770c83a4bba24a5b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911321"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956027"
 ---
 # <a name="azure-and-linux"></a>Azure와 Linux
-Microsoft Azure는 솔루션을 호스팅하는 데 적합한 분석, Virtual Machines, 데이터베이스, 모바일, 네트워킹, 저장소 및 웹을 비롯한 나날이 다양해지는 통합 공용 클라우드 서비스입니다.  Microsoft Azure는 온-프레미스 하드웨어 없이도 확장할 수 있는 컴퓨팅 플랫폼을 제공하며, 필요한 때, 사용한 만큼 비용을 지불하면 됩니다.   Azure는 솔루션을 강화하고 클라이언트의 요구를 맞추기 위해 필요한 규모에 준비되어 있습니다.
+Microsoft Azure는 분석, 가상 머신, 데이터베이스, 모바일, 네트워킹, 저장소 및 웹을 포함하여 성장하고 있는 통합된 공용 클라우드 서비스 모음이며, 솔루션 호스팅에 적합합니다.  Microsoft Azure는 온-프레미스 하드웨어 없이도 확장할 수 있는 컴퓨팅 플랫폼을 제공하며, 필요한 때, 사용한 만큼 비용을 지불하면 됩니다.   Azure는 솔루션을 강화하고 클라이언트의 요구를 맞추기 위해 필요한 규모에 준비되어 있습니다.
 
 Amazon의 AWS의 다양한 기능에 익숙한 경우 Azure과 AWS 비교 [정의 매핑 문서](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)를 검토할 수 있습니다.
 
 ## <a name="regions"></a>영역
-Microsoft Azure 리소스는 전 세계 여러 지리적 지역에 걸쳐 분산됩니다.  "지역"은 동일한 지리적 지역에서 여러 데이터 센터를 나타냅니다. 현재 Azure는 일반적으로 추가로 발표된 6개 지역을 포함하여 전 세계 36개 지역에서 사용할 수 있습니다(2017년 11월 기준). 업데이트된 기존 및 새로 발표된 지역 목록을 다음 페이지에서 찾을 수 있습니다.
+Microsoft Azure 리소스는 전 세계 여러 지리적 지역에 걸쳐 분산됩니다.  "지역"은 동일한 지리적 지역에서 여러 데이터 센터를 나타냅니다. 현재(2018년 8월 기준) Azure는 추가로 발표된 12개 지역을 포함하여 전 세계 42개 지역에서 일반적으로 사용할 수 있으며, 이는 다른 어떤 클라우드 공급자보다 많은 글로벌 지역입니다. 업데이트된 기존 및 새로 발표된 지역 목록을 다음 페이지에서 찾을 수 있습니다.
 
 * [Azure 지역](https://azure.microsoft.com/regions/)
 
@@ -37,7 +37,7 @@ Azure는 모든 디스크에 프리미엄 저장소를 사용하여 VM을 배포
 
 ## <a name="managed-disks"></a>Managed Disks
 
-Managed Disks는 백그라운드에서 Azure Storage 계정 만들기 및 관리 작업을 처리하기 때문에 저장소 계정의 확장성 제한에 걱정할 필요가 없습니다. 디스크 크기와 성능 계층(표준 또는 프리미엄)을 지정하면, Azure가 디스크를 만들고 관리합니다. 디스크를 추가하거나 VM을 확장하고 축소하면 사용 중인 저장소에 대해 걱정할 필요가 없습니다. 새 VM을 만드는 경우 [Azure CLI 2.0을 사용](quick-create-cli.md)하거나 Azure Portal을 사용하여 관리되는 OS 및 데이터 디스크로 VM을 만듭니다. 관리되지 않는 디스크가 있는 VM이 있는 경우 [Managed Disks로 지원되도록 VM을 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
+Managed Disks는 백그라운드에서 Azure Storage 계정 만들기 및 관리 작업을 처리하기 때문에 저장소 계정의 확장성 제한에 걱정할 필요가 없습니다. 디스크 크기와 성능 계층(표준 또는 프리미엄)을 지정하면, Azure가 디스크를 만들고 관리합니다. 디스크를 추가하거나 VM을 확장하고 축소하면 사용 중인 저장소에 대해 걱정할 필요가 없습니다. 새 VM을 만드는 경우 [Azure CLI를 사용](quick-create-cli.md)하거나 Azure Portal을 사용하여 관리되는 OS 및 데이터 디스크로 VM을 만듭니다. 관리되지 않는 디스크가 있는 VM이 있는 경우 [Managed Disks로 지원되도록 VM을 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
 
 또한 Azure 지역당 하나의 저장소 계정에서 사용자 지정 이미지를 관리하고 동일한 구독에서 수백 개의 VM을 만드는 데 사용할 수도 있습니다. 관리 디스크에 대한 자세한 내용은 [Managed Disks 개요](../linux/managed-disks-overview.md)를 참조하세요.
 
@@ -59,7 +59,7 @@ Azure는 VM의 크기와 운영 체제에 기반한 [시간당 가격](https://a
 * [Azure 템플릿](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](http://cloud-init.io/)에 대한 지원을 롤아웃하고 있습니다.  현재 Canonical의 Ubuntu VM은 기본적으로 사용하도록 설정된 cloud-init와 함께 배포됩니다.  Red Hats RHEL, CentOS 및 Fedora는 cloud-init를 지원하지만 RedHat에서 유지 관리하는 Azure 이미지에는 현재 cloud-init가 설치되어 있지 않습니다.  RedHat 제품군 OS에서 cloud-init를 사용하려면 cloud-init가 설치된 사용자 지정 이미지를 만들어야 합니다.
+Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](http://cloud-init.io/)에 대한 지원을 롤아웃하고 있습니다.  현재 Canonical의 Ubuntu VM은 기본적으로 사용하도록 설정된 cloud-init와 함께 배포됩니다.  Red Hat의 RHEL, CentOS 및 Fedora는 cloud-init를 지원하지만, Red Hat에서 유지 관리하는 Azure 이미지에는 현재 cloud-init가 설치되어 있지 않습니다.  Red Hat 계열 OS에서 cloud-init를 사용하려면 cloud-init가 설치된 사용자 지정 이미지를 만들어야 합니다.
 
 * [Azure Linux VM에서 cloud-init 사용](using-cloud-init.md)
 
@@ -73,16 +73,16 @@ Microsoft는 파트너와 긴밀히 협력하여 사용 가능한 이미지가 �
 
 * Azure의 Linux - [보증 배포판](endorsed-distros.md)
 * SUSE- [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-* Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Red Hat - [Azure Marketplace - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
-* FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
+* FreeBSD - [Azure Marketplace - FreeBSD 10.4](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
 * CoreOS - [Azure Marketplace - CoreOS(Stable)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
 * RancherOS - [Azure Marketplace - RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
 * Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
 * Mesosphere - [Azure Marketplace - Mesosphere DC/OS on Azure](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
 * Docker - [Azure Marketplace - Azure Container Service with Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
-* Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
+* Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudbees.cloudbees-core-contact)
 
 ## <a name="getting-started-with-linux-on-azure"></a>Azure에서 Linux 시작
 Azure 사용을 시작하려면 Azure 계정, 설치된 Azure CLI, SSH 공용 및 개인 키 쌍이 필요합니다.
@@ -91,7 +91,7 @@ Azure 사용을 시작하려면 Azure 계정, 설치된 Azure CLI, SSH 공용 �
 Azure 클라우드를 사용하는 첫 번째 단계는 Azure 계정을 등록하는 것입니다.  시작하려면 [Azure 계정 등록](https://azure.microsoft.com/pricing/free-trial/) 페이지로 이동합니다.
 
 ### <a name="install-the-cli"></a>CLI 설치
-새 Azure 계정에 사용하여 웹 기반 관리 패널인 Azure Portal에서 즉시 시작할 수 있습니다.  명령줄을 통해 Azure 클라우드를 관리하려면 `azure-cli`를 설치합니다.  Mac 또는 Linux 워크스테이션에 [Azure CLI 2.0](/cli/azure/install-azure-cli)을 설치합니다.
+새 Azure 계정에 사용하여 웹 기반 관리 패널인 Azure Portal에서 즉시 시작할 수 있습니다.  명령줄을 통해 Azure 클라우드를 관리하려면 `azure-cli`를 설치합니다.  Mac 또는 Linux 워크스테이션에 [Azure CLI ](/cli/azure/install-azure-cli)를 설치합니다.
 
 ### <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
 이제 Azure 계정, Azure 웹 포털 및 Azure CLI가 있습니다.  다음 단계는 암호를 사용하지 않고 Linux에 대한 SSH에 사용되는 SSH 키 쌍을 만드는 것입니다.  [Linux 및 Mac에서 SSH 키를 만들어](mac-create-ssh-keys.md) 암호 없는 로그인 및 향상된 보안을 사용하도록 설정합니다.
@@ -119,7 +119,7 @@ VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다.  
 * [Virtual Network 개요](../../virtual-network/virtual-networks-overview.md)
 * [Azure의 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Azure에서 Linux VM에 포트 열기](nsg-quickstart.md)
-* [Azure Portal에서 정규화된 도메인 이름 만들기](portal-create-fqdn.md)
+* [Azure 포털에서 정규화된 도메인 이름 만들기](portal-create-fqdn.md)
 
 ## <a name="containers"></a>컨테이너
 * [Azure Virtual Machines 및 컨테이너](containers.md)

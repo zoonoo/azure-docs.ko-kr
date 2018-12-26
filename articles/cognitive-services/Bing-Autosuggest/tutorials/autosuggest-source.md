@@ -1,20 +1,21 @@
 ---
-title: Bing Autosuggest API를 사용하여 자동 제안 결과 가져오기(Azure Cognitive Services) | Microsoft Docs
+title: '자습서: Bing Autosuggest API를 사용하여 Autosuggest 결과 가져오기'
+titlesuffix: Azure Cognitive Services
 description: 단일 페이지 웹 응용 프로그램에서 Bing Autosuggest API를 사용하는 방법을 보여 주는 자습서의 소스 코드입니다.
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 687183acb209ba6faae37865aa6a05fded5c26dc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a3eafe1c2ad6bb7a141b6c40c85f804d0f9b7395
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376894"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345626"
 ---
 # <a name="tutorial-single-page-web-app"></a>자습서: 단일 페이지 웹앱
 
@@ -39,7 +40,7 @@ Bing Autosuggest API에 대한 [단일 페이지 앱 자습서](autosuggest.md)�
     h2 {font-size: 16px;}
     h1, h2 {clear: left;}
 
-    img#logo {float: right;
+    img#logo {float: right;}
 </style>
 
 <script type="text/javascript">

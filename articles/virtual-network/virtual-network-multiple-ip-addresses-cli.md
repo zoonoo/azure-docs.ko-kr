@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: c11883156f53ab53ebe6f84d66232f81f8cf31ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f82a7d5d9c9f3b85856154973be4ec3fb961f6c
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697367"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287562"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -34,7 +34,7 @@ ms.locfileid: "38697367"
 
 다음 단계는 시나리오에 설명된 대로 여러 IP 주소를 가진 예시 가상 머신을 만드는 방법을 설명합니다. ""의 변수 값과 IP 주소 유형을 구현에 필요한 대로 변경합니다. 
 
-1. [Azure CLI 2.0](/cli/azure/install-az-cli2)을 아직 설치하지 않은 경우 설치합니다.
+1. [Azure CLI](/cli/azure/install-azure-cli)를 아직 설치하지 않은 경우 설치합니다.
 2. [Linux VM에 SSH 공용 및 개인 키 쌍 만들기](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 단계를 완료하여 Linux VM에 SSH 공용 및 개인 키 쌍을 만듭니다.
 3. 명령 셸에서 `az login` 명령을 사용하고 사용 중인 구독을 선택합니다.
 4. Linux 또는 Mac 컴퓨터에서 다음에 나오는 스크립트를 실행하여 VM을 만듭니다. 스크립트는 리소스 그룹, 하나의 VNet(가상 네트워크), 세 개의 IP 구성이 있는 하나의 NIC 및 연결된 두 개의 NIC가 있는 VM을 만듭니다. NIC, 공용 IP 주소, 가상 네트워크 및 VM 리소스는 모두 동일한 위치 및 구독에 있어야 합니다. 리소스가 모두 동일한 리소스 그룹에 위치할 필요는 없습니다. 하지만 다음 스크립트에서는 모두 동일한 리소스 그룹에 위치합니다.
@@ -111,7 +111,7 @@ az network nic ip-config create \
 
 # Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and   # no public IP address.
 
-azure network nic ip-config create \
+az network nic ip-config create \
 --resource-group $RgName \
 --nic-name $NicName \
 --private-ip-address 10.0.0.6 \
@@ -157,7 +157,7 @@ az vm create \
 
 스크립트는 세 가지 IP 구성의 NIC로 VM을 만드는 것 외에 다음 항목을 만듭니다.
 
-- 기본적으로 단일 프리미엄이 디스크를 관리했지만 만들 수 있는 디스크 유형에 대한 다른 옵션을 사용할 수 있습니다. 자세한 내용은 [Azure CLI 2.0을 사용하여 Linux VM 만들기](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+- 기본적으로 단일 프리미엄이 디스크를 관리했지만 만들 수 있는 디스크 유형에 대한 다른 옵션을 사용할 수 있습니다. 자세한 내용은 [Azure CLI를 사용하여 Linux VM 만들기](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 - 하나의 서브넷 및 두 개의 공용 IP 주소를 가진 가상 네트워크. 또는 *기존* 가상 네트워크, 서브넷, NIC 또는 공용 IP 주소 리소스를 사용할 수 있습니다. 추가 리소스를 만드는 것이 아니라 기존 네트워크 리소스를 사용하는 방법을 알아보려면 `az vm create -h`을 입력합니다.
 
 공용 IP 주소에는 명목 요금이 부과됩니다. IP 주소 가격에 대한 자세한 내용은 [IP 주소 가격](https://azure.microsoft.com/pricing/details/ip-addresses) 페이지를 참조하세요. 구독 내에서 사용할 수 있는 공용 IP 주소의 수는 제한되어 있습니다. 이러한 한에 대한 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요.
@@ -170,7 +170,7 @@ VM을 만든 후에 `az network nic show --name MyNic1 --resource-group myResour
 
 다음 단계를 완료하여 개인 및 공용 IP 주소를 기존 Azure 네트워크 인터페이스에 더 추가할 수 있습니다. 예제는 이 문서에서 설명된 [시나리오](#Scenario)를 기반으로 합니다.
 
-1. 명령 셸을 열고 단일 세션 내에서 이 섹션의 나머지 단계를 완료합니다. 아직 Azure CLI를 설치 및 구성하지 않은 경우 [Azure CLI 2.0 설치](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서에 나오는 단계를 완료하고 `az-login` 명령을 사용하여 Azure 계정에 로그인합니다.
+1. 명령 셸을 열고 단일 세션 내에서 이 섹션의 나머지 단계를 완료합니다. 아직 Azure CLI를 설치 및 구성하지 않은 경우 [Azure CLI 설치](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서에 나오는 단계를 완료하고 `az-login` 명령을 사용하여 Azure 계정에 로그인합니다.
 
 2. 요구 사항에 따라 다음 섹션 중 하나의 단계를 완료합니다.
 

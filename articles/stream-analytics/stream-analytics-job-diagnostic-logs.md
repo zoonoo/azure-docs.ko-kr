@@ -18,7 +18,7 @@ ms.locfileid: "30905865"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>진단 로그를 사용하여 Azure Stream Analytics 문제 해결
 
-경우에 따라 Azure Stream Analytics 작업이 예기치 않게 처리를 중지합니다. 이 이벤트 종류의 문제를 해결하는 것이 중요합니다. 이벤트는 예기치 않은 쿼리 결과, 장치에 대한 연결 또는 예기치 않은 서비스 중단으로 인해 발생할 수 있습니다. Stream Analytics에서 진단 로그를 사용하면 이와 같은 이벤트가 발생했을 때 문제 원인을 파악하고 복구 시간을 단축할 수 있습니다.
+경우에 따라 Azure Stream Analytics 작업이 예기치 않게 처리를 중지합니다. 이 이벤트 종류의 문제를 해결하는 것이 중요합니다. 이벤트는 예기치 않은 쿼리 결과, 디바이스에 대한 연결 또는 예기치 않은 서비스 중단으로 인해 발생할 수 있습니다. Stream Analytics에서 진단 로그를 사용하면 이와 같은 이벤트가 발생했을 때 문제 원인을 파악하고 복구 시간을 단축할 수 있습니다.
 
 ## <a name="log-types"></a>로그 형식
 

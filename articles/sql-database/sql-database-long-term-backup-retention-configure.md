@@ -2,59 +2,52 @@
 title: Azure SQL Database 장기 백업 보존 관리 | Microsoft Docs
 description: 자동화된 백업을 SQL Azure Storage에 저장한 다음, 복원하는 방법 알아보기
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: backup-restore
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/04/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0ce22cae50e70ca7232e025d4009b23d62f6a198
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 10/24/2018
+ms.openlocfilehash: 33086be2c85e44b81a9f444a10a683e54f8612f7
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649230"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164452"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 
-최대 10년 동안 Azure Blob Storage에 백업을 자동으로 보관하도록 [장기 백업 보존](sql-database-long-term-retention.md) 정책(LTR)을 사용하여 Azure SQL 데이터베이스를 구성합니다. 그런 다음, Azure Portal이나 PowerShell에서 이러한 백업을 사용하여 데이터베이스를 복구할 수 있습니다.
+Azure SQL Database에서는 최대 10년 동안 Azure Blob Storage에 백업을 자동으로 보관하도록 [장기 백업 보존](sql-database-long-term-retention.md) 정책(LTR)을 사용하여 단일 데이터베이스나 풀링된 데이터베이스를 구성할 수 있습니다. 그런 다음, Azure Portal이나 PowerShell에서 이러한 백업을 사용하여 데이터베이스를 복구할 수 있습니다.
 
-> [!NOTE]
-> 이 기능의 미리 보기가 2016년 10월에 처음 출시되면서 Azure 서비스 복구 서비스 자격 증명 모음에 백업이 저장되었습니다. 이 업데이트를 종속성을 제거하지만 이전 버전과의 호환성을 위해 2018년 5월 31일까지 원래 API가 지원됩니다. Azure 서비스 복구 자격 증명 모음의 백업과 상호 작용이 필요한 경우 [Azure 서비스 복구 서비스 자격 증명 모음을 사용한 장기 백업 보존](sql-database-long-term-backup-retention-configure-vault.md)을 참조하세요. 
+> [!IMPORTANT]
+> [Azure SQL Database Managed Instance](sql-database-managed-instance.md)는 현재 장기 백업 보존을 지원하지 않습니다.
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Azure Portal을 사용하여 장기 보존 정책 구성 및 백업 복원
-
 다음 섹션에서는 Azure Portal을 사용하여 장기 보존을 구성하고, 장기 보존되는 백업을 보고, 장기 보존에서 백업을 복원하는 방법을 보여줍니다.
 
 ### <a name="configure-long-term-retention-policies"></a>장기 보존 정책 구성
 
 서비스 계층의 보존 기간보다 긴 기간 동안 [자동화된 백업을 유지](sql-database-long-term-retention.md)하도록 SQL Database를 구성할 수 있습니다. 
 
-1. Azure Portal에서 SQL 서버를 선택한 다음, **장기 백업 보존**을 클릭합니다.
+1. Azure Portal에서 SQL Server를 선택한 다음, **백업 관리**를 클릭합니다. **정책 구성** 탭에서 장기 백업 보존 정책을 설정하거나 수정할 데이터베이스에 대한 확인란을 선택합니다.
 
-   ![장기 백업 보존 링크](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
+   ![백업 관리 링크](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-2. **정책 구성** 탭에서 장기 백업 보존 정책을 설정하거나 수정할 데이터베이스를 선택합니다.
-
-   ![데이터베이스 선택](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
-
-3. **정책 구성** 창에서 매주, 매달 또는 매년 백업을 보존할지 여부를 선택하고 각각에 대해 보존 기간을 지정합니다. 
+2. **정책 구성** 창에서 매주, 매달 또는 매년 백업을 보존할지 여부를 선택하고 각각에 대해 보존 기간을 지정합니다. 
 
    ![정책 구성](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
-4. 완료되면 **적용**을 클릭합니다.
+3. 완료되면 **적용**을 클릭합니다.
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Azure Portal을 사용하여 백업을 보고 백업에서 복원
 
 LTR 정책으로 특정 데이터베이스에 보존된 백업을 보고 해당 백업에서 복원합니다. 
 
-1. Azure Portal에서 SQL 서버를 선택한 다음, **장기 백업 보존**을 클릭합니다.
-
-   ![장기 백업 보존 링크](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
-
-2. **사용 가능한 백업** 탭에서 사용 가능한 백업을 보려는 데이터베이스를 선택합니다.
+1. Azure Portal에서 SQL Server를 선택한 다음, **백업 관리**를 클릭합니다. **사용 가능한 백업** 탭에서 사용 가능한 백업을 보려는 데이터베이스를 선택합니다.
 
    ![데이터베이스 선택](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 
@@ -70,7 +63,7 @@ LTR 정책으로 특정 데이터베이스에 보존된 백업을 보고 해당 
 
 6. 도구 모음에서 알림 아이콘을 클릭하여 복원 작업의 상태를 봅니다.
 
-   ![자격 증명 모음에서 복원 작업 진행률](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![복원 작업 진행률](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. 복원 작업이 완료되면 **SQL Database** 페이지를 열어 새로 복원된 데이터베이스를 봅니다.
 
@@ -83,8 +76,28 @@ LTR 정책으로 특정 데이터베이스에 보존된 백업을 보고 해당 
 다음 섹션에서는 PowerShell을 사용하여 장기 백업 보존을 구성하고 Azure SQL 저장소에서 백업을 확인하고 Azure SQL 저장소의 백업에서 복원하는 방법을 보여줍니다.
 
 > [!IMPORTANT]
-> 최신 AzureRM powershell을 사용하여 LTR V2 정책을 설정해야 합니다. 현재 버전은 [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview)이며, 이는 미리 보기 버전이므로 이 명령을 사용하여 설치합니다. `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`
-> 시험판 버전 설치에 대한 지침은 [PowerShellGet 모듈 가져오기](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget)를 참조하세요. AzureRM powershell 2018년 5월 릴리스는 몇 일 내로 시작되며(2018/5/18일로 예상) 사용할 수 있게 될 때 릴리스 버전을 설치하면 AllowPrelease 스위치를 무시하고 다음 명령 `Install-Module -Name AzureRM.Sql -Force`를 사용할 수 있습니다.
+> LTR V2 API는 다음과 같은 PowerShell 버전에서 지원됩니다.
+- [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) 이상
+- [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) 이상
+> 
+
+### <a name="rbac-roles-to-manage-long-term-retention"></a>장기 보존을 관리하는 RBAC 역할
+
+LTR 백업을 관리하려면 다음 역할에 속해야 합니다. 
+- 구독 소유자 또는
+- **구독** 범위의 SQL Server 참가자 역할 또는
+- **구독** 범위의 SQL Database 참가자 역할
+
+역할을 더 세부적으로 제어해야 하는 경우 사용자 지정 RBAC 역할을 만들어 **구독** 범위에 할당할 수 있습니다. 
+
+**Get-AzureRmSqlDatabaseLongTermRetentionBackup** 및 **Restore-AzureRmSqlDatabase**의 경우 역할에는 다음 권한이 있어야 합니다.
+
+Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
+ 
+**Remove-AzureRmSqlDatabaseLongTermRetentionBackup**의 경우 역할에는 다음 권한이 있어야 합니다.
+
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+
 
 ### <a name="create-an-ltr-policy"></a>LTR 정책 만들기
 
@@ -134,20 +147,20 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -Dat
 # The backups are grouped by the logical database id.
 # Within each group they are ordered by the timestamp, the earliest
 # backup first.  
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location 
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location 
 
 # Get the list of LTR backups from the Azure region under 
 # the named server. 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
 
 # Get the LTR backups for a specific database from the Azure region under the named server 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -DatabaseName $dbName
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
 
 # List LTR backups only from live databases (you have option to choose All/Live/Deleted)
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -DatabaseState Live
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
 
 # Only list the latest LTR backup for each database 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -OnlyLatestPerDatabase
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
 ```
 
 ### <a name="delete-ltr-backups"></a>LTR 백업 삭제
@@ -159,6 +172,9 @@ $ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $serve
 $ltrBackup = $ltrBackups[0]
 Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
+> [!IMPORTANT]
+> LTR 백업을 삭제하면 되돌릴 수 없습니다. ‘장기 보존 백업 삭제’ 작업으로 필터링하여 Azure Monitor에서 각 삭제에 대한 알림을 설정할 수 있습니다. 활동 로그에는 요청한 사람과 시기에 대한 정보가 포함되어 있습니다. 자세한 지침은 [활동 로그 경고 만들기](../azure-monitor/platform/alerts-activity-log.md)를 참조하세요.
+>
 
 ### <a name="restore-from-ltr-backups"></a>LTR 백업에서 복원
 이 예제에서는 LTR 백업에서 복원하는 방법을 보여줍니다. 이 인터페이스는 변경되지 않았지만 이제 리소스 ID 매개 변수에 LTR 백업 리소스 ID가 필요합니다. 

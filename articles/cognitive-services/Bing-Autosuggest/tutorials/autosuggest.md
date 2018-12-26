@@ -1,23 +1,23 @@
 ---
-title: Bing Autosuggest API를 사용하여 자동 제안 결과 가져오기(Azure Cognitive Services) | Microsoft Docs
+title: '자습서: Bing Autosuggest API를 사용하여 Autosuggest 결과 가져오기'
+titlesuffix: Azure Cognitive Services
 description: Bing Autosuggest를 사용하는 방법을 보여 줍니다.
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
-ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: f66af61ed06f4c6a7fe36cd44aa7781b71bb18ea
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b93ab8ebb4bb50723ec6ebae617fe9d95c6c7a47
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377007"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831441"
 ---
-# <a name="build-a-web-page-autosuggest-client"></a>웹 페이지 Autosuggest 클라이언트 빌드
+# <a name="tutorial-build-a-web-page-autosuggest-client"></a>자습서: 웹 페이지 Autosuggest 클라이언트 빌드
 
 이 자습서에서는 사용자가 Bing Autosuggest API를 쿼리할 수 있는 웹 페이지를 빌드합니다.
 
@@ -184,7 +184,7 @@ HTML 양식 필드 내용 및 Bing Autosuggest API 키의 두 가지 매개 변�
 function bingAutosuggest(query, key) {
 ```
 
-Bing Autosuggest API 끝점을 지정하고 끝점에 요청을 보내는 데 사용할 XMLHttpRequest 개체를 선언합니다.
+Bing Autosuggest API 엔드포인트를 지정하고 엔드포인트에 요청을 보내는 데 사용할 XMLHttpRequest 개체를 선언합니다.
 
 ```html
     var endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions";
@@ -206,7 +206,7 @@ Bing Autosuggest API 끝점을 지정하고 끝점에 요청을 보내는 데 �
     request.setRequestHeader("Ocp-Apim-Subscription-Key", key);
 ```
 
-끝점의 응답을 처리합니다. 상태가 200(OK)이면 결과를 표시하고, 200이 아니면 오류 정보를 표시합니다.
+엔드포인트의 응답을 처리합니다. 상태가 200(OK)이면 결과를 표시하고, 200이 아니면 오류 정보를 표시합니다.
 
 ```html
     request.addEventListener("load", function() {

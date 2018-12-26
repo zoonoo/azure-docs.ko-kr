@@ -3,7 +3,7 @@ title: 추가 사용량에 대 한 테 넌 트 및 Azure Stack에 대금 청구 
 description: 클라우드 서비스 공급자 (CSP)에서 관리 되는 Azure Stack에 최종 사용자를 추가 하는 데 필요한 단계입니다.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: brenduns
+ms.date: 09/19/2018
+ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 6f93a72acdcc249720abeec3fe871b7108e2bb29
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089913"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963745"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>사용량에 대 한 테 넌 트를 추가 하 고 Azure Stack에 대 한 청구
 
@@ -36,7 +36,7 @@ Csp는 종종 여러 최종 고객 (테 넌 트)에 게 Azure Stack 배포 서�
 
 **최종 고객을 추가 하는 단계**
 
-![사용 현황 추적에 대 한 최종 고객 계정을 관리 하려면 클라우드 서비스 공급자 설정](media\azure-stack-csp-enable-billing-usage-tracking\process-csp-enable-billing.png)
+![사용 현황 추적에 대 한 최종 고객 계정을 관리 하려면 클라우드 서비스 공급자 설정](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ## <a name="create-a-new-customer-in-partner-center"></a>파트너 센터에서 새 고객 만들기
 
@@ -50,7 +50,7 @@ Csp는 종종 여러 최종 고객 (테 넌 트)에 게 Azure Stack 배포 서�
 ## <a name="create-a-guest-user-in-the-end-customer-directory"></a>최종 고객 디렉터리에 게스트 사용자를 만듭니다.
 
 최종 사용자는 자신의 계정을 관리 하는 경우 해당 디렉터리에 게스트 사용자를 만듭니다 및 정보를 보낼 합니다. 최종 사용자는 다음 게스트를 추가 하 고에 게스트 권한 상승 **소유자** Azure Stack CSP 계정에 있습니다.
- 
+ 
 ## <a name="update-the-registration-with-the-end-customer-subscription"></a>최종 고객 구독을 사용 하 여 등록을 업데이트 합니다.
 
 새 고객 구독을 사용 하 여 등록을 업데이트 합니다. Azure는 파트너 중앙에서 고객의 id를 사용 하 여 고객의 사용량을 보고 합니다. 이렇게 하면 각 고객의 사용은 해당 고객의 개별 CSP 구독에서 보고 됩니다. 이 사용자 사용 현황 추적 및 청구 훨씬 쉬워집니다.
@@ -69,9 +69,9 @@ Csp는 종종 여러 최종 고객 (테 넌 트)에 게 Azure Stack 배포 서�
 ### <a name="new-azurermresource-powershell-parameters"></a>AzureRmResource 새 PowerShell 매개 변수
 | 매개 변수 | 설명 |
 | --- | --- | 
-|registrationSubscriptionID | Azure Stack의 초기 등록에 사용 된 Azure 구독입니다. |
-| customerSubscriptionID | Azure 구독 (Azure Stack 없습니다) 등록을 위해 고객에 속하는입니다. 해야 CSP 제품;에서 만든 실제로이 파트너 센터를 통해 의미합니다. 고객이 Azure Active Directory 테 넌 트를 여러 개 있으면이 구독의 Azure Stack에 로그인 하는 데 사용할 테 넌 트에 생성 되어야 합니다.
-| resourceGroup | 등록 저장 되는 Azure에서 리소스 그룹입니다. 
+|registrationSubscriptionID | Azure Stack의 초기 등록에 사용 된 Azure 구독입니다.|
+| customerSubscriptionID | Azure 구독 (Azure Stack 없습니다) 등록을 위해 고객에 속하는입니다. 해야 CSP 제품;에서 만든 실제로이 파트너 센터를 통해 의미합니다. 고객이 Azure Active Directory 테 넌 트를 여러 개 있으면이 구독의 Azure Stack에 로그인 하는 데 사용할 테 넌 트에 생성 되어야 합니다. 고객 구독 ID는 소문자를 사용 해야 합니다. |
+| resourceGroup | 등록 저장 되는 Azure에서 리소스 그룹입니다. |
 | registrationName | Azure Stack에 등록의 이름입니다. 이 Azure에 저장 된 개체입니다. | 
 | properties | 리소스에 대 한 속성을 지정합니다. 리소스 종류에 관련 된 속성의 값을 지정 하려면이 매개 변수를 사용 합니다.
 
@@ -86,10 +86,10 @@ Azure Stack에서 서비스를 사용 하도록 여러 Azure AD 테 넌 트에�
 
 ## <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>Azure Stack에서 최종 고객 테 넌 트의 로컬 리소스 만들기
 
-Azure Stack에 새 고객을 추가한 또는 최종 고객 테 넌 트 소유자 권한 사용 하 여 게스트 계정을 사용 하도록 설정한 후에 테 넌 트의 리소스를 만들 수 있는지 확인 합니다. 예를 들어 할 [Azure Stack 포털을 사용 하 여 Windows 가상 머신 만들기](user\azure-stack-quick-windows-portal.md)합니다.
+Azure Stack에 새 고객을 추가한 또는 최종 고객 테 넌 트 소유자 권한 사용 하 여 게스트 계정을 사용 하도록 설정한 후에 테 넌 트의 리소스를 만들 수 있는지 확인 합니다. 예를 들어 할 [Azure Stack 포털을 사용 하 여 Windows 가상 머신 만들기](user/azure-stack-quick-windows-portal.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
  - 등록 프로세스에서 트리거되는 경우 오류 메시지를 검토, 참조 [등록 오류 메시지를 테 넌 트](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes)합니다.
- - Azure Stack에서 리소스 사용 정보를 검색 하는 방법에 대 한 자세한 내용은 참조 하세요 [사용 및 Azure Stack에서 청구](/azure-stack-billing-and-chargeback.md)합니다.
- - 최종 고객 수 추가 방법, CSP로를 검토 하려면 테 넌 트의 관리자가 Azure Stack에 대 한 내용은 [Azure Stack 구독을 관리 하는 클라우드 서비스 공급자를 사용 하도록 설정](user\azure-stack-csp-enable-billing-usage-tracking.md)합니다.
+ - Azure Stack에서 리소스 사용 정보를 검색 하는 방법에 대 한 자세한 내용은 참조 하세요 [사용 및 Azure Stack에서 청구](azure-stack-billing-and-chargeback.md)합니다.
+ - 최종 고객 수 추가 방법, CSP로를 검토 하려면 테 넌 트의 관리자가 Azure Stack에 대 한 내용은 [Azure Stack 구독을 관리 하는 클라우드 서비스 공급자를 사용 하도록 설정](user/azure-stack-csp-enable-billing-usage-tracking.md)합니다.

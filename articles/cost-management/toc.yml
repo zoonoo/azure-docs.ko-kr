@@ -1,63 +1,115 @@
+items:
 - name: Azure Cost Management 설명서
   href: index.yml
-- name: 개요
   items:
+  - name: 개요
+    items:
     - name: 비용 관리는 무엇입니까?
-      href: overview.md
-- name: 빠른 시작
-  expanded: true
-  items:
-    - name: 비용 데이터 보기
-      href: quick-register-azure-sub.md
-    - name: 비용 데이터 보기 - EA
-      href: quick-register-ea.md
-    - name: 비용 데이터 보기 - CSP
-      href: quick-register-csp.md
-- name: 자습서
-  items:
-    - name: 1 - 사용량 및 비용 검토
-      href: tutorial-review-usage.md
-    - name: 2 - 소비 예측
-      href: tutorial-forecast-spending.md
-    - name: 3 - 비용 관리
-      href: tutorial-manage-costs.md
-    - name: 4 - 예약된 인스턴스 최적화
-      href: tutorial-optimize-reserved-instances.md
-    - name: 5 - 데이터에 대한 액세스 제어
-      href: tutorial-user-access.md
-- name: 개념
-  items:
-    - name: 비용 보고서 이해
-      href: understanding-cost-reports.md
-- name: 방법 가이드
-  items:
-    - name: Azure 구독 및 계정 활성화
-      href: activate-subs-accounts.md
-    - name: VM의 확장된 메트릭 추가
-      href: azure-vm-extended-metrics.md
-    - name: Google 계정 연결
-      href: connect-google-account.md
-    - name: AWS 계정 연결
-      href: connect-aws-account.md
-    - name: 저장소 계정 구성
-      href: storage-accounts.md
-    - name: 비용 관리 보고서 사용
-      href: use-reports.md
-    - name: 대시보드 사용
-      href: dashboards.md
-    - name: 예산 관리
-      href: manage-budgets.md
-- name: 리소스
-  items:
-    - name: 비용 관리 비디오
-      href: ref-videos.md
+      href: overview-cost-mgt.md
+  - name: 빠른 시작
+    items:
+    - name: 비용 분석 시작
+      href: quick-acm-cost-analysis.md
+    expanded: true
+  - name: 자습서
+    items:
+    - name: 1 - 예산 작성 및 관리
+      href: tutorial-acm-create-budgets.md
+    - name: 2 - 데이터 내보내기
+      href: tutorial-export-acm-data.md
+    - name: 3 - 권장 사항에 대한 작업
+      href: tutorial-acm-opt-recommendations.md
+  - name: 개념
+    items:
+    - name: Azure Cost Management 모범 사례
+      href: cost-mgt-best-practices.md
+  - name: 방법 가이드
+    items:
+    - name: 데이터에 대한 액세스 할당
+      href: assign-access-acm-data.md
+  - name: 참고 자료
+    items:
+    - name: Azure Cost Management REST API
+      href: https://docs.microsoft.com/rest/api/cost-management
+    - name: Azure Consumption REST API
+      href: https://docs.microsoft.com/rest/api/consumption
+  - name: 리소스
+    items:
+    - name: Microsoft Learn을 통해 기술 쌓기
+      href: /learn/browse/?products=azure-cost-management
+    - name: Cost Management 피드백 포럼
+      href: https://feedback.azure.com/forums/906772-cost-management
     - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/'
+      href: https://azure.microsoft.com/roadmap/
     - name: 가격
-      href: 'https://azure.microsoft.com/pricing/details/cost-management'
+      href: https://azure.microsoft.com/pricing/details/cost-management
     - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/en-us/regions/services/'
-    - name: FAQ
-      href: cost-mgt-faq.md
-    - name: 지원에 문의
-      href: support-request-cost-management.md
+      href: https://azure.microsoft.com/regions/services/
+  - name: Cloudyn
+    items:
+    - name: 개요
+      items:
+      - name: Cloudyn이란?
+        href: overview.md
+    - name: 빠른 시작
+      items:
+      - name: 비용 데이터 보기
+        href: quick-register-azure-sub.md
+      - name: 비용 데이터 보기 - EA
+        href: quick-register-ea.md
+      - name: 비용 데이터 보기 - CSP
+        href: quick-register-csp.md
+    - name: 자습서
+      items:
+      - name: 1 - 사용량 및 비용 검토
+        href: tutorial-review-usage.md
+      - name: 2 - 소비 예측
+        href: tutorial-forecast-spending.md
+      - name: 3 - 비용 관리
+        href: tutorial-manage-costs.md
+      - name: 4 - 예약된 인스턴스 최적화
+        href: tutorial-optimize-reserved-instances.md
+      - name: 5 - 데이터에 대한 액세스 제어
+        href: tutorial-user-access.md
+    - name: 개념
+      items:
+      - name: 비용 보고서 이해
+        href: understanding-cost-reports.md
+    - name: 방법 가이드
+      items:
+      - name: Azure 구독 및 계정 활성화
+        href: activate-subs-accounts.md
+      - name: VM의 확장된 메트릭 추가
+        href: azure-vm-extended-metrics.md
+      - name: Google 계정 연결
+        href: connect-google-account.md
+      - name: AWS 계정 연결
+        href: connect-aws-account.md
+      - name: 저장소 계정 구성
+        href: storage-accounts.md
+      - name: Cloudyn 보고서 사용
+        href: use-reports.md
+      - name: 대시보드 사용
+        href: dashboards.md
+      - name: 예산 관리
+        href: manage-budgets.md
+    - name: 리소스
+      items:
+      - name: Cloudyn 비디오
+        href: ref-videos.md
+      - name: Azure 로드맵
+        href: https://azure.microsoft.com/roadmap/
+      - name: Cloudyn 가격 책정
+        href: https://azure.microsoft.com/pricing/details/cost-management
+      - name: Cloudyn 지역별 가용성
+        href: https://azure.microsoft.com/regions/services/
+      - name: Cloudyn FAQ
+        href: cost-mgt-faq.md
+      - name: Cloudyn 고객 지원팀에 문의
+        href: support-request-cost-management.md
+ms.openlocfilehash: 1aecf5906350e1e69f3e8c028e6c82d5e2bc3988
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623268"

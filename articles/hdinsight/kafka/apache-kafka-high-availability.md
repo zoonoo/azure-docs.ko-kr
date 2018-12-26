@@ -1,31 +1,26 @@
 ---
-title: Apache Kafka를 통한 고가용성 - Azure HDInsight | Microsoft Docs
+title: Apache Kafka를 통한 고가용성 - Azure HDInsight
 description: Azure HDInsight의 Apache Kafka를 사용하여 고가용성을 보장하는 방법을 알아봅니다. HDInsight가 포함된 Azure 지역 내의 여러 장애 도메인에 있도록 Kafka에서 파티션 복제본의 균형을 다시 조정하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-editor: cgronlun
-manager: jhubbard
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 13b57957bac728befd9c79e7aff262c538b02b54
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: e39829d4fa08e466f98930becc831c6f4b551aed
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772452"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315837"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka를 통한 데이터 고가용성
 
-기본 하드웨어 랙 구성을 활용하기 위해 Kafka 토픽에 대한 파티션 복제본을 구성하는 방법에 대해 알아봅니다. 이 구성은 HDInsight의 Apache Kafka에 저장된 데이터의 가용성을 보장합니다.
+기본 하드웨어 랙 구성을 활용하기 위해 Apache Kafka 토픽에 대한 파티션 복제본을 구성하는 방법에 대해 알아봅니다. 이 구성은 HDInsight의 Apache Kafka에 저장된 데이터의 가용성을 보장합니다.
 
-## <a name="fault-and-update-domains-with-kafka"></a>Kafka를 사용하는 장애 및 업데이트 도메인
+## <a name="fault-and-update-domains-with-apache-kafka"></a>Apache Kafka를 사용하는 장애 및 업데이트 도메인
 
 장애 도메인은 Azure 데이터 센터에 있는 기본 하드웨어의 논리적 그룹입니다. 장애 도메인마다 공통 전원과 네트워크 스위치를 공유합니다. HDInsight 클러스터 내의 노드를 구현하는 가상 머신과 관리 디스크는 이러한 장애 도메인에 분산되어 있습니다. 이 아키텍처에서는 실제 하드웨어 오류의 잠재적 영향을 제한합니다.
 
@@ -49,15 +44,15 @@ Azure 지역마다 특정 수의 장애 도메인이 있습니다. 도메인 목
 
 2개의 장애 도메인만 포함하는 지역을 사용해야 하는 경우 복제 계수로 4를 사용하여 두 장애 도메인에 복제본을 동일하게 분산합니다.
 
-토픽을 만들고 복제 계수를 설정하는 예제는 [HDInsight의 Kafka 시작](apache-kafka-get-started.md) 문서를 참조하세요.
+토픽을 만들고 복제 계수를 설정하는 예제는 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md) 문서를 참조하세요.
 
 ## <a name="how-to-rebalance-partition-replicas"></a>파티션 복제본의 부하를 다시 조정하는 방법
 
-[Kafka 파티션 리밸런스 도구](https://github.com/hdinsight/hdinsight-kafka-tools)를 사용하여 선택한 토픽의 부하를 다시 조정합니다. 이 도구는 SSH 세션에서 Kafka 클러스터의 헤드 노드로 실행되어야 합니다.
+[Apache Kafka 파티션 리밸런스 도구](https://github.com/hdinsight/hdinsight-kafka-tools)를 사용하여 선택한 토픽의 부하를 다시 조정합니다. 이 도구는 SSH 세션에서 Kafka 클러스터의 헤드 노드로 실행되어야 합니다.
 
 SSH를 사용하여 HDInsight에 연결하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight의 Kafka 확장성](apache-kafka-scalability.md)
-* [HDInsight의 Kafka 미러링](apache-kafka-mirroring.md)
+* [HDInsight에서 Apache Kafka의 확장성](apache-kafka-scalability.md)
+* [HDInsight에서 Apache Kafka 미러링](apache-kafka-mirroring.md)

@@ -6,14 +6,14 @@ author: adigan
 manager: Nkolli1
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/29/2016
+ms.date: 10/18/2018
 ms.author: adigan
-ms.openlocfilehash: 728850fe70fb3f9e64b0fa25b4ceebb1a1b51cd4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b3b4d42d9a48d02639019f815cbf4fca15060771
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606656"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946048"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Azure에 SharePoint 팜 백업
 SharePoint 팜은 다른 데이터 원본을 백업하는 것과 같은 방법으로 System Center DPM(Data Protection Manager)을 사용하여 Microsoft Azure에 백업합니다. Azure Backup은 일간, 주간, 월간 혹은 연간 백업 지점을 생성하도록 백업 일정에 유연성을 제공하고 다양한 백업 지점에 관한 보존 정책 옵션을 제공합니다. DPM은 빠른 복구 시간 목표(RTO)를 위해 로컬 디스크 복사본을 저장하는 기능과 경제적인 장기 보존을 위해 Azure에 사본을 복사하는 기능을 제공합니다.
@@ -29,7 +29,7 @@ DPM의 Azure Backup은 다음 시나리오들을 지원합니다.
 SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니다.
 
 ### <a name="prerequisites"></a>필수 조건
-진행에 앞서, 워크로드를 보호하기 위해 [Microsoft Azure Backup 사용의 필수 조건](backup-azure-dpm-introduction.md#prerequisites) 을 모두 충족해야 합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure Backup 에이전트 설치, 자격 증명 모음에 DPM/Azure Backup 서버 등록 등이 포함됩니다.
+진행에 앞서, 워크로드를 보호하기 위해 [Microsoft Azure Backup 사용의 필수 조건](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 을 모두 충족해야 합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure Backup 에이전트 설치, 자격 증명 모음에 DPM/Azure Backup 서버 등록 등이 포함됩니다.
 
 ### <a name="dpm-agent"></a>DPM 에이전트
 DPM 에이전트가 SharePoint를 실행하는 서버, SQL Server를 실행하는 서버, SharePoint 팜에 속하는 그 밖의 모든 서버에 설치되어야 합니다. 보호 에이전트를 설정하는 방법 대한 자세한 내용은 [보호 에이전트 설치](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx)를 참조하세요.  유일한 예외는 단일 WFE(웹 프런트엔드) 서버에만 에이전트를 설치하는 것입니다. DPM은 보호를 위한 진입점 용도로만 단일 WFE 서버의 에이전트가 필요합니다.
@@ -123,7 +123,7 @@ DPM을 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureSharePo
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
     
     > [!NOTE]
-    > DPM은 Azure에 대한 백업을 매일 다른 시간에 최대 2회 제공합니다. Azure 백업은 [Azure Backup 네트워크 제한](https://azure.microsoft.com/en-in/documentation/articles/backup-configure-vault/#enable-network-throttling)을 사용하여 사용량이 최고인 시간과 적은 시간의 백업에 사용될 수 있는 WAN 대역폭 양을 제어할 수도 있습니다.
+    > DPM은 Azure에 대한 백업을 매일 다른 시간에 최대 2회 제공합니다. Azure 백업은 [Azure Backup 네트워크 제한](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling)을 사용하여 사용량이 최고인 시간과 적은 시간의 백업에 사용될 수 있는 WAN 대역폭 양을 제어할 수도 있습니다.
     > 
     > 
 11. 선택한 백업 일정에 따라 **온라인 보존 정책을 지정** 페이지에서 매일, 매주, 매월 및 매년 백업 지점에 대한 보존 정책을 선택합니다.

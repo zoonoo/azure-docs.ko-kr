@@ -1,21 +1,20 @@
 ---
-title: Azure에서 온-프레미스 사이트로 VM 다시 보호 | Microsoft Docs
-description: VM을 Azure로 장애 조치(failover)한 후에 장애 복구를 시작하여 VM을 온-프레미스로 복구할 수 있습니다. 장애 복구(failback)하기 전에 다시 보호하는 방법을 알아봅니다.
-services: site-recovery
+title: VMware VM 및 물리적 서버의 재해 복구 중에 Azure에서 온-프레미스 사이트로 VM 다시 보호 | Microsoft Docs
+description: VMware VM 및 물리적 서버의 재해 복구 중에 Azure로 장애 조치(failover) 후 Azure에서 온-프레미스 사이트로 장애 복구(failback)하는 방법을 알아봅니다.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 04cb658da6a22643e21104f5673a3f211f48b7fc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e965848b0c3c009444762dafdf42acc080b6915e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916482"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834966"
 ---
-# <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 컴퓨터 다시 보호
+# <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Azure로 장애 조치(failover) 후에 머신을 온-프레미스 사이트로 다시 보호 및 장애 복구(failback)
 
 Azure로 온-프레미스 VMware VM 및 물리적 서버를 [장애 조치](site-recovery-failover.md)한 후에 온-프레미스 사이트를 장애 복구(Failback)하는 첫 번째 단계는 장애 조치(failover) 중에 생성된 Azure VM을 다시 보호하는 것입니다. 이 문서에서는 이를 수행하는 방법을 설명합니다. 
 
@@ -63,7 +62,7 @@ Azure에서 프로세스 서버를 배포하려면:
 마스터 대상 서버는 장애 복구(Failback) 데이터를 받습니다. 기본적으로 마스터 대상 서버는 온-프레미스 구성 서버에서 실행됩니다. 그러나 장애 복구된 트래픽의 양에 따라 장애 복구를 위한 별도의 마스터 대상 서버를 만들어야 할 수도 있습니다. 만드는 방법은 다음과 같습니다.
 
 * Linux VM의 장애 복구(failback)를 위해 [Linux 마스터 대상 서버를 만듭니다](vmware-azure-install-linux-master-target.md). 이것은 필수입니다.
-* 필요에 따라 Windows VM 장애 복구(failback)에 대한 별도의 마스터 대상 서버를 만듭니다. 이 작업을 수행하려면 통합 설치를 다시 실행하고 마스터 대상 서버를 만들도록 선택합니다. [자세히 알아보기](physical-azure-set-up-source.md#run-azure-site-recovery-unified-setup).
+* 필요에 따라 Windows VM 장애 복구(failback)에 대한 별도의 마스터 대상 서버를 만듭니다. 이 작업을 수행하려면 통합 설치를 다시 실행하고 마스터 대상 서버를 만들도록 선택합니다. [자세히 알아보기](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
 
 마스터 대상 서버를 만든 후에 다음과 같은 작업을 수행합니다.
 

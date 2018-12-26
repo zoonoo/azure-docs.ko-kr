@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ddbac24020110e32792286a1ac64070316cfb081
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3ba1f9afda1b4f7f227c996615cc17a8c604d5fb
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332717"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138228"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>명령 실행을 사용하여 Windows VM에서 PowerShell 스크립트 실행
 
@@ -21,7 +21,7 @@ ms.locfileid: "36332717"
 
 ## <a name="benefits"></a>이점
 
-가상 머신에 액세스하는 데 사용할 수 있는 여러 옵션이 있습니다. 명령 실행은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. 명령 실행은 Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 또는 [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)을 통해 사용할 수 있습니다.
+가상 머신에 액세스하는 데 사용할 수 있는 여러 옵션이 있습니다. 명령 실행은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. 명령 실행은 Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 또는 Windows VM용 [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)을 통해 사용할 수 있습니다.
 
 이 기능은 가상 머신 내에서 스크립트를 실행하려는 경우 모든 시나리오에서 유용하며, 부적절한 네트워크 또는 관리 사용자 구성으로 인해 RDP 또는 SSH를 개방하지 않은 가상 머신의 문제를 해결하고 수정할 수 있는 유일한 방법입니다.
 
@@ -33,10 +33,13 @@ ms.locfileid: "36332717"
 * 스크립트를 실행하는 최소 시간은 약 20초
 * 스크립트는 Windows에서 시스템으로 실행
 * 한 번에 한 스크립트씩 실행 가능
+* 정보를 요청하는 스크립트(대화형 모드)는 지원되지 않습니다.
 * 실행 중인 스크립트는 취소할 수 없음
 * 스크립트를 실행할 수 있는 최대 시간은 90분으로 이후는 시간 초과
+* 스크립트의 결과를 반환하려면 VM에서의 아웃바운드 연결이 필요합니다.
 
-**PermissionsConfig-OrchestratorUsersGroup***GroupName***-OrchestratorUser***UserName***\-remote** 
+> [!NOTE]
+> 제대로 작동하려면 실행 명령이 Azure 공용 IP 주소에 연결(포트 443)되어야 합니다. 확장이 이러한 엔드포인트에 대해 액세스 권한이 없는 경우 스크립트는 성공적으로 실행되지만 결과를 반환하지는 않습니다. 가상 머신에서 트래픽을 차단하는 경우 `AzureCloud` 태그를 사용하여 Azure 공용 IP 주소로 트래픽을 허용하려면 [서비스 태그](../../virtual-network/security-overview.md#service-tags)를 사용할 수 있습니다.
 
 ## <a name="run-a-command"></a>명령 실행
 
@@ -64,7 +67,6 @@ ms.locfileid: "36332717"
 |**EnableAdminAccount**|로컬 관리자 계정이 비활성화됐는지 확인하여 그렇다면 활성화합니다.|
 |**IPConfig**| TCP/IP에 바인딩된 각 어댑터에 대해 IP 주소, 서브넷 마스크 및 기본 게이트웨이에 대한 자세한 정보를 표시합니다.|
 |**RDPSettings**|레지스트리 설정 및 도메인 정책 설정을 확인합니다. 컴퓨터가 도메인의 일부인 경우 또는 설정을 기본값으로 수정하는 경우 정책 작업을 제안합니다.|
-|**ResetAccountPassword**| 기본 제공 Administrator 계정 암호를 재설정합니다.|
 |**ResetRDPCert**|RDP 수신기에 연결된 SSL 인증서를 제거하고 RDP 수신기 보안을 기본값으로 복원합니다. 인증서에 문제가 있는 경우 이 스크립트를 사용합니다.|
 |**SetRDPPort**|원격 데스크톱 연결에 대한 기본 또는 사용자 지정 포트 번호를 설정합니다. 포트에 인바운드 액세스를 위한 방화벽 규칙을 사용하도록 설정합니다.|
 

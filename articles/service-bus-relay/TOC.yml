@@ -1,0 +1,96 @@
+items:
+- name: Service Bus Relay 설명서
+  href: index.yml
+- name: 개요
+  items:
+  - name: 릴레이란?
+    href: relay-what-is-it.md
+- name: 자습서
+  items:
+  - name: 하이브리드 연결
+    items:
+    - name: 메시지 보내기 및 받기 - .NET WebSockets
+      href: relay-hybrid-connections-dotnet-get-started.md
+    - name: 메시지 보내기 및 받기 - .NET HTTP
+      href: relay-hybrid-connections-http-requests-dotnet-get-started.md
+    - name: 메시지 보내기 및 받기 - Node WebSockets
+      href: relay-hybrid-connections-node-get-started.md
+    - name: 메시지 보내기 및 받기 - Node HTTP
+      href: relay-hybrid-connections-http-requests-node-get-started.md
+  - name: WCF(Windows Communication Foundation)
+    items:
+    - name: 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스 노출
+      href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+    - name: 네트워크 외부의 WCF 클라이언트에 온-프레미스 WCF 서비스 노출
+      href: service-bus-relay-tutorial.md
+    - name: 네트워크 외부의 클라이언트에 온-프레미스 WCF REST 서비스 노출
+      href: service-bus-relay-rest-tutorial.md
+- name: 샘플
+  items:
+  - name: 하이브리드 연결
+    href: https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections
+  - name: WCF 릴레이
+    href: https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay
+- name: 개념
+  items:
+  - name: 인증 및 권한 부여
+    href: relay-authentication-and-authorization.md
+  - name: 하이브리드 연결 프로토콜
+    href: relay-hybrid-connections-protocol.md
+- name: 방법
+  items:
+  - name: 계획 및 디자인
+    items:
+    - name: ACS에서 SAS로 마이그레이션
+      href: relay-migrate-acs-sas.md
+  - name: 개발
+    items:
+    - name: 네임스페이스 만들기
+      href: relay-create-namespace-portal.md
+    - name: WCF Relay를 사용하여 외부 클라이언트에 WCF 서비스 노출
+      href: relay-wcf-dotnet-get-started.md
+    - name: 사용 가능한 API
+      href: relay-api-overview.md
+      items:
+      - name: .NET
+        href: relay-hybrid-connections-dotnet-api-overview.md
+      - name: 노드
+        href: relay-hybrid-connections-node-ws-api-overview.md
+  - name: 관리
+    items:
+    - name: Azure Monitoring을 사용하여 Azure Relay 모니터링
+      href: relay-metrics-azure-monitor.md
+- name: 참고 자료
+  items:
+  - name: .NET
+    items:
+    - name: Microsoft.Azure.Relay
+      href: /dotnet/api/microsoft.azure.relay
+    - name: Microsoft.ServiceBus
+      href: /dotnet/api/Microsoft.ServiceBus
+  - name: 예외
+    href: relay-exceptions.md
+  - name: 포트 설정
+    href: relay-port-settings.md
+- name: 리소스
+  items:
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
+  - name: FAQ
+    href: relay-faq.md
+  - name: 블로그
+    href: https://blogs.msdn.microsoft.com/servicebus/
+  - name: 가격
+    href: https://azure.microsoft.com/pricing/details/service-bus/
+  - name: 요금 계산기
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: 샘플
+    href: https://github.com/azure/azure-relay/tree/master/samples
+  - name: 스택 오버플로
+    href: http://stackoverflow.com/questions/tagged/azure-servicebusrelay
+ms.openlocfilehash: 0e6f9b0a1830a570bc8388cbfb8149adb12bea11
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613702"

@@ -16,15 +16,15 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c4ecb7c43a9a26385d5e6cef023c7219fb1120d3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 924fea7a8a8e6fb1ab25584a49f38b25156d1ec6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606166"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230515"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용
-확장 집합을 만들 때 VM 인스턴스 배포 시 사용할 이미지를 지정합니다. VM 인스턴스가 배포된 후 작업의 수를 줄이려면 사용자 지정 VM 이미지를 사용할 수 있습니다. 이 사용자 지정 VM 이미지에는 필요한 모든 응용 프로그램 설치 또는 구성이 포함됩니다. 확장 집합에서 만들어진 모든 VM 인스턴스는 사용자 지정 VM 이미지를 사용하며, 응용 프로그램 트래픽을 처리할 준비가 되어 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+확장 집합을 만들 때 VM 인스턴스 배포 시 사용할 이미지를 지정합니다. VM 인스턴스가 배포된 후 작업의 수를 줄이려면 사용자 지정 VM 이미지를 사용할 수 있습니다. 이 사용자 지정 VM 이미지에는 필요한 모든 애플리케이션 설치 또는 구성이 포함됩니다. 확장 집합에서 만들어진 모든 VM 인스턴스는 사용자 지정 VM 이미지를 사용하며, 애플리케이션 트래픽을 처리할 준비가 되어 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * VM 만들기 및 사용자 지정
@@ -42,7 +42,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 ## <a name="create-and-configure-a-source-vm"></a>원본 VM 만들기 및 구성
 
 >[!NOTE]
-> 이 자습서는 일반화된 VM 이미지를 만들고 사용하는 과정을 안내합니다. 특수화된 VM 이미지로부터 확장 집합 만들기는 지원되지 않습니다.
+> 이 자습서는 일반화된 VM 이미지를 만들고 사용하는 과정을 안내합니다. 특수 VHD로 확장 집합 만들기는 지원되지 않습니다.
 
 먼저 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 리소스 그룹을 만든 다음, [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 VM을 만듭니다. 이 VM은 사용자 지정 VM 이미지에 대한 원본으로 사용됩니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myCustomVM*이라는 VM을 만듭니다. 메시지가 표시되면 VM에 대한 로그온 자격 증명으로 사용할 사용자 이름과 암호를 입력합니다.
 
@@ -70,13 +70,13 @@ VM과의 원격 연결을 만듭니다. Azure Cloud Shell을 사용하는 경우
 mstsc /v:<IpAddress>
 ```
 
-VM을 사용자 지정하기 위해 기본 웹 서버를 설치해 보겠습니다. 확장 집합의 VM 인스턴스가 배포되면 웹 응용 프로그램을 실행하는 데 필요한 모든 패키지가 포함되어 있습니다. VM에서 로컬 PowerShell 프롬프트를 열고, 다음과 같이 [Install-WindowsFeature](/powershell/module/servermanager/install-windowsfeature)를 사용하여 IIS 웹 서버를 설치합니다.
+VM을 사용자 지정하기 위해 기본 웹 서버를 설치해 보겠습니다. 확장 집합의 VM 인스턴스가 배포되면 웹 애플리케이션을 실행하는 데 필요한 모든 패키지가 포함되어 있습니다. VM에서 로컬 PowerShell 프롬프트를 열고, 다음과 같이 [Install-WindowsFeature](/powershell/module/servermanager/install-windowsfeature)를 사용하여 IIS 웹 서버를 설치합니다.
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-사용자 지정 이미지로 사용할 VM을 준비하는 마지막 단계는 VM을 일반화하는 것입니다. Sysprep은 모든 개인 계정 정보 및 구성을 제거하고, 이후의 배포를 위해 VM을 빈 상태로 다시 설정합니다. 자세한 내용은 [Sysprep 사용 방법: 소개](http://technet.microsoft.com/library/bb457073.aspx)를 참조하세요.
+사용자 지정 이미지로 사용할 VM을 준비하는 마지막 단계는 VM을 일반화하는 것입니다. Sysprep은 모든 개인 계정 정보 및 구성을 제거하고, 이후의 배포를 위해 VM을 빈 상태로 다시 설정합니다. 자세한 내용은 [Sysprep 사용 방법: 소개](https://technet.microsoft.com/library/bb457073.aspx)를 참조하세요.
 
 VM을 일반화하려면 Sysprep을 실행하고, VM을 즉시 사용할 수 있는 환경으로 설정합니다. 완료되면 Sysprep에 VM을 종료하도록 지시합니다.
 
@@ -163,7 +163,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 > * 사용자 지정 VM 이미지 만들기
 > * 사용자 지정 VM 이미지를 사용하는 확장 집합 배포
 
-응용 프로그램을 확장 집합에 배포하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
+애플리케이션을 확장 집합에 배포하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [확장 집합에 응용 프로그램 배포](tutorial-install-apps-powershell.md)

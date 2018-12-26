@@ -3,7 +3,7 @@ title: Azure Cloud Services 역할에 .NET 설치 | Microsoft Docs
 description: 이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 .NET Framework를 수동으로 설치하는 방법을 설명합니다.
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
-ms.author: adegeo
-ms.openlocfilehash: 8bd146f5265e499c38b016ea8d8cb00685867cd3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.author: jeconnoc
+ms.openlocfilehash: 698cae13b9e78de6318c28bde998e195540c513c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035276"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256802"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Azure Cloud Services 역할에 .NET 설치
 이 문서에서는 Azure 게스트 OS와 함께 제공되지 않는 .NET Framework 버전을 설치하는 방법을 설명합니다. 클라우드 서비스 웹 및 작업자 역할을 구성하기 위해 게스트 OS에 .NET을 사용할 수 있습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "37035276"
 ## <a name="add-the-net-installer-to-your-project"></a>프로젝트에 .NET 설치 관리자 추가
 .NET Framework의 웹 설치 관리자를 다운로드하려면 설치하려는 버전을 선택합니다.
 
-* [.NET 4.7.2 웹 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=863262)
+* [.NET 4.7.2 웹 설치 관리자](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET 4.6.2 웹 설치 관리자](https://www.microsoft.com/download/details.aspx?id=53345)
 
 *웹* 역할에 대한 설치 관리자를 추가하려면
@@ -109,7 +109,7 @@ ms.locfileid: "37035276"
    set "log=install.cmd started %timestamp%."
    
    REM ***** Exit script if running in Emulator *****
-   if %ComputeEmulatorRunning%=="true" goto exit
+   if "%ComputeEmulatorRunning%"=="true" goto exit
    
    REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
    set TMP=%PathToNETFXInstall%

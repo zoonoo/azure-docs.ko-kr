@@ -2,18 +2,17 @@
 title: Azure CLI 및 YAML을 사용하여 Azure Container Instances에 다중 컨테이너 그룹 배포
 description: Azure CLI 및 YAML 파일을 사용하여 Azure Container Instances에서 여러 컨테이너가 있는 컨테이너 그룹을 배포하는 방법을 알아봅니다.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/08/2018
-ms.author: marsma
-ms.openlocfilehash: 5dfee15e978d2dba0f50d1dc4b78953698389950
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.date: 07/17/2018
+ms.author: danlep
+ms.openlocfilehash: ffc9cf24e686924878a752b5d9df31160328ef0a
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851196"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854714"
 ---
 # <a name="deploy-a-multi-container-container-group-with-yaml"></a>YAML을 사용하여 다중 컨테이너 컨테이너 그룹 배포
 
@@ -35,7 +34,7 @@ Azure CLI에서 [az container create][az-container-create] 명령을 사용하�
 
 먼저 다음 YAML을 **deploy-aci.yaml**이라는 새 파일에 복사합니다.
 
-이 YAML 파일은 두 개의 컨테이너, 하나의 공용 IP 주소, 두 개의 노출된 포트가 있는 컨테이너 그룹을 정의합니다. 그룹의 첫 번째 컨테이너는 인터넷 연결 웹 응용 프로그램을 실행합니다. 두 번째 컨테이너인 사이드카는 컨테이너 그룹의 로컬 네트워크를 통해 첫 번째 컨테이너에서 실행되는 웹 응용 프로그램에 주기적으로 HTTP 요청을 보냅니다.
+이 YAML 파일은 두 개의 컨테이너, 하나의 공용 IP 주소, 두 개의 노출된 포트가 있는 “myContainerGroup”이라는 컨테이너 그룹을 정의합니다. 그룹의 첫 번째 컨테이너는 인터넷 연결 웹 응용 프로그램을 실행합니다. 두 번째 컨테이너인 사이드카는 컨테이너 그룹의 로컬 네트워크를 통해 첫 번째 컨테이너에서 실행되는 웹 응용 프로그램에 주기적으로 HTTP 요청을 보냅니다.
 
 ```YAML
 apiVersion: 2018-06-01
@@ -83,7 +82,7 @@ az group create --name myResourceGroup --location eastus
 [az container create][az-container-create] 명령을 사용하여 컨테이너 그룹을 배포하고, YAML 파일을 인수로 전달합니다.
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name myContainerGroup -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --file deploy-aci.yaml
 ```
 
 몇 초 정도 지나면 Azure에서 초기 응답이 수신됩니다.
@@ -112,7 +111,7 @@ myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-helloworld
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-출력
+출력:
 
 ```console
 listening on port 80
@@ -127,7 +126,7 @@ listening on port 80
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-출력
+출력:
 
 ```console
 Every 3s: curl -I http://localhost                          2018-01-09 23:25:11
@@ -200,14 +199,15 @@ type: Microsoft.ContainerInstance/containerGroups
 [az container export][az-container-export] 명령을 실행하여 이전에 만든 컨테이너 그룹의 구성을 내보낼 수 있습니다.
 
 ```azurecli-interactive
-az container export --resource-group rg604 --name myContainerGroup --file deployed-aci.yaml
+az container export --resource-group myResourceGroup --name myContainerGroup --file deployed-aci.yaml
 ```
 
 명령이 성공하면 아무 출력도 표시되지 않지만, 파일의 콘텐츠를 보면 결과를 알 수 있습니다. 예를 들어 `head`가 붙은 처음 몇 줄은 다음과 같습니다.
 
 ```console
 $ head deployed-aci.yaml
-apiVersion: 2018-02-01-preview
+additional_properties: {}
+apiVersion: '2018-06-01'
 location: eastus
 name: myContainerGroup
 properties:
@@ -216,11 +216,7 @@ properties:
     properties:
       environmentVariables: []
       image: microsoft/aci-helloworld:latest
-      ports:
 ```
-
-> [!NOTE]
-> Azure CLI 2.0.34 버전의 경우 내보낸 컨테이너 그룹이 이전 API 버전 **2018-02-01-preview**(이전 JSON 출력 예제에서 본)를 지정하는 [알려진 문제][cli-issue-6525]가 있습니다. 내보낸 YAML 파일을 사용하여 다시 배포하려는 경우 내보낸 YAML 파일의 `apiVersion` 값을 **2018-06-01**로 안전하게 업데이트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

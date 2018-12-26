@@ -1,3 +1,16 @@
+---
+author: vhorne
+ms.service: application-gateway
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: victorh
+ms.openlocfilehash: 0c161510d106343d88e7c77c72a1d1750fe25040
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279775"
+---
 ## <a name="prerequisite-install-the-azure-powershell-module"></a>필수 조건: Azure PowerShell 모듈 설치
 
 이 문서의 단계를 수행하려면 [Azure PowerShell 모듈을 설치하고 구성](/powershell/azureps-cmdlets-docs)해야 합니다. 모든 지침을 완료해야 합니다. 설치가 끝나면 Azure에 로그인하고 구독을 선택하십시오.

@@ -1,27 +1,22 @@
 ---
 title: 사용자 지정 API에 인증 추가 - Azure Logic Apps | Microsoft Docs
-description: 논리 앱에서 사용자 지정 API 호출에 대한 인증 설정
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: Azure Logic Apps에서 사용자 지정 API 호출에 대한 인증 설정
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: 705abb2a3cc25c965bdce364eb169b4e3a814bff
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7e1f2411db828917d7a3c5e21348b553a5a5a3bb
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298552"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087511"
 ---
-# <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>논리 앱에서 사용자 지정 API 호출에 대해 호출 보호
+# <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Azure Logic Apps에서 사용자 지정 API에 대한 호출 보호
 
 API에 대한 호출을 보호하려면 코드를 업데이트할 필요가 없도록 Azure Portal을 통해 Azure AD(Azure Active Directory) 인증을 설정할 수 있습니다. 또는 API 코드를 통해 인증을 요구하고 적용할 수 있습니다.
 
@@ -29,7 +24,7 @@ API에 대한 호출을 보호하려면 코드를 업데이트할 필요가 없�
 
 다음과 같은 방법으로 사용자 지정 API에 대한 호출을 보호할 수 있습니다.
 
-* [코드 변경 없음](#no-code) - Azure Portal을 통해 [Azure AD(Azure Active Directory)](../active-directory/active-directory-whatis.md)로 API를 보호하므로 코드를 업데이트하거나 API를 다시 배포할 필요가 없습니다.
+* [코드 변경 없음](#no-code) - Azure Portal을 통해 [Azure AD(Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md)로 API를 보호하므로 코드를 업데이트하거나 API를 다시 배포할 필요가 없습니다.
 
   > [!NOTE]
   > 기본적으로 Azure Portal에서 설정하는 Azure AD 인증은 세분화된 권한 부여를 수행하지 않습니다. 예를 들어 이 인증을 통해 특정 사용자 또는 앱이 아니라 특정 테넌트에 대한 API를 잠급니다. 
@@ -101,15 +96,15 @@ API에 대한 호출을 보호하려면 코드를 업데이트할 필요가 없�
 
 PowerShell과 함께 Azure Resource Manager를 통해 이 작업을 수행할 수 있습니다. PowerShell에서 다음 명령을 실행합니다.
 
-1. `Switch-AzureMode AzureResourceManager`
+1. `Add-AzureRmAccount`
 
-2. `Add-AzureAccount`
+2. `$SecurePassword = Read-Host -AsSecureString`(암호를 입력하고 Enter 키를 누릅니다.)
 
-3. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password "identity-password"`
+3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. 사용한 **테넌트 ID**(Azure AD 테넌트의 GUID), **응용 프로그램 ID** 및 암호를 복사합니다.
 
-자세한 내용은 [PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md)를 참조하세요.
+자세한 내용은 [PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md)를 참조하세요.
 
 #### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>2부: 웹앱 또는 API 앱의 Azure AD 응용 프로그램 ID 만들기
 
@@ -159,7 +154,7 @@ PowerShell과 함께 Azure Resource Manager를 통해 이 작업을 수행할 �
 1부의 단계를 수행할 수도 있지만 **로그인 URL** 및 **앱 ID URI**에 대한 웹앱 또는 API 앱의 실제 `https://{URL}`을 사용해야 합니다. 이러한 단계에서 앱의 배포 템플릿 및 3부에서 사용할 클라이언트 ID와 테넌트 ID를 모두 저장해야 합니다.
 
 > [!NOTE]
-> 웹앱 또는 API 앱의 Azure AD 응용 프로그램 ID를 만들 때는 PowerShell이 아닌 Azure Portal을 사용해야 합니다. PowerShell commandlet은 웹 사이트에 사용자가 로그인하는 데 필요한 권한을 설정하지 않습니다.
+> 웹앱 또는 API 앱의 Azure AD 애플리케이션 ID를 만들 때는 PowerShell이 아닌 Azure Portal을 사용해야 합니다. PowerShell commandlet은 웹 사이트에 사용자가 로그인하는 데 필요한 권한을 설정하지 않습니다.
 
 클라이언트 ID와 테넌트 ID를 가져온 후에는 이러한 ID를 웹앱 또는 API 앱의 하위 리소스로 배포 템플릿에 포함합니다.
 
@@ -193,11 +188,11 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 
 | 요소 | 필수 | 설명 | 
 | ------- | -------- | ----------- | 
-| tenant | 예 | Azure AD 테넌트의 GUID | 
-| audience | 예 | 액세스하려는 대상 리소스의 GUID, 즉 웹앱 또는 API 앱에 대한 응용 프로그램 ID의 클라이언트 ID | 
-| clientId | 예 | 액세스를 요청하는 클라이언트의 GUID, 즉 논리 앱에 대한 응용 프로그램 ID의 클라이언트 ID | 
-| secret | 예 | 액세스 토큰을 요청하는 클라이언트에 대한 응용 프로그램 ID의 키 또는 암호 | 
-| 형식 | 예 | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
+| tenant | yes | Azure AD 테넌트의 GUID | 
+| 대상 | yes | 액세스하려는 대상 리소스의 GUID, 즉 웹앱 또는 API 앱에 대한 응용 프로그램 ID의 클라이언트 ID | 
+| clientId | yes | 액세스를 요청하는 클라이언트의 GUID, 즉 논리 앱에 대한 응용 프로그램 ID의 클라이언트 ID | 
+| secret | yes | 액세스 토큰을 요청하는 클라이언트에 대한 응용 프로그램 ID의 키 또는 암호 | 
+| 형식 | yes | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
 |||| 
 
 예: 
@@ -239,9 +234,9 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 
 | 요소 | 필수 | 설명 | 
 | ------- | -------- | ----------- | 
-| 형식 | 예 | 인증 유형입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`여야 합니다. | 
-| 암호 | 예 | 클라이언트 인증서(PFX 파일)에 액세스하기 위한 암호 | 
-| pfx | 예 | 클라이언트 인증서(PFX 파일)의 Base64로 인코딩된 콘텐츠 | 
+| 형식 | yes | 인증 유형입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`여야 합니다. | 
+| 암호 | yes | 클라이언트 인증서(PFX 파일)에 액세스하기 위한 암호 | 
+| pfx | yes | 클라이언트 인증서(PFX 파일)의 Base64로 인코딩된 콘텐츠 | 
 |||| 
 
 <a name="basic"></a>
@@ -256,9 +251,9 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 
 | 요소 | 필수 | 설명 | 
 | ------- | -------- | ----------- | 
-| 형식 | 예 | 사용할 인증 유형입니다. 기본 인증의 경우 값은 `Basic`이어야 합니다. | 
-| 사용자 이름 | 예 | 인증에 사용할 사용자 이름 | 
-| 암호 | 예 | 인증에 사용할 암호 | 
+| 형식 | yes | 사용할 인증 유형입니다. 기본 인증의 경우 값은 `Basic`이어야 합니다. | 
+| 사용자 이름 | yes | 인증에 사용할 사용자 이름 | 
+| 암호 | yes | 인증에 사용할 암호 | 
 |||| 
 
 <a name="azure-ad-code"></a>

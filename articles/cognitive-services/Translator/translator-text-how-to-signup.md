@@ -1,21 +1,21 @@
 ---
-title: Translator Text API 등록 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Translator Text API에 등록하는 방법입니다.
+title: Translator Text에 등록하는 방법 - Translator Text API
+titleSuffix: Azure Cognitive Services
+description: Translator Text API에 등록하고 구독 키를 가져오는 방법을 알아봅니다.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 2aa293acfa1a9e3fd95a64f6981bd8dc9747b6b6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: erhopf
+ms.openlocfilehash: e7ba72c95959a0c31ca724f91f519ac705d669fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265560"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245786"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Translator Text API에 등록하는 방법
 
@@ -47,7 +47,7 @@ Translator Text에 등록하면 구독에 고유한 개인 설정 액세스 키�
 ## <a name="learn-test-and-get-support"></a>학습, 테스트 및 지원 받기
 
 - [GitHub의 코드 예제](https://github.com/MicrosoftTranslator)
-- [Microsoft Translator 지원 포럼](http://www.aka.ms/TranslatorForum)
+- [Microsoft Translator 지원 포럼](https://www.aka.ms/TranslatorForum)
 
 ## <a name="pricing-options"></a>가격 책정 옵션
 

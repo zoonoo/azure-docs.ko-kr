@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 7d3a357e1a3929153288a9d99e21f2379bcac891
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: f69035202a3358af38ebaf8e94abdd3b030e633f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102021"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256071"
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: 작업 로그를 사용한 문제 해결
 
@@ -31,8 +31,8 @@ ms.locfileid: "24102021"
 작업 로그는 관리 서비스 기능으로서 BizTalk Services를 포함한 Azure 서비스에서 수행된 작업의 기록 로그를 볼 수 있습니다. 이렇게 하면 BizTalk 서비스 구독에서 180일 이전의 관리 작업과 관련된 기록 데이터를 볼 수 있습니다.
 
 > [!NOTE]
-> 이 기능은 서비스가 시작되었을 경우, 백업되었을 경우 등과 같은 BizTalk Services의 관리 작업에 대한 로그만 캡처합니다. [BizTalk Service REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)를 사용하여 이러한 작업을 추적합니다. 관리 서비스를 사용하여 추적된 작업의 전체 목록을 보려면 [Azure 관리 서비스를 사용하여 추적된 작업](#bizops)를 사용하여 수행되었는지 여부에 관계없이 추적됩니다.<br/><br/>
-> BizTalk 서비스 런타임과 관련된 작업(예: 브리지에서 처리하는 메시지 등)에 대한 로그는 캡처하지 않습니다. 이러한 로그를 보려면 BizTalk Services 포털에서 추적 뷰를 사용합니다. 자세한 내용은 [메시지 추적](http://msdn.microsoft.com/library/azure/hh949805.aspx)을 참조하세요.
+> 이 기능은 서비스가 시작되었을 경우, 백업되었을 경우 등과 같은 BizTalk Services의 관리 작업에 대한 로그만 캡처합니다. [BizTalk Service REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)를 사용하여 이러한 작업을 추적합니다. 관리 서비스를 사용하여 추적된 작업의 전체 목록을 보려면 [Azure 관리 서비스를 사용하여 추적된 작업](#bizops)를 사용하여 수행되었는지 여부에 관계없이 추적됩니다.<br/><br/>
+> BizTalk 서비스 런타임과 관련된 작업(예: 브리지에서 처리하는 메시지 등)에 대한 로그는 캡처하지 않습니다. 이러한 로그를 보려면 BizTalk Services 포털에서 추적 뷰를 사용합니다. 자세한 내용은 [메시지 추적](https://msdn.microsoft.com/library/azure/hh949805.aspx)을 참조하세요.
 > 
 > 
 
@@ -45,7 +45,7 @@ ms.locfileid: "24102021"
 ## <a name="bizops"></a>Azure 관리 서비스를 사용하여 추적된 작업
 다음 표에서는 Azure 관리 서비스를 사용하여 추적된 작업의 목록을 보여 줍니다.
 
-| 작업 이름 | 작업 |
+| 작업 이름 | Task |
 | --- | --- |
 | CreateBizTalkService |새 BizTalk 서비스를 만드는 작업 |
 | DeleteBizTalkService |BizTalk 서비스를 삭제하는 작업 |
@@ -64,15 +64,15 @@ ms.locfileid: "24102021"
 | PurgeBackupBizTalkService |보존 기간이 지난 BizTalk 서비스의 백업을 삭제하는 작업 |
 
 ## <a name="see-also"></a>참고 항목
-* [BizTalk 서비스 Backup](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [Backup에서 BizTalk 서비스 복원](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk Services: Developer, Basic, Standard 및 Premium Editions 차트](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: 프로비저닝 상태 차트](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk Services: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: 발급자 이름 및 발급자 키](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [Azure BizTalk Services SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [BizTalk 서비스 Backup](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [Backup에서 BizTalk 서비스 복원](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk Services: Developer, Basic, Standard 및 Premium Editions 차트](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk Services: 프로비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: 프로비저닝 상태 차트](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: 제한](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services: 발급자 이름 및 발급자 키](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [Azure BizTalk Services SDK로 시작하는 방법](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
 

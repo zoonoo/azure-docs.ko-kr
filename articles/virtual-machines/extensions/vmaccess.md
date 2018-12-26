@@ -1,9 +1,9 @@
 ---
 title: Azure Linux VM에 대한 액세스 다시 설정 | Microsoft Docs
-description: VMAccess 확장 및 Azure CLI 2.0을 사용하여 관리 사용자를 관리하고 Linux VM에 대한 액세스를 다시 설정하는 방법
+description: VMAccess 확장 및 Azure CLI를 사용하여 관리 사용자를 관리하고 Linux VM에 대한 액세스를 다시 설정하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,19 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: danis
-ms.openlocfilehash: c023f226894d2fabb90736513e49a1ecca179d4f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.author: roiyz
+ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165794"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452057"
 ---
-# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Azure CLI 2.0에서 VMAccess 확장을 사용하여 관리 사용자, SSH를 관리하고 Linux VM의 디스크를 검사 또는 복구
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Azure CLI에서 VMAccess 확장을 사용하여 관리 사용자, SSH를 관리하고 Linux VM의 디스크를 검사 또는 복구
 ## <a name="overview"></a>개요
 Linux VM의 디스크에 오류가 표시되어 있습니다. 사용자가 Linux VM의 루트 암호를 재설정했거나 SSH 개인 키를 실수로 삭제했습니다. 데이터 센터를 사용할 때는 이러한 경우 데이터 센터로 직접 가서 KVM을 열어 서버 콘솔에 액세스해야 했습니다. Azure VMAccess 확장을 콘솔에 액세스하여 Linux에 대한 액세스 권한을 재설정하거나 디스크 수준 유지 관리를 수행할 수 있는 이 KVM 스위치로 생각하세요.
 
 이 문서에서는 Azure VM 액세스 확장을 사용하여 Azure Resource Manager 가상 머신으로 실행되는 Linux에서 디스크를 검사 또는 복구하거나, 사용자 액세스를 다시 설정하거나, 관리 사용자 계정을 관리하거나, SSH 구성을 업데이트하는 방법에 대해 설명합니다. 클래식 가상 머신을 관리해야 하는 경우 [클래식 VM 설명서](../linux/classic/reset-access-classic.md)에 있는 지침을 따르면 됩니다. 
+ 
+> [!NOTE]
+> AAD 로그인 확장을 설치한 후에 VMAccess 확장을 사용하여 VM의 암호를 재설정하는 경우 AAD 로그인 확장을 다시 실행하여 머신에 대해 AAD 로그인을 다시 사용하도록 설정해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 ### <a name="operating-system"></a>운영 체제
@@ -37,7 +40,7 @@ VM 액세스 확장은 다음 Linux 배포판에 대해 실행할 수 있습니�
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS 및 12.04 LTS |
 | Debian | Debian 7.9 이상, 8.2 이상 |
-| RedHat | RHEL 6.7+, 7.1+ |
+| Red Hat | RHEL 6.7+, 7.1+ |
 | Oracle Linux | 6.4 이상, 7.0 이상 |
 | Suse | 11 및 12 |
 | OpenSuse | openSUSE Leap 42.2+ |
@@ -47,10 +50,10 @@ VM 액세스 확장은 다음 Linux 배포판에 대해 실행할 수 있습니�
 ## <a name="ways-to-use-the-vmaccess-extension"></a>VMAccess 확장을 사용하는 방법
 Linux VM에서 두 가지 방법으로 VMAccess 확장을 사용할 수 있습니다.
 
-* Azure CLI 2.0 및 필수 매개 변수를 사용합니다.
+* Azure CLI 및 필수 매개 변수 사용
 * [VMAccess 확장을 처리하고 관련 작업을 수행하는 원시 JSON 파일을 사용](#use-json-files-and-the-vmaccess-extension)합니다.
 
-다음 예에서는 [az vm user](/cli/azure/vm/user) 명령을 사용합니다. 이러한 단계를 수행하려면 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인해야 합니다.
+다음 예에서는 [az vm user](/cli/azure/vm/user) 명령을 사용합니다. 이러한 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 ## <a name="update-ssh-key"></a>SSH 키 업데이트
 다음 예제에서는 VM `myVM`에서 사용자 `azureuser`에 대한 SSH 키를 업데이트합니다.

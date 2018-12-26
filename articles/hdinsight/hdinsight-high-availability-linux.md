@@ -1,26 +1,21 @@
 ---
-title: Hadoop의 고가용성 - Azure HDInsight | Microsoft Docs
+title: Hadoop의 고가용성 - Azure HDInsight
 description: HDInsight 클러스터에서 추가 헤드 노드를 사용하여 안정성과 가용성을 높이는 방법을 알아봅니다. 이로 인해 Ambari 및 Hive와 같은 Hadoop 서비스에 미치는 영향과 SSH를 사용하여 각 헤드 노드에 개별적으로 연결하는 방법에 대해 알아봅니다.
 services: hdinsight
-editor: cgronlun
-manager: cgronlun
-author: Blackmist
-documentationcenter: ''
-tags: azure-portal
+ms.reviewer: jasonh
+author: hrasheed-msft
 keywords: hadoop high availability
-ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: larryfr
-ms.openlocfilehash: 835e649959164aee5cc8edb1f2e34170d8a321f1
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.author: hrasheed
+ms.openlocfilehash: d3326ef4bba5649f5420c1d92b6117d44edba47b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046682"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281985"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
 
@@ -28,8 +23,7 @@ HDInsight 클러스터는 두 개의 헤드 노드를 제공하여 실행 중인
 
 Hadoop은 클러스터의 여러 노드에서 서비스와 데이터를 복사하여 고가용성과 안정성을 달성합니다. 그러나 Hadoop의 표준 배포에는 일반적으로 단일 헤드 노드만 있습니다. 단일 헤드 노드의 가동 중단으로 인해 클러스터의 작동이 중지될 수 있습니다. HDInsight는 Hadoop의 가용성 및 안정성을 향상시키기 위해 두 헤드 노드를 제공합니다.
 
-> [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
+[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="availability-and-reliability-of-nodes"></a>노드의 가용성 및 안정성
 
@@ -213,13 +207,13 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택합니다.
 
 노드의 크기는 클러스터를 만드는 동안에만 선택할 수 있습니다. [HDInsight 가격 책정 페이지](https://azure.microsoft.com/pricing/details/hdinsight/)에서 HDInsight에 사용할 수 있는 다양한 VM 크기의 목록을 찾을 수 있습니다.
 
-클러스터를 만들 때 노드 크기를 지정할 수 있습니다. 다음 정보는 [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell] 및 [Azure CLI][azure-cli]를 사용하여 크기를 지정하는 방법에 대한 지침을 제공합니다.
+클러스터를 만들 때 노드 크기를 지정할 수 있습니다. 다음 정보는 [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell] 및 [Azure 클래식 CLI][azure-cli]를 사용하여 크기를 지정하는 방법에 대한 지침을 제공합니다.
 
 * **Azure Portal**: 클러스터를 만들 때 클러스터에서 사용하는 노드의 크기를 설정할 수 있습니다.
 
     ![노드 크기 선택이 포함된 클러스터 만들기 마법사의 이미지](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure CLI**: `azure hdinsight cluster create` 명령을 사용하는 경우 `--headNodeSize`, `--workerNodeSize` 및 `--zookeeperNodeSize` 매개 변수를 사용하여 헤드 노드의 크기, 작업자 및 ZooKeeper 노드를 설정할 수 있습니다.
+* **Azure 클래식 CLI**: `azure hdinsight cluster create` 명령을 사용하는 경우 `--headNodeSize`, `--workerNodeSize` 및 `--zookeeperNodeSize` 매개 변수를 사용하여 헤드 노드의 크기, 작업자 및 ZooKeeper 노드를 설정할 수 있습니다.
 
 * **Azure PowerShell**: `New-AzureRmHDInsightCluster` cmdlet을 사용하는 경우 `-HeadNodeVMSize`, `-WorkerNodeSize` 및 `-ZookeeperNodeSize` 매개 변수를 사용하여 헤드 노드의 크기, 작업자 및 ZooKeeper 노드를 설정할 수 있습니다.
 
@@ -228,7 +222,7 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택합니다.
 이 문서에서 설명된 항목에 대해 자세히 알아보려면 다음 링크를 사용하세요.
 
 * [Ambari REST 참조](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Azure CLI 설치 및 구성](../cli-install-nodejs.md)
+* [Azure 클래식 CLI 설치 및 구성](../cli-install-nodejs.md)
 * [Azure PowerShell 설치 및 구성](/powershell/azure/overview)
 * [Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)
 * [Linux 기반 HDInsight 클러스터 프로비전을](hdinsight-hadoop-provision-linux-clusters.md)

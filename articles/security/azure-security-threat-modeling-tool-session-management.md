@@ -3,36 +3,36 @@ title: 세션 관리 - Microsoft 위협 모델링 도구 - Azure | Microsoft Doc
 description: 위협 모델링 도구에 노출되는 위협 완화
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 24bd0e8eff616920dba0eb5353f983444e3161cd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: 182a0232b5317b1a375a20bdd4c6467578dc775b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019962"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232745"
 ---
-# <a name="security-frame-session-management--articles"></a>보안 프레임: 세션 관리 | Articles 
+# <a name="security-frame-session-management"></a>보안 프레임: 세션 관리
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현](#logout-adal)</li></ul> |
-| IoT 장치 | <ul><li>[생성된 SaS 토큰에 대해 한정된 수명 사용](#finite-tokens)</li></ul> |
+| IoT 디바이스 | <ul><li>[생성된 SaS 토큰에 대해 한정된 수명 사용](#finite-tokens)</li></ul> |
 | **Azure Document DB** | <ul><li>[생성된 리소스 토큰에 대해 최소 토큰 수명 사용](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[ADFS를 사용하는 경우에 WsFederation 메서드를 사용하여 적절한 로그아웃 구현](#wsfederation-logout)</li></ul> |
 | **Identity Server** | <ul><li>[ID 서버를 사용하는 경우 적절한 로그아웃 구현](#proper-logout)</li></ul> |
 | **웹 응용 프로그램** | <ul><li>[HTTPS를 통해 사용할 수 있는 응용 프로그램은 보안 쿠키를 사용해야 함](#https-secure-cookies)</li><li>[모든 http 기반 응용 프로그램은 쿠키 정의에 대해서 http만을 지정해야 함](#cookie-definition)</li><li>[ASP.NET 웹 페이지에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-asp)</li><li>[비활성 수명에 대한 세션 설정](#inactivity-lifetime)</li><li>[응용 프로그램에서 적절한 로그아웃 구현](#proper-app-logout)</li></ul> |
 | **앱 API** | <ul><li>[ASP.NET Web API에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-api)</li></ul> |
 
-## <a id="logout-adal"></a>Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현
+## <a id="logout-adal">Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현</a>
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -71,7 +71,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | IoT 장치 | 
+| **구성 요소**               | IoT 디바이스 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
@@ -157,7 +157,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | EnvironmentType - OnPrem |
-| **참조**              | [httpCookies 요소(ASP.NET 설정 스키마)](http://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure 속성](http://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **참조**              | [httpCookies 요소(ASP.NET 설정 스키마)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure 속성](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
 | **단계** | 쿠키는 일반적으로 범위가 지정된 도메인에만 액세스할 수 있습니다. 아쉽게도 HTTPS를 통해 만들어진 쿠키가 HTTP를 통해 액세스할 수 있도록 "도메인"의 정의는 프로토콜을 포함하지 않습니다. "보안" 특성은 쿠키가 HTTPS를 통해서만 사용될 수 있음을 브라우저에 나타냅니다. HTTPS를 통해 설정된 모든 쿠키는 **보안** 특성을 사용해야 합니다. 이 요구 사항은 requireSSL 특성을 true로 설정하여 web.config 파일에 적용할 수 있습니다. 그러면 추가 코드를 변경할 필요 없이 모든 현재 및 미래의 쿠키에 **보안** 특성을 적용하기 때문에 가장 좋은 방법이라고 할 수 있습니다.|
 
 ### <a name="example"></a>예
@@ -380,36 +380,42 @@ void Page_Init (object sender, EventArgs e) {
 | **단계** | 세션 제한 시간은 사용자가 웹 서버에서 정의되는 간격 내에 웹 사이트에서 아무 작업도 수행하지 않는 경우 발생하는 이벤트를 나타냅니다. 서버 쪽의 이벤트는 사용자 세션의 상태를 '잘못됨'(즉, "더 이상 사용되지 않는")으로 변경하고 웹 서버가 해당 항목을 삭제하도록 지시합니다(포함된 모든 데이터 삭제). 다음 코드 예제에서는 Web.config 파일에서 시간 제한 세션 특성을 15분으로 설정합니다.|
 
 ### <a name="example"></a>예
-```XML 코드 <configuration> <system.web> <sessionState mode="InProc" cookieless="true" timeout="15" /> </system.web> </configuration>
+```XML 
+<configuration>
+  <system.web>
+    <sessionState mode="InProc" cookieless="true" timeout="15" />
+  </system.web>
+</configuration>
 ```
 
-## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
-```
-
-| 제목                   | 세부 정보      |
-| ----------------------- | ------------ |
-| **구성 요소**               | 웹 응용 프로그램 | 
-| **SDL 단계**               | 빌드 |  
-| **적용 가능한 기술** | 웹 양식 |
-| **특성**              | 해당 없음  |
-| **참조**              | [인증(ASP.NET 설정 스키마)에 대한 양식 요소](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| **단계** | 양식 인증 티켓 쿠키 시간 제한을 15분으로 설정|
-
-### <a name="example"></a>예
-```XML 코드 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
-</forms>
+## <a id="threat-detection"></a>Azure SQL에서 위협 감지 사용
 ```
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
 | **Component**               | Web Application | 
 | **SDL Phase**               | Build |  
-| **Applicable Technologies** | Web Forms, MVC5 |
-| **Attributes**              | EnvironmentType - OnPrem |
-| **References**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
-| **Steps** | When the web application is Relying Party and ADFS is the STS, the lifetime of the authentication cookies - FedAuth tokens - can be set by the following configuration in web.config:|
+| **Applicable Technologies** | Web Forms |
+| **Attributes**              | N/A  |
+| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
+```XML
+<forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
+</forms>
+```
+
+| 제목                   | 세부 정보      |
+| ----------------------- | ------------ |
+| **구성 요소**               | 웹 응용 프로그램 | 
+| **SDL 단계**               | 빌드 |  
+| **적용 가능한 기술** | 웹 양식, MVC5 |
+| **특성**              | EnvironmentType - OnPrem |
+| **참조**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
+| **단계** | 웹 응용 프로그램이 신뢰 당사자이고, ADFS가 STS인 경우 인증 쿠키(FedAuth 토큰)의 수명은 web.config에서 다음 구성으로 설정할 수 있습니다.|
+
+### <a name="example"></a>예
 ```XML
   <system.identityModel.services>
     <federationConfiguration>
@@ -552,6 +558,11 @@ public ViewResult SubmitUpdate()
 | **단계** | Web API가 OAuth 2.0을 사용하여 보호되는 경우 권한 부여 요청 헤더에서 전달자 토큰이 필요하고 토큰은 유효한 경우에만 요청에 대한 액세스 권한을 부여합니다. 쿠키 기반 인증과 달리 브라우저에서는 요청하는 전달자 토큰을 연결하지 않습니다. 요청하는 클라이언트는 요청 헤더에서 전달자 토큰을 명시적으로 연결해야 합니다. 따라서 ASP.NET Web API가 OAuth 2.0을 사용하여 보호되는 경우 전달자 토큰은 CSRF 공격에 대한 방어로 간주됩니다. 응용 프로그램의 MVC 부분이 폼 인증을 사용(즉, 쿠키 사용)하는 경우 위조 방지 토큰은 MVC 웹앱에서 사용되어야 합니다. |
 
 ### <a name="example"></a>예
-Web API는 쿠키가 아닌 전달자 토큰에서만 사용하도록 정보를 제공받아야 합니다. `WebApiConfig.Register` 메서드에서 다음 구성으로 수행될 수 있습니다. ```C-Sharp code config.SuppressDefaultHostAuthentication(); config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+Web API는 쿠키가 아닌 전달자 토큰에서만 사용하도록 정보를 제공받아야 합니다. 이 작업은 `WebApiConfig.Register` 메서드의 다음 구성으로 수행할 수 있습니다.
+
+```csharp
+config.SuppressDefaultHostAuthentication();
+config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 ```
-The SuppressDefaultHostAuthentication method tells Web API to ignore any authentication that happens before the request reaches the Web API pipeline, either by IIS or by OWIN middleware. That way, we can restrict Web API to authenticate only using bearer tokens.
+
+SuppressDefaultHostAuthentication 메서드는 IIS 또는 OWIN 미들웨어를 통해, 요청이 Web API 파이프라인에 도달하기 전에 발생하는 모든 인증을 무시하도록 Web API에 지시합니다. 이러한 방식으로 Web API가 전달자 토큰만으로 인증하도록 제한할 수 있습니다.

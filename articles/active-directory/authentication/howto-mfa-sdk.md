@@ -4,18 +4,18 @@ description: 이 문서에서는 Azure MFA SDK를 다운로드하고 사용하�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 11/29/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 28b48df27bf9b2f7176b886ef684f9281b3c4f37
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 565c35b296e2734df264942b9eab0a067626c368
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866043"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427185"
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Multi-Factor Authentication을 사용자 지정 앱(SDK)으로 빌드하기
 
@@ -44,14 +44,14 @@ SDK에는 다음 항목이 포함되어 있습니다.
 * Multi-Factor Authentication의 **소스 파일**
 * **클라이언트 인증서** 
 * **개인 키** 
-* **결과를 호출합니다.** 호출 결과 코드의 목록입니다. 이 파일을 열려면 텍스트 워드패드와 같은 서식에 응용 프로그램을 사용합니다. 호출 결과 코드를 사용하여 응용 프로그램의 Multi-Factor Authentication 구현을 테스트하고 문제를 해결합니다. 상태 코드를 인증하지 않습니다.
-* **예제.** Multi-Factor Authentication의 기본 작업 구현에 대한 샘플 코드입니다.
+* **결과를 호출합니다.**  호출 결과 코드의 목록입니다. 이 파일을 열려면 텍스트 워드패드와 같은 서식에 응용 프로그램을 사용합니다. 호출 결과 코드를 사용하여 응용 프로그램의 Multi-Factor Authentication 구현을 테스트하고 문제를 해결합니다. 상태 코드를 인증하지 않습니다.
+* **예제.**  Multi-Factor Authentication의 기본 작업 구현에 대한 샘플 코드입니다.
 
 > [!WARNING]
 > 클라이언트 인증서는 특히 사용자에 대해 생성된 고유한 개인 인증서입니다. 이 파일을 손실하거나 공유하지 마세요. Multi-Factor Authentication 서비스와의 통신 보안을 유지할 키입니다.
 
 ## <a name="code-sample"></a>코드 샘플
-이 코드 예제에서는 Azure Multi-Factor Authentication SDK의 API를 사용하여 표준 모드 음성 통화 확인을 응용 프로그램에 추가하는 방법을 보여줍니다. 표준 모드는 사용자가 # 키를 눌러 응답하는 전화 통화입니다.
+이 코드 예제에서는 Azure Multi-Factor Authentication SDK의 API를 사용하여 표준 모드 음성 통화 확인을 애플리케이션에 추가하는 방법을 보여줍니다. 표준 모드는 사용자가 # 키를 눌러 응답하는 전화 통화입니다.
 
 이 예에서는 C# 서버측 논리를 사용하는 기본 ASP.NET 응용 프로그램에서 C# .NET 2.0 Multi-Factor Authentication SDK를 사용하지만 프로세스는 다른 언어에서 비슷합니다. SDK에는 실행 파일이 아닌 소스 파일이 포함되어 있으므로 파일을 빌드하고 참조하거나 응용 프로그램에 직접 포함할 수 있습니다.
 
@@ -76,7 +76,7 @@ SDK에는 다음 항목이 포함되어 있습니다.
 
     <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <html xmlns="https://www.w3.org/1999/xhtml">
     <head runat="server">
     <title>Multi-Factor Authentication Demo</title>
     </head>

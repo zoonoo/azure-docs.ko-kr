@@ -14,15 +14,15 @@ ms.date: 03/14/2017
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 8c04f2723466ea7abc8ea3c3cc1f1efb953da764
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5d8e6c0db2ce6c35935c2b00aa40de2a5d5a050f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449382"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297625"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스 관리
-Azure AD Premium 또는 Azure AD Basic 라이선스로 Azure Active Directory(Azure AD)를 사용하는 경우 그룹을 사용하여 Azure AD와 통합되는 SaaS 응용 프로그램에 액세스 권한을 할당할 수 있습니다. 예를 들어 5가지 SaaS 응용 프로그램을 사용하는 마케팅 부서에 대해 액세스 권한을 할당하려는 경우 마케팅 부서의 사용자가 포함된 그룹을 만든 다음 마케팅 부서에 필요한 이 5가지 SaaS 응용 프로그램에 해당 그룹을 할당할 수 있습니다. 이러한 방식으로 한 곳에서 마케팅 부서의 멤버 자격을 관리하여 시간을 절약할 수 있습니다. 사용자는 마케팅 그룹 멤버로 추가되는 경우 응용 프로그램에 할당되고 마케팅 그룹에서 제거되면 응용 프로그램에서 할당이 제거됩니다. 이 기능은 Azure AD 응용 프로그램 갤러리 내에서 추가할 수 있는 수많은 응용 프로그램과 함께 사용할 수 있습니다.
+Azure AD Premium 또는 Azure AD Basic 라이선스로 Azure Active Directory(Azure AD)를 사용하는 경우 그룹을 사용하여 Azure AD와 통합되는 SaaS 응용 프로그램에 액세스 권한을 할당할 수 있습니다. 예를 들어 5가지 SaaS 응용 프로그램을 사용하는 마케팅 부서에 대해 액세스 권한을 할당하려는 경우 마케팅 부서의 사용자가 포함된 그룹을 만든 다음 마케팅 부서에 필요한 이 5가지 SaaS 응용 프로그램에 해당 그룹을 할당할 수 있습니다. 이러한 방식으로 한 곳에서 마케팅 부서의 멤버 자격을 관리하여 시간을 절약할 수 있습니다. 사용자는 마케팅 그룹 멤버로 추가되는 경우 응용 프로그램에 할당되고 마케팅 그룹에서 제거되면 응용 프로그램에서 할당이 제거됩니다. 이 기능은 Azure AD 애플리케이션 갤러리 내에서 추가할 수 있는 수많은 애플리케이션과 함께 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > Azure AD Premium 평가판을 시작하거나 Azure AD Premium 또는 Azure AD Basic 라이선스를 구입한 후에만 이 기능을 사용할 수 있습니다. 그룹 기반 할당은 보안 그룹에만 지원됩니다. 중첩 그룹 구성원은 이번 응용 프로그램에 대한 그룹 기반 할당에서 지원되지 않습니다.
@@ -40,7 +40,7 @@ Azure AD Premium 또는 Azure AD Basic 라이선스로 Azure Active Directory(Az
 이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
 
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../fundamentals/active-directory-manage-groups.md)
-* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../active-directory-apps-index.md)
+* [Azure Active Directory의 응용 프로그램 관리](../manage-apps/what-is-application-management.md)
 * [그룹 설정을 구성하는 Azure Active Directory cmdlets](groups-settings-cmdlets.md)
 * [Azure Active Directory란?](../fundamentals/active-directory-whatis.md)
-* [Azure Active Directory와 온-프레미스 ID 통합](../connect/active-directory-aadconnect.md)
+* [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)

@@ -4,18 +4,18 @@ description: Microsoft Azure용 네트워크 정책 서버 확장을 사용하�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 08/15/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: dfd28c5abea668e704fb5ee8b02d85d552e9ae77
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.reviewer: michmcla
+ms.openlocfilehash: f08bf6a65a93c31d76c5b336cc6ef433153d71c4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098875"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423120"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -39,12 +39,12 @@ Azure용 NPS(네트워크 정책 서비스) 확장을 사용하면 조직에서 
 
     각 VPN 또는 원격 데스크톱 게이트웨이 서버에 대해 정책을 지정하지 않고, 이러한 항목이 중앙 위치에 있을 때 지정합니다. RADIUS 프로토콜은 중앙 집중식 AAA(인증, 권한 부여 및 계정 관리)를 제공하는 데 사용됩니다. 
 
-* 장치가 허용되거나 제한되지 않는지 또는 네트워크 리소스에 대한 액세스가 제한되는지 여부를 결정하는 NAP(네트워크 액세스 보호) 클라이언트 상태 정책을 설정하고 적용합니다.
+* 디바이스가 허용되거나 제한되지 않는지 또는 네트워크 리소스에 대한 액세스가 제한되는지 여부를 결정하는 NAP(네트워크 액세스 보호) 클라이언트 상태 정책을 설정하고 적용합니다.
 
 * 802.1x 지원 무선 액세스 지점 및 이더넷 스위치에 액세스하기 위한 인증 및 권한 부여를 적용할 수 있는 방법을 제공합니다.   
 자세한 내용은 [네트워크 정책 서버](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)를 참조하세요. 
 
-보안을 강화하고 높은 수준의 규정 준수를 제공하기 위해 조직에서는 NPS를 Azure Multi-Factor Authentication과 통합하여 사용자가 2단계 인증을 통해 VPN 서버의 가상 포트에 연결하도록 할 수 있습니다. 사용자가 액세스 권한을 부여받으려면 자신이 제어할 수 있는 기타 정보와 함께 사용자 이름 및 암호 조합을 제공해야 합니다. 이 정보는 신뢰할 수 있어야 하고 복제하기 어려워야 합니다. 휴대폰 번호, 유선 전화 번호 또는 모바일 장치의 응용 프로그램이 여기에 포함될 수 있습니다.
+보안을 강화하고 높은 수준의 규정 준수를 제공하기 위해 조직에서는 NPS를 Azure Multi-Factor Authentication과 통합하여 사용자가 2단계 인증을 통해 VPN 서버의 가상 포트에 연결하도록 할 수 있습니다. 사용자가 액세스 권한을 부여받으려면 자신이 제어할 수 있는 기타 정보와 함께 사용자 이름 및 암호 조합을 제공해야 합니다. 이 정보는 신뢰할 수 있어야 하고 복제하기 어려워야 합니다. 휴대폰 번호, 유선 전화 번호 또는 모바일 디바이스의 응용 프로그램이 여기에 포함될 수 있습니다.
 
 Azure용 NPS 확장을 사용하기 전에 통합된 NPS 및 MFA 환경에 대한 2단계 인증을 구현하려는 고객은 온-프레미스 환경에서 별도의 MFA 서버를 구성하고 유지 관리해야 했습니다. 이 유형의 인증은 RADIUS를 사용하는 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버에서 제공합니다.
 
@@ -122,7 +122,7 @@ Microsoft Azure Active Directory PowerShell 모듈이 아직 없는 경우 설�
 
 NPS 확장을 사용하려면 온-프레미스 사용자가 Azure Active Directory와 동기화되고 MFA를 사용하도록 설정되어야 합니다. 이 가이드에서는 온-프레미스 사용자가 AD Connect를 통해 Azure Active Directory와 동기화된다고 가정합니다. 사용자가 MFA를 사용하도록 설정하기 위한 지침은 다음과 같습니다.
 
-Azure AD Connect에 대한 자세한 내용은 [Azure Active Directory와 온-프레미스 디렉터리 통합](../connect/active-directory-aadconnect.md)을 참조하세요. 
+Azure AD Connect에 대한 자세한 내용은 [Azure Active Directory와 온-프레미스 디렉터리 통합](../hybrid/whatis-hybrid-identity.md)을 참조하세요. 
 
 ### <a name="azure-active-directory-guid-id"></a>Azure Active Directory GUID ID 
 
@@ -244,7 +244,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
     a. **서버 이름** 상자에서 이전 섹션에서 구성한 RADIUS 서버의 이름 또는 IP 주소를 입력합니다.
 
-    나. **공유 비밀**에서 **변경**을 선택하고 이전에 만들어 기록해 둔 공유 비밀 암호를 입력합니다.
+    b. **공유 비밀**에서 **변경**을 선택하고 이전에 만들어 기록해 둔 공유 비밀 암호를 입력합니다.
 
     다. **시간 제한(초)** 상자에서 **30** ~ **60** 사이의 값을 선택합니다.  
     이 시간 제한 값은 두 번째 인증 요소를 완료할 수 있을 만큼 충분한 시간을 허용하는 데 필요합니다.
@@ -305,7 +305,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
  
 ## <a name="configure-multi-factor-authentication"></a>Multi-Factor Authentication 구성
 
-Multi-Factor Authentication에 대해 사용자를 구성할 때 도움이 필요한 경우 [사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법](howto-mfa-userstates.md) 및 [2단계 인증에 내 계정 설정](end-user/current/multi-factor-authentication-end-user-first-time.md) 문서를 참조하세요.
+Multi-Factor Authentication에 대해 사용자를 구성할 때 도움이 필요한 경우 [사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법](howto-mfa-userstates.md) 및 [2단계 인증에 내 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md) 문서를 참조하세요.
 
 ## <a name="install-and-configure-the-nps-extension"></a>NPS 확장 설치 및 구성
 
@@ -404,7 +404,7 @@ Azure MFA에서 이전에 구성한 보조 인증 방법으로 성공적으로 �
 
 ![계정 확인](./media/howto-mfa-nps-extension-vpn/image43.png)
 
-보조 인증 방법을 사용하여 성공적으로 인증되면 VPN 서버의 가상 포트에 대한 액세스 권한이 부여됩니다. 신뢰할 수 있는 장치에서 모바일 앱을 사용하여 보조 인증 방법을 사용해야 하므로 로그인 프로세스가 사용자 이름 및 암호 조합을 사용하는 경우보다 더 안전합니다.
+보조 인증 방법을 사용하여 성공적으로 인증되면 VPN 서버의 가상 포트에 대한 액세스 권한이 부여됩니다. 신뢰할 수 있는 디바이스에서 모바일 앱을 사용하여 보조 인증 방법을 사용해야 하므로 로그인 프로세스가 사용자 이름 및 암호 조합을 사용하는 경우보다 더 안전합니다.
 
 ### <a name="view-event-viewer-logs-for-successful-sign-in-events"></a>성공적인 로그인 이벤트에 대한 이벤트 뷰어 로그 보기
 Windows 이벤트 뷰어 로그에서 성공적인 로그인 이벤트를 확인하려면 다음 PowerShell 명령을 실행하여 NPS 서버에서 Windows 보안 로그를 쿼리합니다.
@@ -417,7 +417,7 @@ Windows 이벤트 뷰어 로그에서 성공적인 로그인 이벤트를 확인
 
 ![네트워크 정책 서버 로그](./media/howto-mfa-nps-extension-vpn/image45.png)
 
-Azure Multi-Factor Authentication용 NPS 확장을 설치한 서버에서 *Application and Services Logs\Microsoft\AzureMfa*에 있는 확장과 관련된 이벤트 뷰어 응용 프로그램 로그를 찾을 수 있습니다. 
+Azure Multi-Factor Authentication용 NPS 확장을 설치한 서버에서 *Application and Services Logs\Microsoft\AzureMfa*에 있는 확장과 관련된 이벤트 뷰어 애플리케이션 로그를 찾을 수 있습니다. 
 
     _Get-WinEvent -Logname Security_ | where {$_.ID -eq '6272'} | FL
 
@@ -438,9 +438,9 @@ Azure Multi-factor Authentication 로그의 관련 이벤트는 다음과 같습
 
 고급 문제 해결을 수행하려면 NPS 서비스가 설치된 NPS 데이터베이스 형식 로그 파일을 참조하세요. 이 로그 파일은 _%SystemRoot%\System32\Logs_ 폴더에 쉼표로 구분된 텍스트 파일로 만들어집니다. 로그 파일에 대한 자세한 내용은 [NPS 데이터베이스 형식 로그 파일 해석](https://technet.microsoft.com/library/cc771748.aspx)을 참조하세요. 
 
-이러한 로그 파일의 항목은 스프레드시트 또는 데이터베이스로 내보내지 않으면 해석하기 어렵습니다. 온라인에서 로그 파일을 해석하는 데 도움이 되는 많은 IAS(인터넷 인증 서비스) 구문 분석 도구를 찾을 수 있습니다. 다운로드할 수 있는 [셰어웨어 응용 프로그램](http://www.deepsoftware.com/iasviewer)의 출력은 다음과 같습니다. 
+이러한 로그 파일의 항목은 스프레드시트 또는 데이터베이스로 내보내지 않으면 해석하기 어렵습니다. 온라인에서 로그 파일을 해석하는 데 도움이 되는 많은 IAS(인터넷 인증 서비스) 구문 분석 도구를 찾을 수 있습니다. 다운로드할 수 있는 [셰어웨어 애플리케이션](https://www.deepsoftware.com/iasviewer)의 출력은 다음과 같습니다. 
 
-![셰어웨어 응용 프로그램](./media/howto-mfa-nps-extension-vpn/image49.png)
+![셰어웨어 애플리케이션](./media/howto-mfa-nps-extension-vpn/image49.png)
 
 추가적인 문제 해결을 수행하려면 Wireshark 또는 [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)와 같은 프로토콜 분석기를 사용할 수 있습니다. 다음의 Wireshark 이미지에서는 VPN 서버와 NPS 간의 RADIUS 메시지를 보여줍니다.
 
@@ -453,5 +453,5 @@ Azure Multi-factor Authentication 로그의 관련 이벤트는 다음과 같습
 
 [RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버](howto-mfaserver-nps-rdg.md)
 
-[Azure Active Directory와 온-프레미스 디렉터리 통합](../connect/active-directory-aadconnect.md)
+[Azure Active Directory와 온-프레미스 디렉터리 통합](../hybrid/whatis-hybrid-identity.md)
 

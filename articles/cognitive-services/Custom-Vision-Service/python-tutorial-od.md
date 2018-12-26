@@ -1,66 +1,64 @@
 ---
-title: Python 및 Custom Vision API를 사용한 데이터 검색 - Azure Cognitive Service | Microsoft Docs
-description: Microsoft Cognitive Services의 Custom Vision API를 사용하는 기본 Windows 앱을 탐색합니다. 기본 끝점을 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
+title: '빠른 시작: Python용 Custom Vision SDK를 사용하여 개체 검색 프로젝트 만들기'
+titlesuffix: Azure Cognitive Services
+description: Python SDK를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 교육하고, 개체를 검색합니다.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
-ms.date: 05/03/2018
+ms.topic: quickstart
+ms.date: 11/5/2018
 ms.author: areddish
-ms.openlocfilehash: b946265b431a7dcb16bf99e3bf78e09f2d0a7de3
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 1b301f2197b16d8cd74c3cf3616de70f28ac64df
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301015"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874943"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>Custom Vision API를 사용하여 Pyphon에서 개체 검색 프로젝트 빌드
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>빠른 시작: Custom Vision Python SDK를 사용하여 개체 검색 프로젝트 만들기
 
-Computer Vision API를 사용하여 개체 검색 프로젝트를 만드는 기본 Python 스크립트를 알아봅니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 끝점 URL를 획득하고, 해당 끝점을 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 오픈 소스 예제를 Custom Vision API를 사용하여 사용자 고유의 앱을 빌드하기 위한 템플릿으로 사용합니다.
+이 문서에서는 Python과 함께 Custom Vision SDK를 사용하여 개체 검색 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Python 응용 프로그램을 빌드하기 위한 템플릿으로 이 예제를 사용하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 사용하려면 다음을 수행해야 합니다.
+- [Python 2.7+ 또는 3.5+](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/) 도구
 
-- Python 2.7+ 또는 Python 3.5+ 중 하나를 설치합니다.
-- pip를 설치합니다.
+## <a name="install-the-custom-vision-sdk"></a>Custom Vision SDK 설치
 
-### <a name="platform-requirements"></a>플랫폼 요구 사항
-이 예제는 Python용으로 개발되었습니다.
+Python용 Custom Vision Service SDK를 설치하려면 PowerShell에서 다음 명령을 실행합니다.
 
-### <a name="get-the-custom-vision-sdk"></a>Custom Vision SDK 다운로드
-
-이 예제를 빌드하려면 Custom Vision API용 Python SDK를 설치해야 합니다.
-
-```
+```PowerShell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
 [Python 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)과 함께 이미지를 다운로드할 수 있습니다.
 
-## <a name="step-1-get-the-training-and-prediction-keys"></a>1단계: 학습 및 예측 키 가져오기
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
-이 예제에서 사용된 키를 가져오려면 [Custom Vision 사이트](https://customvision.ai)로 가서 오른쪽 위에 있는 __톱니 바퀴 아이콘__을 선택합니다. __계정__ 섹션에서 __학습 키__ 및 __예측 키__ 필드의 값을 복사합니다.
+[!INCLUDE [python-get-images](includes/python-get-images.md)]
 
-![키 UI의 이미지](./media/python-tutorial/training-prediction-keys.png)
+## <a name="add-the-code"></a>코드 추가
 
-이 예제에서는 [이 위치](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images)의 이미지를 사용합니다.
+원하는 프로젝트 디렉터리에 *sample.py*라는 새 파일을 만듭니다.
 
-## <a name="step-2-create-a-custom-vision-service-project"></a>2단계: Custom Vision Service 프로젝트 만들기
+### <a name="create-the-custom-vision-service-project"></a>Custom Vision Service 프로젝트 만들기
 
-새 Custom Vision Service 프로젝트를 만들려면 sample.py 스크립트 파일을 만들고 다음 내용을 추가합니다. 개체 검색 및 이미지 분류 프로젝트를 만드는 작업 간의 차이점은 create_project 호출에 지정되는 도메인입니다.
+새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 구독 키를 적절한 정의에 삽입합니다. 개체 검색 프로젝트와 이미지 분류 프로젝트를 만드는 작업 간의 차이점은 **create_project** 호출에 지정되는 도메인입니다.
 
 ```Python
-from azure.cognitiveservices.vision.customvision.training import training_api
+from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
 from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry, Region
+
+ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 
 # Replace with a valid key
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
 
-trainer = training_api.TrainingApi(training_key)
+trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
 # Find the object detection domain
 obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection")
@@ -70,9 +68,9 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-## <a name="step-3-add-tags-to-your-project"></a>3단계: 프로젝트에 태그 추가
+### <a name="create-tags-in-the-project"></a>프로젝트에서 태그 만들기
 
-프로젝트에 태그를 추가하려면 다음 코드를 삽입하여 2개의 태그를 만듭니다.
+프로젝트의 분류 태그를 만들려면 *sample.py* 파일의 끝에 다음 코드를 추가합니다.
 
 ```Python
 # Make two tags in the new project
@@ -80,14 +78,13 @@ fork_tag = trainer.create_tag(project.id, "fork")
 scissors_tag = trainer.create_tag(project.id, "scissors")
 ```
 
-## <a name="step-4-upload-images-to-the-project"></a>4단계: 프로젝트에 이미지 업로드
+### <a name="upload-and-tag-images"></a>이미지 업로드 및 태그 지정
 
-개체 검색 프로젝트의 경우 이미지, 지역 및 태그를 업로드해야 합니다. 지역은 정규화된 좌표에 있으며 태그가 지정된 개체의 위치를 지정합니다.
+개체 검색 프로젝트의 이미지에 태그를 지정할 때 정규화된 좌표를 사용하여 태그가 지정된 각 개체의 지역을 지정해야 합니다.
 
-프로젝트에 이미지, 지역 및 태그를 추가하려면 태그를 만든 후 다음 코드를 삽입합니다. 이 자습서에서 지역은 코드의 인라인에 하드 코드됩니다. 지역은 정규화된 좌표에 경계 상자를 지정합니다.
+프로젝트에 이미지, 태그 및 지역을 추가하려면 태그를 만든 후 다음 코드를 삽입합니다. 이 자습서에서 지역은 코드의 인라인에 하드 코드됩니다. 지역은 정규화된 좌표에서 경계 상자를 지정하며, 좌표는 왼쪽, 위쪽, 너비, 높이 순서대로 지정됩니다.
 
 ```Python
-
 fork_image_regions = {
     "fork_1": [ 0.145833328, 0.3509314, 0.5894608, 0.238562092 ],
     "fork_2": [ 0.294117659, 0.216944471, 0.534313738, 0.5980392 ],
@@ -133,7 +130,10 @@ scissors_image_regions = {
     "scissors_19": [ 0.333333343, 0.0274019931, 0.443627447, 0.852941155 ],
     "scissors_20": [ 0.158088237, 0.04047389, 0.6691176, 0.843137264 ]
 }
+```
+그런 다음, 이 연결 맵을 사용하여 해당 지역 좌표로 각 샘플 이미지를 업로드합니다. 다음 코드를 추가합니다.
 
+```Python
 # Go through the data table above and create the images
 print ("Adding images...")
 tagged_images_with_regions = []
@@ -156,12 +156,9 @@ for file_name in scissors_image_regions.keys():
 trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
 ```
 
-## <a name="step-5-train-the-project"></a>5단계: 프로젝트 학습
+### <a name="train-the-project"></a>프로젝트 학습
 
-프로젝트에 태그 및 이미지를 추가했으므로 다음과 같이 학습할 수 있습니다. 
-
-1. 다음 코드를 삽입합니다. 이렇게 하면 프로젝트에 첫 번째 반복이 생성됩니다. 
-2. 이 반복을 기본 반복으로 표시합니다.
+이 코드는 프로젝트에서 첫 번째 반복을 만들고 기본 반복으로 표시합니다. 기본 반복은 예측 요청에 응답할 모델의 버전을 반영합니다. 모델을 다시 교육할 때마다 업데이트해야 합니다.
 
 ```Python
 import time
@@ -178,23 +175,19 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>6단계: 기본 예측 끝점 가져오기 및 사용
+### <a name="get-and-use-the-default-prediction-endpoint"></a>기본 예측 엔드포인트 가져오기 및 사용
 
-이제 예측을 위해 모델을 사용할 준비가 되었습니다. 
-
-1. 기본 반복과 연결된 끝점을 획득합니다. 
-2. 해당 끝점을 사용하여 프로젝트에 테스트 이미지를 보냅니다.
+예측 엔드포인트에 이미지를 보내고 예측을 검색하려면 파일의 끝에 다음 코드를 추가합니다.
 
 ```Python
-from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
-from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
+from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 
 # Now there is a trained endpoint that can be used to make a prediction
 
-predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
+predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
 # Open the sample image and get back the prediction results.
-with open("images/test/test_image.jpg", mode="rb") as test_data:
+with open("images/Test/test_od_image.jpg", mode="rb") as test_data:
     results = predictor.predict_image(project.id, test_data, iteration.id)
 
 # Display the results.
@@ -202,10 +195,21 @@ for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
 ```
 
-## <a name="step-7-run-the-example"></a>7단계: 예제 실행
+## <a name="run-the-application"></a>응용 프로그램 실행
 
-솔루션을 실행합니다. 예측 결과가 콘솔에 나타납니다.
+*sample.py* 파일을 실행합니다.
 
-```
+```PowerShell
 python sample.py
 ```
+
+응용 프로그램의 출력이 콘솔에 표시됩니다. 그러면 테스트 이미지(**samples/vision/images/Test**에 있음)에 태그가 적절하게 지정되는지, 검색 지역이 올바른지 확인할 수 있습니다.
+
+[!INCLUDE [clean-od-project](includes/clean-od-project.md)]
+
+## <a name="next-steps"></a>다음 단계
+
+개체 검색 프로세스의 모든 단계를 코드로 수행하는 방법을 살펴보았습니다. 이 샘플은 교육을 한 번만 반복하지만, 정확도를 높이기 위해 모델을 여러 차례 교육하고 테스트해야 하는 경우가 많습니다. 다음 가이드에서는 이미지 분류를 다루지만, 원칙은 개체 검색과 비슷합니다.
+
+> [!div class="nextstepaction"]
+> [모델 테스트 및 재교육](test-your-model.md)

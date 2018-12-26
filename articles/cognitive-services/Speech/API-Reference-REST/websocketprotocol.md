@@ -1,24 +1,27 @@
 ---
-title: Microsoft 음성 인식 WebSocket 프로토콜 | Microsoft Docs
-description: WebSockets 기반 음성 서비스를 위한 프로토콜 설명서
+title: Bing Speech WebSocket 프로토콜 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: WebSockets 기반 Bing Speech를 위한 프로토콜 설명서
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 17954536e8bdb49c09204c2e522586b79cb1bef5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373983"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341823"
 ---
-# <a name="speech-service-websocket-protocol"></a>음성 서비스 WebSocket 프로토콜
+# <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket 프로토콜
 
-  음성 서비스는 음성 오디오를 텍스트로 변환할 수 있는 첨단 알고리즘을 탑재한 클라우드 기반 서비스입니다. 음성 서비스 프로토콜은 클라이언트 응용 프로그램과 서비스 간의 [연결 설정](#connection-establishment) 및 상대 간에 교환하는 음성 인식 메시지([클라이언트 시작 메시지](#client-originated-messages) 및 [서비스 시작 메시지](#service-originated-messages))를 정의합니다. 또한 [원격 분석 메시지](#telemetry-schema) 및 [오류 처리](#error-handling)를 설명합니다.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+Bing Speech는 음성 오디오를 텍스트로 변환할 수 있는 최고급 알고리즘을 탑재한 클라우드 기반 플랫폼입니다. Bing Speech 프로토콜은 클라이언트 응용 프로그램과 서비스 간의 [연결 설정](#connection-establishment) 및 상대 간에 교환하는 음성 인식 메시지([클라이언트 시작 메시지](#client-originated-messages) 및 [서비스 시작 메시지](#service-originated-messages))를 정의합니다. 또한 [원격 분석 메시지](#telemetry-schema) 및 [오류 처리](#error-handling)를 설명합니다.
 
 ## <a name="connection-establishment"></a>연결 설정
 
@@ -74,7 +77,7 @@ Content-Length: 0
 
 액세스 토큰을 위해 다음 헤더 정보가 필요합니다.
 
-| Name | 형식 | 설명 |
+| 이름 | 형식 | 설명 |
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | 구독 키 |
 
@@ -90,9 +93,9 @@ Content-Length: 0
 
 클라이언트는 [HTTP 프로토콜 사양](http://www.w3.org/Protocols/rfc2616/rfc2616.html)에서 지정한 표준 리디렉션 메커니즘을 지원*해야 합니다*.
 
-### <a name="speech-endpoints"></a>음성 끝점
+### <a name="speech-endpoints"></a>음성 엔드포인트
 
-클라이언트는 음성 서비스의 적절한 끝점을 사용*해야 합니다*. 끝점은 인식 모드 및 언어를 기반으로 합니다. 다음 표가 몇 가지 예를 보여줍니다.
+클라이언트는 음성 서비스의 적절한 엔드포인트를 사용*해야 합니다*. 엔드포인트는 인식 모드 및 언어를 기반으로 합니다. 다음 표가 몇 가지 예를 보여줍니다.
 
 | Mode | path | 서비스 URI |
 | -----|-----|-----|
@@ -160,11 +163,11 @@ Content-Length: 0
 
 클라이언트 응용 프로그램이 음성 서비스에 보낸 각 메시지는 *X-Timestamp* 헤더를 포함*해야 합니다*. 이 헤더에 대한 값은 클라이언트가 메시지를 보내는 시간입니다. *X-Timestamp* 헤더가 없거나 잘못된 형식을 사용하는 헤더 값을 가진 요청은 서비스가 WebSocket 연결을 종료하게 합니다.
 
-*X-Timestamp* 헤더 값은 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffZ' 형식이어야 합니다. 단, 'fffffff'는 초의 분수입니다. 예를 들어 '12.5'는 '12 + 5/10초'를 의미하며 '12.526'은 '12 plus 526/1000초'를 의미합니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)를 준수하며 표준 HTTP *Date* 헤더와 달리 밀리초 분해능을 제공할 수 있습니다. 클라이언트 응용 프로그램은 타임스탬프를 가장 가까운 밀리초로 반올림할 수 있습니다. 클라이언트 응용 프로그램은 [NTP(Network Time Protocol) 서버](https://en.wikipedia.org/wiki/Network_Time_Protocol)를 사용하여 장치 시계가 시간을 정확히 추적하도록 해야 합니다.
+*X-Timestamp* 헤더 값은 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffZ' 형식이어야 합니다. 단, 'fffffff'는 초의 분수입니다. 예를 들어 '12.5'는 '12 + 5/10초'를 의미하며 '12.526'은 '12 plus 526/1000초'를 의미합니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)를 준수하며 표준 HTTP *Date* 헤더와 달리 밀리초 분해능을 제공할 수 있습니다. 클라이언트 응용 프로그램은 타임스탬프를 가장 가까운 밀리초로 반올림할 수 있습니다. 클라이언트 응용 프로그램은 [NTP(Network Time Protocol) 서버](https://en.wikipedia.org/wiki/Network_Time_Protocol)를 사용하여 디바이스 시계가 시간을 정확히 추적하도록 해야 합니다.
 
 ### <a name="message-speechconfig"></a>메시지 `speech.config`
 
-음성 서비스가 최상의 예상 음성 인식을 제공하려면 응용 프로그램의 특성을 알아야 합니다. 필요한 특성 데이터는 응용 프로그램을 구동하는 장치 및 OS에 관한 정보를 포함합니다. 이 정보를 `speech.config` 메시지에 제공합니다.
+음성 서비스가 최상의 예상 음성 인식을 제공하려면 응용 프로그램의 특성을 알아야 합니다. 필요한 특성 데이터는 응용 프로그램을 구동하는 디바이스 및 OS에 관한 정보를 포함합니다. 이 정보를 `speech.config` 메시지에 제공합니다.
 
 클라이언트는 음성 서비스에 대한 연결을 설정한 후 `audio` 메시지를 보내기 전에 `speech.config` 메시지를 *보내야 합니다*. `speech.config` 메시지를 연결당 한 번만 보내야 합니다.
 
@@ -184,7 +187,7 @@ Content-Length: 0
 음성 서비스 프로토콜의 모든 클라이언트 시작 메시지와 마찬가지로 `speech.config` 메시지도 메시지를 서비스에 보낸 클라이언트 UTC 시계 시간을 기록하는 *X-Timestamp* 헤더를 포함*해야 합니다*. `speech.config` 메시지는 특정 음성 요청과 연결되지 않으므로 *X-RequestId* 헤더를 요구하지 *않습니다*.
 
 #### <a name="message-payload"></a>메시지 페이로드
-`speech.config` 메시지의 페이로드는 응용 프로그램에 관한 정보를 포함하는 JSON 구조입니다. 다음 예제는 이 정보를 보여줍니다. 클라이언트 및 장치 컨텍스트 정보는 JSON 구조의 *context* 요소에 포함됩니다. 
+`speech.config` 메시지의 페이로드는 응용 프로그램에 관한 정보를 포함하는 JSON 구조입니다. 다음 예제는 이 정보를 보여줍니다. 클라이언트 및 디바이스 컨텍스트 정보는 JSON 구조의 *context* 요소에 포함됩니다. 
 
 ```JSON
 {
@@ -219,13 +222,13 @@ Content-Length: 0
 | os.name | OS 제품 이름. 예: Debian 또는 Windows 10 | 필수 |
 | os.version | *major.minor.build.branch* 형식의 OS 버전 | 필수 |
 
-##### <a name="device-element"></a>장치 요소
+##### <a name="device-element"></a>디바이스 요소
 
 | 필드 | 설명 | 사용 현황 |
 |-|-|-|
-| device.manufacturer | 장치 하드웨어 제조업체 | 필수 |
-| device.model | 장치 모델 | 필수 |
-| device.version | 장치 제조업체가 제공한 장치 소프트웨어 버전. 이 값은 제조업체가 추적할 수 있는 장치의 버전을 지정합니다. | 필수 |
+| device.manufacturer | 디바이스 하드웨어 제조업체 | 필수 |
+| device.model | 디바이스 모델 | 필수 |
+| device.version | 디바이스 제조업체가 제공한 디바이스 소프트웨어 버전. 이 값은 제조업체가 추적할 수 있는 디바이스의 버전을 지정합니다. | 필수 |
 
 ### <a name="message-audio"></a>메시지 `audio`
 
@@ -504,7 +507,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 필드 | 설명 | 사용 현황 |
 | ----- | ----------- | ----- |
-| Name | `Connection` | 필수 |
+| 이름 | `Connection` | 필수 |
 | Id | 이 연결 요청에 대한 *X-ConnectionId* 헤더에 사용한 연결 식별자 값 | 필수 |
 | 시작 | 클라이언트가 연결 요청을 보낸 시간 | 필수 |
 | 끝 | 클라이언트가 연결이 성공적으로 설정된 사실 또는 오류가 발생한 경우 거부, 거절 또는 실패한 사실의 알림을 받은 시간 | 필수 |
@@ -544,7 +547,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 필드 | 설명 | 사용 현황 |
 | ----- | ----------- | ----- |
-| Name | 마이크 | 필수 |
+| 이름 | 마이크 | 필수 |
 | 시작 | 클라이언트가 마이크 또는 다른 오디오 스트림에서 오는 오디오 입력을 사용하기 시작했거나 키워드 스포터에서 트리거를 수신한 시간 | 필수 |
 | 끝 | 클라이언트가 마이크 또는 오디오 스트림 사용을 중단한 시간 | 필수 |
 | 오류 | 발생한 오류(있는 경우)에 대한 설명. 마이크 작동이 성공적인 경우 클라이언트는 이 필드를 생략하는 것이 좋습니다. 이 필드의 최대 길이는 50자입니다. | 오류의 경우 필수, 그렇지 않으면 생략됨 |
@@ -564,7 +567,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 필드 | 설명 | 사용 현황 |
 | ----- | ----------- | ----- |
-| Name | ListeningTrigger | 옵션 |
+| 이름 | ListeningTrigger | 옵션 |
 | 시작 | 클라이언트 수신 대기 트리거가 시작된 시간 | 필수 |
 | 끝 | 클라이언트 수신 대기 트리거가 종료된 시간 | 필수 |
 | 오류 | 발생한 오류(있는 경우)에 대한 설명. 트리거 작업이 성공한 경우 클라이언트는 이 필드를 생략하는 것이 좋습니다. 이 필드의 최대 길이는 50자입니다. | 오류의 경우 필수, 그렇지 않으면 생략됨 |

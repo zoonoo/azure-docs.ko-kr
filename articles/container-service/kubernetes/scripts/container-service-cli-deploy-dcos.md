@@ -3,7 +3,7 @@ title: Azure CLI 스크립트 샘플 - ACS DC/OS 클러스터 만들기 | Micros
 description: Azure CLI 스크립트 샘플 - ACS DC/OS 클러스터 만들기
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -15,15 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
-ms.openlocfilehash: 18ee5eb7f097d8d8738d72a29bcb73b8265b5416
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: iainfou
+ms.openlocfilehash: 2d9f58527908a17dd445b6afecbcd7e93f70de2c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161959"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001627"
 ---
-# <a name="create-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 클러스터 만들기
+# <a name="deprecated-create-an-azure-container-service-dcos-cluster"></a>(사용되지 않음) Azure Container Service DC/OS 클러스터 만들기
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 이 샘플에서는 DC/OS를 실행하는 Azure Container Service 클러스터를 만듭니다.
 
@@ -57,8 +59,8 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az acs create](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | ACS 클러스터를 만듭니다. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az acs create](https://docs.microsoft.com/cli/azure/acs#az-acs-create) | ACS 클러스터를 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

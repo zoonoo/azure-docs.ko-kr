@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management를 사용하여 Azure 리소스에 대한 역할 연장 및 검토 | Microsoft Docs
-description: 이 문서에서는 PIM 리소스에 대해 Azure 리소스 역할을 연장하고 갱신하는 방법을 설명합니다.
+title: PIM에서 Azure 리소스 역할 할당 확장 또는 갱신 | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할 할당을 확장하거나 갱신하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: protection
+ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 0f4919fb11d50269f5d4f5956e956bae31c96dc7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3294bddea867e061d01e8dc72f4e47f3238b6c4d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442307"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344088"
 ---
-# <a name="extend-and-review-roles-in-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management를 사용하여 Azure 리소스의 역할 연장 및 검토
+# <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>PIM에서 Azure 리소스 역할 할당 확장 또는 갱신
 
 Azure 리소스용 PIM(Privileged Identity Management)은 Azure 리소스에 대한 액세스 및 할당 주기를 관리하는 새로운 컨트롤을 소개합니다. 관리자는 시작 및 종료 날짜-시간 속성을 사용하여 멤버 자격을 할당할 수 있습니다. 할당 종료에 도달하면 PIM은 영향을 받는 사용자 또는 그룹에 메일 알림을 보냅니다. 또한 리소스 관리자에게도 적절한 액세스가 유지되도록 메일 알림을 보냅니다. 액세스가 연장되지 않더라도 할당이 갱신되어 만료된 상태에서 최대 30일 동안 표시됩니다.
 
@@ -131,8 +131,5 @@ PIM은 만료되기 14일 전 및 하루 전에 관리자 및 역할 만료의 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[활성화하려면 승인 필요](pim-resource-roles-approval-workflow.md)
-
-[역할 활성화](pim-resource-roles-use-the-audit-log.md)
-
-
+- [PIM에서 Azure 리소스 역할에 대한 요청 승인 또는 거부](pim-resource-roles-approval-workflow.md)
+- [PIM에서 Azure 리소스 역할 설정 구성](pim-resource-roles-configure-role-settings.md)

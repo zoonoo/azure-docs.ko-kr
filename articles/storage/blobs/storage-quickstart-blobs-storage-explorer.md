@@ -1,30 +1,29 @@
 ---
-title: Azure 빠른 시작 - Azure Storage 탐색기를 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
-description: 이 빠른 시작에서는 개체(Blob) 저장소에서 Azure Storage 탐색기를 사용합니다. 그런 다음, Storage 탐색기를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
+title: '빠른 시작: Azure Storage 탐색기를 사용하여 개체 저장소에 Blob 만들기'
+description: 이 빠른 시작에서는 Azure Storage 탐색기를 사용하여 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅숏을 만들고, 컨테이너 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 11/15/2018
 ms.author: tamram
-ms.openlocfilehash: 176d2fffa9f9e3c43a4e5c922aed58cebdbe2b1d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eef05a5b52e807a4db058682f034f6762cb93b9f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416250"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711194"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>빠른 시작: Azure Storage 탐색기를 사용하여 BLOB 업로드, 다운로드 및 나열
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>빠른 시작: Azure Storage 탐색기를 사용하여 개체 저장소에 Blob 만들기
 
-[Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)는 저장소 계정 콘텐츠를 관리하는 데 사용되는 다중 플랫폼 사용자 인터페이스입니다. 이 가이드에서는 Azure Storage 탐색기를 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 전송하는 방법을 설명합니다.
+이 빠른 시작에서는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅숏을 만들고, 컨테이너 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 사용하려면 Azure Storage 탐색기를 설치해야 합니다. 설치해야 하는 경우 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)에 방문하여 Windows, Macintosh 또는 Linux용을 다운로드합니다.
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+이 빠른 시작을 사용하려면 Azure Storage 탐색기를 설치해야 합니다. Windows, Macintosh 또는 Linux용 Azure Storage 탐색기를 설치하려면 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 참조하세요.
 
 ## <a name="log-in-to-storage-explorer"></a>Storage 탐색기에 로그인
 
@@ -78,7 +77,7 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 
 ## <a name="manage-snapshots"></a>스냅숏 관리
 
-Azure Storage 탐색기는 Blob의 [스냅숏](storage-blob-snapshots.md)을 가져와서 관리할 수 있는 기능을 제공합니다. Blob의 스냅숏을 찍으려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅숏 만들기**를 선택합니다. Blob의 스냅숏을 보려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅숏 관리**를 선택합니다. Blob의 스냅숏 목록이 현재 탭에 표시됩니다.
+Azure Storage 탐색기는 Blob의 [스냅숏](storage-blob-snapshots.md)을 가져와서 관리할 수 있는 기능을 제공합니다. Blob 스냅숏을 생성하려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅숏 만들기**를 선택합니다. Blob의 스냅숏을 보려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅숏 관리**를 선택합니다. Blob의 스냅숏 목록이 현재 탭에 표시됩니다.
 
 ![Microsoft Azure Storage 탐색기 - 컨테이너의 Blob 나열](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 

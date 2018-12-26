@@ -1,31 +1,26 @@
 ---
-title: .NET 및 HDInsight를 사용하여 Sqoop 작업 실행 - Azure | Microsoft Docs
-description: HDInsight .NET SDK를 사용하여 Hadoop 클러스터와 Azure SQL 데이터베이스 간에 Sqoop 가져오기 및 내보내기를 실행하는 방법을 알아봅니다.
+title: .NET 및 HDInsight를 사용하여 Apache Sqoop 작업 실행 - Azure
+description: HDInsight .NET SDK를 사용하여 Apache Hadoop 클러스터와 Azure SQL 데이터베이스 간에 Apache Sqoop 가져오기 및 내보내기를 실행하는 방법을 알아봅니다.
 keywords: sqoop 작업
-editor: cgronlun
-manager: jhubbard
+ms.reviewer: jasonh
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 87bacd13-7775-4b71-91da-161cb6224a96
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 818e4aca63249c7a1543abe146e0691e993e9e80
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: hrasheed
+ms.openlocfilehash: 0b8d408482f1f6e2bcd25182208a46d28f7b4f7a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200302"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633041"
 ---
-# <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop용 .NET SDK를 사용하여 Sqoop 작업 실행
+# <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop에 대해 .NET SDK를 사용하여 Apache Sqoop 작업 실행
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Azure HDInsight .NET SDK를 사용하여 HDInsight에서 Sqoop 작업을 실행하여 HDInsight 클러스터와 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스 간에 가져오고 내보내는 방법을 알아봅니다.
+Azure HDInsight .NET SDK를 사용하여 HDInsight 클러스터와 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스 간에 가져오고 내보내는 HDInsight에서 Apache Sqoop 작업을 실행하는 방법을 알아봅니다.
 
 > [!NOTE]
 > 이 문서의 절차는 Windows 기반 또는 Linux 기반 HDInsight 클러스터에서 사용할 수 있지만, Windows 클라이언트에서만 작동합니다. 다른 방법을 선택하려면 이 문서의 위쪽에 있는 탭 선택기를 사용하세요.

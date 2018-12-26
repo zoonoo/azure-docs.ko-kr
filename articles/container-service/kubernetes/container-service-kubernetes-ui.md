@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0680551d3a87c942574a4eac70fa380cc1e9b5d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b5079ddb63f468f924577f61adda6a3056ec8c6c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163251"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998528"
 ---
 # <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Azure Container Service에서 Kubernetes 웹 UI 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "32163251"
 이 연습에서는 [Azure Container Service를 사용하여 Kubernetes 클러스터를 만들었다고](container-service-kubernetes-walkthrough.md) 가정합니다.
 
 
-또한 Azure CLI 2.0 및 `kubectl` 도구가 설치되어 있다고 가정합니다.
+또한 Azure CLI 및 `kubectl` 도구가 설치되어 있다고 가정합니다.
 
 다음을 실행하여 `az` 도구가 설치되어 있는지 테스트할 수 있습니다.
 
@@ -108,7 +108,7 @@ $ az acs kubernetes browse -g [Resource Group] -n [Container service instance na
 
 ![Kubernetes 서비스](./media/container-service-kubernetes-ui/service-deployed.png)
 
-해당 보기에서 서비스에 할당된 외부 끝점(IP 주소)을 볼 수 있습니다.
+해당 보기에서 서비스에 할당된 외부 엔드포인트(IP 주소)를 볼 수 있습니다.
 해당 IP 주소를 클릭하면 부하 분산 장치 뒤에서 Nginx 컨테이너가 실행되는 것이 표시됩니다.
 
 ![nginx 보기](./media/container-service-kubernetes-ui/nginx-page.png)

@@ -1,6 +1,6 @@
 ---
-title: Azure의 Service Fabric 앱에 HTTPS 엔드포인트 추가 | Microsoft Docs
-description: 이 자습서에서는 ASP.NET Core 프런트 엔드 웹 서비스에 HTTPS 엔드포인트를 추가하고 클러스터에 응용 프로그램을 배포하는 방법을 알아봅니다.
+title: Azure에서 Kestrel을 사용하여 Service Fabric 앱에 HTTPS 엔드포인트 추가 | Microsoft Docs
+description: 이 자습서에서는 Kestrel을 사용하여 ASP.NET Core 프런트 엔드 웹 서비스에 HTTPS 엔드포인트를 추가하고 클러스터에 응용 프로그램을 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 309a43d3383658029f4fe7f90f869888bac67bb1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 4333a234efe96f32541254819c9c5f21bb031757
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130053"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115079"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>자습서: ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>자습서: Kestrel을 사용하여 ASP.NET Core Web API 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
 
 이 자습서는 시리즈의 3부입니다.  Service Fabric에서 실행되는 ASP.NET Core 서비스에서 HTTPS를 사용하는 방법을 알아봅니다. 완료되면 포트 443에서 수신 대기하는 HTTPS 사용 ASP.NET Core 웹 프런트 엔드를 사용하는 투표 응용 프로그램이 생성됩니다. [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램의 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)할 수 있습니다.
 
@@ -34,14 +34,14 @@ ms.locfileid: "37130053"
 > * 원격 클러스터 노드에 SSL 인증서 설치
 > * NETWORK SERVICE에 인증서의 개인 키에 대한 액세스 권한 부여
 > * Azure 부하 분산 장치에서 포트 443 열기
-> * 응용 프로그램을 원격 클러스터에 배포
+> * 애플리케이션을 원격 클러스터에 배포
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
-> * [Visual Studio Team Services를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>필수 조건
@@ -118,7 +118,7 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography.X509Certificates;
 ```
 
-새로운 *EndpointHttps* 엔드포인트를 사용하고 포트 443에서 수신 대기하도록 `ServiceInstanceListener`를 업데이트합니다.
+새로운 *EndpointHttps* 엔드포인트를 사용하고 포트 443에서 수신 대기하도록 `ServiceInstanceListener`를 업데이트합니다. Kestrel 서버를 사용하도록 웹 호스트를 구성할 때는 Kestrel이 모든 네트워크 인터페이스에 대해 IPv6 주소를 수신 대기하도록 구성해야 합니다(`opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`).
 
 ```csharp
 new ServiceInstanceListener(
@@ -232,6 +232,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
 *Setup.bat* 파일 속성을 수정하여 **출력 디렉터리로 복사**를 "변경된 내용만 복사"로 설정합니다.
+
 ![파일 속성 설정][image1]
 
 솔루션 탐색기에서 **VotingWeb**을 마우스 오른쪽 단추로 클릭하고 **추가**->**새 항목**을 선택하여 "SetCertAccess.ps1" 이라는 새 파일을 추가합니다.  *SetCertAccess.ps1* 파일을 편집하고 다음 스크립트를 추가합니다.
@@ -265,7 +266,7 @@ if ($cert -eq $null)
     $hasPermissionsAlready = ($acl.Access | where {$_.IdentityReference.Value.Contains($userGroup.ToUpperInvariant()) -and $_.FileSystemRights -eq [System.Security.AccessControl.FileSystemRights]::FullControl}).Count -eq 1
 
     if ($hasPermissionsAlready){
-        Write-Host "Account $userGroupCertificate already has permissions to certificate '$subject'." -ForegroundColor Green
+        Write-Host "Account $userGroup already has permissions to certificate '$subject'." -ForegroundColor Green
         return $false;
     } else {
         Write-Host "Need add permissions to '$subject' certificate..." -ForegroundColor DarkYellow
@@ -281,8 +282,9 @@ if ($cert -eq $null)
     }
 }
 
-Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 ```
+
+*SetCertAccess.ps1* 파일 속성을 수정하여 **출력 디렉터리로 복사**를 "변경된 내용만 복사"로 설정합니다.
 
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>로컬 관리자 권한으로 설치 스크립트 실행
 
@@ -335,7 +337,7 @@ Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory
 </ApplicationManifest>
 ```
 
-## <a name="run-the-application-locally"></a>로컬에서 응용 프로그램 실행
+## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 
 솔루션 탐색기에서 **투표** 응용 프로그램을 선택하고 **응용 프로그램 URL** 속성을 " https://localhost:443 " 으로 설정합니다.
 
@@ -420,7 +422,7 @@ $slb | Add-AzureRmLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $sl
 $slb | Set-AzureRmLoadBalancer
 ```
 
-## <a name="deploy-the-application-to-azure"></a>Azure에 응용 프로그램 배포
+## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 
 모든 파일을 저장하고 디버그에서 릴리스로 전환한 다음, F6 키를 눌러 다시 빌드합니다.  솔루션 탐색기에서 **투표**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [클러스터에 응용 프로그램 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 만든 클러스터의 연결 엔드포인트를 선택하거나, 다른 클러스터를 선택합니다.  응용 프로그램을 원격 클러스터에 게시하려면 **게시**를 클릭합니다.
 
@@ -438,11 +440,11 @@ $slb | Set-AzureRmLoadBalancer
 > * 원격 클러스터 노드에 SSL 인증서 설치
 > * NETWORK SERVICE에 인증서의 개인 키에 대한 액세스 권한 부여
 > * Azure 부하 분산 장치에서 포트 443 열기
-> * 응용 프로그램을 원격 클러스터에 배포
+> * 애플리케이션을 원격 클러스터에 배포
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]
-> [Visual Studio Team Services를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 [image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
 [image2]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png

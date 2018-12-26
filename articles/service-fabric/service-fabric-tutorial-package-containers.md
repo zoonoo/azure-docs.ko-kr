@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Service Fabric 앱으로 컨테이너 패키징 및 배포 | Microsoft Docs
-description: 이 자습서에서는 Yeoman을 사용하여 Azure Service Fabric 응용 프로그램 정의를 생성하고 응용 프로그램을 패키지하는 방법을 알아봅니다.
+description: 이 자습서에서는 Yeoman을 사용하여 Azure Service Fabric 애플리케이션 정의를 생성하고 애플리케이션을 패키지하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: be4ac20f578dc670a3d9c83124504c37e57ee9bf
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 7d622b834cef31552cac60b359cdd8404592eda9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108776"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255560"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 응용 프로그램으로 컨테이너 패키징 및 배포
 
@@ -31,7 +31,7 @@ ms.locfileid: "37108776"
 > * Yeoman 설치
 > * Yeoman을 사용하여 응용 프로그램 패키지 만들기
 > * 응용 프로그램 패키지에서 컨테이너에서 사용할 설정 구성
-> * 응용 프로그램 빌드
+> * 애플리케이션 빌드
 > * 응용 프로그램 배포 및 실행
 > * 응용 프로그램 정리
 
@@ -47,18 +47,18 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 응
 1. 컴퓨터에서 Node.js 및 NPM을 설치합니다. Mac OSX 사용자는 Homebrew 패키지 관리자를 사용해야 합니다
 
     ```bash
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-    sudo apt-get install -y nodejs 
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    nvm install node 
     ```
 2. NPM의 컴퓨터에 Yeoman 템플릿 생성기 설치
 
     ```bash
-    sudo npm install -g yo
+    npm install -g yo
     ```
 3. Service Fabric Yeoman 컨테이너 생성기 설치
 
-    ```bash
-    sudo npm install -g generator-azuresfcontainer
+    ```bash 
+    npm install -g generator-azuresfcontainer
     ```
 
 ## <a name="package-a-docker-image-container-with-yeoman"></a>Yeoman에서 Docker 이미지 컨테이너 패키징
@@ -150,7 +150,7 @@ az acr credential show -n <acrName> --query passwords[0].value
 
 ### <a name="configure-communication-port"></a>통신 포트 구성
 
-클라이언트가 서비스와 통신할 수 있도록 HTTP 끝점을 구성합니다. *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* 파일을 열고 **ServiceManifest** 요소에서 끝점 리소스를 선언합니다.  프로토콜, 포트 및 이름을 추가합니다. 이 자습서에서 서비스는 포트 80에서 수신 대기합니다. 다음 코드 조각은 리소스의 *ServiceManifest* 태그 아래에 배치됩니다.
+클라이언트가 서비스와 통신할 수 있도록 HTTP 엔드포인트를 구성합니다. *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* 파일을 열고 **ServiceManifest** 요소에서 엔드포인트 리소스를 선언합니다.  프로토콜, 포트 및 이름을 추가합니다. 이 자습서에서 서비스는 포트 80에서 수신 대기합니다. 다음 코드 조각은 리소스의 *ServiceManifest* 태그 아래에 배치됩니다.
 
 ```xml
 <Resources>
@@ -177,11 +177,11 @@ az acr credential show -n <acrName> --query passwords[0].value
 </Resources>
 ```
 
-**UriScheme**을 입력하면 컨테이너 끝점이 검색될 수 있도록 Service Fabric Naming 서비스에 자동으로 등록됩니다. 백 엔드 서비스의 전체 ServiceManifest.xml 예제 파일을 이 문서의 끝에서 예제로 제공합니다.
+**UriScheme**을 입력하면 컨테이너 엔드포인트가 검색될 수 있도록 Service Fabric Naming 서비스에 자동으로 등록됩니다. 백 엔드 서비스의 전체 ServiceManifest.xml 예제 파일을 이 문서의 끝에서 예제로 제공합니다.
 
 ### <a name="map-container-ports-to-a-service"></a>서비스에 컨테이너 포트 매핑
 
-또한 클러스터에서 컨테이너를 노출하려면 'ApplicationManifest.xml'에서 포트 바인딩을 만들어야 합니다. **PortBinding** 정책은 **ServiceManifest.xml** 파일에서 정의한 **끝점**을 참조합니다. 이러한 끝점에 들어오는 요청은 여기에서 열리고 바인딩된 컨테이너 포트에 매핑됩니다. **ApplicationManifest.xml** 파일에서 다음 코드를 추가하여 끝점에 포트 80 및 6379를 바인딩합니다. 이 문서의 끝에서 전체 **ApplicationManifest.xml**을 사용할 수 있습니다.
+또한 클러스터에서 컨테이너를 노출하려면 'ApplicationManifest.xml'에서 포트 바인딩을 만들어야 합니다. **PortBinding** 정책은 **ServiceManifest.xml** 파일에서 정의한 **엔드포인트**를 참조합니다. 이러한 엔드포인트에 들어오는 요청은 여기에서 열리고 바인딩된 컨테이너 포트에 매핑됩니다. **ApplicationManifest.xml** 파일에서 다음 코드를 추가하여 엔드포인트에 포트 80 및 6379를 바인딩합니다. 이 문서의 끝에서 전체 **ApplicationManifest.xml**을 사용할 수 있습니다.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code">
@@ -229,7 +229,7 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 
 응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
 
-파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 누구든지 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있는 Service Fabric 팀에서 실행합니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](http://aka.ms/tryservicefabric).
+파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 누구든지 애플리케이션을 배포하고 플랫폼에 대해 알아볼 수 있는 Service Fabric 팀에서 실행합니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](https://aka.ms/tryservicefabric).
 
 보안 파티 클러스터에서 관리 작업을 수행하기 위해 Service Fabric Explorer, CLI 또는 Powershell을 사용할 수 있습니다. Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에서 PFX 파일을 다운로드하고, 인증서 저장소(Windows 또는 Mac) 또는 브라우저 자체(Ubuntu)로 인증서를 가져와야 합니다. 파티 클러스터의 자체 서명된 인증서에는 암호가 없습니다.
 
@@ -332,7 +332,7 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables>
-      </EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
 
   <Resources>
@@ -367,7 +367,7 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables>
-      </EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
      <Resources>
     <Endpoints>
@@ -388,7 +388,7 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 > * Yeoman 설치
 > * Yeoman을 사용하여 응용 프로그램 패키지 만들기
 > * 응용 프로그램 패키지에서 컨테이너에서 사용할 설정 구성
-> * 응용 프로그램 빌드
+> * 애플리케이션 빌드
 > * 응용 프로그램 배포 및 실행
 > * 응용 프로그램 정리
 

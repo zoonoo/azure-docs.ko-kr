@@ -1,25 +1,21 @@
 ---
-title: Azure Resource Manager 템플릿에서 논리 앱 만들기 | Microsoft Docs
-description: Azure Resource Manager 템플릿을 사용하여 논리 앱 워크플로 만들기 및 배포
+title: Azure Resource Manager 템플릿을 사용하여 논리 앱 만들기 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps에서 Azure Resource Manager 템플릿을 사용하여 논리 앱 워크플로 만들기 및 배포
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
+ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: 0772ed0e6cca98c4e59b563a23549909636d55d0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 274fa3153f6a354b121b7fd8338d8e0d2d94f4f4
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38572623"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230815"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 논리 앱 만들기 및 배포
 
@@ -125,7 +121,7 @@ azure group deployment create --template-uri https://raw.githubusercontent.com/A
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

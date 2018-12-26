@@ -1,9 +1,9 @@
 ---
-title: Azure CLI 2.0 샘플 | Microsoft Docs
-description: Azure CLI 2.0 샘플
+title: Azure CLI 샘플 | Microsoft Docs
+description: Azure CLI 샘플
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,25 +14,25 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: ca362f79ff45a886ed570cfdf68b731064d1c17f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 58e387ce6827fa7ef182d247a2740b94d9b988f1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597369"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471274"
 ---
-# <a name="azure-cli-20-samples-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대한 Azure CLI 2.0 샘플
+# <a name="azure-cli-samples-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합용 Azure CLI 샘플
 
-다음 표에는 Azure CLI 2.0을 사용하여 빌드된 bash 셸에 대한 링크가 나와 있습니다.
+다음 테이블은 Azure CLI를 사용하여 빌드된 bash 셸에 대한 링크를 포함합니다.
 
 | | |
 |---|---|
 |**확장 집합 만들기 및 관리**||
 | [가상 머신 확장 집합 만들기](scripts/cli-sample-create-simple-scale-set.md?toc=%2fcli%2fazure%2ftoc.json) | 최소한의 구성으로 가상 머신 확장 집합을 만듭니다. |
 | [사용자 지정 VM 이미지에서 확장 집합 만들기](scripts/cli-sample-create-scale-set-from-custom-image.md?toc=%2fcli%2fmodule%2ftoc.json) | 사용자 지정 VM 이미지를 사용하는 가상 머신 확장 집합을 만듭니다. |
-| [확장 집합에 응용 프로그램 설치](scripts/cli-sample-install-apps.md?toc=%2fcli%2fmodule%2ftoc.json) | Azure 사용자 지정 스크립트 확장을 사용하여 기본 웹 응용 프로그램을 확장 집합에 설치합니다. |
+| [확장 집합에 응용 프로그램 설치](scripts/cli-sample-install-apps.md?toc=%2fcli%2fmodule%2ftoc.json) | Azure 사용자 지정 스크립트 확장을 사용하여 기본 웹 애플리케이션을 확장 집합에 설치합니다. |
 |**저장소 관리**||
 | [확장 집합에 디스크 만들기 및 연결](scripts/cli-sample-attach-disks.md?toc=%2fcli%2fmodule%2ftoc.json) | 연결된 데이터 디스크가 있는 가상 머신 확장 집합을 만듭니다. |
 |**크기 조정 및 중복 관리**||

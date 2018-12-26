@@ -9,26 +9,26 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 5/8/2018
+ms.date: 9/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a79c1951fb8cfbfc208942835ee87b91b763c44
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 75b5fd2f586a9122aa1248ba88d7ceab59b13215
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798188"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269295"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -36,13 +36,13 @@ ms.locfileid: "34798188"
 
 <table>
 
-<tr><td>**SDK 다운로드**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**SDK 다운로드**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
 
-<tr><td>**API 설명서**</td><td>[Python API 참조 설명서](https://docs.microsoft.com/python/api/pydocumentdb?view=azure-python)</td></tr>
+<tr><td>**API 설명서**</td><td>[Python API 참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
 
-<tr><td>**SDK 설치 지침**</td><td>[Python SDK 설치 지침](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**SDK 설치 지침**</td><td>[Python SDK 설치 지침](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
-<tr><td>**SDK에 참여**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**SDK에 참여**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
 <tr><td>**시작**</td><td>[Python SDK 시작](sql-api-python-application.md)</td></tr>
 
@@ -50,6 +50,12 @@ ms.locfileid: "34798188"
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name300300"></a><a name="3.0.0"/>3.0.0
+* 다중 지역 쓰기 지원
+* azure.cosmos로 변경된 네임스페이스
+* 컨테이너 및 항목으로 이름이 바뀐 컬렉션 및 문서 개념, cosmos_client로 이름이 바뀐 document_client 
+
 ### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
 * 연결 문제에 대한 기본 재시도 지원이 추가되었습니다.
 

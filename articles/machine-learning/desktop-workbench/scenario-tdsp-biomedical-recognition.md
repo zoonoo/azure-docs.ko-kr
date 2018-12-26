@@ -3,27 +3,32 @@ title: 생명 공학 엔터티 인식 - Team Data Science Process - Azure Machin
 description: Azure Machine Learning Workbench에서 생명 공학 엔터티 인식을 위한 심화 학습을 사용하는 Team Data Science Process 프로젝트 빠른 시작 가이드입니다.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
-ms.openlocfilehash: ae8c8ed9d397df0c82b74f051ff14729c0f41623
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0d31fc0ecb06727aa44d31d832b0bfd5145b7c7d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837281"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262095"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>TDSP(Team Data Science Process) 템플릿을 사용하는 생명 공학 엔터티 인식
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 엔터티 추출은 정보 추출의 하위 작업입니다([NER(명명된 엔터티 인식)](https://en.wikipedia.org/wiki/Named-entity_recognition)이라고도 하는 엔터티 청크 및 엔터티 식별). 이 실제 시나리오의 목표는 Azure Machine Learning Workbench를 사용하여 구조화되지 않은 텍스트에서 엔터티 추출과 같은 복잡한 NLP(자연어 처리) 작업을 해결하는 방법을 중점적으로 설명하는 것입니다.
 
@@ -81,7 +86,7 @@ ms.locfileid: "34837281"
 
 ### <a name="2-lstm-model-training-data"></a>2. LSTM 모델 학습 데이터
 
-신경망 엔터티 추출 모델은 공개적으로 사용 가능한 데이터 집합에 대해 학습 및 평가되었습니다. 이러한 데이터 집합에 대한 자세한 설명을 보려면 다음 소스를 참조하세요.
+신경망 엔터티 추출 모델은 공개적으로 사용 가능한 데이터 세트에 대해 학습 및 평가되었습니다. 이러한 데이터 세트에 대한 자세한 설명을 보려면 다음 소스를 참조하세요.
  * [BioNLP/NLPBA 2004에서의 생명 과학 엔터티 인식 작업](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR 작업 모음](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 - 작업 9.1(약품 인식)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -95,7 +100,7 @@ ms.locfileid: "34837281"
 ## <a name="prerequisites"></a>필수 조건 
 
 * Azure [구독](https://azure.microsoft.com/free/)
-* Azure Machine Learning Workbench. [설치 가이드](../service/quickstart-installation.md)를 참조하세요. 현재 Azure Machine Learning Workbench는 다음 운영 체제에만 설치할 수 있습니다. 
+* Azure Machine Learning Workbench. [설치 가이드](quickstart-installation.md)를 참조하세요. 현재 Azure Machine Learning Workbench는 다음 운영 체제에만 설치할 수 있습니다. 
     * Windows 10 또는 Windows Server 2016
     * macOS Sierra(이상)
 
@@ -118,7 +123,7 @@ ms.locfileid: "34837281"
 
 ### <a name="basic-instructions-for-azure-machine-learning-aml-workbench"></a>AML(Azure Machine Learning) Workbench에 대한 기본 지침
 * [개요](../service/overview-what-is-azure-ml.md)
-* [설치](../service/quickstart-installation.md)
+* [설치](quickstart-installation.md)
 * [TDSP 사용](how-to-use-tdsp-in-azure-ml.md)
 * [파일 읽기 및 쓰기 방법](how-to-read-write-files.md)
 * [Jupyter Notebook을 사용하는 방법](how-to-use-jupyter-notebooks.md)
@@ -148,7 +153,7 @@ XML 파일을 구문 분석한 후의 데이터 형식은 다음과 같습니다
 
 ![데이터 샘플](./media/scenario-tdsp-biomedical-recognition/datasample.png)
 
-신경망 엔터티 추출 모델은 공개적으로 사용 가능한 데이터 집합에 대해 학습 및 평가되었습니다. 이러한 데이터 집합에 대한 자세한 설명을 보려면 다음 소스를 참조하세요.
+신경망 엔터티 추출 모델은 공개적으로 사용 가능한 데이터 세트에 대해 학습 및 평가되었습니다. 이러한 데이터 세트에 대한 자세한 설명을 보려면 다음 소스를 참조하세요.
  * [BioNLP/NLPBA 2004에서의 생명 과학 엔터티 인식 작업](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR 작업 모음](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 - 작업 9.1(약품 인식)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -169,7 +174,7 @@ Word2Vec는 레이블이 없는 학습 모음에서 신경망 모델을 학습�
 
 ![Skip Gram 모델](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-이 모델은 계층적 Softmax 및 음수 샘플링을 사용하여 성능을 최적화합니다. H-SoftMax(계층적 SoftMax)는 이진 트리에서 영감을 얻은 근사값입니다. H-SoftMax는 기본적으로 일반 SoftMax 레이어를 단어가 리프인 계층적 레이어로 대체합니다. 이를 통해 한 단어의 확률 계산을 일련의 확률 계산으로 분해할 수 있으므로 모든 단어에 대해 비싼 정규화를 계산하지 않아도 됩니다. 균형 있는 이진 트리의 깊이는 log2(|V|)이므로(V는 어휘임) 단어의 최종 확률을 구하려면 최대 log2(|V|) 노드를 평가하기만 하면 됩니다. 해당 컨텍스트 c에 철자 w가 지정될 확률은 리프 노드로 이어지는 오른쪽 및 왼쪽 전환 확률의 곱입니다. 자주 사용하는 단어의 표현이 더 짧도록 데이터 집합의 단어 빈도에 따라 Huffman 트리를 만들 수 있습니다. 자세한 내용은 [이 링크](http://sebastianruder.com/word-embeddings-softmax/)를 참조하세요.
+이 모델은 계층적 Softmax 및 음수 샘플링을 사용하여 성능을 최적화합니다. H-SoftMax(계층적 SoftMax)는 이진 트리에서 영감을 얻은 근사값입니다. H-SoftMax는 기본적으로 일반 SoftMax 레이어를 단어가 리프인 계층적 레이어로 대체합니다. 이를 통해 한 단어의 확률 계산을 일련의 확률 계산으로 분해할 수 있으므로 모든 단어에 대해 비싼 정규화를 계산하지 않아도 됩니다. 균형 있는 이진 트리의 깊이는 log2(|V|)이므로(V는 어휘임) 단어의 최종 확률을 구하려면 최대 log2(|V|) 노드를 평가하기만 하면 됩니다. 해당 컨텍스트 c에 철자 w가 지정될 확률은 리프 노드로 이어지는 오른쪽 및 왼쪽 전환 확률의 곱입니다. 자주 사용하는 단어의 표현이 더 짧도록 데이터 세트의 단어 빈도에 따라 Huffman 트리를 만들 수 있습니다. 자세한 내용은 [이 링크](http://ruder.io/word-embeddings-softmax/)를 참조하세요.
 이미지는 [여기](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/)에서 가져왔습니다.
 
 ##### <a name="visualization"></a>시각화
@@ -208,9 +213,9 @@ Word2Vec는 레이블이 없는 학습 모음에서 신경망 모델을 학습�
 
 ![LSTM 세포](./media/scenario-tdsp-biomedical-recognition/lstm-cell.png)
 
-LSTM 기반의 고유한 순환 신경망을 만들고 PubMed 데이터에서 약품, 질병 및 증상과 같은 엔터티 유형을 추출하려고 합니다. 첫 번째 단계는 많은 양의 레이블이 있는 데이터를 얻는 것인데 쉽지 않습니다. 대부분의 의료 데이터에는 개인에 대한 중요한 정보가 많이 포함되어 있으므로 공개적으로 사용할 수 없습니다. 공개적으로 사용 가능한 두 개의 서로 다른 데이터 집합 조합을 사용합니다. 첫 번째 데이터 집합은 Semeval 2013-Task 9.1(약품 인식)이고 다른 하나는 BioCreative V CDR 작업입니다. 이 두 데이터 집합을 결합하고 자동으로 레이블을 지정하여 의학 텍스트에서 약품과 질병을 모두 검색하고 단어 포함을 평가할 수 있습니다. 구현 세부 정보는 [GitHub 코드 링크](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation)를 참조하세요.
+LSTM 기반의 고유한 순환 신경망을 만들고 PubMed 데이터에서 약품, 질병 및 증상과 같은 엔터티 유형을 추출하려고 합니다. 첫 번째 단계는 많은 양의 레이블이 있는 데이터를 얻는 것인데 쉽지 않습니다. 대부분의 의료 데이터에는 개인에 대한 중요한 정보가 많이 포함되어 있으므로 공개적으로 사용할 수 없습니다. 공개적으로 사용 가능한 두 개의 서로 다른 데이터 세트 조합을 사용합니다. 첫 번째 데이터 세트는 Semeval 2013-Task 9.1(약품 인식)이고 다른 하나는 BioCreative V CDR 작업입니다. 이 두 데이터 세트를 결합하고 자동으로 레이블을 지정하여 의학 텍스트에서 약품과 질병을 모두 검색하고 단어 포함을 평가할 수 있습니다. 구현 세부 정보는 [GitHub 코드 링크](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation)를 참조하세요.
 
-모든 코드에서 비교를 위해 사용한 모델 아키텍처는 다음과 같습니다. 다른 데이터 집합의 경우 변경되는 매개 변수는 최대 시퀀스 길이(이 경우 613)입니다.
+모든 코드에서 비교를 위해 사용한 모델 아키텍처는 다음과 같습니다. 다른 데이터 세트의 경우 변경되는 매개 변수는 최대 시퀀스 길이(이 경우 613)입니다.
 
 ![LSTM 모델](./media/scenario-tdsp-biomedical-recognition/d-a-d-model.png)
 
@@ -227,7 +232,7 @@ LSTM 기반의 고유한 순환 신경망을 만들고 PubMed 데이터에서 �
 
 ![모델 비교 1](./media/scenario-tdsp-biomedical-recognition/mc1.png)
 
-유사한 방식으로 다른 데이터 집합의 단어 포함을 평가하고 도메인 내 모델이 항상 더 낫다는 것을 확인합니다.
+유사한 방식으로 다른 데이터 세트의 단어 포함을 평가하고 도메인 내 모델이 항상 더 낫다는 것을 확인합니다.
 
 * 작업 2: 단백질, 세포주, 세포 유형, DNA 및 RNA 검출
 

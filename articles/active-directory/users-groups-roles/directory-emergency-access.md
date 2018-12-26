@@ -28,7 +28,7 @@ ms.locfileid: "38595657"
 조직은 다음과 같은 상황에서 응급 액세스 계정을 사용해야 할 수도 있습니다.
 
  - 사용자 계정이 페더레이션되고, 페더레이션이 현재 셀 네트워크 중단 또는 ID 공급자 중단으로 인해 사용할 수 없습니다. 예를 들어, 사용자 환경에서 ID 공급자 호스트가 중단된 경우 사용자는 Azure AD가 해당 ID 공급자로 리디렉션할 때 로그인하지 못할 수 있습니다. 
- - 관리자는 Azure Multi-Factor Authentication을 통해 등록되며 모든 개별 장치는 사용할 수 없습니다. 사용자는 역할을 활성화하는 Multi-Factor Authentication을 완료하지 못할 수도 있습니다. 예를 들어 셀 네트워크 장애로 인해 해당 장치에 대해 등록된 단 두 개의 인증 메커니즘인 수신 전화에 응답 및 문자 메시지 수신이 불가능할 수 있습니다. 
+ - 관리자는 Azure Multi-Factor Authentication을 통해 등록되며 모든 개별 디바이스는 사용할 수 없습니다. 사용자는 역할을 활성화하는 Multi-Factor Authentication을 완료하지 못할 수도 있습니다. 예를 들어 셀 네트워크 장애로 인해 해당 디바이스에 대해 등록된 단 두 개의 인증 메커니즘인 수신 전화에 응답 및 문자 메시지 수신이 불가능할 수 있습니다. 
  - 최신 전역 관리자 액세스를 가진 사용자가 조직을 떠났습니다. Azure AD는 마지막 *전역 관리자* 계정이 삭제되지 않도록 할 수 있으나, 계정이 온-프레미스에서 삭제되거나 비활성되는 것은 방지할 수 없습니다. 각 상황에서 조직은 계정을 복구하지 못할 수 있습니다.
 
 ## <a name="initial-configuration"></a>초기 구성
@@ -48,15 +48,15 @@ ms.locfileid: "38595657"
 
 손상된 암호로 인한 공격 위험을 줄이기 위해 Azure AD는 모든 개별 사용자에 대해 Multi-Factor Authentication을 요구할 것을 권장합니다. 이 그룹에는 공격에 노출된 계정이 상당한 영향을 미치는 관리자 및 다른 모든 사용자(예: 회계 담당자)가 포함됩니다. 
 
-그러나 조직에 공유 장치가 없는 경우 Multi-Factor Authentication은 이러한 응급 액세스 계정에 사용하지 못할 수도 있습니다. Azure AD 및 기타 연결된 SaaS(Software as a Service) 앱의 [모든 관리자에 대해 Multi-Factor Authentication 등록](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states)이 필요한 조건부 액세스 정책을 구성하는 경우 이 요구 사항에서 응급 액세스 계정을 제외하는 정책 제외 사항을 구성해야 할 수도 있습니다.
+그러나 조직에 공유 디바이스가 없는 경우 Multi-Factor Authentication은 이러한 응급 액세스 계정에 사용하지 못할 수도 있습니다. Azure AD 및 기타 연결된 SaaS(Software as a Service) 앱의 [모든 관리자에 대해 Multi-Factor Authentication 등록](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states)이 필요한 조건부 액세스 정책을 구성하는 경우 이 요구 사항에서 응급 액세스 계정을 제외하는 정책 제외 사항을 구성해야 할 수도 있습니다.
 
 ### <a name="initial-configuration-with-approvals"></a>승인이 필요한 초기 구성
 
 다른 옵션은 적합한 사용자 및 승인자를 *전역 관리자* 역할을 활성화하도록 구성하는 것입니다. 이 옵션은 조직에 Azure AD Premium P2 구독이 있어야 합니다. 또한 여러 사람 및 네트워크 환경 간 공유 사용에 적합한 Multi-Factor Authentication 옵션이 필요합니다. 이러한 요구 사항은 *전역 관리자* 역할 활성화로 인해 사용자가 사전에 Multi-Factor Authentication을 수행해야 합니다. 자세한 내용은 [Azure AD Privileged Identity Management에서 Multi-Factor Authentication을 요구하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa)을 참조하세요.
 
-응급 액세스 계정에 대해 개인 장치와 관련된 Multi-Factor Authentication을 사용하는 것은 좋지 않습니다. 실제 긴급 상황에서는 Multi-Factor Authentication에 등록된 장치에 액세스해야 하는 사람에게 해당 개인 장치가 없을 수도 있습니다. 
+응급 액세스 계정에 대해 개인 디바이스와 관련된 Multi-Factor Authentication을 사용하는 것은 좋지 않습니다. 실제 긴급 상황에서는 Multi-Factor Authentication에 등록된 디바이스에 액세스해야 하는 사람에게 해당 개인 디바이스가 없을 수도 있습니다. 
 
-또한 위협 환경을 고려합니다. 예를 들어 자연 재해 사태와 같이 예측할 수 없는 상황이 발생하여 휴대폰 또는 다른 네트워크를 사용하지 못할 수도 있습니다. 등록된 모든 장치가 Azure AD와 통신하는 여러 수단이 있는 안전하고 알려진 위치에 있는지 확인하는 것이 중요합니다.
+또한 위협 환경을 고려합니다. 예를 들어 자연 재해 사태와 같이 예측할 수 없는 상황이 발생하여 휴대폰 또는 다른 네트워크를 사용하지 못할 수도 있습니다. 등록된 모든 디바이스가 Azure AD와 통신하는 여러 수단이 있는 안전하고 알려진 위치에 있는지 확인하는 것이 중요합니다.
 
 ## <a name="ongoing-monitoring"></a>지속적인 모니터링
 
@@ -73,8 +73,8 @@ ms.locfileid: "38595657"
 
 * 보안 모니터링 직원이 계정 검사 작업이 진행 중임을 알고 있는지 확인합니다.
 * 클라우드 사용자 계정이 자신의 역할에 로그인하고 활성화할 수 있는지 및 응급 시 이러한 단계를 수행해야 하는 사용자가 프로세스에 대해 교육받았는지 확인합니다.
-* 개인 사용자의 장치 또는 개인 정보에 Multi-Factor Authentication 또는 SSPR(셀프 서비스 암호 재설정)을 등록하지 않았는지 확인합니다. 
-* 장치에 Multi-Factor Authentication을 등록한 계정의 경우, 역할을 활성화하는 동안 사용하도록 하려면 응급 시 사용해야 할 수도 있는 모든 관리자가 장치에 액세스할 수 있는지 확인합니다. 또한 일반적인 오류 모드를 공유하지 않는 두 개 이상의 메커니즘을 통해 장치가 등록되어 있는지 확인합니다. 예를 들어 장치는 시설의 무선 네트워크 및 휴대 전화 공급자 네트워크 모두를 통해 인터넷과 통신할 수 있습니다.
+* 개인 사용자의 디바이스 또는 개인 정보에 Multi-Factor Authentication 또는 SSPR(셀프 서비스 암호 재설정)을 등록하지 않았는지 확인합니다. 
+* 디바이스에 Multi-Factor Authentication을 등록한 계정의 경우, 역할을 활성화하는 동안 사용하도록 하려면 응급 시 사용해야 할 수도 있는 모든 관리자가 디바이스에 액세스할 수 있는지 확인합니다. 또한 일반적인 오류 모드를 공유하지 않는 두 개 이상의 메커니즘을 통해 디바이스가 등록되어 있는지 확인합니다. 예를 들어 디바이스는 시설의 무선 네트워크 및 휴대 전화 공급자 네트워크 모두를 통해 인터넷과 통신할 수 있습니다.
 * 계정 자격 증명을 업데이트합니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -4,18 +4,18 @@ description: 이 문서에서는 이벤트 허브에 연결된 이벤트 원본�
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: edett
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 8b1fe447cb673b9bc1f4fe4e73f7412a21f701a5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ce4bf1ab74e4203f0deb7b2984ffa6a66d5efd4a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330865"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627113"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Time Series Insights 환경에 이벤트 허브 이벤트 원본을 추가하는 방법
 
@@ -98,7 +98,7 @@ ms.locfileid: "36330865"
 
 11. 새 이벤트 원본을 추가하려면 **만들기**를 선택합니다.
    
-   ![만들기 클릭](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+   ![만들기 클릭 ](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
 
    이벤트 원본이 생성되면 Time Series Insights가 자동으로 데이터를 환경으로 스트리밍하기 시작합니다.
 

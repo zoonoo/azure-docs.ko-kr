@@ -3,7 +3,7 @@ title: C# 및 Resource Manager 템플릿을 사용하여 VM 배포 | Microsoft D
 description: C# 및 Resource Manager 템플릿을 사용하여 Azure VM을 배포하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: cynthn
-ms.openlocfilehash: e57505b4bd89a79af076dc4cf132c844ae0abd1d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: zarhoads
+ms.openlocfilehash: f3d83fa8ba5a78c7aacc7014e9ec50fb447bb1c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527827"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953691"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포
 이 문서에서는 C#을 사용하여 Azure Resource Manager 템플릿을 배포하는 방법을 보여줍니다. 만든 템플릿은 단일 서브넷을 사용하는 새 가상 네트워크에서 Windows Server를 실행하는 단일 가상 머신을 배포합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "31527827"
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-이 단계에서는 Visual Studio가 설치되어 있는지 확인하고 템플릿을 배포하는 데 사용하는 콘솔 응용 프로그램을 만듭니다.
+이 단계에서는 Visual Studio가 설치되어 있는지 확인하고 템플릿을 배포하는 데 사용하는 콘솔 애플리케이션을 만듭니다.
 
 1. [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **.NET 데스크톱 개발**을 선택한 다음 **설치**를 클릭합니다. 요약에서 **.NET Framework 4 - 4.6 개발 도구**가 자동으로 선택되는 것을 볼 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 .NET 작업을 추가할 수 있습니다.
 2. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭합니다.
@@ -185,7 +185,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ### <a name="create-the-authorization-file"></a>권한 부여 파일 만들기
 
-템플릿을 배포하기 전에 [Active Directory 서비스 사용자](../../resource-group-authenticate-service-principal.md)에 액세스할 수 있는지 확인합니다. 서비스 주체에서 Azure Resource Manager에서 요청을 인증받기 위한 토큰을 얻을 수 있습니다. 또한 권한 부여 파일에서 필요한 응용 프로그램 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
+템플릿을 배포하기 전에 [Active Directory 서비스 사용자](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)에 액세스할 수 있는지 확인합니다. 서비스 주체에서 Azure Resource Manager에서 요청을 인증받기 위한 토큰을 얻을 수 있습니다. 또한 권한 부여 파일에서 필요한 애플리케이션 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
 
 1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목*에서 **텍스트 파일**을 선택합니다. 파일 이름을 *azureauth.properties*로 지정하고 **추가**를 클릭합니다.
 2. 다음과 같은 권한 부여 속성을 추가합니다.
@@ -239,7 +239,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-응용 프로그램에 대한 값을 지정하려면 다음 코드를 Main 메서드에 추가합니다.
+애플리케이션에 대한 값을 지정하려면 다음 코드를 Main 메서드에 추가합니다.
 
 ```
 var groupName = "myResourceGroup";
@@ -323,7 +323,7 @@ azure.ResourceGroups.DeleteByName(groupName);
 
 이 콘솔 응용 프로그램을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다. 
 
-1. 콘솔 응용 프로그램을 실행하려면 **시작**을 클릭합니다.
+1. 콘솔 애플리케이션을 실행하려면 **시작**을 클릭합니다.
 
 2. **Enter** 키를 눌러 리소스를 삭제하기 전에 Azure Portal에서 리소스 만들기를 확인하는 데에 몇 분이 걸릴 수 있습니다. 배포에 대한 정보를 보려면 배포 상태를 클릭합니다.
 

@@ -1,21 +1,22 @@
 ---
-title: Azure 메시지 서비스 비교
-description: Azure Event Grid, Event Hubs 및 Service Bus와 비교합니다. 다양한 시나리오에 사용할 서비스를 권장합니다.
+title: Azure 메시징 비교 - Event Grid, Event Hubs, Service Bus
+description: 세 가지 Azure 메시징 서비스인 Azure Event Grid, Event Hubs 및 Service Bus를 설명합니다. 다양한 시나리오에 사용할 서비스를 권장합니다.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 07/05/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69db32698951519c2630a0a8697e4ebe74f69b04
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.custom: seodec18
+ms.openlocfilehash: 0eeded4e6bfe9041b360441d1e7b2a5c7dd4a099
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930480"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166526"
 ---
-# <a name="choose-between-azure-services-that-deliver-messages"></a>메시지를 배달하는 Azure 서비스 중에서 선택
+# <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>세 가지 Azure 메시징 서비스인 Event Grid, Event Hubs 및 Service Bus 중에서 선택합니다.
 
 Azure는 솔루션 전체에서 이벤트 메시지 배달에 도움이 되는 세 가지 서비스를 제공합니다. 이러한 서비스는 다음과 같습니다.
 
@@ -33,7 +34,7 @@ Azure는 솔루션 전체에서 이벤트 메시지 배달에 도움이 되는 �
 
 이벤트는 조건 또는 상태 변경에 대한 간단한 알림입니다. 이벤트 게시자는 이벤트 처리 방법에 대한 기대가 없습니다. 이벤트 소비자는 알림을 어떻게 처리할지 결정합니다. 이벤트는 불연속 단위 또는 시리즈의 일부일 수 있습니다.
 
-불연속 이벤트는 상태 변경을 보고하며 실행이 가능합니다. 다음 단계를 수행하기 위해 소비자는 무언가가 발생했다는 것만 알면 됩니다. 이벤트 데이터는 발생한 상황에 대한 정보를 포함하지만 이벤트를 트리거한 데이터가 없습니다. 예를 들어, 이벤트는 소비자에게 파일이 만들어진 것을 알립니다. 파일에 대한 일반 정보를 포함할 수 있지만 파일 자체는 포함하지 않습니다. 불연속 이벤트는 크기를 조정해야 하는 서버리스 솔루션에 이상적입니다.
+불연속 이벤트는 상태 변경을 보고하며 실행이 가능합니다. 다음 단계를 수행하기 위해 소비자는 무언가가 발생했다는 것만 알면 됩니다. 이벤트 데이터는 발생한 상황에 대한 정보를 포함하지만 이벤트를 트리거한 데이터가 없습니다. 예를 들어, 이벤트는 소비자에게 파일이 만들어진 것을 알립니다. 파일에 대한 일반 정보를 포함할 수 있지만 파일 자체는 포함하지 않습니다. 불연속 이벤트는 크기를 조정해야 하는 [서버리스](http://azure.com/serverless) 솔루션에 이상적입니다.
 
 시리즈 이벤트는 조건을 보고하며 분석이 가능합니다. 이벤트는 시간 순서가 지정되며 상호 연관됩니다. 소비자는 발생한 결과를 분석하기 위해 순차화된 일련의 이벤트가 필요합니다.
 
@@ -53,7 +54,9 @@ Azure는 솔루션 전체에서 이벤트 메시지 배달에 도움이 되는 �
 
 Event Grid는 이벤트 구동, 반응성 프로그래밍을 사용할 수 있는 이벤트 백플레인입니다. 게시-구독 모델을 사용합니다. 게시자는 이벤트를 내보내지만 처리될 이벤트에 대한 기대치가 없습니다. 구독자는 처리하려는 이벤트를 결정합니다.
 
-Event Grid는 Azure 서비스와 긴밀히 통합하고 타사 서비스와 통합할 수 있습니다. 이벤트 소비를 단순화하고 상수 폴링에 대한 필요성을 제거하여 비용을 낮춥니다. Event Grid는 효율적이고 안정적으로 Azure 및 비 Azure 리소스에서 이벤트를 라우팅합니다. 등록된 구독자 끝점에 이벤트를 분산합니다. 이벤트 메시지는 서비스 및 응용 프로그램의 변화에 대응하는 데 필요한 정보를 포함합니다. Event Grid는 데이터 파이프라인이 아니며, 업데이트된 실제 개체를 배달하지 않습니다.
+Event Grid는 Azure 서비스와 긴밀히 통합하고 타사 서비스와 통합할 수 있습니다. 이벤트 소비를 단순화하고 상수 폴링에 대한 필요성을 제거하여 비용을 낮춥니다. Event Grid는 효율적이고 안정적으로 Azure 및 비 Azure 리소스에서 이벤트를 라우팅합니다. 등록된 구독자 엔드포인트에 이벤트를 분산합니다. 이벤트 메시지는 서비스 및 응용 프로그램의 변화에 대응하는 데 필요한 정보를 포함합니다. Event Grid는 데이터 파이프라인이 아니며, 업데이트된 실제 개체를 배달하지 않습니다.
+
+Event Grid는 엔드포인트에 배달되지 않은 이벤트에 대해 배달 못 한 편지 기능을 지원합니다.
 
 다음과 같은 특성이 있습니다.
 
@@ -82,7 +85,8 @@ Service Bus는 조정된 메시징 시스템입니다. 소비하는 주체에서
 
 * 폴링을 필요로 하는 신뢰할 수 있는 비동기 메시지 배달(서비스로 엔터프라이즈 메시지)
 * FIFO, 일괄 처리/세션, 트랜잭션, 배달 못 한 편지 처리, 임시 컨트롤, 라우팅 및 필터링 및 중복 검색 등의 고급 메시징 기능
-* 정확히 한 번만 배달
+* 적어도 한 번 배달
+* 선택적으로 순서대로 배달
 
 ## <a name="use-the-services-together"></a>서비스를 함께 사용
 

@@ -14,15 +14,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 06/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a731c1e0617fe0ccf9d571dd2b7d0c2ad107bc9e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 68fdb158a7d4c723bffb54f33203120afb72a8ef
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901401"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385400"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -36,11 +36,11 @@ ms.locfileid: "37901401"
 
 원하는 경우 [Azure CLI](tutorial-filter-network-traffic-cli.md) 또는 [PowerShell](tutorial-filter-network-traffic-powershell.md)을 사용하여 이 자습서를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
@@ -50,26 +50,26 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | Name                    | myVirtualNetwork                                   |
+    | 이름                    | myVirtualNetwork                                   |
     | 주소 공간           | 10.0.0.0/16                                        |
-    | 구독            | 사용 중인 구독을 선택합니다.                          |
+    | 구독            | 구독을 선택합니다.                          |
     | 리소스 그룹          | **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다. |
     | 위치                | **미국 동부**를 선택합니다.                                |
     | 서브넷 - 이름            | mySubnet                                           |
     | 서브넷 - 주소 범위  | 10.0.0.0/24                                        |
 
-## <a name="create-application-security-groups"></a>응용 프로그램 보안 그룹 만들기
+## <a name="create-application-security-groups"></a>애플리케이션 보안 그룹 만들기
 
 응용 프로그램 보안 그룹을 사용하면 웹 서버와 같은 유사한 기능을 갖는 서버를 함께 그룹화할 수 있습니다.
 
 1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
-2. **Marketplace 검색** 상자에서 *응용 프로그램 보안 그룹*을 입력합니다. 검색 결과에 표시되는 **응용 프로그램 보안 그룹**을 선택하고 **모든 항목** 아래에서 **응용 프로그램 보안 그룹**을 다시 선택한 다음, **만들기**를 선택합니다.
+2. **Marketplace 검색** 상자에 *응용 프로그램 보안 그룹*을 입력합니다. 검색 결과에 표시되는 **응용 프로그램 보안 그룹**을 선택하고 **모든 항목** 아래에서 **응용 프로그램 보안 그룹**을 다시 선택한 다음, **만들기**를 선택합니다.
 3. 다음 정보를 입력하거나 선택하고 **만들기**를 선택합니다.
 
     | 설정        | 값                                                         |
     | ---            | ---                                                           |
-    | Name           | myAsgWebServers                                               |
-    | 구독   | 사용 중인 구독을 선택합니다.                                     |
+    | 이름           | myAsgWebServers                                               |
+    | 구독   | 구독을 선택합니다.                                     |
     | 리소스 그룹 | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
     | 위치       | 미국 동부                                                       |
 
@@ -77,8 +77,8 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     | 설정        | 값                                                         |
     | ---            | ---                                                           |
-    | Name           | myAsgMgmtServers                                              |
-    | 구독   | 사용 중인 구독을 선택합니다.                                     |
+    | 이름           | myAsgMgmtServers                                              |
+    | 구독   | 구독을 선택합니다.                                     |
     | 리소스 그룹 | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
     | 위치       | 미국 동부                                                       |
 
@@ -90,8 +90,8 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |---|---|
-    |Name|myNsg|
-    |구독| 사용 중인 구독을 선택합니다.|
+    |이름|myNsg|
+    |구독| 구독을 선택합니다.|
     |리소스 그룹 | **기존 항목 사용**을 선택한 다음, *myResourceGroup*을 선택합니다.|
     |위치|미국 동부|
 
@@ -117,7 +117,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     | 대상             | **응용 프로그램 보안 그룹**을 선택한 다음, **응용 프로그램 보안 그룹**에 **myAsgWebServers**를 선택합니다.  |
     | 대상 포트 범위 | 80,443 입력                                                                                                    |
     | 프로토콜                | TCP 선택                                                                                                      |
-    | Name                    | Allow-Web-All                                                                                                   |
+    | 이름                    | Allow-Web-All                                                                                                   |
 
 3. 다음 값을 사용하여 2단계를 다시 완료합니다.
 
@@ -127,7 +127,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     | 대상 포트 범위 | 3389 입력                                                                                                      |
     | 프로토콜                | TCP 선택                                                                                                      |
     | 우선 순위                | 110 입력                                                                                                       |
-    | Name                    | Allow-RDP-All                                                                                                   |
+    | 이름                    | Allow-RDP-All                                                                                                   |
 
     이 자습서에서 RDP(포트 3389)는 *myAsgMgmtServers* 응용 프로그램 보안 그룹에 할당된 VM에 대해 인터넷에 노출됩니다. 프로덕션 환경에서는 포트 3389를 인터넷에 노출하는 대신 VPN 또는 개인 네트워크 연결을 통해 관리하려는 Azure 리소스에 연결하는 것이 좋습니다.
 
@@ -147,10 +147,10 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |---|---|
-    |Name|myVmWeb|
+    |이름|myVmWeb|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |구독| 사용 중인 구독을 선택합니다.|
+    |구독| 구독을 선택합니다.|
     |리소스 그룹| **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.|
     |위치| **미국 동부**를 선택합니다.|
 
@@ -188,7 +188,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 4. **확인**을 선택합니다.
 5. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 경고 메시지가 표시되면 **예** 또는 **계속**을 선택하여 연결을 계속합니다.
 
-    포트 3389는 *myAsgMgmtServers* VM에 연결된 네트워크 인터페이스가 In인 *myVmMgmt* 응용 프로그램 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
+    포트 3389는 *myAsgMgmtServers* VM에 연결된 네트워크 인터페이스가 In인 *myVmMgmt* 애플리케이션 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
 
 6. PowerShell 세션에서 다음 명령을 입력하여 *myVmMgmt* VM에서 *myVmWeb* VM에 연결합니다.
 

@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: 보안
+      tocHref: /azure/
+      topicHref: /azure/security/index
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: 보안
+      tocHref: /azure/architecture/
+      topicHref: /azure/security/index

@@ -4,18 +4,19 @@ description: Application Insights 및 App Center를 사용하여 모니터링하
 services: application-insights
 keywords: ''
 author: mrbullwinkle
-ms.author: daviste; mbullwin
-ms.date: 10/05/2017
+ms.author: mbullwin
+ms.date: 07/11/2018
 ms.service: application-insights
+ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 252d16a5c4ef2d1f8230746dff681f7fbf5f44b1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 040e54b02161386dcc16b943956f39b86b264303
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867954"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950525"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
@@ -32,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="onboard-to-app-center"></a>App에 등록
 
-모바일 앱으로 Application Insights를 사용하려면 앱을 [App Center](https://docs.microsoft.com/mobile-center/)에 등록해야 합니다. Application Insights는 모바일 앱에서 직접 원격 분석을 수신하는 것이 아니라, 앱이 사용자 지정 이벤트 원격 정보를 App Center로 보냅니다. 그런 다음 App Center는 이벤트가 수신되면 이러한 사용자 지정 이벤트의 사본을 Application Insights로 내보냅니다.
+모바일 앱으로 Application Insights를 사용하려면 앱을 [App Center](https://docs.microsoft.com/mobile-center/)에 등록해야 합니다. Application Insights는 모바일 앱에서 직접 원격 분석을 수신하는 것이 아니라, 앱이 사용자 지정 이벤트 원격 정보를 App Center로 보냅니다. 그런 다음, App Center는 이벤트가 수신되면 이러한 사용자 지정 이벤트의 사본을 Application Insights로 내보냅니다.
 
 응용 프로그램을 등록하려면 앱에서 지원하는 각 플랫폼에 대한 App Center 빠른 시작을 따르세요. 각 플랫폼에 대해 별도의 App Center 인스턴스를 만듭니다.
 
@@ -67,16 +68,16 @@ Analytics.trackEvent("Video clicked")
 앱에서 사용자 지정 이벤트를 보내고 App Center에서 이러한 이벤트를 수신하면 Azure Portal에서 App Center 유형의 Application Insights 리소스를 만들어야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **리소스 만들기** > **모니터링 + 관리** > **Application Insights**를 선택합니다.
+2. **리소스 만들기** > **관리 도구** > **Application Insights**를 선택합니다.
 
-    ![Application Insights 리소스 추가](./media/app-insights-mobile-center-quickstart/add.png)
+    ![Application Insights 리소스 추가](./media/app-insights-mobile-center-quickstart/add-b.png)
 
     구성 상자가 표시됩니다. 아래 표를 사용하여 입력 필드를 채웁니다.
 
     | 설정        |  값           | 설명  |
    | ------------- |:-------------|:-----|
    | **Name**      | "myApp-iOS" 등의 일부 전역적으로 고유 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **응용 프로그램 유형** | App Center 응용 프로그램 | 모니터링하는 응용 프로그램의 유형입니다. |
+   | **응용 프로그램 유형** | App Center 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
    | **리소스 그룹**     | 새 리소스 그룹, 또는 메뉴의 기존 리소스 그룹 | 새 Application Insights 리소스를 만들 리소스 그룹 |
    | **위치**: | 메뉴의 위치 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
@@ -125,7 +126,7 @@ Application Insights는 분석 도구인 App Center에서 제공하는 것 이�
    1. 텍스트 편집기에서 쿼리의 아무 곳이나 클릭하여 해당 쿼리를 선택합니다.
    2. 그런 다음, **이동**을 클릭하여 쿼리를 실행합니다. 
 
-   [Application Insights Analytics](app-insights-analytics.md) 및 [Log Analytics 쿼리 언어](https://docs.loganalytics.io/docs/Language-Reference)에 대해 자세히 알아봅니다.
+   [Application Insights Analytics](app-insights-analytics.md) 및 [Log Analytics 쿼리 언어](https://aka.ms/LogAnalyticsLanguageReference)에 대해 자세히 알아봅니다.
 
 
 2. **사용자 지정 이벤트 원격 분석을 필터링하고 분할합니다**. Application Insights **개요** 페이지의 목차에서 **사용자**를 선택합니다.
@@ -144,7 +145,7 @@ Application Insights는 분석 도구인 App Center에서 제공하는 것 이�
 
    사용자 흐름 도구는 일부 시작 이벤트 후 사용자가 보낼 이벤트를 시각화합니다. 사용자가 앱을 통해 탐색하는 방법을 전반적으로 이해하는 데 유용하며, 많은 사용자가 앱에서 마음을 바꾸거나 같은 작업을 계속 반복하는 곳을 알아낼 수도 있습니다.
 
-   사용자 흐름뿐만 아니라, Application Insights에는 구체적인 질문에 답변할 수 있는 다양한 다른 사용률 분석 도구가 있습니다.
+   사용자 흐름뿐만 아니라, Application Insights에는 구체적인 질문에 답변할 수 있는 다양한 다른 사용자 행동 분석 도구가 있습니다.
 
    * **깔대기** - 전환률을 분석하고 모니터링합니다.
    * **보존** - 시간에 따라 앱에서 사용자를 얼마나 잘 보존하고 있는지 분석합니다.
@@ -160,7 +161,7 @@ App Center에서 내보내기를 해제하려면:
 1. App Center에서 **설정**으로 이동하여 **내보내기**를 선택합니다.
 2. 삭제하려는 Application Insights 내보내기를 클릭한 다음, 맨 아래에서 **내보내기 삭제**를 클릭하고 확인합니다.
 
-Application Insights 리소스를 확장하려면:
+Application Insights 리소스를 삭제하려면:
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음, Application Insights 리소스가 만들어진 리소스 그룹을 선택합니다.
 2. 삭제하려는 Application Insights 리소스를 엽니다. 그런 다음, 리소스 맨 위 메뉴에서 **삭제**를 클릭하고 확인합니다. 그러면 Application Insights로 내보낸 데이터 복사본이 영구적으로 삭제됩니다.

@@ -3,19 +3,19 @@ title: 탄력적 쿼리 - Azure SQL Database에서 Azure SQL Data Warehouse의 �
 description: 탄력적 쿼리를 사용하여 Azure SQL Database에서 Azure SQL Data Warehouse의 데이터에 액세스하기 위한 모범 사례에 대해 알아봅니다.
 services: sql-data-warehouse
 author: hirokib
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: ceda0399ae98e2a36fd41b954a741e0379c77fe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d861e1d4cd891e1f1e1be3209ae4dfdbf4420165
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797161"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718301"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Azure SQL Database에서 탄력적 쿼리를 사용하여 Azure SQL Data Warehouse의 데이터에 액세스하기 위한 모범 사례
 탄력적 쿼리를 사용하여 Azure SQL Database에서 Azure SQL Data Warehouse의 데이터에 액세스하기 위한 모범 사례에 대해 알아봅니다. 

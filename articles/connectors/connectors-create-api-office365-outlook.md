@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: aa900a486b9b0bd0f570da866f3d0ab78c31bc6e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0355f121a09e1ba89f98a8af5037eb1371db2242
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296155"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215641"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Office 365 Outlook 커넥터 시작
 Office 365 Outlook 커넥터를 통해 Office 365에서 Outlook과 상호 작용할 수 있습니다. 이 커넥터를 사용하여 연락처 및 일정 항목을 만들기, 편집 및 업데이트하고 전자 메일을 가져오고 보내며 회신할 수도 있습니다.
@@ -82,7 +82,7 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
     연결 정보를 묻는 메시지가 표시되면 연결을 만들기 위한 세부 정보를 입력합니다. 이 항목의 [연결 만들기](connectors-create-api-office365-outlook.md#create-the-connection)에서는 이러한 속성에 대해 설명합니다. 
    
    > [!NOTE]
-   > 이 예제에서는 Office 365 Outlook에 새 연락처를 만듭니다. 다른 트리거의 출력을 사용하여 연락처를 만들 수 있습니다. 예를 들어 SalesForce *개체를 만들 때* 트리거를 추가합니다. 그런 다음 SalesForce 필드를 사용하여 Office 365에서 새 연락처를 만드는 Office 365 Outlook *연락처 만들기* 작업을 추가합니다. 
+   > 이 예제에서는 Office 365 Outlook에 새 연락처를 만듭니다. 다른 트리거의 출력을 사용하여 연락처를 만들 수 있습니다. 예를 들어 SalesForce *개체를 만들 때* 트리거를 추가합니다. 그런 다음 SalesForce 필드를 사용하여 Office 365에서 연락처를 만드는 Office 365 Outlook *연락처 만들기* 작업을 추가합니다. 
    > 
    > 
 5. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위 모서리). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.

@@ -1,22 +1,24 @@
 ---
 title: Azure에서 Terraform 사용
 description: Terraform을 사용하여 Azure 인프라를 프로비전하고 배포하는 방법을 소개합니다.
-ms.service: virtual-machines-linux
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, 개요, 계획, 적용, 자동화
-author: binderjoe
-ms.author: jbinder
-ms.date: 10/19/2017
-ms.topic: article
-ms.openlocfilehash: 667752d8830cdac5e2338fd3ed7904917123be94
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
+ms.date: 08/31/2018
+ms.openlocfilehash: dd340238f8a70c1dd0cfc172976bef6b1ad282b1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26364473"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665632"
 ---
 # <a name="terraform-with-azure"></a>Azure의 Terraform
 
-[Hashicorp Terraform](https://www.terraform.io/)은 클라우드 인프라를 프로비전하고 관리하기 위한 오픈 소스 도구입니다. 가상 컴퓨터, 저장소 계정 및 네트워킹 인터페이스와 같은 클라우드 리소스의 토폴로지를 설명하는 구성 파일의 인프라를 체계적으로 정리합니다. Terraform의 CLI(명령 줄 인터페이스)는 Azure 또는 기타 지원되는 클라우드에 구성 파일을 배포하고 프로비전하는 간단한 메커니즘을 제공합니다.
+[Hashicorp Terraform](https://www.terraform.io/)은 클라우드 인프라를 프로비전하고 관리하기 위한 오픈 소스 도구입니다. 가상 머신, 저장소 계정 및 네트워킹 인터페이스와 같은 클라우드 리소스의 토폴로지를 설명하는 구성 파일의 인프라를 체계적으로 정리합니다. Terraform의 CLI(명령 줄 인터페이스)는 Azure 또는 기타 지원되는 클라우드에 구성 파일을 배포하고 프로비전하는 간단한 메커니즘을 제공합니다.
 
 이 문서에서는 Terraform을 사용하여 Azure 인프라를 관리하는 이점에 대해 설명합니다.
 
@@ -46,5 +48,5 @@ Terraform은 유사한 인프라가 Azure 및 추가 클라우드 공급자 또�
 Terraform에 대한 개요와 이점에 대해 간략히 살펴본 후 권장되는 다음 단계는 아래와 같습니다.
 
 - [Terraform을 설치하고 Azure를 사용하도록 구성](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure)하여 시작
-- [Terraform을 사용하여 Azure 가상 컴퓨터 만들기](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm)
+- [Terraform을 사용하여 Azure 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm)
 - [Terraform용 Azure Resource Manager 모듈](https://www.terraform.io/docs/providers/azurerm/) 탐색 

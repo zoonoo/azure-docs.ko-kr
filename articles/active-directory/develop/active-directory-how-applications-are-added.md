@@ -17,21 +17,21 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: 5c8ae9534e79b8dc801262f85d8a007e050f4da7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8e806fc334faf85864ea9158d4f2ed6d107327ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316962"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241500"
 ---
-# <a name="how-and-why-applications-are-added-to-azure-ad"></a>응용 프로그램을 Azure AD에 추가하는 방법 및 이유
+# <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
 Azure AD에는 응용 프로그램의 두 가지 표현이 있습니다. 
-* [응용 프로그램 개체](active-directory-application-objects.md#application-object) - 응용 프로그램의 정의로 간주될 수 있습니다([예외](#notes-and-exceptions)가 있음).
-* [서비스 주체](active-directory-application-objects.md#service-principal-object) - 응용 프로그램의 인스턴스로 간주될 수 있습니다. 서비스 주체는 일반적으로 응용 프로그램 개체를 참조하며, 하나의 응용 프로그램 개체는 전체 디렉터리에서 여러 서비스 주체에 의해 참조될 수 있습니다.
+* [응용 프로그램 개체](app-objects-and-service-principals.md#application-object) - 응용 프로그램의 정의로 간주될 수 있습니다([예외](#notes-and-exceptions)가 있음).
+* [서비스 주체](app-objects-and-service-principals.md#service-principal-object) - 응용 프로그램의 인스턴스로 간주될 수 있습니다. 서비스 주체는 일반적으로 응용 프로그램 개체를 참조하며, 하나의 응용 프로그램 개체는 전체 디렉터리에서 여러 서비스 주체에 의해 참조될 수 있습니다.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>응용 프로그램 개체란 무엇이며 어디에서 생겨날까요?
-Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) 환경을 통해 [응용 프로그램 개체](active-directory-application-objects.md#application-object)를 관리할 수 있습니다. 응용 프로그램 개체는 Azure AD에 대한 응용 프로그램을 설명하며, 응용 프로그램의 정의로 간주되어 서비스에서 해당 설정에 따라 응용 프로그램에 토큰을 발급하는 방법을 인식할 수 있습니다. 다른 디렉터리의 서비스 주체를 지원하는 다중 테넌트 응용 프로그램인 경우에도 응용 프로그램 개체는 홈 디렉터리에만 있습니다. 응용 프로그램 개체는 다음을 포함할 수 있습니다(여기 언급되지 않은 추가 정보도 있음).
+Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) 환경을 통해 [응용 프로그램 개체](app-objects-and-service-principals.md#application-object)를 관리할 수 있습니다. 응용 프로그램 개체는 Azure AD에 대한 응용 프로그램을 설명하며, 응용 프로그램의 정의로 간주되어 서비스에서 해당 설정에 따라 응용 프로그램에 토큰을 발급하는 방법을 인식할 수 있습니다. 다른 디렉터리의 서비스 주체를 지원하는 다중 테넌트 응용 프로그램인 경우에도 응용 프로그램 개체는 홈 디렉터리에만 있습니다. 응용 프로그램 개체는 다음을 포함할 수 있습니다(여기 언급되지 않은 추가 정보도 있음).
 * 이름, 로고 및 게시자
 * 회신 URL
 * 비밀(응용 프로그램을 인증하는 데 사용되는 대칭 및/또는 비대칭 키)
@@ -50,7 +50,7 @@ Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IA
 * Azure의 다양한 개발자 환경 및 개발자 센터의 API 탐색기 환경을 포함한 기타 여러 가지 방법
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>서비스 주체란 무엇이며 어디에서 생겨날까요?
-Azure Portal에서 [엔터프라이즈 응용 프로그램](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) 환경을 통해 [서비스 주체](active-directory-application-objects.md#service-principal-object)를 관리할 수 있습니다. 서비스 주체는 Azure AD에 연결하는 응용 프로그램을 관리하며, 디렉터리에 있는 응용 프로그램의 인스턴스로 간주될 수 있습니다. 주어진 응용 프로그램의 경우 “home” 디렉터리에 등록된 응용 프로그램 개체는 하나만 가질 수 있고, 동작하는 모든 디렉터리에서 응용 프로그램의 인스턴스를 의미하는 서비스 주체 개체는 둘 이상 가질 수 있습니다. 
+Azure Portal에서 [엔터프라이즈 응용 프로그램](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) 환경을 통해 [서비스 주체](app-objects-and-service-principals.md#service-principal-object)를 관리할 수 있습니다. 서비스 주체는 Azure AD에 연결하는 응용 프로그램을 관리하며, 디렉터리에 있는 응용 프로그램의 인스턴스로 간주될 수 있습니다. 주어진 응용 프로그램의 경우 “home” 디렉터리에 등록된 응용 프로그램 개체는 하나만 가질 수 있고, 동작하는 모든 디렉터리에서 응용 프로그램의 인스턴스를 의미하는 서비스 주체 개체는 둘 이상 가질 수 있습니다. 
 
 서비스 주체는 다음을 포함할 수 있습니다.
 
@@ -69,7 +69,7 @@ Azure Portal에서 [엔터프라이즈 응용 프로그램](https://portal.azure
 
 * 사용자가 Azure AD와 통합된 타사 응용 프로그램에 로그인하는 경우
   * 로그인하는 동안 사용자는 자신의 프로필 및 다른 권한에 액세스할 수 있는 권한을 응용 프로그램에 부여하도록 요청받습니다. 처음으로 동의하는 사람이 응용 프로그램을 나타내는 서비스 주체를 디렉터리에 추가하게 됩니다.
-* 사용자가 [Office 365](http://products.office.com/)와 같은 Microsoft 온라인 서비스에 로그인하는 경우
+* 사용자가 [Office 365](https://products.office.com/)와 같은 Microsoft 온라인 서비스에 로그인하는 경우
   * Office 365를 구독하거나 평가판을 시작하면 Office 365와 관련된 모든 기능을 전달하는 데 사용되는 다양한 서비스를 나타내는 디렉터리에 하나 이상의 서비스 주체가 만들어집니다.
   * SharePoint와 같은 일부 Office 365 서비스는 워크플로 등 구성 요소 간의 보안 통신을 허용하도록 지속적으로 서비스 주체를 만듭니다.
 * 관리자가 앱 갤러리에서 응용 프로그램을 추가하는 경우(이때 기본 앱 개체도 만듦)
@@ -114,7 +114,7 @@ Azure AD와 통합하는 응용 프로그램 게시자/공급업체에는 게시
 * OAuth 인증 서비스 - API/리소스에 대한 액세스 권한을 부여하기 위해 Office 365 및 다른 Microsoft 응용 프로그램에서 사용
 * 응용 프로그램 게시 및 프록시 - 개인 네트워크의 응용 프로그램을 인터넷에 게시
 
-## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>응용 프로그램을 Azure AD 인스턴스에 추가할 권한이 있는 사용자는?
+## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>애플리케이션을 Azure AD 인스턴스에 추가할 권한이 있는 사용자는?
 전역 관리자만 수행할 수 있는 몇 가지 작업이 있는 반면(예: 앱 갤러리에서 응용 프로그램 추가하기 및 응용 프로그램 프록시를 사용하도록 응용 프로그램 구성하기), 기본적으로 디렉터리의 모든 사용자는 개발 중인 응용 프로그램 개체를 등록할 수 있는 권한과 함께 동의를 통해 조직적 데이터에 대한 액세스를 공유/부여할 응용 프로그램에 대한 재량권을 가집니다. 한 사람이 응용 프로그램에 로그인하고 허용한 사용자 디렉터리의 첫 번째 사용자인 경우, 사용자 테넌트에서 서비스 주체를 만들게 됩니다. 그렇지 않으면 동의 부여 정보는 기존 서비스 주체에 저장됩니다.
 
 사용자가 응용 프로그램에 등록 및 동의하도록 허용하는 것이 초기에는 우려를 유발할 수도 있지만, 다음 사항을 염두에 두면 됩니다.
@@ -123,7 +123,7 @@ Azure AD와 통합하는 응용 프로그램 게시자/공급업체에는 게시
 * 응용 프로그램을 디렉터리에 등록 또는 기록하지 않고도 응용 프로그램은 수년간 사용자 인증에 Windows Server Active Directory를 활용해왔습니다. 이제 조직에서 디렉터리를 사용하는 응용 프로그램 수 및 용도를 정확하게 파악할 수 있습니다.
 * 이러한 책임을 사용자에게 위임하면 관리자 기반 응용 프로그램 등록 및 게시 프로세스가 필요하지 않게 됩니다. ADFS(Active Directory Federation Services)를 사용하면 관리자가 개발자를 대신하여 신뢰 당사자로서 응용 프로그램을 추가해야 했습니다. 이제 개발자가 직접 할 수 있습니다.
 * 비즈니스 목적의 경우 사용자는 조직 계정을 사용하여 응용 프로그램에 로그인하는 것이 좋습니다. 이후에 사용자가 조직을 떠날 경우 자동으로 사용하던 응용 프로그램에서 자신의 계정에 액세스할 수 없게 됩니다.
-* 어떤 데이터를 어떤 응용 프로그램과 공유했는지 기록하는 것이 좋습니다. 데이터는 더욱 전송하기 쉬워졌으며 어떤 데이터를 어떤 응용 프로그램으로 누구와 공유했는지 기록해놓는 것이 유용합니다.
+* 어떤 데이터를 어떤 애플리케이션과 공유했는지 기록하는 것이 좋습니다. 데이터는 더욱 전송하기 쉬워졌으며 어떤 데이터를 어떤 응용 프로그램으로 누구와 공유했는지 기록해놓는 것이 유용합니다.
 * OAuth용 Azure AD를 사용하는 API 소유자는 사용자가 응용 프로그램에 부여할 수 있는 권한 및 관리자가 동의하는 데 필요한 권한을 정확하게 결정합니다. 관리자만 더 큰 범위와 더 중요한 사용 권한에 동의할 수 있으며, 사용자 동의는 사용자 소유의 데이터 및 기능으로 범위가 제한됩니다.
 * 사용자가 응용 프로그램을 추가하거나 응용 프로그램이 자신의 데이터에 액세스하도록 허용하는 경우 이벤트를 감사할 수 있으므로 Azure Portal 내의 감사 보고서를 보고 디렉터리에 응용 프로그램을 추가하는 방법을 결정할 수 있습니다.
 

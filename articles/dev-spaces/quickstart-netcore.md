@@ -1,22 +1,21 @@
 ---
 title: 클라우드에서 Kubernetes 개발 환경 만들기 | Microsoft Docs
 titleSuffix: Azure Dev Spaces
-author: ghogen
+author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: ghogen
-ms.date: 07/09/2018
+ms.author: zarhoads
+ms.date: 09/26/2018
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-manager: douge
-ms.openlocfilehash: 3bb190570cbdf795668dd6e9f9d36630b6f3201b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0a89b4a5898a624a50d4d79aa86d64735a1796f8
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949869"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413533"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>빠른 시작: Azure Dev Spaces(.NET Core 및 VS Code)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -32,15 +31,21 @@ ms.locfileid: "37949869"
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free)에 만들 수 있습니다.
-- 미국 동부, 미국 중부, 미국 서부 2, 서유럽, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 응용 프로그램 라우팅**이 활성화된 상태로 Kubernetes 1.10.3을 실행 중인 [Kubernetes 클러스터](https://ms.portal.azure.com/#create/microsoft.aks).
-
-  ![Http 응용 프로그램 라우팅을 활성화해야 합니다.](media/common/Kubernetes-Create-Cluster-3.PNG)
-
 - [Visual Studio Code](https://code.visualstudio.com/download)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 버전 2.0.43 이상.
+- 미국 동부, 미국 동부 2, 미국 중부, 미국 서부 2, 서유럽, 동남 아시아, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 응용 프로그램 라우팅**이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 Kubernetes 클러스터.
+
+    ```cmd
+    az group create --name MyResourceGroup --location <region>
+    az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
+    ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces 설치
 
-1. [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)(버전 2.0.38 이상)를 설치합니다.
+Azure CLI 및 Azure Dev Spaces 확장은 Windows, Mac 또는 Linux 머신에 설치하여 실행할 수 있습니다. Linux의 경우 지원되는 배포는 Ubuntu(18.04, 16.04, 14.04), Debian 8 및 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 및 SLES 12입니다.
+
+다음 단계에 따라 Azure Dev Spaces를 설치합니다.
+
 1. AKS 클러스터에 Dev Spaces 설치: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. VS Code용 [Azure Dev Spaces 확장](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)을 다운로드합니다. 확장의 Marketplace 페이지 및 VS Code에서 [설치]를 한 번 클릭합니다.
 
@@ -52,7 +57,7 @@ ms.locfileid: "37949869"
 1. AKS에서 코드를 빌드하고 실행합니다. **webfrontend 폴더**의 터미널 창에서 `azds up` 명령을 실행합니다.
 1. 콘솔 출력에서 `up` 명령으로 생성된 URL에 대한 정보를 검색합니다. 다음과 같은 형식입니다. 
 
-   `Service 'webfrontend' port 'http' is available at <url>` 
+   `(pending registration) Service 'webfrontend' port 'http' will be available at <url>\r\nService 'webfrontend' port 80 (TCP) is available at http://localhost:<port>` 
 
    브라우저 창에서 이 URL을 열고 웹앱 로드를 확인합니다. 
    
@@ -90,7 +95,7 @@ ms.locfileid: "37949869"
 
 **명령 팔레트**(**보기 | 명령 팔레트** 메뉴를 사용하여)를 열고, 자동 완성을 사용하여 입력하고 이 명령을 선택합니다. `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces` 
 
-이렇게 하면 `.vscode` 폴더 아래에 Azure Dev Spaces에 대한 디버그 구성이 추가됩니다.
+이렇게 하면 `.vscode` 폴더 아래에 Azure Dev Spaces에 대한 디버그 구성이 추가됩니다. 이 명령은 배포 프로젝트를 구성하는 `azds prep` 명령과 혼동하면 안됩니다.
 
 ![](./media/common/command-palette.png)
 
@@ -139,7 +144,7 @@ public IActionResult About()
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Dev Spaces가 여러 컨테이너에서 더 복잡한 앱을 개발하는 데 어떤 도움이 되고, 사용자가 다양한 환경에서 다양한 코드 버전이나 분기로 작업하여 공동 개발을 간소화하는 방법을 알아봅니다. 
+Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 앱을 개발할 수 있는 방법 및 사용자가 다양한 환경에서 다양한 코드 버전이나 분기로 작업하여 공동 개발을 간소화하는 방법을 알아봅니다. 
 
 > [!div class="nextstepaction"]
 > [여러 컨테이너 작업 및 팀 개발](team-development-netcore.md)

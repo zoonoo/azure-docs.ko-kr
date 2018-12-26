@@ -4,16 +4,16 @@ description: Ansible을 사용하여 Azure 동적 인벤토리를 관리하는 �
 ms.service: ansible
 keywords: Ansible, Azure, DevOps, Bash, Cloud Shell, 동적 인벤토리
 author: tomarcher
-manager: routlaw
+manager: jeconnoc
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: f29f4ec64b79738cae2ad684610f4817739825a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1f19d5918d81acb76936edf8989a556335a3c0df
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153112"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261267"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Ansible을 사용하여 Azure 동적 인벤토리 관리
 Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *동적 인벤토리*로 인벤토리 정보를 가져오는 데 사용할 수 있습니다. 이 문서에서는 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md)을 사용하여 두 개의 가상 머신을 만들고, 해당 가상 머신 각각에 태그를 지정하고, 태그가 지정된 가상 머신에 Nginx를 설치하는 Ansible Azure 동적 인벤토리를 구성합니다.
@@ -26,11 +26,14 @@ Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *�
 
 ## <a name="create-the-test-virtual-machines"></a>테스트 가상 머신 만들기
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1. [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 엽니다.
 
 1. 이 자습서의 가상 머신을 보관할 Azure 리소스 그룹을 만듭니다.
+
+    > [!IMPORTANT]  
+    > 이 단계에서 만든 Azure 리소스 그룹에는 모두 소문자로 구성된 이름이 있어야 합니다. 그렇지 않으면 동적 인벤토리를 생성하지 못합니다.
 
     ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
@@ -57,7 +60,7 @@ Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *�
 ## <a name="tag-a-virtual-machine"></a>가상 머신 태그 지정
 사용자 정의 범주별로 [태그를 사용하여 Azure 리소스를 구성](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli)할 수 있습니다. 
 
-다음 [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) 명령을 입력하여 `ansible-inventory-test-vm1` 가상 머신에 `nginx` 키를 사용한 태그를 지정합니다.
+다음 [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) 명령을 입력하여 `ansible-inventory-test-vm1` 가상 머신에 `nginx` 키를 사용한 태그를 지정합니다.
 
 ```azurecli-interactive
 az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
@@ -134,25 +137,26 @@ ansible-inventory-test-vm1 | SUCCESS => {
 1. 새로 만든 `nginx.yml` 파일에 다음 코드를 삽입합니다.
 
     ```yml
+    ---
     - name: Install and start Nginx on an Azure virtual machine
     hosts: azure
     become: yes
     tasks:
     - name: install nginx
-        apt: pkg=nginx state=installed
-        notify:
-        - start nginx
+      apt: pkg=nginx state=installed
+      notify:
+      - start nginx
 
     handlers:
     - name: start nginx
-        service: name=nginx state=started
+      service: name=nginx state=started
     ```
 
 1. `nginx.yml` 플레이북을 실행합니다.
 
-  ```azurecli-interactive
-  ansible-playbook -i azure_rm.py nginx.yml
-  ```
+    ```azurecli-interactive
+    ansible-playbook -i azure_rm.py nginx.yml
+    ```
 
 1. 플레이북이 실행되면 다음 출력과 비슷한 결과가 표시됩니다.
 
@@ -175,7 +179,7 @@ ansible-inventory-test-vm1 | SUCCESS => {
 ## <a name="test-nginx-installation"></a>Nginx 설치 테스트
 이 섹션에서는 가상 머신에 Nginx가 설치되었는지 테스트하는 한 가지 방법을 설명합니다.
 
-1. [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_ip_addresses) 명령을 사용하여 `ansible-inventory-test-vm1` 가상 머신의 IP 주소를 검색합니다. 그런 다음, 반환된 값(가상 머신의 IP 주소)은 가상 머신에 연결하기 위한 SSH 명령에 대한 매개 변수로 사용됩니다.
+1. [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) 명령을 사용하여 `ansible-inventory-test-vm1` 가상 머신의 IP 주소를 검색합니다. 그런 다음, 반환된 값(가상 머신의 IP 주소)은 가상 머신에 연결하기 위한 SSH 명령에 대한 매개 변수로 사용됩니다.
 
     ```azurecli-interactive
     ssh `az vm list-ip-addresses \
@@ -183,7 +187,7 @@ ansible-inventory-test-vm1 | SUCCESS => {
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
     ```
 
-1. [nginx -v](https://nginx.org/en/docs/switches.html) 명령은 일반적으로 Nginx 버전을 출력하는 데 사용됩니다. 그러나 Nginx가 설치되었는지 여부를 확인하는데도 사용할 수 있습니다. `ansible-inventory-test-vm1` 가상 머신에 연결된 상태에서 이를 입력합니다.
+1. `ansible-inventory-test-vm1` 가상 머신에 연결된 상태에서 [nginx -v](https://nginx.org/en/docs/switches.html) 명령을 실행하여 Nginx가 설치되었는지 확인합니다.
 
     ```azurecli-interactive
     nginx -v

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 04/09/2018
+ms.date: 11/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 65f6252ecfa4e5850824fc7aa2e6eca2bdb88692
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5d8137b2ca6c47713b7a681090963dd2749dd1f2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205759"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634050"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 샘플
 
@@ -33,7 +33,6 @@ ms.locfileid: "34205759"
 |-|-|
 | **클러스터 만들기** ||
 | [클러스터 만들기(Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Azure Service Fabric 클러스터를 만듭니다. |
-|[테스트 클러스터 만들기(Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| Azure에 3개 노드의 테스트 Service Fabric 클러스터를 만듭니다.|
 | **클러스터, 노드 및 인프라 관리** ||
 | [응용 프로그램 인증서 추가](./scripts/service-fabric-powershell-add-application-certificate.md) .| 클러스터의 모든 노드에 응용 프로그램 X.509 인증서를 추가합니다. |
 | [클러스터 VM에서 RDP 포트 범위 업데이트](./scripts/service-fabric-powershell-change-rdp-port-range.md)|배포된 클러스터에서 클러스터 노드 VM의 RDP 포트 범위를 변경합니다.|

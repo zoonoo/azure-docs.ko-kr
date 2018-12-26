@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 15e3dd11c371e0b23d5b506da9d824e1409fd359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 135496e17ae884db580922aa31f6824b2e7fd934
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31590524"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855987"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 제한 사항
 
@@ -31,7 +31,7 @@ Azure Cloud Shell에는 다음과 같이 알려진 제한 사항이 있습니다
 
 Cloud Shell 세션을 제공하는 컴퓨터는 일시적이며 세션이 20분 동안 비활성화된 후 재순환됩니다. Cloud Shell은 Azure 파일 공유를 탑재해야 합니다. 따라서 Cloud Shell에 액세스하도록 구독에서 저장소 리소스를 설정할 수 있어야 합니다. 기타 고려 사항은 다음과 같습니다.
 
-* 탑재된 저장소에서 `clouddrive` 디렉터리 내 수정 사항만 유지됩니다. Bash에서 `$Home` 디렉터리도 유지됩니다.
+* 탑재된 저장소에서 `$Home` 디렉터리 내 수정 사항만 유지됩니다.
 * Azure 파일 공유는 [할당된 지역](persisting-shell-storage.md#mount-a-new-clouddrive) 내에서만 탑재될 수 있습니다.
   * Bash에서 `ACC_LOCATION`로 설정된 해당 지역을 찾으려면 `env`을 실행합니다.
 
@@ -63,21 +63,33 @@ Cloud Shell은 대화형 사용 사례를 위한 것입니다. 따라서 비대�
 
 ## <a name="powershell-limitations"></a>PowerShell 제한 사항
 
-### <a name="slow-startup-time"></a>느린 시작 시간
+### <a name="azuread-module-name"></a>`AzureAD` 모듈 이름
 
-Azure Cloud Shell의 PowerShell(미리 보기)은 미리 보기 중에 초기화하는 데 최대 60초가 걸릴 수 있습니다.
+`AzureAD` 모듈 이름은 현재 `AzureAD.Standard.Preview`이며, 이 모듈은 동일한 기능을 제공합니다.
 
-### <a name="no-home-directory-persistence"></a>$Home 디렉터리 지속성 없음
+### <a name="sqlserver-module-functionality"></a>`SqlServer` 모듈 기능
 
-응용 프로그램(예: git, vim 및 기타)이 `$Home`에 기록한 데이터는 PowerShell 세션 간에 지속되지 않습니다. 해결 방법은 [여기를 참조하세요](troubleshooting.md#powershell-troubleshooting).
+Cloud Shell에 포함된 `SqlServer` 모듈은 PowerShell Core에 대해 평가판 지원만 제공합니다. 특히 `Invoke-SqlCmd`는 아직 사용할 수 없습니다.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Azure 드라이브에서 만들 때 기본 파일 위치:
 
-PowerShell cmdlet을 사용하여 사용자가 Azure 드라이브 아래에 파일을 만들 수 없습니다. 사용자가 vim 또는 nano 등의 다른 도구를 사용하여 새 파일을 만들 때 파일은 기본적으로 C:\Users 폴더에 저장됩니다. 
+PowerShell cmdlet을 사용하여 사용자가 Azure 드라이브 아래에 파일을 만들 수 없습니다. 사용자가 vim 또는 nano 등의 다른 도구를 사용하여 새 파일을 만들 때 파일은 기본적으로 `$HOME` 폴더에 저장됩니다. 
 
 ### <a name="gui-applications-are-not-supported"></a>GUI 응용 프로그램은 지원되지 않습니다.
 
 사용자가 Windows 대화 상자를 만드는 명령을 실행할 경우(예: `Connect-AzureAD` 또는 `Connect-AzureRmAccount`) `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)` 같은 오류 메시지가 표시됩니다.
+
+### <a name="tab-completion-crashes-psreadline"></a>탭 완성 기능이 PSReadline와 충돌합니다.
+
+PSReadline에서 사용자의 EditMode를 Emacs로 설정하고, 해당 사용자가 탭 완성을 통해 가능한 모든 항목을 표시하려고 하는데, 창 크기가 너무 작아서 가능한 모든 항목이 표시되지는 못할 경우 PSReadline 작동이 중단됩니다.
+
+### <a name="large-gap-after-displaying-progress-bar"></a>진행률 표시줄을 표시한 후 큰 간격이 생깁니다.
+
+사용자가 `Azure:` 드라이브에 있는 동안 탭 완성 기능처럼 진행률 표시줄을 표시하는 작업을 수행할 경우, 커서가 제대로 설정되지 않고, 진행률 표시줄이 이전에 있던 위치에 간격이 나타날 수 있습니다.
+
+### <a name="random-characters-appear-inline"></a>임의의 문자가 인라인으로 표시됩니다.
+
+커서 위치 시퀀스 코드(예: `5;13R`)가 사용자 입력에 나타날 수 있습니다.  문자는 수동으로 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: ec1216d1a42791a1334b7f9e2ed37f15aaffd013
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 1bf93ce9aa1733634b46c2a15b587d4cc0826ba1
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085643"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090936"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 이 자습서에서는 **Azure SQL Database에서 Azure SQL Data Warehouse로 여러 테이블을 복사**하는 방법을 보여 줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 SQL Server/Oracle에서 Azure SQL Database/Data Warehouse/Azure Blob으로 테이블을 복사하고, Blob에서 Azure SQL Database 테이블로 다른 경로를 복사합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "37085643"
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
 > * Azure SQL Database, Azure SQL Data Warehouse 및 Azure Storage 연결된 서비스를 만듭니다.
-> * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 집합을 만듭니다.
+> * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 세트를 만듭니다.
 > * 복사할 테이블을 조회하는 파이프라인을 만들고, 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 및 작업 실행을 모니터링합니다.
@@ -229,11 +229,11 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
 
-## <a name="create-datasets"></a>데이터 집합 만들기
+## <a name="create-datasets"></a>데이터 세트 만들기
 
-이 자습서에서는 데이터가 저장되는 위치를 지정하는 원본 및 싱크 데이터 집합을 만듭니다.
+이 자습서에서는 데이터가 저장되는 위치를 지정하는 원본 및 싱크 데이터 세트를 만듭니다.
 
-### <a name="create-a-dataset-for-source-sql-database"></a>원본 SQL Database에 대한 데이터 집합 만들기
+### <a name="create-a-dataset-for-source-sql-database"></a>원본 SQL Database에 대한 데이터 세트 만들기
 
 1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDatabaseDataset.json**이라는 JSON 파일을 만듭니다. "tableName"은 나중의 복사 작업에서 SQL 쿼리를 사용하여 데이터를 검색할 때의 더미 데이터입니다.
 
@@ -269,7 +269,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>싱크 SQL Data Warehouse에 대한 데이터 집합 만들기
+### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>싱크 SQL Data Warehouse에 대한 데이터 세트 만들기
 
 1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDWDataset.json**이라는 JSON 파일을 만듭니다. "tableName"이 매개 변수로 설정되며, 나중에 이 데이터 집합을 참조하는 복사 작업에서 실제 값을 데이터 집합으로 전달합니다.
 
@@ -587,7 +587,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
 > * Azure SQL Database, Azure SQL Data Warehouse 및 Azure Storage 연결된 서비스를 만듭니다.
-> * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 집합을 만듭니다.
+> * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 세트를 만듭니다.
 > * 복사할 테이블을 조회하는 파이프라인을 만들고, 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 및 작업 실행을 모니터링합니다.

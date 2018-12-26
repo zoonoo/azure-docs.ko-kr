@@ -3,7 +3,7 @@ title: Azure에서 SQLRuleAction 구문 참조 | Microsoft Docs
 description: SQLRuleAction 문법에 대한 세부 정보입니다.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 9ac9a2968adfdd8e1fb229ad744bc99914cdcd08
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 09/05/2018
+ms.author: spelluru
+ms.openlocfilehash: cd5bc1fb959872cfb98236feb5c32517ac7472ac
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29125822"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394185"
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction 구문
 

@@ -7,20 +7,24 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 1a6ef0b928bd9a2d21db68a0d5476357b1d32dd1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: eb84638e2996b0ee9bd5a580b7e827ea30d0ab21
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831550"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855989"
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Azure Machine Learning 데이터 준비에서 지원되는 데이터 원본 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 이 문서에서는 Azure Machine Learning 데이터 준비에 대해 현재 지원되는 데이터 원본을 대략적으로 설명합니다.
 
 이 릴리스의 지원되는 데이터 원본은 다음과 같습니다.
@@ -111,7 +115,7 @@ Parquet 데이터 집합은 각각 큰 데이터 집합의 작은 파티션을 �
 로컬 하드 드라이브 또는 매핑된 네트워크 저장소 위치입니다.
 
 ### <a name="sql-server"></a>SQL Server
-온-프레미스 SQL Server 또는 Azure SQL Database.
+온-프레미스 SQL 서버 또는 Azure SQL 데이터베이스.
 
 ### <a name="azure-blob-storage"></a>Azure Blob 저장소
 Azure 구독이 필요한 Azure Blob Storage입니다.

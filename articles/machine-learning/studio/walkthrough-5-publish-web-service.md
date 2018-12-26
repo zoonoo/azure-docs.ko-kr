@@ -1,10 +1,11 @@
 ---
-title: '5단계: Machine Learning 웹 서비스 배포 | Microsoft Docs'
+title: '5단계: Machine Learning Studio 웹 서비스 배포 | Microsoft Docs'
 description: '예측 솔루션 개발 연습 5단계: Azure Machine Learning Studio에서 예측 실험을 웹 서비스로 배포합니다.'
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 7a0dc7e92df342789d2c498479aa54b94070c9f4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 33965270c2be6f70614def79a49f1c4aa1a8fbbc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835946"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309932"
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>연습 5단계: Azure Machine Learning 웹 서비스 배포
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>연습 5단계: Azure Machine Learning Studio 웹 서비스 배포
 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
 
 1. [Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
@@ -102,10 +103,11 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 ![학습된 모델 점수 매기기][4]  
 
 > [!NOTE]
-> 예측 실험에서 UCI 독일어 신용 카드 데이터의 데이터 집합을 남겨둔 이유가 궁금할 것입니다. 서비스에서는 원래 데이터 집합이 아니라 사용자 데이터를 사용하려고 하는데 모델에 원래 데이터 집합으로 두는 이유는 무엇인가요?
+> 예측 실험에서 UCI 독일어 신용 카드 데이터의 데이터 세트를 남겨둔 이유가 궁금할 것입니다. 서비스에서는 원래 데이터 세트가 아니라 사용자 데이터를 사용하려고 하는데 모델에 원래 데이터 세트로 두는 이유는 무엇인가요?
 > 
-> 서비스에 원래 신용 카드 데이터가 필요하지 않은 것은 사실입니다. 하지만 열 수 및 숫자인 열 같은 정보가 포함된 해당 데이터에 대한 스키마는 필요하지 않습니다. 이 스키마 정보는 사용자 데이터를 해석하기 위해 필요합니다. 서비스가 실행 중일 때 점수 매기기 모듈에 데이터 집합 스키마가 포함되도록 이러한 구성 요소를 연결된 상태로 유지합니다. 데이터는 사용되지 않고 스키마만 사용됩니다.  
+> 서비스에 원래 신용 카드 데이터가 필요하지 않은 것은 사실입니다. 하지만 열 수 및 숫자인 열 같은 정보가 포함된 해당 데이터에 대한 스키마는 여전히 필요합니다. 이 스키마 정보는 사용자 데이터를 해석하기 위해 필요합니다. 서비스가 실행 중일 때 점수 매기기 모듈에 데이터 세트 스키마가 포함되도록 이러한 구성 요소를 연결된 상태로 유지합니다. 데이터는 사용되지 않고 스키마만 사용됩니다. 
 > 
+>한 가지 알아두어야 할 중요한 사실은 원래 데이터 세트에 레이블이 포함되어 있다면 웹 입력의 올바른 스키마도 레이블이 있는 열을 기대하게 됩니다. 이 문제를 해결하는 방법은 레이블과 교육 데이터 세트에 있던 다른 데이터를 제거하는 것이지만, 웹 입력과 교육 데이터 세트를 일반 모듈에 연결하기 전에는 웹 입력에 없을 것입니다. 
 > 
 
 마지막으로 실험을 한 번 실행합니다(**실행** 클릭). 모델이 계속 작동 중인지 확인하려면 [모델 점수 매기기][score-model] 모듈의 출력을 클릭하고 **결과 보기**를 선택합니다. 원래 데이터가 신용 위험 값("점수를 매긴 레이블") 및 점수 매기기 확률 값("점수를 매긴 확률")과 함께 표시됩니다. 
@@ -150,7 +152,7 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 
 ## <a name="test-the-web-service"></a>웹 서비스 테스트
 
-웹 서비스에 액세스될 때 사용자 데이터는 **웹 서비스 입력** 모듈로 이동됩니다. 여기서 [모델 점수 매기기][score-model] 모듈로 전달되고 점수가 매겨집니다. 예측 실험을 설정했던 방법대로, 모델은 원래 신용 위험 데이터 집합과 동일한 형식의 데이터를 요구합니다.
+웹 서비스에 액세스될 때 사용자 데이터는 **웹 서비스 입력** 모듈로 이동됩니다. 여기서 [모델 점수 매기기][score-model] 모듈로 전달되고 점수가 매겨집니다. 예측 실험을 설정했던 방법대로, 모델은 원래 신용 위험 데이터 세트와 동일한 형식의 데이터를 요구합니다.
 결과가 웹 서비스로부터 **웹 서비스 출력** 모듈을 거쳐 사용자에게 반환됩니다.
 
 > [!TIP]
@@ -170,13 +172,13 @@ Machine Learning Studio 또는 Machine Learning 웹 서비스 포털에서 기�
 
 #### <a name="test-in-machine-learning-studio"></a>Machine Learning Studio에서 테스트
 
-1. 웹 서비스에 대한 **대시보드** 페이지에서 **기본 끝점**의 **테스트** 단추를 클릭합니다. 서비스에 대한 입력 데이터를 요청하는 대화 상자가 나타납니다. 이는 원래 신용 위험 데이터 집합에 나타난 열과 같습니다.  
+1. 웹 서비스에 대한 **대시보드** 페이지에서 **기본 엔드포인트**의 **테스트** 단추를 클릭합니다. 서비스에 대한 입력 데이터를 요청하는 대화 상자가 나타납니다. 이는 원래 신용 위험 데이터 세트에 나타난 열과 같습니다.  
 
 2. 데이터 집합을 입력하고 **확인**을 클릭합니다. 
 
 #### <a name="test-in-the-machine-learning-web-services-portal"></a>Machine Learning 웹 서비스 포털에서 테스트
 
-1. 웹 서비스에 대한 **대시보드** 페이지에서 **기본 끝점** 아래의 **테스트 미리 보기** 링크를 클릭합니다. 웹 서비스 끝점에 대한 Azure Machine Learning 웹 서비스 포털의 테스트 페이지가 열리고 서비스에 사용할 입력 데이터를 입력하라는 메시지가 표시됩니다. 이는 원래 신용 위험 데이터 집합에 나타난 열과 같습니다.
+1. 웹 서비스에 대한 **대시보드** 페이지에서 **기본 엔드포인트** 아래의 **테스트 미리 보기** 링크를 클릭합니다. 웹 서비스 엔드포인트에 대한 Azure Machine Learning 웹 서비스 포털의 테스트 페이지가 열리고 서비스에 사용할 입력 데이터를 입력하라는 메시지가 표시됩니다. 이는 원래 신용 위험 데이터 세트에 나타난 열과 같습니다.
 
 2. **요청-응답 테스트**를 클릭합니다. 
 
@@ -184,7 +186,7 @@ Machine Learning Studio 또는 Machine Learning 웹 서비스 포털에서 기�
 
 Machine Learning 웹 서비스 포털에서만 새 웹 서비스를 테스트할 수 있습니다.
 
-1. [Azure Machine Learning 웹 서비스](https://services.azureml.net/quickstart) 포털에서 페이지의 맨 위에 있는 **테스트**를 클릭합니다. **테스트** 페이지가 열리면 서비스에 대한 데이터를 입력할 수 있습니다. 표시된 입력 필드는 원래 신용 위험 데이터 집합에 나타난 열과 같습니다. 
+1. [Azure Machine Learning 웹 서비스](https://services.azureml.net/quickstart) 포털에서 페이지의 맨 위에 있는 **테스트**를 클릭합니다. **테스트** 페이지가 열리면 서비스에 대한 데이터를 입력할 수 있습니다. 표시된 입력 필드는 원래 신용 위험 데이터 세트에 나타난 열과 같습니다. 
 
 2. 데이터 집합을 입력하고 **요청-응답 테스트**를 클릭합니다.
 

@@ -1,26 +1,22 @@
 ---
-title: Azure AD FAQ | Microsoft Docs
-description: Azure Active Directory FAQ는 Azure 및 Azure Active Directory, 암호 관리 및 응용 프로그램 액세스에 대한 일반적인 질문에 답변합니다.
+title: Azure Active Directory - FAQ | Microsoft Docs
+description: Azure 및 Azure Active Directory, 암호 관리 및 응용 프로그램 액세스에 대한 일반적인 질문과 답변에 대해 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 12/14/2017
+ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: 8b0a591f84dd8ece0f6a8e2de19cddfee21b28e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449326"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621754"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory FAQ
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -48,14 +44,13 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 
 - - -
 
-**Q:  구독 관리자와 디렉터리 관리자의 차이점은 무엇인가요?**
+**Q: 소유자와 글로벌 관리자의 차이점은 무엇인가요?**
 
-**A:** 기본적으로 Azure에 로그인할 때 구독 관리자 역할이 할당됩니다. 구독 관리자는 Azure 구독이 연결된 디렉터리에서 Microsoft 계정이나 회사 또는 학교 계정을 사용할 수 있습니다.  이 역할은 Azure Portal에서 서비스를 관리할 권한이 있습니다.
+**A:** 기본적으로 Azure 구독에 등록하는 사람에게는 Azure 리소스에 대한 소유자 역할이 할당됩니다. 소유자는 Azure 구독이 연결된 디렉터리에서 Microsoft 계정이나 회사 또는 학교 계정을 사용할 수 있습니다.  이 역할은 Azure Portal에서 서비스를 관리할 권한이 있습니다.
 
-다른 사용자가 동일한 구독을 사용하여 로그인하고 서비스에 액세스해야 하는 경우 공동 관리자로 추가할 수 있습니다. 이 역할은 서비스 관리자와 동일한 액세스 권한이 있지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없는 역할입니다.  구독 관리자에 대한 자세한 내용은 [Azure 관리자 역할을 추가 또는 변경하는 방법](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator) 및 [Azure 구독과 Azure Active Directory의 연관 관계](active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
+다른 사용자가 동일한 구독을 사용하여 로그인하고 서비스에 액세스해야 하는 경우 적절한 [기본 제공 역할](../../role-based-access-control/built-in-roles.md)로 할당할 수 있습니다. 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
-
-Azure AD에는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역할 집합이 있습니다.  이러한 관리자는 Azure Portal의 다양한 기능에 대한 액세스 권한을 갖게 됩니다. 관리자 역할은 사용자 만들기 또는 편집, 다른 사람에게 관리자 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리 또는 도메인 관리와 같이 관리자가 수행할 수 있는 업무를 결정합니다.  Azure AD 디렉터리 관리자 및 그 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+기본적으로 Azure 구독에 등록하는 사람에게는 디렉터리에 대한 글로벌 관리자 역할이 할당됩니다. 글로벌 관리자는 모든 Azure AD 디렉터리 기능에 액세스할 수 있습니다. Azure AD는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리자 역할 집합을 가지고 있습니다. 이러한 관리자는 Azure Portal의 다양한 기능에 대한 액세스 권한을 갖게 됩니다. 관리자의 역할은 사용자 만들기 또는 편집, 다른 사람에게 관리자 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리 또는 도메인 관리와 같이 관리자가 수행할 수 있는 업무를 결정합니다.  Azure AD 디렉터리 관리자 및 그 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md) 및 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 
 또한, Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적인 엔터프라이즈 규모 관리 및 보안 솔루션을 통해 Office 365 및 Microsoft Azure와 같은 기타 웹 서비스를 보완합니다.
 
@@ -77,7 +72,7 @@ Azure AD에는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 �
 
 **A:** Azure AD Connect를 사용하여 온-프레미스 디렉터리를 Azure AD에 연결할 수 있습니다.
 
-자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../connect/active-directory-aadconnect.md)을 참조하세요.
+자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)을 참조하세요.
 
 - - -
 **Q: 온-프레미스 디렉터리와 클라우드 응용 프로그램 간에 SSO를 설정하려면 어떻게 해야 하나요?**
@@ -86,21 +81,21 @@ Azure AD에는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 �
 
 온-프레미스에서 SSO 구현은 AD FS(Active Directory Federation Services)와 같은 페더레이션 솔루션 또는 암호 해시 동기화 구성으로 쉽게 달성할 수 있습니다. 두 옵션 모두 Azure AD Connect 구성 마법사를 사용하여 쉽게 배포할 수 있습니다.
 
-자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../connect/active-directory-aadconnect.md)을 참조하세요.
+자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)을 참조하세요.
 
 - - -
 **Q: Azure AD에서 내 조직의 사용자에 대한 셀프 서비스 포털을 제공하나요?**
 
-**A:** 예, Azure AD는 사용자 셀프 서비스 및 응용 프로그램 액세스를 위해 [Azure AD 액세스 패널](http://myapps.microsoft.com)을 제공합니다. Office 365 고객인 경우 Office 365 포털에서 동일한 기능을 많이 찾을 수 있습니다.
+**A:** 예, Azure AD는 사용자 셀프 서비스 및 응용 프로그램 액세스를 위해 [Azure AD 액세스 패널](https://myapps.microsoft.com)을 제공합니다. Office 365 고객인 경우 Office 365 포털에서 동일한 기능을 많이 찾을 수 있습니다.
 
-자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
+자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 - - -
 **Q: Azure AD를 사용하면 내 온-프레미스 인프라를 관리하는 데 도움이 되나요?**
 
 **A:** 예. Azure AD Premium Edition에는 Azure AD Connect Health가 제공됩니다. Azure AD Connect Health를 사용하면 온-프레미스 ID 인프라 및 동기화 서비스를 모니터링하고 파악할 수 있습니다.  
 
-자세한 내용은 [온-프레미스 ID 인프라 및 클라우드 동기화 서비스 모니터링](../connect-health/active-directory-aadconnect-health.md)을 참고하세요.  
+자세한 내용은 [온-프레미스 ID 인프라 및 클라우드 동기화 서비스 모니터링](../hybrid/whatis-hybrid-identity-health.md)을 참고하세요.  
 
 - - -
 ## <a name="password-management"></a>암호 관리
@@ -126,7 +121,7 @@ Azure AD에는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 �
 
 **A:** 이러한 상황에는 두 가지 옵션이 있습니다.  SSPR(셀프 서비스 암호 재설정)을 사용할 수 있으면 사용합니다.  SSPR 작동 여부는 구성 방식에 달려 있습니다.  자세한 내용은 [암호 재설정 포털의 작동 원리](../authentication/howto-sspr-deployment.md)를 참조하세요.
 
-Office 365 사용자의 경우 [사용자 암호 다시 설정](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)에 설명된 단계를 사용하여 관리자가 암호를 재설정할 수 있습니다.
+Office 365 사용자의 경우 [사용자 암호 다시 설정](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)에 설명된 단계를 사용하여 관리자가 암호를 재설정할 수 있습니다.
 
 Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호를 재설정할 수 있습니다.
 
@@ -144,7 +139,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 "Password" 및 "123456"의 변형과 같이 전역에서 일반적인 암호를 말합니다.
 
-**Q: 수상한 소스(봇넷, tor 끝점)의 로그인 요청은 B2C 테넌트에서 차단되나요? 아니면 Basic 또는 Premium Edition 테넌트가 필요한가요?**
+**Q: 수상한 소스(봇넷, tor 엔드포인트)의 로그인 요청은 B2C 테넌트에서 차단되나요? 아니면 Basic 또는 Premium Edition 테넌트가 필요한가요?**
 
 요청을 필터링하고 봇넷으로부터 보호하며, 모든 B2C 테넌트에 적용되는 게이트웨이가 있습니다.
 
@@ -163,7 +158,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](../manage-apps/use-scim-to-provision-users-and-groups.md)
 
 - - -
@@ -176,7 +171,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 * 페더레이션된 앱에 직접 로그인
 * 페더레이션된 앱, 암호로 보호된 앱 또는 기존 앱에 대한 딥 링크
 
-자세한 내용은 [사용자에게 Azure AD 통합 응용 프로그램 배포](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)를 참조하세요.
+자세한 내용은 [애플리케이션에 대한 최종 사용자 환경](../manage-apps/end-user-experiences.md)을 참조하세요.
 
 - - -
 **Q: Azure AD에서 응용 프로그램에 대한 인증 및 Single Sign-On을 설정하는 다른 방법은 무엇인가요?**
@@ -185,9 +180,9 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure AD의 인증 시나리오](../develop/active-directory-authentication-scenarios.md)
+* [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)
 * [Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [Azure Active Directory에서 Single Sign-On이 작동하는 방식](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Azure AD의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)
 
 - - -
 **Q: 온-프레미스를 실행하는 응용 프로그램을 추가할 수 있나요?**
@@ -208,9 +203,9 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 **A:** Azure AD를 사용하여 다수의 인기 있는 클라우드 SaaS 앱의 사용자 ID 만들기, 유지 관리 및 제거를 자동화합니다.
 
-자세한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비전 및 프로비전 해제](../active-directory-saas-app-provisioning.md)를 참조하세요.
+자세한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비전 및 프로비전 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
 - - -
 **Q: Azure AD에서 보안 LDAP 연결을 설정할 수 있나요?**
 
-**A:** 아니요. Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다.
+**A:** 아니요. Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다. 그러나 Azure AD Domain Services를 사용하여 보안 LDAP를 구성할 수 있습니다.

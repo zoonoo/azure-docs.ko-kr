@@ -3,7 +3,7 @@ title: Azure 클라우드 솔루션 공급자의 Azure Active Directory Domain S
 description: Azure 클라우드 솔루션 공급자의 Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2017
-ms.author: maheshu
-ms.openlocfilehash: 362d7226434733ffeaa5be6f988afa4016a7c827
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.author: ergreenl
+ms.openlocfilehash: cf205249c4d07cee1ff17c9c726283cfddca1fce
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213875"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155227"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure CSP(클라우드 솔루션 공급자)의 Azure AD(Active Directory) Domain Services
 이 문서에서는 Azure CSP 구독에서 Azure AD Domain Services를 사용하는 방법을 설명합니다.
@@ -87,7 +87,7 @@ Azure CSP 구독에서 관리되는 도메인을 관리하는 경우 다음과 �
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure CSP 프로그램에 등록](https://partnercenter.microsoft.com/partner/programs)하고 Azure CSP를 통해 비즈니스를 만듭니다.
+* [Azure CSP 프로그램에 등록](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program)하고 Azure CSP를 통해 비즈니스를 만듭니다.
 * [Azure CSP에서 사용할 수 있는 Azure 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services) 목록을 검토합니다.
 * [PowerShell을 사용하여 Azure AD Domain Services 사용](active-directory-ds-enable-using-powershell.md)
 * [Azure AD 도메인 서비스 시작](active-directory-ds-getting-started.md)

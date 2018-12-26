@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 475e1f0d481678f53c191a887c7cc56c28c4b361
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 308ab9d35e07c8376fb183c794fcad77a74a1df9
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887432"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295566"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의
 주어진 리소스에 대해 해당 리소스를 배포하기 전에 존재해야 하는 다른 리소스가 있을 수 있습니다. 예를 들어 SQL 데이터베이스를 배포하려면 SQL Server가 있어야 합니다. 하나의 리소스를 다른 리소스에 종속된 것으로 표시하여 이 관계를 정의합니다. 종속성은 **dependsOn** 요소를 사용하거나 **reference** 함수를 사용하여 정의합니다. 
 
 Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서에 따라 리소스를 배포합니다. 리소스가 서로 종속되어 있지 않은 경우 Resource Manager는 이를 병렬로 배포합니다. 동일한 템플릿에 배포되는 리소스에 대한 종속성만 정의하면 됩니다. 
+
+자습서의 경우 [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-templates-with-dependent-resources.md)를 참조하세요.
 
 ## <a name="dependson"></a>dependsOn
 템플릿 내에서 dependsOn 요소를 사용하면 하나의 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다. 값은 리소스 이름의 쉼표로 구분된 목록일 수 있습니다. 
@@ -108,7 +110,7 @@ resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리�
 ```
 
 ## <a name="reference-and-list-functions"></a>reference 및 list 함수
-[reference 함수](resource-group-template-functions-resource.md#reference) 를 사용하면 식을 다른 JSON 이름 및 값 쌍 또는 런타임 리소스에서 해당 값을 파생시키는 식을 작성할 수 있습니다. [list* 함수](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list)는 목록 작업에서 리소스에 대한 값을 반환합니다.  참조 및 목록 식은 참조된 리소스가 동일한 템플릿에 배포되고 해당 이름(리소스 ID 아님)에 따라 참조되는 경우 한 리소스가 다른 리소스에 종속되도록 암시적으로 선언합니다. 리소스 ID를 reference 또는 list 함수로 전달하는 경우 암시적 참조가 생성되지 않습니다.
+[reference 함수](resource-group-template-functions-resource.md#reference) 를 사용하면 식을 다른 JSON 이름 및 값 쌍 또는 런타임 리소스에서 해당 값을 파생시키는 식을 작성할 수 있습니다. [list* 함수](resource-group-template-functions-resource.md#list)는 목록 작업에서 리소스에 대한 값을 반환합니다.  참조 및 목록 식은 참조된 리소스가 동일한 템플릿에 배포되고 해당 이름(리소스 ID 아님)에 따라 참조되는 경우 한 리소스가 다른 리소스에 종속되도록 암시적으로 선언합니다. 리소스 ID를 reference 또는 list 함수로 전달하는 경우 암시적 참조가 생성되지 않습니다.
 
 reference 함수의 일반 형식은 다음과 같습니다.
 
@@ -122,7 +124,7 @@ listKeys 함수의 일반 형식은 다음과 같습니다.
 listKeys('resourceName', 'yyyy-mm-dd')
 ```
 
-다음 예제에서 CDN 끝점은 CDN 프로필에 명시적으로 종속되고 웹앱에 암시적으로 종속됩니다.
+다음 예제에서 CDN 엔드포인트는 CDN 프로필에 명시적으로 종속되고 웹앱에 암시적으로 종속됩니다.
 
 ```json
 {
@@ -164,6 +166,8 @@ Resource Manager는 템플릿의 유효성을 검사하는 동안 순환적 종�
 배포 순서를 평가하고 종속성 오류를 해결하는 방법에 대한 자세한 내용은 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
+* 자습서를 살펴보려면 [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-templates-with-dependent-resources.md)를 참조하세요.
 * 배포 중 종속성 문제 해결에 대해 알아보려면 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 * Azure 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](resource-group-authoring-templates.md)을 참조하세요. 
 * 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](resource-group-template-functions.md)를 참조하세요.

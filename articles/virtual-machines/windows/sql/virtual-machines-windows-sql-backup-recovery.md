@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: d46c55f809d24529ea5deeb4d84de44dae876a4b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e0a47da168ae9371979290b3febc9d767e8755d7
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968989"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428014"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server의 백업 및 복원
 
-이 문서에서는 Windows Azure Virtual Machines에서 실행 중인 SQL Server에 사용할 수 있는 백업 및 복원 옵션에 대한 지침을 제공합니다. 데이터 손실이나 실제 데이터 손상에 대한 보호를 보장하기 위해 Azure Storage에는 모든 Azure VM 디스크의 복사본을 3개씩 유지 관리합니다. 따라서 온-프레미스와는 달리 하드웨어 오류에 집중할 필요가 없습니다. 그러나 의도하지 않은 데이터 삽입 또는 삭제와 같은 응용 프로그램이나 사용자 오류로부터 보호하기 위해 SQL Server 데이터베이스 백업을 계속해야 합니다. 이러한 경우에 특정 시점으로 복원할 수 있어야 합니다.
+이 문서에서는 Azure의 Windows 가상 머신에서 실행 중인 SQL Server에 사용할 수 있는 백업 및 복원 옵션에 대한 지침을 제공합니다. 데이터 손실이나 실제 데이터 손상에 대한 보호를 보장하기 위해 Azure Storage에는 모든 Azure VM 디스크의 복사본을 3개씩 유지 관리합니다. 따라서 온-프레미스와는 달리 하드웨어 오류에 집중할 필요가 없습니다. 그러나 의도하지 않은 데이터 삽입 또는 삭제와 같은 응용 프로그램이나 사용자 오류로부터 보호하기 위해 SQL Server 데이터베이스 백업을 계속해야 합니다. 이러한 경우에 특정 시점으로 복원할 수 있어야 합니다.
 
 이 문서의 첫 번째 부분은 사용 가능한 백업 및 복원 옵션의 개요를 제공합니다. 각 전략에 대한 자세한 정보를 제공하는 섹션이 뒤따릅니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "38968989"
 
 ## <a id="autoamted"></a> 자동화된 백업
 
-자동화된 백업은 Windows Azure VM에서 실행 중인 SQL Server Standard 및 Enterprise 버전에 대한 자동 백업 서비스를 제공합니다. 이 서비스는 Azure Portal에서 SQL Server Windows 가상 머신 이미지에 자동으로 설치되는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에서 제공됩니다.
+자동화된 백업은 Azure의 Windows VM에서 실행 중인 SQL Server Standard 및 Enterprise 버전에 대한 자동 백업 서비스를 제공합니다. 이 서비스는 Azure Portal에서 SQL Server Windows 가상 머신 이미지에 자동으로 설치되는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에서 제공됩니다.
 
 모든 데이터베이스는 구성하는 Azure 저장소 계정에 백업됩니다. 백업은 암호화되고 최대 30일 동안 보존될 수 있습니다.
 
@@ -130,23 +130,23 @@ SQL Server 2016부터 관리되는 백업은 예약, 시스템 데이터베이�
 
 || **자동화된 Backup** | **SQL에 대한 Azure Backup** | **수동 백업** |
 |---|---|---|---|
-| 추가 Azure 서비스 필요 |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Azure Portal에서 백업 정책 구성 | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Azure Portal에서 데이터베이스 복원 |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 하나의 대시보드에서 여러 서버 관리 |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 지정 시간 복원 | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| 15분 RPO(복구 지점 목표) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| 단기 백업 보존 정책(일) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 장기 백업 보존 정책(월, 년) |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| SQL Server Always On에 대한 기본 제공 지원 |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Azure Storage 계정에 백업 | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(자동) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(자동) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(고객 관리) |
-| 저장소 및 백업 파일의 관리 | | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
-| VM의 연결된 디스크에 백업 |   |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| 사용자 지정 가능한 중앙 백업 보고서 |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| 오류에 대한 통합된 이메일 경고 |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| OMS에 따라 모니터링 사용자 지정 |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| SSMS 또는 Transact-SQL 스크립트를 사용하여 백업 작업 모니터링 | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| SSMS 또는 Transact-SQL 스크립트를 사용하여 데이터베이스 복원 | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| 추가 Azure 서비스 필요 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Azure Portal에서 백업 정책 구성 | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Azure Portal에서 데이터베이스 복원 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 하나의 대시보드에서 여러 서버 관리 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 지정 시간 복원 | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| 15분 RPO(복구 지점 목표) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| 단기 백업 보존 정책(일) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 장기 백업 보존 정책(월, 년) |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| SQL Server Always On에 대한 기본 제공 지원 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Azure Storage 계정에 백업 | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(자동) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(자동) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(고객 관리) |
+| 저장소 및 백업 파일의 관리 | | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
+| VM의 연결된 디스크에 백업 |   |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| 사용자 지정 가능한 중앙 백업 보고서 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| 오류에 대한 통합된 이메일 경고 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Log Analytics에 따라 모니터링 사용자 지정 |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| SSMS 또는 Transact-SQL 스크립트를 사용하여 백업 작업 모니터링 | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![예](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| SSMS 또는 Transact-SQL 스크립트를 사용하여 데이터베이스 복원 | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 
 ## <a name="next-steps"></a>다음 단계
 

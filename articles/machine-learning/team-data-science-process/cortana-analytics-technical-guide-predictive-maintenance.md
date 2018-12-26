@@ -2,24 +2,21 @@
 title: Azure를 사용하여 항공 예측 유지 관리 - Cortana 인텔리전스 솔루션 기술 가이드 | Microsoft Docs
 description: 항공, 유틸리티 및 운송에서 예측 유지 관리를 위한 Microsoft Cortana Intelligence를 사용한 솔루션 템플릿에 대한 기술 지침
 services: machine-learning
-documentationcenter: ''
-author: fboylu
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: 2c4d2147-0f05-4705-8748-9527c2c1f033
+ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: fboylu
-ms.openlocfilehash: 3715dcceb4330f6eaab01f49aee9d4d19663b62e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: tdsp
+ms.custom: (previous author=fboylu, ms.author=fboylu)
+ms.openlocfilehash: 904e9c22f23255f1bee7f532d7f577c7cd457778
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099667"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443749"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드
 
@@ -38,7 +35,7 @@ ms.locfileid: "37099667"
 - 솔루션 템플릿을 수정하는 방법을 보여줍니다.  
 
 > [!TIP]
-> [이 문서의 PDF 버전](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf)을 다운로드하여 인쇄할 수 있습니다.
+> [이 문서의 PDF 버전](https://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf)을 다운로드하여 인쇄할 수 있습니다.
 > 
 > 
 
@@ -46,7 +43,7 @@ ms.locfileid: "37099667"
 ![예측 유지 관리 아키텍처](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 솔루션을 배포하면 Cortana Analytics Suite 내의 Azure 서비스(Event Hub, Stream Analytics, HDInsight, Data Factory, Machine Learning 등)가 활성화됩니다. 아키텍처 다이어그램에서는 항공 솔루션 템플릿에 대한 예측 유지 관리가 생성되는 방법을 보여 줍니다. 이러한 서비스는 솔루션을 배포할 때 생성된 솔루션 템플릿 다이어그램에서 해당 서비스를 클릭하여 Azure Portal에서 조사할 수 있습니다(관련 파이프라인 작업을 실행하고 나중에 삭제해야 할 때 요청 시 프로비전되는 HDInsight 제외).
-[다이어그램의 전체 크기 버전](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png)을 다운로드합니다.
+[다이어그램의 전체 크기 버전](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png)을 다운로드합니다.
 
 다음 섹션은 솔루션 부분을 설명합니다.
 
@@ -66,7 +63,7 @@ ms.locfileid: "37099667"
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용하여 [Azure Event Hub](#azure-event-hub) 서비스의 입력 스트림에 대한 분석을 거의 실시간으로 제공합니다. 그런 다음 결과를 [Power BI](https://powerbi.microsoft.com) 대시보드에 게시하고 모든 원시 수신 이벤트를 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 서비스에 의해 나중에 처리하기 위해 [Azure Storage](https://azure.microsoft.com/services/storage/) 서비스에 보관합니다.
 
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight 사용자 지정 집계
-Azure Stream Analytics 서비스를 사용하여 보관된 원시 이벤트에 집계를 제공하도록 HDInsight를 사용하여 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트(Azure Data Factory에서 오케스트레이션됨)를 실행합니다.
+Azure Stream Analytics 서비스를 사용하여 보관된 원시 이벤트에 집계를 제공하도록 HDInsight를 사용하여 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트(Azure Data Factory에서 오케스트레이션됨)를 실행합니다.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning 서비스](https://azure.microsoft.com/services/machine-learning/)(Azure Data Factory에서 오케스트레이션됨)로 수신된 입력을 사용하여 특정 항공기 엔진의 잔여 수명(RUL)을 예측합니다. 
@@ -82,9 +79,9 @@ Azure Stream Analytics 서비스를 사용하여 보관된 원시 이벤트에 �
 ## <a name="how-to-bring-in-your-own-data"></a>사용자 고유 데이터를 가져오는 방법
 이 섹션은 Azure에 사용자 고유 데이터를 가져오는 방법 및 이 아키텍처에 가져오는 데이터에 대한 변경 내용이 필요한 영역을 설명합니다.
 
-데이터 집합은 이 솔루션 템플릿에 사용되는 [Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan)에서 사용하는 데이터 집합과 일치하지 않을 수 있습니다. 사용자 고유 데이터로 작업하기 위해 이 템플릿을 수정하는 과정에서는 데이터 및 요구 사항을 이해하는 것이 중요합니다. 
+데이터 세트는 이 솔루션 템플릿에 사용되는 [Turbofan 엔진 성능 저하 시뮬레이션 데이터 세트](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan)에서 사용하는 데이터 세트와 일치하지 않을 수 있습니다. 사용자 고유 데이터로 작업하기 위해 이 템플릿을 수정하는 과정에서는 데이터 및 요구 사항을 이해하는 것이 중요합니다. 
 
-다음 섹션에서는 새 데이터 집합을 도입할 때 수정해야 하는 템플릿의 일부분을 설명합니다.
+다음 섹션에서는 새 데이터 세트를 도입할 때 수정해야 하는 템플릿의 일부분을 설명합니다.
 
 ### <a name="azure-event-hub"></a>Azure Event Hub
 Azure Event Hub는 매우 일반적으로, CSV 또는 JSON 형식 중 하나로 허브에 데이터를 게시할 수 있습니다. Azure 이벤트 허브에서 특별한 처리가 발생하지 않지만 공급되는 데이터를 이해하는 것이 중요합니다.
@@ -94,7 +91,7 @@ Azure Event Hub는 매우 일반적으로, CSV 또는 JSON 형식 중 하나로 
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Azure Stream Analytics 서비스는 데이터 스트림에서 읽고 원하는 수의 원본으로 데이터를 출력하여 거의 실시간 분석을 제공하는 데 사용됩니다.
 
-항공 솔루션 템플릿에 대한 예측 유지 관리의 경우 Azure Stream Analytics 쿼리는 각각 Azure Event Hub 서비스에서 이벤트를 소비하고 4개의 고유 위치에 출력을 갖는 4개의 하위 쿼리로 구성됩니다. 이러한 출력은 세 개의 Power BI 데이터 집합 및 하나의 Azure Storage 위치로 구성됩니다.
+항공 솔루션 템플릿에 대한 예측 유지 관리의 경우 Azure Stream Analytics 쿼리는 각각 Azure Event Hub 서비스에서 이벤트를 소비하고 4개의 고유 위치에 출력을 갖는 4개의 하위 쿼리로 구성됩니다. 이러한 출력은 세 개의 Power BI 데이터 세트 및 하나의 Azure Storage 위치로 구성됩니다.
 
 Azure Stream Analytics 쿼리는 다음으로 찾을 수 있습니다.
 
@@ -108,35 +105,35 @@ Azure Stream Analytics 쿼리는 다음으로 찾을 수 있습니다.
 
 Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analytics 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx) 에서 찾을 수 있습니다.
 
-이 솔루션에서 쿼리는 이 솔루션 템플릿의 일부로 제공되는 Power BI 대시보드에 들어오는 데이터 스트림에 대한 거의 실시간 분석 정보로 세 개의 데이터 집합을 출력합니다. 들어오는 데이터 형식에 대한 암시적 지식이 있기 때문에 이러한 쿼리는 데이터 형식에 기반하여 변경되어야 합니다.
+이 솔루션에서 쿼리는 이 솔루션 템플릿의 일부로 제공되는 Power BI 대시보드에 들어오는 데이터 스트림에 대한 거의 실시간 분석 정보로 세 개의 데이터 세트를 출력합니다. 들어오는 데이터 형식에 대한 암시적 지식이 있기 때문에 이러한 쿼리는 데이터 형식에 기반하여 변경되어야 합니다.
 
 두 번째 Stream Analytics 작업 **maintenancesa02asablob**의 쿼리는 모든 [이벤트 허브](https://azure.microsoft.com/services/event-hubs/) 이벤트를 [Azure Storage](https://azure.microsoft.com/services/storage/)에 출력하므로 전체 이벤트 정보는 저장소로 스트리밍되므로 데이터 형식에 관계 없이 변경이 필요하지 않습니다.
 
 ### <a name="azure-data-factory"></a>Azure 데이터 팩터리
-[Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/) 서비스는 데이터의 이동 및 처리를 오케스트레이션합니다. 항공 솔루션 템플릿에 대한 예측 유지 관리에서 데이터 팩터리는 다양한 기술을 사용하여 데이터를 이동 및 처리하는 세 개의 [파이프라인](../../data-factory/concepts-pipelines-activities.md)으로 구성됩니다.  솔루션의 배포로 만든 솔루션 템플릿 다이어그램 맨 아래의 데이터 팩터리 노드를 열어 데이터 팩터리에 액세스합니다. 데이터 집합에서 발생한 오류는 데이터 생성기가 시작되기 전에 배포된 데이터로 인한 것입니다. 이러한 오류는 무시할 수 있으며 데이터 팩터리도 제대로 작동합니다.
+[Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/) 서비스는 데이터의 이동 및 처리를 오케스트레이션합니다. 항공 솔루션 템플릿에 대한 예측 유지 관리에서 데이터 팩터리는 다양한 기술을 사용하여 데이터를 이동 및 처리하는 세 개의 [파이프라인](../../data-factory/concepts-pipelines-activities.md)으로 구성됩니다.  솔루션의 배포로 만든 솔루션 템플릿 다이어그램 맨 아래의 데이터 팩터리 노드를 열어 데이터 팩터리에 액세스합니다. 데이터 세트에서 발생한 오류는 데이터 생성기가 시작되기 전에 배포된 데이터로 인한 것입니다. 이러한 오류는 무시할 수 있으며 데이터 팩터리도 제대로 작동합니다.
 
-![Data Factory 데이터 집합 오류](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
+![Data Factory 데이터 세트 오류](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
 이 섹션에서는 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)에 포함된 필요한 [파이프라인 및 작업](../../data-factory/concepts-pipelines-activities.md)을 설명합니다. 솔루션의 다이어그램 보기는 다음과 같습니다.
 
 ![Azure 데이터 팩터리](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
-이 팩터리의 두 파이프라인은 데이터를 분할하고 집계하는 데 사용되는 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 포함합니다. 언급했듯이 스크립트는 설치하는 동안 만든 [Azure Storage](https://azure.microsoft.com/services/storage/) 계정에 있습니다. 해당 위치는 maintenancesascript\\\\script\\\\hive\\\\(또는 https://[Your solution name].blob.core.windows.net/maintenancesascript)입니다.
+이 팩터리의 두 파이프라인은 데이터를 분할하고 집계하는 데 사용되는 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 포함합니다. 언급했듯이 스크립트는 설치하는 동안 만든 [Azure Storage](https://azure.microsoft.com/services/storage/) 계정에 있습니다. 해당 위치는 maintenancesascript\\\\script\\\\hive\\\\(또는 https://[Your solution name].blob.core.windows.net/maintenancesascript)입니다.
 
-[Azure Stream Analytics](#azure-stream-analytics-1) 쿼리와 유사하게 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 들어오는 데이터 형식에 대한 암시적 지식을 가지며 데이터 형식에 따라 변경해야 합니다.
+[Azure Stream Analytics](#azure-stream-analytics-1) 쿼리와 유사하게 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 들어오는 데이터 형식에 대한 암시적 지식을 가지며 데이터 형식에 따라 변경해야 합니다.
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-이 [파이프라인](../../data-factory/concepts-pipelines-activities.md)은 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 작업 동안 [Azure Storage](https://azure.microsoft.com/services/storage/)에 넣은 데이터를 분할하도록 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용한 단일 작업([HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 작업)을 포함합니다.
+이 [파이프라인](../../data-factory/concepts-pipelines-activities.md)은 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 작업 동안 [Azure Storage](https://azure.microsoft.com/services/storage/)에 넣은 데이터를 분할하도록 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용한 단일 작업([HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 작업)을 포함합니다.
 
-이 분할 작업에 대한 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateFlightInfo.hql***입니다.
+이 분할 작업에 대한 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateFlightInfo.hql***입니다.
 
 #### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
 이 [파이프라인](../../data-factory/concepts-pipelines-activities.md)은 여러 작업을 포함하며 최종 결과는 이 솔루션 템플릿과 연결된 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험의 점수가 매겨진 예측입니다.
 
 포함된 작업은 다음과 같습니다.
 
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험에 필요한 집계 및 기능 엔지니어링을 수행하도록 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용한 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 작업.
-  이 분할 작업에 대한 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***PrepareMLInput.hql***입니다.
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험에 필요한 집계 및 기능 엔지니어링을 수행하도록 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용한 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 작업.
+  이 분할 작업에 대한 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***PrepareMLInput.hql***입니다.
 * [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 작업의 결과를 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 작업으로 액세스할 수 있는 단일 [Azure Storage](https://azure.microsoft.com/services/storage/) Blob으로 이동하는 [복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 작업은 단일 [Azure Storage](https://azure.microsoft.com/services/storage/) Blob에 배치되는 결과로 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험을 호출합니다.
 
@@ -154,7 +151,7 @@ Azure Machine Learning 실험 생성 방법에 대한 정보는 [예측 유지 �
 1. Stream Analytics 작업 중 하나는 Blob Storage에 들어오는 원시 데이터를 씁니다. 솔루션을 성공적으로 배포한 화면에서 솔루션의 Blob Storage 구성 요소를 클릭하고 오른쪽 패널에서 열기를 클릭하면 [Azure Portal](https://portal.azure.com/)로 이동합니다. Blob을 클릭합니다. 다음 패널에서 컨테이너 목록이 표시됩니다. **maintenancesadata**를 클릭합니다. 다음 패널에 **rawdata** 폴더가 표시됩니다. rawdata 폴더 안에 hour=17, hour=18 등과 같은 이름을 가진 폴더가 표시됩니다. 이러한 폴더가 표시되는 경우 원시 데이터가 컴퓨터에 생성되고 Blob 저장소에 저장되고 있음을 나타냅니다. 해당 폴더에 한정된 크기(MB)로 있어야 하는 csv 파일이 표시됩니다.
 2. 파이프라인의 마지막 단계는 SQL Database에 데이터(예: Machine Learning에서 예측)를 쓰는 것입니다. 데이터를 SQL Database에 표시하려면 최대 3시간을 기다려야 할 수도 있습니다. 얼마나 많은 데이터를 SQL Database에서 사용할 수 있는지를 모니터링하는 한 가지 방법은 [Azure Portal](https://portal.azure.com/)을 통한 방법입니다. 왼쪽 패널에서 SQL Database ![SQL 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png)을 찾아 클릭합니다. 그런 다음 데이터베이스 **pmaintenancedb**를 찾고 클릭합니다. 맨 아래의 다음 페이지에서 관리를 클릭합니다.
    
-    ![관리 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)에서도 확인할 수 있습니다.
+    ![관리 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)
    
     여기에서는 새 쿼리를 클릭하고 행 수를 쿼리(예: PMResult의 select count(*))할 수 있습니다. 데이터베이스 증가에 따라 테이블의 행 수도 증가해야 합니다.
 
@@ -198,7 +195,7 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
      <br/>
      ![최종 보기](./media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
      <br/>
-   * 데이터 새로 고침을 예약하려면 **PredictiveMaintenanceAerospace** 데이터 집합 위에 마우스를 놓고 ![줄임표 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png)을 클릭한 다음 **새로 고침 예약**을 선택합니다.
+   * 데이터 새로 고침을 예약하려면 **PredictiveMaintenanceAerospace** 데이터 세트 위에 마우스를 놓고 ![줄임표 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png)을 클릭한 다음, **새로 고침 예약**을 선택합니다.
      <br/>
      **참고:** 경고 메시지가 표시되는 경우 **자격 증명 편집**을 클릭하고 데이터베이스 자격 증명이 1단계에서 설명된 것과 동일한지 확인합니다.
      <br/>
@@ -214,18 +211,18 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
 1. Azure Stream Analytics(ASA)에 Power BI 출력을 추가합니다.
    
    * [Azure Stream Analytics 및 Power BI: 스트리밍 데이터의 실시간 가시성에 대한 분석 대시보드](../../stream-analytics/stream-analytics-power-bi-dashboard.md)의 지침에 따라 Power BI 대시보드로 Azure Stream Analytics 작업의 출력을 설정해야 합니다.
-   * ASA 쿼리에는 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**의 세 가지 출력이 있습니다. 쿼리 탭을 클릭하여 쿼리를 볼 수 있습니다. 이 테이블 각각에 해당하는 출력을 ASA에 추가해야 합니다. 첫 번째 출력(**aircraftmonitor**)을 추가하는 경우 **출력 별칭**, **데이터 집합 이름** 및 **테이블 이름**이 동일(**aircraftmonitor**)한지 확인합니다. 단계를 반복하여 **aircraftalert** 및 **flightsbyhour**에 대한 출력을 추가합니다. 세 개의 모든 출력 테이블을 추가하고 ASA 작업을 시작한 후 확인 메시지를 받아야 합니다("Stream Analytics 작업 maintenancesa02asapbi 시작 성공").
-2. [Power BI 온라인](http://www.powerbi.com)
+   * ASA 쿼리에는 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**의 세 가지 출력이 있습니다. 쿼리 탭을 클릭하여 쿼리를 볼 수 있습니다. 이 테이블 각각에 해당하는 출력을 ASA에 추가해야 합니다. 첫 번째 출력(**aircraftmonitor**)을 추가하는 경우 **출력 별칭**, **데이터 세트 이름** 및 **테이블 이름**이 동일(**aircraftmonitor**)한지 확인합니다. 단계를 반복하여 **aircraftalert** 및 **flightsbyhour**에 대한 출력을 추가합니다. 세 개의 모든 출력 테이블을 추가하고 ASA 작업을 시작한 후 확인 메시지를 받아야 합니다("Stream Analytics 작업 maintenancesa02asapbi 시작 성공").
+2.  [Power BI 온라인](http://www.powerbi.com)
    
-   * 내 작업 영역의 왼쪽 패널에 있는 데이터 집합 섹션에는 ***데이터 집합*** 이름이 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**로 표시되어야 합니다. 이전 단계에서 Azure Stream Analytics에서 푸시한 스트리밍 데이터입니다. 데이터 집합 **flightsbyhour**는 SQL 쿼리의 특성상 다른 두 데이터 집합으로 동시에 표시되지 않을 수 있습니다. 그러나 한 시간 후에 표시됩니다.
-   * ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
-3. 데이터가 Power BI로 흐르게 한 후 스트리밍 데이터의 시각화를 시작할 수 있습니다. 다음은 고정된 몇 가지 실행 부하 과다 경로 시각화를 사용한 예제 대시보드입니다. 적절한 데이터 집합에 따라 다른 대시보드 타일을 만들 수 있습니다. 데이터 생성기의 실행 시간에 따라 시각화에 대한 숫자가 달라질 수 있습니다.
+   * 내 작업 영역의 왼쪽 패널에 있는 데이터 세트 섹션에는 ***데이터 세트*** 이름이 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**로 표시되어야 합니다. 이전 단계에서 Azure Stream Analytics에서 푸시한 스트리밍 데이터입니다. 데이터 세트 **flightsbyhour**는 SQL 쿼리의 특성상 다른 두 데이터 세트로 동시에 표시되지 않을 수 있습니다. 그러나 한 시간 후에 표시됩니다.
+   *  ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
+3. 데이터가 Power BI로 흐르게 한 후 스트리밍 데이터의 시각화를 시작할 수 있습니다. 다음은 고정된 몇 가지 실행 부하 과다 경로 시각화를 사용한 예제 대시보드입니다. 적절한 데이터 세트에 따라 다른 대시보드 타일을 만들 수 있습니다. 데이터 생성기의 실행 시간에 따라 시각화에 대한 숫자가 달라질 수 있습니다.
 
     ![대시보드 보기](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
 
 1. 다음은 위의 타일 중 하나를 만드는 몇몇 단계입니다. “센서 11의 Fleet 보기 vs.  임계값 48.26” 타일:
    
-   * 왼쪽 패널 데이터 집합 섹션에서 데이터 집합 **aircraftmonitor** 를 클릭합니다.
+   * 왼쪽 패널 데이터 세트 섹션에서 데이터 세트 **aircraftmonitor** 를 클릭합니다.
    * **꺾은선형 차트** 아이콘을 클릭합니다.
    * **시각화** 창의 "축" 아래에 보이도록 **필드** 창에서 **처리**를 클릭합니다.
    * "값" 아래에 모두 표시되도록 "s11" 및 "s11\_alert"을 클릭합니다. **s11** 및 **s11\_alert** 옆에 있는 작은 화살표를 클릭하고 "합계"를 "평균"으로 변경합니다.
@@ -240,5 +237,5 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
 다음 두 가지 도구는 구독에서 항공 솔루션 템플릿에 대한 예측 유지 관리를 실행하는 데 필요한 총 비용을 더욱 잘 이해할 수 있도록 사용할 수 있습니다.
 
 * [Microsoft Azure 비용 추정 도구(온라인)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure 비용 추정 도구(데스크톱)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure 비용 추정 도구(데스크톱)](https://www.microsoft.com/download/details.aspx?id=43376)
 

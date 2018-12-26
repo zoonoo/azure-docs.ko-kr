@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 639fea64fc8eeb2c1f6e6240c4eb26efc68febbd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41fe350fd712f6c521a9020af9a540e554abe94b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376190"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170602"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Conversation Learner에서 학습하는 방법 
 
@@ -56,9 +56,10 @@ ms.locfileid: "35376190"
 현재 턴의 이전 턴에 있는 엔터티 | 4 | 
 현재 턴 전의 사용자 발언 | 5 | 
 
-작업 선택은 텍스트, 카드 콘텐츠, API 이름 또는 동작과 같은 시스템 작업의 콘텐츠를 사용하지 않고 시스템 작업의 ID만 사용합니다.  따라서 작업의 콘텐츠를 변경해도 작업 선택 모델의 동작이 변경되지 않습니다.
-
-또한 엔터티의 콘텐츠/값은 사용되지 않고 엔터티 있음/없음만 사용됩니다.
+> [!NOTE]
+> 작업 선택은 텍스트, 카드 콘텐츠, API 이름 또는 동작과 같은 시스템 작업의 콘텐츠를 사용하지 않고 시스템 작업의 ID만 사용합니다.  따라서 작업의 콘텐츠를 변경해도 작업 선택 모델의 동작이 변경되지 않습니다.
+>
+> 또한 엔터티의 콘텐츠/값은 사용되지 않고 엔터티 있음/없음만 사용됩니다.
 
 작업 선택이 예상대로 작동하지 않는 경우 가능한 해결 방법은 다음과 같습니다.
 

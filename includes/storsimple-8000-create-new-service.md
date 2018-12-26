@@ -1,5 +1,29 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 7139b8ef2bfc9262611e51ce620da6a4769494b4
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165860"
+---
 <!--author=alkohli last changed:02/10/2017-->
 
+---
+title: 포함 파일
+description: 포함 파일
+services: storage
+author: alkohli
+ms.service: storage
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: alkohli
+ms.custom: include file
+---
 
 #### <a name="to-create-a-new-service"></a>새 서비스를 만들려면
 
@@ -7,11 +31,11 @@
 
 2. Azure Portal에서 **리소스 만들기**를 클릭하고 Marketplace에서 **모두 보기**를 클릭합니다.
 
-    ![StorSimple 장치 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman1.png)
+    ![StorSimple 디바이스 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
-    _StorSimple 실제_를 검색합니다. **StorSimple 실제 장치 시리즈**를 선택하여 클릭한 후 **만들기**를 클릭합니다. 또는 Azure Portal에서 **+** 를 클릭한 다음 **저장소** 아래에서 **StorSimple 실제 장치 시리즈**를 클릭합니다.
+    _StorSimple 실제_를 검색합니다. **StorSimple 실제 장치 시리즈**를 선택하여 클릭한 후 **만들기**를 클릭합니다. 또는 Azure Portal에서 **+** 를 클릭한 다음 **저장소** 아래에서 **StorSimple 실제 디바이스 시리즈**를 클릭합니다.
 
-    ![StorSimple 장치 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman11.png)
+    ![StorSimple 디바이스 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
 3. **StorSimple 장치 관리자** 블레이드에서 다음 단계를 수행합니다.
    
@@ -21,10 +45,10 @@
 
    3. **리소스 그룹**의 경우 **기존 항목을 사용**하거나 **새 그룹을 만듭니다**. 자세한 내용은 [Azure 리소스 그룹](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/)을 참조하세요.
    
-   4. 서비스의 **위치** 를 지정합니다. 일반적으로 장치를 배포하려는 지리적 지역에 가장 가까운 위치를 선택합니다. 다음 사항을 고려할 수도 있습니다. 
+   4. 서비스의 **위치** 를 지정합니다. 일반적으로 디바이스를 배포하려는 지리적 지역에 가장 가까운 위치를 선택합니다. 다음 사항을 고려할 수도 있습니다. 
       
-      * StorSimple 장치로 배포하려는 Azure에 부하가 있는 경우, 해당 데이터 센터를 사용해야 합니다.
-      * StorSimple 장치 관리자 서비스와 Azure Storage는 두 개의 별도 위치에 있을 수 있습니다. 이 경우, StorSimple 장치 관리자 및 Azure Storage 계정을 별도로 만들어야 합니다. Azure Storage 계정을 만들려면 Azure Portal의 Azure Storage 서비스로 이동하고 [Azure Storage 계정 만들기](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)의 단계를 수행합니다. 이 계정을 만든 후에 [서비스에 대한 새 저장소 계정 구성](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service)의 단계를 수행하여 StorSimple 장치 관리자 서비스에 추가합니다.
+      * StorSimple 디바이스로 배포하려는 Azure에 부하가 있는 경우, 해당 데이터 센터를 사용해야 합니다.
+      * StorSimple 디바이스 관리자 서비스와 Azure Storage는 두 개의 별도 위치에 있을 수 있습니다. 이 경우, StorSimple 디바이스 관리자 및 Azure Storage 계정을 별도로 만들어야 합니다. Azure Storage 계정을 만들려면 Azure Portal의 Azure Storage 서비스로 이동하고 [Azure Storage 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md)의 단계를 수행합니다. 이 계정을 만든 후에 [서비스에 대한 새 저장소 계정 구성](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service)의 단계를 수행하여 StorSimple 디바이스 관리자 서비스에 추가합니다.
 
    5. **새 저장소 계정 만들기** 를 선택하여 서비스를 포함하는 저장소 계정을 자동으로 만듭니다. 이 저장소 계정에 대해 이름을 지정합니다. 다른 위치에 있는 데이터가 필요하면 확인란의 선택을 취소합니다.
 
@@ -32,10 +56,10 @@
       
    7. **만들기**를 클릭하여 StorSimple 장치 관리자를 만듭니다.
 
-       ![StorSimple 장치 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman2.png)
+       ![StorSimple 디바이스 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman2.png)
    
 서비스 생성은 몇 분 정도가 소요됩니다. 서비스가 성공적으로 만들어지면 알림이 표시되고 새 서비스 블레이드가 열립니다.
    
-![StorSimple 장치 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman5.png)
+![StorSimple 디바이스 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman5.png)
 
 

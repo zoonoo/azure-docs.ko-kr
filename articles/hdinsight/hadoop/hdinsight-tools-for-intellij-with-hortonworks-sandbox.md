@@ -1,26 +1,21 @@
 ---
-title: Hortonworks 샌드박스에서 IntelliJ용 Azure 도구 키트 사용 | Microsoft Docs
+title: Hortonworks 샌드박스에서 Azure Toolkit for IntelliJ 사용
 description: Hortonworks 샌드박스에서 IntelliJ용 Azure 도구 키트의 HDInsight Tools 사용 방법을 알아봅니다.
 keywords: hadoop 도구,hive 쿼리,intellij,hortonworks 샌드박스,intellij용 azure 도구 키트
-services: HDInsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: b587cc9b-a41a-49ac-998f-b54d6c0bdfe0
+services: hdinsight
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 59251287f7597955fe22700cc96527b9476753c1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: hrasheed
+ms.openlocfilehash: 2f09bd7055b987a8647a24d4ebb6ea5a27888a53
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202546"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015590"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용
 
@@ -36,7 +31,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
     > [!NOTE]
     > IntelliJ용 HDInsight Tools는 HDP 2.4에서만 테스트되었습니다. HDP 2.4를 가져오려면 [Hortonworks 샌드박스 다운로드 사이트](http://hortonworks.com/downloads/#sandbox)에서 **Hortonworks 샌드박스 보관**을 확장합니다.
 
-- [JDK(Java Developer Kit) 버전 1.8 이상](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) IntelliJ용 Azure 도구 키트에 JDK가 필요합니다.
+- [JDK(Java Developer Kit) 버전 1.8 이상](https://aka.ms/azure-jdks) IntelliJ용 Azure 도구 키트에 JDK가 필요합니다.
 
 - [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download)과 [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) 플러그 인 및 [IntelliJ용 Azure 도구 키트](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij) 플러그 인. IntelliJ용 HDInsight 도구는 IntelliJ용 Azure 도구 키트의 일부로 사용할 수 있습니다. 
 

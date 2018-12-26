@@ -1,31 +1,26 @@
 ---
-title: HDInsight에서 Hadoop 서비스의 힙 덤프 사용 - Azure | Microsoft Docs
-description: 디버깅 및 분석을 위해 Linux 기반 HDInsight 클러스터에서 Hadoop 서비스에 힙 덤프를 사용하도록 설정합니다.
+title: HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용 - Azure
+description: 디버깅 및 분석을 위해 Linux 기반 HDInsight 클러스터에서 Apache Hadoop 서비스에 힙 덤프를 사용하도록 설정합니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: cd906736f2642d764c2b72a0572f63d675613c81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: hrasheed
+ms.openlocfilehash: 58f4827910d863aef14171574d40e4b3acfc04d9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405126"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498690"
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Hadoop 서비스에 힙 덤프 사용
+# <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-힙 덤프는 덤프가 만들어질 당시의 변수 값을 비롯해 응용 프로그램의 메모리에 대한 스냅숏을 포함합니다. 따라서 런타임에 발생하는 문제를 진단하는 데 유용합니다.
+힙 덤프는 덤프가 만들어질 당시의 변수 값을 비롯해 애플리케이션의 메모리에 대한 스냅숏을 포함합니다. 따라서 런타임에 발생하는 문제를 진단하는 데 유용합니다.
 
 > [!IMPORTANT]
 > 이 문서의 단계는 Linux를 사용하는 HDInsight 클러스터에만 적용됩니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -34,17 +29,17 @@ ms.locfileid: "31405126"
 
 다음 서비스에 힙 덤프를 사용할 수 있습니다.
 
-* **hcatalog** - tempelton
-* **hive** - hiveserver2, metastore, derbyserver
+* **Apache hcatalog** - tempelton
+* **Apache hive** - hiveserver2, metastore, derbyserver
 * **mapreduce** - jobhistoryserver
-* **yarn** - resourcemanager, nodemanager, timelineserver
-* **hdfs** - datanode, secondarynamenode, namenode
+* **Apache yarn** - resourcemanager, nodemanager, timelineserver
+* **Apache hdfs** - datanode, secondarynamenode, namenode
 
 HDInsight에서 실행하는 map 및 reduce프로세스에 힙 덤프를 사용할 수도 있습니다.
 
 ## <a name="configuration"></a>힙 덤프 구성 이해
 
-힙 덤프를 사용하려면 서비스를 시작할 때 JVM으로 옵션(opts 또는 매개 변수라고도 함)을 전달합니다. 대부분의 Hadoop 서비스에서는 서비스를 시작하는 데 사용하는 셸 스크립트를 수정하여 이러한 옵션을 생략할 수 있습니다.
+힙 덤프를 사용하려면 서비스를 시작할 때 JVM으로 옵션(opts 또는 매개 변수라고도 함)을 전달합니다. 대부분의 [Apache Hadoop](https://hadoop.apache.org/) 서비스에서는 서비스를 시작하는 데 사용하는 셸 스크립트를 수정하여 이러한 옵션을 생략할 수 있습니다.
 
 각 스크립트에는 JVM으로 전달되는 옵션이 포함된 **\*\_OPTS**에 대한 내보내기가 있습니다. 예를 들어 **hadoop-env.sh** 스크립트에는 `export HADOOP_NAMENODE_OPTS=`로 시작하는 줄에 NameNode 서비스에 대한 옵션이 포함되어 있습니다.
 
@@ -54,7 +49,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> Ambari는 클러스터의 노드 간에 변경 내용 복제를 처리하므로 Ambari를 사용하여 스크립트 및 mapred-site.xml 설정을 모두 수정하는 것이 좋습니다. 구체적인 단계는 [Ambari 사용](#using-ambari) 섹션을 참조하세요.
+> Ambari는 클러스터의 노드 간에 변경 내용 복제를 처리하므로 [Apache Ambari](https://ambari.apache.org/)를 사용하여 스크립트 및 mapred-site.xml 설정을 모두 수정하는 것이 좋습니다. 구체적인 단계는 [Apache Ambari 사용](#using-apache-ambari) 섹션을 참조하세요.
 
 ### <a name="enable-heap-dumps"></a>힙 덤프 사용
 
@@ -62,7 +57,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
     -XX:+HeapDumpOnOutOfMemoryError
 
-**+** 는 이 옵션이 사용하도록 설정되었음을 나타냅니다. 기본적으로 이 옵션은 사용하지 않도록 설정됩니다.
+ **+** 는 이 옵션이 사용하도록 설정되었음을 나타냅니다. 기본적으로 이 옵션은 사용하지 않도록 설정됩니다.
 
 > [!WARNING]
 > 덤프 파일은 용량이 클 수 있기 때문에 HDInsight의 Hadoop 서비스에는 기본적으로 힙 덤프가 사용되지 않습니다. 문제 해결을 위해 사용하도록 설정한 경우에는 문제를 재현하고 덤프 파일을 수집한 후 사용하지 않도록 설정해야 합니다.
@@ -82,11 +77,11 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
     -XX:OnOutOfMemoryError=/path/to/script
 
 > [!NOTE]
-> Hadoop은 분산 시스템이므로 사용되는 모든 스크립트는 서비스가 실행되는 클러스터의 모든 노드에 배치되어야 합니다.
+> Apache Hadoop은 분산 시스템이므로 사용되는 모든 스크립트는 서비스가 실행되는 클러스터의 모든 노드에 배치되어야 합니다.
 > 
 > 또한 스크립트는 서비스 실행 계정에서 액세스할 수 있는 위치에 있어야 하며, 실행 권한을 제공해야 합니다. 예를 들어 `/usr/local/bin`에 스크립트를 저장하고 `chmod go+rx /usr/local/bin/filename.sh`를 사용하여 읽기 및 실행 권한을 부여할 수 있습니다.
 
-## <a name="using-ambari"></a>Ambari 사용
+## <a name="using-apache-ambari"></a>Apache Ambari 사용
 
 서비스에 대한 구성을 수정하려면 다음 단계를 사용합니다.
 

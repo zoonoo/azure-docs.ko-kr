@@ -2,18 +2,18 @@
 title: Azure Import/Export 서비스에 대한 요구 사항 | Microsoft Docs
 description: Azure Import/Export 서비스에 대한 소프트웨어 및 하드웨어 요구 사항을 이해합니다.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 10/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 4c6e22f50f4550cb4a6e25960bcc13a4d92e9819
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.component: common
+ms.openlocfilehash: 3a42f09967ec42b47947823025f2f0dcd081d1b1
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825070"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "49352240"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
 
@@ -29,34 +29,42 @@ WAImportExport 도구를 사용하여 하드 드라이브를 준비하기 위해
 |Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> 윈도우 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
+## <a name="other-required-software-for-windows-client"></a>Windows 클라이언트에 필요한 다른 소프트웨어
+
+|플랫폼 |버전 |
+|---------|---------|
+|.NET Framework    | 4.5.1       |
+| BitLocker        |  _          |
 
 
 ## <a name="supported-storage-accounts"></a>지원되는 저장소 계정
 
-Azure Import/Export 서비스는 다음과 같은 Azure 저장소 계정을 지원합니다.
-- 클래식
-- Blob Storage 계정
-- 범용 v1 저장소 계정입니다. 
+Azure Import/Export 서비스는 다음과 같은 유형의 저장소 계정을 지원합니다.
 
-각 작업은 하나의 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)(영문)을 참조하세요.
+- 범용 v1 저장소 계정(클래식 또는 Azure Resource Manager 모두)
+- Blob Storage 계정
+
+저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
+
+각 작업은 하나의 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-quickstart-create-account.md)(영문)을 참조하세요.
 
 > [!IMPORTANT] 
-> Azure 가져오기 내보내기 서비스는 [Virtual Network 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md) 기능이 활성화된 저장소 계정을 지원하지 않습니다. 
+> Azure Import Export 서비스는 [Virtual Network 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md) 기능이 활성화된 저장소 계정을 지원하지 않습니다. 
 
 ## <a name="supported-storage-types"></a>지원되는 저장소 형식
 
 다음 저장소 유형 목록은 Azure Import/Export 서비스를 지원합니다.
 
 
-|작업  |Storage  |지원됨  |지원되지 않음  |
+|작업  |저장소 서비스 |지원됨  |지원되지 않음  |
 |---------|---------|---------|---------|
-|가져오기     |  Azure Blob 저장소. <br>블록 Blob, 페이지 Blob 지원됨. <br> Azure Files 지원됨.       |         |
-|내보내기     |   Azure Blob 저장소. <br>블록 Blob, 페이지 Blob 및 추가 Blob 지원됨.       | Azure Files 지원되지 않음.        |
+|가져오기     |  Azure Blob 저장소 <br><br> Azure 파일 저장소       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
+|내보내기     |   Azure Blob 저장소       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
 
 
 ## <a name="supported-hardware"></a>지원되는 하드웨어 
 
-Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디스크 및 지원되는 SATA 커넥터가 필요합니다.
+Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디스크가 필요합니다.
 
 ### <a name="supported-disks"></a>지원되는 디스크
 
@@ -73,18 +81,9 @@ Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디�
 - 최대 10개의 HDD/SSD.
 - 모든 규모의 HDD/SSD 혼합.
 
-다수의 드라이브가 여러 작업에 분산될 수 있으며, 만들 수 있는 작업 수에 대한 제한은 없습니다. 
+다수의 드라이브가 여러 작업에 분산될 수 있으며, 만들 수 있는 작업 수에 대한 제한은 없습니다. 가져오기 작업의 경우 드라이브의 첫 번째 데이터 볼륨만 처리됩니다. 데이터 볼륨은 NTFS로 포맷되어 있어야 합니다.
 
-가져오기 작업의 경우 드라이브의 첫 번째 데이터 볼륨만 처리됩니다. 데이터 볼륨은 NTFS로 포맷되어 있어야 합니다.
-
-### <a name="supported-external-usb-adaptors"></a>지원되는 외부 USB 어댑터
-
-하드 드라이브를 준비하고 WAImportExport 도구를 사용하여 데이터를 복사하는 경우, 다음 외부 USB 어댑터(기성품)를 사용할 수 있습니다. 
-- Anker 68UPSATAA-02BU
-- Anker 68UPSHHDS-BU
-- Startech SATADOCK22UE
-- Orico 6628SUS3-C-BK(6628 시리즈)
-- Thermaltake BlacX Hot-Swap SATA 외부 하드 드라이브 도킹 스테이션(USB 2.0 및 eSATA)
+하드 드라이브를 준비하고 WAImportExport 도구를 사용하여 데이터를 복사하는 경우, 외부 USB 어댑터를 사용할 수 있습니다. 대부분의 기성품 USB 3.0 이상 어댑터가 작동해야 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

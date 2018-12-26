@@ -1,19 +1,20 @@
 ---
-title: Azure Site Recovery에서 보조 사이트 아키텍처로 Hyper-V 복제 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 Hyper-V VM을 보조 System Center VMM 사이트로 복제하기 위한 아키텍처 개요를 제공합니다.
+title: Azure Site Recovery를 사용한 Hyper-V와 보조 온-프레미스 사이트 간 재해 복구를 위한 아키텍처 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용한 온-프레미스 Hyper-V VM과 보조 System Center VMM 사이트 간 재해 복구를 위한 아키텍처를 간략하게 설명합니다.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 39a397edd17327a91882535fbd00222a4ae4dddc
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 599c47f8e7edaec43311ceb3d362f01e0bfa68f5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894299"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841407"
 ---
-# <a name="hyper-v-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V 복제
+# <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>아키텍처 - 보조 사이트로 Hyper-V 복제
 
 이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드의 온-프레미스 Hyper-V VM(가상 머신)을 보조 VMM 사이트로 복제할 때 사용되는 구성 요소 및 프로세스를 설명합니다.
 
@@ -37,8 +38,8 @@ ms.locfileid: "33894299"
 
 1. 초기 복제가 트리거되면 [Hyper-V VM 스냅숏](https://technet.microsoft.com/library/dd560637.aspx)이 생성됩니다.
 2. VM의 가상 하드 디스크는 보조 위치에 하나씩 복제됩니다.
-3. 초기 복제가 진행되는 동안 디스크 변경이 발생하는 경우 
-4. 초기 복제가 완료되면 델타 복제가 시작됩니다. Hyper-V 복제본 복제 추적기는 변경 내용을 Hyper-V 복제 로그(.hrl)로 추적합니다. 이러한 로그 파일은 디스크와 동일한 폴더에 있습니다. 각 디스크에는 보조 위치로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅숏과 로그 파일이 디스크 리소스를 사용합니다.
+3. 초기 복제 진행 중에 디스크가 변경될 경우, Hyper-V 복제 로그(.hrl)로 Hyper-V 복제본 복제 추적자가 이러한 변경 내용을 추적합니다. 이러한 로그 파일은 디스크와 동일한 폴더에 있습니다. 각 디스크에는 보조 위치로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅숏과 로그 파일이 디스크 리소스를 사용합니다.
+4. 초기 복제가 완료되면 VM 스냅숏은 삭제되고 델타 복제가 시작됩니다.
 5. 로그의 델타 디스크 변경 내용이 동기화되고 부모 디스크로 병합합니다.
 
 

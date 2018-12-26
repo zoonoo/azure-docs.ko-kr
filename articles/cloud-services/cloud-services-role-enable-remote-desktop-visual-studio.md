@@ -1,22 +1,23 @@
 ---
 title: Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용
-description: Azure 클라우드 서비스 응용 프로그램을 구성하여 원격 데스크톱 연결을 허용하는 방법입니다.
+description: Azure 클라우드 서비스 애플리케이션을 구성하여 원격 데스크톱 연결을 허용하는 방법입니다.
 services: cloud-services
 author: ghogen
 manager: douge
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.topic: conceptual
-ms.workload: azure
+ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: fe8b2b59616246743b38aa3b7a7972c092529b5d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31788469"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304057"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Visual Studio를 사용하여 Azure Cloud Services에서 역할에 대한 원격 데스크톱 연결 사용
 
@@ -29,7 +30,7 @@ ms.locfileid: "31788469"
 
 Visual Studio에서 클라우드 서비스에 제공하는 게시 마법사에는 사용자가 제공하는 자격 증명을 사용하여 게시 프로세스 중에 원격 데스크톱을 사용하도록 설정하는 옵션이 있습니다. Visual Studio 2017 버전 15.4 및 이전 버전을 사용하는 경우 이 옵션을 사용하는 것이 적합합니다.
 
-그러나 Visual Studio 2017 버전 15.5 이상에서는 단일 개발자로만 작업하지 않는 한 게시 마법사를 통해 원격 데스크톱을 사용하지 않는 것이 좋습니다. 다른 개발자가 프로젝트를 열 수 있는 상황에서는 Azure Portal, PowerShell 또는 지속적인 배포 워크플로의 릴리스 정의를 통해 원격 데스크톱을 대신 사용할 수 있습니다. 이 권장 사항은 이 문서에서 설명한 대로 Visual Studio에서 클라우드 서비스 VM의 원격 데스크톱과 통신하는 방식이 변경 되었기 때문입니다.
+그러나 Visual Studio 2017 버전 15.5 이상에서는 단일 개발자로만 작업하지 않는 한 게시 마법사를 통해 원격 데스크톱을 사용하지 않는 것이 좋습니다. 다른 개발자가 프로젝트를 열 수 있는 상황에서는 Azure Portal, PowerShell 또는 지속적인 배포 워크플로의 릴리스 파이프라인을 통해 원격 데스크톱을 대신 사용할 수 있습니다. 이 권장 사항은 이 문서에서 설명한 대로 Visual Studio에서 클라우드 서비스 VM의 원격 데스크톱과 통신하는 방식이 변경 되었기 때문입니다.
 
 ## <a name="configure-remote-desktop-through-visual-studio-2017-version-154-and-earlier"></a>Visual Studio 2017 버전 15.4 및 이전 버전을 통해 원격 데스크톱 구성
 
@@ -81,9 +82,9 @@ Certificate with thumbprint [thumbprint] doesn't exist.
 
 ### <a name="deploying-from-a-build-server-with-visual-studio-2017-version-155-and-later"></a>Visual Studio 2017 버전 15.5 이상을 사용하여 빌드 서버에서 배포
 
-빌드 에이전트에 Visual Studio 2017 버전 15.5 이상이 설치된 빌드 서버(예: Visual Studio Team Services)에서 클라우드 서비스 프로젝트를 배포할 수 있습니다. 이렇게 배치하면 암호화 인증서를 사용할 수 있는 동일한 컴퓨터에서 배포가 수행됩니다.
+빌드 에이전트에 Visual Studio 2017 버전 15.5 이상이 설치된 빌드 서버(예: Azure DevOps Services)에서 클라우드 서비스 프로젝트를 배포할 수 있습니다. 이렇게 배치하면 암호화 인증서를 사용할 수 있는 동일한 컴퓨터에서 배포가 수행됩니다.
 
-Visual Studio Team Services에서 RDP 확장을 사용하려면 빌드 정의에 다음 세부 정보를 포함합니다.
+Azure DevOps Services에서 RDP 확장을 사용하려면 빌드 파이프라인에 다음 세부 정보를 포함합니다.
 
 1. MSBuild 인수에 `/p:ForceRDPExtensionOverPlugin=true`를 포함하여 배포가 RDP 플러그 인 대신 RDP 확장을 통해 작동하는지 확인합니다. 예: 
 

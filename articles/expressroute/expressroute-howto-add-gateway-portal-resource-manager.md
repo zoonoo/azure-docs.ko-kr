@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2bd0cf8be87937044ad515a2c6f253b1711bb2bf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6198c8723ccbb225a4cc60526e66f4651390b26c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23013268"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255696"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [클래식 - PowerShell](expressroute-howto-add-gateway-classic.md)
-> * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
+> * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
@@ -53,7 +53,7 @@ ms.locfileid: "23013268"
 * 게이트웨이 유형 = “ExpressRoute” Express 경로 구성에 이 유형이 필요합니다.
 * 게이트웨이 공용 IP 이름 = “MyERGWVIP”
 
-구성을 시작하기 전에 이러한 단계의 [비디오](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)를 시청하십시오.
+구성을 시작하기 전에 이러한 단계의 [비디오](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)를 시청하십시오.
 
 ## <a name="create-the-gateway-subnet"></a>게이트웨이 서브넷 만들기
 
@@ -84,7 +84,7 @@ ms.locfileid: "23013268"
 11. **리소스 그룹**: 이 설정은 선택한 Virtual Network에 의해 결정됩니다.
 12. 앞의 설정을 지정한 후에는 **위치**를 조정하지 않습니다.
 13. 설정을 확인합니다. 게이트웨이를 대시보드에 표시하려면 블레이드 아래쪽에서 **대시보드에 고정**을 선택할 수 있습니다.
-14. **만들기** 를 클릭하여 게이트웨이 만들기를 시작합니다. 설정이 검증되었으며 게이트웨이가 배포됩니다. 가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다.
+14. **만들기**를 클릭하여 게이트웨이 만들기를 시작합니다. 설정이 검증되었으며 게이트웨이가 배포됩니다. 가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 VNet 게이트웨이를 만든 후 VNet을 ExpressRoute 회로에 연결할 수 있습니다. [Virtual Network를 ExpressRoute 회로에 연결](expressroute-howto-linkvnet-portal-resource-manager.md)을 참조하세요.

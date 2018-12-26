@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0e5de93f8a10d27c28b3f07567f9b6fa7e41d482
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 42f3378196b4e3e1dfe1234e801e87875f9c61fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781842"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247656"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩의 라이선스 이미지 사용
 
@@ -28,7 +28,7 @@ Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>라이선스 이미지를 사용자가 사용할 수 있는지 여부 결정
 사용자가 라이선스 이미지에서 VM을 만들 수 있도록 하려면 먼저 라이선스 이미지의 사용 약관에 동의했는지 확인해야 합니다. 다음 단계에서는 라이선스 이미지의 제공 상태를 확인하고 필요한 경우 해당 사용 약관에 동의하는 방법을 보여 줍니다.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1. **모든 서비스**를 선택한 다음 목록에서 **DevTest Labs**를 선택합니다.
 
@@ -54,7 +54,7 @@ Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사
 
 다음 단계를 수행하여 라이선스 이미지에 대한 프로그래밍 방식 배포를 사용하도록 설정할 수 있습니다.
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 **Marketplace 이미지** 목록으로 이동합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에서 **Marketplace 이미지** 목록으로 이동합니다.
 
 1. 사용자가 액세스하려고 하지만 해당 약관에 동의하지 않은 라이선스 이미지를 식별합니다. 예를 들어 **약관에 동의함** 또는 **약관을 검토해야 함** 상태를 표시하는 데이터 과학 Virtual Machine이 있을 수 있습니다.
 

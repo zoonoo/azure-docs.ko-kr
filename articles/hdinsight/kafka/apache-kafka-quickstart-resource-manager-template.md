@@ -1,28 +1,23 @@
 ---
-title: Apache Kafka 시작 - Azure HDInsight 빠른 시작 | Microsoft Docs
+title: Apache Kafka 시작 - Azure HDInsight 빠른 시작
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터를 만드는 방법에 대해 알아봅니다. 또한 Kafka 토픽, 구독자 및 소비자에 대해서도 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 10d4d4b3c0236cf8a1edd6976fe5af573703b237
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 03d7c63d09ddaf64a552a4534612f0f7e9fd249b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779228"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312370"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>빠른 시작: HDInsight 클러스터에서 Kafka 만들기
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>빠른 시작: HDInsight 클러스터에서 Apache Kafka 만들기
 
-Kafka는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-구독 메시지 큐와 유사한 기능을 제공하므로 메시지 브로커로 자주 사용됩니다. 
+[Apache Kafka](https://kafka.apache.org/)는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-구독 메시지 큐와 유사한 기능을 제공하므로 메시지 브로커로 자주 사용됩니다. 
 
 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 [Apache Kafka](https://kafka.apache.org) 클러스터를 만드는 방법에 대해 알아봅니다. 또한 Kafka를 사용하여 메시지를 받거나 보내기 위해 제공되는 유틸리티를 사용하는 방법을 알아봅니다.
 
@@ -31,7 +26,7 @@ Kafka는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-구독 
 > [!IMPORTANT]
 > Kafka API는 동일한 가상 네트워크 내에서만 리소스에서 액세스할 수 있습니다. 이 빠른 시작에서는 직접 SSH를 사용하여 클러스터에 액세스합니다. 다른 서비스, 네트워크 또는 가상 머신을 Kafka에 연결하려면 먼저 가상 네트워크를 만든 다음, 네트워크 내에 리소스를 만듭니다.
 >
-> 자세한 내용은 [가상 네트워크를 사용하여 Kafka에 연결](apache-kafka-connect-vpn-gateway.md) 문서를 참조하세요.
+> 자세한 내용은 [가상 네트워크를 사용하여 Apache Kafka에 연결](apache-kafka-connect-vpn-gateway.md) 문서를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,7 +45,7 @@ Kafka는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-구독 
     >
     > 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
 
-## <a name="create-a-kafka-cluster"></a>Kafka 클러스터 만들기
+## <a name="create-an-apache-kafka-cluster"></a>Apache Kafka 클러스터 만들기
 
 1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다.
 
@@ -112,9 +107,9 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Zookeeper 및 Broker 호스트 정보 가져오기
+## <a id="getkafkainfo"></a>Apache Zookeeper 및 Broker 호스트 정보 가져오기
 
-Kafka를 사용할 때는 *Zookeeper* 및 *Broker* 호스트를 알고 있어야 합니다. 이러한 호스트는 Kafka API 및 Kafka와 함께 제공되는 다양한 유틸리티에서 사용됩니다.
+Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 있어야 합니다. 이러한 호스트는 Kafka API 및 Kafka와 함께 제공되는 다양한 유틸리티에서 사용됩니다.
 
 이 섹션에서는 클러스터에서 Ambari REST API에서 호스트 정보를 가져옵니다.
 
@@ -171,7 +166,7 @@ Kafka를 사용할 때는 *Zookeeper* 및 *Broker* 호스트를 알고 있어야
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
-## <a name="manage-kafka-topics"></a>Kafka 토픽 관리
+## <a name="manage-apache-kafka-topics"></a>Apache Kafka 토픽 관리
 
 Kafka는 *토픽*에 데이터 스트림을 저장합니다. 토픽을 관리하는 데 `kafka-topics.sh` 유틸리티를 사용할 수 있습니다.
 
@@ -197,7 +192,7 @@ Kafka는 *토픽*에 데이터 스트림을 저장합니다. 토픽을 관리하
         > [!IMPORTANT] 
         > Kafka는 Azure 장애 도메인을 인식하지 않습니다. 항목에 대한 파티션 복제본을 만들 때 고가용성에 대해 복제본을 제대로 배포하지 않을 수 있습니다.
 
-        고가용성을 보장하려면 [Kafka 파티션 재조정 도구](https://github.com/hdinsight/hdinsight-kafka-tools)를 사용합니다. 이 도구는 Kafka 클러스터의 헤드 노드에 대한 SSH 연결에서 실행되어야 합니다.
+        고가용성을 보장하려면 [Apache Kafka 파티션 재조정 도구](https://github.com/hdinsight/hdinsight-kafka-tools)를 사용합니다. 이 도구는 Kafka 클러스터의 헤드 노드에 대한 SSH 연결에서 실행되어야 합니다.
 
         가장 높은 Kafka 데이터 가용성을 보장하려면 다음과 같은 경우에 토픽에 대한 파티션 복제본의 부하를 다시 조정해야 합니다.
 
@@ -259,7 +254,7 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
 
 4. __Ctrl+C__를 사용하여 소비자를 중지합니다.
 
-또한 프로그래밍 방식으로 생산자와 소비자를 만들 수 있습니다. 이 API를 사용하는 예제는 [HDInsight의 Kafka 생산자 및 소비자 API](apache-kafka-producer-consumer-api.md) 문서를 참조하세요.
+또한 프로그래밍 방식으로 생산자와 소비자를 만들 수 있습니다. 이 API를 사용하는 예제는 [HDInsight의 Apache Kafka 생산자 및 소비자 API](apache-kafka-producer-consumer-api.md) 문서를 참조하세요.
 
 ## <a name="troubleshoot"></a>문제 해결
 
@@ -283,5 +278,5 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Kafka에서 Apache Spark 사용](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Apache Kafka에서 Apache Spark 사용](../hdinsight-apache-kafka-spark-structured-streaming.md)
 

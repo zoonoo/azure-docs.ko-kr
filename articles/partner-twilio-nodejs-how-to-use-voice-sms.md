@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: wpickett
-ms.openlocfilehash: f347540c78be712fc46d1d36b47ca4e23a62e28a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9f419c48f64ba697e031dfc680bc9cb12bba5c4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23039498"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421967"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Azure에서 음성, VoIP 및 SMS 메시징을 위해 Twilio 사용
 이 가이드에서는 Azure에서 Twilio 및 node.js와 통신하는 앱을 빌드하는 방법을 보여 줍니다.
@@ -62,7 +62,7 @@ Twilio 서비스를 사용하기 전에 먼저 [계정을 등록][signup]해야 
 ### <a name="configuring-twilio-credentials-in-system-environment-variables"></a>시스템 환경 변수에서 Twilio 자격 증명 구성
 Twilio 백 엔드에 대해 인증된 요청을 만들려면 Twilio 계정에 대해 사용자 이름 및 암호 집합 역할을 하는 계정 SID 및 인증 토큰이 필요합니다. Azure에서 노드 모듈에 사용하기 위해 이를 구성하는 가장 안전한 방법은 시스템 환경 변수를 사용하는 것입니다. 시스템 환경 변수는 Azure 관리 콘솔에서 직접 설정할 수 있습니다.
 
-node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다.  아래로 조금 스크롤하면 응용 프로그램의 구성 속성을 설정할 수 있는 영역이 표시됩니다.  표시된 것처럼 Twilio 계정 자격 증명([Twilio 콘솔에서 찾을 수 있음][twilio_console])을 입력합니다. 이름을 각각 `TWILIO_ACCOUNT_SID` 및 `TWILIO_AUTH_TOKEN`으로 지정해야 합니다.
+node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다.  아래로 조금 스크롤하면 애플리케이션의 구성 속성을 설정할 수 있는 영역이 표시됩니다.  표시된 것처럼 Twilio 계정 자격 증명([Twilio 콘솔에서 찾을 수 있음][twilio_console])을 입력합니다. 이름을 각각 `TWILIO_ACCOUNT_SID` 및 `TWILIO_AUTH_TOKEN`으로 지정해야 합니다.
 
 ![Azure 관리 콘솔][azure-admin-console]
 
@@ -246,13 +246,13 @@ Azure에서 node.js와 Twilio 해킹을 즐기시기를 바랍니다.
 
 [purchase_phone]: https://www.twilio.com/console/phone-numbers/search
 [twiml]: https://www.twilio.com/docs/api/twiml
-[signup]: http://ahoy.twilio.com/azure
+[signup]: https://ahoy.twilio.com/azure
 [azure_new_site]: app-service/app-service-web-get-started-nodejs.md
 [twilio_console]: https://www.twilio.com/console
-[npm]: http://npmjs.org
-[express]: http://expressjs.com
-[voipnode]: http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
-[docs]: http://twilio.github.io/twilio-node/
-[votr]: http://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html
-[pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
+[npm]: https://npmjs.org
+[express]: https://expressjs.com
+[voipnode]: https://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
+[docs]: https://www.twilio.com/docs/libraries/reference/twilio-node/
+[votr]: https://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html
+[pair]: https://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png

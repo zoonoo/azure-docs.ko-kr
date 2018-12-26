@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 9f989ada01a2ffced509b42df9e46aa001386ab6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: fb0760f24b8f384818db8154ffe871d7fd4ce429
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077397"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138347"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Application Insights를 사용하여 Azure Batch .NET 응용 프로그램 모니터링 및 디버깅
 
@@ -26,8 +26,12 @@ ms.locfileid: "34077397"
 
 이 문서에서 코드와 함께 사용할 샘플 C# 솔루션은 [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)에서 제공합니다. 이 예제에서는 Application Insights 계측 코드를 [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) 예제에 추가합니다. 이 예제에 익숙하지 않은 경우 먼저 TopNWords를 빌드하고 실행해 보세요. 여러 계산 노드에서 입력 BLOB 집합을 병렬로 처리하는 기본 Batch 워크플로를 이해하는 데 도움이 될 것입니다. 
 
+> [!TIP]
+> 대안으로 Batch Explorer의 VM 성능 카운터 같은 Application Insights 데이터를 표시하도록 Batch 솔루션을 구성합니다. [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다. Batch Explorer에서 Application Insights 데이터를 사용하도록 설정하는 빠른 단계는 [일괄 처리 인사이트 리포지토리](https://github.com/Azure/batch-insights)를 참조하세요. 
+>
+
 ## <a name="prerequisites"></a>필수 조건
-* [Visual Studio IDE](https://www.visualstudio.com/vs)(Visual Studio 2015 또는 최신 버전)
+* [Visual Studio 2017](https://www.visualstudio.com/vs)
 
 * [Batch 계정 및 연결된 저장소 계정](batch-account-create-portal.md)
 
@@ -312,8 +316,8 @@ private const string BatchStartTaskTelemetryRunnerAIConfig = "ApplicationInsight
 CloudPool pool = client.PoolOperations.CreatePool(
     topNWordsConfiguration.PoolId,
     targetDedicated: topNWordsConfiguration.PoolNodeCount,
-    virtualMachineSize: "small",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+    virtualMachineSize: "standard_d1_v2",
+    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 ...
 
 // Create a start task which will run a dummy exe in background that simply emits performance

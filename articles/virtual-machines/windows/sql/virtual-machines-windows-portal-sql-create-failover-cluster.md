@@ -14,17 +14,18 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 13/22/2018
+ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237967"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
-이 문서에서는 리소스 관리자 모델에서 Azure 가상 머신에 SQL Server FCI(장애 조치(Failover) 클러스터 인스턴스)를 만드는 방법을 설명합니다. 이 솔루션에서는 Windows 클러스터에서 노드(Azure VM) 간 저장소(데이터 디스크)를 동기화하는 소프트웨어 기반 가상 SAN으로 [Windows Server 2016 Datacenter 버전 저장소 공간 다이렉트 \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)를 사용합니다. S2D는 Windows Server 2016의 새로운 기능입니다.
+이 문서에서는 리소스 관리자 모델에서 Azure 가상 머신에 SQL Server FCI(장애 조치(Failover) 클러스터 인스턴스)를 만드는 방법을 설명합니다. 이 솔루션에서는 Windows 클러스터에서 노드(Azure VM) 간 저장소(데이터 디스크)를 동기화하는 소프트웨어 기반 가상 SAN으로 [Windows Server 2016 Datacenter 버전 저장소 공간 다이렉트 \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)를 사용합니다. S2D는 Windows Server 2016의 새로운 기능입니다.
 
 다음 다이어그램에서는 Azure 가상 머신에 완전한 솔루션을 보여 줍니다.
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 04/03/2018
    >[!NOTE]
    >다이어그램의 모든 Azure 리소스는 동일한 리소스 그룹에 있습니다.
 
-S2D에 대한 자세한 내용은 [Windows Server 2016 Datacenter 버전 저장소 공간 다이렉트 \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)를 참조하세요.
+S2D에 대한 자세한 내용은 [Windows Server 2016 Datacenter 버전 저장소 공간 다이렉트 \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)를 참조하세요.
 
 S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 지원합니다. 이 문서의 아키텍처는 하이퍼 수렴형입니다. 하이퍼 수렴형 인프라는 클러스터형 응용 프로그램을 호스트하는 동일한 서버에 저장소를 배치합니다. 이 아키텍처에서 저장소는 각 SQL Server FCI 노드에 있습니다.
 
@@ -51,13 +52,13 @@ S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 �
 
 Azure Virtual Machines에서 PAYG(용량제 통화 요금) 또는 BYOL(사용자 라이선스 필요) VM 이미지를 사용하여 SQL Server를 라이선싱할 수 있습니다. 선택하는 이미지의 유형은 청구 방식에 영향을 줍니다.
 
-PAYG 라이선싱을 사용하면 Azure Virtual Machines에서 SQL Server의 FCI(장애 조치 클러스터 인스턴스)는 수동 노드를 포함한 모든 FCI의 노드에 대한 요금을 부과합니다. 자세한 내용은 [SQL Server Enterprise Virtual Machines 가격 책정](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/)을 참조하세요. 
+PAYG 라이선싱을 사용하면 Azure Virtual Machines에서 SQL Server의 FCI(장애 조치 클러스터 인스턴스)는 수동 노드를 포함한 모든 FCI의 노드에 대한 요금을 부과합니다. 자세한 내용은 [SQL Server Enterprise Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/)을 참조하세요. 
 
-Software Assurance로 기업계약을 한 고객은 각 활성 노드에 대해 하나의 무료 수동 FCI 노드를 사용할 권리가 있습니다. Azure에서 이 이점을 활용하려면 BYOL VM 이미지를 사용한 다음, FCI의 활성 노드와 수동 노드 둘 다에 동일한 라이선스를 사용합니다. 자세한 내용은 [기업계약](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx)을 참조하세요.
+Software Assurance로 기업계약을 한 고객은 각 활성 노드에 대해 하나의 무료 수동 FCI 노드를 사용할 권리가 있습니다. Azure에서 이 이점을 활용하려면 BYOL VM 이미지를 사용한 다음, FCI의 활성 노드와 수동 노드 둘 다에 동일한 라이선스를 사용합니다. 자세한 내용은 [기업계약](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx)을 참조하세요.
 
 Azure Virtual Machines의 SQL Server에 대한 PAYG와 BYOL 라이선싱을 비교하려면 [SQL VM 시작](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)을 참조하세요.
 
-SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](http://www.microsoft.com/sql-server/sql-server-2017-pricing)을 참조하세요.
+SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://www.microsoft.com/sql-server/sql-server-2017-pricing)을 참조하세요.
 
 ### <a name="example-azure-template"></a>예제 Azure 템플릿
 
@@ -70,13 +71,16 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](http://www
 ### <a name="what-to-know"></a>알아야 할 사항
 다음 기술의 작동을 이해해야 합니다.
 
-- [Windows 클러스터 기술](http://technet.microsoft.com/library/hh831579.aspx)
--  [SQL Server 장애 조치(Failover) 클러스터 인스턴스](http://msdn.microsoft.com/library/ms189134.aspx)
+- [Windows 클러스터 기술](https://technet.microsoft.com/library/hh831579.aspx)
+- [SQL Server 장애 조치(Failover) 클러스터 인스턴스](https://msdn.microsoft.com/library/ms189134.aspx)
 
 또한 다음 기술에 대한 기본적인 지식이 있어야 합니다.
 
-- [Windows Server 2016의 저장소 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+- [Windows Server 2016의 저장소 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure 리소스 그룹](../../../azure-resource-manager/resource-group-portal.md)
+
+> [!IMPORTANT]
+> 이번에 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)은 Azure에서 SQL Server FCI에 대해 지원되지 않습니다. FCI에 참여하는 VM에서 확장을 제거하는 것이 좋습니다. 이 확장은 자동화된 Backup 및 패칭 같은 기능 및 SQL용 일부 포털 기능을 지원합니다. 이 기능은 에이전트를 제거한 후 SQL VM에 대해 작동하지 않습니다.
 
 ### <a name="what-to-have"></a>가지고 있어야 할 사항
 
@@ -103,7 +107,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](http://www
 
    가상 머신에 대한 리소스 그룹을 만들지 않은 경우 Azure 가용성 집합을 만들 때 만듭니다. 가용성 집합을 만드는 데 Azure Portal을 사용하는 경우 다음 단계를 수행합니다.
 
-   - Azure Portal에서 **+**를 클릭하여 Azure Marketplace를 엽니다. **가용성 집합**을 검색합니다.
+   - Azure Portal에서 **+** 를 클릭하여 Azure Marketplace를 엽니다. **가용성 집합**을 검색합니다.
    - **가용성 집합**을 클릭합니다.
    - **만들기**를 클릭합니다.
    - **가용성 집합 만들기** 블레이드에서 다음 값을 설정합니다.
@@ -156,7 +160,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](http://www
 
 1. SQL Server 기반 가상 머신 이미지 중 하나를 사용하고 있는 경우 SQL Server 인스턴스를 제거합니다.
 
-   - **프로그램 및 기능**에서 **Microsoft SQL Server 2016(64비트)**을 마우스 오른쪽 단추로 클릭하고 **제거/변경**을 클릭합니다.
+   - **프로그램 및 기능**에서 **Microsoft SQL Server 2016(64비트)** 을 마우스 오른쪽 단추로 클릭하고 **제거/변경**을 클릭합니다.
    - **제거**를 클릭합니다.
    - 기본 인스턴스를 선택합니다.
    - **데이터베이스 엔진 서비스**에서 모든 기능을 제거합니다. **공유 기능**을 제거하지 마십시오. 다음 그림을 참조하세요.
@@ -221,18 +225,18 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](http://www
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-참고로 다음 단계는 [Windows Server 2016의 저장소 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct)의 3단계 지침을 따릅니다.
+참고로 다음 단계는 [Windows Server 2016의 저장소 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct)의 3단계 지침을 따릅니다.
 
 ### <a name="validate-the-cluster"></a>클러스터 유효성 검사
 
-이 가이드는 [클러스터 유효성 검사](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation)의 지침을 설명합니다.
+이 가이드는 [클러스터 유효성 검사](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation)의 지침을 설명합니다.
 
 UI에서 또는 PowerShell을 사용하여 클러스터의 유효성을 검사합니다.
 
 UI를 사용하여 클러스터의 유효성을 검사하려면 가상 머신 중 하나에서 다음 단계를 수행합니다.
 
 1. **서버 관리자**에서 **도구**를 클릭한 다음 **장애 조치(Failover) 클러스터 관리자**를 클릭합니다.
-1. **장애 조치(Failover) 클러스터 관리자**에서 **작업**을 클릭한 다음 **구성 유효성 검사...**를 클릭합니다.
+1. **장애 조치(Failover) 클러스터 관리자**에서 **작업**을 클릭한 다음 **구성 유효성 검사...** 를 클릭합니다.
 1. **다음**을 클릭합니다.
 1. **서버 또는 클러스터 선택**에서 두 가상 머신의 이름을 입력합니다.
 1. **테스트 옵션**에서 **선택한 테스트만 실행**을 선택합니다. **다음**을 클릭합니다.
@@ -255,7 +259,7 @@ PowerShell로 클러스터의 유효성을 검사하려면 가상 머신 중 하
 
 ### <a name="create-the-failover-cluster"></a>장애 조치 클러스터 만들기
 
-이 가이드에서는 [장애 조치 클러스터 만들기](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster)를 설명합니다.
+이 가이드에서는 [장애 조치 클러스터 만들기](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster)를 설명합니다.
 
 장애 조치 클러스터를 만들려면 다음이 필요합니다.
 - 클러스터 노드가 되는 가상 머신의 이름.
@@ -272,19 +276,19 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 클라우드 감시는 Azure Storage Blob에 저장된 새로운 유형의 클러스터 쿼럼 감시입니다. 감시 공유를 호스트하는 별도 VM의 필요성을 제거합니다.
 
-1. [장애 조치 클러스터에 대한 클라우드 감시를 만듭니다](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
+1. [장애 조치 클러스터에 대한 클라우드 감시를 만듭니다](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
 1. Blob 컨테이너를 만듭니다.
 
 1. 액세스 키 및 컨테이너 URL을 저장합니다.
 
-1. 장애 조치 클러스터에 대한 클러스터 쿼럼 감시를 구성합니다. UI에서 [사용자 인터페이스에서 쿼럼 감시 구성](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)을 참조하세요.
+1. 장애 조치(Failover) 클러스터 쿼럼 감시를 구성합니다. UI에서 [사용자 인터페이스에서 쿼럼 감시 구성](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)을 참조하세요.
 
 ### <a name="add-storage"></a>저장소 추가
 
-S2D용 디스크는 비어 있고 파티션 또는 기타 데이터가 없어야 합니다. 디스크를 정리하려면 [이 가이드의 단계](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks)를 따릅니다.
+S2D용 디스크는 비어 있고 파티션 또는 기타 데이터가 없어야 합니다. 디스크를 정리하려면 [이 가이드의 단계](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks)를 따릅니다.
 
-1. [저장소 공간 다이렉트 \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct)를 활성화합니다.
+1. [저장소 공간 다이렉트 \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct)를 활성화합니다.
 
    다음 PowerShell은 저장소 공간 다이렉트를 활성화합니다.  
 
@@ -294,7 +298,7 @@ S2D용 디스크는 비어 있고 파티션 또는 기타 데이터가 없어야
 
    **장애 조치(Failover) 클러스터 관리자**에서 이제 저장소 풀을 볼 수 있습니다.
 
-1. [볼륨을 만듭니다](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [볼륨을 만듭니다](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
    S2D의 기능 중 하나는 이를 활성화할 때 저장소 풀을 자동으로 만드는 것입니다. 이제 볼륨을 만들 준비가 되었습니다. PowerShell commandlet `New-Volume`은 서식 지정, 클러스터에 추가 및 CSV(클러스터 공유 볼륨) 만들기를 포함하는 볼륨 생성 프로세스를 자동화합니다. 다음 예제에서는 800GB(기가바이트) CSV를 만듭니다.
 
@@ -339,7 +343,7 @@ S2D용 디스크는 비어 있고 파티션 또는 기타 데이터가 없어야
 1. **SQL Server 장애 조치(failover) 클러스터에 노드 추가**를 클릭합니다. 마법사의 지침에 따라 SQL Server를 설치하고 이 서버를 FCI에 추가합니다.
 
    >[!NOTE]
-   >SQL Server와 함께 Azure Marketplace 갤러리 이미지를 사용한 경우 SQL Server 도구는 이미지에 포함되었습니다. 이 이미지를 사용하지 않은 경우 SQL Server 도구를 개별적으로 설치합니다. [SSMS(SQL Server Management Studio) 다운로드](http://msdn.microsoft.com/library/mt238290.aspx)를 참조하세요.
+   >SQL Server와 함께 Azure Marketplace 갤러리 이미지를 사용한 경우 SQL Server 도구는 이미지에 포함되었습니다. 이 이미지를 사용하지 않은 경우 SQL Server 도구를 개별적으로 설치합니다. [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)를 참조하세요.
 
 ## <a name="step-5-create-azure-load-balancer"></a>5단계: Azure Load Balancer 만들기
 
@@ -410,7 +414,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
    - **이름**: 부하 분산 규칙의 이름입니다.
    - **프런트 엔드 IP 주소**: SQL Server FCI 클러스터 네트워크 리소스에 대한 IP 주소를 사용합니다.
    - **포트**: SQL Server FCI TCP 포트에 대해 설정합니다. 기본 인스턴스 포트는 1433입니다.
-   - **백 엔드 포트**: 이 값은 **부동 IP(Direct Server Return)**를 활성화할 때 **포트** 값과 동일한 포트를 사용합니다.
+   - **백 엔드 포트**: 이 값은 **부동 IP(Direct Server Return)** 를 활성화할 때 **포트** 값과 동일한 포트를 사용합니다.
    - **백 엔드 풀**: 이전에 구성한 백 엔드 풀 이름을 사용합니다.
    - **상태 프로브**: 이전에 구성한 상태 프로브를 사용합니다.
    - **세션 지속성**: 없음.
@@ -474,17 +478,23 @@ FCI의 장애 조치(failover)를 테스트하여 클러스터 기능의 유효�
 연결을 테스트하려면 동일한 가상 네트워크의 다른 가상 머신에 로그인합니다. **SQL Server Management Studio**를 열고 SQL Server FCI 이름에 연결합니다.
 
 >[!NOTE]
->필요한 경우 [SQL Server Management Studio를 다운로드](http://msdn.microsoft.com/library/mt238290.aspx)할 수 있습니다.
+>필요한 경우 [SQL Server Management Studio를 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
-Azure 가상 머신에서 RPC 포트는 부하 분산 장치에서 지원되지 않으므로 Microsoft DTC(Distributed Transaction Coordinator)는 FCI에서 지원되지 않습니다.
+
+Azure Virtual Machines는 가상 머신 CSV(클러스터형 공유 볼륨)의 저장소와 [표준 Load Balancer](../../../load-balancer/load-balancer-standard-overview.md)가 있는 Windows Server 2019에서 MSDTC(Microsoft Distributed Transaction Coordinator)를 지원합니다.
+
+Azure Virtual Machines의 Windows Server 2016 및 이전 버전에서는 다음과 같은 이유로 MSDTC가 지원되지 않습니다.
+
+- 클러스터형 MSDTC 리소스는 공유 저장소를 사용하도록 구성할 수 없습니다. Windows Server 2016에서 MSDTC 리소스를 만드는 경우 공유 저장소가 있더라도 사용 가능한 공유 저장소가 표시되지 않습니다. 이 문제는 Windows Server 2019에서 수정되었습니다.
+- 기본 Load Balancer는 RPC 포트를 처리하지 않습니다.
 
 ## <a name="see-also"></a>참고 항목
 
-[원격 데스크톱(Azure)을 사용하여 S2D 설치](http://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
+[원격 데스크톱(Azure)을 사용하여 S2D 설치](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 
-[저장소 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+[저장소 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 
-[저장소 공간 다이렉트 개요](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
+[저장소 공간 다이렉트 개요](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [S2D에 대한 SQL Server 지원](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)

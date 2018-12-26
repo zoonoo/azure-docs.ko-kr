@@ -1,28 +1,23 @@
 ---
 title: B2B 엔터프라이즈 통합용 EDIFACT 메시지 - Azure Logic Apps | Microsoft Docs
-description: EDI 형식인 B2B 엔터프라이즈 통합용 EDIFACT 메시지를 Azure Logic Apps과 교환
+description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 EDI 형식의 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.author: LADocs; jonfan
-ms.openlocfilehash: d85db6f5be487578ceab261d2779589439bfad31
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 2da672e1f55af1e38ae0a3fa90b7ecb10d2f17c7
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300099"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128380"
 ---
-# <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>엔터프라이즈 통합에 대한 EDIFACT 메시지를 Logic Apps과 교환
+# <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
 
 Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 만들고 통합 계정에 해당 규약을 저장해야 합니다. EDIFACT 규약을 만드는 방법에 대한 단계는 다음과 같습니다.
 
@@ -177,7 +172,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 | UNB3.3(받는 사람 역라우팅 주소) |1 ~ 14자의 영숫자 값을 입력합니다. |
 | UNB6.1(받는 사람 참조 암호) |1 ~ 14자의 영숫자 값을 입력합니다. |
 | UNB6.2(받는 사람 참조 한정자) |1 ~ 2자의 영숫자 값을 입력합니다. |
-| UNB7(응용 프로그램 참조 ID) |1 ~ 14자의 영숫자 값을 입력합니다. |
+| UNB7(애플리케이션 참조 ID) |1 ~ 14자의 영숫자 값을 입력합니다. |
 
 ### <a name="acknowledgment"></a>승인
 | 자산 | 설명 |
@@ -201,7 +196,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 | UNB10(통신 규약) |1 ~ 40자의 영숫자 값을 입력합니다. |
 | UNB11(테스트 표시기) |생성된 교환이 테스트 데이터임을 표시하려면 이 확인란을 선택합니다. |
 | UNA 세그먼트 적용(서비스 문자열 도움말) |보낼 교환에 대해 UNA 세그먼트를 생성하려면 이 확인란을 선택합니다. |
-| UNG 세그먼트 적용(기능 그룹 헤더) |게스트 파트너에게 보낸 메시지의 기능 그룹 헤더에 그룹화 세그먼트를 만들려면 이 확인란을 선택합니다. UNG 세그먼트를 만드는 데 다음 값이 사용됩니다. <p>**UNG1**의 경우, 1 ~ 6자의 영숫자 값을 입력합니다. <p>**UNG2.1**의 경우, 1 ~ 35자의 영숫자 값을 입력합니다. <p>**UNG2.2**의 경우, 최대 4자의 영숫자 값을 입력합니다. <p>**UNG3.1**의 경우, 1 ~ 35자의 영숫자 값을 입력합니다. <p>**UNG3.2**의 경우, 최대 4자의 영숫자 값을 입력합니다. <p>**UNG6**의 경우, 1 ~ 3자의 영숫자 값을 입력합니다. <p>**UNG7.1**의 경우, 1 ~ 3자의 영숫자 값을 입력합니다. <p>**UNG7.2**의 경우, 1 ~ 3자의 영숫자 값을 입력합니다. <p>**UNG7.3**의 경우, 1 ~ 6자의 영숫자 값을 입력합니다. <p>**UNG8**의 경우, 1 ~ 14자의 영숫자 값을 입력합니다. |
+| UNG 세그먼트 적용(기능 그룹 헤더) |게스트 파트너에게 보낸 메시지의 기능 그룹 헤더에 그룹화 세그먼트를 만들려면 이 확인란을 선택합니다. UNG 세그먼트를 만드는 데 다음 값이 사용됩니다. <p>**UNG1**의 경우, 1 ~ 6자의 영숫자 값을 입력합니다. <p>**UNG2.1**의 경우, 1 ~ 35자의 영숫자 값을 입력합니다. <p>**UNG2.2**의 경우, 최대 4자의 영숫자 값을 입력합니다. <p>**UNG3.1**의 경우, 1 ~ 35자의 영숫자 값을 입력합니다. <p>**UNG3.2**의 경우, 최대 4자의 영숫자 값을 입력합니다. <p>**UNG6**의 경우, 1 ~ 3자의 영숫자 값을 입력합니다. <p>**UNG7.1**의 경우, 1 ~ 3자의 영숫자 값을 입력합니다. <p>**UNG7.2**의 경우, 1 ~ 3자의 영숫자 값을 입력합니다. <p>**UNG7.3**의 경우, 1 ~ 6자의 영숫자 값을 입력합니다. <p> **UNG8**의 경우, 1 ~ 14자의 영숫자 값을 입력합니다. |
 
 ### <a name="character-sets-and-separators"></a>문자 집합 및 구분 기호
 

@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
 caps.latest.revision: 60
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 6db3edef937dc0b5cdd805d0045897e02b985e7b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e548841f334705aa71ada92c43ccde207a1f6318
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360345"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002316"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure Cloud Services 정의 WebRole 스키마
 Azure 웹 역할은 ASP.NET, PHP, Windows Communication Foundation 및 FastCGI와 같이 IIS 7에서 지원되는 것처럼 웹 응용 프로그램 프로그래밍에 대해 사용자 지정된 역할입니다.
@@ -271,7 +271,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 `FixedPortRange` 요소는 내부 끝점 또는 인스턴스 입력 끝점에 할당되는 포트 범위를 지정하며, 끝점에서 부하 분산된 연결에 사용되는 포트를 설정합니다.
 
 > [!NOTE]
->  `FixedPortRange` 요소는 존재하는 요소에 따라 다르게 작동합니다. `FixedPortRange` 요소가 `InternalEndpoint` 요소에 있는 경우 역할이 실행되는 모든 가상 머신에 대한 최소 및 최대 특성 범위 내에서 부하 분산 장치의 모든 포트를 엽니다. `FixedPortRange` 요소가 `InstanceInputEndpoint` 요소에 있는 경우 역할을 실행하는 각 가상 머신에 대한 최소 및 최대 특성 범위 내에서 하나의 포트만 엽니다.
+>  `FixedPortRange` 요소는 존재하는 요소에 따라 다르게 작동합니다. ph x="1" /> 요소가 `InternalEndpoint` 요소에 있는 경우 역할이 실행되는 모든 가상 머신에 대한 최소 및 최대 특성 범위 내에서 부하 분산 장치의 모든 포트를 엽니다. ph x="1" /> 요소가 `InstanceInputEndpoint` 요소에 있는 경우 역할을 실행하는 각 가상 머신에 대한 최소 및 최대 특성 범위 내에서 하나의 포트만 엽니다.
 
 `FixedPortRange` 요소는 Azure SDK 버전 1.3 이상이어야 사용할 수 있습니다.
 
@@ -451,7 +451,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 `Contents` 요소는 Azure SDK 버전 1.5 이상이어야 사용할 수 있습니다.
 
 ##  <a name="Content"></a> Content  
-`Content` 요소는 Azure 가상 컴퓨터로 복사되는 콘텐츠의 원본 위치와 복사되는 대상 경로를 정의합니다.
+ph x="1" /> 요소는 Azure 가상 컴퓨터로 복사되는 콘텐츠의 원본 위치와 복사되는 대상 경로를 정의합니다.
 
 `Content` 요소는 Azure SDK 버전 1.5 이상이어야 사용할 수 있습니다.
 

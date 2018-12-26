@@ -1,29 +1,62 @@
 ---
 title: Azure Site Recovery를 사용하여 보조 사이트에 VMware VM 또는 물리적 서버의 재해 복구 설정 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 보조 사이트에 VMware VM 또는 Windows 및 Linux 물리적 서버의 재해 복구를 설정하는 방법을 알아봅니다.
-services: site-recovery
-author: nsoneji
-manager: gauarvd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 251e2b1f8785408bf441bcbcf3d0fcbdd767a358
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fe6199aea91bbb7518ccdbfe640848a59edcee49
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479485"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215466"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
-[Azure Site Recovery](site-recovery-overview.md)의 InMage Scout는 온-프레미스 VMware 사이트 간 실시간 복제를 제공합니다. InMage Scout는 Azure Site Recovery 서비스 구독에 포함되어 있습니다. 
+[Azure Site Recovery](site-recovery-overview.md)의 InMage Scout는 온-프레미스 VMware 사이트 간 실시간 복제를 제공합니다. InMage Scout는 Azure Site Recovery 서비스 구독에 포함되어 있습니다.
+
+## <a name="end-of-support-announcement"></a>지원 종료 알림
+
+온-프레미스 VMware 또는 물리적 데이터 센터 간 복제를 위한 Azure Site Recovery 시나리오는 지원 종료될 예정입니다.
+
+-   2018년 8월부터 Recovery Services 자격 증명 모음에서 시나리오를 구성할 수 없으며, 자격 증명 모음에서 InMage Scout 소프트웨어를 다운로드할 수 없습니다. 기존 배포는 계속 지원됩니다. 
+-   2020년 12월 31일부터 시나리오가 지원되지 않습니다.
+- 기존 파트너는 지원이 종료될 때까지 시나리오에 새 고객을 온보드할 수 있습니다.
+
+2018년 및 2019년에 두 가지 업데이트가 릴리스될 예정입니다. 
+
+-   업데이트 7: 네트워크 구성 및 규정 준수 문제를 수정하고 TLS 1.2 지원을 제공합니다.
+-   업데이트 8: Linux 운영 체제 RHEL/CentOS 7.3/7.4/7.5 및 SUSE 12에 대한 지원이 추가됩니다.
+
+업데이트 8 이후 추가적인 업데이트는 릴리스되지 않습니다. 업데이트 8에 추가된 운영 체제에 대한 핫픽스 지원 및 최상의 노력을 기반으로 한 버그 수정이 제한됩니다.
+
+Azure Site Recovery는 VMware 및 Hyper-V 고객에게 재해 복구 사이트인 Azure를 통해 동급 최상의 원활한 DRaaS 솔루션을 제공하면서 계속해서 혁신해 나갑니다. Microsoft는 기존 InMage/ASR Scout 고객들이 비즈니스의 연속성 요구를 위해 Azure 시나리오에 대한 Azure Site Recovery의 VMware 사용을 고려할 것을 권장합니다. Azure 시나리오에 대한 Azure Site Recovery의 VMware은 VMware 응용 프로그램을 위한 엔터프라이즈 수준의 DR 솔루션으로, RPO 및 RTO 시간(분), 여러 VM 응용 프로그램 복제 및 복구를 위한 지원, 원활한 온보딩, 포괄적인 모니터링 및 중요한 TCO 장점을 제공합니다.
+
+### <a name="scenario-migration"></a>시나리오 마이그레이션
+대안으로는 온-프레미스 VMware VM 및 물리적 머신을 Azure에 복제하여 그에 대한 재해 복구를 설정하는 것이 좋습니다. 다음과 같이 수행합니다.
+
+1.  아래 빠른 비교를 검토합니다. 온-프레미스 머신을 복제하려면 Azure에 복제하기 위한 [요구 사항](./vmware-physical-azure-support-matrix.md#replicated-machines)을 충족하는지 확인해야 합니다. VMware VM을 복제하는 경우 [용량 계획 지침](./site-recovery-plan-capacity-vmware.md)을 검토하고, [Deployment Planner 도구](./site-recovery-deployment-planner.md)를 실행하여 용량 요구 사항을 확인하고 규정 준수를 확인하는 것이 좋습니다.
+2.  Deployment Planner를 실행한 후 복제를 설정할 수 있습니다. o VMware VM의 경우 [Azure 준비](./tutorial-prepare-azure.md)에 대한 이러한 자습서에 따라 [온-프레미스 VMware 환경을 준비](./vmware-azure-tutorial-prepare-on-premises.md)하고, [재해 복구를 설정](./vmware-azure-tutorial-prepare-on-premises.md)합니다.
+o 물리적 머신의 경우 이 [자습서](./physical-azure-disaster-recovery.md)를 따릅니다.
+3.  머신을 Azure로 복제한 후 [재해 복구 드릴](./site-recovery-test-failover-to-azure.md)을 실행하여 모든 항목이 예상대로 작동되는지 확인할 수 있습니다.
+
+### <a name="quick-comparison"></a>빠른 비교
+
+**기능** | **Azure로 복제** |**VMware 데이터 센터 간 복제**
+--|--|--
+**필수 구성 요소** |복제된 머신의 모바일 서비스. 온-프레미스 구성 서버, 프로세스 서버, 마스터 대상 서버. 장애 복구를 위한 Azure의 임시 프로세스 서버.|모바일 서비스, 프로세스 서버, 구성 서버 및 마스터 대상
+**구성 및 오케스트레이션** |Azure Portal의 Recovery Services 자격 증명 모음 | vContinuum 사용 
+**복제됨**|디스크(Windows 및 Linux) |볼륨-Windows<br> 디스크-Linux
+**공유된 디스크 클러스터**|지원되지 않음|지원됨
+**데이터 변동 제한(평균)** |디스크당 10MB/s 데이터<br> VM당 25MB/s 데이터<br> [자세히 알아보기](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | 디스크당 10MB/s 데이터 이상  <br> VM당 25MB/s 데이터 이상
+**모니터링** |Azure Portal에서|CX(구성 서버)에서
+**지원 매트릭스**| [자세한 내용을 보려면 여기를 클릭](./vmware-physical-azure-support-matrix.md)|[ASR Scout 호환 매트릭스 다운로드](https://aka.ms/asr-scout-cm)
 
 
 ## <a name="prerequisites"></a>필수 조건
-
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - 모든 구성 요소에 대한 지원 요구 사항을 [검토합니다](vmware-physical-secondary-support-matrix.md).
@@ -140,7 +173,7 @@ Scout 업데이트 5는 누적 업데이트입니다. 여기에는 업데이트 
 > [!NOTE]
 > * P2V 클러스터 수정은 Site Recovery Scout 업데이트 5로 새로 보호되는 물리적 MSCS 클러스터에만 적용할 수 있습니다. 이전 업데이트를 사용하여 보호된 P2V MSCS 클러스터에 클러스터 수정 프로그램을 설치하려면 [Site Recovery Scout 릴리스 정보](https://aka.ms/asr-scout-release-notes)의 12섹션에서 설명하는 업그레이드 단계를 수행합니다.
 > * 다시 보호할 때 초기에 보호된 경우와 같이 동일한 디스크 집합이 각 클러스터 노드에서 활성 상태인 경우 물리적 MSCS 클러스터를 다시 보호하는 데 기존 대상 디스크만 다시 사용할 수 있습니다. 그렇지 않은 경우 [Site Recovery Scout 릴리스 정보](https://aka.ms/asr-scout-release-notes) 12섹션의 수동 단계에 따라 대상쪽 디스크를 올바른 데이터 저장소 경로로 이동하여 다시 보호 중에 다시 사용할 수 있습니다. 업그레이드 단계를 수행하지 않고 P2V 모드에서 MSCS 클러스터를 다시 보호하는 경우 대상 ESXi 서버에 새 디스크를 만듭니다. 데이터 저장소에서 이전 디스크를 수동으로 삭제해야 합니다.
-> * 원본 SLES11 서버 또는 SLES11(모든 서비스 팩 포함) 서버가 정상적으로 다시 부팅되는 경우 다시 동기화에 대한 **루트** 디스크 복제 쌍을 수동으로 표시합니다. CX 인터페이스에는 알림이 없습니다. 다시 동기화에 대한 루트 디스크를 표시하지 않으면 데이터 무결성 문제가 발생할 수 있습니다.
+> * 원본 SLES11 서버 또는 SLES11(모든 서비스 팩 포함) 서버가 정상적으로 다시 부팅되는 경우 다시 동기화에 대한 **루트** 디스크 복제 쌍을 수동으로 표시합니다. CX 인터페이스에는 알림이 없습니다. 다시 동기화에 대한 루트 디스크를 표시하지 않으면 데이터 무결성 문제가 발생할 수 있습니다.
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery 서비스 Scout 8.0.1 업데이트 4
@@ -175,7 +208,7 @@ Scout 업데이트 4는 누적 업데이트입니다. 여기에는 업데이트 
 * vContinuum 마법사의 **푸시 설치** 페이지에서 서버 이름 및 IP 주소 열의 크기를 조정할 수 있습니다.
 * 향상된 RX API 기능:
   * 사용 가능한 5개의 최신 공통 일관성 지점을 사용할 수 있습니다(보장됨 태그만).
-  * 보호된 모든 장치에 대한 용량 및 사용 가능한 공간 세부 정보가 표시됩니다.
+  * 보호된 모든 디바이스에 대한 용량 및 사용 가능한 공간 세부 정보가 표시됩니다.
   * 원본 서버의 Scout 드라이버 상태가 제공됩니다.
 
 > [!NOTE]
@@ -222,7 +255,7 @@ Scout 업데이트 4는 누적 업데이트입니다. 여기에는 업데이트 
 
 업데이트 2에서 수정 사항은 다음과 같습니다.
 
-* **구성 서버**: 구성 서버가 Site Recovery에 등록되었을 때 31일 체험 계량 기능이 예상대로 작동하지 않는 문제가 해결되었습니다.
+* **구성 서버**: 구성 서버가 Azure Site Recovery 자격 증명 모음에 등록되었을 때 31일 체험 계량 기능이 예상대로 작동하지 않는 문제가 해결되었습니다.
 * **통합 에이전트**: 버전 8.0에서 8.0.1로 업그레이드하는 동안 업데이트가 마스터 대상 서버에 설치되지 않는 업데이트 1 문제가 해결되었습니다.
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery 서비스 Scout 8.0.1 업데이트 1

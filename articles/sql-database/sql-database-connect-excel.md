@@ -2,20 +2,22 @@
 title: SQL Database에 Excel 연결 | Microsoft Docs
 description: Microsoft Excel을 클라우드의 Azure SQL 데이터베이스에 연결하는 방법을 알아봅니다. 보고 및 데이터 탐색을 위해 Excel로 데이터를 가져옵니다.
 services: sql-database
-keywords: SQL에 Excel 연결, Excel로 데이터 가져오기
-author: joseidz
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/10/2017
+author: joseidz
 ms.author: craigg
-ms.openlocfilehash: a87dd484b5931292fafd7f8b28d31f0f7f775a40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 03/10/2017
+ms.openlocfilehash: 8750552499a5112b1a46b2cb4929c029d5e7e3a0
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645670"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063832"
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Azure SQL 데이터베이스에 Excel 연결 및 보고서 만들기
 

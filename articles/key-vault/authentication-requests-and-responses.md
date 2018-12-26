@@ -3,7 +3,7 @@ title: 인증, 요청 및 응답
 description: Key Vault 사용을 위해 AD에 인증
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
@@ -11,21 +11,21 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: 94080fb124478a4b8e196e341c335ca32321ecdf
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: bryanla
+ms.openlocfilehash: c7cd9dfa019ca0d8560833b10a3e8a1a37a1e1ac
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011941"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296553"
 ---
 # <a name="authentication-requests-and-responses"></a>인증, 요청 및 응답
 
 Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Vault에 대한 요청은 일부 URL 매개 변수 및 JSON 인코딩 요청 및 응답 본문을 통해 HTTPS를 사용하여 올바른 Azure Key Vault URL로 이동됩니다.
 
-이 항목에서는 Azure Key Vault 서비스에 대한 구체적인 정보를 다룹니다. 인증/권한 부여 및 액세스 토큰을 확보하는 방법을 비롯한 Azure REST 인터페이스 사용에 대한 일반적인 정보는 [Azure REST API 참조](https://docs.microsoft.com/rest/api/)를 참조하세요.
+이 항목에서는 Azure Key Vault 서비스에 대한 구체적인 정보를 다룹니다. 인증/권한 부여 및 액세스 토큰을 확보하는 방법을 비롯한 Azure REST 인터페이스 사용에 대한 일반적인 정보는 [Azure REST API 참조](https://docs.microsoft.com/rest/api/azure)를 참조하세요.
 
 ## <a name="request-url"></a>요청 URL  
  키 관리 작업은 HTTP DELETE, GET, PATCH, PUT 및 HTTP POST 및 HTTP POST를 사용하는 기존 키 개체에 대한 암호화 작업을 사용합니다. 특정 HTTP 동사를 지원할 수 없는 클라이언트는 X-HTTP-REQUEST 헤더를 사용한 HTTP POST를 사용하여 대상 동사를 지정할 수 있습니다. HTTP POST를 사용하는 경우(예: DELETE 대신 POST를 사용하는 경우) 일반적으로 본문이 필요하지 않은 요청은 빈 본문을 포함해야 합니다.  
@@ -95,7 +95,7 @@ Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Va
 ## <a name="authentication"></a>인증  
  Azure Key Vault에 대한 모든 요청은 인증되어야 합니다. Azure Key Vault는 OAuth2를 사용하여 가져올 수 있는 Azure Active Directory 액세스 토큰을 지원합니다[[RFC6749](http://tools.ietf.org/html/rfc6749)]. 
  
- 응용 프로그램 등록 및 Azure Key Vault 사용을 위한 인증에 대한 자세한 내용은 [Azure AD로 클라이언트 등록](https://docs.microsoft.com/rest/api/index#register-your-client-application-with-azure-ad)을 참조하세요.
+ 응용 프로그램 등록 및 Azure Key Vault 사용을 위한 인증에 대한 자세한 내용은 [Azure AD로 클라이언트 등록](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad)을 참조하세요.
  
  액세스 토큰은 HTTP 권한 부여 헤더를 사용하여 서비스에 전송해야 합니다.  
 

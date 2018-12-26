@@ -1,23 +1,23 @@
 ---
-title: Azure Cost Management에서 비용 관리 보고서 이해 | Microsoft Docs
+title: Azure의 Cloudyn 비용 관리 보고서 이해 | Microsoft Docs
 description: 이 문서는 Cloudyn 비용 관리 보고서의 기본 구조와 기능에 대한 이해를 도와줍니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/18/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: b4e1ffa0b7bd524fc9029b21e77b09ea07e1f202
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064629"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276655"
 ---
-# <a name="understanding-cost-management-reports"></a>비용 관리 보고서 이해
+# <a name="understanding-cloudyn-cost-management-reports"></a>Cloudyn 비용 관리 보고서 이해
 
 이 문서는 Cloudyn 비용 관리 보고서의 기본 구조와 기능에 대한 이해를 도와줍니다. 대부분의 Cloudyn 보고서는 직관적이며 모양과 느낌이 일관됩니다. 이 아티클을 읽으면 모든 배용 관리 보고서를 사용할 수 있습니다. 다양한 보고서에서 제공하는 여러 가지 표준 기능을 사용하여 보고서를 간편하게 탐색할 수 있습니다. 보고서를 사용자 지정할 수 있으며, 결과를 계산하고 표시하는 여러 옵션 중에 선택할 수 있습니다.
 
@@ -172,7 +172,7 @@ ms.locfileid: "37064629"
 
     보고서에서 차트 색을 설정하려면 [여러 색]을 사용합니다.
 
-14. **actions**
+14. **Actions**
 
     보고서를 저장하거나 내보내거나 예약하려면 [작업]을 사용합니다.
 
@@ -203,5 +203,5 @@ ms.locfileid: "37064629"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [비용 관리 보고서 사용](use-reports.md)에서 Cloudyn에 포함된 보고서에 대해 알아보세요.
+- [Cloudyn 보고서 사용](use-reports.md)에서 Cloudyn에 포함된 보고서에 대해 알아봅니다.
 - 보고서를 사용하여 [대시보드](dashboards.md)를 만드는 방법을 알아보세요.

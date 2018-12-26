@@ -1,29 +1,21 @@
 ---
 title: Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까? | Microsoft Docs
 description: Azure Site Recovery 서비스에서 재해 복구를 사용하여 보호할 수 있는 워크로드를 설명합니다.
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: ''
-ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: e0094b48bc602a1b59339458b430319f4a705d44
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 8592b4dc5b5ae791c6e231876839f8647d171145
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920112"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850121"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 복제할 수 있는 워크로드 및 응용 프로그램에 대해 설명합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용한 재해 복구를 위해 보호할 수 있는 워크로드 및 응용 프로그램에 대해 설명합니다.
 
 
 
@@ -37,12 +29,12 @@ Site Recovery는 SharePoint, Exchange, Dynamics, SQL Server 및 Active Directory
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>응용 프로그램 복제에 Site Recovery를 사용해야 하는 이유
 
-사이트 복구는 다음과 같이 응용 프로그램 수준 보호 및 복구에 기여합니다.
+사이트 복구는 다음과 같이 애플리케이션 수준 보호 및 복구에 기여합니다.
 
 * 지원되는 컴퓨터에서 실행 중인 모든 워크로드에 복제를 제공하는 앱 중립성.
 * 가장 중요한 비즈니스 앱의 요구를 충족하는 30초의 낮은 RPO를 통한 근거리 동기 복제.
 * 단일 또는 다중 계층 응용 프로그램에 대한 앱 일관성 스냅숏.
-* AD 복제, SQL AlwaysOn, Exchange 데이터베이스 가용성 그룹(DAG) 및 Oracle Data Guard를 포함하는 다른 응용 프로그램 수준 복제 기술을 사용하여 SQL Server AlwaysOn, 파트너쉽과 통합합니다.
+* AD 복제, SQL AlwaysOn, Exchange 데이터베이스 가용성 그룹(DAG) 및 Oracle Data Guard를 포함하는 다른 애플리케이션 수준 복제 기술을 사용하여 SQL Server AlwaysOn, 파트너쉽과 통합합니다.
 * 클릭 한 번으로 전체 응용 프로그램 스택을 복구하고 외부 스크립트 또는 수동 작업을 계획에 포함할 수 있는 유연한 복구.
 * Site Recovery 및 Azure의 고급 네트워크 관리는 낮은 RTO 네트워크 전환을 위해 IP 주소 예약, 부하 분산 장치 구성 및 Azure Traffic Manager와 통합을 포함하는 앱 네트워크 요구 사항을 단순화합니다.
 * 다운로드하고 복구 계획과 통합할 수 있는 프로덕션 준비된 응용 프로그램 특정 스크립트를 제공하는 다양한 자동화 라이브러리입니다.
@@ -61,7 +53,6 @@ Site Recovery는 지원되는 컴퓨터에서 실행 중인 모든 앱을 복제
 | 원격 데스크톱/VDI |Y |Y |Y |Y |Y|
 | Linux(운영 체제 및 앱) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트)|
 | Dynamics AX |Y |Y |Y |Y |Y|
-| Oracle |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트)|
 | Windows 파일 서버 |Y |Y |Y |Y |Y|
 | Citrix XenApp 및 XenDesktop |Y|해당 없음 |Y |해당 없음 |Y |
 
@@ -111,9 +102,9 @@ Azure Site Recovery를 사용하면 다음과 같이 Dynamics AX ERP 솔루션�
 
 | **RDS** |**Azure VM을 Azure에 복제** | **Hyper-V VM을 보조 사이트로 복제** | **Hyper-V VM을 Azure에 복제** | **VMware VM을 보조 사이트에 복제** | **VMware VM을 Azure에 복제** | **물리적 서버를 보조 사이트에 복제** | **물리적 서버를 Azure에 복제** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **풀링된 가상 데스크톱(관리되지 않음)** |아니오|예 |아니오 |예 |아니오 |예 |아니오 |
-| **풀링된 가상 데스크톱(관리됨/UPD 없음)** |아니오|예 |아니오 |예 |아니오 |예 |아니오 |
-| **원격 응용 프로그램 및 데스크톱 세션(UPD 없음)** |예|예 |예 |예 |예 |예 |예 |
+| **풀링된 가상 데스크톱(관리되지 않음)** |아니요|yes |아니요 |yes |아니요 |yes |아니요 |
+| **풀링된 가상 데스크톱(관리됨/UPD 없음)** |아니요|yes |아니요 |yes |아니요 |yes |아니요 |
+| **원격 응용 프로그램 및 데스크톱 세션(UPD 없음)** |yes|예 |예 |예 |예 |예 |yes |
 
 [Azure Site Recovery를 사용하여 RDS에 대한 재해 복구를 설정합니다](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

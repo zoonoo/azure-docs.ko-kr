@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/15/2016
+ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 14cdb2d3e433da38913ffa29b3b150bdb264278b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6355a7ce203f2bf75b5c93d225502f961deeee43
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658709"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032087"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>빠른 시작: Azure VMs에서 단일 인스턴스 SAP HANA 수동 설치
 ## <a name="introduction"></a>소개
@@ -41,11 +41,13 @@ ms.locfileid: "34658709"
 * 다음 개념 및 절차:
    * Azure에서의 SAP 배포 계획(Azure Virtual Network 계획 및 Azure Storage 사용 포함) - [Azure VMs(Virtual Machines)에서 SAP NetWeaver - 계획 및 구현 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) 참조
    * Azure에 VM을 배포하는 배포 원칙 및 방법 - [SAP용 Azure Virtual Machines 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide) 참조
-   * Azure의 SAP NetWeaver ASCS(ABAP SAP Central Services), SCS(SAP Central Services) 및 ERS(입고 기준 자동 정산)에 대한 고가용성 - [Azure VM에서 SAP NetWeaver에 대한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide) 참조
+   * Azure의 SAP NetWeaver ASCS(ABAP SAP Central Services), SCS(SAP Central Services) 및 ERS(Enqueue Replication Server)에 대한 고가용성 [Azure VM에서 SAP NetWeaver에 대한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide) 참조
    * Azure에서 ASCS/SCS의 다중 SID 설치를 활용하여 효율성을 향상시키는 방법에 대한 세부 정보 - [SAP NetWeaver 다중 SID 구성 만들기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid) 참조 
    * Azure에서 Linux 기반 VM에 기반한 SAP NetWeaver 실행 원칙 - [Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 실행](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart) 참조. 이 가이드에서는 Azure VM의 Linux에 대한 특정 설정과 Linux VM에 Azure 저장소 디스크를 Linux VM에 올바르게 연결하는 방법에 대해 자세히 설명합니다.
 
-현재 Azure VM은 SAP HANA 강화 구성에 대해서만 SAP에서 인증되었습니다. SAP HANA 워크로드를 포함한 스케일 아웃 구성은 아직 지원되지 않습니다. 강화 구성 시의 SAP HANA 고가용성은 [Azure VMs(Virtual Machines)의 SAP HANA 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)을 참조하세요.
+프로덕션 시나리오에 사용할 수 있는 Azure VM 유형은 [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html)(IAAS에 대한 SAP 설명서)에 나와 있습니다. 비프로덕션 시나리오의 경우 더 다양한 네이티브 Azure VM 유형을 사용할 수 있습니다.
+VM 구성 및 작업에 대한 자세한 내용은 [Azure에서 SAP HANA 인프라 구성 및 작업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) 문서를 참조하세요.
+SAP HANA 고가용성의 경우 [Azure Virtual Machine의 SAP HANA 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)을 참조하세요.
 
 SAP HANA 인스턴스 또는 S/4HANA 또는 BW/4HANA 시스템을 매우 빠른 시간 내에 배포하려는 경우 [SAP 클라우드 어플라이언스 라이브러리](http://cal.sap.com)를 사용하는 것이 좋습니다. 예를 들어 Azure에서 SAP CAL을 통해 S/4HANA 시스템을 배포하는 방법에 대한 설명서는 [이 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)에서 찾을 수 있습니다. SAP 클라우드 어플라이언스 라이브러리에 등록할 수 있는 Azure 구독 및 SAP 사용자만 있으면 됩니다.
 
@@ -91,6 +93,11 @@ SAP NetWeaver 또는 S/4HANA 응용 프로그램 계층에 대해 SAP에서 인�
 >SAP-Linux-Azure 통합은 Azure Resource Manager에서만 지원하며, 클래식 배포 모델에서는 지원하지 않습니다. 
 
 ## <a name="manual-installation-of-sap-hana"></a>SAP HANA 수동 설치
+
+> [!IMPORTANT]
+> 선택한 OS가 사용 중인 특정 VM 유형에서 SAP HANA용으로 인증된 SAP인지 반드시 확인하세요. 이 항목에 대한 SAP HANA 인증 VM 유형 및 OS 릴리스 목록은 [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)에서 조회할 수 있습니다. 특정 VM 유형에 대한 SAP HANA 지원 OS 릴리스의 전체 목록을 보려면 목록에 있는 VM 유형의 세부 정보를 클릭하세요. 이 문서의 예제에서는 M 시리즈 VM에서 SAP HANA용 SAP에서 지원되지 않는 SLES OS 릴리스를 사용했습니다.
+>
+
 이 가이드에서는 다음 두 가지 방법으로 Azure VM에 SAP HANA를 수동으로 설치하는 방법에 대해 설명합니다.
 
 * "데이터베이스 인스턴스 설치" 단계에서 분산형 NetWeaver 설치의 일부로 SWPM(SAP Software Provisioning Manager) 사용

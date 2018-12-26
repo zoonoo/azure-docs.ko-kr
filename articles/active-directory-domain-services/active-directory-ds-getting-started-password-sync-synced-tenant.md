@@ -3,7 +3,7 @@ title: 'Azure AD Domain Services: 암호 동기화 사용 | Microsoft Docs'
 description: Azure Active Directory Domain Services 시작
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: maheshu
-ms.openlocfilehash: 5e793608f92ba40f6df73fea06cedbe21ab42a0a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.author: ergreenl
+ms.openlocfilehash: 813d1d17f2d9b80c2e96f771fc346e553c59e95b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216160"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234207"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 암호 동기화 사용
 이전 작업에서 Azure AD(Azure Active Directory) 테넌트에 대해 Azure Active Directory Domain Services를 사용하도록 설정했습니다. 다음 작업은 NTLM(NT LAN Manager) 및 Kerberos 인증에 필요한 자격 증명 해시를 Azure AD Domain Services로 동기화하도록 설정하는 것입니다. 자격 증명 동기화를 설정하면 사용자는 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있습니다.
@@ -50,7 +50,7 @@ ms.locfileid: "36216160"
 ### <a name="install-or-update-azure-ad-connect"></a>Azure AD Connect 설치 또는 업데이트
 도메인에 가입한 컴퓨터에 Azure AD Connect의 최신 권장 릴리스를 설치합니다. Azure AD Connect 설치의 기존 인스턴스가 있는 경우 최신 버전의 Azure AD Connect를 사용하도록 업데이트해야 합니다. 이미 해결되었을 수도 있는 알려진 문제/버그를 방지하려면 최신 버전의 Azure AD Connect를 사용합니다.
 
-**[Azure AD Connect 다운로드](http://www.microsoft.com/download/details.aspx?id=47594)**
+**[Azure AD Connect 다운로드](https://www.microsoft.com/download/details.aspx?id=47594)**
 
 권장 버전: **1.1.614.0** - 2017년 9월 5일에 게시되었습니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "36216160"
 >
 >
 
-Azure AD Connect에 대한 설치 지침은 [Azure AD Connect 시작](../active-directory/active-directory-aadconnect.md)
+Azure AD Connect에 대한 설치 지침은 [Azure AD Connect 시작](../active-directory/hybrid/whatis-hybrid-identity.md)
 
 ### <a name="enable-synchronization-of-ntlm-and-kerberos-credential-hashes-to-azure-ad"></a>NTLM 및 Kerberos 자격 증명 해시를 Azure AD에 동기화하도록 설정합니다.
 각 AD 포리스트에서 다음 PowerShell 스크립트를 실행합니다. 스크립트에서 모든 온-프레미스 사용자의 NTLM 및 Kerberos 암호 해시를 Azure AD 테넌트에 동기화할 수 있습니다. 스크립트는 또한 Azure AD Connect에서 전체 동기화를 시작합니다.

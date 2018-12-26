@@ -1,52 +1,54 @@
 ---
-title: C#을 사용하여 끝점 호출 - Bing Custom Search - Microsoft Cognitive Services
-description: 이 빠른 시작에서는 C#으로 Bing Custom Search 끝점을 호출하여 사용자 지정 검색 인스턴스의 검색 결과를 요청하는 방법을 보여 줍니다.
+title: '빠른 시작: C#을 사용하여 엔드포인트 호출 - Bing Custom Search'
+titlesuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 C#으로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스의 검색 결과를 요청하는 방법을 보여 줍니다.
 services: cognitive-services
-author: brapel
-manager: ehansen
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
-ms.openlocfilehash: be4cc79d16b9a22124f16878b11ca04a916f98ae
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: maheshb
+ms.openlocfilehash: 3a7ba0f464dc82751df5daabd4226fc521fe6916
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374703"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316194"
 ---
-# <a name="call-bing-custom-search-endpoint-c"></a>Bing Custom Search 끝점 호출(C#)
+# <a name="quickstart-call-bing-custom-search-endpoint-c"></a>빠른 시작: Bing Custom Search 엔드포인트 호출(C#)
 
-이 빠른 시작에서는 C#으로 Bing Custom Search 끝점을 호출하여 사용자 지정 검색 인스턴스의 검색 결과를 요청하는 방법을 보여 줍니다. 
+이 빠른 시작에서는 C#으로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스의 검색 결과를 요청하는 방법을 보여 줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
--  바로 사용할 수 있는 사용자 지정 검색 인스턴스. [처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
--  [.Net Core](https://www.microsoft.com/net/download/core)가 설치됨
-- [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 및 **Bing Search API**. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.  
+이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-  >[!NOTE]  
-  >2017년 10월 15일 또는 그 이전에 프로비전된 미리 보기 키를 보유한 기존 Bing Custom Search 고객은 2017년 11월 30일까지 또는 허용되는 최대 쿼리 수를 모두 사용할 때까지 해당 키를 사용할 수 있습니다. 그 후에는 Azure의 일반 공급 버전으로 마이그레이션해야 합니다. 
- 
+- 바로 사용할 수 있는 사용자 지정 검색 인스턴스. [처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
+- [.Net Core](https://www.microsoft.com/net/download/core)가 설치됨
+- 구독 키 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)을 정품 인증하면 구독 키를 받을 수 있습니다. Azure 대시보드에서 유료 구독 키를 사용할 수도 있습니다([Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 참조).   [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+
+
 ## <a name="run-the-code"></a>코드 실행
 
 이 예제를 실행하려면 다음 단계를 수행합니다.
 
-1. 코드 폴더를 만듭니다.
-2. 명령 프롬프트 또는 터미널에서, 방금 만든 폴더로 이동합니다.
+1. 코드 폴더를 만듭니다.  
+  
+2. 명령 프롬프트 또는 터미널에서, 방금 만든 폴더로 이동합니다.  
+  
 3. 다음 명령을 실행합니다.
     ```
     dotnet new console -o BingCustomSearch
     cd BingCustomSearch
     dotnet add package Newtonsoft.Json
     dotnet restore
-   ```
+    ```
+  
+4. Program.cs에 다음 코드를 복사합니다. **YOUR-SUBSCRIPTION-KEY** 및 **YOUR-CUSTOM-CONFIG-ID**를 구독 키와 구성 ID로 바꿉니다.
 
-4. Program.cs에 다음 코드를 복사합니다.
-5. **YOUR-SUBSCRIPTION-KEY** 및 **YOUR-CUSTOM-CONFIG-ID**를 해당 키 및 구성 ID로 바꿉니다.
-
-    ``` CSharp
+    ```csharp
     using System;
     using System.Net.Http;
     using System.Web;
@@ -119,10 +121,13 @@ ms.locfileid: "35374703"
     }
     ```
 6. 다음 명령을 사용하여 응용 프로그램을 빌드합니다. 명령 출력에서 참조되는 dll 경로를 적어 둡니다.
+
     <pre>
     dotnet build 
     </pre>
-7. 다음 명령을 사용하여 응용 프로그램을 실행합니다. **PATH TO OUTPUT**을 빌드 단계에서 참조되는 경로로 바꿉니다.
+    
+7. 다음 명령을 사용하여 응용 프로그램을 실행합니다. 이때 **PATH TO OUTPUT**을 6단계에서 참조되는 DLL 경로로 바꿉니다.
+
     <pre>    
     dotnet **PATH TO OUTPUT**
     </pre>

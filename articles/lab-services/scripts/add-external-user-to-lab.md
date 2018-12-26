@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: bd86e44c21ca3c0b9c061f9a5c24bd19c4b207f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0acff1eb4cee441187205b11a7e07cc718072cbf
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636446"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248192"
 ---
 # <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>PowerShell을 사용하여 Azure DevTest Labs의 랩에 외부 사용자 추가
 
@@ -39,7 +39,7 @@ ms.locfileid: "34636446"
 | 명령 | 메모 |
 |---|---|
 | [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) | Azure Active Directory에서 사용자 개체를 다시 시도합니다. |
-| [New-AzureRmRoleAssignment](/module/azurerm.resources/new-azurermroleassignment) | 지정된 범위에서 지정된 보안 주체에 지정된 역할을 할당합니다. |
+| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | 지정된 범위에서 지정된 보안 주체에 지정된 역할을 할당합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

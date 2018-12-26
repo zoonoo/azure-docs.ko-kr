@@ -1,28 +1,28 @@
 ---
-title: CLI 2.0을 사용하여 Azure AD 앱 만들기 및 Azure Media Services API 액세스 구성 | Microsoft Docs
-description: 이 항목에서는 CLI 2.0을 사용하여 Azure AD 앱을 만들고 Azure Media Services API에 액세스하도록 구성하는 방법을 보여 줍니다.
+title: Azure CLI를 사용하여 Azure AD 앱 만들기 및 Azure Media Services API에 액세스하도록 앱 구성 | Microsoft Docs
+description: 이 항목에서는 Azure CLI를 사용하여 Azure AD 앱을 만들고 Azure Media Services API에 액세스하도록 앱을 구성하는 방법을 설명합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 7685be97213f0b298499d474c0a6a772ca608fb2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 33d3454e50cb6eeb0e48b52f01923c8a344620eb
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782732"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944127"
 ---
-# <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>CLI 2.0을 사용하여 AAD 앱 만들기 및 Azure Media Services API 액세스 구성
+# <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-azure-media-services-api"></a>Azure CLI를 사용하여 Azure AD 앱을 만들고 Azure Media Services API에 액세스하도록 구성
 
-이 항목에서는 CLI 2.0을 사용하여 Azure Media Services 리소스에 액세스하기 위한 Azure AD(Azure Active Directory) 응용 프로그램 및 서비스 주체를 만드는 방법을 보여 줍니다. 
+이 항목에서는 Azure CLI를 사용하여 Azure Media Services 리소스에 액세스하기 위한 Azure AD(Active Directory) 응용 프로그램과 서비스 사용자를 만드는 방법을 설명합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -31,14 +31,14 @@ ms.locfileid: "33782732"
 
 ## <a name="use-the-azure-cloud-shell"></a>Azure Cloud Shell 사용
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 포털의 위쪽 탐색 창에서 Cloud Shell을 시작합니다.
 
     ![Cloud Shell](./media/media-services-cli-create-and-configure-aad-app/media-services-cli-create-and-configure-aad-app01.png) 
 
 자세한 내용은 [Azure Cloud Shell 개요](../../cloud-shell/overview.md)를 참조하세요.
 
-## <a name="create-an-azure-ad-app-and-configure-access-to-the-media-account-with-cli-20"></a>CLI 2.0으로 Azure AD 앱 만들기 및 미디어 계정에 대한 액세스 구성
+## <a name="create-an-azure-ad-app-and-configure-access-to-the-media-account-with-azure-cli"></a>Azure CLI를 사용하여 Azure AD 앱을 만들고 미디어 계정 액세스 구성
  
 ```azurecli
 az login
@@ -60,7 +60,7 @@ az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role
 * **리소스 그룹** 수준.
 * **리소스** 수준(예: 미디어 계정).
 
-자세한 내용은 [Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)를 참조하세요.
+자세한 내용은 [Azure CLI를 사용하여 Azure 서비스 사용자 만들기](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)를 참조하세요.
 
 또한 [Azure 명령줄 인터페이스를 사용하여 역할 기반 Access Control 관리](../../role-based-access-control/role-assignments-cli.md)도 참조하세요. 
 

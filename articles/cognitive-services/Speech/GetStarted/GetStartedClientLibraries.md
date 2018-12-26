@@ -1,30 +1,33 @@
 ---
-title: 클라이언트 라이브러리를 사용하여 Microsoft Speech Recognition API 시작 | Microsoft Docs
-description: Microsoft Cognitive Services의 Microsoft Speech Service 클라이언트 라이브러리를 사용하여 음성 오디오를 텍스트로 변환하는 응용 프로그램을 개발합니다.
+title: 클라이언트 라이브러리를 사용하여 Bing Speech Recognition API 시작 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Microsoft Cognitive Services의 Bing Speech 클라이언트 라이브러리를 사용하여 음성 오디오를 텍스트로 변환하는 응용 프로그램을 개발합니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 5abe5bc48c2bd73d0facf33e41a8076df2972153
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2682236ae9f9256b91d1259248e72139c907c8e5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373799"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345019"
 ---
-# <a name="get-started-with-speech-service-client-libraries"></a>Speech Service 클라이언트 라이브러리 시작
+# <a name="get-started-with-bing-speech-service-client-libraries"></a>Bing Speech Service 클라이언트 라이브러리 시작
 
-Speech Service는 REST API를 통해 직접 HTTP를 요청하는 것 외에도 개발자에게 다양한 언어의 Speech 클라이언트 라이브러리를 제공합니다. Speech 클라이언트 라이브러리의 특징은 다음과 같습니다.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+Bing Speech Service는 REST API를 통해 직접 HTTP를 요청하는 것 외에도 개발자에게 다양한 언어의 Speech 클라이언트 라이브러리를 제공합니다. Speech 클라이언트 라이브러리의 특징은 다음과 같습니다.
 
 - 실시간의 중간 결과, 긴 오디오 스트림(최대 10분) 및 연속 인식과 같은 음성 인식의 고급 기능을 지원합니다.
 - 기본 설정 언어로 된 간단하고 관용적인 API를 제공합니다.
 - 낮은 수준의 통신 세부 정보를 숨깁니다.
 
-현재 사용할 수 있는 Speech 클라이언트 라이브러리는 다음과 같습니다.
+현재 사용할 수 있는 Bing Speech 클라이언트 라이브러리는 다음과 같습니다.
 
 - [C# 데스크톱 라이브러리](GetStartedCSharpDesktop.md)
 - [C# 서비스 라이브러리](GetStartedCSharpServiceLibrary.md)
@@ -40,3 +43,4 @@ Speech Service는 REST API를 통해 직접 HTTP를 요청하는 것 외에도 �
 ## <a name="license"></a>라이선스
 
 Cognitive Services SDK 및 샘플은 모두 MIT 라이선스를 통해 사용이 허가됩니다. 자세한 내용은 [라이선스](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md)를 참조하세요.
+

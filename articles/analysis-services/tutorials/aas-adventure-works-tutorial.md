@@ -5,25 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b6e642c86c5e618cae2d46aad84a61b3f4866ae
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 146467ef50c605f730fe6f65c349fc8a3a1fd045
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446149"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426246"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 자습서
 
-이 자습서에서는 [SSDT(SQL Server Data Tools)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)가 있는 Visual Studio를 사용하여 1400 호환성 수준에서 테이블 형식 모델을 만들고 배포하는 방법에 대한 단원을 제공합니다.  
-
+이 자습서에서는 Visual Studio [Analysis Services 프로젝트](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects) 또는 [SSDT(SQL Server Data Tools)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)를 사용하여 1400 호환성 수준에서 테이블 형식 모델을 만들고 배포하는 방법에 대한 단원을 제공합니다.  
 Analysis Services 및 테이블 형식 모델링을 처음 사용하는 경우 이 자습서를 완료하는 것이 Visual Studio를 사용하여 기본 테이블 형식 모델을 만들고 배포하는 방법을 익힐 수 있는 가장 빠른 방법입니다. 필수 구성 요소를 마련한 후 완료하는 데 2-3시간 사이가 소요됩니다.  
   
 ## <a name="what-you-learn"></a>학습 내용   
   
--   SSDT가 있는 Visual Studio에서 **1400 호환성 수준**으로 새 테이블 형식 모델 프로젝트를 만드는 방법
+-   Visual Studio에서 **1400 호환성 수준**으로 새 테이블 형식 모델 프로젝트를 만드는 방법.
   
 -   관계형 데이터베이스에서 테이블 형식 모델 프로젝트 작업 영역 데이터베이스로 데이터를 가져오는 방법  
   
@@ -37,7 +36,7 @@ Analysis Services 및 테이블 형식 모델링을 처음 사용하는 경우 �
   
 -   사용자 멤버와 역할을 만들어 모델 개체와 데이터를 보호하는 방법  
   
--   SSDT를 사용하여 **Azure Analysis Services** 서버 또는 **SQL Server 2017 Analysis Services** 서버에 테이블 형식 모델을 배포하는 방법  
+-   Visual Studio를 사용하여 **Azure Analysis Services** 서버 또는 **SQL Server 2017 Analysis Services** 서버에 테이블 형식 모델을 배포하는 방법.  
   
 ## <a name="prerequisites"></a>필수 조건  
 이 자습서를 완료하려면 다음이 필요합니다.  

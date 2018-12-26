@@ -3,7 +3,7 @@ title: 웹 응용 프로그램의 비밀 응용 프로그램 설정을 안전하
 description: ASP.NET Core Key Vault Provider, 사용자 비밀 또는 .NET 4.7.1을 사용하여 Azure 자격 증명 또는 타사 API와 같은 비밀 응용 프로그램 설정을 안전하게 저장하는 방법
 services: visualstudio
 documentationcenter: ''
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,15 @@ ms.service: ''
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 61cb9fadd60ba35f11e2f3ade94bc647fac9ed72
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235926"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625456"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 응용 프로그램의 비밀 응용 프로그램 설정을 안전하게 저장
 
@@ -40,7 +40,7 @@ ms.locfileid: "35235926"
 .NET Core 콘솔 응용 프로그램을 실행하는 경우 Key Vault를 사용하여 비밀을 안전하게 저장합니다.
 
 ### <a name="save-secret-settings-in-azure-key-vault"></a>Azure Key Vault에 비밀 설정 저장
-팀 프로젝트를 개발하면서 소스 코드를 안전하게 공유해야 하는 경우 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용합니다.
+프로젝트를 개발하면서 소스 코드를 안전하게 공유해야 하는 경우 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용합니다.
 
 1. Azure 구독에 Key Vault를 만듭니다. UI에서 필수 필드를 모두 채우고 블레이드 아래쪽에서 *만들기*를 클릭합니다.
 
@@ -100,20 +100,19 @@ ms.locfileid: "35235926"
 
 1. 다음 NuGet 패키지를 프로젝트에 설치합니다.
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic.1.0.0-alpha1.nupkg
+    Microsoft.Configuration.ConfigurationBuilders.Basic
     ```
 
 2. 다음과 유사한 파일을 만듭니다. 프로젝트 폴더 외부의 위치에 저장합니다.
 
     ```xml
-
-       <root>
-              <secrets ver="1.0">
-                     <secret name="secret1" value="foo_one" />
-                        <secret name="secret2" value="foo_two" />
-                       </secrets>
-      </root>
-      ```
+    <root>
+        <secrets ver="1.0">
+            <secret name="secret1" value="foo_one" />
+            <secret name="secret2" value="foo_two" />
+        </secrets>
+    </root>
+    ```
 
 3. 비밀 파일을 Web.config 파일에 구성 빌더로 정의합니다. 이 섹션을 *appSettings* 섹션 앞에 배치합니다.
 
@@ -146,7 +145,7 @@ ASP.NET Core 섹션의 지침에 따라 프로젝트의 Key Vault를 구성합�
 
 1. 다음 NuGet 패키지를 프로젝트에 설치합니다.
 ```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets
 ```
 
 2. Web.config에 Key Vault 구성 빌더를 정의합니다. 이 섹션을 *appSettings* 섹션 앞에 배치합니다. Key Vault가 공용 Azure에 있는 경우 *vaultName*이 Key Vault 이름이 되도록 바꾸거나 독립적 클라우드를 사용하는 경우 전체 URI를 대체합니다.

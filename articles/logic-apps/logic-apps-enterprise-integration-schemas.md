@@ -1,27 +1,23 @@
 ---
-title: XML 유효성 검사용 스키마 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps 및 엔터프라이즈 통합 팩용 스키마로 XML 문서 유효성 검사
+title: XML 유효성 검사용 스키마 추가 - Azure Logic Apps | Microsoft Docs
+description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 XML 문서 유효성을 검사하는 스키마 만들기
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 07/29/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: e23500ec3c16e66b8dc74fcba29e9b58f0b41790
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e03346da1c2b77f885c39d5329f990684979c56e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299065"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123076"
 ---
-# <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩용 스키마로 XML 유효성 검사
+# <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 스키마로 XML 유효성 검사
 
 스키마는 수신한 XML 문서가 유효한지와 예상되는 데이터가 미리 정의된 형식으로 문서에 포함되는지를 확인합니다. 스키마는 B2B 시나리오에서 교환되는 메시지의 유효성을 검사하는 데 도움이 됩니다.
 

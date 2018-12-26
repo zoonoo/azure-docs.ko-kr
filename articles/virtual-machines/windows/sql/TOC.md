@@ -1,6 +1,7 @@
 # 개요
 ## [Windows SQL Server VM 정보](virtual-machines-windows-sql-server-iaas-overview.md) 
- 
+## [릴리스 정보](virtual-machines-windows-sql-server-iaas-release-notes.md) 
+
 # 빠른 시작
 ## [SQL VM 만들기 - 포털](quickstart-sql-vm-create-portal.md)
 ## [SQL VM 만들기 - PowerShell](quickstart-sql-vm-create-powershell.md)
@@ -40,13 +41,14 @@
 #### [여러 영역](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### 장애 조치 클러스터 인스턴스
 #### [구성](virtual-machines-windows-portal-sql-create-failover-cluster.md)
+## [SQL VM의 라이선스 모델 변경](virtual-machines-windows-sql-ahb.md)
 
 # 참고 자료
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [SQL Server 드라이버](https://docs.microsoft.com/sql/connect/sql-connection-libraries)
-## [REST](/rest/api/)
+## [REST (영문)](/rest/api/)
 
 # 리소스
 ## [FAQ](virtual-machines-windows-sql-server-iaas-faq.md)

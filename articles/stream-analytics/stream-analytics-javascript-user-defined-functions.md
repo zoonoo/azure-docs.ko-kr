@@ -3,25 +3,25 @@ title: '자습서: Azure Stream Analytics JavaScript 사용자 정의 함수 | M
 description: 이 자습서에서는 JavaScript 사용자 정의 함수로 고급 쿼리 메커니즘을 수행합니다.
 keywords: javascript, 사용자 정의 함수, udf
 services: stream-analytics
-author: SnehaGunda
+author: rodrigoamicrosoft
 manager: kfile
 ms.assetid: ''
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
-ms.author: sngun
-ms.openlocfilehash: f3a94017b95eb614669fa42594fe3a3499c74be7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rodrigoa
+ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415299"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088880"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>자습서: Azure Stream Analytics JavaScript 사용자 정의 함수
-
+ 
 Azure Stream Analytics에서는 JavaScript로 작성된 사용자 정의 함수를 지원합니다. JavaScript에서 제공하는 풍부한 메서드 집합(**String**, **RegExp**, **Math**, **Array**, **Date**)을 통해 Stream Analytics 작업에서 복잡한 데이터 변환을 쉽게 만들 수 있게 되었습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -43,7 +43,7 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
 * 정렬, 조인, 찾기 및 채우기 등의 배열 작업 수행
 
 다음은 Stream Analytics에서 JavaScript 사용자 정의 함수로 수행할 수 없는 작업입니다.
-* 외부 REST 끝점 호출(예: 역방향 IP 조회 수행 또는 외부 원본에서 참조 데이터 끌어오기)
+* 외부 REST 엔드포인트 호출(예: 역방향 IP 조회 수행 또는 외부 원본에서 참조 데이터 끌어오기)
 * 입력/출력에서 사용자 지정 이벤트 형식 직렬화 또는 역직렬화 수행
 * 사용자 지정 집계 만들기
 
@@ -58,9 +58,9 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
 4.  **새 함수** 블레이드에서 **함수 유형**에 대해 **JavaScript**를 선택합니다. 기본 함수 템플릿이 편집기에 나타납니다.
 5.  **UDF 별칭**의 경우 **hex2Int**를 입력하고 함수 구현을 다음과 같이 변경합니다.
 
-    ```
+    ```javascript
     // Convert Hex value to integer.
-    function main(hexValue) {
+    function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
     }
     ```
@@ -73,7 +73,7 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
 1. 쿼리 편집기에서 **작업 토폴로지** 아래에 있는 **쿼리**를 선택합니다.
 2.  쿼리에 편집하고 다음과 같은 사용자 정의 함수를 호출합니다.
 
-    ```
+    ```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -129,14 +129,14 @@ Stream Analytics 작업 출력을 입력으로 사용하는 후속 처리 단계
 
 **JavaScript 사용자 정의 함수 정의:**
 
-```
+```javascript
 function main(x) {
 return JSON.stringify(x);
 }
 ```
 
 **샘플 쿼리:**
-```
+```SQL
 SELECT
     DataString,
     DataValue,
@@ -150,7 +150,7 @@ FROM
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 필요할 때 나중에 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
+더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용되는 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 필요할 때 나중에 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다.  
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.

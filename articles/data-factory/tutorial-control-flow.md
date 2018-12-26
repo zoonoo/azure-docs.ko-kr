@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: afab1b868f3fc4cdb9d88dea301df9750f55d355
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 9aab9df353ea5691b4132741e9b4a97b0afd9d17
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084456"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262151"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 저장소 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 작업이 성공하면 성공 전자 메일로 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 보내려고 합니다. 복사 작업이 실패하면 실패 전자 메일로 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 보내려고 합니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
@@ -30,7 +30,7 @@ ms.locfileid: "37084456"
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
 > * Azure Storage 연결된 서비스 만들기
-> * Azure Blob 데이터 집합 만들기
+> * Azure Blob 데이터 세트 만들기
 > * 복사 작업 및 웹 작업이 포함된 파이프라인 만들기
 > * 후속 작업에 작업 출력 보내기
 > * 매개 변수 전달 및 시스템 변수 활용
@@ -43,11 +43,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Azure Storage 계정**. Blob 저장소를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요.
+* **Azure Storage 계정**. Blob 저장소를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 * **Azure SQL Database**. 데이터베이스를 **싱크** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
 * **Visual Studio** 2013, 2015 또는 2017 - 이 문서의 연습에서는 Visual Studio 2017을 사용합니다.
-* **[Azure .NET SDK](http://azure.microsoft.com/downloads/)를 다운로드 및 설치합니다**.
-* [이 지침](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)에 따라 **Azure Active Directory에 응용 프로그램을 만듭니다**. 나중의 단계에서 사용하는 **응용 프로그램 ID**, **인증 키** 및 **테넌트 ID** 값을 적어 둡니다. 동일한 문서의 지침에 따라 응용 프로그램을 "**참가자**" 역할에 할당합니다
+* **[Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드 및 설치합니다**.
+* [이 지침](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)에 따라 **Azure Active Directory에 응용 프로그램을 만듭니다**. 나중의 단계에서 사용하는 **응용 프로그램 ID**, **인증 키** 및 **테넌트 ID** 값을 적어 둡니다. 동일한 문서의 지침에 따라 응용 프로그램을 "**참가자**" 역할에 할당합니다
 
 ### <a name="create-blob-table"></a>Blob 테이블 만들기
 
@@ -93,8 +93,9 @@ Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 응용 프로그램을 �
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```
 
-2. Add these static variables to the **Program class**. Replace place-holders with your own values. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+2. 이러한 정적 변수를 **프로그램 클래스**에 추가합니다. 자리 표시자를 사용자의 고유 값으로 바꿉니다. Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
     ```csharp
         // Set variables
@@ -127,7 +128,7 @@ Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 응용 프로그램을 �
     
     ```
 
-3. **Main** 메서드에 **DataFactoryManagementClient** 클래스의 인스턴스를 만드는 다음 코드를 추가합니다. 이 개체를 사용하여 데이터 팩터리, 연결된 서비스, 데이터 집합 및 파이프라인을 만듭니다. 또한 이 개체를 사용하여 파이프라인 실행 세부 정보를 모니터링합니다.
+3. **Main** 메서드에 **DataFactoryManagementClient** 클래스의 인스턴스를 만드는 다음 코드를 추가합니다. 이 개체를 사용하여 데이터 팩터리, 연결된 서비스, 데이터 세트 및 파이프라인을 만듭니다. 또한 이 개체를 사용하여 파이프라인 실행 세부 정보를 모니터링합니다.
 
     ```csharp
     // Authenticate and create a data factory management client
@@ -194,14 +195,14 @@ static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagemen
 client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, StorageLinkedServiceDefinition(client));
 ```
 
-## <a name="create-datasets"></a>데이터 집합 만들기
+## <a name="create-datasets"></a>데이터 세트 만들기
 
-이 섹션에서는 원본과 싱크 각각에 대해 하나씩, 두 개의 데이터 집합을 만듭니다. 
+이 섹션에서는 원본과 싱크 각각에 대해 하나씩, 두 개의 데이터 세트를 만듭니다. 
 
-### <a name="create-a-dataset-for-source-azure-blob"></a>원본 Azure Blob에 대한 데이터 집합 만들기
-**Main** 메서드에 **Azure Blob 데이터 집합**을 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보는 [Azure Blob 데이터 집합 속성](connector-azure-blob-storage.md#dataset-properties)에서 자세히 알아보세요.
+### <a name="create-a-dataset-for-source-azure-blob"></a>원본 Azure Blob에 대한 데이터 세트 만들기
+**Main** 메서드에 **Azure Blob 데이터 집합**을 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보는 [Azure Blob 데이터 세트 속성](connector-azure-blob-storage.md#dataset-properties)에서 자세히 알아보세요.
 
-Azure Blob의 원본 데이터를 나타내는 데이터 집합을 정의합니다. 이 Blob 데이터 집합은 이전 단계에서 만든 Azure Storage 연결된 서비스를 참조하며 다음을 설명합니다.
+Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니다. 이 Blob 데이터 세트는 이전 단계에서 만든 Azure Storage 연결된 서비스를 참조하며 다음을 설명합니다.
 
 - 복사할 Blob의 원본 위치: **FolderPath** 및 **FileName**
 - FolderPath에 대한 매개 변수 사용을 확인합니다. "sourceBlobContainer"는 매개 변수의 이름이고, 식은 파이프라인 실행에서 전달된 값으로 바뀝니다. 매개 변수를 정의하는 구문은 `@pipeline().parameters.<parameterName>`입니다.
@@ -227,7 +228,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 }
 ```
 
-### <a name="create-a-dataset-for-sink-azure-blob"></a>싱크 Azure Blob에 대한 데이터 집합 만들기
+### <a name="create-a-dataset-for-sink-azure-blob"></a>싱크 Azure Blob에 대한 데이터 세트 만들기
 
 Program.cs 파일에 "SourceBlobDatasetDefinition" 함수를 만듭니다.
 
@@ -289,7 +290,7 @@ C# 프로젝트에서 **EmailRequest**라는 클래스를 만듭니다. 이 클�
         }
     }
 ```
-## <a name="create-email-workflow-endpoints"></a>전자 메일 워크플로 끝점 만들기
+## <a name="create-email-workflow-endpoints"></a>전자 메일 워크플로 엔드포인트 만들기
 전자 메일 보내기를 트리거하려면 [Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 워크플로를 정의합니다. 논리 앱 워크플로를 만드는 방법에 대한 자세한 내용은 [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 참조하세요. 
 
 ### <a name="success-email-workflow"></a>성공 전자 메일 워크플로 
@@ -357,7 +358,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
-Main 메서드에 복사 작업 및 dependsOn 속성이 있는 파이프라인을 만드는 다음 코드를 추가합니다. 이 자습서에서는 파이프라인에 하나의 작업, 즉 Blob 데이터 집합을 원본으로, 다른 Blob 데이터 집합을 싱크로 사용하는 복사 작업이 포함됩니다. 복사 작업이 성공하거나 실패하면 서로 다른 전자 메일 작업을 호출합니다.
+Main 메서드에 복사 작업 및 dependsOn 속성이 있는 파이프라인을 만드는 다음 코드를 추가합니다. 이 자습서에서는 파이프라인에 하나의 작업, 즉 Blob 데이터 세트를 원본으로, 다른 Blob 데이터 세트를 싱크로 사용하는 복사 작업이 포함됩니다. 복사 작업이 성공하거나 실패하면 서로 다른 전자 메일 작업을 호출합니다.
 
 이 파이프라인에서 사용하는 기능은 다음과 같습니다.
 
@@ -448,8 +449,8 @@ client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, Pi
 ### <a name="parameters"></a>매개 변수
 파이프라인의 첫 번째 섹션에서는 매개 변수를 정의합니다. 
 
-- sourceBlobContainer - 원본 Blob 데이터 집합에서 사용하는 파이프라인의 매개 변수입니다.
-- sinkBlobContainer - 싱크 Blob 데이터 집합에서 사용하는 파이프라인의 매개 변수입니다.
+- sourceBlobContainer - 원본 Blob 데이터 세트에서 사용하는 파이프라인의 매개 변수입니다.
+- sinkBlobContainer - 싱크 Blob 데이터 세트에서 사용하는 파이프라인의 매개 변수입니다.
 - receiver – 이 매개 변수는 이메일 주소가 이 매개 변수에 의해 지정되는 받는 사람에게 성공 또는 실패 전자 메일을 보내는 파이프라인의 두 가지 웹 작업에 사용됩니다.
 
 
@@ -462,7 +463,7 @@ Parameters = new Dictionary<string, ParameterSpecification>
     },
 ```
 ### <a name="web-activity"></a>웹 작업
-웹 작업은 모든 REST 끝점에 대한 호출을 허용합니다. 작업에 대한 자세한 내용은 [웹 작업](control-flow-web-activity.md)을 참조하세요. 이 파이프라인은 웹 작업을 사용하여 Logic Apps 전자 메일 워크플로를 호출합니다. **CopySuccessEmail** 워크플로와 **CopyFailWorkFlow**를 호출하는 두 가지 웹 작업을 만듭니다.
+웹 작업은 모든 REST 엔드포인트에 대한 호출을 허용합니다. 작업에 대한 자세한 내용은 [웹 작업](control-flow-web-activity.md)을 참조하세요. 이 파이프라인은 웹 작업을 사용하여 Logic Apps 전자 메일 워크플로를 호출합니다. **CopySuccessEmail** 워크플로와 **CopyFailWorkFlow**를 호출하는 두 가지 웹 작업을 만듭니다.
 
 ```csharp
         new WebActivity
@@ -481,7 +482,7 @@ Parameters = new Dictionary<string, ParameterSpecification>
             }
         }
 ```
-이에 따라 "URL" 속성에서 Logic Apps 워크플로의 요청 URL 끝점을 붙여넣습니다. "Body" 속성에서 "EmailRequest" 클래스의 인스턴스를 전달합니다. 전자 메일 요청에 포함되는 속성은 다음과 같습니다.
+이에 따라 "URL" 속성에서 Logic Apps 워크플로의 요청 URL 엔드포인트를 붙여넣습니다. "Body" 속성에서 "EmailRequest" 클래스의 인스턴스를 전달합니다. 전자 메일 요청에 포함되는 속성은 다음과 같습니다.
 
 - 메시지 - `@{activity('CopyBlobtoBlob').output.dataWritten`의 값을 전달합니다. 이전 복사 작업의 속성에 액세스하고 dataWritten 값을 전달합니다. 실패의 경우 `@{activity('CopyBlobtoBlob').error.message` 대신 오류 출력을 전달합니다.
 - 데이터 팩터리 이름 - `@{pipeline().DataFactory}`의 값을 전달합니다. 이 변수는 시스템 변수이며, 해당 데이터 팩터리 이름에 액세스할 수 있게 합니다. 시스템 변수 목록은 [시스템 변수](control-flow-system-variables.md) 문서를 참조하세요.
@@ -502,7 +503,7 @@ Dictionary<string, object> arguments = new Dictionary<string, object>
     { "sinkBlobContainer", outputBlobPath },
     { "receiver", emailReceiver }
 };
-
+ 
 CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, arguments).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
@@ -579,7 +580,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="run-the-code"></a>코드 실행
 응용 프로그램을 빌드하고 시작한 다음 파이프라인 실행을 확인합니다.
-콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 집합, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터를 읽고/쓴 크기가 있는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음 Azure Storage 탐색기와 같은 도구를 사용하여 변수에 지정한 대로 Blob이 "inputBlobPath"에서 "outputBlobPath"로 복사되었는지 확인합니다.
+콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 세트, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터를 읽고/쓴 크기가 있는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음 Azure Storage 탐색기와 같은 도구를 사용하여 변수에 지정한 대로 Blob이 "inputBlobPath"에서 "outputBlobPath"로 복사되었는지 확인합니다.
 
 **샘플 출력:**
 
@@ -739,7 +740,7 @@ Press any key to exit...
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
 > * Azure Storage 연결된 서비스 만들기
-> * Azure Blob 데이터 집합 만들기
+> * Azure Blob 데이터 세트 만들기
 > * 복사 작업 및 웹 작업이 포함된 파이프라인 만들기
 > * 후속 작업에 작업 출력 보내기
 > * 매개 변수 전달 및 시스템 변수 활용

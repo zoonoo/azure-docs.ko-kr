@@ -1,55 +1,46 @@
 ---
-title: Azure Active Directory B2C에서 GitHub ID 공급자 구성 | Microsoft Docs
-description: Azure Active Directory B2C로 보호되는 응용 프로그램에서 GitHub 계정으로 고객에게 등록 및 로그인을 제공합니다.
+title: Azure Active Directory B2C를 사용하여 GitHub 계정으로 등록 설정 및 로그인 | Microsoft Docs
+description: 고객에게 Azure Active Directory B2C를 사용하여 응용 프로그램에서 GitHub 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/06/2017
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3754a169b301bac97f3e12d10b754222e3cf325d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7f8b2c6dc570f7a610c0d661da0c6df7491647bd
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443344"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182181"
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-github-accounts"></a>Azure Active Directory B2C: 고객에게 GitHub 계정으로 등록 및 로그인 제공
+# <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 GitHub 계정으로 등록 설정 및 로그인
 
 > [!NOTE]
 > 이 기능은 미리 보기 상태입니다.
 > 
 
-이 문서에서는 GitHub 계정으로 사용자에게 로그인을 사용하도록 설정하는 방법을 보여줍니다.
+Azure AD(Azure Active Directory) B2C에서 GitHub 계정을 ID 공급자로 사용하려면 테넌트에 해당 계정을 나타내는 응용 프로그램을 만들어야 합니다. GitHub 계정이 없는 경우 [https://www.github.com/](https://www.github.com/)에서 얻을 수 있습니다.
 
 ## <a name="create-a-github-oauth-application"></a>GitHub OAuth 응용 프로그램 만들기
 
-Azure AD B2C에서 GitHub를 ID 공급자로 사용하려면 GitHub OAuth 앱을 만들고 올바른 매개 변수를 제공해야 합니다.
+1. GitHub 자격 증명을 사용하여 [GitHub Developer](https://github.com/settings/developers) 웹 사이트에 로그인합니다.
+2. **OAuth 앱**, **새 OAuth 앱**을 차례로 선택합니다.
+3. **응용 프로그램 이름** 및 **홈페이지 URL**을 입력합니다.
+4. **권한 부여 콜백 URL**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
+5. **응용 프로그램 등록**을 클릭합니다.
+6. **클라이언트 ID** 및 **클라이언트 비밀** 값을 복사합니다. 테넌트에 ID 공급자를 추가하려면 둘 다 필요합니다.
 
-1. GitHub에 로그인한 후 [GitHub 개발자 설정](https://github.com/settings/developers)으로 이동합니다.
-1. **새 OAuth 앱**을 클릭합니다.
-1. **응용 프로그램 이름** 및 **홈페이지 URL**을 입력합니다.
-1. **권한 부여 콜백 URL** `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`를 입력합니다. **{tenant}** 를 자신의 Azure AD B2C 테넌트 이름(예: contosob2c.onmicrosoft.com)으로 바꿉니다.
+## <a name="configure-a-github-account-as-an-identity-provider"></a>GitHub 계정을 ID 공급자로 구성
 
-    >[!NOTE]
-    >"tenant" 값은 **로그온 URL**에서 모두 소문자여야 합니다.
-
-1. **응용 프로그램 등록**을 클릭합니다.
-1. **클라이언트 ID** 및 **클라이언트 암호** 값을 저장합니다. 다음 섹션에서 둘 다 필요합니다.
-
-## <a name="configure-github-as-an-identity-provider-in-your-azure-ad-b2c-tenant"></a>GitHub를 Azure AD B2C 테넌트의 ID 공급자로 구성
-
-1. 다음 단계에 따라 [Azure Portal의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) .
-1. B2C 기능 블레이드에서 **ID 공급자**를 클릭합니다.
-1. 블레이드의 위쪽에서 **+추가**를 클릭합니다.
-1. ID 공급자 구성에 친숙한 **이름** 을 제공합니다. 예를 들어 "GitHub"를 입력합니다.
-1. **ID 공급자 형식**을 클릭하고 **GitHub**를 선택한 다음, **확인**을 클릭합니다.
-1. **이 ID 공급자 설정**을 클릭하고 이전에 만든 GitHub OAuth 응용 프로그램의 클라이언트 ID 및 클라이언트 암호를 입력합니다.
-1. **확인**을 클릭하고 **만들기**를 클릭하여 GitHub 구성을 저장합니다.
-
-## <a name="next-steps"></a>다음 단계
-
-[기본 제공 정책](active-directory-b2c-reference-policies.md)을 만들거나 편집하고 GitHub를 ID 공급자로 추가합니다.
+1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+4. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
+5. **이름**을 제공합니다. 예를 들어 *Github*를 입력합니다.
+6. **ID 공급자 형식**을 선택하고 **Github(미리 보기)** 를 선택한 다음, **확인**을 클릭합니다.
+7. **이 ID 공급자 설정**을 선택하고 이전에 기록한 클라이언트 ID를 **클라이언트 ID**로 입력한 후, 기록한 클라이언트 암호를 이전에 만든 Github 계정 응용 프로그램의 **클라이언트 암호**로 입력합니다.
+8. **확인**을 클릭하고 **만들기**를 클릭하여 GitHub 계정 구성을 저장합니다.

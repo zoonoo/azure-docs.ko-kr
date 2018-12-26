@@ -1,17 +1,17 @@
 ---
-title: System Center Configuration Manager를 사용하여 Azure Site Recovery에 대한 모바일 서비스 설치 자동화 | Microsoft Docs
-description: 이 문서에서는 System Center Configuration Manager를 사용하여 모바일 서비스 설치를 자동화하는 방법을 안내합니다.
+title: System Center Configuration Manager를 사용하여 Azure로 VMware VM 및 물리적 서버의 재해 복구를 위한 Azure Site Recovery 모바일 서비스 설치 자동화 | Microsoft Docs
+description: 이 문서는 Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure로 재해 복구하기 위해 System Center Configuration Manager를 사용하여 모바일 서비스 설치를 자동화하는 데 도움이 됩니다.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 6aff17908d220557720776a2d7884adc28b5deee
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: cd50a957894c2c6c4944b0ba3768a00754abaa15
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37917172"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835091"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>System Center Configuration Manager를 사용하여 모바일 서비스 설치 자동화
 
@@ -29,7 +29,7 @@ ms.locfileid: "37917172"
 ## <a name="prerequisites"></a>필수 조건
 
 1. Configuration Manager와 같은 소프트웨어 배포 도구가 사용자 환경에 이미 배포되어 있어야 합니다.
-2. Site Recovery를 사용하여 보호하려는 모든 **Windows 서버**와 모든 **Linux 서버**에 각각 하나씩, 총 두 개의 [장치 컬렉션](https://technet.microsoft.com/library/gg682169.aspx)을 만들어야 합니다.
+2. Site Recovery를 사용하여 보호하려는 모든 **Windows 서버**와 모든 **Linux 서버**에 각각 하나씩, 총 두 개의 [디바이스 컬렉션](https://technet.microsoft.com/library/gg682169.aspx)을 만들어야 합니다.
 3. Recovery Services 자격 증명 모음에 이미 구성 서버가 등록되어 있어야 합니다.
 4. Configuration Manager 컴퓨터가 액세스할 수 있는 보안 네트워크 파일 공유(SMB 공유)가 있어야 합니다.
 
@@ -172,7 +172,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
   | **매개 변수 이름** | **값** |
   |--|--|
-  | Name | Microsoft Azure Mobility Service(Windows) 설치 |
+  | 이름 | Microsoft Azure Mobility Service(Windows) 설치 |
   | 명령 줄 | install.bat |
   | 프로그램을 실행할 수 있습니다. | 사용자 로그온 여부 |
 
@@ -195,7 +195,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 3. 마법사를 완료합니다. 그러면 패키지가 지정된 배포 지점에 복제를 시작합니다.
 4. 패키지 배포 작업이 완료되면 패키지를 마우스 오른쪽 단추로 클릭하고 **배포**를 선택합니다.
   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
-5. 필수 구성 요소 섹션에서 만든 Widows Server 장치 컬렉션을 배포의 대상 컬렉션으로 선택합니다.
+5. 필수 구성 요소 섹션에서 만든 Widows Server 디바이스 컬렉션을 배포의 대상 컬렉션으로 선택합니다.
 
   ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
 
@@ -397,7 +397,7 @@ cd /tmp
 
     | **매개 변수 이름** | **값** |
   |--|--|
-  | Name | Microsoft Azure Mobility Service(Linux) 설치 |
+  | 이름 | Microsoft Azure Mobility Service(Linux) 설치 |
   | 명령 줄 | ./install_linux.sh |
   | 프로그램을 실행할 수 있습니다. | 사용자 로그온 여부 |
 
@@ -418,7 +418,7 @@ cd /tmp
 3. 마법사를 완료합니다. 그러면 패키지가 지정된 배포 지점에 복제를 시작합니다.
 4. 패키지 배포 작업이 완료되면 패키지를 마우스 오른쪽 단추로 클릭하고 **배포**를 선택합니다.
   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
-5. 전제 조건 섹션에서 만든 Linux Server 장치 컬렉션을 배포의 대상 컬렉션으로 선택합니다.
+5. 전제 조건 섹션에서 만든 Linux Server 디바이스 컬렉션을 배포의 대상 컬렉션으로 선택합니다.
 
   ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
 
@@ -430,7 +430,7 @@ cd /tmp
 8. **이 배포에 대한 일정 지정** 페이지에서 일정을 지정합니다. 자세한 내용은 [패키지 일정 예약](https://technet.microsoft.com/library/gg682178.aspx)을 참조하세요.
 9. **배포 지점** 페이지에서 데이터 센터 요구 사항에 따라 속성을 구성합니다. 그런 다음 마법사를 완료합니다.
 
-사용자가 구성한 일정에 따라 Linux Server 장치 컬렉션에 모바일 서비스가 설치됩니다.
+사용자가 구성한 일정에 따라 Linux Server 디바이스 컬렉션에 모바일 서비스가 설치됩니다.
 
 
 ## <a name="uninstall-the-mobility-service"></a>모바일 서비스 설치 제거

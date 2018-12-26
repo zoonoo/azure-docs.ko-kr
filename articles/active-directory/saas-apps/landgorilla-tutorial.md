@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-ms.openlocfilehash: a65c15991a4545cbd0dc9956069af3292c9859dd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e93c4721f34b06fec853d876543e9939220efd9f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222569"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>자습서: Land Gorilla Client와 Azure Active Directory 통합
 
@@ -53,10 +53,10 @@ Land Gorilla Client와 Azure AD의 통합을 구성하려면 다음 항목이 �
 
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Land Gorilla Client 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 
 ## <a name="adding-land-gorilla-client-from-the-gallery"></a>갤러리에서 Land Gorilla Client 추가
@@ -68,19 +68,19 @@ Land Gorilla Client가 Azure AD에 통합되도록 구성하려면 갤러리에�
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
-3. 대화 상자 위쪽에 있는 **추가** 단추를 클릭합니다.
+1. 대화 상자 위쪽에 있는 **추가** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
-4. 검색 상자에 **Land Gorilla Client**를 입력합니다.
+1. 검색 상자에 **Land Gorilla Client**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/landgorilla-tutorial/tutorial_landgorilla_search.png)
 
-5. 결과 창에서 **Land Gorilla Client**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **Land Gorilla Client**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/landgorilla-tutorial/tutorial_landgorilla_addfromgallery.png)
 
@@ -95,10 +95,10 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - 제한된 그룹으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[Land Gorilla 테스트 사용자 만들기](#creating-a-land-gorilla-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - 제한된 그룹으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[Land Gorilla 테스트 사용자 만들기](#creating-a-land-gorilla-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -110,11 +110,11 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     ![Configure Single Sign-On][4]
 
-2. **Single sign on** 대화 상자에서 **모드**로 **SAML 기반 로그온**을 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single sign on** 대화 상자에서 **모드**로 **SAML 기반 로그온**을 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Configure Single Sign-On](./media/landgorilla-tutorial/tutorial_landgorilla_samlbase.png)
 
-3. **Land Gorilla Client 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **Land Gorilla Client 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/landgorilla-tutorial/tutorial_landgorilla_url_02.png)
 
@@ -124,7 +124,7 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
     
     `https://www.<customer domain>.landgorilla.com`
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
 
     `https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`
 
@@ -137,15 +137,15 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트해야 합니다. 식별자에는 고유한 문자열 값을 사용하는 것이 좋습니다. [Land Gorilla Client 팀](https://www.landgorilla.com/support/)에 이러한 값을 문의합니다. 
 
-4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/landgorilla-tutorial/tutorial_landgorilla_certificate.png) 
 
-5. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/landgorilla-tutorial/tutorial_general_400.png) 
 
-6. Land Gorilla 쪽에서 응용 프로그램에 대한 SSO 구성이 완료되도록 하려면 [Land Gorilla Client 지원 팀](https://www.landgorilla.com/support/)에 문의하고 다운로드한 **“메타데이터 XML** 파일을 제공하십시오.
+1. Land Gorilla 쪽에서 응용 프로그램에 대한 SSO 구성이 완료되도록 하려면 [Land Gorilla Client 지원 팀](https://www.landgorilla.com/support/)에 문의하고 다운로드한 **“메타데이터 XML** 파일을 제공하십시오.
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -159,21 +159,21 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     ![Azure AD 테스트 사용자 만들기](./media/landgorilla-tutorial/create_aaduser_01.png) 
 
-2. **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭하여 사용자 목록을 표시합니다.
+1. **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭하여 사용자 목록을 표시합니다.
     
     ![Azure AD 테스트 사용자 만들기](./media/landgorilla-tutorial/create_aaduser_02.png) 
 
-3. 대화 상자 위쪽에서 **추가**를 클릭하여 **사용자** 대화 상자를 엽니다.
+1. 대화 상자 위쪽에서 **추가**를 클릭하여 **사용자** 대화 상자를 엽니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/landgorilla-tutorial/create_aaduser_03.png) 
 
-4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/landgorilla-tutorial/create_aaduser_04.png) 
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -195,23 +195,23 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Land Gorilla Client**를 선택합니다.
+1. 응용 프로그램 목록에서 **Land Gorilla Client**를 선택합니다.
 
     ![Configure Single Sign-On](./media/landgorilla-tutorial/tutorial_landgorilla_app.png) 
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     ![사용자 할당][202] 
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 할당][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 
 

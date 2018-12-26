@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: rwike77
-ms.openlocfilehash: a87dd6f4afa152aebafdde24defcabe841ae2e9c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4d5e74b9ecffbf8f1161cf6c5ef948cd154d993f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206468"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233170"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>서비스 패브릭 응용 프로그램 및 다음 단계
 Azure 서비스 패브릭 응용 프로그램이 만들어졌습니다. 이 문서에서는 사용해 볼 만한 자습서, 프로젝트의 구성, 관심을 둘 만한 추가 정보 및 수행할 수 있는 다음 단계에 대해 설명합니다.
@@ -35,7 +35,7 @@ Azure 서비스 패브릭 응용 프로그램이 만들어졌습니다. 이 문�
 - [Windows의 게스트 실행 가능한 서비스](quickstart-guest-app.md) 
 - [Windows 컨테이너 응용 프로그램](service-fabric-get-started-containers.md) 
 
-[응용 프로그램 예제](http://aka.ms/servicefabricsamples)를 사용해 볼 수도 있습니다.
+[응용 프로그램 예제](https://aka.ms/servicefabricsamples)를 사용해 볼 수도 있습니다.
 
 ## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>질문이나 의견이 있으신가요?  문제를 보고해야 하나요?
 [일반적인 질문](service-fabric-common-questions.md)을 자세히 읽고 Service Fabric으로 할 수 있는 작업과 사용 방법에 대한 답변을 찾아보세요.
@@ -48,7 +48,7 @@ Azure 서비스 패브릭 응용 프로그램이 만들어졌습니다. 이 문�
 응용 프로그램 프로젝트는 다음으로 구성되어 있습니다.
 
 * 응용 프로그램을 구성하는 서비스에 대한 참조 집합입니다.
-* 클러스터 끝점과 관련된 기본 설정과 같은 다른 환경에서의 작업에 대한 기본 설정과 기본적으로 업그레이드 배포를 수행하는 여부 사항을 유지하는 데 사용할 수 있는 세 개의 게시 프로필(1-노드 로컬, 5-노드 로컬 및 클라우드)입니다.
+* 클러스터 엔드포인트와 관련된 기본 설정과 같은 다른 환경에서의 작업에 대한 기본 설정과 기본적으로 업그레이드 배포를 수행하는 여부 사항을 유지하는 데 사용할 수 있는 세 개의 게시 프로필(1-노드 로컬, 5-노드 로컬 및 클라우드)입니다.
 * 서비스에 대해 만들려는 파티션 수와 같은 환경 관련 응용 프로그램 구성을 유지하는 데 사용할 수 있는 세 개의 응용 프로그램 매개 변수 파일(위와 동일)입니다. [여러 환경에 대한 응용 프로그램을 구성](service-fabric-manage-multiple-environment-app-configuration.md)하는 방법을 알아봅니다.
 * 응용 프로그램을 명령줄에서 배포하거나 자동화된 연속 통합 및 배포 파이프라인의 일부로 배포하는 경우에 사용할 수 있는 배포 스크립트입니다. [PowerShell을 사용하여 응용 프로그램을 배포](service-fabric-deploy-remove-applications.md)하는 방법에 대해 자세히 알아봅니다.
 * 응용 프로그램을 설명하는 응용 프로그램 매니페스트입니다. ApplicationPackageRoot 폴더에서 매니페스트를 찾을 수 있습니다. [응용 프로그램 및 서비스 매니페스트](service-fabric-application-model.md)에 대해 자세히 알아봅니다.
@@ -56,7 +56,7 @@ Azure 서비스 패브릭 응용 프로그램이 만들어졌습니다. 이 문�
 
 
 ## <a name="learn-more-about-the-programming-models"></a>프로그래밍 모델에 대해 자세히 알아보기
-서비스 패브릭은 서비스의 작성 및 관리를 위한 여러 방법을 제공합니다.  다음은 [상태 비저장 및 상태 저장 Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [컨테이너](service-fabric-containers-overview.md), [게스트 실행 파일](service-fabric-guest-executables-introduction.md) 및 [상태 비저장 및 상태 저장 ASP.NET Core 서비스](service-fabric-reliable-services-communication-aspnetcore.md)에 대한 개요 및 개념 정보입니다.
+Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제공합니다.  다음은 [상태 비저장 및 상태 저장 Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [컨테이너](service-fabric-containers-overview.md), [게스트 실행 파일](service-fabric-guest-executables-introduction.md) 및 [상태 비저장 및 상태 저장 ASP.NET Core 서비스](service-fabric-reliable-services-communication-aspnetcore.md)에 대한 개요 및 개념 정보입니다.
 
 ## <a name="learn-about-service-communication"></a>서비스 통신에 대해 알아보기
 Service Fabric 응용 프로그램은 여러 가지 서비스로 구성되며, 각 서비스는 전문적인 작업을 수행합니다. 이러한 서비스는 서로 통신할 수 있으며 서비스에 연결하고 서비스와 통신하는 클러스터 외부의 클라이언트 응용 프로그램이 있을 수 있습니다. Service Fabric에서 [서비스와 통신 및 서비스 간 통신을 설정](service-fabric-connect-and-communicate-with-services.md)하는 방법을 알아봅니다. 

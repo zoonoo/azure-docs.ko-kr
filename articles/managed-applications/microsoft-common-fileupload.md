@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: c41ff548ed4020ab85d15f610503a3b1592910a5
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2886dbafe6bf20718f4e3cd2976764fc432dbb04
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059892"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021755"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI 요소
 사용자가 업로드할 파일을 하나 이상 지정할 수 있게 하는 컨트롤입니다.
@@ -51,6 +51,7 @@ ms.locfileid: "37059892"
 - `constraints.accept`는 브라우저의 파일 대화 상자에 표시되는 파일 형식을 지정합니다. 허용되는 값은 [HTML5 사양](http://www.w3.org/TR/html5/forms.html#attr-input-accept)을 참조하세요. 기본값은 **null**입니다.
 - `options.multiple`이 **true**로 설정되면 사용자가 브라우저의 파일 대화 상자에서 둘 이상의 파일을 선택할 수 있게 합니다. 기본값은 **false**입니다.
 - 이 요소는 `options.uploadMode` 값에 따라 두 가지 모드로 파일 업로드를 지원합니다. **file**을 지정하면 출력에 파일의 내용이 Blob으로 포함됩니다. **url**을 지정하면 파일은 임시 위치에 업로드되고 출력에 Blob의 URL이 포함됩니다. 임시 Blob은 24시간 후에 제거됩니다. 기본값은 **file**입니다.
+- 업로드된 파일은 보호됩니다. 출력 URL에는 배포 중에 파일에 액세스하기 위한 [SAS 토큰](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)이 포함됩니다.
 - `options.openMode` 값은 파일을 읽는 방법을 결정합니다. 파일이 일반 텍스트여야 하면 **text**를 지정합니다. 그렇지 않으면 **binary**를 지정합니다. 기본값은 **text**입니다.
 - `options.uploadMode`를 **file**로 설정하고 `options.openMode`를 **binary**로 설정하면 출력이 base64로 인코딩됩니다.
 - `options.encoding`은 파일을 읽을 때 사용할 인코딩을 지정합니다. 기본값은 **UTF-8**이며, `options.openMode`를 **text**로 설정한 경우에만 사용됩니다.

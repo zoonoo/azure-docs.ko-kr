@@ -1,29 +1,30 @@
 ---
-title: Entity search API C# 빠른 시작 | Microsoft Docs
-description: Entity Search SDK 콘솔 응용 프로그램을 설치합니다.
-titleSuffix: Azure cognitive services entity search API C# quickstart
+title: '빠른 시작: Bing Entity Search SDK, C#'
+titleSuffix: Azure Cognitive Services
+description: C#을 사용하여 Entity Search SDK 콘솔 응용 프로그램을 설정합니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 185e1b4fc1b7ef2aa5964e2e95314727f8e1b0a5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7cbb97fbf237e14d6822edfa174ca469f8988e2d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377887"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307361"
 ---
-# <a name="entity-search-sdk-c-quickstart"></a>Entity Search SDK C# 빠른 시작
+# <a name="quickstart-bing-entity-search-sdk-with-c"></a>빠른 시작: C#을 통해 Bing Entity Search SDK 설정
 
 Bing Entity Search API는 엔터티 검색 및 결과 구문 분석을 위한 REST API 기능을 포함하고 있습니다.
 
 [C# Bing Entity Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch)은 Git Hub에서 얻을 수 있습니다.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
+**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 Bing Entity Search SDK를 사용하여 콘솔 응용 프로그램을 설정하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 찾습니다.  `Microsoft.Azure.CognitiveServices.Search.EntitySearch` 패키지를 추가합니다.
 

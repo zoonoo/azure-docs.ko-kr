@@ -7,19 +7,23 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 540f22e38201ec488d8e2c1d7494bc83d7b83a7e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6844537c512d10fccb244a18dafabe7521e697b1
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831924"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321838"
 ---
 # <a name="model-management-command-line-interface-reference"></a>모델 관리 명령줄 인터페이스 참조
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 
 ## <a name="base-cli-concepts"></a>기본 CLI 개념
 
@@ -147,19 +151,19 @@ ms.locfileid: "34831924"
 
 다음 명령은 모델에 대한 매니페스트 파일을 만듭니다. 
 
-`az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]`
+`az ml manifest create --manifest-name [your new manifest name] -f [path to score file] -r [runtime for the image, e.g. spark-py]`
 
 명령 세부 정보:
 
     --manifest-name -n [Required]: Name of the manifest to create.
-    -f                 [Required]: The code file to be deployed.
+    -f                 [Required]: The score file to be deployed.
     -r                 [Required]: Runtime of the web service. Valid runtimes are spark-py|python.
     --conda-file -c              : Path to Conda Environment file.
     --dependency -d              : Files and directories required by the service. Multiple
                                    dependencies can be specified with additional -d arguments.
     --manifest-description       : Description of the manifest.
     --schema-file -s             : Schema file to add to the manifest.
-    -p                           : A pip requirements.txt file needed by the code file.
+    -p                           : A pip requirements.txt file needed by the score file.
     -v                           : Verbosity flag.
 
 등록된 모델 인수
@@ -199,7 +203,7 @@ ms.locfileid: "34831924"
 
 또는 단일 명령을 사용하여 매니페스트와 이미지를 만들 수 있습니다. 
 
-`az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]`
+`az ml image create -n [image name] --model-file [model file or folder path] -f [score file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]`
 
 명령 세부 정보:
 
@@ -219,8 +223,8 @@ ms.locfileid: "34831924"
                                 be specified with additional -d arguments.
     --model-file -m           : [Required] Model file to register.
     --schema-file -s          : Schema file to add to the manifest.
-    -f                        : [Required] The code file to be deployed.
-    -p                        : A pip requirements.txt file needed by the code file.
+    -f                        : [Required] The score file to be deployed.
+    -p                        : A pip requirements.txt file needed by the score file.
     -r                        : [Required] Runtime of the web service. Valid runtimes are python|spark-py.
 
 
@@ -275,8 +279,8 @@ ms.locfileid: "34831924"
     --model-file -m                   : [Required] The model to be deployed.
     -d                                : Files and directories required by the service. Multiple dependencies can be specified
                                         with additional -d arguments.
-    -f                                : [Required] The code file to be deployed.
-    -p                                : A pip requirements.txt file of package needed by the code file.
+    -f                                : [Required] The score file to be deployed.
+    -p                                : A pip requirements.txt file of package needed by the score file.
     -r                                : [Required] Runtime of the web service. Valid runtimes are python|spark-py.
     -s                                : Input and output schema of the web service.
 

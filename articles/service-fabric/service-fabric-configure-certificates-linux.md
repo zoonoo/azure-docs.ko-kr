@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 2d6d387ed12e7261d09669686c0710786a4302dd
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: aa84dc4cb23a0fa2fa854e1f3d6da1234ec00bd6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025331"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386640"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 클러스터의 인증서 및 보안
 
@@ -31,11 +31,11 @@ Service Fabric은 일반적으로 X.509 인증서가 Linux 클러스터 노드�
 
 Linux 클러스터의 경우 Service Fabric은 인증서가 인증서와 개인 키를 포함하는 .pem 파일 또는 인증서를 포함하는 .crt 파일 및 개인 키를 포함하는 .key 파일로 존재할 것으로 예상합니다. 모든 파일은 PEM 형식이어야 합니다. 
 
-[Resource Manager 템플릿](./service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template) 또는 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) 명령을 사용하여 Azure Key Vault에서 인증서를 설치하는 경우 인증서는 각 노드의 */var/ lib/sfcerts* 디렉터리에 올바른 형식으로 설치됩니다. 다른 방법을 통해 인증서를 설치하는 경우 클러스터 노드에 인증서가 올바르게 설치되어 있는지 확인해야 합니다.
+[Resource Manager 템플릿](./service-fabric-cluster-creation-create-template.md) 또는 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) 명령을 사용하여 Azure Key Vault에서 인증서를 설치하는 경우 인증서는 각 노드의 */var/ lib/sfcerts* 디렉터리에 올바른 형식으로 설치됩니다. 다른 방법을 통해 인증서를 설치하는 경우 클러스터 노드에 인증서가 올바르게 설치되어 있는지 확인해야 합니다.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>응용 프로그램 매니페스트에서 참조되는 인증서
 
-응용 프로그램 매니페스트에서 지정된 인증서(예: [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) 또는 [**EndpointCertificate**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element) 요소를 통해)는 */var/lib/sfcerts* 디렉터리에 존재해야 합니다. 응용 프로그램 매니페스트에서 인증서를 지정하는 데 사용되는 요소는 경로 특성을 사용하지 않으므로 인증서는 기본 디렉터리에 존재해야 합니다. 이러한 요소는 선택적 **X509StoreName** 특성을 사용합니다. 기본값은 Linux 노드에서 */var/lib/sfcerts* 디렉터리를 가리키는 "My"입니다. Linux 클러스터에서 다른 값은 정의되지 않았습니다. Linux 클러스터에서 실행되는 앱에 대해 **X509StoreName** 특성을 생략하는 것이 좋습니다. 
+응용 프로그램 매니페스트에서 지정된 인증서(예: [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) 또는 [**EndpointCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element) 요소를 통해)는 */var/lib/sfcerts* 디렉터리에 존재해야 합니다. 응용 프로그램 매니페스트에서 인증서를 지정하는 데 사용되는 요소는 경로 특성을 사용하지 않으므로 인증서는 기본 디렉터리에 존재해야 합니다. 이러한 요소는 선택적 **X509StoreName** 특성을 사용합니다. 기본값은 Linux 노드에서 */var/lib/sfcerts* 디렉터리를 가리키는 "My"입니다. Linux 클러스터에서 다른 값은 정의되지 않았습니다. Linux 클러스터에서 실행되는 앱에 대해 **X509StoreName** 특성을 생략하는 것이 좋습니다. 
 
 ## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>구성 패키지(Settings.xml)에서 참조되는 인증서
 

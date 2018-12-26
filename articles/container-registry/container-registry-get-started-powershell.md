@@ -1,22 +1,21 @@
 ---
-title: 빠른 시작 - PowerShell을 사용하여 Azure에서 개인 Docker 레지스트리 만들기
+title: 빠른 시작 - Azure에서 개인 Docker 레지스트리 만들기 - PowerShell
 description: Azure에서 PowerShell을 사용하여 개인 Docker 컨테이너 레지스트리를 만드는 방법을 빠르게 알아봅니다.
 services: container-registry
-author: marsma
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/08/2018
-ms.author: marsma
-ms.custom: mvc
-ms.openlocfilehash: 282cd4bc9256fc483014b53626c02106d0de236a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.author: danlep
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 7dcdca594949a3b20000b31db681370ee4f9eac3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885122"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255288"
 ---
-# <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Container Registry 만들기
+# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 개인 컨테이너 레지스트리 만들기
 
 Azure Container Registry는 관리되는 Docker 컨테이너 레지스트리 서비스로, Docker 컨테이너 이미지를 빌드, 저장 및 제공하는 데 사용됩니다. 이 빠른 시작에서는 PowerShell을 사용하여 Azure 컨테이너 레지스트리를 만드는 방법을 알아봅니다. 레지스트리를 만든 후에는 컨테이너 이미지를 레지스트리에 푸시하고, 레지스트리의 컨테이너를 ACI(Azure Container Instances)에 배포합니다.
 
@@ -252,7 +251,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [Get-AzureRmContainerRegistryCredential]: /powershell/module/azurerm.containerregistry/get-azurermcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
 [New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[New-AzureRMContainerRegistry]: /powershell/module/containerregistry/New-AzureRMContainerRegistry
+[New-AzureRMContainerRegistry]: /powershell/module/azurerm.containerregistry/New-AzureRMContainerRegistry
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
 

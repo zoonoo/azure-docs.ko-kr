@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 620a2bf9221bdb7c46dc36a2b3ed23d853faff35
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702179"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031721"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>지점 및 사이트 간 VPN 라우팅 정보
 
@@ -148,7 +148,7 @@ Windows 또는 지원되는 다른 OS를 사용하는 클라이언트는 사이�
 
 이 예의 지점 및 사이트 간 VPN 게이트웨이 연결은 VNet1에 대한 연결입니다. VNet1은 다른 가상 네트워크와 연결되거나 피어링되지 않지만, BGP를 실행하지 않는 사이트 간 VPN 연결을 통해 온-프레미스 사이트에 연결됩니다.
 
-Windows 클라이언트는 VNet1 및 지점(Site1)에 액세스할 수 있지만, Site1에 대한 경로를 클라이언트에 수동으로 추가해야 합니다. 비Windows 클라이언트는 VNet1 및 온-프레미스 Site1에 액세스할 수 있습니다.
+Windows 및 비Windows 클라이언트는 VNet1에만 액세스할 수 있습니다.
 
 ![VNet 및 지점과의 라우팅](./media/vpn-gateway-about-point-to-site-routing/5.jpg "VNet 및 지점과의 라우팅")
 
@@ -162,7 +162,7 @@ Windows 클라이언트는 VNet1 및 지점(Site1)에 액세스할 수 있지만
 
 * Windows 클라이언트에 추가된 경로: 10.1.0.0/16, 192.168.0.0/24
 
-* 비Windows 클라이언트에 추가된 경로: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* 비Windows 클라이언트에 추가된 경로: 10.1.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 

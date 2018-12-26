@@ -1,24 +1,25 @@
 ---
-title: Bing Image Search 단일 페이지 웹앱(소스 코드) | Microsoft Docs
-description: 단일 페이지 웹 응용 프로그램에서 Bing Image Search API를 사용하는 방법을 보여 주는 자습서의 소스 코드입니다.
+title: '자습서: Bing Entity Search 단일 페이지 웹앱(소스 코드)'
+titlesuffix: Azure Cognitive Services
+description: 단일 페이지 웹 응용 프로그램에서 Bing Entity Search API를 사용하는 방법을 보여 주는 자습서의 소스 코드입니다.
 services: cognitive-services
-author: v-jerkin
-manager: ehansen
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 988d4c809fdfb528c9cef2b3cdbefa00c274d33e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: aahi
+ms.openlocfilehash: 774c61f3a089b2ee54f60d654bb1ef7c251cbdb7
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373030"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165036"
 ---
 # <a name="tutorial-single-page-web-app-source"></a>자습서: 단일 페이지 웹앱 소스
 
-Bing Image Search에 대한 [단일 페이지 앱 자습서](tutorial-bing-entities-search-single-page-app.md)에서 설명하는 전체 소스 코드입니다. 앱을 실행하려면 소스 코드를 메모장이나 다른 텍스트 편집기에 복사하고 `bing.html`로 저장합니다. 그런 다음, Microsoft Edge 또는 다른 인기 브라우저에서 저장된 파일을 엽니다.
+Bing Entity Search에 대한 [단일 페이지 앱 자습서](tutorial-bing-entities-search-single-page-app.md)에서 설명하는 전체 소스 코드입니다. 앱을 실행하려면 소스 코드를 메모장이나 다른 텍스트 편집기에 복사하고 `bing.html`로 저장합니다. 그런 다음, Microsoft Edge 또는 다른 인기 브라우저에서 저장된 파일을 엽니다.
 
 ```html
 <!DOCTYPE html>

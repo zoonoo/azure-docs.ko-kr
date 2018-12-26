@@ -1,6 +1,6 @@
 ---
-title: StorSimple 장치에 대한 안정성 | Microsoft Docs
-description: 안전성 규칙, 지침 및 고려 사항을 설명하고 StorSimple 장치를 안전하게 설치하고 작동하는 방법을 설명합니다.
+title: StorSimple 디바이스에 대한 안정성 | Microsoft Docs
+description: 안전성 규칙, 지침 및 고려 사항을 설명하고 StorSimple 디바이스를 안전하게 설치하고 작동하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: e45b09a62f33fd9811714febd63a74149784980d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 428bc3504416f3a99518572f9f5bcb39423295b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108661"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261605"
 ---
-# <a name="safely-install-and-operate-your-storsimple-device"></a>StorSimple 장치의 안전한 설치 및 작동
+# <a name="safely-install-and-operate-your-storsimple-device"></a>StorSimple 디바이스의 안전한 설치 및 작동
 ![경고 아이콘](./media/storsimple-safety/IC740879.png)
 ![안전성 고지 읽기 아이콘](./media/storsimple-safety/IC740885.png) **안전성 및 상태 정보 읽기**
 
-이 문서에서 Microsoft Azure StorSimple 장치에 적용되는 모든 안전성 및 상태 정보를 읽으십시오 나중에 참조할 수 있도록 StorSimple 장치와 함께 제공되는 모든 인쇄된 가이드를 보관하십시오. 지침을 따르지 않고 이 제품을 적절하게 설정, 사용 및 관리하지 않으면 심각한 부상 또는 사망 위험이 증가하거나 장치가 손상될 수 있습니다. [이 가이드의 다운로드할 수 있는 버전](http://www.microsoft.com/download/details.aspx?id=44233)도 제공됩니다.
+이 문서에서 Microsoft Azure StorSimple 디바이스에 적용되는 모든 안전성 및 상태 정보를 읽으십시오 나중에 참조할 수 있도록 StorSimple 디바이스와 함께 제공되는 모든 인쇄된 가이드를 보관하십시오. 지침을 따르지 않고 이 제품을 적절하게 설정, 사용 및 관리하지 않으면 심각한 부상 또는 사망 위험이 증가하거나 디바이스가 손상될 수 있습니다. [이 가이드의 다운로드할 수 있는 버전](https://www.microsoft.com/download/details.aspx?id=44233)도 제공됩니다.
 
 ## <a name="safety-icon-conventions"></a>안전성 아이콘 표시 규칙
-다음은 Microsoft Azure StorSimple 장치를 설정 및 실행할 때 관찰되는 안전 주의 사항을 검토할 때 표시되는 아이콘입니다.
+다음은 Microsoft Azure StorSimple 디바이스를 설정 및 실행할 때 관찰되는 안전 주의 사항을 검토할 때 표시되는 아이콘입니다.
 
 | 아이콘 | 설명 |
 |:--- |:--- |
@@ -52,7 +52,7 @@ ms.locfileid: "23108661"
 * 장치의 뒷면에 있는 전원 및 냉각 모듈(PCM)의 핸들로 인클로저를 들지 마십시오. 무게를 지탱하도록 설계되지 않았습니다.
 
 ## <a name="connection-precautions"></a>연결 주의 사항
-![경고 아이콘](./media/storsimple-safety/IC740879.png) ![감전 아이콘](./media/storsimple-safety/IC740882.png) **경고!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **경고!**
 
 부상, 감전 또는 사망 가능성을 줄이려면:
 
@@ -60,9 +60,9 @@ ms.locfileid: "23108661"
 * 이동하기 전이나 어떤 방식으로든 손상될 것이라고 판단되는 장치 플러그를 영구적으로 뽑으십시오.
 * 전원 공급 코드에 안전한 전기 접지 연결을 제공하십시오. 전원을 공급하기 전에 인클로저의 접지가 국가 및 지역 요구 사항을 충족하는지 확인하십시오.
 * 인클로저에서 PCM을 제거하기 전에 항상 전원 연결을 해제해야 합니다.
-* 전원 공급 장치 코드의 플러그가 기본 차단 장치라면, 소켓 콘센트가 장비 근처에 있고 쉽게 액세스할 수 있는지 확인하십시오.
+* 전원 공급 디바이스 코드의 플러그가 기본 차단 디바이스라면, 소켓 콘센트가 장비 근처에 있고 쉽게 액세스할 수 있는지 확인하십시오.
 
-![경고 아이콘](./media/storsimple-safety/IC740879.png) ![감전 아이콘](./media/storsimple-safety/IC740882.png) **경고!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **경고!**
 
 전기 연결에서 과열 또는 화재 가능성을 줄이려면:
 
@@ -75,12 +75,12 @@ ms.locfileid: "23108661"
 
 장비의 적절한 작동 및 제품 손상을 막으려면:
 
-* 장치의 뒷면에 있는 RJ45 포트는 이더넷 연결 전용입니다. 원격 통신 네트워크에 연결해서는 안 됩니다.
-* 앞-뒤 냉각 설계를 수용할 수 있는 랙에 장치를 설치해야 합니다.
+* 디바이스의 뒷면에 있는 RJ45 포트는 이더넷 연결 전용입니다. 원격 통신 네트워크에 연결해서는 안 됩니다.
+* 앞-뒤 냉각 설계를 수용할 수 있는 랙에 디바이스를 설치해야 합니다.
 * 모든 플러그인 모듈 및 블랭크 판은 시스템 인클로저의 일부입니다. 교체품을 즉시 추가할 수 있을 때만 제거해야 합니다. 시스템은 모든 모듈 또는 블랭크가 장착된 상태에서만 실행해야 합니다.
 
 ## <a name="rack-system-precautions"></a>랙 시스템 주의 사항
-랙 캐비닛에 장치를 탑재할 때는 다음 안전 요구 사항을 고려해야 합니다.
+랙 캐비닛에 디바이스를 탑재할 때는 다음 안전 요구 사항을 고려해야 합니다.
 
 ![경고 아이콘](./media/storsimple-safety/IC740879.png) ![기울어짐 위험 아이콘](./media/storsimple-safety/IC740886.png) **경고!**
 
@@ -107,7 +107,7 @@ ms.locfileid: "23108661"
 * 시스템은 저압의 후면 배기 설치에서 작동합니다(랙 도어에서 발생하는 배압 및 장애물이 5파스칼[0.5mm 수면계]을 초과하지 않음).
 
 ## <a name="power-cooling-module-pcm-precautions"></a>PCM(전원 냉각 모듈) 주의 사항
-장치는 두 개의 PCM과 함께 작동하도록 설계되었습니다. 각 PCM에는 전원 공급 장치와 이중 축 팬이 있습니다. 임계 조건에서 시스템은 한 대의 전원 공급 장치에 오류가 발생해도 정상적인 작동을 계속할 수 있습니다. 항상 두 PCM(및 전원 공급 장치)을 설치해야 합니다. PCM 하나로는 예비 전력을 제공하지 않습니다. 따라서 하나의 PCM만 고장나도 가동 중지 시간 또는 데이터 손실이 발생할 수 있습니다.
+디바이스는 두 개의 PCM과 함께 작동하도록 설계되었습니다. 각 PCM에는 전원 공급 장치와 이중 축 팬이 있습니다. 임계 조건에서 시스템은 한 대의 전원 공급 장치에 오류가 발생해도 정상적인 작동을 계속할 수 있습니다. 항상 두 PCM(및 전원 공급 장치)을 설치해야 합니다. PCM 하나로는 예비 전력을 제공하지 않습니다. 따라서 하나의 PCM만 고장나도 가동 중지 시간 또는 데이터 손실이 발생할 수 있습니다.
 
 ![경고 아이콘](./media/storsimple-safety/IC740879.png) ![감전 아이콘](./media/storsimple-safety/IC740882.png) **경고!**
 
@@ -145,11 +145,11 @@ ms.locfileid: "23108661"
 
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**
 
-배터리를 선적하거나 항공편으로 달리 운송하는 경우 IATA 리튬 배터리 지침 문서( [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+배터리를 선적하거나 항공편으로 운송하는 경우 [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)의 IATA 리튬 배터리 지침 문서를 따르세요.
 
-이 보안 공지를 검토한 후 다음 단계에서는 장치를 개봉하고 랙 및 케이블을 연결합니다.
+이 보안 공지를 검토한 후 다음 단계에서는 디바이스를 개봉하고 랙 및 케이블을 연결합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 8100 장치의 경우 [StorSimple 8100 장치 설치](storsimple-8100-hardware-installation.md)로 이동합니다.
-* 8600 장치의 경우 [StorSimple 8600 장치 설치](storsimple-8600-hardware-installation.md)로 이동합니다.
+* 8100 디바이스의 경우 [StorSimple 8100 디바이스 설치](storsimple-8100-hardware-installation.md)로 이동합니다.
+* 8600 디바이스의 경우 [StorSimple 8600 디바이스 설치](storsimple-8600-hardware-installation.md)로 이동합니다.
 

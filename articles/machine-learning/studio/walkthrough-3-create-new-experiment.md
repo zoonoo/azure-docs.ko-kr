@@ -1,10 +1,11 @@
 ---
-title: '3단계: 새 Machine Learning 실험 만들기 | Microsoft Docs'
+title: '3단계: 새 Machine Learning Studio 실험 만들기 - Azure | Microsoft Docs'
 description: '예측 솔루션 개발 연습 3단계: Azure Machine Learning Studio에서 새 학습 실험을 만듭니다.'
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 95000f9fb57b95bf1edcda9abfba3668b5f5b523
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835742"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317531"
 ---
-# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>연습 3단계: 새 Azure Machine Learning 실험 만들기
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>연습 3단계: 새 Azure Machine Learning Studio 실험 만들기
 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
 
 1. [Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
@@ -33,7 +34,7 @@ ms.locfileid: "34835742"
 6. [웹 서비스 액세스](walkthrough-6-access-web-service.md)
 
 - - -
-이 연습의 다음 단계는 업로드한 데이터 집합을 사용하는 Machine Learning Studio에서 실험을 만드는 것입니다.  
+이 연습의 다음 단계는 업로드한 데이터 세트를 사용하는 Machine Learning Studio에서 실험을 만드는 것입니다.  
 
 1. 스튜디오의 창 하단에 있는 **+새로 만들기**를 클릭합니다.
 2. **실험**을 선택하고 "빈 실험"을 선택합니다. 
@@ -49,13 +50,13 @@ ms.locfileid: "34835742"
    > 
    > ![실험 속성][6]
    > 
-3. 실험 캔버스의 왼쪽에 있는 모듈 팔레트에서 **저장된 데이터 집합**을 확장합니다.
-4. **내 데이터 집합** 아래에서 만든 데이터 집합을 찾고 캔버스로 끌어 옵니다. 팔레트 위의 **검색** 상자에 이름을 입력하여 데이터 집합을 찾을 수도 있습니다.  
+3. 실험 캔버스의 왼쪽에 있는 모듈 팔레트에서 **저장된 데이터 세트**를 확장합니다.
+4. **내 데이터 집합** 아래에서 만든 데이터 집합을 찾고 캔버스로 끌어 옵니다. 팔레트 위의 **검색** 상자에 이름을 입력하여 데이터 세트를 찾을 수도 있습니다.  
 
-    ![실험에 데이터 집합 추가][7]
+    ![실험에 데이터 세트 추가][7]
 
 ## <a name="prepare-the-data"></a>데이터 준비
-데이터 집합(아래 작은 원)의 출력 포트를 클릭하고 **시각화**를 선택하여 데이터의 처음 100개 행 및 전체 데이터 집합에 대한 일부 통계 정보를 볼 수 있습니다.  
+데이터 세트(아래 작은 원)의 출력 포트를 클릭하고 **시각화**를 선택하여 데이터의 처음 100개 행 및 전체 데이터 세트에 대한 일부 통계 정보를 볼 수 있습니다.  
 
 데이터 파일에는 열 제목이 없으므로 스튜디오에서 일반적인 제목(Col1, Col2, *등*)을 제공했습니다. 적합한 제목은 모델 작성 시 필수 사항은 아니지만 제목이 있으면 실험에서 데이터를 더 쉽게 사용할 수 있습니다. 또한 최종적으로 웹 서비스에서 이 모델을 게시할 때 제목을 사용하여 서비스 사용자에 대한 열을 식별할 수 있습니다.  
 
@@ -68,7 +69,7 @@ ms.locfileid: "34835742"
 
 2. [메타데이터 편집][edit-metadata] 모듈을 클릭하고 캔버스로 끌어서 이전에 추가한 데이터 집합 아래에 놓습니다.
 
-3. 데이터 집합을 [메타데이터 편집][edit-metadata]에 연결합니다. 데이터 집합의 출력 포트(데이터 집합 맨 아래의 작은 원)를 클릭하여 [메타데이터 편집][edit-metadata]의 입력 포트(모듈 맨 위의 작은 원)로 끌어 놓은 다음 마우스 단추를 놓습니다. 데이터 집합과 모듈은 캔버스에서 이동해도 연결 상태를 유지합니다.
+3. 데이터 세트를 [메타데이터 편집][edit-metadata]에 연결합니다. 데이터 세트의 출력 포트(데이터 세트 맨 아래의 작은 원)를 클릭하여 [메타데이터 편집][edit-metadata]의 입력 포트(모듈 맨 위의 작은 원)로 끌어 놓은 다음 마우스 단추를 놓습니다. 데이터 세트와 모듈은 캔버스에서 이동해도 연결 상태를 유지합니다.
    
    이제 실험이 다음과 같이 표시됩니다.  
    
@@ -90,7 +91,7 @@ ms.locfileid: "34835742"
 
 6. **확인** 확인 표시를 클릭합니다.
 
-7. **속성** 창으로 돌아가서 **새 열 이름** 매개 변수를 찾습니다. 이 필드에 데이터 집합의 21개 열에 대한 이름 목록을 쉼표로 구분하여 열 순서로 입력합니다. UCI 웹 사이트의 데이터 집합 설명서에서 열 이름을 얻거나 편의를 위해 다음 목록을 복사하여 붙여넣을 수 있습니다.  
+7. **속성** 창으로 돌아가서 **새 열 이름** 매개 변수를 찾습니다. 이 필드에 데이터 세트의 21개 열에 대한 이름 목록을 쉼표로 구분하여 열 순서로 입력합니다. UCI 웹 사이트의 데이터 세트 설명서에서 열 이름을 얻거나 편의를 위해 다음 목록을 복사하여 붙여넣을 수 있습니다.  
    
        Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
    
@@ -103,9 +104,9 @@ ms.locfileid: "34835742"
 > 
 > 
 
-## <a name="create-training-and-test-datasets"></a>학습 및 테스트 데이터 집합 만들기
+## <a name="create-training-and-test-datasets"></a>학습 및 테스트 데이터 세트 만들기
 모델을 학습할 데이터 및 테스트할 데이터가 필요합니다.
-따라서 다음 실험 단계에서는 데이터 집합을 하나는 모델 학습을 위한 것으로 하나는 테스트를 위한 것으로 두 개의 별도 데이터 집합으로 분할합니다.
+따라서 다음 실험 단계에서는 데이터 세트를 하나는 모델 학습을 위한 것으로 하나는 테스트를 위한 것으로 두 개의 별도 데이터 세트로 분할합니다.
 
 이 작업을 하기 위해 [데이터 분할][split] 모듈을 사용합니다.  
 
@@ -122,7 +123,7 @@ ms.locfileid: "34835742"
 
 [데이터 분할][split] 모듈의 출력을 사용할 수 있지만 왼쪽 출력을 학습 데이터로 사용하고 오른쪽 출력을 테스트 데이터로 사용하도록 선택합니다.  
 
-[이전 단계](walkthrough-2-upload-data.md)에서 언급한 대로 높은 신용 위험을 낮은 것으로 잘못 분류한 비용은 낮은 신용 위험을 높은 것으로 잘못 분류한 비용보다 5배 더 높습니다. 이를 고려하기 위해 이 비용 함수를 반영하는 새 데이터 집합을 생성합니다. 새 데이터 집합에서 위험이 높은 각 예제는 5번 복제되지만 위험이 낮은 각 예제는 복제되지 않습니다.   
+[이전 단계](walkthrough-2-upload-data.md)에서 언급한 대로 높은 신용 위험을 낮은 것으로 잘못 분류한 비용은 낮은 신용 위험을 높은 것으로 잘못 분류한 비용보다 5배 더 높습니다. 이를 고려하기 위해 이 비용 함수를 반영하는 새 데이터 세트를 생성합니다. 새 데이터 세트에서 위험이 높은 각 예제는 5번 복제되지만 위험이 낮은 각 예제는 복제되지 않습니다.   
 
 R 코드를 사용하여 이 복제를 수행할 수 있습니다.  
 

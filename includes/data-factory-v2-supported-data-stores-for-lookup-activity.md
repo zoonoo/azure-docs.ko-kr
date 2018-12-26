@@ -5,25 +5,26 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/05/2018
+ms.date: 11/28/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: df4765fc92e78dbb5ee43be3cc09c2b96d834080
-ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
+ms.openlocfilehash: a5959e19c7d6470abe5487fe7c8f08ccb543fa35
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2018
-ms.locfileid: "35683154"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111591"
 ---
 | Category | 데이터 저장소 |
 |:--- |:--- |
-| **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |
-| &nbsp; |[Azure Cosmos DB](../articles/data-factory/connector-azure-cosmos-db.md) |
-| &nbsp; |[Azure Data Lake Storage](../articles/data-factory/connector-azure-data-lake-store.md) |
+| **Azure** |[Azure Blob 저장소](../articles/data-factory/connector-azure-blob-storage.md) |
+| &nbsp; |[Azure Cosmos DB(SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
+| &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
-| &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |
+| &nbsp; |[Azure 파일](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
+| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |
 | **데이터베이스** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
@@ -65,15 +66,16 @@ ms.locfileid: "35683154"
 | &nbsp; |[Common Data Service for Apps](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓
 | &nbsp; |[Concur(미리 보기)](../articles/data-factory/connector-concur.md) |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |
+| &nbsp; |[Dynamics AX(미리 보기)](../articles/data-factory/connector-dynamics-ax.md) |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |
-| &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-source) 
+| &nbsp; |[Google 애드워즈(미리 보기)](../articles/data-factory/connector-google-adwords.md) |
 | &nbsp; |[HubSpot(미리 보기)](../articles/data-factory/connector-hubspot.md) |
 | &nbsp; |[Jira(미리 보기)](../articles/data-factory/connector-jira.md) |
 | &nbsp; |[Magento(미리 보기)](../articles/data-factory/connector-magento.md) |
 | &nbsp; |[Marketo(미리 보기)](../articles/data-factory/connector-marketo.md) |
 | &nbsp; |[Oracle Eloqua(미리 보기)](../articles/data-factory/connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys(미리 보기)](../articles/data-factory/connector-oracle-responsys.md) |
-| &nbsp; |[Paypal(미리 보기)](../articles/data-factory/connector-paypal.md) |
+| &nbsp; |[Oracle Service Cloud(미리 보기)](../articles/data-factory/connector-oracle-service-cloud.md) || &nbsp; |[Paypal(미리 보기)](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks(미리 보기)](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
 | &nbsp; |[Salesforce 서비스 클라우드](../articles/data-factory/connector-salesforce.md) |

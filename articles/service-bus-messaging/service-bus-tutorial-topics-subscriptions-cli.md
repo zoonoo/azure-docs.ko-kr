@@ -2,19 +2,19 @@
 title: 자습서 - Azure CLI에서 게시/구독 채널 및 토픽 필터를 사용하여 소매점 재고 분류 업데이트 | Microsoft Docs
 description: 이 자습서에서는 토픽과 구독에서 메시지를 보내고 받는 방법과 Azure CLI를 사용하여 필터 규칙을 추가하고 사용하는 방법을 알아봅니다.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
-ms.date: 05/22/2018
+ms.author: spelluru
+ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 42f0781de5412310ecb5326f0384268aba9c53dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d2be579dda9f90f06897f11d62ccd08076f892e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651671"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413573"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>자습서: CLI 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -32,25 +32,25 @@ Microsoft Azure Service Bus는 응용 프로그램과 서비스 간에 정보를
 
 ![토픽](./media/service-bus-tutorial-topics-subscriptions-cli/about-service-bus-topic.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][]을 만들 수 있습니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 Java를 사용하여 Service Bus 앱을 개발하려면 다음이 설치되어 있어야 합니다.
 
-- [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 최신 버전
+- [Java Development Kit](https://aka.ms/azure-jdks) 최신 버전
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
 - [Apache Maven](https://maven.apache.org) 버전 3.0 이상
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="service-bus-topics-and-subscriptions"></a>Service Bus 토픽 및 구독
 
 [토픽에 대한 각 구독](service-bus-messaging-overview.md#topics)은 각 메시지의 복사본을 받을 수 있습니다. 토픽은 완전히 프로토콜이며, 의미상 Service Bus 큐와 호환됩니다. Service Bus 토픽은 메시지 속성을 설정하거나 수정하는 선택적 동작과 함께 필터 조건이 포함된 다양한 선택 규칙을 지원합니다. 규칙이 일치할 때마다 메시지를 생성합니다. 규칙, 필터 및 작업에 대해 자세히 알아보려면 이 [링크](topic-filters.md)를 따르세요.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 CLI가 설치되면 명령 프롬프트를 열고 다음 명령을 실행하여 Azure에 로그인합니다. Cloud Shell을 사용하는 경우에는 다음 단계가 필요하지 않습니다.
 
@@ -343,7 +343,7 @@ Service Bus의 게시/구독 기능을 사용하는 방법에 대해 자세히 �
 > [!div class="nextstepaction"]
 > [PowerShell 및 토픽/구독을 사용하여 재고 업데이트](service-bus-tutorial-topics-subscriptions-portal.md)
 
-[체험 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[무료 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
-[Install Azure CLI 2.0]: /cli/azure/install-azure-cli
+[Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

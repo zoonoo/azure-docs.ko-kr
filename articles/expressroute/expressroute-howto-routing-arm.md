@@ -3,24 +3,17 @@ title: 'ExpressRoute 회로에 라우팅을 구성하는 방법(피어링): Reso
 description: 이 문서에서는 ExpressRoute 회로의 개인, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
 documentationcenter: na
 services: expressroute
-author: osamazia
-manager: jonor
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
+author: jaredr80
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 1/3/2018
-ms.author: osamaz, jaredr80
-ms.openlocfilehash: d4f8f0e6c8fab5dfb4efcc4f1659ba90336c8bf0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 10/23/2018
+ms.author: jaredro
+ms.openlocfilehash: 63c88838d943be028aa655863b96b68f6b5b1321
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593885"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261760"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>PowerShell을 사용하여 ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -30,17 +23,12 @@ ms.locfileid: "31593885"
 > * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [비디오 - 개인 피어링](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [비디오 - 공용 피어링](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [비디오 - Microsoft 피어링](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [비디오 - 개인 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [비디오 - 공용 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [비디오 - Microsoft 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell(클래식)](expressroute-howto-routing-classic.md)
 > 
 
-## <a name="configuration-prerequisites"></a>필수 구성 요소
-
-* 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 
-* 구성을 시작하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
-* 활성화된 ExpressRoute 회로가 있어야 합니다. 지침을 수행하여 [ExpressRoute 회로를 만들고](expressroute-howto-circuit-arm.md) 진행하기 전에 연결 공급자를 통해 회로를 사용하도록 설정합니다. ExpressRoute 회로는 이 문서에서 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
 
 이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다.
 
@@ -50,6 +38,15 @@ ms.locfileid: "31593885"
 > 
 
 ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구성할 수 있습니다.(개인, Azure 공용 Azure 및 Microsoft) 선택한 순서로 피어링을 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [ExpressRoute 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
+
+## <a name="configuration-prerequisites"></a>필수 구성 요소
+
+* 구성을 시작하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
+* 활성화된 ExpressRoute 회로가 있어야 합니다. 지침을 수행하여 [ExpressRoute 회로를 만들고](expressroute-howto-circuit-arm.md) 진행하기 전에 연결 공급자를 통해 회로를 사용하도록 설정합니다. ExpressRoute 회로는 이 문서에서 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
+
+### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
+
+[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="msft"></a>Microsoft 피어링
 
@@ -62,37 +59,17 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
 
 ### <a name="to-create-microsoft-peering"></a>Microsoft 피어링을 만들려면
 
-1. ExpressRoute에 대한 PowerShell 모듈을 가져옵니다.
+1. 로그인하고 구독을 선택합니다.
 
-  ExpressRoute cmdlet을 사용하려면 [PowerShell 갤러리](http://www.powershellgallery.com/) 에서 최신 Powershell 설치 관리자를 설치하고 PowerShell 세션으로 Azure Resource Manager 모듈을 가져와야 합니다. 관리자 권한으로 PowerShell을 실행해야 합니다.
+  PowerShell을 로컬로 설치한 경우 로그인합니다. Azure Cloud Shell을 사용하는 경우 이 단계를 건너뛸 수 있습니다.
 
-  ```powershell
-  Install-Module AzureRM
-
-  Install-AzureRM
-  ```
-
-  알려진 의미 체계 버전 범위의 모든 AzureRM.* 모듈을 가져옵니다.
-
-  ```powershell
-  Import-AzureRM
-  ```
-
-  또한 알려진 의미 체계 버전 범위의 선택 모듈만 가져올 수 있습니다.
-
-  ```powershell
-  Import-Module AzureRM.Network
-  ```
-
-  계정에 로그인합니다.
-
-  ```powershell
+  ```azurepowershell
   Connect-AzureRmAccount
   ```
 
   ExpressRoute 회로를 만들려는 구독을 선택합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
 Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
 2. ExpressRoute 회로를 만듭니다.
@@ -101,7 +78,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
 3. 먼저 ExpressRoute 회로가 프로비전되고 사용 가능한지 확인합니다. 다음 예제를 사용합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
@@ -144,7 +121,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
   다음 예제를 실행하여 회로에 Microsoft 피어링을 구성합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
@@ -156,7 +133,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
 다음 예제를 사용하여 구성 세부 정보를 가져올 수 있습니다.
 
-```powershell
+```azurepowershell-interactive
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
@@ -166,7 +143,7 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRou
 
 다음 예제를 사용하여 구성의 일부를 업데이트할 수 있습니다.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
 Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
@@ -178,7 +155,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 다음 cmdlet을 실행하여 피어링 구성을 제거할 수 있습니다.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -194,32 +171,32 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
   ExpressRoute cmdlet을 사용하려면 [PowerShell 갤러리](http://www.powershellgallery.com/) 에서 최신 Powershell 설치 관리자를 설치하고 PowerShell 세션으로 Azure Resource Manager 모듈을 가져와야 합니다. 관리자 권한으로 PowerShell을 실행해야 합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Install-Module AzureRM
   Install-AzureRM
   ```
 
   알려진 의미 체계 버전 범위의 모든 AzureRM.* 모듈을 가져옵니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Import-AzureRM
   ```
 
   또한 알려진 의미 체계 버전 범위의 선택 모듈만 가져올 수 있습니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Import-Module AzureRM.Network 
   ```
 
   계정에 로그인합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Connect-AzureRmAccount
   ```
 
   ExpressRoute 회로를 만들려는 구독을 선택합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
 2. ExpressRoute 회로를 만듭니다.
@@ -228,7 +205,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 3. 먼저 ExpressRoute 회로가 프로비전되고 사용 가능한지 확인합니다. 다음 예제를 사용합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
@@ -268,7 +245,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
   다음 예제를 사용하여 회로에 Azure 개인 피어링을 구성합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -276,7 +253,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
   MD5 해시를 사용하려는 경우 다음 예제를 사용합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
   ```
 
@@ -289,7 +266,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 다음 예제를 사용하여 구성 세부 정보를 가져올 수 있습니다.
 
-```powershell
+```azurepowershell-interactive
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
@@ -299,7 +276,7 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Express
 
 다음 예제를 사용하여 구성의 일부를 업데이트할 수 있습니다. 이 예제에서는 회로의 VLAN ID를 100개에서 500개로 업데이트됩니다.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -310,11 +287,11 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 다음 예제를 실행하여 피어링 구성을 제거할 수 있습니다.
 
 > [!WARNING]
-> 이 예제를 실행하기 전에 모든 가상 네트워크가 ExpressRoute 회로에서 연결되지 않았는지 확인해야 합니다. 
+> 이 예제를 실행하기 전에 모든 가상 네트워크 및 ExpressRoute Global Reach 연결을 제거해야 합니다. 
 > 
 > 
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -330,7 +307,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
   ExpressRoute cmdlet을 사용하려면 [PowerShell 갤러리](http://www.powershellgallery.com/) 에서 최신 Powershell 설치 관리자를 설치하고 PowerShell 세션으로 Azure Resource Manager 모듈을 가져와야 합니다. 관리자 권한으로 PowerShell을 실행해야 합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Install-Module AzureRM
 
   Install-AzureRM
@@ -338,25 +315,25 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
   알려진 의미 체계 버전 범위의 모든 AzureRM.* 모듈을 가져옵니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Import-AzureRM
   ```
 
   또한 알려진 의미 체계 버전 범위의 선택 모듈만 가져올 수 있습니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Import-Module AzureRM.Network
 ```
 
   계정에 로그인합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Connect-AzureRmAccount
   ```
 
   ExpressRoute 회로를 만들려는 구독을 선택합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
 2. ExpressRoute 회로를 만듭니다.
@@ -365,7 +342,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 3. 먼저 ExpressRoute 회로가 프로비전되고 사용 가능한지 확인합니다. 다음 예제를 사용합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
@@ -405,7 +382,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
   다음 예제를 실행하여 회로에 Azure 공용 피어링을 구성합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -413,7 +390,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
   MD5 해시를 사용하려는 경우 다음 예제를 사용합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -428,7 +405,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 다음 cmdlet을 사용하여 구성 세부 정보를 가져올 수 있습니다.
 
-```powershell
+```azurepowershell-interactive
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
   Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
@@ -438,7 +415,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 다음 예제를 사용하여 구성의 일부를 업데이트할 수 있습니다. 이 예제에서는 회로의 VLAN ID를 200개에서 600개로 업데이트됩니다.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -448,7 +425,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 다음 예제를 실행하여 피어링 구성을 제거할 수 있습니다.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```

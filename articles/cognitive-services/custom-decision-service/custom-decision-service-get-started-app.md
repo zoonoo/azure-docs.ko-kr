@@ -1,20 +1,21 @@
 ---
-title: 앱에서 API 호출 - Azure Cognitive Services | Microsoft Docs
-description: 스마트폰 앱에서 API를 호출하는 경우 Azure Custom Decision Service를 시작하는 방법입니다.
+title: 앱에서 API 호출 - Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: 스마트폰 앱에서 Custom Decision Service API를 호출하는 방법입니다.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: slivkins
-ms.reviewer: marcozo, alekh
-ms.openlocfilehash: 2d02b0deaaa701dd0b4818638827c04e2c946558
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e7df982c178bff19dcad8df1ba42a5a97904cd4c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382914"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365020"
 ---
 # <a name="call-api-from-an-app"></a>앱에서 API 호출
 

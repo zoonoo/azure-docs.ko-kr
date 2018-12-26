@@ -2,24 +2,18 @@
 title: Azure 파일의 공유 스냅숏 개요 | Microsoft Docs
 description: 공유 스냅숏은 공유를 백업하는 방법으로 특정 시점에 생성된 Azure 파일 공유의 읽기 전용 버전입니다.
 services: storage
-documentationcenter: .net
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: af113ae76d81c82ff6c4ced1569aa16f3a9ee27c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.component: files
+ms.openlocfilehash: 7f03af0fc338299da9b989d46e7bbfb83f3babeb
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064481"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945708"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 파일의 공유 스냅숏 개요 
 Azure 파일은 파일 공유의 공유 스냅숏을 생성하는 기능을 제공합니다. 공유 스냅숏은 특정 시점의 공유 상태를 캡처합니다. 이 문서에서는 공유 스냅숏이 제공하는 기능 및 사용자 지정 사용 사례에 이를 용할 수 있는 방법을 설명합니다.
@@ -27,7 +21,7 @@ Azure 파일은 파일 공유의 공유 스냅숏을 생성하는 기능을 제�
 ## <a name="when-to-use-share-snapshots"></a>공유 스냅숏을 사용하는 경우
 
 ### <a name="protection-against-application-error-and-data-corruption"></a>응용 프로그램 오류 및 데이터 손상으로부터 보호
-파일 공유를 사용하는 응용 프로그램은 쓰기, 읽기, 저장, 전송 및 처리 등의 작업을 수행합니다. 응용 프로그램이 잘못 구성되거나 의도하지 않은 버그가 발생하여 일부 블록을 실수로 덮어쓰거나 손상시킬 수 있습니다. 이러한 시나리오를 방지하기 위해 새 응용 프로그램 코드를 배포하기 전에 공유 스냅숏을 생성할 수 있습니다. 새 배포에서 버그 또는 응용 프로그램 오류가 발생하면 해당 파일 공유에 있는 이전 버전의 데이터로 돌아갈 수 있습니다. 
+파일 공유를 사용하는 애플리케이션은 쓰기, 읽기, 저장, 전송 및 처리 등의 작업을 수행합니다. 애플리케이션이 잘못 구성되거나 의도하지 않은 버그가 발생하여 일부 블록을 실수로 덮어쓰거나 손상시킬 수 있습니다. 이러한 시나리오를 방지하기 위해 새 애플리케이션 코드를 배포하기 전에 공유 스냅숏을 생성할 수 있습니다. 새 배포에서 버그 또는 애플리케이션 오류가 발생하면 해당 파일 공유에 있는 이전 버전의 데이터로 돌아갈 수 있습니다. 
 
 ### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>실수로 삭제 또는 의도하지 않은 변경 방지
 파일 공유의 텍스트 파일을 작업하고 있다고 가정하겠습니다. 텍스트 파일을 닫은 후에는 변경 내용을 취소할 수 없게 됩니다. 이런 경우에는 파일의 이전 버전을 복구해야 합니다. 실수로 파일 이름을 변경하거나 파일을 삭제한 경우 공유 스냅숏을 사용하여 파일의 이전 버전을 복구할 수 있습니다.
@@ -38,7 +32,7 @@ Azure 파일은 파일 공유의 공유 스냅숏을 생성하는 기능을 제�
 ## <a name="capabilities"></a>기능
 공유 스냅숏은 데이터의 특정 시점 읽기 전용 복사본입니다. REST API를 사용하여 스냅숏을 만들고 삭제하고 관리할 수 있습니다. 클라이언트 라이브러리, Azure CLI 및 Azure Portal에서도 같은 기능을 사용할 수 있습니다. 
 
-REST API 및 SMB 둘 다를 사용하여 공유의 스냅숏을 볼 수 있습니다. 디렉터리 또는 파일의 버전 목록을 검색할 수 있으며 특정 버전을 드라이브로 직접 탑재할 수도 있습니다. 
+REST API 및 SMB 둘 다를 사용하여 공유의 스냅숏을 볼 수 있습니다. 디렉터리 또는 파일의 버전 목록을 검색할 수 있으며 특정 버전을 드라이브로 직접 탑재할 수도 있습니다(Windows에서만 사용 가능 - [한도](#limits) 참조). 
 
 공유 스냅숏이 생성된 후에는 읽거나 복사하거나 삭제할 수 있지만 수정할 수는 없습니다. 전체 공유 스냅숏을 다른 저장소 계정으로 복사할 수는 없습니다. AzCopy 또는 다른 복사 메커니즘을 사용하여 파일별로 작업을 수행해야 합니다.
 
@@ -69,6 +63,8 @@ Azure Files에서 허용하는 최대 공유 스냅숏 수는 200개입니다. �
 
 공유 스냅숏 생성을 위한 동시 호출에는 제한이 없습니다. 특정 파일 공유의 공유 스냅숏이 사용할 수 있는 공간의 양에는 제한이 없습니다. 
 
+오늘은 Linux에서 공유 스냅숏을 탑재할 수 없습니다. 이는 Linux SMB 클라이언트가 Windows와 같은 스냅숏 탑재를 지원하지 않기 때문입니다.
+
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>공유 스냅숏에서 공유로 데이터 다시 복사
 파일 및 공유 스냅숏과 관련된 복사 작업에는 다음 규칙이 적용됩니다.
 
@@ -89,7 +85,7 @@ Azure에서 인프라를 실행할 때 데이터 복구를 위해 가능하면 �
 
 ## <a name="next-steps"></a>다음 단계
 - 다음에서 공유 스냅숏으로 작업:
-    - [포털](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
-    - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
-    - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+    - [PowerShell](storage-how-to-use-files-powershell.md)
+    - [CLI](storage-how-to-use-files-cli.md)
+    - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
 - [공유 스냅숏 FAQ](storage-files-faq.md#share-snapshots)

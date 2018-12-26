@@ -1,25 +1,19 @@
 ---
-title: "Azure Data Catalog에서 데이터 원본 등록 | Microsoft Docs"
-description: "이 문서는 등록 중에 추출된 메타데이터 필드를 포함하여 Azure Data Catalog에 데이터 원본을 등록하는 방법을 강조 표시합니다."
+title: Azure Data Catalog에서 데이터 원본 등록
+description: 이 문서는 등록 중에 추출된 메타데이터 필드를 포함하여 Azure Data Catalog에 데이터 원본을 등록하는 방법을 강조 표시합니다.
 services: data-catalog
-documentationcenter: 
-author: steelanddata
-manager: NA
-editor: 
-tags: 
+author: markingmyname
+ms.author: maghan
 ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 48b13eef0960afb4aab68923fb97b5b9c14a3d9f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 413f9340432f39d60ccdb43557616b4123132873
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404897"
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 원본 등록
 ## <a name="introduction"></a>소개
@@ -35,7 +29,7 @@ Azure Data Catalog는 기업 데이터 원본의 등록 시스템 및 검색 역
 
 자세한 단계별 지침은 [Azure Data Catalog 시작](data-catalog-get-started.md) 자습서를 참조하세요.
 
-데이터 원본을 등록한 후 카탈로그는 해당 위치를 추적하고 해당 메타데이터를 인덱싱합니다. 사용자는 데이터 원본을 검색하고 찾아본 다음 응용 프로그램 또는 선택한 도구를 사용하여 연결하도록 해당 위치를 사용합니다.
+데이터 원본을 등록한 후 카탈로그는 해당 위치를 추적하고 해당 메타데이터를 인덱싱합니다. 사용자는 데이터 원본을 검색하고 찾아본 다음, 애플리케이션 또는 선택한 도구를 사용하여 연결하도록 해당 위치를 사용합니다.
 
 ## <a name="supported-data-sources"></a>지원되는 데이터 원본
 현재 지원되는 데이터 원본 목록은 [데이터 카탈로그 DSR](data-catalog-dsr.md)을 참조하세요.

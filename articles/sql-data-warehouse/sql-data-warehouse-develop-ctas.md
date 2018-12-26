@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse의 CTAS(CREATE TABLE AS SELECT) | Microsoft Docs
 description: 솔루션 개발을 위해 Azure SQL Data Warehouse에서 CTAS(CREATE TABLE AS SELECT) 문으로 코딩하는 방법에 대한 팁입니다.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 9bff6b1216ae826203b24a2cdf8a3d7fd0fd586f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dad0b1570f54cde1b1d474d8ebfc78f793724ef4
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599087"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247756"
 ---
 # <a name="using-create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 CTAS(CREATE TABLE AS SELECT) 사용
 솔루션 개발을 위해 Azure SQL Data Warehouse에서 CTAS(CREATE TABLE AS SELECT) T-SQL 문으로 코딩하는 방법에 대한 팁입니다.
@@ -386,7 +386,7 @@ WITH
 
 그러나 값 필드는 원본 데이터의 일부가 아닌 계산된 식입니다.
 
-분할된 데이터 집합을 만들려면 다음을 수행해야 합니다.
+분할된 데이터 세트를 만들려면 다음을 수행해야 합니다.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]

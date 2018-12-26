@@ -1,29 +1,24 @@
 ---
-title: Apache Hive 및 Pig를 포함하는 Python UDF - Azure HDInsight | Microsoft Docs
-description: HDInsight의 Hive 및 Pig에서 Python UDF(사용자 정의 함수)를 사용하는 방법, Azure에서의 Hadoop 기술 스택에 대해 알아봅니다.
+title: Apache Hive 및 Apache Pig에서의 Python UDF - Azure HDInsight
+description: HDInsight에서 Azure의 Apache Hadoop 기술 스택인 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수)를 사용하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: c44d6606-28cd-429b-b535-235e8f34a664
 ms.service: hdinsight
-ms.devlang: python
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: c508ffcdd5cccaad5c7b0717d33e2ea1449ab522
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 021ec3919e061010265ff3a2f30fde0ffb59e7b0
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405496"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632614"
 ---
-# <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>HDInsight의 Hive 및 Pig에서 Python UDF(사용자 정의 함수) 사용
+# <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>HDInsight의 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수) 사용
 
-Azure HDInsight의 Hadoop에서 Apache Hive 및 Pig와 함께 Python UDF(사용자 정의 함수)를 사용하는 방법에 대해 알아보세요.
+Azure HDInsight의 Apache Hadoop에서 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수)를 사용하는 방법에 대해 알아봅니다.
 
 ## <a name="python"></a>HDInsight의 Python
 
@@ -54,7 +49,7 @@ add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'python hiveudf.py' AS
-    (clientid string, phoneLable string, phoneHash string)
+    (clientid string, phoneLabel string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
@@ -66,7 +61,7 @@ add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'D:\Python27\python.exe hiveudf.py' AS
-    (clientid string, phoneLable string, phoneHash string)
+    (clientid string, phoneLabel string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
@@ -384,7 +379,7 @@ PowerShell을 사용하여 Pig Latin 작업을 실행할 수도 있습니다. **
 
 ## <a name="next"></a>다음 단계
 
-기본적으로 제공되지 않는 Python 모듈을 로드해야 하는 경우 [Azure HDInsight에 모듈을 배포하는 방법](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx)(영문)을 참조하세요.
+기본적으로 제공되지 않는 Python 모듈을 로드해야 하는 경우 [Azure HDInsight에 모듈을 배포하는 방법](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx)(영문)을 참조하세요.
 
 Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법은 다음 문서를 참조하세요.
 

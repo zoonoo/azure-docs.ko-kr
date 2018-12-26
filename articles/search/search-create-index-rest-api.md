@@ -1,21 +1,21 @@
 ---
 title: 인덱스 만들기(REST API - Azure Search) | Microsoft Docs
 description: Azure Search HTTP REST API를 사용하여 코드에 인덱스를 만듭니다.
-author: chaosrealm
-manager: jlembicz
-ms.author: eugenesh
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 tags: azure-portal
 services: search
 ms.service: search
 ms.devlang: rest-api
-ms.topic: quickstart
-ms.date: 04/20/2018
-ms.openlocfilehash: 86260e1929e8bd5c31682ef7f59cacae19a66020
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: conceptual
+ms.openlocfilehash: ff534bc287e3872ee87ed808be249a6e68c68ab3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182034"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403546"
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -31,10 +31,10 @@ ms.locfileid: "32182034"
 
 이 가이드를 수행하고 인덱스를 만들기 전에 이미 [Azure Search 서비스를 만들어야](search-create-service-portal.md)합니다.
 
-REST API를 사용하여 Azure Search 인덱스를 만들려면 Azure Search 서비스의 URL 끝점에 단일 HTTP 게시 요청을 발행합니다. 인덱스 정의는 올바른 형식의 JSON 콘텐츠로 요청 본문에 포함됩니다.
+REST API를 사용하여 Azure Search 인덱스를 만들려면 Azure Search 서비스의 URL 엔드포인트에 단일 HTTP 게시 요청을 발행합니다. 인덱스 정의는 올바른 형식의 JSON 콘텐츠로 요청 본문에 포함됩니다.
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure Search 서비스의 관리 API 키 식별
-Azure Search 서비스를 프로비전했다면 REST API를 사용하여 서비스의 URL 끝점에 대한 HTTP 요청을 실행할 수 있습니다. *모든* API 요청은 프로비전된 Search 서비스에 대해 생성된 API 키를 포함해야 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
+Azure Search 서비스를 프로비전했다면 REST API를 사용하여 서비스의 URL 엔드포인트에 대한 HTTP 요청을 실행할 수 있습니다. *모든* API 요청은 프로비전된 Search 서비스에 대해 생성된 API 키를 포함해야 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 1. 서비스의 API 키를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인해야 합니다.
 2. Azure Search 서비스의 블레이드로 이동합니다.
@@ -84,7 +84,7 @@ Azure Search 서비스를 프로비전했다면 REST API를 사용하여 서비�
 위의 인덱스 정의는 프랑스어 텍스트를 저장하기 위해서 `description_fr` 필드에 언어 분석기를 사용합니다. 언어 분석기에 대한 자세한 내용은 [언어 지원 항목](https://docs.microsoft.com/rest/api/searchservice/Language-support)뿐만 아니라 해당하는 [블로그 게시물](https://azure.microsoft.com/blog/language-support-in-azure-search/)을 참조하세요.
 
 ## <a name="issue-the-http-request"></a>HTTP 요청 발급
-1. 인덱스 정의를 요청 본문으로 사용하여 Azure Search 서비스 끝점 URL에 HTTP 게시 요청을 발급합니다. URL에 서비스 이름을 호스트 이름으로 사용하고 적절한 `api-version`을 쿼리 문자열 매개 변수로 배치합니다(현재 API 버전은 이 문서를 게시할 때 `2017-11-11`임).
+1. 인덱스 정의를 요청 본문으로 사용하여 Azure Search 서비스 엔드포인트 URL에 HTTP 게시 요청을 발급합니다. URL에 서비스 이름을 호스트 이름으로 사용하고 적절한 `api-version`을 쿼리 문자열 매개 변수로 배치합니다(현재 API 버전은 이 문서를 게시할 때 `2017-11-11`임).
 2. 요청 헤더에서 `Content-Type`을 `application/json`으로 지정합니다. `api-key` 헤더의 I 단계에서 식별하는 서비스의 관리 키를 제공해야 합니다.
 
 아래와 같이 요청을 실행할 고유한 서비스 이름 및 api 키를 제공해야 합니다.

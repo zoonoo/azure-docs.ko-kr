@@ -1,20 +1,20 @@
 ---
-title: Azure Site Recovery에서 PowerShell을 사용하여 VMware VM을 Azure로 복제 및 장애 조치(failover) | Microsoft Docs
-description: Azure Site Recovery에서 PowerShell을 사용하여 VMware VM에 대한 Azure로 복제 및 장애 조치(failover)를 설정하는 방법을 알아봅니다.
-services: site-recovery
-author: bsiva
+title: Azure Site Recovery에서 PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정 | Microsoft Docs
+description: Azure Site Recovery에서 PowerShell을 사용하여 VMware VM의 재해 복구를 위해 Azure로 복제 및 장애 조치(failover)를 설정하는 방법을 알아봅니다.
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
-ms.author: bsiva
-ms.openlocfilehash: a826817b8f2b4ebff8442da1fbee79a95990a9e8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: sutalasi
+ms.openlocfilehash: 1b97ff461dc3a4f7dcba0a3dbfad71a25cb3f1e9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917815"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840208"
 ---
-# <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM 복제 및 장애 조치(failover)
+# <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정
 
 이 문서에서는 Azure PowerShell을 사용하여 VMware 가상 머신을 Azure로 복제 및 장애 조치(failover)하는 방법을 설명합니다. 
 
@@ -23,7 +23,8 @@ ms.locfileid: "37917815"
 > [!div class="checklist"]
 > - Recovery Services 자격 증명 모음을 만들고 자격 증명 모음 컨텍스트를 설정합니다.
 > - 자격 증명 모음에서 서버 등록 유효성을 검사합니다.
-> - 복제 정책을 포함하여 복제를 설정합니다. vCenter 서버를 추가하고 VM을 검색합니다. > - vCenter 서버 추가 및 검색 
+> - 복제 정책을 포함하여 복제를 설정합니다. vCenter 서버를 추가하고 VM을 검색합니다. 
+> - vCenter 서버 추가 및 검색 
 > - 복제 데이터를 저장할 저장소 계정을 만들고 VM을 복제합니다.
 > - 장애 조치(failover)를 수행합니다. 장애 조치(failover) 설정을 구성하고, 가상 머신 복제를 위한 설정을 수행합니다.
 
@@ -109,7 +110,7 @@ Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 
    Set-ASRVaultContext -Vault $vault
    ```
    ```
-   ResourceName      ResourceGroupName ResourceNamespace          ResouceType
+   ResourceName      ResourceGroupName ResourceNamespace          ResourceType
    ------------      ----------------- -----------------          -----------
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
@@ -335,7 +336,7 @@ vCenter Server에서 가상 머신을 검색하는 데 15~20분 정도 걸립니
 
 * 복제할 보호 가능한 항목.
 * 가상 머신을 복제할 대상 저장소 계정. 또한 가상 머신을 프리미엄 저장소 계정으로 보호하기 위해 로그 저장소가 필요합니다.
-* 복제에 사용할 프로세스 서버. 사용 가능한 프로세스 서버 목록이 검색되어 ***$ProcessServers[0]****(ScaleOut-ProcessServer)* 및 ***$ProcessServers[1]****(ConfigurationServer)* 변수에 저장됩니다.
+* 복제에 사용할 프로세스 서버. 사용 가능한 프로세스 서버 목록이 검색되어 ***$ProcessServers[0]*** *(ScaleOut-ProcessServer)* 및 ***$ProcessServers[1]*** *(ConfigurationServer)* 변수에 저장됩니다.
 * 모바일 서비스 소프트웨어를 컴퓨터에 강제 설치하는 데 사용할 계정. 사용 가능한 계정 목록은 검색되어 ***$AccountHandles*** 변수에 저장됩니다.
 * 복제에 사용되는 복제 정책에 대한 보호 컨테이너 매핑.
 * 장애 조치(failover)시 가상 머신이 만들어져야 하는 리소스 그룹.
@@ -367,19 +368,19 @@ $VM1 = Get-ASRProtectableItem -ProtectionContainer $ProtectionContainer -Friendl
 
 # Enable replication for virtual machine Win2K12VM1
 # The name specified for the replicated item needs to be unique within the protection container. Using a random GUID to ensure uniqueness
-$Job_EnableRepication1 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $PremiumStorageAccount.Id -LogStorageAccountId $LogStorageAccount.Id -ProcessServer $ProcessServers[0] -Account $AccountHandles[1] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" 
+$Job_EnableReplication1 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $PremiumStorageAccount.Id -LogStorageAccountId $LogStorageAccount.Id -ProcessServer $ProcessServers[0] -Account $AccountHandles[1] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" 
 
 #Get the protectable item corresponding to the virtual machine CentOSVM1
 $VM2 = Get-ASRProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "CentOSVM1"
 
 # Enable replication for virtual machine CentOSVM1
-$Job_EnableRepication2 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM2 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $ReplicationStdStorageAccount.Id  -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
+$Job_EnableReplication2 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM2 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $ReplicationStdStorageAccount.Id  -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
 
 #Get the protectable item corresponding to the virtual machine CentOSVM2
 $VM3 = Get-ASRProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "CentOSVM2"
 
 # Enable replication for virtual machine CentOSVM2
-$Job_EnableRepication3 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM3 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $ReplicationStdStorageAccount.Id  -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" 
+$Job_EnableReplication3 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM3 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $ReplicationStdStorageAccount.Id  -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" 
 
 ```
 

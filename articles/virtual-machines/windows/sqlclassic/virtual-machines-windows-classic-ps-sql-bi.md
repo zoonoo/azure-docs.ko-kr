@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: a41dcd5f2c93e5c1279e1c7511e10e6d72574b3b
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2b2f5a441209b76f4c90c1a4682215d388b2d53a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098749"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242894"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server Business Intelligence
 > [!IMPORTANT] 
@@ -78,11 +78,11 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
 
 | SQL Server BI 기능 | 갤러리 이미지에 설치 | 메모 |
 | --- | --- | --- |
-| **Reporting Services 기본 모드** |예 |설치되었지만 보고서 관리자 URL을 비롯한 구성이 필요합니다. [Reporting Services 구성](#configure-reporting-services)섹션을 참조하세요. |
-| **Reporting Services SharePoint 모드** |아니오 |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
-| **Analysis Services 다차원 및 데이터 마이닝(OLAP)** |예 |설치되고 기본 Analysis Services 인스턴스로 구성되었습니다. |
-| **Analysis Services 테이블 형식** |아니오 |SQL Server 2012, 2014 및 2016 이미지에서 지원되지만 기본적으로 설치되지 않습니다. Analysis Services의 다른 인스턴스를 설치합니다. 이 항목의 다른 SQL Server 서비스 및 기능 설치 섹션을 참조하세요. |
-| **SharePoint용 Analysis Services 파워 피벗** |아니오 |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
+| **Reporting Services 기본 모드** |yes |설치되었지만 보고서 관리자 URL을 비롯한 구성이 필요합니다. [Reporting Services 구성](#configure-reporting-services)섹션을 참조하세요. |
+| **Reporting Services SharePoint 모드** |아니요 |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
+| **Analysis Services 다차원 및 데이터 마이닝(OLAP)** |yes |설치되고 기본 Analysis Services 인스턴스로 구성되었습니다. |
+| **Analysis Services 테이블 형식** |아니요 |SQL Server 2012, 2014 및 2016 이미지에서 지원되지만 기본적으로 설치되지 않습니다. Analysis Services의 다른 인스턴스를 설치합니다. 이 항목의 다른 SQL Server 서비스 및 기능 설치 섹션을 참조하세요. |
+| **SharePoint용 Analysis Services 파워 피벗** |아니요 |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
 
 <sup>1</sup> SharePoint 및 Azure Virtual Machines에 대한 추가 정보는 [SharePoint 2013용 Microsoft Azure 아키텍처](https://technet.microsoft.com/library/dn635309.aspx) 및 [Microsoft Azure Virtual Machines에 SharePoint 배포](https://www.microsoft.com/download/details.aspx?id=34598)를 참조하세요.
 
@@ -151,7 +151,7 @@ Azure Virtual Machine에 연결하는 데 다음과 같은 두 가지 일반적�
 * Windows 원격 데스크톱 연결을 통해 가상 머신에 연결합니다. 원격 데스크톱의 사용자 인터페이스에서:
   
   1. 컴퓨터 이름으로 **클라우드 서비스 이름** 을 입력합니다.
-  2. 콜론(:)과 TCP 원격 데스크톱 끝점에 대해 구성된 공용 포트 번호를 입력합니다.
+  2. 콜론(:)과 TCP 원격 데스크톱 엔드포인트에 대해 구성된 공용 포트 번호를 입력합니다.
      
       Myservice.cloudapp.net:63133
      
@@ -189,7 +189,7 @@ Azure Virtual Machine에 연결하는 데 다음과 같은 두 가지 일반적�
 4. **서비스 계정** 을 클릭하고 필요에 따라 계정을 변경합니다. 가상 머신이 도메인에 가입되지 않은 환경에서 사용되는 경우 기본 제공 **ReportServer** 계정이면 충분합니다. 서비스 계정에 대한 자세한 내용은 [서비스 계정](https://msdn.microsoft.com/library/ms189964.aspx)을 참조하세요.
 5. 왼쪽 창에서 **웹 서비스 URL** 을 클릭합니다.
 6. **적용** 을 클릭하여 기본값을 구성합니다.
-7. **보고서 서버 웹 서비스 URL**을 기록해 둡니다. 기본 TCP 포트는 80이고 URL의 일부입니다. 이후 단계에서는 포트에 대한 Microsoft Azure Virtual Machine Scale Sets 끝점을 만듭니다.
+7. **보고서 서버 웹 서비스 URL**을 기록해 둡니다. 기본 TCP 포트는 80이고 URL의 일부입니다. 이후 단계에서는 포트에 대한 Microsoft Azure Virtual Machine Scale Sets 엔드포인트를 만듭니다.
 8. **결과** 창에서 작업이 성공적으로 완료되었는지 확인합니다.
 
 **데이터베이스:**
@@ -207,7 +207,7 @@ Azure Virtual Machine에 연결하는 데 다음과 같은 두 가지 일반적�
 **2012 및 2014용 웹 포털 URL 또는 보고서 관리자 URL:**
 
 1. 왼쪽 창에서 2014 및 2012용 **웹 포털 URL** 또는 **보고서 관리자 URL**을 클릭합니다.
-2. **Apply**를 클릭합니다.
+2. **적용**을 클릭합니다.
 3. **결과** 창에서 작업이 성공적으로 완료되었는지 확인합니다.
 4. **종료**를 클릭합니다.
 
@@ -220,9 +220,9 @@ Azure Virtual Machine에 연결하는 데 다음과 같은 두 가지 일반적�
 2. VM에서 http://localhost/reports로 이동합니다.
 
 ### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>2014 및 2012용 원격 웹 포털 또는 보고서 관리자에 연결하려면
-원격 컴퓨터에서 가상 컴퓨터의 2014 및 2012용 보고서 관리자 또는 웹 포털에 연결하려는 경우 새 가상 컴퓨터 TCP 끝점을 만듭니다. 기본적으로 보고서 서버는 **포트 80**에서 HTTP 요청을 수신합니다. 다른 포트를 사용하도록 보고서 서버 URL을 구성하는 경우 다음 지침에서 해당 포트 번호를 지정해야 합니다.
+원격 컴퓨터에서 가상 컴퓨터의 2014 및 2012용 보고서 관리자 또는 웹 포털에 연결하려는 경우 새 가상 컴퓨터 TCP 엔드포인트를 만듭니다. 기본적으로 보고서 서버는 **포트 80**에서 HTTP 요청을 수신합니다. 다른 포트를 사용하도록 보고서 서버 URL을 구성하는 경우 다음 지침에서 해당 포트 번호를 지정해야 합니다.
 
-1. TCP 포트 80의 Virtual Machine에 대해 끝점을 만듭니다. 자세한 내용은 이 문서의 [Virtual Machine 끝점 및 방화벽 포트](#virtual-machine-endpoints-and-firewall-ports) 섹션을 참조하세요.
+1. TCP 포트 80의 Virtual Machine에 대해 엔드포인트를 만듭니다. 자세한 내용은 이 문서의 [Virtual Machine 엔드포인트 및 방화벽 포트](#virtual-machine-endpoints-and-firewall-ports) 섹션을 참조하세요.
 2. 가상 머신의 방화벽에서 포트 80을 엽니다.
 3. Azure Virtual Machine **DNS 이름**을 URL의 서버 이름으로 사용하는 보고서 관리자 또는 웹 포털로 이동합니다. 예: 
    
@@ -302,20 +302,20 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
 2. SQL Server Management Studio에서 테이블 형식 AS 인스턴스 일반 속성의 'Port' 값을 업데이트하여 정적 Analysis Services 명명된 인스턴스 포트를 만듭니다. 자세한 내용은 [Analysis Services 액세스를 허용하도록 Windows 방화벽 구성](https://msdn.microsoft.com/library/ms174937.aspx#bkmk_fixed)의 "기본 또는 명명된 인스턴스에 고정된 포트 사용"을 참조하세요.
 3. Analysis Services 서비스의 테이블 형식 인스턴스를 다시 시작합니다.
 
-자세한 내용은 이 문서의 **Virtual Machine 끝점 및 방화벽 포트** 섹션을 참조하세요.
+자세한 내용은 이 문서의 **Virtual Machine 엔드포인트 및 방화벽 포트** 섹션을 참조하세요.
 
-## <a name="virtual-machine-endpoints-and-firewall-ports"></a>Virtual Machine 끝점 및 방화벽 포트
-이 섹션은 가상 머신 방화벽에서 만들려는 Microsoft Azure Virtual Machine 끝점 및 열려는 포트를 요약합니다. 다음 표는 가상 머신 방화벽에서 끝점을 만들려는 **TCP** 포트 및 열려는 포트를 요약합니다.
+## <a name="virtual-machine-endpoints-and-firewall-ports"></a>Virtual Machine 엔드포인트 및 방화벽 포트
+이 섹션은 가상 머신 방화벽에서 만들려는 Microsoft Azure Virtual Machine 엔드포인트 및 열려는 포트를 요약합니다. 다음 표는 가상 머신 방화벽에서 엔드포인트를 만들려는 **TCP** 포트 및 열려는 포트를 요약합니다.
 
-* 단일 VM을 사용하고 다음 두 항목에 해당하는 경우에는 VM의 방화벽에서 VM 끝점을 만들 필요가 없으며 포트를 열 필요가 없습니다.
+* 단일 VM을 사용하고 다음 두 항목에 해당하는 경우에는 VM의 방화벽에서 VM 엔드포인트를 만들 필요가 없으며 포트를 열 필요가 없습니다.
   
   * VM의 SQL Server 기능에 원격으로 연결하지 않습니다. VM에 원격 데스크톱 연결을 설정하고 VM에서 로컬로 SQL Server 기능에 액세스하는 것은 SQL Server 기능에 대한 원격 연결로 간주되지 않습니다.
   * Azure 가상 네트워킹이나 다른 VPN 터널링 솔루션을 통해 온-프레미스 도메인에 VM을 가입하지 않습니다.
 * 가상 머신이 도메인에 가입되지 않았지만 VM의 SQL Server 기능에 원격으로 연결하려는 경우:
   
   * VM의 방화벽에서 포트를 엽니다.
-  * 표시된 포트(*)에 가상 머신 끝점을 만듭니다.
-* Azure 가상 네트워킹 같은 VPN 터널을 사용하여 가상 머신이 도메인에 가입되어 있는 경우 끝점이 필요하지 않습니다. 그러나 VM의 방화벽에서 포트를 엽니다.
+  * 표시된 포트(*)에 가상 머신 엔드포인트를 만듭니다.
+* Azure 가상 네트워킹 같은 VPN 터널을 사용하여 가상 머신이 도메인에 가입되어 있는 경우 엔드포인트가 필요하지 않습니다. 그러나 VM의 방화벽에서 포트를 엽니다.
   
   | 포트 | type | 설명 |
   | --- | --- | --- |
@@ -326,9 +326,9 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
   | **2383** |TCP |SQL Server Analysis Services 기본 인스턴스 및 클러스터된 명명된 인스턴스입니다. |
   | **사용자 정의** |TCP |선택하는 포트 번호에 대해 정적 Analysis Services 명명된 인스턴스 포트를 만든 다음 방화벽에서 포트 번호의 차단을 해제합니다. |
 
-끝점을 만드는 방법에 대한 자세한 내용은 다음을 참조하세요.
+엔드포인트를 만드는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-* 끝점 만들기:[Virtual Machine에 끝점을 설정하는 방법](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* 엔드포인트 만들기:[Virtual Machine에 엔드포인트를 설정하는 방법](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * SQL Server: [Azure에서 SQL Server Virtual Machine 프로비전](../sql/virtual-machines-windows-portal-sql-server-provision.md)의 "SQL Server Management Studio를 사용하여 가상 머신에 연결하는 구성 단계 완료"를 참조하세요.
 
 다음 다이어그램에서는 VM의 기능 및 구성 요소에 대한 원격 액세스를 허용하기 위해 VM 방화벽에서 열 포트를 보여 줍니다.
@@ -336,7 +336,7 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
 ![Azure VM에서 bi 응용 프로그램에 대해 열 포트](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
 ## <a name="resources"></a>리소스
-* Azure Virtual Machine 환경에서 사용되는 Microsoft 서버 소프트웨어에 대한 지원 정책을 검토합니다. 다음 항목은 BitLocker, 장애 조치(failover) 클러스터링 및 네트워크 부하 분산 등의 기능에 대한 지원을 요약합니다. [Azure Virtual Machines에 대한 Microsoft 서버 소프트웨어 지원](http://support.microsoft.com/kb/2721672).
+* Azure Virtual Machine 환경에서 사용되는 Microsoft 서버 소프트웨어에 대한 지원 정책을 검토합니다. 다음 항목은 BitLocker, 장애 조치(failover) 클러스터링 및 네트워크 부하 분산 등의 기능에 대한 지원을 요약합니다. [Azure Virtual Machines에 대한 Microsoft 서버 소프트웨어 지원](https://support.microsoft.com/kb/2721672).
 * [Azure Virtual Machines의 SQL Server 개요](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Azure에서 SQL Server Virtual Machine 프로비전](../sql/virtual-machines-windows-portal-sql-server-provision.md)

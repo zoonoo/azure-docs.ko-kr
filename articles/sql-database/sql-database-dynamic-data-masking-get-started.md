@@ -2,19 +2,22 @@
 title: Azure SQL Database 동적 데이터 마스킹 | Microsoft Docs
 description: SQL Database 동적 데이터 마스킹에서는 권한이 없는 사용자에 대해 중요한 데이터를 마스킹해 표시함으로써 데이터 노출을 제한합니다.
 services: sql-database
-author: ronitr
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: ronitr
 ms.author: ronitr
-ms.openlocfilehash: e5ed226c0d2f849e59abcf3b46c9ec6fb7cc679a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 872e700842ce69ca955035120d4e09ec9facf7ec
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645252"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165554"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL Database 동적 데이터 마스킹
 
@@ -49,8 +52,8 @@ Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역
 DDM 권장 사항 엔진은 중요한 필드일 가능성이 있어 마스크 대상이 될 만한 데이터베이스의 특정 필드를 플래그합니다. 포털의 동적 데이터 마스킹 블레이드에는 데이터베이스에 대한 권장 열이 표시됩니다. 이 필드에 마스크를 적용하려면 하나 이상의 열에 대해 **마스크 추가**를 클릭한 다음 **저장**을 클릭하기만 하면 됩니다.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>PowerShell cmdlet을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
-[Azure SQL Database cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)을 참조하세요.
+[Azure SQL Database cmdlet](https://docs.microsoft.com/powershell/module/azurerm.sql)을 참조하세요.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>REST API를 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
-[Azure SQL Database에 대한 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
+[Azure SQL Database 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
 

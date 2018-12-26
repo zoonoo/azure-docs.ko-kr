@@ -3,7 +3,7 @@ title: 클라우드 서비스를 구성하는 방법(포털) | Microsoft Docs
 description: Azure에서 Cloud Services를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다. 이 예제는 Azure Portal을 사용합니다.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: adegeo
-ms.openlocfilehash: 255e496881f6269d37d3b2d982ba31861458631c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: jeconnoc
+ms.openlocfilehash: 904056363c685ef0a16b229ce72383eb80701a39
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874324"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006416"
 ---
 # <a name="how-to-configure-cloud-services"></a>Cloud Services를 구성하는 방법
 

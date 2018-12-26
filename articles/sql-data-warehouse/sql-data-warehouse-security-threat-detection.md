@@ -3,19 +3,19 @@ title: 위협 감지 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse에서 위협 탐지를 구성하고 의심스러운 이벤트 탐색합니다.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 8dc1ef0432536c6bfd4fe069406cd057ca069ea2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7ff23235e9681301984e13e346b23f277662bb5c
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523900"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300937"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 위협 탐지
 Azure SQL Data Warehouse에서 위협 탐지를 구성하고 의심스러운 이벤트 탐색합니다.
@@ -26,7 +26,7 @@ Azure SQL Data Warehouse에서 위협 탐지를 구성하고 의심스러운 이
 위협 감지는 비정상적인 활동에 대한 보안 경고를 제공하여 잠재적인 위협이 발생하면 고객이 이를 감지하고 대응할 수 있도록 하는 새로운 차원의 보안을 제공합니다. 사용자는 데이터 웨어하우스의 데이터를 액세스, 침해 또는 악용하려는 시도로 인해 의심스러운 이벤트가 발생했는지를 판단하기 위해서 [Azure SQL Data Warehouse 감사](sql-data-warehouse-auditing-overview.md) 를 사용하여 의심스러운 이벤트를 살펴볼 수 있습니다.
 위협 감지는 보안 전문가가 되거나 고급 보안 모니터링 시스템을 관리할 필요 없이 데이터 웨어하우스에 대한 잠재적인 위협에 간단하게 대처할 수 있도록 합니다.
 
-예를 들어 위협 감지는 잠재적인 SQL 삽입 시도를 나타내는 비정상적인 데이터베이스 활동을 감지합니다. SQL 삽입은 데이터 기반 응용 프로그램 공격에 사용되는 인터넷 상의 일반적인 웹 응용 프로그램 보안 문제 중 하나입니다. 공격자는 데이터베이스의 데이터를 침범하거나 수정하기 위해 응용 프로그램의 취약성을 이용하여 악의적인 SQL 문을 응용 프로그램 항목 필드에 삽입합니다.
+예를 들어 위협 감지는 잠재적인 SQL 삽입 시도를 나타내는 비정상적인 데이터베이스 활동을 감지합니다. SQL 삽입은 데이터 기반 애플리케이션 공격에 사용되는 인터넷 상의 일반적인 웹 애플리케이션 보안 문제 중 하나입니다. 공격자는 데이터베이스의 데이터를 침범하거나 수정하기 위해 애플리케이션의 취약성을 이용하여 악의적인 SQL 문을 애플리케이션 항목 필드에 삽입합니다.
 
 ## <a name="set-up-threat-detection-for-your-database"></a>데이터베이스에 대한 위협 감지 설정
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal을 시작합니다.
@@ -44,7 +44,7 @@ Azure SQL Data Warehouse에서 위협 탐지를 구성하고 의심스러운 이
 
 ## <a name="explore-anomalous-data-warehouse-activities-upon-detection-of-a-suspicious-event"></a>의심스러운 이벤트 감지 시 비정상적인 데이터 웨어하우스 활동 살펴보기
 1. 비정상적인 데이터베이스 활동이 감지되면 이메일 알림을 받게 됩니다. <br/>
-   이메일에는 비정상적인 활동의 특징, 데이터베이스 이름, 서버 이름, 이벤트 시간을 포함하여 의심스러운 보안 이벤트에 대한 정보가 제공됩니다. 또한 가능한 원인에 대한 정보와 데이터베이스에 대한 잠재적인 위협을 조사하고 완화시키기 위해 권장되는 조치가 제공됩니다.<br/>
+    이메일에는 비정상적인 활동의 특징, 데이터베이스 이름, 서버 이름, 이벤트 시간을 포함하여 의심스러운 보안 이벤트에 대한 정보가 제공됩니다. 또한 가능한 원인에 대한 정보와 데이터베이스에 대한 잠재적인 위협을 조사하고 완화시키기 위해 권장되는 조치가 제공됩니다.<br/>
    
     ![탐색 창](media/sql-data-warehouse-security-threat-detection/4_td_email.png)
 2. 이메일에서 **Azure SQL 감사 로그** 링크를 클릭하면 Azure 포털이 열리고 의심스러운 이벤트가 발생한 무렵의 시간에 해당하는 감사 레코드가 표시됩니다.

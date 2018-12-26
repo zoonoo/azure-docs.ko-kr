@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 396abe0801d76af3820d302d40d2fc076754741b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 316f7117ad1564f7dc7cdd1012771891b718d82e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785732"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189628"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Azure Media Services REST API로 필터 생성
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "33785732"
 > 
 > 
 
-Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습니다. 이 필터는 고객이 전체 비디오를 재생하는 대신 비디오의 한 섹션만 재생하거나 자산과 연결된 모든 변환 대신 고객의 장치가 처리할 수 있는 오디오 및 비디오 변환의 하위 집합만 지정하는 작업 등을 선택할 수 있도록 하는 서버 측 규칙입니다. 지정한 필터에 따라 비디오를 스트림하는 고객의 요청에 따라 생성된 **동적 매니페스트**를 통해 자산의 필터링이 보관됩니다.
+Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습니다. 이 필터는 고객이 전체 비디오를 재생하는 대신 비디오의 한 섹션만 재생하거나 자산과 연결된 모든 변환 대신 고객의 디바이스가 처리할 수 있는 오디오 및 비디오 변환의 하위 집합만 지정하는 작업 등을 선택할 수 있도록 하는 서버 측 규칙입니다. 지정한 필터에 따라 비디오를 스트림하는 고객의 요청에 따라 생성된 **동적 매니페스트**를 통해 자산의 필터링이 보관됩니다.
 
 필터 및 동적 매니페스트에 대한 더 자세한 내용은 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)를 참조하십시오.
 
@@ -42,9 +42,9 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 * [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect 및 FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
->[!NOTE]
-
->Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+> [!NOTE]
+> 
+> Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 
 ## <a name="connect-to-media-services"></a>Media Services에 연결
 
@@ -195,9 +195,9 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 
 
 ## <a name="update-filters"></a>필터 업데이트
-PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이트합니다.  이 작업에 대한 자세한 내용은 [PATCH, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx)를 참조하십시오.
+PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이트합니다.  이 작업에 대한 자세한 내용은 [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx)를 참조하십시오.
 
-필터를 업데이트하는 경우 스트리밍 끝점이 규칙을 새로 고치는 데 최대 2분이 소요될 수 있습니다. 콘텐츠가 이 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터를 업데이트한 후에 캐시를 지웁니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다.  
+필터를 업데이트하는 경우 스트리밍 엔드포인트가 규칙을 새로 고치는 데 최대 2분이 소요될 수 있습니다. 콘텐츠가 이 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터를 업데이트한 후에 캐시를 지웁니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다.  
 
 ### <a name="update-global-filters"></a>전역 Filter 업데이트
 전역 필터를 업데이트하려면 다음 HTTP 요청을 사용합니다. 

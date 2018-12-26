@@ -3,17 +3,17 @@ title: '자습서: Azure Key Vault를 사용하여 Azure Storage에서 Blob 암�
 description: Azure Key Vault를 사용하여 Microsoft Azure Storage에 대한 클라이언트 쪽 암호화를 사용하여 Blob을 암호화하고 해독하는 방법입니다.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: adhurwit
-ms.openlocfilehash: 405ccb44c9daf8d555946e6c68ef318ed2b82505
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.author: tamram
+ms.component: blobs
+ms.openlocfilehash: 092ffa5ed34a8e0a05b69c3fae86ab7299760ac2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
-ms.locfileid: "27815816"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233102"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 해독
 ## <a name="introduction"></a>소개
@@ -61,9 +61,7 @@ Visual Studio에서 새 콘솔 응용 프로그램을 만듭니다.
 
 ```
 Install-Package WindowsAzure.Storage
-
-// This is the latest stable release for ADAL.
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 Install-Package Microsoft.Azure.KeyVault
 Install-Package Microsoft.Azure.KeyVault.Extensions
@@ -227,4 +225,4 @@ C#에서 Microsoft Azure Storage 사용에 대한 자세한 내용은 [.NET용 M
 
 Blob REST API에 대한 자세한 내용은 [Blob 서비스 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)를 참조하세요.
 
-Microsoft Azure Storage에 관한 최신 정보를 보려면 [Microsoft Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)로 이동하세요.
+Microsoft Azure Storage에 관한 최신 정보를 보려면 [Microsoft Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)로 이동하세요.

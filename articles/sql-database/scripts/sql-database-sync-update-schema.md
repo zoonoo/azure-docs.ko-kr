@@ -2,48 +2,42 @@
 title: PowerShell 예제 - SQL 데이터 동기화의 동기화 스키마 업데이트 | Microsoft Docs
 description: SQL 데이터 동기화에 대한 동기화 스키마를 업데이트하기 위한 Azure PowerShell 예제 스크립트
 services: sql-database
-documentationcenter: sql-database
-author: allenwux
-manager: craigg
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: load & move data, mvc
+ms.subservice: data-movement
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 01/10/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: ee491ab02305b858241ba5ddc2ec7651b7802be0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+manager: craigg
+ms.date: 01/10/2018
+ms.openlocfilehash: 952e34f70e245866589e4bce56bfbee7cf61fb88
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37024765"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685840"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>PowerShell을 사용하여 기존 동기화 그룹의 동기화 스키마 업데이트
 
-이 PowerShell 예제에서는 기존 SQL 데이터 동기화의 동기화 그룹의 동기화 스키마를 업데이트합니다. 여러 테이블을 동기화하는 경우 이 스크립트는 동기화 스키마를 효과적으로 업데이트하는 데 도움이 됩니다.
+이 PowerShell 예제에서는 기존 SQL 데이터 동기화의 동기화 그룹의 동기화 스키마를 업데이트합니다. 여러 테이블을 동기화하는 경우 이 스크립트는 동기화 스키마를 효과적으로 업데이트하는 데 도움이 됩니다. 이 예제는 GitHub에서 [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1)으로 사용할 수 있는 **UpdateSyncSchema** 스크립트의 사용을 보여 줍니다.
 
-이 예제는 GitHub에서 [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1)으로 사용할 수 있는 **UpdateSyncSchema** 스크립트의 사용을 보여 줍니다.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure PowerShell 모듈 버전이 5.7.0 이상이어야 합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+
 
 SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](../sql-database-sync-data.md)를 참조하세요.
-## <a name="prerequisites"></a>필수 조건
 
-이 샘플에는 Azure PowerShell 모듈 버전 4.2 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)를 참조하세요.
- 
-`Connect-AzureRmAccount`를 실행하여 Azure와 연결합니다.
-
-## <a name="examples"></a>예
+## <a name="sample-script"></a>샘플 스크립트
 
 ### <a name="example-1---add-all-tables-to-the-sync-schema"></a>예제 1 - 동기화 스키마에 모든 테이블 추가
 
 다음 예제에서는 데이터베이스 스키마를 새로 고치고 허브 데이터베이스의 모든 유효한 테이블을 동기화 스키마에 추가합니다.
 
-```powershell
+```powershell-interactive
 UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -RefreshDatabaseSchema $true -AddAllTables $true
 ```
 
@@ -51,7 +45,7 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
 
 다음 예제에서는 동기화 스키마에 `[dbo].[Table1]` 및 `[dbo].[Table2].[Column1]`을 추가하고 `[dbo].[Table3]`를 제거합니다.
 
-```powershell
+```powershell-interactive
 UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -TablesAndColumnsToAdd "[dbo].[Table1],[dbo].[Table2].[Column1]" -TablesAndColumnsToRemove "[dbo].[Table3]"
 ```
 
@@ -95,17 +89,18 @@ Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/pow
 
 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
--   [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화](../sql-database-sync-data.md)
--   [Azure SQL 데이터 동기화 설정](../sql-database-get-started-sql-data-sync.md)
--   [Azure SQL 데이터 동기화 모범 사례](../sql-database-best-practices-data-sync.md)
--   [Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링](../sql-database-sync-monitor-oms.md)
--   [Azure SQL 데이터 동기화 문제 해결](../sql-database-troubleshoot-data-sync.md)
-
--   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:
-    -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](sql-database-sync-data-between-sql-databases.md)
-    -   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](sql-database-sync-data-between-azure-onprem.md)
-
--   [SQL 데이터 동기화 REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   개요 - [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](../sql-database-sync-data.md)
+-   데이터 동기화 설정
+    - 포털 사용 - [자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정](../sql-database-get-started-sql-data-sync.md)
+    - PowerShell 사용
+        -  [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](sql-database-sync-data-between-sql-databases.md)
+        -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](sql-database-sync-data-between-azure-onprem.md)
+-   데이터 동기화 에이전트 - [Azure SQL 데이터 동기화용 데이터 동기화 에이전트](../sql-database-data-sync-agent.md)
+-   모범 사례 - [Azure SQL 데이터 동기화에 대한 모범 사례](../sql-database-best-practices-data-sync.md)
+-   모니터 - [Log Analytics를 사용하여 SQL 데이터 동기화 모니터링](../sql-database-sync-monitor-oms.md)
+-   문제 해결 - [Azure SQL 데이터 동기화 문제 해결](../sql-database-troubleshoot-data-sync.md)
+-   동기화 스키마 업데이트
+    -   Transact-SQL 사용 - [Azure SQL 데이터 동기화에서 스키마 변경 내용 복제 자동화](../sql-database-update-sync-schema.md)
 
 SQL Database에 대한 자세한 내용은 다음을 참조하세요.
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fdf332727c4d66af2d5394fb26e84f6ea9d963f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f5bd679c11139b7ac439247df81a7adb0b02b0fe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440768"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426334"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>추가 단원 - 불규칙한 계층 구조
 
@@ -44,11 +44,11 @@ ms.locfileid: "37440768"
 
     | 표 1           | 열       | 필터 방향   | 표 2     | 열      | Active |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | 기본값            | DimDate     | Date        | 예    |
-    | FactResellerSales | DueDate      | 기본값            | DimDate     | Date        | 아니오     |
-    | FactResellerSales | ShipDateKey  | 기본값            | DimDate     | Date        | 아니오     |
-    | FactResellerSales | ProductKey   | 기본값            | DimProduct  | ProductKey  | 예    |
-    | FactResellerSales | EmployeeKey  | 두 테이블로 | DimEmployee | EmployeeKey | 예    |
+    | FactResellerSales | OrderDateKey | 기본값            | DimDate     | Date        | yes    |
+    | FactResellerSales | DueDate      | 기본값            | DimDate     | Date        | 아니요     |
+    | FactResellerSales | ShipDateKey  | 기본값            | DimDate     | Date        | 아니요     |
+    | FactResellerSales | ProductKey   | 기본값            | DimProduct  | ProductKey  | yes    |
+    | FactResellerSales | EmployeeKey  | 두 테이블로 | DimEmployee | EmployeeKey | yes    |
 
 5. **DimEmployee** 테이블에서 다음 [계산된 열](../tutorials/aas-lesson-5-create-calculated-columns.md)을 만듭니다. 
 

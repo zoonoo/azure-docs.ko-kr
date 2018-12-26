@@ -1,46 +1,40 @@
 ---
-title: Power BI 작업 영역 컬렉션의 데이터 집합에서 새 보고서 만들기 | Microsoft Docs
-description: Power BI 작업 영역 컬렉션 보고서를 이제 자체 응용 프로그램의 데이터 집합에서 만들 수 있습니다.
+title: Power BI 작업 영역 컬렉션의 데이터 세트에서 새 보고서 만들기 | Microsoft Docs
+description: Power BI 작업 영역 컬렉션 보고서를 이제 자체 응용 프로그램의 데이터 세트에서 만들 수 있습니다.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dbfe8c98dce1879a2e0956fafba32ab6e608bfdb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409519"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046657"
 ---
-# <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션의 데이터 집합에서 새 보고서 만들기
+# <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션의 데이터 세트에서 새 보고서 만들기
 
-Power BI 작업 영역 컬렉션 보고서를 이제 자체 응용 프로그램의 데이터 집합에서 만들 수 있습니다.
+Power BI 작업 영역 컬렉션 보고서를 이제 자체 응용 프로그램의 데이터 세트에서 만들 수 있습니다.
 
 > [!IMPORTANT]
 > Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 응용 프로그램에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
 
-인증 방법은 보고서를 포함의 방법과 유사합니다. 이 방법은 특정 데이터 집합에만 적용되는 액세스 토큰을 기반으로 합니다. PowerBI.com에 사용되는 토큰은 AAD(Azure Active Directory)에서 발급됩니다. Power BI 작업 영역 컬렉션 토큰은 사용자의 응용 프로그램에서 발급됩니다.
+인증 방법은 보고서를 포함의 방법과 유사합니다. 이 방법은 특정 데이터 세트에만 적용되는 액세스 토큰을 기반으로 합니다. PowerBI.com에 사용되는 토큰은 AAD(Azure Active Directory)에서 발급됩니다. Power BI 작업 영역 컬렉션 토큰은 사용자의 응용 프로그램에서 발급됩니다.
 
-포함된 보고서를 만드는 경우 발급되는 토큰은 특정 데이터 집합에 대한 것입니다. 각각이 고유한 토큰을 갖도록 하기 위해 토큰을 같은 요소의 Embed URL에 연결해야 합니다. 포함된 보고서를 만들기 위해 액세스 토큰에 *Dataset.Read 및 Workspace.Report.Create* 범위를 제공해야 합니다.
+포함된 보고서를 만드는 경우 발급되는 토큰은 특정 데이터 세트에 대한 것입니다. 각각이 고유한 토큰을 갖도록 하기 위해 토큰을 같은 요소의 Embed URL에 연결해야 합니다. 포함된 보고서를 만들기 위해 액세스 토큰에 *Dataset.Read 및 Workspace.Report.Create* 범위를 제공해야 합니다.
 
 ## <a name="create-access-token-needed-to-create-new-report"></a>새 보고서를 만드는 데 필요한 액세스 토큰 만들기
 
-Power BI 작업 영역 컬렉션은 HMAC 서명 JSON Web Token에 해당하는 Embed 토큰을 사용합니다. 이러한 토큰은 Power BI 작업 영역 컬렉션의 액세스 키로 서명됩니다. 기본적으로 응용 프로그램에 포함할 보고서에 대해 읽기 전용 액세스를 제공하기 위해 Embed 토큰이 사용됩니다. Embed 토큰은 특정 보고서에 대해 발급되며 Embed URL에 연결되어야 합니다.
+Power BI 작업 영역 컬렉션은 HMAC 서명 JSON Web Token에 해당하는 Embed 토큰을 사용합니다. 이러한 토큰은 Power BI 작업 영역 컬렉션의 액세스 키로 서명됩니다. 기본적으로 애플리케이션에 포함할 보고서에 대해 읽기 전용 액세스를 제공하기 위해 Embed 토큰이 사용됩니다. Embed 토큰은 특정 보고서에 대해 발급되며 Embed URL에 연결되어야 합니다.
 
 서명/토큰 암호화에 액세스 키가 사용되므로 서버에서 액세스 토큰을 만들어야 합니다. 액세스 토큰을 만드는 방법에 대한 자세한 내용은 [Power BI 작업 영역 컬렉션에서 인증 및 권한 부여](app-token-flow.md)를 참조하세요. [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) 메서드를 검토할 수도 있습니다. 다음은 Power BI용 .NET SDK를 사용할 경우의 예제입니다.
 
-이 예제에는 새 보고서를 만들 데이터 집합 ID가 나옵니다. *Dataset.Read 및 Workspace.Report.Create*의 범위도 추가해야 합니다.
+이 예제에는 새 보고서를 만들 데이터 세트 ID가 나옵니다. *Dataset.Read 및 Workspace.Report.Create*의 범위도 추가해야 합니다.
 
 *PowerBIToken 클래스*를 사용하려면 [Power BI Core NuGut 패키지](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)를 설치해야 합니다.
 
@@ -114,7 +108,7 @@ var embedCreateConfiguration = {
 ```
 
 > [!IMPORTANT]
-> **다른 이름으로 저장**을 호출해야만 새 보고서가 만들어집니다. 저장을 해도 캔버스에는 보고서가 아닌 편집 모드의 데이터 집합이 계속 표시됩니다. 다른 보고서의 경우처럼 새 보고서를 다시 로드해야 합니다.
+> **다른 이름으로 저장**을 호출해야만 새 보고서가 만들어집니다. 저장을 해도 캔버스에는 보고서가 아닌 편집 모드의 데이터 세트가 계속 표시됩니다. 다른 보고서의 경우처럼 새 보고서를 다시 로드해야 합니다.
 
 ![파일 메뉴 - 다른 이름으로 저장](media/create-report-from-dataset/save-new-report.png)
 

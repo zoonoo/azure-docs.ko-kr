@@ -1,13 +1,26 @@
+---
+author: dlepow
+ms.service: container-instances
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 44bdaec78e1fad574f29a5945b07041b588aaff8
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572435"
+---
 | 리소스 | 기본 제한 |
 | --- | :--- |
-| [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 컨테이너 그룹 | 20<sup>1</sup> |
+| [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 컨테이너 그룹 | 100<sup>1</sup> |
 | 컨테이너 그룹당 컨테이너 개수 | 60 |
 | 컨테이너 그룹당 볼륨 개수 | 20 |
 | IP당 포트 수 | 5 |
-| 시간당 컨테이너 생성 수 |60<sup>1</sup> |
-| 5분당 컨테이너 생성 수 | 20<sup>1</sup> |
-| 시간당 컨테이너 삭제 수 | 150<sup>1</sup> |
-| 5분당 컨테이너 삭제 수 | 50<sup>1</sup> |
+| 시간당 컨테이너 생성 수 |300<sup>1</sup> |
+| 5분당 컨테이너 생성 수 | 100<sup>1</sup> |
+| 시간당 컨테이너 삭제 수 | 300<sup>1</sup> |
+| 5분당 컨테이너 삭제 수 | 100<sup>1</sup> |
 | 컨테이너 그룹당 다중 컨테이너 수 | Linux만 해당<sup>2</sup> |
 | Azure 파일 볼륨 | Linux만 해당<sup>2</sup> |
 | GitRepo 볼륨 | Linux만 해당<sup>2</sup> |

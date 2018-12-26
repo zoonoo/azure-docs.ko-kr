@@ -1,0 +1,229 @@
+items:
+- name: 인증 설명서
+  href: index.yml
+- name: 개요
+  items:
+  - name: 인증이란?
+    href: overview-authentication.md
+- name: 빠른 시작
+  items:
+  - name: 암호 재설정 구성
+    href: quickstart-sspr.md
+- name: 자습서
+  items:
+  - name: 1 응용 프로그램에 MFA를 사용하도록 설정
+    href: tutorial-mfa-applications.md
+  - name: 2 SSPR 파일럿을 사용하도록 설정
+    href: tutorial-sspr-pilot.md
+  - name: SSPR 온-프레미스 통합 통합을 사용하도록 설정
+    href: tutorial-enable-writeback.md
+  - name: Windows 10 암호 재설정을 사용하도록 설정
+    href: tutorial-sspr-windows.md
+  - name: Azure ID 보호 통합
+    href: tutorial-risk-based-sspr-mfa.md
+- name: 개념
+  items:
+  - name: 인증 방법
+    href: concept-authentication-methods.md
+  - name: 등록 수렴
+    href: concept-registration-mfa-sspr-converged.md
+  - name: 암호 재설정
+    items:
+    - name: 암호 재설정 작동 방법
+      href: concept-sspr-howitworks.md
+    - name: 암호 재설정 옵션
+      href: concept-sspr-customization.md
+    - name: 암호 재설정 정책
+      href: concept-sspr-policy.md
+    - name: 어떤 라이선스가 필요한가요?
+      href: concept-sspr-licensing.md
+    - name: 온-프레미스 통합
+      href: concept-sspr-writeback.md
+  - name: Multi-Factor Authentication
+    items:
+    - name: MFA 작동 방법
+      href: concept-mfa-howitworks.md
+    - name: 올바른 버전은 무엇인가요?
+      href: concept-mfa-whichversion.md
+    - name: 사용자 라이선스
+      href: concept-mfa-licensing.md
+    - name: 인증 공급자 관리
+      href: concept-mfa-authprovider.md
+    - name: 보안 지침
+      href: multi-factor-authentication-security-best-practices.md
+    - name: Office 365용 MFA
+      href: https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba
+    - name: MFA FAQ
+      href: multi-factor-authentication-faq.md
+  - name: Azure AD 암호 보호
+    items:
+    - name: 클라우드에서 취약한 암호 제거
+      href: concept-password-ban-bad.md
+    - name: 온-프레미스에서 취약한 암호 제거
+      href: concept-password-ban-bad-on-premises.md
+  expanded: true
+- name: 방법 가이드
+  items:
+  - name: 셀프 서비스 암호 재설정
+    items:
+    - name: 셀프 서비스 암호 재설정 배포
+      href: howto-sspr-deployment.md
+    - name: 인증 데이터 미리 등록
+      href: howto-sspr-authenticationdata.md
+    - name: 비밀번호 쓰기 저장을 사용하도록 설정
+      href: howto-sspr-writeback.md
+    - name: Windows 7, 8 및 8.1용 SSPR
+      href: howto-sspr-windows-7-8.md
+  - name: 클라우드 기반 MFA
+    items:
+    - name: 클라우드 기반 MFA 배포
+      href: howto-mfa-getstarted.md
+    - name: 사용자 MFA 기준
+      href: howto-mfa-userstates.md
+    - name: 사용자 및 디바이스 설정
+      href: howto-mfa-userdevicesettings.md
+    - name: 설정 구성
+      href: howto-mfa-mfasettings.md
+    - name: 디렉터리 페더레이션
+      items:
+      - name: Windows Server 2016 AD FS 어댑터
+        href: https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa
+      - name: 페더레이션 서비스
+        href: multi-factor-authentication-get-started-adfs.md
+      - name: AD FS 사용
+        href: howto-mfa-adfs.md
+    - name: RADIUS 통합
+      items:
+      - name: 기존 네트워크 정책 서버 사용
+        href: howto-mfa-nps-extension.md
+      - name: NPS 확장에 대한 고급 구성
+        href: howto-mfa-nps-extension-advanced.md
+      - name: 원격 데스크톱 게이트웨이
+        href: howto-mfa-nps-extension-rdg.md
+      - name: VPN
+        href: howto-mfa-nps-extension-vpn.md
+  - name: Azure AD 암호 보호
+    items:
+    - name: 금지된 암호 목록 구성
+      href: howto-password-ban-bad-configure.md
+    - name: 온-프레미스 통합
+      items:
+      - name: Azure AD 암호 보호 배포
+        href: howto-password-ban-bad-on-premises-deploy.md
+      - name: Azure AD 암호 보호 구성
+        href: howto-password-ban-bad-on-premises-operations.md
+      - name: Azure AD 암호 보호 모니터링
+        href: howto-password-ban-bad-on-premises-troubleshoot.md
+      - name: 질문과 대답
+        href: howto-password-ban-bad-on-premises-faq.md
+      - name: 온-프레미스 에이전트 버전 기록
+        href: howto-password-ban-bad-on-premises-agent-versions.md
+  - name: Azure AD 스마트 잠금
+    href: howto-password-smart-lockout.md
+  - name: 비즈니스용 Windows Hello
+    href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
+  - name: 암호 없는 휴대폰 로그인
+    href: howto-authentication-phone-sign-in.md
+  - name: 인증서 기반 인증
+    items:
+    - name: 인증서 인증 시작
+      href: active-directory-certificate-based-authentication-get-started.md
+      items:
+      - name: Android 디바이스의 CBA
+        href: active-directory-certificate-based-authentication-android.md
+      - name: iOS 디바이스의 CBA
+        href: active-directory-certificate-based-authentication-ios.md
+  - name: 개발
+    items:
+    - name: 사용자 지정 앱에 MFA 빌드
+      href: howto-mfa-sdk.md
+  - name: 보고
+    items:
+    - name: SSPR 보고서
+      href: howto-sspr-reporting.md
+    - name: MFA 보고서
+      href: howto-mfa-reporting.md
+    - name: 데이터 수집
+      href: howto-mfa-reporting-datacollection.md
+  - name: 'MFA 서버 '
+    items:
+    - name: 온-프레미스에서 MFA 배포
+      href: howto-mfaserver-deploy.md
+    - name: 사용자 포털 설치
+      href: howto-mfaserver-deploy-userportal.md
+    - name: 모바일 앱 웹 서비스
+      href: howto-mfaserver-deploy-mobileapp.md
+    - name: 고가용성 구성
+      href: howto-mfaserver-deploy-ha.md
+    - name: MFA 서버 업그레이드
+      href: howto-mfaserver-deploy-upgrade.md
+    - name: PhoneFactor에서 업그레이드
+      href: howto-mfaserver-deploy-upgrade-pf.md
+    - name: Windows 인증
+      href: howto-mfaserver-windows.md
+    - name: IIS 웹앱
+      href: howto-mfaserver-iis.md
+    - name: 디렉터리 통합
+      items:
+      - name: LDAP 인증
+        href: howto-mfaserver-dir-ldap.md
+      - name: RADIUS 인증
+        href: howto-mfaserver-dir-radius.md
+      - name: Active Directory
+        href: howto-mfaserver-dir-ad.md
+    - name: 디렉터리 페더레이션
+      items:
+      - name: AD FS 2.0 사용
+        href: howto-mfaserver-adfs-2.md
+      - name: Windows Server 2012 R2 AD FS 사용
+        href: howto-mfaserver-adfs-2012.md
+    - name: RADIUS 통합
+      items:
+      - name: 원격 데스크톱 게이트웨이
+        href: howto-mfaserver-nps-rdg.md
+      - name: 고급 VPN 구성
+        href: howto-mfaserver-nps-vpn.md
+      - name: NPS 확장 오류
+        href: howto-mfa-nps-extension-errors.md
+  - name: 문제 해결
+    items:
+    - name: 등록 수렴 사용 안 함
+      href: howto-registration-mfa-sspr-converged-troubleshoot.md
+    - name: SSPR 문제 해결
+      href: active-directory-passwords-troubleshoot.md
+    - name: SSPR FAQ
+      href: active-directory-passwords-faq.md
+    - name: MFA FAQ
+      href: multi-factor-authentication-faq.md
+    - name: NPS 확장
+      href: howto-mfa-nps-extension-errors.md
+- name: 참고 자료
+  items:
+  - name: MFA 사용자 가이드
+    href: ./end-user/current/multi-factor-authentication-end-user.md
+  - name: 코드 샘플
+    href: https://azure.microsoft.com/resources/samples/?service=active-directory
+  - name: Azure PowerShell cmdlet
+    href: /powershell/azure/overview
+  - name: 서비스 제한 및 제한 사항
+    href: ../users-groups-roles/directory-service-limits-restrictions.md
+- name: 리소스
+  items:
+  - name: Azure 피드백 포럼
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: MSDN 포럼
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+  - name: 가격
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: 서비스 업데이트
+    href: ../fundamentals/whats-new.md
+  - name: 스택 오버플로
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: 동영상
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: abbb727dc5d8f86903412280b05d6b4e11b69209
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424915"

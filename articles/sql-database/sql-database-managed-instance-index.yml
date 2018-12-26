@@ -1,0 +1,137 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 46e05ef45cca5accd6af817a06b63861c41aa2b3
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160616"
+documentType: LandingData
+title: Azure SQL Database Managed Instance
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: Azure SQL Database Managed Instance 설명서 - 자습서, API 참조
+  meta.description: Learn how to use Azure SQL Database Managed Instance.
+  services: sql-database
+  author: jovanpop-msft
+  manager: craigg
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: overview
+  ms.date: 11/11/2018
+  ms.author: jovanpop-msft
+abstract:
+  description: Azure SQL Database Managed Instance는 Azure 클라우드에서 호스트되는 완전히 관리되는 SQL Server 데이터베이스 엔진 인스턴스입니다. SQL Server 데이터베이스를 클라우드로 마이그레이션하기 위한 최상의 PaaS 옵션입니다. 빠른 시작, 자습서 및 샘플로 Managed Instance를 만들고 사용하는 방법을 알아봅니다.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/sql-database-managed-instance-index/intro.png
+      width: 250
+    title: Azure SQL Database Managed Instance 소개(5:38)
+    href: https://www.youtube.com/watch?v=W8feSZXm2Ec
+    width: 250
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - title: 개요
+      href: /azure/sql-database/sql-database-managed-instance
+      html: <p>Azure SQL Database Managed Instance 서비스에 대해 자세히 알아보세요.</p>
+    - title: 다양한 노출 영역
+      href: /azure/sql-database/sql-database-managed-instance#sql-features-supported
+      html: <p>최신 버전의 SQL Server 데이터베이스 엔진과 거의 100% SQL 기능 호환성을 갖습니다.</p>
+    - title: VNet 통합
+      href: /azure/sql-database/sql-database-managed-instance-vnet-configuration
+      html: <p>보안 서비스는 사설 IP 주소를 사용하여 개인 Azure VNet에 배치됩니다.</p>
+    - title: 간편한 마이그레이션
+      href: /azure/sql-database/sql-database-managed-instance-get-started-restore
+      html: <p>네이티브 복원을 사용하여 Azure 클라우드로 온-프레미스 데이터베이스를 쉽게 마이그레이션합니다.</p>
+    - title: 가동 중지 시간 없이 마이그레이션
+      href: /azure/dms/tutorial-sql-server-to-managed-instance
+      html: <p>Database Migration Service를 사용하여 최소 가동 중지 시간으로 대규모 데이터베이스를 마이그레이션합니다.</p>
+    - title: 가격
+      href: https://azure.microsoft.com/pricing/hybrid-benefit/
+      html: <p>기존 온-프레미스 라이선스를 사용하여 AHB(Azure 하이브리드 혜택)로 최대 40%까지 절약합니다.</p>
+    - title: PaaS 기능
+      href: /azure/sql-database/sql-database-paas
+      html: <p>Azure PaaS를 통해 최소한의 관리로 99.99% 사용 가능한 인스턴스를 사용할 수 있습니다.</p>
+    - title: 서비스 계층
+      href: /azure/sql-database/sql-database-high-availability
+      html: <p>비즈니스 요구 사항에 따라 범용 및 중요 비즈니스용 서비스 계층에서 선택합니다.</p>
+    - title: 고급 보안
+      href: /azure/sql-database/sql-database-security-index
+      html: <p>기본 제공 Azure SQL 데이터베이스 보안 기능을 사용하여 사용자 인스턴스 및 데이터베이스를 보호합니다.<p>
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: Managed Instance를 사용하면 Azure Portal, Azure CLI 및 Azure PowerShell을 사용한 기본 관리 작업을 쉽게 수행할 수 있습니다. 다음 빠른 시작 예제를 사용하여 기본 관리 작업을 수행하는 방법을 알아봅니다.
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/portal.svg
+      title: Azure 포털
+    - image:
+        src: media/index/cli.svg
+      title: Azure CLI
+    - image:
+        src: media/index/logo_powershell.svg
+      title: PowerShell
+    - image:
+        src: media/index/logo_arm.svg
+      title: Azure Resource Manager 템플릿
+    rows:
+    - title: 새 인스턴스 만들기
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-get-started
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
+    - title: 인스턴스 수정
+      values:
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
+      - href: 
+    - title: Azure 네트워크 환경 구성
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-get-started
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
+    - title: 특정 시점 복원
+      values:
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library
+      - href: 
+- title: 단계별 자습서 및 교육 자료
+  items:
+  - type: paragraph
+    text: Managed Instance를 만들고, 관리하고, 사용하는 방법을 알아봅니다.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">하드웨어 특징 및 제한 사항</a> 및 <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">SQL 언어 제한 사항</a>에 대해 알아봅니다.
+    - html: Managed Instance가 배포될 Azure VNet을 <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">구성합니다</a>.
+    - html: 기존 Azure VNet을 Managed Instances를 배포하는 데 사용할 수 있는지 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#modify-an-existing-virtual-network-for-managed-instances">유효성을 검사합니다</a>.
+    - html: <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure Virtual Machine</a> 또는 <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">지점 및 사이트 간 연결</a> 또는 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">애플리케이션</a>을 사용하여 사용자 인스턴스에 연결합니다.
+    - html: <a href="https://www.microsoft.com/download/details.aspx?id=53595">데이터 마이그레이션 도우미</a> 또는 <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">데이터베이스 실험 도우미</a>를 사용하여 데이터베이스를 마이그레이션할 수 있는지 확인합니다.
+    - html: <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">네이티브 복원</a> 또는 <a href="/azure/dms/tutorial-sql-server-managed-instance-online">데이터 마이그레이션 서비스</a>를 사용하여 Managed Instance로 데이터베이스를 가져옵니다.
+    - html: SSIS 패키지를 <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>로, SSAS 테이블 형식 모델을 <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>로, SSRS 보고서를 <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>으로 이동합니다.
+    - html: <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">인스턴스 보호</a>를 위한 모범 사례 및 권장 사항을 찾습니다.
+    - html: <a href="/azure/sql-database/replication-with-sql-database-managed-instance">트랜잭션 복제</a>를 사용하여 데이터를 배포합니다.
+- title: 참고 자료
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: 블로그
+      html: <p><a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/tag/managed-instance/">MSDN</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance ">중형</a></p>
+    - title: 질문과 대답
+      html: <p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">스택 오버플로</a></p>

@@ -10,22 +10,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
-ms.openlocfilehash: ee8622525adcc698bf920b0c3379cc3065798a19
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 549be57b52fa88efa8c3850d131563fea2a7c65e
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30315595"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706129"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch 서비스 API를 사용하여 Azure Storage에 태스크 데이터 유지
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-2017-05-01 버전 이상에서는 Batch 서비스 API에서 가상 머신 구성으로 풀에서 실행되는 태스크 및 작업 관리자 태스크의 출력 데이터를 Azure Storage에 유지하도록 지원합니다. 태스크를 추가할 때 Azure Storage의 컨테이너를 태스크 출력의 대상으로 지정할 수 있습니다. 그런 다음 태스크가 완료되면 Batch 서비스에서 해당 컨테이너에 출력 데이터를 씁니다.
+Batch 서비스 API에서 가상 머신 구성으로 풀에서 실행되는 태스크 및 작업 관리자 태스크의 출력 데이터를 Azure Storage에 유지하도록 지원합니다. 태스크를 추가할 때 Azure Storage의 컨테이너를 태스크 출력의 대상으로 지정할 수 있습니다. 그런 다음 태스크가 완료되면 Batch 서비스에서 해당 컨테이너에 출력 데이터를 씁니다.
 
-Batch 서비스 API를 사용하여 태스크 출력을 유지하는 이점은 태스크가 실행되는 응용 프로그램을 수정할 필요가 없다는 것입니다. 대신 클라이언트 응용 프로그램을 간단하게 약간만 수정하면 태스크를 만드는 코드 내에서 태스크 출력을 유지할 수 있습니다.   
+Batch 서비스 API를 사용하여 태스크 출력을 유지하는 이점은 태스크가 실행되는 응용 프로그램을 수정할 필요가 없다는 것입니다. 대신 클라이언트 응용 프로그램을 약간만 수정하면 태스크를 만드는 동일한 코드 내에서 태스크 출력을 유지할 수 있습니다.
 
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Batch 서비스 API를 사용하여 태스크 출력을 유지하는 경우는?
 
@@ -34,9 +34,12 @@ Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 �
 - 태스크가 실행되는 응용 프로그램을 수정하지 않고 클라이언트 응용 프로그램 내에서 태스크 출력을 유지하는 코드를 작성하려고 합니다.
 - 가상 컴퓨터 구성으로 만든 풀에서 Batch 태스크 및 작업 관리자 태스크의 출력을 유지하려고 합니다.
 - Azure Storage 컨테이너에 임의의 이름으로 출력을 유지하려고 합니다.
-- [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)(영문)에 따라 명명된 Azure Storage 컨테이너에 출력을 유지하려고 합니다. 
+- [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)(영문)에 따라 명명된 Azure Storage 컨테이너에 출력을 유지하려고 합니다. 
 
-위에서 나열한 시나리오와 다른 시나리오이면 다른 방법을 고려해야 할 수도 있습니다. 예를 들어 Batch 서비스 API는 현재 태스크가 실행되는 동안 Azure Storage에 대한 스트리밍 출력을 지원하지 않습니다. 출력을 스트리밍하려면 .NET에서 사용할 수 있는 Batch 파일 규칙 라이브러리를 사용하는 것이 좋습니다. 다른 언어의 경우 사용자 고유의 자체 솔루션을 구현해야 합니다. 태스크 출력을 유지하기 위한 다른 옵션에 대한 자세한 내용은 [Azure Storage에 작업 및 태스크 출력 유지](batch-task-output.md)를 참조하세요. 
+> [!NOTE]
+> Batch 서비스 API는 클라우드 서비스 구성으로 만든 풀에서 실행되는 태스크의 데이터를 유지하도록 지원하지 않습니다. 클라우드 서비스 구성을 실행하는 풀에서 태스크 출력을 유지하는 방법에 대한 자세한 내용은 [.NET용 Batch 파일 규칙 라이브러리를 사용하여 Azure Storage에 작업 및 태스크 데이터 유지](batch-task-output-file-conventions.md)를 참조하세요.
+
+위에서 나열한 시나리오와 다른 시나리오이면 다른 방법을 고려해야 할 수도 있습니다. 예를 들어 Batch 서비스 API는 현재 태스크가 실행되는 동안 Azure Storage에 대한 스트리밍 출력을 지원하지 않습니다. 출력을 스트리밍하려면 .NET에서 사용할 수 있는 Batch 파일 규칙 라이브러리를 사용하는 것이 좋습니다. 다른 언어의 경우 사용자 고유의 자체 솔루션을 구현해야 합니다. 태스크 출력을 유지하기 위한 다른 옵션에 대한 자세한 내용은 [Azure Storage에 작업 및 태스크 출력 유지](batch-task-output.md)를 참조하세요.
 
 ## <a name="create-a-container-in-azure-storage"></a>Azure Storage에 컨테이너 만들기
 
@@ -64,14 +67,14 @@ string containerSasToken = container.GetSharedAccessSignature(new SharedAccessBl
     Permissions = SharedAccessBlobPermissions.Write
 });
 
-string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken; 
+string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 ```
 
 ## <a name="specify-output-files-for-task-output"></a>태스크 출력에 대한 출력 파일 지정
 
-태스크에 대한 출력 파일을 지정하려면 [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) 개체의 컬렉션을 만들고 태스크를 만들 때 [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) 속성에 이 컬렉션을 할당합니다. 
+태스크에 대한 출력 파일을 지정하려면 [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) 개체의 컬렉션을 만들고 태스크를 만들 때 [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) 속성에 이 컬렉션을 할당합니다.
 
-다음 .NET 코드 예제에서는 `output.txt`라는 파일에 임의의 숫자를 쓰는 태스크를 만듭니다. 이 예제에서는 `output.txt`라는 출력 파일을 만들어 컨테이너에 씁니다. 또한 `std*.txt` 파일 패턴(_, 예:_ , `stdout.txt` 및 `stderr.txt`)과 일치하는 모든 로그 파일에 대한 출력 파일도 만듭니다. 컨테이너 URL에는 이전에 컨테이너에 대해 만든 SAS가 필요합니다. Batch 서비스에서는 이 SAS를 사용하여 컨테이너에 대한 액세스를 인증합니다. 
+다음 C# 코드 예제에서는 `output.txt`라는 파일에 임의의 숫자를 쓰는 태스크를 만듭니다. 이 예제에서는 `output.txt`라는 출력 파일을 만들어 컨테이너에 씁니다. 또한 `std*.txt` 파일 패턴(_, 예:_ , `stdout.txt` 및 `stderr.txt`)과 일치하는 모든 로그 파일에 대한 출력 파일도 만듭니다. 컨테이너 URL에는 이전에 컨테이너에 대해 만든 SAS가 필요합니다. Batch 서비스에서는 이 SAS를 사용하여 컨테이너에 대한 액세스를 인증합니다.
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -101,7 +104,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 출력 파일을 지정할 때 [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) 속성을 사용하여 일치시킬 파일 패턴을 지정할 수 있습니다. 파일 패턴은 0개 파일, 단일 파일 또는 태스크에서 만든 파일 집합과 일치할 수 있습니다.
 
-**FilePattern** 속성은 `*`(비재귀 일치의 경우) 및 `**`(재귀 일치의 경우)와 같은 표준 파일 시스템 와일드카드를 지원합니다. 예를 들어 위의 코드 샘플에서는 `std*.txt`와 비일치하는 파일 패턴을 지정합니다. 
+**FilePattern** 속성은 `*`(비재귀 일치의 경우) 및 `**`(재귀 일치의 경우)와 같은 표준 파일 시스템 와일드카드를 지원합니다. 예를 들어 위의 코드 샘플에서는 `std*.txt`와 비일치하는 파일 패턴을 지정합니다.
 
 `filePattern: @"..\std*.txt"`
 
@@ -113,7 +116,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 [OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) 속성은 출력 파일의 조건부 업로드를 허용합니다. 일반적인 시나리오는 태스크가 성공하면 한 파일 집합을 업로드하고, 실패하면 다른 파일 집합을 업로드하는 것입니다. 예를 들어 태스크가 실패하고 0이 아닌 종료 코드로 종료되는 경우에만 자세한 로그 파일을 업로드하는 것이 좋습니다. 마찬가지로 태스크가 실패하는 경우 파일이 없거나 불완전할 수 있으므로, 태스크가 성공한 경우에만 결과 파일을 업로드하는 것이 좋습니다.
 
-위의 코드 샘플에서는 **UploadCondition** 속성을 **TaskCompletion**으로 설정합니다. 이 설정은 종료 코드의 값에 관계 없이 태스크가 완료된 후에 파일을 업로드하도록 지정합니다. 
+위의 코드 샘플에서는 **UploadCondition** 속성을 **TaskCompletion**으로 설정합니다. 이 설정은 종료 코드의 값에 관계 없이 태스크가 완료된 후에 파일을 업로드하도록 지정합니다.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
@@ -145,10 +148,9 @@ https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 
 Azure Storage의 가상 디렉터리에 대한 자세한 내용은 [컨테이너의 Blob 나열](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container)에 있는 Blob 나열을 참조하세요.
 
-
 ## <a name="diagnose-file-upload-errors"></a>파일 업로드 오류 진단
 
-Azure Storage에 대한 출력 파일 업로드가 실패하면 태스크가 **완료됨** 상태로 전환되고 [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) 속성이 설정됩니다. **FailureInformation** 속성을 검사하여 발생한 오류를 확인합니다. 예를 들어 컨테이너가 없는 경우 파일 업로드에서 발생하는 오류는 다음과 같습니다. 
+Azure Storage에 대한 출력 파일 업로드가 실패하면 태스크가 **완료됨** 상태로 전환되고 [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) 속성이 설정됩니다. **FailureInformation** 속성을 검사하여 발생한 오류를 확인합니다. 예를 들어 컨테이너가 없는 경우 파일 업로드에서 발생하는 오류는 다음과 같습니다.
 
 ```
 Category: UserError
@@ -164,7 +166,7 @@ Message: One of the specified Azure container(s) was not found while attempting 
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Batch 파일 규칙 표준과 함께 Batch 서비스 API 사용
 
-Batch 서비스 API를 사용하여 태스크 출력을 유지할 때 원하는 대로 대상 컨테이너 및 Blob의 이름을 지정할 수 있습니다. 또한 [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)(영문)에 따라 이름을 지정하도록 선택할 수도 있습니다. 파일 규칙 표준에서는 지정된 출력 파일에 대한 Azure Storage 대상 컨테이너 및 Blob의 이름을 작업 및 태스크의 이름을 기반으로 하여 결정합니다. 파일 규칙 표준을 사용하여 출력 파일 이름을 지정하면 [Azure Portal](https://portal.azure.com)에서 출력 파일을 볼 수 있습니다.
+Batch 서비스 API를 사용하여 태스크 출력을 유지할 때 원하는 대로 대상 컨테이너 및 Blob의 이름을 지정할 수 있습니다. 또한 [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)(영문)에 따라 이름을 지정하도록 선택할 수도 있습니다. 파일 규칙 표준에서는 지정된 출력 파일에 대한 Azure Storage 대상 컨테이너 및 Blob의 이름을 작업 및 태스크의 이름을 기반으로 하여 결정합니다. 파일 규칙 표준을 사용하여 출력 파일 이름을 지정하면 [Azure Portal](https://portal.azure.com)에서 출력 파일을 볼 수 있습니다.
 
 C#에서 개발하는 경우 [.NET용 Batch 파일 규칙 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files)(영문)에 기본 제공된 메서드를 사용할 수 있습니다. 이 라이브러리는 적절하게 명명된 컨테이너와 Blob 경로를 만듭니다. 예를 들어 API를 호출하여 작업 이름에 기반한 올바른 컨테이너 이름을 가져올 수 있습니다.
 
@@ -180,7 +182,7 @@ C# 이외의 언어로 개발하는 경우 파일 규칙 표준을 직접 구현
 
 [PersistOutputs][github_persistoutputs] 샘플 프로젝트는 GitHub의 [Azure Batch 코드 샘플][github_samples] 중 하나입니다. 이 Visual Studio 솔루션에서는 .NET용 Batch 클라이언트 라이브러리를 사용하여 영구 저장소에 태스크 출력을 유지하는 방법을 보여 줍니다. 샘플을 실행하려면 다음 단계를 수행합니다.
 
-1. **Visual Studio 2015 이상**에서 프로젝트를 엽니다.
+1. **Visual Studio 2017**에서 프로젝트를 엽니다.
 2. Microsoft.Azure.Batch.Samples.Common 프로젝트에서 Batch 및 Storage **계정 자격 증명**을 **AccountSettings.settings**에 추가합니다.
 3. **빌드** 합니다(하지만 실행하지 않음). 메시지가 표시되면 모든 NuGet 패키지를 복원합니다.
 4. Azure 포털을 사용하여 [PersistOutputsTask](batch-application-packages.md) 에 대한 **응용 프로그램 패키지**를 업로드합니다. `PersistOutputsTask.exe` 및 종속 어셈블리를 .zip 패키지에 포함하고, 응용 프로그램 ID를 "PersistOutputsTask"로, 응용 프로그램 패키지 버전을 "1.0"으로 설정합니다.

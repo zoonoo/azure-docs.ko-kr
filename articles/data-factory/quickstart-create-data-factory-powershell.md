@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 17be4668bacaf94b0421f6cce83dfcf98f302f60
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7cd38329be77dadc13b8e6372622be70609cedee
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237749"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018675"
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>PowerShell을 사용하여 Azure Data Factory 만들기 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,7 +55,7 @@ ms.locfileid: "38237749"
     ```
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
-1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름을 지정하고, 명령을 실행합니다. 예: `"adfrg"` 
+1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름을 지정하고, 명령을 실행합니다. 예: `"ADFQuickStartRG"` 
    
      ```powershell
     $resourceGroupName = "ADFQuickStartRG";
@@ -116,7 +116,7 @@ ms.locfileid: "38237749"
         }
     }
     ```
-    메모장을 사용하는 경우 **다른 이름으로 저장** 대화 상자의 **파일 형식** 필드에서 **모든 파일**을 선택합니다. 선택하지 않으면 파일에 `.txt` 확장이 추가됩니다. 예: `AzureStorageLinkedService.json.txt` 메모장에서 파일을 열기 전에 파일 탐색기에서 파일을 만들면 **알려진 파일 형식의 확장명 숨기기** 옵션이 기본적으로 설정되어 `.txt` 확장이 보이지 않을 수 있습니다. `.txt` 확장을 제거한 후 다음 단계로 넘어갑니다.
+    메모장을 사용하는 경우 **다른 이름으로 저장** 대화 상자의 **파일 형식** 필드에서 **모든 파일**을 선택합니다. 선택하지 않으면 파일에 `.txt` 확장이 추가됩니다. 예: `AzureStorageLinkedService.json.txt`. 메모장에서 파일을 열기 전에 파일 탐색기에서 파일을 만들면 **알려진 파일 형식의 확장명 숨기기** 옵션이 기본적으로 설정되어 `.txt` 확장이 보이지 않을 수 있습니다. `.txt` 확장을 제거한 후 다음 단계로 넘어갑니다.
 2. **PowerShell**에서 **ADFv2QuickStartPSH** 폴더로 전환합니다.
 
     ```powershell
@@ -137,8 +137,8 @@ ms.locfileid: "38237749"
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
 
-## <a name="create-a-dataset"></a>데이터 집합 만들기
-이 단계에서는 원본에서 싱크로 복사할 데이터를 나타내는 데이터 집합을 정의합니다. 데이터 집합은 **AzureBlob** 형식입니다. 이 데이터 집합은 이전 단계에서 만든 **Azure Storage 연결된 서비스**를 참조합니다. **folderPath** 속성을 생성하려면 매개 변수를 사용합니다. 입력 데이터 집합의 경우 파이프라인에서의 복사 작업은 입력 경로를 이 매개 변수에 대한 값으로 전달합니다. 마찬가지로, 출력 데이터 집합의 경우 복사 작업은 출력 경로를 이 매개 변수에 대한 값으로 전달합니다. 
+## <a name="create-a-dataset"></a>데이터 세트 만들기
+이 단계에서는 원본에서 싱크로 복사할 데이터를 나타내는 데이터 세트를 정의합니다. 데이터 세트는 **AzureBlob** 형식입니다. 이 데이터 집합은 이전 단계에서 만든 **Azure Storage 연결된 서비스**를 참조합니다. **folderPath** 속성을 생성하려면 매개 변수를 사용합니다. 입력 데이터 세트의 경우 파이프라인에서의 복사 작업은 입력 경로를 이 매개 변수에 대한 값으로 전달합니다. 마찬가지로, 출력 데이터 세트의 경우 복사 작업은 출력 경로를 이 매개 변수에 대한 값으로 전달합니다. 
 
 1. 다음 콘텐츠가 포함된 **BlobDataset.json**이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다.
 
@@ -181,7 +181,7 @@ ms.locfileid: "38237749"
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
   
-이 빠른 시작에서 입력 Blob 경로 및 출력 Blob 경로의 두 매개 변수를 취하는 하나의 활동을 사용하여 파이프라인을 만듭니다. 이러한 매개 변수의 값은 파이프라인이 트리거/실행될 때 설정됩니다. 복사 작업은 입력 및 출력 시 이전 단계에서 만든 동일한 Blob 데이터 집합을 사용합니다. 데이터 집합을 입력된 데이터 집합으로 사용하는 경우 입력된 경로가 지정됩니다. 또한 데이터 집합을 출력된 데이터 집합으로 사용하는 경우 출력된 경로가 지정됩니다. 
+이 빠른 시작에서 입력 Blob 경로 및 출력 Blob 경로의 두 매개 변수를 취하는 하나의 활동을 사용하여 파이프라인을 만듭니다. 이러한 매개 변수의 값은 파이프라인이 트리거/실행될 때 설정됩니다. 복사 작업은 입력 및 출력 시 이전 단계에서 만든 동일한 Blob 데이터 세트를 사용합니다. 데이터 세트를 입력된 데이터 세트로 사용하는 경우 입력된 경로가 지정됩니다. 또한 데이터 세트를 출력된 데이터 세트로 사용하는 경우 출력된 경로가 지정됩니다. 
 
 1. 다음 콘텐츠가 포함된 **Adfv2QuickStartPipeline.json**이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다.
 
@@ -237,16 +237,6 @@ ms.locfileid: "38237749"
 
     ```powershell
     $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
-    ```
-
-    샘플 출력은 다음과 같습니다.
-
-    ```
-    PipelineName      : Adfv2QuickStartPipeline
-    ResourceGroupName : <resourceGroupName>
-    DataFactoryName   : <dataFactoryName>
-    Activities        : {CopyFromBlobToBlob}
-    Parameters        : {[inputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification], [outputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
     ```
 
 ## <a name="create-a-pipeline-run"></a>파이프라인 실행 만들기

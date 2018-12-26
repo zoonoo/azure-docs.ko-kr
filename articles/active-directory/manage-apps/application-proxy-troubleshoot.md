@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 8740557471d1cc528e8b7440984c7a3c624ee693
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 8be0e909ea391ed1b66fc78349cc2283d009e8cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017667"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240378"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>응용 프로그램 프록시 문제 및 오류 메시지 문제 해결
 게시된 응용 프로그램에 액세스할 때나 응용 프로그램을 게시할 때 오류가 발생한다면 다음 옵션을 확인하여 Microsoft Azure AD 응용 프로그램 프록시가 올바르게 작동하는지 확인합니다.
@@ -43,7 +43,7 @@ Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워
 
 커넥터 마법사를 설치하는 동안 등록에 실패하는 경우 실패한 이유를 확인하는 두 가지 방법이 있습니다. **Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin**에서 이벤트 로그를 확인하거나 다음 Windows PowerShell 명령을 실행합니다.
 
-    Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
+    Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
 
 이벤트 로그에서 커넥터 오류를 찾으면 일반적인 오류 테이블을 사용하여 문제를 해결합니다.
 
@@ -67,7 +67,7 @@ Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워
 | 13016 - 에지 토큰이나 액세스 토큰에 UPN이 없기 때문에 Azure AD에서 사용자를 대신해서 Kerberos 티켓을 검색할 수 없습니다. | STS 구성에 문제가 있습니다. STS에서 UPN 클레임 구성을 수정합니다. |
 | 13019 - 다음과 같은 일반적인 API 오류로 인해 Azure AD에서 사용자를 대신해서 Kerberos 티켓을 검색할 수 없습니다. | 이 이벤트는 Azure AD와 도메인 컨트롤러 서버 간의 잘못된 구성 또는 두 컴퓨터 모두에서 날짜 및 시간 구성에 문제가 있음을 나타냅니다. 도메인 컨트롤러가 Azure AD에서 생성한 Kerberos 티켓을 거부했습니다. Azure AD 및 백 엔드 응용 프로그램 서버, 특히 SPN 구성이 올바르게 구성되어 있는지 확인합니다. Azure AD가 도메인 컨트롤러와 동일한 도메인에 도메인 가입되어 있는지 확인하여 도메인 컨트롤러가 Azure AD와 신뢰를 구축할 수 있게 하세요. Azure AD 및 도메인 컨트롤러상의 시간 및 날짜 구성이 동기화되었는지 확인합니다. |
 | 13020 - 백 엔드 서버 SPN이 정의되어 있지 않기 때문에 Azure AD에서 사용자를 대신해서 Kerberos 티켓을 검색할 수 없습니다. | 이 이벤트는 Azure AD와 도메인 컨트롤러 서버 간의 잘못된 구성 또는 두 컴퓨터 모두에서 날짜 및 시간 구성에 문제가 있음을 나타냅니다. 도메인 컨트롤러가 Azure AD에서 생성한 Kerberos 티켓을 거부했습니다. Azure AD 및 백 엔드 응용 프로그램 서버, 특히 SPN 구성이 올바르게 구성되어 있는지 확인합니다. Azure AD가 도메인 컨트롤러와 동일한 도메인에 도메인 가입되어 있는지 확인하여 도메인 컨트롤러가 Azure AD와 신뢰를 구축할 수 있게 하세요. Azure AD 및 도메인 컨트롤러상의 시간 및 날짜 구성이 동기화되었는지 확인합니다. |
-| 13022 - 백 엔드 서버가 HTTP 401 오류와 함께 Kerberos 인증 시도에 응답하기 때문에 Azure AD에서 사용자를 인증할 수 없습니다. | 이 이벤트는 Azure AD와 백 엔드 응용 프로그램 서버 간의 잘못된 구성 또는 두 컴퓨터 모두에서 날짜 및 시간 구성에 문제가 있음을 나타냅니다. 백 엔드 서버가 Azure AD에서 생성한 Kerberos 티켓을 거부했습니다. Azure AD 및 백 엔드 응용 프로그램 서버가 올바르게 구성되어 있는지 확인합니다. Azure AD 및 백 엔드 응용 프로그램 서버상의 시간 및 날짜 구성이 동기화되었는지 확인합니다. 자세한 내용은 [응용 프로그램 프록시에 대한 Kerberos 제한 위임 구성 문제 해결](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)을 참조하세요.  |
+| 13022 - 백 엔드 서버가 HTTP 401 오류와 함께 Kerberos 인증 시도에 응답하기 때문에 Azure AD에서 사용자를 인증할 수 없습니다. | 이 이벤트는 Azure AD와 백 엔드 응용 프로그램 서버 간의 잘못된 구성 또는 두 컴퓨터 모두에서 날짜 및 시간 구성에 문제가 있음을 나타냅니다. 백 엔드 서버가 Azure AD에서 생성한 Kerberos 티켓을 거부했습니다. Azure AD 및 백 엔드 응용 프로그램 서버가 올바르게 구성되어 있는지 확인합니다. Azure AD 및 백 엔드 응용 프로그램 서버상의 시간 및 날짜 구성이 동기화되었는지 확인합니다. 자세한 내용은 [응용 프로그램 프록시에 대한 Kerberos 제한 위임 구성 문제 해결](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)을 참조하세요.  |
 
 ## <a name="end-user-errors"></a>최종 사용자 오류
 

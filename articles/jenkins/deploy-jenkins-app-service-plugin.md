@@ -1,36 +1,29 @@
 ---
-title: Jenkins 플러그 인을 사용하여 Azure App Service에 배포 | Microsoft Docs
+title: Jenkins 플러그 인을 사용하여 Azure App Service에 배포
 description: Azure App Service Jenkins 플러그 인을 사용하여 Jenkins에서 Azure에 Java 웹앱을 배포하는 방법을 알아봅니다.
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-ms.assetid: ''
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 7/24/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.service: jenkins
+keywords: Jenkins, Azure, DevOps, App Service
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
+ms.date: 07/31/2018
+ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418427"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319356"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
 
 Azure에 Java 웹앱을 배포하려면 [Jenkins 파이프라인](/azure/jenkins/execute-cli-jenkins-pipeline)의 Azure CLI를 사용하거나 [Azure App Service Jenkins 플러그 인](https://plugins.jenkins.io/azure-app-service)을 사용할 수 있습니다. Jenkins 플러그 인 버전 1.0은 다음을 통해 Azure App Service의 Web Apps 기능을 사용하여 지속적인 배포를 지원합니다.
-* Git 또는 FTP.
+* 파일 업로드
 * Linux의 Web Apps용 Docker.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Git 또는 FTP를 통해 Web Apps를 배포하도록 Jenkins 구성
+> * 파일 업로드를 통해 Web Apps를 배포하도록 Jenkins 구성
 > * Web App for Containers를 배포하도록 Jenkins 구성.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Jenkins 인스턴스 만들기 및 구성
@@ -43,8 +36,10 @@ Jenkins 마스터가 없는 경우 JDK(Java Development Kit) 버전 8 및 다음
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) 버전 0.1
 
 Jenkins 플러그 인을 사용하여 Web Apps에 지원되는 언어(예: C#, PHP, Java, Node.js)로 웹앱을 배포할 수 있습니다. 이 자습서에서는 [Azure용 간단한 Java 웹앱](https://github.com/azure-devops/javawebappsample)을 사용합니다. 자신의 GitHub 계정에 리포지토리를 분기하려면 GitHub 인터페이스의 오른쪽 위 모서리에 있는 **분기** 단추를 선택합니다.  
+
 > [!NOTE]
-> Java 프로젝트를 빌드하려면 Java JDK 및 Maven이 필요합니다. 지속적인 통합을 위해 에이전트를 사용하는 경우 Jenkins 마스터 또는 VM 에이전트에 구성 요소를 설치하십시오. 
+> Java 프로젝트를 빌드하려면 Java JDK 및 Maven이 필요합니다. 지속적인 통합을 위해 에이전트를 사용하는 경우 Jenkins 마스터 또는 VM 에이전트에 구성 요소를 설치하십시오. Java SE 응용 프로그램을 배포하는 경우 빌드 서버에서 ZIP도 필요합니다.
+>
 
 구성 요소를 설치하려면 SSH로 Jenkins 인스턴스에 로그인하고 다음 명령을 실행합니다.
 
@@ -55,24 +50,28 @@ sudo apt-get install -y maven
 
 Web App for Containers에 배포하려면 Jenkins 마스터 또는 빌드에 사용되는 VM 에이전트에 Docker를 설치합니다. 지침은 [Ubuntu에 Docker 설치](https://docs.docker.com/engine/installation/linux/ubuntu/)를 참조하세요.
 
-##<a name="service-principal"></a> Jenkins 자격 증명에 Azure 서비스 주체 추가
+## <a name="service-principal"></a> Jenkins 자격 증명에 Azure 서비스 주체 추가
 
 Azure에 배포하려면 Azure 서비스 주체가 필요합니다. 
 
 
 1. Azure 서비스 주체를 만들려면 [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 또는 [Azure Portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 사용합니다.
 2. Jenkins 대시보드에서 **자격 증명** > **시스템**을 선택합니다. 그런 다음 **전역 자격 증명(제한 없음)** 을 선택합니다.
-3. Microsoft Azure 서비스 주체를 추가하려면 **자격 증명 추가**를 선택합니다. **구독 ID**, **클라이언트 ID**, **클라이언트 암호** 및 **OAuth 2.0 토큰 끝점** 필드에 대한 값을 제공합니다. **ID** 필드를 **mySp**로 설정합니다. 이 ID는 이 문서의 후속 단계에서 사용됩니다.
+3. Microsoft Azure 서비스 주체를 추가하려면 **자격 증명 추가**를 선택합니다. **구독 ID**, **클라이언트 ID**, **클라이언트 암호** 및 **OAuth 2.0 토큰 엔드포인트** 필드에 대한 값을 제공합니다. **ID** 필드를 **mySp**로 설정합니다. 이 ID는 이 문서의 후속 단계에서 사용됩니다.
 
 
 ## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>파일을 업로드하여 Web Apps를 배포하도록 Jenkins 구성
 
-Web Apps에 프로젝트를 배포하려면 Git 또는 FTP를 사용하여 빌드 아티팩트(예: Java의 WAR 파일)를 업로드할 수 있습니다.
+Web Apps에 프로젝트를 배포하려면 파일을 업로드하여 빌드 아티팩트를 업로드할 수 있습니다. Azure App Service는 여러 배포 옵션을 지원합니다. Azure App Service Jenkins 플러그 인은 배포를 간소화하며, 파일 형식에 따라 다른 배포 옵션을 제공합니다. 
+
+* Java EE 응용 프로그램의 경우 [WAR 배포](/azure/app-service/app-service-deploy-zip#deploy-war-file)가 사용됩니다.
+* Java SE 응용 프로그램의 경우 [ZIP 배포](/azure/app-service/app-service-deploy-zip#deploy-zip-file)가 사용됩니다.
+* 다른 언어의 경우 [Git 배포](/azure/app-service/app-service-deploy-local-git)가 사용됩니다.
 
 Jenkins에서 작업을 설정하기 전에 Java 앱을 실행하려면 웹앱과 Azure App Service 계획이 필요합니다.
 
 
-1. `az appservice plan create` [Azure CLI 명령](/cli/azure/appservice/plan#az_appservice_plan_create)을 사용하여 **무료** 가격 책정 계층으로 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 물리적 리소스를 정의합니다. App Service 계획에 할당된 모든 응용 프로그램은 이러한 리소스를 공유합니다. 공유 리소스를 사용하면 여러 앱을 호스트하는 경우 비용을 절약할 수 있습니다.
+1. `az appservice plan create` [Azure CLI 명령](/cli/azure/appservice/plan#az-appservice-plan-create)을 사용하여 **무료** 가격 책정 계층으로 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 물리적 리소스를 정의합니다. App Service 계획에 할당된 모든 응용 프로그램은 이러한 리소스를 공유합니다. 공유 리소스를 사용하면 여러 앱을 호스트하는 경우 비용을 절약할 수 있습니다.
 2. 웹앱을 만듭니다. [Azure Portal](/azure/app-service-web/web-sites-configure) 또는 다음 `az` Azure CLI 명령을 사용할 수 있습니다.
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -134,12 +133,12 @@ Azure App Service Jenkins 플러그 인은 파이프 라인을 지원합니다. 
 
 Linux의 Web Apps는 Docker를 사용하여 배포를 지원합니다. Docker를 사용하여 웹앱을 배포하려면 서비스 런타임에 웹앱을 Docker 이미지로 패키지화하는 Dockerfile을 제공해야 합니다. 그러면 Jenkins 플러그 인이 이미지를 빌드하고 Docker 레지스트리에 푸시하고 이미지를 웹앱에 배포합니다.
 
-Linux에서 Web Apps는 Git 및 FTP와 같은 일반적인 배포 방법도 지원하지만 기본 제공되는 언어(.NET Core, Node.js, PHP 및 Ruby)에 한합니다. 다른 언어의 경우 응용 프로그램 코드와 서비스 런타임을 함께 Docker 이미지로 패키징하고 Docker를 사용하여 배포해야 합니다.
+Linux에서 Web Apps는 Git 및 파일 업로드와 같은 일반적인 배포 방법도 지원하지만 기본 제공되는 언어(.NET Core, Node.js, PHP 및 Ruby)에 한합니다. 다른 언어의 경우 응용 프로그램 코드와 서비스 런타임을 함께 Docker 이미지로 패키징하고 Docker를 사용하여 배포해야 합니다.
 
 Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 개인 Docker 컨테이너 이미지를 저장하고 관리하기 위해 컨테이너 레지스트리도 필요합니다. DockerHub를 사용하여 컨테이너 레지스트리를 만들 수 있습니다. 이 예제에서는 Azure Container Registry를 사용합니다.
 
 * [Linux에서 웹앱을 만듭니다](../app-service/containers/quickstart-nodejs.md).
-* Azure Container Registry는 오픈 소스 Docker Registry 버전 2.0에 기반한 관리되는 [Docker 레지스트리](https://docs.docker.com/registry/) 서비스입니다. [Azure Container Registry를 만듭니다](/azure/container-registry/container-registry-get-started-azure-cli). DockerHub를 사용할 수도 있습니다.
+* Azure Container Registry는 오픈 소스 Docker Registry 버전 2.0에 기반하여 관리되는 [Docker Registry](https://docs.docker.com/registry/) 서비스입니다. [Azure Container Registry를 만듭니다](/azure/container-registry/container-registry-get-started-azure-cli). DockerHub를 사용할 수도 있습니다.
 
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Docker용 Jenkins 작업 설정
 
@@ -228,6 +227,10 @@ Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 
 
 3. http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>로 이동합니다. &lt;x>와 &lt;y>를 임의의 숫자로 바꿔 x + y의 합을 구합니다.
     
+## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins 플러그 인 문제 해결
+
+Jenkins 플러그 인에서 버그가 발생하면 [Jenkins JIRA](https://issues.jenkins-ci.org/)에서 특정 구성 요소에 대한 문제를 제출해 주세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 Azure에 배포하기 위해 Azure App Service Jenkins 플러그 인을 사용했습니다.
@@ -235,5 +238,5 @@ Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 
 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * FTP를 통해 Azure App Service를 배포하도록 Jenkins 구성 
+> * 파일 업로드를 통해 Azure App Service를 배포하도록 Jenkins 구성 
 > * Web App for Containers에 배포하도록 Jenkins 구성 

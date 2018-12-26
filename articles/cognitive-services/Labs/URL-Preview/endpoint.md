@@ -1,26 +1,27 @@
 ---
-title: Project URL Preview 엔드포인트 - Microsoft Cognitive Services | Microsoft Docs
+title: Project URL Preview 엔드포인트
+titlesuffix: Azure Cognitive Services
 description: URL Preview 엔드포인트의 요약입니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: url-preview
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: ddd53aa49db01d7a6db397eb285d0854edc59388
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f75fc73bc1268db7b6f9f8a1f4fd602ee57281e8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376223"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464951"
 ---
 # <a name="project-url-preview-endpoint"></a>Project URL Preview 엔드포인트
 
 URL Preview API에는 엔드포인트 하나가 포함됩니다.
 
-## <a name="endpoint"></a>끝점
+## <a name="endpoint"></a>엔드포인트
 URL Preview를 가져오려면 다음 엔드포인트에 요청을 보냅니다. 다른 사양에 대한 헤더 및 URL 매개 변수를 사용합니다.
 
 GET:
@@ -30,10 +31,10 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 ````
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
-|Name|값|type|필수|  
+|이름|값|type|필수|  
 |----------|-----------|----------|--------------|  
-|q|미리 보기 URL|문자열 |예|
-|safeSearch|해적판 불법 성인 콘텐츠는 오류 코드 400으로 차단되고 *isFamilyFriendly* 플래그는 반환되지 않습니다. <p>합법적 성인 콘텐츠에 대한 동작은 아래와 같습니다. 상태 코드 200을 반환하며 *isFamilyFriendly* 플래그가 false로 설정됩니다.<ul><li>safeSearch=strict: 제목, 설명, URL 및 이미지가 반환되지 않습니다.</li><li>safeSearch=moderate: 설명이 포함된 이미지를 제외한 제목, URL 및 설명을 가져옵니다.</li><li>safeSearch=off: 제목, URL, 설명 및 이미지 등의 모든 응답 개체/요소를 가져옵니다.</li></ul> |문자열|필요하지 않음 </br> 기본값은 safeSearch=strict입니다.| 
+|q|미리 보기 URL|문자열 |yes|
+|safeSearch|해적판 불법 성인 콘텐츠는 오류 코드 400으로 차단되고 *isFamilyFriendly* 플래그는 반환되지 않습니다. <p>합법적 성인 콘텐츠에 대한 동작은 아래와 같습니다. 상태 코드 200을 반환하며 *isFamilyFriendly* 플래그가 false로 설정됩니다.<ul><li>safeSearch=strict: 제목, 설명, URL 및 이미지가 반환되지 않습니다.</li><li>safeSearch=moderate: 설명이 포함된 이미지를 제외한 제목, URL 및 설명을 가져옵니다.</li><li>safeSearch=off: 제목, URL, 설명 및 이미지 등의 모든 응답 개체/요소를 가져옵니다.</li></ul> |문자열|필요하지 않습니다. </br> 기본값은 safeSearch=strict입니다.| 
 
 ## <a name="response-object"></a>응답 개체
 

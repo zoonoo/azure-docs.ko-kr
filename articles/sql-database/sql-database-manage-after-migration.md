@@ -2,22 +2,22 @@
 title: 마이그레이션 후 관리 - Azure SQL Database | Microsoft Docs
 description: Azure SQL Database로 마이그레이션 후 데이터베이스를 관리하는 방법에 대해 알아봅니다.
 services: sql-database
-author: joesackmsft
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: joesackmsft
 ms.author: josack
-ms.suite: sql
-ms.prod_service: sql-database
-ms.component: migration
-ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 10/05/2018
+ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061647"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870981"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 데이터베이스 관리
 
@@ -36,9 +36,9 @@ ms.locfileid: "37061647"
 비즈니스 연속성 및 재해 복구 기능을 사용하면 재해가 발생한 경우에도 비즈니스를 평소처럼 계속할 수 있습니다. 데이터베이스 수준 이벤트(예를 들어 누군가가 실수로 중요 테이블을 삭제한 경우) 또는 데이터 센터 수준 이벤트(지역의 재해, 예: 쓰나미) 등의 재해가 있을 수 있습니다. 
 
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>Microsoft Azure SQL Database에서 백업을 만들고 관리하려면 어떻게 해야 합니까?
-Azure SQL DB에 백업을 만들지는 않으며 그럴 필요가 없습니다. SQL Database가 자동으로 데이터베이스를 백업해 주므로 더 이상 일정 계획, 백업 실행 및 관리를 걱정하지 않아도 됩니다. 플랫폼이 매주 전체 백업, 몇 시간마다 차등 백업 및 5분마다 로그 백업을 실행하여 재해 복구가 효율적으로 이루어지도록 하며 데이터 손실을 최소화합니다. 첫 번째 전체 백업은 데이터베이스를 생성하자마자 이루어집니다. 이러한 백업은 “보존 기간”이라는 특정 기간 동안 사용할 수 있으며 선택한 성능 계층에 따라 달라집니다.  SQL Database는 [지정 시간 복구(PITR)](sql-database-recovery-using-backups.md#point-in-time-restore)를 사용하여 이 보존 기간 이내의 특정 시점으로 복원하는 기능을 제공합니다.
+Azure SQL DB에 백업을 만들지는 않으며 그럴 필요가 없습니다. SQL Database가 자동으로 데이터베이스를 백업해 주므로 더 이상 일정 계획, 백업 실행 및 관리를 걱정하지 않아도 됩니다. 플랫폼이 매주 전체 백업, 몇 시간마다 차등 백업 및 5분마다 로그 백업을 실행하여 재해 복구가 효율적으로 이루어지도록 하며 데이터 손실을 최소화합니다. 첫 번째 전체 백업은 데이터베이스를 생성하자마자 이루어집니다. 이러한 백업은 “보존 기간”이라고 하는 특정 기간 동안 사용할 수 있으며, 선택한 서비스 계층에 따라 달라집니다. SQL Database는 [지정 시간 복구(PITR)](sql-database-recovery-using-backups.md#point-in-time-restore)를 사용하여 이 보존 기간 이내의 특정 시점으로 복원하는 기능을 제공합니다.
 
-|성능 계층|보존 기간(일)|
+|서비스 계층|보존 기간(일)|
 |---|:---:|
 |Basic|7|
 |Standard|35|
@@ -73,12 +73,12 @@ SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-acc
 - [Azure Active Directory 인증](sql-database-aad-authentication.md)
 - SQL 인증. 
 
-기존 Windows 인증은 지원되지 않습니다. Azure Active Directory(AD)는 중앙 집중식 ID 및 액세스 관리 서비스입니다. 이 서비스를 사용하면 조직의 모든 인원에게 SSO(Single Sign-On)를 아주 편리하게 제공할 수 있습니다. 즉, 더 간단한 인증을 위해 자격 증명이 모든 Azure 서비스에 걸쳐 공유됩니다. AAD는 [MFA(다단계 인증)](sql-database-ssms-mfa-authentication.md)을 지원하며 [몇 번의 클릭](../active-directory/connect/active-directory-aadconnect-get-started-express.md)으로 AAD를 Windows Server Active Directory와 통합할 수 있습니다. SQL 인증은 과거에 사용하던 것과 똑같이 작동합니다. 즉, 사용자 이름/암호를 제공하고 사용자를 지정된 논리 서버의 임의 데이터베이스에 대해 인증할 수 있습니다. 또한 Microsoft Azure SQL Database 및 SQL Data Warehouse에서 Azure AD 도메인 내에서 다단계 인증 및 게스트 사용자 계정을 제공할 수 있습니다. 이미 Active Directory 온-프레미스가 있는 경우, Azure Active Directory로 디렉터리를 페더레이션하여 디렉터리를 Azure로 확장할 수 있습니다.
+기존 Windows 인증은 지원되지 않습니다. Azure Active Directory(AD)는 중앙 집중식 ID 및 액세스 관리 서비스입니다. 이 서비스를 사용하면 조직의 모든 인원에게 SSO(Single Sign-On)를 아주 편리하게 제공할 수 있습니다. 즉, 더 간단한 인증을 위해 자격 증명이 모든 Azure 서비스에 걸쳐 공유됩니다. AAD는 [MFA(다단계 인증)](sql-database-ssms-mfa-authentication.md)을 지원하며 [몇 번의 클릭](../active-directory/hybrid/how-to-connect-install-express.md)으로 AAD를 Windows Server Active Directory와 통합할 수 있습니다. SQL 인증은 과거에 사용하던 것과 똑같이 작동합니다. 즉, 사용자 이름/암호를 제공하고 사용자를 지정된 논리 서버의 임의 데이터베이스에 대해 인증할 수 있습니다. 또한 Microsoft Azure SQL Database 및 SQL Data Warehouse에서 Azure AD 도메인 내에서 다단계 인증 및 게스트 사용자 계정을 제공할 수 있습니다. 이미 Active Directory 온-프레미스가 있는 경우, Azure Active Directory로 디렉터리를 페더레이션하여 디렉터리를 Azure로 확장할 수 있습니다.
 
 |**다음과 같은 경우...**|**SQL Database / SQL Data Warehouse**|
 |---|---|
 |Azure에서 Azure Active Directory(AD)를 사용하지 않는 것을 선호함|[SQL 인증](sql-database-security-overview.md) 사용|
-|AD를 SQL Server 온-프레미스에 사용함|[AD를 Microsoft Azure Active Directory와 페더레이션](../active-directory/connect/active-directory-aadconnect.md)하고, Azure AD 인증을 사용합니다. 이런 경우에 Single Sign-On을 사용할 수 있습니다.|
+|AD를 SQL Server 온-프레미스에 사용함|[AD를 Microsoft Azure Active Directory와 페더레이션](../active-directory/hybrid/whatis-hybrid-identity.md)하고, Azure AD 인증을 사용합니다. 이런 경우에 Single Sign-On을 사용할 수 있습니다.|
 |다단계 인증(MFA)을 강제해야 합니다.|MFA를 [Microsoft Conditional Access](sql-database-conditional-access.md)를 통한 정책으로 필요하며 [MFA를 지원하는 Azure AD Universal 인증](sql-database-ssms-mfa-authentication.md)을 사용합니다.|
 |Microsoft 계정(live.com, outlook.com) 또는 다른 도메인(gmail.com)의 게스트 계정이 있습니다.|Microsoft Azure SQL Database/Data Warehouse에서 [Azure AD Universal 인증](sql-database-ssms-mfa-authentication.md)을 사용하며, 이는 [Azure AD B2B Collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)을 활용합니다.|
 |페더레이션된 도메인에서 Microsoft Azure Active Directory 자격 증명을 사용하여 Windows에 로그인|[Azure AD 통합 인증](sql-database-aad-authentication-configure.md)을 사용합니다.|
@@ -89,7 +89,7 @@ SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-acc
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>내 데이터베이스에 대한 연결 액세스를 제한 또는 제어하려면 어떻게 해야 합니까?
 용도에 맞는 최적의 연결 구성을 획득하기 위해 원하는 대로 사용할 수 있는 여러 기술이 있습니다. 
 - 방화벽 규칙
-- VNET 서비스 끝점
+- VNet 서비스 엔드포인트
 - 예약된 IP
 
 #### <a name="firewall"></a>방화벽
@@ -97,12 +97,12 @@ SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-acc
 
 서버 및 데이터베이스 수준의 방화벽 규칙을 만들 수 있습니다. 포털 또는 SSMS를 통해 서버 수준 방화벽 규칙을 만들 수 있습니다. 서버 및 데이터베이스 수준 방화벽 규칙을 설정하는 방법에 대해 자세히 알아보려면 [SQL Database에서 방화벽 규칙 만들기](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)를 참조하세요.
 
-#### <a name="service-endpoints"></a>서비스 끝점
-기본적으로 SQL Database는 "모든 Azure 서비스 허용"으로 구성되는데, 이는 Azure의 모든 가상 머신이 데이터베이스에 연결을 시도할 것임을 의미합니다. 이러한 시도는 여전히 인증을 받아야 합니다. 그러나 모든 Azure IP가 데이터베이스에 액세스하는 것을 원하지 않는 경우 "모든 Azure 서비스 허용"을 비활성화할 수 있습니다. 또한 [VNet 서비스 끝점](sql-database-vnet-service-endpoint-rule-overview.md)을 구성할 수 있습니다.
+#### <a name="service-endpoints"></a>서비스 엔드포인트
+기본적으로 SQL 데이터베이스는 "Azure 서비스의 서버 액세스 허용"으로 구성되며, 이는 Azure의 모든 가상 머신에서 데이터베이스에 연결하려고 시도한다는 것을 의미합니다. 이러한 시도는 여전히 인증을 받아야 합니다. 그러나 모든 Azure IP에서 데이터베이스에 액세스하지 않도록 하려면 "Azure 서비스의 서버 액세스 허용"을 사용하지 않도록 설정할 수 있습니다. 또한 [VNet 서비스 엔드포인트](sql-database-vnet-service-endpoint-rule-overview.md)를 구성할 수 있습니다.
 
-서비스 끝점(SE)을 사용하면 중요 Azure 자원을 Azure의 자신의 개인 가상 네트워크에 대해서만 노출할 수 있습니다. 그렇게 하면 기본적으로 사용자의 리소스에 대한 공용 액세스가 제거됩니다. 가상 네트워크와 Azure 간의 트래픽은 Azure 백본 네트워크에서 유지됩니다. SE가 없으면 강제 적용 터널링 패킷 라우팅을 하게 됩니다. 사용자의 가상 네트워크는 인터넷 트래픽을 강제로 사용자의 조직으로 이동하며 Azure 서비스 트래픽은 같은 경로를 통해 이동합니다. 서비스 끝점을 사용하면 패킷이 사용자의 가상 네트워크에서 Azure 백본 네트워크의 서비스로 곧장 흐르므로 이 작업을 최적화할 수 있습니다.
+서비스 엔드포인트(SE)를 사용하면 중요 Azure 자원을 Azure의 자신의 개인 가상 네트워크에 대해서만 노출할 수 있습니다. 그렇게 하면 기본적으로 사용자의 리소스에 대한 공용 액세스가 제거됩니다. 가상 네트워크와 Azure 간의 트래픽은 Azure 백본 네트워크에서 유지됩니다. SE가 없으면 강제 적용 터널링 패킷 라우팅을 하게 됩니다. 사용자의 가상 네트워크는 인터넷 트래픽을 강제로 사용자의 조직으로 이동하며 Azure 서비스 트래픽은 같은 경로를 통해 이동합니다. 서비스 엔드포인트를 사용하면 패킷이 사용자의 가상 네트워크에서 Azure 백본 네트워크의 서비스로 곧장 흐르므로 이 작업을 최적화할 수 있습니다.
 
-![VNET 서비스 끝점](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
+![VNet 서비스 엔드포인트](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
 #### <a name="reserved-ips"></a>예약된 IP
 다른 옵션은 VM에 대해 [예약된 IP](../virtual-network/virtual-networks-reserved-public-ip.md)를 프로비전하고, 서버 방화벽 설정에 있는 특정 VM IP 주소를 허용목록에 넣습니다. 예약된 IP를 할당하면 IP 주소 변경에 따라 방화벽 규칙을 직접 업데이트해야 할 필요가 없습니다.
@@ -127,7 +127,7 @@ SQL Database에서 기본적으로 저장소 하위 시스템에 있는 데이�
 |**특성**|**Always Encrypted**|**투명한 데이터 암호화**|
 |---|---|---|
 |**암호화 범위**|종단간|미사용 데이터|
-|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아니오|예, 암호화는 미사용 데이터를 위한 것이므로|
+|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아니요|예, 암호화는 미사용 데이터를 위한 것이므로|
 |**허용되는 T-SQL 작업**|같음 비교|모든 T-SQL 노출 영역을 사용할 수 있음|
 |**기능을 사용하려면 앱 변경이 필요함**|최소|아주 미미함|
 |**암호화 세분성**|열 수준|데이터베이스 수준|
@@ -170,7 +170,7 @@ Always Encrypted (클라이언트 쪽 암호화) 및 투명한 데이터 암호�
 - [워크플로](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Microsoft Azure SQL Database는 모든 규격 요건을 준수하며, 그것이 나만의 조직 규정 준수에 어떤 도움이 됩니까?
-SQL Database는 다양한 규격을 준수합니다. 충족된 최신 규격 집합을 보려면 [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings)를 방문하여 SQL Database가 호환되는 Azure 서비스에 포함되어 있는지 확인하기 위해 조직에 중요한 규정 준수에 대해 드릴다운합니다. SQL Database가 규격 서비스로 인증된다 하더라도, 조직 서비스의 준수를 지원하지만 자동으로 보장하지는 않는다는 점을 확인하는 것이 중요합니다.
+SQL Database는 다양한 규격을 준수합니다. 충족된 최신 규격 집합을 보려면 [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings)를 방문하여 SQL Database가 호환되는 Azure 서비스에 포함되어 있는지 확인하기 위해 조직에 중요한 규정 준수에 대해 드릴다운합니다. SQL Database가 규격 서비스로 인증된다 하더라도, 조직 서비스의 준수를 지원하지만 자동으로 보장하지는 않는다는 점을 확인하는 것이 중요합니다.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>마이그레이션 후 지능형 데이터베이스 모니터링 및 유지 관리
 
@@ -202,14 +202,14 @@ SQL Database에서는 플랫폼의 지능적인 정보를 활용하여 성능을
 
    ![모니터링 차트 2](./media/sql-database-manage-after-migration/chart.png)
 
-또한 이 차트로부터 리소스로 경고를 구성할 수도 있습니다. 이러한 경고를 통해 사용자는 전자 메일로 리소스 조건에 대응하거나 HTTPS/HTTP 끝점에 쓰거나 작업을 수행할 수 있습니다. 자세한 내용은 [SQL Database에서 데이터베이스 성능 모니터링](sql-database-single-database-monitor.md)을 참조하세요.
+또한 이 차트로부터 리소스로 경고를 구성할 수도 있습니다. 이러한 경고를 통해 사용자는 전자 메일로 리소스 조건에 대응하거나 HTTPS/HTTP 엔드포인트에 쓰거나 작업을 수행할 수 있습니다. 자세한 내용은 [경고 만들기](sql-database-insights-alerts-portal.md)를 참조하세요.
 
 - **동적 관리 뷰**: 지난 1시간 동안의 리소스 소비 통계 기록을 반환하려면 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 동적 관리 뷰를, 그리고 지난 14일에 대한 기록을 반환하려면 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 시스템 카탈로그 뷰를 쿼리할 수 있습니다.
 - **Query Performance Insight**: [Query Performance Insight](sql-database-query-performance.md)를 사용하면 상위 리소스 소비량 쿼리 및 특정 데이터베이스에 대한 장기 실행 쿼리 기록을 볼 수 있습니다. 리소스 사용률, 기간 및 실행 빈도별로 최상위 쿼리를 신속하게 식별할 수 있습니다. 쿼리를 추적하고 재발을 검색할 수 있습니다. 이 기능을 사용하려면 [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)가 데이터베이스에 대해 사용할 수 있도록 설정되고 활성화되어야 합니다.
 
    ![쿼리](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-- **Log Analytics에서 Azure SQL 분석(미리 보기)**: [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)를 사용하면 작업 영역당 최대 150,000 SQL Database 및 5,000 SQL 탄력적 풀까지 지원하는 주요 Azure SQL Azure 성능 메트릭을 수집하고 시각화할 수 있습니다. 그것을 사용하여 알림을 모니터링하고 받을 수 있습니다. 여러 Azure 구독 및 탄력적 풀에서 SQL Database 및 탄력적 풀 메트릭을 모니터링할 수 있으며 응용 프로그램 스택의 각 레이어에서 문제를 식별하는 데 사용할 수 있습니다.
+- **Log Analytics에서 Azure SQL 분석(미리 보기)**: [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)를 사용하면 주요 Azure SQL Azure 성능 메트릭을 수집하고 시각화할 수 있으며, 작업 영역당 최대 150,000개 SQL Database 및 5,000개 SQL 탄력적 풀을 지원합니다. 그것을 사용하여 알림을 모니터링하고 받을 수 있습니다. 여러 Azure 구독 및 탄력적 풀에서 SQL Database 및 탄력적 풀 메트릭을 모니터링할 수 있으며 응용 프로그램 스택의 각 레이어에서 문제를 식별하는 데 사용할 수 있습니다.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>성능 문제를 발견했습니다. SQL Database 문제 해결 방법은 SQL Server와는 어떻게 다릅니까?
 문제 해결 기술의 주요 부분은 진단 쿼리에 사용되며 데이터베이스 성능 문제는 동일하게 유지됩니다. 결국 동일한 SQL Server 엔진이 클라우드를 구동합니다. 그러나 플랫폼, 즉 Azure SQL DB가 기본 제공 '지능'을 포함합니다. 이는 성능 문제를 훨씬 더 쉽게 문제 해결 및 진단하는 데 도움이 될 수 있습니다. 또한 사용자를 대신하여 이러한 정정 작업 중 일부를 수행할 수 있으며, 경우에 따라 사전에 자동 해결할 수 있습니다. 
@@ -218,23 +218,23 @@ SQL Database에서는 플랫폼의 지능적인 정보를 활용하여 성능을
 
 성능 문제 해결의 경우 응용 프로그램 성능에 영향을 주는 것이 문제 해결을 지원하는 응용 프로그램 또는 데이터베이스뿐인지 여부를 식별하는 것이 중요합니다. 성능 문제는 응용 프로그램 레이어에 있는 경우가 많습니다. 즉, 아키텍처 또는 데이터 액세스 패턴이 문제일 수 있습니다. 예를 들어 네트워크 대기 시간에 중요한 대화 응용 프로그램이 있다고 생각해 보겠습니다. 이 경우 응용 프로그램은 응용 프로그램과 서버 사이를 오가는 짧은 요청("대화")이 많이 있고 혼잡한 네트워크에서는 이러한 왕복이 빠르게 증가하므로 문제가 발생합니다. 이 경우 성능을 개선하려면 [일괄 쿼리](sql-database-performance-guidance.md#batch-queries)를 사용할 수 있습니다. 일괄 처리를 사용하면 이제 요청이 일괄 처리되므로 크게 도움이 되며, 따라서 왕복 대기 시간을 줄이고 응용 프로그램 성능을 개선하는 데 도움이 됩니다. 
 
-또한 데이터베이스의 전반적인 성능이 저하되는 것을 발견한 경우 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 동적 관리 뷰를 모니터링하여 CPU, IO 및 메모리 사용을 이해할 수 있습니다. 데이터베이스가 사용할 리소스가 부족하여 성능에 영향을 줄 수 있습니다. 워크로드 수요의 증가 및 감소를 기반으로 성능 수준 및/또는 서비스 계층을 변경해야 할 수 있습니다. 
+또한 데이터베이스의 전반적인 성능이 저하되는 것을 발견한 경우 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 동적 관리 뷰를 모니터링하여 CPU, IO 및 메모리 사용을 이해할 수 있습니다. 데이터베이스가 사용할 리소스가 부족하여 성능에 영향을 줄 수 있습니다. 증가하고 줄어드는 워크로드 수요에 따라 계산 크기 및/또는 서비스 계층을 변경해야 할 수 있습니다. 
 
 성능 문제 조정에 대한 포괄적인 권장 사항은 [데이터베이스 조정](sql-database-performance-guidance.md#tune-your-database)을 참조하세요.
 
-### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-performance-level"></a>적절한 서비스 계층 및 성능 수준을 사용하고 있는지 확인하려면 어떻게 해야 합니까?
-SQL Database는 여러 가지 서비스 계층, 즉, Basic, Standard, Premium을 제공합니다. 각 서비스 계층에서 서비스 수준과 관련하여 보장된 예측 가능한 성능을 얻습니다. 워크로드에 따라 리소스 사용률이 현재 성능 수준의 최고치에 도달한 경우 활동이 폭주할 수 있습니다. 그러한 경우 먼저 조정(예: 인덱스 추가 또는 변경 등)이 도움이 될 수 있는지 평가하는 것이 좋습니다. 제한 문제가 여전히 발견되는 경우 더 높은 성능 수준 또는 서비스 수준으로 이동을 고려합니다. 
+### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>적절한 서비스 계층 및 계산 크기를 사용하고 있는지 확인하려면 어떻게 해야 합니까?
+SQL Database는 여러 가지 서비스 계층, 즉, Basic, Standard, Premium을 제공합니다. 각 서비스 계층은 해당 서비스 계층과 연결된 예측 가능한 성능을 보장합니다. 워크로드에 따라 리소스 사용률이 현재 사용 중인 계산 크기의 최곳값에 도달할 수도 있는 활동이 폭발적으로 발생할 수 있습니다. 그러한 경우 먼저 조정(예: 인덱스 추가 또는 변경 등)이 도움이 될 수 있는지 평가하는 것이 좋습니다. 제한 문제가 여전히 발생하는 경우 더 높은 수준의 서비스 계층 또는 계산 크기로 전환하는 것이 좋습니다. 
 
-|**서비스 수준**|**일반적인 사용 사례 시나리오**|
+|**서비스 계층**|**일반적인 사용 사례 시나리오**|
 |---|---|
 |**Basic**|소수의 사용자 및 높은 동시성, 배율 및 성능 요구 사항이 없는 데이터베이스를 가진 응용 프로그램입니다. |
 |**Standard**|낮음에서 중간 정도의 IO 수요와 함께 상당한 동시성, 배율 및 성능 요구 사항을 가진 응용 프로그램입니다. |
 |**Premium**|많은 동시 사용자, 높은 CPU/메모리 및 높은 IO 수요를 가진 응용 프로그램입니다. 높은 동시성, 높은 처리량 및 대기 시간에 민감한 앱은 Premium 수준을 이용할 수 있습니다. |
 |||
 
-정확한 성능 수준에 있는지 확인하려면 위의 “SQL Database에서 성능 및 리소스 사용률을 모니터링하려면 어떻게 해야 합니까?”에서 언급한 방법 중 하나를 통해 쿼리 및 데이터베이스 리소스 사용을 모니터링할 수 있습니다. 쿼리/데이터베이스가 일관되게 CPU/메모리 등에서 많이 실행되는 것을 발견한 경우 더 높은 성능 수준으로 확장을 고려할 수 있습니다. 마찬가지로 최고 사용률 시간 중에도 그러한 현상이 발견되는데 리소스를 그리 많이 사용하는 것처럼 보이지 않는 경우 현재 성능 수준에서 축소를 고려합니다. 
+적절한 계산 크기에 있는지 확인하려면 위의 "SQL Database에서 성능 및 리소스 사용률을 모니터링하려면 어떻게 해야 합니까?"에서 설명한 방법 중 하나를 통해 쿼리 및 데이터베이스 리소스 사용을 모니터링할 수 있습니다. 쿼리/데이터베이스가 CPU/메모리 등에서 일관되게 많이 실행되고 있다고 확인되면 더 큰 계산 크기로 강화하도록 고려할 수 있습니다. 마찬가지로, 최고 사용량 시간에도 리소스를 그리 많이 사용하지 않는 것으로 확인되면 현재 계산 크기에서 축소하는 것이 좋습니다. 
 
-SaaS 앱 패턴 또는 데이터베이스 통합 시나리오가 있는 경우 비용 최적화를 위해 탄력적 풀의 사용을 고려합니다. 탄력적 풀은 데이터베이스 통합 및 비용 최적화를 달성하는 훌륭한 방법입니다. 탄력적 풀을 사용한 다중 데이터베이스 관리에 대해 더 자세히 읽으려면 [풀 및 데이터베이스 관리](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)를 참조하세요. 
+SaaS 앱 패턴 또는 데이터베이스 통합 시나리오가 있으면 비용 최적화를 위해 탄력적 풀을 사용하는 것이 좋습니다. 탄력적 풀은 데이터베이스 통합 및 비용 최적화를 달성하는 훌륭한 방법입니다. 탄력적 풀을 사용한 다중 데이터베이스 관리에 대해 더 자세히 읽으려면 [풀 및 데이터베이스 관리](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)를 참조하세요. 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>내 데이터베이스에 대해 데이터베이스 무결성 검사를 얼마나 자주 실행해야 합니까?
 SQL Database는 특정 부류의 데이터 손상을 자동으로 데이터 손실 없이 처리할 수 있는 몇 가지 스마트 기술을 사용합니다. 이러한 기법은 서비스에 기본 제공되며 필요한 경우 서비스에 의해 활용됩니다. 정기적으로 서비스에 대한 데이터베이스 백업을 복원하고 그에 대해 DBCC CHECKDB를 실행하여 테스트합니다. 문제가 있으면 SQL Database가 미리 해결합니다. [자동 페이지 수리](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring)는 손상되거나 데이터 무결성 문제가 있는 페이지를 수정하기 위해 이용됩니다. 데이터베이스 페이지는 언제나 페이지의 무결성을 확인하는 기본 체크섬 설정을 사용하여 확인됩니다. SQL Database는 데이터베이스의 데이터 무결성을 사전에 모니터링하고 검토하며 문제가 발생하면 가장 높은 우선 순위로 해결합니다. 이에 더하여 원한다면 선택적으로 사용자 자신의 무결성 검사를 실행하도록 선택할 수 있습니다.  자세한 내용은 [SQL Database의 데이터 무결성](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) 참조
@@ -254,7 +254,7 @@ SQL Database는 특정 부류의 데이터 손상을 자동으로 데이터 손�
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>SQL Database와 SQL Server 사이에 데이터를 동기화하려면 어떻게 합니까?
 이 목적을 달성하는 여러 가지 방법이 있습니다. 
 - **[Data Sync](sql-database-sync-data.md)** – 이 기능은 여러 온-프레미스 SQL Server 데이터베이스와 SQL Database 사이에 양방향으로 데이터를 동기화하도록 도와 줍니다. 온-프레미스 SQL Server 데이터베이스와 동기화하려면 로컬 컴퓨터에 동기화 에이전트를 설치 및 구성하고 아웃바운드 TCP 포트 1433을 열어야 합니다.
-- **[트랜잭션 복제](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – 트랜잭션 복제를 사용하여 온-프레미스에서 Azure SQL DB까지의 데이터를 게시자인 온-프레미스 및 구독자인 Azure SQL DB와 동기화할 수 있습니다. 현재 이 설정만 지원됩니다. 가동 중지 시간을 최소화하면서 온-프레미스 데이터를 Azure SQL로 마이그레이션하는 방법은 [트랜잭션 복제 사용](sql-database-cloud-migrate.md#method-2-use-transactional-replication) 참조
+- **[트랜잭션 복제](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – 트랜잭션 복제를 사용하여 온-프레미스에서 Azure SQL DB까지의 데이터를 게시자인 온-프레미스 및 구독자인 Azure SQL DB와 동기화할 수 있습니다. 현재 이 설정만 지원됩니다. 가동 중지 시간을 최소화하면서 온-프레미스 데이터를 Azure SQL로 마이그레이션하는 방법은 [트랜잭션 복제 사용](sql-database-cloud-migrate.md#method-2-use-transactional-replication)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [SQL Database](sql-database-technical-overview.md)에 대해 알아봅니다.

@@ -14,18 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8c21ed737cab98c9136e1c1991997ff3931a4c9d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "29378159"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447200"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management 템플릿 데이터 모델 참조
 이 항목에서는 Azure API Management에서 개발자 포털 템플릿용 데이터 모델에서 사용되는 일반적인 항목에 대한 엔터티 및 유형 표현을 설명합니다.  
   
  템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)을 참조하세요.  
-  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+개발자 포털은 소비 계층에서 사용할 수 없습니다.
+
+## <a name="reference"></a>참고 자료
+
 -   [API](#API)  
 -   [API 요약](#APISummary)  
 -   [응용 프로그램](#Application)  
@@ -60,7 +66,7 @@ ms.locfileid: "29378159"
 |이름|string|API 이름입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
 |description|string|API에 대한 설명입니다. 비어 있지 않아야 합니다. HTML 서식 지정 태그를 포함할 수 있습니다. 최대 길이는 1000자입니다.|  
 |serviceUrl|string|이 API를 구현하는 백 엔드 서비스의 절대 URL입니다.|  
-|경로|string|API Management 서비스 인스턴스 내의 이 API 및 모든 해당 리소스 경로를 고유하게 식별하는 상대 URL입니다. 이 API에 대한 공용 URL을 형성하는 서비스 인스턴스를 만드는 동안 지정된 API 끝점 기준 URL에 추가됩니다.|  
+|경로|string|API Management 서비스 인스턴스 내의 이 API 및 모든 해당 리소스 경로를 고유하게 식별하는 상대 URL입니다. 이 API에 대한 공용 URL을 형성하는 서비스 인스턴스를 만드는 동안 지정된 API 엔드포인트 기준 URL에 추가됩니다.|  
 |프로토콜|숫자의 배열|이 API의 작업을 호출할 수 있는 프로토콜을 설명합니다. 허용되는 값은 `1 - http` 및 `2 - https` 또는 둘 다입니다.|  
 |authenticationSettings|[권한 부여 서버 인증 설정](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|이 API에 포함된 인증 설정의 컬렉션입니다.|  
 |subscriptionKeyParameterNames|object|구독 키가 포함된 쿼리 및/또는 헤더 매개 변수에 대한 사용자 지정 이름을 지정하는 데 사용할 수 있는 선택적 속성입니다. 이 속성이 있으면 다음 두 속성 중 하나 이상을 포함해야 합니다.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  

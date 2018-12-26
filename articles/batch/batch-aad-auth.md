@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: c28af5a9773cc362663831346b58f599aed6ea9a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 67f8b49cd2205403dec8843beebb92c9f41f6e37
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789268"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955799"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -33,32 +33,32 @@ Azure Batch와 함께 Azure AD 인증을 사용할 때 다음 두 가지 방법 
 
 Azure AD에 대한 자세한 내용은 [Azure Active Directory 설명서](https://docs.microsoft.com/azure/active-directory/)를 참조하세요.
 
-## <a name="endpoints-for-authentication"></a>인증에 대한 끝점
+## <a name="endpoints-for-authentication"></a>인증에 대한 엔드포인트
 
-Azure AD로 Batch 응용 프로그램을 인증하려면 코드에서 잘 알려진 몇 가지 끝점을 포함해야 합니다.
+Azure AD로 Batch 응용 프로그램을 인증하려면 코드에서 잘 알려진 몇 가지 엔드포인트를 포함해야 합니다.
 
-### <a name="azure-ad-endpoint"></a>Azure AD 끝점
+### <a name="azure-ad-endpoint"></a>Azure AD 엔드포인트
 
-기본 Azure AD 인증 기관 끝점은 다음과 같습니다.
+기본 Azure AD 인증 기관 엔드포인트는 다음과 같습니다.
 
 `https://login.microsoftonline.com/`
 
-Azure AD로 인증하려면 이 끝점을 테넌트 ID(디렉터리 ID)와 함께 사용합니다. 테넌트 ID는 인증에 사용할 Azure AD 테넌트를 식별합니다. 테넌트 ID를 검색하려면 [Azure Active Directory에 대한 테넌트 ID 가져오기](#get-the-tenant-id-for-your-active-directory)에서 설명하는 단계를 따릅니다.
+Azure AD로 인증하려면 이 엔드포인트를 테넌트 ID(디렉터리 ID)와 함께 사용합니다. 테넌트 ID는 인증에 사용할 Azure AD 테넌트를 식별합니다. 테넌트 ID를 검색하려면 [Azure Active Directory에 대한 테넌트 ID 가져오기](#get-the-tenant-id-for-your-active-directory)에서 설명하는 단계를 따릅니다.
 
 `https://login.microsoftonline.com/<tenant-id>`
 
 > [!NOTE] 
-> 테넌트별 끝점은 서비스 주체를 사용하여 인증할 때 필요합니다. 
+> 테넌트별 엔드포인트는 서비스 주체를 사용하여 인증할 때 필요합니다. 
 > 
-> 통합 인증을 사용하여 인증할 때 테넌트별 끝점은 선택 사항이지만 권장됩니다. 그러나 Azure AD 공통 끝점도 사용할 수 있습니다. 공통 끝점은 특정 테넌트를 제공하지 않을 때 일반 자격 증명 수집 인터페이스를 제공합니다. 공통 끝점은 `https://login.microsoftonline.com/common`입니다.
+> 통합 인증을 사용하여 인증할 때 테넌트별 엔드포인트는 선택 사항이지만 권장됩니다. 그러나 Azure AD 공통 엔드포인트도 사용할 수 있습니다. 공통 엔드포인트는 특정 테넌트를 제공하지 않을 때 일반 자격 증명 수집 인터페이스를 제공합니다. 공통 엔드포인트는 `https://login.microsoftonline.com/common`입니다.
 >
 >
 
-Azure AD 끝점에 대한 자세한 내용은 [Azure AD의 인증 시나리오][aad_auth_scenarios]를 참조하세요.
+Azure AD 엔드포인트에 대한 자세한 내용은 [Azure AD의 인증 시나리오][aad_auth_scenarios]를 참조하세요.
 
-### <a name="batch-resource-endpoint"></a>Batch 리소스 끝점
+### <a name="batch-resource-endpoint"></a>Batch 리소스 엔드포인트
 
-**Azure Batch 리소스 끝점**을 사용하여 Batch 서비스에 대한 요청을 인증하는 토큰을 얻습니다.
+**Azure Batch 리소스 엔드포인트**를 사용하여 Batch 서비스에 대한 요청을 인증하는 토큰을 얻습니다.
 
 `https://batch.core.windows.net/`
 
@@ -66,15 +66,15 @@ Azure AD 끝점에 대한 자세한 내용은 [Azure AD의 인증 시나리오][
 
 Azure AD를 사용하여 인증하는 첫 번째 단계는 Azure AD 테넌트에 응용 프로그램을 등록하는 것입니다. 응용 프로그램을 등록하면 코드에서 Azure [Active Directory 인증 라이브러리][aad_adal](ADAL)를 호출할 수 있습니다. ADAL은 응용 프로그램에서 Azure AD로 인증하는 API를 제공합니다. 통합 인증 또는 서비스 주체를 사용하려면 응용 프로그램을 등록해야 합니다.
 
-응용 프로그램을 등록할 때 응용 프로그램에 대한 정보를 Azure AD에 제공합니다. 그런 다음, Azure AD는 런타임 시 응용 프로그램을 Azure AD와 연결하는 데 사용하는 응용 프로그램 ID(*클라이언트 ID*라고도 함)를 제공합니다. 응용 프로그램 ID에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/active-directory-application-objects.md)를 참조하세요.
+응용 프로그램을 등록할 때 응용 프로그램에 대한 정보를 Azure AD에 제공합니다. 그런 다음, Azure AD는 런타임 시 응용 프로그램을 Azure AD와 연결하는 데 사용하는 응용 프로그램 ID(*클라이언트 ID*라고도 함)를 제공합니다. 응용 프로그램 ID에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 
-Batch 응용 프로그램을 등록하려면 [Azure Active Directory와 응용 프로그램 통합][aad_integrate]에서 [응용 프로그램 추가](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) 섹션의 단계를 따릅니다. 응용 프로그램을 네이티브 응용 프로그램으로 등록하는 경우 **리디렉션 URI**에 유효한 URI를 지정할 수 있습니다. 실제 끝점일 필요는 없습니다.
+Batch 응용 프로그램을 등록하려면 [Azure Active Directory와 응용 프로그램 통합][aad_integrate]에서 [응용 프로그램 추가](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) 섹션의 단계를 따릅니다. 응용 프로그램을 네이티브 응용 프로그램으로 등록하는 경우 **리디렉션 URI**에 유효한 URI를 지정할 수 있습니다. 실제 엔드포인트일 필요는 없습니다.
 
 응용 프로그램을 등록하면 응용 프로그램 ID가 표시됩니다.
 
 ![Azure AD에 Batch 응용 프로그램 등록](./media/batch-aad-auth/app-registration-data-plane.png)
 
-Azure AD에 응용 프로그램을 등록하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../active-directory/develop/active-directory-authentication-scenarios.md)를 참조하세요.
+Azure AD에 응용 프로그램을 등록하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../active-directory/develop/authentication-scenarios.md)를 참조하세요.
 
 ## <a name="get-the-tenant-id-for-your-active-directory"></a>Active Directory에 대한 테넌트 ID 가져오기
 
@@ -172,7 +172,7 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 ### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>코드 예제: Batch .NET에서 Azure AD 통합 인증 사용
 
-Batch .NET의 통합 인증으로 인증하려면 [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) 패키지 및 [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) 패키지를 참조합니다.
+Batch .NET의 통합 인증으로 인증하려면 [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) 패키지 및 [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) 패키지를 참조합니다.
 
 코드에 다음 `using` 문을 포함시킵니다.
 
@@ -182,13 +182,13 @@ using Microsoft.Azure.Batch.Auth;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-코드에서 테넌트 ID를 포함하여 Azure AD 끝점을 참조합니다. 테넌트 ID를 검색하려면 [Azure Active Directory에 대한 테넌트 ID 가져오기](#get-the-tenant-id-for-your-active-directory)에서 설명하는 단계를 따릅니다.
+코드에서 테넌트 ID를 포함하여 Azure AD 엔드포인트를 참조합니다. 테넌트 ID를 검색하려면 [Azure Active Directory에 대한 테넌트 ID 가져오기](#get-the-tenant-id-for-your-active-directory)에서 설명하는 단계를 따릅니다.
 
 ```csharp
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
 ```
 
-Batch 서비스 리소스 끝점 참조:
+Batch 서비스 리소스 엔드포인트 참조:
 
 ```csharp
 private const string BatchResourceUri = "https://batch.core.windows.net/";
@@ -255,13 +255,13 @@ using Microsoft.Azure.Batch.Auth;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-코드에서 테넌트 ID를 포함하여 Azure AD 끝점을 참조합니다. 서비스 주체를 사용하는 경우 테넌트별 끝점을 제공해야 합니다. 테넌트 ID를 검색하려면 [Azure Active Directory에 대한 테넌트 ID 가져오기](#get-the-tenant-id-for-your-active-directory)에서 설명하는 단계를 따릅니다.
+코드에서 테넌트 ID를 포함하여 Azure AD 엔드포인트를 참조합니다. 서비스 주체를 사용하는 경우 테넌트별 엔드포인트를 제공해야 합니다. 테넌트 ID를 검색하려면 [Azure Active Directory에 대한 테넌트 ID 가져오기](#get-the-tenant-id-for-your-active-directory)에서 설명하는 단계를 따릅니다.
 
 ```csharp
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
 ```
 
-Batch 서비스 리소스 끝점 참조:  
+Batch 서비스 리소스 엔드포인트 참조:  
 
 ```csharp
 private const string BatchResourceUri = "https://batch.core.windows.net/";
@@ -326,7 +326,7 @@ from azure.common.credentials import ServicePrincipalCredentials
 TENANT_ID = "<tenant-id>";
 ```
 
-Batch 서비스 리소스 끝점 참조:  
+Batch 서비스 리소스 엔드포인트 참조:  
 
 ```python
 RESOURCE = "https://batch.core.windows.net/";
@@ -374,13 +374,13 @@ credentials = ServicePrincipalCredentials(
 
 * Azure AD에 대한 자세한 내용은 [Azure Active Directory 설명서](https://docs.microsoft.com/azure/active-directory/)를 참조하세요. ADAL을 사용하는 방법을 보여 주는 자세한 예제는 [Azure 코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory) 라이브러리에서 사용할 수 있습니다.
 
-* 서비스 주체에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/active-directory-application-objects.md)를 참조하세요. Azure Portal을 사용하여 서비스 주체를 만들려면 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요. 또한 PowerShell 또는 Azure CLI를 사용하여 서비스 주체를 만들 수도 있습니다.
+* 서비스 주체에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요. Azure Portal을 사용하여 서비스 주체를 만들려면 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 또한 PowerShell 또는 Azure CLI를 사용하여 서비스 주체를 만들 수도 있습니다.
 
 * Azure AD를 사용하여 Batch Management 응용 프로그램을 인증하려면 [Active Directory를 사용하여 Batch Management 솔루션 인증](batch-aad-auth-management.md)을 참조하세요.
 
 * Azure AD 토큰을 사용하여 인증된 Batch 클라이언트를 만드는 방법의 Python 예제의 경우 [Python 스크립트를 사용하여 Azure Batch 사용자 지정 이미지 배포](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) 샘플을 참조하세요.
 
-[aad_about]: ../active-directory/active-directory-whatis.md "Azure Active Directory란?"
+[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Azure Active Directory란?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Azure AD의 인증 시나리오"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Azure Active Directory와 응용 프로그램 통합"

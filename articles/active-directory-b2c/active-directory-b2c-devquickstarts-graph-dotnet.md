@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: da8aac2968ba020dd2b98253b12e8c9f223966e5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0f53d71cca70f9340689d3d01fb9c67090f917c5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442504"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277551"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -27,7 +27,7 @@ Azure Active Directory(Azure AD) B2C 테넌트는 매우 큰 경향이 있습니
 B2C 테넌트의 경우 Graph API와 통신하는 두 가지 기본 모드가 있습니다.
 
 * 대화형인 한 번 실행 작업의 경우 태스크를 수행할 때 B2C 테넌트에서 관리자 계정으로 작동해야 합니다. 이 모드에서는 관리자가 Graph API에 대한 호출을 수행할 수 있기 전에 해당 관리자가 자격 증명으로 로그인해야 합니다.
-* 자동화된 연속 작업의 경우 필요한 권한을 제공하는 일종의 서비스 계정을 사용하여 관리 작업을 수행해야 합니다. Azure AD에서 응용 프로그램을 등록하고 Azure AD에 인증하여 이 작업을 수행할 수 있습니다. **OAuth 2.0 클라이언트 자격 증명 부여** 를 사용하는 [응용 프로그램 ID](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)를 사용하여 수행합니다. 이 경우에 응용 프로그램은 사용자로서가 아닌 자체로서 Graph API를 호출합니다.
+* 자동화된 연속 작업의 경우 필요한 권한을 제공하는 일종의 서비스 계정을 사용하여 관리 작업을 수행해야 합니다. Azure AD에서 응용 프로그램을 등록하고 Azure AD에 인증하여 이 작업을 수행할 수 있습니다. **OAuth 2.0 클라이언트 자격 증명 부여** 를 사용하는 [응용 프로그램 ID](../active-directory/develop/service-to-service.md)를 사용하여 수행합니다. 이 경우에 응용 프로그램은 사용자로서가 아닌 자체로서 Graph API를 호출합니다.
 
 이 문서에서는 자동화된 사용 사례를 수행하는 방법을 알아봅니다. 사용자 만들기, 읽기, 업데이트 및 삭제(CRUD) 작업을 수행하는 .NET 4.5 `B2CGraphClient`을 작성합니다. 클라이언트에는 다양한 메서드를 호출할 수 있도록 하는 Windows CLI(명령줄 인터페이스)가 있습니다. 그러나 코드를 비대화형이고 자동화된 방식으로 동작하도록 기록합니다.
 
@@ -66,8 +66,8 @@ B2C 테넌트를 설정한 후에 [Azure Portal](https://portal.azure.com)을 �
 > 
 > 
 
-## <a name="configure-delete-permissions-for-your-application"></a>응용 프로그램에 대한 삭제 권한 구성
-현재 *디렉터리 데이터 읽기 및 쓰기* 사용 권한에는 사용자를 삭제하는 등 모든 삭제 작업을 수행하는 기능이 포함되지 **않습니다**. 응용 프로그램에 사용자를 삭제하는 기능을 제공하려는 경우 PowerShell을 포함하는 이러한 추가 단계를 수행해야 합니다. 그렇지 않은 경우 다음 섹션으로 건너뛸 수 있습니다.
+## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>애플리케이션의 삭제 또는 업데이트 암호 권한 구성
+현재 *디렉터리 데이터 읽기 및 쓰기* 권한에는 사용자를 삭제하거나 사용자 암호를 업데이트하는 기능이 포함되지 **않습니다**. 애플리케이션에 사용자 삭제 또는 암호 업데이트 기능을 제공하려면 PowerShell을 포함하는 이러한 추가 단계를 수행해야 합니다. 그렇지 않은 경우 다음 섹션으로 건너뛸 수 있습니다.
 
 아직 설치하지 않은 경우 먼저 [Azure AD PowerShell v1 모듈(MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)을 설치합니다.
 
@@ -84,7 +84,7 @@ PowerShell 모듈을 설치한 후에 Azure AD B2C 테넌트에 연결합니다.
 Connect-MsolService
 ```
 
-이제 아래 스크립트에서 **응용 프로그램 ID**를 사용하여 응용 프로그램에 사용자를 삭제할 수 있는 사용자 계정 관리자 역할을 할당합니다. 이러한 역할은 잘 알려진 식별자로서 아래 스크립트에서 **응용 프로그램 ID**를 입력하기만 하면 됩니다.
+이제 아래 스크립트의 **애플리케이션 ID**를 사용하여 애플리케이션에 사용자 계정 관리자 역할을 할당합니다. 이러한 역할은 잘 알려진 식별자로서 아래 스크립트에서 **응용 프로그램 ID**를 입력하기만 하면 됩니다.
 
 ```powershell
 $applicationId = "<YOUR_APPLICATION_ID>"
@@ -92,7 +92,7 @@ $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
 Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-이제 응용 프로그램에는 B2C 테넌트 사용자를 삭제하는 권한이 있습니다.
+이제 애플리케이션에는 B2C 테넌트에서 사용자를 삭제하거나 암호를 업데이트할 수 있는 권한이 있습니다.
 
 ## <a name="download-configure-and-build-the-sample-code"></a>샘플 코드를 다운로드, 구성 및 작성합니다.
 우선 샘플 코드를 다운로드하고 실행합니다. 그런 다음 자세히 살펴봅니다.  [샘플 코드를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip)할 수 있습니다. 사용자가 선택한 디렉터리에 복제할 수 있습니다.
@@ -168,7 +168,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 ADAL `AuthenticationContext.AcquireToken(...)` 메서드를 호출하여 Graph API에 대한 액세스 토큰을 가져올 수 있습니다. 그러면 ADAL은 응용 프로그램의 ID를 나타내는 `access_token` 를 반환합니다.
 
 ### <a name="read-users"></a>사용자 읽기
-Graph API에서 사용자의 목록을 가져오거나 특정 사용자를 가져오려는 경우 `/users` 끝점에 HTTP `GET` 요청을 보낼 수 있습니다. 테넌트의 모든 사용자에 대한 요청은 다음과 같습니다.
+Graph API에서 사용자의 목록을 가져오거나 특정 사용자를 가져오려는 경우 `/users` 엔드포인트에 HTTP `GET` 요청을 보낼 수 있습니다. 테넌트의 모든 사용자에 대한 요청은 다음과 같습니다.
 
 ```
 GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
@@ -210,7 +210,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 ```
 
 ### <a name="create-consumer-user-accounts"></a>소비자 사용자 계정 만들기
-B2C 테넌트에 사용자 계정을 만들 경우 `/users` 끝점에 HTTP `POST` 요청을 보낼 수 있습니다.
+B2C 테넌트에 사용자 계정을 만들 경우 `/users` 엔드포인트에 HTTP `POST` 요청을 보낼 수 있습니다.
 
 ```
 POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6

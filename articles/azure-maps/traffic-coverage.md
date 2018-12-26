@@ -1,19 +1,19 @@
 ---
 title: Azure Maps에서 교통 상황 검사 | Microsoft Docs
 description: Azure Maps에서 교통 상황 검사에 대해 알아봅니다.
-author: kgremban
-ms.author: kgremban
-ms.date: 11/28/2017
+author: dsk-2015
+ms.author: dkshir
+ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: a6fc1a8f050c3b1f546b4d0150f14b2cbebc31d0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3ef9cce659e1173e419e1ea24cf0a414202013b5
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599709"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575680"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps 교통 상황 검사
 

@@ -1,35 +1,30 @@
 ---
-title: HDInsight의 Hadoop 및 MapReduce | Microsoft Docs
-description: HDInsight 클러스터의 Hadoop에서 MapReduce 작업을 실행하는 방법을 알아봅니다.
+title: HDInsight에서 Apache Hadoop과 MapReduce
+description: HDInsight 클러스터의 Apache Hadoop에서 MapReduce 작업을 실행하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7f321501-d62c-4ffc-b5d6-102ecba6dd76
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 131e3065da4ccfb20d63856844a302a94806fd19
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202631"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632663"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>HDInsight에서 Hadoop과 MapReduce 사용
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 사용
 
 HDInsight 클러스터에서 MapReduce 작업을 실행하는 방법에 대해 알아보세요. 다음 표를 사용하여 HDInsight에서 MapReduce를 사용하는 다양한 방법을 확인할 수 있습니다.
 
 | **사용 기능**... | **...다음을 수행합니다** | ... **클러스터 운영 체제** | ... **클라이언트 운영 체제** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |**SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
-| [REST](apache-hadoop-use-mapreduce-curl.md) |**REST**를 사용하여 작업 원격 제출(예제 용도 cURL) |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |**Windows PowerShell** |Linux 또는or Windows |Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) | **SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
+| [REST (영문)](apache-hadoop-use-mapreduce-curl.md) |**REST**를 사용하여 작업 원격 제출(예제 용도 cURL) |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) | **Windows PowerShell** |Linux 또는or Windows | Windows |
 
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -37,7 +32,7 @@ HDInsight 클러스터에서 MapReduce 작업을 실행하는 방법에 대해 �
 
 ## <a id="whatis"></a>MapReduce란
 
-Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 작성하기 위한 소프트웨어 프레임워크입니다. 입력 데이터는 독립적인 청크로 분할됩니다. 각 청크는 클러스터의 노드에서 동시에 처리됩니다. MapReduce 작업은 두 함수로 구성됩니다.
+Apache Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 작성하기 위한 소프트웨어 프레임워크입니다. 입력 데이터는 독립적인 청크로 분할됩니다. 각 청크는 클러스터의 노드에서 동시에 처리됩니다. MapReduce 작업은 두 함수로 구성됩니다.
 
 * **매퍼**: 입력된 데이터를 소비하고 분석하며(일반적으로 필터 및 정렬 작업) 튜플을 내보냅니다.(키-값 쌍)
 
@@ -164,9 +159,9 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 
 | **사용 기능**... | **...다음을 수행합니다** | ... **클러스터 운영 체제** | ... **클라이언트 운영 체제** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |**SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
-| [Curl](apache-hadoop-use-mapreduce-curl.md) |**REST** |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |**Windows PowerShell** |Linux 또는or Windows |Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) | **SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
+| [Curl](apache-hadoop-use-mapreduce-curl.md) | **REST** |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) | **Windows PowerShell** |Linux 또는or Windows | Windows |
 
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.

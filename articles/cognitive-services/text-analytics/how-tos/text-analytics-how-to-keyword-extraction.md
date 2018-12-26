@@ -6,23 +6,26 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 78b100e737242fa9f56e50275ef2038d8895349e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373871"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632393"
 ---
-# <a name="how-to-extract-key-phrases-in-text-analytics"></a>Text Analytics에서 핵심 구를 추출하는 방법
+# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>예: Text Analytics에서 핵심 구를 추출하는 방법
 
 [핵심 구 추출 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)는 구조화되지 않은 텍스트를 평가하고 각 JSON 문서에 대해 핵심 구 목록을 반환합니다. 
 
 이 기능은 문서 컬렉션에서 주요 지점을 빠르게 식별해야 하는 경우에 유용합니다. 예를 들어 "음식이 맛있고 훌륭한 직원이 있었습니다"라는 입력 텍스트가 제공되면 서비스에서 "음식" 및 "훌륭한 직원"이라는 핵심 발화 지점을 반환합니다.
 
 현재 핵심 구 추출은 영어, 독일어, 스페인어 및 일본어를 지원합니다. 다른 언어는 미리 보기로 있습니다. 자세한 내용은 [지원되는 언어](../text-analytics-supported-languages.md)를 참조하세요.
+
+> [!TIP]
+> Text Analytics는 핵심 구 추출을 위한 Linux 기반 Docker 컨테이너 이미지도 제공하므로 데이터와 가까이 [Text Analytics 컨테이너를 설치하고 실행](text-analytics-how-to-install-containers.md)할 수 있습니다.
 
 ## <a name="preparation"></a>준비
 
@@ -70,7 +73,7 @@ id, text, language 형식의 JSON 문서가 있어야 합니다.
 
 + **POST** 요청을 만듭니다. 이 요청에 대한 [핵심 구 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) 설명서를 검토합니다.
 
-+ 핵심 구 추출에 대한 HTTP 엔드포인트를 설정합니다. `/keyphrases` 리소스를 포함해야 합니다(예: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`).
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 핵심 구 추출을 위한 HTTP 엔드포인트를 설정합니다. `/keyPhrases` 리소스를 포함해야 합니다(예: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`).
 
 + Text Analytics 작업에 대한 액세스 키가 포함되도록 요청 헤더를 설정합니다. 자세한 내용은 [엔드포인트 및 액세스 키를 찾는 방법](text-analytics-how-to-access-key.md)을 참조하세요.
 

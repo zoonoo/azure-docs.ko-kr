@@ -1,23 +1,20 @@
 ---
-title: HDInsight에서 ML 서비스 클러스터 관리 - Azure | Microsoft Docs
+title: HDInsight에서 ML 서비스 클러스터 관리 - Azure
 description: Azure HDInsight에서 ML 서비스 클러스터를 관리하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: bb3af3b1614c8afc98d2dcf12ecb53fb80b6037a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.date: 11/06/2018
+ms.openlocfilehash: bdb2e355b29306c8a78a3a773269baeee13fc9d1
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049747"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497554"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 관리
 
@@ -36,7 +33,7 @@ RStudio Community 버전이 실행되는 에지 노드에 대해 더 많은 사�
 
 ![동시 사용자 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
 
-- **클러스터 로그인 사용자 이름**: 사용자가 만든 HDInsight 클러스터를 보호하는 데 사용되는 HDInsight 게이트웨이를 통해 인증하기 위한 HTTP 사용자입니다. 이 HTTP 사용자는 Ambari UI, YARN UI 및 다른 UI 구성 요소에 액세스하는 데 사용됩니다.
+- **클러스터 로그인 사용자 이름**: 사용자가 만든 HDInsight 클러스터를 보호하는 데 사용되는 HDInsight 게이트웨이를 통해 인증하기 위한 HTTP 사용자입니다. 이 HTTP 사용자는 Apache Ambari UI, Apache Hadoop YARN UI 및 다른 UI 구성 요소에 액세스하는 데 사용됩니다.
 - **SSH(보안 셸) 사용자 이름**: 보안 셸을 통해 클러스터에 액세스하는 SSH 사용자입니다. 이 사용자는 모든 헤드 노드, 작업자 노드 및 에지 노드에 대한 Linux 시스템의 사용자입니다. 따라서 보안 셸을 사용하여 원격 클러스터의 노드 중 하나에 액세스할 수 있습니다.
 
 HDInsight의 ML 서비스 클러스터에 사용되는 R Studio Server Community 버전은 로그인 메커니즘으로 Linux 사용자 이름과 암호만 허용하며, 토큰 전달은 지원하지 않습니다. 따라서 ML 서비스 클러스터에서 R Studio에 처음 액세스하려는 경우 두 번 로그인해야 합니다.
@@ -55,7 +52,7 @@ RStudio가 클러스터의 에지 노드에서 실행되므로 여기서는 다�
 
 ### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>1단계: 만든 SSH 사용자를 사용하여 에지 노드에 로그인
 
-[SSH를 사용하여 HDInsight(Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)에서 제공된 지침에 따라 에지 노드에 액세스합니다. HDInsight에서 ML 서비스 클러스터의 에지 노드 주소는 `CLUSTERNAME-ed-ssh.azurehdinsight.net`입니다.
+[SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)의 지침에 따라 에지 노드에 액세스합니다. HDInsight에서 ML 서비스 클러스터의 에지 노드 주소는 `CLUSTERNAME-ed-ssh.azurehdinsight.net`입니다.
 
 ### <a name="step-2-add-more-linux-users-in-edge-node"></a>2단계: 에지 노드에 더 많은 Linux 사용자 추가
 
@@ -71,7 +68,7 @@ RStudio가 클러스터의 에지 노드에서 실행되므로 여기서는 다�
 
 ![동시 사용자 3](./media/r-server-hdinsight-manage/concurrent-users-2.png)
 
-"현재 Kerberos 암호:"를 묻는 메시지가 표시될 때 **Enter** 키를 누르기만 하면 무시됩니다. `useradd` 명령의 `-m` 옵션은 시스템에서 사용자의 홈 폴더를 만듦을 나타내며, 이 폴더는 RStudio Community 버전에 필요합니다.
+“현재 Kerberos 암호:”를 묻는 메시지가 표시될 때 **Enter** 키를 누르기만 하면 무시됩니다. `useradd` 명령의 `-m` 옵션은 시스템에서 사용자의 홈 폴더를 만듦을 나타내며, 이 폴더는 RStudio Community 버전에 필요합니다.
 
 ### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>3단계: 만든 사용자를 통해 RStudio Community 버전 사용
 
@@ -83,7 +80,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/에서 RStudio에 액세스합니
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Microsoft ML 서비스에 원격으로 연결
 
-데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Hadoop Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 계산 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript와 같은 옵션을 지정해야 합니다.
+데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 계산 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript와 같은 옵션을 지정해야 합니다.
 
     myNameNode <- "default"
     myPort <- 0
@@ -107,7 +104,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/에서 RStudio에 액세스합니
       consoleOutput= TRUE
     )
 
-자세한 내용은 [Spark 계산 컨텍스트에서 RevoScaleR을 사용하는 방법](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)의 "Hadoop 클라이언트로 Microsoft Machine Learning Server 사용" 섹션을 참조하세요.
+자세한 내용은 [Apache Spark 컴퓨팅 컨텍스트에서 RevoScaleR을 사용하는 방법](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)의 "Apache Hadoop 클라이언트로 Microsoft Machine Learning Server 사용" 섹션을 참조하세요.
 
 ## <a name="use-a-compute-context"></a>계산 컨텍스트 사용
 
@@ -229,16 +226,13 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/에서 RStudio에 액세스합니
         summary(modelSpark)
 
 
-   > [!NOTE]
-   > MapReduce를 사용하여 클러스터 노드 간에 계산을 분산시킬 수도 있습니다. 계산 컨텍스트에 대한 자세한 내용은 [HDInsight의 ML 서비스 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)을 참조하세요.
-
 ## <a name="distribute-r-code-to-multiple-nodes"></a>여러 노드에 R 코드 분산
 
 HDInsight에서 ML 서비스를 사용하면 기존 R 코드를 가져와 `rxExec`을 통해 클러스터의 여러 노드에서 실행할 수 있습니다. 이 함수는 매개 변수 비우기 또는 시뮬레이션을 수행할 때 유용합니다. 다음 코드는 `rxExec`를 사용하는 방법에 대한 예제입니다.
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-Spark 또는 MapReduce 컨텍스트를 계속 사용하는 경우 이 명령에서는 `(Sys.info()["nodename"])` 코드가 실행되는 작업자 노드의 nodename(노드 이름) 값을 반환합니다. 예를 들어 4개 노드 클러스터에는 다음 코드 조각과 비슷한 출력이 표시됩니다.
+Spark 컨텍스트를 계속 사용하는 경우 이 명령에서는 `(Sys.info()["nodename"])` 코드가 실행되는 작업자 노드의 nodename(노드 이름) 값을 반환합니다. 예를 들어 4개 노드 클러스터에는 다음 코드 조각과 비슷한 출력이 표시됩니다.
 
     $rxElem1
         nodename
@@ -256,7 +250,7 @@ Spark 또는 MapReduce 컨텍스트를 계속 사용하는 경우 이 명령에�
         nodename
     "wn3-mymlser"
 
-## <a name="access-data-in-hive-and-parquet"></a>Hive 및 Parquet의 데이터 액세스
+## <a name="access-data-in-apache-hive-and-parquet"></a>Apache Hive 및 Parquet에서 데이터에 액세스
 
 HDInsight ML 서비스를 사용하면 Spark 계산 컨텍스트의 ScaleR 함수에서 Hive 및 Parquet의 데이터에 직접 액세스하여 사용할 수 있습니다. 이러한 기능은 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 소스 함수를 통해 사용할 수 있습니다. 이 함수는 Spark SQL을 사용하여 Spark DataFrame에 데이터를 직접 로드하여 ScaleR을 통해 분석합니다.
 

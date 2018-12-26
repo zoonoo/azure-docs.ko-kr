@@ -1,41 +1,38 @@
 ---
-title: 'Azure Databricks: 일반적인 질문 및 도움말 | Microsoft Docs'
+title: 'Azure Databricks: 일반적인 질문 및 도움말'
 description: Azure Databricks와 관련된 일반적인 질문에 대한 답변과 문제 해결 정보를 살펴봅니다.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: cd231a6baad74cd88d82b219e2e58e9252187ff5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.topic: conceptual
+ms.date: 10/25/2018
+ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599000"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138364"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Azure Databricks에 대한 질문과 대답
 
-이 문서에는 Azure Databricks와 관련될 수 있는 상위 쿼리가 나열되어 있습니다. 또한 Databricks를 사용하는 동안 발생할 수 있는 몇 가지 일반적인 문제를 나열합니다. 자세한 내용은 [Azure Databricks란?](what-is-azure-databricks.md)을 참조하세요. 
+이 문서에는 Azure Databricks와 관련될 수 있는 주요 질문이 나열되어 있습니다. 또한 Databricks를 사용하는 동안 발생할 수 있는 몇 가지 일반적인 문제를 나열합니다. 자세한 내용은 [Azure Databricks란?](what-is-azure-databricks.md)을 참조하세요. 
 
-## <a name="can-i-use-my-own-keys-for-local-encryption"></a>로컬 암호화에 사용자 고유 키를 사용할 수 있나요? 
-현재 릴리스에서는 Azure Key Vault에서 고유 키를 사용하는 것이 지원되지 않습니다. 
+## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>Azure Databricks에 사용되는 키/비밀 정보를 저장하기 위해 Azure Key Vault를 사용할 수 있나요?
+예. Azure Databricks에 사용할 키/비밀 정보를 저장하기 위해 Azure Key Vault를 사용할 수 있습니다. 자세한 내용은 [Azure Key Vault 지원 범위](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss)를 참조하세요.
 
-## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Databricks와 Azure Virtual Networks를 사용할 수 있습니까?
-새 가상 네트워크는 Databricks 프로비전의 일부로 만들어집니다. 이 릴리스에서는 자체 Azure Virtual Network를 사용할 수 없습니다.
+
+## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Databricks에서 Azure Virtual Networks를 사용할 수 있나요?
+예. Azure Databricks에서 Azure VNET(Virtual Network)을 사용할 수 있습니다. 자세한 내용은 [Azure Virtual Network에서 Azure Databricks 배포](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html)를 참조하세요.
 
 ## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>노트북에서 Azure Data Lake Store에 어떻게 액세스할까요? 
 
 다음 단계를 수행하세요.
 1. Azure AD(Active Directory)에서 서비스 주체를 프로비전하고 해당 키를 기록합니다.
-2. Data Lake Store의 서비스 주체에게 필요한 권한을 할당합니다.
-3. Data Lake Store의 파일에 액세스하려면 Notebook에서 서비스 주체 자격 증명을 사용합니다.
+1. Data Lake Store의 서비스 주체에게 필요한 권한을 할당합니다.
+1. Data Lake Store의 파일에 액세스하려면 Notebook에서 서비스 주체 자격 증명을 사용합니다.
 
 자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html)을 참조하세요.
 
@@ -52,8 +49,8 @@ Databricks에서 발생하는 몇 가지 문제는 다음과 같습니다.
 #### <a name="solution"></a>해결 방법
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
-2. **구독**을 선택하고 사용 중인 구독을 선택한 다음 **리소스 공급자**를 선택합니다. 
-3. 리소스 공급자 목록에서 **Microsoft.Databricks**를 찾아 **등록**을 선택합니다. 구독의 참가자 또는 소유자 역할이 할당된 사용자만 리소스 공급자를 등록할 수 있습니다.
+1. **구독**을 선택하고 사용 중인 구독을 선택한 다음 **리소스 공급자**를 선택합니다. 
+1. 리소스 공급자 목록에서 **Microsoft.Databricks**를 찾아 **등록**을 선택합니다. 구독의 참가자 또는 소유자 역할이 할당된 사용자만 리소스 공급자를 등록할 수 있습니다.
 
 
 ### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>문제: {메일} 계정에는 Azure Portal의 Databricks 작업 영역 리소스에 소유자 또는 참가자 역할이 없습니다.
@@ -72,7 +69,7 @@ Databricks에서 발생하는 몇 가지 문제는 다음과 같습니다.
 
     a. Azure Portal에서 Azure AD로 이동합니다. **사용자 및 그룹** > **사용자 추가**를 선택합니다.
 
-    나. `@<your_domain>` 메일이 아닌 `@<tenant_name>.onmicrosoft.com` 메일을 사용하여 사용자를 추가합니다. Azure Portal에 있는 Azure AD의 **사용자 지정 도메인**에서 이 옵션을 찾을 수 있습니다.
+    b. `@<your_domain>` 메일이 아닌 `@<tenant_name>.onmicrosoft.com` 메일을 사용하여 사용자를 추가합니다. Azure Portal에 있는 Azure AD의 **사용자 지정 도메인**에서 이 옵션을 찾을 수 있습니다.
     
     다. 새 사용자에게 Databricks 작업 영역 리소스에 대해 **참가자** 역할을 할당합니다.
     
@@ -107,8 +104,8 @@ Azure 오류 코드: MissingSubscriptionRegistration Azure 오류 메시지: 구
 #### <a name="solution"></a>해결 방법
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
-2. **구독**을 선택하고 사용 중인 구독을 선택한 다음 **리소스 공급자**를 선택합니다. 
-3. 리소스 공급자 목록에서 **Microsoft.Compute**를 찾아 **등록**을 선택합니다. 구독의 참가자 또는 소유자 역할이 할당된 사용자만 리소스 공급자를 등록할 수 있습니다.
+1. **구독**을 선택하고 사용 중인 구독을 선택한 다음 **리소스 공급자**를 선택합니다. 
+1. 리소스 공급자 목록에서 **Microsoft.Compute**를 찾아 **등록**을 선택합니다. 구독의 참가자 또는 소유자 역할이 할당된 사용자만 리소스 공급자를 등록할 수 있습니다.
 
 자세한 방법은 [리소스 공급자 및 유형](../azure-resource-manager/resource-manager-supported-services.md)을 참조하세요.
 
@@ -116,7 +113,7 @@ Azure 오류 코드: MissingSubscriptionRegistration Azure 오류 메시지: 구
 
 #### <a name="background"></a>백그라운드
 
-Azure Databricks는 Azure AD와 통합됩니다. 이렇게 하면 Azure AD에서 사용자를 지정하여 Azure Databricks 내에서 사용 권한을 설정합니다(예: Notebooks 또는 클러스터). Azure AD에서 사용자의 이름을 나열하려면 Azure Databricks에는 해당 정보에 대한 읽기 권한이 필요합니다. 동의가 필요합니다. 동의를 사용할 수 없는 경우 오류가 표시됩니다.
+Azure Databricks는 Azure Active Directory와 통합됩니다. Azure AD에서 사용자를 지정하여 Azure Databricks 내에서(예: Notebooks 또는 클러스터에서) 사용 권한을 설정합니다. Azure AD에서 사용자의 이름을 나열할 수 있으려면 Azure Databricks에는 해당 정보에 대한 읽기 권한 및 동의가 필요합니다. 동의를 사용할 수 없는 경우 오류가 표시됩니다.
 
 #### <a name="solution"></a>해결 방법
 

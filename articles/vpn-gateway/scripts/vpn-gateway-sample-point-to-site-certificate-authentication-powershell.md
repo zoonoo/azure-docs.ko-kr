@@ -3,24 +3,18 @@ title: Azure PowerShell 스크립트 샘플 - 네이티브 Azure 인증서 인�
 description: 자체 서명된 인증서를 사용하여 네이티브 Azure 인증서 인증으로 지점 및 사이트 간 VPN을 구성합니다. 이 문서에서는 PowerShell을 사용합니다.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: ''
-ms.assetid: ''
+author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
 ms.date: 04/17/2018
-ms.author: anzaman
-ms.openlocfilehash: e48a8288c5963bba4e46c3e34664681145487f20
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: alzam
+ms.openlocfilehash: 3974810cd40fee7b34713502d573cccb74dab60c
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657097"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344190"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>PowerShell을 사용하여 VPN Gateway를 만들고 지점 및 사이트 간 구성 추가
 
@@ -91,7 +85,7 @@ $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
 $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
 Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName `
  -VirtualNetworkGatewayname "VNet1GW" `
- -ResourceGroupName "TestRG" -PublicCertData $CertBase64
+ -ResourceGroupName "TestRG1" -PublicCertData $CertBase64
 
 ```
 
@@ -119,8 +113,8 @@ Remove-AzureRmResourceGroup -Name TestRG1
 | [새-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | 가상 네트워크를 만듭니다. |
 | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | 공용 IP 주소를 만듭니다. |
 | [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) | 게이트웨이 IP 구성을 새로 만듭니다. |
-| [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.resources/new-azurermvirtualnetworkgateway) | VPN 게이트웨이를 만듭니다. |
-| [New-SelfSignedCertificate](/powershell/module/azurerm.resources/new-selfsignedcertificate) | 자체 서명된 루트 인증서를 새로 만듭니다. |
+| [New-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgateway?view=azurermps-6.8.1) | VPN 게이트웨이를 만듭니다. |
+| [New-SelfSignedCertificate]https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate?view=win10-ps) | 자체 서명된 루트 인증서를 새로 만듭니다. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
 | [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) | 가상 네트워크에 대한 서브넷 구성을 설정합니다. |
 

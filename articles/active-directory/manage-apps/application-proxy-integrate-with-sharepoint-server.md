@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/06/2017
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 49b5620fb95e9c67b0ff0e314534dc8499714b63
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 89852e90daa548dc82455cb6317d367b7423ba65
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161726"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425210"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
 
@@ -119,7 +119,7 @@ SPN을 설정하는 가장 쉬운 방법은 사이트에 이미 있는 SPN 형�
 1. SPN으로 다른 컴퓨터에서 해당 사이트로 이동합니다.
  이 작업을 수행하면 관련 Kerberos 티켓 집합이 컴퓨터에서 캐시됩니다. 이러한 티켓에는 탐색할 대상 사이트의 SPN이 포함되어 있습니다.
 
-2. [Klist](http://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html)라는 도구를 사용하여 해당 사이트에 대한 SPN을 끌어올 수 있습니다. 브라우저에서 사이트에 액세스한 사용자와 같은 컨텍스트에서 실행 중인 명령 창에서 다음 명령을 실행합니다.
+2. [Klist](https://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html)라는 도구를 사용하여 해당 사이트에 대한 SPN을 끌어올 수 있습니다. 브라우저에서 사이트에 액세스한 사용자와 같은 컨텍스트에서 실행 중인 명령 창에서 다음 명령을 실행합니다.
 ```
 Klist
 ```
@@ -194,7 +194,7 @@ KCD를 구성하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반복
 
 3. **대체 액세스 매핑 컬렉션** 옆의 드롭다운 목록에서 **대체 액세스 매핑 컬렉션 변경**을 선택합니다.
 4. 사이트를 선택합니다(예: **SharePoint – 80**).
-5. 내부 URL 또는 공용 URL로 게시된 URL을 추가하도록 선택할 수 있습니다. 이 예제에서는 엑스트라넷으로 공용 URL을 사용합니다.
+5. 내부 URL 또는 공용 URL로 게시된 URL을 추가하도록 선택할 수 있습니다. 이 예제에서는 엑스트라넷으로 공용 URL을 사용합니다. 사용자 지정 포트를 사용하는 경우 URL에 사용자 지정 포트를 포함해야 합니다.
 6. **엑스트라넷** 경로에서 **공용 URL 편집**을 클릭한 후 응용 프로그램을 게시할 때 만든 외부 URL을 입력합니다. 예를 들어 **https://sharepoint-iddemo.msappproxy.net**을 입력합니다.
 
   ![경로 입력](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)

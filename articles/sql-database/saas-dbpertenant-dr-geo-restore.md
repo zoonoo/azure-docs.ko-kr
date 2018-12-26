@@ -1,21 +1,23 @@
 ---
-title: Azure SQL Database 지역 중복 백업을 사용하여 SaaS 앱 재해 복구 | Microsoft Docs
+title: 'SaaS 앱: 재해 복구를 위한 Azure SQL Database 지역 중복 백업 | Microsoft Docs'
 description: 가동 중단 시 Azure SQL Database 지역 중복 백업을 사용하여 다중 테넌트 SaaS 앱을 복구하는 방법을 알아봅니다.
-keywords: SQL Database 자습서
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: saas apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/16/2018
+author: AyoOlubeko
 ms.author: ayolubek
-ms.openlocfilehash: fc28622ad6d2569d455f82a30a84c47647baa1e2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: sstein
+manager: craigg
+ms.date: 10/15/2018
+ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645337"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352943"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 응용 프로그램 복구
 
@@ -131,7 +133,7 @@ PowerShell 창을 백그라운드에서 실행 중인 상태로 두고 이 자�
 
 복구 프로세스는 다음을 수행합니다.
 
-1. 원래 지역의 웹앱에 대한 Azure Traffic Manager 엔드포인트를 사용하지 않도록 설정합니다. 끝점을 사용하지 않도록 설정하면 복구 중에 원래 지역이 온라인 상태가 되는 경우 사용자가 잘못된 상태에서 앱에 연결하지 못하게 됩니다.
+1. 원래 지역의 웹앱에 대한 Azure Traffic Manager 엔드포인트를 사용하지 않도록 설정합니다. 엔드포인트를 사용하지 않도록 설정하면 복구 중에 원래 지역이 온라인 상태가 되는 경우 사용자가 잘못된 상태에서 앱에 연결하지 못하게 됩니다.
 
 2. 복구 지역의 복구 카탈로그 서버를 프로비전하고, 카탈로그 데이터베이스를 지리적으로 복원하며, activecatalog 별칭이 복원된 카탈로그 서버를 가리키도록 업데이트합니다. 카탈로그 별칭을 변경하면 카탈로그 동기화 프로세스가 항상 활성 카탈로그로 동기화됩니다.
 
@@ -147,7 +149,7 @@ PowerShell 창을 백그라운드에서 실행 중인 상태로 두고 이 자�
 
     한 지역에서 가동 중단되면 쌍을 이루는 지역에서 사용할 수 있는 리소스에 상당한 압력이 가해질 수 있습니다. DR에 지역 복원을 사용하는 경우 리소스를 빠르게 예약하는 것이 좋습니다. 특정 지역에서 응용 프로그램을 복구해야 하는 경우 지역 복제를 사용하는 것이 좋습니다. 
 
-8. 복구 지역에서 웹 응용 프로그램에 대한 Traffic Manager 끝점을 사용하도록 설정합니다. 이 끝점을 사용하면 응용 프로그램에서 새 테넌트를 프로비전할 수 있습니다. 이 단계에서 기존 테넌트는 여전히 오프라인 상태입니다.
+8. 복구 지역에서 웹 응용 프로그램에 대한 Traffic Manager 엔드포인트를 사용하도록 설정합니다. 이 엔드포인트를 사용하면 응용 프로그램에서 새 테넌트를 프로비전할 수 있습니다. 이 단계에서 기존 테넌트는 여전히 오프라인 상태입니다.
 
 9. 우선 순위에 따라 데이터베이스를 복원하는 요청의 일괄 처리를 제출합니다. 
 

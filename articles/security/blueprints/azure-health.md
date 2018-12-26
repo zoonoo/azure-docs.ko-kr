@@ -3,35 +3,32 @@ title: Azure 의료 분석 청사진
 description: HIPAA/HITRUST 의료 분석 청사진을 배포하기 위한 지침입니다.
 services: security
 documentationcenter: na
-author: jomolesk
-manager: mbaldwin
-editor: tomsh
+author: RajeevRangappa
 ms.assetid: 26566e0a-0a54-49f4-a91d-48e20b7cef71
 ms.service: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/27/2018
-ms.author: jomolesk
-ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.date: 07/23/2018
+ms.author: rarangap
+ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "33894316"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407557"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
 ## <a name="overview"></a>개요
 
-**Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI는 Azure PaaS 솔루션의 턴키 배포를 제공하여 업계의 규정 준수 요구 사항을 충족할 수 있는 동시에 의료 데이터를 안전하게 수집, 저장, 분석 및 상호 작용하는 방법을 보여 줍니다. 청사진을 사용하면 규제되는 데이터가 있는 고객을 위해 클라우드 채택 및 활용을 촉진할 수 있습니다.**
+**Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI는 Azure PaaS 및 IaaS 솔루션의 턴키 배포를 제공하여 업계의 규정 준수 요구 사항을 충족함과 동시에 의료 데이터가 포함된 솔루션을 수집/저장/분석/상호 작용/식별하고 안전하게 배포하는 방법을 보여 줍니다. 청사진을 사용하면 규제되는 데이터가 있는 고객을 위해 클라우드 채택 및 활용을 촉진할 수 있습니다.**
 
-Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI 청사진은 HIPAA(HIPAA, 건강 보험 양도 및 책임에 관한 법) 및 HITRUST(Health Information Trust Alliance)를 지원하는 안전한 PaaS(Platform as a Service) 환경을 종단 간 솔루션으로 배포하는 데 도움이 되는 도구와 지침을 제공합니다. 이 솔루션을 사용하면 안전한 다중 계층 클라우드 환경에서 개인 및 비개인 의료 레코드를 수집, 저장, 분석 및 상호 작용할 수 있습니다. 일반 참조 아키텍처를 사용하며 Microsoft Azure 적용을 간소화하도록 설계되었습니다. 제공되는 이 아키텍처는 배포 부담과 비용을 줄이기 위해 클라우드 기반 방식을 찾고 있는 조직의 요구 사항에 적합한 종단 간 솔루션을 보여 줍니다.
+Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI 청사진은 HIPAA(HIPAA, 건강 보험 양도 및 책임에 관한 법) 및 HITRUST(Health Information Trust Alliance)를 지원하는 안전한 PaaS(Platform as a Service) 환경을 종단 간 솔루션으로 배포하는 데 도움이 되는 도구와 지침을 제공합니다. 이 솔루션을 사용하면 안전한 다중 계층 클라우드 환경에서 개인 및 비개인 의료 레코드를 수집, 저장, 분석 및 상호 작용할 수 있습니다. 
+
+IaaS 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레이션하는 방법과, 클라우드 기반 서비스 및 솔루션을 안전하기 관리하기 위한 PAW(Privileged Access Workstation)를 구현하는 방법을 보여 줍니다. IaaS SQL Server 데이터베이스는 SQL IaaS VM으로 가져오는 잠재적 실험 데이터를 추가하며, 해당 VM은 MSI 인증 액세스를 사용하여 SQL Azure PaaS 서비스와 상호 작용합니다. 이 두 가지 방식은 모두 공통 참조 아키텍처를 나타내며, Microsoft Azure을 간편하게 도입하는 데 사용됩니다. 제공되는 이 아키텍처는 배포 부담과 비용을 줄이기 위해 클라우드 기반 방식을 찾고 있는 조직의 요구 사항에 적합한 종단 간 솔루션을 보여 줍니다.
 
 ![](images/components.png)
 
-이 솔루션은 의료 정보를 전자적으로 교환하기 위한 세계 표준인 FHIR(Fast Healthcare Interoperability Resources)을 사용하여 형식화된 샘플 데이터 집합을 사용하고 안전한 방식으로 저장하도록 설계되었습니다. 고객은 Azure Machine Learning을 사용하여 강력한 비즈니스 인텔리전스 도구 및 분석을 활용하여 샘플 데이터에 대한 예측을 검토할 수 있습니다. Azure Machine Learning에서 용이하게 수행할 수 있는 실험 종류의 한 가지 예로, 청사진에는 환자가 병원 시설에서 체류하는 기간을 예측하기 위한 샘플 데이터 집합, 스크립트 및 도구가 포함되어 있습니다. 
+이 솔루션은 의료 정보를 전자적으로 교환하기 위한 세계 표준인 FHIR(Fast Healthcare Interoperability Resources)을 사용하여 형식화된 샘플 데이터 집합을 사용하고 안전한 방식으로 저장하도록 설계되었습니다. 고객은 Azure Machine Learning Studio를 사용하여 강력한 비즈니스 인텔리전스 도구 및 분석을 활용하여 샘플 데이터에 대한 예측을 검토할 수 있습니다. Azure Machine Learning Studio에서 용이하게 수행할 수 있는 실험 종류의 한 가지 예로, 청사진에는 환자가 병원 시설에서 체류하는 기간을 예측하기 위한 샘플 데이터 세트, 스크립트 및 도구가 포함되어 있습니다. 
 
 이 청사진은 고객이 특정 요구 사항에 맞게 조정하여 임상 및 운영 사용 사례 시나리오를 모두 해결하는 새로운 Azure Machine Learning 실험을 개발하기 위해 모듈식 기반으로 제공됩니다. 이는 배포 시 안전하고 준수하도록 설계되었습니다. 그러나 고객이 역할을 올바르게 구성하고 모든 수정 사항을 구현해야 합니다. 다음 사항에 유의하세요.
 
@@ -43,30 +40,22 @@ Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
 ## <a name="deploying-the-automation"></a>자동화 배포
 
-- 솔루션을 배포하려면 배포 가이드에서 제공하는 지침을 따릅니다. 
+- 솔루션을 배포하려면 [배포 지침](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md)에서 제공하는 지침을 따릅니다. 
 
-[![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
-
-이 솔루션의 작동 방식을 간략히 살펴보려면 배포에 대해 설명하고 보여 주는 이 [비디오](https://aka.ms/healthblueprintvideo)를 확인하세요.
+- 이 솔루션의 작동 방식을 간략히 살펴보려면 배포에 대해 설명하고 보여 주는 이 [비디오](https://aka.ms/healthblueprintvideo)를 확인하세요.
 
 - 자주 묻는 질문은 [FAQ](https://aka.ms/healthblueprintfaq) 가이드에서 찾을 수 있습니다.
 
 -   **아키텍처 다이어그램**. 청사진 및 사용 사례 예제 시나리오에 사용되는 참조 아키텍처를 보여 줍니다.
 
--   **배포 템플릿**. 이 배포에서는 설정 중 구성 매개 변수를 지정하여 아키텍처 구성 요소를 Microsoft Azure에 자동으로 설치하는 데 [Azure Resource Manager 템플릿](/azure/azure-resource-manager/resource-group-overview#template-deployment)을 사용합니다.
-
--   **[자동화된 배포 스크립트](https://aka.ms/healthblueprintdeploy)**. 솔루션을 배포하는 데 도움이 됩니다. 스크립트는 다음으로 구성됩니다.
-
-
--   모듈 설치 및 [전역 관리자](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) 설치 스크립트는 필요한 PowerShell 모듈을 설치하고 전역 관리자 역할이 올바르게 구성되어 있는지 확인하는 데 사용됩니다. 
--   설치 PowerShell 스크립트는 솔루션을 배포하는 데 사용되며, 미리 빌드된 데모 함수가 포함된 .zip 파일을 통해 제공됩니다.
+-   [IaaS 확장](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   이 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레이션하는 방법과, 클라우드 기반 서비스 및 솔루션을 안전하기 관리하기 위한 Privileged Access Workstation을 구현하는 방법을 보여 줍니다. 
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 
 
 기본 아키텍처는 다음과 같은 구성 요소로 이루어집니다.
 
--   **[위협 모델](https://aka.ms/healththreatmodel)** 포괄적인 위협 모델은 [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168)에서 사용할 수 있는 tm7 형식으로 제공되어 솔루션의 구성 요소, 이들 간의 데이터 흐름 및 트러스트 경계를 보여 줍니다. 이 모델은 기계 학습 구성 요소 또는 다른 수정 사항을 개발할 때 고객이 시스템 인프라에서 발생할 수 있는 잠재적 위험 요소를 이해하는 데 도움이 됩니다.
+-   **[위협 모델](https://aka.ms/healththreatmodel)** 포괄적인 위협 모델은 [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168)에서 사용할 수 있는 tm7 형식으로 제공되어 솔루션의 구성 요소, 이들 간의 데이터 흐름 및 트러스트 경계를 보여 줍니다. 이 모델은 Machine Learning Studio 구성 요소 또는 다른 수정 사항을 개발할 때 고객이 시스템 인프라에서 발생할 수 있는 잠재적 위험 요소를 이해하는 데 도움이 됩니다.
 
 -   **[고객 구현 매트릭스](https://aka.ms/healthcrmblueprint)** Microsoft Excel 통합 문서에는 관련 HITRUST 요구 사항이 나와 있으며, Microsoft와 고객이 각각의 HITRUST 요구 사항을 충족시키는 방법에 대해 설명합니다.
 
@@ -75,7 +64,7 @@ Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 # <a name="architectural-diagram"></a>아키텍처 다이어그램
 
 
-![](images/refarch.png)
+![](images/ra2.png)
 
 ## <a name="roles"></a>역할
 
@@ -107,7 +96,7 @@ Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
  ### <a name="data-scientist"></a>데이터 과학자
 
 
-데이터 과학자는 Azure Machine Learning 서비스를 운영합니다. 데이터를 가져오고, 내보내고, 관리하고, 보고서를 실행할 수 있습니다. 데이터 과학자는 환자 데이터에 액세스할 수 있지만 관리자 권한은 없습니다.
+데이터 과학자는 Azure Machine Learning Studio를 운영합니다. 데이터를 가져오고, 내보내고, 관리하고, 보고서를 실행할 수 있습니다. 데이터 과학자는 환자 데이터에 액세스할 수 있지만 관리자 권한은 없습니다.
 
 -   기본 제공 역할 할당: [저장소 계정 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
@@ -148,12 +137,12 @@ CMIO는 의료 조직의 정보학/기술과 의료 전문가 간의 격차를 �
 ## <a name="example-use-case"></a>사용 사례 예제
 
 
-이 청사진에 포함된 사용 사례 예제는 청사진을 사용하여 클라우드의 의료 데이터에 대한 기계 학습 및 분석을 활성화하는 방법을 보여 줍니다. Contosoclinic은 미국에 있는 작은 병원입니다. 병원 네트워크 관리자는 운영 작업 효율성을 높이고 제공할 수 있는 진료의 품질을 향상시키기 위해 Azure Machine Learning을 사용하여 입원 당시의 환자 체류 기간을 더 효율적으로 예측하려고 합니다.
+이 청사진에 포함된 사용 사례 예제는 청사진을 사용하여 클라우드의 의료 데이터에 대한 기계 학습 및 분석을 활성화하는 방법을 보여 줍니다. Contosoclinic은 미국에 있는 작은 병원입니다. 병원 네트워크 관리자는 운영 작업 효율성을 높이고 제공할 수 있는 진료의 품질을 향상시키기 위해 Azure Machine Learning Studio를 사용하여 입원 당시의 환자 체류 기간을 더 효율적으로 예측하려고 합니다.
 
 ### <a name="predicting-length-of-stay"></a>체류 기간 예측
 
 
-사용 사례 예제 시나리오에서는 Azure Machine Learning을 사용하여 환자 입원에서 가져온 의료 세부 정보와 이전 환자로부터 집계된 과거 데이터를 비교하여 새로 입원한 환자의 체류 기간을 예측합니다.
+사용 사례 예제 시나리오에서는 Azure Machine Learning Studio를 사용하여 환자 입원에서 가져온 의료 세부 정보와 이전 환자로부터 집계된 과거 데이터를 비교하여 새로 입원한 환자의 체류 기간을 예측합니다.
 청사진에는 솔루션의 학습 및 예측 기능을 보여 주기 위해 익명화된 대규모 의료 레코드 집합이 포함되어 있습니다. 프로덕션 배포에서 고객은 자신의 레코드를 사용하여 환경, 시설 및 환자의 고유한 세부 정보를 반영하는 더 정확한 예측을 위해 솔루션을 학습합니다.
 
 ### <a name="users-and-roles"></a>사용자 및 역할
@@ -356,8 +345,8 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   Machine Learning 웹 서비스에 대해 [로깅을 사용하도록 설정](/azure/machine-learning/studio/web-services-logging)됩니다.
-- [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench를 사용하면 솔루션 집합을 예측하는 기능을 제공하는 실험을 개발할 필요가 있습니다. [Workbench를 통합](/azure/machine-learning/desktop-workbench/using-git-ml-project)하면 실험 관리를 간소화할 수 있습니다.
+-   Machine Learning Studio 웹 서비스에 대해 [로깅을 사용하도록 설정](/azure/machine-learning/studio/web-services-logging)합니다.
+- [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench를 사용하면 솔루션 집합을 예측하는 기능을 제공하는 실험을 개발할 필요가 있습니다. [Workbench를 통합](/azure/machine-learning/desktop-workbench/using-git-ml-project)하면 실험 관리를 간소화할 수 있습니다.
 
 ## <a name="security"></a>보안
 
@@ -372,8 +361,8 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 ### <a name="azure-alerts"></a>Azure Alerts
 - Alerts는 Azure 서비스를 모니터링하는 방법을 제공하며, 데이터에 대한 조건을 구성할 수 있도록 합니다. 또한 경고 조건이 모니터링 데이터와 일치할 때 알림을 제공합니다.
 
-### <a name="operations-management-suite-oms"></a>OMS(Operations Management Suite)
-[OMS(Operations Management Suite)](/azure/operations-management-suite/operations-management-suite-overview)는 관리 서비스의 모음입니다.
+### <a name="log-analytics"></a>Log Analytics
+[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview)는 관리 서비스의 컬렉션입니다.
 
 -   Security Center에 대한 작업 영역을 사용할 수 있습니다.
 

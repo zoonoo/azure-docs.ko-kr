@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: d93bfc548134f730f4fad49a37593c861d6b6cbb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71b7e724158255cc979e9a08cd14c7f4412c4382
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785772"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253400"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Azure Portal에서 콘텐츠 게시
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ MPEG-DASH 스트리밍 URL을 작성하려면 URL에 *(format=mpd-time-csf)* 를
 > 
 > 
 
-로케이터의 만료 날짜를 업데이트하려면 [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 또는 [.NET API](http://go.microsoft.com/fwlink/?LinkID=533259)를 사용할 수 있습니다. 
+로케이터의 만료 날짜를 업데이트하려면 [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 또는 [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259)를 사용할 수 있습니다. 
 
 > [!NOTE]
 > 공유 액세스 서명 로케이터의 만료 날짜를 업데이트할 경우 URL이 변경됩니다.
@@ -89,8 +89,8 @@ Azure Portal의 콘텐츠 플레이어에서 비디오를 테스트할 수 있�
 다음과 같은 몇 가지 고려 사항이 적용됩니다.
 
 * 비디오가 게시된 것을 확인합니다.
-* Azure Portal 미디어 플레이어가 기본 스트리밍 끝점에서 재생됩니다. 기본이 아닌 스트리밍 끝점에서 재생하려면 URL 복사를 선택하여 복사한 후 다른 플레이어에 붙여넣습니다. 예를 들어 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)에서 비디오를 테스트할 수 있습니다.
-* 스트리밍을 하고 있는 스트리밍 끝점이 실행 중이어야 합니다.  
+* Azure Portal 미디어 플레이어가 기본 스트리밍 엔드포인트에서 재생됩니다. 기본이 아닌 스트리밍 엔드포인트에서 재생하려면 URL 복사를 선택하여 복사한 후 다른 플레이어에 붙여넣습니다. 예를 들어 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)에서 비디오를 테스트할 수 있습니다.
+* 스트리밍을 하고 있는 스트리밍 엔드포인트가 실행 중이어야 합니다.  
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

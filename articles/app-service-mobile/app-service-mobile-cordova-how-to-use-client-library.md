@@ -27,7 +27,7 @@ ms.locfileid: "38467889"
 이 가이드에서는 최신 [Azure Mobile Apps용 Apache Cordova 플러그 인]을 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작] 을 완료하여 백 엔드를 만들고, 테이블을 만든 다음 미리 빌드된 Apache Cordova 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 Apache Cordova 플러그 인에 초점을 둡니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
-이 SDK는 iOS, Android 및 Windows 장치에서 Apache Cordova v6.0.0 이상을 지원합니다.  지원되는 플랫폼은 다음과 같습니다.
+이 SDK는 iOS, Android 및 Windows 디바이스에서 Apache Cordova v6.0.0 이상을 지원합니다.  지원되는 플랫폼은 다음과 같습니다.
 
 * Android API 19-24(Nougat를 통한 KitKat)
 * iOS 버전 8.0 이상.
@@ -79,7 +79,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
 * [cordova-plugin-device]
 * [cordova-plugin-inappbrowser]
 
-두 가지의 인증 흐름, 즉 서버 흐름과 클라이언트 흐름이 지원됩니다.  서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자 특정 장치별 SDK를 사용하므로 Single Sign-On과 같은 장치 특정 기능을 통해 심도 깊은 통합이 가능합니다.
+두 가지의 인증 흐름, 즉 서버 흐름과 클라이언트 흐름이 지원됩니다.  서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자 특정 디바이스별 SDK를 사용하므로 Single Sign-On과 같은 디바이스 특정 기능을 통해 심도 깊은 통합이 가능합니다.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
@@ -124,7 +124,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
 새 설정이 적용되는 데는 약 10~15초가 걸립니다.
 
 ## <a name="register-for-push"></a>방법: 푸시 알림 등록
-푸시 알림을 처리하기 위해 [phonegap-plugin-push]를 설치합니다.  이 플러그인은 명령줄에서 `cordova plugin add` 명령을 사용하거나 Visual Studio 내에서 Git 플러그 인 설치 관리자를 통해 쉽게 추가할 수 있습니다.  Apache Cordova 앱에서 다음 코드는 푸시 알림을 위해 장치를 등록합니다.
+푸시 알림을 처리하기 위해 [phonegap-plugin-push]를 설치합니다.  이 플러그인은 명령줄에서 `cordova plugin add` 명령을 사용하거나 Visual Studio 내에서 Git 플러그 인 설치 관리자를 통해 쉽게 추가할 수 있습니다.  Apache Cordova 앱에서 다음 코드는 푸시 알림을 위해 디바이스를 등록합니다.
 
 ```
 var pushOptions = {

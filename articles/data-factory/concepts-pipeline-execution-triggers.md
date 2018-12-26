@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 0af6ea05b663f0954785ce966440e3f698ad14a8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 890ef4baf27e193fecc17d8435998604ce25e282
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867089"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162690"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -36,43 +36,43 @@ Azure Data Factory의 _파이프라인 실행_은 파이프라인 실행의 인�
 
 ```json
 {
-  "name": "copyPipeline",
-  "properties": {
-    "activities": [
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "BlobSource"
-          },
-          "sink": {
-            "type": "BlobSink"
-          }
-        },
-        "name": "CopyBlobtoBlob",
-        "inputs": [
-          {
-            "referenceName": "sourceBlobDataset",
-            "type": "DatasetReference"
-          }
+    "name": "copyPipeline",
+    "properties": {
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "name": "CopyBlobtoBlob",
+                "inputs": [
+                    {
+                        "referenceName": "sourceBlobDataset",
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "sinkBlobDataset",
+                        "type": "DatasetReference"
+                    }
+                ]
+            }
         ],
-        "outputs": [
-          {
-            "referenceName": "sinkBlobDataset",
-            "type": "DatasetReference"
-          }
-        ]
-      }
-    ],
-    "parameters": {
-      "sourceBlobContainer": {
-        "type": "String"
-      },
-      "sinkBlobContainer": {
-        "type": "String"
-      }
+        "parameters": {
+            "sourceBlobContainer": {
+                "type": "String"
+            },
+            "sinkBlobContainer": {
+                "type": "String"
+            }
+        }
     }
-  }
 }
 ```
 
@@ -106,7 +106,7 @@ Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickSt
 ```json
 {
   "sourceBlobContainer": "MySourceFolder",
-  "sinkBlobCountainer": "MySinkFolder"
+  "sinkBlobContainer": "MySinkFolder"
 }
 ```
 
@@ -146,12 +146,11 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 ### <a name="basic-trigger-definition"></a>기본 트리거 정의
 
 ```json
+{
     "properties": {
         "name": "MyTrigger",
         "type": "<type of trigger>",
-        "typeProperties": {
-            …
-        },
+        "typeProperties": {...},
         "pipelines": [
             {
                 "pipelineReference": {
@@ -161,17 +160,18 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
                 "parameters": {
                     "<parameter 1 Name>": {
                         "type": "Expression",
-                          "value": "<parameter 1 Value>"
+                        "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name>" : "<parameter 2 Value>"
+                    "<parameter 2 Name>": "<parameter 2 Value>"
                 }
             }
         ]
     }
+}
 ```
 
 ## <a name="schedule-trigger"></a>일정 트리거
-일정 트리거는 벽시계 일정에 따라 파이프라인을 실행합니다. 이 트리거는 정기적인 고급 일정 옵션을 지원합니다. 예를 들어 트리거는 "매주" 또는 "월요일 오후 5시 및 목요일 오후 9시"와 같은 간격을 지원합니다. 일정 트리거는 시계열 및 비시계열 데이터 간을 구분하지 않고 데이터 집합 패턴이 중립적이므로 유연성이 있습니다.
+일정 트리거는 벽시계 일정에 따라 파이프라인을 실행합니다. 이 트리거는 정기적인 고급 일정 옵션을 지원합니다. 예를 들어 트리거는 "매주" 또는 "월요일 오후 5시 및 목요일 오후 9시"와 같은 간격을 지원합니다. 데이터 세트 패턴은 중립적이며 트리거는 시계열 및 비시계열 데이터 간을 구분하지 않으므로 일정 트리거가 유연합니다.
 
 일정 트리거에 대한 자세한 내용 및 예제는 [일정 트리거 만들기](how-to-create-schedule-trigger.md)를 참조하세요.
 
@@ -187,40 +187,39 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
     "typeProperties": {
       "recurrence": {
         "frequency": <<Minute, Hour, Day, Week, Year>>,
-        "interval": <<int>>,             // How often to fire
+        "interval": <<int>>, // How often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": "UTC"
-        "schedule": {                    // Optional (advanced scheduling specifics)
+        "timeZone": "UTC",
+        "schedule": { // Optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
-          "weekDays": ": [<<Monday-Sunday>>],
+          "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-60>>],
           "monthDays": [<<1-31>>],
           "monthlyOccurences": [
-               {
-                    "day": <<Monday-Sunday>>,
-                    "occurrence": <<1-5>>
-               }
-           ] 
+            {
+              "day": <<Monday-Sunday>>,
+              "occurrence": <<1-5>>
+            }
+          ]
         }
       }
     },
-   "pipelines": [
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "<Name of your pipeline>"
-                },
-                "parameters": {
-                    "<parameter 1 Name>": {
-                        "type": "Expression",
-                        "value": "<parameter 1 Value>"
-                    },
-                    "<parameter 2 Name>" : "<parameter 2 Value>"
-                }
-           }
-      ]
-  }
+  "pipelines": [
+    {
+      "pipelineReference": {
+        "type": "PipelineReference",
+        "referenceName": "<Name of your pipeline>"
+      },
+      "parameters": {
+        "<parameter 1 Name>": {
+          "type": "Expression",
+          "value": "<parameter 1 Value>"
+        },
+        "<parameter 2 Name>": "<parameter 2 Value>"
+      }
+    }
+  ]}
 }
 ```
 

@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: fa6a0febfc268fe96063e962a208d73662f9815a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1e6c71a68c4357d82d086f3e2ca098e4039def5a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623913"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295760"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -28,7 +27,7 @@ ms.locfileid: "34623913"
 
 ## <a name="create-a-data-lake-analytics-account"></a>Data Lake 분석 계정 만들기
 
-이제 Data Lake Analytics 및 Data Lake Store 계정을 동시에 만듭니다.  이 단계는 간단하며 완료하는 데 약 60초가 소요됩니다.
+이제 Data Lake Analytics 및 Azure Data Lake Storage Gen1 계정을 동시에 만듭니다.  이 단계는 간단하며 완료하는 데 약 60초가 소요됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **리소스 만들기** >  **데이터 + 분석** > **Data Lake Analytics**를 클릭합니다.
@@ -37,14 +36,14 @@ ms.locfileid: "34623913"
    * **구독**: 분석 계정에 사용할 Azure 구독을 선택합니다.
    * **리소스 그룹**. 기존 Azure 리소스 그룹을 선택하거나 리소스 그룹을 새로 만듭니다.
    * **위치** - 데이터 레이크 분석 계정에 대한 Azure 데이터 센터를 선택합니다.
-   * **Data Lake Store**: 지침에 따라 새 Data Lake Store 계정을 만들거나 기존 계정을 선택합니다. 
+   * **Data Lake Storage Gen1**: 지침에 따라 새 Data Lake Storage Gen1 계정을 만들거나 기존 계정을 선택합니다. 
 4. 필요에 따라 Data Lake Analytics 계정에 대한 가격 책정 계층을 선택합니다.
 5. **만들기**를 클릭합니다. 
 
 
 ## <a name="your-first-u-sql-script"></a>첫 번째 U-SQL 스크립트
 
-다음 텍스트는 매우 간단한 U-SQL 스크립트입니다. 스크립트 내에서 작은 데이터 집합을 정의한 후 이 데이터 집합을 `/data.csv`라는 파일로 기본 Data Lake Store에 기록하는 것이 전부입니다.
+다음 텍스트는 매우 간단한 U-SQL 스크립트입니다. 스크립트 내에서 작은 데이터 세트를 정의한 다음, 해당 데이터 세트를 `/data.csv`라는 파일로 기본 Data Lake Storage Gen1 계정에 기록하는 것이 전부입니다.
 
 ```
 @a  = 
@@ -69,6 +68,6 @@ OUTPUT @a
 
 ## <a name="see-also"></a>참고 항목
 
-* U-SQL 응용 프로그램 개발을 시작하려면 [Visual Studio용 Data Lake 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
+* U-SQL 애플리케이션 개발을 시작하려면 [Visual Studio용 Data Lake 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 * U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
 * 관리 작업을 보려면 [Azure Portal을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.

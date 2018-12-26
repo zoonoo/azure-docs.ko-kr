@@ -3,7 +3,7 @@ title: Azure Cloud Services에서 성능 카운터 수집 | Microsoft Docs
 description: Azure 진단 및 Application Insights를 사용하여 Cloud Services에서 성능 카운터를 검색, 사용 및 만드는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
-ms.author: adegeo
-ms.openlocfilehash: 3e0af48c172fa912f0ac9e05b7b761dd7eaad795
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: jeconnoc
+ms.openlocfilehash: b288c6a64572287c460e82cd8746a8504d264933
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29134050"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322946"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure Cloud Service에 대한 성능 카운터 수집
 
@@ -127,7 +127,7 @@ Cloud Services용 Azure 진단 확장을 사용하면 수집할 성능 카운터
 
 수집하려는 성능 카운터는 **diagnostics.wadcfgx** 파일에 정의됩니다. **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters**를 찾습니다. 새 **PerformanceCounterConfiguration** 요소를 자식으로 추가합니다. 이 요소에는 두 가지 특성(`counterSpecifier` 및 `sampleRate`)이 있습니다. `counterSpecifier` 특성은 수집할 시스템 성능 카운터 세트(이전 섹션에 요약되어 있음)를 정의합니다. `sampleRate` 값은 해당 값이 폴링되는 빈도를 나타냅니다. 전반적으로 모든 성능 카운터는 부모 `PerformanceCounters` 요소의 `scheduledTransferPeriod` 특성 값에 따라 Azure에 전송됩니다.
 
-`PerformanceCounters` 스키마 요소에 대한 자세한 내용은 [Azure 진단 스키마](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element)를 참조하세요.
+`PerformanceCounters` 스키마 요소에 대한 자세한 내용은 [Azure 진단 스키마](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)를 참조하세요.
 
 `sampleRate` 특성으로 정의된 기간은 XML 기간 데이터 형식을 사용하여 성능 카운터가 폴링되는 빈도를 나타냅니다. 아래 예제에서는 속도가 `PT3M`(`[P]eriod[T]ime[3][M]inutes`: 3분마다)으로 설정됩니다.
 
@@ -297,4 +297,4 @@ counterServiceUsed.Increment();
 - [Azure Cloud Services용 Application Insights](../application-insights/app-insights-cloudservices.md#performance-counters)
 - [Application Insights의 시스템 성능 카운터](../application-insights/app-insights-performance-counters.md)
 - [카운터 경로 지정](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Azure 진단 스키마 - 성능 카운터](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element)
+- [Azure 진단 스키마 - 성능 카운터](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

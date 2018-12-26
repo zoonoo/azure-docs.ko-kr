@@ -1,6 +1,6 @@
 ---
-title: Linux에서 Azure 마이크로 서비스 디버그 | Microsoft Docs
-description: 로컬 개발 컴퓨터에서 Microsoft Azure 서비스 패브릭을 사용하여 작성된 서비스를 모니터링하고 진단하는 방법에 대해 알아보세요.
+title: Linux에서 Azure Service Fabric 앱 디버그 | Microsoft Docs
+description: 로컬 Linux 개발 컴퓨터에서 Service Fabric 서비스를 모니터링하고 진단하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 563f9d73d5a8d56e834c36d03aed75812ec123ba
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5aeb87538968304d3eaf73873d4c4c762c07329c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212713"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051377"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스
 

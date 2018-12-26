@@ -1,32 +1,27 @@
 ---
-title: HDInsight에서 Hadoop MapReduce 예제 실행 - Azure | Microsoft Docs
+title: HDInsight에서 Apache Hadoop MapReduce 예제 실행 - Azure
 description: HDInsight에 포함된 jar 파일의 MapReduce 샘플을 사용하여 시작하세요. SSH를 통해 클러스터에 연결한 다음 Hadoop 명령을 사용하여 샘플 작업을 실행합니다.
 keywords: hadoop 예제 jar,hadoop 예제 jar,hadoop mapreduce 예제,mapreduce 예제
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 14f860d64c482ac7ef74512aea4850821d30132c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: hrasheed
+ms.openlocfilehash: 283171fa00837a8a7b4e0a13d7bca5645cf63a83
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202308"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633068"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>HDInsight에 포함된 MapReduce 예제 실행
 
 [!INCLUDE [samples-selector](../../../includes/hdinsight-run-samples-selector.md)]
 
-HDInsight의 Hadoop에 포함된 MapReduce 예제를 실행하는 방법을 알아봅니다.
+HDInsight의 Apache Hadoop에 포함된 MapReduce 예제를 실행하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -217,8 +212,6 @@ GraySort는 벤치마크 정렬입니다. 이 메트릭은 엄청난 양, 일반
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
-
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:apache-hadoop-introduction.md

@@ -1,31 +1,34 @@
 ---
-title: Azure Container Service 자습서 - 앱 준비
+title: (사용되지 않음) Azure Container Service 자습서 - 앱 준비
 description: Azure Container Service 자습서 - 앱 준비
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2fe160652bf8df289d590722ef4024f0b3dd397c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a003248104c45fa2bcc1020e0ad8ea895d759457
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164358"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992370"
 ---
-# <a name="create-container-images-to-be-used-with-azure-container-service"></a>Azure Container Service에 사용할 컨테이너 이미지 만들기
+# <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(사용되지 않음) Azure Container Service에 사용할 컨테이너 이미지 만들기
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 자습서의 업데이트된 버전은 [자습서: AKS(Azure Kubernetes Service)에 대한 애플리케이션 준비](../../aks/tutorial-kubernetes-prepare-app.md)를 참조하세요.
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 7개 중 1단계인 이 자습서에서는 Kubernetes에서 사용할 수 있도록 다중 컨테이너 응용 프로그램을 준비하는 과정입니다. 완료되는 단계는 다음과 같습니다.  
 
 > [!div class="checklist"]
 > * GitHub에서 응용 프로그램 소스 복제  
 > * 응용 프로그램 원본에서 컨테이너 이미지 만들기
-> * 로컬 Docker 환경에서 응용 프로그램 테스트
+> * 로컬 Docker 환경에서 애플리케이션 테스트
 
 완료되면 다음 응용 프로그램을 로컬 개발 환경에서 액세스할 수 있습니다.
 
@@ -57,7 +60,7 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 cd azure-voting-app-redis
 ```
 
-해당 디렉터리에는 응용 프로그램 소스 코드, 미리 만든 Docker Compose 파일 및 Kubernetes 매니페스트 파일이 있습니다. 이러한 파일은 자습서 집합 전체에서 사용됩니다. 
+해당 디렉터리에는 애플리케이션 소스 코드, 미리 만든 Docker Compose 파일 및 Kubernetes 매니페스트 파일이 있습니다. 이러한 파일은 자습서 집합 전체에서 사용됩니다. 
 
 ## <a name="create-container-images"></a>컨테이너 이미지 만들기
 
@@ -90,7 +93,7 @@ tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        
 docker ps
 ```
 
-출력
+출력:
 
 ```bash
 CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS                           NAMES

@@ -66,7 +66,7 @@ Microsoft는 지원되는 HDInsight 버전 목록을 최신 Hadoop 에코시스�
 - 주문형 HDInsight 연결된 서비스를 사용하여 Data Factory 버전 1 DotNet 사용자 지정 작업을 실행 중인 경우, Azure Batch 연결된 서비스를 대신 사용하도록 DotNet 사용자 지정 작업 JSON 정의를 업데이트합니다. 자세한 내용은 [데이터 팩터리 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)을 참조하세요. 
 
 > [!Note]
-> Data Factory 버전 1에서 기존의, 자체(bring-your-own) 클러스터 HDInsight 연결된 장치를 사용하거나 Azure Data Factory에서 자체(bring-your-own) 및 주문형 HDInsight 연결된 서비스를 사용하는 경우에는 별도의 조치가 필요하지 않습니다. 이러한 시나리오에는 HDInsight 클러스터의 최신 버전 지원 정책이 이미 적용되고 있습니다. 
+> Data Factory 버전 1에서 기존의, 자체(bring-your-own) 클러스터 HDInsight 연결된 디바이스를 사용하거나 Azure Data Factory에서 자체(bring-your-own) 및 주문형 HDInsight 연결된 서비스를 사용하는 경우에는 별도의 조치가 필요하지 않습니다. 이러한 시나리오에는 HDInsight 클러스터의 최신 버전 지원 정책이 이미 적용되고 있습니다. 
 >
 > 
 
@@ -355,7 +355,7 @@ Data Lake Analytics 연결된 서비스를 만들어서 Data Lake Analytics 연�
 Data Lake Analytics 연결된 서비스에 대해 서비스 주체 또는 사용자 자격 증명을 사용한 인증을 선택할 수 있습니다.
 
 #### <a name="service-principal-authentication-recommended"></a>서비스 주체 인증(권장)
-서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에서 응용 프로그램 엔터티를 등록합니다. 그런 다음, Data Lake Store에 Azure AD 액세스를 부여합니다. 자세한 단계는 [서비스 간 인증](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
+서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에서 애플리케이션 엔터티를 등록합니다. 그런 다음, Data Lake Store에 Azure AD 액세스를 부여합니다. 자세한 단계는 [서비스 간 인증](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
 * 응용 프로그램 UI
 * 응용 프로그램 키 
 * 테넌트 ID
@@ -364,9 +364,9 @@ Data Lake Analytics 연결된 서비스에 대해 서비스 주체 또는 사용
 
 | 자산                | 설명                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
-| servicePrincipalId  | 응용 프로그램의 클라이언트 ID입니다.     | 예      |
-| servicePrincipalKey | 응용 프로그램의 키입니다.           | 예      |
-| tenant              | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)입니다. 이 정보를 얻으려면 Azure Portal의 오른쪽 위 모서리에 마우스를 올려 놓습니다. | 예      |
+| servicePrincipalId  | 애플리케이션의 클라이언트 ID입니다.     | 예      |
+| servicePrincipalKey | 애플리케이션의 키입니다.           | 예      |
+| tenant              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)입니다. 이 정보를 얻으려면 Azure Portal의 오른쪽 위 모서리에 마우스를 올려 놓습니다. | 예      |
 
 **예제: 서비스 주체 인증**
 ```json

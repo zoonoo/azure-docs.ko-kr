@@ -1,22 +1,25 @@
 ---
-title: JavaScript에서 Microsoft Speech Recognition API 시작 | Microsoft Docs
-description: Cognitive Services의 Microsoft Speech Recognition API를 사용하여 음성 오디오를 텍스트로 계속 변환하는 응용 프로그램을 개발합니다.
+title: JavaScript에서 Bing Speech Recognition API 시작 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Cognitive Services의 Bing Speech Recognition API를 사용하여 음성 오디오를 텍스트로 계속 변환하는 응용 프로그램을 개발합니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 56c41fd7f6a00d80bc6bccd61894654e057e926e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 79f2aa9c3e73037aa25848b7d11c34a73bf35f64
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373814"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342401"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>JavaScript에서 Speech Recognition API 시작
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 응용 프로그램을 개발할 수 있습니다. JavaScript 클라이언트 라이브러리는 [Speech Service WebSocket 프로토콜](../API-Reference-REST/websocketprotocol.md)을 사용하여 전사된 텍스트를 동시에 말하고 받을 수 있습니다. 이 문서는 JavaScript에서 Speech Recognition API를 시작하는 데 도움이 됩니다.
 
@@ -38,7 +41,7 @@ Speech API는 Cognitive Services의 일부입니다. [Cognitive Services 구독]
 
 ### <a name="open-the-sample-directly"></a>샘플 직접 열기
 
-위에서 설명한 대로 구독 키를 얻습니다. 그런 다음, [샘플에 대한 링크](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)를 엽니다. 그러면 기본 브라우저에 페이지가 로드됩니다([htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)를 사용하여 렌더링됨).
+위에서 설명한 대로 구독 키를 얻습니다. 그런 다음, [샘플에 대한 링크](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)를 엽니다. 그러면 기본 브라우저에 페이지가 로드됩니다([htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)를 사용하여 렌더링됨).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>로컬 복사본에서 샘플 열기
 
@@ -48,7 +51,7 @@ Speech API는 Cognitive Services의 일부입니다. [Cognitive Services 구독]
 git clone https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
 ```
 
-TypeScript 소스를 컴파일하고, 단일 JavaScript 파일에 번들로 포함시킵니다(browserfy)([npm](https://www.npmjs.com/)이 컴퓨터에 설치되어 있어야 함). 복제된 리포지토리의 루트로 변경하고, 다음 명령을 실행합니다.
+TypeScript 소스를 컴파일하고, 단일 JavaScript 파일에 번들로 포함시킵니다([npm](https://www.npmjs.com/)이 컴퓨터에 설치되어 있어야 함). 복제된 리포지토리의 루트로 변경하고, 다음 명령을 실행합니다.
 
 ```
 cd SpeechToText-WebSockets-Javascript && npm run bundle

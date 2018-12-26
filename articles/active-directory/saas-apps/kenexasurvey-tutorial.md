@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: bca5d5111f5cfc3bcf2720af855f44d1928bcfd6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6828617e0ae61a3784e4db3d1c2ecf4ce9862ce2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221019"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449500"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>자습서: IBM Kenexa Survey Enterprise와 Azure Active Directory 통합
 
@@ -63,19 +63,19 @@ Azure AD에 IBM Kenexa Survey Enterprise의 통합을 구성하려면 갤러리�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택합니다.
+1. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-3. 응용 프로그램을 추가하려면 **새 응용 프로그램** 단추를 클릭합니다.
+1. 응용 프로그램을 추가하려면 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에 **IBM Kenexa Survey Enterprise**를 입력합니다.
+1. 검색 상자에 **IBM Kenexa Survey Enterprise**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_search.png)
 
-5. 결과 목록에서 **IBM Kenexa Survey Enterprise**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 목록에서 **IBM Kenexa Survey Enterprise**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 IBM Kenexa Survey Enterprise](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
 
@@ -96,11 +96,11 @@ IBM Kenexa Survey Enterprise에서 Azure AD SSO를 구성하고 테스트하려�
 
     ![IBM Kenexa Survey Enterprise 구성 Single Sign-On 링크][4]
 
-2. **Single Sign-On** 대화 상자의 **모드** 상자에서 **SAML 기반 로그온**을 선택하여 SSO를 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자의 **모드** 상자에서 **SAML 기반 로그온**을 선택하여 SSO를 사용하도록 설정합니다.
  
     ![Single Sign-On 대화 상자](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_samlbase.png)
 
-3. **IBM Kenexa Survey Enterprise 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **IBM Kenexa Survey Enterprise 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![IBM Kenexa Survey Enterprise 도메인 및 URL Single Sign-On 정보](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
 
@@ -111,7 +111,7 @@ IBM Kenexa Survey Enterprise에서 Azure AD SSO를 구성하고 테스트하려�
     > [!NOTE] 
     > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 항목을 업데이트합니다. 실제 값을 가져오려면 [IBM Kenexa Survey Enterprise 지원팀](https://www.ibm.com/support/home/?lnk=fcw)에 문의하세요.
 
-4. **SAML 서명 인증서** 아래에서 **인증서(Base64)** 를 클릭한 후 사용자의 컴퓨터에 인증서 파일을 저장합니다.
+1. **SAML 서명 인증서** 아래에서 **인증서(Base64)** 를 클릭한 후 사용자의 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서(Base64) 다운로드 링크](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
 
@@ -121,19 +121,19 @@ IBM Kenexa Survey Enterprise에서 Azure AD SSO를 구성하고 테스트하려�
     
     ![사용자 특성 대화 상자](./media/kenexasurvey-tutorial/tutorial_attribute.png) 
 
-5. **저장**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/kenexasurvey-tutorial/tutorial_general_400.png)
 
-6. **로그온 구성** 창을 열려면 **IBM Kenexa Survey Enterprise 구성** 섹션에서 **IBM Kenexa Survey Enterprise 구성**을 클릭합니다. 
+1. **로그온 구성** 창을 열려면 **IBM Kenexa Survey Enterprise 구성** 섹션에서 **IBM Kenexa Survey Enterprise 구성**을 클릭합니다. 
  
     ![IBM Kenexa Survey Enterprise 구성 링크](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_configure.png)
 
-7. **빠른 참조** 섹션에서 **로그아웃 URL**, **SAML 엔터티 ID** 및 **SAML Single Sign-On 서비스 URL** 값을 복사합니다.
+1. **빠른 참조** 섹션에서 **로그아웃 URL**, **SAML 엔터티 ID** 및 **SAML Single Sign-On 서비스 URL** 값을 복사합니다.
 
-8. **로그온 구성** 창의 **빠른 참조**에서 **로그아웃 URL**, **SAML 엔터티 ID** 및 **SAML Single Sign-On 서비스 URL**을 복사합니다.
+1. **로그온 구성** 창의 **빠른 참조**에서 **로그아웃 URL**, **SAML 엔터티 ID** 및 **SAML Single Sign-On 서비스 URL**을 복사합니다.
 
-9. **IBM Kenexa Survey Enterprise** 쪽에서 SSO를 구성하려면 다운로드한 **인증서(Base64)**, **로그아웃 URL**, **SAML 엔터티 ID** 및 **SAML Single Sign-On 서비스 URL** 값을 [IBM Kenexa Survey Enterprise 지원팀](https://www.ibm.com/support/home/?lnk=fcw)에 보내야 합니다.
+1. **IBM Kenexa Survey Enterprise** 쪽에서 SSO를 구성하려면 다운로드한 **인증서(Base64)**, **로그아웃 URL**, **SAML 엔터티 ID** 및 **SAML Single Sign-On 서비스 URL** 값을 [IBM Kenexa Survey Enterprise 지원팀](https://www.ibm.com/support/home/?lnk=fcw)에 보내야 합니다.
 
 > [!TIP]
 > 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com)에서 이러한 지침의 간결한 버전을 참조할 수 있습니다. **Active Directory** > **엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서](https://go.microsoft.com/fwlink/?linkid=845985)를 참조하세요.
@@ -148,15 +148,15 @@ IBM Kenexa Survey Enterprise에서 Azure AD SSO를 구성하고 테스트하려�
 
     ![Azure Active Directory 단추](./media/kenexasurvey-tutorial/create_aaduser_01.png) 
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
     !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/kenexasurvey-tutorial/create_aaduser_02.png) 
 
-3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
  
     ![추가 단추](./media/kenexasurvey-tutorial/create_aaduser_03.png) 
 
-4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자에서 다음 단계를 수행합니다.
  
     ![사용자 대화 상자](./media/kenexasurvey-tutorial/create_aaduser_04.png) 
 
@@ -186,23 +186,23 @@ IBM Kenexa Survey Enterprise에 사용자인 Britta Simon을 할당하려면 다
 
     !["엔터프라이즈 응용 프로그램" 및 "모든 응용 프로그램" 링크][201] 
 
-2. **응용 프로그램** 목록에서 **IBM Kenexa Survey Enterprise**를 선택합니다.
+1. **응용 프로그램** 목록에서 **IBM Kenexa Survey Enterprise**를 선택합니다.
 
     ![응용 프로그램 목록의 IBM Kenexa Survey Enterprise 링크](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_app.png) 
 
-3. 왼쪽 창에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 창에서 **사용자 및 그룹**을 클릭합니다.
 
     ![“사용자 및 그룹” 링크][202] 
 
-4. **추가** 단추를 클릭한 다음 **할당 추가** 창에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭한 다음 **할당 추가** 창에서 **사용자 및 그룹**을 선택합니다.
 
     ![할당 추가 창][203]
 
-5. **사용자 및 그룹** 대화 상자의 **사용자 목록**에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 **사용자 목록**에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 43ec962c91b354d8f07f1be8885b89424d00e452
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 67f363d14489340755251369b422475032d1e671
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069862"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222499"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack 개요에 대 한 업데이트 관리
 
 *적용 대상: Azure Stack 통합 시스템*
 
-Microsoft update 패키지 일반적으로 Azure Stack 통합 시스템에 대 한 각 월의 네 번째 화요일 주위를 놓습니다. 업데이트 알림 조직에 도달 하는 특정 알림 프로세스에 대 한 OEM을 요청 합니다. 아래에서이 문서 라이브러리에서 확인할 수 있습니다 **개요** > **릴리스** 현재 지원 되는 릴리스에 대 한 정보에 대 한 합니다. 
+Microsoft update 패키지 일반적으로 Azure Stack 통합 시스템에 대 한 각 월의 네 번째 화요일 주위를 놓습니다. 업데이트 알림 조직에 도달 하는 특정 알림 프로세스에 대 한 OEM을 요청 합니다. 이 문서 라이브러리에서 확인할 수 있습니다 **개요** > **릴리스** 현재 지원 되는 릴리스에 대 한 정보에 대 한 합니다. 
 
 각 릴리스의 Microsoft 소프트웨어 업데이트는 단일 업데이트 패키지로 제공 됩니다. Azure Stack 운영자로 가져올 수 있습니다, 설치 및 이러한의 설치 진행률을 모니터링 관리자 포털에서 패키지를 업데이트 합니다. 
 
@@ -34,7 +34,7 @@ Microsoft update 패키지 일반적으로 Azure Stack 통합 시스템에 대 �
 지원 시스템을 유지 하려면 특정 버전 수준으로 업데이트 하는 Azure Stack을 유지 해야 합니다. 검토 하 고 있는지 확인 합니다 [Azure Stack 서비스 정책](azure-stack-servicing-policy.md)합니다.
 
 > [!NOTE]
-> Azure Stack 개발 키트 Azure Stack 업데이트 패키지에 적용할 수 없습니다. 업데이트 패키지는 통합된 시스템을 위한 설계 되었습니다. 정보를 참조 하세요 [재배포는 ASDK](https://docs.microsoft.com/en-us/azure/azure-stack/asdk)합니다.
+> Azure Stack 개발 키트 Azure Stack 업데이트 패키지에 적용할 수 없습니다. 업데이트 패키지는 통합된 시스템을 위한 설계 되었습니다. 정보를 참조 하세요 [재배포는 ASDK](https://docs.microsoft.com/azure/azure-stack/asdk)합니다.
 
 ## <a name="the-update-resource-provider"></a>업데이트 리소스 공급자
 
@@ -45,6 +45,13 @@ Azure Stack에는 Microsoft 소프트웨어 업데이트의 응용 프로그램�
 ## <a name="plan-for-updates"></a>업데이트에 대 한 계획
 
 유지 관리 작업을 사용자에 게 알림 및 예약 하는 일반적인 유지 관리 기간 업무 외 시간 동안 가능한 경우 것이 좋습니다. 유지 관리 작업 테 넌 트 워크 로드와 포털 작업에 영향을 줄 수 있습니다.
+
+
+- 이 업데이트의 설치를 시작 하기 전에 실행할 [테스트 AzureStack](azure-stack-diagnostic-test.md) 에 Azure Stack의 상태를 확인 하 고 발견 된 작동 문제를 해결 하려면 다음 매개 변수를 사용 하 여 모든 경고 및 오류를 포함 합니다. 또한 활성 경고를 검토 하 고 작업을 필요로 하는 해결 합니다.  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
 
 ## <a name="using-the-update-tile-to-manage-updates"></a>타일 업데이트를 사용 하 여 업데이트를 관리 하려면
 관리자 포털에서 업데이트를 관리합니다. Azure Stack 운영자로 서는 대시보드에서 타일 업데이트를 사용할 수 있습니다.

@@ -2,23 +2,25 @@
 title: 재해 복구 솔루션 설계 - Azure SQL Database | Microsoft Docs
 description: 올바른 장애 조치 패턴을 선택하여 재해 복구를 위한 클라우드 솔루션을 설계하는 방법에 대해 알아봅니다.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: elastic-pools
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/04/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 5de8aebb6ffc5763dd7f0b8852c31923914e4c55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 08/27/2018
+ms.openlocfilehash: 9ed01103a83073d1bbb22f476a9115af816571aa
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645534"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166557"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>SQL Database 탄력적 풀을 사용하는 응용 프로그램에 대한 재해 복구 전략
-수년에 걸쳐 클라우드 서비스가 간단하지 않으며 치명적인 문제가 발생한다는 점을 발견했습니다. SQL Database는 이러한 문제가 발생할 때 응용 프로그램의 비즈니스 연속성을 위해 제공할 몇 가지 기능을 제공합니다. [탄력적 풀](sql-database-elastic-pool.md) 및 단일 데이터베이스는 동일한 종류의 재해 복구 기능을 지원합니다. 이 문서에서는 이러한 SQL Database 비즈니스 연속성 기능을 활용하는 탄력적 풀에 대한 몇 가지 DR 전략을 설명합니다.
+수년에 걸쳐 클라우드 서비스가 간단하지 않으며 치명적인 문제가 발생한다는 점을 발견했습니다. SQL Database는 이러한 문제가 발생할 때 응용 프로그램의 비즈니스 연속성을 위해 제공할 몇 가지 기능을 제공합니다. [탄력적 풀](sql-database-elastic-pool.md) 및 단일 데이터베이스는 동일한 종류의 DR(재해 복구) 기능을 지원합니다. 이 문서에서는 이러한 SQL Database 비즈니스 연속성 기능을 활용하는 탄력적 풀에 대한 몇 가지 DR 전략을 설명합니다.
 
 이 문서에서는 다음과 같은 canonical SaaS ISV 응용 프로그램 패턴을 사용합니다.
 
@@ -27,12 +29,12 @@ ms.locfileid: "34645534"
 이 문서에서는 비용에 민감한 시작 응용 프로그램에서 엄격한 가용성 요구 사항이 포함된 응용 프로그램에 걸친 시나리오를 다루는 DR 전략을 설명합니다.
 
 > [!NOTE]
-> 프리미엄 또는 중요 비즈니스용(미리 보기) 데이터베이스 및 탄력적 풀을 사용하는 경우 영역 중복 배포 구성(현재 미리 보기 상태임)으로 변환하여 지역 중단 시 탄력적으로 복원할 수 있습니다. [영역 중복 데이터베이스](sql-database-high-availability.md)를 참조하세요.
+> 프리미엄 또는 중요 비즈니스용 데이터베이스 및 탄력적 풀을 사용하는 경우, 영역 중복 배포 구성으로 변환하여 지역 중단 시 탄력적으로 복원할 수 있습니다. [영역 중복 데이터베이스](sql-database-high-availability.md)를 참조하세요.
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>시나리오 1. 비용에 민감한 시작
 <i>신규 사업체이며 비용에 매우 민감합니다.  응용 프로그램의 배포 및 관리를 단순화하려면 개별 고객을 위해 제한된 SLA를 보유할 수 있습니다. 하지만 응용 프로그램 전체가 오프라인이 되는 것은 절대 원하지 않습니다.</i>
 
-단순성 요구 사항을 충족하려면 모든 테넌트 데이터베이스를 선택한 Azure 지역에서 하나의 탄력적 풀로 배포하고 관리 데이터베이스를 지역 복제된 단일 데이터베이스로 배포합니다. 테넌트의 재해 복구를 위해 추가 비용 없이 제공되는 지역 복원을 사용합니다. 관리 데이터베이스의 가용성을 보장하려면 자동 장애 조치 그룹(미리 보기 상태)을 사용하여 다른 지역으로 지역 복제합니다(1단계). 이 시나리오에서 재해 복구를 구성하는 지속적인 비용은 보조 데이터베이스의 총 비용과 같습니다. 이 구성은 다음 다이어그램에 나와 있습니다.
+단순성 요구 사항을 충족하려면 모든 테넌트 데이터베이스를 선택한 Azure 지역에서 하나의 탄력적 풀로 배포하고 관리 데이터베이스를 지역 복제된 단일 데이터베이스로 배포합니다. 테넌트의 재해 복구를 위해 추가 비용 없이 제공되는 지역 복원을 사용합니다. 관리 데이터베이스의 가용성을 보장하려면 자동 장애 조치(failover) 그룹을 사용하여 다른 지역으로 지역 복제합니다(1단계). 이 시나리오에서 재해 복구를 구성하는 지속적인 비용은 보조 데이터베이스의 총 비용과 같습니다. 이 구성은 다음 다이어그램에 나와 있습니다.
 
 ![그림 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 

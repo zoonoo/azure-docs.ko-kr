@@ -7,30 +7,32 @@ manager: douge
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: d06fde0dc6c289a09b9fe4c9e2ffbb50c3027490
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719445"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250818"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Azure Queue Storage 및 Visual Studio 연결 서비스 시작(ASP.NET)
+
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>개요
 
-Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 응용 프로그램을 디자인할 때는 응용 프로그램 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. 큐 저장소는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 장치에서 실행 중인지와 관계 없이 응용 프로그램 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. 큐 저장소는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
+Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 응용 프로그램을 디자인할 때는 응용 프로그램 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. 큐 저장소는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 디바이스에서 실행 중인지와 관계 없이 응용 프로그램 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. 큐 저장소는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
 
 이 자습서에서는 Azure Queue Storage 항목을 사용하여 몇 가지 일반적인 시나리오에 대한 ASP.NET 코드를 작성하는 방법을 보여 줍니다. 이러한 시나리오는 Azure 큐 작성, 큐 메시지 추가, 수정, 읽기 및 제거와 같은 일반적인 작업을 포함합니다.
 
-##<a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure 저장소 계정](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Azure 저장소 계정](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -139,7 +141,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
   
     ![큐 만들기](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    앞에서 언급했듯이 큐가 없고 만들어진 경우에만 **CloudQueue.CreateIfNotExists** 메서드에서 **true**를 반환합니다. 따라서 큐가 있을 때 앱을 실행하면 메서드에서 **false**를 반환합니다. 앱을 여러 번 실행하려면 앱을 다시 실행하기 전에 큐를 삭제해야 합니다. **CloudQueue.Delete** 메서드를 통해 큐 삭제를 수행할 수 있습니다. 또한 [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) 또는 [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 큐를 삭제할 수도 있습니다.  
+    앞에서 언급했듯이 큐가 없고 만들어진 경우에만 **CloudQueue.CreateIfNotExists** 메서드에서 **true**를 반환합니다. 따라서 큐가 있을 때 앱을 실행하면 메서드에서 **false**를 반환합니다. 앱을 여러 번 실행하려면 앱을 다시 실행하기 전에 큐를 삭제해야 합니다. **CloudQueue.Delete** 메서드를 통해 큐 삭제를 수행할 수 있습니다. 또한 [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) 또는 [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 큐를 삭제할 수도 있습니다.  
 
 ## <a name="add-a-message-to-a-queue"></a>큐에 메시지 추가
 
@@ -451,7 +453,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     queue.FetchAttributes();
     ```
 
-6. **CloudQueue.ApproximateMessageCount** 속성에 액세스하여 큐의 길이를 가져옵니다.
+1. **CloudQueue.ApproximateMessageCount** 속성에 액세스하여 큐의 길이를 가져옵니다.
  
     ```csharp
     int? nMessages = queue.ApproximateMessageCount;

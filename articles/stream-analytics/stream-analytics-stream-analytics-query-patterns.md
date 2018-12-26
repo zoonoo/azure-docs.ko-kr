@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7f171fa1eb8c91b55119d0308b57fe3d3e70261b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971784"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578894"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>일반적인 Stream Analytics 사용 패턴에 대한 쿼리 예제
 
@@ -24,6 +24,11 @@ Azure Stream Analytics에서 쿼리는 SQL 방식 쿼리 언어로 표현됩니�
 쿼리 디자인은 이벤트 데이터를 한 입력 스트림에서 다른 출력 데이터 저장소로 이동하는 간단한 통과 논리를 표현할 수 있습니다. 또는 TollApp 샘플처럼 풍부한 패턴 일치 및 임시 분석을 수행하여 다양한 시간 범위의 집계를 계산할 수 있습니다. 여러 입력의 데이터를 조인하여 스트리밍 이벤트를 결합하고, 정적 참조 데이터를 조회하여 이벤트 값을 보강할 수 있습니다. 또한 여러 출력에 데이터를 쓸 수 있습니다.
 
 이 문서에서는 실제 시나리오에 따른 몇 가지 일반적인 쿼리 패턴에 대한 솔루션을 간략하게 설명합니다. 이 작업은 진행 중이며 새 패턴이 지속적으로 업데이트됩니다.
+
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>JSON 및 AVRO에서 복잡한 데이터 형식 작업 
+Azure Stream Analytics는 CSV, JSON 및 Avro 데이터 형식의 이벤트 처리를 지원합니다.
+JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복합 형식을 포함할 수 있습니다. 이러한 복잡한 데이터 형식으로 작업하기 위해 [JSON 구문 분석 및 AVRO 데이터](stream-analytics-parsing-json.md) 문서를 참조하세요.
+
 
 ## <a name="query-example-convert-data-types"></a>쿼리 예제: 데이터 형식 변환
 **설명**: 입력 스트림의 속성 형식을 정의합니다.
@@ -577,10 +582,10 @@ WHERE
     AND t2.maxPower > 10
 ````
 
-**설명**: 첫 번째 쿼리 `max_power_during_last_3_mins`는 [슬라이딩 윈도우](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)를 사용하여 지난 3분 동안 모든 장치에 대한 전력 센서의 최댓값을 찾습니다. 두 번째 쿼리는 첫 번째 쿼리에 조인되어 현재 이벤트와 관련된 가장 최근 윈도우의 파워 값을 찾습니다. 그런 다음, 조건이 충족되면 장치에 대한 경고가 생성됩니다.
+**설명**: 첫 번째 쿼리 `max_power_during_last_3_mins`는 [슬라이딩 윈도우](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)를 사용하여 지난 3분 동안 모든 장치에 대한 전력 센서의 최댓값을 찾습니다. 두 번째 쿼리는 첫 번째 쿼리에 조인되어 현재 이벤트와 관련된 가장 최근 윈도우의 파워 값을 찾습니다. 그런 다음, 조건이 충족되면 디바이스에 대한 경고가 생성됩니다.
 
-## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>쿼리 예제: 장치 클록 스큐(하위 스트림)와 무관한 이벤트 처리
-**설명**: 이벤트 생성자 간의 클록 스큐, 파티션 간 클럭 스큐 또는 네트워크 대기 시간으로 인해 이벤트가 늦게 도착하거나 순서대로 도착하지 못할 수 있습니다. 다음 예제에서 TollID 2의 장치 클록은 TollID 1보다 10초 늦고 TollID 3의 장치 클록은 TollID 1보다 5초 늦습니다. 
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>쿼리 예제: 디바이스 클록 스큐(하위 스트림)와 무관한 이벤트 처리
+**설명**: 이벤트 생성자 간의 클록 스큐, 파티션 간 클럭 스큐 또는 네트워크 대기 시간으로 인해 이벤트가 늦게 도착하거나 순서대로 도착하지 못할 수 있습니다. 다음 예제에서 TollID 2의 디바이스 클록은 TollID 1보다 10초 늦고 TollID 3의 디바이스 클록은 TollID 1보다 5초 늦습니다. 
 
 
 **입력**:
@@ -617,7 +622,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 ````
 
-**설명**: [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) 절은 하위 스트림을 사용하여 각 장치 타임라인을 개별적으로 살펴봅니다. 각 TollID에 대한 출력 이벤트는 계산될 때 생성됩니다. 즉 모든 장치가 동일한 시계를 사용하는 것처럼 순서가 재배열되는 대신 이벤트가 각 TollID에 관해 순서대로 처리됩니다.
+**설명**: [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) 절은 하위 스트림을 사용하여 각 장치 타임라인을 개별적으로 살펴봅니다. 각 TollID에 대한 출력 이벤트는 계산될 때 생성됩니다. 즉 모든 디바이스가 동일한 시계를 사용하는 것처럼 순서가 재배열되는 대신 이벤트가 각 TollID에 관해 순서대로 처리됩니다.
 
 
 ## <a name="get-help"></a>도움말 보기
@@ -626,7 +631,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

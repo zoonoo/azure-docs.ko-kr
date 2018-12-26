@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 암호 해시 동기화 활성�
 description: Azure Active Directory Domain Services 시작
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: maheshu
-ms.openlocfilehash: 701fe17869d6e7744751d80330422ea47361b411
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.author: ergreenl
+ms.openlocfilehash: 9c37eb064fb12ff548763a9c70a2e79219113b67
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216143"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227368"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 암호 해시 동기화 사용
 이전 작업에서 Azure AD(Azure Active Directory) 테넌트에 대해 Azure Active Directory Domain Services를 사용하도록 설정했습니다. 다음 작업은 NTLM(NT LAN Manager) 및 Kerberos 인증에 필요한 암호 해시를 Azure AD Domain Services로 동기화하도록 설정하는 것입니다. 암호 해시 동기화를 설정하면 사용자는 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있습니다.
@@ -53,7 +53,7 @@ ms.locfileid: "36216143"
 ### <a name="enable-ntlm-and-kerberos-password-hash-generation-for-a-cloud-only-user-account"></a>클라우드 전용 사용자 계정에 대해 NTLM 및 Kerberos 암호 해시 생성 사용
 암호를 변경할 수 있도록 사용자에게 제공되는 지침은 다음과 같습니다.
 
-1. 사용자의 조직에 대한 [Azure AD 액세스 패널](http://myapps.microsoft.com) 페이지로 이동합니다.
+1. 사용자의 조직에 대한 [Azure AD 액세스 패널](https://myapps.microsoft.com) 페이지로 이동합니다.
 
     ![Azure AD 액세스 패널 시작](./media/active-directory-domain-services-getting-started/access-panel.png)
 
@@ -78,7 +78,7 @@ ms.locfileid: "36216143"
 암호를 변경하고 나서 몇 분 후에 Azure Active Directory Domain Services에서 새 암호를 사용할 수 있습니다. 약 20분 후에 새로 변경한 암호를 사용하여 관리되는 도메인에 가입된 컴퓨터에 로그인할 수 있습니다.
 
 ## <a name="related-content"></a>관련 콘텐츠
-* [고유한 암호를 업데이트하는 방법](../active-directory/active-directory-passwords-update-your-own-password.md)
+* [고유한 암호를 업데이트하는 방법](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Azure AD에서 암호 관리 시작](../active-directory/authentication/quickstart-sspr.md)
 * [동기화된 Azure AD 테넌트의 Azure Active Directory Domain Services에 암호 해시 동기화 사용](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Azure Active Directory Domain Services 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)

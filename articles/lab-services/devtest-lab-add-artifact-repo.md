@@ -1,6 +1,6 @@
 ---
 title: Azure DevTest Labs의 랩에 Git 리포지토리 추가 | Microsoft Docs
-description: Azure DevTest Labs에서 사용자 지정 아티팩트 원본용 GitHub 또는 Visual Studio Team Services Git 리포지토리를 추가하는 방법을 알아봅니다.
+description: Azure DevTest Labs에서 사용자 지정 아티팩트 원본용 GitHub 또는 Azure DevOps Services Git 리포지토리를 추가하는 방법을 알아봅니다.
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: spelluru
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 80724a7d8d2b5cec19bdbce27cdafd4a9c09eb47
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c7b9921d7eacb9b40e39f8e68d13357ce6bcfd78
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452501"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241551"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>사용자 지정 아티팩트 및 Resource Manager 템플릿을 저장할 Git 리포지토리 추가
 
-랩에서 VM에 대한 [사용자 지정 아티팩트를 만들](devtest-lab-artifact-author.md)거나 [Azure Resource Manager 템플릿을 사용하여 사용자 지정 테스트 환경을 만들](devtest-lab-create-environment-from-arm.md) 수 있습니다. 팀에서 만드는 아티팩트 또는 Resource Manager 템플릿에 대한 개인 Git 리포지토리를 추가해야 합니다. 리포지토리는 [GitHub](https://github.com) 또는 [Visual Studio Team Services](https://visualstudio.com)에서 호스팅될 수 있습니다.
+랩에서 VM에 대한 [사용자 지정 아티팩트를 만들](devtest-lab-artifact-author.md)거나 [Azure Resource Manager 템플릿을 사용하여 사용자 지정 테스트 환경을 만들](devtest-lab-create-environment-from-arm.md) 수 있습니다. 팀에서 만드는 아티팩트 또는 Resource Manager 템플릿에 대한 개인 Git 리포지토리를 추가해야 합니다. 리포지토리는 [GitHub](https://github.com) 또는 [Azure DevOps Services](https://visualstudio.com)에서 호스팅될 수 있습니다.
 
 Microsoft는 그대로 배포하거나 랩에 맞게 사용자 지정할 수 있는 [아티팩트의 GitHub 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)를 제공합니다. 아티팩트를 사용자 지정하거나 만들 때 공용 리포지토리에 아티팩트를 저장할 수 없습니다. 사용자 지정 아티팩트 및 사용자가 만드는 아티팩트에 대한 사용자 고유의 개인 리포지토리를 만들어야 합니다. 
 
 VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사용자 지정한 다음 나중에 추가 VM을 만들 수 있습니다. 사용자 지정 Resource Manager 템플릿을 저장할 개인 리포지토리를 만들어야 합니다.  
 
 * GitHub 리포지토리를 만드는 방법을 알아보려면 [GitHub Bootcamp](https://help.github.com/categories/bootcamp/)를 참조하세요.
-* Git 리포지토리를 가진 Team Services 프로젝트를 만드는 방법을 알아보려면 [Visual Studio Team Services에 연결](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)을 참조하세요.
+* Git 리포지토리를 가진 Azure DevOps Services 프로젝트를 만드는 방법을 알아보려면 [Azure DevOps Services에 연결](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)을 참조하세요.
 
 다음 그림은 아티팩트가 잇는 리포지토리가 GitHub에서 어떻게 표시되는지 보여 주는 예입니다.  
 
 ![GitHub 아티팩트 리포지토리 샘플](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
 
 ## <a name="get-the-repository-information-and-credentials"></a>리포지토리 정보 및 자격 증명 가져오기
-랩에 리포지토리를 추가하려면 먼저 리포지토리에서 특정 정보를 가져옵니다. 다음 섹션에서는 GitHub 또는 Visual Studio Team Services에서 호스트되는 리포지토리에 대한 필요한 정보를 가져오는 방법을 설명합니다.
+랩에 리포지토리를 추가하려면 먼저 리포지토리에서 특정 정보를 가져옵니다. 다음 섹션에서는 GitHub 또는 Azure DevOps Services에서 호스트되는 리포지토리에 대한 필요한 정보를 가져오는 방법을 설명합니다.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>GitHub 리포지토리 복제 URL 및 개인 액세스 토큰 가져오기
 
@@ -52,7 +52,7 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
 9. GitHub를 닫습니다.   
 10. [리포지토리에 랩 연결](#connect-your-lab-to-the-repository) 섹션을 계속 진행합니다.
 
-### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>Visual Studio Team Services 리포지토리 복제 URL 및 개인 액세스 토큰 가져오기
+### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Azure Repos 복제 URL 및 개인 액세스 토큰 가져오기
 
 1. 팀 컬렉션의 홈 페이지(예: https://contoso-web-team.visualstudio.com) )로 이동 한 다음 프로젝트를 선택합니다.
 2. 프로젝트 홈 페이지에서 선택 **코드**합니다.
@@ -71,7 +71,7 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
 10. [리포지토리에 랩 연결](#connect-your-lab-to-the-repository) 섹션을 계속 진행합니다.
 
 ## <a name="connect-your-lab-to-the-repository"></a>랩을 리포지토리에 연결
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **추가 서비스**를 선택한 후 서비스 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 랩을 선택합니다. 
 4. **구성 및 정책** > **리포지토리** > **+ 추가**를 선택합니다.
@@ -79,9 +79,9 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
     ![리포지토리 추가 버튼](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. 두 번째 **리포지토리** 페이지에서 다음 정보를 지정합니다.
   1. **이름**. 리포지토리의 이름을 입력합니다.
-  2. **Git Clone Url**. 이전에 GitHub 또는 Visual Studio Team Services에서 복사한 Git HTTPS 복제 URL을 입력합니다.
+  2. **Git Clone Url**. 이전에 GitHub 또는 Azure DevOps Services에서 복사한 Git HTTPS 복제 URL을 입력합니다.
   3. **분기**. 정의를 가져오려면 분기를 입력합니다.
-  4. **개인 액세스 토큰**. 이전에 GitHub 또는 Visual Studio Team Services에서 가져온 개인 액세스 토큰을 입력합니다.
+  4. **개인 액세스 토큰**. 이전에 GitHub 또는 Azure DevOps Services에서 가져온 개인 액세스 토큰을 입력합니다.
   5. **폴더 경로**. 아티팩트 또는 Resource Manager 템플릿 정의가 포함된 복제 URL에 상대적인 폴더 경로를 하나 이상 입력합니다. 하위 디렉터리를 지정하는 경우 폴더 경로에 슬래시를 포함해야 합니다.
 
      ![리포지토리 영역](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)

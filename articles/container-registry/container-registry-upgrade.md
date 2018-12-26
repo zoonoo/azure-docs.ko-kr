@@ -2,26 +2,29 @@
 title: Classic Azure Container Registry 업그레이드
 description: 관리되지 않는 Classic 컨테이너 레지스트리를 업그레이드하여 Basic, Standard 및 Premium의 관리되는 컨테이너 레지스트리의 확장된 기능 집합을 활용할 수 있습니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
-ms.author: marsma
-ms.openlocfilehash: 084dfc8f87aaea4b5bbad7cb5fdb9d445d566206
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/28/2018
+ms.author: danlep
+ms.openlocfilehash: 73e207dae61dfc8912fd79a151adf982753701f1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168710"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969110"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Classic 컨테이너 레지스트리 업그레이드
 
-ACR(Azure Container Registry)은 여러 서비스 계층(즉, [SKU](container-registry-skus.md))에서 사용 가능합니다. ACR의 초기 릴리스는 Basic, Standard 및 Premium SKU(통틀어 *관리되는* 레지스트리)에 내재된 몇 가지 기능이 없는 Classic 단일 SKU를 제공했습니다. 이 문서에서는 향상된 기능 집합의 사용할 수 있도록, 관리되지 않는 Classic 레지스트리를 관리되는 SKU 중 하나로 마이그레이션하는 방법을 자세히 설명합니다.
+ACR(Azure Container Registry)은 여러 서비스 계층(즉, [SKU](container-registry-skus.md))에서 사용 가능합니다. ACR의 초기 릴리스는 Basic, Standard 및 Premium SKU(통틀어 *관리되는* 레지스트리)에 내재된 몇 가지 기능이 없는 Classic 단일 SKU를 제공했습니다.
+
+클래식 SKU는 더 이상 사용되지 않으며 2019년 3월 이후에는 사용할 수 없습니다. 이 문서에서는 향상된 기능 집합의 사용할 수 있도록, 관리되지 않는 Classic 레지스트리를 관리되는 SKU 중 하나로 마이그레이션하는 방법을 자세히 설명합니다.
 
 ## <a name="why-upgrade"></a>업그레이드가 필요한 이유
 
-Classic의 관리되지 않는 레지스트리는 기능이 제한되어 있으므로 모든 Classic 레지스트리는 Basic, Standard 또는 Premium 관리되는 레지스트리로 업그레이드하는 것이 좋습니다. 이러한 더 높은 수준의 SKU는 레지스트리를 Azure 기능에 더 깊이 통합합니다.
+클래식 레지스트리 SKU는 더 이상 **사용되지 않으며** **2019년 3월**부터는 사용할 수 없습니다. 기존의 모든 클래식 레지스트리는 2019년 3월이 되기 전에 업그레이드해야 합니다.
+
+사용 중단이 예정되어 있고 Classic의 관리되지 않는 레지스트리는 기능이 제한되어 있으므로 모든 Classic 레지스트리는 Basic, Standard 또는 Premium 관리되는 레지스트리로 업그레이드해야 합니다. 이러한 더 높은 수준의 SKU는 레지스트리를 Azure 기능에 더 깊이 통합합니다.
 
 관리되는 레지스트리는 다음 기능을 제공합니다.
 
@@ -30,7 +33,7 @@ Classic의 관리되지 않는 레지스트리는 기능이 제한되어 있으�
 * [지역에서 복제](container-registry-geo-replication.md)
 * [Webhook](container-registry-webhook.md)
 
-무엇보다도 클래식 레지스트리는 해당 레지스트리를 만들 때 Azure 구독에서 Azure가 자동으로 프로비전한 저장소 계정에 따라 다릅니다. 반면, Basic, Standard 및 Premium SKU는 사용자의 이미지 저장소를 투명하게 처리하여 Azure의 [고급 저장소 기능](container-registry-storage.md)을 활용합니다. 별도 저장소 계정이 고유한 구독에서 생성되지 않습니다.
+클래식 레지스트리는 해당 레지스트리를 만들 때 Azure 구독에서 Azure가 자동으로 프로비전한 저장소 계정에 따라 다릅니다. 반면, Basic, Standard 및 Premium SKU는 사용자의 이미지 저장소를 투명하게 처리하여 Azure의 [고급 저장소 기능](container-registry-storage.md)을 활용합니다. 별도 저장소 계정이 고유한 구독에서 생성되지 않습니다.
 
 관리되는 레지스트리 저장소는 다음과 같은 이점을 제공합니다.
 
@@ -120,12 +123,12 @@ Azure Portal을 사용하여 Classic 레지스트리를 업그레이드하려면
 Classic 레지스트리를 Basic, Standard 또는 Premium으로 업그레이드하면 Azure에서는 Classic 레지스트리를 지원하던 저장소 계정을 더 이상 사용하지 않습니다. 비용을 줄이기 위해 이전 컨테이너 이미지를 포함하는 저장소 계정 또는 계정 내의 Blob 컨테이너를 삭제하는 것이 좋습니다.
 
 <!-- IMAGES -->
-[update-classic-01-upgrade]: ./media/container-registry-upgrade\update-classic-01-upgrade.png
-[update-classic-02-confirm]: ./media/container-registry-upgrade\update-classic-02-confirm.png
-[update-classic-03-updating]: ./media/container-registry-upgrade\update-classic-03-updating.png
-[update-classic-04-updated]: ./media/container-registry-upgrade\update-classic-04-updated.png
+[update-classic-01-upgrade]: ./media/container-registry-upgrade/update-classic-01-upgrade.png
+[update-classic-02-confirm]: ./media/container-registry-upgrade/update-classic-02-confirm.png
+[update-classic-03-updating]: ./media/container-registry-upgrade/update-classic-03-updating.png
+[update-classic-04-updated]: ./media/container-registry-upgrade/update-classic-04-updated.png
 
 <!-- LINKS - internal -->
-[az-acr-update]: /cli/azure/acr#az_acr_update
+[az-acr-update]: /cli/azure/acr#az-acr-update
 [azure-cli]: /cli/azure/install-azure-cli
 [azure-portal]: https://portal.azure.com

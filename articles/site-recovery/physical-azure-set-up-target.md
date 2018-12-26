@@ -1,19 +1,18 @@
 ---
-title: 대상 준비(물리적 대상에서 Azure로) | Microsoft Docs
-description: 이 문서에서는 Azure 환경을 준비하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다.
-services: site-recovery
-author: bsiva
-manager: abhemraj
+title: Azure로 온-프레미스 물리적 서버를 재해 복구하기 위한 대상 환경 설정 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 물리적 서버의 재해 복구를 위한 대상 Azure 환경을 설정하는 방법을 설명합니다.
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
-ms.author: bsiva
-ms.openlocfilehash: 370d245e39b848acade18d0e73f60a3246737629
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: ramamill
+ms.openlocfilehash: a45e8c7bdb616eb389d95be8421bea7d31eafe29
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915523"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974172"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>대상 준비(VMware에서 Azure로)
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8fcebae21d73db75e19bd1091faa8f389f0ba40
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c0c2323d1864be24edbf6005d634ae1d08bba8ea
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165519"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116609"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>개인 Docker 컨테이너 레지스트리로 인증
 
@@ -26,7 +26,7 @@ Azure Container Registry는 인증되지 않은 Docker 작업 또는 익명 액�
 
 ## <a name="individual-login-with-azure-ad"></a>Azure AD로 개별 로그인
 
-개발용 워크스테이션에서 이미지 풀 및 푸시와 같이 직접 레지스트리를 사용하여 작업할 때 [Azure CLI](/cli/azure/install-azure-cli)에서 [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) 명령을 사용하여 인증합니다.
+개발용 워크스테이션에서 이미지 풀 및 푸시와 같이 직접 레지스트리를 사용하여 작업할 때 [Azure CLI](/cli/azure/install-azure-cli)에서 [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) 명령을 사용하여 인증합니다.
 
 ```azurecli
 az acr login --name <acrName>
@@ -36,7 +36,7 @@ az acr login --name <acrName>
 
 ## <a name="service-principal"></a>서비스 주체
 
-레지스트리에 [서비스 주체](../active-directory/develop/active-directory-application-objects.md)를 할당할 수 있으며 응용 프로그램 또는 서비스는 헤드리스 인증에 이를 사용할 수 있습니다. 서비스 주체는 레지스트리에 [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 허용하며 사용자는 레지스트리에 여러 서비스 주체를 할당할 수 있습니다. 여러 서비스 주체를 사용하면 서로 다른 응용 프로그램에 대한 다양한 액세스를 정의할 수 있습니다.
+레지스트리에 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)를 할당할 수 있으며 애플리케이션 또는 서비스는 헤드리스 인증에 이를 사용할 수 있습니다. 서비스 주체는 레지스트리에 [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 허용하며 사용자는 레지스트리에 여러 서비스 주체를 할당할 수 있습니다. 여러 서비스 주체를 사용하면 서로 다른 애플리케이션에 대한 다양한 액세스를 정의할 수 있습니다.
 
 사용 가능한 역할은 다음과 같습니다.
 
@@ -48,10 +48,10 @@ az acr login --name <acrName>
 
   * *읽기 권한자*: 레지스트리에서 Kubernetes, DC/OS 및 Docker Swarm을 포함한 오케스트레이션 시스템으로 컨테이너 배포 컨테이너 레지스트리에서 관련 Azure 서비스(예: [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) 등)로 가져올 수도 있습니다.
 
-  * *참가자*: 컨테이너 이미지를 빌드하고 레지스트리로 푸시하는 연속 통합 및 배포 솔루션(예: VSTS(Visual Studio Team Services) 또는 Jenkins)
+  * *Contributor*: 컨테이너 이미지를 빌드하고 레지스트리로 푸시하는 지속적인 통합 및 배포 솔루션(예: Azure Pipelines 또는 Jenkins)입니다.
 
 > [!TIP]
-> [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials) 명령을 실행하여 서비스 주체의 암호를 다시 생성할 수 있습니다.
+> [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) 명령을 실행하여 서비스 주체의 암호를 다시 생성할 수 있습니다.
 >
 
 또한 서비스 주체로 직접 로그인할 수도 있습니다. 다음과 같이 서비스 주체의 앱 ID와 암호를 `docker login` 명령에 제공합니다.
@@ -82,7 +82,7 @@ docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 
 향상된 보안을 위해 명령줄에 암호를 제공하는 대신 `--password-stdin` 매개 변수를 사용하는 것이 좋습니다. `-p` 없이 사용자 이름만 지정하고 메시지가 표시되면 암호를 입력할 수 있습니다.
 
-기존 레지스트리에 대한 관리 사용자를 사용하도록 설정하려면 Azure CLI에서 [az acr update](/cli/azure/acr?view=azure-cli-latest#az_acr_update) 명령의 `--admin-enabled` 매개 변수를 사용하면 됩니다.
+기존 레지스트리에 대한 관리 사용자를 사용하도록 설정하려면 Azure CLI에서 [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) 명령의 `--admin-enabled` 매개 변수를 사용하면 됩니다.
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

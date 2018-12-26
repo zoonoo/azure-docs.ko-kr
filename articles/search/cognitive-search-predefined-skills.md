@@ -3,21 +3,25 @@ title: 미리 정의된 데이터 추출, 자연어, 이미지 처리 기술(Azu
 description: 데이터 추출, 자연어, 이미지 처리 인식 기술은 Azure Seach 파이프라인의 원시 콘텐츠에 의미 체계와 구조를 추가합니다.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 870cf9629c7af8faee0ce5709199b64910b27ffb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c342eca8f27db713e139c187147abddd80eb854e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786702"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734537"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>콘텐츠 보강을 위해 미리 정의된 기술(Azure Search)
 
-이 문서에서는 Cognitive Search와 함께 제공되는 인식 기술에 대해 알아봅니다. 인식 기술은 어떤 방식으로든 콘텐츠를 변환하는 작업입니다. 대체로, 데이터를 추출하거나 구조를 추론하여 입력 데이터에 대한 이해를 보강하는 구성 요소입니다. 출력은 거의 항상 텍스트 기반입니다. 기능은 보강 파이프라인을 정의하는 기술 컬렉션입니다. 
+이 문서에서는 Azure Search와 함께 제공되는 인식 기술에 대해 알아봅니다. 인식 기술은 어떤 방식으로든 콘텐츠를 변환하는 작업입니다. 대체로, 데이터를 추출하거나 구조를 추론하여 입력 데이터에 대한 이해를 보강하는 구성 요소입니다. 출력은 거의 항상 텍스트 기반입니다. 기능은 보강 파이프라인을 정의하는 기술 컬렉션입니다. 
+
+> [!NOTE]
+> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
 
 ## <a name="predefined-skills"></a>미리 정의된 기술
 
@@ -37,6 +41,6 @@ ms.locfileid: "33786702"
 
 ## <a name="see-also"></a>참고 항목
 
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [사용자 지정 기술 인터페이스 정의](cognitive-search-custom-skill-interface.md)
 + [자습서: 인식 검색을 사용하여 보강된 인덱싱](cognitive-search-tutorial-blob.md)

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/10/2016
+ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 4b4350e6b1616450ce45f9e947cc3b639a341ae7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2f6db23e02c836dea6d640757d12275b654ad468
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796023"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024630"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>인스턴스 수준 공용 Ip(클래식) 개요
 ILPIP(인스턴스 수준 공용 IP)는 해당 VM 또는 역할 인스턴스가 상주하는 클라우드 서비스가 아닌 VM 또는 Cloud Services 역할 인스턴스에 직접 할당할 수 있는 공용 IP 주소입니다. ILPIP는 클라우드 서비스에 할당된 VIP(가상 IP)의 위치를 차지하지 않습니다. VM 또는 역할 인스턴스에 직접 연결을 사용할 수 있는 추가 IP 주소입니다.
@@ -31,10 +31,13 @@ ILPIP(인스턴스 수준 공용 IP)는 해당 VM 또는 역할 인스턴스가 
 
 그림 1에 표시된 것과 같이, 클라우드 서비스는 VIP를 사용하여 액세스하지만 개별 VM은 보통 VIP:&lt;포트 번호&gt;를 사용하여 액세스됩니다. 특정 VM에 ILPIP를 할당하면 해당 VM은 해당 IP 주소를 사용하여 직접 액세스할 수 있습니다.
 
-Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동으로 만들어져, 실제 VIP를 사용하지 않고 정규화된 도메인 이름(FQDN)을 통해 서비스에 액세스할 수 있습니다. 동일한 프로세스가 ILPIP에 대해 발생하며 ILPIP 대신 FQDN으로 VM 또는 역할 인스턴스에 액세스할 수 있습니다. 예를 들어, *contosoadservice*라는 클라우드 서비스를 만들고 두 인스턴스가 있는 *contosoweb*이라는 웹 역할을 구성한 경우, Azure는 인스턴스에 대해 다음 A 레코드를 등록합니다.
+Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동으로 만들어져, 실제 VIP를 사용하지 않고 정규화된 도메인 이름(FQDN)을 통해 서비스에 액세스할 수 있습니다. 동일한 프로세스가 ILPIP에 대해 발생하며 ILPIP 대신 FQDN으로 VM 또는 역할 인스턴스에 액세스할 수 있습니다. 예를 들어, *contosoadservice*라는 클라우드 서비스를 만들고 두 인스턴스가 있는 *contosoweb*이라는 웹 역할을 구성하였고 .cscfg에서 `domainNameLabel`이 *WebPublicIP*로 설정된 경우 Azure는 인스턴스에 대해 다음 A 레코드를 등록합니다.
 
-* contosoweb\_IN_0.contosoadservice.cloudapp.net
-* contosoweb\_IN_1.contosoadservice.cloudapp.net 
+
+* WebPublicIP.0.contosoadservice.cloudapp.net
+* WebPublicIP.1.contosoadservice.cloudapp.net
+* ...
+
 
 > [!NOTE]
 > 각 VM 또는 역할 인스턴스에 대해 하나의 ILPIP를 할당할 수 있습니다. 구독당 최대 5개의 ILPIP를 사용할 수 있습니다. 다중 NIC VM에는 ILPIP가 지원되지 않습니다.
@@ -44,7 +47,7 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 ## <a name="why-would-i-request-an-ilpip"></a>ILPIP를 요청하는 이유
 클라우드 서비스 VIP:&lt;포트 번호&gt;를 사용하지 않고 직접 할당된 IP 주소로 VM 또는 역할 인스턴스에 연결할 수 있게 하려면 VM 또는 역할 인스턴스에 대한 ILPIP를 요청합니다.
 
-* **활성 FTP** - VM에 ILPIP를 할당하면 어떤 포트에서도 트래픽을 수신할 수 있습니다. 끝점이 없어도 VM에서 트래픽을 수신할 수 있습니다.  FTP 프로토콜에 대한 자세한 내용은 (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP 프로토콜 개요]를 참조하세요.
+* **활성 FTP** - VM에 ILPIP를 할당하면 어떤 포트에서도 트래픽을 수신할 수 있습니다. 엔드포인트가 없어도 VM에서 트래픽을 수신할 수 있습니다.  FTP 프로토콜에 대한 자세한 내용은 [FTP 프로토콜 개요](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)를 참조하세요.
 * **아웃바운드 IP** - VM에서 발생하는 아웃바운드 트래픽은 원본으로 ILPIP에 매핑되며 ILPIP는 외부 엔터티에 대한 VM을 고유하게 식별합니다.
 
 > [!NOTE]
@@ -60,10 +63,26 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 ```powershell
 New-AzureService -ServiceName FTPService -Location "Central US"
 
-$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"} `
+$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
+
+#Set "current" storage account for the subscription. It will be used as the location of new VM disk
+
+Set-AzureSubscription -SubscriptionName <SubName> -CurrentStorageAccountName <StorageAccountName>
+
+#Create a new VM configuration object
+
 New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
 | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
+
+```
+다른 저장소 계정을 새 VM 디스크의 위치로 지정하려면 **MediaLocation** 매개 변수를 사용할 수 있습니다.
+
+```powershell
+    New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
+     -MediaLocation https://management.core.windows.net/<SubscriptionID>/services/storageservices/<StorageAccountName> `
+    | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
+    | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 ```
 
 ### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>VM에 대한 ILPIP 정보를 검색하는 방법
@@ -136,7 +155,7 @@ Cloud Services 역할 인스턴스에 ILPIP를 추가하려면 다음 단계를 
         <AddressAssignments>
           <InstanceAddress roleName="WebRole1">
         <PublicIPs>
-          <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
+          <PublicIP name="MyPublicIP" domainNameLabel="WebPublicIP" />
             </PublicIPs>
           </InstanceAddress>
         </AddressAssignments>
@@ -144,6 +163,24 @@ Cloud Services 역할 인스턴스에 ILPIP를 추가하려면 다음 단계를 
     </ServiceConfiguration>
     ```
 3. [Cloud Services를 구성하는 방법](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) 문서의 단계를 완료하여 클라우드 서비스에 대한 .cscfg 파일을 업로드합니다.
+
+### <a name="how-to-retrieve-ilpip-information-for-a-cloud-service"></a>Cloud Service에 대한 ILPIP 정보 검색하는 방법
+역할 인스턴스당 ILPIP 정보를 보려면, 다음 PowerShell 명령을 실행하고 *PublicIPAddress*, *PublicIPName*, *PublicIPDomainNameLabel* 및 *PublicIPFqdns*의 값을 확인합니다.
+
+```powershell
+Add-AzureAccount
+
+$roles = Get-AzureRole -ServiceName <Cloud Service Name> -Slot Production -RoleName WebRole1 -InstanceDetails
+
+$roles[0].PublicIPAddress
+$roles[1].PublicIPAddress
+```
+
+`nslookup`을 사용하여 하위 도메인의 A 레코드를 쿼리할 수도 있습니다.
+
+```batch
+nslookup WebPublicIP.0.<Cloud Service Name>.cloudapp.net
+``` 
 
 ## <a name="next-steps"></a>다음 단계
 * 클래식 배포 모델에서 [IP 주소 지정](virtual-network-ip-addresses-overview-classic.md) 이 어떻게 작동하는지 이해합니다.

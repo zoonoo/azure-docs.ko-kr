@@ -2,26 +2,26 @@
 title: Visual Studio를 사용하여 Virtual Machine Scale Set 배포 | Microsoft Docs
 description: Visual Studio 및 Resource Manager 템플릿을 사용하여 Virtual Machine Scale Sets 배포 | Microsoft Azure
 services: virtual-machine-scale-sets
+ms.custom: H1Hack27Feb2017
+ms.workload: na
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
-ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.author: negat
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73454abc11a832a1b7f4131bf13699bd0a94edea
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: 3d472aeaae7e7f02eba58aadea1df042d6c0f27b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26782149"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741431"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Visual Studio에서 Virtual Machine Scale Set를 만드는 방법
 이 문서는 Visual Studio 리소스 그룹 배포를 사용하여 Azure Virtual Machine Scale Set를 배포하는 방법을 보여줍니다.
@@ -87,7 +87,7 @@ Visual Studio에서 Virtual Machine Scale Sets 배포를 시작하려면 다음 
    ![출력 창][output_window]
 
 ## <a name="exploring-your-virtual-machine-scale-set"></a>Virtual Machine Scale Set 탐색
-배포가 완료되면 Visual Studio **클라우드 탐색기**에서(목록 새로 고침) 새로운 Virtual Machine Scale Set를 볼 수 있습니다. Cloud Explorer를 사용하면 응용 프로그램을 배포하는 동안 Visual Studio에서 Azure 리소스를 관리할 수 있습니다. [Azure Portal](https://portal.azure.com) 및 [Azure 리소스 탐색기](https://resources.azure.com/)에서 Virtual Machine Scale Set를 볼 수도 있습니다.
+배포가 완료되면 Visual Studio **클라우드 탐색기**에서(목록 새로 고침) 새로운 Virtual Machine Scale Set를 볼 수 있습니다. Cloud Explorer를 사용하면 애플리케이션을 배포하는 동안 Visual Studio에서 Azure 리소스를 관리할 수 있습니다. [Azure Portal](https://portal.azure.com) 및 [Azure 리소스 탐색기](https://resources.azure.com/)에서 Virtual Machine Scale Set를 볼 수도 있습니다.
 
 ![Cloud Explorer][cloud_explorer]
 

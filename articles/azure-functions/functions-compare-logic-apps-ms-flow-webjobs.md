@@ -1,26 +1,23 @@
 ---
 title: Flow, Logic Apps, Functions 및 WebJobs 비교 - Azure
 description: '통합 작업: Flow, Logic Apps, Functions 및 WebJobs에 최적화된 Microsoft 클라우드 서비스를 비교합니다.'
-services: functions,app-service\logic
+services: functions, logic-apps
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords: Microsoft Flow, Flow, Logic Apps, Azure Functions, Functions, Azure Webjobs, Webjobs, 이벤트 처리, 동적 계산, 서버가 없는 아키텍처
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/09/2018
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9b9ef150a86a754d4ed328184eb02c1937008b7b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: c22d75b4eb058942da5a3b0699cbb4a23eec42f3
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970141"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634934"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions 및 WebJobs 비교
 
@@ -56,7 +53,7 @@ Flow는 개발자나 IT를 통하지 않고 사무실 작업자가 간단히 통
 
 Functions 및 Logic Apps는 서버가 없는 워크로드를 활성화하는 Azure 서비스입니다. Azure Functions는 서버가 없는 계산 서비스인 반면 Azure Logic Apps는 서버가 없는 워크플로를 제공합니다. 복잡한 *오케스트레이션*을 둘 다로 만들 수 있습니다. 오케스트레이션은 Logic Apps에서 *작업*이라는 함수 또는 단계의 집합이며 복잡한 작업을 수행하기 위해 실행됩니다. 예를 들어 주문의 일괄 처리를 처리하기 위해 많은 함수의 인스턴스를 동시에 실행하고, 모든 인스턴스가 완료되기를 기다린 다음, 집계에 대한 결과를 계산하는 함수를 실행할 수 있습니다.
 
-Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durable-functions-overview.md)(미리 보기)을 사용하여 오케스트레이션을 개발합니다. Logic Apps의 경우 GUI를 사용하거나 구성 파일을 편집하여 오케스트레이션을 만듭니다.
+Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durable/durable-functions-overview.md)을 사용하여 오케스트레이션을 개발합니다. Logic Apps의 경우 GUI를 사용하거나 구성 파일을 편집하여 오케스트레이션을 만듭니다.
 
 오케스트레이션을 빌드할 때 논리 앱에서 함수를 호출하고 함수에서 논리 앱을 호출하여 서비스를 짜 맞출 수 있습니다. 서비스의 기능 또는 개인 기본 설정에 따라 각 오케스트레이션을 빌드하는 방법을 선택합니다. 다음 표는 이러한 서비스 간의 주요 차이점 중 일부를 나열합니다.
  
@@ -65,8 +62,8 @@ Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durab
 | 개발 | 코드 중심(명령적) | 디자이너 중심(선언적) |
 | 연결 | [12가지의 기본 제공 바인딩 형식 정보](functions-triggers-bindings.md#supported-bindings), 사용자 지정 바인딩에 대한 코드 작성 | [대규모의 커넥터 컬렉션](../connectors/apis-list.md), [B2B 시나리오용 엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md), [사용자 지정 커넥터 빌드](../logic-apps/custom-connector-overview.md) |
 | 작업 | 각 작업은 Azure 함수입니다. 작업 함수에 대한 코드 작성 |[즉시 사용 가능한 작업의 대규모 컬렉션](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| 모니터링 | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Operations Management Suite](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
-| 관리 | [REST API](durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
+| 모니터링 | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| 관리 | [REST API](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | 실행 컨텍스트 | [로컬로](functions-runtime-overview.md) 또는 클라우드에서 실행할 수 있습니다. | 클라우드에서만 실행합니다.|
 
 <a name="function"></a>
@@ -77,7 +74,7 @@ Azure Functions와 마찬가지로, Azure App Service WebJobs with the WebJobs S
 
 ### <a name="webjobs-and-the-webjobs-sdk"></a>WebJobs 및 WebJobs SDK
 
-App Service의 *WebJobs* 기능을 사용하면 App Service 웹앱의 컨텍스트에서 스크립트 또는 코드를 실행할 수 있습니다. *WebJobs SDK*는 WebJobs를 위해 설계된 프레임워크로, 개발자가 Azure 서비스의 이벤트에 응답하기 위해 작성하는 코드를 간소화합니다. 예를 들어 썸네일 이미지를 만들어서 Azure Storage에 이미지 BLOB 만들기에 대응할 수 있습니다. WebJobs SDK는 WebJob을 배포할 수 있는 .NET 콘솔 응용 프로그램으로 실행됩니다. 
+App Service의 *WebJobs* 기능을 사용하면 App Service 웹앱의 컨텍스트에서 스크립트 또는 코드를 실행할 수 있습니다. *WebJobs SDK*는 WebJobs를 위해 설계된 프레임워크로, 개발자가 Azure 서비스의 이벤트에 응답하기 위해 작성하는 코드를 간소화합니다. 예를 들어 썸네일 이미지를 만들어서 Azure Storage에 이미지 BLOB 만들기에 대응할 수 있습니다. WebJobs SDK는 WebJob을 배포할 수 있는 .NET 콘솔 애플리케이션으로 실행됩니다. 
 
 WebJobs와 WebJobs SDK는 최고의 호환성을 자랑하지만, WebJobs SDK 없이 WebJobs만 또는 그 반대로 사용할 수도 있습니다. WebJob은 App Service 샌드박스에서 실행되는 모든 프로그램 또는 스크립트를 실행할 수 있습니다. WebJobs SDK 콘솔 응용 프로그램은 온-프레미스 서버처럼 콘솔 응용 프로그램을 실행하는 모든 위치에서 실행 가능합니다.
 
@@ -87,7 +84,7 @@ Azure Functions는 WebJobs SDK 기반이므로 다른 Azure 서비스와 여러 
 
 |  | Functions | WebJobs with WebJobs SDK |
 | --- | --- | --- |
-|[자동 크기 조정](functions-scale.md#how-the-consumption-plan-works)이 가능한 [서버 없는 응용 프로그램 모델](https://azure.microsoft.com/overview/serverless-computing/)|✔||
+|[자동 크기 조정](functions-scale.md#how-the-consumption-plan-works)이 가능한 [서버 없는 응용 프로그램 모델](https://azure.microsoft.com/solutions/serverless/)|✔||
 |[브라우저에서 개발 및 테스트](functions-create-first-azure-function.md) |✔||
 |[사용량 기준 과금 가격 책정](functions-scale.md#consumption-plan)|✔||
 |[Logic Apps와 통합](functions-twitter-email.md)|✔||
@@ -132,5 +129,5 @@ Flow, Logic Apps 및 Functions 간의 통합은 계속해서 점차 개선됩니
 
 * [Christopher Anderson의 통합 시나리오에 대한 Azure Functions 및 Azure App Service 활용](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
-* [Logic Apps Live Webcast](http://aka.ms/logicappslive)
+* [Logic Apps Live Webcast](https://aka.ms/logicappslive)
 * [Microsoft Flow Frequently asked questions](https://flow.microsoft.com/documentation/frequently-asked-questions/)

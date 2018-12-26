@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ecb497e9b07119f6c32149a875f27ee7c338d74
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723495"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344640"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Azure PowerShell을 사용하여 리소스 관리
 
@@ -52,11 +52,11 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 이 문서에서는 가상 머신 및 관련 가상 네트워크를 배포합니다. 가상 머신 솔루션을 관리하기 위해서는 일반적으로 필요한 액세스 권한을 제공하는 세 가지 리소스 특정 역할이 있습니다.
 
-* [Virtual Machine 기여자](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Virtual Machine 참가자](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 * [네트워크 기여자](../role-based-access-control/built-in-roles.md#network-contributor)
 * [Storage 계정 기여자](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-개별 사용자에게 역할을 할당하는 대신 비슷한 동작을 수행해야 하는 사용자에게 [Azure Active Directory 그룹을 만들기](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)가 더 쉽습니다. 그런 다음, 해당 그룹에 적절한 역할을 할당합니다. 이 문서를 단순화하려면 구성원이 없는 Azure Active Directory 그룹을 만들 수 있습니다. 여전히 해당 그룹에 역할 범위를 할당할 수 있습니다. 
+개별 사용자에게 역할을 할당하는 대신 비슷한 동작을 수행해야 하는 사용자에게 [Azure Active Directory 그룹을 만들기](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)가 더 쉽습니다. 그런 다음, 해당 그룹에 적절한 역할을 할당합니다. 이 문서를 단순화하려면 구성원이 없는 Azure Active Directory 그룹을 만들 수 있습니다. 여전히 해당 그룹에 역할 범위를 할당할 수 있습니다.
 
 다음 예제에서는 그룹을 만들고 해당 그룹에 리소스 그룹에 대한 가상 머신 참가자 역할을 할당합니다. `New-AzureAdGroup`명령을 실행하려면 [Azure Cloud Shell](/azure/cloud-shell/overview)을 사용하거나 [Azure AD PowerShell 모듈을 다운로드](https://www.powershellgallery.com/packages/AzureAD/)해야 합니다.
 
@@ -72,13 +72,9 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 일반적으로 **네트워크 참가자**와 **Storage 계정 참가자**를 위한 프로세스를 반복해 배포된 리소스를 관리하도록 사용자가 할당됐는지 확인합니다. 이 문서에서는 이러한 단계를 건너뛸 수 있습니다.
 
-## <a name="azure-policies"></a>Azure 정책
+## <a name="azure-policy"></a>Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>정책 적용
-
-사용 중인 구독에 이미 여러 개의 정책 정의가 있습니다. 사용 가능한 정책 정의를 참조하려면 다음을 사용합니다.
+[Azure Policy](../azure-policy/azure-policy-introduction.md)는 구독의 모든 리소스가 회사 표준을 따르도록 관리하는 데 유용합니다. 사용 중인 구독에 이미 여러 개의 정책 정의가 있습니다. 사용 가능한 정책 정의를 참조하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -215,11 +211,12 @@ Remove-AzureRmResourceLock -LockName LockNSG `
 
 더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 * 가상 머신 모니터링에 대한 자세한 내용은 [Azure PowerShell을 사용하여 Windows 가상 머신 모니터링 및 업데이트](../virtual-machines/windows/tutorial-monitoring.md)를 참조하세요.
 * 권장 보안 사례를 구현하기 위해 Azure Security Center 사용하는 것에 대한 자세한 내용은 [Azure Security Center를 사용하여 가상 머신 보안을 모니터링](../virtual-machines/windows/tutorial-azure-security.md)합니다.
 * 기존 리소스를 새 리소스 그룹으로 이동할 수 있습니다. 예제를 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.

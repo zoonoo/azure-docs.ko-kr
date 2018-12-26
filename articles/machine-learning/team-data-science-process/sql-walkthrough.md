@@ -2,31 +2,27 @@
 title: Azure VM에서 SQL Server를 사용하여 기계 학습 모델 빌드 및 배포 | Microsoft Docs
 description: 활성 중인 고급 분석 프로세스 및 기술
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: deguhath
-ms.openlocfilehash: 56e338c7bf28bff3fd40ac35c849b2fdf9b19ed6
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: cad56d2e8de071feb9a02e0cfc6bcc884eebe91a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839013"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445466"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>실행 중인 팀 데이터 과학 프로세스: SQL Server 사용
-이 자습서에서는 SQL Server 및 공개적으로 사용할 수 있는 데이터 집합([NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합)을 사용하여 Machine Learning 모델의 배포 및 빌드 처리를 연습합니다. 이 절차는 표준 데이터 과학 워크플로를 따릅니다. 데이터를 수집 및 탐색하고 학습이 용이하도록 기능을 엔지니어링한 후 모델을 빌드 및 배포합니다.
+이 자습서에서는 SQL Server 및 공개적으로 사용할 수 있는 데이터 세트([NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 세트)를 사용하여 Machine Learning 모델의 배포 및 빌드 처리를 연습합니다. 이 절차는 표준 데이터 과학 워크플로를 따릅니다. 데이터를 수집 및 탐색하고 학습이 용이하도록 기능을 엔지니어링한 후 모델을 빌드 및 배포합니다.
 
 ## <a name="dataset"></a>NYC Taxi Trips 데이터 집합 설명
-NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여정의 요금으로 구성된 약 20GB의 압축된 CSV 파일(압축되지 않은 경우 약 48GB)입니다. 각 여정 레코드는 승차 및 하차 위치, 익명 처리된 hack(기사) 면허증 번호 및 medallion(택시의 고유 ID) 번호를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 집합으로 제공됩니다.
+NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여정의 요금으로 구성된 약 20GB의 압축된 CSV 파일(압축되지 않은 경우 약 48GB)입니다. 각 여정 레코드는 승차 및 하차 위치, 익명 처리된 hack(기사) 면허증 번호 및 medallion(택시의 고유 ID) 번호를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 세트로 제공됩니다.
 
 1. 'trip_data' CSV는 승객 수, 승차 및 하차 지점, 여정 기간, 여정 거리 등 여정 세부 정보를 포함합니다. 다음은 몇 가지 샘플 레코드입니다.
    
@@ -70,7 +66,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 Azure 데이터 과학 환경을 설정하려면
 
-1. [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md)
+1. [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md)
 2. [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)
 3. [데이터 과학 Virtual Machine 프로비전](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)(SQL Server 및 IPython Notebook 서버 제공)
    
@@ -83,10 +79,10 @@ Azure 데이터 과학 환경을 설정하려면
    > 
    > 
 
-데이터 집합 크기, 데이터 원본 위치 및 선택한 Azure 대상 환경에 따라 이 시나리오는 [시나리오 \#5: 로컬 파일에서 큰 데이터집합, Azure VM에서 대상 SQL Server](plan-sample-scenarios.md#largelocaltodb)와 비슷합니다.
+데이터 세트 크기, 데이터 원본 위치 및 선택한 Azure 대상 환경에 따라 이 시나리오는 [시나리오 \#5: 로컬 파일에서 큰 데이터 세트, Azure VM에서 대상 SQL Server](plan-sample-scenarios.md#largelocaltodb)와 비슷합니다.
 
 ## <a name="getdata"></a>공용 원본에서 데이터 가져오기
-해당 공용 위치에서 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합을 가져오려면 [Azure Blob Storage에서 데이터 이동](move-azure-blob.md)에 설명된 방법 중 하나를 사용하여 데이터를 새 가상 머신에 복사하면 됩니다.
+해당 공용 위치에서 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 세트를 가져오려면 [Azure Blob Storage에서 데이터 이동](move-azure-blob.md)에 설명된 방법 중 하나를 사용하여 데이터를 새 가상 머신에 복사하면 됩니다.
 
 AzCopy를 사용하여 데이터를 복사하려면
 
@@ -168,7 +164,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
 #### <a name="exploration-trip-distribution-by-medallion"></a>탐색: medallion별 여정 분포
-이 예제에서는 지정된 기간 내의 여정이 100개가 넘는 medallion(택시 번호)을 식별합니다. 쿼리는 **pickup\_datetime** 파티션 구성표를 조건으로 하므로 분할된 테이블 액세스를 활용합니다. 전체 데이터 집합을 쿼리할 때도 분할된 테이블 및/또는 인덱스 검색을 사용합니다.
+이 예제에서는 지정된 기간 내의 여정이 100개가 넘는 medallion(택시 번호)을 식별합니다. 쿼리는 **pickup\_datetime** 파티션 구성표를 조건으로 하므로 분할된 테이블 액세스를 활용합니다. 전체 데이터 세트를 쿼리할 때도 분할된 테이블 및/또는 인덱스 검색을 사용합니다.
 
     SELECT medallion, COUNT(*)
     FROM nyctaxi_fare
@@ -196,7 +192,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
 #### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>탐색: 왕복 여정과 비왕복 여정 분포
-이 예제에서는 지정된 기간 동안(또는 전체 연도를 포괄하는 경우 전체 데이터 집합에서) 왕복 여정 수와 비왕복 여정 수를 확인합니다. 이 분포는 나중에 이진 분류 모델링에 사용할 이진 레이블 분포를 반영합니다.
+이 예제에서는 지정된 기간 동안(또는 전체 연도를 포괄하는 경우 전체 데이터 세트에서) 왕복 여정 수와 비왕복 여정 수를 확인합니다. 이 분포는 나중에 이진 분류 모델링에 사용할 이진 레이블 분포를 반영합니다.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
       SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
@@ -205,7 +201,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
     GROUP BY tipped
 
 #### <a name="exploration-tip-classrange-distribution"></a>탐색: 팁 클래스/범위 분포
-이 예제에서는 지정된 기간 동안(또는 전체 연도를 포괄하는 경우 전체 데이터 집합에서) 팁 범위 분포를 계산합니다. 이는 나중에 다중 클래스 분류 모델링에 사용할 레이블 클래스의 분포입니다.
+이 예제에서는 지정된 기간 동안(또는 전체 연도를 포괄하는 경우 전체 데이터 세트에서) 팁 범위 분포를 계산합니다. 이는 나중에 다중 클래스 분류 모델링에 사용할 레이블 클래스의 분포입니다.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
         SELECT CASE
@@ -234,10 +230,10 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 #### <a name="feature-engineering-in-sql-queries"></a>SQL 쿼리의 기능 엔지니어링
-레이블 생성 및 지리 변환 탐색 쿼리는 계산 부분을 제거하여 레이블/기능을 생성하는 데에도 사용될 수 있습니다. 추가적인 기능 엔지니어링 SQL 예제는 [IPython Notebook에서 데이터 탐색 및 기능 엔지니어링](#ipnb) 섹션에서 제공됩니다. SQL Server 데이터베이스 인스턴스에서 직접 실행되는 SQL 쿼리를 사용하여 전체 데이터 집합 또는 전체 데이터 집합의 큰 하위 집합에서 기능 생성 쿼리를 실행하는 것이 보다 효율적입니다. **SQL Server Management Studio**, IPython Notebook 또는 로컬이나 원격으로 데이터베이스에 액세스할 수 있는 모든 개발 도구/환경에서 쿼리를 실행할 수 있습니다.
+레이블 생성 및 지리 변환 탐색 쿼리는 계산 부분을 제거하여 레이블/기능을 생성하는 데에도 사용될 수 있습니다. 추가적인 기능 엔지니어링 SQL 예제는 [IPython Notebook에서 데이터 탐색 및 기능 엔지니어링](#ipnb) 섹션에서 제공됩니다. SQL Server 데이터베이스 인스턴스에서 직접 실행되는 SQL 쿼리를 사용하여 전체 데이터 세트 또는 전체 데이터 세트의 큰 하위 집합에서 기능 생성 쿼리를 실행하는 것이 보다 효율적입니다. **SQL Server Management Studio**, IPython Notebook 또는 로컬이나 원격으로 데이터베이스에 액세스할 수 있는 모든 개발 도구/환경에서 쿼리를 실행할 수 있습니다.
 
 #### <a name="preparing-data-for-model-building"></a>모델 빌드를 위한 데이터 준비
-다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성하며, 조인된 전체 데이터 집합에서 1% 무작위 샘플을 추출합니다. Azure의 SQL Server 데이터베이스 인스턴스에서 데이터를 직접 수집하기 위해 이 쿼리를 복사한 다음 [Azure Machine Learning Studio](https://studio.azureml.net)[데이터 가져오기][import-data] 모듈에 직접 붙여넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
+다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성하며, 조인된 전체 데이터 세트에서 1% 무작위 샘플을 추출합니다. Azure의 SQL Server 데이터베이스 인스턴스에서 데이터를 직접 수집하기 위해 이 쿼리를 복사한 다음 [Azure Machine Learning Studio](https://studio.azureml.net)[데이터 가져오기][import-data] 모듈에 직접 붙여넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -567,10 +563,10 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 2. Azure Machine Learning으로 데이터를 이동합니다.
 3. 필요에 따라 데이터를 전처리, 변환 및 조작합니다.
 4. 필요에 따라 기능을 생성합니다.
-5. 데이터를 학습/유효성 검사/테스트 데이터 집합으로 분할하거나, 각각에 대한 별도의 데이터 집합을 만듭니다.
+5. 데이터를 학습/유효성 검사/테스트 데이터 세트로 분할하거나, 각각에 대한 별도의 데이터 세트를 만듭니다.
 6. 해결할 학습 문제에 따라 하나 이상의 기계 학습 알고리즘을 선택하세요. 이진 분류, 다중 클래스 분류, 회귀)을 선택합니다.
-7. 학습 데이터 집합을 사용하여 하나 이상의 모델을 학습합니다.
-8. 학습된 모델을 사용하여 유효성 검사 데이터 집합의 점수를 매깁니다.
+7. 학습 데이터 세트를 사용하여 하나 이상의 모델을 학습합니다.
+8. 학습된 모델을 사용하여 유효성 검사 데이터 세트의 점수를 매깁니다.
 9. 모델을 평가하여 학습 문제에 대한 관련 메트릭을 계산합니다.
 10. 모델을 미세 조정하고 배포할 가장 적합한 모델을 선택합니다.
 
@@ -582,7 +578,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 2. **속성** 패널에서 **Azure SQL Database**를 **데이터 원본**으로 선택합니다.
 3. **데이터베이스 서버 이름** 필드에 데이터베이스 DNS 이름을 입력합니다. 형식: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. **데이터베이스 이름** 을 해당 필드에 입력합니다.
-5. **서버 사용자 계정 이름에 **SQL 사용자 이름**을 입력하고 **서버 사용자 계정 암호**에 암호를 입력합니다.
+5. **서버 사용자 계정 이름**에 **SQL 사용자 이름**을 입력하고, **서버 사용자 계정 암호**에 **암호**를 입력합니다.
 7. **데이터베이스 쿼리** 편집 텍스트 영역에서 필요한 데이터베이스 필드를 추출하는 쿼리(레이블과 같은 모든 계산된 필드 포함)를 붙여 넣고 데이터를 원하는 샘플 크기로 다운 샘플링합니다.
 
 SQL Server 데이터베이스에서 직접 데이터를 읽는 이진 분류 실험 예제는 아래 그림에 나와 있습니다. 다중 클래스 분류 및 회귀 문제에 대한 유사한 실험을 생성할 수 있습니다.
@@ -592,7 +588,7 @@ SQL Server 데이터베이스에서 직접 데이터를 읽는 이진 분류 실
 > [!IMPORTANT]
 > 이전 섹션에 제공된 모델링 데이터 추출 및 샘플링 쿼리 예제에서는 **세 가지 모델링 연습에 대한 모든 레이블이 쿼리에 포함되어 있습니다**. 각 모델링 연습의 중요한(필수) 단계는 다른 두 문제에 대한 필요 없는 레이블 및 다른 모든 **목표 누설**을 **제외**하는 것입니다. 예를 들어, 이진 분류를 사용할 때는 레이블 **tipped**를 사용하고, **tip\_class**, **tip\_amount** 및 **total\_amount** 필드를 제외합니다. 이러한 필드는 지불된 팁을 의미하므로 목표 누설입니다.
 > 
-> 필요 없는 열 또는 목표 누설을 제외하려면 [데이터 집합의 열 선택][select-columns] 모듈 또는 [메타데이터 편집][edit-metadata]을 사용하면 됩니다. 자세한 내용은 [데이터 집합의 열 선택][select-columns] 및 [메타데이터 편집][edit-metadata] 참조 페이지를 참조하세요.
+> 필요 없는 열 또는 목표 누설을 제외하려면 [데이터 세트의 열 선택][select-columns] 모듈 또는 [메타데이터 편집][edit-metadata]을 사용하면 됩니다. 자세한 내용은 [데이터 세트의 열 선택][select-columns] 및 [메타데이터 편집][edit-metadata] 참조 페이지를 참조하세요.
 > 
 > 
 
@@ -614,13 +610,13 @@ Azure Machine Learning에서는 학습 실험의 구성 요소를 기반으로 �
 2. 필요한 입력 데이터 스키마를 나타내는 논리적 **입력 포트** 를 식별합니다.
 3. 필요한 웹 서비스 출력 스키마를 나타내는 논리적 **출력 포트** 를 식별합니다.
 
-점수 매기기 실험을 만들 때 필요에 따라 검토하고 조정합니다. 일반적인 조정은 입력 데이터 집합 및/또는 쿼리를 레이블 필드를 제외한 것으로 바꾸는 것입니다. 레이블 필드는 서비스를 호출할 때 사용할 수 없기 때문입니다. 또한 입력 데이터 집합 및/또는 쿼리 크기를 입력 스키마를 나타내는 데 충분한 정도의 몇몇 레코드로 줄이는 것이 좋습니다. 출력 포트의 경우 일반적으로 [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 모든 입력 필드를 제외하고 **점수가 매겨진 레이블** 및 **점수가 매겨진 확률**만 출력에 포함합니다.
+점수 매기기 실험을 만들 때 필요에 따라 검토하고 조정합니다. 일반적인 조정은 입력 데이터 세트 및/또는 쿼리를 레이블 필드를 제외한 것으로 바꾸는 것입니다. 레이블 필드는 서비스를 호출할 때 사용할 수 없기 때문입니다. 또한 입력 데이터 세트 및/또는 쿼리 크기를 입력 스키마를 나타내는 데 충분한 정도의 몇몇 레코드로 줄이는 것이 좋습니다. 출력 포트의 경우 일반적으로 [데이터 세트의 열 선택][select-columns] 모듈을 사용하여 모든 입력 필드를 제외하고 **점수가 매겨진 레이블** 및 **점수가 매겨진 확률**만 출력에 포함합니다.
 
 샘플 점수 매기기 실험은 아래 그림에 나와 있습니다. 배포할 준비가 되면 아래쪽 작업 모음에서 **웹 서비스 게시** 단추를 클릭합니다.
 
 ![Azure Machine Learning 게시][11]
 
-이 연습 자습서에서는 Azure 데이터 과학 환경을 만들고, 대용량 공용 데이터 집합으로 데이터 취득에서 모델 학습 및 Azure Machine Learning 웹 서비스 배포에 이르는 모든 과정을 수행했습니다.
+이 연습 자습서에서는 Azure 데이터 과학 환경을 만들고, 대용량 공용 데이터 세트로 데이터 취득에서 모델 학습 및 Azure Machine Learning 웹 서비스 배포에 이르는 모든 과정을 수행했습니다.
 
 ### <a name="license-information"></a>라이선스 정보
 이 샘플 연습 및 이와 함께 제공되는 스크립트와 IPython Notebook은 MIT 라이선스에 따라 Microsoft에서 공유한 것입니다. 자세한 내용은 GitHub의 샘플 코드 디렉터리에 있는 LICENSE.txt 파일을 참조하세요.
@@ -628,7 +624,7 @@ Azure Machine Learning에서는 학습 실험의 구성 요소를 기반으로 �
 ### <a name="references"></a>참조
 • [Andrés Monroy NYC Taxi Trips 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/)  
 • [Chris Whong의 FOILing NYC Taxi Trip 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [NYC Taxi 및 Limousine 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [NYC Taxi 및 Limousine 수수료 연구 및 통계](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sql-walkthrough/sql-walkthrough_28_1.png

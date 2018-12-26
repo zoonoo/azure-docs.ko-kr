@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 2688f148185b1c1523178d190a7a2a76e6ceabef
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fac56117c4c70e2735580abb52d05e008d660003
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30908788"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089420"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>프로그래밍 방식으로 Stream Analytics 작업 모니터 만들기
 
@@ -33,14 +33,14 @@ ms.locfileid: "30908788"
 1. Visual Studio C# .NET 콘솔 응용 프로그램을 만듭니다.
 2. 패키지 관리자 콘솔에서 NuGet 패키지를 설치하려면 다음 명령을 실행합니다. 첫 번째는 Azure Stream Analytics 관리.NET SDK입니다. 두 번째는 모니터링을 사용하도록 설정하는 데 사용되는 Azure Monitor SDK입니다. 마지막은 인증에 사용되는 Azure Active Directory 클라이언트입니다.
    
-   ```
+   ```powershell
    Install-Package Microsoft.Azure.Management.StreamAnalytics
    Install-Package Microsoft.Azure.Insights -Pre
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
    ```
 3. 다음 appSettings 섹션을 App.config 파일에 추가합니다.
    
-   ```
+   ```csharp
    <appSettings>
      <!--CSM Prod related values-->
      <add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
@@ -57,12 +57,12 @@ ms.locfileid: "30908788"
    ```
    *SubscriptionId*와 *ActiveDirectoryTenantId*의 값을 Azure 구독 및 테넌트 ID로 바꿉니다. 다음 PowerShell cmdlet을 실행하여 이러한 값을 얻을 수 있습니다.
    
-   ```
+   ```powershell
    Get-AzureAccount
    ```
 4. 프로젝트의 원본 파일(Program.cs)에 다음 using 문을 추가합니다.
    
-   ```
+   ```csharp
      using System;
      using System.Configuration;
      using System.Threading;
@@ -74,7 +74,8 @@ ms.locfileid: "30908788"
      using Microsoft.IdentityModel.Clients.ActiveDirectory;
    ```
 5. 인증 도우미 메서드를 추가합니다.
-   
+
+```csharp   
      public static string GetAuthorizationHeader()
    
          {
@@ -111,11 +112,13 @@ ms.locfileid: "30908788"
    
              throw new InvalidOperationException("Failed to acquire token");
      }
+```
 
 ## <a name="create-management-clients"></a>관리 클라이언트 만들기
 
 다음 코드는 필수 변수 및 관리 클라이언트를 설정합니다.
 
+```csharp
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
 
@@ -133,6 +136,7 @@ ms.locfileid: "30908788"
     StreamAnalyticsManagementClient(aadTokenCredentials, resourceManagerUri);
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
+```
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>기존 Stream Analytics 작업에 모니터링 사용
 
@@ -148,7 +152,7 @@ ms.locfileid: "30908788"
 > 다음 코드의 `<YOUR STORAGE ACCOUNT NAME>`을 바꾸는 데 사용한 저장소 계정 이름은 모니터링을 사용할 Stream Analytics 작업과 동일한 구독에 있는 저장소 계정이어야 합니다.
 > 
 > 
-
+```csharp
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
     {
@@ -165,7 +169,7 @@ ms.locfileid: "30908788"
             }
     };
     insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
-
+```
 
 
 ## <a name="get-support"></a>지원 받기

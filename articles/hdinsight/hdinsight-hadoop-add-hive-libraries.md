@@ -1,28 +1,24 @@
 ---
-title: HDInsight 클러스터를 만드는 동안 Hive 라이브러리 추가 - Azure | Microsoft Docs
-description: 클러스터를 만드는 동안 HDInsight 클러스터에 Hive 라이브러리(jar 파일)를 추가하는 방법을 알아봅니다.
+title: HDInsight 클러스터를 만드는 동안 Apache Hive 라이브러리 추가 - Azure
+description: 클러스터를 만드는 동안 HDInsight 클러스터에 Apache Hive 라이브러리(jar 파일)를 추가하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 2fd74b8d-c006-45c6-a9e2-72ff5d2d978a
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 71e2859085dc4a9f4fa327d88faff4fecf5108ef
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 79ee129390c6b364ec65e8ae1e893e98f358751e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400659"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497107"
 ---
-# <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight 클러스터를 만들 때 사용자 지정 Hive 라이브러리에 추가
+# <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight 클러스터를 만들 때 사용자 지정 Apache Hive 라이브러리 추가
 
-HDInsight에 Hive 라이브러리를 미리 로드하는 방법을 알아봅니다. 이 문서에는 클러스터를 만드는 동안 스크립트 작업을 사용하여 라이브러리를 미리 로드하는 방법에 대한 정보가 포함되어 있습니다. 이 문서의 단계를 사용하여 추가된 라이브러리는 Hive에서 전역적으로 사용 가능합니다. 로드하는 데 [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli)을 사용하지 않아도 됩니다.
+HDInsight에 [Apache Hive](https://hive.apache.org/) 라이브러리를 미리 로드하는 방법을 알아봅니다. 이 문서에는 클러스터를 만드는 동안 스크립트 작업을 사용하여 라이브러리를 미리 로드하는 방법에 대한 정보가 포함되어 있습니다. 이 문서의 단계를 사용하여 추가된 라이브러리는 Hive에서 전역적으로 사용 가능합니다. 로드하는 데 [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli)을 사용하지 않아도 됩니다.
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -97,4 +93,4 @@ HDInsight에 Hive 라이브러리를 미리 로드하는 방법을 알아봅니�
 
 ## <a name="next-steps"></a>다음 단계
 
-Hive로 작업하는 방법에 대한 자세한 내용은 [HDInsight로 Hive 사용](hadoop/hdinsight-use-hive.md)
+Hive로 작업하는 방법에 대한 자세한 내용은 [HDInsight로 Apache Hive 사용](hadoop/hdinsight-use-hive.md)을 참조하세요.

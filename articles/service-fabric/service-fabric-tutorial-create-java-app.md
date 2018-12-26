@@ -12,19 +12,19 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a8522dbe20f302a1819b89eaea92562a2dcf43a5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: e4552157cab846356c57a135d4e273f5a545bce9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114128"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667220"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>자습서: Service Fabric에서 Java 웹 API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 응용 프로그램 만들기
 
-이 자습서는 시리즈의 1부입니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 Voting 응용 프로그램이 생깁니다. 이 자습서 시리즈는 작업 중인 Linux 또는 Mac OSX 개발자 컴퓨터가 있어야 합니다. 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-java-quickstart)하고 [투표 샘플 응용 프로그램을 설명](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)하기 위해 바로 건너뛸 수 있습니다.
+이 자습서는 시리즈의 1부입니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 Voting 애플리케이션이 생깁니다. 이 자습서 시리즈는 작업 중인 Linux 또는 Mac OSX 개발자 컴퓨터가 있어야 합니다. 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-java-quickstart)하고 [투표 샘플 응용 프로그램을 설명](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)하기 위해 바로 건너뛸 수 있습니다.
 
 ![로컬 Voting 앱](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
@@ -34,11 +34,11 @@ ms.locfileid: "37114128"
 > * Java 상태 저장 신뢰할 수 있는 서비스 만들기
 > * Java 상태 비저장 웹 응용 프로그램 서비스 만들기
 > * 원격 서비스를 사용하여 상태 저장 서비스와 통신
-> * 로컬 Service Fabric 클러스터에 응용 프로그램 배포
+> * 로컬 Service Fabric 클러스터에 애플리케이션 배포
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Java Service Fabric Reliable Services 응용 프로그램 빌드
+> * Java Service Fabric Reliable Services 애플리케이션 빌드
 > * [로컬 클러스터에서 응용 프로그램 배포 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
 > * [Azure 클러스터에 응용 프로그램 배포](service-fabric-tutorial-java-deploy-azure.md)
 > * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
@@ -55,13 +55,13 @@ ms.locfileid: "37114128"
 
 먼저 Voting 응용 프로그램의 웹 프런트 엔드를 만듭니다. Java 상태 비저장 서비스는 AngularJS에서 전원을 공급하는 웹 UI를 호스팅하는 경량 HTTP 서버를 준비합니다. 사용자의 요청은 이 상태 비저장 서비스에서 처리되며 투표를 저장하기 위해 상태 저장 서비스에 원격 프로시저 호출로서 전송됩니다. 
 
-1. Eclipse 시작
+1. Eclipse를 시작합니다.
 
-2. **파일**->**새로 만들기**->**다른**->**Service Fabric**->**Service Fabric 프로젝트**를 사용하여 프로젝트 만들기
+2. **파일**->**새로 만들기**->**다른**->**Service Fabric**->**Service Fabric 프로젝트**를 사용하여 프로젝트를 만듭니다.
 
     ![Eclipse의 새 프로젝트 대화 상자](./media/service-fabric-tutorial-create-java-app/create-sf-proj-wizard.png)
 
-3. **ServiceFabric 프로젝트 마법사** 대화 상자에서 프로젝트 이름을 **Voting**으로 지정하고 **다음**을 누름
+3. **ServiceFabric 프로젝트 마법사** 대화 상자에서 프로젝트 이름을 **Voting**으로 지정하고 **다음**을 누릅니다.
 
     ![새 서비스 대화 상자에서 Java 상태 비저장 서비스 선택](./media/service-fabric-tutorial-create-java-app/name-sf-proj-wizard.png) 
 
@@ -76,8 +76,8 @@ ms.locfileid: "37114128"
 테이블은 이전 스크린샷에서 패키지 탐색기의 각 항목에 대한 간단한 설명을 제공합니다. 
 | **패키지 탐색기 항목** | **설명** |
 | --- | --- |
-| PublishProfiles | 로컬 및 Azure Service Fabric 클러스터의 프로필 세부 정보를 설명하는 JSON 파일을 포함합니다. 이러한 파일의 내용은 응용 프로그램을 배포하는 경우 플러그 인에서 사용합니다. |
-| 스크립트 | 클러스터를 사용하여 응용 프로그램을 신속하게 관리하려면 명령줄에서 사용될 수 있는 도우미 스크립트를 포함합니다. |
+| PublishProfiles | 로컬 및 Azure Service Fabric 클러스터의 프로필 세부 정보를 설명하는 JSON 파일을 포함합니다. 이러한 파일의 내용은 애플리케이션을 배포하는 경우 플러그 인에서 사용합니다. |
+| 스크립트 | 클러스터를 사용하여 애플리케이션을 신속하게 관리하려면 명령줄에서 사용될 수 있는 도우미 스크립트를 포함합니다. |
 | VotingApplication | Service Fabric 클러스터에 밀어넣은 Service Fabric 응용 프로그램을 포함합니다. |
 | VotingWeb | 관련 Gradle 빌드 파일과 함께 프런트 엔드 상태 비저장 서비스 소스 파일을 포함합니다. |
 | build.gradle | 프로젝트를 관리하는 데 사용되는 Gradle 파일입니다. |
@@ -89,9 +89,9 @@ ms.locfileid: "37114128"
 
 1. *VotingApplication* 디렉터리를 확장해 *VotingApplication/VotingWebPkg/Code* 디렉터리에 이르게 합니다.
 
-2. *코드* 디렉터리를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**->**다른**을 클릭
+2. *코드* 디렉터리를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**->**폴더**를 클릭합니다.
 
-3. *wwwroot*라는 폴더를 만들고 **마침**을 클릭
+3. 폴더의 이름을 *wwwroot*로 지정하고 **마침**을 클릭합니다.
 
     ![Eclipse로 wwwroot 폴더 만들기](./media/service-fabric-tutorial-create-java-app/create-wwwroot-folder.png)
 
@@ -205,9 +205,9 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
 </html>
 ```
 
-### <a name="update-the-votingwebservicejava-file"></a>VotingWebService.java 파일 업데이트
+### <a name="update-the-votingwebjava-file"></a>VotingWeb.java 파일 업데이트
 
-**VotingWeb** 하위 프로젝트에서 *VotingWeb/src/statelessservice/VotingWebService.java*을 엽니다. **VotingWebService**는 상태 비저장 서비스에 대한 게이트웨이이며 프런트 엔드 API에 대한 통신 수신기 설정을 책임집니다.
+**VotingWeb** 하위 프로젝트에서 *VotingWeb/src/statelessservice/VotingWeb.java* 파일을 엽니다. **VotingWeb** 서비스는 상태 비저장 서비스에 대한 게이트웨이이며 프런트 엔드 API에 대한 통신 수신기 설정을 책임집니다.
 
 해당 파일에서 **createServiceInstanceListeners** 메서드의 내용을 다음으로 바꾸고 변경 내용을 저장합니다.
 
@@ -226,7 +226,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>HTTPCommunicationListener.java 파일 추가
 
-HTTP 통신 수신기는 HTTP 서버를 설정하고 컨트롤러로서 투표 작업을 정의하는 API를 공개하는 역할을 합니다. *VotingWeb/src/statelessservice* 폴더에서 *statelessservice* 패키지를 마우스 오른쪽 단추로 클릭한 다음, **새로 만들기->다른...->일반->파일**을 선택하고 **다음**을 클릭합니다.  *HttpCommunicationListener.java* 파일 이름을 지정하고 **마침**을 클릭합니다.
+HTTP 통신 수신기는 HTTP 서버를 설정하고 컨트롤러로서 투표 작업을 정의하는 API를 공개하는 역할을 합니다. *VotingWeb/src/statelessservice* 폴더에서 *statelessservice* 패키지를 마우스 오른쪽 단추로 클릭한 다음, **새로 만들기->파일**을 선택합니다.  *HttpCommunicationListener.java* 파일 이름을 지정하고 **마침**을 클릭합니다.
 
 파일 내용을 다음으로 바꾸고 변경 내용을 저장합니다.  나중에 이 파일은 [HttpCommunicationListener.java 파일 업데이트](#updatelistener_anchor)에서 백 엔드 서비스의 투표 데이터를 렌더링하고 읽고 쓰도록 수정됩니다.  지금은 수신기가 Voting 앱에 대한 고정적인 HTML을 반환합니다.
 
@@ -387,7 +387,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 
 ### <a name="configure-the-listening-port"></a>수신 대기 포트 구성
 
-VotingWebService 프런트 엔드 서비스를 만들면 Service Fabric에서는 수신할 서비스에 대한 포트를 선택합니다.  VotingWebService는 이 응용 프로그램에 대한 프런트 엔드로 작동하고 외부 트래픽을 허용하므로 이 서비스를 고정된 잘 알려진 포트에 바인딩하겠습니다. 패키지 탐색기에서 *VotingWebService/VotingWebServicePkg/ServiceManifest.xml*을 엽니다.  **리소스** 섹션에서 **끝점** 리소스를 찾고, **포트** 값을 8080 또는 다른 포트로 변경합니다. 응용 프로그램을 로컬로 배포하고 실행하려면 응용 프로그램 수신 대기 포트가 열려 있고 컴퓨터에서 사용할 수 있어야 합니다. **ServiceManifest** 태그 아래 다음 코드 조각을 붙여넣습니다.
+VotingWeb 서비스 프런트 엔드 서비스를 만들면 Service Fabric에서는 수신할 서비스에 대한 포트를 선택합니다.  VotingWeb 서비스는 이 응용 프로그램에 대한 프런트 엔드로 작동하고 외부 트래픽을 허용하므로 이 서비스를 고정된 잘 알려진 포트에 바인딩하겠습니다. 패키지 탐색기에서 *VotingApplication/VotingWebPkg/ServiceManifest.xml*을 엽니다.  **리소스** 섹션에서 **엔드포인트** 리소스를 찾고, **포트** 값을 8080 또는 다른 포트로 변경합니다. 애플리케이션을 로컬로 배포하고 실행하려면 애플리케이션 수신 대기 포트가 열려 있고 컴퓨터에서 사용할 수 있어야 합니다. **ServiceManifest** 요소 내에서 다음 코드 조각을 붙여넣습니다(예: ```<DataPackage>``` 요소 바로 아래).
 
 ```xml
 <Resources>
@@ -408,9 +408,7 @@ Service Fabric을 통해 신뢰할 수 있는 컬렉션을 사용하여 일관�
 
 1. 패키지 탐색기에서 응용 프로그램 프로젝트 내의 **Voting**을 마우스 오른쪽 단추로 클릭하고 **Service Fabric > Service Fabric 서비스 추가**를 선택합니다.
 
-2. **서비스 추가** 대화 상자에서 **상태 저장 서비스**를 선택하고 서비스 이름을 **VotingData**로 지정하고 **서비스 추가**를 클릭합니다.
-
-    ![기존 응용 프로그램에 새 서비스 추가](./media/service-fabric-tutorial-create-java-app/addstatefuljava.png)
+2. **서비스 추가** 대화 상자에서 **상태 저장 서비스**를 선택하고 서비스 이름을 **VotingDataService**로 지정하고 **서비스 추가**를 클릭합니다.
 
     서비스 프로젝트를 만들었으면 응용 프로그램에 두 개의 서비스가 있을 것입니다. 계속해서 응용 프로그램을 빌드하는 동안 같은 방법으로 더 많은 서비스를 추가할 수 있습니다. 각 서비스를 독립적으로 버전 지정 및 업그레이드할 수 있습니다.
 
@@ -420,7 +418,7 @@ Service Fabric을 통해 신뢰할 수 있는 컬렉션을 사용하여 일관�
 
 ### <a name="add-the-votingdataservicejava-file"></a>VotingDataService.java 파일 추가
 
-*VotingDataService.java* 파일은 신뢰할 수 있는 컬렉션에서 투표를 검색하고 추가하고 제거하기 위한 논리를 포함하는 메서드를 포함합니다. 만든 *VotingDataService/src/statefulservice/VotingDataService.java* 파일의 **VotingDataService** 클래스에 다음 메서드를 추가합니다.
+*VotingDataService.java* 파일은 신뢰할 수 있는 컬렉션에서 투표를 검색하고 추가하고 제거하기 위한 논리를 포함하는 메서드를 포함합니다. *VotingDataService/src/statefulservice/VotingDataService.java* 파일에 다음 **VotingDataService** 클래스 메서드를 추가합니다.
 
 ```java
 package statefulservice;
@@ -553,9 +551,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 프런트 엔드 상태 비저장 서비스 및 백 엔드 서비스에 대한 기본 구성을 만듭니다. 다음 단계에서는 두 개의 서비스를 연결합니다. 프런트 엔드 및 백 엔드 서비스 모두 Voting 응용 프로그램의 작업을 정의하는 VotingRPC라는 인터페이스를 사용합니다. 이 인터페이스는 두 서비스 간의 원격 프로시저 호출(RPC)을 사용할 수 있도록 프런트 엔드 및 백 엔드 서비스에 의해 구현됩니다. Eclipse는 Gradle 하위 프로젝트를 추가하는 것을 지원하지 않으므로 이 인터페이스를 포함하는 패키지를 수동으로 추가해야 합니다.
 
-1. 패키지 탐색기에서 **Voting** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새로 만들기 -> 다른...** 을 클릭
-
-2. 마법사에서 **일반 -> 폴더**를 클릭하고 이 폴더의 이름을 **VotingRPC/src/rpcmethods**로 지정 
+1. 패키지 탐색기에서 **Voting** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새로 만들기 -> 폴더**를 클릭합니다. 폴더의 이름을 **VotingRPC/src/rpcmethods**로 지정합니다.
 
     ![VotingRPC 패키지 만들기](./media/service-fabric-tutorial-create-java-app/createvotingrpcpackage.png)
 
@@ -580,7 +576,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
     }
     ``` 
 
-4. *Voting/VotingRPC* 디렉터리 아래 *build.gradle*라는 파일을 만들고 파일 내부에 다음을 붙여넣습니다. 이 Gradle 파일은 다른 서비스에서 가져온 jar 파일을 빌드하고 만드는 데 사용됩니다. 
+4. *Voting/VotingRPC* 디렉터리에 *build.gradle*이라는 파일을 만들고 파일 내부에 다음을 붙여넣습니다. 이 Gradle 파일은 다른 서비스에서 가져온 jar 파일을 빌드하고 만드는 데 사용됩니다. 
 
     ```gradle
     apply plugin: 'java'
@@ -632,7 +628,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
     include ':VotingRPC'
     ```
 
-6. *Voting/VotingWebService/src/statelessservice/HttpCommunicationListener.java* 파일에서 주석 블록을 다음으로 바꿉니다.  
+6. *Voting/VotingWeb/src/statelessservice/HttpCommunicationListener.java* 파일에서 주석 블록을 다음으로 바꿉니다.  
 
     ```java
     server.createContext("/getStatelessList", new HttpHandler() {
@@ -722,7 +718,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 ![응용 프로그램 다이어그램](./media/service-fabric-tutorial-create-java-app/walkthroughjavavoting.png)
 
-응용 프로그램에서 작업을 수행하는 경우(항목 추가, 투표, 항목 제거) 다음 이벤트가 발생합니다.
+애플리케이션에서 작업을 수행하는 경우(항목 추가, 투표, 항목 제거) 다음 이벤트가 발생합니다.
 1. JavaScript가 적절한 요청을 웹 프런트 엔드 서비스의 Web API에 HTTP 요청으로 보냅니다.
 
 2. 웹 프런트 엔드 서비스는 백 엔드 서비스에 대한 요청을 찾아 전달하기 위해 Service Fabric의 기본 제공 원격 서비스 기능을 사용합니다. 
@@ -746,7 +742,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
     defaultTasks 'clean', 'jar', 'copyDeps'
     ```
 
-2. *Voting/VotingWeb/build.gradle* 파일 내용을 바꿉니다.
+2. *Voting/VotingWeb/build.gradle* 파일 내용을 다음으로 바꿉니다.
 
     ```gradle
     apply plugin: 'java'
@@ -816,7 +812,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
     defaultTasks 'clean', 'jar', 'copyDeps'
     ``` 
 
-3. *Voting/VotingData/build.gradle* 파일 내용을 바꿉니다. 
+3. *Voting/VotingDataService/build.gradle* 파일 내용을 바꿉니다. 
 
     ```gradle
     apply plugin: 'java'
@@ -920,7 +916,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 > * Java 서비스를 상태 비저장 신뢰할 수 있는 서비스로 만들기
 > * 서비스 간 원격 프로시저 호출(RPC)을 처리하려면 Java 인터페이스 추가
 > * Gradle 스크립트 구성
-> * 로컬 Service Fabric 클러스터에 응용 프로그램 빌드 및 배포
+> * 로컬 Service Fabric 클러스터에 애플리케이션 빌드 및 배포
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]

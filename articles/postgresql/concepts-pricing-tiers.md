@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/21/2018
-ms.openlocfilehash: 3637ee63c94ea54145d99b9d5632f0a77c95d2f4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 10/10/2018
+ms.openlocfilehash: aab867e5c58ba9de17b3c68c8e507fca5354eb90
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970264"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093444"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 가격 책정 계층
 
@@ -24,7 +24,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 |:---|:----------|:--------------------|:---------------------|
 | 계산 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| vCore 메모리 | 2 GB | 5GB | 10 GB |
+| vCore 메모리 | 2GB | 5GB | 10 GB |
 | 저장소 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
 | 저장소 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
@@ -46,8 +46,8 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 
 | **Azure 지역** | **4세대** | **5세대** |
 |:---|:----------:|:--------------------:|
-| 미국 중부 | X |  |
-| 미국 동부 | X | X |
+| 미국 중부 |  | X |
+| 미국 동부 |  | X |
 | 미국 동부 2 | X | X |
 | 미국 중북부 | X | X |
 | 미국 중남부 | X | X |
@@ -74,6 +74,11 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 일본 서부 | X | X |
 | 한국 중부 |  | X |
 | 한국 남부 |  | X |
+| 독일 중부 |  | X |
+| 미국 국방부 중부  | X |  |
+| 미국 국방부 동부  | X |  |
+| 미국 정부 애리조나 |  | X |
+| 미국 정부 텍사스 |  | X |
 
 ## <a name="storage"></a>Storage
 
@@ -98,6 +103,8 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 서버에 프로비전된 저장소의 크기를 늘리거나, 읽기/쓰기 모드에서 새 세션을 시작하고 여유 저장 공간을 회수하기 위해 데이터를 삭제할 수 있습니다. `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;`을 실행하면 읽기 쓰기 모드에 현재 세션을 설정할 수 있습니다. 데이터 손상을 방지하려면 서버가 아직 읽기 전용 상태에 있을 경우 어떤 쓰기 작업도 수행하지 마십시오.
 
+서버 저장소가 임계값에 근접하는 경우 읽기 전용 상태로 들어가는 것을 방지할 수 있도록 알림 경고를 설정하는 것이 좋습니다. 자세한 내용은 [경고 설정 방법](howto-alert-on-metric.md)에 관한 설명서를 참조하세요.
+
 ## <a name="backup"></a>Backup
 
 서비스에서 서버 백업을 자동으로 수행합니다. 최소 백업 보존 기간은 7일입니다. 보존 기간은 최대 35일까지 설정할 수 있습니다. 보존 기간은 서버 수명 기간 동안 언제든지 조정할 수 있습니다. 로컬 중복 백업과 지역 중복 백업 중에서 선택할 수 있습니다. 지역 중복 백업은 서버가 만들어진 지역의 [쌍으로 연결된 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에도 저장됩니다. 이 중복성은 재해 발생 시 일정 수준의 보호를 제공합니다. 또한 지역 중복 백업을 통해 서비스를 사용할 수 있는 다른 Azure 지역으로 서버를 복원할 수 있습니다. 서버가 만들어진 후 두 개의 백업 저장소 옵션 간에 변경할 수 없습니다.
@@ -118,4 +125,4 @@ vCore 수, 하드웨어 생성 또는 가격 책정 계층을 변경하면 새 �
 
 - [포털에서 PostgreSQL 서버를 만드는](tutorial-design-database-using-azure-portal.md) 방법을 알아봅니다.
 - [Azure CLI를 사용하여 Azure Database for PostgreSQL 서버를 모니터링 및 크기 조정하는](scripts/sample-scale-server-up-or-down.md) 방법을 알아봅니다.
-- [서비스 제한 사항](concepts-limits.md)에 대해 알아봅니다.
+- [서비스 제한 사항](concepts-limits.md)에 대해 알아봅니다. 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 951756d57441d175ccf8bab44bf00c3cb542f1b9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 63ae8699af5213634eeac7dfc5045a3fc888b6c0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050049"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734255"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 첫 번째 파이프라인 빌드
 > [!div class="op_single_selector"]
@@ -51,9 +51,9 @@ ms.locfileid: "37050049"
 3. **연결된 서비스**만들기. 연결된 서비스를 만들어서 데이터 저장소 또는 계산 서비스를 데이터 팩터리에 연결합니다. Azure Storage와 같은 데이터 저장소는 파이프라인에서 활동의 입/출력 데이터를 저장합니다. HDInsight Hadoop cluster 클러스터와 같은 계산 서비스는 데이터를 처리/변환합니다.
 
     이 자습서에는 두 가지 연결된 서비스 **Azure Storage** 및 **Azure HDInsight**를 만듭니다. Azure Storage 연결된 서비스는 데이터 팩터리에 대한 입력/출력 데이터를 보유하는 Azure Storage 계정을 연결합니다. Azure HDInsight 연결된 서비스는 데이터 팩터리에 대한 데이터를 변환하는 데 사용된 Azure HDInsight 클러스터를 연결합니다. 
-3. 입력 및 출력 **데이터 집합**을 만듭니다. 입력 데이터 집합은 파이프라인의 작업에 대한 입력을 나타내고 출력 데이터 집합은 작업에 대한 출력을 나타냅니다.
+3. 입력 및 출력 **데이터 세트**를 만듭니다. 입력 데이터 세트는 파이프라인의 작업에 대한 입력을 나타내고 출력 데이터 세트는 작업에 대한 출력을 나타냅니다.
 
-    이 자습서에서 입력 및 출력 데이터 집합은 Azure Blob Storage에서 입력 및 출력 데이터의 위치를 지정합니다. Azure Storage 연결된 서비스는 어떤 Azure Storage 계정이 사용되는지를 지정합니다. 입력 데이터 집합은 입력 파일의 위치를 지정하고 출력 데이터 집합은 출력 파일이 있는 위치를 지정합니다. 
+    이 자습서에서 입력 및 출력 데이터 세트는 Azure Blob Storage에서 입력 및 출력 데이터의 위치를 지정합니다. Azure Storage 연결된 서비스는 어떤 Azure Storage 계정이 사용되는지를 지정합니다. 입력 데이터 세트는 입력 파일의 위치를 지정하고 출력 데이터 세트는 출력 파일이 있는 위치를 지정합니다. 
 
 
 Azure Data Factory에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.
@@ -85,7 +85,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 이 자습서를 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
 1. **Azure 구독** - Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 무료 평가판 계정을 확보하는 방법은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
-2. **Azure 저장소** – 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후 **계정 이름**과 **액세스 키**를 적어둡니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys)을 참조하세요.
+2. **Azure 저장소** – 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요. 저장소 계정을 만든 후 **계정 이름**과 **액세스 키**를 적어둡니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-manage.md#access-keys)을 참조하세요.
 3. [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql)에 있는 Hive 쿼리 파일(**HQL**)을 다운로드하고 검토합니다. 이 쿼리는 출력 데이터를 생성하기 위해 입력 데이터를 변환합니다. 
 4. [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)에 있는 샘플 입력 파일(**input.log**)을 다운로드하고 검토합니다.
 5. Azure Blob Storage에 **adfgetstarted**라는 Blob 컨테이너를 만듭니다. 
@@ -105,7 +105,7 @@ Azure Portal 및 Visual Studio는 데이터 팩터리를 빌드하는 GUI 방식
 > [!NOTE]
 > 이 자습서의 데이터 파이프라인은 출력 데이터를 생성하는 입력 데이터를 변환합니다. 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사하지 않습니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 > 
-> 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 정보는 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요. 
+> 한 활동의 출력 데이터 세트를 다른 활동의 입력 데이터 세트로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 정보는 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요. 
 
 
 

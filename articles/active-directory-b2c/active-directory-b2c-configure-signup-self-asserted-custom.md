@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1a949007750ae9607ac31f02d23e39204b9f58e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440504"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345003"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: 새 클레임을 추가하도록 등록 수정 및 사용자 입력 구성
 
@@ -245,13 +245,13 @@ ms.locfileid: "37440504"
 
 ![수정된 등록 옵션의 스크린샷](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  이제 응용 프로그램에 반환되는 토큰은 아래 표시된 것처럼 `city` 클레임을 포함합니다.
+  이제 애플리케이션에 반환되는 토큰은 아래 표시된 것처럼 `city` 클레임을 포함합니다.
 ```json
 {
   "exp": 1493596822,
   "nbf": 1493593222,
   "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "sub": "9c2a3a9e-ac65-4e46-a12d-9557b63033a9",
   "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
   "acr": "b2c_1a_trustf_signup_signin",
@@ -277,8 +277,8 @@ ms.locfileid: "37440504"
 
 ## <a name="next-steps"></a>다음 단계
 
-아래 나열된 TechnicalProfiles를 변경하여 새 클레임을 소셜 계정 로그인에 대한 흐름에 추가합니다. 이러한 파일은 로케이터로 alternativeSecurityId를 사용하여 사용자 데이터를 쓰고 읽기 위해 소셜/페더레이션된 계정 로그인에 사용됩니다.
-```xml
-<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-<TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-```
+정책이 소셜 계정을 지원하는 경우 아래 나열된 기술 프로필을 변경하여 소셜 계정 로그인에 대한 흐름에 새 클레임을 추가하세요. 이러한 클레임은 소셜 계정 로그인에서 사용자의 데이터를 수집하고 쓰는 데 사용합니다.
+
+1. 기술 프로필 **SelfAsserted-Social**을 찾아 출력 클레임을 추가하세요. **OutputClaims**의 클레임 순서는 Azure AD B2C가 화면에서 클레임을 렌더링하는 순서를 제어합니다. 예: `<OutputClaim ClaimTypeReferenceId="city" />`
+2. 기술 프로필 **AAD-UserWriteUsingAlternativeSecurityId**를 찾아 유지 클레임을 추가하세요. 예: `<PersistedClaim ClaimTypeReferenceId="city" />`
+3. 기술 프로필 **AAD-UserReadUsingAlternativeSecurityId**를 찾아 출력 클레임을 추가하세요. 예: `<OutputClaim ClaimTypeReferenceId="city" />`

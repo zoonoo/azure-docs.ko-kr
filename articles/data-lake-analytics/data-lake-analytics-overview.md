@@ -4,18 +4,17 @@ description: Data Lake Analytics를 통해 모든 규모의 클라우드 데이�
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: f5425abc484d30f07ce29d6b7b6ec36dad79b651
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ec0e8c11a1d60d4454d962b8ec4c363e35d1182a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623624"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988753"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>Azure Data Lake Analytics이란?
 
@@ -35,11 +34,11 @@ Data Lake Analytics은 SQL의 친숙하고 간단한 선언적 특성을 C#의 �
 
 ### <a name="integrates-seamlessly-with-your-it-investments"></a>IT 투자와 완벽하게 통합
   
-Data Lake Analytics은 ID, 관리 및 보안에 대한 기존 IT 투자를 사용합니다. 이러한 방법으로 데이터 거버넌스가 간소화되며 현재 데이터 응용 프로그램을 쉽게 확장할 수 있습니다. Data Lake Analytics은 사용자 관리 및 권한에 대해 Active Directory와 통합되고 기본 제공 모니터링 및 감사와 함께 제공됩니다.
+Data Lake Analytics은 ID, 관리 및 보안에 대한 기존 IT 투자를 사용합니다. 이러한 방법으로 데이터 거버넌스가 간소화되며 현재 데이터 애플리케이션을 쉽게 확장할 수 있습니다. Data Lake Analytics은 사용자 관리 및 권한에 대해 Active Directory와 통합되고 기본 제공 모니터링 및 감사와 함께 제공됩니다.
 
 ### <a name="affordable-and-cost-effective"></a>저렴하고 비용 효율적
 
-Data Lake Analytics은 빅 데이터 작업을 실행하기 위한 경제적인 솔루션입니다. 데이터가 처리될 때 작업 단위로 비용을 지불합니다. 하드웨어, 라이선스 또는 서비스별 지원 계약이 필요하지 않습니다. 시스템은 작업이 시작되고 완료됨에 따라 자동으로 확장되고 축소되므로 필요 이상으로 비용을 지불하지 않아도 됩니다. [비용 제어 및 절약에 대해 자세히 알아봅니다](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c).
+Data Lake Analytics은 빅 데이터 작업을 실행하기 위한 경제적인 솔루션입니다. 데이터가 처리될 때 작업 단위로 비용을 지불합니다. 하드웨어, 라이선스 또는 서비스별 지원 계약이 필요하지 않습니다. 시스템은 작업이 시작되고 완료됨에 따라 자동으로 확장되고 축소되므로 필요 이상으로 비용을 지불하지 않아도 됩니다. [비용 제어 및 절약에 대해 자세히 알아봅니다](https://aka.ms/adlasavemoney).
     
 ### <a name="works-with-all-your-azure-data"></a>모든 Azure 데이터를 사용하여 작업
   
@@ -47,6 +46,6 @@ Data Lake Analytics는 최고의 성능, 처리량 및 병렬 처리를 위해 A
 
 ### <a name="next-steps"></a>다음 단계
  
-  * [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli2.md)를 사용하여 Data Lake Analytics 시작
+  * [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli.md)를 사용하여 Data Lake Analytics 시작
   * [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)를 사용하여 Azure Data Lake Analytics 관리
   * [Data Lake Analytics로 비용을 제어하고 절약하는 방법](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c)

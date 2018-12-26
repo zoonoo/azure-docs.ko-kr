@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 89d1838eb9fed1751581b026d82b06bc20de4ecc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aa9386182f521119012ea59fe6b64fb31099169e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783272"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620271"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>여러 Storage 계정에서 Media Services 자산 관리
 Microsoft Azure Media Services 2.2부터는 여러 저장소 계정을 단일 Media Services 계정에 연결할 수 있습니다. 여러 저장소 계정을 Media Services 계정에 연결하는 기능은 다음과 같은 이점을 제공합니다.
@@ -26,7 +26,7 @@ Microsoft Azure Media Services 2.2부터는 여러 저장소 계정을 단일 Me
 * 자산을 여러 저장소 계정에서 부하 분산합니다.
 * 대량의 콘텐츠 처리를 위한 Media Services 크기 조정(현재 단일 저장소 계정의 최대 제한은 500TB). 
 
-이 문서에서는 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/media/mediaservice) 및 [Powershell](/powershell/module/azurerm.media)을 사용하여 여러 저장소 계정을 Media Services 계정에 연결하는 방법을 보여 줍니다. 또한 Media Services SDK를 사용하여 자산을 만들 때 다른 저장소 계정을 지정하는 방법을 보여줍니다. 
+이 문서에서는 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [Powershell](/powershell/module/azurerm.media)을 사용하여 여러 저장소 계정을 Media Services 계정에 연결하는 방법을 보여 줍니다. 또한 Media Services SDK를 사용하여 자산을 만들 때 다른 저장소 계정을 지정하는 방법을 보여줍니다. 
 
 ## <a name="considerations"></a>고려 사항
 여러 저장소 계정을 Media Services 계정에 연결할 때는 다음과 같은 고려 사항이 있습니다.
@@ -42,7 +42,7 @@ Media Services는 스트리밍 콘텐츠(예: http://{WAMSAccount}.origin.medias
 
 ## <a name="to-attach-storage-accounts"></a>저장소 계정을 연결하려면  
 
-저장소 계정을 AMS 계정에 연결하려면 다음 예제와 같이 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/media/mediaservice) 및 [Powershell](/powershell/module/azurerm.media)을 사용합니다.
+저장소 계정을 AMS 계정에 연결하려면 다음 예제와 같이 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [Powershell](/powershell/module/azurerm.media)을 사용합니다.
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "

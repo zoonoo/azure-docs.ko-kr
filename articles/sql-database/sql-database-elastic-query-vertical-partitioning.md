@@ -2,19 +2,22 @@
 title: 여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리 | Microsoft Docs
 description: 수직 분할을 통해 데이터베이스 간 쿼리를 설정하는 방법
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: 6b4dd9017c336c2034bac81ba92d219b511a38a4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 5dbf6fb1b59999481348d3b4ad4775a77295b70d
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645758"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238900"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
 ![다른 데이터베이스에서 테이블에 대한 쿼리][1]
@@ -45,7 +48,7 @@ ms.locfileid: "34645758"
     [;]
 
 > [!NOTE]
-> `<username>`에 **"@servername"** 접미사가 포함되지 않아야 합니다. 
+> `<username>`에 **"\@servername"** 접미사가 포함되지 않아야 합니다. 
 >
 
 ## <a name="create-external-data-sources"></a>외부 데이터 원본 만들기
@@ -160,7 +163,7 @@ SCHEMA_NAME 및 OBJECT_NAME 절은 각각 외부 테이블 정의를 원격 데�
 
 sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본을 사용하여 원격 데이터베이스에서 지정된 T-SQL 문을 실행합니다. 외부 데이터 원본의 자격 증명을 사용하여 원격 데이터베이스에 연결합니다.  
 
-예: 
+예제: 
 
     EXEC sp_execute_remote
         N'MyExtSrc',
@@ -172,7 +175,7 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
 일반 SQL Server 연결 문자열을 사용하여, 탄력적 쿼리를 사용하도록 설정되었고 외부 테이블이 정의된 SQL DB 서버의 데이터베이스에 BI 및 데이터 통합 도구를 연결할 수 있습니다. SQL Server 도구에 대한 데이터 소스로 지원 되는지 확인 합니다. 그런 다음 도구와 연결하려는 타 SQL Server 데이터베이스와 똑같이 탄력적 쿼리 데이터베이스와 외부 테이블을 참조합니다. 
 
 ## <a name="best-practices"></a>모범 사례
-* SQL DB 방화벽 구성에서 Azure 서비스에 대한 액세스를 활성화하여 탄력적 쿼리 끝점 데이터베이스에 원격 데이터베이스 액세스 권한을 부여해야 합니다. 또한 외부 데이터 원본 종의에서 제공한 자격 증명으로 원격 데이터베이스에 로그인할 수 있고 원격 테이블에 대한 액세스 권한이 있는지 확인합니다.  
+* SQL DB 방화벽 구성에서 Azure 서비스에 대한 액세스를 활성화하여 탄력적 쿼리 엔드포인트 데이터베이스에 원격 데이터베이스 액세스 권한을 부여해야 합니다. 또한 외부 데이터 원본 종의에서 제공한 자격 증명으로 원격 데이터베이스에 로그인할 수 있고 원격 테이블에 대한 액세스 권한이 있는지 확인합니다.  
 * 탄력적 쿼리는 원격 데이터베이스에서 대부분의 계산을 수행할 수 있는 상황에서 가장 잘 실행됩니다. 일반적으로 원격 데이터베이스에서 평가할 수 있는 선택적 필더 조건자나, 원격 데이터베이스에서 완전히 수행 가능한 조인을 통해 최고의 쿼리 성능을 얻을 수 있습니다. 다른 쿼리 패턴은 원격 데이터베이스에서 대규모의 데이터 로드가 필요할 수도 있기 때문에 성능이 좋지 않을 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계

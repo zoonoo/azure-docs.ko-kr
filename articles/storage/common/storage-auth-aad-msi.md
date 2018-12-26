@@ -1,57 +1,58 @@
 ---
-title: Azure VM 관리 서비스 ID(미리 보기)에서 Azure AD를 사용하여 인증 | Microsoft Docs
-description: Azure VM 관리 서비스 ID(미리 보기)에서 Azure AD를 사용하여 인증합니다.
+title: Azure 리소스(미리 보기)의 Azure Active Directory 관리 ID로 Blob 및 큐에 대한 액세스 인증 - Azure Storage | Microsoft Docs
+description: Azure Blob 및 Queue Storage는 Azure 리소스의 관리 ID를 사용하여 Azure Active Directory 인증을 지원합니다. Azure 리소스의 관리 ID를 사용하여 Azure Virtual Machine, 기능 앱, Virtual Machine Scale Set 및 기타 기능에서 실행 중인 응용 프로그램의 Blob 및 큐에 대한 액세스를 인증할 수 있습니다. Azure 리소스의 관리 ID를 사용하고 Azure AD 인증 기능을 활용하면 클라우드에서 실행되는 응용 프로그램에 자격 증명을 저장할 필요가 없습니다.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 10/15/2018
 ms.author: tamram
-ms.openlocfilehash: 080cb3ee536227e5ddce3fac856de79b2b061dcf
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.component: common
+ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970771"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427419"
 ---
-# <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>Azure 관리 서비스 ID(미리 보기)에서 Azure AD를 사용하여 인증
+# <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Azure 리소스(미리 보기)의 관리 ID를 사용하여 Blob 및 큐에 대한 액세스 인증
 
-Azure Storage는 [관리 서비스 ID](../../active-directory/managed-service-identity/overview.md)를 사용하여 Azure AD(Azure Active Directory) 인증을 지원합니다. MSI(관리 서비스 ID)는 Azure AD(Azure Active Directory)에서 자동으로 관리 ID를 제공합니다. Azure 가상 머신, 함수 앱, 가상 머신 확장 집합 등에서 실행되는 응용 프로그램에서 MSI를 사용하여 Azure Storage를 인증할 수 있습니다. MSI를 사용하고 Azure AD 인증 기능을 활용하면 클라우드에서 실행되는 응용 프로그램에 자격 증명을 저장할 필요가 없습니다.  
+Azure Blob 및 Queue Storage는 [Azure 리소스에 대한 관리 ID를 사용](../../active-directory/managed-identities-azure-resources/overview.md)하는 Azure Active Directory(Azure AD) 인증을 지원합니다. Azure 리소스의 관리 ID를 사용하여 Azure VM(가상 머신), 기능 앱, 가상 머신 확장 집합 및 기타 기능에서 실행 중인 응용 프로그램의 Azure AD 자격 증명을 사용하여 Blob 및 큐에 대한 액세스를 인증할 수 있습니다. Azure 리소스의 관리 ID를 사용하고 Azure AD 인증 기능을 활용하면 클라우드에서 실행되는 응용 프로그램에 자격 증명을 저장할 필요가 없습니다.  
 
-저장소 컨테이너 또는 큐에 대한 관리 서비스 ID에 권한을 부여하려면 저장소 권한이 포함된 RBAC 역할을 MSI에 할당합니다. 저장소의 RBAC 역할에 대한 자세한 내용은 [RBAC를 사용하여 저장소 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요. 
+관리 ID에 대한 사용 권한을 Blob 컨테이너 또는 큐에 부여하려면 적절한 범위에서 해당 리소스에 대한 사용 권한을 포함하는 관리 ID에 역할 기반 액세스 제어 (RBAC) 역할을 할당합니다. 저장소의 RBAC 역할에 대한 자세한 내용은 [RBAC를 사용하여 저장소 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요. 
 
-> [!IMPORTANT]
-> 이 미리 보기는 프로덕션 이외의 용도로만 사용해야 합니다. Azure Storage에 대한 Azure AD 통합이 일반 공급 버전으로 선언되어야만 프로덕션 SLA(서비스 수준 계약)를 사용할 수 있습니다. 사용자 시나리오에서 Azure AD 통합이 아직 지원되지 않는 경우, 응용 프로그램에서 공유 키 인증 또는 SAS 토큰을 계속 사용합니다. 미리 보기에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증(미리 보기)](storage-auth-aad.md)을 참조하세요.
->
-> 미리 보기 동안 RBAC 역할 할당이 전파되는 데 최대 5분이 걸릴 수 있습니다.
+이 문서에서는 Azure VM에서 관리 ID를 사용하여 Azure Blob 또는 Queue Storage를 인증하는 방법에 대해 설명합니다.  
 
-이 문서에서는 Azure VM에서 MSI를 사용하여 Azure Storage를 인증하는 방법에 대해 설명합니다.  
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
-## <a name="enable-msi-on-the-vm"></a>VM에서 MSI 사용
+## <a name="enable-managed-identities-on-a-vm"></a>VM에서 관리 ID 사용
 
-MSI를 사용하여 VM에서 Azure Storage를 인증하려면 먼저 VM에서 MSI를 사용하도록 설정해야 합니다. MSI를 사용하도록 설정하는 방법은 다음 문서 중 하나를 참조하세요.
+Azure 리소스의 관리 ID를 사용하여 VM에서 Blob 및 큐에 대한 액세스를 인증하려면 먼저 VM에서 Azure 리소스의 관리 ID를 사용하도록 설정해야 합니다. Azure 리소스의 관리 ID를 사용하도록 설정하는 방법을 알아보려면 다음 문서 중 하나를 참조하세요.
 
 - [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
-- [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
-- [Azure CLI](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager 템플릿](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)
-- [Azure SDK](../../active-directory/managed-service-identity/qs-configure-sdk-windows-vm.md)
+- [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Azure Resource Manager 템플릿](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure SDK](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-## <a name="get-an-msi-access-token"></a>MSI 액세스 토큰 가져오기
+## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>Azure AD 관리 ID에 RBAC 역할 할당
 
-MSI를 사용하여 인증하려면 응용 프로그램 또는 스크립트에서 MSI 액세스 토큰을 획득해야 합니다. 액세스 토큰을 획득하는 방법을 알아보려면 [토큰 획득을 위해 Azure VM MSI(관리 서비스 ID)를 사용하는 방법](../../active-directory/managed-service-identity/how-to-use-vm-token.md)을 참조하세요.
+Azure Storage 응용 프로그램에서 관리 ID를 인증하려면 먼저 해당 관리 ID에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 RBAC 역할을 정의합니다. RBAC 역할이 관리 ID에 할당되면 해당 리소스에 대한 액세스 권한이 해당 관리 ID에 부여됩니다. 자세한 내용은 [RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
+
+## <a name="get-a-managed-identity-access-token"></a>관리 ID 액세스 토큰 가져오기
+
+관리 ID로 인증하려면 응용 프로그램 또는 스크립트가 관리 ID 액세스 토큰을 가져와야 합니다. 액세스 토큰을 가져오는 방법에 대해 알아보려면 [Azure VM에서 Azure 리소스의 관리 ID를 사용하여 액세스 토큰을 가져오는 방법](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요.
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 코드 예제: 블록 Blob 만들기
 
-코드 예제에서는 MSI 액세스 토큰이 있다고 가정합니다. 액세스 토큰은 관리 서비스 ID에 권한을 부여하여 블록 Blob을 만드는 데 사용됩니다.
+코드 예제에서는 관리 ID 액세스 토큰이 있다고 가정합니다. 액세스 토큰은 관리 서비스 ID에 권한을 부여하여 블록 Blob을 만드는 데 사용됩니다.
 
 ### <a name="add-references-and-using-statements"></a>참조 추가 및 명령문 사용  
 
 Visual Studio에서 Azure Storage 클라이언트 라이브러리의 미리 보기 버전을 설치합니다. **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다. 다음 명령을 콘솔에 입력합니다.
 
 ```
-Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0  
+Install-Package https://www.nuget.org/packages/WindowsAzure.Storage  
 ```
 
 다음 using 문을 코드에 추가합니다.
@@ -60,13 +61,13 @@ Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0
 using Microsoft.WindowsAzure.Storage.Auth;
 ```
 
-### <a name="create-credentials-from-the-msi-access-token"></a>MSI 액세스 토큰에서 자격 증명 만들기
+### <a name="create-credentials-from-the-managed-identity-access-token"></a>관리 ID 액세스 토큰에서 자격 증명 만들기
 
-블록 Blob을 만들려면 미리 보기 패키지에서 제공하는 **TokenCredentials** 클래스를 사용합니다. 앞에서 가져온 MSI 액세스 토큰을 전달하여 새 **TokenCredentials** 인스턴스를 만듭니다.
+블록 Blob을 만들려면 미리 보기 패키지에서 제공하는 **TokenCredentials** 클래스를 사용합니다. 앞에서 가져온 관리 ID 액세스 토큰을 전달하여 새 **TokenCredentials** 인스턴스를 만듭니다.
 
 ```dotnet
-// Create storage credentials from your MSI access token.
-TokenCredential tokenCredential = new TokenCredential(msiAccessToken);
+// Create storage credentials from your managed identity access token.
+TokenCredential tokenCredential = new TokenCredential(accessToken);
 StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
 // Create a block blob using the credentials.

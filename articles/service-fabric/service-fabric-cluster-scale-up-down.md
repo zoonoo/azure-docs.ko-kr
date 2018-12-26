@@ -14,23 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: c2479dad013bfcb738e61e67cc8cf9584b4d11cc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 91516e3284ebf3588c2dba31b67cc583e4d395db
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204817"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309424"
 ---
-# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>자동 크기 조정 규칙을 사용하거나 수동으로 Service Fabric 클러스터 크기 조정
+# <a name="read-before-you-scale"></a>크기 조정 전에 읽기
+응용 프로그램 워크로드에서 의도적인 계획이 필요한 원본에 대한 계산 리소스 크기 조정은 프로덕션 작업을 완료하는 데 항상 거의 한 시간 이상이 걸리며, 워크로드 및 비즈니스 컨텍스트를 이해해야 합니다. 사실상 이 작업을 전에 수행한 적이 없는 경우 이 문서의 나머지 부분을 계속하기 전에 [Service Fabric 클러스터 용량 계획 고려 사항](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)을 읽고 이해하여 시작하는 것이 좋습니다. 이 권장 사항은 의도하지 않은 LiveSite 문제를 방지하기 위한 것이며, 비 프로덕션 환경에 대해 수행하려는 작업을 성공적으로 테스트하는 것이 좋습니다. 언제든지 [프로덕션 문제를 보고하거나 Azure에 대한 유료 지원을 요청](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure)할 수 있습니다. 적절한 컨텍스트를 소유하는 이러한 작업을 수행하도록 할당된 엔지니어의 경우 이 문서는 크기 조정 작업을 설명하지만 크기 조정할 리소스(CPU, 저장소, 메모리), 크기 조정할 방향(세로 또는 가로로) 및 수행할 작업(리소스 템플릿 배포, 포털, PowerShell/CLI)과 같은 사용 사례에 적절한 작업을 결정하고 이해해야 합니다.
+
+## <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>자동 크기 조정 규칙을 사용하거나 수동으로 Service Fabric 클러스터 크기 조정
 가상 머신 확장 집합은 가상 머신의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. Service Fabric 클러스터에 정의된 모든 노드 형식은 별도의 가상 머신 확장 집합으로 설정됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. [서비스 패브릭 노드 형식](service-fabric-cluster-nodetypes.md) 문서에서 자세히 알아보세요. 클러스터에서 Service Fabric 노드 형식은 백 엔드에서 가상 머신 확장 집합으로 구성되므로 각 노드 형식/Virtual Machine 확장 집합에 대한 자동 크기 조정 규칙을 설정해야 합니다.
 
 > [!NOTE]
-> 사용자의 구독에 이 클러스터를 형성할 새 VM을 추가하기에 충분한 코어가 있어야 합니다. 현재는 모델 유효성 검사가 없으므로 할당량 한도에 도달하면 배포 시간 오류가 발생합니다.
+> 사용자의 구독에 이 클러스터를 형성할 새 VM을 추가하기에 충분한 코어가 있어야 합니다. 현재는 모델 유효성 검사가 없으므로 할당량 한도에 도달하면 배포 시간 오류가 발생합니다. 또한 단일 노드 형식은 VMSS당 100개의 노드를 초과할 수 없습니다. 대상 규모를 달성하려면 VMSS를 추가해야 할 수 있으며, 자동 크기 조정은 자동으로 VMSS를 추가할 수 없습니다. 실시간 클러스터 대신 VMSS를 추가하는 것은 어려운 작업이며, 일반적으로 이로 인해 사용자가 생성 시 프로비전된 적절한 노드 형식을 사용하여 새 클러스터를 프로비전합니다. 적절하게 [클러스터 용량을 계획](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)합니다. 
 > 
 > 
 
 ## <a name="choose-the-node-typevirtual-machine-scale-set-to-scale"></a>크기를 조정할 노드 형식/Virtual Machine 확장 집합 선택
-현재는 포털을 사용하여 가상 머신 확장 집합에 대한 자동 크기 조정 규칙을 지정할 수 없으므로 Azure PowerShell(1.0+)을 사용하여 노드 형식을 나열한 후 자동 크기 조정 규칙을 추가하도록 합니다.
+현재는 포털에서 Service Fabric 클러스터를 만들어 가상 머신 확장 집합에 대한 자동 크기 조정 규칙을 지정할 수 없으므로 Azure PowerShell(1.0+)을 사용하여 노드 형식을 나열한 후 자동 크기 조정 규칙을 추가하도록 합니다.
 
 클러스터를 구성하는 가상 머신 확장 집합 목록을 가져오려면 다음 cmdlet을 실행합니다.
 
@@ -53,7 +56,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 [각 Virtual Machine 확장 집합에 대해 자동 크기 조정을 설정](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)하는 지침을 따르세요.
 
 > [!NOTE]
-> 규모 축소 시나리오에서 노드 형식에 골드 또는 실버 내구성 수준이 없다면 적절한 노드 이름과 함께 [Remove-ServiceFabricNodeState cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) 을 호출해야 합니다.
+> 규모 축소 시나리오에서 노드 형식에 골드 또는 실버 내구성 수준이 없다면 적절한 노드 이름과 함께 [Remove-ServiceFabricNodeState cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate)을 호출해야 합니다. Bronze 내구성의 경우 한 번에 한 노드만 규모 축소하는 것이 좋습니다.
 > 
 > 
 
@@ -92,7 +95,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 4. 필요에 따라 1~3단계를 반복하되, 주 노드 형식의 인스턴스 수를 안정성 계층이 경고하는 크기보다 작게 줄이지 않아야 합니다. [여기에서 안정성 계층에 대한 세부 정보](service-fabric-cluster-capacity.md)를 참조하세요.
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Service Fabric Explorer에서 볼 수 있는 동작
-클러스터를 강화하는 경우 Service Fabric Explorer는 클러스터의 일부로 노드 수(가상 머신 확장 집합 인스턴스)를 반영합니다.  그러나 클러스터 규모를 축소할 때 적절한 노드 이름과 함께 [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) 를 호출하지 않으면 제거된 노드/VM 인스턴스가 계속 비정상 상태로 표시됩니다.   
+클러스터를 강화하는 경우 Service Fabric Explorer는 클러스터의 일부로 노드 수(가상 머신 확장 집합 인스턴스)를 반영합니다.  그러나 클러스터 규모를 축소할 때 적절한 노드 이름과 함께 [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) 를 호출하지 않으면 제거된 노드/VM 인스턴스가 계속 비정상 상태로 표시됩니다.   
 
 다음은 이 동작에 대한 설명입니다.
 
@@ -100,10 +103,10 @@ Service Fabric Explorer에 나열된 노드는 서비스 패브릭 시스템 서
 
 VM이 제거될 때 노드가 제거되는지 확인하기 위한 두 가지 옵션이 있습니다.
 
-1) 클러스터에서 노드 형식에 대해 골드 또는 실버 내구성 수준을 선택하면 인프라 통합이 제공됩니다. 그러면 규모를 축소할 때 시스템 서비스(FM)에서 해당 노드를 자동으로 제거합니다.
-[여기에서 내구성 수준에 대한 세부 정보](service-fabric-cluster-capacity.md)
+1. 클러스터에서 노드 형식에 대해 골드 또는 실버 내구성 수준을 선택하면 인프라 통합이 제공됩니다. 그러면 규모를 축소할 때 시스템 서비스(FM)에서 해당 노드를 자동으로 제거합니다.
+ [여기에서 내구성 수준에 대한 세부 정보](service-fabric-cluster-capacity.md)
 
-2) VM 인스턴스가 규모 축소되면 [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/mt125993.aspx)을 호출해야 합니다.
+2. VM 인스턴스가 규모 축소되면 [Remove-ServiceFabricNodeState cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate)을 호출해야 합니다.
 
 > [!NOTE]
 > 가용성을 유지하고 상태를 보존하기 위해 서비스 패브릭 클러스터에서 특정 수의 노드가 항상 작동 상태를 유지해야 하며, 이 숫자를 "유지 관리 쿼럼"이라고 합니다. 따라서 [상태 전체 백업](service-fabric-reliable-services-backup-restore.md)을 처음으로 수행하는 경우 외에는 일반적으로 클러스터의 모든 컴퓨터를 종료하는 것은 안전하지 않습니다.

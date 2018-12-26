@@ -1,22 +1,21 @@
 ---
 title: 클라우드에서 Kubernetes 개발 환경 만들기 | Microsoft Docs
 titleSuffix: Azure Dev Spaces
-author: ghogen
+author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: ghogen
-ms.date: 07/09/2018
+ms.author: zarhoads
+ms.date: 09/26/2018
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-manager: douge
-ms.openlocfilehash: d0cb1c113724af5d07abf75e6d3a45b54e5202dc
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 52cca29392f226aa0f33081b9303a8c5d1f41036
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950773"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413339"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>빠른 시작: Azure Dev Spaces(Node.js)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -32,17 +31,23 @@ ms.locfileid: "37950773"
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
-- 미국 동부, 미국 중부, 미국 서부 2, 서유럽, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 응용 프로그램 라우팅**이 활성화된 상태로 Kubernetes 1.10.3을 실행 중인 [Kubernetes 클러스터](https://ms.portal.azure.com/#create/microsoft.aks).
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 버전 2.0.43 이상.
+- 미국 동부, 미국 동부 2, 미국 중부, 미국 서부 2, 서유럽, 동남 아시아, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 응용 프로그램 라우팅**이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 Kubernetes 클러스터.
 
-  ![Http 응용 프로그램 라우팅을 활성화해야 합니다.](media/common/Kubernetes-Create-Cluster-3.PNG)
-
-- Visual Studio Code([여기](https://code.visualstudio.com/download)에서 다운로드할 수 있음).
+    ```cmd
+    az group create --name MyResourceGroup --location <region>
+    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
+    ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces 설치
 
-1. [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)(버전 2.0.38 이상)를 설치합니다.
+Azure CLI 및 Azure Dev Spaces 확장은 Windows, Mac 또는 Linux 머신에 설치하여 실행할 수 있습니다. Linux의 경우 지원되는 배포는 Ubuntu(18.04, 16.04, 14.04), Debian 8 및 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 및 SLES 12입니다.
+
+다음 단계에 따라 Azure Dev Spaces를 설치합니다.
+
 1. AKS 클러스터에 Dev Spaces 설치: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. VS Code용 [Azure Dev Spaces 확장](https://aka.ms/get-azds-code)을 다운로드합니다. 확장의 Marketplace 페이지 및 VS Code에서 설치를 한 번 클릭합니다.
+1. VS Code용 [Azure Dev Spaces 확장](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)을 다운로드합니다. 확장의 Marketplace 페이지 및 VS Code에서 [설치]를 한 번 클릭합니다.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Kubernetes에서 코드 빌드 및 실행
 
@@ -52,7 +57,10 @@ ms.locfileid: "37950773"
 1. AKS에서 코드를 빌드하고 실행합니다. **webfrontend 폴더**의 터미널 창에서 `azds up` 명령을 실행합니다.
 1. 콘솔 출력에서 `up` 명령으로 생성된 URL에 대한 정보를 검색합니다. 다음과 같은 형식입니다. 
 
-   `Service 'webfrontend' port 'http' is available at <url>` 
+   ```output
+   (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+   Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
+   ```
 
    브라우저 창에서 이 URL을 열고 웹앱 로드를 확인합니다. 컨테이너가 실행될 때 `stdout` 및 `stderr` 출력이 터미널 창으로 스트리밍됩니다.
    
@@ -73,8 +81,8 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 
 어떻게 된 건가요? HTML 및 CSS와 같은 콘텐츠 파일을 편집하면 Node.js 프로세스를 다시 시작할 필요가 없으므로, 활성 `azds up` 명령은 수정된 컨텐츠 파일을 Azure에서 실행 중인 컨테이너에 바로 자동으로 동기화합니다. 따라서 콘텐츠 편집 내용을 빠르게 볼 수 있습니다.
 
-### <a name="test-from-a-mobile-device"></a>모바일 장치에서 테스트
-webfrontend에 대한 공용 URL을 사용하여 모바일 장치에서 웹앱을 엽니다. 긴 주소를 입력하지 않으려면 데스크탑에서 URL을 복사하여 장치로 보내고 싶을 수 있습니다. 웹앱이 모바일 장치에 로드되면 소형 장치에서 UI가 제대로 표시되지 않는 것을 알 수 있습니다.
+### <a name="test-from-a-mobile-device"></a>모바일 디바이스에서 테스트
+webfrontend에 대한 공용 URL을 사용하여 모바일 디바이스에서 웹앱을 엽니다. 긴 주소를 입력하지 않으려면 데스크탑에서 URL을 복사하여 디바이스로 보내고 싶을 수 있습니다. 웹앱이 모바일 디바이스에 로드되면 소형 디바이스에서 UI가 제대로 표시되지 않는 것을 알 수 있습니다.
 
 이 문제를 해결하려면 `viewport` 메타 태그를 추가합니다.
 1. `./public/index.html` 파일 열기
@@ -88,9 +96,9 @@ webfrontend에 대한 공용 URL을 사용하여 모바일 장치에서 웹앱�
     ```
 
 1. 파일을 저장합니다.
-1. 장치의 브라우저를 새로 고칩니다. 이제 올바르게 렌더링된 웹앱이 표시됩니다. 
+1. 디바이스의 브라우저를 새로 고칩니다. 이제 올바르게 렌더링된 웹앱이 표시됩니다. 
 
-이는 앱을 사용할 장치를 테스트할 때까지 일부 문제가 발견되지 않는 경우의 예입니다. Azure Dev Spaces를 사용하면 코드를 빠르게 반복하여 대상 장치의 변경 내용에 대한 유효성을 검사할 수 있습니다.
+이는 앱을 사용할 디바이스를 테스트할 때까지 일부 문제가 발견되지 않는 경우의 예입니다. Azure Dev Spaces를 사용하면 코드를 빠르게 반복하여 대상 디바이스의 변경 내용에 대한 유효성을 검사할 수 있습니다.
 
 ### <a name="update-a-code-file"></a>코드 파일 업데이트
 Node.js 앱을 다시 시작해야 하므로 서버 쪽 코드 파일을 업데이트하려면 약간의 작업이 더 필요합니다.
@@ -120,7 +128,7 @@ Node.js 앱을 다시 시작해야 하므로 서버 쪽 코드 파일을 업데�
 
 **명령 팔레트**(**보기 | 명령 팔레트** 메뉴를 사용하여)를 열고, 자동 완성을 사용하여 입력하고 이 명령을 선택합니다. `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`
 
-이렇게 하면 `.vscode` 폴더 아래에 Azure Dev Spaces에 대한 디버그 구성이 추가됩니다.
+이렇게 하면 `.vscode` 폴더 아래에 Azure Dev Spaces에 대한 디버그 구성이 추가됩니다. 이 명령은 배포 프로젝트를 구성하는 `azds prep` 명령과 혼동하면 안됩니다.
 
 ![](./media/common/command-palette.png)
 

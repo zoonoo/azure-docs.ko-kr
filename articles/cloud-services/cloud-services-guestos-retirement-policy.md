@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: dfa3bac95b9827789950b4931e3198237de4a1fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6068f054a2ce695a889351b1f959319c64eb73fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608565"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235601"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 게스트 OS 지원 가능성 및 사용 중지 정책
 이 페이지의 정보는 Cloud Services 작업자 및 웹 역할(PaaS)에 대해 Azure 게스트 운영 체제([게스트 OS](cloud-services-guestos-update-matrix.md))와 관련됩니다. Virtual Machines(IaaS)에 적용되지 않습니다.
 
-Microsoft는 게시된 게스트 OS에 대한 [지원 정책을 제공합니다](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). 지금 읽고 있는 페이지는 정책 구현 방식을 설명합니다.
+Microsoft는 게시된 게스트 OS에 대한 [지원 정책을 제공합니다](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq). 지금 읽고 있는 페이지는 정책 구현 방식을 설명합니다.
 
 정책은 다음과 같습니다.
 
@@ -74,7 +74,7 @@ Cloud Services를 디자인하기 위한 최신 게스트 OS 제품군을 사용
 
 **내 웹 응용 프로그램을 사용하려면 OS와 밀접하게 통합되어야 하는 경우 어떻게 하나요?**
 
-웹 응용 프로그램 아키텍처가 운영 체제의 기본 기능에 의존할 경우 [시작 작업](cloud-services-startup-tasks.md) 또는 기타 확장성 메커니즘과 같은 플랫폼 지원 기능을 사용합니다. 또는 [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/)(IaaS – 서비스로서의 인프라)를 사용할 수도 있으며, 기본 운영 체제를 유지 관리하게 됩니다.
+웹 애플리케이션 아키텍처가 운영 체제의 기본 기능에 의존할 경우 [시작 작업](cloud-services-startup-tasks.md) 또는 기타 확장성 메커니즘과 같은 플랫폼 지원 기능을 사용합니다. 또는 [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/)(IaaS – 서비스로서의 인프라)를 사용할 수도 있으며, 기본 운영 체제를 유지 관리하게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 최신 [게스트 OS 릴리스](cloud-services-guestos-update-matrix.md)를 검토합니다.

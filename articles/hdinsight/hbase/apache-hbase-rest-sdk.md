@@ -1,29 +1,24 @@
 ---
-title: HBase .NET SDK 사용 - Azure HDInsight | Microsoft Docs
+title: HBase .NET SDK 사용 - Azure HDInsight
 description: HBase.NET SDK를 사용하여 테이블을 만들고 삭제하며 데이터 읽기 및 쓰기를 할 수 있습니다.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: f0e2c6412a965c73b0055a24c799e05ad582a8c7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 89c74b0c2144776d3bbc8a87f660b546ad40987f
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164519"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495404"
 ---
-# <a name="use-the-hbase-net-sdk"></a>HBase.NET SDK 사용
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Apache HBase용 .Net SDK 사용
 
-[HBase](apache-hbase-overview.md)는 데이터로 작업하는 두 가지 기존 선택 항목을 제공합니다. [Hive 쿼리와 HBase's RESTful API 호출](apache-hbase-tutorial-get-started-linux.md)입니다. `curl`명령 또는 이와 유사한 유틸리티를 사용하여 REST API로 직접 작업할 수 있습니다.
+[Apache HBase](apache-hbase-overview.md)는 데이터 작업을 위한 두 가지 주요 선택 항목인 [Apache Hive 쿼리와 HBase의 RESTful API 호출](apache-hbase-tutorial-get-started-linux.md)을 제공합니다. `curl`명령 또는 이와 유사한 유틸리티를 사용하여 REST API로 직접 작업할 수 있습니다.
 
 C# 및 .NET 응용 프로그램의 경우 [.NET용 Microsoft HBase REST 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.HBase.Client/)가 HBase REST API 기반 클라이언트 라이브러리를 제공합니다.
 
@@ -42,7 +37,7 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-CLUSTERNAME은 HDInsight HBase 클러스터 이름으로, 그리고 사용자 이름 및 암호는 클러스터 만들기에 지정된 Hadoop 자격 증명으로 바꿉니다. 기본 Hadoop 사용자 이름은 **admin**입니다.
+CLUSTERNAME은 HDInsight HBase 클러스터 이름으로, 그리고 USERNAME 및 PASSWORD는 클러스터 만들기에 지정된 Apache Hadoop 자격 증명으로 바꿉니다. 기본 Hadoop 사용자 이름은 **admin**입니다.
 
 ## <a name="create-a-new-table"></a>새 테이블 만들기
 
@@ -118,7 +113,7 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase는 데이터 형식이 다음처럼 표시되도록 BigTable을 구현합니다.
+HBase는 데이터 형식이 다음처럼 표시되도록 [Cloud BigTable](https://cloud.google.com/bigtable/)을 구현합니다.
 
 ![클러스터 사용자 역할이 있는 사용자](./media/apache-hbase-rest-sdk/table.png)
 
@@ -194,4 +189,4 @@ finally
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight에서 Apache HBase 예제 시작](apache-hbase-tutorial-get-started-linux.md)
-* [HBase를 사용하여 실시간 Twitter 경향 분석](../hdinsight-hbase-analyze-twitter-sentiment.md)을 통해 종단 간 응용 프로그램 빌드
+* [Apache HBase를 사용하여 실시간 Twitter 감정 분석](../hdinsight-hbase-analyze-twitter-sentiment.md)을 통해 엔드투엔드 애플리케이션 빌드

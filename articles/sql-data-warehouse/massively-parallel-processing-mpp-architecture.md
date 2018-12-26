@@ -3,25 +3,27 @@ title: Azure SQL Data Warehouse - MPP 아키텍처 | Microsoft Docs
 description: Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure 저장소를 결합하는 방법을 알아봅니다.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e8fef156f4b78c9f7241c9eb9623e061f5a31fe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 92e16104edb46298d6e503b7546449ed71041047
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799280"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005753"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - MPP(Massively Parallel Processing) 아키텍처
 Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure 저장소를 결합하는 방법을 알아봅니다. 
 
+> [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
+
 ## <a name="mpp-architecture-components"></a>MPP 아키텍처 구성 요소
-SQL Data Warehouse는 규모 확장 아키텍처를 활용하여 여러 노드에 걸쳐 데이터의 계산 처리를 분산합니다. 규모 단위는 데이터 웨어하우스 단위로 알려진 계산 성능의 추상화입니다. SQL Data Warehouse는 시스템의 데이터와 독립적으로 계산을 확장할 수 있도록 저장소에서 계산을 분리합니다.
+SQL Data Warehouse는 규모 확장 아키텍처를 활용하여 여러 노드에 걸쳐 데이터의 계산 처리를 분산합니다. 규모 단위는 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)로 알려진 계산 성능의 추상화입니다. SQL Data Warehouse는 시스템의 데이터와 독립적으로 계산을 확장할 수 있도록 저장소에서 계산을 분리합니다.
 
 ![SQL Data Warehouse 아키텍처](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

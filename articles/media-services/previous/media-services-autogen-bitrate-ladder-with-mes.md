@@ -4,21 +4,21 @@ description: 이 항목에서는 MES(Media Encoder Standard)를 사용하여 입
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 80f76f413ec2c267ba8fb93514480e168563f470
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1d02f64cce5e539dd43a9372a00cd3ec1ddd5f0c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783372"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246979"
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Azure Media Encoder Standard를 사용하여 비트 전송률 사다리 자동 생성
 

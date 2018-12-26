@@ -4,18 +4,18 @@ description: Azure AD B2B 공동 작업과 동일한 자격 증명을 사용하�
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 71d5ce8728d876740d6ef00b55ecdc9232a06f80
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 722ab51d0f591b8f16924d1d5661385267b7f0e6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267227"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295158"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Azure AD B2B 공동 작업을 사용하여 로컬로 관리되는 파트너 계정에게 클라우드 리소스에 대한 액세스 권한 부여
 
@@ -32,17 +32,17 @@ UserType 특성의 동기화를 사용하도록 설정하기 전에 먼저 온-�
 - 사용하지 않는 온-프레미스 Active Directory 특성(예: extensionAttribute1)을 원본 속성으로 사용하도록 지정합니다. 
 - 또는 UserType 특성의 값을 다른 속성에서 파생시킵니다. 예를 들어 온-프레미스 Active Directory UserPrincipalName 특성이 도메인 *@partners.contoso.com*로 끝나는 경우 모든 사용자를 게스트로 동기화하는 것이 좋습니다.
  
-자세한 특성 요구 사항은 [UserType의 동기화 사용](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype)을 참조하세요. 
+자세한 특성 요구 사항은 [UserType의 동기화 사용](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype)을 참조하세요. 
 
 ## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>클라우드로 사용자를 동기화하도록 Azure AD Connect 구성
 
 고유한 특성을 식별한 다음 클라우드에 이러한 사용자를 Azure AD B2B 사용자로 동기화하도록 Azure AD Connect를 구성할 수 있습니다(즉, UserType이 게스트인 사용자). 권한 부여라는 관점에서 이러한 사용자는 Azure AD B2B 공동 작업 초대 프로세스를 통해 만든 B2B 사용자와 구분될 수 없습니다.
 
-구현 지침은 [UserType의 동기화 사용](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype)을 참조하세요.
+구현 지침은 [UserType의 동기화 사용](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [하이브리드 조직에 대한 Azure Active Directory B2B 공동 작업](hybrid-organizations.md)
 - [Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여](hybrid-cloud-to-on-premises.md)
-- Azure AD Connect 개요는 [Azure Active Directory와 온-프레미스 디렉터리 통합](../connect/active-directory-aadconnect.md)을 참조하세요.
+- Azure AD Connect 개요는 [Azure Active Directory와 온-프레미스 디렉터리 통합](../hybrid/whatis-hybrid-identity.md)을 참조하세요.
 

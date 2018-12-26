@@ -1,29 +1,24 @@
 ---
-title: 규모에 맞게 ETL(추출, 변환 및 로드) - Azure HDInsight | Microsoft Docs
-description: Hadoop과 함께 HDInsight에서 ETL을 사용하는 방법을 알아봅니다.
+title: 규모에 맞게 ETL(추출, 변환 및 로드) - Azure HDInsight
+description: HDInsight에서 Apache Hadoop과 ETL을 사용하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 2f34233a68bec506d9f69426d779aee8e493d759
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 17aeb847a2c701abf03b46d47e34d13b6fb27316
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402066"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633328"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
-ETL(추출, 변환 및 로드)은 다양한 원본에서 데이터를 가져오고, 표준 위치에 수집하고, 정리 및 처리한 다음, 최종적으로 쿼리할 수 있는 데이터 저장소에 로드하는 프로세스입니다. 레거시 ETL 프로세스는 데이터를 가져오고, 제 위치에서 정리한 다음, 관계형 데이터 엔진에 저장합니다. HDInsight를 사용하면 다양한 Hadoop 에코시스템 구성 요소에서 규모에 맞게 ETL을 수행할 수 있습니다. 
+ETL(추출, 변환 및 로드)은 다양한 원본에서 데이터를 가져오고, 표준 위치에 수집하고, 정리 및 처리한 다음, 최종적으로 쿼리할 수 있는 데이터 저장소에 로드하는 프로세스입니다. 레거시 ETL 프로세스는 데이터를 가져오고, 제 위치에서 정리한 다음, 관계형 데이터 엔진에 저장합니다. HDInsight를 사용하면 다양한 Apache Hadoop 에코시스템 구성 요소에서 규모에 맞게 ETL을 수행할 수 있습니다. 
 
 ETL 프로세스에서 HDInsight를 사용하는 방법은 다음과 같은 파이프라인으로 요약할 수 있습니다.
 
@@ -81,11 +76,11 @@ ADLS(Azure Data Lake Store)는 HDFS와 호환되는 분석 데이터를 위한 �
 
 #### <a name="considerations-for-both-storage-options"></a>두 저장소 옵션 모두에 대한 고려 사항
 
-테라바이트 범위의 데이터 집합을 업로드하는 경우, 특히 데이터가 온-프레미스 위치에서 제공되면 네트워크 대기 시간이 중요한 문제가 될 수 있습니다.  이러한 경우 아래 옵션을 사용할 수 있습니다.
+테라바이트 범위의 데이터 세트를 업로드하는 경우, 특히 데이터가 온-프레미스 위치에서 제공되면 네트워크 대기 시간이 중요한 문제가 될 수 있습니다.  이러한 경우 아래 옵션을 사용할 수 있습니다.
 
 * Azure ExpressRoute: Azure ExpressRoute를 사용하면 Azure 데이터 센터와 온-프레미스 인프라 사이의 사설 연결을 만들 수 있습니다. 이러한 연결은 대량의 데이터를 전송할 때 신뢰할 수 있는 옵션을 제공합니다. 자세한 내용은 [Azure ExpressRoute 설명서](../../expressroute/expressroute-introduction.md)를 참조하세요.
 
-* "오프라인" 데이터 업로드: [Azure Import/Export 서비스](../../storage/common/storage-import-export-service.md)를 사용하여 데이터가 포함된 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Storage Blob에 업로드됩니다. 그런 다음 [Azure Data Factory](../../data-factory/v1/data-factory-azure-datalake-connector.md) 또는 [AdlCopy 도구](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 Azure Storage Blob에서 Data Lake Store로 데이터를 복사할 수 있습니다.
+* "오프라인" 데이터 업로드: [Azure Import/Export 서비스](../../storage/common/storage-import-export-service.md)를 사용하여 데이터가 포함된 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Storage Blob에 업로드됩니다. 그런 다음 [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) 또는 [AdlCopy 도구](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 Azure Storage Blob에서 Data Lake Store로 데이터를 복사할 수 있습니다.
 
 ### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 

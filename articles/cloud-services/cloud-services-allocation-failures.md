@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 33d017d0e09e9b288b0514e85c8865f83a8a2fa1
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 22888c76b27d287a8d7fb0f0f1f0a0d39d92375d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
-ms.locfileid: "23984119"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092955"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Azure에서 Cloud Services 배포 시 할당 실패 문제 해결
 ## <a name="summary"></a>요약
@@ -58,11 +58,11 @@ Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. �
    * 새 클라우드 서비스에 작업을 배포합니다.  
    * 새 클라우드 서비스로의 트래픽을 가리키도록 CNAME 또는 A 레코드를 업데이트합니다.
    * 제로(0) 트래픽이 이전 사이트로 이동하면 이전 클라우드 서비스를 삭제할 수 있습니다. 이 솔루션은 가동 중지 시간 없이 발생합니다.
-2. 프로덕션 및 스테이징 슬롯 삭제 - 이 솔루션은 기존 DNS 이름을 유지하지만 응용 프로그램 가동 중지 시간이 발생합니다.
+2. 프로덕션 및 스테이징 슬롯 삭제 - 이 솔루션은 기존 DNS 이름을 유지하지만 애플리케이션 가동 중지 시간이 발생합니다.
 
    * 기존 클라우드 서비스의 프로덕션 및 스테이징 슬롯을 삭제하여 클라우드 서비스를 비웁니다.
    * 기존 클라우드 서비스에서 새 배포를 만듭니다. 영역의 모든 클러스터에서 할당이 다시 시도됩니다. 클라우드 서비스가 선호도 그룹에 연결되지 않았는지 확인합니다.
-3. 예약된 IP - 이 솔루션은 기존 IP 주소를 유지하지만 응용 프로그램 가동 중지 시간이 발생합니다.  
+3. 예약된 IP - 이 솔루션은 기존 IP 주소를 유지하지만 애플리케이션 가동 중지 시간이 발생합니다.  
 
    * Powershell을 사용하여 기존 배포에 대한 ReservedIP 만들기
 

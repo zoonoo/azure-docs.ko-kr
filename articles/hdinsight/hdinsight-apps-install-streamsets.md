@@ -1,35 +1,30 @@
 ---
-title: 게시된 응용 프로그램 설치 - StreamSets 데이터 수집기 - Azure HDInsight | Microsoft Docs
-description: StreamSets 데이터 수집기 타사 Hadoop 응용 프로그램을 설치하고 사용합니다.
+title: 게시된 응용 프로그램 설치 - StreamSets 데이터 수집기 - Azure HDInsight
+description: StreamSets 데이터 수집기 타사 Apache Hadoop 애플리케이션을 설치하고 사용합니다.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: e433de82576f8b943988881ed0b6673c0dccd77e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ac287f2ee50501d703b7d7b79a436ecb5335d1bd
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401026"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497375"
 ---
-# <a name="install-published-application---streamsets-data-collector"></a>게시된 응용 프로그램 설치 - StreamSets 데이터 수집기
+# <a name="install-published-application---streamsets-data-collector"></a>게시된 애플리케이션 설치 - StreamSets 데이터 수집기
 
-이 문서에서는 Azure HDInsight에 게시된 [HDInsight용 StreamSets 데이터 수집기](https://streamsets.com/) Hadoop 응용 프로그램을 설치하고 실행하는 방법에 대해 설명합니다. HDInsight 응용 프로그램 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+이 문서에서는 Azure HDInsight에 게시된 [HDInsight용 StreamSets 데이터 수집기](https://streamsets.com/) [Apache Hadoop](https://hadoop.apache.org/) 애플리케이션을 설치하고 실행하는 방법에 대해 설명합니다. HDInsight 애플리케이션 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor)에 게시된 애플리케이션 목록은 [타사 Apache Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 애플리케이션을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 ## <a name="about-streamsets-data-collector"></a>StreamSets 데이터 수집기 정보
 
-StreamSets 데이터 수집기는 Azure HDInsight 응용 프로그램을 기반으로 하여 배포됩니다. StreamSets 데이터 수집기는 모든 기능을 갖춘 IDE(통합 개발 환경)로서, any-to-any 수집 파이프라인을 설계, 테스트, 배포 및 관리할 수 있습니다. 이러한 파이프라인은 스트림 및 일괄 처리 데이터를 메시할 수 있으며, 사용자 지정 코드를 전혀 작성하지 않고도 다양한 내부 스트림 변환을 포함합니다.
+StreamSets 데이터 수집기는 Azure HDInsight 애플리케이션을 기반으로 하여 배포됩니다. StreamSets 데이터 수집기는 모든 기능을 갖춘 IDE(통합 개발 환경)로서, any-to-any 수집 파이프라인을 설계, 테스트, 배포 및 관리할 수 있습니다. 이러한 파이프라인은 스트림 및 일괄 처리 데이터를 메시할 수 있으며, 사용자 지정 코드를 전혀 작성하지 않고도 다양한 내부 스트림 변환을 포함합니다.
 
-StreamSets 데이터 수집기를 사용하면 다양한 빅 데이터 구성 요소(예: HDFS, Kafka, Solr, Hive, HBASE 및 Kudu)를 사용하여 데이터 흐름을 작성할 수 있습니다. StreamSets 데이터 수집기가 에지 서버 또는 Hadoop 클러스터에서 실행되면 데이터 비정상 및 데이터 흐름 작업 모두를 실시간으로 모니터링할 수 있습니다. 이 모니터링에는 임계값 기반 경고, 변칙 탐지 및 오류 레코드 자동 재구성이 포함됩니다.
+StreamSets Data Collector를 사용하면 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), [Apache Kafka](https://kafka.apache.org/), [Apache Solr](https://lucene.apache.org/solr/), [Apache Hive](https://hive.apache.org/), [Apache HBase](https://hbase.apache.org/) 및 [Apache Kudu](https://kudu.apache.org/) 등과 같이 수많은 빅 데이터 구성 요소를 사용하여 데이터 흐름 구축할 수 있습니다. StreamSets 데이터 수집기가 에지 서버 또는 Hadoop 클러스터에서 실행되면 데이터 비정상 및 데이터 흐름 작업 모두를 실시간으로 모니터링할 수 있습니다. 이 모니터링에는 임계값 기반 경고, 변칙 탐지 및 오류 레코드 자동 재구성이 포함됩니다.
 
 StreamSets 데이터 수집기는 파이프라인의 각 단계를 논리적으로 격리하도록 설계되었으므로, 코딩을 하지 않고 가동 중지 시간을 최소화하면서 새 프로세서 및 커넥터를 배치하여 새 비즈니스 요구 사항이 충족될 수 있습니다.
 
@@ -49,13 +44,13 @@ StreamSets 데이터 수집기는 파이프라인의 각 단계를 논리적으�
 * 클러스터 계층: 표준 또는 프리미엄
 * 클러스터 버전: 3.5 이상
 
-## <a name="install-the-streamsets-data-collector-published-application"></a>게시된 StreamSets 데이터 수집기 응용 프로그램 설치
+## <a name="install-the-streamsets-data-collector-published-application"></a>게시된 StreamSets 데이터 수집기 애플리케이션 설치
 
-이 버전 및 사용 가능한 다른 ISV 응용 프로그램을 설치하는 단계별 지침은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요.
+이 애플리케이션 및 사용 가능한 다른 ISV 애플리케이션을 설치하는 단계별 지침은 [타사 Apache Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요.
 
 ## <a name="launch-streamsets-data-collector"></a>StreamSets 데이터 수집기 시작
 
-1. 설치가 완료되면 **설정** 창으로 이동한 다음, **일반** 범주 아래에서 **응용 프로그램**을 선택하여 Azure Portal의 클러스터에서 StreamSets를 시작할 수 있습니다. [설치된 앱] 창에 설치된 응용 프로그램이 나열됩니다.
+1. 설치가 완료되면 **설정** 창으로 이동한 다음, **일반** 범주 아래에서 **애플리케이션**을 선택하여 Azure Portal의 클러스터에서 StreamSets를 시작할 수 있습니다. [설치된 앱] 창에 설치된 애플리케이션이 나열됩니다.
 
     ![설치된 StreamSets 앱](./media/hdinsight-apps-install-streamsets/streamsets.png)
 

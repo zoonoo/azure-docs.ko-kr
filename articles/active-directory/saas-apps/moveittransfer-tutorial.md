@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.openlocfilehash: f35fbacd4eac39cd9931d4725ac9bb299986c934
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e73ca95c27e7c9ef0799107dadc58c17aea5a9ca
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217251"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>자습서: Azure Active Directory와 MOVEit Transfer - Azure AD 통합 통합
 
@@ -53,7 +53,7 @@ MOVEit Transfer - Azure AD 통합과 Azure AD 통합을 구성하려면 다음 �
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 MOVEit Transfer - Azure AD 통합 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-moveit-transfer---azure-ad-integration-from-the-gallery"></a>갤러리에서 MOVEit Transfer - Azure AD 통합 추가
 MOVEit Transfer - Azure AD 통합의 Azure AD 통합을 구성하려면 갤러리의 MOVEit Transfer - Azure AD 통합을 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -64,15 +64,15 @@ MOVEit Transfer - Azure AD 통합의 Azure AD 통합을 구성하려면 갤러�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에 **MOVEit Transfer - Azure AD 통합**을 입력하고 결과 패널에서 **MOVEit Transfer - Azure AD 통합**을 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **MOVEit Transfer - Azure AD 통합**을 입력하고 결과 패널에서 **MOVEit Transfer - Azure AD 통합**을 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 MOVEit Transfer - Azure AD 통합](./media/moveittransfer-tutorial/tutorial_moveittransfer_addfromgallery.png)
 
@@ -87,10 +87,10 @@ MOVEit Transfer - Azure AD 통합에서 Azure AD의 **사용자 이름** 값을 
 MOVEit Transfer - Azure AD 통합에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[MOVEit Transfer - Azure AD 통합 테스트 사용자 만들기](#create-a-moveit-transfer---azure-ad-integration-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 MOVEit Transfer - Azure AD 통합에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[MOVEit Transfer - Azure AD 통합 테스트 사용자 만들기](#create-a-moveit-transfer---azure-ad-integration-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 MOVEit Transfer - Azure AD 통합에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -102,11 +102,11 @@ MOVEit Transfer - Azure AD 통합에서 Azure AD Single Sign-On을 구성하고 
 
     ![Single Sign-On 구성 링크][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Single Sign-On 대화 상자](./media/moveittransfer-tutorial/tutorial_moveittransfer_samlbase.png)
 
-3. **MOVEit Transfer - Azure AD 통합 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **MOVEit Transfer - Azure AD 통합 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/moveittransfer-tutorial/tutorial_moveittransfer_url.png)
 
@@ -119,25 +119,25 @@ MOVEit Transfer - Azure AD 통합에서 Azure AD Single Sign-On을 구성하고 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. **서비스 공급자 메타데이터 URL** 섹션에서 이러한 값을 나중에 참조하거나 해당 값을 얻기 위해 [MOVEit Transfer - Azure AD 통합 클라이언트 지원 팀](https://community.ipswitch.com/s/support)에 문의할 수 있습니다.
 
-4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/moveittransfer-tutorial/tutorial_moveittransfer_certificate.png) 
 
-5. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/moveittransfer-tutorial/tutorial_general_400.png)
     
-6. MOVEit Transfer 테넌트에 관리자 권한으로 로그온합니다.
+1. MOVEit Transfer 테넌트에 관리자 권한으로 로그온합니다.
 
-7. 왼쪽 탐색 창에서 **설정**을 클릭합니다.
+1. 왼쪽 탐색 창에서 **설정**을 클릭합니다.
 
     ![앱 쪽의 설정 섹션](./media/moveittransfer-tutorial/tutorial_moveittransfer_000.png)
 
-8. **보안 정책 -> 사용자 인증** 아래의 **Single Sign On** 링크를 클릭합니다.
+1. **보안 정책 -> 사용자 인증** 아래의 **Single Sign On** 링크를 클릭합니다.
 
     ![앱 쪽의 보안 정책](./media/moveittransfer-tutorial/tutorial_moveittransfer_001.png)
 
-9. 메타데이터 URL 링크를 클릭하여 메타데이터 문서를 다운로드합니다.
+1. 메타데이터 URL 링크를 클릭하여 메타데이터 문서를 다운로드합니다.
 
     ![서비스 공급자 메타데이터 URL](./media/moveittransfer-tutorial/tutorial_moveittransfer_002.png)
     
@@ -146,19 +146,19 @@ MOVEit Transfer - Azure AD 통합에서 Azure AD Single Sign-On을 구성하고 
     
     ![앱 쪽에서 Single Sign-On 구성](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
-10. **ID 공급자 추가** 단추를 클릭하여 새 페더레이션 ID 공급자를 추가합니다.
+1. **ID 공급자 추가** 단추를 클릭하여 새 페더레이션 ID 공급자를 추가합니다.
 
     ![ID 공급자 추가](./media/moveittransfer-tutorial/tutorial_moveittransfer_003.png)
 
-11. **찾아보기...** 를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 선택한 다음 **ID 공급자 추가**를 클릭하여 다운로드한 파일을 업로드합니다.
+1. **찾아보기...** 를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 선택한 다음 **ID 공급자 추가**를 클릭하여 다운로드한 파일을 업로드합니다.
 
     ![SAML ID 공급자](./media/moveittransfer-tutorial/tutorial_moveittransfer_004.png)
 
-12. **페더레이션 ID 공급자 설정 편집...** 페이지에서 **활성화**로 "**예**"를 선택하고 **저장**을 클릭합니다.
+1. **페더레이션 ID 공급자 설정 편집...** 페이지에서 **활성화**로 "**예**"를 선택하고 **저장**을 클릭합니다.
 
     ![페더레이션 ID 공급자 설정](./media/moveittransfer-tutorial/tutorial_moveittransfer_005.png)
 
-13. **페더레이션 ID 공급자 사용자 설정 편집** 페이지에서 다음 작업을 수행합니다.
+1. **페더레이션 ID 공급자 사용자 설정 편집** 페이지에서 다음 작업을 수행합니다.
     
     ![페더레이션 ID 공급자 설정 편집](./media/moveittransfer-tutorial/tutorial_moveittransfer_006.png)
     
@@ -187,15 +187,15 @@ MOVEit Transfer - Azure AD 통합에서 Azure AD Single Sign-On을 구성하고 
 
     ![Azure Active Directory 단추](./media/moveittransfer-tutorial/create_aaduser_01.png)
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/moveittransfer-tutorial/create_aaduser_02.png)
 
-3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
 
     ![추가 단추](./media/moveittransfer-tutorial/create_aaduser_03.png)
 
-4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자에서 다음 단계를 수행합니다.
 
     ![사용자 대화 상자](./media/moveittransfer-tutorial/create_aaduser_04.png)
 
@@ -226,23 +226,23 @@ MOVEit Transfer - Azure AD 통합에서 Azure AD Single Sign-On을 구성하고 
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **MOVEit Transfer - Azure AD 통합**을 선택합니다.
+1. 응용 프로그램 목록에서 **MOVEit Transfer - Azure AD 통합**을 선택합니다.
 
     ![응용 프로그램 목록의 MOVEit Transfer - Azure AD 통합 링크](./media/moveittransfer-tutorial/tutorial_moveittransfer_app.png)  
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     !["사용자 및 그룹" 링크][202]
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![할당 추가 창][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

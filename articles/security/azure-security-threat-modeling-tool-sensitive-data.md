@@ -3,23 +3,23 @@ title: 중요한 데이터 - Microsoft 위협 모델링 도구 - Azure | Microso
 description: 위협 모델링 도구에 노출되는 위협 완화
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: bfc1e8dd6acf2cba5b4622785aa3714a7ff037c9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031807"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262372"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | Mitigations 
 | 제품/서비스 | 문서 |
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [MSDN: 자동 완성 특성](http://msdn.microsoft.com/library/ms533486(VS.85).aspx), [HTML에서 자동 완성 기능 사용](http://msdn.microsoft.com/library/ms533032.aspx), [HTML 삭제 취약점](http://technet.microsoft.com/security/bulletin/MS10-071), [자동 완성., 다시?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **참조**              | [MSDN: 자동 완성 특성](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [HTML에서 자동 완성 기능 사용](https://msdn.microsoft.com/library/ms533032.aspx), [HTML 삭제 취약점](https://technet.microsoft.com/security/bulletin/MS10-071), [자동 완성., 다시?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **단계** | 자동 완성 특성은 양식이 자동 완성을 사용해야 할지 여부를 지정합니다. 자동 완성이 켜져 있으면 브라우저는 사용자가 이전에 입력한 값을 기반으로 값을 자동으로 완성합니다. 예를 들어 양식에 새 이름 및 암호를 입력하고 양식을 제출하면 브라우저는 암호를 저장해야 하는지 묻습니다. 이후로 양식이 표시되면 이름 및 암호가 자동으로 채워지거나 이름을 입력하는 대로 완성합니다. 로컬 액세스 권한이 있는 공격자는 브라우저 캐시에서 일반 텍스트 암호를 얻을 수 있습니다. 기본적으로 자동 완성은 활성화되어 있으므로 명시적으로 비활성화되어야 합니다. |
 
 ### <a name="example"></a>예

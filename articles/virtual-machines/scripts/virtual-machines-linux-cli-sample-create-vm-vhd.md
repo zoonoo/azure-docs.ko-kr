@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 414ef43063cc48b7b9ae7be5fbccbb7906ae8c03
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 271390757b7e79eb29c5a3c14ca9ee1b38b53e29
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29849344"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920925"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>가상 하드 디스크를 사용하여 VM 만들기
 
@@ -29,8 +29,7 @@ ms.locfileid: "29849344"
 리소스 그룹, 저장소 계정 및 컨테이너를 만들고 VHD를 컨테이너로 업로드하여 VM을 만듭니다.
 VM에 액세스할 수 있도록 SSH 공개 키를 사용자 공개 키로 바꿉니다.
 
-부팅 가능 VHD가 필요합니다.
-https://azclisamples.blob.core.windows.net/vhds/sample.vhd에서 사용한 VHD를 다운로드하거나 사용자 지정 VHD를 사용할 수 있습니다. 스크립트는 `~/sample.vhd`를 검색합니다.
+부팅 가능 VHD가 필요합니다. 스크립트는 `~/sample.vhd`를 검색합니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -63,7 +62,6 @@ az group delete -n az-cli-vhd
 | [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | VHD를 업로드하여 컨테이너에서 Blob을 만듭니다. |
 | [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | `--query`와 함께 사용하여 VM 이름이 사용 중인지 확인합니다. | 
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | 가상 머신을 만듭니다. |
-| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#az_vm_access_set_linux_user) | 현재 사용자에게 VM에 대한 액세스 권한을 부여하도록 SSH 키를 다시 설정합니다. |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | 만들어진 VM의 IP 주소를 가져옵니다. |
 
 ## <a name="next-steps"></a>다음 단계

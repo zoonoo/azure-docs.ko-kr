@@ -7,16 +7,16 @@ manager: carmonm
 keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/18/2018
+ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: 백업; vm 백업
-ms.openlocfilehash: feae4ac83b637588fe0979a82ce05a56c2d339ae
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: daa2355d028af9b61b0b14a453452c1a96487403
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466134"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233544"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure 가상 머신 백업
 
@@ -47,7 +47,7 @@ Premium Storage VM 보호에 대한 자세한 내용은 [Premium Storage VM 백�
 
 다음 단계를 사용하여 Virtual Machine 작업 메뉴에서 백업 작업을 구성합니다. 해당 단계는 Azure Portal의 가상 머신에만 적용됩니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 허브 메뉴에서 **모든 서비스**를 클릭하고 필터 대화 상자에서 **가상 머신**을 입력합니다. 입력하면 리소스 목록이 필터링됩니다. 가상 머신이 표시되면 선택합니다.
 
   ![모든 서비스에서 가상 머신으로 이동하는 방법을 보여주는 스크린샷](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
@@ -96,11 +96,11 @@ Premium Storage VM 보호에 대한 자세한 내용은 [Premium Storage VM 백�
 
   초기 백업이 완료될 때까지 **마지막 백업 상태**는 **경고(초기 백업 보류 중)** 으로 표시됩니다. 다음 예약된 백업 작업이 발생하는 시기를 보려면 **요약** 아래에서 정책의 이름을 클릭합니다. Backup 정책 메뉴가 열리고 예약된 백업 시간이 표시됩니다.
 
-10. 가상 머신을 보호하려면 **지금 Backup**을 클릭합니다. 
+10. 가상 머신을 보호하려면 **지금 Backup**을 클릭합니다.
 
   ![초기 백업 작업을 실행하기 위해 지금 Backup 클릭](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  지금 백업 메뉴가 열립니다. 
+  지금 백업 메뉴가 열립니다.
 
   ![지금 Backup 블레이드를 표시합니다.](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
@@ -185,7 +185,7 @@ Recovery Services 자격 증명 모음을 만들려면:
   ![새 자격 증명 모음의 저장소 구성 보기](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
 2. 새 자격 증명 모음의 관리 메뉴에서 세로 슬라이드를 사용하여 관리 섹션 쪽으로 아래로 스크롤하고, **Backup 인프라**를 클릭하여 Backup 인프라 메뉴를 엽니다.
- 
+
    ![새 자격 증명 모음의 저장소 구성 설정](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
 3. Backup 인프라 메뉴에서 **Backup 구성**을 클릭하여 **Backup 구성** 메뉴를 엽니다.
@@ -195,7 +195,7 @@ Recovery Services 자격 증명 모음을 만들려면:
 
     ![저장소 구성 선택 항목](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 끝점으로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 저장소 끝점으로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+    기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 엔드포인트로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 저장소 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>백업 목표 선택, 정책 설정, 보호할 항목 정의
@@ -292,6 +292,11 @@ Recovery Services 자격 증명 모음을 만들려면:
 
   배포 알림을 통해 백업 작업이 트리거되고 Backup 작업 페이지에서 작업의 진행률을 모니터링할 수 있다는 것을 알립니다. VM의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
+  > [!NOTE]
+  > Azure Backup으로 백업하는 모든 미사용 데이터는 [SSE(저장소 서비스 암호화)](../storage/common/storage-service-encryption.md)를 통해 암호화됩니다.
+  >
+  >
+
 6. 초기 백업의 상태를 보거나 추적하려면 자격 증명 모음 대시보드의 **Backup 작업** 타일에서 **진행 중**을 클릭합니다.
 
   ![백업 작업 타일](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
@@ -319,8 +324,8 @@ Recovery Services 자격 증명 모음을 만들려면:
 
 | **작업** | **Windows** | **Linux** |
 | --- | --- | --- |
-| VM 에이전트 설치 |<li>[에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다. <li>[VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다. |<li> GitHub에서 최신 [Linux 에이전트](https://github.com/Azure/WALinuxAgent) 를 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다. <li> [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다. |
-| VM 에이전트 업데이트 |VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |[Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
+| VM 에이전트 설치 |<li>[에이전트 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다. <li>[VM 속성을 업데이트](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다. |<li> GitHub에서 최신 [Linux 에이전트](https://github.com/Azure/WALinuxAgent) 를 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다. <li> [VM 속성을 업데이트](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다. |
+| VM 에이전트 업데이트 |VM 에이전트 업데이트는 [VM 에이전트 이진](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |[Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
 | VM 에이전트 설치 유효성 검사 |<li>Azure VM에서 *C:\WindowsAzure\Packages* 폴더로 이동합니다. <li>WaAppAgent.exe 파일을 찾습니다.<li> 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. 제품 버전 필드가 2.6.1198.718 이상이어야 합니다. |해당 없음 |
 
 ### <a name="backup-extension"></a>Backup 확장
@@ -335,4 +340,4 @@ VM을 실행하고 있지 않아도 Backup 서비스가 백업 확장을 설치�
 Azure VM을 백업하는 비용은 보호된 인스턴스의 수에 기반합니다. 보호된 인스턴스에 대한 정의는 [보호된 인스턴스란 무엇인가요?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance)를 참조하세요. 가상 머신을 백업하는 비용을 계산하는 예제는 [보호된 인스턴스를 계산하는 방법](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances)을 참조하세요. [Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)에 대한 정보는 Azure Backup 가격 책정 페이지를 참조하세요.
 
 ## <a name="questions"></a>질문이 있으십니까?
-질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
+질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](https://aka.ms/azurebackup_feedback).

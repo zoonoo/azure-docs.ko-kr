@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Machines 개요 | Microsoft Docs
+title: Windows Virtual Machines 개요 - Azure | Microsoft Docs
 description: Azure에서 Windows 가상 머신 만들기 및 관리에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c1122ab403eb7192d7acbd493c46d478d0382a6b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6ec151222bda3d87386cc3be4c54821775880795
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932198"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816840"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure에서의 Windows 가상 머신 개요
 
@@ -31,12 +31,11 @@ Azure VM은 가상 컴퓨터를 실행하는 실제 하드웨어를 구입 및 �
 
 Azure 가상 머신은 다양한 방식으로 사용할 수 있습니다. 일부 사례:
 
-* 
-  **개발 및 테스트** – Azure VM은 응용 프로그램의 코딩과 테스트에 필요한 특정 구성을 갖춘 컴퓨터를 만드는 쉽고 빠른 방법을 제공합니다.
+* **개발 및 테스트** – Azure VM은 응용 프로그램의 코딩과 테스트에 필요한 특정 구성을 갖춘 컴퓨터를 만드는 쉽고 빠른 방법을 제공합니다.
 * **클라우드의 응용 프로그램** – 응용 프로그램에 대한 수요가 변동할 수 있으므로 Azure의 VM에서 응용 프로그램을 실행하는 것이 경제적입니다. 필요할 경우 여분의 VM에 대해 비용을 지불하고, 그렇지 않은 경우에는 해당 VM을 종료합니다.
 * **확장된 데이터 센터** – Azure 가상 네트워크의 가상 머신은 조직의 네트워크에 쉽게 연결할 수 있습니다.
 
-응용 프로그램에서 사용하는 VM의 수는 요구 사항을 충족하는 데 필요한 만큼 늘리거나 줄일 수 있습니다.
+애플리케이션에서 사용하는 VM의 수는 요구 사항을 충족하는 데 필요한 만큼 늘리거나 줄일 수 있습니다.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM을 만들기 전의 고려 사항
 Azure에서 응용 프로그램 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
@@ -84,11 +83,9 @@ Azure에서는 다양한 버전과 종류의 Windows Server 운영 체제에서 
 | 방법 | 설명 |
 | --- | --- |
 | Azure portal |사용할 이미지를 선택할 때 사용자에 적합한 값이 자동으로 지정됩니다. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>
-  [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location *location*<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | REST API |[이미지 게시자 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[이미지 제안 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[이미지 SKU 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>
-  [az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
+| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location *location*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location *location* --publisher *publisherName* --offer *offerName*|
 
 [사용자 고유의 이미지를 업로드하고 사용하도록](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) 선택할 수 있습니다. 이렇게 하는 경우 게시자 이름, 제안 및 SKU는 사용되지 않습니다.
 
@@ -106,12 +103,12 @@ VM [확장](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 
 | 리소스 | 필수 | 설명 |
 | --- | --- | --- |
-| [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) |예 |VM은 리소스 그룹에 포함되어야 합니다. |
-| [Storage 계정](../../storage/common/storage-create-storage-account.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 저장소 계정이 필요합니다. |
-| [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예 |VM은 가상 네트워크의 구성원이어야 합니다. |
-| [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |아니오 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
-| [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
-| [데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |아니오 |VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
+| [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) |yes |VM은 리소스 그룹에 포함되어야 합니다. |
+| [Storage 계정](../../storage/common/storage-create-storage-account.md) |yes |가상 하드 디스크를 저장하기 위해 VM에 저장소 계정이 필요합니다. |
+| [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |yes |VM은 가상 네트워크의 구성원이어야 합니다. |
+| [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |아니요 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
+| [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |yes |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
+| [데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |아니요 |VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>첫 번째 VM을 만드는 방법
 VM을 만들기 위한 몇 가지 옵션이 있습니다. 선택 옵션은 속해 있는 환경에 따라 달라집니다. 
@@ -127,7 +124,7 @@ VM을 만들기 위한 몇 가지 옵션이 있습니다. 선택 옵션은 속�
 | REST API |[VM 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 | Azure CLI |[Azure CLI를 사용하여 VM 만들기](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
-문제가 결코 발생하지 않기를 바라지만 때로는 몇몇 문제가 발생하기도 합니다. 이러한 상황이 발생하면 [Azure에서 Windows 가상 머신을 만들 때 발생하는 Resource Manager 배포 문제 해결](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 있는 정보를 확인하세요.
+문제가 결코 발생하지 않기를 바라지만 때로는 몇몇 문제가 발생하기도 합니다. 이러한 상황이 발생하면 [Azure에서 Windows 가상 머신을 만들 때 발생하는 Resource Manager 배포 문제 해결](../troubleshooting/troubleshoot-deployment-new-vm-windows.md)에 있는 정보를 확인하세요.
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>만든 VM을 관리하는 방법
 VM은 스크립팅 지원을 통해 브라우저 기반 포털, 명령줄 도구로 관리하거나 REST API를 통해 직접 관리할 수 있습니다. 수행 가능한 몇 가지 일반 관리 작업으로 VM 관련 정보 가져오기, VM에 로그인, 가용성 관리 및 백업 만들기가 있습니다.
@@ -144,10 +141,10 @@ VM은 스크립팅 지원을 통해 브라우저 기반 포털, 명령줄 도구
 | Azure CLI |Azure CLI를 사용하여 VM을 관리하는 방법에 대한 내용은 [Azure CLI 참조](https://docs.microsoft.com/cli/azure/vm)를 참조하세요. |
 
 ### <a name="log-on-to-the-vm"></a>VM에 로그인
-Azure 포털의 연결 단추를 사용하여 [RDP(원격 데스크톱) 세션을 시작합니다](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 원격 연결을 사용하려고 할 때 가끔 문제가 발생할 수도 있습니다. 이러한 상황이 발생하면 [Windows를 실행하는 Azure 가상 머신에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 있는 도움말 정보를 확인하세요.
+Azure 포털의 연결 단추를 사용하여 [RDP(원격 데스크톱) 세션을 시작합니다](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 원격 연결을 사용하려고 할 때 가끔 문제가 발생할 수도 있습니다. 이러한 상황이 발생하면 [Windows를 실행하는 Azure 가상 머신에 대한 원격 데스크톱 연결 문제 해결](../troubleshooting/troubleshoot-rdp-connection.md)에 있는 도움말 정보를 확인하세요.
 
 ### <a name="manage-availability"></a>가용성 관리
-응용 프로그램의 [높은 가용성을 보장](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하는 방법을 이해하는 것이 중요합니다. 이렇게 구성하면 여러 VM을 만들어 하나 이상 실행되도록 합니다.
+응용 프로그램의 [높은 가용성을 보장](manage-availability.md)하는 방법을 이해하는 것이 중요합니다. 이렇게 구성하면 여러 VM을 만들어 하나 이상 실행되도록 합니다.
 
 99.95 VM SLA(서비스 수준 계약)에 적합한 배포가 되도록 [가용성 집합](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 내에서 워크로드를 실행하는 VM을 둘 이상 배포해야 합니다. 이렇게 구성하면 VM이 여러 오류 도메인 간에 분산되고, 다양한 유지 관리 창을 사용하는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
@@ -155,5 +152,5 @@ Azure 포털의 연결 단추를 사용하여 [RDP(원격 데스크톱) 세션�
 [Recovery Services 자격 증명 모음](../../backup/backup-introduction-to-azure-backup.md)은 Azure Backup 및 Azure Site Recovery 서비스 모두에서 데이터와 자산을 보호하는 데 사용됩니다. Recovery Services 자격 증명 모음을 사용하면 [PowerShell을 통해 Resource Manager 배포 VM에 대한 백업을 배포하고 관리할 수 있습니다](../../backup/backup-azure-vms-automation.md). 
 
 ## <a name="next-steps"></a>다음 단계
-* Linux VM으로 작업할 계획이면 [Azure 및 Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 살펴봅니다.
-* [Azure 인프라 연습 예제](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 인프라를 설정하는 관련 지침에 대해 알아봅니다.
+* Linux VM으로 작업할 계획이면 [Azure 및 Linux](../linux/overview.md)를 살펴봅니다.
+* [Azure 인프라 연습 예제](infrastructure-example.md)에서 인프라를 설정하는 관련 지침에 대해 알아봅니다.

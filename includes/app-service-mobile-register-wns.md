@@ -1,4 +1,16 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 75bcb9d27ee6f66a1d9c15093d9f933a3ad25881
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132912"
+---
 1. Visual Studio 솔루션 탐색기에서 Windows 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭합니다. 그런 다음, **스토어** > **앱을 스토어에 연결**을 선택합니다.
 
     ![Windows 스토어에 응용 프로그램 연결](./media/app-service-mobile-register-wns/notification-hub-associate-win8-app.png)

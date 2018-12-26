@@ -2,25 +2,21 @@
 title: Azure에서 Hive를 사용하여 HDInsight Hadoop 데이터 과학 연습 | Microsoft Docs
 description: 예측 분석을 수행하기 위해 Azure HDInsight Hadoop에서 Hive 사용을 보여 주는 Team Data Science Process의 예제입니다.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 8b7eead12b6546ad86f6ff0aa48f4754c00a4734
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: eae56eda72d775205a231e2c6482a1c0686d9251
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838758"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445927"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Azure에서 Hive를 사용하여 HDInsight Hadoop 데이터 과학 연습 
 
@@ -36,7 +32,7 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 - 팁 지불 여부 
 - 팁 금액의 분포
 
-시나리오는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)와 함께 Hive를 사용하여 구현됩니다. 공개적으로 사용할 수 있는 NYC Taxi Trip 및 요금 데이터 집합에서 데이터를 저장, 탐색 및 기능 엔지니어링하는 방법을 배웁니다. 또한 Azure Machine Learning을 사용하여 모델을 빌드 및 배포할 수 있습니다.
+시나리오는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)와 함께 Hive를 사용하여 구현됩니다. 공개적으로 사용할 수 있는 NYC Taxi Trip 및 요금 데이터 세트에서 데이터를 저장, 탐색 및 기능 엔지니어링하는 방법을 배웁니다. 또한 Azure Machine Learning을 사용하여 모델을 빌드 및 배포할 수 있습니다.
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>HDInsight Hadoop와 함께 Hive를 사용하여 광고 클릭 예측
 

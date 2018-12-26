@@ -2,19 +2,19 @@
 title: Azure Cosmos DB에서 데이터에 대한 액세스를 보호하는 방법 | Microsoft Docs
 description: 마스터 키, 읽기 전용 키, 사용자 및 권한을 포함해서 Azure Cosmos DB의 액세스 제어 개념에 대해 알아봅니다.
 services: cosmos-db
-author: SnehaGunda
+author: rafats
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2017
-ms.author: sngun
-ms.openlocfilehash: 079cbff3a1669efb7ba7cd7a97da9256dbbfe9f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/19/2018
+ms.author: rafats
+ms.openlocfilehash: ed97a2c31897d1e5e61421ea489a35af377f4f37
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613220"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621448"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Azure Cosmos DB 데이터에 대한 액세스 보호
 이 문서에서는 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에 저장된 데이터에 대한 액세스를 보호하는 방법을 개괄적으로 설명합니다.
@@ -24,7 +24,7 @@ Azure Cosmos DB는 두 가지 유형의 키를 사용하여 사용자를 인증�
 |키 유형|리소스|
 |---|---|
 |[마스터 키](#master-keys) |데이터베이스 계정, 데이터베이스, 사용자, 사용 권한을 비롯한 관리 리소스에 사용됩니다.|
-|[리소스 토큰](#resource-tokens)|컬렉션, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF를 비롯한 응용 프로그램 리소스에 사용됩니다.|
+|[리소스 토큰](#resource-tokens)|컨테이너, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF를 비롯한 응용 프로그램 리소스에 사용됩니다.|
 
 <a id="master-keys"></a>
 
@@ -32,7 +32,7 @@ Azure Cosmos DB는 두 가지 유형의 키를 사용하여 사용자를 인증�
 
 마스터 키는 데이터베이스 계정에 대한 모든 관리 리소스에 대한 액세스를 제공합니다. 마스터 키:  
 - 계정, 데이터베이스, 사용자 및 사용 권한에 대한 액세스를 제공합니다. 
-- 컬렉션 및 문서에 대한 세분화된 액세스를 제공하는 데 사용할 수 없습니다.
+- 컨테이너 및 문서에 대한 세분화된 액세스를 제공하는 데 사용할 수 없습니다.
 - 계정 생성 중에 만들어집니다.
 - 언제든지 다시 생성할 수 있습니다.
 
@@ -40,7 +40,7 @@ Azure Cosmos DB는 두 가지 유형의 키를 사용하여 사용자를 인증�
 
 Cosmos DB 계정에 대한 두 개의 마스터 키 외에도 두 개의 읽기 전용 키가 있습니다. 이러한 읽기 전용 키는 계정에 대한 읽기 작업만 허용합니다. 읽기 전용 키는 읽기 권한 리소스에 대한 액세스를 제공하지 않습니다.
 
-Azure Portal을 사용하여 주, 보조, 읽기 전용 및 읽기-쓰기 마스터 키를 검색 및 다시 생성할 수 있습니다. 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-account.md#keys)을 참조하세요.
+Azure Portal을 사용하여 주, 보조, 읽기 전용 및 읽기-쓰기 마스터 키를 검색 및 다시 생성할 수 있습니다. 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-with-cli.md#regenerate-account-key)을 참조하세요.
 
 ![Azure Portal에서 액세스 제어(IAM) - NoSQL 데이터베이스 보안 설명](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -50,7 +50,7 @@ Azure Portal을 사용하여 주, 보조, 읽기 전용 및 읽기-쓰기 마스
 
 ### <a name="code-sample-to-use-a-master-key"></a>마스터 키를 사용할 코드 샘플
 
-다음 코드 샘플에서는 Cosmos DB 계정 끝점 및 마스터 키를 사용해서 DocumentClient를 인스턴스화하고 데이터베이스를 만듭니다. 
+다음 코드 샘플에서는 Cosmos DB 계정 엔드포인트 및 마스터 키를 사용해서 DocumentClient를 인스턴스화하고 데이터베이스를 만듭니다. 
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -75,7 +75,7 @@ Database database = await client.CreateDatabaseAsync(
 ## <a name="resource-tokens"></a>리소스 토큰
 
 리소스 토큰은 데이터베이스 내에서 응용 프로그램 리소스에 대한 액세스를 제공합니다. 리소스 토큰:
-- 특정 컬렉션, 파티션 키, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF에 대한 액세스를 제공합니다.
+- 특정 컨테이너, 파티션 키, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF에 대한 액세스를 제공합니다.
 - [사용자](#users)에게 특정 리소스에 대한 [사용 권한](#permissions)이 부여된 경우 생성됩니다.
 - POST, GET 또는 PUT 호출로 권한 리소스가 작동할 때 다시 생성됩니다.
 - 사용자, 리소스 및 사용 권한을 위해 특별히 구성된 해시 리소스 토큰을 사용합니다.
@@ -91,7 +91,7 @@ Cosmos DB 리소스 토큰은 사용자가 부여한 권한에 따라 마스터 
 
 1. 중간 계층 서비스는 모바일 응용 프로그램이 사용자 사진을 공유하도록 설정됩니다. 
 2. 중간 계층 서비스는 Cosmos DB 계정의 마스터 키를 소유합니다.
-3. 사진 앱은 최종 사용자 모바일 장치에 설치됩니다. 
+3. 사진 앱은 최종 사용자 모바일 디바이스에 설치됩니다. 
 4. 로그인하면 사진 앱이 중간 계층 서비스를 사용해서 사용자의 ID를 설정합니다. ID 설정 방식은 순전히 응용 프로그램에 달려 있습니다.
 5. ID가 설정된 다음에는 중간 계층 서비스 요청 권한이 ID를 기반으로 합니다.
 6. 중간 계층 서비스는 리소스 토큰을 다시 전화 앱으로 전송합니다.
@@ -134,7 +134,7 @@ Cosmos DB 권한 리소스는 Cosmos DB 사용자와 연결됩니다.  각 사�
 * 읽기: 사용자가 리소스 내용을 읽을 수만 있고 리소스에 대해 쓰기, 업데이트 또는 삭제 작업을 수행할 수 없습니다.
 
 > [!NOTE]
-> Cosmos DB 저장 프로시저를 실행하려면 사용자에게 저장 프로시저가 실행되는 컬렉션에 대한 모든 권한이 있어야 합니다.
+> Cosmos DB 저장 프로시저를 실행하려면 사용자에게 저장 프로시저가 실행되는 컨테이너에 대한 모든 권한이 있어야 합니다.
 > 
 > 
 
@@ -175,7 +175,25 @@ foreach (Permission perm in permFeed)
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
+## <a name="add-users-and-assign-roles"></a>사용자 추가 및 역할 할당
+
+사용자 계정에 Azure Cosmos DB 계정 독자 액세스를 추가하려면 구독 소유자가 Azure Portal에서 다음 단계를 수행하도록 합니다.
+
+1. Azure Portal을 열고, Azure Cosmos DB 계정을 선택합니다.
+2. **Access Control(IAM)** 탭을 클릭한 다음, **+ 추가**를 클릭합니다.
+3. **사용 권한 추가** 창의 **역할** 상자에서 **Cosmos DB 계정 독자 역할**을 선택합니다.
+4. **다음에 대한 액세스 할당** 상자에서 **Azure AD 사용자, 그룹 또는 응용 프로그램**을 선택합니다.
+5. 액세스 권한을 부여하려는 디렉터리에서 사용자, 그룹 또는 응용 프로그램을 선택합니다.  표시 이름, 이메일 주소 또는 개체 식별자로 디렉터리를 검색할 수 있습니다.
+    선택한 사용자, 그룹 또는 응용 프로그램이 선택한 멤버 목록에 나타납니다.
+6. **저장**을 클릭합니다.
+
+이제 엔터티는 Azure Cosmos DB 리소스를 읽을 수 있습니다.
+
+## <a name="delete-or-export-user-data"></a>사용자 데이터 삭제 또는 내보내기
+Azure Cosmos DB를 사용하면 데이터베이스 또는 컬렉션에 있는 개인 데이터를 검색, 선택, 수정 및 삭제할 수 있습니다. Azure Cosmos DB는 개인 데이터를 찾고 삭제하는 API를 제공하지만, API를 사용하고 개인 데이터를 지우는 데 필요한 논리를 정의하는 것은 사용자의 책임입니다. 각 다중 모델 API(SQL API, MongoDB API, Gremlin API, Cassandra API, Table API)는 개인 데이터를 검색하고 삭제하는 방법이 포함된 여러 가지 언어 SDK를 제공합니다. 또한 [TTL(Time to Live)](time-to-live.md) 기능을 사용하여 추가 비용을 발생시키지 않고 지정한 기간 후에 데이터를 자동으로 삭제할 수 있습니다.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
 ## <a name="next-steps"></a>다음 단계
 * Cosmos DB 데이터베이스 보안에 대한 자세한 내용은 [Cosmos DB: 데이터베이스 보안](database-security.md)을 참조하세요.
-* 마스터 키와 읽기 전용 키를 관리하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 계정을 관리하는 방법](manage-account.md#keys)을 참조하세요.
 * Azure Cosmos DB 권한 부여 토큰을 생성하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 리소스에 대한 Access Control](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)을 참조하세요.

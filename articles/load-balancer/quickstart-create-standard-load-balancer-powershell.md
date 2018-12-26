@@ -4,24 +4,22 @@ description: 이 빠른 시작에서는 PowerShell을 사용하여 표준 Load B
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: qucikstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/21/2018
+ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: f6252b09078bcce936fc3102725519e5e433f8c4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e4e66d18f9dcb7f020cdb881226f6e47118e5186
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38481801"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578555"
 ---
 # <a name="get-started"></a>빠른 시작: Azure PowerShell을 사용하여 표준 Load Balancer 만들기
 이 빠른 시작에서는 Azure PowerShell을 사용하여 표준 Load Balancer를 만드는 방법을 보여 줍니다. 부하 분산 장치를 테스트하려면 Windows 서버를 실행하는 두 VM(가상 머신)을 배포하고 두 VM 사이에 있는 웹앱의 부하를 분산합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer란?](load-balancer-standard-overview.md)을 참조하세요.
@@ -44,10 +42,12 @@ New-AzureRmResourceGroup `
 
 ```azurepowershell-interactive
 $publicIP = New-AzureRmPublicIpAddress `
-  -ResourceGroupName "myResourceGroupLB" `
-  -Location "EastUS" `
-  -AllocationMethod "Dynamic" `
-  -Name "myPublicIP"
+-Name "myPublicIP" `
+-ResourceGroupName "myResourceGroupLB" `
+-Location "EastUS" `
+-Sku "Standard" `
+-AllocationMethod "Static"
+  
 ```
 ## <a name="create-standard-load-balancer"></a>표준 Load Balancer 만들기
  이 섹션에서는 부하 분산 장치에 대해 프런트 엔드 IP 및 백 엔드 주소 풀을 구성한 다음, 기본 Load Balancer를 만듭니다.
@@ -200,14 +200,14 @@ $rule2 = New-AzureRmNetworkSecurityRuleConfig `
 [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만듭니다.
 
 ```azurepowershell-interactive
-$nsg = New-AzureRmNetworkSecurityGroup`
+$nsg = New-AzureRmNetworkSecurityGroup `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'myNetworkSecurityGroup'`
+-Name 'myNetworkSecurityGroup' `
 -SecurityRules $rule1,$rule2
 ```
 
-###<a name="create-nics"></a>NIC 만들기
+### <a name="create-nics"></a>NIC 만들기
 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 사용하여 만든 가상 NIC를 만듭니다. 다음 예제에서는 2개의 가상 NIC를 만듭니다. (다음 단계에서 앱에 대해 만드는 각 VM에 대해 가상 NIC 하나씩) 언제든지 추가 가상 NIC 및 VM을 만든 후 부하 분산 장치에 추가할 수 있습니다.
 
 ```azurepowershell-interactive

@@ -2,24 +2,20 @@
 title: Azure Functions의 외부 파일 바인딩(실험)
 description: Azure Functions에서 외부 파일 바인딩 사용
 services: functions
-documentationcenter: ''
-author: alexkarcher-msft
-manager: cfowler
-editor: ''
+author: craigshoemaker
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: alkarche
-ms.openlocfilehash: 4e9c2c336df465d7488de84bd2a02cc5d9e42f30
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.author: cshoe
+ms.openlocfilehash: 39036f17b8ceafebbe3660f2074e2a6c84c4df03
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27607924"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248696"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Azure Functions 외부 파일 바인딩(실험)
 이 문서에서는 Azure Functions에서 다른 SaaS 공급자(예: Dropbox 또는 Google Drive)로부터 파일을 조작하는 방법을 보여 줍니다. Azure Functions는 외부 파일에 대한 트리거, 입력 및 출력 바인딩을 지원합니다. 이러한 바인딩은 SaaS 공급자에 대한 API 연결을 만들거나 함수 앱의 리소스 그룹에서 기존 API 연결을 사용합니다.
@@ -162,7 +158,7 @@ module.exports = function(context) {
 "path": "images/{{20140101}}-{name}",
 ```
 
-이 경로에는 *images* 폴더에 *{20140101}-soundfile.mp3*라는 파일이 있으며 함수 코드에 있는 `name` 변수값은 *soundfile.mp3*입니다.
+이 경로에는 *images* 폴더에 *{20140101}-soundfile.mp3*이라는 파일이 있으며 함수 코드에 있는 `name` 변수 값은 *soundfile.mp3*입니다.
 
 ## <a name="trigger---usage"></a>트리거 - 사용
 

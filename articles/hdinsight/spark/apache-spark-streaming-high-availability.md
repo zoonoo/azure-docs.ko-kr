@@ -1,29 +1,24 @@
 ---
-title: YARN에서 항상 사용 가능한 Spark Streaming 작업 만들기 - Azure HDInsight | Microsoft Docs
+title: YARN에서 고가용성 Spark Streaming 작업 만들기 - Azure HDInsight
 description: 고가용성 시나리오에 대한 Spark Streaming을 설정하는 방법
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: ramoha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
+ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
 ms.date: 01/26/2018
-ms.author: ramoha
-ms.openlocfilehash: bbb4da02cbe4b0685c715c4cd6bd7b15c6b5cce0
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165318"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581904"
 ---
-# <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>YARN을 사용하여 고가용성 Spark Streaming 작업 만들기
+# <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>YARN을 사용하여 고가용성 Apache Spark Streaming 작업 만들기
 
-Spark Streaming을 사용하여 데이터 스트림 처리를 위한 확장 가능하고 높은 처리량을 제공하는 내결함성 응용 프로그램을 구현할 수 있습니다. HDInsight Spark 클러스터의 Spark Streaming 응용 프로그램을 Azure Event Hubs, Azure IoT Hub, Kafka, Flume, Twitter, ZeroMQ, 원시 TCP 소켓과 같은 다양한 데이터 원본에 연결할 수 있고 HDFS 파일 시스템을 모니터링해서 변경을 확인할 수 있습니다. Spark Streaming은 노드 실패가 발생하더라도 지정된 이벤트가 정확히 1번 처리되도록 함으로써 내결함성을 지원합니다.
+[Apache Spark](https://spark.apache.org/) Streaming을 사용하여 데이터 스트림 처리를 위한 확장 가능하고 처리량이 높은 내결함성 애플리케이션을 구현할 수 있습니다. HDInsight Spark 클러스터의 Spark Streaming 애플리케이션을 Azure Event Hubs, Azure IoT Hub, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ](http://zeromq.org/), 원시 TCP 소켓과 같은 다양한 데이터 원본에 연결할 수 있고 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 파일 시스템을 모니터링해서 변경을 확인할 수 있습니다. Spark Streaming은 노드 실패가 발생하더라도 지정된 이벤트가 정확히 1번 처리되도록 함으로써 내결함성을 지원합니다.
 
 Spark Streaming은 데이터에 변환을 적용한 다음, 해당 결과를 파일 시스템, 데이터베이스, 대시보드 및 콘솔에 푸시할 수 있는 장기 실행 작업을 만듭니다. Spark Streaming은 정의된 시간 간격 동안 이벤트 일괄 처리를 우선 수집하여 데이터를 마이크로 단위로 일괄로 처리합니다. 다음으로, 처리 및 출력을 위해 해당 일괄 처리가 전송됩니다. 일괄 처리 시간 간격은 일반적으로 소수 초 단위로 정의됩니다.
 
@@ -33,7 +28,7 @@ Spark Streaming은 데이터에 변환을 적용한 다음, 해당 결과를 파
 
 Spark Streaming은 *불연속화 스트림*(DStream)을 사용하여 데이터의 연속 스트림을 나타냅니다. 이 DStream은 Event Hubs 또는 Kafka와 같은 입력 원본에서 또는 다른 DStream에 변환을 적용하여 만들 수 있습니다. 이벤트가 Spark Streaming 응용 프로그램에 도착하면 이벤트는 신뢰할 수 있는 방식으로 저장됩니다. 즉, 이벤트 데이터는 복제되어 여러 노드에 저장됩니다. 따라서 단일 노드 실패로 인한 이벤트 손실이 발생되지 않게 됩니다.
 
-Spark 코어는 RDD(*복원력 있는 분산 데이터 집합*)를 사용합니다. RDD는 클러스터의 여러 노드에 걸쳐 데이터를 배포하여, 각 노드가 최상의 성능을 위해 메모리 내에 데이터를 완전한 상태로 유지하도록 합니다. 각 RDD는 일괄 처리 간격 동안 수집된 이벤트를 나타냅니다. 일괄 처리 간격이 지나면 Spark Streaming은 해당 간격의 모든 데이터를 포함하는 새 RDD을 생성합니다. RDD의 연속 집합은 DStream으로 수집됩니다. Spark Streaming 응용 프로그램은 각 일괄 처리의 RDD에 저장된 데이터를 처리합니다.
+Spark 코어는 RDD(*복원력 있는 분산 데이터 세트*)를 사용합니다. RDD는 클러스터의 여러 노드에 걸쳐 데이터를 배포하여, 각 노드가 최상의 성능을 위해 메모리 내에 데이터를 완전한 상태로 유지하도록 합니다. 각 RDD는 일괄 처리 간격 동안 수집된 이벤트를 나타냅니다. 일괄 처리 간격이 지나면 Spark Streaming은 해당 간격의 모든 데이터를 포함하는 새 RDD을 생성합니다. RDD의 연속 집합은 DStream으로 수집됩니다. Spark Streaming 응용 프로그램은 각 일괄 처리의 RDD에 저장된 데이터를 처리합니다.
 
 ![Spark DStream](./media/apache-spark-streaming-high-availability/DStream.png)
 
@@ -59,7 +54,7 @@ RDD는 고가용성의 내결함성 Spark Streaming 작업을 지원하는 다�
 
 각 이벤트를 한 번만 처리하는 응용 프로그램을 만들려면 모든 시스템 실패 지점이 문제 발생 후 다시 시작되는 방식과 데이터 손실을 피할 수 있는 방식을 고려하세요. 정확하게 한 번만 처리하는 의미 체계에서는 어느 순간에도 데이터 손실이 없으며 오류 발생 위치에 관계 없이 메시지 처리는 다시 시작 가능해야 합니다. [이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기](apache-spark-streaming-exactly-once.md)를 참조하세요.
 
-## <a name="spark-streaming-and-yarn"></a>Spark Streaming 및 YARN
+## <a name="spark-streaming-and-apache-hadoop-yarn"></a>Spark 스트리밍 및 Apache Hadoop YARN
 
 HDInsight에서 클러스터 작업은 YARN(*Yet Another Resource Negotiator*)에 의해 조정됩니다. Spark Streaming에 대한 고가용성을 디자인할 때는 Spark Streaming 기법과 YARN 구성 요소에 대한 기술이 사용됩니다.  YARN을 사용하는 예제 구성은 아래와 같습니다. 
 
@@ -116,7 +111,7 @@ DStream 검사점을 사용하여 드라이버를 복구하려면
 
 * 장기 실행 작업은 분할해야 합니다.  Spark Streaming 응용 프로그램이 클러스터에 제출될 때 작업이 실행되는 YARN 큐를 정의해야 합니다. [YARN Capacity Scheduler](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)를 사용하여 장기 실행 작업을 별도 큐에 제출할 수 있습니다.
 
-* 스트리밍 응용 프로그램를 정상적으로 종료합니다. 오프셋을 알고 있으며, 모든 응용 프로그램 상태가 외부에 저장되는 경우 적절한 위치에서 프로그래밍 방식으로 스트리밍 응용 프로그램을 중지할 수 있습니다. 한 가지 방법은 *n*초 간격으로 외부 플래그를 확인하여 Spark에서 "스레드 후크"를 사용하는 것입니다. 응용 프로그램을 시작할 때 HDFS에서 만들어진 후, 사용자가 중지하려고 할 때 제거되는 *마커 파일*을 사용할 수도 있습니다. 마커 파일 방식을 위해서는, 다음과 비슷한 코드를 호출하는 별도 스레드를 Spark 응용 프로그램에서 사용하세요.
+* 스트리밍 응용 프로그램를 정상적으로 종료합니다. 오프셋을 알고 있으며, 모든 응용 프로그램 상태가 외부에 저장되는 경우 적절한 위치에서 프로그래밍 방식으로 스트리밍 응용 프로그램을 중지할 수 있습니다. 한 가지 방법은 *n*초 간격으로 외부 플래그를 확인하여 Spark에서 "스레드 후크"를 사용하는 것입니다. 애플리케이션을 시작할 때 HDFS에서 만들어진 후, 사용자가 중지하려고 할 때 제거되는 *마커 파일*을 사용할 수도 있습니다. 마커 파일 방식을 위해서는, 다음과 비슷한 코드를 호출하는 별도 스레드를 Spark 애플리케이션에서 사용하세요.
 
     ```scala
     streamingContext.stop(stopSparkContext = true, stopGracefully = true)
@@ -125,8 +120,8 @@ DStream 검사점을 사용하여 드라이버를 복구하려면
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Spark Streaming 개요](apache-spark-streaming-overview.md)
-* [이벤트를 정확하게 한 번만 처리하는 Spark Streaming 작업 만들기](apache-spark-streaming-exactly-once.md)
-* [YARN의 장기 실행 Spark Streaming 작업](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Apache Spark Streaming 개요](apache-spark-streaming-overview.md)
+* [이벤트를 정확하게 한 번만 처리하는 Apache Spark 스트리밍 작업 만들기](apache-spark-streaming-exactly-once.md)
+* [YARN의 장기 실행 Apache Spark Streaming 작업](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
 * [구조적 스트리밍: 내결함성 의미 체계](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [불연속화 스트림: 확장 가능한 스트림 처리를 위한 내결함성 모델](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

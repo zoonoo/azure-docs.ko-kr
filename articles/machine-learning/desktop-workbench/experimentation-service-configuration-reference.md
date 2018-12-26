@@ -7,18 +7,21 @@ ms.author: gokhanu
 manager: haining
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 1a4b6b803687b2c433ad94a54f076f23fe63c350
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: abce80528479ba180783dbab604d4c836ddb7f1e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831315"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950780"
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning 실험 서비스 구성 파일
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Azure ML(Machine Learning) Workbench용 스크립트를 제출할 때 실행 동작은 **aml_config** 폴더의 파일을 통해 제어됩니다. 이 폴더는 프로젝트 폴더 루트 아래에 있습니다. 최적의 방법으로 실행에 대해 원하는 결과를 얻으려면 이 파일의 내용을 이해해야 합니다.
 
@@ -40,7 +43,7 @@ Azure ML(Machine Learning) Workbench용 스크립트를 제출할 때 실행 동
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
-* 공개적으로 액세스할 수 있는 끝점(URL)
+* 공개적으로 액세스할 수 있는 엔드포인트(URL)
 * 또는 로컬 파일 경로
 * 실행 엔진을 통해 도달할 수 있는 기타 대상
 
@@ -76,7 +79,7 @@ Azure ML Workbench는 **conda_dependencies.yml**이 그대로 유지되는 한 �
 >실행이 _로컬_ 계산 컨텍스트를 대상으로 하는 경우 **conda_dependencies.yml** 파일이 사용되지 **않습니다**. 로컬 Azure ML Workbench Python 환경에 대한 패키지 종속성은 수동으로 설치해야 합니다.
 
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
-이 파일은 설치해야 하는 PySpark 스크립트 및 Spark 패키지를 제출할 때 Spark 응용 프로그램 이름을 지정합니다. 또한 Maven 리포지토리에서 찾을 수 있는 공용 Maven 리포지토리 및 Spark 패키지를 지정할 수도 있습니다.
+이 파일은 설치해야 하는 PySpark 스크립트 및 Spark 패키지를 제출할 때 Spark 애플리케이션 이름을 지정합니다. 또한 Maven 리포지토리에서 찾을 수 있는 공용 Maven 리포지토리 및 Spark 패키지를 지정할 수도 있습니다.
 
 다음은 예제입니다.
 
@@ -192,7 +195,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **TrackedRun**: 이 플래그는 실험 서비스에 대해 Azure ML Workbench 실행 기록 인프라에서 실행을 추적할지 여부를 지정합니다. 기본값은 _true_입니다. 
 
-**UseSampling**: _UseSampling_은 실행을 위해 데이터 소스에 대한 활성 샘플 데이터 집합을 사용하는지 여부를 지정합니다. _False_로 설정하면 데이터 소스는 데이터 소스에서 읽은 전체 데이터를 수집하고 사용합니다. _True_로 설정하면 활성 샘플을 사용합니다. 사용자는 **DataSourceSettings**를 사용하여 활성 샘플을 재정의하고자 하는 경우 사용할 특정 샘플 데이터 집합을 지정할 수 있습니다. 
+**UseSampling**: _UseSampling_은 실행을 위해 데이터 소스에 대한 활성 샘플 데이터 집합을 사용하는지 여부를 지정합니다. _False_로 설정하면 데이터 소스는 데이터 소스에서 읽은 전체 데이터를 수집하고 사용합니다. _True_로 설정하면 활성 샘플을 사용합니다. 사용자는 **DataSourceSettings**를 사용하여 활성 샘플을 재정의하고자 하는 경우 사용할 특정 샘플 데이터 세트를 지정할 수 있습니다. 
 
 **DataSourceSettings**: 이 구성 섹션은 데이터 소스 설정을 지정합니다. 이 섹션에서 사용자는 실행의 일부로 사용하는 특정 데이터 소스의 기존 데이터 샘플을 지정합니다. 
 
@@ -204,7 +207,7 @@ DataSourceSettings:
     Sample: MySample
 ```
 
-**DataSourceSubstitutions**: 사용자가 코드를 변경하지 않고 한 데이터 소스를 다른 데이터 소스로 전환하려는 경우 데이터 소스 대체를 사용할 수 있습니다. 예를 들어 사용자는 데이터 소스 참조를 변경하여 샘플링한 로컬 파일에서 Azure Blob에 저장된 원래의 더 큰 데이터 집합으로 전환할 수 있습니다. 대체를 사용하면 Azure ML Workbench는 대체 데이터 소스를 참조하여 사용자의 데이터 소스 및 데이터 준비 패키지를 실행합니다.
+**DataSourceSubstitutions**: 사용자가 코드를 변경하지 않고 한 데이터 소스를 다른 데이터 소스로 전환하려는 경우 데이터 소스 대체를 사용할 수 있습니다. 예를 들어 사용자는 데이터 소스 참조를 변경하여 샘플링한 로컬 파일에서 Azure Blob에 저장된 원래의 더 큰 데이터 세트로 전환할 수 있습니다. 대체를 사용하면 Azure ML Workbench는 대체 데이터 소스를 참조하여 사용자의 데이터 소스 및 데이터 준비 패키지를 실행합니다.
 
 다음 예제는 Azure ML 데이터 소스 및 데이터 준비 패키지의 "mylocal.datasource" 참조를 "myremote.dsource"로 바꿉니다. 
  

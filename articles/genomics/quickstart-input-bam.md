@@ -1,22 +1,20 @@
 ---
-title: '빠른 시작: BAM 파일 입력을 사용하여 워크플로 제출 | Microsoft Docs'
+title: '빠른 시작: BAM 파일 입력을 사용하여 워크플로 제출 - Microsoft Genomics'
 titleSuffix: Azure
 description: 빠른 시작은 msgen 클라이언트가 설치되어 있고 서비스를 통해 샘플 데이터를 성공적으로 실행했다고 가정합니다.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 9887121593cad4931c86b55012f1c22686adf25f
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 91bc13dbf024df20ac23ca0ff83a73ed246dce28
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
-ms.locfileid: "26684520"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729507"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>BAM 파일 입력을 사용하여 워크플로 제출
 

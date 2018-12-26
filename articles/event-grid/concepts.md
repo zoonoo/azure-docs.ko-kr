@@ -3,17 +3,16 @@ title: Azure Event Grid 개념
 description: Azure Event Grid 및 해당 개념을 설명합니다. Event Grid의 몇 가지 주요 구성 요소를 정의합니다.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: abc1302f0317c8d5ecdc7ddaf8ca6d3a9e82b582
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626038"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747561"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid의 개념
 
@@ -33,7 +32,7 @@ ms.locfileid: "34626038"
 
 ## <a name="event-sources"></a>이벤트 원본
 
-이벤트 원본은 이벤트가 발생하는 위치입니다. 각 이벤트 원본은 하나 이상의 이벤트 유형과 관련이 있습니다. 예를 들어 Azure Storage는 이벤트가 생성된 Blob에 대한 이벤트 원본입니다. IoT Hub는 장치에서 만든 이벤트에 대한 이벤트 원본입니다. 응용 프로그램은 사용자가 정의한 사용자 지정 이벤트에 대한 이벤트 원본입니다. 이벤트 원본은 Event Grid에 이벤트를 보내는 역할을 담당합니다.
+이벤트 원본은 이벤트가 발생하는 위치입니다. 각 이벤트 원본은 하나 이상의 이벤트 유형과 관련이 있습니다. 예를 들어 Azure Storage는 이벤트가 생성된 Blob에 대한 이벤트 원본입니다. IoT Hub는 디바이스에서 만든 이벤트에 대한 이벤트 원본입니다. 응용 프로그램은 사용자가 정의한 사용자 지정 이벤트에 대한 이벤트 원본입니다. 이벤트 원본은 Event Grid에 이벤트를 보내는 역할을 담당합니다.
 
 지원되는 Event Grid 원본을 구현하는 방법에 대한 내용은 [Azure Event Grid의 이벤트 원본](event-sources.md)을 참조하세요.
 
@@ -59,9 +58,17 @@ Event Grid 항목에는 원본이 이벤트를 보내는 엔드포인트가 제�
 
 현재 Event Grid 구독을 확보하는 방법에 대한 정보는 [쿼리 Event Grid 구독](query-event-subscriptions.md)을 참조하세요.
 
+## <a name="event-subscription-expiration"></a>이벤트 구독 만료
+
+Azure CLI의 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)을 사용하면 이벤트 구독을 만들 때 만료 날짜를 설정할 수 있습니다. REST API를 사용 중인 경우 `api-version=2018-09-15-preview`를 사용합니다.
+
+해당 날짜 이후 이벤트 구독이 자동으로 만료됩니다. 제한된 시간 동안만 필요한 이벤트 구독 만료를 설정하고 이러한 구독을 정리하는 것에 대해 신경 쓰고 싶지 않습니다. 예를 들어, 시나리오를 테스트하기 위해 이벤트 구독을 만들 때 만료를 설정할 수 있습니다. 
+
+만료를 설정하는 예제는 [고급 필터가 포함된 구독](how-to-filter-events.md#subscribe-with-advanced-filters)을 참조하세요.
+
 ## <a name="event-handlers"></a>이벤트 처리기
 
-Event Grid 측면에서 볼 때 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 추가 작업을 수행합니다. Event Grid는 여러 가지 처리기 유형을 지원합니다. 지원되는 Azure 서비스를 사용하거나 자체 웹후크를 처리기로 사용할 수 있습니다. 처리기의 형식에 따라 Event Grid는 이벤트의 배달을 보장하는 다양한 메커니즘을 따릅니다. HTTP 웹후크 이벤트 처리기의 경우 처리기가 `200 – OK`의 상태 코드를 반환할 때까지 이벤트를 다시 시도합니다. Azure Storage Queue의 경우 큐 서비스가 성공적으로 큐에 메시지 푸시를 처리할 수 있을 때까지 이벤트를 다시 시도합니다.
+Event Grid 측면에서 볼 때 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 추가 작업을 수행합니다. Event Grid는 여러 가지 처리기 유형을 지원합니다. 지원되는 Azure 서비스를 사용하거나 자체 웹후크를 처리기로 사용할 수 있습니다. 처리기의 형식에 따라 Event Grid는 이벤트의 배달을 보장하는 다양한 메커니즘을 따릅니다. HTTP 웹후크 이벤트 처리기의 경우 처리기가 `200 – OK`의 상태 코드를 반환할 때까지 이벤트를 다시 시도합니다. Azure Storage Queue의 경우 큐 서비스가 성공적으로 큐에 메시지 푸시를 처리할 때까지 이벤트를 다시 시도합니다.
 
 지원되는 Event Grid 처리기를 구현하는 방법에 대한 내용은 [Azure Event Grid의 이벤트 처리기](event-handlers.md)를 참조하세요.
 
@@ -71,7 +78,11 @@ Event Grid는 토픽 구독 및 게시에 대한 보안을 제공합니다. 구�
 
 ## <a name="event-delivery"></a>이벤트 전달
 
-Event Grid에서 이벤트가 구독자의 끝점에서 수신되었는지 확인할 수 없는 경우 이벤트를 다시 배달합니다. 자세한 내용은 [Event Grid 메시지 배달 및 재시도](delivery-and-retry.md)를 참조하세요.
+Event Grid에서 이벤트가 구독자의 엔드포인트에서 수신되었는지 확인할 수 없는 경우 이벤트를 다시 배달합니다. 자세한 내용은 [Event Grid 메시지 배달 및 재시도](delivery-and-retry.md)를 참조하세요.
+
+## <a name="batching"></a>일괄 처리
+
+사용자 지정 토픽을 사용하는 경우 이벤트를 항상 배열에 게시해야 합니다. 처리량이 적은 시나리오를 위한 일괄 처리로 사용할 수 있지만, 볼륨이 큰 사용 사례인 경우 효율을 높일 수 있도록 게시마다 여러 이벤트를 일괄 처리하는 것이 좋습니다. 일괄 처리의 최대 크기는 1MB입니다. 각 이벤트도 64KB보다 크면 안 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,31 +1,34 @@
 ---
-title: Azure Cognitive Services용 C# 빠른 시작, Microsoft Translator Speech API | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Speech API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: Translator Speech API C#'
+titlesuffix: Azure Cognitive Services
+description: Translator Speech API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6489a0be72cedffdfa4f7021f889b2d39c1c358f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a05ab716c8aea958e13ebba0dc9ceb09bf3d7cce
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373823"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913532"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>C#을 사용한 Microsoft Translator Speech API 빠른 시작 
+# <a name="quickstart-translator-speech-api-with-c"></a>빠른 시작: C#을 사용한 Translator Speech API 
 <a name="HOLTop"></a>
 
-이 문서에서는 Microsoft Translator Speech API를 사용하여 .wav 파일에서 발화된 단어를 변환하는 방법을 보여 줍니다.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+이 문서에서는 Translator Speech API를 사용하여 .wav 파일에서 발화된 단어를 변환하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.visualstudio.com/downloads/)이 필요합니다. (Community Edition 평가판이 작동합니다.)
+Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.visualstudio.com/downloads/)이 필요합니다. 체험 Community Edition을 사용해도 됩니다. Mac OS 또는 Linux를 사용하는 경우 텍스트 편집기[Visual Studio Code]도 사용할 수 있습니다(대체로 https://code.visualstudio.com/Download).
 
-아래 코드에서 컴파일하는 실행 파일과 동일한 폴더에 "speak.wav"라는 .wav 파일이 필요합니다. 이 .wav 파일은 표준 PCM, 16비트, 16kHz, 모노 형식이어야 합니다. 이러한 .wav 파일은 [Translator Text Speak API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak)에서 가져올 수 있습니다.
+아래 코드에서 컴파일하는 실행 파일과 동일한 폴더에 "speak.wav"라는 .wav 파일이 필요합니다. 이 .wav 파일은 표준 PCM, 16비트, 16kHz, 모노 형식이어야 합니다.
 
 **Microsoft Translator Speech API**와 함께 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. [Azure 대시보드](https://portal.azure.com/#create/Microsoft.CognitiveServices)에서 유료 구독 키가 필요합니다.
 
@@ -35,7 +38,7 @@ Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.vis
 
 1. 즐겨찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```csharp
@@ -65,11 +68,12 @@ namespace TranslateSpeechQuickStart
 
             /* Make sure the audio file is followed by silence.
              * This lets the service know that the audio input is finished. */
-            var silence = new byte[3200000];
+            var silence = new byte[32000];
             var silence_buffer = new ArraySegment<byte>(silence);
             await client.SendAsync(silence_buffer, WebSocketMessageType.Binary, true, CancellationToken.None);
 
             Console.WriteLine("Done sending.");
+            System.Threading.Thread.Sleep(3000);
             await client.CloseAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
         }
 
@@ -156,4 +160,4 @@ namespace TranslateSpeechQuickStart
 ## <a name="see-also"></a>참고 항목 
 
 [Translator Speech 개요](../overview.md)
-[API 참조](http://docs.microsofttranslator.com/speech-translate.html)
+[API 참조](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

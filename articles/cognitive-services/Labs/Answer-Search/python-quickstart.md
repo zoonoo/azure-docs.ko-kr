@@ -1,27 +1,29 @@
 ---
-title: Microsoft Cognitive Services, Project Answer Search에 대한 Python 빠른 시작 | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services인 Project Answer Search 사용을 시작하기 위한 Python 예제입니다.
+title: '빠른 시작: Project Answer Search, Python'
+titlesuffix: Azure Cognitive Services
+description: Project Answer Search를 사용하여 시작하는 Python 예제입니다.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 9cb5406c616ed8e96d73c00c788a0d20f66dcabd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 69c5edfef65af2ed1b27f9a512ad13c21468df7a
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376135"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465511"
 ---
-# <a name="project-answer-search-python-quickstart"></a>Project Answer Search Python 빠른 시작
+# <a name="quickstart-project-answer-search-with-python"></a>빠른 시작: Python을 통해 Project Answer Search 사용
 
 다음 Python 예제에서는 “Rock of Gibraltar”에 대한 정보 요청을 만들고 전송합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 체험 평가판에 대한 액세스 키 가져오기
+[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 평가판에 대한 액세스 키 가져오기
 
 이 예제에서는 Python 3.6.4를 사용합니다.
 
@@ -29,7 +31,7 @@ ms.locfileid: "35376135"
 
 다음 코드는 URL 미리 보기를 만듭니다.
 다음 단계로 구현됩니다.
-1. 변수를 선언하여 호스트 및 경로별로 끝점을 지정합니다.
+1. 변수를 선언하여 호스트 및 경로별로 엔드포인트를 지정합니다.
 2. 미리 보기를 위한 쿼리 URL을 지정하고 쿼리 매개 변수를 추가합니다.  
 3. 쿼리 매개 변수를 설정합니다.
 4. 요청을 만들고 *Ocp-Apim-Subscription-Key* 헤더를 추가하는 검색 기능을 정의합니다.

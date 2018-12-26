@@ -3,23 +3,19 @@ title: Azure Event Hubs RBAC(역할 기반 액세스 제어) 미리 보기 | Mic
 description: Azure Event Hubs 역할 기반 액세스 제어
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 0d3a779eb2cccf242bcd42d82c1a90048b3512ab
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.date: 07/05/2018
+ms.author: shvija
+ms.openlocfilehash: ef74600fdf5051394f8b7bfbdd71e144b3f26d8a
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783378"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005741"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 역할 기반 액세스 제어(미리 보기)
 
@@ -35,7 +31,7 @@ Azure AD RBAC를 사용하는 응용 프로그램은 SAS 규칙 및 키 또는 �
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Azure AD 도메인 사용자 계정으로 Event Hubs 사용
 
-다음 섹션에서는 로그인하기 위해 대화형 Azure AD 사용자 로그인을 요구하는 응용 프로그램 예제를 만들고 실행하기 위한 단계, Event Hubs에 해당 사용자 계정에 대한 액세스 권한을 부여하는 방법 및 해당 ID를 사용하여 Event Hubs에 액세스하는 방법을 설명합니다. 
+다음 섹션에서는 로그인하기 위해 대화형 Azure AD 사용자 로그온을 요구하는 응용 프로그램 예제를 만들고 실행하기 위한 단계, Event Hubs에 해당 사용자 계정에 대한 액세스 권한을 부여하는 방법 및 해당 ID를 사용하여 Event Hubs에 액세스하는 방법을 설명합니다. 
 
 이 소개에서는 [Github에 있는 코드](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)인 간단한 콘솔 응용 프로그램을 설명합니다.
 
@@ -61,7 +57,7 @@ Azure AD RBAC를 사용하는 응용 프로그램은 SAS 규칙 및 키 또는 �
 
 응용 프로그램 예제는 콘솔 응용 프로그램이므로 네이티브 응용 프로그램을 등록하고 **Microsoft.EventHub**에 대한 API 사용 권한을 “필요한 권한” 집합에 추가해야 합니다. 네이티브 응용 프로그램은 ID 역할을 하는 Azure AD의 **리디렉션 URI**가 필요합니다. URI가 네트워크 대상일 필요는 없습니다. 이 예제의 경우 샘플 코드가 이미 해당 URI를 사용하므로 `http://eventhubs.microsoft.com`을 사용합니다.
 
-자세한 등록 단계는 [이 자습서](../active-directory/develop/active-directory-integrating-applications.md)에 설명되어 있습니다. **네이티브** 앱을 등록하는 단계를 수행한 다음, **Microsoft.EventHub** API를 필요한 권한에 추가하는 업데이트 지시를 수행합니다. 단계를 수행하면서 **TenantId** 및 **ApplicationId**를 기록해 두어야 합니다. 이러한 값은 응용 프로그램을 실행하는 데 필요합니다.
+자세한 등록 단계는 [이 자습서](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)에 설명되어 있습니다. **네이티브** 앱을 등록하는 단계를 수행한 다음, **Microsoft.EventHub** API를 필요한 권한에 추가하는 업데이트 지시를 수행합니다. 단계를 수행하면서 **TenantId** 및 **ApplicationId**를 기록해 두어야 합니다. 이러한 값은 응용 프로그램을 실행하는 데 필요합니다.
 
 ### <a name="run-the-app"></a>앱 실행
 
@@ -69,8 +65,8 @@ Azure AD RBAC를 사용하는 응용 프로그램은 SAS 규칙 및 키 또는 �
 
 - `tenantId`: **TenantId** 값으로 설정합니다.
 - `clientId`: **ApplicationId** 값으로 설정합니다. 
-- `clientSecret`: 클라이언트 암호를 사용하여 로그온하려는 경우 Azure AD에서 만듭니다. 또한 네이티브 앱 대신 웹앱 또는 API를 사용합니다. 또한 앱을 이전에 만든 네임스페이스의 **액세스 제어(IAM)** 에 추가합니다.
-- `eventHubNamespaceFQDN`: 새로 만든 Event Hubs 네임스페이스의 전체 DNS 이름으로 설정합니다(예: `example.servicebus.windows.net`).
+- `clientSecret`: 클라이언트 암호를 사용하여 로그인하려는 경우 Azure AD에서 만듭니다. 또한 네이티브 앱 대신 웹앱 또는 API를 사용합니다. 또한 앱을 이전에 만든 네임스페이스의 **액세스 제어(IAM)** 에 추가합니다.
+- `eventHubNamespaceFQDN`: 새로 만든 Event Hubs 네임스페이스의 정규화된 DNS 이름으로 설정합니다(예: `example.servicebus.windows.net`).
 - `eventHubName`: 만든 이벤트 허브의 이름으로 설정합니다.
 - 이전 단계에서 앱에 지정된 리디렉션 URI입니다.
  

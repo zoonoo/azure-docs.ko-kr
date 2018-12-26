@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ecc1a9557c7854a0771decb3cc7f7597bcd87dd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9ef0b3d9ae0cea5082a5c764012958f02113fe9a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360022"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408490"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -32,14 +32,14 @@ ms.locfileid: "34360022"
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | 저장소 계정에 대한 명명 제한 사항을 따릅니다. | [저장소 계정 이름 오류 해결](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | 사용 가능한 저장소 계정 속성을 확인합니다. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없습니다. 나중에 요청을 다시 시도하거나 다른 VM 크기를 요청합니다. | [Linux의 프로비전 및 할당 문제](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Windows의 프로비전 및 할당 문제](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) 및 [할당 문제 해결](../virtual-machines/windows/allocation-failure.md)|
+| AllocationFailed | 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없습니다. 나중에 요청을 다시 시도하거나 다른 VM 크기를 요청합니다. | [Linux의 프로비전 및 할당 문제](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Windows의 프로비전 및 할당 문제](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) 및 [할당 문제 해결](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | 동시 작업이 완료될 때까지 기다립니다. | |
 | AuthorizationFailed | 계정 또는 서비스 주체가 배포를 완료하는 데 충분한 권한이 없습니다. 계정이 속한 역할 및 배포 범위에 대한 액세스 권한을 확인합니다. | [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md) |
 | BadRequest | Resource Manager에서 예상한 것과 일치하지 않는 배포 값을 보냈습니다. 문제 해결에 도움이 되는 내부 상태 메시지를 확인합니다. | [템플릿 참조](/azure/templates/) 및 [지원되는 위치](resource-manager-templates-resources.md#location) |
 | 충돌 | 리소스의 현재 상태에 허용되지 않는 작업을 요청하고 있습니다. 예를 들어 디스크 크기 조정은 VM을 만들거나 VM의 할당을 취소할 때만 허용됩니다. | |
 | DeploymentActive | 이 리소스 그룹에 대한 동시 배포가 완료될 때까지 기다립니다. | |
 | DeploymentFailed | DeploymentFailed 오류는 해결하는 데 필요한 세부 정보를 제공하지 않는 일반 오류입니다. 자세한 정보를 제공하는 오류 코드에 대해서는 오류 세부 정보를 살펴봅니다. | [오류 코드 찾기](#find-error-code) |
-| DeploymentQuotaExceeded | 리소스 그룹당 800개 배포 제한에 도달하면 기록에서 더 이상 필요하지 않은 배포를 삭제합니다. Azure CLI의 경우 [az group deployment delete](/cli/azure/group/deployment#az_group_deployment_delete) 또는 PowerShell에서 [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment)를 사용하여 기록에서 항목을 삭제할 수 있습니다. 배포 기록에서 항목을 삭제해도 배포 리소스에는 영향을 주지 않습니다. | |
+| DeploymentQuotaExceeded | 리소스 그룹당 800개 배포 제한에 도달하면 기록에서 더 이상 필요하지 않은 배포를 삭제합니다. Azure CLI의 경우 [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) 또는 PowerShell에서 [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment)를 사용하여 기록에서 항목을 삭제할 수 있습니다. 배포 기록에서 항목을 삭제해도 배포 리소스에는 영향을 주지 않습니다. | |
 | DnsRecordInUse | DNS 레코드 이름은 고유해야 합니다. 다른 이름을 제공하거나 기존 레코드를 수정합니다. | |
 | ImageNotFound | VM 이미지 설정을 확인합니다. |  |
 | InUseSubnetCannotBeDeleted | 리소스를 업데이트하려고 할 때 이 오류가 발생할 수 있지만, 해당 리소스를 삭제한 다음 만들면 요청이 처리됩니다. 변경되지 않은 모든 값을 지정해야 합니다. | [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -70,7 +70,7 @@ ms.locfileid: "34360022"
 | RequestDisallowedByPolicy | 배포 중에 수행하려는 작업을 금지하는 리소스 정책이 구독에 포함되어 있습니다. 해당 작업을 차단하는 정책을 찾습니다. 가능하면 정책의 제한 사항을 충족하도록 배포를 수정합니다. | [정책 오류 해결](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | 예약된 이름을 포함하지 않는 리소스 이름을 제공합니다. | [예약된 리소스 이름](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | 삭제가 완료될 때까지 기다립니다. | |
-| ResourceGroupNotFound | 배포에 대한 대상 리소스 그룹의 이름을 확인합니다. 구독에 이 이름이 이미 있어야 합니다. 구독 컨텍스트를 확인합니다. | [Azure CLI](/cli/azure/account?#az_account_set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
+| ResourceGroupNotFound | 배포에 대한 대상 리소스 그룹의 이름을 확인합니다. 구독에 이 이름이 이미 있어야 합니다. 구독 컨텍스트를 확인합니다. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
 | ResourceNotFound | 배포에서 확인할 수 없는 리소스를 참조합니다. **reference** 함수를 사용할 때 시나리오에 필요한 매개 변수가 포함되었는지 확인합니다. | [참조 오류 해결](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | 배포에서 구독, 리소스 그룹 또는 지역에 대한 할당량을 초과하는 리소스를 만들고 있습니다. 가능하면 인프라를 수정하여 할당량 내에서 유지합니다. 그렇지 않은 경우 할당량 변경을 요청하는 것이 좋습니다. | [할당량 오류 해결](resource-manager-quota-errors.md) |
 | SkuNotAvailable | 선택한 위치에서 사용할 수 있는 SKU(예: VM 크기)를 선택합니다. | [SKU 오류 해결](resource-manager-sku-not-available-errors.md) |
@@ -104,7 +104,21 @@ ms.locfileid: "34360022"
 
 ### <a name="deployment-errors"></a>배포 오류
 
-작업이 유효성 검사를 통과했지만, 배포 중에 실패하는 경우 알림에 오류가 표시됩니다. 알림을 선택합니다.
+작업이 유효성 검사를 통과하지만 배포 중에 실패하면 배포 오류가 표시됩니다.
+
+PowerShell을 통해 배포 오류 코드 및 메시지를 보려면 다음을 사용합니다.
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+Azure CLI를 통해 배포 오류 코드 및 메시지를 보려면 다음을 사용합니다.
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+포털에서 알림을 선택합니다.
 
 ![알림 오류](./media/resource-manager-common-deployment-errors/notification.png)
 
@@ -118,59 +132,91 @@ ms.locfileid: "34360022"
 
 ## <a name="enable-debug-logging"></a>디버그 로깅 활성화
 
-무엇이 잘못되었는지 알려면 요청 및 응답에 대한 정보가 더 필요한 경우가 있습니다. PowerShell 또는 Azure CLI를 사용하여, 배포 중에 추가 정보가 기록되도록 요청할 수 있습니다.
+무엇이 잘못되었는지 알려면 요청 및 응답에 대한 정보가 더 필요한 경우가 있습니다. 배포 중에 추가 정보가 기록되도록 요청할 수 있습니다. 
 
-- PowerShell
+### <a name="powershell"></a>PowerShell
 
-   PowerShell에서 **DeploymentDebugLogLevel** 매개 변수를 All, ResponseContent 또는 RequestContent로 설정합니다.
+PowerShell에서 **DeploymentDebugLogLevel** 매개 변수를 All, ResponseContent 또는 RequestContent로 설정합니다.
 
-  ```powershell
-  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-  ```
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateFile c:\Azure\Templates\storage.json `
+  -DeploymentDebugLogLevel All
+```
 
-   요청 내용을 다음 cmdlet으로 검토합니다.
+요청 내용을 다음 cmdlet으로 검토합니다.
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.request `
+| ConvertTo-Json
+```
 
-   또는 응답 내용을 다음으로 검토합니다.
+또는 응답 내용을 다음으로 검토합니다.
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.response `
+| ConvertTo-Json
+```
 
-   이 정보를 통해 템플릿의 값이 잘못 설정되었는지 확인할 수 있습니다.
+이 정보를 통해 템플릿의 값이 잘못 설정되었는지 확인할 수 있습니다.
 
-- Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
-   다음 명령을 사용하여 배포 작업을 검토합니다.
+현재 Azure CLI는 디버그 로깅 켜기를 지원하지 않지만 디버그 로깅을 검색할 수 있습니다.
 
-  ```azurecli
-  az group deployment operation list --resource-group ExampleGroup --name vmlinux
-  ```
+다음 명령을 사용하여 배포 작업을 검토합니다.
 
-- 중첩된 템플릿
+```azurecli
+az group deployment operation list \
+  --resource-group examplegroup \
+  --name exampledeployment
+```
 
-   중첩된 템플릿에 대한 디버그 정보를 기록하려면 **debugSetting** 요소를 사용합니다.
+다음 명령으로 요청 내용을 검사합니다.
 
-  ```json
-  {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-              "uri": "{template-uri}",
-              "contentVersion": "1.0.0.0"
-          },
-          "debugSetting": {
-             "detailLevel": "requestContent, responseContent"
-          }
-      }
-  }
-  ```
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.request
+```
+
+다음 명령으로 응답 내용을 검사합니다.
+
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.response
+```
+
+### <a name="nested-template"></a>중첩된 템플릿
+
+중첩된 템플릿에 대한 디버그 정보를 기록하려면 **debugSetting** 요소를 사용합니다.
+
+```json
+{
+    "apiVersion": "2016-09-01",
+    "name": "nestedTemplate",
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "{template-uri}",
+            "contentVersion": "1.0.0.0"
+        },
+        "debugSetting": {
+           "detailLevel": "requestContent, responseContent"
+        }
+    }
+}
+```
 
 ## <a name="create-a-troubleshooting-template"></a>문제 해결 템플릿 만들기
 

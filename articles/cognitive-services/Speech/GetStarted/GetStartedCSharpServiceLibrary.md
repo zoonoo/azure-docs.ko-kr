@@ -1,24 +1,27 @@
 ---
 title: C# 서비스 라이브러리를 사용하여 Microsoft Speech Recognition API 시작 | Microsoft Docs
-description: Microsoft 음성 인식 서비스 라이브러리를 사용하여 음성 언어를 텍스트로 변환합니다.
+titlesuffix: Azure Cognitive Services
+description: Bing Speech 인식 서비스 라이브러리를 사용하여 음성 언어를 텍스트로 변환합니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 0320f41658a7ac4d6bf9e88ed998c853b665d485
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373934"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343694"
 ---
-# <a name="get-started-with-the-speech-recognition-service-library-in-c35-for-net-windows"></a>.NET Windows용 C#에서 음성 인식 서비스 라이브러리 시작
+# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>빠른 시작: .NET Windows용 C&#35;에서 Bing Speech 인식 서비스 라이브러리 사용
 
-서비스 라이브러리는 자신의 클라우드 서비스가 있고 이 서비스에서 Speech Service를 호출하려는 개발자를 위한 것입니다. 장치에 바인딩된 응용 프로그램에서 음성 인식 서비스를 호출하려면 이 SDK를 사용하지 마세요. 대신 다른 클라이언트 라이브러리 또는 REST API를 사용합니다.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+서비스 라이브러리는 자신의 클라우드 서비스가 있고 이 서비스에서 Speech Service를 호출하려는 개발자를 위한 것입니다. 디바이스에 바인딩된 응용 프로그램에서 음성 인식 서비스를 호출하려면 이 SDK를 사용하지 마세요. 대신 다른 클라이언트 라이브러리 또는 REST API를 사용합니다.
 
 C# 서비스 라이브러리를 사용하려면 [Microsoft.Bing.Speech NuGet 패키지](https://www.nuget.org/packages/Microsoft.Bing.Speech/)를 설치합니다. 라이브러리 API 참조는 [Microsoft Speech C# 서비스 라이브러리](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html)를 참조하세요.
 

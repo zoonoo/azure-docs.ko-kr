@@ -10,20 +10,20 @@ ms.custom: ''
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
-ms.author: viviswan
-ms.openlocfilehash: f8c8d068a188052b5e8b66ccb4486a0fc75e2af9
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.author: sclyon
+ms.openlocfilehash: b0af47f9ed72507fe9bc47023b456fcb157e25de
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796668"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091683"
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB MongoDB API에서 읽기 기본 설정을 사용하여 읽기를 전역적으로 배포하는 방법 
 
 이 문서에서는 Azure Cosmos DB의 MongoDB API를 사용하여 [MongoDB 읽기 기본 설정](https://docs.mongodb.com/manual/core/read-preference/)으로 읽기 작업을 전역으로 배포하는 방법을 보여 줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 Azure Portal을 사용하여 Azure Cosmos DB 계정을 전역 배포로 설정한 다음, MongoDB API를 사용하여 연결하는 방법에 대한 지침은 이 [빠른 시작](tutorial-global-distribution-mongodb.md) 문서를 참조하세요.
@@ -111,6 +111,28 @@ MongoDB에서 제공하여 클라이언트에서 사용할 수 있는 읽기 기
     assert.equal(null, err);
     console.log("readFromSecondaryPreferredfunc query completed!");
   });
+```
+
+읽기 기본 설정은 `readPreference`를 연결 문자열 URI 옵션의 매개 변수로 전달하여 설정할 수도 있습니다.
+
+```javascript
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+// Connection URL
+const url = 'mongodb://localhost:27017?ssl=true&replicaSet=globaldb&readPreference=nearest';
+
+// Database Name
+const dbName = 'myproject';
+
+// Use connect method to connect to the Server
+MongoClient.connect(url, function(err, client) {
+  console.log("Connected correctly to server");
+
+  const db = client.db(dbName);
+
+  client.close();
+});
 ```
 
 [.NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference) 및 [Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)와 같은 다른 플랫폼의 경우 해당 샘플 응용 프로그램 리포지토리를 참조하세요.

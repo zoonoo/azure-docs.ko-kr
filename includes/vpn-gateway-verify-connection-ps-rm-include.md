@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/29/2018
+ms.date: 10/17/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 508685954e23a357fa5fc48b0e89c5e7daedb5c6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 84bfec375878fe31e085f7de3cd4a41ace645c41
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38765935"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458651"
 ---
 '-디버그'를 사용하거나 사용하지 않고 'Get-AzureRmVirtualNetworkGatewayConnection' cmdlet을 사용하여 연결이 성공했는지 확인할 수 있습니다. 
 

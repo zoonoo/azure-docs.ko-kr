@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b4fda38834782be502e2581b7b3d1097000b07bb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0ac9b98a9dfe06492775481cd590bfb4d0db4b55
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440666"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542585"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력에 대한 유효성 검사로 통합
 
@@ -39,7 +39,7 @@ IEF는 클레임으로 데이터를 보내고 다시 클레임으로 데이터�
 ## <a name="prerequisites"></a>필수 조건
 
 - [시작](active-directory-b2c-get-started-custom.md)에서 설명한 대로 로컬 계정 등록/로그인을 완료하도록 구성된 Azure AD B2C 테넌트
-- 상호 작용할 REST API 끝점 이 연습에서는 REST API 서비스를 사용하여 [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/)라는 데모 사이트를 설정했습니다.
+- 상호 작용할 REST API 엔드포인트 이 연습에서는 REST API 서비스를 사용하여 [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/)라는 데모 사이트를 설정했습니다.
 
 ## <a name="step-1-prepare-the-rest-api-function"></a>1단계 - REST API 함수 준비
 
@@ -118,7 +118,7 @@ IEF는 Azure 함수에서 반환하는 `userMessage` 클레임을 예상합니�
 
 1. TrustFrameworkBase 파일을 열고 `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`를 검색합니다.
 2. 이 기술 프로필의 구성을 검토합니다. 사용자와의 교환이 사용자에게 요청할 클레임(입력 클레임) 및 자체 어설션된 공급자에서 반환될 클레임(출력 클레임)으로 정의되는 방식을 검토합니다.
-3. `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`를 검색합니다. 이 프로필이 `<UserJourney Id="ProfileEdit">`의 오케스트레이션 4단계로 호출된다는 것을 확인합니다.
+3. `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`를 검색합니다. 이 프로필이 `<UserJourney Id="ProfileEdit">`의 오케스트레이션 5단계로 호출된다는 것을 확인합니다.
 
 ## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>4단계 - 프로필 편집 RP 정책 파일 업로드 및 테스트
 

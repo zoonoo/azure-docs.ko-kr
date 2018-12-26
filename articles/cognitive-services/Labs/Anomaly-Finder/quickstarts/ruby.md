@@ -5,18 +5,20 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
+ms.component: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: ca4754514ba5012f7e9e28981d0869d174561fb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 97b02bfc2e388757306ae6180cf66f6870437218
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375327"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457632"
 ---
 # <a name="use-the-anomaly-finder-api-with-ruby"></a>Ruby 및 Anomaly Finder API 사용
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 이 문서에서 제공하는 정보 및 코드 샘플을 통해 Ruby와 함께 Anomaly Finder API 사용을 빠르게 시작하여 시계열 데이터의 변칙 검색 결과를 가져오는 작업을 수행할 수 있습니다.
 
@@ -28,7 +30,9 @@ ms.locfileid: "35375327"
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### <a name="example-of-time-series-data"></a>시계열 데이터의 예
-시계열 데이터 요소의 예는 다음과 같습니다. [!INCLUDE [Request](../includes/request.md)]
+시계열 데이터 요소의 예는 다음과 같습니다.
+
+[!INCLUDE [Request](../includes/request.md)]
 
 ### <a name="analyze-data-and-get-anomaly-points-ruby-example"></a>데이터 분석 및 변칙 요소 Ruby 예제 가져오기
 

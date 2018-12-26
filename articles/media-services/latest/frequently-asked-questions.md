@@ -4,21 +4,21 @@ description: 이 문서에서는 Azure Media Services v3에 대해 자주 묻는
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: 7fe59763162ca53ea0256d5902aeece90525f214
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 26661a213b5df5424bf9ab9ad799345ae35620ea
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660153"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036770"
 ---
-# <a name="azure-media-services-v3-preview-frequently-asked-questions"></a>Azure Media Services v3(미리 보기) 질문과 대답
+# <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure Media Services v3 질문과 대답
 
 이 문서에서는 AMS(Azure Media Services) v3에 대해 자주 묻는 질문과 대답을 제공합니다.
 
@@ -28,9 +28,9 @@ ms.locfileid: "34660153"
 
 ## <a name="is-there-an-api-for-configuring-media-reserved-units"></a>미디어 예약 단위를 구성하기 위한 API가 있나요?
 
-Media Services 팀이 v3에서 RU를 제거하고 있습니다. 하지만 필요한 서비스 작업이 아직 완료되지 않았습니다. 그때까지 고객이 Azure Portal 또는 AMS v2 API를 사용하여 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)에서 설명한 대로 RU를 설정해야 합니다. 
+현재 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)에 설명된 대로 AMS v2 API를 사용하여 미디어 예약 단위를 구성해야 합니다. 
 
-S3 RU는 **VideoAnalyzerPreset** 및 **AudioAnalyzerPreset** V3 미리 설정에 필요합니다.
+**VideoAnalyzerPreset** 및/또는 **AudioAnalyzerPreset**을 사용하는 경우 Media Services 계정을 10개의 S3 미디어 예약 단위로 설정합니다.
 
 ## <a name="does-v3-asset-have-no-assetfile-concept"></a>V3 Asset에는 AssetFile 개념이 없나요?
 

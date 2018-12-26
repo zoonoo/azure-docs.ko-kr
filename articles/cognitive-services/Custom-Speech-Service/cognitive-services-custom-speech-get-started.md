@@ -9,14 +9,16 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: fe7a140f5ba2d712014f03663a88d516958d188e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373222"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339936"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Custom Speech Service 시작
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Custom Speech Service의 주요 기능을 탐색하고 응용 프로그램 요구 사항에 대한 어쿠스틱 및 언어 모델을 빌드, 배포 및 사용하는 방법을 알아봅니다. Custom Speech Service 포털에 등록하면 더 광범위한 설명서 및 단계별 지침을 이용할 수 있습니다.
 

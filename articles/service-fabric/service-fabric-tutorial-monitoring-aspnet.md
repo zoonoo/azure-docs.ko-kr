@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 ASP.NET Core 서비스 모니터링 및 진단 | Microsoft Docs
-description: 이 자습서에서는 Azure Service Fabric ASP.NET 응용 프로그램에 대한 모니터링 및 진단을 설정하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Service Fabric ASP.NET 애플리케이션에 대한 모니터링 및 진단을 설정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8a98b12a42dff186c9226df39ce02c71cbc40c7e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113326"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444787"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 응용 프로그램 모니터링 및 진단
 
@@ -38,7 +38,7 @@ ms.locfileid: "37113326"
 > * [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)
 > * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Visual Studio Team Services를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * 응용 프로그램에 대한 모니터링 및 진단 설정
 
 ## <a name="prerequisites"></a>필수 조건
@@ -79,6 +79,8 @@ VotingWeb 및 VotingData 서비스 둘 다에 대해 Application Insights를 구
 1. 서비스 이름을 마우스 오른쪽 단추로 클릭하고 **Application Insights 구성...** 을 클릭합니다.
 
     ![AI 구성](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
+>[!NOTE]
+>프로젝트 형식에 따라 서비스 이름을 마우스 오른쪽 단추로 클릭할 때 추가-> Application Insights 원격 분석...을 클릭해야 합니다.
 
 2. **체험하기**를 클릭합니다.
 3. Azure 구독 설정에 사용한 계정에 로그인하고 Application Insights 리소스를 만든 구독을 선택합니다. “리소스” 드롭다운의 *기존 Application Insights 리소스*에서 리소스를 찾습니다. **등록**을 클릭하여 Application Insights를 서비스에 추가합니다.
@@ -100,7 +102,7 @@ NuGet을 설정하는 단계는 다음과 같습니다.
 3. `Microsoft.ApplicationInsights.ServiceFabric.Native`를 검색하고 적절한 NuGet 패키지를 클릭합니다.
 
 >[!NOTE]
->Application Insights 패키지를 설치하기 전에 사전 설치되지 않은 경우 유사한 방식으로 Microsoft.ServiceFabric.Diagnistics.Internal 패키지를 설치해야 할 수도 있습니다.
+>Application Insights 패키지를 설치하기 전에 사전 설치되지 않은 경우 유사한 방식으로 Microsoft.ServiceFabric.Diagnostics.Internal 패키지를 설치해야 할 수도 있습니다.
 
 4. 오른쪽에서 응용 프로그램의 두 서비스, **VotingWeb** 및 **VotingData** 옆에 있는 두 확인란을 클릭하고 **설치**를 클릭합니다.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
@@ -113,7 +115,8 @@ NuGet을 설정하는 단계는 다음과 같습니다.
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
 
-    2. *CreateServiceInstanceListeners()* 또는 *CreateServiceReplicaListeners()* 의 중첩된 *반환* 문에서, *ConfigureServices* > *서비스* 아래에 선언된 두 Singleton 서비스 사이에 `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`를 추가합니다. 그러면 원격 분석에 *서비스 컨텍스트*가 추가되어 Application Insights에서 원격 분석의 소스를 더 잘 이해할 수 있습니다. *VotingWeb.cs*의 중첩된 *return* 문은 다음과 같아야 합니다.
+    2. *CreateServiceInstanceListeners()* 또는 *CreateServiceReplicaListeners()* 의 중첩된 *return* 문에서 *ConfigureServices* > *services* 아래에 선언된 두 Singleton 서비스 사이에 `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`를 추가합니다.
+    *서비스 컨텍스트*가 원격 분석에 추가되어 Application Insights에서 원격 분석의 원본을 더 자세히 이해할 수 있습니다. *VotingWeb.cs*의 중첩된 *return* 문은 다음과 같아야 합니다.
 
     ```csharp
     return new WebHostBuilder()
@@ -184,7 +187,7 @@ Azure Portal에서 Application Insights 리소스로 이동합니다.
 
 ![AI 추적 세부 정보](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-또한 개요 페이지의 왼쪽 메뉴에서 *응용 프로그램 맵*을 클릭하거나 **앱 맵** 아이콘을 클릭하여 연결된 두 서비스가 보이는 앱 맵으로 이동할 수 있습니다.
+또한 개요 페이지의 왼쪽 메뉴에서 *애플리케이션 맵*을 클릭하거나 **앱 맵** 아이콘을 클릭하여 연결된 두 서비스가 보이는 앱 맵으로 이동할 수 있습니다.
 
 ![AI 추적 세부 정보](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 

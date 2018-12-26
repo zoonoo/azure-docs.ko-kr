@@ -7,20 +7,25 @@ ms.author: cforbe
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: dcf064817f2ad9855cfeef8fec6775d32ee992ec
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: a3aeb021d5d3726a31b62d66efc44dc29f3dded0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831142"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959651"
 ---
 # <a name="data-source-wizard"></a>데이터 원본 마법사 #
 
-데이터 원본 마법사는 코드 없이 데이터 집합을 Azure ML Workbench로 가져오는 쉽고 빠른 방법입니다. 또한 여기서 데이터 집합에 대한 샘플 전략 및 각 열에 대한 데이터 형식을 선택할 수 있습니다. 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
+
+데이터 원본 마법사는 코드 없이 데이터 세트를 Azure ML Workbench로 가져오는 쉽고 빠른 방법입니다. 또한 여기서 데이터 세트에 대한 샘플 전략 및 각 열에 대한 데이터 형식을 선택할 수 있습니다. 
 
 ## <a name="step-1-trigger-the-data-source-wizard"></a>1 단계: 데이터 원본 마법사를 트리거합니다. ## 
 
@@ -51,7 +56,7 @@ ms.locfileid: "34831142"
 
 ## <a name="step-5-set-data-types-for-columns"></a>5 단계: 열의 데이터 형식을 설정합니다 ##
 
-데이터 원본 마법사는 데이터 집합 열의 데이터 형식을 자동으로 감지합니다. 형식이 누락되었거나 데이터 형식을 강제하려면 데이터 형식을 수동으로 변경할 수 있습니다. **샘플 출력 데이터** 열은 데이터가 어떤 모양인지 예를 들어 보여줄 것입니다.
+데이터 원본 마법사는 데이터 세트 열의 데이터 형식을 자동으로 감지합니다. 형식이 누락되었거나 데이터 형식을 강제하려면 데이터 형식을 수동으로 변경할 수 있습니다. **샘플 출력 데이터** 열은 데이터가 어떤 모양인지 예를 들어 보여줄 것입니다.
 
 데이터 준비에서 날짜를 포함하도록 유추하는 열의 경우 날짜 형식으로 월 및 일의 순서를 선택하라는 메시지가 표시될 수 있습니다. 예를 들어 1/2/2013은 1월 2일(이 경우 *일-월*) 또는 2월 1일(*월-일* 선택)을 나타낼 수 있습니다.
 
@@ -59,7 +64,7 @@ ms.locfileid: "34831142"
 
 ## <a name="step-6-choose-sampling-strategy-for-data"></a>6 단계: 데이터에 대한 샘플링 전략을 선택합니다 ##
 
-데이터 집합에 대해 하나 이상의 샘플링 전략을 지정하고, 하나를 활성 전략으로 선택할 수 있습니다. 기본값은 맨 위값 10000 행을 로드하는 것입니다. 도구 모음에서 **편집** 단추를 클릭하여 이 샘플을 편집하거나 +새로 만들기를 클릭하여 새로운 전략을 추가할 수 있습니다. 현재 지원되는 전략은
+데이터 세트에 대해 하나 이상의 샘플링 전략을 지정하고, 하나를 활성 전략으로 선택할 수 있습니다. 기본값은 맨 위값 10000 행을 로드하는 것입니다. 도구 모음에서 **편집** 단추를 클릭하여 이 샘플을 편집하거나 +새로 만들기를 클릭하여 새로운 전략을 추가할 수 있습니다. 현재 지원되는 전략은
 
 -     행 수(맨 위)
 -     행 수(난수)
@@ -74,7 +79,7 @@ ms.locfileid: "34831142"
 
 ## <a name="step-7-path-column-handling"></a>7 단계: 경로 열 처리 ##
 
-파일 경로에 중요한 데이터가 포함되는 경우 그것을 데이터 집합에 첫 번째 열로 포함되도록 선택할 수 있습니다. 여러 파일을 가져올 경우 이 옵션이 유용할 수 있습니다. 원하지 않을 경우 포함하지 않도록 선택할 수 있습니다.
+파일 경로에 중요한 데이터가 포함되는 경우 그것을 데이터 세트에 첫 번째 열로 포함되도록 선택할 수 있습니다. 여러 파일을 가져올 경우 이 옵션이 유용할 수 있습니다. 원하지 않을 경우 포함하지 않도록 선택할 수 있습니다.
 
 ![7단계](media/data-source-wizard/step6.png)
 

@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: cf1c39d0270dcb7de3ae8ff487b21874b23db74a
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: c4ecb812156eae7402065cff4dc4bae3aef1554b
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161526"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365178"
 ---
 # <a name="compare-remote-access-solutions"></a>원격 액세스 솔루션 비교
 
@@ -33,21 +33,21 @@ Azure Active Directory 응용 프로그램 프록시는 Microsoft에서 제공�
 
 | 기능 | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| 인증서 인증 | 예 | 예 | - | - |
-| 선택적으로 브라우저 앱 게시 | 예 | 예 | 예 | 예 |
-| 사전 인증 및 Single Sign-On | 예 | 예 | 예 | 예 | 
-| 계층 2/3 방화벽 | 예 | 예 | - | - |
-| 전달 프록시 기능 | 예 | - | - | - |
-| VPN 기능 | 예 | 예 | - | - |
-| 다양한 프로토콜 지원 | - | 예 | 예, HTTP를 통해 실행하는 경우 | 예, HTTP 또는 원격 데스크톱 게이트웨이를 통해 실행하는 경우 |
-| ADFS 프록시 서버 역할 수행 | - | 예 | 예 | - |
-| 응용 프로그램 액세스에 대한 단일 포털 | - | 예 | - | 예 |
-| 응답 본문 링크 변환 | 예 | 예 | - | 예 | 
-| 헤더를 사용한 인증 | - | 예 | - | 예, PingAccess 사용 | 
-| 클라우드 규모 보안 | - | - | - | 예 | 
-| 조건부 액세스 | - | 예 | - | 예 |
-| DMZ(완충 영역)에 구성 요소 없음 | - | - | - | 예 |
-| 인바운드 연결 없음 | - | - | - | 예 |
+| 인증서 인증 | yes | yes | - | - |
+| 선택적으로 브라우저 앱 게시 | yes | 예 | 예 | yes |
+| 사전 인증 및 Single Sign-On | yes | 예 | 예 | yes | 
+| 계층 2/3 방화벽 | yes | yes | - | - |
+| 전달 프록시 기능 | yes | - | - | - |
+| VPN 기능 | yes | yes | - | - |
+| 다양한 프로토콜 지원 | - | yes | 예, HTTP를 통해 실행하는 경우 | 예, HTTP 또는 원격 데스크톱 게이트웨이를 통해 실행하는 경우 |
+| ADFS 프록시 서버 역할 수행 | - | yes | yes | - |
+| 응용 프로그램 액세스에 대한 단일 포털 | - | yes | - | yes |
+| 응답 본문 링크 변환 | yes | 예 | - | yes | 
+| 헤더를 사용한 인증 | - | yes | - | 예, PingAccess 사용 | 
+| 클라우드 규모 보안 | - | - | - | yes | 
+| 조건부 액세스 | - | yes | - | yes |
+| DMZ(완충 영역)에 구성 요소 없음 | - | - | - | yes |
+| 인바운드 연결 없음 | - | - | - | yes |
 
 대부분의 시나리오에서 Azure AD 응용 프로그램을 최신 솔루션으로 사용하는 것이 좋습니다. 웹 응용 프로그램 프록시는 AD FS용 프록시 서버가 필요한 시나리오에서만 사용할 수 있으며, Azure Active Directory에서는 사용자 지정 도메인을 사용할 수 없습니다. 
 

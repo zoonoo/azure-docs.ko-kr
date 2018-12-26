@@ -13,19 +13,19 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 1d08518a23dfe4a9cc63bf3f35ee69ea1815595f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38239954"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821092"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
 현대 조직에서 대부분 또는 모든 비즈니스 자산의 보안은 IT 시스템을 운영하고 관리하는 권한 있는 계정의 무결성에 따라 달라집니다. 사이버 공격자를 포함한 악의적인 행위자는 종종 권한 있는 액세스의 관리자 계정 및 기타 요소를 대상으로 하여 자격 증명 도난 공격을 통해 중요한 데이터 및 시스템에 신속하게 액세스하려고 합니다. 클라우드 서비스의 경우 예방 및 대응은 클라우드 서비스 공급자와 고객의 공동 책임입니다. 엔드포인트와 클라우드에 대한 최신 위협에 대한 자세한 내용은 [Microsoft 보안 인텔리전스 보고서](https://www.microsoft.com/security/sir/default.aspx)를 참조하세요. 이 문서는 현재 계획과 여기서 설명하는 지침 사이의 차이를 제거하기 위한 로드맵을 개발하는 데 도움이 될 수 있습니다.
 
 > [!NOTE] 
-> Microsoft는 최고 수준의 신뢰, 투명도, 표준 적합성 및 규정 준수를 위해 노력하고 있습니다. Microsoft 글로벌 인시던트 대응 팀이 클라우드 서비스에 대한 공격의 영향을 완화하는 방법과 Microsoft 비즈니스 제품 및 클라우드 서비스에 보안을 기본 제공하는 방법은 [Microsoft 보안 센터 - 보안](https://www.microsoft.com/en-us/trustcenter/security) 및 [Microsoft 보안 센터 - 준수](https://www.microsoft.com/en-us/trustcenter/compliance)에서 자세히 알아보세요.
+> Microsoft는 최고 수준의 신뢰, 투명도, 표준 적합성 및 규정 준수를 위해 노력하고 있습니다. Microsoft 글로벌 인시던트 대응 팀이 클라우드 서비스에 대한 공격의 영향을 완화하는 방법과 Microsoft 비즈니스 제품 및 클라우드 서비스에 보안을 기본 제공하는 방법은 [Microsoft 보안 센터 - 보안](https://www.microsoft.com/trustcenter/security) 및 [Microsoft 보안 센터 - 준수](https://www.microsoft.com/trustcenter/compliance)에서 자세히 알아보세요.
 
 <!--## Risk management, incident response, and recovery preparation
 
@@ -43,7 +43,7 @@ A cyber-attack, if successful, can shut down operations not just for a few hours
 does the article really start here?-->
 대부분의 조직에서 비즈니스 자산의 보안은 IT 시스템을 운영하고 관리하는 권한 있는 계정의 무결성에 따라 달라집니다. 사이버 공격자는 조직의 중요한 데이터에 액세스하기 위해 인프라 시스템(예: Active Directory 및 Azure Active Directory)에 대한 권한 있는 액세스에 집중하고 있습니다. 
 
-인터넷에서 SaaS 앱 및 개인 장치의 사용이 증가함에 따라 기본 보안 경계로 네트워크의 입구 및 출구 지점을 보호하는 데 초점을 맞춘 전통적인 접근 방식은 그다지 효과적이지 않습니다. 복잡한 현대 엔터프라이즈에서 네트워크 보안 경계를 자연스럽게 대체하는 것은 조직의 ID 계층에 있는 인증 및 권한 부여 제어입니다. 
+인터넷에서 SaaS 앱 및 개인 디바이스의 사용이 증가함에 따라 기본 보안 경계로 네트워크의 입구 및 출구 지점을 보호하는 데 초점을 맞춘 전통적인 접근 방식은 그다지 효과적이지 않습니다. 복잡한 현대 엔터프라이즈에서 네트워크 보안 경계를 자연스럽게 대체하는 것은 조직의 ID 계층에 있는 인증 및 권한 부여 제어입니다. 
 
 권한 있는 관리 계정은 새로운 이 "보안 경계"를 효과적으로 제어합니다. 환경이 온-프레미스, 클라우드 또는 하이브리드 온-프레미스 및 클라우드 호스팅 서비스인지 여부에 관계없이 권한 있는 액세스를 보호하는 것이 중요합니다. 결정된 악의적 사용자에 대한 관리 액세스를 보호하려면 조직의 시스템을 위험으로부터 격리하기 위한 완벽하고 신중한 방법을 사용해야 합니다. 
 
@@ -84,7 +84,7 @@ does the article really start here?-->
 
 Azure AD PIM(Privileged Identity Management)이 아직 설정되지 않은 경우 프로덕션 테넌트에서 이를 설정합니다. Privileged Identity Management가 설정되면 권한 있는 액세스 역할 변경에 대한 알림 이메일 메시지를 받게 됩니다. 이러한 알림에서는 디렉터리에서 권한이 높은 역할에 추가 사용자가 추가될 때 조기 경고를 제공합니다.
 
-Azure AD Privileged Identity Management는 Azure AD Premium P2 또는 EMS E5에 포함되어 있습니다. 이러한 솔루션을 사용하면 온-프레미스 환경과 클라우드에 있는 응용 프로그램 및 리소스에 대한 액세스를 보호할 수 있습니다. Azure AD Premium P2 또는 EMS E5가 아직 없고 이 로드맵에서 언급하는 기능을 더 자세히 평가하려면, [Enterprise Mobility + Security 90일 평가판](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial)에 등록합니다. Azure AD 고급 보안 보고, 감사 및 경고를 사용하여 활동을 모니터링하려면, 이러한 라이선스 평가판을 통해 Azure AD Privileged Identity Management 및 Azure AD Identity Protection을 사용해 봅니다.
+Azure AD Privileged Identity Management는 Azure AD Premium P2 또는 EMS E5에 포함되어 있습니다. 이러한 솔루션을 사용하면 온-프레미스 환경과 클라우드에 있는 응용 프로그램 및 리소스에 대한 액세스를 보호할 수 있습니다. Azure AD Premium P2 또는 EMS E5가 아직 없고 이 로드맵에서 언급하는 기능을 더 자세히 평가하려면, [Enterprise Mobility + Security 90일 평가판](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial)에 가입합니다. Azure AD 고급 보안 보고, 감사 및 경고를 사용하여 활동을 모니터링하려면, 이러한 라이선스 평가판을 통해 Azure AD Privileged Identity Management 및 Azure AD Identity Protection을 사용해 봅니다.
 
 Azure AD Privileged Identity Management가 설정되면 다음을 수행합니다.
 
@@ -102,7 +102,7 @@ Azure AD Privileged Identity Management가 설정되면 다음을 수행합니�
 
 Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자에 속한 사용자를 확인합니다. 테넌트에 Azure AD PIM이 없으면 [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)를 사용할 수 있습니다. 일반적인 역할인 전역 관리자 역할부터 시작합니다. Office 365 포털, Azure Portal에서, 아니면 Microsoft PowerShell용 Azure AD 모듈을 사용하여 이 관리자 역할이 할당되었는지 여부에 관계없이 이 역할이 할당된 사용자는 조직에서 구독한 모든 클라우드 서비스에서 동일한 권한을 갖습니다. 
 
-이러한 역할에 더 이상 필요하지 않은 계정을 제거하고 관리자 역할에 할당된 나머지 계정은 다음과 같이 분류합니다.
+이러한 역할에 더 이상 필요하지 않은 계정을 모두 제거합니다. 그런 다음, 관리자 역할에 할당된 나머지 계정을 분류합니다.
 
 * 관리 사용자에게 개별적으로 할당되고, 비관리 용도(예: 개인 이메일)로 사용될 수도 있습니다.
 * 관리 사용자에게 개별적으로 할당되고, 관리 용도로만 지정됩니다.
@@ -127,13 +127,13 @@ Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전
 
 ![2단계](./media/directory-admin-roles-secure/stage-two.png)
 
-로드맵의 2단계는 가장 자주 사용되는 자격 증명 도난 공격 기법과 악용을 완화하는 데 집중하며, 약 2-4주 내에 구현되도록 설계되었습니다. 권한 있는 보안 액세스 로드맵의 이 단계에 포함되는 작업은 다음과 같습니다.
+로드맵의 2단계는 가장 자주 사용되는 자격 증명 도난 공격 기법과 악용을 완화하는 데 집중하며, 약 2-4주 내에 구현할 수 있습니다. 권한 있는 보안 액세스 로드맵의 이 단계에 포함되는 작업은 다음과 같습니다.
 
 ### <a name="general-preparation"></a>일반적인 준비
 
-#### <a name="conduct-a-inventory-of-services-owners-and-admins"></a>서비스, 소유자 및 관리자의 인벤토리 수행
+#### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>서비스, 소유자 및 관리자의 인벤토리 수행
 
-BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 무선 연결이 확장됨에 따라 네트워크에 연결된 사용자를 모니터링하는 것이 중요합니다. 효과적인 보안 감사의 경우 네트워크에서 실행되지만 IT에서 지원하지 않아 안전하지 않을 수 있는 장치, 응용 프로그램 및 프로그램이 표시되는 경우가 많습니다. 자세한 내용은 [Azure 보안 관리 및 모니터링 개요](../../security/security-management-and-monitoring-overview.md)를 참조하세요. 인벤토리 프로세스에는 다음 작업이 모두 포함되어야 합니다. 
+BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 무선 연결이 확장됨에 따라 네트워크에 연결된 사용자를 모니터링하는 것이 중요합니다. 효과적인 보안 감사의 경우 네트워크에서 실행되지만 IT에서 지원하지 않아 안전하지 않을 수 있는 디바이스, 응용 프로그램 및 프로그램이 표시되는 경우가 많습니다. 자세한 내용은 [Azure 보안 관리 및 모니터링 개요](../../security/security-management-and-monitoring-overview.md)를 참조하세요. 인벤토리 프로세스에는 다음 작업이 모두 포함되어야 합니다. 
 
 * 관리 역할과 관리할 수 있는 서비스가 있는 사용자를 식별합니다.
 * Azure AD PIM을 사용하여 Azure AD에 대한 관리자 액세스 권한(1단계에 나열된 역할 외의 추가 역할 포함)이 있는 조직의 사용자를 확인합니다.
@@ -159,7 +159,7 @@ BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 �
 
 #### <a name="turn-on-password-hash-synchronization"></a>암호 해시 동기화 켜기
 
-암호 해시 동기화는 사용자 암호 해시의 해시를 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure AD 인스턴스로 동기화하는 데 사용되는 기능입니다. AD FS(Active Directory Federation Service) 또는 다른 ID 공급자에서 페더레이션을 사용하도록 결정한 경우에도, AD 또는 ADFS 서버와 같은 온-프레미스 인프라가 실패하거나 일시적으로 사용할 수 없게 되므로, 필요에 따라 암호 해시 동기화를 백업으로 설정할 수 있습니다. 이렇게 하면 사용자가 온-프레미스 AD 인스턴스에 로그인하는 데 사용하는 것과 동일한 암호를 사용하여 서비스에 로그인할 수 있습니다. 또한 사용자가 Azure AD에 연결되지 않은 다른 서비스에서 동일한 이메일 주소와 암호를 사용하면, 암호 해시와 손상된 것으로 알려진 암호를 비교하여 Identity Protection에서 손상된 자격 증명을 검색할 수 있습니다.  자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현](./../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)을 참조하세요.
+암호 해시 동기화는 사용자 암호 해시의 해시를 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure AD 인스턴스로 동기화하는 데 사용되는 기능입니다. AD FS(Active Directory Federation Service) 또는 다른 ID 공급자에서 페더레이션을 사용하도록 결정한 경우에도, AD 또는 ADFS 서버와 같은 온-프레미스 인프라가 실패하거나 일시적으로 사용할 수 없게 되므로, 필요에 따라 암호 해시 동기화를 백업으로 설정할 수 있습니다. 이렇게 하면 사용자가 온-프레미스 AD 인스턴스에 로그인하는 데 사용하는 것과 동일한 암호를 사용하여 서비스에 로그인할 수 있습니다. 또한 사용자가 Azure AD에 연결되지 않은 다른 서비스에서 동일한 이메일 주소와 암호를 사용하면, 암호 해시와 손상된 것으로 알려진 암호를 비교하여 Identity Protection에서 손상된 자격 증명을 검색할 수 있습니다.  자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현](../hybrid/how-to-connect-password-hash-synchronization.md)을 참조하세요.
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>모든 권한이 있는 역할의 사용자 및 노출된 사용자에 대해 MFA(Multi-Factor Authentication) 요구
 
@@ -217,7 +217,7 @@ Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합�
 
 #### <a name="configure-conditional-access-policies"></a>조건부 액세스 정책 구성
 
-온-프레미스 및 클라우드 호스팅 응용 프로그램에 대한 조건부 액세스 정책을 준비합니다. 사용자 작업 공간 가입 장치가 있는 경우 [Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-device-registration-on-premises-setup.md)에서 자세한 정보를 얻을 수 있습니다.
+온-프레미스 및 클라우드 호스팅 응용 프로그램에 대한 조건부 액세스 정책을 준비합니다. 사용자 작업 공간 가입 디바이스가 있는 경우 [Azure Active Directory 디바이스 등록을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-device-registration-on-premises-setup.md)에서 자세한 정보를 얻을 수 있습니다.
 
 
 ## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>3단계: 가시성 빌드 및 관리자 활동에 대한 완전한 제어
@@ -243,7 +243,7 @@ Azure MFA 또는 Windows Hello와 같이 고위 경영진, 고위 관리자, 중
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Azure AD에 대한 관리 전용 워크스테이션 사용
 
-공격자는 프로그램 논리를 변경하거나 관리자가 자격 증명을 입력하는 것을 염탐하는 악성 코드를 통해 권한 있는 계정을 대상으로 지정하여 조직의 데이터와 시스템에 액세스함으로써 데이터의 무결성 및 신뢰성을 방해할 수 있습니다. PAW(권한 있는 액세스 워크스테이션)는 인터넷 공격 및 위협 벡터로부터 보호되는 전용 운영 체제를 중요한 작업을 위해 제공합니다. 이러한 중요한 작업 및 계정을 매일 사용하는 워크스테이션 및 장치에서 분리하면 피싱 공격, 응용 프로그램 및 OS 취약점, 다양한 가장 공격 및 자격 증명 도난 공격(예: 키 입력 로깅, Pass-the-Hash 및 Pass-The-Ticket)으로부터 매우 강력한 보호 효과를 얻을 수 있습니다. 액세스 권한 있는 워크스테이션을 배포하는 경우 강화된 데스크톱 환경을 제외하고는 관리자가 관리자 자격 증명을 입력하는 위험을 줄일 수 있습니다. 자세한 내용은 [액세스 권한 있는 워크스테이션](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)을 참조하세요.
+공격자는 프로그램 논리를 변경하거나 관리자가 자격 증명을 입력하는 것을 염탐하는 악성 코드를 통해 권한 있는 계정을 대상으로 지정하여 조직의 데이터와 시스템에 액세스함으로써 데이터의 무결성 및 신뢰성을 방해할 수 있습니다. PAW(권한 있는 액세스 워크스테이션)는 인터넷 공격 및 위협 벡터로부터 보호되는 전용 운영 체제를 중요한 작업을 위해 제공합니다. 이러한 중요한 작업 및 계정을 매일 사용하는 워크스테이션 및 디바이스에서 분리하면 피싱 공격, 애플리케이션 및 OS 취약점, 다양한 가장 공격 및 자격 증명 도난 공격(예: 키 입력 로깅, Pass-the-Hash 및 Pass-The-Ticket)으로부터 매우 강력한 보호 효과를 얻을 수 있습니다. 액세스 권한 있는 워크스테이션을 배포하는 경우 강화된 데스크톱 환경을 제외하고는 관리자가 관리자 자격 증명을 입력하는 위험을 줄일 수 있습니다. 자세한 내용은 [액세스 권한 있는 워크스테이션](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)을 참조하세요.
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>인시던트 처리에 대한 NIST 권장 사항 검토 
 
@@ -263,7 +263,7 @@ Azure AD Privileged Identity Management를 이미 사용하고 있는 경우 필
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>암호 기반 로그인 프로토콜에 대한 노출 확인(Exchange Online을 사용하는 경우)
 
-과거에는 프로토콜에서 사용자 이름/암호 조합이 장치, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 그러나 이제는 클라우드에서 사이버 공격에 대한 위험이 있으므로, 자격 증명이 손상된 경우 조직에 치명적일 수 있는 모든 잠재적 사용자를 식별하고, 강력한 인증 요구 사항 및 조건부 액세스를 구현하여 사용자 이름/암호를 통해 이메일에 로그인할 수 없도록 차단하는 것이 좋습니다. 
+과거에는 프로토콜에서 사용자 이름/암호 조합이 디바이스, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 그러나 이제는 클라우드에서 사이버 공격에 대한 위험이 있으므로, 자격 증명이 손상된 경우 조직에 치명적일 수 있는 모든 잠재적 사용자를 식별하고, 강력한 인증 요구 사항 및 조건부 액세스를 구현하여 사용자 이름/암호를 통해 이메일에 로그인할 수 없도록 차단하는 것이 좋습니다. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Office 365 역할에 대한 역할 검토 평가 수행(Office 365를 사용하는 경우)
 
@@ -300,7 +300,7 @@ Azure 로그 통합을 사용하면 Azure 리소스의 원시 로그를 조직�
 
 #### <a name="implement-user-provisioning-for-connected-apps"></a>연결된 앱에 대한 사용자 프로비저닝 구현
 
-Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 응용 프로그램(SaaS)에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. 자세한 내용은 [Azure AD를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../active-directory-saas-app-provisioning.md)를 참조하세요.
+Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 응용 프로그램(SaaS)에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. 자세한 내용은 [Azure AD를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
 #### <a name="integrate-information-protection"></a>정보 보호 통합
 
@@ -329,7 +329,7 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 
 로드맵의 4단계는 3단계의 가시성을 기반으로 하며, 6개월 정도에 걸쳐 구현되도록 설계되었습니다. 로드맵을 완성하면 현재 알려져 있고 사용 가능한 잠재적 공격으로부터 강력한 권한 있는 액세스 보호를 개발할 수 있습니다. 그러나 보안 위협은 지속적으로 진화하고 변화하므로 비용을 높이고 환경을 대상으로 하는 악의적 사용자의 성공률을 줄이는 데 초점을 맞춘 지속적인 프로세스로 보안을 확인하는 것이 좋습니다.
 
-권한 있는 액세스 보호는 현대 조직에서 비즈니스 자산에 대한 보안 보장을 확립하는 중요한 첫 번째 단계이지만, 정책, 운영, 정보 보안, 서버, 응용 프로그램, PC, 장치, 클라우드 패브릭 및 기타 구성 요소와 같은 요소가 포함된 완전한 보안 프로그램의 유일한 부분이 아니며, 지속적인 보안 보장을 제공합니다. 
+권한 있는 액세스 보호는 현대 조직에서 비즈니스 자산에 대한 보안 보장을 확립하는 중요한 첫 번째 단계이지만, 정책, 운영, 정보 보안, 서버, 응용 프로그램, PC, 디바이스, 클라우드 패브릭 및 기타 구성 요소와 같은 요소가 포함된 완전한 보안 프로그램의 유일한 부분이 아니며, 지속적인 보안 보장을 제공합니다. 
 
 권한 있는 액세스 계정을 관리하는 것 외에도 다음 사항을 지속적으로 검토하는 것이 좋습니다.
 
@@ -347,9 +347,9 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 
 현재 기본 제공되는 Azure AD 관리자 역할이 최신 상태인지 확인하고, 사용자가 해당 권한에 필요한 역할 및 위임에만 있는지 확인합니다. Azure AD를 사용하면 별도의 관리자를 지정하여 다른 기능을 제공할 수 있습니다. 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](directory-assign-admin-roles.md)을 참조하세요.
 
-#### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>Azure AD 가입 장치를 관리하는 사용자 검토
+#### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>Azure AD 가입 디바이스를 관리하는 사용자 검토
 
-자세한 내용은 [하이브리드 Azure Active Directory 가입 장치를 구성하는 방법](../device-management-hybrid-azuread-joined-devices-setup.md)을 참조하세요.
+자세한 내용은 [하이브리드 Azure Active Directory 가입 디바이스를 구성하는 방법](../device-management-hybrid-azuread-joined-devices-setup.md)을 참조하세요.
 
 #### <a name="review-members-of-built-in-office-365-admin-roleshttpssupportofficecomarticleabout-office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d"></a>[기본 제공 Office 365 관리자 역할](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)의 멤버 검토
 Office 365를 사용하는 경우
@@ -380,7 +380,7 @@ Office 365를 사용하는 경우
 
 4. [Azure 지원 요청을 열어](../../azure-supportability/how-to-create-azure-support-request.md) Microsoft로부터 도움을 받습니다.
 
-5. [Azure AD 로그인 보고서](../active-directory-reporting-azure-portal.md)를 확인합니다. 이벤트가 발생하는 시점과 보고서에 포함되는 시점 사이에 지연이 있을 수 있습니다.
+5. [Azure AD 로그인 보고서](../reports-monitoring/overview-reports.md)를 확인합니다. 이벤트가 발생하는 시점과 보고서에 포함되는 시점 사이에 지연이 있을 수 있습니다.
 
 6. 하이브리드 환경의 경우 페더레이션되고 AD FS 서버를 사용할 수 없으면 일시적으로 페더레이션 인증에서 암호 해시 동기화를 사용하도록 전환해야 할 수 있습니다. 이렇게 하면 AD FS 서버를 사용할 수 있을 때까지 도메인 페더레이션을 관리 인증으로 되돌립니다.
 
@@ -388,7 +388,7 @@ Office 365를 사용하는 경우
 
 8. 잠재적인 법의학 및 법적 조사를 위해 관련 로그의 백업을 저장해야 합니다.
 
-Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 자세한 내용은 [Microsoft Office 365의 보안 인시던트 관리](http://aka.ms/Office365SIM)를 참조하세요.
+Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 자세한 내용은 [Microsoft Office 365의 보안 인시던트 관리](https://aka.ms/Office365SIM)를 참조하세요.
 
 ## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>FAQ: 권한 있는 액세스 보안과 관련하여 자주 받는 일반적인 질문  
 
@@ -440,17 +440,16 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Microsoft 보안 센터 - 제품 보안](https://www.microsoft.com/en-us/trustcenter/security) – Microsoft 클라우드 제품 및 서비스의 보안 기능
+* [Microsoft 보안 센터 - 제품 보안](https://www.microsoft.com/trustcenter/security) – Microsoft 클라우드 제품 및 서비스의 보안 기능
 
-* 
-  [Microsoft 보안 센터 - 준수](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – 클라우드 서비스를 위한 포괄적인 Microsoft 규정 준수 제품 집합
+* [Microsoft 보안 센터 - 준수](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – 클라우드 서비스를 위한 포괄적인 Microsoft 규정 준수 제품 집합
 
-* [위험 평가 수행 방법에 대한 지침](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) - Microsoft 클라우드 서비스에 대한 보안 및 규정 준수 요구 사항 관리
+* [위험 평가 수행 방법에 대한 지침](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - Microsoft 클라우드 서비스에 대한 보안 및 규정 준수 요구 사항 관리
 
 ### <a name="other-ms-online-services"></a>기타 MS 온라인 서비스 
 
-* [Microsoft Intune 보안](https://www.microsoft.com/en-us/trustcenter/security/intune-security) – Intune은 클라우드에서 모바일 장치 관리, 모바일 응용 프로그램 관리 및 PC 관리 기능을 제공합니다.
+* [Microsoft Intune 보안](https://www.microsoft.com/trustcenter/security/intune-security) – Intune은 클라우드에서 모바일 장치 관리, 모바일 응용 프로그램 관리 및 PC 관리 기능을 제공합니다.
 
-* [Microsoft Dynamics 365 보안](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) – Dynamics 365는 CRM(고객 관계 관리) 및 ERP(전사적 자원 관리) 기능을 통합하는 Microsoft 클라우드 기반 솔루션입니다.
+* [Microsoft Dynamics 365 보안](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365는 CRM(고객 관계 관리) 및 ERP(전사적 자원 관리) 기능을 통합하는 Microsoft 클라우드 기반 솔루션입니다.
 
  

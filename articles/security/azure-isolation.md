@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018417"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239052"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 공용 클라우드에서 격리
 ##  <a name="introduction"></a>소개
@@ -28,10 +28,10 @@ ms.locfileid: "37018417"
 주제는 폭과 깊이에 따라 다양하게 다루어지며 정기적으로 업데이트됩니다. 이 문서는 다음의 요약 섹션에서 설명하는 시리즈의 일부입니다.
 
 ### <a name="azure-platform"></a>Azure 플랫폼
-Azure는 매우 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 장치를 지원하는 개방적이고 유연한 클라우드 서비스 플랫폼입니다. 예를 들어 다음을 수행할 수 있습니다.
+Azure는 매우 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 디바이스를 지원하는 개방적이고 유연한 클라우드 서비스 플랫폼입니다. 예를 들어 다음을 수행할 수 있습니다.
 - Docker 통합으로 Linux 컨테이너를 실행합니다.
 - JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드합니다.
-- iOS, Android 및 Windows 장치용 백 엔드를 빌드합니다.
+- iOS, Android 및 Windows 디바이스용 백 엔드를 빌드합니다.
 
 Microsoft Azure는 수백만의 개발자와 IT 전문가가 이미 믿고 사용하고 있는 동일한 수준의 기술을 지원합니다.
 
@@ -111,7 +111,7 @@ Azure Active Directory의 몇 가지 다른 기능은 다음과 같습니다.
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)는 수억 개의 ID로 확장하는 소비자 지향 응용 프로그램에 항상 사용 가능한 전역적인 ID 관리 서비스를 제공합니다. 이 서비스는 모바일 및 웹 플랫폼에 통합될 수 있습니다. 소비자는 기존 소셜 계정을 사용하거나 자격 증명을 만들어 사용자 지정할 수 있는 환경을 통해 모든 응용 프로그램에 로그인할 수 있습니다.
 
 ### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Microsoft 관리자로부터 격리 및 데이터 삭제
-권한이 없는 사람이 부적절하게 액세스하거나 사용하지 않도록 데이터를 보호하기 위해 Microsoft에서 강력한 조치를 취합니다. 이러한 운영 프로세스 및 제어는 사용자의 데이터에 대한 액세스를 제어하는 계약상의 약정을 제공하는 [Online Services 약관](http://aka.ms/Online-Services-Terms)으로 지지됩니다.
+권한이 없는 사람이 부적절하게 액세스하거나 사용하지 않도록 데이터를 보호하기 위해 Microsoft에서 강력한 조치를 취합니다. 이러한 운영 프로세스 및 제어는 사용자의 데이터에 대한 액세스를 제어하는 계약상의 약정을 제공하는 [Online Services 약관](https://aka.ms/Online-Services-Terms)으로 지지됩니다.
 
 -   Microsoft 엔지니어는 클라우드에서 데이터에 대한 기본 액세스 권한을 갖지 없습니다. 대신 필요할 때만 관리 감독하에 액세스 권한이 부여됩니다. 이러한 액세스 권한은 신중하게 제어되고 로깅되며, 더 이상 필요하지 않게 되면 해지됩니다.
 
@@ -119,7 +119,7 @@ Azure Active Directory의 몇 가지 다른 기능은 다음과 같습니다.
 
 ISO/IEC 27001과 같은 감사된 인증을 갖춘 비즈니스 서비스는 합법적인 비즈니스 목적으로만 해당 액세스를 입증하기 위해 샘플 감사를 수행하는 Microsoft 및 공인 감사 기관에서 정기적으로 확인됩니다. 언제든지 어떤 이유로든 자신의 고객 데이터에 액세스할 수 있습니다.
 
-데이터를 삭제하면 Microsoft Azure는 캐시된 복사본 또는 백업 복사본을 모두 포함하여 데이터를 삭제합니다. 범위 내 서비스의 경우 삭제는 보존 기간 종료 후 90일 이내에 발생합니다. (범위 내 서비스는 [Online Services 약관](http://aka.ms/Online-Services-Terms)의 데이터 처리 조항 섹션에 정의되어 있습니다.)
+데이터를 삭제하면 Microsoft Azure는 캐시된 복사본 또는 백업 복사본을 모두 포함하여 데이터를 삭제합니다. 범위 내 서비스의 경우 삭제는 보존 기간 종료 후 90일 이내에 발생합니다. (범위 내 서비스는 [Online Services 약관](https://aka.ms/Online-Services-Terms)의 데이터 처리 조항 섹션에 정의되어 있습니다.)
 
 저장소로 사용되는 디스크 드라이브에 하드웨어 장애가 발생하면 Microsoft에서 교체하거나 복구하기 위해 제조업체에 반환하기 전에 안전하게 [지워지거나 제거됩니다](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data). 어떤 방법으로도 데이터를 복구할 수 없도록 드라이브의 데이터를 덮어씁니다.
 
@@ -127,7 +127,7 @@ ISO/IEC 27001과 같은 감사된 인증을 갖춘 비즈니스 서비스는 합
 Microsoft Azure는 응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하도록 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스를 제공합니다. 이러한 계산 인스턴스와 서비스는 여러 수준에서 격리를 제공하여 고객이 요구하는 구성에서 유연성을 유지하면서 데이터를 보호합니다.
 
 ### <a name="isolated-virtual-machine-sizes"></a>격리 가상 머신 크기
-Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다.  이러한 가상 머신 크기는 규정 준수 및 규정 요구 사항과 같은 요소를 포함하는 작업에 대해 다른 고객으로부터 높은 수준의 격리가 필요한 작업에 가장 적합합니다.  고객은 [중첩된 가상 머신에 대한 Azure 지원](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/)을 사용하여 이러한 격리된 가상 머신의 리소스를 보다 세분화할 수도 있습니다.
+Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다.  이러한 가상 머신 크기는 규정 준수 및 규정 요구 사항과 같은 요소를 포함하는 작업에 대해 다른 고객으로부터 높은 수준의 격리가 필요한 작업에 가장 적합합니다.  고객은 [중첩된 가상 머신에 대한 Azure 지원](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)을 사용하여 이러한 격리된 가상 머신의 리소스를 보다 세분화할 수도 있습니다.
 
 격리 크기를 사용하면 가상 머신이 특정 서버 인스턴스에서 하나만 실행되도록 보장합니다.  현재 격리 가상 머신 제품에는 다음이 포함됩니다.
 * Standard_E64is_v3
@@ -138,10 +138,10 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 * Standard_DS15_v2
 * Standard_D15_v2
 
-[여기](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory)에서 사용 가능한 격리 크기 각각에 대해 자세히 알아볼 수 있습니다.
+[여기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)에서 사용 가능한 격리 크기 각각에 대해 자세히 알아볼 수 있습니다.
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리
-Azure의 계산 플랫폼은 Hyper-V 가상 머신에서 모든 고객 코드를 실행한다는 것을 의미하는 컴퓨터 가상화를 기반으로 합니다. 각 Azure 노드(또는 네트워크 끝점)에는 하드웨어를 통해 직접 실행되는 하이퍼바이저가 있으며, 노드는 여러 게스트 VM(Virtual Machines)으로 나누어집니다.
+Azure의 계산 플랫폼은 Hyper-V 가상 머신에서 모든 고객 코드를 실행한다는 것을 의미하는 컴퓨터 가상화를 기반으로 합니다. 각 Azure 노드(또는 네트워크 엔드포인트)에는 하드웨어를 통해 직접 실행되는 하이퍼바이저가 있으며, 노드는 여러 게스트 VM(Virtual Machines)으로 나누어집니다.
 
 
 ![루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리](./media/azure-isolation/azure-isolation-fig4.jpg)
@@ -179,7 +179,7 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노�
 격리는 게스트 VM/루트 VM 간과 게스트 VM 간으로 확장됩니다. 또한 Compute 노드는 보호를 강화하기 위해 저장소 노드로부터 격리됩니다.
 
 
-하이퍼바이저 및 호스트 OS는 네트워크 패킷 필터를 제공하여 신뢰할 수 없는 가상 머신에서 스푸핑된 트래픽을 생성하거나, 해당 주소로 지정되지 않은 트래픽을 받거나, 보호된 인프라 끝점으로 트래픽을 보내거나, 부적절한 브로드캐스트 트래픽을 보내거나 받을 수 없도록 합니다.
+하이퍼바이저 및 호스트 OS는 네트워크 패킷 필터를 제공하여 신뢰할 수 없는 가상 머신에서 스푸핑된 트래픽을 생성하거나, 해당 주소로 지정되지 않은 트래픽을 받거나, 보호된 인프라 엔드포인트로 트래픽을 보내거나, 부적절한 브로드캐스트 트래픽을 보내거나 받을 수 없도록 합니다.
 
 
 ### <a name="additional-rules-configured-by-fabric-controller-agent-to-isolate-vm"></a>패브릭 컨트롤러 에이전트에서 VM을 격리하도록 구성되는 추가 규칙
@@ -201,9 +201,9 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노�
 
 -   FC VLAN - 신뢰할 수 있는 FC 및 지원 시스템을 포함합니다.
 
--   장치 VLAN - 신뢰할 수 있는 네트워크 및 기타 인프라 장치를 포함합니다.
+-   디바이스 VLAN - 신뢰할 수 있는 네트워크 및 기타 인프라 디바이스를 포함합니다.
 
-FC VLAN에서 기본 VLAN으로의 통신은 허용되지만, 기본 VLAN에서 FC VLAN으로 초기화할 수는 없습니다. 또한 기본 VLAN에서 장치 VLAN으로의 통신은 차단됩니다. 이렇게 하면 고객 코드를 실행하는 노드가 손상되더라도 FC VLAN 또는 장치 VLAN의 노드는 공격할 수 없습니다.
+FC VLAN에서 기본 VLAN으로의 통신은 허용되지만, 기본 VLAN에서 FC VLAN으로 초기화할 수는 없습니다. 또한 기본 VLAN에서 디바이스 VLAN으로의 통신은 차단됩니다. 이렇게 하면 고객 코드를 실행하는 노드가 손상되더라도 FC VLAN 또는 디바이스 VLAN의 노드는 공격할 수 없습니다.
 
 ## <a name="storage-isolation"></a>저장소 격리
 ### <a name="logical-isolation-between-compute-and-storage"></a>Compute 및 저장소 간의 논리적 격리
@@ -340,7 +340,7 @@ VIP(가상 IP 주소) 뒤에는 상태 비저장 게이트웨이 서비스의 �
 SQL Azure는 다른 시스템 함수에서 실행되는 서비스로 구성됩니다. SQL Azure는 "백 엔드" 클라우드 데이터베이스와 "프런트 엔드"(게이트웨이/관리) 환경으로 구분되며, 여기서는 트래픽의 일반적인 원칙이 백 엔드로만 전달되며 백 엔드로부터 받을 수는 없습니다. 프론트 엔드 환경은 다른 서비스의 외부 세계와 통신할 수 있으며, 일반적으로 백 엔드에서 제한된 권한(호출해야 하는 진입점을 호출하는 데 충분한 권한)만 가집니다.
 
 ## <a name="networking-isolation"></a>네트워킹 격리
-Azure 배포에는 여러 계층의 네트워크 격리가 있습니다. 다음 다이어그램에서는 Azure에서 고객에게 제공하는 다양한 계층의 네트워크 격리를 보여 줍니다. 이러한 계층은 Azure 플랫폼 자체 기능 및 고객 정의 기능에서 모두 고유합니다. Azure DDoS는 인바운드 인터넷을 통해 Azure에 대한 대규모 공격에 대한 격리를 제공합니다. 다음 격리 계층은 클라우드 서비스를 통해 가상 네트워크로 전달할 수 있는 트래픽을 결정하는 데 사용하도록 고객이 정의한 공용 IP 주소(끝점)입니다. 기본 Azure Virtual Network 격리를 통해 모든 타 네트워크를 격리하고 트래픽이 사용자가 구성한 경로 및 방법을 통해서만 전달되도록 할 수 있습니다. 이러한 경로와 방법은 NSG, UDR 및 네트워크 가상 어플라이언스를 사용하여 보호된 네트워크의 응용 프로그램 배포를 보호하기 위해 격리 경계를 만드는 데 사용할 수 있는 다음 계층입니다.
+Azure 배포에는 여러 계층의 네트워크 격리가 있습니다. 다음 다이어그램에서는 Azure에서 고객에게 제공하는 다양한 계층의 네트워크 격리를 보여 줍니다. 이러한 계층은 Azure 플랫폼 자체 기능 및 고객 정의 기능에서 모두 고유합니다. Azure DDoS는 인바운드 인터넷을 통해 Azure에 대한 대규모 공격에 대한 격리를 제공합니다. 다음 격리 계층은 클라우드 서비스를 통해 가상 네트워크로 전달할 수 있는 트래픽을 결정하는 데 사용하도록 고객이 정의한 공용 IP 주소(엔드포인트)입니다. 기본 Azure Virtual Network 격리를 통해 모든 타 네트워크를 격리하고 트래픽이 사용자가 구성한 경로 및 방법을 통해서만 전달되도록 할 수 있습니다. 이러한 경로와 방법은 NSG, UDR 및 네트워크 가상 어플라이언스를 사용하여 보호된 네트워크의 응용 프로그램 배포를 보호하기 위해 격리 경계를 만드는 데 사용할 수 있는 다음 계층입니다.
 
 ![네트워킹 격리](./media/azure-isolation/azure-isolation-fig13.png)
 
@@ -352,7 +352,7 @@ Azure 배포에는 여러 계층의 네트워크 격리가 있습니다. 다음 
 
 - [Microsoft Azure Virtual Network의 컴퓨터에 대한 네트워크 격리 옵션](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
 
-여기에는 특정 클라이언트 또는 다른 컴퓨터가 IP 주소의 허용 목록을 기반으로 하여 특정 끝점에 연결할 수 있도록 특정 백 엔드 네트워크 또는 하위 네트워크의 컴퓨터에서 허용하는 클래식 프런트 엔드 및 백 엔드 시나리오가 포함됩니다.
+여기에는 특정 클라이언트 또는 다른 컴퓨터가 IP 주소의 허용 목록을 기반으로 하여 특정 엔드포인트에 연결할 수 있도록 특정 백 엔드 네트워크 또는 하위 네트워크의 컴퓨터에서 허용하는 클래식 프런트 엔드 및 백 엔드 시나리오가 포함됩니다.
 
 - [Compute 격리](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 

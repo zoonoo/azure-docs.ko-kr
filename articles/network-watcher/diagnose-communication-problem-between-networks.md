@@ -95,7 +95,7 @@ VPN진단을 사용하려면 실행 중인 기존 VPN 게이트웨이가 있어�
 
     VPN 진단은 **상태** 탭에서 잘못된 부분을 알려주고, **작업** 탭에서 문제를 일으킬 수 있는 부분에 대한 여러 가지 권장 사항을 제공합니다.
 
-    테스트한 게이트웨이가 [필수 구성 요소](#prerequisites)의 [스크립트](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 통해 배포된 게이트웨이인 경우 **상태** 탭의 문제와  **작업** 탭의 처음 두 항목이 바로 정확한 문제입니다. 스크립트가 온-프레미스 VPN 게이트웨이 장치에 대한 자리 표시자 IP 주소 23.99.221.164를 구성합니다.
+    테스트한 게이트웨이가 [필수 구성 요소](#prerequisites)의 [스크립트](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 통해 배포된 게이트웨이인 경우 **상태** 탭의 문제와  **작업** 탭의 처음 두 항목이 바로 정확한 문제입니다. 스크립트가 온-프레미스 VPN Gateway 디바이스에 대한 자리 표시자 IP 주소 23.99.221.164를 구성합니다.
 
     이 문제를 해결하려면 온-프레미스 VPN 게이트웨이가 [올바르게 구성](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)되었는지 확인하고, 스크립트를 통해 로컬 네트워크 게이트웨이에 구성된 IP 주소를 온-프레미스 VPN 게이트웨이의 실제 공용 주소로 변경해야 합니다.
 

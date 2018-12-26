@@ -4,7 +4,7 @@ description: Azure에서 Service Bus에 대한 진단 로그를 설정하는 방
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
-author: banisadr
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 4ce724adc9ca167634be9a0b7137b6a3d54211bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 09/05/2018
+ms.author: spelluru
+ms.openlocfilehash: 85bbd59cb921e5f20feb7b1cf1073fd7b695864f
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29122183"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393573"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Service Bus 진단 로그
 
@@ -64,7 +64,7 @@ Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-Name | 설명
+이름 | 설명
 ------- | -------
 ActivityId | 추적에 사용되는 내부 ID
 EventName | 작업 이름           

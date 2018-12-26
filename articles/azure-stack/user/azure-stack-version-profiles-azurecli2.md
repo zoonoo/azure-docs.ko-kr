@@ -3,30 +3,30 @@ title: CLI 사용 하 여 Azure Stack에 연결 | Microsoft Docs
 description: 플랫폼 간 명령줄 인터페이스 (CLI)를 사용 하 여 관리 하 고 Azure Stack에서 리소스를 배포 하는 방법 알아보기
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
-ms.author: mabrigg
+ms.date: 09/08/2018
+ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 1b59409e43a23dd63a6697a44a20df079a751516
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866861"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969960"
 ---
-# <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Azure Stack에서 Azure CLI 2.0을 사용 하 여 API 버전 프로필 사용
+# <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
 Linux, Mac 및 Windows 클라이언트 플랫폼에서 Azure Stack 개발 키트 리소스를 관리 하는 Azure 명령줄 인터페이스 (CLI)를 설정 하려면이 문서의 단계를 수행할 수 있습니다.
 
 ## <a name="install-cli"></a>CLI 설치
 
-개발 워크스테이션에 로그인 하 고 CLI를 설치 합니다. Azure Stack의 Azure CLI 2.0 버전에 필요합니다. 에 설명 된 단계를 사용 하 여 설치할 수 있습니다 합니다 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 문서. 설치가 성공 했는지 여부를 확인 하려면 터미널 또는 명령 프롬프트 창을 열고 다음 명령을 실행 합니다.
+개발 워크스테이션에 로그인 하 고 CLI를 설치 합니다. Azure Stack에는 버전의 Azure CLI 2.0 이상이 필요합니다. 에 설명 된 단계를 사용 하 여 설치할 수 있습니다 합니다 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 문서. 설치가 성공 했는지 여부를 확인 하려면 터미널 또는 명령 프롬프트 창을 열고 다음 명령을 실행 합니다.
 
 ```azurecli
 az --version
@@ -36,9 +36,9 @@ Azure CLI 및 컴퓨터에 설치 된 기타 종속 된 라이브러리의 버�
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA 루트 인증서를 신뢰 합니다.
 
-1. Azure Stack CA 루트 인증서를 가져오는 [귀하가 Azure Stack 운영자](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) 신뢰 하 고 있습니다. Azure Stack CA 루트 인증서를 신뢰 하려면 기존 Python 인증서를 추가 합니다.
+1. Azure Stack CA 루트 인증서를 가져오는 [귀하가 Azure Stack 운영자](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) 신뢰 하 고 있습니다. Azure Stack CA 루트 인증서를 신뢰 하려면 기존 Python 인증서를 추가 합니다.
 
-2. 컴퓨터에 인증서 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. 해야 합니다 [pip](https://pip.pypa.io) 하며 [로](https://pypi.org/project/certifi/) 모듈을 설치 합니다. Bash 프롬프트에서 다음 Python 명령에 사용할 수 있습니다.
+1. 컴퓨터에 인증서 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. 해야 합니다 [pip](https://pip.pypa.io) 하며 [로](https://pypi.org/project/certifi/) 모듈을 설치 합니다. Bash 프롬프트에서 다음 Python 명령에 사용할 수 있습니다.
 
   ```bash  
     python -c "import certifi; print(certifi.where())"
@@ -60,9 +60,9 @@ sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 
 1. 설정 해야 합니다 [Azure Stack에 VPN 연결](azure-stack-connect-azure-stack.md)합니다.
 
-2. Azure Stack 연산자에서 가져온 PEM 인증서를 복사 하 고 (PATH_TO_PEM_FILE) 파일의 위치를 기록해 둡니다.
+1. Azure Stack 연산자에서 가져온 PEM 인증서를 복사 하 고 (PATH_TO_PEM_FILE) 파일의 위치를 기록해 둡니다.
 
-3. 끝 개발 워크스테이션의 운영 체제에 따라 다음 명령을 실행 합니다.
+1. 끝 개발 워크스테이션의 운영 체제에 따라 다음 명령을 실행 합니다.
 
 #### <a name="linux"></a>Linux
 
@@ -76,7 +76,7 @@ sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 ```powershell
 $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -94,7 +94,7 @@ $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
 $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
 $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
 $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
-$sha1Entry    = [string]::Format("# SHA1 Finterprint: {0}", $sha1Hash)
+$sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
 $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
 $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
 
@@ -129,7 +129,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-   나. 등록 하는 *사용자* 환경에서 사용 하 여:
+   b. 등록 하는 *사용자* 환경에서 사용 하 여:
 
       ```azurecli
       az cloud register \ 
@@ -139,8 +139,20 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
+    다. 등록 하는 *사용자* 다중 테 넌 트 환경에서 사용 하 여:
 
-2. 다음 명령을 사용 하 여 활성 환경을 설정 합니다.
+      ```azurecli
+      az cloud register \ 
+        -n AzureStackUser \ 
+        --endpoint-resource-manager "https://management.local.azurestack.external" \ 
+        --suffix-storage-endpoint "local.azurestack.external" \ 
+        --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
+        --profile 2018-03-01-hybrid
+      ```
+
+1. 다음 명령을 사용 하 여 활성 환경을 설정 합니다.
 
    a. 에 대 한 합니다 *클라우드 관리* 환경에서 사용 하 여:
 
@@ -149,23 +161,27 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         -n AzureStackAdmin
       ```
 
-   나. 에 대 한 합니다 *사용자* 환경에서 사용 하 여:
+   b. 에 대 한 합니다 *사용자* 환경에서 사용 하 여:
 
       ```azurecli
       az cloud set \
         -n AzureStackUser
       ```
 
-3. Azure Stack 특정 API 버전 프로필을 사용 하도록 사용자의 환경 구성을 업데이트 합니다. 구성 값을 업데이트 하려면 다음 명령을 실행 합니다.
+1. Azure Stack 특정 API 버전 프로필을 사용 하도록 사용자의 환경 구성을 업데이트 합니다. 구성 값을 업데이트 하려면 다음 명령을 실행 합니다.
 
    ```azurecli
    az cloud update \
-     --profile 2017-03-09-profile
+     --profile 2018-03-01-hybrid
    ```
 
-4. 사용 하 여 Azure Stack 환경에 로그인 합니다 `az login` 명령입니다. 로그인 할 수 있습니다 Azure Stack 환경에 사용자 또는으로 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)합니다. 
+    >[!NOTE]  
+    >API 버전 프로필을 사용 하는 1808 빌드 전에 Azure Stack의 버전을 실행 하는 경우 **2017-03-09-profile** API 버전 프로필 대신 **2018-03-01-하이브리드**합니다.
 
-   * 으로 로그인을 *사용자*: username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령을 선택 하거나 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우에 후자를 수행 해야 합니다.
+1. 사용 하 여 Azure Stack 환경에 로그인 합니다 `az login` 명령입니다. 로그인 할 수 있습니다 Azure Stack 환경에 사용자 또는으로 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)합니다. 
+
+    * AAD 환경
+      * 으로 로그인을 *사용자*: username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령을 선택 하거나 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우에 후자를 수행 해야 합니다.
 
       ```azurecli
       az login \
@@ -176,7 +192,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
       > [!NOTE]
       > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login command` 제공 하지 않고는 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공 명령을 실행 합니다.
    
-   * 으로 로그인을 *서비스 주체*: 로그인 하기 전에 [Azure portal 통해 서비스 주체 만들기](azure-stack-create-service-principals.md) 또는 CLI 역할을 할당 합니다. 이제 다음 명령을 사용 하 여 로그인 합니다.
+      * 으로 로그인을 *서비스 주체*: 로그인 하기 전에 [Azure portal 통해 서비스 주체 만들기](azure-stack-create-service-principals.md) 또는 CLI 역할을 할당 합니다. 이제 다음 명령을 사용 하 여 로그인 합니다.
 
       ```azurecli
       az login \
@@ -185,6 +201,22 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
+    * AD FS 환경
+
+        * 으로 로그인을 *서비스 주체*: 
+          1.    서비스 보안 주체 로그인에 사용 되는.pem 파일을 준비 합니다.
+                * 보안 주체가 생성 된 위치를 클라이언트 컴퓨터에서 서비스 주체 인증서를 pfx로 개인 키를 사용 하 여 내보내기 (cert: \CurrentUser\My;에 있는 인증서 이름을 주 서버는 같은 이름을 가진).
+
+                *   Pfx에서 pem (사용 하 여 OpenSSL 유틸리티)으로 변환 합니다.
+
+          1.    CLI에 로그인합니다. :
+                ```azurecli
+                az login --service-principal \
+                 -u <Client ID from the Service Principal details> \
+                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
+                 --tenant <Tenant ID> \
+                 --debug 
+                ```
 
 ## <a name="test-the-connectivity"></a>연결 테스트
 
@@ -203,13 +235,13 @@ az group create \
 Azure Stack에서 CLI를 사용 하는 경우 주의 해야 하는 몇 가지 알려진된 문제는
 
  - CLI 대화형 모드 즉 `az interactive` 명령은 Azure Stack에서 아직 지원 되지 않습니다.
- - Azure Stack에서 사용할 수 있는 가상 머신 이미지 목록을 사용 합니다 `az vm images list --all` 대신 명령을 `az vm image list` 명령입니다. 지정 된 `--all` 옵션을 선택 하면 Azure Stack 환경에서 사용할 수 있는 이미지만 응답 반환 하는지 확인 합니다.
+ - Azure Stack에서 사용할 수 있는 가상 머신 이미지 목록을 사용 합니다 `az vm image list --all` 대신 명령을 `az vm image list` 명령입니다. 지정 된 `--all` 옵션을 선택 하면 Azure Stack 환경에서 사용할 수 있는 이미지만 응답 반환 하는지 확인 합니다.
  - Azure에서 사용할 수 있는 가상 머신 이미지 별칭 Azure Stack에 적용할 수 없습니다. 가상 머신 이미지를 사용 하는 경우에 전체 URN 매개 변수를 사용 해야 합니다 (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) 이미지 별칭 대신 합니다. 이 URN에서 파생 된 이미지 사양과 일치 해야 합니다는 `az vm images list` 명령입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 [Azure CLI을 사용하여 템플릿 배포](azure-stack-deploy-template-command-line.md)
 
-[Azure Stack 사용자 (운영자)에 대 한 Azure CLI를 사용 하도록 설정](..\azure-stack-cli-admin.md)
+[Azure Stack 사용자 (운영자)에 대 한 Azure CLI를 사용 하도록 설정](../azure-stack-cli-admin.md)
 
 [사용자 권한 관리](azure-stack-manage-permissions.md)

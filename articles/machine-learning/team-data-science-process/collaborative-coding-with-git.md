@@ -1,25 +1,21 @@
 ---
 title: Git를 사용하여 공동 코딩 - Azure Machine Learning | Microsoft Docs
 description: Agile 계획과 함께 Git를 사용하여 데이터 과학 프로젝트용 공동 코드 개발을 수행하는 방법입니다.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: deguhath
-ms.openlocfilehash: abb1c7a3f597804a84f06462b1e50bb5a63fb9b3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 4ea9aa10ba40d734e064d34da2536e28a619201f
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837364"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444242"
 ---
 # <a name="collaborative-coding-with-git"></a>Git를 사용하여 공동 코딩
 
@@ -28,13 +24,13 @@ ms.locfileid: "34837364"
 
 ## 1. <a name='Linkaworkitemwithagitbranch-1'></a>Git 분기와 작업 항목 연결 
 
-VSTS는 작업 항목(스토리 또는 작업)을 Git 분기와 연결하는 편리한 방법을 제공합니다. 이렇게 하면 스토리 또는 작업을 연결되는 코드에 직접 연결할 수 있습니다. 
+Azure DevOps Services는 작업 항목(스토리 또는 작업)을 Git 분기와 연결하는 편리한 방법을 제공합니다. 이렇게 하면 스토리 또는 작업을 연결되는 코드에 직접 연결할 수 있습니다. 
 
 작업 항목을 새 분기에 연결하려면 작업 항목을 두 번 클릭하고, 팝업 창의 **+ 링크 추가** 아래에서 **새 분기 만들기**를 클릭합니다.  
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-이 새 분기에 대한 정보(예: 분기 이름, 기본 Git 리포지토리 및 분기)를 제공합니다. 선택한 Git 리포지토리는 작업 항목이 속한 동일한 팀 프로젝트 아래에 있는 리포지토리여야 합니다. 기본 분기는 마스터 분기 또는 다른 기존 분기일 수 있습니다.
+이 새 분기에 대한 정보(예: 분기 이름, 기본 Git 리포지토리 및 분기)를 제공합니다. 선택한 Git 리포지토리는 작업 항목이 속한 동일한 프로젝트 아래에 있는 리포지토리여야 합니다. 기본 분기는 마스터 분기 또는 다른 기존 분기일 수 있습니다.
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
@@ -70,11 +66,11 @@ Git bash 명령으로 새 분기를 만들 수도 있습니다. <base branch nam
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## 3. <a name='CreateapullrequestonVSTS-3'></a>VSTS에서 끌어오기 요청 만들기 
+## 3. <a name='CreateapullrequestonVSTS-3'></a>Azure DevOps Services에서 끌어오기 요청 만들기 
 
-몇 가지 커밋 및 푸시 후에 준비가 되면 현재 분기를 기본 분기에 병합하기 위해 VSTS 서버에서 **끌어오기 요청**을 제출할 수 있습니다. 
+몇 가지 커밋 및 푸시 후에 준비가 되면 현재 분기를 기본 분기에 병합하기 위해 Azure DevOps Services에서 **끌어오기 요청**을 제출할 수 있습니다. 
 
-팀 프로젝트의 기본 페이지로 이동하고 **코드**를 클릭합니다. 병합할 분기와 분기를 병합하려는 Git 리포지토리 이름을 선택합니다. 그런 다음 분기 작업을 기본 분기에 병합하기 전에 **끌어오기 요청**을 클릭하고 **새 끌어오기 요청**을 클릭하여 끌어오기 요청 검토를 만듭니다.
+프로젝트의 기본 페이지로 이동하고 **코드**를 클릭합니다. 병합할 분기와 분기를 병합하려는 Git 리포지토리 이름을 선택합니다. 그런 다음 분기 작업을 기본 분기에 병합하기 전에 **끌어오기 요청**을 클릭하고 **새 끌어오기 요청**을 클릭하여 끌어오기 요청 검토를 만듭니다.
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 

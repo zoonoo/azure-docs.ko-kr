@@ -2,19 +2,19 @@
 title: Azure VM을 만드는 동안 백업 사용
 description: Azure Virtual Machine을 만드는 동안 백업을 사용하도록 설정하는 단계를 참조하세요.
 services: backup, virtual-machines
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup, virtual-machines
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: 928481f07875286a21f68dae6556f04eb2b6ae5c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 518d171c96b9c4f9bf3e195a7130f4c022b7ad07
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606123"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879879"
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>Azure Virtual Machine을 만드는 동안 백업 사용 
 
@@ -67,7 +67,7 @@ Microsoft에서 게시한 다음과 같은 주요 이미지가 VM 생성 중에 
 
 - **Windows** - Windows Server 2016 Data center, Windows Server 2016 Data Center Core, Windows Server 2012 DataCenter, Windows Server 2012 R2 DataCenter, Windows Server 2008 R2 SP1 
 - **Ubuntu** - Ubuntu Server 1710, Ubuntu Server 1704, UUbuntu Server 1604(LTS), Ubuntu Server 1404(LTS) 
-- **Redhat** - RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4 
+- **Red Hat** - RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4 
 - **SUSE** - SUSE Linux Enterprise Server 11 SP4, 12 SP2, 12 SP3 
 - **Debian** - Debian 8, Debian 9 
 - **CentOS** - CentOS 6.9, CentOS 7.3 

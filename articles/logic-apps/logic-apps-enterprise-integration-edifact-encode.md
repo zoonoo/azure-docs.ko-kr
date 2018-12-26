@@ -1,27 +1,23 @@
 ---
 title: EDIFACT 메시지 인코딩 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps의 엔터프라이즈 통합 팩에서 EDIFACT 메시지 인코더를 사용하여 EDI 유효성 검사 및 XML 생성
+description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps용 EDIFACT 메시지 인코더를 사용하여 EDI 유효성 검사 및 XML 생성
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: eaad2561254d858af99f06e576d67c05838e1220
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e1c990030a9fa9ad25950ccb24b36b82a8c69f5c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299895"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122356"
 ---
-# <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 EDIFACT 메시지 인코딩
+# <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 EDIFACT 메시지 인코딩
 
 EDIFACT 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 속성의 유효성을 검사하고 각 트랜잭션 집합에 XML 문서를 생성하고 기술 승인, 기능 승인 또는 둘 다를 요청할 수 있습니다.
 이 커넥터를 사용하려면 논리 앱에서 기존 트리거에 커넥터를 추가해야 합니다.

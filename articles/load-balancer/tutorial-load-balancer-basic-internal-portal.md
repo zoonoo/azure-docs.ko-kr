@@ -1,93 +1,231 @@
 ---
-title: '자습서: 공용 기본 부하 분산 장치 만들기 - Azure Portal | Microsoft Docs'
+title: '자습서: 내부 부하 분산 장치 만들기 - Azure Portal'
+titlesuffix: Azure Load Balancer
 description: 이 자습서에서는 Azure Portal을 사용하여 내부 기본 부하 분산 장치를 만드는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2018
+ms.date: 11/28/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.custom: seodec18
+ms.openlocfilehash: 1ed77e8573479665d0caac15941d6b6c6ab790cb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097481"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262353"
 ---
-# <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 기본 부하 분산 장치로 내부 트래픽을 여러 VM에 분산
+# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>자습서: Azure Portal에서 기본 부하 분산 장치로 내부 트래픽 부하 분산
 
-부하를 분산하면 들어오는 요청이 여러 가상 머신에 분산되어 가용성 및 확장성이 향상됩니다. Azure Portal을 사용하여 기본 부하 분산 장치로 내부 트래픽을 여러 가상 머신에 분산할 수 있습니다. 이 자습서에서는 네트워크 리소스, 백 엔드 서버 및 내부 기본 부하 분산 장치를 만드는 방법을 보여줍니다.
+부하를 분산시키면 들어오는 요청을 VM(가상 머신)에 분산하여 높은 수준의 가용성과 크기 조정이 제공됩니다. Azure Portal을 사용하여 기본 부하 분산 장치를 만들고 여러 VM으로 내부 트래픽 부하를 분산시킬 수 있습니다. 이 빠른 시작에서는 기본 가격 계층에서 내부 부하 분산 장치, 백 엔드 서버 및 네트워크 리소스를 만들고 구성하는 방법을 보여줍니다.
 
-원하는 경우 [Azure CLI](load-balancer-get-started-ilb-arm-cli.md) 또는 [Azure PowerShell](load-balancer-get-started-ilb-arm-ps.md)을 사용하여 이 자습서를 완료할 수 있습니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+원할 경우 포털 대신 [Azure CLI](load-balancer-get-started-ilb-arm-cli.md) 또는 [Azure PowerShell](load-balancer-get-started-ilb-arm-ps.md)을 사용하여 이러한 단계를 수행할 수 있습니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
+이 자습서를 사용하여 단계를 수행하려면 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+## <a name="create-a-vnet-back-end-servers-and-a-test-vm"></a>VNet, 백 엔드 서버 및 테스트 VM 만들기
 
-## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
-1. 화면의 왼쪽 상단에서 **새로 만들기** > **네트워킹** > **가상 네트워크**를 클릭하고 가상 네트워크에 대한 다음 값을 입력합니다.
-    - *myVNet* - 가상 네트워크의 이름입니다.
-    - *myResourceGroupILB* - 기존 리소스 그룹의 이름입니다.
-    - *myBackendSubnet* - 서브넷 이름입니다.
-2. **만들기**를 클릭하여 가상 네트워크를 만듭니다.
+먼저 VNet(가상 네트워크)을 만듭니다. VNet에서 기본 부하 분산 장치의 백 엔드 풀에 사용할 VM을 두 개 만든 후, 부하 분산 장치를 테스트하는 데 사용할 세 번째 VM을 만듭니다. 
 
-![부하 분산 장치 만들기](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
+### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-## <a name="create-a-basic-load-balancer"></a>기본 부하 분산 장치 만들기
-포털을 사용하여 내부 기본 부하 분산 장치를 만듭니다.
-
-1. 화면의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치**를 클릭합니다.
-2. **부하 분산 장치 만들기** 페이지에서 부하 분산 장치에 다음 값을 입력합니다.
-    - *myLoadBalancer* - 부하 분산 장치의 이름입니다.
-    - **내부** - 부하 분산 장치의 유형입니다.
-    - **기본** - SKU 버전입니다.
-    - **10.1.0.7** - 고정 개인 IP 주소입니다.
-    - *myVNet* - 기존 네트워크 목록에서 선택할 가상 네트워크입니다.
-    - *mySubnet* - 기존 서브넷 목록에서 선택할 서브넷입니다.
-    - *myResourceGroupILB* - 새로 만드는 리소스 그룹의 이름입니다.
-3. **만들기**를 클릭하여 부하 분산 장치를 만듭니다.
+1. 포털의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
    
-    ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
+1. **가상 네트워크 만들기** 창에서 다음 값을 입력하거나 선택합니다.
+   
+   - **이름**: *MyVNet*을 입력합니다.
+   - **ResourceGroup**: **새로 만들기**를 선택하고 *MyResourceGroupLB*를 입력한 다음, **확인**을 선택합니다. 
+   - **서브넷** > **이름**: *MyBackendSubnet*을 입력합니다.
+   
+1. **만들기**를 선택합니다.
 
-이 섹션에서는 기본 부하 분산 장치의 백 엔드 풀에 사용되는 가상 머신 2개를 만든 다음, 부하 분산 장치를 테스트하기 위한 IIS를 가상 머신에 설치합니다.
+   ![가상 네트워크 만들기](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-1. 화면의 왼쪽 상단에서 **리소스 만들기** > **계산** > **Windows Server 2016 Datacenter**를 클릭하고 가상 머신에 대해 다음 값을 입력합니다.
-    - *myVM1* - 가상 머신의 이름입니다.        
-    - *azureuser* - 관리자 사용자 이름입니다.   
-    - *myResourceGroupILB* - **리소스 그룹**에서 **기존 항목 사용**을 선택한 다음, *myResourceGroupILB*를 선택합니다.
-2. **확인**을 클릭합니다.
-3. 가상 머신의 크기에 대해 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
-4. VM 설정에 다음 값을 입력합니다.
-    - *myAvailabilitySet* - 새로 만드는 가용성 집합의 이름으로 입력합니다.
-    -  *myVNet* - 가상 네트워크로 선택합니다.
-    - *myBackendSubnet* - 서브넷으로 선택합니다.
-5. **네트워크 보안 그룹**에서 **고급**을 선택합니다. 다음으로 **네트워크 보안 그룹(방화벽)** 에서 **없음**을 선택합니다.
-5. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
-6. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
-7. 1-6단계를 사용하여 가용성 집합은 *myAvailabilityset*이고, 가상 네트워크는 *myVnet*이고, 서브넷은  *myBackendSubnet*인 두 번째 VM *VM2*를 만들고, **네트워크 보안 그룹(방화벽)** 으로 **없음**을 선택합니다. 
+1. 포털의 왼쪽 위에서 **리소스 만들기** > **컴퓨팅** > **Windows Server 2016 Datacenter**를 차례로 선택합니다. 
+   
+1. **가상 머신 만들기**의 **기본** 탭에서 다음 값을 입력하거나 선택합니다.
+   - **구독** > **리소스 그룹**: 드롭다운하고 **MyResourceGroupLB**를 선택합니다.
+   - **인스턴스 정보** > **가상 머신 이름**: *MyVM1*을 입력합니다.
+   - **인스턴스 정보** > **가용성 옵션**: 
+     1. 드롭다운하고 **가용성 세트**를 선택합니다. 
+     2. **새로 만들기**를 선택하고, *MyAvailabilitySet*를 입력한 후, **확인**을 선택합니다.
+   
+1. **네트워킹** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹**을 차례로 선택합니다. 
+   
+   다음 항목이 선택되어 있는지 확인합니다.
+   - **가상 네트워크**: **MyVNet**
+   - **서브넷**: **MyBackendSubnet**
+   
+   **네트워크 보안 그룹**에서:
+   1. **고급**을 선택합니다. 
+   1. **네트워크 보안 그룹 구성**을 드롭다운하고 **None**을 선택합니다. 
+   
+1. **관리** 탭을 선택하거나 **다음** > **관리**를 선택합니다. **모니터링**에서 **부트 진단**을 **끄기**로 설정합니다.
+   
+1. **검토 + 만들기**를 선택합니다.
+   
+1. 설정을 검토한 다음, **만들기**를 선택합니다. 
 
-### <a name="install-iis-and-customize-the-default-web-page"></a>IIS를 설치하고 기본 웹 페이지를 사용자 지정
+1. 다음 단계에 따라 MyVM1과 동일한 다른 모든 설정을 사용하여 *MyVM2*이라는 두 번째 VM을 만듭니다. 
 
-1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 *myResourceGroupILB* 리소스 그룹에 있는 **myVM1**을 클릭합니다.
-2. **개요** 페이지에서 **연결**을 클릭하여 VM에 RDP로 연결합니다.
-3. VM에 로그인합니다.
-4. 서버 바탕 화면에서 **Windows 관리 도구**>**서버 관리자**로 이동합니다.
-5. VM1에서 Windows PowerShell을 실행하고, 다음 명령을 사용하여 IIS 서버를 설치하고 기본 htm 파일을 업데이트합니다.
-    ```powershell-interactive
+1. 단계에 따라 *MyTestVM*이라는 세 번째 VM을 만듭니다. 
+
+## <a name="create-a-basic-load-balancer"></a>기본 부하 분산 장치 만들기
+
+포털을 사용하여 기본 내부 부하 분산 장치를 만듭니다. 만드는 이름과 IP 주소는 자동으로 부하 분산 장치의 프런트 엔드로 구성됩니다.
+
+1. 포털의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다.
+   
+1. **부하 분산 장치 만들기** 창에서 다음 값을 입력하거나 선택합니다.
+   
+   - **이름**: *MyLoadBalancer*를 입력합니다.
+   - **형식**: **내부**를 선택합니다. 
+   - **SKU**: **기본**을 선택합니다.
+   - **가상 네트워크**: **가상 네트워크 선택**을 선택한 다음, **MyVNet**을 선택합니다.
+   - **서브넷**: **서브넷 선택**을 선택한 다음, **MyBackendSubnet**을 선택합니다.
+   - **IP 주소 할당**: 선택되어 있지 않은 경우 **정적**을 선택합니다.
+   - **개인 IP 주소**: 가상 네트워크 및 서브넷의 주소 공간에 있는 주소를 입력합니다(예: *10.3.0.7*).
+   - **ResourceGroup**: **기존 항목 선택**을 드롭다운하고 **MyResourceGroupLB**를 선택합니다. 
+   
+1. **만들기**를 선택합니다.
+   
+![부하 분산 장치 만들기](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
+
+## <a name="create-basic-load-balancer-resources"></a>기본 부하 분산 장치 리소스 만들기
+
+이 섹션에서는 백 엔드 주소 풀 및 상태 프로브에 대한 부하 분산 장치 설정을 구성하고, 부하 분산 장치 규칙을 지정합니다.
+
+### <a name="create-a-back-end-address-pool"></a>백 엔드 주소 풀 만들기
+
+백 엔드 주소 풀은 트래픽을 VM에 배포하기 위해 부하 분산 장치에서 사용합니다. 백 엔드 주소 풀에는 부하 분산 장치에 연결된 가상 네트워크 인터페이스(NIC)의 IP 주소가 포함되어 있습니다. 
+
+**VM1 및 VM2가 포함된 백 엔드 주소 풀을 만들려면:**
+
+1. 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, 리소스 목록에서 **MyLoadBalancer**를 선택합니다.
+   
+1. **설정**에서 **백 엔드 풀**을 선택한 다음, **추가**를 선택합니다.
+   
+1. **백 엔드 풀 추가** 페이지에서 다음 값을 입력하거나 선택합니다.
+   
+   - **이름**: *MyBackendPool*을 입력합니다.
+   - **연결 대상**: 드롭다운하고 **가용성 세트**를 선택합니다.
+   - **가용성 집합**: **MyAvailabilitySet**를 선택합니다.
+   
+1. **대상 네트워크 IP 구성 추가**를 선택합니다. 
+   1. **MyVM1** 및 **MyVM2**를 백 엔드 풀에 추가합니다.
+   2. 각 머신이 추가되면 드롭다운하고 해당 **네트워크 IP 구성**을 선택합니다. 
+   
+   >[!NOTE]
+   >**MyTestVM**을 풀에 추가하지 마세요. 
+   
+1. **확인**을 선택합니다.
+   
+   ![백 엔드 주소 풀 추가](./media/tutorial-load-balancer-basic-internal-portal/3-load-balancer-backend-02.png)
+   
+1. **백 엔드 풀** 페이지에서 **MyBackendPool**을 확장하고, **VM1** 및 **VM2**가 모두 나열되는지 확인합니다.
+
+### <a name="create-a-health-probe"></a>상태 프로브 만들기
+
+부하 분산 장치에서 VM 상태를 모니터링할 수 있게 하려면 상태 프로브를 사용합니다. 상태 프로브는 상태 검사에 따라 부하 분산 장치 순환에서 VM을 동적으로 추가하거나 제거합니다. 
+
+**VM 상태를 모니터링하는 상태 프로브를 만들려면:**
+
+1. 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, 리소스 목록에서 **MyLoadBalancer**를 선택합니다.
+   
+1. **설정**에서 **상태 프로브**를 선택한 다음, **추가**를 선택합니다.
+   
+1. **상태 프로브 추가** 페이지에서 다음 값을 입력하거나 선택합니다.
+   
+   - **이름**: *MyHealthProbe*를 입력합니다.
+   - **프로토콜**: 드롭다운하고 **HTTP**를 선택합니다. 
+   - **포트**: *80*을 입력합니다. 
+   - **경로**: 기본 URI에 대해 */* 를 허용합니다. 이 값은 다른 URI로 바꿀 수 있습니다. 
+   - **간격**: *15*를 입력합니다. 간격은 프로브 시도 사이의 시간(초)입니다.
+   - **비정상 임계값**: *2*를 입력합니다. 이 값은 VM이 비정상 상태로 간주되는 데 필요한 연속 프로브 오류 횟수입니다.
+   
+1. **확인**을 선택합니다.
+   
+   ![프로브 추가](./media/tutorial-load-balancer-basic-internal-portal/4-load-balancer-probes.png)
+
+### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
+
+트래픽이 VM에 분산되는 방법을 정의하는 부하 분산 장치 규칙 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성, 트래픽을 수신할 백 엔드 IP 풀, 필요한 원본 및 대상 포트를 정의합니다. 
+
+**MyLoadBalancerRule**이라는 부하 분산 장치 규칙은 프런트 엔드 **LoadBalancerFrontEnd**의 포트 80에서 수신 대기합니다. 규칙은 포트 80에서 네트워크 트래픽을 백 엔드 주소 풀 **MyBackendPool**로 보냅니다. 
+
+**부하 분산 장치 규칙을 만들려면:**
+
+1. 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, 리소스 목록에서 **MyLoadBalancer**를 선택합니다.
+   
+1. **설정** 아래에서 **부하 분산 규칙**을 선택한 다음, **추가**를 선택합니다.
+   
+1. **부하 분산 규칙 추가** 페이지에서 다음 값이 아직 없는 경우 입력하거나 선택합니다.
+   
+   - **이름**: *MyLoadBalancerRule*을 입력합니다.
+   - **프런트 엔드 IP 주소:** 아직 없는 경우 *LoadBalancerFrontEnd*를 입력합니다.
+   - **프로토콜**: **TCP**를 선택합니다.
+   - **포트**: *80*을 입력합니다.
+   - **백 엔드 포트**: *80*을 입력합니다.
+   - **백 엔드 풀**: **MyBackendPool**을 선택합니다.
+   - **상태 프로브**: **MyHealthProbe**를 선택합니다. 
+   
+1. **확인**을 선택합니다.
+   
+  ![부하 분산 장치 규칙 추가](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
+
+## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
+
+백 엔드 서버에서 IIS(인터넷 정보 서비스)를 설치한 다음, MyTestVM을 사용하여 해당 사설 IP 주소를 사용하여 부하 분산 장치를 테스트합니다. 부하 분산 장치가 두 VM 간에 요청을 분산하는 것을 확인할 수 있도록 각 백 엔드 VM은 기본 IIS 웹 페이지의 다른 버전을 제공합니다.
+
+포털의 **MyLoadBalancer**에 대한 **개요** 페이지에 있는 **사설 IP 주소**에서 해당 IP 주소를 찾습니다. 주소를 마우스로 가리키고 **복사** 아이콘을 선택하여 복사합니다. 이 예제에서는 **10.3.0.7**입니다. 
+
+### <a name="connect-to-the-vms-with-rdp"></a>RDP를 사용하여 VM에 연결
+
+먼저, 3개의 모든 VM으로 RDP(원격 데스크톱)에 연결합니다. 
+
+>[!NOTE]
+>기본적으로 VM에는 원격 데스크톱 액세스를 허용하는 **RDP**(원격 데스크톱) 포트가 있습니다. 
+
+**VM에 RDP(원격 데스크톱)을 연결하려면:**
+
+1. 포털의 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 리소스 목록의 **MyResourceGroupLB** 리소스 그룹에서 각 VM을 선택합니다.
+   
+1. **개요** 페이지에서 **연결**을 선택한 다음, **RDP 파일 다운로드**를 선택합니다. 
+   
+1. 다운로드한 RDP 파일을 열고, **연결**을 선택합니다.
+   
+1. Windows 보안 화면에서 **기타 선택 사항**을 선택한 다음, **다른 계정 사용**을 선택합니다. 
+   
+   사용자 이름과 암호를 입력한 후 **확인**을 선택합니다.
+   
+1. 인증서 프롬프트에서 **예**로 응답합니다. 
+   
+   VM 데스크톱이 새 창에서 열립니다. 
+
+### <a name="install-iis-and-replace-the-default-iis-page-on-the-back-end-vms"></a>백 엔드 VM에서 IIS 설치 및 기본 IIS 페이지 바꾸기
+
+각 백 엔드 서버에서 PowerShell을 사용하여 IIS를 설치하고 기본 IIS 웹 페이지를 사용자 지정된 페이지로 바꿉니다.
+
+>[!NOTE]
+>**서버 관리자**에서 **역할 및 기능 추가 마법사**를 사용하여 IIS를 설치할 수도 있습니다. 
+
+**PowerShell을 사용하여 IIS를 설치하고 기본 웹 페이지를 업데이트하려면:**
+
+1. MyVM1 및 MyVM2의 **시작** 메뉴에서 **Windows PowerShell**을 시작합니다. 
+
+2. 다음 명령을 실행하여 IIS를 설치하고 기본 IIS 웹 페이지를 바꿉니다.
+   
+   ```powershell-interactive
     # Install IIS
       Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
@@ -97,94 +235,31 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     #Add custom htm file
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     ```
-5. *myVM1*과의 RDP 연결을 종료합니다.
-6. *myVM2*에서 1-5단계를 반복하여 IIS를 설치하고 기본 웹 페이지를 사용자 지정합니다.
+1. **연결 끊기**를 선택하여 MyVM1 및 MyVM2와의 RDP 연결을 닫습니다. VM은 종료하지 마세요.
 
-## <a name="create-basic-load-balancer-resources"></a>기본 부하 분산 장치 리소스 만들기
+### <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 
-이 섹션에서는 백 엔드 주소 풀 및 상태 프로브에 대한 부하 분산 장치 설정을 구성하고, 부하 분산 장치 및 NAT 규칙을 지정합니다.
+1. MyTestVM에서 **Internet Explorer**를 열고 모든 구성에 메시지에 대해 **확인**으로 응답합니다. 
+   
+1. 브라우저의 주소 표시줄에 부하 분산 장치의 사설 IP 주소(*10.3.0.7*)를 입력하거나 붙여넣습니다. 
+   
+   사용자 지정된 IIS 웹 서버 기본 페이지가 브라우저에 표시됩니다. 메시지는 **MyVM1에서 Hello World** 또는 **MyVM2에서 Hello World**를 읽습니다.
+   
+1. VM 간에 트래픽을 분산하는 부하 분산 장치를 확인하려면 브라우저를 새로 고칩니다. 시도 간 브라우저 캐시를 지워야 할 수도 있습니다.
 
+   부하 분산 장치가 각 백 엔드 VM에 요청을 분산하므로 어떤 때는 **MyVM1** 페이지가 표시되고, 또 어떤 때는 **MyVM2** 페이지가 표시됩니다. 
 
-### <a name="create-a-backend-address-pool"></a>백 엔드 주소 풀 만들기
-
-VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산 장치에 연결된 가상(NIC)의 주소가 포함됩니다. *VM1* 및 *VM2*를 포함하도록 백 엔드 주소 풀 *myBackendPool*을 만듭니다.
-
-1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 **myLoadBalancer**를 클릭합니다.
-2. **설정**에서 **백 엔드 풀**을 클릭한 다음, **추가**를 클릭합니다.
-3. **백 엔드 풀 추가** 페이지에서 다음을 수행합니다.
-    - 이름에서, 백 엔드 풀의 이름으로 *myBackEndPool*을 입력합니다.
-    - **연결 대상**으로 드롭다운 메뉴에서 **가용성 집합**을 클릭합니다.
-    - **가용성 집합**으로 **myAvailabilitySet**를 클릭합니다.
-    - **대상 네트워크 IP 구성 추가**를 클릭하고 앞에서 만든 각 가상 머신(*myVM1* & *myVM2*)을 백 엔드 풀에 추가합니다.
-    - **확인**을 클릭합니다.
-
-        ![백 엔드 주소 풀에 추가 ](./media/tutorial-load-balancer-basic-internal-portal/3-load-balancer-backend-02.png)
-
-3. 부하 분산 장치 백 엔드 풀 설정에 **VM1** 및 **VM2**가 모두 표시되는지 확인합니다.
-
-### <a name="create-a-health-probe"></a>상태 프로브 만들기
-
-기본 부하 분산 장치가 앱의 상태를 모니터링하도록 하려면 상태 프로브를 사용합니다. 상태 프로브는 상태 검사에 따라 부하 분산 장치 순환에서 VM을 동적으로 추가하거나 제거합니다. VM 상태를 모니터링할 상태 프로브 *myHealthProbe*를 만듭니다.
-
-1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 **myLoadBalancer**를 클릭합니다.
-2. **설정**에서 **상태 프로브**를 클릭한 다음, **추가**를 클릭합니다.
-3. 다음 값을 사용하여 상태 프로브를 만듭니다.
-    - *myHealthProbe* - 상태 프로브의 이름으로 입력합니다.
-    - **HTTP** - 프로토콜 유형으로 입력합니다.
-    - *80* - 포트 번호로 입력합니다.
-    - *15* - 프로브 시도 **간격**(초)으로 입력합니다.
-    - *2* - **비정상 임계값** 또는 연속 프로브 오류 횟수가 이 숫자에 도달하면 VM을 비정상 상태로 간주합니다.
-4. **확인**을 클릭합니다.
-
-   ![프로브 추가](./media/tutorial-load-balancer-basic-internal-portal/4-load-balancer-probes.png)
-
-### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
-
-부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 프런트 엔드 *LoadBalancerFrontEnd*의 포트 80에서 수신 대기하고 역시 포트 80을 사용하여 백 엔드 주소 풀 *myBackEndPool*에 부하 분산된 네트워크 트래픽을 보내는 *myLoadBalancerRuleWeb*이라는 부하 분산 장치 규칙을 만듭니다. 
-
-1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 **myLoadBalancer**를 클릭합니다.
-2. **설정**에서 **부하 분산 규칙**을 클릭한 다음, **추가**를 클릭합니다.
-3. 다음 값을 사용하여 부하 분산 규칙을 구성합니다.
-    - *myHTTPRule* - 부하 분산 규칙의 이름으로 입력합니다.
-    - **TCP** - 프로토콜 유형으로 입력합니다.
-    - *80* - 포트 번호로 입력합니다.
-    - *80* - 백 엔드 포트로 입력합니다.
-    - *myBackendPool* - 백 엔드 풀의 이름으로 입력합니다.
-    - *myHealthProbe* - 상태 프로브의 이름으로 입력합니다.
-4. **확인**을 클릭합니다.
-    
-    ![부하 분산 규칙 추가](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
-
-## <a name="create-a-virtual-machine-to-test-the-load-balancer"></a>부하 분산 장치를 테스트할 가상 머신 만들기
-내부 부하 분산 장치를 테스트하기 위해 백 엔드 서버 VM과 동일한 가상 네트워크에 있는 가상 머신을 만들어야 합니다.
-1. 화면의 왼쪽 상단에서 **리소스 만들기** > **계산** > **Windows Server 2016 Datacenter**를 클릭하고 가상 머신에 대해 다음 값을 입력합니다.
-    - *myVMTest* - 가상 머신의 이름입니다.        
-    - *myResourceGroupILB* - **리소스 그룹**에서 **기존 항목 사용**을 선택한 다음, *myResourceGroupILB*를 선택합니다.
-2. **확인**을 클릭합니다.
-3. 가상 머신의 크기에 대해 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
-4. VM 설정에 다음 값을 입력합니다.
-    -  *myVNet* - 가상 네트워크로 선택합니다.
-    - *myBackendSubnet* - 서브넷으로 선택합니다.
-5. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
-6. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
-
-## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
-1. Azure Portal의 **개요** 화면에서 부하 분산 장치의 개인 IP 주소를 가져옵니다. 이렇게 하려면 다음을 수행합니다. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 **myLoadBalancer**를 클릭합니다.
-    b. **개요** 세부 정보 페이지에서 개인 IP 주소를 복사합니다(이 예제에서는 10.1.0.7).
-
-2. 다음과 같이 *myVMTest*에 원격으로 연결합니다. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 *myResourceGroupILB* 리소스 그룹에 있는 **myVMTest**를 클릭합니다.
-2. **개요** 페이지에서 **연결**을 클릭하여 VM과의 원격 세션을 시작합니다.
-3. *myVMTest*에 로그인합니다.
-3. *myVMTest*에서 개인 IP 주소를 브라우저의 주소 표시줄에 붙여넣습니다. IIS 웹 서버의 기본 페이지가 브라우저에 표시됩니다.
-
-      ![IIS 웹 서버](./media/tutorial-load-balancer-basic-internal-portal/9-load-balancer-test.png)
-
-부하 분산 장치가 앱을 실행 중인 두 VM에 트래픽을 분산하고 있는지 확인하려면 웹 브라우저를 강제로 새로 고칩니다.
-
+   ![새 IIS 기본 페이지](./media/tutorial-load-balancer-basic-internal-portal/9-load-balancer-test.png) 
+   
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 부하 분산 장치가 포함된 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
+더 이상 필요하지 않은 경우 부하 분산 장치 및 모든 관련 리소스를 삭제하려면 **MyResourceGroupLB** 리소스 그룹을 열고 **리소스 그룹 삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 리소스 그룹, 네트워크 리소스 및 백 엔드 서버를 만들었습니다. 그런 다음, 이러한 리소스를 사용하여 내부 트래픽을 여러 VM에 분산하는 내부 부하 분산 장치를 만들었습니다. 다음으로, [가용성 영역에 VM 부하 분산](tutorial-load-balancer-standard-public-zone-redundant-portal.md) 방법을 알아보겠습니다.
+이 자습서에서는 기본 계층 내부 부하 분산 장치를 만들었습니다. 부하 분산 장치에서 사용할 리소스 그룹, 백 엔드 서버, 상태 프로브 및 규칙을 만들고 구성했습니다. 백 엔드 VM에 IIS를 설치하고 테스트 VM을 사용하여 브라우저에서 부하 분산 장치를 테스트했습니다. 
+
+다음으로, 가용성 영역에 VM 부하 분산 방법을 알아보겠습니다.
+
+> [!div class="nextstepaction"]
+> [가용성 영역에 VM 부하 분산](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

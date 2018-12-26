@@ -1,22 +1,24 @@
 ---
-title: Azure Cognitive Services, Bing News Search API에 대한 Ruby 빠른 시작 | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Bing News Search API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
+title: '빠른 시작: Ruby를 사용하여 뉴스 검색 수행 - Bing News Search REST API'
+titlesuffix: Azure Cognitive Services
+description: 이 빠른 시작을 사용하여 Ruby를 통해 Bing News Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 2c4074a5bf63a2b4d6301e81608c0cfafd9de8e8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: aahi
+ms.custom: seodec2018
+ms.openlocfilehash: 02b603c0a7e1f84b2677511f73f96eee20a613d9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377350"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250232"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-ruby"></a>Bing News Search API 및 Ruby에 대한 빠른 시작
+# <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>빠른 시작: Ruby 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 
 이 문서는 Azure의 Microsoft Cognitive Services 일부인 Bing News Search API를 사용하는 방법을 보여 줍니다. 이 문서에서는 Ruby를 사용하지만 API는 RESTful 웹 서비스로, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
 
@@ -26,7 +28,7 @@ API에 대한 기술 정보는 [API 참조](https://docs.microsoft.com/rest/api/
 
 ## <a name="prerequisites"></a>필수 조건
 
-**Bing Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
+**Bing Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요합니다. [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="bing-news-search"></a>Bing News Search
 

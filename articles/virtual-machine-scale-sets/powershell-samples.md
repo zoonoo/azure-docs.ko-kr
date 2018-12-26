@@ -3,7 +3,7 @@ title: Azure PowerShell 샘플 | Microsoft Docs
 description: Azure PowerShell 샘플
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: eae8ca04b5242375ad08e5a673c78f2ab7738d63
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6ced4cf2270b0c818357cc0eaf1a4d4537031b07
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38707474"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469591"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대한 Azure PowerShell 샘플
 
@@ -33,7 +33,7 @@ ms.locfileid: "38707474"
 | [간단한 가상 머신 확장 집합 만들기](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | 최소한의 구성으로 가상 머신 확장 집합을 만듭니다. |
 | [완전한 가상 머신 확장 집합 만들기](scripts/powershell-sample-create-complete-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | 구성 파일을 사용하여 가상 머신 확장 집합 및 관련 리소스를 만듭니다. |
 | [사용자 지정 VM 이미지에서 확장 집합 만들기](scripts/powershell-sample-create-scale-set-from-custom-image.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 사용자 지정 VM 이미지를 사용하는 가상 머신 확장 집합을 만듭니다. |
-| [확장 집합에 응용 프로그램 설치](scripts/powershell-sample-install-apps.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Azure 사용자 지정 스크립트 확장을 사용하여 기본 웹 응용 프로그램을 확장 집합에 설치합니다. |
+| [확장 집합에 응용 프로그램 설치](scripts/powershell-sample-install-apps.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Azure 사용자 지정 스크립트 확장을 사용하여 기본 웹 애플리케이션을 확장 집합에 설치합니다. |
 |**저장소 관리**||
 | [확장 집합에 디스크 만들기 및 연결](scripts/powershell-sample-attach-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 연결된 데이터 디스크가 있는 가상 머신 확장 집합을 만듭니다. |
 |**크기 조정 및 중복 관리**||

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 50fb5eeea5e3d6a2f991e92ae9c188822ddb40b0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528735"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987699"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
@@ -164,7 +164,7 @@ ms.locfileid: "31528735"
 
 - REST API - [모든 리소스 공급자 나열](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## <a name="parameters-and-variables"></a>매개 변수 및 변수
 
@@ -280,7 +280,7 @@ ms.locfileid: "31528735"
 몇 가지 프로필 요소는 가상 머신 리소스를 정의할 때 사용됩니다. 일부는 필요하고 일부는 선택 사항입니다. 예를 들어 hardwareProfile, osProfile, storageProfile 및 networkProfile 요소는 필요하지만 diagnosticsProfile은 선택 사항입니다. 이러한 프로필은 다음과 같은 설정을 정의합니다.
    
 - [크기](sizes.md)
-- [이름](/architecture/best-practices/naming-conventions) 및 자격 증명
+- [이름](/azure/architecture/best-practices/naming-conventions) 및 자격 증명
 - 디스크 및 [운영 체제 설정](cli-ps-findimage.md)
 - [네트워크 인터페이스](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - 부트 진단
@@ -442,7 +442,7 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 
 ![확장 상태 가져오기](./media/template-description/virtual-machines-show-extensions.png)
 
-**Get-AzureRmVMExtension** PowerShell 명령, **vm extension get** Azure CLI 2.0 명령 또는 **Get extension information** REST API를 사용하여 확장 정보를 가져올 수도 있습니다.
+**Get-AzureRmVMExtension** PowerShell 명령, **vm extension get** Azure CLI 명령 또는 **Get extension information** REST API를 사용하여 확장 정보를 가져올 수도 있습니다.
 
 ## <a name="deployments"></a>배포
 

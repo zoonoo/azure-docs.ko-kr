@@ -36,7 +36,7 @@ CSP용 StorSimple에 대한 자세한 내용은 [Azure CSP 개요](https://docs.
 
 ## <a name="deploy-and-manage-storsimple-for-csp"></a>CSP용 StorSimple 배포 및 관리
 
-CSP용 StorSimple은 현재 StorSimple을 사용할 수 있는 모든 시장에서 사용량 기준 서비스로 제공됩니다. CSP용 StorSimple은 Azure Portal 및 StorSimple 장치 관리자 서비스를 사용합니다. CSP 파트너는 StorSimple 가상 배열, 공유, 볼륨 및 백업을 관리하는 StorSimple 장치 관리자를 만들 수 있습니다. Azure Portal을 통해 StorSimple 장치 관리자 서비스에 등록된 모든 가상 배열을 관리할 수 있습니다.
+CSP용 StorSimple은 현재 StorSimple을 사용할 수 있는 모든 시장에서 사용량 기준 서비스로 제공됩니다. CSP용 StorSimple은 Azure Portal 및 StorSimple Device Manager 서비스를 사용합니다. CSP 파트너는 StorSimple Virtual Array, 공유, 볼륨 및 백업을 관리하는 StorSimple Device Manager를 만들 수 있습니다. Azure Portal을 통해 StorSimple Device Manager 서비스에 등록된 모든 가상 배열을 관리할 수 있습니다.
 
 자세한 내용은 [CSP용 StorSimple 가상 배열 배포 및 관리](storsimple-partner-csp-deploy.md)로 이동합니다.
 

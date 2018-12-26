@@ -3,18 +3,18 @@ title: Azure Service Bus를 사용하여 성능을 향상하는 모범 사례 | 
 description: broker 저장 메시지를 교환할 때 Azure Service Bus를 사용하여 성능을 최적화하는 방법에 대해 설명합니다.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/14/2018
-ms.author: sethm
-ms.openlocfilehash: e168dcab182f9eb30291b58bdde252ec66d18e8c
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.date: 09/14/2018
+ms.author: spelluru
+ms.openlocfilehash: cfce11546249310ce00e5f19ba81520cc9dd78cf
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301804"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392638"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
 
@@ -66,7 +66,7 @@ AMQP와 SBMP는 메시징 팩터리가 존재하는 한 Service Bus에 대한 �
   var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
   var doneReceiving = new TaskCompletionSource<bool>();
 
-  receiver.RegisterMessageHandler(
+  receiver.RegisterMessageHandler(...);
   ```
 
 ## <a name="receive-mode"></a>수신 모드

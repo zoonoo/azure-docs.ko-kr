@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 44f4dc3a9c876e383a6e4df8ef5f467f2b93eaa9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205487"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515321"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell을 사용하여 서비스 패브릭 응용 프로그램 업그레이드
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "34205487"
 
 가장 자주 사용되며 바람직한 업그레이드 방법은 모니터링 되는 롤링 업그레이드입니다.  Azure 서비스 패브릭은 상태 정책 세트에 기반하여 업그레이드되는 응용 프로그램의 상태를 모니터링합니다. UD(업데이트 도메인)이 업그레이드된 경우, 서비스 패브릭은 응용 프로그램의 상태를 평가하고 다음 업데이트 도메인으로 진행할지 또는 업그레이드를 실패할지 여부를 상태 정책에 기반하여 결정합니다.
 
-모니터링되는 응용 프로그램 업그레이드는 관리된 네이티브 API, PowerShell, REST를 사용하여 수행할 수 있습니다. Visual Studio를 사용하여 업그레이드를 수행하는 지침은 [Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
+모니터링되는 응용 프로그램 업그레이드는 관리 또는 네이티브 API, PowerShell, Azure CLI, Java 또는 REST를 사용하여 수행할 수 있습니다. Visual Studio를 사용하여 업그레이드를 수행하는 지침은 [Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
 
 서비스 패브릭 모니터링되는 롤링 업그레이드는 응용 프로그램 관리자가 서비스 패브릭이 사용하여 응용 프로그램이 정상인지 결정하는 상태 평가 정책을 구성할 수 있게 합니다. 또한 관리자는 상태 평가가 실패했을 때 자동 롤백과 같은 수행할 작업을 구성할 수 있습니다. 이 섹션에서는 PowerShell을 사용하는 SDK 샘플 중 하나에 대해 모니터링되는 업그레이드를 연습합니다. 또한 다음 Microsoft Virtual Academy 비디오는 앱 업그레이드를 안내합니다. <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
 <img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
@@ -46,12 +46,12 @@ ms.locfileid: "34205487"
 > 
 > 
 
-Visual Studio에서 프로젝트를 빌드한 후, PowerShell 명령 [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 를 사용하여 응용 프로그램 패키지를 ImageStore에 복사합니다. 앱 패키지를 로컬로 확인하려는 경우 [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet을 사용합니다. 다음 단계는 [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet을 사용하여 서비스 패브릭 런타임에 응용 프로그램을 등록하는 것입니다. 다음 단계로, [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet을 사용하여 응용 프로그램의 인스턴스를 시작합니다.  이 세 단계는 Visual Studio의 **배포** 메뉴를 사용하는 것과 유사합니다.  프로비전이 완료되면 리소스 소비를 줄이기 위해 이미지 저장소에서 복사된 응용 프로그램 패키지를 정리해야 합니다.  같은 이유로, 응용 프로그램 형식이 더 이상 필요하지 않은 경우 등록 해제해야 합니다. 자세한 내용은 [PowerShell을 사용하여 응용 프로그램 배포 및 제거](service-fabric-application-upgrade-tutorial-powershell.md)를 참조하세요.
+Visual Studio에서 프로젝트를 빌드한 후, PowerShell 명령 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) 를 사용하여 응용 프로그램 패키지를 ImageStore에 복사합니다. 앱 패키지를 로컬로 확인하려는 경우 [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) cmdlet을 사용합니다. 다음 단계는 [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype) cmdlet을 사용하여 서비스 패브릭 런타임에 애플리케이션을 등록하는 것입니다. 다음 단계로, [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet을 사용하여 애플리케이션의 인스턴스를 시작합니다.  이 세 단계는 Visual Studio의 **배포** 메뉴를 사용하는 것과 유사합니다.  프로비전이 완료되면 리소스 소비를 줄이기 위해 이미지 저장소에서 복사된 애플리케이션 패키지를 정리해야 합니다.  같은 이유로, 애플리케이션 형식이 더 이상 필요하지 않은 경우 등록 해제해야 합니다. 자세한 내용은 [PowerShell을 사용하여 애플리케이션 배포 및 제거](service-fabric-application-upgrade-tutorial-powershell.md)를 참조하세요.
 
 이제 [클러스터 및 응용 프로그램을 보는 서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. 응용 프로그램에는 웹 서비스가 있으며, Internet Explorer 주소 표시줄에 [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects)를 입력하여 웹 서비스로 이동할 수 있습니다.  화면에서 일부 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.  또한 [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) 을 사용하여 응용 프로그램 상태를 확인할 수 있습니다.
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>2단계: 시각적 개체 샘플 업데이트
-1단계에서에서 배포된 버전에서 알 수 있듯이 시각적 개체는 회전하지 않습니다. 이 응용 프로그램을 시각적 개체도 회전하도록 업그레이드하겠습니다.
+1단계에서에서 배포된 버전에서 알 수 있듯이 시각적 개체는 회전하지 않습니다. 이 애플리케이션을 시각적 개체도 회전하도록 업그레이드하겠습니다.
 
 VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택하고, StatefulVisualObjectActor.cs 파일을 엽니다. 해당 파일 내에서 `MoveObject` 메서드로 이동하고 `this.State.Move()`를 주석 처리하고 `this.State.Move(true)`의 주석 처리를 제거합니다. 이렇게 변경하면 서비스가 업그레이드된 후 개체가 회전됩니다.
 
@@ -79,13 +79,13 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 ## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>3단계: 상태 정책 결정 및 매개 변수 업그레이드
 [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md)를 파악하여 다양한 업그레이드 매개 변수, 제한 시간 및 적용되는 상태 조건을 잘 이해하세요. 이 연습에서는 서비스 상태 평가 조건이 모든 서비스 및 인스턴스가 업그레이드 후에 *정상* 이 되어야 함을 의미하는 기본값(및 권장값)으로 설정됩니다.  
 
-그러나 *HealthCheckStableDuration* 을 60초로 증가시켜 보겠습니다(그러면 서비스는 다음 업데이트 도메인으로 업그레이드를 진행하기 전에 적어도 20초간 정상이 됩니다).  또한 *UpgradeDomainTimeout*을 1200초로, *UpgradeTimeout*을 3000초로 설정해 보겠습니다.
+그러나 *HealthCheckStableDuration*을 180초로 증가시켜 보겠습니다(그러면 서비스는 다음 업데이트 도메인으로 업그레이드를 진행하기 전에 적어도 120초간 정상이 됩니다).  또한 *UpgradeDomainTimeout*을 1200초로, *UpgradeTimeout*을 3000초로 설정해 보겠습니다.
 
 마지막으로 *UpgradeFailureAction* 이 롤백되도록 설정해 보겠습니다. 이 옵션에서는 업그레이드 중에 문제가 발생할 경우 서비스 패브릭이 응용 프로그램을 이전 버전으로 롤백해야 합니다. 따라서 업그레이드를 시작할 때(4단계) 다음 매개 변수가 지정됩니다.
 
 FailureAction = Rollback
 
-HealthCheckStableDurationSec = 60
+HealthCheckStableDurationSec = 180
 
 UpgradeDomainTimeoutSec = 1200
 
@@ -96,7 +96,7 @@ UpgradeTimeout = 3000
 
 이 응용 프로그램 패키지는 Service Fabric SDK의 압축을 푼 다음 상대 경로 아래 저장됩니다. *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug* 디렉터리에서 응용 프로그램 패키지가 저장된 "Package" 폴더를 찾을 수 있습니다. 타임스탬프를 확인하여 최신 빌드인지 확인합니다(경로를 적절하게 수정해야 할 수 있음).
 
-이제 업데이트된 응용 프로그램 패키지를 서비스 패브릭 ImageStore(서비스 패브릭에 의해 응용 프로그램 패키지가 저장된 곳)에 복사합니다. 매개 변수 *ApplicationPackagePathInImageStore* 는 서비스 패브릭에 응용 프로그램 패키지를 찾을 수 있는 위치를 알립니다. 다음 명령으로 업데이트된 응용 프로그램을 "VisualObjects\_V2"에 저장하였습니다(경로를 다시 적절하게 수정해야 할 수 있습니다).
+이제 업데이트된 응용 프로그램 패키지를 서비스 패브릭 ImageStore(서비스 패브릭에 의해 응용 프로그램 패키지가 저장된 곳)에 복사합니다. 매개 변수 *ApplicationPackagePathInImageStore*는 서비스 패브릭에 애플리케이션 패키지를 찾을 수 있는 위치를 알립니다. 다음 명령으로 업데이트된 응용 프로그램을 "VisualObjects\_V2"에 저장하였습니다(경로를 다시 적절하게 수정해야 할 수 있습니다).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package -ApplicationPackagePathInImageStore "VisualObjects\_V2"
@@ -110,7 +110,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObject
 
 위 명령이 실패하면 모든 서비스를 다시 빌드해야 할 가능성이 높습니다. 2단계에서 언급했듯이 WebService 버전도 업데이트해야 합니다.
 
-응용 프로그램이 성공적으로 등록된 후에는 응용 프로그램 패키지를 제거하는 것이 좋습니다.  이미지 저장소에서 응용 프로그램 패키지를 삭제하면 시스템 리소스가 해제됩니다.  사용되지 않는 응용 프로그램 패키지를 그대로 두면 디스크 저장소를 소비하고 응용 프로그램 성능 문제로 이어집니다.
+응용 프로그램이 성공적으로 등록된 후에는 응용 프로그램 패키지를 제거하는 것이 좋습니다.  이미지 저장소에서 애플리케이션 패키지를 삭제하면 시스템 리소스가 해제됩니다.  사용되지 않는 응용 프로그램 패키지를 그대로 두면 디스크 저장소를 소비하고 응용 프로그램 성능 문제로 이어집니다.
 
 ```powershell
 Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "VisualObjects\_V2" -ImageStoreConnectionString fabric:ImageStore

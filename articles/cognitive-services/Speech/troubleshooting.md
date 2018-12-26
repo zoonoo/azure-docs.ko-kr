@@ -1,24 +1,27 @@
 ---
-title: 문제 해결 | Microsoft Docs
-description: Microsoft Speech Service 사용 시의 문제를 해결하는 방법입니다.
+title: Bing Speech 문제 해결 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Bing Speech 사용 시의 문제를 해결하는 방법입니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 04f3da19939d523d201d357b2b0293db1508431d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 80e39e845ab631ad5cc3ae8af9e2e42f09b521bf
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373807"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342193"
 ---
-# <a name="troubleshooting"></a>문제 해결
+# <a name="troubleshooting-bing-speech"></a>Bing Speech 문제 해결
 
-## <a name="error-http-403-forbidden"></a>`HTTP 403 Forbidden` 오류
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+## <a name="error-http-403-forbidden"></a>오류 `HTTP 403 Forbidden`
 
 음성 인식 API를 사용할 때 `HTTP 403 Forbidden` 오류가 반환됩니다.
 
@@ -117,7 +120,7 @@ curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive
 
 ---
 
-## <a name="error-http-400-bad-request"></a>`HTTP 400 Bad Request` 오류
+## <a name="error-http-400-bad-request"></a>오류 `HTTP 400 Bad Request`
 
 일반적으로 요청 본문에 잘못된 오디오 데이터가 포함되어 있기 때문에 이 오류가 발생합니다. 현재 WAV 파일만 지원합니다.
 
@@ -127,7 +130,7 @@ curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive
 
 ## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>응답에서 `RecognitionStatus`가 `InitialSilenceTimeout`입니다
 
-일반적으로 오디오 데이터로 인해 이 오류가 발생합니다. 예를 들면 다음과 같습니다.
+일반적으로 오디오 데이터로 인해 문제가 발생합니다. 예를 들면 다음과 같습니다.
 
 - 오디오의 시작 부분에 긴 묵음 시간이 있습니다. 서비스에서 수 초 후에 인식을 중지하고 `InitialSilenceTimeout`을 반환합니다.
 - 오디오에서 지원되지 않는 코덱 형식을 사용하고 있으며, 이에 따라 오디오 데이터가 묵음으로 처리되었습니다.

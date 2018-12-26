@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: fc95b57c244e855f6788b7f21fc9abc0eba3d44d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42b62c819fd3d26c6ea944f968e0d5956a7f055e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654711"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987461"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Windows VM에 정책 적용
 조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다. 이 문서에서는 Azure Resource Manager 정책을 사용하여 조직의 Virtual Machines에 대해 원하는 동작을 정의하는 방법을 설명합니다.
@@ -106,7 +106,7 @@ anyOf를 사용하여 모든 Windows Server 2012 R2 Datacenter 이상 이미지�
 }
 ```
 
-정책 필드에 대한 자세한 내용은 [정책 별칭](../../azure-policy/policy-definition.md#aliases)을 참조하세요.
+정책 필드에 대한 자세한 내용은 [정책 별칭](../../governance/policy/concepts/definition-structure.md#aliases)을 참조하세요.
 
 ## <a name="managed-disks"></a>관리 디스크
 

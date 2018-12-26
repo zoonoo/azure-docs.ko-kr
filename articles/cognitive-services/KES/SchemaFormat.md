@@ -1,22 +1,24 @@
 ---
-title: Knowledge Exploration Service API의 스키마 형식 | Microsoft Docs
-description: Cognitive Services에서 KES(Knowledge Exploration Service) API의 스키마 형식을 알아봅니다.
+title: 스키마 형식 - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: KES(Knowledge Exploration Service) API의 스키마 형식을 알아봅니다.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 3009392a5acb12a8f4df3d30a2cbe5e74f2172fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 07f5536641b55aadf9d8b2623bf4797b8dcd7bd5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373198"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129253"
 ---
 # <a name="schema-format"></a>스키마 형식
+
 스키마는 인덱스를 만드는 데 사용되는 데이터 파일에서 개체의 특성 구조를 설명하는 JSON 파일에 지정됩니다.  각 특성에서 스키마는 이름, 데이터 형식, 선택적 작업 및 선택적 동의어 목록을 지정합니다.  개체는 각 특성의 값이 0개 이상일 수 있습니다.  다음은 학술 저서 도메인의 간단한 예입니다.
 
 ``` json
@@ -36,6 +38,7 @@ ms.locfileid: "35373198"
 특성 이름은 대/소문자를 구분하는 식별자로, 문자로 시작하며 문자(A-Z), 숫자(0-9) 및 밑줄(\_)로만 구성됩니다.  예약된 “logprob” 특성은 개체 간의 상대적인 자연 로그 확률을 지정하는 데 사용됩니다.
 
 ## <a name="attribute-type"></a>특성 유형
+
 다음은 지원되는 특성 데이터 형식의 목록입니다.
 
 | type | 설명 | 작업 | 예 |
@@ -60,11 +63,13 @@ Guid 특성은 *equals* 작업에 대한 기본 지원을 통해 GUID 값을 효
 Blob 특성은 blob 값의 콘텐츠를 기반으로 하는 모든 인덱싱 작업에 대한 지원 없이 해당하는 개체에서 런타임 조회에 대한 잠재적으로 큰 데이터 blob을 효율적으로 인코딩하는 데 사용됩니다.
 
 ### <a name="composite-attributes"></a>composite 특성
+
 composite 특성은 특성 값의 그룹화를 나타내는 데 사용됩니다.  각 하위 특성의 이름은 뒤에 “.”이 붙는 composite 특성의 이름으로 시작됩니다.  composite 특성에 대한 값은 중첩된 특성 값을 포함하는 JSON 개체로 지정됩니다.  composite 특성은 여러 개체 값을 가질 수 있습니다.  그러나 composite 특성은 자체 composite 특성인 하위 특성을 가질 수 없습니다.
 
 위의 학술 저서 예제에서 이를 통해 서비스는 “harry shum”이 “microsoft”에 있을 때 작성한 논문을 쿼리할 수 있습니다.  composite 특성을 사용하지 않으면 서비스는 저자 중 한 명이 “harry shum”이고, 저자 중 한 명이 “microsoft”에 있을 때 작성된 논문만 쿼리할 수 있습니다.  자세한 내용은 [Composite 쿼리](SemanticInterpretation.md#composite-function)를 참조하세요.
 
 ## <a name="attribute-operations"></a>특성 작업
+
 기본적으로 각 특성은 특성 데이터 형식에 사용할 수 있는 모든 작업을 지원하도록 인덱싱됩니다.  특정 작업이 필요하지 않은 경우 인덱싱된 작업의 집합을 명시적으로 지정하여 인덱스의 크기를 줄일 수 있습니다.  위에 나온 예제 스키마의 다음 코드 조각에서 Author.Id 특성은 *equals* 작업만 지원하도록 인덱싱되었지만 Int32 특성에 대한 추가적인 *starts_with* 및 *is_between*  작업은 해당되지 않습니다.
 ```json
 {"name":"Author.Id", "type":"Int32", "operations":["equals"]}
@@ -73,6 +78,7 @@ composite 특성은 특성 값의 그룹화를 나타내는 데 사용됩니다.
 특성이 문법 내에서 참조되는 경우 서비스가 부분 쿼리에서 완성을 생성할 수 있도록 *starts_with* 작업을 스키마에서 지정해야 합니다.  
 
 ## <a name="attribute-synonyms"></a>특성 동의어
+
 종종 동의어로 특정 문자열 특성 값을 참조하는 것이 좋습니다.  예를 들어 사용자가 “MSFT” 또는 “MS”로 “Microsoft”를 참조할 수 있습니다.  이러한 경우 특성 정의는 스키마 파일과 동일한 디렉터리에 있는 스키마 파일의 이름을 지정할 수 있습니다.  동의어 파일의 각 줄에는 다음 JSON 형식의 동의어 항목을 나타냅니다. `["<canonical>", "<synonym>"]`  예제 스키마에서 “AuthorName.syn”은 Author.Name 특성에 대한 동의어 값을 포함하는 JSON 파일입니다.
 
 `{"name":"Author.Name", "type":"String", "synonyms":"AuthorName.syn"}`

@@ -1,24 +1,20 @@
 ---
-title: Spark를 사용하여 HBase 데이터 읽기 및 쓰기 - Azure HDInsight | Microsoft Docs
+title: Spark를 사용하여 HBase 데이터 읽기 및 쓰기 - Azure HDInsight
 description: Spark HBase 커넥터를 사용하여 Spark 클러스터에서 HBase 클러스터로 데이터를 읽고 씁니다.
 services: hdinsight
-documentationcenter: ''
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.author: maxluk
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: maxluk
-ms.openlocfilehash: 7cfc7f586e8a92c29736a7c4cff0b12796be430a
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.topic: conceptual
+ms.date: 11/05/2018
+ms.openlocfilehash: 1136d97ad1c1d02320331e6d2013b68526d5abb4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161178"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277905"
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>Spark를 사용하여 HBase 데이터 읽기 및 쓰기
 
@@ -130,7 +126,7 @@ Spark 클러스터가 HDInsight 클러스터를 쿼리할 수 ​​있도록 �
 1. SSH를 사용하여 Spark 클러스터의 헤드 노드에 연결합니다.
 2. Spark 셸을 시작하여 Spark HBase 커넥터 패키지를 지정합니다.
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/coroups/public/
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/
 
 3. 이 Spark 셸 인스턴스를 열린 상태로 유지하고 다음 단계를 계속합니다.
 

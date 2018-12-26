@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 5af3195f8543e5ef3763666b3a997ffb4cd25713
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3a394c13092547991bf7f8ae98e5c69e92077701
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213782"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>자습서: Azure Active Directory와 YouEarnedIt 통합
 
@@ -50,12 +50,14 @@ YouEarnedIt과 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
+
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 YouEarnedIt 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-youearnedit-from-the-gallery"></a>갤러리에서 YouEarnedIt 추가
+
 YouEarnedIt의 Azure AD 통합을 구성하려면 갤러리의 YouEarnedIt을 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 YouEarnedIt을 추가하려면 다음 단계를 수행합니다.**
@@ -67,7 +69,7 @@ YouEarnedIt의 Azure AD 통합을 구성하려면 갤러리의 YouEarnedIt을 �
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
-    
+
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
@@ -116,15 +118,15 @@ YouEarnedIt에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
     | 프로덕션 | `https://<company name>.youearnedit.com/users/sign_in` |
     | 샌드박스  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
-    나. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
     | Environment  | 패턴  |
     |:--- |:--- |
     | 프로덕션 | `https://<company name>.youearnedit.com` |
     | 샌드박스  |`https://<company name>.sandbox.youearnedit.com` |
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [YouEarnedIt 클라이언트 지원 팀](https://youearnedit.freshdesk.com/support/tickets/new)에 문의하세요. 
- 
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 가져오려면 할당된 YouEarnedIt 고객 성공 관리자에게 문의하세요.
+
 4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/youearnedit-tutorial/tutorial_youearnedit_certificate.png) 
@@ -137,10 +139,7 @@ YouEarnedIt에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     ![YouEarnedIt 구성](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-7. **YouEarnedIt** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)** 및 **SAML Single Sign-On 서비스 URL**을 [YouEarnedIt 지원 팀](https://youearnedit.freshdesk.com/support/tickets/new)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+7. **YouEarnedIt** 쪽에서 Single Sign-On을 구성하려면 다운로드한 ***인증서(Base64)*** 및 ***SAML Single Sign-On 서비스 URL***을 할당된 **YouEarnedIt** 고객 성공 관리자에게 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -173,10 +172,10 @@ YouEarnedIt에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
     다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
- 
+
 ### <a name="create-a-youearnedit-test-user"></a>YouEarnedIt 테스트 사용자 만들기
 
-이 섹션에서는 YouEarnedIt에서 Britta Simon이라는 사용자를 만듭니다. YouEarnedIt 플랫폼에서 사용자를 추가하려면 YouEarnedIt 지원 팀에 문의하세요.
+이 섹션에서는 YouEarnedIt에서 Britta Simon이라는 사용자를 만듭니다. 할당된 YouEarnedIt 고객 성공 관리자와 협력하여 YouEarnedIt 플랫폼에서 사용자를 추가하세요.
 
 >[!NOTE]
 >YouEarnedIt은 ID 공급자가 NameID 특성의 EmailAddress 또는 UserName을 제공할 것으로 예상합니다. 해당 UserName 또는 EmailAddress가 데이터베이스 내에 없거나 정확히 일치하지 않을 경우 인증이 실패합니다. 이 경우 SSO 통합 전에 YouEarnedIt 시스템으로 계정을 가져와야 합니다(일반적으로 API 또는 CSV 가져오기를 통해).
@@ -185,13 +184,13 @@ YouEarnedIt에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 YouEarnedIt에 대한 액세스 권한을 부여합니다.
 
-![사용자 역할 할당][200] 
+![사용자 역할 할당][200]
 
 **Britta Simon을 YouEarnedIt에 할당하려면 다음 단계를 수행합니다.**
 
 1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
 
-    ![사용자 할당][201] 
+    ![사용자 할당][201]
 
 2. 응용 프로그램 목록에서 **YouEarnedIt**을 선택합니다.
 
@@ -210,20 +209,18 @@ YouEarnedIt에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-    
+
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 YouEarnedIt 타일을 클릭하면 YouEarnedIt 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -238,4 +235,3 @@ YouEarnedIt에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 [201]: ./media/youearnedit-tutorial/tutorial_general_201.png
 [202]: ./media/youearnedit-tutorial/tutorial_general_202.png
 [203]: ./media/youearnedit-tutorial/tutorial_general_203.png
-

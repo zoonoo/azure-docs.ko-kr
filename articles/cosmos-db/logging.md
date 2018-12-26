@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1c25db0a217d6aff984029a28932242b06096735
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612217"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423236"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos DB 진단 로깅
 
@@ -29,9 +29,9 @@ Azure Cosmos DB 계정 모니터링 방법을 논의하기 전에 로깅과 모�
 
 ![다양한 종류의 Azure 로그](./media/logging/azurelogging.png)
 
-이 이미지에서 **계산 리소스**는 Microsoft 게스트 OS에 액세스할 수 있는 Azure 리소스를 나타냅니다. 예를 들어, Azure Virtual Machines, 가상 머신 확장 집합, Azure Container Service 등은 계산 리소스로 간주됩니다. 계산 리소스는 활동 로그, 진단 로그 및 응용 프로그램 로그를 생성합니다. 자세한 내용은 [Azure 모니터링 - 계산 리소스](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset) 문서를 참조하세요.
+이 이미지에서 **계산 리소스**는 Microsoft 게스트 OS에 액세스할 수 있는 Azure 리소스를 나타냅니다. 예를 들어, Azure Virtual Machines, 가상 머신 확장 집합, Azure Container Service 등은 계산 리소스로 간주됩니다. 계산 리소스는 활동 로그, 진단 로그 및 응용 프로그램 로그를 생성합니다. 자세한 내용은 [Azure의 모니터링 데이터 원본](../azure-monitor/platform/data-sources.md) 문서를 참조하세요.
 
-**비계산 리소스**는 기본 OS에 액세스할 수 없고 리소스를 바로 사용하는 경우의 리소스입니다. 예를 들면 네트워크 보안 그룹, Logic Apps 등이 있습니다. Azure Cosmos DB는 비계산 리소스입니다. 활동 로그에서 또는 포털에서 진단 로그 옵션을 사용하도록 설정하여 비계산 리소스에 대한 로그를 볼 수 있습니다. 자세한 내용은 [Azure 모니터링 - 비계산 리소스](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else) 문서를 참조하세요.
+**비계산 리소스**는 기본 OS에 액세스할 수 없고 리소스를 바로 사용하는 경우의 리소스입니다. 예를 들면 네트워크 보안 그룹, Logic Apps 등이 있습니다. Azure Cosmos DB는 비계산 리소스입니다. 활동 로그에서 또는 포털에서 진단 로그 옵션을 사용하도록 설정하여 비계산 리소스에 대한 로그를 볼 수 있습니다. 자세한 내용은 [Azure Monitor의 데이터 원본](../azure-monitor/platform/data-sources.md) 문서를 참조하세요.
 
 활동 로그는 Azure Cosmos DB에 대한 구독 수준에서 작업을 기록합니다. Listkey, Write DatabaseAccounts 등의 작업이 로깅됩니다. 진단 로그는 보다 세부적인 로깅을 제공하고 DataPlaneRequests(만들기, 읽기, 쿼리 등) 및 MongoRequests를 로깅할 수 있도록 합니다.
 
@@ -42,7 +42,7 @@ Azure Cosmos DB 계정 모니터링 방법을 논의하기 전에 로깅과 모�
 
 Azure Activity Log는 Azure에서 발생하는 구독 수준 이벤트에 대한 정보를 제공하는 구독 로그입니다. 활동 로그는 관리 범주 하에서 구독에 대한 제어-평면 이벤트를 보고합니다. 활동 로그를 사용하여 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 '무엇을, 누가, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 
 
-활동 로그는 진단 로그와 다릅니다. 활동 로그는 외부(_제어 평면_)의 리소스에 대한 작업 관련 데이터를 제공합니다. Azure Cosmos DB 컨텍스트에서 제어 평면 작업에는 컬렉션 만들기, 키 나열, 키 삭제, 데이터베이스 나열 등이 포함됩니다. 진단 로그는 리소스에 의해 내보내지며, 해당 리소스의 작업(_데이터 평면_)에 대한 정보를 제공합니다. 진단 로그에서 데이터 평면 작업의 예에는 Delete, Insert 및 ReadFeed가 있습니다.
+활동 로그는 진단 로그와 다릅니다. 활동 로그는 외부(_제어 평면_)의 리소스에 대한 작업 관련 데이터를 제공합니다. Azure Cosmos DB 컨텍스트에서 제어 평면 작업에는 컨테이너 만들기, 키 나열, 키 삭제, 데이터베이스 나열 등이 포함됩니다. 진단 로그는 리소스에 의해 내보내지며, 해당 리소스의 작업(_데이터 평면_)에 대한 정보를 제공합니다. 진단 로그에서 데이터 평면 작업의 예에는 Delete, Insert 및 ReadFeed가 있습니다.
 
 활동 로그(제어 평면 작업)는 본질적으로 더 다양한데, 호출자의 전체 전자 메일 주소, 호출자 IP 주소, 리소스 이름, 작업 이름 및 테넌트 ID 등을 포함할 수 있습니다. 활동 로그에는 몇 가지 데이터 [범주](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)가 있습니다. 이러한 범주의 스키마에 대한 전체 정보는 [Azure Activity Log 이벤트 스키마](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)를 참조하세요. 그러나 진단 로그는 개인 데이터가 제거되는 경우가 종종 있으므로 본질적으로 제한적일 수 있습니다. 호출자의 IP 주소는 있지만 마지막 팔분위가 제거됩니다.
 
@@ -354,13 +354,16 @@ $blobs | Get-AzureStorageBlobContent `
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Log Analytics에서 로그 보기
 
-진단 로깅을 사용하도록 설정한 경우 **Log Analytics로 전송** 옵션을 선택하면 컬렉션의 진단 데이터가 2시간 이내에 Log Analytics로 전달됩니다. 로깅을 켠 직후에 Log Analytics를 보면 아무 데이터도 표시되지 않습니다. 2시간을 기다린 후 다시 시도하세요. 
+진단 로깅을 사용하도록 설정한 경우, **Log Analytics로 전송** 옵션을 선택하면 컨테이너의 진단 데이터가 2시간 이내에 Log Analytics로 전달됩니다. 로깅을 켠 직후에 Log Analytics를 보면 아무 데이터도 표시되지 않습니다. 2시간을 기다린 후 다시 시도하세요. 
 
-로그를 보기 전에 Log Analytics 작업 영역이 새로운 Log Analytics 쿼리 언어를 사용할 수 있도록 업그레이드되었는지 여부를 확인하는 것이 좋습니다. 확인하려면 [Azure Portal](https://portal.azure.com)을 열고 왼쪽 끝에서 **Log Analytics**를 선택한 후, 다음 그림과 같이 작업 영역 이름을 선택합니다. **OMS 작업 영역** 페이지가 표시됩니다.
+로그를 보기 전에 Log Analytics 작업 영역이 새로운 Log Analytics 쿼리 언어를 사용할 수 있도록 업그레이드되었는지 여부를 확인하는 것이 좋습니다. 확인하려면 [Azure Portal](https://portal.azure.com)을 열고 왼쪽 끝에서 **Log Analytics**를 선택한 후, 다음 그림과 같이 작업 영역 이름을 선택합니다. **Log Analytics 작업 영역** 페이지가 표시됩니다.
 
 ![Azure Portal의 Log Analytics](./media/logging/azure-portal.png)
 
-**OMS 작업 영역** 페이지에 다음 메시지가 표시되는 경우 작업 영역이 새 언어를 사용할 수 있도록 업그레이드되지 않은 것입니다. 새 쿼리 언어로 업그레이드하는 방법에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 작업 영역 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md)를 참조하세요. 
+>[!NOTE]
+>OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.  
+
+**Log Analytics 작업 영역** 페이지에 다음 메시지가 표시되는 경우 작업 영역이 새 언어를 사용할 수 있도록 업그레이드되지 않은 것입니다. 새 쿼리 언어로 업그레이드하는 방법에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 작업 영역 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md)를 참조하세요. 
 
 ![Log Analytics 업그레이드 메시지](./media/logging/upgrade-notification.png)
 
@@ -446,7 +449,7 @@ Azure Storage 및 Log Analytics에 저장된 진단 데이터는 유사한 스�
 | **properties** | 해당 없음 | 이 필드의 내용은 다음 행에 설명되어 있습니다. |
 | **activityId** | **activityId_g** | 기록된 작업의 고유 GUID입니다. |
 | **userAgent** | **userAgent_s** | 요청을 수행하는 클라이언트 사용자 에이전트를 지정하는 문자열입니다. 형식은 {사용자 에이전트 이름}/{버전}입니다.|
-| **resourceType** | **ResourceType** | 액세스한 리소스 유형입니다. 이 값은 Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction 또는 Offer 리소스 종류 중 하나일 수 있습니다. |
+| **resourceType** | **ResourceType** | 액세스한 리소스 유형입니다. 이 값은 Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction 또는 Offer 같은 리소스 유형 중 하나일 수 있습니다. |
 | **statusCode** | **statusCode_s** | 작업의 응답 상태입니다. |
 | **requestResourceId** | **ResourceId** | 요청에 관련된 리소스 ID입니다. 값은 수행된 작업에 따라 databaseRid, collectionRid 또는 documentRid를 가리킬 수 있습니다.|
 | **clientIpAddress** | **clientIpAddress_s** | 클라이언트의 IP 주소입니다. |

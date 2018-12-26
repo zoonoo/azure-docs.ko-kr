@@ -2,26 +2,20 @@
 title: Power BI 작업 영역 컬렉션에서 데이터 원본에 연결 | Microsoft Docs
 description: Power BI 작업 영역 컬렉션 내에서 데이터 원본에 연결하는 방법을 알아봅니다.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 5a154c4899db974645bb7ade028d8bd8f267aad7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c626601d9eae7732779020b153c624f80605b56a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409859"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051878"
 ---
 # <a name="connect-to-a-data-source"></a>데이터 원본에 연결
 
@@ -34,7 +28,7 @@ ms.locfileid: "31409859"
 
 | 가져오기 | 직접 연결 |
 | --- | --- |
-| 테이블, 열 *및 데이터* 를 보고서의 데이터 집합으로 가져오거나 복사합니다. 기본 데이터에서 발생한 변경 내용을 보려면 현재 데이터 집합을 다시 새로 고치거나 가져오거나 완료해야 합니다. |*테이블 및 열* 만 보고서의 데이터 집합으로 가져오거나 복사합니다. 항상 최신 데이터가 표시됩니다. |
+| 테이블, 열 *및 데이터*를 보고서의 데이터 세트로 가져오거나 복사합니다. 기본 데이터에서 발생한 변경 내용을 보려면 현재 데이터 세트를 다시 새로 고치거나 가져오거나 완료해야 합니다. |*테이블 및 열* 만 보고서의 데이터 집합으로 가져오거나 복사합니다. 항상 최신 데이터가 표시됩니다. |
 
 Power BI 작업 영역 컬렉션을 사용하면 클라우드 데이터 원본에서 DirectQuery를 사용할 수 있지만, 현재 온-프레미스 데이터 원본에서는 사용할 수 없습니다.
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: cd89c41b43be1da339ca7dcc64110e7145a93903
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 937d0be2e86adf00ac2707d5fd57eb905dcea3fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857333"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238326"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -51,7 +51,7 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-3. Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>로 이동하고 인증서(*.cer file)를 사용자 및 컴퓨터의 스토어에 수동으로 설치합니다.
+3. C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>로 이동하고, 인증서(*.cer file)를 사용자 및 컴퓨터의 저장소에 수동으로 설치합니다.
 
 클라이언트 인증서를 설치하는 방법에 대한 자세한 내용은 [지점 및 사이트 간 연결에 대한 인증서를 생성 및 내보내기](vpn-gateway-certificates-point-to-site.md)를 참조하세요.
 
@@ -221,7 +221,7 @@ VPN 클라이언트 구성 패키지를 다운로드하려고 할 때 다음과 
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>한 번에 너무 많은 VPN 클라이언트 연결
 
-각 VPN Gateway의 최대 허용 연결 수는 128개입니다. Azure Portal에서 연결된 클라이언트의 총 수를 볼 수 있습니다.
+허용되는 최대 연결 수에 도달했습니다. Azure Portal에서 연결된 클라이언트의 총 수를 볼 수 있습니다.
 
 ## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>지점 및 사이트 간 VPN은 10.0.0.0/8의 경로를 경로 테이블에 올바르게 않게 추가했습니다.
 
@@ -276,7 +276,7 @@ SMB 프로토콜은 파일 공유 액세스에 사용됩니다. 연결을 시작
 
 ### <a name="solution"></a>해결 방법
 
-이 문제를 해결하려면 **C:\사용자\사용자 이름\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** 에서 기존 VPN 클라이언트 구성 파일을 삭제하고 VPN 클라이언트 설치 관리자를 다시 실행합니다.
+이 문제를 해결하려면 **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** 에서 기존 VPN 클라이언트 구성 파일을 삭제한 다음, VPN 클라이언트 설치 관리자를 다시 실행합니다.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>지점 및 사이트 간 VPN 클라이언트는 로컬 도메인에 있는 리소스의 FQDN을 확인할 수 없습니다.
 
@@ -339,8 +339,8 @@ NIC 드라이버를 업데이트합니다.
 
 1. **시작**을 클릭하고 **장치 관리자**를 입력한 다음, 결과 목록에서 선택합니다. 관리자 암호를 입력하거나 확인하라는 메시지가 표시되면 암호를 입력하거나 확인을 제공합니다.
 2. **네트워크 어댑터** 범주에서 업데이트하려는 NIC를 찾습니다.  
-3. 장치 이름을 두 번 클릭하고 **드라이버 업데이트**를 선택한 다음, **업데이트된 드라이버 소프트웨어 자동 검색**을 선택합니다.
-4. Windows에서 새 드라이버를 찾지 못하는 경우 장치 제조업체의 웹 사이트에서 드라이버를 찾은 다음 해당 지침을 따를 수 있습니다.
+3. 디바이스 이름을 두 번 클릭하고 **드라이버 업데이트**를 선택한 다음, **업데이트된 드라이버 소프트웨어 자동 검색**을 선택합니다.
+4. Windows에서 새 드라이버를 찾지 못하는 경우 디바이스 제조업체의 웹 사이트에서 드라이버를 찾은 다음 해당 지침을 따를 수 있습니다.
 5. 컴퓨터를 다시 시작하고 연결을 다시 시도합니다.
 
 ## <a name="error-file-download-error-target-uri-is-not-specified"></a>오류: ‘파일 다운로드 오류. 대상 URI를 지정하지 않았습니다.’
@@ -361,7 +361,7 @@ Azure VPN 게이트웨이 형식은 VPN이어야 하고 VPN 형식은 **경로 �
 
 ### <a name="solution"></a>해결 방법
 
-**C:\사용자\사용자 이름\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** 에서 기존 VPN 클라이언트 구성 파일을 삭제하고 VPN 클라이언트 설치 관리자를 다시 실행합니다. 
+**C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** 에서 기존 VPN 클라이언트 구성 파일을 삭제하고, VPN 클라이언트 설치 관리자를 다시 실행합니다. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>VPN 클라이언트가 일정 시간 후에 최대 절전 모드 또는 절전 모드로 전환됨
 

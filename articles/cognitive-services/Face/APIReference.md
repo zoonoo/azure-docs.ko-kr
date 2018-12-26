@@ -1,21 +1,21 @@
 ---
-title: Face API 서비스의 API 참조 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: API 참조 - Face API
+titleSuffix: Azure Cognitive Services
 description: API 참조는 Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management 및 Face Algorithms API에 대한 정보를 제공합니다.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 94c03d4f07a18c0c63d76965b1b31dce66388843
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 283a042bb8ea32f8f6db9bebb211bc2762a3a4c1
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378078"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578076"
 ---
 # <a name="api-reference"></a>API 참조
 
@@ -30,3 +30,5 @@ Face API는 다음 범주를 포함합니다.
 - [LargeFaceList Management API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc): [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)에 대한 LargeFaceList를 관리하는 데 사용됩니다.
 - [PersonGroup Person Management API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)에 대한 PersonGroup Person Faces를 관리하는 데 사용됩니다.
 - [PersonGroup Management API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)에 대한 PersonGroup 데이터 집합을 관리하는 데 사용됩니다.
+
+<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

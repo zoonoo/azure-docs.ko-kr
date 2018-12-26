@@ -1,36 +1,30 @@
 ---
-title: 분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용 | Microsoft Docs
+title: 분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 description: 분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 services: hdinsight
-documentationcenter: ''
-author: xiaoyongzhu
-manager: asadk
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 71dcd1ad-4cad-47ad-8a9d-dcb7fa3c2ff9
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/17/2017
-ms.author: xiaoyzhu
-ms.openlocfilehash: 646d6e4b8980b780d4691fa258aa0d36ff309fd6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c63e2e3ec922d2cf26603fe19606008b1e8d3f45
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054329"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498171"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 
 
 ## <a name="introduction"></a>소개
 
-심층 학습은 의료, 교통, 제조 등에 이르는 모든 분야에 영향을 줍니다. 기업은 [이미지 분류](http://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [음성 인식](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), 개체 인식 및 기계 번역과 같은 어려운 문제를 해결하기 위해 심층 학습으로 전환하고 있습니다. 
+심층 학습은 의료, 교통, 제조 등에 이르는 모든 분야에 영향을 줍니다. 기업은 [이미지 분류](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [음성 인식](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), 개체 인식 및 기계 번역과 같은 어려운 문제를 해결하기 위해 딥 러닝으로 전환하고 있습니다. 
 
-[Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano 등 [널리 사용되는 수많은 프레임워크](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)가 있습니다. Caffe는 가장 유명한 비기호(명령적) 신경망 프레임워크 중 하나로, 컴퓨터 비전을 비롯한 많은 영역에서 널리 사용 됩니다. 또한 [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep)는 Caffe를 Apache Spark와 결합하여 기존 Hadoop 클러스터에서 심층 학습을 쉽게 사용하도록 할 수 있습니다. Spark ETL 파이프라인과 함께 심층 학습을 사용하여 시스템 복잡성을 줄이고 완전한 솔루션 학습에 따른 대기 시간을 줄일 수 있습니다.
+[Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano 등 [널리 사용되는 수많은 프레임워크](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)가 있습니다. [Caffe](http://caffe.berkeleyvision.org/)는 가장 많이 사용되는 비기호(명령적) 신경망 프레임워크 중 하나로, Computer Vision을 비롯한 많은 영역에서 널리 사용 됩니다. 또한 [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep)는 Caffe를 Apache Spark와 결합하여 기존 Hadoop 클러스터에서 심층 학습을 쉽게 사용하도록 할 수 있습니다. Spark ETL 파이프라인과 함께 심층 학습을 사용하여 시스템 복잡성을 줄이고 완전한 솔루션 학습에 따른 대기 시간을 줄일 수 있습니다.
 
-[HDInsight](https://azure.microsoft.com/services/hdinsight/)는 Spark, Hive, Hadoop, HBase, Storm, Kafka 및 ML 서비스에 최적화된 오픈 소스 기반의 분석 클러스터를 제공하는 클라우드 Hadoop 솔루션입니다. HDInsight는 99.9% SLA를 보장합니다. 이러한 각 빅 데이터 기술과 ISV 응용 프로그램은 엔터프라이즈용 보안과 모니터링으로 관리 클러스터 형태로 쉽게 배포 가능합니다.
+[HDInsight](https://azure.microsoft.com/services/hdinsight/)는 Apache Spark, Apache Hive, Apache Hadoop, Apache HBase, Apache Storm, Apache Kafka 및 ML Services에 최적화된 오픈 소스 분석 클러스터를 제공하는 클라우드 Apache Hadoop 솔루션입니다. HDInsight는 99.9% SLA를 보장합니다. 이러한 각 빅 데이터 기술과 ISV 애플리케이션은 엔터프라이즈용 보안과 모니터링으로 관리 클러스터 형태로 쉽게 배포 가능합니다.
 
 이 문서에서는 HDInsight 클러스터에 대해 [Spark의 Caffe](https://github.com/yahoo/CaffeOnSpark)를 설치하는 방법을 보여줍니다. 또한 이 문서는 기본 제공 MNIST 데모를 사용하여 CPU에서 HDInsight Spark를 통해 분산 심층 학습을 사용하는 방법을 보여줍니다.
 
@@ -75,7 +69,7 @@ HDInsight는 PaaS 솔루션으로, 뛰어난 플랫폼 기능을 제공하므로
 ![종속성 설치를 위한 스크립트 동작](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
-## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>2단계: 헤드 노드에서 HDInsight용 Spark에 Caffe 빌드
+## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>2단계: 헤드 노드에서 HDInsight용 Apache Spark에 Caffe 빌드
 
 두 번째 단계는 헤드 노드에 Caffe를 빌드한 후 컴파일된 라이브러리를 모든 작업자 노드에 배포하는 것입니다. 이 단계에서는 [헤드 노드에 대해 ssh를 수행](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)해야 합니다. 그런 후에 [CaffeOnSpark 빌드 프로세스](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn)를 따라야 합니다. 다음은 CaffeOnSpark 빌드에 사용할 수 있는 스크립트와 몇 가지 추가 단계입니다. 
 
@@ -118,7 +112,7 @@ HDInsight는 PaaS 솔루션으로, 뛰어난 플랫폼 기능을 제공하므로
 
 CaffeOnSpark에 대한 설명서에 나와 있는 것보다 더 많은 것을 수행해야 할 수 있습니다. 변경 내용은 다음과 같습니다.
 - CPU 전용으로 변경하고 특정 목록으로 libatlas를 사용합니다.
-- 나중에 사용할 수 있도록 데이터 집합을 모든 작업자 노드에 액세스할 수 있는 공유 위치인 Blob Storage에 배치합니다.
+- 나중에 사용할 수 있도록 데이터 세트를 모든 작업자 노드에 액세스할 수 있는 공유 위치인 Blob Storage에 배치합니다.
 - 컴파일된 Caffe 라이브러리를 Blob Storage에 배치하고 나중에 스크립트 동작을 사용하여 해당 라이브러리를 모든 노드에 복사하여 추가 컴파일 시간이 발생하지 않도록 합니다.
 
 
@@ -171,7 +165,7 @@ CaffeOnSpark에 대한 최종 확인을 수행할 때 테스트 실패가 표시
 
 Caffe는 "표현 아키텍처"를 사용 중이며 여기서는 모델을 구성하기 위해 대부분의 경우 코딩 없이 구성 파일을 정의해야 합니다. 따라서 이에 대해 살펴보겠습니다. 
 
-학습할 모델은 MNIST 학습을 위한 샘플 모델입니다. 필기 숫자의 MNIST 데이터베이스에는 학습 집합 예제 60,000개와 테스트 집합 예제 10,000개가 포함됩니다. NIST에서 제공되는 큰 집합의 하위 집합입니다. 이 숫자는 크기를 표준화하였고 고정 크기 이미지로 중앙에 배치됩니다. CaffeOnSpark에는 데이터 집합을 다운로드하고 적절한 형식으로 변환할 수 있는 몇 가지 스크립트가 포함됩니다.
+학습할 모델은 MNIST 학습을 위한 샘플 모델입니다. 필기 숫자의 MNIST 데이터베이스에는 학습 집합 예제 60,000개와 테스트 집합 예제 10,000개가 포함됩니다. NIST에서 제공되는 큰 집합의 하위 집합입니다. 이 숫자는 크기를 표준화하였고 고정 크기 이미지로 중앙에 배치됩니다. CaffeOnSpark에는 데이터 세트를 다운로드하고 적절한 형식으로 변환할 수 있는 몇 가지 스크립트가 포함됩니다.
 
 CaffeOnSpark는 MNIST 학습을 위한 몇 가지 네트워크 토폴로지를 제공합니다. 네트워크 아키텍처(네트워크의 토폴로지)를 분할하고 최적화하기 위한 훌륭한 설계를 포함합니다. 이 경우 다음 두 파일이 필요합니다. 
 
@@ -193,7 +187,7 @@ CaffeOnSpark는 MNIST 학습을 위한 몇 가지 네트워크 토폴로지를 �
 
 ![Caffe 구성](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
 
-네트워크를 정의하는 방법에 대한 자세한 내용은 [MNIST 데이터 집합에 대한 Caffe 설명서](http://caffe.berkeleyvision.org/gathered/examples/mnist.html)를 확인하세요.
+네트워크를 정의하는 방법에 대한 자세한 내용은 [MNIST 데이터 세트에 대한 Caffe 설명서](http://caffe.berkeleyvision.org/gathered/examples/mnist.html)를 확인하세요.
 
 이 문서의 목적에 맞게 다음 MNIST 예제를 사용합니다. 헤드 노드에서 다음 명령을 실행합니다.
 
@@ -288,7 +282,7 @@ YARN 클러스터 모드를 사용 중이고 이 경우 임의 컨테이너(및 
     {"SampleID":"00009604","accuracy":[0.97],"loss":[0.0677709],"label":[3.0]}
     {"SampleID":"00009605","accuracy":[0.97],"loss":[0.0677709],"label":[4.0]}
 
-SampleID는 MNIST 데이터 집합에서 ID를 나타내며 레이블은 모델에서 식별하는 숫자입니다.
+SampleID는 MNIST 데이터 세트에서 ID를 나타내며 레이블은 모델에서 식별하는 숫자입니다.
 
 
 ## <a name="conclusion"></a>결론
@@ -300,8 +294,8 @@ SampleID는 MNIST 데이터 집합에서 ID를 나타내며 레이블은 모델�
 * [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
-* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>리소스 관리
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)

@@ -3,8 +3,8 @@ title: 자습서 - Azure CDN 캐싱 규칙 설정 | Microsoft Docs
 description: 이 자습서에서는 Azure CDN 전역 캐싱 규칙 및 사용자 지정 캐싱 규칙을 설정합니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.service: cdn
 ms.workload: tbd
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a4b5a6a44fe9271f6ff9627c1c5623f0031f23ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 10d06d2e792b476a4c973029241d6cb98c0dd444
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608970"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094074"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>자습서: Azure CDN 캐싱 규칙 설정
 
@@ -42,7 +42,7 @@ ms.locfileid: "34608970"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서 단계를 완료하기 전에 먼저 CDN 프로필 및 하나 이상의 CDN 끝점을 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure CDN 프로필 및 끝점 만들기](cdn-create-new-endpoint.md)를 참조하세요.
+이 자습서에서 단계를 완료하기 전에 먼저 CDN 프로필 및 하나 이상의 CDN 엔드포인트를 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
 
 ## <a name="open-the-azure-cdn-caching-rules-page"></a>Azure CDN 캐싱 규칙 페이지 열기
 

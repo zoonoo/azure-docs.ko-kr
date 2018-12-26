@@ -1,29 +1,21 @@
 ---
-title: Azure SignalR Service 사용 방법을 배우기 위한 빠른 시작 | Microsoft Docs
+title: Azure SignalR Service 사용 방법을 배우기 위한 빠른 시작
 description: Azure SignalR Service를 사용하여 ASP.NET Core MVC 앱으로 대화방을 만들기 위한 빠른 시작입니다.
-services: signalr
-documentationcenter: ''
-author: wesmc7777
-manager: cfowler
-editor: ''
-ms.assetid: ''
+author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
-ms.author: wesmc
-ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: zhshang
+ms.openlocfilehash: 805f8d55b1627ad12ce58e8a64728a42867a858e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674855"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260619"
 ---
-# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 채팅방 만들기
+# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 대화방 만들기
 
-Microsoft Azure SignalR Service는 현재 [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 제공됩니다.
 
 Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 응용 프로그램을 빌드할 수 있게 하는 Azure 서비스입니다. 이 서비스는 [ASP.NET Core 2.0용 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)을 기준으로 합니다.
 
@@ -42,7 +34,7 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 응�
 ## <a name="prerequisites"></a>필수 조건
 
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows) 설치
-* [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github 리포지토리를 다운로드하거나 복제합니다. 
+* [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub 리포지토리를 다운로드하거나 복제합니다. 
 
 ## <a name="create-an-azure-signalr-resource"></a>Azure SignalR 리소스 만들기
 
@@ -93,15 +85,20 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 응�
 
         dotnet restore
 
-3. *Azure__SignalR__ConnectionString*이라는 암호를 암호 관리자에 추가합니다. 이 암호는 계층적 구성 값이며, 콜론(:)은 모든 플랫폼에서 작동하지 않을 수 있습니다. 이 암호에서 사용하는 이중 밑줄(__)은 모든 플랫폼에서 지원합니다.  이 암호는 SignalR Service 리소스에 액세스하기 위한 연결 문자열을 포함합니다. *Azure__SignalR__ConnectionString*은 연결을 설정하기 위해 SignalR이 찾는 기본 구성 키입니다. 아래 명령의 값을 SignalR Service 리소스에 대한 연결 문자열로 바꿉니다.
+3. *Azure:SignalR:ConnectionString*이라는 암호를 암호 관리자에 추가합니다. 
+
+    이 암호는 SignalR Service 리소스에 액세스하기 위한 연결 문자열을 포함합니다. *Azure:SignalR:ConnectionString*은 연결을 설정하기 위해 SignalR이 찾는 기본 구성 키입니다. 아래 명령의 값을 SignalR Service 리소스에 대한 연결 문자열로 바꿉니다.
 
     이 명령은 *.csproj* 파일이 있는 동일한 디렉터리에서 실행해야 합니다.
 
     ```
-    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     암호 관리자는 로컬로 호스트되는 웹앱을 테스트하는 데만 사용됩니다. 자습서의 뒷부분에서 Azure로 채팅 웹앱을 배포합니다. Azure로 웹앱이 배포되면, 암호 관리자를 사용하여 연결 문자열을 저장하는 대신, 응용 프로그램 설정을 사용하게 됩니다.
+
+    이 비밀은 구성 API를 사용하여 액세스됩니다. 콜론(:)은 지원되는 모든 플랫폼의 구성 API에서 구성 이름으로 작동합니다. [환경별 구성](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment)을 참조하세요. 
+
 
 4. *Startup.cs*를 열고, `services.AddSignalR().AddAzureSignalR()` 메서드를 호출하여 Azure SignalR 서비스를 사용하도록 `ConfigureServices` 메서드를 업데이트합니다.
 
@@ -113,7 +110,7 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 응�
     }
     ```
 
-    이 코드는 `AddAzureSignalR()`에 매개 변수를 전달하지 않고, SignalR Service 리소스 연결 문자열에 대해 기본 구성 키, *Azure__SignalR__ConnectionString*을 사용합니다.
+    이 코드는 `AddAzureSignalR()`에 매개 변수를 전달하지 않고, SignalR Service 리소스 연결 문자열에 대해 기본 구성 키, *Azure:SignalR:ConnectionString*을 사용합니다.
 
 5. 또한 *Startup.cs*에서 `app.UseStaticFiles()` 호출을 다음 코드로 바꾸어 `Configure` 메서드를 업데이트한 후 파일을 저장합니다.
 

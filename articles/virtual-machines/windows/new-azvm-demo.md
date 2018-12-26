@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: a44c9ec9270e4ba76f0ff367e039f5ef72eb04a5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: defc871caed429eeda1f8672323b48a9c0007c8e
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "31601640"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371740"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Cloud Shell에서 간소화된 New-AzureRMVM cmdlet을 사용하여 Windows 가상 머신 만들기 
 
-[New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet은 PowerShell을 사용하여 새 VM을 만드는 간소화된 집합의 매개 변수를 추가했습니다. 이 항목에서는 최신 버전의 New-AzureVM cmdlet이 사전 설치된 Azure Cloud Shell에서 PowerShell을 사용하여 새 VM을 만드는 방법을 보여줍니다. 스마트 기본값을 사용하여 필요한 모든 리소스를 자동으로 만드는 간소화된 매개 변수 집합을 사용합니다. 
+[New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) cmdlet은 PowerShell을 사용하여 새 VM을 만드는 간소화된 집합의 매개 변수를 추가했습니다. 이 항목에서는 최신 버전의 New-AzureVM cmdlet이 사전 설치된 Azure Cloud Shell에서 PowerShell을 사용하여 새 VM을 만드는 방법을 보여줍니다. 스마트 기본값을 사용하여 필요한 모든 리소스를 자동으로 만드는 간소화된 매개 변수 집합을 사용합니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -36,7 +36,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습
 
 ## <a name="create-the-vm"></a>VM 만들기
 
-[New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet을 사용하여 Azure Marketplace의 Windows Server 2016 데이터 센터 이미지 사용을 포함하는 스마트 기본값으로 VM을 만들 수 있습니다. **-Name** 매개 변수와 함께 New-AzureRMVM을 사용할 수 있으며 모든 리소스 이름에 해당 값을 사용합니다. 이 예에서 *myVM*으로 **-Name** 매개 변수를 설정합니다. 
+[New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) cmdlet을 사용하여 Azure Marketplace의 Windows Server 2016 데이터 센터 이미지 사용을 포함하는 스마트 기본값으로 VM을 만들 수 있습니다. **-Name** 매개 변수와 함께 New-AzureRMVM을 사용할 수 있으며 모든 리소스 이름에 해당 값을 사용합니다. 이 예에서 *myVM*으로 **-Name** 매개 변수를 설정합니다. 
 
 Cloud Shell 및 형식에서 **PowerShell**이 선택되었는지 확인합니다.
 
@@ -46,11 +46,11 @@ New-AzureRMVm -Name myVM
 
 이 항목의 뒷부분에서 VM에 연결할 때 사용되는 VM에 대한 사용자 이름 및 암호를 만들 것인지 묻는 메시지가 나타납니다. 암호는 12-123자 길이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 등 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다.
 
-VM 및 연결된 리소스를 만드는 데 1분이 걸립니다. 완료되면 [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet을 사용하여 만든 모든 리소스를 볼 수 있습니다.
+VM 및 연결된 리소스를 만드는 데 1분이 걸립니다. 완료되면 [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet을 사용하여 만든 모든 리소스를 볼 수 있습니다.
 
 ```azurepowershell-interactive
-Find-AzureRmResource `
-    -ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
+Get-AzureRmResource `
+    -ResourceGroupName myVMResourceGroup | Format-Table Name
 ```
 
 ## <a name="connect-to-the-vm"></a>VM에 연결

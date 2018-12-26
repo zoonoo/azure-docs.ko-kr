@@ -1,37 +1,37 @@
 ---
 title: Azure IoT Edge 모듈 배포(포털) | Microsoft Docs
-description: Azure Portal을 사용하여 IoT Edge 장치에 모듈 배포
+description: Azure Portal을 사용하여 IoT Edge 디바이스에 모듈 배포
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/06/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4082189d451f670c1ae3f76b8ec785d8bd0518b3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b135832c1f0cb8af23a513d4914d7e32b398be7e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035402"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564938"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
 
-비즈니스 논리를 사용하여 IoT Edge 모듈을 만들면 장치에 배포하여 에지에서 작동시킵니다. 데이터를 수집하고 처리하기 위해 다중 모듈을 사용한 경우 한 번에 모두 배포하고 여기에 연결된 회람 규칙을 선언할 수 있습니다. 
+비즈니스 논리를 사용하여 IoT Edge 모듈을 만들면 디바이스에 배포하여 에지에서 작동시킵니다. 데이터를 수집하고 처리하기 위해 다중 모듈을 사용한 경우 한 번에 모두 배포하고 여기에 연결된 회람 규칙을 선언할 수 있습니다. 
 
-이 아티클에서는 배포 매니페스트를 만들고 IoT Edge 장치에 배포를 푸시하는 방법을 Azure Portal에서 어떻게 설명하는지를 보여줍니다. 해당 공유 태그에 따라 다중 장치를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
+이 아티클에서는 배포 매니페스트를 만들고 IoT Edge 디바이스에 배포를 푸시하는 방법을 Azure Portal에서 어떻게 설명하는지를 보여줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) 
-* IoT Edge 런타임이 설치된 [IoT Edge 장치](how-to-register-device-portal.md) 
+* IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device-portal.md) 
 
-## <a name="select-your-device"></a>장치 선택
+## <a name="select-your-device"></a>디바이스 선택
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
 2. 메뉴에서 **IoT Edge**를 선택합니다.
-3. 장치 목록에서 대상 장치의 ID를 클릭합니다. 
+3. 디바이스 목록에서 대상 디바이스의 ID를 클릭합니다. 
 4. **모듈 설정**을 선택합니다.
 
 ## <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
@@ -44,21 +44,21 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 1. 페이지의 **레지스트리 설정** 섹션에서는 모듈 이미지를 포함하는 개인 컨테이너 레지스트리에 액세스할 수 있는 자격 증명을 제공합니다. 
 2. 페이지의 **배포 모듈** 섹션에서는 **추가**를 선택합니다. 
-3. 드롭다운 목록에서 모듈 형식을 선택합니다. 
+3. 드롭다운 목록에서 모듈 형식을 살펴봅니다. 
    * **IoT Edge 모듈** - 기본 옵션입니다.
    * **Azure Stream Analytics 모듈** - Azure Stream Analytics 워크로드에서 생성된 모듈만 해당합니다. 
-
-4. 모듈에 이름을 입력한 다음, 컨테이너 이미지를 지정합니다. 예:  
+4. **IoT Edge 모듈**을 선택합니다.
+5. 모듈에 이름을 입력한 다음, 컨테이너 이미지를 지정합니다. 예:  
    * **이름** - tempSensor
    * **이미지 URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-5. 필요한 경우 선택적 필드를 작성합니다. 컨테이너 생성 옵션, 다시 시작 정책 및 원하는 상태에 대한 자세한 내용은 [EdgeAgent desired 속성](module-edgeagent-edgehub.md#edgeagent-desired-properties)을 참조하세요. 모듈 쌍에 대한 자세한 내용은 [desired 속성 정의 또는 업데이트](module-composition.md#define-or-update-desired-properties)을 참조하세요.
-6. **저장**을 선택합니다.
-7. 2-6단계를 반복하여 배포에 모듈을 추가합니다. 
-8. **다음**을 선택하여 경로 섹션을 계속합니다.
+6. 필요한 경우 선택적 필드를 작성합니다. 컨테이너 생성 옵션, 다시 시작 정책 및 원하는 상태에 대한 자세한 내용은 [EdgeAgent desired 속성](module-edgeagent-edgehub.md#edgeagent-desired-properties)을 참조하세요. 모듈 쌍에 대한 자세한 내용은 [desired 속성 정의 또는 업데이트](module-composition.md#define-or-update-desired-properties)을 참조하세요.
+7. **저장**을 선택합니다.
+8. 2-6단계를 반복하여 배포에 모듈을 추가합니다. 
+9. **다음**을 선택하여 경로 섹션을 계속합니다.
 
 ### <a name="specify-routes"></a>경로 지정
 
-기본적으로 마법사에서는 사용자에게 **route**라는 **FROM /* INTO $upstream**으로 정의된 경로를 제공합니다. 즉, 모듈에 의한 메시지 출력은 IoT Hub에 전송됩니다.  
+기본적으로 마법사에서는 사용자에게 **route**라는 **FROM /\* INTO $upstream**으로 정의된 경로를 제공합니다. 즉, 모듈에 의한 메시지 출력은 IoT Hub에 전송됩니다.  
 
 [경로 선언](module-composition.md#declare-routes)의 정보를 포함한 경로를 추가하거나 업데이트한 다음, **다음**을 선택하여 검토 섹션을 진행합니다.
 
@@ -68,9 +68,9 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 배포 정보를 검토한 다음 **제출**을 선택합니다. 
 
-## <a name="view-modules-on-your-device"></a>장치에서 모듈 보기
+## <a name="view-modules-on-your-device"></a>디바이스에서 모듈 보기
 
-장치에 모듈을 배포하면 포털의 **장치 세부 정보** 페이지에서 모두 볼 수 있습니다. 이 페이지에서는 배포 상태 및 종료 코드와 같은 유용한 정보뿐만 아니라 배포된 각 모듈의 이름을 표시합니다. 
+디바이스에 모듈을 배포하면 포털의 **디바이스 세부 정보** 페이지에서 모두 볼 수 있습니다. 이 페이지에서는 배포 상태 및 종료 코드와 같은 유용한 정보뿐만 아니라 배포된 각 모듈의 이름을 표시합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

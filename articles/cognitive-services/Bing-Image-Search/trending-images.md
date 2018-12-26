@@ -1,23 +1,24 @@
 ---
-title: 최신 이미지에 대한 웹 검색 | Microsoft Docs
-description: Bing Images Search API를 사용하여 웹에서 추세 이미지를 검색하는 방법을 알아봅니다.
+title: 유행하는 최신 이미지에 대한 웹 검색 - Bing Image Search API
+titleSuffix: Azure Cognitive Services
+description: Bing Images Search API를 사용하여 웹에서 유행하는 최신 이미지를 검색하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: EAB92D35-5C0B-4A0A-8F49-02DF7FAD44B4
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: b12524cd4c1896501820209b3a45746b8f38b210
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 00d992da1d061ddbbee59e93898a92b6701f1ffb
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372862"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296314"
 ---
-# <a name="get-trending-images"></a>최신 이미지 가져오기  
+# <a name="get-trending-images-from-the-bing-image-search-api"></a>Bing Image Search API에서 유행하는 최신 이미지 가져오기
 
 현재 유행하는 최신 이미지를 가져오려면 다음 GET 요청을 보냅니다.  
 
@@ -33,12 +34,12 @@ Host: api.cognitive.microsoft.com
 현재 Trending Images API는 다음 시장만 지원합니다.  
 
 - en-US(영어, 미국)  
-- en-CA (영어, 캐나다)  
+- en-CA(영어, 캐나다)  
 - en-AU(영어, 오스트레일리아)  
 - zh-CN(중국어, 중국)
 
 응답에는 이미지를 범주별로 나열하는 [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#trendingimages) 개체가 포함됩니다. 범주의 `title`을 사용하여 사용자 경험의 이미지를 그룹화합니다. 범주는 매일 변경될 수 있습니다.  
-  
+
 ```json
 {
     "_type" : "TrendingImages",  
@@ -85,8 +86,8 @@ Host: api.cognitive.microsoft.com
     }]  
 }  
 ```  
-  
-각 타일에는 이미지 및 관련 이미지를 가져오기 위한 옵션이 포함되어 있습니다. 관련 이미지를 가져오기 위해 `text` 쿼리를 사용하여 [Image Search API](./search-the-web.md)를 호출하고 관련 이미지를 직접 표시할 수 있습니다. 또는 `webSearchUrl`의 URL을 사용하여 사용자를 관련 이미지가 포함된 Bing의 이미지 검색 결과 페이지로 이동할 수 있습니다. 
+
+각 타일에는 이미지 및 관련 이미지를 가져오기 위한 옵션이 포함되어 있습니다. 관련 이미지를 가져오기 위해 `text` 쿼리를 사용하여 [Image Search API](./search-the-web.md)를 호출하고 관련 이미지를 직접 표시할 수 있습니다. 또는 `webSearchUrl`의 URL을 사용하여 사용자를 관련 이미지가 포함된 Bing의 이미지 검색 결과 페이지로 이동할 수 있습니다.
 
 Image Search API를 호출하여 관련 이미지를 가져오는 경우 [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) 쿼리 매개 변수를 `id` 필드의 ID로 설정하세요. ID를 지정하면 응답에 이미지(응답의 첫 번째 이미지) 및 관련 이미지가 포함됩니다. 또한 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#q) 쿼리 매개 변수를 `text` 필드의 `query` 개체에 있는 텍스트로 설정하세요.
 

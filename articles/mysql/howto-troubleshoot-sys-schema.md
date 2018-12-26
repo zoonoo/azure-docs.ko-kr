@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 74bb59a8db70d4a01fcd3bd07054f1cbac50bf40
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 08/01/2018
+ms.openlocfilehash: 1e10e3b1b5f4518732408f254eb5767acb8485c6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266155"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446910"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 성능 튜닝 및 데이터베이스 유지 관리를 위해 sys_schema를 사용하는 방법
 
@@ -42,7 +42,7 @@ IO는 데이터베이스에서 비용이 가장 높은 작업입니다. *sys.use
 
 ![IO 대기 시간: 125GB](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
 
-Azure Database for MySQL에서 저장소와 관련된 IO 크기를 조정하기 때문에 내 프로비전된 저장소를 1TB로 늘린 후, 내 IO 대기 시간이 571ms로 단축되어 26배의 성능 향상을 나타냅니다.
+Azure Database for MySQL에서 저장소와 관련된 IO 크기를 조정하기 때문에 내 프로비전된 저장소를 1TB로 늘린 후, 내 IO 대기 시간이 571ms로 단축됩니다.
 
 ![IO 대기 시간: 1TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
 

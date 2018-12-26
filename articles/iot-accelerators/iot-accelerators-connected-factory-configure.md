@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: c6c5e27dad7f80a329edbd8fbcb95647dc4cd15a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626734"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746982"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기 구성
 
@@ -119,7 +119,7 @@ ms.locfileid: "34626734"
 
 * **OpcUri**(문자열 형식)
 
-  이 속성은 OPC UA 서버의 OPC UA 응용 프로그램 URI로 설정되어야 합니다.
+  이 속성은 OPC UA 서버의 OPC UA 애플리케이션 URI로 설정되어야 합니다.
   OPC UA 사양에 따라 전역적으로 고유해야 하므로 이 속성은 스테이션 토폴로지에 노드를 식별하는 데 사용됩니다.
 
 * OPC UA 노드의 배열인 **OpcNodes**(`<opc_node_description>` 형식)
@@ -262,7 +262,7 @@ ms.locfileid: "34626734"
 
 ### <a name="visual-appearance"></a>시각적 모양
 
-이 범주의 속성이 연결된 팩터리 대시보드의 시각적 모양을 정의합니다. 이러한 예로 다음이 포함됩니다.
+이 범주의 속성이 연결된 팩터리 대시보드의 시각적 모양을 정의합니다. 다음은 이러한 템플릿의 예입니다.
 
 * Name
 * 설명
@@ -282,7 +282,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 * OPC UA 노드 값은 계산에 포함되어야 합니다.
 * 수치가 원격 분석 값에서 계산되는 방식입니다.
 
-연결된 팩터리는 http://oeeindustrystandard.oeefoundation.org에서 게시하는 대로 OEE 수식을 사용합니다.
+연결된 팩터리는 http://www.oeefoundation.org에서 게시하는 대로 OEE 수식을 사용합니다.
 
 스테이션의 OPC UA 노드 개체를 사용하여 OEE/KPI 계산용으로 태그를 지정할 수 있습니다. **Relevance** 속성은 OPC UA 노드 값을 사용해야 하는 OEE/KPI 수치를 나타냅니다. **OpCode** 속성은 값을 계산에 사용할 방식을 정의합니다.
 

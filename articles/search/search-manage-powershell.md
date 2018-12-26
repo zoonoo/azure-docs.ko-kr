@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 8f83f2652f7bd34f53dde1674c022f8792ae7658
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bae9e2dcb4320c1da4f1d8e3c6ad50ce90195544
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181990"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958570"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell을 사용한 Azure Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.locfileid: "32181990"
 
 Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 해당 암호를 지정합니다.
 
-또는 [비대화형으로 서비스 주체를 사용하여 로그인](../azure-resource-manager/resource-group-authenticate-service-principal.md)할 수 있습니다.
+또는 [비대화형으로 서비스 주체를 사용하여 로그인](../active-directory/develop/howto-authenticate-service-principal-powershell.md)할 수 있습니다.
 
 여러 Azure 구독이 있는 경우 Azure 구독을 설정해야 합니다. 현재 구독 목록을 보려면 다음 명령을 실행합니다.
 

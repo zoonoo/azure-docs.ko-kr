@@ -3,19 +3,19 @@ title: LUIS 미리 빌드된 사용되지 않는 엔터티 참조 - Azure | Micr
 titleSuffix: Azure
 description: 이 문서에는 LUIS(Language Understanding)의 더 이상 사용되지 않는 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8ff260adf437eb8b390d5cfb708d2a98f989bdcb
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 11/26/2018
+ms.author: diberry
+ms.openlocfilehash: 5f722e9eae45f2df86b8c0831ffd33ad3edd8e5b
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321555"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334111"
 ---
 # <a name="deprecated-entities"></a>사용되지 않는 엔터티
 다음과 같은 미리 빌드된 엔터티는 더 이상 사용되지 않으므로 새 LUIS 앱에 추가될 수 없습니다.
@@ -29,7 +29,7 @@ ms.locfileid: "36321555"
 
 #### <a name="3-geography-subtypes"></a>3개의 지리 하위 유형
 
-미리 빌드된 엔터티   |   예제 발언   |   JSON
+미리 빌드된 엔터티   |   예제 발화   |   JSON
 ------|------|------|
 ```builtin.geography.city```   |  ```seattle```    |```{ "type": "builtin.geography.city", "entity": "seattle" }```|
 ```builtin.geography.city```   |  ```paris```    |```{ "type": "builtin.geography.city", "entity": "paris" }```|

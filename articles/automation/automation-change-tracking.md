@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b110f83274b2b42896bd18fb364c355ecc97a028
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258263"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167004"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -23,13 +23,41 @@ ms.locfileid: "34258263"
 
 모니터링되는 서버에 있는 설치된 소프트웨어, Windows 서비스, Windows 레지스트리/파일 및 Linux 디먼에 대한 변경 내용은 처리를 위해 클라우드의 Log Analytics 서비스로 보내집니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 변경 내용 추적 대시보드의 정보를 사용하여 서버 인프라에서 수행한 변경 내용을 쉽게 확인할 수 있습니다.
 
+## <a name="supported-windows-operating-systems"></a>지원되는 Windows 운영 체제
+
+Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식적으로 지원됩니다.
+
+* Windows Server 2008 R2 이상
+
+## <a name="supported-linux-operating-systems"></a>지원되는 Linux 운영 체제
+
+다음 Linux 배포판이 공식적으로 지원됩니다. 하지만 Linux 에이전트는 나열되지 않은 그 밖의 배포에서 실행이 가능할 수 있습니다. 다른 설명이 없는 한, 나열된 각 주 버전의 모든 부 버전이 지원됩니다.  
+
+### <a name="64-bit"></a>64비트
+
+* CentOS 6 및 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 및 7
+* Red Hat Enterprise Linux Server 6 및 7
+* Debian GNU/Linux 8 및 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS 및 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+### <a name="32-bit"></a>32비트
+
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 및 9
+* Ubuntu Linux 14.04 LTS 및 16.04 LTS
+
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
 변경 내용 추적을 시작하려면 Automation 계정에 대한 변경 내용 추적 및 인벤토리 솔루션을 사용하도록 설정해야 합니다.
 
 1. Azure Portal에서 Automation 계정으로 이동합니다.
-1. **구성** 아래에서 **변경 내용 추적**을 선택합니다.
-1. 기존 Log Analytics 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하고 **사용**을 클릭합니다.
+2. **구성** 아래에서 **변경 내용 추적**을 선택합니다.
+3. 기존 Log Analytics 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하고 **사용**을 클릭합니다.
 
 이렇게 하면 Automation 계정에 대한 솔루션을 사용할 수 있습니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸릴 수 있습니다. 솔루션을 사용하도록 설정되면 파란색 배너에서 알려줍니다. **변경 내용 추적** 페이지로 다시 이동하여 솔루션을 관리합니다.
 
@@ -57,6 +85,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
 |sudo 사용     | 항목을 확인할 때 sudo가 사용되는지 여부를 결정합니다.         |
 |링크     | 디렉터리를 트래버스할 때 기호화된 링크에서 처리하는 방법을 결정합니다.<br> **Ignore** - 기호화된 링크가 무시되고 참조된 파일/디렉터리를 포함하지 않습니다.<br>**Follow** - 재귀 중에 기호화된 링크를 따르고 참조된 파일/디렉터리도 포함합니다.<br>**관리** - 기호화된 링크를 따르고 반환된 콘텐츠를 변경할 수 있도록 허용합니다.     |
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
 
 > [!NOTE]
 > "Manage" 링크 옵션은 권장되지 않습니다. 파일 콘텐츠 검색은 지원되지 않습니다.
@@ -74,7 +103,24 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |사용     | 설정이 적용되는지 여부를 결정합니다.        |
 |Item Name     | 추적할 파일의 이름입니다.        |
 |그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
-|경로 입력     | 파일을 확인할 경로입니다. 예: "c:\temp\myfile.txt"       |
+|경로 입력     | 파일을 확인할 경로입니다(예: "c:\temp\\\*.txt").<br>"%winDir%\System32\\\*.*"와 같은 환경 변수도 사용할 수 있습니다.       |
+|재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>와일드 카드, 재귀 및 환경 설정
+
+재귀를 사용하면 와일드 카드를 지정하여 디렉터리 추적을 간소화할 수 있고, 환경 변수를 사용하면 여러 또는 동적 드라이브 이름이 있는 환경에서 파일을 추적할 수 있습니다. 다음은 재귀를 구성할 때 알아야 할 일반적인 정보 목록입니다.
+
+* 와일드 카드는 여러 파일을 추적하는 데 필요
+* 와일드 카드를 사용하는 경우 경로의 마지막 세그먼트에만 사용할 수 있습니다. (예: C:\folder\\**file** 또는 /etc/*.conf)
+* 환경 변수의 경로가 잘못된 경우 유효성 검사는 성공하지만 인벤토리를 실행하면 해당 경로가 실패합니다.
+* 경로를 설정할 때 `c:\*.*` 같은 일반 경로를 사용하면 너무 많은 폴더가 트래버스되므로 사용하면 안 됩니다.
+
+## <a name="configure-file-content-tracking"></a>파일 콘텐츠 추적 구성
+
+파일 콘텐츠 변경 내용 추적을 사용하여 파일의 변경 이전과 이후의 콘텐츠를 볼 수 있습니다. 이 기능은 Windows 및 Linux 파일에 지원되고, 파일 각각의 변경 내용의 경우 파일의 콘텐츠는 저장소 계정에 저장되고 변경 이전과 이후의 파일을 인라인으로 또는 나란히 보여줍니다. 자세한 내용은 [추적된 파일의 콘텐츠 보기](change-tracking-file-contents.md)를 참조하세요.
+
+![파일의 변경 내용 보기](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>추적할 Windows 레지스트리 키 구성
 
@@ -95,13 +141,8 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 
 현재 변경 내용 추적 솔루션은 다음 항목을 지원하지 않습니다.
 
-* Windows 파일 추적을 위한 폴더(디렉터리)
-* Windows 파일 추적을 위한 재귀
-* Windows 파일 추적을 위한 와일드카드
 * Windows 레지스트리 추적을 위한 재귀
-* 경로 변수
 * 네트워크 파일 시스템
-* File Content(파일 내용)
 
 기타 제한 사항은 다음과 같습니다.
 
@@ -115,6 +156,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 변경 내용 추적 솔루션에 현재 다음과 같은 문제가 있습니다.
 
 * 핫픽스 업데이트가 Windows 10 크리에이터 업데이트 및 Windows Server 2016 Core RS3 컴퓨터에 대해 수집되지 않습니다.
+* 현재 Windows 파일의 경우 변경 내용 추적은 추적된 폴더 경로에 새 파일이 추가되었을 때 검색되지 않습니다.
 
 ## <a name="change-tracking-data-collection-details"></a>변경 내용 추적 데이터 수집 정보
 
@@ -125,11 +167,22 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 | Windows 레지스트리 | 50분 |
 | Windows 파일 | 30분 |
 | Linux 파일 | 15분 |
-| Windows 서비스 | 30분 |
+| Windows 서비스 | 10초에서 30분</br> 기본값: 30분 |
 | Linux 데몬 | 5분 |
 | Windows 소프트웨어 | 30분 |
 | Linux 소프트웨어 | 5분 |
 
+### <a name="windows-service-tracking"></a>Windows 서비스 추적
+
+Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를 구성하려면로 **변경 내용 추적**으로 이동합니다. **Windows 서비스** 탭의 **설정 편집**에는 Windows 서비스에 대한 컬렉션 빈도를 10초에서 30분 사이로 변경할 수 있는 슬라이더가 있습니다. 원하는 빈도에 슬라이더 막대를 이동하면 자동으로 저장됩니다.
+
+![Windows 서비스 슬라이더](./media/automation-change-tracking/windowservices.png)
+
+에이전트는 변경 내용을 추적하고, 에이전트의 성능을 최적화합니다. 임계값을 너무 높게 설정하여 서비스가 원래 상태로 되돌려지면 변경 내용은 누락될 수 있습니다. 빈도를 더 작은 값으로 설정하면 누락될 수 있는 변경 내용을 파악할 수 있습니다.
+
+> [!NOTE]
+> 에이전트가 10초 간격으로 변경 내용을 추적하는 동안 데이터를 포털에 표시하는 데 몇 분 정도가 걸립니다. 포털에 표시하는 시간 동안 변경 내용이 추적되고 기록됩니다.
+  
 ### <a name="registry-key-change-tracking"></a>레지스트리 키 변경 내용 추적
 
 레지스트리 키의 변경 내용을 모니터링하는 목적은 타사 코드 및 맬웨어가 활성화될 수 있는 확장성 지점을 정확하게 찾기 위한 것입니다. 다음 목록에서는 미리 구성된 레지스트리 키의 목록을 보여 줍니다. 이러한 키는 구성되어 있지만 사용할 수 없습니다. 이러한 레지스트리 키를 추적하려면 각 레지스트리 키를 사용하도록 설정해야 합니다.
@@ -171,6 +224,17 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |&nbsp;&nbsp;&nbsp;&nbsp;알려졌거나 일반적으로 사용되는 시스템 DLL 목록을 모니터링합니다. 이 시스템은 시스템 DLL의 트로이 목마 버전을 삭제하여 사용자가 취약한 응용 프로그램 디렉터리에 대한 권한을 악용하지 못하게 합니다.|
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Windows 운영 체제에 대한 대화형 로그온 지원 모델인 Winlogon에서 이벤트 알림을 받을 수 있는 패키지 목록을 모니터링합니다.|
+
+## <a name="network-requirements"></a>네트워크 요구 사항
+
+다음 주소는 변경 내용 추적을 위해 특별히 필요합니다. 이러한 주소에 대한 통신은 443 포트를 통해 수행됩니다.
+
+|Azure 공용  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|\*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|* .azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>변경 내용 추적 사용
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 37bf36af535eb9b5c8b0ba38434b71f1a6686811
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1f5626b1001f2d5deb3fa84d64eab6acf6c94b7e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "27593377"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239528"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobile Apps 및 Mobile Services에서 클라이언트 및 서버 버전 관리
 Azure Mobile Services의 최신 버전은 Azure App Service의 **Mobile Apps** 기능입니다.
@@ -29,7 +29,7 @@ Mobile Apps 클라이언트 및 서버 SDK는 원래 Mobile Services를 기반�
 
 참고: 이 문서가 *Mobile Services* 백 엔드를 참조할 때마다 반드시 Mobile Services에서 호스팅해야 할 필요는 없습니다. 이제 코드를 변경하지 않고 App Service에서 실행되도록 Mobile Services를 마이그레이션할 수 있지만 서비스는 *Mobile Services* SDK 버전을 사용합니다.
 
-코드 변경 없이 App Service에 마이그레이션하는 방법을 자세히 알아보려면 [Azure App Service에 모바일 서비스 마이그레이션]문서를 참조하세요.
+코드 변경 없이 App Service에 마이그레이션하는 방법을 자세히 알아보려면 [모바일 서비스를 Azure App Service로 마이그레이션]문서를 참조하세요.
 
 ## <a name="header-specification"></a>헤더 사양
 키 `ZUMO-API-VERSION` 는 HTTP 헤더 또는 쿼리 문자열에 지정될 수 있습니다. 값은 **x.y.z**형식의 버전 문자열입니다.
@@ -73,7 +73,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | 클라이언트 플랫폼 | 버전 | 버전 헤더 값 |
 | --- | --- | --- |
 | 관리된 클라이언트(Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |해당 없음 |
-| iOS |[2.2.2](http://aka.ms/gc6fex) |해당 없음 |
+| iOS |[2.2.2](https://aka.ms/gc6fex) |해당 없음 |
 | Android |[2.0.3](https://go.microsoft.com/fwLink/?LinkID=280126) |해당 없음 |
 | HTML |[1.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |해당 없음 |
 
@@ -99,8 +99,8 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | 클라이언트 플랫폼 | 버전 | 버전 헤더 값 |
 | --- | --- | --- |
 | 관리된 클라이언트(Windows, Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
-| iOS |[3.0.0](http://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |
-| Android |[3.0.0](http://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) |3.0.0 |
+| iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |
+| Android |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) |3.0.0 |
 
 <!-- TODO: add HTML version when released -->
 
@@ -122,11 +122,11 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | 3.0.0-3.x.y |False/지정되지 않음 |400 - 잘못된 요청 |
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure App Service에 모바일 서비스 마이그레이션]
+* [모바일 서비스를 Azure App Service로 마이그레이션]
 
 [Mobile Services 클라이언트]: #MobileServicesClients
 [Mobile Apps 클라이언트]: #MobileAppsClients
 
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Azure App Service에 모바일 서비스 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
+[모바일 서비스를 Azure App Service로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md

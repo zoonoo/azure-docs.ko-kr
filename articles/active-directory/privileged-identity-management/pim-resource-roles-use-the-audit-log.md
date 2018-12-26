@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management를 사용하여 Azure 리소스에 대한 리소스 역할 감사 | Microsoft Docs
-description: 지정된 리소스에 대한 모든 역할 작업의 보기를 표시하는 방법을 설명합니다.
+title: PIM에서 Azure 리소스 역할에 대한 감사 기록 보기 | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할에 대한 감사 기록을 보는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,18 +10,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: protection
+ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2740297337e1de0d041a80c7860324175413c833
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c0536423e9640f78149b612ec66b0a07cdcf24bb
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447716"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189314"
 ---
-# <a name="audit-resource-roles-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management를 사용하여 Azure 리소스에 대한 리소스 역할 감사 
+# <a name="view-audit-history-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대한 감사 기록 보기
 
 리소스 감사에서는 리소스에 대한 모든 역할 활동에 대한 보기를 제공합니다. 미리 정의된 날짜 또는 사용자 지정 범위를 사용하여 정보를 필터링할 수 있습니다.
 ![필터 정보](media/azure-pim-resource-rbac/rbac-resource-audit.png)
@@ -31,7 +31,7 @@ ms.locfileid: "37447716"
 
 ![더 많은 작업 세부 정보](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
-# <a name="my-audit"></a>내 감사
+## <a name="my-audit"></a>내 감사
 
 내 감사에서는 사용자의 개인 역할 작업 보기를 제공합니다. 미리 정의된 날짜 또는 사용자 지정 범위를 사용하여 정보를 필터링할 수 있습니다.
 ![개인 역할 작업](media/azure-pim-resource-rbac/my-audit-time.png)
@@ -46,3 +46,6 @@ ms.locfileid: "37447716"
 
 ![역할 활성화 선택](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
+## <a name="next-steps"></a>다음 단계
+
+- [PIM에서 Azure AD 디렉터리 역할에 대한 감사 기록 보기](pim-how-to-use-audit-log.md)

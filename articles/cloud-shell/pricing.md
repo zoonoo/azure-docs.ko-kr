@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 8c418a3681fa9d8ac70974ac2c0bcf1c826209aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 16f7327659a0f5fe542375a4b7e3232ee14bb17c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24809869"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158653"
 ---
 # <a name="pricing"></a>가격
-다음은 Azure Cloud Shell의 Bash와 Azure Cloud Shell의 PowerShell(미리 보기)에 관한 정보입니다.
+다음은 Cloud Shell의 Bash와 Cloud Shell의 PowerShell에 적용되는 정보입니다.
 
 ## <a name="compute-cost"></a>비용 계산
 Azure Cloud Shell은 추가 비용 없이 Azure에서 무료로 제공하는 컴퓨터에서 실행되지만, 사용하려면 Azure 파일 공유가 필요합니다. 

@@ -1,24 +1,20 @@
 ---
-title: Windows 기반 HDInsight에서 Linux 기반 HDInsight로 마이그레이션 - Azure | Microsoft Docs
+title: Windows 기반 HDInsight에서 Linux 기반 HDInsight로 마이그레이션 - Azure
 description: Windows 기반 HDInsight 클러스터에서 Linux 기반 HDInsight 클러스터로 마이그레이션하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 964fa9853dc8bb4daae73905e05409deb775fd26
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: hrasheed
+ms.openlocfilehash: 3f0c912d1489884e0fef87e495d91486f3b1fc67
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626754"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010068"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션
 
@@ -101,7 +97,7 @@ Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방
 
 ## <a name="client-side-technologies"></a>클라이언트 쪽 기술
 
-[Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs), [Azure CLI](../cli-install-nodejs.md), [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) 등의 클라이언트 쪽 기술은 계속해서 Linux 기반 클러스터에서 작동합니다. 이러한 기술은 두 클러스터 OS 유형에서 동일한 REST API에 의존합니다.
+[Azure PowerShell cmdlet](/powershell/azureps-cmdlets-docs), [Azure 클래식 CLI](../cli-install-nodejs.md), [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) 등의 클라이언트 쪽 기술은 계속해서 Linux 기반 클러스터에서 작동합니다. 이러한 기술은 두 클러스터 OS 유형에서 동일한 REST API에 의존합니다.
 
 ## <a name="server-side-technologies"></a>서버 쪽 기술
 
@@ -110,7 +106,7 @@ Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방
 | 사용 기술 | 수행 작업 |
 | --- | --- |
 | **PowerShell** (서버 쪽 스크립트, 클러스터 생성 중 사용한 스크립트 동작 포함) |Bash 스크립트로 다시 작성합니다. 스크립트 동작의 경우 [스크립트 동작에서 Linux 기반 HDInsight 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md) 및 [Linux 기반 HDInsight에 대한 스크립트 동작 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요. |
-| **Azure CLI** (서버 쪽 스크립트) |Linux에서 Azure CLI를 사용할 수 있지만, HDInsight 클러스터 헤드 노드에 사전에 설치되어 있지는 않습니다. Azure CLI 설치에 대한 자세한 내용은 [Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조하세요. |
+| **Azure 클래식 CLI**(서버 쪽 스크립트) |Linux에서 Azure 클래식 CLI를 사용할 수 있지만, HDInsight 클러스터 헤드 노드에 사전에 설치되어 있지는 않습니다. Azure 클래식 설치에 대한 자세한 내용은 [Azure 클래식 CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조하세요. |
 | **.NET 구성 요소** |.NET은 Linux 기반 HDInsight 클러스터에서 [Mono](https://mono-project.com)를 통해 완전히 지원되지 않습니다. 자세한 내용은 [.NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요. |
 | **Win32 구성 요소 또는 기타 Windows 전용 기술** |참고 자료는 구성 요소 또는 기술에 따라 다릅니다. Linux와 호환되는 버전을 찾을 수도 있습니다. 찾지 못한 경우 대체 솔루션을 찾거나 이 구성 요소를 다시 작성해야 합니다. |
 

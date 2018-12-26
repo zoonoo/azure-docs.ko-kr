@@ -6,14 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 2cbc5778385a5a4af3f6dc0306e2b943482bf40c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2e71996e22fee34b29139fdf19764c47616beb1d
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642889"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492752"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI(sfctl)를 사용하여 Azure Service Fabric 응용 프로그램 관리
 
@@ -44,7 +44,7 @@ Azure Service Fabric 클러스터에서 실행 중인 응용 프로그램을 만
 
 새 응용 프로그램을 배포하려면 다음 작업을 완료합니다.
 
-### <a name="upload-a-new-application-package-to-the-image-store"></a>이미지 저장소에 새 응용 프로그램 패키지 업로드
+### <a name="upload-a-new-application-package-to-the-image-store"></a>이미지 저장소에 새 애플리케이션 패키지 업로드
 
 응용 프로그램을 만들기 전에 Service Fabric 이미지 저장소에 응용 프로그램 패키지를 업로드합니다.
 
@@ -68,7 +68,7 @@ sfctl application provision --application-type-build-path app_package_dir
 
 ### <a name="delete-the-application-package"></a>응용 프로그램 패키지 삭제
 
-응용 프로그램이 성공적으로 등록된 후에는 응용 프로그램 패키지를 제거하는 것이 좋습니다.  이미지 저장소에서 응용 프로그램 패키지를 삭제하면 시스템 리소스가 해제됩니다.  사용되지 않는 응용 프로그램 패키지를 그대로 두면 디스크 저장소를 소비하고 응용 프로그램 성능 문제로 이어집니다. 
+응용 프로그램이 성공적으로 등록된 후에는 응용 프로그램 패키지를 제거하는 것이 좋습니다.  이미지 저장소에서 애플리케이션 패키지를 삭제하면 시스템 리소스가 해제됩니다.  사용되지 않는 응용 프로그램 패키지를 그대로 두면 디스크 저장소를 소비하고 응용 프로그램 성능 문제로 이어집니다. 
 
 이미지 저장소에서 응용 프로그램 패키지를 삭제하려면 다음 명령을 사용합니다.
 
@@ -90,7 +90,7 @@ sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app
 
 응용 프로그램 이름은 `fabric:/` 접두사로 시작해야 합니다.
 
-### <a name="create-services-for-the-new-application"></a>새 응용 프로그램에 대한 서비스 만들기
+### <a name="create-services-for-the-new-application"></a>새 애플리케이션에 대한 서비스 만들기
 
 응용 프로그램이 만들어진 후에는 응용 프로그램에서 서비스를 만듭니다. 다음 예의 경우, 응용 프로그램에서 새 상태 비저장 서비스를 만듭니다. 응용 프로그램에서 만들 수 있는 서비스는 이전에 프로비전된 응용 프로그램 패키지 내의 서비스 매니페스트에 정의됩니다.
 
@@ -117,7 +117,7 @@ sfctl service health --service-id TestApp/TestSvc
 
 정상 서비스 및 응용 프로그램은 `HealthState` 값이 `Ok`입니다.
 
-## <a name="remove-an-existing-application"></a>기존 응용 프로그램 제거
+## <a name="remove-an-existing-application"></a>기존 애플리케이션 제거
 
 응용 프로그램을 제거하려면 다음 작업을 완료합니다.
 

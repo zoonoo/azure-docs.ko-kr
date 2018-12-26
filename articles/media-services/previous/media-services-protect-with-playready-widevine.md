@@ -4,7 +4,7 @@ description: Azure Media Services를 사용하여 Microsoft PlayReady DRM으로 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 548d1a12-e2cb-45fe-9307-4ec0320567a2
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/09/2017
+ms.date: 09/18/2018
 ms.author: juliako
-ms.openlocfilehash: b22cc44ad1a33f5898790ece7ae7cbaabd55d1e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ddcd93a82c3eea6266275f79f7a34df5a6557ebf
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780690"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364757"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>PlayReady 및/또는 Widevine 동적 일반 암호화 사용
 
@@ -37,7 +37,7 @@ ms.locfileid: "33780690"
 
  Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](https://www.microsoft.com/playready/overview/)으로 보호되는 MPEG-DASH, 부드러운 스트리밍 및 HLS(HTTP Live Streaming) 스트림을 배달할 수 있습니다. 또한 Widevine DRM 라이선스로 암호화된 DASH 스트림을 배달할 수도 있습니다. PlayReady와 Widevine은 모두 일반 암호화(ISO/IEC 23001-7 CENC) 사양에 따라 암호화됩니다. [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/)(버전 3.5.1 이상) 또는 REST API를 통해 Widevine을 사용하도록 AssetDeliveryConfiguration을 구성할 수 있습니다.
 
-Media Services는 PlayReady와 Widevine DRM 라이선스를 제공하는 서비스를 제공합니다. 또한 Media Services는 사용자가 보호된 콘텐츠를 재생할 때 PlayReady 또는 Widevine DRM 런타임에서 적용할 권한 및 제한을 구성하는 데 사용할 수 있는 API를 제공합니다. 사용자가 DRM으로 보호된 콘텐츠를 요청하면 플레이어 응용 프로그램이 Media Services 라이선스 서비스에서 라이선스를 요청합니다. 플레이어 응용 프로그램에 권한이 있으면 Media Services 라이선스 서비스에서 플레이어에 라이선스를 발급합니다. PlayReady 또는 Widevine 라이선스에는 클라이언트 플레이어가 콘텐츠를 해독하고 스트림하는 데 사용할 수 있는 해독 키가 들어 있습니다.
+Media Services는 PlayReady와 Widevine DRM 라이선스를 제공하는 서비스를 제공합니다. 또한 Media Services는 사용자가 보호된 콘텐츠를 재생할 때 PlayReady 또는 Widevine DRM 런타임에서 적용할 권한 및 제한을 구성하는 데 사용할 수 있는 API를 제공합니다. 사용자가 DRM으로 보호된 콘텐츠를 요청하면 플레이어 애플리케이션이 Media Services 라이선스 서비스에서 라이선스를 요청합니다. 플레이어 응용 프로그램에 권한이 있으면 Media Services 라이선스 서비스에서 플레이어에 라이선스를 발급합니다. PlayReady 또는 Widevine 라이선스에는 클라이언트 플레이어가 콘텐츠를 해독하고 스트림하는 데 사용할 수 있는 해독 키가 들어 있습니다.
 
 또한 다음 Media Services 파트너를 사용하여 Widevine 라이선스를 제공할 수 있습니다. 
 
@@ -53,10 +53,10 @@ Media Services는 키를 요청 하는 사용자에 권한을 부여하는 여�
 
 동적 암호화를 이용하려면 다중 비트 전송률 MP4 파일 또는 다중 비트 전송률 부드러운 스트리밍 원본 파일의 집합이 포함된 자산이 필요합니다. 또한 자산의 배달 정책을 구성해야 합니다(이 항목의 뒷부분에서 설명). 그런 다음 스트리밍 URL에 지정된 형식에 따라 주문형 스트리밍 서버는 사용자가 선택한 프로토콜로 스트림이 배달되도록 합니다. 따라서 단일 저장소 형식으로만 파일을 저장하고 이에 대한 비용을 지불합니다. Media Services는 클라이언트의 각 요청에 따라 적절한 HTTP 응답을 작성하고 제공합니다.
 
-이 문서는 PlayReady 및 Widevine과 같이 여러 DRM으로 보호된 미디어를 제공하는 응용 프로그램에서 작업하는 개발자에게 유용합니다. 이 문서에서는 권한이 있는 클라이언트만 PlayReady 또는 Widevine 라이선스를 받을 수 있도록 권한 부여 정책을 사용하여 PlayReady 라이선스 배달 서비스를 구성하는 방법을 보여 줍니다. 또한 DASH에 대해 PlayReady 또는 Widevine DRM으로 동적 암호화를 사용하는 방법을 보여줍니다.
+이 문서는 PlayReady 및 Widevine과 같이 여러 DRM으로 보호된 미디어를 제공하는 애플리케이션에서 작업하는 개발자에게 유용합니다. 이 문서에서는 권한이 있는 클라이언트만 PlayReady 또는 Widevine 라이선스를 받을 수 있도록 권한 부여 정책을 사용하여 PlayReady 라이선스 배달 서비스를 구성하는 방법을 보여 줍니다. 또한 DASH에 대해 PlayReady 또는 Widevine DRM으로 동적 암호화를 사용하는 방법을 보여줍니다.
 
 >[!NOTE]
->Azure Media Services 계정이 만들어지면, 기본 스트리밍 끝점이 "중지됨" 상태의 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면, 콘텐츠를 스트리밍하려는 스트리밍 끝점이 "실행 중" 상태에 있어야 합니다. 
+>Azure Media Services 계정이 만들어지면 기본 스트리밍 엔드포인트가 “중지됨” 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면, 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 "실행 중" 상태에 있어야 합니다. 
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 이 문서에서 설명하는 샘플은 [GitHub의 Azure 샘플](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)에서 다운로드할 수 있습니다.
@@ -137,16 +137,16 @@ Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법�
 키 권한 부여 정책에 사용된 토큰 제한에 따라 테스트 토큰을 가져옵니다.
 
 ```csharp
-    // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
-    // back into a TokenRestrictionTemplate class instance.
-    TokenRestrictionTemplate tokenTemplate =
-        TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
+// Deserializes a string containing an XML representation of a TokenRestrictionTemplate
+// back into a TokenRestrictionTemplate class instance.
+TokenRestrictionTemplate tokenTemplate =
+TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-    // Generate a test token based on the data in the given TokenRestrictionTemplate.
-    //The GenerateTestToken method returns the token without the word "Bearer" in front,
-    //so you have to add it in front of the token string.
-    string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
-    Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+// Generate a test token based on the data in the given TokenRestrictionTemplate.
+//The GenerateTestToken method returns the token without the word "Bearer" in front,
+//so you have to add it in front of the token string.
+string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
+Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
 [Azure Media Services 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용하여 스트림을 테스트할 수 있습니다.
@@ -157,10 +157,10 @@ Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법�
 
 2. 다음 요소를 app.config 파일에 정의된 **appSettings**에 추가합니다.
 
-```xml
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
-```
+    ```xml
+    <add key="Issuer" value="http://testissuer.com"/>
+    <add key="Audience" value="urn:test"/>
+    ```
 
 ## <a name="example"></a>예
 

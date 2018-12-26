@@ -1,27 +1,22 @@
 ---
-title: Azure REST API를 사용하여 Hadoop 클러스터 만들기 - Azure | Microsoft Docs
+title: Azure REST API를 사용하여 Apache Hadoop 클러스터 만들기 - Azure
 description: Azure REST API에 Azure Resource Manager 템플릿을 제출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 98be5893-2c6f-4dfa-95ec-d4d8b5b7dcb5
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
-ms.author: larryfr
-ms.openlocfilehash: 9c2779c692e944bed62d7ae9b76bb8929e62e5f3
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: hrasheed
+ms.openlocfilehash: b6ec48085d5dd2ea31543e208e8d32b954cb0bca
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32775856"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872854"
 ---
-# <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Hadoop 클러스터 만들기
+# <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Apache Hadoop 클러스터 만들기
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -223,7 +218,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
 
 ## <a name="log-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
 
-[Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)의 단계에 따라 `az login` 명령을 사용하여 구독에 연결합니다.
+[Azure CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)의 단계에 따라 `az login` 명령을 사용하여 구독에 연결합니다.
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
@@ -358,19 +353,19 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하여 클러스터 작업을 수행하는 방법을 알아봅니다.
 
-### <a name="hadoop-clusters"></a>Hadoop 클러스터
+### <a name="apache-hadoop-clusters"></a>Apache Hadoop 클러스터
 
-* [HDInsight에서 하이브 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
-* [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>HBase 클러스터
+### <a name="apache-hbase-clusters"></a>Apache HBase 클러스터
 
-* [HDInsight에서 HBase 시작](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [HDInsight에서 HBase용 Java 응용 프로그램 개발](hbase/apache-hbase-build-java-maven-linux.md)
+* [HDInsight에서 Apache HBase 사용 시작](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight에서 Apache HBase용 Java 애플리케이션 개발](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="storm-clusters"></a>Storm 클러스터
+### <a name="apache-storm-clusters"></a>Apache Storm 클러스터
 
-* [HDInsight에서 Storm용 Java 토폴로지 개발](storm/apache-storm-develop-java-topology.md)
-* [HDInsight의 Storm에서 Python 구성 요소 사용](storm/apache-storm-develop-python-topology.md)
-* [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [HDInsight에서 Apache Storm용 Java 토폴로지 개발](storm/apache-storm-develop-java-topology.md)
+* [HDInsight의 Apache Storm에서 Python 구성 요소 사용](storm/apache-storm-develop-python-topology.md)
+* [HDInsight에서 Apache Storm을 사용하는 토폴로지 배포 및 모니터링](storm/apache-storm-deploy-monitor-topology-linux.md)

@@ -1,24 +1,32 @@
 ---
-title: 'Azure Cosmos DB: Python 및 Azure Cosmos DB MongoDB API로 Flask 웹앱 빌드 | Microsoft Docs'
+title: Azure Cosmos DB는 Python 및 Azure Cosmos DB MongoDB API로 Flask 웹앱 빌드
 description: Azure Cosmos DB MongoDB API에 연결하고 및 쿼리하는 데 사용할 수 있는 Python Flask 코드 샘플을 제시합니다.
 services: cosmos-db
-author: heatherbshapiro
-manager: kfile
+author: slyons
+ms.author: sclyon
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, seodec18
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/2/2017
-ms.author: hshapiro
-ms.openlocfilehash: 024ca836e4d2c58c4c942d6f7376608e40248316
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 10/02/2017
+ms.openlocfilehash: 09c19f57a2993c0faad3dca708f67526f99d13df
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38485430"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165115"
 ---
-# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: MongoDB API로 Flask 앱 빌드
+# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB는 MongoDB API로 Flask 앱 빌드
+
+> [!div class="op_single_selector"]
+> * [.NET](create-mongodb-dotnet.md)
+> * [Java](create-mongodb-java.md)
+> * [Node.JS](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
+> * [Xamarin](create-mongodb-xamarin.md)
+> * [Golang](create-mongodb-golang.md)
+>  
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
@@ -38,7 +46,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-이제 GitHub에서 Flask MongoDB API 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다.
+이제 GitHub에서 Flask MongoDB API 앱을 복제하고 연결 문자열을 설정한 다음, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다.
 
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
@@ -66,7 +74,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [웹앱 실행](#run-the-web-app)으로 넘어갈 수 있습니다. 
+이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [웹앱 실행](#run-the-web-app)으로 넘어갈 수 있습니다. 
 
 다음 코드 조각은 모두 app.py 파일에서 가져오고 로컬 Azure Cosmos DB 에뮬레이터에 대한 연결 문자열을 사용합니다. 그렇지 않으면 구문 분석할 수 없는 슬래시를 받아들이도록 아래와 같이 암호를 분할해야 합니다.
 
@@ -112,7 +120,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 라이브 Azure Cosmos DB 계정에 대해 코드를 테스트하려면 Azure Portal로 이동하여 계정을 만들고 연결 문자열 정보를 가져옵니다. 그런 다음 앱에 복사합니다.
 
-1. [Azure Portal](http://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열**을 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면의 오른쪽에 있는 복사 단추를 사용하여 사용자, 암호 및 호스트를 Dal.cs 파일에 복사합니다.
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열**을 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면의 오른쪽에 있는 복사 단추를 사용하여 사용자, 암호 및 호스트를 Dal.cs 파일에 복사합니다.
 
 2. 루트 디렉터리에 있는 **app.py** 파일을 엽니다.
 
@@ -141,7 +149,7 @@ Azure에 배포할 때 응용 프로그램 키를 제거하고 아래 섹션이 
 이 리포지토리의 포크를 만들지 않으려면 아래의 [Azure에 배포] 단추를 클릭할 수도 있습니다. 그런 다음 Azure로 이동하고 Cosmos DB 계정 정보를 사용하여 응용 프로그램 설정을 지정해야 합니다.
 
 <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank">
-<img src="http://azuredeploy.net/deploybutton.png"/>
+<img src="https://azuredeploy.net/deploybutton.png" alt="Click to Deploy to Azure">
 </a>
 
 > [!NOTE]

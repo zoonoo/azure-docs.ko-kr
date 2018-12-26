@@ -7,19 +7,23 @@ ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 1f8dbe5ccae34ab185cbe5105ac793a0d401b48e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9688b9ba305a2eb59b80b02c0b41a7f4855dd051
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831669"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024565"
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>클러스터 크기를 조정하여 웹 서비스 처리량 관리
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 ## <a name="why-scale-the-cluster"></a>클러스터 크기를 조정하는 이유
 
@@ -61,7 +65,7 @@ az acs scale -g <resource group> -n <cluster name> --new-agent-count <new scale>
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>클러스터의 Kubernetes Pod 복제본 수 조정
  
-Azure Machine Learning CLI 또는 [Kubernetes 대시보드](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/))를 사용하여 클러스터에 할당된 Pod 복제본의 수를 조정할 수 있습니다.
+Azure Machine Learning CLI 또는 [Kubernetes 대시보드](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)를 사용하여 클러스터에 할당된 Pod 복제본의 수를 조정할 수 있습니다.
 
 Kubernetes 복제본 Pod에 자세한 내용은 [Kubernetes Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/) 설명서를 참조하세요.
 
@@ -69,12 +73,12 @@ Kubernetes 복제본 Pod에 자세한 내용은 [Kubernetes Pod](https://kuberne
 
 CLI를 사용하여 클러스터 크기를 조정하는 방법에는 다음 두 가지가 있습니다.
 
-- Autoscale
+- 자동 크기 조정
 - 고정 크기 조정
 
 자동 크기 조정은 서비스가 생성될 때 기본적으로 활성화되며 대부분의 경우 선호되는 크기 조정 방법입니다.
 
-##### <a name="autoscale"></a>Autoscale
+##### <a name="autoscale"></a>자동 크기 조정
 
 다음 명령은 자동 크기 조정을 사용하도록 설정하고 서비스에 대해 최소 및 최대 복제본 수를 설정합니다.
 

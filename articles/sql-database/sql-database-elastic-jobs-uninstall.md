@@ -2,25 +2,33 @@
 title: 탄력적 데이터베이스 작업 도구를 제거하는 방법
 description: PowerShell의 Azure Portal을 사용하여 Elastic Database 작업 구성 요소를 설치 제거하는 방법에 대해 알아보십시오.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: e1089db848b30945e5e61765c762262f5478450e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 15313bf0d2d152a8295fb831e62452f8ad63bbeb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645891"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242452"
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Elastic Database 작업 구성 요소 제거
+
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
 Azure Portal 또는 PowerShell을 사용하여 **Elastic Database 작업** 구성 요소를 제거할 수 있습니다.
 
 ## <a name="uninstall-elastic-database-jobs-components-using-the-azure-portal"></a>Azure Portal을 사용하여 Elastic Database 작업 구성 요소 제거
-1. [Azure 포털](https://portal.azure.com/)을 엽니다.
+1. [Azure Portal](https://portal.azure.com/)을 엽니다.
 2. **Elastic Database 작업** 구성 요소를 포함하는 구독, 즉 Elastic Database 작업 구성 요소가 설치된 구독으로 이동합니다.
 3. **찾아보기**를 클릭하고 **리소스 그룹**을 클릭합니다.
 4. "__ElasticDatabaseJob"이라는 이름의 리소스 그룹을 선택합니다.

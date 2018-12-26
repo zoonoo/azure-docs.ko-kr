@@ -1,5 +1,5 @@
 ---
-title: URL 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기 - Azure Portal
+title: URL 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기 - Azure Portal
 description: Azure Portal을 사용하여 응용 프로그램 게이트웨이 및 가상 머신 확장 집합에 URL 경로 기반 라우팅 규칙을 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 3fcbcbe5d5f8dab956f40cde112f3536e1ae668c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 108045c691d711dfdd12df39fe72e536f842f68f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263995"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993207"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -32,11 +32,11 @@ Azure Portal을 사용하여 [응용 프로그램 게이트웨이](application-g
 
 ![URL 라우팅 예제](./media/application-gateway-create-url-route-portal/scenario.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-[http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인
 
 ## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
@@ -103,7 +103,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 2. 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다. 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -154,7 +154,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![응용 프로그램 게이트웨이 공용 IP 주소 기록](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: http://http://40.121.222.19
+2. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: http:// http://40.121.222.19
 
     ![응용 프로그램 게이트웨이의 기준 URL 테스트](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

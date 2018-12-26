@@ -11,16 +11,18 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 98aa70935a3efbbe2edb07aade85fa3ea17ce786
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b7208943a27bcd184100ae426721a2fe8f6e1c72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150433"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970487"
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure API Management에서 Azure 관리 서비스 ID 사용
 
 이 문서에서는 API Management 서비스 인스턴스에 대한 관리 서비스 ID를 만드는 방법과 다른 리소스에 액세스하는 방법을 보여 줍니다. Azure AD(Azure Active Directory)에서 생성된 관리 서비스 ID를 사용하면 API Management 인스턴스에서 Azure Key Vault처럼 Azure AD로 보호되는 다른 리소스에 쉽고 안전하게 액세스할 수 있습니다. 이 관리 서비스 ID는 Azure에서 관리하며 암호를 프로비전하거나 순환할 필요가 없습니다. Azure 관리 서비스 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 서비스 ID](../active-directory/msi-overview.md)를 참조하세요.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="create-a-managed-service-identity-for-an-api-management-instance"></a>API Management 인스턴스에 대한 관리되는 서비스 ID 만들기
 
@@ -50,7 +52,7 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "0.9.0.0"
     },
     "resources": [
@@ -90,16 +92,16 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
 2. 비밀의 콘텐츠 형식은 *application/x-pkcs12*이어야 합니다. 다음 스크립트를 사용하여 인증서를 업로드합니다.
 
 ```powershell
-$pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
-$pwd = "PFX_CERTIFICATE_PASSWORD" # Change this password 
-$flag = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable 
-$collection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection 
-$collection.Import($pfxFilePath, $pwd, $flag) 
-$pkcs12ContentType = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12 
-$clearBytes = $collection.Export($pkcs12ContentType) 
-$fileContentEncoded = [System.Convert]::ToBase64String($clearBytes) 
-$secret = ConvertTo-SecureString -String $fileContentEncoded -AsPlainText –Force 
-$secretContentType = 'application/x-pkcs12' 
+$pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
+$pwd = "PFX_CERTIFICATE_PASSWORD" # Change this password 
+$flag = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable 
+$collection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection 
+$collection.Import($pfxFilePath, $pwd, $flag) 
+$pkcs12ContentType = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12 
+$clearBytes = $collection.Export($pkcs12ContentType) 
+$fileContentEncoded = [System.Convert]::ToBase64String($clearBytes) 
+$secret = ConvertTo-SecureString -String $fileContentEncoded -AsPlainText –Force 
+$secretContentType = 'application/x-pkcs12' 
 Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -SecretValue $Secret -ContentType $secretContentType
 ```
 
@@ -114,7 +116,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "publisherEmail": {

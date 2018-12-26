@@ -1,28 +1,31 @@
 ---
-title: "Application Insights로 SCOM 통합 | Microsoft Docs"
-description: "SCOM 사용자인 경우 Application Insights로 성능을 모니터링하고 문제를 진단합니다. 포괄적 대시보드, 스마트 경고, 강력한 진단 도구 및 분석 쿼리."
+title: Application Insights로 SCOM 통합 | Microsoft Docs
+description: SCOM 사용자인 경우 Application Insights로 성능을 모니터링하고 문제를 진단합니다. 포괄적 대시보드, 스마트 경고, 강력한 진단 도구 및 분석 쿼리.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 606e9d03-c0e6-4a77-80e8-61b75efacde0
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: article
-ms.date: 08/12/2016
+ms.topic: conceptual
+ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 35ea37b751909e14e616a965462b832e4e51bae0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d7c3134c36707fcfa079968d19d93b73d7a5f5cc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724080"
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>SCOM에 대해 Application Insights를 사용하여 응용 프로그램 성능 모니터링
 서버를 관리하는 데 SCOM(System Center Operations Manager)을 사용하는 경우 [Azure Application Insights](app-insights-asp-net.md)를 활용해 성능을 모니터링하고 성능 문제를 진단할 수 있습니다. Application Insights는 사용자 웹 응용 프로그램에 들어오는 요청과 나가는 REST 및 SQL 호출, 예외 및 로그 추적을 모니터링합니다. 메트릭 차트 및 스마트 경고뿐만 아니라 이 원격 분석을 통한 강력한 진단 검색 및 분석 쿼리가 포함된 대시보드를 제공합니다. 
 
 SCOM 관리 팩을 사용하여 Application Insights 모니터링으로 전환할 수 있습니다.
+
+> [!IMPORTANT]
+> 이 System Center Operations Manager Management Pack은 이제 **사용되지 않습니다**. 최신 Application Insights SDK를 지원하지 않으며, 더 이상 권장되지 않습니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 다음을 가정합니다.
@@ -73,7 +76,7 @@ Operations Manager를 실행하는 컴퓨터에서 다음을 수행합니다.
      ![Application Insights 설정 탭에서 '로그인'을 클릭하고 Azure에 대한 Microsoft 계정 자격 증명을 제공합니다. 그런 다음 구독, 리소스 그룹 및 리소스를 선택합니다.](./media/app-insights-scom/060.png)
 3. 마법사를 완료합니다.
    
-    ![만들기 클릭](./media/app-insights-scom/070.png)
+    ![만들기 클릭 ](./media/app-insights-scom/070.png)
 
 모니터링할 각 앱에 대해 다음 절차를 반복합니다.
 

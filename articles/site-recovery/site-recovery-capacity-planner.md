@@ -1,27 +1,20 @@
 ---
-title: Azure에서 복제 용량 추정 | Microsoft Docs
-description: 이 문서를 사용하여 Azure Site Recovery로 복제할 때 용량을 추정합니다.
-services: site-recovery
-documentationcenter: ''
+title: Azure Site Recovery를 사용하여 Hyper-V 재해 복구에 대한 용량 계획 | Microsoft Docs
+description: Azure Site Recovery 서비스를 사용하여 재해 복구를 설정하는 경우 이 문서를 사용하여 용량을 추정합니다.
 author: rayne-wiselman
-manager: jwhit
-editor: ''
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
-ms.author: nisoneji
-ms.openlocfilehash: d177dae71cd0787a343bbada7c900aebdbad86cc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: d53e8fe6588b7e1b068431a4cd530d0a80a603e6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920664"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261879"
 ---
-# <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Site Recovery를 사용하여 Hyper-V VM을 보호하기 위한 용량 계획
+# <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Hyper-V VM에 재해 복구에 대한 용량 계획 
 
 이제 [Hyper-V에서 Azure 배포로 Azure Site Recovery Deployment Planner](site-recovery-hyper-v-deployment-planner.md)의 향상된 새 버전을 사용할 수 있습니다. 새 버전은 이전 도구를 대체합니다. 배포 계획에 새 도구를 사용합니다.
 이 도구는 다음과 같은 지침을 제공합니다.
@@ -50,7 +43,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 
 ## <a name="run-the-quick-planner"></a>Quick Planner 실행
-1. [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel)를 다운로드하고 엽니다. 매크로를 실행해야 합니다. 메시지가 표시되면 편집 및 콘텐츠를 사용하도록 설정할지 선택합니다.
+1. [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel)를 다운로드하고 엽니다. 매크로를 실행해야 합니다. 메시지가 표시되면 편집 및 콘텐츠를 사용하도록 설정할지 선택합니다.
 
 2. **플래너 유형 선택** 목록 상자에서 **Quick Planner**를 선택합니다.
 
@@ -60,7 +53,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    a. **시나리오 선택**에서 **Hyper-V에서 Azure로** 또는 **VMware/물리적 컴퓨터에서 Azure로**를 선택합니다.
 
-   나. **평균 일일 데이터 변경률(%)** 에서 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
+   b. **평균 일일 데이터 변경률(%)** 에서 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
 
    다. **압축** 설정은 Hyper-V VM을 Azure에 복제하는 경우에 사용되지 않습니다. 압축의 경우 Riverbed와 같은 타사 어플라이언스를 사용합니다.
 
@@ -88,7 +81,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 ## <a name="run-the-detailed-planner"></a>Detailed Planner 실행
 
-1. [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel)를 다운로드하고 엽니다. 매크로를 실행해야 합니다. 메시지가 표시되면 편집 및 콘텐츠를 사용하도록 설정할지 선택합니다.
+1. [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel)를 다운로드하고 엽니다. 매크로를 실행해야 합니다. 메시지가 표시되면 편집 및 콘텐츠를 사용하도록 설정할지 선택합니다.
 
 2. **플래너 유형 선택**의 목록 상자에서 **Detailed Planner**를 선택합니다.
 
@@ -98,7 +91,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    a. **프로세서 코어**에는 원본 서버의 총 코어 수를 지정합니다.
 
-   나. **메모리 할당(MB)** 에는 원본 서버의 RAM 크기를 지정합니다.
+   b. **메모리 할당(MB)** 에는 원본 서버의 RAM 크기를 지정합니다.
 
    다. **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
 

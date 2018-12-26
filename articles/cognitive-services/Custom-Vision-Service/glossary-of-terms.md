@@ -1,20 +1,21 @@
 ---
-title: Custom Vision Service에 대한 용어집 - Azure Cognitive Services | Microsoft Docs
+title: 용어집 - Custom Vision Service
+titlesuffix: Azure Cognitive Services
 description: Custom Vision Service에 대한 용어집
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: anroth
-ms.openlocfilehash: 871617ce3c1c5a84df746c0c7d87c113b3a6f354
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ae68db3de5d1f7eaacbe355133b9b7b61f145f04
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374743"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363414"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Custom Vision Service에 대한 용어집
 
@@ -34,7 +35,7 @@ Custom Vision Service 및 해당 의미에서 사용된 몇 가지 용어는 다
 - **성인 도메인입니다.** 성인 콘텐츠와 비성인 콘텐츠 간 정의 향상에 최적화되었습니다. 예를 들어 수영복을 입은 사람의 이미지를 차단하려는 경우 이 도메인을 사용하여 해당 작업을 수행하는 사용자 지정 분류자를 빌드할 수 있습니다.
 - **일반 도메인입니다.** 다양한 이미지 분류 작업에 적합합니다.
 
-**소형 도메인**에 의해 생성된 모델은 반복 내보내기 기능을 사용하여 내보낼 수 있습니다. 모바일 장치의 실시간 분류 제약 조건에 최적화되었습니다. 소형 도메인을 사용하여 빌드한 분류자는 교육 데이터의 양이 동일한 표준 도메인보다 정확도가 살짝 떨어질 수 있습니다. 단점은 거의 실시간으로 로컬에서 실행할 정도로 작다는 것입니다. 
+**소형 도메인**에 의해 생성된 모델은 반복 내보내기 기능을 사용하여 내보낼 수 있습니다. 모바일 디바이스의 실시간 분류 제약 조건에 최적화되었습니다. 소형 도메인을 사용하여 빌드한 분류자는 교육 데이터의 양이 동일한 표준 도메인보다 정확도가 살짝 떨어질 수 있습니다. 단점은 거의 실시간으로 로컬에서 실행할 정도로 작다는 것입니다. 
 
 ## <a name="training-image"></a>훈련 이미지
 

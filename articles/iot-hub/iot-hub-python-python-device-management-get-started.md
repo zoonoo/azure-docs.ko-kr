@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 관리 시작(Python) | Microsoft Docs
-description: IoT Hub 장치 관리를 사용하여 원격 장치 재부팅을 시작하는 방법입니다. Python용 Azure IoT SDK를 사용하여 직접 메서드를 포함한 시뮬레이션된 장치 앱 및 직접 메서드를 호출하는 서비스 앱을 구현합니다.
+title: Azure IoT Hub 디바이스 관리 시작(Python) | Microsoft Docs
+description: IoT Hub 디바이스 관리를 사용하여 원격 디바이스 재부팅을 시작하는 방법입니다. Python용 Azure IoT SDK를 사용하여 직접 메서드를 포함한 시뮬레이션된 디바이스 앱 및 직접 메서드를 호출하는 서비스 앱을 구현합니다.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -9,22 +9,22 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: kgremban
-ms.openlocfilehash: fa966ee2ea26cccc7d841a0e969d8329ac5bc0de
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dbe2ba6ce4e001f6e49fbbee9189fa5b4d99ec33
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573420"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514386"
 ---
-# <a name="get-started-with-device-management-python"></a>장치 관리 시작(Python)
+# <a name="get-started-with-device-management-python"></a>디바이스 관리 시작(Python)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-* Azure Portal을 사용하여 IoT Hub를 만들고 IoT Hub에 장치 ID를 만듭니다.
-* 장치를 다시 시작하는 직접 메서드가 포함된 시뮬레이트된 장치 앱을 만듭니다. 직접 메서드는 클라우드에서 호출됩니다.
-* IoT Hub를 통해 시뮬레이션된 장치 앱에서 재부팅 직접 메서드를 호출하는 Python 콘솔 앱을 만듭니다.
+* Azure Portal을 사용하여 IoT Hub를 만들고 IoT Hub에 디바이스 ID를 만듭니다.
+* 디바이스를 다시 시작하는 직접 메서드가 포함된 시뮬레이트된 디바이스 앱을 만듭니다. 직접 메서드는 클라우드에서 호출됩니다.
+* IoT Hub를 통해 시뮬레이션된 디바이스 앱에서 재부팅 직접 메서드를 호출하는 Python 콘솔 앱을 만듭니다.
 
 이 자습서의 끝 부분에 다음의 두 Python 콘솔 앱이 설치됩니다.
 
@@ -40,16 +40,20 @@ ms.locfileid: "38573420"
 * Windows OS를 사용하는 경우 Python에서 네이티브 DLL을 사용하기 위해 필요한 [Visual C++ 재배포 가능 패키지][lnk-visual-c-redist].
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="create-a-simulated-device-app"></a>시뮬레이션된 장치 앱 만들기
+### <a name="retrieve-connection-string-for-iot-hub"></a>IoT 허브에 대한 연결 문자열 검색
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="create-a-simulated-device-app"></a>시뮬레이션된 디바이스 앱 만들기
 이 섹션에서는 다음을 수행합니다.
 
 * 클라우드에서 호출하는 직접 메서드에 응답하는 Python 콘솔 앱 만들기
-* 장치 다시 부팅 시뮬레이션
-* reported 속성을 사용하여 장치 및 해당 장치가 마지막으로 재부팅한 시간을 확인하는 장치 쌍 쿼리를 사용하도록 설정
+* 디바이스 다시 부팅 시뮬레이션
+* reported 속성을 사용하여 디바이스 및 해당 디바이스가 마지막으로 재부팅한 시간을 확인하는 디바이스 쌍 쿼리를 사용하도록 설정
 
 1. 텍스트 편집기를 사용하여 **dmpatterns_getstarted_device.py** 파일을 만듭니다.
 
@@ -64,7 +68,7 @@ ms.locfileid: "38573420"
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
     ```
 
-1. **CONNECTION_STRING** 변수 및 클라이언트 초기화를 포함하여 변수를 추가합니다.  연결 문자열을 장치 연결 문자열로 바꿉니다.  
+1. **CONNECTION_STRING** 변수 및 클라이언트 초기화를 포함하여 변수를 추가합니다.  연결 문자열을 디바이스 연결 문자열로 바꿉니다.  
    
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
@@ -81,7 +85,7 @@ ms.locfileid: "38573420"
     METHOD_CALLBACKS = 0
     ```
 
-1. 장치에서 직접 메서드를 구현하도록 다음 함수 콜백을 추가합니다.
+1. 디바이스에서 직접 메서드를 구현하도록 다음 함수 콜백을 추가합니다.
    
     ```python
     def send_reported_state_callback(status_code, user_context):
@@ -148,11 +152,11 @@ ms.locfileid: "38573420"
 1. **dmpatterns_getstarted_device.py** 파일을 저장하고 닫습니다.
 
 > [!NOTE]
-> 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리][lnk-transient-faults]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
+> 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>직접 메서드를 사용하여 장치에서 원격 재부팅 트리거
-이 섹션에서는 장치에서 직접 메서드를 사용하여 원격 다시 부팅을 시작하는 Python 콘솔 앱을 만듭니다. 앱은 장치 쌍 쿼리를 사용하여 해당 장치에 대한 마지막 다시 시작 시간을 검색합니다.
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>직접 메서드를 사용하여 디바이스에서 원격 재부팅 트리거
+이 섹션에서는 디바이스에서 직접 메서드를 사용하여 원격 다시 부팅을 시작하는 Python 콘솔 앱을 만듭니다. 앱은 디바이스 쌍 쿼리를 사용하여 해당 디바이스에 대한 마지막 다시 시작 시간을 검색합니다.
 
 1. 텍스트 편집기를 사용하여 **dmpatterns_getstarted_service.py** 파일을 만듭니다.
 
@@ -177,7 +181,7 @@ ms.locfileid: "38573420"
     WAIT_COUNT = 10
     ```
 
-1. 장치 메서드를 호출하여 대상 장치를 다시 부팅한 다음, 장치 쌍을 쿼리하고 마지막 다시 부팅 시간을 가져오도록 다음 함수를 추가합니다.
+1. 디바이스 메서드를 호출하여 대상 디바이스를 다시 부팅한 다음, 디바이스 쌍을 쿼리하고 마지막 다시 부팅 시간을 가져오도록 다음 함수를 추가합니다.
    
     ```python
     def iothub_devicemethod_sample_run():
@@ -240,13 +244,13 @@ ms.locfileid: "38573420"
     python dmpatterns_getstarted_device.py
     ```
 
-1. 다른 명령 프롬프트에서 다음 명령을 실행하여 원격 다시 부팅을 트리거하고 장치 쌍을 쿼리하여 마지막 다시 부팅 시간을 찾습니다.
+1. 다른 명령 프롬프트에서 다음 명령을 실행하여 원격 다시 부팅을 트리거하고 디바이스 쌍을 쿼리하여 마지막 다시 부팅 시간을 찾습니다.
    
     ```
     python dmpatterns_getstarted_service.py
     ```
 
-1. 콘솔에서 직접 메서드에 대한 장치 응답을 확인합니다.
+1. 콘솔에서 직접 메서드에 대한 디바이스 응답을 확인합니다.
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 
@@ -267,4 +271,3 @@ ms.locfileid: "38573420"
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
-[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

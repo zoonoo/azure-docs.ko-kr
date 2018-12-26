@@ -1,20 +1,18 @@
 ---
 title: Azure Database for PostgreSQL 서버에서 사용자 만들기
 description: 이 문서에서는 Azure Database for PostgreSQL 서버와 상호 작용할 새로운 사용자 계정을 만드는 방법을 설명합니다.
-services: postgresql
 author: jasonwhowell
 ms.author: jasonh
 editor: jasonwhowell
-manager: jhubbard
-ms.service: postgresql-database
-ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 87a73929185112190d5dd6698e014db225ebc08e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.service: postgresql
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.openlocfilehash: 45d1f55e60763724aeb1b1685c5c69696475a424
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29574186"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958103"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에서 사용자 만들기 
 이 문서에서는 Azure Database for PostgreSQL 서버에서 사용자를 만드는 방법을 설명합니다.
@@ -38,7 +36,7 @@ PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/do
    데이터베이스 서버에 연결하려면 전체 서버 이름 및 관리자 로그인 자격 증명이 필요합니다. Azure Portal의 서버 **개요** 페이지 또는 **속성** 페이지에서 서버 이름과 로그인 정보를 쉽게 찾을 수 있습니다. 
 
 2. 관리자 계정 및 암호를 사용하여 데이터베이스 서버에 연결합니다. 원하는 클라이언트 도구(예: pgAdmin 또는 psql)를 사용합니다.
-   연결 방법이 확실하지 않으면 [Cloud Shell에서 psql을 사용하여 PostgreSQL 데이터베이스에 연결](./quickstart-create-server-database-portal.md#connect-to-the-postgresql-database-by-using-psql-in-cloud-shell)을 참조하세요.
+   연결하는 방법을 잘 모르는 경우 [빠른 시작](./quickstart-create-server-database-portal.md)을 참조하세요.
 
 3. 다음 SQL 코드를 편집하고 실행합니다. 자리 표시자 값 <new_user>의 새 사용자 이름을 바꾸고, 자리 표시자 암호를 자신만의 강력한 암호로 바꿉니다. 
 
@@ -64,7 +62,7 @@ PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/do
    
    CREATE ROLE <db_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB NOCREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
    
-   GRANT CONNECT ON DATABASE testdb TO <db_user>;
+   GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
 4. 관리자 계정을 사용하면 데이터베이스의 개체를 보호하기 위해 추가 권한을 부여해야 할 수 있습니다. 데이터베이스 역할 및 권한에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/current/static/ddl-priv.html)를 참조하세요. 예:  

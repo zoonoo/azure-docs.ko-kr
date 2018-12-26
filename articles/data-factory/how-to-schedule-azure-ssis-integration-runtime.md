@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 07/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 3758b04fc9b5ecd5dc69c82a8bd07999a9f1074a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7e93e83f7594d30d223d37454e09943beba6d3ce
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050610"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976736"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure SSIS 통합 런타임을 시작하고 중지하는 방법
 이 문서에서는 Azure Automation 및 Azure Data Factory를 사용하여 Azure SSIS IR(통합 런타임)의 시작 및 중지를 예약하는 방법을 설명합니다. Azure SSIS(SQL Server Integration Services) IR(통합 런타임)을 실행할 때는 비용이 발생합니다. 따라서 보통 Azure에서 SSIS 패키지를 실행해야 할 때만 IR을 실행하고 필요하지 않을 때는 중지할 수 있습니다. Data Factory UI 또는 Azure PowerShell을 사용하여 [Azure SSIS IR을 수동으로 시작 또는 중지 ](manage-azure-ssis-integration-runtime.md)할 수 있습니다.
@@ -347,7 +347,7 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
     6. SSIS 패키지를 마우스 오른쪽 단추로 클릭하고 **보고서** -> **표준 보고서** -> **모든 실행**을 선택합니다. 
     7. SSIS 패키지가 실행되었는지 확인합니다. 
 
-        ![SSIS 패키지 실행 확인](./media/how-to-schedule-azure-ssis-integration-runtime/verfiy-ssis-package-run.png)
+        ![SSIS 패키지 실행 확인](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
 
 ### <a name="schedule-the-pipeline"></a>파이프라인 예약 
 파이프라인이 예상대로 작동하므로 이 파이프라인을 지정된 케이던스에 실행하는 트리거를 만들 수 있습니다. 일정 트리거를 파이프라인에 연결하는 방법에 대한 자세한 내용은 [일정에 따라 파이프라인 트리거](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule)를 참조하세요.
@@ -373,15 +373,40 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
 5. 왼쪽 창에서 **모두 게시**를 선택하여 Data Factory에 솔루션을 게시합니다. 
 
     ![모두 게시](./media/how-to-schedule-azure-ssis-integration-runtime/publish-all.png)
-6. 트리거 실행 및 파이프라인 실행을 모니터링하려면 왼쪽의 **모니터링** 탭을 사용합니다. 자세한 내용은 [파이프라인 모니터링](quickstart-create-data-factory-portal.md#monitor-the-pipeline)을 참조하세요.
+
+### <a name="monitor-the-pipeline-and-trigger-in-the-azure-portal"></a>Azure Portal에서 파이프라인 및 트리거 모니터링
+
+1. 트리거 실행 및 파이프라인 실행을 모니터링하려면 왼쪽의 **모니터링** 탭을 사용합니다. 자세한 내용은 [파이프라인 모니터링](quickstart-create-data-factory-portal.md#monitor-the-pipeline)을 참조하세요.
 
     ![파이프라인 실행](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. 파이프라인 실행과 연결된 작업 실행을 보려면 **작업** 열에서 첫 번째 링크(**작업 실행 보기**)를 선택합니다. 파이프라인의 각 활동과 관련된 세 가지 활동 실행(첫 번째 웹 활동, 저장 프로시저 활동 및 두 번째 웹 활동)이 표시됩니다. 되돌아가서 파이프라인 실행을 보려면 위쪽의 **파이프라인** 링크를 선택합니다.
+2. 파이프라인 실행과 연결된 작업 실행을 보려면 **작업** 열에서 첫 번째 링크(**작업 실행 보기**)를 선택합니다. 파이프라인의 각 활동과 관련된 세 가지 활동 실행(첫 번째 웹 활동, 저장 프로시저 활동 및 두 번째 웹 활동)이 표시됩니다. 되돌아가서 파이프라인 실행을 보려면 위쪽의 **파이프라인** 링크를 선택합니다.
 
     ![작업 실행](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
-8. 위쪽의 **파이프라인 실행** 옆에 있는 드롭다운 목록에서 **트리거 실행**을 선택하여 트리거 실행을 볼 수도 있습니다. 
+3. 위쪽의 **파이프라인 실행** 옆에 있는 드롭다운 목록에서 **트리거 실행**을 선택하여 트리거 실행을 볼 수도 있습니다. 
 
     ![트리거 실행](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
+
+### <a name="monitor-the-pipeline-and-trigger-with-powershell"></a>PowerShell을 사용하여 파이프라인 및 트리거 모니터링
+
+다음 예제와 같은 스크립트를 사용하여 파이프라인 및 트리거를 모니터링합니다.
+
+1. 파이프라인 실행 상태를 가져옵니다.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+  ```
+
+2. 트리거 정보를 가져옵니다.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+  ```
+
+3. 트리거 실행 상태를 가져옵니다.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+  ```
 
 ## <a name="next-steps"></a>다음 단계
 다음 블로그 게시물을 참조하십시오.

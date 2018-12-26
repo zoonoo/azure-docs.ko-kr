@@ -1,28 +1,29 @@
 ---
-title: '다중 DRM 및 Access Control이 포함된 CENC: Azure 및 Azure Media Services에서 참조 설계 및 구현 | Microsoft Docs'
+title: Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계 | Microsoft Docs
 description: Microsoft 부드러운 스트리밍 클라이언트 이식 키트 라이선스를 얻는 방법에 대해 알아보세요.
 services: media-services
 documentationcenter: ''
 author: willzhan
 manager: cfowler
 editor: ''
-ms.assetid: 7814739b-cea9-4b9b-8370-538702e5c615
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 8f072f13909190eee194565673ccfa1f381f7503
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 69802c6c4246b91f62a0e49ec0c34bdd3a1bec8b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958423"
 ---
-# <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>다중 DRM 및 Access Control이 포함된 CENC: Azure 및 Azure Media Services에서 참조 디자인 및 구현
- 
-## <a name="introduction"></a>소개
+# <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계
+
+## <a name="overview"></a>개요
+
 OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지털 권한 관리) 하위 시스템을 디자인하고 구축하는 것은 복잡한 작업입니다. 일반적으로 운영자/온라인 비디오 공급자는 이러한 작업을 전문화된 DRM 서비스 공급자에게 아웃소싱합니다. 이 문서의 목표는 OTT 또는 온라인 스트리밍 솔루션에서 종단 간 DRM 하위 시스템의 참조 디자인 및 구현을 제공하는 것입니다.
 
 이 문서는 OTT 또는 온라인 스트리밍/멀티 스크린 솔루션의 DRM 하위 시스템에서 작업 중인 엔지니어 또는 DRM 하위 시스템에 관심이 있는 모든 독자를 대상으로 합니다. 독자는 PlayReady, Widevine, FairPlay 또는 Adobe Access 등 한 가지 이상의 DRM 기술에 대해 잘 알고 있다고 가정합니다.
@@ -40,7 +41,8 @@ Microsoft는 몇몇 주요 기업들과 더불어 DASH 및 CENC의 적극적인 
 *  [Azure Media Services에서 Google Widevine 라이선스 전달 서비스 발표](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 * [다중 DRM 스트림을 배달하기 위해 Azure Media Services에서 Google Widevine 패키징 추가](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)  
 
-### <a name="overview-of-this-article"></a>이 문서의 개요
+### <a name="goals-of-the-article"></a>문서의 목표
+
 이 문서의 목표는 다음과 같습니다.
 
 * 다중 DRM의 CENC를 사용하는 DRM 하위 시스템에 대한 참조 디자인을 제공합니다.
@@ -62,15 +64,14 @@ Microsoft는 몇몇 주요 기업들과 더불어 DASH 및 CENC의 적극적인 
 | **Android 장치(전화, 태블릿, TV)** |Widevine |크롬/EME |DASH, HLS |
 | **iOS(iPhone, iPad), OS X 클라이언트 및 Apple TV** |FairPlay |Safari 8+/EME |HLS |
 
-
-각 DRM에 대한 배포의 현재 상태를 고려하면 서비스는 일반적으로 가장 좋은 방법으로 모든 유형의 끝점을 해결하도록 2개 또는 3개의 DRM을 구현해야 합니다.
+각 DRM에 대한 배포의 현재 상태를 고려하면 서비스는 일반적으로 가장 좋은 방법으로 모든 유형의 엔드포인트를 해결하도록 2개 또는 3개의 DRM을 구현해야 합니다.
 
 다양한 클라이언트에서 사용자 환경의 특정 수준에 도달하는 데 서비스 논리의 복잡성과 클라이언트 쪽의 복잡성 사이의 장단점이 있습니다.
 
 선택할 때는 다음 사항에 유의하세요.
 
-* PlayReady는 모든 Windows 장치와 일부 Android 장치에서 고유하게 구현되며 거의 모든 플랫폼에서 소프트웨어 SDK를 통해 사용할 수 있습니다.
-* Widevine은 모든 Android 장치, Chrome 및 일부 다른 장치에서 고유하게 구현됩니다.
+* PlayReady는 모든 Windows 디바이스와 일부 Android 디바이스에서 고유하게 구현되며 거의 모든 플랫폼에서 소프트웨어 SDK를 통해 사용할 수 있습니다.
+* Widevine은 모든 Android 디바이스, Chrome 및 일부 다른 디바이스에서 고유하게 구현됩니다.
 * FairPlay는 iOS 및 Mac OS 클라이언트 또는 iTunes를 통해 사용할 수 있습니다.
 
 일반적인 다중 DRM의 두 옵션은 다음과 같습니다.
@@ -98,7 +99,7 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 이 디자인에는 세 개의 기본 계층이 있습니다.
 
 * 백오피스 계층(검은색)은 외부적으로 노출되지 않습니다.
-* DMZ 계층(진한 파란색)은 공용으로 연결되는 모든 끝점을 포함합니다.
+* DMZ 계층(진한 파란색)은 공용으로 연결되는 모든 엔드포인트를 포함합니다.
 * 공용 인터넷 계층(밝은 파란색)은 공용 인터넷을 통과하는 트래픽과 CDN 및 플레이어를 포함합니다.
 
 정적 또는 동적 암호화에 관계 없이 DRM 보호를 제어하기 위한 콘텐츠 관리 도구도 있습니다. DRM 암호화에 대한 입력은 다음을 포함해야 합니다.
@@ -151,7 +152,7 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 | **STS(보안 토큰 서비스)** |Azure AD |
 | **DRM 보호 워크플로** |Media Services 동적 보호 |
 | **DRM 라이선스 배달** |* Media Services 라이선스 배달(PlayReady, Widevine, FairPlay) <br/>* Axinom License Server <br/>* 사용자 지정 PlayReady 라이선스 서버 |
-| **원본** |Media Services 스트리밍 끝점 |
+| **원본** |Media Services 스트리밍 엔드포인트 |
 | **키 관리** |참조 구현에는 필요하지 않음 |
 | **콘텐츠 관리** |C# 콘솔 응용 프로그램 |
 
@@ -214,8 +215,9 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
     | **DRM** | **브라우저** | **자격이 있는 사용자에 대한 결과** | **자격이 없는 사용자에 대한 결과** |
     | --- | --- | --- | --- |
     | **PlayReady** |Windows 10의 Microsoft Edge 또는 Internet Explorer 11 |합격 |불합격 |
-    | **Widevine** |Windows 10의 Chrome |합격 |불합격 |
-    | **FairPlay** |TBD | | |
+    | **Widevine** |Chrome, Firefox, Opera |합격 |불합격 |
+    | **FairPlay** |macOS의 Safari      |합격 |불합격 |
+    | **AES-128** |최신 브라우저  |합격 |불합격 |
 
 ASP.NET MVC 플레이어 앱에 대해 Azure AD를 설정하는 방법에 대한 내용은 [Azure Media Services OWIN MVC 기반 앱을 Azure Active Directory와 통합하고 JWT 클레임을 기준으로 콘텐츠 키 배달 제한](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)을 참조하세요.
 
@@ -223,8 +225,8 @@ ASP.NET MVC 플레이어 앱에 대해 Azure AD를 설정하는 방법에 대한
 
 Azure AD에 대한 내용:
 
-* [Azure Active Directory 개발자 가이드](../../active-directory/active-directory-developers-guide.md)에서 개발자 정보를 찾을 수 있습니다.
-* [Azure AD 테넌트 디렉터리 관리](../../active-directory/active-directory-administer.md)에서 관리자 정보를 찾을 수 있습니다.
+* [Azure Active Directory 개발자 가이드](../../active-directory/develop/v1-overview.md)에서 개발자 정보를 찾을 수 있습니다.
+* [Azure AD 테넌트 디렉터리 관리](../../active-directory/fundamentals/active-directory-administer.md)에서 관리자 정보를 찾을 수 있습니다.
 
 ### <a name="some-issues-in-implementation"></a>구현에 대한 몇 가지 문제
 구현 문제에 대한 도움을 얻으려면 다음 문제 해결 정보를 참조하세요.
@@ -250,7 +252,7 @@ Azure AD에 대한 내용:
 
         <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
 
-    GUID는 Azure AD 테넌트 ID입니다. Azure Porta의 **끝점** 팝업 창에서 GUID를 찾을 수 있습니다.
+    GUID는 Azure AD 테넌트 ID입니다. Azure Porta의 **엔드포인트** 팝업 창에서 GUID를 찾을 수 있습니다.
 
 * 그룹 멤버 자격 클레임 권한을 부여합니다. Azure AD 응용 프로그램 매니페스트 파일에서 다음이 있는지 확인합니다. 
 
@@ -276,7 +278,7 @@ ASP.NET 플레이어 응용 프로그램은 HTTPS를 사용하는 것이 가장 
 
 * 브라우저에서는 혼합 콘텐츠를 허용하지 않습니다. 하지만 Silverlight과 같은 플러그인, 부드러운 스트리밍을 위한 OSMF 플러그인 및 DASH는 허용합니다. 악성 JavaScript를 주입할 수 있는 위협으로 인해 고객 데이터가 위험해질 수 있으므로 혼합 콘텐츠는 보안 문제를 발생할 수 있습니다. 브라우저는 기본적으로 이 기능을 차단합니다. 이 문제를 해결하는 유일한 방법이 서버(원본) 쪽에서 HTTPS 또는 HTTP에 관계없이 모든 도메인을 허용하는 것입니다. 하지만 좋은 방법은 아닙니다.
 * 혼합 콘텐츠를 피해야 합니다. 플레이어 응용 프로그램과 Media Player 둘 다 HTTP 또는 HTTPS를 사용해야 합니다. 혼합된 콘텐츠를 재생할 때 silverlightSS 기술은 혼합된 콘텐츠 경고를 지워야 합니다. flashSS 기술은 혼합된 콘텐츠 경고 없이 혼합된 콘텐츠를 처리합니다.
-* 스트리밍 끝점이 2014년 8월 전에 만들어진 경우 HTTPS를 지원하지 않습니다. 이 경우 HTTPS에 대한 새 스트리밍 끝점을 만들어 사용하세요.
+* 스트리밍 엔드포인트가 2014년 8월 전에 만들어진 경우 HTTPS를 지원하지 않습니다. 이 경우 HTTPS에 대한 새 스트리밍 엔드포인트를 만들어 사용하세요.
 
 참조 구현에서 DRM으로 보호된 콘텐츠에서는 응용 프로그램 및 스트리밍이 모두 HTTPS를 사용합니다. 개방 콘텐츠의 경우 플레이어에서 인증 또는 라이선스가 필요하지 않으므로 HTTP 또는 HTTPS를 사용할 수 있습니다.
 
@@ -310,11 +312,11 @@ Azure AD가 JWT를 생성한 후, 플레이어가 확인을 위해 JWT를 Media 
 키는 언제든지 롤오버될 수 있으므로 페더레이션 메타데이터 문서에는 사용 가능한 공개 키가 항상 두 개 이상 있습니다. Media Services 라이선스 배달에서는 문서에 지정된 아무 키나 사용할 수 있습니다. 하나의 키가 곧 롤오버되고 다른 키가 대체될 수 있기 때문입니다.
 
 ### <a name="where-is-the-access-token"></a>액세스 토큰 위치
-웹앱에서 [OAuth 2.0 클라이언트 자격 증명 권한을 사용한 응용 프로그램 ID](../../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api)로 API 앱을 호출하는 방식을 살펴보면 인증 흐름은 다음과 같습니다.
+웹앱에서 [OAuth 2.0 클라이언트 자격 증명 권한을 사용한 응용 프로그램 ID](../../active-directory/develop/web-api.md)로 API 앱을 호출하는 방식을 살펴보면 인증 흐름은 다음과 같습니다.
 
-* 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다. 자세한 내용은 [웹 브라우저-웹 응용 프로그램](../../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application)을 참조하세요.
-* Azure AD 권한 부여 끝점은 사용자 에이전트를 인증 코드와 함께 클라이언트 응용 프로그램으로 리디렉션합니다. 사용자 에이전트는 인증 코드를 클라이언트 응용 프로그램의 리디렉션 URI로 반환합니다.
-* 웹 응용 프로그램이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. Azure AD의 토큰 끝점에 요청하여 자격 증명, 클라이언트 ID, 웹 API의 응용 프로그램 ID URI를 제공합니다. 사용자가 동의했음을 증명하는 인증 코드를 표시합니다.
+* 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다. 자세한 내용은 [웹 브라우저-웹 응용 프로그램](../../active-directory/develop/web-app.md)을 참조하세요.
+* Azure AD 권한 부여 엔드포인트는 사용자 에이전트를 인증 코드와 함께 클라이언트 응용 프로그램으로 리디렉션합니다. 사용자 에이전트는 인증 코드를 클라이언트 응용 프로그램의 리디렉션 URI로 반환합니다.
+* 웹 응용 프로그램이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. Azure AD의 토큰 엔드포인트에 요청하여 자격 증명, 클라이언트 ID, 웹 API의 응용 프로그램 ID URI를 제공합니다. 사용자가 동의했음을 증명하는 인증 코드를 표시합니다.
 * Azure AD가 응용 프로그램을 인증하고 웹 API를 호출하는 데 사용되는 JWT 액세스 토큰을 반환합니다.
 * HTTPS를 통해 웹 응용 프로그램이 반환된 JWT 액세스 토큰을 사용해서 웹 API에 대한 요청의 “권한 부여” 헤더에 “전달자”를 지정한 JWT 문자열을 추가합니다. 그런 후 웹 API에는 JWT의 유효성을 검사합니다. 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
 
@@ -428,9 +430,9 @@ Windows 8.1 이상의 Internet Explorer 11, Windows 10의 Microsoft Edge 브라�
 
 ![PlayReady용 플레이어 플러그 인](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready2.png)
 
-Windows 10의 Microsoft Edge 및 Internet Explorer 11에 있는 EME를 통해 이를 지원하는 Windows 10 장치에서 [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/)을 호출할 수 있습니다. PlayReady SL3000은 향상된 프리미엄 콘텐츠(4K, HDR) 흐름 및 새 콘텐츠 배달 모델(향상된 콘텐츠용)의 잠금을 해제합니다.
+Windows 10의 Microsoft Edge 및 Internet Explorer 11에 있는 EME를 통해 이를 지원하는 Windows 10 디바이스에서 [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/)을 호출할 수 있습니다. PlayReady SL3000은 향상된 프리미엄 콘텐츠(4K, HDR) 흐름 및 새 콘텐츠 배달 모델(향상된 콘텐츠용)의 잠금을 해제합니다.
 
-Windows 장치에 집중: PlayReady는 Windows 장치(PlayReady SL3000)에서 사용 가능한 하드웨어의 유일한 DRM입니다. 스트리밍 서비스는 EME 또는 유니버설 Windows 플랫폼 응용 프로그램을 통해 PlayReady를 사용하고 PlayReady SL3000을 사용하여 다른 DRM보다 더 높은 화질을 제공할 수 있습니다. 일반적으로 2K 이내의 콘텐츠는 Chrome 또는 Firefox를 통해 흐르고, 4K 이내의 콘텐츠는 동일한 장치의 Microsoft Edge/Internet Explorer 11 또는 유니버설 Windows 플랫폼 응용 프로그램을 통해 흐릅니다. 그 양은 서비스 설정 및 구현에 따라 다릅니다.
+Windows 디바이스에 집중: PlayReady는 Windows 디바이스(PlayReady SL3000)에서 사용 가능한 하드웨어의 유일한 DRM입니다. 스트리밍 서비스는 EME 또는 유니버설 Windows 플랫폼 응용 프로그램을 통해 PlayReady를 사용하고 PlayReady SL3000을 사용하여 다른 DRM보다 더 높은 화질을 제공할 수 있습니다. 일반적으로 2K 이내의 콘텐츠는 Chrome 또는 Firefox를 통해 흐르고, 4K 이내의 콘텐츠는 동일한 디바이스의 Microsoft Edge/Internet Explorer 11 또는 유니버설 Windows 플랫폼 응용 프로그램을 통해 흐릅니다. 그 양은 서비스 설정 및 구현에 따라 다릅니다.
 
 #### <a name="use-eme-for-widevine"></a>Widevine에 EME 사용
 Windows 10, Windows 8.1, Mac OSX Yosemite의 Chrome 41 이상, Android 4.4.4의 Chrome과 같이 EME/Widevine을 지원하는 최신 브라우저에서는 Google Widevine이 EME 뒤의 DRM입니다.
