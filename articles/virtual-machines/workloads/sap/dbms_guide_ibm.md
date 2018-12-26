@@ -310,7 +310,7 @@ ms.locfileid: "39075930"
 
 
 
-Microsoft Azure를 사용하면 Linux, UNIX, Windows(LUW)용 IBM DB2에서 실행 중인 기존 SAP 응용 프로그램을 Azure 가상 머신으로 마이그레이션할 수 있습니다. LUW용 IBM DB2에서 SAP를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
+Microsoft Azure를 사용하면 Linux, UNIX, Windows(LUW)용 IBM DB2에서 실행 중인 기존 SAP 애플리케이션을 Azure 가상 머신으로 마이그레이션할 수 있습니다. LUW용 IBM DB2에서 SAP를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
 LUW용 IBM DB2에서 SAP Business Suite를 실행하는 방법에 대한 일반적인 내용은 SCN(SAP Community Network)의 <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>에서 찾을 수 있습니다.
 
 Azure에서 LUW용 DB2의 SAP에 대한 추가 정보 및 업데이트는 SAP Note [2233094]를 참조하세요. 
@@ -379,7 +379,7 @@ LUW용 IBM DB2의 백업/복원 기능은 표준 Windows Server 운영 체제 �
 * 둘 이상의 대상 디렉터리를 사용하여 백업을 작성합니다.
 
 >[!NOTE]
->Windows의 DB2는 Windows VSS 기술을 지원하지 않습니다. 따라서 DB2 DBMS가 배포된 VM에는 Azure Backup 서비스의 응용 프로그램 일치 VM 백업을 사용할 수 없습니다.
+>Windows의 DB2는 Windows VSS 기술을 지원하지 않습니다. 따라서 DB2 DBMS가 배포된 VM에는 Azure Backup 서비스의 애플리케이션 일치 VM 백업을 사용할 수 없습니다.
 
 ### <a name="high-availability-and-disaster-recovery"></a>고가용성 및 재해 복구
 MSCS(Microsoft Cluster Server)는 지원되지 않습니다.

@@ -29,6 +29,6 @@ ms.locfileid: "53262767"
 
 1. 메시지를 입력하고 Enter 키를 누릅니다. 이 응용 프로그램이 Azure 함수 앱에서 이 메시지를 *SendMessage* 함수로 보낸 다음, 이 앱이 SignalR 출력 바인딩을 사용하여 연결된 클라이언트 모두에 이 메시지를 브로드캐스트합니다. 모든 기능이 올바르게 작동하는 경우 이 메시지가 응용 프로그램에 표시됩니다.
 
-    ![응용 프로그램 실행](../media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-run-application.png)
+    ![애플리케이션 실행](../media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-run-application.png)
 
 1. 다른 브라우저 창에서 웹 응용 프로그램의 다른 인스턴스를 엽니다. 응용 프로그램의 모든 인스턴스에 전송된 메시지가 표시됩니다.

@@ -261,7 +261,7 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 
 ![Service Fabric Explorer][sfx]
 
-실행 중인 응용 프로그램에 연결하려면 웹 브라우저를 열고 클러스터 URL(예: http://lin0823ryf2he.cloudapp.azure.com:80 )로 이동합니다. 웹 UI에서 선택 응용 프로그램이 표시됩니다.
+실행 중인 애플리케이션에 연결하려면 웹 브라우저를 열고 클러스터 URL(예: http://lin0823ryf2he.cloudapp.azure.com:80 )로 이동합니다. 웹 UI에서 선택 응용 프로그램이 표시됩니다.
 
 ![votingapp][votingapp]
 

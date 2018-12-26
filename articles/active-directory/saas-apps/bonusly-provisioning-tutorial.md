@@ -40,7 +40,7 @@ ms.locfileid: "44348993"
 > Azure AD 프로비전 통합에는 Bonusly 개발자에게 제공되는 [Bonusly Rest API](https://bonusly.gelato.io/reference)가 사용됩니다.
 
 ## <a name="adding-bonusly-from-the-gallery"></a>갤러리에서 Bonusly 추가
-Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Bonusly를 구성하기 전에, Bonusly를 Azure AD 응용 프로그램 갤러리에서 관리되는 SaaS 응용 프로그램 목록으로 추가해야 합니다.
+Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Bonusly를 구성하기 전에, Bonusly를 Azure AD 애플리케이션 갤러리에서 관리되는 SaaS 애플리케이션 목록으로 추가해야 합니다.
 
 **Azure AD 응용 프로그램 갤러리에서 Bonusly를 추가하려면 다음 단계를 수행합니다.**
 
@@ -52,15 +52,15 @@ Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Bonusly
 
     ![엔터프라이즈 애플리케이션 섹션][2]
     
-3. Bonusly를 추가하려면 대화 상자의 위쪽에서 **새 응용 프로그램** 단추를 클릭합니다.
+3. Bonusly를 추가하려면 대화 상자의 위쪽에서 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 4. 검색 상자에 **Bonusly**를 입력합니다.
 
     ![Bonusly 프로비전](./media/bonusly-provisioning-tutorial/AppSearch.png)
 
-5. 결과 패널에서 **Bonusly**를 선택한 다음, **추가** 단추를 클릭하여 SaaS 응용 프로그램의 목록에 Bonusly를 추가합니다.
+5. 결과 패널에서 **Bonusly**를 선택한 다음, **추가** 단추를 클릭하여 SaaS 애플리케이션의 목록에 Bonusly를 추가합니다.
 
     ![Bonusly 프로비전](./media/bonusly-provisioning-tutorial/AppSearchResults.png)
 
@@ -78,7 +78,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 *   단일 Azure AD 사용자를 Bonusly에 할당하여 자동 사용자 프로비전 구성을 테스트하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-*   사용자를 Bonusly에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
+*   사용자를 Bonusly에 할당할 때 할당 대화 상자에서 유효한 애플리케이션별 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
 
 ## <a name="configuring-automatic-user-provisioning-to-bonusly"></a>Bonusly에 자동 사용자 프로비전 구성
 
@@ -91,7 +91,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, **Azure Active Directory > 엔터프라이즈 응용 프로그램 > 모든 응용 프로그램**으로 차례로 이동합니다.
 
-2. SaaS 응용 프로그램 목록에서 Bonusly를 선택합니다.
+2. SaaS 애플리케이션 목록에서 Bonusly를 선택합니다.
  
     ![Bonusly 프로비전](./media/bonusly-provisioning-tutorial/AppInstanceSearch.png)
 

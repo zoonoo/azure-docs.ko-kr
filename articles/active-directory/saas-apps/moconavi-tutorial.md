@@ -32,7 +32,7 @@ moconavi를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 moconavi에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -51,7 +51,7 @@ moconavi와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니�
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 moconavi 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -71,9 +71,9 @@ moconavi가 Azure AD에 통합되도록 구성하려면 갤러리의 moconavi를
 
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
-4. 검색 상자에서 **moconavi**를 입력하고, 결과 패널에서 **moconavi**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에서 **moconavi**를 입력하고, 결과 패널에서 **moconavi**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Synergi](./media/moconavi-tutorial/tutorial_moconavi_addfromgallery.png)
 
@@ -93,11 +93,11 @@ moconavi에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고, moconavi 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고, moconavi 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **moconavi에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **moconavi** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **moconavi** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -172,13 +172,13 @@ moconavi에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 **Britta Simon을 moconavi에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201]
 
-2. 응용 프로그램 목록에서 **moconavi**를 선택합니다.
+2. 애플리케이션 목록에서 **moconavi**를 선택합니다.
 
-    ![응용 프로그램 목록의 moconavi 링크](./media/moconavi-tutorial/tutorial_moconavi_app.png)
+    ![애플리케이션 목록의 moconavi 링크](./media/moconavi-tutorial/tutorial_moconavi_app.png)
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 

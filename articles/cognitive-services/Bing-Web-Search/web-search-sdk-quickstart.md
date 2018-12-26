@@ -220,7 +220,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 응용 프로그램을 실행해 보겠습니다!
 

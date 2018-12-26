@@ -70,7 +70,7 @@ Shmoop For Schools의 Azure AD 통합을 구성하려면 갤러리의 Shmoop For
     
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 선택합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 4. 검색 상자에 **Shmoop For Schools**를 입력합니다. 결과 패널에서 **Shmoop For Schools**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
@@ -115,7 +115,7 @@ Shmoop For Schools에서 Azure AD Single Sign-On을 구성하고 테스트하려
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Shmoop For Schools 클라이언트 지원 팀](mailto:support@shmoop.com)에 문의하세요. 
  
-4. Shmoop For Schools 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 어설션을 구성하는 방법을 보여줍니다.
+4. Shmoop For Schools 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 어설션을 구성하는 방법을 보여줍니다.
 
     ![Single Sign-On 구성](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 

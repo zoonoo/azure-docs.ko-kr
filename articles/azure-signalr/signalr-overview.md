@@ -21,7 +21,7 @@ Azure SignalR Service는 HTTP를 통해 응용 프로그램에 실시간 웹 기
 
 ## <a name="what-is-azure-signalr-service-used-for"></a>Azure SignalR Service의 용도는?
 
-실시간 콘텐츠 업데이트가 필요한 응용 프로그램 종류는 많습니다. Azure SignalR Service를 사용하기에 적합한 예는 다음과 같습니다.
+실시간 콘텐츠 업데이트가 필요한 애플리케이션 종류는 많습니다. Azure SignalR Service를 사용하기에 적합한 예는 다음과 같습니다.
 
 * 서버에서 자주 업데이트해야 하는 앱. 예를 들어 게임, 투표, 경매, 지도, GPS 앱 등이 있습니다.
 * 대시보드 및 모니터링 앱. 예를 들어 회사 대시보드, 즉석 판매 업데이트 등이 있습니다.

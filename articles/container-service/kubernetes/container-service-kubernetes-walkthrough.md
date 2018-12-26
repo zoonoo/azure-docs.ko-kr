@@ -102,7 +102,7 @@ k8s-agent-14ad53a1-2    Ready                      10m       v1.6.6
 k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 ```
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 예제에서는 Azure Vote 응용 프로그램을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 
 

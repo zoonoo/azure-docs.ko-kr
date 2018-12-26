@@ -11,7 +11,7 @@ items:
     href: quickstart-sspr.md
 - name: 자습서
   items:
-  - name: 1 응용 프로그램에 MFA를 사용하도록 설정
+  - name: 1 애플리케이션에 MFA를 사용하도록 설정
     href: tutorial-mfa-applications.md
   - name: 2 SSPR 파일럿을 사용하도록 설정
     href: tutorial-sspr-pilot.md

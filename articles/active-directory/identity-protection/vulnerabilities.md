@@ -2,7 +2,7 @@
 title: Azure Active Directory ID 보호에서 검색하는 취약성 | Microsoft Docs
 description: Azure Active Directory ID 보호에서 검색하는 취약성에 대한 개요입니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
+keywords: Azure Active Directory ID 보호, 클라우드 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -47,7 +47,7 @@ Multi-Factor Authentication은 사용자 인증에 두 번째 계층의 보안�
 
 오늘날 기업에서 IT 부서는 해당 조직의 사용자가 작업하는 데 사용하고 있는 일부 클라우드 응용 프로그램을 인지하지 못하는 경우가 있습니다. 관리자가 회사 데이터에 대한 무단 액세스, 데이터 유출 가능성 및 기타 보안 위험에 대해 우려하는 원인을 쉽게 확인합니다. 
 
-Azure Active Directory를 사용하여 관리되지 않은 클라우드 응용 프로그램을 검색하고 이러한 응용 프로그램을 관리하도록 Cloud Discovery를 배포하는 것이 좋습니다.
+Azure Active Directory를 사용하여 관리되지 않은 클라우드 애플리케이션을 검색하고 이러한 애플리케이션을 관리하도록 Cloud Discovery를 배포하는 것이 좋습니다.
 
 자세한 내용은 [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)를 참조하세요.
 

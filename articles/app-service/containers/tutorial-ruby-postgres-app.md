@@ -196,7 +196,7 @@ GRANT ALL PRIVILEGES ON DATABASE sampledb TO railsappuser;
 
 ## <a name="connect-app-to-azure-postgres"></a>Azure Postgres에 앱 연결
 
-이 단계에서는 Azure Database for PostgreSQL에서 만든 Postgres 데이터베이스에 Ruby on Rails 응용 프로그램을 연결합니다.
+이 단계에서는 Azure Database for PostgreSQL에서 만든 Postgres 데이터베이스에 Ruby on Rails 애플리케이션을 연결합니다.
 
 <a name="devconfig"></a>
 
@@ -263,7 +263,7 @@ export RAILS_SERVE_STATIC_FILES=true
 rails server -e production
 ```
 
-`http://localhost:3000`로 이동합니다. 오류 없이 페이지가 로드되면 Ruby on Rails 응용 프로그램이 Azure의 Postgres 데이터베이스에 연결됩니다.
+`http://localhost:3000`로 이동합니다. 오류 없이 페이지가 로드되면 Ruby on Rails 애플리케이션이 Azure의 Postgres 데이터베이스에 연결됩니다.
 
 해당 페이지에서 몇 가지 작업을 추가합니다.
 
@@ -284,7 +284,7 @@ git commit -m "database.yml updates"
 
 ## <a name="deploy-to-azure"></a>Deploy to Azure
 
-이 단계에서는 Postgres에 연결된 Rails 응용 프로그램을 Azure App Service에 배포합니다.
+이 단계에서는 Postgres에 연결된 Rails 애플리케이션을 Azure App Service에 배포합니다.
 
 ### <a name="configure-a-deployment-user"></a>배포 사용자 구성
 

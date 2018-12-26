@@ -73,14 +73,14 @@ Azure AD에서 라이선스 그룹 기반 관리는 관리자가 보안 그룹�
 
 ## <a name="integration-with-other-3rd-party-providers"></a>다른 타사 공급 업체와 통합
 
-Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레미스 웹 응용 프로그램에 single-sign on를 제공하고 응용 프로그램 액세스 보안을 강화합니다. 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요.
+Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레미스 웹 응용 프로그램에 single-sign on를 제공하고 응용 프로그램 액세스 보안을 강화합니다. 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요.
 
 ## <a name="define-synchronization-management"></a>동기화 관리 정의
 Azure AD와 온-프레미스 디렉터리를 통합하면 온-프레미스 및 클라우드 리소스 모두에 액세스하기 위한 일반적인 ID를 제공하므로 사용자가 더 생산성을 높일 수 있습니다. 이러한 통합을 통해 사용자와 조직은 다음과 같은 이점을 얻을 수 있습니다.
 
 * 조직에서는 사용자에게 Windows Server Active Directory를 활용하여 Azure Active Directory에 연결하는 클라우드 기반 서비스 또는 온-프레미스 간에 공통 하이브리드 ID를 제공할 수 있습니다.
 * 관리자는 응용 프로그램 리소스, 디바이스 및 사용자 ID, 네트워크 위치, 다단계 인증 등을 기반으로 조건부 액세스를 제공할 수 있습니다.
-* 사용자는 Azure AD의 계정을 통해 공통 ID를 활용하여 Office 365, Intune, SaaS 앱 및 타사 응용 프로그램에 액세스할 수 있습니다.
+* 사용자는 Azure AD의 계정을 통해 공통 ID를 활용하여 Office 365, Intune, SaaS 앱 및 타사 애플리케이션에 액세스할 수 있습니다.
 * 개발자는 온-프레미스 Active Directory 또는 클라우드 기반 응용 프로그램용 Azure에 응용 프로그램을 통합하여 공통 ID 모델을 활용하는 응용 프로그램을 빌드할 수 있습니다.
 
 다음 그림에는 ID 동기화 프로세스의 상위 수준 보기의 예가 있습니다.

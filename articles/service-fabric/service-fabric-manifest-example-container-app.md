@@ -317,7 +317,7 @@ Windows Server 컨테이너는 여러 OS 버전에서 호환되지 않을 수 �
 
 ### <a name="certificateref-element"></a>CertificateRef 요소
 컨테이너 환경에 노출해야 하는 X509 인증서에 대한 정보를 지정합니다. 모든 클러스터 노드의 LocalMachine 저장소에 인증서를 설치해야 합니다.
-응용 프로그램이 시작되면 런타임이 인증서를 읽고 PFX 파일 및 암호를 생성하거나(Windows인 경우) PEM 파일을 생성합니다(Linux인 경우).
+애플리케이션이 시작되면 런타임이 인증서를 읽고 PFX 파일 및 암호를 생성하거나(Windows인 경우) PEM 파일을 생성합니다(Linux인 경우).
 PFX 파일과 암호는 Certificates_ServicePackageName_CodePackageName_CertName_PFX 및 Certificates_ServicePackageName_CodePackageName_CertName_Password 환경 변수를 사용하여 컨테이너에서 액세스할 수 있습니다. PEM 파일은 Certificates_ServicePackageName_CodePackageName_CertName_PEM 및 Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey 환경 변수를 사용하여 컨테이너에서 액세스할 수 있습니다. 자세한 내용은 [CertificateRef 요소](service-fabric-service-model-schema-elements.md#CertificateRefElementContainerCertificateTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)를 참조하세요.
 
 ### <a name="defaultservices-element"></a>DefaultServices 요소

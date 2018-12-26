@@ -1,5 +1,5 @@
 ---
-title: Marketplace에서 Azure 관리되는 응용 프로그램 | Microsoft Docs
+title: Marketplace에서 Azure 관리되는 애플리케이션 | Microsoft Docs
 description: Marketplace를 통해 사용할 수 있는 Azure 관리되는 응용 프로그램에 대해 설명합니다.
 services: managed-applications
 author: tfitzmac
@@ -19,13 +19,13 @@ ms.locfileid: "38989789"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace에서 Azure 관리되는 응용 프로그램
 
-공급업체는 Azure 관리되는 애플리케이션을 사용하여 모든 Azure Marketplace 고객에게 솔루션을 제공할 수 있습니다. 이러한 공급업체에는 MSP(관리되는 서비스 제공업체), 독립 소프트웨어 공급업체(ISP), 시스템 통합 사업자(SI) 등이 포함될 수 있습니다. 관리되는 응용 프로그램은 고객에 대한 유지 관리 및 서비스 오버헤드를 줄입니다. 공급업체는 마켓플레이스를 통해 인프라 및 소프트웨어를 판매할 수 있습니다. 서비스 및 작업 지원을 관리되는 응용 프로그램에 연결할 수 있습니다. 자세한 내용은 [관리되는 응용 프로그램 개요](overview.md)를 참조하세요.
+공급업체는 Azure 관리되는 애플리케이션을 사용하여 모든 Azure Marketplace 고객에게 솔루션을 제공할 수 있습니다. 이러한 공급업체에는 MSP(관리되는 서비스 제공업체), 독립 소프트웨어 공급업체(ISP), 시스템 통합 사업자(SI) 등이 포함될 수 있습니다. 관리되는 애플리케이션은 고객에 대한 유지 관리 및 서비스 오버헤드를 줄입니다. 공급업체는 마켓플레이스를 통해 인프라 및 소프트웨어를 판매할 수 있습니다. 서비스 및 작업 지원을 관리되는 응용 프로그램에 연결할 수 있습니다. 자세한 내용은 [관리되는 응용 프로그램 개요](overview.md)를 참조하세요.
 
 이 문서에서는 애플리케이션을 Marketplace에 게시하고 고객에게 광범위하게 제공하는 방법을 설명합니다.
 
 ## <a name="prerequisites-for-publishing-a-managed-application"></a>관리되는 응용 프로그램을 게시하기 위한 필수 조건
 
-이 문서를 완료하려면 먼저 관리되는 애플리케이션 정의에 대한 .zip 파일이 필요합니다. 자세한 내용은 [서비스 카탈로그 응용 프로그램 만들기](publish-service-catalog-app.md)를 참조하세요.
+이 문서를 완료하려면 먼저 관리되는 애플리케이션 정의에 대한 .zip 파일이 필요합니다. 자세한 내용은 [서비스 카탈로그 애플리케이션 만들기](publish-service-catalog-app.md)를 참조하세요.
 
 또한 여러 비즈니스 사전 요구 사항이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "38989789"
 Azure Marketplace에서 게시자가 되려면 다음을 수행해야 합니다.
 
 1. Microsoft ID 만들기 - 회사 도메인에 속하지만 단일 개인이 아닌 메일 주소를 사용하여 Microsoft 계정을 만듭니다. 이 메일 주소는 Microsoft 개발자 센터 및 Cloud 파트너 포털에 모두 사용됩니다. 자세한 내용은 [Azure Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
-1. [Azure Marketplace 추천 양식](https://aka.ms/ampnomination) 제출 - **Solution that you intend to publish?**(게시 방법)를 보려면 **관리되는 응용 프로그램**을 선택합니다. 양식이 제출되면 Marketplace 온보딩 팀에서 응용 프로그램을 검토하고 요청의 유효성을 검사합니다. 승인 프로세스는 1~3일이 걸릴 수 있습니다. 추천이 승인되면 개발자 센터에 대한 등록 요금을 면제받을 수 있는 프로모션 코드를 받게 됩니다. Marketplace 추천 양식을 완료하지 **않을** 경우 $99의 등록 요금이 청구됩니다.
+1. [Azure Marketplace 추천 양식](https://aka.ms/ampnomination) 제출 - **Solution that you intend to publish?**(게시 방법)를 보려면 **관리되는 응용 프로그램**을 선택합니다. 양식이 제출되면 Marketplace 온보딩 팀에서 애플리케이션을 검토하고 요청의 유효성을 검사합니다. 승인 프로세스는 1~3일이 걸릴 수 있습니다. 추천이 승인되면 개발자 센터에 대한 등록 요금을 면제받을 수 있는 프로모션 코드를 받게 됩니다. Marketplace 추천 양식을 완료하지 **않을** 경우 $99의 등록 요금이 청구됩니다.
 1. [개발자 센터](http://dev.windows.com/registration?accountprogram=azure)에 등록 - Microsoft는 조직이 등록된 국가의 올바른 세금 ID를 가진 유효한 법인인지 유효성을 검사합니다. 승인 프로세스는 5~10일이 걸릴 수 있습니다. 등록 요금을 내지 않으려면 추천 프로세스에서 메일로 받은 프로모션 코드를 사용합니다. 자세한 내용은 [Azure Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
 1. [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인 - 게시자 프로필에서 Marketplace 게시자 프로필에 개발자 센터 계정을 연결합니다. 자세한 내용은 [Azure Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
 
@@ -106,7 +106,7 @@ SKU는 마켓플레이스의 부모 제품 아래에 표시됩니다. Azure Port
    다음 필드를 작성합니다.
 
    * **버전**: 업로드하는 패키지에 대한 버전을 입력합니다. `{number}.{number}.{number}{number}` 형식이어야 합니다.
-   * **패키지 파일(.zip)**: 이 패키지에는 .zip 파일로 압축된 두 개의 필수 파일이 포함되어 있습니다. 한 파일은 관리되는 응용 프로그램에 배포할 리소스를 정의하는 Resource Manager 템플릿입니다. 다른 한 파일은 포털을 통해 관리되는 응용 프로그램을 배포하는 소비자를 위한 [사용자 인터페이스](create-uidefinition-overview.md)를 정의합니다. 사용자 인터페이스에서 소비자가 매개 변수 값을 제공할 수 있도록 하는 요소를 지정합니다.
+   * **패키지 파일(.zip)**: 이 패키지에는 .zip 파일로 압축된 두 개의 필수 파일이 포함되어 있습니다. 한 파일은 관리되는 애플리케이션에 배포할 리소스를 정의하는 Resource Manager 템플릿입니다. 다른 한 파일은 포털을 통해 관리되는 애플리케이션을 배포하는 소비자를 위한 [사용자 인터페이스](create-uidefinition-overview.md)를 정의합니다. 사용자 인터페이스에서 소비자가 매개 변수 값을 제공할 수 있도록 하는 요소를 지정합니다.
    * **PrincipalId**: 이 속성은 고객 구독에서 리소스에 대한 액세스 권한이 부여된 사용자, 사용자 그룹 또는 응용 프로그램의 Azure AD(Azure Active Directory) 식별자입니다. 역할 정의는 권한을 설명합니다.
    * **역할 정의**: 이 속성은 Azure AD가 제공한 모든 기본 제공 RBAC(역할 기반 Access Control) 역할 목록입니다. 고객을 대신하여 리소스를 관리하는 데 사용할 가장 적합한 역할을 선택할 수 있습니다.
    * **정책 설정**: 배포된 솔루션에 대한 규정 준수 요구 사항을 지정하려면 [Azure Policy](../azure-policy/azure-policy-introduction.md)를 관리되는 응용 프로그램에 적용합니다. 사용 가능한 옵션에서 적용할 정책을 선택합니다. **정책 매개 변수**의 경우 JSON 문자열에 매개 변수 값을 제공합니다. 매개 변수 값의 형식 및 정책 정의는 [Azure Policy 샘플](../azure-policy/json-samples.md)을 참조하세요.
@@ -129,25 +129,25 @@ Marketplace 양식에서 [Azure Marketplace](https://azuremarketplace.microsoft.
 
 #### <a name="azure-marketplace"></a>Azure Marketplace
 
-관리되는 응용 프로그램 요약은 다음 필드를 표시합니다.
+관리되는 애플리케이션 요약은 다음 필드를 표시합니다.
 
 ![Marketplace 요약](./media/publish-marketplace-app/publishvm10.png)
 
-관리되는 응용 프로그램에 대한 **개요** 탭은 다음 필드를 표시합니다.
+관리되는 애플리케이션에 대한 **개요** 탭은 다음 필드를 표시합니다.
 
 ![Marketplace 개요](./media/publish-marketplace-app/publishvm11.png)
 
-관리되는 응용 프로그램에 대한 **계획 + 가격** 탭은 다음 필드를 표시합니다.
+관리되는 애플리케이션에 대한 **계획 + 가격** 탭은 다음 필드를 표시합니다.
 
 ![Marketplace 계획](./media/publish-marketplace-app/publishvm15.png)
 
 #### <a name="azure-portal"></a>Azure portal
 
-관리되는 응용 프로그램 요약은 다음 필드를 표시합니다.
+관리되는 애플리케이션 요약은 다음 필드를 표시합니다.
 
 ![포털 요약](./media/publish-marketplace-app/publishvm12.png)
 
-관리되는 응용 프로그램에 대한 개요는 다음 필드를 표시합니다.
+관리되는 애플리케이션에 대한 개요는 다음 필드를 표시합니다.
 
 ![포털 개요](./media/publish-marketplace-app/publishvm13.png)
 

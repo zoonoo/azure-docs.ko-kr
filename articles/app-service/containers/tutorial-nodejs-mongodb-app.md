@@ -71,7 +71,7 @@ MongoDB 데이터베이스를 테스트했으면 터미널에서 `Ctrl+C`를 입
 
 이 단계에서는 로컬 Node.js 프로젝트를 설정합니다.
 
-### <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+### <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 터미널 창에서 `cd`를 사용하여 작업 디렉터리로 이동합니다.
 
@@ -83,7 +83,7 @@ git clone https://github.com/Azure-Samples/meanjs.git
 
 이 샘플 리포지토리에는 [MEAN.js 리포지토리](https://github.com/meanjs/mean) 복사본이 들어 있습니다. App Service에서 실행하도록 수정되었습니다(자세한 내용은 MEAN.js 리포지토리의 [README(추가 정보) 파일](https://github.com/Azure-Samples/meanjs/blob/master/README.md) 참조).
 
-### <a name="run-the-application"></a>응용 프로그램 실행
+### <a name="run-the-application"></a>애플리케이션 실행
 
 다음 명령을 실행하여 필요한 패키지를 설치하고 응용 프로그램을 시작합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: 'NoSQL 자습서: Azure Cosmos DB Java SDK용 SQL API'
-description: Azure Cosmos DB용 SQL API를 사용하여 온라인 데이터베이스 및 Java 콘솔 응용 프로그램을 만드는 NoSQL 자습서입니다. Azure SQL은 JSON의 NoSQL 데이터베이스입니다.
+description: Azure Cosmos DB용 SQL API를 사용하여 온라인 데이터베이스 및 Java 콘솔 애플리케이션을 만드는 NoSQL 자습서입니다. Azure SQL은 JSON의 NoSQL 데이터베이스입니다.
 keywords: NoSQL 자습서, 온라인 데이터베이스, Java 콘솔 응용 프로그램
 services: cosmos-db
 author: SnehaGunda

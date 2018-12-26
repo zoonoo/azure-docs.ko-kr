@@ -62,7 +62,7 @@ Cisco Umbrella와 Azure AD의 통합을 구성하려면 갤러리의 Cisco Umbre
 
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추](common/add-new-app.png)
+    ![새 애플리케이션 단추](common/add-new-app.png)
 
 4. 검색 상자에서 **Cisco Umbrella**를 입력하고, 결과 패널에서 **Cisco Umbrella**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 

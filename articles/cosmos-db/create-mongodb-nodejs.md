@@ -48,7 +48,7 @@ Azure CLI 외에도 `npm` 및 `git` 명령을 실행하려면 [Node.js](https://
 
 Node.js에 대한 실무 지식이 있어야 합니다. 이 빠른 시작은 일반적으로 Node.js 응용 프로그램을 개발하는 데 도움이 되지 않습니다.
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 샘플 리포지토리에는 기본 [MEAN.js](https://meanjs.org/) 응용 프로그램이 들어 있습니다.
 
@@ -70,7 +70,7 @@ Node.js에 대한 실무 지식이 있어야 합니다. 이 빠른 시작은 일
     git clone https://github.com/prashanthmadi/mean
     ```
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 필요한 패키지를 설치하고 응용 프로그램을 시작합니다.
 

@@ -28,7 +28,7 @@ ms.locfileid: "53081917"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-이 자습서에서는 Azure Cosmos DB를 사용하여 Azure App Service에서 호스트하는 Python Flask 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 자습서에서는 이전에 Python 및 Azure 웹 사이트를 사용해 본 경험이 있다고 가정합니다.
+이 자습서에서는 Azure Cosmos DB를 사용하여 Azure App Service에서 호스트하는 Python Flask 웹 애플리케이션의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 자습서에서는 이전에 Python 및 Azure 웹 사이트를 사용해 본 경험이 있다고 가정합니다.
 
 이 데이터베이스 자습서에서는 다음 내용을 다룹니다.
 
@@ -387,7 +387,7 @@ def vote():
     <add key="WSGI_HANDLER" value="tutorial.app"/>
     ```
 
-4. Visual Studio**솔루션 탐색기**에서 **자습서** 폴더를 확장하고 `static` 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가 > 새 항목...** 을 선택하고 "Azure static files web.config" 템플릿을 선택한 다음 **확인**을 선택합니다. 그러면 해당 폴더에 대해 Python 처리를 비활성화하는 `static` 폴더에 다른 `web.config`가 만들어집니다. 이 구성은 Python 응용 프로그램을 사용하지 않고 기본 웹 서버에 정적 파일에 대한 요청을 보냅니다.
+4. Visual Studio**솔루션 탐색기**에서 **자습서** 폴더를 확장하고 `static` 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가 > 새 항목...** 을 선택하고 "Azure static files web.config" 템플릿을 선택한 다음 **확인**을 선택합니다. 그러면 해당 폴더에 대해 Python 처리를 비활성화하는 `static` 폴더에 다른 `web.config`가 만들어집니다. 이 구성은 Python 애플리케이션을 사용하지 않고 기본 웹 서버에 정적 파일에 대한 요청을 보냅니다.
 
 5. 파일을 저장한 다음 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고(로컬에서 실행하고 있지 않도록 확인) **게시**를 선택합니다.  
    

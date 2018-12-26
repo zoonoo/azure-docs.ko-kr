@@ -32,7 +32,7 @@ Salesforce를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Salesforce에 자동으로 로그인(Single Sign-On)하도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -72,7 +72,7 @@ Salesforce의 Azure AD 통합을 구성하려면 갤러리의 Salesforce를 관�
 
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 4. 검색 상자에 **Salesforce**를 입력하고 결과 패널에서 **Salesforce**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
@@ -224,7 +224,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 **Salesforce에 사용자를 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201]
 

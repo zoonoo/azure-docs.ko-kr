@@ -186,9 +186,9 @@ $ kubectl apply -f certificates.yaml
 certificate.certmanager.k8s.io/tls-secret created
 ```
 
-## <a name="run-demo-applications"></a>데모 응용 프로그램 실행
+## <a name="run-demo-applications"></a>데모 애플리케이션 실행
 
-수신 컨트롤러와 인증서 관리 솔루션이 구성되었습니다. 이제 AKS 클러스터에서 두 개의 데모 응용 프로그램을 실행하겠습니다. 이 예제에서는 Helm을 사용하여 간단한 ‘Hello world’ 응용 프로그램의 두 인스턴스를 배포합니다.
+수신 컨트롤러와 인증서 관리 솔루션이 구성되었습니다. 이제 AKS 클러스터에서 두 개의 데모 애플리케이션을 실행하겠습니다. 이 예제에서는 Helm을 사용하여 간단한 ‘Hello world’ 애플리케이션의 두 인스턴스를 배포합니다.
 
 샘플 Helm 차트를 설치하려면, 먼저 다음과 같이 Azure 샘플 리포지토리를 Helm 환경에 추가합니다.
 
@@ -196,13 +196,13 @@ certificate.certmanager.k8s.io/tls-secret created
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
-다음 명령을 사용하여 Helm 차트에서 첫 번째 데모 응용 프로그램을 만듭니다.
+다음 명령을 사용하여 Helm 차트에서 첫 번째 데모 애플리케이션을 만듭니다.
 
 ```console
 helm install azure-samples/aks-helloworld
 ```
 
-이제 데모 응용 프로그램의 두 번째 인스턴스를 설치합니다. 두 번째 인스턴스에서, 두 응용 프로그램을 시각적으로 구분할 수 있도록 새 제목을 지정합니다. 고유한 서비스 이름도 지정합니다.
+이제 데모 애플리케이션의 두 번째 인스턴스를 설치합니다. 두 번째 인스턴스에서, 두 애플리케이션을 시각적으로 구분할 수 있도록 새 제목을 지정합니다. 고유한 서비스 이름도 지정합니다.
 
 ```console
 helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
@@ -210,7 +210,7 @@ helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set s
 
 ## <a name="create-an-ingress-route"></a>수신 경로 만들기
 
-이제 두 응용 프로그램이 모두 Kubernetes 클러스터에서 실행되고 있지만, `ClusterIP` 유형의 서비스로 구성되었습니다. 따라서 인터넷에서 응용 프로그램에 액세스할 수 없습니다. 응용 프로그램을 공개적으로 사용할 수 있도록 Kubernetes 수신 리소스를 만듭니다. 수신 리소스는 두 애플리케이션 중 하나로 트래픽을 라우팅하는 규칙을 구성합니다.
+이제 두 애플리케이션이 모두 Kubernetes 클러스터에서 실행되고 있지만, `ClusterIP` 유형의 서비스로 구성되었습니다. 따라서 인터넷에서 애플리케이션에 액세스할 수 없습니다. 응용 프로그램을 공개적으로 사용할 수 있도록 Kubernetes 수신 리소스를 만듭니다. 수신 리소스는 두 애플리케이션 중 하나로 트래픽을 라우팅하는 규칙을 구성합니다.
 
 다음 예제에서 주소 `https://demo-aks-ingress.eastus.cloudapp.azure.com/`으로 향하는 트래픽은 `aks-helloworld`라는 서비스로 라우트됩니다. 주소 `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`로 향하는 트래픽은 `ingress-demo` 서비스로 라우팅됩니다. *hosts* 및 *host*를 이전 단계에서 만든 DNS 이름으로 업데이트합니다.
 
@@ -256,7 +256,7 @@ ingress.extensions/hello-world-ingress created
 
 웹 브라우저에서 Kubernetes 수신 컨트롤러의 FQDN(예: *https://demo-aks-ingress.eastus.cloudapp.azure.com*)을 엽니다.
 
-이 예제에서는 `letsencrypt-staging`을 사용하므로 브라우저에서 발급된 SSL 인증서를 신뢰하지 않습니다. 경고 프롬프트를 수락하여 응용 프로그램에서 계속 진행합니다. 인증서 정보에 이 *Fake LE Intermediate X1* 인증서가 Let's Encrypt에서 발급되었다고 표시됩니다. 이 가짜 인증서는 `cert-manager`에서 요청을 올바르게 처리했으며 공급자로부터 인증서를 받았음을 나타냅니다.
+이 예제에서는 `letsencrypt-staging`을 사용하므로 브라우저에서 발급된 SSL 인증서를 신뢰하지 않습니다. 경고 프롬프트를 수락하여 애플리케이션에서 계속 진행합니다. 인증서 정보에 이 *Fake LE Intermediate X1* 인증서가 Let's Encrypt에서 발급되었다고 표시됩니다. 이 가짜 인증서는 `cert-manager`에서 요청을 올바르게 처리했으며 공급자로부터 인증서를 받았음을 나타냅니다.
 
 ![Let's Encrypt 스테이징 인증서](media/ingress/staging-certificate.png)
 
@@ -264,11 +264,11 @@ ingress.extensions/hello-world-ingress created
 
 ![Let's Encrypt 인증서](media/ingress/certificate.png)
 
-데모 응용 프로그램이 웹 브라우저에 표시됩니다.
+데모 애플리케이션이 웹 브라우저에 표시됩니다.
 
 ![애플리케이션 예제 1](media/ingress/app-one.png)
 
-이제 FQDN에 */hello-world-two* 경로를 추가합니다(예: *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*). 사용자 지정 제목이 있는 두 번째 데모 응용 프로그램이 표시됩니다.
+이제 FQDN에 */hello-world-two* 경로를 추가합니다(예: *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*). 사용자 지정 제목이 있는 두 번째 데모 애플리케이션이 표시됩니다.
 
 ![애플리케이션 예제 2](media/ingress/app-two.png)
 

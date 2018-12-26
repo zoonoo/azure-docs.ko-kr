@@ -1,6 +1,6 @@
 ---
 title: Azure AD에서 사용할 SaaS 앱 통합 자습서 | Microsoft Docs
-description: 다양한 타사 SaaS(Software as a Service) 응용 프로그램에 대한 Azure Active Directory Single Sign-On 통합을 구성합니다.
+description: 다양한 타사 SaaS(Software as a Service) 애플리케이션에 대한 Azure Active Directory Single Sign-On 통합을 구성합니다.
 services: active-directory
 documentationcenter: ''
 author: jeevansd
@@ -31,7 +31,7 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 
 ## <a name="quick-links"></a>빠른 링크
 
-| 로고 | Single Sign-On에 대한 응용 프로그램 자습서 | 사용자 프로비전에 대한 응용 프로그램 자습서 |
+| 로고 | Single Sign-On에 대한 애플리케이션 자습서 | 사용자 프로비전에 대한 애플리케이션 자습서 |
 | :---: | :--- | :--- |
 | ![로고](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [G Suite](google-apps-tutorial.md)|[G Suite - 사용자 프로비전](google-apps-provisioning-tutorial.md)|
 | ![로고](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon 웹 서비스(AWS)](amazon-web-service-tutorial.md)| [AWS(Amazon Web Services) - 역할 프로비전](amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on)|

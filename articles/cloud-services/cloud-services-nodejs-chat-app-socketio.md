@@ -23,7 +23,7 @@ ms.locfileid: "39001986"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드
 
-Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공합니다. 이 자습서는 Azure에서 채팅 응용 프로그램을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [socket.io](http://socket.io)를 참조하세요.
+Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공합니다. 이 자습서는 Azure에서 채팅 애플리케이션을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [socket.io](http://socket.io)를 참조하세요.
 
 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
@@ -32,12 +32,12 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 ## <a name="prerequisites"></a>필수 조건
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
-* [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
-* [Node.js](https://nodejs.org/download/)
-* [Python 버전 2.7.10](https://www.python.org/)
+*  [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
+*  [Node.js](https://nodejs.org/download/)
+*  [Python 버전 2.7.10](https://www.python.org/)
 
 ## <a name="create-a-cloud-service-project"></a>클라우드 서비스 프로젝트 만들기
-다음은 Socket.IO 응용 프로그램을 호스트하는 클라우드 서비스 프로젝트를 만드는 단계입니다.
+다음은 Socket.IO 애플리케이션을 호스트하는 클라우드 서비스 프로젝트를 만드는 단계입니다.
 
 1. **시작 메뉴** 또는 **시작 화면**에서 **Windows PowerShell**을 검색합니다. 마지막으로, **Windows PowerShell**을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
    
@@ -68,10 +68,10 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
    ![보관 파일에서 압축을 푼 examples\\chat 디렉터리의 내용을 표시하는 탐색기][chat-contents]
    
    위 스크린샷에서 강조 표시된 항목은 **examples\\chat** 디렉터리에서 복사한 파일입니다.
-3. **C:\\node\\chatapp\\WorkerRole1** 디렉터리에서 **server.js** 파일을 삭제한 다음 **app.js** 파일의 이름을 **server.js**로 변경합니다. 그러면 이전에 **Add-AzureNodeWorkerRole** cmdlet로 만든 기본 **server.js** 파일이 제거되고 채팅 예제의 응용 프로그램 파일로 바뀝니다.
+3. **C:\\node\\chatapp\\WorkerRole1** 디렉터리에서 **server.js** 파일을 삭제한 다음 **app.js** 파일의 이름을 **server.js**로 변경합니다. 그러면 이전에 **Add-AzureNodeWorkerRole** cmdlet로 만든 기본 **server.js** 파일이 제거되고 채팅 예제의 애플리케이션 파일로 바뀝니다.
 
 ### <a name="modify-serverjs-and-install-modules"></a>Server.js 수정 및 모듈 설치
-Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 가지 항목을 수정해야 합니다. server.js 파일에 대해 다음 단계를 수행합니다.
+Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가지 항목을 수정해야 합니다. server.js 파일에 대해 다음 단계를 수행합니다.
 
 1. Visual Studio 또는 임의의 텍스트 편집기에서 **server.js** 파일을 엽니다.
 2. server.js의 시작 부분에서 **모듈 종속성** 섹션을 찾아 아래와 같이 **sio = require('..//..//lib//socket.io')** 가 포함된 줄을 **sio = require('socket.io')** 로 변경합니다.
@@ -82,7 +82,7 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
        //, sio = require('..//..//lib//socket.io'); //Original
          , sio = require('socket.io');                //Updated
          var port = process.env.PORT || 3000;         //Updated
-3. 응용 프로그램이 올바른 포트에서 수신하도록 메모장 또는 좋아하는 편집기에서 server.js를 연 후 아래와 같이 다음 줄에서 **3000**을 **process.env.port**로 변경합니다.
+3. 애플리케이션이 올바른 포트에서 수신하도록 메모장 또는 좋아하는 편집기에서 server.js를 연 후 아래와 같이 다음 줄에서 **3000**을 **process.env.port**로 변경합니다.
    
        //app.listen(3000, function () {            //Original
        app.listen(process.env.port, function () {  //Updated
@@ -121,31 +121,31 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
    이렇게 하면 특정 애칭으로 메시지를 게시할 수 있습니다. 다중 사용자 기능을 테스트하려면 같은 URL을 사용하여 브라우저 창을 추가로 열고 다른 애칭을 입력합니다.
    
    ![User1 및 User2의 채팅 메시지를 표시하는 두 브라우저 창](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
-4. 응용 프로그램을 테스트한 후 다음 명령을 실행하여 에뮬레이터를 중지합니다.
+4. 애플리케이션을 테스트한 후 다음 명령을 실행하여 에뮬레이터를 중지합니다.
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Azure에 응용 프로그램을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예: 
+5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예: 
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    
    > [!IMPORTANT]
    > 고유한 이름을 사용해야 합니다. 그렇지 않으면 게시 프로세스가 실패합니다. 배포가 완료되면 브라우저가 열리고 배포된 서비스로 이동합니다.
    > 
-   > 제공한 구독 이름이 가져온 게시 프로필에 존재하지 않는다는 내용의 오류를 받게 되는 경우, Azure를 배포하기 전에 구독에 대한 게시 프로필을 다운로드하고 가져와야 합니다. **Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포** (영문)에서 [Azure에 응용 프로그램 배포](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+   > 제공한 구독 이름이 가져온 게시 프로필에 존재하지 않는다는 내용의 오류를 받게 되는 경우, Azure를 배포하기 전에 구독에 대한 게시 프로필을 다운로드하고 가져와야 합니다.  **Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포** (영문)에서 [Azure에 응용 프로그램 배포](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
    > 
    > 
    
    ![Azure에 호스트된 서비스를 표시하는 브라우저 창][completed-app]
    
    > [!NOTE]
-   > 제공한 구독 이름이 가져온 게시 프로필에 존재하지 않는다는 내용의 오류를 받게 되는 경우, Azure를 배포하기 전에 구독에 대한 게시 프로필을 다운로드하고 가져와야 합니다. **Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포** (영문)에서 [Azure에 응용 프로그램 배포](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+   > 제공한 구독 이름이 가져온 게시 프로필에 존재하지 않는다는 내용의 오류를 받게 되는 경우, Azure를 배포하기 전에 구독에 대한 게시 프로필을 다운로드하고 가져와야 합니다.  **Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포** (영문)에서 [Azure에 응용 프로그램 배포](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
    > 
    > 
 
-현재 응용 프로그램이 Azure에서 실행되고 있으며 Socket.IO를 사용하여 다른 클라이언트 간에 채팅 메시지를 릴레이할 수 있습니다.
+현재 애플리케이션이 Azure에서 실행되고 있으며 Socket.IO를 사용하여 다른 클라이언트 간에 채팅 메시지를 릴레이할 수 있습니다.
 
 > [!NOTE]
-> 간단히 하기 위해 샘플은 같은 인스턴스에 연결된 사용자 간 채팅으로 제한됩니다. 즉 클라우드 서비스에서 작업자 역할 인스턴스를 두 개 만드는 경우 사용자는 같은 작업자 역할 인스턴스에 연결된 사람들과만 채팅할 수 있습니다. 응용 프로그램을 여러 역할 인스턴스와 작업하도록 조정하려면 Service Bus 같은 기술을 사용하여 인스턴스 간에 Socket.IO 저장소 상태를 공유할 수 있습니다. 예를 들어, [Node.js에 대한 Azure SDK GitHub 리포지토리](https://github.com/WindowsAzure/azure-sdk-for-node)(영문)의 Service Bus 큐 및 토픽 사용 샘플을 참조하세요.
+> 간단히 하기 위해 샘플은 같은 인스턴스에 연결된 사용자 간 채팅으로 제한됩니다. 즉 클라우드 서비스에서 작업자 역할 인스턴스를 두 개 만드는 경우 사용자는 같은 작업자 역할 인스턴스에 연결된 사람들과만 채팅할 수 있습니다. 애플리케이션을 여러 역할 인스턴스와 작업하도록 조정하려면 Service Bus 같은 기술을 사용하여 인스턴스 간에 Socket.IO 저장소 상태를 공유할 수 있습니다. 예를 들어, [Node.js에 대한 Azure SDK GitHub 리포지토리](https://github.com/WindowsAzure/azure-sdk-for-node)(영문)의 Service Bus 큐 및 토픽 사용 샘플을 참조하세요.
 > 
 > 
 

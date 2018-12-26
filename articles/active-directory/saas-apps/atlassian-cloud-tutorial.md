@@ -114,7 +114,7 @@ Atlassian Cloud에서 Azure AD Single Sign-on을 구성하려면 다음을 수�
     > [!NOTE]
     > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값은 이 자습서의 뒷부분에 설명된 Atlassian Cloud SAML 구성 화면에서 얻습니다.
 
-4. SP 시작 모드로 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택한 후 **로그온 URL** 상자에 `https://<instancename>.atlassian.net` 패턴을 사용하여 URL을 입력합니다.
+4. SP 시작 모드로 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 선택한 후 **로그온 URL** 상자에 `https://<instancename>.atlassian.net` 패턴을 사용하여 URL을 입력합니다.
 
     ![Atlassian Cloud 도메인 및 URL Single Sign-On 정보](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
 

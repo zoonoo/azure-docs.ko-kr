@@ -25,7 +25,7 @@ ms.locfileid: "34012712"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>저장소 계정의 특수한 VHD에서 VM 만들기
 
-Powershell을 사용하여 특수한 비관리 디스크를 OS 디스크로 연결하여 새 VM을 만듭니다. 특수한 디스크는 기존 VM의 VHD 복사본으로 사용자 계정, 응용 프로그램 및 원본 VM의 기타 상태 데이터를 유지합니다. 
+Powershell을 사용하여 특수한 비관리 디스크를 OS 디스크로 연결하여 새 VM을 만듭니다. 특수한 디스크는 기존 VM의 VHD 복사본으로 사용자 계정, 애플리케이션 및 원본 VM의 기타 상태 데이터를 유지합니다. 
 
 다음 두 가지 옵션을 사용할 수 있습니다.
 * [VHD 업로드](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
@@ -45,7 +45,7 @@ Install-Module AzureRM.Compute
 Hyper-V와 같은 온-프레미스 가상화 도구를 사용하여 만든 특수한 VM 또는 다른 클라우드에서 내보낸 VM에서 VHD를 업로드할 수 있습니다.
 
 ### <a name="prepare-the-vm"></a>VM 준비
-온-프레미스 VM을 사용하여 만든 특수한 VHD 또는 다른 클라우드에서 내보낸 VHD를 업로드할 수 있습니다. 특수한 VHD는 사용자 계정, 응용 프로그램 및 원본 VM의 다른 상태 데이터를 유지 관리합니다. 새 VM을 만드는데 VHD를 그대로 사용하려는 경우 다음 단계가 완료되었는지 확인합니다. 
+온-프레미스 VM을 사용하여 만든 특수한 VHD 또는 다른 클라우드에서 내보낸 VHD를 업로드할 수 있습니다. 특수한 VHD는 사용자 계정, 애플리케이션 및 원본 VM의 다른 상태 데이터를 유지 관리합니다. 새 VM을 만드는데 VHD를 그대로 사용하려는 경우 다음 단계가 완료되었는지 확인합니다. 
   
   * [Azure에 업로드할 Windows VHD를 준비합니다](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Sysprep을 사용하여 VM을 일반화하지 **마십시오**.
   * 모든 게스트 가상화 도구 및 VM에 설치된 에이전트를 제거합니다(예: VMware 도구).

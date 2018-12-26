@@ -50,7 +50,7 @@ Absorb LMS와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 * 갤러리에서 Absorb LMS 추가
 * Azure AD Single Sign-on 구성 및 테스트
@@ -70,7 +70,7 @@ Absorb LMS의 Azure AD 통합을 구성하려면 갤러리의 Absorb LMS를 관�
     
 3. 응용 프로그램을 추가하려면 **새 응용 프로그램** 단추를 선택합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 4. 검색 상자에 **Absorb LMS**를 입력하고 결과 패널에서 **Absorb LMS**를 선택한 후 **추가** 단추를 선택합니다.
 
