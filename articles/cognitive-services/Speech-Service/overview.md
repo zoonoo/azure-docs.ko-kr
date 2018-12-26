@@ -1,4 +1,4 @@
-﻿---
+---
 title: Speech Service란?
 titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services의 일부인 Speech Service는 Bing Speech(음성 인식 및 텍스트 음성 변환으로 구성됨), Custom Speech, 음성 번역 등 이전에 별도로 사용할 수 있었던 여러 가지 음성 서비스를 통합합니다.
