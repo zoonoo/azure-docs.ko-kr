@@ -484,7 +484,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 ## <a name="optional-send-notifications-from-a-net-console-app"></a>(선택 사항) .NET 콘솔 응용 프로그램에서 알림 보내기
 이 섹션에서는 .NET 콘솔 앱을 사용하여 알림을 전송하는 방법을 보여줍니다.
 
-1. 새 Visual C# 콘솔 응용 프로그램을 만듭니다.
+1. 새 Visual C# 콘솔 애플리케이션을 만듭니다.
    
     ![](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
