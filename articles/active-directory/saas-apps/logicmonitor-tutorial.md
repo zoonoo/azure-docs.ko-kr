@@ -184,7 +184,7 @@ LogicMonitor에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
  
 ### <a name="creating-a-logicmonitor-test-user"></a>LogicMonitor 테스트 사용자 만들기
 
-Azure AD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 이름을 사용하여 LogicMonitor 응용 프로그램에 프로비전되어야 합니다.
+Azure AD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 이름을 사용하여 LogicMonitor 애플리케이션에 프로비전되어야 합니다.
 
 **사용자 프로비전을 구성하려면 다음 단계를 수행합니다.**
 

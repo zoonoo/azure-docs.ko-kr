@@ -40,7 +40,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Seamless SSO의 `domain_hint` 또는 `login_hint` 매개 변수 기능을 활용하는 응용 프로그램은 무엇인가요?
 
-다음은 이러한 매개 변수를 Azure AD에 전송할 수 있는 응용 프로그램의 부분 목록으로, Seamless SSO를 사용하여 자동 로그온 환경을 제공합니다(예: 사용자가 사용자 이름 또는 암호를 입력할 필요가 없음).
+다음은 이러한 매개 변수를 Azure AD에 전송할 수 있는 애플리케이션의 부분 목록으로, Seamless SSO를 사용하여 자동 로그온 환경을 제공합니다(예: 사용자가 사용자 이름 또는 암호를 입력할 필요가 없음).
 
 | 응용 프로그램 이름 | 사용할 응용 프로그램 URL |
 | -- | -- |
@@ -55,7 +55,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 | SharePoint Online | https://contoso.sharepoint.com |
 | Azure portal | https://portal.azure.com/contoso.com |
 
-위 표에 나오는 "contoso.com"을 도메인 이름으로 바꾸어 테넌트에 적절한 응용 프로그램 URL로 이동합니다.
+위 표에 나오는 "contoso.com"을 도메인 이름으로 바꾸어 테넌트에 적절한 애플리케이션 URL로 이동합니다.
 
 다른 애플리케이션에서 자동 로그온 환경을 사용하려는 경우 사용자 의견 섹션에서 알려주십시오.
 

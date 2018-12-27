@@ -75,7 +75,7 @@ O.C.의 통합을 구성하려면 Tanner - Azure AD에서 AppreciateHub, O.C.를
 
     ![Azure AD 테스트 사용자 만들기](./media/oc-tanner-tutorial/tutorial_octannerappreciatehub_search.png)
 
-1. 결과 패널에서 **O.C. Tanner - AppreciateHub**를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **O.C. Tanner - AppreciateHub**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/oc-tanner-tutorial/tutorial_octannerappreciatehub_addfromgallery.png)
 

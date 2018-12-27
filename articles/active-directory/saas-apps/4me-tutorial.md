@@ -71,7 +71,7 @@ Azure AD에 4me를 통합하도록 구성하려면 갤러리의 4me를 관리되
 
     ![새 애플리케이션 단추][3]
 
-4. 검색 상자에서 **4me**를 입력하고, 결과 패널에서 **4me**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에서 **4me**를 입력하고, 결과 패널에서 **4me**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 4me](./media/4me-tutorial/tutorial_4me_addfromgallery.png)
 
@@ -91,11 +91,11 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고, 4me 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고, 4me 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **4me에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **4me** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **4me** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -124,7 +124,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [4me 클라이언트 지원 팀](mailto:support@4me.com)에 문의하세요. 
  
-4. 4me 응용 프로그램에 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+4. 4me 애플리케이션에 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
     
     ![Configure Single Sign-On](./media/4me-tutorial/tutorial_4me_attribute.png)
 
@@ -232,9 +232,9 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **4me**를 선택합니다.
+2. 애플리케이션 목록에서 **4me**를 선택합니다.
 
-    ![응용 프로그램 목록의 4me 링크](./media/4me-tutorial/tutorial_4me_app.png)  
+    ![애플리케이션 목록의 4me 링크](./media/4me-tutorial/tutorial_4me_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -254,7 +254,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 4me 타일을 클릭하면 4me 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 4me 타일을 클릭하면 4me 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

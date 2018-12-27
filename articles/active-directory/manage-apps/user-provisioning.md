@@ -70,7 +70,7 @@ Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow
 
 Azure AD는 SCIM 2.0 표준의 특정 부분을 구현하는 앱에 대한 일반적 지원뿐만 아니라 다양한 인기 있는 SaaS 앱 및 인사 관리 시스템에 대한 사전 통합된 지원도 제공합니다.
 
-### <a name="pre-integrated-applications"></a>사전 통합된 응용 프로그램
+### <a name="pre-integrated-applications"></a>사전 통합된 애플리케이션
 
 Azure AD가 미리 통합된 프로비저닝 커넥터를 지원하는 모든 응용 프로그램 목록을 보려면 [사용자 프로비저닝에 대한 응용 프로그램 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
 
@@ -79,9 +79,9 @@ Azure AD 엔지니어링 팀에 문의하여 추가 응용 프로그램에 대�
 > [!NOTE]
 > 응용 프로그램에서 자동화된 사용자 프로비저닝을 지원하려면, 먼저 외부 프로그램에서 사용자 만들기, 유지 관리 및 제거를 자동화하는 데 필요한 사용자 관리 API를 제공해야 합니다. 따라서 모든 SaaS 앱이 이 기능과 호환되지는 않습니다. 사용자 관리 API를 지원하는 앱의 경우 Azure AD 엔지니어링 팀에서 해당 앱에 대한 프로비전 커넥터를 빌드할 수 있게 되며, 현재 및 잠재 고객의 요구 사항에 따라 이 작업의 우선 순위가 지정됩니다. 
 
-### <a name="connecting-applications-that-support-scim-20"></a>SCIM 2.0을 지원하는 응용 프로그램 연결
+### <a name="connecting-applications-that-support-scim-20"></a>SCIM 2.0을 지원하는 애플리케이션 연결
 
-SCIM 2.0 기반 사용자 관리 API를 구현하는 응용 프로그램에 일반적으로 연결하는 방법에 대한 자세한 내용은 [SCIM을 사용하여 사용자 및 그룹을 Azure Active Directory에서 응용 프로그램으로 자동으로 프로비전](use-scim-to-provision-users-and-groups.md)을 참조하세요.
+SCIM 2.0 기반 사용자 관리 API를 구현하는 애플리케이션에 일반적으로 연결하는 방법에 대한 자세한 내용은 [SCIM을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동으로 프로비전](use-scim-to-provision-users-and-groups.md)을 참조하세요.
 
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>응용 프로그램에 자동 프로비전을 설정하려면 어떻게 합니까?

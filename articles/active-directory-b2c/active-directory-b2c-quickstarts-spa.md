@@ -1,6 +1,6 @@
 ---
 title: 빠른 시작 - Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정 | Microsoft Docs
-description: Azure Active Directory B2C를 사용하여 계정 로그인을 제공하는 샘플 단일 페이지 응용 프로그램을 실행합니다.
+description: Azure Active Directory B2C를 사용하여 계정 로그인을 제공하는 샘플 단일 페이지 애플리케이션을 실행합니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman

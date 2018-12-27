@@ -27,7 +27,7 @@ ms.locfileid: "49353971"
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램으로 알림을 푸시합니다. [APNS(Apple Push Notification Service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 
+이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 애플리케이션으로 알림을 푸시합니다. [APNS(Apple Push Notification Service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
