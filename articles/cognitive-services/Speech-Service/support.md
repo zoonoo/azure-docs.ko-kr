@@ -19,7 +19,7 @@ ms.locfileid: "49468061"
 ---
 # <a name="support-and-help-options"></a>지원 및 도움말 옵션
 
-Speech Service의 기능을 탐색하기 시작했나요? 응용 프로그램에 새로운 기능을 구현하고 있나요? 개발자가 도움을 얻을 수 있는 방법에 대한 제안 사항은 다음과 같습니다.
+Speech Service의 기능을 탐색하기 시작했나요? 애플리케이션에 새로운 기능을 구현하고 있나요? 개발자가 도움을 얻을 수 있는 방법에 대한 제안 사항은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * *Azure Cognitive Services*의 새로운 개발에 대한 정보를 받거나 *Speech Service*와 관련된 최신 뉴스를 찾습니다.
@@ -114,6 +114,6 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
 ## <a name="uservoice-forum"></a>UserVoice 포럼
 
-Cognitive Services를 만드는 아이디어를 공유하세요. 함께 제공되는 API는 개발하는 응용 프로그램에서 더 잘 작동합니다. 증가하는 기술 자료를 사용하여 일반적인 질문에 대한 답변을 찾으세요.
+Cognitive Services를 만드는 아이디어를 공유하세요. 함께 제공되는 API는 개발하는 애플리케이션에서 더 잘 작동합니다. 증가하는 기술 자료를 사용하여 일반적인 질문에 대한 답변을 찾으세요.
 
 [UserVoice](https://cognitive.uservoice.com/)

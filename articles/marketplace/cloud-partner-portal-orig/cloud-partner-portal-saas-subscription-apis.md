@@ -51,7 +51,7 @@ Azure는 해당 최종 사용자에게 SaaS 서비스가 노출하는 인증을 
 
 ### <a name="register-an-azure-ad-application"></a>Azure AD 응용 프로그램 등록
 
-Azure AD의 기능을 사용하려는 모든 응용프로그램이 먼저 Azure AD 테넌트에 등록되어야 합니다. 이 등록 프로세스는 응용 프로그램이 위치한 URL, 사용자가 인증된 후 회신을 보낼 URL, 앱을 식별하는 URI 등과 같이 응용 프로그램에 대한 Azure AD 세부 정보의 제공이 포함됩니다.
+Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure AD 테넌트에 등록되어야 합니다. 이 등록 프로세스는 응용 프로그램이 위치한 URL, 사용자가 인증된 후 회신을 보낼 URL, 앱을 식별하는 URI 등과 같이 응용 프로그램에 대한 Azure AD 세부 정보의 제공이 포함됩니다.
 
 Azure Portal을 사용하여 새 응용 프로그램을 등록하려면 다음 단계를 수행합니다.
 
@@ -72,7 +72,7 @@ Azure Portal을 사용하여 새 응용 프로그램을 등록하려면 다음 �
 
         ![SaaS AD 앱 등록](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png) 웹 응용 프로그램 또는 네이티브 응용 프로그램에 대한 구체적인 예제를 보려면 [Azure AD 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started)의 시작하기 섹션에서 사용할 수 있는 빠른 시작 안내 설정을 확인하세요.
 
-5.  작업을 마쳤으면 **만들기**를 클릭합니다. Azure AD가 응용 프로그램에 고유한 응용 프로그램 ID를 할당하면 응용 프로그램의 기본 등록 페이지로 이동합니다. 응용 프로그램이 웹 또는 네이티브 응용 프로그램인지에 따라 응용 프로그램에 기능을 추가하기 위해 다른 옵션이 제공됩니다.
+5.  작업을 마쳤으면 **만들기**를 클릭합니다. Azure AD가 응용 프로그램에 고유한 응용 프로그램 ID를 할당하면 응용 프로그램의 기본 등록 페이지로 이동합니다. 애플리케이션이 웹 또는 네이티브 애플리케이션인지에 따라 애플리케이션에 기능을 추가하기 위해 다른 옵션이 제공됩니다.
 
     **참고:** 기본적으로 새로 등록된 응용 프로그램은 동일한 테넌트의 사용자만이 응용 프로그램에 로그인할 수 있도록 구성됩니다.
 
