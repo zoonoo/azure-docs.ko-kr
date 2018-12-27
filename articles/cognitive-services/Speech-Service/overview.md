@@ -19,7 +19,7 @@ ms.locfileid: "53336597"
 ---
 # <a name="what-is-speech-services"></a>Speech Service란?
 
-다른 Azure 음성 서비스와 마찬가지로 Speech Service는 Cortana 및 Microsoft Office와 같은 제품에서 사용되는 음성 기술을 통해 구현됩니다.
+다른 Azure 음성 서비스와 마찬가지로 Speech 서비스는 Cortana 및 Microsoft Office와 같은 제품에 사용되는 음성 기술을 기반으로 합니다.
 
 Speech Service는 이전에 [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) 및 [Custom Voice](http://customvoice.ai/) 서비스를 통해 사용할 수 있었던 Azure 음성 기능을 통합합니다. 이제 하나의 구독으로 이러한 모든 기능에 액세스할 수 있습니다.
 
@@ -53,16 +53,16 @@ Speech Service의 주요 기능은 음성 텍스트 변환(음성 인식 또는 
 
 또한 Speech Service에는 HTTP 요청을 수행할 수 있는 모든 프로그래밍 언어에서 작동하는 [REST API](rest-apis.md)도 있습니다. REST 인터페이스는 SDK의 실시간 스트리밍 기능을 제공하지 않습니다.
 
-|<br>방법|음성<br>to Text|Text to<br>음성|음성<br>Translation|<br>설명|
+|<br>방법|Speech<br>to Text|Text to<br>Speech|Speech<br>Translation|<br>설명|
 |-|-|-|-|-|
 |[Speech SDK](speech-sdk.md)|yes|no|yes|개발 작업을 간소화할 수 있는 C#, C++ 및 Java용 네이티브 API입니다.|
-|[REST API](rest-apis.md)|yes|yes|no|응용 프로그램에 음성을 쉽게 추가할 수 있는 간단한 HTTP 기반 API입니다.|
+|[REST API](rest-apis.md)|yes|yes|no|응용 프로그램에 음성을 쉽게 추가할 수 있게 해주는 간단한 HTTP 기반 API입니다.|
 
 ### <a name="websockets"></a>WebSockets
 
 Speech Service는 음성 텍스트 변환 및 음성 번역을 스트리밍하기 위한 WebSocket 프로토콜도 지원합니다. Speech SDK는 이러한 프로토콜을 사용하여 Speech 서비스와 통신합니다. Speech 서비스와의 사용자 고유 WebSocket 통신을 구현하는 대신 Speech SDK를 사용합니다.
 
-WebSocket을 통해 Bing Speech 또는 Translator Speech를 사용하는 코드가 이미 있는 경우 Speech Service를 사용하도록 코드를 업데이트할 수 있습니다. WebSocket 프로토콜은 호환 가능하지만 엔드포인트가 다릅니다.
+WebSocket을 통해 Bing Speech 또는 Translator Speech를 사용하는 코드가 이미 있는 경우 해당 코드에서 Speech 서비스를 사용하도록 업데이트할 수 있습니다. WebSocket 프로토콜은 호환 가능하지만, 엔드포인트는 다릅니다.
 
 ### <a name="speech-devices-sdk"></a>Speech Devices SDK
 
@@ -84,9 +84,9 @@ Speech Service의 사용 사례는 다음과 같습니다.
 
 일반 대중이 사용하는 앱이면 기본 음성 인식 모델을 사용할 수 있습니다. 이러한 모델은 일반적인 환경에서 다양한 화자를 인식합니다.
 
-특정 도메인에서 앱이 사용되는 경우(의약품 또는 IT) [언어 모델](how-to-customize-language-model.md)을 만들 수 있습니다. 이 모델을 사용하여 앱에서 사용되는 특수 용어를 Speech Service에 학습할 수 있습니다.
+특정 도메인에서 앱이 사용되는 경우(의약품 또는 IT) [언어 모델](how-to-customize-language-model.md)을 만들 수 있습니다. 이 모델을 사용하여 Speech 서비스에 앱에서 사용하는 특별한 용어를 가르칠 수 있습니다.
 
-공장과 같은 시끄러운 환경에서 앱이 사용되는 경우 사용자 지정 [어쿠스틱 모델](how-to-customize-acoustic-models.md)을 만들 수 있습니다. 이 모델은 Speech Service에서 소음과 음성을 구분하도록 지원합니다.
+공장과 같은 시끄러운 환경에서 앱이 사용되는 경우 사용자 지정 [어쿠스틱 모델](how-to-customize-acoustic-models.md)을 만들 수 있습니다. 이 모델은 Speech 서비스가 말과 소음을 구분하는 데 도움이 됩니다.
 
 ### <a name="call-center-transcription"></a>호출 센터 전사
 

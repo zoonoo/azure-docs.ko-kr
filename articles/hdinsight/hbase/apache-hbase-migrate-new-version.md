@@ -187,7 +187,7 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
     
 4. 이전 HBase 클러스터에 대한 수집을 중지합니다.
 5. memstore의 최근 데이터가 플러시되도록 하려면 이전 스크립트를 다시 실행합니다.
-6. 이전 클러스터(https://OLDCLUSTERNAME.azurehdidnsight.net))에서 [Apache Ambari](https://ambari.apache.org/)에 로그인하고 HBase 서비스를 중지합니다. 서비스를 중지하려는 것인지 묻는 메시지가 표시되면 상자를 선택하여 HBase에 대한 유지 관리 모드를 켭니다. Ambari 연결 및 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+6. 이전 클러스터(https://OLDCLUSTERNAME.azurehdidnsight.net) 에서 [Apache Ambari](https://ambari.apache.org/)에 로그인하고 HBase 서비스를 중지합니다. 서비스를 중지하려는 것인지 묻는 메시지가 표시되면 상자를 선택하여 HBase에 대한 유지 관리 모드를 켭니다. Ambari 연결 및 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
     ![Ambari에서 [서비스] 탭을 클릭하고, 왼쪽 메뉴에서 HBase를 클릭한 다음, [서비스 작업]에서 [중지]를 클릭함](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 
