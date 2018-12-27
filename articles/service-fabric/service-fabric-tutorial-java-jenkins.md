@@ -24,7 +24,7 @@ ms.locfileid: "53162225"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>자습서: Service Fabric에서 Java 애플리케이션에 CI/CD를 사용하도록 Jenkins 환경 구성
 
-이 자습서는 시리즈의 5부입니다. 여기서는 Jenkins를 사용하여 응용 프로그램에 업그레이드를 배포하는 방법을 설명합니다. 이 자습서에서는 Voting(투표) 애플리케이션을 호스팅하는 GitHub 리포지토리와 함께 Service Fabric Jenkins 플러그 인을 사용하여 해당 애플리케이션을 클러스터에 배포합니다.
+이 자습서는 시리즈의 5부입니다. 여기서는 Jenkins를 사용하여 애플리케이션에 업그레이드를 배포하는 방법을 설명합니다. 이 자습서에서는 Voting(투표) 애플리케이션을 호스팅하는 GitHub 리포지토리와 함께 Service Fabric Jenkins 플러그 인을 사용하여 해당 애플리케이션을 클러스터에 배포합니다.
 
 시리즈 5부에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -92,7 +92,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 1. 작업 페이지로 이동하여 **구성**을 클릭합니다.
 
-   a. 일반 섹션에서 **GitHub 프로젝트**에 대한 확인란을 선택하고 GitHub 프로젝트 URL을 지정합니다. 이 URL은 Jenkins CI/CD(연속 통합, 연속 배포) 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트합니다(예: ``https://github.com/testaccount/dev_test``).
+   a. 일반 섹션에서 **GitHub 프로젝트**에 대한 확인란을 선택하고 GitHub 프로젝트 URL을 지정합니다. 이 URL은 Jenkins CI/CD(연속 통합, 연속 배포) 흐름과 통합하려는 Service Fabric Java 애플리케이션을 호스트합니다(예: ``https://github.com/testaccount/dev_test``).
 
    b. **소스 코드 관리** 섹션 아래에서 **Git**를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 애플리케이션을 호스트하는 리포지토리 URL을 지정합니다(예: *https://github.com/testaccount/dev_test.git*). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
 
@@ -116,7 +116,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 1. **빌드 후 작업** 드롭다운에서 **Service Fabric 프로젝트 배포**를 선택합니다. 여기에서 Jenkins가 컴파일한 Service Fabric 응용 프로그램을 배포한 클러스터 세부 정보를 제공해야 합니다. 인증서 경로가 볼륨이 탑재(/tmp/myCerts)됐던 위치에 있습니다.
 
-    또한 응용 프로그램을 배포하는 데 사용된 추가 세부 정보를 제공할 수 있습니다. 애플리케이션 세부 정보에 대한 예제는 다음 스크린샷을 참조하세요.
+    또한 애플리케이션을 배포하는 데 사용된 추가 세부 정보를 제공할 수 있습니다. 애플리케이션 세부 정보에 대한 예제는 다음 스크린샷을 참조하세요.
 
     ![Service Fabric Jenkins 빌드 작업](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
 
@@ -183,7 +183,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 1. 애플리케이션 업그레이드를 수행하는 Jenkins 작업을 초기화하려면 새 변경 내용을 GitHub 리포지토리로 푸시합니다.
 
-1. Service Fabric Explorer에서 **응용 프로그램** 드롭다운을 클릭합니다. 업그레이드의 상태를 확인하려면 **진행 중인 업그레이드** 탭을 클릭합니다.
+1. Service Fabric Explorer에서 **애플리케이션** 드롭다운을 클릭합니다. 업그레이드의 상태를 확인하려면 **진행 중인 업그레이드** 탭을 클릭합니다.
 
     ![업그레이드 진행 중](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 

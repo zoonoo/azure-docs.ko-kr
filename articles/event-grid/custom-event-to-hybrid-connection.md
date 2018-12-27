@@ -18,7 +18,7 @@ ms.locfileid: "53099594"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>자습서: Azure CLI 및 Event Grid를 사용하여 Azure Relay 하이브리드 연결로 사용자 지정 이벤트 라우팅
 
-Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure Relay 하이브리드 연결은 지원되는 이벤트 처리기 중 하나입니다. 공용 엔드포인트가 없는 응용 프로그램에서 이벤트를 처리해야 할 때 하이브리드 연결을 이벤트 처리기로 사용합니다. 이러한 응용 프로그램은 회사 엔터프라이즈 네트워크 내에서 작성될 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 항목을 만들고 사용자 지정 항목을 구독하며 이벤트를 트리거하여 결과를 확인합니다. 이벤트를 하이브리드 연결로 보냅니다.
+Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure Relay 하이브리드 연결은 지원되는 이벤트 처리기 중 하나입니다. 공용 엔드포인트가 없는 애플리케이션에서 이벤트를 처리해야 할 때 하이브리드 연결을 이벤트 처리기로 사용합니다. 이러한 응용 프로그램은 회사 엔터프라이즈 네트워크 내에서 작성될 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 항목을 만들고 사용자 지정 항목을 구독하며 이벤트를 트리거하여 결과를 확인합니다. 이벤트를 하이브리드 연결로 보냅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -79,9 +79,9 @@ az eventgrid event-subscription create \
 
 구독의 [만료 날짜](concepts.md#event-subscription-expiration)가 설정되었습니다.
 
-## <a name="create-application-to-process-events"></a>이벤트를 처리하는 응용 프로그램 만들기
+## <a name="create-application-to-process-events"></a>이벤트를 처리하는 애플리케이션 만들기
 
-하이브리드 연결에서 이벤트를 검색할 수 있는 응용 프로그램이 필요합니다. [C#용 Microsoft Azure Event Grid 하이브리드 연결 소비자 샘플](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination)은 해당 작업을 수행합니다. 필수 구성 요소 단계를 이미 완료했습니다.
+하이브리드 연결에서 이벤트를 검색할 수 있는 애플리케이션이 필요합니다. [C#용 Microsoft Azure Event Grid 하이브리드 연결 소비자 샘플](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination)은 해당 작업을 수행합니다. 필수 구성 요소 단계를 이미 완료했습니다.
 
 1. Visual Studio 2017 버전 15.5 이상이 설치되어 있는지 확인합니다.
 
@@ -91,11 +91,11 @@ az eventgrid event-subscription create \
 
 1. Program.cs에서 `<relayConnectionString>` 및 `<hybridConnectionName>`을 만든 릴레이 연결 문자열 및 하이브리드 연결 이름으로 바꿉니다.
 
-1. Visual Studio에서 응용 프로그램을 컴파일하고 실행합니다.
+1. Visual Studio에서 애플리케이션을 컴파일하고 실행합니다.
 
 ## <a name="send-an-event-to-your-topic"></a>토픽에 이벤트 보내기
 
-이벤트를 트리거하여 Event Grid가 메시지를 사용자 엔드포인트에 어떻게 배포하는지 살펴보겠습니다. 이 아티클에서는 Azure CLI를 사용하여 이벤트를 트리거하는 방법을 보여줍니다. 또한 [Event Grid 게시자 응용 프로그램](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher)을 사용할 수 있습니다.
+이벤트를 트리거하여 Event Grid가 메시지를 사용자 엔드포인트에 어떻게 배포하는지 살펴보겠습니다. 이 아티클에서는 Azure CLI를 사용하여 이벤트를 트리거하는 방법을 보여줍니다. 또한 [Event Grid 게시자 애플리케이션](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher)을 사용할 수 있습니다.
 
 먼저, 사용자 지정 토픽에 대한 URL 및 키를 가져오겠습니다. 다시, `<topic_name>`의 사용자 지정 항목 이름을 사용합니다.
 

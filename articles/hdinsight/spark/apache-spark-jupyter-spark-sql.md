@@ -53,9 +53,9 @@ Azure Resource Manager 템플릿을 사용하여 HDInsight Spark 클러스터를
 HDInsight 클러스터를 만드는 데 문제가 발생하는 경우 이를 수행하기 위한 적절한 사용 권한이 없을 수 있습니다. 자세한 내용은 [액세스 제어 요구 사항](../hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
 
 ## <a name="install-intellijeclipse-for-spark-application"></a>Spark 애플리케이션에 대한 IntelliJ/Eclipse 설치
-IntelliJ/Eclipse 플러그 인용 Azure 도구 키트를 사용하여 [Scala](https://www.scala-lang.org/)로 작성된 Spark 애플리케이션을 개발한 후 IntelliJ/Eclipse IDE(통합 개발 환경)에서 직접 Azure HDInsight Spark 클러스터로 제출합니다. 자세한 내용은 [IntelliJ를 사용하여 Spark 응용 프로그램 작성/제출](./apache-spark-intellij-tool-plugin.md) 및 [Eclipse를 사용하여 Spark 응용 프로그램 작성/제출](./apache-spark-eclipse-tool-plugin.md)을 참조하세요.
+IntelliJ/Eclipse 플러그 인용 Azure 도구 키트를 사용하여 [Scala](https://www.scala-lang.org/)로 작성된 Spark 애플리케이션을 개발한 후 IntelliJ/Eclipse IDE(통합 개발 환경)에서 직접 Azure HDInsight Spark 클러스터로 제출합니다. 자세한 내용은 [IntelliJ를 사용하여 Spark 애플리케이션 작성/제출](./apache-spark-intellij-tool-plugin.md) 및 [Eclipse를 사용하여 Spark 애플리케이션 작성/제출](./apache-spark-eclipse-tool-plugin.md)을 참조하세요.
 
-## <a name="install-vscode-for-pysparkhive-applications"></a>PySpark/hive 응용 프로그램에 대한 VSCode 설치
+## <a name="install-vscode-for-pysparkhive-applications"></a>PySpark/hive 애플리케이션에 대한 VSCode 설치
 Azure HDInsight Tools for Visual Studio Code(VSCode)를 사용하여 Hive 배치, 대화형 Hive 쿼리, PySpark 일괄 처리 및 PySpark 대화형 스크립트를 만들고 제출하는 방법에 대해 알아봅니다. Azure HDInsight Tools는 VSCode에서 지원하는 플랫폼에 설치할 수 있습니다. 여기에는 Windows, Linux, macOS가 포함됩니다. 자세한 내용은 [VSCode를 사용하여 PySpark 애플리케이션 작성/제출](../hdinsight-for-vscode.md)을 참조하세요.
 
 ## <a name="create-a-jupyter-notebook"></a>Jupyter Notebook 만들기

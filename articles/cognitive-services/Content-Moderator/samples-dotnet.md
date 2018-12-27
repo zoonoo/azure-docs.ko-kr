@@ -1,6 +1,6 @@
 ---
 title: 코드 샘플 - Content Moderator, .NET
-description: 응용 프로그램에서 Content Moderator 사용
+description: 애플리케이션에서 Content Moderator 사용
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun

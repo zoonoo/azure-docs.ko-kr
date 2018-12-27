@@ -52,7 +52,7 @@ import com.microsoft.azure.storage.table.TableQuery.*;
 ```
 
 ## <a name="add-an-azure-storage-connection-string"></a>Azure Storage 연결 문자열 추가
-Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행할 경우 *AccountName*과 *AccountKey* 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 저장소 계정의 이름과 기본 선택키를 사용하여 다음 형식의 저장소 연결 문자열을 제공해야 합니다. 
+Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우 *AccountName*과 *AccountKey* 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 저장소 계정의 이름과 기본 선택키를 사용하여 다음 형식의 저장소 연결 문자열을 제공해야 합니다. 
 
 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
 

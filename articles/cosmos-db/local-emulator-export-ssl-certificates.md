@@ -72,11 +72,11 @@ Windows 트레이에서 실행 중인 Azure Cosmos DB 에뮬레이터에서 아�
 
 ## <a name="how-to-use-the-certificate-in-java"></a>Java에서 인증서를 사용하는 방법
 
-Java 클라이언트를 사용하는 Java 응용 프로그램 또는 MongoDB 응용 프로그램을 실행하는 경우 "-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>" 플래그를 전달하는 것보다 Java 기본 인증서 저장소에 인증서를 설치하는 것이 더 쉽습니다. 예를 들어 포함된 [Java Demo 응용 프로그램](https://localhost:8081/_explorer/index.html)은 기본 인증서 저장소에 따라 다릅니다.
+Java 클라이언트를 사용하는 Java 애플리케이션 또는 MongoDB 애플리케이션을 실행하는 경우 "-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>" 플래그를 전달하는 것보다 Java 기본 인증서 저장소에 인증서를 설치하는 것이 더 쉽습니다. 예를 들어 포함된 [Java Demo 애플리케이션](https://localhost:8081/_explorer/index.html)은 기본 인증서 저장소에 따라 다릅니다.
 
 X.509 인증서를 Java 기본 인증서 저장소로 가져 오려면 [Java CA 인증서 저장소에 인증서 추가](https://docs.microsoft.com/azure/java-add-certificate-ca-store)의 지침을 따릅니다. keytool을 실행할 때는 %JAVA_HOME% 디렉터리에서 작업하게 됩니다.
 
-"CosmosDBEmulatorCertificate" SSL 인증서가 설치되면 응용 프로그램에서 로컬 Azure Cosmos DB 에뮬레이터에 연결하여 사용할 수 있어야 합니다. 문제가 계속 발생하면 [SSL/TLS 연결 디버그](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) 문서의 지침을 따릅니다. 인증서가 %JAVA_HOME%/jre/lib/security/cacerts 저장소에 설치되지 않은 것 같습니다. 예를 들어 설치된 Java 버전이 여러 개 있는 경우 응용 프로그램이 업데이트한 것과는 다른 cacerts 저장소를 사용하고 있을 수도 있습니다.
+"CosmosDBEmulatorCertificate" SSL 인증서가 설치되면 애플리케이션에서 로컬 Azure Cosmos DB 에뮬레이터에 연결하여 사용할 수 있어야 합니다. 문제가 계속 발생하면 [SSL/TLS 연결 디버그](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) 문서의 지침을 따릅니다. 인증서가 %JAVA_HOME%/jre/lib/security/cacerts 저장소에 설치되지 않은 것 같습니다. 예를 들어 설치된 Java 버전이 여러 개 있는 경우 애플리케이션이 업데이트한 것과는 다른 cacerts 저장소를 사용하고 있을 수도 있습니다.
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Python에서 인증서를 사용하는 방법
 

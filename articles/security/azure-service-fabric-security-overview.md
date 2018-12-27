@@ -135,7 +135,7 @@ Active Directory 도메인 내에서 컴퓨터 그룹을 사용하려는 경우 
 
 1.  데이터 암호화 인증서를 가져옵니다.
 2.  클러스터에 인증서를 설치합니다.
-3.  인증서를 사용하여 응용 프로그램을 배포할 때 비밀 값을 암호화하여 서비스의 Settings.xml 구성 파일에 삽입합니다.
+3.  인증서를 사용하여 애플리케이션을 배포할 때 비밀 값을 암호화하여 서비스의 Settings.xml 구성 파일에 삽입합니다.
 4.  동일한 암호화 인증서로 암호를 해독하여 Settings.xml 파일에서 암호화된 값을 읽습니다.
 
 자세한 내용은 [Service Fabric 애플리케이션의 암호 관리](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management)를 참조하세요.
@@ -152,7 +152,7 @@ Azure Service Fabric 보안을 사용하여 다른 사용자 계정으로 클러
 -   HTTP 및 HTTPS 엔드포인트에 보안 액세스 정책 할당
 
 ## <a name="secure-communication-for-services"></a>서비스에 대한 통신 보호
-통신의 가장 중요한 측면 중 하나는 보안입니다. Reliable Services 응용 프로그램 프레임워크는 보안을 향상시키는 데 사용할 수 있는 미리 빌드된 통신 스택 및 도구 몇 가지를 제공합니다. 자세한 내용은 [서비스에 대한 서비스 원격 통신 보호](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication)를 참조하세요.
+통신의 가장 중요한 측면 중 하나는 보안입니다. Reliable Services 애플리케이션 프레임워크는 보안을 향상시키는 데 사용할 수 있는 미리 빌드된 통신 스택 및 도구 몇 가지를 제공합니다. 자세한 내용은 [서비스에 대한 서비스 원격 통신 보호](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - 클러스터 보안에 대한 개념 정보는 [Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) 및 [Azure Portal을 사용하여 Service Fabric 클러스터 만들기](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)를 참조하세요.

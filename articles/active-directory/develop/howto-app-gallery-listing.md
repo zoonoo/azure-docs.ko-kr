@@ -88,7 +88,7 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하려면 먼저 Azure AD�
 
 ## <a name="implementing-sso-using-password-sso"></a>암호 SSO를 사용하여 SSO 구현
 
-HTML 로그인 페이지가 있는 웹 응용 프로그램을 만들어서 [암호 기반 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 구성합니다. 암호 보관이라고도 하는 암호 기반 SSO를 사용하면 ID 페더레이션을 지원하지 않는 웹 응용 프로그램에 대한 사용자 액세스 및 암호를 관리할 수 있습니다. 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유해야 하는 시나리오에도 유용합니다.
+HTML 로그인 페이지가 있는 웹 응용 프로그램을 만들어서 [암호 기반 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 구성합니다. 암호 보관이라고도 하는 암호 기반 SSO를 사용하면 ID 페더레이션을 지원하지 않는 웹 애플리케이션에 대한 사용자 액세스 및 암호를 관리할 수 있습니다. 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유해야 하는 시나리오에도 유용합니다.
 
 ![갤러리에 암호 SSO 응용 프로그램을 나열하는 타임라인](./media/howto-app-gallery-listing/passwordsso.png)
 

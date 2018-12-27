@@ -21,7 +21,7 @@ ms.locfileid: "53162463"
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-변칙 검색 API를 사용하여 입력에서 변칙을 검색하는 기본 Windows 응용 프로그램을 탐색합니다. 예제는 시계열 데이터를 구독 키가 있는 변칙 검색 API에 제출한 후 API에서 각 데이터 요소에 대한 모든 변칙 요소와 예상 값을 가져옵니다.
+변칙 검색 API를 사용하여 입력에서 변칙을 검색하는 기본 Windows 애플리케이션을 탐색합니다. 예제는 시계열 데이터를 구독 키가 있는 변칙 검색 API에 제출한 후 API에서 각 데이터 요소에 대한 모든 변칙 요소와 예상 값을 가져옵니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

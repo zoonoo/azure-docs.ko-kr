@@ -108,7 +108,7 @@ items:
     href: service-fabric-technical-overview.md
   - name: 애플리케이션 빌드
     items:
-    - name: 응용 프로그램 빌드 개요
+    - name: 애플리케이션 빌드 개요
       href: service-fabric-choose-framework.md
     - name: 컨테이너
       items:
@@ -497,9 +497,9 @@ items:
       items:
       - name: VS Code 시작
         href: service-fabric-get-started-vs-code.md
-      - name: VS Code를 통해 C# Service Fabric 응용 프로그램 개발
+      - name: VS Code를 통해 C# Service Fabric 애플리케이션 개발
         href: service-fabric-develop-csharp-applications-with-vs-code.md
-      - name: VS Code를 통해 Java Service Fabric 응용 프로그램 개발
+      - name: VS Code를 통해 Java Service Fabric 애플리케이션 개발
         href: service-fabric-develop-java-applications-with-vs-code.md
   - name: Cloud Services에서 마이그레이션
     items:

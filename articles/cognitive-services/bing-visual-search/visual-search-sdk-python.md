@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Bing Visual Search SDK, Python'
 titleSuffix: Azure Cognitive Services
-description: Visual Search SDK Python 콘솔 응용 프로그램을 설치합니다.
+description: Visual Search SDK Python 콘솔 애플리케이션을 설치합니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -29,7 +29,7 @@ Bing Visual Search SDK는 웹 요청 및 구문 분석 결과에 대한 REST API
 * [KnowledgeRequest 매개 변수](#knowledge-req)
 * [태그, 동작 및 actionType](#tags-actions)
 
-## <a name="application-dependencies"></a>응용 프로그램 종속성
+## <a name="application-dependencies"></a>애플리케이션 종속성
 * 이 빠른 시작의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
 
 Azure Portal에서 구독을 시작하려면
@@ -115,9 +115,9 @@ with open(image_path, "rb") as image_fd:
 ```
 
 <a name="complete-console"></a> 
-## <a name="complete-console-application"></a>전체 콘솔 응용 프로그램
+## <a name="complete-console-application"></a>전체 콘솔 애플리케이션
 
-다음 콘솔 응용 프로그램은 이전에 정의된 쿼리를 실행하고 결과를 구문 분석합니다.
+다음 콘솔 애플리케이션은 이전에 정의된 쿼리를 실행하고 결과를 구문 분석합니다.
 ```
 import http.client, urllib.parse
 import json

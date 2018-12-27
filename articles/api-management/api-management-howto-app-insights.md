@@ -22,7 +22,7 @@ ms.locfileid: "49390026"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure Application Insights와 Azure API Management를 통합하는 방법
 
-Azure API Management는 Azure Application Insights와 쉽게 통합할 수 있습니다. Azure Application Insights는 웹 개발자가 여러 플랫폼에서 응용 프로그램을 구축하고 관리할 수 있는 확장 가능한 서비스입니다. 이 가이드에서는 이러한 통합의 모든 단계를 안내하고, API Management 서비스 인스턴스의 성능에 미치는 영향을 줄이기 위한 전략에 대해 설명합니다.
+Azure API Management는 Azure Application Insights와 쉽게 통합할 수 있습니다. Azure Application Insights는 웹 개발자가 여러 플랫폼에서 애플리케이션을 구축하고 관리할 수 있는 확장 가능한 서비스입니다. 이 가이드에서는 이러한 통합의 모든 단계를 안내하고, API Management 서비스 인스턴스의 성능에 미치는 영향을 줄이기 위한 전략에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -109,7 +109,7 @@ Azure Application Insights에서 받는 항목은 다음과 같습니다.
 > [!WARNING]
 > 모든 이벤트를 기록하면 들어오는 요청 속도에 따라 성능에 심각한 영향을 미칠 수 있습니다.
 
-내부 부하 테스트에 따라 이 기능을 사용하면 요청 속도가 초당 1,000개 요청을 초과할 때 처리량이 40-50% 감소합니다. Azure Application Insights는 응용 프로그램 성능을 평가하기 위해 통계 분석을 사용하도록 설계되었습니다. 감사 시스템이 아니며, 대용량 API에 대한 개별 요청 각각을 기록하는 데 적합하지 않습니다.
+내부 부하 테스트에 따라 이 기능을 사용하면 요청 속도가 초당 1,000개 요청을 초과할 때 처리량이 40-50% 감소합니다. Azure Application Insights는 애플리케이션 성능을 평가하기 위해 통계 분석을 사용하도록 설계되었습니다. 감사 시스템이 아니며, 대용량 API에 대한 개별 요청 각각을 기록하는 데 적합하지 않습니다.
 
 **샘플링** 설정을 조정하여 기록되는 요청 수를 조작할 수 있습니다(위의 단계 참조). 100% 값은 모든 요청이 기록됨을 의미하고, 0%는 전혀 기록하지 않음을 의미합니다. **샘플링**을 사용하면 원격 분석의 양을 줄이고, 심각한 성능 저하를 효과적으로 방지하면서 로깅의 이점을 계속 유지할 수 있습니다.
 

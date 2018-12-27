@@ -115,7 +115,7 @@ mv Jill Jones from a-2349 to b-1298
     [![발화에서 레이블이 지정된 위치 엔터티의 스크린샷](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "발화에서 레이블이 지정된 위치 엔터티의 스크린샷")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
 ## <a name="add-prebuilt-number-entity-to-app"></a>미리 작성된 숫자 엔터티를 앱에 추가
-미리 작성된 숫자 엔터티를 다시 응용 프로그램에 추가합니다.
+미리 작성된 숫자 엔터티를 다시 애플리케이션에 추가합니다.
 
 1. 왼쪽 탐색 메뉴에서 **엔터티**를 선택합니다.
 

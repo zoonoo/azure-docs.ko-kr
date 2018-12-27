@@ -23,7 +23,7 @@ ms.locfileid: "53261129"
 
 이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답을 받습니다. 이 문서의 간단한 응용 프로그램은 검색 쿼리를 보내고 원시 결과를 표시합니다.
 
-이 응용 프로그램은 PHP에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다.
+이 애플리케이션은 PHP에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다.
 
 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java)에 제공됩니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "53261129"
 
 ## <a name="create-and-initialize-the-application"></a>응용 프로그램 만들기 및 초기화
 
-이 응용 프로그램을 실행하려면 다음 단계를 따릅니다.
+이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 
 1. `php.ini` 파일에서 보안 HTTP 지원이 사용하도록 설정되었는지 확인합니다. Windows에서 이 파일은 `C:\windows`에 있습니다.
 2. 즐겨 찾는 IDE 또는 편집기에서 새 PHP 프로젝트를 만듭니다.

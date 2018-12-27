@@ -187,7 +187,7 @@ namespace Answers_csharp
 ```
 ## <a name="running-the-application"></a>응용 프로그램 실행
 
-응용 프로그램을 실행하려면:
+애플리케이션을 실행하려면:
 
 1. Visual Studio에서 새 콘솔 솔루션을 만듭니다.
 2. `Program.cs`를 제공된 코드로 바꿉니다.

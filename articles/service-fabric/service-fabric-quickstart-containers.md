@@ -26,7 +26,7 @@ ms.locfileid: "51300339"
 
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
-Service Fabric 클러스터의 Windows 컨테이너에서 기존 응용 프로그램을 실행하더라도 응용 프로그램을 변경할 필요가 없습니다. 이 빠른 시작에서는 Service Fabric 응용 프로그램에서 미리 작성된 Docker 컨테이너 이미지를 배포하는 방법을 보여줍니다. 완료하면 Windows Server 2016 Nano 서버 및 IIS 컨테이너를 실행하게 됩니다. 이 빠른 시작에서는 Windows 컨테이너 배포에 대해 설명합니다. [이 빠른 시작](service-fabric-quickstart-containers-linux.md)을 참고하여 Linux 컨테이너를 배포합니다.
+Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 빠른 시작에서는 Service Fabric 응용 프로그램에서 미리 작성된 Docker 컨테이너 이미지를 배포하는 방법을 보여줍니다. 완료하면 Windows Server 2016 Nano 서버 및 IIS 컨테이너를 실행하게 됩니다. 이 빠른 시작에서는 Windows 컨테이너 배포에 대해 설명합니다. [이 빠른 시작](service-fabric-quickstart-containers-linux.md)을 참고하여 Linux 컨테이너를 배포합니다.
 
 ![IIS default web page][iis-default]
 
@@ -34,8 +34,8 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 응용 프로�
 
 * Docker 이미지 컨테이너 패키징
 * 통신 구성
-* Service Fabric 응용 프로그램 빌드 및 패키징
-* Azure에 컨테이너 응용 프로그램 배포
+* Service Fabric 애플리케이션 빌드 및 패키징
+* Azure에 컨테이너 애플리케이션 배포
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -65,9 +65,9 @@ Service Fabric SDK 및 도구는 컨테이너를 Service Fabric 클러스터에 
 ## <a name="specify-the-os-build-for-your-container-image"></a>컨테이너 이미지에 대한 OS 빌드 지정
 특정 버전의 Windows Server를 사용하여 빌드한 컨테이너는 다른 버전의 Windows Server를 실행하는 호스트에서 실행되지 않을 수 있습니다. 예를 들어 Windows Server 버전 1709를 사용하여 빌드한 컨테이너는 Windows Server 2016을 실행하는 호스트에서 실행되지 않습니다. 자세히 알아보려면 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 
 
-Service Fabric 런타임 버전 6.1 이상을 사용하여 컨테이너당 여러 OS 이미지를 지정하고 각각을 배포되어야 하는 OS의 빌드 버전으로 태그 지정할 수 있습니다. 이렇게 하면 응용 프로그램이 서로 다른 버전의 Windows OS를 실행하는 호스트에서 실행되는지 확인할 수 있습니다. 자세히 알아보려면 [OS 빌드 관련 컨테이너 이미지 지정](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)을 참조하세요. 
+Service Fabric 런타임 버전 6.1 이상을 사용하여 컨테이너당 여러 OS 이미지를 지정하고 각각을 배포되어야 하는 OS의 빌드 버전으로 태그 지정할 수 있습니다. 이렇게 하면 애플리케이션이 서로 다른 버전의 Windows OS를 실행하는 호스트에서 실행되는지 확인할 수 있습니다. 자세히 알아보려면 [OS 빌드 관련 컨테이너 이미지 지정](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)을 참조하세요. 
 
-Microsoft는 다른 버전의 Windows Server에서 빌드한 IIS 버전에 대한 서로 다른 이미지를 게시합니다. Service Fabric이 응용 프로그램을 배포하는 클러스터 노드에서 실행 중인 Windows Server의 버전과 호환되는 컨테이너를 배포하는지 확인하려면 *ApplicationManifest.xml* 파일에 다음 줄을 추가합니다. Windows Server 2016에 대한 빌드 버전은 14393이며 Windows Server 버전 1709의 빌드 버전은 16299입니다. 
+Microsoft는 다른 버전의 Windows Server에서 빌드한 IIS 버전에 대한 서로 다른 이미지를 게시합니다. Service Fabric이 애플리케이션을 배포하는 클러스터 노드에서 실행 중인 Windows Server의 버전과 호환되는 컨테이너를 배포하는지 확인하려면 *ApplicationManifest.xml* 파일에 다음 줄을 추가합니다. Windows Server 2016에 대한 빌드 버전은 14393이며 Windows Server 버전 1709의 빌드 버전은 16299입니다. 
 
 ```xml
     <ContainerHostPolicies CodePackageRef="Code"> 
@@ -91,7 +91,7 @@ Microsoft는 다른 버전의 Windows Server에서 빌드한 IIS 버전에 대�
 ![PFX 및 연결 엔드포인트](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
 
 > [!Note]
-> 시간당 사용 가능한 Party 클러스터의 수가 제한되어 있습니다. Party 클러스터에 등록하려고 할 때 오류가 발생하면, 일정 기간 동안 기다린 후 다시 시도하거나, [.NET 응용 프로그램 배포](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) 자습서에서 이러한 단계를 수행하여 Azure 구독에 Service Fabric 클러스터를 만들고 이 클러스터에 응용 프로그램을 배포할 수 있습니다. Visual Studio를 통해 만들어진 클러스터는 컨테이너를 지원합니다. 클러스터에 애플리케이션을 배포하고 유효성을 확인한 후에는 이 빠른 시작의 [Service Fabric 애플리케이션 및 서비스 매니페스트의 전체 예제](#complete-example-service-fabric-application-and-service-manifests)로 건너뛸 수 있습니다.
+> 시간당 사용 가능한 Party 클러스터의 수가 제한되어 있습니다. Party 클러스터에 등록하려고 할 때 오류가 발생하면, 일정 기간 동안 기다린 후 다시 시도하거나, [.NET 애플리케이션 배포](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) 자습서에서 이러한 단계를 수행하여 Azure 구독에 Service Fabric 클러스터를 만들고 이 클러스터에 애플리케이션을 배포할 수 있습니다. Visual Studio를 통해 만들어진 클러스터는 컨테이너를 지원합니다. 클러스터에 애플리케이션을 배포하고 유효성을 확인한 후에는 이 빠른 시작의 [Service Fabric 애플리케이션 및 서비스 매니페스트의 전체 예제](#complete-example-service-fabric-application-and-service-manifests)로 건너뛸 수 있습니다.
 >
 
 Windows 컴퓨터에서 *CurrentUser\My* 인증서 저장소에 PFX를 설치합니다.
@@ -111,7 +111,7 @@ Thumbprint                                Subject
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Visual Studio를 사용하여 Azure에 응용 프로그램 배포
 
-응용 프로그램이 준비되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
+애플리케이션이 준비되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
 
 솔루션 탐색기에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [게시] 대화 상자가 나타납니다.
 
@@ -121,7 +121,7 @@ Thumbprint                                Subject
 
 **게시**를 클릭합니다.
 
-클러스터의 각 응용 프로그램에는 고유한 이름이 있어야 합니다.  Party 클러스터가 공용 공유 환경이지만 기존 응용 프로그램과 충돌이 발생할 수 있습니다.  이름이 충돌하는 경우 Visual Studio 프로젝트의 이름을 바꾸고 다시 배포합니다.
+클러스터의 각 응용 프로그램에는 고유한 이름이 있어야 합니다.  Party 클러스터가 공용 공유 환경이지만 기존 애플리케이션과 충돌이 발생할 수 있습니다.  이름이 충돌하는 경우 Visual Studio 프로젝트의 이름을 바꾸고 다시 배포합니다.
 
 브라우저를 열고 Party 클러스터 페이지에 지정된 **연결 엔드포인트**로 이동합니다. 필요에 따라 URL에 `http://` 스키마 식별자를 앞쪽에 추가하고 `:80` 포트를 추가할 수 있습니다. 예: http://zwin7fh14scd.westus.cloudapp.azure.com:80 IIS 기본 웹 페이지가 표시됩니다. ![IIS 기본 웹 페이지][iis-default]
 
@@ -131,8 +131,8 @@ Thumbprint                                Subject
 
 * Docker 이미지 컨테이너 패키징
 * 통신 구성
-* Service Fabric 응용 프로그램 빌드 및 패키징
-* Azure에 컨테이너 응용 프로그램 배포
+* Service Fabric 애플리케이션 빌드 및 패키징
+* Azure에 컨테이너 애플리케이션 배포
 
 Service Fabric에서 Windows 컨테이너 작업에 대해 자세히 알아보려면 Windows 컨테이너 앱에 대한 자습서를 계속 진행합니다.
 

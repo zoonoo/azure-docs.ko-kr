@@ -171,15 +171,15 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 1. Visual Studio의 **솔루션 탐색기**에서 각 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
 2. **모든 NuGet 패키지 복원**을 클릭합니다.
 3. **TaskList.Android**를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
-4. F5 키를 눌러 응용 프로그램 디버깅을 시작합니다.
+4. F5 키를 눌러 애플리케이션 디버깅을 시작합니다.
 5. iOS에서 실행하려는 경우 먼저 컴퓨터는 Mac에 연결됩니다(수행하는 방법에 대한 [지침](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)은 다음과 같음).
 6. **TaskList.iOS** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
-7. F5 키를 클릭하여 응용 프로그램 디버깅을 시작합니다.
+7. F5 키를 클릭하여 애플리케이션 디버깅을 시작합니다.
 
 ### <a name="visual-studio-for-mac"></a>Mac용 Visual Studio
 
 1. 플랫폼 드롭다운 목록에서 실행할 플랫폼에 따라 TaskList.iOS 또는 TaskList.Android를 선택합니다.
-2. cmd+Enter 키를 눌러 응용 프로그램 디버깅을 시작합니다.
+2. cmd+Enter 키를 눌러 애플리케이션 디버깅을 시작합니다.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

@@ -1,7 +1,7 @@
 ---
 title: '자습서: 단일 페이지 웹앱 빌드 - Bing Video Search'
 titlesuffix: Azure Cognitive Services
-description: 단일 페이지 웹 응용 프로그램에서 Bing Video Search API를 사용하는 방법을 보여 주는 자습서의 소스 코드입니다.
+description: 단일 페이지 웹 애플리케이션에서 Bing Video Search API를 사용하는 방법을 보여 주는 자습서의 소스 코드입니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun

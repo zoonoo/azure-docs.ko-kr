@@ -40,7 +40,7 @@ Visual Studio에서 `Ctrl`+`Shift`+`N`를 사용하여 프로젝트를 만듭니
 
 **새 프로젝트** 대화 상자에서 **Visual C# > Windows 클래식 바탕 화면 > 콘솔 앱(.NET Framework)** 을 클릭합니다.
 
-응용 프로그램 이름을 **MyConsoleSearchApp**으로 지정한 다음, **확인**을 클릭합니다.
+애플리케이션 이름을 **MyConsoleSearchApp**으로 지정한 다음, **확인**을 클릭합니다.
 
 ## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>JSON.net Nuget 패키지를 프로젝트에 추가
 

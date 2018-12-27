@@ -20,7 +20,7 @@ ms.locfileid: "46129746"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Bing Web Search API v5를 v7로 업그레이드
 
-이 업그레이드 가이드는 Bing Web Search API 버전 5와 버전 7 사이의 변경 내용을 식별합니다. 이 가이드를 통해 버전 7을 사용하려면 업데이트해야 하는 응용 프로그램 파트를 식별할 수 있습니다.
+이 업그레이드 가이드는 Bing Web Search API 버전 5와 버전 7 사이의 변경 내용을 식별합니다. 이 가이드를 통해 버전 7을 사용하려면 업데이트해야 하는 애플리케이션 파트를 식별할 수 있습니다.
 
 ## <a name="breaking-changes"></a>주요 변경 내용
 

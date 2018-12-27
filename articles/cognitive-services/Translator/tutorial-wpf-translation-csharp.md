@@ -25,7 +25,7 @@ ms.locfileid: "49647479"
 > * 서비스에서 지원되는 언어 목록 가져오기
 > * 사용자가 입력한 텍스트를 다른 언어로 번역 실행
 
-이 응용 프로그램은 두 가지 다른 Microsoft Cognitive Services와의 통합 기능도 제공합니다.
+이 애플리케이션은 두 가지 다른 Microsoft Cognitive Services와의 통합 기능도 제공합니다.
 
 |||
 |-|-|
@@ -333,7 +333,7 @@ namespace MSTranslatorTextDemo
 
 ### <a name="mainwindowxaml"></a>MainWindow.xaml
 
-이 파일은 WPF 폼인 응용 프로그램의 사용자 인터페이스를 정의합니다. 고유 버전의 폼을 디자인하려는 경우 이 XAML이 필요하지 않습니다.
+이 파일은 WPF 폼인 애플리케이션의 사용자 인터페이스를 정의합니다. 고유 버전의 폼을 디자인하려는 경우 이 XAML이 필요하지 않습니다.
 
 ```xml
 <Window x:Class="MSTranslatorTextDemo.MainWindow"

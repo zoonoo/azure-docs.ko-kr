@@ -46,7 +46,7 @@ Event Hubs는 이벤트 파이프라인의 "현관" 역할을 하며, 솔루션 
 
 ## <a name="support-for-real-time-and-batch-processing"></a>실시간 일괄 처리 지원
 
-스트림을 실시간으로 수집, 버퍼, 저장 및 처리하여 실행 가능한 인사이트를 얻을 수 있습니다. Event Hubs는 [분할된 소비자 모델](event-hubs-features.md#partitions)을 사용하여 여러 응용 프로그램이 스트림을 동시에 처리할 수 있도록 지원하며, 처리 속도를 사용자가 제어할 수 있습니다.
+스트림을 실시간으로 수집, 버퍼, 저장 및 처리하여 실행 가능한 인사이트를 얻을 수 있습니다. Event Hubs는 [분할된 소비자 모델](event-hubs-features.md#partitions)을 사용하여 여러 애플리케이션이 스트림을 동시에 처리할 수 있도록 지원하며, 처리 속도를 사용자가 제어할 수 있습니다.
 
 [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) 에서 데이터를 실시간으로 [캡처](event-hubs-capture-overview.md)하여 데이터를 장기 보존하거나 마이크로 일괄 처리할 수 있습니다. 이 작업은 실시간 분석 파생에 사용하는 것과 동일한 스트림에서 수행할 수 있습니다. 캡처는 빠르게 설정할 수 있으며 실행을 위한 관리 비용이 없고 Event Hubs  [처리량 단위](event-hubs-features.md#throughput-units)에 따라 크기가 자동으로 조정됩니다. Event Hubs 캡처를 통해 데이터 캡처보다 데이터 처리에 집중할 수 있습니다.
 

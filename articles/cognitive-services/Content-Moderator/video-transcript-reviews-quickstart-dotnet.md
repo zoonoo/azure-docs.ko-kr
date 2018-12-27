@@ -360,7 +360,7 @@ VideoTranscriptReviews 네임스페이스, Program 클래스에 **Main** 메서�
 
 ## <a name="run-the-program-and-review-the-output"></a>프로그램 실행 및 출력 검토
 
-응용 프로그램을 실행하면 다음 줄에 출력이 표시됩니다.
+애플리케이션을 실행하면 다음 줄에 출력이 표시됩니다.
 
     Creating a video review.
     Adding a transcript to the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.

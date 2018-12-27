@@ -41,7 +41,7 @@ ms.locfileid: "53166356"
    [!code-python[Console app code that adds an utterance Python 3.6](~/samples-luis/documentation-samples/quickstarts/change-model/python/3.x/add-utterances-3-6.py)]
 
 ## <a name="run-code"></a>코드 실행
-Python 3.6을 사용하여 명령줄의 응용 프로그램을 실행합니다.
+Python 3.6을 사용하여 명령줄의 애플리케이션을 실행합니다.
 
 ### <a name="add-utterances-from-the-command-line"></a>명령줄에서 발언 추가
 

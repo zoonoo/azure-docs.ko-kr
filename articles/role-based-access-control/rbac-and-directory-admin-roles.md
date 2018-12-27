@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 5e32968ae83ef826fbc8e81f1b04eca687642343
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 9fce35f811a4d2440ba73e4f305ede6891928069
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637671"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633285"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할
 
@@ -75,15 +75,15 @@ Azure RBAC는 [Azure Resource Manager](../azure-resource-manager/resource-group-
 
 나머지 기본 제공 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 [Virtual Machine 기여자](built-in-roles.md#virtual-machine-contributor) 역할을 사용하면 사용자가 가상 머신을 만들고 관리할 수 있습니다. 기본 제공 역할 전체 목록은 [기본 제공 역할](built-in-roles.md)을 참조하세요.
 
-Azure Portal 및 Azure Resource Manager API만이 Azure RBAC를 지원합니다. RBAC 역할이 할당된 사용자, 그룹 및 응용 프로그램은 [Azure 클래식 배포 모델 API](../azure-resource-manager/resource-manager-deployment-model.md)를 사용할 수 없습니다.
+Azure Portal 및 Azure Resource Manager API만이 Azure RBAC를 지원합니다. RBAC 역할이 할당된 사용자, 그룹 및 애플리케이션은 [Azure 클래식 배포 모델 API](../azure-resource-manager/resource-manager-deployment-model.md)를 사용할 수 없습니다.
 
-Azure Portal에서 RBAC를 사용하는 역할 할당은 **액세스 제어(IAM)** 블레이드에 나타납니다. 이 블레이드는 구독, 리소스 그룹, 그 밖의 여러 리소스를 포함하여 포털 전체에서 찾을 수 있습니다.
+Azure Portal에서 RBAC를 사용하는 역할 할당은 **액세스 제어(IAM)** 블레이드에 나타납니다. 이 블레이드는 관리 그룹, 구독, 리소스 그룹 및 다양한 리소스와 같이 포털 전체에서 찾을 수 있습니다.
 
-![Azure Portal의 액세스 제어(IAM) 블레이드](./media/rbac-and-directory-admin-roles/access-control.png)
+![Azure Portal의 액세스 제어(IAM) 블레이드](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
 **역할** 옵션을 클릭하면 기본 제공 역할 및 사용자 지정 역할 목록이 표시됩니다.
 
-![Azure Portal의 기본 제공 역할](./media/rbac-and-directory-admin-roles/built-in-roles.png)
+![Azure Portal의 기본 제공 역할](./media/rbac-and-directory-admin-roles/roles-list.png)
 
 ## <a name="azure-ad-administrator-roles"></a>Azure AD 관리자 역할
 

@@ -380,7 +380,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="run-the-code"></a>코드 실행
 
-응용 프로그램을 빌드하고 시작한 다음 파이프라인 실행을 확인합니다.
+애플리케이션을 빌드하고 시작한 다음, 파이프라인 실행을 확인합니다.
 
 콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 세트, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터를 읽고/쓴 크기가 있는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음 SSMS(SQL Server Management Studio) 또는 Visual Studio와 같은 도구를 사용하여 대상 Azure SQL Database에 연결하고 지정한 테이블에 데이터가 복사되었는지 확인합니다.
 

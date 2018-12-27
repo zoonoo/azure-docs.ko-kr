@@ -118,7 +118,7 @@ az iot hub monitor-events --device-id MyPythonDevice --hub-name YourIoTHubName
 
 다음 스크린샷은 시뮬레이션된 디바이스가 허브에 보낸 원격 분석 데이터를 확장 프로그램이 수신하면서 출력한 내용을 보여 줍니다.
 
-![백 엔드 응용 프로그램 실행](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
+![백 엔드 애플리케이션 실행](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

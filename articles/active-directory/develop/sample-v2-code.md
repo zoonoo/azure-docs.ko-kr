@@ -30,10 +30,10 @@ ms.locfileid: "52424445"
 
 Microsoft ID 플랫폼을 사용하여 다음을 수행할 수 있습니다.
 
-- 웹 응용 프로그램 및 web API에 인증 및 권한 부여 추가.
+- 웹 애플리케이션 및 web API에 인증 및 권한 부여 추가.
 - 보호되는 web API에 액세스하려면 액세스 토큰 요구.
 
-이 문서에서는 Azure AD v2.0 엔드포인트에 대해 간략하게 설명하고 샘플 링크를 제공합니다. 이 샘플은 응용 프로그램에 사용할 수 있는 코드 조각과 함께 작업 수행 방법을 보여줍니다. 코드 샘플 페이지에서 요구 사항, 설치 및 설정에 도움이 되는 자세한 추가 정보 항목을 찾을 수 있습니다. 코드 안에 있는 주석은 중요한 섹션을 이해하는 데 도움을 주기 위한 용도입니다.
+이 문서에서는 Azure AD v2.0 엔드포인트에 대해 간략하게 설명하고 샘플 링크를 제공합니다. 이 샘플은 애플리케이션에 사용할 수 있는 코드 조각과 함께 작업 수행 방법을 보여줍니다. 코드 샘플 페이지에서 요구 사항, 설치 및 설정에 도움이 되는 자세한 추가 정보 항목을 찾을 수 있습니다. 코드 안에 있는 주석은 중요한 섹션을 이해하는 데 도움을 주기 위한 용도입니다.
 
 > [!NOTE]
 > v1.0 샘플에 관심이 있는 경우 [Azure AD 코드 샘플(v1.0 엔드포인트)](sample-v1-code.md)을 참조하세요.
@@ -81,7 +81,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 모바일(iOS)       | ![iOS/Objective C 또는 swift](media/sample-v2-code/logo_iOS.png) | 대화형 |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
 모바일(Android)   | ![Android/Java](media/sample-v2-code/logo_Android.png) | 대화형 |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
 
-## <a name="daemon-applications"></a>디먼 응용 프로그램
+## <a name="daemon-applications"></a>디먼 애플리케이션
 
 다음 샘플은 고유 ID(사용자 없음)로 Microsoft Graph API에 액세스하는 응용 프로그램을 보여 줍니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 Linux 컨테이너 앱 만들기 | Microsoft Docs
-description: 이 빠른 시작에서 응용 프로그램을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 클러스터에 컨테이너를 배포합니다.
+description: 이 빠른 시작에서 애플리케이션을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 클러스터에 컨테이너를 배포합니다.
 services: service-fabric
 documentationcenter: linux
 author: TylerMSFT
@@ -26,7 +26,7 @@ ms.locfileid: "51299235"
 
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
-이 빠른 시작은 Service Fabric 클러스터에 Linux 컨테이너를 배포하는 방법을 보여줍니다. 작업이 완료되면 Python 웹 프런트 엔드 및 Redis 백 엔드로 구성된 Voting 애플리케이션이 Service Fabric 클러스터에서 실행됩니다. 또한 응용 프로그램을 장애 조치 (failover)하는 방법과 클러스터의 응용 프로그램을 확장하는 방법도 알아봅니다.
+이 빠른 시작은 Service Fabric 클러스터에 Linux 컨테이너를 배포하는 방법을 보여줍니다. 작업이 완료되면 Python 웹 프런트 엔드 및 Redis 백 엔드로 구성된 Voting 애플리케이션이 Service Fabric 클러스터에서 실행됩니다. 또한 애플리케이션을 장애 조치 (failover)하는 방법과 클러스터의 애플리케이션을 확장하는 방법도 알아봅니다.
 
 ![Voting 앱 웹 페이지][quickstartpic]
 
@@ -50,7 +50,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 ## <a name="create-a-service-fabric-cluster"></a>Service Fabric 클러스터 만들기
 
-애플리케이션을 Azure에 배포하려면 애플리케이션을 실행하는 Service Fabric 클러스터가 필요합니다. 파티 클러스터는 Service Fabric 클러스터를 빠르게 만들 수 있는 방법을 제공합니다. 파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 운영합니다. 파티 클러스터를 사용하여 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드 및 클라이언트-노드 보안에 단일 자체 서명 인증서를 사용합니다.
+애플리케이션을 Azure에 배포하려면 애플리케이션을 실행하는 Service Fabric 클러스터가 필요합니다. 파티 클러스터는 Service Fabric 클러스터를 빠르게 만들 수 있는 방법을 제공합니다. 파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 운영합니다. 파티 클러스터를 사용하여 애플리케이션을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드 및 클라이언트-노드 보안에 단일 자체 서명 인증서를 사용합니다.
 
 [Linux 클러스터](https://aka.ms/tryservicefabric)에 로그인하고 조인합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. **추가 정보** 링크를 클릭하여 인증서 암호 및 다양한 환경에서 인증서를 사용하도록 구성하는 방법에 대한 지침을 찾습니다. **시작** 페이지와 **추가 정보** 페이지를 모두 열어두고 다음 단계에서 일부 지침을 사용합니다.
 
@@ -102,7 +102,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
     sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
     ```
 
-2. 설치 스크립트를 사용하여 클러스터에 Voting 응용 프로그램 정의를 복사하고, 응용 프로그램 유형을 등록하며, 응용 프로그램의 인스턴스를 만듭니다.
+2. 설치 스크립트를 사용하여 클러스터에 Voting 애플리케이션 정의를 복사하고, 애플리케이션 유형을 등록하며, 애플리케이션의 인스턴스를 만듭니다.
 
     ```bash
     ./install.sh
@@ -119,7 +119,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
     ![Voting 앱 웹 페이지][quickstartpic]
 
 > [!NOTE]
-> Docker Compose를 사용하여 Service Fabric 응용 프로그램을 배포할 수도 있습니다. 예를 들면, 다음 명령으로 Docker Compose를 사용하여 클러스터에 애플리케이션을 배포하고 설치할 수 있습니다.
+> Docker Compose를 사용하여 Service Fabric 애플리케이션을 배포할 수도 있습니다. 예를 들면, 다음 명령으로 Docker Compose를 사용하여 클러스터에 애플리케이션을 배포하고 설치할 수 있습니다.
 >  ```bash
 > sfctl compose create --deployment-name TestApp --file-path ../docker-compose.yml
 > ```
@@ -161,7 +161,7 @@ Service Fabric 서비스는 해당 서비스에 대한 부하를 수용하도록
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-1. 템플릿에 제공된 제거 스크립트(uninstall.sh)를 사용하여 클러스터에서 애플리케이션 인스턴스를 삭제하고 애플리케이션 유형을 등록 해제합니다. 이 스크립트는 인스턴스를 정리하는 데 약간의 시간이 걸리므로 이 스크립트 직후에 설치 스크립트를 실행하면 안됩니다. Service Fabric Explorer를 사용하여 인스턴스가 제거되고 응용 프로그램 유형이 등록 취소된 시기를 확인할 수 있습니다.
+1. 템플릿에 제공된 제거 스크립트(uninstall.sh)를 사용하여 클러스터에서 애플리케이션 인스턴스를 삭제하고 애플리케이션 유형을 등록 해제합니다. 이 스크립트는 인스턴스를 정리하는 데 약간의 시간이 걸리므로 이 스크립트 직후에 설치 스크립트를 실행하면 안됩니다. Service Fabric Explorer를 사용하여 인스턴스가 제거되고 애플리케이션 유형이 등록 취소된 시기를 확인할 수 있습니다.
 
     ```bash
     ./uninstall.sh

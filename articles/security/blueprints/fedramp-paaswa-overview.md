@@ -26,7 +26,7 @@ ms.locfileid: "49407302"
 - 요구 사항이 각 고객의 특정 구현에 따라 달라질 수 있으므로 고객은 이 아키텍처를 사용하여 구축된 솔루션에 대한 적절한 보안 및 규정 준수 평가를 수행해야 합니다.
 
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
-이 솔루션은 Azure SQL Database 백 엔드가 있는 PaaS 웹 응용 프로그램에 대한 참조 아키텍처를 제공합니다. 웹 응용 프로그램은 Azure 데이터 센터의 개인 전용 환경인 격리된 Azure App Service Environment에서 호스팅됩니다. 환경은 Azure에서 관리되는 VM 간에 웹 응용 프로그램에 대한 트래픽의 부하를 분산합니다. 이 아키텍처에는 네트워크 보안 그룹, Application Gateway, Azure DNS 및 Load Balancer도 포함됩니다. 또한 Azure Monitor는 시스템 상태의 실시간 분석을 제공합니다. **Azure에서는 관리 및 참조 아키텍처 서브넷에 데이터 가져오기를 위해 VPN 또는 ExpressRoute 연결을 구성하는 것이 좋습니다**.
+이 솔루션은 Azure SQL Database 백 엔드가 있는 PaaS 웹 애플리케이션에 대한 참조 아키텍처를 제공합니다. 웹 애플리케이션은 Azure 데이터 센터의 개인 전용 환경인 격리된 Azure App Service Environment에서 호스팅됩니다. 환경은 Azure에서 관리되는 VM 간에 웹 애플리케이션에 대한 트래픽의 부하를 분산합니다. 이 아키텍처에는 네트워크 보안 그룹, Application Gateway, Azure DNS 및 Load Balancer도 포함됩니다. 또한 Azure Monitor는 시스템 상태의 실시간 분석을 제공합니다. **Azure에서는 관리 및 참조 아키텍처 서브넷에 데이터 가져오기를 위해 VPN 또는 ExpressRoute 연결을 구성하는 것이 좋습니다**.
 
 ![FedRAMP용 PaaS 웹 응용 프로그램 참조 아키텍처 다이어그램](images/fedramp-paaswa-architecture.png?raw=true "FedRAMP용 PaaS 웹 응용 프로그램 참조 아키텍처 다이어그램")
 
@@ -57,7 +57,7 @@ ms.locfileid: "49407302"
 
 **App Service Environment v2**: [ASE(Azure App Service Environment)](https://docs.microsoft.com/azure/app-service/environment/intro)는 App Service 응용 프로그램을 높은 수준에서 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 Azure App Service 기능입니다.
 
-ASE는 단일 고객의 응용 프로그램만 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 고객은 인바운드 및 아웃바운드 응용 프로그램 네트워크 트래픽 둘 다에 대해 세밀하게 제어할 수 있고 응용 프로그램은 가상 네트워크를 통해 온-프레미스 회사 리소스에 고속 보안 연결을 설정할 수 있습니다.
+ASE는 단일 고객의 애플리케이션만 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 고객은 인바운드 및 아웃바운드 응용 프로그램 네트워크 트래픽 둘 다에 대해 세밀하게 제어할 수 있고 응용 프로그램은 가상 네트워크를 통해 온-프레미스 회사 리소스에 고속 보안 연결을 설정할 수 있습니다.
 
 이 아키텍처에 ASE를 사용하는 경우 허용되는 제어/구성은 다음과 같습니다.
 

@@ -23,7 +23,7 @@ ms.locfileid: "53163330"
 > [!IMPORTANT]
 > Emotion API는 2019년 2월 15일부터 더 이상 사용되지 않습니다. 이제 감정 인식 기능은 [Face API](https://docs.microsoft.com/azure/cognitive-services/face/)의 일부로 일반 공급됩니다. 
 
-이미지의 얼굴에 의해 표현된 감정을 인식하려면 Emotion API를 사용하는 기본 Windows 응용 프로그램을 탐색합니다. 아래 예제에서는 이미지 URL 또는 로컬로 저장된 파일을 제출할 수 있습니다. .NET Framework의 일부인 WPF(Windows Presentation Foundation) 및 Emotion API를 사용하여 고유한 Windows용 앱을 빌드하기 위한 템플릿으로 이 오픈 소스 예제를 사용할 수 있습니다.
+이미지의 얼굴에 의해 표현된 감정을 인식하려면 Emotion API를 사용하는 기본 Windows 애플리케이션을 탐색합니다. 아래 예제에서는 이미지 URL 또는 로컬로 저장된 파일을 제출할 수 있습니다. .NET Framework의 일부인 WPF(Windows Presentation Foundation) 및 Emotion API를 사용하여 고유한 Windows용 앱을 빌드하기 위한 템플릿으로 이 오픈 소스 예제를 사용할 수 있습니다.
 
 ## <a name="Prerequisites">필수 구성 요소</a>
 #### <a name="platform-requirements"></a>플랫폼 요구 사항  
@@ -57,7 +57,7 @@ ms.locfileid: "53163330"
   ![Emotion 기능 인터페이스](../Images/EmotionKey.png)
 
 3.  "**시나리오 선택**" 아래에서 "**스트림을 사용하여 감정 감지**" 또는 "**URL을 사용하여 감정 감지**"의 두 가지 시나리오 중 하나를 사용하려면 클릭한 다음, 화면의 지침을 따릅니다. Microsoft는 업로드되는 이미지를 수신하며, 해당 이미지를 사용하여 Emotion API 및 관련 서비스를 개선할 수 있습니다. 이미지를 제출하면 [개발자 준수 사항](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)을 따랐음을 확인하는 것입니다.
-4.  이 예제 응용 프로그램에서 사용할 예제 이미지가 있습니다. **데이터 폴더** 아래 [Face API GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data)에서 이러한 이미지를 찾을 수 있습니다. 이러한 이미지의 사용은 이 예제를 테스트하기 위해 사용하는 것은 문제 없지만 다시 게시하는 것은 안 된다는 공정한 사용 계약에 따라 라이선스됐습니다.
+4.  이 예제 애플리케이션에서 사용할 예제 이미지가 있습니다. **데이터 폴더** 아래 [Face API GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data)에서 이러한 이미지를 찾을 수 있습니다. 이러한 이미지의 사용은 이 예제를 테스트하기 위해 사용하는 것은 문제 없지만 다시 게시하는 것은 안 된다는 공정한 사용 계약에 따라 라이선스됐습니다.
 
 ## <a name="Review">검토 및 학습</a>
 이제 실행 중인 응용 프로그램이 있으므로 이 예제 앱이 Microsoft Cognitive Services와 어떻게 통합되는지를 살펴보겠습니다. 이렇게 하면 계속해서 이 앱에 빌드하거나 Microsoft Emotion API를 사용하여 고유한 앱을 개발하는 작업이 더 쉬워집니다.

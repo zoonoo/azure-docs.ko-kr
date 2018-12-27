@@ -17,9 +17,9 @@ ms.locfileid: "53260619"
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 대화방 만들기
 
 
-Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 응용 프로그램을 빌드할 수 있게 하는 Azure 서비스입니다. 이 서비스는 [ASP.NET Core 2.0용 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)을 기준으로 합니다.
+Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애플리케이션을 빌드할 수 있게 하는 Azure 서비스입니다. 이 서비스는 [ASP.NET Core 2.0용 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)을 기준으로 합니다.
 
-이 문서에서는 Azure SignalR Service를 시작하는 방법을 보여줍니다. 이 빠른 시작에서는 ASP.NET Core MVC 웹앱을 사용하여 채팅 응용 프로그램을 만듭니다. 이 앱은 Azure SignalR Service 리소스와 연결하여 실시간 콘텐츠 업데이트를 사용하도록 설정합니다. 웹 응용 프로그램을 로컬로 호스트하고 여러 브라우저 클라이언트에 연결하게 됩니다. 각 클라이언트는 다른 모든 클라이언트에 콘텐츠 업데이트 푸시할 수 있습니다. 
+이 문서에서는 Azure SignalR Service를 시작하는 방법을 보여줍니다. 이 빠른 시작에서는 ASP.NET Core MVC 웹앱을 사용하여 채팅 애플리케이션을 만듭니다. 이 앱은 Azure SignalR Service 리소스와 연결하여 실시간 콘텐츠 업데이트를 사용하도록 설정합니다. 웹 애플리케이션을 로컬로 호스트하고 여러 브라우저 클라이언트에 연결하게 됩니다. 각 클라이언트는 다른 모든 클라이언트에 콘텐츠 업데이트 푸시할 수 있습니다. 
 
 
 이 빠른 시작의 단계를 완료하려면 아무 코드 편집기나 사용할 수 있습니다. 그러나 [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 뛰어난 옵션입니다.
@@ -95,7 +95,7 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 응�
     dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
-    암호 관리자는 로컬로 호스트되는 웹앱을 테스트하는 데만 사용됩니다. 자습서의 뒷부분에서 Azure로 채팅 웹앱을 배포합니다. Azure로 웹앱이 배포되면, 암호 관리자를 사용하여 연결 문자열을 저장하는 대신, 응용 프로그램 설정을 사용하게 됩니다.
+    암호 관리자는 로컬로 호스트되는 웹앱을 테스트하는 데만 사용됩니다. 자습서의 뒷부분에서 Azure로 채팅 웹앱을 배포합니다. Azure로 웹앱이 배포되면, 암호 관리자를 사용하여 연결 문자열을 저장하는 대신, 애플리케이션 설정을 사용하게 됩니다.
 
     이 비밀은 구성 API를 사용하여 액세스됩니다. 콜론(:)은 지원되는 모든 플랫폼의 구성 API에서 구성 이름으로 작동합니다. [환경별 구성](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment)을 참조하세요. 
 
@@ -241,7 +241,7 @@ connection.start()
 
 다음 자습서를 계속 진행하려는 경우 이 빠른 시작에서 만든 리소스를 그대로 두었다가 다음 자습서에서 다시 사용할 수 있습니다.
 
-그렇지 않고, 빠른 시작 샘플 응용 프로그램 사용이 끝나면 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
+그렇지 않고, 빠른 시작 샘플 애플리케이션 사용이 끝나면 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
 
 > [!IMPORTANT]
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.

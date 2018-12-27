@@ -1,5 +1,5 @@
 ---
-title: 게시된 응용 프로그램 설치 - StreamSets 데이터 수집기 - Azure HDInsight
+title: 게시된 애플리케이션 설치 - StreamSets 데이터 수집기 - Azure HDInsight
 description: StreamSets 데이터 수집기 타사 Apache Hadoop 애플리케이션을 설치하고 사용합니다.
 services: hdinsight
 author: ashishthaps

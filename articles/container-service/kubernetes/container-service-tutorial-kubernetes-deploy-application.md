@@ -38,7 +38,7 @@ ms.locfileid: "52998792"
 
 이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다. 
 
-이 자습서를 완료하려면 미리 작성된 `azure-vote-all-in-one-redis.yml` Kubernetes 매니페스트 파일이 필요합니다. 이전 자습서에서 응용 프로그램 소스 코드와 함께 이 파일을 다운로드했습니다. 리포지토리를 복제했으며 디렉터리를 복제된 리포지토리로 변경했는지 확인하세요.
+이 자습서를 완료하려면 미리 작성된 `azure-vote-all-in-one-redis.yml` Kubernetes 매니페스트 파일이 필요합니다. 이전 자습서에서 애플리케이션 소스 코드와 함께 이 파일을 다운로드했습니다. 리포지토리를 복제했으며 디렉터리를 복제된 리포지토리로 변경했는지 확인하세요.
 
 이러한 단계를 수행하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기](./container-service-tutorial-kubernetes-prepare-app.md)로 돌아갑니다. 
 
@@ -113,8 +113,8 @@ azure-vote-front   10.0.42.158   52.179.23.131 80:31873/TCP   2m
 
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 다운로드
-> * Kubernetes에서 응용 프로그램 실행
-> * 응용 프로그램 테스트
+> * Kubernetes에서 애플리케이션 실행
+> * 애플리케이션 테스트
 
 다음 자습서로 이동하여 Kubernetes 애플리케이션과 기본 Kubernetes 인프라를 모두 크기 조정하는 방법에 대해 알아봅니다. 
 

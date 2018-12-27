@@ -75,7 +75,7 @@ sections:
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: 텍스트 분석 API를 사용하여 응용 프로그램을 개발하는 방법을 알아봅니다.
+    text: 텍스트 분석 API를 사용하여 애플리케이션을 개발하는 방법을 알아봅니다.
   - type: list
     style: unordered
     items:

@@ -34,7 +34,7 @@ ms.locfileid: "38652705"
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * [Java Service Fabric Reliable Services 응용 프로그램 빌드](service-fabric-tutorial-create-java-app.md)
-> * 로컬 클러스터에서 응용 프로그램 배포 및 디버그
+> * 로컬 클러스터에서 애플리케이션 배포 및 디버그
 > * [Azure 클러스터에 응용 프로그램 배포](service-fabric-tutorial-java-deploy-azure.md)
 > * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
 > * [CI/CD를 설정합니다](service-fabric-tutorial-java-jenkins.md).
@@ -91,11 +91,11 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 11. 중단점을 적중하려면 웹 브라우저로 이동해 **localhost:8080**에 액세스하고 Eclipse에 **관점 디버그**를 입력합니다.
 
-## <a name="redirect-application-logs-to-custom-location"></a>응용 프로그램 로그를 사용자 지정 위치로 리디렉션
+## <a name="redirect-application-logs-to-custom-location"></a>애플리케이션 로그를 사용자 지정 위치로 리디렉션
 
-다음 단계는 기본 */var/log/syslog* 위치에서 사용자 지정 위치로 응용 프로그램 로그를 리디렉션하는 방법을 설명합니다.
+다음 단계는 기본 */var/log/syslog* 위치에서 사용자 지정 위치로 애플리케이션 로그를 리디렉션하는 방법을 설명합니다.
 
-1. 현재 Service Fabric Linux 클러스터에서 실행 중인 응용 프로그램은 단일 로그 파일 선택을 지원합니다. 결과적으로, 해당 로그는 항상 */tmp/mysfapp0.0.log*로 이동합니다. 다음 위치 *Voting/VotingApplication/VotingWebPkg/Code/logging.properties*에 logging.properties이라는 파일을 만들고 다음 내용을 추가합니다.
+1. 현재 Service Fabric Linux 클러스터에서 실행 중인 애플리케이션은 단일 로그 파일 선택을 지원합니다. 결과적으로, 해당 로그는 항상 */tmp/mysfapp0.0.log*로 이동합니다. 다음 위치 *Voting/VotingApplication/VotingWebPkg/Code/logging.properties*에 logging.properties이라는 파일을 만들고 다음 내용을 추가합니다.
 
     ```
     handlers = java.util.logging.FileHandler

@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51241891"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java Spring Boot 응용 프로그램 배포
+# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java Spring Boot 애플리케이션 배포
 
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
@@ -34,8 +34,8 @@ Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 �
 
 * Service Fabric에 Spring Boot 응용 프로그램 배포
 * 로컬 클러스터에 애플리케이션 배포
-* Azure에서 응용 프로그램을 클러스터에 배포
-* 응용 프로그램을 여러 노드에 걸쳐 스케일 아웃
+* Azure에서 애플리케이션을 클러스터에 배포
+* 애플리케이션을 여러 노드에 걸쳐 스케일 아웃
 * 가용성에 아무런 영향을 주지 않고 서비스에 대한 장애 조치 수행
 
 ## <a name="prerequisites"></a>필수 조건
@@ -174,7 +174,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
 
-파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 운영합니다. 파티 클러스터를 사용하여 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드 및 클라이언트-노드 보안에 단일 자체 서명 인증서를 사용합니다.
+파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 운영합니다. 파티 클러스터를 사용하여 애플리케이션을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드 및 클라이언트-노드 보안에 단일 자체 서명 인증서를 사용합니다.
 
 [Linux 클러스터](https://aka.ms/tryservicefabric)에 로그인하고 조인합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. **추가 정보** 링크를 클릭하여 인증서 암호 및 다양한 환경에서 인증서를 사용하도록 구성하는 방법에 대한 지침을 찾습니다. **시작** 페이지와 **추가 정보** 페이지를 모두 열어두고 다음 단계에서 일부 지침을 사용합니다.
 
@@ -283,8 +283,8 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 
 * Service Fabric에 Spring Boot 응용 프로그램 배포
 * 로컬 클러스터에 애플리케이션 배포
-* Azure에서 응용 프로그램을 클러스터에 배포
-* 응용 프로그램을 여러 노드에 걸쳐 스케일 아웃
+* Azure에서 애플리케이션을 클러스터에 배포
+* 애플리케이션을 여러 노드에 걸쳐 스케일 아웃
 * 가용성에 아무런 영향을 주지 않고 서비스에 대한 장애 조치 수행
 
 Service Fabric에서 Java 앱 작업에 대해 자세히 알아보려면 Java 앱에 대한 자습서를 계속 진행하십시오.

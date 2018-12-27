@@ -23,7 +23,7 @@ ms.locfileid: "49343030"
 
 ## <a name="Introduction"></a>소개
 
-Bing Text to Speech API를 사용하면 응용 프로그램이 HTTP 요청을 클라우드 서버로 전송할 수 있으며, 여기서 텍스트가 즉시 음성으로 합성되어 오디오 파일로 반환됩니다. 여러 컨텍스트에서 이 API를 사용하여 다양한 음성과 언어로 실시간 텍스트 음성 변환을 제공할 수 있습니다.
+Bing Text to Speech API를 사용하면 애플리케이션이 HTTP 요청을 클라우드 서버로 전송할 수 있으며, 여기서 텍스트가 즉시 음성으로 합성되어 오디오 파일로 반환됩니다. 여러 컨텍스트에서 이 API를 사용하여 다양한 음성과 언어로 실시간 텍스트 음성 변환을 제공할 수 있습니다.
 
 ## <a name="VoiceSynReq"></a>음성 합성 요청
 
@@ -63,9 +63,9 @@ Ocp-Apim-Subscription-Key | ASCII | 구독 키
 ----|----|----
 콘텐츠 형식 | application/ssml+xml | 입력 콘텐츠 형식입니다.
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | 출력 오디오 형식입니다.
-X-Search-AppId | GUID(16진수만, 대시 없음) | 클라이언트 응용 프로그램을 고유하게 식별하는 ID입니다. 앱의 스토어 ID일 수 있습니다. 스토어 ID를 사용할 수 없는 경우 사용자가 생성한 응용 프로그램 ID일 수 있습니다.
-X-Search-ClientID | GUID(16진수만, 대시 없음) | 각 설치에서 응용 프로그램 인스턴스를 고유하게 식별하는 ID입니다.
-User-Agent | 응용 프로그램 이름 | 응용 프로그램 이름은 필수이며 255자 미만이어야 합니다.
+X-Search-AppId | GUID(16진수만, 대시 없음) | 클라이언트 애플리케이션을 고유하게 식별하는 ID입니다. 앱의 스토어 ID일 수 있습니다. 스토어 ID를 사용할 수 없는 경우 사용자가 생성한 애플리케이션 ID일 수 있습니다.
+X-Search-ClientID | GUID(16진수만, 대시 없음) | 각 설치에서 애플리케이션 인스턴스를 고유하게 식별하는 ID입니다.
+User-Agent | 응용 프로그램 이름 | 애플리케이션 이름은 필수이며 255자 미만이어야 합니다.
 권한 부여 | 권한 부여 토큰 |  <a href="#Subscription">인증 토큰</a> 섹션을 참조하세요.
 
 ### <a name="InputParam"></a>입력 매개 변수
@@ -183,7 +183,7 @@ Microsoft Text-to-Speech API는 W3C [SSML(Speech Synthesis Markup Language) 버�
 
 ## <a name="SampleApp"></a>샘플 응용 프로그램
 
-구현 세부 정보는 [Visual C# .NET 텍스트 음성 변환 샘플 응용 프로그램](https://github.com/Microsoft/Cognitive-Speech-TTS/blob/master/Samples-Http/CSharp/TTSProgram.cs)을 참조하세요.
+구현 세부 정보는 [Visual C# .NET 텍스트 음성 변환 샘플 애플리케이션](https://github.com/Microsoft/Cognitive-Speech-TTS/blob/master/Samples-Http/CSharp/TTSProgram.cs)을 참조하세요.
 
 ## <a name="SupLocales"></a>지원되는 로캘 및 음성 글꼴
 

@@ -76,7 +76,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>응용 프로그램에 로그인할 수 있는 사용자 제한
 
-기본적으로 이 가이드에서 만드는 모든 응용 프로그램을 빌드할 때 응용 프로그램에서는 Azure Active Directory와 통합된 모든 회사 또는 조직의 회사 및 학교 계정뿐만 아니라 개인 계정(outlook.com, live.com 등)의 로그인을 수락합니다. SaaS 응용 프로그램에는 이 옵션을 권장합니다.
+기본적으로 이 가이드에서 만드는 모든 애플리케이션을 빌드할 때 애플리케이션에서는 Azure Active Directory와 통합된 모든 회사 또는 조직의 회사 및 학교 계정뿐만 아니라 개인 계정(outlook.com, live.com 등)의 로그인을 수락합니다. SaaS 응용 프로그램에는 이 옵션을 권장합니다.
 
 응용 프로그램에 대한 사용자 로그인 액세스를 제한할 수 있는 여러 가지 옵션이 있습니다.
 

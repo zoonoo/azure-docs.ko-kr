@@ -156,7 +156,7 @@ SDK 샘플에서 Azure에서 제공하는 API 키를 사용하려는 경우 [검
         public string ReviewId;
     }
 
-### <a name="initialize-application-specific-settings"></a>응용 프로그램 관련 설정 초기화
+### <a name="initialize-application-specific-settings"></a>애플리케이션 관련 설정 초기화
 
 > [!NOTE]
 > Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있으며, 제한을 초과하는 경우 SDK에서 429 오류 코드로 예외를 throw합니다. 

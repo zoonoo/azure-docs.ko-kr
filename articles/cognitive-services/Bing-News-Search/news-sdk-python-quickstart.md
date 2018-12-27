@@ -24,7 +24,7 @@ News Search SDK는 웹 쿼리 및 구문 분석 결과에 대한 REST API 기능
 
 [Python Bing News Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py)은 Git Hub에서 얻을 수 있습니다.
 
-## <a name="application-dependencies"></a>응용 프로그램 종속성
+## <a name="application-dependencies"></a>애플리케이션 종속성
 **검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 Python이 없을 경우 설치하세요. SDK는 Python 2.7 3.3, 3.4, 3.5 및 3.6과 호환됩니다.

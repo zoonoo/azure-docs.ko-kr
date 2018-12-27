@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51249084"
 ---
-# <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>자습서: Azure의 클러스터에 Service Fabric 응용 프로그램 배포
+# <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>자습서: Azure의 클러스터에 Service Fabric 애플리케이션 배포
 
 이 자습서는 시리즈의 2부입니다. 이 자습서는 Azure의 새 클러스터에 Azure Service Fabric 응용 프로그램을 배포하는 방법을 보여줍니다.
 
@@ -57,7 +57,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="publish-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 게시
 
-응용 프로그램이 준비되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다. [Service Fabric 클러스터](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다.
+애플리케이션이 준비되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다. [Service Fabric 클러스터](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다.
 
 이 자습서에는 Visual Studio를 사용하여 Service Fabric 클러스터에 투표 응용 프로그램을 배포하는 두 가지 옵션이 있습니다.
 
@@ -72,7 +72,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 자신의 Azure 구독에 투표 응용 프로그램을 게시하려면 프런트 엔드 웹 서비스의 엔드포인트를 찾습니다. 파티 클러스터를 사용하는 경우 자동으로 열리는 투표 샘플을 사용하여 포트 8080에 연결합니다. 파티 클러스터의 부하 분산 장치에서 구성할 필요는 없습니다.
 
-프런트 엔드 웹 서비스는 특정 포트에 대해 수신 대기합니다. 응용 프로그램이 Azure에서 클러스터를 배포하는 경우 클러스터와 응용 프로그램 모두 Azure 부하 분산 장치 뒤에서 실행됩니다. 클러스터에 대한 Azure 부하 분산 장치에서 규칙을 사용하여 응용 프로그램 포트를 열어야 합니다. 열린 포트는 웹 서비스로 인바운드 트래픽을 보냅니다. 포트는 **Endpoint** 요소의 **VotingWeb/PackageRoot/ServiceManifest.xml** 파일에 있습니다. 예제는 포트 8080입니다.
+프런트 엔드 웹 서비스는 특정 포트에 대해 수신 대기합니다. 애플리케이션이 Azure에서 클러스터를 배포하는 경우 클러스터와 애플리케이션 모두 Azure 부하 분산 장치 뒤에서 실행됩니다. 클러스터에 대한 Azure 부하 분산 장치에서 규칙을 사용하여 응용 프로그램 포트를 열어야 합니다. 열린 포트는 웹 서비스로 인바운드 트래픽을 보냅니다. 포트는 **Endpoint** 요소의 **VotingWeb/PackageRoot/ServiceManifest.xml** 파일에 있습니다. 예제는 포트 8080입니다.
 
 ```xml
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
@@ -116,7 +116,7 @@ Thumbprint                                Subject
 
 ### <a name="publish-the-application-by-using-visual-studio"></a>Visual Studio를 사용하여 응용 프로그램 게시
 
-응용 프로그램이 준비되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
+애플리케이션이 준비되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
 
 1. 솔루션 탐색기에서 **Voting**을 마우스 오른쪽 단추로 클릭합니다. **게시**를 선택합니다. **게시** 대화 상자가 나타납니다.
 

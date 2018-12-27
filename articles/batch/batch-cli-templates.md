@@ -256,7 +256,7 @@ az batch job create --template job-ffmpeg.json
 
 ### <a name="use-templates-in-batch-explorer"></a>Batch Explorer에서 템플릿 사용
 
-Batch 풀 또는 작업을 만들려면 [Batch Explorer](https://github.com/Azure/BatchExplorer) 데스크톱 응용 프로그램(이전의 BatchLabs)에 Batch CLI 템플릿을 업로드할 수 있습니다. Batch Explorer 갤러리의 미리 정의된 풀 및 작업 템플릿에서 선택할 수도 있습니다.
+Batch 풀 또는 작업을 만들려면 [Batch Explorer](https://github.com/Azure/BatchExplorer) 데스크톱 애플리케이션(이전의 BatchLabs)에 Batch CLI 템플릿을 업로드할 수 있습니다. Batch Explorer 갤러리의 미리 정의된 풀 및 작업 템플릿에서 선택할 수도 있습니다.
 
 템플릿을 업로드하려면
 

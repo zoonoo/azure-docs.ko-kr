@@ -17,7 +17,7 @@ metadata:
   ms.date: 9/24/2018
   ms.author: victorh
 abstract:
-  description: 클라우드 기반 네트워크 보안 서비스인 Azure Firewall을 배포하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서는 Azure 가상 네트워크 리소스를 보호하도록 응용 프로그램 수준 및 네트워크 수준 정책을 설정하는 방법을 보여줍니다.
+  description: 클라우드 기반 네트워크 보안 서비스인 Azure Firewall을 배포하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서는 Azure 가상 네트워크 리소스를 보호하도록 애플리케이션 수준 및 네트워크 수준 정책을 설정하는 방법을 보여줍니다.
 sections:
 - title: 단계별 자습서
   items:

@@ -1,6 +1,6 @@
 ---
 title: 시스템 및 보안 로컬 계정에서 Azure Service Fabric 서비스 실행 | Microsoft Docs
-description: 시스템 및 보안 로컬 계정에서 Service Fabric 응용 프로그램을 실행하는 방법에 대해 알아봅니다.  보안 주체를 만들고, 실행 정책을 적용하여 서비스를 안전하게 실행합니다.
+description: 시스템 및 보안 로컬 계정에서 Service Fabric 애플리케이션을 실행하는 방법에 대해 알아봅니다.  보안 주체를 만들고, 실행 정책을 적용하여 서비스를 안전하게 실행합니다.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -22,7 +22,7 @@ ms.lasthandoff: 05/16/2018
 ms.locfileid: "34212401"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>로컬 사용자 계정 또는 시스템 계정으로 서비스 실행
-Azure Service Fabric을 사용하여 다른 사용자 계정으로 클러스터에서 실행 중인 애플리케이션을 보호할 수 있습니다. 기본적으로 서비스 패브릭 응용 프로그램은 Fabric.exe 프로세스가 실행하는 계정을 통해 실행됩니다. 또한 Service Fabric은 로컬 사용자 또는 시스템 계정에서 애플리케이션을 실행하는 기능을 제공합니다. 지원되는 로컬 시스템 계정 유형은 **LocalUser**, **NetworkService**, **LocalService** 및 **LocalSystem**입니다.  Windows 독립 실행형 클러스터에서 Service Fabric을 실행할 경우 [Active Directory 도메인 계정](service-fabric-run-service-as-ad-user-or-group.md) 또는 [그룹 관리 서비스 계정](service-fabric-run-service-as-gmsa.md)에서 서비스를 실행할 수 있습니다.
+Azure Service Fabric을 사용하여 다른 사용자 계정으로 클러스터에서 실행 중인 애플리케이션을 보호할 수 있습니다. 기본적으로 서비스 패브릭 애플리케이션은 Fabric.exe 프로세스가 실행하는 계정을 통해 실행됩니다. 또한 Service Fabric은 로컬 사용자 또는 시스템 계정에서 애플리케이션을 실행하는 기능을 제공합니다. 지원되는 로컬 시스템 계정 유형은 **LocalUser**, **NetworkService**, **LocalService** 및 **LocalSystem**입니다.  Windows 독립 실행형 클러스터에서 Service Fabric을 실행할 경우 [Active Directory 도메인 계정](service-fabric-run-service-as-ad-user-or-group.md) 또는 [그룹 관리 서비스 계정](service-fabric-run-service-as-gmsa.md)에서 서비스를 실행할 수 있습니다.
 
 애플리케이션 매니페스트에서 **주체** 섹션의 서비스 또는 보안 리소스를 실행하는 데 필요한 사용자 계정을 정의합니다. 사용자 그룹을 정의하고 만들 수 있으므로 한 명 이상의 사용자를 함께 관리할 수 있습니다. 이는 다른 서비스 진입점에 사용자가 여러 명 있고, 그들에게 그룹 수준에서 사용할 수 있는 공통 권한이 필요한 경우에 유용합니다.  사용자는 애플리케이션의 특정 서비스 또는 모든 서비스에 적용되는 RunAs 정책에서 참조됩니다. 
 
@@ -33,7 +33,7 @@ Azure Service Fabric을 사용하여 다른 사용자 계정으로 클러스터�
 >
 
 ## <a name="run-a-service-as-a-local-user"></a>로컬 사용자로 서비스 실행
-응용 프로그램 내에서 서비스를 보호하는 데 사용할 수 있는 로컬 사용자를 만들 수 있습니다. 응용 프로그램 매니페스트의 주체 섹션에서 **LocalUser** 계정 형식이 지정되면 Service Fabric에서는 응용 프로그램이 배포되는 컴퓨터에 로컬 사용자 계정을 만듭니다. 기본적으로 이러한 계정은 애플리케이션 매니페스트(예: 다음 애플리케이션 매니페스트 예제의 *Customer3*)에 지정된 것과 동일한 이름을 갖지 않습니다. 대신 동적으로 생성되며 임의 암호를 포함합니다.
+애플리케이션 내에서 서비스를 보호하는 데 사용할 수 있는 로컬 사용자를 만들 수 있습니다. 응용 프로그램 매니페스트의 주체 섹션에서 **LocalUser** 계정 형식이 지정되면 Service Fabric에서는 응용 프로그램이 배포되는 컴퓨터에 로컬 사용자 계정을 만듭니다. 기본적으로 이러한 계정은 애플리케이션 매니페스트(예: 다음 애플리케이션 매니페스트 예제의 *Customer3*)에 지정된 것과 동일한 이름을 갖지 않습니다. 대신 동적으로 생성되며 임의 암호를 포함합니다.
 
 **ServiceManifestImport**에 대한 **RunAsPolicy** 섹션의 **주체** 섹션에서 사용자 계정을 지정하여 서비스 코드 패키지를 실행합니다.  다음 예제에는 로컬 사용자를 만들고 주 진입점에 RunAs 정책을 적용하는 방법이 나와 있습니다.
 
@@ -128,7 +128,7 @@ Azure Service Fabric을 사용하여 다른 사용자 계정으로 클러스터�
 ```
 
 ## <a name="apply-a-default-policy-to-all-service-code-packages"></a>모든 서비스 코드 패키지에 기본 정책 적용
-**DefaultRunAsPolicy** 섹션은 특정 **RunAsPolicy**가 정의되지 않은 모든 코드 패키지에 대해 기본 사용자 계정을 지정하는 데 사용됩니다. 응용 프로그램에서 사용하는 서비스 매니페스트에 지정된 대부분의 코드 패키지가 동일한 사용자를 통해 실행되어야 하는 경우 응용 프로그램에서 해당 사용자 계정을 사용하여 기본 RunAs 정책을 정의할 수 있습니다. 다음은 코드 패키지의 **RunAsPolicy**가 지정되지 않으면 주체 섹션에 지정된 **MyDefaultAccount** 사용자에서 코드 패키지가 수행되어야 함을 보여 주는 예제입니다.  지원되는 계정 유형은 LocalUser, NetworkService, LocalSystem 및 LocalService입니다.  또한 로컬 사용자 또는 서비스를 사용하는 경우 계정 이름 및 암호를 지정합니다.
+**DefaultRunAsPolicy** 섹션은 특정 **RunAsPolicy**가 정의되지 않은 모든 코드 패키지에 대해 기본 사용자 계정을 지정하는 데 사용됩니다. 애플리케이션에서 사용하는 서비스 매니페스트에 지정된 대부분의 코드 패키지가 동일한 사용자를 통해 실행되어야 하는 경우 애플리케이션에서 해당 사용자 계정을 사용하여 기본 RunAs 정책을 정의할 수 있습니다. 다음은 코드 패키지의 **RunAsPolicy**가 지정되지 않으면 주체 섹션에 지정된 **MyDefaultAccount** 사용자에서 코드 패키지가 수행되어야 함을 보여 주는 예제입니다.  지원되는 계정 유형은 LocalUser, NetworkService, LocalSystem 및 LocalService입니다.  또한 로컬 사용자 또는 서비스를 사용하는 경우 계정 이름 및 암호를 지정합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

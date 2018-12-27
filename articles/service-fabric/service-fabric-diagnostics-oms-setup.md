@@ -69,7 +69,7 @@ Windows를 사용하는 경우 다음 단계를 계속 진행하여 클러스터
 
 이제 계정이 작업 영역의 데이터 원본에서 저장소 계정 로그의 일부로 표시됩니다.
 
-Log Analytics 작업 영역에 추가한 Service Fabric 분석 솔루션이 이제 클러스터의 플랫폼 및 응용 프로그램 로그 표에 제대로 연결되었습니다. 같은 방식으로 작업 영역에 추가적인 원본을 추가할 수 있습니다.
+Log Analytics 작업 영역에 추가한 Service Fabric 분석 솔루션이 이제 클러스터의 플랫폼 및 애플리케이션 로그 표에 제대로 연결되었습니다. 같은 방식으로 작업 영역에 추가적인 원본을 추가할 수 있습니다.
 
 
 ## <a name="deploy-log-analytics-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Log Analytics 배포

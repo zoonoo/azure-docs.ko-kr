@@ -21,11 +21,11 @@ ms.locfileid: "49342333"
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-이 페이지에서는 Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 기본 Windows 응용 프로그램을 개발하는 방법을 보여 줍니다. 클라이언트 라이브러리를 사용하면 실시간 스트리밍이 가능합니다. 즉, 클라이언트 응용 프로그램에서 오디오를 서비스로 보낼 때 부분 인식 결과를 동시에 비동기적으로 다시 받습니다.
+이 페이지에서는 Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 기본 Windows 애플리케이션을 개발하는 방법을 보여 줍니다. 클라이언트 라이브러리를 사용하면 실시간 스트리밍이 가능합니다. 즉, 클라이언트 애플리케이션에서 오디오를 서비스로 보낼 때 부분 인식 결과를 동시에 비동기적으로 다시 받습니다.
 
 모든 디바이스에서 실행되는 애플리케이션에서 Speech Service를 사용하려는 개발자는 C# 데스크톱 라이브러리를 사용할 수 있습니다. 라이브러리를 사용하려면 32비트 플랫폼의 경우 [Microsoft.ProjectOxford.SpeechRecognition-x86 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/)를 설치하고, 64비트 플랫폼의 경우 [Microsoft.ProjectOxford.SpeechRecognition-x64 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/)를 설치합니다. 클라이언트 라이브러리 API 참조는 [Microsoft Speech C# 데스크톱 라이브러리](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html)를 참조하세요.
 
-다음 섹션에서는 C# 데스크톱 라이브러리를 사용하여 C# 샘플 응용 프로그램을 설치, 빌드 및 실행하는 방법에 대해 설명합니다.
+다음 섹션에서는 C# 데스크톱 라이브러리를 사용하여 C# 샘플 애플리케이션을 설치, 빌드 및 실행하는 방법에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -44,7 +44,7 @@ Speech API는 Cognitive Services(이전의 Project Oxford)의 일부입니다. [
 > [!IMPORTANT]
 > * 구독 키를 가져오세요. Speech 클라이언트 라이브러리를 사용하려면 먼저 [구독 키](https://azure.microsoft.com/try/cognitive-services/)가 있어야 합니다.
 >
-> * 구독 키를 사용하세요. 제공된 C# 데스크톱 샘플 응용 프로그램을 사용하여 샘플을 실행할 때 구독 키를 텍스트 상자에 붙여넣습니다. 자세한 내용은 [샘플 애플리케이션 실행](#step-3-run-the-sample-application)을 참조하세요.
+> * 구독 키를 사용하세요. 제공된 C# 데스크톱 샘플 애플리케이션을 사용하여 샘플을 실행할 때 구독 키를 텍스트 상자에 붙여넣습니다. 자세한 내용은 [샘플 애플리케이션 실행](#step-3-run-the-sample-application)을 참조하세요.
 
 ## <a name="step-1-install-the-sample-application"></a>1단계: 샘플 애플리케이션 설치
 
@@ -82,7 +82,7 @@ Speech API는 Cognitive Services(이전의 Project Oxford)의 일부입니다. [
     * **LongDictation 모드**: 최대 2분이 걸리는 발화입니다. 데이터가 서버로 보내지면 서버에서 문장 일시 중지를 나타내는 위치에 따라 클라이언트에서 여러 개의 부분 결과 및 여러 개의 최종 결과를 받습니다.
     * **의도 감지**: 서버에서 음성 입력에 대해 추가 구조화된 정보를 반환합니다. 의도 감지를 사용하려면 먼저 [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)를 사용하여 모델이 학습되어야 합니다.
 
-이 샘플 응용 프로그램에서 샘플 오디오 파일을 사용합니다. samples/SpeechRecognitionServiceExample 폴더 아래에서 이 샘플과 함께 다운로드한 리포지토리의 파일을 찾습니다. **Shortphrase 모드에 wav 파일 사용** 또는 **Longdictation 모드에 wav 파일 사용**을 음성 입력으로 선택할 때 다른 파일이 선택되지 않으면 이러한 샘플 오디오 파일이 자동으로 실행됩니다. 현재 WAV 오디오 형식만 지원됩니다.
+이 샘플 애플리케이션에서 샘플 오디오 파일을 사용합니다. samples/SpeechRecognitionServiceExample 폴더 아래에서 이 샘플과 함께 다운로드한 리포지토리의 파일을 찾습니다. **Shortphrase 모드에 wav 파일 사용** 또는 **Longdictation 모드에 wav 파일 사용**을 음성 입력으로 선택할 때 다른 파일이 선택되지 않으면 이러한 샘플 오디오 파일이 자동으로 실행됩니다. 현재 WAV 오디오 형식만 지원됩니다.
 
 ![Speech to Text 인터페이스](../Images/HelloJones.PNG)
 

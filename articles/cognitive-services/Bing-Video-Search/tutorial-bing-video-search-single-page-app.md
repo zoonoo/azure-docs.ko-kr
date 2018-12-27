@@ -1,7 +1,7 @@
 ---
 title: '자습서: 단일 페이지 Bing Video Search 앱 빌드'
 titlesuffix: Azure Cognitive Services
-description: 단일 페이지 웹 응용 프로그램에서 Bing Video Search API를 사용하는 방법을 설명합니다.
+description: 단일 페이지 웹 애플리케이션에서 Bing Video Search API를 사용하는 방법을 설명합니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -18,7 +18,7 @@ ms.lasthandoff: 09/26/2018
 ms.locfileid: "47226605"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>자습서: 단일 페이지 Video Search 앱
-Bing Video Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련된 비디오 결과를 가져올 수 있습니다. 이 자습서에서는 Bing Search API를 사용하여 페이지에 검색 결과를 표시하는 단일 페이지 웹 응용 프로그램을 빌드합니다. 응용 프로그램에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다.
+Bing Video Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련된 비디오 결과를 가져올 수 있습니다. 이 자습서에서는 Bing Search API를 사용하여 페이지에 검색 결과를 표시하는 단일 페이지 웹 응용 프로그램을 빌드합니다. 애플리케이션에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다.
 
 <!-- Remove until it can be replaced with a sanitized version.
 ![Single-page Bing Video Search app](./media/video-search-singlepage.png)

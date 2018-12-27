@@ -20,7 +20,7 @@ ms.locfileid: "52260326"
 
 _작성기_로 Azure IoT Central UI를 사용하여 Microsoft Azure IoT Central 응용 프로그램을 정의합니다. 이 빠른 시작에서는 샘플 _디바이스 템플릿_ 및 시뮬레이션된 _디바이스_를 포함하는 Azure IoT Central 애플리케이션을 만드는 방법을 보여 줍니다.
 
-Azure IoT Central [응용 프로그램 관리자](https://aka.ms/iotcentral) 페이지로 이동합니다. Microsoft 개인 또는 회사 또는 학교 계정을 사용하여 로그인해야 합니다.
+Azure IoT Central [애플리케이션 관리자](https://aka.ms/iotcentral) 페이지로 이동합니다. Microsoft 개인 또는 회사 또는 학교 계정을 사용하여 로그인해야 합니다.
 
 새로운 Azure IoT Central 응용 프로그램 만들기를 시작하려면 **새 응용 프로그램**을 선택합니다. **응용 프로그램 만들기** 페이지로 이동합니다.
 

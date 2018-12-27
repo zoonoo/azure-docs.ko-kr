@@ -1,5 +1,5 @@
 ---
-title: 프로그래밍 방식으로 Hadoop YARN 응용 프로그램 로그에 액세스 - Azure
+title: 프로그래밍 방식으로 Hadoop YARN 애플리케이션 로그에 액세스 - Azure
 description: HDInsight의 Hadoop 클러스터에서 프로그래밍 방식으로 애플리케이션 로그에 액세스합니다.
 services: hdinsight
 author: hrasheed-msft

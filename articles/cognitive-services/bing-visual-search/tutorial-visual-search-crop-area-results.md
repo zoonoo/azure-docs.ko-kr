@@ -33,8 +33,8 @@ Azure Portal에서 구독을 시작하려면
 5. `S9` 가격 책정 계층을 선택합니다.
 6. `Enable`을 클릭하여 구독을 시작합니다.
 
-## <a name="application-dependencies"></a>응용 프로그램 종속성
-Bing Web Search SDK를 사용하여 콘솔 응용 프로그램을 설정하려면 Visual Studio의 솔루션 탐색기에서 NuGet 패키지 관리 옵션을 찾습니다. Microsoft.Azure.CognitiveServices.Search.VisualSearch 패키지를 추가합니다.
+## <a name="application-dependencies"></a>애플리케이션 종속성
+Bing Web Search SDK를 사용하여 콘솔 애플리케이션을 설정하려면 Visual Studio의 솔루션 탐색기에서 NuGet 패키지 관리 옵션을 찾습니다. Microsoft.Azure.CognitiveServices.Search.VisualSearch 패키지를 추가합니다.
 
 NuGet Web Search SDK 패키지 설치는 다음을 포함한 종속성도 설치합니다.
 

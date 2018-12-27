@@ -48,7 +48,7 @@ ms.locfileid: "53080829"
     }
     ```
 
-3. LUIS 상수를 클래스에 추가합니다. 다음 코드를 복사하고, 제작 키, 응용 프로그램 ID 및 버전 ID로 변경합니다.
+3. LUIS 상수를 클래스에 추가합니다. 다음 코드를 복사하고, 제작 키, 애플리케이션 ID 및 버전 ID로 변경합니다.
 
    [!code-java[LUIS-based IDs](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=33-44 "LUIS-based IDs")]
 

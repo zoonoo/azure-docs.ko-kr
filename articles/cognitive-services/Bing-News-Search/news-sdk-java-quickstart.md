@@ -24,7 +24,7 @@ Bing News Search SDK는 뉴스 쿼리 및 구문 분석 결과에 대한 REST AP
 
 [Java Bing News Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch)은 Git Hub에서 얻을 수 있습니다.
 
-## <a name="application-dependencies"></a>응용 프로그램 종속성
+## <a name="application-dependencies"></a>애플리케이션 종속성
 **검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다. Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing News Search SDK 종속성을 설치합니다. Maven POM 파일에는 다음 선언이 필요합니다.
 ```
   <dependencies>

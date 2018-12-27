@@ -71,7 +71,7 @@ cl.EntityDetectionCallback(async (text: string, memoryManager: ClientMemoryManag
 Ocp-Apim-Subscription-Key=<LUIS_AUTHORING_KEY>
 ```
 
-여기서 `<LUIS_AUTHORING_KEY>`는 Conversation Learner 응용 프로그램에 액세스하는 데 사용되는 LUIS 작성 키입니다.
+여기서 `<LUIS_AUTHORING_KEY>`는 Conversation Learner 애플리케이션에 액세스하는 데 사용되는 LUIS 작성 키입니다.
 
 ## <a name="how-to-obtain-raw-data-for-a-logged-dialog"></a>기록된 대화의 원시 데이터를 얻는 방법
 

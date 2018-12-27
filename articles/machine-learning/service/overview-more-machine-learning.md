@@ -72,7 +72,7 @@ Cognitive Services를 사용하여 장치 및 플랫폼에서 앱을 개발합�
 
 ## <a name="azure-data-science-virtual-machine"></a>Azure 데이터 과학 가상 머신
 
-[Data Science Virtual Machine](../data-science-virtual-machine/overview.md)은 데이터 과학을 수행하기 위해 특별히 빌드된 Microsoft Azure 클라우드에서 사용자 지정된 가상 머신 환경입니다. 여기에는 고급 분석을 위한 지능형 응용 프로그램 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다.
+[Data Science Virtual Machine](../data-science-virtual-machine/overview.md)은 데이터 과학을 수행하기 위해 특별히 빌드된 Microsoft Azure 클라우드에서 사용자 지정된 가상 머신 환경입니다. 여기에는 고급 분석을 위한 지능형 애플리케이션 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다.
 
 Data Science Virtual Machine은 Azure Machine Learning 서비스의 대상으로 지원됩니다.
 또한 Windows와 Linux Ubuntu용 버전에서도 사용할 수 있습니다(Linux CentOS에서는 Azure Machine Learning 서비스를 지원하지 않습니다).

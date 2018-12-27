@@ -1,5 +1,5 @@
 ---
-title: 게시된 응용 프로그램 설치 - Dataiku DDS - Azure HDInsight
+title: 게시된 애플리케이션 설치 - Dataiku DDS - Azure HDInsight
 description: 타사 Apache Hadoop 애플리케이션 Dataiku DDS를 설치하여 사용합니다.
 services: hdinsight
 author: ashishthaps

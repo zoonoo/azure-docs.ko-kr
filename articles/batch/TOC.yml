@@ -145,7 +145,7 @@ items:
       href: batch-rendering-using.md
     - name: 렌더링 관리자 사용
       href: batch-rendering-render-managers.md
-    - name: 렌더링 응용 프로그램 참조
+    - name: 렌더링 애플리케이션 참조
       href: batch-rendering-application-reference.md
     - name: Storage 및 데이터 이동
       href: batch-rendering-storage-data-movement.md

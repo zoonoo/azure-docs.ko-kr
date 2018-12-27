@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Bing Visual Search SDK 사용, C#'
 titleSuffix: Azure Cognitive Services
-description: Visual search SDK C# 콘솔 응용 프로그램을 설치합니다.
+description: Visual search SDK C# 콘솔 애플리케이션을 설치합니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -45,9 +45,9 @@ Azure Portal에서 구독을 시작하려면
 
 * .NET core SDK 및 .net core 1.1 앱을 실행하는 기능입니다. 여기(https://www.microsoft.com/net/download/)에서 코어, 프레임워크 및 런타임을 가져올 수 있습니다.
 
-## <a name="application-dependencies"></a>응용 프로그램 종속성
+## <a name="application-dependencies"></a>애플리케이션 종속성
 
-Bing Web Search SDK를 사용하여 콘솔 응용 프로그램을 설정하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 찾습니다.  `Microsoft.Azure.CognitiveServices.Search.VisualSearch` 패키지를 추가합니다.
+Bing Web Search SDK를 사용하여 콘솔 애플리케이션을 설정하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 찾습니다.  `Microsoft.Azure.CognitiveServices.Search.VisualSearch` 패키지를 추가합니다.
 
 [NuGet Web Search SDK 패키지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VisualSearch/1.0) 설치는 다음을 포함한 종속성도 설치합니다.
 * Microsoft.Rest.ClientRuntime
@@ -112,9 +112,9 @@ if (visualSearchResults.Tags.Count > 0)
 
 <a name="complete"></a> 
 
-## <a name="complete-console-application"></a>전체 콘솔 응용 프로그램
+## <a name="complete-console-application"></a>전체 콘솔 애플리케이션
 
-다음 콘솔 응용 프로그램은 이전에 정의된 쿼리를 실행하고 결과를 구문 분석합니다.
+다음 콘솔 애플리케이션은 이전에 정의된 쿼리를 실행하고 결과를 구문 분석합니다.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Search.VisualSearch;

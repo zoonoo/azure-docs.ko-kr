@@ -90,21 +90,21 @@ OMS 포털을 사용하여 더 이상 새 작업 영역을 만들 수 없습니�
 OMS 모바일 앱은 OMS 포털과 함께 종료됩니다. OMS 모바일 앱 대신에 IT 인프라, 대시보드 및 저장된 쿼리에 대한 정보에 액세스하려면 모바일 디바이스의 브라우저에서 직접 Azure Portal에 액세스할 수 있습니다. 경고를 받으려면 [Azure 동작 그룹](../../azure-monitor/platform/action-groups.md)을 구성하여 음성 통화 또는 SMS 형식으로 알림을 받아야 합니다.
 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights 커넥터 및 솔루션
-[Application Insights 커넥터](../../azure-monitor/platform/app-insights-connector.md)는 Application Insights 데이터를 Log Analytics 작업 영역으로 가져올 수 있는 방법을 제공합니다. 이 데이터 중복은 인프라 및 응용 프로그램 데이터에서 시각화를 사용하는 데 필요했습니다.
+[Application Insights 커넥터](../../azure-monitor/platform/app-insights-connector.md)는 Application Insights 데이터를 Log Analytics 작업 영역으로 가져올 수 있는 방법을 제공합니다. 이 데이터 중복은 인프라 및 애플리케이션 데이터에서 시각화를 사용하는 데 필요했습니다.
 
 [리소스 간 쿼리](../../azure-monitor/log-query/cross-workspace-query.md)의 지원으로 더 이상 데이터를 복제할 필요가 없습니다. 따라서 기존 Application Insights 솔루션은 지원 중단될 예정입니다. 10월부터 새 Application Insights 리소스를 Log Analytics 작업 영역에 연결할 수 없게 됩니다. 기존 링크 및 대시보드는 2019년 1월 15일까지 서비스될 예정입니다.
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure 네트워크 보안 그룹 분석
-[Azure 네트워크 보안 그룹 분석 솔루션](../../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)은 최근에 시작된 [트래픽 분석](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)으로 대체되어 클라우드 네트워크에서 사용자 및 응용 프로그램 작업에 대한 가시성을 제공합니다. 트래픽 분석은 조직의 네트워크 활동을 감사하고, 응용 프로그램 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 됩니다. 
+[Azure 네트워크 보안 그룹 분석 솔루션](../../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)은 최근에 시작된 [트래픽 분석](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)으로 대체되어 클라우드 네트워크에서 사용자 및 응용 프로그램 작업에 대한 가시성을 제공합니다. 트래픽 분석은 조직의 네트워크 활동을 감사하고, 애플리케이션 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 됩니다. 
 
 이 솔루션은 NSG 흐름 로그를 분석하고 다음에 대한 인사이트를 제공합니다.
 
 - 트래픽은 Azure와 인터넷, 공용 클라우드 지역, VNET 및 서브넷 사이의 네트워크를 통한 흐릅니다.
-- 스니퍼나 전용 흐름 수집 어플라이언스가 필요 없는 네트워크상의 응용 프로그램 및 프로토콜입니다.
-- 상위 토커, 대화량이 많은 응용 프로그램, 클라우드의 VM 대화, 트래픽 핫스폿.
-- VNET, 중요한 비즈니스 서비스와 응용 프로그램 간의 상호 관계 트래픽의 원본 및 대상입니다.
-- 악성 트래픽, 인터넷에 열려 있는 포트, 인터넷 액세스를 시도하는 응용 프로그램 또는 VM을 포함한 보안입니다.
+- 스니퍼나 전용 흐름 수집 어플라이언스가 필요 없는 네트워크상의 애플리케이션 및 프로토콜입니다.
+- 상위 토커, 대화량이 많은 애플리케이션, 클라우드의 VM 대화, 트래픽 핫스폿.
+- VNET, 중요한 비즈니스 서비스와 애플리케이션 간의 상호 관계 트래픽의 원본 및 대상입니다.
+- 악성 트래픽, 인터넷에 열려 있는 포트, 인터넷 액세스를 시도하는 애플리케이션 또는 VM을 포함한 보안입니다.
 - 과도한 프로비전 또는 미달 사용이라는 문제를 제거하는 데 도움이 되는 용량 사용률입니다.
 
 Log Analytics에 NSG 로그를 보내려면 진단 설정에 계속 의존할 수 있으므로 기존 저장된 검색, 경고 및 대시보드는 계속 작동하게 됩니다. 이미 솔루션을 설치한 고객은 추가 공지가 있을 때까지 솔루션을 계속 사용할 수 있습니다. 9월 5일부터 네트워크 보안 그룹 분석 솔루션은 마켓플레이스에서 제거되고 커뮤니티를 통해 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights)으로 사용할 수 있게 됩니다.

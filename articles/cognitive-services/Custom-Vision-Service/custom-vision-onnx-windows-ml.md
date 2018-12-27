@@ -45,7 +45,7 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 ## <a name="get-the-example-code"></a>예제 코드 가져오기
 
-예제 응용 프로그램은 [https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/](https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/)에서 사용할 수 있습니다.
+예제 애플리케이션은 [https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/](https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/)에서 사용할 수 있습니다.
 
 ## <a name="run-the-example"></a>예제 실행
 

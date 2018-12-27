@@ -23,7 +23,7 @@ ms.locfileid: "53384159"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Azure에서 사용자 지정 Windows 컨테이너 실행(미리 보기)
 
-[Azure App Service](app-service-web-overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 응용 프로그램 스택을 제공합니다. 미리 구성된 Windows 환경은 관리자 액세스의 운영 체제, 소프트웨어 설치, 글로벌 어셈블리 캐시 변경 내용을 잠급니다([Azure App Service의 운영 체제 기능](operating-system-functionality.md) 참조). 응용 프로그램에 미리 구성된 환경에서 허용하는 것보다 많은 액세스 권한이 필요한 경우 대신 사용자 지정 Windows 컨테이너를 배포할 수 있습니다. 이 빠른 시작에서는 Windows 이미지의 ASP.NET 앱을 Visual Studio의 [Docker 허브](https://hub.docker.com/)에 배포하고 Azure App Service의 사용자 지정 컨테이너에서 실행하는 방법을 보여줍니다.
+[Azure App Service](app-service-web-overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 응용 프로그램 스택을 제공합니다. 미리 구성된 Windows 환경은 관리자 액세스의 운영 체제, 소프트웨어 설치, 글로벌 어셈블리 캐시 변경 내용을 잠급니다([Azure App Service의 운영 체제 기능](operating-system-functionality.md) 참조). 애플리케이션에 미리 구성된 환경에서 허용하는 것보다 많은 액세스 권한이 필요한 경우 대신 사용자 지정 Windows 컨테이너를 배포할 수 있습니다. 이 빠른 시작에서는 Windows 이미지의 ASP.NET 앱을 Visual Studio의 [Docker 허브](https://hub.docker.com/)에 배포하고 Azure App Service의 사용자 지정 컨테이너에서 실행하는 방법을 보여줍니다.
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
@@ -108,7 +108,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     ![](media/app-service-web-get-started-windows-container/portal-configure-container-vs.png)
 
-    웹 응용 프로그램에 대한 사용자 지정 이미지가 [Azure Container Registry](/azure/container-registry/) 또는 다른 개인 리포지토리와 같이 다른 곳에 있는 경우 여기에서 구성할 수 있습니다.
+    웹 애플리케이션에 대한 사용자 지정 이미지가 [Azure Container Registry](/azure/container-registry/) 또는 다른 개인 리포지토리와 같이 다른 곳에 있는 경우 여기에서 구성할 수 있습니다.
 
 6. **만들기**를 클릭하고, Azure를 수신 대기하여 필수 리소스를 만듭니다.
 

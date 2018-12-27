@@ -19,7 +19,7 @@ ms.locfileid: "46364213"
 ---
 # <a name="what-is-custom-decision-service"></a>Custom Decision Service란?
 
-일반 웹 또는 모바일 응용 프로그램에서, 첫 페이지는 여러 문서 또는 다른 형식의 콘텐츠와 연결됩니다. 첫 페이지가 로드될 때 Custom Decision Service를 요청하여 첫 페이지에 포함된 문서의 순위를 지정할 수 있습니다. 따라서 사용자가 문서를 클릭하여 문서를 선택할 때 Custom Decision Service로 두 번째 요청을 보낼 수 있으며, 해당 사용자가 내린 의사 결정의 결과가 기록됩니다.
+일반 웹 또는 모바일 애플리케이션에서, 첫 페이지는 여러 문서 또는 다른 형식의 콘텐츠와 연결됩니다. 첫 페이지가 로드될 때 Custom Decision Service를 요청하여 첫 페이지에 포함된 문서의 순위를 지정할 수 있습니다. 따라서 사용자가 문서를 클릭하여 문서를 선택할 때 Custom Decision Service로 두 번째 요청을 보낼 수 있으며, 해당 사용자가 내린 의사 결정의 결과가 기록됩니다.
 
 Custom Decision Service는 콘텐츠에 대한 RSS 피드와 응용 프로그램에 추가할 JavaScript 몇 줄만 있으면 되므로 사용하기 쉽습니다.
 

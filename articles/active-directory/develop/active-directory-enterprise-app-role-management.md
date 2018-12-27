@@ -1,6 +1,6 @@
 ---
 title: Azure AD의 엔터프라이즈 응용 프로그램에 대해 SAML 토큰에서 발급된 역할 클레임 구성 | Microsoft Docs
-description: Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 역할 클레임을 구성하는 방법 알아보기
+description: Azure Active Directory의 엔터프라이즈 애플리케이션에 SAML 토큰에서 발급된 역할 클레임을 구성하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
 author: jeevansd
@@ -33,7 +33,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
 ## <a name="when-to-use-this-feature"></a>이 기능을 사용하는 시기
 
-응용 프로그램에서 사용자 지정 역할이 SAML 응답에 전달될 것으로 예상하는 경우 이 기능을 사용해야 합니다. Azure AD에서 다시 응용 프로그램으로 전달하는 데 필요한 만큼 역할을 만들 수 있습니다.
+응용 프로그램에서 사용자 지정 역할이 SAML 응답에 전달될 것으로 예상하는 경우 이 기능을 사용해야 합니다. Azure AD에서 다시 애플리케이션으로 전달하는 데 필요한 만큼 역할을 만들 수 있습니다.
 
 ## <a name="create-roles-for-an-application"></a>응용 프로그램에 대한 역할 만들기
 
@@ -49,7 +49,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     !["새 응용 프로그램" 단추][3]
 
-4. 검색 상자에 응용 프로그램 이름을 입력한 다음, 결과 패널에서 응용 프로그램을 선택합니다. **추가** 단추를 선택하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 애플리케이션 이름을 입력한 다음, 결과 패널에서 애플리케이션을 선택합니다. **추가** 단추를 선택하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 애플리케이션](./media/active-directory-enterprise-app-role-management/tutorial_app_addfromgallery.png)
 
@@ -85,7 +85,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
       > [!Note]
       > 이미 API를 업그레이드하는 중이므로 고객은 서비스 중단을 확인할 수 있습니다.
 
-    f. 가져온 서비스 사용자 목록에서 수정해야 하는 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 서비스 사용자에서 응용 프로그램을 검색할 수도 있습니다. **속성** 페이지에서 복사한 개체 ID를 검색하고, 다음 쿼리를 사용하여 각 서비스 사용자로 이동합니다.
+    f. 가져온 서비스 사용자 목록에서 수정해야 하는 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 서비스 사용자에서 애플리케이션을 검색할 수도 있습니다. **속성** 페이지에서 복사한 개체 ID를 검색하고, 다음 쿼리를 사용하여 각 서비스 사용자로 이동합니다.
 
       `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
@@ -100,7 +100,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     h. 응용 프로그램에 대한 새 역할을 생성합니다.
 
-      다음 JSON은 **appRoles** 개체의 예제입니다. 응용 프로그램에 역할을 추가할 유사한 개체를 만듭니다.
+      다음 JSON은 **appRoles** 개체의 예제입니다. 애플리케이션에 역할을 추가할 유사한 개체를 만듭니다.
 
       ```
       {
@@ -189,7 +189,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     ![서비스 사용자 가져오기에 대한 쿼리가 있는 Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-4. 가져온 서비스 사용자 목록에서 수정해야 하는 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 서비스 사용자에서 응용 프로그램을 검색할 수도 있습니다. **속성** 페이지에서 복사한 개체 ID를 검색하고, 다음 쿼리를 사용하여 각 서비스 사용자로 이동합니다.
+4. 가져온 서비스 사용자 목록에서 수정해야 하는 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 서비스 사용자에서 애플리케이션을 검색할 수도 있습니다. **속성** 페이지에서 복사한 개체 ID를 검색하고, 다음 쿼리를 사용하여 각 서비스 사용자로 이동합니다.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
@@ -227,7 +227,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     ![서비스 사용자 목록 가져오기에 대한 쿼리가 있는 Graph Explorer 대화 상자](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-4. 가져온 서비스 사용자 목록에서 수정해야 하는 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 서비스 사용자에서 응용 프로그램을 검색할 수도 있습니다. **속성** 페이지에서 복사한 개체 ID를 검색하고, 다음 쿼리를 사용하여 각 서비스 사용자로 이동합니다.
+4. 가져온 서비스 사용자 목록에서 수정해야 하는 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 서비스 사용자에서 애플리케이션을 검색할 수도 있습니다. **속성** 페이지에서 복사한 개체 ID를 검색하고, 다음 쿼리를 사용하여 각 서비스 사용자로 이동합니다.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 

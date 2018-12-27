@@ -53,9 +53,9 @@ ms.locfileid: "51706265"
 
     ![RBAC 설정](media/common/k8s-RBAC.PNG)
 
-1. Http 응용 프로그램 라우팅을 사용하도록 설정합니다.
+1. Http 애플리케이션 라우팅을 사용하도록 설정합니다.
 
-   ![Http 응용 프로그램 라우팅 사용](media/common/Kubernetes-Create-Cluster-3.PNG)
+   ![Http 애플리케이션 라우팅 사용](media/common/Kubernetes-Create-Cluster-3.PNG)
 
     > [!Note]
     > 기존 클러스터에서 [Http 응용 프로그램 라우팅](/azure/aks/http-application-routing)을 사용하도록 설정하려면 `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing` 명령을 사용합니다.
@@ -74,7 +74,7 @@ ms.locfileid: "51706265"
 
 ### <a name="create-an-aspnet-web-app"></a>ASP.NET 웹앱 만들기
 
-Visual Studio 2017에서 새 프로젝트를 만듭니다. 현재 프로젝트는 **ASP.NET Core 웹 응용 프로그램**이어야 합니다. 프로젝트의 이름을 '**webfrontend**'로 지정합니다.
+Visual Studio 2017에서 새 프로젝트를 만듭니다. 현재 프로젝트는 **ASP.NET Core 웹 애플리케이션**이어야 합니다. 프로젝트의 이름을 '**webfrontend**'로 지정합니다.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
@@ -112,12 +112,12 @@ Azure Dev Spaces에서 작동하도록 설정되지 않은 클러스터를 선�
 ![](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)
 
 > [!Note]
-> 개발 환경이 성공적으로 만들어질 때까지는 응용 프로그램을 디버깅할 수 없습니다.
+> 개발 환경이 성공적으로 만들어질 때까지는 애플리케이션을 디버깅할 수 없습니다.
 
 ### <a name="look-at-the-files-added-to-project"></a>프로젝트에 추가된 파일 확인
 개발 환경이 생성될 때까지 기다리는 동안 개발 환경을 사용하도록 선택할 때 프로젝트에 추가된 파일을 확인합니다.
 
-먼저, `charts`라는 폴더가 추가되었으며, 이 폴더 내에는 응용 프로그램에 대한 [Helm 차트](https://docs.helm.sh)가 스캐폴딩되어 있습니다. 이러한 파일은 개발 환경에 응용 프로그램을 배포하는 데 사용됩니다.
+먼저, `charts`라는 폴더가 추가되었으며, 이 폴더 내에는 응용 프로그램에 대한 [Helm 차트](https://docs.helm.sh)가 스캐폴딩되어 있습니다. 이러한 파일은 개발 환경에 애플리케이션을 배포하는 데 사용됩니다.
 
 `Dockerfile`이라는 파일이 추가되었습니다. 이 파일에는 애플리케이션을 표준 Docker 형식으로 패키징하는 데 필요한 정보가 있습니다.
 

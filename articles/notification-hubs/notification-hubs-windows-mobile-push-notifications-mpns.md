@@ -26,7 +26,7 @@ ms.locfileid: "51235210"
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-이 자습서에서는 Azure Notification Hubs를 사용하여 Windows Phone 8 또는 Windows Phone 8.1 Silverlight 응용 프로그램에 푸시 알림을 보내는 방법을 보여줍니다. Windows Phone 8.1(비 Silverlight)을 대상으로 하는 경우 이 자습서의 [Windows 범용](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 버전을 참조하세요.
+이 자습서에서는 Azure Notification Hubs를 사용하여 Windows Phone 8 또는 Windows Phone 8.1 Silverlight 애플리케이션에 푸시 알림을 보내는 방법을 보여줍니다. Windows Phone 8.1(비 Silverlight)을 대상으로 하는 경우 이 자습서의 [Windows 범용](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 버전을 참조하세요.
 
 이 자습서에서는 MPNS(Microsoft 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 빈 Windows Phone 8 앱을 만듭니다. 앱을 만든 후 알림 허브를 사용하여 앱을 실행하는 모든 디바이스로 푸시 알림을 브로드캐스트합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "51235210"
 
 > [!div class="checklist"]
 > * 알림 허브 만들기
-> * Windows Phone 응용 프로그램 만들기
+> * Windows Phone 애플리케이션 만들기
 > * 알림 테스트 보내기 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -63,8 +63,8 @@ ms.locfileid: "51235210"
     > [!NOTE]
     > 이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. MPNS 인증되지 않은 모드에는 각 채널로 보낼 수 있는 알림에 대한 제한이 있습니다. Notification Hubs는 인증서를 업로드할 수 있도록 하여 [MPNS 인증 모드](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx)를 지원합니다.
 
-## <a name="create-a-windows-phone-application"></a>Windows Phone 응용 프로그램 만들기
-이 섹션에서는 알림 허브에 자신을 등록하는 Windows Phone 응용 프로그램을 만듭니다. 
+## <a name="create-a-windows-phone-application"></a>Windows Phone 애플리케이션 만들기
+이 섹션에서는 알림 허브에 자신을 등록하는 Windows Phone 애플리케이션을 만듭니다. 
 
 1. Visual Studio에서 새 Windows Phone 8 응용 프로그램을 만듭니다. 
    

@@ -130,7 +130,7 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
 ## <a name="call-the-direct-method"></a>직접 메서드 호출
 
-백 엔드 응용 프로그램은 IoT Hub의 서비스 측 엔드포인트에 연결합니다. 애플리케이션은 IoT 허브를 통해 디바이스에 직접 메서드 호출을 하고 승인을 수신 대기합니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행됩니다.
+백 엔드 애플리케이션은 IoT Hub의 서비스 측 엔드포인트에 연결합니다. 애플리케이션은 IoT 허브를 통해 디바이스에 직접 메서드 호출을 하고 승인을 수신 대기합니다. IoT Hub 백 엔드 애플리케이션은 일반적으로 클라우드에서 실행됩니다.
 
 1. 또 다른 로컬 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\back-end-application** 폴더로 이동합니다.
 
@@ -152,7 +152,7 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
     다음 스크린샷에서는 애플리케이션에서 디바이스에 직접 메서드를 호출하고 승인을 받을 때의 출력을 보여 줍니다.
 
-    ![백 엔드 응용 프로그램 실행](./media/quickstart-control-device-dotnet/BackEndApplication.png)
+    ![백 엔드 애플리케이션 실행](./media/quickstart-control-device-dotnet/BackEndApplication.png)
 
     백 엔드 애플리케이션을 실행한 후 시뮬레이션된 디바이스를 실행하는 콘솔 창에 메시지가 표시되고 메시지를 보내는 속도가 변경됩니다.
 

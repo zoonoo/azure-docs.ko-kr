@@ -1,6 +1,6 @@
 ---
-title: Azure 보안 및 규정 준수 청사진 - GDPR 준수 PaaS 웹 응용 프로그램
-description: Azure 보안 및 규정 준수 청사진 - GDPR 준수 PaaS 웹 응용 프로그램
+title: Azure 보안 및 규정 준수 청사진 - GDPR 준수 PaaS 웹 애플리케이션
+description: Azure 보안 및 규정 준수 청사진 - GDPR 준수 PaaS 웹 애플리케이션
 services: security
 author: jomolesk
 ms.assetid: 229759a1-f984-4985-a3fd-3719a7d1c8ff
@@ -15,14 +15,14 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51236587"
 ---
-# <a name="azure-security-and-compliance-blueprint---paas-web-application-for-gdpr"></a>Azure 보안 및 규정 준수 청사진 - GDPR 준수 PaaS 웹 응용 프로그램
+# <a name="azure-security-and-compliance-blueprint---paas-web-application-for-gdpr"></a>Azure 보안 및 규정 준수 청사진 - GDPR 준수 PaaS 웹 애플리케이션
 
 ## <a name="overview"></a>개요
 GDPR(일반 데이터 보호 규정)에는 조직에서 개인 정보를 식별하고 보호하는 방법, 투명성 요구 사항을 조정하는 방법, 개인 데이터 침해를 탐지하고 보고하는 방법, 개인 정보 담당 직원과 다른 직원을 교육하는 방법을 포함하여 개인 정보를 수집, 저장 및 사용하는 방법에 대한 다양한 요구 사항이 포함되어 있습니다. GDPR은 개인에게 개인 데이터에 대한 더 강화된 제어를 제공하고, 개인 데이터를 수집, 처리 또는 분석하는 조직에 대해 많은 새로운 의무를 부과합니다. GDPR은 EU(유럽 연합)의 사용자에게 상품과 서비스를 제공하거나 EU 거주자와 관련된 데이터를 수집하고 분석하는 조직에 새로운 규칙을 적용합니다. GDPR은 조직의 위치와 관계없이 적용됩니다.
 
 Microsoft는 GDPR에서 식별되는 개인 데이터의 범주를 포함하여 클라우드의 데이터를 보호하기 위해 업계를 선도하는 보안 조치와 및 개인 정보 보호 정책을 갖춘 Azure를 설계했습니다. Microsoft의 [계약 조건](https://aka.ms/Online-Services-Terms)은 Microsoft의 프로세서 요구 사항을 따릅니다.
 
-이 Azure 보안 및 규정 준수 청사진은 간단한 인터넷 연결 웹 응용 프로그램에 적합한 PaaS(Platform as a Service) 환경을 배포하기 위한 지침을 제공합니다. 이 솔루션은 고객이 GDPR의 특정 보안 및 규정 준수 요구 사항을 충족할 수 있는 방법을 보여 주고, 고객이 Azure에서 자신의 PaaS 웹 응용 프로그램 솔루션을 구축하고 구성할 수 있는 기반을 제공합니다. 고객은 이 참조 아키텍처를 활용하고 GDPR 준수 과정에서 Microsoft의 다음 [4단계 프로세스](https://aka.ms/gdprebook)를 따를 수 있습니다.
+이 Azure 보안 및 규정 준수 청사진은 간단한 인터넷 연결 웹 애플리케이션에 적합한 PaaS(Platform as a Service) 환경을 배포하기 위한 지침을 제공합니다. 이 솔루션은 고객이 GDPR의 특정 보안 및 규정 준수 요구 사항을 충족할 수 있는 방법을 보여 주고, 고객이 Azure에서 자신의 PaaS 웹 애플리케이션 솔루션을 구축하고 구성할 수 있는 기반을 제공합니다. 고객은 이 참조 아키텍처를 활용하고 GDPR 준수 과정에서 Microsoft의 다음 [4단계 프로세스](https://aka.ms/gdprebook)를 따를 수 있습니다.
 1. 검색: 존재하는 개인 데이터와 해당 위치를 식별합니다.
 2. 관리: 개인 데이터를 사용하고 액세스하는 방법을 관리합니다.
 3. 보호: 취약성 및 데이터 침해를 방지, 탐지 및 대응하기 위한 보안 제어를 설정합니다.
@@ -33,7 +33,7 @@ Microsoft는 GDPR에서 식별되는 개인 데이터의 범주를 포함하여 
 - 요구 사항이 각 고객의 특정 구현에 따라 달라질 수 있으므로 고객은 이 아키텍처를 사용하여 구축된 솔루션에 대한 적절한 보안 및 규정 준수 평가를 수행해야 합니다. 
 
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
-이 솔루션은 Azure SQL Database 백 엔드가 있는 PaaS 웹 응용 프로그램에 대한 참조 아키텍처를 제공합니다. 웹 응용 프로그램은 Azure 데이터 센터의 개인 전용 환경인 격리된 Azure App Service Environment에서 호스팅됩니다. 환경은 Azure에서 관리되는 VM 간에 웹 응용 프로그램에 대한 트래픽의 부하를 분산합니다. 이 아키텍처에는 네트워크 보안 그룹, Application Gateway, Azure DNS 및 Load Balancer도 포함됩니다. 또한 Azure Monitor는 시스템 상태의 실시간 분석을 제공합니다. **Azure에서는 관리 및 참조 아키텍처 서브넷에 데이터 가져오기를 위해 VPN 또는 ExpressRoute 연결을 구성하는 것이 좋습니다**.
+이 솔루션은 Azure SQL Database 백 엔드가 있는 PaaS 웹 애플리케이션에 대한 참조 아키텍처를 제공합니다. 웹 애플리케이션은 Azure 데이터 센터의 개인 전용 환경인 격리된 Azure App Service Environment에서 호스팅됩니다. 환경은 Azure에서 관리되는 VM 간에 웹 애플리케이션에 대한 트래픽의 부하를 분산합니다. 이 아키텍처에는 네트워크 보안 그룹, Application Gateway, Azure DNS 및 Load Balancer도 포함됩니다. 또한 Azure Monitor는 시스템 상태의 실시간 분석을 제공합니다. **Azure에서는 관리 및 참조 아키텍처 서브넷에 데이터 가져오기를 위해 VPN 또는 ExpressRoute 연결을 구성하는 것이 좋습니다**.
 
 ![GDPR 준수 PaaS 웹 응용 프로그램에 대한 참조 아키텍처 다이어그램](images/gdpr-paaswa-architecture.png?raw=true "GDPR 준수 PaaS 웹 응용 프로그램에 대한 참조 아키텍처 다이어그램")
 
@@ -66,7 +66,7 @@ Microsoft는 GDPR에서 식별되는 개인 데이터의 범주를 포함하여 
 
 **App Service Environment v2**: [Azure App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro)는 App Service 응용 프로그램을 높은 수준에서 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 Azure App Service 기능입니다.
 
-ASE는 단일 고객의 응용 프로그램만 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 고객은 인바운드 및 아웃바운드 응용 프로그램 네트워크 트래픽 둘 다에 대해 세밀하게 제어할 수 있고 응용 프로그램은 가상 네트워크를 통해 온-프레미스 회사 리소스에 고속 보안 연결을 설정할 수 있습니다.
+ASE는 단일 고객의 애플리케이션만 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 고객은 인바운드 및 아웃바운드 응용 프로그램 네트워크 트래픽 둘 다에 대해 세밀하게 제어할 수 있고 응용 프로그램은 가상 네트워크를 통해 온-프레미스 회사 리소스에 고속 보안 연결을 설정할 수 있습니다.
 
 이 아키텍처에 ASE를 사용하는 경우 허용되는 제어/구성은 다음과 같습니다.
 
@@ -175,7 +175,7 @@ Azure Monitor는 시스템 및 사용자 활동, 시스템 상태에 대한 광�
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 사용하면 사용자의 Azure 리소스에서 API 호출을 추적하는 것을 포함하여 조직에서 감사, 경고 만들기 및 데이터 보관을 수행할 수 있도록 하여 고객이 성능을 추적하고, 보안을 유지하고, 추세를 식별할 수 있습니다.
 
 **Application Insights**
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(응용 프로그램 성능 관리) 서비스입니다. Application Insights는 성능 이상을 감지하며, 고객이 라이브 웹 응용 프로그램을 모니터링하는 데 사용할 수 있습니다. 고객이 문제를 진단하고 실제로 앱을 사용하여 수행하는 작업을 파악할 수 있는 강력한 분석 도구를 포함하고 있습니다. 고객이 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(응용 프로그램 성능 관리) 서비스입니다. Application Insights는 성능 이상을 감지하며, 고객이 라이브 웹 애플리케이션을 모니터링하는 데 사용할 수 있습니다. 고객이 문제를 진단하고 실제로 앱을 사용하여 수행하는 작업을 파악할 수 있는 강력한 분석 도구를 포함하고 있습니다. 고객이 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
 
 ## <a name="threat-model"></a>위협 모델
 

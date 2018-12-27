@@ -37,7 +37,7 @@ Windows 2016 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace
 추가 응용 프로그램이 풀 VM에서 필요한 경우 다른 옵션을 사용할 수 있습니다.
 
 * 표준 Marketplace 이미지 기반 사용자 지정 이미지.
-  * 이 옵션을 사용하여 정확한 응용 프로그램 및 필요한 특정 버전으로 VM을 구성할 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](https://docs.microsoft.com/azure/batch/batch-custom-images)를 참조하세요. Autodesk 및 Chaos Group은 Azure Batch 라이선스 서비스에 대한 유효성을 검사하기 위해 Arnold 및 V-Ray를 각각 수정하였습니다. 이 지원이 포함된 이러한 응용 프로그램 버전이 있는지 확인해야 합니다. 그렇지 않으면 사용량 과금 라이선스가 적용되지 않습니다. 현재 버전의 Maya 또는 3ds Max는 헤드리스를 실행하는 경우(배치/명령줄 모드로) 라이선스 서버가 필요하지 않습니다. 이 옵션을 진행하는 방법을 잘 모르는 경우 Azure 지원 담당자에게 문의하세요.
+  * 이 옵션을 사용하여 정확한 애플리케이션 및 필요한 특정 버전으로 VM을 구성할 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](https://docs.microsoft.com/azure/batch/batch-custom-images)를 참조하세요. Autodesk 및 Chaos Group은 Azure Batch 라이선스 서비스에 대한 유효성을 검사하기 위해 Arnold 및 V-Ray를 각각 수정하였습니다. 이 지원이 포함된 이러한 응용 프로그램 버전이 있는지 확인해야 합니다. 그렇지 않으면 사용량 과금 라이선스가 적용되지 않습니다. 현재 버전의 Maya 또는 3ds Max는 헤드리스를 실행하는 경우(배치/명령줄 모드로) 라이선스 서버가 필요하지 않습니다. 이 옵션을 진행하는 방법을 잘 모르는 경우 Azure 지원 담당자에게 문의하세요.
 * [응용 프로그램 패키지](https://docs.microsoft.com/azure/batch/batch-application-packages).
   * 하나 이상의 ZIP 파일을 사용하여 응용 프로그램 파일을 패키지 처리하고, Azure Portal을 통해 업로드하고, 풀 구성에서 패키지를 지정합니다. 풀 VM이 생성되면 ZIP 파일이 다운로드되고 파일이 추출됩니다.
 * 리소스 파일.

@@ -21,7 +21,7 @@ ms.locfileid: "53162634"
 # <a name="integrate-speech-service"></a>Speech Service 통합
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)를 사용하면 단일 요청을 통해 오디오를 수신하고 LUIS 예측 JSON 개체를 반환할 수 있습니다. 이 문서에서는 C# 프로젝트를 다운로드한 후 Visual Studio에서 사용하여 마이크에 말을 하고 LUIS 예측 정보를 수신합니다. 이 프로젝트에서는 이미 참조로 포함되어 있는 Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 패키지를 사용합니다. 
 
-이 문서에서는 응용 프로그램을 가져오기 위해 무료 [LUIS][LUIS] 웹 사이트 계정이 필요합니다.
+이 문서에서는 애플리케이션을 가져오기 위해 무료 [LUIS][LUIS] 웹 사이트 계정이 필요합니다.
 
 ## <a name="create-luis-endpoint-key"></a>LUIS 엔드포인트 키 만들기
 Azure Portal에서 LUIS(**Language Understanding**) 키를 [만듭니다](luis-how-to-azure-subscription.md#create-luis-endpoint-key). 

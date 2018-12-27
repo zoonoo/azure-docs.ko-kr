@@ -23,10 +23,10 @@ Bing Entity Search API는 엔터티 검색 및 결과 구문 분석을 위한 RE
 
 [C# Bing Entity Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch)은 Git Hub에서 얻을 수 있습니다.
 
-## <a name="application-dependencies"></a>응용 프로그램 종속성
+## <a name="application-dependencies"></a>애플리케이션 종속성
 **검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
-Bing Entity Search SDK를 사용하여 콘솔 응용 프로그램을 설정하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 찾습니다.  `Microsoft.Azure.CognitiveServices.Search.EntitySearch` 패키지를 추가합니다.
+Bing Entity Search SDK를 사용하여 콘솔 애플리케이션을 설정하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 찾습니다.  `Microsoft.Azure.CognitiveServices.Search.EntitySearch` 패키지를 추가합니다.
 
 [NuGet Entity Search 패키지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0)를 설치하면 다음 어셈블리를 포함한 종속성도 설치됩니다.
 * Microsoft.Rest.ClientRuntime
@@ -75,8 +75,8 @@ else
 
 ```
 
-## <a name="complete-console-application"></a>전체 콘솔 응용 프로그램
-다음 콘솔 응용 프로그램은 "Satya Nadella" 쿼리에서 단일 엔터티를 조회하고 간단한 설명을 출력합니다.
+## <a name="complete-console-application"></a>전체 콘솔 애플리케이션
+다음 콘솔 애플리케이션은 "Satya Nadella" 쿼리에서 단일 엔터티를 조회하고 간단한 설명을 출력합니다.
 ```
 using System;
 using System.Linq;

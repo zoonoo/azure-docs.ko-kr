@@ -65,4 +65,4 @@ Review API의 [검토 작업](https://westus.dev.cognitive.microsoft.com/docs/se
 
 ## <a name="next-steps"></a>다음 단계
 
-코드에서 REST API를 사용하거나 [Reviews .NET 빠른 시작](moderation-reviews-quickstart-dotnet.md)을 시작하여 응용 프로그램을 통합합니다.
+코드에서 REST API를 사용하거나 [Reviews .NET 빠른 시작](moderation-reviews-quickstart-dotnet.md)을 시작하여 애플리케이션을 통합합니다.

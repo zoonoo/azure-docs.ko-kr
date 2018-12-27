@@ -26,7 +26,7 @@ ms.locfileid: "46363652"
 
 ## <a name="get-the-url-and-prediction-key"></a>URL 및 예측 키 가져오기
 
-[Custom Vision 웹 페이지](https://customvision.ai)에서 프로젝트를 선택하고 __성능__ 탭을 선택합니다. __예측 키__를 포함하여 예측 API 사용에 대한 정보를 표시하려면 __예측 URL__을 선택합니다. Azure 리소스에 연결된 프로젝트의 경우 __예측 키__는 __키__ 아래의 연결된 Azure 리소스에 대한 [Azure Portal](https://portal.azure.com) 페이지에서 찾을 수도 있습니다. 응용 프로그램에서 사용하기 위해 다음 정보를 복사합니다.
+[Custom Vision 웹 페이지](https://customvision.ai)에서 프로젝트를 선택하고 __성능__ 탭을 선택합니다. __예측 키__를 포함하여 예측 API 사용에 대한 정보를 표시하려면 __예측 URL__을 선택합니다. Azure 리소스에 연결된 프로젝트의 경우 __예측 키__는 __키__ 아래의 연결된 Azure 리소스에 대한 [Azure Portal](https://portal.azure.com) 페이지에서 찾을 수도 있습니다. 애플리케이션에서 사용하기 위해 다음 정보를 복사합니다.
 
 * __이미지 파일__을 사용하기 위한 __URL__.
 * __Prediction-key__ 값.

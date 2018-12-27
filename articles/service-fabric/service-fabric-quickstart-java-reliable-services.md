@@ -26,7 +26,7 @@ ms.locfileid: "53312581"
 
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
-이 빠른 시작은 Linux 개발자 컴퓨터에서 Eclipse IDE를 사용하여 Microsoft Azure Service Fabric에 첫 번째 Java 응용 프로그램을 배포하는 방법을 보여줍니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다.
+이 빠른 시작은 Linux 개발자 컴퓨터에서 Eclipse IDE를 사용하여 Microsoft Azure Service Fabric에 첫 번째 Java 애플리케이션을 배포하는 방법을 보여줍니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다.
 
 ![응용 프로그램 스크린샷](./media/service-fabric-quickstart-java/votingapp.png)
 
@@ -34,8 +34,8 @@ Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 �
 
 * Eclipse를 Service Fabric Java 응용 프로그램을 위한 도구로 사용
 * 로컬 클러스터에 응용 프로그램 배포
-* Azure에서 응용 프로그램을 클러스터에 배포
-* 응용 프로그램을 여러 노드에 걸쳐 스케일 아웃
+* Azure에서 애플리케이션을 클러스터에 배포
+* 애플리케이션을 여러 노드에 걸쳐 스케일 아웃
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -54,7 +54,7 @@ Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 �
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
-## <a name="run-the-application-locally"></a>로컬에서 응용 프로그램 실행
+## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 
 1. 다음 명령을 실행하여 클러스터를 만듭니다.
 
@@ -80,7 +80,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
     ![응용 프로그램 프런트 엔드](./media/service-fabric-quickstart-java/runninglocally.png)
 
-이제 투표 옵션 집합을 추가하고 투표 하기를 시작할 수 있습니다. 응용 프로그램이 실행되고 모든 데이터가 Service Fabric 클러스터에 저장되며 별도의 데이터베이스가 필요하지 않습니다.
+이제 투표 옵션 집합을 추가하고 투표 하기를 시작할 수 있습니다. 애플리케이션이 실행되고 모든 데이터가 Service Fabric 클러스터에 저장되며 별도의 데이터베이스가 필요하지 않습니다.
 
 ## <a name="deploy-the-application-to-azure"></a>Azure에 응용 프로그램 배포
 
@@ -88,7 +88,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
 
-파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 운영합니다. 파티 클러스터를 사용하여 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드 및 클라이언트-노드 보안에 단일 자체 서명 인증서를 사용합니다.
+파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 운영합니다. 파티 클러스터를 사용하여 애플리케이션을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드 및 클라이언트-노드 보안에 단일 자체 서명 인증서를 사용합니다.
 
 [Linux 클러스터](https://aka.ms/tryservicefabric)에 로그인하고 조인합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. **추가 정보** 링크를 클릭하여 인증서 암호 및 다양한 환경에서 인증서를 사용하도록 구성하는 방법에 대한 지침을 찾습니다. **시작** 페이지와 **추가 정보** 페이지를 모두 열어두고 다음 단계에서 일부 지침을 사용합니다.
 
@@ -124,7 +124,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
 ### <a name="add-certificate-information-to-your-application"></a>응용 프로그램에 인증서 정보 추가
 
-인증서 지문은 Service Fabric 프로그래밍 모델을 사용하므로 응용 프로그램에 추가해야 합니다.
+인증서 지문은 Service Fabric 프로그래밍 모델을 사용하므로 애플리케이션에 추가해야 합니다.
 
 1. 보안 클러스터에서 실행할 때 인증서의 지문이 `Voting/VotingApplication/ApplicationManifest.xml` 파일에 있어야 합니다. 다음 명령을 실행하여 인증서의 지문을 추출합니다.
 
@@ -142,7 +142,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
 ### <a name="deploy-the-application-using-eclipse"></a>Eclipse를 사용하여 응용 프로그램 배포
 
-응용 프로그램과 클러스터가 준비되면 Eclipse에서 클러스터에 직접 배포할 수 있습니다.
+애플리케이션과 클러스터가 준비되면 Eclipse에서 클러스터에 직접 배포할 수 있습니다.
 
 1. **PublishProfiles** 디렉터리 아래에서 **Cloud.json** 파일을 열고 `ConnectionIPOrURL`과 `ConnectionPort` 필드에 정보를 적절히 입력합니다. 예제가 제공됩니다.
 
@@ -195,9 +195,9 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 이 빠른 시작에서는 다음을 수행하는 방법을 알아보았습니다.
 
 * Eclipse를 Service Fabric Java 응용 프로그램을 위한 도구로 사용
-* 로컬 클러스터에 Java 응용 프로그램 배포
+* 로컬 클러스터에 Java 애플리케이션 배포
 * Azure에서 Java 응용 프로그램을 클러스터에 배포
-* 응용 프로그램을 여러 노드에 걸쳐 스케일 아웃
+* 애플리케이션을 여러 노드에 걸쳐 스케일 아웃
 
 Service Fabric에서 Java 앱 작업에 대해 자세히 알아보려면 Java 앱에 대한 자습서를 계속 진행하십시오.
 

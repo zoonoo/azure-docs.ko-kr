@@ -24,7 +24,7 @@ ms.locfileid: "51704718"
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 응용 프로그램 업데이트
+> * 애플리케이션 업데이트
 > * 애플리케이션 실행
 > * 연결 수의 유효성 검사
 
@@ -40,7 +40,7 @@ ms.locfileid: "51704718"
 mstsc /v:<publicIpAddress>
 ```
 
-## <a name="update-the-application"></a>응용 프로그램 업데이트
+## <a name="update-the-application"></a>애플리케이션 업데이트
 
 이전 자습서에서는 저장소 계정에 파일만 업로드했습니다. 텍스트 편집기에서 `D:\git\storage-dotnet-perf-scale-app\Program.cs` 파일을 엽니다. `Main` 메서드를 다음 샘플로 바꿉니다. 이 예제에서는 업로드 작업을 주석 처리하고, 완료 시 다운로드 작업 및 저장소 계정의 콘텐츠를 삭제하는 작업의 주석을 제거합니다.
 

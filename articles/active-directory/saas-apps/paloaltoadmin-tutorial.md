@@ -68,9 +68,9 @@ Azure AD와 Palo Alto Networks - Admin UI의 통합을 구성하려면 다음과
 
     !["엔터프라이즈 애플리케이션" 창][2]
     
-1. 새 응용 프로그램을 추가하려면 창의 맨 위쪽에 있는 **새 응용 프로그램** 단추를 선택합니다.
+1. 새 애플리케이션을 추가하려면 창의 맨 위쪽에 있는 **새 애플리케이션** 단추를 선택합니다.
 
-    !["새 응용 프로그램" 단추][3]
+    !["새 애플리케이션" 단추][3]
 
 1. 검색 상자에 **Palo Alto Networks - Admin UI**를 입력하고, 결과 목록에서 **Palo Alto Networks - Admin UI**를 선택한 다음, **추가**를 선택합니다.
 
@@ -88,7 +88,7 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-다음 단계에 따라 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Palo Alto Networks - Admin UI 응용 프로그램에서 Single Sign-On을 구성합니다.
+다음 단계에 따라 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Palo Alto Networks - Admin UI 애플리케이션에서 Single Sign-On을 구성합니다.
 
 1. Azure Portal의 **Palo Alto Networks - Admin UI** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
@@ -111,7 +111,7 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
     > [!NOTE] 
     > 위의 값은 실제가 아닙니다. 이러한 값을 실제 로그온 URL 및 식별자로 업데이트하세요. 이러한 값을 얻으려면 [Palo Alto Networks - Admin UI 클라이언트 지원 팀](https://support.paloaltonetworks.com/support)에 문의합니다. 
  
-1. Palo Alto Networks - Admin UI 응용 프로그램은 특정 형식의 SAML 어설션을 예상하므로 다음 이미지에 나와 있는 것처럼 클레임을 구성하세요. 다음 단계를 따라 **응용 프로그램 통합** 페이지의 **사용자 특성** 섹션에서 특성 값을 관리할 수 있습니다.
+1. Palo Alto Networks - Admin UI 애플리케이션은 특정 형식의 SAML 어설션을 예상하므로 다음 이미지에 나와 있는 것처럼 클레임을 구성하세요. 다음 단계를 따라 **애플리케이션 통합** 페이지의 **사용자 특성** 섹션에서 특성 값을 관리할 수 있습니다.
     
     ![SAML 토큰 특성 목록](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
     
@@ -283,7 +283,7 @@ Palo Alto Networks - Admin UI는 Just-In-Time 사용자 프로비저닝을 지�
 
 1. Azure Portal에서 **애플리케이션** 보기를 열고 **디렉터리** 보기로 이동한 후 **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 
-    !["엔터프라이즈 응용 프로그램" 및 "모든 응용 프로그램" 링크][201] 
+    !["엔터프라이즈 애플리케이션" 및 "모든 애플리케이션" 링크][201] 
 
 1. **응용 프로그램** 목록에서 **Palo Alto Networks - Admin UI**를 선택합니다.
 

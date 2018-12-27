@@ -166,4 +166,4 @@ Azure Content Moderator에서 [목록 관리 API](https://westus.dev.cognitive.m
 
 ## <a name="next-steps"></a>다음 단계
 
-코드에서 REST API를 사용하거나 [이미지 목록 .NET 빠른 시작](image-lists-quickstart-dotnet.md)을 시작하여 응용 프로그램을 통합합니다.
+코드에서 REST API를 사용하거나 [이미지 목록 .NET 빠른 시작](image-lists-quickstart-dotnet.md)을 시작하여 애플리케이션을 통합합니다.

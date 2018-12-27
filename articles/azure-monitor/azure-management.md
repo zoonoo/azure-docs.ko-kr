@@ -1,6 +1,6 @@
 ---
 title: Azure 관리 및 OMS(Operations Management Suite) | Microsoft Docs
-description: 이전에 OMS(Operations Management Suite)에 번들된 Azure 관리 도구의 콘텐츠에 대한 링크가 포함된 Azure 응용 프로그램 및 리소스 관리 영역에 대한 개요입니다.
+description: 이전에 OMS(Operations Management Suite)에 번들된 Azure 관리 도구의 콘텐츠에 대한 링크가 포함된 Azure 애플리케이션 및 리소스 관리 영역에 대한 개요입니다.
 documentationcenter: ''
 author: bwren
 manager: carmonm

@@ -21,7 +21,7 @@ ms.locfileid: "50419030"
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-이 문서에서는 단순 Java 응용 프로그램을 사용하여 변칙 검색 API를 호출하는 방법을 설명합니다.  
+이 문서에서는 단순 Java 애플리케이션을 사용하여 변칙 검색 API를 호출하는 방법을 설명합니다.  
 예제는 시계열 데이터를 구독 키가 있는 변칙 검색 API에 제출한 후 API에서 각 데이터 요소에 대한 모든 변칙 요소와 예상 값을 가져옵니다.
 
 ## <a name="prerequisites"></a>필수 조건

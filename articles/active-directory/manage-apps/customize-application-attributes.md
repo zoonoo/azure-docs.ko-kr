@@ -22,8 +22,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2018
 ms.locfileid: "44356221"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 응용 프로그램에 대한 사용자 프로비전 특성 매핑 사용자 지정
-Microsoft Azure AD는 Salesforce, Google Apps 등과 같은 타사 SaaS 응용 프로그램에 프로비전을 하는 사용자에 대한 지원을 제공합니다. 타사 SaaS 응용 프로그램을 프로비전하는 사용자가 있을 경우 Azure Portal은 해당 특성 값을 특성 매핑이라는 형식으로 제어합니다.
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비전 특성 매핑 사용자 지정
+Microsoft Azure AD는 Salesforce, Google Apps 등과 같은 타사 SaaS 응용 프로그램에 프로비전을 하는 사용자에 대한 지원을 제공합니다. 타사 SaaS 애플리케이션을 프로비전하는 사용자가 있을 경우 Azure Portal은 해당 특성 값을 특성 매핑이라는 형식으로 제어합니다.
 
 Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미리 구성된 특성 및 특성 매핑 세트가 있습니다. 일부 앱은 사용자 외에도 그룹 같은 다른 유형의 개체를 관리합니다. <br> 
  비즈니스 요구 사항에 따라 기본 특성 매핑을 사용자 지정할 수 있습니다. 즉, 기존의 특성 매핑을 변경 또는 삭제하거나 새 특성 매핑을 만들 수 있습니다.
@@ -35,7 +35,7 @@ Azure AD 포털에서 **엔터프라이즈 응용 프로그램**의 **관리** �
 
 ![Salesforce](./media/customize-application-attributes/21.png) 
 
-**매핑** 구성을 클릭하면 관련 **특성 매핑** 화면이 열립니다. SaaS 응용 프로그램에서 올바르게 작동하기 위해 요구되는 특성 매핑이 있습니다. 필수 특성인 경우 **삭제** 기능을 사용할 수 없습니다.
+**매핑** 구성을 클릭하면 관련 **특성 매핑** 화면이 열립니다. SaaS 애플리케이션에서 올바르게 작동하기 위해 요구되는 특성 매핑이 있습니다. 필수 특성인 경우 **삭제** 기능을 사용할 수 없습니다.
 
 
 ![Salesforce](./media/customize-application-attributes/22.png)
@@ -48,7 +48,7 @@ Azure AD 포털에서 **엔터프라이즈 응용 프로그램**의 **관리** �
 
 
 ### <a name="understanding-attribute-mapping-types"></a>특성 매핑 유형 이해
-특성 매핑으로 타사 SaaS 응용 프로그램에서 특성이 채워지는 법을 제어합니다. 4 가지의 다른 매핑 형식이 지원됩니다.
+특성 매핑으로 타사 SaaS 애플리케이션에서 특성이 채워지는 법을 제어합니다. 4 가지의 다른 매핑 형식이 지원됩니다.
 
 * **직접** – 대상 특성이 Azure AD에서 연결된 개체의 특성 값으로 채워집니다.
 * **상수** – 대상 특성이 지정된 특정 문자열로 채워집니다.

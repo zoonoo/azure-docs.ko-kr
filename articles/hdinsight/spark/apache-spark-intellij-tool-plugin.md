@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for IntelliJ: HDInsight 클러스터용 Spark 응용 프로그램 만들기 '
+title: 'Azure Toolkit for IntelliJ: HDInsight 클러스터용 Spark 애플리케이션 만들기 '
 description: IntelliJ용 Azure 도구 키트를 사용하여 Scala로 작성된 Spark 응용 프로그램을 개발한 후 HDInsight Spark 클러스터로 제출합니다.
 services: hdinsight
 author: hrasheed-msft

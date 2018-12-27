@@ -45,7 +45,7 @@ ms.locfileid: "53141767"
 
 C#을 사용하여 예측 엔드포인트 GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)를 쿼리하여 이전 섹션의 브라우저 창에 표시된 것과 동일한 결과를 냅니다. 
 
-1. Visual Studio에서 새 콘솔 응용 프로그램을 만듭니다. 
+1. Visual Studio에서 새 콘솔 애플리케이션을 만듭니다. 
 
     ![Visual Studio에서 새 콘솔 애플리케이션 만들기](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
 

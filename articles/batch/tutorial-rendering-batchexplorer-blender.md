@@ -1,6 +1,6 @@
 ---
 title: Azure Batch 및 Batch 탐색기를 사용하여 Blender 장면 렌더링
-description: 자습서 - Azure Batch 및 Batch 탐색기 클라이언트 응용 프로그램을 사용하여 Blender 장면에서 여러 프레임을 렌더링하는 방법
+description: 자습서 - Azure Batch 및 Batch 탐색기 클라이언트 애플리케이션을 사용하여 Blender 장면에서 여러 프레임을 렌더링하는 방법
 services: batch
 author: mscurrell
 ms.author: markscu
@@ -15,7 +15,7 @@ ms.locfileid: "47392556"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>자습서: Batch 탐색기를 사용하여 Blender 장면 렌더링
 
-이 자습서에서는 Blender 데모 장면의 여러 프레임을 렌더링하는 방법을 보여줍니다. Blender는 클라이언트 및 렌더링 중인 VM 모두에 대한 요금이 청구되지 않으므로 이 자습서에 사용됩니다. 하지만 Maya 또는 3D Max와 같은 다른 응용 프로그램을 사용한 경우 프로세스가 매우 유사합니다.
+이 자습서에서는 Blender 데모 장면의 여러 프레임을 렌더링하는 방법을 보여줍니다. Blender는 클라이언트 및 렌더링 중인 VM 모두에 대한 요금이 청구되지 않으므로 이 자습서에 사용됩니다. 하지만 Maya 또는 3D Max와 같은 다른 애플리케이션을 사용한 경우 프로세스가 매우 유사합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -67,10 +67,10 @@ ms.locfileid: "47392556"
 
 ## <a name="create-a-pool-of-vms-for-rendering"></a>렌더링할 VM의 풀 만들기
 
-Blender 응용 프로그램이 포함된 Azure Marketplace VM 이미지를 렌더링하여 Batch 풀을 만듭니다.
+Blender 애플리케이션이 포함된 Azure Marketplace VM 이미지를 렌더링하여 Batch 풀을 만듭니다.
 
 * 왼쪽 기본 메뉴에서 '갤러리' 메뉴 항목을 선택합니다.
-* 응용 프로그램 항목의 목록에 대해 'Blender' 항목을 선택합니다.
+* 애플리케이션 항목의 목록에 대해 'Blender' 항목을 선택합니다.
 * Windows Server에서 프레임을 렌더링하기 위한 항목을 선택합니다.
 * 필요에 따라 항목의 오른쪽에 있는 링크 아이콘을 선택하여 풀 및 작업을 만드는 데 사용할 템플릿 파일을 볼 수 있습니다.
 
@@ -95,7 +95,7 @@ Blender 응용 프로그램이 포함된 Azure Marketplace VM 이미지를 렌�
 
 생성된 풀을 사용하여 일부 프레임을 렌더링하는 렌더링 작업을 만듭니다.
 * 왼쪽 기본 메뉴에서 '갤러리' 메뉴 항목을 선택합니다.
-* 응용 프로그램 항목의 목록에 대해 'Blender' 항목을 선택합니다.
+* 애플리케이션 항목의 목록에 대해 'Blender' 항목을 선택합니다.
 * Windows Server에서 프레임을 렌더링하기 위한 항목을 선택합니다.
 * '기존 풀을 사용하여 작업 실행' 단추를 선택합니다.
 * 'blender-windows' 풀을 선택합니다.
@@ -138,6 +138,6 @@ Blender에서 생성된 stdout.txt 로그 파일을 확인하여 렌더링 상�
 * '삭제'를 마우스 오른쪽 단추로 클릭하거나 풀 위에서 휴지통 아이콘을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* '갤러리' 섹션에서 Batch 탐색기를 통해 사용 가능한 렌더링 응용 프로그램을 탐색합니다.
-* 각 응용 프로그램에는 시간이 지남에 따라 확장되는 사용 가능한 여러 템플릿이 있습니다.  예를 들어 Blender의 경우 이미지의 일부를 병렬적으로 렌더링할 수 있도록 단일 이미지를 타일로 분할하는 템플릿이 있습니다.
+* '갤러리' 섹션에서 Batch 탐색기를 통해 사용 가능한 렌더링 애플리케이션을 탐색합니다.
+* 각 애플리케이션에는 시간이 지남에 따라 확장되는 사용 가능한 여러 템플릿이 있습니다.  예를 들어 Blender의 경우 이미지의 일부를 병렬적으로 렌더링할 수 있도록 단일 이미지를 타일로 분할하는 템플릿이 있습니다.
 * 렌더링 기능에 대한 포괄적인 설명은 [여기](https://docs.microsoft.com/azure/batch/batch-rendering-service)에 있는 아티클 집합을 참조하세요.

@@ -541,7 +541,7 @@ items:
         href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
       - name: SaaS 앱 보안
         href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
-      - name: 다중 테넌트 SaaS 응용 프로그램 예제
+      - name: 다중 테넌트 SaaS 애플리케이션 예제
         items:
         - name: Wingtip Tickets 샘플
           href: saas-tenancy-welcome-wingtip-tickets-app.md

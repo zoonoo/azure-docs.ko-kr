@@ -21,7 +21,7 @@ ms.locfileid: "46365020"
 
 스마트폰 앱에서 Azure Custom Decision Service API를 호출합니다. 이 문서에서는 몇 가지 기본적인 옵션을 사용하여 시작하는 방법을 설명합니다.
 
-먼저 [응용 프로그램을 등록](custom-decision-service-get-started-register.md)해야 합니다.
+먼저 [애플리케이션을 등록](custom-decision-service-get-started-register.md)해야 합니다.
 
 스마트폰 앱에서 Custom Decision Service에 대해 수행하는 API 호출에는 2가지가 있습니다. 하나는 콘텐츠의 순위 목록을 가져오기 위한 Ranking API 호출이고, 다른 하나는 보상을 보고하기 위한 Reward API 호출입니다. [cURL](https://en.wikipedia.org/wiki/CURL)의 샘플 호출은 다음과 같습니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "46365020"
 curl -d @<request.json> -X POST https://ds.microsoft.com/api/v2/<appId>/rank --header "Content-Type: application/json"
 ```
 
-여기서 `<appId>`는 포털에 등록된 응용 프로그램의 이름입니다. 응용 프로그램에서 렌더링할 수 있는 콘텐츠 항목의 정렬된 집합이 수신됩니다. 샘플 반환 결과는 다음과 같습니다.
+여기서 `<appId>`는 포털에 등록된 애플리케이션의 이름입니다. 애플리케이션에서 렌더링할 수 있는 콘텐츠 항목의 정렬된 집합이 수신됩니다. 샘플 반환 결과는 다음과 같습니다.
 
 ```json
 [{ "ranking":[{"id":"actionId3"}, {"id":"actionId1"}, {"id":"actionId2"}],

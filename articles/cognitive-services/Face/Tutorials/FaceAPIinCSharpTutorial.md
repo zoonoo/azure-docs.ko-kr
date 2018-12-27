@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 다음 단계에 따라 새 WPF 애플리케이션 프로젝트를 만듭니다.
 
 1. Visual Studio에서 [새 프로젝트] 대화 상자를 엽니다. **설치된 항목**, **Visual C#** 을 차례로 확장한 다음, **WPF 앱(.NET Framework)** 를 선택합니다.
-1. 응용 프로그램 이름을 **FaceTutorial**로 지정하고 **확인**을 클릭합니다.
+1. 애플리케이션 이름을 **FaceTutorial**로 지정하고 **확인**을 클릭합니다.
 1. 필요한 NuGet 패키지를 가져옵니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 누르고 **NuGet 패키지 관리**를 선택한 후 다음 패키지를 찾아 설치합니다.
     - Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview
 

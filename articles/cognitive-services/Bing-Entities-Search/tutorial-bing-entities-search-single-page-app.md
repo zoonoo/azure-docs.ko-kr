@@ -1,7 +1,7 @@
 ---
 title: '자습서: Bing Entity Search 단일 페이지 웹앱'
 titlesuffix: Azure Cognitive Services
-description: 단일 페이지 웹 응용 프로그램에서 Bing Entity Search API를 사용하는 방법을 보여줍니다.
+description: 단일 페이지 웹 애플리케이션에서 Bing Entity Search API를 사용하는 방법을 보여줍니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -26,7 +26,7 @@ Bing Entity Search API를 사용하면 *엔터티* 및 *장소*에 대한 정보
 |엔터티|이름으로 찾을 수 있는 잘 알려진 사람, 장소 및 사물|
 |장소|이름  *또는* 유형으로 찾을 수 있는 식당, 호텔, 기타 현지 기업|
 
-이 자습서에서는 Bing Entity Search API를 사용하여 이 페이지에 검색 결과를 표시하는 단일 페이지 웹 응용 프로그램을 빌드합니다. 응용 프로그램에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다.
+이 자습서에서는 Bing Entity Search API를 사용하여 이 페이지에 검색 결과를 표시하는 단일 페이지 웹 애플리케이션을 빌드합니다. 애플리케이션에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다.
 
 API를 통해 위치별로 결과의 우선 순위를 지정할 수 있습니다. 모바일 앱에서는 디바이스에 해당 위치를 요청할 수 있습니다. 웹앱에서는 `getPosition()` 함수를 사용할 수 있습니다. 그러나 이 호출은 보안 컨텍스트에서만 작동하며, 정확한 위치를 제공하지 않을 수 있습니다. 사용자가 해당 위치가 아닌 위치의 주변 엔터티를 검색할 수도 있습니다.
 

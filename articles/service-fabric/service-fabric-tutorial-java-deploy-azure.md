@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46996811"
 ---
-# <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 응용 프로그램 배포
+# <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 애플리케이션 배포
 
 이 자습서는 시리즈의 3부로, Azure에서 클러스터에 Service Fabric 애플리케이션을 배포하는 방법을 보여줍니다.
 
@@ -198,9 +198,9 @@ ms.locfileid: "46996811"
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
     ```
 
-## <a name="deploy-your-application-to-the-cluster"></a>클러스터에 응용 프로그램 배포
+## <a name="deploy-your-application-to-the-cluster"></a>클러스터에 애플리케이션 배포
 
-1. 응용 프로그램을 배포 하기 전에 다음 코드 조각을 *Voting/VotingApplication/ApplicationManifest.xml* 파일에 추가해야 합니다. **X509FindValue** 필드는 **Azure에서 Service Fabric 클러스터 만들기** 섹션의 4단계에서 반환된 지문입니다. 이 코드 조각은 **ApplicationManifest** 필드(루트 필드) 아래에 중첩됩니다.
+1. 애플리케이션을 배포 하기 전에 다음 코드 조각을 *Voting/VotingApplication/ApplicationManifest.xml* 파일에 추가해야 합니다. **X509FindValue** 필드는 **Azure에서 Service Fabric 클러스터 만들기** 섹션의 4단계에서 반환된 지문입니다. 이 코드 조각은 **ApplicationManifest** 필드(루트 필드) 아래에 중첩됩니다.
 
     ```xml
     <Certificates>
@@ -220,17 +220,17 @@ ms.locfileid: "46996811"
     sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
-4. 응용 프로그램을 배포하려면 *Voting/Scripts* 폴더로 이동해 **install.sh** 스크립트를 실행합니다.
+4. 애플리케이션을 배포하려면 *Voting/Scripts* 폴더로 이동해 **install.sh** 스크립트를 실행합니다.
 
     ```bash
     ./install.sh
     ```
 
-5. Service Fabric Explorer에 액세스하려면 좋아하는 브라우저를 열고 https://testlinuxcluster.westus.cloudapp.azure.com:19080에 입력합니다. 이 엔드포인트에 연결하는 데 사용하려는 인증서 저장소에서 인증서를 선택합니다. Linux 컴퓨터를 사용하는 경우 Service Fabric Explorer를 보려면 *new-service-fabric-cluster-certificate.sh* 스크립트에서 생성한 인증서를 크롬으로 가져와야 합니다. Mac을 사용하는 경우 Keychain에 PFX 파일을 설치해야 합니다. 응용 프로그램이 클러스터에 설치됐음을 알립니다.
+5. Service Fabric Explorer에 액세스하려면 좋아하는 브라우저를 열고 https://testlinuxcluster.westus.cloudapp.azure.com:19080에 입력합니다. 이 엔드포인트에 연결하는 데 사용하려는 인증서 저장소에서 인증서를 선택합니다. Linux 컴퓨터를 사용하는 경우 Service Fabric Explorer를 보려면 *new-service-fabric-cluster-certificate.sh* 스크립트에서 생성한 인증서를 크롬으로 가져와야 합니다. Mac을 사용하는 경우 Keychain에 PFX 파일을 설치해야 합니다. 애플리케이션이 클러스터에 설치됐음을 알립니다.
 
     ![SFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
-6. 응용 프로그램에 액세스하려면 https://testlinuxcluster.westus.cloudapp.azure.com:8080에 입력
+6. 애플리케이션에 액세스하려면 https://testlinuxcluster.westus.cloudapp.azure.com:8080에 입력
 
     ![Voting App Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 

@@ -20,7 +20,7 @@ ms.locfileid: "53262047"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>자습서: 단일 페이지 웹앱 만들기
 
-Bing News Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련된 뉴스 유형의 결과를 얻을 수 있습니다. 이 자습서에서는 Bing News Search API를 사용하여 페이지에 검색 결과를 표시하는 단일 페이지 웹 응용 프로그램을 빌드합니다. 응용 프로그램에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다.
+Bing News Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련된 뉴스 유형의 결과를 얻을 수 있습니다. 이 자습서에서는 Bing News Search API를 사용하여 페이지에 검색 결과를 표시하는 단일 페이지 웹 애플리케이션을 빌드합니다. 애플리케이션에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다.
 
 <!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)

@@ -32,7 +32,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-이 아티클에는 Bing Visual Search API 요청을 보내고 JSON 검색 결과를 표시하는 간단한 콘솔 응용 프로그램이 포함되어 있습니다. 이 응용 프로그램은 Java에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
+이 아티클에는 Bing Visual Search API 요청을 보내고 JSON 검색 결과를 표시하는 간단한 콘솔 응용 프로그램이 포함되어 있습니다. 이 애플리케이션은 Java에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -52,7 +52,7 @@ Azure Portal에서 구독을 시작하려면
 
 다음은 Java에서 MultipartEntityBuilder를 사용하여 이미지를 업로드하는 방법을 보여줍니다.
 
-이 응용 프로그램을 실행하려면 다음 단계를 따릅니다.
+이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 
 1. [gson 라이브러리](https://github.com/google/gson)를 다운로드하거나 설치합니다. Maven을 통해 얻을 수도 있습니다.
 2. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만듭니다.

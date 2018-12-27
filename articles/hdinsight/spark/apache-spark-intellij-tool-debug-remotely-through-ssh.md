@@ -1,5 +1,5 @@
 ---
-title: 'IntelliJ용 Azure 도구 키트: SSH를 통해 원격으로 Spark 응용 프로그램 디버그 '
+title: 'IntelliJ용 Azure 도구 키트: SSH를 통해 원격으로 Spark 애플리케이션 디버그 '
 description: IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 SSH를 통해 HDInsight 클러스터에서 응용 프로그램을 원격으로 디버그하는 방법에 대한 단계별 지침
 keywords: IntelliJ 원격으로 디버그, IntelliJ 원격 디버깅, SSH, IntelliJ, HDInsight, IntelliJ 디버그, 디버깅
 services: hdinsight

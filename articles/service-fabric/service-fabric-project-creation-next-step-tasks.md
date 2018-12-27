@@ -62,7 +62,7 @@ Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제�
 Service Fabric 응용 프로그램은 여러 가지 서비스로 구성되며, 각 서비스는 전문적인 작업을 수행합니다. 이러한 서비스는 서로 통신할 수 있으며 서비스에 연결하고 서비스와 통신하는 클러스터 외부의 클라이언트 응용 프로그램이 있을 수 있습니다. Service Fabric에서 [서비스와 통신 및 서비스 간 통신을 설정](service-fabric-connect-and-communicate-with-services.md)하는 방법을 알아봅니다. 
 
 ## <a name="learn-about-configuring-application-security"></a>응용 프로그램 보안 구성에 대해 알아보기
-다른 사용자 계정으로 클러스터에서 실행 중인 응용 프로그램을 보호할 수 있습니다. 또한 Service Fabric으로 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 응용 프로그램에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 서로 더욱 안전하게 응용 프로그램을 실행할 수 있습니다.  [응용 프로그램에 대한 보안 정책을 구성](service-fabric-application-runas-security.md)하는 방법을 알아봅니다.
+다른 사용자 계정으로 클러스터에서 실행 중인 응용 프로그램을 보호할 수 있습니다. 또한 Service Fabric으로 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 애플리케이션에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 서로 더욱 안전하게 애플리케이션을 실행할 수 있습니다.  [응용 프로그램에 대한 보안 정책을 구성](service-fabric-application-runas-security.md)하는 방법을 알아봅니다.
 
 응용 프로그램에는 저장소 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 중요한 정보가 포함되어 있을 수 있습니다. [응용 프로그램에서 비밀을 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Data Lake Storage Gen1과 호환되는 빅 데이터 응용 프로그램 | Microsoft Docs
-description: Azure Data Lake Storage Gen1(이전에 Azure Data Lake Store로 알려짐)에서 작동하는 오픈 소스 응용 프로그램의 목록
+title: Data Lake Storage Gen1과 호환되는 빅 데이터 애플리케이션 | Microsoft Docs
+description: Azure Data Lake Storage Gen1(이전에 Azure Data Lake Store로 알려짐)에서 작동하는 오픈 소스 애플리케이션의 목록
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2018
 ms.locfileid: "44391203"
 ---
-# <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에서 작동하는 오픈 소스 빅 데이터 응용 프로그램
+# <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에서 작동하는 오픈 소스 빅 데이터 애플리케이션
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 

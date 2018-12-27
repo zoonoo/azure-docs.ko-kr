@@ -581,7 +581,7 @@ window.Logging = {
 * [Azure AD 개발자 가이드][AAD-Dev-Guide]
 * [Azure AD 인증 라이브러리][AAD-Auth-Libraries]
 * [Azure AD 인증 시나리오][AAD-Auth-Scenarios]
-* [Azure Active Directory와 응용 프로그램 통합][AAD-Integrating-Apps]
+* [Azure Active Directory와 애플리케이션 통합][AAD-Integrating-Apps]
 
 아래의 의견 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 

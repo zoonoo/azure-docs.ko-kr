@@ -77,7 +77,7 @@ curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Co
 ```
 ---
 
-응용 프로그램 또는 REST 요청에서 위에서 사용한 것과 동일한 구독 키를 사용해야 합니다.
+애플리케이션 또는 REST 요청에서 위에서 사용한 것과 동일한 구독 키를 사용해야 합니다.
 
 #### <a name="verify-the-authorization-token"></a>권한 부여 토큰 확인
 

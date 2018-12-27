@@ -23,10 +23,10 @@ ACR 작업은 기본 이미지 중 하나에서 OS 또는 응용 프로그램 �
 
 > [!div class="checklist"]
 > * 기본 이미지 빌드
-> * 응용 프로그램 이미지 빌드 작업 만들기
+> * 애플리케이션 이미지 빌드 작업 만들기
 > * 응용 프로그램 이미지 작업을 트리거하도록 기본 이미지 업데이트
 > * 트리거된 작업 표시
-> * 업데이트된 응용 프로그램 이미지 확인
+> * 업데이트된 애플리케이션 이미지 확인
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -77,7 +77,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 [Dockerfile-base][dockerfile-base]: `Dockerfile-app`에서 기본으로 지정하는 이미지입니다. 이미지 자체는 [노드][base-node] 이미지를 기반으로 하며 `NODE_VERSION` 환경 변수를 포함합니다.
 
-다음 섹션에서는 작업을 만들고, Dockerfile 기본 이미지의 `NODE_VERSION` 값을 업데이트한 다음, ACR 작업을 사용하여 기본 이미지를 빌드합니다. ACR 작업에서 새 기본 이미지를 레지스트리에 푸시하면 응용 프로그램 이미지의 빌드가 자동으로 트리거됩니다. 필요에 따라 응용 프로그램 컨테이너 이미지를 로컬로 실행하여 빌드된 이미지에 다른 버전 문자열을 표시합니다.
+다음 섹션에서는 작업을 만들고, Dockerfile 기본 이미지의 `NODE_VERSION` 값을 업데이트한 다음, ACR 작업을 사용하여 기본 이미지를 빌드합니다. ACR 작업에서 새 기본 이미지를 레지스트리에 푸시하면 응용 프로그램 이미지의 빌드가 자동으로 트리거됩니다. 필요에 따라 애플리케이션 컨테이너 이미지를 로컬로 실행하여 빌드된 이미지에 다른 버전 문자열을 표시합니다.
 
 ## <a name="build-the-base-image"></a>기본 이미지 빌드
 
@@ -130,7 +130,7 @@ az acr task run --registry $ACR_NAME --name taskhelloworld
 
 ### <a name="optional-run-application-container-locally"></a>선택 사항: 로컬로 애플리케이션 컨테이너 실행
 
-로컬(Cloud Shell이 아님)에서 작업 중이고 Docker가 설치되어 있는 경우, 기본 이미지를 다시 빌드하기 전에 컨테이너를 실행하여 웹 브라우저에서 렌더링된 응용 프로그램을 확인합니다. Cloud Shell을 사용하는 경우 이 섹션을 건너뜁니다(Cloud Shell에서는 `az acr login` 또는 `docker run`을 지원하지 않음).
+로컬(Cloud Shell이 아님)에서 작업 중이고 Docker가 설치되어 있는 경우, 기본 이미지를 다시 빌드하기 전에 컨테이너를 실행하여 웹 브라우저에서 렌더링된 애플리케이션을 확인합니다. Cloud Shell을 사용하는 경우 이 섹션을 건너뜁니다(Cloud Shell에서는 `az acr login` 또는 `docker run`을 지원하지 않음).
 
 먼저 [az acr login][az-acr-login]을 사용하여 컨테이너 레지스트리에 로그인합니다.
 
@@ -146,7 +146,7 @@ docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
 
 브라우저에서 http://localhost:8080으로 이동하면 다음과 비슷하게 웹 페이지에 렌더링된 Node.js 버전 번호가 표시됩니다. 이후 단계에서 버전 문자열에 "a"를 추가하여 버전을 범프합니다.
 
-![브라우저에서 렌더링된 샘플 응용 프로그램의 스크린샷][base-update-01]
+![브라우저에서 렌더링된 샘플 애플리케이션의 스크린샷][base-update-01]
 
 ## <a name="list-the-builds"></a>빌드 나열
 
@@ -216,7 +216,7 @@ da1                       Linux       Succeeded  Manual        2018-09-17T22:29:
 
 ### <a name="optional-run-newly-built-image"></a>선택 사항: 새로 빌드된 이미지 실행
 
-로컬(Cloud Shell이 아님)에서 작업 중이고 Docker가 설치되어 있는 경우, 빌드가 완료되면 새 응용 프로그램 이미지를 실행합니다. `<run-id>`를 이전 단계에서 얻은 RUN ID로 바꿉니다. Cloud Shell을 사용하는 경우 이 섹션을 건너뜁니다(Cloud Shell에서는 `docker run`을 지원하지 않음).
+로컬(Cloud Shell이 아님)에서 작업 중이고 Docker가 설치되어 있는 경우, 빌드가 완료되면 새 애플리케이션 이미지를 실행합니다. `<run-id>`를 이전 단계에서 얻은 RUN ID로 바꿉니다. Cloud Shell을 사용하는 경우 이 섹션을 건너뜁니다(Cloud Shell에서는 `docker run`을 지원하지 않음).
 
 ```bash
 docker run -d -p 8081:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
@@ -224,7 +224,7 @@ docker run -d -p 8081:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
 
 브라우저에서 http://localhost:8081로 이동하면 웹 페이지에 업데이트된 Node.js 버전 번호("a" 포함)가 표시됩니다.
 
-![브라우저에서 렌더링된 샘플 응용 프로그램의 스크린샷][base-update-02]
+![브라우저에서 렌더링된 샘플 애플리케이션의 스크린샷][base-update-02]
 
 중요한 것은 **기본** 이미지를 새 버전 번호로 업데이트했지만 마지막으로 빌드된 **응용 프로그램** 이미지에 새 버전이 표시된다는 것입니다. ACR 작업에서 기본 이미지에 대한 변경 내용을 선택하고 응용 프로그램 이미지를 자동으로 다시 빌드했습니다.
 

@@ -1,7 +1,7 @@
 ---
 title: 코드 샘플 - Content Moderator, C#
 titlesuffix: Azure Cognitive Services
-description: 응용 프로그램에서 Content Moderator 사용
+description: 애플리케이션에서 Content Moderator 사용
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun

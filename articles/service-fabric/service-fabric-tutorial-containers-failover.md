@@ -25,7 +25,7 @@ ms.locfileid: "37112272"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>자습서: Service Fabric을 통한 컨테이너 서비스의 장애 조치(failover) 및 크기 조정 시연
 
-이 자습서는 시리즈의 3부입니다. 이 자습서에서는 장애 조치(failover)가 Service Fabric 컨테이너 응용 프로그램에서 처리되는 방법을 알아봅니다. 또한 컨테이너의 크기를 조정하는 방법을 배웁니다. 이 자습서에서는 다음을 수행했습니다.
+이 자습서는 시리즈의 3부입니다. 이 자습서에서는 장애 조치(failover)가 Service Fabric 컨테이너 애플리케이션에서 처리되는 방법을 알아봅니다. 또한 컨테이너의 크기를 조정하는 방법을 배웁니다. 이 자습서에서는 다음을 수행했습니다.
 
 > [!div class="checklist"]
 > * Service Fabric 클러스터에서 컨테이너 장애 조치(failover)에 대해 알아보기
@@ -85,7 +85,7 @@ Service Fabric 컨테이너는 해당 서비스에 대한 로드를 수용하도
 > * 컨테이너 이미지 만들기
 > * Azure Container Registry에 컨테이너 이미지 푸시
 > * Yeoman을 사용하여 Service Fabric에 대한 컨테이너 패키지
-> * 컨테이너를 사용하여 Service Fabric 응용 프로그램 빌드 및 실행
+> * 컨테이너를 사용하여 Service Fabric 애플리케이션 빌드 및 실행
 > * Service Fabric에서 장애 조치(failover) 및 크기 조정이 처리되는 방법
 
 [noderestart]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialnoderestart.png

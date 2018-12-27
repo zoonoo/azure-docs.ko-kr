@@ -32,7 +32,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-이 문서에는 Bing Visual Search API 요청을 보내고 JSON 검색 결과를 표시하는 간단한 콘솔 응용 프로그램이 포함되어 있습니다. 이 응용 프로그램은 C#에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
+이 문서에는 Bing Visual Search API 요청을 보내고 JSON 검색 결과를 표시하는 간단한 콘솔 응용 프로그램이 포함되어 있습니다. C#에서 이 애플리케이션이 작성되는 반면 API는 RESTful 웹 서비스로서 HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
 
 예제 프로그램은 .NET Core 클래스만 사용하며 .NET CLR을 사용하여 Windows에서 또는 [Mono](http://www.mono-project.com/)를 사용하여 Linux 또는 macOS에서 실행됩니다.
 
@@ -54,7 +54,7 @@ Windows에서 실행되는 이 코드를 가져오려면 [Visual Studio 2017](ht
 
 다음에서는 HttpWebRequest를 사용하여 메시지를 보내는 방법을 보여 줍니다. HttpClient, HttpRequestMessage 및 MultipartFormDataContent를 사용하는 예제를 보려면 [HttpClient 사용](#using-httpclient)을 참조하세요.
 
-이 응용 프로그램을 실행하려면 다음 단계를 따릅니다.
+이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 
 1. Visual Studio에서 새 콘솔 솔루션을 만듭니다.
 1. `Program.cs`의 내용을 이 빠른 시작에 표시되는 코드로 바꿉니다.

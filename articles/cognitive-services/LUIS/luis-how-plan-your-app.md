@@ -1,7 +1,7 @@
 ---
 title: 앱 계획
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: 관련 앱 의도 및 엔터티를 간략하게 설명한 다음, LUIS(Language Understanding Intelligent Services)에서 응용 프로그램 계획을 만듭니다.
+description: 관련 앱 의도 및 엔터티를 간략하게 설명한 다음, LUIS(Language Understanding Intelligent Services)에서 애플리케이션 계획을 만듭니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -30,7 +30,7 @@ LUIS 앱은 도메인 특정 항목을 중심으로 합니다.  예를 들어, �
 > 미리 빌드된 도메인을 앱의 시작점으로 사용할 수 있는지 확인하세요.
 
 ## <a name="identify-your-intents"></a>의도 식별
-응용 프로그램의 작업에 중요한 [의도](luis-concept-intent.md)에 대해 생각해 보세요. 항공편을 예약하고 사용자 목적지의 날씨를 확인하는 기능이 있는 여행 앱을 예로 들어보겠습니다. 이러한 동작에 대해 “BookFlight” 및 “GetWeather” 의도를 정의할 수 있습니다. 기능이 더 많은 보다 복잡한 앱에서는 의도가 더 많으므로 너무 구체적이지 않도록 주의해서 정의해야 합니다. 예를 들어, “BookFlight” 및 “BookHotel”은 별도의 의도여야 하지만 “BookInternationalFlight” 및 “BookDomesticFlight”는 너무 유사할 수 있습니다.
+애플리케이션의 작업에 중요한 [의도](luis-concept-intent.md)에 대해 생각해 보세요. 항공편을 예약하고 사용자 목적지의 날씨를 확인하는 기능이 있는 여행 앱을 예로 들어보겠습니다. 이러한 동작에 대해 “BookFlight” 및 “GetWeather” 의도를 정의할 수 있습니다. 기능이 더 많은 보다 복잡한 앱에서는 의도가 더 많으므로 너무 구체적이지 않도록 주의해서 정의해야 합니다. 예를 들어, “BookFlight” 및 “BookHotel”은 별도의 의도여야 하지만 “BookInternationalFlight” 및 “BookDomesticFlight”는 너무 유사할 수 있습니다.
 
 > [!NOTE]
 > 앱의 기능을 수행하는 데 필요한 만큼의 의도만 사용하는 것이 좋습니다. 너무 많은 의도를 정의하면 LUIS에서 발화를 올바르게 분류하기가 더욱 어려워집니다. 너무 적게 정의하면 너무 일반적이어서 겹칠 수 있습니다.

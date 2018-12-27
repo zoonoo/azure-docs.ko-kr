@@ -1,7 +1,7 @@
 ---
 title: Bing Video Search SDK
 titleSuffix: Azure Cognitive Services
-description: 웹을 검색하는 응용 프로그램에 대한 Bing Search SDK입니다.
+description: 웹을 검색하는 애플리케이션에 대한 Bing Search SDK입니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun

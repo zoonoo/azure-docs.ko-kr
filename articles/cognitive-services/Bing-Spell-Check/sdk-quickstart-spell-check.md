@@ -21,7 +21,7 @@ ms.locfileid: "52311605"
 
 Bing Spell Check SDK는 맞춤법 검사를 위한 REST API 기능을 포함하고 있습니다.
 
-## <a name="application-dependencies"></a>응용 프로그램 종속성
+## <a name="application-dependencies"></a>애플리케이션 종속성
 **검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 Bing Spell Check SDK를 사용하여 콘솔 응용 프로그램을 설정하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 찾습니다. `Microsoft.Azure.CognitiveServices.Language.SpellCheck` 패키지를 추가합니다.
@@ -88,7 +88,7 @@ if (result?.Body.FlaggedTokens?.Count > 0)
     }
 ```
 
-## <a name="complete-console-application"></a>전체 콘솔 응용 프로그램
+## <a name="complete-console-application"></a>전체 콘솔 애플리케이션
 
 다음 콘솔 응용 프로그램은 이전 코드를 실행합니다.
 

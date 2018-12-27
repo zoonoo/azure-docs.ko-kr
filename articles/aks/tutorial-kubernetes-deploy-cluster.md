@@ -26,7 +26,7 @@ Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제�
 > * Kubernetes CLI(kubectl) 설치
 > * AKS 클러스터에 연결하도록 kubectl 구성
 
-후속 자습서에서 Azure Vote 응용 프로그램은 클러스터에 배포되고, 크기가 조정되며, 업데이트됩니다.
+후속 자습서에서 Azure Vote 애플리케이션은 클러스터에 배포되고, 크기가 조정되며, 업데이트됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

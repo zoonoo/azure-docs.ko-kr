@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/10/2018
 ms.locfileid: "49078497"
 ---
-# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 응용 프로그램 만들기 및 배포
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기 및 배포
 
 이 자습서는 시리즈의 1부입니다.  ASP.NET Core Web API 프런트 엔드 및 상태 저장 백 엔드 서비스에서 Azure Service Fabric 응용 프로그램을 만들어 데이터를 저장하는 방법을 알아봅니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 ASP.NET Core 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다. 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)하고 [투표 샘플 응용 프로그램을 설명](#walkthrough_anchor)하기 위해 바로 건너뛸 수 있습니다.  원하는 경우 이 자습서의 [비디오 연습](https://channel9.msdn.com/Events/Connect/2017/E100)도 시청할 수 있습니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "49078497"
 
 3. **새 프로젝트** 대화 상자에서 **클라우드 > Service Fabric 응용 프로그램**을 선택합니다.
 
-4. 응용 프로그램의 이름을 **Voting**으로 지정하고 **확인**을 클릭합니다.
+4. 애플리케이션의 이름을 **Voting**으로 지정하고 **확인**을 클릭합니다.
 
    ![Visual Studio의 새 프로젝트 대화 상자](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
@@ -68,7 +68,7 @@ ms.locfileid: "49078497"
    
    ![새 서비스 대화 상자에서 ASP.NET 웹 서비스 선택](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **웹 응용 프로그램(모델-뷰-컨트롤러)** 을 선택한 다음, **확인**을 클릭합니다.
+6. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **웹 애플리케이션(모델-뷰-컨트롤러)** 을 선택한 다음, **확인**을 클릭합니다.
    
    ![ASP.NET 프로젝트 형식 선택](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -324,17 +324,17 @@ VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신�
   </Resources>
 ```
 
-응용 프로그램을 디버그할 때 올바른 포트에 웹 브라우저가 열리도록 투표 프로젝트에서 응용 프로그램 URL 속성 값도 업데이트합니다.  솔루션 탐색기에서 **투표** 프로젝트를 선택하고 **응용 프로그램 URL** 속성을 **8080**으로 업데이트합니다.
+애플리케이션을 디버그할 때 올바른 포트에 웹 브라우저가 열리도록 투표 프로젝트에서 애플리케이션 URL 속성 값도 업데이트합니다.  솔루션 탐색기에서 **투표** 프로젝트를 선택하고 **애플리케이션 URL** 속성을 **8080**으로 업데이트합니다.
 
 ![응용 프로그램 URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
-### <a name="deploy-and-run-the-voting-application-locally"></a>Voting 응용 프로그램을 로컬로 배포하고 실행
-이제 Voting 응용 프로그램을 실행하고 디버깅할 수 있습니다. Visual Studio에서 **F5** 키를 눌러 디버그 모드에서 응용 프로그램을 로컬 Service Fabric 클러스터에 배포합니다. 이전에 **관리자** 권한으로 Visual Studio를 열지 않은 경우 응용 프로그램이 실패합니다.
+### <a name="deploy-and-run-the-voting-application-locally"></a>Voting 애플리케이션을 로컬로 배포하고 실행
+이제 Voting 애플리케이션을 실행하고 디버깅할 수 있습니다. Visual Studio에서 **F5** 키를 눌러 디버그 모드에서 애플리케이션을 로컬 Service Fabric 클러스터에 배포합니다. 이전에 **관리자** 권한으로 Visual Studio를 열지 않은 경우 애플리케이션이 실패합니다.
 
 > [!NOTE]
-> 로컬에서 처음으로 응용 프로그램을 배포하고 실행할 때 Visual Studio는 디버깅을 위한 로컬 Service Fabric 클러스터를 만듭니다.  클러스터 생성에는 다소 시간이 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.
+> 로컬에서 처음으로 애플리케이션을 배포하고 실행할 때 Visual Studio는 디버깅을 위한 로컬 Service Fabric 클러스터를 만듭니다.  클러스터 생성에는 다소 시간이 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.
 
-로컬 Service Fabric 클러스터에 Voting 응용 프로그램을 배포한 후에는 웹앱이 자동으로 브라우저 탭에서 열리고 다음과 비슷하게 보입니다.
+로컬 Service Fabric 클러스터에 Voting 애플리케이션을 배포한 후에는 웹앱이 자동으로 브라우저 탭에서 열리고 다음과 비슷하게 보입니다.
 
 ![ASP.NET Core 프런트 엔드](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
 
@@ -599,7 +599,7 @@ public class VotesController : Controller
 
 <a id="walkthrough" name="walkthrough_anchor"></a>
 
-## <a name="walk-through-the-voting-sample-application"></a>투표 응용 프로그램 예제 연습
+## <a name="walk-through-the-voting-sample-application"></a>투표 애플리케이션 예제 연습
 
 투표 애플리케이션은 두 가지 서비스로 구성됩니다.
 
@@ -618,7 +618,7 @@ public class VotesController : Controller
 
 ## <a name="debug-in-visual-studio"></a>Visual Studio에서 디버그
 
-Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터를 백 엔드 서비스에 저장합니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 응용 프로그램을 제거합니다. 애플리케이션을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **응용 프로그램 디버그 모드**를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
+Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터를 백 엔드 서비스에 저장합니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 응용 프로그램을 제거합니다. 애플리케이션을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **애플리케이션 디버그 모드**를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
 
 코드에서 수행되는 작업을 살펴보려면 다음 단계를 완료합니다.
 

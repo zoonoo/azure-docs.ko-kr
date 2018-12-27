@@ -312,7 +312,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 7. *기본적으로 2018년 6월 20일에 SNI TLS/SSL에서 전용 인증서를 사용하여 Verizon의 Azure CDN을 시작했습니다. SAN(주체 대체 이름) 인증서와 IP 기반 TLS/SSL을 사용하는 기존 사용자 지정 도메인은 어떻게 되나요?*
 
-    Microsoft가 응용 프로그램에 대한 SNI 클라이언트 요청이 있는지 분석하는 경우 기존 도메인은 향후 몇 달 안에 단일 인증서로 점진적으로 마이그레이션됩니다. Microsoft가 응용 프로그램에 대한 일부 비 SNI 클라이언트 요청을 검색하는 경우 도메인은 IP 기반 TLS/SSL을 사용하여 SAN 인증서에 유지됩니다. 어떤 경우든 해당 요청이 SNI인지 비 SNI인지에 관계 없이 서비스에 대한 중단 또는 클라이언트 요청에 대한 지원이 없습니다.
+    Microsoft가 애플리케이션에 대한 SNI 클라이언트 요청이 있는지 분석하는 경우 기존 도메인은 향후 몇 달 안에 단일 인증서로 점진적으로 마이그레이션됩니다. Microsoft가 애플리케이션에 대한 일부 비 SNI 클라이언트 요청을 검색하는 경우 도메인은 IP 기반 TLS/SSL을 사용하여 SAN 인증서에 유지됩니다. 어떤 경우든 해당 요청이 SNI인지 비 SNI인지에 관계 없이 서비스에 대한 중단 또는 클라이언트 요청에 대한 지원이 없습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

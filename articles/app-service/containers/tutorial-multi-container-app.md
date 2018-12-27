@@ -31,7 +31,7 @@ ms.locfileid: "53251643"
 > * Web App for Containers에서 작동하도록 Docker Compose 구성 변환
 > * Web App for Containers에서 작동하도록 Kubernetes 구성 변환
 > * Azure에 다중 컨테이너 앱 배포
-> * 응용 프로그램 설정 추가
+> * 애플리케이션 설정 추가
 > * 컨테이너용 영구 저장소 사용
 > * Azure Database for MySQL에 연결
 > * 오류 문제 해결
@@ -710,7 +710,7 @@ Redis를 사용하려면 [Redis에 WordPress 연결](#connect-wordpress-to-redis
 > * Web App for Containers에서 작동하도록 Docker Compose 구성 변환
 > * Web App for Containers에서 작동하도록 Kubernetes 구성 변환
 > * Azure에 다중 컨테이너 앱 배포
-> * 응용 프로그램 설정 추가
+> * 애플리케이션 설정 추가
 > * 컨테이너용 영구 저장소 사용
 > * Azure Database for MySQL에 연결
 > * 오류 문제 해결

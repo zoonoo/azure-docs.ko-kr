@@ -60,7 +60,7 @@ IoT Hub 서비스는 거의 모든 서비스 계층에서 중복성을 구현하
 IoT Hub에 대한 장애 조치(failover) 작업이 완료되면 해당 디바이스와 백엔드 애플리케이션의 모든 작업이 수동 개입 없이 계속 작동해야 합니다.
 
 > [!CAUTION]
-> - 장애 조치(failover) 후에는 Event Hub 호환 이름 및 IoT Hub 기본 제공 이벤트 엔드포인트가 변경됩니다. 이벤트 허브 클라이언트나 이벤트 프로세서 호스트를 사용하여 기본 제공 엔드포인트로부터 원격 분석 메시지를 수신할 때는 [IoT Hub 연결 문자열](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint)을 사용하여 연결을 설정해야 합니다. 이를 통해 장애 조치(failover) 후에 수동 개입 없이 백엔드 응용 프로그램이 계속 작동하게 됩니다. 백엔드 응용 프로그램에서 직접 Event Hub 호환 이름과 엔드포인트를 사용할 경우, 계속 작동하려면 장애 조치(failover) 후 [새 Event Hub 호환 이름 및 엔드포인트를 페치하여](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) 응용 프로그램을 다시 구성해야 합니다.
+> - 장애 조치(failover) 후에는 Event Hub 호환 이름 및 IoT Hub 기본 제공 이벤트 엔드포인트가 변경됩니다. 이벤트 허브 클라이언트나 이벤트 프로세서 호스트를 사용하여 기본 제공 엔드포인트로부터 원격 분석 메시지를 수신할 때는 [IoT Hub 연결 문자열](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint)을 사용하여 연결을 설정해야 합니다. 이를 통해 장애 조치(failover) 후에 수동 개입 없이 백엔드 애플리케이션이 계속 작동하게 됩니다. 백엔드 애플리케이션에서 직접 Event Hub 호환 이름과 엔드포인트를 사용할 경우, 계속 작동하려면 장애 조치(failover) 후 [새 Event Hub 호환 이름 및 엔드포인트를 페치하여](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) 애플리케이션을 다시 구성해야 합니다.
 >
 > - 장애 조치(failover) 후 Event Grid를 통해 내보낸 이벤트는 해당 Event Grid 구독을 계속 사용할 수 있는 한 앞서 구성된 것과 같은 구독을 통해 사용할 수 있습니다.
 >
@@ -111,7 +111,7 @@ IoT 솔루션으로 배포 토폴로지를 완벽하게 수행하는 것은 이 
 
 높은 수준에서 IoT Hub로 국가별 장애 조치를 구현하려면 다음 단계를 수행해야 합니다.
 
-* **보조 IoT Hub 및 장치 라우팅 논리**: 주 지역에서 서비스 중단이 발생하는 경우 장치는 보조 지역으로 연결을 시작해야 합니다. 관련된 대부분의 서비스가 상태를 인식하는 특성이 있으므로 일반적으로 솔루션 관리자는 지역 간 장애 조치(failover) 프로세스를 트리거합니다. 프로세스에 대한 제어를 유지하면서 새 엔드포인트에서 디바이스로 통신하는 가장 좋은 방법은 현재 활성 엔드포인트에 대해 *안내자* 서비스를 정기적으로 확인하는 것입니다. 안내자 서비스는 DNS-리디렉션 기술(예: [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md))을 사용하여 복제되고 연결을 유지할 수 있는 웹 응용 프로그램입니다.
+* **보조 IoT Hub 및 장치 라우팅 논리**: 주 지역에서 서비스 중단이 발생하는 경우 장치는 보조 지역으로 연결을 시작해야 합니다. 관련된 대부분의 서비스가 상태를 인식하는 특성이 있으므로 일반적으로 솔루션 관리자는 지역 간 장애 조치(failover) 프로세스를 트리거합니다. 프로세스에 대한 제어를 유지하면서 새 엔드포인트에서 디바이스로 통신하는 가장 좋은 방법은 현재 활성 엔드포인트에 대해 *안내자* 서비스를 정기적으로 확인하는 것입니다. 안내자 서비스는 DNS-리디렉션 기술(예: [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md))을 사용하여 복제되고 연결을 유지할 수 있는 웹 애플리케이션입니다.
 
    > [!NOTE]
    > IoT Hub 서비스는 Azure Traffic Manager에서 지원되는 엔드포인트 유형이 아닙니다. 엔드포인트 상태 프로브 API를 구현하여 Azure Traffic Manage와 제안된 컨시어지 서비스를 통합하는 것이 좋습니다.

@@ -35,9 +35,9 @@ Azure AD는 Blockchain Workbench에 액세스할 수 있는 모든 사용자를 
 
 사용자를 특수 관리자 그룹에 할당할 때도 Azure AD가 사용됩니다. 관리자 그룹과 연결된 사용자는 계약의 배포 및 계약에 액세스하기 위해 사용자에게 권한을 부여하는 등의 권한 및 작업에 대한 액세스를 Blockchain Workbench 내에서 부여받습니다. 이 그룹에 속하지 않은 사용자는 관리자 작업에 액세스할 수 없습니다.
 
-## <a name="client-applications"></a>클라이언트 응용 프로그램
+## <a name="client-applications"></a>클라이언트 애플리케이션
 
-Workbench는 자동으로 생성된 웹 및 모바일(iOS, Android)용 클라이언트 응용 프로그램을 제공하며 이를 사용하여 블록체인 응용 프로그램의 유효성을 검사, 테스트 및 확인할 수 있습니다. 애플리케이션 인터페이스는 스마트 계약 메타데이터를 기반으로 동적으로 생성되며 모든 사용 사례를 수용할 수 있습니다. 클라이언트 애플리케이션은 사용자 관련 프런트 엔드를 Blockchain Workbench에서 생성한 전체 블록체인 애플리케이션에 제공합니다. 클라이언트 애플리케이션은 Azure AD(Azure Active Directory)를 통해 사용자를 인증한 다음, 스마트 계약의 비즈니스 컨텍스트에 맞는 사용자 환경을 제공합니다. 사용자 환경에서는 권한 있는 개인이 새 스마트 계약 인스턴스를 생성할 수 있으며 스마트 계약이 나타내는 비즈니스 프로세스의 적절한 시점에서 특정 유형의 트랜잭션을 실행할 수 있는 기능을 제공합니다.
+Workbench는 자동으로 생성된 웹 및 모바일(iOS, Android)용 클라이언트 애플리케이션을 제공하며 이를 사용하여 블록체인 애플리케이션의 유효성을 검사, 테스트 및 확인할 수 있습니다. 애플리케이션 인터페이스는 스마트 계약 메타데이터를 기반으로 동적으로 생성되며 모든 사용 사례를 수용할 수 있습니다. 클라이언트 애플리케이션은 사용자 관련 프런트 엔드를 Blockchain Workbench에서 생성한 전체 블록체인 애플리케이션에 제공합니다. 클라이언트 애플리케이션은 Azure AD(Azure Active Directory)를 통해 사용자를 인증한 다음, 스마트 계약의 비즈니스 컨텍스트에 맞는 사용자 환경을 제공합니다. 사용자 환경에서는 권한 있는 개인이 새 스마트 계약 인스턴스를 생성할 수 있으며 스마트 계약이 나타내는 비즈니스 프로세스의 적절한 시점에서 특정 유형의 트랜잭션을 실행할 수 있는 기능을 제공합니다.
 
 웹 애플리케이션에서 권한 있는 사용자는 관리자 콘솔에 액세스할 수 있습니다. 이 콘솔은 Azure AD의 관리자 그룹에 있는 사용자가 사용할 수 있으며 다음 기능에 대한 액세스 권한을 제공합니다.
 
@@ -113,7 +113,7 @@ Blockchain Workbench는 블록체인 비즈니스 논리를 사용하여 문서 
 
 ## <a name="monitoring"></a>모니터링
 
-Workbench는 Application Insights 및 Azure Monitor를 사용하여 응용 프로그램 로깅을 제공합니다. Application Insights는 Blockchain Workbench의 기록된 모든 정보를 저장하는 데 사용되고 오류, 경고 및 성공한 작업을 포함합니다. Application Insights는 개발자가 Blockchain Workbench를 사용하여 문제를 디버깅하는 데 사용할 수 있습니다. 
+Workbench는 Application Insights 및 Azure Monitor를 사용하여 애플리케이션 로깅을 제공합니다. Application Insights는 Blockchain Workbench의 기록된 모든 정보를 저장하는 데 사용되고 오류, 경고 및 성공한 작업을 포함합니다. Application Insights는 개발자가 Blockchain Workbench를 사용하여 문제를 디버깅하는 데 사용할 수 있습니다. 
 
 Azure Monitor는 블록체인 네트워크의 상태에 대한 정보를 제공합니다. 
 

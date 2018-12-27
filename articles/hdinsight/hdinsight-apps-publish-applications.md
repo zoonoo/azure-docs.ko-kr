@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight 응용 프로그램 게시
+title: Azure HDInsight 애플리케이션 게시
 description: HDInsight 응용 프로그램을 만든 다음 Azure Marketplace에 게시하는 방법을 알아봅니다.
 services: hdinsight
 author: hrasheed-msft

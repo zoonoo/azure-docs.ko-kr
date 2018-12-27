@@ -21,7 +21,7 @@ ms.locfileid: "49341313"
 
 이 자습서에서는 Azure Cognitive Services Computer Vision REST API의 기능을 보여 줍니다.
 
-Computer Vision REST API를 사용하는 JavaScript 응용 프로그램을 탐색하여 OCR(광학 인식)을 수행하고, 스마트하게 잘리는 썸네일을 만들고, 이미지에서 얼굴을 포함한 시각적 기능을 감지, 분류, 태그 지정 및 설명합니다. 이 예제에서는 분석 또는 처리할 이미지 URL을 제출할 수 있습니다. 이 오픈 소스 예제는 Computer Vision REST API를 사용하는 사용자 고유의 JavaScript 앱을 빌드하기 위한 템플릿으로 사용할 수 있습니다.
+Computer Vision REST API를 사용하는 JavaScript 애플리케이션을 탐색하여 OCR(광학 인식)을 수행하고, 스마트하게 잘리는 썸네일을 만들고, 이미지에서 얼굴을 포함한 시각적 기능을 감지, 분류, 태그 지정 및 설명합니다. 이 예제에서는 분석 또는 처리할 이미지 URL을 제출할 수 있습니다. 이 오픈 소스 예제는 Computer Vision REST API를 사용하는 사용자 고유의 JavaScript 앱을 빌드하기 위한 템플릿으로 사용할 수 있습니다.
 
 JavaScript 양식 응용 프로그램은 이미 작성되어 있지만 Computer Vision 기능이 없습니다. 이 자습서에서는 Computer Vision REST API 관련 코드를 추가하여 응용 프로그램의 기능을 완성합니다.
 

@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51241415"
 ---
-# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 .NET 안정적인 서비스 응용 프로그램 배포
+# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 .NET 안정적인 서비스 애플리케이션 배포
 
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
@@ -30,15 +30,15 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 
 ![응용 프로그램 스크린샷](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
-이 응용 프로그램을 사용하여 다음 방법에 대해 알아봅니다.
+이 애플리케이션을 사용하여 다음 방법에 대해 알아봅니다.
 
-* .NET 및 Service Fabric을 사용하여 응용 프로그램 만들기
+* .NET 및 Service Fabric을 사용하여 애플리케이션 만들기
 * 웹 프런트 엔드로 ASP.NET core 사용
-* 상태 저장 서비스에 응용 프로그램 데이터 저장
-* 로컬에서 응용 프로그램 디버그
-* Azure에서 응용 프로그램을 클러스터에 배포
-* 응용 프로그램을 여러 노드에 걸쳐 스케일 아웃
-* 응용 프로그램 롤링 업그레이드 수행
+* 상태 저장 서비스에 애플리케이션 데이터 저장
+* 로컬에서 애플리케이션 디버그
+* Azure에서 애플리케이션을 클러스터에 배포
+* 애플리케이션을 여러 노드에 걸쳐 스케일 아웃
+* 애플리케이션 롤링 업그레이드 수행
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -70,20 +70,20 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 복제한 리포지토리에서 **Voting.sln** Visual Studio 솔루션을 엽니다.
 
-기본적으로 응답 애플리케이션은 포트 8080에서 수신하도록 설정됩니다.  응용 프로그램 포트는 */VotingWeb/PackageRoot/ServiceManifest.xml* 파일에서 설정됩니다.  **엔드포인트** 요소의 **포트** 특성을 업데이트하여 응용 프로그램 포트를 변경할 수 있습니다.  응용 프로그램을 로컬로 배포하고 실행하려면 응용 프로그램 포트가 열려 있고 컴퓨터에서 사용 가능해야 합니다.  애플리케이션 포트를 변경하는 경우 이 문서 전체에서 "8080"을 새 애플리케이션 포트 값으로 대체합니다.
+기본적으로 응답 애플리케이션은 포트 8080에서 수신하도록 설정됩니다.  애플리케이션 포트는 */VotingWeb/PackageRoot/ServiceManifest.xml* 파일에서 설정됩니다.  **엔드포인트** 요소의 **포트** 특성을 업데이트하여 응용 프로그램 포트를 변경할 수 있습니다.  애플리케이션을 로컬로 배포하고 실행하려면 애플리케이션 포트가 열려 있고 컴퓨터에서 사용 가능해야 합니다.  애플리케이션 포트를 변경하는 경우 이 문서 전체에서 "8080"을 새 애플리케이션 포트 값으로 대체합니다.
 
 응용 프로그램을 배포하려면 **F5** 키를 누릅니다.
 
 > [!NOTE]
-> 처음으로 응용 프로그램을 실행하고 배포할 때 Visual Studio는 디버깅을 위해 로컬 클러스터를 만듭니다. 이 작업에는 다소 시간이 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.  출력에서 “애플리케이션 URL이 설정되지 않았거나 HTTP/HTTPS URL이 아니므로 애플리케이션에 대한 브라우저가 열리지 않습니다.”라는 메시지가 표시됩니다.  메시지가 오류를 나타내지 않지만 브라우저가 자동으로 시작되지 않습니다.
+> 처음으로 애플리케이션을 실행하고 배포할 때 Visual Studio는 디버깅을 위해 로컬 클러스터를 만듭니다. 이 작업에는 다소 시간이 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.  출력에서 “애플리케이션 URL이 설정되지 않았거나 HTTP/HTTPS URL이 아니므로 애플리케이션에 대한 브라우저가 열리지 않습니다.”라는 메시지가 표시됩니다.  메시지가 오류를 나타내지 않지만 브라우저가 자동으로 시작되지 않습니다.
 
 배포가 완료되면 브라우저를 시작하고 애플리케이션의 웹 프런트 엔드인 이 페이지(`http://localhost:8080`)를 엽니다.
 
 ![애플리케이션 프런트 엔드](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
 
-이제 투표 옵션 집합을 추가하고 투표 하기를 시작할 수 있습니다. 응용 프로그램이 실행되고 모든 데이터가 Service Fabric 클러스터에 저장되며 별도의 데이터베이스가 필요하지 않습니다.
+이제 투표 옵션 집합을 추가하고 투표 하기를 시작할 수 있습니다. 애플리케이션이 실행되고 모든 데이터가 Service Fabric 클러스터에 저장되며 별도의 데이터베이스가 필요하지 않습니다.
 
-## <a name="walk-through-the-voting-sample-application"></a>투표 응용 프로그램 예제 연습
+## <a name="walk-through-the-voting-sample-application"></a>투표 애플리케이션 예제 연습
 
 투표 애플리케이션은 두 가지 서비스로 구성됩니다.
 
@@ -102,7 +102,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="debug-in-visual-studio"></a>Visual Studio에서 디버그
 
-애플리케이션은 정상적으로 실행되지만 디버거를 사용하여 애플리케이션의 주요 부분이 어떻게 작동하는지 확인할 수 있습니다. Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터가 백 엔드 서비스에 저장됩니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 응용 프로그램을 제거합니다. 애플리케이션을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **응용 프로그램 디버그 모드**를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
+애플리케이션은 정상적으로 실행되지만 디버거를 사용하여 애플리케이션의 주요 부분이 어떻게 작동하는지 확인할 수 있습니다. Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터가 백 엔드 서비스에 저장됩니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 응용 프로그램을 제거합니다. 애플리케이션을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **애플리케이션 디버그 모드**를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
 
 코드에서 수행되는 작업을 살펴보려면 다음 단계를 완료합니다.
 
@@ -145,7 +145,7 @@ Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabri
 ![PFX 및 연결 엔드포인트](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 
 > [!Note]
-> 시간당 사용 가능한 Party 클러스터의 수가 제한되어 있습니다. Party 클러스터에 등록하려고 할 때 오류가 발생하면, 일정 기간 동안 기다린 후 다시 시도하거나, [.NET 응용 프로그램 배포](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) 자습서에서 이러한 단계를 수행하여 Azure 구독에 Service Fabric 클러스터를 만들고 이 클러스터에 응용 프로그램을 배포할 수 있습니다. Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들 수 있습니다. 클러스터에 응용 프로그램을 배포하고 확인한 후에는 이 빠른 시작의 [클러스터에서 응용 프로그램 및 서비스 크기 조정](#scale-applications-and-services-in-a-cluster)으로 건너뛸 수 있습니다.
+> 시간당 사용 가능한 Party 클러스터의 수가 제한되어 있습니다. Party 클러스터에 등록하려고 할 때 오류가 발생하면, 일정 기간 동안 기다린 후 다시 시도하거나, [.NET 애플리케이션 배포](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) 자습서에서 이러한 단계를 수행하여 Azure 구독에 Service Fabric 클러스터를 만들고 이 클러스터에 애플리케이션을 배포할 수 있습니다. Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들 수 있습니다. 클러스터에 애플리케이션을 배포하고 확인한 후에는 이 빠른 시작의 [클러스터에서 애플리케이션 및 서비스 크기 조정](#scale-applications-and-services-in-a-cluster)으로 건너뛸 수 있습니다.
 >
 
 Windows 컴퓨터에서 *CurrentUser\My* 인증서 저장소에 PFX를 설치합니다.
@@ -169,7 +169,7 @@ Thumbprint                                Subject
 
 ### <a name="deploy-the-application-using-visual-studio"></a>Visual Studio를 사용하여 응용 프로그램 배포
 
-응용 프로그램이 준비되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
+애플리케이션이 준비되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
 
 1. 솔루션 탐색기에서 **Voting**을 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [게시] 대화 상자가 나타납니다.
 
@@ -177,7 +177,7 @@ Thumbprint                                Subject
 
     ![[게시] 대화 상자](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-    클러스터의 각 응용 프로그램에는 고유한 이름이 있어야 합니다.  Party 클러스터가 공용 공유 환경이지만 기존 응용 프로그램과 충돌이 발생할 수 있습니다.  이름이 충돌하는 경우 Visual Studio 프로젝트의 이름을 바꾸고 다시 배포합니다.
+    클러스터의 각 응용 프로그램에는 고유한 이름이 있어야 합니다.  Party 클러스터가 공용 공유 환경이지만 기존 애플리케이션과 충돌이 발생할 수 있습니다.  이름이 충돌하는 경우 Visual Studio 프로젝트의 이름을 바꾸고 다시 배포합니다.
 
 3. **게시**를 클릭합니다.
 
@@ -214,9 +214,9 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 
 이 간단한 관리 작업으로 사용자 로드를 처리하는 프런트 엔드 서비스에 사용 가능한 리소스를 두 배로 증가시킬 수 있습니다. 서비스를 안정적으로 실행하기 위해 서비스의 여러 인스턴스가 필요하지 않다는 것을 이해하는 것이 중요합니다. 서비스가 실패하면 Service Fabric은 클러스터에서 새 서비스 인스턴스가 실행되는지 확인합니다.
 
-## <a name="perform-a-rolling-application-upgrade"></a>응용 프로그램 롤링 업그레이드 수행
+## <a name="perform-a-rolling-application-upgrade"></a>애플리케이션 롤링 업그레이드 수행
 
-새 업데이트를 응용 프로그램에 배포할 때는 Service Fabric이 안전한 방식으로 업데이트를 공개합니다. 롤링 업그레이드를 사용하면 업그레이드하는 동안 가동 중지 시간이 없으며 오류가 발생하면 자동화된 롤백을 수행합니다.
+새 업데이트를 애플리케이션에 배포할 때는 Service Fabric이 안전한 방식으로 업데이트를 공개합니다. 롤링 업그레이드를 사용하면 업그레이드하는 동안 가동 중지 시간이 없으며 오류가 발생하면 자동화된 롤백을 수행합니다.
 
 응용 프로그램을 업그레이드하려면 다음을 수행합니다.
 
@@ -235,7 +235,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
     업그레이드가 실행되는 동안 응용 프로그램을 계속 사용할 수 있습니다. 클러스터에서 실행되는 서비스에는 두 인스턴스가 있으므로 일부 요청은 응용 프로그램의 업그레이드된 버전을 가질 수 있는 반면 일부는 이전 버전을 가질 수 있습니다.
 
 8. 브라우저를 열고 포트 19080에서 클러스터 주소로 이동합니다(예: `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`).
-9. 트리 뷰의 **응용 프로그램** 노드를 클릭한 후 오른쪽 창에서 **Upgrades in Progress(진행 중인 업그레이드)** 를 클릭합니다. 업그레이드가 클러스터에서 업그레이드 도메인을 어떻게 통과하고 다음으로 진행하기 전에 각 도메인 상태가 정상인지 확인하게 됩니다. 도메인 상태가 확인되면 진행률 표시줄에 업그레이드 도메인이 녹색으로 표시됩니다.
+9. 트리 뷰의 **애플리케이션** 노드를 클릭한 후 오른쪽 창에서 **Upgrades in Progress(진행 중인 업그레이드)** 를 클릭합니다. 업그레이드가 클러스터에서 업그레이드 도메인을 어떻게 통과하고 다음으로 진행하기 전에 각 도메인 상태가 정상인지 확인하게 됩니다. 도메인 상태가 확인되면 진행률 표시줄에 업그레이드 도메인이 녹색으로 표시됩니다.
     ![Service Fabric Explorer에서 업그레이드 보기](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric에서는 클러스터의 각 노드에서 서비스를 업그레이드 한 후 2분 대기함으로써 안전하게 업그레이드합니다. 전체 업데이트에는 약 8분이 소요될 것으로 예상됩니다.
@@ -244,13 +244,13 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 
 이 빠른 시작에서는 다음을 수행하는 방법을 알아보았습니다.
 
-* .NET 및 Service Fabric을 사용하여 응용 프로그램 만들기
+* .NET 및 Service Fabric을 사용하여 애플리케이션 만들기
 * 웹 프런트 엔드로 ASP.NET core 사용
-* 상태 저장 서비스에 응용 프로그램 데이터 저장
-* 로컬에서 응용 프로그램 디버그
-* Azure에서 응용 프로그램을 클러스터에 배포
-* 응용 프로그램을 여러 노드에 걸쳐 스케일 아웃
-* 응용 프로그램 롤링 업그레이드 수행
+* 상태 저장 서비스에 애플리케이션 데이터 저장
+* 로컬에서 애플리케이션 디버그
+* Azure에서 애플리케이션을 클러스터에 배포
+* 애플리케이션을 여러 노드에 걸쳐 스케일 아웃
+* 애플리케이션 롤링 업그레이드 수행
 
 Service Fabric 및 .NET에 대해 자세히 알아보기 위해 다음 자습서를 살펴보겠습니다.
 > [!div class="nextstepaction"]

@@ -151,7 +151,7 @@ https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip에서
 
     다음 스크린샷에서는 시뮬레이션된 디바이스에서 허브에 보낸 원격 분석을 백 엔드 응용 프로그램에서 받을 때의 출력을 보여줍니다.
 
-    ![백 엔드 응용 프로그램 실행](media/quickstart-send-telemetry-java/ReadDeviceToCloud.png)
+    ![백 엔드 애플리케이션 실행](media/quickstart-send-telemetry-java/ReadDeviceToCloud.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

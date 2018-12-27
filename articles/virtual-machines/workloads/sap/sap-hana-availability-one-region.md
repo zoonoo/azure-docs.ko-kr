@@ -111,7 +111,7 @@ SAP HANA 스케일 아웃 구성의 고가용성은 VM이 다시 가동될 때 A
 
 한 Azure 지역 내의 표준 및 가장 일반적인 가용성 구성에서는 SLES Linux를 실행하는 두 개의 Azure VM에 장애 조치 클러스터가 정의되어 있습니다. SLES Linux 클러스터는 [STONITH](http://linux-ha.org/wiki/STONITH) 디바이스와 함께 [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker) 프레임워크를 기반으로 합니다. 
 
-SAP HANA 측면에서 볼 때, 사용되는 복제 모드가 동기화되고 자동 장애 조치가 구성됩니다. 두 번째 VM에서 SAP HANA 인스턴스는 핫 대기 노드로 작동합니다. 대기 노드는 주 SAP HANA 인스턴스에서 변경 레코드의 동기 스트림을 받습니다. 트랜잭션이 HANA 주 노드에서 응용 프로그램을 통해 커밋되면, 보조 SAP HANA 노드에서 커밋된 레코드를 받았음을 확인할 때까지 주 HANA 노드는 응용 프로그램에 대한 커밋 확인을 기다립니다. SAP HANA는 두 개의 동기 복제 모드를 제공합니다. 이러한 두 동기 복제 모드에 대한 자세한 내용 및 차이점에 대한 설명은 [SAP HANA 시스템 복제에 대한 복제 모드](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html) 문서를 읽어보세요.
+SAP HANA 측면에서 볼 때, 사용되는 복제 모드가 동기화되고 자동 장애 조치가 구성됩니다. 두 번째 VM에서 SAP HANA 인스턴스는 핫 대기 노드로 작동합니다. 대기 노드는 주 SAP HANA 인스턴스에서 변경 레코드의 동기 스트림을 받습니다. 트랜잭션이 HANA 주 노드에서 애플리케이션을 통해 커밋되면, 보조 SAP HANA 노드에서 커밋된 레코드를 받았음을 확인할 때까지 주 HANA 노드는 애플리케이션에 대한 커밋 확인을 기다립니다. SAP HANA는 두 개의 동기 복제 모드를 제공합니다. 이러한 두 동기 복제 모드에 대한 자세한 내용 및 차이점에 대한 설명은 [SAP HANA 시스템 복제에 대한 복제 모드](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html) 문서를 읽어보세요.
 
 전체 구성은 다음과 같습니다.
 

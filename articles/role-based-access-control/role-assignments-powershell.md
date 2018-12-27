@@ -220,7 +220,7 @@ Azure AD 그룹에 대한 개체 ID를 가져오려면 [Get-AzureRmADGroup](/pow
 Get-AzureRmADGroup -SearchString <group name in quotes>
 ```
 
-Azure AD 서비스 주체 또는 응용 프로그램에 대한 개체 ID를 가져오려면 [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal)을 사용합니다.
+Azure AD 서비스 주체 또는 애플리케이션에 대한 개체 ID를 가져오려면 [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal)을 사용합니다.
 
 ```azurepowershell
 Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
@@ -228,7 +228,7 @@ Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 
 ### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>구독 범위에서 애플리케이션에 대한 역할 할당 만들기
 
-구독 범위에서 응용 프로그램에 대한 액세스 권한을 부여하려면 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment)를 사용합니다.
+구독 범위에서 애플리케이션에 대한 액세스 권한을 부여하려면 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment)를 사용합니다.
 
 ```azurepowershell
 New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope /subscriptions/<subscription id>

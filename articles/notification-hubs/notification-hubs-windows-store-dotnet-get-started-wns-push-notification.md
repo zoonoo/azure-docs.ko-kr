@@ -57,7 +57,7 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
 1. 앱의 이름을 입력한 다음, **제품 이름 예약**을 선택합니다. 이렇게 하면 앱을 새로 Windows 스토어에 등록하게 됩니다.
 
     ![앱 이름 저장](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-1. **앱 관리**를 확장하고, **WNS/MPNS**, **WNS/MPNS**를 차례로 선택한 다음, **Live 서비스 사이트**를 선택합니다. Microsoft 계정으로 로그인 새 탭에서 **응용 프로그램 등록 포털**이 열립니다. 또는 [응용 프로그램 등록 포털](https://apps.dev.microsoft.com)로 직접 이동하고, 이 페이지로 이동하도록 응용 프로그램 이름을 선택할 수 있습니다.
+1. **앱 관리**를 확장하고, **WNS/MPNS**, **WNS/MPNS**를 차례로 선택한 다음, **Live 서비스 사이트**를 선택합니다. Microsoft 계정으로 로그인 새 탭에서 **애플리케이션 등록 포털**이 열립니다. 또는 [응용 프로그램 등록 포털](https://apps.dev.microsoft.com)로 직접 이동하고, 이 페이지로 이동하도록 응용 프로그램 이름을 선택할 수 있습니다.
 
     ![WNS MPNS 페이지](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
 1.   **응용 프로그램 비밀** 암호 및 **패키지 SID(보안 식별자)** 를 메모해 둡니다.

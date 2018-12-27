@@ -240,10 +240,10 @@ VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를
 - **a**. 비디오가 성인 콘텐츠를 포함하는 경우 True입니다.
 - **racyScore**. 비디오 프레임에서 외설 콘텐츠의 심각도 등급을 지정하는 0~1의 값입니다.
 - **r**. 비디오 프레임이 외설 콘텐츠를 포함하는 경우 True입니다.
-- **ReviewerResultTags**. IList<VideoFrameBodyItemReviewerResultTagsItem>입니다. **VideoFrameBodyItemReviewerResultTagsItem**은 단순히 키/값 쌍입니다. 응용 프로그램은 이러한 태그를 사용하여 비디오 프레임을 구성할 수 있습니다.
+- **ReviewerResultTags**. IList<VideoFrameBodyItemReviewerResultTagsItem>입니다. **VideoFrameBodyItemReviewerResultTagsItem**은 단순히 키/값 쌍입니다. 애플리케이션은 이러한 태그를 사용하여 비디오 프레임을 구성할 수 있습니다.
 
 > [!NOTE]
-> 이 빠른 시작은 **adultScore** 및 **racyScore** 속성에 대한 임의 값을 생성합니다. 프로덕션 응용 프로그램에서 Azure 미디어 서비스로 배포된 [비디오 조정 서비스](video-moderation-api.md)에서 이러한 값을 가져옵니다.
+> 이 빠른 시작은 **adultScore** 및 **racyScore** 속성에 대한 임의 값을 생성합니다. 프로덕션 애플리케이션에서 Azure 미디어 서비스로 배포된 [비디오 조정 서비스](video-moderation-api.md)에서 이러한 값을 가져옵니다.
 
 VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 
@@ -408,7 +408,7 @@ VideoReviews 네임스페이스, Program 클래스에 **Main** 메서드 정의�
     }
 
 ## <a name="run-the-program-and-review-the-output"></a>프로그램 실행 및 출력 검토
-응용 프로그램을 실행하면 다음 줄에 출력이 표시됩니다.
+애플리케이션을 실행하면 다음 줄에 출력이 표시됩니다.
 
     Creating a video review.
     Adding a frame to the review with ID 201801v3212bda70ced4928b2cd7459c290c7dc.

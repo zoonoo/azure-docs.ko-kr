@@ -97,7 +97,7 @@ items:
       href: howto-prepare-images.md
     - name: Azure 관리 포털에서 IoT Central 관리
       href: howto-manage-iot-central-from-portal.md
-    - name: CSP가 응용 프로그램을 만들고 관리할 때
+    - name: CSP가 애플리케이션을 만들고 관리할 때
       href: howto-create-and-manage-applications-as-CSP.md
     - name: 홈페이지 구성
       href: howto-configure-homepage.md

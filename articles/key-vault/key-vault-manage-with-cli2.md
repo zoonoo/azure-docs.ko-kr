@@ -38,7 +38,7 @@ ms.locfileid: "51256457"
 Azure Key Vault는 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
 
 > [!NOTE]
-> 이 문서에서는 단계 중 하나에 포함된 Azure 응용 프로그램을 작성하는 방법에 대한 지침을 포함하고 있지 않지만, 키 자격 증명 모음에서 키 또는 비밀을 사용할 수 있도록 응용 프로그램에 권한을 부여하는 방법을 보여 줍니다.
+> 이 문서에서는 단계 중 하나에 포함된 Azure 애플리케이션을 작성하는 방법에 대한 지침을 포함하고 있지 않지만, 키 자격 증명 모음에서 키 또는 비밀을 사용할 수 있도록 애플리케이션에 권한을 부여하는 방법을 보여 줍니다.
 >
 
 Azure Key Vault에 대한 개요는 [Azure Key Vault란?](key-vault-whatis.md)을 참조하세요.
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 * Microsoft Azure에 대한 구독. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 * Azure 명령줄 인터페이스 버전 2.0 이상. 최신 버전을 설치하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-* 이 문서에서 만드는 키 또는 암호를 사용하도록 구성되는 응용 프로그램. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=45343)에서 사용할 수 있습니다. 지침은 포함된 추가 정보 파일을 참조하세요.
+* 이 문서에서 만드는 키 또는 암호를 사용하도록 구성되는 애플리케이션. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=45343)에서 사용할 수 있습니다. 지침은 포함된 추가 정보 파일을 참조하세요.
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Azure 플랫폼 간 명령줄 인터페이스 도움말 보기
 
@@ -190,18 +190,18 @@ az keyvault certificate list --vault-name 'ContosoKeyVault'
 
 ## <a name="registering-an-application-with-azure-active-directory"></a>Azure Active Directory에 응용 프로그램 등록
 
-이 단계는 일반적으로 별도의 컴퓨터에서 개발자가 수행할 수 있습니다. Azure Key Vault에만 한정되지는 않지만 이해를 돕기 위해 여기에 포함되었습니다. 응용 프로그램 등록을 완료하려면 계정, 자격 증명 모음 및 응용 프로그램이 동일한 Azure 디렉터리에 있어야 합니다.
+이 단계는 일반적으로 별도의 컴퓨터에서 개발자가 수행할 수 있습니다. Azure Key Vault에만 한정되지는 않지만 이해를 돕기 위해 여기에 포함되었습니다. 애플리케이션 등록을 완료하려면 계정, 자격 증명 모음 및 애플리케이션이 동일한 Azure 디렉터리에 있어야 합니다.
 
-자격 증명 모음 키를 사용하는 응용 프로그램은 Azure Active Directory에서 토큰을 사용하여 인증해야 합니다.  응용 프로그램 소유자가 먼저 Azure Active Directory에 등록해야 합니다. 등록 끝에 응용 프로그램 소유자는 다음 값을 가져옵니다.
+자격 증명 모음 키를 사용하는 응용 프로그램은 Azure Active Directory에서 토큰을 사용하여 인증해야 합니다.  애플리케이션 소유자가 먼저 Azure Active Directory에 등록해야 합니다. 등록 끝에 응용 프로그램 소유자는 다음 값을 가져옵니다.
 
 - **응용 프로그램 ID**(AAD 클라이언트 ID 또는 appID라고도 함)
 - **인증 키**(또한 공유 암호라고도 함) 
 
-응용 프로그램은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 토큰을 가져오도록 응용 프로그램을 구성하는 방법은 응용 프로그램에 따라 다릅니다. [Key Vault 샘플 응용 프로그램](https://www.microsoft.com/download/details.aspx?id=45343)의 경우, 응용 프로그램 소유자는 app.config 파일에서 이러한 값을 설정합니다.
+응용 프로그램은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 토큰을 가져오도록 애플리케이션을 구성하는 방법은 애플리케이션에 따라 다릅니다. [Key Vault 샘플 응용 프로그램](https://www.microsoft.com/download/details.aspx?id=45343)의 경우, 응용 프로그램 소유자는 app.config 파일에서 이러한 값을 설정합니다.
 
 Azure Active Directory에 응용 프로그램을 등록하는 방법에 대한 자세한 단계를 알아보려면 [Azure Active Directory와 응용 프로그램 통합](../active-directory/develop/active-directory-integrating-applications.md), [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli) 문서를 검토해야 합니다.
 
-Azure Active Directory에서 응용 프로그램을 등록하려면 다음을 수행합니다.
+Azure Active Directory에서 애플리케이션을 등록하려면 다음을 수행합니다.
 
 ```azurecli
 az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
@@ -212,7 +212,7 @@ az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
 
 애플리케이션이 자격 증명 모음의 키 또는 암호에 대한 액세스를 인증하려면 `az keyvault set-policy` 명령을 사용합니다.
 
-예를 들어 자격 증명 모음 이름이 ContosoKeyVault이고, 응용 프로그램의 appID가 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed이며, 자격 증명 모음의 키를 사용하여 암호를 해독하고 서명하도록 응용 프로그램에 권한을 부여하려면 다음 명령을 사용합니다.
+예를 들어 자격 증명 모음 이름이 ContosoKeyVault이고, 애플리케이션의 appID가 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed이며, 자격 증명 모음의 키를 사용하여 암호를 해독하고 서명하도록 애플리케이션에 권한을 부여하려면 다음 명령을 사용합니다.
 
 ```azurecli
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign

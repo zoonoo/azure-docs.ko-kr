@@ -24,7 +24,7 @@ ms.locfileid: "49115079"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>자습서: Kestrel을 사용하여 ASP.NET Core Web API 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
 
-이 자습서는 시리즈의 3부입니다.  Service Fabric에서 실행되는 ASP.NET Core 서비스에서 HTTPS를 사용하는 방법을 알아봅니다. 완료되면 포트 443에서 수신 대기하는 HTTPS 사용 ASP.NET Core 웹 프런트 엔드를 사용하는 투표 응용 프로그램이 생성됩니다. [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램의 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)할 수 있습니다.
+이 자습서는 시리즈의 3부입니다.  Service Fabric에서 실행되는 ASP.NET Core 서비스에서 HTTPS를 사용하는 방법을 알아봅니다. 완료되면 포트 443에서 수신 대기하는 HTTPS 사용 ASP.NET Core 웹 프런트 엔드를 사용하는 투표 애플리케이션이 생성됩니다. [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램의 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)할 수 있습니다.
 
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
@@ -339,17 +339,17 @@ if ($cert -eq $null)
 
 ## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 
-솔루션 탐색기에서 **투표** 응용 프로그램을 선택하고 **응용 프로그램 URL** 속성을 " https://localhost:443 " 으로 설정합니다.
+솔루션 탐색기에서 **투표** 애플리케이션을 선택하고 **애플리케이션 URL** 속성을 " https://localhost:443 " 으로 설정합니다.
 
-모든 파일을 저장하고 F5 키를 눌러 로컬에서 응용 프로그램을 실행합니다.  응용 프로그램이 배포되면 웹 브라우저에 [https://localhost:443](https://localhost:443)이 열립니다. 자체 서명된 인증서를 사용하는 경우 PC가 이 웹 사이트의 보안을 신뢰하지 않는다는 경고가 표시됩니다.  웹 페이지로 계속 이동합니다.
+모든 파일을 저장하고 F5 키를 눌러 로컬에서 애플리케이션을 실행합니다.  애플리케이션이 배포되면 웹 브라우저에 [https://localhost:443](https://localhost:443)이 열립니다. 자체 서명된 인증서를 사용하는 경우 PC가 이 웹 사이트의 보안을 신뢰하지 않는다는 경고가 표시됩니다.  웹 페이지로 계속 이동합니다.
 
-![투표 응용 프로그램][image2]
+![투표 애플리케이션][image2]
 
 ## <a name="install-certificate-on-cluster-nodes"></a>클러스터 노드에 인증서 설치
 
-Azure에 응용 프로그램을 배포하기 전에 원격 클러스터 노드의 `Cert:\LocalMachine\My` 저장소에 인증서를 설치합니다.  클러스터 노드에서 프런트 엔드 웹 서비스가 시작되면 시작 스크립트는 인증서를 조회하고 액세스 권한을 구성합니다.
+Azure에 애플리케이션을 배포하기 전에 원격 클러스터 노드의 `Cert:\LocalMachine\My` 저장소에 인증서를 설치합니다.  클러스터 노드에서 프런트 엔드 웹 서비스가 시작되면 시작 스크립트는 인증서를 조회하고 액세스 권한을 구성합니다.
 
-먼저 인증서를 PFX 파일로 내보냅니다. certlm.msc 응용 프로그램을 열고 **개인**>**인증서**로 이동합니다.  *localhost* 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**>**내보내기**를 선택합니다.
+먼저 인증서를 PFX 파일로 내보냅니다. certlm.msc 애플리케이션을 열고 **개인**>**인증서**로 이동합니다.  *localhost* 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**>**내보내기**를 선택합니다.
 
 ![인증서 내보내기][image4]
 
@@ -358,7 +358,7 @@ Azure에 응용 프로그램을 배포하기 전에 원격 클러스터 노드�
 그런 다음, [ Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) cmdlet을 사용하여 원격 클러스터에 인증서를 설치합니다.
 
 > [!Warning]
-> 개발 및 테스트 응용 프로그램은 자체 서명된 인증서로 충분합니다. 프로덕션 응용 프로그램의 경우 자체 서명된 인증서 대신 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)의 인증서를 사용합니다.
+> 개발 및 테스트 애플리케이션은 자체 서명된 인증서로 충분합니다. 프로덕션 애플리케이션의 경우 자체 서명된 인증서 대신 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)의 인증서를 사용합니다.
 
 ```powershell
 Connect-AzureRmAccount
@@ -424,11 +424,11 @@ $slb | Set-AzureRmLoadBalancer
 
 ## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 
-모든 파일을 저장하고 디버그에서 릴리스로 전환한 다음, F6 키를 눌러 다시 빌드합니다.  솔루션 탐색기에서 **투표**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [클러스터에 응용 프로그램 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 만든 클러스터의 연결 엔드포인트를 선택하거나, 다른 클러스터를 선택합니다.  응용 프로그램을 원격 클러스터에 게시하려면 **게시**를 클릭합니다.
+모든 파일을 저장하고 디버그에서 릴리스로 전환한 다음, F6 키를 눌러 다시 빌드합니다.  솔루션 탐색기에서 **투표**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [클러스터에 응용 프로그램 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 만든 클러스터의 연결 엔드포인트를 선택하거나, 다른 클러스터를 선택합니다.  애플리케이션을 원격 클러스터에 게시하려면 **게시**를 클릭합니다.
 
-응용 프로그램이 배포되면 웹 브라우저를 열고 [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443)(클러스터의 연결 엔드포인트로 URL 업데이트)으로 이동합니다. 자체 서명된 인증서를 사용하는 경우 PC가 이 웹 사이트의 보안을 신뢰하지 않는다는 경고가 표시됩니다.  웹 페이지로 계속 이동합니다.
+애플리케이션이 배포되면 웹 브라우저를 열고 [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443)(클러스터의 연결 엔드포인트로 URL 업데이트)으로 이동합니다. 자체 서명된 인증서를 사용하는 경우 PC가 이 웹 사이트의 보안을 신뢰하지 않는다는 경고가 표시됩니다.  웹 페이지로 계속 이동합니다.
 
-![투표 응용 프로그램][image3]
+![투표 애플리케이션][image3]
 
 ## <a name="next-steps"></a>다음 단계
 

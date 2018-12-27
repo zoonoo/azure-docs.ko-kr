@@ -48,7 +48,7 @@ cmake -Dno_logging=OFF <Path_to_cmake>
 
 ### <a name="remove-upload-to-blob-capability"></a>Blob에 업로드 기능 제거
 
-SDK의 기본 제공 기능을 사용하여 대용량 파일을 Azure Storage에 업로드할 수 있습니다. Azure IoT Hub는 Azure Storage 계정과 연결된 디스패처 역할을 합니다. 이 기능을 사용하여 미디어 파일, 대용량 원격 분석 일괄 처리 및 로그를 보낼 수 있습니다. [IoT Hub를 사용하여 파일 업로드](iot-hub-devguide-file-upload.md)에서 자세한 정보를 얻을 수 있습니다. 이 기능이 응용 프로그램에 필요하지 않은 경우 다음 cmake 명령을 사용하여 해당 기능을 제거할 수 있습니다.
+SDK의 기본 제공 기능을 사용하여 대용량 파일을 Azure Storage에 업로드할 수 있습니다. Azure IoT Hub는 Azure Storage 계정과 연결된 디스패처 역할을 합니다. 이 기능을 사용하여 미디어 파일, 대용량 원격 분석 일괄 처리 및 로그를 보낼 수 있습니다. [IoT Hub를 사용하여 파일 업로드](iot-hub-devguide-file-upload.md)에서 자세한 정보를 얻을 수 있습니다. 이 기능이 애플리케이션에 필요하지 않은 경우 다음 cmake 명령을 사용하여 해당 기능을 제거할 수 있습니다.
 
 ```
 cmake -Ddont_use_uploadtoblob=ON <Path_to_cmake>

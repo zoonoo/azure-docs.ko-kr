@@ -123,7 +123,7 @@ public static class Clients
 ```
 
 
-### <a name="initialize-application-specific-settings"></a>응용 프로그램 관련 설정 초기화
+### <a name="initialize-application-specific-settings"></a>애플리케이션 관련 설정 초기화
 
 Program.cs의 **Program** 클래스에 다음 클래스 및 정적 필드를 추가합니다.
 

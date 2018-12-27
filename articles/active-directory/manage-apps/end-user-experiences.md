@@ -45,14 +45,14 @@ Office 365를 배포한 조직에서 Azure AD를 통해 사용자에게 할당�
 Office 365 애플리케이션 실행 프로그램에 대한 자세한 내용은 [Office 365 앱 실행 프로그램에 해당 앱 표시](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)(영문)를 참조하세요.
 
 ## <a name="direct-sign-on-to-federated-apps"></a>페더레이션된 앱에 직접 로그온
-SAML 2.0, WS-Federation 또는 OpenID Connect를 지원하는 대부분의 페더레이션된 애플리케이션은 사용자가 애플리케이션에서 시작한 다음, 자동 리디렉션을 통하거나 로그인 링크를 클릭하여 Azure AD로 로그인하는 기능을 지원합니다. 이것을 서비스 공급자에서 시작한 로그온이라고 하며, Azure AD 응용 프로그램 갤러리에서 페더레이션된 대부분의 응용 프로그램이 이 기능을 지원합니다(자세한 내용은 Azure Portal에 있는 앱의 Single Sign-On 구성 마법사에서 연결된 설명서를 참조).
+SAML 2.0, WS-Federation 또는 OpenID Connect를 지원하는 대부분의 페더레이션된 애플리케이션은 사용자가 애플리케이션에서 시작한 다음, 자동 리디렉션을 통하거나 로그인 링크를 클릭하여 Azure AD로 로그인하는 기능을 지원합니다. 이것을 서비스 공급자에서 시작한 로그온이라고 하며, Azure AD 애플리케이션 갤러리에서 페더레이션된 대부분의 애플리케이션이 이 기능을 지원합니다(자세한 내용은 Azure Portal에 있는 앱의 Single Sign-On 구성 마법사에서 연결된 설명서를 참조).
 
 ![](./media/what-is-single-sign-on/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>직접 로그온 링크
 Azure AD는 암호 기반 Single Sign-On, 연결된 Single Sign-On 및 모든 형태의 페더레이션된 Single Sign-On을 지원하는 개별 응용 프로그램에 대한 직접 Single Sign-On 링크도 지원합니다.
 
-이러한 링크는 사용자가 Azure AD 액세스 패널이나 Office 365에서 시작하지 않아도 Azure AD 로그인 프로세스를 통해 사용자를 특정 애플리케이션으로 보내는, 특별히 제작된 URL입니다. 이러한 Single Sign-On URL은 아래 스크린샷에 표시된 것처럼 Azure Portal의 Active Directory 섹션에서 사전 통합된 응용 프로그램의 대시보드 탭 아래에 있습니다.
+이러한 링크는 사용자가 Azure AD 액세스 패널이나 Office 365에서 시작하지 않아도 Azure AD 로그인 프로세스를 통해 사용자를 특정 애플리케이션으로 보내는, 특별히 제작된 URL입니다. 이러한 Single Sign-On URL은 아래 스크린샷에 표시된 것처럼 Azure Portal의 Active Directory 섹션에서 사전 통합된 애플리케이션의 대시보드 탭 아래에 있습니다.
 
 ![](./media/what-is-single-sign-on/deeplink.png)
 
@@ -66,7 +66,7 @@ Azure AD는 암호 기반 Single Sign-On, 연결된 Single Sign-On 및 모든 �
 
 권한이 있는 사용자가 이러한 애플리케이션 관련 링크 중 하나를 클릭하면 조직의 로그인 페이지가 먼저 표시되며(아직 로그인하지 않았다고 가정), 로그인 과정이 액세스 패널에서 먼저 중지되지 않고 해당 앱으로 리디렉션됩니다. 사용자에게 암호 기반 Single Sign-On 브라우저 확장과 같은, 애플리케이션에 액세스하기 위한 필수 구성 요소가 없는 경우 확장을 설치할 것인지 묻는 링크가 표시됩니다. 애플리케이션에 대한 Single Sign-On 구성이 변경되는 경우에도 링크 URL은 그대로 유지됩니다. 
 
-이러한 링크는 액세스 패널 및 Office 365와 동일한 액세스 제어 메커니즘을 사용하며, Azure Portal에서 응용 프로그램에 할당된 해당 사용자나 그룹만 성공적으로 인증할 수 있습니다. 그러나 권한이 없는 사용자에게는 액세스 권한이 부여되지 않았음을 설명하는 메시지가 표시되고, 액세스할 수 있는 사용 가능한 응용 프로그램을 볼 수 있는 액세스 패널 로드에 대한 링크가 제공됩니다.
+이러한 링크는 액세스 패널 및 Office 365와 동일한 액세스 제어 메커니즘을 사용하며, Azure Portal에서 애플리케이션에 할당된 해당 사용자나 그룹만 성공적으로 인증할 수 있습니다. 그러나 권한이 없는 사용자에게는 액세스 권한이 부여되지 않았음을 설명하는 메시지가 표시되고, 액세스할 수 있는 사용 가능한 응용 프로그램을 볼 수 있는 액세스 패널 로드에 대한 링크가 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 배포 계획은 [Azure Active Directory 배포 계획](../fundamentals/active-directory-deployment-plans.md) 참조

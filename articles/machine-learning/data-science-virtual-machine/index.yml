@@ -9,7 +9,7 @@ documentType: LandingData
 title: Azure 데이터 과학 Virtual Machine 설명서
 metadata:
   title: 데이터 과학 가상 머신 설명서 - Azure
-  description: 데이터 과학을 실행하기 위해 특별히 제작된 Azure 클라우드의 실험 환경인 데이터 과학 가상 머신을 사용하는 방법에 대해 알아보세요. 여기에는 고급 분석을 위한 지능형 응용 프로그램 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다.
+  description: 데이터 과학을 실행하기 위해 특별히 제작된 Azure 클라우드의 실험 환경인 데이터 과학 가상 머신을 사용하는 방법에 대해 알아보세요. 여기에는 고급 분석을 위한 지능형 애플리케이션 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다.
   services: machine-learning
   author: gopitk
   manager: cgronlun

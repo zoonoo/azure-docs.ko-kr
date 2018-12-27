@@ -40,11 +40,11 @@ ms.locfileid: "47056599"
 
 ## <a name="analytics-over-extracted-tenant-data"></a>추출된 테넌트 데이터에 대한 분석
 
-SaaS 응용 프로그램은 클라우드에서 방대한 양의 테넌트 데이터를 잠재적으로 보유합니다. 이 데이터는 응용 프로그램의 작동 및 사용과 테넌트의 동작에 대한 풍부한 인사이트를 제공합니다. 이러한 인사이트는 기능 개발, 사용성 개선, 앱 및 플랫폼의 기타 투자에 대한 방향성을 제공할 수 있습니다.
+SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이터를 잠재적으로 보유합니다. 이 데이터는 애플리케이션의 작동 및 사용과 테넌트의 동작에 대한 풍부한 인사이트를 제공합니다. 이러한 인사이트는 기능 개발, 사용성 개선, 앱 및 플랫폼의 기타 투자에 대한 방향성을 제공할 수 있습니다.
 
 모든 데이터가 하나의 다중 테넌트 데이터베이스에 저장되어 있다면 모든 테넌트가 손쉽게 데이터에 액세스할 수 있습니다. 그러나 데이터가 수천 개의 데이터베이스에 대규모로 분산되어 있다면 액세스가 복잡해집니다. 이러한 복잡성을 해결하는 한 가지 방법은 데이터를 분석 데이터베이스 또는 데이터 웨어하우스로 추출하여 쿼리하는 것입니다.
 
-이 자습서에서는 Wingtip Tickets 응용 프로그램에 대한 통합형 분석 시나리오를 제공합니다. 첫째, [ADF(Azure Data Factory)](../data-factory/introduction.md)는 각 테넌트 데이터베이스에서 티켓 판매량 및 관련 데이터를 추출하는 오케스트레이션 도구로 사용됩니다. 이 데이터는 분석 저장소의 준비 테이블로 로드됩니다. 분석 저장소로 SQL Database나 SQL Data Warehouse를 사용할 수 있습니다. 이 자습서에서는 [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)를 분석 저장소로 사용합니다.
+이 자습서에서는 Wingtip Tickets 애플리케이션에 대한 통합형 분석 시나리오를 제공합니다. 첫째, [ADF(Azure Data Factory)](../data-factory/introduction.md)는 각 테넌트 데이터베이스에서 티켓 판매량 및 관련 데이터를 추출하는 오케스트레이션 도구로 사용됩니다. 이 데이터는 분석 저장소의 준비 테이블로 로드됩니다. 분석 저장소로 SQL Database나 SQL Data Warehouse를 사용할 수 있습니다. 이 자습서에서는 [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)를 분석 저장소로 사용합니다.
 
 다음으로, 추출된 데이터를 일련의 [스타 스키마](https://www.wikipedia.org/wiki/Star_schema) 테이블로 변환해 로드합니다. 테이블은 중앙의 팩트 테이블과 관련 차원 테이블로 이루어집니다.
 
@@ -244,7 +244,7 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 ## <a name="embedding-analytics-in-your-apps"></a>앱에 분석 포함 
 이 자습서에서는 소프트웨어 공급 업체의 해당 테넌트에 대한 이해를 개선하는 데 사용된 테넌트 간 분석에 중점을 뒀습니다. 분석은 _테넌트_에 인사이트를 제공하여 비즈니스 자체를 보다 효율적으로 관리할 수 있도록 도와줍니다. 
 
-Wingtip Tickets 예제에서는 일찌기 티켓 판매량이 예측 가능한 패턴을 따르는 경향이 있음을 알았습니다. 이 인사이트는 성적이 좋지 않은 행사장이 티켓 판매를 높이도록 돕는 데 사용될 수 있습니다. 이벤트의 티켓 판매량을 예측하는 데 기계 학습 기법을 사용할 기회가 있습니다. 가격 변경의 효과를 모델링하여 할인 제공의 영향을 예측할 수 있습니다. 판매된 총 티켓에 대한 할인 영향 및 판매가 저조한 행사장의 수익을 포함한 예측 판매량을 시각화하려면 Power BI Embedded를 관리 응용 프로그램에 통합할 수 있습니다. Power BI Embedded를 사용하여 티켓 가격에 실제로 할인을 적용하여 시각화 환경에 통합할 수도 있습니다.
+Wingtip Tickets 예제에서는 일찌기 티켓 판매량이 예측 가능한 패턴을 따르는 경향이 있음을 알았습니다. 이 인사이트는 성적이 좋지 않은 행사장이 티켓 판매를 높이도록 돕는 데 사용될 수 있습니다. 이벤트의 티켓 판매량을 예측하는 데 기계 학습 기법을 사용할 기회가 있습니다. 가격 변경의 효과를 모델링하여 할인 제공의 영향을 예측할 수 있습니다. 판매된 총 티켓에 대한 할인 영향 및 판매가 저조한 행사장의 수익을 포함한 예측 판매량을 시각화하려면 Power BI Embedded를 관리 애플리케이션에 통합할 수 있습니다. Power BI Embedded를 사용하여 티켓 가격에 실제로 할인을 적용하여 시각화 환경에 통합할 수도 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

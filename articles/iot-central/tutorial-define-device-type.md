@@ -45,9 +45,9 @@ ms.locfileid: "50963601"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 Azure IoT Central 애플리케이션이 필요합니다. [Azure IoT Central 응용 프로그램](quick-deploy-iot-central.md) 빠른 시작을 완료한 경우 빠른 시작에서 만든 응용 프로그램을 다시 사용할 수 있습니다. 그렇지 않은 경우 빈 Azure IoT Central 응용 프로그램을 만들려면 다음 단계를 완료합니다.
+이 자습서를 완료하려면 Azure IoT Central 애플리케이션이 필요합니다. [Azure IoT Central 응용 프로그램](quick-deploy-iot-central.md) 빠른 시작을 완료한 경우 빠른 시작에서 만든 응용 프로그램을 다시 사용할 수 있습니다. 그렇지 않은 경우 빈 Azure IoT Central 애플리케이션을 만들려면 다음 단계를 완료합니다.
 
-1. Azure IoT Central [응용 프로그램 관리자](https://aka.ms/iotcentral) 페이지로 이동합니다.
+1. Azure IoT Central [애플리케이션 관리자](https://aka.ms/iotcentral) 페이지로 이동합니다.
 
 2. Azure 구독에 액세스 하는 데 사용하는 이메일 주소와 암호를 입력합니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "50963601"
 
 3. 새로운 Azure IoT Central 애플리케이션 만들기를 시작하려면 **새 애플리케이션**을 선택합니다.
 
-    ![Azure IoT Central 응용 프로그램 관리자 페이지](./media/tutorial-define-device-type/iotcentralhome.png)
+    ![Azure IoT Central 애플리케이션 관리자 페이지](./media/tutorial-define-device-type/iotcentralhome.png)
 
 4. 새로운 Azure IoT Central 애플리케이션을 만들려면:
     

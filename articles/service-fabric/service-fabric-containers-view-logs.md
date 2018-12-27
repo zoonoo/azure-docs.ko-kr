@@ -42,7 +42,7 @@ V6.2부터 [REST API](/rest/api/servicefabric/sfclient-index) 또는 [SFCTL(Serv
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
  ```
 
-**ContainersRetentionCount** 설정은 실패할 때 유지할 컨테이너의 수를 지정합니다. 음수 값을 지정하면 실패한 모든 컨테이너가 유지됩니다. **ContainersRetentionCount** 특성을 지정하지 않으면 컨테이너는 유지되지 않습니다. 또한 **ContainersRetentionCount** 특성은 응용 프로그램 매개 변수도 지원하므로 사용자는 테스트 및 프로덕션 클러스터에 대해 다른 값을 지정할 수 있습니다. 이 기능을 사용하여 컨테이너 서비스가 다른 노드로 이동하지 않도록 방지하려면 배치 제약 조건을 사용하여 특정 노드에 대한 컨테이너 서비스를 대상으로 지정합니다. 이 기능을 사용하여 유지된 컨테이너는 수동으로 제거해야 합니다.
+**ContainersRetentionCount** 설정은 실패할 때 유지할 컨테이너의 수를 지정합니다. 음수 값을 지정하면 실패한 모든 컨테이너가 유지됩니다. **ContainersRetentionCount** 특성을 지정하지 않으면 컨테이너는 유지되지 않습니다. 또한 **ContainersRetentionCount** 특성은 애플리케이션 매개 변수도 지원하므로 사용자는 테스트 및 프로덕션 클러스터에 대해 다른 값을 지정할 수 있습니다. 이 기능을 사용하여 컨테이너 서비스가 다른 노드로 이동하지 않도록 방지하려면 배치 제약 조건을 사용하여 특정 노드에 대한 컨테이너 서비스를 대상으로 지정합니다. 이 기능을 사용하여 유지된 컨테이너는 수동으로 제거해야 합니다.
 
 ### <a name="rest"></a>REST (영문)
 [노드에 배포된 컨테이너 로그 가져오기](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) 작업을 사용하여 손상된 컨테이너에 대한 로그를 가져옵니다. 컨테이너가 실행되었던 노드의 이름, 애플리케이션 이름, 서비스 매니페스트 이름 및 코드 패키지 이름을 지정합니다.  `&Previous=true`를 지정합니다. 응답은 코드 패키지 인스턴스의 비활성 컨테이너에 대한 컨테이너 로그를 포함합니다.

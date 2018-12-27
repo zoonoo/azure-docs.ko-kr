@@ -51,7 +51,7 @@ Expect: 100-continue
 ```
 
 > [!IMPORTANT]
-> 응용 프로그램에서 [클라이언트 라이브러리](../GetStarted/GetStartedClientLibraries.md)를 사용하는 경우 다음 섹션에서 설명한 대로 구독 키가 있는 권한 부여 토큰을 가져올 수 있는지 확인합니다. 클라이언트 라이브러리는 구독 키를 사용하여 권한 부여 토큰을 가져온 다음, 이 토큰을 인증에 사용합니다.
+> 애플리케이션에서 [클라이언트 라이브러리](../GetStarted/GetStartedClientLibraries.md)를 사용하는 경우 다음 섹션에서 설명한 대로 구독 키가 있는 권한 부여 토큰을 가져올 수 있는지 확인합니다. 클라이언트 라이브러리는 구독 키를 사용하여 권한 부여 토큰을 가져온 다음, 이 토큰을 인증에 사용합니다.
 
 ## <a name="use-an-authorization-token"></a>권한 부여 토큰 사용
 

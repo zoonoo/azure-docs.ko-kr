@@ -23,13 +23,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51255560"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 응용 프로그램으로 컨테이너 패키징 및 배포
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 애플리케이션으로 컨테이너 패키징 및 배포
 
-이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric 응용 프로그램 정의를 생성하는 데 템플릿 생성기 도구(Yeoman)를 사용합니다. 그런 다음 이 응용 프로그램을 사용하여 Service Fabric에 컨테이너를 배포할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric 애플리케이션 정의를 생성하는 데 템플릿 생성기 도구(Yeoman)를 사용합니다. 그런 다음 이 응용 프로그램을 사용하여 Service Fabric에 컨테이너를 배포할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Yeoman 설치
-> * Yeoman을 사용하여 응용 프로그램 패키지 만들기
+> * Yeoman을 사용하여 애플리케이션 패키지 만들기
 > * 응용 프로그램 패키지에서 컨테이너에서 사용할 설정 구성
 > * 애플리케이션 빌드
 > * 응용 프로그램 배포 및 실행
@@ -42,7 +42,7 @@ ms.locfileid: "51255560"
 
 ## <a name="install-yeoman"></a>Yeoman 설치
 
-Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 응용 프로그램을 만들 수 있는 스캐폴딩 도구를 제공합니다. 아래 단계에 따라 Yeoman 템플릿 생성기가 설치되어 있는지 확인합니다.
+Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 애플리케이션을 만들 수 있는 스캐폴딩 도구를 제공합니다. 아래 단계에 따라 Yeoman 템플릿 생성기가 설치되어 있는지 확인합니다.
 
 1. 컴퓨터에서 Node.js 및 NPM을 설치합니다. Mac OSX 사용자는 Homebrew 패키지 관리자를 사용해야 합니다
 
@@ -69,7 +69,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 응
     yo azuresfcontainer
     ```
 2. "TestContainer"를 입력하여 응용 프로그램의 이름을 지정하세요.
-3. "azurevotefront"를 입력하여 응용 프로그램 서비스의 이름을 지정하세요.
+3. "azurevotefront"를 입력하여 애플리케이션 서비스의 이름을 지정하세요.
 4. 예를 들어 '\<acrName>.azurecr.io/azure-vote-front:v1'과 같이 프런트 엔드 리포지토리에 대해 ACR의 컨테이너 이미지 경로를 제공합니다. \<acrName> 필드는 이전 자습서에서 사용된 값과 동일해야 합니다.
 5. 명령 섹션을 비어 두려면 Enter 키를 누릅니다.
 6. 1이라는 인스턴스 수를 지정합니다.
@@ -243,7 +243,7 @@ openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>응용 프로그램 빌드 및 클러스터에 배포
 
-Service Fabric CLI를 사용하여 Azure 클러스터에 응용 프로그램을 배포할 수 있습니다. Service Fabric CLI가 컴퓨터에 설치되어 있지 않으면 [여기](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli)의 지침에 따라 설치합니다.
+Service Fabric CLI를 사용하여 Azure 클러스터에 애플리케이션을 배포할 수 있습니다. Service Fabric CLI가 컴퓨터에 설치되어 있지 않으면 [여기](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli)의 지침에 따라 설치합니다.
 
 Azure에서 Service Fabric 클러스터에 연결합니다. 샘플 엔드포인트를 고유한 값으로 대체합니다. 엔드포인트는 아래와 비슷한 전체 URL이어야 합니다.
 
@@ -386,13 +386,13 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 
 > [!div class="checklist"]
 > * Yeoman 설치
-> * Yeoman을 사용하여 응용 프로그램 패키지 만들기
+> * Yeoman을 사용하여 애플리케이션 패키지 만들기
 > * 응용 프로그램 패키지에서 컨테이너에서 사용할 설정 구성
 > * 애플리케이션 빌드
 > * 응용 프로그램 배포 및 실행
 > * 응용 프로그램 정리
 
-Service Fabric에서 응용 프로그램의 장애 조치 및 크기 조정에 대한 자세한 내용은 다음 자습서를 진행하세요.
+Service Fabric에서 애플리케이션의 장애 조치 및 크기 조정에 대한 자세한 내용은 다음 자습서를 진행하세요.
 
 > [!div class="nextstepaction"]
 > [응용 프로그램 장애 조치 및 크기 조정에 대한 자세한 내용](service-fabric-tutorial-containers-failover.md)

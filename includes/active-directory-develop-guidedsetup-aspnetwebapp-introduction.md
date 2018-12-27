@@ -25,7 +25,7 @@ ms.locfileid: "49988549"
 
 이 가이드에서는 OpenID Connect를 사용하는 브라우저 기반 응용 프로그램에서 ASP.NET MVC 솔루션을 사용하여 Microsoft에 로그인을 구현하는 방법을 보여 줍니다.
 
-이 가이드를 모두 살펴보면 응용 프로그램에서 Azure Active Directory와 통합된 회사 또는 조직의 회사 및 학교 계정뿐만 아니라 개인 계정(outlook.com, live.com 등)의 로그인을 수락할 수 있습니다.
+이 가이드를 모두 살펴보면 애플리케이션에서 Azure Active Directory와 통합된 회사 또는 조직의 회사 및 학교 계정뿐만 아니라 개인 계정(outlook.com, live.com 등)의 로그인을 수락할 수 있습니다.
 
 > 이 가이드에는 Visual Studio 2015 업데이트 3 또는 Visual Studio 2017이 필요합니다.  이 프로그램이 아직 설치되어 있지 않나요?  [Visual Studio 2017 무료 다운로드](https://www.visualstudio.com/downloads/)
 

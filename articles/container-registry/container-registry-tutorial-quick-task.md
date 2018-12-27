@@ -223,7 +223,7 @@ Azure Key Vault을 만들고 다음 두 암호를 저장했습니다.
 * `$ACR_NAME-pull-usr`: **username** 컨테이너 레지스트리로 사용할 서비스 주체 ID입니다.
 * `$ACR_NAME-pull-pwd`: **password** 컨테이너 레지스트리로 사용할 서비스 주체 암호입니다.
 
-이제 사용자나 응용 프로그램 및 서비스가 레지스트리에서 이미지를 끌어올 때 이러한 암호를 이름으로 참조할 수 있습니다.
+이제 사용자나 애플리케이션 및 서비스가 레지스트리에서 이미지를 끌어올 때 이러한 암호를 이름으로 참조할 수 있습니다.
 
 ### <a name="deploy-a-container-with-azure-cli"></a>Azure CLI를 사용하여 컨테이너 배포
 
@@ -288,7 +288,7 @@ Server running at http://localhost:80
 
 `Server running at http://localhost:80`이 표시되면 브라우저에서 컨테이너의 FQDN으로 이동하여 실행 중인 응용 프로그램을 확인합니다. FQDN은 이전 섹션에서 실행한 `az container create` 명령의 출력에 표시되었어야 합니다.
 
-![브라우저에서 렌더링된 샘플 응용 프로그램의 스크린샷][quick-build-02-browser]
+![브라우저에서 렌더링된 샘플 애플리케이션의 스크린샷][quick-build-02-browser]
 
 콘솔에서 콘솔을 분리하려면 `Control+C`를 누릅니다.
 

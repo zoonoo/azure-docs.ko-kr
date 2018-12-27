@@ -23,7 +23,7 @@ Bing Video Search SDK는 비디오 쿼리 및 구문 분석 결과에 대한 RES
 
 [Node Bing Video Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js)은 Git Hub에서 얻을 수 있습니다.
 
-## <a name="application-dependencies"></a>응용 프로그램 종속성
+## <a name="application-dependencies"></a>애플리케이션 종속성
 **검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 Bing Video Search SDK를 사용하여 콘솔 애플리케이션을 설치하려면:
