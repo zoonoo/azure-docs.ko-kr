@@ -21,27 +21,27 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/27/2018
 ms.locfileid: "52424972"
 ---
-# <a name="problem-adding-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램을 추가하는 문제
+# <a name="problem-adding-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션을 추가하는 문제
 
 이 아티클은 Azure AD 갤러리 애플리케이션을 추가하는 경우 직면하는 일반적인 문제 및 문제를 해결하기 위해 수행할 수 있는 작업을 이해하는 데 도움이 됩니다.
 
-## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>"추가" 단추를 클릭했고 응용 프로그램이 나타나는 데 시간이 오래 걸렸음
+## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>"추가" 단추를 클릭했고 애플리케이션이 나타나는 데 시간이 오래 걸렸음
 
-경우에 따라 디렉터리에 추가한 후 응용 프로그램이 나타나는 데 1-2분 정도(경우에 따라 더 길게) 걸릴 수 있습니다. 이는 일반적인 예상되는 성능이 아니지만 [Azure Portal](https://portal.azure.com/)의 오른쪽 위에 있는 **알림** 아이콘(벨)을 클릭하고 **진행 중** 또는 **완료** 알림 레이블이 지정된 **애플리케이션 만들기**를 찾아 애플리케이션 추가가 진행 중임을 볼 수 있습니다.
+경우에 따라 디렉터리에 추가한 후 애플리케이션이 나타나는 데 1-2분 정도(경우에 따라 더 길게) 걸릴 수 있습니다. 이는 일반적인 예상되는 성능이 아니지만 [Azure Portal](https://portal.azure.com/)의 오른쪽 위에 있는 **알림** 아이콘(벨)을 클릭하고 **진행 중** 또는 **완료** 알림 레이블이 지정된 **애플리케이션 만들기**를 찾아 애플리케이션 추가가 진행 중임을 볼 수 있습니다.
 
-응용 프로그램이 추가되지 않거나 **추가** 단추를 클릭할 때 오류가 발생하는 경우 **오류** 상태에 **알림**이 표시됩니다. 더 자세히 알아보거나 지원 엔지니어와 공유하기 위해 오류에 대한 자세한 정보를 원하는 경우 [포털 알림의 세부 정보를 확인하는 방법](#how-to-see-the-details-of-a-portal-notification) 섹션의 단계를 따라 오류에 대한 자세한 정보를 볼 수 있습니다.
+애플리케이션이 추가되지 않거나 **추가** 단추를 클릭할 때 오류가 발생하는 경우 **오류** 상태에 **알림**이 표시됩니다. 더 자세히 알아보거나 지원 엔지니어와 공유하기 위해 오류에 대한 자세한 정보를 원하는 경우 [포털 알림의 세부 정보를 확인하는 방법](#how-to-see-the-details-of-a-portal-notification) 섹션의 단계를 따라 오류에 대한 자세한 정보를 볼 수 있습니다.
 
-## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>"추가" 단추를 클릭했고 응용 프로그램이 나타나지 않았음
+## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>"추가" 단추를 클릭했고 애플리케이션이 나타나지 않았음
 
-경우에 따라 일시적인 문제, 네트워킹 문제 또는 버그로 인해 응용 프로그램 추가에 실패합니다. Azure Portal의 오른쪽 위에 있는 **알림** 아이콘(벨)을 클릭하고 **애플리케이션 만들기** 알림 옆의 빨간색(!) 아이콘이 표시되는 경우 이러한 상황이 발생한다고 말할 수 있습니다. 이는 응용 프로그램을 만들 때 오류가 있었음을 나타냅니다.
+경우에 따라 일시적인 문제, 네트워킹 문제 또는 버그로 인해 애플리케이션 추가에 실패합니다. Azure Portal의 오른쪽 위에 있는 **알림** 아이콘(벨)을 클릭하고 **애플리케이션 만들기** 알림 옆의 빨간색(!) 아이콘이 표시되는 경우 이러한 상황이 발생한다고 말할 수 있습니다. 이는 애플리케이션을 만들 때 오류가 있었음을 나타냅니다.
 
 **추가** 단추를 클릭할 때 오류가 발생하는 경우 **오류** 상태에 **알림**이 표시됩니다. 더 자세히 알아보거나 지원 엔지니어와 공유하기 위해 오류에 대한 자세한 정보를 원하는 경우 [포털 알림의 세부 정보를 확인하는 방법](#how-to-see-the-details-of-a-portal-notification) 섹션의 단계를 따라 오류에 대한 자세한 정보를 볼 수 있습니다.
 
- ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>추가한 후 내 응용 프로그램을 설정하는 방법을 모름
+ ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>추가한 후 내 애플리케이션을 설정하는 방법을 모름
 
-응용 프로그램을 학습하는 데 도움이 필요한 경우 [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) 문서로 시작하는 것이 좋습니다.
+애플리케이션을 학습하는 데 도움이 필요한 경우 [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) 문서로 시작하는 것이 좋습니다.
 
-또한 [Azure AD 응용 프로그램 문서 라이브러리](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index)를 통해 Azure AD로 Single Sign-On 및 작동 방법에 대해 자세히 알아볼 수 있습니다.
+또한 [Azure AD 애플리케이션 문서 라이브러리](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index)를 통해 Azure AD로 Single Sign-On 및 작동 방법에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>포털 알림의 세부 정보를 확인하는 방법
 
@@ -74,11 +74,11 @@ ms.locfileid: "52424972"
 
 -   **제목** - 알림의 설명이 포함된 제목
 
-  * 예제 - **응용 프로그램 프록시 설정**
+  * 예제 - **애플리케이션 프록시 설정**
 
 -   **설명** – 작업의 결과로 발생한 문제에 대한 설명
 
-    -   예제 - **입력한 내부 url은 이미 다른 응용 프로그램에서 사용 중입니다.**
+    -   예제 - **입력한 내부 url은 이미 다른 애플리케이션에서 사용 중입니다.**
 
 -   **알림 ID** - 알림의 고유 ID
 
@@ -112,7 +112,7 @@ ms.locfileid: "52424972"
 
 -   **표시 이름** – **(비어 있을 수 있음)** 오류에 대한 보다 자세한 표시 이름
 
-    -   예제 - **응용 프로그램 프록시 설정**
+    -   예제 - **애플리케이션 프록시 설정**
 
 -   **상태** - 알림의 특정 상태
 

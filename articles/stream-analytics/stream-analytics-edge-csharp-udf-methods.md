@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics Edge 작업에 대한 .NET Standard 사용자 정의 함수 개발(미리 보기)
+title: Azure Stream Analytics Edge 작업에 대한 .NET Standard 함수 개발(미리 보기)
 description: Stream Analytics Edge 작업에 대한 C# 사용자 정의 함수를 작성하는 방법을 알아봅니다.
 services: stream-analytics
 author: mamccrea
@@ -8,13 +8,14 @@ manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: f0da25410fe81a93501df940ffbb0e115456a9e8
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5df4c9dfe18b02ade3a37717da9c68acbfcf1853
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247810"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106603"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Azure Stream Analytics Edge 작업에 대한 .NET Standard 사용자 정의 함수 개발(미리 보기)
 
@@ -82,15 +83,15 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 
 4. **솔루션 탐색기**의 **참조** 아래에 **UDFTest**가 나열되는지 확인합니다.
 
-   ![Azure Stream Analytics Edge 솔루션 탐색기에서 사용자 정의 함수 참조 보기](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
+   ![솔루션 탐색기에서 사용자 정의 함수 참조 보기](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
 
 5. **함수** 폴더를 마우스 오른쪽 단추로 클릭하고, **새 항목**을 선택합니다.
 
-   ![Visual Studio에서 Azure Stream Analytics Edge 솔루션의 함수에 새 항목 추가](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
+   ![Azure Stream Analytics Edge 솔루션의 함수에 새 항목 추가](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
 
 6. **SquareFunction.json** C# 함수를 Azure Stream Analytics 프로젝트에 추가합니다.
 
-   ![Visual Studio의 Stream Analytics Edge 항목 목록에서 C# 함수 선택](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
+   ![Visual Studio의 Stream Analytics Edge 항목에서 C# 함수 선택](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
 
 7. **솔루션 탐색기**에서 함수를 두 번 클릭하여 구성 대화 상자를 엽니다.
 

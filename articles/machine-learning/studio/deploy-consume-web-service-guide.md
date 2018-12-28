@@ -1,12 +1,11 @@
 ---
-title: 'Machine Learning 웹 서비스: 배포 및 사용 - Azure Machine Learning Studio | Microsoft Docs'
+title: 배포 및 사용 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Machine Learning을 통해 웹 서비스로 기계 학습 워크플로 및 모델을 배포할 수 있습니다. 그런 다음, 이러한 웹 서비스를 실시간으로 또는 배치 모드로 예측을 수행하도록 인터넷을 통해 애플리케이션에서 기계 학습 모델을 호출하는 데 사용할 수 있습니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a192bb50fe6931130492fad037f83e301e401762
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ed57f80a210cdb9c7ff8e77da2269d8494892fcc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315548"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268430"
 ---
-# <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning 웹 서비스: 배포 및 사용
+# <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio 웹 서비스: 배포 및 사용
 Azure Machine Learning을 통해 웹 서비스로 기계 학습 워크플로 및 모델을 배포할 수 있습니다. 그런 다음, 이러한 웹 서비스를 실시간으로 또는 배치 모드로 예측을 수행하도록 인터넷을 통해 애플리케이션에서 기계 학습 모델을 호출하는 데 사용할 수 있습니다. 웹 서비스는 RESTFul이므로 .NET 및 Java와 같은 다양한 프로그래밍 언어 및 플랫폼과 Excel과 같은 응용 프로그램에서 호출될 수 있습니다.
 
 다음 섹션에서는 시작하는 데 도움이 되는 연습, 코드 및 설명서에 대한 링크를 제공합니다.
@@ -37,7 +36,7 @@ Machine Learning Studio 및 Microsoft Azure Machine Learning 웹 서비스 포�
 
 * Azure Resource Manager를 기준으로 하는 새 웹 서비스를 배포하는 방법에 대한 개요는 [새 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
 * 웹 서비스를 배포하는 방법에 대한 연습은 [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
-* 웹 서비스를 만들고 배포하는 방법에 대한 전체 연습은 [연습 1 단계: Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)를 참조하세요.
+* 웹 서비스를 만들고 배포하는 방법에 대한 전체 연습은 [연습 1단계: Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)를 참조하세요.
 * 웹 서비스 배포의 특정 예제는 다음을 참조하세요.
 
   * [연습 5단계: Azure Machine Learning 웹 서비스 배포](walkthrough-5-publish-web-service.md)

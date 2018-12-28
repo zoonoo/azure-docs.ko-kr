@@ -1,6 +1,6 @@
 ---
 title: (사용되지 않음) Azure Container Service 자습서 - 애플리케이션 배포
-description: Azure Container Service 자습서 - 응용 프로그램 배포
+description: Azure Container Service 자습서 - 애플리케이션 배포
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -23,12 +23,12 @@ ms.locfileid: "52998792"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-7개 중 4단계인 이 자습서에서는 응용 프로그램 예제를 Kubernetes 클러스터에 배포합니다. 완료되는 단계는 다음과 같습니다.
+7개 중 4단계인 이 자습서에서는 애플리케이션 예제를 Kubernetes 클러스터에 배포합니다. 완료되는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 업데이트
-> * Kubernetes에서 응용 프로그램 실행
-> * 응용 프로그램 테스트
+> * Kubernetes에서 애플리케이션 실행
+> * 애플리케이션 테스트
 
 후속 자습서에서는 이 애플리케이션을 규모 확장하고, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "52998792"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다. 
+이전 자습서에서는 애플리케이션을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다. 
 
 이 자습서를 완료하려면 미리 작성된 `azure-vote-all-in-one-redis.yml` Kubernetes 매니페스트 파일이 필요합니다. 이전 자습서에서 애플리케이션 소스 코드와 함께 이 파일을 다운로드했습니다. 리포지토리를 복제했으며 디렉터리를 복제된 리포지토리로 변경했는지 확인하세요.
 
@@ -44,7 +44,7 @@ ms.locfileid: "52998792"
 
 ## <a name="update-manifest-file"></a>매니페스트 파일 업데이트
 
-이 자습서에서는 ACR(Azure Container Registry)을 사용하여 컨테이너 이미지를 저장했습니다. 응용 프로그램을 실행하기 전에 Kubernetes 매니페스트 파일에서 ACR 로그인 서버 이름을 업데이트해야 합니다.
+이 자습서에서는 ACR(Azure Container Registry)을 사용하여 컨테이너 이미지를 저장했습니다. 애플리케이션을 실행하기 전에 Kubernetes 매니페스트 파일에서 ACR 로그인 서버 이름을 업데이트해야 합니다.
 
 [az acr list](/cli/azure/acr#az-acr-list) 명령을 사용하여 ACR 로그인 서버 이름을 가져옵니다.
 
@@ -68,7 +68,7 @@ containers:
 
 파일을 저장하고 닫습니다.
 
-## <a name="deploy-application"></a>응용 프로그램 배포
+## <a name="deploy-application"></a>애플리케이션 배포
 
 [kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) 명령을 사용하여 응용 프로그램을 실행합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다.
 
@@ -85,9 +85,9 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-application"></a>응용 프로그램 테스트
+## <a name="test-application"></a>애플리케이션 테스트
 
-인터넷에 응용 프로그램을 노출하는 [Kubernetes 서비스](https://kubernetes.io/docs/concepts/services-networking/service/)가 생성됩니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 
+인터넷에 애플리케이션을 노출하는 [Kubernetes 서비스](https://kubernetes.io/docs/concepts/services-networking/service/)가 생성됩니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 
 
 진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 명령을 사용합니다.
 
@@ -103,13 +103,13 @@ azure-vote-front   10.0.42.158   <pending>     80:31873/TCP   1m
 azure-vote-front   10.0.42.158   52.179.23.131 80:31873/TCP   2m
 ```
 
-응용 프로그램을 보려면 외부 IP 주소로 이동합니다.
+애플리케이션을 보려면 외부 IP 주소로 이동합니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/azure-vote.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure 투표 응용 프로그램을 Azure Container Service Kubernetes 클러스터에 배포했습니다. 완료된 작업은 다음과 같습니다.  
+이 자습서에서는 Azure 투표 애플리케이션을 Azure Container Service Kubernetes 클러스터에 배포했습니다. 완료된 작업은 다음과 같습니다.  
 
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 다운로드

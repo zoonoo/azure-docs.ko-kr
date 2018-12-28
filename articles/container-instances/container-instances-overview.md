@@ -20,7 +20,7 @@ ms.locfileid: "53187197"
 
 컨테이너는 클라우드 애플리케이션을 패키지, 배포 및 관리하기 위한 기본 방법으로 도입되고 있습니다. Azure Container Instances는 어떠한 가상 머신도 관리하지 않고 또 더 높은 수준의 서비스를 채택하지 않고도 Azure에서 컨테이너를 실행하는 가장 빠르고 간단한 방법을 제공합니다.
 
-Azure Container Instances는 간단한 응용 프로그램, 작업 자동화 및 빌드 작업 등 격리된 컨테이너에서 작동할 수 있는 모든 시나리오에 적합한 솔루션입니다. 여러 컨테이너 간 서비스 검색, 자동 크기 조정 및 조정된 애플리케이션 업그레이드를 포함하여 전체 컨테이너 오케스트레이션이 필요한 시나리오에는 [AKS(Azure Kubernetes Service)](../aks/index.yml)를 사용하는 것이 좋습니다.
+Azure Container Instances는 간단한 애플리케이션, 작업 자동화 및 빌드 작업 등 격리된 컨테이너에서 작동할 수 있는 모든 시나리오에 적합한 솔루션입니다. 여러 컨테이너 간 서비스 검색, 자동 크기 조정 및 조정된 애플리케이션 업그레이드를 포함하여 전체 컨테이너 오케스트레이션이 필요한 시나리오에는 [AKS(Azure Kubernetes Service)](../aks/index.yml)를 사용하는 것이 좋습니다.
 
 ## <a name="fast-startup-times"></a>빠른 시작 시간
 
@@ -32,11 +32,11 @@ Azure Container Instances는 IP 주소 및 FQDN(정규화된 도메인 이름)�
 
 ## <a name="hypervisor-level-security"></a>하이퍼바이저 수준 보안
 
-지금까지는 컨테이너가 응용 프로그램 종속성 격리 및 리소스 관리를 제공했지만 적대적인 다중 테넌트 사용을 위해서 충분히 보강되지 않았습니다. Azure Container Instances는 애플리케이션이 VM에서 격리되는 것처럼 컨테이너에서도 격리되도록 보장합니다.
+지금까지는 컨테이너가 애플리케이션 종속성 격리 및 리소스 관리를 제공했지만 적대적인 다중 테넌트 사용을 위해서 충분히 보강되지 않았습니다. Azure Container Instances는 애플리케이션이 VM에서 격리되는 것처럼 컨테이너에서도 격리되도록 보장합니다.
 
 ## <a name="custom-sizes"></a>사용자 지정 크기
 
-일반적으로 컨테이너는 단일 응용 프로그램만 실행하도록 최적화되었지만 이러한 응용 프로그램의 정확한 요구 사항은 크게 다를 수 있습니다. Azure Container Instances는 CPU 코어 및 메모리의 정확한 사양을 허용하여 최적의 활용도를 제공합니다. 필요한 만큼 비용을 초 단위로 지불하므로 실제로 필요한 양에 따라 지출을 미세하게 조정할 수 있습니다.
+일반적으로 컨테이너는 단일 애플리케이션만 실행하도록 최적화되었지만 이러한 애플리케이션의 정확한 요구 사항은 크게 다를 수 있습니다. Azure Container Instances는 CPU 코어 및 메모리의 정확한 사양을 허용하여 최적의 활용도를 제공합니다. 필요한 만큼 비용을 초 단위로 지불하므로 실제로 필요한 양에 따라 지출을 미세하게 조정할 수 있습니다.
 
 Machine Learning과 같은 컴퓨팅 집약적인 작업의 경우 Azure Container Instances는 NVIDIA Tesla [GPU 리소스](container-instances-gpu.md)(미리 보기)를 사용하도록 Linux 컨테이너를 예약할 수 있습니다.
 

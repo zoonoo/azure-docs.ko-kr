@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4f4aedd1d85a83e6f55d5729b82b88e2e9e8c00d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ec67cb6b4bc1dd29dbbac4056d3365a74b31a24c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415936"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013708"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 저장소 모범 사례
 
 이 문서에서는 Azure HDInsight 시스템에서 데이터 저장소에 대한 권장 사항을 제공합니다. 온-프레미스 Apache Hadoop 시스템을 Azure HDInsight로 마이그레이션하는 데 도움을 주는 모범 사례를 제공하는 시리즈의 일부입니다.
 
-## <a name="choose-the-right-storage-system-for-hdinsight-clusters"></a>HDInsight 클러스터에 대한 올바른 저장소 시스템을 선택합니다.
+## <a name="choose-right-storage-system-for-hdinsight-clusters"></a>HDInsight 클러스터에 대한 올바른 스토리지 시스템 선택
 
 Azure Storage 또는 Azure Data Lake Storage에 온-프레미스 HDFS(Apache Hadoop 파일 시스템) 디렉터리 구조를 다시 만들 수 있습니다. 그런 다음, 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다. 두 서비스는 HDInsight 클러스터에 대한 기본 파일 시스템 및 추가 파일 시스템으로 사용할 수 있습니다. HDInsight 클러스터와 저장소 계정은 동일한 지역에서 호스트되어야 합니다.
 
@@ -34,9 +34,12 @@ Azure 저장소를 지역에서 복제할 수 있습니다. 지역에서 복제�
 
 Azure Storage에 저장된 데이터에 액세스하는 데 다음 형식 중 하나를 사용할 수 있습니다.
 
-- `wasb:///`: 암호화되지 않은 통신을 사용하여 기본 저장소에 액세스합니다.
-- `wasbs:///`: 암호화된 통신을 사용하여 기본 저장소에 액세스합니다.
-- `wasb://<container-name>@<account-name>.blob.core.windows.net/`: 기본이 아닌 저장소 계정과 통신할 때 사용됩니다. 
+|데이터 액세스 형식 |설명 |
+|---|---|
+|`wasb:///`|암호화되지 않은 통신을 사용하여 기본 스토리지에 액세스합니다.|
+|`wasbs:///`|암호화된 통신을 사용하여 기본 스토리지에 액세스합니다.|
+|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|기본이 아닌 스토리지 계정과 통신할 때 사용됩니다. |
+
 
 [Azure Storage 확장성 및 성능 목표](../../storage/common/storage-scalability-targets.md)는 Azure저장소 계정에 대한 현재 제한을 나열합니다. 응용 프로그램의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우 여러 저장소 계정을 사용하도록 응용 프로그램을 빌드한 다음, 데이터 개체를 이러한 저장소 계정에 분할할 수 있습니다.
 
@@ -96,15 +99,15 @@ Data Lake Storage Gen2의 기본 기능은 데이터 액세스 성능을 개선�
 
 과거 클라우드 기반 분석은 성능, 관리 및 보안 영역을 양보해야 했습니다. ADLS(Azure Data Lake Storage) Gen2의 주요 기능은 아래와 같습니다.
 
-- **Hadoop 호환 액세스**: Azure Data Lake Storage Gen2를 사용하면  [HDFS(Hadoop 분산 파일 시스템)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)를 사용하는 것처럼 데이터를 관리하고 액세스할 수 있습니다. 새 [ABFS 드라이버](../../storage/data-lake-storage/abfs-driver.md)를  [Azure HDInsight](../index.yml)에 포함된 모든 Apache Hadoop 환경 내에서 사용할 수 있습니다. 이 드라이버를 사용하면 Data Lake Storage Gen2에 저장된 데이터에 액세스할 수 있습니다.
+- **Hadoop 호환 액세스**: Azure Data Lake Storage Gen2를 사용하면  [HDFS(Hadoop 분산 파일 시스템)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)를 사용하는 것처럼 데이터를 관리하고 액세스할 수 있습니다. 새 [ABFS 드라이버](../../storage/data-lake-storage/abfs-driver.md)를  [Azure HDInsight](../index.yml)에 포함된 모든 Apache Hadoop 환경 내에서 사용할 수 있습니다. 이 드라이버를 사용하면 Data Lake Storage Gen2에 저장된 데이터에 액세스할 수 있습니다.
 
-- **POSIX 권한 상위 집합**: Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 완벽하게 지원합니다. 설정은 관리 도구 또는 Hive 및 Spark 같은 프레임워크를 통해 구성할 수 있습니다.
+- **POSIX 권한 상위 세트**: Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 완벽하게 지원합니다. 설정은 관리 도구 또는 Hive 및 Spark 같은 프레임워크를 통해 구성할 수 있습니다.
 
-- **비용 효과**: Data Lake Storage Gen2는 낮은 비용의 저장소 용량 및 트랜잭션을 제공합니다. 데이터가 전체 수명 주기를 통해 전환됨에 따라  [Azure Blob 저장소 수명 주기](../../storage/common/storage-lifecycle-managment-concepts.md)와 같은 기본 제공 기능을 통해 비용을 최소화하도록 청구 요금을 변경합니다.
+- **비용 효율성**: Data Lake Storage Gen2는 낮은 비용의 스토리지 용량 및 트랜잭션을 특징으로 합니다. 데이터가 전체 수명 주기를 통해 전환됨에 따라  [Azure Blob 저장소 수명 주기](../../storage/common/storage-lifecycle-management-concepts.md)와 같은 기본 제공 기능을 통해 비용을 최소화하도록 청구 요금을 변경합니다.
 
-- **Blob Storage 도구, 프레임워크 및 앱 사용**: Data Lake Storage Gen2는 현재 Blob Storage용으로 제공되는 다양한 도구, 프레임워크 및 응용 프로그램을 계속 사용합니다.
+- **Blob Storage 도구, 프레임 워크 및 앱 사용**: Data Lake Storage Gen2는 현재 Blob Storage용으로 제공되는 다양한 도구, 프레임워크 및 애플리케이션을 계속 사용합니다.
 
-- **최적화된 드라이버**: ABFS(Azure Blob 파일 시스템 드라이버)는 빅 데이터 분석에  [특별히 최적화](../../storage/data-lake-storage/abfs-driver.md)되었습니다.  해당 REST API는 dfs 엔드포인트, dfs.core.windows.net을 통해 표시됩니다.
+- **최적화된 드라이버**: ABFS(Azure Blob 파일 시스템 드라이버)는 빅 데이터 분석에  [특별히 최적화](../../storage/data-lake-storage/abfs-driver.md) 되었습니다. 해당 REST API는 dfs 엔드포인트, dfs.core.windows.net을 통해 표시됩니다.
 
 ADLS Gen2에 저장된 데이터에 액세스하는 데 다음 형식 중 하나를 사용할 수 있습니다.
 - `abfs:///`: 클러스터의 기본 Data Lake Storage에 액세스합니다.
@@ -115,7 +118,7 @@ ADLS Gen2에 저장된 데이터에 액세스하는 데 다음 형식 중 하나
 - [Azure Data Lake Storage Gen2 미리 보기 소개](../../storage/data-lake-storage/introduction.md)
 - [Azure Blob FileSystem 드라이버(ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
 
-## <a name="protect-azure-storage-key-visibility-within-the-on-premises-hadoop-cluster-configuration"></a>온-프레미스 Hadoop 클러스터 구성 내에서 Azure Storage 키 표시 유형 보호
+## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>온-프레미스 Hadoop 클러스터 구성 내에서 Azure Storage 키 보안
 
 Hadoop 구성 파일에 추가되는 Azure 저장소 키는 온-프레미스 HDFS 및 Azure Blob 저장소 간의 연결을 설정합니다. Hadoop 자격 증명 공급자 프레임워크로 암호화하여 이러한 키를 보호할 수 있습니다. 암호화되면 안전하게 저장하고 액세스할 수 있습니다.
 
@@ -144,18 +147,21 @@ hadoop credential create fs.azure.account.key.account.blob.core.windows.net -val
 hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks /user/user1/ wasb:<//yourcontainer@youraccount.blob.core.windows.net/>user1
 ```
 
-## <a name="restrict-access-to-azure-storage-data-using-sas-signatures"></a>SAS 서명을 사용하여 Azure 저장소 데이터에 대한 액세스 제한
+## <a name="restrict-azure-storage-data-access-using-sas"></a>SAS를 사용하여 Azure Storage 데이터 액세스 제한
 
 HDInsight는 기본적으로 클러스터와 연결된 Azure Storage 계정의 데이터에 대해 모든 액세스 권한을 갖습니다. 사용자에게 데이터에 대한 읽기 전용 액세스 제공과 같은 데이터에 대한 액세스를 제한하는 데 Blob 컨테이너의 SAS(공유 액세스 서명)를 사용할 수 있습니다.
 
 ### <a name="using-the-sas-token-created-with-python"></a>python으로 생성된 SAS 토큰 사용
 
 1. [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) 파일을 열고 다음 값을 변경합니다.
-    - policy_name: 만들 저장된 정책에 대해 사용할 이름입니다.
-    - storage_account_name: 저장소 계정의 이름입니다.
-    - storage_account_key: 저장소 계정의 키입니다.
-    - storage_container_name: 액세스를 제한할 저장소 계정의 컨테이너입니다.
-    - example_file_path: 컨테이너에 업로드할 파일에 대한 경로입니다.
+
+    |토큰 속성|설명|
+    |---|---|
+    |policy_name|만들 저장된 정책에 대해 사용할 이름입니다.|
+    |storage_account_name|사용자 스토리지 계정의 이름입니다.|
+    |storage_account_key|저장소 계정의 키입니다.|
+    |storage_container_name|액세스를 제한하려는 스토리지 계정의 컨테이너입니다.|
+    |example_file_path|컨테이너에 업로드되는 파일에 대한 경로입니다.|
 
 2. SASToken.py 파일은 `ContainerPermissions.READ + ContainerPermissions.LIST` 권한과 함께 제공되며 사용 사례에 따라 조정할 수 있습니다.
 
@@ -167,7 +173,7 @@ HDInsight는 기본적으로 클러스터와 연결된 Azure Storage 계정의 �
 
 6.  **키** 및 **값** 필드에 다음 값을 사용합니다.
 
-    **키**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **값**: 위의 4단계에서 Python 응용 프로그램에 의해 반환되는 SAS 키입니다.
+    **키**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **값**: 위의 4단계에서 Python 애플리케이션에 의해 반환되는 SAS 키입니다.
 
 7.  **Add** 단추를 클릭하여 이 키 및 값을 저장한 다음,  **Save** 단추를 클릭하여 구성 변경을 저장합니다. 메시지가 나타나면 변경에 대한 설명(예: "SAS 저장소 액세스 추가")을 추가한 다음,  **저장**을 클릭합니다.
 
@@ -201,7 +207,7 @@ Azure Data Lake Storage는 LRS(로컬 중복 저장소)를 제공하지만 재�
 - [Azure Storage 복제](../../storage/common/storage-redundancy.md)
 - [ADLS(Azure Data Lake Storage)에 대한 재해 지침](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
-## <a name="attach-additional-azure-storage-accounts-to-the-cluster"></a>클러스터에 추가 Azure 저장소 계정 연결
+## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>클러스터에 추가로 Azure Storage 계정 연결
 
 HDInsight를 만드는 과정에서 Azure Storage 계정 또는 Azure Data Lake 저장소 계정이 기본 파일 시스템으로 선택됩니다. 클러스터 만들기 프로세스 중이나 클러스터를 만든 후에 이 기본 저장소 계정 외에도 동일한 Azure 구독 또는 다른 Azure 구독에서 저장소 계정을 추가할 수 있습니다.
 

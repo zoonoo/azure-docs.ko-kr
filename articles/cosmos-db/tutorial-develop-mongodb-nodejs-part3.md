@@ -490,7 +490,7 @@ ms.locfileid: "53134508"
 
 3. 이제 인터넷 브라우저를 열고 **localhost:3000**으로 이동하고 로컬로 실행 중인 앱을 확인합니다.
 
-     ![로컬로 Hero 응용 프로그램 실행](./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png)
+     ![로컬로 Hero 애플리케이션 실행](./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png)
 
 ## <a name="next-steps"></a>다음 단계
 

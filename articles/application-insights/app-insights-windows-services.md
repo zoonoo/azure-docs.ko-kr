@@ -9,16 +9,15 @@ ms.assetid: 106ba99b-b57a-43b8-8866-e02f626c8190
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 461b1f4e72f0a47da4ccb560bfb4cfb7d0f3ccd2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096438"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001736"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>.NET 응용 프로그램에 대한 Application Insights를 수동으로 구성
 
@@ -30,7 +29,7 @@ ms.locfileid: "47096438"
 
 다음 작업을 수행해야 합니다.
 
-* [Microsoft Azure](http://azure.com)구독. 팀 또는 조직에 Azure 구독이 있는 경우 소유자가 [Microsoft 계정](http://live.com)을 사용하여 사용자를 추가할 수 있습니다.
+* [Microsoft Azure](https://azure.com)구독. 팀 또는 조직에 Azure 구독이 있는 경우 소유자가 [Microsoft 계정](https://live.com)을 사용하여 사용자를 추가할 수 있습니다.
 * Visual Studio 2013 이상.
 
 ## <a name="add"></a>1. Application Insights 리소스 선택
@@ -45,7 +44,7 @@ ms.locfileid: "47096438"
 
 [Azure Portal](https://portal.azure.com/)에서 리소스를 엽니다. 
 
-### <a name="self-contained-app-create-a-new-resource"></a>자체 포함된 앱: 새 리소스 만들기
+### <a name="self-contained-app-create-a-new-resource"></a>자체 포함 앱: 새 리소스 만들기
 
 새 앱이 다른 응용 프로그램과 관련이 없으면 자체 리소스가 있어야 합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 스크립트 샘플 - 다중 계층 애플리케이션용 네트워크 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 다중 계층 응용 프로그램을 위한 가상 네트워크를 만듭니다.
+description: Azure CLI 스크립트 샘플 - 다중 계층 애플리케이션을 위한 가상 네트워크를 만듭니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial

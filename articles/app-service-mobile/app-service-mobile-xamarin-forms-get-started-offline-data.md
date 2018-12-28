@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: crdun
-ms.openlocfilehash: f88e6a4037bcca54982359742cdc6021f020882d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27594720"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001815"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Xamarin.Forms 모바일 앱에 대해 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -40,8 +40,8 @@ ms.locfileid: "27594720"
         #define OFFLINE_SYNC_ENABLED
 3. (선택 사항) Windows 디바이스를 지원하려면 다음 SQLite 런타임 패키지 중 하나를 설치합니다.
 
-   * **Windows 8.1 런타임:** [Windows 8.1][3]용 SQLite를 설치합니다.
-   * **Windows Phone 8.1:** [Windows Phone 8.1][4]용 SQLite를 설치합니다.
+   * **Windows 8.1 런타임:** [Windows 8.1용 SQLite][3]를 설치합니다.
+   * **Windows Phone 8.1:** [Windows Phone 8.1용 SQLite][4]를 설치합니다.
    * **유니버설 Windows 플랫폼:** [유니버설 Windows 플랫폼용 SQLite][5]를 설치합니다.
 
      빠른 시작이 유니버설 Windows 프로젝트를 포함하지 않으면 유니버설 Windows 플랫폼은 Xamarin Forms으로 지원됩니다.
@@ -157,9 +157,9 @@ ms.locfileid: "27594720"
 <!-- URLs. -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [2]: app-service-mobile-offline-data-sync.md
-[3]: http://go.microsoft.com/fwlink/p/?LinkID=716919
-[4]: http://go.microsoft.com/fwlink/p/?LinkID=716920
-[5]: http://sqlite.org/2016/sqlite-uwp-3120200.vsix
+[3]: https://go.microsoft.com/fwlink/p/?LinkID=716919
+[4]: https://go.microsoft.com/fwlink/p/?LinkID=716920
+[5]: https://sqlite.org/2016/sqlite-uwp-3120200.vsix
 [6]: https://www.getpostman.com/
-[7]: http://www.telerik.com/fiddler
+[7]: https://www.telerik.com/fiddler
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md

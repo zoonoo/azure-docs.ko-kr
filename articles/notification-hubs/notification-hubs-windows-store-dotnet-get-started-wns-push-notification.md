@@ -63,7 +63,7 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
 1.   **응용 프로그램 비밀** 암호 및 **패키지 SID(보안 식별자)** 를 메모해 둡니다.
 
         >[!WARNING]
-        >응용 프로그램 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마세요.
+        >애플리케이션 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마세요.
 
 ## <a name="create-a-notification-hub"></a>알림 허브 만들기
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
@@ -137,7 +137,7 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
    
         InitNotificationsAsync();
    
-    이 작업은 응용 프로그램이 시작될 때마다 채널 URI가 알림 허브에 등록되도록 보장합니다.
+    이 작업은 애플리케이션이 시작될 때마다 채널 URI가 알림 허브에 등록되도록 보장합니다.
 
 6. 앱을 실행하려면 **F5** 키를 선택합니다. 등록 키가 포함된 대화 상자가 표시됩니다. 대화 상자를 닫으려면 **확인**을 선택합니다. 
 

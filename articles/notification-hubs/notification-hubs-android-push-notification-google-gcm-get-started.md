@@ -106,7 +106,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
         </intent-filter>
     </service>
     ```
-2. 응용 프로그램이 인스턴스 ID API에서 GCM 등록 토큰을 수신하면 토큰을 사용하여 [Azure Notification Hub에 등록](notification-hubs-push-notification-registration-management.md)합니다. 등록은 `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 수행됩니다. 이 서비스는 [GCM 등록 토큰을 새로 고칩니다](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
+2. 애플리케이션이 인스턴스 ID API에서 GCM 등록 토큰을 수신하면 토큰을 사용하여 [Azure Notification Hub에 등록](notification-hubs-push-notification-registration-management.md)합니다. 등록은 `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 수행됩니다. 이 서비스는 [GCM 등록 토큰을 새로 고칩니다](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
    
     AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일의 맨 위에 표시된 실제 패키지 이름으로 바꿉니다. 
    
@@ -434,7 +434,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 12. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드**를 클릭하여 코드에 오류가 없는지 확인합니다.
 
 ## <a name="testing-your-app"></a>앱 테스트
-### <a name="run-the-mobile-application"></a>모바일 응용 프로그램 실행
+### <a name="run-the-mobile-application"></a>모바일 애플리케이션 실행
 1. 앱을 실행하고 등록에 성공한 경우 등록 ID가 보고되는지 확인합니다.
    
       ![Android에서 테스트 - 채널 등록][18]

@@ -1,5 +1,5 @@
 ---
-title: Azure DC/OS 클러스터 모니터링 - Datadog
+title: (사용되지 않음) Azure DC/OS 클러스터 모니터링 - Datadog
 description: Datadog를 사용하여 Azure 컨테이너 서비스 클러스터를 모니터링합니다. DC/OS 웹 UI를 사용하여 Datadog 에이전트를 클러스터에 배포합니다.
 services: container-service
 author: sauryadas
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 029f36e4362704fcec240f6e88da5c96e903c317
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d881a5c0f994b627b4c7c3da362672b3b887cd5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162758"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996149"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>Datadog을 사용하여 Azure Container Service DC/OS 클러스터를 모니터링합니다.
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(사용되지 않음) Datadog을 사용하여 Azure Container Service DC/OS 클러스터 모니터링
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 이 문서에서는 Azure 컨테이너 서비스 클러스터의 모든 노드에 Datadog 에이전트를 배포하는 방법을 설명합니다. 이러한 구성을 위해서는 Datadog 계정이 필요합니다. 
 

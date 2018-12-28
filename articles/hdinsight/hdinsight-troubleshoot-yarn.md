@@ -69,7 +69,7 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
 1. SSH(Secure Shell) 클라이언트를 사용하여 HDInsight 클러스터에 연결합니다. 자세한 내용은 [더 보기](#additional-reading-2)를 참조하세요.
 
-2. 현재 실행 중인 YARN 응용 프로그램의 모든 응용 프로그램 ID를 나열하려면 다음 명령을 사용합니다.
+2. 현재 실행 중인 YARN 애플리케이션의 모든 애플리케이션 ID를 나열하려면 다음 명령을 사용합니다.
 
     ```apache
     yarn top
@@ -89,7 +89,7 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
      application_1490377567345_0006 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628430    2442645  10.00   18:20:20 Thrift JDBC/ODBC Server
     ```
 
-3. 모든 응용 프로그램 마스터에 대한 YARN 컨테이너 로그를 다운로드하려면 다음 명령을 사용합니다.
+3. 모든 애플리케이션 마스터에 대한 YARN 컨테이너 로그를 다운로드하려면 다음 명령을 사용합니다.
    
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
@@ -97,7 +97,7 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
     amlogs.txt라는 로그 파일이 만들어집니다. 
 
-4. 최신 응용 프로그램 마스터에 대한 YARN 컨테이너 로그만 다운로드하려면 다음 명령을 사용합니다.
+4. 최신 애플리케이션 마스터에 대한 YARN 컨테이너 로그만 다운로드하려면 다음 명령을 사용합니다.
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
@@ -105,7 +105,7 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
     latestamlogs.txt라는 로그 파일이 만들어집니다. 
 
-4. 처음 두 개 응용 프로그램 마스터에 대한 YARN 컨테이너 로그를 다운로드하려면 다음 명령을 사용합니다.
+4. 처음 두 개 애플리케이션 마스터에 대한 YARN 컨테이너 로그를 다운로드하려면 다음 명령을 사용합니다.
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt 

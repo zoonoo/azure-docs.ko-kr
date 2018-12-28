@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261074"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081543"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 제안에 대해 선택한 게시 옵션은 적격성 요구 사항 및 마켓플레이스 GTM 혜택 모두와 직접 관련이 있습니다. 무엇보다도 Cloud 파트너 포털에서 게시 옵션 및 제품 유형의 선택은 사용자가 귀하의 마켓플레이스 제안과 상호 작용하는 방법을 정의합니다.
 
 제품 유형을 선택한 다음, Cloud 파트너 포털에서 마켓플레이스 제품을 만들어 게시 옵션을 사용하도록 설정할 수 있습니다. 이렇게 하려면 게시 옵션, 제품 유형 및 구성 그리고 귀하의 제품이 마켓플레이스 상점에 제공되는 장소 및 방법을 제어하는 CTA(calls-to-action) 등 주요 마켓플레이스 개념을 이해해야 합니다.
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
+![](./media/marketplace-publishers-guide/storefronts_options_table.png)
 
 >[!Note]
 >위의 표에서는 솔루션 또는 서비스가 상점, 게시 옵션 및 마켓플레이스에서 제품을 제공하는 데 사용되는 제품 유형에 매핑되는 방법을 설명합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "52261074"
 
 **Azure Marketplace** 응용 프로그램은 Azure를 위해 또는 바탕으로 빌드된 기술적 "빌딩 블록" 솔루션입니다. Azure Marketplace 컨설팅 서비스는 고객이 Azure 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
 
-**AppSource** 응용 프로그램은 Azure를 바탕으로 빌드되거나 Dynamics 365, Office 365, PowerBI 또는 Power Apps를 위해 빌드될 수 있는 기간 업무 솔루션입니다. AppSource 컨설팅 서비스는 고객이 Dynamics 365 및 Power BI 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
+**AppSource** 애플리케이션은 Azure를 바탕으로 빌드되거나 Dynamics 365, Office 365, PowerBI 또는 Power Apps를 위해 빌드될 수 있는 기간 업무 솔루션입니다. AppSource 컨설팅 서비스는 고객이 Dynamics 365 및 Power BI 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
 
 게시자로 등록하여 마켓플레이스 제품을 만들고 구성하고 게시하기 위한 Cloud 파트너 포털에 대한 액세스 권한을 받으면 다음을 할 수 있습니다.
 

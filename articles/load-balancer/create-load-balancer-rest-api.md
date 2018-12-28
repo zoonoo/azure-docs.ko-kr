@@ -1,5 +1,6 @@
 ---
-title: REST API를 사용하여 Azure Load Balancer 만들기 | Microsoft Docs
+title: REST API를 사용하여 Azure Load Balancer 만들기
+titlesuffix: Azure Load Balancer
 description: REST API를 사용하여 Azure Load Balancer를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
-ms.openlocfilehash: 2f5d3584a429ce35e6905b14bb412c3782fb0185
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416922"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079724"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>REST API를 사용하여 Azure 기본 Load Balancer 만들기
 
@@ -49,7 +51,7 @@ Azure Load Balancer는 규칙 및 상태 프로브에 따라, 부하 분산 장�
 | location | string | 리소스 위치. [위치 나열](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) 작업을 사용하여 현재 위치 목록을 가져옵니다. |
 
 
-## <a name="example-create-and-update-a-basic-load-balancer"></a>예: 기본 Load Balancer 만들기 및 업데이트
+## <a name="example-create-and-update-a-basic-load-balancer"></a>예제: 기본 Load Balancer 만들기 및 업데이트
 
 이 예제에서는 먼저 기본 Load Balancer를 해당 리소스와 함께 만듭니다. 그런 다음, 프론트 엔드 IP 구성, 백 엔드 주소 풀, 부하 분산 규칙, 상태 프로브 및 인바운드 NAT 규칙을 포함하는 부하 분산 장치 리소스를 구성합니다.
 

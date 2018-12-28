@@ -1,20 +1,20 @@
 ---
 title: Azure Stream Analytics 작업 정리
-description: 이 아티클은 Azure Stream Analytics 작업을 삭제하는 방법에 대한 가이드입니다.
+description: 이 문서에서는 Azure Stream Analytics 작업을 삭제하기 위한 여러 가지 방법을 보여줍니다.
 services: stream-analytics
 author: mamccrea
-manager: kfile
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/22/2018
-ms.openlocfilehash: 580d05909ff3c94c982be5353b3b5e86a78fc43f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 85db38fef5e69c4de855f8cb6d54151496faebbe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969343"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090247"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>Azure Stream Analytics 작업 정리
 
@@ -31,7 +31,7 @@ Azure Stream Analytics 작업은 Azure Portal, Azure PowerShell, .Net 또는 RES
 
 3. Stream Analytics 작업 페이지에서 **중지**를 선택하여 작업을 중지합니다. 
 
-   ![작업 중지](./media/stream-analytics-clean-up-your-job/stop-job.png)
+   ![Azure Stream Analytics 작업 중지](./media/stream-analytics-clean-up-your-job/stop-stream-analytics-job.png)
 
 
 ## <a name="delete-a-job-in-azure-portal"></a>Azure Portal에서 작업 삭제
@@ -42,7 +42,7 @@ Azure Stream Analytics 작업은 Azure Portal, Azure PowerShell, .Net 또는 RES
 
 3. Stream Analytics 작업 페이지에서 **삭제**를 선택하여 작업을 삭제합니다. 
 
-   ![작업 삭제](./media/stream-analytics-clean-up-your-job/delete-job.png)
+   ![Azure Stream Analytics 작업 삭제](./media/stream-analytics-clean-up-your-job/delete-stream-analytics-job.png)
 
 
 ## <a name="stop-or-delete-a-job-using-powershell"></a>PowerShell을 사용하여 작업 중지 또는 삭제

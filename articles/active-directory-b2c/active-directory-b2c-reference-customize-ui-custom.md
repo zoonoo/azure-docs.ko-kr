@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139512"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841628"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>사용자 지정 정책으로 사용자 경험의 UI 사용자 지정
 
@@ -31,7 +31,7 @@ ms.locfileid: "50139512"
 
 Azure AD B2C를 사용하면 사용자 지정 정책을 사용하여 Azure AD B2C에서 제공하고 표시하는 다양한 페이지에서 사용자 환경(UX)의 모양과 느낌을 사용자 지정할 수 있습니다.
 
-이러한 용도로, Azure AD B2C는 소비자의 브라우저에서 코드를 실행하고 현대적이고 표준 방식인 [크로스-원본 자원 공유(CORS)](http://www.w3.org/TR/cors/)를 사용하여 HTML5/CSS 템플릿을 가리키도록 사용자 지정 정책에서 지정한 특정 URL에서 사용자 지정 콘텐츠를 로드합니다. CORS는 리소스의 출처가 된 도메인 외부의 다른 도메인에서 웹 페이지의 글꼴과 같은 제한된 자원을 요청할 수 있는 메커니즘입니다.
+이러한 용도로, Azure AD B2C는 소비자의 브라우저에서 코드를 실행하고 현대적이고 표준 방식인 [크로스-원본 자원 공유(CORS)](https://www.w3.org/TR/cors/)를 사용하여 HTML5/CSS 템플릿을 가리키도록 사용자 지정 정책에서 지정한 특정 URL에서 사용자 지정 콘텐츠를 로드합니다. CORS는 리소스의 출처가 된 도메인 외부의 다른 도메인에서 웹 페이지의 글꼴과 같은 제한된 자원을 요청할 수 있는 메커니즘입니다.
 
 제한된 텍스트 및 이미지를 제공한 솔루션에서 템플릿 페이지를 소유하고 레이아웃과 느낌을 제한적으로 제어하여 원활한 환경을 달성하는 데 어려움을 겪었던 구식의 전통적인 방식에 비해, CORS 방식은 HTML5 및 CSS를 지원하며 다음이 가능합니다.
 
@@ -69,10 +69,10 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 - 모든 링크 및 CSS 콘텐츠에 대해 절대 URL(예: https://yourdomain/content)을 사용합니다.
 
 > [!TIP]
-> 콘텐츠를 호스트하는 사이트에 CORS가 활성화되어 있고 CORS 요청을 테스트했는지 확인하려면 http://test-cors.org/ 사이트를 사용할 수 있습니다. 이 사이트 덕분에 CORS 요청을 원격 서버로 보내거나(CORS가 지원되는지 테스트) CORS 요청을 테스트 서버로 보낼 수 있습니다(CORS의 특정 기능 탐색).
+> 콘텐츠를 호스트하는 사이트에 CORS가 활성화되어 있고 CORS 요청을 테스트했는지 확인하려면 https://test-cors.org/ 사이트를 사용할 수 있습니다. 이 사이트 덕분에 CORS 요청을 원격 서버로 보내거나(CORS가 지원되는지 테스트) CORS 요청을 테스트 서버로 보낼 수 있습니다(CORS의 특정 기능 탐색).
 
 > [!TIP]
-> http://enable-cors.org/ 사이트는 또한 CORS에 대한 유용한 리소스를 구성합니다.
+> https://enable-cors.org/ 사이트는 또한 CORS에 대한 유용한 리소스를 구성합니다.
 
 이 CORS 기반 접근 방식 덕분에 최종 사용자는 Azure AD B2C에서 제공하는 페이지와 응용 프로그램 간에 일관된 경험을 얻게 됩니다.
 
@@ -119,8 +119,8 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 콘텐츠를 호스팅하는 저장소에 CORS를 사용할 수 있는지 확인하려면 다음 단계를 진행합니다.
 
-1. 브라우저 세션을 열고 저장소 계정 `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`에서 해당 위치의 전체 URL을 사용하여 *unified.html* 페이지로 이동합니다. 예: https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. http://test-cors.org로 이동합니다. 이 사이트를 통해 사용 중인 페이지에 CORS가 사용하도록 설정되었는지 확인할 수 있습니다.  
+1. 브라우저 세션을 열고 저장소 계정 `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`에서 해당 위치의 전체 URL을 사용하여 *unified.html* 페이지로 이동합니다. 예: https://contoso369b2c.blob.core.windows.net/b2c/unified.html
+2. https://test-cors.org로 이동합니다. 이 사이트를 통해 사용 중인 페이지에 CORS가 사용하도록 설정되었는지 확인할 수 있습니다.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->

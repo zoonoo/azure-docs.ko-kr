@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: rayne
-ms.openlocfilehash: 1a9a89138dc71f7a0255b8ab4084182848d6e994
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 50ef6ff452713ec8a8023c5d5e3d58a4b91ea323
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211743"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849805"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>장애 조치(failover) 후 보조 온-프레미스 사이트에 연결하도록 IP 주소 지정 설정
 
@@ -23,8 +23,8 @@ System Center VMM(Virtual Machine Manager) 클라우드의 Hyper-V VM을 보조 
 
 장애 조치(failover) 후 복제본 VM의 IP 주소 지정을 처리하는 몇 가지 방법이 있습니다. 
 
-- **장애 조치(failover) 후 동일한 IP 주소 유지**: 이 시나리오에서는 복제된 VM이 기본 VM과 동일한 IP 주소를 갖습니다. 이렇게 하면 장애 조치(failover) 후 네트워크 관련 문제가 간소화되지만 일부 인프라 작업이 필요합니다.
-- **장애 조치(failover) 후 다른 IP 주소 사용**: 이 시나리오에서는 장애 조치(failover) 후 VM이 새로운 IP 주소를 얻습니다. 
+- **장애 조치(failover) 후에 동일한 IP 주소 유지**: 이 시나리오에서는 복제된 VM이 기본 VM과 동일한 IP 주소를 갖습니다. 이렇게 하면 장애 조치(failover) 후 네트워크 관련 문제가 간소화되지만 일부 인프라 작업이 필요합니다.
+- **장애 조치(failover) 후 다른 IP 주소 사용**: 이 시나리오에서는 VM이 장애 조치(failover) 후에 새 IP 주소를 갖게 됩니다. 
  
 
 ## <a name="retain-the-ip-address"></a>IP 주소 유지

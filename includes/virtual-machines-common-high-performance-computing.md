@@ -17,7 +17,7 @@ ms.locfileid: "53430002"
 ---
 조직에는 대규모 컴퓨팅 요구 사항이 있습니다. 이러한 큰 계산 작업에는 엔지니어링 설계 및 분석, 재무 위험 계산, 이미지 렌더링, 복잡한 모델링, 몬테카를로 시뮬레이션 등이 포함됩니다. 
 
-Azure 클라우드를 사용하여 병렬 일괄 처리 작업에서 기존의 HPC 시뮬레이션에 이르기까지 계산 집약적인 Linux 및 Windows 작업을 효율적으로 실행합니다. 선택한 계산 서비스, 그리드 관리자, Marketplace 솔루션 및 공급 업체 호스트(SaaS) 응용 프로그램을 사용하여 Azure 인프라에서 HPC 및 배치 워크로드를 실행합니다. Azure는 작업을 배포하고 수천 대의 VM 또는 코어로 규모를 조정한 후 더 적은 리소스가 필요한 경우 규모를 축소하는 유연한 솔루션을 제공합니다. 
+Azure 클라우드를 사용하여 병렬 일괄 처리 작업에서 기존의 HPC 시뮬레이션에 이르기까지 계산 집약적인 Linux 및 Windows 작업을 효율적으로 실행합니다. 선택한 계산 서비스, 그리드 관리자, Marketplace 솔루션 및 공급 업체 호스트(SaaS) 애플리케이션을 사용하여 Azure 인프라에서 HPC 및 배치 워크로드를 실행합니다. Azure는 작업을 배포하고 수천 대의 VM 또는 코어로 규모를 조정한 후 더 적은 리소스가 필요한 경우 규모를 축소하는 유연한 솔루션을 제공합니다. 
 
 
 
@@ -28,7 +28,7 @@ Azure 클라우드를 사용하여 병렬 일괄 처리 작업에서 기존의 H
 * **직접 솔루션**
     * Azure 가상 머신 또는 [가상 머신 확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)에서 고유한 클러스터 환경을 설정합니다. 
     * 추가 용량을 위해 온-프레미스 클러스터를 전환하거나 Azure에서 새 클러스터를 배포합니다. 
-    * Azure Resource Manager 템플릿을 사용하여 선행 [워크로드 관리자](#workload-managers), 인프라 및 [응용 프로그램](#hpc-applications)을 배포합니다. 
+    * Azure Resource Manager 템플릿을 사용하여 선행 [워크로드 관리자](#workload-managers), 인프라 및 [애플리케이션](#hpc-applications)을 배포합니다. 
     * MPI 또는 GPU 워크로드에 대한 특수한 하드웨어 및 네트워크 연결을 포함하는 [HPC 및 GPU VM 크기](#hpc-and-gpu-sizes)를 선택합니다. 
     * I/O 사용량이 많은 워크로드에 [고성능 저장소](#hpc-storage)를 추가합니다.
 * **하이브리드 솔루션**
@@ -62,14 +62,14 @@ HPC용으로 설계된 Linux 및 Windows VM 이미지 및 솔루션은 [Azure Ma
 
 
  
-## <a name="hpc-applications"></a>HPC 응용 프로그램
+## <a name="hpc-applications"></a>HPC 애플리케이션
 
-Azure에서 사용자 지정 또는 상용 HPC 응용 프로그램을 실행합니다. 이 섹션에서 일부 예제는 추가 VM 또는 계산 코어를 통해 효율적으로 확장하도록 벤치마킹됩니다. 솔루션 배포 준비는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace)를 방문합니다.
+Azure에서 사용자 지정 또는 상용 HPC 애플리케이션을 실행합니다. 이 섹션에서 일부 예제는 추가 VM 또는 계산 코어를 통해 효율적으로 확장하도록 벤치마킹됩니다. 솔루션 배포 준비는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace)를 방문합니다.
 
 > [!NOTE]
 > 클라우드에서 실행하기 위해 라이선스나 기타 제한 사항에 대한 상용 응용 프로그램을 공급 업체에 확인합니다. 일부 공급 업체는 종량제 라이선스를 제공합니다. 솔루션에 대한 라이선스 서버가 클라우드에 필요하거나 온-프레미스 라이선스 서버에 연결할 수 있습니다.
 
-### <a name="engineering-applications"></a>엔지니어링 응용 프로그램
+### <a name="engineering-applications"></a>엔지니어링 애플리케이션
 
 
 * [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/)
@@ -96,9 +96,9 @@ Azure에서 사용자 지정 또는 상용 HPC 응용 프로그램을 실행합�
 
 
 ## <a name="hpc-and-gpu-vm-sizes"></a>HPC 및 GPU VM 크기
-Azure는 계산 집약적 작업에 맞게 설계된 크기를 포함하여 [Linux](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 및 [Windows](../articles/virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) VM에 다양한 크기를 제공합니다. 예를 들어 H16r 및 H16mr VM은 높은 처리량 백 엔드 RDMA 네트워크에 연결할 수 있습니다. 이 클라우드 네트워크는 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) 또는 Intel MPI에서 실행되는 긴밀하게 결합된 병렬 응용 프로그램의 성능을 향상시킬 수 있습니다. 
+Azure는 계산 집약적 작업에 맞게 설계된 크기를 포함하여 [Linux](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 및 [Windows](../articles/virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) VM에 다양한 크기를 제공합니다. 예를 들어 H16r 및 H16mr VM은 높은 처리량 백 엔드 RDMA 네트워크에 연결할 수 있습니다. 이 클라우드 네트워크는 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) 또는 Intel MPI에서 실행되는 긴밀하게 결합된 병렬 애플리케이션의 성능을 향상시킬 수 있습니다. 
 
-N 시리즈 VM은 AI(인공 지능) 학습 및 시각화를 포함한 계산 집약적 또는 그래픽 집약적 응용 프로그램을 위해 설계된 NVIDIA GPU를 특징으로 합니다. 
+N 시리즈 VM은 AI(인공 지능) 학습 및 시각화를 포함한 계산 집약적 또는 그래픽 집약적 애플리케이션을 위해 설계된 NVIDIA GPU를 특징으로 합니다. 
 
 자세한 정보:
 
@@ -116,7 +116,7 @@ N 시리즈 VM은 AI(인공 지능) 학습 및 시각화를 포함한 계산 집
 ## <a name="azure-batch"></a>Azure Batch
 [Batch](../articles/batch/batch-technical-overview.md)는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 가상 머신의 관리되는 풀에서 실행되는 계산 집약적 작업을 예약하고, 작업 요구에 맞게 계산 리소스를 자동으로 크기 조정할 수 있습니다. 
 
-SaaS 공급자 및 개발자는 Batch SDK 및 도구를 사용하여 HPC 응용 프로그램 또는 컨테이너 작업을 Azure에 통합하고, 데이터를 Azure로 스테이징하고, 작업 실행 파이프라인을 빌드할 수 있습니다. 
+SaaS 공급자 및 개발자는 Batch SDK 및 도구를 사용하여 HPC 애플리케이션 또는 컨테이너 작업을 Azure에 통합하고, 데이터를 Azure로 스테이징하고, 작업 실행 파이프라인을 빌드할 수 있습니다. 
 
 방법 배우기:
 

@@ -41,9 +41,9 @@ ms.locfileid: "53438747"
 * Raspberry Pi 온라인 시뮬레이터의 기본 사항을 알아봅니다.
 * IoT Hub를 만듭니다.
 * IoT Hub에 Pi용 디바이스를 등록합니다.
-* Pi에서 샘플 응용 프로그램을 실행하여 IoT Hub로 시뮬레이션된 센서 데이터를 보냅니다.
+* Pi에서 샘플 애플리케이션을 실행하여 IoT Hub로 시뮬레이션된 센서 데이터를 보냅니다.
 
-앞에서 만든 IoT Hub에 시뮬레이션된 Raspberry Pi를 연결합니다. 그런 다음 시뮬레이터에서 샘플 응용 프로그램을 실행하여 센서 데이터를 생성합니다. 마지막으로 센서 데이터를 IoT Hub로 보냅니다.
+앞에서 만든 IoT Hub에 시뮬레이션된 Raspberry Pi를 연결합니다. 그런 다음 시뮬레이터에서 샘플 애플리케이션을 실행하여 센서 데이터를 생성합니다. 마지막으로 센서 데이터를 IoT Hub로 보냅니다.
 
 ## <a name="what-you-learn"></a>학습 내용
 
@@ -62,7 +62,7 @@ ms.locfileid: "53438747"
 
 1. 어셈블리 영역 - 기본 회로에서는 Pi가 BME280 센서 및 LED에 연결됩니다. 미리 보기 버전에서는 이 영역이 잠겨 있으므로 지금은 사용자 지정을 수행할 수 없습니다.
 
-2. 코딩 영역 - Raspberry Pi를 사용하여 코딩할 수 있는 온라인 코드 편집기입니다. 기본 샘플 응용 프로그램을 사용하여 BME280 센서에서 센서 데이터를 손쉽게 수집한 후 Azure IoT Hub로 보낼 수 있습니다. 응용 프로그램은 실제 Pi 디바이스와 완벽하게 호환됩니다. 
+2. 코딩 영역 - Raspberry Pi를 사용하여 코딩할 수 있는 온라인 코드 편집기입니다. 기본 샘플 애플리케이션을 사용하여 BME280 센서에서 센서 데이터를 손쉽게 수집한 후 Azure IoT Hub로 보낼 수 있습니다. 응용 프로그램은 실제 Pi 디바이스와 완벽하게 호환됩니다. 
 
 3. 통합 콘솔 창 - 코드의 출력을 표시합니다. 이 창의 맨 위에는 세 개의 단추가 있습니다.
 
@@ -87,9 +87,9 @@ Raspberry Pi 웹 시뮬레이터는 현재 미리 보기 버전으로 제공됩�
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## <a name="run-a-sample-application-on-pi-web-simulator"></a>Pi 웹 시뮬레이터에서 샘플 응용 프로그램 실행
+## <a name="run-a-sample-application-on-pi-web-simulator"></a>Pi 웹 시뮬레이터에서 샘플 애플리케이션 실행
 
-1. 코딩 영역에서 기본 샘플 응용 프로그램으로 작업 중인지 확인합니다. 15행의 자리 표시자를 Azure IoT Hub 디바이스 연결 문자열로 대체합니다.
+1. 코딩 영역에서 기본 샘플 애플리케이션으로 작업 중인지 확인합니다. 15행의 자리 표시자를 Azure IoT Hub 디바이스 연결 문자열로 대체합니다.
    ![디바이스 연결 문자열 바꾸기](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
 
 2. **실행**을 클릭하거나 `npm start`를 입력하여 응용 프로그램을 실행합니다.
@@ -99,6 +99,6 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
 ## <a name="next-steps"></a>다음 단계
 
-샘플 응용 프로그램을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다.
+샘플 애플리케이션을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

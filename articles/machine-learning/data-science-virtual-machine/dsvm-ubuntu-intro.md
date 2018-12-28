@@ -66,11 +66,11 @@ Linux용 데이터 과학 Virtual Machine에는 다음을 포함하여 데이터
 
 1. 데이터 찾기, 로드 및 전처리
 1. 모델 빌드 및 테스트
-1. 지능형 응용 프로그램에서 사용하기 위해 모델 배포
+1. 지능형 애플리케이션에서 사용하기 위해 모델 배포
 
 데이터 과학자는 다양한 도구를 사용하여 이러한 태스크를 완료합니다. 소프트웨어의 적합한 버전을 찾은 다음 다운로드하여 컴파일하고 설치하는 데 시간이 상당히 걸릴 수 있습니다.
 
-Linux용 데이터 과학 Virtual Machine을 사용하면 이러한 부담을 상당히 줄일 수 있습니다. Linux 데이터 과학 가상 컴퓨터를 사용하여 분석 프로젝트를 바로 시작합니다. R, Python, SQL, Java 및 C++ 등의 다양한 언어로 작업을 수행할 수 있습니다. VM에 포함된 Azure SDK를 통해 Linux의 다양한 서비스를 사용하여 Microsoft 클라우드 플랫폼용으로 응용 프로그램을 빌드할 수 있습니다. 또한 Ruby, Perl, PHP 및 node.js와 같이 미리 설치된 다른 언어에 액세스해야 합니다.
+Linux용 데이터 과학 Virtual Machine을 사용하면 이러한 부담을 상당히 줄일 수 있습니다. Linux 데이터 과학 가상 컴퓨터를 사용하여 분석 프로젝트를 바로 시작합니다. R, Python, SQL, Java 및 C++ 등의 다양한 언어로 작업을 수행할 수 있습니다. VM에 포함된 Azure SDK를 통해 Linux의 다양한 서비스를 사용하여 Microsoft 클라우드 플랫폼용으로 애플리케이션을 빌드할 수 있습니다. 또한 Ruby, Perl, PHP 및 node.js와 같이 미리 설치된 다른 언어에 액세스해야 합니다.
 
 이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. 프로비전하는 가상 머신의 크기를 기반으로 평가되는 Azure 하드웨어 사용 요금만 지불합니다. 계산 요금에 대한 자세한 내용은 [Azure Marketplace의 VM 목록 페이지](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/)를 참조하세요.
 
@@ -140,7 +140,7 @@ Linux VM은 이미 X2Go 서버에 프로비전되어 있어 클라이언트 연�
    * **미디어 탭**: 사운드 지원 및 클라이언트 인쇄를 사용하지 않으려면 해제할 수 있습니다.
    * **공유 폴더**: 클라이언트 컴퓨터의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 컴퓨터 디렉터리를 추가합니다.
 
-X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이언트를 사용하여 VM에 로그인하고 나면 VM에 설치 및 구성된 도구를 사용할 수 있습니다. XFCE에는 다양한 도구에 대한 응용 프로그램 메뉴 바로 가기와 바탕 화면 아이콘이 표시됩니다.
+X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이언트를 사용하여 VM에 로그인하고 나면 VM에 설치 및 구성된 도구를 사용할 수 있습니다. XFCE에는 다양한 도구에 대한 애플리케이션 메뉴 바로 가기와 바탕 화면 아이콘이 표시됩니다.
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub 및 JupyterLab
 
@@ -255,7 +255,7 @@ Jupyter Notebook 서버는 Python 2, Python 3 및 R 커널을 사용하여 미�
 Python과 R로 각각 작성된 샘플 노트북이 패키지로 제공됩니다. 로컬 Linux 사용자 이름 및 암호를 사용하여 Jupyter Notebook에 인증하고 나면 노트북 홈페이지에서 샘플 링크를 확인할 수 있습니다. **새로 만들기**를 선택하고 적절한 언어 커널을 선택하여 새 Notebook을 만들 수 있습니다. **새로 만들기** 단추가 표시되지 않으면 왼쪽 위에서 **Jupyter** 아이콘을 클릭하여 Notebook 서버의 홈페이지로 이동합니다.
 
 ### <a name="apache-spark-standalone"></a>Apache Spark 독립 실행형 
-Apache Spark의 독립 실행형 인스턴스는 Linux DSVM에 미리 설치되어 대형 클러스터에서 테스트 및 배포하기 전에 먼저 Spark 응용 프로그램을 로컬로 개발하는 데 도움을 줍니다. Jupyter 커널을 통해 PySpark 프로그램을 실행할 수 있습니다. Jupyter를 열고 **New** 단추를 클릭하면 사용할 수 있는 커널의 목록이 표시됩니다. "Spark - Python"은 Python 언어를 사용하여 Spark 응용 프로그램을 빌드할 수 있도록 하는 PySpark 커널입니다. 또한 PyCharm 또는 Spyder와 같은 Python IDE를 사용하여 Spark 프로그램을 빌드할 수도 있습니다. 이는 독립 실행형 인스턴스이므로 Spark 스택은 호출 클라이언트 프로그램 내에서 실행합니다. 이렇게 하면 Spark 클러스터에서 개발에 비해 문제를 더 빠르고 쉽게 해결할 수 있습니다. 
+Apache Spark의 독립 실행형 인스턴스는 Linux DSVM에 미리 설치되어 대형 클러스터에서 테스트 및 배포하기 전에 먼저 Spark 애플리케이션을 로컬로 개발하는 데 도움을 줍니다. Jupyter 커널을 통해 PySpark 프로그램을 실행할 수 있습니다. Jupyter를 열고 **New** 단추를 클릭하면 사용할 수 있는 커널의 목록이 표시됩니다. "Spark - Python"은 Python 언어를 사용하여 Spark 애플리케이션을 빌드할 수 있도록 하는 PySpark 커널입니다. 또한 PyCharm 또는 Spyder와 같은 Python IDE를 사용하여 Spark 프로그램을 빌드할 수도 있습니다. 이는 독립 실행형 인스턴스이므로 Spark 스택은 호출 클라이언트 프로그램 내에서 실행합니다. 이렇게 하면 Spark 클러스터에서 개발에 비해 문제를 더 빠르고 쉽게 해결할 수 있습니다. 
 
 샘플 PySpark Notebook은 Jupyter($HOME/notebooks/SparkML/pySpark)의 홈 디렉터리에 있는 "SparkML" 디렉터리에서 찾을 수 있는 Jupyter에서 제공됩니다. 
 

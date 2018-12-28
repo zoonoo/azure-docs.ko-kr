@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: cac1814057b5adbb75d9484b332bd3f8aaa31a18
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ec51ba28c81e2aa2dbfe2a3dc55d9940c74ff673
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446861"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959855"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 
-
 ## <a name="task-3-configure-administrative-group"></a>작업 3: 관리 그룹 구성
+
 이 구성 작업에서는 Azure AD 디렉터리에 관리 그룹을 만듭니다. 이 특수 관리 그룹을 *AAD DC Administrators*라고 합니다. 이 그룹의 구성원에게는 관리되는 도메인에 연결된 컴퓨터에 대한 관리자 권한이 부여됩니다. 이 그룹은 도메인 가입 컴퓨터에서 Administrators 그룹에 추가됩니다. 또한 이 그룹의 구성원은 원격 데스크톱을 사용하여 도메인에 가입한 컴퓨터에 원격으로 연결할 수 있습니다.
 
 > [!NOTE]
@@ -49,14 +49,14 @@ Azure AD Domain Services에서는 Azure AD에서 사용할 수 있는 모든 사
 ### <a name="full-synchronization"></a>전체 동기화
 
 1. 전체 동기화의 경우 이미 전체가 선택되어 있으므로 화면 맨 아래에서 "확인"만 클릭하면 됩니다.
-    ![전체 동기화](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+    ![전체 동기화](./media/active-directory-domain-services-admin-guide/create-sync-all.PNG)
 
 ### <a name="scoped-synchronization"></a>범위가 지정된 동기화
 
 1. 동기화 단추를 "범위 지정됨"으로 설정/해제하면 그룹 선택 페이지가 표시됩니다. 이 페이지에서 관리형 도메인에 동기화되도록 이미 선택된 그룹을 확인할 수 있습니다.
-    ![범위가 지정된 동기화](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+    ![범위가 지정된 동기화](media/active-directory-domain-services-admin-guide/create-sync-scoped.PNG)
 2. 맨 위 탐색 모음에서 **그룹 선택**을 클릭합니다. 여기에서 그룹 선택기가 측면에 표시됩니다. 이 선택기를 사용하여 Azure AD Domain Services로 동기화할 모든 추가 그룹을 선택합니다. 완료되면 **선택**을 클릭하여 그룹 선택기를 닫고 선택한 목록에 해당 그룹을 추가합니다.
-    ![범위가 지정된 동기화 그룹 선택](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+    ![범위가 지정된 동기화 그룹 선택](media/active-directory-domain-services-admin-guide/create-sync-scoped-groupselect.PNG)
 3. **확인**을 클릭하여 요약 페이지로 이동합니다.
 
 ## <a name="deploy-your-managed-domain"></a>관리되는 도메인 배포
@@ -69,8 +69,8 @@ Azure AD Domain Services에서는 Azure AD에서 사용할 수 있는 모든 사
 
     ![알림 - 배포 진행 중](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
-
 ## <a name="check-the-deployment-status-of-your-managed-domain"></a>관리되는 도메인의 배포 상태 확인
+
 관리되는 도메인을 프로비전하는 프로세스는 최대 한 시간 정도 걸릴 수 있습니다.
 
 1. 배포가 진행되는 동안 **리소스 검색** 검색 상자에서 'Domain Services'를 검색할 수 있습니다. 검색 결과에서 **Azure AD Domain Services**를 선택합니다. **Azure AD Domain Services** 블레이드에 프로비전되는 관리되는 도메인이 나열됩니다.
@@ -96,10 +96,10 @@ Azure AD Domain Services에서는 Azure AD에서 사용할 수 있는 모든 사
 
     ![Domain Services - 완전히 프로비전한 후 속성 탭](./media/getting-started/domain-services-provisioned-properties.png)
 
-
 ## <a name="need-help"></a>도움 필요 시
+
 관리되는 도메인의 도메인 컨트롤러 모두를 프로비전하는 데 한두 시간 정도가 걸릴 수 있습니다. 배포에 실패하거나 2시간 넘게 '보류 중' 상태인 경우 [제품팀에 문의](active-directory-ds-contact-us.md)하는 것이 좋습니다.
 
-
 ## <a name="next-step"></a>다음 단계
+
 [작업 4: Azure 가상 네트워크에 대한 DNS 설정 업데이트](active-directory-ds-getting-started-dns.md)

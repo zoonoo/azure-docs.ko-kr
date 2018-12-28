@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge 모듈 배포 및 모니터링 | Microsoft Docs
-description: Edge 디바이스에서 실행되는 모듈을 관리합니다.
+title: Azure Portal에서 자동 배포 만들기 - Azure IoT Edge | Microsoft Docs
+description: Azure Portal을 사용하여 IoT Edge 디바이스 그룹에 대한 자동 배포 만들기
 keywords: ''
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6ebd2a4e24a5f0bd9a9adad97bf26ae61219c8e0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 20f50e286e30e32f066fe3d214bfc4c1a155776e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566248"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083923"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Azure Portal을 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
@@ -106,7 +107,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 여러 배포에서 동일한 디바이스를 대상으로 할 수 있으므로 각 배포에 우선 순위 번호를 부여해야 합니다. 충돌하는 경우 우선 순위가 가장 높은 배포가 먼저 적용됩니다(높은 값은 높은 우선 순위를 나타냄). 두 배포의 우선 순위 번호가 동일하면 가장 최근에 만든 배포가 먼저 적용됩니다. 
 
 1. 배포 **우선 순위**에 대해 양의 정수를 입력합니다. 둘 이상의 배포가 동일한 디바이스를 대상으로 하는 경우, Priority의 숫자 값이 가장 큰 배포가 적용됩니다.
-1. **대상 조건**을 입력하여 이 배포의 대상으로 지정할 장치를 결정합니다. 조건은 디바이스 쌍 태그 또는 보고되는 디바이스 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.reported.devicemodel='4000x'`과 같습니다. 
+1. **대상 조건**을 입력하여 이 배포의 대상으로 지정할 디바이스를 결정합니다. 조건은 디바이스 쌍 태그 또는 보고되는 디바이스 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.reported.devicemodel='4000x'`과 같습니다. 
 1. **다음**을 선택하여 최종 단계로 이동합니다.
 
 ### <a name="step-5-review-template"></a>5단계: 템플릿 검토
@@ -125,10 +126,10 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 1. 배포 목록을 검사합니다. 각 배포에 대해 다음 세부 정보를 볼 수 있습니다.
    * **ID** - 배포의 이름
-   * **대상 조건** - 대상 장치를 정의하는 데 사용된 태그
+   * **대상 조건** - 대상 디바이스를 정의하는 데 사용된 태그
    * **우선 순위** - 배포에 할당된 우선 순위 번호
-   * **시스템 메트릭** - **대상 지정됨**은 대상 조건과 일치하는 IoT Hub에서 장치 쌍의 수를 지정하고, **적용됨**은 IoT Hub의 해당 모듈 쌍에 배포 콘텐츠를 적용한 장치의 수를 지정합니다. 
-   * **장치 메트릭** - IoT Edge 클라이언트 런타임에서 성공 또는 오류를 보고하는 배포에서 Edge 장치의 수입니다.
+   * **시스템 메트릭** - **대상 지정됨**은 대상 조건과 일치하는 IoT Hub에서 디바이스 쌍의 수를 지정하고, **적용됨**은 IoT Hub의 해당 모듈 쌍에 배포 콘텐츠를 적용한 디바이스의 수를 지정합니다. 
+   * **디바이스 메트릭** - IoT Edge 클라이언트 런타임에서 성공 또는 오류를 보고하는 배포에서 Edge 디바이스의 수입니다.
    * **만든 시간** - 배포를 만든 때의 타임스탬프입니다. 이 타임스탬프는 두 배포의 우선 순위가 동일한 경우 연결을 중단하는 데 사용됩니다. 
 2. 모니터링하려는 배포를 선택합니다.  
 3. 배포 세부 정보를 검사합니다. 탭을 사용하여 배포의 세부 내용을 검토할 수 있습니다.
@@ -174,4 +175,4 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Edge 장치에 모듈 배포](module-deployment-monitoring.md)에 대해 자세히 알아봅니다.
+[Edge 디바이스에 모듈 배포](module-deployment-monitoring.md)에 대해 자세히 알아봅니다.

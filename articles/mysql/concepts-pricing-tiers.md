@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: e3d0e54c32a08c613407f1a90c78cc63be929078
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.date: 12/11/2018
+ms.openlocfilehash: 644a3a2fe6bce6ccc99b0c1c99ea07b129676653
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091796"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320849"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -23,7 +23,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 |    | **Basic** | **범용** | **메모리 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | 계산 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
-| vCore 수 | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | vCore 메모리 | 2GB | 5GB | 10 GB |
 | 저장소 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
 | 저장소 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
@@ -42,6 +42,9 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 ## <a name="compute-generations-and-vcores"></a>세대 및 vCore 수 계산
 
 계산 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore 수로 제공됩니다. 현재 두 개의 계산 세대, 4세대 및 5세대에서 선택할 수 있습니다. 4세대 논리적 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, 5세대 논리적 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다. Gen 4 및 Gen 5는 다음 지역에서 사용할 수 있습니다(“X”는 사용할 수 있음을 나타냄).
+
+> [!IMPORTANT]
+> 2018년 12월 12일부터, 신규 고객은 브라질 남부, 캐나다 중부, 캐나다 동부, 동아시아, 미국 동부 2, 인도 중부, 인도 서부, 일본 서부, 미국 중북부, 미국 서부에서 컴퓨팅 4세대 서버를 프로비전할 수 없습니다. 이전에 만들어진 컴퓨팅 4세대 서버는 이러한 지역에서 2019년 2월 1일부터 컴퓨팅 5세대로 마이그레이션됩니다.
 
 | **Azure 지역** | **4세대** | **5세대** |
 |:---|:----------:|:--------------------:|

@@ -3,7 +3,7 @@ title: 확장된 클라우드 데이터베이스 간 데이터 이동 | Microsof
 description: 탄력적 데이터베이스 API를 사용하여 자체 호스팅되는 서비스를 통해 분할된 데이터베이스를 조작하고 데이터를 이동하는 방법에 대해 설명합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: fb87a67d84588b5199a5d31530530d5afb7985e7
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 0f5dc5cc7d981eb162ba101671b1e967ddf4bfff
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353685"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868466"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>확장된 클라우드 데이터베이스 간 데이터 이동
 
@@ -212,7 +212,7 @@ ms.locfileid: "49353685"
 
 ### <a name="azure-diagnostics"></a>Azure 진단
 
-분할 병합 서비스 모니터링 및 진단에 Azure SDK 2.5에 따라 Azure 진단을 사용합니다. [Azure Cloud Services 및 Virtual Machines에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)에 설명된 대로 진단 구성을 제어합니다. 다운로드 패키지에는 웹 역할용 하나와 작업자 역할용 하나, 총 두 개의 진단 구성이 포함되어 있습니다. 여기에는 성능 카운터, IIS 로그, Windows 이벤트 로그 및 분할/병합 응용 프로그램 이벤트 로그를 기록하는 정의가 포함됩니다.
+분할 병합 서비스 모니터링 및 진단에 Azure SDK 2.5에 따라 Azure 진단을 사용합니다. 여기에 설명된 대로 진단 구성을 제어합니다. [Azure Cloud Services 및 Virtual Machines에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md) 다운로드 패키지에는 웹 역할용 하나와 작업자 역할용 하나, 총 두 개의 진단 구성이 포함되어 있습니다. 여기에는 성능 카운터, IIS 로그, Windows 이벤트 로그 및 분할/병합 응용 프로그램 이벤트 로그를 기록하는 정의가 포함됩니다.
 
 ## <a name="deploy-diagnostics"></a>진단 배포 
 
@@ -230,7 +230,7 @@ ms.locfileid: "49353685"
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
 ```
 
-[Azure Cloud Services 및 Virtual Machines에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)에서 진단 설정을 구성 및 배포하는 방법에 자세한 내용을 확인할 수 있습니다.
+여기에서 진단 설정을 구성 및 배포하는 방법에 자세한 정보를 찾을 수 있습니다. [Azure Cloud Services 및 Virtual Machines에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
 ## <a name="retrieve-diagnostics"></a>진단 검색
 

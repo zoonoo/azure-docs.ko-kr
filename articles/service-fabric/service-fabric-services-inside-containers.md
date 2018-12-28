@@ -30,11 +30,11 @@ Service Fabric은 Service Fabric 마이크로 서비스(Reliable Services 및 Re
 > [!NOTE]
 > 현재 이 기능은 Windows에서만 작동합니다. 컨테이너를 실행하려면 컨테이너가 포함된 Windows Server 2016에서 클러스터를 실행해야 합니다.
 
-## <a name="steps-to-containerize-your-service-fabric-application"></a>Service Fabric 응용 프로그램을 컨테이너화하는 단계
+## <a name="steps-to-containerize-your-service-fabric-application"></a>Service Fabric 애플리케이션을 컨테이너화하는 단계
 
-1. Visual Studio에서 Service Fabric 응용 프로그램을 엽니다.
+1. Visual Studio에서 Service Fabric 애플리케이션을 엽니다.
 
-2. 프로젝트에 [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) 클래스를 추가합니다. 이 클래스의 코드는 응용 프로그램 내에 있는 Service Fabric 런타임 이진 파일을 컨테이너 내부에서 실행할 경우 바르게 로드하는 도우미입니다.
+2. 프로젝트에 [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) 클래스를 추가합니다. 이 클래스의 코드는 애플리케이션 내에 있는 Service Fabric 런타임 이진 파일을 컨테이너 내부에서 실행할 경우 바르게 로드하는 도우미입니다.
 
 3. 컨테이너화하려는 각 코드 패키지에 대해 프로그램 진입점에 로더를 초기화합니다. 다음 코드 조각에 표시된 정적 생성자를 프로그램 진입점 파일에 추가합니다.
 
@@ -55,7 +55,7 @@ Service Fabric은 Service Fabric 마이크로 서비스(Reliable Services 및 Re
           {
   ```
 
-4. 프로젝트를 빌드 및 [패키지](service-fabric-package-apps.md#Package-App)합니다. 패키지를 빌드하고 만들려면 솔루션 탐색기에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **패키지** 명령을 선택합니다.
+4. 프로젝트를 빌드 및 [패키지](service-fabric-package-apps.md#Package-App)합니다. 패키지를 빌드하고 만들려면 솔루션 탐색기에서 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 **패키지** 명령을 선택합니다.
 
 5. 컨테이너화해야 하는 모든 코드 패키지에서 [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1) PowerShell 스크립트를 실행합니다. 사용법은 다음과 같습니다.
 
@@ -77,7 +77,7 @@ Service Fabric은 Service Fabric 마이크로 서비스(Reliable Services 및 Re
 
 6. 다음으로 Docker 컨테이너 패키지를 [빌드](service-fabric-get-started-containers.md#Build-Containers)하고 리포지토리에 [푸시](service-fabric-get-started-containers.md#Push-Containers)해야 합니다.
 
-7. 컨테이너 이미지, 리포지토리 정보, 레지스트리 인증 및 포트와 호스트 간 매핑을 추가하도록 ApplicationManifest.xml 및 ServiceManifest.xml을 수정합니다. 매니페스트를 수정하기 위해 [Azure Service Fabric 컨테이너 응용 프로그램 만들기](service-fabric-get-started-containers.md)를 참조하세요. 서비스 매니페스트의 코드 패키지 정의는 해당 컨테이너 이미지로 바꿔야 합니다. EntryPoint를 ContainerHost 형식으로 변경해야 합니다.
+7. 컨테이너 이미지, 리포지토리 정보, 레지스트리 인증 및 포트와 호스트 간 매핑을 추가하도록 ApplicationManifest.xml 및 ServiceManifest.xml을 수정합니다. 매니페스트를 수정하기 위해 [Azure Service Fabric 컨테이너 애플리케이션 만들기](service-fabric-get-started-containers.md)를 참조하세요. 서비스 매니페스트의 코드 패키지 정의는 해당 컨테이너 이미지로 바꿔야 합니다. EntryPoint를 ContainerHost 형식으로 변경해야 합니다.
 
   ```xml
 <!-- Code package is your service executable. -->
@@ -120,7 +120,7 @@ Service Fabric은 Service Fabric 마이크로 서비스(Reliable Services 및 Re
 </Policies>
  ```
 
-10. 이 응용 프로그램을 테스트하려면 5.7 이상 버전을 실행하는 클러스터에 배포해야 합니다. 런타임 버전 6.1 이하의 경우에는 클러스터 설정을 편집하고 업데이트하여 이 미리 보기 기능을 사용하도록 설정해야 합니다. 이 [문서](service-fabric-cluster-fabric-settings.md)의 단계에 따라 다음에 표시된 설정을 추가합니다.
+10. 이 애플리케이션을 테스트하려면 5.7 이상 버전을 실행하는 클러스터에 배포해야 합니다. 런타임 버전 6.1 이하의 경우에는 클러스터 설정을 편집하고 업데이트하여 이 미리 보기 기능을 사용하도록 설정해야 합니다. 이 [문서](service-fabric-cluster-fabric-settings.md)의 단계에 따라 다음에 표시된 설정을 추가합니다.
 ```
       {
         "name": "Hosting",
@@ -133,9 +133,9 @@ Service Fabric은 Service Fabric 마이크로 서비스(Reliable Services 및 Re
       }
 ```
 
-11. 다음으로 이 클러스터에 편집된 응용 프로그램 패키지를 [배포](service-fabric-deploy-remove-applications.md)합니다.
+11. 다음으로 이 클러스터에 편집된 애플리케이션 패키지를 [배포](service-fabric-deploy-remove-applications.md)합니다.
 
-이제 컨테이너화된 Service Fabric 응용 프로그램이 클러스터를 실행해야 합니다.
+이제 컨테이너화된 Service Fabric 애플리케이션이 클러스터를 실행해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric의 컨테이너](service-fabric-get-started-containers.md)를 실행하는 방법에 대해 자세히 알아봅니다.

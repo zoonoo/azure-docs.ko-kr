@@ -9,21 +9,31 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a4b6b1d267e9c86a03644129ee639b74ed214d88
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901331"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408360"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service 릴리스 정보
+
+
+## <a name="december-12-2018"></a>2018년 12월 12일
+- 개체 감지 모델(도입된 개체 감지 컴팩트 도메인) 내보내기를 지원합니다.
+- 향상된 화면 판독기 및 키보드 탐색 지원에 대한 여러 액세스 가능성 문제를 해결했습니다. 
+- 이미지 뷰어 및 빠른 태그 지정을 위한 향상된 개체 감지 태그 지정 환경에 대한 UX 업데이트입니다.  
+- 향상된 품질의 개체 감지를 위한 개체 감지 도메인의 기본 모델을 업데이트했습니다. 
+- 버그 수정입니다.
+
+## <a name="november-6-2018"></a>2018년 11월 6일
+- 개체 감지에서 로고 도메인에 대한 지원을 추가했습니다.
 
 ## <a name="october-9-2018"></a>2018년 10월 9일
 - 개체 감지는 유료 미리 보기로 전환됩니다. 이제 Azure 리소스를 사용하여 개체 감지 프로젝트를 만들 수 있습니다.
 - 제한된 평가판 프로젝트를 Azure 리소스 연결 프로젝트(F0 또는 S0) 링크로 보다 쉽게 업그레이드할 수 있도록 웹 사이트에 “Azure에 이동” 기능이 추가되었습니다. 제품의 설정 페이지에서 이 기능을 찾을 수 있습니다.  
 - Windows ML의 Windows 2018년 10월 업데이트 버전을 지원하도록 ONNX 1.2로의 내보내기가 추가되었습니다.
 버그 수정(특수 문자를 사용한 ONNX 내보내기 관련 버그 수정 포함) 
-
 
 ## <a name="august-14-2018"></a>2018년 8월 14일
 - 사용자에게 프로젝트 학습을 안내하는 "시작" 위젯이 customvision.ai 사이트 에 추가되었습니다. 

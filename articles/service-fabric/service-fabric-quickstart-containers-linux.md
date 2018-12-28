@@ -38,7 +38,7 @@ Cloud Shell을 처음 실행하는 경우에는 `clouddrive` 파일 공유를 �
 
 ## <a name="get-the-application-package"></a>애플리케이션 패키지 가져오기
 
-Service Fabric에 컨테이너를 배포하려면 개별 컨테이너 및 응용 프로그램에 대해 설명하는 매니페스트 파일(응용 프로그램 정의)의 집합이 필요합니다.
+Service Fabric에 컨테이너를 배포하려면 개별 컨테이너 및 애플리케이션에 대해 설명하는 매니페스트 파일(애플리케이션 정의)의 세트이 필요합니다.
 
 Cloud Shell에서 git을 사용하여 애플리케이션 정의를 복사한 다음, 디렉터리를 복제본의 `Voting` 디렉터리로 변경합니다.
 
@@ -114,7 +114,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
     ![Service Fabric Explorer][sfx]
 
-5. 실행 중인 컨테이너에 연결하려면 웹 브라우저를 열고 클러스터의 URL로 이동합니다. 예: `http://linh1x87d1d.westus.cloudapp.azure.com:80`. 브라우저에서 선택 응용 프로그램이 표시됩니다.
+5. 실행 중인 컨테이너에 연결하려면 웹 브라우저를 열고 클러스터의 URL로 이동합니다. 예: `http://linh1x87d1d.westus.cloudapp.azure.com:80`. 브라우저에서 선택 애플리케이션이 표시됩니다.
 
     ![Voting 앱 웹 페이지][quickstartpic]
 
@@ -137,7 +137,7 @@ Service Fabric은 장애가 발생할 경우 컨테이너 인스턴스가 클러
 
     ![Service Fabric Explorer의 노드 보기][sfxquickstartshownodetype]
 
-## <a name="scale-applications-and-services-in-a-cluster"></a>클러스터에서 응용 프로그램 및 서비스 크기 조정
+## <a name="scale-applications-and-services-in-a-cluster"></a>클러스터에서 애플리케이션 및 서비스 크기 조정
 
 Service Fabric 서비스는 해당 서비스에 대한 부하를 수용하도록 클러스터 간에 쉽게 크기를 조정할 수 있습니다. 클러스터에서 실행되는 인스턴스 수를 변경하여 서비스 크기를 조정합니다.
 

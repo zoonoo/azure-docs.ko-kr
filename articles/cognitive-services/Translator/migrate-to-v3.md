@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 2f0b2984bf2390a9af0b824495b84c71d04aeac2
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ce6446caf74e16f69369d5ee8ee7b6342870e826
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852846"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682599"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2에서 V3으로 마이그레이션
 
@@ -59,7 +59,7 @@ Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했�
 
 Microsoft Translator Text 번역 V2는 XML 형식으로 데이터를 허용하고 반환했습니다. V3에서 API를 사용하여 보내고 받은 모든 데이터는 JSON 형식입니다. XML은 V3에서 더 이상 허용되거나 반환되지 않습니다.
 
-이 변경 내용은 V2 텍스트 번역 API에 대해 작성된 응용 프로그램의 여러 측면에 영향을 줍니다. 예를 들어: 언어 API는 텍스트 번역, 음역 및 두 개의 사전 메서드에 대한 언어 정보를 반환합니다. 한 번의 호출에서 모든 메서드에 대한 모든 언어 정보를 요청하거나 개별적으로 요청할 수 있습니다.
+이 변경 내용은 V2 텍스트 번역 API에 대해 작성된 응용 프로그램의 여러 측면에 영향을 줍니다. 예를 들어 언어 API는 텍스트 번역, 음역 및 두 개의 사전 메서드에 대한 언어 정보를 반환합니다. 한 번의 호출에서 모든 메서드에 대한 모든 언어 정보를 요청하거나 개별적으로 요청할 수 있습니다.
 
 언어 메서드에는 인증이 필요하지 않습니다. 다음 링크를 클릭하여 JSON에서 V3에 대한 모든 언어 정보를 확인할 수 있습니다.
 
@@ -105,11 +105,33 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 
 [사전/예제](reference/v3-0-dictionary-examples.md)
 
-## <a name="customization"></a>사용자 지정
+## <a name="compatibility-and-customization"></a>호환성 및 사용자 지정
 
-Microsoft Translator V3는 기본적으로 신경망 기계 번역을 사용합니다. 따라서 Microsoft Translator Hub로 사용할 수 없습니다. Translator Hub만 기존의 통계 기계 번역을 지원합니다. 이제 신경망 번역에 대한 사용자 지정은 사용자 지정 변환기를 사용하여 사용할 수 있습니다. [신경망 기계 번역을 사용자 지정하는 방법에 대한 자세한 정보](customization.md)
+Microsoft Translator V3는 기본적으로 신경망 기계 번역을 사용합니다. 따라서 Microsoft Translator Hub로 사용할 수 없습니다. Translator Hub만 기존의 통계 기계 번역을 지원합니다. 이제 신경망 번역에 대한 사용자 지정은 사용자 지정 변환기를 사용하여 사용할 수 있습니다. [신경망 기계 번역을 사용자 지정하는 방법에 대한 자세한 정보](custom-translator/overview.md)
 
 V3 텍스트 API를 포함한 신경망 번역은 표준 범주(SMT, 음성, 텍스트, generalnn)의 사용을 지원하지 않습니다.
+
+| |엔드포인트|    GDPR 프로세서 규정 준수|  Translator Hub 사용| Custom Translator(미리 보기) 사용|
+|:-----|:-----|:-----|:-----|:-----|
+|Translator Text API 버전 2| api.microsofttranslator.com|    아니요  |yes    |아니요|
+|Translator Text API 버전 3| api.cognitive.microsofttranslator.com|  yes|    아니요| yes|
+
+**Translator Text API 버전 3**
+* 일반적으로 사용할 수 있으며 완전히 지원됩니다.
+* 프로세서로 GDPR을 규정 준수하며 SOC 3 인증 요구 사항뿐 아니라 모든 ISO 20001 및 20018을 충족합니다. 
+* 새로운 Translator NMT 사용자 지정 기능인 Custom Translator(미리 보기)를 사용하여 사용자 지정한 인공신경망 변환 시스템을 호출할 수 있습니다. 
+* Microsoft Translator Hub를 사용하여 작성된 사용자 지정 번역 시스템에 대한 액세스를 제공하지 않습니다.
+
+api.cognitive.microsofttranslator.com 엔드포인트를 사용하는 경우 Translator Text API 버전 3을 사용하고 있습니다.
+
+**Translator Text API 버전 2**
+* 사용되지 않습니다. 2019년 4월 30일부로 사용 중지됩니다. 
+* 모든 ISO 20001, 20018 및 SOC 3 인증 요구 사항을 충족하지 않습니다. 
+* Translator 사용자 지정 기능으로 사용자 지정한 인공신경망 번역 시스템을 호출할 수 없습니다.
+* Microsoft Translator Hub를 사용하여 작성된 사용자 지정 번역 시스템에 대한 액세스를 제공합니다.
+* api.microsofttranslator.com 엔드포인트를 사용하는 경우 Translator Text API 버전 2를 사용하고 있습니다.
+
+Translator API 버전은 번역 레코드를 만들지 않습니다. 번역은 누구와도 공유되지 않습니다. 추가 정보는 [Translator 비추적](http://www.aka.ms/NoTrace) 웹 페이지에 있습니다.
 
 
 ## <a name="links"></a>링크

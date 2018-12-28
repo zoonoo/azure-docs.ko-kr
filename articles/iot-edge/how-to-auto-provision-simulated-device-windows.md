@@ -1,5 +1,5 @@
 ---
-title: DPS를 사용하여 Azure IoT Edge 디바이스 자동 프로비전 - Windows | Microsoft Docs
+title: DPS를 사용하여 Windows 디바이스 자동 프로비전 - Azure IoT Edge | Microsoft Docs
 description: Windows 컴퓨터에서 시뮬레이션된 디바이스를 사용하여 Device Provisioning Service로 Azure IoT Edge에 대한 자동 디바이스 프로비전 테스트
 author: kgremban
 manager: philmea
@@ -8,18 +8,19 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9be790d9b512dc9338cf183240430ad0ada3bef4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: a251eb3915ee3043ab4b69e0cd4cef8fa2170486
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565108"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101605"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Windows에서 시뮬레이션된 TPM 에지 디바이스 만들기 및 프로비전
 
 Edge를 사용하지 않는 디바이스와 마찬가지로 [Device Provisioning Service](../iot-dps/index.yml)를 사용하여 Azure IoT Edge 디바이스를 자동 프로비전할 수 있습니다. 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](../iot-dps/concepts-auto-provisioning.md)을 검토하세요. 
 
-이 문서에서는 다음 단계를 사용하여 시뮬레이션된 Edge 디바이스에서 자동 프로비전을 테스트하는 방법을 보여 줍니다. 
+이 문서에서는 다음 단계를 사용하여 시뮬레이션된 Edge 디바이스에서 자동 프로비전을 테스트하는 방법을 보여줍니다. 
 
 * IoT Hub DPS(Device Provisioning Service)의 인스턴스를 만듭니다.
 * 하드웨어 보안을 위해 시뮬레이션된 TPM(신뢰할 수 있는 플랫폼 모듈)을 사용하여 Windows 컴퓨터에서 시뮬레이션된 디바이스를 만듭니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Search의 전체 텍스트 검색 엔진(Lucene) 아키텍처 | Microsoft Docs
+title: 전체 텍스트 검색 엔진(Lucene) 아키텍처 - Azure Search
 description: Azure Search에 관련된 전체 텍스트 검색에 대한 Lucene 쿼리 처리 및 문서 검색 개념을 설명합니다.
 manager: jlembicz
 author: yahnoosh
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.custom: seodec2018
+ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036873"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315810"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search에서 전체 텍스트 검색의 작동 방식
 
@@ -95,7 +96,7 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
  ![부울 쿼리 searchmode any][2]
 
-### <a name="supported-parsers-simple-and-full-lucene"></a>지원되는 파서: 단순(simple) 및 전체(full) Lucene 
+### <a name="supported-parsers-simple-and-full-lucene"></a>지원되는 파서: 단순 및 전체 Lucene 
 
  Azure Search는 두 쿼리 언어 `simple`(기본값) 및 `full`을 노출합니다. 사용자는 검색 요청에서 `queryType` 매개 변수를 설정함으로써 쿼리 파서에 어떤 쿼리 언어를 사용하여 연산자와 구문을 해석해야 하는지 알려줍니다. [단순 쿼리 언어](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)는 직관적이고 견고하며, 종종 클라이언트 측 처리 없이 사용자 입력을 있는 그대로 해석하는 데 적합합니다. 웹 검색 엔진과 비슷한 쿼리 연산자를 지원합니다. `queryType=full`로 설정하면 사용할 수 있는 [전체 Lucene 쿼리 언어](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)는 와일드카드, 퍼지, regex, 필드 범위가 지정된 쿼리 등의 추가 연산자 및 쿼리 유형에 대한 지원을 추가하여 기본값인 단순 쿼리 언어를 확장합니다. 예를 들어 단순 쿼리 구문에서 전송되는 정규식은 식이 아닌 쿼리 문자열로 해석됩니다. 이 문서의 요청 예제에서는 전체 Lucene 쿼리 언어를 사용합니다.
 

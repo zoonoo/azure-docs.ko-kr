@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 71e39c6430231ae8d175f9c09a9059c3da4c9a1e
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 0a2b56164662a13d8254d8956712077e5f8a83a9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854257"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961523"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Azure 데이터 탐색기용 쿼리 작성
 
@@ -26,9 +26,9 @@ ms.locfileid: "51854257"
 - 학습 지원을 위해 설정된 Azure 데이터 탐색기 *help 클러스터*에서 쿼리 실행.
     이렇게 하려면 Azure Active Directory 구성원인 조직 전자 메일 계정을 사용하여 [클러스터에 로그인](https://dataexplorer.azure.com/clusters/help/databases/samples)합니다.
 
-- StormEvents 샘플 데이터가 포함된 자체 클러스터에서 쿼리 실행. 자세한 내용은 [빠른 시작: Azure 데이터 탐색기 클러스터 및 데이터베이스 만들기](create-cluster-database-portal.md) 및 [Azure 데이터 탐색기로 샘플 데이터 수집](ingest-sample-data.md)을 참조하세요.
+- StormEvents 샘플 데이터가 포함된 자체 클러스터에서 쿼리 실행. 자세한 내용은 [빠른 시작: Azure Data Explorer 클러스터 및 데이터베이스 만들기](create-cluster-database-portal.md) 및 [Azure Data Explorer로 샘플 데이터 수집](ingest-sample-data.md)을 참조하세요.
 
-[!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
+    [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="overview-of-the-query-language"></a>쿼리 언어의 개요
 
@@ -113,7 +113,7 @@ StormEvents
 
 ### <a name="where"></a>여기서,
 
-[**where**](https://docs.microsoft.com/azure/kusto/query/whereoperator): 조건자를 충족하는 행의 하위 집합으로 테이블을 필터링합니다.
+[**where**](https://docs.microsoft.com/azure/kusto/query/whereoperator): 조건자를 만족하는 행의 부분집합으로 테이블을 필터링합니다.
 
 다음 쿼리는 `EventType` 및 `State`를 기준으로 데이터를 필터링합니다.
 
@@ -128,7 +128,7 @@ StormEvents
 
 ### <a name="sort"></a>sort
 
-[**sort**](https://docs.microsoft.com/azure/kusto/query/sortoperator): 열 하나 이상을 기준으로 입력 테이블의 행을 순서대로 정렬합니다.
+[**sort**](https://docs.microsoft.com/azure/kusto/query/sortoperator): 입력 테이블의 행을 하나 이상의 열에 의해 순서대로 정렬합니다.
 
 다음 쿼리는 `DamageProperty`를 기준으로 하여 데이터를 내림차순으로 정렬합니다.
 
@@ -304,7 +304,7 @@ StormEvents
 
 ### <a name="extract"></a>extract()
 
-[**extract()**](https://docs.microsoft.com/azure/kusto/query/extractfunction): 텍스트 문자열에서 정규식에 일치하는 항목을 가져옵니다.
+[**extract()**](https://docs.microsoft.com/azure/kusto/query/extractfunction): 텍스트 문자열에서 정규식에 대한 일치 항목을 가져옵니다.
 
 다음 쿼리는 추적에서 특정 특성 값을 추출합니다.
 
@@ -512,7 +512,7 @@ StormEvents
 
 [**top-nested**](https://docs.microsoft.com/azure/kusto/query/topnestedoperator): 각 수준이 이전 수준 값을 기준으로 하는 드릴다운인 계층적 상위 결과를 생성합니다.
 
-이 연산자는 “집계를 사용하여 K1의 상위 N개 값을 찾고, 각 값에 대해 다른 집계를 사용하여 K1의 상위 M개 값을 찾고...”와 같은 연산을 수행해야 하는 경우 또는 대시보드 시각화 시나리오에 유용합니다.
+이 연산자는 대시보드 시각화 시나리오 또는 "K1의 상위 N개 값 찾기(일부 집계 사용); 각각에 대해 K2의 상위 M개 값 찾기(다른 집계 사용); ..."과 같은 질문에 답변해야 할 때 유용합니다.
 
 다음 쿼리는 최상위 수준에 `State`가 있고 그 다음에는 `Sources`가 있는 는 계층적 테이블을 반환합니다.
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcounthll"></a>dcount_hll()
 
-[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): [**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) 또는 [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction)에 의해 생성된 HyperLogLog 결과에서 **dcount**를 계산합니다.
+[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction):  [**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) 또는 [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction)에 의해 생성된 HyperLogLog 결과에서 **dcount**를 계산합니다.
 
 다음 쿼리는 HLL 알고리즘을 사용하여 개수를 생성합니다.
 
@@ -741,7 +741,7 @@ StormEvents
 
 ### <a name="cross-database-and-cross-cluster-queries"></a>데이터베이스 간/클러스터 간 쿼리
 
-[데이터베이스 간 쿼리와 클러스터 간 쿼리](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries): 데이터베이스를 `database("MyDatabase").MyTable`로 참조하면 같은 클러스터의 데이터베이스를 쿼리할 수 있습니다. 원격 클러스터의 데이터베이스는 `cluster("MyCluster").database("MyDatabase").MyTable`로 참조하면 쿼리할 수 있습니다.
+[데이터베이스 간/클러스터 간 쿼리](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries): 동일한 클러스터의 데이터베이스는 `database("MyDatabase").MyTable`로 참조하면 쿼리할 수 있습니다. 원격 클러스터의 데이터베이스는 `cluster("MyCluster").database("MyDatabase").MyTable`로 참조하면 쿼리할 수 있습니다.
 
 다음 쿼리는 특정 클러스터에서 호출되어 `MyCluster` 클러스터의 데이터를 쿼리합니다. 이 쿼리를 실행하려면 사용자의 클러스터 이름과 데이터베이스 이름을 사용하세요.
 
@@ -842,7 +842,7 @@ range _day from _start to _end step 1d
 
 ### <a name="newactivitymetrics-plugin"></a>new_activity_metrics 플러그 인
 
-[ **플러그 인**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): 새 사용자 코호트에 대해 유용한 활동 메트릭(고유 개수 값, 새 값의 고유 개수, 보유율, 변동률)을 계산합니다. 이 플러그 인은 개념상으로는 [**activity_metrics 플러그 인**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin)과 비슷하지만 새 사용자만을 대상으로 합니다.
+[**new_activity_metrics 플러그 인**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): 새 사용자 코호트에 대해 유용한 활동 메트릭(고유 개수 값, 새 값의 고유 개수, 보유율, 변동률)을 계산합니다. 이 플러그 인은 개념상으로는 [**activity_metrics 플러그 인**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin)과 비슷하지만 새 사용자만을 대상으로 합니다.
 
 다음 쿼리는 새 사용자 코호트(첫 주에 도착한 사용자)에 대해 1주 동안의 보유율과 변동률을 계산합니다.
 

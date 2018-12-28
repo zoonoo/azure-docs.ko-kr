@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 3012f07d8c56f2581a087bc8e43aa4a089bf9589
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633515"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322707"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 대한 Single Sign-On
 Azure AD(Azure Active Directory)에서 애플리케이션을 구성하는 경우 가장 적합한 Single Sign-On 방법을 선택하는 방법에 대해 알아봅니다. 
@@ -61,14 +61,13 @@ SAML 기반 Single Sign-On은 다음과 같은 프로토콜을 사용하는 애�
 
 - SAML 2.0
 - WS-Federation
-- OpenID Connect
 
 애플리케이션을 SAML 기반 Single Sign-On에 대해 구성하려면 [SAML 기반 Single Sign-On 구성](configure-single-sign-on-portal.md)을 참조하세요. 또한 여러 애플리케이션에는 특정 애플리케이션을 위한 SAML 기반 Single Sign-On 구성 단계를 안내하는 [애플리케이션별 자습서](../saas-apps/tutorial-list.md)가 있습니다. 
 
 SAML 프로토콜의 작동 방식에 대한 자세한 정보는 [Single Sign-On SAML 프로토콜](../develop/single-sign-on-saml-protocol.md)을 참조하세요.
 
 ## <a name="password-based-sso"></a>암호 기반 SSO
-암호 기반 로그온을 사용하는 애플리케이션은 사용자 이름 및 암호를 사용하여 애플리케이션에 인증합니다. 최종 사용자는 애플리케이션에 처음 액세스할 때 로그인합니다. 첫 번째 로그온 후에는 Azure Active Directory가 사용자 이름 및 암호를 애플리케이션에 제공합니다. 
+암호 기반 로그온을 사용하는 경우 최종 사용자는 애플리케이션에 처음 액세스할 때 사용자 이름 및 암호를 사용하여 애플리케이션에 로그인합니다. 첫 번째 로그온 후에는 Azure Active Directory가 사용자 이름 및 암호를 애플리케이션에 제공합니다. 
 
 암호 기반 Single Sign-On은 애플리케이션에서 제공한 기존 인증 프로세스를 사용합니다. 애플리케이션에서 암호 Single Sign-On을 사용하도록 설정하면 Azure AD는 애플리케이션에 대한 사용자 이름 및 암호를 수집하고 안전하게 저장합니다. 사용자 자격 증명은 암호화된 상태로 디렉터리에 저장됩니다. 
 
@@ -178,6 +177,6 @@ Azure AD에 PingAccess를 사용하면 사용자는 인증에 헤더를 사용�
 * [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](../saas-apps/tutorial-list.md)
 * [Single Sign-On 구성을 위한](configure-single-sign-on-portal.md)
 * [애플리케이션에 대한 액세스 관리 소개](what-is-access-management.md)
-* 다운로드 링크: [Single Sign-On 배포 계획](http://aka.ms/SSODeploymentPlan)
+* 다운로드 링크: [Single Sign-On 배포 계획](https://aka.ms/SSODeploymentPlan)
 
 

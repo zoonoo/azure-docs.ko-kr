@@ -1,12 +1,11 @@
 ---
-title: Machine Learning에서 웹 서비스 엔드포인트 만들기 - Azure Machine Learning Studio | Microsoft Docs
-description: Azure Machine Learning에서 웹 서비스 엔드포인트 만들기
+title: 웹 서비스 엔드포인트 만들기 - Azure Machine Learning Studio | Microsoft Docs
+description: Azure Machine Learning에서 웹 서비스 엔드포인트 만들기 웹 서비스의 각 엔드포인트는 독립적으로 처리, 제한 및 관리됩니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 58418357d6e96204485887cca5d7724c42183db7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314016"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275893"
 ---
-# <a name="creating-endpoints"></a>엔드포인트 만들기 
+# <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>배포된 Azure Machine Learning Studio 웹 서비스에 대한 엔드포인트 만들기
 > [!NOTE]
 >  이 항목에서는 **기존** Machine Learning 웹 서비스에 적용되는 기술을 설명합니다.
 > 
@@ -33,7 +32,7 @@ ms.locfileid: "52314016"
 
 이를 위해 Azure Machine Learning Studio를 사용하면 배포된 웹 서비스에 대한 여러 엔드포인트를 만들 수 있습니다. 웹 서비스의 각 엔드포인트는 독립적으로 처리, 제한 및 관리됩니다. 각 엔드포인트에는 고객에게 배포할 수 있는 고유한 URL 및 권한 부여 키가 있습니다.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="adding-endpoints-to-a-web-service"></a>웹 서비스에 엔드포인트 추가
 웹 서비스에 엔드포인트를 추가하는 두 가지 방법이 있습니다.

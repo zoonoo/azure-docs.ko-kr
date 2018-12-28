@@ -2,25 +2,25 @@
 title: Azure Stream Analytics의 검사점 및 재생 작업 복구 개념
 description: 이 문서에서는 Azure Stream Analytics의 검사점 및 재생 작업 복구 개념에 대해 설명합니다.
 services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 32970ff37d202cc73e7ab7aa1bf3d737dae895c1
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 9dcfbd4b5fcc8462c88b16f585424166ecd3d499
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936720"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088258"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 검사점 및 재생 개념
 이 문서에서는 Azure Stream Analytics의 내부 검사점 및 재생 개념과 이러한 개념이 작업 복구에 미치는 영향에 대해 설명합니다. Stream Analytics 작업이 실행될 때마다 상태 정보가 내부적으로 유지 관리됩니다. 이러한 상태 정보는 정기적으로 검사점에 저장됩니다. 일부 시나리오에서는 작업 실패 또는 업그레이드가 발생하는 경우 검사점 정보가 작업을 복구하는 데 사용됩니다. 다른 상황에서는 검사점을 복구에 사용할 수 없으며 재생이 필요합니다.
 
-## <a name="stateful-query-logic-in-temporal-elements"></a>temporal 요소의 상태 저장 쿼리 논리
-Azure Stream Analytics 작업의 고유한 기능 중 하나는 기간 이동 집계, 임시 조인 및 임시 분석 함수 등과 같은 상태 저장 처리를 수행하는 것입니다. 작업이 실행될 때 이러한 각 연산자는 상태 정보를 유지합니다. 이러한 쿼리 요소의 최대 시간 범위는 7일입니다. 
+## <a name="stateful-query-logicin-temporal-elements"></a>temporal 요소의 상태 저장 쿼리 논리
+Azure Stream Analytics 작업의 고유한 기능 중 하나는 기간 이동 집계, 임시 조인 및 임시 분석 함수 등과 같은 상태 저장 처리를 수행하는 것입니다. 작업이 실행될 때 이러한 각 연산자는 상태 정보를 유지합니다. 이러한 쿼리 요소의 최대 시간 범위는 7일입니다. 
 
 임시 시간 범위 개념은 몇 가지 Stream Analytics 쿼리 요소에 나타납니다.
 1. 시간 범위 이동 집계(텀블링, 호핑 및 슬라이딩 시간 범위의 GROUP BY)

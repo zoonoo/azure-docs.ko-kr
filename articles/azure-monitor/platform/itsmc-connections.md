@@ -42,7 +42,7 @@ ms.locfileid: "53409244"
 다음 필수 조건이 충족되는지 확인합니다.
 
 - ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Service Manager 웹 응용 프로그램(웹앱)이 배포 및 구성되어 있습니다. 웹앱에 대한 정보는 [여기](#create-and-deploy-service-manager-web-app-service)를 참조하세요.
+- Service Manager 웹 애플리케이션(웹앱)이 배포 및 구성되어 있습니다. 웹앱에 대한 정보는 [여기](#create-and-deploy-service-manager-web-app-service)를 참조하세요.
 - 하이브리드 연결이 생성 및 구성되어 있습니다. 추가 정보: [하이브리드 연결 구성](#configure-the-hybrid-connection).
 - 지원되는 Service Manager 버전:  2012 R2 또는 2016.
 - 사용자 역할:  [고급 운영자](https://technet.microsoft.com/library/ff461054.aspx).

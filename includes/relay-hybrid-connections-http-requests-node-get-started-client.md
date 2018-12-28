@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
 ms.locfileid: "33905210"
 ---
-### <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
+### <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
 
 릴레이를 만들 때 [클라이언트 인증 필요] 옵션을 사용하지 않도록 설정한 경우 임의 브라우저로 요청을 하이브리드 연결 URL에 보낼 수 있습니다. 보호된 엔드포인트에 액세스하기 위해서는 여기 표시된 `ServiceBusAuthorization` 헤더에 토큰을 만들고 전달해야 합니다.
 

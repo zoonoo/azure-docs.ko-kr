@@ -9,26 +9,25 @@ ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 30983e283f47761d103829f02b02bc281bd785ee
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a62c6cbb6594aaf7c2c57d7efee1832d7b1430b7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091935"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000720"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>종속성, 예외 포착 및 Java 웹앱에서의 메서드 실행 시간 모니터링
 
 
 [Application Insights로 Java 웹앱을 계측][java]한 경우, Java Agent를 사용하여 코드의 변경 없이 보다 심층적인 정보를 얻을 수 있습니다.
 
-* **종속성:** 응용 프로그램이 다음을 포함한 다른 구성 요소에 수행하는 호출에 대한 데이터:
+* **종속성:** 애플리케이션이 다음을 포함한 다른 구성 요소에 수행하는 호출에 대한 데이터:
   * HttpClient, OkHttp 및 RestTemplate(Spring)을 통해 만든 **REST 호출**이 캡처됩니다.
   * Jedis 클라이언트를 통한 **Redis** 호출이 캡처됩니다.
-  * **[JDBC 호출](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server 및 Oracle DB 명령을 자동으로 캡처합니다. MySQL의 경우 호출 시간이 10초보다 길면 에이전트가 쿼리 계획을 보고합니다.
+  * **[JDBC 호출](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server 및 Oracle DB 명령을 자동으로 캡처합니다. MySQL의 경우 호출 시간이 10초보다 길면 에이전트가 쿼리 계획을 보고합니다.
 * **예외 포착:** 코드에서 처리하는 예외에 대한 정보입니다.
 * **메서드 실행 시간:** 특정 메서드를 실행하는 데 걸리는 시간에 대한 정보입니다.
 

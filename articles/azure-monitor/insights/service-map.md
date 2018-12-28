@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: c25bc5d577096078694e3af0de74debe0f906251
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827562"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186500"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식 즉 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스, 인바운드/아웃바운드 연결 대기 시간 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -38,7 +37,7 @@ ms.locfileid: "51827562"
 2. 검색 창에 **서비스 맵**을 입력하고 **Enter** 키를 누릅니다.
 3. 마켓플레이스 검색 결과 페이지의 목록에서 **서비스 맵**을 선택합니다.<br><br> ![Azure Marketplace 검색 결과에서 서비스 맵 솔루션 선택](./media/service-map/marketplace-search-results.png)<br>
 4. **서비스 맵** 개요 창에서 솔루션 세부 정보를 검토한 다음, **만들기**를 클릭하여 Log Analytics 작업 영역에서 온보딩 프로세스를 시작합니다.<br><br> ![서비스 맵 솔루션을 등록합니다](./media/service-map/service-map-onboard.png).
-5. **솔루션 구성** 창에서 기존 Log Analytics 작업 영역을 선택하거나 새 Log Analytics 작업 영역을 만듭니다.  새 작업 영역을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../log-analytics/log-analytics-quick-create-workspace.md)를 참조합니다. 필요한 정보를 제공한 후 **만들기**를 클릭합니다.  
+5. **솔루션 구성** 창에서 기존 Log Analytics 작업 영역을 선택하거나 새 Log Analytics 작업 영역을 만듭니다.  새 작업 영역을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md)를 참조합니다. 필요한 정보를 제공한 후 **만들기**를 클릭합니다.  
 
 정보가 확인되고 솔루션이 배포되는 동안 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 
 
@@ -277,7 +276,7 @@ Linux:
 ![컴퓨터 변경 내용 추적 창](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드
-서비스 맵 컴퓨터 및 프로세스 인벤토리 데이터는 Log Analytics에서 [검색](../../log-analytics/log-analytics-queries.md)할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
+서비스 맵 컴퓨터 및 프로세스 인벤토리 데이터는 Log Analytics에서 [검색](../../azure-monitor/log-query/log-query-overview.md)할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
 
 프로세스 또는 컴퓨터가 시작되거나 서비스 맵에 등록된 경우 생성되는 레코드 외에도 고유한 각 컴퓨터 및 프로세스에 대해 시간당 하나의 레코드가 생성됩니다. 이러한 레코드는 다음 표의 속성을 가집니다. ServiceMapComputer_CL 이벤트의 필드 및 값은 ServiceMap Azure Resource Manager API의 컴퓨터 리소스 필드에 매핑됩니다. ServiceMapProcess_CL 이벤트의 필드 및 값은 ServiceMap Azure Resource Manager API의 프로세스 리소스 필드에 매핑됩니다. ResourceName_s 필드는 해당하는 Resource Manager 리소스의 이름 필드와 일치합니다. 
 
@@ -504,7 +503,7 @@ Microsoft는 서비스 맵 서비스를 사용하여 사용 현황 및 성능 �
 
 
 ## <a name="next-steps"></a>다음 단계
-Log Analytics의 [로그 검색](../../log-analytics/log-analytics-queries.md)에 대해 자세히 알아보고 서비스 맵이 수집한 데이터를 검색합니다.
+Log Analytics의 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)에 대해 자세히 알아보고 서비스 맵이 수집한 데이터를 검색합니다.
 
 
 ## <a name="troubleshooting"></a>문제 해결

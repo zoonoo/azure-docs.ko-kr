@@ -3,7 +3,7 @@ title: SQL Server VM용 Azure Backup 문제 해결 가이드 | Microsoft Docs
 description: SQL Server VM을 Azure로 백업하는 문제 해결 정보입니다.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: ''
@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: markgal;anuragm
+ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 1c87382c2aae70b022fb391f80f7c75b0a4e5fe6
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296960"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339521"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Azure에 SQL Server 백업 문제 해결
 
@@ -79,13 +78,13 @@ SQL Server를 Azure로 보호하는 동안 발생한 문제와 오류를 해결�
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
 | 데이터 원본의 트랜잭션 로그가 꽉 차서 백업을 수행할 수 없습니다. | 데이터베이스 트랜잭션 로그 공간이 꽉 찼습니다. | 이 문제를 해결하려면 [SQL 설명서](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error)를 참조하세요. |
-| 이 SQL 데이터베이스는 요청된 백업 유형을 지원하지 않습니다. | Always On AG 보조 복제본은 전체 및 차등 백업을 지원하지 않습니다. | <ul><li>임시 백업을 트리거하는 경우에는 주 노드에서 백업을 트리거합니다.</li><li>백업이 정책에 따라 예약된 경우 주 노드가 등록되어 있는지 확인합니다. 노드를 등록하려면 [ SQL Server 데이터베이스를 검색하는 단계를 수행하십시오](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> | 
+| 이 SQL 데이터베이스는 요청된 백업 유형을 지원하지 않습니다. | Always On AG 보조 복제본은 전체 및 차등 백업을 지원하지 않습니다. | <ul><li>임시 백업을 트리거하는 경우에는 주 노드에서 백업을 트리거합니다.</li><li>백업이 정책에 따라 예약된 경우 주 노드가 등록되어 있는지 확인합니다. 노드를 등록하려면 [ SQL Server 데이터베이스를 검색하는 단계를 수행하십시오](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>복원 실패
 
 다음과 같은 오류 코드는 복원 작업이 실패하는 경우 표시됩니다.
 
-### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite 
+### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
@@ -108,7 +107,7 @@ SQL Server를 Azure로 보호하는 동안 발생한 문제와 오류를 해결�
 
 다음 오류 코드는 등록 실패에 해당합니다.
 
-### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError 
+### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
@@ -125,6 +124,16 @@ SQL Server를 Azure로 보호하는 동안 발생한 문제와 오류를 해결�
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
 | Azure Backup 서비스가 Azure VM 게스트 에이전트를 사용하여 백업을 수행하는 데 대상 서버에서 게스트 에이전트를 사용할 수 없습니다. | 게스트 에이전트가 활성화되지 않았거나 정상 상태가 아닙니다. | [VM 게스트 에이전트를 수동으로 설치](../virtual-machines/extensions/agent-windows.md)합니다. |
+
+## <a name="configure-backup-failures"></a>백업 실패 구성
+
+다음 오류 코드는 백업 실패 구성을 위한 것입니다.
+
+### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
+
+| 오류 메시지 | 가능한 원인 | 권장 작업 |
+|---|---|---|
+| 자동 보호 의도가 제거되었거나 더 이상 유효하지 않습니다. | SQL 인스턴스에서 자동 보호를 사용하도록 설정하면 **백업 구성** 작업이 해당 인스턴스에 있는 모든 데이터베이스에 대해 실행됩니다. 작업을 실행하는 동안 자동 보호를 사용하지 않도록 설정하는 경우 **In-Progress** 작업이 이 오류 코드로 취소됩니다. | 나머지 모든 데이터베이스를 보호하기 위해 다시 한 번 자동 보호를 사용하도록 설정합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

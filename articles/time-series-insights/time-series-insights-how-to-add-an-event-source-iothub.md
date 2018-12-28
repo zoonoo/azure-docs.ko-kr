@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights에 IoT Hub 이벤트 원본을 추가하는 방법 | Microsoft Docs
+title: Azure Time Series Insights에서 IoT Hub 추가 - Azure Time Series Insights에 IoT Hub 이벤트 원본을 추가하는 방법 | Microsoft Docs
 description: 이 문서에서는 IoT Hub에 연결된 이벤트 원본을 Time Series Insights 환경에 추가하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -9,95 +9,110 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/21/2017
-ms.openlocfilehash: b6beecbf64cee925f62ac4c82919926fcb79940a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.date: 11/30/2018
+ms.custom: seodec18
+ms.openlocfilehash: 3e370bd4cebb84d7ee9f607fc6640218ee202bb9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627375"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321274"
 ---
-# <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Time Series Insights 환경에 IoT Hub 이벤트 원본을 추가하는 방법
-이 문서에서는 Azure Portal을 사용하여 IoT Hub에서 데이터를 읽는 이벤트 원본을 Time Series Insights 환경에 추가하는 방법을 다룹니다.
+# <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Time Series Insights 환경에 IoT Hub 이벤트 원본 추가
+
+이 문서에서는 Azure Portal을 사용하여 Azure IoT Hub에서 데이터를 읽는 이벤트 원본을 Azure Time Series Insights 환경에 추가하는 방법을 다룹니다.
+
+> [!NOTE]
+> 이 문서의 지침은 Azure Time Series Insights GA 및 Time Series Insights 미리 보기 환경에 적용됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
-- Time Series Insights 환경을 만듭니다. 자세한 내용은 [Azure Time Series Insights 환경 만들기](time-series-insights-get-started.md)를 참조하세요. 
-- IoT Hub를 만듭니다. IoT Hub에 대한 자세한 내용은 [Azure Portal을 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-through-portal.md)를 참조하세요.
-- IoT Hub에는 전송 중인 활성 메시지 이벤트가 있어야 합니다.
-- Time Series Insights에서 사용할 IoT Hub의 전용 소비자 그룹을 만듭니다. 각 Time Series Insights 이벤트 원본에는 다른 소비자와 공유되지 않은 전용 소비자 그룹 자체가 있어야 합니다. 같은 소비자 그룹에서 여러 읽기 권한자가 이벤트를 소비하는 경우 모든 읽기 권한자에게 오류가 표시될 수 있습니다. 자세한 내용은 [IoT Hub 개발자 가이드](../iot-hub/iot-hub-devguide.md)를 참조하세요.
+
+* [Azure Time Series Insights 환경](time-series-insights-update-create-environment.md)을 만듭니다.
+* [Azure Portal을 사용하여 IoT Hub](../iot-hub/iot-hub-create-through-portal.md)를 만듭니다.
+* IoT Hub에는 전송 중인 활성 메시지 이벤트가 있어야 합니다.
+* Time Series Insights에서 사용할 IoT Hub의 전용 소비자 그룹을 만듭니다. 각 Time Series Insights 이벤트 원본에는 다른 소비자와 공유되지 않은 전용 소비자 그룹 자체가 있어야 합니다. 같은 소비자 그룹에서 여러 읽기 권한자가 이벤트를 소비하는 경우 모든 읽기 권한자에게 오류가 표시될 수 있습니다. 자세한 내용은 [Azure IoT Hub 개발자 가이드](../iot-hub/iot-hub-devguide.md)를 참조하세요.
 
 ### <a name="add-a-consumer-group-to-your-iot-hub"></a>IoT Hub에 소비자 그룹 추가
-소비자 그룹은 응용 프로그램에서 Azure IoT Hub의 데이터를 끌어오는 데 사용됩니다. IoT Hub에서 안정적으로 데이터를 읽기 위해 이 Time Series Insights 환경에서만 사용하는 전용 소비자 그룹을 제공합니다.
 
-IoT Hub에 새 소비자 그룹을 추가하려면 다음 단계를 수행합니다.
+애플리케이션은 소비자 그룹을 사용하여 Azure IoT Hub의 데이터를 끌어옵니다. IoT Hub에서 안정적으로 데이터를 읽기 위해 이 Time Series Insights 환경에서만 사용하는 전용 소비자 그룹을 제공합니다.
+
+IoT Hub에 새 소비자 그룹을 추가하려면
+
 1. Azure Portal에서 IoT Hub를 찾아서 엽니다.
 
-2. **메시징** 제목 아래에서 **끝점**을 선택합니다. 
+1. 메뉴의 **설정** 아래에서 **기본 제공 엔드포인트**를 선택한 후 **이벤트** 엔드포인트를 선택합니다.
 
-   ![소비자 그룹 추가](media/time-series-insights-how-to-add-an-event-source-iothub/5-add-consumer-group.png)
+   ![기본 제공 엔드포인트 페이지에서 이벤트 단추 선택][1]
 
-3. **이벤트** 끝점을 선택합니다. 그러면 **속성** 페이지가 열립니다.
+1. **소비자 그룹**에 소비자 그룹의 고유한 이름을 입력합니다. 새 이벤트 원본을 만들 때 Time Series Insights 환경에서 이 동일한 이름을 사용합니다.
 
-4. **소비자 그룹** 제목에서 소비자 그룹에 대한 새 고유 이름을 제공합니다. 새 이벤트 원본을 만들 때 Time Series Insights 환경에서 이 동일한 이름을 사용합니다.
-
-5. **저장**을 선택하여 새 소비자 그룹을 저장합니다.
+1. **저장**을 선택합니다.
 
 ## <a name="add-a-new-event-source"></a>새 이벤트 원본 추가
+
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 기존 Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스**를 클릭합니다. Time Series Insights 환경을 선택합니다.
+1. 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. Time Series Insights 환경을 선택합니다.
 
-3. **환경 토폴로지** 제목 아래에서 **이벤트 원본**을 클릭합니다.
-   ![이벤트 원본 + 추가](media/time-series-insights-how-to-add-an-event-source-iothub/1-event-sources.png)
+1. **환경 토폴로지** 아래에서 **이벤트 원본**을 선택한 후 **추가**를 선택합니다.
 
-4. **+ 추가**를 클릭합니다.
+   ![이벤트 원본을 선택한 후 추가 단추 선택][2]
 
-5. 이 Time Series Insights 환경에 고유한 **이벤트 원본 이름**(예: **event-stream**)을 제공합니다.
+1. **새 이벤트 원본** 창에서 **이벤트 원본 이름**으로 이 Time Series Insights 환경에 고유한 이름을 입력합니다. 예를 들어, **event-stream**을 입력합니다.
 
-   ![양식에 처음 세 개의 매개 변수를 입력합니다.](media/time-series-insights-how-to-add-an-event-source-iothub/2-import-option.png)
+1. **원본**으로 **IoT Hub**를 선택합니다.
 
-6. **IoT Hub**로 **원본**을 선택합니다.
+1. **가져오기 옵션** 값을 선택합니다.
 
-7. 해당 **가져오기 옵션**을 선택합니다. 
-   - 구독 중 하나에 기존 IoT Hub가 이미 있는 경우 **사용 가능한 구독의 IoT Hub 사용**을 선택합니다. 이것이 가장 쉬운 방법입니다.
-   - IoT Hub가 구독 외부에 있거나 고급 옵션을 선택하려는 경우 **IoT Hub 설정 수동으로 제공**을 선택합니다. 
+   * 구독 중 하나에 IoT Hub가 이미 있는 경우 **사용 가능한 구독에서 IoT Hub 사용**을 선택합니다. 이 옵션이 가장 쉬운 방법입니다.
+   * IoT Hub가 구독 외부에 있거나 고급 옵션을 선택하려는 경우 **수동으로 IoT Hub 설정 제공**을 선택합니다.
 
-8. **사용 가능한 구독의 IoT Hub 사용** 옵션을 선택한 경우 다음 표에 나오는 각 필수 속성에 대한 설명을 참조하세요.
+   ![새 이벤트 원본 창에서 옵션 선택][3]
 
-   ![구독 및 이벤트 허브 정보](media/time-series-insights-how-to-add-an-event-source-iothub/3-new-event-source.png)
+1. 다음 표에서는 **사용 가능한 구독에서 IoT Hub 사용** 옵션에 필요한 속성에 대해 설명합니다.
+
+   ![새 이벤트 원본 창 - 사용 가능한 구독에서 IoT Hub 사용에서 설정하는 속성][4]
 
    | 자산 | 설명 |
    | --- | --- |
    | 구독 ID | 이 IoT Hub가 만들어진 구독을 선택합니다.
-   | IoT Hub 이름 | IoT Hub 이름을 선택합니다.
-   | IoT Hub 정책 이름 | IoT Hub 설정 탭에서 찾을 수 있는 공유 액세스 정책을 선택합니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 원본에 대한 공유 액세스 정책에는 **서비스 연결** 사용 권한이 *반드시* 있어야 합니다.
+   | IoT Hub 이름 | IoT Hub의 이름을 선택합니다.
+   | IoT Hub 정책 이름 | 공유 액세스 정책을 선택합니다. IoT Hub 설정 탭에서 공유 액세스 정책을 찾을 수 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 원본에 대한 공유 액세스 정책에는 **서비스 연결** 사용 권한이 *반드시* 있어야 합니다.
    | IoT Hub 정책 키 | 키는 미리 채워져 있습니다.
    | IoT Hub 소비자 그룹 | IoT Hub에서 이벤트를 읽는 소비자 그룹입니다. 이벤트 원본에 대한 전용 소비자 그룹을 사용하는 것이 좋습니다.
-   | 이벤트 직렬화 형식 | JSON이 현재 사용 가능한 유일한 직렬화입니다. 이벤트 메시지는 이 형식이어야 합니다. 그렇지 않으면 데이터를 읽을 수 없습니다. |
+   | 이벤트 직렬화 형식 | 현재, JSON이 사용 가능한 유일한 직렬화 형식입니다. 이벤트 메시지는 이 형식이어야 합니다. 그렇지 않으면 데이터를 읽을 수 없습니다. |
    | 타임스탬프 속성 이름 | 이 값을 확인하려면 IoT Hub로 전송되는 메시지 데이터의 메시지 형식을 이해해야 합니다. 이 값은 이벤트 타임스탬프로 사용하려는 메시지 데이터에 있는 특정 이벤트 속성의 **이름**입니다. 이 값은 대/소문자를 구분합니다. 이 값을 비워 두면 이벤트 원본 내의 **이벤트 인큐 시간**이 이벤트 타임스탬프로 사용됩니다. |
 
-9. **IoT Hub 설정 수동으로 제공** 옵션을 선택한 경우 다음 표에 나오는 각 필수 속성에 대한 설명을 참조하세요.
+1. 다음 표에서는 **수동으로 IoT Hub 설정 제공**에 대한 필수 속성을 설명합니다.
 
    | 자산 | 설명 |
    | --- | --- |
    | 구독 ID | 이 IoT Hub가 만들어진 구독입니다.
    | 리소스 그룹 | 이 IoT Hub가 만들어진 리소스 그룹 이름입니다.
-   | IoT Hub 이름 | IoT Hub의 이름입니다. IoT Hub를 만들 때 사용자가 지정한 특정 이름입니다.
-   | IoT Hub 정책 이름 | IoT Hub 설정 탭에서 찾을 수 있는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 원본에 대한 공유 액세스 정책에는 **서비스 연결** 사용 권한이 *반드시* 있어야 합니다.
-   | IoT Hub 정책 키 | Service Bus 네임스페이스에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다. 기본 또는 보조 키를 여기에 입력합니다.
+   | IoT Hub 이름 | IoT Hub의 이름입니다. IoT Hub를 만들 때 IoT Hub에 대해 입력한 이름입니다.
+   | IoT Hub 정책 이름 | 공유 액세스 정책. IoT Hub 설정 탭에서 공유 액세스 정책을 만들 수 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 원본에 대한 공유 액세스 정책에는 **서비스 연결** 사용 권한이 *반드시* 있어야 합니다.
+   | IoT Hub 정책 키 | Azure Service Bus 네임스페이스에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다. 기본 또는 보조 키를 여기에 입력합니다.
    | IoT Hub 소비자 그룹 | IoT Hub에서 이벤트를 읽는 소비자 그룹입니다. 이벤트 원본에 대한 전용 소비자 그룹을 사용하는 것이 좋습니다.
-   | 이벤트 직렬화 형식 | JSON이 현재 사용 가능한 유일한 직렬화입니다. 이벤트 메시지는 이 형식이어야 합니다. 그렇지 않으면 데이터를 읽을 수 없습니다. |
+   | 이벤트 직렬화 형식 | 현재, JSON이 사용 가능한 유일한 직렬화 형식입니다. 이벤트 메시지는 이 형식이어야 합니다. 그렇지 않으면 데이터를 읽을 수 없습니다. |
    | 타임스탬프 속성 이름 | 이 값을 확인하려면 IoT Hub로 전송되는 메시지 데이터의 메시지 형식을 이해해야 합니다. 이 값은 이벤트 타임스탬프로 사용하려는 메시지 데이터에 있는 특정 이벤트 속성의 **이름**입니다. 이 값은 대/소문자를 구분합니다. 이 값을 비워 두면 이벤트 원본 내의 **이벤트 인큐 시간**이 이벤트 타임스탬프로 사용됩니다. |
 
-10. 추가한 전용 TSI 소비자 그룹 이름을 IoT Hub에 추가합니다.
+1. 추가한 전용 Time Series Insights 소비자 그룹 이름을 IoT Hub에 추가합니다.
 
-11. 새 이벤트 원본을 추가하려면 **만들기**를 선택합니다.
+1. **만들기**를 선택합니다.
 
-   ![만들기 클릭 ](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
+   ![만들기 단추][5]
 
-   이벤트 원본이 생성되면 Time Series Insights가 자동으로 데이터를 환경으로 스트리밍하기 시작합니다.
+1. 이벤트 원본을 만들면 Time Series Insights가 자동으로 데이터를 환경으로 스트리밍하기 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- 데이터를 보호하기 위한 [데이터 액세스 정책 정의](time-series-insights-data-access.md)
-- 이벤트 원본으로 [이벤트 전송](time-series-insights-send-events.md)
-- [Time Series Insights 탐색기](https://insights.timeseries.azure.com)에서 환경에 액세스
+
+* 데이터를 보호하기 위한 [데이터 액세스 정책 정의](time-series-insights-data-access.md)
+* 이벤트 원본으로 [이벤트 전송](time-series-insights-send-events.md)
+* [Time Series Insights 탐색기](https://insights.timeseries.azure.com)에서 환경에 액세스
+
+<!-- Images -->
+[1]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png
+[2]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png
+[3]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png
+[4]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png
+[5]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png

@@ -30,7 +30,7 @@ ms.locfileid: "33778446"
 
 > [!div class="checklist"]
 > * 데이터 원본 설정
-> * UWP 응용 프로그램 설정
+> * UWP 애플리케이션 설정
 > * 백 엔드 설정
 > * UWP(유니버설 Windows 플랫폼) 앱에서 푸시 알림 테스트
 
@@ -101,7 +101,7 @@ ms.locfileid: "33778446"
 
     ![](./media/notification-hubs-geofence/bing-maps-nores.png)
 
-## <a name="set-up-the-uwp-application"></a>UWP 응용 프로그램 설정
+## <a name="set-up-the-uwp-application"></a>UWP 애플리케이션 설정
 
 1. Visual Studio에서 **비어 있는 앱(유니버설 Windows)** 형식의 새 프로젝트를 시작합니다.
 
@@ -117,8 +117,8 @@ ms.locfileid: "33778446"
     - **엔터티 이름** – 알림에 대한 참조 지점으로 사용하려는 엔터티. 
     - **Bing 맵 API 키** – Bing 개발자 센터 계정을 만들 경우 이전에 얻은 키입니다.
 
-    이제 데이터 원본을 준비했으므로 UWP 응용 프로그램에서 작업을 시작할 수 있습니다.
-2. 응용 프로그램에 대한 위치 서비스를 사용하도록 설정합니다. **솔루션 탐색기**에서 `Package.appxmanifest` 파일을 엽니다.
+    이제 데이터 원본을 준비했으므로 UWP 애플리케이션에서 작업을 시작할 수 있습니다.
+2. 애플리케이션에 대한 위치 서비스를 사용하도록 설정합니다. **솔루션 탐색기**에서 `Package.appxmanifest` 파일을 엽니다.
 
     ![](./media/notification-hubs-geofence/vs-package-manifest.png)
 3. 방금 연 패키지 속성 탭에서 **기능** 탭으로 전환하고, **위치**를 선택합니다.
@@ -190,10 +190,10 @@ ms.locfileid: "33778446"
         }
     }
     ```
-6. 응용 프로그램을 실행하고 사용자의 위치에 액세스할 수 있도록 허용합니다.
+6. 애플리케이션을 실행하고 사용자의 위치에 액세스할 수 있도록 허용합니다.
 
     ![](./media/notification-hubs-geofence/notification-hubs-location-access.png)
-7. 응용 프로그램이 시작되면 **출력** 창에서 좌표를 볼 수 있어야 합니다.
+7. 애플리케이션이 시작되면 **출력** 창에서 좌표를 볼 수 있어야 합니다.
 
     ![](./media/notification-hubs-geofence/notification-hubs-location-output.png)
 

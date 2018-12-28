@@ -38,7 +38,7 @@ ms.locfileid: "51243848"
 라이브 인코딩에 대해 사용할 수 있는 채널과 관련하여 더욱 개념적인 정보는 [Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 
 ## <a name="common-live-streaming-scenario"></a>일반적인 라이브 스트리밍 시나리오
-다음 단계에서는 일반적인 라이브 스트리밍 응용 프로그램을 만드는 데 포함되는 작업을 설명합니다.
+다음 단계에서는 일반적인 라이브 스트리밍 애플리케이션을 만드는 데 포함되는 작업을 설명합니다.
 
 > [!NOTE]
 > 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 시간 동안 채널을 실행해야 하는 경우 amslived@microsoft.com에 문의하세요.

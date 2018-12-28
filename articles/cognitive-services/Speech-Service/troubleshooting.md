@@ -1,21 +1,22 @@
 ---
-title: Speech Service SDK 문제 해결
+title: Speech SDK의 문제 해결 - 음성 서비스
 titleSuffix: Azure Cognitive Services
-description: Speech Service SDK의 문제를 해결합니다.
+description: 이 문서에서는 Speech Service SDK를 사용할 때 발생할 수 있는 문제를 해결하는 데 도움이 되는 정보를 제공합니다.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 9f0cea263262d83d9a95012f6cd09fa9acdc0141
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 04a1f3222b17d91889eb580d9d4e8206d8156d37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464574"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095486"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Speech Service SDK 문제 해결
 
@@ -23,7 +24,7 @@ ms.locfileid: "49464574"
 
 ## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>오류: 인증 오류(403)를 발생하며 WebSocket 업그레이드가 실패했습니다.
 
-지역 또는 서비스에 대한 잘못된 엔드포인트가 있을 수 있습니다. URI가 올바른지 확인합니다. 
+지역 또는 서비스에 대한 잘못된 엔드포인트가 있을 수 있습니다. URI가 올바른지 확인합니다.
 
 또한 구독 키 또는 권한 부여 토큰에 문제가 있을 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
 
@@ -78,19 +79,19 @@ ms.locfileid: "49464574"
     ```Powershell
     $SpeechServiceURI =
     'https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US'
-    
+
     # $OAuthToken is the authorization token returned by the token service.
     $RecoRequestHeader = @{
       'Authorization' = 'Bearer '+ $OAuthToken
       'Transfer-Encoding' = 'chunked'
       'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
     }
-    
+
     # Read audio into byte array.
     $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
-    
+
     $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
-    
+
     # Show the result.
     $RecoResponse
     ```
@@ -122,4 +123,3 @@ ms.locfileid: "49464574"
 ## <a name="next-steps"></a>다음 단계
 
 * [릴리스 정보 검토](releasenotes.md)
-

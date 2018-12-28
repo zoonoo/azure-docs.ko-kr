@@ -96,9 +96,9 @@ static void Main()
 
 사용자가 `ServicePointManager`를 통해 `HttpClient` 흐름을 사용하여 함수에서 만드는 모든 나가는 HTTP 요청. `DefaultConnectionLimit`에 도달하면 `ServicePointManager`는 요청 큐잉을 시작한 후 요청을 보냅니다. `DefaultConnectionLimit`가 2로 설정되었고 코드에서 HTTP 요청 1,000개를 만든다고 가정해 봅시다. 처음에는 실제로 OS까지 전달되는 요청이 2개밖에 없습니다. 나머지 998개는 공간이 생길 때까지 큐에서 대기합니다. 즉, `HttpClient`는 요청을 만들었지만 OS가 요청을 대상 서버로 보낸 적이 없다고 *생각*하고 시간이 초과될 수 있습니다. 이와 같은 이유로 로컬 `HttpClient`가 요청을 완료하는 데 10초가 걸리지만 서비스가 200ms 후에 모든 요청을 반환하는 이상한 동작이 관찰될 수 있습니다. 
 
-ASP.NET 응용 프로그램의 기본값은 `Int32.MaxValue`이고, Basic 이상 App Service 계획에서 실행되는 WebJobs에서 잘 작동할 것입니다. WebJobs는 일반적으로 Always On 설정이 필요한데, 이 설정은 Basic 이상 App Service 계획에서만 지원됩니다. 
+ASP.NET 애플리케이션의 기본값은 `Int32.MaxValue`이고, Basic 이상 App Service 계획에서 실행되는 WebJobs에서 잘 작동할 것입니다. WebJobs는 일반적으로 Always On 설정이 필요한데, 이 설정은 Basic 이상 App Service 계획에서만 지원됩니다. 
 
-WebJob이 무료 또는 공유 App Service 계획에서 실행되는 경우 응용 프로그램이 App Service 샌드박스의 제한을 받으며, 현재 [연결 제한은 300개](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits)입니다. `ServicePointManager`의 바인딩되지 않은 제한 때문에 샌드박스 연결 임계값에 도달하여 사이트가 종료될 가능성이 있습니다. 이 경우 `DefaultConnectionLimit`를 50 또는 100처럼 약간 낮추면 이와 같은 상황을 방지하면서도 충분한 처리량을 계속 제공할 수 있습니다.
+WebJob이 무료 또는 공유 App Service 계획에서 실행되는 경우 애플리케이션이 App Service 샌드박스의 제한을 받으며, 현재 [연결 제한은 300개](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits)입니다. `ServicePointManager`의 바인딩되지 않은 제한 때문에 샌드박스 연결 임계값에 도달하여 사이트가 종료될 가능성이 있습니다. 이 경우 `DefaultConnectionLimit`를 50 또는 100처럼 약간 낮추면 이와 같은 상황을 방지하면서도 충분한 처리량을 계속 제공할 수 있습니다.
 
 이 설정은 HTTP 요청을 만들기 전에 구성해야 합니다. 이러한 이유로 WebJobs 호스트는 설정을 자동으로 조정하려고 시도하면 안 됩니다. 호스트가 시작되기 전에 발생하는 HTTP 요청이 있을 수 있으며 이로 인해 예기치 않은 동작이 발생할 수 있습니다. 가장 좋은 방법은 다음 예제와 같이 `JobHost`를 초기화하기 전에 `Main` 메서드에서 즉시 값을 설정하는 것입니다.
 

@@ -11,14 +11,14 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/14/2018
 ms.locfileid: "53430006"
 ---
-.NET 응용 프로그램은 **StackExchange.Redis** 캐시 클라이언트를 사용할 수 있습니다. 이는 캐시 클라이언트 응용 프로그램의 구성을 단순화하는 NuGet 패키지를 사용하여 Visual Studio에서 구성할 수 있습니다. 
+.NET 애플리케이션은 **StackExchange.Redis** 캐시 클라이언트를 사용할 수 있습니다. 이는 캐시 클라이언트 애플리케이션의 구성을 단순화하는 NuGet 패키지를 사용하여 Visual Studio에서 구성할 수 있습니다. 
 
 > [!NOTE]
 > 자세한 내용은 [StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis) GitHub 페이지 및 [StackExchange.Azure Cache for Redis 클라이언트 설명서](http://github.com/StackExchange/StackExchange.Redis#documentation)를 참조하세요.
 >
 >
 
-StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 
+StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 애플리케이션을 구성하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 
 
 ![NuGet 패키지 관리](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
 

@@ -61,7 +61,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 |매개 변수|설명|  
 |---------------|-----------------|  
-|appId|응용 프로그램의 ID입니다.|  
+|appId|애플리케이션의 ID입니다.|  
   
 ### <a name="developer-portal-templates"></a>개발자 포털 템플릿  
  `app-actions` 컨트롤은 다음과 같은 개발자 포털 템플릿에서 사용할 수 있습니다.  

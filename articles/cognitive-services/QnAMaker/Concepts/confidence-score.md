@@ -1,7 +1,7 @@
 ---
 title: 신뢰도 점수 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: 신뢰도 점수 설명
+description: 신뢰도 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다.
 services: cognitive-services
 author: tulasim88
 manager: pchoudh
@@ -10,14 +10,15 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: b1126b2cdb7a5cd7451a916558bc928653bc0027
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.custom: seodec18
+ms.openlocfilehash: 8fe4ecfe241422c03a2de8d0634ef1e1395aa050
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577926"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081322"
 ---
-# <a name="confidence-score"></a>신뢰도 점수
+# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 신뢰도 점수
 사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다. 
 
 신뢰도 점수는 0과 100 사이의 숫자입니다. 점수가 100이면 정확히 일치할 가능성이 높지만 점수가 0이면 일치하는 응답을 찾지 못한 것입니다. 이 점수가 높을수록 응답의 신뢰도가 높습니다. 지정된 쿼리에 대해 여러 응답이 반환될 수 있습니다. 이 경우 응답은 높은 신뢰도 점수부터 반환됩니다.
@@ -78,15 +79,15 @@ ms.locfileid: "51577926"
 
 2. **App Service**를 클릭하여 엽니다.
 
-    ![App Service 액세스](../media/qnamaker-concepts-confidencescore/set-default-response.png)
+    ![Azure Portal에서 QnA Maker에 대한 App service에 액세스](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
 3. **응용 프로그램 설정**을 클릭하고 **DefaultAnswer** 필드를 원하는 기본 응답으로 편집합니다. **저장**을 클릭합니다.
 
-    ![기본 응답 변경](../media/qnamaker-concepts-confidencescore/change-response.png)
+    ![애플리케이션 설정을 선택한 다음, QnA Maker에 대한 DefaultAnswer 편집](../media/qnamaker-concepts-confidencescore/change-response.png)
 
 4. App Service 다시 시작
 
-    ![QnA Maker appservice 다시 시작](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+    ![DefaultAnswer를 변경한 후 QnA Maker appservice를 다시 시작](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 
 ## <a name="next-steps"></a>다음 단계

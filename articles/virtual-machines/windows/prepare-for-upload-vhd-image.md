@@ -295,7 +295,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
     ```
     리포지토리가 손상된 경우 [WMI: Repository Corruption, or Not](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not)(WMI: 리포지토리 손상 여부)을 참조하세요.
 
-5. 타사 응용 프로그램이 포트 3389를 사용하지 않는지 확인합니다. 이 포트는 Azure의 RDP 서비스에 사용됩니다. **netstat-anob**를 실행하여 VM에서 사용되는 포트를 확인할 수 있습니다.
+5. 타사 애플리케이션이 포트 3389를 사용하지 않는지 확인합니다. 이 포트는 Azure의 RDP 서비스에 사용됩니다. **netstat-anob**를 실행하여 VM에서 사용되는 포트를 확인할 수 있습니다.
 
     ```PowerShell
     netstat -anob
@@ -389,7 +389,7 @@ Sysprep는 모든 개인 데이터를 제거하고 여러 구성 요소를 다�
 
 일반화된 이미지를 만들려는 경우 Sysprep를 실행해야 합니다. Sysprep에 대한 자세한 내용은 [Sysprep 사용 방법: 소개](https://technet.microsoft.com/library/bb457073.aspx)를 참조하세요. 
 
-Windows 기반 컴퓨터에 설치된 모든 역할 또는 응용 프로그램이 이 일반화를 지원하는 것은 아닙니다. 따라서 이 절차를 실행하기 전, 다음 문서를 참조하여 해당 컴퓨터의 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
+Windows 기반 컴퓨터에 설치된 모든 역할 또는 애플리케이션이 이 일반화를 지원하는 것은 아닙니다. 따라서 이 절차를 실행하기 전, 다음 문서를 참조하여 해당 컴퓨터의 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
 
 ### <a name="steps-to-generalize-a-vhd"></a>VHD를 일반화하는 단계
 

@@ -1,13 +1,12 @@
 ---
-title: 단순 회귀 모델을 사용하여 답변 예측 - Azure Machine Learning Studio | Microsoft Docs
+title: 회귀 모델로 답변 예측 - Azure Machine Learning Studio | Microsoft Docs
 description: 초급자를 위한 데이터 과학 비디오 4에는 가격을 예측하는 단순 회귀 모델을 만드는 방법이 나옵니다. 대상 데이터와 함께 선형 회귀가 포함됩니다.
 keywords: 모델 만들기,단순 모델,가격 예측,단순 회귀 모델
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 2862310623b2725cbeeaa4f5972a89ffcef44ff6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e2c49b9da215c038cfa47689f11da22b2dffc2dc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309779"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253594"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>단순 모델을 사용하여 답변 예측
 ## <a name="video-4-data-science-for-beginners-series"></a>비디오 4: 초급자를 위한 데이터 과학 시리즈
@@ -44,7 +43,7 @@ ms.locfileid: "52309779"
 * 비디오 4: 단순 모델을 사용하여 답변 예측
 * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
-## <a name="transcript-predict-an-answer-with-a-simple-model"></a>비디오 내용: 단순 모델을 사용하여 답변 예측
+## <a name="transcript-predict-an-answer-with-a-simple-model"></a>대본: 단순 모델을 사용하여 답변 예측
 “초급자를 위한 데이터 과학” 시리즈 중 4번째 비디오를 시작합니다. 여기서는 간단한 모델을 빌드하고 예측을 진행할 것입니다.
 
 *모델* 은 데이터에 대한 간소화된 이야기입니다. 무슨 의미인지 보여드리겠습니다.
@@ -66,7 +65,7 @@ ms.locfileid: "52309779"
 * 또한 여기서 확인된 것처럼 질문에 답변할 수 있는 **충분한** 데이터가 됩니다.
 
 ## <a name="ask-a-sharp-question"></a>정확하게 질문하기
-이제 “1.35 캐럿의 다이아몬드를 구입하는 비용은 얼마나 될까요?”와 같이 더 상세하게 질문해보겠습니다.
+이제 좀 더 상세하게 질문해보겠습니다. “1.35 캐럿의 다이아몬드를 구입하는 비용은 얼마나 될까요?”
 
 목록에는 1.35 캐럿 다이아몬드가 없으므로 나머지 데이터를 사용해서 질문에 대한 답변을 얻어야 합니다.
 
@@ -97,9 +96,9 @@ ms.locfileid: "52309779"
 여기서는 *가격은 얼마일까요?* 라는 질문에 답변하려고 하기 때문에 이를 *회귀*라고 합니다. 또한 직선을 사용하므로 *선형 회귀*에 해당합니다.
 
 ## <a name="use-the-model-to-find-the-answer"></a>모델을 사용하여 해답 찾기
-이제 우리에게는 모델이 있고 “1.35 캐럿의 다이아몬드 가격은 얼마나 될까요?”라는 질문을 해보겠습니다.
+이제 모델이 있는 상태에서 질문을 하겠습니다. “1.35 캐럿 다이아몬드의 가격은 얼마나 될까요?”
 
-질문에 대한 답변을 얻기 위해 1.35 캐럿에서 수직선을 그립니다. 모델 선을 지나는 위치에서 달러 축과 만나는 수평선을 그려 확인합니다. 정확히 10,000에 닿네요. 와우 그렇다면 이게 정답입니다. 1.35 캐럿 다이아몬드의 가격은 약 10,000달러입니다.
+질문에 대한 답변을 얻기 위해 1.35 캐럿에서 수직선을 그립니다. 모델 선을 지나는 위치에서 달러 축과 만나는 수평선을 그려 확인합니다. 정확히 10,000에 닿네요. 와우 그렇다면 이게 정답입니다. 답이 맞습니다. 1.35 캐럿 다이아몬드의 가격은 약 10,000달러입니다.
 
 ![모델에서 해답 찾기](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
@@ -108,7 +107,7 @@ ms.locfileid: "52309779"
 
 ![예측](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-이제 이 신뢰 구간에 대해 이렇게 말할 수 있습니다. 1.35 캐럿 다이아몬드의 가격은 약 10,000달러이지만 최하 8,000달러에서 최고 12,000달러가 될 수도 있습니다.
+이제 이 신뢰 구간에 대해 이렇게 말할 수 있습니다.  1.35 캐럿 다이아몬드의 가격은 약 10,000달러이지만 최하 8,000달러에서 최고 12,000달러가 될 수도 있습니다.
 
 ## <a name="were-done-with-no-math-or-computers"></a>수학이나 컴퓨터 없이도 해냈습니다.
 데이터 과학자들이 돈을 받고 하는 일을 우리가 해넀습니다. 그림만 그려서 말이죠.

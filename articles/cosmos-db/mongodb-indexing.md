@@ -1,24 +1,22 @@
 ---
-title: Azure Cosmos DB MongoDB API에서 인덱싱 | Microsoft Docs
+title: Azure Cosmos DB MongoDB API의 인덱싱
 description: Azure Cosmos DB MongoDB API에서 인덱싱 기능에 대한 개요를 제공합니다.
 services: cosmos-db
 author: orestis-ms
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: ad04976136fc8db04dbe52bf78bea49a9149e5db
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: bdb2ceb45950b99b1a5a351c6301599a791ef8cc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312700"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875300"
 ---
-# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB: MongoDB API에서 인덱싱
+# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB의 인덱싱: MongoDB API
 
 Azure Cosmos DB MongoDB API는 Azure Cosmos DB의 자동 인덱스 관리 기능을 활용합니다. 결과적으로, 사용자는 Azure Cosmos DB의 기본 인덱싱 정책에 액세스할 수 있습니다. 따라서 사용자에 의해 정의된 인덱스가 없거나 삭제된 인덱스가 없는 경우 모든 필드는 컬렉션에 삽입될 때 기본적으로 자동으로 인덱싱됩니다. 대부분의 시나리오의 경우 계정에서 설정된 기본 인덱싱 정책을 사용하는 것이 좋습니다.
 

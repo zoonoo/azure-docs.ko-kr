@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 982c6112a19654e268c9c50fec35d65fbc1766c2
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c6d4ec767b4c566e6a390f37b97266916819a40c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062023"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015163"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH를 사용하여 SUSE에서 고가용성 설정
 이 문서는 STONITH 디바이스를 사용하여 SUSE 운영 체제에서 고가용성을 설정하는 자세한 단계별 지침을 제공합니다.
@@ -38,7 +38,7 @@ SUSE 클러스터링을 사용하여 고가용성을 설정하려면 다음 필�
 ### <a name="setup-details"></a>설정 정보
 이 가이드에서 사용하는 설정은 다음과 같습니다.
 - 운영 체제: SAP용 SLES 12 SP1
-- HANA 대규모 인스턴스: 2xS192(4개 소켓, 2TB)
+- HANA 대규모 인스턴스: 2xS192(4 소켓, 2TB)
 - HANA 버전: HANA 2.0 SP1
 - 서버 이름: sapprdhdb95(노드 1) 및 sapprdhdb96(노드 2)
 - STONITH 디바이스: iSCSI 기반 STONITH 디바이스
@@ -51,7 +51,7 @@ HSR을 사용하여 HANA 대규모 인스턴스를 설정하는 경우 Microsoft
 - 고객 이름(예: Microsoft)
 - SID - HANA 시스템 식별자(예: H11)
 
-STONITH 장치가 구성되면 Microsoft 서비스 관리 팀에서 STONITH 설정을 구성하는 데 사용할 수 있는 iSCSI 저장소의 SBD 장치 이름과 IP 주소를 제공합니다. 
+STONITH 디바이스가 구성되면 Microsoft 서비스 관리 팀에서 STONITH 설정을 구성하는 데 사용할 수 있는 iSCSI 저장소의 SBD 디바이스 이름과 IP 주소를 제공합니다. 
 
 STONITH를 사용하여 종단 간 HA를 설정하려면 다음 단계를 따라야 합니다.
 
@@ -93,14 +93,14 @@ iscsiadm -m node -l
 ```
 ![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1.5 다시 검사 스크립트 실행: *rescan-scsi-bus.sh*.  이 스크립트는 사용자를 위해 생성된 새 디스크를 표시합니다.  이 작업은 두 노드에서 모두 실행합니다. 0보다 더 큰 LUN 번호(예: 1, 2 등)가 표시됩니다.
+1.5 다시 검사 스크립트 실행: *rescan-scsi-bus.sh*.  이 스크립트는 사용자를 위해 생성된 새 디스크를 표시합니다.  이 작업은 두 노드에서 모두 실행합니다. 0보다 더 큰 LUN 번호가 표시됩니다. (예: 1, 2 등)
 
 ```
 rescan-scsi-bus.sh
 ```
 ![rescanscsibus.png](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
 
-1.6 디바이스 이름을 가져오려면 *fdisk –l* 명령을 실행합니다. 이 작업은 두 노드에서 모두 실행합니다. **178MiB** 크기를 가진 장치를 선택합니다.
+1.6 디바이스 이름을 가져오려면 *fdisk –l* 명령을 실행합니다. 이 작업은 두 노드에서 모두 실행합니다. **178MiB** 크기를 가진 디바이스를 선택합니다.
 
 ```
   fdisk –l
@@ -155,7 +155,7 @@ halk2 패키지가 이미 설치되었으므로 **취소**를 클릭합니다.
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
- **확인**
+**확인**
 
 IP 주소 및 Csync2의 미리 공유한 키를 사용하여 인증을 수행합니다. csync2 -k /etc/csync2/key_hagroup을 사용하여 키 파일을 생성합니다. key_hagroup 파일을 생성한 후 클러스터의 모든 멤버에 수동으로 복사해야 합니다. **반드시 노드 1에서 노드 2로 파일을 복사해야 합니다**.
 
@@ -297,8 +297,7 @@ crm configure load update crm-bs.txt
 # vi crm-sbd.txt
 # enter the following to crm-sbd.txt
 primitive stonith-sbd stonith:external/sbd \
-params pcmk_delay_max="15" \
-op monitor interval="15" timeout="15"
+params pcmk_delay_max="15"
 ```
 클러스터에 구성을 추가합니다.
 ```

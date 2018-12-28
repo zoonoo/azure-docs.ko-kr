@@ -149,7 +149,7 @@ items:
       href: azure-ddos-best-practices.md
     - name: 경계 보안
       href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-- name: 응용 프로그램
+- name: 애플리케이션
   items:
   - name: PaaS
     href: security-paas-deployments.md

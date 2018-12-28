@@ -29,7 +29,7 @@ ms.locfileid: "51256564"
 > [!IMPORTANT]
 > 이 문서에서는 Google FCM(Firebase Cloud Messaging)을 사용한 푸시 알림을 보여 줍니다. GCM(Google Cloud Messaging)을 사용하는 경우 [Azure Notification Hubs 및 GCM을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-gcm-get-started.md)를 참조하세요.
 
-이 자습서에서는 Azure Notification Hubs 및 Firebase Cloud Messaging을 사용하여 Android 응용 프로그램에 알림을 푸시하는 방법을 보여줍니다. 이 자습서에서는 FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
+이 자습서에서는 Azure Notification Hubs 및 Firebase Cloud Messaging을 사용하여 Android 애플리케이션에 알림을 푸시하는 방법을 보여줍니다. 이 자습서에서는 FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
 
 이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase)서 다운로드할 수 있습니다.
 

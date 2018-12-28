@@ -28,9 +28,9 @@ Azure Cosmos DB 데이터베이스는 [MongoDB](https://docs.mongodb.com/manual/
 
 Azure Cosmos DB의 MongoDB API는 Azure Stream Analytics 같은 서비스의 직접적인 엔드포인트로 사용할 수 없습니다. MongoDB API는 기본 MongoDB와 동일한 [클라이언트 드라이버](https://docs.mongodb.org/ecosystem/drivers/)를 사용하기 때문입니다. Azure Stream Analytics와 통합하려면 Azure Cosmos DB의 MongoDB API에 데이터를 쓸 수 있는 미들웨어 서비스로 [Azure App Service](../app-service/app-service-web-overview.md) 또는 [Azure Functions Service](../azure-functions/functions-overview.md)를 사용하는 것이 좋습니다.
 
-## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>MongoDB 응용 프로그램에 Azure Cosmos DB를 사용할 경우의 이점은 무엇인가요?
+## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>MongoDB 애플리케이션에 Azure Cosmos DB를 사용할 경우의 이점은 무엇인가요?
 
-**탄력적으로 확장 가능한 처리량 및 스토리지:** MongoDB 데이터베이스를 쉽게 확장하거나 축소하여 애플리케이션 요구 사항이 충족됩니다. 데이터는 예측 가능한 짧은 대기 시간을 위해 SSD(반도체 드라이브)에 저장됩니다. Azure Cosmos DB는 거의 제한되지 않는 저장소 크기와 프로비전된 처리량으로 크기 조정할 수 있는 MongoDB 컬렉션을 지원합니다. 응용 프로그램 증가에 따라 탄력적으로 Azure Cosmos DB를 확장하고 원활하게 예측 가능한 성능을 얻을 수 있습니다. 
+**탄력적으로 확장 가능한 처리량 및 스토리지:** MongoDB 데이터베이스를 쉽게 확장하거나 축소하여 애플리케이션 요구 사항이 충족됩니다. 데이터는 예측 가능한 짧은 대기 시간을 위해 SSD(반도체 드라이브)에 저장됩니다. Azure Cosmos DB는 거의 제한되지 않는 저장소 크기와 프로비전된 처리량으로 크기 조정할 수 있는 MongoDB 컬렉션을 지원합니다. 애플리케이션 증가에 따라 탄력적으로 Azure Cosmos DB를 확장하고 원활하게 예측 가능한 성능을 얻을 수 있습니다. 
 
 **다중 지역 복제:** Azure Cosmos DB는 MongoDB 계정과 연결한 모든 지역에 투명하게 데이터를 복제하여 해당 보증을 포함한 일관성, 가용성과 성능 사이의 균형을 제공하는 한편 데이터에 대한 전역 액세스를 필요로 하는 애플리케이션을 개발할 수 있도록 합니다. Azure Cosmos DB에서는 멀티 호밍 API를 사용하는 투명한 지역 장애 조치 및 전 세계에 걸쳐 처리량 및 저장소 크기를 탄력적으로 조정하는 기능을 제공합니다. [데이터를 글로벌 배포](distribute-data-globally.md)에 대한 자세한 정보
 

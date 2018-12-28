@@ -43,7 +43,7 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>MySQL Workbench를 사용하여 서버에 연결 
 GUI 도구 MySQL Workbench를 사용하여 Azure MySQL 서버에 연결하려면
 
-1.  컴퓨터에서 MySQL Workbench 응용 프로그램을 시작합니다. 
+1.  컴퓨터에서 MySQL Workbench 애플리케이션을 시작합니다. 
 
 2.  **새 연결 설정** 대화 상자의 **매개 변수** 탭에 다음 정보를 입력합니다.
 

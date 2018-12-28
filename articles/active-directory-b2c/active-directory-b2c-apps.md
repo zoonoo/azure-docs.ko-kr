@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006197"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721972"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Azure Active Directory B2C에 사용할 수 있는 응용 프로그램 유형
 
@@ -26,7 +26,7 @@ Azure AD B2C를 사용하는 모든 응용 프로그램은 [Azure Portal](https:
 * 응용 프로그램을 고유하게 식별하는 **응용 프로그램 ID**
 * 응답을 다시 애플리케이션으로 보내는 데 사용할 수 있는 **회신 URL**
 
-Azure AD B2C에 전송되는 각 요청은 **정책**을 지정합니다. 정책은 Azure AD의 동작을 제어합니다. 또한 이러한 엔드포인트를 사용하여 사용자 환경에 대해 고도로 사용자 지정 가능한 집합을 만들 수 있습니다. 공통 정책에는 등록 정책, 로그인 정책 및 프로필 편집 정책이 포함됩니다. 정책에 익숙하지 않은 경우 계속 읽기 전에 Azure AD B2C의 [확장할 수 있는 정책 프레임워크](active-directory-b2c-reference-policies.md) 에 대해 읽어야 합니다.
+Azure AD B2C로 전송되는 각 요청은 **사용자 흐름**을 지정하며, 이 흐름은 Azure AD의 동작을 제어하는 정책입니다. 또한 이러한 엔드포인트를 사용하여 사용자 환경에 대해 고도로 사용자 지정 가능한 집합을 만들 수 있습니다. 가입, 로그인 및 프로필 편집 정책을 포함하여 일반적인 정책을 설정할 수 있도록 사용자 흐름의 세트를 제공합니다. 그러나 사용자 고유의 사용자 지정 정책을 만들 수도 있습니다. 정책에 익숙하지 않은 경우 계속 읽기 전에 Azure AD B2C의 [확장할 수 있는 정책 프레임워크](active-directory-b2c-reference-policies.md) 에 대해 읽어야 합니다.
 
 모든 응용 프로그램의 상호 작용은 높은 수준에서 비슷한 패턴을 따릅니다.
 
@@ -165,7 +165,7 @@ On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 JWT 전달자 자격 증명 권
 
 모바일/원시 애플리케이션을 만들 경우 **회신 URL** 대신 **리디렉션 URI**를 정의합니다. 리디렉션 URI를 선택하는 경우 두 가지 중요한 고려 사항이 있습니다.
 
-- **고유**: 리디렉션 URI의 체계는 모든 응용 프로그램에 대해 고유해야 합니다. 보기 `com.onmicrosoft.contoso.appname://redirect/path`에서 `com.onmicrosoft.contoso.appname`은 구성표입니다. 이 패턴을 따라야 합니다. 두 개의 애플리케이션이 동일한 체계를 공유하는 경우 **앱 선택** 대화 상자가 나타납니다. 사용자가 잘못 선택하는 경우 로그인이 실패합니다.
+- **고유**: 리디렉션 URI의 체계는 모든 애플리케이션에 대해 고유해야 합니다. 보기 `com.onmicrosoft.contoso.appname://redirect/path`에서 `com.onmicrosoft.contoso.appname`은 구성표입니다. 이 패턴을 따라야 합니다. 두 개의 애플리케이션이 동일한 체계를 공유하는 경우 **앱 선택** 대화 상자가 나타납니다. 사용자가 잘못 선택하는 경우 로그인이 실패합니다.
 - **전체**: 리디렉션 URI에는 체계 및 경로가 있어야 합니다. 경로는 도메인 다음에 하나 이상의 포워드 슬래시를 포함해야 합니다. 예를 들어 `//contoso/`는 실행되고 `//contoso`는 실행되지 않습니다. 리디렉션 URI에 밑줄과 같은 특수 문자가 없는지 확인합니다.
 
 ### <a name="faulted-apps"></a>오류가 발생한 앱

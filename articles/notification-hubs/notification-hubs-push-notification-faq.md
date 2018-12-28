@@ -43,7 +43,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 * **예약된 푸시**: 알림이 언제든지 전송되도록 예약할 수 있습니다.
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Notification Hubs SLA란?
-기본 및 표준 Notification Hubs 계층의 경우에 올바르게 구성된 응용 프로그램은 99.9% 이상의 성공률로 푸시 알림을 보내거나 등록 관리 작업을 수행할 수 있습니다. SLA에 대해 자세히 알아보려면 [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) 페이지로 이동하세요.
+기본 및 표준 Notification Hubs 계층의 경우에 올바르게 구성된 애플리케이션은 99.9% 이상의 성공률로 푸시 알림을 보내거나 등록 관리 작업을 수행할 수 있습니다. SLA에 대해 자세히 알아보려면 [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) 페이지로 이동하세요.
 
 > [!NOTE]
 > 푸시 알림은 타사 플랫폼 알림 시스템(예: Apple APNS 및 Google FCM)에 의존하므로 이러한 메시지 배달에 대한 SLA 보장이 없습니다. Notification Hubs에서 플랫폼 알림 시스템(SLA 보장)에 대한 전송을 일괄 처리하면 푸시를 제공하는 것(SLA 보장 안 함)은 플랫폼 알림 시스템의 책임입니다.
@@ -103,7 +103,7 @@ Notification Hubs는 기본적으로 모바일 앱에 알림을 보내도록 디
 PNS는 알림 배달에 대한 SLA를 보장하지 않습니다. 그러나 대부분의 푸시 알림은 Notification Hubs로 전송된 시점에서 몇 분 이내에(일반적으로 10분 이내) 대상 디바이스로 배달됩니다. 몇 가지 알림에 더 많은 시간이 소요될 수 있습니다.
 
 > [!NOTE]
-> Azure Notification Hubs에서는 30분 이내에 PNS로 배달되지 않는 푸시 알림은 삭제하는 내부 정책을 사용합니다. 이러한 지연은 여러 가지 원인으로 인해 나타날 수 있지만, 그 중 가장 일반적인 이유는 PNS에서 응용 프로그램을 제한하는 경우입니다.
+> Azure Notification Hubs에서는 30분 이내에 PNS로 배달되지 않는 푸시 알림은 삭제하는 내부 정책을 사용합니다. 이러한 지연은 여러 가지 원인으로 인해 나타날 수 있지만, 그 중 가장 일반적인 이유는 PNS에서 애플리케이션을 제한하는 경우입니다.
 > 
 > 
 
@@ -131,7 +131,7 @@ Apple, Google 등의 플랫폼 개발자 포털에 모바일 앱을 등록하면
 #### <a name="geo-distribution"></a>지역 배포
 지역 배포가 푸시 알림 시나리오에서 반드시 중요한 것은 아닙니다. 디바이스에 푸시 알림을 배달하는 다양한 PNS(예: APNS 또는 GCM)가 고르게 분산되지 않습니다.
 
-응용 프로그램이 전역적으로 사용되는 경우에는 전 세계 여러 Azure 지역에서 Notification Hubs 서비스를 사용하여 다른 네임스페이스에 허브를 만들 수 있습니다.
+애플리케이션이 전역적으로 사용되는 경우에는 전 세계 여러 Azure 지역에서 Notification Hubs 서비스를 사용하여 다른 네임스페이스에 허브를 만들 수 있습니다.
 
 > [!NOTE]
 > 관리 비용(특히, 등록에)이 늘어날 수 있으므로 이러한 배열은 권장하지 않습니다. 명시적인 수요가 있는 경우에만 수행해야 합니다.

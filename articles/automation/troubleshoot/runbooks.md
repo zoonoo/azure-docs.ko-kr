@@ -4,16 +4,16 @@ description: Azure Automation Runbook을 사용하여 문제를 해결하는 방
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094867"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015469"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -123,11 +123,11 @@ Azure 계정에서 Multi-Factor Authentication을 사용하면 Azure Active Dire
 
 #### <a name="resolution"></a>해결 방법
 
-Azure 클래식 배포 모델 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)을 참조하세요.
+Azure 클래식 배포 모델 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)을 참조하세요.
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook을 사용할 때 발생하는 일반적인 오류
 
-### <a name="task-was-cancelled"></a>시나리오: 다음 오류로 인해 Runbook이 실패합니다. 작업이 취소됨
+### <a name="task-was-cancelled"></a>시나리오: 다음 오류로 인해 Runbook 실패: 작업이 취소됨
 
 #### <a name="issue"></a>문제
 
@@ -147,7 +147,7 @@ Exception: A task was canceled.
 
 Automation 계정에서 **모듈**을 클릭하고 **Azure 모듈 업데이트**를 클릭합니다. 업데이트에는 약 15분이 소요되며 완료되면 실패한 Runbook을 다시 실행합니다. 모듈 업데이트에 대해 자세히 알아 보려면 [Azure Automation에서 Azure 모듈 업데이트](../automation-update-azure-modules.md)를 참조하세요.
 
-### <a name="child-runbook-auth-failure"></a>시나리오: 여러 구독으로 처리하는 경우 자식 Runbook에 오류 발생
+### <a name="child-runbook-auth-failure"></a>시나리오: 여러 구독으로 처리하는 경우 자식 Runbook 실패
 
 #### <a name="issue"></a>문제
 
@@ -183,7 +183,7 @@ Start-AzureRmAutomationRunbook `
     –Parameters $params –wait
 ```
 
-### <a name="not-recognized-as-cmdlet"></a>시나리오: 누락된 cmdlet으로 인해 Runbook이 실패합니다.
+### <a name="not-recognized-as-cmdlet"></a>시나리오: 누락된 cmdlet으로 인해 Runbook 실패
 
 #### <a name="issue"></a>문제
 
@@ -208,7 +208,7 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 별도의 모듈인 경우 Automation 계정에 모듈을 가져와야 합니다.
 
-### <a name="job-attempted-3-times"></a>시나리오: Runbook 작업 시작을 세 번 시도했지만 매번 시작하지 못했습니다.
+### <a name="job-attempted-3-times"></a>시나리오: Runbook 작업 시작을 세 번 시도했지만 매번 시작하지 못했음
 
 #### <a name="issue"></a>문제
 
@@ -238,7 +238,7 @@ The job was tried three times but it failed
 
 * 다른 솔루션은 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 실행하는 것입니다. Hybrid Worker는 Azure 샌드박스의 메모리 및 네트워크 제한 사항에 따라 제한되지 않습니다.
 
-### <a name="fails-deserialized-object"></a>시나리오: 역직렬화된 개체로 인해 Runbook 실패
+### <a name="fails-deserialized-object"></a>시나리오: deserialize된 개체로 인해 Runbook 실패
 
 #### <a name="issue"></a>문제
 
@@ -262,7 +262,7 @@ Runbook이 PowerShell 워크플로인 경우, 워크플로가 일시 중단되�
 2. 개체 전체를 전달하지 말고 복합 개체에서 필요한 이름 또는 값만 전달합니다.
 3. PowerShell 워크플로 Runbook 대신 PowerShell Runbook을 사용합니다.
 
-### <a name="quota-exceeded"></a>시나리오: 할당된 할당량을 초과하여 Runbook 작업 실패
+### <a name="quota-exceeded"></a>시나리오: 할당된 할당량을 초과하여 Runbook 실패
 
 #### <a name="issue"></a>문제
 
@@ -337,6 +337,45 @@ Hybrid Worker는 Azure 샌드박스의 [공평 분배](../automation-runbook-exe
 [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) - 이 cmdlet을 사용하면 Runbook을 시작하고 매개 변수를 Runbook에 전달할 수 있습니다.
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) - 이 cmdlet을 사용하면 자식 Runbook이 완료된 후에 수행해야 하는 작업이 있는 경우 각 자식에 대한 작업 상태를 확인할 수 있습니다.
+
+### <a name="expired webhook"></a>시나리오: 상태: webhook를 호출할 때 400 잘못된 요청
+
+#### <a name="issue"></a>문제
+
+Azure Automation Runbook에 대한 webhook 호출을 시도할 때 다음 오류가 나타납니다.
+
+```error
+400 Bad Request : This webhook has expired or is disabled
+```
+
+#### <a name="cause"></a>원인
+
+호출하려는 webhook가 비활성화되었거나 만료되었습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+webhook가 비활성화된 경우Azure Portal을 통해 webhook를 다시 활성화할 수 있습니다. webhook가 만료되면 webhook를 삭제하고 다시 만들어야 합니다. 아직 만료되지 않은 경우에만 [webhook를 갱신](../automation-webhooks.md#renew-webhook)할 수 있습니다.
+
+### <a name="429"></a>시나리오: 429: 현재 요청 속도가 너무 큽니다. 다시 해 보세요.
+
+#### <a name="issue"></a>문제
+
+`Get-AzureRmAutomationJobOutput` cmdlet을 실행할 때 다음 오류 메시지가 나타납니다.
+
+```
+429: The request rate is currently too large. Please try again
+```
+
+#### <a name="cause"></a>원인
+
+[자세한 정보 표시 스트림](../automation-runbook-output-and-messages.md#verbose-stream)이 많은 Runbook에서 작업 출력을 검색할 때 이 오류가 발생할 수 있습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+이 오류를 해결하는 방법은 두 가지가 있습니다.
+
+* Runbook을 편집하고 내보내는 작업 스트림 수를 줄입니다.
+* cmdlet을 실행할 때 검색할 스트림 수를 줄입니다. 이렇게 하려면 `Get-AzureRmAutomationJobOutput` cmdlet에 대해 `-Stream Output` 매개 변수를 지정하여 출력 스트림만 검색하면 됩니다. 
 
 ## <a name="common-errors-when-importing-modules"></a>모듈을 가져올 때 발생하는 일반적인 오류
 

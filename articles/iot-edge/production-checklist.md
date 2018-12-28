@@ -1,19 +1,20 @@
 ---
-title: 프로덕션 Azure IoT Edge 솔루션 준비 | Microsoft Docs
+title: 프로덕션용 디바이스 및 배포 준비 - Azure IoT Edge | Microsoft Docs
 description: 적절한 인증서를 사용하여 디바이스 설정, 향후 코드 업데이트를 위한 배포 계획 수립 등 Azure IoT Edge 솔루션을 개발에서 프로덕션으로 전환하는 방법을 알아봅니다.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 48fd774d6d887a12ed1c1ad9689ca34f5d866367
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: d39a271f33cb86bf870c3a7692c38d780093efa2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585454"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100041"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>프로덕션에 IoT Edge 솔루션 배포 준비
 

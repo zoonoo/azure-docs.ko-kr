@@ -22,13 +22,13 @@ ms.lasthandoff: 05/16/2018
 ms.locfileid: "34212530"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>사용자 지정 서비스 패브릭 상태 보고서 추가
-Azure 서비스 패브릭은 특정 엔터티의 비정상 클러스터 및 응용 프로그램 상태에 플래그를 적용하도록 설계된 [상태 모델](service-fabric-health-introduction.md)을 도입했습니다. 상태 모델은 **Health 보고서** (시스템 구성 요소 및 Watchdog)를 사용합니다. 쉽고 빠른 진단을 목표로 합니다. 서비스 작성자는 상태를 미리 고려해야 합니다. 상태에 영향을 줄 수 있는 모든 조건이 보고되어야 하며, 특히 근본 원인에 가까운 문제를 플래깅하는 데 도움이 되는 경우에는 반드시 보고가 이루어져야 합니다. 상태 정보는 디버깅 및 조사에 소요되는 시간과 노력을 절감할 수 있습니다. 특히 서비스가 클라우드에서 대용량으로 가동 및 실행될 때 확실히 유용합니다(사설 또는 Azure).
+Azure 서비스 패브릭은 특정 엔터티의 비정상 클러스터 및 애플리케이션 상태에 플래그를 적용하도록 설계된 [상태 모델](service-fabric-health-introduction.md)을 도입했습니다. 상태 모델은 **Health 보고서** (시스템 구성 요소 및 Watchdog)를 사용합니다. 쉽고 빠른 진단을 목표로 합니다. 서비스 작성자는 상태를 미리 고려해야 합니다. 상태에 영향을 줄 수 있는 모든 조건이 보고되어야 하며, 특히 근본 원인에 가까운 문제를 플래깅하는 데 도움이 되는 경우에는 반드시 보고가 이루어져야 합니다. 상태 정보는 디버깅 및 조사에 소요되는 시간과 노력을 절감할 수 있습니다. 특히 서비스가 클라우드에서 대용량으로 가동 및 실행될 때 확실히 유용합니다(사설 또는 Azure).
 
 서비스 패브릭 보고자는 식별된 관심 조건을 모니터링합니다. 보고자는 각자 로컬 보기를 기반으로 이러한 조건에 대한 정보를 보고합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 엔터티가 전체적으로 정상인지를 판단하기 위하여 모든 보고자가 보낸 상태 데이터를 수집합니다. 모델은 다양하고 유연하며 사용이 쉽도록 계획됩니다. 상태 보고서의 품질은 클러스터 상태 보기의 정확성을 결정합니다. 비정상 이슈를 잘못 표시하는 거짓 긍정은 상태 데이터를 사용하는 업그레이드 또는 기타 서비스에 부정적인 영향을 미칠 수 있습니다. 이러한 서비스의 예로는 복구 서비스 및 경고 메커니즘이 있습니다. 따라서 최선의 방식으로 관심 조건을 포착하는 보고서를 제공하기 위해서는 몇 가지를 고려해야 합니다.
 
 상태 보고를 설계하고 구현하기 위하여 Watchdog 및 시스템 구성 요소는 다음을 수행해야 합니다.
 
-* 관심 있는 조건, 해당 조건을 모니터링하는 방식, 클러스터 또는 응용 프로그램 기능에 미치는 영향을 정의합니다. 이 정보를 기반으로 상태 보고서 속성 및 상태를 판단합니다.
+* 관심 있는 조건, 해당 조건을 모니터링하는 방식, 클러스터 또는 애플리케이션 기능에 미치는 영향을 정의합니다. 이 정보를 기반으로 상태 보고서 속성 및 상태를 판단합니다.
 * 보고서가 적용되는 [엔터티](service-fabric-health-introduction.md#health-entities-and-hierarchy) 를 정의합니다.
 * 보고를 서비스 내에서 수행할 것인지 아니면 내부 또는 외부 Watchdog에서 수행할 것인지 보고 위치를 정의합니다.
 * 보고자를 식별하는데 사용할 소스를 정의합니다.
@@ -126,9 +126,9 @@ Service Fabric 서비스에 클러스터에 대한 관리 액세스 권한이 �
 * 상태 비저장 서비스의 경우에는 [IStatelessServicePartition.ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) 를 사용하여 현재 서비스 인스턴스에 대해 보고합니다.
 * 상태 저장 서비스의 경우에는 [IStatefulServicePartition.ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) 를 사용하여 현재 복제본에 대해 보고합니다.
 * 현재 파티션 엔터티에 대해 보고하려면 [IServicePartition.ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) 를 사용합니다.
-* 현재 응용 프로그램에 대해 보고하려면 [CodePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) 를 사용합니다.
-* 현재 노드에 배포된 현재 응용 프로그램에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) 를 사용합니다.
-* 현재 노드에 배포된 응용 프로그램의 서비스 패키지에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) 를 사용합니다.
+* 현재 애플리케이션에 대해 보고하려면 [CodePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) 를 사용합니다.
+* 현재 노드에 배포된 현재 애플리케이션에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) 를 사용합니다.
+* 현재 노드에 배포된 애플리케이션의 서비스 패키지에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth)를 사용합니다.
 
 > [!NOTE]
 > 내부적으로 `Partition` 및 `CodePackageActivationContext`는 기본 설정으로 구성된 상태 클라이언트를 포함합니다. [상태 클라이언트](service-fabric-report-health.md#health-client)에서 설명한 것처럼 보고서는 타이머에서 일괄 처리 및 전송됩니다. 보고서를 보낼 수 있게 개체는 활성 상태로 유지되어야 합니다.
@@ -157,7 +157,7 @@ Watchdog 세부 정보가 마무리되면 Watchdog를 고유하게 식별하는 
 
 다음으로 결정할 내용은 보고할 엔터티를 결정하는 것입니다. 대부분 조건은 엔터티를 명확히 식별합니다. 최대한 세분화하여 엔터티를 선택해야 합니다. 조건이 파티션 내의 모든 복제본에 영향을 미치는 경우에는 서비스가 아닌 파티션에 대해 보고합니다. 그런데 세심한 주의가 필요한 사각 지대가 있습니다. 조건이 복제본 같은 하나의 엔터티에만 영향을 미치지만 복제본 수명 기간이 지난 후에도 조건에 플래그를 달고자 한다면 파티션에 대해 보고해야 합니다. 그렇지 않은 경우 복제본이 삭제되었을 때 상태 저장소의 모든 보고서가 정리됩니다. Watchdog 작성자는 엔터티 및 보고서의 수명을 고려해야 합니다. 저장소에서 보고서가 삭제되는 시점(예: 한 엔터티에 대해 보고된 오류가 더 이상 적용되는 않는 시점)도 명확해야 합니다.
 
-설명한 요점을 모아놓은 예를 살펴보겠습니다. 모든 노드에 배포된 마스터 상태 저장 지속 서비스 및 보조 상태 비저장 서비스로 구성된 서비스 패브릭 응용 프로그램이 있습니다(각 태스크 유형에 대한 한 가지 보조 서비스 유형). 마스터에는 보조에서 실행할 명령이 포함된 처리 큐가 있습니다. 보조는 들어오는 요청을 실행하고 승인 신호를 반환합니다. 모니터링이 가능한 한 가지 조건은 마스터 처리 큐의 길이입니다. 마스터 큐 길이가 임계값에 도달하면 경고가 보고됩니다. 경고는 보조가 부하를 처리할 수 없다는 뜻입니다. 큐가 최대 길이에 도달하고 명령이 삭제되면 서비스를 복구할 수 없으므로 오류가 보고됩니다. **QueueStatus**속성에 대한 보고서일 수도 있습니다. Watchdog는 서비스 내에 있으며 마스터 주 복제본에서 주기적으로 전송됩니다. TTL이 2분이며 30초마다 주기적으로 전송됩니다. 주 복제본이 다운되면, 보고서는 저장소에서 자동으로 삭제됩니다. 서비스 복제본이 실행 중이지만 교착 상태에 있거나 다른 문제가 있으면 보고서는 Health 스토어에서 만료됩니다. 이 경우 엔터티는 오류 상황에서 평가됩니다.
+설명한 요점을 모아놓은 예를 살펴보겠습니다. 모든 노드에 배포된 마스터 상태 저장 지속 서비스 및 보조 상태 비저장 서비스로 구성된 서비스 패브릭 애플리케이션이 있습니다(각 태스크 유형에 대한 한 가지 보조 서비스 유형). 마스터에는 보조에서 실행할 명령이 포함된 처리 큐가 있습니다. 보조는 들어오는 요청을 실행하고 승인 신호를 반환합니다. 모니터링이 가능한 한 가지 조건은 마스터 처리 큐의 길이입니다. 마스터 큐 길이가 임계값에 도달하면 경고가 보고됩니다. 경고는 보조가 부하를 처리할 수 없다는 뜻입니다. 큐가 최대 길이에 도달하고 명령이 삭제되면 서비스를 복구할 수 없으므로 오류가 보고됩니다. **QueueStatus**속성에 대한 보고서일 수도 있습니다. Watchdog는 서비스 내에 있으며 마스터 주 복제본에서 주기적으로 전송됩니다. TTL이 2분이며 30초마다 주기적으로 전송됩니다. 주 복제본이 다운되면, 보고서는 저장소에서 자동으로 삭제됩니다. 서비스 복제본이 실행 중이지만 교착 상태에 있거나 다른 문제가 있으면 보고서는 Health 스토어에서 만료됩니다. 이 경우 엔터티는 오류 상황에서 평가됩니다.
 
 모니터링할 수 있는 또 다른 조건은 작업 수행 시간입니다. 마스터는 작업 유형을 기반으로 보조에 작업을 분배합니다. 설계 내용에 따라서 마스터는 작업 상태를 보조에 폴링하거나 작업 완료 후 보조가 승인 신호를 반환할 때까지 기다릴 수 있습니다. 후자의 경우 보조가 종료되거나 메시지가 손실되는 상황을 감지할 수 있도록 주의를 기울여야 합니다. 한 가지 방법은 마스터가 동일한 보조에 ping 요청을 보내는 것입니다. 그러면 보조가 상태를 반환합니다. 상태가 수신되지 않으면 마스터는 실패로 간주하고 작업 일정을 다시 세웁니다. 이러한 동작은 작업을 멱등 상태로 가정합니다.
 
@@ -167,7 +167,7 @@ Watchdog 세부 정보가 마무리되면 Watchdog를 고유하게 식별하는 
 * (클라우드 또는 외부에 존재하는) 다른 Watchdog 프로세스는 작업 완료 여부를 보기 위하여 (원하는 작업 결과를 기반으로 외부에서) 작업을 확인합니다. 이러한 프로세스가 임계값을 준수하지 않으면 마스터 서비스에 대한 보고서가 전송됩니다. 작업 식별자(예: **PendingTask + taskId**)가 들어 있는 각 작업에 대한 보고서도 전송됩니다. 비정상 상태에 대한 보고서만 전송되어야 합니다. TTL(Time To Live)을 몇 분 정도로 설정하고 만료되면 보고서가 제거되도록 표시해 두어, 확실히 제거되도록 합니다.
 * 작업을 수행하는 보조는 작업 수행에 예상보다 긴 시간이 소요되면 보고합니다. **PendingTasks**속성의 서비스 인스턴스를 보고합니다. 보고서는 문제가 있는 서비스 인스턴스를 정확히 찾아내지만 인스턴스가 사라지는 상황을 포착하지는 않습니다. 보고서는 그때 삭제됩니다. 보조 서비스를 보고할 수 있습니다. 보조가 작업을 완료하면 보조 인스턴스가 저장소에서 보고서를 삭제합니다. 보고서는 인증 메시지가 손실되고 마스터의 관점에서 작업이 마무리되지 않은 상황을 포착하지 않습니다.
 
-하지만 위에 설명된 상황에서 보고가 수행되며, 상태를 평가할 때 응용 프로그램 상태에서 보고서가 포착됩니다.
+하지만 위에 설명된 상황에서 보고가 수행되며, 상태를 평가할 때 애플리케이션 상태에서 보고서가 포착됩니다.
 
 ## <a name="report-periodically-vs-on-transition"></a>주기적 보고 대 전환기 보고
 상태 보고 모델을 사용하면 Watchdog에서 주기적으로 또는 전환기에 보고서를 보낼 수 있습니다. 코드가 훨씬 간단하고 오류 가능성이 적으므로 Watchdog 보고에는 주기적 보고를 권장합니다. 잘못된 보고서를 트리거하는 버그를 방지할 수 있도록 Watchdog는 최대한 간단해야 합니다. 잘못된 *비정상* 보고서는 상태 평가에 영향을 미치고 업그레이드를 비롯한 상태 기반 시나리오에도 영향을 미칩니다. 잘못된 *정상* 보고서는 클러스터의 문제를 숨기는데, 이것은 바람직하지 않습니다.
@@ -176,7 +176,7 @@ Watchdog 세부 정보가 마무리되면 Watchdog를 고유하게 식별하는 
 
 전환기 보고는 꼼꼼한 상태 처리가 필요합니다. Watchdog는 조건을 모니터링하면서 조건이 변경된 경우에만 보고합니다. 이 방식은 필요한 보고서의 수가 적다는 장점이 있지만 Watchdog의 논리가 복잡하다는 단점이 있습니다. Watchdog는 상태 변화를 판단하기 위해 조건이나 보고서를 검사할 수 있도록 조건이나 보고서를 유지해야 합니다. 장애 조치의 경우 추가되었으나 아직 상태 저장소로 보내지 않은 보고서에 대해 주의가 필요합니다. 시퀀스 번호는 계속 증가해야 합니다. 그렇지 않으면 시퀀스 번호가 오래되어 보고서가 거부됩니다. 드물지만 데이터 손실이 발생하는 경우에는 보고자의 상태와 Health 스토어의 상태 사이에 동기화가 필요할 수 있습니다.
 
-전환에 대한 보고는 `Partition` 또는 `CodePackageActivationContext`를 통한 자체에 대한 서비스 보고에 적합합니다. 로컬 개체(복제본 또는 배포된 서비스 패키지/배포된 응용 프로그램)가 제거되면 해당 보고서도 모두 제거됩니다. 이러한 자동 정리는 보고자와 Health 스토어 간을 동기화할 필요가 없도록 합니다. 부모 파티션 또는 부모 응용 프로그램에 대한 보고에서는 Health 스토어에 사용되지 않는 보고서가 생성되지 않도록 주의해서 장애 조치(failover)가 진행되어야 합니다. 올바른 상태를 유지하고 더 이상 필요하지 않은 경우 스토어에서 보고서를 지우는 논리를 추가해야 합니다.
+전환에 대한 보고는 `Partition` 또는 `CodePackageActivationContext`를 통한 자체에 대한 서비스 보고에 적합합니다. 로컬 개체(복제본 또는 배포된 서비스 패키지/배포된 애플리케이션)가 제거되면 해당 보고서도 모두 제거됩니다. 이러한 자동 정리는 보고자와 Health 스토어 간을 동기화할 필요가 없도록 합니다. 부모 파티션 또는 부모 애플리케이션에 대한 보고에서는 Health 스토어에 사용되지 않는 보고서가 생성되지 않도록 주의해서 장애 조치(failover)가 진행되어야 합니다. 올바른 상태를 유지하고 더 이상 필요하지 않은 경우 스토어에서 보고서를 지우는 논리를 추가해야 합니다.
 
 ## <a name="implement-health-reporting"></a>상태 보고 구현
 엔터티와 보고서 세부 사항이 명확해지면 API, PowerShell 또는 REST를 통해 상태 보고서를 보낼 수 있습니다.
@@ -184,7 +184,7 @@ Watchdog 세부 정보가 마무리되면 Watchdog를 고유하게 식별하는 
 ### <a name="api"></a>API
 API를 통해 보고하려면 보고하려는 엔터티 유형에 맞는 상태 보고서를 만들어서 상태 클라이언트에 보고서를 제공해야 합니다. 또는 상태 정보를 만들고 `Partition` 또는 `CodePackageActivationContext`에 대한 올바른 보고 메서드에 전달하여 현재 엔터티에 대해 보고합니다.
 
-다음은 클러스터 내의 Watchdog에서 보내는 주기적 보고서의 예입니다. Watchdog는 노드 내에서 외부 리소스를 액세스할 수 있는지 여부를 확인합니다. 리소스는 응용 프로그램 내의 서비스 매니페스트에 필요합니다. 리소스를 사용할 수 없더라도 응용 프로그램 내의 다른 서비스는 여전히 정상적으로 작동할 수 있습니다. 따라서 배포된 서비스 패키지 엔터티에 대한 보고서가 주기적으로 30초마다 전송됩니다.
+다음은 클러스터 내의 Watchdog에서 보내는 주기적 보고서의 예입니다. Watchdog는 노드 내에서 외부 리소스를 액세스할 수 있는지 여부를 확인합니다. 리소스는 애플리케이션 내의 서비스 매니페스트에 필요합니다. 리소스를 사용할 수 없더라도 애플리케이션 내의 다른 서비스는 여전히 정상적으로 작동할 수 있습니다. 따라서 배포된 서비스 패키지 엔터티에 대한 보고서가 주기적으로 30초마다 전송됩니다.
 
 ```csharp
 private static Uri ApplicationName = new Uri("fabric:/WordCount");

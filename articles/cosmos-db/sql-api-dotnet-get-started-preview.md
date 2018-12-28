@@ -1,7 +1,7 @@
 ---
 title: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정의 데이터 관리(SDK 버전 3 미리 보기)
 description: SQL API를 사용하여 온라인 데이터베이스 및 C# 콘솔 애플리케이션을 만드는 자습서입니다.
-keywords: NoSQL 자습서, 온라인 데이터베이스, C# 콘솔 응용 프로그램
+keywords: NoSQL 자습서, 온라인 데이터베이스, C# 콘솔 애플리케이션
 author: deborahc
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -28,7 +28,7 @@ ms.locfileid: "53317414"
 > * [Node.JS](sql-api-nodejs-get-started.md)
 > 
 
-Azure Cosmos DB SQL API 시작 자습서를 시작합니다. 이 자습서를 따라 하면 Azure Cosmos DB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다. 이 자습서에서는 [.NET 표준 2.0](https://docs.microsoft.com/dotnet/standard/net-standard)을 대상으로 하는 [버전 3.0 이상](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) Azure Cosmos DB .NET SDK를 사용합니다.
+Azure Cosmos DB SQL API 시작 자습서를 시작합니다. 이 자습서를 따라 하면 Azure Cosmos DB 리소스를 만들고 쿼리하는 콘솔 애플리케이션이 생깁니다. 이 자습서에서는 [.NET 표준 2.0](https://docs.microsoft.com/dotnet/standard/net-standard)을 대상으로 하는 [버전 3.0 이상](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) Azure Cosmos DB .NET SDK를 사용합니다.
 
 이 자습서에서는 다음 내용을 다룹니다.
 
@@ -714,7 +714,7 @@ Deleted Database: FamilyDatabase
 End of demo, press any key to exit.
 ```
 
-축하합니다! 이 자습서를 완료했으며 실행되는 C# 콘솔 응용 프로그램이 생겼습니다.
+축하합니다! 이 자습서를 완료했으며 실행되는 C# 콘솔 애플리케이션이 생겼습니다.
 
 ## <a id="GetSolution"></a> 전체 자습서 솔루션 가져오기
 이 자습서의 단계를 완료할 시간이 없거나 코드 샘플만 다운로드하려는 경우 [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-getting-started)에서 가져올 수 있습니다. 

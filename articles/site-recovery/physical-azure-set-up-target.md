@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: a45e8c7bdb616eb389d95be8421bea7d31eafe29
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 43276aad26bc06400c1bc4b5feaace0d5646c213
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974172"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849243"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>대상 준비(VMware에서 Azure로)
 
@@ -26,12 +26,12 @@ ms.locfileid: "51974172"
 
 ## <a name="prepare-target"></a>대상 준비
 
-**1단계: 보호 목표 선택** 및 **2단계: 원본 준비**를 완료한 후 **3단계: 대상**으로 이동합니다.
+**1단계: 보호 목표 선택** 및 **2단계: 원본 준비**를 완료한 후 **3단계: 대상**을 수행합니다.
 
 ![대상 준비](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
-1. **구독:** 드롭다운 메뉴에서 물리적 컴퓨터를 복제할 구독을 선택합니다.
-2. **배포 모델:** 배포 모델(클래식 또는 리소스 관리자)을 선택합니다.
+1. **구독:** 드롭다운 메뉴에서 물리적 서버를 복제할 구독을 선택합니다.
+2. **배포 모델:** 배포 모델(클래식 또는 Resource Manager)을 선택합니다.
 
 선택한 배포 모델에 따라 유효성 검사를 실행하여 물리적 컴퓨터를 복제하고 장애 조치를 수행할 대상 구독에 하나 이상의 호환되는 저장소 계정 및 가상 네트워크가 있는지 확인합니다.
 

@@ -1,21 +1,22 @@
 ---
-title: 음성 SDK API 참조
+title: Speech SDK API 참조 - 음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 음성 SDK에 대한 참조입니다.
+description: 음성 SDK(소프트웨어 개발 키트)를 사용하면 응용 프로그램에서 Speech 서비스의 기능에 액세스할 수 있으므로 음성 지원 소프트웨어를 더 쉽게 개발할 수 있습니다. 현재 SDK에서는 음성을 텍스트로 변환, 음성 번역 및 의도 인식에 대한 액세스 권한을 제공합니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 0eae4cd9919e555453bfc6d44e2ddee51f30e809
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: c962fce8b8b05a977ac7d666a53b93aeda8c5357
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257368"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099856"
 ---
 # <a name="speech-sdk-api-reference"></a>음성 SDK API 참조
 

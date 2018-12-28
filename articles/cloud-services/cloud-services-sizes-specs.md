@@ -32,7 +32,7 @@ ms.locfileid: "50095572"
 ## <a name="sizes-for-web-and-worker-role-instances"></a>웹 및 작업자 역할 인스턴스에 적합한 크기
 Azure에서 여러 표준 크기를 선택할 수 있습니다. 이러한 크기 중 일부에 대한 고려 사항은 다음을 포함합니다.
 
-* D 시리즈 VM은 높은 계산 능력과 임시 디스크 성능이 필요한 응용 프로그램을 실행하도록 설계되었습니다. D 시리즈 VM은 임시 디스크를 위해 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. 자세한 내용은 Azure 블로그, [새로운 D 시리즈 Virtual Machine 크기](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)의 발표를 참조하세요.
+* D 시리즈 VM은 높은 계산 능력과 임시 디스크 성능이 필요한 애플리케이션을 실행하도록 설계되었습니다. D 시리즈 VM은 임시 디스크를 위해 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. 자세한 내용은 Azure 블로그, [새로운 D 시리즈 Virtual Machine 크기](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)의 발표를 참조하세요.
 * 원래 D 시리즈의 후속판인 Dv3 시리즈, Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최근 출시된 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서를 기반으로 하고 Intel Turbo Boost Technology 2.0을 사용하여 최대 3.1GHz까지 올라갈 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 * G 시리즈 VM은 많은 메모리를 제공하고 Intel Xeon E5 V3 제품군 프로세서가 설치된 호스트에서 실행합니다.
 * 다양한 하드웨어 유형 및 프로세서에 A 시리즈 VM을 배포할 수 있습니다. 배포된 하드웨어에 관계없이 인스턴스 실행 시 일관된 프로세서 성능을 제공하기 위해 하드웨어에 따라 크기가 제한됩니다. 이 크기가 배포되는 실제 하드웨어를 확인하려면 Virtual Machine 내에서 가상 하드웨어를 쿼리합니다.
@@ -193,7 +193,7 @@ H 시리즈 제품은 뛰어난 CPU 처리 능력 외에도 FDR InfiniBand 및 �
 \*RDMA 지원
 
 ## <a name="configure-sizes-for-cloud-services"></a>Cloud Services에 적합한 크기 구성
-[서비스 정의 파일](cloud-services-model-and-package.md#csdef)에 설명된 서비스 모델의 일부로서 역할 인스턴스의 Virtual Machine 크기를 지정할 수 있습니다. 역할의 크기에 따라 실행 인스턴스에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. 응용 프로그램의 리소스 요구 사항에 따라 역할 크기를 선택합니다.
+[서비스 정의 파일](cloud-services-model-and-package.md#csdef)에 설명된 서비스 모델의 일부로서 역할 인스턴스의 Virtual Machine 크기를 지정할 수 있습니다. 역할의 크기에 따라 실행 인스턴스에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. 애플리케이션의 리소스 요구 사항에 따라 역할 크기를 선택합니다.
 
 웹 역할 인스턴스에 역할 크기를 [Standard_D2](#general-purpose-d)로 설정하는 예는 다음과 같습니다.
 

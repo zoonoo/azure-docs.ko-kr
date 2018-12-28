@@ -509,7 +509,7 @@ items:
     items:
     - name: 진단 로깅
       href: logging.md
-    - name: Logic Apps를 통한 응용 프로그램 로깅
+    - name: Logic Apps를 통한 애플리케이션 로깅
       href: https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json
   - name: 모니터
     items:

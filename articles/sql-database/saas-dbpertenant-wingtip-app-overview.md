@@ -25,7 +25,7 @@ Wingtip SaaS 애플리케이션은 샘플 다중 테넌트 앱입니다. 이 앱
 
 응용 프로그램 소스 코드 및 관리 스크립트는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 사용할 수 있습니다. 시작하기 전에 먼저 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets 관리 스크립트를 다운로드하고 차단을 해제하는 방법을 확인합니다.
 
-## <a name="application-architecture"></a>응용 프로그램 아키텍처
+## <a name="application-architecture"></a>애플리케이션 아키텍처
 
 Wingtip SaaS 앱은 테넌트별 데이터베이스 모델을 사용합니다. SQL 탄력적 풀을 사용하여 효율성을 극대화합니다. 테넌트를 해당 데이터에 매핑하고 프로비전하는 데 카탈로그 데이터베이스가 사용됩니다. 핵심 Wingtip SaaS 애플리케이션은 세 가지 샘플 테넌트가 있는 풀 및 카탈로그 데이터베이스를 사용합니다. 카탈로그 및 테넌트 서버는 DNS 별칭을 사용하여 프로비전되었습니다. 이러한 별칭은 Wingtip 응용 프로그램에서 사용하는 활성 리소스에 대한 참조를 유지 관리하는 데 사용됩니다. 이러한 별칭은 재해 복구 자습서의 복구 리소스를 가리키도록 업데이트됩니다. 여러 Wingtip SaaS 자습서를 완료하면 초기 배포에 대한 추가 기능이 생성됩니다. 분석 데이터베이스 및 데이터베이스 간 스키마 관리와 같은 추가 기능이 도입됩니다.
 

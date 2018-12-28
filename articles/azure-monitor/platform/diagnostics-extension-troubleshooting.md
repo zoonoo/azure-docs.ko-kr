@@ -260,7 +260,7 @@ Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터�
 ### <a name="more-about-missing-trace-logs"></a>누락된 추적 로그에 대한 자세한 정보
 
 >[!NOTE]
-> 다음 정보는 주로 IaaS VM에서 실행되는 응용 프로그램에 DiagnosticsMonitorTraceListener를 구성하지 않은 경우에만 Azure Cloud Services에 적용됩니다.
+> 다음 정보는 주로 IaaS VM에서 실행되는 애플리케이션에 DiagnosticsMonitorTraceListener를 구성하지 않은 경우에만 Azure Cloud Services에 적용됩니다.
 
 - **DiagnosticMonitorTraceListener**가 web.config 또는 app.config에 구성되어 있는지 확인합니다.  이는 기본적으로 클라우드 서비스 프로젝트에 의해 구성됩니다. 그러나 일부 고객은 추적 문이 진단에서 수집되지 않도록 이 부분을 주석화합니다.
 

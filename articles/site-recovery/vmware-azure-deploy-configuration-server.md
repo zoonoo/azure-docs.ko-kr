@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/18/2018
-ms.author: ramamill
-ms.openlocfilehash: 8b67947412055d0c0b9f39cb49961e435393cec9
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162605"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251031"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -148,6 +148,9 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 7. 자격 증명 모음 등록 키는 어디서 다운로드할 수 있나요?
 
     **Recovery Services 자격 증명 모음**에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 통해 다운로드합니다. 서버에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 파일을 다운로드합니다.
+8. 기존 구성 서버를 복제하고 복제 오케스트레이션에 사용할 수 있나요?
+
+    **아니요**, 복제된 구성 서버 구성 요소를 사용하는 것은 지원되지 않습니다. 
 
 ## <a name="troubleshoot-deployment-issues"></a>배포 문제 해결
 

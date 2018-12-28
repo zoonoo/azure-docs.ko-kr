@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: c6001b0c95186dff53f33c73833b4cea30688db2
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a19cdac54fff641f72d0628c7b0d47060baba9b4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094895"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384125"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure Storage 서비스 암호화
 미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 사용하면 Azure Storage 플랫폼에서 데이터를 자동으로 암호화한 후에 Azure Managed Disks, Azure Blob, Queue, Table Storage 또는 Azure Files에 보관하고, 데이터를 검색하기 전에 암호를 해독합니다. Storage 서비스 암호화의 암호화, 미사용 데이터의 암호화, 암호 해독, 키 관리는 완전히 투명한 방식으로 처리됩니다. Azure 저장소 플랫폼에 쓴 모든 데이터는 가장 강력한 블록 암호화 기술 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 통해 암호화됩니다.
@@ -81,7 +81,7 @@ Azure Disk Encryption은 BitLocker, DM-Crypt와 같은 OS 기반 솔루션과 Az
 저장소 서비스 암호화는 모든 지역에서 사용할 수 있습니다.
 
 **저장소 서비스 암호화는 FIPS 140-2를 준수하나요?**  
-예, 저장소 서비스 암호화는 FIPS 140-2를 준수합니다.
+예, 저장소 서비스 암호화는 FIPS 140-2를 준수합니다. 암호화 모듈의 기본 스토리지 서비스 암호화에 대한 자세한 내용은 [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)을 참조하세요.
 
 **문제가 있거나 피드백을 제공하고 싶은 경우 어떻게 연락하나요?**  
 저장소 서비스 암호화에 대한 문제나 의견이 있으면 [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com)으로 문의하세요.

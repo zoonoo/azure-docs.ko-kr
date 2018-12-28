@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 네트워크에서 HBase 클러스터 복제 설정
+title: Azure 가상 네트워크에서 HBase 클러스터 복제 설정 - Azure HDInsight
 description: 부하 분산, 고가용성, 무중단 마이그레이션/업데이트 및 재해 복구를 위해 한 HDInsight 버전에서 다른 HDInsight 버전으로 HBase 복제를 설정하는 방법을 알아봅니다.
 services: hdinsight,virtual-network
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584182"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163839"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
 
@@ -264,8 +264,8 @@ sudo service bind9 status
 - **클러스터 유형**: HBase
 - **버전**: HBase 1.1.2(HDI 3.6)
 - **위치**: 가상 네트워크와 동일한 위치를 사용합니다.  기본적으로 vnet1은 *미국 서부*이고, vnet2는 *미국 동부*입니다.
-- **저장소**: 클러스터에 대한 새 저장소 계정을 만듭니다.
-- **가상 네트워크**(포털에 대한 고급 설정에서): 마지막 절차에서 만든 vnet1를 선택합니다.
+- **저장소**: 클러스터에 대한 새 스토리지 계정을 만듭니다.
+- **가상 네트워크**(포털에 대한 고급 설정에서): 마지막 프로시저에서 만든 vnet1를 선택합니다.
 - **서브넷**: 템플릿에서 사용하는 기본 이름은 **subnet1**입니다.
 
 환경을 올바르게 구성했는지 확인하려면 두 클러스터 간 헤드 노드의 FQDN을 ping할 수 있어야 합니다.
@@ -274,7 +274,7 @@ sudo service bind9 status
 
 클러스터를 복제할 때 복제하려는 테이블을 지정해야 합니다. 이 섹션에서는 일부 데이터를 원본 클러스터에 로드합니다. 다음 섹션에서는 두 클러스터 간에 복제를 사용하도록 설정합니다.
 
-[Contacts](apache-hbase-tutorial-get-started-linux.md) 테이블을 만들고 이 테이블에 일부 데이터를 삽입하려면 **Apache HBase 자습서: HDInsight에서 Apache HBase 사용 시작**의 지침을 따르세요.
+**Contacts**(연락처) 테이블을 만들고 이 테이블에 데이터를 삽입하려면 [HBase 자습서: HDInsight의 Apache HBase 사용 시작](apache-hbase-tutorial-get-started-linux.md)의 지침을 따릅니다.
 
 ## <a name="enable-replication"></a>복제 사용
 
@@ -289,8 +289,8 @@ sudo service bind9 status
 5. 다음 정보를 선택하거나 입력합니다.
 
   1. **이름**: **복제 사용**을 입력합니다.
-  2. **Bash 스크립트 URL**: **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**를 입력합니다.
-  3.  **헤드**: 이 URL이 선택되어 있는지 확인합니다. 다른 노드 형식은 선택 취소합니다.
+  2. **Bash 스크립트 URL**: **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**을 입력합니다.
+  3.  **헤드**: 선택되어 있는지 확인합니다. 다른 노드 형식은 선택 취소합니다.
   4. **매개 변수**: 다음 샘플 매개 변수를 사용하면 기존의 모든 테이블을 복제하도록 설정한 다음, 모든 데이터를 원본 클러스터에서 대상 클러스터로 복사합니다.
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata

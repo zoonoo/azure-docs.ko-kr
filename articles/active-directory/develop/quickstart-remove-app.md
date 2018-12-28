@@ -41,7 +41,7 @@ Microsoft ID 플랫폼에 응용 프로그램을 등록한 Enterprise 개발자 
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>사용자 또는 해당 조직이 작성한 응용프로그램 제거
 
-사용자 또는 해당 조직이 등록한 응용 프로그램은 테넌트에서 응용 프로그램 개체와 서비스 주체 개체 모두로 표시됩니다. 자세한 내용은 [응용 프로그램 개체 및 서비스 사용자 개체](active-directory-application-objects.md)를 참조하세요.
+사용자 또는 해당 조직이 등록한 응용 프로그램은 테넌트에서 응용 프로그램 개체와 서비스 주체 개체 모두로 표시됩니다. 자세한 내용은 [애플리케이션 개체 및 서비스 사용자 개체](active-directory-application-objects.md)를 참조하세요.
 
 ### <a name="to-remove-an-application"></a>응용 프로그램을 제거하려면
 

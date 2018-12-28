@@ -9,16 +9,15 @@ ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 25ee061f489df0a666d59871661478f987b28e3f
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 378516066e3b4a3436a2952616ea877d9a49d5d4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344810"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255315"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Azure Application Insights Java SDK에 Micrometer를 사용하는 방법
 Micrometer 애플리케이션 모니터링은 JVM 기반 애플리케이션 코드의 메트릭을 측정하며, 자주 사용하는 모니터링 시스템으로 데이터를 내보낼 수 있습니다. 이 문서에서는 Spring Boot 및 Spring Boot 이외 애플리케이션 모두에 대해 Application Insights에 Micrometer를 사용하는 방법을 안내합니다.
@@ -229,7 +228,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 메트릭에 대한 자세한 내용은 [Micrometer 설명서](https://micrometer.io/docs/)를 참조하세요.
 
-다양한 메트릭 유형을 만드는 방법에 대한 다른 샘플 코드는 [공식 Micrometer Github 리포지토리](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples)에서 제공합니다.
+다양한 메트릭 유형을 만드는 방법에 대한 다른 샘플 코드는 [공식 Micrometer GitHub 리포지토리](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples)에서 제공합니다.
 
 ## <a name="how-to-bind-additional-metrics-collection"></a>추가 메트릭 컬렉션을 바인딩하는 방법
 
@@ -243,7 +242,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
         Return new GuavaCacheMetrics();
     }
 ```
-기본적으로 사용되지 않는 몇 가지 메트릭이 있지만 위의 방법으로 바인딩할 수 있습니다. 전체 목록은 [공식 Micrometer Github 리포지토리](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder )를 참조하세요.
+기본적으로 사용되지 않는 몇 가지 메트릭이 있지만 위의 방법으로 바인딩할 수 있습니다. 전체 목록은 [공식 Micrometer GitHub 리포지토리](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder )를 참조하세요.
 
 ### <a name="non-spring-apps"></a>Spring 이외 앱
 구성 파일에 다음 바인딩 코드를 추가합니다.

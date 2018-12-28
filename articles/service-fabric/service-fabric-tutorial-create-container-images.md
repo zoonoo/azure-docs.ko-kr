@@ -47,11 +47,11 @@ ms.locfileid: "53313788"
 * 이 자습서에는 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 * 또한 사용 가능한 Azure 구독이 있어야 합니다. 평가판에 자세한 내용은 [여기](https://azure.microsoft.com/free/)로 이동합니다.
 
-## <a name="get-application-code"></a>응용 프로그램 코드 가져오기
+## <a name="get-application-code"></a>애플리케이션 코드 가져오기
 
-이 자습서에서 사용되는 응용 프로그램 예제는 투표 앱입니다. 응용 프로그램은 프런트 엔드 웹 구성 요소 및 백 엔드 Redis 인스턴스로 구성됩니다. 구성 요소는 컨테이너 이미지로 패키지됩니다.
+이 자습서에서 사용되는 애플리케이션 예제는 투표 앱입니다. 응용 프로그램은 프런트 엔드 웹 구성 요소 및 백 엔드 Redis 인스턴스로 구성됩니다. 구성 요소는 컨테이너 이미지로 패키지됩니다.
 
-Git을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다.
+Git을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git

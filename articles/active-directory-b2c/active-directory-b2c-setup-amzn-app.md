@@ -19,7 +19,7 @@ ms.locfileid: "52842580"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Amazon 계정으로 등록 설정 및 로그인
 
-## <a name="create-an-amazon-application"></a>Amazon 응용 프로그램 만들기
+## <a name="create-an-amazon-application"></a>Amazon 애플리케이션 만들기
 
 Azure AD(Azure Active Directory) B2C에서 Amazon 계정을 ID 공급자로 사용하려면 테넌트에 해당 계정을 나타내는 애플리케이션을 만들어야 합니다. Amazon 계정이 없는 경우 [https://www.amazon.com/](https://www.amazon.com/)에서 얻을 수 있습니다.
 

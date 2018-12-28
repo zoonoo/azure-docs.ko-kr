@@ -21,7 +21,7 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
 
 ## <a name="metrics-in-azure"></a>Azure의 메트릭
 
-Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 [사용자 지정 이벤트의 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 사용하여 응용 프로그램에서 Azure로 전송되는 반면 사용자 지정 메트릭은 다른 응용 프로그램 특정 메트릭과 함께 Application Insights 리소스에 저장됩니다.
+Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 [사용자 지정 이벤트의 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 사용하여 애플리케이션에서 Azure로 전송되는 반면 사용자 지정 메트릭은 다른 응용 프로그램 특정 메트릭과 함께 Application Insights 리소스에 저장됩니다.
 
 ## <a name="create-a-new-chart"></a>새 차트 만들기
 

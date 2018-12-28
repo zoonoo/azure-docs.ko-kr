@@ -35,7 +35,7 @@ _운영자_는 Azure IoT Central UI를 사용하여 Azure IoT Central 솔루션�
 
 ## <a name="use-the-left-navigation-menu"></a>왼쪽 탐색 메뉴 사용
 
-왼쪽 탐색 메뉴를 사용하여 응용 프로그램의 다른 영역에 액세스합니다.
+왼쪽 탐색 메뉴를 사용하여 애플리케이션의 다른 영역에 액세스합니다.
 
 | 메뉴 | 설명 |
 | ---- | ----------- |
@@ -49,7 +49,7 @@ _운영자_는 Azure IoT Central UI를 사용하여 Azure IoT Central 솔루션�
 
 - 디바이스 템플릿 및 디바이스를 검색하려면 **검색** 아이콘을 선택합니다.
 - 도움말을 보거나 지원을 받으려면 리소스 목록에 대한 **도움말** 드롭다운을 선택합니다.
-- 이 자습서를 제어하거나 UI 테마를 변경하거나 응용 프로그램에서 로그아웃하려면 **계정** 아이콘을 선택합니다.
+- 이 자습서를 제어하거나 UI 테마를 변경하거나 애플리케이션에서 로그아웃하려면 **계정** 아이콘을 선택합니다.
 
 UI의 밝은 테마 또는 어두운 테마 중에서 선택할 수 있습니다.
 
@@ -59,7 +59,7 @@ UI의 밝은 테마 또는 어두운 테마 중에서 선택할 수 있습니다
 
 ![홈 페이지](media/overview-iot-central-tour/homepage.png)
 
-홈 페이지는 Azure IoT Central 응용 프로그램에 로그인할 때 표시되는 첫 번째 페이지입니다. 개발자는 타일을 추가하여 응용 프로그램의 다른 사용자를 위해 홈 페이지를 사용자 지정할 수 있습니다. 자세한 내용은 [Azure IoT Central 운영자 보기 사용자 지정](tutorial-customize-operator.md) 자습서를 참조하세요.
+홈 페이지는 Azure IoT Central 애플리케이션에 로그인할 때 표시되는 첫 번째 페이지입니다. 개발자는 타일을 추가하여 애플리케이션의 다른 사용자를 위해 홈 페이지를 사용자 지정할 수 있습니다. 자세한 내용은 [Azure IoT Central 운영자 보기 사용자 지정](tutorial-customize-operator.md) 자습서를 참조하세요.
 
 ## <a name="device-explorer"></a>디바이스 탐색기
 
@@ -80,7 +80,7 @@ _장치 집합_ 페이지는 개발자가 만든 장치 집합을 표시합니�
 
 ![분석 페이지](media/overview-iot-central-tour/analytics.png)
 
-분석 페이지에는 응용 프로그램에 연결된 디바이스의 작동 방식을 이해하는 데 도움이 되는 차트가 표시됩니다. 운영자는 이 페이지를 사용하여 연결된 디바이스의 문제를 모니터링하고 조사합니다. 개발자는 이 페이지에 표시되는 차트를 정의할 수 있습니다. 자세한 내용은 [Azure IoT Central 응용 프로그램을 위한 사용자 지정 분석 만들기](howto-create-analytics.md) 문서를 참조하세요.
+분석 페이지에는 응용 프로그램에 연결된 디바이스의 작동 방식을 이해하는 데 도움이 되는 차트가 표시됩니다. 운영자는 이 페이지를 사용하여 연결된 디바이스의 문제를 모니터링하고 조사합니다. 개발자는 이 페이지에 표시되는 차트를 정의할 수 있습니다. 자세한 내용은 [Azure IoT Central 애플리케이션을 위한 사용자 지정 분석 만들기](howto-create-analytics.md) 문서를 참조하세요.
 
 ## <a name="jobs"></a>교육
 
@@ -90,7 +90,7 @@ _장치 집합_ 페이지는 개발자가 만든 장치 집합을 표시합니�
 
 ## <a name="application-builder"></a>애플리케이션 작성자
 
-![응용 프로그램 개발자 페이지](media/overview-iot-central-tour/applicationbuilder.png)
+![애플리케이션 개발자 페이지](media/overview-iot-central-tour/applicationbuilder.png)
 
 응용 프로그램 개발자 페이지에는 개발자가 Azure IoT Central 응용 프로그램을 만드는 데 사용하는 도구에 대한 링크가 있습니다(예: 디바이스 템플릿 생성 및 홈 페이지 구성). 자세한 내용은 [Azure IoT Central 응용 프로그램에서 새 디바이스 유형 정의](tutorial-define-device-type.md) 자습서를 참조하세요.
 
@@ -98,8 +98,8 @@ _장치 집합_ 페이지는 개발자가 만든 장치 집합을 표시합니�
 
 ![관리 페이지](media/overview-iot-central-tour/administration.png)
 
-관리 페이지에는 응용 프로그램에서 관리자가 사용하는 도구에 대한 링크가 있습니다(예: 사용자 및 역할 정의). 자세한 내용은 [Azure IoT Central 응용 프로그램 관리](howto-administer.md) 문서를 참조하세요.
+관리 페이지에는 애플리케이션에서 관리자가 사용하는 도구에 대한 링크가 있습니다(예: 사용자 및 역할 정의). 자세한 내용은 [Azure IoT Central 애플리케이션 관리](howto-administer.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure IoT Central의 개요를 알고 UI 레이아웃에 익숙해졌으므로, 권장되는 다음 단계는 [Azure IoT Central 응용 프로그램 만들기](quick-deploy-iot-central.md) 빠른 시작을 완료하는 것입니다.
+이제 Azure IoT Central의 개요를 알고 UI 레이아웃에 익숙해졌으므로, 권장되는 다음 단계는 [Azure IoT Central 애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작을 완료하는 것입니다.

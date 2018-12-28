@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 3ae41ff4cf501a58668d25b16027029f6bae4749
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e6dcbf9d185b45c18261e47e9d575adf40812611
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317490"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253819"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>원격 모니터링과 Azure Time Series Insights 통합
 
@@ -212,7 +212,7 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 
 1. **설정** > **키**로 이동한 다음, 응용 프로그램에 대한 새 키를 만듭니다. 키 값을 안전한 위치에 복사해야 합니다.
 
-1. 최신 태그를 사용하여 Github 리포지토리에서 [Docker Compose yaml 최신 파일](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm)을 끌어옵니다. 
+1. 최신 태그를 사용하여 GitHub 리포지토리에서 [최신 Docker Compose yaml 파일](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm)을 끌어옵니다. 
 
 1. [SSH 키 생성 및 사용 방법](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)에 설명된 단계를 따라 VM에 SSH합니다.
 

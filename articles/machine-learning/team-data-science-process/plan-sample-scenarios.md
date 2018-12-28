@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning을 위한 고급 분석 시나리오 확인 | Microsoft Docs
+title: Azure Machine Learning에 대한 시나리오 식별 - Team Data Science Process
 description: 팀 데이터 과학 프로세스에서 고급 예측 분석을 수행하기 위한 적절한 시나리오를 선택합니다.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 16d8457e5605ce0e3c10ed95296b5a883a4c602c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 88c3be12647bd73296c214390d3d2fb1fe79ccb4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444837"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138894"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning의 고급 분석 시나리오
 이 문서에서는 [TDSP(팀 데이터 과학 프로세스)](overview.md)로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. TDSP는 지능형 응용 프로그램 개발을 위해 팀원들이 공동으로 작업하기 위한 체계적인 방법을 제공합니다. 여기에 제시된 시나리오는 Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 데이터 처리 워크플로에서 사용 가능한 옵션을 보여 줍니다.
@@ -39,7 +39,7 @@ ms.locfileid: "52444837"
 > 
 > 
 
-## <a name="smalllocal"></a>시나리오 \#1: 로컬 파일에서 중간 테이블 형식 데이터 집합보다 작음
+## <a name="smalllocal"></a>시나리오 \#1: 로컬 파일에서 중간 테이블 형식 데이터 세트보다 작음
 ![보통 로컬 파일보다 작음][1]
 
 #### <a name="additional-azure-resources-none"></a>추가 Azure 리소스: 없음
@@ -47,7 +47,7 @@ ms.locfileid: "52444837"
 1. 데이터 세트를 업로드합니다.
 1. 데이터 세트를 업로드한 Azure Machine Learning 실험 흐름을 작성합니다.
 
-## <a name="smalllocalprocess"></a>시나리오 \#2: 처리를 요구하는 로컬 파일의 보통 데이터 집합보다 작음
+## <a name="smalllocalprocess"></a>시나리오 \#2: 처리를 요구하는 로컬 파일의 보통 데이터 세트보다 작음
 ![처리 중인 중간 로컬 파일보다 작음][2]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>추가 Azure 리소스: Azure Virtual Machine(IPython Notebook 서버)
@@ -60,7 +60,7 @@ ms.locfileid: "52444837"
 1. [데이터 가져오기][import-data] 모듈을 사용하여 Azure Blob에서 데이터를 읽습니다.
 1. 수집된 데이터 세트로 시작하여 Azure Machine Learning 실험 흐름을 작성합니다.
 
-## <a name="largelocal"></a>시나리오 \#3: 로컬 파일에서 큰 데이터 집합, Azure Blob을 대상으로 함
+## <a name="largelocal"></a>시나리오 \#3: 로컬 파일에서 큰 데이터 세트, Azure Blob을 대상으로 함
 ![큰 로컬 파일][3]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>추가 Azure 리소스: Azure Virtual Machine(IPython Notebook 서버)
@@ -75,7 +75,7 @@ ms.locfileid: "52444837"
 1. [데이터 가져오기][import-data] 모듈을 사용하여 Azure Blob에서 데이터를 읽습니다.
 1. 수집된 데이터 세트로 시작하여 Azure Machine Learning 실험 흐름을 작성합니다.
 
-## <a name="smalllocaltodb"></a>시나리오 \#4: 로컬 파일의 보통 데이터 집합보다 작음, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
+## <a name="smalllocaltodb"></a>시나리오 \#4: 로컬 파일의 보통 데이터 세트보다 작음, Azure Virtual Machine의 SQL Server를 대상으로 함
 ![Azure에서 SQL DB보다 중간인 로컬 파일보다 작음][4]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>추가 Azure 리소스: Azure Virtual Machine(SQL Server / IPython Notebook 서버)
@@ -86,7 +86,7 @@ ms.locfileid: "52444837"
 1. VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
 1. Azure VM에서 실행되는 SQL Server 데이터베이스에 데이터를 로드 합니다.
    
-   옵션 \#1: SQL Server Management Studio 사용.
+   옵션 \#1: SQL Server Management Studio 사용
    
    * SQL Server VM에 로그인
    * SQL Server Management Studio를 실행합니다.
@@ -105,7 +105,7 @@ ms.locfileid: "52444837"
 1. [데이터 가져오기][import-data] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
 1. 수집된 데이터 세트로 시작하여 Azure Machine Learning 실험 흐름을 작성합니다.
 
-## <a name="largelocaltodb"></a>시나리오 \#5: 로컬 파일의 큰 데이터 집합, Azure VM의 SQL Server를 대상으로 함
+## <a name="largelocaltodb"></a>시나리오 \#5: 로컬 파일의 큰 데이터 세트, Azure VM의 SQL Server를 대상으로 함
 ![Azure의 SQL DB보다 큰 로컬 파일][5]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>추가 Azure 리소스: Azure Virtual Machine(SQL Server / IPython Notebook 서버)
@@ -146,7 +146,7 @@ ms.locfileid: "52444837"
 1. [데이터 가져오기][import-data] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
 1. 업로드 데이터 세트로 단순 Azure Machine Learning 실험 흐름 시작
 
-## <a name="largedbtodb"></a>시나리오 \#6: 온-프레미스의 SQL 서버 데이터베이스의 큰 데이터 집합, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
+## <a name="largedbtodb"></a>시나리오 \#6: 온-프레미스의 SQL Server 데이터베이스의 큰 데이터 세트, Azure Virtual Machine의 SQL Server를 대상으로 함
 ![Azure의 SQL DB보다 큰 SQL DB 온-프레미스][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>추가 Azure 리소스: Azure Virtual Machine(SQL Server / IPython Notebook 서버)

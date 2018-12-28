@@ -231,7 +231,7 @@ IoT Hub가 이 섹션을 완료하려면 **iothubowner** 연결 문자열이 필
     mvn clean package -DskipTests
     ```
 
-## <a name="run-the-applications"></a>응용 프로그램 실행
+## <a name="run-the-applications"></a>애플리케이션 실행
 
 이제 응용 프로그램을 실행할 준비가 되었습니다.
 

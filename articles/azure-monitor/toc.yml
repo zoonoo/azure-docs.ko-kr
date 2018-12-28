@@ -19,7 +19,7 @@ items:
       href: ../application-insights/app-insights-nodejs-quick-start.md?toc=/azure/azure-monitor/toc.json
     - name: Java 응용 프로그램
       href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
-    - name: 모바일 응용 프로그램
+    - name: 모바일 애플리케이션
       href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
     - name: 웹 응용 프로그램
       href: ../application-insights/app-insights-website-monitoring.md?toc=/azure/azure-monitor/toc.json
@@ -48,7 +48,7 @@ items:
     href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
   - name: 응용 프로그램 성능 문제 찾기
     href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
-  - name: 응용 프로그램 상태에 대한 경고
+  - name: 애플리케이션 상태에 대한 경고
     href: ../application-insights/app-insights-tutorial-alert.md?toc=/azure/azure-monitor/toc.json
   - name: 응용 프로그램 사용자 이해
     href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
@@ -250,7 +250,7 @@ items:
         href: platform/data-sources-syslog.md
       - name: 성능 카운터
         href: platform/data-sources-performance-counters.md
-      - name: Linux 응용 프로그램 성능
+      - name: Linux 애플리케이션 성능
         href: platform/data-sources-linux-applications.md
       - name: IIS 로그
         href: platform/data-sources-iis-logs.md

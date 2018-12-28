@@ -1,5 +1,5 @@
 ---
-title: Speech Synthesis Markup Language
+title: Speech Synthesis Markup Language - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Speech Synthesis Markup Language를 사용하여 텍스트 음성 변환의 발음 및 운율을 제어합니다.
 services: cognitive-services
@@ -8,22 +8,26 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/08/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: b32be520adeee2de50c8f49c2884dc9dc92c0ddd
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: f6a2d6a35200bc4dec169aae72415c1c2904c465
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469285"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341136"
 ---
 # <a name="speech-synthesis-markup-language"></a>Speech Synthesis Markup Language
 
-SSML(Speech Synthesis Markup Language)은 텍스트 음성 변환의 발음 및 *운율*을 제어하는 방법을 제공하는 XML 기반 태그 언어입니다. 운율은 음성의 리듬 및 피치를 가리킵니다. 단어를 발음대로 지정하고, 숫자 해석을 위한 힌트를 제공하고, 일시 중지를 삽입하고, 피치, 볼륨 및 속도를 제어할 수 있습니다.
+SSML(Speech Synthesis Markup Language)은 텍스트 음성 변환의 발음 및 *운율*을 제어하는 방법을 제공하는 XML 기반 태그 언어입니다. 운율은 음성의 리듬 및 피치를 가리킵니다. 단어를 발음대로 지정하고, 숫자 해석을 위한 힌트를 제공하고, 일시 중지를 삽입하고, 피치, 볼륨 및 속도를 제어할 수 있습니다. 자세한 내용은 [SSML(Speech Synthesis Markup Language) 버전 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/)을 참조하세요.
 
-자세한 내용은 W3C에서 [SSML(Speech Synthesis Markup Language) 버전 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/)을 참조하세요.
+지원되는 언어, 로캘 및 음성(인공신경망 및 표준)의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요.
 
-다음 예제에서는 일반적인 음성 합성 요구에 SSML을 사용하는 방법을 보여줍니다.
+다음 섹션에서는 일반적인 음성 합성 작업에 대한 샘플을 제공합니다.
+
+>[!IMPORTANT]
+> 현재는 표준 음성에 대해 운율 태그 지정만 가능합니다.
 
 ## <a name="add-a-break"></a>중단 추가
 ```xml
@@ -89,5 +93,4 @@ SSML(Speech Synthesis Markup Language)은 텍스트 음성 변환의 발음 및 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)
+* [언어 지원: 음성, 로캘, 언어](language-support.md)

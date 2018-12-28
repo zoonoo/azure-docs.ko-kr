@@ -26,7 +26,7 @@ ms.locfileid: "52310670"
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>설치 마법사에서 연결 문제 해결
-Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러리 사용). 설치 마법사 및 동기화 엔진은 .NET 응용 프로그램이므로 machine.config를 제대로 구성해야 합니다.
+Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러리 사용). 설치 마법사 및 동기화 엔진은 .NET 애플리케이션이므로 machine.config를 제대로 구성해야 합니다.
 
 이 문서에서는 Fabrikam이 해당 프록시를 통해 Azure AD에 연결되는 방법을 보여 줍니다. 프록시 서버의 이름은 fabrikamproxy이고 포트 8080을 사용하고 있습니다.
 

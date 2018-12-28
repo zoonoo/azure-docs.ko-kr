@@ -30,7 +30,7 @@ ms.locfileid: "49956343"
 1. **사용자 + 앱 액세스**: 로그인한 사용자를 대신하여 리소스에 액세스하는 앱. 이 방법은 웹앱 및 명령줄 도구 등 Azure 리소스의 "대화형 관리"만 처리하는 앱에만 적용됩니다.
 2. **앱 전용 액세스**: 디먼 서비스 및 예약된 작업을 실행하는 앱. 리소스에 대한 직접 액세스 권한을 앱의 ID에 부여합니다. 이 방법은 Azure에 대한 장기적인 헤드리스 액세스(자동)가 필요한 앱에 작동합니다.
 
-이 문서에서는 이러한 권한 부여 방법을 모두 채택하는 앱을 만드는 단계별 지침을 제공합니다. REST API 또는 C#을 사용하여 각 단계를 수행하는 방법을 보여 줍니다. 전체 ASP.NET MVC 응용 프로그램은 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense)에서 사용할 수 있습니다.
+이 문서에서는 이러한 권한 부여 방법을 모두 채택하는 앱을 만드는 단계별 지침을 제공합니다. REST API 또는 C#을 사용하여 각 단계를 수행하는 방법을 보여 줍니다. 전체 ASP.NET MVC 애플리케이션은 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense)에서 사용할 수 있습니다.
 
 ## <a name="what-the-web-app-does"></a>웹앱이 수행하는 작업
 웹앱:
@@ -66,7 +66,7 @@ Azure 구독에 대한 앱 액세스 권한을 부여합니다.
 
 ![구독 연결](./media/resource-manager-api-authentication/sample-ux-7.png)
 
-## <a name="register-application"></a>응용 프로그램 등록
+## <a name="register-application"></a>애플리케이션 등록
 코딩을 시작하기 전에 Azure Active Directory(AD)를 사용하여 웹앱을 등록합니다. 앱 등록은 Azure AD의 사용자 앱에 대한 중앙 ID를 만듭니다. 이는 애플리케이션이 Azure Resource Manager API를 인증하고 액세스하는 데 사용하는 OAuth 클라이언트 ID, 회신 URL 및 자격 증명 등 애플리케이션에 관한 기본 정보를 저장합니다. 또한 앱 등록은 애플리케이션이 사용자를 대신하여 Microsoft API에 액세스할 때 필요한 여러 가지 위임된 권한을 기록합니다.
 
 앱에서 다른 구독에 액세스하므로 다중 테넌트 애플리케이션으로 구성해야 합니다. 유효성 검사를 통과하려면 Azure Active Directory와 연결된 도메인을 제공하세요. Azure Active Directory와 연결된 도메인을 보려면 포털에 로그인합니다.
@@ -119,12 +119,12 @@ Azure AD 권한 부여 엔드포인트에 대한 Open ID Connect/OAuth2.0 권한
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=query&response_type=code&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&domain_hint=live.com
 
-Azure AD는 사용자를 인증하고 필요한 경우 사용자에게 앱 사용 권한 부여를 요청합니다. 그러면 응용 프로그램의 회신 URL에 인증 코드가 반환됩니다. 요청한 response_mode에 따라 Azure AD는 쿼리 문자열에 데이터를 다시 보내거나 데이터를 게시합니다.
+Azure AD는 사용자를 인증하고 필요한 경우 사용자에게 앱 사용 권한 부여를 요청합니다. 그러면 애플리케이션의 회신 URL에 인증 코드가 반환됩니다. 요청한 response_mode에 따라 Azure AD는 쿼리 문자열에 데이터를 다시 보내거나 데이터를 게시합니다.
 
     code=AAABAAAAiL****FDMZBUwZ8eCAA&session_state=2d16bbce-d5d1-443f-acdf-75f6b0ce8850
 
 ### <a name="auth-request-open-id-connect"></a>인증 요청(Open ID Connect)
-사용자를 대신하여 Azure Resource Manager에 액세스할 뿐만 아니라 사용자가 자신의 Azure AD 계정을 사용하여 응용 프로그램에 로그인할 수 있도록 하려면 Open ID Connect 권한 부여 요청을 실행합니다. 또한 Open ID Connect를 사용하면 애플리케이션이 Azure AD로부터 앱에서 사용자를 로그인하는 데 사용할 수 있는 id_token을 받습니다.
+사용자를 대신하여 Azure Resource Manager에 액세스할 뿐만 아니라 사용자가 자신의 Azure AD 계정을 사용하여 애플리케이션에 로그인할 수 있도록 하려면 Open ID Connect 권한 부여 요청을 실행합니다. 또한 Open ID Connect를 사용하면 애플리케이션이 Azure AD로부터 앱에서 사용자를 로그인하는 데 사용할 수 있는 id_token을 받습니다.
 
 이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [로그인 요청 보내기](../active-directory/develop/v1-protocols-openid-connect-code.md#send-the-sign-in-request) 문서에서 설명합니다.
 
@@ -132,7 +132,7 @@ Open ID Connect 요청 예제:
 
      https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=form_post&response_type=code+id_token&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&scope=openid+profile&nonce=63567Dc4MDAw&domain_hint=live.com&state=M_12tMyKaM8
 
-Azure AD는 사용자를 인증하고 필요한 경우 사용자에게 앱 사용 권한 부여를 요청합니다. 그러면 응용 프로그램의 회신 URL에 인증 코드가 반환됩니다. 요청한 response_mode에 따라 Azure AD는 쿼리 문자열에 데이터를 다시 보내거나 데이터를 게시합니다.
+Azure AD는 사용자를 인증하고 필요한 경우 사용자에게 앱 사용 권한 부여를 요청합니다. 그러면 애플리케이션의 회신 URL에 인증 코드가 반환됩니다. 요청한 response_mode에 따라 Azure AD는 쿼리 문자열에 데이터를 다시 보내거나 데이터를 게시합니다.
 
 Open ID Connect 응답 예제:
 

@@ -60,7 +60,7 @@ ms.locfileid: "53192977"
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
 
-### <a name="identifying-an-application"></a>응용 프로그램 식별
+### <a name="identifying-an-application"></a>애플리케이션 식별
 다음 예제에서는 Application Insights에서 *fabrikamapp*이라는 앱에 대해 요청된 요청의 요약된 수를 반환합니다. 
 
 Application Insights에서 애플리케이션 식별은 *app(Identifier)* 식으로 수행될 수 있습니다.  *Identifier* 인수는 다음을 사용하여 앱을 지정합니다.
@@ -77,7 +77,7 @@ Application Insights에서 애플리케이션 식별은 *app(Identifier)* 식으
     >Azure 구독 이름은 고유하지 않기 때문에 이 식별자는 모호할 수 있습니다. 
     >
 
-* ID - 응용프로그램의 앱 GUID입니다.
+* ID - 애플리케이션의 앱 GUID입니다.
 
     `app("b459b4f6-912x-46d5-9cb1-b43069212ab4").requests | count`
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: bca92e933b1f75c330999f0d55723eb9f26a7382
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6e7d025e9e83f5511fce25d0c24e4da3b04d7e54
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426099"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957541"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>관리되는 도메인에 대한 잘못된 네트워킹 구성 문제 해결
 이 문서를 통해 다음과 같은 경고 메시지가 발생하는 네트워크 관련 구성 오류를 해결하고 문제를 해결합니다.
@@ -41,7 +41,7 @@ ms.locfileid: "49426099"
 ## <a name="sample-nsg"></a>샘플 NSG
 다음 표에서는 Microsoft에서 정보를 모니터링, 관리 및 업데이트하도록 하면서, 관리되는 도메인을 안전하게 유지하는 샘플 NSG를 보여 줍니다.
 
-![샘플 NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![샘플 NSG](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 >[!NOTE]
 > Azure AD Domain Services에는 가상 네트워크에서 무제한 아웃바운드 액세스가 필요합니다. 가상 네트워크에 대한 아웃바운드 액세스를 제한하는 어떠한 추가 NSG 규칙도 만들지 않는 것이 좋습니다.

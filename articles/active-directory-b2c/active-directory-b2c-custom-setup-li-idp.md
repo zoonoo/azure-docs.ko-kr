@@ -29,7 +29,7 @@ ms.locfileid: "48887311"
 - LinkedIn 계정이 없는 경우 [LinkedIn 가입 페이지](https://www.linkedin.com/start/join)에서 계정을 생성하세요.
 - LinkedIn 응용 프로그램에서는 응용 프로그램을 나타내는 80 X 80픽셀 로고를 제공해야 합니다.
 
-## <a name="create-an-application"></a>응용 프로그램 만들기
+## <a name="create-an-application"></a>애플리케이션 만들기
 
 Azure AD B2C에서 ID 공급자로 LinkedIn을 사용하려면 LinkedIn 응용 프로그램을 만들어야 합니다.
 

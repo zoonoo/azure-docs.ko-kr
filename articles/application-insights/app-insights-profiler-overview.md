@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7e0734790a0b33a52ace01ad961b1bc3127fa3d4
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7780c10233a0ce256ee6e9015f40ea789516c25b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976522"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726902"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Application Insights를 사용하여 Azure에서 프로덕션 응용 프로그램 프로파일링
 ## <a name="enable-profiler-for-your-application"></a>응용 프로그램에 Profiler 사용
@@ -50,10 +49,10 @@ Profiler가 추적을 업로드하도록 하기 위해 응용 프로그램은 �
 
 추적 탐색기에서 다음 정보를 표시합니다.
 
-* **실행 부하 과다 경로 표시**: 가장 큰 리프 노드 또는 닫힌 것을 엽니다. 대부분의 경우에서 이 노드는 성능 병목에 인접한 상태가 됩니다.
+* **실행 부하 과다 경로 표시**: 가장 큰 리프 노드 또는 최소한 닫힌 것을 엽니다. 대부분의 경우에서 이 노드는 성능 병목에 인접한 상태가 됩니다.
 * **레이블**: 함수 또는 이벤트의 이름입니다. 트리는 발생한 코드와 이벤트의 혼합을 표시합니다(예: SQL 및 HTTP 이벤트). 최상위 이벤트는 전체 요청 기간을 나타냅니다.
-* **경과 시간**: 작업의 시작과 끝 사이의 시간 간격입니다.
-* **시기**: 함수 또는 이벤트가 다른 함수와 관련해서 실행된 시기입니디.
+* **경과 시간**: 작업의 시작과 끝 간의 시간 간격입니다.
+* **시기**: 함수 또는 이벤트가 다른 함수와 관련해서 실행된 시기입니다.
 
 ## <a name="how-to-read-performance-data"></a>성능 데이터를 읽는 방법
 

@@ -85,7 +85,7 @@ _pom.xml_의 `<plugins>` 섹션으로 스크롤하여 Azure 플러그 인을 검
 ```
 
 
-## <a name="build-and-deploy-the-application"></a>응용 프로그램 빌드 및 배포
+## <a name="build-and-deploy-the-application"></a>애플리케이션 빌드 및 배포
 
 이제 Maven을 사용하여 애플리케이션을 빌드하고 App Service에 배포할 것입니다.
 

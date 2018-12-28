@@ -1,5 +1,5 @@
 ---
-title: 포털에서 Azure Search로 데이터 가져오기 | Microsoft Docs
+title: Azure Portal을 사용하여 검색 인덱스로 데이터 가져오기 - Azure Search
 description: Azure Portal에서 데이터 가져오기 마법사를 사용하여 Azure VM에 있는 Cosmos DB, Blob Storage, 테이블 저장소, SQL Database 및 SQL Server에서 Azure 데이터를 크롤링하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: dcdc0501d94191cf2c281a4f880ddab3db023fc0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: ceca9b8e89a963cd9a9226be143d24ed5429747b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004949"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316476"
 ---
 # <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Search 인덱스로 데이터를 가져오는 방법
 

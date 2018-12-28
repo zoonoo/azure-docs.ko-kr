@@ -1,5 +1,5 @@
 ---
-title: 팀 데이터 과학 프로세스 수명 주기 - Azure | Microsoft Docs
+title: 팀 데이터 과학 프로세스 수명 주기
 description: 데이터 과학 프로젝트를 실행하는 데 필요한 단계입니다.
 services: machine-learning
 author: marktab
@@ -10,19 +10,21 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 24807d00170ed46a95d2726e1172b15775e0376d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a2a4a8c895bddb03271014c50f57b666faa0c2cc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443395"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135953"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>팀 데이터 과학 프로세스 수명 주기
 
 TDSP(팀 데이터 과학 프로세스)는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다. 수명 주기는 일반적으로 프로젝트가 실행될 때 시작부터 끝까지 따라야 하는 단계를 간략하게 설명합니다. [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining)(Cross Industry Standard Process for Data Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process)(Knowledge Discovery in Databases) 또는 조직 자체의 사용자 지정 프로세스 등과 같은 다른 데이터 과학 수명 주기를 사용하는 경우에도 작업 기반 TDSP를 계속 사용할 수 있습니다. 
 
 이 수명 주기는 지능형 응용 프로그램의 일부로 제공되는 데이터 과학 프로젝트를 위해 설계되었습니다. 이러한 응용 프로그램은 예측 분석을 위해 기계 학습 또는 인공 지능 모델을 배포합니다. 예비 데이터 과학 프로젝트 및 임시 분석 프로젝트에서 이 프로세스를 사용하여 활용할 수도 있습니다. 하지만 이러한 프로젝트의 경우 여기에 설명된 단계 중 일부가 필요하지 않을 수도 있습니다. 
+
+## <a name="five-lifecycle-stages"></a>5가지 수명 주기 단계
 
 TDSP 수명 주기는 반복적으로 실행되는 5가지 주요 단계로 구성됩니다. 이러한 단계에는 다음이 포함됩니다.
 
@@ -41,7 +43,7 @@ TDSP 수명 주기는 예측 모델을 사용하는 데 필요한 작업에 대�
 
 각 단계마다 다음 정보를 제공합니다.
 
-   * **목표**: 구체적 목적입니다.
+   * **목표** 구체적 목적입니다.
    * **수행 방법**: 특정 작업의 개요 및 완료 방법에 대한 지침입니다.
    * **아티팩트**: 결과물 및 이를 생성하기 위한 지원입니다.
 

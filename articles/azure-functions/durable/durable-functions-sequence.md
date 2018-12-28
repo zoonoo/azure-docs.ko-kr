@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ca6eefa6ccba3fabebd125d88010817c66db52ab
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 14d50a17cf7816cb8e792128f8dd3965781657e5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637538"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339589"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>지속성 함수의 함수 체이닝 - Hello 시퀀스 샘플
 
@@ -33,9 +33,10 @@ ms.locfileid: "52637538"
 다음 섹션에서는 C# 스크립팅 및 JavaScript에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
 
 > [!NOTE]
-> 지속형 함수는 v2 함수 런타임의 JavaScript에서만 사용할 수 있습니다.
+> JavaScript Durable Functions는 Functions 2.x 런타임에만 사용할 수 있습니다.
 
 ## <a name="e1hellosequence"></a>E1_HelloSequence
+
 ### <a name="functionjson-file"></a>function.json 파일
 
 Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오케스트레이터 함수에 대한 *function.json* 파일의 내용이 여기에 있습니다. 대부분의 오케스트레이터 *function.json* 파일은 거의 이와 비슷합니다.
@@ -47,7 +48,7 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 > [!WARNING]
 > 오케스트레이터 함수의 "I/O 없음" 규칙을 준수하려면 `orchestrationTrigger` 트리거 바인딩을 사용할 때 입력 또는 출력 바인딩을 사용하지 마세요.  다른 입력 또는 출력 바인딩이 필요하면 오케스트레이터에서 호출하는 `activityTrigger` 함수의 컨텍스트에서 대신 사용해야 합니다.
 
-### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C# 스크립트(Visual Studio Code 및 Azure Portal 샘플 코드) 
+### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C# 스크립트(Visual Studio Code 및 Azure Portal 샘플 코드)
 
 소스 코드는 다음과 같습니다.
 
@@ -63,15 +64,16 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-모든 JavaScript 오케스트레이션 함수는 `durable-functions` 모듈을 포함해야 합니다. 이것은 오케스트레이션 함수 작업을 out-of-proc 언어에 대한 지속형 실행 프로토콜로 변환하는 JavaScript 라이브러리입니다. 오케스트레이션 함수 및 다른 JavaScript 함수 사이에는 다음과 같은 세 가지 중요한 차이점이 있습니다.
+모든 JavaScript 오케스트레이션 함수는 [`durable-functions` 모듈](https://www.npmjs.com/package/durable-functions)을 포함해야 합니다. JavaScript에서 Durable Functions를 작성할 수 있게 해주는 라이브러리입니다. 오케스트레이션 함수 및 다른 JavaScript 함수 사이에는 다음과 같은 세 가지 중요한 차이점이 있습니다.
 
 1. 함수가 [생성기 함수](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)입니다.
-2. 함수가 `durable-functions` 모듈 호출에 래핑됩니다(여기 `df`).
-3. 함수가 `context.done`이 아닌 `return`을 호출하여 종료됩니다.
+2. 함수가 `durable-functions` 모듈의 `orchestrator` 호출에 래핑됩니다(여기서는 `df`).
+3. 동기 함수여야 합니다. '오케스트레이터' 메서드가 'context.done' 호출을 처리하므로 함수는 단순히 '반환'만 하면 됩니다.
 
-`context` 개체는 다른 *작업* 함수를 호출하고 해당 `callActivityAsync` 메서드를 사용하여 입력 매개 변수를 전달할 수 있는 `df` 개체를 포함합니다. 코드는 다른 매개 변수 값을 사용하여 `E1_SayHello`를 순차적으로 3번 호출하고, `yield`를 사용하여 비동기 작업 함수 호출이 반환될 때까지 실행을 대기해야 함을 나타냅니다. 각 호출의 반환 값은 함수의 끝에서 반환되는 `outputs` 목록에 추가됩니다.
+`context` 개체는 다른 *작업* 함수를 호출하고 해당 `callActivity` 메서드를 사용하여 입력 매개 변수를 전달할 수 있는 `df` 개체를 포함합니다. 코드는 다른 매개 변수 값을 사용하여 `E1_SayHello`를 순차적으로 3번 호출하고, `yield`를 사용하여 비동기 작업 함수 호출이 반환될 때까지 실행을 대기해야 함을 나타냅니다. 각 호출의 반환 값은 함수의 끝에서 반환되는 `outputs` 목록에 추가됩니다.
 
 ## <a name="e1sayhello"></a>E1_SayHello
+
 ### <a name="functionjson-file"></a>function.json 파일
 
 `E1_SayHello` 작업 함수에 대한 *function.json* 파일은 `orchestrationTrigger` 바인딩 형식 대신 `activityTrigger` 바인딩 형식을 사용한다는 점을 제외하고는 `E1_HelloSequence`의 것과 비슷합니다.
@@ -93,7 +95,7 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-JavaScript 오케스트레이션 함수와 달리, JavaScript 작업 함수는 없는 특별한 설정이 필요하지 않습니다. 오케스트레이터 함수에 의해 전달되는 입력은 `activitytrigger` 바인딩 이름(이 경우 `context.bindings.name`) 아래의 `context.bindings` 개체에 있습니다. 바인딩 이름은 내보낸 함수의 매개 변수로 설정되고 직접 액세스될 수 있습니다. 샘플 코드는 이 작업을 수행합니다.
+JavaScript 오케스트레이션 함수와 달리, 작업 함수는 특별한 설정이 필요 없습니다. 오케스트레이터 함수에 의해 전달되는 입력은 `activityTrigger` 바인딩 이름(이 경우 `context.bindings.name`) 아래의 `context.bindings` 개체에 있습니다. 바인딩 이름은 내보낸 함수의 매개 변수로 설정되고 직접 액세스될 수 있습니다. 샘플 코드는 이 작업을 수행합니다.
 
 ## <a name="run-the-sample"></a>샘플 실행
 
@@ -150,7 +152,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>다음 단계
 
-이 샘플은 간단한 함수 체인 오케스트레이션을 보여 주었습니다. 다음 예제는 팬아웃/팬인 패턴의 구현 방법을 보여 줍니다. 
+이 샘플은 간단한 함수 체인 오케스트레이션을 보여 주었습니다. 다음 예제는 팬아웃/팬인 패턴의 구현 방법을 보여줍니다.
 
 > [!div class="nextstepaction"]
 > [팬아웃/팬인 샘플 실행](durable-functions-cloud-backup.md)

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6a0a2dec6beeecca3779f4b047d3b5fe6295a1e6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 999b5ca1f229677b9e11068f4beaa6e2704afd3d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495310"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012575"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출
 
@@ -26,7 +26,7 @@ Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행�
 
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
-* [cURL](http://curl.haxx.se/). 이 문서에서는 cURL을 사용하여 HDInsight Spark 클러스터에 대해 REST API 호출을 수행하는 방법을 보여 줍니다.
+* [cURL](https://curl.haxx.se/). 이 문서에서는 cURL을 사용하여 HDInsight Spark 클러스터에 대해 REST API 호출을 수행하는 방법을 보여 줍니다.
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Apache Livy Spark 일괄 작업 제출
 배치 작업을 제출하기 전에 클러스터와 연결된 클러스터 저장소에 응용 프로그램 jar을 업로드해야 합니다. [**AzCopy**](../../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
@@ -172,9 +172,9 @@ Azure Virtual Network 내에서 HDInsight Spark 클러스터에 연결하는 경
 
 ### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>추가 저장소의 외부 jar 사용이 지원되지 않음
 
-**문제:** Livy Spark 작업이 클러스터에 연결된 추가 저장소 계정의 외부 jar를 참조하는 경우 작업이 실패합니다.
+**문제:** Livy Spark 작업이 클러스터에 연결된 추가 스토리지 계정의 외부 jar를 참조하는 경우 작업이 실패합니다.
 
-**해결 방법:** 사용하려는 jar가 HDInsight 클러스터와 연결된 기본 저장소에서 사용 가능한 상태인지 확인합니다.
+**해결 방법:** 사용하려는 jar가 HDInsight 클러스터와 연결된 기본 스토리지에서 사용 가능한 상태인지 확인합니다.
 
 
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍 | Microsoft 문서
-description: 이 항목에서는 온-프레미스 인코더에서 단일 비트 전송률 라이브 스트림을 받은 다음 Media Services를 사용하여 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널을 설정하는 방법에 대해 설명합니다. 적응 스트리밍 프로토콜인 HLS, 부드러운 스트림, MPEG DASH 중 하나를 사용하여 스트림을 하나 이상의 스트리밍 엔드포인트를 통해 클라이언트 재생 응용 프로그램에 배달할 수 있습니다.
+description: 이 항목에서는 온-프레미스 인코더에서 단일 비트 전송률 라이브 스트림을 받은 다음 Media Services를 사용하여 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널을 설정하는 방법에 대해 설명합니다. 적응 스트리밍 프로토콜인 HLS, 부드러운 스트리밍, DASH 중 하나를 사용하여 스트림을 하나 이상의 스트리밍 엔드포인트를 통해 클라이언트 재생 애플리케이션에 배달할 수 있습니다.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/29/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262621"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682659"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
 
@@ -214,18 +214,17 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 사용자 지정 기본 설정이 필요한 경우 amslived@microsoft.com으로 문의해야 합니다.
 
-**Default720p** 는 비디오를 다음 7개 계층으로 인코딩합니다.
+**Default720p**는 비디오를 다음 6개 계층으로 인코딩합니다.
 
 #### <a name="output-video-stream"></a>출력 비디오 스트림
 | 비트 전송률 | 너비 | 높이 | MaxFPS | 프로필 | 출력 스트림 이름 |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |높음 |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |기본 |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |기본 |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |기본 |Video_512x288_850kbps |
-| 550 |384 |216 |30 |기본 |Video_384x216_550kbps |
-| 350 |340 |192 |30 |기초 |Video_340x192_350kbps |
-| 200 |340 |192 |30 |기초 |Video_340x192_200kbps |
+| 2200 |960 |540 |30 |높음 |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |높음 |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |높음 |Video_512x288_850kbps |
+| 550 |384 |216 |30 |높음 |Video_384x216_550kbps |
+| 200 |340 |192 |30 |높음 |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>출력 오디오 스트림
 

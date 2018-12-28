@@ -10,16 +10,16 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1e6bd1b7ddb38d0fad33ab9d282f8edc4ff8c765
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4b24ba4b4d83ac3f0c8291308debb6317efa4a55
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129134"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968000"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: 사전 예제
 
-사전의 용어가 컨텍스트에서 사용되는 방식을 보여 주는 예제를 제공합니다. 이 작업은 [사전 조회](.\v3-0-dictionary-lookup.md)와 함께 사용됩니다.
+사전의 용어가 컨텍스트에서 사용되는 방식을 보여 주는 예제를 제공합니다. 이 작업은 [사전 조회](./v3-0-dictionary-lookup.md)와 함께 사용됩니다.
 
 ## <a name="request-url"></a>요청 URL
 
@@ -42,11 +42,11 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
   </tr>
   <tr>
     <td>from</td>
-    <td>*필수 매개 변수*입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 `dictionary` 범위에 포함된 [지원되는 언어](.\v3-0-languages.md) 중 하나여야 합니다.</td>
+    <td>*필수 매개 변수*입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>*필수 매개 변수*입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `dictionary` 범위에 포함된 [지원되는 언어](.\v3-0-languages.md) 중 하나여야 합니다.</td>
+    <td>*필수 매개 변수*입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다.</td>
   </tr>
 </table>
 
@@ -77,9 +77,9 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 요청 본문은 JSON 배열입니다. 각 배열 요소는 다음 속성을 갖는 JSON 개체입니다.
 
-  * `Text`: 조회할 용어를 지정하는 문자열입니다. 이 속성은 이전 [사전 조회](.\v3-0-dictionary-lookup.md) 요청의 역번역에서 가져온 `normalizedText` 필드의 값이어야 합니다. `normalizedSource` 필드의 값일 수도 있습니다.
+  * `Text`: 조회할 용어를 지정하는 문자열입니다. 이 속성은 이전 [사전 조회](./v3-0-dictionary-lookup.md) 요청의 역번역에서 가져온 `normalizedText` 필드의 값이어야 합니다. `normalizedSource` 필드의 값일 수도 있습니다.
 
-  * `Translation`: 이전에 [사전 조회](.\v3-0-dictionary-lookup.md) 작업에서 반환된 번역된 텍스트를 지정하는 문자열입니다. 이 속성은 [사전 조회](.\v3-0-dictionary-lookup.md) 응답의 `translations` 목록에 포함된 `normalizedTarget` 필드의 값이어야 합니다. 이 서비스는 특정 원본-대상 단어 쌍에 대한 예제를 반환합니다.
+  * `Translation`: 이전에 [사전 조회](./v3-0-dictionary-lookup.md) 작업에서 반환된 번역된 텍스트를 지정하는 문자열입니다. 이 속성은 [사전 조회](./v3-0-dictionary-lookup.md) 응답의 `translations` 목록에 포함된 `normalizedTarget` 필드의 값이어야 합니다. 이 서비스는 특정 원본-대상 단어 쌍에 대한 예제를 반환합니다.
 
 예제는 다음과 같습니다.
 

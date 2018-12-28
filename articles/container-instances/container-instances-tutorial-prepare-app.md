@@ -32,7 +32,7 @@ Azure Container Instances를 통해 어떠한 가상 머신을 프로비전하�
 
 [!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
-## <a name="get-application-code"></a>응용 프로그램 코드 가져오기
+## <a name="get-application-code"></a>애플리케이션 코드 가져오기
 
 이 자습서의 응용 프로그램 예제는 [Node.js][nodejs]에서 빌드된 간단한 웹앱입니다. 이 응용 프로그램은 정적 HTML 페이지를 제공하며, 다음 스크린샷과 비슷한 모습입니다.
 

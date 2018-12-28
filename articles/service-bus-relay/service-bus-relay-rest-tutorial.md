@@ -22,7 +22,7 @@ ms.lasthandoff: 11/13/2018
 ms.locfileid: "51614475"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 릴레이 REST 자습서
-이 자습서에서는 REST 기반 인터페이스를 표시하는 간단한 Azure Relay 호스트 응용 프로그램을 구축하는 방법을 설명합니다. REST는 웹 브라우저와 같은 웹 클라이언트가 HTTP 요청을 통해 Service Bus API에 액세스할 수 있도록 합니다.
+이 자습서에서는 REST 기반 인터페이스를 표시하는 간단한 Azure Relay 호스트 애플리케이션을 구축하는 방법을 설명합니다. REST는 웹 브라우저와 같은 웹 클라이언트가 HTTP 요청을 통해 Service Bus API에 액세스할 수 있도록 합니다.
 
 자습서에서는 WCF(Windows Communication Foundation) REST 프로그래밍 모델을 사용하여 Azure Relay에 REST 서비스를 구축합니다. 자세한 내용은 WCF 설명서의 [WCF REST 프로그래밍 모델](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) 및 [서비스 디자인 및 구현](/dotnet/framework/wcf/designing-and-implementing-services)을 참조하세요.
 
@@ -57,7 +57,7 @@ WCF 계약과 REST 스타일 계약의 주요 차이는 [OperationContractAttrib
 
 1. Visual Studio를 관리자 권한으로 열고 **시작 메뉴**에서 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 클릭합니다.
 2. 새 콘솔 애플리케이션 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**와 **프로젝트**를 선택합니다. **새 프로젝트** 대화 상자에서 **Visual C#** 을 클릭하고 **콘솔 응용 프로그램** 템플릿을 선택하여 **ImageListener**로 이름을 지정합니다. 기본 **위치**를 사용합니다. **확인** 을 클릭하여 프로젝트를 만듭니다.
-3. C# 프로젝트의 경우 Visual Studio는 `Program.cs` 파일을 만듭니다. 이 클래스는 콘솔 응용 프로그램 프로젝트를 제대로 구축하는데 필요한 빈 `Main()` 메서드를 포함합니다.
+3. C# 프로젝트의 경우 Visual Studio는 `Program.cs` 파일을 만듭니다. 이 클래스는 콘솔 애플리케이션 프로젝트를 제대로 구축하는 데 필요한 빈 `Main()` 메서드를 포함합니다.
 4. Service Bus에 참조를 추가하고 Service Bus NuGet 패키지를 설치하여 프로젝트에 **System.ServiceModel.dll**를 추가합니다. 이 패키지는 WCF **System.ServiceModel** 뿐만 아니라 Service Bus 라이브러리에 대한 참조를 자동으로 추가합니다. 솔루션 탐색기에서 **ImageListener**프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus`를 검색합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
 5. 프로젝트에 대해 **System.ServiceModel.Web.dll**에 참조를 명시적으로 추가해야 합니다.
    
@@ -73,7 +73,7 @@ WCF 계약과 REST 스타일 계약의 주요 차이는 [OperationContractAttrib
     using System.IO;
     ```
    
-    [System.ServiceModel](/dotnet/api/system.servicemodel)은 WCF의 기본 기능에 프로그래밍 방식의 액세스를 가능하게 하는 네임스페이스입니다. WCF 릴레이는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다. 이 네임스페이스는 대부분의 릴레이 애플리케이션에서 사용됩니다. 마찬가지로 [System.ServiceModel.Channels](/dotnet/api/system.servicemodel.channels)는 채널을 정의하는데 도움을 주는데, 이 개체를 통해 Azure Relay 및 클라이언트 웹 브라우저와 통신하게 됩니다. 마지막으로 [System.ServiceModel.Web](/dotnet/api/system.servicemodel.web)에는 웹 기반 응용 프로그램을 만들 수 있도록 하는 형식이 포함됩니다.
+    [System.ServiceModel](/dotnet/api/system.servicemodel)은 WCF의 기본 기능에 프로그래밍 방식의 액세스를 가능하게 하는 네임스페이스입니다. WCF 릴레이는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다. 이 네임스페이스는 대부분의 릴레이 애플리케이션에서 사용됩니다. 마찬가지로 [System.ServiceModel.Channels](/dotnet/api/system.servicemodel.channels)는 채널을 정의하는데 도움을 주는데, 이 개체를 통해 Azure Relay 및 클라이언트 웹 브라우저와 통신하게 됩니다. 마지막으로 [System.ServiceModel.Web](/dotnet/api/system.servicemodel.web)에는 웹 기반 애플리케이션을 만들 수 있도록 하는 형식이 포함됩니다.
 7. `ImageListener` 네임스페이스의 이름을 **Microsoft.ServiceBus.Samples**로 바꿉니다.
    
     ```csharp
@@ -153,7 +153,7 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="implement-the-rest-based-wcf-service-contract"></a>REST 기반 WCF 서비스 계약 구현
-REST 스타일 WCF 릴레이 서비스를 만들려면 첫째로 계약을 만들어야 하는데, 계약은 인터페이스를 사용하여 정의됩니다. 다음 단계는 인터페이스를 구현합니다. 이 과정 중에 사용자 정의 **IImageContract** 인터페이스를 구현하는 **ImageService**라는 클래스가 생성됩니다. 계약을 구현한 후 App.config 파일을 사용하여 인터페이스를 구현합니다. 구성 파일은 서비스 이름, 계약 이름, 릴레이 서비스와 통신에 사용되는 프로토콜 유형과 같은 응용 프로그램에 필요한 정보를 포함합니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다.
+REST 스타일 WCF 릴레이 서비스를 만들려면 첫째로 계약을 만들어야 하는데, 계약은 인터페이스를 사용하여 정의됩니다. 다음 단계는 인터페이스를 구현합니다. 이 과정 중에 사용자 정의 **IImageContract** 인터페이스를 구현하는 **ImageService**라는 클래스가 생성됩니다. 계약을 구현한 후 App.config 파일을 사용하여 인터페이스를 구현합니다. 구성 파일은 서비스 이름, 계약 이름, 릴레이 서비스와 통신에 사용되는 프로토콜 유형과 같은 애플리케이션에 필요한 정보를 포함합니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다.
 
 이전 단계에서와 마찬가지로 REST 스타일 계약과 WCF 릴레이 계약의 구현 간에는 거의 차이가 없습니다.
 
@@ -227,7 +227,7 @@ REST 스타일 WCF 릴레이 서비스를 만들려면 첫째로 계약을 만�
 1. **솔루션 탐색기**에서 **App.config**를 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
    
     **App.config** 파일에는 서비스 이름, 엔드포인트(즉, 클라이언트와 호스트가 서로 통신하도록 Azure Relay가 노출하는 위치) 및 바인딩(통신에 사용되는 프로토콜 유형)이 포함되어 있습니다. 여기서 주요 차이점은 구성된 서비스 엔드포인트가 [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) 바인딩을 참조한다는 것입니다.
-2. `<system.serviceModel>` XML 요소는 하나 이상의 서비스를 정의하는 WCF 요소입니다. 여기서 서비스 이름 및 엔드포인트를 정의하는데 사용됩니다. `<system.serviceModel>` 요소의 아래에(여전히 `<system.serviceModel>` 내에서) 다음과 같은 콘텐츠를 포함하는 `<bindings>` 요소를 추가합니다. 이것은 응용 프로그램에서 사용되는 바인딩을 정의합니다. 여러 바인딩을 정의할 수 있지만 이 자습서에서는 하나만 정의합니다.
+2. `<system.serviceModel>` XML 요소는 하나 이상의 서비스를 정의하는 WCF 요소입니다. 여기서 서비스 이름 및 엔드포인트를 정의하는데 사용됩니다. `<system.serviceModel>` 요소의 아래에(여전히 `<system.serviceModel>` 내에서) 다음과 같은 콘텐츠를 포함하는 `<bindings>` 요소를 추가합니다. 이것은 애플리케이션에서 사용되는 바인딩을 정의합니다. 여러 바인딩을 정의할 수 있지만 이 자습서에서는 하나만 정의합니다.
    
     ```xml
     <bindings>
@@ -447,7 +447,7 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="host-the-rest-based-wcf-service-to-use-azure-relay"></a>Azure Relay를 사용하기 위해 REST 기반 WCF 서비스 호스팅
-이 단계에서는 WCF 릴레이와 함께 콘솔 응용 프로그램을 사용하여 웹 서비스를 실행하는 방법을 설명합니다. 이 단계에서 작성되는 전체 코드는 과정을 수행하면서 예제에 제공됩니다.
+이 단계에서는 WCF Relay와 함께 콘솔 애플리케이션을 사용하여 웹 서비스를 실행하는 방법을 설명합니다. 이 단계에서 작성되는 전체 코드는 과정을 수행하면서 예제에 제공됩니다.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>서비스에 대한 기본 주소를 만들려면
 1. `Main()` 함수 선언에서 프로젝트의 네임스페이스를 저장할 변수를 만듭니다. `yourNamespace`를 이전에 만든 릴레이 네임스페이스의 이름으로 바꿔야 합니다.
@@ -468,7 +468,7 @@ namespace Microsoft.ServiceBus.Samples
     ```csharp
     WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
     ```
-    서비스 호스트는 호스트 응용 프로그램을 인스턴스화하는 WCF 개체입니다. 이 예제는 만들려는 호스트의 형식(**ImageService**)을 전달하고 호스트 응용 프로그램을 노출하려는 주소를 전달합니다.
+    서비스 호스트는 호스트 애플리케이션을 인스턴스화하는 WCF 개체입니다. 이 예제는 만들려는 호스트의 형식(**ImageService**)을 전달하고 호스트 애플리케이션을 노출하려는 주소를 전달합니다.
 
 ### <a name="to-run-the-web-service-host"></a>웹 서비스 호스트를 실행하려면
 1. 서비스를 엽니다.
@@ -493,7 +493,7 @@ namespace Microsoft.ServiceBus.Samples
     ```
 
 ### <a name="example"></a>예
-다음 예제는 자습서에 포함된 이전 단계의 구현 및 서비스 계약을 포함하고 콘솔 응용 프로그램에 서비스를 호스트합니다. 다음 코드를 이름이 ImageListener.exe인 실행 파일로 컴파일 합니다.
+다음 예제는 자습서에 포함된 이전 단계의 구현 및 서비스 계약을 포함하고 콘솔 애플리케이션에 서비스를 호스트합니다. 다음 코드를 이름이 ImageListener.exe인 실행 파일로 컴파일 합니다.
 
 ```csharp
 using System;
@@ -568,7 +568,7 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="run-and-test-the-service"></a>서비스 실행 및 테스트
-솔루션을 빌드한 후 다음을 수행하여 응용 프로그램을 실행합니다.
+솔루션을 빌드한 후 다음을 수행하여 애플리케이션을 실행합니다.
 
 1. **F5** 키를 누르거나 실행 파일 위치(ImageListener\bin\Debug\ImageListener.exe)로 이동하여 서비스를 실행합니다. 다음 단계를 수행하는 데 필요하므로 앱을 실행 중인 상태로 둡니다.
 2. 이미지를 보려면 명령 프롬프트에서 주소를 복사하여 브라우저로 붙여 넣습니다.

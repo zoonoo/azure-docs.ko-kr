@@ -37,7 +37,7 @@ Azure AD(Azure Active Directory)는 보호된 리소스에 액세스해야 하�
 
 완전하게 작동하는 응용 프로그램을 빌드하려면 다음 작업이 필요합니다.
 
-1. Azure AD에 응용 프로그램을 등록합니다.
+1. Azure AD에 애플리케이션을 등록합니다.
 1. ADAL을 설치 및 구성합니다.
 1. ADAL을 사용하여 Azure AD에서 토큰을 가져옵니다.
 
@@ -84,7 +84,7 @@ Azure AD(Azure Active Directory)는 보호된 리소스에 액세스해야 하�
 
 ## <a name="step-3-install-and-configure-adal"></a>3단계: ADAL 설치 및 구성
 
-Azure AD에서 응용 프로그램이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL이 Azura AD와 통신할 수 있게 하려면, 앱 등록에 관한 일부 정보를 제공해야 합니다.
+Azure AD에서 애플리케이션이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL이 Azura AD와 통신할 수 있게 하려면, 앱 등록에 관한 일부 정보를 제공해야 합니다.
 
 1. 먼저 CocoaPods를 사용하여 DirectorySearcher 프로젝트에 ADAL을 추가하여 시작합니다.
 

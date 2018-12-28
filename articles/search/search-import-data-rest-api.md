@@ -33,7 +33,7 @@ ms.locfileid: "53312860"
 REST API를 사용하여 인덱스에 문서를 푸시하기 위해 인덱스의 URL 엔드포인트에 HTTP 게시 요청을 발급합니다. HTTP 요청 본문의 본문은 문서의 추가, 수정 또는 삭제를 포함하는 JSON 개체입니다.
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure Search 서비스의 관리 API 키 식별
-REST API를 사용하여 서비스에 대한 HTTP 요청을 발급하는 경우 *각* API 요청은 프로비전한 Search 서비스에 생성된 API 키를 포함해야 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
+REST API를 사용하여 서비스에 대한 HTTP 요청을 발급하는 경우 *각* API 요청은 프로비전한 Search 서비스에 생성된 API 키를 포함해야 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하면 서비스의 API 키를 찾을 수 있습니다.
 2. Azure Search 서비스의 블레이드로 이동합니다.

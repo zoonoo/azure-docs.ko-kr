@@ -53,7 +53,7 @@ ms.locfileid: "53407580"
 
 ## <a name="create-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
 
-Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 이미 있는 경우 [Node.js 응용 프로그램 설치](#SetupNode)로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설정하고 [Node.js 애플리케이션 설정](#SetupNode)으로 건너뜁니다. 
+Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 이미 있는 경우 [Node.js 애플리케이션 설치](#SetupNode)로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설정하고 [Node.js 애플리케이션 설정](#SetupNode)으로 건너뜁니다. 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -62,7 +62,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
 애플리케이션을 빌드하는 코드를 작성하기 전에 앱에 대한 프레임워크를 빌드할 수 있습니다. 다음 단계를 실행하여 프레임워크 코드가 있는 Node.js 애플리케이션을 설치합니다.
 
 1. 자주 사용하는 터미널을 엽니다.
-2. Node.js 응용 프로그램을 저장하려는 폴더 또는 디렉터리를 찾습니다.
+2. Node.js 애플리케이션을 저장하려는 폴더 또는 디렉터리를 찾습니다.
 3. 다음 명령을 사용하여 두 개의 빈 JavaScript 파일을 만듭니다.
 
    * Windows:

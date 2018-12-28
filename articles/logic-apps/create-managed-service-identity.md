@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/05/2018
-ms.openlocfilehash: 84529e1097678ba7a039ffaeec57a9293c93dafd
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 19e6693de673eae6fe0b885580975c4cefc35d60
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229642"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725151"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID로 리소스에 인증 및 액세스
 
@@ -128,13 +128,13 @@ Azure에서 논리 앱이 생성될 때 이 논리 앱의 워크플로 정의에
 
 1. Azure Portal에서 관리 ID에 액세스 권한을 할당하려는 Azure 리소스로 이동합니다. 
 
-1. 리소스의 메뉴에서 **액세스 제어(IAM)**, **추가**를 차례로 선택합니다. 
+1. 리소스의 메뉴에서 **액세스 제어(IAM)**, **역할 할당 추가**를 차례로 선택합니다. 
 
-   ![권한 추가](./media/create-managed-service-identity/add-permissions-logic-app.png)
+   ![역할 할당 추가](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
-1. **권한 추가**에서 ID에 지정할 **역할**을 선택합니다. 
+1. **역할 할당 추가**에서 ID에 지정할 **역할**을 선택합니다. 
 
-1. **다음에 대한 액세스 할당** 속성에서 **Azure AD 사용자, 그룹 또는 응용 프로그램**이 아직 선택되어 있지 않으면 선택합니다.
+1. **액세스 권한 할당** 속성에서 아직 선택되어 있지 않으면 **Azure AD 사용자, 그룹 또는 서비스 주체**를 선택합니다.
 
 1. **선택** 상자에서 논리 앱의 이름을 첫 글자부터 입력합니다. 논리 앱이 나타나면 선택합니다.
 

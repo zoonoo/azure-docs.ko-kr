@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976190"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278137"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>AI를 사용하여 데이터베이스 성능을 모니터링하고 문제를 해결하는 Intelligent Insights
 
@@ -84,10 +84,10 @@ Intelligent Insights 로깅을 사용하도록 설정하고 로그 데이터가 
 Azure SQL Analytics 솔루션은 Intelligent Insights 진단 로그 데이터와 함께 데이터베이스 성능에 대한 그래픽 사용자 인터페이스, 보고 및 경고 기능을 제공합니다.
 
 > [!TIP]
-> 빠른 시작: Intelligent Insights를 시작하는 가장 쉬운 방법은 데이터베이스 성능 문제에 대한 그래픽 사용자 인터페이스를 제공하는 Azure SQL Analytics와 함께 사용하는 것입니다. 마켓플레이스에서 Azure SQL Analytics 솔루션을 추가하고, 이 솔루션 내에서 작업 영역을 만든 다음, Intelligent Insights를 사용하도록 설정할 각 데이터베이스에 대해 데이터베이스의 [진단 설정] 블레이드에서 Azure SQL analytics 작업 영역으로의 "SQLInsights" 로그 스트리밍을 구성합니다.
+> 빠른 시작: Intelligent Insights를 시작하는 가장 쉬운 방법은 데이터베이스 성능 문제에 대한 그래픽 사용자 인터페이스를 제공하는 Azure SQL 분석과 함께 사용하는 것입니다. 마켓플레이스에서 Azure SQL Analytics 솔루션을 추가하고, 이 솔루션 내에서 작업 영역을 만든 다음, Intelligent Insights를 사용하도록 설정할 각 데이터베이스에 대해 데이터베이스의 [진단 설정] 블레이드에서 Azure SQL analytics 작업 영역으로의 "SQLInsights" 로그 스트리밍을 구성합니다.
 >
 
-사전 요구 사항으로 마켓플레이스에서 Azure SQL Analytics를 Azure Portal 대시보드에 추가하고 작업 영역을 만들어야 합니다. 자세한 내용은 [Azure SQL Analytics 구성](../log-analytics/log-analytics-azure-sql.md#configuration)을 참조하세요.
+사전 요구 사항으로 마켓플레이스에서 Azure SQL Analytics를 Azure Portal 대시보드에 추가하고 작업 영역을 만들어야 합니다. 자세한 내용은 [Azure SQL Analytics 구성](../azure-monitor/insights/azure-sql.md#configuration)을 참조하세요.
 
 Azure SQL Analytics에서 Intelligent Insights를 사용하고 이전 단계에서 만든 Azure SQL Analytics 작업 영역으로 스트리밍되도록 Intelligent Insights 로그 데이터를 구성하려면 [Azure SQL Database 메트릭 및 진단 로깅](sql-database-metrics-diag-logging.md)을 참조하세요.
 
@@ -179,5 +179,5 @@ Intelligent Insights 로그는 오류 발생 요청의 수를 출력합니다. �
 
 - [Intelligent Insights를 사용하여 SQL Database 성능 문제를 해결](sql-database-intelligent-insights-troubleshoot-performance.md)하는 방법을 알아봅니다.
 - [Intelligent Insights의 SQL Database 성능 진단 로그](sql-database-intelligent-insights-use-diagnostics-log.md)를 사용합니다.
-- [SQL Analytics를 사용하여 SQL Database를 모니터링](../log-analytics/log-analytics-azure-sql.md)하는 방법을 알아봅니다.
+- [SQL Analytics를 사용하여 SQL Database를 모니터링](../azure-monitor/insights/azure-sql.md)하는 방법을 알아봅니다.
 - [Azure 리소스에서 로그 데이터 수집 및 소비](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)하는 방법을 알아봅니다.

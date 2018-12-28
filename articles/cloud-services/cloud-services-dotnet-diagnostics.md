@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: f9f26f14944986bc673a3b7529adb055ad16d058
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6a22a3dabf1aa71e0d092c4145523da9b0121c8c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003064"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322212"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Cloud Services에서 Azure 진단 사용
 Azure 진단의 배경은 [Azure 진단 개요](../azure-diagnostics.md) 를 참조하세요.
@@ -39,7 +39,7 @@ Azure 진단의 배경은 [Azure 진단 개요](../azure-diagnostics.md) 를 참
 6. 솔루션을 빌드하여 오류가 없는지 확인합니다.
 
 ### <a name="step-2-instrument-your-code"></a>2단계: 코드 계측
-WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][EventSource Class]로부터 상속되는 SampleEventSourceWriter 클래스는 다음 4개의 로깅 메서드를 구현합니다. **SendEnums**, **MessageMethod**, **SetOther** 및 **HighFreq**. **WriteEvent** 메서드에 대한 첫 번째 매개 변수는 각 이벤트의 ID를 저장합니다. Run 메서드는 **SampleEventSourceWriter** 클래스에 구현된 각각의 로깅 메서드를 10초마다 호출하는 무한 루프를 구현합니다.
+WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][EventSource Class]로부터 상속되는 SampleEventSourceWriter 클래스는 다음 4개의 로깅 메서드를 구현합니다. **SendEnums**, **MessageMethod**, **SetOther** 및 **HighFreq** **WriteEvent** 메서드에 대한 첫 번째 매개 변수는 각 이벤트의 ID를 저장합니다. Run 메서드는 **SampleEventSourceWriter** 클래스에 구현된 각각의 로깅 메서드를 10초마다 호출하는 무한 루프를 구현합니다.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -197,7 +197,7 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 문제가 있는 경우 일반적인 문제에 대한 도움말인 [Azure 진단 문제 해결](../azure-diagnostics-troubleshooting.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-수집한 데이터를 변경하거나 문제를 해결하거나 일반적인 진단에 대해 자세히 알아보려면 [관련된 Azure Virtual Machine 진단 문서 목록을 참조하세요](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics).
+수집한 데이터를 변경하거나 문제를 해결하거나 일반적인 진단에 대해 자세히 알아보려면 [관련된 Azure Virtual Machine 진단 문서 목록을 참조하세요](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics).
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

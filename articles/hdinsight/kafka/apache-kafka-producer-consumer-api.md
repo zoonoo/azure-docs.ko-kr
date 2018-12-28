@@ -1,6 +1,6 @@
 ---
 title: '자습서: Apache Kafka 생산자 및 소비자 API 사용 - Azure HDInsight '
-description: HDInsight의 Kafka에서 Apache Kafka 생산자 및 소비자 API를 사용하는 방법에 대해 알아봅니다. 이 자습서에서는 Java 응용 프로그램에서 HDInsight의 Kafka와 함께 이러한 API를 사용하는 방법을 알아봅니다.
+description: HDInsight의 Kafka에서 Apache Kafka 생산자 및 소비자 API를 사용하는 방법에 대해 알아봅니다. 이 자습서에서는 Java 애플리케이션에서 HDInsight의 Kafka와 함께 이러한 API를 사용하는 방법을 알아봅니다.
 services: hdinsight
 author: dhgoelmsft
 ms.author: dhgoel
@@ -20,7 +20,7 @@ ms.locfileid: "53413356"
 
 HDInsight의 Kafka에서 Apache Kafka 생산자 및 소비자 API를 사용하는 방법에 대해 알아봅니다.
 
-Kafka 생산자 API를 통해 Kafka 클러스터에 데이터 스트림을 보낼 수 있습니다. Kafka 소비자 API를 통해 클러스터에서 데이터 스트림을 읽을 수 있습니다.
+애플리케이션에서 Kafka 생산자 API를 통해 Kafka 클러스터에 데이터 스트림을 보낼 수 있습니다. 애플리케이션에서 Kafka 소비자 API를 통해 클러스터에서 데이터 스트림을 읽을 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -28,8 +28,8 @@ Kafka 생산자 API를 통해 Kafka 클러스터에 데이터 스트림을 보�
 > * 개발 환경 설정
 > * 배포 환경 설정
 > * 코드 이해
-> * 응용 프로그램 빌드 및 배포
-> * 클러스터에서 응용 프로그램 실행
+> * 애플리케이션 빌드 및 배포
+> * 클러스터에서 애플리케이션 실행
 
 API에 대한 자세한 내용은 [생산자 API](https://kafka.apache.org/documentation/#producerapi) 및 [소비자 API](https://kafka.apache.org/documentation/#consumerapi)에서 Apache 설명서를 참조하세요.
 
@@ -60,7 +60,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 ## <a name="understand-the-code"></a>코드 이해
 
-예제 응용 프로그램은 `Producer-Consumer` 하위 디렉터리의 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에 있습니다. 응용 프로그램은 주로 4개의 파일로 구성됩니다.
+예제 애플리케이션은 `Producer-Consumer` 하위 디렉터리의 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에 있습니다. 애플리케이션은 주로 4개의 파일로 구성됩니다.
 
 * `pom.xml`: 이 파일은 프로젝트 종속성, Java 버전 및 패키징 메서드를 정의합니다.
 * `Producer.java`: 이 파일은 생산자 API를 사용하여 Kafka에 임의의 문장을 보냅니다.
@@ -88,7 +88,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 * 플러그 인: Maven 플러그 인은 다양한 기능을 제공합니다. 이 프로젝트에서는 다음 플러그 인이 사용됩니다.
 
     * `maven-compiler-plugin`: 프로젝트에서 사용하는 Java 버전을 8로 설정하는 데 사용됩니다. HDInsight 3.6에서 사용하는 Java 버전입니다.
-    * `maven-shade-plugin`: 이 애플리케이션 및 모든 종속성을 포함하는 uber jar를 생성하는 데 사용됩니다. 또한 기본 클래스를 지정하지 않고 Jar 파일을 직접 실행할 수 있도록 응용 프로그램의 진입점을 설정하는 데 사용됩니다.
+    * `maven-shade-plugin`: 이 애플리케이션 및 모든 종속성을 포함하는 uber jar를 생성하는 데 사용됩니다. 또한 기본 클래스를 지정하지 않고 Jar 파일을 직접 실행할 수 있도록 애플리케이션의 진입점을 설정하는 데 사용됩니다.
 
 ### <a name="producerjava"></a>Producer.java
 
@@ -203,7 +203,7 @@ consumer = new KafkaConsumer<>(properties);
 
 Kafka 소비자는 레코드를 읽을 때 소비자 그룹을 사용합니다. 여러 소비자와 같은 그룹을 사용하면 부하가 분산되어 토픽에서 읽습니다. 그룹의 각 소비자는 레코드의 일부를 받습니다.
 
-소비자 응용 프로그램은 그룹 ID로 사용되는 매개 변수를 허용합니다. 예를 들어, 다음 명령은 그룹 ID `mygroup`을 사용하여 소비자를 시작합니다.
+소비자 애플리케이션은 그룹 ID로 사용되는 매개 변수를 허용합니다. 예를 들어, 다음 명령은 그룹 ID `mygroup`을 사용하여 소비자를 시작합니다.
 
 ```bash
 java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup

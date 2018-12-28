@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 36cdd944dd33f9aa9ae1c805011df23fc864c345
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: de084b2139bcc3ddef09b4438f8774df177b6f3c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705993"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315941"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
 이 문서에서는 클라이언트 측에서 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.
@@ -94,7 +94,7 @@ VAST 파일은 표시할 광고를 지정합니다. 다음 XML은 선형 광고�
     </VAST>
 ```
 
-선형 광고는 <**Linear**> 요소로 설명됩니다. 광고 기간, 추적 이벤트, 클릭 방문, 클릭 추적 및 다양한 **MediaFile** 요소를 지정합니다. 추적 이벤트는 <**TrackingEvents**> 요소 내에서 지정되고, 이를 통해 광고 서버에서 광고를 보는 동안 발생하는 다양한 이벤트를 추적할 수 있습니다. 이 경우 start, midpoint, complete 및 expand 이벤트가 추적됩니다. start 이벤트는 광고가 표시될 때 발생합니다. midpoint 이벤트는 광고 타임라인의 50% 이상이 표시되었을 때 발생합니다. complete 이벤트는 광고가 끝까지 실행되었을 때 발생합니다. expand 이벤트는 사용자가 비디오 플레이어를 전체 화면으로 확장할 때 발생합니다. 광고 방문은 <**VideoClicks**> 요소 내의 <**ClickThrough**> 요소로 지정되고, 사용자가 광고를 클릭할 때 표시할 리소스에 대한 URI를 지정합니다. 클릭 추적은 <**VideoClicks**> 요소 내의 <**ClickTracking**> 요소에서 지정되고, 사용자가 광고를 클릭할 때 플레이어에서 요청할 추적 리소스를 지정합니다. <**MediaFile**> 요소는 광고의 특정 인코딩에 대한 정보를 지정합니다. <**MediaFile**> 요소가 둘 이상 있으면 비디오 플레이어에서 플랫폼에 가장 적합한 인코딩을 선택할 수 있습니다. 
+선형 광고는 <**Linear**> 요소로 설명됩니다. 광고 기간, 추적 이벤트, 클릭 방문, 클릭 추적 및 다양한 **MediaFile** 요소를 지정합니다. 추적 이벤트는 <**TrackingEvents**> 요소 내에서 지정되고, 이를 통해 광고 서버에서 광고를 보는 동안 발생하는 다양한 이벤트를 추적할 수 있습니다. 이 경우 start, midpoint, complete 및 expand 이벤트가 추적됩니다. start 이벤트는 광고가 표시될 때 발생합니다. midpoint 이벤트는 광고 타임라인의 50% 이상이 표시되었을 때 발생합니다. complete 이벤트는 광고가 끝까지 실행되었을 때 발생합니다. expand 이벤트는 사용자가 비디오 플레이어를 전체 화면으로 확장할 때 발생합니다. 광고 방문은 <**VideoClicks**> 요소 내의 <**ClickThrough**> 요소로 지정되고, 사용자가 광고를 클릭할 때 표시할 리소스에 대한 URI를 지정합니다. 클릭 추적은 <**VideoClicks**> 요소 내의 <**ClickTracking**> 요소에서 지정되고, 사용자가 광고를 클릭할 때 플레이어에서 요청할 추적 리소스를 지정합니다. <**MediaFile**> 요소는 광고의 특정 인코딩에 대한 정보를 지정합니다. <**MediaFile**> 요소가 둘 이상 있으면 비디오 플레이어에서 플랫폼에 가장 적합한 인코딩을 선택할 수 있습니다.
 
 선형 광고는 지정된 순서대로 표시될 수 있습니다. 이렇게 하려면 VAST 파일에 다른 <Ad> 요소를 추가하고 시퀀스 특성을 사용하여 순서를 지정합니다. 다음 예제에서는 이에 대해 설명합니다.
 
@@ -325,16 +325,16 @@ MAST 파일을 사용하여 광고가 표시되는 시기를 정의하는 트리
 ```
 
 
-MAST 파일은 하나의 **triggers** 요소를 포함하는 **MAST** 요소로 시작합니다. <triggers> 요소는 광고가 재생되는 시기를 정의하는 **trigger** 요소를 하나 이상 포함합니다. 
+MAST 파일은 하나의 **triggers** 요소를 포함하는 **MAST** 요소로 시작합니다. <triggers> 요소는 광고가 재생되는 시기를 정의하는 **trigger** 요소를 하나 이상 포함합니다.
 
-**trigger** 요소는 광고 재생을 언제 시작할지를 지정하는 **startConditions** 요소를 포함합니다. **startConditions** 요소는 <condition> 요소를 하나 이상 포함합니다. 각 <condition>이 true로 평가되면 <condition>이 각각 **startConditions** 또는 **endConditions** 요소 안에 포함되는지에 따라 트리거가 시작되거나 취소됩니다. 여러 <condition> 요소가 있으면 암시적 OR로 처리되고, 모든 조건이 true로 평가되어 트리거가 시작됩니다. <condition> 요소는 중첩될 수 있습니다. 자식 <condition> 요소가 기본 설정되면 암시적 AND로 처리되고, 트리거가 시작되려면 모든 조건이 true로 평가되어야 합니다. <condition> 요소는 조건을 정의하는 다음 특성을 포함합니다. 
+**trigger** 요소는 광고 재생을 언제 시작할지를 지정하는 **startConditions** 요소를 포함합니다. **startConditions** 요소는 <condition> 요소를 하나 이상 포함합니다. 각 <condition>이 true로 평가되면 <condition>이 각각 **startConditions** 또는 **endConditions** 요소 안에 포함되는지에 따라 트리거가 시작되거나 취소됩니다. 여러 <condition> 요소가 있으면 암시적 OR로 처리되고, 모든 조건이 true로 평가되어 트리거가 시작됩니다. <condition> 요소는 중첩될 수 있습니다. 자식 <condition> 요소가 기본 설정되면 암시적 AND로 처리되고, 트리거가 시작되려면 모든 조건이 true로 평가되어야 합니다. <condition> 요소는 조건을 정의하는 다음 특성을 포함합니다.
 
 1. **type** – 조건, 이벤트 또는 속성 유형을 지정
 2. **name** – 평가 중에 사용할 속성 또는 이벤트의 이름
 3. **value** – 속성을 평가할 기준 값
-4. **operator** – 평가 중에 사용할 연산: EQ(같음), NEQ(같지 않음), GTR(보다 큼), GEQ(크거나 같음), LT(보다 작음), LEQ(작거나 같음), MOD(나머지)
+4. **operator** – 평가 중에 사용할 연산: EQ(같음), NEQ(같지 않음), GTR(보다 큼), GEQ(크거나 같음), LT(보다 작음), LEQ(작거나 같음), MOD(모듈로)
 
-**endConditions**도 <condition> 요소를 포함합니다. 조건이 true로 평가되면 트리거가 다시 설정됩니다. <trigger> 요소에는 <source> 요소를 하나 이상 포함하는 <sources> 요소도 포함됩니다. <source> 요소는 광고 응답에 대한 URI와 광고 응답 유형을 정의합니다. 다음 예제에서는 VAST 응답에 URI가 지정되어 있습니다. 
+**endConditions**도 <condition> 요소를 포함합니다. 조건이 true로 평가되면 트리거가 다시 설정됩니다. <trigger> 요소에는 <source> 요소를 하나 이상 포함하는 <sources> 요소도 포함됩니다. <source> 요소는 광고 응답에 대한 URI와 광고 응답 유형을 정의합니다. 다음 예제에서는 VAST 응답에 URI가 지정되어 있습니다.
 
 ```xml
     <trigger id="postroll" description="postroll"  >
@@ -352,7 +352,7 @@ MAST 파일은 하나의 **triggers** 요소를 포함하는 **MAST** 요소로 
 ### <a name="using-video-player-ad-interface-definition-vpaid"></a>VPAID(Video Player-Ad Interface Definition) 사용
 VPAID는 실행 가능한 광고 단위가 비디오 플레이어와 통신하는 데 사용되는 API입니다. 이를 통해 높은 수준의 대화형 광고 환경이 가능합니다. 사용자는 광고를 조작할 수 있고 광고는 뷰어가 수행한 작업에 응답할 수 있습니다. 예를 들어 사용자가 자세한 정보나 더 긴 광고를 볼 수 있도록 하는 단추가 광고에 표시될 수 있습니다. 비디오 플레이어에서 VPAID API를 지원해야 하고 실행 가능한 광고에서 API를 구현해야 합니다. 플레이어가 광고 서버의 광고를 요청하면 서버에서는 VPAID 광고가 포함된 VAST 응답으로 응답할 수 있습니다.
 
-실행 가능한 광고는 Adobe Flash™ 또는 JavaScript와 같이 웹 브라우저에서 실행할 수 있는 런타임 환경에서 실행되어야 하는 코드로 생성됩니다. 광고 서버에서 VPAID 광고가 포함된 VAST 응답을 반환할 때 <MediaFile> 요소의 apiFramework 특성 값은 “VPAID”여야 합니다. 이 특성은 포함된 광고가 VPAID 실행 가능한 광고임을 지정합니다. type 특성은 “application/x-shockwave-flash” 또는 “application/x-javascript”와 같은 실행 파일의 MIME 형식으로 설정되어야 합니다. 다음 XML 조각에서는 VPAID 실행 가능한 광고가 포함된 VAST 응답의 <MediaFile> 요소를 보여 줍니다. 
+실행 가능한 광고는 Adobe Flash™ 또는 JavaScript와 같이 웹 브라우저에서 실행할 수 있는 런타임 환경에서 실행되어야 하는 코드로 생성됩니다. 광고 서버에서 VPAID 광고가 포함된 VAST 응답을 반환할 때 <MediaFile> 요소의 apiFramework 특성 값은 “VPAID”여야 합니다. 이 특성은 포함된 광고가 VPAID 실행 가능한 광고임을 지정합니다. type 특성은 “application/x-shockwave-flash” 또는 “application/x-javascript”와 같은 실행 파일의 MIME 형식으로 설정되어야 합니다. 다음 XML 조각에서는 VPAID 실행 가능한 광고가 포함된 VAST 응답의 <MediaFile> 요소를 보여 줍니다.
 
 ```xml
     <MediaFiles>
@@ -586,7 +586,7 @@ ProgrammaticAdPage.xaml.cs 파일은 AdHandlerPlugin을 만들고, TimelineMarke
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>광고 지원이 포함된 iOS 비디오 플레이어 구현
-Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 응용 프로그램을 구현하는 방법을 보여 주는 샘플 응용 프로그램 컬렉션이 포함됩니다. [Azure Media Player 프레임워크](https://github.com/Azure/azure-media-player-framework)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다. github 페이지에는 플레이어 프레임워크에 대한 추가 정보와 플레이어 샘플에 대한 소개가 포함된 Wiki 링크, [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework)가 있습니다.
+Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 애플리케이션을 구현하는 방법을 보여 주는 애플리케이션 예제 컬렉션이 포함됩니다. [Azure Media Player 프레임워크](https://github.com/Azure/azure-media-player-framework)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다. GitHub 페이지에는 플레이어 프레임워크에 대한 추가 정보와 플레이어 샘플에 대한 소개가 포함된 Wiki 링크 [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework)가 있습니다.
 
 ### <a name="scheduling-ads-with-vmap"></a>VMAP를 사용하여 광고 예약
 다음 예제에서는 VMAP 파일을 사용하여 광고를 예약하는 방법을 보여 줍니다.
@@ -605,7 +605,7 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
                 if (![framework scheduleVMAPWithManifest:manifest])
                 {
                     [self logFrameworkError];
-                }          
+                }
             }
 ```
 

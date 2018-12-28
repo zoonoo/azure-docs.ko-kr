@@ -1,5 +1,5 @@
 ---
-title: 데이터 과학 프로젝트의 Agile 개발 - Azure Machine Learning | Microsoft Docs
+title: 데이터 과학 프로세스의 Agile 개발 - Team Data Science Process
 description: TDSP(Team Data Science Process)를 사용하여 개발자가 프로젝트 팀 내에서 체계적이고 버전을 제어하고 공동 작업을 수행하는 방식으로 데이터 과학 프로젝트를 실행할 수 있는 방법.
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 9fd8714e4c9fdc89036a3b05ba835b140363c0e3
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ee8e3e3ef33a8b09b92d4dfc262fce26dd60abb3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443375"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134406"
 ---
 # <a name="agile-development-of-data-science-projects"></a>데이터 과학 프로젝트의 Agile 개발
 
@@ -38,20 +38,20 @@ ms.locfileid: "52443375"
 
 ##  1. <a name='Terminology-1'></a>용어 
 
-TDSP 스프린트 계획 프레임워크에는 자주 사용되는 네 가지 유형의**작업 항목**, 즉 **기능**, **사용자 스토리**, **작업** 및 **버그**가 있습니다. 각 프로젝트에서 모든 작업 항목에 대한 단일 백로그를 유지 관리합니다. 프로젝트의 Git 리포지토리 수준에는 백로그가 없습니다. 정의는 다음과 같습니다.
+TDSP 스프린트 계획 프레임워크에는 자주 사용되는 네 가지 유형의**작업 항목**: **기능**, **사용자 스토리**, **작업** 및 **버그**가 있습니다. 각 프로젝트에서 모든 작업 항목에 대한 단일 백로그를 유지 관리합니다. 프로젝트의 Git 리포지토리 수준에는 백로그가 없습니다. 정의는 다음과 같습니다.
 
 - **기능**: 프로젝트 참여에 해당하는 기능입니다. 클라이언트와의 다른 참여는 다른 기능으로 간주됩니다. 마찬가지로 클라이언트가 있는 프로젝트의 다른 단계를 다른 기능으로 간주하는 것이 가장 좋습니다. 기능 이름을 지정하기 위해 ***ClientName-EngagementName***과 같은 스키마를 선택하면 이름 자체에서 프로젝트/참여의 컨텍스트를 쉽게 인식할 수 있습니다.
-- **스토리**: 종단 간에 기능(프로젝트)을 완료하는 데 필요한 별도의 작업 항목입니다. 스토리의 예는 다음과 같습니다.
+- **스토리**: 스토리는 엔드투엔드 기능(프로젝트)을 완료하는 데 필요한 서로 다른 작업 항목입니다. 스토리의 예는 다음과 같습니다.
     - 데이터 가져오기 
     - 데이터 탐색 
     - 기능 생성
     - 모델 작성
     - 모델 조작 
     - 모델 재학습
-- **작업**: 할당 가능한 코드 또는 문서 작업 항목 또는 특정 스토리를 완료하기 위해 수행해야 하는 다른 작업입니다. 예를 들어 *데이터 가져오기* 스토리의 작업은 다음과 같습니다.
+- **작업**: 작업은 할당 가능한 코드 또는 문서 작업 항목 또는 특정 스토리를 완료하기 위해 수행해야 하는 기타 작업입니다. 예를 들어 *데이터 가져오기* 스토리의 작업은 다음과 같습니다.
     -  SQL Server 자격 증명 가져오기 
     -  SQL Data Warehouse에 데이터 업로드. 
-- **버그**: 일반적으로 작업을 완료할 때 수행되는 기존 코드 또는 문서에 필요한 수정을 참조합니다. 각 스테이지 또는 작업이 누락되어 버그가 발생하는 경우 스토리 또는 작업이 되도록 에스컬레이션할 수 있습니다. 
+- **버그**: 일반적으로 버그는 작업을 완료할 때 기존 코드 또는 문서에 필요한 수정 사항을 말합니다. 각 스테이지 또는 작업이 누락되어 버그가 발생하는 경우 스토리 또는 작업이 되도록 에스컬레이션할 수 있습니다. 
 
 > [!NOTE]
 > 기능, 스토리, 작업 및 버그 개념은 데이터 과학에 사용되는 SCM(소프트웨어 코드 관리)에서 빌려온 것이며, 기존의 SCM 정의와 약간 다를 수 있습니다.

@@ -324,13 +324,13 @@ Service Bus 트리거는 몇 가지 [메타데이터 속성](functions-triggers-
 |`ExpiresAtUtc`|`DateTime`|만료 시간(UTC)입니다.|
 |`EnqueuedTimeUtc`|`DateTime`|큐에 대기된 시간(UTC)입니다.|
 |`MessageId`|`string`|Service Bus에서 중복 메시지를 식별하는 데 사용할 수 있는 사용자 정의 값입니다(설정된 경우).|
-|`ContentType`|`string`|응용 프로그램별 논리의 보낸 사람 및 받는 사람에 의해 활용되는 콘텐츠 형식 식별자입니다.|
+|`ContentType`|`string`|애플리케이션별 논리의 보낸 사람 및 받는 사람에 의해 활용되는 콘텐츠 형식 식별자입니다.|
 |`ReplyTo`|`string`|큐 주소에 대한 회신입니다.|
 |`SequenceNumber`|`Int64`|Service Bus에 의해 메시지에 할당되는 고유 번호입니다.|
 |`To`|`string`|주소로 보내기입니다.|
-|`Label`|`string`|응용 프로그램별 레이블입니다.|
+|`Label`|`string`|애플리케이션별 레이블입니다.|
 |`CorrelationId`|`string`|상관관계 ID입니다.|
-|`UserProperties`|`IDictionary<String,Object>`|응용 프로그램별 메시지 속성입니다.|
+|`UserProperties`|`IDictionary<String,Object>`|애플리케이션별 메시지 속성입니다.|
 
 이 아티클의 앞부분에서 이러한 속성을 사용하는 [코드 예제](#trigger---example)를 참조하세요.
 

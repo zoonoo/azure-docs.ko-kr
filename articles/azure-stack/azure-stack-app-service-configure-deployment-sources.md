@@ -17,7 +17,7 @@ ms.author: sethm
 ms.reviewer: anwestg
 ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
 ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/05/2018
 ms.locfileid: "52888514"
@@ -95,7 +95,7 @@ Azure Stack에서 app Service는 여러 소스 제어 공급자 로부터 주문
 2. 아래 **내 응용 프로그램**, 클릭 **앱 추가**합니다.
 ![OneDrive 응용 프로그램][10]
 3. 입력을 **이름을** 새 응용 프로그램 등록에 대 한: 입력 **App Service on Azure Stack**를 클릭 하 고 **응용 프로그램 만들기**
-4. 다음 화면에서 새 응용 프로그램의 속성이 나열됩니다. 저장 된 **응용 프로그램 ID** 임시 위치로 합니다.
+4. 다음 화면에서 새 애플리케이션의 속성이 나열됩니다. 저장 된 **응용 프로그램 ID** 임시 위치로 합니다.
 ![OneDrive 응용 프로그램 속성][11]
 5. **응용 프로그램 비밀** 아래에서 **새 암호 생성**을 클릭합니다. 기록해는 **새 암호 생성**합니다. 응용 프로그램 암호 이며를 클릭 한 후 가져올 수 없습니다 **확인**합니다.
 6. 아래 **플랫폼**, 클릭 **플랫폼 추가**를 선택한 후 **웹**합니다.
@@ -124,7 +124,7 @@ Azure Stack에서 app Service는 여러 소스 제어 공급자 로부터 주문
 
 3. 선택 **DropBox API**합니다.
 4. 액세스 수준을 설정 **앱 폴더**합니다.
-5. 응용 프로그램의 **이름**을 입력합니다.
+5. 애플리케이션의 **이름**을 입력합니다.
 ![Dropbox 응용 프로그램 등록][15]
 6. **앱 만들기**를 클릭합니다. 앱에 대 한 설정을 나열 된 페이지가 표시 됩니다 포함 **앱 키** 하 고 **앱 비밀**합니다.
 7. 있는지 확인 합니다 **앱 폴더 이름** 로 설정 된 **App Service on Azure Stack**합니다.

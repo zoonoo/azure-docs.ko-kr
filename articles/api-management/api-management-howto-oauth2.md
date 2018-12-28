@@ -55,7 +55,7 @@ ms.locfileid: "52967932"
 
     원하는 형식을 선택하여 **인증 코드 부여 형식** 을 지정합니다. **인증 코드** 가 지정됩니다.
 
-    **권한 부여 엔드포인트 URL**을 입력합니다. Azure Active Directory의 경우 이 URL은 다음 URL과 비슷합니다. 여기서 `<client_id>`는 OAuth 2.0 서버에 대해 응용 프로그램을 식별하는 클라이언트 ID로 바뀝니다.
+    **권한 부여 엔드포인트 URL**을 입력합니다. Azure Active Directory의 경우 이 URL은 다음 URL과 비슷합니다. 여기서 `<client_id>`는 OAuth 2.0 서버에 대해 애플리케이션을 식별하는 클라이언트 ID로 바뀝니다.
 
     `https://login.microsoftonline.com/<client_id>/oauth2/authorize`
 

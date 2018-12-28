@@ -61,7 +61,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
    
         PS C:\node\expressapp\WebRole1> express
    
-    이전 응용 프로그램을 덮어쓸지 묻습니다. **y** 또는 **예**를 입력하고 계속합니다. Express에서 응용 프로그램 빌드를 위해 app.js 파일과 폴더 구조를 생성합니다.
+    이전 애플리케이션을 덮어쓸지 묻습니다. **y** 또는 **예**를 입력하고 계속합니다. Express에서 애플리케이션 빌드를 위해 app.js 파일과 폴더 구조를 생성합니다.
    
     ![express 명령의 출력](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
 3. package.json 파일에 정의된 추가 종속성을 설치하려면 다음 명령을 입력합니다.

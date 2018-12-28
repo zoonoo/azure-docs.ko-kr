@@ -1,6 +1,6 @@
 ---
 title: Azure 관리되는 응용 프로그램 만들기 | Microsoft Docs
-description: 조직의 구성원을 위한 Azure 관리되는 응용 프로그램을 만드는 방법이 나와 있습니다.
+description: 조직의 구성원을 위한 Azure 관리형 애플리케이션을 만드는 방법이 나와 있습니다.
 services: managed-applications
 author: tfitzmac
 ms.service: managed-applications
@@ -34,7 +34,7 @@ ms.locfileid: "48804915"
 az group create --name appDefinitionGroup --location westcentralus
 ```
 
-## <a name="create-the-managed-application-definition"></a>관리되는 응용 프로그램 정의 만들기
+## <a name="create-the-managed-application-definition"></a>관리형 애플리케이션 정의 만들기
 
 관리되는 응용 프로그램을 정의하는 경우 소비자에 대한 리소스를 관리하는 사용자, 그룹 또는 응용 프로그램을 선택합니다. 이 ID에는 할당된 역할에 따라 관리되는 리소스 그룹에 대한 권한이 있습니다. 일반적으로 Azure Active Directory 그룹을 만들어 리소스를 관리합니다. 그러나 이 문서에서는 자신의 ID를 사용합니다.
 
@@ -50,7 +50,7 @@ userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId
 roleid=$(az role definition list --name Owner --query [].name --output tsv)
 ```
 
-이제 관리되는 응용 프로그램 정의 리소스를 만듭니다. 관리되는 애플리케이션에는 하나의 스토리지 계정만 포함됩니다.
+이제 관리형 애플리케이션 정의 리소스를 만듭니다. 관리되는 애플리케이션에는 하나의 스토리지 계정만 포함됩니다.
 
 ```azurecli-interactive
 az managedapp definition create \

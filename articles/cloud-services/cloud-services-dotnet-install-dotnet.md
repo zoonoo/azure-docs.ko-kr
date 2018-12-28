@@ -54,7 +54,7 @@ ms.locfileid: "51256802"
 ![설치 관리자 파일이 포함된 역할 콘텐츠][1]
 
 ## <a name="define-startup-tasks-for-your-roles"></a>사용자 역할에 대한 시작 작업 정의
-시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. .NET Framework를 시작 작업의 일부로 설치하면 응용 프로그램 코드가 실행되기 전에 프레임워크가 설치됩니다. 시작 작업에 대한 자세한 내용은 [Azure에서 시작 작업 실행](cloud-services-startup-tasks.md)을 참조하세요. 
+시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. .NET Framework를 시작 작업의 일부로 설치하면 애플리케이션 코드가 실행되기 전에 프레임워크가 설치됩니다. 시작 작업에 대한 자세한 내용은 [Azure에서 시작 작업 실행](cloud-services-startup-tasks.md)을 참조하세요. 
 
 1. 모든 역할에 대해 **WebRole** 또는 **WorkerRole** 노드 아래의 ServiceDefinition.csdef 파일에 다음 콘텐츠를 추가합니다.
    

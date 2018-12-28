@@ -61,7 +61,7 @@ Application Insights에 대한 싱크 예제 구성:
 - **싱크** *name* 특성은 싱크를 고유하게 식별하는 문자열 값입니다.
 
 - **ApplicationInsights** 요소는 Azure 진단 데이터를 보낼 Application Insights 리소스의 계측 키를 지정합니다.
-    - 기존 Application Insights 리소스가 없는 경우 리소스 만들기 및 계측 키 가져오기에 대한 자세한 내용은 [새 Application Insights 리소스 만들기](../../application-insights/app-insights-create-new-resource.md) 를 참조하세요.
+    - 기존 Application Insights 리소스가 없는 경우 리소스 만들기 및 계측 키 가져오기에 대한 자세한 내용은 [새 Application Insights 리소스 만들기](../../application-insights/app-insights-create-new-resource.md)를 참조하세요.
     - Azure SDK 2.8 이상에서 클라우드 서비스를 개발하는 경우 이 계측 키는 자동으로 채워집니다. 클라우드 서비스 프로젝트를 패키징할 때 값은 **APPINSIGHTS_INSTRUMENTATIONKEY** 서비스 구성을 기반으로 합니다. [Cloud Services와 함께 Application Insights 사용](../../application-insights/app-insights-cloudservices.md)을 참조하세요.
 
 - **채널** 요소는 하나 이상의 **채널** 요소를 포함합니다.
@@ -196,7 +196,7 @@ Application Insights에 대한 싱크 예제 구성:
 }
 ```
 
-### <a name="send-verbose-application-logs-to-application-insights"></a>Application Insights에 자세한 정보 표시 응용 프로그램 로그 보내기
+### <a name="send-verbose-application-logs-to-application-insights"></a>Application Insights에 자세한 정보 표시 애플리케이션 로그 보내기
 
 ```XML
 <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
@@ -211,7 +211,7 @@ Application Insights에 대한 싱크 예제 구성:
 ## <a name="limitations"></a>제한 사항
 
 - **성능 카운터가 아닌 로그 유형인 채널** 성능 카운터 요소를 사용하여 채널을 지정하는 경우 무시됩니다.
-- **채널에 대한 로그 수준은 Azure 진단에서 수집되는 로그 수준을 초과할 수 없습니다.** 예를 들어 로그 요소에서 응용 프로그램 로그 오류를 수집하고 Application Insight 싱크에 자세한 정보 표시 로그를 보내려고 시도할 수 없습니다. *scheduledTransferLogLevelFilter* 특성은 항상 싱크를 전송하려는 로그와 같거나 더 많은 로그를 수집해야 합니다.
+- **채널에 대한 로그 수준은 Azure 진단에서 수집되는 로그 수준을 초과할 수 없습니다.** 예를 들어 로그 요소에서 애플리케이션 로그 오류를 수집하고 Application Insight 싱크에 자세한 정보 표시 로그를 보내려고 시도할 수 없습니다. *scheduledTransferLogLevelFilter* 특성은 항상 싱크를 전송하려는 로그와 같거나 더 많은 로그를 수집해야 합니다.
 - **Application Insights에 Azure 진단 확장에서 수집된 Blob 데이터를 보낼 수 없습니다.** 예를 들어 *디렉터리* 노드에 지정된 모든 항목입니다. 크래시 덤프의 경우 실제 크래시 덤프는 Blob Storage에 보내지고 크래시 덤프가 생성된 알림이 Application Insights에 전송됩니다.
 
 ## <a name="next-steps"></a>다음 단계

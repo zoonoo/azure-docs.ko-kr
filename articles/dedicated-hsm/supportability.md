@@ -1,6 +1,6 @@
 ---
-title: Azure Dedicated HSM 지원 가능성 | Microsoft Docs
-description: Azure Dedicated HSM은 Azure 내에서 FIPS 140-2 수준 3 인증을 충족하는 키 스토리지 기능을 제공합니다.
+title: 지원 가능성 - Azure Dedicated HSM | Microsoft Docs
+description: 다양한 시나리오에서 Azure Dedicated HSM의 지원 옵션 및 책임 영역
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
@@ -9,14 +9,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.custom: seodec18
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 7c7cc38cb3332b153cd2a315d48c69b48a1dc357
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2ed6a79b8736a1d3b472e31ce643c0d1ee085bbb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319122"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085912"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Azure Dedicated HSM 지원 가능성
 

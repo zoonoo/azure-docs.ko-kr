@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Cloud Services FAQ에 대한 응용 프로그램 및 서비스 사용 가능성 문제 | Microsoft Docs
-description: 이 문서는 Microsoft Azure Cloud Services의 응용 프로그램 및 서비스 사용 가능성에 대한 질문과 대답을 나열합니다.
+title: Microsoft Azure Cloud Services FAQ에 대한 애플리케이션 및 서비스 사용 가능성 문제 | Microsoft Docs
+description: 이 문서는 Microsoft Azure Cloud Services의 애플리케이션 및 서비스 사용 가능성에 대한 질문과 대답을 나열합니다.
 services: cloud-services
 documentationcenter: ''
 author: genlin
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51246364"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 응용 프로그램 및 서비스 사용 가능성 문제: FAQ(질문과 대답)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 애플리케이션 및 서비스 사용 가능성 문제: FAQ(질문과 대답)
 
-이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 응용 프로그램 및 서비스 사용 가능성 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md) 를 참조할 수도 있습니다.
+이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 애플리케이션 및 서비스 사용 가능성 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md) 를 참조할 수도 있습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -38,7 +38,7 @@ Microsoft에서는 대략 한 달에 한 번 Windows Azure PaaS VM에 대한 새
 ## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>서비스가 일정 시간 동안 유휴 상태가 된 후에 클라우드 서비스에 대한 첫 번째 요청이 평소보다 오래 걸리는 이유는 무엇인가요?
 웹 서버가 첫 번째 요청을 받으면 먼저 코드를 다시 컴파일하고 다음 요청을 처리합니다. 바로 이러한 이유로 첫 번째 요청은 다른 항목보다 더 많은 시간이 걸립니다. 기본적으로 앱 풀은 사용자가 휴지하는 경우에 종료됩니다. 또한 앱 풀은 기본적으로 1,740분(29시간)마다 재활용됩니다.
 
-응용 프로그램, 중단 또는 메모리 누수를 일으킬 수 있는 불안정한 경우 상태를 방지하기 위해 IIS(인터넷 정보 서비스) 응용 프로그램 풀을 정기적으로 재활용할 수 있습니다.
+애플리케이션 충돌, 중단 또는 메모리 누수를 일으킬 수 있는 불안정한 경우 상태를 방지하기 위해 IIS(인터넷 정보 서비스) 애플리케이션 풀을 정기적으로 재활용할 수 있습니다.
 
 다음 문서는 이 문제를 이해하고 완화하는 데 도움이 됩니다.
 * [IIS에서 느린 초기 로드 수정](http://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)

@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 428f094dae2b9a69b58912190d2959a7dfc467ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ec5c75b5de912988efeb5167107f6d0dfe07da2e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365265"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139960"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법
 
@@ -59,16 +59,16 @@ Azure AD 응용 프로그램 프록시를 사용하면 다양한 유형의 내�
 * ADAL(Active Directory 인증 라이브러리)과 통합되는 리치 클라이언트 앱
 
 ## <a name="how-does-application-proxy-work"></a>응용 프로그램 프록시는 어떻게 작동합니까?
-응용 프로그램 프록시가 작동하도록 구성해야 하는 두 가지 구성 요소는 커넥터 및 외부 끝점입니다. 
+애플리케이션 프록시가 작동하도록 구성해야 하는 두 가지 구성 요소는 커넥터 및 엔드포인트입니다. 
 
 커넥터는 네트워크 내부의 Windows Server에 상주하는 간단한 에이전트입니다. 커넥터는 클라우드의 응용 프로그램 프록시 서비스에서 응용 프로그램 온-프레미스로 트래픽 흐름을 지원합니다. 아웃바운드 연결만 사용하므로 인바운드 포트를 열거나 DMZ에 항목을 저장할 필요가 없습니다. 커넥터는 상태를 저장하지 않으며 필요에 따라 클라우드에서 정보를 가져옵니다. 커넥터에 대한 정보 및 부하 분산 및 인증하는 방법은 [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-connectors.md)를 참조하세요. 
 
-외부 끝점은 사용자가 네트워크 외부에서 응용 프로그램에 도달하는 방법입니다. 결정하는 외부 URL로 직접 이동하거나 MyApps 포털을 통해 응용 프로그램에 액세스할 수 있습니다. 사용자가 이러한 끝점 중 하나로 이동하면 Azure AD에서 인증한 다음 커넥터를 통해 온-프레미스 응용 프로그램에 라우팅됩니다.
+엔드포인트는 URL 또는 [최종 사용자 포털](end-user-experiences.md)이 될 수 있습니다. 사용자는 외부 URL에 액세스하여 네트워크 외부에서 애플리케이션에 연결할 수 있습니다. 네트워크 내 사용자는 URL 또는 최종 사용자 포털을 통해 애플리케이션에 액세스할 수 있습니다. 사용자가 이러한 엔드포인트 중 하나로 이동하면 Azure AD에서 인증한 다음 커넥터를 통해 온-프레미스 응용 프로그램에 라우팅됩니다.
 
  ![Azure Ad 응용 프로그램 프록시 다이어그램](./media/application-proxy/azureappproxxy.png)
 
-1. 사용자는 응용 프로그램 프록시 서비스를 통해 응용 프로그램에 액세스하고 인증을 위해 Azure AD 로그인 페이지로 전달됩니다.
-2. 성공적인 로그인 후에 토큰을 생성하고 클라이언트 디바이스에 보냅니다.
+1. 사용자는 엔드포인트를 통해 애플리케이션에 액세스한 후에는 Azure AD 로그인 페이지로 리디렉션됩니다. 
+2. 성공적인 로그인 후에 토큰이 생성되어 사용자의 클라이언트 디바이스에 전송됩니다.
 3. 클라이언트는 토큰에서 UPN(사용자 주체 이름) 및 SPN(보안 주체 이름)을 검색한 다음 응용 프로그램 프록시 커넥터에 요청을 전달하는 응용 프로그램 프록시 서비스에 토큰을 보냅니다.
 4. Single Sign-On을 구성한 경우 커넥터는 사용자를 대신하는 데 필요한 모든 추가 인증을 수행합니다.
 5. 커넥터는 온-프레미스 응용 프로그램에 요청을 보냅니다.  
@@ -88,8 +88,8 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 
 두 단계에서 응용 프로그램 프록시 시작:
 
-1. [응용 프로그램 프록시를 사용하도록 설정하고 커넥터 구성](application-proxy-enable.md)    
-2. [응용 프로그램 게시](application-proxy-publish-azure-portal.md) - 쉽고 빠른 마법사를 사용하여 온-프레미스 앱을 게시하고 원격으로 액세스할 수 있도록 합니다.
+1. [응용 프로그램 프록시를 사용하도록 설정하고 커넥터 구성](application-proxy-add-on-premises-application.md)    
+2. [응용 프로그램 게시](application-proxy-add-on-premises-application.md) - 쉽고 빠른 마법사를 사용하여 온-프레미스 앱을 게시하고 원격으로 액세스할 수 있도록 합니다.
 
 ## <a name="whats-next"></a>다음 작업
 첫 번째 앱을 게시하면 응용 프로그램 프록시를 사용하여 수행할 수 있는 작업은 많습니다.
@@ -100,5 +100,5 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 * [기존 온-프레미스 프록시 서버 작업](application-proxy-configure-connectors-with-proxy-servers.md) 
 * [사용자 지정 홈페이지 설정](application-proxy-configure-custom-home-page.md)
 
-최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)
+최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](https://blogs.technet.com/b/applicationproxyblog/)
 

@@ -52,7 +52,7 @@ Azure Search에 필요한 암호화된 연결을 설정한 후 Azure VM에서 SQ
 특히 "인터넷을 통한 연결"의 각 문서에서 해당 섹션을 검토하세요.
 
 ## <a name="configure-the-network-security-group-nsg"></a>NSG(네트워크 보안 그룹) 구성
-Azure VM에서 다른 대상에 액세스할 수 있게 하기 위해 NSG 및 해당 Azure 엔드포인트 또는 ACL(Access Control 목록)을 구성하는 것은 특별하지 않습니다. 이전에 이러한 구성을 수행하여 자체 응용 프로그램 논리가 SQL Azure VM에 연결되도록 했을 것입니다. 이것은 SQL Azure VM에 Azure Search를 연결하는 것과는 다릅니다. 
+Azure VM에서 다른 대상에 액세스할 수 있게 하기 위해 NSG 및 해당 Azure 엔드포인트 또는 ACL(Access Control 목록)을 구성하는 것은 특별하지 않습니다. 이전에 이러한 구성을 수행하여 자체 애플리케이션 논리가 SQL Azure VM에 연결되도록 했을 것입니다. 이것은 SQL Azure VM에 Azure Search를 연결하는 것과는 다릅니다. 
 
 아래 링크는 VM 배포를 위한 NSG 구성에 대한 지침을 제공합니다. 이러한 지침에 따라 IP 주소를 기반으로 Azure SEarch 엔드포인트를 ACL로 작성합니다.
 

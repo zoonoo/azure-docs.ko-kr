@@ -4,14 +4,14 @@ description: Azure Migrate 서비스의 알려진 문제에 대한 개요와 일
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4ebd6eb860a6b102d1a3b12642510c429c18baa7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413336"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259157"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -19,15 +19,15 @@ ms.locfileid: "50413336"
 
 [Azure Migrate](migrate-overview.md)는 Azure로 마이그레이션하는 온-프레미스 워크로드를 평가합니다. Azure Migrate 배포 및 사용과 관련하여 문제가 발생하면 이 문서를 사용하여 해결하세요.
 
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>연속 검색 OVA를 사용 중인데, 온-프레미스 환경에서 삭제된 VM이 포털에 계속 표시됩니다.
+### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>온-프레미스 환경을 지속적으로 검색하는 OVA를 사용 중인데 온-프레미스 환경에서 삭제된 VM이 포털에 계속 표시됩니다.
 
-응용 프로그램은 성능 데이터를 연속적으로 수집할 뿐이며 온-프레미스 환경의 구성 변경(예: VM 추가, 삭제, 디스크 추가 등)은 탐지하지 않습니다. 온-프레미스 환경에서 구성 변경이 있으면 다음을 통해 포털에 변경 내용을 반영할 수 있습니다.
+지속적인 검색 어플라이언스는 성능 데이터만 지속적으로 수집하고, 온-프레미스 환경의 구성 변경(예: VM 추가, 삭제, 디스크 추가 등)은 검색하지 않습니다. 온-프레미스 환경에서 구성 변경이 있으면 다음을 통해 포털에 변경 내용을 반영할 수 있습니다.
 
-- 항목 추가(VM, 디스크, 코어 등): 이러한 변경을 Azure Portal에 반영하려면 어플라이언스의 검색을 멈추었다가 다시 시작하면 됩니다. 이렇게 하면 Azure Migrate 프로젝트에서 변경 내용이 업데이트됩니다.
+- 항목 추가(VM, 디스크, 코어 등): 이러한 변경을 Azure Portal에 반영하려면 어플라이언스의 검색을 중지했다가 다시 시작하면 됩니다. 이렇게 하면 Azure Migrate 프로젝트에서 변경 내용이 업데이트됩니다.
 
    ![검색 중지](./media/troubleshooting-general/stop-discovery.png)
 
-- VM삭제: 어플라이언스 설계 방식으로 인해 VM 삭제는 검색을 중지했다 시작해도 반영되지 않습니다. 이후 검색의 데이터는 기존 검색에 추가되는 것이지 기존 검색을 덮어쓰는 것이 아니기 때문입니다. 이 경우에는 그룹에서 VM을 제거하고 평가를 다시 계산하여 포털에서 VM을 간단히 무시하면 됩니다.
+- VM 삭제: 어플라이언스 설계 방식으로 인해 검색을 중지했다 시작해도 VM 삭제가 반영되지 않습니다. 이후 검색의 데이터는 기존 검색에 추가되는 것이지 기존 검색을 덮어쓰는 것이 아니기 때문입니다. 이 경우에는 그룹에서 VM을 제거하고 평가를 다시 계산하여 포털에서 VM을 간단히 무시하면 됩니다.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>*요청에 사용자 ID 헤더가 있어야 합니다* 오류 메시지와 함께 마이그레이션 프로젝트 만들기 실패
 
@@ -35,25 +35,54 @@ ms.locfileid: "50413336"
 
 초대 이메일을 받은 후에는 이메일을 열고 이메일의 링크를 클릭하여 초대를 수락해야 합니다. 여기까지 마친 후 Azure Portal에서 로그아웃했다가 다시 로그인해야 합니다. 브라우저 새로 고침은 작동하지 않습니다. 그 후 마이그레이션 프로젝트 만들기를 시도할 수 있습니다.
 
+### <a name="i-am-unable-to-export-the-assessment-report"></a>평가 보고서를 내보낼 수 없습니다.
+
+포털에서 평가 보고서를 내보낼 수 없는 경우에는 아래 REST API를 사용하여 평가 보고서의 다운로드 URL을 구합니다.
+
+1. 컴퓨터에 *armclient* 설치(아직 설치하지 않은 경우):
+
+  a. 관리자 명령 프롬프트 창에서 다음 명령을 실행합니다. ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
+
+  b. 관리자 Windows PowerShell 창에서 다음 명령을 실행합니다. ```choco install armclient```
+
+2.  Azure Migrate REST API를 사용하여 평가 보고서의 다운로드 URL 구하기
+
+  a.    관리자 Windows PowerShell 창에서 다음 명령을 실행합니다. ```armclient login```
+
+  Azure 로그인 팝업이 열리면 Azure에 로그온합니다.
+
+  b.    동일한 PowerShell 창에서 다음 명령을 실행하여 평가 보고서의 다운로드 URL을 구합니다(URI 매개 변수를 적절한 값, 아래의 샘플 API 요청으로 바꾸기).
+
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+
+       샘플 요청 및 출력:
+
+       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+018_12_16_21/downloadUrl?api-version=2018-02-02
+{
+  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+
+3. 응답에서 URL을 복사하고 브라우저에서 열어서 평가 보고서를 다운로드합니다.
+
+4. 보고서가 다운로드되면 Excel을 사용하여 다운로드한 폴더로 이동하여 Excel에서 파일을 열어서 확인합니다.
+
 ### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>디스크 및 네트워크 어댑터의 성능 데이터가 0을 표시
 
 vCenter server의 통계 설정 수준이 3 미만으로 설정되면 이 현상이 발생할 수 있습니다. 3 이상에서는 vCenter가 VM의 계산, 저장소 및 네트워크 성능 기록을 저장합니다. 3 미만에서는 vCenter가 저장소 및 네트워크 데이터를 저장하지 않고 CPU 및 메모리 데이터만 저장합니다. 이 시나리오에서는 Azure Migrate 에서 성능 데이터가 0으로 표시되고, Azure Migrate는 온-프레미스 컴퓨터에서 수집된 메타데이터를 기반으로 디스크 및 네트워크에 대한 권장 크기를 제공합니다.
 
 디스크 및 네트워크 성능 데이터 수집을 사용하려면 통계 설정 수준을 3으로 변경하세요. 그런 다음 환경을 검색하고 평가를 마칠 때까지 하루 이상 기다립니다.
 
-### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>에이전트를 설치하고 종속성 시각화 그룹을 사용하여 그룹을 만들었습니다. 장애 조치(failover) 이후, 컴퓨터가 "종속성 보기" 대신 "에이전트 설치" 작업을 표시합니다.
-* 계획된 또는 계획되지 않은 장애 조치(failover) 후에는 온-프레미스 컴퓨터가 꺼지고 동급 컴퓨터가 Azure에 생성됩니다. 이러한 컴퓨터는 다른 MAC 주소를 갖습니다. 사용자가 온-프레미스 IP 주소를 유지하는지 여부에 따라 다른 IP 주소를 가질 수도 있습니다. MAC 및 IP 주소가 모두 다르면 Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
-* 테스트 장애 조치(failover) 후에도 온-프레미스 컴퓨터는 예상대로 계속 켜져 있습니다. Azure에서 생성된 동급 컴퓨터는 다른 MAC 주소를 획득하며 다른 IP 주소를 획득할 수도 있습니다. 사용자가 이러한 컴퓨터에서 나가는 Log Analytics 트래픽을 차단하지 않는 이상, Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
-
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>마이그레이션 프로젝트를 만들 때 Azure 지역을 지정했습니다. 검색된 메타데이터가 저장되는 정확한 Azure 지역은 어떻게 확인할 수 있나요?
 
-프로젝트 **개요** 페이지의 **기본 정보** 섹션으로 이동하면 메타데이터가 저장되는 정확한 위치를 확인할 수 있습니다. 위치는 Azure Migrate를 통해 지역 내에서 임의로 선택되며 수정할 수는 없습니다. 특정 지역에만 프로젝트를 만들려는 경우 REST API를 사용하여 마이그레이션 프로젝트를 만든 다음 원하는 지역을 전달하면 됩니다.
+프로젝트 **개요** 페이지의 **기본 정보** 섹션으로 이동하면 메타데이터가 저장되는 조정확한 위치를 확인할 수 있습니다. 위치는 Azure Migrate를 통해 지역 내에서 임의로 선택되며 수정할 수는 없습니다. 특정 지역에만 프로젝트를 만들려는 경우 REST API를 사용하여 마이그레이션 프로젝트를 만든 다음 원하는 지역을 전달하면 됩니다.
 
    ![프로젝트 위치](./media/troubleshooting-general/geography-location.png)
 
 ## <a name="collector-errors"></a>수집기 오류
 
-### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>제공된 매니페스트 파일이 잘못되었습니다: 잘못된 OVF 매니페스트 항목 오류로 Azure Migrate Collector 배포가 실패했습니다.
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Azure Migrate Collector 배포가 다음 오류로 인해 실패했습니다. 제공된 매니페스트 파일이 잘못되었습니다. 잘못된 OVF 매니페스트 항목입니다.
 
 1. 해당 해시 값을 확인하여 Azure Migrate Collector OVA 파일이 올바르게 다운로드되는지 확인합니다. 해시 값을 확인하려면 [문서](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance)를 참조하세요. 해시 값이 일치하지 않는 경우 OVA 파일을 다시 다운로드하고 배포를 다시 시도합니다.
 2. 여전히 실패하고 VMware vSphere 클라이언트를 OVF 배포에 사용하는 경우 vSphere Web Client를 통해 배포를 시도합니다. 그래도 실패하는 경우 다른 웹 브라우저를 사용해 보세요.
@@ -117,7 +146,7 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 
 ### <a name="error-unabletoconnecttoserver"></a>오류 UnableToConnectToServer
 
-오류로 인해 vCenter Server “Servername.com:9443”에 연결할 수 없습니다: 메시지를 수락할 수 있는, https://Servername.com:9443/sdk에서 수신 대기 중인 엔드포인트가 없습니다.
+다음 오류로 인해 vCenter Server "Servername.com:9443"에 연결할 수 없습니다. https://Servername.com:9443/sdk를 수신 대기 중인 메시지를 수락할 수 있는 엔드포인트가 없습니다.
 
 수집기 어플라이언스가 최신 버전인지 확인하고, 최신 버전이 아니면 어플라이언스를 [최신 버전](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector)으로 업그레이드합니다.
 
@@ -128,7 +157,11 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 3. vCenter에 연결할 정확한 포트 번호를 식별합니다.
 4. 마지막으로 vCenter Server가 실행 중인지 확인합니다.
 
-## <a name="troubleshoot-dependency-visualization-issues"></a>종속성 시각화 문제 해결
+## <a name="dependency-visualization-issues"></a>종속성 시각화 문제
+
+### <a name="i-am-unable-to-find-the-dependency-visualization-functionality-for-azure-government-projects"></a>Azure Government 프로젝트에 대한 종속성 시각화 기능을 찾을 수 없습니다.
+
+Azure Migrate는 종속성 시각화 기능에 대한 서비스 맵에 의존하며, 현재 Azure Government에서는 서비스 맵을 사용할 수 없으므로 Azure Government에서는 이 기능을 사용할 수 없습니다.
 
 ### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>온-프레미스 VM에 MMA(Microsoft Monitoring Agent) 및 종속성 에이전트를 설치했는데 종속성이 Azure Migrate 포털에 표시됩니다.
 
@@ -159,7 +192,11 @@ Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 �
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>VM이 10개보다 많은 그룹의 종속성은 시각화할 수 없나요?
 [그룹의 종속성 시각화](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) 시에 허용되는 최대 VM 수는 10개입니다. VM이 10개보다 많은 그룹이 있다면 더 작은 그룹 여러 개로 분할한 다음 종속성을 시각화하는 것이 좋습니다.
 
-## <a name="troubleshoot-readiness-issues"></a>준비 관련 문제 해결
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>에이전트를 설치하고 종속성 시각화 그룹을 사용하여 그룹을 만들었습니다. 장애 조치(failover) 이후, 컴퓨터가 "종속성 보기" 대신 "에이전트 설치" 작업을 표시합니다.
+* 계획된 또는 계획되지 않은 장애 조치(failover) 후에는 온-프레미스 컴퓨터가 꺼지고 동급 컴퓨터가 Azure에 생성됩니다. 이러한 컴퓨터는 다른 MAC 주소를 갖습니다. 사용자가 온-프레미스 IP 주소를 유지하는지 여부에 따라 다른 IP 주소를 가질 수도 있습니다. MAC 및 IP 주소가 모두 다르면 Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
+* 테스트 장애 조치(failover) 후에도 온-프레미스 컴퓨터는 예상대로 계속 켜져 있습니다. Azure에서 생성된 동급 컴퓨터는 다른 MAC 주소를 획득하며 다른 IP 주소를 획득할 수도 있습니다. 사용자가 이러한 컴퓨터에서 나가는 Log Analytics 트래픽을 차단하지 않는 이상, Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
+
+## <a name="troubleshoot-azure-readiness-issues"></a>Azure 준비 상태 문제 해결
 
 **문제** | **해결**
 --- | ---
@@ -173,7 +210,6 @@ Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 �
 Visual Studio 구독이 필요합니다. | 컴퓨터에 Visual Studio 구독에서만 지원되는 Windows 클라이언트 OS가 실행되고 있습니다.
 필요한 저장소 성능을 제공하는 VM을 찾을 수 없습니다. | 컴퓨터에 필요한 저장소 성능(IOPS/처리량)이 Azure VM 지원을 초과합니다. 마이그레이션을 시작하기 전에 컴퓨터의 저장소 요구 사항을 낮춰봅니다.
 필요한 네트워크 성능을 제공하는 VM을 찾을 수 없습니다. | 컴퓨터에 필요한 네트워크 성능(입력/출력)이 Azure VM 지원을 초과합니다. 컴퓨터의 네트워킹 요구 사항을 낮춰봅니다.
-지정된 가격 책정 계층에서 VM을 찾을 수 없습니다. | 가격 책정 계층을 표준으로 설정하는 경우 Azure로 마이그레이션하기 전에 VM을 다운사이징하는 것이 좋습니다. 가격 책정 계층이 기본이면 평가의 가격 책정 계층을 표준으로 변경하는 것이 좋습니다.
 지정된 위치에서 VM을 찾을 수 없습니다. | 다른 대상 위치를 사용하여 마이그레이션을 실행해 봅니다.
 부적합한 디스크가 하나 이상 있습니다. | VM에 연결된 하나 이상의 디스크가 Azure 요구 사항을 충족하지 않습니다. VM에 연결된 각 디스크에 대해 디스크 크기가 4TB 미만인지 확인합니다. 4TB 미만이 아니면 Azure로 마이그레이션하기 전에 디스크 크기를 축소합니다. 각 디스크에 필요한 성능(IOPS/처리량)이 Azure [관리 가상 머신 디스크](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)에서 지원되는지 확인합니다.   
 부적합한 네트워크 어댑터가 하나 이상 있습니다. | 마이그레이션을 시작하기 전에 컴퓨터에서 사용하지 않는 네트워크 어댑터를 제거합니다.

@@ -46,7 +46,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 Basic 계획은 새 Application Insights 리소스를 만들 때 기본 가격 책정 계획입니다. Basic 계획은 Operations Management Suite 구독이 있는 사용자를 제외하고 모든 고객에 대해 최적화되었습니다.
 
 * Basic 계획에서 데이터 볼륨별로 요금이 청구됩니다. 데이터 볼륨은 Application Insights에서 받은 원격 분석의 바이트 수입니다. 데이터 볼륨은 응용 프로그램의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다. [Analytics로 가져온 표 형식 데이터](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import)의 경우 데이터 볼륨은 Application Insights로 전송된 파일의 압축되지 않은 크기로 측정됩니다.
-* 이제 2018년 4월부터 응용 프로그램의 데이터 볼륨 요금이 **데이터 수집**이라는 새로운 청구 미터에 보고됩니다. 이 새 미터는 Applications Insights 및 Log Analytics와 같은 모니터링 기술 간에 공유되며, 현재 서비스 이름 **App Services**(곧 **Log Analytics**로 변경됨) 아래에 있습니다. 
+* 이제 2018년 4월부터 애플리케이션의 데이터 볼륨 요금이 **데이터 수집**이라는 새로운 청구 미터에 보고됩니다. 이 새 미터는 Applications Insights 및 Log Analytics와 같은 모니터링 기술 간에 공유되며, 현재 서비스 이름 **App Services**(곧 **Log Analytics**로 변경됨) 아래에 있습니다. 
 * [라이브 메트릭 스트림](app-insights-live-stream.md) 데이터는 가격 책정에 계산 되지 않습니다.
 * 2018년 4월 현재 Basic 계획에서 [연속 내보내기](app-insights-export-telemetry.md) 및 [Azure Log Analytics 커넥터](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409)는 추가 요금 없이 사용할 수 있습니다.
 

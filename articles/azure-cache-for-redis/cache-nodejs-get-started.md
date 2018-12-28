@@ -26,7 +26,7 @@ ms.locfileid: "53018793"
 
 
 
-Azure Cache for Redis를 통해 Microsoft에서 관리하는 안전한 전용 Azure Cache for Redis에 액세스할 수 있습니다. Microsoft Azure 내의 모든 응용 프로그램에서 캐시에 액세스할 수 있습니다.
+Azure Cache for Redis를 통해 Microsoft에서 관리하는 안전한 전용 Azure Cache for Redis에 액세스할 수 있습니다. Microsoft Azure 내의 모든 애플리케이션에서 캐시에 액세스할 수 있습니다.
 
 이 항목에서는 Node.js를 사용하여 Azure Cache for Redis를 시작하는 방법을 보여 줍니다. 
 

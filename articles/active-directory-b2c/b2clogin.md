@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7b460efbdc50c5b243c3ef78bad568b720e75e59
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: ffceb8fd6f1afcd054bfc4c4035fb2b8b93ed390
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635560"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720544"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
 
@@ -29,7 +29,7 @@ b2clogin.com을 사용하면 다음과 같은 추가적인 이점이 제공됩�
 b2clogin.com을 사용하는 경우 변경해야 할 수 있는 다음 설정을 고려하세요.
 
 - ID 공급자 응용 프로그램의 리디렉션 URL에 b2clogin.com이 사용되도록 설정합니다. 
-- 정책 참조 및 토큰 엔드포인트에 대해 b2clogin.com을 사용하도록 Azure AD B2C 응용 프로그램을 설정합니다. 
+- 사용자 흐름 참조 및 토큰 엔드포인트에 대해 b2clogin.com을 사용하도록 Azure AD B2C 애플리케이션을 설정합니다. 
 - MSAL을 사용하는 경우 **ValidateAuthority** 속성을 `false`로 설정해야 합니다.
 - [사용자 인터페이스 사용자 지정](active-directory-b2c-ui-customization-custom-dynamic.md)의 CORS 설정에서 정의한 **허용된 원본**을 변경해야 합니다.  
 
@@ -56,7 +56,7 @@ b2clogin.com을 사용하려면 ID 공급자 응용 프로그램의 설정에서
 
 ## <a name="update-your-application"></a>응용 프로그램 업데이트
 
-Azure AD B2C 응용 프로그램은 정책 참조 및 토큰 엔드포인트 등의 여러 위치에서 `login.microsoftonline.com`을 참조할 수 있습니다.  권한 부여 엔드포인트, 토큰 엔드포인트 및 발급자가 `your-tenant-name.b2clogin.com`을 사용하도록 업데이트되었는지 확인합니다.  
+Azure AD B2C 애플리케이션은 사용자 흐름 참조 및 토큰 엔드포인트 등의 여러 위치에서 `login.microsoftonline.com`을 참조할 수 있습니다.  권한 부여 엔드포인트, 토큰 엔드포인트 및 발급자가 `your-tenant-name.b2clogin.com`을 사용하도록 업데이트되었는지 확인합니다.  
 
 ## <a name="set-the-validateauthority-property"></a>ValidateAuthority 속성 설정
 

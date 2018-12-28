@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: a6c8a8aa954379036ce566a205b8cb4e97952727
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282535"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887847"
 ---
 # <a name="add-a-popup-to-the-map"></a>맵에 팝업 추가
 
@@ -37,20 +37,32 @@ ms.locfileid: "52282535"
 
 마지막 코드 블록에서는 `mouseover` 이벤트 수신기에 의해 트리거되는 함수가 생성됩니다. 여기서 팝업 속성 및 콘텐츠를 설정하고 맵에 팝업 개체를 추가합니다.
 
+## <a name="reusing-a-popup-with-multiple-points"></a>여러 점을 사용하여 팝업을 다시 사용
+
+점이 많이 있고 한 번에 하나의 팝업을 표시하려는 경우 각 점 기능에 대해 팝업을 만드는 대신 한 팝업을 만들어 다시 사용하는 것이 가장 좋은 방법입니다. 이 작업을 수행하면 애플리케이션에서 생성되는 DOM 요소 수가 크게 줄어들어 더 나은 성능을 제공할 수 있습니다. 이 샘플에서는 3개 점 기능을 만듭니다. 그 중 하나를 클릭하면 해당 점 기능에 대한 콘텐츠와 함께 팝업이 표시됩니다.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='여러 점을 사용하여 팝업을 다시 사용' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>여러 점을 사용하여 팝업을 다시 사용</a>을 참조하세요.
+</iframe>
+
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [팝업](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [팝업](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)
 
 전체 코드 샘플에 대한 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [도형 추가](./map-add-shape.md)
+> [기호 계층 추가](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [사용자 지정 HTML 추가](./map-add-custom-html.md)
+> [HTML 표식 추가](./map-add-custom-html.md)
+
+> [!div class="nextstepaction"]
+> [도형 추가](./map-add-shape.md)

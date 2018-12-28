@@ -3,7 +3,7 @@ title: 클라우드 데이터베이스의 분산 트랜잭션
 description: Azure SQL Database와 Elastic Database 트랜잭션 개요
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 02cf72bf9fe06993ef859d1789983b7611c8472e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2418de5c20c34ae82ad36a914955fb338afd2822
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257472"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877187"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>클라우드 데이터베이스의 분산 트랜잭션
 Azure SQL Database(SQL DB)용 Elastic Database를 사용하면 SQL DB의 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. SQL DB용 탄력적 데이터베이스 트랜잭션은 ADO .NET을 사용하여 .NET 응용 프로그램에서 사용할 수 있고 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 클래스를 사용하여 친숙한 프로그래밍 환경과 통합될 수 있습니다. 라이브러리를 가져오려면 [.NET Framework 4.6.1(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=49981)을 참조하세요.
@@ -30,8 +30,8 @@ Azure SQL Database(SQL DB)용 Elastic Database를 사용하면 SQL DB의 여러 
 SQL DB용 Elastic Database 트랜잭션은 여러 개의 다른 SQL Database에 저장된 데이터에 대한 응용 프로그램의 원자성 변경을 가능하게 합니다. 미리 보기는 C# 및 .NET의 클라이언트 쪽 개발 환경에 중점을 둡니다. T-SQL을 사용한 서버 쪽 환경은 차후에 계획되어 있습니다.  
 탄력적 데이터베이스 트랜잭션은 다음과 같은 시나리오를 대상으로 합니다.
 
-* Azure의 다중 데이터베이스 응용 프로그램: 이 시나리오의 경우 데이터가 SQL DB의 여러 데이터베이스에 걸쳐 수직으로 분할되어 있고 다른 종류의 데이터가 다른 데이터베이스에 상주합니다. 일부 작업은 둘 이상의 데이터베이스에 보관되는 데이터에 대한 변경을 필요로 합니다. 응용 프로그램은 여러 데이터베이스에 걸쳐 변경을 조정하고 원자성을 보장하기 위해 탄력적 데이터베이스 트랜잭션을 사용합니다.
-* Azure의 분할된 데이터베이스 응용 프로그램: 이 시나리오의 경우, 데이터 계층은 [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) 또는 자체 분할을 사용하여 SQL DB의 여러 데이터베이스에 걸쳐있는 데이터를 수평적으로 분할합니다. 한 가지 주요한 사용 사례는 여러 테넌트에 변경이 미칠 때 분할된 다중 테넌트 응용 프로그램에 원자성 변경을 수행해야 하는 경우입니다. 서로 다른 데이터베이스에 상주하는 하나의 테넌트에서 다른 테넌트로 전송하는 인스턴스를 생각해 볼 수 있습니다. 두 번째 사례는 대규모 테넌트에 필요한 용량을 공급하기 위한 세분화된 분할이며, 일반적으로 원자성 작업이 동일한 테넌트의 여러 데이터베이스에까지 결과적으로 영향을 미쳐야 하는 필요성을 수반합니다. 세 번째 사례는 여러 데이터베이스에 걸쳐 복제되는 참조 데이터에 대한 원자성 업데이트입니다. 이러한 방식의 트랜잭션 처리된, 원자성, 작업은 미리 보기를 사용하여 여러 데이터베이스에 걸쳐 조정될 수 있습니다.
+* Azure의 다중 데이터베이스 애플리케이션: 이 시나리오의 경우 데이터가 SQL DB의 여러 데이터베이스에 걸쳐 수직으로 분할되어 있고 다른 종류의 데이터가 다른 데이터베이스에 상주합니다. 일부 작업은 둘 이상의 데이터베이스에 보관되는 데이터에 대한 변경을 필요로 합니다. 응용 프로그램은 여러 데이터베이스에 걸쳐 변경을 조정하고 원자성을 보장하기 위해 탄력적 데이터베이스 트랜잭션을 사용합니다.
+* Azure의 분할된 데이터베이스 애플리케이션: 이 시나리오의 경우, 데이터 계층은 [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) 또는 자체 분할을 사용하여 SQL DB의 여러 데이터베이스에 걸쳐 있는 데이터를 수평적으로 분할합니다. 한 가지 주요한 사용 사례는 여러 테넌트에 변경이 미칠 때 분할된 다중 테넌트 응용 프로그램에 원자성 변경을 수행해야 하는 경우입니다. 서로 다른 데이터베이스에 상주하는 하나의 테넌트에서 다른 테넌트로 전송하는 인스턴스를 생각해 볼 수 있습니다. 두 번째 사례는 대규모 테넌트에 필요한 용량을 공급하기 위한 세분화된 분할이며, 일반적으로 원자성 작업이 동일한 테넌트의 여러 데이터베이스에까지 결과적으로 영향을 미쳐야 하는 필요성을 수반합니다. 세 번째 사례는 여러 데이터베이스에 걸쳐 복제되는 참조 데이터에 대한 원자성 업데이트입니다. 이러한 방식의 트랜잭션 처리된, 원자성, 작업은 미리 보기를 사용하여 여러 데이터베이스에 걸쳐 조정될 수 있습니다.
   탄력적 데이터베이스 트랜잭션은 여러 데이터베이스에 걸쳐 트랜잭션 원자성을 보장하기 위해 2단계 커밋을 사용합니다. 이것은 단일 트랜잭션 내에 한 번에 100개 미만의 데이터베이스가 관여되는 트랜잭션에 적합합니다. 이 한도가 강제로 적용되지는 않지만, 한도를 초과하는 경우 탄력적 데이터베이스의 성능 및 성공률이 불리해질 수 있다는 것을 예상해야 합니다.
 
 ## <a name="installation-and-migration"></a>설치 및 마이그레이션
@@ -127,7 +127,7 @@ Elastic Database 트랜잭션은 Azure SQL Database의 여러 논리 서버에 �
 * **Remove-AzureRmSqlServerCommunicationLink**: 기존 통신 관계와 해당 속성을 제거하려면 이 cmdlet을 사용합니다. 
 
 ## <a name="monitoring-transaction-status"></a>트랜잭션 상태 모니터링
-SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이터베이스 트랜잭션의 상태와 진행률을 모니터링합니다. 트랜잭션과 관련된 모든 DMV는 SQL DB의 분산 트랜잭션과 관련이 있습니다. 해당 DMV 목록은 [트랜잭션 관련 동적 관리 뷰 및 함수(Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx)에서 찾을 수 있습니다.
+SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이터베이스 트랜잭션의 상태와 진행률을 모니터링합니다. 트랜잭션과 관련된 모든 DMV는 SQL DB의 분산 트랜잭션과 관련이 있습니다. 해당 DMV 목록은 다음에서 찾을 수 있습니다. [트랜잭션 관련 동적 관리 뷰 및 함수(Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx)
 
 다음 DMV는 특히 유용합니다.
 

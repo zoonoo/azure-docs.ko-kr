@@ -1,21 +1,22 @@
 ---
-title: LUIS 앱에서 엔터티 추가
-titleSuffix: Azure Cognitive Services
+title: 엔터티 추가
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS(Language Understanding) 앱에서 엔터티(응용 프로그램 도메인의 키 데이터)를 추가합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5beb952c2330d44ffe090fc422afa6da67376b0d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: f95d7851241dfd5b077c215e2df893c6ba8ef36c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288053"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139489"
 ---
 # <a name="create-entities-without-utterances"></a>발화 없는 엔터티 만들기
 
@@ -156,13 +157,13 @@ ms.locfileid: "51288053"
 
 1. 목록에 대해 정규화된 항목을 더 원할 경우 **권장**을 선택하여 [의미 사전](luis-glossary.md#semantic-dictionary)의 옵션을 표시합니다.
 
-    ![Location 엔터티에 Origin 역할을 추가하는 스크린샷](./media/add-entities/hr-list-2.png)
+    ![옵션을 보기 위해 권장 기능을 선택하는 스크린샷](./media/add-entities/hr-list-2.png)
 
 
 1. 권장 목록에서 항목을 선택하여 정규화된 값으로 추가하거나 **모두 추가**를 선택하여 모든 항목을 추가합니다. 
     다음과 같은 JSON 형식을 사용하여 기존 목록 엔터티로 값을 가져올 수 있습니다.
 
-    ```
+    ```JSON
     [
         {
             "canonicalForm": "Blue",

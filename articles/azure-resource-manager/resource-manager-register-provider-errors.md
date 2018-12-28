@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: b90009c1cd08a1004e58c4b9f25cd6350712fbcd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 704aa488d40a18d7be0b64c9fc9a1bd33f8a3d96
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358611"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184545"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>리소스 공급자 등록 오류 해결
 
@@ -41,15 +41,15 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
-오류 메시지는 지원되는 위치 및 API 버전에 대해 제안을 제공해야 합니다. 템플릿을 제안된 값 중 하나로 변경할 수 있습니다. 대부분의 공급자는 Azure 포털이나 사용 중인 명령줄 인터페이스에 의해 자동으로 등록되지만, 그렇지 않은 경우도 있습니다. 특정 리소스 공급자를 전에 사용하지 않은 경우 해당 공급자를 등록해야 합니다.
+오류 메시지는 지원되는 위치 및 API 버전에 대해 제안을 제공해야 합니다. 템플릿을 제안된 값 중 하나로 변경할 수 있습니다. 대부분의 공급자는 Azure Portal이나 사용 중인 명령줄 인터페이스에 의해 자동으로 등록되지만, 그렇지 않은 경우도 있습니다. 특정 리소스 공급자를 전에 사용하지 않은 경우 해당 공급자를 등록해야 합니다.
 
 ## <a name="cause"></a>원인
 
 세 가지 이유 중 하나로 이러한 오류가 나타납니다.
 
-1. 리소스 공급자가 구독에 대해 등록되지 않았습니다.
-1. 해당 리소스 종류에 대해 API 버전이 지원되지 않습니다.
-1. 해당 리소스 종류에 대해 위치가 지원되지 않습니다.
+* 리소스 공급자가 구독에 대해 등록되지 않았습니다.
+* 해당 리소스 종류에 대해 API 버전이 지원되지 않습니다.
+* 해당 리소스 종류에 대해 위치가 지원되지 않습니다.
 
 ## <a name="solution-1---powershell"></a>해결 방법 1 - PowerShell
 
@@ -100,6 +100,18 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 ## <a name="solution-3---azure-portal"></a>해결 방법 3 - Azure Portal
 
 등록 상태를 볼 수 있으며 포털을 통해 리소스 공급자 네임스페이스를 등록할 수 있습니다.
+
+1. 포털에서 **모든 서비스**를 선택합니다.
+
+   ![모든 서비스 선택](./media/resource-manager-register-provider-errors/select-all-services.png)
+
+1. **구독**을 선택합니다.
+
+   ![구독 선택](./media/resource-manager-register-provider-errors/select-subscriptions.png)
+
+1. 구독 목록에서 리소스 공급자를 등록하는 데 사용하려는 구독을 선택합니다.
+
+   ![리소스 공급자를 등록할 구독을 선택합니다.](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
 
 1. 구독의 경우 **리소스 공급자**를 선택합니다.
 

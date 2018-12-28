@@ -154,7 +154,7 @@ ms.locfileid: "53337940"
 * 스택 오버플로 예외를 일으킬 수 있는 JsonSerializable 클래스의 문제가 수정되었습니다.
 
 ### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
-*   JsonSerializerSettings가 DocumentClient 생성자의 선택적 매개 변수로 도입된 것으로 인해 응용 프로그램을 다시 컴파일해야 하는 문제가 수정되었습니다.
+*   JsonSerializerSettings가 DocumentClient 생성자의 선택적 매개 변수로 도입된 것으로 인해 애플리케이션을 다시 컴파일해야 하는 문제가 수정되었습니다.
 * JsonSerializerSettings 매개 변수 전달 시 ConnectionPolicy 및 ConsistencyLevel 매개 변수의 기본값을 허용하도록 마지막 매개 변수로 JsonSerializerSettings가 필요한 DocumentClient 생성자가 더 이상 사용되지 않는 것으로 표시되었습니다.
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
@@ -221,7 +221,7 @@ ms.locfileid: "53337940"
 * 파티션 간 쿼리 연속 및 파티션 간 쿼리에 대한 일부 성능 향상 지원
 * CreateDatabaseIfNotExistsAsync 및 CreateDocumentCollectionIfNotExistsAsync 메서드 추가
 * 시스템 함수에 대한 LINQ 지원: IsDefined, IsNull 및 IsPrimitive.
-* project.json 도구를 포함한 프로젝트의 NuGet 패키지를 사용할 때 Microsoft.Azure.Documents.ServiceInterop.dll 및 DocumentDB.Spatial.Sql.dll 어셈블리가 자동으로 응용 프로그램의 휴지통에 들어가는 현상 수정
+* project.json 도구를 포함한 프로젝트의 NuGet 패키지를 사용할 때 Microsoft.Azure.Documents.ServiceInterop.dll 및 DocumentDB.Spatial.Sql.dll 어셈블리가 자동으로 애플리케이션의 휴지통에 들어가는 현상 수정
 * 시나리오를 디버깅하는 데 도움이 될 수 있는 클라이언트 쪽 ETW 추적 내보내기 지원
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0

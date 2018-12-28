@@ -1,10 +1,8 @@
 ---
-title: Java용 Azure Cosmos DB Table API | Microsoft Docs
+title: Java용 Azure Cosmos DB Table API
 description: 릴리스 날짜, 사용 중지 날짜 및 각 버전의 변경 내용을 포함하여 Azure Cosmos DB Table API에 대해 자세히 알아봅니다.
 services: cosmos-db
 author: yarong
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: java
@@ -12,12 +10,12 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: ''
-ms.openlocfilehash: 3bb4a433b06deff27ce80ab1fb631efde29a3f83
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 54fad2e830ae7ff1d07cc8f67e50d2b5bc4fe8a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465579"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096587"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Java용 Azure Cosmos DB Table API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -31,7 +29,7 @@ ms.locfileid: "49465579"
 |   |   |
 |---|---|
 |**SDK 다운로드**|[다운로드 옵션](https://github.com/azure/azure-storage-java#download)|
-|**API 설명서**|[Java API 참조 설명서](http://azure.github.io/azure-storage-java/)|
+|**API 설명서**|[Java API 참조 설명서](https://azure.github.io/azure-storage-java/)|
 |**SDK에 참여**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
 > [!IMPORTANT]

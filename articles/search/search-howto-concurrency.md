@@ -1,5 +1,5 @@
 ---
-title: Azure Search에서 리소스에 대한 동시 쓰기를 관리하는 방법
+title: 리소스에 대한 동시 쓰기를 관리하는 방법 - Azure Search
 description: Azure Search 인덱스, 인덱서, 데이터 원본을 업데이트나 삭제하는 중에 충돌이 발생하지 않도록 하려면 낙관적 동시성을 사용합니다.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
-ms.openlocfilehash: f5fa495c1266c847cabc0eb4e35b85132550bc3c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 017f665f3d0d19746854e2cf566034f801b32a04
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796383"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310250"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Azure Search에서 동시성을 관리하는 방법
 
@@ -24,9 +25,9 @@ ms.locfileid: "31796383"
 
 ## <a name="how-it-works"></a>작동 방법
 
-낙관적 동시성은 인덱스, 인덱서, 데이터 원본 및 synonymMap 리소스에 데이터를 기록하는 API 호출에서 액세스 조건을 확인하는 방식으로 구현됩니다. 
+낙관적 동시성은 인덱스, 인덱서, 데이터 원본 및 synonymMap 리소스에 데이터를 기록하는 API 호출에서 액세스 조건을 확인하는 방식으로 구현됩니다.
 
-모든 리소스에는 개체 버전 정보를 제공하는 [*ETag(엔터티 태그)*](https://en.wikipedia.org/wiki/HTTP_ETag)가 있습니다. ETag를 먼저 확인하면 리소스의 ETag가 로컬 복사본과 일치하는지를 확인하여 일반적인 워크플로(가져오기, 논리적으로 수정, 업데이트)에서 동시 업데이트를 방지할 수 있습니다. 
+모든 리소스에는 개체 버전 정보를 제공하는 [*ETag(엔터티 태그)*](https://en.wikipedia.org/wiki/HTTP_ETag)가 있습니다. ETag를 먼저 확인하면 리소스의 ETag가 로컬 복사본과 일치하는지를 확인하여 일반적인 워크플로(가져오기, 논리적으로 수정, 업데이트)에서 동시 업데이트를 방지할 수 있습니다.
 
 + REST API는 요청 헤더에서 [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)를 사용합니다.
 + .NET SDK는 accessCondition 개체를 통해 ETag를 설정하여 리소스에 대해 [If-Match | If-Match-None 헤더](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)를 설정합니다. [IResourceWithETag(.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag)에서 상속하는 모든 개체에는 accessCondition 개체가 있습니다.
@@ -34,7 +35,7 @@ ms.locfileid: "31796383"
 리소스를 업데이트할 때마다 ETag는 자동으로 변경됩니다. 동시성 관리를 구현할 때는 클라이언트에서 수정한 리소스 복사본과 같은 ETag가 원격 리소스에 포함되어 있어야 하도록 지정하는 사전 조건만 업데이트 요청에 포함하면 됩니다. 동시 프로세스에서 원격 리소스를 이미 변경한 경우 ETag가 사전 조건과 일치하지 않아 요청이 실패하며 HTTP 412가 표시됩니다. .NET SDK를 사용 중이라면 이러한 경우 `CloudException`이 표시됩니다. 여기서 `IsAccessConditionFailed()` 확장 메서드는 true를 반환합니다.
 
 > [!Note]
-> 동시성의 메커니즘은 한 가지뿐입니다. 즉, 리소스 업데이트에 사용되는 API에 관계없이 동시성은 항상 사용됩니다. 
+> 동시성의 메커니즘은 한 가지뿐입니다. 즉, 리소스 업데이트에 사용되는 API에 관계없이 동시성은 항상 사용됩니다.
 
 <a name="samplecode"></a>
 ## <a name="use-cases-and-sample-code"></a>사용 사례 및 샘플 코드
@@ -111,7 +112,7 @@ ms.locfileid: "31796383"
             {
                 indexForClient2.Fields.Add(new Field("b", DataType.Boolean));
                 serviceClient.Indexes.CreateOrUpdate(
-                    indexForClient2, 
+                    indexForClient2,
                     accessCondition: AccessCondition.IfNotChanged(indexForClient2));
 
                 Console.WriteLine("Whoops; This shouldn't happen");
@@ -167,9 +168,9 @@ ms.locfileid: "31796383"
 
 ## <a name="design-pattern"></a>디자인 패턴
 
-낙관적 동시성 구현을 위한 디자인 패턴에는 액세스 조건 확인을 다시 시도하는 루프와 액세스 조건에 대한 테스트를 포함해야 하며, 필요에 따라 변경 내용을 다시 적용하기 전에 업데이트된 리소스를 검색하는 과정을 포함할 수 있습니다. 
+낙관적 동시성 구현을 위한 디자인 패턴에는 액세스 조건 확인을 다시 시도하는 루프와 액세스 조건에 대한 테스트를 포함해야 하며, 필요에 따라 변경 내용을 다시 적용하기 전에 업데이트된 리소스를 검색하는 과정을 포함할 수 있습니다.
 
-다음 코드 조각은 이미 있는 인덱스에 synonymMap을 추가하는 방법을 보여 줍니다. 이 코드는 [Azure Search용 Synonym(미리 보기) C# 자습서](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk)에서 발췌한 것입니다. 
+다음 코드 조각은 이미 있는 인덱스에 synonymMap을 추가하는 방법을 보여 줍니다. 이 코드는 [Azure Search용 Synonym(미리 보기) C# 자습서](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk)에서 발췌한 것입니다.
 
 해당 코드 조각은 "hotels" 인덱스를 가져와 업데이트 작업의 개체 버전을 확인한 다음 조건이 실패하면 예외를 throw합니다. 그런 후에 작업을 최대 3회까지 다시 시도하는데, 이때 먼저 서버에서 인덱스를 검색하여 최신 버전을 가져옵니다.
 
@@ -211,10 +212,11 @@ ms.locfileid: "31796383"
 
 다음 샘플 중 하나를 수정하여 ETag 또는 AccessCondition 개체를 포함합니다.
 
-+ [GitHub의 REST API 샘플](https://github.com/Azure-Samples/search-rest-api-getting-started) 
++ [GitHub의 REST API 샘플](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [GitHub의 .NET SDK 샘플](https://github.com/Azure-Samples/search-dotnet-getting-started) 이 솔루션에는 이 문서에 나와 있는 코드를 포함하는 "DotNetEtagsExplainer" 프로젝트가 들어 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 
-  [일반적인 HTTP 요청 및 응답 헤더](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)    
-  [HTTP 상태 코드](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) [인덱스 작업(REST API)](https://docs.microsoft.com/\rest/api/searchservice/index-operations)
+[일반 HTTP 요청 및 응답 헤더](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
+[HTTP 상태 코드](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
+[인덱스 작업(REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

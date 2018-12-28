@@ -74,4 +74,4 @@ Service Fabric Reliable Services 또는 Reliable Actors 프로그래밍 모델�
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric Windows 클러스터 배포](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 * [Service Fabric Linux 클러스터 배포](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-* Service Fabric [응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)에 대해 자세히 알아봅니다.
+* Service Fabric [애플리케이션 수명 주기](service-fabric-application-lifecycle.md)에 대해 자세히 알아봅니다.

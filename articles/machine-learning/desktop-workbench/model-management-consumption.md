@@ -2,8 +2,8 @@
 title: Azure Machine Learning 모델 관리 웹 서비스 사용 | Microsoft Docs
 description: 이 문서에서는 Azure Machine Learning 모델 관리를 통해 배포된 웹 서비스를 사용하는 것과 관련된 단계와 개념을 설명합니다.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbd36e5389208b21704f1749beee016e30cc4ec5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950632"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253853"
 ---
 # <a name="consuming-web-services"></a>웹 서비스 사용
 
@@ -60,7 +60,7 @@ az ml service run realtime -i <web service id> -d "Your input data"
 ```
 az ml service keys realtime -i <web service id>
 ```
-HTTP 요청을 만들 때 인증 헤더("Authorization": "Bearer <key>")의 키를 사용합니다.
+HTTP 요청을 만들 때 인증 헤더 “Authorization”: “Bearer <key>”의 키를 사용합니다.
 
 ## <a name="get-the-service-swagger-description"></a>서비스 Swagger 설명 가져오기
 서비스 API 스키마가 제공된 경우 서비스 엔드포인트는 ```http://<ip>/api/v1/service/<service name>/swagger.json```에 있는 Swagger 문서를 공개합니다. 이 Swagger 문서를 사용하여 서비스 클라이언트를 자동으로 생성하고 예상되는 입력 데이터 및 서비스에 대한 기타 세부 정보를 탐색할 수 있습니다.

@@ -108,7 +108,7 @@ Azure Machine Learning 모델 관리는 데이터 과학자와 개발 운영팀�
 
 **Azure Machine Learning Workbench란 무엇인가요?**
 
-Azure Machine Learning Workbench는 전문 데이터 과학자를 위해 만든 자매 응용 프로그램입니다. Windows 및 Mac에서 사용할 수 있는 Machine Learning Workbench는 기계 학습 솔루션에 대한 개요, 관리 및 제어를 제공합니다. Machine Learning Workbench는 Microsoft 및 오픈 소스 커뮤니티 둘 다에서 나온 첨단 AI 프레임워크에 대한 액세스 권한을 포함합니다. TensorFlow, Microsoft Cognitive Toolkit, Spark ML, scikit-learn 등 가장 인기 있는 데이터 과학 도구 키트를 포함시켰습니다. 또한 Jupyter 노트북, PyCharm 및 Visual Studio Code 같은 인기 있는 데이터 과학 IDE와 통합할 수 있도록 했습니다. Machine Learning Workbench는 구조화되었는지 여부와 상관없이 데이터를 신속하게 샘플링, 이해 및 준비하는 데이터 준비 기능을 기본 제공합니다. [PROSE](https://microsoft.github.io/prose/)라는 새 데이터 준비 도구는 Microsoft Research의 첨단 기술을 기반으로 합니다.  
+Azure Machine Learning Workbench는 전문 데이터 과학자를 위해 만든 자매 애플리케이션입니다. Windows 및 Mac에서 사용할 수 있는 Machine Learning Workbench는 기계 학습 솔루션에 대한 개요, 관리 및 제어를 제공합니다. Machine Learning Workbench는 Microsoft 및 오픈 소스 커뮤니티 둘 다에서 나온 첨단 AI 프레임워크에 대한 액세스 권한을 포함합니다. TensorFlow, Microsoft Cognitive Toolkit, Spark ML, scikit-learn 등 가장 인기 있는 데이터 과학 도구 키트를 포함시켰습니다. 또한 Jupyter 노트북, PyCharm 및 Visual Studio Code 같은 인기 있는 데이터 과학 IDE와 통합할 수 있도록 했습니다. Machine Learning Workbench는 구조화되었는지 여부와 상관없이 데이터를 신속하게 샘플링, 이해 및 준비하는 데이터 준비 기능을 기본 제공합니다. [PROSE](https://microsoft.github.io/prose/)라는 새 데이터 준비 도구는 Microsoft Research의 첨단 기술을 기반으로 합니다.  
 
 **Workbench는 IDE인가요?**
 
@@ -116,7 +116,7 @@ Azure Machine Learning Workbench는 전문 데이터 과학자를 위해 만든 
 
 **Azure Machine Learning Workbench 사용은 유료입니까?**
 
-아니요. Azure Machine Learning Workbench는 무료 응용 프로그램입니다. 필요한 만큼 많은 컴퓨터에 많은 사용자를 위해 다운로드할 수 있습니다. Azure Machine Learning Workbench를 사용하려면 실험 계정이 있어야 합니다. .  
+아니요. Azure Machine Learning Workbench는 체험 애플리케이션입니다. 필요한 만큼 많은 컴퓨터에 많은 사용자를 위해 다운로드할 수 있습니다. Azure Machine Learning Workbench를 사용하려면 실험 계정이 있어야 합니다. .  
 
 **명령줄 기능을 지원하나요?**
 
@@ -125,7 +125,7 @@ Azure Machine Learning Workbench는 전문 데이터 과학자를 위해 만든 
 
 **내 Jupyter 노트북을 Workbench에서 사용할 수 있나요?**
 
-예! 브라우저를 클라이언트로 사용할 수 있는 것처럼 Workbench를 클라이언트 호스팅 응용 프로그램으로 하여 Workbench에서 Jupyter 노트북을 실행할 수 있습니다. 
+예! 브라우저를 클라이언트로 사용할 수 있는 것처럼 Workbench를 클라이언트 호스팅 애플리케이션으로 하여 Workbench에서 Jupyter 노트북을 실행할 수 있습니다. 
 
 **어떤 Jupyter 노트북 커널이 지원되나요?**
 

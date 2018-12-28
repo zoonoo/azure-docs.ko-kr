@@ -1,21 +1,22 @@
 ---
-title: 패턴의 예측 정확도를 늘리는 방법 알아보기
-titleSuffix: Azure Cognitive Services
-description: 패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다. 패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다.
+title: 예측에 도움이 되는 패턴
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 46c9eb99d808874e0f49dee5fa4865a4867873f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300373"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271524"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>패턴을 통해 예측 정확도 개선
 패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다.  패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다. 
@@ -43,6 +44,8 @@ ms.locfileid: "51300373"
 ## <a name="patterns-do-not-improve-entity-detection"></a>패턴을 사용해도 엔터티 검색이 개선되지 않음
 패턴에 엔터티가 필요한 경우 패턴은 엔터티 검색에 도움이 되지 않습니다. 패턴은 의도 및 역할이 있는 예측에만 도움을 줍니다.  
 
+여러 발언을 단일 패턴으로 축소하는 경우에는 향상된 엔터티 예측을 기대하지 못합니다. 간단한 엔터티를 발생시키려면 발언을 추가하거나 목록 엔터티를 사용합니다. 그렇지 않으면 패턴이 발생하지 않습니다.
+
 ## <a name="patterns-use-entity-roles"></a>패턴에 엔터티 역할 사용
 패턴의 둘 이상의 엔터티가 문맥상 관련이 있는 경우 패턴은 엔터티 [역할](luis-concept-roles.md)을 사용하여 엔터티에 대한 컨텍스트 정보를 추출합니다. 이것은 계층적 엔터티 자식과 동일하지만 **반드시** 패턴에서만 사용할 수 있습니다. 
 
@@ -50,7 +53,7 @@ ms.locfileid: "51300373"
 충분한 예제 발언이 제공될 경우, LUIS는 패턴 없이 예측 신뢰도를 높일 수 있습니다. 패턴은 많은 발언을 제공할 필요 없이, 신뢰도 점수를 높입니다.  
 
 ## <a name="pattern-matching"></a>패턴 일치
-먼저 패턴 내 엔터티를 검색된 후, 패턴의 나머지 단어 및 단어 순서가 유효한지 검사됩니다. 패턴이 일치하려면 패턴에 엔터티가 필요합니다. 
+먼저 패턴 내 엔터티를 검색된 후, 패턴의 나머지 단어 및 단어 순서가 유효한지 검사됩니다. 패턴이 일치하려면 패턴에 엔터티가 필요합니다. 패턴은 문자 수준이 아닌 토큰 수준에서 적용됩니다. 
 
 ## <a name="pattern-syntax"></a>패턴 구문
 패턴 구문은 발언의 템플릿입니다. 템플릿에는 무시하려는 단어 및 문장 부호 뿐만 아니라 일치시키려는 단어 및 엔터티도 포함되어야 합니다. 정규식은 **아닙니다**. 

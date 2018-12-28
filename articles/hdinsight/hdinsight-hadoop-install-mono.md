@@ -1,6 +1,6 @@
 ---
 title: HDInsight에서 Mono 설치 또는 업데이트 - Azure
-description: HDInsight 클러스터에서 특정 버전의 Mono를 사용하는 방법을 알아봅니다. Mono는 Linux 기반 HDInsight 클러스터에서 .NET 응용 프로그램을 실행하는 데 사용됩니다.
+description: HDInsight 클러스터에서 특정 버전의 Mono를 사용하는 방법을 알아봅니다. Mono는 Linux 기반 HDInsight 클러스터에서 .NET 애플리케이션을 실행하는 데 사용됩니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -20,7 +20,7 @@ ms.locfileid: "53384618"
 
 HDInsight 3.4 이상에서 특정 버전의 [Mono](https://www.mono-project.com)를 설치하는 방법을 알아봅니다.
 
-Mono는 HDInsight 3.4 이상에서 설치되고 .NET 응용 프로그램을 실행하는 데 사용됩니다. 각 HDInsight 버전에 포함된 Mono 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요. 클러스터에서 다른 버전을 설치하려면 이 문서의 스크립트 동작을 사용합니다. 
+Mono는 HDInsight 3.4 이상에서 설치되고 .NET 애플리케이션을 실행하는 데 사용됩니다. 각 HDInsight 버전에 포함된 Mono 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요. 클러스터에서 다른 버전을 설치하려면 이 문서의 스크립트 동작을 사용합니다. 
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -57,7 +57,7 @@ HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내�
 
 ## <a name="next-steps"></a>다음 단계
 
-HDInsight에서 특정 버전의 Mono를 업그레이드하거나 설치하는 방법을 배웠습니다. HDInsight의 Mono에서 .NET 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+HDInsight에서 특정 버전의 Mono를 업그레이드하거나 설치하는 방법을 배웠습니다. HDInsight의 Mono에서 .NET 애플리케이션을 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight의 MapReduce 스트리밍에 .NET 사용](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [HDInsight에서 Apache Hive 및 Apache Pig와 함께 .NET 사용](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)

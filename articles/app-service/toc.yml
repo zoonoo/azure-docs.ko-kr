@@ -241,7 +241,7 @@ items:
       href: troubleshoot-domain-ssl-certificates.md
     - name: FAQ
       items:
-      - name: 가용성, 성능 및 응용 프로그램 FAQ
+      - name: 가용성, 성능 및 애플리케이션 FAQ
         href: faq-availability-performance-application-issues.md
       - name: 배포 FAQ
         href: faq-deployment.md

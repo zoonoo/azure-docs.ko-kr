@@ -183,7 +183,7 @@ Cloud Services의 현재 WAD 설정을 가져오기 위해 [Get-AzureServiceDiag
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Azure 기본 IPS/IDS와 DDoS에서 제공하는 기능이란?
 Azure에는 위협으로부터 보호하기 위해 데이터 센터 실제 서버에 있는 IP/ID가 있습니다. 또한 고객은 웹 응용 프로그램 방화벽, 네트워크 방화벽, 맬웨어 방지 프로그램, 침입 감지 및 방지 시스템(IDS/IPS) 등과 같은 타사 보안 솔루션을 배포할 수 있습니다. 자세한 내용은 [데이터 및 자산 보호 및 글로벌 보안 표준 준수](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity)를 참조하세요.
 
-Microsoft에서는 서버, 네트워크 및 응용 프로그램을 지속적으로 모니터링하여 위협을 감지합니다. Azure의 다면적 위협 관리 접근 방식은 침입 감지, DDoS(Distributed Denial-of-Service) 공격 방지, 침투 테스트, 동작 분석, 이상 감지 및 Machine Learning을 사용하여 방어를 지속적으로 강화하고 위험을 줄입니다. Azure용 Microsoft 맬웨어 방지 프로그램은 Azure Cloud Services 및 가상 머신을 보호합니다. 웹 응용 프로그램 방화벽, 네트워크 방화벽, 맬웨어 방지 프로그램, 침입 감지 및 방지 시스템(IDS/IPS) 등과 같은 타사 보안 솔루션을 배포하는 옵션이 있습니다.
+Microsoft에서는 서버, 네트워크 및 응용 프로그램을 지속적으로 모니터링하여 위협을 감지합니다. Azure의 다면적 위협 관리 접근 방식은 침입 감지, DDoS(Distributed Denial-of-Service) 공격 방지, 침투 테스트, 동작 분석, 이상 감지 및 Machine Learning을 사용하여 방어를 지속적으로 강화하고 위험을 줄입니다. Azure용 Microsoft 맬웨어 방지 프로그램은 Azure Cloud Services 및 가상 머신을 보호합니다. 웹 애플리케이션 방화벽, 네트워크 방화벽, 맬웨어 방지 프로그램, 침입 감지 및 방지 시스템(IDS/IPS) 등과 같은 타사 보안 솔루션을 배포하는 옵션이 있습니다.
 
 ### <a name="how-to-enable-http2-on-cloud-services-vm"></a>Cloud Services VM에서 HTTP/2를 사용하려면 어떻게 해야 하나요?
 
@@ -280,7 +280,7 @@ IIS에서 설정으로도 추가할 수 있습니다. [일반적인 시작 작�
 [서비스 특정 제한](../azure-subscription-service-limits.md#subscription-limits)을 참조하세요.
 
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>클라우드 서비스 VM의 드라이브에 사용 가능한 디스크 공간이 거의 표시되지 않는 이유는 무엇인가요?
-이 동작은 정상적이며 응용 프로그램에 문제가 발생하지 않아야 합니다. 저널은 Azure PaaS VM에서 %approot% 드라이브에 설정되며 이 기능은 기본적으로 파일이 차지하는 공간의 두 배를 사용합니다. 그러나 이를 사소하게 만드는 몇 가지 사항이 있습니다.
+이 동작은 정상적이며 애플리케이션에 문제가 발생하지 않아야 합니다. 저널은 Azure PaaS VM에서 %approot% 드라이브에 설정되며 이 기능은 기본적으로 파일이 차지하는 공간의 두 배를 사용합니다. 그러나 이를 사소하게 만드는 몇 가지 사항이 있습니다.
 
 %approot% 드라이브 크기는 <.cspkg 크기 + 최대 저널 크기 + 여유 공간의 여백> 또는 1.5GB 중 더 큰 값으로 계산됩니다. VM의 크기는 이 계산과 관련이 없습니다. (VM 크기는 임시 C: 드라이브의 크기에 영향을 줍니다.) 
 

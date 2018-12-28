@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor에서 CollectD의 데이터 수집 | Microsoft Docs
-description: CollectD는 주기적으로 응용 프로그램의 데이터 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다.  이 문서에서는 Azure Monitor에서 CollectD의 데이터를 수집하는 방법에 대한 정보를 제공합니다.
+description: CollectD는 주기적으로 애플리케이션의 데이터 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다.  이 문서에서는 Azure Monitor에서 CollectD의 데이터를 수집하는 방법에 대한 정보를 제공합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -21,7 +21,7 @@ ms.lasthandoff: 12/15/2018
 ms.locfileid: "53434616"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Azure Monitor에서 Linux 에이전트의 CollectD에서 데이터 수집
-[CollectD](https://collectd.org/)는 주기적으로 응용 프로그램의 성능 메트릭 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다. 예제 응용 프로그램은 JVM(Java Virtual Machine), MySQL 서버 및 Nginx를 포함합니다. 이 문서에서는 Azure Monitor에서 CollectD의 성능 데이터를 수집하는 방법에 대한 정보를 제공합니다.
+[CollectD](https://collectd.org/)는 주기적으로 응용 프로그램의 성능 메트릭 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다. 예제 애플리케이션은 JVM(Java Virtual Machine), MySQL 서버 및 Nginx를 포함합니다. 이 문서에서는 Azure Monitor에서 CollectD의 성능 데이터를 수집하는 방법에 대한 정보를 제공합니다.
 
 사용 가능한 플러그 인의 전체 목록은 [플러그 인의 테이블](https://collectd.org/wiki/index.php/Table_of_Plugins)에서 찾을 수 있습니다.
 

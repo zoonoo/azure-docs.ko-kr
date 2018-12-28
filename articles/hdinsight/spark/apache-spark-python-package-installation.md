@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5b90519120e64a905073eec6b73e4ced64fe4f64
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: bfb2df377030f14893b3e124e6112ef6c2994afd
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496052"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321186"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 스크립트 작업을 사용하여 Jupyter Notebook용 외부 python 패키지 설치
 > [!div class="op_single_selector"]
@@ -64,12 +64,10 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 
 1. [Azure Portal](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
-2. Spark 클러스터 블레이드의 왼쪽 창에서 **스크립트 작업**을 클릭합니다. 스크립트 유형으로 "사용자 지정"을 사용하고 스크립트 작업의 이름을 입력합니다. **헤드 및 작업자 노드**에서 스크립트를 실행하고 매개 변수 필드를 비워 둡니다. 기본 스크립트는 https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh[사용자 지정 스크립트 작업을 사용하는 방법](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)의 설명서를 참조할 수 있습니다.
+2. Spark 클러스터 블레이드의 왼쪽 창에서 **스크립트 작업**을 클릭합니다. 스크립트 유형으로 "사용자 지정"을 사용하고 스크립트 작업의 이름을 입력합니다. **헤드 및 작업자 노드**에서 스크립트를 실행하고 매개 변수 필드를 비워 둡니다. Bash 스크립트는 다음에서 참조할 수 있습니다. https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh [사용자 지정 스크립트 작업을 사용하는 방법](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)에 대한 설명서를 참조하세요.
 
    > [!NOTE]
-   > 클러스터에 두 개의 python 설치 프로그램이 있습니다. Spark는 `/usr/bin/anaconda/bin`에 있는 Anaconda python 설치 프로그램을 사용합니다. `/usr/bin/anaconda/bin/pip` 및 `/usr/bin/anaconda/bin/conda`를 통해 사용자 지정 작업에서 해당 설치 프로그램을 참조하세요.
-   > 
-   > 
+   > 클러스터에 두 개의 python 설치 프로그램이 있습니다. Spark는 `/usr/bin/anaconda/bin`에 있는 Anaconda python 설치를 사용하며, 기본적으로 Python 2.7 환경에 해당합니다. Python 3.x을 사용하고 PySpark3 커널에서 패키지를 설치하려면 해당 환경의 `conda` 실행 경로를 사용하고 `-n` 매개 변수를 사용하여 환경을 지정합니다. 예를 들어, 명령 `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`는 `conda-forge` 채널을 사용하여 Python 3.5 환경에 `ggplot` 패키지를 설치합니다.
 
 3. PySpark Jupyter 노트북을 엽니다.
 
@@ -93,12 +91,12 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
     ![TensorFlow 코드 실행](./media/apache-spark-python-package-installation/execution.png "TensorFlow 코드 실행")
 
 ## <a name="seealso"></a>참고 항목
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
-* [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Apache Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [BI와 Apache Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
+* [Apache Spark 및 Machine Learning: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 및 Machine Learning: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행

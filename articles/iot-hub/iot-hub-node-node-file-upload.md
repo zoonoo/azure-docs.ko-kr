@@ -181,7 +181,7 @@ ms.locfileid: "51234452"
 
 1. **FileUploadNotification.js** 파일을 저장하고 닫습니다.
 
-## <a name="run-the-applications"></a>응용 프로그램 실행
+## <a name="run-the-applications"></a>애플리케이션 실행
 
 이제 응용 프로그램을 실행할 준비가 되었습니다.
 

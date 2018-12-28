@@ -1,6 +1,6 @@
 ---
-title: Azure Web Apps에서 노드 응용 프로그램에 대한 모범 사례 및 문제 해결 가이드
-description: Azure Web Apps에서 노드 응용 프로그램에 대한 모범 사례 및 문제 해결 단계에 대해 알아봅니다.
+title: Node.js에 대한 모범 사례 및 문제 해결 - Azure App Service
+description: Azure App Service의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 단계에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: nodejs
 author: ranjithr
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
-ms.openlocfilehash: 860874ed49056e6b4695c060b06bf061820c390e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec18
+ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789676"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315726"
 ---
-# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Azure Web Apps에서 노드 응용 프로그램에 대한 모범 사례 및 문제 해결 가이드
+# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 
 이 문서에서는 Azure Web Apps에서 실행되는 [노드 응용 프로그램](app-service-web-get-started-nodejs.md)([iisnode](https://github.com/azure/iisnode) 사용)에 대한 모범 사례 및 문제 해결 단계를 알아봅니다.
 
@@ -35,7 +36,7 @@ ms.locfileid: "31789676"
 
 ### <a name="nodeprocesscountperapplication"></a>nodeProcessCountPerApplication
 
-이 설정은 IIS 응용프로그램마다 실행되는 노드 프로세스 수를 제어합니다. 기본값은 1입니다. 값을 0으로 변경하면 VM vCPU 개수만큼 node.exe를 시작할 수 있습니다. 컴퓨터에서 모든 vCPU를 사용할 수 있도록 권장되는 값은 대부분의 응용 프로그램에서 0입니다. Node.exe는 단일 스레드이므로 node.exe 하나는 vCPU를 최대 1개 사용합니다. 노드 응용 프로그램에서 최대한의 성능을 얻으려면 모든 vCPU를 사용하는 것이 좋습니다.
+이 설정은 IIS 애플리케이션마다 실행되는 노드 프로세스 수를 제어합니다. 기본값은 1입니다. 값을 0으로 변경하면 VM vCPU 개수만큼 node.exe를 시작할 수 있습니다. 컴퓨터에서 모든 vCPU를 사용할 수 있도록 권장되는 값은 대부분의 응용 프로그램에서 0입니다. Node.exe는 단일 스레드이므로 node.exe 하나는 vCPU를 최대 1개 사용합니다. 노드 응용 프로그램에서 최대한의 성능을 얻으려면 모든 vCPU를 사용하는 것이 좋습니다.
 
 ### <a name="nodeprocesscommandline"></a>nodeProcessCommandLine
 
@@ -62,7 +63,7 @@ ms.locfileid: "31789676"
 
 ### <a name="debuggerextensiondll"></a>debuggerExtensionDll
 
-이 설정은 노드 응용 프로그램을 디버깅할 때 node-inspector iisnode가 사용할 버전을 제어합니다. 현재 iisnode-inspector-0.7.3.dll 및 iisnode-inspector.dll은 이 설정에 대해 2가지 값만 유효합니다. 기본값은 iisnode-inspector-0.7.3.dll입니다. iisnode-inspector-0.7.3.dll 버전은 node-inspector-0.7.3을 사용하고 웹 소켓을 사용합니다. 이 버전을 사용하려면 Azure 웹앱에서 웹 소켓을 사용하도록 설정합니다. 새 node-inspector를 사용하도록 iisnode를 구성하는 방법에 대한 자세한 내용은 <http://ranjithblogs.azurewebsites.net/?p=98>을 참조하세요.
+이 설정은 노드 응용 프로그램을 디버깅할 때 node-inspector iisnode가 사용할 버전을 제어합니다. 현재 iisnode-inspector-0.7.3.dll 및 iisnode-inspector.dll은 이 설정에 대해 2가지 값만 유효합니다. 기본값은 iisnode-inspector-0.7.3.dll입니다. iisnode-inspector-0.7.3.dll 버전은 node-inspector-0.7.3을 사용하고 웹 소켓을 사용합니다. 이 버전을 사용하려면 Azure 웹앱에서 웹 소켓을 사용하도록 설정합니다. 새 node-inspector를 사용하도록 iisnode를 구성하는 방법에 대한 자세한 내용은 <https://ranjithblogs.azurewebsites.net/?p=98>을 참조하세요.
 
 ### <a name="flushresponse"></a>flushResponse
 
@@ -93,14 +94,14 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-기본값은 False입니다. 설정된 경우 노드 응용 프로그램에서 명명된 파이프(환경 변수 IISNODE\_CONTROL\_PIPE)에 연결할 수 있으며 "재활용" 메시지를 보낼 수 있습니다. 그러면 w3wp가 정상적으로 재활용됩니다.
+기본값은 False입니다. 설정된 경우 노드 애플리케이션에서 명명된 파이프(환경 변수 IISNODE\_CONTROL\_PIPE)에 연결할 수 있으며 "재활용" 메시지를 보낼 수 있습니다. 그러면 w3wp가 정상적으로 재활용됩니다.
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
 기본값은 이 기능을 사용하지 않는다는 의미의 0입니다. 0보다 큰 값으로 설정되면 iisnode에서 모든 하위 프로세스를 'idlePageOutTimePeriod' 밀리초마다 페이지 아웃합니다. 페이지 아웃에 대해 이해하려면 [설명서](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx)를 참조하세요. 이 설정은 대량의 메모리를 사용하고 간혹 메모리를 디스크로 페이지 아웃하여 RAM을 확보하려는 응용 프로그램의 경우 유용합니다.
 
 > [!WARNING]
-> 프로덕션 응용 프로그램에서 다음 구성 설정을 사용하도록 설정할 대는 주의하세요. 라이브 프로덕션 응용 프로그램에서 사용하지 않도록 설정하는 것이 좋습니다.
+> 프로덕션 애플리케이션에서 다음 구성 설정을 사용하도록 설정할 대는 주의하세요. 라이브 프로덕션 응용 프로그램에서 사용하지 않도록 설정하는 것이 좋습니다.
 >
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
@@ -117,7 +118,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled(라이브 프로덕션 사이트에서 사용 안 함)
 
-이 설정은 디버깅 기능을 제어합니다. Iisnode는 node-inspector에 통합됩니다. 이 설정을 사용하여 노드 응용 프로그램의 디버깅을 사용하도록 설정합니다. 이 설정을 사용하도록 설정하면 iisnode가 필요한 ‘debuggerVirtualDir’ 디렉터리의 node-inspector 파일을 노드 응용 프로그램에 대한 첫 번째 디버그 요청에 만듭니다. 요청을 http://yoursite/server.js/debug에 전송하여 node-inspector를 로드할 수 있습니다. ‘debuggerPathSegment’ 설정으로 디버그 URL 세그먼트를 제어할 수 있습니다. 기본적으로 debuggerPathSegment='debug'입니다. 예를 들어 `debuggerPathSegment`를 GUID로 설정할 수 있으므로 다른 사람이 검색하기 더 어렵습니다.
+이 설정은 디버깅 기능을 제어합니다. Iisnode는 node-inspector에 통합됩니다. 이 설정을 사용하여 노드 애플리케이션의 디버깅을 사용하도록 설정합니다. 이 설정을 사용하도록 설정하면 iisnode가 필요한 ‘debuggerVirtualDir’ 디렉터리의 node-inspector 파일을 노드 응용 프로그램에 대한 첫 번째 디버그 요청에 만듭니다. 요청을 http://yoursite/server.js/debug에 전송하여 node-inspector를 로드할 수 있습니다. ‘debuggerPathSegment’ 설정으로 디버그 URL 세그먼트를 제어할 수 있습니다. 기본적으로 debuggerPathSegment='debug'입니다. 예를 들어 `debuggerPathSegment`를 GUID로 설정할 수 있으므로 다른 사람이 검색하기 더 어렵습니다.
 
 디버깅에 대한 자세한 내용은 [Windows에서 node.js 응용 프로그램 디버그](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html)를 읽어 보세요.
 
@@ -125,7 +126,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="my-node-application-is-making-excessive-outbound-calls"></a>내 노드 응용 프로그램에서 너무 많은 아웃바운드 호출을 생성합니다.
 
-많은 응용 프로그램에서 일반 작업의 일부로 아웃바운드 연결을 생성하려고 합니다. 예를 들어 요청이 들어오면 노드 앱은 다른 위치에서 REST API에 연결하고 요청을 처리할 일부 정보를 얻습니다. http 또는 https 호출을 수행할 때 연결 유지 에이전트를 사용하려고 합니다. 이러한 아웃바운드 호출을 수행할 때 연결 유지 에이전트로 agentkeepalive 모듈을 사용할 수 있습니다.
+많은 애플리케이션에서 일반 작업의 일부로 아웃바운드 연결을 생성하려고 합니다. 예를 들어 요청이 들어오면 노드 앱은 다른 위치에서 REST API에 연결하고 요청을 처리할 일부 정보를 얻습니다. http 또는 https 호출을 수행할 때 연결 유지 에이전트를 사용하려고 합니다. 이러한 아웃바운드 호출을 수행할 때 연결 유지 에이전트로 agentkeepalive 모듈을 사용할 수 있습니다.
 
 agentkeepalive 모듈은 소켓이 Azure 웹앱 VM에서 다시 사용되도록 합니다. 각 아웃바운드 요청에서 새 소켓을 만들면 응용 프로그램에 오버 헤드가 추가됩니다. 응용 프로그램이 아웃바운드 요청에서 소켓을 재사용하면 응용 프로그램이 VM당 할당된 maxSockets를 초과하지 않도록 할 수 있습니다. Azure Web Apps에 대한 권장 사항은 agentKeepAlive maxSockets 값을 VM당 총 160개 소켓(node.exe의 인스턴스 4 \* 40 maxSockets/인스턴스)으로 설정하는 것입니다.
 
@@ -181,7 +182,7 @@ site/wwwroot 디렉터리로 이동합니다. 다음 예제와 같이 명령 프
 `npm install v8-profiler`명령을 실행합니다.
 
 이 명령은 node\_modules 디렉터리에 v8-profiler와 모든 종속성을 설치합니다.
-이제 server.js를 편집하여 응용 프로그램을 프로파일링합니다.
+이제 server.js를 편집하여 애플리케이션을 프로파일링합니다.
 
 ```nodejs
 var http = require('http');
@@ -207,7 +208,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-위의 코드 프로필은 WriteConsoleLog 함수를 프로파일링한 후 프로파일 출력을 사이트의 wwwroot 아래 'profile.cpuprofile' 파일에 기록합니다. 응용 프로그램에 요청 보내기 사이트의 wwwroot 아래에 'profile.cpuprofile' 파일이 생성된 것을 확인할 수 있습니다.
+위의 코드 프로필은 WriteConsoleLog 함수를 프로파일링한 후 프로파일 출력을 사이트의 wwwroot 아래 'profile.cpuprofile' 파일에 기록합니다. 애플리케이션에 요청 보내기 사이트의 wwwroot 아래에 'profile.cpuprofile' 파일이 생성된 것을 확인할 수 있습니다.
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
@@ -240,7 +241,7 @@ node.exe가 임의로 종료된 이유 몇 가지는 다음과 같습니다.
 1. Node.exe가 올바른 위치에 없습니다. nodeProcessCommandLine 설정을 확인합니다.
 2. 기본 스크립트 파일이 올바른 위치에 없습니다. web.config를 확인하고 처리기 섹션에서 기본 스크립트 파일의 이름이 기본 스크립트 파일과 일치하는지 확인합니다.
 3. Web.config 구성이 잘못되었습니다. 설정 이름/값을 확인하세요.
-4. 콜드 부팅 – 응용 프로그램을 시작하는 데 너무 오래 걸립니다. 응용 프로그램이 (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay)/1000초보다 오래 걸리면 iisnode에서 500 오류를 반환합니다. 응용 프로그램 시작 시간과 일치하도록 이러한 설정 값을 늘리면 iisnode의 제한 시간 초과와 500 오류 반환을 방지할 수 있습니다.
+4. 콜드 부팅 – 응용 프로그램을 시작하는 데 너무 오래 걸립니다. 응용 프로그램이 (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay)/1000초보다 오래 걸리면 iisnode에서 500 오류를 반환합니다. 애플리케이션 시작 시간과 일치하도록 이러한 설정 값을 늘리면 iisnode의 제한 시간 초과와 500 오류 반환을 방지할 수 있습니다.
 
 ### <a name="my-node-application-crashed"></a>내 노드 응용 프로그램에 충돌 발생
 
@@ -269,7 +270,7 @@ win32 오류 코드를 표시하도록 응용 프로그램에 대해 FREB를 사
 | 500 |1003 |파이프 구성 문제 - 명명된 파이프 구성이 잘못되었습니다. |
 | 500 |1004-1018 |node.exe 간에 요청을 보내거나 응답을 처리하는 동안 일부 오류가 발생했습니다. Node.exe가 충돌되었는지 확인하세요. d:\\home\\LogFiles\\logging-errors.txt에서 스택 추적을 확인하세요. |
 | 503 |1000 |메모리가 부족하여 추가 명명된 파이프 연결을 할당할 수 없습니다. 앱에서 많은 메모리를 사용하는 이유를 확인하세요. maxConcurrentRequestsPerProcess 설정 값을 확인하세요. 무한하지 않고 요청이 많은 경우 이 값을 늘려야 이 오류를 피할 수 잇습니다. |
-| 503 |1001 |응용 프로그램을 재활용 중이므로 요청을 node.exe로 디스패치할 수 없습니다. 응용 프로그램이 재활용된 후에야 요청이 정상적으로 처리됩니다. |
+| 503 |1001 |애플리케이션을 재활용 중이므로 요청을 node.exe로 디스패치할 수 없습니다. 애플리케이션이 재활용된 후에야 요청이 정상적으로 처리됩니다. |
 | 503 |1002 |win32 오류 코드로 실제 원인을 확인하세요. – 요청을 node.exe로 디스패치할 수 없습니다. |
 | 503 |1003 |명명된 파이프 사용량이 너무 많음 – node.exe에서 CPU를 과도하게 사용 중인지 확인하세요. |
 
@@ -277,7 +278,7 @@ NODE.exe에 `NODE_PENDING_PIPE_INSTANCES`라는 설정이 있습니다. 기본�
 
 ## <a name="more-resources"></a>추가 리소스
 
-Azure App Service에서 다음 링크를 따라 node.js 응용 프로그램에 대해 자세히 알아보세요.
+Azure App Service에서 다음 링크를 따라 node.js 애플리케이션에 대해 자세히 알아보세요.
 
 * [Azure App Service에서 Node.js Web Apps 시작](app-service-web-get-started-nodejs.md)
 * [Azure App Service에서 Node.js 웹앱을 디버그하는 방법](app-service-web-tutorial-nodejs-mongodb-app.md)

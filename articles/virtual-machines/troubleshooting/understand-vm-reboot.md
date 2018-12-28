@@ -26,9 +26,9 @@ ms.locfileid: "51246670"
 Azure 가상 머신(VM)는 재부팅 작업을 시작하는 명확한 이유 없이 재부팅할 수 있습니다. 이 문서에서는 VM을 재부팅할 수 있는 작업 및 이벤트를 나열하고 예기치 않은 재부팅 문제를 방지하거나 그러한 문제의 영향을 줄이는 방법에 대한 정보를 제공합니다.
 
 ## <a name="configure-the-vms-for-high-availability"></a>고가용성을 위한 VM 구성
-Azure에서 실행되는 응용 프로그램이 VM 재부팅 및 가동 중지 시간으로부터 영향을 받지 않도록 하는 가장 좋은 방법은 높은 사용 가능성을 위해 VM을 구성하는 것입니다.
+Azure에서 실행되는 애플리케이션이 VM 재부팅 및 가동 중지 시간으로부터 영향을 받지 않도록 하는 가장 좋은 방법은 높은 사용 가능성을 위해 VM을 구성하는 것입니다.
 
-응용 프로그램에 이러한 수준의 중복성을 제공하기 위해 여러 개의 VM을 가용성 집합으로 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 VM을 사용할 수 있고 99.95% [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/)가 충족되도록 합니다.
+애플리케이션에 이러한 수준의 중복성을 제공하기 위해 여러 개의 VM을 가용성 집합으로 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 VM을 사용할 수 있고 99.95% [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/)가 충족되도록 합니다.
 
 사용 가능성 집합에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -36,7 +36,7 @@ Azure에서 실행되는 응용 프로그램이 VM 재부팅 및 가동 중지 �
 - [VM의 가용성 구성](../windows/classic/configure-availability.md)
 
 ## <a name="resource-health-information"></a>Resource Health 정보 
-Azure Resource Health는 개별 Azure 리소스의 상태를 노출하고 문제 해결을 위한 실행 가능한 지침을 제공하는 서비스입니다. 서버 또는 인프라 요소에 직접 액세스할 수는 없는 클라우드 환경에서는 문제 해결에 소비하는 시간을 줄이는 것이 Resource Health의 목표입니다. 특히 문제의 원인이 응용 프로그램에 있는지 Azure 플랫폼 내 이벤트에 있는지 판단하는 데 소비하는 시간을 줄이는 것이 목표입니다. 자세한 내용은 [Resource Health 이해 및 사용](../../resource-health/resource-health-overview.md)을 참조하세요.
+Azure Resource Health는 개별 Azure 리소스의 상태를 노출하고 문제 해결을 위한 실행 가능한 지침을 제공하는 서비스입니다. 서버 또는 인프라 요소에 직접 액세스할 수는 없는 클라우드 환경에서는 문제 해결에 소비하는 시간을 줄이는 것이 Resource Health의 목표입니다. 특히 문제의 원인이 애플리케이션에 있는지 Azure 플랫폼 내 이벤트에 있는지 판단하는 데 소비하는 시간을 줄이는 것이 목표입니다. 자세한 내용은 [Resource Health 이해 및 사용](../../resource-health/resource-health-overview.md)을 참조하세요.
 
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>VM을 재부팅할 수 있는 작업 및 이벤트
 
@@ -71,7 +71,7 @@ VM의 운영 체제에서 작업을 수행하는 경우 시스템 로그에서 �
 일반적으로 VM을 재부팅하는 다른 시나리오에는 여러 구성 변경 작업이 있습니다. 보통 특정 작업을 실행하면 VM의 재부팅이 발생할 수 있음을 나타내는 경고 메시지가 표시됩니다. VM 크기 조정 작업, 관리 계정의 암호 변경, 고정 IP 주소 설정 등을 예로 들 수 있습니다.
 
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center 및 Windows 업데이트
-Azure Security Center는 누락된 운영 체제 업데이트가 있는지 매일 Windows 및 Linux VM을 모니터링합니다. 보안 센터는 Windows VM에서 구성된 서비스에 따라 Windows 업데이트 또는 WSUS(Windows Server Update Services)에서 사용 가능한 보안 및 중요 업데이트의 목록을 검색합니다. Security Center는 또한 Linux 시스템에서 최신 업데이트를 확인합니다. VM이 시스템 업데이트를 누락하는 경우 Security Center는 시스템 업데이트 적용을 권장합니다. 이러한 시스템 업데이트의 응용 프로그램은 Azure Portal에서 Security Center를 통해 제어됩니다. 일부 업데이트를 적용한 후 VM을 재부팅해야 할 수 있습니다. 자세한 내용은 [Azure Security Center의 시스템 업데이트 적용](../../security-center/security-center-apply-system-updates.md)을 참조하세요.
+Azure Security Center는 누락된 운영 체제 업데이트가 있는지 매일 Windows 및 Linux VM을 모니터링합니다. 보안 센터는 Windows VM에서 구성된 서비스에 따라 Windows 업데이트 또는 WSUS(Windows Server Update Services)에서 사용 가능한 보안 및 중요 업데이트의 목록을 검색합니다. Security Center는 또한 Linux 시스템에서 최신 업데이트를 확인합니다. VM이 시스템 업데이트를 누락하는 경우 Security Center는 시스템 업데이트 적용을 권장합니다. 이러한 시스템 업데이트의 애플리케이션은 Azure Portal에서 Security Center를 통해 제어됩니다. 일부 업데이트를 적용한 후 VM을 재부팅해야 할 수 있습니다. 자세한 내용은 [Azure Security Center의 시스템 업데이트 적용](../../security-center/security-center-apply-system-updates.md)을 참조하세요.
 
 온-프레미스 서버와 같이 이러한 머신은 사용자가 관리하도록 되어 있으므로, Azure는 Windows 업데이트에서 Windows VM으로 업데이트를 푸시하지 않습니다. 그러나 고객은 자동 Windows 업데이트 설정을 활성화 상태로 유지하는 것이 좋습니다. Windows 업데이트에서 업데이트를 자동으로 설치하면 업데이트가 적용된 후에 재부팅될 수도 있습니다. 자세한 내용은 [Windows 업데이트 FAQ](https://support.microsoft.com/help/12373/windows-update-faq)를 참조하세요.
 
@@ -99,7 +99,7 @@ VM은 Azure 데이터 센터 내에서 실행되는 실제 서버에서 호스�
 - 긴급 네트워크 스위치 업데이트
 
 ### <a name="vm-crashes"></a>VM 충돌
-VM 자체 내의 문제로 인해 VM이 다시 시작할 수 있습니다. VM에서 실행되는 작업 부하 또는 역할은 게스트 운영 체제 내에서 버그 검사를 트리거할 수 있습니다. 충돌에 대한 이유를 확인하는 도움말은 시스템 및 Windows VM에 대한 응용 프로그램 로그와 Linux VM에 대한 직렬 로그에서 확인합니다.
+VM 자체 내의 문제로 인해 VM이 다시 시작할 수 있습니다. VM에서 실행되는 작업 부하 또는 역할은 게스트 운영 체제 내에서 버그 검사를 트리거할 수 있습니다. 충돌에 대한 이유를 확인하는 도움말은 시스템 및 Windows VM에 대한 애플리케이션 로그와 Linux VM에 대한 직렬 로그에서 확인합니다.
 
 ### <a name="storage-related-forced-shutdowns"></a>Storage 관련 강제 종료
 Azure의 VM은 Azure Storage 인프라에서 호스팅되는 운영 체제 및 데이터 저장소에 대한 가상 디스크를 사용합니다. VM 및 연결된 가상 디스크 간의 사용 가능성 또는 연결이 120초 이상 영향을 받을 때마다 Azure 플랫폼은 데이터 손상을 방지하기 위해 VM을 강제 종료합니다. 저장소 연결이 복원된 후에 VM의 전원은 자동으로 다시 켜집니다. 

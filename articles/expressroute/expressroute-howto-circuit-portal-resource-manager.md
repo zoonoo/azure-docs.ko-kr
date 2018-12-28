@@ -1,26 +1,19 @@
 ---
-title: 'ExpressRoute 회로 만들기 및 수정: Azure Portal | Microsoft Docs'
-description: 이 문서에서는 ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제하는 방법을 설명합니다.
-documentationcenter: na
+title: 'ExpressRoute 회로 만들기 및 수정 - 포털: Azure | Microsoft Docs'
+description: ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제합니다.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 68d59d59-ed4d-482f-9cbc-534ebb090613
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/20/2017
+ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 94d7b743bdec0d22254144d5316e0d94f5660a55
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235329"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091530"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>ExpressRoute 회로 만들기 및 수정
 > [!div class="op_single_selector"]
@@ -31,7 +24,7 @@ ms.locfileid: "51235329"
 > * [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
 >
 
-이 문서에서는 Azure Portal 및 Azure Resource Manager 배포 모델을 사용하여 Azure ExpressRoute 회로를 만드는 방법을 설명합니다. 아래 단계에서는 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 보여 줍니다.
+이 문서에서는 Azure Portal 및 Azure Resource Manager 배포 모델을 사용하여 ExpressRoute 회로를 만듭니다. 상태를 확인하고, 회로를 업데이트, 삭제 또는 프로비전 해제할 수도 있습니다.
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -84,20 +77,20 @@ ms.locfileid: "51235329"
 
 새 ExpressRoute 회로를 만들면 회로는 다음 상태가 됩니다.
 
-공급자 상태: 프로비전되지 않음<BR>
-회로 상태: 활성화됨
+공급자 상태: 프로비전 안 됨<BR>
+회로 상태: 사용
 
 ![프로비전 프로세스 시작](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 연결 공급자가 사용자에 대해 활성화를 처리 중이면 회로가 다음 상태로 변경됩니다.
 
-공급자 상태: 프로비전 중<BR>
-회로 상태: 활성화됨
+공급자 상태: 프로비전<BR>
+회로 상태: 사용
 
 ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 
 공급자 상태: 프로비전됨<BR>
-회로 상태: 활성화됨
+회로 상태: 사용
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. 회로 키의 상태를 주기적으로 확인
 원하는 회로를 선택하여 회로의 속성을 볼 수 있습니다. **공급자 상태**를 확인하고 계속하기 전에 **프로비전됨**으로 이동했는지 확인합니다.

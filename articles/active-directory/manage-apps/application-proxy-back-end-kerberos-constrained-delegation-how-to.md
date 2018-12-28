@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 52157797bb01fc73c551ca9654b2360d161b653d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2a55e39414cd691c48b015b3aae73f93cbb95aab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355787"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134661"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>응용 프로그램 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 
@@ -32,7 +32,7 @@ KCD를 사용하도록 설정하는 절차는 간단합니다. SSO를 지원하�
 
 이 문서에서는 다음과 같이 가정합니다.
 
--   [응용 프로그램 프록시 시작](application-proxy-enable.md)에 따라 Azure AD 응용 프로그램 프록시가 배포되었으며 비 KCD 응용 프로그램에 대한 일반 액세스가 예상대로 작동합니다.
+-   [응용 프로그램 프록시 시작](application-proxy-add-on-premises-application.md)에 따라 Azure AD 응용 프로그램 프록시가 배포되었으며 비 KCD 응용 프로그램에 대한 일반 액세스가 예상대로 작동합니다.
 
 -   게시된 대상 응용 프로그램은 IIS(인터넷 정보 서비스) 및 Microsoft의 Kerberos 구현을 기반으로 합니다.
 

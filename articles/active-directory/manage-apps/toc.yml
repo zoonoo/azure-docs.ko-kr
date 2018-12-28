@@ -28,7 +28,7 @@ items:
       href: developer-guidance-for-integrating-applications.md
   - name: 온-프레미스 앱 통합 계획
     items:
-    - name: 응용 프로그램 프록시
+    - name: 애플리케이션 프록시
       href: application-proxy.md
     - name: 커넥터
       href: application-proxy-connectors.md
@@ -58,7 +58,7 @@ items:
       href: check-status-user-account-provisioning.md
     - name: 사용자 프로비전 문제 해결
       href: application-provisioning-config-problem.md
-  - name: 응용 프로그램 보안
+  - name: 애플리케이션 보안
     items:
     - name: 앱 액세스 옵션
       href: what-is-access-management.md
@@ -166,7 +166,7 @@ items:
       href: application-provisioning-config-problem-no-users-provisioned.md
     - name: 잘못 프로비전된 사용자 - 갤러리 앱
       href: application-provisioning-config-problem-wrong-users-provisioned.md
-  - name: 응용 프로그램 액세스
+  - name: 애플리케이션 액세스
     items:
     - name: 응용 프로그램 형식
       href: application-types.md
@@ -210,7 +210,7 @@ items:
       href: configure-password-single-sign-on-non-gallery-applications.md
     - name: 암호 구성 일반적인 문제 - 비갤러리 앱
       href: configure-password-single-sign-on-non-gallery-applications-problems.md
-    - name: 응용 프로그램 프록시
+    - name: 애플리케이션 프록시
       items:
       - name: KCD(Kerberos 제한 위임)
         href: application-proxy-configure-single-sign-on-with-kcd.md

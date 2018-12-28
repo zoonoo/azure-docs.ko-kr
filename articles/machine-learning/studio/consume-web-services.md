@@ -35,7 +35,7 @@ Azure Machine Learning 예측 모델을 웹 서비스로 배포하고 나면 RES
 
 
 ## <a name="overview"></a>개요
-Azure Machine Learning 웹 서비스를 통해 외부 응용 프로그램에서 Machine Learning 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. Machine Learning 웹 서비스 호출은 외부 응용 프로그램에 예측 결과를 반환합니다. Machine Learning 웹 서비스를 호출하려면 예측을 배포할 때 만들어진 API 키를 전달합니다. Machine Learning 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
+Azure Machine Learning 웹 서비스를 통해 외부 응용 프로그램에서 Machine Learning 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. Machine Learning 웹 서비스 호출은 외부 애플리케이션에 예측 결과를 반환합니다. Machine Learning 웹 서비스를 호출하려면 예측을 배포할 때 만들어진 API 키를 전달합니다. Machine Learning 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
 
 Azure Machine Learning에는 다음 두 가지 유형의 서비스가 있습니다.
 

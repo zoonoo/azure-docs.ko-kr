@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: f5e059c4ce375edb50321afb772cce400cb19b92
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 918ff674e57a14f685c7f9ef2aaaca5ca064976e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309432"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012847"
 ---
 # <a name="azure-resource-health-overview"></a>Azure Resource Health 개요
  
@@ -53,7 +53,7 @@ Resource Health에는 이벤트 및 복구 프로세스에 대한 추가 세부 
 ![플랫폼 이벤트로 인한 가상 머신의 "사용할 수 없음" 상태](./media/resource-health-overview/Unavailable.png)
 
 #### <a name="non-platform-events"></a>비-플랫폼 이벤트
-비-플랫폼 이벤트는 사용자의 작업에 의해 트리거됩니다. 예를 들어, 가상 머신을 중지하거나 Redis Cache에 대한 최대 연결 수에 도달하는 경우를 말합니다.
+비-플랫폼 이벤트는 사용자의 작업에 의해 트리거됩니다. 예를 들어, 가상 머신을 중지하거나 Redis의 Azure Cache에 대한 최대 연결 수에 도달하는 경우를 말합니다.
 
 ![비-플랫폼 이벤트로 인한 가상 머신의 “사용할 수 없음” 상태](./media/resource-health-overview/Unavailable_NonPlatform.png)
 

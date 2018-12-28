@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: magattus
-ms.openlocfilehash: 0bb52943eac3e35b5012e3f54bfb841cf491ed18
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: af8e57f39b5b83b1d1be09c29d8b6eb5d49c7b6c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091814"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309284"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Azure CDN 청구 이해
 
@@ -40,7 +40,7 @@ ms.locfileid: "49091814"
 
 POP(point-of-presence) 지역에 대한 정보는 [지역별 Azure CDN POP 위치](https://docs.microsoft.com/azure/cdn/cdn-pop-locations)를 참조하세요. 예를 들어 멕시코의 POP는 북아메리카 지역에 있고 따라서 영역 1에 포함됩니다. 
 
-Azure CDN 가격 책정에 대한 정보는 [Content Delivery Network 가격 책정](https://azure.microsoft.com/is-is/pricing/details/cdn/)을 참조하세요.
+Azure CDN 가격 책정에 대한 정보는 [Content Delivery Network 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 
 ## <a name="how-are-delivery-charges-calculated-by-region"></a>지역별 배달 요금 계산 방법
 Azure CDN 청구 지역은 최종 사용자에게 콘텐츠를 배달하는 원본 서버의 위치를 기반으로 합니다. 클라이언트의 대상(실제 위치)은 청구 지역으로 간주되지 않습니다.
@@ -55,9 +55,9 @@ Azure CDN을 사용하면 개체의 원본으로 사용되는 서비스에 대�
 
 콘텐츠 원본으로 Azure Blob 저장소를 사용하는 경우 다음과 같은 캐시 채우기에 대한 저장소 비용도 발생합니다.
 
-- 사용된 실제 GB: 원본 개체의 실제 저장소.
+- 사용된 실제 GB: 원본 개체의 실제 스토리지입니다.
 
-- 전송량(GB): CDN 캐시를 채우기 위해 전송된 데이터의 양.
+- 전송량(GB): CDN 캐시를 채우기 위해 전송된 데이터의 양입니다.
 
 - 트랜잭션: 캐시를 채우는 데 필요합니다.
 
@@ -65,9 +65,9 @@ Azure Storage 청구에 대한 자세한 내용은 [Azure Storage 청구 이해 
 
 *호스팅된 서비스 배달*을 사용하는 경우 다음과 같이 요금이 발생합니다.
 
-- Azure 계산 시간: 원점으로 작동하는 계산 인스턴스.
+- Azure 컴퓨팅 시간: 원점으로 작동하는 컴퓨팅 인스턴스입니다.
 
-- Azure 계산 전송: Azure CDN 캐시를 채우기 위해 계산 인스턴스에서 전송되는 데이터.
+- Azure 컴퓨팅 전송: Azure CDN 캐시를 채우기 위해 컴퓨팅 인스턴스에서 전송되는 데이터입니다.
 
 클라이언트에서 바이트 범위 요청을 사용하는 경우(원본 서비스에 관계없이) 다음과 같은 고려 사항이 적용됩니다.
 
@@ -80,7 +80,7 @@ CDN POP는 캐시를 채워야 할 때마다 캐시되는 개체의 원본에 �
 
 - 콘텐츠의 캐시 가능 수준: 콘텐츠의 TTL(Time to Live)/만료 값이 높고 액세스 빈도가 높아 캐시에서 자주 사용되는 경우 부하의 대부분이 CDN에서 처리됩니다. 캐시 누락이든 개체 새고 고침이든, 일반적으로 캐시 적중 비율이 90%를 넘을 때, 다시 말해서 원본으로 돌아가야 하는 클라이언트 요청 비율이 10% 미만일 때 우수하다고 말합니다.
 
-- 개체를 로드해야 하는 노드 수: 노드가 원본에서 개체를 로드할 때마다 청구 가능 트랜잭션이 발생합니다. 따라서 글로벌 콘텐츠에서 더 많은 청구 가능 트랜잭션이 발생합니다(더 많은 노드에서 액세스하므로).
+- 개체를 로드해야 하는 노드 수: 노드가 원본에서 개체를 로드할 때마다 청구 가능한 트랜잭션이 발생합니다. 따라서 글로벌 콘텐츠에서 더 많은 청구 가능 트랜잭션이 발생합니다(더 많은 노드에서 액세스하므로).
 
 - TTL 영향: 개체의 TTL이 높다는 것은 원본에서 개체를 가져오는 빈도를 낮춰야 한다는 뜻입니다. 또한 브라우저 같은 클라이언트에서 개체를 더 오래 캐시할 수 있으며, 따라서 CDN의 트랜잭션을 줄일 수 있다는 의미입니다.
 

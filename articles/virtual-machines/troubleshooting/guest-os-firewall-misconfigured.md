@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ad659cfcf1bfdad440968da5568b993724a5f351
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319182"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137840"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM 게스트 OS 방화벽이 잘못 구성됨
 
@@ -33,7 +33,7 @@ ms.locfileid: "52319182"
 
 ## <a name="cause"></a>원인
 
-게스트 시스템 방화벽의 잘못된 구성으로 인해 일부 또는 모든 종류의 네트워크 트래픽이 VM에 도달하는 것이 차단될 수 있습니다. 
+게스트 시스템 방화벽의 잘못된 구성으로 인해 일부 또는 모든 종류의 네트워크 트래픽이 VM에 도달하는 것이 차단될 수 있습니다.
 
 ## <a name="solution"></a>해결 방법
 
@@ -43,11 +43,11 @@ ms.locfileid: "52319182"
 
 ## <a name="online-mitigations"></a>온라인 해결 방법
 
-[직렬 콘솔에 연결한 다음, PowerShell 인스턴스를 엽니다](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). VM에서 직렬 콘솔을 사용하지 않도록 설정한 경우 다음 Azure 문서의 “오프라인으로 VM 복구” 섹션으로 이동합니다.
+[직렬 콘솔에 연결한 다음, PowerShell 인스턴스를 엽니다](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). VM에서 직렬 콘솔을 사용하지 않도록 설정한 경우 다음 Azure 문서의 “오프라인으로 VM 복구” 섹션으로 이동합니다.
 
  [원격 데스크톱을 통해 Azure VM에 연결하려고 할 때 내부 오류 발생](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
 
-다음 규칙을 편집하여 RDP를 통해 VM에 액세스하도록 설정하거나 간편한 문제 해결 환경을 제공할 수 있습니다. 
+다음 규칙을 편집하여 RDP를 통해 VM에 액세스하도록 설정하거나 간편한 문제 해결 환경을 제공할 수 있습니다.
 
 *   원격 데스크톱(TCP-In): 이 규칙은 Azure에서 RDP를 허용하여 VM에 기본 액세스 권한을 제공하는 표준 규칙입니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "52319182"
 
 *   파일 및 프린터 공유(SMB-In): 이 규칙을 통해 문제 해결 옵션으로 네트워크 공유 액세스를 사용할 수 있습니다.
 
-*   파일 및 프린터 공유(에코 요청 - ICMPv4-In): 이 규칙을 사용하면 VM에 ping할 수 있습니다. 
+*   파일 및 프린터 공유(에코 요청 - ICMPv4-In): 이 규칙을 사용하면 VM을 ping할 수 있습니다.
 
 직렬 콘솔 액세스 인스턴스에서 방화벽 규칙의 현재 상태를 쿼리할 수 있습니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "52319182"
     netsh advfirewall firewall set rule name="<RULE NAME>" new enable=yes
     ```
 
-*   문제 해결을 위해 방화벽 프로필을 OFF로 설정할 수 있습니다. 
+*   문제 해결을 위해 방화벽 프로필을 OFF로 설정할 수 있습니다.
 
     ```cmd
     netsh advfirewall set allprofiles state off

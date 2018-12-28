@@ -237,7 +237,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 ### <a name="delete-an-application-security-group"></a>애플리케이션 보안 그룹 삭제
 
-응용 프로그램 보안 그룹에 모든 네트워크 인터페이스가 있는 경우 해당 보안 그룹은 삭제할 수 없습니다. 네트워크 인터페이스 설정을 변경하거나 네트워크 인터페이스를 삭제하여 응용 프로그램 보안 그룹에서 모든 네트워크 인터페이스를 제거해야 합니다. 자세한 내용은 [응용 프로그램 보안 그룹에서 네트워크 인터페이스 추가 또는 제거](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) 또는 [네트워크 인터페이스 삭제](virtual-network-network-interface.md#delete-a-network-interface)를 참조합니다.
+응용 프로그램 보안 그룹에 모든 네트워크 인터페이스가 있는 경우 해당 보안 그룹은 삭제할 수 없습니다. 네트워크 인터페이스 설정을 변경하거나 네트워크 인터페이스를 삭제하여 애플리케이션 보안 그룹에서 모든 네트워크 인터페이스를 제거해야 합니다. 자세한 내용은 [응용 프로그램 보안 그룹에서 네트워크 인터페이스 추가 또는 제거](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) 또는 [네트워크 인터페이스 삭제](virtual-network-network-interface.md#delete-a-network-interface)를 참조합니다.
 
 1. Azure Portal의 왼쪽 위 모서리에서 **모든 서비스**를 선택합니다.
 2. **모든 서비스 필터** 상자에 *응용 프로그램 보안 그룹*을 입력하고, 검색 결과에 표시되면 **응용 프로그램 보안 그룹**을 선택합니다.
@@ -251,7 +251,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 ## <a name="permissions"></a>권한
 
-네트워크 보안 그룹, 보안 규칙 및 응용 프로그램 보안 그룹에서 작업을 수행하려면 다음 표에 나열된 적절한 사용 권한이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
+네트워크 보안 그룹, 보안 규칙 및 애플리케이션 보안 그룹에서 작업을 수행하려면 다음 표에 나열된 적절한 사용 권한이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
 ### <a name="network-security-group"></a>네트워크 보안 그룹
 

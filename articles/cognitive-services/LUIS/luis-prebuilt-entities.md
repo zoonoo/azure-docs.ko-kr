@@ -1,21 +1,22 @@
 ---
-title: LUIS(Language Understanding)용으로 미리 빌드된 엔터티
+title: 미리 빌드된 엔터티
 titleSuffix: Azure Cognitive Services
 description: LUIS에는 날짜, 시간, 숫자, 측정값 및 통화 등, 일반적인 정보 유형을 인식하기 위한 미리 빌드된 엔터티 집합이 포함되어 있습니다. 미리 빌드된 엔터티 지원은 LUIS 앱의 문화권에 따라 다릅니다.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 9e0d1ae39431ca75b43680981802b82f16703d4d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139977"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103934"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>일반 데이터 형식을 인식하는 미리 빌드된 엔터티
 
@@ -54,6 +55,12 @@ LUIS에는 날짜, 시간, 숫자, 측정값 및 통화 등, 일반적인 정보
 |3월 3일 약속 취소|발언에서 연도가 지정되지 않았기 때문에 LUIS는 가장 가까운 과거의 3월 3일(2018-03-03) 및 미래의 3월 3일(2019-03-03)을 반환합니다.|
 |오전 10시에 회의 예약|10:00:00|
 
+## <a name="marking-entities-containing-a-prebuilt-entity-token"></a>미리 빌드된 엔터티 토큰이 포함된 엔터티 표시
+ 모델에 [미리 빌드된 번호](luis-reference-prebuilt-number.md)가 추가된 사용자 지정 엔터티 _및_로 표시하려는 텍스트(예: `HH-1234`)가 있는 경우, LUIS 포털에서 사용자 지정 엔터티를 표시할 수 없습니다. 이것은 API로 표시할 수 있습니다. 
+
+ 이 유형의 토큰을 표시하려면 미리 빌드된 엔터티로 이미 표시되어 있는 부분에서 LUIS 앱으로부터 미리 빌드된 엔터티를 제거합니다. 앱을 학습할 필요가 없습니다. 그런 다음, 사용자 고유의 사용자 지정 엔터티를 사용하여 토큰을 표시합니다. 그리고 나서 미리 빌드된 엔터티를 LUIS 앱에 다시 추가합니다.
+
+ 다른 예를 들면, 발언을 클래스 기본 설정 목록으로 간주하는 것입니다. `I want first year spanish, second year calculus, and fourth year english lit.` LUIS 앱에 사전 빌드된 서수가 추가된 경우 `first`, `second` 및 `fourth`는 이미 서수로 표시됩니다. 서수 및 클래스를 캡처하려는 경우 복합 엔터티를 작성하고 클래스 이름에 대한 사용자 지정 엔터티 및 미리 빌드된 서수를 래핑하면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

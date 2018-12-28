@@ -48,7 +48,7 @@ Azure Portal에서 구독을 시작하려면
 
 이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks)이 필요합니다. 즐겨찾기가 있는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기로 충분합니다.
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+## <a name="running-the-application"></a>애플리케이션 실행
 
 다음은 Java에서 MultipartEntityBuilder를 사용하여 이미지를 업로드하는 방법을 보여줍니다.
 

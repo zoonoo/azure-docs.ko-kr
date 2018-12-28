@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 아키텍처란? | Microsoft Docs
-description: Azure Active Directory 테넌트의 정의와 Azure Active Directory를 통해 Azure를 관리하는 방법에 대해 알아봅니다.
+title: 아키텍처 개요 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory 테넌트의 정의와 Azure Active Directory를 사용하여 Azure를 관리하는 방법에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: 62ade1318b670b4eecf1be1a9255fe497d094a1a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733216"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076120"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Azure Active Directory 아키텍처란?
-Azure AD(Azure Active Directory)를 사용하면 사용자를 위한 Azure 서비스 및 리소스에 대한 액세스를 안전하게 관리할 수 있습니다. Azure AD에는 전체 ID 관리 기능이 포함됩니다. Azure AD 기능에 대한 정보는 [Azure Active Directory란?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)을 참조하세요.
+Azure AD(Azure Active Directory)를 사용하면 사용자를 위한 Azure 서비스 및 리소스에 대한 액세스를 안전하게 관리할 수 있습니다. Azure AD에는 전체 ID 관리 기능이 포함됩니다. Azure AD 기능에 대한 정보는 [Azure Active Directory란?](active-directory-whatis.md)을 참조하세요.
 
-Azure AD에서는 사용자 및 그룹을 만들고 관리하며 사용 권한을 사용하여 엔터프라이즈 리소스에 대한 액세스를 허용 및 거부합니다. ID 관리에 대한 정보는 [Azure ID 관리의 기본 항목](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)을 참조하세요.
+Azure AD에서는 사용자 및 그룹을 만들고 관리하며 사용 권한을 사용하여 엔터프라이즈 리소스에 대한 액세스를 허용 및 거부합니다. ID 관리에 대한 정보는 [Azure ID 관리의 기본 항목](active-directory-whatis.md)을 참조하세요.
 
 ## <a name="azure-ad-architecture"></a>Azure AD 아키텍처
 Azure AD의 지리적으로 분산된 아키텍처에는 광범위한 모니터링, 자동화된 재라우팅, 장애 조치(failover) 및 복구 기능이 결합되어 있으므로 회사 전체에서 가용성이 유지되며 고객에게는 뛰어난 성능을 제공할 수 있습니다.

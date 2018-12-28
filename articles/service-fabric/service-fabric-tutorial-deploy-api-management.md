@@ -97,7 +97,7 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
 
     Azure에서 API Management를 통해 노출될 엔드포인트입니다.
 
- 7. 마지막으로, Azure에서 응용 프로그램을 클러스터에 배포합니다. Visual Studio에서 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 클러스터 엔드포인트(예: `mycluster.southcentralus.cloudapp.azure.com:19000`)를 제공하여 Azure에서 Service Fabric 클러스터에 애플리케이션을 배포합니다.
+ 7. 마지막으로, Azure에서 애플리케이션을 클러스터에 배포합니다. Visual Studio에서 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 클러스터 엔드포인트(예: `mycluster.southcentralus.cloudapp.azure.com:19000`)를 제공하여 Azure에서 Service Fabric 클러스터에 애플리케이션을 배포합니다.
 
 `fabric:/ApiApplication/WebApiService`로 명명된 ASP.NET Core 상태 비저장 서비스는 이제 Azure의 Service Fabric 클러스터에서 실행되어야 합니다.
 
@@ -138,7 +138,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 ### <a name="microsoftapimanagementserviceapis"></a>Microsoft.ApiManagement/service/apis
 
-[Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagement/service/apis)에서는 API를 만듭니다. API Management에서 API는 클라이언트 응용 프로그램이 호출할 수 있는 작업 집합을 나타냅니다. 작업이 추가되면 API가 제품에 추가되므로, 이 API를 게시할 수 있습니다. API가 게시되면 개발자가 구독하고 사용할 수 있습니다.
+[Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagement/service/apis)에서는 API를 만듭니다. API Management에서 API는 클라이언트 애플리케이션이 호출할 수 있는 작업 집합을 나타냅니다. 작업이 추가되면 API가 제품에 추가되므로, 이 API를 게시할 수 있습니다. API가 게시되면 개발자가 구독하고 사용할 수 있습니다.
 
 * **displayName**은 API에 대한 어떤 이름도 될 수 있습니다. 이 문서에서는 "Service Fabric 앱"을 사용합니다.
 * **name**은 API를 설명하는 고유한 이름(예: "service-fabric-app")을 제공합니다. 개발자 및 게시자 포털에 표시됩니다.

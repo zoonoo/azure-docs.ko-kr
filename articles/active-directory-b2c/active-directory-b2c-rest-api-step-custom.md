@@ -39,7 +39,7 @@ IEF는 클레임으로 데이터를 보내고 다시 클레임으로 데이터�
 
 1. 외부 시스템에서 사용자를 찾습니다.
 2. 해당 사용자를 등록한 도시를 가져옵니다.
-3. 해당 특성을 클레임으로 응용 프로그램에 반환합니다.
+3. 해당 특성을 클레임으로 애플리케이션에 반환합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -54,7 +54,7 @@ IEF는 클레임으로 데이터를 보내고 다시 클레임으로 데이터�
 
 `email`이라는 클레임을 받고 할당된 `Redmond` 값이 포함된 `city` 클레임을 반환하는 Azure 함수를 설정했습니다. 샘플 Azure 함수는 [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples)에 있습니다.
 
-Azure 함수에서 반환하는 `userMessage` 클레임은 이 컨텍스트에서 선택 사항이며 IEF에서 무시됩니다. 이 클레임은 잠재적으로 응용 프로그램에 전달되고 나중에 사용자에게 표시되는 메시지로 사용될 수 있습니다.
+Azure 함수에서 반환하는 `userMessage` 클레임은 이 컨텍스트에서 선택 사항이며 IEF에서 무시됩니다. 이 클레임은 잠재적으로 애플리케이션에 전달되고 나중에 사용자에게 표시되는 메시지로 사용될 수 있습니다.
 
 ```csharp
 if (requestContentAsJObject.email == null)
@@ -138,7 +138,7 @@ Azure 함수 앱을 사용하면 특정 함수의 식별자를 포함하여 함�
 사용자가 인증되고(다음 XML의 1-4 오케스트레이션 단계) 업데이트된 프로필 정보를 제공하면(5단계) 프로필 편집 사용자 경험에 단계를 추가합니다.
 
 > [!NOTE]
-> REST API 호출을 오케스트레이션 단계로 사용할 수 있는 사용 사례가 많이 있습니다. 오케스트레이션 단계로서 사용자가 첫 번째 등록과 같은 태스크를 성공적으로 완료한 후 외부 시스템에 대한 업데이트로 사용하거나 동기화된 정보 상태로 유지하기 위한 프로필 업데이트로 사용할 수 있습니다. 이 경우 프로필 편집 후에 응용 프로그램에 제공된 정보를 보강하는 데 사용됩니다.
+> REST API 호출을 오케스트레이션 단계로 사용할 수 있는 사용 사례가 많이 있습니다. 오케스트레이션 단계로서 사용자가 첫 번째 등록과 같은 태스크를 성공적으로 완료한 후 외부 시스템에 대한 업데이트로 사용하거나 동기화된 정보 상태로 유지하기 위한 프로필 업데이트로 사용할 수 있습니다. 이 경우 프로필 편집 후에 애플리케이션에 제공된 정보를 보강하는 데 사용됩니다.
 
 TrustFrameworkBase.xml 파일의 프로필 편집 사용자 경험 XML 코드를 `<UserJourneys>` 요소의 TrustFrameworkExtensions.xml 파일로 복사합니다. 그런 다음 6단계에서 수정합니다.
 
@@ -211,7 +211,7 @@ TrustFrameworkBase.xml 파일의 프로필 편집 사용자 경험 XML 코드를
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>5단계 - `city` 클레임을 신뢰 당사자 정책 파일에 추가하여 응용 프로그램에 해당 클레임을 보냄
+## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>5단계 - `city` 클레임을 신뢰 당사자 정책 파일에 추가하여 애플리케이션에 해당 클레임을 보냄
 
 ProfileEdit.xml RP(신뢰 당사자) 파일을 편집하고 `<TechnicalProfile Id="PolicyProfile">` 요소를 수정하여 `<OutputClaim ClaimTypeReferenceId="city" />`를 추가합니다.
 
@@ -236,7 +236,7 @@ ProfileEdit.xml RP(신뢰 당사자) 파일을 편집하고 `<TechnicalProfile I
 2.  (선택 사항) `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`를 변경하여 정책 편집 파일에 대한 새 버전의 정책 ID의 이름을 바꿉니다.
 3.  확장 파일을 업로드합니다.
 4.  정책 편집 RP 파일을 업로드 합니다.
-5.  **지금 실행**을 사용하여 정책을 테스트합니다. IEF에서 응용 프로그램에 반환하는 토큰을 검토합니다.
+5.  **지금 실행**을 사용하여 정책을 테스트합니다. IEF에서 애플리케이션에 반환하는 토큰을 검토합니다.
 
 모든 항목이 올바르게 설정되면 토큰에는 `Redmond` 값의 새 클레임 `city`가 포함됩니다.
 

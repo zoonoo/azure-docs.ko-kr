@@ -19,7 +19,7 @@ ms.locfileid: "53343159"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>WebJobs로 지속성 함수를 실행하는 방법
 
-[Azure Functions](../functions-overview.md) 및 [지속성 함수](durable-functions-overview.md) 확장은 [WebJobs SDK](../../app-service/web-sites-create-web-jobs.md)에 기본 제공됩니다. WebJobs SDK의 `JobHost`는 Azure Functions에서 런타임입니다. Azure Functions에서 지원하지 않는 방법으로 `JobHost` 동작을 제어하는 경우 사용자가 직접 WebJobs SDK를 사용하여 지속성 함수를 개발하고 실행할 수 있습니다. 그러면 Azure WebJob 또는 콘솔 응용 프로그램을 실행하는 어디서나 지속성 함수를 실행할 수 있습니다.
+[Azure Functions](../functions-overview.md) 및 [지속성 함수](durable-functions-overview.md) 확장은 [WebJobs SDK](../../app-service/web-sites-create-web-jobs.md)에 기본 제공됩니다. WebJobs SDK의 `JobHost`는 Azure Functions에서 런타임입니다. Azure Functions에서 지원하지 않는 방법으로 `JobHost` 동작을 제어하는 경우 사용자가 직접 WebJobs SDK를 사용하여 지속성 함수를 개발하고 실행할 수 있습니다. 그러면 Azure WebJob 또는 콘솔 애플리케이션을 실행하는 어디서나 지속성 함수를 실행할 수 있습니다.
 
 체이닝 지속성 함수 샘플은 WebJobs SDK 버전에서 사용할 수 있습니다. [지속성 함수 리포지토리](https://github.com/azure/azure-functions-durable-extension/)를 다운로드하거나 복제하고 *samples\\webjobssdk\\chaining* 폴더로 이동합니다.
 

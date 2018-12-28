@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB의 Python Flask 웹 애플리케이션 자습서
-description: Azure Cosmos DB를 사용하여 Azure에 호스트된 Python Flask 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법에 대한 데이터베이스 자습서를 검토합니다. 응용 프로그램 개발 솔루션을 찾습니다.
+description: Azure Cosmos DB를 사용하여 Azure에 호스트된 Python Flask 웹 애플리케이션에서 데이터를 저장하고 액세스하는 방법에 대한 데이터베이스 자습서를 검토합니다. 애플리케이션 개발 솔루션을 찾습니다.
 keywords: 응용 프로그램 개발, Python flask, Python 웹 응용 프로그램, Python 웹 개발
 services: cosmos-db
 author: SnehaGunda
@@ -18,7 +18,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2018
 ms.locfileid: "53081917"
 ---
-# <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Python Flask 웹 응용 프로그램 빌드
+# <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Python Flask 웹 애플리케이션 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -33,13 +33,13 @@ ms.locfileid: "53081917"
 이 데이터베이스 자습서에서는 다음 내용을 다룹니다.
 
 1. Azure Cosmos DB 계정 만들기 및 프로비전
-2. Python Flask 응용 프로그램 만들기
+2. Python Flask 애플리케이션 만들기
 3. 웹 애플리케이션에서 Azure Cosmos DB 연결 및 사용
 4. Azure App Service에 웹 애플리케이션 배포
 
 이 자습서를 따르면 설문 조사에 투표할 수 있는 간단한 투표 응용 프로그램을 빌드합니다.
 
-![이 데이터베이스 자습서에서 만든 투표 응용 프로그램의 스크린샷](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+![이 데이터베이스 자습서에서 만든 투표 애플리케이션의 스크린샷](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>데이터베이스 자습서 필수 조건
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
@@ -76,7 +76,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 2. 왼쪽 창에서 **템플릿** 및 **Python**을 확장하고 **웹**을 클릭합니다. 
 3. 가운데 창에서 **Flask 웹 프로젝트**를 선택한 다음 **이름** 상자에 **자습서**를 입력하고 **확인**을 클릭합니다. [Python 코드에 대한 스타일 가이드](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)에 설명한 대로 Python 패키지 이름은 모두 소문자여야 합니다.
    
-    Python Flask를 처음 사용하는 경우 Python에서 웹 응용 프로그램을 더 빨리 작성하는 데 도움이 되는 웹 응용 프로그램 개발 프레임워크입니다.
+    Python Flask를 처음 사용하는 경우 Python에서 웹 애플리케이션을 더 빨리 작성하는 데 도움이 되는 웹 애플리케이션 개발 프레임워크입니다.
    
     ![왼쪽에서 Python이 강조 표시되고, 가운데에서 Python Flask 웹 프로젝트가 선택되고, 이름 상자에 tutorial 이름이 포함된 Visual Studio 새 프로젝트 창의 스크린샷](./media/sql-api-python-application/image9.png)
 4. **Visual Studio용 Python 도구** 창에서 **가상 환경에 설치**를 클릭합니다. 
@@ -129,7 +129,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 3. Visual Studio에서 **Shift**+**F5**를 눌러 웹 사이트의 디버깅을 중지합니다.
 
 ### <a name="create-database-collection-and-document-definitions"></a>데이터베이스, 컬렉션 및 문서 정의 만들기
-이제 새 파일을 추가하고 다른 사용자를 업데이트하여 투표 응용 프로그램을 만들어 보겠습니다.
+이제 새 파일을 추가하고 다른 사용자를 업데이트하여 투표 애플리케이션을 만들어 보겠습니다.
 
 1. 솔루션 탐색기에서 **자습서** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다. **빈 Python 파일**을 선택하고 파일 이름을 **forms.py**로 지정합니다.  
 2. 다음 코드를 forms.py 파일에 추가한 다음 파일을 저장합니다.
@@ -298,7 +298,7 @@ def vote():
     </form>
     {% endblock %}
     ```
-7. **templates** 폴더에서 **index.html**의 내용을 다음과 같이 바꿉니다. 이 코드는 응용 프로그램의 방문 페이지 역할을 합니다.
+7. **templates** 폴더에서 **index.html**의 내용을 다음과 같이 바꿉니다. 이 코드는 애플리케이션의 방문 페이지 역할을 합니다.
    
     ```html
     {% extends "layout.html" %}
@@ -353,13 +353,13 @@ def vote():
 1. **Ctrl**+**Shift**+**B**를 눌러 솔루션을 빌드합니다.
 2. 빌드가 성공하면 **F5**키를 눌러 웹 사이트를 시작합니다. 스크린에 다음이 표시되어야 합니다.
    
-    ![웹 브라우저에 표시된 Python + Azure Cosmos DB 투표 응용 프로그램의 스크린샷](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+    ![웹 브라우저에 표시된 Python + Azure Cosmos DB 투표 애플리케이션의 스크린샷](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 3. **투표 데이터베이스 만들기/지우기** 를 클릭하여 데이터베이스를 생성합니다.
    
-    ![웹 응용 프로그램 만들기 페이지의 스크린샷 - 개발 세부 정보](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
+    ![웹 애플리케이션 만들기 페이지의 스크린샷 - 개발 세부 정보](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
 4. 그런 다음 **투표** 를 클릭하고 옵션을 선택합니다.
    
-    ![게시된 투표 질문이 있는 웹 응용 프로그램의 스크린샷](./media/sql-api-python-application/cosmos-db-vote.png)
+    ![게시된 투표 질문이 있는 웹 애플리케이션의 스크린샷](./media/sql-api-python-application/cosmos-db-vote.png)
 5. 투표할 때마다 해당 카운터가 증가합니다.
    
     ![표시된 투표 페이지의 결과 스크린샷](./media/sql-api-python-application/cosmos-db-voting-results.png)
@@ -432,7 +432,7 @@ def vote():
 ## <a name="next-steps"></a>다음 단계
 축하합니다! Azure Cosmos DB를 사용하여 첫 Python 웹 애플리케이션을 완성하고 Azure에 게시했습니다.
 
-웹 응용 프로그램에 다른 기능을 추가하려면 [Azure Cosmos DB Python SDK](sql-api-sdk-python.md)에서 사용할 수 있는 API를 검토하세요.
+웹 애플리케이션에 다른 기능을 추가하려면 [Azure Cosmos DB Python SDK](sql-api-sdk-python.md)에서 사용할 수 있는 API를 검토하세요.
 
 Azure, Visual Studio 및 Python에 대한 자세한 내용은 [Python 개발자 센터](https://azure.microsoft.com/develop/python/)를 참조하세요. 
 

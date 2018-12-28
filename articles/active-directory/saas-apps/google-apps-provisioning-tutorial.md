@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 924584a77d36ec41488d8c76d9631baf484ff494
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 48a835bf8c63ffa5512173b600fb85abd5c6cb45
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346392"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840353"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -67,7 +67,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 > [!NOTE]
 > G Suite로 사용자 프로비전을 자동화하는 다른 가능한 옵션은 [GADS(Google Apps Directory Sync)](https://support.google.com/a/answer/106368?hl=en)를 사용하는 것입니다. GADS는 G Suite에 온-프레미스 Active Directory ID를 프로비전하는 것입니다. 반대로 이 자습서의 솔루션은 Azure Active Directory(클라우드) 사용자 및 메일 사용이 가능한 그룹을 G Suite에 프로비전합니다. 
 
-1. 관리자 계정을 사용하여 [Google Apps 관리 콘솔](http://admin.google.com/)에 로그인하고 **보안**을 선택합니다. 링크가 보이지 않으면 화면 아래쪽에 있는 **기타 컨트롤** 메뉴에 숨겨져 있을 수 있습니다.
+1. 관리자 계정을 사용하여 [Google Apps 관리 콘솔](https://admin.google.com/)에 로그인하고 **보안**을 선택합니다. 링크가 보이지 않으면 화면 아래쪽에 있는 **기타 컨트롤** 메뉴에 숨겨져 있을 수 있습니다.
    
     ![[보안]을 선택합니다.][10]
 
@@ -110,7 +110,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. Azure AD에서 모든 도메인을 확인했으므로 Google Apps에서 다시 확인해야 합니다. Google에 아직 등록되지 않은 각 도메인에 대해 다음 단계를 수행합니다.
    
-    a. [Google Apps 관리 콘솔](http://admin.google.com/)에서 **도메인**을 선택합니다.
+    a. [Google Apps 관리 콘솔](https://admin.google.com/)에서 **도메인**을 선택합니다.
      
      ![도메인 선택][20]
 
@@ -127,9 +127,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
     e. Google Apps에 추가하려는 모든 추가 도메인에 대해 앞의 단계를 반복합니다.
      
      > [!WARNING]
-     > G Suite 테넌트의 주 도메인을 변경하고 Azure AD로 Single Sign-On을 이미 구성한 경우 [2단계: Single Sign-On 사용](#step-two-enable-single-sign-on)의 3번 항목을 반복해야 합니다.
+     > G Suite 테넌트의 주 도메인을 변경하고 Azure AD로 Single Sign-On을 이미 구성한 경우 [2단계: Single Sign-On 사용](#step-two-enable-single-sign-on)의 3단계를 반복해야 합니다.
        
-1. [Google Apps 관리 콘솔](http://admin.google.com/)에서 **관리자 역할**을 선택합니다.
+1. [Google Apps 관리 콘솔](https://admin.google.com/)에서 **관리자 역할**을 선택합니다.
    
      ![Google Apps 선택][26]
 

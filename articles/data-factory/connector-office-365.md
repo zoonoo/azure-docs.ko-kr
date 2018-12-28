@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 82fb2241b5988bae9587807c03e7bec50e7c1677
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f76c1676e21e1abdc3f23e2e2c4a7f6f721fefdb
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955384"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386573"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Office 365에서 Azure로 데이터 복사 
 
@@ -34,7 +34,7 @@ Azure Data Factory를 사용하면 Office 365 테넌트의 풍부한 조직 데�
 >- 데이터 팩터리와 싱크 데이터 저장소가 포함된 Azure 구독은 Office 365 테넌트와 동일한 Azure AD(Azure Active Directory) 테넌트에 속해야 합니다.
 >- 복사 작업에 사용된 Azure Integration Runtime 지역 및 대상이 Office 365 테넌트 사용자의 사서함이 있는 곳과 동일한 지역에 있어야 합니다. Azure IR 위치가 결정되는 방식을 이해하려면 [여기](concepts-integration-runtime.md#integration-runtime-location)를 참조하세요. 지원되는 Office 지역 및 해당되는 Azure 지역 목록은 [여기 표](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions)를 참조하세요.
 >-  Office 365 데이터를 **Azure Blob Storage**에 대상으로 로드하는 경우 Azure Blob Storage에 대한 연결된 서비스를 정의할 때 **[서비스 주체 인증](connector-azure-blob-storage.md#service-principal-authentication)** 을 사용해야 하고 [계정 키](connector-azure-blob-storage.md#account-key-authentication), [공유 액세스 서명](connector-azure-blob-storage.md#shared-access-signature-authentication) 또는 [Azure 리소스에 대한 관리 ID](connector-azure-blob-storage.md#managed-identity) 인증은 사용하지 말아야 합니다.
->-  Office 365 데이터를 **Azure Data Lake Storage Gen1**에 대상으로 로드하는 경우 Azure Data Lake Storage Gen1에 대한 연결된 서비스를 정의할 때 [**서비스 주체 인증**](connector-azure-data-lake-store.md#using-service-principal-authentication)을 사용해야 하고 [Azure 리소스에 대한 관리 ID 인증](connector-azure-data-lake-store.md#managed-identity)은 사용하지 말아야 합니다.
+>-  Office 365 데이터를 **Azure Data Lake Storage Gen1**에 대상으로 로드하는 경우 Azure Data Lake Storage Gen1에 대한 연결된 서비스를 정의할 때 [**서비스 주체 인증**](connector-azure-data-lake-store.md#use-service-principal-authentication)을 사용해야 하고 [Azure 리소스에 대한 관리 ID 인증](connector-azure-data-lake-store.md#managed-identity)은 사용하지 말아야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -79,7 +79,7 @@ Office 365 연결된 서비스에 대해 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **Office365**로 설정해야 합니다. | yes |
+| 형식 | 형식 속성을 다음으로 설정해야 합니다. **Office365** | yes |
 | office365TenantId | Office 365 계정이 속하는 Azure 테넌트 ID입니다. | yes |
 | servicePrincipalTenantId | Azure AD 웹 응용 프로그램이 상주하는 테넌트 정보를 지정합니다. | yes |
 | servicePrincipalId | 응용 프로그램의 클라이언트 ID를 지정합니다. | yes |
@@ -119,7 +119,7 @@ Office 365의 데이터를 복사하려는 경우 다음과 같은 속성이 지
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 type 속성은 **Office365Table**로 설정해야 합니다. | yes |
+| 형식 | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **Office365Table** | yes |
 | tableName | Office 365에서 추출할 데이터 세트의 이름입니다. 추출할 수 있는 Office 365 데이터 세트 목록은 [여기](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets)를 참조하세요. | yes |
 | 조건자 | Office 365에서 추출하기 위해 특정 행을 필터링하는 데 사용할 수 있는 조건자 식입니다.  각 테이블에 대한 조건자 필터링 및 필터 식 형식에 사용할 수 있는 열을 알아보려면 [여기](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters)를 참조하세요. | 아니요<br>(조건자가 지정되지 않는 경우 기본값은 최근 30일 동안의 데이터를 추출하는 것입니다.) |
 

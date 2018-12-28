@@ -28,7 +28,7 @@ ms.locfileid: "53101333"
 
 이 자습서에서는 Azure Cosmos DB를 사용하여 Azure에서 호스트하는 ASP.NET MVC 애플리케이션의 데이터를 저장하고 액세스하는 방법을 보여줍니다. 이 자습서에서는 현재 미리 보기로 제공되는 .Net SDK V3을 사용합니다. 다음 이미지는 이 문서의 샘플을 사용하여 빌드하게 될 웹 페이지입니다.
  
-![이 자습서에서 만든 할 일 모음 MVC 웹 응용 프로그램의 스크린샷 - ASP NET MVC 단계별 자습서](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
+![이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET MVC 단계별 자습서](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 
 자습서를 완료할 시간이 없는 경우 전체 샘플 프로젝트를 [GitHub][GitHub]에서 다운로드할 수 있습니다. 
 
@@ -91,7 +91,7 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 1. Azure Cosmos DB .NET SDK는 패키지되어 NuGet 패키지로 배포되며, Visual Studio에서 NuGet 패키지를 다운로드하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 선택하여 Visual Studio에서 NuGet 패키지 관리자를 사용합니다.
    
-   ![NuGet 패키지 관리가 강조 표시된 솔루션 탐색기 내 웹 응용 프로그램 프로젝트에 대한 마우스 오른쪽 클릭 옵션의 스크린샷](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
+   ![NuGet 패키지 관리가 강조 표시된 솔루션 탐색기 내 웹 애플리케이션 프로젝트에 대한 마우스 오른쪽 클릭 옵션의 스크린샷](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
    
 2. **NuGet 패키지 관리** 대화 상자가 나타납니다. NuGet **찾아보기** 상자에 **Microsoft.Azure.Cosmos**를 입력합니다. 결과에서 **Microsoft.Azure.Cosmos** 3.0.0.1 미리 보기 버전을 설치합니다. 그러면 Azure Cosmos DB 패키지 및 모든 종속성(예: Newtonsoft.Json)이 다운로드되어 설치됩니다. **미리 보기** 창에서 **확인**을 선택하고 **라이선스 승인** 창에서 **동의**를 선택하여 설치를 완료합니다.
    
@@ -227,7 +227,7 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
    TodoItemService.Initialize().GetAwaiter().GetResult();
    ```
 
-   이때 솔루션이 오류 없이 프로젝트를 빌드할 수 있어야 합니다. 지금 애플리케이션을 실행하면 **HomeController** 및 해당 컨트롤러의 **인덱스** 뷰가 열립니다. 이것은 시작할 때 선택한 MVC 템플릿 프로젝트에 대한 기본 동작입니다. 이 동작을 변경하기 위해 이 MVC 응용 프로그램의 라우팅을 변경하겠습니다.
+   이때 솔루션이 오류 없이 프로젝트를 빌드할 수 있어야 합니다. 지금 애플리케이션을 실행하면 **HomeController** 및 해당 컨트롤러의 **인덱스** 뷰가 열립니다. 이것은 시작할 때 선택한 MVC 템플릿 프로젝트에 대한 기본 동작입니다. 이 동작을 변경하기 위해 이 MVC 애플리케이션의 라우팅을 변경하겠습니다.
 
 1. ***App\_Start\RouteConfig.cs***를 열고 “defaults:”로 시작하는 줄을 찾은 후 다음 코드로 업데이트합니다.
 
@@ -241,16 +241,16 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 이 프로젝트를 지금 빌드하여 실행하면 이제 다음과 같이 표시됩니다.    
 
-![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
+![이 데이터베이스 자습서에서 만든 할 일 모음 웹 애플리케이션의 스크린샷](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
 
 
 ## <a name="run-the-application"></a>6단계: 로컬에서 애플리케이션 실행
 
 로컬 머신에서 애플리케이션을 테스트하려면 다음 단계를 사용합니다.
 
-1. 디버그 모드에서 애플리케이션을 빌드하려면 Visual Studio에서 F5 키를 누릅니다. 응용 프로그램이 빌드되고 앞에서 본 것처럼 빈 그리드 페이지가 포함된 상태로 브라우저가 시작되어야 합니다.
+1. 디버그 모드에서 애플리케이션을 빌드하려면 Visual Studio에서 F5 키를 누릅니다. 애플리케이션이 빌드되고 앞에서 본 것처럼 빈 그리드 페이지가 포함된 상태로 브라우저가 시작되어야 합니다.
    
-   ![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
+   ![이 데이터베이스 자습서에서 만든 할 일 모음 웹 애플리케이션의 스크린샷](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
        
 2. **새로 만들기** 링크를 클릭하고 **이름** 및 **설명** 필드에 값을 추가합니다. **완료** 확인란을 선택 취소된 상태로 둡니다. 그렇지 않으면 새 항목이 완료 상태로 추가되며 초기 목록에 나타나지 않습니다.
    
@@ -264,8 +264,8 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 5. 앱을 테스트하고 나면 Ctrl+F5를 눌러 앱 디버깅을 중지합니다. 배포할 준비가 되었습니다!
 
-## <a name="deploy-the-application-to-azure"></a>7단계: 응용 프로그램 배포 
-이제 전체 응용 프로그램이 Azure Cosmos DB와 올바르게 작동하므로 Azure App Service에 이 웹앱을 배포하겠습니다.  
+## <a name="deploy-the-application-to-azure"></a>7단계: 애플리케이션 배포 
+이제 전체 애플리케이션이 Azure Cosmos DB와 올바르게 작동하므로 Azure App Service에 이 웹앱을 배포하겠습니다.  
 
 1. 이 애플리케이션을 게시하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
    

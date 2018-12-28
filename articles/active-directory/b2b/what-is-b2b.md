@@ -69,7 +69,7 @@ Microsoft 응용 프로그램인지 여부에 관계없이 공유하려는 응�
 
 ![게스트 사용자 추가](media/what-is-b2b/access-panel-manage-app.png)
 
-## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>API 및 샘플 코드를 사용하여 등록할 응용 프로그램을 쉽게 빌드할 수 있음
+## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>API 및 샘플 코드를 사용하여 등록할 애플리케이션을 쉽게 빌드할 수 있음
 
 조직의 요구에 맞게 사용자 지정된 방식으로 외부 파트너를 등록하세요.
 - [B2B 공동 작업 초대 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)를 사용하여 셀프 서비스 등록 포털 생성을 포함하여 등록 환경을 사용자 지정할 수 있습니다. 

@@ -33,7 +33,7 @@ Carthage 패키지 관리자는 MSAL 미리 보기 기간 동안 사용됩니다
 
 - Carthage의 최신 릴리스는 [여기](https://github.com/Carthage/Carthage/releases "Carthage 다운로드 URL")에서 다운로드하여 설치합니다.
 
-## <a name="creating-your-application"></a>응용 프로그램 만들기
+## <a name="creating-your-application"></a>애플리케이션 만들기
 
 1. Xcode를 열고 **Create a new Xcode project**를 선택합니다.
 2. **iOS > Single view Application**을 선택하고 **Next**를 선택합니다.
@@ -63,7 +63,7 @@ carthage update
 
 > 위 프로세스는 MSAL(Microsoft Authentication Library)을 다운로드하고 빌드하는 데 사용됩니다. MSAL은 Azure Active Directory v2.0으로 보호되는 API에 액세스하는 데 사용되는 사용자 토큰의 획득, 캐싱 및 새로 고침을 처리합니다.
 
-## <a name="add-the-msal-framework-to-your-application"></a>응용 프로그램에 MSAL 프레임워크 추가
+## <a name="add-the-msal-framework-to-your-application"></a>애플리케이션에 MSAL 프레임워크 추가
 
 1. Xcode에서 **General** 탭을 엽니다.
 2. **Linked Frameworks and Libraries** 섹션으로 이동하여 **+** 를 선택합니다.
@@ -87,7 +87,7 @@ carthage update
 $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ```
 
-## <a name="creating-your-applications-ui"></a>응용 프로그램 UI 만들기
+## <a name="creating-your-applications-ui"></a>애플리케이션 UI 만들기
 
 Main.storyboard 파일은 프로젝트 템플릿의 일부로 자동으로 만들어져야 합니다. 앱 UI를 만들려면 아래 지침을 따르세요.
 

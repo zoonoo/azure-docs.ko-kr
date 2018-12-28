@@ -67,7 +67,7 @@ ms.locfileid: "27928239"
 
         ![구성 매개 변수 스크립트 출력](media/storsimple-data-manager-dotnet-jobs/get-config-parameters.png)
 
-3. Visual Studio 2012, 2013 또는 2015를 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
+3. Visual Studio 2012, 2013 또는 2015를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
     1. **Visual Studio 2012/2013/2015**을 실행합니다.
     1. **파일 > 새로 만들기 > 프로젝트**를 선택합니다.

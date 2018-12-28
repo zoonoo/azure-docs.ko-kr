@@ -27,16 +27,16 @@ ms.locfileid: "52421967"
 <a id="whatis"/>
 
 ## <a name="what-is-twilio"></a>Twilio 정의
-Twilio는 개발자가 전화 통화를 걸고 받고, 문자 메시지를 보내고 받고, VoIP 호출을 브라우저 기반 및 네이티브 모바일 응용 프로그램에 포함하는 작업을 쉽게 수행할 수 있게 해주는 API 플랫폼입니다. 깊이 있게 설명하기 전에 이러한 내용을 간략하게 살펴보겠습니다.
+Twilio는 개발자가 전화 통화를 걸고 받고, 문자 메시지를 보내고 받고, VoIP 호출을 브라우저 기반 및 네이티브 모바일 애플리케이션에 포함하는 작업을 쉽게 수행할 수 있게 해주는 API 플랫폼입니다. 깊이 있게 설명하기 전에 이러한 내용을 간략하게 살펴보겠습니다.
 
 ### <a name="receiving-calls-and-text-messages"></a>전화 및 문자 메시지 받기
-Twilio를 통해 개발자는 전화 및 문자 메시지를 보내고 받는 데 모두 사용할 수 있는 [프로그램 가능 전화 번호를 구매][purchase_phone]할 수 있습니다. Twilio 번호가 인바운드 전화 또는 문자를 받으면 Twilio는 웹 응용 프로그램에 HTTP POST 또는 GET 요청을 보내 전화 또는 문자를 처리하는 방법에 대한 지침을 요청합니다. 서버는 전화 또는 문자를 처리하는 방법에 대한 지침이 포함된 간단한 XML 태그 집합인 [TwiML][twiml]을 통해 Twilio의 HTTP 요청에 응답합니다. 잠시 후에 TwiML 예제를 살펴보겠습니다.
+Twilio를 통해 개발자는 전화 및 문자 메시지를 보내고 받는 데 모두 사용할 수 있는 [프로그램 가능 전화 번호를 구매][purchase_phone]할 수 있습니다. Twilio 번호가 인바운드 전화 또는 문자를 받으면 Twilio는 웹 애플리케이션에 HTTP POST 또는 GET 요청을 보내 전화 또는 문자를 처리하는 방법에 대한 지침을 요청합니다. 서버는 전화 또는 문자를 처리하는 방법에 대한 지침이 포함된 간단한 XML 태그 집합인 [TwiML][twiml]을 통해 Twilio의 HTTP 요청에 응답합니다. 잠시 후에 TwiML 예제를 살펴보겠습니다.
 
 ### <a name="making-calls-and-sending-text-messages"></a>전화 걸기 및 문자 메시지 보내기
 개발자는 Twilio 웹 서비스 API에 대한 HTTP 요청을 만들어 문자 메시지를 보내거나 아웃바운드 전화 통화를 시작할 수 있습니다. 아웃바운드 전화의 경우 개발자는 아웃바운드 전화가 연결된 후 해당 전화를 처리하는 방법에 대한 TwiML 지침을 반환하는 URL도 지정해야 합니다.
 
 ### <a name="embedding-voip-capabilities-in-ui-code-javascript-ios-or-android"></a>UI 코드(JavaScript, iOS 또는 Android)에 VoIP 기능 포함
-Twilio는 모든 데스크톱 웹 브라우저, iOS 앱 또는 Android 앱을 VoIP 전화로 변환할 수 있는 클라이언트 쪽 SDK를 제공합니다. 이 문서에서는 브라우저에서 VoIP 호출을 사용하는 방법을 집중적으로 설명합니다. 브라우저에서 실행되는 *Twilio JavaScript SDK* 외에 서버 쪽 응용 프로그램(node.js 응용 프로그램)을 사용하여 "기능 토큰"을 JavaScript 클라이언트에 발급해야 합니다. node.js에 VoIP를 사용하는 방법에 대한 자세한 내용은 [Twilio 개발자 블로그][voipnode]에서 참조할 수 있습니다.
+Twilio는 모든 데스크톱 웹 브라우저, iOS 앱 또는 Android 앱을 VoIP 전화로 변환할 수 있는 클라이언트 쪽 SDK를 제공합니다. 이 문서에서는 브라우저에서 VoIP 호출을 사용하는 방법을 집중적으로 설명합니다. 브라우저에서 실행되는 *Twilio JavaScript SDK* 외에 서버 쪽 애플리케이션(node.js 애플리케이션)을 사용하여 "기능 토큰"을 JavaScript 클라이언트에 발급해야 합니다. node.js에 VoIP를 사용하는 방법에 대한 자세한 내용은 [Twilio 개발자 블로그][voipnode]에서 참조할 수 있습니다.
 
 <a id="signup"/>
 
@@ -52,7 +52,7 @@ Twilio 서비스를 사용하기 전에 먼저 [계정을 등록][signup]해야 
 * Azure 관리 콘솔을 사용하여 새 웹 사이트 만들기
 * 소스 제어 지원 추가(git를 사용했다고 가정함)
 * 간단한 node.js 웹 애플리케이션을 사용하여 파일 `server.js` 만들기
-* 이 간단한 응용 프로그램을 Azure에 배포
+* 이 간단한 애플리케이션을 Azure에 배포
 
 <a id="twiliomodule"/>
 
@@ -66,7 +66,7 @@ node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다.  아�
 
 ![Azure 관리 콘솔][azure-admin-console]
 
-이러한 변수를 구성하고 나서 Azure 콘솔에서 응용 프로그램을 다시 시작합니다.
+이러한 변수를 구성하고 나서 Azure 콘솔에서 애플리케이션을 다시 시작합니다.
 
 ### <a name="declaring-the-twilio-module-in-packagejson"></a>package.json에서 Twilio 모듈 선언
 이제 [npm]을 통해 노드 모듈 종속성을 관리하기 위한 package.json을 만들어야 합니다. *Azure/node.js* 자습서에서 만든 `server.js` 파일과 같은 수준에서 `package.json`이라는 파일을 만듭니다.  이 파일 내에 다음을 배치합니다.
@@ -230,7 +230,7 @@ app.post('/sms', (request, response) => {
 </form>
 ```
 
-응용 프로그램을 Azure에 다시 배포하고 나면 이제 해당 양식을 제출하고 자신(또는 가까운 친구)에게 문자 메시지를 보낼 수 있어야 합니다.
+애플리케이션을 Azure에 다시 배포하고 나면 이제 해당 양식을 제출하고 자신(또는 가까운 친구)에게 문자 메시지를 보낼 수 있어야 합니다.
 
 <a id="nextsteps"/>
 

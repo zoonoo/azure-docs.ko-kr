@@ -1,21 +1,21 @@
 ---
-title: 인덱스 만들기(REST API - Azure Search) | Microsoft Docs
-description: Azure Search HTTP REST API를 사용하여 코드에 인덱스를 만듭니다.
+title: REST API를 사용하여 코드에서 인덱스 만들기 - Azure Search
+description: HTTP 요청 및 Azure Search REST API를 사용하여 코드에서 전체 텍스트 검색 인덱스를 만듭니다.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
 ms.author: magottei
-tags: azure-portal
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: ff534bc287e3872ee87ed808be249a6e68c68ab3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: f47aead95d7135e2528fea11c116effa93df4c4c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403546"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309215"
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]

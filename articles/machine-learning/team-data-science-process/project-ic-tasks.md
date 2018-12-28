@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process 개별 참가자 작업 - Azure | Microsoft Docs
+title: Team Data Science Process에서 개별 기여자에 대한 작업
 description: 개별 참가자가 데이터 과학 팀 프로젝트에서 수행하는 작업에 대한 개요입니다.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: d8e51dcf8434508664801f53391592aab34d7e4a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 6684cc9a0166df9c6d230f6b2a8c05acec5f91b3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447064"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136764"
 ---
-# <a name="individual-contributor-tasks"></a>개별 참가자 작업
+# <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Team Data Science Process에서 개별 기여자에 대한 작업
 
 이 항목에서는 개별 참가자가 데이터 과학 팀을 위해 수행해야 하는 작업에 대해 간략히 설명합니다. 목표는 [TDSP(Team Data Science Process)](overview.md)를 표준화하는 공동 작업 팀 환경을 구축하는 것입니다. 이 프로세스를 표준화하는 데이터 과학 팀에서 처리하는 인력 역할 및 관련 작업에 대한 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
 
@@ -45,7 +45,7 @@ TDSP에서 데이터 과학 프로젝트를 실행하는 방법에 대한 지침
 - **D5**: R5에서 복제된 로컬 디렉터리
 
 
-## <a name="step-0-prerequisites"></a>0단계: 필수 구성 요소
+## <a name="step-0-prerequisites"></a>0단계: 필수 조건
 
 [데이터 과학 팀에 대한 그룹 관리자 작업](group-manager-tasks.md)에서 설명하는 그룹 관리자에게 할당된 작업을 완료하면 필수 구성 요소가 충족됩니다. 여기서 요약하면, 팀 리더 작업을 시작하기 전에 다음 요구 사항이 충족되어야 합니다. 
 - 그룹 관리자가 **GroupUtilities** 리포지토리를 설정했습니다(있는 경우). 
@@ -60,7 +60,7 @@ TDSP에서 데이터 과학 프로젝트를 실행하는 방법에 대한 지침
 - **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 Azure DevOps Services 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
 - 팀 리더 및/또는 프로젝트 리더가 DSVM에 탑재해야 하는 Azure 파일 저장소를 만든 경우 해당 Azure 파일 저장소 정보를 가져와야 합니다. 
 
-## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>1-3단계: 로컬 컴퓨터에 그룹, 팀 및 프로젝트 리포지토리 복제
+## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>1-3단계: 로컬 머신에 그룹, 팀 및 프로젝트 리포지토리 복제
 
 이 섹션에서는 프로젝트 개별 참가자의 처음 세 가지 작업을 수행하는 방법에 대해 설명합니다. 
 
@@ -96,7 +96,7 @@ TDSP에서 데이터 과학 프로젝트를 실행하는 방법에 대한 지침
 
 ![5](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
-## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>4-5단계: DSVM에 Azure 파일 저장소 탑재(선택 사항)
+## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>4-5단계: DSVM에 Azure 파일 스토리지 탑재(선택 사항)
 
 Azure 파일 저장소를 DSVM에 탑재하려면 [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md)의 섹션 4에서 설명하는 지침을 참조하세요.
 

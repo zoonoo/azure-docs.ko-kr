@@ -20,7 +20,7 @@ REST 호출을 지원하는 프로그래밍 언어를 사용하여 Azure Analysi
 
 데이터 새로 고침 작업은 데이터 볼륨, 파티션을 사용하는 사용자 지정 수준 등을 비롯한 다양한 요인에 따라 시간이 다소 소요될 수 있습니다. 이러한 작업은 일반적으로 [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo)(테이블 형식 개체 모델) [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) cmdlet 또는 [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)(테이블 형식 모델 스크립팅 언어) 등을 사용하는 기존 방법으로 호출되었습니다. 그러나 이러한 메서드는 종종 신뢰할 수 없는, 장기 실행 HTTP 연결을 요구할 수 있습니다.
 
-Azure Analysis Services용 REST API에서는 데이터 새로 고침 작업을 비동기적으로 실행할 수 있습니다. REST API를 사용하면 클라이언트 응용 프로그램에서의 장기 실행 HTTP 연결이 필요하지 않습니다. 안정성을 위한 기타 기본 제공 기능(예: 자동 다시 시도 및 일괄 처리 커밋)도 있습니다.
+Azure Analysis Services용 REST API에서는 데이터 새로 고침 작업을 비동기적으로 실행할 수 있습니다. REST API를 사용하면 클라이언트 애플리케이션에서의 장기 실행 HTTP 연결이 필요하지 않습니다. 안정성을 위한 기타 기본 제공 기능(예: 자동 다시 시도 및 일괄 처리 커밋)도 있습니다.
 
 ## <a name="base-url"></a>기준 URL
 
@@ -60,16 +60,16 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 모든 호출은 권한 부여 헤더에서 유효한 Azure Active Directory(OAuth 2) 토큰으로 인증되어야 하며 다음과 같은 요구 사항을 충족해야 합니다.
 
-- 토큰은 사용자 토큰 또는 응용 프로그램 서비스 사용자여야 합니다.
+- 토큰은 사용자 토큰 또는 애플리케이션 서비스 사용자여야 합니다.
 - 토큰에는 올바른 대상이 `https://*.asazure.windows.net`으로 설정되어 있어야 합니다.
-- 사용자 또는 응용 프로그램은 서버 또는 모델에서 요청된 호출을 수행하기 위한 충분한 권한이 있어야 합니다. 사용 권한 수준은 서버의 모델 또는 관리 그룹 내 역할에 의해 결정됩니다.
+- 사용자 또는 애플리케이션은 서버 또는 모델에서 요청된 호출을 수행하기 위한 충분한 권한이 있어야 합니다. 사용 권한 수준은 서버의 모델 또는 관리 그룹 내 역할에 의해 결정됩니다.
 
     > [!IMPORTANT]
     > 현재 **서버 관리자** 역할 권한이 필요합니다.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 
-새로 고침 작업을 수행하려면 /refreshes 컬렉션에서 POST 동사를 사용하여 컬렉션에 새로 고침 항목을 새로 추가합니다. 응답의 Location 헤더에는 새로 고침 ID가 포함됩니다. 클라이언트 응용 프로그램은 비동기적이므로, 연결을 끊은 후 나중에 필요할 때 상태를 확인할 수 있습니다.
+새로 고침 작업을 수행하려면 /refreshes 컬렉션에서 POST 동사를 사용하여 컬렉션에 새로 고침 항목을 새로 추가합니다. 응답의 Location 헤더에는 새로 고침 ID가 포함됩니다. 클라이언트 애플리케이션은 비동기적이므로, 연결을 끊은 후 나중에 필요할 때 상태를 확인할 수 있습니다.
 
 모델에 대해 한 번에 하나의 새로 고침 작업만 허용됩니다. 현재 실행 중인 새로 고침 작업이 있으며 다른 작업이 제출되면 409 충돌 HTTP 상태 코드가 반환됩니다.
 
@@ -214,9 +214,9 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 
     ![설정](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
 
-3.  앱을 선택한 후 **응용 프로그램 ID**를 복사하고 저장합니다.
+3.  앱을 선택한 후 **애플리케이션 ID**를 복사하고 저장합니다.
 
-    ![응용 프로그램 ID 복사](./media/analysis-services-async-refresh/aas-async-app-id.png)
+    ![애플리케이션 ID 복사](./media/analysis-services-async-refresh/aas-async-app-id.png)
 
 4.  **설정**에서 **필요한 권한** > **추가**를 클릭합니다.
 

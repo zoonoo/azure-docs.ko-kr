@@ -100,7 +100,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |자산|type|설명|  
 |--------------|----------|-----------------|  
 |문제|[문제](api-management-template-data-model-reference.md#Issue) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 문제입니다.|  
-|페이징|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|응용 프로그램 컬렉션에 대한 페이징 정보입니다.|  
+|페이징|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|애플리케이션 컬렉션에 대한 페이징 정보입니다.|  
 |IsAuthenticated|부울|현재 사용자가 개발자 포털에 로그인했는지 여부입니다.|  
 |CanReportIssues|부울|현재 사용자에게 문제를 접수할 권한이 있는지 여부입니다.|  
 |검색|string|이 속성은 사용되지 않으며 사용할 수 없습니다.|  

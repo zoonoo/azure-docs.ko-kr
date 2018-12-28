@@ -128,7 +128,7 @@ PowerShell을 사용하여 Data Lake Storage Gen1과 함께 작동하도록 HDIn
 Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다음 작업을 수행해야 합니다.
 
 * 자체 서명된 인증서 만들기
-* Azure Active Directory 및 서비스 주체의 응용 프로그램 만들기
+* Azure Active Directory 및 서비스 주체의 애플리케이션 만들기
 
 ### <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
@@ -150,7 +150,7 @@ Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다�
 
 ### <a name="create-an-azure-active-directory-and-a-service-principal"></a>Azure Active Directory 및 서비스 주체 만들기
 
-이 섹션에서는 Azure Active Directory 응용 프로그램용 서비스 주체를 만들고, 서비스 주체에 역할을 할당하고, 인증서를 제공하여 서비스 주체로 인증하는 단계를 수행합니다. 다음 명령을 실행하여 Azure Active Directory에서 응용 프로그램을 만듭니다.
+이 섹션에서는 Azure Active Directory 애플리케이션용 서비스 주체를 만들고, 서비스 주체에 역할을 할당하고, 인증서를 제공하여 서비스 주체로 인증하는 단계를 수행합니다. 다음 명령을 실행하여 Azure Active Directory에서 애플리케이션을 만듭니다.
 
 1. PowerShell 콘솔 창에 다음 cmdlet을 붙여 넣습니다. **-DisplayName** 속성에 대해 지정한 값이 고유한지 확인합니다. 또한 **-HomePage** 및 **-IdentiferUris**에 대한 값은 자리 표시자이며 확인되지 않습니다.
 

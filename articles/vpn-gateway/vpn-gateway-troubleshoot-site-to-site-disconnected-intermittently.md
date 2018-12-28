@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 9d831f7f08af174dfc6ce429da4d0a0daaeda0e9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2fdd82c2f0c96b3bd20231911bb88cf54c172931
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240021"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958017"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>문제 해결: Azure 사이트 간 VPN 일시적 연결 끊김
 
@@ -36,11 +36,11 @@ Azure Virtual Network Gateway의 형식을 확인합니다.
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. Virtual Network Gateway의 **개요** 페이지에서 형식 정보를 확인합니다.
     
-    ![게이트웨이 개요](media\vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently\gatewayoverview.png)
+    ![게이트웨이 개요](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>1단계 온-프레미스 VPN 디바이스가 확인되었는지 확인
 
-1. [확인된 VPN 장치 및 운영 체제 버전](vpn-gateway-about-vpn-devices.md#devicetable)을 사용 중인지 확인합니다. VPN 디바이스가 확인되지 않은 경우 디바이스 제조업체에 호환성 문제가 있는지 문의해야 할 수 있습니다.
+1. [확인된 VPN 디바이스 및 운영 체제 버전](vpn-gateway-about-vpn-devices.md#devicetable)을 사용 중인지 확인합니다. VPN 디바이스가 확인되지 않은 경우 디바이스 제조업체에 호환성 문제가 있는지 문의해야 할 수 있습니다.
 2. VPN 디바이스가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [디바이스 구성 샘플 편집](vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
 
 ### <a name="step-2-check-the-security-association-settingsfor-policy-based-azure-virtual-network-gateways"></a>2단계 보안 연결 설정 확인(정책 기반 Azure Virtual Network Gateway의 경우)

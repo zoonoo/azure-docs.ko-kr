@@ -41,7 +41,7 @@ Visual Studio를 사용하지 않는 경우 웹 서버가 시작되었는지 확
 
 Visual Studio를 사용하는 경우 프로젝트 솔루션을 선택하고 **F5** 키를 눌러 프로젝트를 실행합니다. 브라우저가 열리고 http://<span></span>localhost:{port} 위치로 이동합니다. **로그인** 단추가 표시됩니다.
 
-## <a name="test-your-application"></a>응용 프로그램 테스트
+## <a name="test-your-application"></a>애플리케이션 테스트
 
 브라우저에서 index.html 파일이 로드되면 **로그인**을 클릭합니다. Microsoft Azure AD(Azure Active Directory) v2.0 엔드포인트로 로그인하라는 메시지가 표시됩니다.
 

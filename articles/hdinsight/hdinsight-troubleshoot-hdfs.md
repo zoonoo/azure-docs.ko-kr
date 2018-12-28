@@ -6,15 +6,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/2/2017
-ms.openlocfilehash: 2eddf1da9f797f4646d6e3fc3380580d9923d963
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: d3ae15193b5e2d759825e60f880dea4355329837
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013788"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407055"
 ---
-# <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 HDFS 문제 해결
+# <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hadoop HDFS 문제 해결
 
 Apache Ambari에서 HDFS(Hadoop 분산 파일 시스템) 페이로드를 사용할 때의 주요 문제 및 해결 방법을 알아봅니다.
 
@@ -22,7 +23,7 @@ Apache Ambari에서 HDFS(Hadoop 분산 파일 시스템) 페이로드를 사용�
 
 ### <a name="issue"></a>문제
 
-HDInsight 클러스터 내에서 Azure Blob Storage 또는 Azure Data Lake Store를 사용하는 대신, 명령줄 및 응용 프로그램 코드에서 로컬 HDFS에 액세스합니다.   
+HDInsight 클러스터 내에서 Azure Blob Storage 또는 Azure Data Lake Store를 사용하는 대신, 명령줄 및 애플리케이션 코드에서 로컬 HDFS에 액세스합니다.   
 
 ### <a name="resolution-steps"></a>해결 단계:
 
@@ -36,7 +37,7 @@ HDInsight 클러스터 내에서 Azure Blob Storage 또는 Azure Data Lake Store
     drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
     ```
 
-2. 다음 예제 응용 프로그램과 같이 소스 코드에서 URI `hdfs://mycluster/`를 그대로 사용합니다.
+2. 다음 예제 애플리케이션과 같이 소스 코드에서 URI `hdfs://mycluster/`를 그대로 사용합니다.
 
     ```Java
     import java.io.IOException;

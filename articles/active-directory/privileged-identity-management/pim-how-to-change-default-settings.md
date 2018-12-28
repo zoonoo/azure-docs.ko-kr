@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 87003a053823cfc257a3b6f41699feefadbbcc66
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039004"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835168"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>PIM에서 Azure AD 디렉터리 역할 설정 구성
 
@@ -50,7 +50,15 @@ ms.locfileid: "47039004"
 
 ## <a name="notifications"></a>공지
 
-**알림** 스위치를 사용하여 시스템에서 역할이 활성화되었음을 확인하는 이메일을 관리자에게 보낼지 여부를 지정할 수 있습니다. 이 정보는 무단 또는 불법 활성화를 탐지하는 데 유용할 수 있습니다.
+**알림** 스위치를 사용하여 역할이 활성화될 때 관리자가 이메일 알림을 받을지 여부를 지정합니다. 이 정보는 무단 또는 불법 활성화를 탐지하는 데 유용할 수 있습니다.
+
+**사용**으로 설정되면 다음 사용자에게 알림이 전송됩니다.
+
+- 권한 있는 역할 관리자
+- 보안 관리자
+- 전역 관리자
+
+자세한 내용은 [PIM에서 이메일 알림](pim-email-notifications.md)을 참조하세요.
 
 ## <a name="incidentrequest-ticket"></a>문제/요청 티켓
 

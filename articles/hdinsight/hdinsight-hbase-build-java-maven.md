@@ -348,13 +348,13 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
     이 클래스는 **CreateTable** 클래스로 생성된 테이블을 비활성화하고 제거하여 이 예제를 정리하는 데 사용됩니다.
 7. **DeleteTable.java** 파일을 저장합니다.
 
-## <a name="build-and-package-the-application"></a>응용 프로그램 빌드 및 패키지화
+## <a name="build-and-package-the-application"></a>애플리케이션 빌드 및 패키지화
 1. 명령 프롬프트를 열고 **hbaseapp** 디렉터리로 이동합니다.
 2. 다음 명령을 사용하여 응용 프로그램을 포함하는 JAR 파일을 빌드합니다.
 
         mvn clean package
 
-    이 코드는 이전 빌드 아티팩트를 정리하고, 아직 설치되지 않은 모든 종속성을 다운로드한 후 응용 프로그램을 빌드 및 패키지화합니다.
+    이 코드는 이전 빌드 아티팩트를 정리하고, 아직 설치되지 않은 모든 종속성을 다운로드한 후 애플리케이션을 빌드 및 패키지화합니다.
 3. 명령이 완료되면 **hbaseapp\target** 디렉터리에 **hbaseapp-1.0-SNAPSHOT.jar**이라는 파일이 포함됩니다.
 
    > [!NOTE]  

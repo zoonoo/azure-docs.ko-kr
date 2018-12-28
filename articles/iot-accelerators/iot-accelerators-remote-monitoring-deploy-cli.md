@@ -72,7 +72,7 @@ pcs login
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 - 표준 계층 | 디바이스 관리 및 통신 |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | 구성 데이터, 규칙, 경보 및 기타 콜드 스토리지 저장 |  
 | 1     | [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | VM 및 스트리밍 검사점에 대한 저장소 |
-| 1     | [웹 응용 프로그램](https://azure.microsoft.com/services/app-service/web/)        |                 | 프런트 엔드 웹 응용 프로그램 호스트 |
+| 1     | [웹 응용 프로그램](https://azure.microsoft.com/services/app-service/web/)        |                 | 프런트 엔드 웹 애플리케이션 호스트 |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | 사용자 ID 및 보안 관리 |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | 자산 위치 보기 |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3개 단위              | 실시간 분석 사용 |

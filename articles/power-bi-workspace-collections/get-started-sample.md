@@ -236,7 +236,7 @@ init: function() {
 }
 ```
 
-## <a name="filter-reports-embedded-in-your-application"></a>응용 프로그램에 포함된 보고서 필터링
+## <a name="filter-reports-embedded-in-your-application"></a>애플리케이션에 포함된 보고서 필터링
 
 URL 구문을 사용하여 포함된 보고서를 필터링할 수 있습니다. 이렇게 하려면 지정된 필터를 사용하여 **eq** 연산자가 포함된 **$filter** 쿼리 문자열 매개 변수를 iFrame src url에 추가합니다. 필터 쿼리 구문은 다음과 같습니다.
 

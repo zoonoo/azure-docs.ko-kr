@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 33d7322bfa3c6e6143dd2d945c5ed86c15da2fb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: de5d3fcd7eff0042e912e164050f917a0070b2c3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249968"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164675"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>OpenBSD 디스크 이미지 만들기 및 Azure로 업로드
 이 문서에서는 OpenBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다. VHD를 업로드한 후에는 VHD를 사용자 고유의 이미지로 사용하여 Azure CLI를 통해 Azure에서 VM(가상 머신)을 만들 수 있습니다.
@@ -68,7 +68,7 @@ Hyper-V 지원을 추가한, OpenBSD 운영 체제 6.1을 설치한 VM에서 다
     ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
-6. 언제든지 최신 버전의 Azure 에이전트를 [Github](https://github.com/Azure/WALinuxAgent/releases)에서 확인할 수 있습니다. 다음과 같이 에이전트를 설치합니다.
+6. 언제든지 최신 버전의 Azure 에이전트를 [GitHub](https://github.com/Azure/WALinuxAgent/releases)에서 확인할 수 있습니다. 다음과 같이 에이전트를 설치합니다.
 
     ```sh
     git clone https://github.com/Azure/WALinuxAgent 

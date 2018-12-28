@@ -1,21 +1,22 @@
 ---
-title: Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드 | Microsoft Docs
+title: Node.js를 사용하여 발언 가져오기
 titleSuffix: Azure
 description: LUIS 작성 API를 사용하여 CSV 형식의 기존 데이터에서 프로그래밍 방식으로 LUIS 앱을 빌드하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 729e19deb5efc91fb874214299f34fbb46d9bbdc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: da638064b2ead1cd860f3b4f96ffa88026aab4ff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034045"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101194"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드
 
@@ -34,7 +35,7 @@ LUIS를 사용하여 만들지 않은 시스템이 있는 경우에도 사용자
 
 `IoT.csv` 파일을 엽니다. 여기에는 사용자 쿼리가 분류된 방식, 사용자가 말한 내용, 쿼리에서 가져온 유용한 정보가 있는 일부 열을 포함하여 가상 홈 자동화 서비스에 대한 사용자 쿼리 로그가 포함됩니다. 
 
-![CSV 파일](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
+![기존 데이터의 CSV 파일](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
 **RequestType** 열이 의도가 되고 **Request** 열에는 예제 발화가 표시되는 것을 확인할 수 있습니다. 다른 필드가 발화에서 나타나는 경우 엔터티가 될 수 있습니다. 의도, 엔터티 및 예제 발화가 있으므로 간단한 샘플 앱에 대한 요구 사항이 충족됩니다.
 
@@ -106,9 +107,9 @@ LUIS 앱에서 엔터티 및 의도를 정의했으면 발화를 추가할 수 �
 ### <a name="install-nodejs-dependencies"></a>Node.js 종속성 설치
 터미널/명령줄의 NPM에서 Node.js 종속성을 설치합니다.
 
-````
+```console
 > npm install
-````
+```
 
 ### <a name="change-configuration-settings"></a>구성 설정 변경
 이 응용 프로그램을 사용하려면 index.js 파일의 값을 고유한 끝점 키로 변경하고 앱에 지정할 이름을 제공해야 합니다. 앱의 문화권을 설정하거나 버전 번호를 변경할 수도 있습니다.
@@ -116,28 +117,31 @@ LUIS 앱에서 엔터티 및 의도를 정의했으면 발화를 추가할 수 �
 index.js 파일을 열고 파일의 맨 위에서 이러한 값을 변경하세요.
 
 
-````JavaScript
+```nodejs
 // Change these values
 const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
 const LUIS_appName = "Sample App";
 const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
-````
+```
+
 ### <a name="run-the-script"></a>스크립트 실행
 터미널/명령줄에서 Node.js로 스크립트를 실행합니다.
 
-````
+```console
 > node index.js
-````
+```
+
 또는
-````
+
+```console
 > npm start
-````
+```
 
 ### <a name="application-progress"></a>응용 프로그램 진행률
 응용 프로그램이 실행 중이면 명령줄에 진행률이 표시됩니다. 명령줄 출력에는 LUIS의 응답 형식이 포함됩니다.
 
-````
+```console
 > node index.js
 intents: ["TurnOn","TurnOff","Dim","Other"]
 entities: ["Operation","Device","Room"]
@@ -157,7 +161,7 @@ retrying add examples...
 
 Results of add utterances = [{"response":[{"value":{"UtteranceText":"turn on the lights","ExampleId":-67649},"hasError":false},{"value":{"UtteranceText":"turn the heat on","ExampleId":-69067},"hasError":false},{"value":{"UtteranceText":"switch on the kitchen fan","ExampleId":-3395901},"hasError":false},{"value":{"UtteranceText":"turn off bedroom lights","ExampleId":-85402},"hasError":false},{"value":{"UtteranceText":"turn off air conditioning","ExampleId":-8991572},"hasError":false},{"value":{"UtteranceText":"kill the lights","ExampleId":-70124},"hasError":false},{"value":{"UtteranceText":"dim the lights","ExampleId":-174358},"hasError":false},{"value":{"UtteranceText":"hi how are you","ExampleId":-143722},"hasError":false},{"value":{"UtteranceText":"answer the phone","ExampleId":-69939},"hasError":false},{"value":{"UtteranceText":"are you there","ExampleId":-149588},"hasError":false},{"value":{"UtteranceText":"help","ExampleId":-81949},"hasError":false},{"value":{"UtteranceText":"testing the circuit","ExampleId":-11548708},"hasError":false}]}]
 upload done
-````
+```
 
 
 

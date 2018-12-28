@@ -34,12 +34,12 @@ Azure Portal을 사용하여 Azure에 Service Fabric 클러스터(Linux 또는 W
 * 인증서를 사용하여 관리자를 인증합니다.
 
 > [!NOTE]
-> Azure Active Directory를 사용한 사용자 인증 및 응용 프로그램 보안에 대한 인증서 설정 등의 고급 보안 옵션을 사용하려면 [Azure Resource Manager를 사용하여 클러스터를 만듭니다][create-cluster-arm].
+> Azure Active Directory를 사용한 사용자 인증 및 애플리케이션 보안에 대한 인증서 설정 등의 고급 보안 옵션을 사용하려면 [Azure Resource Manager를 사용하여 클러스터를 만듭니다][create-cluster-arm].
 > 
 > 
 
 ## <a name="cluster-security"></a>클러스터 보안 
-인증서는 서비스 패브릭에서 클러스터 및 해당 응용 프로그램의 다양한 측면을 보호하기 위해 인증 및 암호화를 제공하는 데 사용됩니다. Service Fabric에서 인증서가 사용되는 방식에 대한 자세한 내용은 [Service Fabric 클러스터 보안 시나리오][service-fabric-cluster-security]를 참조하세요.
+인증서는 Service Fabric에서 클러스터 및 해당 애플리케이션의 다양한 측면을 보호하기 위해 인증 및 암호화를 제공하는 데 사용됩니다. Service Fabric에서 인증서가 사용되는 방식에 대한 자세한 내용은 [Service Fabric 클러스터 보안 시나리오][service-fabric-cluster-security]를 참조하세요.
 
 서비스 패브릭 클러스터를 처음 만들거나 테스트 워크로드를 위해 클러스터를 처음 배포하는 경우, 다음 섹션(**Azure Portal에서 클러스터 만들기**)으로 건너뛰고 시스템이 테스트 워크로드를 실행하는 클러스터에 필요한 인증서를 생성하도록 할 수 있습니다. 프로덕션 워크로드를 위해 클러스터를 설정하는 경우에는 계속 읽어보시기 바랍니다.
 
@@ -66,12 +66,12 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 > 
 
 #### <a name="application-certificates-optional"></a>응용 프로그램 인증서(선택 사항)
-응용 프로그램 보안을 위해 클러스터에 제한 없는 수의 인증서를 추가로 설치할 수 있습니다. 클러스터를 만들기 전에, 다음과 같이 노드에 인증서를 설치하도록 요구하는 응용 프로그램 보안 시나리오를 고려해 보세요.
+애플리케이션 보안을 위해 클러스터에 제한 없는 수의 인증서를 추가로 설치할 수 있습니다. 클러스터를 만들기 전에, 다음과 같이 노드에 인증서를 설치하도록 요구하는 애플리케이션 보안 시나리오를 고려해 보세요.
 
-* 응용 프로그램 구성 값의 암호화 및 암호 해독
+* 애플리케이션 구성 값의 암호화 및 암호 해독
 * 복제 중에 노드 간 데이터 암호화 
 
-[Azure Portal을 통해 클러스터를 만드는](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md) 경우, 응용 프로그램 인증서를 구성할 수 없습니다. 클러스터 설치 시에 응용 프로그램 인증서를 구성하려면 [Azure Resource Manager를 사용하여 클러스터를 만들어야][create-cluster-arm] 합니다. 만든 클러스터에 응용 프로그램 인증서를 추가할 수도 있습니다.
+[Azure Portal을 통해 클러스터를 만드는](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md) 경우, 응용 프로그램 인증서를 구성할 수 없습니다. 클러스터 설치 시에 애플리케이션 인증서를 구성하려면 [Azure Resource Manager를 사용하여 클러스터를 만들어야][create-cluster-arm] 합니다. 만든 클러스터에 애플리케이션 인증서를 추가할 수도 있습니다.
 
 ## <a name="create-cluster-in-the-azure-portal"></a>Azure 포털에서 클러스터 만들기
 
@@ -111,15 +111,15 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 클러스터 노드를 구성합니다. 노드 유형에서 VM 크기, VM 수 및 VM 속성을 정의합니다. 클러스터는 둘 이상의 노드 형식을 가질 수 있지만 주 노드 형식(포털에서 정의하는 첫 번째 노드)에는 최소한 5개의 VM이 있어야 하며, 서비스 패브릭 시스템 서비스가 배치된 노드 형식입니다. "NodeTypeName"의 기본 배치 속성은 자동으로 추가되므로 **배치 속성** 을 구성하지 마세요.
 
 > [!NOTE]
-> 여러 노드 형식 사용에 대한 일반적인 시나리오는 프런트 엔드 서비스 및 백 엔드 서비스를 포함하는 응용 프로그램입니다. 인터넷에 열려 있는 포트를 포함하고 비교적 작은 VM(D2_V2 같은 VM 크기)에 프런트 엔드 서비스를 배치하고, 열려 있는 인터넷 연결 포트가 없고 비교적 큰 VM(D3_V2, D6_V2, D15_V2 등과 같은 VM 크기)에 백 엔드 서비스를 배치하려고 합니다.
+> 여러 노드 형식 사용에 대한 일반적인 시나리오는 프런트 엔드 서비스 및 백 엔드 서비스를 포함하는 애플리케이션입니다. 인터넷에 열려 있는 포트를 포함하고 비교적 작은 VM(D2_V2 같은 VM 크기)에 프런트 엔드 서비스를 배치하고, 열려 있는 인터넷 연결 포트가 없고 비교적 큰 VM(D3_V2, D6_V2, D15_V2 등과 같은 VM 크기)에 백 엔드 서비스를 배치하려고 합니다.
 > 
 
 1. 노드 유형에 대한 이름(문자와 숫자만을 포함하는 1~12자)을 선택합니다.
 2. 주 노드 형식에 대한 최소 VM **크기**는 클러스터에 대해 선택한 **내구성 계층**에 따라 결정됩니다. 내구성 계층에 대한 기본값은 브론즈입니다. 내구성에 대한 자세한 내용은 [Service Fabric 클러스터 내구성을 선택하는 방법][service-fabric-cluster-durability]을 참조하세요.
-3. **가상 머신 크기**를 선택합니다. D 시리즈 VM에는 SSD 드라이브가 있으므로 특히 상태 저장 응용 프로그램에 권장됩니다. 부분 코어가 있거나 사용 가능한 디스크 용량이 10GB 미만인 VM SKU를 사용하지 마세요. VM 크기 선택에 대한 도움말을 보려면 [Service Fabric 클러스터 계획 고려 사항 문서][service-fabric-cluster-capacity]를 참조하세요.
+3. **가상 머신 크기**를 선택합니다. D 시리즈 VM에는 SSD 드라이브가 있으므로 특히 상태 저장 애플리케이션에 권장됩니다. 부분 코어가 있거나 사용 가능한 디스크 용량이 10GB 미만인 VM SKU를 사용하지 마세요. VM 크기 선택에 대한 도움말을 보려면 [Service Fabric 클러스터 계획 고려 사항 문서][service-fabric-cluster-capacity]를 참조하세요.
 4.  **단일 노드 클러스터 및 3개 노드 클러스터**는 테스트용으로만 사용되며 실행 중인 프로덕션 워크로드에는 지원되지 않습니다.
 5. 노드 형식에 대한 **초기 VM 확장 집합 용량**을 선택합니다. 나중에 노드 형식의 VM 수를 늘리거나 줄일 수 있지만 주 노드 형식에서 프로덕션 워크로드의 최소값은 5개입니다. 다른 노드 형식은 최소 VM이 1대만 있어도 됩니다. 주 노드 형식에 대한 최소 VM **수**는 클러스터의 **안정성**을 결정합니다.  
-6. **사용자 지정 엔드포인트**를 구성합니다. 이 필드를 사용하면 Azure Load Balancer를 통해 응용 프로그램에 대한 공용 인터넷에 노출하려고 하는 쉼표로 구분된 포트 목록을 입력할 수 있습니다. 예를 들어 클러스터에 웹 응용 프로그램을 배포하려는 경우 여기에 "80"을 입력하여 포트 80의 트래픽이 클러스터로 이동되도록 허용합니다. 엔드포인트에 대한 자세한 내용은 [응용 프로그램과 통신][service-fabric-connect-and-communicate-with-services]을 참조하세요.
+6. **사용자 지정 엔드포인트**를 구성합니다. 이 필드를 사용하면 Azure Load Balancer를 통해 애플리케이션에 대한 공용 인터넷에 노출하려고 하는 쉼표로 구분된 포트 목록을 입력할 수 있습니다. 예를 들어 클러스터에 웹 애플리케이션을 배포하려는 경우 여기에 "80"을 입력하여 포트 80의 트래픽이 클러스터로 이동되도록 허용합니다. 엔드포인트에 대한 자세한 내용은 [애플리케이션과 통신][service-fabric-connect-and-communicate-with-services]을 참조하세요.
 7. **역방향 프록시 사용**.  [Service Fabric 역방향 프록시](service-fabric-reverseproxy.md)는 Service Fabric 클러스터 탐색에서 마이크로 서비스가 실행되도록 하고 http 엔드포인트가 있는 다른 서비스와 통신합니다.
 8. **클러스터 구성** 블레이드로 돌아가, **+선택적 설정 표시** 아래에서 클러스터 **진단**을 구성합니다. 기본적으로 문제 해결을 돕기 위해 클러스터에서 진단이 활성화됩니다. 진단을 사용하지 않으려면 **상태** 토글을 **사용 안 함**로 변경합니다. 진단을 끄지 **않는** 것이 좋습니다. 이미 Application Insights 프로젝트가 생성되어 있는 경우 애플리케이션 추적이 프로젝트로 라우팅되도록 해당 키를 제공합니다.
 9. **DNS 서비스 포함**  [DNS 서비스](service-fabric-dnsservice.md)는 DNS 프로토콜을 사용하여 다른 서비스를 찾을 수 있는 선택적 서비스입니다.
@@ -210,7 +210,7 @@ Powershell 또는 CLI를 사용하여 클러스터에 대한 관리 작업을 �
 클러스터에서 지정한 각 NodeType에 따라 Virtual Machine Scale Set가 설정됩니다. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
 
 ## <a name="next-steps"></a>다음 단계
-이제 관리 인증을 위해 인증서를 사용하는 보안 클러스터가 구축되었습니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [응용 프로그램 암호를 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.  또한 [Service Fabric 지원 옵션](service-fabric-support.md)을 알아봅니다.
+이제 관리 인증을 위해 인증서를 사용하는 보안 클러스터가 구축되었습니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [애플리케이션 암호를 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.  또한 [Service Fabric 지원 옵션](service-fabric-support.md)을 알아봅니다.
 
 <!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/

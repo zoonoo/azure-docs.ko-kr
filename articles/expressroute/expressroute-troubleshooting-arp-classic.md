@@ -1,25 +1,19 @@
 ---
-title: 'ARP 테이블 가져오기: 클래식: Azure ExpressRoute 문제 해결 | Microsoft Docs'
-description: 이 페이지에서는 ExpressRoute 회로의 ARP 테이블을 가져오는 방법을 제공합니다.
-documentationcenter: na
+title: 'ARP 테이블 가져오기 - ExpressRoute 문제 해결: 클래식: Azure | Microsoft Docs'
+description: 이 페이지에서는 ExpressRoute 회로 - 클래식 배포 모델의 ARP 테이블을 가져오기 위한 지침을 제공합니다.
 services: expressroute
 author: ganesr
-manager: carolz
-editor: tysonn
-ms.assetid: b5856acf-03c2-4933-8111-6ce12998d92a
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
-ms.openlocfilehash: fcc847b7e30fd55ca759830e0254ab7542e7663e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.custom: seodec18
+ms.openlocfilehash: 367a79b04a8736e2eafb6851b682f2c244e80522
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23013168"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272289"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>클래식 배포 모델에서 ARP 테이블 가져오기
 > [!div class="op_single_selector"]

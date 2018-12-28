@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: d9ed140d404387b94428cea5d925911806b62552
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705859"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834709"
 ---
 # <a name="what-is-the-myapps-portal"></a>MyApps 포털이란 무엇입니까?
 
@@ -41,11 +41,11 @@ MyApps 포털은 Azure Portal과 별개입니다. Azure 구독이 필요하지 �
 
 ## <a name="access-the-myapps-portal"></a>MyApps 포털에 액세스
 
-`http://myapps.microsoft.com`으로 이동하여 MyApps 포털에 액세스할 수 있습니다.
+`https://myapps.microsoft.com`으로 이동하여 MyApps 포털에 액세스할 수 있습니다.
 
-로그인 페이지에서 사용자 지정 브랜딩을 구성한 경우 조직의 도메인을 URL에 추가하여(예: `http://myapps.microsoft.com/<your domain>.com` ) 브랜딩을 로드할 수 있습니다.
+로그인 페이지에서 사용자 지정 브랜딩을 구성한 경우 조직의 도메인을 URL에 추가하여(예: `https://myapps.microsoft.com/<your domain>.com` ) 브랜딩을 로드할 수 있습니다.
 
-다음과 같이 Azure Portal에 구성되어 있는 활성 또는 확인된 도메인 이름을 사용할 수 있습니다. ![Wingtip Toys 도메인 이름][2]  
+다음과 같은 Azure Portal에 구성되어 있는 활성 또는 확인된 도메인 이름을 사용할 수 있습니다. ![Wingtip Toys 도메인 이름][2]  
 
 Azure AD와 통합된 응용 프로그램에 로그인하는 모든 사용자에게 URL을 배포합니다.
 

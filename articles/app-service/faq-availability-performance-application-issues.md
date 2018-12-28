@@ -1,6 +1,6 @@
 ---
 title: 애플리케이션 성능 FAQ - Azure App Service | Microsoft Docs
-description: Azure App Service의 Web Apps 기능에서 가용성, 성능 및 응용 프로그램 문제에 대한 질문과 대답을 확인합니다.
+description: Azure App Service의 Web Apps 기능에서 가용성, 성능 및 애플리케이션 문제에 대한 질문과 대답을 확인합니다.
 services: app-service\web
 documentationcenter: ''
 author: genlin
@@ -23,9 +23,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/14/2018
 ms.locfileid: "53388405"
 ---
-# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 응용 프로그램 성능 FAQ
+# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
 
-이 문서에는 [Azure App Service의 Web Apps 기능](https://azure.microsoft.com/services/app-service/web/) 관련 응용 프로그램 성능 문제에 대한 FAQ(질문과 대답)가 있습니다.
+이 문서에는 [Azure App Service의 Web Apps 기능](https://azure.microsoft.com/services/app-service/web/) 관련 애플리케이션 성능 문제에 대한 FAQ(질문과 대답)가 있습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -35,11 +35,11 @@ ms.locfileid: "53388405"
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>높은 CPU 사용 시나리오의 문제는 어떻게 해결하나요?
 
-일부 높은 CPU 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 응용 프로그램이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에 높은 CPU 사용은 잘못된 반복이나 코딩 사례로 인해 발생할 수 있습니다. CPU 사용 증가를 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. 자세한 내용은 [Capture and analyze a dump file for high CPU consumption for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)(Web Apps의 높은 CPU 사용에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
+일부 높은 CPU 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에 높은 CPU 사용은 잘못된 반복이나 코딩 사례로 인해 발생할 수 있습니다. CPU 사용 증가를 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. 자세한 내용은 [Capture and analyze a dump file for high CPU consumption for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)(Web Apps의 높은 CPU 사용에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>높은 메모리 사용 시나리오의 문제는 어떻게 해결하나요?
 
-일부 높은 메모리 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 응용 프로그램이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에는 코드의 버그로 인해 메모리 누수가 발생할 수 있습니다. 코딩 사례가 메모리 사용을 증가시킬 수도 있습니다. 높은 메모리 사용을 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. Azure Site Extension Gallery의 Crash Diagnoser가 이러한 단계를 둘 다 효율적으로 수행할 수 있습니다. 자세한 내용은 [Capture and analyze a dump file for intermittent high memory for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)(Web Apps의 간헐적 높은 메모리에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
+일부 높은 메모리 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에는 코드의 버그로 인해 메모리 누수가 발생할 수 있습니다. 코딩 사례가 메모리 사용을 증가시킬 수도 있습니다. 높은 메모리 사용을 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. Azure Site Extension Gallery의 Crash Diagnoser가 이러한 단계를 둘 다 효율적으로 수행할 수 있습니다. 자세한 내용은 [Capture and analyze a dump file for intermittent high memory for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)(Web Apps의 간헐적 높은 메모리에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>PowerShell를 사용하여 App Service Web Apps를 어떻게 자동화할 수 있나요?
 
@@ -151,7 +151,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 ## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>“’메모리 비율’ 한도로 인해 작업 프로세스가 재생을 요청했습니다.”라는 메시지가 표시됩니다. 이 문제를 어떻게 해결하나요?
 
-32비트 프로세스(64비트 운영 체제에서도)에 대한 최대 사용 가능한 메모리 양은 2GB입니다. 기본적으로 작업자 프로세스는 App Service에서 32비트로 설정됩니다(레거시 웹 응용 프로그램과의 호환성을 위해).
+32비트 프로세스(64비트 운영 체제에서도)에 대한 최대 사용 가능한 메모리 양은 2GB입니다. 기본적으로 작업자 프로세스는 App Service에서 32비트로 설정됩니다(레거시 웹 애플리케이션과의 호환성을 위해).
 
 웹 작업자 역할에서 사용 가능한 추가 메모리를 사용할 수 있도록 64비트 프로세스로 전환하는 것을 고려하세요. 이렇게 하면 웹앱 다시 시작이 트리거되므로 이에 따라 일정이 트리거됩니다.
 
@@ -165,7 +165,7 @@ Azure Load Balancer에는 4분의 기본 유휴 시간 제한 설정이 있습�
 
 WebJobs는 백그라운드에서 처리되도록 디자인됩니다. WebJob에서 원하는 만큼 백그라운드 처리를 수행할 수 있습니다. WebJobs에 대한 자세한 내용은 [WebJob으로 백그라운드 작업 실행](web-sites-create-web-jobs.md)을 참조하세요.
 
-## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>App Service에서 호스트되는 ASP.NET Core 응용 프로그램이 때때로 응답을 중지합니다. 이 문제를 어떻게 해결하나요?
+## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>App Service에서 호스트되는 ASP.NET Core 애플리케이션이 때때로 응답을 중지합니다. 이 문제를 어떻게 해결하나요?
 
 초기 [Kestrel 버전](https://github.com/aspnet/KestrelHttpServer/issues/1182)에서 알려진 문제로 인해 App Service에서 호스트되는 ASP.NET Core 1.0 앱이 간헐적으로 응답을 중지할 수 있습니다. “지정한 CGI 애플리케이션에서 오류가 발생하여 서버에서 프로세스가 종료되었습니다.”라는 메시지가 표시될 수도 있습니다.
 
@@ -176,7 +176,7 @@ WebJobs는 백그라운드에서 처리되도록 디자인됩니다. WebJob에�
 
 App Service의 로컬 캐시 기능을 사용할 경우 App Service 인스턴스에 대한 LogFiles 및 Data 폴더의 폴더 구조에 영향을 미칩니다. 로컬 캐시가 사용될 경우 하위 폴더는 저장소 LogFiles 및 Data 폴더에 생성됩니다. 하위 폴더에는 명명 패턴 "고유 식별자" + 타임스탬프가 사용됩니다. 각 하위 폴더는 웹앱이 실행 중이거나 실행된 VM 인스턴스에 해당합니다.
 
-로컬 캐시를 사용 중인지 확인하려면 App Service **응용 프로그램 설정** 탭을 확인합니다. 로컬 캐시가 사용되고 있으면 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION`이 `Always`로 설정되어 있습니다.
+로컬 캐시를 사용 중인지 확인하려면 App Service **애플리케이션 설정** 탭을 확인합니다. 로컬 캐시가 사용되고 있으면 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION`이 `Always`로 설정되어 있습니다.
 
 로컬 캐시를 사용하고 있지 않고 이 문제가 발생하지 않으면 지원 요청을 제출합니다.
 
@@ -184,7 +184,7 @@ App Service의 로컬 캐시 기능을 사용할 경우 App Service 인스턴스
 
 일반적으로 이 오류는 아웃바운드 TCP 연결을 모두 사용한 경우 발생합니다. App Service에서는 각 VM 인스턴스에 대해 생성될 수 있는 최대 아웃바운드 연결 수에 대한 제한이 적용됩니다. 자세한 내용은 [Cross-VM numerical limits](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)(VM 간 숫자 제한)를 참조하세요.
 
-이 오류는 응용 프로그램에서 로컬 주소에 액세스하려는 경우에도 발생할 수 있습니다. 자세한 내용은 [Local address requests](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests)(로컬 주소 요청)를 참조하세요.
+이 오류는 애플리케이션에서 로컬 주소에 액세스하려는 경우에도 발생할 수 있습니다. 자세한 내용은 [Local address requests](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests)(로컬 주소 요청)를 참조하세요.
 
 웹앱의 아웃바운드 연결에 대한 자세한 내용은 [Azure Websites에 대한 아웃바운드 연결](https://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/)에 관한 블로그 게시물을 참조하세요.
 

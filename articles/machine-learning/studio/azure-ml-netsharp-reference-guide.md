@@ -4,9 +4,8 @@ description: Net# 인공신경망 사양 언어 구문과 Net# 및 Azure Machine
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315310"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272238"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 Net# 인공신경망 사양 언어에 대한 가이드
 
@@ -39,7 +38,7 @@ Net# 아키텍처 사양은 다음 컨텍스트에서 사용할 수 있습니다
 + Net# 사양 언어의 구문 및 키워드
 + Net#을 사용하여 만든 사용자 지정 신경망의 예 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="neural-network-basics"></a>신경망 기본 사항
 
@@ -191,7 +190,7 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 
 학습 데이터에 같은 유형 구조가 있으면 일반적으로 데이터의 높은 수준 기능을 학습하는 데 나선형 연결이 사용됩니다. 예를 들어 이미지, 오디오 또는 비디오 데이터에서 공간 또는 임시 차원은 상당히 균일할 수 있습니다.  
 
-나선형 번들에는 차원을 통해 움직이는 사각형 **커널**이 적용됩니다. 기본적으로 각 커널은 로컬 환경에 적용되는 **커널 응용 프로그램**이라는 가중치 집합을 정의합니다. 각 커널 응용 프로그램은 **중앙 노드**라는 원본 계층의 노드에 해당합니다. 커널의 가중치는 많은 연결에서 공유됩니다. 나선형 번들에서 각 커널은 사각형이고 모든 커널 응용 프로그램은 같은 크기입니다.  
+나선형 번들에는 차원을 통해 움직이는 사각형 **커널**이 적용됩니다. 기본적으로 각 커널은 로컬 환경에 적용되는 **커널 애플리케이션**이라는 가중치 세트을 정의합니다. 각 커널 애플리케이션은 **중앙 노드**라는 원본 계층의 노드에 해당합니다. 커널의 가중치는 많은 연결에서 공유됩니다. 나선형 번들에서 각 커널은 사각형이고 모든 커널 애플리케이션은 같은 크기입니다.  
 
 나선형 번들은 다음 특성을 지원합니다.
 
@@ -215,11 +214,11 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 
     단일 부울 값은 모든 구성 요소가 지정된 값과 같은 올바른 길이의 튜플로 확장됩니다. 
     
-    차원 값이 True이면 추가 커널 응용 프로그램을 지원하도록 해당 차원에서 값이 0인 셀을 사용하여 원본의 안쪽 여백이 논리적으로 지정되므로 해당 차원에 있는 첫 번째 및 마지막 커널의 중앙 노드는 원본 계층에서 해당 차원에 있는 첫 번째 및 마지막 노드입니다. 따라서 각 차원의 "더미" 노드 수는 `(InputShape[d] - 1) / Stride[d] + 1` 커널을 안쪽 여백이 지정된 원본 계층에 정확히 맞추도록 자동으로 결정됩니다. 
+    차원 값이 True이면 추가 커널 애플리케이션을 지원하도록 해당 차원에서 값이 0인 셀을 사용하여 원본의 안쪽 여백이 논리적으로 지정되므로 해당 차원에 있는 첫 번째 및 마지막 커널의 중앙 노드는 원본 계층에서 해당 차원에 있는 첫 번째 및 마지막 노드입니다. 따라서 각 차원의 "더미" 노드 수는 `(InputShape[d] - 1) / Stride[d] + 1` 커널을 안쪽 여백이 지정된 원본 계층에 정확히 맞추도록 자동으로 결정됩니다. 
     
     차원 값이 False이면 커널은 각 측면에 남아 있는 노드 수가 같도록 정의됩니다(최대 차이 1). 이 특성의 기본값은 모든 구성 요소가 False와 같은 튜플입니다.
 
-+ **UpperPad** 및 **LowerPad**: (선택 사항) 사용할 안쪽 여백 크기를 더 구체적으로 제어합니다. **Important:** 위의 **Padding** 속성이 정의되지 ***않은*** 경우에만 이러한 특성을 정의할 수 있습니다. 값은 길이가 번들 인자 수인 정수 값 튜플이어야 합니다. 이러한 특성을 지정하면 "더미" 노드가 입력 계층에 있는 각 차원의 아래쪽 및 위쪽 끝에 추가됩니다. 각 차원의 아래쪽 및 위쪽 끝에 추가되는 노드 수는 각각 **LowerPad**[i] 및 **UpperPad**[i]를 통해 결정됩니다. 
++ **UpperPad** 및 **LowerPad**: (선택 사항) 사용할 안쪽 여백 크기를 더 구체적으로 제어합니다. **중요:** 위의 **Padding** 속성이 정의되지 ***않은*** 경우에만 이러한 특성을 정의할 수 있습니다. 값은 길이가 번들 인자 수인 정수 값 튜플이어야 합니다. 이러한 특성을 지정하면 "더미" 노드가 입력 계층에 있는 각 차원의 아래쪽 및 위쪽 끝에 추가됩니다. 각 차원의 아래쪽 및 위쪽 끝에 추가되는 노드 수는 각각 **LowerPad**[i] 및 **UpperPad**[i]를 통해 결정됩니다. 
 
     커널이 "실제" 노드에만 해당하고 "더미" 노드에 해당하지 않도록 하려면 다음 조건을 충족해야 합니다.
       - **LowerPad**의 각 구성 요소는 `KernelShape[d]/2`보다 작아야 합니다. 
@@ -228,7 +227,7 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 
     **Padding** = true로 설정하면 최대한 많은 안쪽 여백을 사용하여 "실제" 입력 내 커널의 "중심"을 유지할 수 있습니다. 이 경우 출력 크기를 계산하는 수식이 약간 변경됩니다. 일반적으로 출력 크기 *D*는 `D = (I - K) / S + 1`로 계산됩니다. 여기서 `I`는 입력 크기, `K`는 커널 크기, `S`는 진행 속도, `/`는 정수 나누기(0으로 반올림)입니다. UpperPad = [1, 1]로 설정한 경우 입력 크기 `I`는 사실상 29이므로 `D = (29 - 5) / 2 + 1 = 13`입니다. 그러나 **Padding** = true인 경우 기본적으로 `I`는 `K - 1`만큼 증가합니다. 따라서 `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`입니다. **UpperPad** 및 **LowerPad** 값을 지정하면 **Padding** = true로 설정한 경우보다 안쪽 여백을 훨씬 구체적으로 제어할 수 있습니다.
 
-나선형 네트워크 및 해당 응용 프로그램에 대한 자세한 내용은 다음 문서를 참조하세요. 
+나선형 네트워크 및 해당 애플리케이션에 대한 자세한 내용은 다음 문서를 참조하세요. 
 
 + [http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
 + [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf) 
@@ -469,4 +468,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>감사의 말
 
-신경망 아키텍처를 사용자 지정하기 위한 Net# 언어는 Microsoft에서 Shon Katzenberger(설계자, Machine Learning) 및 Alexey Kamenev(소프트웨어 엔지니어, Microsoft Research)에 의해 개발되었습니다. 내부적으로 이미지 검색에서 텍스트 분석에 이르기까지 다양한 기계 학습 프로젝트 및 응용 프로그램에 사용됩니다. 자세한 내용은 [Azure ML의 신경망 - Net# 소개](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)를 참조하세요.
+신경망 아키텍처를 사용자 지정하기 위한 Net# 언어는 Microsoft에서 Shon Katzenberger(설계자, Machine Learning) 및 Alexey Kamenev(소프트웨어 엔지니어, Microsoft Research)에 의해 개발되었습니다. 내부적으로 이미지 검색에서 텍스트 분석에 이르기까지 다양한 기계 학습 프로젝트 및 애플리케이션에 사용됩니다. 자세한 내용은 [Azure ML의 신경망 - Net# 소개](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)를 참조하세요.

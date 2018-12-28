@@ -1,5 +1,5 @@
 ---
-title: Azure에서 App Service 계획 관리 | Microsoft Docs
+title: App Service 계획 관리 - Azure | Microsoft Docs
 description: 다양한 작업을 수행하여 App Service 계획을 관리하는 방법을 알아봅니다.
 keywords: App Service, Azure App Service, 규모, App Service 계획, 변경, 만들기, 관리, 운영
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec18
+ms.openlocfilehash: 8f8e5f3d184073a73ca30764542dc56e45974120
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166069"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262132"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure에서 App Service 계획 관리
 
@@ -35,7 +36,7 @@ ms.locfileid: "49166069"
 
 1. [Azure Portal](https://portal.azure.com)에서 **새로 만들기** > **웹+모바일**을 선택하고 **웹앱** 또는 다른 App Service 앱 종류를 선택합니다.
 
-1. 기존 App Service 계획을 선택하거나 새 앱에 대한 계획을 만듭니다.
+2. 기존 App Service 계획을 선택하거나 새 앱에 대한 계획을 만듭니다.
 
    ![Azure Portal에서 앱을 만듭니다.][createWebApp]
 

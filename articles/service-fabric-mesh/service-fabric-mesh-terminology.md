@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: rwike77
 ms.author: ryanwi
-ms.date: 07/12/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: f72490169149d247a43e2760815d757c3606f1b3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: fa2c34168423796a82f274db1b60b45ac10b5501
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163727"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888667"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh 용어
 
@@ -26,13 +26,13 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트
 
 ## <a name="application-and-service-concepts"></a>응용 프로그램 및 서비스 개념
 
-**Service Fabric Mesh 응용 프로그램**: Service Fabric Mesh 응용 프로그램은 [리소스 모델](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources)(YAML 및 JSON 리소스 파일)에 의해 설명되며 Service Fabric이 실행되는 모든 환경에 배포될 수 있습니다.
+**Service Fabric Mesh 애플리케이션**: Service Fabric Mesh 애플리케이션은 [리소스 모델](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources)(YAML 및 JSON 리소스 파일)에 의해 설명되며 Service Fabric이 실행되는 모든 환경에 배포될 수 있습니다.
 
-**Service Fabric 네이티브 응용 프로그램**: Service Fabric 네이티브 응용 프로그램은 [네이티브 응용 프로그램 모델](/azure/service-fabric/service-fabric-application-model)(XML 기반 응용 프로그램 및 서비스 매니페스트)에 의해 설명됩니다.  Service Fabric 네이티브 응용 프로그램은 Service Fabric Mesh에서 실행할 수 없습니다.
+**Service Fabric 네이티브 애플리케이션**: Service Fabric 네이티브 애플리케이션은 [네이티브 애플리케이션 모델](/azure/service-fabric/service-fabric-application-model)(XML 기반 애플리케이션 및 서비스 매니페스트)에 의해 설명됩니다.  Service Fabric 네이티브 응용 프로그램은 Service Fabric Mesh에서 실행할 수 없습니다.
 
-**응용 프로그램**: Service Fabric Mesh 응용 프로그램은 Mesh 응용 프로그램 배포, 버전 관리 및 수명의 단위입니다. 각 응용 프로그램 인스턴스의 수명 주기를 독립적으로 관리할 수 있습니다.  응용 프로그램은 하나 이상의 서비스 코드 패키지 및 설정으로 구성됩니다. 응용 프로그램은 Azure RM(Resource Model) 스키마를 사용하여 정의됩니다.  서비스는 RM 템플릿의 응용 프로그램 리소스 속성으로 설명됩니다.  응용 프로그램이 사용하는 네트워크 및 볼륨이 응용 프로그램에서 참조됩니다.  응용 프로그램을 만들면 응용 프로그램, 서비스, 네트워크 및 볼륨이 Service Fabric 리소스 모델을 사용하여 모델링됩니다.
+**애플리케이션**: Service Fabric Mesh 애플리케이션은 Mesh 애플리케이션 배포, 버전 관리 및 수명의 단위입니다. 각 응용 프로그램 인스턴스의 수명 주기를 독립적으로 관리할 수 있습니다.  응용 프로그램은 하나 이상의 서비스 코드 패키지 및 설정으로 구성됩니다. 응용 프로그램은 Azure RM(Resource Model) 스키마를 사용하여 정의됩니다.  서비스는 RM 템플릿의 응용 프로그램 리소스 속성으로 설명됩니다.  응용 프로그램이 사용하는 네트워크 및 볼륨이 응용 프로그램에서 참조됩니다.  응용 프로그램을 만들면 응용 프로그램, 서비스, 네트워크 및 볼륨이 Service Fabric 리소스 모델을 사용하여 모델링됩니다.
 
-**서비스**: 응용 프로그램의 서비스는 마이크로 서비스를 나타내고 완전한 독립 실행형 기능을 수행합니다. 각 서비스는 코드 패키지와 관련된 컨테이너 이미지를 실행하는 데 필요한 모든 항목을 설명하는 하나 이상의 코드 패키지로 구성됩니다.  애플리케이션의 서비스 복제 수를 확대 및 축소할 수 있습니다.
+**서비스**: 애플리케이션의 서비스는 마이크로서비스를 나타내고 완전한 독립 실행형 기능을 수행합니다. 각 서비스는 코드 패키지와 관련된 컨테이너 이미지를 실행하는 데 필요한 모든 항목을 설명하는 하나 이상의 코드 패키지로 구성됩니다.  애플리케이션의 서비스 복제 수를 확대 및 축소할 수 있습니다.
 
 **코드 패키지**: 코드 패키지는 다음을 포함하여 코드 패키지와 연결된 컨테이너 이미지를 실행하는 데 필요한 모든 것을 설명합니다.
 
@@ -62,10 +62,10 @@ Service Fabric Mesh 환경에서는 네이티브 모델이 지원되지 않습�
 
 Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 플랫폼 기술입니다. Microsoft에서는 다음과 같은 옵션을 제공합니다.
 
- - **Service Fabric Mesh**: Microsoft Azure에서 Service Fabric 응용 프로그램을 실행하기 위한 완전히 관리되는 서비스입니다.
+ - **Service Fabric Mesh**: Microsoft Azure에서 Service Fabric 애플리케이션을 실행하기 위한 완전히 관리되는 서비스입니다.
  - **Azure Service Fabric**: Azure 호스팅 Service Fabric 클러스터 제품입니다. Service Fabric 클러스터의 업그레이드 및 구성 관리와 함께 Service Fabric과 Azure 인프라 간의 통합을 제공합니다.
- - **Service Fabric 독립 실행형**: [임의 위치(온-프레미스 또는 임의 클라우드 공급자)에 Service Fabric 클러스터를 배포](/azure/service-fabric/service-fabric-deploy-anywhere)하기 위한 설치 및 구성 도구 집합입니다. Azure에서 관리되지 않습니다.
- - **Service Fabric 개발 클러스터**: Service Fabric 응용 프로그램 개발을 위해 Windows, Linux 또는 Mac에서 로컬 개발 환경을 제공합니다.
+ - **Service Fabric 독립 실행형**: [임의 위치(온-프레미스 또는 임의 클라우드 공급 기업)에 Service Fabric 클러스터를 배포](/azure/service-fabric/service-fabric-deploy-anywhere)하기 위한 설치 및 구성 도구 세트입니다. Azure에서 관리되지 않습니다.
+ - **Service Fabric 개발 클러스터**: Service Fabric 애플리케이션 개발을 위해 Windows, Linux 또는 Mac에서 로컬 개발 환경을 제공합니다.
 
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>환경, 프레임워크 및 배포 모델 지원 매트릭스
 프레임워크 및 배포 모델에 대한 지원 수준은 환경마다 다릅니다. 다음 표에서는 지원되는 프레임워크 및 배포 모델 조합에 대해 설명합니다.

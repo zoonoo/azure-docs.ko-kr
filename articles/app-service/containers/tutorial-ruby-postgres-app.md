@@ -99,7 +99,7 @@ rake db:create
 rake db:migrate
 ```
 
-응용 프로그램을 실행합니다.
+애플리케이션을 실행합니다.
 
 ```bash
 rails server
@@ -215,7 +215,7 @@ production:
 
 변경 내용을 저장합니다.
 
-### <a name="test-the-application-locally"></a>로컬에서 응용 프로그램 테스트
+### <a name="test-the-application-locally"></a>로컬에서 애플리케이션 테스트
 
 로컬 터미널에서 다음과 같은 환경 변수를 설정합니다.
 

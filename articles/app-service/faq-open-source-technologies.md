@@ -52,12 +52,12 @@ PHP 로깅을 켜려면:
 
 자세한 내용은 [Enable WordPress error logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/)(WordPress 오류 로그 사용)를 참조하세요.
 
-## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>App Service에 호스트된 앱에서 Python 응용 프로그램 오류를 기록하려면 어떻게 하나요?
+## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>App Service에 호스트된 앱에서 Python 애플리케이션 오류를 기록하려면 어떻게 하나요?
 [!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
-## <a name="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service"></a>App Service에 호스트된 Node.js 응용 프로그램의 버전을 변경하려면 어떻게 하나요?
+## <a name="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service"></a>App Service에 호스트된 Node.js 애플리케이션의 버전을 변경하려면 어떻게 하나요?
 
-Node.js 응용 프로그램의 버전을 변경하려면 다음 옵션 중 하나를 사용합니다.
+Node.js 애플리케이션의 버전을 변경하려면 다음 옵션 중 하나를 사용합니다.
 
 *   Azure Portal에서 **앱 설정**을 사용합니다.
     1. Azure Portal에서 웹앱으로 이동합니다.
@@ -99,7 +99,7 @@ debug.log 또는 php_errors.log 파일에 이 오류가 표시되면 앱이 연�
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>App Service에 호스트된 Node.js 앱을 디버그하려면 어떻게 하나요?
 
 1.  [Kudu 콘솔](https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole)로 이동합니다.
-2.  응용 프로그램 로그 폴더(D:\home\LogFiles\Application)로 이동합니다.
+2.  애플리케이션 로그 폴더(D:\home\LogFiles\Application)로 이동합니다.
 3.  logging_errors.txt 파일에서 콘텐츠를 확인합니다.
 
 ## <a name="how-do-i-install-native-python-modules-in-an-app-service-web-app-or-api-app"></a>App Service 웹앱 또는 API 앱에서 기본 Python 모듈을 설치하려면 어떻게 하나요?

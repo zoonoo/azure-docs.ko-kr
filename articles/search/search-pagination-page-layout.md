@@ -1,5 +1,5 @@
 ---
-title: Azure Search에서 검색 결과를 페이징하는 방법 | Microsoft Docs
+title: 검색 결과 페이지에서 항목을 페이징하는 방법 - Azure Search
 description: Microsoft Azure에서 호스팅되는 클라우드 Search 서비스인 Azure Search에서의 페이징
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 8953be2be77c14a82294e56ac60b8bc993ec6c2f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.custom: seodec2018
+ms.openlocfilehash: 5f36dbb72e2518f7e3a27ef3aadec85312d751c2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527072"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309345"
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Azure Search에서 검색 결과를 페이징하는 방법
 이 문서는 총 횟수, 문서 검색, 정렬 순서, 탐색과 같은 검색 결과 페이지의 표준 요소를 구현하기 위한 Azure Search 서비스의 사용 방법에 대한 지침을 제공합니다.

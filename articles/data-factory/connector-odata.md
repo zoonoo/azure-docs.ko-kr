@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: c8bee6902fb74cb77c34395fd05c1c861b4f630e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 349d3a6eacf22a0ce3f842dd30df19964cdf7f23
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166137"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337328"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 OData 원본에서 데이터 복사
 
@@ -35,7 +35,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 특히 이 OData 커넥터는 다음을 지원합니다.
 
 - OData 버전 3.0 및 4.0
-- **익명**, **기본** 또는 **Windows** 인증을 사용한 데이터 복사
+- 인증 방법인 **익명**, **기본**, **Windows**, **AAD 서비스 주체** 및 **관리 서비스 ID** 중 하나를 사용한 데이터 복사
 
 ## <a name="get-started"></a>시작하기
 
@@ -51,9 +51,16 @@ OData 연결된 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | 형식 | **형식** 속성은 **OData**로 설정해야 합니다. |yes |
 | URL | OData 서비스의 루트 URL입니다. |yes |
-| authenticationType | OData 원본에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 **익명**, **기본** 및 **Windows**입니다. OAuth는 지원되지 않습니다. | yes |
+| authenticationType | OData 원본에 연결하는 데 사용되는 인증 형식입니다. 허용되는 값은 **Anonymous**, **Basic**, **Windows**, **AadServicePrincipal** 및 **ManagedServiceIdentity**입니다. 사용자 기반 OAuth는 지원되지 않습니다. | yes |
 | userName | Basic 또는 Windows 인증을 사용할 경우 **userName**을 지정합니다. | 아니요 |
 | 암호 | **userName**에 지정한 사용자 계정의 **password**를 지정합니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. 또한 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 아니요 |
+| servicePrincipalId | Azure Active Directory 애플리케이션의 클라이언트 ID를 지정합니다. | 아니요 |
+| aadServicePrincipalCredentialType | 서비스 주체 인증에 사용할 자격 증명 유형을 지정합니다. 허용되는 값은 `ServicePrincipalKey` 또는 `ServicePrincipalCert`입니다. | 아니요 |
+| servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
+| servicePrincipalEmbeddedCert | Azure Active Directory에 등록된 애플리케이션의 base64로 인코딩된 인증서를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
+| servicePrincipalEmbeddedCertPassword | 인증서가 암호로 보호되는 경우 인증서의 암호를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다.  | 아니요|
+| tenant | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 아니요 |
+| aadResourceId | 권한 부여를 요청하는 AAD 리소스를 지정합니다.| 아니요 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 선택할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아니요 |
 
 **예제 1: 익명 인증 사용**
@@ -119,6 +126,64 @@ OData 연결된 서비스에 다음 속성이 지원됩니다.
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
         }
+    }
+}
+```
+
+**예제 4: 서비스 주체 키 인증 사용**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of on-premises OData source>",
+            "authenticationType": "AadServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "aadServicePrincipalCredentialType": "ServicePrincipalKey",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "aadResourceId": "<AAD resource>"
+        }
+    },
+    "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
+    }
+}
+```
+
+**예제 5: 서비스 주체 인증서 인증 사용**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of on-premises OData source>",
+            "authenticationType": "AadServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "aadServicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalEmbeddedCert": { 
+                "type": "SecureString", 
+                "value": "<base64 encoded string of (.pfx) certificate data>"
+            },
+            "servicePrincipalEmbeddedCertPassword": { 
+                "type": "SecureString", 
+                "value": "<password of your certificate>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "aadResourceId": "<AAD resource e.g. https://tenant.sharepoint.com>"
+        }
+    },
+    "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
     }
 }
 ```

@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용하여 웹앱 복제
+title: PowerShell을 사용하여 앱 복제 - Azure App Service
 description: PowerShell을 사용하여 Web Apps를 새 Web Apps에 복제하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
-ms.openlocfilehash: 30817a1a6a8079e7a896305ab0b59e48fad4d644
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.custom: seodec18
+ms.openlocfilehash: 87bae4db64c0a22790b7f52f919601f82aa548df
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
-ms.locfileid: "27867475"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261870"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>PowerShell을 사용하여 Azure App Service 앱 복제
 Microsoft Azure PowerShell 버전 1.1.0 릴리스에서는 기존 웹앱을 다른 지역이나 동일한 지역에서 새로 만든 앱에 복제할 수 있도록 하는 새 옵션이 `New-AzureRMWebApp`에 추가되었습니다. 이 옵션을 사용하여 고객은 수많은 앱을 다른 지역에 배포할 수 있습니다.
@@ -97,14 +98,14 @@ $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -N
 다중 지역 웹앱을 만들고 이러한 모든 웹앱으로 트래픽을 라우팅하도록 Azure Traffic Manager를 구성하는 것은 고객 앱의 고가용성을 유지하기 위한 중요한 시나리오입니다. 기존 웹앱을 복제하는 경우 두 웹앱을 새로운 Traffic Manager 프로필 또는 기존 프로필에 연결할 수 있는 옵션이 제공됩니다. Azure Resource Manager 버전의 Traffic Manager만 지원됩니다.
 
 ### <a name="creating-a-new-traffic-manager-profile-while-cloning-an-app"></a>앱을 복제하는 동안 새 Traffic Manager 프로필 만들기
-시나리오: 두 웹앱을 모두 포함하는 Azure Resource Manager Traffic Manager 프로필을 구성하는 동안 다른 지역에 웹앱을 복제하려고 합니다. 다음 명령에서는 새 Traffic Manager 프로필을 구성하는 동안 새 웹앱으로 원본 웹앱의 클론을 만드는 방법을 보여 줍니다.
+시나리오: 두 웹앱을 모두 포함하는 Azure Resource Manager 트래픽 관리자 프로필을 구성하는 동안 다른 지역에 웹앱을 복제하려고 합니다. 다음 명령에서는 새 Traffic Manager 프로필을 구성하는 동안 새 웹앱으로 원본 웹앱의 클론을 만드는 방법을 보여 줍니다.
 
 ```PowerShell
 $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 ```
 
 ### <a name="adding-new-cloned-web-app-to-an-existing-traffic-manager-profile"></a>기존 Traffic Manager 프로필에 복제된 새 Web App 추가
-시나리오: Azure Resource Manager Traffic Manager 프로필이 이미 있으며 두 웹앱을 끝점으로 추가하려고 합니다. 이렇게 하려면 먼저 기존 Traffic Manager 프로필 ID를 조합해야 합니다. 구독 ID, 리소스 그룹 이름 및 기존 Traffic Manager 프로필 이름이 필요합니다.
+시나리오: Azure Resource Manager 트래픽 관리자 프로필이 이미 있으며 두 웹앱을 엔드포인트로 추가하려고 합니다. 이렇게 하려면 먼저 기존 Traffic Manager 프로필 ID를 조합해야 합니다. 구독 ID, 리소스 그룹 이름 및 기존 Traffic Manager 프로필 이름이 필요합니다.
 
 ```PowerShell
 $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"

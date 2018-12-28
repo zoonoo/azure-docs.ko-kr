@@ -131,7 +131,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |요소 이름|설명|  
 |------------------|-----------------|  
 |**DataSources**|모니터링할 디렉터리의 목록입니다.|  
-|**FailedRequestLogs**|이 요소를 구성에 포함하면 IIS 사이트 또는 응용 프로그램에 실패 한 요청에 대한 로그 컬렉션이 활성화합니다. 또한 **Web.config**의 **system.WebServer**에 있는 추적 옵션도 사용하도록 설정해야 합니다.|  
+|**FailedRequestLogs**|이 요소를 구성에 포함하면 IIS 사이트 또는 애플리케이션에 실패 한 요청에 대한 로그 컬렉션이 활성화합니다. 또한 **Web.config**의 **system.WebServer**에 있는 추적 옵션도 사용하도록 설정해야 합니다.|  
 |**IISLogs**|이 요소를 구성에 포함하면 IIS 로그의 컬렉션이 활성화됩니다.<br /><br /> **containerName** - IIS를 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.|  
 
 ## <a name="datasources-element"></a>DataSources 요소  

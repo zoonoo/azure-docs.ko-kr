@@ -1,28 +1,22 @@
 ---
-title: '연결 확인: Azure ExpressRoute 문제 해결 가이드 | Microsoft Docs'
+title: '연결 확인 - ExpressRoute 문제 해결 가이드: Azure | Microsoft Docs'
 description: ExpressRoute 회로에 대한 종단 간 연결의 유효성 검사 및 문제 해결에 대한 지침을 제공합니다.
-documentationcenter: na
 services: expressroute
 author: rambk
-manager: tracsman
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/26/2017
-ms.author: cherylmc
-ms.openlocfilehash: 10d4779d05d95822ffd487db1ce8992d199c495f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: rambala
+ms.custom: seodec18
+ms.openlocfilehash: a64aa59b205e8986b80a575c50041f826606e16f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753452"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272816"
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
-연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장하는 ExpressRoute에는 다음 세 가지 고유 네트워크 영역이 필요합니다.
+이 문서는 ExpressRoute 연결 문제를 확인하고 해결하는 데 도움을 줍니다. 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장하는 ExpressRoute에는 다음 세 가지 고유 네트워크 영역이 필요합니다.
 
 -   고객 네트워크
 -   공급자 네트워크
@@ -161,7 +155,7 @@ ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 �
     Sku                              : Standard
     Status                           : Enabled
 
-ExpressRoute 회로가 작동하는지 확인하려면 ServiceProviderProvisioningState : Provisioned Status                           : Enabled 필드에 특히 주의하세요.
+ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 주의하세요. ServiceProviderProvisioningState : 프로비전된 상태: 사용
 
 >[!NOTE]
 >*상태*가 ‘사용’이 아니면 [Microsoft 지원][Support]에 문의하고, *ServiceProviderProvisioningState*가 '프로비전되지 않음'이면 서비스 공급자에게 문의하세요.

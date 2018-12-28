@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 743fedd35bc45618f728ba71056f5dabc2fc1ed9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e4eb26ab91261d1888d3c756d611db1b31801e8f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300645"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720238"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Azure Service Fabric의 Docker Compose 배포 지원(미리 보기)
 
@@ -64,6 +64,12 @@ PowerShell을 통해 Compose 배포 업그레이드를 시작하려면 다음 �
 Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Compose docker-compose-v2.yml -Monitored -FailureAction Rollback
 ```
 
+PowerShell을 통해 Compose 배포 업그레이드를 롤백하려면 다음 명령을 사용합니다.
+
+```powershell
+Start-ServiceFabricComposeDeploymentRollback -DeploymentName TestContainerApp
+```
+
 업그레이드가 수락되면 다음 명령을 사용하여 업그레이드 진행률을 추적할 수 있습니다.
 
 ```powershell
@@ -94,6 +100,12 @@ Compose 배포 업그레이드를 시작하려면 다음 명령을 사용합니�
 
 ```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
+```
+
+Compose 배포 업그레이드를 롤백하려면 다음 명령을 사용합니다.
+
+```azurecli
+sfctl compose upgrade-rollback --deployment-name TestContainerApp [ --timeout ]
 ```
 
 업그레이드가 수락되면 다음 명령을 사용하여 업그레이드 진행률을 추적할 수 있습니다.

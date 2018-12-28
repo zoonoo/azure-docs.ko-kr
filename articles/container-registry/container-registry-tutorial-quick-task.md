@@ -26,7 +26,7 @@ ms.locfileid: "53256692"
 이 자습서는 시리즈의 1부입니다.
 
 > [!div class="checklist"]
-> * 샘플 응용 프로그램 소스 코드 가져오기
+> * 샘플 애플리케이션 소스 코드 가져오기
 > * Azure에서 컨테이너 이미지 빌드
 > * Azure Container Instances에 컨테이너 배포
 
@@ -227,7 +227,7 @@ Azure Key Vault을 만들고 다음 두 암호를 저장했습니다.
 
 ### <a name="deploy-a-container-with-azure-cli"></a>Azure CLI를 사용하여 컨테이너 배포
 
-서비스 주체 자격 증명이 Azure Key Vault 비밀로 저장되므로, 응용 프로그램 및 서비스에서 해당 자격 증명을 사용하여 개인 레지스트리에 액세스할 수 있습니다.
+서비스 주체 자격 증명이 Azure Key Vault 비밀로 저장되므로, 애플리케이션 및 서비스에서 해당 자격 증명을 사용하여 개인 레지스트리에 액세스할 수 있습니다.
 
 다음 [az container create][az-container-create] 명령을 실행하여 컨테이너 인스턴스를 배포합니다. 이 명령은 Azure Key Vault에 저장된 서비스 주체의 자격 증명을 사용하여 컨테이너 레지스트리를 인증합니다.
 

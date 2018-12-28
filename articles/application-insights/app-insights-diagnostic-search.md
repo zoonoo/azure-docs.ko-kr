@@ -28,7 +28,7 @@ Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원
 
 ### <a name="in-the-azure-portal"></a>Azure 포털에서 다음을 수행합니다.
 
-응용 프로그램의 Application Insights 개요 블레이드에서 명시적으로 진단 검색을 열 수 있습니다.
+애플리케이션의 Application Insights 개요 블레이드에서 명시적으로 진단 검색을 열 수 있습니다.
 
 ![진단 검색 열기](./media/app-insights-diagnostic-search/001.png)
 
@@ -40,7 +40,7 @@ Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원
 
 ### <a name="in-visual-studio"></a>Visual Studio에서
 
-Visual Studio에는 Application Insights Search 창도 있습니다. 이 창은 디버그 중인 응용 프로그램에 의해 생성된 원격 분석 이벤트를 표시하는 데 가장 유용합니다. 하지만 게시된 앱에서 수집된 이벤트를 Azure Portal에 표시할 수도 있습니다.
+Visual Studio에는 Application Insights Search 창도 있습니다. 이 창은 디버그 중인 애플리케이션에 의해 생성된 원격 분석 이벤트를 표시하는 데 가장 유용합니다. 하지만 게시된 앱에서 수집된 이벤트를 Azure Portal에 표시할 수도 있습니다.
 
 Visual Studio에서 Search 창을 엽니다.
 

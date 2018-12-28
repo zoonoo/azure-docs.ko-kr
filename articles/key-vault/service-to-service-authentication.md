@@ -36,7 +36,7 @@ Azure Key Vault에 인증하려면 Azure AD(Active Directory) 자격 증명, 공
 
 .NET 응용 프로그램의 경우 `Microsoft.Azure.Services.AppAuthentication` 패키지를 통해 관리 ID를 사용하는 것이 가장 간단한 방법입니다. 시작 방법은 다음과 같습니다.
 
-1. 응용 프로그램에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지의 참조를 추가합니다.
+1. 애플리케이션에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지의 참조를 추가합니다.
 
 2. 다음 코드를 추가합니다.
 
@@ -194,7 +194,7 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
  
     *{AppId}*, *{TenantId}* 및 *{Thumbprint}* 를 1단계에서 생성된 값으로 바꿉니다. 배포 계획에 따라 *{CertificateStore}* 를 `LocalMachine` 또는 `CurrentUser`로 바꿉니다.
 
-4. 응용 프로그램을 실행합니다. 
+4. 애플리케이션을 실행합니다. 
 
 Azure AD 공유 암호 자격 증명을 사용하여 로그인하려면:
 
@@ -208,7 +208,7 @@ Azure AD 공유 암호 자격 증명을 사용하여 로그인하려면:
 
     _{AppId}_, _{TenantId}_ 및 _{ClientSecret}_ 을 1단계에서 생성된 값으로 바꿉니다.
 
-3. 응용 프로그램을 실행합니다. 
+3. 애플리케이션을 실행합니다. 
 
 모두가 올바로 설정되면 더 이상 코드를 변경할 필요가 없습니다.  `AzureServiceTokenProvider`는 환경 변수 및 인증서를 사용하여 Azure AD에 인증합니다. 
 

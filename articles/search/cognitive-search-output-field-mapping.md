@@ -1,5 +1,5 @@
 ---
-title: Azure Search 인덱스에서 출력 필드에 보강된 입력 필드의 인식 검색 매핑 | Microsoft Docs
+title: 출력 필드에 보강된 입력 필드의 인식 검색 매핑 - Azure Search
 description: 원본 데이터 필드를 보강하고 추출해 Azure Search 인덱스에서 출력 필드에 매핑합니다.
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 77e7a1cc725dc56ee20d3c1999cfb7cf0039d67f
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec2018
+ms.openlocfilehash: a662558deeeb09849a23a361aabea962eb633cd7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094475"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314672"
 ---
 # <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>검색 가능한 인덱스에 보강된 필드를 매핑하는 방법
 

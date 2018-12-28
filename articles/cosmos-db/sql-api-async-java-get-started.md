@@ -1,7 +1,7 @@
 ---
 title: '자습서: 비동기 Java SDK를 사용하여 Azure Cosmos DB에서 SQL API 계정을 관리하는 Java 앱 빌드'
 description: 이 자습서에서는 비동기 Java 애플리케이션을 사용하여 Azure Cosmos DB에서 SQL API 계정 내에 데이터를 저장하고 액세스하는 방법을 보여 줍니다.
-keywords: NoSQL 자습서, 온라인 데이터베이스, Java 콘솔 응용 프로그램
+keywords: NoSQL 자습서, 온라인 데이터베이스, Java 콘솔 애플리케이션
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
@@ -82,7 +82,7 @@ cd azure-cosmosdb-get-started
 
 ## <a id="Connect"></a>Azure Cosmos 계정에 연결
 
-다음으로, [Azure Portal](https://portal.azure.com)로 다시 이동하여 엔드포인트와 기본 마스터 키를 검색합니다. Azure Cosmos DB 엔드포인트와 기본 키는 응용 프로그램에서 연결할 위치를 식별하고 Azure Cosmos DB에서 응용 프로그램의 연결을 신뢰하는 데 필요합니다. `AccountSettings.java` 파일은 기본 키 및 URI 값을 포함하고 있습니다. 
+다음으로, [Azure Portal](https://portal.azure.com)로 다시 이동하여 엔드포인트와 기본 마스터 키를 검색합니다. Azure Cosmos DB 엔드포인트와 기본 키는 애플리케이션에서 연결할 위치를 식별하고 Azure Cosmos DB에서 애플리케이션의 연결을 신뢰하는 데 필요합니다. `AccountSettings.java` 파일은 기본 키 및 URI 값을 포함하고 있습니다. 
 
 Azure Portal에서 Azure Cosmos 계정으로 이동한 다음, **키**를 클릭합니다. 포털에서 URI 및 기본 키를 복사하여 `AccountSettings.java` 파일에 붙여넣습니다. 
 

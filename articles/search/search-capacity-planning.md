@@ -1,5 +1,5 @@
 ---
-title: Azure Search에서 쿼리 및 인덱싱을 위한 파티션 및 복제본 할당 | Microsoft Docs
+title: 쿼리 및 인덱싱을 위한 파티션 및 복제본 할당 - Azure Search
 description: Azure Search에서 파티션 및 복제본 컴퓨터 리소스를 조정하고 이 곳에서 각 리소스가 청구 가능한 검색 단위로 가격이 책정됩니다.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fa1a13c5c786867f6e92a678c40a491e0a226076
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: e2eff6c854dae48961700341a6db19dc7113901c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238740"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316117"
 ---
 # <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Azure Search에서 쿼리 및 인덱싱 작업을 위한 파티션 및 복제본 할당
 [가격 책정 계층을 선택](search-sku-tier.md)하고 [검색 서비스를 프로비전](search-create-service-portal.md)한 후에는 필요에 따라 서비스에 사용되는 복제본 또는 파티션 수를 늘립니다. 각 계층은 고정된 개수의 청구 단위를 제공합니다. 이 문서에서는 쿼리 실행, 인덱싱 및 저장소 요구 사항의 균형을 유지하는 최적의 구성을 달성하기 위해 이러한 단위를 할당하는 방법을 설명합니다.

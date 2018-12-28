@@ -9,16 +9,15 @@ ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: b74f40c093ca4cc62330de321ea2b53315b903db
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 95eb5475f5584830eac5bd9c690be4a6a85de5c8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247367"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016729"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java용 Application Insights 문제 해결과 질문 및 답변
 [Java의 Azure Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.
@@ -26,7 +25,7 @@ ms.locfileid: "51247367"
 ## <a name="build-errors"></a>빌드 오류
 **Eclipse 또는 Intellij Idea에서 Maven 또는 Gradle을 통해 Application Insights SDK를 추가할 때 빌드 또는 체크섬 유효성 검사 오류가 표시됩니다.**
 
-* 종속성 <version> 요소가 와일드카드 문자가 포함된 패턴을 사용하는 경우(예: (Maven) `<version>[2.0,)</version>` 또는 (Gradle) `version:'2.0.+'`) `2.0.1`과 같이 특정 버전을 대신 지정해 보세요. 최신 버전은 [릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java/releases) 를 참조하세요.
+* 종속성 <version> 요소가 와일드카드 문자(예: (Maven) `<version>[2.0,)</version>` 또는 (Gradle) `version:'2.0.+'`)로 패턴을 사용하는 경우 `2.0.1`과 같은 특정 버전을 대신 지정해 봅니다. 최신 버전은 [릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java/releases) 를 참조하세요.
 
 ## <a name="no-data"></a>데이터 없음
 **Application Insights를 추가하고 내 앱을 실행했는데 포털에 데이터가 표시되지 않습니다.**
@@ -36,7 +35,7 @@ ms.locfileid: "51247367"
 * xml 파일에 `<DisableTelemetry>true</DisableTelemetry>` 노드가 없는지 확인합니다.
 * 방화벽에서 dc.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다. 최신 버전은 [방화벽 예외의 전체 목록](app-insights-ip-addresses.md)
 * Microsoft Azure 시작 보드에서 서비스 상태 맵을 살펴보세요. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 응용 프로그램 블레이드를 닫고 다시 엽니다.
-* ApplicationInsights.xml 파일(프로젝트의 리소스 폴더에 있음)의 루트 노드 아래에 `<SDKLogger />` 요소를 추가하여 IDE 콘솔 창에 기록을 켜고 의심스러운 로그에서 AI: INFO/WARN/ERROR 접두사가 추가된 항목을 확인합니다.
+* ApplicationInsights.xml 파일(프로젝트의 리소스 폴더에 있음)의 루트 노드 아래에 `<SDKLogger />` 요소를 추가하여 IDE 콘솔 창에 기록을 켜고, 의심스러운 로그에 대해 앞에 AI: INFO/WARN/ERROR가 붙은 항목을 확인합니다.
 * 콘솔의 출력 메시지에서 “구성 파일을 찾았습니다.”라는 문을 찾아 ApplicationInsights.xml 파일이 Java SDK에 의해 성공적으로 로드되었음을 확인합니다.
 * 구성 파일이 없으면 출력 메시지를 확인하여 구성 파일이 검색되고 있는 위치를 확인하고, ApplicationInsights.xml이 그러한 검색 위치 중 한 위치에 있는지 확인합니다. 일반적으로 구성 파일을 Application Insights SDK JAR 주위에 배치할 수 있습니다. 예: Tomcat에서는 WEB-INF/classes 폴더를 의미합니다. 개발 중에 웹 프로젝트의 리소스 폴더에 ApplicationInsights.xml을 배치할 수 있습니다.
 * SDK의 알려진 문제에 대해서는 [GitHub 문제 페이지](https://github.com/Microsoft/ApplicationInsights-Java/issues)를 참조하세요.
@@ -57,7 +56,7 @@ ms.locfileid: "51247367"
 ### <a name="java-agent-cannot-capture-dependency-data"></a>Java 에이전트가 종속성 데이터를 캡처할 수 없음
 * [Java 에이전트 구성](app-insights-java-agent.md)에 따라 Java 에이전트를 구성했나요?
 * Java 에이전트 jar 및 AI-Agent.xml 파일이 동일한 폴더에 있는지 확인합니다.
-* 자동 수집하려는 종속성에서 자동 수집이 지원되는지 확인합니다. 현재 MySQL, MsSQL, Oracle DB 및 Redis Cache 종속성 수집만 지원됩니다.
+* 자동 수집하려는 종속성에서 자동 수집이 지원되는지 확인합니다. 현재 MySQL, MsSQL, Oracle DB 및 Azure Cache for Redis 종속성 수집만 지원됩니다.
 * JDK 1.7 또는 1.8을 사용 중인가요? 현재 JDK 9에서 종속성 수집을 지원하지 않습니다.
 
 ## <a name="no-usage-data"></a>사용 현황 데이터 없음
@@ -152,12 +151,12 @@ Application Insights는 `org.apache.http`를 사용합니다. 이 모듈은 Appl
 
 * [웹 페이지의 가용성 모니터링][availability]
 * [웹 페이지 사용 모니터링][usage]
-* [장치 앱의 사용 추적 및 문제 진단][platforms]
+* [디바이스 앱의 사용 추적 및 문제 진단][platforms]
 * [코드를 작성하여 앱의 사용 추적][track]
 * [진단 로그 캡처][javalogs]
 
 ## <a name="get-help"></a>도움말 보기
-* [스택 오버플로](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [GitHub에서 문제 제출](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->

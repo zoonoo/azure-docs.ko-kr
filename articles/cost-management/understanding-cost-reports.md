@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: b4e1ffa0b7bd524fc9029b21e77b09ea07e1f202
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276655"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103424"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Cloudyn 비용 관리 보고서 이해
 
@@ -25,7 +25,7 @@ ms.locfileid: "52276655"
 
 다음은 시간에 따른 비용 보고서의 예입니다. 대부분의 Cloudyn 보고서가 이와 비슷한 레이아웃을 사용합니다.
 
-![샘플 보고서](./media/understanding-cost-reports/sample-report.png)
+![설명에 해당하는 번호가 매겨진 영역을 사용한 시간에 따른 비용 보고서 예제](./media/understanding-cost-reports/sample-report.png)
 
 이전 이미지에서 번호가 매겨진 각 영역은 다음 정보에 자세히 설명되어 있습니다.
 
@@ -47,11 +47,11 @@ ms.locfileid: "52276655"
 
     태그 범주로 그룹화하려면 [태그] 영역을 사용합니다. 메뉴에 나열된 태그는 Azure 부서 또는 비용 센터 태그이거나 Cloudyn의 비용 엔터티 및 구독 태그입니다. 결과를 필터링할 태그를 선택하세요. 결과를 필터링할 태그 이름(키워드)를 입력해도 됩니다.
 
-    ![옵션 선택](./media/understanding-cost-reports/select-options.png)
+    ![결과를 필터링할 태그의 목록 예제](./media/understanding-cost-reports/select-options.png)
 
     새 필터를 추가하려면 **추가**를 클릭합니다.
 
-    ![필터 추가](./media/understanding-cost-reports/add-filter.png)
+    ![필터링할 옵션 및 조건이 표시된 필터 추가 상자](./media/understanding-cost-reports/add-filter.png)
 
     태그 그룹화 또는 필터링은 Azure 리소스 또는 리소스 그룹 태그와 관련이 없습니다.
 
@@ -61,9 +61,9 @@ ms.locfileid: "52276655"
 
     보고서에 청구 데이터의 표준 항목별 범주를 표시하려면 비용 분석 보고서에서 그룹을 사용합니다.  그러나 비용 할당 보고서의 그룹은 보기 태그 기반 범주를 표시합니다. 태그 기반 범주는 비용 할당 모델 및 청구 데이터의 표준 항목별 범주에서 정의합니다.
 
-    ![그룹 태그](./media/understanding-cost-reports/groups-tags01.png)
+    ![그룹화할 수 있는 태그의 첫 번째 예제 목록](./media/understanding-cost-reports/groups-tags01.png)
 
-    ![그룹 태그](./media/understanding-cost-reports/groups-tags02.png)
+    ![그룹화할 수 있는 태그의 두 번째 예제 목록](./media/understanding-cost-reports/groups-tags02.png)
 
     비용 할당 보고서에서 태그 기반 그룹 범주의 그룹에 다음 항목이 포함될 수 있습니다.
       - 태그들
@@ -166,7 +166,7 @@ ms.locfileid: "52276655"
 
     [표시 형식]을 사용하여 다양한 그래프 또는 표 보기를 선택할 수 있습니다.
 
-    ![표시 형식](./media/understanding-cost-reports/display-formats.png)
+    ![선택할 수 있는 표시 형식의 기호](./media/understanding-cost-reports/display-formats.png)
 
 13. **여러 색**
 

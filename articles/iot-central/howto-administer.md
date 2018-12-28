@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4bfb7dc2b65dc479189ac7920509e1fd8a23ce4f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4dba6aff2002c1f17055cd647be94c4d8f644ad7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961350"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992214"
 ---
 # <a name="administer-your-iot-central-application"></a>IoT Central 애플리케이션 관리
 
@@ -35,7 +35,7 @@ IoT Central 애플리케이션을 만든 후 **관리** 섹션으로 이동할 �
 ### <a name="change-application-name-and-url"></a>애플리케이션 이름 및 URL 변경
 **애플리케이션 설정** 페이지에서 애플리케이션의 이름 및 URL을 변경한 다음, **저장**을 선택합니다.
 
-![응용 프로그램 설정 페이지](media\howto-administer\image0-a.png)
+![응용 프로그램 설정 페이지](media/howto-administer/image0-a.png)
 
 > [!Note]
 > URL을 변경하면 이전 URL을 다른 Azure IoT Central 고객이 사용할 수 있습니다. 이 경우 해당 URL을 더 이상 사용할 수 없습니다. URL을 변경하면 이전 URL이 더 이상 작동하지 않으며 사용자에게 새 URL을 사용하라고 알려야 합니다.
@@ -48,18 +48,21 @@ IoT Central 애플리케이션을 만든 후 **관리** 섹션으로 이동할 �
 
 **복사** 단추를 클릭합니다. 대화 상자에서 새 종량제 애플리케이션에 대한 세부 정보를 입력합니다. 그런 다음, **복사** 단추를 클릭하여 진행 여부를 확인합니다. [애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작에서 이 형식의 필드에 대해 자세히 알아보세요.
 
-![응용 프로그램 설정 페이지](media\howto-administer\appCopy2.png)
+![응용 프로그램 설정 페이지](media/howto-administer/appCopy2.png)
 
 앱 복사 작업이 성공한 후, 표시되는 링크를 사용하여 애플리케이션을 복사하여 만든 새 애플리케이션으로 이동할 수 있습니다.
 
-![응용 프로그램 설정 페이지](media\howto-administer\appCopy3.png)
+![응용 프로그램 설정 페이지](media/howto-administer/appCopy3.png)
 
 > [!Note]
 > 애플리케이션을 복사하면 규칙 및 작업의 정의도 복사됩니다. 그러나 원래 앱에 대한 액세스 권한이 있는 사용자는 복사한 앱에 복사되지 않으므로 사용자가 필수 구성 요소인 이메일 등의 작업에 사용자를 수동으로 추가해야 합니다. 일반적으로 새 앱에서 규칙 및 작업이 최신 상태인지 확인하는 것이 좋습니다.
 
 ### <a name="delete-an-application"></a>응용 프로그램 삭제
 
-IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단추를 사용합니다. 그러면 해당 애플리케이션과 연결된 모든 데이터가 영구적으로 삭제됩니다. 응용 프로그램을 삭제하려면 응용 프로그램을 만들 때 선택한 Azure 구독의 리소스를 삭제할 수 있는 권한도 필요합니다. 자세한 내용은 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 참조하세요.
+> [!Note]
+> 응용 프로그램을 삭제하려면 응용 프로그램을 만들 때 선택한 Azure 구독의 리소스를 삭제할 수 있는 권한도 필요합니다. 자세한 내용은 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 참조하세요.
+
+IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단추를 사용합니다. 그러면 해당 애플리케이션과 연결된 모든 데이터가 영구적으로 삭제됩니다.
 
 ## <a name="manage-users"></a>사용자 관리
 
@@ -71,13 +74,13 @@ IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단
 
 1. IoT Central 애플리케이션에 사용자를 추가하려면 **관리** 섹션에 있는 **사용자** 페이지로 이동합니다.
 
-    ![사용자 목록](media\howto-administer\image1.png)
+    ![사용자 목록](media/howto-administer/image1.png)
 
 1. 사용자를 추가하려면 **사용자** 페이지에서 **+ 사용자 추가**를 선택합니다.
 
 1. **역할** 드롭다운 메뉴에서 사용자의 역할을 선택합니다. 이 문서의 [역할 관리](#manage-roles) 섹션에서 역할에 대해 자세히 알아보세요.
 
-    ![역할 선택](media\howto-administer\image3.png)
+    ![역할 선택](media/howto-administer/image3.png)
 
     > [!NOTE]
     >  사용자를 대량으로 추가하려면 세미콜론을 구분 기호로 사용하여 추가할 모든 사용자의 사용자 ID를 입력합니다. **역할** 드롭다운 메뉴에서 역할을 선택합니다. 그런 다음 **저장**을 선택합니다.
@@ -170,4 +173,4 @@ IoT Central Azure Resource Manager SDK 패키지는 Node, Python, C#, Ruby, Java
 Azure IoT Central 응용 프로그램을 관리하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
-> [장치 템플릿 설정](howto-set-up-template.md)
+> [디바이스 템플릿 설정](howto-set-up-template.md)

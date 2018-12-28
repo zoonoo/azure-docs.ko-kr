@@ -285,7 +285,7 @@ dotnet run
         Console.ReadKey();
     }
     ```
-3. 응용 프로그램을 실행합니다.
+3. 애플리케이션을 실행합니다.
 
 ### <a name="filter-for-news"></a>뉴스에 대한 필터링
 
@@ -344,7 +344,7 @@ dotnet run
         Console.ReadKey();
     }
     ```
-3. 응용 프로그램을 실행합니다.
+3. 애플리케이션을 실행합니다.
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>안전 검색, 응답 수 및 승격 필터 사용
 
@@ -404,7 +404,7 @@ dotnet run
         Console.ReadKey();
     }
     ```
-3. 응용 프로그램을 실행합니다.
+3. 애플리케이션을 실행합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

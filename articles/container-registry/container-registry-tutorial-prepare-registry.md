@@ -97,9 +97,9 @@ az acr login --name <acrName>
 
 완료되면 이 명령은 `Login Succeeded`를 반환합니다.
 
-## <a name="get-application-code"></a>응용 프로그램 코드 가져오기
+## <a name="get-application-code"></a>애플리케이션 코드 가져오기
 
-이 자습서의 샘플에는 [ASP.NET Core][aspnet-core]로 작성한 작은 웹 응용 프로그램이 포함되어 있습니다. 이 응용 프로그램은 Azure Container Registry에서 이미지가 배포된 지역을 표시하는 HTML 페이지를 제공합니다.
+이 자습서의 샘플에는 [ASP.NET Core][aspnet-core]로 작성한 작은 웹 애플리케이션이 포함되어 있습니다. 이 응용 프로그램은 Azure Container Registry에서 이미지가 배포된 지역을 표시하는 HTML 페이지를 제공합니다.
 
 ![브라우저에 표시된 자습서 앱][tut-app-01]
 
@@ -114,7 +114,7 @@ cd acr-helloworld
 
 ## <a name="update-dockerfile"></a>Dockerfile 업데이트
 
-샘플에 포함된 Dockerfile은 컨테이너가 어떻게 작성되었는지 보여줍니다. 공식 [aspnetcore][dockerhub-aspnetcore] 이미지에서 시작하여 응용 프로그램 파일을 컨테이너에 복사하고, 종속성을 설치하고, 공식 [aspnetcore-build][dockerhub-aspnetcore-build] 이미지를 사용하여 출력을 컴파일하고 마지막으로 최적화된 aspnetcore 이미지를 만듭니다.
+샘플에 포함된 Dockerfile은 컨테이너가 어떻게 작성되었는지 보여줍니다. 공식 [aspnetcore][dockerhub-aspnetcore] 이미지에서 시작하여 애플리케이션 파일을 컨테이너에 복사하고, 종속성을 설치하고, 공식 [aspnetcore-build][dockerhub-aspnetcore-build] 이미지를 사용하여 출력을 컴파일하고 마지막으로 최적화된 aspnetcore 이미지를 만듭니다.
 
 [Dockerfile][dockerfile]은 복제된 원본의 `./AcrHelloworld/Dockerfile`에 있습니다.
 

@@ -242,9 +242,9 @@ ms.locfileid: "53020841"
 
     ![코드 변경 내용](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml-code.png)
 
-1. **Ctrl+F5** 키를 눌러 응용 프로그램을 빌드 및 실행합니다. 이 버전의 애플리케이션이 데이터베이스에서 직접 결과를 읽습니다. 참고로 **새로 만들기**, **편집**, **세부 정보** 및 **삭제** 작업은 응용 프로그램에 **Entity Framework를 사용하는 보기 포함 MVC 5 컨트롤러** 스캐폴드에 의해 자동으로 추가되었습니다. 자습서의 다음 섹션에서는 데이터 액세스를 최적화하고 애플리케이션에 추가 기능을 제공하기 위해 Azure Cache for Redis를 추가합니다.
+1. **Ctrl+F5** 키를 눌러 응용 프로그램을 빌드 및 실행합니다. 이 버전의 애플리케이션이 데이터베이스에서 직접 결과를 읽습니다. 참고로 **새로 만들기**, **편집**, **세부 정보** 및 **삭제** 작업은 애플리케이션에 **Entity Framework를 사용하는 보기 포함 MVC 5 컨트롤러** 스캐폴드에 의해 자동으로 추가되었습니다. 자습서의 다음 섹션에서는 데이터 액세스를 최적화하고 애플리케이션에 추가 기능을 제공하기 위해 Azure Cache for Redis를 추가합니다.
 
-    ![시작 응용 프로그램](./media/cache-web-app-cache-aside-leaderboard/cache-starter-application.png)
+    ![시작 애플리케이션](./media/cache-web-app-cache-aside-leaderboard/cache-starter-application.png)
 
 ## <a name="configure-the-app-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 앱 구성
 
@@ -725,7 +725,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-샘플 자습서 응용 프로그램을 마쳤을 때 비용 및 리소스를 절감하기 위해 사용한 Azure 리소스를 삭제할 수 있습니다. 모든 리소스는 동일한 리소스 그룹에 포함되어야 합니다. 리소스 그룹을 삭제하면 한 번에 모두 삭제할 수 있습니다. 이 항목의 지침에서는 *TestResources*라는 리소스 그룹을 사용했습니다.
+샘플 자습서 애플리케이션을 마쳤을 때 비용 및 리소스를 절감하기 위해 사용한 Azure 리소스를 삭제할 수 있습니다. 모든 리소스는 동일한 리소스 그룹에 포함되어야 합니다. 리소스 그룹을 삭제하면 한 번에 모두 삭제할 수 있습니다. 이 항목의 지침에서는 *TestResources*라는 리소스 그룹을 사용했습니다.
 
 > [!IMPORTANT]
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스팅하기 위한 리소스를 만든 경우 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.

@@ -66,7 +66,7 @@ App Service 웹앱에 대한 SSL 인증서를 구매 및 설정하는 방법을 
 
 웹앱에 대한 서버 표준 시간대를 설정하려면:
 
-1. Azure Portal의 App Service 구독에서 **응용 프로그램 설정** 메뉴로 이동합니다.
+1. Azure Portal의 App Service 구독에서 **애플리케이션 설정** 메뉴로 이동합니다.
 2. **앱 설정**에서 이 설정을 추가합니다.
     * 키 = WEBSITE_TIME_ZONE
     * 값 = *원하는 표준 시간대*
@@ -106,7 +106,7 @@ App Service Certificate는 Azure 리소스로 간주합니다. 이 인증서는 
 
 ## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>내 웹앱을 백업하려고 할 때 “부분적으로 성공” 메시지가 표시되는 이유는 무엇인가요?
 
-백업 실패의 일반적인 원인은 응용 프로그램에서 일부 파일을 사용하고 있다는 것입니다. 백업을 수행하는 동안 사용 중인 파일이 잠깁니다. 이로 인해 이러한 파일이 백업되지 않아 “부분적으로 성공” 상태가 될 수 있습니다. 백업 프로세스에서 파일을 제외하면 이 문제가 발생하지 않을 수 있습니다. 필요한 항목만 백업하도록 선택할 수 있습니다. 자세한 내용은 [Backup just the important parts of your site with Azure web apps](https://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/)(Azure Web Apps를 사용하여 사이트의 중요한 부분만 백업)를 참조하세요.
+백업 실패의 일반적인 원인은 애플리케이션에서 일부 파일을 사용하고 있다는 것입니다. 백업을 수행하는 동안 사용 중인 파일이 잠깁니다. 이로 인해 이러한 파일이 백업되지 않아 “부분적으로 성공” 상태가 될 수 있습니다. 백업 프로세스에서 파일을 제외하면 이 문제가 발생하지 않을 수 있습니다. 필요한 항목만 백업하도록 선택할 수 있습니다. 자세한 내용은 [Backup just the important parts of your site with Azure web apps](https://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/)(Azure Web Apps를 사용하여 사이트의 중요한 부분만 백업)를 참조하세요.
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>HTTP 응답에서 헤더를 어떻게 제거할 수 있나요?
 
@@ -162,7 +162,7 @@ URL 다시 쓰기 규칙을 추가하거나 편집하려면:
 사이트 수준에서 App Service에 대한 인바운드 트래픽을 제어하는 데는 두 가지 옵션이 있습니다.
 
 * 동적 IP 제한을 켭니다. 동적 IP 제한을 켜는 방법을 알아보려면 [IP and domain restrictions for Azure websites](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/)(Azure Websites에 대한 IP 및 도메인 제한)를 참조하세요.
-* 모듈 보안을 켭니다. 모듈 보안을 켜는 방법에 대한 자세한 내용은 [ModSecurity web application firewall on Azure websites](https://azure.microsoft.com/blog/modsecurity-for-azure-websites/)(Azure Websites의 ModSecurity 웹 응용 프로그램 방화벽)를 참조하세요.
+* 모듈 보안을 켭니다. 모듈 보안을 켜는 방법에 대한 자세한 내용은 [Azure Websites의 ModSecurity 웹 애플리케이션 방화벽](https://azure.microsoft.com/blog/modsecurity-for-azure-websites/)을 참조하세요.
 
 App Service Environment를 사용할 경우 [Barracuda 방화벽](https://azure.microsoft.com/blog/configuring-barracuda-web-application-firewall-for-azure-app-service-environment/)을 사용할 수 있습니다.
 
@@ -308,7 +308,7 @@ Azure 자동 크기 조정이 웹앱 인스턴스의 크기를 예상대로 축�
 
 ## <a name="how-do-i-turn-on-http-compression-for-my-content"></a>내 콘텐츠에 대해 HTTP 압축을 켜려면 어떻게 하나요?
 
-정적 및 동적 콘텐츠 형식에 대한 압축을 둘 다 켜려면 응용 프로그램 수준 web.config 파일에 다음 코드를 추가합니다.
+정적 및 동적 콘텐츠 형식에 대한 압축을 둘 다 켜려면 애플리케이션 수준 web.config 파일에 다음 코드를 추가합니다.
 
 ```
 <system.webServer>

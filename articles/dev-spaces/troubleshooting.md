@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 36516030741678ec66b4211f49ede35cfdb98605
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 9973635593f7a8143ac1f3980b6e09caba44710b
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706452"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413611"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -75,6 +75,7 @@ Visual Studio에서
 
     ![도구 옵션 대화 상자 스크린샷](media/common/VerbositySetting.PNG)
     
+### <a name="multi-stage-dockerfiles"></a>다단계 Dockerfile:
 다단계 Dockerfile을 사용하려고 할 때 이 오류가 표시될 수 있습니다. 자세한 출력은 다음과 같습니다.
 
 ```cmd
@@ -91,6 +92,21 @@ Service cannot be started.
 ```
 
 이는 AKS 노드가 다단계 빌드를 지원하지 않는 이전 버전의 Docker를 실행하기 때문입니다. 다단계 빌드를 방지하려면 Dockerfile을 다시 작성해야 합니다.
+
+### <a name="re-running-a-service-after-controller-re-creation"></a>컨트롤러를 다시 만든 후 서비스 다시 실행
+이 클러스터와 연결된 Azure Dev Spaces 컨트롤러를 제거했다가 다시 설치한 후 서비스를 다시 실행하려고 하면 이 오류가 표시될 수 있습니다. 자세한 출력은 다음과 같습니다.
+
+```cmd
+Installing Helm chart...
+Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+```
+
+Dev Spaces 컨트롤러를 제거해도 해당 컨트롤러에서 이전에 설치한 서비스는 제거되지 않기 때문입니다. 이전 서비스가 그대로 있기 때문에 컨트롤러를 다시 만든 후, 새 컨트롤러를 사용해서 서비스를 실행하려고 하면 실패합니다.
+
+이 문제를 해결하려면 `kubectl delete` 명령을 사용하여 클러스터에서 이전 서비스를 수동으로 제거하고 Dev Spaces를 다시 실행하여 새 서비스를 설치합니다.
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Dev Spaces 서비스에 연결된 공용 URL에 대한 DNS 이름 확인 실패
 
@@ -121,6 +137,18 @@ VS Code를 시작할 때 다음 오류가 발생할 수 있습니다. "[Azure De
 ### <a name="try"></a>다음을 시도해 보세요.
 
 PATH 환경 변수가 제대로 설정되어 있는 명령 프롬프트에서 VS Code를 시작합니다.
+
+## <a name="error-required-tools-to-build-and-debug-projectname-are-out-of-date"></a>"'projectname' 빌드 및 디버그에 필요한 도구가 최신 상태가 아닙니다." 오류가 표시됩니다.
+
+새 버전의 Azure Dev Spaces용 VS Code 확장이 있지만 이전 버전의 Azure Dev Spaces CLI가 있는 경우 Visual Studio Code에서 이 오류가 나타납니다.
+
+### <a name="try"></a>시도해 보기
+
+최신 버전의 Azure Dev Spaces CLI를 다운로드한 후 설치합니다.
+
+* [Windows](http://aka.ms/get-azds-windows)
+* [Mac](http://aka.ms/get-azds-mac)
+* [Linux](https://aka.ms/get-azds-linux)
 
 ## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>오류 'azds'는 내부 또는 외부 명령, 실행 가능한 프로그램 또는 일괄 처리 파일로 인식되지 않습니다.
  
@@ -196,6 +224,15 @@ VS Code 디버거를 실행하면 오류를 보고합니다. `Configured debug t
 ### <a name="try"></a>다음을 시도해 보세요.
 [Azure Dev Spaces용 VS Code 확장](get-started-netcore.md)을 설치합니다.
 
+## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>디버깅 오류 "'cwd' 값 '/src'가 잘못되었습니다. 시스템은 지정된 파일을 찾을 수 없습니다." 또는 "launch: program '/src/[프로젝트 이진 경로]'이(가) 존재하지 않습니다."가 발생합니다.
+VS Code 디버거를 실행하면 오류 `Invalid 'cwd' value '/src'. The system cannot find the file specified.` 및/또는 `launch: program '/src/[path to project executable]' does not exist`를 보고합니다.
+
+### <a name="reason"></a>이유
+기본적으로 VS Code 확장은 컨테이너에 대한 프로젝트의 작업 디렉터리로 여 `src`를 사용합니다. 다른 작업 디렉터리를 지정하도록 `Dockerfile`을 업데이트한 경우에 다음 오류가 표시될 수 있습니다.
+
+### <a name="try"></a>다음을 시도해 보세요.
+프로젝트 폴더의 `.vscode` 하위 디렉터리에서 `launch.json` 파일을 업데이트합니다. 프로젝트의 `Dockerfile`에 정의된 `WORKDIR`과 동일한 디렉터리를 가리키도록 `configurations->cwd` 지시문을 변경합니다. `configurations->program` 지시문도 업데이트해야 할 수 있습니다.
+
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>형식 또는 네임스페이스 이름 'MyLibrary'를 찾을 수 없음
 
 ### <a name="reason"></a>이유 
@@ -236,7 +273,7 @@ az provider register --namespace Microsoft.DevSpaces
 ### <a name="reason"></a>이유
 AKS 클러스터의 네임스페이스에서 Dev Spaces를 활성화하면 _mindaro-proxy_라는 추가 컨테이너가 해당 네임스페이스 내에서 실행되는 각 Pod에 설치됩니다. 이 컨테이너는 Dev Spaces의 팀 개발 기능에 필수적인 Pod의 서비스에 대한 호출을 차단합니다.
 
-그러나 해당 Pod에서 실행되는 특정 서비스를 방해할 수 있습니다. 특히 마스터/슬레이브 통신에서 연결 오류 및 실패를 일으키는 Redis cache에서 실행되는 Pod를 방해합니다.
+그러나 해당 Pod에서 실행되는 특정 서비스를 방해할 수 있습니다. 특히, 마스터/슬레이브 통신에서 연결 오류 및 실패를 일으키는 Azure Cache for Redis 실행 Pod를 방해합니다.
 
 ### <a name="try"></a>다음을 시도해 보세요.
 Dev Spaces가 활성화된 네임스페이스 내에서 애플리케이션의 나머지 부분을 계속해서 실행하는 동안 영향을 받는 Pod를 활성화된 Dev Spaces가 _없는_ 클러스터 내의 네임스페이스로 이동할 수 있습니다. Dev Spaces는 비 Dev Spaces 사용 네임스페이스 내에 _mindaro-proxy_ 컨테이너를 설치하지 않습니다.

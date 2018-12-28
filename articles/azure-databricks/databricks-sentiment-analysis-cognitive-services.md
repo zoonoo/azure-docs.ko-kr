@@ -103,7 +103,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
-## <a name="create-a-twitter-application"></a>Twitter 응용 프로그램 만들기
+## <a name="create-a-twitter-application"></a>Twitter 애플리케이션 만들기
 
 트윗 스트림을 받으려면 Twitter에 애플리케이션을 만들어야 합니다. 다음 단계에 따라 Twitter 애플리케이션을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
 

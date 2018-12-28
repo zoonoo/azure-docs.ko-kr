@@ -55,7 +55,7 @@ API 정의를 내보내려면 다음 단계를 수행합니다.
     ![내보내기 모드](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
 
 > [!NOTE]
-> 사용자 지정 커넥터는 API 정의 *복사*를 사용하므로 사용자가 응용 프로그램 및 해당 API 정의를 변경하더라도 PowerApps 및 Microsoft Flow가 그 사실을 즉시 알 수 없습니다. 변경 작업을 수행하는 경우 새 버전에 대해 내보내기 단계를 반복합니다.
+> 사용자 지정 커넥터는 API 정의 *복사*를 사용하므로 사용자가 애플리케이션 및 해당 API 정의를 변경하더라도 PowerApps 및 Microsoft Flow가 그 사실을 즉시 알 수 없습니다. 변경 작업을 수행하는 경우 새 버전에 대해 내보내기 단계를 반복합니다.
 
 <a name="express"></a>
 ## <a name="use-express-export"></a>기본 내보내기 사용
@@ -152,11 +152,11 @@ PowerApps 및 Microsoft Flow는 사용자 지정 커넥터에 대한 인증을 �
 API 키를 사용하는 경우 커넥터 사용자가 연결을 만들 때 키를 제공하라는 메시지가 표시됩니다. 사용자가 필요한 키를 쉽게 알 수 있는 API 키 이름을 지정하는 것이 좋습니다. 이전 예제에서는 사람들이 API 키에 대한 정보를 어디서 가져와야 하는지 쉽게 알 수 있도록 `API Key (contact meganb@contoso.com)`라는 이름을 사용했습니다. Azure Functions의 경우 이 키는 일반적으로 호스트 키 중 하나이며, 함수 앱 내의 여러 함수를 포괄합니다.
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure AD(Azure Active Directory)
-Azure AD를 사용하는 경우 두 개의 Azure AD 응용 프로그램 등록이 필요합니다. 하나는 API 자체에 대한 것이고 다른 하나는 사용자 지정 커넥터에 대한 것입니다.
+Azure AD를 사용하는 경우 두 개의 Azure AD 애플리케이션 등록이 필요합니다. 하나는 API 자체에 대한 것이고 다른 하나는 사용자 지정 커넥터에 대한 것입니다.
 
 - API에 대한 등록을 구성하려면 [App Service 인증/권한 부여](../app-service/configure-authentication-provider-aad.md) 기능을 사용합니다.
 
-- 커넥터에 대한 등록을 구성하려면 [Azure AD 응용 프로그램 추가](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application)의 단계를 따릅니다. 등록에는 API 및 `https://msmanaged-na.consent.azure-apim.net/redirect`의 회신 URL에 대한 위임된 액세스가 필요합니다. 
+- 커넥터에 대한 등록을 구성하려면 [Azure AD 애플리케이션 추가](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application)의 단계를 따릅니다. 등록에는 API 및 `https://msmanaged-na.consent.azure-apim.net/redirect`의 회신 URL에 대한 위임된 액세스가 필요합니다. 
 
 자세한 내용은 [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) 및 [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/)에 대한 Azure AD 등록 예제를 참조하세요. 이러한 예제에서는 Azure Resource Manager를 API로 사용합니다. 다음 단계를 수행하는 경우 API를 대체하세요.
 
