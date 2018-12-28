@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric에 컨테이너의 .NET 앱 배포 | Microsoft Docs
-description: Visual Studio를 사용하여 기존.NET 응용 프로그램을 컨테이너화하고 Service Fabric에서 로컬로 컨테이너를 디버그하는 방법에 대해 알아봅니다. 컨테이너화된 응용 프로그램을 Azure 컨테이너 레지스트리에 푸시하고 Service Fabric 클러스터에 배포합니다. Azure에 배포하는 경우 응용 프로그램은 Azure SQL DB를 사용하여 데이터를 유지합니다.
+description: Visual Studio를 사용하여 기존.NET 애플리케이션을 컨테이너화하고 Service Fabric에서 로컬로 컨테이너를 디버그하는 방법에 대해 알아봅니다. 컨테이너화된 애플리케이션을 Azure 컨테이너 레지스트리에 푸시하고 Service Fabric 클러스터에 배포합니다. Azure에 배포하는 경우 애플리케이션은 Azure SQL DB를 사용하여 데이터를 유지합니다.
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
@@ -21,17 +21,17 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/09/2018
 ms.locfileid: "51299642"
 ---
-# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너의 .NET 응용 프로그램 배포
+# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너의 .NET 애플리케이션 배포
 
-이 자습서에서는 기존 ASP.NET 응용 프로그램을 컨테이너화하고 Service Fabric 응용 프로그램으로 패키지하는 방법을 설명합니다.  Service Fabric 개발 클러스터에서 로컬로 컨테이너를 실행한 다음, Azure에 응용 프로그램을 배포합니다.  응용 프로그램은 [Azure SQL Database](/azure/sql-database/sql-database-technical-overview)에 데이터를 유지합니다. 
+이 자습서에서는 기존 ASP.NET 애플리케이션을 컨테이너화하고 Service Fabric 애플리케이션으로 패키지하는 방법을 설명합니다.  Service Fabric 개발 클러스터에서 로컬로 컨테이너를 실행한 다음, Azure에 애플리케이션을 배포합니다.  애플리케이션은 [Azure SQL Database](/azure/sql-database/sql-database-technical-overview)에 데이터를 유지합니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Visual Studio를 사용하여 기존 응용 프로그램 컨테이너화
+> * Visual Studio를 사용하여 기존 애플리케이션 컨테이너화
 > * Azure SQL 데이터베이스 만들기
 > * Azure Container Registry 만들기
-> * Azure에 Service Fabric 응용 프로그램 배포
+> * Azure에 Service Fabric 애플리케이션 배포
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -45,21 +45,21 @@ ms.locfileid: "51299642"
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Fabrikam Fiber CallCenter를 다운로드하여 실행
 [Fabrikam Fiber CallCenter][link-fabrikam-github] 응용 프로그램 예제를 다운로드합니다.  **다운로드 보관** 링크를 클릭합니다.  *fabrikam.zip* 파일의 *sourceCode* 디렉터리에서 *sourceCode.zip* 파일을 추출한 다음, 컴퓨터에 *VS2015* 디렉터리를 추출합니다.
 
-Fabrikam Fiber CallCenter 응용 프로그램이 오류 없이 빌드되고 실행되는지 확인합니다.  **관리자** 권한으로 Visual Studio를 시작하고 [FabrikamFiber.CallCenter.sln][link-fabrikam-github] 파일을 엽니다.  F5 키를 눌러 응용 프로그램을 디버그하고 실행합니다.
+Fabrikam Fiber CallCenter 애플리케이션이 오류 없이 빌드되고 실행되는지 확인합니다.  **관리자** 권한으로 Visual Studio를 시작하고 [FabrikamFiber.CallCenter.sln][link-fabrikam-github] 파일을 엽니다.  F5 키를 눌러 애플리케이션을 디버그하고 실행합니다.
 
 ![Fabrikam 웹 샘플][fabrikam-web-page]
 
-## <a name="containerize-the-application"></a>응용 프로그램 컨테이너화
+## <a name="containerize-the-application"></a>애플리케이션 컨테이너화
 **FabrikamFiber.Web** 프로젝트 > **추가** > **컨테이너 Orchestrator 지원**을 마우스 오른쪽 단추로 클릭합니다.  **Service Fabric**을 컨테이너 오케스트레이터로 선택하고 **확인**을 클릭합니다.
 
 **예**를 클릭하여 이제 Docker를 Windows 컨테이너로 전환합니다.
 
-새 프로젝트 Service Fabric 응용 프로그램 프로젝트 **FabrikamFiber.CallCenterApplication**이 솔루션에서 만들어집니다.  Dockerfile이 **FabrikamFiber.Web** 기존 프로젝트에 추가됩니다.  **PackageRoot** 디렉터리도 **FabrikamFiber.Web** 프로젝트에 추가되며, 이는 새 FabrikamFiber.Web 서비스에 대한 서비스 매니페스트 및 설정을 포함하는 프로젝트입니다. 
+새 프로젝트 Service Fabric 애플리케이션 프로젝트 **FabrikamFiber.CallCenterApplication**이 솔루션에서 만들어집니다.  Dockerfile이 **FabrikamFiber.Web** 기존 프로젝트에 추가됩니다.  **PackageRoot** 디렉터리도 **FabrikamFiber.Web** 프로젝트에 추가되며, 이는 새 FabrikamFiber.Web 서비스에 대한 서비스 매니페스트 및 설정을 포함하는 프로젝트입니다. 
 
-이제 컨테이너를 빌드하고 Service Fabric 응용 프로그램에 패키지할 준비가 되었습니다. 컴퓨터에서 컨테이너 이미지를 빌드한 후 컨테이너 레지스트리에 푸시하고 실행할 호스트로 끌어올 수 있습니다.
+이제 컨테이너를 빌드하고 Service Fabric 애플리케이션에 패키지할 준비가 되었습니다. 컴퓨터에서 컨테이너 이미지를 빌드한 후 컨테이너 레지스트리에 푸시하고 실행할 호스트로 끌어올 수 있습니다.
 
 ## <a name="create-an-azure-sql-db"></a>Azure SQL DB 만들기
-Fabrikam Fiber CallCenter 응용 프로그램을 프로덕션 환경에서 실행하는 경우 데이터는 데이터베이스에 유지돼야 합니다. 현재는 컨테이너에 데이터를 유지할 수 있는 방법이 없으므로 프로덕션 데이터를 컨테이너로 SQL Server에 저장할 수 없습니다.
+Fabrikam Fiber CallCenter 애플리케이션을 프로덕션 환경에서 실행하는 경우 데이터는 데이터베이스에 유지돼야 합니다. 현재는 컨테이너에 데이터를 유지할 수 있는 방법이 없으므로 프로덕션 데이터를 컨테이너로 SQL Server에 저장할 수 없습니다.
 
 [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell)를 권장합니다. Azure에서 SQL Server DB를 설정하고 실행하려면 다음 스크립트를 실행합니다.  필요에 따라 스크립트 변수를 수정합니다. *clientIP*는 개발 컴퓨터의 IP 주소입니다. 스크립트에서 출력되는 서버의 이름을 적어 두세요. 
 
@@ -121,14 +121,14 @@ Write-Host "Server name is $servername"
   
 ```
 >[!NOTE]
->호스트에서 연결할 수 있기만 하면 어떤 SQL Server든지 로컬 디버깅에 사용할 수 있습니다. 그러나 **localdb**는 `container -> host` 통신을 지원하지 않습니다. 웹 응용 프로그램의 릴리스 버전을 빌드할 때 다른 SQL 데이터베이스를 사용하려면 *web.release.config* 파일에 다른 연결 문자열을 추가합니다.
+>호스트에서 연결할 수 있기만 하면 어떤 SQL Server든지 로컬 디버깅에 사용할 수 있습니다. 그러나 **localdb**는 `container -> host` 통신을 지원하지 않습니다. 웹 애플리케이션의 릴리스 버전을 빌드할 때 다른 SQL 데이터베이스를 사용하려면 *web.release.config* 파일에 다른 연결 문자열을 추가합니다.
 
-## <a name="run-the-containerized-application-locally"></a>컨테이너화된 응용 프로그램을 로컬로 실행
+## <a name="run-the-containerized-application-locally"></a>컨테이너화된 애플리케이션을 로컬로 실행
 **F5** 키를 눌러 로컬 Service Fabric 개발 클러스터에서 컨테이너의 응용 프로그램을 실행하고 디버그합니다. 'ServiceFabricAllowedUsers' 그룹 읽기 및 실행 권한을 Visual Studio 프로젝트 디렉터리에 부여할지 묻는 메시지 상자가 표시되는 경우 **예**를 클릭합니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
-응용 프로그램이 로컬로 실행되므로 Azure에 배포할 준비를 시작합니다.  컨테이너 이미지는 컨테이너 레지스트리에 저장되어야 합니다.  다음 스크립트를 사용하여 [Azure Container Registry](/azure/container-registry/container-registry-intro)를 만듭니다. 컨테이너 레지스트리 이름은 다른 Azure 구독을 통해 표시되므로 고유해야 합니다.
-Azure에 응용 프로그램을 배포하기 전에 이 레지스트리에 컨테이너 이미지를 푸시합니다.  응용 프로그램이 Azure에서 클러스터에 배포되면 컨테이너 이미지는 이 레지스트리에서 가져옵니다.
+애플리케이션이 로컬로 실행되므로 Azure에 배포할 준비를 시작합니다.  컨테이너 이미지는 컨테이너 레지스트리에 저장되어야 합니다.  다음 스크립트를 사용하여 [Azure Container Registry](/azure/container-registry/container-registry-intro)를 만듭니다. 컨테이너 레지스트리 이름은 다른 Azure 구독을 통해 표시되므로 고유해야 합니다.
+Azure에 애플리케이션을 배포하기 전에 이 레지스트리에 컨테이너 이미지를 푸시합니다.  애플리케이션이 Azure에서 클러스터에 배포되면 컨테이너 이미지는 이 레지스트리에서 가져옵니다.
 
 ```powershell
 # Variables
@@ -154,7 +154,7 @@ Service Fabric 애플리케이션은 네트워크에 연결된 가상 머신 또
 
 클러스터를 만드는 경우 다음을 수행합니다. 
 
-1. 솔루션 탐색기에서 응용 프로그램 프로젝트 **FabrikamFiber.CallCenterApplication**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+1. 솔루션 탐색기에서 애플리케이션 프로젝트 **FabrikamFiber.CallCenterApplication**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
 2. Azure 계정을 사용하여 로그인하면 구독 정보에 액세스할 수 있습니다. 
 
@@ -179,8 +179,8 @@ Service Fabric 애플리케이션은 네트워크에 연결된 가상 머신 또
 1. 만들기가 완료되는 데 몇 분이 걸립니다. 클러스터가 완전히 만들어지면 출력 창에 표시됩니다.
     
 
-## <a name="allow-your-application-running-in-azure-to-access-the-sql-db"></a>Azure에서 실행 중인 응용 프로그램이 SQL DB에 액세스 허용
-이전에 로컬로 실행 중인 응용 프로그램에 액세스 권한을 부여하기 위해 SQL 방화벽 규칙을 만들었습니다.  다음으로 Azure에서 실행 중인 응용 프로그램이 SQL DB에 액세스할 수 있도록 설정해야 합니다.  Service Fabric 클러스터에 대한 [가상 네트워크 서비스 엔드포인트](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)를 만든 다음, 해당 엔트포인트가 SQL DB에 액세스할 수 있는 규칙을 만듭니다. 클러스터를 만들 때 적어 둔 클러스터 리소스 그룹 변수를 지정합니다. 
+## <a name="allow-your-application-running-in-azure-to-access-the-sql-db"></a>Azure에서 실행 중인 애플리케이션이 SQL DB에 액세스 허용
+이전에 로컬로 실행 중인 애플리케이션에 액세스 권한을 부여하기 위해 SQL 방화벽 규칙을 만들었습니다.  다음으로 Azure에서 실행 중인 애플리케이션이 SQL DB에 액세스할 수 있도록 설정해야 합니다.  Service Fabric 클러스터에 대한 [가상 네트워크 서비스 엔드포인트](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)를 만든 다음, 해당 엔트포인트가 SQL DB에 액세스할 수 있는 규칙을 만듭니다. 클러스터를 만들 때 적어 둔 클러스터 리소스 그룹 변수를 지정합니다. 
 
 ```powershell
 # Create a virtual network service endpoint
@@ -228,11 +228,11 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
   -VirtualNetworkSubnetId $subnetID;
 ```
 ## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
-응용 프로그램이 준비되면 Visual Studio에서 직접 Azure의 클러스터에 배포할 수 있습니다.  솔루션 탐색기에서 응용 프로그램 프로젝트 **FabrikamFiber.CallCenterApplication**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.  **연결 엔트포인트**에서 이전에 만든 클러스터의 엔드포인트를 선택합니다.  **Azure Container Registry**에서 이전에 만든 컨테이너 레지스트리를 선택합니다.  Azure에서 응용 프로그램을 클러스터에 배포하려면 **게시**를 클릭합니다.
+애플리케이션이 준비되면 Visual Studio에서 직접 Azure의 클러스터에 배포할 수 있습니다.  솔루션 탐색기에서 애플리케이션 프로젝트 **FabrikamFiber.CallCenterApplication**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.  **연결 엔트포인트**에서 이전에 만든 클러스터의 엔드포인트를 선택합니다.  **Azure Container Registry**에서 이전에 만든 컨테이너 레지스트리를 선택합니다.  Azure에서 애플리케이션을 클러스터에 배포하려면 **게시**를 클릭합니다.
 
-![응용 프로그램 게시][publish-app]
+![애플리케이션 게시][publish-app]
 
-출력 창의 배포 진행률을 따릅니다.  응용 프로그램을 배포할 때 클러스터 주소와 응용 프로그램 포트에서 브라우저와 유형을 엽니다. 예: http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/
+출력 창의 배포 진행률을 따릅니다.  애플리케이션을 배포할 때 클러스터 주소와 애플리케이션 포트에서 브라우저와 유형을 엽니다. 예: http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/
 
 ![Fabrikam 웹 샘플][fabrikam-web-page-deployed]
 
@@ -261,10 +261,10 @@ Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * Visual Studio를 사용하여 기존 응용 프로그램 컨테이너화
+> * Visual Studio를 사용하여 기존 애플리케이션 컨테이너화
 > * Azure SQL 데이터베이스 만들기
 > * Azure Container Registry 만들기
-> * Azure에 Service Fabric 응용 프로그램 배포
+> * Azure에 Service Fabric 애플리케이션 배포
 
 자습서의 다음 부분에서 [Service Fabric 클러스터에 CI/CD로 컨테이너 응용 프로그램 배포](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md) 방법을 알아봅니다.
 

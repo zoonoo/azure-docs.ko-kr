@@ -1,6 +1,6 @@
 ---
 title: Java SDK를 사용하여 Azure Media Services 시작 | Microsoft Docs
-description: 이 자습서에서는 Java를 사용하는 AMS(Azure Media Services) 응용 프로그램으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
+description: 이 자습서에서는 Java를 사용하는 AMS(Azure Media Services) 애플리케이션으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 services: media-services
 documentationcenter: java
 author: juliako

@@ -207,11 +207,11 @@ YARN 클러스터 모드를 사용 중이고 이 경우 임의 컨테이너(및 
    
 ![YARN UI](./media/apache-spark-deep-learning-caffe/YARN-UI-1.png)
 
-이 특정 응용 프로그램에 대해 얼마나 많은 리소스가 할당되는지를 살펴볼 수 있습니다. "Scheduler" 링크를 클릭하면 이 응용 프로그램에 대해 9개의 컨테이너가 실행 중인 것을 볼 수 있습니다. YARN에 8개의 실행기를 제공하도록 요청하고 다른 컨테이너는 드라이버 프로세스용입니다. 
+이 특정 애플리케이션에 대해 얼마나 많은 리소스가 할당되는지를 살펴볼 수 있습니다. "Scheduler" 링크를 클릭하면 이 응용 프로그램에 대해 9개의 컨테이너가 실행 중인 것을 볼 수 있습니다. YARN에 8개의 실행기를 제공하도록 요청하고 다른 컨테이너는 드라이버 프로세스용입니다. 
 
 ![YARN Scheduler](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
 
-오류가 있는 경우 드라이버 로그 또는 컨테이너 로그를 확인하려 할 수 있습니다. 드라이버 로그의 경우 YARN UI에서 응용 프로그램 ID를 클릭한 후 [로그] 단추를 클릭하면 됩니다. 드라이버 로그는 stderr에 기록됩니다.
+오류가 있는 경우 드라이버 로그 또는 컨테이너 로그를 확인하려 할 수 있습니다. 드라이버 로그의 경우 YARN UI에서 애플리케이션 ID를 클릭한 후 [로그] 단추를 클릭하면 됩니다. 드라이버 로그는 stderr에 기록됩니다.
 
 ![YARN UI 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
 

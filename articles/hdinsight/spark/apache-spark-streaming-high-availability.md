@@ -26,9 +26,9 @@ Spark Streaming은 데이터에 변환을 적용한 다음, 해당 결과를 파
 
 ## <a name="dstreams"></a>DStreams
 
-Spark Streaming은 *불연속화 스트림*(DStream)을 사용하여 데이터의 연속 스트림을 나타냅니다. 이 DStream은 Event Hubs 또는 Kafka와 같은 입력 원본에서 또는 다른 DStream에 변환을 적용하여 만들 수 있습니다. 이벤트가 Spark Streaming 응용 프로그램에 도착하면 이벤트는 신뢰할 수 있는 방식으로 저장됩니다. 즉, 이벤트 데이터는 복제되어 여러 노드에 저장됩니다. 따라서 단일 노드 실패로 인한 이벤트 손실이 발생되지 않게 됩니다.
+Spark Streaming은 *불연속화 스트림*(DStream)을 사용하여 데이터의 연속 스트림을 나타냅니다. 이 DStream은 Event Hubs 또는 Kafka와 같은 입력 원본에서 또는 다른 DStream에 변환을 적용하여 만들 수 있습니다. 이벤트가 Spark Streaming 애플리케이션에 도착하면 이벤트는 신뢰할 수 있는 방식으로 저장됩니다. 즉, 이벤트 데이터는 복제되어 여러 노드에 저장됩니다. 따라서 단일 노드 실패로 인한 이벤트 손실이 발생되지 않게 됩니다.
 
-Spark 코어는 RDD(*복원력 있는 분산 데이터 세트*)를 사용합니다. RDD는 클러스터의 여러 노드에 걸쳐 데이터를 배포하여, 각 노드가 최상의 성능을 위해 메모리 내에 데이터를 완전한 상태로 유지하도록 합니다. 각 RDD는 일괄 처리 간격 동안 수집된 이벤트를 나타냅니다. 일괄 처리 간격이 지나면 Spark Streaming은 해당 간격의 모든 데이터를 포함하는 새 RDD을 생성합니다. RDD의 연속 집합은 DStream으로 수집됩니다. Spark Streaming 응용 프로그램은 각 일괄 처리의 RDD에 저장된 데이터를 처리합니다.
+Spark 코어는 RDD(*복원력 있는 분산 데이터 세트*)를 사용합니다. RDD는 클러스터의 여러 노드에 걸쳐 데이터를 배포하여, 각 노드가 최상의 성능을 위해 메모리 내에 데이터를 완전한 상태로 유지하도록 합니다. 각 RDD는 일괄 처리 간격 동안 수집된 이벤트를 나타냅니다. 일괄 처리 간격이 지나면 Spark Streaming은 해당 간격의 모든 데이터를 포함하는 새 RDD을 생성합니다. RDD의 연속 집합은 DStream으로 수집됩니다. Spark Streaming 애플리케이션은 각 일괄 처리의 RDD에 저장된 데이터를 처리합니다.
 
 ![Spark DStream](./media/apache-spark-streaming-high-availability/DStream.png)
 
@@ -52,7 +52,7 @@ RDD는 고가용성의 내결함성 Spark Streaming 작업을 지원하는 다�
 
 ### <a name="exactly-once-semantics-with-spark-streaming"></a>Spark Streaming을 사용하여 정학히 한 번만 처리하는 의미 체계
 
-각 이벤트를 한 번만 처리하는 응용 프로그램을 만들려면 모든 시스템 실패 지점이 문제 발생 후 다시 시작되는 방식과 데이터 손실을 피할 수 있는 방식을 고려하세요. 정확하게 한 번만 처리하는 의미 체계에서는 어느 순간에도 데이터 손실이 없으며 오류 발생 위치에 관계 없이 메시지 처리는 다시 시작 가능해야 합니다. [이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기](apache-spark-streaming-exactly-once.md)를 참조하세요.
+각 이벤트를 한 번만 처리하는 애플리케이션을 만들려면 모든 시스템 실패 지점이 문제 발생 후 다시 시작되는 방식과 데이터 손실을 피할 수 있는 방식을 고려하세요. 정확하게 한 번만 처리하는 의미 체계에서는 어느 순간에도 데이터 손실이 없으며 오류 발생 위치에 관계 없이 메시지 처리는 다시 시작 가능해야 합니다. [이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기](apache-spark-streaming-exactly-once.md)를 참조하세요.
 
 ## <a name="spark-streaming-and-apache-hadoop-yarn"></a>Spark 스트리밍 및 Apache Hadoop YARN
 
@@ -64,7 +64,7 @@ HDInsight에서 클러스터 작업은 YARN(*Yet Another Resource Negotiator*)�
 
 ### <a name="plan-for-failures"></a>오류에 대한 계획
 
-고가용성을 위한 YARN 구성을 만들려면 가능한 실행기 또는 드라이버 실패에 대비해서 계획해야 합니다. 일부 Spark Streaming 작업에는 추가 구성 및 설정이 필요한 데이터 보장 요구 사항도 포함되어 있습니다. 예를 들어, 스트리밍 응용 프로그램은 호스팅 스트리밍 시스템 또는 HDInsight 클러스터에서 발생하는 오류에도 불구하고, 제로 데이터 손실을 보장하기 위한 비즈니스 요구 사항이 있을 수 있습니다.
+고가용성을 위한 YARN 구성을 만들려면 가능한 실행기 또는 드라이버 실패에 대비해서 계획해야 합니다. 일부 Spark Streaming 작업에는 추가 구성 및 설정이 필요한 데이터 보장 요구 사항도 포함되어 있습니다. 예를 들어, 스트리밍 애플리케이션은 호스팅 스트리밍 시스템 또는 HDInsight 클러스터에서 발생하는 오류에도 불구하고, 제로 데이터 손실을 보장하기 위한 비즈니스 요구 사항이 있을 수 있습니다.
 
 **실행기**가 실패하면 Spark에서 해당 작업 및 수신기를 자동으로 다시 시작하므로, 필요한 구성 변경이 없습니다.
 
@@ -98,7 +98,7 @@ DStream 검사점을 사용하여 드라이버를 복구하려면
 
 ### <a name="typical-concerns-for-high-availability"></a>고가용성에 대한 일반적인 문제
 
-* 일괄 처리 작업보다 스트리밍 작업을 모니터링하는 것이 좀 더 어렵습니다. Spark Streaming 작업은 일반적으로 오랜 기간 실행되며, YARN은 작업이 완료될 때까지 로그를 집계하지 않습니다.  Spark 검사점은 응용 프로그램 또는 Spark 업그레이드 동안 손실되며, 업그레이드하는 동안 검사점 디렉터리를 지워야 합니다.
+* 일괄 처리 작업보다 스트리밍 작업을 모니터링하는 것이 좀 더 어렵습니다. Spark Streaming 작업은 일반적으로 오랜 기간 실행되며, YARN은 작업이 완료될 때까지 로그를 집계하지 않습니다.  Spark 검사점은 애플리케이션 또는 Spark 업그레이드 동안 손실되며, 업그레이드하는 동안 검사점 디렉터리를 지워야 합니다.
 
 * 클라이언트가 실패하는 경우에 드라이버를 실행하도록 YARN 클러스터 모드를 구성합니다. 드라이버의 자동 다시 시작을 설정하려면
 
@@ -109,9 +109,9 @@ DStream 검사점을 사용하여 드라이버를 복구하려면
 
 * Spark 및 Spark Streaming UI에는 구성 가능한 메트릭 시스템이 있습니다. Graphite/Grafana와 같은 추가 라이브러리를 사용하여 '처리된 숫자 메트릭', '드라이브 및 실행기의 메모리/GC 사용량', '총 지연', '클러스터 활용률' 등의 대시보드 메트릭을 다운로드할 수도 있습니다. Structured Streaming 버전 2.1 이상에서는 `StreamingQueryListener`를 사용하여 추가 메트릭을 수집할 수 있습니다.
 
-* 장기 실행 작업은 분할해야 합니다.  Spark Streaming 응용 프로그램이 클러스터에 제출될 때 작업이 실행되는 YARN 큐를 정의해야 합니다. [YARN Capacity Scheduler](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)를 사용하여 장기 실행 작업을 별도 큐에 제출할 수 있습니다.
+* 장기 실행 작업은 분할해야 합니다.  Spark Streaming 애플리케이션이 클러스터에 제출될 때 작업이 실행되는 YARN 큐를 정의해야 합니다. [YARN Capacity Scheduler](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)를 사용하여 장기 실행 작업을 별도 큐에 제출할 수 있습니다.
 
-* 스트리밍 응용 프로그램를 정상적으로 종료합니다. 오프셋을 알고 있으며, 모든 응용 프로그램 상태가 외부에 저장되는 경우 적절한 위치에서 프로그래밍 방식으로 스트리밍 응용 프로그램을 중지할 수 있습니다. 한 가지 방법은 *n*초 간격으로 외부 플래그를 확인하여 Spark에서 "스레드 후크"를 사용하는 것입니다. 애플리케이션을 시작할 때 HDFS에서 만들어진 후, 사용자가 중지하려고 할 때 제거되는 *마커 파일*을 사용할 수도 있습니다. 마커 파일 방식을 위해서는, 다음과 비슷한 코드를 호출하는 별도 스레드를 Spark 애플리케이션에서 사용하세요.
+* 스트리밍 애플리케이션을 정상적으로 종료합니다. 오프셋을 알고 있으며, 모든 애플리케이션 상태가 외부에 저장되는 경우 적절한 위치에서 프로그래밍 방식으로 스트리밍 애플리케이션을 중지할 수 있습니다. 한 가지 방법은 *n*초 간격으로 외부 플래그를 확인하여 Spark에서 "스레드 후크"를 사용하는 것입니다. 애플리케이션을 시작할 때 HDFS에서 만들어진 후, 사용자가 중지하려고 할 때 제거되는 *마커 파일*을 사용할 수도 있습니다. 마커 파일 방식을 위해서는, 다음과 비슷한 코드를 호출하는 별도 스레드를 Spark 애플리케이션에서 사용하세요.
 
     ```scala
     streamingContext.stop(stopSparkContext = true, stopGracefully = true)

@@ -1,6 +1,6 @@
 ---
 title: Azure Application Gateway 인증서 갱신
-description: 응용 프로그램 게이트웨이 수신기와 연결된 인증서를 갱신하는 방법을 알아봅니다.
+description: 애플리케이션 게이트웨이 수신기와 연결된 인증서를 갱신하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -17,13 +17,13 @@ ms.locfileid: "42140139"
 ---
 # <a name="renew-application-gateway-certificates"></a>Application Gateway 인증서 갱신
 
-응용 프로그램 게이트웨이에 SSL 암호화를 구성한 경우 어느 시점이 되면 인증서를 갱신해야 합니다.
+애플리케이션 게이트웨이에 SSL 암호화를 구성한 경우 어느 시점이 되면 인증서를 갱신해야 합니다.
 
 Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 수신기와 연결된 인증서를 갱신할 수 있습니다.
 
 ## <a name="azure-portal"></a>Azure portal
 
-포털에서 수신기 인증서를 갱신하려면 응용 프로그램 게이트웨이 수신기로 이동합니다. 인증서를 갱신해야 하는 수신기를 클릭한 다음, **선택한 인증서 갱신 또는 편집**을 클릭합니다.
+포털에서 수신기 인증서를 갱신하려면 애플리케이션 게이트웨이 수신기로 이동합니다. 인증서를 갱신해야 하는 수신기를 클릭한 다음, **선택한 인증서 갱신 또는 편집**을 클릭합니다.
 
 ![인증서 갱신](media/renew-certificate/ssl-cert.png)
 

@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory) Connect를 통해 온-프레미스 AD FS(Active
 | **AD FS 구성 수정** | |
 | [트러스트 복구](how-to-connect-fed-management.md#repairthetrust) |온-프레미스 AD FS와 Office 365/Azure 사이의 현재 트러스트를 복구합니다. |
 | [새 AD FS 서버 추가](how-to-connect-fed-management.md#addadfsserver) |초기 설치 후 추가적인 AD FS 서버를 통한 AD FS 팜을 확장합니다. |
-| [새 AD FS WAP 서버 추가](how-to-connect-fed-management.md#addwapserver) |초기 설치 후 추가적인 WAP(웹 응용 프로그램 프록시) 서버를 통한 AD FS 팜을 확장합니다. |
+| [새 AD FS WAP 서버 추가](how-to-connect-fed-management.md#addwapserver) |초기 설치 후에 추가적인 WAP(웹 애플리케이션 프록시) 서버를 통한 AD FS 팜을 확장합니다. |
 | [새 페더레이션된 도메인 추가](how-to-connect-fed-management.md#addfeddomain) |Azure AD를 통해 페더레이션될 또 다른 도메인을 추가합니다. |
 | [SSL 인증서 업데이트](how-to-connect-fed-ssl-update.md)| AD FS 팜에 대한 SSL 인증서를 업데이트합니다. |
 | [Office 365 및 Azure AD에 대한 페더레이션 인증서 갱신](how-to-connect-fed-o365-certs.md)|Azure AD로 O365 인증서를 갱신합니다.|

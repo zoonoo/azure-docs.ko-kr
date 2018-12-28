@@ -35,7 +35,7 @@ PowerShell 사용하여 netcfg 파일을 포함한 가상 네트워크를 만들
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. XML 또는 텍스트 편집기 응용 프로그램을 사용하여 2단계에서 저장한 파일을 열고 **<VirtualNetworkSites>** 요소를 찾아봅니다. 이미 만들어진 네트워크가 있으면 각 네트워크는 자체의 **<VirtualNetworkSite>** 요소로 표시됩니다.
+3. XML 또는 텍스트 편집기 애플리케이션을 사용하여 2단계에서 저장한 파일을 열고 **<VirtualNetworkSites>** 요소를 찾아봅니다. 이미 만들어진 네트워크가 있으면 각 네트워크는 자체의 **<VirtualNetworkSite>** 요소로 표시됩니다.
 4. 이 시나리오에서 설명하는 가상 네트워크를 만들려면 **<VirtualNetworkSites>** 요소 바로 아래에 다음 XML을 추가합니다.
 
    ```xml

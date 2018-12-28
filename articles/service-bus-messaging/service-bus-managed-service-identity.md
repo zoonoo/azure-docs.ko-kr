@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 5532c86271fa6a5f2b573e005993a68ac0a9e248
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 25d2db5dcf3979341fc104643f7178047c29483b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857077"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842835"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Service Bus를 통해 Azure 리소스에 관리 ID 사용 
 
@@ -51,12 +51,10 @@ ms.locfileid: "48857077"
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>새 Service Bus 메시지 네임스페이스 만들기
 
-그런 다음, RBAC에 대한 미리 보기 지원이 있는 Azure 지역인 **미국 동부**, **미국 동부 2** 또는 **유럽 서부** 중 한 곳에 [Service Bus 메시지 네임스페이스를 만듭니다](service-bus-create-namespace-portal.md). 
+그런 다음, RBAC에 대한 미리 보기 지원이 있는 Azure 지역 중 한 곳에 [Service Bus 메시지 네임스페이스를 만듭니다](service-bus-create-namespace-portal.md). **미국 동부**, **미국 동부 2** 또는 **유럽 서부**. 
 
-포털의 네임스페이스 **액세스 제어(IAM)** 페이지로 이동한 후 **추가**를 클릭하여 관리 ID를 **소유자** 역할에 추가합니다. 이렇게 하려면 **권한 추가** 패널의 **선택** 필드에서 웹 응용 프로그램의 이름을 검색한 다음, 해당 항목을 클릭합니다. 그런 다음 **Save**를 클릭합니다.
+포털의 네임스페이스 **액세스 제어(IAM)** 페이지로 이동한 후 **역할 할당 추가**를 클릭하여 관리형 ID를 **소유자** 역할에 추가합니다. 이렇게 하려면 **권한 추가** 패널의 **선택** 필드에서 웹 응용 프로그램의 이름을 검색한 다음, 해당 항목을 클릭합니다. 그런 다음 **Save**를 클릭합니다.
 
-![](./media/service-bus-managed-service-identity/msi2.png)
- 
 이제 웹 응용 프로그램의 관리 ID가 Service Bus 네임스페이스 및 이전에 만든 큐에 액세스할 수 있습니다. 
 
 ### <a name="run-the-app"></a>앱 실행

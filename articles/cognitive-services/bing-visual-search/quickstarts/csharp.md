@@ -50,7 +50,7 @@ Azure Portal에서 구독을 시작하려면
 
 Windows에서 실행되는 이 코드를 가져오려면 [Visual Studio 2017](https://www.visualstudio.com/downloads/)이 필요합니다. 체험 Community Edition을 사용해도 됩니다.  
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+## <a name="running-the-application"></a>애플리케이션 실행
 
 다음에서는 HttpWebRequest를 사용하여 메시지를 보내는 방법을 보여 줍니다. HttpClient, HttpRequestMessage 및 MultipartFormDataContent를 사용하는 예제를 보려면 [HttpClient 사용](#using-httpclient)을 참조하세요.
 

@@ -56,7 +56,7 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 | **resourceGroupName** |Azure 리소스 그룹 이름 |아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨). |
 
 ### <a name="service-principal-authentication-recommended"></a>서비스 주체 인증(권장)
-서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에서 응용 프로그램 엔터티를 등록한 후 Data Lake Store에서 액세스 권한을 부여합니다. 자세한 단계는 [서비스 간 인증](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
+서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에서 애플리케이션 엔터티를 등록한 후 Data Lake Store에서 액세스 권한을 부여합니다. 자세한 단계는 [서비스 간 인증](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
 * 응용 프로그램 UI
 * 응용 프로그램 키 
 * 테넌트 ID
@@ -65,9 +65,9 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | 응용 프로그램의 클라이언트 ID를 지정합니다. | 예 |
+| **servicePrincipalId** | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | **servicePrincipalKey** | 응용 프로그램의 키를 지정합니다. | 예 |
-| **테넌트** | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예 |
+| **테넌트** | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예 |
 
 **예제: 서비스 주체 인증**
 ```json

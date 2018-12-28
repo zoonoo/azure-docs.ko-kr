@@ -32,7 +32,7 @@ ms.locfileid: "51620700"
 
 전통적인 공유 모델에는 몇 가지 단점이 있습니다.
 
-* 새 응용 프로그램에 대한 액세스를 활성화하려면 액세스가 필요한 모든 사용자에게 자격 증명을 배포해야 합니다.
+* 새 애플리케이션에 대한 액세스를 활성화하려면 액세스가 필요한 모든 사용자에게 자격 증명을 배포해야 합니다.
 * 각 공유 응용 프로그램에는 공유 자격 증명의 고유한 자체 세트가 필요할 수 있으므로 사용자가 여러 자격 증명 세트를 기억해야 합니다. 사용자가 여러 자격 증명을 기억해야 한다면, 편의를 위해 위험한 행동을 할 가능성이 높아집니다 (예: 암호 기록).
 * 응용 프로그램에 누가 액세스 권한이 있는지 알 수 없습니다.
 * 애플리케이션에 누가 *액세스했는지* 알 수 없습니다.
@@ -66,7 +66,7 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 * 응용 프로그램 [앱 갤러리](https://azure.microsoft.com/marketplace/active-directory/)나 [사용자 지정 응용 프로그램](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/) 추가
 * 암호 SSO(Single Sign-On)에 대한 애플리케이션 구성
 * [그룹 기반 할당](groups-saasapps.md)을 사용하고 옵션을 선택하여 공유 자격 증명 입력
-* 선택 사항: Facebook, Twitter 또는 LinkedIn 등의 일부 응용 프로그램에서는 [Azure AD 자동 암호 롤오버](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
+* 선택 사항: Facebook, Twitter 또는 LinkedIn 등의 일부 애플리케이션에서는 [Azure AD 자동 암호 롤오버](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
 또한 MFA(Multi-Factor Authentication)로 공유 계정의 보안을 강화하고([Azure AD를 통한 응용 프로그램 보호](../authentication/concept-mfa-whichversion.md)에 대한 자세한 정보) [Azure AD 셀프 서비스](groups-self-service-management.md) 그룹 관리를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 관리자에게 기능을 위임할 수 있습니다.
 

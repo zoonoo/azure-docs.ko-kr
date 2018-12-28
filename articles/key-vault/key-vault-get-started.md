@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: a28bf1dc23d678c710d7bd6b13f067427e76ef41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb4ef826ed29187209b28c349445ca0eb5ffe9bb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238402"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864905"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure Key Vault 시작
 이 문서는 PowerShell을 사용하여 Azure Key Vault를 시작할 수 있도록 하고 다음 활동을 따르는 과정을 안내합니다.
@@ -193,7 +193,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPasswor
 ```powershell
 $secret.Id
 ```
-비밀을 보려면 `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`를 입력하거나 또는 포털에서 비밀을 볼 수 있습니다.
+비밀을 보려면 다음을 입력합니다. `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`를 입력하거나 또는 포털에서 비밀을 볼 수 있습니다.
 
 ![secret](./media/key-vault-get-started/secret-value.png)
 
@@ -222,14 +222,14 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **앱 등록**을 클릭합니다. 앱 등록이 보이지 않으면 **추가 서비스**를 클릭합니다.  
->[!NOTE]
-주요 자격 증명 모음을 만든 Azure 구독을 포함하는 동일한 디렉터리를 선택해야 합니다. 
+    > [!NOTE]
+    > 주요 자격 증명 모음을 만든 Azure 구독을 포함하는 동일한 디렉터리를 선택해야 합니다. 
 3. **새 응용 프로그램 등록**을 클릭합니다.
 4. **만들기** 블레이드에 응용 프로그램의 이름을 제공한 다음 **웹 응용 프로그램 및/또는 Web API**(기본값)를 선택하고 웹 응용 프로그램에 대한 **로그온 URL**을 지정합니다. 현재 이 정보가 없다면 이 단계에 대해 만들 수 있습니다(예를 들어 http://test1.contoso.com을 지정할 수 있습니다). 이러한 사이트가 존재하는 경우 중요하지 않습니다. 
 
     ![새 응용 프로그램 등록](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    **웹 응용 프로그램 및/또는 웹 API**를 선택했는지 확인합니다. 선택하지 않았다면 설정 아래에 **키** 옵션이 표시되지 않습니다.
+    > [!WARNING]
+    > **웹 응용 프로그램 및/또는 웹 API**를 선택했는지 확인합니다. 선택하지 않았다면 설정 아래에 **키** 옵션이 표시되지 않습니다.
 
 5. **만들기** 단추를 클릭합니다.
 6. 앱 등록을 완료하면 등록된 앱 목록이 표시됩니다. 직접 등록한 앱을 찾아서 클릭합니다.
@@ -313,10 +313,10 @@ Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 Azure Key Vault를 관리하는 데 유용한 기타 명령은 다음과 같습니다.
 
 - `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: 이 명령은 모든 키와 선택한 속성을 테이블 형식으로 가져옵니다.
-- `$Keys[0]`:이 명령은 지정된 키에 대한 속성의 전체 목록을 표시합니다.
+- `$Keys[0]`: 이 명령은 지정된 키에 대한 속성의 전체 목록을 표시합니다.
 - `Get-AzureKeyVaultSecret`: 이 명령은 모든 비밀 이름과 선택한 속성을 테이블 형식으로 표시합니다.
-- `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: 특정 키를 제거하는 방법 예
-- `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: 특정 비밀을 제거하는 방법 예
+- `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: 특정 키를 제거하는 방법 예제
+- `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: 특정 비밀을 제거하는 방법 예제
 
 ## <a name="next-steps"></a>다음 단계
 

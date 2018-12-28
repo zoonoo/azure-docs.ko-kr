@@ -394,7 +394,7 @@ Azure에서 지원되는 SAP liveCache용 Microsoft Windows 버전을 찾으려�
 
 ### <a name="sap-livecache-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 SAP liveCache 구성 지침
 #### <a name="recommended-azure-vm-types-for-livecache"></a>liveCache에 권장되는 Azure VM 유형
-SAP liveCache는 많은 계산을 수행하는 응용 프로그램이므로 RAM과 CPU의 양 및 속도가 SAP liveCache 성능에 큰 영향을 줍니다. 
+SAP liveCache는 많은 계산을 수행하는 애플리케이션이므로 RAM과 CPU의 양 및 속도가 SAP liveCache 성능에 큰 영향을 줍니다. 
 
 SAP에서 지원하는 Azure VM 형식(SAP Note [1928533])의 경우, VM에 할당된 모든 가상 CPU 리소스가 하이퍼바이저의 전용 물리적 CPU 리소스에 의해 지원됩니다. 오버프로비저닝이 발생되지 않습니다(따라서 CPU 리소스에 대한 경쟁 없음).
 
@@ -418,7 +418,7 @@ SAP liveCache는 컴퓨팅 기능을 집중적으로 사용하므로 생산적�
 다른 모든 일반 영역은 이미 SAP MaxDB 관련 챕터에서 설명하고 있습니다. 
 
 ## <a name="specifics-for-the-sap-content-server-deployment-on-windows-in-azure"></a>Azure의 Windows에서의 SAP Content Server 배포에 세부 정보
-SAP Content Server는 다양한 형식의 전자 문서와 같은 콘텐츠를 저장하기 위한 별도의 서버 기반 구성 요소입니다. SAP Content Server는 기술 개발을 통해 제공되며 SAP 응용 프로그램의 응용 프로그램 간에 사용됩니다. 별도의 시스템에 설치됩니다. 일반적인 콘텐츠는 기술 웨어하우스 설명서 또는 mySAP PLM 문서 관리 시스템의 기술 드로잉 및 교육 자료입니다. 
+SAP Content Server는 다양한 형식의 전자 문서와 같은 콘텐츠를 저장하기 위한 별도의 서버 기반 구성 요소입니다. SAP Content Server는 기술 개발을 통해 제공되며 SAP 애플리케이션의 애플리케이션 간에 사용됩니다. 별도의 시스템에 설치됩니다. 일반적인 콘텐츠는 기술 웨어하우스 설명서 또는 mySAP PLM 문서 관리 시스템의 기술 드로잉 및 교육 자료입니다. 
 
 ### <a name="sap-content-server-version-support-for-azure-vms"></a>Azure VM용 SAP Content Server 버전 지원
 SAP에서 현재 다음을 지원합니다.

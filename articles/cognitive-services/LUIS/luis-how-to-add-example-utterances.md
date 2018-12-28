@@ -1,21 +1,22 @@
 ---
-title: LUIS 앱에서 예제 발화 추가
-titleSuffix: Azure Cognitive Services
-description: LUIS(Language Understanding) 응용 프로그램에서 발언을 추가하는 방법을 알아봅니다.
+title: 예제 발화 추가
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 예제 발언은 사용자 질문 또는 명령의 텍스트 예제입니다. LUIS(Language Understanding)를 학습하려면 의도에 예제 발화를 추가해야 합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: caf8628569481149ee41e8253f4759e15e49150f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 33c941f84952faca1961bb65687b4098b837a2fd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139126"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139174"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>예제 발언에 엔터티 추가 
 
@@ -89,7 +90,7 @@ Does John Smith work in Seattle?
 
 1. 드롭다운 목록에서 복합 엔터티 이름을 입력합니다.
 
-    ![엔터티 이름을 입력하는 스크린샷](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
+    ![드롭다운 목록에서 복합 엔터티 이름을 입력하는 스크린샷](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     엔터티를 올바르게 래핑하면 전체 구 아래에 녹색 줄이 표시됩니다.
 
@@ -117,7 +118,7 @@ Does John Smith work in Seattle?
 
 1. 발언의 단어는 부모 계층 구조 엔터티로 레이블이 지정되었습니다. 자식 엔터티에 해당 단어를 할당해야 합니다. 의도 세부 정보 페이지의 해당 발언으로 돌아갑니다. 해당 단어를 선택하고 드롭다운 목록에서 만든 엔터티 이름을 선택한 후, 오른쪽 메뉴에 따라 올바른 자식 엔터티를 선택합니다.
 
-    ![ToLocation 엔터티가 강조 표시된 의도 세부 정보 페이지의 스크린샷](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
+    ![자식 엔터티에 단어를 할당해야 하는 의도 세부 정보 페이지의 스크린샷](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >자식 엔터티 이름은 단일 앱의 모든 엔터티에서 고유해야 합니다. 서로 다른 두 계층 구조 엔터티는 이름이 같은 자식 엔터티를 포함할 수 없습니다. 
@@ -134,7 +135,7 @@ LUIS 포털에서 새 발언을 입력하면 발언에서 엔터티 예측 오�
 
 예측 불일치가 있는 경우 엔터티 상자에 빨간색 느낌표가 있는 **엔터티 상태**가 표시됩니다. 레이블이 지정된 엔터티와 예측된 엔터티 간의 차이점에 대한 정보가 포함된 엔터티 상태를 보려면 **엔터티 상태**를 선택하고 오른쪽의 항목을 선택합니다.
 
-![엔터티 상태 예측 불일치의 스크린샷](./media/luis-how-to-add-example-utterances/entity-status.png)
+![예측 불일치를 해결하기 위해 올바른 항목을 선택하는 스크린샷](./media/luis-how-to-add-example-utterances/entity-status.png)
 
 다음과 같은 경우 빨간색 선이 나타날 수 있습니다.
 

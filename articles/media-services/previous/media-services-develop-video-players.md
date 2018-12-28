@@ -53,7 +53,7 @@ Microsoft Azure Media Services에서 컨텐츠를 DASH, 부드러운 스트리�
 * [XBOX 비디오 응용 프로그램 개발](https://xbox.create.msdn.com/) 
 
 ## <a name="advertising"></a>광고
-Azure Media Services는 Windows 미디어 플랫폼: 플레이어 프레임워크를 통해 광고 삽입에 대한 지원을 제공합니다. 광고를 지원하는 플레이어 프레임워크는 Windows 8, Silverlight, Windows Phone 8 및 iOS 디바이스에 사용할 수 있습니다. 각 플레이어 프레임워크는 플레이어 응용 프로그램을 구현하는 방법을 보여주는 샘플 코드를 포함합니다. 미디어에 삽입할 수 있는 서로 다른 세 종류의 광고가 있습니다.
+Azure Media Services는 Windows 미디어 플랫폼: 플레이어 프레임워크를 통해 광고 삽입에 대한 지원을 제공합니다. 광고를 지원하는 플레이어 프레임워크는 Windows 8, Silverlight, Windows Phone 8 및 iOS 디바이스에 사용할 수 있습니다. 각 플레이어 프레임워크는 플레이어 애플리케이션을 구현하는 방법을 보여주는 샘플 코드를 포함합니다. 미디어에 삽입할 수 있는 서로 다른 세 종류의 광고가 있습니다.
 
 선형-기본 비디오를 일시 중지하는 전체 프레임 광고
 

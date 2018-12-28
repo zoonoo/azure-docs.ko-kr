@@ -26,7 +26,7 @@ ms.locfileid: "51241415"
 
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
-이 빠른 시작에서는 Service Fabric에 첫 번째 .NET 응용 프로그램을 배포하는 방법을 보여 줍니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 ASP.NET Core 웹 프런트 엔드가 있는 투표 애플리케이션이 생깁니다.
+이 빠른 시작에서는 Service Fabric에 첫 번째 .NET 애플리케이션을 배포하는 방법을 보여 줍니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 ASP.NET Core 웹 프런트 엔드가 있는 투표 애플리케이션이 생깁니다.
 
 ![응용 프로그램 스크린샷](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
@@ -72,7 +72,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 기본적으로 응답 애플리케이션은 포트 8080에서 수신하도록 설정됩니다.  애플리케이션 포트는 */VotingWeb/PackageRoot/ServiceManifest.xml* 파일에서 설정됩니다.  **엔드포인트** 요소의 **포트** 특성을 업데이트하여 응용 프로그램 포트를 변경할 수 있습니다.  애플리케이션을 로컬로 배포하고 실행하려면 애플리케이션 포트가 열려 있고 컴퓨터에서 사용 가능해야 합니다.  애플리케이션 포트를 변경하는 경우 이 문서 전체에서 "8080"을 새 애플리케이션 포트 값으로 대체합니다.
 
-응용 프로그램을 배포하려면 **F5** 키를 누릅니다.
+애플리케이션을 배포하려면 **F5** 키를 누릅니다.
 
 > [!NOTE]
 > 처음으로 애플리케이션을 실행하고 배포할 때 Visual Studio는 디버깅을 위해 로컬 클러스터를 만듭니다. 이 작업에는 다소 시간이 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.  출력에서 “애플리케이션 URL이 설정되지 않았거나 HTTP/HTTPS URL이 아니므로 애플리케이션에 대한 브라우저가 열리지 않습니다.”라는 메시지가 표시됩니다.  메시지가 오류를 나타내지 않지만 브라우저가 자동으로 시작되지 않습니다.
@@ -102,7 +102,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="debug-in-visual-studio"></a>Visual Studio에서 디버그
 
-애플리케이션은 정상적으로 실행되지만 디버거를 사용하여 애플리케이션의 주요 부분이 어떻게 작동하는지 확인할 수 있습니다. Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터가 백 엔드 서비스에 저장됩니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 응용 프로그램을 제거합니다. 애플리케이션을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **애플리케이션 디버그 모드**를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
+애플리케이션은 정상적으로 실행되지만 디버거를 사용하여 애플리케이션의 주요 부분이 어떻게 작동하는지 확인할 수 있습니다. Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터가 백 엔드 서비스에 저장됩니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 애플리케이션을 제거합니다. 애플리케이션을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **애플리케이션 디버그 모드**를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
 
 코드에서 수행되는 작업을 살펴보려면 다음 단계를 완료합니다.
 
@@ -138,7 +138,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ### <a name="join-a-party-cluster"></a>Party 클러스터 조인
 
-Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드뿐만 아니라 클라이언트-노드 보안에도 단일 자체 서명 인증서를 사용합니다.
+Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 애플리케이션을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드뿐만 아니라 클라이언트-노드 보안에도 단일 자체 서명 인증서를 사용합니다.
 
 [Windows 클러스터에 로그인하고 조인](https://aka.ms/tryservicefabric)합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. **보안 Party 클러스터에 연결하는 방법** 링크를 클릭하고 인증서 암호를 복사합니다. 인증서, 인증서 암호 및 **연결 엔드포인트** 값은 다음 단계에서 사용됩니다.
 
@@ -167,7 +167,7 @@ Thumbprint                                Subject
 > 기본적으로 웹 프런트 엔드 서비스는 들어오는 트래픽에 대해 포트 8080에서 수신 대기하도록 구성됩니다. 포트 8080은 Party 클러스터에서 열립니다.  애플리케이션 포트를 변경해야 하는 경우 Party 클러스터에서 열려 있는 포트 중 하나를 변경합니다.
 >
 
-### <a name="deploy-the-application-using-visual-studio"></a>Visual Studio를 사용하여 응용 프로그램 배포
+### <a name="deploy-the-application-using-visual-studio"></a>Visual Studio를 사용하여 애플리케이션 배포
 
 애플리케이션이 준비되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
 
@@ -181,11 +181,11 @@ Thumbprint                                Subject
 
 3. **게시**를 클릭합니다.
 
-4. 브라우저를 열고 클러스터 주소에 ‘:8080’을 뒤에 붙여 입력하여 클러스터로 애플리케이션을 가져옵니다(예: `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`). 이제 Azure의 클러스터에서 실행 중인 응용 프로그램이 표시됩니다.
+4. 브라우저를 열고 클러스터 주소에 ‘:8080’을 뒤에 붙여 입력하여 클러스터로 애플리케이션을 가져옵니다(예: `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`). 이제 Azure의 클러스터에서 실행 중인 애플리케이션이 표시됩니다.
 
     ![애플리케이션 프런트 엔드](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
-## <a name="scale-applications-and-services-in-a-cluster"></a>클러스터에서 응용 프로그램 및 서비스 크기 조정
+## <a name="scale-applications-and-services-in-a-cluster"></a>클러스터에서 애플리케이션 및 서비스 크기 조정
 
 Service Fabric 서비스는 해당 서비스에 대한 로드 변동량을 수용하도록 클러스터 간에 쉽게 크기를 조정할 수 있습니다. 클러스터에서 실행되는 인스턴스 수를 변경하여 서비스 크기를 조정합니다. 서비스의 크기를 조정하는 여러 가지 방법이 있으며 PowerShell 또는 Service Fabric CLI(sfctl)의 스크립트 또는 명령을 사용할 수 있습니다. 이 예제에서는 Service Fabric Explorer를 사용합니다.
 
@@ -218,7 +218,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 
 새 업데이트를 애플리케이션에 배포할 때는 Service Fabric이 안전한 방식으로 업데이트를 공개합니다. 롤링 업그레이드를 사용하면 업그레이드하는 동안 가동 중지 시간이 없으며 오류가 발생하면 자동화된 롤백을 수행합니다.
 
-응용 프로그램을 업그레이드하려면 다음을 수행합니다.
+애플리케이션을 업그레이드하려면 다음을 수행합니다.
 
 1. Visual Studio에서 **/VotingWeb/Views/Home/Index.cshtml** 파일을 엽니다.
 2. 텍스트를 추가하거나 업데이트하여 페이지의 제목을 변경합니다. 예를 들어 제목을 “Service Fabric Voting 샘플 v2”로 변경합니다.
@@ -232,7 +232,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 
     ![게시 대화 상자 업그레이드 설정](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
 
-    업그레이드가 실행되는 동안 응용 프로그램을 계속 사용할 수 있습니다. 클러스터에서 실행되는 서비스에는 두 인스턴스가 있으므로 일부 요청은 응용 프로그램의 업그레이드된 버전을 가질 수 있는 반면 일부는 이전 버전을 가질 수 있습니다.
+    업그레이드가 실행되는 동안 응용 프로그램을 계속 사용할 수 있습니다. 클러스터에서 실행되는 서비스에는 두 인스턴스가 있으므로 일부 요청은 애플리케이션의 업그레이드된 버전을 가질 수 있는 반면 일부는 이전 버전을 가질 수 있습니다.
 
 8. 브라우저를 열고 포트 19080에서 클러스터 주소로 이동합니다(예: `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`).
 9. 트리 뷰의 **애플리케이션** 노드를 클릭한 후 오른쪽 창에서 **Upgrades in Progress(진행 중인 업그레이드)** 를 클릭합니다. 업그레이드가 클러스터에서 업그레이드 도메인을 어떻게 통과하고 다음으로 진행하기 전에 각 도메인 상태가 정상인지 확인하게 됩니다. 도메인 상태가 확인되면 진행률 표시줄에 업그레이드 도메인이 녹색으로 표시됩니다.

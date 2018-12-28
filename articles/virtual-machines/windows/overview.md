@@ -40,7 +40,7 @@ Azure 가상 머신은 다양한 방식으로 사용할 수 있습니다. 일부
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM을 만들기 전의 고려 사항
 Azure에서 애플리케이션 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
 
-* 응용 프로그램 리소스 이름
+* 애플리케이션 리소스 이름
 * 리소스가 저장되어 있는 위치
 * VM 크기
 * 만들 수 있는 VM의 최대 수

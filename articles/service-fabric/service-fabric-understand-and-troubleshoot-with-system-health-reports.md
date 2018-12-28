@@ -29,7 +29,7 @@ Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 �
 > 
 > 
 
-시스템 상태 보고서는 클러스터 및 응용 프로그램에 대한 가시성을 제공하고 문제를 플래그합니다. 응용 프로그램 및 서비스의 경우, 시스템 상태 보고서는 서비스 패브릭 관점에서 엔터티가 올바르게 구현되고 동작하는지 확인합니다. 보고서는 응답이 없는 프로세스의 감지 또는 서비스의 비즈니스 논리의 상태 모니터링은 제공하지 않습니다. 사용자 서비스는 논리에 고유한 정보로 건강 데이터를 보강할 수 있습니다.
+시스템 상태 보고서는 클러스터 및 응용 프로그램에 대한 가시성을 제공하고 문제를 플래그합니다. 애플리케이션 및 서비스의 경우, 시스템 상태 보고서는 서비스 패브릭 관점에서 엔터티가 올바르게 구현되고 동작하는지 확인합니다. 보고서는 응답이 없는 프로세스의 감지 또는 서비스의 비즈니스 논리의 상태 모니터링은 제공하지 않습니다. 사용자 서비스는 논리에 고유한 정보로 건강 데이터를 보강할 수 있습니다.
 
 > [!NOTE]
 > 사용자 워치독이 보낸 상태 보고서는 시스템 구성 요소가 엔터티를 만든 *후*에만 표시됩니다. 엔터티가 삭제되면 Health 스토어가 모든 관련 상태 보고서를 자동으로 삭제합니다. 엔터티의 새 인스턴스가 만들어질 때도 마찬가지입니다. 예를 들어 새 상태 저장 유지 서비스 복제본 인스턴스가 만들어지는 경우가 있습니다. 이전 인스턴스와 연결된 모든 보고서는 삭제되고 저장소에서 정리됩니다.
@@ -125,17 +125,17 @@ HealthEvents          :
 * **Property**: **ResourceGovernance**
 * **다음 단계**: 서비스 패키지 관리가 예상대로 적용되지 않고 [리소스 관리](service-fabric-resource-governance.md)가 올바르게 작동하지 않기 때문에 문제가 될 수 있습니다. 클러스터 매니페스트를 이러한 메트릭에 대한 올바른 노드 용량으로 업데이트하거나, 클러스터 매니페스트를 지정하지 않고 Service Fabric에서 사용 가능한 리소스를 자동으로 검색하도록 합니다.
 
-## <a name="application-system-health-reports"></a>응용 프로그램 시스템 상태 보고서
+## <a name="application-system-health-reports"></a>애플리케이션 시스템 상태 보고서
 클러스터 관리자 서비스를 나타내는 System.CM은 애플리케이션에 대한 정보를 관리하는 기관입니다.
 
 ### <a name="state"></a>시스템 상태
-응용 프로그램을 만들거나 업데이트할 때 System.CM은 확인을 보고합니다. 애플리케이션을 삭제할 때 스토어에서 제거할 수 있도록 Health 스토어에 이를 알려줍니다.
+애플리케이션을 만들거나 업데이트할 때 System.CM은 확인을 보고합니다. 애플리케이션을 삭제할 때 스토어에서 제거할 수 있도록 Health 스토어에 이를 알려줍니다.
 
 * **SourceId**: System.CM
 * **Property**: State
 * **다음 단계**: 응용 프로그램이 만들어지거나 업데이트된 경우 클러스터 관리자 상태 보고서를 포함해야 합니다. 그렇지 않으면 쿼리를 실행하여 애플리케이션의 상태를 확인합니다. 예를 들어 **Get-ServiceFabricApplication -ApplicationName** *applicationName* PowerShell cmdlet을 사용합니다.
 
-다음 예제는 **fabric:/WordCount** 응용 프로그램에 대한 상태 이벤트를 보여 줍니다.
+다음 예제는 **fabric:/WordCount** 애플리케이션에 대한 상태 이벤트를 보여 줍니다.
 
 ```PowerShell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
@@ -728,7 +728,7 @@ HealthEvents          :
 **System.Hosting** 은 배포된 엔터티에 대한 권한입니다.
 
 ### <a name="activation"></a>활성화
-System.Hosting은 응용 프로그램이 노드에서 성공적으로 활성화되면 확인을 보고합니다. 그렇지 않으면 오류를 보고합니다.
+System.Hosting은 애플리케이션이 노드에서 성공적으로 활성화되면 확인을 보고합니다. 그렇지 않으면 오류를 보고합니다.
 
 * **SourceId**: System.Hosting
 * **Property**: **Activation**(롤아웃 버전 포함)

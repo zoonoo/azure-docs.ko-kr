@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 683f8ef89b02679d1f3f1a66f867f0dde757ada1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 6140687d583534d21ee50652811c2fd1624a5cf5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564972"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840455"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>VNet의 네트워크 매핑 및 IP 주소 설정
 
@@ -79,8 +79,8 @@ Azure VM에 대한 재해 복구를 구성하기 전에 네트워크 매핑을 �
 
 **대상 네트워크** | **세부 정보**
 --- | ---
-대상 네트워크는 장애 조치(failover) VNet | - 대상 IP 주소는 고정 주소이지만, 장애 조치(failover)를 위해 예약된다는 점에서 동일한 IP 주소가 아닙니다.<br/><br/>  - 서브넷 범위의 끝에서부터 사용 가능한 그 다음 IP가 주소로 할당됩니다.<br/><br/> 예를 들어 원본 IP 주소가 10.0.0.19이고 장애 조치(failover) 네트워크에서 10.0.0.0/24 범위를 사용하는 경우 대상 VM에 할당되는 그 다음 IP 주소는 10.0.0.254입니다.
-대상 네트워크는 장애 조치(failover) VNet이 아님 | - 대상 IP 주소는 장애 조치(failover)에 예약된 동일한 IP 주소를 사용하는 고정 주소입니다.<br/><br/>  - 동일한 IP 주소가 이미 할당된 경우 각 서브넷 범위에서 사용 가능한 IP 주소가 그 다음 주소로 할당됩니다.<br/><br/> 예를 들어 원본 고정 IP 주소가 10.0.0.19이고 장애 조치(failover) 네트워크가 아니고 범위가 10.0.0.0/24인 네트워크에서 장애 조치(failover)되는 경우 대상 고정 IP 주소는 10.0.0.0.19이고(사용 가능한 경우), 그렇지 않으면 10.0.0.254입니다.
+대상 네트워크는 장애 조치(failover) VNet | - 대상 IP 주소는 고정 주소이지만, 장애 조치(failover)를 위해 예약된다는 점에서 동일한 IP 주소가 아닙니다.<br/><br/>  - 서브넷 범위의 끝에서부터 사용 가능한 그 다음 IP가 주소로 할당됩니다.<br/><br/> 예:  원본 IP 주소가 10.0.0.19이고 장애 조치(failover) 네트워크에서 10.0.0.0/24 범위를 사용하는 경우 대상 VM에 할당되는 그 다음 IP 주소는 10.0.0.254입니다.
+대상 네트워크는 장애 조치(failover) VNet이 아님 | - 대상 IP 주소는 장애 조치(failover)에 예약된 동일한 IP 주소를 사용하는 고정 주소입니다.<br/><br/>  - 동일한 IP 주소가 이미 할당된 경우 각 서브넷 범위에서 사용 가능한 IP 주소가 그 다음 주소로 할당됩니다.<br/><br/> 예:  원본 고정 IP 주소가 10.0.0.19이고 장애 조치(failover) 네트워크가 아니며 범위가 10.0.0.0/24인 네트워크에서 장애 조치(failover)되는 경우 대상 고정 IP 주소는 10.0.0.0.19이고(사용 가능한 경우), 그렇지 않으면 10.0.0.254입니다.
 
 - 장애 조치(failover) VNet은 재해 복구를 설정할 때 선택한 대상 네트워크입니다.
 - 테스트 장애 조치(failover)에는 항상 비 프로덕션 네트워크를 사용하는 것이 좋습니다.

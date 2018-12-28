@@ -45,7 +45,7 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 * **서비스 등록**: 등록은 모든 항목을 함께 모읍니다. Service Fabric에서 실행할 인스턴스를 만들 수 있도록 서비스 호스트의 Service Fabric 런타임에 서비스 유형을 등록해야 합니다.  
 
 ## <a name="create-a-stateless-service"></a>상태 비저장 서비스 만들기
-Service Fabric 응용 프로그램을 만드는 것으로 시작합니다. Linux용 Service Fabric SDK는 Service Fabric 응용 프로그램용 스캐폴딩에 상태 비저장 서비스를 제공하기 위해 Yeoman 생성기를 포함합니다. 다음 Yeoman 명령을 실행하여 시작합니다.
+Service Fabric 애플리케이션을 만드는 것으로 시작합니다. Linux용 Service Fabric SDK는 Service Fabric 애플리케이션용 스캐폴딩에 상태 비저장 서비스를 제공하기 위해 Yeoman 생성기를 포함합니다. 다음 Yeoman 명령을 실행하여 시작합니다.
 
 ```bash
 $ yo azuresfjava
@@ -123,7 +123,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 * 시스템은 리소스 분산을 위해 서비스 인스턴스를 이동시킵니다.
 * 오류는 코드에서 발생합니다.
-* 응용 프로그램 또는 시스템 업그레이드됩니다.
+* 애플리케이션 또는 시스템 업그레이드됩니다.
 * 기본 하드웨어가 중단됩니다.
 
 이러한 오케스트레이션은 서비스의 가용성을 높게 유지하고 제대로 균형을 유지하기 위해 Service Fabric에 의해 관리됩니다.
@@ -238,17 +238,17 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 
 ## <a name="build-the-application"></a>애플리케이션 빌드
 
-Yeoman 스캐폴딩은 응용 프로그램을 빌드하는 Gradle 스크립트와 응용 프로그램을 배포하고 제거하는 Bash 스크립트를 포함합니다. 응용 프로그램을 실행하려면 먼저 다음과 같은 Gradle을 통해 응용 프로그램을 빌드합니다.
+Yeoman 스캐폴딩은 애플리케이션을 빌드하는 Gradle 스크립트와 애플리케이션을 배포하고 제거하는 Bash 스크립트를 포함합니다. 애플리케이션을 실행하려면 먼저 다음과 같은 Gradle을 통해 애플리케이션을 빌드합니다.
 
 ```bash
 $ gradle
 ```
 
-그러면 Service Fabric CLI를 사용하여 배포할 수 있는 Service Fabric 응용 프로그램 패키지를 생성합니다.
+그러면 Service Fabric CLI를 사용하여 배포할 수 있는 Service Fabric 애플리케이션 패키지를 생성합니다.
 
-## <a name="deploy-the-application"></a>응용 프로그램 배포
+## <a name="deploy-the-application"></a>애플리케이션 배포
 
-응용 프로그램이 빌드되면 로컬 클러스터에 배포할 수 있습니다.
+애플리케이션이 빌드되면 로컬 클러스터에 배포할 수 있습니다.
 
 1. 로컬 Service Fabric 클러스터에 연결합니다.
 
@@ -256,17 +256,17 @@ $ gradle
     sfctl cluster select --endpoint http://localhost:19080
     ```
 
-2. 템플릿에 제공된 설치 스크립트를 실행하여 클러스터의 이미지 저장소에 응용 프로그램 패키지를 복사하고 응용 프로그램 유형을 등록하며 응용 프로그램의 인스턴스를 만듭니다.
+2. 템플릿에 제공된 설치 스크립트를 실행하여 클러스터의 이미지 저장소에 애플리케이션 패키지를 복사하고 애플리케이션 유형을 등록하며 애플리케이션의 인스턴스를 만듭니다.
 
     ```bash
     ./install.sh
     ```
 
-빌드된 응용 프로그램을 배포하는 방법은 다른 Service Fabric 응용 프로그램과 같습니다. 자세한 지침은 [Service Fabric CLI에서 Service Fabric 응용 프로그램 관리](service-fabric-application-lifecycle-sfctl.md)에 대한 설명서를 참조하세요.
+빌드된 애플리케이션을 배포하는 방법은 다른 Service Fabric 애플리케이션과 같습니다. 자세한 지침은 [Service Fabric CLI에서 Service Fabric 애플리케이션 관리](service-fabric-application-lifecycle-sfctl.md)에 대한 설명서를 참조하세요.
 
-응용 프로그램 패키지 내에 생성된 매니페스트에서 이러한 명령의 매개 변수를 찾을 수 있습니다.
+애플리케이션 패키지 내에 생성된 매니페스트에서 이러한 명령의 매개 변수를 찾을 수 있습니다.
 
-응용 프로그램이 배포되면 브라우저를 열고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다. 그런 다음 **응용 프로그램** 노드를 확장하면 응용 프로그램 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
+응용 프로그램이 배포되면 브라우저를 열고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다. 그런 다음 **애플리케이션** 노드를 확장하면 애플리케이션 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
 > [!IMPORTANT]
 > 애플리케이션을 Azure의 보안 Linux 클러스터에 배포하려면 Service Fabric 런타임으로 애플리케이션의 유효성을 검사하는 인증서를 구성해야 합니다. 이렇게 하면 Reliable Services 서비스에서 기본 Service Fabric 런타임 API와 통신할 수 있습니다. 자세히 알아보려면 [Linux 클러스터에서 실행하도록 Reliable Services 앱 구성](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)을 참조하세요.  

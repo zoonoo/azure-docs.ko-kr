@@ -64,11 +64,11 @@ Shmoop For Schools의 Azure AD 통합을 구성하려면 갤러리의 Shmoop For
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 선택합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 선택합니다.
 
     ![새 애플리케이션 단추][3]
 
@@ -92,7 +92,7 @@ Shmoop For Schools에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Shmoop For Schools 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Shmoop For Schools 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Shmoop For Schools에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
@@ -199,11 +199,11 @@ Shmoop For Schools에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 **Britta Simon을 Shmoop For Schools에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 엽니다. 그런 다음, 디렉터리 창에서 **엔터프라이즈 애플리케이션**으로 이동합니다.  다음으로 **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 애플리케이션 보기를 엽니다. 그런 다음, 디렉터리 창에서 **엔터프라이즈 애플리케이션**으로 이동합니다.  다음으로 **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Shmoop For Schools**를 선택합니다.
+2. 애플리케이션 목록에서 **Shmoop For Schools**를 선택합니다.
 
     ![애플리케이션 목록의 Shmoop For Schools 링크](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_app.png)  
 

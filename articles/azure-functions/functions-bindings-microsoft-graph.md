@@ -63,7 +63,7 @@ Visual Studio를 사용하는 경우 [앞서 이 아티클에서 나열된 NuGet
 
 ### <a name="configuring-authentication--authorization"></a>인증/권한 부여 구성
 
-이 문서에서 설명하는 바인딩은 반드시 ID를 사용해야 합니다. 이를 통해 Microsoft Graph가 권한을 적용하고 상호 작용을 감사할 수 있습니다. ID는 응용 프로그램에 액세스하는 사용자일 수도 있고 응용 프로그램 자체일 수도 있습니다. 이 ID를 구성하려면 Azure Active Directory를 사용하여 [App Service 인증/권한 부여](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)를 설정합니다. 그리고 함수에 필요한 리소스 권한을 요청해야 합니다.
+이 문서에서 설명하는 바인딩은 반드시 ID를 사용해야 합니다. 이를 통해 Microsoft Graph가 권한을 적용하고 상호 작용을 감사할 수 있습니다. ID는 애플리케이션에 액세스하는 사용자일 수도 있고 애플리케이션 자체일 수도 있습니다. 이 ID를 구성하려면 Azure Active Directory를 사용하여 [App Service 인증/권한 부여](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)를 설정합니다. 그리고 함수에 필요한 리소스 권한을 요청해야 합니다.
 
 > [!Note] 
 > Microsoft Graph 확장은 Azure AD 인증만 지원합니다. 사용자는 회사 또는 학교 계정으로 로그인해야 합니다.
@@ -75,7 +75,7 @@ Azure Portal을 사용하는 경우 확장을 설치할지 묻는 메시지 아�
 <a name="token-input"></a>
 ## <a name="auth-token"></a>인증 토큰
 
-인증 토큰 입력 바인딩은 지정된 리소스에 대한 Azure AD 토큰을 획득하여 코드에 문자열로 제공합니다. 응용 프로그램이 권한을 갖고 있는 모든 것을 리소스로 사용할 수 있습니다. 
+인증 토큰 입력 바인딩은 지정된 리소스에 대한 Azure AD 토큰을 획득하여 코드에 문자열로 제공합니다. 애플리케이션이 권한을 갖고 있는 모든 것을 리소스로 사용할 수 있습니다. 
 
 이 섹션은 다음 하위 섹션을 포함합니다.
 
@@ -1407,7 +1407,7 @@ module.exports = function (context, req) {
 
 구독을 새로 고치는 두 가지 방법이 있습니다.
 
-- 응용 프로그램 ID를 사용하여 모든 구독을 처리하는 방법. 이렇게 하려면 Azure Active Directory 관리자의 동의가 필요합니다. 이 방법은 Azure Functions에서 지원하는 모든 언어에 사용할 수 있습니다.
+- 애플리케이션 ID를 사용하여 모든 구독을 처리하는 방법. 이렇게 하려면 Azure Active Directory 관리자의 동의가 필요합니다. 이 방법은 Azure Functions에서 지원하는 모든 언어에 사용할 수 있습니다.
 - 각 사용자 ID를 수동으로 바인딩하여 각 구독에 연결된 ID를 사용하는 방법. 이렇게 하려면 일부 사용자 지정 코드에서 바인딩을 수행해야 합니다. 이 방법은 .NET 함수에만 사용할 수 있습니다.
 
 이 섹션에는 이러한 각 방법의 예제가 나와 있습니다.

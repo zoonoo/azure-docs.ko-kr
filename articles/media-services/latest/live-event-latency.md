@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: juliako
-ms.openlocfilehash: a74f2e53127b506f42ff49018c3df2985396646d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: b167d3424d520cf8be515eec9d495164dd9785ab
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619822"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682098"
 ---
 # <a name="liveevent-latency-in-media-services"></a>Media Services의 LiveEvent 대기 시간
 
@@ -43,22 +43,31 @@ LiveEvent liveEvent = new LiveEvent(
             streamOptions: new List<StreamOptionsFlag?>()
             {
                 // Set this to Default or Low Latency
-                // To use low latency optimally, you should tune your encoder settings down to 1 second GOP size instead of 2 seconds.
+                // To use low latency optimally, you should tune your encoder settings down to 1 second "Group Of Pictures" (GOP) length instead of 2 seconds.
                 StreamOptionsFlag.LowLatency
             }
         );
 ```                
 
-전체 예제 [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126)을 참조하세요.
+전체 목록을 참조하세요. [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-## <a name="pass-through-liveevents-latency"></a>통과 LiveEvent 대기 시간
+## <a name="liveevents-latency"></a>LiveEvents 대기 시간
 
-다음 표에서는 Media Services에서 (LowLatency 플래그를 사용하는 경우) 대기 시간에 대한 일반적인 결과를 보여주며 플레이어가 재생을 요청하는 경우 기여도 피드가 서비스에 도달하는 시간으로부터 측정됩니다.
+다음 표는 기여 피드가 서비스에 도달하는 시점부터 뷰어가 플레이어에서 재생을 확인하는 시점 사이를 측정한 Media Services의 일반적인 대기 시간 결과를 보여줍니다(LowLatency 플래그를 사용하는 경우). 짧은 대기 시간을 사용하려면 인코더 설정을 1초 GOP(Group of Pictures) 길이로 조정해야 합니다. 더 높은 GOP 길이를 사용하면 동일한 프레임에서 대역폭 사용량이 최소화되고 비트 전송률이 낮아집니다. 움직임이 많지 않은 비디오에 특히 유용합니다.
+
+### <a name="pass-through"></a>통과 
 
 ||2초 GOP 짧은 대기 시간 사용|1초 GOP 짧은 대기 시간 사용|
 |---|---|---|
 |AMP의 DASH|10초|8초|
 |기본 iOS 플레이어의 HLS|14초|10초|
+
+### <a name="live-encoding"></a>라이브 인코딩
+
+||2초 GOP 짧은 대기 시간 사용|1초 GOP 짧은 대기 시간 사용|
+|---|---|---|
+|AMP의 DASH|14초|10초|
+|기본 iOS 플레이어의 HLS|18초|13초|
 
 > [!NOTE]
 > 로컬 네트워크 조건에 따라 또는 CDN 캐싱 계층을 도입하여 엔드투엔드 대기 시간이 달라질 수 있습니다. 정확한 구성을 테스트해야 합니다.

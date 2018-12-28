@@ -38,7 +38,7 @@ ms.locfileid: "31598713"
 
 | 명령 | 메모 |
 |---|---|
-| [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) | 클러스터를 구성하는 가상 머신 확장 집합에 새 응용 프로그램 인증서를 추가합니다.  |
+| [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) | 클러스터를 구성하는 가상 머신 확장 세트에 새 애플리케이션 인증서를 추가합니다.  |
 
 ## <a name="next-steps"></a>다음 단계
 

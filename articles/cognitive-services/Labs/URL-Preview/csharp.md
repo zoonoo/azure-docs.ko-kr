@@ -153,7 +153,7 @@ namespace UrlPrevCshp
 }
 
 ```
-## <a name="running-the-application"></a>응용 프로그램 실행
+## <a name="running-the-application"></a>애플리케이션 실행
 
 애플리케이션을 실행하려면:
 

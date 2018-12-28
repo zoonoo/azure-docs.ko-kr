@@ -1,6 +1,6 @@
 ---
 title: Power BI 작업 영역 컬렉션이란?
-description: Power BI Embedded를 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램으로 통합할 수 있으므로 사용자 지정 솔루션을 빌드할 필요가 없습니다.
+description: Power BI Embedded를 사용하면 Power BI 보고서를 웹 또는 모바일 애플리케이션으로 통합할 수 있으므로 사용자 지정 솔루션을 빌드할 필요가 없습니다.
 services: power-bi-embedded
 author: markingmyname
 ROBOTS: NOINDEX
@@ -26,7 +26,7 @@ ms.locfileid: "43052042"
 > [!IMPORTANT]
 > Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 응용 프로그램에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
 
-Power BI 작업 영역 컬렉션은 ISV(독립 소프트웨어 공급업체) 및 앱 개발자가 응용 프로그램 내에서 Power BI 데이터 환경을 표시할 수 있도록 하는 **Azure 서비스** 입니다. 개발자가 응용 프로그램을 구축한 경우 이러한 응용 프로그램에는 고유한 사용자 및 고유한 기능 집합이 있습니다. 이러한 앱에는 이제 Microsoft Power BI 작업 영역 컬렉션을 통해 강력한 기능을 가질 수 있는 차트 및 보고서와 같은 일부 기본 제공 데이터 요소가 있을 수도 있습니다. 앱을 사용하기 위한 Power BI 계정이 필요 없습니다. 이전처럼 응용 프로그램에 계속 로그인할 수 있으며 추가 라이선스를 요구하지 않고 Power BI 보고 환경을 보고 조작할 수 있습니다.
+Power BI 작업 영역 컬렉션은 ISV(독립 소프트웨어 공급업체) 및 앱 개발자가 응용 프로그램 내에서 Power BI 데이터 환경을 표시할 수 있도록 하는 **Azure 서비스** 입니다. 개발자가 애플리케이션을 구축한 경우 이러한 애플리케이션에는 고유한 사용자 및 고유한 기능 집합이 있습니다. 이러한 앱에는 이제 Microsoft Power BI 작업 영역 컬렉션을 통해 강력한 기능을 가질 수 있는 차트 및 보고서와 같은 일부 기본 제공 데이터 요소가 있을 수도 있습니다. 앱을 사용하기 위한 Power BI 계정이 필요 없습니다. 이전처럼 애플리케이션에 계속 로그인할 수 있으며 추가 라이선스를 요구하지 않고 Power BI 보고 환경을 보고 조작할 수 있습니다.
 
 ## <a name="licensing-for-microsoft-power-bi-workspace-collections"></a>Microsoft Power BI 작업 영역 라이선스
 
@@ -72,7 +72,7 @@ Azure의 다른 서비스와 같이 Power BI 작업 영역 컬렉션의 리소�
 
 이러한 토큰은 **Microsoft Power BI 작업 영역 컬렉션**과 상호 작용하는 여러 단계에 사용됩니다.  앱에서 Power BI로 사용 권한을 위임할 수 있도록 토큰을 디자인합니다. 자세한 내용은 [앱 토큰 흐름](app-token-flow.md)을 참조하세요.
 
-## <a name="create-or-edit-reports-within-your-application"></a>응용 프로그램 내에서 보고서 만들기 또는 편집
+## <a name="create-or-edit-reports-within-your-application"></a>애플리케이션 내에서 보고서 만들기 또는 편집
 
 이제 Power BI Desktop을 사용하지 않고도 응용 프로그램에서 직접 기존 보고서를 편집하거나 새 보고서를 만들 수 있습니다. 이렇게 하려면 작업 영역 내에 데이터 세트가 있어야 합니다.
 

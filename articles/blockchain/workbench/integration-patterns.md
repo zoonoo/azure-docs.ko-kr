@@ -23,19 +23,19 @@ ms.locfileid: "48241525"
 
 이러한 워크플로의 요구 사항 중에는 외부 시스템, 서비스 또는 디바이스의 데이터가 포함된 분산 원장에서 트랜잭션을 시작해야 할 필요가 있습니다. 또한 외부 시스템이 분산 원장의 스마트 계약에서 나온 이벤트에 반응해야 합니다.
 
-REST API와 메시징 통합은 외부 시스템의 트랜잭션을 Azure Blockchain Workbench 응용 프로그램에 포함된 스마트 계약으로 보내고 응용 프로그램 내에서 발생하는 변경 사항을 기반으로 외부 시스템에 이벤트 알림을 전송하는 기능을 제공합니다.
+REST API와 메시징 통합은 외부 시스템의 트랜잭션을 Azure Blockchain Workbench 애플리케이션에 포함된 스마트 계약으로 보내고 애플리케이션 내에서 발생하는 변경 사항을 기반으로 외부 시스템에 이벤트 알림을 전송하는 기능을 제공합니다.
 
-데이터 통합 ​​시나리오의 경우 Azure Blockchain Workbench에는 응용 프로그램 및 스마트 계약에 대한 블록체인의 트랜잭션 데이터와 메타데이터의 조합을 병합하는 데이터베이스 뷰 집합이 포함되어 있습니다.
+데이터 통합 ​​시나리오의 경우 Azure Blockchain Workbench에는 애플리케이션 및 스마트 계약에 대한 블록체인의 트랜잭션 데이터와 메타데이터의 조합을 병합하는 데이터베이스 뷰 집합이 포함되어 있습니다.
 
-또한 공급망이나 미디어와 관련된 시나리오와 같이 문서 통합이 필요할 수도 있습니다. Azure Blockchain Workbench는 문서를 직접 처리하기 위한 API 호출을 제공하지 않지만 Azure Blockchain 응용 프로그램으로 문서를 통합할 수 있습니다. 이 섹션에는 해당 패턴도 포함됩니다.
+또한 공급망이나 미디어와 관련된 시나리오와 같이 문서 통합이 필요할 수도 있습니다. Azure Blockchain Workbench는 문서를 직접 처리하기 위한 API 호출을 제공하지 않지만 Azure Blockchain 애플리케이션으로 문서를 통합할 수 있습니다. 이 섹션에는 해당 패턴도 포함됩니다.
 
 이 섹션에는 종단 간 솔루션에서 이러한 유형의 통합을 각각 구현하기 위해 식별된 패턴이 포함됩니다.
 
 ## <a name="rest-api-based-integration"></a>REST API 기반 통합
 
-Azure Blockchain Workbench에서 생성된 웹 응용 프로그램의 기능은 REST API를 통해 공개됩니다. 기능에는 Azure Blockchain Workbench 업로드, 응용 프로그램 구성 및 관리, 트랜잭션을 분산 원장으로 전송, 응용 프로그램 메타데이터 및 원장 데이터 쿼리가 포함됩니다.
+Azure Blockchain Workbench에서 생성된 웹 애플리케이션의 기능은 REST API를 통해 공개됩니다. 기능에는 Azure Blockchain Workbench 업로드, 응용 프로그램 구성 및 관리, 트랜잭션을 분산 원장으로 전송, 응용 프로그램 메타데이터 및 원장 데이터 쿼리가 포함됩니다.
 
-REST API는 주로 웹, 모바일 및 봇 응용 프로그램과 같은 대화형 클라이언트에 사용됩니다.
+REST API는 주로 웹, 모바일 및 봇 애플리케이션과 같은 대화형 클라이언트에 사용됩니다.
 
 이 섹션에서는 분산 원장에 트랜잭션을 보내는 REST API와 Azure Blockchain Workbench의 *오프 체인* SQL 데이터베이스에서 트랜잭션에 대한 데이터를 쿼리하는 측면에 중점을 둔 패턴을 살펴봅니다.
 
@@ -47,12 +47,12 @@ Azure Blockchain Workbench REST API는 분산 원장에서 트랜잭션을 실�
 
 이는 위에서 설명한 프로세스를 사용하여 다음과 같이 발생합니다.
 
--   외부 응용 프로그램은 Azure Blockchain Workbench 배포의 일부로 프로비전되는 Azure Active Directory에 인증합니다.
+-   외부 애플리케이션은 Azure Blockchain Workbench 배포의 일부로 프로비전되는 Azure Active Directory에 인증합니다.
 -   인증된 사용자는 요청과 함께 API로 전송할 수 있는 전달자 토큰을 받습니다.
--   외부 응용 프로그램은 전달자 토큰을 사용하여 REST API를 호출합니다.
+-   외부 애플리케이션은 전달자 토큰을 사용하여 REST API를 호출합니다.
 -   REST API는 요청을 메시지로 패키지화하여 Service Bus로 보냅니다. 여기에서 검색 및 서명되어 적절한 분산 원장으로 전송됩니다.
 -   REST API는 요청을 기록하고 현재 프로비저닝 상태를 설정하도록 Azure Blockchain Workbench SQL DB에 요청합니다.
--   SQL DB는 프로비저닝 상태를 반환하고 API 호출은 이를 호출한 외부 응용 프로그램에 ID를 반환합니다.
+-   SQL DB는 프로비저닝 상태를 반환하고 API 호출은 이를 호출한 외부 애플리케이션에 ID를 반환합니다.
 
 ### <a name="querying-blockchain-workbench-metadata-and-distributed-ledger-transactions"></a>Blockchain Workbench 메타데이터 및 분산 원장 트랜잭션 쿼리
 
@@ -62,9 +62,9 @@ Azure Blockchain Workbench REST API는 분산 원장의 스마트 계약 실행�
 
 이는 위에서 설명한 프로세스를 사용하여 다음과 같이 발생합니다.
 
-1. 외부 응용 프로그램은 Azure Blockchain Workbench 배포의 일부로 프로비전되는 Azure Active Directory에 인증합니다.
+1. 외부 애플리케이션은 Azure Blockchain Workbench 배포의 일부로 프로비전되는 Azure Active Directory에 인증합니다.
 2. 인증된 사용자는 요청과 함께 API로 전송할 수 있는 전달자 토큰을 받습니다.
-3. 외부 응용 프로그램은 전달자 토큰을 사용하여 REST API를 호출합니다.
+3. 외부 애플리케이션은 전달자 토큰을 사용하여 REST API를 호출합니다.
 4. REST API는 SQL DB의 요청에 대한 데이터를 쿼리하여 클라이언트에 반환합니다.
 
 ## <a name="messaging-integration"></a>메시징 통합
@@ -101,7 +101,7 @@ Azure Blockchain Workbench REST API는 분산 원장의 스마트 계약 실행�
 
 ### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Azure Blockchain Workbench에서 예상되는 형식으로 직접 전달
 
-일부 응용 프로그램은 Azure Blockchain Workbench와 통합되도록 빌드되었으며 예상되는 형식으로 메시지를 직접 생성하고 전송합니다.
+일부 애플리케이션은 Azure Blockchain Workbench와 통합되도록 빌드되었으며 예상되는 형식으로 메시지를 직접 생성하고 전송합니다.
 
 ![직접 전송](./media/integration-patterns/direct-delivery.png)
 
@@ -202,13 +202,13 @@ Azure 플랫폼에서 디바이스와의 통합은 일반적으로 IoT Hub를 �
 
 ## <a name="data-integration"></a>데이터 통합
 
-Azure Blockchain Workbench는 REST 및 메시지 기반 API 외에도 분산 원장의 트랜잭션 데이터는 물론 응용 프로그램 및 계약 메타데이터로 채워진 SQL DB에 대한 액세스를 제공합니다.
+Azure Blockchain Workbench는 REST 및 메시지 기반 API 외에도 분산 원장의 트랜잭션 데이터는 물론 애플리케이션 및 계약 메타데이터로 채워진 SQL DB에 대한 액세스를 제공합니다.
 
 ![데이터 통합](./media/integration-patterns/data-integration.png)
 
 데이터 통합은 잘 알려져 있습니다.
 
--   Azure Blockchain Workbench는 응용 프로그램, 워크플로, 계약 및 트랜잭션에 대한 메타데이터를 정상 작동 동작의 일부로 저장합니다.
+-   Azure Blockchain Workbench는 애플리케이션, 워크플로, 계약 및 트랜잭션에 대한 메타데이터를 정상 작동 동작의 일부로 저장합니다.
 -   외부 시스템 또는 도구는 하나 이상의 대화 상자를 제공하여 데이터베이스 서버 이름, 데이터베이스 이름, 인증 유형, 로그인 자격 증명 및 활용할 데이터베이스 뷰와 같은 데이터베이스 관련 정보 수집을 용이하게 합니다.
 -   외부 시스템, 서비스, 보고, 개발자 도구 및 엔터프라이즈 생산성 도구에 의한 다운스트림 사용을 용이하게 하기 위해 SQL 데이터베이스 뷰에 대해 쿼리가 작성됩니다.
 
@@ -232,10 +232,10 @@ Azure Blockchain Workbench는 REST 및 메시지 기반 API 외에도 분산 원
 1. 컨소시엄용 Azure Active Directory에서 외부 시스템이나 디바이스를 나타내는 계정이 만들어집니다.
 2. Azure Blockchain Workbench 응용 프로그램에 대한 적절한 스마트 계약에는 외부 시스템이나 디바이스의 이벤트를 수락하도록 정의된 함수가 있습니다.
 3. 스마트 계약의 응용 프로그램 구성 파일에는 시스템이나 디바이스가 할당될 역할이 포함되어 있습니다.
-4. 스마트 계약의 응용 프로그램 구성 파일은 정의된 역할에 의해 이 함수를 호출할 수 있는 상태를 식별합니다.
-5. 응용 프로그램 구성 파일과 스마트 계약이 Azure Blockchain Workbench에 업로드됩니다.
+4. 스마트 계약의 애플리케이션 구성 파일은 정의된 역할에 의해 이 함수를 호출할 수 있는 상태를 식별합니다.
+5. 애플리케이션 구성 파일과 스마트 계약이 Azure Blockchain Workbench에 업로드됩니다.
 
-응용 프로그램이 업로드되면 외부 시스템에 대한 Azure Active Directory 계정이 계약 및 관련 역할에 할당됩니다.
+애플리케이션이 업로드되면 외부 시스템에 대한 Azure Active Directory 계정이 계약 및 관련 역할에 할당됩니다.
 
 ## <a name="testing-external-system-integration-flows-prior-to-writing-integration-code"></a>통합 코드를 작성하기 전에 외부 시스템 통합 흐름 테스트 
 

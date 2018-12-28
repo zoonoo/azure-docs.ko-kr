@@ -21,8 +21,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/14/2018
 ms.locfileid: "45575850"
 ---
-# <a name="using-nodejs-modules-with-azure-applications"></a>Azure 응용 프로그램에 Node.js 모듈 사용
-이 문서에서는 Azure에서 호스트되는 응용 프로그램에 Node.js 모듈을 사용하는 방법에 대해 안내합니다. 또한 응용 프로그램에서 특정 버전의 모듈을 사용하고 Azure를 통해 네이티브 모듈을 사용하도록 하는 방법에 대한 지침을 제공합니다.
+# <a name="using-nodejs-modules-with-azure-applications"></a>Azure 애플리케이션에 Node.js 모듈 사용
+이 문서에서는 Azure에서 호스트되는 애플리케이션에 Node.js 모듈을 사용하는 방법에 대해 안내합니다. 또한 응용 프로그램에서 특정 버전의 모듈을 사용하고 Azure를 통해 네이티브 모듈을 사용하도록 하는 방법에 대한 지침을 제공합니다.
 
 Node.js 모듈, **package.json** 및 **npm-shrinkwrap.json** 파일 사용법을 이미 잘 알고 있는 경우 다음 정보를 통해 이 문서에서 설명하는 내용의 요약을 빠르게 확인할 수 있습니다.
 
@@ -62,7 +62,7 @@ Azure App Service는 일부 네이티브 모듈을 지원하지 않으며 특정
 **package.json** 파일의 한 가지 잠재적인 문제점은 이 파일이 최상위 종속성에 대한 버전만 지정한다는 것입니다. 설치된 각 모듈은 종속되는 모듈의 버전을 지정하거나 지정하지 않을 수 있으므로, 개발에서 사용된 것과 다른 종속성 체인을 얻게 될 수 있습니다.
 
 > [!NOTE]
-> Azure App Service에 배포할 때는 <b>package.json</b> 파일이 네이티브 모듈을 참조하는 경우 Git를 사용하는 응용 프로그램을 게시하면 다음 예제와 유사한 오류가 발생할 수 있습니다.
+> Azure App Service에 배포할 때는 <b>package.json</b> 파일이 네이티브 모듈을 참조하는 경우 Git를 사용하는 애플리케이션을 게시하면 다음 예제와 유사한 오류가 발생할 수 있습니다.
 > 
 > npm ERR! module-name@0.6.0 설치: 'node-gyp configure build'
 > 
@@ -76,7 +76,7 @@ Azure App Service는 일부 네이티브 모듈을 지원하지 않으며 특정
 응용 프로그램을 프로덕션에 적용할 준비가 되면 버전 요구 사항을 잠그고 **npm shrinkwrap** 명령을 사용하여 **npm-shrinkwrap.json** 파일을 만들 수 있습니다. 이 명령은 현재 **node\_modules** 폴더에 설치되어 있는 버전이 사용되며 이러한 버전이 **npm-shrinkwrap.json** 파일에 기록됩니다. 애플리케이션이 호스팅 환경에 배포된 후에는 **npm install** 명령을 사용하여 **npm-shrinkwrap.json** 파일을 구문 분석하고 나열된 모든 종속성을 설치합니다. 자세한 내용은 [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap)을 참조하세요.
 
 > [!NOTE]
-> Azure App Service에 배포할 때는 <b>npm-shrinkwrap.json</b> 파일이 네이티브 모듈을 참조하는 경우 Git를 사용하는 응용 프로그램을 게시하면 다음 예제와 유사한 오류가 발생할 수 있습니다.
+> Azure App Service에 배포할 때는 <b>npm-shrinkwrap.json</b> 파일이 네이티브 모듈을 참조하는 경우 Git를 사용하는 애플리케이션을 게시하면 다음 예제와 유사한 오류가 발생할 수 있습니다.
 > 
 > npm ERR! module-name@0.6.0 설치: 'node-gyp configure build'
 > 

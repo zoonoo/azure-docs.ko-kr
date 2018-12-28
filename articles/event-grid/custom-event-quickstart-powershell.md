@@ -101,7 +101,7 @@ $endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Nam
 $keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicname
 ```
 
-이 문서를 간소화하기 위해 사용자 지정 토픽에 보낼 샘플 이벤트 데이터를 설정해 보겠습니다. 일반적으로 응용 프로그램 또는 Azure 서비스는 이벤트 데이터를 보냅니다. 다음 예제에서는 해시 테이블을 사용하여 이벤트의 `htbody` 데이터를 생성한 다음, 올바른 형식의 `$body` JSON 페이로드 개체로 변환합니다.
+이 문서를 간소화하기 위해 사용자 지정 토픽에 보낼 샘플 이벤트 데이터를 설정해 보겠습니다. 일반적으로 애플리케이션 또는 Azure 서비스는 이벤트 데이터를 보냅니다. 다음 예제에서는 해시 테이블을 사용하여 이벤트의 `htbody` 데이터를 생성한 다음, 올바른 형식의 `$body` JSON 페이로드 개체로 변환합니다.
 
 ```powershell-interactive
 $eventID = Get-Random 99999

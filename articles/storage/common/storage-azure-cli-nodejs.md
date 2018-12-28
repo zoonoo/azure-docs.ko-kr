@@ -177,7 +177,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## <a name="create-and-manage-file-shares"></a>파일 공유 만들기 및 관리
-Azure Files는 표준 SMB 프로토콜을 사용하여 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 머신 및 클라우드 서비스 그리고 온-프레미스 애플리케이션은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. 클래식 CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
+Azure Files는 표준 SMB 프로토콜을 사용하여 애플리케이션을 위한 공유 스토리지를 제공합니다. Microsoft Azure 가상 머신 및 클라우드 서비스 그리고 온-프레미스 애플리케이션은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. 클래식 CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
 
 ### <a name="create-a-file-share"></a>파일 공유 만들기
 Azure에서 Azure 파일 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.

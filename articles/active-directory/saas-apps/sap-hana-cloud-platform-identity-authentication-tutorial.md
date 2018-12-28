@@ -84,7 +84,7 @@ SAP Cloud Platform Identity Authentication을 Azure AD에 통합하려면 갤러
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
@@ -116,7 +116,7 @@ SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 SAP Cloud Platform Identity Authentication 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 SAP Cloud Platform Identity Authentication 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
@@ -146,13 +146,13 @@ SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구�
     **로그온 URL** 상자에 다음과 같은 패턴을 갖는 URL을 입력합니다. `{YOUR BUSINESS APPLICATION URL}`
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트하세요. 해당 비즈니스 응용 프로그램 로그온 URL을 사용하세요. 궁금한 점은 [SAP Cloud Platform Identity Authentication 클라이언트 지원 팀](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)에 문의하세요.
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트하세요. 해당 비즈니스 애플리케이션 로그온 URL을 사용하세요. 궁금한 점은 [SAP Cloud Platform Identity Authentication 클라이언트 지원 팀](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)에 문의하세요.
 
 1. **SAML 서명 인증서** 섹션 아래에서 **메타데이터 XML**을 선택합니다. 그런 다음 메타데이터 파일을 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_certificate.png)
 
-1. SAP Cloud Platform Identity Authentication 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 특성 값을 관리할 수 있습니다. 다음 스크린샷은 이 형식의 예를 보여줍니다. 
+1. SAP Cloud Platform Identity Authentication 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 특성 값을 관리할 수 있습니다. 다음 스크린샷은 이 형식의 예를 보여줍니다. 
 
     ![Single Sign-On 구성](./media/sap-hana-cloud-platform-identity-authentication-tutorial/attribute.png)
 
@@ -247,13 +247,13 @@ SAP Cloud Platform Identity Authentication에서 ID 페더레이션을 사용 �
 
 **SAP Cloud Platform Identity Authentication에 Britta Simon을 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동합니다. **엔터프라이즈 응용 프로그램**으로 이동한 다음 **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음, 디렉터리 보기로 이동합니다. **엔터프라이즈 응용 프로그램**으로 이동한 다음 **모든 응용 프로그램**을 선택합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **SAP Cloud Platform Identity Authentication**을 선택합니다.
+1. 애플리케이션 목록에서 **SAP Cloud Platform Identity Authentication**을 선택합니다.
 
-    ![응용 프로그램 목록에서 SAP Cloud Platform Identity Authentication 링크](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_app.png)  
+    ![애플리케이션 목록에서 SAP Cloud Platform Identity Authentication 링크](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 

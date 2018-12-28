@@ -1,6 +1,6 @@
 ---
 title: Mobile Services에서 Azure App Service로 업그레이드 - Node.js
-description: Mobile Services 응용 프로그램을 App Service 모바일 앱으로 쉽게 업그레이드하는 방법을 알아봅니다.
+description: Mobile Services 애플리케이션을 App Service 모바일 앱으로 쉽게 업그레이드하는 방법을 알아봅니다.
 services: app-service\mobile
 documentationcenter: ''
 author: conceptdev
@@ -22,7 +22,7 @@ ms.lasthandoff: 12/06/2018
 ms.locfileid: "53002123"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>기존 Node.js Azure 모바일 서비스를 App Service로 업그레이드
-App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로그램을 빌드하는 새로운 방법입니다. 자세한 내용은 [Mobile Apps 정의]를 참조하세요.
+App Service 모바일은 Microsoft Azure를 사용하여 모바일 애플리케이션을 빌드하는 새로운 방법입니다. 자세한 내용은 [Mobile Apps 정의]를 참조하세요.
 
 이 문서에서는 기존 Node.js 백 엔드 애플리케이션을 Azure Mobile Services에서 새로운 App Service Mobile Apps로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 Mobile Services 애플리케이션이 계속 작동할 수 있습니다.  Node.js 백 엔드 애플리케이션을 업그레이드해야 하는 경우 [.NET Mobile Services 업그레이드](app-service-mobile-net-upgrading-from-mobile-services.md)를 참조하세요.
 
@@ -32,7 +32,7 @@ App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
 > [!TIP]
-> 업그레이드를 진행하기 전에 [마이그레이션을 수행](app-service-mobile-migrating-from-mobile-services.md) 하는 것이 좋습니다. 이러한 방식으로 동일한 App Service 계획에 두 버전의 응용 프로그램을 모두 추가 비용 없이 둘 수 있습니다.
+> 업그레이드를 진행하기 전에 [마이그레이션을 수행](app-service-mobile-migrating-from-mobile-services.md) 하는 것이 좋습니다. 이러한 방식으로 동일한 App Service 계획에 두 버전의 애플리케이션을 모두 추가 비용 없이 둘 수 있습니다.
 >
 >
 
@@ -47,7 +47,7 @@ App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로
 ## <a name="overview"></a>기본 업그레이드 개요
 Node.js 백 엔드 업그레이드를 지원하기 위해 Azure App Service는 호환성 패키지를 제공했습니다.  업그레이드 후 새 App Service 사이트에 배포할 수 있는 새 사이트를 갖습니다.
 
-Mobile Services 클라이언트 SDK는 새 Mobile Apps 서버 SDK와 호환할 수 **없습니다** . 앱에 대한 서비스 연속성을 제공하기 위해 현재 게시된 클라이언트를 제공하는 사이트에 변경 내용을 게시하지 않아야 합니다. 대신 중복으로 제공한 새 모바일 앱을 만들어야 합니다. 이 응용 프로그램을 동일한 App Service 계획에 두어 추가 비용이 발생하지 않도록 할 수 있습니다.
+Mobile Services 클라이언트 SDK는 새 Mobile Apps 서버 SDK와 호환할 수 **없습니다** . 앱에 대한 서비스 연속성을 제공하기 위해 현재 게시된 클라이언트를 제공하는 사이트에 변경 내용을 게시하지 않아야 합니다. 대신 중복으로 제공한 새 모바일 앱을 만들어야 합니다. 이 애플리케이션을 동일한 App Service 계획에 두어 추가 비용이 발생하지 않도록 할 수 있습니다.
 
 다음 두 가지 버전의 애플리케이션이 있습니다. 하나는 동일하게 유지되고 야생에서 게시된 앱을 제공하며 다른 하나는 업그레이드하고 새 클라이언트 릴리스를 대상으로 할 수 있습니다. 진도에 맞게 코드를 이동하고 테스트할 수 있지만 수행한 버그 수정이 둘 모두에 적용되도록 해야 합니다. 야생에서 원하는 수의 클라이언트 앱이 최신 버전으로 업데이트되면 원하는 경우 원래 마이그레이션된 앱을 삭제할 수 있습니다. 동일한 App Service 계획에서 모바일 앱으로 호스팅되는 경우 금전적인 추가 비용이 발생하지 않습니다.
 
@@ -127,7 +127,7 @@ Azure Mobile Apps를 사용하면 서비스 내에서 Azure Active Directory, Fa
 ## <a name="updating-clients"></a>모바일 클라이언트 업데이트
 작동하는 모바일 앱 백 엔드가 있으면 그것을 사용하는 클라이언트 애플리케이션의 새 버전에서 작동할 수 있습니다. 또한 Mobile Apps는 클라이언트 SDK의 새 버전을 포함하고 위의 서버 업그레이드와 유사합니다. 따라서 Mobile Apps 버전을 설치하기 전에 Mobile Services SDK에 대한 모든 참조를 제거해야 합니다.
 
-버전 간의 주요 변경 사항 중 하나는 생성자가 응용 프로그램 키를 더 이상 필요로 하지 않는다는 점입니다.
+버전 간의 주요 변경 사항 중 하나는 생성자가 애플리케이션 키를 더 이상 필요로 하지 않는다는 점입니다.
 이제 모바일 앱의 URL에 간단히 전달할 수 있습니다. 예를 들어 .NET 클라이언트에서 `MobileServiceClient` 생성자는 다음과 같습니다.
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
@@ -141,9 +141,9 @@ Azure Mobile Apps를 사용하면 서비스 내에서 Azure Active Directory, Fa
 * [.NET(Windows/Xamarin) 버전 2.0.0 이상](app-service-mobile-dotnet-how-to-use-client-library.md)
 * [Apache Cordova 버전 2.0 이상](app-service-mobile-cordova-how-to-use-client-library.md)
 
-응용 프로그램이 푸시 알림을 사용하면 일부 변경 사항이 있는 경우와 같이 각 플랫폼에 대한 특정 등록 지침을 기록합니다.
+애플리케이션이 푸시 알림을 사용하면 일부 변경 사항이 있는 경우와 같이 각 플랫폼에 대한 특정 등록 지침을 기록합니다.
 
-새 클라이언트 버전을 준비할 때 업그레이드된 서버 프로젝트에 사용해보세요. 작동하는지 유효성을 검사한 후에 고객에게 응용 프로그램의 새 버전을 릴리스할 수 있습니다. 결국 고객이 이러한 업데이트를 받고 나면 Mobile Services 버전의 앱을 삭제할 수 있습니다. 이 시점에서 최신 모바일 앱 서버 SDK를 사용하여 App Service Mobile Apps의 업그레이드를 완전히 완료했습니다.
+새 클라이언트 버전을 준비할 때 업그레이드된 서버 프로젝트에 사용해보세요. 작동하는지 유효성을 검사한 후에 고객에게 애플리케이션의 새 버전을 릴리스할 수 있습니다. 결국 고객이 이러한 업데이트를 받고 나면 Mobile Services 버전의 앱을 삭제할 수 있습니다. 이 시점에서 최신 모바일 앱 서버 SDK를 사용하여 App Service Mobile Apps의 업그레이드를 완전히 완료했습니다.
 
 <!-- URLs. -->
 

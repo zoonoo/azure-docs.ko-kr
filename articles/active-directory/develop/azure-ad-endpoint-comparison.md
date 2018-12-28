@@ -178,11 +178,11 @@ v2.0에서 사용하기 위해 앱을 등록하는 방법을 알아보려면 다
 
 ### <a name="restrictions-on-libraries-and-sdks"></a>라이브러리 및 SDK에 대한 제한 사항
 
-현재 v2.0 엔드포인트에 대한 라이브러리 지원은 제한적입니다. 프로덕션 응용 프로그램에서 v2.0 엔드포인트를 사용하려는 경우 다음 옵션이 있습니다.
+현재 v2.0 엔드포인트에 대한 라이브러리 지원은 제한적입니다. 프로덕션 애플리케이션에서 v2.0 엔드포인트를 사용하려는 경우 다음 옵션이 있습니다.
 
 * 웹 애플리케이션을 작성하는 경우 일반적으로 사용 가능한 서버 쪽 미들웨어를 안전하게 사용하여 로그인 및 토큰 유효성 검사를 수행할 수 있습니다. 여기에는 ASP.NET용 OWIN Open ID Connect 미들웨어 및 Node.js Passport 플러그 인이 포함됩니다. Microsoft 미들웨어를 사용하는 코드 샘플은 [v2.0 시작](v2-overview.md#getting-started) 섹션을 참조하세요.
-* 데스크톱 또는 모바일 애플리케이션을 작성하는 경우 미리 보기 MSAL(Microsoft 인증 라이브러리) 중 하나를 사용할 수 있습니다. 이러한 라이브러리는 프로덕션 지원 미리 보기이므로 프로덕션 응용 프로그램에서 안전하게 사용할 수 있습니다. 미리 보기 조건 및 사용 가능한 라이브러리에 대한 자세한 내용은 [인증 라이브러리 참조](reference-v2-libraries.md)에서 확인할 수 있습니다.
-* Microsoft 라이브러리가 적용되지 않는 플랫폼의 경우 응용 프로그램 코드에서 프로토콜 메시지를 직접 전송 및 수신하여 v2.0 엔드포인트와 통합할 수 있습니다. v2.0 OpenID Connect 및 OAuth 프로토콜은 [명시적으로 문서화](active-directory-v2-protocols.md)되어 있어 이러한 통합을 수행하는 데 도움이 됩니다.
+* 데스크톱 또는 모바일 애플리케이션을 작성하는 경우 미리 보기 MSAL(Microsoft 인증 라이브러리) 중 하나를 사용할 수 있습니다. 이러한 라이브러리는 프로덕션 지원 미리 보기이므로 프로덕션 애플리케이션에서 안전하게 사용할 수 있습니다. 미리 보기 조건 및 사용 가능한 라이브러리에 대한 자세한 내용은 [인증 라이브러리 참조](reference-v2-libraries.md)에서 확인할 수 있습니다.
+* Microsoft 라이브러리가 적용되지 않는 플랫폼의 경우 애플리케이션 코드에서 프로토콜 메시지를 직접 전송 및 수신하여 v2.0 엔드포인트와 통합할 수 있습니다. v2.0 OpenID Connect 및 OAuth 프로토콜은 [명시적으로 문서화](active-directory-v2-protocols.md)되어 있어 이러한 통합을 수행하는 데 도움이 됩니다.
 * 마지막으로, v2.0 엔드포인트와 통합하는 데 오픈 소스 Open ID Connect 및 OAuth 라이브러리를 사용할 수 있습니다. v2.0 엔드포인트는 변경되지 않고 다양한 오픈 소스 프로토콜 라이브러리와 호환되어야 합니다. 이러한 라이브러리의 사용 가능 여부는 언어 및 플랫폼마다 다릅니다. [OpenID Connect](https://openid.net/connect/) 및 [OAuth 2.0](https://oauth.net/2/) 웹 사이트는 주요 구현 목록을 유지 관리합니다. 자세한 내용은 [Active Directory v2.0 및 인증 라이브러리](reference-v2-libraries.md)와 v2.0 엔드포인트로 테스트한 오픈 소스 클라이언트 라이브러리 및 샘플 목록을 참조하세요.
 * 참고로, v2.0 common 엔드포인트의 `.well-known` 엔드포인트는 `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`입니다. `common`을 테넌트 ID로 바꾸어 테넌트와 관련된 데이터를 가져오세요.  
 
@@ -198,4 +198,4 @@ v2.0 엔드포인트에서 지원되는 프로토콜 기능의 범위를 더 잘
 
 #### <a name="saml-restrictions"></a>SAML 제한 사항
 
-Windows 응용 프로그램에서 ADAL(Active Directory 인증 라이브러리)을 사용한 경우 SAML(Security Assertion Markup Language) 어설션 권한 부여를 사용하는 Windows 통합 인증을 활용했을 수 있습니다. 이 권한 부여를 통해 페더레이션된 Azure AD 테넌트의 사용자는 자격 증명을 입력하지 않고도 해당 온-프레미스 Active Directory 인스턴스로 자동으로 인증할 수 있습니다. SAML 어설션 권한 부여는 v2.0 엔드포인트에서 지원되지 않습니다.
+Windows 애플리케이션에서 ADAL(Active Directory 인증 라이브러리)을 사용한 경우 SAML(Security Assertion Markup Language) 어설션 권한 부여를 사용하는 Windows 통합 인증을 활용했을 수 있습니다. 이 권한 부여를 통해 페더레이션된 Azure AD 테넌트의 사용자는 자격 증명을 입력하지 않고도 해당 온-프레미스 Active Directory 인스턴스로 자동으로 인증할 수 있습니다. SAML 어설션 권한 부여는 v2.0 엔드포인트에서 지원되지 않습니다.

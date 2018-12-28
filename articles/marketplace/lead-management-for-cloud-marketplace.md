@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 4e89664bf980717dbfd7994d6469fc4a412307a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258547"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840166"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>클라우드 마켓플레이스의 리드 관리
 
@@ -39,15 +39,15 @@ ms.locfileid: "51258547"
 
 다음은 가능한 각 리드 대상을 연결하는 방법에 대한 단계별 지침입니다.
 
-**Dynamics CRM Online** - 리드 확보를 위해 Dynamics CRM Online을 구성하는 방법에 대한 지침을 보려면 [여기를 클릭](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)하세요.
+**Dynamics CRM Online** - 리드 확보를 위해 Dynamics CRM Online을 구성하는 방법에 대한 지침을 보려면 [여기를 클릭](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)하세요.
 
-**Marketo** - 리드 확보를 위해 Marketo 리드 구성을 설정하는 방법을 보려면 [여기를 클릭](https://cloudpartner.azure.com/#documentation/lead-management-instructions-marketo)하세요.
+**Marketo** - 리드 확보를 위해 Marketo 리드 구성을 설정하는 방법을 보려면 [여기를 클릭](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo)하세요.
 
-**Salesforce** - 리드 확보를 위해 Salesforce 인스턴스를 설정하는 방법을 보려면 [여기를 클릭](https://cloudpartner.azure.com/#documentation/lead-management-instructions-salesforce)하세요.
+**Salesforce** - 리드 확보를 위해 Salesforce 인스턴스를 설정하는 방법을 보려면 [여기를 클릭](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce)하세요.
 
-**Azure 테이블** – Azure 테이블에서 리드 확보를 위해 Azure 저장소 계정을 설정하는 방법을 보려면 [여기를 클릭](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table)하세요.
+**Azure 테이블** – Azure 테이블에서 리드 확보를 위해 Azure 저장소 계정을 설정하는 방법을 보려면 [여기를 클릭](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table)하세요.
 
-**Https 엔드포인트** - 잠재 고객 확보를 위한 Https 엔드포인트를 설정하기 위한 지침을 보려면 [여기를 클릭](https://cloudpartner.azure.com/#documentation/lead-management-instructions-https)하세요.
+**Https 엔드포인트** - 잠재 고객 확보를 위한 Https 엔드포인트를 설정하기 위한 지침을 보려면 [여기를 클릭](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https)하세요.
 
 리드 대상을 적절하게 구성하고 제품에서 게시를 눌렀으면 연결이 유효한지 확인하고 테스트 리드를 보냅니다. 제품을 라이브로 전환하기 전에 확인할 때 미리보기 환경에서 직접 제품을 구매하여 리드 연결을 테스트할 수도 있습니다. 리드를 잃지 않기 위해서는 리드 설정을 최신 상태로 유지하는 것이 중요하므로 사용자 측 변경 사항이 있을 때마다 이러한 연결을 업데이트해야 합니다.
 
@@ -60,38 +60,38 @@ ms.locfileid: "51258547"
 
 ## <a name="common-lead-configuration-errors-during-publishing-on-cloud-partner-portal"></a>Cloud 파트너 포털에서 게시하는 동안 공통 리드 구성 오류 발생 
 
-**리드를 Dynamics CRM에 저장할 수 없습니다. Dynamics CRM 계정 설정을 확인하세요. LastCRMError: Dynamics CRM에 로그인할 수 없습니다. LastCRMException:**  
+**리드를 Dynamics CRM에 저장할 수 없습니다. Dynamics CRM 계정 설정을 확인하세요. LastCRMError: Dynamics CRM(LastCRMException:**)에 로그인할 수 없습니다. 
 
-> O365 인증을 선택한 경우 사용자 계정 및 암호가 유효한지 확인합니다. AAD가 선택된 경우 테넌트 ID, 응용 프로그램 ID 및 응용 프로그램 비밀 키가 AAD에 설정된 것과 일치하는지 확인합니다. [여기](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)에 설명된 지침을 따릅니다. 계정 사용자 이름/암호가 유효한 경우 Dynamics 365 액세스 권한이 있는지와 라이선스가 할당되었는지 확인합니다(Azure Active Directory를 사용하는 경우 11-15단계, Office 사용자를 사용하는 경우 보안 설정). 
+> O365 인증을 선택한 경우 사용자 계정 및 암호가 유효한지 확인합니다. AAD가 선택된 경우 테넌트 ID, 응용 프로그램 ID 및 응용 프로그램 비밀 키가 AAD에 설정된 것과 일치하는지 확인합니다. [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)에 설명된 지침을 따릅니다. 계정 사용자 이름/암호가 유효한 경우 Dynamics 365 액세스 권한이 있는지와 라이선스가 할당되었는지 확인합니다(Azure Active Directory를 사용하는 경우 11-15단계, Office 사용자를 사용하는 경우 보안 설정). 
 
  
 **리드를 Dynamics CRM에 저장할 수 없습니다. 사용자에게 리드 엔터티의 leadsourcecode 특성에 대한 만들기 권한이 없습니다.** 
 
-> 응용 프로그램/사용자에게 Microsoft Marketplace 리드 작성기에 대한 보안 역할이 없습니다. Azure Active Directory를 사용하는 경우 11-15단계를 따르고, Office 사용자를 사용하는 경우 [여기](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)에서 보안 설정을 사용합니다.
+> 응용 프로그램/사용자에게 Microsoft Marketplace 리드 작성기에 대한 보안 역할이 없습니다. Azure Active Directory를 사용하는 경우 11-15단계를 따르고, Office 사용자를 사용하는 경우 [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)에서 보안 설정을 사용합니다.
 
 **AAD를 사용하여 리드를 Dynamics CRM에 저장할 수 없습니다. 예외:: 테넌트를 찾을 수 없습니다. 이 인스턴스는 테넌트에 대한 활성 가입이 없는 경우 발생할 수 있습니다.**  
 
-> 리드 관리 섹션에 제공된 디렉터리 ID가 유효한 디렉터리가 아닙니다. [여기](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)에서 2단계(Azure Active Directory 아래)의 지침에 따라 디렉터리 ID를 가져오세요. 
+> 리드 관리 섹션에 제공된 디렉터리 ID가 유효한 디렉터리가 아닙니다. [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)에서 2단계(Azure Active Directory 아래)의 지침에 따라 디렉터리 ID를 가져오세요. 
 
-**리드를 Dynamics CRM에 저장할 수 없습니다. LastCRMError: SecLib::RetrievePrivilegeForUser 실패 - 사용자에게 지정된 역할이 없습니다.**  
+**리드를 Dynamics CRM에 저장할 수 없습니다. LastCRMError: SecLib::RetrievePrivilegeForUser 실패 - 사용자에게 할당된 역할이 없습니다.**  
 
-> 해결 방법: Microsoft Marketplace 리드 작성자에게 보안 역할을 지정합니다. 보안 설정 아래에서 [여기](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)의 지침을 따르세요. 
+> 해결 방법: Microsoft Marketplace 리드 작성기에 보안 역할을 할당합니다. 보안 설정 아래에서 [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)의 지침을 따르세요. 
 
-**AAD를 사용하여 리드를 Dynamics CRM에 저장할 수 없습니다. 예외:: 식별자를 가진 응용 프로그램이 디렉터리에 없습니다.** 
+**AAD를 사용하여 리드를 Dynamics CRM에 저장할 수 없습니다. 예외:: 식별자가 포함된 애플리케이션이 디렉터리에 없습니다** 
 
-> 리드 관리 섹션에 제공된 응용 프로그램 ID가 유효한 디렉터리가 아닙니다. [여기](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)에서 8단계(Azure Active Directory 아래)의 지침에 따라 디렉터리 ID를 가져오세요. 
+> 리드 관리 섹션에 제공된 응용 프로그램 ID가 유효한 디렉터리가 아닙니다. [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)에서 8단계(Azure Active Directory 아래)의 지침에 따라 디렉터리 ID를 가져오세요. 
 
-**AAD를 사용하여 리드를 Dynamics CRM에 저장할 수 없습니다. 예외:: 요청된 테넌트 식별자가 유효하지 않으며 유효한 외부 도메인 형식이 아닙니다.** 
+**AAD를 사용하여 리드를 Dynamics CRM에 저장할 수 없습니다. 예외:: 요청된 테넌트 식별자가 유효하지 않으며 유효한 외부 도메인 형식이 아닙니다** 
 
-> 리드 관리 섹션에 제공된 디렉터리 ID가 유효한 디렉터리가 아닙니다. [여기](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)에서 2단계(Azure Active Directory 아래)의 지침에 따라 디렉터리 ID를 가져오세요. 
+> 리드 관리 섹션에 제공된 디렉터리 ID가 유효한 디렉터리가 아닙니다. [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)에서 2단계(Azure Active Directory 아래)의 지침에 따라 디렉터리 ID를 가져오세요. 
 
-**AAD를 사용하여 리드를 Dynamics CRM에 저장할 수 없습니다. 예외:: 자격 증명이 유효한지 검사하는 동안 오류가 발생했습니다. 잘못된 클라이언트 비밀이 제공되었습니다.** 
+**AAD를 사용하여 리드를 Dynamics CRM에 저장할 수 없습니다. 예외:: 자격 증명의 유효성 검사 오류.: 잘못된 클라이언트 비밀을 제공합니다.** 
 
-> 해결 방법: Azure Portal에 로그인하고, 응용 프로그램 키가 Cloud 파트너 포털의 키와 일치하는지 확인합니다. [여기](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)에서 10단계(Azure Active Directory 아래)의 지침에 따라 암호를 생성하세요. 
+> 해결 방법: Azure Portal에 로그인하고, 애플리케이션 키가 Cloud 파트너 포털의 키와 일치하는지 확인합니다. [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)에서 10단계(Azure Active Directory 아래)의 지침에 따라 암호를 생성하세요. 
 
-**리드를 Dynamics CRM에 저장할 수 없습니다. LastCRMError: 00:02:00 이후 응답을 기다리는 중 요청 채널이 시간 초과되었습니다. 요청 호출에 전달된 제한 시간 값을 늘리거나 Binding의 SendTimeout 값을 늘리세요. 이 작업에 할당된 시간이 보다 긴 시간 제한의 일부일 수 있습니다.**  
+**리드를 Dynamics CRM에 저장할 수 없습니다. LastCRMError: 00:02:00 이후 응답을 기다리는 중 요청 채널의 시간이 초과되었습니다. 요청 호출에 전달된 제한 시간 값을 늘리거나 Binding의 SendTimeout 값을 늘리세요. 이 작업에 할당된 시간이 보다 긴 시간 제한의 일부일 수 있습니다.**  
 
-> 해결 방법: Cloud 파트너 포털에 로그인하고 상점 세부 정보 >> 리드 대상 >> URL을 선택한 후 Dynamic CRM 인스턴스가 유효한지 확인하세요.
+> 해결 방법: Cloud 파트너 포털에 로그인한 다음, Storefront 세부 정보 >> 리드 대상 >> URL을 선택하고 Dynamic CRM 인스턴스가 유효한지 확인
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -102,7 +102,7 @@ ms.locfileid: "51258547"
 
 **리드 대상을 설정하는 데 필요한 도움은 어디에서 받을 수 있나요?** 
 
-https://cloudpartner.azure.com/#documentation/get-customer-leads에서 설명서를 찾거나 aka.ms/marketplacepublishersupport를 통해 지원 티켓을 제출하고 제품 유형 및 리드 관리를 선택하세요. 
+설명서를 여기서 찾을 수 있습니다: [고객 리드를 가져오거나](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) aka.ms/marketplacepublishersupport를 통해 지원 티켓을 제출하고 제품 유형 및 리드 관리를 선택하세요. 
 
 
 
@@ -150,7 +150,7 @@ title = MSFT_TEST_636573304831318844
 
 **라이브 제품이 있지만 리드가 보이지 않습니다.**
 
-각 리드는 선택한 리드 대상의 필드로 데이터가 전달되며 리드는 **Source-Action|Offer** 형식을 갖습니다. 
+각 리드는 선택한 리드 대상의 필드로 데이터가 전달되게 하며 리드는 **Source-Action|Offer** 형식으로 제공됩니다. 
 
   원본::
 
@@ -199,7 +199,7 @@ title = MSFT_TEST_636573304831318844
 
     } 
 
-[리드 정보](https://cloudpartner.azure.com/#documentation/get-customer-leads)에서 자세히 알아보세요. 
+[리드 정보](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)에서 자세히 알아보세요. 
 
 
 **Azure Blob을 리드 대상으로 구성했는데 리드가 표시되지 않는 이유는 무엇인가요?** 
@@ -219,7 +219,7 @@ Azure Portal에서 Blob 또는 테이블에 액세스하거나 [Azure Storage �
 
 **Azure 테이블을 리드 대상으로 구성했습니다. Marketplace에서 새 리드를 보낼 때마다 알림을 받을 수 있나요?** 
 
-예. [여기](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table) 설명서에서 Azure 테이블 + 함수 설정 지침을 따르세요. 
+예. [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) 설명서에서 Azure 테이블 + 함수 설정 지침을 따르세요. 
 
 
 

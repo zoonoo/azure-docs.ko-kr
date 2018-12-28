@@ -44,7 +44,7 @@ ms.locfileid: "46123915"
    | 자산 | 값 |
    | --- | --- |
    | Category |Templates/Visual C#/Windows |
-   | Template |콘솔 응용 프로그램 |
+   | Template |콘솔 애플리케이션 |
    | 이름 |CreateADLApplication |
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 5. NuGet 패키지를 프로젝트에 추가합니다.

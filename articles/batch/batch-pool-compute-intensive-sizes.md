@@ -23,7 +23,7 @@ ms.locfileid: "51258258"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용
 
-특정 Batch 작업을 실행하려면 대규모 계산을 위해 설계된 Azure VM 크기를 활용하는 것이 좋습니다. 예를 들어, 다중 인스턴스 [MPI 작업](batch-mpi.md)을 실행하려면 RDMA(Remote Direct Memory Access)에 대한 네트워크 인터페이스가 있는 A8, A9 또는 H 시리즈 크기를 선택할 수 있습니다. 이러한 크기는 MPI 응용 프로그램을 가속화할 수 있는 노드 간 통신에 대한 InfiniBand 네트워크에 연결합니다. 또는 CUDA 응용 프로그램의 경우 NVIDIA Tesla GPU(그래픽 처리 장치) 카드를 포함하는 N 시리즈 크기를 선택할 수 있습니다.
+특정 Batch 작업을 실행하려면 대규모 계산을 위해 설계된 Azure VM 크기를 활용하는 것이 좋습니다. 예를 들어, 다중 인스턴스 [MPI 작업](batch-mpi.md)을 실행하려면 RDMA(Remote Direct Memory Access)에 대한 네트워크 인터페이스가 있는 A8, A9 또는 H 시리즈 크기를 선택할 수 있습니다. 이러한 크기는 MPI 애플리케이션을 가속화할 수 있는 노드 간 통신에 대한 InfiniBand 네트워크에 연결합니다. 또는 CUDA 애플리케이션의 경우 NVIDIA Tesla GPU(그래픽 처리 디바이스) 카드를 포함하는 N 시리즈 크기를 선택할 수 있습니다.
 
 이 문서는 Batch 풀에서 Azure의 특별한 크기 중 일부를 사용하는 지침과 예제를 제공합니다. 사양 및 백그라운드는 다음을 참조하세요.
 
@@ -103,11 +103,11 @@ Batch 풀에 특별한 VM 크기를 구성하려면 Batch API 및 도구는 다�
 
 ## <a name="example-microsoft-mpi-on-an-a8-vm-pool"></a>예제: A8 VM 풀의 Microsoft MPI
 
-Azure A8 노드의 풀에서 Windows MPI 응용 프로그램을 실행하려면 지원되는 MPI 구현을 설치해야 합니다. Batch 응용 프로그램 패키지를 사용하여 Windows 풀에서 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx)를 설치하는 샘플 단계는 다음과 같습니다.
+Azure A8 노드의 풀에서 Windows MPI 애플리케이션을 실행하려면 지원되는 MPI 구현을 설치해야 합니다. Batch 애플리케이션 패키지를 사용하여 Windows 풀에서 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx)를 설치하는 샘플 단계는 다음과 같습니다.
 
 1. 최신 버전의 Microsoft MPI에 대한 [설치 패키지](https://go.microsoft.com/FWLink/p/?LinkID=389556)(MSMpiSetup.exe)를 다운로드합니다.
 2. 패키지의 zip 파일을 만듭니다.
-3. Batch 계정에 패키지를 업로드합니다. 단계는 [응용 프로그램 패키지](batch-application-packages.md) 지침을 참조하세요. *MSMPI*와 같은 응용 프로그램 ID 및 *8.1*과 같은 버전을 지정합니다. 
+3. Batch 계정에 패키지를 업로드합니다. 단계는 [애플리케이션 패키지](batch-application-packages.md) 지침을 참조하세요. *MSMPI*와 같은 응용 프로그램 ID 및 *8.1*과 같은 버전을 지정합니다. 
 4. Batch API 또는 Azure Portal을 사용하여 원하는 수의 노드 및 규모로 클라우드 서비스 구성에서 풀을 만듭니다. 다음 표에서는 시작 태스크를 사용하여 무인 모드에서 MPI를 설정하는 샘플 설정을 보여줍니다.
 
 | 설정 | 값 |

@@ -138,7 +138,7 @@ ms.locfileid: "33835800"
     }
     ``` 
     > [!NOTE]
-    > 보안 정보: `AuthenticationTestHandler` 클래스는 진정한 의미의 인증을 제공하지 않습니다. 이 클래스는 기본 인증과 비슷한 동작을 하고 보안이 안전하지 않습니다. 프로덕션 응용프로그램 및 서비스에 보안 인증 메커니즘을 구현해야 합니다.                
+    > 보안 정보: `AuthenticationTestHandler` 클래스는 진정한 의미의 인증을 제공하지 않습니다. 이 클래스는 기본 인증과 비슷한 동작을 하고 보안이 안전하지 않습니다. 프로덕션 애플리케이션 및 서비스에 보안 인증 메커니즘을 구현해야 합니다.                
 5. 메시지 처리기를 등록하려면 **App_Start/WebApiConfig.cs** 클래스의 `Register` 메서드 끝에 다음 코드를 추가합니다.
 
     ```csharp   
@@ -371,7 +371,7 @@ ms.locfileid: "33835800"
         return Request.CreateResponse(ret);
     }
     ```
-4. 응용 프로그램을 실행하고 지금까지 작업의 정확성을 확인하려면 **F5** 키를 선택합니다. 앱은 웹 브라우저를 열고 ASP.NET 홈페이지에 표시됩니다. 
+4. 애플리케이션을 실행하고 지금까지 작업의 정확성을 확인하려면 **F5** 키를 선택합니다. 앱은 웹 브라우저를 열고 ASP.NET 홈페이지에 표시됩니다. 
 
 ## <a name="publish-the-new-webapi-backend"></a>새 WebAPI 백 엔드 게시
 다음으로 모든 디바이스에서 액세스할 수 있도록 앱을 Azure 웹 사이트에 배포합니다. 
@@ -390,7 +390,7 @@ ms.locfileid: "33835800"
 
 6. **게시**를 선택합니다.
 
-마법사를 완료한 후 Azure에 ASP.NET 웹앱을 게시한 다음 기본 브라우저에서 앱을 엽니다.  응용 프로그램을 Azure App Services에서 볼 수 있습니다.
+마법사를 완료한 후 Azure에 ASP.NET 웹앱을 게시한 다음 기본 브라우저에서 앱을 엽니다.  애플리케이션을 Azure App Services에서 볼 수 있습니다.
 
 URL은 http://<app_name>.azurewebsites.net 형식으로 이전에 지정한 웹앱 이름을 사용합니다.
 

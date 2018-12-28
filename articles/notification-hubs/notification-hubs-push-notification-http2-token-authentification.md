@@ -39,7 +39,7 @@ ms.locfileid: "33777895"
 
 APNS에 인증서 자격 증명을 사용하는 것에서 마이그레이션한 경우
 - 토큰 속성이 시스템의 인증서를 덮어씁니다.
-- 그러나 응용 프로그램에서는 계속 원활하게 알림을 수신합니다.
+- 그러나 애플리케이션에서는 계속 원활하게 알림을 수신합니다.
 
 ## <a name="obtaining-authentication-information-from-apple"></a>Apple에서 인증 정보 가져오기
 토큰 기반 인증을 사용하려면 Apple 개발자 계정에서 다음 속성을 가져와야 합니다.
@@ -49,15 +49,15 @@ Apple 개발자 계정의 "키" 페이지에서 키 식별자를 가져올 수 �
 ![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
 
 ### <a name="application-identifier--application-name"></a>응용 프로그램 식별자 및 응용 프로그램 이름
-응용 프로그램 이름은 개발자 계정의 앱 ID 페이지를 통해 제공됩니다. 
+애플리케이션 이름은 개발자 계정의 앱 ID 페이지를 통해 제공됩니다. 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
 
-응용 프로그램 식별자는 개발자 계정의 멤버 자격 세부 정보 페이지를 통해 제공됩니다.
+애플리케이션 식별자는 개발자 계정의 멤버 자격 세부 정보 페이지를 통해 제공됩니다.
 ![](./media/notification-hubs-push-notification-http2-token-authentification/app-id.png)
 
 
 ### <a name="authentication-token"></a>인증 토큰
-응용 프로그램에 대한 토큰을 생성한 후 인증 토큰을 다운로드할 수 있습니다. 이 토큰을 생성하는 방법에 대한 자세한 내용은 [Apple 개발자 설명서](http://help.apple.com/xcode/mac/current/#/dev11b059073?sub=dev1eb5dfe65)를 참조하세요.
+애플리케이션에 대한 토큰을 생성한 후 인증 토큰을 다운로드할 수 있습니다. 이 토큰을 생성하는 방법에 대한 자세한 내용은 [Apple 개발자 설명서](http://help.apple.com/xcode/mac/current/#/dev11b059073?sub=dev1eb5dfe65)를 참조하세요.
 
 ## <a name="configuring-your-notification-hub-to-use-token-based-authentication"></a>토큰 기반 인증을 사용하도록 알림 허브 구성
 ### <a name="configure-via-the-azure-portal"></a>Azure Portal을 통해 구성
@@ -68,7 +68,7 @@ Apple 개발자 계정의 "키" 페이지에서 키 식별자를 가져올 수 �
 ![](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
 
 - Apple 개발자 계정에서 검색한 속성을 입력합니다. 
-- 응용 프로그램 모드(프로덕션 또는 샌드박스)를 선택합니다. 
+- 애플리케이션 모드(프로덕션 또는 샌드박스)를 선택합니다. 
 - 저장을 클릭하여 APNS 자격 증명을 업데이트합니다. 
 
 ### <a name="configure-via-management-api-rest"></a>관리 API(REST)을 통해 구성

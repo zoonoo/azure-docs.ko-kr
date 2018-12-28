@@ -113,7 +113,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebDevelopersAppTableNameHeader|이름|  
 |WebDevelopersAppTableStateHeader|시스템 상태|  
 |WebDevelopersEditLink|편집|  
-|WebDevelopersRegisterAppLink|응용 프로그램 등록|  
+|WebDevelopersRegisterAppLink|애플리케이션 등록|  
 |WebDevelopersRemoveLink|제거|  
 |WebDevelopersSubmitLink|Submit|  
 |WebDevelopersYourApplicationsHeader|응용 프로그램|  

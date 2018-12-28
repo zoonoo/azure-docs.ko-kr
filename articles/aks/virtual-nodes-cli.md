@@ -1,0 +1,321 @@
+---
+title: AKS(Azure Kubernetes Service)에서 Azure CLI를 사용하여 가상 노드 만들기
+description: Azure CLI를 통해 가상 노드를 사용하여 Pod를 실행하는 AKS(Azure Kubernetes Service) 클러스터를 만드는 방법을 알아봅니다.
+services: container-service
+author: iainfoulds
+ms.service: container-service
+ms.date: 12/03/2018
+ms.author: iainfou
+ms.openlocfilehash: ee16165352edbacddac0c91f1ff68109982577de
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52854834"
+---
+# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Azure CLI에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
+
+AKS(Azure Kubernetes Service) 클러스터에서 애플리케이션 워크로드 크기를 신속하게 조정하려면 가상 노드를 사용할 수 있습니다. 가상 노드를 사용하면 Pod를 신속하게 프로비전할 수 있으며, 실행 시간(초) 단위로 요금이 청구됩니다. Kubernetes 클러스터 자동 크기 조정기가 추가 Pod를 실행하는 VM 컴퓨팅 노드를 배포할 때까지 기다릴 필요가 없습니다. 이 문서에서는 가상 네트워크 리소스 및 AKS 클러스터를 만들고 구성한 후 가상 노드를 사용하도록 설정하는 방법을 보여 줍니다.
+
+> [!IMPORTANT]
+> AKS에 사용되는 가상 노드는 현재 **미리 보기**입니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+
+## <a name="before-you-begin"></a>시작하기 전에
+
+가상 노드는 ACI에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 이 통신을 제공하기 위해 가상 네트워크 서브넷이 만들어지고 위임된 사용 권한이 할당됩니다. 가상 노드는 *고급* 네트워킹을 사용하여 만든 AKS 클러스터에만 작동합니다. 기본적으로 AKS 클러스터는 *기본* 네트워킹을 사용하여 만듭니다. 이 문서에서는 가상 네트워크 및 서브넷을 만든 다음, 고급 네트워킹을 사용하는 AKS 클러스터에 배포하는 방법을 보여 줍니다.
+
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
+
+Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다.
+
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택합니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+
+이 문서에 따라 CLI를 로컬에서 설치하여 사용하려면 Azure CLI 버전 2.0.49 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+
+Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *westus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location westus
+```
+
+## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+
+[az network vnet create][az-network-vnet-create] 명령을 사용하여 가상 네트워크를 만듭니다. 다음 예제는 주소 접두사 *10.0.0.0/8*과 *myAKSSubnet*라는 서브넷을 사용하여 *myVnet*이라는 가상 네트워크를 만듭니다. 기본적으로 이 서브넷의 주소 접두사는 *10.240.0.0/16*입니다.
+
+```azurecli-interactive
+az network vnet create \
+    --resource-group myResourceGroup \
+    --name myVnet \
+    --address-prefixes 10.0.0.0/8 \
+    --subnet-name myAKSSubnet \
+    --subnet-prefix 10.240.0.0/16
+```
+
+이제 [az network vnet subnet create][az-network-vnet-subnet-create] 명령을 사용하여 가상 노드에 대해 추가 서브넷을 만듭니다. 다음 예제에서는 주소 접두사 *10.241.0.0/16*을 사용하여 *myVirtualNodeSubnet*이라는 서브넷을 만듭니다.
+
+```azurecli-interactive
+az network vnet subnet create \
+    --resource-group myResourceGroup \
+    --vnet-name myVnet \
+    --name myVirtualNodeSubnet \
+    --address-prefix 10.241.0.0/16
+```
+
+## <a name="create-a-service-principal"></a>서비스 주체 만들기
+
+AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 사용자를 사용합니다. Azure CLI 또는 포털에서 이 서비스 주체를 자동으로 생성하거나 추가 사용 권한을 미리 만고 할당할 수 있습니다.
+
+[az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 주체를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다.
+
+```azurecli-interactive
+az ad sp create-for-rbac --skip-assignment
+```
+
+다음 예제와 유사하게 출력됩니다.
+
+```
+{
+  "appId": "bef76eb3-d743-4a97-9534-03e9388811fc",
+  "displayName": "azure-cli-2018-11-21-18-42-00",
+  "name": "http://azure-cli-2018-11-21-18-42-00",
+  "password": "1d257915-8714-4ce7-a7fb-0e5a5411df7f",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
+}
+```
+
+*appId* 및 *암호*를 기록해 둡니다. 다음 단계에서 이러한 값을 사용합니다.
+
+## <a name="assign-permissions-to-the-virtual-network"></a>가상 네트워크에 사용 권한 할당
+
+클러스터가 가상 네트워크를 사용하고 관리하도록 하려면 AKS 서비스 주체에 네트워크 리소스를 사용할 수 있는 올바른 권한을 부여해야 합니다.
+
+먼저, [az network vnet show][az-network-vnet-show]를 사용하여 가상 네트워크 리소스 ID를 가져옵니다.
+
+```azurecli-interactive
+az network vnet show --resource-group myResourceGroup --name myVnet --query id -o tsv
+```
+
+가상 네트워크를 사용하도록 AKS 클러스터에 대한 올바른 액세스 권한을 부여하려면 [az role assignment create][az-role-assignment-create] 명령을 사용하여 역할 할당을 만듭니다. `<appId`> 및 `<vnetId>`를 이전 두 단계에서 수집한 값으로 바꿉니다.
+
+```azurecli-interactive
+az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
+```
+
+## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
+
+이전 단계에서 만든 AKS 서브넷에 AKS 클러스터를 배포합니다. [az network vnet subnet show][az-network-vnet-subnet-show]를 사용하여 이 서브넷의 ID를 가져옵니다.
+
+```azurecli-interactive
+az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
+```
+
+[az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster*라는 클러스터를 만듭니다. `<subnetId>`를 이전 단계에서 가져온 ID로 바꾼 후 `<appId>` 및 `<password>`를 다음으로 바꿉니다. 
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 1 \
+    --network-plugin azure \
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
+    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id <subnetId> \
+    --service-principal <appId> \
+    --client-secret <password>
+```
+
+몇 분 후 명령이 완료되고 클러스터에 대해 JSON 형식 정보가 반환됩니다.
+
+## <a name="enable-virtual-nodes"></a>가상 노드 사용
+
+추가 기능을 제공하기 위해 가상 노드 커넥터는 Azure CLI 확장을 사용합니다. 가상 노드에 커넥터를 사용하도록 설정하기 전에 먼저 [az extension add][az-extension-add] 명령을 사용하여 확장을 설치합니다.
+
+```azurecli-interactive
+az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
+```
+
+가상 노드를 사용하도록 설정하려면 이제 [az aks enable-addons][az-aks-enable-addons] 명령을 사용합니다. 다음 예제에서는 이전 단계에서 만든 *myVirtualNodeSubnet*이라는 서브넷을 사용합니다.
+
+```azurecli-interactive
+az aks enable-addons \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --addons virtual-node \
+    --subnet-name myVirtualNodeSubnet
+```
+
+## <a name="connect-to-the-cluster"></a>클러스터에 연결
+
+Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials][az-aks-get-credentials] 명령을 사용합니다. 이 단계에서는 자격 증명을 다운로드하고 Kubernetes CLI가 자격 증명을 사용하도록 구성합니다.
+
+```azurecli-interactive
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+```
+
+클러스터에 대한 연결을 확인하려면 [kubectl get][kubectl-get] 명령을 사용하여 클러스터 노드 목록을 반환합니다.
+
+```console
+kubectl get nodes
+```
+
+다음 예제 출력은 생성된 단일 VM 노드를 보여준 후 Linux용 가상 노드 *virtual-node-aci-linux*를 보여 줍니다.
+
+```
+$ kubectl get nodes
+
+NAME                          STATUS    ROLES     AGE       VERSION
+virtual-node-aci-linux        Ready     agent     28m       v1.11.2
+aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
+```
+
+## <a name="deploy-a-sample-app"></a>샘플 앱 배포
+
+파일 `virtual-node.yaml`을 만들고 다음 YAML에 복사합니다. 노드에서 컨테이너를 예약하기 위해 [nodeSelector][node-selector] 및 [toleration][toleration]이 정의됩니다.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aci-helloworld
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
+  template:
+    metadata:
+      labels:
+        app: aci-helloworld
+    spec:
+      containers:
+      - name: aci-helloworld
+        image: microsoft/aci-helloworld
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        kubernetes.io/role: agent
+        beta.kubernetes.io/os: linux
+        type: virtual-kubelet
+      tolerations:
+      - key: virtual-kubelet.io/provider
+        operator: Exists
+      - key: azure.com/aci
+        effect: NoSchedule
+```
+
+[kubectl create][kubectl-apply] 명령을 사용하여 애플리케이션을 실행합니다.
+
+```console
+kubectl apply -f virtual-node.yaml
+```
+
+`-o wide` 인수와 [kubectl get pods][kubectl-get] 명령을 사용하여 Pod 및 예약된 노드 목록을 출력합니다. `aci-helloworld` Pod는 `virtual-node-aci-linux` 노드에서 예약되었습니다.
+
+```
+$ kubectl get pods -o wide
+
+NAME                            READY     STATUS    RESTARTS   AGE       IP           NODE
+aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.0.4   virtual-node-aci-linux
+```
+
+Pod에는 가상 노드에 사용하도록 위임된 Azure 가상 네트워크 서브넷의 내부 IP 주소가 할당됩니다.
+
+## <a name="test-the-virtual-node-pod"></a>가상 노드 Pod 테스트
+
+가상 노드에서 실행되는 Pod를 테스트하려면 웹 클라이언트를 사용하여 데모 애플리케이션으로 이동합니다. Pod에는 내부 IP 주소가 할당되므로 AKS 클러스터의 다른 Pod에서 이 연결을 신속하게 테스트할 수 있습니다. 테스트 Pod를 만들고 여기에 터미널 세션을 연결합니다.
+
+```console
+kubectl run -it --rm virtual-node-test --image=debian
+```
+
+`apt-get`을 사용하여 Pod에 `curl`을 설치합니다.
+
+```console
+apt-get update && apt-get install -y curl
+```
+
+이제 *http://10.241.0.4* 같은 `curl`을 사용하여 Pod 주소에 액세스합니다. 앞의 `kubectl get pods` 명령에서 본 내부 IP 주소를 입력합니다.
+
+```console
+curl -L http://10.241.0.4
+```
+
+다음과 같이 축소된 예제 출력처럼 데모 애플리케이션이 표시됩니다.
+
+```
+$ curl -L 10.241.0.4
+
+<html>
+<head>
+  <title>Welcome to Azure Container Instances!</title>
+</head>
+[...]
+```
+
+`exit` 명령을 사용하여 테스트 Pod에 대한 터미널 세션을 종료합니다. 세션이 종료되면 Pod가 삭제됩니다.
+
+## <a name="remove-virtual-nodes"></a>가상 노드 제거
+
+가상 노드를 더 이상 사용하지 않으려면 [az aks disable-addons][az aks disable-addons] 명령을 사용하여 사용하지 않도록 설정할 수 있습니다. 다음 예제에서는 Linux 가상 노드를 사용하지 않도록 설정합니다.
+
+```azurecli-interactive
+az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --addons virtual-node
+```
+
+이제 가상 네트워크 리소스 및 리소스 그룹을 제거합니다.
+
+```azurecli-interactive
+# Change the name of your resource group and network resources as needed
+RES_GROUP=myResourceGroup
+
+# Get network profile ID
+NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query [0].id --output tsv)
+
+# Delete the network profile
+az network profile delete --id $NETWORK_PROFILE_ID -y
+
+# Get the service association link (SAL) ID
+SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name myVnet --name myAKSSubnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
+
+# Delete the default SAL ID for the subnet
+az resource delete --ids $SAL_ID --api-version 2018-07-01
+
+# Delete the subnet delegation to Azure Container Instances
+az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --name myAKSSubnet --remove delegations 0
+```
+
+## <a name="next-steps"></a>다음 단계
+
+이 문서에서는 가상 노드에서 Pod를 예약하고 비공개 내부 IP 주소를 할당했습니다. 그 대신 서비스 배포를 만들고 부하 분산 장치 또는 수신 컨트롤러를 통해 Pod로 트래픽을 라우팅할 수도 있습니다. 자세한 내용은 [AKS에서 기본 수신 컨트롤러 만들기][aks-basic-ingress]를 참조하세요.
+
+가상 노드는 종종 AKS에서 크기 조정 솔루션의 구성 요소 중 하나입니다. 크기 조정 솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+- [Kubernetes 수평 방향 Pod 자동 크기 조정기 사용][aks-hpa]
+- [Kubernetes 클러스터 자동 크기 조정기 사용][aks-cluster-autoscaler]
+
+<!-- LINKS - external -->
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+[toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+
+<!-- LINKS - internal -->
+[azure-cli-install]: /cli/azure/install-azure-cli
+[az-group-create]: /cli/azure/group#az-group-create
+[az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
+[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-network-vnet-show]: /cli/azure/network/vnet#az-network-vnet-show
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az aks disable-addons]: /cli/azure/aks#az-aks-disable-addons
+[aks-hpa]: tutorial-kubernetes-scale.md
+[aks-cluster-autoscaler]: autoscaler.md
+[aks-basic-ingress]: ingress-basic.md

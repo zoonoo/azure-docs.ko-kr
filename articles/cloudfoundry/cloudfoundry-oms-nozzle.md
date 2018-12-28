@@ -175,7 +175,7 @@ CF CLI 창에서 다음을 입력합니다.
 ```
 cf apps
 ```
-OMS Nozzle 응용 프로그램이 실행되고 있는지 확인합니다.
+OMS Nozzle 애플리케이션이 실행되고 있는지 확인합니다.
 
 ## <a name="view-the-data-in-the-azure-portal"></a>Azure Portal에서 데이터 보기
 

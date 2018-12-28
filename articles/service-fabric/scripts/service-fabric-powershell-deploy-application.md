@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 01/19/2018
 ms.locfileid: "27927603"
 ---
-# <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 응용 프로그램 배포
+# <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 애플리케이션 배포
 
 이 샘플 스크립트는 클러스터 이미지 저장소에 응용 프로그램 패키지를 복사하고, 응용 프로그램 유형을 클러스터에 등록하고, 불필요한 응용 프로그램 패키지를 제거하고, 해당 응용 프로그램 유형에서 응용 프로그램 인스턴스를 만듭니다.  기본 서비스가 대상 응용 프로그램 형식의 응용 프로그램 매니페스트에 정의된 경우 이때 이러한 서비스도 생성됩니다. 필요에 따라 매개 변수를 사용자 지정합니다. 
 
@@ -34,7 +34,7 @@ ms.locfileid: "27927603"
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
-스크립트 샘플이 실행된 후에 [응용 프로그램 제거](service-fabric-powershell-remove-application.md)의 스크립트를 사용하여 응용 프로그램 인스턴스를 제거하고, 응용 프로그램 유형을 등록 취소하고, 이미지 저장소에서 응용 프로그램 패키지를 삭제할 수 있습니다.
+스크립트 샘플이 실행된 후에 [애플리케이션 제거](service-fabric-powershell-remove-application.md)의 스크립트를 사용하여 애플리케이션 인스턴스를 제거하고, 애플리케이션 유형을 등록 취소하고, 이미지 저장소에서 애플리케이션 패키지를 삭제할 수 있습니다.
 
 ## <a name="script-explanation"></a>스크립트 설명
 

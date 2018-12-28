@@ -15,7 +15,7 @@ ms.date: 10/26/2018
 ms.author: sethm
 ms.openlocfilehash: a6d8ef698c005429c1184b5565b1a9387d05e062
 ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50230117"
@@ -47,14 +47,14 @@ Azure AD id 저장소로 사용 하 여 Azure Stack을 배포한 경우 Azure에
 
 1. [Azure Portal](https://portal.azure.com)을 통해 Azure 계정에 로그인합니다.
 2. 선택 **Azure Active Directory** > **앱 등록** > **새 응용 프로그램 등록**   
-3. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 응용 프로그램 유형으로 **웹앱/API** 또는 **네이티브**를 선택합니다. 값을 설정한 후 **만들기**를 선택합니다.
+3. 애플리케이션에 대한 이름 및 URL을 제공합니다. 만들려는 애플리케이션 유형으로 **웹앱/API** 또는 **네이티브**를 선택합니다. 값을 설정한 후 **만들기**를 선택합니다.
 
 응용 프로그램에 대 한 서비스 주체를 만들었습니다.
 
 ### <a name="get-credentials"></a>자격 증명 가져오기
 응용 프로그램 및 웹 앱에 대 한 ID를 사용 하 프로그래밍 방식으로 로그인 할 때 / API, 인증 키입니다. 이러한 값을 가져오려면 다음 단계를 사용합니다.
 
-1. Active Directory의 **앱 등록**에서 응용 프로그램을 선택합니다.
+1. Active Directory의 **앱 등록**에서 애플리케이션을 선택합니다.
 
 2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. [샘플 응용 프로그램](#sample-applications) 섹션의 응용 프로그램은 이 값을 클라이언트 ID로 참조합니다.
 
@@ -175,13 +175,13 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 ```
 
 ## <a name="assign-role-to-service-principal"></a>서비스 주체에 역할 할당
-구독의 리소스에 액세스하려면 역할에 응용 프로그램을 할당해야 합니다. 응용 프로그램에 적합한 사용 권한을 나타내는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
+구독의 리소스에 액세스하려면 역할에 애플리케이션을 할당해야 합니다. 응용 프로그램에 적합한 사용 권한을 나타내는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 응용 프로그램에 리소스 그룹에 대한 읽기 권한자 역할을 추가하면 응용 프로그램이 리소스 그룹과 그 안에 포함된 모든 리소스를 읽을 수 있습니다.
 
 1. Azure Stack 포털에서 응용 프로그램을 할당 하려는 범위 수준으로 이동 합니다. 예를 들어 구독 범위에서 역할을 할당하려면 **구독**을 선택합니다. 대신 리소스 그룹 또는 리소스를 선택할 수 있습니다.
 
-2. 응용 프로그램을 할당할 특정 구독(리소스 그룹 또는 리소스)을 선택합니다.
+2. 애플리케이션을 할당할 특정 구독(리소스 그룹 또는 리소스)을 선택합니다.
 
      ![할당을 위한 구독 선택](./media/azure-stack-create-service-principal/image16.png)
 
@@ -191,9 +191,9 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 
 4. **추가**를 선택합니다.
 
-5. 응용 프로그램에 할당할 역할을 선택합니다.
+5. 애플리케이션에 할당할 역할을 선택합니다.
 
-6. 응용 프로그램을 검색하고 선택합니다.
+6. 애플리케이션을 검색하고 선택합니다.
 
 7. **확인**을 선택하여 역할 할당을 완료합니다. 목록에서 해당 범위에 대한 역할에 할당된 사용자 목록에 응용 프로그램이 표시될 것입니다.
 

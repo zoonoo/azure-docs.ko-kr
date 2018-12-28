@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory와 응용 프로그램 통합
+title: Azure Active Directory와 애플리케이션 통합
 description: Azure AD(Azure Active Directory)에서 응용 프로그램을 업데이트하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -71,7 +71,7 @@ Azure AD(Azure Active Directory)를 통해 응용 프로그램을 등록한 엔�
 5. 클라이언트에서 리소스 API에 액세스하는 사용 권한을 추가하려면
   1. **설정** 페이지에서 **필요한 사용 권한**을 선택한 다음, **추가**를 선택합니다.
   1. **API 선택**을 선택하고 선택할 리소스 유형을 선택합니다.
-  1. 사용 가능한 API 목록을 탐색하거나 검색 상자를 사용하여 Web API를 공개하는 디렉터리에서 사용 가능한 리소스 응용 프로그램 중에서 선택할 수 있습니다. 관심 있는 리소스를 선택한 다음, **선택**을 클릭합니다.
+  1. 사용 가능한 API 목록을 탐색하거나 검색 상자를 사용하여 Web API를 공개하는 디렉터리에서 사용 가능한 리소스 애플리케이션 중에서 선택할 수 있습니다. 관심 있는 리소스를 선택한 다음, **선택**을 클릭합니다.
   1. **액세스 사용** 페이지에서 API에 액세스할 때 응용 프로그램에서 필요로 하는 응용 프로그램 사용 권한 및/또는 위임된 사용 권한을 선택합니다.
    
   ![애플리케이션의 등록 업데이트 - permissions api](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
@@ -82,7 +82,7 @@ Azure AD(Azure Active Directory)를 통해 응용 프로그램을 등록한 엔�
 
 ## <a name="configuring-a-resource-application-to-expose-web-apis"></a>웹 API를 공개하는 리소스 응용 프로그램 구성
 
-액세스 [범위](developer-glossary.md#scopes) 및 [역할](developer-glossary.md#roles)을 공개하면 웹 API를 개발하고 클라이언트 애플리케이션에서 사용할 수 있게 만들 수 있습니다. 올바르게 구성된 웹 API는 Graph API 및 Office 365 API와 같은 다른 Microsoft 웹 API와 마찬가지로 사용 가능합니다. 액세스 범위와 역할은 [응용 프로그램의 매니페스트](developer-glossary.md#application-manifest)를 통해 공개되며, 이 매니페스트는 응용 프로그램의 ID 구성을 나타내는 JSON 파일입니다.
+액세스 [범위](developer-glossary.md#scopes) 및 [역할](developer-glossary.md#roles)을 공개하면 웹 API를 개발하고 클라이언트 애플리케이션에서 사용할 수 있게 만들 수 있습니다. 올바르게 구성된 웹 API는 Graph API 및 Office 365 API와 같은 다른 Microsoft 웹 API와 마찬가지로 사용 가능합니다. 액세스 범위와 역할은 [애플리케이션의 매니페스트](developer-glossary.md#application-manifest)를 통해 공개되며, 이 매니페스트는 애플리케이션의 ID 구성을 나타내는 JSON 파일입니다.
 
 다음 섹션에서는 리소스 응용 프로그램의 매니페스트를 수정하여 액세스 범위를 공개하는 방법을 보여줍니다.
 
@@ -131,7 +131,7 @@ Azure AD(Azure Active Directory)를 통해 응용 프로그램을 등록한 엔�
 
   ![새 사용 권한이 표시됨](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
 
-### <a name="more-on-the-application-manifest"></a>응용프로그램 매니페스트에 대한 추가 정보
+### <a name="more-on-the-application-manifest"></a>애플리케이션 매니페스트에 대한 추가 정보
 
 응용 프로그램 매니페스트는 설명한 API 액세스 범위를 포함하여, Azure AD 응용 프로그램의 ID 구성의 모든 특성을 정의하는 응용 프로그램 엔터티를 업데이트하기 위한 메커니즘으로 사용됩니다. 응용 프로그램 엔터티 및 해당 스키마에 대한 자세한 내용은 [Graph API 응용 프로그램 엔터티 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)를 참조하세요. 이 문서에는 다음을 비롯하여 API에 대한 사용 권한을 지정하는 데 사용되는 응용 프로그램 엔터티 멤버에 대한 전체 참조 정보가 포함됩니다.  
 
@@ -147,9 +147,9 @@ Azure AD(Azure Active Directory)를 통해 응용 프로그램을 등록한 엔�
 Microsoft Graph API에서 노출되는 범위에 대한 자세한 내용은 [Microsoft Graph 권한 참조](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) 문서를 참조하세요.
 
 > [!NOTE]
-> 현재 제한으로 인해 네이티브 클라이언트 응용 프로그램이 “조직의 디렉터리 액세스" 권한을 사용하는 경우 Azure AD 그래프 API만 호출할 수 있습니다. 이 제한은 웹 응용 프로그램에는 적용되지 않습니다.
+> 현재 제한으로 인해 네이티브 클라이언트 애플리케이션이 “조직의 디렉터리 액세스” 권한을 사용하는 경우 Azure AD 그래프 API만 호출할 수 있습니다. 이 제한은 웹 응용 프로그램에는 적용되지 않습니다.
 
-## <a name="configuring-multi-tenant-applications"></a>다중 테넌트 응용 프로그램 구성
+## <a name="configuring-multi-tenant-applications"></a>다중 테넌트 애플리케이션 구성
 
 Azure AD에서 응용 프로그램을 등록하는 경우 조직 내의 사용자만 해당 응용 프로그램에 액세스할 수 있도록 제한하는 것이 좋습니다. 또는 외부 조직의 사용자가 응용 프로그램에 액세스할 수 있게 만들 수도 있습니다. 이러한 두 응용 프로그램 종류를 단일 테넌트 및 다중 테넌트 응용 프로그램이라고 합니다. 이 섹션에서는 단일 테넌트 응용 프로그램의 구성을 다중 테넌트 응용 프로그램으로 수정하는 방법을 설명합니다.
 
@@ -166,7 +166,7 @@ Azure AD에서 응용 프로그램을 등록하는 경우 조직 내의 사용�
 
 > [!IMPORTANT]
 > Azure AD에서는 다중 테넌트 응용 프로그램의 앱 ID URI가 전역적으로 고유해야 합니다. 앱 ID URI는 프로토콜 메시지에서 응용 프로그램을 식별하는 방법 중 하나입니다. 단일 테넌트 응용 프로그램의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다. 다중 테넌트 응용 프로그램의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 응용 프로그램을 찾을 수 있습니다.
-> 앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다. 예를 들어, 테넌트의 이름이 contoso.onmicrosoft.com이라면 유효한 앱 ID URI은 https://contoso.onmicrosoft.com/myapp이 될 것입니다. 테넌트에 contoso.com이라는 확인된 도메인이 있으면 유효한 앱 ID URI도 https://contoso.com/myapp이 됩니다. 앱 ID URI가 이 패턴을 따르지 않으면 응용 프로그램을 다중 테넌트로 설정하지 못합니다.
+> 앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다. 예를 들어, 테넌트의 이름이 contoso.onmicrosoft.com이라면 유효한 앱 ID URI은 https://contoso.onmicrosoft.com/myapp이 될 것입니다. 테넌트에 contoso.com이라는 확인된 도메인이 있으면 유효한 앱 ID URI도 https://contoso.com/myapp이 됩니다. 앱 ID URI가 이 패턴을 따르지 않으면 애플리케이션을 다중 테넌트로 설정하지 못합니다.
 
 응용 프로그램에 액세스하는 기능을 외부 사용자에게 부여하려면:
 
@@ -179,12 +179,12 @@ Azure AD에서 응용 프로그램을 등록하는 경우 조직 내의 사용�
 
 ### <a name="changing-the-application-to-support-multi-tenant"></a>다중 테넌트를 지원하도록 응용 프로그램 변경
 
-다중 테넌트 애플리케이션에 대한 지원은 Azure AD 동의 프레임워크에 크게 의존합니다. 동의는 다른 테넌트의 사용자가 사용자의 테넌트에서 보호되는 리소스에 대한 응용 프로그램 액세스 권한을 부여할 수 있게 하는 메커니즘입니다. 이 환경은 "사용자 동의"라고 합니다.
+다중 테넌트 애플리케이션에 대한 지원은 Azure AD 동의 프레임워크에 크게 의존합니다. 동의는 다른 테넌트의 사용자가 사용자의 테넌트에서 보호되는 리소스에 대한 애플리케이션 액세스 권한을 부여할 수 있게 하는 메커니즘입니다. 이 환경은 "사용자 동의"라고 합니다.
 
 웹 응용 프로그램은 다음 기능을 제공할 수도 있습니다.
 
 - 관리자가 "회사를 등록"하는 기능 "관리자 동의"라고 하는 이 환경은 조직의 *모든 사용자*를 대신하여 관리자에게 동의를 부여할 수 있는 기능을 제공합니다. 전역 관리자 역할에 속해 있는 계정으로 인증하는 사용자만이 관리자 동의를 제공할 수 있으며, 다른 사용자에게는 오류가 발생합니다.
-- 사용자의 등록 환경입니다. 사용자에게 Azure AD OAuth2.0 `/authorize` 엔드포인트 또는 OpenID Connect `/userinfo` 엔드포인트에 브라우저를 리디렉션하는 "등록" 단추를 제공할 예정입니다. 이러한 엔드포인트는 id_token을 검사하여 응용 프로그램이 새 사용자에 대한 정보를 얻을 수 있도록 지원합니다. 등록 단계를 따라 [동의 프레임워크 개요](#overview-of-the-consent-framework) 섹션에 표시된 프롬프트와 유사한 동의 프롬프트가 사용자에게 표시됩니다.
+- 사용자의 등록 환경입니다. 사용자에게 Azure AD OAuth2.0 `/authorize` 엔드포인트 또는 OpenID Connect `/userinfo` 엔드포인트에 브라우저를 리디렉션하는 "등록" 단추를 제공할 예정입니다. 이러한 엔드포인트는 id_token을 검사하여 애플리케이션이 새 사용자에 대한 정보를 얻을 수 있도록 지원합니다. 등록 단계를 따라 [동의 프레임워크 개요](#overview-of-the-consent-framework) 섹션에 표시된 프롬프트와 유사한 동의 프롬프트가 사용자에게 표시됩니다.
 
 다중 테넌트 액세스 및 로그인/등록 환경을 지원하는 데 필요한 응용 프로그램 변경 내용에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -196,7 +196,7 @@ Azure AD에서 응용 프로그램을 등록하는 경우 조직 내의 사용�
 
 SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 실행되는 JavaScript 기반 프런트 엔드로 구성됩니다. 이는 응용 프로그램의 웹 API 백 엔드를 호출하여 비즈니스 논리를 수행합니다. Azure AD에서 호스트되는 SPA의 경우, OAuth 2.0 암시적 권한 부여를 사용하여 Azure AD에서 사용자를 인증하고, 응용 프로그램의 JavaScript 클라이언트에서 해당 백 엔드 웹 API로의 보안 호출을 사용할 수 있는 토큰을 가져옵니다.
 
-사용자가 승인하면 이 동일한 인증 프로토콜을 사용하여 클라이언트와 응용 프로그램에 대해 구성된 다른 웹 API 리소스 간의 보안 호출을 위해 토큰을 가져올 수 있습니다. 암시적 권한 부여에 관한 자세한 내용을 확인하고 자신의 응용 프로그램 시나리오에 적절한지 판단하려면 [Azure Active Directory에서 OAuth2 암시적 권한 부여 흐름 이해](v1-oauth2-implicit-grant-flow.md)를 참조하세요.
+사용자가 승인하면 이 동일한 인증 프로토콜을 사용하여 클라이언트와 애플리케이션에 대해 구성된 다른 웹 API 리소스 간의 보안 호출을 위해 토큰을 가져올 수 있습니다. 암시적 권한 부여에 관한 자세한 내용을 확인하고 자신의 애플리케이션 시나리오에 적절한지 판단하려면 [Azure Active Directory에서 OAuth2 암시적 권한 부여 흐름 이해](v1-oauth2-implicit-grant-flow.md)를 참조하세요.
 
 기본적으로 응용 프로그램에 대해 OAuth 2.0 암시적 허용이 사용되지 않도록 설정됩니다. 해당 [응용 프로그램 매니페스트](reference-app-manifest.md)에서 `oauth2AllowImplicitFlow` 값을 설정하여 응용 프로그램에 OAuth 2.0 암시적 권한 부여를 사용할 수 있습니다.
 

@@ -23,7 +23,7 @@ ms.locfileid: "51636679"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>클라이언트 인증에 대한 Azure Active Directory 설정
 
-Azure에서 실행 중인 클라이언트의 경우 관리 엔드포인트에 대한 액세스를 보호하려면 Azure AD(Azure Active Directory)가 좋습니다.  이 문서에서는 Service Fabric 클러스터에 대한 클라이언트를 인증하려면 [클러스터를 만들기](service-fabric-cluster-creation-via-arm.md) 전에 수행해야 하는 Azure AD를 설정하는 방법에 대해 설명합니다.  조직(테넌트)에서는 Azure AD를 사용하여 응용 프로그램에 대한 사용자 액세스를 관리할 수 있습니다. 응용 프로그램은 웹 기반 로그인 UI를 갖는 항목과 네이티브 클라이언트 환경을 갖는 항목으로 나뉩니다. 이 문서에서는 이미 테넌트를 만들었다고 가정합니다. 그러지 않은 경우 [Azure Active Directory 테넌트를 얻는 방법][active-directory-howto-tenant]을 참조하세요.
+Azure에서 실행 중인 클라이언트의 경우 관리 엔드포인트에 대한 액세스를 보호하려면 Azure AD(Azure Active Directory)가 좋습니다.  이 문서에서는 Service Fabric 클러스터에 대한 클라이언트를 인증하려면 [클러스터를 만들기](service-fabric-cluster-creation-via-arm.md) 전에 수행해야 하는 Azure AD를 설정하는 방법에 대해 설명합니다.  조직(테넌트)에서는 Azure AD를 사용하여 애플리케이션에 대한 사용자 액세스를 관리할 수 있습니다. 애플리케이션은 웹 기반 로그인 UI를 갖는 항목과 네이티브 클라이언트 환경을 갖는 항목으로 나뉩니다. 이 문서에서는 이미 테넌트를 만들었다고 가정합니다. 그러지 않은 경우 [Azure Active Directory 테넌트를 얻는 방법][active-directory-howto-tenant]을 참조하세요.
 
 ## <a name="create-azure-ad-applications"></a>Azure AD 응용 프로그램 만들기
 Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer][service-fabric-visualizing-your-cluster] 및 [Visual Studio][service-fabric-manage-application-in-visual-studio]를 포함하여 관리 기능에 대한 여러 진입점을 제공합니다. 결과적으로 두 개의 Azure AD 애플리케이션(웹 애플리케이션과 네이티브 애플리케이션)을 만들어 클러스터에 대한 액세스를 제어합니다.  응용 프로그램을 만든 후 읽기 전용 및 관리자 역할에 사용자를 할당합니다.
@@ -47,13 +47,13 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 
 PowerShell 명령 `Get-AzureSubscription`을 실행하여 TenantId를 찾을 수 있습니다. 이 명령을 실행하면 모든 구독에 대한 TenantId가 표시됩니다.
 
-ClusterName은 스크립트로 만든 Azure AD 응용 프로그램에 접두사를 지정하는 데 사용됩니다. 실제 클러스터 이름과 정확히 일치할 필요는 없습니다. 단순히 Azure AD 아티팩트를, 함께 사용할 Service Fabric 패브릭 클러스터에 쉽게 매핑하기 위한 것입니다.
+ClusterName은 스크립트로 만든 Azure AD 애플리케이션에 접두사를 지정하는 데 사용됩니다. 실제 클러스터 이름과 정확히 일치할 필요는 없습니다. 단순히 Azure AD 아티팩트를, 함께 사용할 Service Fabric 패브릭 클러스터에 쉽게 매핑하기 위한 것입니다.
 
 WebApplicationReplyUrl은 로그인을 마친 후 Azure AD가 사용자를 돌려보낼 기본 엔드포인트입니다. 이 엔드포인트를 기본적으로 다음과 같은 클러스터에 대한 Service Fabric Explorer 엔드포인트로 설정합니다.
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
-Azure AD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인하라는 메시지가 표시됩니다. 로그인한 후에는 스크립트가 Service Fabric 클러스터를 나타내는 웹 및 네이티브 응용 프로그램을 만듭니다. [Azure Portal][azure-portal]에서 테넌트의 응용 프로그램을 보면 두 개의 새 항목이 표시됩니다.
+Azure AD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인하라는 메시지가 표시됩니다. 로그인한 후에는 스크립트가 Service Fabric 클러스터를 나타내는 웹 및 네이티브 애플리케이션을 만듭니다. [Azure Portal][azure-portal]에서 테넌트의 응용 프로그램을 보면 두 개의 새 항목이 표시됩니다.
 
    * *ClusterName*\_클러스터
    * *ClusterName*\_클라이언트
@@ -71,7 +71,7 @@ Azure AD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인�
 <a name="assign-roles"></a>
 
 ## <a name="assign-users-to-roles"></a>역할에 사용자 할당
-클러스터를 나타내는 응용 프로그램을 만들었으면 사용자를 Service Fabric에서 지원하는 역할(읽기 전용 및 관리자)에 할당합니다. [Azure Portal][azure-portal]을 사용하여 역할을 할당할 수 있습니다.
+클러스터를 나타내는 애플리케이션을 만들었으면 사용자를 Service Fabric에서 지원하는 역할(읽기 전용 및 관리자)에 할당합니다. [Azure Portal][azure-portal]을 사용하여 역할을 할당할 수 있습니다.
 
 1. Azure Portal의 상단 오른쪽 모서리에서 테넌트를 선택합니다.
 
@@ -103,7 +103,7 @@ Service Fabric Explorer에서 Azure AD에 로그인한 후 브라우저가 홈 �
 ![SFX 인증서 대화 상자][sfx-select-certificate-dialog]
 
 #### <a name="reason"></a>이유
-Azure AD 클러스터 응용 프로그램에서 사용자에게 역할이 할당되지 않았습니다. 이 때문에 Service Fabric 클러스터에서 Azure AD 인증이 실패합니다. Service Fabric Explorer는 인증서 인증으로 대체됩니다.
+Azure AD 클러스터 애플리케이션에서 사용자에게 역할이 할당되지 않았습니다. 이 때문에 Service Fabric 클러스터에서 Azure AD 인증이 실패합니다. Service Fabric Explorer는 인증서 인증으로 대체됩니다.
 
 #### <a name="solution"></a>해결 방법
 Azure AD 설정 지침을 따르고 사용자 역할을 할당합니다. 또한 `SetupApplications.ps1`에서처럼 “앱에 액세스하려면 사용자 할당 필요”를 살펴보는 것이 좋습니다.
@@ -117,12 +117,12 @@ PowerShell을 사용하여 “AzureActiveDirectory”보안 모드로 클러스�
 
 ### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>로그인할 때 Service Fabric Explorer가 실패를 반환함: "AADSTS50011"
 #### <a name="problem"></a>문제
-Service Fabric Explorer에서 Azure AD에 로그인할 때 페이지가 "AADSTS50011: 회신 주소 &lt;url&gt;이 응용 프로그램 &lt;guid&gt;에 대해 구성된 회신 주소와 일치하지 않습니다.”라는 실패를 반환합니다.
+Service Fabric Explorer에서 Azure AD에 로그인할 때 페이지가 "AADSTS50011: 회신 주소 &lt;url&gt;이 애플리케이션 &lt;guid&gt;에 대해 구성된 회신 주소와 일치하지 않습니다."라는 실패를 반환합니다.
 
 ![SFX 회신 주소가 일치하지 않습니다.][sfx-reply-address-not-match]
 
 #### <a name="reason"></a>이유
-Service Fabric Explorer를 나타내는 클러스터(웹) 응용 프로그램이 Azure AD에 대해 인증을 시도하며, 해당 요청의 일부로 리디렉션 반환 URL을 제공합니다. 그렇지만 Azure AD 응용 프로그램 **REPLY URL** 목록에 표시되지 않습니다.
+Service Fabric Explorer를 나타내는 클러스터(웹) 애플리케이션이 Azure AD에 대해 인증을 시도하며, 해당 요청의 일부로 리디렉션 반환 URL을 제공합니다. 그렇지만 Azure AD 애플리케이션 **REPLY URL** 목록에 표시되지 않습니다.
 
 #### <a name="solution"></a>해결 방법
 AAD 페이지에서 “앱 등록”을 선택하고, 클러스터 애플리케이션을 선택한 다음, **회신 URL** 단추를 선택합니다. “회신 URL” 페이지에서 Service Fabric Explorer URL을 목록에 추가하거나 목록의 항목 중 하나를 대체합니다. 마친 후 변경 사항을 저장합니다.
@@ -139,7 +139,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalIn
 자세한 내용은 [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster)를 참조하세요.
 
 ### <a name="can-i-reuse-the-same-azure-ad-tenant-in-multiple-clusters"></a>여러 클러스터에서 동일한 Azure AD테넌트를 다시 사용할 수 있나요?
-예. 그렇지만 Service Fabric Explorer의 URL을 클러스터(웹) 응용 프로그램에 추가해야 합니다. 그러지 않으면 Service Fabric Explorer가 작동하지 않습니다.
+예. 그렇지만 Service Fabric Explorer의 URL을 클러스터(웹) 애플리케이션에 추가해야 합니다. 그러지 않으면 Service Fabric Explorer가 작동하지 않습니다.
 
 ### <a name="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled"></a>Azure AD가 사용되도록 설정된 경우에도 서버 인증서가 계속 필요한 이유는 무엇인가요?
 FabricClient와 FabricGateway는 상호 인증을 수행합니다. Azure AD 인증 중에는 Azure AD 통합은 서버에 클라이언트 ID를 제공하고 서버 인증서가 서버 ID를 확인하는 데 사용됩니다. Service Fabric 인증서에 대한 자세한 내용은 [X.509 인증서 및 Service Fabric][x509-certificates-and-service-fabric]을 참조하세요.

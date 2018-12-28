@@ -63,7 +63,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
 
-2. 이미 LucidChart에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 LucidChart의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **LucidChart**를 검색합니다. 검색 결과에서 LucidChart를 선택하고 응용 프로그램 목록에 추가합니다.
+2. 이미 LucidChart에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 LucidChart의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **LucidChart**를 검색합니다. 검색 결과에서 LucidChart를 선택하고 애플리케이션 목록에 추가합니다.
 
 3. LucidChart의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 

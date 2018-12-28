@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: 634563a2010562e20691abae132dc7540ef8faf2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b51f2850a925fcd9daf3a07d8db66193555df0fa
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632707"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000252"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -34,7 +34,7 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 
 Media Services를 사용하여 주문형 또는 라이브 스트림을 제공하려면 최소한 하나의 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)가 있어야 합니다. Media Services 계정이 만들어지면 **기본** StreamingEndpoint가 계정에 **중지됨** 상태로 추가됩니다. 뷰어에 콘텐츠를 스트리밍할 StreamingEndpoint를 시작해야 합니다. 기본 **StreamingEndpoint**를 사용하거나 원하는 구성 및 CDN 설정으로 사용자 지정된 다른 **StreamingEndpoint**를 만들 수 있습니다. 각각이 서로 다른 CDN을 대상으로 하는 여러 개의 StreamingEndpoint를 사용하도록 지정하고 콘텐츠 전달을 위한 고유한 호스트 이름을 제공할 수도 있습니다. 
 
-Media Services에서 [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents)는 라이브 비디오 피드 수집 및 처리를 담당합니다. LiveEvent를 만들면 원격 인코더에서 라이브 신호를 보내는 데 사용할 수 있는 입력 엔드포인트가 생성됩니다. 원격 라이브 인코더는 [RTMP](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) 또는 [부드러운 스트리밍](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming#Microsoft_Smooth_Streaming)(조각난 MP4) 프로토콜을 사용하여 이 입력 엔드포인트에 기여 피드를 전송합니다.  
+Media Services에서 [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents)는 라이브 비디오 피드 수집 및 처리를 담당합니다. LiveEvent를 만들면 원격 인코더에서 라이브 신호를 보내는 데 사용할 수 있는 입력 엔드포인트가 생성됩니다. 원격 라이브 인코더는 [RTMP](https://www.adobe.com/devnet/rtmp.html) 또는 [부드러운 스트리밍](https://msdn.microsoft.com/library/ff469518.aspx)(조각난 MP4) 프로토콜을 사용하여 이 입력 엔드포인트에 기여 피드를 전송합니다.  
 
 **LiveEvent**가 기여 피드를 수신하기 시작하면 미리 보기 엔드포인트(미리 보기 URL)를 사용하여 추가 게시 전에 라이브 스트림을 수신하고 있음을 미리 보고 확인할 수 있습니다. 미리 보기 스트림이 양호한지 확인한 후에는 LiveEvent를 사용하여 하나 이상의 (미리 생성된) **StreamingEndpoint**를 통해 라이브 스트림을 전달 가능하도록 만들 수 있습니다. 이를 수행하려면 **LiveEvent**에 새 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 만듭니다. 
 
@@ -83,7 +83,7 @@ H.264/AVC 비디오 코덱과 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 �
 
 ## <a name="liveevent-types-comparison"></a>LiveEvent 형식 비교
 
-[비교](live-event-types-comparison.md) 문서에는 두 LiveEvent 형식의 기능을 비교하는 표가 나와 있습니다.
+다음 문서에는 두 LiveEvent 형식의 기능을 비교하는 표가 나와 있습니다. [비교](live-event-types-comparison.md).
 
 ## <a name="liveoutput"></a>LiveOutput
 

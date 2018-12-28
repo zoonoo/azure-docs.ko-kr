@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Azure Active Directory 응용 프로그램 프록시 배포 | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Azure Active Directory 애플리케이션 프록시 배포 | Microsoft Docs'
 description: Azure Active Directory Domain Services 관리되는 도메인에서 Azure AD 응용 프로그램 프록시 사용
 services: active-directory-ds
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 96ef005f095e5ab774a88ec766080f647414a7ce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4621122d805f37be1578aa7b7c9ae059f3141c77
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155544"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840302"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에서 Azure AD 응용 프로그램 프록시 배포
 Azure AD(Active Directory) 응용 프로그램 프록시를 사용하면 인터넷을 통해 액세스할 수 있는 온-프레미스 응용 프로그램을 게시하여 원격 작업자를 지원할 수 있습니다. 이제 Azure AD Domain Services를 통해 온-프레미스를 운영 중인 레거시 응용 프로그램을 Azure Infrastructure Services로 전환할 수 있습니다. 그러면 Azure AD 응용 프로그램 프록시를 사용하는 이러한 응용 프로그램을 게시하여 조직 내 사용자에게 안전한 원격 액세스를 제공할 수 있습니다.
 
-Azure AD 응용 프로그램 프록시를 처음 사용하는 경우 다음에 나오는 [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](../active-directory/manage-apps/application-proxy.md) 문서에서 이 기능에 대해 자세히 알아보세요.
+Azure AD 애플리케이션 프록시를 처음 사용하는 경우 다음에 나오는 [온-프레미스 애플리케이션에 보안된 원격 액세스를 제공하는 방법](../active-directory/manage-apps/application-proxy.md) 문서에서 이 기능에 대해 자세히 알아보세요.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -42,7 +42,7 @@ Azure AD 응용 프로그램 프록시를 처음 사용하는 경우 다음에 �
 ## <a name="task-1---enable-azure-ad-application-proxy-for-your-azure-ad-directory"></a>작업 1 - Azure AD Directory에 대한 Azure AD 응용 프로그램 프록시 활성화
 다음 단계를 수행하여 Azure AD Directory에 대해 Azure AD 응용 프로그램 프록시를 사용하도록 설정합니다.
 
-1. [Azure Portal](http://portal.azure.com)에서 관리자로 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에서 관리자로 로그인합니다.
 
 2. **Azure Active Directory**를 클릭하여 디렉터리 개요를 표시합니다. **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -96,9 +96,9 @@ Azure AD Domain Services 관리되는 도메인을 사용할 수 있는 동일�
 ## <a name="next-steps"></a>다음 단계
 지금까지 Azure AD 응용 프로그램 프록시를 설정하고 Azure AD Domain Services 관리되는 도메인에 통합했습니다.
 
-* **응용 프로그램을 Azure 가상 머신으로 마이그레이션:** 응용 프로그램을 온-프레미스 서버에서 관리되는 도메인에 가입된 Azure 가상 머신으로 전환할 수 있습니다. 이를 통해 온-프레미스 운영 서버의 인프라 비용을 절감할 수 있습니다.
+* **애플리케이션을 Azure 가상 머신으로 마이그레이션:** 애플리케이션을 온-프레미스 서버에서 관리되는 도메인에 가입된 Azure 가상 머신으로 전환할 수 있습니다. 이를 통해 온-프레미스 운영 서버의 인프라 비용을 절감할 수 있습니다.
 
-* **Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시:** Azure AD 응용 프로그램 프록시를 사용하여 Azure 가상 머신에서 실행 중인 응용 프로그램을 게시합니다. 자세한 내용은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요.
+* **Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시:** Azure AD 애플리케이션 프록시를 사용하여 Azure 가상 머신에서 실행 중인 애플리케이션을 게시합니다. 자세한 내용은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요.
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>배포 참고 - Azure AD 응용 프로그램 프록시를 사용하여 IWA(Windows 통합 인증) 응용 프로그램 게시

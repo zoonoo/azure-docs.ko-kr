@@ -78,7 +78,7 @@ Service Bus 메시징 네임스페이스를 이미 만든 경우 [Azure Portal�
 
 항목에 메시지를 보내려면 Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 작성합니다.
 
-### <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
+### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
 Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트를 만듭니다.
 

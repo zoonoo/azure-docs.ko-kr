@@ -63,11 +63,11 @@ HR2day by Merces와의 Azure AD 통합을 구성하려면 갤러리의 HR2day by
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 선택합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 선택합니다.
 
     ![애플리케이션][3]
 
@@ -75,7 +75,7 @@ HR2day by Merces와의 Azure AD 통합을 구성하려면 갤러리의 HR2day by
 
     ![Azure AD 테스트 사용자 만들기](./media/hr2day-tutorial/tutorial_hr2daybymerces_search.png)
 
-1. 결과 패널에서 **HR2day by Merces**를 선택하고 **추가** 단추를 선택하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **HR2day by Merces**를 선택하고 **추가** 단추를 선택하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/hr2day-tutorial/tutorial_hr2daybymerces_addfromgallery.png)
 
@@ -96,11 +96,11 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 HR2day by Merces 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 HR2day by Merces 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **HR2day by Merces에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **HR2day by Merces** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. Azure Portal의 **HR2day by Merces** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![Single Sign-on 구성][4]
 
@@ -127,7 +127,7 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 1. 이 섹션에서는 사용자가 Azure AD의 계정으로 HR2day by Merces에 인증할 수 있게 하는 방법을 설명합니다. SAML 프로토콜을 기반으로 하는 페더레이션을 사용하여 이를 수행합니다.
 
-    HR2day by Merces 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 
+    HR2day by Merces 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 
 
     ![Single Sign-On 구성](./media/hr2day-tutorial/tutorial_hr2day_00.png)
     
@@ -166,7 +166,7 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Single Sign-On 구성](./media/hr2day-tutorial/tutorial_hr2daybymerces_configure.png) 
 
-1. 응용 프로그램에 대한 SSO를 구성하려면 [HR2day by Merces 클라이언트 지원 팀](mailTo:servicedesk@merces.nl)에 문의합니다. 다운로드한 **인증서(Base64)** 파일을 사용자의 이메일에 연결합니다. 또한 SSO 통합을 위해 구성할 수 있도록 **로그아웃 URL**, **SAML 엔터티 ID** 및 **SAML Single Sign-On 서비스 URL**을 제공합니다.
+1. 애플리케이션에 대한 SSO를 구성하려면 [HR2day by Merces 클라이언트 지원 팀](mailTo:servicedesk@merces.nl)에 문의합니다. 다운로드한 **인증서(Base64)** 파일을 사용자의 이메일에 연결합니다. 또한 SSO 통합을 위해 구성할 수 있도록 **로그아웃 URL**, **SAML 엔터티 ID** 및 **SAML Single Sign-On 서비스 URL**을 제공합니다.
 
     > [!NOTE]
     >이 통합에는 **https://hr2day.force.com/INSTANCENAME** 패턴을 사용하여 설정되는 엔터티 ID가 필요하다고 Merces 팀에 알립니다.
@@ -221,11 +221,11 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 **Britta Simon을 HR2day by Merces에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 열고 디렉터리 보기로 이동한 다음 **엔터프라이즈 응용 프로그램**으로 이동합니다. 다음으로 **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 애플리케이션 보기를 열고, 디렉터리 보기로 이동한 다음, **엔터프라이즈 애플리케이션**으로 이동합니다. 다음으로 **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **HR2day by Merces**를 선택합니다.
+1. 애플리케이션 목록에서 **HR2day by Merces**를 선택합니다.
 
     ![Single Sign-On 구성](./media/hr2day-tutorial/tutorial_hr2daybymerces_app.png) 
 
@@ -247,7 +247,7 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.  
 
-액세스 패널에서 HR2day by Merces 타일을 선택하면 HR2day by Merces 응용 프로그램에 자동으로 로그인됩니다.
+액세스 패널에서 HR2day by Merces 타일을 선택하면 HR2day by Merces 애플리케이션에 자동으로 로그인됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

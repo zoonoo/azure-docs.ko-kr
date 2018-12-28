@@ -158,7 +158,7 @@ _\<compute target name>.compute_ 파일은 계산 대상에 대한 연결 및 �
 **pythonLocation**: 컴퓨터 대상에서 사용자의 프로그램을 실행하는 데 사용할 Python 런타임의 위치를 지정합니다. 
 
 ### <a name="run-configuration-namerunconfig"></a>\<run configuration name>.runconfig
-_\<run configuration name>.runconfig_는 Azure ML 실험 실행 동작을 지정합니다. 실행 기록 추적 또는 많은 다른 대상과 함께 사용할 계산 대상 등과 같은 실행 동작을 구성할 수 있습니다. 실행 구성 파일의 이름은 Azure ML Workbench 데스크톱 응용 프로그램에서 실행 컨텍스트 드롭다운을 채우는 데 사용됩니다.
+_\<run configuration name>.runconfig_는 Azure ML 실험 실행 동작을 지정합니다. 실행 기록 추적 또는 많은 다른 대상과 함께 사용할 계산 대상 등과 같은 실행 동작을 구성할 수 있습니다. 실행 구성 파일의 이름은 Azure ML Workbench 데스크톱 애플리케이션에서 실행 컨텍스트 드롭다운을 채우는 데 사용됩니다.
 
 **ArgumentVector**: 이 섹션은 이 실행의 일부로 실행할 스크립트 및 해당 스크립트에 대한 매개 변수를 지정합니다. 예를 들어 "<run configuration name>.runconfig" 파일에 다음과 같은 코드 조각이 있는 경우 
 

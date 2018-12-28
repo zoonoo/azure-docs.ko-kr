@@ -22,13 +22,13 @@ ms.locfileid: "49648601"
 
 Traffic Manager에는 Traffic Manager가 각 최종 사용자의 트래픽을 수신할 엔드포인트를 선택하는 방법을 제어할 수 있는 다양한 트래픽 라우팅 방법이 포함되어 있습니다. 자세한 내용은 [Traffic Manager 트래픽 라우팅 방법](traffic-manager-routing-methods.md)을 참조하세요.
 
-각 Traffic Manager 프로필은 단일 트래픽 라우팅 방법을 지정합니다. 그러나 단일 Traffic Manager 프로필에서 제공하는 것보다 더 정교한 트래픽 라우팅을 요구하는 시나리오가 있습니다. 둘 이상의 트래픽 라우팅 메서드의 장점을 결합하기 위해 Traffic Manager 프로필을 중첩할 수 있습니다. 중첩된 프로필을 사용하여 더 크고 복잡한 응용 프로그램 배포를 지원하기 위해 기본 Traffic Manager 동작을 재정의할 수 있습니다.
+각 Traffic Manager 프로필은 단일 트래픽 라우팅 방법을 지정합니다. 그러나 단일 Traffic Manager 프로필에서 제공하는 것보다 더 정교한 트래픽 라우팅을 요구하는 시나리오가 있습니다. 둘 이상의 트래픽 라우팅 메서드의 장점을 결합하기 위해 Traffic Manager 프로필을 중첩할 수 있습니다. 중첩된 프로필을 사용하여 더 크고 복잡한 애플리케이션 배포를 지원하기 위해 기본 Traffic Manager 동작을 재정의할 수 있습니다.
 
 다음 예제에서는 다양한 시나리오에서 중첩 Traffic Manager 프로필을 사용하는 방법을 보여 줍니다.
 
 ## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>예제 1: '성능' 및 '가중' 트래픽 라우팅 결합
 
-응용 프로그램이 미국 서부, 유럽 서부 및 동아시아 등의 Azure 지역에 배포되었다고 가정합니다. Traffic Manager의 '성능' 트래픽 라우팅 방법을 사용하여 사용자에게 가장 가까운 지역으로 트래픽을 분산합니다.
+애플리케이션이 미국 서부, 유럽 서부 및 동아시아 등의 Azure 지역에 배포되었다고 가정합니다. Traffic Manager의 '성능' 트래픽 라우팅 방법을 사용하여 사용자에게 가장 가까운 지역으로 트래픽을 분산합니다.
 
 ![단일 Traffic Manager 프로필][4]
 

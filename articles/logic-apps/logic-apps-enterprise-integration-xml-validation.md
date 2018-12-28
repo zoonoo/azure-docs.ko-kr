@@ -51,7 +51,7 @@ ms.locfileid: "43121116"
 
     ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
 
-이제 유효성 검사 커넥터 설정이 끝났습니다. 실제 응용 프로그램에서는 유효성을 검사한 데이터를 SalesForce와 같은 LOB(기간 업무) 앱에 저장하려고 할 수도 있습니다. 유효성을 검사한 출력을 Salesforce에 보내려면 작업을 추가합니다.
+이제 유효성 검사 커넥터 설정이 끝났습니다. 실제 애플리케이션에서는 유효성을 검사한 데이터를 SalesForce와 같은 LOB(기간 업무) 앱에 저장하려고 할 수도 있습니다. 유효성을 검사한 출력을 Salesforce에 보내려면 작업을 추가합니다.
 
 유효성 검사 작업을 테스트하려면 HTTP 엔드포인트에 대해 요청을 수행합니다.
 

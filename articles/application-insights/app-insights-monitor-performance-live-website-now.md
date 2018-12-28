@@ -9,20 +9,19 @@ ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 275eb5f32def94fa974f0cb180b9de9dcedf1a00
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: abc3d5832cd85cb3297077f2d661ec8fe32fde9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230923"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105294"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights를 사용한 런타임 시 웹앱 계측
 
-코드를 수정하거나 다시 배포할 필요 없이 Azure Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. 앱이 온-프레미스 IIS 서버에서 호스트되는 경우 상태 모니터를 설치합니다. Azure 웹앱이거나 Azure VM에서 실행되는 경우 Azure 제어판의 Application Insights 모니터링에서 전환할 수 있습니다. ([라이브 J2EE 웹앱](app-insights-java-live.md) 및 [Azure Cloud Services](app-insights-cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.) [Microsoft Azure](http://azure.com) 구독이 필요합니다.
+코드를 수정하거나 다시 배포할 필요 없이 Azure Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. 앱이 온-프레미스 IIS 서버에서 호스트되는 경우 상태 모니터를 설치합니다. Azure 웹앱이거나 Azure VM에서 실행되는 경우 Azure 제어판의 Application Insights 모니터링에서 전환할 수 있습니다. ([라이브 J2EE 웹앱](app-insights-java-live.md) 및 [Azure Cloud Services](app-insights-cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.) [Microsoft Azure](https://azure.com) 구독이 필요합니다.
 
 ![실패한 요청, 서버 응답 시간 및 서버 요청에 대한 정보를 포함하는 App Insights 개요 그래프 스크린샷](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
@@ -120,6 +119,7 @@ Application Insights를 코드에 추가하지 않고 다시 게시하려는 경
   * IIS 관리자에서 응용 프로그램 풀을 선택하고 **고급 설정**을 연 다음 **프로세스 모델**에서 ID를 확인합니다.
   * 컴퓨터 관리 제어판에서 성능 모니터 사용자 그룹에 이 ID를 추가합니다.
 * 서버에 MMA/SCOM(Systems Center Operations Manager)이 설치된 경우 일부 버전이 충돌할 수 있습니다. SCOm과 상태 모니터를 제거한 다음 최신 버전을 다시 설치하세요.
+* 기본적으로 이 위치에서 상태 모니터 로그를 찾을 수 있습니다. "C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
 * [문제 해결][qna]을 참조하세요.
 
 ## <a name="system-requirements"></a>시스템 요구 사항
@@ -133,9 +133,9 @@ Server에서 Application Insights 상태 모니터에 대한 OS 지원:
 
 최신 SP 및 .NET Framework 4.5 포함
 
-클라이언트 쪽 Windows 7, 8, 8.1 및 10에서, 역시 .NET Framework 4.5 포함
+클라이언트 쪽: Windows 7, 8, 8.1 및 10에서, 역시 .NET Framework 4.5 포함
 
-IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
+IIS 지원: IIS 7, 7.5, 8, 8.5(IIS가 필수임)
 
 ## <a name="automation-with-powershell"></a>PowerShell을 사용한 Automation
 IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니다.
@@ -152,7 +152,7 @@ IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지�
 * 이 IIS 서버에서 각 웹앱(또는 명명된 앱)에 대한 상태를 모니터링하여 Application Insights를 표시합니다.
 * 각 앱에 대해 `ApplicationInsightsApplication`을(를) 반환합니다.
 
-  * `SdkState==EnabledAfterDeployment`: 상태 모니터 도구 또는 `Start-ApplicationInsightsMonitoring`에서 앱을 모니터링하고 런타임 시 계측했습니다.
+  * `SdkState==EnabledAfterDeployment`: 상태 모니터 도구 또는 `Start-ApplicationInsightsMonitoring`에서 앱을 모니터링하고, 런타임 시 계측했습니다.
   * `SdkState==Disabled`: 앱이 Application insights에 대해 계측되지 않습니다. 앱을 계측하지 않았거나 상태 모니터 도구 또는 `Stop-ApplicationInsightsMonitoring`을(를) 사용하여 런타임 모니터링이 비활성화되었습니다.
   * `SdkState==EnabledByCodeInstrumentation`: 소스 코드에 SDK를 추가하여 앱을 계측했습니다. 해당 SDK은 업데이트되거나 중지될 수 없습니다.
   * `SdkVersion`은(는) 이 앱을 모니터링하는 데 사용하는 버전을 나타냅니다.
@@ -218,9 +218,12 @@ IIS 웹 서버에 설치한 데스크톱 응용 프로그램입니다. 웹앱을
 
 계측할 상태 모니터에 대한 웹앱을 선택하는 경우:
 
-* 웹앱의 이진 파일 폴더에서 Application Insights 어셈블리 및 .config 파일을 다운로드하고 저장합니다.
-* `web.config`을 수정하여 Application Insights HTTP 추적 모듈을 추가합니다.
+* 웹앱의 이진 파일 폴더에서 Application Insights 어셈블리 및 ApplicationInsights.config 파일을 다운로드하고 저장합니다.
 * CLR 프로파일링을 사용하여 종속성 호출을 수집할 수 있습니다.
+
+### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>상태 모니터에서 어떤 버전의 Application Insights SDK를 설치하나요?
+
+현재 상태 모니터는 Application Insights SDK 버전 2.3 또는 2.4만 설치할 수 있습니다.
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>앱을 업데이트할 때마다 상태 모니터를 실행해야 하나요?
 
@@ -243,7 +246,7 @@ IIS 웹 서버에 설치한 데스크톱 응용 프로그램입니다. 웹앱을
  * 종속성 호출(.NET 4.5); 종속성 호출(.NET 4.6)에 값을 반환합니다.
  * 예외 스택 추적 값
 
-[자세히 알아보기](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[자세히 알아보기](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>비디오
 

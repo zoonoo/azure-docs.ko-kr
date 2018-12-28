@@ -53,9 +53,9 @@ pip install azure-mgmt-datalake-store
 pip install azure-datalake-store
 ```
 
-## <a name="create-a-new-python-application"></a>새 Python 응용 프로그램 만들기
+## <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
-1. 원하는 IDE에서 **mysample.py**와 같이 새 Python 응용 프로그램을 만듭니다.
+1. 원하는 IDE에서 **mysample.py**와 같이 새 Python 애플리케이션을 만듭니다.
 
 2. 다음 줄을 추가하여 필요한 모듈을 가져옵니다.
 

@@ -101,7 +101,7 @@ Azure에서 DDoS 공격 시 복원이 가능한 서비스를 구축하기 위한
 
 애플리케이션 자체를 대상으로 하는 서비스 거부 공격을 처리할 수 있도록 애플리케이션의 복원력을 높이는 것이 가장 중요합니다. [SDL(Security Development Lifecycle)](https://www.microsoft.com/en-us/sdl)부터 보안 및 개인 정보 보호 기능이 Azure 플랫폼에 기본 제공됩니다. SDL은 모든 개발 단계에서 보안 문제를 해결하고 Azure를 지속적으로 업데이트하여 더욱 안전하게 보호합니다.
 
-**모범 사례**: 부하 증가(특히 DDoS 공격 발생 시) 시의 수요를 충족하기 위해 [수평 확장](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)이 가능하도록 응용 프로그램을 디자인합니다. 응용 프로그램이 서비스의 단일 인스턴스에 종속된 경우 단일 실패 지점이 생깁니다. 여러 인스턴스를 프로비전하면 시스템에 복원성 및 확장성이 증가하게 됩니다.  
+**모범 사례**: 부하 증가(특히 DDoS 공격 발생 시) 시의 수요를 충족하기 위해 [수평 확장](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)이 가능하도록 응용 프로그램을 디자인합니다. 애플리케이션이 서비스의 단일 인스턴스에 종속된 경우 단일 실패 지점이 생깁니다. 여러 인스턴스를 프로비전하면 시스템에 복원성 및 확장성이 증가하게 됩니다.  
 **세부 정보**: [Azure App Service](../app-service/app-service-value-prop-what-is.md)의 경우 여러 인스턴스를 제공하는 [App Service 플랜](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)을 선택합니다.
 
 Azure Cloud Services의 경우 각각의 역할을 [여러 인스턴스](../cloud-services/cloud-services-choose-me.md)를 사용하도록 구성합니다.

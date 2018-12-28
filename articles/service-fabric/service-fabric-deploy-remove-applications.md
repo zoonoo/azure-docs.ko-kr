@@ -192,7 +192,7 @@ Service Fabric 버전 6.1부터, 프로비전 기능은 외부 저장소에서 �
 PS C:\> Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
 ```
 
-[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 명령은 시스템에서 응용 프로그램 패키지를 성공적으로 등록한 후에만 반환합니다. 등록에 걸리는 시간은 응용 프로그램 패키지의 크기 및 콘텐츠에 따라 다릅니다. **-TimeoutSec** 매개 변수는 필요한 경우 더 긴 제한 시간을 제공합니다(기본 제한 시간은 60초).
+[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 명령은 시스템에서 응용 프로그램 패키지를 성공적으로 등록한 후에만 반환합니다. 등록에 걸리는 시간은 애플리케이션 패키지의 크기 및 콘텐츠에 따라 다릅니다. **-TimeoutSec** 매개 변수는 필요한 경우 더 긴 제한 시간을 제공합니다(기본 제한 시간은 60초).
 
 대형 응용 프로그램 패키지가 있거나 시간 제한이 발생하는 경우 **-Async** 매개 변수를 사용합니다. 이 명령은 클러스터가 register 명령을 수락할 때 반환됩니다. 등록 작업은 필요에 따라 계속됩니다.
 [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 명령은 응용 프로그램 유형 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
@@ -249,7 +249,7 @@ ServiceStatus          : Active
 HealthState            : Ok
 ```
 
-## <a name="remove-an-application"></a>응용 프로그램 제거
+## <a name="remove-an-application"></a>애플리케이션 제거
 응용 프로그램 인스턴스가 더 이상 필요하지 않은 경우 [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) cmdlet을 사용하여 해당 응용 프로그램 인스턴스를 이름별로 영구적으로 제거할 수 있습니다. [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps)은 응용 프로그램에 속한 모든 서비스를 자동으로 제거하고, 해당 서비스 상태를 모두 영구적으로 제거합니다. 
 
 > [!WARNING]

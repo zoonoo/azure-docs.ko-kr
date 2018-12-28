@@ -1,6 +1,6 @@
 ---
 title: Azure AD v2 Windows 데스크톱 시작 - 구성 | Microsoft Docs
-description: Windows Desktop .NET(XAML) 응용 프로그램이 액세스 토큰을 얻고 Azure Active Directory v2 엔드포인트로 보호되는 API를 호출하는 방식
+description: Windows Desktop .NET(XAML) 애플리케이션이 액세스 토큰을 얻고 Azure Active Directory v2 엔드포인트로 보호되는 API를 호출하는 방식
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -22,8 +22,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/29/2018
 ms.locfileid: "52581411"
 ---
-# <a name="add-the-applications-registration-information-to-your-app"></a>앱에 응용 프로그램의 등록 정보 추가
-이 단계에서는 프로젝트에 응용 프로그램 ID를 추가해야 합니다.
+# <a name="add-the-applications-registration-information-to-your-app"></a>앱에 애플리케이션의 등록 정보 추가
+이 단계에서는 프로젝트에 애플리케이션 ID를 추가해야 합니다.
 
 1.  `App.xaml.cs`를 열고 다음으로 `ClientId`를 바꿉니다.
 

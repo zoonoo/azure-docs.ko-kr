@@ -48,7 +48,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>썸네일에 대한 SAS 토큰 구성
 
-이 자습서 시리즈의 1부에서 웹 응용 프로그램은 공용 컨테이너의 이미지를 표시했습니다. 시리즈의 이 부분에서는 [SAS(공유 액세스 서명)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) 토큰을 사용하여 썸네일 이미지를 검색합니다. SAS 토큰을 사용하여 IP, 프로토콜, 시간 간격, 허용되는 권한에 따라 컨테이너 또는 blob에 대해 제한된 액세스를 제공할 수 있습니다.
+이 자습서 시리즈의 1부에서 웹 애플리케이션은 공용 컨테이너의 이미지를 표시했습니다. 시리즈의 이 부분에서는 [SAS(공유 액세스 서명)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) 토큰을 사용하여 썸네일 이미지를 검색합니다. SAS 토큰을 사용하여 IP, 프로토콜, 시간 간격, 허용되는 권한에 따라 컨테이너 또는 blob에 대해 제한된 액세스를 제공할 수 있습니다.
 
 이 예제에서 소스 코드 리포지토리는 업데이트된 코드 샘플이 있는 `sasTokens` 분기를 사용합니다. [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete)를 사용하여 기존 GitHub 배포를 삭제합니다. 다음으로, [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.  
 

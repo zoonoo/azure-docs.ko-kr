@@ -60,7 +60,7 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 
 [IoT Hub 메시지](iot-hub-devguide-messages-construct.md)에 설명된 대로, 메시지에 추가적인 시스템 속성에 있습니다. **contentType**, **contentEncoding** 및 **enqueuedTime** 이외에 **connectionDeviceId** 및 **connectionModuleId**도 쿼리할 수 있습니다.
 
-### <a name="application-properties"></a>응용 프로그램 속성
+### <a name="application-properties"></a>애플리케이션 속성
 
 응용 프로그램 속성은 메시지에 추가할 수 있는 사용자 정의 문자열입니다. 이러한 필드는 선택 사항입니다.  
 

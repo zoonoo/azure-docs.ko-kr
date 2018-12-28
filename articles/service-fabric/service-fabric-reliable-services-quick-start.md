@@ -1,5 +1,5 @@
 ---
-title: C#에서 첫 번째 Service Fabric 응용 프로그램 만들기 | Microsoft Docs
+title: C#에서 첫 번째 Service Fabric 애플리케이션 만들기 | Microsoft Docs
 description: 상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure 서비스 패브릭 응용 프로그램 만들기 소개
 services: service-fabric
 documentationcenter: .net
@@ -28,7 +28,7 @@ ms.locfileid: "34208168"
 > 
 > 
 
-Azure 서비스 패브릭 응용 프로그램에는 코드를 실행하는 하나 이상의 서비스가 포함되어 있습니다. 이 가이드에서는 [Reliable Services](service-fabric-reliable-services-introduction.md)를 사용하여 상태 비저장 및 상태 저장 서비스 패브릭 응용 프로그램을 만드는 방법을 보여 줍니다.  이 Microsoft Virtual Academy 비디오는 상태 비저장 신뢰할 수 있는 서비스를 만드는 방법을 보여줍니다.<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
+Azure Service Fabric 애플리케이션에는 코드를 실행하는 하나 이상의 서비스가 포함되어 있습니다. 이 가이드에서는 [Reliable Services](service-fabric-reliable-services-introduction.md)를 사용하여 상태 비저장 및 상태 저장 Service Fabric 애플리케이션을 만드는 방법을 보여줍니다.  이 Microsoft Virtual Academy 비디오는 상태 비저장 신뢰할 수 있는 서비스를 만드는 방법을 보여줍니다.<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
@@ -41,11 +41,11 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 * **서비스 등록**: 등록은 모든 항목을 함께 모읍니다. Service Fabric에서 실행할 인스턴스를 만들 수 있도록 서비스 호스트의 Service Fabric 런타임에 서비스 유형을 등록해야 합니다.  
 
 ## <a name="create-a-stateless-service"></a>상태 비저장 서비스 만들기
-상태 비저장 서비스는 현재 클라우드 응용 프로그램에서 정상인 서비스 유형입니다. 서비스 자체가 안정적으로 저장되거나 항상 사용 가능해야 하는 데이터를 포함하기 때문에 상태 비저장으로 간주됩니다. 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 서비스 유형에서는 Azure 테이블 또는 SQL 데이터베이스와 같은 외부 저장소에 상태를 항상 유지하고 이를 위해 높은 가용성과 안정성을 유지해야 합니다.
+상태 비저장 서비스는 현재 클라우드 애플리케이션에서 정상인 서비스 유형입니다. 서비스 자체가 안정적으로 저장되거나 항상 사용 가능해야 하는 데이터를 포함하기 때문에 상태 비저장으로 간주됩니다. 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 서비스 유형에서는 Azure 테이블 또는 SQL 데이터베이스와 같은 외부 저장소에 상태를 항상 유지하고 이를 위해 높은 가용성과 안정성을 유지해야 합니다.
 
-관리자 권한으로 Visual Studio 2015 또는 Visual Studio 2017을 시작하고 *HelloWorld*라는 새로운 서비스 패브릭 응용 프로그램 프로젝트를 만듭니다.
+관리자 권한으로 Visual Studio 2015 또는 Visual Studio 2017을 시작하고 *HelloWorld*라는 새로운 Service Fabric 애플리케이션 프로젝트를 만듭니다.
 
-![새 프로젝트 대화 상자를 사용하여 새 서비스 패브릭 응용 프로그램 만들기](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![새 프로젝트 대화 상자를 사용하여 새 Service Fabric 애플리케이션 만들기](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
 그런 다음, *HelloWorldStateless*라는 **.Net Core 2.0**을 사용하여 상태 비저장 서비스 프로젝트를 만듭니다.
 
@@ -53,7 +53,7 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 
 이제 솔루션에는 2개의 프로젝트가 있습니다.
 
-* *HelloWorld*. *서비스*가 포함된 *응용 프로그램* 프로젝트입니다. 또한 응용 프로그램을 배포하는 데 도움이 되는 다양한 PowerShell 스크립트 뿐만 아니라 응용 프로그램을 설명하는 응용 프로그램 매니페스트가 포함되어 있습니다.
+* *HelloWorld*. *서비스*가 포함된 *응용 프로그램* 프로젝트입니다. 또한 애플리케이션을 배포하는 데 도움이 되는 다양한 PowerShell 스크립트 뿐만 아니라 애플리케이션을 설명하는 애플리케이션 매니페스트가 포함되어 있습니다.
 * *HelloWorldStateless*. 서비스 프로젝트입니다. 상태 비저장 서비스 구현을 포함합니다.
 
 ## <a name="implement-the-service"></a>서비스 구현
@@ -109,7 +109,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 * 시스템은 리소스 분산을 위해 서비스 인스턴스를 이동시킵니다.
 * 오류는 코드에서 발생합니다.
-* 응용 프로그램 또는 시스템 업그레이드됩니다.
+* 애플리케이션 또는 시스템 업그레이드됩니다.
 * 기본 하드웨어가 중단됩니다.
 
 이러한 오케스트레이션은 서비스의 가용성을 높게 유지하고 제대로 균형을 유지하기 위해 시스템에 의해 관리됩니다.
@@ -133,7 +133,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 ![새 프로젝트 대화 상자를 사용하여 새 서비스 패브릭 상태 저장 서비스 만들기](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
-응용 프로그램에 이제 상태 비저장 서비스 *HelloWorldStateless* 및 상태 저장 서비스 *HelloWorldStateful*의 두 서비스가 있어야 합니다.
+애플리케이션에 이제 상태 비저장 서비스 *HelloWorldStateless* 및 상태 저장 서비스 *HelloWorldStateful*의 두 서비스가 있어야 합니다.
 
 상태 저장 서비스에는 상태 비저장 서비스와 동일한 진입점이 있습니다. 주요 차이점은 상태를 안정적으로 저장할 수 있는 *상태 제공자* 의 가용성입니다. 서비스 패브릭은 신뢰할 수 있는 상태 관리자를 통해 복제된 데이터 구조를 만들 수 있는 [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)이라는 상태 제공자 구현과 함께 제공됩니다. 상태 저장 Reliable Service는 기본적으로 이 상태 제공자를 사용합니다.
 
@@ -207,10 +207,10 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 ## <a name="run-the-application"></a>애플리케이션 실행
 *HelloWorld* 응용 프로그램으로 돌아갑니다. 이제 서비스를 빌드하고 배포할 수 있습니다. **F5**키를 누르면 응용 프로그램이 빌드되고 로컬 클러스터에 배포됩니다.
 
-서비스가 실행되기 시작한 후에 **진단 이벤트** 창에서 생성된 ETW(Windows용 이벤트 추적) 이벤트를 볼 수 있습니다. 응용 프로그램의 상태 비저장 서비스 및 상태 저장 서비스 모두에서 이벤트가 표시됩니다. **일시 중지** 단추를 클릭하여 스트림을 일시 중지할 수 있습니다. 그런 다음 해당 메시지를 확장하여 메시지의 세부 정보를 검사할 수 있습니다.
+서비스가 실행되기 시작한 후에 **진단 이벤트** 창에서 생성된 ETW(Windows용 이벤트 추적) 이벤트를 볼 수 있습니다. 애플리케이션의 상태 비저장 서비스 및 상태 저장 서비스 모두에서 이벤트가 표시됩니다. **일시 중지** 단추를 클릭하여 스트림을 일시 중지할 수 있습니다. 그런 다음 해당 메시지를 확장하여 메시지의 세부 정보를 검사할 수 있습니다.
 
 > [!NOTE]
-> 응용 프로그램을 실행하기 전에 로컬 개발 클러스터가 실행 중인지 확인합니다. 로컬 환경 설정의 자세한 내용은 [시작 가이드](service-fabric-get-started.md) 를 확인합니다.
+> 애플리케이션을 실행하기 전에 로컬 개발 클러스터가 실행 중인지 확인합니다. 로컬 환경 설정의 자세한 내용은 [시작 가이드](service-fabric-get-started.md) 를 확인합니다.
 > 
 > 
 

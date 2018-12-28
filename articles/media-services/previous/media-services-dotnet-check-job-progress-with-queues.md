@@ -31,7 +31,7 @@ Media Services 알림 수신에 대한 일반적인 시나리오는 인코딩 �
 이 문서에서는 큐 저장소에서 알림 메시지를 가져오는 방법을 보여 줍니다.  
 
 ## <a name="considerations"></a>고려 사항
-Queue Storage를 사용하는 Media Services 응용 프로그램을 개발할 때 다음 사항을 고려합니다.
+Queue Storage를 사용하는 Media Services 애플리케이션을 개발할 때 다음 사항을 고려합니다.
 
 * Queue Storage는 선입 선출(FIFO) 순차적 전달을 보장하지 않습니다. 자세한 내용은 [Azure 큐 및 Azure Service Bus 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하세요.
 * Queue Storage는 푸시 서비스가 아닙니다. 큐를 폴링해야 합니다.

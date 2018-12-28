@@ -62,8 +62,8 @@ ms.locfileid: "45634747"
   * Microsoft Azure에서 Windows 및 Linux에 필요한 SAP 커널 버전
 
 * SAP Note [2015553]는 Azure에서 SAP을 지원하는 SAP 소프트웨어 배포에 대한 필수 구성 요소를 나열합니다.
-* SAP Note [2205917]에는 SAP 응용 프로그램용 SUSE Linux Enterprise Server에 권장되는 OS 설정이 나와 있습니다.
-* SAP Note [1944799]에는 SAP 응용 프로그램용 SUSE Linux Enterprise Server에 대한 SAP HANA 지침이 나와 있습니다.
+* SAP Note [2205917]에는 SAP 애플리케이션용 SUSE Linux Enterprise Server에 권장되는 OS 설정이 나와 있습니다.
+* SAP Note [1944799]에는 SAP 애플리케이션용 SUSE Linux Enterprise Server에 대한 SAP HANA 지침이 나와 있습니다.
 * SAP Note [2178632]는 Azure에서 SAP에 대해 보고된 모든 모니터링 메트릭에 대한 자세한 정보를 포함하고 있습니다.
 * SAP Note [2191498]는 Azure에서 Linux에 필요한 SAP Host Agent 버전을 포함하고 있습니다.
 * SAP Note [2243692]는 Azure에서 Linux의 SAP 라이선스에 대한 정보를 포함하고 있습니다.
@@ -132,7 +132,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. Virtual Machine 1 만들기 SLES4SAP 12 SP3 이상 사용, 이 예제에서는 SAP 응용 프로그램 12 SP3용 SLES4SAP 12 SP3 BYOS 이미지 SLES(BYOS)가 사용됨  
    이전에 만든 가용성 집합 선택  
 1. Virtual Machine 2 만들기 SLES4SAP 12 SP3 이상 사용, 이 예제에서는 SLES4SAP 12 SP3 BYOS 이미지 사용  
-   SAP 응용 프로그램 12 SP3용 SLES(BYOS)가 사용됨  
+   SAP 애플리케이션 12 SP3용 SLES(BYOS)가 사용됨  
    이전에 만든 가용성 집합 선택  
 1. 두 가상 머신의 각 SAP 시스템에 하나의 데이터 디스크를 추가합니다.
 1. 부하 분산 장치(내부) 만들기  

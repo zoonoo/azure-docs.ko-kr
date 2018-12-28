@@ -68,7 +68,7 @@ Azure AD B2C로 전송되는 각 요청은 사용자 흐름을 지정하며, 이
 - 이름, 우편 번호 등, 고객에게서 수집한 데이터
 - Multi-Factor Authentication
 - 가입 페이지의 모양과 느낌
-- 응용 프로그램에 반환되는 정보
+- 애플리케이션에 반환되는 정보
 
 #### <a name="custom-policies"></a>사용자 지정 정책 
 

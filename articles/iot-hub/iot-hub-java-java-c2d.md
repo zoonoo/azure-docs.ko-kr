@@ -177,7 +177,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
     mvn clean package -DskipTests
     ```
 
-## <a name="run-the-applications"></a>응용 프로그램 실행
+## <a name="run-the-applications"></a>애플리케이션 실행
 
 이제 응용 프로그램을 실행할 준비가 되었습니다.
 

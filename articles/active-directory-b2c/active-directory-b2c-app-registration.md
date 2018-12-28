@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8068c4a8f38cd33a1a0547f5db5079bc75c76ec1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fcebada4ef10c3e0bb298e9308d66ecb37247832
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013414"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999272"
 ---
 # <a name="register-an-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 애플리케이션 등록
 
@@ -82,7 +82,4 @@ ms.locfileid: "51013414"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD B2C에 등록된 응용 프로그램이 있으니 [빠른 시작 자습서](active-directory-b2c-overview.md) 중 하나를 완료하여 실행할 수 있습니다.
-
-> [!div class="nextstepaction"]
-> [등록, 로그인 및 암호 재설정으로 ASP.NET 웹앱 만들기](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+[액세스 토큰 요청](active-directory-b2c-access-tokens.md)에서 애플리케이션에서 API에 권한을 부여하는 데 액세스 토큰을 사용하는 방법에 대해 자세히 알아봅니다.

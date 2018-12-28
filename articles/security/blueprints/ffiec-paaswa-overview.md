@@ -90,7 +90,7 @@ Azure SQL Database는 일반적으로 보안 VPN 또는 ExpressRoute 연결을 �
 
 **App Service Environment v2**: Azure App Service Environment는 App Service 응용 프로그램을 대규모로 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 App Service 기능입니다. 이 격리 기능은 FFIEC 준수 요구 사항을 충족하는 데 필요합니다.
 
-App Service Environment는 단일 고객의 애플리케이션만 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 이 격리 기능을 사용하면 참조 아키텍처가 완전히 테넌트에서 격리되고 Azure의 다중 테넌트 환경에서 제거되므로 다중 테넌트가 배포된 App Service Environment 리소스를 열거할 수 없습니다. 고객은 인바운드 및 아웃바운드 응용 프로그램 네트워크 트래픽 둘 다에 대해 세밀하게 제어할 수 있고 응용 프로그램은 가상 네트워크를 통해 온-프레미스 회사 리소스에 고속 보안 연결을 설정할 수 있습니다. 고객은 부하 메트릭, 사용 가능한 예산 또는 정의된 일정에 따라 App Service Environment를 사용하여 “자동 크기 조정”을 수행할 수 있습니다.
+App Service Environment는 단일 고객의 애플리케이션만 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 이 격리 기능을 사용하면 참조 아키텍처가 완전히 테넌트에서 격리되고 Azure의 다중 테넌트 환경에서 제거되므로 다중 테넌트가 배포된 App Service Environment 리소스를 열거할 수 없습니다. 고객은 인바운드 및 아웃바운드 애플리케이션 네트워크 트래픽 둘 다에 대해 세밀하게 제어할 수 있고 애플리케이션은 가상 네트워크를 통해 온-프레미스 회사 리소스에 고속 보안 연결을 설정할 수 있습니다. 고객은 부하 메트릭, 사용 가능한 예산 또는 정의된 일정에 따라 App Service Environment를 사용하여 “자동 크기 조정”을 수행할 수 있습니다.
 
 이 아키텍처에 대해 App Service Environment를 사용하면 다음과 같은 구성이 허용됩니다.
 

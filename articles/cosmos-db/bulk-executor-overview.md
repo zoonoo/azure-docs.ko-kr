@@ -1,20 +1,18 @@
 ---
-title: Azure Cosmos DB에서 Bulk Executor 라이브러리를 사용하여 데이터 대량 가져오기 및 업데이트 | Microsoft Docs
+title: Azure Cosmos DB에서 Bulk Executor 라이브러리를 사용하여 데이터 대량 가져오기 및 업데이트
 description: Azure Cosmos DB에서 대량 가져오기를 통해 대량 작업을 수행하고 Bulk Executor 라이브러리에서 제공하는 API를 대량 업데이트합니다.
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: a760de998c78ce2afdd24a15d9dd6e5d0cf44dc1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: e3b77ce28e5c3a236abcd9a22e643428b53ed0a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363547"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834811"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 대량 실행기 라이브러리 개요
  

@@ -151,7 +151,7 @@ Body
 |보고서(다른 이름으로 저장)의 복사본을 저장합니다.|보고서|* Report.Read<br>* Workspace.Report.Copy|
 
 ## <a name="heres-how-the-flow-works"></a>다음은 흐름 방식입니다.
-1. 응용 프로그램에 API 키 복사 **Azure Portal**에서 키를 가져올 수 있습니다.
+1. 애플리케이션에 API 키 복사 **Azure Portal**에서 키를 가져올 수 있습니다.
    
     ![Azure Portal에서 API 키를 찾을 수 있는 곳](media/get-started-sample/azure-portal.png)
 1. 토큰이 클레임을 어설션하며 만료 시간이 있습니다.

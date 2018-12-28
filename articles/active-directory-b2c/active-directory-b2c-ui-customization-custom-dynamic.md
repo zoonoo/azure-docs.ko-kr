@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f078c1389e36b82f95b011ca1fbd7fbd1c4f895e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582890"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834241"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 
@@ -86,7 +86,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 ### <a name="step-21-download-the-b2c-built-in-html5-template"></a>2.1단계: B2C 기본 제공 HTML5 템플릿 다운로드
 사용자 지정 HTML5 템플릿은 Azure AD B2C 기본 제공 HTML5 템플릿을 기반으로 합니다. [unified.html 파일](https://login.microsoftonline.com/static/tenant/default/unified.cshtml)을 다운로드하거나 [시작 팩](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates/wingtip)에서 템플릿을 다운로드할 수 있습니다. 이 HTML5 파일을 사용하여 통합된 등록 또는 로그인 페이지를 만듭니다.
 
-### <a name="step-22-add-the-mvc-view"></a>2.2단계 MVC 뷰 추가
+### <a name="step-22-add-the-mvc-view"></a>2.2단계: MVC 뷰 추가
 1. Views/Home 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **새 항목**을 클릭합니다.
 
     ![MVC 새 항목 추가](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
@@ -143,7 +143,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 2. 웹앱을 디버그하여 _unified_ 페이지(예: `http://localhost:<Port number>/Home/unified`)에 액세스할 수 있도록 합니다.
 
-### <a name="step-25-publish-to-azure"></a>2.5단계 Azure에 게시
+### <a name="step-25-publish-to-azure"></a>2.5단계: Azure에 게시
 1. **솔루션 탐색기**에서 **Contoso.AADB2C.UI** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **게시**를 선택합니다.
 
     ![Microsoft Azure App Service에 게시](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish1.png)
@@ -193,7 +193,7 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
 * 콘텐츠 서버가 CORS에 대해 사용하도록 설정되었습니다.
 
     >[!NOTE]
-    >콘텐츠를 호스팅하는 사이트에서 CORS를 사용할 수 있고 CORS 요청을 테스트할 수 있는지 확인하려면 [test-cors.org](http://test-cors.org/) 웹 사이트로 이동합니다. 
+    >콘텐츠를 호스팅하는 사이트에서 CORS를 사용할 수 있고 CORS 요청을 테스트할 수 있는지 확인하려면 [test-cors.org](https://test-cors.org/) 웹 사이트로 이동합니다. 
 
 * 제공된 콘텐츠는 **HTTPS**를 통해 보호됩니다.
 * 모든 링크, CSS 콘텐츠 및 이미지에 대해 *절대 URL*(예: *https://yourdomain/content*)을 사용합니다.
@@ -242,7 +242,7 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
 ## <a name="step-8-add-dynamic-content"></a>8단계: 동적 콘텐츠 추가
 _campaignId_라는 쿼리 문자열 매개 변수에 기반하여 백그라운드를 변경합니다. RP 응용 프로그램(웹 및 모바일 앱)이 Azure AD B2C에 매개 변수를 보냅니다. 정책에서는 매개 변수를 읽고 HTML5 템플릿에 해당 값을 보냅니다. 
 
-### <a name="step-81-add-a-content-definition-parameter"></a>8.1단계 콘텐츠 정의 매개 변수 추가
+### <a name="step-81-add-a-content-definition-parameter"></a>8.1단계: 콘텐츠 정의 매개 변수 추가
 
 다음을 수행하여 `ContentDefinitionParameters` 요소를 추가합니다.
 1. 정책의 *SignUpOrSignin* 파일(예: *SignUpOrSignin.xml*)을 엽니다.
@@ -259,7 +259,7 @@ _campaignId_라는 쿼리 문자열 매개 변수에 기반하여 백그라운�
     </UserJourneyBehaviors>
     ```
 
-### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>8.2단계 쿼리 문자열 매개 변수를 수락하고 배경 이미지를 대체하도록 코드 변경
+### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>8.2단계: 쿼리 문자열 매개 변수를 수락하고 배경 이미지를 대체하도록 코드 변경
 HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 수락합니다. 그런 다음 메서드는 매개 변수 값을 확인하고 `ViewData["background"]` 변수를 적절하게 설정합니다.
 
 1. *Controllers\HomeController.cs* 파일을 열어서 다음 코드 조각을 추가하여 `unified` 메서드를 변경합니다.

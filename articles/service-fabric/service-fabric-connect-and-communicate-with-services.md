@@ -24,7 +24,7 @@ ms.locfileid: "34205589"
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>서비스 패브릭에서 서비스와 연결 및 통신
 서비스 패브릭에서 서비스는 일반적으로 여러 VM에 배포된 서비스 패브릭 클러스터의 임의 위치에서 실행됩니다. 서비스 소유자에 의해 한 위치에서 다른 위치로 이동하거나 서비스 패브릭에 의해 자동으로 이동할 수 있습니다. 서비스는 특정 컴퓨터 또는 주소에 정적으로 연결되지 않습니다.
 
-서비스 패브릭 응용 프로그램은 일반적으로 여러 가지 서비스로 구성되며, 각 서비스는 전문적인 작업을 수행합니다. 이러한 서비스는 웹 응용 프로그램의 다양한 부분을 렌더링하는 것과 같이 서로 통신하여 완전한 기능을 형성할 수 있습니다. 서비스에 연결되어 통신하는 클라이언트 응용 프로그램도 있습니다. 이 문서에서는 서비스 패브릭에서 서비스와 통신 및 서비스 간 통신을 설정하는 방법을 설명합니다.
+Service Fabric 애플리케이션은 일반적으로 여러 가지 서비스로 구성되며, 각 서비스는 전문적인 작업을 수행합니다. 이러한 서비스는 웹 애플리케이션의 다양한 부분을 렌더링하는 것과 같이 서로 통신하여 완전한 기능을 형성할 수 있습니다. 서비스에 연결되어 통신하는 클라이언트 애플리케이션도 있습니다. 이 문서에서는 서비스 패브릭에서 서비스와 통신 및 서비스 간 통신을 설정하는 방법을 설명합니다.
 
 이 Microsoft Virtual Academy 비디오는 서비스 통신에 대해서도 설명합니다.<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
 <img src="./media/service-fabric-connect-and-communicate-with-services/CommunicationVid.png" WIDTH="360" HEIGHT="244">  
@@ -55,7 +55,7 @@ ms.locfileid: "34205589"
 
 
 ### <a name="dns-service"></a>DNS 서비스
-많은 서비스, 특히 컨테이너화된 서비스는 기존 URL 이름을 사용할 수 있으므로 명명 서비스 프로토콜 대신 표준 DNS 프로토콜을 사용하여 이러한 이름을 확인할 수 있으면 특히 응용 프로그램 "리프트 앤 시프트" 시나리오에서 매우 편리합니다. 바로 이것이 DNS 서비스의 용도입니다. DNS 서비스를 통해 DNS 이름을 서비스 이름에 매핑할 수 있으므로 끝점 IP 주소를 확인할 수 있습니다. 
+많은 서비스, 특히 컨테이너화된 서비스는 기존 URL 이름을 사용할 수 있으므로 Naming Service 프로토콜 대신 표준 DNS 프로토콜을 사용하여 이러한 이름을 확인할 수 있으면 특히 애플리케이션 "리프트 앤 시프트" 시나리오에서 매우 편리합니다. 바로 이것이 DNS 서비스의 용도입니다. DNS 서비스를 통해 DNS 이름을 서비스 이름에 매핑할 수 있으므로 끝점 IP 주소를 확인할 수 있습니다. 
 
 다음 다이어그램과 같이 Service Fabric 클러스터에서 실행되는 DNS 서비스는 DNS 이름을 서비스 이름에 매핑하며, 명명 서비스는 이 서비스 이름을 확인하여 연결할 끝점 주소를 반환합니다. 서비스의 DNS 이름은 생성 시 제공됩니다. 
 
@@ -175,9 +175,9 @@ Azure Load Balancer 및 프로브는 *노드*만 알고 있으며 노드에서 �
 ## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: 기본 제공 통신 API 옵션
 Reliable Services 프레임워크에서는 미리 작성된 여러 통신 옵션을 제공합니다. 그 중에서 가장 적합한 옵션은 프로그래밍 모델, 통신 프레임워크 및 서비스가 작성되는 프로그래밍 언어로 무엇을 선택하는지에 따라 달라집니다.
 
-* **특정 프로토콜이 없는 경우:** 특정 통신 프레임워크를 선택하지는 않지만 항목을 신속하게 실행하고 싶을 때 가장 적합한 옵션은 Reliable Services 및 Reliable Actors에 대한 강력한 형식의 원격 프로시저 호출을 허용하는 [서비스 원격](service-fabric-reliable-services-communication-remoting.md)입니다. 이는 서비스 통신을 시작하기에 가장 쉽고 빠른 방법입니다. 서비스 원격은 서비스 주소, 연결, 다시 시도 및 오류 처리의 확인을 처리합니다. 이 기능은 C# 및 Java 응용 프로그램에 둘 다 사용할 수 있습니다.
-* **HTTP**: 언어 중립적 통신의 경우, HTTP는 Service Fabric에서 전적으로 지원하는 다양한 언어로 사용할 수 있는 도구 및 HTTP 서버와 함께 업계 표준 선택을 제공합니다. 서비스는 C# 응용 프로그램용 [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md)를 포함하여 사용 가능한 모든 HTTP 스택을 사용할 수 있습니다. [서비스 확인, HTTP 연결 및 다시 시도 루프](service-fabric-reliable-services-communication.md)를 위해 C#으로 작성된 클라이언트는 `ICommunicationClient` 및 `ServicePartitionClient` 클래스를 활용할 수 있지만 Java의 경우 `CommunicationClient` 및 `FabricServicePartitionClient` 클래스를 사용합니다.
-* **WCF**: 통신 프레임워크로 WCF를 사용하는 기존 코드가 있는 경우, 서버 쪽에 `WcfCommunicationListener`를 사용하고 클라이언트에 `WcfCommunicationClient` 및 `ServicePartitionClient` 클래스를 사용할 수 있습니다. 그러나 이 기능은 Windows 기반 클러스터의 C# 응용프로그램에만 사용할 수 있습니다. 자세한 내용은 이 문서에서 [WCF 기반 통신 스택 구현](service-fabric-reliable-services-communication-wcf.md)에 대한 부분을 참조하세요.
+* **특정 프로토콜이 없는 경우:** 특정 통신 프레임워크를 선택하지는 않지만 항목을 신속하게 실행하고 싶을 때 가장 적합한 옵션은 Reliable Services 및 Reliable Actors에 대한 강력한 형식의 원격 프로시저 호출을 허용하는 [서비스 원격](service-fabric-reliable-services-communication-remoting.md)입니다. 이는 서비스 통신을 시작하기에 가장 쉽고 빠른 방법입니다. 서비스 원격은 서비스 주소, 연결, 다시 시도 및 오류 처리의 확인을 처리합니다. 이 기능은 C# 및 Java 애플리케이션에 둘 다 사용할 수 있습니다.
+* **HTTP**: 언어 중립적 통신의 경우, HTTP는 Service Fabric에서 전적으로 지원하는 다양한 언어로 사용할 수 있는 도구 및 HTTP 서버와 함께 업계 표준 선택을 제공합니다. 서비스는 C# 애플리케이션용 [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md)를 포함하여 사용 가능한 모든 HTTP 스택을 사용할 수 있습니다. [서비스 확인, HTTP 연결 및 다시 시도 루프](service-fabric-reliable-services-communication.md)를 위해 C#으로 작성된 클라이언트는 `ICommunicationClient` 및 `ServicePartitionClient` 클래스를 활용할 수 있지만 Java의 경우 `CommunicationClient` 및 `FabricServicePartitionClient` 클래스를 사용합니다.
+* **WCF**: 통신 프레임워크로 WCF를 사용하는 기존 코드가 있는 경우, 서버 쪽에 `WcfCommunicationListener`를 사용하고 클라이언트에 `WcfCommunicationClient` 및 `ServicePartitionClient` 클래스를 사용할 수 있습니다. 그러나 이 기능은 Windows 기반 클러스터의 C# 애플리케이션에만 사용할 수 있습니다. 자세한 내용은 이 문서에서 [WCF 기반 통신 스택 구현](service-fabric-reliable-services-communication-wcf.md)에 대한 부분을 참조하세요.
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>사용자 지정 프로토콜 및 기타 통신 프레임워크 사용
 서비스는 TCP 소켓을 통한 사용자 지정 이진 프로토콜이든 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 또는 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)를 통한 스트리밍 이벤트이든 통신에 대한 모든 프로토콜 또는 프레임워크를 사용할 수 있습니다. 서비스 패브릭은 모든 검색 및 연결 작업을 추상화하면서도 통신 스택을 연결할 수 있는 통신 API를 제공합니다. 자세한 내용은 이 문서에서 [Reliable Services 통신 모델](service-fabric-reliable-services-communication.md) 에 대한 부분을 참조하세요.

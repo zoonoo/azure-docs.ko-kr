@@ -79,7 +79,7 @@ ms.locfileid: "50963601"
 
 응용 프로그램에 새 디바이스 템플릿을 추가하려면 **응용 프로그램 작성기** 페이지로 이동해야 합니다. 그러려면 왼쪽 탐색 메뉴에서 **애플리케이션 작성기**를 선택합니다.
 
-![응용 프로그램 개발자 페이지](./media/tutorial-define-device-type/builderhome.png)
+![애플리케이션 개발자 페이지](./media/tutorial-define-device-type/builderhome.png)
 
 ## <a name="add-a-device-and-define-telemetry"></a>디바이스 추가 및 원격 분석 정의
 

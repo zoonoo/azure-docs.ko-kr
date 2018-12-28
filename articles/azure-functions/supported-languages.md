@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 15d2e40127579fbd278cc3dc18653d782a515caa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f55122b3bf4bb7160459d524b20dd1303cc0fd8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957315"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835423"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions에서 지원되는 언어
 
@@ -37,11 +37,9 @@ ms.locfileid: "46957315"
 
 ### <a name="experimental-languages"></a>실험적 언어
 
-버전 1.x에서 실험적 언어는 제대로 확장되지 않고 모든 바인딩을 지원하지도 않습니다. 예를 들어 1.x Python은 Functions 런타임이 각 함수 호출을 통해 *python.exe*를 실행하기 때문에 느립니다. 또한 Python이 HTTP 바인딩을 지원하지만 요청 개체를 액세스할 수는 없습니다.
+버전 1.x에서 실험적 언어는 제대로 확장되지 않고 모든 바인딩을 지원하지도 않습니다. 예를 들어, 1.x의 PowerShell에 대한 실험적 지원은 버전 5.1로 제한됩니다. 이 버전이 함수 앱이 실행되는 VM에 기본적으로 설치되는 버전이기 때문입니다. PowerShell 스크립트를 실행하려면 [Azure Automation](https://azure.microsoft.com/services/automation/)을 고려합니다.
 
-1.x의 PowerShell에 대한 실험적 지원은 기본적으로 함수 앱이 실행되는 VM에 설치된 항목이므로 버전 5.1로 제한됩니다. PowerShell 스크립트를 실행하려면 [Azure Automation](https://azure.microsoft.com/services/automation/)을 고려합니다.
-
-공식적으로 지원되지 않으므로 실험적 언어를 사용하지는 않도록 해야 합니다. 실험적 언어 관련 문제에 대한 지원 사례를 열 수는 없습니다. 
+실험적 기능에 대해서는 공식적인 지원이 없으므로 기반으로 사용하지 말아야 합니다. 실험적 언어 관련 문제에 대한 지원 사례를 열 수는 없습니다. 
 
 버전 2.x 런타임은 실험적 언어를 지원하지 않습니다. 프로덕션 환경에서 언어를 지원할 수 있는 경우만 새 언어에 대한 지원을 추가합니다. 
 
@@ -64,3 +62,6 @@ Azure Functions에서 GA 또는 미리 보기 언어 중 하나를 사용하는 
 
 > [!div class="nextstepaction"]
 > [Java](functions-reference-java.md)
+
+> [!div class="nextstepaction"]
+> [Python](functions-reference-python.md)

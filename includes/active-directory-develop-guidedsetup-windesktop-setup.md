@@ -23,7 +23,7 @@ ms.locfileid: "48843373"
 ---
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
-이 섹션에서는 토큰이 필요한 Web API를 쿼리할 수 있도록 Windows Desktop .NET 응용 프로그램(XAML)을 *Microsoft에 로그인*과 통합하는 방법을 설명하기 위해 새 프로젝트를 만듭니다.
+이 섹션에서는 토큰이 필요한 Web API를 쿼리할 수 있도록 Windows Desktop .NET 애플리케이션(XAML)을 *Microsoft에 로그인*과 통합하는 방법을 설명하기 위해 새 프로젝트를 만듭니다.
 
 이 가이드를 사용하여 만든 애플리케이션은 그래프를 호출하는 데 사용된 단추, 화면에 결과를 보여주는 영역 및 로그아웃 단추를 표시합니다.
 

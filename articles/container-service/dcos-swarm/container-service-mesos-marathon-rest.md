@@ -1,5 +1,5 @@
 ---
-title: Marathon REST API를 사용하여 Azure DC/OS 클러스터 관리
+title: (사용되지 않음) Marathon REST API를 사용하여 Azure DC/OS 클러스터 관리
 description: Marathon REST API를 사용하여 컨테이너를 Azure Container Service DC/OS 클러스터에 배포합니다.
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 34fc6f946d172f1431367e84f9d4d8a6855003ed
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 157d70b628ca3583cb8134ec1cccc185c6ff4c8d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901770"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52991727"
 ---
-# <a name="dcos-container-management-through-the-marathon-rest-api"></a>Marathon REST API를 통해 DC/OS 컨테이너 관리
+# <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(사용되지 않음) Marathon REST API를 통해 DC/OS 컨테이너 관리
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로드를 배포 및 확장하기 위한 환경을 제공합니다. DC/OS의 상단에 계산 워크로드의 예약 및 실행을 관리하는 프레임워크가 있습니다. 프레임워크는 인기 많은 수많은 워크로드에 사용할 수 있지만 이 문서에서는 Marathon REST API를 사용하여 컨테이너 배포를 만들고 확장할 수 있는 방법을 설명합니다. 
 
@@ -28,18 +30,18 @@ DC/OS는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로
 * [Azure 컨테이너 서비스 클러스터에 연결](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>DC/OS API 액세스
-Azure Container Service 클러스터에 연결한 후에 http://localhost:local-port를 통해 DC/OS 및 관련된 REST API에 액세스할 수 있습니다. 이 문서의 예제에서는 포트 80에서 터널링하는 것을 가정합니다. 예를 들어, `http://localhost/marathon/v2/`로 시작하는 URI에서 Marathon 끝점에 도달할 수 있습니다. 
+Azure Container Service 클러스터에 연결한 후에 http://localhost:local-port를 통해 DC/OS 및 관련된 REST API에 액세스할 수 있습니다. 이 문서의 예제에서는 포트 80에서 터널링하는 것을 가정합니다. 예를 들어, `http://localhost/marathon/v2/`로 시작하는 URI에서 Marathon 엔드포인트에 도달할 수 있습니다. 
 
 다양한 API에 대한 자세한 내용은 [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) 및 [Chronos API](https://mesos.github.io/chronos/docs/api.html)에 대한 Mesosphere 문서와 [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)에 대한 Apache 문서를 참조하세요.
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>DC/OS 및 Marathon에서 정보 수집
-DC/OS 클러스터에 컨테이너를 배포하기 전에 이름, DC/OS 에이전트의 상태와 같은 DC/OS 클러스터에 대한 정보를 수집합니다. 이렇게 하려면 DC/OS REST API에서 `master/slaves` 끝점을 쿼리합니다. 모든 작업이 제대로 진행되었다면 쿼리는 DC/OS 에이전트와 각각에 대한 여러 속성 목록을 반환합니다.
+DC/OS 클러스터에 컨테이너를 배포하기 전에 이름, DC/OS 에이전트의 상태와 같은 DC/OS 클러스터에 대한 정보를 수집합니다. 이렇게 하려면 DC/OS REST API에서 `master/slaves` 엔드포인트를 쿼리합니다. 모든 작업이 제대로 진행되었다면 쿼리는 DC/OS 에이전트와 각각에 대한 여러 속성 목록을 반환합니다.
 
 ```bash
 curl http://localhost/mesos/master/slaves
 ```
 
-이제는 Marathon `/apps` 끝점을 사용하여 DC/OS 클러스터에 대한 현재 응용 프로그램 배포를 확인합니다. 새 클러스터인 경우에 앱에 대한 빈 배열이 표시됩니다.
+이제는 Marathon `/apps` 엔드포인트를 사용하여 DC/OS 클러스터에 대한 현재 응용 프로그램 배포를 확인합니다. 새 클러스터인 경우에 앱에 대한 빈 배열이 표시됩니다.
 
 ```bash
 curl localhost/marathon/v2/apps
@@ -129,7 +131,7 @@ Marathon API를 사용하여 응용 프로그램 배포의 규모를 확장 또�
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-마지막으로, 응용 프로그램에 대해 Marathon 끝점을 쿼리합니다. 이제 세 가지 Nginx 컨테이너가 표시됩니다.
+마지막으로, 응용 프로그램에 대해 Marathon 엔드포인트를 쿼리합니다. 이제 세 가지 Nginx 컨테이너가 표시됩니다.
 
 ```bash
 curl localhost/marathon/v2/apps
@@ -189,6 +191,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [Mesos HTTP 끝점에 대해 자세히 알아보기](http://mesos.apache.org/documentation/latest/endpoints/)
+* [Mesos HTTP 엔드포인트에 대해 자세히 알아보기](http://mesos.apache.org/documentation/latest/endpoints/)
 * [Marathon REST API에 대해 자세히 알아보기](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

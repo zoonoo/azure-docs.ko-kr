@@ -24,11 +24,11 @@ ms.locfileid: "51230192"
 ## <a name="prerequisites"></a>필수 조건
 * **JDK(Java Development Kit) 8**(Java 버전 1.8 사용)
 * **IntelliJ** 또는 다른 적절한 Java 개발 환경. 이 문서의 지침에서는 IntelliJ를 사용합니다.
-* AAD(Azure Active Directory) 응용 프로그램을 만들고 **클라이언트 ID**, **테넌트 ID** 및 **키**를 검색합니다. AAD 응용 프로그램에 대한 자세한 내용 및 클라이언트 ID를 가져오는 방법에 대한 지침은 [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 응용 프로그램을 만들고 키를 생성했다면 회신 URI 및 키를 포털에서 사용할 수 있습니다.
+* AAD(Azure Active Directory) 애플리케이션을 만들고 **클라이언트 ID**, **테넌트 ID** 및 **키**를 검색합니다. AAD 애플리케이션에 대한 자세한 내용 및 클라이언트 ID를 가져오는 방법에 대한 지침은 [포털을 사용하여 Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 애플리케이션을 만들고 키를 생성했다면 회신 URI 및 키를 포털에서 사용할 수 있습니다.
 
 ## <a name="authenticating-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증
 
-다음 코드 조각은 응용 프로그램이 자체 자격 증명을 제공하는 **비대화형** 인증에 대한 코드를 제공합니다.
+다음 코드 조각은 애플리케이션이 자체 자격 증명을 제공하는 **비대화형** 인증에 대한 코드를 제공합니다.
 
 ## <a name="create-a-java-application"></a>Java 애플리케이션 만들기
 1. **명령줄 앱** 템플릿을 사용하여 IntelliJ를 열고 Java 프로젝트를 만듭니다.

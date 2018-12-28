@@ -57,9 +57,9 @@ ms.locfileid: "46124613"
 * Visual Studio 2010 SP1 또는 later version (Professional, Premium, Ultimate, 또는 Express).
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
-이 섹션에서는 C# 콘솔 응용 프로그램 프로젝트를 만들고 설정합니다.
+이 섹션에서는 C# 콘솔 애플리케이션 프로젝트를 만들고 설정합니다.
 
-1. Visual Studio를 사용하여 C# 콘솔 응용 프로그램 프로젝트가 포함된 새 솔루션을 만듭니다. 이름에 **HandleRedundancyForOnDemandStreaming**을 입력하고 **확인**을 클릭합니다.
+1. Visual Studio를 사용하여 C# 콘솔 애플리케이션 프로젝트가 포함된 새 솔루션을 만듭니다. 이름에 **HandleRedundancyForOnDemandStreaming**을 입력하고 **확인**을 클릭합니다.
 2. **HandleRedundancyForOnDemandStreaming.csproj** 프로젝트 파일과 동일한 수준에 **SupportFiles** 폴더를 만듭니다. **SupportFiles** 폴더에서 **OutputFiles** 및 **MP4Files** 폴더를 만듭니다. .mp4 파일을 **MP4Files** 폴더에 복사합니다. (이 예제에서는 **BigBuckBunny.mp4** 파일을 사용합니다.) 
 3. **Nuget**을 사용하여 Media Services와 관련된 DLL에 참조를 추가합니다. **Visual Studio 주 메뉴**에서 **도구** > **라이브러리 패키지 관리자** > **패키지 관리자 콘솔**을 선택합니다. 콘솔 창에 **Install-Package windowsazure.mediaservices**를 입력하고 Enter를 누릅니다.
 4. System.Configuration, System.Runtime.Serialization 및 System.Web와 같이 이 프로젝트에 필요한 다른 참조를 추가합니다.

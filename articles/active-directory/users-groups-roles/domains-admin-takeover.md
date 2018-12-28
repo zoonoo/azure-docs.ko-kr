@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 857d58d31565e413a207162202f1a680d7da7c65
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250736"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837174"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 이 문서에서는 Azure Active Directory (Azure AD)에서 관리 되지 않는 디렉터리의 DNS 도메인 이름을 인수할 두 가지 방법을 설명합니다. 셀프 서비스 사용자가 Microsoft AD를 사용하는 클라우드 서비스에 등록할 때, 전자 메일 도메인에 기반하여 관리되지 않는 Microsoft Azure AD 디렉토리에 추가됩니다. 셀프 서비스 또는 서비스에 대한 "바이럴" 등록에 대한 자세한 내용은 [Microsoft Azure Active Directory의 셀프 서비스 등록이란?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)을 참조하세요.
@@ -108,7 +108,11 @@ SharePoint, OneDrive, 또는 Skype For Business를 포함하는 서비스 계획
 
 관리되지 않는 테넌트가 다른 지역에 있을 때는 이 키 및 템플릿이 이동되지 않습니다. 예를 들어, 관리되지 않는 테넌트는 유럽에 있고 사용자 소유의 테넌트는 북미 지역에 있을 수 있습니다. 
 
-개인용 RMS는 보호된 콘텐츠를 열기 위한 Azure AD 인증을 지원하도록 디자인되었지만, 사용자의 콘텐츠 보호를 방지하지 못 합니다. 사용자가 개인용 RMS 구독을 사용하여 콘텐츠를 보호하며 해당 키와 템플릿이 이동되지 않은 경우, 해당 콘텐츠는 도메인이 작업을 인계받은 후에 액세스할 수 없게 됩니다.    
+개인용 RMS는 보호된 콘텐츠를 열기 위한 Azure AD 인증을 지원하도록 디자인되었지만, 사용자의 콘텐츠 보호를 방지하지 못 합니다. 사용자가 개인용 RMS 구독을 사용하여 콘텐츠를 보호하며 해당 키와 템플릿이 이동되지 않은 경우, 해당 콘텐츠는 도메인이 작업을 인계받은 후에 액세스할 수 없게 됩니다.
+
+#### <a name="more-information-about-power-bi"></a>Power BI에 대한 자세한 정보
+
+외부 인수를 수행하면 인수 전에 생성했던 Power BI 콘텐츠가 [Power BI 보관 작업 영역](/power-bi/service-admin-power-bi-archived-workspace)에 배치됩니다. 새 테넌트에서 사용하려는 콘텐츠는 수동으로 마이그레이션해야 합니다.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>ForceTakeover 옵션에 대한 Microsoft Azure AD PowerShell cmdlets
 [PowerShell 예](#powershell-example)에서 사용되는 이러한 cmdlet을 참조할 수 있습니다.

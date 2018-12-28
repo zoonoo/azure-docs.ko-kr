@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163174"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001963"
 ---
 # <a name="configure-storage"></a>저장소 구성
 
@@ -19,6 +19,12 @@ ms.locfileid: "52163174"
 
 > [!TIP]
 > `create-cloudbacked-cluster` 프로토타입 스크립트를 사용하여 Avere vFXT 클러스터와 함께 새 Blob 컨테이너를 만든 경우, 해당 컨테이너는 이미 사용하도록 설정되어 있으므로 저장소를 추가할 필요가 없습니다.
+>
+> 그러나 새 Blob 컨테이너가 기본 암호화 키로 암호화된 경우 클러스터에서 키 복구 파일을 다운로드하거나 데이터를 저장하기 전에 새 키로 기본 키를 바꿔야 합니다. 기본 키는 클러스터에만 저장되며, 클러스터가 손실되거나 사용할 수 없게 되는 경우 기본 키를 검색할 수 없습니다.
+>
+> Avere 제어판에 연결한 후 **설정** 탭을 클릭한 다음, **코어 필터** > **클라우드 암호화 설정**을 선택합니다. **로컬 키 저장소** 섹션에서 이러한 옵션 중 하나를 선택합니다. 
+> * **복구 파일 다시 다운로드** 단추를 사용하여 기존 키의 복구 파일을 가져옵니다. 복구 파일은 클러스터 관리자 암호로 암호화됩니다. 신뢰할 수 있는 위치에 파일을 저장해야 합니다. 
+> * 제어 하는 새 암호화 키를 만들려면 해당 페이지의 **새 마스터 키 생성** 섹션의 지침을 따릅니다. 이 옵션을 사용하면 고유한 암호를 지정할 수 있으며, 암호-파일 쌍의 유효성을 검사하려면 복구 파일을 업로드 및 다시 다운로드해야 합니다.
 
 클러스터에 대해 `create-minimal-cluster` 프로토타입 스크립트를 사용했거나 하드웨어 또는 클라우드 기반 저장소 시스템을 추가하려는 경우 다음 지침을 따릅니다.
 

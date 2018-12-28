@@ -24,7 +24,7 @@ ms.lasthandoff: 07/31/2018
 ms.locfileid: "39368651"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱의 사용자 또는 그룹 할당 제거
-Azure AD(Azure Active Directory)에서 엔터프라이즈 응용 프로그램 중 하나에 대해 할당된 액세스의 사용자 또는 그룹을 제거하는 것은 쉽습니다. 엔터프라이즈 앱을 관리하려면 적절한 권한이 있어야 하고 해당 디렉터리에 대한 전역 관리자여야 합니다.
+Azure AD(Azure Active Directory)에서 엔터프라이즈 애플리케이션 중 하나에 대해 할당된 액세스의 사용자 또는 그룹을 제거하는 것은 쉽습니다. 엔터프라이즈 앱을 관리하려면 적절한 권한이 있어야 하고 해당 디렉터리에 대한 전역 관리자여야 합니다.
 
 > [!NOTE]
 > Microsoft 응용 프로그램(예: Office 365 앱)의 경우 PowerShell을 사용하여 엔터프라이즈 앱에 대한 사용자를 제거합니다.

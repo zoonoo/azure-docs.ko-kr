@@ -24,7 +24,7 @@ Power BI 작업 영역 컬렉션에 있는 보고서를 애플리케이션에 �
 > [!IMPORTANT]
 > Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 응용 프로그램에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
 
-실제로 응용 프로그램에 보고서를 포함하는 방법을 살펴보겠습니다. 여기서는 작업 영역 컬렉션의 작업 영역 내에 보고서가 이미 있다고 가정합니다. 해당 단계를 아직 완료하지 않으면 [Power BI 작업 영역 컬렉션 시작](get-started.md)을 참조하세요.
+실제로 애플리케이션에 보고서를 포함하는 방법을 살펴보겠습니다. 여기서는 작업 영역 컬렉션의 작업 영역 내에 보고서가 이미 있다고 가정합니다. 해당 단계를 아직 완료하지 않으면 [Power BI 작업 영역 컬렉션 시작](get-started.md)을 참조하세요.
 
 JavaScript와 함께 .NET(C#) 또는 Node.js SDK를 사용하여 Power BI 작업 영역 컬렉션으로 애플리케이션을 손쉽게 빌드할 수 있습니다.
 

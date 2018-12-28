@@ -1,6 +1,6 @@
 ---
 title: Service Fabric CLI 스크립트 샘플 - 클러스터의 애플리케이션 나열
-description: Service Fabric CLI 스크립트 샘플 - Service Fabric 클러스터에서 프로비전된 응용 프로그램 나열.
+description: Service Fabric CLI 스크립트 샘플 - Service Fabric 클러스터에서 프로비전된 애플리케이션 나열.
 services: service-fabric
 documentationcenter: ''
 author: TylerMSFT

@@ -2,7 +2,7 @@
 title: Azure AD ID 보호를 사용하는 로그인 환경 | Microsoft Docs
 description: ID 보호가 완화되었거나 사용자를 재구성한 경우 또는 정책에서 다단계 인증을 요구하는 경우의 사용자 환경에 대한 개요를 제공합니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
+keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman

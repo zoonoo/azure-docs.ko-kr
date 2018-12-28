@@ -2,7 +2,7 @@
 title: Microsoft Flow에서 Azure 함수 호출 | Microsoft Docs
 description: 사용자 지정 커넥터를 만든 후 해당 커넥터를 사용하여 함수를 호출합니다.
 services: functions
-keywords: 클라우드 앱, 클라우드 서비스, Microsoft Flow, 비즈니스 프로세스, 비즈니스 응용 프로그램
+keywords: 클라우드 앱, 클라우드 서비스, Microsoft Flow, 비즈니스 프로세스, 비즈니스 애플리케이션
 author: ggailey777
 manager: jeconnoc
 ms.assetid: ''

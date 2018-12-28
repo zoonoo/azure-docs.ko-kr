@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric CLI(sfctl)를 사용하여 Azure Service Fabric 애플리케이션 관리
-description: Azure Service Fabric CLI를 사용하여 Azure Service Fabric 클러스터에서 응용 프로그램을 배포하고 제거하는 방법을 알아봅니다.
+description: Azure Service Fabric CLI를 사용하여 Azure Service Fabric 클러스터에서 애플리케이션을 배포하고 제거하는 방법을 알아봅니다.
 services: service-fabric
 author: Christina-Kang
 manager: timlt
@@ -42,7 +42,7 @@ Azure Service Fabric 클러스터에서 실행 중인 응용 프로그램을 만
 
 ## <a name="deploy-a-new-application"></a>새 응용 프로그램 배포
 
-새 응용 프로그램을 배포하려면 다음 작업을 완료합니다.
+새 애플리케이션을 배포하려면 다음 작업을 완료합니다.
 
 ### <a name="upload-a-new-application-package-to-the-image-store"></a>이미지 저장소에 새 애플리케이션 패키지 업로드
 
@@ -119,7 +119,7 @@ sfctl service health --service-id TestApp/TestSvc
 
 ## <a name="remove-an-existing-application"></a>기존 애플리케이션 제거
 
-응용 프로그램을 제거하려면 다음 작업을 완료합니다.
+애플리케이션을 제거하려면 다음 작업을 완료합니다.
 
 ### <a name="delete-the-application"></a>응용 프로그램 삭제
 
@@ -139,11 +139,11 @@ sfctl application unprovision --application-type-name TestAppType --application-
 
 유형 이름 및 유형 버전은 이전에 프로비전된 응용 프로그램 매니페스트의 이름 및 버전과 일치해야 합니다.
 
-## <a name="upgrade-application"></a>응용 프로그램 업그레이드
+## <a name="upgrade-application"></a>애플리케이션 업그레이드
 
-응용 프로그램을 만든 후 동일한 단계 모음을 반복하여 응용 프로그램의 두 번째 버전을 프로비전할 수 있습니다. 그런 다음 Service Fabric 응용 프로그램 업그레이드를 사용하여 응용 프로그램의 두 번째 버전 실행으로 전환할 수 있습니다. 자세한 내용은 [Service Fabric 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)에 대한 설명서를 참조하세요.
+애플리케이션을 만든 후 동일한 단계 모음을 반복하여 애플리케이션의 두 번째 버전을 프로비전할 수 있습니다. 그런 다음, Service Fabric 애플리케이션 업그레이드를 사용하여 애플리케이션의 두 번째 버전 실행으로 전환할 수 있습니다. 자세한 내용은 [Service Fabric 애플리케이션 업그레이드](service-fabric-application-upgrade.md)에 대한 설명서를 참조하세요.
 
-업그레이드를 수행하려면 먼저 이전과 동일한 명령을 사용하여 응용 프로그램의 다음 버전을 프로비전합니다.
+업그레이드를 수행하려면 먼저 이전과 동일한 명령을 사용하여 애플리케이션의 다음 버전을 프로비전합니다.
 
 ```azurecli
 sfctl application upload --path ~/app_package_dir_2
@@ -157,11 +157,11 @@ sfctl store delete --content-path app_package_dir_2
 sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"test\":\"value\"}" --mode Monitored
 ```
 
-업그레이드를 수행하면 지정된 설정으로 기존 매개 변수가 재정의됩니다. 필요한 경우 응용 프로그램 매개 변수를 업그레이드 명령에 대한 인수로 전달해야 합니다. 응용 프로그램 매개 변수는 JSON 개체로 암호화되어야 합니다.
+업그레이드를 수행하면 지정된 설정으로 기존 매개 변수가 재정의됩니다. 필요한 경우 애플리케이션 매개 변수를 업그레이드 명령에 대한 인수로 전달해야 합니다. 애플리케이션 매개 변수는 JSON 개체로 암호화되어야 합니다.
 
 이전에 지정한 모든 매개 변수를 검색하려면 `sfctl application info` 명령을 사용할 수 있습니다.
 
-응용 프로그램 업그레이드가 진행 중일 때 `sfctl application upgrade-status` 명령을 사용하여 상태를 검색할 수 있습니다.
+애플리케이션 업그레이드가 진행 중일 때 `sfctl application upgrade-status` 명령을 사용하여 상태를 검색할 수 있습니다.
 
 마지막으로 진행 중인 업그레이드를 취소해야 하는 경우 `sfctl application upgrade-rollback`을 사용하여 업그레이드를 롤백할 수 있습니다.
 

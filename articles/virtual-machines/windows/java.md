@@ -191,7 +191,7 @@ ms.locfileid: "50420067"
 
 모든 리소스는 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md)에 포함되어야 합니다.
 
-응용 프로그램의 값을 지정하고 리소스 그룹을 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
+애플리케이션의 값을 지정하고 리소스 그룹을 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 
 ```java
 System.out.println("Creating resource group...");
@@ -462,7 +462,7 @@ azure.resourceGroups().deleteByName("myResourceGroup");
 
 이 콘솔 응용 프로그램을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다.
 
-1. 응용 프로그램을 실행하려면 이 Maven 명령을 사용합니다.
+1. 애플리케이션을 실행하려면 이 Maven 명령을 사용합니다.
 
     ```
     mvn compile exec:java

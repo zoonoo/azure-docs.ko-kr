@@ -1,6 +1,6 @@
 ---
 title: '자습서: IntelliJ를 사용하여 Azure HDInsight에서 Spark용 Scala Maven 애플리케이션 만들기'
-description: Apache Maven을 빌드 시스템으로 사용하여 Scala에서 작성된 Spark 응용 프로그램 및 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형을 만듭니다.
+description: Apache Maven을 빌드 시스템으로 사용하여 Scala에서 작성된 Spark 애플리케이션 및 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형을 만듭니다.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -18,21 +18,21 @@ ms.locfileid: "52499315"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>자습서: IntelliJ를 사용하여 HDInsight의 Apache Spark에 대한 Scala Maven 애플리케이션 만들기
 
-이 자습서에서는 IntelliJ IDEA에서 [Apache Maven](https://maven.apache.org/)을 사용하여 [Scala](https://www.scala-lang.org/)로 작성한 [Apache Spark](https://spark.apache.org/) 애플리케이션을 만드는 방법을 알아봅니다. 문서는 빌드 시스템으로 Apache Maven을 사용하고 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형으로 시작합니다.  IntelliJ IDEA에서 Scala 응용 프로그램 만들기는 다음 단계를 포함합니다.
+이 자습서에서는 IntelliJ IDEA에서 [Apache Maven](https://maven.apache.org/)을 사용하여 [Scala](https://www.scala-lang.org/)로 작성한 [Apache Spark](https://spark.apache.org/) 애플리케이션을 만드는 방법을 알아봅니다. 문서는 빌드 시스템으로 Apache Maven을 사용하고 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형으로 시작합니다.  IntelliJ IDEA에서 Scala 애플리케이션 만들기는 다음 단계를 포함합니다.
 
 * 빌드 시스템으로 Maven을 사용합니다.
 * POM(프로젝트 개체 모델) 파일을 업데이트하여 Spark 모듈 종속성을 해결합니다.
-* Scala에서 응용 프로그램을 작성합니다.
+* Scala에서 애플리케이션을 작성합니다.
 * HDInsight Spark 클러스터에 제출할 수 있는 jar 파일을 생성합니다.
-* Livy를 사용하여 Spark 클러스터에서 응용 프로그램을 실행합니다.
+* Livy를 사용하여 Spark 클러스터에서 애플리케이션을 실행합니다.
 
 > [!NOTE]
-> 또한 HDInsight는 Linux의 HDInsight Spark 클러스터에 대한 응용 프로그램을 만들고 제출하는 과정을 용이하게 하는 IntelliJ IDEA 플러그 인 도구를 제공합니다. 자세한 내용은 [IntelliJ IDEA용 HDInsight 도구 플러그인을 사용하여 Apache Spark 애플리케이션 만들기 및 제출](apache-spark-intellij-tool-plugin.md)을 참조하세요.
+> 또한 HDInsight는 Linux의 HDInsight Spark 클러스터에 대한 애플리케이션을 만들고 제출하는 과정을 용이하게 하는 IntelliJ IDEA 플러그 인 도구를 제공합니다. 자세한 내용은 [IntelliJ IDEA용 HDInsight 도구 플러그인을 사용하여 Apache Spark 애플리케이션 만들기 및 제출](apache-spark-intellij-tool-plugin.md)을 참조하세요.
 > 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * IntelliJ를 사용 하 여 Scala Maven 응용 프로그램 개발
+> * IntelliJ를 사용 하 여 Scala Maven 애플리케이션 개발
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -110,9 +110,9 @@ Scala 플러그 인을 설치하려면 다음 단계를 사용합니다.
 1. **다음**을 선택합니다.
 1. 설정을 검토한 후 **다음**을 선택합니다.
 1. 프로젝트 이름과 위치를 확인하고 **마침**을 선택합니다.
-1. 왼쪽 창에서 **src > test > scala > com > microsoft > spark > example**를 선택하고 **MySpec**을 마우스 오른쪽 단추로 클릭한 후 **삭제**를 선택합니다. 응용 프로그램에 이 파일이 필요하지는 않습니다.
+1. 왼쪽 창에서 **src > test > scala > com > microsoft > spark > example**를 선택하고 **MySpec**을 마우스 오른쪽 단추로 클릭한 후 **삭제**를 선택합니다. 애플리케이션에 이 파일이 필요하지는 않습니다.
   
-1. 이후 단계에서는 pom.xml을 업데이트하여 Spark Scala 응용 프로그램에 대한 종속성을 정의합니다. 다운로드되고 자동으로 해결되는 이러한 종속성의 경우 Maven을 적절하게 구성해야 합니다.
+1. 이후 단계에서는 pom.xml을 업데이트하여 Spark Scala 애플리케이션에 대한 종속성을 정의합니다. 다운로드되고 자동으로 해결되는 이러한 종속성의 경우 Maven을 적절하게 구성해야 합니다.
    
     ![자동 다운로드를 위해 Maven 구성](./media/apache-spark-create-standalone-application/configure-maven.png)
    
@@ -174,7 +174,7 @@ Scala 플러그 인을 설치하려면 다음 단계를 사용합니다.
     1. **모듈에서 JAR 만들** 대화 상자에서 **대상 JAR에 추출** 옵션이 선택되었는지 확인한 다음, **확인**을 선택합니다.  이 설정을 사용하면 모든 종속성이 있는 단일 JAR이 만들어집니다.
        
         ![JAR 만들기](./media/apache-spark-create-standalone-application/create-jar-3.png)
-    1. 출력 레이아웃 탭에는 Maven 프로젝트의 일부분으로 포함된 jar이 모두 나열됩니다. 직접 종속성이 없는 Scala 응용 프로그램을 선택하고 삭제할 수 있습니다. 여기에서 만드는 응용 프로그램의 경우 마지막 것(**SparkSimpleApp 컴파일 출력**)을 제외한 모두를 제거할 수 있습니다. jar을 선택하여 삭제한 다음 **삭제** 아이콘을 선택합니다.
+    1. 출력 레이아웃 탭에는 Maven 프로젝트의 일부분으로 포함된 jar이 모두 나열됩니다. 직접 종속성이 없는 Scala 애플리케이션을 선택하고 삭제할 수 있습니다. 여기에서 만드는 애플리케이션의 경우 마지막 것(**SparkSimpleApp 컴파일 출력**)을 제외한 모두를 제거할 수 있습니다. jar을 선택하여 삭제한 다음 **삭제** 아이콘을 선택합니다.
        
         ![JAR 만들기](./media/apache-spark-create-standalone-application/delete-output-jars.png)
        
@@ -184,14 +184,14 @@ Scala 플러그 인을 설치하려면 다음 단계를 사용합니다.
         ![JAR 만들기](./media/apache-spark-create-standalone-application/output.png)
 
 ## <a name="run-the-application-on-the-apache-spark-cluster"></a>Apache Spark 클러스터에서 애플리케이션 실행
-클러스터에서 응용 프로그램을 실행하려면 다음 방법을 사용할 수 있습니다.
+클러스터에서 애플리케이션을 실행하려면 다음 방법을 사용할 수 있습니다.
 
 * **Azure 저장소 Blob에 응용 프로그램 jar을 복사** 합니다. [**AzCopy**](../../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
 * **Apache Livy를 사용하여 애플리케이션 작업을 원격으로** Spark 클러스터에 제출합니다. HDInsight의 Spark 클러스터에는 Spark 작업을 원격으로 제출하는 REST 엔드포인트를 노출하는 Livy가 포함됩니다. 자세한 내용은 [HDInsight의 Spark 클러스터와 함께 Apache Livy를 사용하여 원격으로 Apache Spark 작업 제출](apache-spark-livy-rest-interface.md)을 참조하세요.
 
 ## <a name="next-step"></a>다음 단계
 
-이 문서에서는 Apache Spark Scala 애플리케이션을 만드는 방법을 배웠습니다. 다음 문서를 진행하여 Livy를 사용하여 HDInsight Spark 클러스터에서 이 응용 프로그램을 실행하는 방법에 대해 알아봅니다.
+이 문서에서는 Apache Spark Scala 애플리케이션을 만드는 방법을 배웠습니다. 다음 문서를 진행하여 Livy를 사용하여 HDInsight Spark 클러스터에서 이 애플리케이션을 실행하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
 >[Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](./apache-spark-livy-rest-interface.md)

@@ -1,6 +1,6 @@
 ---
 title: Azure Application Gateway에서 종단 간 SSL 구성
-description: 이 문서에서는 PowerShell을 사용하여 Azure Application Gateway로 종단 간 SSL을 구성하는 방법에 대해 설명합니다.
+description: 이 문서에서는 PowerShell을 사용하여 Azure Application Gateway로 엔드투엔드 SSL을 구성하는 방법에 대해 설명합니다.
 services: application-gateway
 documentationcenter: na
 author: vhorne
@@ -23,7 +23,7 @@ ms.locfileid: "49945334"
 
 ## <a name="overview"></a>개요
 
-Azure Application Gateway는 트래픽의 종단 간 암호화를 지원합니다. Application Gateway는 응용 프로그램 게이트웨이에서 SSL 연결을 종료합니다. 그러면 게이트웨이에서 트래픽에 라우팅 규칙을 적용하고, 패킷을 다시 암호화하고, 정의된 라우팅 규칙에 따라 적절한 백 엔드 서버에 패킷을 전달합니다. 웹 서버의 모든 응답은 동일한 프로세스를 거쳐 최종 사용자에게 돌아갑니다.
+Azure Application Gateway는 트래픽의 엔드투엔드 암호화를 지원합니다. Application Gateway는 애플리케이션 게이트웨이에서 SSL 연결을 종료합니다. 그러면 게이트웨이에서 트래픽에 라우팅 규칙을 적용하고, 패킷을 다시 암호화하고, 정의된 라우팅 규칙에 따라 적절한 백 엔드 서버에 패킷을 전달합니다. 웹 서버의 모든 응답은 동일한 프로세스를 거쳐 최종 사용자에게 돌아갑니다.
 
 Application Gateway가 사용자 지정 SSL 옵션 정의를 지원합니다. 또한 **TLSv1.0**, **TLSv1.1** 및 **TLSv1.2**와 같은 프로토콜 버전을 사용하지 않고 사용할 암호 그룹 및 기본 설정의 순서를 정의하도록 지원합니다. 구성 가능한 SSL 옵션에 대한 자세한 내용은 [SSL 정책 개요](application-gateway-SSL-policy-overview.md)를 참조하세요.
 
@@ -34,20 +34,20 @@ Application Gateway가 사용자 지정 SSL 옵션 정의를 지원합니다. �
 
 ## <a name="scenario"></a>시나리오
 
-이 시나리오에서는 PowerShell과 함께 종단 간 SSL을 사용하여 Application Gateway를 만드는 방법을 알아봅니다.
+이 시나리오에서는 PowerShell과 함께 엔드투엔드 SSL을 사용하여 Application Gateway를 만드는 방법을 알아봅니다.
 
 이 시나리오에서는 다음을 수행합니다.
 
 * **appgw-rg**라는 리소스 그룹을 만듭니다.
 * 주소 공간이 **10.0.0.0/16**인 **appgwvnet**이라는 가상 네트워크를 만듭니다.
 * **appgwsubnet** 및 **appsubnet**라는 두 개의 서브넷을 만듭니다.
-* SSL 프로토콜 버전 및 암호 그룹을 제한하는 종단 간 SSL 암호화를 지원하는 소형 Application Gateway를 만듭니다.
+* SSL 프로토콜 버전 및 암호 그룹을 제한하는 엔드투엔드 SSL 암호화를 지원하는 소형 Application Gateway를 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Application Gateway를 사용하여 종단 간 SSL을 구성하려면 게이트웨이에 사용할 인증서와 백 엔드 서버에 사용할 인증서가 필요합니다. 게이트웨이 인증서는 SSL을 통해 전송되는 트래픽을 암호화하고 암호 해독하는 데 사용됩니다. 게이트웨이 인증서는 개인 정보 교환(PFX) 형식이어야 합니다. 이 파일 형식을 사용하면 응용 프로그램 게이트웨이에서 트래픽의 암호화 및 암호 해독을 수행하는 데 필요한 개인 키를 내보낼 수 있습니다.
+Application Gateway를 사용하여 엔드투엔드 SSL을 구성하려면 게이트웨이에 사용할 인증서와 백 엔드 서버에 사용할 인증서가 필요합니다. 게이트웨이 인증서는 SSL을 통해 전송되는 트래픽을 암호화하고 암호 해독하는 데 사용됩니다. 게이트웨이 인증서는 개인 정보 교환(PFX) 형식이어야 합니다. 이 파일 형식을 사용하면 애플리케이션 게이트웨이에서 트래픽의 암호화 및 암호 해독을 수행하는 데 필요한 개인 키를 내보낼 수 있습니다.
 
-종단 간 SSL 암호화의 경우 백 엔드가 Application Gateway를 통해 허용 목록에 추가되어야 합니다. 백 엔드 서버의 공개 인증서를 Application Gateway에 업로드해야 합니다. 인증서를 추가하면 Application Gateway가 알려진 백 엔드 인스턴스하고만 통신하게 됩니다. 그러면 종단 간 통신의 보안이 유지됩니다.
+엔드투엔드 SSL 암호화의 경우 백 엔드가 Application Gateway를 통해 허용 목록에 추가되어야 합니다. 백 엔드 서버의 공개 인증서를 Application Gateway에 업로드해야 합니다. 인증서를 추가하면 Application Gateway가 알려진 백 엔드 인스턴스하고만 통신하게 됩니다. 그러면 종단 간 통신의 보안이 유지됩니다.
 
 구성 프로세스는 다음 섹션에 설명되어 있습니다.
 
@@ -76,9 +76,9 @@ Application Gateway를 사용하여 종단 간 SSL을 구성하려면 게이트�
    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
    ```
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>응용 프로그램 게이트웨이에 대한 가상 네트워크 및 서브넷 만들기
+## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>애플리케이션 게이트웨이에 대한 가상 네트워크 및 서브넷 만들기
 
-다음 예제에서는 가상 네트워크 및 두 개의 서브넷을 만듭니다. 하나의 서브넷은 Application Gateway를 보관하는 데 사용되고 다른 서브넷은 웹 응용 프로그램을 호스트하는 백 엔드 서버에 사용됩니다.
+다음 예제에서는 가상 네트워크 및 두 개의 서브넷을 만듭니다. 하나의 서브넷은 Application Gateway를 보관하는 데 사용되고 다른 서브넷은 웹 애플리케이션을 호스트하는 백 엔드 서버에 사용됩니다.
 
 
    1. Application Gateway에 사용할 서브넷의 주소 범위를 할당합니다.
@@ -140,7 +140,7 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
    $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
    ```
 
-3. 백 엔드 웹 서버의 IP 주소를 사용하여 백 엔드 IP 주소 풀을 구성합니다. 이러한 IP 주소는 프런트 엔드 IP 엔드포인트에서 들어오는 네트워크 트래픽을 수신합니다. 샘플의 IP 주소를 사용자 고유의 응용 프로그램 IP 주소 엔드포인트로 바꿉니다.
+3. 백 엔드 웹 서버의 IP 주소를 사용하여 백 엔드 IP 주소 풀을 구성합니다. 이러한 IP 주소는 프런트 엔드 IP 엔드포인트에서 들어오는 네트워크 트래픽을 수신합니다. 샘플의 IP 주소를 사용자 고유의 애플리케이션 IP 주소 엔드포인트로 바꿉니다.
 
    ```powershell
    $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
@@ -210,7 +210,7 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
    $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. 응용 프로그램 게이트웨이의 인스턴스 크기를 구성합니다. 사용 가능한 크기는 **Standard\_Small**, **Standard\_Medium** 및 **Standard\_Large**입니다.  용량의 경우 사용 가능한 값은 **1**부터 **10**까지입니다.
+10. 애플리케이션 게이트웨이의 인스턴스 크기를 구성합니다. 사용 가능한 크기는 **Standard\_Small**, **Standard\_Medium** 및 **Standard\_Large**입니다.  용량의 경우 사용 가능한 값은 **1**부터 **10**까지입니다.
 
     ```powershell
     $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -243,7 +243,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -
 
 ## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>기존 Application Gateway의 SSL 프로토콜 버전 제한
 
-이전 단계에서는 종단 간 SSL을 사용하여 응용 프로그램을 만들고 특정 SSL 프로토콜 버전을 비활성화했습니다. 다음 예제에서는 기존 Application Gateway의 특정 SSL 정책을 비활성화합니다.
+이전 단계에서는 엔드투엔드 SSL을 사용하여 애플리케이션을 만들고 특정 SSL 프로토콜 버전을 비활성화했습니다. 다음 예제에서는 기존 Application Gateway의 특정 SSL 정책을 비활성화합니다.
 
    1. 업데이트할 Application Gateway를 검색합니다.
 
@@ -258,17 +258,17 @@ $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -
 
    ```
 
-   3. 마지막으로 게이트웨이를 업데이트합니다. 이 마지막 단계는 오래 실행되는 작업입니다. 작업이 완료되면 Application Gateway에 종단 간 SSL이 구성됩니다.
+   3. 마지막으로 게이트웨이를 업데이트합니다. 이 마지막 단계는 오래 실행되는 작업입니다. 작업이 완료되면 Application Gateway에 엔드투엔드 SSL이 구성됩니다.
 
    ```powershell
    $gw | Set-AzureRmApplicationGateway
    ```
 
-## <a name="get-an-application-gateway-dns-name"></a>응용 프로그램 게이트웨이 DNS 이름 가져오기
+## <a name="get-an-application-gateway-dns-name"></a>애플리케이션 게이트웨이 DNS 이름 가져오기
 
-게이트웨이가 생성되면 다음 단계는 통신에 대한 프런트 엔드를 구성하는 것입니다. 공용 IP를 사용할 때 Application Gateway는 친근한 이름이 아닌 동적으로 할당된 DNS 이름이 필요합니다. 최종 사용자가 응용 프로그램 게이트웨이를 누를 수 있도록 하려면 CNAME 레코드를 사용하여 응용 프로그램 게이트웨이의 공용 엔드포인트를 가리키도록 합니다. 자세한 내용은 [Azure에서 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요. 
+게이트웨이가 생성되면 다음 단계는 통신에 대한 프런트 엔드를 구성하는 것입니다. 공용 IP를 사용할 때 Application Gateway는 친근한 이름이 아닌 동적으로 할당된 DNS 이름이 필요합니다. 최종 사용자가 애플리케이션 게이트웨이를 누를 수 있도록 하려면 CNAME 레코드를 사용하여 애플리케이션 게이트웨이의 공용 엔드포인트를 가리키도록 합니다. 자세한 내용은 [Azure에서 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요. 
 
-별칭을 구성하려면 Application Gateway에 연결된 **PublicIPAddress** 요소를 사용하여 Application Gateway 및 관련 IP/DNS 이름에 대한 세부 정보를 검색합니다. Application Gateway의 DNS 이름을 사용하여 두 개의 웹 응용 프로그램을 이 DNS 이름으로 가리키는 CNAME 레코드를 만듭니다. A 레코드를 사용할 경우 응용 프로그램 게이트웨이 다시 시작 시 VIP가 변경될 수 있으므로 이는 권장되지 않습니다.
+별칭을 구성하려면 애플리케이션 게이트웨이에 연결된 **PublicIPAddress** 요소를 사용하여 애플리케이션 게이트웨이 및 관련 IP/DNS 이름에 대한 세부 정보를 검색합니다. 애플리케이션 게이트웨이의 DNS 이름을 사용하여 두 개의 웹 애플리케이션을 이 DNS 이름으로 가리키는 CNAME 레코드를 만듭니다. A 레코드를 사용할 경우 애플리케이션 게이트웨이 다시 시작 시 VIP가 변경될 수 있으므로 이는 권장되지 않습니다.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -298,6 +298,6 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>다음 단계
 
-Application Gateway를 통한 웹 응용 프로그램 방화벽의 웹 응용 프로그램 보안 강화에 대한 자세한 내용은 [웹 응용 프로그램 방화벽 개요](application-gateway-webapplicationfirewall-overview.md)를 참조하세요.
+Application Gateway를 통한 웹 애플리케이션 방화벽의 웹 애플리케이션 보안 강화에 대한 자세한 내용은 [웹 애플리케이션 방화벽 개요](application-gateway-webapplicationfirewall-overview.md)를 참조하세요.
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

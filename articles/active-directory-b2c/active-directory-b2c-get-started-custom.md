@@ -68,7 +68,7 @@ Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가
 
 ## <a name="register-applications"></a>응용 프로그램 등록
 
-Azure AD B2C에서는 사용자 등록 및 로그인에 사용되는 두 개의 응용 프로그램, 즉 IdentityExperienceFramework(웹앱) 및 IdentityExperienceFramework 앱에서 위임된 권한이 있는 ProxyIdentityExperienceFramework(네이티브 앱)를 등록해야 합니다. 로컬 계정은 테넌트에만 존재합니다. 사용자는 고유한 이메일 주소/암호 조합으로 등록하여 테넌트에 등록된 응용 프로그램에 액세스합니다.
+Azure AD B2C에서는 사용자 등록 및 로그인에 사용되는 두 개의 응용 프로그램, 즉 IdentityExperienceFramework(웹앱) 및 IdentityExperienceFramework 앱에서 위임된 권한이 있는 ProxyIdentityExperienceFramework(네이티브 앱)를 등록해야 합니다. 로컬 계정은 테넌트에만 존재합니다. 사용자는 고유한 이메일 주소/암호 조합으로 등록하여 테넌트에 등록된 애플리케이션에 액세스합니다.
 
 ### <a name="register-the-identityexperienceframework-application"></a>IdentityExperienceFramework 응용 프로그램 등록
 

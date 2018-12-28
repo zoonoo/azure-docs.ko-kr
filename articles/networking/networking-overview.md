@@ -101,7 +101,7 @@ Azure Traffic Manager 서비스는 전역 DNS 부하 분산을 제공합니다. 
 
 **응용 프로그램 부하 분산**
 
-Azure Application Gateway 서비스는 ADC(Application Deliver Controller)를 서비스로 제공합니다. Application Gateway는 취약점 및 악용으로부터 웹 응용 프로그램을 보호하는 웹 응용 프로그램 방화벽을 비롯한 응용 프로그램에 대한 다양한 계층 7(HTTP/HTTPS) 부하 분산 기능을 제공합니다. Application Gateway를 통해 애플리케이션 게이트웨이에 CPU 집약적인 SSL 종료를 오프로드하여 웹 팜 생산성을 최적화할 수도 있습니다. 
+Azure Application Gateway 서비스는 ADC(Application Deliver Controller)를 서비스로 제공합니다. Application Gateway는 취약점 및 악용으로부터 웹 애플리케이션을 보호하는 웹 애플리케이션 방화벽을 비롯한 애플리케이션에 대한 다양한 계층 7(HTTP/HTTPS) 부하 분산 기능을 제공합니다. Application Gateway를 통해 애플리케이션 게이트웨이에 CPU 집약적인 SSL 종료를 오프로드하여 웹 팜 생산성을 최적화할 수도 있습니다. 
 
 Layer 7의 기타 라우팅 기능으로 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 패스 기반 라우팅 및 단일 Application Gateway 뒤에 여러 웹 사이트를 호스트할 수 있는 기능 등을 포함합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성될 수 있습니다. Application Gateway는 전적으로 Azure에 의해 관리되고, 확장성 및 고가용성을 제공합니다. 관리 효율성을 향상시키기 위한 풍부한 진단 및 로깅 기능을 제공합니다. Application Gateway에 대한 자세한 내용은 [Application Gateway 개요](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 
@@ -122,9 +122,9 @@ Azure Load Balancer는 모든 UDP 및 TCP 프로토콜에 대해 대기 시간�
 다음 옵션을 사용하여 Azure 리소스 간에 트래픽을 필터링할 수 있습니다.
 
 - **네트워크:** Azure NSG(네트워크 보안 그룹)를 구현하여 Azure 리소스에 대한 인바운드 및 아웃바운드 트래픽을 필터링할 수 있습니다. 각 NSG는 하나 이상의 인바운드 및 아웃바운드 규칙을 포함합니다. 각 규칙은 트래픽을 필터링하는 원본 IP 주소, 대상 IP 주소, 포트 및 프로토콜을 지정합니다. 개별 서브넷 및 개별 VM에 NSG를 적용할 수 있습니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/security-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
-- **응용 프로그램:** 웹 응용 프로그램 방화벽이 설치된 Application Gateway를 사용하여 취약점 및 악용으로부터 웹 응용 프로그램을 보호할 수 있습니다. 일반적인 예로 SQL 주입 공격, 크로스 사이트 스크립팅 및 잘못된 형식의 헤더가 있습니다. Application Gateway는 이 트래픽을 필터링하고 웹 서버에 도달하지 않도록 중지합니다. 사용하려는 규칙을 구성할 수 있습니다. 특정 정책을 사용하지 않을 수 있도록 SSL 협상 정책을 구성하는 기능이 제공됩니다. 웹 응용 프로그램 방화벽에 대한 자세한 내용은 [웹 응용 프로그램 방화벽](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
+- **응용 프로그램:** 웹 응용 프로그램 방화벽이 설치된 Application Gateway를 사용하여 취약점 및 악용으로부터 웹 응용 프로그램을 보호할 수 있습니다. 일반적인 예로 SQL 주입 공격, 크로스 사이트 스크립팅 및 잘못된 형식의 헤더가 있습니다. Application Gateway는 이 트래픽을 필터링하고 웹 서버에 도달하지 않도록 중지합니다. 사용하려는 규칙을 구성할 수 있습니다. 특정 정책을 사용하지 않을 수 있도록 SSL 협상 정책을 구성하는 기능이 제공됩니다. 웹 애플리케이션 방화벽에 대한 자세한 내용은 [웹 애플리케이션 방화벽](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 
-Azure에서 제공하지 않는 네트워크 기능이 필요하거나 온-프레미스를 사용하는 네트워크 응용 프로그램을 사용하려면 VM에서 제품을 구현하고 VNet에 연결할 수 있습니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)에는 현재 사용할 수 있는 네트워크 응용 프로그램을 사용하여 미리 구성된 여러 가지 다른 VM이 포함됩니다. 이러한 미리 구성된 VM은 일반적으로 NVA(네트워크 가상 어플라이언스)라고 합니다. NVA는 방화벽, WAN 최적화와 같은 응용 프로그램과 함께 사용할 수 있습니다.
+Azure에서 제공하지 않는 네트워크 기능이 필요하거나 온-프레미스를 사용하는 네트워크 애플리케이션을 사용하려면 VM에서 제품을 구현하고 VNet에 연결할 수 있습니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)에는 현재 사용할 수 있는 네트워크 응용 프로그램을 사용하여 미리 구성된 여러 가지 다른 VM이 포함됩니다. 이러한 미리 구성된 VM은 일반적으로 NVA(네트워크 가상 어플라이언스)라고 합니다. NVA는 방화벽, WAN 최적화와 같은 애플리케이션과 함께 사용할 수 있습니다.
 
 ## <a name="routing"></a>라우팅
 

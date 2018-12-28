@@ -150,7 +150,7 @@ Azure에서 보호되는 엔터티(SQL Server 데이터베이스)를 복구하�
 
     ![복구 프로세스 시작](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
 
-    복구가 완료되면 복원된 데이터베이스는 응용 프로그램과 일치합니다.
+    복구가 완료되면 복원된 데이터베이스는 애플리케이션과 일치합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

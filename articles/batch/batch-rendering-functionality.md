@@ -61,7 +61,7 @@ Windows 2016 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace
 
 렌더링 태스크에 대한 명령줄을 만들 수 있으려면, 렌더링 응용 프로그램 실행 파일의 설치 위치를 지정해야 합니다.  실제 경로를 지정하지 않고 사용할 수 있는 시스템 환경 변수를 Azure Marketplace VM 이미지에서 만들었습니다.  [표준 Batch 환경 변수](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) 외에 이러한 환경 변수가 각 태스크에 대해 만들어집니다.
 
-|응용 프로그램|응용 프로그램 실행 파일|환경 변수|
+|애플리케이션|응용 프로그램 실행 파일|환경 변수|
 |---------|---------|---------|
 |Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
 |Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|

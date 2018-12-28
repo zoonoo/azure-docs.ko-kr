@@ -1,21 +1,22 @@
 ---
 title: 컨테이너 구성
-titlesuffix: Computer Vision - Cognitive Services - Azure
+titlesuffix: Computer Vision - Azure Cognitive Services
 description: Computer Vision의 컨테이너에 대한 구성 설정입니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 8df293878486a9cd4ded6e899871c30498c4b68f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635101"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077021"
 ---
 # <a name="configure-containers"></a>컨테이너 구성
 
@@ -86,7 +87,7 @@ Computer Vision 컨테이너에서 컨테이너를 인스턴스화할 때 [환�
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing` 구성 설정은 컨테이너에 대한 청구 정보를 추적하기 위해 사용하는 Azure 기반 Computer Vision 리소스의 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure 기반 Computer Vision 리소스에 대해 유효한 엔드포인트 URI여야 합니다.
+`Billing` 구성 설정은 컨테이너에 대한 청구 정보를 측정하기 위해 사용하는 Azure 기반 Computer Vision 리소스의 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure 기반 Computer Vision 리소스에 대해 유효한 엔드포인트 URI여야 합니다.
 
 > [!IMPORTANT]
 > [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-configuration-setting) 구성 설정은 함께 사용됩니다. 따라서 이 세 가지 설정 모두에 대해 유효한 값을 제공해야 하며, 제공하지 않을 경우 컨테이너는 시작되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](computer-vision-how-to-install-containers.md#billing)를 참조하세요.
@@ -97,6 +98,8 @@ Computer Vision 컨테이너에서 컨테이너를 인스턴스화할 때 [환�
 
 > [!IMPORTANT]
 > [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-configuration-setting) 구성 설정은 함께 사용됩니다. 따라서 이 세 가지 설정 모두에 대해 유효한 값을 제공해야 하며, 제공하지 않을 경우 컨테이너는 시작되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](computer-vision-how-to-install-containers.md#billing)를 참조하세요.
+
+Cognitive Services 컨테이너는 Azure 사용에 관한 [계약](https://go.microsoft.com/fwlink/?linkid=2018657)에 따라 사용 허가됩니다. Azure 사용에 관한 기존 계약이 없으면 Azure 사용에 관한 계약은 [온라인 서비스 사용 약관](https://go.microsoft.com/fwlink/?linkid=2018760)을 포함한 [Microsoft 온라인 정기가입 계약](https://go.microsoft.com/fwlink/?linkid=2018755)임에 동의합니다. 미리 보기의 경우 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://go.microsoft.com/fwlink/?linkid=2018815)에도 동의합니다. 컨테이너를 사용하여 이 사용 약관에 동의합니다.
 
 ## <a name="fluentd-configuration-settings"></a>Fluentd 구성 설정
 
@@ -127,7 +130,7 @@ Computer Vision 컨테이너에서 컨테이너를 인스턴스화할 때 [환�
 
   | 이름 | 데이터 형식 | 설명 |
   |------|-----------|-------------|
-  | `Format` | 문자열 | 로그 파일에 대한 출력 형식입니다.<br/> **참고:** 로깅 공급자를 사용 설정하려면 이 값을 `json`으로 설정해야 합니다. 또한 컨테이너를 인스턴스화하는 동안 출력 탑재를 지정하지 않고 이 값이 지정된 경우에는 오류가 발생합니다. |
+  | `Format` | 문자열 | 로그 파일에 대한 출력 형식입니다.<br/> **참고:** 이 값은 `json`으로 설정해야 로깅 공급자를 사용할 수 있습니다. 또한 컨테이너를 인스턴스화하는 동안 출력 탑재를 지정하지 않고 이 값이 지정된 경우에는 오류가 발생합니다. |
   | `MaxFileSize` | 정수  | 로그 파일의 최대 크기(MB)입니다. 현재 로그 파일의 크기가 이 값을 충족하거나 초과할 경우 로깅 공급자가 새 로그 파일을 시작합니다. -1을 지정하면 로그 파일의 크기는 출력 탑재(있는 경우)에 대한 최대 파일 크기에 의해서만 제한됩니다. 기본값은 1입니다. |
 
 ASP.NET Core 로깅 지원 구성에 대한 자세한 내용은 [설정 파일 구성](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration)을 참조하세요.

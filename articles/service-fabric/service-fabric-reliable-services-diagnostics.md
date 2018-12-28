@@ -59,7 +59,7 @@ Service Fabric 트랜잭션 복제기는 [신뢰할 수 있는 상태 관리자]
 
 Service Fabric TStore는 키-값 쌍을 저장 및 검색하기 위한 [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections-internals.md)에서 사용되는 구성 요소입니다.
 
-Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능 모니터](https://technet.microsoft.com/library/cc749249.aspx) 응용 프로그램을 사용하면 성능 카운터 데이터를 수집하고 볼 수 있습니다. [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md) 은 성능 카운터 데이터를 수집하여 Azure 테이블에 업로드하기 위한 또 다른 옵션입니다.
+Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능 모니터](https://technet.microsoft.com/library/cc749249.aspx) 애플리케이션을 사용하면 성능 카운터 데이터를 수집하고 볼 수 있습니다. [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md) 은 성능 카운터 데이터를 수집하여 Azure 테이블에 업로드하기 위한 또 다른 옵션입니다.
 
 ### <a name="performance-counter-instance-names"></a>성능 카운터 인스턴스 이름
 많은 수의 Reliable Services 또는 Reliable Services 파티션이 있는 클러스터에는 트랜잭션 복제기 성능 카운터 인스턴스가 많이 있습니다. 이것은 TStore 성능 카운터에 대한 사례이기도 하지만 사용된 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐 수로 곱합니다. 성능 카운터 인스턴스 이름은 성능 카운터 인스턴스가 연결된 특정 [파티션](service-fabric-concepts-partitioning.md), 서비스 복제본 및 상태 공급자(TStore의 경우)를 식별하는 데 도움이 될 수 있습니다.

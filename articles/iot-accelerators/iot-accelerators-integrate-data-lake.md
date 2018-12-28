@@ -17,7 +17,7 @@ ms.locfileid: "39188072"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>원격 모니터링 솔루션을 Azure Data Lake Store와 통합
 
-원격 모니터링 솔루션에서 제공되는 것 이상의 고급 분석 요구 사항이 있을 수 있습니다. Azure Data Lake Store는 다양한 대규모 데이터 세트에서 데이터를 저장할 수 있을 뿐만 아니라 Azure Data Lake Analytics와 통합하여 주문형 분석을 제공하기 때문에 이 응용 프로그램에 이상적입니다.
+원격 모니터링 솔루션에서 제공되는 것 이상의 고급 분석 요구 사항이 있을 수 있습니다. Azure Data Lake Store는 다양한 대규모 데이터 세트에서 데이터를 저장할 수 있을 뿐만 아니라 Azure Data Lake Analytics와 통합하여 주문형 분석을 제공하기 때문에 이 애플리케이션에 이상적입니다.
 
 이 방법에서는 Azure Stream Analytics 작업을 사용하여 Remote Monitoring 솔루션의 IoT 허브에서 Azure Data Lake Store로 데이터를 스트리밍합니다.
 

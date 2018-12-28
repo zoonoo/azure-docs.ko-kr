@@ -1,5 +1,5 @@
 ---
-title: 동적 관리 뷰를 사용하여 Azure SQL Database 모니터링 | Microsoft Docs
+title: DMV를 사용하여 Azure SQL Database 성능 모니터링 | Microsoft Docs
 description: 동적 관리 뷰를 사용하여 Microsoft Azure SQL Database를 모니터링하여 일반적인 성능 문제를 감지 및 진단하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: c690e9b864d4b2b378814b478ea4918a9f75fbba
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 88e0ad847d8d779bd769ed73d4f0393ddfb65588
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288530"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876316"
 ---
-# <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Azure SQL Database 모니터링
+# <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Azure SQL Database 성능모니터링
 
 Microsoft Azure SQL Database를 사용하여 차단되거나 오래 실행된 쿼리, 리소스 병목 현상, 잘못된 쿼리 계획 등에 의해 야기될 수 있는 동적 관리 뷰의 하위 집합에서 성능 문제를 진단할 수 있습니다. 이 항목에서는 동적 관리 뷰를 사용하여 일반적인 성능 문제를 감지하는 방법을 설명합니다.
 
@@ -131,7 +131,7 @@ ORDER BY end_time DESC;
 
 IO 제한에 도달하는 경우 두 가지 옵션이 있습니다.
 
-- 옵션 1: 계산 크기 또는 서비스 계층 업그레이드
+- 옵션 1: 컴퓨팅 크기 또는 서비스 계층 업그레이드
 - 옵션 2: 대부분의 IO를 사용하는 쿼리를 식별하여 튜닝
 
 #### <a name="view-buffer-related-io-using-the-query-store"></a>쿼리 저장소를 사용하여 버퍼 관련 IO 확인
@@ -574,7 +574,7 @@ ORDER BY start_time DESC
     ORDER BY start_time DESC;
     ```
 
-2. 워크로드가 계산 크기에 얼마나 적합한지 평가하려면 리소스 메트릭의 각 측면(CPU, 읽기, 쓰기, 작업자 수, 세션 수)까지 집중 분석해야 합니다. 다음은 이러한 리소스 메트릭의 평균값 및 최대값에 대해 보고하기 위해 **sys.resource_stats**를 사용하여 수정한 쿼리입니다.
+2. 워크로드가 컴퓨팅 크기에 얼마나 적합한지 평가하려면 리소스 메트릭의 각 측면을 집중 분석해야 합니다. (예: CPU, 읽기, 쓰기, 작업자 수, 세션 수) 다음은 이러한 리소스 메트릭의 평균값 및 최대값에 대해 보고하기 위해 **sys.resource_stats**를 사용하여 수정한 쿼리입니다.
 
     ```sql
     SELECT

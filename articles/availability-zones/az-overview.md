@@ -1,6 +1,6 @@
 ---
 title: Azure 가용성 영역이란? | Microsoft Docs
-description: Azure에서 가용성과 복원력이 높은 응용 프로그램을 만들려면 가용성 영역에서 리소스를 실행하는 데 사용할 수 있는 별도의 실제 위치를 제공합니다.
+description: Azure에서 가용성과 복원력이 높은 애플리케이션을 만들려면 가용성 영역에서 리소스를 실행하는 데 사용할 수 있는 별도의 실제 위치를 제공합니다.
 services: ''
 documentationcenter: ''
 author: cynthn

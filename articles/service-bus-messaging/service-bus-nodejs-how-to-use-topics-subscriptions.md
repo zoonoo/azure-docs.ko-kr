@@ -263,7 +263,7 @@ for (i = 0;i < 5;i++) {
 }
 ```
 
-Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다.
+Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 애플리케이션 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다.
 
 ## <a name="receive-messages-from-a-subscription"></a>구독에서 메시지 받기
 **ServiceBusService** 개체의 `receiveSubscriptionMessage` 메서드를 사용하여 구독에서 메시지를 받습니다. 기본적으로 메시지를 읽으면 구독에서 해당 메시지가 삭제됩니다. 하지만 `isPeekLock` 선택적 매개 변수를 **true**로 설정하여 메시지를 구독에서 삭제하지 않고 읽고(보고) 잠글 수 있습니다.

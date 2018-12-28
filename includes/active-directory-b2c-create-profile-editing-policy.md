@@ -33,7 +33,7 @@ ms.locfileid: "52742343"
 
 **확인**을 클릭합니다.
 
-![일부 응용 프로그램 클레임을 선택하고 확인 단추를 클릭합니다.](media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
+![일부 애플리케이션 클레임을 선택하고 확인 단추를 클릭합니다.](media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
 
 **만들기**를 클릭하여 사용자 흐름을 추가합니다. 사용자 흐름은 **B2C_1_SiPe**로 표시됩니다. **B2C_1_** 접두사가 이름에 추가됩니다.
 

@@ -134,7 +134,7 @@ Azure Media Services 사용을 시작하려면 다음이 있어야 합니다.
 
 ## <a name="consuming-content"></a>콘텐츠 사용
 
-Azure Media Services는 iOS 디바이스, Android 디바이스, Windows, Windows Phone, Xbox 및 셋톱 박스를 포함한 대부분의 플랫폼에서 풍부한 동적 클라이언트 플레이어 애플리케이션을 만드는 데 필요한 도구를 제공합니다. 다음 항목에서 제공하는 SDK 및 플레이어 프레임워크 링크를 사용하여 Media Services의 스트리밍 미디어를 사용할 수 있는 클라이언트 응용 프로그램을 개발할 수 있습니다. 자세한 내용은 [비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)을 참조하세요.
+Azure Media Services는 iOS 디바이스, Android 디바이스, Windows, Windows Phone, Xbox 및 셋톱 박스를 포함한 대부분의 플랫폼에서 풍부한 동적 클라이언트 플레이어 애플리케이션을 만드는 데 필요한 도구를 제공합니다. 다음 항목에서 제공하는 SDK 및 플레이어 프레임워크 링크를 사용하여 Media Services의 스트리밍 미디어를 사용할 수 있는 클라이언트 애플리케이션을 개발할 수 있습니다. 자세한 내용은 [비디오 플레이어 애플리케이션 개발](media-services-develop-video-players.md)을 참조하세요.
 
 ## <a name="enabling-azure-cdn"></a>Azure CDN 사용하기
 

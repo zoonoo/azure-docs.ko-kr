@@ -16,7 +16,7 @@ ms.author: sethm
 ms.reviewer: thoroet
 ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
 ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/24/2018
 ms.locfileid: "49958317"
@@ -65,13 +65,13 @@ Azure Stack에 Azure AD를 사용 하 여 id 저장소로, 하는 경우 서비�
 
 1. [Azure Portal](https://portal.azure.com)을 통해 Azure 계정에 로그인합니다.
 2. 선택 **Azure Active Directory** > **앱 등록** > **추가**합니다.
-3. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 응용 프로그램 유형으로 **웹앱/API** 또는 **네이티브**를 선택합니다. 값을 설정한 후 **만들기**를 선택합니다.
+3. 애플리케이션에 대한 이름 및 URL을 제공합니다. 만들려는 애플리케이션 유형으로 **웹앱/API** 또는 **네이티브**를 선택합니다. 값을 설정한 후 **만들기**를 선택합니다.
 
 ### <a name="get-credentials"></a>자격 증명 가져오기
 
 프로그래밍 방식으로 로그인 할 때 응용 프로그램 및 인증 키에 대 한 ID를 사용 합니다. 이러한 값을 가져오려면 다음을 수행합니다.
 
-1. Active Directory의 **앱 등록**에서 응용 프로그램을 선택합니다.
+1. Active Directory의 **앱 등록**에서 애플리케이션을 선택합니다.
 
 2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. 응용 프로그램에는 [샘플 응용 프로그램](#sample-applications) 사용 하 여 **클라이언트 id** 참조할 때 합니다 **응용 프로그램 ID**합니다.
 
@@ -99,7 +99,7 @@ AD FS를 사용 하 여 id 저장소로 Azure Stack을 배포한 경우에 다�
 
 ## <a name="assign-the-service-principal-to-a-role"></a>서비스 주체를 역할 할당
 
-구독의 리소스에 액세스하려면 역할에 응용 프로그램을 할당해야 합니다. 응용 프로그램에 적합한 사용 권한을 나타내는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
+구독의 리소스에 액세스하려면 역할에 애플리케이션을 할당해야 합니다. 응용 프로그램에 적합한 사용 권한을 나타내는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 >[!NOTE]
 구독, 리소스 그룹 또는 리소스 수준에서 역할의 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어, 리소스 그룹에 대 한 읽기 권한자 역할을 사용 하 여 앱을 앱의 리소스 그룹에 리소스를 읽을 수 있습니다 의미 합니다.
@@ -118,9 +118,9 @@ AD FS를 사용 하 여 id 저장소로 Azure Stack을 배포한 경우에 다�
 
 4. **추가**를 선택합니다.
 
-5. 응용 프로그램에 할당할 역할을 선택합니다.
+5. 애플리케이션에 할당할 역할을 선택합니다.
 
-6. 응용 프로그램을 검색하고 선택합니다.
+6. 애플리케이션을 검색하고 선택합니다.
 
 7. **확인**을 선택하여 역할 할당을 완료합니다. 해당 범위에 대 한 역할에 할당 된 사용자 목록에서 응용 프로그램을 볼 수 있습니다.
 

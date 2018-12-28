@@ -25,7 +25,7 @@ Azure CLI를 사용하여 [애플리케이션 게이트웨이](application-gatew
 
 > [!div class="checklist"]
 > * 네트워크 설정
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 수신기 및 라우팅 규칙 추가
 > * 백 엔드 풀에 대한 가상 머신 확장 집합 만들기
 
@@ -75,9 +75,9 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-[az network application-gateway create](/cli/azure/network/application-gateway#create)를 사용하여 myAppGateway라는 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 응용 프로그램 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myPublicIPSddress*에 할당됩니다.
+[az network application-gateway create](/cli/azure/network/application-gateway#create)를 사용하여 myAppGateway라는 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myPublicIPSddress*에 할당됩니다.
 
 ```azurecli-interactive
 az network application-gateway create \

@@ -1,7 +1,7 @@
 ---
 title: 미리 보기 기술 자료 마이그레이션 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 기술 자료를 가져오는 방법
+description: QnA Maker 무료 미리 보기로 만들어진 기술 자료는 QnA Maker GA로 마이그레이션해야 합니다. QnA Maker 미리 보기는 2019년 1월에 지원 중단될 예정입니다.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,15 +10,16 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.custom: seodec18
+ms.openlocfilehash: 261d42a6c21681ee8015edfe73ad78b4458eb0ee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365563"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078816"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>내보내기-가져오기를 사용하여 기술 자료 마이그레이션
-QnA Maker는 2018년 5월 7일에 \\\build\ 컨퍼런스에서 일반 공급을 발표했습니다. QnA Maker GA에는 Azure에 빌드된 새로운 아키텍처가 있습니다. QnA Maker 무료 미리 보기로 만들어진 기술 자료는 QnA Maker GA로 마이그레이션해야 합니다. QnA Maker 미리 보기는 2018년 11월에 지원 중단될 예정입니다. QnA Maker GA의 변경 내용에 대한 자세한 내용은 QnA Maker GA 알림 [블로그 게시물](https://aka.ms/qnamakerga-blog)을 참조하세요.
+QnA Maker는 2018년 5월 7일에 \\\build\ 컨퍼런스에서 일반 공급을 발표했습니다. QnA Maker GA에는 Azure에 빌드된 새로운 아키텍처가 있습니다. QnA Maker 무료 미리 보기로 만들어진 기술 자료는 QnA Maker GA로 마이그레이션해야 합니다. QnA Maker 미리 보기는 2019년 1월에 지원 중단될 예정입니다. QnA Maker GA의 변경 내용에 대한 자세한 내용은 QnA Maker GA 알림 [블로그 게시물](https://aka.ms/qnamakerga-blog)을 참조하세요.
 
 이제 QnA Maker에는 [가격 모델](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)이 있습니다.
 

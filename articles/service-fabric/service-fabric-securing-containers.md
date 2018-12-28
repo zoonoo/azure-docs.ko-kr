@@ -23,7 +23,7 @@ ms.locfileid: "51299064"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Service Fabric에서 실행되는 컨테이너에 인증서 파일 가져오기
 
-인증서를 지정하여 컨테이너 서비스를 보호할 수 있습니다. Service Fabric은 컨테이너 내부에 Windows 또는 Linux 클러스터(5.7 이상 버전)의 노드에 설치된 인증서에 액세스하는 서비스의 메커니즘을 제공합니다. 클러스터의 모든 노드에서 LocalMachine에 인증서를 설치해야 합니다. 인증서 정보는 다음 코드 조각이 표시한 대로 `ContainerHostPolicies` 태그의 응용 프로그램 매니페스트에서 제공됩니다.
+인증서를 지정하여 컨테이너 서비스를 보호할 수 있습니다. Service Fabric은 컨테이너 내부에 Windows 또는 Linux 클러스터(5.7 이상 버전)의 노드에 설치된 인증서에 액세스하는 서비스의 메커니즘을 제공합니다. 클러스터의 모든 노드에서 LocalMachine에 인증서를 설치해야 합니다. 인증서 정보는 다음 코드 조각이 표시한 대로 `ContainerHostPolicies` 태그의 애플리케이션 매니페스트에서 제공됩니다.
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">

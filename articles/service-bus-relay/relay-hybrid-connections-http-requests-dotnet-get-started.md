@@ -1,6 +1,6 @@
 ---
 title: .NET에서 Azure Relay 하이브리드 연결 HTTP 요청 시작 | Microsoft Docs
-description: .NET에서 Azure Relay 하이브리드 연결 HTTP 요청에 대한 C# 콘솔 응용 프로그램을 작성합니다.
+description: .NET에서 Azure Relay 하이브리드 연결 HTTP 요청에 대한 C# 콘솔 애플리케이션을 작성합니다.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -30,8 +30,8 @@ ms.locfileid: "51612001"
 
 1. Azure Portal을 사용하여 Relay 네임스페이스를 만듭니다.
 2. Azure Portal을 사용하여 해당 네임스페이스에 하이브리드 연결을 만듭니다.
-3. 메시지를 수신하는 서버(수신기) 콘솔 응용 프로그램을 작성합니다.
-4. 메시지를 보내는 클라이언트(발신자) 콘솔 응용 프로그램을 작성합니다.
+3. 메시지를 수신하는 서버(수신기) 콘솔 애플리케이션을 작성합니다.
+4. 메시지를 보내는 클라이언트(발신자) 콘솔 애플리케이션을 작성합니다.
 5. 애플리케이션을 실행합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -47,18 +47,18 @@ ms.locfileid: "51612001"
 ## <a name="create-a-hybrid-connection"></a>하이브리드 연결 만들기
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
-## <a name="create-a-server-application-listener"></a>서버 응용 프로그램(수신기) 만들기
+## <a name="create-a-server-application-listener"></a>서버 애플리케이션(수신기) 만들기
 Visual Studio에서 메시지를 릴레이로부터 수신 대기하고 받을 C# 콘솔 애플리케이션을 작성합니다.
 
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-server](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-server.md)]
 
-## <a name="create-a-client-application-sender"></a>클라이언트 응용 프로그램(보낸 사람) 만들기
+## <a name="create-a-client-application-sender"></a>클라이언트 애플리케이션(보낸 사람) 만들기
 Visual Studio에서 메시지를 릴레이로 보낼 C# 콘솔 애플리케이션을 작성합니다.
 
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
-## <a name="run-the-applications"></a>응용 프로그램 실행
-1. 서버 응용 프로그램을 실행합니다. 콘솔 창에서 다음과 같은 텍스트가 표시됩니다.
+## <a name="run-the-applications"></a>애플리케이션 실행
+1. 서버 애플리케이션을 실행합니다. 콘솔 창에서 다음과 같은 텍스트가 표시됩니다.
 
     ```
     Online
@@ -67,7 +67,7 @@ Visual Studio에서 메시지를 릴레이로 보낼 C# 콘솔 애플리케이�
 1. 클라이언트 응용 프로그램을 실행합니다. 클라이언트 창에서 `hello!`가 표시됩니다. 클라이언트는 HTTP 요청을 서버에 보냈고, 서버는 `hello!`로 응답했습니다. 
 3. 이제 콘솔 창을 닫으려면 콘솔 창에서 **ENTER** 키를 누릅니다. 
 
-축하합니다. 종단 간 하이브리드 연결 응용 프로그램을 만들었습니다.
+축하합니다. 종단 간 하이브리드 연결 애플리케이션을 만들었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

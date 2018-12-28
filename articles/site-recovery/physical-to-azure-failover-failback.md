@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 309da6f7753d95bc6830d61ecca7d86e002ddedf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d105968d13960409a60e2fde9c811a042f444d8f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214839"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848632"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>복제된 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 
@@ -24,10 +24,10 @@ Site Recovery를 사용하여 Azure로 복제된 물리적 서버는 VMware VM�
 
 장애 조치(Failover) 및 장애 복구(Failback)는 다음 4단계로 진행됩니다.
 
-1. **Azure로 장애 조치(failover)**: 온-프레미스 사이트에서 Azure로 컴퓨터를 장애 조치합니다.
-2. **Azure VM 다시 보호**: Azure VM을 다시 보호하여 온-프레미스 VMware VM으로의 복제를 다시 시작하도록 합니다.
-3. **온-프레미스로 장애 조치(Failover)**: Azure에서 장애 복구(Failback)하도록 장애 조치(Failover)를 실행합니다.
-4. **온-프레미스 VM 다시 보호**: 데이터가 장애 복구(Failback)된 후에 장애 복구(Failback)한 온-프레미스 VMware VM을 다시 보호하여 Azure로 복제를 시작하도록 합니다.
+1. **Azure로 장애 조치(failover)**: 머신을 온-프레미스 사이트에서 Azure로 장애 조치합니다.
+2. **Azure VM 다시 보호**: 온-프레미스 VMware VM으로 복제를 다시 시작하도록 Azure VM을 다시 보호합니다.
+3. **온-프레미스로 장애 조치(failover)**: Azure에서 장애 복구(Failback)하도록 장애 조치(Failover)를 실행합니다.
+4. **온-프레미스 VM 다시 보호**: 데이터를 장애 복구한 후에 Azure로 복제를 시작하도록 장애 복구한 온-프레미스 VMware VM을 다시 보호합니다.
 
 ## <a name="verify-server-properties"></a>서버 속성 확인
 
@@ -44,9 +44,9 @@ Site Recovery를 사용하여 Azure로 복제된 물리적 서버는 VMware VM�
 
 1. **설정** > **복제된 항목**에서 컴퓨터 > **장애 조치(Failover)** 를 클릭합니다.
 2. **장애 조치(Failover)** 에서 장애 조치할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
-   - **최신**: 이 옵션은 먼저 Site Recovery로 전송된 모든 데이터를 처리합니다. 이 옵션은 장애 조치(failover) 후에 생성된 Azure VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
-   - **가장 최근에 처리됨**: 이 옵션은 컴퓨터를 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치(Failover)합니다. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
-   - **최신 앱 일치**: 이 옵션은 컴퓨터를 Site Recovery에서 처리된 최신 앱 일치 복구 지점으로 장애 조치(Failover)합니다.
+   - **최신**: 이 옵션은 Site Recovery로 전송된 모든 데이터를 먼저 처리합니다. 이 옵션은 장애 조치(failover) 후에 생성된 Azure VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
+   - **가장 최근에 처리됨**: 이 옵션은 머신을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치(Failover)합니다. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
+   - **최신 앱 일치**: 이 옵션은 머신을 Site Recovery에서 처리된 최신 앱 일치 복구 지점으로 장애 조치(Failover)합니다.
    - **사용자 지정**: 복구 지점을 지정합니다.
 
 3. 장애 조치(Failover)를 트리거하기 전에 Site Recovery에서 원본 컴퓨터를 종료하려고 시도하는 경우 **장애 조치(Failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.

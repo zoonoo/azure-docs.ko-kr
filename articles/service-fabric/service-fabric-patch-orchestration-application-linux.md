@@ -29,7 +29,7 @@ ms.locfileid: "52285155"
 >
 >
 
-패치 오케스트레이션 응용 프로그램은 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체제 패치를 자동화하는 Azure Service Fabric 응용 프로그램입니다.
+패치 오케스트레이션 애플리케이션은 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체제 패치를 자동화하는 Azure Service Fabric 애플리케이션입니다.
 
 패치 오케스트레이션 앱은 다음과 같은 기능을 제공합니다.
 

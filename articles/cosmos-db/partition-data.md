@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB의 분할 및 수평적 크기 조정
-description: Azure Cosmos DB에서 분할 작동 방법, 분할 및 파티션 키를 구성하는 방법 및 응용 프로그램에 대한 올바른 파티션 키를 선택하는 방법을 알아봅니다.
+description: Azure Cosmos DB에서 분할 작동 방법, 분할 및 파티션 키를 구성하는 방법 및 애플리케이션에 대한 올바른 파티션 키를 선택하는 방법을 알아봅니다.
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual

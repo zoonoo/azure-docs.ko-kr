@@ -19,7 +19,7 @@ ms.locfileid: "45985263"
 ---
 # <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Azure AD B2B 공동 작업 등록을 위한 셀프 서비스 포털
 
-고객은 최종 사용자를 위한 [Azure Portal](https://portal.azure.com) 및 [응용 프로그램 액세스 패널](https://myapps.microsoft.com)을 통해 제공되는 기본 제공 기능으로 많은 작업을 수행할 수 있습니다. 하지만 B2B 사용자가 조직의 요구에 맞출 수 있도록 온보딩 워크플로를 사용자 지정해야 할 수도 있습니다. 이러한 작업은 [초대 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)를 사용하여 수행할 수 있습니다.
+고객은 최종 사용자를 위한 [Azure Portal](https://portal.azure.com) 및 [애플리케이션 액세스 패널](https://myapps.microsoft.com)을 통해 제공되는 기본 제공 기능으로 많은 작업을 수행할 수 있습니다. 하지만 B2B 사용자가 조직의 요구에 맞출 수 있도록 온보딩 워크플로를 사용자 지정해야 할 수도 있습니다. 이러한 작업은 [초대 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)를 사용하여 수행할 수 있습니다.
 
 초대하는 조직에서는 개별적인 외부 협력자가 누구인지, 리소스에 액세스해야 하는 사람이 누구인지를 미리 알지 못할 수 있습니다. 초대하는 조직이 제어하는 일련의 정책을 통해 파트너 회사의 사용자가 스스로 등록할 수 있는 방법이 필요합니다. 이 시나리오는 API를 통해 가능합니다. 바로 이 기능을 구현하는 [샘플 프로젝트가 GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web)에 있습니다.
 

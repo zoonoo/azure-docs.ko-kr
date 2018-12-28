@@ -16,7 +16,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/10/2018
 ms.locfileid: "40038414"
 ---
-# <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>MySQL용 Azure Database에 응용 프로그램을 연결하는 방법
+# <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>MySQL용 Azure Database에 애플리케이션을 연결하는 방법
 이 항목에는 템플릿 및 예제와 함께 MySQL용 Azure Database에서 지원되는 연결 문자열 형식이 나열되어 있습니다. 연결 문자열에 다른 매개 변수 및 설정을 사용할 수도 있습니다.
 
 - 인증서를 가져오려면 [SSL 구성 방법](./howto-configure-ssl.md)을 참조하세요.

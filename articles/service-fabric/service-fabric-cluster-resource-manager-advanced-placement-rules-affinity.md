@@ -26,7 +26,7 @@ ms.locfileid: "34204858"
 
 더 큰 앱 또는 마이크로 서비스를 고려하지 않고 설계한 앱을 Service Fabric(또는 모든 분산 환경)으로 가져오고 있다고 가정해 보겠습니다. 이 유형의 전환이 일반적입니다. 전체 앱을 환경에 변환하고 패키징한 다음 문제 없이 실행하여 시작합니다. 그런 다음 여러 개의 작은 서비스로 나눈 다음 서로 통신할 수 있도록 합니다.
 
-결국 응용 프로그램에 몇 가지 문제가 발생하고 있음을 알 수 있습니다. 이러한 문제는 대개 다음 범주 중 하나에 해당합니다.
+결국 애플리케이션에 몇 가지 문제가 발생하고 있음을 알 수 있습니다. 이러한 문제는 대개 다음 범주 중 하나에 해당합니다.
 
 1. 모놀리식 앱의 구성 요소 X는 구성 요소 Y에 대해 문서화되지 않은 종속성을 가지며, 해당 구성 요소들을 별도의 서비스로 전환했습니다. 현재 이러한 서비스는 클러스터의 다른 노드에서 실행되고 있으므로 끊어졌습니다.
 2. 이러한 구성 요소는 로컬로 명명된 파이프 | 공유 메모리 | 디스크의 파일을 통해 통신하며, 성능상의 이유로 즉시 공유 리소스에 쓸 수 있어야 합니다. 이러한 강한 종속성은 나중에 제거될 것입니다.
@@ -80,7 +80,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 
 ## <a name="next-steps"></a>다음 단계
 - 서비스 구성에 대한 자세한 내용은 [서비스 구성에 대한 자세한 정보](service-fabric-cluster-resource-manager-configure-services.md)에서 알아봅니다.
-- 서비스를 작은 컴퓨터 집합으로 제한하거나 서비스 로드를 집계하려면 [응용 프로그램 그룹](service-fabric-cluster-resource-manager-application-groups.md)을 사용합니다.
+- 서비스를 작은 머신 세트으로 제한하거나 서비스 로드를 집계하려면 [애플리케이션 그룹](service-fabric-cluster-resource-manager-application-groups.md)을 사용합니다.
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png

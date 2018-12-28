@@ -41,8 +41,8 @@ Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]�
 3. 다음 명령을 사용하여 새 Azure Active Directory 응용 프로그램을 만듭니다. 자리 표시자는 바꿉니다.
    
    * **{표시 이름}:** **MySampleApp**과 같은 응용 프로그램의 표시 이름입니다.
-   * **{홈페이지 URL}:** 앱의 홈페이지에 대한 URL입니다(예: **http://mysampleapp/home**). 이 URL이 실제 응용 프로그램을 가리킬 필요는 없습니다.
-   * **{응용 프로그램 식별자}:** 고유 식별자입니다(예: **http://mysampleapp**). 이 URL이 실제 응용 프로그램을 가리킬 필요는 없습니다.
+   * **{홈페이지 URL}:** 앱의 홈페이지에 대한 URL입니다(예: **http://mysampleapp/home**). 이 URL이 실제 애플리케이션을 가리킬 필요는 없습니다.
+   * **{응용 프로그램 식별자}:** 고유 식별자입니다(예: **http://mysampleapp**). 이 URL이 실제 애플리케이션을 가리킬 필요는 없습니다.
    * **{암호}:** 앱에서 인증하기 위해 사용할 암호입니다.
      
      ```powershell

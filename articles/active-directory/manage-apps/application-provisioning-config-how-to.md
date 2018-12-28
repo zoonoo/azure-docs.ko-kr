@@ -34,7 +34,7 @@ Azure Portal에서 엔터프라이즈 앱에 대한 왼쪽 탐색 창의 **프�
 
 해당 응용 프로그램에 대해 수동 모드만 표시되는 경우 해당 앱에 대해 자동 Azure AD 프로비전 커넥터가 아직 생성되지 않았음을 의미합니다. 또는 앱에서 자동화된 프로비전 커넥터를 빌드하는 필수 구성 요소 사용자 관리 API를 지원하지 않음을 의미합니다.
 
-해당 앱에 대해 자동 프로비전 지원을 요청하려면 [Azure Active Directory 응용 프로그램 요청](https://aka.ms/aadapprequest)에서 요청 양식을 작성하세요.
+해당 앱에 대해 자동 프로비전 지원을 요청하려면 [Azure Active Directory 애플리케이션 요청](https://aka.ms/aadapprequest)에서 요청 양식을 작성하세요.
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>자동 프로비전에 대한 응용 프로그램 구성
 

@@ -16,12 +16,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65f8eb0752a181eda312515e557bb733c091e2e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fd511a8a9d17bf79f1237bbfe2dc2ddbc5ec1b2e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505391"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867429"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 Batch 계정 및 할당량 관리
 
@@ -153,7 +153,7 @@ Batch Management .NET 라이브러리는 Azure 리소스 공급자 클라이언�
 
 ## <a name="sample-project-on-github"></a>GitHub에서 샘플 프로젝트
 
-실제로 사용 중인 Batch 관리 .NET을 확인하려면 GitHub의 [AccountManagment][acct_mgmt_sample] 샘플 프로젝트를 참조하세요. AccountManagment 샘플 응용 프로그램은 다음 작업을 보여줍니다.
+실제로 사용 중인 Batch 관리 .NET을 확인하려면 GitHub의 [AccountManagement][acct_mgmt_sample] 샘플 프로젝트를 참조하세요. AccountManagement 샘플 애플리케이션은 다음 작업을 보여줍니다.
 
 1. [ADAL][aad_adal]을 사용하여 Azure AD에서 보안 토큰을 획득합니다. 사용자가 아직 로그인하지 않은 경우 Azure 자격 증명을 요구하는 메시지가 표시됩니다.
 2. Azure AD에서 획득한 보안 토큰을 사용하여 [SubscriptionClient][resman_subclient]를 만들고 Azure에서 해당 계정과 연결된 구독 목록을 쿼리합니다. 목록에 둘 이상의 구독이 포함되어 있는 경우 사용자가 구독을 선택할 수 있습니다.

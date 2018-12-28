@@ -1,6 +1,6 @@
 ---
 title: Azure의 클러스터에 Service Fabric 앱 배포 | Microsoft Docs
-description: Visual Studio에서 응용 프로그램을 클러스터에 배포하는 방법을 알아봅니다.
+description: Visual Studio에서 애플리케이션을 클러스터에 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77

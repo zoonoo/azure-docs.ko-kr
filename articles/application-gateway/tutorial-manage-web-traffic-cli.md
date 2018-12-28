@@ -1,6 +1,6 @@
 ---
 title: 자습서 - 웹 트래픽 관리 - Azure CLI
-description: Azure CLI를 사용하여 가상 머신 확장 집합으로 웹 트래픽을 관리하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
+description: Azure CLI를 사용하여 가상 머신 확장 집합으로 웹 트래픽을 관리하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -17,15 +17,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46962194"
 ---
-# <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 응용 프로그램 게이트웨이로 웹 트래픽 관리
+# <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 애플리케이션 게이트웨이로 웹 트래픽 관리
 
-응용 프로그램 게이트웨이는 사용자가 유지 관리하는 서버로 전송되는 웹 트래픽을 관리하고 보호하는 데 사용 됩니다. Azure CLI를 사용하여 백 엔드 서버에 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 웹 트래픽을 관리하는 [애플리케이션 게이트웨이](overview.md)를 만들 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다.
+애플리케이션 게이트웨이는 사용자가 유지 관리하는 서버로 전송되는 웹 트래픽을 관리하고 보호하는 데 사용 됩니다. Azure CLI를 사용하여 백 엔드 서버에 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 웹 트래픽을 관리하는 [애플리케이션 게이트웨이](overview.md)를 만들 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 네트워크 설정
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
 원하는 경우 [Azure PowerShell](tutorial-manage-web-traffic-powershell.md)을 사용하여 이 자습서를 완료할 수 있습니다.
@@ -70,9 +70,9 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-[az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create)를 사용하여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 응용 프로그램 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myPublicIPSddress*에 할당됩니다. 
+[az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create)를 사용하여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myPublicIPSddress*에 할당됩니다. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -100,7 +100,7 @@ az network application-gateway create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 응용 프로그램 게이트웨이의 백 엔드 풀에 대한 서버를 제공하는 가상 머신 확장 집합을 만듭니다. 확장 집합의 가상 머신은 *myBackendSubnet* 및 *appGatewayBackendPool*에 연결됩니다. 확장 집합을 만들려면 [az vmss create](/cli/azure/vmss#az-vmss-create)를 사용합니다.
+이 예제에서는 애플리케이션 게이트웨이의 백 엔드 풀에 대한 서버를 제공하는 가상 머신 확장 집합을 만듭니다. 확장 집합의 가상 머신은 *myBackendSubnet* 및 *appGatewayBackendPool*에 연결됩니다. 확장 집합을 만들려면 [az vmss create](/cli/azure/vmss#az-vmss-create)를 사용합니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -160,7 +160,7 @@ az group delete --name myResourceGroupAG --location eastus
 
 > [!div class="checklist"]
 > * 네트워크 설정
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
 > [!div class="nextstepaction"]

@@ -160,7 +160,7 @@ Media Services에서 자산을 암호화하려는 경우 암호화 키(CommonEnc
 Media Services를 사용할 때는 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 집합을 원하는 형식으로 변환하는 것이 좋습니다.
 
 ### <a name="streaming-endpoint"></a>스트리밍 엔드포인트
-StreamingEndpoint는 추가 배포를 위해 콘텐츠를 클라이언트 플레이어 응용 프로그램이나 CDN(Content Delivery Network)에 직접 배달할 수 있는 스트리밍 서비스를 나타냅니다. 이제 Azure Media Services는 Azure CDN 통합을 제공합니다. 스트리밍 엔드포인트 서비스의 아웃바운드 스트림은 라이브 스트림 또는 Media Services 계정에 주문형 비디오 자산이 될 수 있습니다. Media Services 고객은 필요에 따라 **표준** 스트리밍 엔드포인트나 하나 이상의 **프리미엄** 스트리밍 엔드포인트를 선택합니다. 표준 스트리밍 엔드포인트는 대부분의 스트리밍 워크로드에 적합합니다. 
+StreamingEndpoint는 추가 배포를 위해 콘텐츠를 클라이언트 플레이어 애플리케이션이나 CDN(Content Delivery Network)에 직접 배달할 수 있는 스트리밍 서비스를 나타냅니다. 이제 Azure Media Services는 Azure CDN 통합을 제공합니다. 스트리밍 엔드포인트 서비스의 아웃바운드 스트림은 라이브 스트림 또는 Media Services 계정에 주문형 비디오 자산이 될 수 있습니다. Media Services 고객은 필요에 따라 **표준** 스트리밍 엔드포인트나 하나 이상의 **프리미엄** 스트리밍 엔드포인트를 선택합니다. 표준 스트리밍 엔드포인트는 대부분의 스트리밍 워크로드에 적합합니다. 
 
 표준 스트리밍 엔드포인트는 대부분의 스트리밍 워크로드에 적합합니다. 표준 스트리밍 엔드포인트는 HLS, MPEG DASH 및 부드러운 스트리밍으로의 동적 패키징뿐만 아니라 Microsoft PlayReady, Google Widevine, Apple Fairplay 및 AES128에 대한 동적 암호화를 통해 거의 모든 디바이스에 콘텐츠를 제공할 수 있는 유연성을 제공합니다.  또한 Azure CDN 통합을 통해 매우 작은 대상 그룹에서 수천 명의 동시 시청자가 있는 매우 큰 대상 그룹으로 확장됩니다. 고급 워크로드가 있거나 스트리밍 용량 요구 사항이 표준 스트리밍 엔드포인트 처리량 목표에 맞지 않거나 증가하는 대역폭 요구를 처리하도록 스트리밍 엔드포인트 서비스의 용량을 제어하려는 경우 배율 단위(프리미엄 스트리밍 단위라고도 함)를 할당하는 것이 좋습니다.
 

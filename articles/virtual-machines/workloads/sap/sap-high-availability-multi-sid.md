@@ -82,7 +82,7 @@ SAP 배포가 있는 경우 [Windows VM에서 고가용성 SAP NetWeaver 가이�
 > 설치 프로그램은 다음 조건을 충족해야 합니다.
 > - SAP ASCS/SCS 인스턴스는 동일한 WSFC 클러스터를 공유해야 합니다.
 > - 각 DBMS SID에는 해당하는 고유한 전용 WSFC 클러스터가 있어야 합니다.
-> - 하나의 SAP 시스템 SID에 속하는 SAP 응용 프로그램 서버에는 고유한 전용 VM이 있어야 합니다.
+> - 하나의 SAP 시스템 SID에 속하는 SAP 애플리케이션 서버에는 고유한 전용 VM이 있어야 합니다.
 
 
 ## <a name="prepare-the-infrastructure"></a>인프라 준비
@@ -227,11 +227,11 @@ Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$IL
 
 ![새 SAP ASCS/SCS 공유 디스크에 대한 DataKeeper 동기 미러링][sap-ha-guide-figure-6006]
 
-### <a name="deploy-vms-for-sap-application-servers-and-dbms-cluster"></a>SAP 응용 프로그램 서버 및 DBMS 클러스터에 대한 VM 배포
+### <a name="deploy-vms-for-sap-application-servers-and-dbms-cluster"></a>SAP 애플리케이션 서버 및 DBMS 클러스터에 대한 VM 배포
 
 두 번째 SAP 시스템에 대한 인프라 준비를 완료하려면 다음을 수행합니다.
 
-1. SAP 응용 프로그램 서버에 대한 전용 VM을 배포하고 고유한 전용 가용성 그룹에 배치합니다.
+1. SAP 애플리케이션 서버에 대한 전용 VM을 배포하고 고유한 전용 가용성 그룹에 배치합니다.
 2. DBMS 클러스터에 대한 전용 VM을 배포하고 고유한 전용 가용성 그룹에 배치합니다.
 
 

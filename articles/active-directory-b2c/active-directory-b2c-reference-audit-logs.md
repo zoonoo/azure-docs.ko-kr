@@ -30,7 +30,7 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 |---------|---------|
 |권한 부여 |B2C 리소스에 액세스하는 사용자(예: B2C 정책 목록에 액세스하는 관리자)에 대한 권한 부여와 관련된 활동         |
 |디렉터리 |관리자가 Azure Portal을 사용하여 로그인할 때 검색되는 디렉터리 특성과 관련된 활동 |
-|응용 프로그램 | B2C 응용 프로그램에 대한 CRUD 작업 |
+|애플리케이션 | B2C 애플리케이션에 대한 CRUD 작업 |
 |키 |B2C 키 컨테이너에 저장된 키에 대한 CRUD 작업 |
 |리소스 |B2C 리소스에 대한 CRUD 작업(예: 정책 및 ID 공급자)
 |인증 |사용자 자격 증명 및 토큰 발행에 대한 유효성 검사|
@@ -66,7 +66,7 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 감사 로그는 Azure Active Directory에 대한 다른 활동과 동일한 파이프라인에 게시되므로 [Azure Active Directory 보고 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference)를 통해 액세스할 수 있습니다. 
 
 ### <a name="prerequisites"></a>필수 조건
-Azure AD 보고 API를 인증하려면 먼저 응용 프로그램을 등록해야 합니다. [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)의 단계를 완료해야 합니다.
+Azure AD 보고 API를 인증하려면 먼저 애플리케이션을 등록해야 합니다. [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)의 단계를 완료해야 합니다.
 
 ### <a name="accesing-the-api"></a>API 액세스
 API를 통해 Azure AD B2C 감사 로그를 다운로드하려면 로그를 **B2C** 범주로 필터링합니다. 범주별로 필터링하려면 Azure AD 보고 API 엔드포인트를 호출할 때 아래와 같이 쿼리 문자열 매개 변수를 사용합니다.

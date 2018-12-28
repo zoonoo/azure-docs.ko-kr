@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - 응용 프로그램 고가용성을 위한 트래픽 라우팅 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 응용 프로그램 고가용성을 위한 트래픽 라우팅
+title: Azure CLI 스크립트 샘플 - 애플리케이션 고가용성을 위한 트래픽 라우팅 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - 애플리케이션 고가용성을 위한 트래픽 라우팅
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/01/2018
 ms.locfileid: "32313176"
 ---
-# <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Azure CLI를 사용하여 응용 프로그램 고가용성을 위해 트래픽 라우팅
+# <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Azure CLI를 사용하여 애플리케이션 고가용성을 위해 트래픽 라우팅
 
-이 스크립트는 리소스 그룹, 2개 App Service 계획, 2개 웹앱, Traffic Manager 프로필 및 2개 Traffic Manager 끝점을 만듭니다. Traffic Manager는 주 지역인 한 지역의 응용 프로그램 및 주 지역의 응용 프로그램을 사용할 수 없을 때 보조 지역으로 트래픽을 전달합니다. 스크립트를 실행하기 전에 MyWebApp, MyWebAppL1 및 MyWebAppL2 값을 Azure에서 고유한 값으로 변경해야 합니다. 스크립트를 실행한 후에는 mywebapp.trafficmanager.net URL을 사용하여 주 지역의 응용 프로그램에 액세스할 수 있습니다.
+이 스크립트는 리소스 그룹, 2개 App Service 계획, 2개 웹앱, Traffic Manager 프로필 및 2개 Traffic Manager 끝점을 만듭니다. Traffic Manager는 주 지역인 한 지역의 애플리케이션 및 주 지역의 애플리케이션을 사용할 수 없을 때 보조 지역으로 트래픽을 전달합니다. 스크립트를 실행하기 전에 MyWebApp, MyWebAppL1 및 MyWebAppL2 값을 Azure에서 고유한 값으로 변경해야 합니다. 스크립트를 실행한 후에는 mywebapp.trafficmanager.net URL을 사용하여 주 지역의 응용 프로그램에 액세스할 수 있습니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

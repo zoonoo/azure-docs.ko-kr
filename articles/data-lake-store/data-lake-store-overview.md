@@ -77,7 +77,7 @@ Data Lake Storage Gen1은 Hadoop 에코시스템의 오픈 소스 구성 요소 
 * [Data Lake Storage Gen1을 사용하는 시나리오](data-lake-store-data-scenarios.md)를 참조하여 데이터 수집, 데이터 처리, 데이터 다운로드 및 데이터 시각화와 같은 시나리오에서 Data Lake Storage Gen1을 사용하는 방법을 알아봅니다.
 
 ## <a name="what-is-data-lake-storage-gen1-file-system-adl"></a>Data Lake Storage Gen1 파일 시스템(adl://)이란 무엇인가요?
-Hadoop 환경에서 새로운 파일 시스템인 AzureDataLakeFilesystem(adl://)을 통해 Data Lake Storage Gen1에 액세스할 수 있습니다(HDInsight 클러스터에서 사용 가능). adl://를 사용하는 응용 프로그램 및 서비스는 현재 WebHDFS에서 사용할 수 없는 추가 성능 최적화의 장점을 활용할 수 있습니다. 그 결과 Data Lake Storage Gen1은 권장되는 옵션의 adl://를 사용하여 최상의 성능을 이용하거나 WebHDFS API를 계속해서 직접 사용하여 기존 코드를 유지하도록 유연성을 제공합니다. Azure HDInsight는 Data Lake Storage Gen1에서 최상의 성능을 제공하도록 AzureDataLakeFilesystem을 완벽하게 활용합니다.
+Hadoop 환경에서 새로운 파일 시스템인 AzureDataLakeFilesystem(adl://)을 통해 Data Lake Storage Gen1에 액세스할 수 있습니다(HDInsight 클러스터에서 사용 가능). adl://를 사용하는 애플리케이션 및 서비스는 현재 WebHDFS에서 사용할 수 없는 추가 성능 최적화의 장점을 활용할 수 있습니다. 그 결과 Data Lake Storage Gen1은 권장되는 옵션의 adl://를 사용하여 최상의 성능을 이용하거나 WebHDFS API를 계속해서 직접 사용하여 기존 코드를 유지하도록 유연성을 제공합니다. Azure HDInsight는 Data Lake Storage Gen1에서 최상의 성능을 제공하도록 AzureDataLakeFilesystem을 완벽하게 활용합니다.
 
 `adl://<data_lake_storage_gen1_name>.azuredatalakestore.net`을 사용하여 Data Lake Storage Gen1의 데이터에 액세스할 수 있습니다. Data Lake Storage Gen1의 데이터에 액세스하는 방법에 대한 자세한 내용은 [저장된 데이터의 속성 보기](data-lake-store-get-started-portal.md#properties)를 참조하세요.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열 | Microsoft Docs
-description: Azure Active Directory 앱 갤러리에서 Single Sign-On을 지원하는 응용 프로그램을 나열하는 방법을 알아봅니다.
+description: Azure Active Directory 앱 갤러리에서 Single Sign-On을 지원하는 애플리케이션을 나열하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -74,14 +74,14 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하려면 먼저 Azure AD�
 
 - **OpenID Connect**: Open ID Connect 프로토콜을 사용하여 Azure AD를 통해 응용 프로그램을 통합하려면 [개발자 지침](authentication-scenarios.md)을 수행합니다.
 
-    ![갤러리에 OpenID Connect 응용 프로그램을 나열하는 타임라인](./media/howto-app-gallery-listing/openid.png)
+    ![갤러리에 OpenID Connect 애플리케이션을 나열하는 타임라인](./media/howto-app-gallery-listing/openid.png)
 
     * OpenID Connect를 사용하여 갤러리에 나열할 응용 프로그램을 추가하려면 위와 같이 **OpenID Connect 및 OAuth 2.0**을 선택합니다.
     * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요. 
 
 *   **SAML 2.0** 또는 **WS-Fed**: 앱이 SAML 2.0을 지원하는 경우 [사용자 지정 응용 프로그램을 추가하는 지침](../active-directory-saas-custom-apps.md)을 사용하여 Azure AD 테넌트와 직접 통합할 수 있습니다.
 
-    ![갤러리에 SAML 2.0 또는 WS-Fed 응용 프로그램을 나열하는 타임라인](./media/howto-app-gallery-listing/saml.png)
+    ![갤러리에 SAML 2.0 또는 WS-Fed 애플리케이션을 나열하는 타임라인](./media/howto-app-gallery-listing/saml.png)
 
     * **SAML 2.0** 또는 **WS-Fed**를 사용하여 갤러리에 나열할 응용 프로그램을 추가하려면 위와 같이 **SAMl 2.0/WS-Fed**를 선택합니다.
     * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요.
@@ -90,9 +90,9 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하려면 먼저 Azure AD�
 
 HTML 로그인 페이지가 있는 웹 응용 프로그램을 만들어서 [암호 기반 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 구성합니다. 암호 보관이라고도 하는 암호 기반 SSO를 사용하면 ID 페더레이션을 지원하지 않는 웹 애플리케이션에 대한 사용자 액세스 및 암호를 관리할 수 있습니다. 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유해야 하는 시나리오에도 유용합니다.
 
-![갤러리에 암호 SSO 응용 프로그램을 나열하는 타임라인](./media/howto-app-gallery-listing/passwordsso.png)
+![갤러리에 암호 SSO 애플리케이션을 나열하는 타임라인](./media/howto-app-gallery-listing/passwordsso.png)
 
-* 암호 SSO를 사용하여 갤러리에 나열할 응용 프로그램을 추가하려면 위와 같이 **암호 SSO**를 선택합니다.
+* 암호 SSO를 사용하여 갤러리에 나열할 애플리케이션을 추가하려면 위와 같이 **암호 SSO**를 선택합니다.
 * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요.
 
 ## <a name="updateremove-existing-listing"></a>기존 목록 업데이트/제거
@@ -117,7 +117,7 @@ Azure AD 앱 갤러리에서 기존 애플리케이션을 업데이트 또는 �
 
    ![SAML 애플리케이션을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/timeline2.png)
 
-사용자 프로비저닝 지원을 통해 갤러리에 응용 프로그램을 나열하는 프로세스에 대한 타임라인은 40-45 영업일입니다.
+사용자 프로비저닝 지원을 통해 갤러리에 애플리케이션을 나열하는 프로세스에 대한 타임라인은 40-45 영업일입니다.
 
    ![SAML 애플리케이션을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/provisioningtimeline.png)
 

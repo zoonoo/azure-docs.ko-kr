@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 �
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9368ff848c9be075a08d5a80a49ffc64f5392cad
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 22be5d7438fdb554d1550fd6675ee1884c638824
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214701"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851063"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>VMware VM에서 Azure로의 재해 복구 정보
 
@@ -88,7 +88,7 @@ Azure에서 다음을 준비해야 합니다.
 Azure 및 온-프레미스 인프라가 준비된 후에 재해 복구를 설정할 수 있습니다.
 
 1. 배포해야 하는 구성 요소를 이해하려면 [VMware에서 Azure로의 아키텍처](vmware-azure-architecture.md), 및 [물리적 서버에서 Azure로의 아키텍처](physical-azure-architecture.md)를 검토합니다. 많은 구성 요소가 있으므로 이러한 구성 요소가 어떻게 잘 맞는지 이해하는 것이 중요합니다.
-2. **원본 환경**: 배포의 첫 번째 단계에서는 복제 원본 환경 설정을 설정합니다. 복제할 대상과 복제할 위치를 지정합니다.
+2. **원본 환경**: 배포의 첫 번째 단계로 복제 원본 환경 설정을 설정합니다. 복제할 대상과 복제할 위치를 지정합니다.
 3. **구성 서버**: 온-프레미스 원본 환경에서 구성 서버를 설정해야 합니다.
     - 구성 서버는 단일 온-프레미스 컴퓨터입니다. VMware 재해 복구의 경우 다운로드 가능 OVF 템플릿에서 배포할 수 있는 VMware VM으로 배포하는 것이 좋습니다.
     - 구성 서버는 온-프레미스와 Azure 간의 통신을 조정합니다.
@@ -96,7 +96,7 @@ Azure 및 온-프레미스 인프라가 준비된 후에 재해 복구를 설정
         - 프로세스 서버는 복제 데이터를 수신하고, 최적화한 후 Azure Storage로 보냅니다. 또한 복제하려는 컴퓨터에서 모바일 서비스의 자동 설치를 처리하고, VMware 서버에서 VM의 자동 검색을 수행합니다.
         - 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
     - 설정 중에 자격 증명 모음에 구성 서버가 등록되고, MySQL Server 및 VMware PowerCLI가 다운로드되고, 자동 검색 및 모바일 서비스 설치용으로 만든 계정이 지정됩니다.
-4. **대상 환경**: Azure 구독, 저장소 및 네트워크 설정을 지정하여 대상 Azure 환경을 설정합니다.
+4. **대상 환경**: Azure 구독, 스토리지 및 네트워크 설정을 지정하여 대상 Azure 환경을 설정합니다.
 5. **복제 정책**: 복제 수행 방법을 지정합니다. 또한 복구 지점이 생성 및 저장되는 주기와 앱 일치 스냅숏을 만들지 여부가 설정됩니다.
 6. **복제를 활성화합니다**. 온-프레미스 컴퓨터에 대해 복제를 사용하도록 설정합니다. 모바일 서비스를 설치하기 위한 계정을 만든 경우 컴퓨터에 대해 복제를 사용하도록 설정할 때 해당 계정이 설치됩니다. 
 

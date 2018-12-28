@@ -125,7 +125,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 * Azure portal
 * 액세스 패널
 * 페더레이션된 응용 프로그램
-* Azure AD를 사용하여 응용 프로그램 사용자 지정
+* Azure AD를 사용하여 애플리케이션 사용자 지정
 
 등록 요구를 사용하지 않도록 설정된 경우 사용자가 수동으로 등록할 수 있습니다. [액세스 패널]의 **프로필** 탭 아래에서 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)을 방문하거나 **암호 재설정에 등록** 링크를 선택할 수 있습니다.
 

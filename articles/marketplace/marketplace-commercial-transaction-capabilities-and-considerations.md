@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 32198387be680fd01558e900e4c438cde2cdc5b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b2f106edf69b57410fd1990d0888cf9d3a71be56
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266497"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880185"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace 상용 트랜잭션 기능 및 고려 사항
 
@@ -177,8 +177,9 @@ Marketplace를 통해 처리되는 주문은 고객의 Azure 인프라 비용과
 |지불 계산 날짜(매월 15일) | 2018년 10월 1일 |
 |지급 날짜 | 2018년 10월 15일 |
 
-고객이 기업 계약을 사용하여 구매하는 경우:  
-|설명    |    Date  |
+고객이 기업 계약을 사용하여 구매하는 경우:
+
+| 설명 |    Date  |
 |----------|----------|
 |주문 기간 | 2018년 8월 15일 - 2018년 8월 30일 |
 |기간 종료일(분기) | 2018년 9월 30일 |

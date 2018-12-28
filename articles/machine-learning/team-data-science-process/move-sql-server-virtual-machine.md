@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 머신에서 SQL Server로 데이터 이동 | Microsoft Docs
+title: SQL Server 가상 머신으로 데이터 이동 - Team Data Science Process
 description: 플랫 파일 또는 온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터를 이동합니다.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 649c98c235adc2435840c6c43d3e2f9d5755265f
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: fbc23d53687b908245ffe25bdd418cbe64af080b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446197"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136191"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신에서 SQL Server로 데이터 이동
 
@@ -87,7 +87,7 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
 이동하려는 데이터가 큰 경우 PowerShell 스크립트에서 동시에 여러 BCP 명령을 병렬로 수행하면 작업 속도를 높일 수 있습니다.
 
 > [!NOTE]
-> **빅 데이터 수집** 매우 큰 데이터 집합의 데이터 로드 작업을 최적화하려면 여러 파일 그룹 및 파티션 테이블을 사용하여 논리적 및 물리적 데이터베이스 테이블을 분할합니다. 파티션 테이블을 만들어서 데이터를 로드하는 방법에 대한 자세한 내용은 [SQL 파티션 테이블 병렬 로드](parallel-load-sql-partitioned-tables.md)를 참조하세요.
+> **빅 데이터 수집** 매우 큰 데이터 세트의 데이터 로드 작업을 최적화하려면 여러 파일 그룹 및 파티션 테이블을 사용하여 논리적 및 물리적 데이터베이스 테이블을 분할합니다. 파티션 테이블을 만들어서 데이터를 로드하는 방법에 대한 자세한 내용은 [SQL 파티션 테이블 병렬 로드](parallel-load-sql-partitioned-tables.md)를 참조하세요.
 >
 >
 

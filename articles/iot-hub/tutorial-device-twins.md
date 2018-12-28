@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서 실행하는 두 개의 샘플 응용 프로그램은 Node.js를 사용하여 작성되었습니다. 개발 컴퓨터에 Node.js v4.x.x 이상이 필요합니다.
+이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Node.js를 사용하여 작성되었습니다. 개발 컴퓨터에 Node.js v4.x.x 이상이 필요합니다.
 
 [nodejs.org](https://nodejs.org)에서 여러 플랫폼에 대한 Node.js를 다운로드할 수 있습니다.
 
@@ -167,7 +167,7 @@ desired 속성을 받는 시뮬레이션된 디바이스 샘플 코드를 보려
 
 [!code-javascript[Send desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=senddesiredproperties&highlight=2 "Send desired properties")]
 
-### <a name="run-the-applications"></a>응용 프로그램 실행
+### <a name="run-the-applications"></a>애플리케이션 실행
 
 이 섹션에서는 두 개의 샘플 응용 프로그램을 실행하여 백 엔드 응용 프로그램에서 desired 속성 업데이트를 시뮬레이션된 디바이스 응용 프로그램으로 보내는 것을 관찰합니다.
 
@@ -215,7 +215,7 @@ reported 속성 값에 대한 업데이트를 패치로 보낼 수 있습니다.
 
 [!code-javascript[Display reported properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=displayreportedproperties&highlight=2 "Display reported properties")]
 
-### <a name="run-the-applications"></a>응용 프로그램 실행
+### <a name="run-the-applications"></a>애플리케이션 실행
 
 이 섹션에서는 두 개의 샘플 응용 프로그램을 실행하여 시뮬레이션된 디바이스에서 reported 속성 업데이트를 백 엔드 응용 프로그램 응용 프로그램으로 보내는 것을 관찰합니다.
 

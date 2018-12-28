@@ -1,6 +1,6 @@
 ---
 title: Azure AD의 인증서 자격 증명 | Microsoft Docs
-description: 이 문서에서는 응용 프로그램 인증을 위한 인증서 자격 증명의 등록 및 사용에 대해 설명합니다.
+description: 이 문서에서는 애플리케이션 인증을 위한 인증서 자격 증명의 등록 및 사용에 대해 설명합니다.
 services: active-directory
 documentationcenter: .net
 author: CelesteDG
@@ -24,7 +24,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/06/2018
 ms.locfileid: "39578673"
 ---
-# <a name="certificate-credentials-for-application-authentication"></a>응용 프로그램 인증을 위한 인증서 자격 증명
+# <a name="certificate-credentials-for-application-authentication"></a>애플리케이션 인증을 위한 인증서 자격 증명
 
 Azure AD(Azure Active Directory)를 사용하면 애플리케이션에서(예: OAuth 2.0 클라이언트 자격 증명 부여 흐름([v1.0](v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) 및 On-Behalf-Of 흐름([v1.0](v1-oauth2-on-behalf-of-flow.md), [v2.0](v2-oauth2-on-behalf-of-flow.md))에서) 인증을 위해 자체의 자격 증명을 사용할 수 있습니다.
 

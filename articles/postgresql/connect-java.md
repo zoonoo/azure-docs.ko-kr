@@ -19,7 +19,7 @@ ms.lasthandoff: 02/28/2018
 ms.locfileid: "29686846"
 ---
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Java를 사용하여 데이터 연결 및 쿼리
-이 빠른 시작에서는 Java 응용 프로그램을 사용하여 PostgreSQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Java를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
+이 빠른 시작에서는 Java 애플리케이션을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Java를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "29686846"
 
 다음과 같은 작업도 필요합니다.
 - Java 및 Java 개발 키트 버전과 일치하는 [PostgreSQL JDBC 드라이버](https://jdbc.postgresql.org/download.html)를 다운로드합니다.
-- 응용 프로그램 클래스 경로에 PostgreSQL JDBC jar 파일(예: postgresql-42.1.1.jar)을 포함합니다. 자세한 내용은 [클래스 경로 정보](https://jdbc.postgresql.org/documentation/head/classpath.html)를 참조하세요.
+- 애플리케이션 클래스 경로에 PostgreSQL JDBC jar 파일(예: postgresql-42.1.1.jar)을 포함합니다. 자세한 내용은 [클래스 경로 정보](https://jdbc.postgresql.org/documentation/head/classpath.html)를 참조하세요.
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.

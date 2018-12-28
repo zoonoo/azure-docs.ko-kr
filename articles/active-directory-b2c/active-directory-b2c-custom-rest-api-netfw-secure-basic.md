@@ -305,7 +305,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 1. **Azure AD B2C 설정**을 연 다음 **ID 경험 프레임워크**를 선택합니다.
 
     >[!NOTE]
-    >지금 실행을 사용하려면 하나 이상의 응용 프로그램이 테넌트에 미리 등록되어 있어야 합니다. 응용 프로그램을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [응용 프로그램 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
+    >지금 실행을 사용하려면 하나 이상의 응용 프로그램이 테넌트에 미리 등록되어 있어야 합니다. 애플리케이션을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [애플리케이션 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
 
 2. 업로드한 RP(신뢰 당사자) 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.
 

@@ -22,7 +22,7 @@ ms.lasthandoff: 05/08/2018
 ms.locfileid: "33894132"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 보안 모범 사례
-Azure에 응용 프로그램을 배포하는 것은 빠르고, 쉽고, 비용 효율적입니다. 프로덕션에 클라우드 응용 프로그램을 배포하기 전에 응용 프로그램에서 보안 클러스터를 구현하기 위한 필수 및 권장 모범 사례의 목록을 검토합니다.
+Azure에 애플리케이션을 배포하는 것은 빠르고, 쉽고, 비용 효율적입니다. 프로덕션에 클라우드 애플리케이션을 배포하기 전에 애플리케이션에서 보안 클러스터를 구현하기 위한 필수 및 권장 모범 사례의 목록을 검토합니다.
 
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 서비스 패브릭은 클라우드 애플리케이션 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. 
 
@@ -85,7 +85,7 @@ Azure Resource Manager 템플릿을 사용합니다.
 -   배포 구성을 철저히 확인합니다.
 -   리소스를 직접 조정하기 위해 암시적 명령을 사용하지 않습니다.
 
-[서비스 패브릭 응용 프로그램 수명 주기](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle) 의 여러 측면을 자동화할 수 있습니다. [Service Fabric PowerShell 모듈](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications#upload-the-application-package)은 Azure Service Fabric 응용 프로그램의 배포, 업그레이드, 제거 및 테스트를 위한 일반적인 작업을 자동화합니다. 응용 프로그램 관리를 위한 관리되는 API 및 HTTP API도 사용 가능합니다.
+[서비스 패브릭 응용 프로그램 수명 주기](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle) 의 여러 측면을 자동화할 수 있습니다. [Service Fabric PowerShell 모듈](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications#upload-the-application-package)은 Azure Service Fabric 응용 프로그램의 배포, 업그레이드, 제거 및 테스트를 위한 일반적인 작업을 자동화합니다. 애플리케이션 관리를 위한 관리형 API 및 HTTP API도 사용 가능합니다.
 
 ## <a name="use-x509-certificates"></a>X.509 인증서 사용
 항상 X.509 인증서 또는 Windows 보안을 사용하여 클러스터를 보호합니다. 보안은 클러스터를 만들 때에만 구성됩니다. 클러스터를 만든 후에는 보안 기능을 설정할 수 없습니다.
@@ -102,13 +102,13 @@ Azure Resource Manager 템플릿을 사용합니다.
 X.509 인증서를 사용하는 방법에 대한 자세한 내용은 [Service Fabric 클러스터에 대한 인증서 추가 또는 제거](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure)를 참조하세요.
 
 ## <a name="configure-security-policies"></a>보안 정책 구성
-Service Fabric은 응용 프로그램에서 사용되는 리소스를 보호합니다. 파일, 디렉터리 및 인증서와 같은 리소스는 응용 프로그램을 배포할 때 사용자 계정에 저장됩니다. 이 기능은 공유된 호스팅 환경에서도 서로 더욱 안전하게 응용 프로그램이 실행되도록 합니다.
+Service Fabric은 애플리케이션에서 사용되는 리소스를 보호합니다. 파일, 디렉터리 및 인증서와 같은 리소스는 응용 프로그램을 배포할 때 사용자 계정에 저장됩니다. 이 기능은 공유된 호스팅 환경에서도 서로 더욱 안전하게 응용 프로그램이 실행되도록 합니다.
 
 -   Active Directory 도메인 그룹 또는 사용자 사용: Active Directory 사용자 또는 그룹 계정에 대한 자격 증명에서 서비스를 실행합니다. 도메인 내의 Active Directory 온-프레미스를 사용하고 Azure Active Directory는 사용하지 않습니다. 도메인 사용자 또는 그룹을 사용하여 권한이 부여된 도메인의 다른 리소스를 액세스합니다. 예를 들어, 파일 공유와 같은 리소스입니다.
 
 -   HTTP 및 HTTPS 끝점에 대한 보안 액세스 정책 할당: 서비스 매니페스트가 HTTP를 통해 끝점 리소스를 선언하는 경우 **SecurityAccessPolicy** 속성을 지정하여 **RunAs** 정책을 서비스에 적용합니다. HTTP 끝점에 할당된 포트는 서비스가 실행되는 RunAs 사용자 계정에 대해 올바르게 액세스 제어된 목록입니다. 정책이 설정되지 않은 경우 http.sys는 서비스에 액세스할 수 없고 클라이언트의 호출과 함께 오류가 발생할 수 있습니다.
 
-Service Fabric에서 보안 정책을 사용하는 방법에 대한 자세한 내용은 [응용 프로그램에 대한 보안 정책 구성](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-runas-security)을 참조하세요.
+Service Fabric에서 보안 정책을 사용하는 방법에 대한 자세한 내용은 [애플리케이션에 대한 보안 정책 구성](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-runas-security)을 참조하세요.
 
 ## <a name="implement-the-reliable-actors-security-configuration"></a>Reliable Actors 보안 구성 구현
 서비스 패브릭 Reliable Actors는 행위자 디자인 패턴의 구현입니다. 소프트웨어 디자인 패턴처럼 특정 패턴을 사용하겠다는 결정은 소프트웨어 문제가 패턴에 맞는지 여부에 기반합니다.
@@ -148,7 +148,7 @@ Service Fabric의 경우 행위자는 Reliable Actors 응용 프로그램 프레
 
 HTTP 프로토콜은 보안되지 않으며 도청 공격을 받기 쉽습니다. HTTP를 통해 전송된 데이터는 웹 브라우저에서 웹 서버로 또는 다른 끝점 간에 일반 텍스트로 전송됩니다. 공격자는 신용카드 정보와 계정 로그인 같이 HTTP를 통해 보내진 중요 데이터를 가로채 볼 수 있습니다. 데이터가 HTTPS를 통한 브라우저를 통해 전송 또는 게시될 경우 SSL이 중요한 정보를 암호화하여 가로채기로부터 보호합니다.
 
-SSL 인증서 사용에 대한 자세한 내용은 [Azure 응용 프로그램에 대 한 SSL 구성](https://docs.microsoft.com/azure/cloud-services/cloud-services-configure-ssl-certificate)을 참조하세요.
+SSL 인증서 사용에 대한 자세한 내용은 [Azure 애플리케이션에 대 한 SSL 구성](https://docs.microsoft.com/azure/cloud-services/cloud-services-configure-ssl-certificate)을 참조하세요.
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Azure Service Fabric을 통한 네트워크 격리 및 보안 사용
 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)을 샘플로 사용하여 3 nodetype 보안 클러스터를 설정합니다. 템플릿 및 네트워크 보안 그룹을 사용하여 인바운드 및 아웃바운드 네트워크 트래픽을 제어합니다.
@@ -176,7 +176,7 @@ Service Fabric은 클러스터에 보안을 적용하고 응용 프로그램 보
 키 자격 증명 모음 설정 방법에 대한 자세한 내용은 [Azure Key Vault 시작](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)을 참조하세요.
 
 ## <a name="assign-users-to-roles"></a>역할에 사용자 할당
-클러스터를 나타내는 응용 프로그램을 만들었으면 사용자를 Service Fabric에서 지원하는 역할(읽기 전용 및 관리자)에 할당합니다. Azure Portal을 사용하여 역할을 할당할 수 있습니다.
+클러스터를 나타내는 애플리케이션을 만들었으면 사용자를 Service Fabric에서 지원하는 역할(읽기 전용 및 관리자)에 할당합니다. Azure Portal을 사용하여 역할을 할당할 수 있습니다.
 
 >[!NOTE]
 > Service Fabric에서 역할 사용에 대한 자세한 내용은 [Service Fabric 클라이언트의 역할 기반 액세스 제어](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles)를 참조하세요.

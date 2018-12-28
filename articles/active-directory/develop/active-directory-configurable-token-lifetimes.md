@@ -25,7 +25,7 @@ ms.locfileid: "49069508"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory에서 구성 가능한 토큰 수명(미리 보기)
 
-Azure AD(Azure Active Directory)에서 발급한 토큰의 수명을 지정할 수 있습니다. 조직의 모든 앱, 다중 테넌트(다중 조직) 응용 프로그램 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성할 수 있습니다.
+Azure AD(Azure Active Directory)에서 발급한 토큰의 수명을 지정할 수 있습니다. 조직의 모든 앱, 다중 테넌트(다중 조직) 애플리케이션 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성할 수 있습니다.
 
 > [!IMPORTANT]
 > 미리 보기 동안 고객으로부터 들은 후 이 기능을 Azure Active Directory 조건부 액세스의 새 기능으로 대체하려고 계획 중입니다.  새로운 기능이 완료되면 이 기능은 알림 기간 후 결국 중단될 예정입니다.  구성 가능한 토큰 수명 정책을 사용하는 경우 사용할 수 있게 되면 새 조건부 액세스 기능으로 전환할 준비를 합니다. 

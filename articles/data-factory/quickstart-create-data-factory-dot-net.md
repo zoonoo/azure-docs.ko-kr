@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="azure-net-sdk"></a>Azure .NET SDK
 [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 컴퓨터에 다운로드하여 설치합니다.
 
-## <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 응용 프로그램 만들기
+## <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션 만들기
 [이 아티클](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)의 섹션에 있는 지침을 따라 다음과 같은 작업을 수행합니다. 
 
 1. **Azure Active Directory 응용 프로그램을 만듭니다**. 이 자습서에서 만드는.NET 애플리케이션을 나타내는 Microsoft Azure Active Directory에 애플리케이션을 만듭니다. sign-on URL의 경우 (`https://contoso.org/exampleapp`)에 보이는 더미 URL을 제공할 수 있습니다.
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-Visual Studio 2013/2015/2017을 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
+Visual Studio 2013/2015/2017을 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
 1. **Visual Studio**를 시작합니다.
 2. **File**을 클릭하고 **New**를 가리킨 다음 **프로젝트**를 클릭합니다.

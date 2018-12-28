@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50142759"
 ---
-## <a name="add-the-applications-registration-information-to-your-app"></a>앱에 응용 프로그램의 등록 정보 추가
+## <a name="add-the-applications-registration-information-to-your-app"></a>앱에 애플리케이션의 등록 정보 추가
 
 이 단계에서는 프로젝트에 애플리케이션 ID를 추가해야 합니다.
 

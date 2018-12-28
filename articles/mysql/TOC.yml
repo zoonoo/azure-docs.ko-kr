@@ -94,7 +94,7 @@ items:
     items:
     - name: 드라이버 및 도구 호환성
       href: concepts-compatibility.md
-    - name: 응용 프로그램 개발
+    - name: 애플리케이션 개발
       href: concepts-database-application-development.md
     - name: 연결 복원력
       href: concepts-connectivity.md

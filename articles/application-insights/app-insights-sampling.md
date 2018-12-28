@@ -9,17 +9,16 @@ ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 7fca6ffa9efa3eed9f7c74ee89ad8bb9651494bb
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 103f4b10d5fbb7fbcf9c3721a82fe4075abe0dc4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044708"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877618"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -35,7 +34,7 @@ ms.locfileid: "48044708"
 * 샘플링을 포털의 사용량 및 예상 비용 페이지나 ASP.NET SDK의 .config 파일 또는 Java SDK의 ApplicationInsights.xml 파일에서 수동으로 설정하여 네트워크 트래픽을 줄일 수도 있습니다.
 * 사용자 지정 이벤트를 기록하고 일련의 이벤트가 유지되는지 아니면 함께 무시되는지 확인하려는 경우 동일한 OperationId 값을 갖는지 확인합니다.
 * 샘플링 약수 *n*은 `itemCount` 속성의 각 레코드에서 보고되며 이는 검색의 이름 "요청 개수" 또는 "이벤트 개수"에 나타납니다. 샘플링이 작업 중이지 않을 때 `itemCount==1`입니다.
-* 분석 쿼리를 작성하는 경우 [샘플링을 고려](../log-analytics/query-language/aggregations.md)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
+* 분석 쿼리를 작성하는 경우 [샘플링을 고려](../azure-monitor/log-query/aggregations.md)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
 
 ## <a name="types-of-sampling"></a>샘플링 유형
 다음은 세 가지 대체 샘플링 방법입니다.
@@ -113,11 +112,11 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
   
-    샘플링하지 않으려는 형식의 세미콜론으로 구분된 목록 인식되는 형식: 종속성, 이벤트, 예외, 페이지 보기, 요청, 추적 지정된 형식의 모든 인스턴스가 전송되고 지정되지 않은 형식은 샘플링됩니다.
+    샘플링하지 않으려는 형식의 세미콜론으로 구분된 목록 인식할 수 있는 형식은 다음과 같습니다. 종속성, 이벤트, 예외, 페이지 보기, 요청, 추적 지정된 형식의 모든 인스턴스가 전송되고 지정되지 않은 형식은 샘플링됩니다.
 
 * `<IncludedTypes>Request;Dependency</IncludedTypes>`
   
-    샘플링하려는 형식의 세미콜론으로 구분된 목록 인식되는 형식: 종속성, 이벤트, 예외, 페이지 보기, 요청, 추적 지정된 형식이 샘플링되고 다른 형식의 모든 인스턴스가 항상 전송됩니다.
+    샘플링하려는 형식의 세미콜론으로 구분된 목록 인식할 수 있는 형식은 다음과 같습니다. 종속성, 이벤트, 예외, 페이지 보기, 요청, 추적 지정된 형식이 샘플링되고 다른 형식의 모든 인스턴스가 항상 전송됩니다.
 
 
 적응 샘플링을 **해제하려면** applicationinsights-config에서 AdaptiveSamplingTelemetryProcessor 노드를 제거합니다.
@@ -264,7 +263,7 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
         <IncludedType>Exception</IncludedType>
     </IncludedTypes>
 ```
-샘플링에서 포함하거나 제외할 수 있는 원격 분석 유형은 종속성, 이벤트, 예외, PageView, 요청 및 추적입니다.
+샘플링에서 포함되거나 제외될 수 있는 원격 분석 형식: 종속성, 이벤트, 예외, 페이지 보기, 요청 및 추적
 
 > [!NOTE]
 > 샘플링 비율의 경우 100/N(여기서 N은 정수)에 가까운 백분율을 선택합니다.  현재 샘플링은 다른 값을 지원하지 않습니다.

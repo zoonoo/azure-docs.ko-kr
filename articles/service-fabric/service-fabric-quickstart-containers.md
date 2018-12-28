@@ -26,7 +26,7 @@ ms.locfileid: "51300339"
 
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
-Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 빠른 시작에서는 Service Fabric 응용 프로그램에서 미리 작성된 Docker 컨테이너 이미지를 배포하는 방법을 보여줍니다. 완료하면 Windows Server 2016 Nano 서버 및 IIS 컨테이너를 실행하게 됩니다. 이 빠른 시작에서는 Windows 컨테이너 배포에 대해 설명합니다. [이 빠른 시작](service-fabric-quickstart-containers-linux.md)을 참고하여 Linux 컨테이너를 배포합니다.
+Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 빠른 시작에서는 Service Fabric 애플리케이션에서 미리 작성된 Docker 컨테이너 이미지를 배포하는 방법을 보여줍니다. 완료하면 Windows Server 2016 Nano 서버 및 IIS 컨테이너를 실행하게 됩니다. 이 빠른 시작에서는 Windows 컨테이너 배포에 대해 설명합니다. [이 빠른 시작](service-fabric-quickstart-containers-linux.md)을 참고하여 Linux 컨테이너를 배포합니다.
 
 ![IIS default web page][iis-default]
 
@@ -84,7 +84,7 @@ Microsoft는 다른 버전의 Windows Server에서 빌드한 IIS 버전에 대�
 
 ## <a name="create-a-cluster"></a>클러스터 만들기
 
-애플리케이션을 Azure의 클러스터에 배포하려면 Party 클러스터에 조인할 수 있습니다. Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다.  클러스터는 노드-노드뿐만 아니라 클라이언트-노드 보안에도 단일 자체 서명 인증서를 사용합니다. 파티 클러스터가 컨테이너를 지원합니다. 자체 클러스터를 설정하고 사용하려는 경우 컨테이너를 지원하는 SKU에서 클러스터가 실행되어야 합니다(예: 컨테이너가 있는 Windows Server 2016 데이터 센터).
+애플리케이션을 Azure의 클러스터에 배포하려면 Party 클러스터에 조인할 수 있습니다. Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 애플리케이션을 배포하고 플랫폼에 대해 알아볼 수 있습니다.  클러스터는 노드-노드뿐만 아니라 클라이언트-노드 보안에도 단일 자체 서명 인증서를 사용합니다. 파티 클러스터가 컨테이너를 지원합니다. 자체 클러스터를 설정하고 사용하려는 경우 컨테이너를 지원하는 SKU에서 클러스터가 실행되어야 합니다(예: 컨테이너가 있는 Windows Server 2016 데이터 센터).
 
 [Windows 클러스터에 로그인하고 조인](https://aka.ms/tryservicefabric)합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. **보안 Party 클러스터에 연결하는 방법** 링크를 클릭하고 인증서 암호를 복사합니다. 인증서, 인증서 암호 및 **연결 엔드포인트** 값은 다음 단계에서 사용됩니다.
 
@@ -109,7 +109,7 @@ Thumbprint                                Subject
 
 다음 단계를 위해 지문을 기억합니다.
 
-## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Visual Studio를 사용하여 Azure에 응용 프로그램 배포
+## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Visual Studio를 사용하여 Azure에 애플리케이션 배포
 
 애플리케이션이 준비되면 Visual Studio에서 클러스터에 직접 배포할 수 있습니다.
 

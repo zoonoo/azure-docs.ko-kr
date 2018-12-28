@@ -25,7 +25,7 @@ ms.locfileid: "50035170"
 
 **F5**를 선택하여 Visual Studio에서 프로젝트를 실행합니다. 애플리케이션 **MainWindow**는 다음과 같이 표시됩니다.
 
-![응용 프로그램 테스트](./media/active-directory-develop-guidedsetup-windesktop-test/samplescreenshot.png)
+![애플리케이션 테스트](./media/active-directory-develop-guidedsetup-windesktop-test/samplescreenshot.png)
 
 처음으로 애플리케이션을 실행하여 **Call Microsoft Graph API** 단추를 선택하는 것이라면 로그인하라는 메시지가 표시됩니다. Azure Active Directory 계정(회사 또는 학교 계정) 또는 Microsoft 계정(live.com, outlook.com)을 사용해 테스트합니다.
 

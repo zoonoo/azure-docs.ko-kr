@@ -189,7 +189,7 @@ Redis는 대부분의 데이터를 Redis 문자열로 저장하지만, 이 문�
 
 ## <a name="work-with-net-objects-in-the-cache"></a>캐시의 .NET 개체 사용
 
-Azure Cache for Redis는 .NET 개체 및 기본 데이터 유형을 캐시할 수 있지만 .NET 개체를 캐시하려면 먼저 직렬화해야 합니다. .NET 개체 직렬화는 응용 프로그램 개발자의 책임이며 개발자는 유연하게 직렬 변환기를 선택할 수 있습니다.
+Azure Cache for Redis는 .NET 개체 및 기본 데이터 유형을 캐시할 수 있지만 .NET 개체를 캐시하려면 먼저 직렬화해야 합니다. .NET 개체 직렬화는 애플리케이션 개발자의 책임이며 개발자는 유연하게 직렬 변환기를 선택할 수 있습니다.
 
 개체를 직렬화하는 간단한 방법 중 하나는 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)에서 `JsonConvert` 직렬화 메서드를 사용하고 JSON 간에 직렬화하는 것입니다. 이 섹션에서는 .NET 개체를 캐시에 추가합니다.
 

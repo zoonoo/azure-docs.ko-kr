@@ -1,10 +1,12 @@
 ---
-title: Azure에서 Linux CentOS 데이터 과학 Virtual Machine 프로비전 | Microsoft Docs
+title: CentOS Linux Data Science Virtual Machine 만들기
+titleSuffix: Azure
 description: 분석 및 기계 학습을 수행하기 위해 Azure에서 Linux 데이터 과학 Virtual Machine을 구성하고 만듭니다.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -14,18 +16,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: ca3a0e9a8c63ddc9a5c2ca34faffc683d0324321
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 253934d450619ca67e429fbf396a5fed5b71a267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262556"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081866"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure에서 Linux CentOS 데이터 과학 Virtual Machine 프로비전
 
 Linux 데이터 과학 Virtual Machine은 다양한 도구가 미리 설치되어 있는 CentOS 기반 Azure Virtual Machine입니다. 이러한 도구는 보통 데이터 분석 및 기계 학습을 수행하는 데 사용됩니다. 포함된 주요 소프트웨어 구성 요소는 다음과 같습니다.
 
-* 운영 체제: Linux CentOS 배포.
+* 운영 체제: Linux CentOS 배포
 * Microsoft R Server Developer Edition
 * 널리 사용되는 데이터 분석 라이브러리를 포함한 Anaconda Python 배포(버전 2.7 및 3.5)
 * JuliaPro - 인기 있는 과학 및 데이터 분석 라이브러리와 함께 Julia 언어의 큐레이트 배포
@@ -35,10 +37,10 @@ Linux 데이터 과학 Virtual Machine은 다양한 도구가 미리 설치되�
 * Azure 리소스 관리를 위한 Azure CLI(명령줄 인터페이스)
 * PostgresSQL 데이터베이스
 * 기계 학습 도구
-  * [Cognitive Toolki](https://github.com/Microsoft/CNTK): Microsoft Research의 심화 학습 소프트웨어 도구 키트
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): 온라인, 해시, allreduce, 축소, learning2search, 활성 및 대화형 학습 등의 기술을 지원하는 속성 기계 학습 시스템.
+  * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): Microsoft Research의 딥러닝 소프트웨어 도구 키트
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): 온라인, 해시, allreduce, 축소, learning2search, 활성 및 대화형 학습 등의 기술을 지원하는 속성 기계 학습 시스템
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): 기능이 향상된 빠르고 정확한 트리 구현을 제공하는 도구
-  * [Rattle](https://togaware.com/rattle/) (R Analytical Tool To Learn Easily): GUI 기반 데이터 탐색 및 모델링을 자동 R 코드 생성과 함께 사용하여 R에서의 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 돕는 도구.
+  * [Rattle](https://togaware.com/rattle/)(쉽게 학습할 수 있는 R 분석 도구): R에서 쉽게 데이터 분석 및 기계 학습을 시작할 수 있는 도구이며, 자동 R 코드 생성 기능을 갖춘 GUI 기반 데이터 탐색 및 모델링이 포함되어 있습니다.
 * Java, Python, node.js, Ruby, PHP의 Azure SDK
 * Azure Machine Learning 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
 * 개발 도구 및 편집자(RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
@@ -63,7 +65,7 @@ Linux 데이터 과학 Virtual Machine을 사용하면 이러한 부담을 상�
 Linux 데이터 과학 Virtual Machine을 만들려면 먼저 다음이 있어야 합니다.
 
 * **Azure 구독**: 다운로드하려면 [Azure 평가판 받기](https://azure.microsoft.com/free/)를 참조하세요.
-* **Azure 저장소 계정**: 계정을 만들려면 [Azure 저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요. 기존 계정을 사용하지 않으려는 경우에는 VM 만들기 프로세스의 일부분으로 저장소 계정을 만들 수 있습니다.
+* **Azure 스토리지 계정**: 계정을 만들려면 [Azure 스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요. 기존 계정을 사용하지 않으려는 경우에는 VM 만들기 프로세스의 일부분으로 저장소 계정을 만들 수 있습니다.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Linux 데이터 과학 Virtual Machine 만들기
 Linux 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 다음과 같습니다.
@@ -75,9 +77,9 @@ Linux 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 �
    a. **기본 사항**:
    
    * **이름**: 만들려는 데이터 과학 서버 이름
-   * **사용자 이름**: 첫 번째 계정 로그인 ID입니다.
-   * **암호**: 첫 번째 계정 암호입니다. 암호 대신 SSH 공개 키를 사용할 수 있습니다.
-   * **구독**: 둘 이상의 구독을 보유한 경우, 컴퓨터를 만들고 요금을 청구할 구독 하나를 선택합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
+   * **사용자 이름**: 첫 번째 계정의 로그인 ID
+   * **암호**: 첫 번째 계정 암호(암호 대신 SSH 공개 키를 사용할 수 있음)
+   * **구독**: 둘 이상의 구독이 있는 경우 머신을 만들고 요금을 청구할 구독을 선택합니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
    * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용할 수 있습니다.
    * **위치**: 가장 적합한 데이터 센터를 선택합니다. 이 위치는 대개 대부분의 데이터가 저장되어 있는 위치이거나 사용자의 실제 위치에 가장 가까운 위치(이 경우 네트워크에 가장 빠르게 액세스할 수 있음)입니다.
    
@@ -88,7 +90,7 @@ Linux 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 �
    다. **설정**:
    
    * **디스크 유형**: SSD(반도체 드라이브)를 선호하는 경우 **프리미엄**을 선택합니다. 그렇지 않은 경우에는 **표준**을 선택합니다.
-   * **저장소 계정**: 구독에서 새 Azure Storage 계정을 만들거나, 마법사의 **기본 사항** 단계에서 선택했던 동일 위치의 기존 계정을 사용할 수 있습니다.
+   * **스토리지 계정**: 구독에서 새 Azure 스토리지 계정을 만들거나, 마법사의 **기본 사항** 단계에서 선택했던 동일 위치의 기존 계정을 사용할 수 있습니다.
    * **기타 매개 변수**: 대부분의 경우에는 기본값만 사용합니다. 기본값 이외의 값을 살펴보려면 정보 링크를 가리켜 특정 필드에 대한 도움말을 확인합니다.
    
    d. **요약**:
@@ -115,12 +117,12 @@ Linux VM은 이미 X2Go 서버에 프로비전되어 있어 클라이언트 연�
 1. 사용 중인 클라이언트 플랫폼용 X2Go 클라이언트를 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 다운로드하여 설치합니다.    
 1. X2Go 클라이언트를 실행하고 **새 세션**을 선택합니다. 여러 탭이 있는 구성 창이 열립니다. 다음 구성 매개 변수를 입력합니다.
    * **세션 탭**:
-     * **호스트**: Linux 데이터 과학 VM의 호스트 이름 또는 프로그램 IP 주소입니다.
-     * **로그인**: Linux VM의 사용자 이름입니다.
+     * **호스트**: Linux Data Science VM의 호스트 이름 또는 IP 주소
+     * **로그인**: Linux VM의 사용자 이름
      * **SSH 포트**: 기본값 22를 그대로 사용합니다.
      * **세션 유형**: 값을 XFCE로 변경합니다. 현재 Linux VM은 XFCE 데스크톱만 지원합니다.
    * **미디어 탭**: 사운드 지원 및 클라이언트 인쇄를 사용하지 않으려면 해제할 수 있습니다.
-   * **공유 폴더**: 클라이언트 컴퓨터의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 컴퓨터 디렉터리를 추가합니다.
+   * **공유 폴더**: 클라이언트 머신의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 머신 디렉터리를 추가합니다.
 
 X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이언트를 사용하여 VM에 로그인하고 나면 VM에 설치 및 구성된 도구를 사용할 수 있습니다. XFCE에는 다양한 도구에 대한 응용 프로그램 메뉴 바로 가기와 바탕 화면 아이콘이 표시됩니다.
 
@@ -229,7 +231,7 @@ SQL Server용 ODBC 드라이버 패키지에서는 다음의 두 가지 명령�
 
 자세한 내용은 [bcp를 사용하여 연결](https://msdn.microsoft.com/library/hh568446.aspx)을 참조하세요.
 
-**sqlcmd**: sqlcmd 유틸리티를 사용하면 명령 프롬프트에 Transact-SQL 문을 비롯하여 시스템 프로시저와 스크립트 파일을 입력할 수 있습니다. 이 유틸리티는 ODBC를 사용하여 TRANSACT-SQL 일괄 처리를 실행합니다.
+**sqlcmd**: sqlcmd 유틸리티를 사용하면 명령 프롬프트에 Transact-SQL 명령문을 비롯하여 시스템 프로시저와 스크립트 파일을 입력할 수 있습니다. 이 유틸리티는 ODBC를 사용하여 TRANSACT-SQL 일괄 처리를 실행합니다.
 
 자세한 내용은 [sqlcmd를 사용하여 연결](https://msdn.microsoft.com/library/hh568447.aspx)을 참조하세요.
 
@@ -246,15 +248,15 @@ R 및 Python에는 데이터베이스에 액세스하는 데 사용할 수 있�
 
 **Postgres**에 액세스하려면
 
-* R: **RPostgreSQL**패키지를 사용합니다.
+* R: **RPostgreSQL** 패키지를 사용합니다.
 * Python: **psycopg2** 라이브러리를 사용합니다.
 
 ### <a name="azure-tools"></a>Azure 도구
 다음 Azure 도구가 VM에 설치됩니다.
 
 * **Azure 명령줄 인터페이스**: Azure CLI를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 호출하려는 경우 **azure help**만 입력하면 됩니다. 자세한 내용은 [Azure CLI 설명서 페이지](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
-* **Microsoft Azure Storage 탐색기**: Microsoft Azure Storage 탐색기는 Azure Storage 계정에 저장한 개체를 찾아보고 Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. 이렇게 하려면 X2Go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
-* **Azure 라이브러리**: 아래에는 미리 설치된 라이브러리 중 몇 가지가 나와 있습니다.
+* **Microsoft Azure Storage 탐색기**: Microsoft Azure Storage 탐색기는 Azure tmxhflwl 계정에 저장한 개체를 찾아보고, Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. 이렇게 하려면 X2Go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
+* **Azure 라이브러리**: 아래에는 사전 설치된 라이브러리 중 몇 가지가 나와 있습니다.
   
   * **Python**: Python으로 작성된 Azure 관련 라이브러리 **azure**, **azureml**, **pydocumentdb** 및 **pyodbc**가 설치되어 있습니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
   * **R**: R로 작성된 Azure 관련 라이브러리 **AzureML** 및 **RODBC**가 설치되어 있습니다.
@@ -279,11 +281,11 @@ R 및 Python으로 작성된 모델을 Azure Machine Learning에 배포하는 �
 ### <a name="machine-learning-tools"></a>기계 학습 도구
 VM에는 로컬에서 미리 컴파일되어 미리 설치된 몇 가지 기계 학습 도구 및 알고리즘이 포함되어 있습니다. 내용은 다음과 같습니다.
 
-* **Microsoft Cognitive 도구 키트** : 심화 학습 도구 키트
-* **Vowpal Wabbit**: 속성 온라인 학습 알고리즘입니다.
-* **xgboost**: 최적화되고 향상된 트리 알고리즘을 제공하는 도구입니다.
+* **Microsoft Cognitive Toolkit**: 딥러닝 도구 키트
+* **Vowpal Wabbit**: 속성 온라인 학습 알고리즘
+* **xgboost**: 최적화되고 향상된 트리 알고리즘을 제공하는 도구
 * **Python**: Anaconda Python에서는 Scikit-learn 등의 라이브러리가 포함된 기계 학습 알고리즘이 번들로 제공됩니다. `pip install` 하여 다른 라이브러리를 설치할 수 있습니다.
-* **R**: R에서는 다양한 기계 학습 기능이 포함된 라이브러리를 사용할 수 있습니다. 미리 설치된 라이브러리에는 lm, glm, randomForest, rpart 등이 있습니다. 다음 명령을 실행하면 다른 라이브러리를 설치할 수 있습니다.
+* **R**: R에서는 다양한 기계 학습 기능이 포함된 라이브러리를 사용할 수 있습니다. 사전 설치된 라이브러리에는 lm, glm, randomForest, rpart 등이 있습니다. 다음 명령을 실행하면 다른 라이브러리를 설치할 수 있습니다.
   
         install.packages(<lib name>)
 

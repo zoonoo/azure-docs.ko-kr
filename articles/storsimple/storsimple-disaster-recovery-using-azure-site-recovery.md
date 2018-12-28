@@ -25,7 +25,7 @@ ms.locfileid: "51249271"
 ## <a name="overview"></a>개요
 Microsoft Azure StorSimple은 일반적으로 파일 공유와 연결된 구조화되지 않은 데이터의 복잡성을 해결하는 하이브리드 클라우드 저장소 솔루션입니다. StorSimple은 온-프레미스 솔루션의 확장으로 클라우드 저장소를 사용하여 자동으로 온-프레미스 솔루션 및 클라우드 저장소에서 데이터를 계층화합니다. 로컬 및 클라우드 스냅숏과 함께 통합 데이터 보호 기능은 제멋대로 늘어나는 저장소 인프라의 필요성을 없애줍니다.
 
-[Azure Site Recovery](../site-recovery/site-recovery-overview.md) 는 가상 머신의 복제, 장애 조치(failover) 및 복구를 오케스트레이션하여 DR(재해 복구) 기능을 제공하는 Azure 기반 서비스입니다. Azure Site Recovery는 가상 머신 및 응용 프로그램을 일관되게 복제하고 보호하며 사설/공용 클라우드 또는 호스트된 클라우드로 원활하게 장애 조치(failover)하기 위한 다양한 복제 기술을 지원합니다.
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) 는 가상 머신의 복제, 장애 조치(failover) 및 복구를 오케스트레이션하여 DR(재해 복구) 기능을 제공하는 Azure 기반 서비스입니다. Azure Site Recovery는 가상 머신 및 애플리케이션을 일관되게 복제하고 보호하며 사설/공용 클라우드 또는 호스트된 클라우드로 원활하게 장애 조치(failover)하기 위한 다양한 복제 기술을 지원합니다.
 
 Azure Site Recovery, 가상 머신 복제 및 StorSimple 클라우드 스냅숏 기능을 사용하여 전체 파일 서버 환경을 보호할 수 있습니다. 중단이 발생할 경우 클릭 한 번으로 단 몇 분 만에 Azure에서 파일 공유를 온라인 상태로 만들 수 있습니다.
 
@@ -59,10 +59,10 @@ StorSimple 저장소에서 호스트되는 파일 공유에 Azure Site Recovery�
 DR 사이트에서 사용할 수 있도록 Active Directory 및 DNS를 실행하는 컴퓨터를 보호하려는 경우 인증을 통한 장애 조치(failover) 후 파일 서버에 액세스할 수 있도록 이러한 컴퓨터를 명시적으로 보호해야 합니다. 고객의 온-프레미스 환경 복잡도에 따라 권장되는 두 가지 옵션이 있습니다.
 
 #### <a name="option-1"></a>옵션 1
-고객이 적은 수의 응용 프로그램과 전체 온-프레미스 사이트에 대한 단일 도메인 컨트롤러를 보유하고 있고 전체 사이트를 장애 조치(failover)하려는 경우 Azure Site Recovery 복제를 사용하여 도메인 컨트롤러 컴퓨터를 보조 사이트로 복제하는 것이 좋습니다(사이트 간 및 사이트-Azure에 적용 가능).
+고객이 적은 수의 애플리케이션과 전체 온-프레미스 사이트에 대한 단일 도메인 컨트롤러를 보유하고 있고 전체 사이트를 장애 조치(failover)하려는 경우 Azure Site Recovery 복제를 사용하여 도메인 컨트롤러 컴퓨터를 보조 사이트로 복제하는 것이 좋습니다(사이트 간 및 사이트-Azure에 적용 가능).
 
 #### <a name="option-2"></a>옵션 2
-고객이 많은 수의 응용 프로그램을 보유하고 있고 Active Directory 포리스트를 실행 중이며 한 번에 소수의 응용 프로그램을 장애 조치(failover)하려는 경우 DR 사이트(보조 사이트 또는 Azure)에 추가 도메인 컨트롤러를 설정하는 것이 좋습니다.
+고객이 많은 수의 애플리케이션을 보유하고 있고 Active Directory 포리스트를 실행 중이며 한 번에 소수의 애플리케이션을 장애 조치(failover)하려는 경우 DR 사이트(보조 사이트 또는 Azure)에 추가 도메인 컨트롤러를 설정하는 것이 좋습니다.
 
 DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하는 경우의 지침은 [Azure Site Recovery를 사용한 Active Directory 및 DNS용 자동화된 DR 솔루션](../site-recovery/site-recovery-active-directory.md) 을 참조하세요. 이 문서의 나머지 부분에서는 DR 사이트에서 도메인 컨트롤러를 사용할 수 있다고 가정합니다.
 
@@ -126,7 +126,7 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
 1. 동기화가 완료되고 VM 상태가 **보호됨**이면 VM을 선택하고 **구성** 탭을 선택한 다음 VM 네트워크(장애 조치(failover)된 VM이 속할 네트워크)를 적절하게 업데이트합니다. 네트워크가 표시되지 않으면 동기화가 아직 진행되고 있는 것입니다.
 
 ### <a name="enable-protection-of-storsimple-volumes"></a>StorSimple 볼륨의 보호 사용
-StorSimple 볼륨에 대해 **이 볼륨에 대한 기본 백업 사용** 옵션을 선택하지 않은 경우 StorSimple Manager 서비스의 **Backup 정책**으로 이동하여 모든 볼륨에 적합한 백업 정책을 만듭니다. 응용 프로그램에 대해 확인할 RPO(복구 지점 목표)의 백업 빈도를 설정하는 것이 좋습니다.
+StorSimple 볼륨에 대해 **이 볼륨에 대한 기본 백업 사용** 옵션을 선택하지 않은 경우 StorSimple Manager 서비스의 **Backup 정책**으로 이동하여 모든 볼륨에 적합한 백업 정책을 만듭니다. 애플리케이션에 대해 확인할 RPO(복구 지점 목표)의 백업 빈도를 설정하는 것이 좋습니다.
 
 ### <a name="configure-the-network"></a>네트워크 구성
 파일 서버 VM의 경우 VM 네트워크가 장애 조치(failover) 후 올바른 DR 네트워크에 연결되도록 Azure Site Recovery에서 네트워크 설정을 구성합니다.
@@ -359,4 +359,4 @@ VM에서 [Azure Virtual Machine 준비 평가 도구](https://azure.microsoft.co
 
 
 ## <a name="summary"></a>요약
-Azure Site Recovery를 사용하여 StorSimple 저장소에 호스트된 파일 공유가 있는 파일 서버 VM에 대한 전체 자동화된 재해 복구 계획을 만들 수 있습니다. 중단이 발생할 경우 어디서나 몇 초 이내에 장애 조치(failover)를 시작하고 몇 분 만에 응용 프로그램을 가동할 수 있습니다.
+Azure Site Recovery를 사용하여 StorSimple 저장소에 호스트된 파일 공유가 있는 파일 서버 VM에 대한 전체 자동화된 재해 복구 계획을 만들 수 있습니다. 중단이 발생할 경우 어디서나 몇 초 이내에 장애 조치(failover)를 시작하고 몇 분 만에 애플리케이션을 가동할 수 있습니다.

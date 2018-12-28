@@ -23,10 +23,10 @@ ms.locfileid: "33201014"
 ---
 # <a name="azure-application-gateway-azure-cli-samples"></a>Azure Application Gateway Azure CLI 샘플
 
-다음 표에는 응용 프로그램 게이트웨이를 만드는 Azure CLI 스크립트 샘플의 링크가 제공됩니다.
+다음 표에는 애플리케이션 게이트웨이를 만드는 Azure CLI 스크립트 샘플의 링크가 제공됩니다.
 
 | | |
 |---|---|
-| [웹 트래픽 관리](./scripts/create-vmss-cli.md) | 응용 프로그램 게이트웨이 및 모든 관련 리소스를 만듭니다. |
-| [웹 트래픽 제한](./scripts/create-vmss-waf-cli.md) | OWASP 규칙을 사용하여 트래픽을 제한하는 응용 프로그램 게이트웨이를 만듭니다.|
+| [웹 트래픽 관리](./scripts/create-vmss-cli.md) | 애플리케이션 게이트웨이 및 모든 관련 리소스를 만듭니다. |
+| [웹 트래픽 제한](./scripts/create-vmss-waf-cli.md) | OWASP 규칙을 사용하여 트래픽을 제한하는 애플리케이션 게이트웨이를 만듭니다.|
 | | |

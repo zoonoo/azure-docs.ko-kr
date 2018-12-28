@@ -28,7 +28,7 @@ ms.locfileid: "49957777"
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-Microsoft Azure AD(Azure Active Directory)를 사용하여 웹 응용 프로그램 및 Web API에 인증 및 권한 부여를 추가할 수 있습니다.
+Microsoft Azure AD(Azure Active Directory)를 사용하여 웹 애플리케이션 및 Web API에 인증 및 권한 부여를 추가할 수 있습니다.
 
 이 섹션에서는 Azure AD v1.0 엔드포인트에 대해 자세히 알아보는 데 사용할 수 있는 샘플 링크를 제공합니다. 이 샘플은 애플리케이션에 사용할 수 있는 코드 조각과 함께 작업 수행 방법을 보여줍니다. 코드 샘플 페이지에서 요구 사항, 설치 및 설정에 도움이 되는 자세한 추가 정보 항목을 찾을 수 있습니다. 또한 코드는 중요한 섹션을 이해하는 데 도움이 되도록 주석으로 처리되어 있습니다.
 

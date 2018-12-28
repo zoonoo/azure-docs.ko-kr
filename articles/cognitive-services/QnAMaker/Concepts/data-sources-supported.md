@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: ee88c8dca1521f4cdc2e3ea141d5c1d497061bb4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71b0739bacd8df586267b61a9135f448aa76479d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422357"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082240"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 콘텐츠의 데이터 원본
 
@@ -36,7 +36,7 @@ QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FA
 
 ## <a name="faq-urls"></a>FAQ URL
 
-QnA Maker는 일반 FAQ 페이지, 링크가 포함된 FAQ 페이지, 토픽 홈페이지가 포함된 FAQ 페이지의 3가지 양식으로 FAQ 웹 페이지를 지원할 수 있습니다.
+QnA Maker는 3가지 형식으로 FAQ 웹 페이지를 지원할 수 있습니다. 일반 FAQ 페이지, 링크를 사용한 FAQ 페이지, 항목 홈 페이지를 사용한 FAQ 페이지.
 
 ### <a name="plain-faq-pages"></a>일반 FAQ 페이지
 
@@ -44,7 +44,7 @@ QnA Maker는 일반 FAQ 페이지, 링크가 포함된 FAQ 페이지, 토픽 홈
 
 아래는 일반 FAQ 페이지의 예입니다.
 
-![일반 FAQ 페이지](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![기술 자료를 위한 일반 FAQ 페이지 예제](../media/qnamaker-concepts-datasources/plain-faq.png) 
 
  
 ### <a name="faq-pages-with-links"></a>링크가 포함된 FAQ 페이지 
@@ -53,7 +53,7 @@ QnA Maker는 일반 FAQ 페이지, 링크가 포함된 FAQ 페이지, 토픽 홈
 
 아래는 동일한 페이지에 있는 섹션의 링크가 포함된 FAQ 페이지의 예입니다.
 
- ![섹션 링크 FAQ 페이지](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![기술 자료를 위한 섹션 링크 FAQ 페이지 예제](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
 
 
 ### <a name="faq-pages-with-a-topics-homepage"></a>토픽 홈페이지가 포함된 FAQ 페이지
@@ -62,7 +62,7 @@ QnA Maker는 일반 FAQ 페이지, 링크가 포함된 FAQ 페이지, 토픽 홈
 
 아래는 토픽 홈페이지에 다른 페이지의 FAQ 섹션에 대한 링크가 있는 FAQ 페이지의 예입니다. 
 
- ![딥 링크 FAQ 페이지](../media/qnamaker-concepts-datasources/topics-faq.png) 
+ ![기술 자료를 위한 딥 링크 FAQ 페이지 예제](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
 ## <a name="pdf-doc-files"></a>PDF/DOC 파일
@@ -77,14 +77,14 @@ QnA Maker는 글꼴 크기, 글꼴 스타일, 번호 매기기, 색상 등의 �
 
 아래는 인덱스 페이지와 계층적 콘텐츠가 포함된 설명서의 예입니다.
 
- ![제품 설명서 예제](../media/qnamaker-concepts-datasources/product-manual.png) 
+ ![기술 자료를 위한 제품 설명서 예제](../media/qnamaker-concepts-datasources/product-manual.png) 
 
 > [!NOTE]
 > 추출은 목차 및/또는 색인 페이지와 계층적 제목이 있는 명확한 구조를 가진 설명서에서 가장 잘 작동합니다.
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>브로슈어, 지침, 논문 및 기타 파일
 
-그 외의 문서 유형도 구조와 레이아웃이 명확하다면 QA 쌍을 생성하도록 처리할 수 있습니다. 브로슈어, 지침, 보고서, 백서, 과학 논문, 정책, 서적 등이 여기에 포함됩니다. [여기](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx)에서 예제를 참조하세요.
+그 외의 문서 유형도 구조와 레이아웃이 명확하다면 QA 쌍을 생성하도록 처리할 수 있습니다. 내용은 다음과 같습니다. 브로슈어, 지침, 보고서, 백서, 과학 논문, 정책, 서적 등. [여기](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx)에서 예제를 참조하세요.
 
 아래는 인덱스 없는 반 구조화된 문서의 예입니다.
 
@@ -106,7 +106,7 @@ Answer2
 
 아래는 구조화된 QnA Word 문서의 예입니다.
 
- ![구조화된 QnA 문서](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+ ![기술 자료를 위한 구조화된 QnA 문서 예제](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
 
 ## <a name="structured-txt-tsv-and-xls-files"></a>구조화된 *TXT*, *TSV* 및 *XLS* 파일
 
@@ -121,7 +121,7 @@ Answer2
 
 아래는 HTML 콘텐츠가 포함된 구조화된 QnA *.xls* 파일의 예입니다.
 
- ![구조화된 QnA Excel](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+ ![기술 자료를 위한 구조화된 QnA 문서 예제](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 ## <a name="structured-data-format-through-import"></a>가져오기를 통한 구조화된 데이터 형식
 

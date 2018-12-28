@@ -21,7 +21,7 @@ ms.locfileid: "43346405"
 
 iOS 디바이스는 연결할 때 자신의 디바이스에서 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증하는 데 CBA(인증서 기반 인증)을 사용할 수 있습니다.
 
-* Microsoft Outlook 및 Microsoft Word와 같은 Office 모바일 응용 프로그램
+* Microsoft Outlook 및 Microsoft Word와 같은 Office 모바일 애플리케이션
 * EAS(Exchange ActiveSync) 클라이언트
 
 이 기능을 구성하면 모바일 디바이스의 특정 메일 및 Microsoft Office 응용 프로그램에 사용자 이름 및 암호 조합을 입력해야 합니다.
@@ -51,7 +51,7 @@ iOS 디바이스는 연결할 때 자신의 디바이스에서 클라이언트 �
 
 페더레이션 서버가 구성되어야 합니다.
 
-Microsoft Authenticator는 iOS의 Office 응용 프로그램에 필요합니다.
+Microsoft Authenticator는 iOS의 Office 애플리케이션에 필요합니다.
 
 Azure Active Directory에서 클라이언트 인증서를 해지하려면 ADFS 토큰에 다음 클레임이 있어야 합니다.
 

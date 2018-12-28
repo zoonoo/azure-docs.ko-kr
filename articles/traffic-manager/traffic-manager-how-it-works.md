@@ -36,7 +36,7 @@ Traffic Manager는 다음과 같은 두 가지 주요 이점을 제공합니다.
 
 ## <a name="traffic-manager-example"></a>Traffic Manager 예제
 
-Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL은 https://partners.contoso.com/login.aspx입니다. 응용 프로그램은 3개의 Azure 지역에서 호스팅됩니다. 가용성을 개선하고 전역 성능을 최대화하려면 Traffic Manager를 사용하여 클라이언트 트래픽을 사용 가능한 가장 가까운 끝점에 배포합니다.
+Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL은 https://partners.contoso.com/login.aspx입니다. 애플리케이션은 3개의 Azure 지역에서 호스팅됩니다. 가용성을 개선하고 전역 성능을 최대화하려면 Traffic Manager를 사용하여 클라이언트 트래픽을 사용 가능한 가장 가까운 끝점에 배포합니다.
 
 이 구성을 만들기 위해 다음 단계를 완료합니다.
 
@@ -69,7 +69,7 @@ Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL
 7. 재귀 DNS 서비스는 결과를 통합하고 클라이언트에 단일 DNS 응답을 반환합니다.
 8. 클라이언트는 DNS 결과를 받고 지정 IP 주소에 연결합니다. 클라이언트는 Traffic Manager를 통해서가 아니라 직접 응용 프로그램 서비스 끝점에 연결합니다. 해당 끝점은 HTTPS 끝점이므로 클라이언트는 필요한 SSL/TLS 핸드셰이크를 수행한 다음 ‘/login.aspx’ 페이지에 대해 HTTP GET 요청을 합니다.
 
-재귀 DNS 서비스는 받는 DNS 응답을 캐시합니다. 클라이언트 디바이스의 DNS 확인자도 결과를 캐시합니다. 캐싱을 통해 후속 DNS 쿼리는 다른 이름 서버를 쿼리하는 대신 캐시의 데이터를 사용하여 더 신속하게 답변을 받을 수 있습니다. 캐시의 기간은 각 DNS 레코드의 'TTL(time-to-live)' 속성에 의해 결정됩니다. 짧은 값은 캐시가 빨리 만료되므로 Traffic Manager 이름 서버에 여러 차례의 왕복이 발생합니다. 긴 값은 실패한 끝점에서 트래픽을 멀리 이동하는 데 더 긴 시간이 걸립니다. Traffic Manager를 사용하면 Traffic Manager DNS 응답에 사용되는 TTL을 0초에서 2,147,483,647초([RFC-1035](https://www.ietf.org/rfc/rfc1035.txt)에 따른 최대 범위) 사이로 구성할 수 있으므로 응용 프로그램의 요구에 가장 맞는 값을 선택할 수 있습니다.
+재귀 DNS 서비스는 받는 DNS 응답을 캐시합니다. 클라이언트 디바이스의 DNS 확인자도 결과를 캐시합니다. 캐싱을 통해 후속 DNS 쿼리는 다른 이름 서버를 쿼리하는 대신 캐시의 데이터를 사용하여 더 신속하게 답변을 받을 수 있습니다. 캐시의 기간은 각 DNS 레코드의 'TTL(time-to-live)' 속성에 의해 결정됩니다. 짧은 값은 캐시가 빨리 만료되므로 Traffic Manager 이름 서버에 여러 차례의 왕복이 발생합니다. 긴 값은 실패한 끝점에서 트래픽을 멀리 이동하는 데 더 긴 시간이 걸립니다. Traffic Manager를 사용하면 Traffic Manager DNS 응답에 사용되는 TTL을 0초에서 2,147,483,647초([RFC-1035](https://www.ietf.org/rfc/rfc1035.txt)에 따른 최대 범위) 사이로 구성할 수 있으므로 애플리케이션의 요구에 가장 맞는 값을 선택할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

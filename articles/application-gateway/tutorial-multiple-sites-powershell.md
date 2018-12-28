@@ -24,7 +24,7 @@ Azure Powershell을 사용하여 [애플리케이션 게이트웨이](multiple-s
 
 > [!div class="checklist"]
 > * 네트워크 설정
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 백 엔드 수신기 만들기
 > * 라우팅 규칙 만들기
 > * 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
@@ -73,7 +73,7 @@ $pip = New-AzureRmPublicIpAddress `
   -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프론트 엔드 포트 만들기
 
@@ -156,7 +156,7 @@ $fabrikamRule = New-AzureRmApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-이제 필요한 지원 리소스를 만들었으므로, [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku)를 사용하여 응용 프로그램 게이트웨이에 대한 매개 변수를 지정한 다음, [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway)를 사용하여 응용 프로그램 게이트웨이를 만듭니다.
+이제 필요한 지원 리소스를 만들었으므로, [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku)를 사용하여 애플리케이션 게이트웨이에 대한 매개 변수를 지정한 다음, [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway)를 사용하여 애플리케이션 게이트웨이를 만듭니다.
 
 ```azurepowershell-interactive
 $sku = New-AzureRmApplicationGatewaySku `
@@ -304,7 +304,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 
 > [!div class="checklist"]
 > * 네트워크 설정
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 백 엔드 수신기 만들기
 > * 라우팅 규칙 만들기
 > * 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기

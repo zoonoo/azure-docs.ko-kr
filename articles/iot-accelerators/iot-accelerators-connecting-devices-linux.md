@@ -64,7 +64,7 @@ ms.locfileid: "48829837"
 
     다음과 같은 경우 콘솔에 메시지가 표시됩니다.
 
-    - 응용 프로그램이 샘플 원격 분석 데이터를 솔루션 가속기에 보낼 때.
+    - 애플리케이션이 샘플 원격 분석 데이터를 솔루션 가속기에 보낼 때.
     - 솔루션 대시보드에서 호출된 메서드에 응답할 때.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

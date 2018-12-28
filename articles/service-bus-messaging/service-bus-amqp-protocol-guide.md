@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821551"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961147"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
@@ -351,7 +351,7 @@ AMQP의 SASL 통합에는 다음과 같은 두 가지 단점이 있습니다.
 * 모든 자격 증명 및 토큰 범위가 해당 연결로 지정됩니다. 메시지 인프라에서 엔터티 기준으로 차별화된 액세스 제어를 제공하려고 할 수 있습니다. 예를 들어 토큰의 전달자가 큐 A로 전송하는 것은 허용하지만 큐 B로는 전송하지 못하게 할 수 있습니다. 연결에 권한 부여 컨텍스트가 고정되면 단일 연결을 사용할 수 없지만 큐 A 및 큐 B에 대해 다른 액세스 토큰을 사용할 수 있습니다.
 * 액세스 토큰은 일반적으로 제한된 시간 동안만 유효합니다. 이 유효성 때문에 사용자는 주기적으로 토큰을 다시 획득해야 하며, 사용자 권한이 변경될 경우 토큰 발급자가 새 토큰 발행을 거부할 기회가 부여됩니다. AMQP 연결은 매우 긴 시간 동안 지속될 수 있습니다. SASL 모델은 연결 시에만 토큰을 설정할 기회를 제공합니다. 즉, 토큰이 만료되거나 액세스 권한이 임시로 취소되었을 수 있는 클라이언트와의 통신을 지속하는 것이 위험할 수 있는 경우 메시징 인프라는 클라이언트와의 연결을 끊어야 합니다.
 
-Service Bus에 의해 구현되는 AMQP CBS 사양은 이러한 문제에 대해 적합한 해결 방법을 제공합니다. 클라이언트가 액세스 토큰을 각 노드에 연결하고, 만료되기 전에 해당 토큰을 업데이트할 수 있도록 하여 메시지 흐름이 중단되지 않도록 합니다.
+Service Bus에 의해 구현되는 AMQP CBS 사양은 이러한 문제에 대한 적합한 해결 방법을 활성화합니다. 클라이언트는 각 노드로 액세스 토큰을 연결하고, 메시지 흐름을 방해하지 않고 만료되기 전에 해당 토큰을 업데이트할 수 있습니다.
 
 CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공되도록 정의합니다. 관리 노드는 메시징 인프라의 다른 노드를 대신하여 토큰을 수락합니다.
 

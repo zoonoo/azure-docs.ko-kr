@@ -27,9 +27,9 @@ ms.locfileid: "51636733"
 
 [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
 
-## <a name="register-an-application"></a>응용 프로그램 등록
+## <a name="register-an-application"></a>애플리케이션 등록
 
-특정 Azure AD 조직의 사용자에 대한 로그인을 사용하도록 설정하려면 조직의 Azure AD 테넌트 내에 응용 프로그램을 등록해야 합니다.
+특정 Azure AD 조직의 사용자에 대한 로그인을 사용하도록 설정하려면 조직의 Azure AD 테넌트 내에 애플리케이션을 등록해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 맨 위 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 해당 테넌트가 포함된 디렉터리를 선택하여 조직 Azure AD 테넌트(contoso.com)를 포함하는 디렉터리를 사용합니다.

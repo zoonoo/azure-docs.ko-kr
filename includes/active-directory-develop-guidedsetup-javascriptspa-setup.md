@@ -40,7 +40,7 @@ ms.locfileid: "48842953"
 
 > ### <a name="option-1-node-other-web-servers"></a>옵션 1: Node/기타 웹 서버
 > [Node.js](https://nodejs.org/en/download/)를 설치했는지 확인한 후 아래 단계를 따릅니다.
-> - 응용 프로그램을 호스트할 폴더를 만듭니다.
+> - 애플리케이션을 호스트할 폴더를 만듭니다.
 
 <p/><!-- -->
 

@@ -1,6 +1,6 @@
 ---
-title: Azure 서비스 카탈로그 관리되는 응용 프로그램 만들기 및 게시 | Microsoft Docs
-description: 조직의 구성원을 위한 Azure 관리되는 응용 프로그램을 만드는 방법이 나와 있습니다.
+title: Azure 서비스 카탈로그 관리형 애플리케이션 만들기 및 게시 | Microsoft Docs
+description: 조직의 구성원을 위한 Azure 관리형 애플리케이션을 만드는 방법이 나와 있습니다.
 services: managed-applications
 author: tfitzmac
 ms.service: managed-applications
@@ -20,13 +20,13 @@ ms.locfileid: "48801270"
 
 조직의 구성원을 위한 Azure [관리되는 애플리케이션](overview.md)을 만들고 게시할 수 있습니다. 예를 들어 IT 부서에서는 조직 표준을 충족하는 관리되는 애플리케이션을 게시할 수 있습니다. 이러한 관리되는 애플리케이션은 Azure Marketplace가 아닌 서비스 카탈로그를 통해 사용할 수 있습니다.
 
-서비스 카탈로그에 대한 관리되는 응용 프로그램을 게시하려면 다음을 수행해야 합니다.
+서비스 카탈로그에 대한 관리형 애플리케이션을 게시하려면 다음을 수행해야 합니다.
 
 * 관리되는 애플리케이션과 함께 배포할 리소스를 정의하는 템플릿을 만듭니다.
 * 관리 되는 애플리케이션을 배포할 때 포털에 대한 사용자 인터페이스 요소를 정의합니다.
 * 필요한 템플릿 파일이 포함된 .zip 패키지를 만듭니다.
-* 사용자의 구독에 속한 리소스 그룹에 액세스해야 하는 사용자, 그룹 또는 응용 프로그램을 결정합니다.
-* .zip 패키지를 나타내고 ID에 대한 액세스를 요청하는 관리되는 응용 프로그램 정의를 만듭니다.
+* 사용자의 구독에 속한 리소스 그룹에 액세스해야 하는 사용자, 그룹 또는 애플리케이션을 결정합니다.
+* .zip 패키지를 나타내고 ID에 대한 액세스를 요청하는 관리형 애플리케이션 정의를 만듭니다.
 
 이 문서에서는 관리되는 애플리케이션에는 하나의 저장소 계정만이 포함됩니다. 관리되는 애플리케이션을 게시하는 단계를 설명하기 위한 것입니다. 전체 예제는 [Azure 관리되는 애플리케이션의 샘플 프로젝트](sample-projects.md)를 참조하세요.
 
@@ -85,7 +85,7 @@ mainTemplate.json 파일을 저장합니다.
 
 ## <a name="create-the-user-interface-definition"></a>사용자 인터페이스 정의 만들기
 
-Azure Portal은 **createUiDefinition.json** 파일을 사용하여 관리되는 애플리케이션을 만드는 사용자를 위한 사용자 인터페이스를 생성합니다. 사용자가 각 매개 변수에 대한 입력을 제공하는 방법을 정의합니다. 드롭다운 목록, 텍스트 상자, 암호 상자 및 기타 입력 도구와 같은 옵션을 사용할 수 있습니다. 관리되는 응용 프로그램에 대한 UI 정의 파일을 만드는 방법은 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.
+Azure Portal은 **createUiDefinition.json** 파일을 사용하여 관리되는 애플리케이션을 만드는 사용자를 위한 사용자 인터페이스를 생성합니다. 사용자가 각 매개 변수에 대한 입력을 제공하는 방법을 정의합니다. 드롭다운 목록, 텍스트 상자, 암호 상자 및 기타 입력 도구와 같은 옵션을 사용할 수 있습니다. 관리형 애플리케이션에 대한 UI 정의 파일을 만드는 방법은 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.
 
 이름이 **createUiDefinition.json**인 파일을 만듭니다. 이름은 대/소문자를 구분합니다.
 
@@ -166,11 +166,11 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
   -Context $ctx 
 ```
 
-## <a name="create-the-managed-application-definition"></a>관리되는 응용 프로그램 정의 만들기
+## <a name="create-the-managed-application-definition"></a>관리형 애플리케이션 정의 만들기
 
-### <a name="create-an-azure-active-directory-user-group-or-application"></a>Azure Active Directory 사용자 그룹 또는 응용 프로그램 만들기
+### <a name="create-an-azure-active-directory-user-group-or-application"></a>Azure Active Directory 사용자 그룹 또는 애플리케이션 만들기
 
-다음 단계는 고객을 대신하여 리소스를 관리하기 위한 사용자 그룹 또는 응용 프로그램을 선택하는 것입니다. 이 사용자 그룹 또는 응용 프로그램에는 할당된 역할에 따라 관리되는 리소스 그룹에 대한 권한이 있습니다. 역할은 소유자 또는 참가자와 같은 기본 제공 RBAC(역할 기반 Access Control) 역할일 수 있습니다. 개별 사용자에게도 리소스를 관리할 수 있는 권한을 부여할 수 있지만, 일반적으로 사용자 그룹에 이 권한을 할당합니다. 새 Active Directory 사용자 그룹을 만들려면 [그룹을 만들고 Azure Active Directory에 구성원 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
+다음 단계는 고객을 대신하여 리소스를 관리하기 위한 사용자 그룹 또는 응용 프로그램을 선택하는 것입니다. 이 사용자 그룹 또는 애플리케이션에는 할당된 역할에 따라 관리형 리소스 그룹에 대한 권한이 있습니다. 역할은 소유자 또는 참가자와 같은 기본 제공 RBAC(역할 기반 Access Control) 역할일 수 있습니다. 개별 사용자에게도 리소스를 관리할 수 있는 권한을 부여할 수 있지만, 일반적으로 사용자 그룹에 이 권한을 할당합니다. 새 Active Directory 사용자 그룹을 만들려면 [그룹을 만들고 Azure Active Directory에 구성원 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 리소스 관리에 사용할 사용자 그룹의 개체 ID가 필요합니다. 
 
@@ -186,7 +186,7 @@ $groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
 $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 ```
 
-### <a name="create-the-managed-application-definition"></a>관리되는 응용 프로그램 정의 만들기
+### <a name="create-the-managed-application-definition"></a>관리형 애플리케이션 정의 만들기
 
 관리되는 애플리케이션 정의를 저장하기 위한 리소스 그룹이 아직 없는 경우 지금 새로 만듭니다.
 
@@ -194,7 +194,7 @@ $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
-이제 관리되는 응용 프로그램 정의 리소스를 만듭니다.
+이제 관리형 애플리케이션 정의 리소스를 만듭니다.
 
 ```powershell
 $blob = Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx

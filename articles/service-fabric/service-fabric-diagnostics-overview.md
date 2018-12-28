@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 82c02c0212fd79d8847d374022b6ac8f862f042a
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 8d6865349f103278131a02c2385557fb53ee24f5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291116"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720595"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 모니터링 및 진단
 
@@ -40,9 +40,10 @@ ms.locfileid: "52291116"
 ## <a name="platform-cluster-monitoring"></a>플랫폼(클러스터) 모니터링
 사용자는 코드를 직접 작성하기 때문에 해당 애플리케이션에서 제공되는 원격 분석을 제어하지만, Service Fabric 플랫폼에서 제공되는 진단의 경우는 어떤가요? Service Fabric의 목표 중 하나는 응용 프로그램을 하드웨어 오류에 대해 복원력 있게 유지하는 것입니다. 이 목표는 플랫폼의 시스템 서비스가 인프라 문제를 감지하고 워크로드를 클러스터의 다른 노드로 빠르게 장애 조치(failover)할 수 있기 때문에 실현이 가능합니다. 그러나 이러한 특정 상황에서 시스템 서비스 자체에 문제가 있다면 어떻게 될까요? 또는 작업을 배포 또는 이동할 때 서비스 배치 규칙에 위배되면 어떻게 될까요? Service Fabric은 이러한 경우와 기타 경우에 대한 진단을 제공하여 사용자가 클러스터에서 진행되는 작업에 대해 알 수 있도록 합니다. 클러스터 모니터링에 대한 몇 가지 샘플 시나리오에는 다음이 포함됩니다.
 
-* 애플리케이션 배치 및 클러스터의 작업 부하 분산 측면에서 Service Fabric이 예상대로 동작하고 있나요? 
-* 클러스터에서 수행한 사용자 작업이 예상대로 승인되고 실행되나요? 예: 크기 조정, 장애 조치(Failover), 배포
-* Service Fabric이 클러스터의 일부인 노드를 추적하고 있으며 문제가 있을 때 알려주나요?
+Service Fabric은 구입 즉시 포괄적인 이벤트 집합을 제공합니다. 이러한 [Service Fabric 이벤트](service-fabric-diagnostics-events.md)는 EventStore 또는 작동 채널(플랫폼에서 노출되는 이벤트 채널)을 통해 액세스할 수 있습니다. 
+* EventStore - EventStore는 REST API를 통해 그리고 Service Fabric Explorer 에서 사용할 수 있는 Service Fabric 플랫폼 이벤트를 제공하는 플랫폼에서 제공하는 기능입니다. 이벤트 시간을 기반으로 각 엔터티(예: 노드, 서비스, 애플리케이션 및 쿼리)에 대해 클러스터에서 진행 중인 작업에 대한 스냅숏 보기를 볼 수 있습니다. [EventStore 개요](service-fabric-diagnostics-eventstore.md)에서 EventStore에 대한 자세한 내용을 볼 수도 있습니다.    
+
+* Service Fabric 이벤트 채널 - Windows에서 Service Fabric 이벤트는 작동 채널과 데이터 및 메시지 채널 사이에서 선택하는 데 사용되는 관련 `logLevelKeywordFilters` 집합을 사용하여 단일 ETW 공급자가 제공합니다. 이러한 방식으로 나가는 Service Fabric 이벤트를 격리하여 필요에 따라 필터링합니다. Linux에서는 Service Fabric 이벤트가 LTTng를 통해 수신되어 단일 Storage 테이블에 배치되며, 필요에 따라 어디서나 필터링할 수 있습니다. 이러한 채널에는 클러스터 상태 이해에 도움이 되는 구조화된 조정 이벤트가 포함되어 있습니다. 진단은 클러스터 생성 시 기본적으로 사용이 가능하며, 나중에 쿼리할 수 있도록 이러한 채널의 이벤트가 전송되는 Azure Storage 테이블이 만들어집니다. 
 
 제공되는 진단은 기본적으로 포괄적인 이벤트 세트 형식으로 되어 있습니다. 이러한 [Service Fabric 이벤트](service-fabric-diagnostics-events.md)는 노드, 애플리케이션, 서비스, 파티션 등의 다른 엔터티에 대해 플랫폼에서 수행되는 작업을 보여 줍니다. 위의 마지막 시나리오에서 노드가 작동 중단되면 플랫폼은 `NodeDown` 이벤트를 발생하며, 선택한 모니터링 도구를 통해 즉시 알림을 받을 수 있습니다. 다른 일반적인 예로 장애 조치(failover) 동안의 `ApplicationUpgradeRollbackStarted` 또는 `PartitionReconfigured`가 있습니다. **동일한 이벤트를 Windows 및 Linux 클러스터 둘 다에서 사용할 수 있습니다.**
 

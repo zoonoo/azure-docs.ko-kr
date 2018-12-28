@@ -18,8 +18,8 @@ ms.locfileid: "48830315"
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure Storage의 데이터 이동
 온-프레미스 데이터를 Azure Storage로(또는 그 반대로) 이동하는 여러 방법이 있습니다. 가장 적합한 방법은 시나리오에 따라 달라집니다. 이 문서에서는 다양한 시나리오 그리고 각 시나리오에 적합한 방법을 신속하게 살펴보겠습니다.
 
-## <a name="building-applications"></a>응용 프로그램 빌드
-응용 프로그램을 빌드하는 경우 REST API 또는 Microsoft의 여러 클라이언트 라이브러리 중 하나에 대해 개발하면 Azure Storage의 데이터를 쉽게 이동할 수 있습니다.
+## <a name="building-applications"></a>애플리케이션 빌드
+애플리케이션을 빌드하는 경우 REST API 또는 Microsoft의 여러 클라이언트 라이브러리 중 하나에 대해 개발하면 Azure Storage의 데이터를 쉽게 이동할 수 있습니다.
 
 Azure Storage는 .NET, Java, Android, Go, Xamarin, C++, Node.JS, PHP, Ruby, Python 및 iOS를 비롯한 다양한 인기 있는 언어에 대한 다양한 클라이언트 라이브러리를 제공합니다. 이 클라이언트 라이브러리는 재시도 논리, 로깅, 병렬 업로드와 같은 고급 기능을 제공합니다. HTTP/HTTPS 요청이 가능한 모든 언어로 호출할 수 있는 REST API에 대해 바로 개발할 수도 있습니다.
 
@@ -66,7 +66,7 @@ Azure Storage에 데이터를 백업해야 하는 경우 Azure Backup을 사용�
 자세한 내용은 [StorSimple](../../storsimple/storsimple-overview.md) 을 참조하세요.
 
 ## <a name="recovering-your-data"></a>데이터 복구
-온-프레미스 워크로드 및 응용 프로그램이 있는 경우 재해가 발생하더라도 비즈니스를 계속 실행할 수 있는 솔루션이 필요합니다. Azure Site Recovery는 가상 머신 및 실제 서버의 복제, 장애 조치 및 복구를 처리합니다. 복제된 데이터는 Azure Storage에 저장되므로 보조 현장 데이터 센터가 필요 없습니다.
+온-프레미스 워크로드 및 애플리케이션이 있는 경우 재해가 발생하더라도 비즈니스를 계속 실행할 수 있는 솔루션이 필요합니다. Azure Site Recovery는 가상 머신 및 실제 서버의 복제, 장애 조치 및 복구를 처리합니다. 복제된 데이터는 Azure Storage에 저장되므로 보조 현장 데이터 센터가 필요 없습니다.
 
 자세한 내용은 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) 를 참조하세요.
 ### <a name="moving-data-faq"></a>데이터 이동 FAQ:

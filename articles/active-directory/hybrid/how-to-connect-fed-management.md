@@ -33,7 +33,7 @@ ms.locfileid: "51244460"
 | [트러스트 복구](#repairthetrust) |Office 365를 사용하여 페더레이션 트러스트를 복구하는 방법입니다. |
 | [대체 로그인 ID를 사용하여 Azure AD와 페더레이션](#alternateid) | 대체 로그인 ID를 사용하여 페더레이션 구성  |
 | [AD FS 서버 추가](#addadfsserver) |추가 AD FS 서버를 사용하여 AD FS 팜을 확장하는 방법입니다. |
-| [AD FS 웹 응용 프로그램 프록시 서버 추가](#addwapserver) |추가 WAP(웹 응용 프로그램 프록시) 서버를 사용하여 AD FS 팜을 확장하는 방법입니다. |
+| [AD FS 웹 응용 프로그램 프록시 서버 추가](#addwapserver) |추가 WAP(웹 애플리케이션 프록시) 서버를 사용하여 AD FS 팜을 확장하는 방법입니다. |
 | [페더레이션된 도메인을 추가합니다.](#addfeddomain) |페더레이션된 도메인을 추가하는 방법입니다. |
 | [SSL 인증서 업데이트](how-to-connect-fed-ssl-update.md)| AD FS 팜에 대한 SSL 인증서를 업데이트하는 방법입니다. |
 | **AD FS 사용자 지정** | |
@@ -71,7 +71,7 @@ Azure AD Connect를 사용하여 AD FS와 Azure AD 트러스트의 현재 상태
 > Azure AD Connect는 자체 서명된 인증서에 대해서만 복구 또는 조치를 취할 수 있습니다. Azure AD Connect에서 타사 인증서를 복구할 수 없습니다.
 
 ## <a name="alternateid"></a>AlternateID를 사용하여 Azure AD와 페더레이션 
-온-프레미스 UPN(사용자 계정 이름) 및 클라우드 사용자 계정 이름을 동일하게 유지하는 것이 좋습니다. 온-프레미스 UPN이 라우팅할 수 없는 도메인(예: Contoso.local)을 사용하거나 로컬 응용 프로그램 종속성으로 인해 변경될 수 없는 경우 대체 로그인 ID를 설정하는 것이 좋습니다. 대체 로그인 ID를 사용하면 사용자가 UPN 이외의 특성(예: 메일)을 사용하여 로그인할 수 있는 로그인 환경을 구성할 수 있습니다. Azure AD Connect에서 선택할 수 있는 기본 사용자 계정 이름은 Active Directory의 userPrincipalName 특성입니다. 사용자 계정 이름에 대해 다른 특성을 선택하고 AD FS를 사용하여 페더레이션할 경우 Azure AD Connect는 대체 로그인 ID에 맞게 AD FS를 구성합니다. 사용자 계정 이름으로 선택할 수 있는 다른 특성은 아래와 같습니다.
+온-프레미스 UPN(사용자 계정 이름) 및 클라우드 사용자 계정 이름을 동일하게 유지하는 것이 좋습니다. 온-프레미스 UPN이 라우팅할 수 없는 도메인(예: Contoso.local)을 사용하거나 로컬 애플리케이션 종속성으로 인해 변경될 수 없는 경우 대체 로그인 ID를 설정하는 것이 좋습니다. 대체 로그인 ID를 사용하면 사용자가 UPN 이외의 특성(예: 메일)을 사용하여 로그인할 수 있는 로그인 환경을 구성할 수 있습니다. Azure AD Connect에서 선택할 수 있는 기본 사용자 계정 이름은 Active Directory의 userPrincipalName 특성입니다. 사용자 계정 이름에 대해 다른 특성을 선택하고 AD FS를 사용하여 페더레이션할 경우 Azure AD Connect는 대체 로그인 ID에 맞게 AD FS를 구성합니다. 사용자 계정 이름으로 선택할 수 있는 다른 특성은 아래와 같습니다.
 
 ![대체 ID 특성 선택 항목](./media/how-to-connect-fed-management/attributeselection.png)
 
@@ -124,9 +124,9 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 > [!NOTE]
 > WAP 서버를 추가하려면 Azure AD Connect는 PFX 인증서가 필요합니다. 따라서 Azure AD Connect를 사용하여 AD FS 팜을 구성한 경우에만 이 작업을 수행할 수 있습니다.
 
-1. 사용 가능한 작업 목록에서 **웹 응용 프로그램 프록시 배포** 를 선택합니다.
+1. 사용 가능한 작업 목록에서 **웹 애플리케이션 프록시 배포**를 선택합니다.
 
-   ![웹 응용 프로그램 프록시 배포](./media/how-to-connect-fed-management/WapServer1.PNG)
+   ![웹 애플리케이션 프록시 배포](./media/how-to-connect-fed-management/WapServer1.PNG)
 
 2. Azure 전역 관리자 자격 증명을 제공합니다.
 

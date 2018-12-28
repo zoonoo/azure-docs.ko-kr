@@ -165,7 +165,7 @@ Event Grid는 고가용성, 일관된 성능 및 동적 확장을 위해 설계�
 
 ## <a name="run-the-sample-app"></a>샘플 앱 실행
 
-1. Ctrl+F5를 눌러서 *EncodeAndStreamFiles* 응용 프로그램을 실행합니다.
+1. Ctrl+F5를 눌러서 *EncodeAndStreamFiles* 애플리케이션을 실행합니다.
 2. 콘솔에서 스트리밍 URL 중 하나를 복사합니다.
 
 아래 예제는 다른 프로토콜을 사용하여 비디오를 재생하는 데 사용할 수 있는 URL입니다.
@@ -180,7 +180,7 @@ Event Grid는 고가용성, 일관된 성능 및 동적 확장을 위해 설계�
 > 플레이어가 https 사이트에 호스트 될 경우 URL을 "https"로 업데이트해야 합니다.
 
 1. 웹 브라우저를 열고 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)로 이동합니다.
-2. 응용 프로그램을 실행할 때 얻은 URL 값 중 하나를 **URL:** 상자에 붙여넣습니다. 
+2. 애플리케이션을 실행할 때 얻은 URL 값 중 하나를 **URL:** 상자에 붙여넣습니다. 
 3. **플레이어 업데이트**를 누릅니다.
 
 Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 환경에서는 사용할 수 없습니다. 
@@ -197,7 +197,7 @@ az group delete --name amsResourceGroup
 
 ## <a name="multithreading"></a>다중 스레딩
 
-Azure Media Services v3 SDK는 스레드로부터 안전하지 않습니다. 다중 스레드 응용 프로그램으로 개발하는 경우, 스레드마다 새로운 AzureMediaServicesClient 개체를 생성하고 사용해야 합니다.
+Azure Media Services v3 SDK는 스레드로부터 안전하지 않습니다. 다중 스레드 애플리케이션으로 개발하는 경우, 스레드마다 새로운 AzureMediaServicesClient 개체를 생성하고 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

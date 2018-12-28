@@ -35,7 +35,7 @@ Azure Application Insights는 애플리케이션에서 원격 분석을 수집�
 - 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
     - ASP.NET 및 웹 개발
     - Azure 개발
-- Azure에 .NET 응용 프로그램을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다.
+- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다.
 - 응용 프로그램에 대한 [Application Insights 프로파일러를 활성화합니다](app-insights-profiler.md#installation).
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인

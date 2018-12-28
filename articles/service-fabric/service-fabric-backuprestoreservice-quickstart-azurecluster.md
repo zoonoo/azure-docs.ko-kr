@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric에서 정기적인 백업 및 복원(미리 보기) | Microsoft Docs
+title: Azure Service Fabric에서 정기적인 백업 및 복원 | Microsoft Docs
 description: Service Fabric의 주기적 백업 및 복원 기능을 사용하여 응용 프로그램 데이터의 주기적인 데이터 백업을 사용하도록 설정합니다.
 services: service-fabric
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2018
+ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: ef92212b84496802dc2464498a0b6789f79a729b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 57848a7a4d8e627e952a9f46d438b073c73d833a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246704"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725865"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Azure Service Fabric에서 정기적인 백업 및 복원(미리 보기)
+# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Azure Service Fabric에서 정기적인 백업 및 복원 
 > [!div class="op_single_selector"]
 > * [Azure의 클러스터](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [독립 실행형 클러스터](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -40,11 +40,8 @@ Service Fabric은 여러 노드에 걸쳐 상태를 복제하여 서비스의 �
 
 Service Fabric은 특정 시점 [백업 및 복원](service-fabric-reliable-services-backup-restore.md)을 수행하는 기본 제공 API를 제공합니다. 응용 프로그램 개발자는 이러한 API를 사용하여 서비스 상태를 정기적으로 백업할 수 있습니다. 또한 서비스 관리자가 응용 프로그램을 업그레이드하기 전과 같이 특정 시간에 서비스 외부에서 백업을 트리거하려는 경우 개발자는 서비스에서 API로 백업(및 복원)을 공개해야 합니다. 백업을 유지 관리하는 것은 이 밖에도 추가 비용이 듭니다. 예를 들어 30분마다 5번의 증분 백업을 수행하고 전체 백업을 수행하려고 할 수 있습니다. 전체 백업 후에는 이전 증분 백업을 삭제할 수 있습니다. 이 방법은 추가 코드를 필요로 하므로 응용 프로그램 개발 중에 추가 비용이 발생합니다.
 
-정기적으로 응용 프로그램 데이터를 백업하는 것은 분산된 응용 프로그램을 관리하고 데이터 손실이나 서비스 가용성의 장기간 손실을 방지하기 위한 기본적인 요건입니다. Service Fabric은 백업 및 복원 서비스(선택 사항)를 제공하므로 추가 코드를 작성할 필요 없이 상태 저장 Reliable Services(Actor Services 포함)의 정기적인 백업을 구성할 수 있습니다. 또한 이전에 수행한 백업 복원을 수월하게 수행할 수 있습니다. 
+Service Fabric의 서비스 백업 및 복원에서는 상태 저장 서비스에 저장된 정보의 손쉬운 자동화 백업을 사용하도록 설정합니다. 애플리케이션 데이터를 정기적으로 백업하는 것은 데이터 손실 및 서비스 비가용성을 방지하는 데 필수적입니다. Service Fabric은 백업 및 복원 서비스(선택 사항)를 제공하므로 추가 코드를 작성할 필요 없이 상태 저장 Reliable Services(Actor Services 포함)의 정기적인 백업을 구성할 수 있습니다. 또한 이전에 수행한 백업 복원을 수월하게 수행할 수 있습니다. 
 
-> [!NOTE]
-> 정기적 백업 및 복원 기능은 현재  **미리보기** 상태이며 프로덕션 워크로드에는 지원되지 않습니다. 
->
 
 Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 기능을 가능하게 해주는 API 집합을 제공합니다.
 
@@ -58,7 +55,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 - 백업의 보존 관리(예정)
 
 ## <a name="prerequisites"></a>필수 조건
-* Fabric 버전 6.2 이상을 포함하는 Service Fabric 클러스터. 클러스터는 Windows 서버에 설치해야 합니다. Azure 리소스 템플릿을 사용하여 Service Fabric 클러스터를 만드는 단계는 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
+* Fabric 버전 6.2 이상을 포함하는 Service Fabric 클러스터. 클러스터는 Windows 서버에 설치해야 합니다. Azure 리소스 템플릿을 사용하여 Service Fabric 클러스터를 만드는 단계는 이 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 * 백업을 저장하기 위해 저장소에 연결하는 데 필요한 비밀 암호화를 위한 X.509 인증서. X.509 인증서를 가져오거나 만드는 방법에 대해 알아보려면 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 * Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 응용 프로그램. .Net Core 2.0을 대상으로 하는 응용 프로그램은 Service Fabric SDK 버전 3.1 이상을 사용하여 빌드되어야 합니다.
 * 응용 프로그램 백업을 저장하기 위해 Azure Storage 계정을 만듭니다.
@@ -116,7 +113,7 @@ Reliable Stateful 서비스 및 Reliable Actors에 대한 정기적 백업을 �
 
 ### <a name="create-backup-policy"></a>백업 정책 만들기
 
-첫 번째 단계는 백업 일정, 백업 데이터의 대상 저장소, 정책 이름 및 전체 백업을 트리거하기 전에 허용할 최대 증분 백업을 설명하는 백업 정책을 만드는 것입니다. 
+첫 번째 단계는 백업 일정, 백업 데이터의 대상 스토리지, 정책 이름, 전체 백업을 트리거하기 전에 허용할 최대 증분 백업 및 백업 스토리지를 위한 보존 정책을 설명하는 백업 정책을 만드는 것입니다. 
 
 백업 저장소의 경우 위에서 만든 Azure Storage 계정을 사용합니다. `backup-container` 컨테이너는 백업을 저장하기 위해 구성됩니다. 백업 업로드 중이 이 이름의 컨테이너가 만들어집니다(아직 없는 경우). Azure Storage 계정에 유효한 연결 문자열로 `ConnectionString`을 채우고 `account-name`을 저장소 계정 이름으로 바꾸며 `account-key`를 저장소 계정 키로 바꿉니다.
 
@@ -134,15 +131,21 @@ $ScheduleInfo = @{
     ScheduleKind = 'FrequencyBased'
 }
 
+$RetentionPolicy = @{ 
+    RetentionPolicyType = 'Basic'
+    RetentionDuration =  'P10D'
+}
+
 $BackupPolicy = @{
     Name = 'BackupPolicy1'
     MaxIncrementalBackups = 20
     Schedule = $ScheduleInfo
     Storage = $StorageInfo
+    RetentionPolicy = $RetentionPolicy
 }
 
 $body = (ConvertTo-Json $BackupPolicy)
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.2-preview"
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
@@ -158,7 +161,7 @@ $BackupPolicyReference = @{
 }
 
 $body = (ConvertTo-Json $BackupPolicyReference)
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/EnableBackup?api-version=6.2-preview"
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/EnableBackup?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ``` 
@@ -176,7 +179,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 HTTP API를 호출하는 다음 PowerShell 스크립트를 실행하여 `SampleApp` 응용 프로그램 내의 모든 파티션에 대해 생성된 백업을 열거합니다.
 
 ```powershell
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.2-preview"
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"
 
 $response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 
@@ -223,10 +226,9 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
-## <a name="preview-limitation-caveats"></a>미리 보기 제한/주의 사항
+## <a name="limitation-caveats"></a>제한/주의 사항
 - PowerShell cmdlet에 기본 제공 Service Fabric이 없습니다.
 - Service Fabric CLI에 대한 지원이 없습니다.
-- 자동화된 백업 제거에 대한 지원이 없습니다. [백업 보존 스크립트](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript)는 백업 제거를 위한 스크립트 기반 외부 자동화를 설정하는 데 참조될 수 있습니다.
 - Linux에서 Service Fabric 클러스터에 대한 지원이 없습니다.
 
 ## <a name="next-steps"></a>다음 단계

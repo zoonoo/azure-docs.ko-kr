@@ -16,14 +16,14 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/15/2018
 ms.locfileid: "41917597"
 ---
-# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 응용 프로그램 실행
+# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 실행
 
-Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. 고유의 응용 프로그램 및 서비스를 빌드하여 Kubernetes 클러스터에 배포하고, 클러스터가 가용성 및 연결을 관리하게 합니다. 7개 중 4단계인 이 자습서에서는 응용 프로그램 예제를 Kubernetes 클러스터에 배포합니다. 다음 방법에 대해 알아봅니다.
+Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제공합니다. 고유의 응용 프로그램 및 서비스를 빌드하여 Kubernetes 클러스터에 배포하고, 클러스터가 가용성 및 연결을 관리하게 합니다. 7개 중 4단계인 이 자습서에서는 애플리케이션 예제를 Kubernetes 클러스터에 배포합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 업데이트
 > * Kubernetes에서 응용 프로그램 실행
-> * 응용 프로그램 테스트
+> * 애플리케이션 테스트
 
 후속 자습서에서 이 애플리케이션은 확장되고 업데이트됩니다.
 
@@ -31,7 +31,7 @@ Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다.
+이전 자습서에서는 애플리케이션을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다.
 
 이 자습서를 완료하려면 미리 작성된 `azure-vote-all-in-one-redis.yaml` Kubernetes 매니페스트 파일이 필요합니다. 이전 자습서에서 애플리케이션 소스 코드와 함께 이 파일을 다운로드했습니다. 리포지토리를 복제했으며 디렉터리를 복제된 리포지토리로 변경했는지 확인하세요. 이러한 단계를 아직 수행하지 않았으나 수행하려는 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
 
@@ -71,7 +71,7 @@ containers:
 
 파일을 저장하고 닫습니다.
 
-## <a name="deploy-the-application"></a>응용 프로그램 배포
+## <a name="deploy-the-application"></a>애플리케이션 배포
 
 응용 프로그램을 배포하려면 [kubectl apply][kubectl-apply] 명령을 사용합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다. 다음 예제처럼 샘플 매니페스트 파일을 지정합니다.
 
@@ -90,7 +90,7 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>응용 프로그램 테스트
+## <a name="test-the-application"></a>애플리케이션 테스트
 
 인터넷에 애플리케이션을 노출하는 [Kubernetes 서비스][kubernetes-service]가 생성됩니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 진행 상황을 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
 
@@ -123,7 +123,7 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 업데이트
 > * Kubernetes에서 응용 프로그램 실행
-> * 응용 프로그램 테스트
+> * 애플리케이션 테스트
 
 그 다음 자습서로 이동하여 Kubernetes 응용 프로그램 및 기본 Kubernetes 인프라 규모를 조정하는 방법을 알아보세요.
 

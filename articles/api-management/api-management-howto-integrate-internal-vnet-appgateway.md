@@ -115,7 +115,7 @@ $location = "West US"           # Azure region
 New-AzureRmResourceGroup -Name $resGroupName -Location $location
 ```
 
-Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 응용 프로그램 게이트웨이를 만들기 위한 모든 명령이 동일한 리소스 그룹을 사용하는지 확인합니다.
+Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 애플리케이션 게이트웨이를 만들기 위한 모든 명령이 동일한 리소스 그룹을 사용하는지 확인합니다.
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Application Gateway에 대한 Virtual Network 및 서브넷 만들기
 
@@ -216,7 +216,7 @@ $result = Set-AzureRmApiManagementHostnames -Name $apimServiceName -ResourceGrou
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -name "publicIP01" -location $location -AllocationMethod Dynamic
 ```
 
-서비스를 시작할 때 응용 프로그램 게이트웨이에 IP 주소가 할당됩니다.
+서비스를 시작할 때 애플리케이션 게이트웨이에 IP 주소가 할당됩니다.
 
 ## <a name="create-application-gateway-configuration"></a>응용 프로그램 게이트웨이 구성 만들기
 

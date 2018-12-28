@@ -1,17 +1,18 @@
 ---
 title: Azure Cosmos DB의 지역 현재 상태
-description: 이 문서에서는 Azure Cosmos DB 및 사용할 수 있는 다른 클라우드 환경의 지역 현재 상태에 대해 설명합니다.
+description: 이 문서에서는 Azure Cosmos DB 및 여러 클라우드 환경의 지역 현재 상태에 대해 설명합니다.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 7c060fae389766e89a84e2f6779209ad31edb031
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: c3299b2ea777577281ede234cd1aa5137ce5a445
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166802"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138112"
 ---
 # <a name="regional-presence-of-azure-cosmos-db"></a>Azure Cosmos DB의 지역 현재 상태
 

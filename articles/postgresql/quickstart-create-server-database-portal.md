@@ -68,7 +68,7 @@ PostgreSQL 서버용 Azure Database를 만들려면 다음 단계를 따릅니�
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성
 
-PostgreSQL용 Azure Database는 서버 수준에서 방화벽을 만듭니다. 특정 IP 주소에 대한 방화벽을 열기 위한 규칙을 만들지 않는 한, 이 방화벽은 외부 응용 프로그램과 도구에서 서버 및 서버의 모든 데이터베이스에 연결되지 않도록 방지합니다. 
+PostgreSQL용 Azure Database는 서버 수준에서 방화벽을 만듭니다. 특정 IP 주소에 대한 방화벽을 열기 위한 규칙을 만들지 않는 한, 이 방화벽은 외부 애플리케이션과 도구에서 서버 및 서버의 모든 데이터베이스에 연결되지 않도록 방지합니다. 
 
 1. 배포가 완료되면 서버를 찾습니다. 필요한 경우 검색할 수 있습니다. 예를 들어 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 서버 이름(예: **mydemoserver**)을 입력하여 새로 만든 서버를 검색합니다. 검색 결과 목록에서 서버 이름을 선택합니다. 서버에 대한 **개요** 페이지가 열리고 추가 구성을 위한 옵션이 제공됩니다.
  
@@ -99,7 +99,7 @@ PostgreSQL 서버용 Azure Database를 만들 때 **postgres**라는 기본 데�
 
 ## <a name="connect-to-the-postgresql-database-using-psql"></a>psql을 사용하여 PostgreSQL 데이터베이스에 연결
 
-Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 여러 응용 프로그램이 있습니다. 클라이언트 컴퓨터에 PostgreSQL이 설치되어 있는 경우 [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 로컬 인스턴스를 사용하여 Azure PostgreSQL 서버에 연결할 수 있습니다. 이제 psql 명령줄 유틸리티를 사용하여 Azure PostgreSQL 서버에 연결해 보겠습니다.
+Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 여러 애플리케이션이 있습니다. 클라이언트 컴퓨터에 PostgreSQL이 설치되어 있는 경우 [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 로컬 인스턴스를 사용하여 Azure PostgreSQL 서버에 연결할 수 있습니다. 이제 psql 명령줄 유틸리티를 사용하여 Azure PostgreSQL 서버에 연결해 보겠습니다.
 
 1. 셸에서 psql 명령줄을 입력하여 Azure Database for PostgreSQL 서버의 데이터베이스에 연결합니다.
 

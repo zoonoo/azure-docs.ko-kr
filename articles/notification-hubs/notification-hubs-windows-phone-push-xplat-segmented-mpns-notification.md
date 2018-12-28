@@ -41,7 +41,7 @@ ms.locfileid: "41919552"
 > * 앱 테스트
 
 ## <a name="prerequisites"></a>필수 조건
-[자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시](notification-hubs-windows-mobile-push-notifications-mpns.md)를 완료합니다. 이 자습서에서는 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있도록 모바일 응용 프로그램을 업데이트합니다. 
+[자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시](notification-hubs-windows-mobile-push-notifications-mpns.md)를 완료합니다. 이 자습서에서는 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있도록 모바일 애플리케이션을 업데이트합니다. 
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>모바일 앱에 범주 선택 추가
 첫 번째 단계는 기존의 기본 페이지에 사용자가 등록할 범주를 선택할 수 있도록 하는 UI 요소를 추가하는 것입니다. 사용자가 선택한 범주는 디바이스에 저장됩니다. 앱을 시작하면 디바이스 등록이 선택한 범주와 함께 태그로서 알림 허브에 생성됩니다.

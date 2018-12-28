@@ -26,7 +26,7 @@ ms.locfileid: "44304057"
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
-원격 데스크톱을 사용하면 Azure에서 실행 중인 역할의 데스크톱에 액세스할 수 있습니다. 원격 데스크톱 연결을 사용하여 응용 프로그램 실행 중에 응용 프로그램 문제를 진단하고 해결할 수 있습니다.
+원격 데스크톱을 사용하면 Azure에서 실행 중인 역할의 데스크톱에 액세스할 수 있습니다. 원격 데스크톱 연결을 사용하여 애플리케이션 실행 중에 애플리케이션 문제를 진단하고 해결할 수 있습니다.
 
 Visual Studio에서 클라우드 서비스에 제공하는 게시 마법사에는 사용자가 제공하는 자격 증명을 사용하여 게시 프로세스 중에 원격 데스크톱을 사용하도록 설정하는 옵션이 있습니다. Visual Studio 2017 버전 15.4 및 이전 버전을 사용하는 경우 이 옵션을 사용하는 것이 적합합니다.
 

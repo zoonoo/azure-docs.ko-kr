@@ -36,7 +36,7 @@ ms.locfileid: "42918967"
 > * WebAPI 백 엔드에서 알림 보내기
 > * 새 WebAPI 백 엔드 게시
 > * iOS 앱 수정
-> * 응용 프로그램 테스트
+> * 애플리케이션 테스트
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -476,7 +476,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
     }
     ```
 
-## <a name="test-the-application"></a>응용 프로그램 테스트
+## <a name="test-the-application"></a>애플리케이션 테스트
 
 1. XCode에서는 실제 iOS 디바이스에서 앱을 실행합니다(푸시 알림은 시뮬레이터에서 작동하지 않음).
 2. iOS 앱 UI에서 사용자 이름과 암호에 동일한 값을 입력합니다. 그런 다음 **Log In**을 클릭합니다.

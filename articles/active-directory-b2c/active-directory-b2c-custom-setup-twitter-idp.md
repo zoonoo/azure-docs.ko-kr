@@ -28,7 +28,7 @@ ms.locfileid: "48887352"
 - [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
 - Twitter 계정이 없는 경우 [Twitter 가입 페이지](https://twitter.com/signup)에서 계정을 생성하세요.
 
-## <a name="create-an-application"></a>응용 프로그램 만들기
+## <a name="create-an-application"></a>애플리케이션 만들기
 
 Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 응용 프로그램을 만들어야 합니다.
 

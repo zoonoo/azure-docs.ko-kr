@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure에서 Windows 가상 머신의 부하 분산 방법 | Microsoft Docs
-description: 이 자습서에서는 Azure PowerShell을 사용하여 세 Windows 가상 머신에서 고가용성의 안전한 응용 프로그램을 위한 부하 분산 장치를 만드는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure PowerShell을 사용하여 세 Windows 가상 머신에서 고가용성의 안전한 애플리케이션을 위한 부하 분산 장치를 만드는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: zr-msft
@@ -23,7 +23,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/19/2018
 ms.locfileid: "49470832"
 ---
-# <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>자습서: Azure PowerShell을 통해 Azure에서 Windows 가상 머신의 부하를 분산하여 고가용성 응용 프로그램을 만드는 방법
+# <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>자습서: Azure PowerShell을 통해 Azure에서 Windows 가상 머신의 부하를 분산하여 고가용성 애플리케이션을 만드는 방법
 부하 분산은 들어오는 요청을 여러 가상 머신에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서에서는 트래픽을 분산하고 고가용성을 제공하는 Azure Load Balancer의 여러 다른 구성 요소에 대해 알아봅니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]

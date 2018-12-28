@@ -45,7 +45,7 @@ Azure Portal을 사용하여 Azure Data Lake Storage Gen1 계정을 만들고 �
    
    * **이름**. Data Lake Storage Gen1 계정의 고유한 이름을 입력합니다.
    * **구독**. 새 Data Lake Storage Gen1 계정을 만들려는 구독을 선택합니다.
-   * **리소스 그룹**. 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택하여 리소스 그룹을 만듭니다. 리소스 그룹은 응용 프로그램에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure의 리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)을 참조하세요.
+   * **리소스 그룹**. 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택하여 리소스 그룹을 만듭니다. 리소스 그룹은 애플리케이션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure의 리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)을 참조하세요.
    * **위치**: Data Lake Storage Gen1 계정을 만들려는 위치를 선택합니다.
    * **암호화 설정**. 세 개의 옵션이 있습니다.
      

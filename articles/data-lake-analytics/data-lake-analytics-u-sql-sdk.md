@@ -77,9 +77,9 @@ U-SQL 스크립트를 로컬로 실행하면 컴파일 중에 현재 실행 중�
 
 ## <a name="use-the-sdk-from-the-command-line"></a>명령줄에서 SDK 사용
 
-### <a name="command-line-interface-of-the-helper-application"></a>도우미 응용 프로그램의 명령줄 인터페이스
+### <a name="command-line-interface-of-the-helper-application"></a>도우미 애플리케이션의 명령줄 인터페이스
 
-SDK directory\build\runtime에서 LocalRunHelper.exe는 일반적으로 사용되는 대부분의 로컬 실행 기능에 대한 인터페이스를 제공하는 명령줄 도우미 응용 프로그램입니다. 명령 및 인수 스위치는 모두 대소문자를 구분합니다. 도우미를 호출하려면 다음 명령을 사용합니다.
+SDK directory\build\runtime에서 LocalRunHelper.exe는 일반적으로 사용되는 대부분의 로컬 실행 기능에 대한 인터페이스를 제공하는 명령줄 도우미 애플리케이션입니다. 명령 및 인수 스위치는 모두 대소문자를 구분합니다. 도우미를 호출하려면 다음 명령을 사용합니다.
 
     LocalRunHelper.exe <command> <Required-Command-Arguments> [Optional-Command-Arguments]
 
@@ -104,7 +104,7 @@ SDK directory\build\runtime에서 LocalRunHelper.exe는 일반적으로 사용�
 
 ### <a name="return-value-and-logging"></a>반환 값 및 로깅
 
-도우미 응용 프로그램은 성공한 경우 **0**을, 실패한 경우 **-1**을 반환합니다. 기본적으로 도우미는 모든 메시지를 현재 콘솔로 보냅니다. 그러나 대부분의 명령은 출력을 로그 파일로 리디렉션하는 **-MessageOut path_to_log_file** 선택적 인수를 지원합니다.
+도우미 애플리케이션은 성공한 경우 **0**을, 실패한 경우 **-1**을 반환합니다. 기본적으로 도우미는 모든 메시지를 현재 콘솔로 보냅니다. 그러나 대부분의 명령은 출력을 로그 파일로 리디렉션하는 **-MessageOut path_to_log_file** 선택적 인수를 지원합니다.
 
 ### <a name="environment-variable-configuring"></a>환경 변수 구성
 

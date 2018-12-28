@@ -68,7 +68,7 @@ SQL Database는 두 가지 인증 유형, 즉 SQL Server 인증 및 Azure AD 인
 - SQL Database에서 SQL Server 인증이 필요한 이전 응용 프로그램 및 파트너 제공 응용 프로그램을 지원할 수 있습니다.
 - 사용자가 알 수 없거나 신뢰할 수 없는 도메인에서 연결합니다. 기존 고객이 할당된 SQL Server 로그인을 사용해 연결하여 주문 상태를 수신하는 응용 프로그램을 예로 들 수 있습니다.
 - SQL Database에서 사용자가 자신의 ID를 만드는 웹 기반 응용 프로그램을 지원할 수 있습니다.
-- 소프트웨어 개발자가 미리 설정된 SQL Server 로그인을 기반으로 복잡한 권한 계층 구조를 사용하여 응용 프로그램을 배포합니다.
+- 소프트웨어 개발자가 미리 설정된 SQL Server 로그인을 기반으로 복잡한 권한 계층 구조를 사용하여 애플리케이션을 배포합니다.
 
 > [!NOTE]
 > SQL Server 인증에서는 Kerberos 보안 프로토콜을 사용할 수 없습니다.
@@ -109,7 +109,7 @@ Azure AD 인증은 Azure AD의 ID를 사용하여 Azure SQL Database 및 [SQL Da
 자세한 내용은 [SQL Database, Managed Instance 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](../sql-database/sql-database-aad-authentication.md)에서 확인할 수 있습니다.
 
 ## <a name="protect-your-data-by-using-encryption-and-row-level-security"></a>암호화 및 행 수준 보안을 사용하여 데이터 보호
-[Azure SQL Database 투명한 데이터 암호화](../sql-database/transparent-data-encryption-azure-sql.md)를 사용하면 디스크의 데이터를 보호하고 하드웨어 무단 액세스를 방지할 수 있습니다. 응용 프로그램에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. 투명한 데이터 암호화는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 저장소를 암호화합니다.
+[Azure SQL Database 투명한 데이터 암호화](../sql-database/transparent-data-encryption-azure-sql.md)를 사용하면 디스크의 데이터를 보호하고 하드웨어 무단 액세스를 방지할 수 있습니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. 투명한 데이터 암호화는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 저장소를 암호화합니다.
 
 저장소 전체를 암호화하는 경우에도 데이터베이스 자체까지 암호화해야 합니다. 이렇게 하면 데이터를 철저하게 보호할 수 있습니다. Azure SQL Database를 사용하고 있고 신용 카드 또는 주민 등록 번호와 같은 중요한 데이터를 보호하려는 경우 FIPS 140-2 검증 256비트 AES 암호화를 사용하여 데이터베이스를 암호화할 수 있습니다. 이 암호화는 HIPAA, PCI 등 여러 업계 표준의 요구 사항을 충족합니다.
 

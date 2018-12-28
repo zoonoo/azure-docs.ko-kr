@@ -25,7 +25,7 @@ ms.locfileid: "44030693"
 
 NetWeaver 인증 외에도, SAP에서는 Azure IaaS와 같은 특정 인프라에서 SAP HANA를 지원하기 위해 SAP HANA에 대한 특수한 인증을 요구합니다.
 
-NetWeaver 및 약간의 SAP HANA 인증에 대한 핵심 SAP Note는 [SAP Note #1928533 – Azure의 SAP 응용 프로그램: 지원되는 제품 및 Azure VM 유형](https://launchpad.support.sap.com/#/notes/1928533)입니다.
+NetWeaver 및 약간의 SAP HANA 인증에 대한 핵심 SAP Note는 [SAP Note #1928533 – Azure의 SAP 애플리케이션: 지원되는 제품 및 Azure VM 유형](https://launchpad.support.sap.com/#/notes/1928533)입니다.
 
 SAP HANA on Azure 인증 레코드(대형 인스턴스) 단위는 [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) 사이트에서 제공합니다. 
 

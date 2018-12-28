@@ -278,11 +278,11 @@ getDebugInfo를 **Always**로 설정했으므로 Blob 컨테이너의 pyFiles �
 
 1. `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`로 이동합니다.
 
-    ![YARN UI 응용 프로그램](media/data-factory-spark/yarnui-application.png)
+    ![YARN UI 애플리케이션](media/data-factory-spark/yarnui-application.png)
 
 1. 실행 시도 중 하나에 대한 **로그**를 선택합니다.
 
-    ![응용 프로그램 페이지](media/data-factory-spark/yarn-applications.png)
+    ![애플리케이션 페이지](media/data-factory-spark/yarn-applications.png)
 
 1. 로그 페이지에 다음과 같은 추가 오류 정보가 표시됩니다.
 

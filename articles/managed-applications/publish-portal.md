@@ -19,7 +19,7 @@ ms.locfileid: "47096039"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Azure Portal을 통해 서비스 카탈로그 애플리케이션 게시
 
-조직의 구성원을 위한 Azure [관리되는 애플리케이션](overview.md)을 Azure Portal을 사용하여 게시할 수 있습니다. 예를 들어 조직 표준을 준수하도록 하는 IT 부서에서 관리되는 응용 프로그램을 게시할 수 있습니다. 이러한 관리되는 애플리케이션은 Azure Marketplace가 아닌 서비스 카탈로그를 통해 사용할 수 있습니다.
+조직의 구성원을 위한 Azure [관리되는 애플리케이션](overview.md)을 Azure Portal을 사용하여 게시할 수 있습니다. 예를 들어 조직 표준을 준수하도록 하는 IT 부서에서 관리형 애플리케이션을 게시할 수 있습니다. 이러한 관리되는 애플리케이션은 Azure Marketplace가 아닌 서비스 카탈로그를 통해 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -61,6 +61,6 @@ ms.locfileid: "47096039"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 관리되는 응용 프로그램에 대한 소개는 [관리되는 응용 프로그램 개요](overview.md)를 참조하세요.
+* 관리형 애플리케이션에 대한 소개는 [관리형 애플리케이션 개요](overview.md)를 참조하세요.
 * 관리되는 애플리케이션 예제는 [Azure 관리되는 애플리케이션의 샘플 프로젝트](sample-projects.md)를 참조하세요.
-* 관리되는 응용 프로그램에 대한 UI 정의 파일을 만드는 방법은 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.
+* 관리형 애플리케이션에 대한 UI 정의 파일을 만드는 방법은 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.

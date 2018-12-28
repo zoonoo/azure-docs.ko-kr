@@ -85,7 +85,7 @@ Service Fabric은 클러스터 노드 간 통신을 보호하도록 클러스터
 배치 제약 조건의 사용, 노드 속성 및 정의하는 방법에 대한 자세한 내용은 [노드 속성 및 배치 제약 조건](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)을 참조하세요.
 
 ## <a name="add-capacity-metrics"></a>용량 메트릭 추가
-각 노드 유형의 경우 부하를 보고하도록 사용하려는 사용자 용량 메트릭을 응용 프로그램에 추가할 수 있습니다. 부하를 보고하는 용량 메트릭 사용에 대한 자세한 내용은 서비스 패브릭 클러스터 리소스 관리자 설명서에서 [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md) 및 [메트릭 및 부하](service-fabric-cluster-resource-manager-metrics.md)를 참조하세요.
+각 노드 유형의 경우 부하를 보고하도록 사용하려는 사용자 용량 메트릭을 애플리케이션에 추가할 수 있습니다. 부하를 보고하는 용량 메트릭 사용에 대한 자세한 내용은 서비스 패브릭 클러스터 리소스 관리자 설명서에서 [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md) 및 [메트릭 및 부하](service-fabric-cluster-resource-manager-metrics.md)를 참조하세요.
 
 ## <a name="set-health-policies-for-automatic-upgrades"></a>자동 업그레이드에 대한 상태 정책 설정
 패브릭 업그레이드에 대한 사용자 지정 상태 정책을 지정할 수 있습니다. 클러스터를 자동 패브릭 업그레이드로 설정한 경우 이러한 정책은 자동 패브릭 업그레이드의 1단계에 적용됩니다.

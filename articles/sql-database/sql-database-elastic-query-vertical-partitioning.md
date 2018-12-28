@@ -3,7 +3,7 @@ title: 여러 스키마를 사용하여 클라우드 데이터베이스에서 �
 description: 수직 분할을 통해 데이터베이스 간 쿼리를 설정하는 방법
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 5dbf6fb1b59999481348d3b4ad4775a77295b70d
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 75c021f7b2c2584580f2d9dbf30cbcdf11d3fdc5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238900"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875368"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
 ![다른 데이터베이스에서 테이블에 대한 쿼리][1]
@@ -118,7 +118,7 @@ ms.locfileid: "50238900"
 탄력적 쿼리는 기존 외부 테이블 구문을 확장하여 RDBMS 형식의 외부 데이터 원본을 사용하는 외부 테이블을 정의합니다. 수직 분할에 대한 외부 테이블 정의에서는 다음과 같은 측면을 다룹니다. 
 
 * **스키마**: 외부 테이블 DDL은 쿼리가 사용할 수 있는 스키마를 정의합니다. 외부 테이블 정의에서 제공한 스키마는 실제 데이터가 저장되는 원격 데이터베이스의 테이블 스키마와 일치해야 합니다. 
-* **원격 데이터 참조**: 외부 테이블 DDL은 외부 데이터 원본을 가리킵니다. 외부 데이터 원본은 실제 테이블 데이터가 저장된 원격 데이터베이스의 논리적 서버 이름과 데이터베이스 이름을 지정합니다. 
+* **원격 데이터베이스 참조**: 외부 테이블 DDL은 외부 데이터 원본을 가리킵니다. 외부 데이터 원본은 실제 테이블 데이터가 저장된 원격 데이터베이스의 논리적 서버 이름과 데이터베이스 이름을 지정합니다. 
 
 이전 섹션에서 설명한 대로 외부 데이터 소스를 사용하여 외부 테이블을 만드는 구문은 다음과 같습니다. 
 
@@ -157,9 +157,9 @@ SCHEMA_NAME 및 OBJECT_NAME 절은 각각 외부 테이블 정의를 원격 데�
 또한 탄력적 쿼리는 원격 데이터베이스에 대한 직접 액세스를 제공하기 위해 저장 프로시저를 사용합니다. 저장 프로시저는 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)라고 하며, 원격 데이터베이스에서 원격 저장 프로시저 또는 T-SQL 코드를 실행하는 데 사용될 수 있습니다. 사용되는 매개 변수는 다음과 같습니다. 
 
 * 데이터 원본 이름(nvarchar): RDBMS 형식의 외부 데이터 원본 이름입니다. 
-* 쿼리(nvarchar): T-SQL 쿼리를 원격 데이터베이스에서 실행할 수 있습니다. 
-* 매개 변수 선언(nvarchar), 선택 사항: 쿼리 매개 변수(예: sp_executesql)에 사용된 매개 변수에 대한 데이터 형식 정의가 있는 문자열입니다. 
-* 매개 변수 값 목록, 선택 사항: 쉼표로 구분한 매개 변수 값(예: sp_executesql) 목록.
+* 쿼리(nvarchar): 원격 데이터베이스에서 실행할 T-SQL 쿼리입니다. 
+* 매개 변수 선언(nvarchar) - 선택 사항: 쿼리 매개 변수(예: sp_executesql)에 사용된 매개 변수에 대한 데이터 형식 정의가 있는 문자열입니다. 
+* 매개 변수 값 목록 - 선택 사항: 쉼표로 구분된 매개 변수 값(예: sp_executesql) 목록입니다.
 
 sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본을 사용하여 원격 데이터베이스에서 지정된 T-SQL 문을 실행합니다. 외부 데이터 원본의 자격 증명을 사용하여 원격 데이터베이스에 연결합니다.  
 

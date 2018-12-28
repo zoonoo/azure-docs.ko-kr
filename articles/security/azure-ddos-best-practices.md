@@ -79,7 +79,7 @@ Microsoft Azure에서 실행되는 서비스를 보호하기 위해 애플리케
 
 ### <a name="design-for-scalability"></a>확장성을 위한 디자인
 
-확장성은 시스템이 증가된 로드를 처리할 수 있는 정도입니다. 증폭되는 부하, 특히 DDoS 공격 시 증폭되는 부하 수요를 충족할 수 있도록 애플리케이션이 [수평으로 확장 가능](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)하도록 설계해야 합니다. 응용 프로그램이 서비스의 단일 인스턴스에 종속된 경우 단일 실패 지점이 생깁니다. 여러 인스턴스를 프로비전하면 시스템에 복원성 및 확장성이 증가하게 됩니다.
+확장성은 시스템이 증가된 로드를 처리할 수 있는 정도입니다. 증폭되는 부하, 특히 DDoS 공격 시 증폭되는 부하 수요를 충족할 수 있도록 애플리케이션이 [수평으로 확장 가능](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)하도록 설계해야 합니다. 애플리케이션이 서비스의 단일 인스턴스에 종속된 경우 단일 실패 지점이 생깁니다. 여러 인스턴스를 프로비전하면 시스템에 복원성 및 확장성이 증가하게 됩니다.
 
 [Azure App Service](../app-service/app-service-value-prop-what-is.md)의 경우 여러 인스턴스를 제공하는 [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)을 선택합니다. Azure Cloud Services의 경우 각각의 역할을 [여러 인스턴스](../cloud-services/cloud-services-choose-me.md)를 사용하도록 구성합니다. [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 경우, VM(가상 머신) 아키텍처가 둘 이상의 VM을 포함하는지 그리고 각각의 VM이 [가용성 집합](../virtual-machines/virtual-machines-windows-manage-availability.md)에 포함되는지 확인합니다. 자동 크기 조정 기능을 위한 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하는 것이 좋습니다.
 

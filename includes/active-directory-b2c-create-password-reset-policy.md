@@ -31,7 +31,7 @@ ms.locfileid: "52742341"
 
 **확인**을 클릭합니다.
 
-![일부 응용 프로그램 클레임을 선택하고 확인 단추를 클릭합니다.](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-application-claims.png)
+![일부 애플리케이션 클레임을 선택하고 확인 단추를 클릭합니다.](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-application-claims.png)
 
 **만들기**를 클릭하여 사용자 흐름을 추가합니다. 사용자 흐름은 **B2C_1_SSPR**로 표시됩니다. **B2C_1_** 접두사가 이름에 추가됩니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "52742341"
 | **응용 프로그램** | Contoso B2C 앱 |
 | **회신 URL 선택** | `https://localhost:44316/` |
 
-새 브라우저 탭이 열리고 응용 프로그램에서 암호 재설정 사용자 환경을 확인할 수 있습니다.
+새 브라우저 탭이 열리고 애플리케이션에서 암호 재설정 사용자 환경을 확인할 수 있습니다.
 
 > [!NOTE]
 > 정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.

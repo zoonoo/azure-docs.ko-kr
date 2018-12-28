@@ -1,18 +1,19 @@
 ---
 title: 서비스 사용자를 사용하여 Azure Analysis Services 작업 자동화 | Microsoft Docs
+description: Azure Analysis Services 작업을 자동화하기 위해 서비스 주체를 만드는 방법을 알아봅니다.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b9a91b478ea9012a1d041fc102765890954c2fbb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2acf39a7537d25b05999b7b2813fa66d7f778724
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956190"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995787"
 ---
 # <a name="automation-with-service-principals"></a>서비스 사용자를 사용한 자동화
 
@@ -83,5 +84,5 @@ db.Model.SaveChanges();
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[Azure PowerShell을 사용하여 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Azure PowerShell로 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
 [서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)   

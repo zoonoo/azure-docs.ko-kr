@@ -16,7 +16,7 @@ ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
 ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52965396"
@@ -63,7 +63,7 @@ ms.locfileid: "52965396"
 
 -   **Traffic Manager 도메인:** 도메인 이름을 만들 때 선택 해야 하는 [Azure Traffic Manager 프로필](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles)합니다. 이 이름은 *trafficmanager.net* 접미사와 결합하여 Traffic Manager에서 관리되는 도메인 항목을 등록합니다. 샘플 앱의 경우 선택한 이름은 *scalable-ase-demo*입니다. 결과적으로, Traffic Manager에서 관리 되는 전체 도메인 이름은 됩니다 *확장 가능한 ase 가리킵니다*합니다.
 
--   **앱 공간을 크기 조정하는 전략:** 응용 프로그램 공간은 단일 지역의 여러 App Service Environment에 걸쳐 분산됩니까? 여러 영역? 두 방법의 혼합? 결정은 고객 트래픽이 생성되는 기대치 뿐만 아니라 백 엔드 인프라를 지원하는 앱의 나머지 부분이 확장할 수 있는 방법에 기반해야 합니다. 예를 들어 100% 상태 비저장 응용 프로그램의 경우 Azure 지역 마다 여러 App Service Environment의 조합을 사용하여 앱을 크게 확장할 수 있으며 여러 Azure 지역에 걸쳐 배포된 App Service Environment로 곱해집니다. 15 + 글로벌 Azure 지역에서 선택할 수 있는 고객은 전세계 하이퍼 규모의 응용 프로그램 사용 공간을 진정으로 구축할 수 있습니다. 이 문서에 사용되는 샘플 앱의 경우 세 가지 App Service Environment를 단일 Azure 지역(미국 중남부)에서 만들었습니다.
+-   **앱 공간을 크기 조정하는 전략:** 응용 프로그램 공간은 단일 지역의 여러 App Service Environment에 걸쳐 분산됩니까? 여러 영역? 두 방법의 혼합? 결정은 고객 트래픽이 생성되는 기대치 뿐만 아니라 백 엔드 인프라를 지원하는 앱의 나머지 부분이 확장할 수 있는 방법에 기반해야 합니다. 예를 들어 100% 상태 비저장 애플리케이션의 경우 Azure 지역 마다 여러 App Service Environment의 조합을 사용하여 앱을 크게 확장할 수 있으며 여러 Azure 지역에 걸쳐 배포된 App Service Environment로 곱해집니다. 15 + 글로벌 Azure 지역에서 선택할 수 있는 고객은 전세계 하이퍼 규모의 응용 프로그램 사용 공간을 진정으로 구축할 수 있습니다. 이 문서에 사용되는 샘플 앱의 경우 세 가지 App Service Environment를 단일 Azure 지역(미국 중남부)에서 만들었습니다.
 
 -   **App Service Environment에 대한 명명 규칙:** 각 App Service Environment에는 고유한 이름이 있어야 합니다. 하나 또는 두 개의 App Service Environment 외 각 App Service Environment를 식별 하는 데 명명 규칙에 유용 합니다. 샘플 앱의 경우 간단한 명명 규칙을 사용했습니다. 세 가지 App Service Environment의 이름은 *fe1ase*, *fe2ase*, 및 *fe3ase*입니다.
 

@@ -30,9 +30,9 @@ Azure Batch의 응용 프로그램 패키지 기능은 풀의 계산 노드에 �
 
 > [!NOTE]
 > 
-> 응용 프로그램 패키지는 2017년 7월 5일 이후에 만들어진 모든 Batch 풀에서 지원됩니다. 2016년 3월 10일에서 2017년 7월 5일 사이에 만들어진 Batch 풀에서는 Cloud Service 구성을 사용하여 풀을 만든 경우에만 이러한 패키지가 지원됩니다. 2016년 3월 10일 이전에 만들어진 Batch 풀은 응용 프로그램 패키지를 지원하지 않습니다.
+> 애플리케이션 패키지는 2017년 7월 5일 이후에 만들어진 모든 Batch 풀에서 지원됩니다. 2016년 3월 10일에서 2017년 7월 5일 사이에 만들어진 Batch 풀에서는 Cloud Service 구성을 사용하여 풀을 만든 경우에만 이러한 패키지가 지원됩니다. 2016년 3월 10일 이전에 만들어진 Batch 풀은 응용 프로그램 패키지를 지원하지 않습니다.
 >
-> 응용 프로그램 패키지를 만들고 관리하는 API는 [Batch Management .NET][api_net_mgmt] 라이브러리의 일부입니다. 계산 노드에서 응용 프로그램 패키지를 설치하는 API는 [Batch .NET][api_net] 라이브러리의 일부입니다. 다른 언어의 경우 상응하는 기능을 Batch API에서 제공합니다. 
+> 응용 프로그램 패키지를 만들고 관리하는 API는 [Batch Management .NET][api_net_mgmt] 라이브러리의 일부입니다. 계산 노드에서 애플리케이션 패키지를 설치하는 API는 [Batch .NET][api_net] 라이브러리의 일부입니다. 다른 언어의 경우 상응하는 기능을 Batch API에서 제공합니다. 
 >
 > 여기서 설명하는 응용 프로그램 패키지 기능은 이전 버전의 서비스에서 사용할 수 있는 Batch 앱 기능을 대체합니다.
 > 
@@ -42,7 +42,7 @@ Azure Batch의 응용 프로그램 패키지 기능은 풀의 계산 노드에 �
 응용 프로그램 패키지를 사용하려면 Batch 계정에 [Azure Storage 계정을 연결](#link-a-storage-account)해야 합니다.
 
 ## <a name="about-applications-and-application-packages"></a>응용 프로그램 및 응용 프로그램 패키지 정보
-Azure Batch 내에서 *응용 프로그램* 이란 풀의 계산 노드에 자동으로 다운로드할 수 있는 버전이 지정된 이진 파일의 집합을 말합니다. *응용 프로그램 패키지*는 이러한 이진 파일의 *특정 집합*을 말하며, 지정된 응용 프로그램 *버전*을 나타냅니다.
+Azure Batch 내에서 *애플리케이션*이란 풀의 계산 노드에 자동으로 다운로드할 수 있는 버전이 지정된 이진 파일의 집합을 말합니다. *응용 프로그램 패키지*는 이러한 이진 파일의 *특정 집합*을 말하며, 지정된 응용 프로그램 *버전*을 나타냅니다.
 
 ![응용 프로그램 및 응용 프로그램 패키지에 대한 개략적인 다이어그램][1]
 
@@ -78,7 +78,7 @@ Batch에서 응용 프로그램은 하나 이상의 응용 프로그램을 포�
 >
 >
 
-## <a name="upload-and-manage-applications"></a>응용 프로그램 업로드 및 관리
+## <a name="upload-and-manage-applications"></a>애플리케이션 업로드 및 관리
 [Azure portal][portal] 또는 Batch Management API를 사용하여 Batch 계정에서 응용 프로그램 패키지를 관리합니다. 다음 섹션에서는 먼저 Storage 계정을 연결하는 방법을 보여 준 다음 응용 프로그램 및 패키지를 추가하고 포털에서 관리하는 방법을 설명합니다.
 
 ### <a name="link-a-storage-account"></a>Storage 계정 연결
@@ -102,7 +102,7 @@ Batch 서비스는 Azure Storage를 사용하여 응용 프로그램 패키지�
 > 
 > 
 
-### <a name="view-current-applications"></a>현재 응용 프로그램 보기
+### <a name="view-current-applications"></a>현재 애플리케이션 보기
 Batch 계정의 응용 프로그램을 보려면 **Batch 계정**이 표시되는 동안 왼쪽의 **응용 프로그램** 메뉴 항목을 클릭합니다.
 
 ![응용 프로그램 타일][2]
@@ -166,7 +166,7 @@ Batch 계정의 응용 프로그램을 보려면 **Batch 계정**이 표시되�
 > 
 > 
 
-### <a name="add-a-new-application-package"></a>새 응용 프로그램 패키지 추가
+### <a name="add-a-new-application-package"></a>새 애플리케이션 패키지 추가
 기존 응용 프로그램에 대한 응용 프로그램 패키지 버전을 추가하려면 **응용 프로그램** 창에서 응용 프로그램을 선택하고, **패키지** > **추가**를 클릭합니다.
 
 ![Azure portal의 응용 프로그램 패키지 추가 블레이드][8]
@@ -283,7 +283,7 @@ AZ_BATCH_APP_PACKAGE_blender_2_7
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
-다음 코드 조각은 기본 버전의 *blender* 응용 프로그램을 실행하는 태스크 명령줄의 예를 보여 줍니다.
+다음 코드 조각은 기본 버전의 *blender* 애플리케이션을 실행하는 태스크 명령줄의 예를 보여 줍니다.
 
 ```csharp
 string taskId = "blendertask01";
@@ -297,7 +297,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 > 
 > 
 
-## <a name="update-a-pools-application-packages"></a>풀의 응용 프로그램 패키지 업데이트
+## <a name="update-a-pools-application-packages"></a>풀의 애플리케이션 패키지 업데이트
 기존 풀이 이미 응용 프로그램 패키지를 통해 구성된 경우 해당 풀에 대해 새 패키지를 지정할 수 있습니다. 풀에 대한 새 패키지 참조를 지정하면 다음이 적용됩니다.
 
 * Batch 서비스는 풀에 조인하는 모든 새 노드와 다시 부팅되거나 이미지로 다시 설치되는 기존 노드에 새로 지정된 패키지를 설치합니다.
@@ -320,7 +320,7 @@ await boundPool.CommitAsync();
 
 새 버전이 구성되었으므로 Batch 서비스는 풀에 조인하는 모든 *새* 노드에 2.76b 버전을 설치합니다. *이미* 풀에 있는 노드에 2.76b 버전을 설치하려면 노드를 재부팅하거나 이미지로 다시 설치합니다. 다시 부팅된 노드는 이전 패키지 배포의 파일을 보존합니다.
 
-## <a name="list-the-applications-in-a-batch-account"></a>Batch 계정의 응용 프로그램 나열
+## <a name="list-the-applications-in-a-batch-account"></a>Batch 계정의 애플리케이션 나열
 [ApplicationOperations][net_appops].[ListApplicationSummaries][net_appops_listappsummaries] 메서드를 사용하여 Batch 계정의 응용 프로그램 및 응용 프로그램 패키지를 나열할 수 있습니다.
 
 ```csharp

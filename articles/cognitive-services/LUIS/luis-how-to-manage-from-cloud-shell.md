@@ -1,21 +1,22 @@
 ---
-title: Azure Cloud Shell의 LUIS 사용량 데이터
-titleSuffix: Azure Cognitive Services
+title: 사용 현황 데이터 - Cloud Shell
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Azure Cloud Shell에서 LUIS에 대한 사용량 정보를 가져오는 방법을 알아봅니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: aca81bd529fe6151dce7aba6754874355189fc59
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d4f1a76fe587a34448cf218dbfef10f6b0e2ea46
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444395"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133480"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Azure Cloud Shell의 LUIS 서비스 사용량 데이터
 Azure Portal에서 PowerShell cmdlet을 사용하여 LUIS 리소스 작업을 수행할 수 있습니다. 
@@ -34,7 +35,7 @@ Azure Portal Cloud Shell을 사용하는 경우 항상 최신 PowerShell 버전�
 
 **Cloud Shell 시작** 단추를 사용하여 Cloud Shell을 열거나, 브라우저에서 [https://shell.azure.com](https://shell.azure.com)을 엽니다. 환경으로 Power Shell을 선택합니다. Azure Storage 계정이 없는 경우 계정을 만들어야 합니다. 
 
-<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
+<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" alt="Start powershell" /></a>
 
 ## <a name="luis-endpoint-usage-information"></a>LUIS 엔드포인트 사용량 정보
 
@@ -42,7 +43,7 @@ PowerShell 6.x cmdlet인 `Get-AzureRmCognitiveServicesAccountUsage`는 LUIS를 �
 
 명령 구문은 다음과 같습니다.
 
-```
+```powershell
 Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName my-resource-group -Name my-luis-service-name
 ```
 
@@ -50,7 +51,7 @@ Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName my-resource-group -N
 
 cmdlet은 6월 7일에 종료된 30일 기간 동안 10,000개의 엔드포인트 적중 중 16개가 사용되었다는 사용량 정보를 반환합니다.
 
-```
+```powershell
 CurrentValue  : 16
 Name          : LUIS.Calls
 Limit         : 10000

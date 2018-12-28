@@ -1,6 +1,6 @@
 ---
-title: Azure AD 응용 프로그램 프록시를 사용하여 온-프레미스 응용 프로그램에 로그인하는 데 문제가 있음 | Microsoft Docs
-description: Azure AD 응용 프로그램 프록시를 사용하여 Azure AD와 통합된 온-프레미스 응용 프로그램에 로그인할 수 없을 때 직면하는 일반적인 문제 해결
+title: Azure AD 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션에 로그인하는 데 문제가 있음 | Microsoft Docs
+description: Azure AD 애플리케이션 프록시를 사용하여 Azure AD와 통합된 온-프레미스 애플리케이션에 로그인할 수 없을 때 직면하는 일반적인 문제 해결
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -21,11 +21,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2018
 ms.locfileid: "44355854"
 ---
-# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 온-프레미스 응용 프로그램에 로그인하는 데 문제가 있음
+# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션에 로그인하는 데 문제가 있음
 
-온-프레미스 응용 프로그램에 로그인하는 데 문제가 있을 경우 아래 단계를 시도하여 문제를 해결할 수 있습니다.
+온-프레미스 애플리케이션에 로그인하는 데 문제가 있을 경우 아래 단계를 시도하여 문제를 해결할 수 있습니다.
 
-## <a name="i-can-load-my-application-but-something-on-the-page-looks-broken"></a>내 응용 프로그램을 로드할 수 있지만 페이지의 일부가 손상됨
+## <a name="i-can-load-my-application-but-something-on-the-page-looks-broken"></a>내 애플리케이션을 로드할 수 있지만 페이지의 일부가 손상됨
 
 다음 문서는 이 범주에서 가장 일반적인 몇 가지 문제를 해결하는 데 도움이 될 수 있습니다.
 

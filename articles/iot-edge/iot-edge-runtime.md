@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge 런타임 이해 | Microsoft Docs
-description: Azure IoT Edge 런타임 및 Edge 디바이스에 권한을 부여하는 방법을 알아봅니다.
+title: 런타임에서 디바이스를 관리하는 방법 알아보기 - Azure IoT Edge | Microsoft Docs
+description: Azure IoT Edge 런타임에서 디바이스에 대한 보고, 모듈, 보안, 통신을 관리하는 방법 알아보기
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 05c97d21e9acf1bb49418e3a7d0ccf1657f84435
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 3495d157f1a681e80b6d113acced53d01751690f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685194"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077497"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IoT Edge 런타임 및 해당 아키텍처 이해
 
@@ -22,14 +23,14 @@ IoT Edge 런타임은 디바이스에 설치해야 하는 프로그램 모음으
 IoT Edge 런타임은 IoT Edge 디바이스에서 다음 기능을 수행합니다.
 
 * 디바이스에 워크로드를 설치하고 업데이트합니다.
-* 디바이스에서 Azure IoT Edge 보안 표준을 유지 관리합니다.
+* 디바이스에서 Azure IoT Edge 보안 표준을 유지합니다.
 * [IoT Edge 모듈](iot-edge-modules.md)이 항상 실행되도록 합니다.
 * 원격 모니터링을 위해 모듈 상태를 클라우드에 보고합니다.
 * 다운스트림 리프 디바이스와 IoT Edge 디바이스 간의 통신을 용이하게 합니다.
 * IoT Edge 디바이스의 모듈 간 통신을 용이하게 합니다.
-* IoT Edge 디바이스와 클라우드 간의 통신을 용이하게 합니다.
+* IoT Edge 디바이스와 클라우드 간 통신을 용이하게 합니다.
 
-![IoT Hub에 통찰력 및 모듈 상태를 전달하는 IoT Edge 런타임](./media/iot-edge-runtime/Pipeline.png)
+![런타임은 인사이트 및 모듈 상태를 IoT Hub에 전달합니다.](./media/iot-edge-runtime/Pipeline.png)
 
 IoT Edge 런타임의 책임은 모듈 관리와 통신이라는 두 가지 범주로 나뉩니다. 이 두 역할은 IoT Edge 런타임을 구성하는 두 가지 구성 요소를 통해 수행됩니다. IoT Edge 허브는 통신을 담당하고, IoT Edge 에이전트는 모듈 배포 및 모니터링을 관리합니다. 
 
@@ -49,7 +50,7 @@ Edge 허브는 로컬로 실행되는 IoT Hub의 전체 버전이 아닙니다. 
 
 Edge 허브는 IoT Edge 솔루션에서 사용하는 대역폭을 줄이기 위해 클라우드에 실제로 연결되는 수를 최적화합니다. Edge 허브는 모듈 또는 리프 디바이스와 같은 클라이언트에서 논리적 연결을 가져와서 클라우드에 대한 하나의 실제 연결에 결합합니다. 이 프로세스의 세부 정보는 솔루션의 나머지 부분에 투명합니다. 클라이언트는 모두 동일한 연결을 통해 전송되는 경우에도 클라우드에 대한 자체 연결이 있다고 생각하면 됩니다. 
 
-![여러 물리적 디바이스와 클라우드 간의 게이트웨이 역할을 하는 Edge 허브](./media/iot-edge-runtime/Gateway.png)
+![Edge 허브는 물리적 디바이스와 IoT Hub 간의 게이트웨이입니다.](./media/iot-edge-runtime/Gateway.png)
 
 Edge 허브는 IoT Hub에 연결되어 있는지 여부를 결정할 수 있습니다. 연결이 끊어진 경우 Edge 허브는 메시지 또는 쌍 업데이트를 로컬로 저장합니다. 연결이 다시 설정되면 모든 데이터가 동기화됩니다. 이 임시 캐시에 사용되는 위치는 Edge 허브 모듈 쌍의 속성으로 결정됩니다. 캐시의 크기는 제한되지 않으며, 디바이스에 저장 용량이 있는 동안에는 증가합니다. 
 
@@ -57,7 +58,7 @@ Edge 허브는 IoT Hub에 연결되어 있는지 여부를 결정할 수 있습�
 
 Edge 허브는 모듈 간 통신을 용이하게 합니다. Edge broker를 메시지 broker로 사용하면 모듈이 서로 독립적으로 유지됩니다. 모듈은 메시지를 수락하는 입력과 메시지를 쓰는 출력을 지정하기만 하면 됩니다. 솔루션 개발자는 이러한 입력과 출력을 함께 연결하여 모듈에서 해당 솔루션과 관련된 순서로 데이터를 처리하도록 합니다. 
 
-![모듈 간 통신을 용이하게 하는 Edge 허브](./media/iot-edge-runtime/ModuleEndpoints.png)
+![모듈 간 통신을 용이하게 하는 Edge 허브](./media/iot-edge-runtime/module-endpoints.png)
 
 Edge 허브에 데이터를 보내려면 모듈에서 SendEventAsync 메서드를 호출합니다. 첫 번째 인수는 메시지를 보낼 출력을 지정합니다. 다음 의사 코드는 메시지를 output1에 보냅니다.
 
@@ -73,19 +74,19 @@ Edge 허브에 데이터를 보내려면 모듈에서 SendEventAsync 메서드�
    await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
    ```
 
-ModuleClient 클래스 및 해당 통신 방법에 대한 자세한 내용은 원하는 SDK 언어([C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C 및 Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable) 또는 [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest))에 대한 API 참조를 참조하세요.
+ModuleClient 클래스 및 해당 통신 메서드에 대한 자세한 내용은 원하는 SDK 언어에 대한 API 참조를 참조하세요. (예: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C 및 Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable) 또는 [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).)
 
 솔루션 개발자는 Edge 허브에서 모듈 간에 메시지를 전달하는 방식을 결정하는 규칙을 지정합니다. 라우팅 규칙은 클라우드에서 정의되며 디바이스 쌍의 Edge 허브로 푸시 다운됩니다. IoT Hub 경로에 대한 동일한 구문이 Azure IoT Edge의 모듈 간 경로를 정의하는 데 사용됩니다. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![모듈 간 경로](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
+![모듈 간 경로는 Edge 허브를 통과합니다.](./media/iot-edge-runtime/module-endpoints-with-routes.png)
 
 ## <a name="iot-edge-agent"></a>IoT Edge 에이전트
 
 IoT Edge 에이전트는 Azure IoT Edge 런타임을 구성하는 다른 모듈입니다. 모듈을 인스턴스화하고, 모듈을 계속 실행하며, 모듈의 상태를 IoT Hub에 다시 보고합니다. Edge 에이전트는 다른 모듈과 마찬가지로 모듈 쌍을 사용하여 이 구성 데이터를 저장합니다. 
 
-[IoT Edge 보안 디먼](iot-edge-security-manager.md)은 장치 시작 시 Edge 에이전트를 시작합니다. 에이전트는 IoT Hub에서 모듈 쌍을 검색하고 배포 매니페스트를 검사합니다. 배포 매니페스트는 시작되어야 하는 모듈을 선언하는 JSON 파일입니다. 
+[IoT Edge 보안 디먼](iot-edge-security-manager.md)은 디바이스 시작 시 Edge 에이전트를 시작합니다. 에이전트는 IoT Hub에서 모듈 쌍을 검색하고 배포 매니페스트를 검사합니다. 배포 매니페스트는 시작되어야 하는 모듈을 선언하는 JSON 파일입니다. 
 
 배포 매니페스트의 각 항목에는 모듈에 대한 특정 정보가 포함되며, 모듈의 수명 주기를 제어하기 위해 Edge 에이전트에서 사용합니다. 더 유용한 속성 중 일부는 다음과 같습니다. 
 

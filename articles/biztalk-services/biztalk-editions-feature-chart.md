@@ -214,18 +214,18 @@ Service Level Agreement(서비스 수준 약정)는 <a HREF="https://go.microsof
 "장치"는 원자 수준의 Azure BizTalk Services 배포입니다. 각 버전에는 계산 용량 및 메모리가 다른 장치가 제공됩니다. 예를 들어 Basic 장치는 Developer 장치보다 계산 용량이 더 크고, Standard 장치는 Basic 장치보다 계산 용량이 더 크며 등등합니다. BizTalk 서비스를 확장할 때 장치로 확장합니다.
 
 #### <a name="what-is-the-difference-between-biztalk-services-and-azure-biztalk-vm"></a>BizTalk Services와 Azure BizTalk VM 간의 차이점은 무엇인가요?
-BizTalk Services는 클라우드에서 통합 솔루션을 구축하는 데 진정한 PaaS(Platform-as-a-Service) 아키텍처를 제공합니다. PaaS 모델을 사용하여 응용 프로그램 논리에 완전히 초점을 맞추며 다음을 포함한 모든 인프라 관리는 Microsoft에 맡깁니다.
+BizTalk Services는 클라우드에서 통합 솔루션을 구축하는 데 진정한 PaaS(Platform-as-a-Service) 아키텍처를 제공합니다. PaaS 모델을 사용하여 애플리케이션 논리에 완전히 초점을 맞추며 다음을 포함한 모든 인프라 관리는 Microsoft에 맡깁니다.
 
 * 가상 머신을 관리하거나 패치할 필요가 없습니다.
 * Microsoft에서 가용성을 보증합니다.
 * Azure 포털을 통해 용량을 더 많거나 더 적게 간단히 요청하여 주문형 확장을 제어합니다.
 
-Azure Virtual Machines의 BizTalk Server는 IaaS(Infrastructure-as-a-Service) 아키텍처를 제공합니다. 가상 머신을 만들고 온-프레미스 환경과 똑같이 구성하여 코드를 변경하지 않고도 클라우드에서 기존 응용 프로그램을 더 쉽게 실행할 수 있습니다. IaaS를 사용하여 가상 머신을 구성하고 관리하고(예: 소프트웨어 설치 및 OS 패치) 응용 프로그램의 고가용성을 구성해야 합니다.
+Azure Virtual Machines의 BizTalk Server는 IaaS(Infrastructure-as-a-Service) 아키텍처를 제공합니다. 가상 머신을 만들고 온-프레미스 환경과 똑같이 구성하여 코드를 변경하지 않고도 클라우드에서 기존 애플리케이션을 더 쉽게 실행할 수 있습니다. IaaS를 사용하여 가상 머신을 구성하고 관리하고(예: 소프트웨어 설치 및 OS 패치) 애플리케이션의 고가용성을 구성해야 합니다.
 
-인프라 관리 노력을 최소화하는 새로운 통합 솔루션을 구축하려면 BizTalk Services를 사용하세요. 기존 BizTalk 솔루션을 마이그레이션하거나 BizTalk Server 응용 프로그램을 개발하고 테스트하기 위해 주문형 환경을 찾으려면 Azure Virtual Machine에서 BizTalk Server를 사용하십시오.
+인프라 관리 노력을 최소화하는 새로운 통합 솔루션을 구축하려면 BizTalk Services를 사용하세요. 기존 BizTalk 솔루션을 마이그레이션하거나 BizTalk Server 애플리케이션을 개발하고 테스트하기 위해 주문형 환경을 찾으려면 Azure Virtual Machine에서 BizTalk Server를 사용하십시오.
 
 #### <a name="what-is-the-difference-between-biztalk-adapter-service-and-hybrid-connections"></a>BizTalk 어댑터 서비스와 하이브리드 연결 간의 차이점은 무엇입니까?
-BizTalk 어댑터 서비스는 Azure BizTalk 서비스에서 사용됩니다. BizTalk 어댑터 서비스에서는 BizTalk Adapter Pack을 사용하여 온-프레미스 LOB(기간 업무) 시스템에 연결합니다. 하이브리드 연결은 Azure App Service 및 Azure Mobile Services의 Web Apps 기능과 같은 Azure 응용 프로그램을 온-프레미스 리소스에 연결할 수 있는 간단하고 편리한 방법을 제공합니다.
+BizTalk 어댑터 서비스는 Azure BizTalk 서비스에서 사용됩니다. BizTalk 어댑터 서비스에서는 BizTalk Adapter Pack을 사용하여 온-프레미스 LOB(기간 업무) 시스템에 연결합니다. 하이브리드 연결은 Azure App Service 및 Azure Mobile Services의 Web Apps 기능과 같은 Azure 애플리케이션을 온-프레미스 리소스에 연결할 수 있는 간단하고 편리한 방법을 제공합니다.
 
 #### <a name="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-the-limit-is-reached"></a>"장치당 하이브리드 연결 데이터 전송(GB)"은 무엇을 의미하나요? 분/시간/일/주/월 단위입니까? 한도에 도달하면 어떻게 됩니까?
 장치당 하이브리드 연결 비용은 BizTalk Services 버전에 따라 다릅니다. 즉, 전송하는 데이터 양에 따라 비용이 달라집니다. 예를 들어 매일 10GB 데이터를 전송하는 것이 매일 100GB를 전송하는 것보다 비용이 적게 듭니다. BizTalk Services용 [가격 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=full) 를 사용하여 특정 비용을 확인할 수 있습니다. 일반적으로 제한은 일별로 적용됩니다. 한도를 초과하면 초과분에 대해 GB당 1달러의 요금이 청구됩니다.

@@ -1,5 +1,5 @@
 ---
-title: SQL Database 응용 프로그램 개발 개요 | Microsoft 문서
+title: SQL Database 애플리케이션 개발 개요 | Microsoft 문서
 description: 사용 가능한 연결 라이브러리 및 SQL Database에 연결하는 응용 프로그램에 대한 모범 사례를 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -19,7 +19,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51241602"
 ---
-# <a name="sql-database-application-development-overview"></a>SQL Database 응용 프로그램 개발 개요
+# <a name="sql-database-application-development-overview"></a>SQL Database 애플리케이션 개발 개요
 이 문서는 Azure SQL Database에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.
 
 > [!TIP]

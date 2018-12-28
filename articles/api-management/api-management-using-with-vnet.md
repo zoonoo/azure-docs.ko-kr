@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: dd876462559ac10fc0463c64413bf11eabbc88a1
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d0af6c098f68c23bf9ef6161bd307afec518ead7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443528"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011694"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -87,7 +87,7 @@ PowerShell cmdlet을 사용하여 VNET 연결을 사용하도록 설정할 수�
 
 * **VNET 내에서 API Management 서비스 만들기**: cmdlet [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement)를 사용하여 VNET 내에서 Azure API Management 서비스를 만듭니다.
 
-* **VNET 내에서 기존 API Management 서비스 배포**: cmdlet [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment)를 사용하여 Virtual Network 내에서 Azure API Management 서비스를 이동합니다.
+* **VNET 내에서 기존 API Management 서비스 배포**: cmdlet [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment)를 사용하여 Virtual Network 내에서 기존 Azure API Management 서비스를 이동합니다.
 
 ## <a name="connect-vnet"> </a>가상 네트워크 내에서 호스트되는 웹 서비스에 연결
 API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액세스하는 것과 동일하게 VNET 내에서 백 엔드 서비스에 액세스할 수 있습니다. 새 API를 만들거나 기존 API를 편집할 때 **웹 서비스 URL** 필드에 웹 서비스의 로컬 IP 주소 또는 호스트 이름(DNS 서버가 VNET에 대해 구성된 경우)을 입력하면 됩니다.
@@ -97,7 +97,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 ## <a name="network-configuration-issues"> </a>일반적인 네트워크 구성 문제
 다음은 Virtual Network로 API Management 서비스를 배포하는 동안 발생할 수 있는 일반적인 구성 오류의 목록입니다.
 
-* **사용자 지정 DNS 서버 설치**: API Management 서비스는 여러 API 서비스에 따라 달라집니다. API Management가 사용자 지정 DNS 서버를 사용하는 VNET에서 호스트되는 경우 해당 Azure 서비스의 호스트 이름을 확인해야 합니다. 사용자 지정 DNS 설정에 대한 [이](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 지침을 따르세요. 아래의 포트 테이블 및 기타 네트워크 요구 사항을 참조하세요.
+* **사용자 지정 DNS 서버 설정**: API Management 서비스는 여러 API 서비스에 따라 달라집니다. API Management가 사용자 지정 DNS 서버를 사용하는 VNET에서 호스트되는 경우 해당 Azure 서비스의 호스트 이름을 확인해야 합니다. 사용자 지정 DNS 설정에 대한 [이](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 지침을 따르세요. 아래의 포트 테이블 및 기타 네트워크 요구 사항을 참조하세요.
 
 > [!IMPORTANT]
 > VNET에 사용자 지정 DNS 서버를 사용하려는 경우에는 API Management 서비스를 배포하기 **전에** 설정해야 합니다. 그렇지 않으면 DNS 서버를 변경할 때마다 [네트워크 구성 작업 적용](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)을 실행하여 API Management 서비스를 업데이트해야 합니다.
@@ -120,7 +120,7 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 | * / 25                       | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
 | * / 587                      | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
 | * / 25028                    | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
-| * / 6381 - 6383              | 인바운드 및 아웃바운드 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 역할 인스턴스 간 Redis 캐시 인스턴스에 대한 액세스          | 외부 및 내부  |
+| * / 6381 - 6383              | 인바운드 및 아웃바운드 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 역할 인스턴스 간 Azure Cache for Redis 인스턴스에 대한 액세스          | 외부 및 내부  |
 | * / *                        | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 인프라 부하 분산 장치                          | 외부 및 내부  |
 
 >[!IMPORTANT]
@@ -128,7 +128,7 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 
 * **SSL 기능**: SSL 인증서 체인 작성 및 유효성 검사를 사용하도록 설정하려면 API Management에서 ocsp.msocsp.com, mscrl.microsoft.com 및 crl.microsoft.com으로의 아웃바운드 네트워크 연결이 필요합니다. API Management에 업로드하는 인증서에 CA 루트의 전체 체인이 포함되어 있으면 이 종속성은 필요하지 않습니다.
 
-* **DNS 액세스**: DNS 서버와의 통신을 위해서는 53 포트에서 아웃바운드 액세스가 필요합니다. 사용자 지정 DNS 서버가 VPN 게이트웨이의 다른 쪽 끝에 있는 경우 API Management를 호스팅하는 서브넷에서 DNS 서버에 연결할 수 있어야 합니다.
+* **DNS 액세스**: DNS 서버와의 통신을 위해서는 포트 53에서 아웃바운드 액세스가 필요합니다. 사용자 지정 DNS 서버가 VPN 게이트웨이의 다른 쪽 끝에 있는 경우 API Management를 호스팅하는 서브넷에서 DNS 서버에 연결할 수 있어야 합니다.
 
 * **메트릭 및 상태 모니터링**: Azure Monitoring 엔드포인트에 대한 아웃바운드 네트워크 연결은 다음 도메인에서 확인합니다. 
 
@@ -148,7 +148,7 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
  * Azure API Management를 포함하는 서브넷에 적용된 UDR은 다음 홉 형식을 갖는 인터넷으로 0.0.0.0/0을 정의합니다.
  이러한 단계의 결합된 효과는 서브넷 수준 UDR이 강제된 터널링에 ExpressRoute를 담당하고 Azure API Management에서 아웃바운드 인터넷 액세스를 보장합니다.
 
-* **네트워크 가상 어플라이언스를 통한 라우팅**: UDR을 사용하여 기본 경로(0.0.0.0/0)로 Azure에서 실행 중인 네트워크 가상 어플라이언스를 통해 API 관리 서브넷에서 인터넷으로 향하는 트래픽을 라우팅하도록 구성하면 인터넷에서 가상 네트워크 서브넷 내에 배포된 API Management 서비스 인스턴스로 들어오는 관리 트래픽이 차단됩니다. 이 구성은 지원되지 않습니다.
+* **네트워크 가상 어플라이언스를 통한 라우팅**: UDR을 사용하여 기본 경로(0.0.0.0/0)로 Azure에서 실행 중인 네트워크 가상 어플라이언스를 통해 API Management 서브넷에서 인터넷으로 향하는 트래픽을 라우팅하도록 구성하면 인터넷에서 가상 네트워크 서브넷 내에 배포된 API Management 서비스 인스턴스로 들어오는 관리 트래픽이 차단됩니다. 이 구성은 지원되지 않습니다.
 
 >[!WARNING]
 >**공용 피어링 경로에서 개인 피어링 경로로 경로의 교차 보급을 잘못**한 ExpressRoute 구성에서는 Azure API Management가 지원되지 않습니다. 구성된 공용 피어링이 있는 ExpressRoute 구성은 다양한 Microsoft Azure IP 주소 범위 집합에 대해 Microsoft에서 경로 보급을 받습니다. 이러한 주소 범위의 교차 보급을 개인 피어링 경로에 잘못한 경우 Azure API Management 인스턴스의 서브넷에서 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라에 강제 터널링되는 잘못된 최종 결과를 발생시킵니다. 이 네트워크 흐름은 Azure API Management를 중단합니다. 이 문제를 해결하려면 공용 피어링 경로에서 개인 피어링 경로로 이어진 교차 보급 경로를 중지합니다.
@@ -163,9 +163,9 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
  > [!IMPORTANT]
  > 연결을 검증한 후에는 서브넷에 배포된 리소스를 모두 제거한 다음 API Management를 서비넷으로 배포합니다.
 
-* **증분 업데이트**: 네트워크를 변경할 경우 [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus)를 참조하여 API Management 서비스가 중요 리소스에 대한 액세스를 손실하지 않았는지에 대한 유효성을 검사합니다. 연결 상태는 15분마다 업데이트되어야 합니다.
+* **증분 업데이트**: 네트워크를 변경할 때 [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus)를 참조하여 API Management 서비스에서 사용하는 중요한 리소스에 대한 액세스를 손실하지 않았는지 확인합니다. 연결 상태는 15분마다 업데이트되어야 합니다.
 
-* **리소스 탐색 링크**: 리소스 관리자 스타일 Vnet 서브넷으로 배포할 경우 API Management는 리소스 탐색 링크를 만들어 서브넷을 보유합니다. 서브넷에 니미 다른 공급자의 리소스가 포함된 경우에는 배포가 **실패**합니다. 마찬가지로 API Management 서비스를 다른 서브넷으로 이동하거나 삭제할 경우에는 해당 리소스 탐색 링크가 삭제됩니다.
+* **리소스 탐색 링크**: Resource Manager 스타일 vnet 서브넷으로 배포할 경우 API Management는 리소스 탐색 링크를 만들어 서브넷을 보유합니다. 서브넷에 니미 다른 공급자의 리소스가 포함된 경우에는 배포가 **실패**합니다. 마찬가지로 API Management 서비스를 다른 서브넷으로 이동하거나 삭제할 경우에는 해당 리소스 탐색 링크가 삭제됩니다.
 
 ## <a name="subnet-size"> </a> 서브넷 크기 요구 사항
 Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소는 사용할 수 없습니다. 서브넷의 첫 번째 및 마지막 IP 주소는 Azure 서비스에 사용되는 3개 이상의 주소와 함께 프로토콜 적합성을 위해 예약됩니다. 자세한 내용은 [이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)

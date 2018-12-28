@@ -27,7 +27,7 @@ SaaS 애플리케이션은. "연락처", "지금 사용해 보기" 및 "지금 �
 
 ## <a name="offer-overview"></a>제품 개요  
 
-SaaS 응용 프로그램은 모두 Azure 상점에서 사용할 수 있습니다. 다음 표에서는 현재 사용할 수 있는 옵션을 설명합니다.
+SaaS 애플리케이션은 모두 Azure 상점에서 사용할 수 있습니다. 다음 표에서는 현재 사용할 수 있는 옵션을 설명합니다.
 
 | 상점 옵션 | 나열 | 평가판/거래 |  
 | --- | --- | --- |  
@@ -69,7 +69,7 @@ SaaS 애플리케이션을 나열하도록 Azure Active Directory를 구성할 �
 
 SaaS 애플리케이션에 대한 기술 요구 사항은 간단합니다. 게시할 Azure AD(Azure Active Directory)와 게시자가 통합되기만 하면 됩니다. Azure AD와 애플리케이션의 통합은 문서화가 잘 되어있으며 이를 위해 Microsoft는 다수의 SDK와 리소스가 제공됩니다.  
 
-시작하려면 다른 이니셔티브와 작업을 격리할 수 있도록 Azure Marketplace 게시 전용 구독을 마련하는 것이 좋습니다. 이 작업이 완료되면 이 구독에서 SaaS 응용 프로그램을 배포하기 시작하여 개발 작업을 시작할 수 있습니다.  
+시작하려면 다른 이니셔티브와 작업을 격리할 수 있도록 Azure Marketplace 게시 전용 구독을 마련하는 것이 좋습니다. 이 작업이 완료되면 이 구독에서 SaaS 애플리케이션을 배포하기 시작하여 개발 작업을 시작할 수 있습니다.  
 
 최상의 Azure Active Directory 설명서, 샘플 및 지침은 다음 사이트에 위치합니다. 
 
@@ -111,7 +111,7 @@ Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클�
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Marketplace에 대한 Azure AD 통합 인증  
 
-응용 프로그램이 단일 테넌트인지 아니면 다중 테넌트인지, Azure AD 페더레이션된 SSO(Single Sign-On)을 처음 사용하는지 아니면 이미 지원하는지에 따라 몇 가지 다른 방법으로 Azure AD 통합을 인증할 수 있습니다.  
+애플리케이션이 단일 테넌트인지 아니면 다중 테넌트인지, Azure AD 페더레이션된 SSO(Single Sign-On)을 처음 사용하는지 아니면 이미 지원하는지에 따라 몇 가지 다른 방법으로 Azure AD 통합을 인증할 수 있습니다.  
 
 **다중 테넌트 응용 프로그램의 경우:**  
 

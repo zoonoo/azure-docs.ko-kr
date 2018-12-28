@@ -1,5 +1,5 @@
 ---
-title: 사용자가 Azure AD 갤러리 응용 프로그램에 프로비전되지 않음 | Microsoft Docs
+title: 사용자가 Azure AD 갤러리 애플리케이션에 프로비전되지 않음 | Microsoft Docs
 description: Azure AD로 사용자 프로비전을 구성한 Azure AD 갤러리 응용 프로그램에 사용자가 표시되지 않는 일반적인 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
@@ -22,12 +22,12 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "47040689"
 ---
-# <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>사용자가 Azure AD 갤러리 응용 프로그램에 프로비전되지 않음
+# <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>사용자가 Azure AD 갤러리 애플리케이션에 프로비전되지 않음
 앱에 연결할 Azure AD에 제공된 앱 자격 증명이 유효한지 확인을 비롯하여 응용 프로그램에 대해 자동 프로비전이 구성되면 사용자 및/또는 그룹이 앱에 프로비전됩니다. 프로비전은 다음 사항에 의해 결정됩니다.
 
--   응용 프로그램에 **할당된** 사용자 및 그룹. 할당에 대한 자세한 내용은 [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](assign-user-or-group-access-portal.md)을 참조하세요.
--   **특성 매핑**을 사용하도록 설정했으며 Azure AD의 유효한 특성을 앱에 동기화하도록 구성했는지 여부. 특성 매핑에 대한 자세한 내용은 [Azure Active Directory에서 SaaS 응용 프로그램에 대한 사용자 프로비전 특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
--   특정 특성 값을 기반으로 사용자를 필터링하는 **범위 지정 필터**가 있는지 여부. 범위 지정 필터에 대한 자세한 내용은 [범위 지정 필터를 사용한 특성 기반 응용 프로그램 프로비전](define-conditional-rules-for-provisioning-user-accounts.md)을 참조하세요.
+-   애플리케이션에 **할당된** 사용자 및 그룹. 할당에 대한 자세한 내용은 [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](assign-user-or-group-access-portal.md)을 참조하세요.
+-   **특성 매핑**을 사용하도록 설정했으며 Azure AD의 유효한 특성을 앱에 동기화하도록 구성했는지 여부. 특성 매핑에 대한 자세한 내용은 [Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비전 특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
+-   특정 특성 값을 기반으로 사용자를 필터링하는 **범위 지정 필터**가 있는지 여부. 범위 지정 필터에 대한 자세한 내용은 [범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전](define-conditional-rules-for-provisioning-user-accounts.md)을 참조하세요.
   
 사용자가 프로비전되지 않는다는 것을 확인했으면 Azure AD의 감사 로그를 참조하세요. 특정 사용자에 대한 로그 항목을 검색합니다.
 
@@ -55,7 +55,7 @@ Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 응용 프로�
 
 - **특성 값에 따라 사용자를 필터링하는** **범위 지정 필터가 구성되었습니다**. 범위 지정 필터에 대한 자세한 내용은 [범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md)를 참조하세요.
 - **사용자가 “실질적으로 권한을 부여받지 않았습니다.”** 이 특정 오류 메시지가 표시되는 경우 Azure AD에 저장된 사용자 할당 레코드에 문제가 있기 때문입니다. 이 문제를 해결하려면 앱에서 사용자(또는 그룹)의 할당을 취소하고 다시 할당하세요. 할당에 대한 자세한 내용은 [사용자 또는 그룹 액세스 할당](assign-user-or-group-access-portal.md)을 참조하세요.
-- **사용자에게 필요한 특성이 누락되었거나 입력되지 않았습니다.** 프로비전을 설정할 때 고려해야 할 중요한 사항은 Azure AD에서 응용 프로그램으로 이동하는 사용자(또는 그룹)를 정의하는 특성 매핑 및 워크플로를 검토하고 구성하는 것입니다. 이 구성에는 두 시스템 간 사용자/그룹을 고유하게 식별하고 일치하는 데 사용되는 “일치하는 속성” 설정이 포함됩니다. 이 중요한 프로세스에 대한 자세한 내용은 [Azure Active Directory에서 SaaS 응용 프로그램에 대한 사용자 프로비전 특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
+- **사용자에게 필요한 특성이 누락되었거나 입력되지 않았습니다.** 프로비전을 설정할 때 고려해야 할 중요한 사항은 Azure AD에서 응용 프로그램으로 이동하는 사용자(또는 그룹)를 정의하는 특성 매핑 및 워크플로를 검토하고 구성하는 것입니다. 이 구성에는 두 시스템 간 사용자/그룹을 고유하게 식별하고 일치하는 데 사용되는 “일치하는 속성” 설정이 포함됩니다. 이 중요한 프로세스에 대한 자세한 내용은 [Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비전 특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
 - **그룹에 대한 특성 매핑:** 일부 응용 프로그램에 대해 지원되는 경우, 구성원 외에 그룹 이름 및 그룹 세부 정보 프로비전. **프로비전** 탭에 표시된 그룹 개체의 **매핑**을 사용하거나 사용하지 않도록 설정하여 이 기능을 사용하거나 사용하지 않을 수 있습니다. 그룹 프로비전을 사용하는 경우 특성 매핑을 검토하여 “일치하는 ID”에 적절한 필드를 사용하는지 확인하세요. 일치하는 ID는 표시 이름이나 이메일 별칭일 수 있습니다. Azure AD에 일치하는 속성이 비어 있거나 그룹에 대해 입력되어 있지 않은 경우 그룹 및 해당 멤버가 프로비전되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계

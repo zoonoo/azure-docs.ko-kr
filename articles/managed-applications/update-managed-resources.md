@@ -96,5 +96,5 @@ az policy assignment show --name locationAssignment --scope $managedGroup --quer
 
 ## <a name="next-steps"></a>다음 단계
 
-* 관리되는 응용 프로그램에 대한 소개는 [관리되는 응용 프로그램 개요](overview.md)를 참조하세요.
+* 관리형 애플리케이션에 대한 소개는 [관리형 애플리케이션 개요](overview.md)를 참조하세요.
 * 샘플 프로젝트는 [Azure 관리되는 애플리케이션의 샘플 프로젝트](sample-projects.md)를 참조하세요.

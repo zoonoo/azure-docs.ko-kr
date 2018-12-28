@@ -38,7 +38,7 @@ N 시리즈 VM 사양, 저장소 용량 및 디스크 세부 정보는 [GPU Linu
 N 시리즈 VM의 NVIDIA CUDA 도구 키트에서 CUDA 드라이버를 설치하는 단계는 다음과 같습니다. 
 
 
-경우에 따라 C 및 C++ 개발자는 GPU 가속 응용 프로그램을 빌드하기 위해 전체 도구 키트를 설치할 수도 있습니다. 자세한 내용은 [CUDA 설치 가이드](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)를 참조하세요.
+경우에 따라 C 및 C++ 개발자는 GPU 가속 애플리케이션을 빌드하기 위해 전체 도구 키트를 설치할 수도 있습니다. 자세한 내용은 [CUDA 설치 가이드](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)를 참조하세요.
 
 CUDA 드라이버를 설치하려면 각 VM에 SSH 연결을 설정합니다. 시스템에 CUDA 호환 GPU가 있는지 확인하려면 다음 명령을 실행합니다.
 

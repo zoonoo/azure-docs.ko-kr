@@ -24,7 +24,7 @@ ms.locfileid: "38488895"
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 JavaScript 클라이언트 라이브러리를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-이 가이드에서는 최신 [Azure Mobile Apps용 JavaScript SDK]를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작] 을 완료하여 백 엔드를 만들고 테이블을 만듭니다. 이 가이드에서는 HTML/JavaScript 웹 응용 프로그램에서 모바일 백 엔드를 사용하는 데 초점을 둡니다.
+이 가이드에서는 최신 [Azure Mobile Apps용 JavaScript SDK]를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작] 을 완료하여 백 엔드를 만들고 테이블을 만듭니다. 이 가이드에서는 HTML/JavaScript 웹 애플리케이션에서 모바일 백 엔드를 사용하는 데 초점을 둡니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
 브라우저 지원은 주요 브라우저인 Google Chrome, Microsoft Edge, Microsoft Internet Explorer 및 Mozilla Firefox의 최신 버전으로 제한됩니다.  SDK가 비교적 최신 브라우저와는 호환될 것으로 예상됩니다.

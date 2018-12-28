@@ -63,7 +63,7 @@ sections:
     - html: <a href="active-directory-ds-scenarios.md">서비스 사용 방법</a>
     - html: <a href="active-directory-ds-synchronization.md">Azure AD Domain Services에서 동기화가 작동하는 방식 이해</a>
     - html: <a href="https://azure.microsoft.com/pricing/details/active-directory-ds/">Azure AD Domain Services의 가격 책정</a>
-- title: 응용 프로그램 및 Azure AD Domain Services
+- title: 애플리케이션 및 Azure AD Domain Services
   items:
   - type: list
     style: unordered

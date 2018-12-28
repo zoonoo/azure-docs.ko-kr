@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: fa6e70fe58e5066fcf308425a4c0d104c072a756
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7b7aad2cb8aa9b4faeada795f20c818995f62fb6
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164306"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720442"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
@@ -129,7 +128,7 @@ D:\ProgramData\ApplicationInsightsProfiler\config.json
 ```
 Profiler 명령줄의 ikey가 올바른지 확인합니다. 
 
-셋째, 위의 config.json 파일에 있는 경로를 사용하여, Profiler 로그 파일을 확인합니다. 이 로그 파일은 Profiler가 사용 중인 설정과 Profiler의 상태 및 오류 메시지를 나타내는 디버그 정보를 표시합니다. 응용 프로그램이 요청을 수신하는 동안 Profiler가 실행되는 경우 “iKey에서 활동이 검색되었습니다.” 메시지가 표시됩니다. 추적을 업로드하는 동안 “추적 업로드를 시작합니다.” 메시지가 표시됩니다. 
+셋째, 위의 config.json 파일에 있는 경로를 사용하여, Profiler 로그 파일을 확인합니다. 이 로그 파일은 Profiler가 사용 중인 설정과 Profiler의 상태 및 오류 메시지를 나타내는 디버그 정보를 표시합니다. 애플리케이션이 요청을 수신하는 동안 Profiler가 실행되는 경우 다음과 같은 메시지가 표시됩니다. “iKey에서 활동이 검색되었습니다”. 추적을 업로드하는 동안 다음과 같은 메시지가 표시됩니다. “추적 업로드를 시작합니다”. 
 
 
 [profiler-search-telemetry]:./media/app-insights-profiler/Profiler-Search-Telemetry.png

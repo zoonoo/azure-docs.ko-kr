@@ -3,16 +3,15 @@ title: Azure Cosmos DB 계정에 대한 가상 네트워크 및 서브넷 기반
 description: 이 문서에서는 Azure Cosmos DB의 가상 네트워크 서비스 엔드포인트에 필요한 단계를 설명합니다.
 author: kanshiG
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4e8891302346fa2655a4b1280b65fdd969f12909
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 73858cac4176c10ff8ce14347acb9b869471ebc2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620594"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838092"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>가상 네트워크에서 Azure Cosmos DB 리소스에 액세스
 
@@ -50,8 +49,8 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 
 > [!NOTE]
 > 가상 네트워크 서비스 엔드포인트를 사용하도록 설정하려면 다음 구독 사용 권한이 필요합니다.
-  * 가상 네트워크를 포함한 구독: 네트워크 기여자
-  * Azure Cosmos DB 계정을 포함한 구독: DocumentDB 계정 기여자
+  * 가상 네트워크를 사용한 구독: 네트워크 기여자
+  * Azure Cosmos DB 계정을 사용한 구독: DocumentDB 계정 기여자
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>새로운 Azure 가상 네트워크 및 서브넷에 대한 서비스 엔드포인트 구성
 

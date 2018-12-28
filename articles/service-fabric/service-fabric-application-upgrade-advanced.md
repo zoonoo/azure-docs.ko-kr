@@ -1,6 +1,6 @@
 ---
-title: 고급 응용 프로그램 업그레이드 항목 | Microsoft Docs
-description: 이 문서에서는 서비스 패브릭 응용 프로그램 업그레이드와 관련된 고급 항목을 다룹니다.
+title: 고급 애플리케이션 업그레이드 항목 | Microsoft Docs
+description: 이 문서에서는 서비스 패브릭 애플리케이션 업그레이드와 관련된 고급 항목을 다룹니다.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
 ms.locfileid: "34212326"
 ---
-# <a name="service-fabric-application-upgrade-advanced-topics"></a>서비스 패브릭 응용 프로그램 업그레이드: 고급 항목
+# <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric 애플리케이션 업그레이드: 고급 항목
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>응용 프로그램을 업그레이드하는 동안 서비스 유형 추가 또는 제거
 게시된 응용 프로그램에 업그레이드의 일부로 새 서비스 유형이 추가되는 경우 배포된 응용 프로그램에도 새 서비스 유형이 추가됩니다. 이러한 업그레이드는 이미 응용 프로그램에 포함된 서비스 인스턴스에 영향을 주지 않지만, 추가된 서비스 유형의 인스턴스를 만들어야만 새 서비스 유형이 활성화됩니다([New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps) 참조).
 
@@ -48,11 +48,11 @@ ms.locfileid: "34212326"
 diff 패키지를 사용하는 시나리오는 다음과 같습니다.
 
 * 여러 서비스 매니페스트 파일 및/또는 여러 코드 패키지, config 패키지 또는 데이터 패키지를 참조하는 대형 응용 프로그램 패키지가 있는 경우.
-* 응용 프로그램 빌드 프로세스에서 직접 빌드 레이아웃을 생성하는 배포 시스템을 사용하는 경우. 이 경우 코드가 변경되지 않았더라도 새로 빌드된 어셈블리는 다른 체크섬을 갖습니다. 전체 응용 프로그램 패키지를 사용하려면 모든 코드 패키지의 버전을 업데이트해야 합니다. diff 패키지를 사용하면 변경된 파일과 버전이 변경된 매니페스트 파일만 제공하면 됩니다.
+* 응용 프로그램 빌드 프로세스에서 직접 빌드 레이아웃을 생성하는 배포 시스템을 사용하는 경우. 이 경우 코드가 변경되지 않았더라도 새로 빌드된 어셈블리는 다른 체크섬을 갖습니다. 전체 애플리케이션 패키지를 사용하려면 모든 코드 패키지의 버전을 업데이트해야 합니다. diff 패키지를 사용하면 변경된 파일과 버전이 변경된 매니페스트 파일만 제공하면 됩니다.
 
 Visual Studio를 사용하여 응용 프로그램이 업그레이드되는 경우 diff 패키지가 자동으로 게시됩니다. diff 패키지를 수동으로 만들려면 응용 프로그램 매니페스트 및 서비스 매니페스트를 업데이트해야 하지만 변경된 패키지만 최종 응용 프로그램 패키지에 포함되어야 합니다.
 
-예를 들어 다음 응용 프로그램을 시작하겠습니다(이해하기 쉽도록 버전 번호 제공).
+예를 들어 다음 애플리케이션을 시작하겠습니다(이해하기 쉽도록 버전 번호 제공).
 
 ```text
 app1           1.0.0
@@ -76,7 +76,7 @@ app1           2.0.0      <-- new version
     config     1.0.0
 ```
 
-이 경우 응용 프로그램 매니페스트를 2.0.0으로 업데이트하고 service1에 대한 서비스 매니페스트가 코드 패키지 업데이트를 반영하도록 업데이트합니다. 응용 프로그램 패키지에 대한 폴더 구조는 다음과 같습니다.
+이 경우 응용 프로그램 매니페스트를 2.0.0으로 업데이트하고 service1에 대한 서비스 매니페스트가 코드 패키지 업데이트를 반영하도록 업데이트합니다. 애플리케이션 패키지에 대한 폴더 구조는 다음과 같습니다.
 
 ```text
 app1/

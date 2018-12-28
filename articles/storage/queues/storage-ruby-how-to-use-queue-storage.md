@@ -30,8 +30,8 @@ ms.locfileid: "51231569"
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-ruby-application"></a>Ruby 응용 프로그램 만들기
-Ruby 응용 프로그램을 만듭니다. 지침은 [Linux의 App Service에서 Ruby 앱 만들기](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)를 참조하세요.
+## <a name="create-a-ruby-application"></a>Ruby 애플리케이션 만들기
+Ruby 애플리케이션을 만듭니다. 지침은 [Linux의 App Service에서 Ruby 앱 만들기](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)를 참조하세요.
 
 ## <a name="configure-your-application-to-access-storage"></a>스토리지에 액세스하도록 애플리케이션 구성
 Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용해야 합니다.

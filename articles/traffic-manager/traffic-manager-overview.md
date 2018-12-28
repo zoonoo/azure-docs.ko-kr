@@ -41,7 +41,7 @@ Azure를 통해 전 세계에 있는 데이터 센터에서 클라우드 서비�
 
 ## <a name="perform-service-maintenance-without-downtime"></a>가동 중지 시간 없이 서비스 유지 관리 수행
 
-가동 중지 시간 없이 응용 프로그램에 계획된 유지 관리 작업을 수행할 수 있습니다. Traffic Manager는 유지 관리가 진행 중인 동안 트래픽을 대체 끝점으로 전달합니다.
+가동 중지 시간 없이 애플리케이션에 계획된 유지 관리 작업을 수행할 수 있습니다. Traffic Manager는 유지 관리가 진행 중인 동안 트래픽을 대체 끝점으로 전달합니다.
 
 ## <a name="combine-hybrid-applications"></a>하이브리드 애플리케이션 결합
 

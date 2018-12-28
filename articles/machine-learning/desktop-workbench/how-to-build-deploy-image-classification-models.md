@@ -43,7 +43,7 @@ AMLPCV를 사용하여 이 모델을 구축하고 배포하는 경우 다음 단
 
 1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-1. 다음 계정 및 응용 프로그램을 설정하고 설치해야 합니다.
+1. 다음 계정 및 애플리케이션을 설정하고 설치해야 합니다.
    - Azure Machine Learning 실험 계정 
    - Azure Machine Learning 모델 관리 계정
    - Azure Machine Learning Workbench 설치

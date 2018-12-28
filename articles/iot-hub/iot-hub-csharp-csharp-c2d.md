@@ -148,7 +148,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 8. Visual Studio 내에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정...** 을 선택합니다. 여러 시작 프로젝트를 선택한 다음 **ReadDeviceToCloudMessages**, **SimulatedDevice** 및 **SendCloudToDevice**에 대한 **시작** 작업을 선택합니다.
 
-9. **F5**키를 누릅니다. 세 응용 프로그램이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 디바이스 앱에서 수신하고 있는 메시지가 표시됩니다.
+9. **F5**키를 누릅니다. 세 애플리케이션이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 디바이스 앱에서 수신하고 있는 메시지가 표시됩니다.
    
    ![앱 메시지 수신](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 

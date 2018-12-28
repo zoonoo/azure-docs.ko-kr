@@ -724,7 +724,7 @@ Deleted Database: FamilyDatabase
 End of demo, press any key to exit.
 ```
 
-축하합니다! 이 자습서를 완료했으며 실행되는 C# 콘솔 응용 프로그램이 생겼습니다.
+축하합니다! 이 자습서를 완료했으며 실행되는 C# 콘솔 애플리케이션이 생겼습니다.
 
 ## <a id="GetSolution"></a> 전체 자습서 솔루션 가져오기
 

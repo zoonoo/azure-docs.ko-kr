@@ -34,7 +34,7 @@ ms.locfileid: "29178199"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- Azure에 .NET 응용 프로그램을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
+- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.

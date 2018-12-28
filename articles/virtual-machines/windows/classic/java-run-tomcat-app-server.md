@@ -26,7 +26,7 @@ ms.locfileid: "31528031"
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Java 8 및 Tomcat에서 웹앱을 배포하는 Resource Manager 템플릿은 [여기](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/)를 참조하세요.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-Azure에서 가상 머신을 사용하여 서버 기능을 제공할 수 있습니다. 한 예로, Java 응용 프로그램 서버(예: Apache Tomcat)를 호스트하도록 Azure에서 실행되는 가상 머신을 구성할 수 있습니다.
+Azure에서 가상 머신을 사용하여 서버 기능을 제공할 수 있습니다. 한 예로, Java 애플리케이션 서버(예: Apache Tomcat)를 호스트하도록 Azure에서 실행되는 가상 머신을 구성할 수 있습니다.
 
 이 가이드를 완료하면 Azure에서 실행되는 가상 머신을 만들고 Java 애플리케이션 서버에서 실행하도록 구성하는 방법을 이해할 수 있게 됩니다. 다음 작업을 배우고 수행합니다.
 
@@ -91,7 +91,7 @@ Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들�
 ## <a name="to-create-an-endpoint-for-your-virtual-machine"></a>가상 머신의 끝점을 만드는 방법
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **가상 머신(클래식)** 을 클릭합니다.
-3. Java 응용 프로그램 서버를 실행하는 가상 머신의 이름을 클릭합니다.
+3. Java 애플리케이션 서버를 실행하는 가상 머신의 이름을 클릭합니다.
 4. **끝점**을 클릭합니다.
 5. **추가**를 클릭합니다.
 6. **끝점 추가** 대화 상자에서 다음을 수행합니다.

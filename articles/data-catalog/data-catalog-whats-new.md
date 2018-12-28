@@ -211,7 +211,7 @@ ms.locfileid: "47406331"
 
 
 > [!NOTE]
-> "Power BI Desktop에서 열기"를 사용하려면 최신 버전의 Power BI Desktop 응용 프로그램이 설치되어 있어야 합니다. 이 기능을 사용하는 중에 문제 또는 오류가 발생한 경우 [PowerBI.com](https://powerbi.com)에서 제공하는 최신 버전의 Power BI Desktop을 사용하고 있는지 확인하세요.
+> "Power BI Desktop에서 열기"를 사용하려면 최신 버전의 Power BI Desktop 애플리케이션이 설치되어 있어야 합니다. 이 기능을 사용하는 중에 문제 또는 오류가 발생한 경우 [PowerBI.com](https://powerbi.com)에서 제공하는 최신 버전의 Power BI Desktop을 사용하고 있는지 확인하세요.
 
 
 ## <a name="whats-new-for-october-2015"></a>2015년 10월의 새로운 기능
@@ -236,7 +236,7 @@ ms.locfileid: "47406331"
 2015년 9월을 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
 * Hive 데이터 원본을 등록하는 경우 데이터 프로필 포함을 지원합니다.
-* 응용 프로그램과 Azure Data Catalog의 통합이 용이하도록 프로그래밍 방식의 카탈로그 API 검색을 지원합니다.
+* 애플리케이션과 Azure Data Catalog의 통합이 용이하도록 프로그래밍 방식의 카탈로그 API 검색을 지원합니다.
 * Azure Data Catalog 포털의 새로운 "시작" 데이터 원본 검색 환경을 지원합니다. 사용자가 Azure Data Catalog 포털에서 검색어를 입력하지 않고 "검색" 페이지에 들어가면 가장 자주 사용한 태그, 전문가, 데이터 원본 유형, 개체 유형 등 카탈로그 내용의 개요가 표시됩니다.
 * Azure SQL Data Warehouse 개체 및 데이터베이스 등록 및 검색을 지원합니다. Azure SQL Data Warehouse에 대한 추가 정보는 [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)를 참조하세요.
 * SQL Server Analysis Services과 SQL Server Reporting Services 서버를 컨테이너로 등록하고 검색할 수 있게 지원합니다. SSAS 및 SSRS 개체를 등록할 때 Azure Data Catalog가 SSAS 모델 및 SSRS 서버와 보고서 및 기타 개체에 대한 항목을 만듭니다. Azure Data Catalog 포털을 사용하여 컨테이너를 검색하고 주석을 추가할 수 있습니다. 사용자는 카탈로그 내용을 검색 및 필터링하는 것은 물론 모델 또는 서버의 내용을 검색 및 필터링할 수도 있습니다.

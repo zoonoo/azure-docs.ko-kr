@@ -47,7 +47,7 @@ Azure Portal에서 구독을 시작하려면
 
 이 코드를 실행하려면 [Node.js 6](https://nodejs.org/en/download/)이 필요합니다.
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+## <a name="running-the-application"></a>애플리케이션 실행
 
 다음에서는 Node.js의 FormData를 사용하여 메시지를 보내는 방법을 보여 줍니다.
 

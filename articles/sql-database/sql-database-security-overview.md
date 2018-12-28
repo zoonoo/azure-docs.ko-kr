@@ -21,7 +21,7 @@ ms.locfileid: "52635478"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 보안 기능의 개요
 
-이 문서는 Azure SQL Database를 사용하여 응용 프로그램의 데이터 계층에 보안을 설정하기 위한 기본 사항을 안내합니다. 특히 이 문서에서는 데이터 보호, 액세스 제어 및 사전 모니터링을 위한 리소스로 시작합니다.
+이 문서는 Azure SQL Database를 사용하여 애플리케이션의 데이터 계층에 보안을 설정하기 위한 기본 사항을 안내합니다. 특히 이 문서에서는 데이터 보호, 액세스 제어 및 사전 모니터링을 위한 리소스로 시작합니다.
 
 SQL의 모든 버전에서 사용할 수 있는 보안 기능의 전체 개요에 대해서는 [SQL Server 데이터베이스 엔진 및 Azure SQL Database를 위한 보안 센터](https://msdn.microsoft.com/library/bb510589)를 참조하세요. 추가 정보는 에서도 사용할 수는 [보안 및 Azure SQL Database 기술 백서](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF).
 
@@ -78,7 +78,7 @@ SQL Database 인증은 데이터베이스에 연결할 때 사용자의 ID를 �
 
 ### <a name="authorization"></a>권한 부여
 
-권한 부여는 사용자가 Azure SQL Database에서 수행할 수 있는 작업을 나타내며, 사용자 계정의 데이터베이스 역할 멤버 자격과 개체 수준 권한으로 제어합니다. 사용자에게 필요한 최소한의 권한을 부여하는 것이 가장 좋습니다. 연결 중인 서버 관리자 계정은 데이터베이스 내에서 작업을 수행할 권한이 있는 db_owner의 구성원입니다. 스키마 업그레이드 및 기타 관리 작업을 배포하기 위해서는 이 계정을 저장합니다. 응용 프로그램에서 해당 응용 프로그램에 필요한 최소한의 권한이 있는 데이터베이스에 연결하려면 보다 제한된 사용 권한을 가진 "ApplicationUser" 계정을 사용합니다.
+권한 부여는 사용자가 Azure SQL Database에서 수행할 수 있는 작업을 나타내며, 사용자 계정의 데이터베이스 역할 멤버 자격과 개체 수준 권한으로 제어합니다. 사용자에게 필요한 최소한의 권한을 부여하는 것이 가장 좋습니다. 연결 중인 서버 관리자 계정은 데이터베이스 내에서 작업을 수행할 권한이 있는 db_owner의 구성원입니다. 스키마 업그레이드 및 기타 관리 작업을 배포하기 위해서는 이 계정을 저장합니다. 애플리케이션에서 해당 애플리케이션에 필요한 최소한의 권한이 있는 데이터베이스에 연결하려면 보다 제한된 사용 권한을 가진 "ApplicationUser" 계정을 사용합니다.
 
 ### <a name="row-level-security"></a>행 수준 보안
 
@@ -86,7 +86,7 @@ SQL Database 인증은 데이터베이스에 연결할 때 사용자의 ID를 �
 
 ### <a name="dynamic-data-masking"></a>동적 데이터 마스킹
 
-SQL Database 동적 데이터 마스킹에서는 권한이 없는 사용자에 대해 중요한 데이터를 마스킹해 표시함으로써 데이터 노출을 제한합니다. 동적 데이터 마스킹은 Azure SQL Database에서 잠재적으로 중요한 데이터를 자동으로 검색하고 응용 프로그램 계층에 미치는 영향을 최소화하면서 이러한 필드를 마스킹할 수 있는 실행 가능한 권장 사항을 제공합니다. 이 기능은 지정된 데이터베이스 필드를 통해 쿼리의 결과 집합에 있는 중요한 데이터를 혼란스럽게 만들면서 작동하지만 데이터베이스의 데이터를 변경하지는 않습니다. 자세한 내용은 [SQL 데이터베이스 동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md) 시작을 참조하세요.
+SQL Database 동적 데이터 마스킹에서는 권한이 없는 사용자에 대해 중요한 데이터를 마스킹해 표시함으로써 데이터 노출을 제한합니다. 동적 데이터 마스킹은 Azure SQL Database에서 잠재적으로 중요한 데이터를 자동으로 검색하고 애플리케이션 계층에 미치는 영향을 최소화하면서 이러한 필드를 마스킹할 수 있는 실행 가능한 권장 사항을 제공합니다. 이 기능은 지정된 데이터베이스 필드를 통해 쿼리의 결과 집합에 있는 중요한 데이터를 혼란스럽게 만들면서 작동하지만 데이터베이스의 데이터를 변경하지는 않습니다. 자세한 내용은 [SQL 데이터베이스 동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md) 시작을 참조하세요.
 
 ## <a name="proactive-monitoring"></a>사전 모니터링
 
@@ -102,7 +102,7 @@ SQL Database 감사는 데이터베이스 활동을 추적하고 데이터베이
 
 ## <a name="compliance"></a>규정 준수
 
-위의 기능 및 응용 프로그램이 다양한 보안 요구 사항을 충족하도록 도울 수 있는 기능 외에도 Azure SQL Database는 정기적인 감사에 참여하고 여러 규정 준수 표준에 대해 인증받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL Database 규정 준수 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings) 목록을 찾을 수 있습니다.
+위의 기능 및 애플리케이션이 다양한 보안 요구 사항을 충족하도록 도울 수 있는 기능 외에도 Azure SQL Database는 정기적인 감사에 참여하고 여러 규정 준수 표준에 대해 인증받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL Database 규정 준수 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings) 목록을 찾을 수 있습니다.
 
 ## <a name="security-management"></a>보안 관리
 

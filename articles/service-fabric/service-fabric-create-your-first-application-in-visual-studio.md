@@ -60,18 +60,18 @@ Windows에서 첫 번째 .NET용 Azure Service Fabric 애플리케이션을 몇 
     애플리케이션을 배포하거나 업그레이드하기 위한 PowerShell 스크립트입니다.
 
     * **응용 프로그램 정의**  
-*ApplicationPackageRoot* 아래에 응용 프로그램의 구성을 설명하는 ApplicationManifest.xml 파일을 포함합니다. 연결된 응용 프로그램 매개 변수 파일은 *ApplicationParameters* 아래에 있으며 환경 관련 매개 변수를 지정하는 데 사용할 수 있습니다. Visual Studio에서 연결된 게시 프로필에 지정된 애플리케이션 매개 변수 파일을 선택합니다.
+*ApplicationPackageRoot* 아래에 응용 프로그램의 구성을 설명하는 ApplicationManifest.xml 파일을 포함합니다. 연결된 애플리케이션 매개 변수 파일은 *ApplicationParameters* 아래에 있으며 환경 관련 매개 변수를 지정하는 데 사용할 수 있습니다. Visual Studio에서 연결된 게시 프로필에 지정된 애플리케이션 매개 변수 파일을 선택합니다.
     
 서비스 프로젝트의 내용에 대한 개요는 [Reliable Services 시작](service-fabric-reliable-services-quick-start.md)을 참조하세요.
 
-## <a name="deploy-and-debug-the-application"></a>응용 프로그램 배포 및 디버깅
+## <a name="deploy-and-debug-the-application"></a>애플리케이션 배포 및 디버깅
 
 이제 다음 단계에 따라 애플리케이션을 만들고, 실행하고, 배포하고, 디버그할 수 있습니다.
 
 1. Visual Studio에서 **F5**를 선택하여 디버그할 애플리케이션을 배포합니다.  'ServiceFabricAllowedUsers' 그룹 읽기 및 실행 권한을 Visual Studio 프로젝트 디렉터리에 부여할지 묻는 메시지 상자가 표시되는 경우 **예**를 클릭합니다.
 
     >[!NOTE]
-    >로컬에서 처음으로 응용 프로그램을 실행하고 배포할 때 Visual Studio는 디버깅을 위해 로컬 클러스터를 만듭니다. 이 작업에는 시간이 약간 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.
+    >로컬에서 처음으로 애플리케이션을 실행하고 배포할 때 Visual Studio는 디버깅을 위해 로컬 클러스터를 만듭니다. 이 작업에는 시간이 약간 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.
     
      클러스터가 준비되면 SDK에 포함된 로컬 클러스터 시스템 트레이 관리자 애플리케이션에서 알림을 받습니다.
      
@@ -128,9 +128,9 @@ Windows에서 첫 번째 .NET용 Azure Service Fabric 애플리케이션을 몇 
 
 ## <a name="clean-up-the-local-cluster-optional"></a>로컬 클러스터 정리(선택 사항)
 
-이 로컬 클러스터는 실제입니다. 디버거를 중지하면 응용 프로그램 인스턴스를 제거하고 응용 프로그램 형식의 등록을 취소합니다. 하지만 클러스터는 백그라운드에서 계속 실행됩니다. 로컬 클러스터를 중지할 준비가 되면 몇 가지 옵션이 표시됩니다.
+이 로컬 클러스터는 실제입니다. 디버거를 중지하면 애플리케이션 인스턴스를 제거하고 애플리케이션 형식의 등록을 취소합니다. 하지만 클러스터는 백그라운드에서 계속 실행됩니다. 로컬 클러스터를 중지할 준비가 되면 몇 가지 옵션이 표시됩니다.
 
-### <a name="keep-application-and-trace-data"></a>응용 프로그램 및 추적 데이터 유지
+### <a name="keep-application-and-trace-data"></a>애플리케이션 및 추적 데이터 유지
 
 **로컬 클러스터 관리자** 시스템 트레이 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음, **로컬 클러스터 중지**를 선택하여 클러스터를 종료합니다.
 

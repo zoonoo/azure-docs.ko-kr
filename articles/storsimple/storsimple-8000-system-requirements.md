@@ -54,7 +54,7 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 
 | 구성 요소 | 호스트 플랫폼 | 추가 요구 사항/메모 |
 | --- | --- | --- |
-| StorSimple 스냅숏 관리자 |Windows Server 2008 R2 SP1, 2012, 2012 R2 |Windows Server에서 StorSimple 스냅숏 관리자 사용은 미러링한 동적 디스크의 백업/복원에 필요하며 응용 프로그램에 일관된 백업에 필요합니다.<br> StorSimple Snapshot Manager는 Windows Server 2008 R2 SP1(64비트), Windows Server 2012 R2 및 Windows Server 2012에서만 지원됩니다.<ul><li>Window Server 2012를 사용하는 경우 StorSimple Snapshot Manager를 설치하기 전에 .NET 3.5–4.5를 설치해야 합니다.</li><li>Windows Server 2008 R2 SP1을 사용하는 경우 StorSimple Snapshot Manager를 설치하기 전에 Windows Management Framework 3.0을 설치해야 합니다.</li></ul> |
+| StorSimple 스냅숏 관리자 |Windows Server 2008 R2 SP1, 2012, 2012 R2 |Windows Server에서 StorSimple Snapshot Manager 사용은 미러링한 동적 디스크의 백업/복원에 필요하며 애플리케이션에 일관된 백업에 필요합니다.<br> StorSimple Snapshot Manager는 Windows Server 2008 R2 SP1(64비트), Windows Server 2012 R2 및 Windows Server 2012에서만 지원됩니다.<ul><li>Window Server 2012를 사용하는 경우 StorSimple Snapshot Manager를 설치하기 전에 .NET 3.5–4.5를 설치해야 합니다.</li><li>Windows Server 2008 R2 SP1을 사용하는 경우 StorSimple Snapshot Manager를 설치하기 전에 Windows Management Framework 3.0을 설치해야 합니다.</li></ul> |
 | SharePoint용 StorSimple 어댑터 |Windows Server 2008 R2 SP1, 2012, 2012 R2 |<ul><li>SharePoint용 StorSimple 어댑터는 SharePoint 2010 및 SharePoint 2013에서만 지원됩니다.</li><li>RBS는 SQL Server Enterprise Edition 2008 R2 또는 2012 버전이 필요합니다.</li></ul> |
 
 ## <a name="networking-requirements-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 네트워킹 요구 사항
@@ -84,7 +84,7 @@ StorSimple 디바이스는 잠긴 디바이스입니다. 하지만 iSCSI, 클라
 
 ### <a name="url-patterns-for-firewall-rules"></a>방화벽 규칙에 대한 URL 패턴
 
-네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. StorSimple 디바이스 및 StorSimple 디바이스 관리자 서비스는 Azure Service Bus, Azure Active Directory Access Control, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 응용 프로그램에 의존합니다. 이러한 응용 프로그램과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 응용 프로그램과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 StorSimple에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
+네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. StorSimple 디바이스 및 StorSimple 디바이스 관리자 서비스는 Azure Service Bus, Azure Active Directory Access Control, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 응용 프로그램에 의존합니다. 이러한 애플리케이션과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 애플리케이션과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 StorSimple에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
 
 StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
 
@@ -163,7 +163,7 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 
 StorSimple 솔루션의 최적의 성능을 위해 위의 네트워킹 요구 사항 외에도 다음 모범 사례를 준수합니다.
 
-* StorSimple 디바이스에서 항상 전용 40Mbps 대역폭(이상)을 사용할 수 있어야 합니다. 이 대역폭을 다른 응용 프로그램과 공유되지 않아야 합니다(또는 QoS 정책을 사용하여 할당을 보장해야 함).
+* StorSimple 디바이스에서 항상 전용 40Mbps 대역폭(이상)을 사용할 수 있어야 합니다. 이 대역폭을 다른 애플리케이션과 공유되지 않아야 합니다(또는 QoS 정책을 사용하여 할당을 보장해야 함).
 * 항상 인터넷에 네트워크 연결이 되어야 합니다. 인터넷 연결이 전혀 안되는 것을 비롯하여 산발적이거나 안정적이지 않은 인터넷 연결은 지원되지 않은 구성을 야기합니다.
 * iSCSI 및 클라우드 액세스를 위해 디바이스에서 전용 네트워크 인터페이스를 갖추어 iSCSI 및 클라우드 트래픽을 분리합니다. 자세한 내용은 StorSimple 디바이스에서 [네트워크 인터페이스를 수정](storsimple-8000-modify-device-config.md#modify-network-interfaces)하는 방법을 참조하세요.
 * 네트워크 인터페이스에 대한 링크 집합 제어 프로토콜(LACP) 구성을 사용하지 마십시오. 지원되지 않는 구성입니다.

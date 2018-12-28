@@ -23,10 +23,10 @@ Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계
 ## <a name="get-an-azure-ad-b2c-directory"></a>Azure AD B2C 디렉터리 가져오기
 Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다.  디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 아직 없는 경우 [B2C 디렉터리를 만든](active-directory-b2c-get-started.md) 후에 이 가이드를 계속 진행합니다.
 
-## <a name="create-an-application"></a>응용 프로그램 만들기
+## <a name="create-an-application"></a>애플리케이션 만들기
 다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다.  다음을 수행해야 합니다.
 
-* 응용 프로그램에 **네이티브 클라이언트** 를 포함합니다.
+* 애플리케이션에 **네이티브 클라이언트**를 포함합니다.
 * **리디렉션 URI** `urn:ietf:wg:oauth:2.0:oob`를 복사합니다. 이 코드 샘플에 대한 기본 URL입니다.
 * 앱에 할당된 **애플리케이션 ID**를 복사합니다. 이 시간은 나중에 필요합니다.
 
@@ -87,7 +87,7 @@ public static class Globals
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="create-the-publicclientapplication"></a>PublicClientApplication 만들기
-MSAL의 기본 클래스는 `PublicClientApplication`입니다. 이 클래스는 Azure AD B2C 시스템에 있는 응용 프로그램을 나타냅니다. 앱이 시작되면 `MainWindow.xaml.cs`에서 `PublicClientApplication` 인스턴스를 만듭니다. 이를 창 전체에서 사용할 수 있습니다.
+MSAL의 기본 클래스는 `PublicClientApplication`입니다. 이 클래스는 Azure AD B2C 시스템에 있는 애플리케이션을 나타냅니다. 앱이 시작되면 `MainWindow.xaml.cs`에서 `PublicClientApplication` 인스턴스를 만듭니다. 이를 창 전체에서 사용할 수 있습니다.
 
 ```csharp
 protected async override void OnInitialized(EventArgs e)
@@ -311,7 +311,7 @@ private void SignOut(object sender, RoutedEventArgs e)
 ## <a name="add-social-idps"></a>소셜 IDP 추가
 현재, 앱은 **로컬 계정**을 사용하는 사용자 등록 및 로그인만 지원합니다. 이들은 사용자 이름 및 암호를 사용하는 B2C 디렉터리에 저장된 계정입니다. Azure AD B2C를 사용하면 코드를 변경하지 않고도 다른 IDP(ID 공급자)에 대한 지원을 추가할 수 있습니다.
 
-소셜 IDP를 앱에 추가하려면 이 문서 중에서 상세한 지침을 수행하여 시작합니다. 지원하려는 각 IDP의 경우 해당 시스템에서 응용 프로그램을 등록하고 클라이언트 ID를 얻어야 합니다.
+소셜 IDP를 앱에 추가하려면 이 문서 중에서 상세한 지침을 수행하여 시작합니다. 지원하려는 각 IDP의 경우 해당 시스템에서 애플리케이션을 등록하고 클라이언트 ID를 얻어야 합니다.
 
 * [Facebook을 IDP로 설정](active-directory-b2c-setup-fb-app.md)
 * [Google을 IDP로 설정](active-directory-b2c-setup-goog-app.md)

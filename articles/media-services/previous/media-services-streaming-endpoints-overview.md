@@ -26,7 +26,7 @@ ms.locfileid: "50240225"
 
 ## <a name="overview"></a>개요
 
-Microsoft AMS(Azure Media Services)에서 **스트리밍 엔드포인트**는 추가 배포를 위해 CDN(Content Delivery Network) 또는 클라이언트 플레이어 응용 프로그램에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. Media Services는 매끄러운 Azure CDN 통합도 제공합니다. StreamingEndpoint 서비스의 아웃바운드 스트림은 Media Services 계정에서 자산의 라이브 스트림, 주문형 비디오 또는 점진적 다운로드일 수 있습니다. 각 Azure Media Services 계정에는 기본 StreamingEndpoint 포함됩니다. 계정에서 추가 StreamingEndpoints를 만들 수 있습니다. StreamingEndpoints 1.0 및 2.0이라는 두 가지 버전이 있습니다. 2017년 1월 10일부터 새로 만든 AMS 계정은 **기본** StreamingEndpoint 버전 2.0을 포함합니다. 이 계정에 추가하는 추가 스트리밍 엔드포인트도 버전 2.0입니다. 이 변경 사항은 기존 계정에 영향을 주지 않습니다. 기존 StreamingEndpoints는 1.0 버전이며 2.0 버전으로 업그레이드할 수 있습니다. 이 변경 사항으로 인해 동작, 청구 및 기능이 변경됩니다(자세한 내용은 아래에서 설명한 **스트리밍 형식 및 버전** 섹션 참조).
+Microsoft AMS(Azure Media Services)에서 **스트리밍 엔드포인트**는 추가 배포를 위해 CDN(Content Delivery Network) 또는 클라이언트 플레이어 애플리케이션에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. Media Services는 매끄러운 Azure CDN 통합도 제공합니다. StreamingEndpoint 서비스의 아웃바운드 스트림은 Media Services 계정에서 자산의 라이브 스트림, 주문형 비디오 또는 점진적 다운로드일 수 있습니다. 각 Azure Media Services 계정에는 기본 StreamingEndpoint 포함됩니다. 계정에서 추가 StreamingEndpoints를 만들 수 있습니다. StreamingEndpoints 1.0 및 2.0이라는 두 가지 버전이 있습니다. 2017년 1월 10일부터 새로 만든 AMS 계정은 **기본** StreamingEndpoint 버전 2.0을 포함합니다. 이 계정에 추가하는 추가 스트리밍 엔드포인트도 버전 2.0입니다. 이 변경 사항은 기존 계정에 영향을 주지 않습니다. 기존 StreamingEndpoints는 1.0 버전이며 2.0 버전으로 업그레이드할 수 있습니다. 이 변경 사항으로 인해 동작, 청구 및 기능이 변경됩니다(자세한 내용은 아래에서 설명한 **스트리밍 형식 및 버전** 섹션 참조).
 
 또한 Azure Media Services 2.15 버전(2017년 1월에 릴리스됨)부터 스트리밍 엔드포인트 엔터티에 **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion** 속성이 추가되었습니다. 이러한 속성의 자세한 개요는 [여기](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)를 참조하세요. 
 

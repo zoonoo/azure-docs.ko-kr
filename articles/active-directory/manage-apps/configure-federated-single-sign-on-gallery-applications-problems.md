@@ -51,9 +51,9 @@ ms.locfileid: "44355642"
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
-   * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
-6.  Single Sign-On을 구성하려는 응용 프로그램을 선택합니다.
+6.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
 7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
@@ -73,7 +73,7 @@ ms.locfileid: "44355642"
 
 -   응용 프로그램 공급업체의 도움을 받아 Azure AD에 미리 구성된 패턴과 일치하는 값을 얻습니다.
 
--   또는 <aadapprequest@microsoft.com>으로 Azure AD 팀에 문의하거나 자습서에 응용 프로그램에서 지원되는 패턴으로 업데이트해 달라는 요청을 남길 수 있습니다.
+-   또는 <aadapprequest@microsoft.com>으로 Azure AD 팀에 문의하거나 자습서에 애플리케이션에서 지원되는 패턴으로 업데이트해 달라는 요청을 남길 수 있습니다.
 
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>EntityID(사용자 식별자) 형식을 설정하는 위치
 
@@ -83,7 +83,7 @@ Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 응용 프로그�
 
 ## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Azure AD 메타데이터를 찾아서 응용 프로그램 구성을 완료할 수 없음
 
-Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
+Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -95,7 +95,7 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
-   * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
 6.  Single Sign-On을 구성한 애플리케이션을 선택합니다.
 
@@ -107,7 +107,7 @@ Azure AD에서는 메타데이터를 가져오는 URL을 제공하지 않습니�
 
 ## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>애플리케이션에 전송된 SAML 클레임을 사용자 지정하는 방법을 알 수 없음
 
-응용 프로그램에 전송된 SAML 특성 클레임을 사용자 지정하는 방법을 알아보려면 [Azure Active Directory의 클레임 매핑](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)을 참조하세요.
+애플리케이션에 전송된 SAML 특성 클레임을 사용자 지정하는 방법을 알아보려면 [Azure Active Directory의 클레임 매핑](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory로 응용 프로그램 관리](what-is-application-management.md)

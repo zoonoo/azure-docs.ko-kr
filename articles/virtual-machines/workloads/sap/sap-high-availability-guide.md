@@ -155,7 +155,7 @@ ms.locfileid: "51254692"
 
 
 
-Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산, Storage 및 네트워크 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 SAP NetWeaver 기반 ABAP, Java 및 ABAP+Java 스택과 같은 기존 응용 프로그램을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
+Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산, Storage 및 네트워크 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 SAP NetWeaver 기반 ABAP, Java 및 ABAP+Java 스택과 같은 기존 애플리케이션을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
 
 이 문서에서는 Azure Resource Manager 배포 모델을 사용하여 Azure에서 고가용성 SAP 시스템을 배포하기 위한 단계를 설명합니다. 다음과 같은 주요 작업을 진행하게 됩니다.
 
@@ -163,11 +163,11 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 * Azure Resource Manager 배포 모델 및 Azure 클래식 배포 모델 간 차이를 알아봅니다.
 * Windows Server 장애 조치 클러스터링 쿼럼 모드에 대해 자세히 알아보고 사용 중인 Azure 배포에 적합한 모델을 선택할 수 있습니다.
 * Azure 서비스의 Windows Server 장애 조치 클러스터링 공유 Storage에 대해 자세히 알아보세요.
-* Azure의 단일 실패 지점 구성 요소(예: ASCS(ABAP(고급 비즈니스 응용 프로그램 프로그래밍) SAP 중앙 서비스)/SCS(SAP 중앙 서비스) 및 DBMS(데이터베이스 관리 시스템)) 및 중복 구성 요소(예: SAP 응용 프로그램 서버)를 보호하는 방법을 알아보세요.
+* Azure의 단일 실패 지점 구성 요소(예: ASCS(ABAP(고급 비즈니스 애플리케이션 프로그래밍) SAP 중앙 서비스)/SCS(SAP 중앙 서비스) 및 DBMS(데이터베이스 관리 시스템)) 및 중복 구성 요소(예: SAP 애플리케이션 서버)를 보호하는 방법을 알아보세요.
 * Azure Resource Manager를 사용하여 Azure의 Windows Server 장애 조치 클러스터링 클러스터에서 고가용성 SAP 시스템을 설치하고 구성하는 단계별 작업 예제를 따르세요.
 * Azure에서 Windows Server 장애 조치 클러스터링을 사용하는 데 필요한 추가 단계도 알아봅니다. 이러한 단계는 온-프레미스 배포에는 필요하지 않습니다.
 
-이 문서에서는 배포 및 구성을 단순화하기 위해 SAP 3계층 고가용성 Resource Manager 템플릿을 사용합니다. 이 템플릿은 고가용성 SAP 시스템에 필요한 전체 인프라의 배포를 자동화합니다. 또한 이러한 인프라는 SAP 시스템의 SAPS(SAP 응용 프로그램 성능 표준) 크기 조정도 지원합니다.
+이 문서에서는 배포 및 구성을 단순화하기 위해 SAP 3계층 고가용성 Resource Manager 템플릿을 사용합니다. 이 템플릿은 고가용성 SAP 시스템에 필요한 전체 인프라의 배포를 자동화합니다. 또한 이러한 인프라는 SAP 시스템의 SAPS(SAP 애플리케이션 성능 표준) 크기 조정도 지원합니다.
 
 ## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> 필수 조건
 시작하기 전에 다음 섹션에 설명된 필수 조건을 충족하는지 확인하세요. 또한 [리소스][sap-ha-guide-2] 섹션에서 나열하는 리소스도 모두 확인해야 합니다.
@@ -191,7 +191,7 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 | Note 번호 | 제목 |
 | --- | --- |
-| [1928533] |Azure의 SAP 응용 프로그램: 지원 제품 및 크기 조정 |
+| [1928533] |Azure의 SAP 애플리케이션: 지원 제품 및 크기 조정 |
 | [2015553] |Microsoft Azure의 SAP: 지원 필수 조건 |
 | [1999351] |향상된 SAP용 Azure 모니터링 |
 | [2178632] |Microsoft Azure의 SAP용 주요 모니터링 메트릭 |
@@ -208,7 +208,7 @@ Azure Resource Manager와 Azure 클래식 배포 모델은 다음과 같은 영�
 - SAP 다중 SID 지원 시나리오
 
 ### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a> 리소스 그룹
-Azure Resource Manager에서 리소스 그룹을 사용하여 Azure 구독에서 모든 응용 프로그램 리소스를 관리할 수 있습니다. 통합 접근 방식의 리소스 그룹에서는 모든 리소스가 동일한 수명 주기를 갖습니다. 예를 들어 모든 리소스가 동시에 생성되고 동시에 삭제됩니다. [리소스 그룹](../../../azure-resource-manager/resource-group-overview.md#resource-groups)에 대해 알아봅니다.
+Azure Resource Manager에서 리소스 그룹을 사용하여 Azure 구독에서 모든 애플리케이션 리소스를 관리할 수 있습니다. 통합 접근 방식의 리소스 그룹에서는 모든 리소스가 동일한 수명 주기를 갖습니다. 예를 들어 모든 리소스가 동시에 생성되고 동시에 삭제됩니다. [리소스 그룹](../../../azure-resource-manager/resource-group-overview.md#resource-groups)에 대해 알아봅니다.
 
 ### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Azure 리소스 그룹에 대한 Azure 내부 부하 분산 장치 종속성
 
@@ -230,7 +230,7 @@ Azure 클래식 배포 모델을 사용하려면 [Azure의 SAP NetWeaver: SIOS D
 ## <a name="8ecf3ba0-67c0-4495-9c14-feec1a2255b7"></a> Windows Server 장애 조치 클러스터링
 Windows Server 장애 조치 클러스터링은 Windows에서 고가용성 SAP ASCS/SCS를 설치하고 DBMS를 사용하기 위한 기반이 됩니다.
 
-장애 조치 클러스터는 함께 작동하여 애플리케이션 및 서비스의 가용성을 높이는 1+n개 독립 서버(노드) 그룹입니다. 노드에 장애가 발생하는 경우 Windows Server 장애 조치 클러스터링은 응용 프로그램 및 서비스를 제공하기 위해 정상 클러스터를 유지 관리하는 동안 발생할 수 있는 장애 횟수를 계산합니다. 장애 조치 클러스터링을 달성하기 위해 여러 다른 쿼럼 모드 중에서 선택할 수 있습니다.
+장애 조치 클러스터는 함께 작동하여 애플리케이션 및 서비스의 가용성을 높이는 1+n개 독립 서버(노드) 그룹입니다. 노드에 장애가 발생하는 경우 Windows Server 장애 조치 클러스터링은 애플리케이션 및 서비스를 제공하기 위해 정상 클러스터를 유지 관리하는 동안 발생할 수 있는 장애 횟수를 계산합니다. 장애 조치 클러스터링을 달성하기 위해 여러 다른 쿼럼 모드 중에서 선택할 수 있습니다.
 
 ### <a name="1a3c5408-b168-46d6-99f5-4219ad1b1ff2"></a> 쿼럼 모드
 Windows Server 장애 조치 클러스터링을 사용하는 경우 다음 4개의 쿼럼 모드 중에서 선택할 수 있습니다.
@@ -254,7 +254,7 @@ _**그림 1:** Azure에서 SAP ASCS/SCS에 대한 Windows Server 장애 조치 �
 그림 1에는 2 노드 공유 Storage 클러스터도 나와 있습니다. 온-프레미스 공유 Storage 클러스터에서 클러스터의 모든 노드는 공유 Storage를 검색합니다. 잠금 메커니즘을 통해 데이터가 손상으로부터 보호됩니다. 모든 노드는 다른 노드에 장애가 있는지 알 수 있습니다. 한 노드가 실패하면 나머지 하나가 Storage 리소스의 소유권을 가지며, 서비스의 가용성을 보장합니다.
 
 > [!NOTE]
-> SQL Server와 같은 일부 DBMS 응용 프로그램에서는 가용성을 높이기 위해 공유 디스크를 사용할 필요가 없습니다. SQL Server AlwaysOn은 한 클러스터 노드의 로컬 디스크에서 다른 클러스터 노드의 로컬 디스크로 DBMS 데이터 및 로그 파일을 복제합니다. 이 경우 Windows 클러스터 구성에는 공유 디스크가 필요하지 않습니다.
+> SQL Server와 같은 일부 DBMS 애플리케이션에서는 가용성을 높이기 위해 공유 디스크를 사용할 필요가 없습니다. SQL Server AlwaysOn은 한 클러스터 노드의 로컬 디스크에서 다른 클러스터 노드의 로컬 디스크로 DBMS 데이터 및 로그 파일을 복제합니다. 이 경우 Windows 클러스터 구성에는 공유 디스크가 필요하지 않습니다.
 >
 >
 
@@ -301,22 +301,22 @@ Azure의 Azure Load Balancer 서비스에는 내부 부하 분산 장치가 있�
 클라이언트는 가상 호스트 이름을 통해 연결할 수 있습니다. DNS 서버는 클러스터 IP 주소를 확인하고 내부 부하 분산 장치는 클러스터의 활성 노드에 대한 포트 전달을 처리합니다.
 
 ## <a name="2e3fec50-241e-441b-8708-0b1864f66dfa"></a> Azure IaaS(Infrastructure-as-a-Service)의 SAP NetWeaver 고가용성
-SAP 응용 프로그램 고가용성(예: SAP 소프트웨어 구성 요소)을 달성하려면 다음 구성 요소를 보호해야 합니다.
+SAP 애플리케이션 고가용성(예: SAP 소프트웨어 구성 요소)을 달성하려면 다음 구성 요소를 보호해야 합니다.
 
-* SAP 응용 프로그램 서버 인스턴스
+* SAP 애플리케이션 서버 인스턴스
 * SAP ASCS/SCS 인스턴스
 * DBMS 서버
 
 고가용성 시나리오에서 SAP 구성 요소 보호에 대한 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide-11]을 참조하세요.
 
 ### <a name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a> 고가용성 SAP 응용 프로그램 서버
-일반적으로 SAP 응용 프로그램 서버 및 대화 상자 인스턴스의 경우 특정 고가용성 솔루션이 필요하지 않습니다. 중복성으로 고가용성을 달성하고 다른 Azure Virtual Machines 인스턴스에서 여러 대화 상자 인스턴스를 구성합니다. 두 개의 Azure Virtual Machines 인스턴스에 2개 이상의 SAP 응용 프로그램 인스턴스가 설치되어 있어야 합니다.
+일반적으로 SAP 애플리케이션 서버 및 대화 상자 인스턴스의 경우 특정 고가용성 솔루션이 필요하지 않습니다. 중복성으로 고가용성을 달성하고 다른 Azure Virtual Machines 인스턴스에서 여러 대화 상자 인스턴스를 구성합니다. 두 개의 Azure Virtual Machines 인스턴스에 2개 이상의 SAP 응용 프로그램 인스턴스가 설치되어 있어야 합니다.
 
-![그림 4: 고가용성 SAP 응용 프로그램 서버][sap-ha-guide-figure-2000]
+![그림 4: 고가용성 SAP 애플리케이션 서버][sap-ha-guide-figure-2000]
 
 _**그림 4:** 고가용성 SAP 응용 프로그램 서버_
 
-SAP 응용 프로그램 서버 인스턴스를 호스트하는 모든 가상 머신을 동일한 Azure 가용성 집합에 배치해야 합니다. Azure 가용성 집합은 다음을 확인합니다.
+SAP 애플리케이션 서버 인스턴스를 호스트하는 모든 가상 머신을 동일한 Azure 가용성 집합에 배치해야 합니다. Azure 가용성 집합은 다음을 확인합니다.
 
 * 모든 가상 머신이 동일한 업그레이드 도메인에 속하는지 여부. 예를 들어 업그레이드 도메인은 가상 머신이 계획된 유지 관리 가동 중지 시간 동안 동시에 업데이트되지 않는지 확인합니다.
 * 모든 가상 머신이 동일한 장애 도메인에 속하는지 여부. 예를 들어 장애 도메인은 어떤 단일 장애 지점도 모든 가상 머신의 가용성에 영향을 주지 않도록 가상 머신이 배포되어 있는지 확인합니다.
@@ -359,7 +359,7 @@ Azure Resource Manager 배포 모델을 사용하는 Azure의 SQL Server 클러�
 
 - 하나의 전용 클러스터는 SAP ASCS/SCS 인스턴스에 사용됩니다.
 - 하나의 전용 클러스터는 DBMS 인스턴스에 사용됩니다.
-- SAP 응용 프로그램 서버 인스턴스는 자체의 전용 VM에 배포됩니다.
+- SAP 애플리케이션 서버 인스턴스는 자체의 전용 VM에 배포됩니다.
 
 ![그림 8: ASCS/SCS 및 DBMS용 전용 클러스터를 사용하는 SAP 고가용성 아키텍처 템플릿 1][sap-ha-guide-figure-2004]
 
@@ -370,7 +370,7 @@ _**그림 8:** SAP 고가용성 아키텍처 템플릿 1, ASCS/SCS 및 DBMS용 �
 그림 9에서는 **단일** SAP 시스템을 위한 Azure의 SAP NetWeaver 고가용성 아키텍처 예제를 보여 줍니다. 이 시나리오는 다음과 같이 설정됩니다.
 
 - 하나의 전용 클러스터는 SAP ASCS/SCS 인스턴스 및 DBMS **모두**에 사용됩니다.
-- SAP 응용 프로그램 서버 인스턴스는 자체의 전용 VM에 배포됩니다.
+- SAP 애플리케이션 서버 인스턴스는 자체의 전용 VM에 배포됩니다.
 
 ![그림 9: SAP 고가용성 아키텍처 템플릿 2 - ASCS/SCS 전용 클러스터 및 DBMS 전용 클러스터][sap-ha-guide-figure-2005]
 
@@ -382,8 +382,8 @@ _**그림 9:** SAP 고가용성 아키텍처 템플릿 2 - ASCS/SCS 전용 클�
 
 - 하나의 전용 클러스터는 SAP ASCS/SCS SID1 인스턴스 *및* SAP ASCS/SCS SID2 인스턴스 **모두**에 사용됩니다(하나의 클러스터).
 - 하나의 전용 클러스터는 DBMS SID1에 사용되고 다른 전용 클러스터는 DBMS SID2에 사용됩니다(두 개의 클러스터).
-- SAP 시스템 SID1에 대한 SAP 응용 프로그램 서버 인스턴스에는 자체의 전용 VM이 있습니다.
-- SAP 시스템 SID2에 대한 SAP 응용 프로그램 서버 인스턴스에는 자체의 전용 VM이 있습니다.
+- SAP 시스템 SID1에 대한 SAP 애플리케이션 서버 인스턴스에는 자체의 전용 VM이 있습니다.
+- SAP 시스템 SID2에 대한 SAP 애플리케이션 서버 인스턴스에는 자체의 전용 VM이 있습니다.
 
 ![그림 10: SAP 고가용성 아키텍처 템플릿 3 - 다른 ASCS/SCS 인스턴스 전용 클러스터][sap-ha-guide-figure-6003]
 
@@ -564,9 +564,9 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
 
 #### <a name="application-servers-template"></a> 응용 프로그램 서버 템플릿
 
-응용 프로그램 서버 템플릿은 하나의 SAP 시스템을 위한 SAP 응용 프로그램 서버 인스턴스로 사용할 수 있는 둘 이상의 가상 머신을 배포합니다. 예를 들어 5개 SAP 시스템에 대해 ASCS/SCS 템플릿을 배포하는 경우 이 템플릿을 5번 배포해야 합니다.
+애플리케이션 서버 템플릿은 하나의 SAP 시스템을 위한 SAP 애플리케이션 서버 인스턴스로 사용할 수 있는 둘 이상의 가상 머신을 배포합니다. 예를 들어 5개 SAP 시스템에 대해 ASCS/SCS 템플릿을 배포하는 경우 이 템플릿을 5번 배포해야 합니다.
 
-응용 프로그램 서버 다중 SID 템플릿을 설정하려면 [응용 프로그램 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image] 또는 [관리 디스크를 사용하는 응용 프로그램 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image-md]에서 다음 매개 변수 값을 입력합니다.
+애플리케이션 서버 다중 SID 템플릿을 설정하려면 [애플리케이션 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image] 또는 [관리 디스크를 사용하는 애플리케이션 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image-md]에서 다음 매개 변수 값을 입력합니다.
 
   -  **SAP 시스템 ID**. 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
   -  **OS 종류**. 가상 머신의 운영 체제를 선택합니다.
@@ -645,10 +645,10 @@ DNS 서버에서 다른 두 가상 호스트 이름 **pr1 ascs sap** 및 **pr1 d
 
 | 가상 머신 역할 | 가상 머신 호스트 이름 | 네트워크 카드 이름 | 고정 IP 주소 |
 | --- | --- | --- | --- |
-| 첫 번째 SAP 응용 프로그램 서버 인스턴스 |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
-| 두 번째 SAP 응용 프로그램 서버 인스턴스 |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
+| 첫 번째 SAP 애플리케이션 서버 인스턴스 |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
+| 두 번째 SAP 애플리케이션 서버 인스턴스 |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
 | ... |... |... |... |
-| 마지막 SAP 응용 프로그램 서버 인스턴스 |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
+| 마지막 SAP 애플리케이션 서버 인스턴스 |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
 | ASCS/SCS 인스턴스의 첫 번째 클러스터 노드 |pr1-ascs-0 |pr1-nic-ascs-0 |10.0.0.40 |
 | ASCS/SCS 인스턴스의 두 번째 클러스터 노드 |pr1-ascs-1 |pr1-nic-ascs-1 |10.0.0.41 |
 | DBMS 인스턴스의 첫 번째 클러스터 노드 |pr1-db-0 |pr1-nic-db-0 |10.0.0.30 |

@@ -52,7 +52,7 @@ ms.locfileid: "51823047"
 
 이 예에서는 최소 Graylog 설정(즉, Graylog 단일 인스턴스)을 사용하지만, Graylog는 시스템 및 프로덕션 환경 요구 사항에 따라 리소스 전반에 걸쳐 크기 조정하도록 설계될 수 있습니다. 아키텍처 고려 사항 또는 심층적인 아키텍처 가이드에 대한 자세한 내용은 Graylog의 [설명서](http://docs.graylog.org/en/2.2/pages/architecture.html) 및 [아키텍처 가이드](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture)를 참조하세요.
 
-Graylog는 플랫폼 및 기본 설정에 따라 다양한 방법으로 설치할 수 있습니다. 설치 가능한 방법에 대한 전체 목록은 Graylog의 공식 [설명서](http://docs.graylog.org/en/2.2/pages/installation.html)를 참조하세요. Graylog 서버 응용 프로그램은 Linux 배포판에서 실행되며, 다음과 같은 필수 구성 요소를 포함합니다.
+Graylog는 플랫폼 및 기본 설정에 따라 다양한 방법으로 설치할 수 있습니다. 설치 가능한 방법에 대한 전체 목록은 Graylog의 공식 [설명서](http://docs.graylog.org/en/2.2/pages/installation.html)를 참조하세요. Graylog 서버 애플리케이션은 Linux 배포판에서 실행되며, 다음과 같은 필수 구성 요소를 포함합니다.
 
 -  Java SE 8 이상 - [Azul Azure JDK 설명서](https://aka.ms/azure-jdks)
 -  Elastic Search 2.x(2.1.0 이상) - [Elasticsearch 설치 설명서](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)

@@ -49,7 +49,7 @@ ms.locfileid: "49958689"
 고객은 디바이스 UI에서 Virtual WAN에 적절한 액세스 제어를 설정할 수 있어야 합니다. 이 경우, Azure 서비스 주체를 사용하는 것이 좋습니다. 서비스 주체 기반 액세스는 분기 정보 업로드에 적합한 인증을 디바이스 컨트롤러에 제공합니다. 자세한 내용은 [서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)를 참조하세요. 이 기능은 Azure Virtual WAN 제품의 외부이지만 관련 세부 정보가 디바이스 관리 대시보드에 입력된 후 Azure에서 액세스를 설정하는 데 수행되는 일반적인 단계를 아래에 나열합니다.
 
 * 온-프레미스 디바이스 컨트롤러에 대한 Azure Active Directory 애플리케이션을 만듭니다.
-* 응용 프로그램 ID 및 인증 키 가져오기
+* 애플리케이션 ID 및 인증 키 가져오기
 * 테넌트 ID 가져오기
 * 응용 프로그램을 “기여자”에 할당
 

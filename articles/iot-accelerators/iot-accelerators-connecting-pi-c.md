@@ -43,7 +43,7 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
 
 이 문서에서는 [Raspberry Pi에 Raspbian OS](https://www.raspberrypi.org/learning/software-guide/quickstart/)의 최신 버전을 설치했다고 가정합니다.
 
-다음 단계는 솔루션 가속기에 연결하는 C 응용 프로그램을 빌드하기 위해 Raspberry Pi를 준비하는 방법을 보여줍니다.
+다음 단계는 솔루션 가속기에 연결하는 C 애플리케이션을 빌드하기 위해 Raspberry Pi를 준비하는 방법을 보여줍니다.
 
 1. **ssh**를 사용하여 Raspberry Pi에 연결합니다. 자세한 내용은 [Raspberry Pi 웹 사이트](https://www.raspberrypi.org/)에서 [SSH(Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)를 참조하세요.
 
@@ -92,7 +92,7 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
 
     다음과 같은 경우 콘솔에 메시지가 표시됩니다.
 
-    - 응용 프로그램이 샘플 원격 분석 데이터를 솔루션 가속기에 보낼 때.
+    - 애플리케이션이 샘플 원격 분석 데이터를 솔루션 가속기에 보낼 때.
     - 솔루션 대시보드에서 호출된 메서드에 응답할 때.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

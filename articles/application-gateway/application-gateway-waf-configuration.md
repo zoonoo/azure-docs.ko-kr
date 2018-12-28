@@ -16,7 +16,7 @@ ms.locfileid: "51036720"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록(공개 미리 보기)
 
-Azure Application Gateway WAF(웹 응용 프로그램 방화벽)는 웹 응용 프로그램을 보호합니다. 이 문서에서는 WAF 요청 크기 제한 및 제외 목록 구성에 대해 설명합니다.
+Azure Application Gateway WAF(웹 애플리케이션 방화벽)는 웹 애플리케이션을 보호합니다. 이 문서에서는 WAF 요청 크기 제한 및 제외 목록 구성에 대해 설명합니다.
 
 > [!IMPORTANT]
 > WAF 요청 크기 제한 및 제외 목록의 구성은 현재 공개 미리 보기로 제공됩니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.

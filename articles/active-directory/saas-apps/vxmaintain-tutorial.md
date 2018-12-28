@@ -31,7 +31,7 @@ ms.locfileid: "39433997"
 - 사용자가 해당 Azure AD 계정을 사용하여 SSO(Single Sign-On)로 vxMaintain에 자동으로 로그인하도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -67,9 +67,9 @@ vxMaintain의 Azure AD 통합을 구성하려면 갤러리의 vxMaintain을 관�
 
 1. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
 
-    !["엔터프라이즈 응용 프로그램" 창][2]
+    !["엔터프라이즈 애플리케이션" 창][2]
     
-1. 응용 프로그램을 추가하려면 **모든 응용 프로그램** 대화 상자에서 **새 응용 프로그램**을 선택합니다.
+1. 애플리케이션을 추가하려면 **모든 애플리케이션** 대화 상자에서 **새 애플리케이션**을 선택합니다.
 
     !["새 애플리케이션" 단추][3]
 
@@ -92,9 +92,9 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD SSO를 사용하도록 설정하고 다음을 수행하여 vxMaintain 응용 프로그램에서 SSO를 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD SSO를 사용하도록 설정하고 다음을 수행하여 vxMaintain 애플리케이션에서 SSO를 구성합니다.
 
-1. Azure Portal의 **vxMaintain** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. Azure Portal의 **vxMaintain** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     !["Single Sign-On" 명령][4]
 
@@ -171,7 +171,7 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 
 1. Azure Portal **응용 프로그램** 보기에서 **디렉터리** 보기 > **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**으로 이동합니다.
 
-    !["모든 응용 프로그램" 링크][201] 
+    !["모든 애플리케이션" 링크][201] 
 
 1. **응용 프로그램** 목록에서 **vxMaintain**을 선택합니다.
 
@@ -193,7 +193,7 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트합니다.
 
-액세스 패널에서 **vxMaintain** 타일을 선택하면 vxMaintain 응용 프로그램에 자동으로 로그인됩니다.
+액세스 패널에서 **vxMaintain** 타일을 선택하면 vxMaintain 애플리케이션에 자동으로 로그인됩니다.
 
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 

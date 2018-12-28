@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
-description: Notification Hubs를 사용하여 Node.js 응용 프로그램에 푸시 알림을 보내는 방법에 대해 알아봅니다.
+description: Notification Hubs를 사용하여 Node.js 애플리케이션에 푸시 알림을 보내는 방법에 대해 알아봅니다.
 keywords: 푸시 알림, 푸시 알림, node.js 푸시, ios 푸시
 services: notification-hubs
 documentationcenter: nodejs
@@ -33,7 +33,7 @@ ms.locfileid: "51228439"
 
 이 가이드에서는 Node.js 애플리케이션에서 직접 Azure Notification Hubs의 도움말을 사용하여 푸시 알림을 보내는 방법을 보여줍니다. 
 
-시나리오는 다음 플랫폼에서 응용 프로그램에 푸시 알림을 보내기를 포함합니다.
+시나리오는 다음 플랫폼에서 애플리케이션에 푸시 알림을 보내기를 포함합니다.
 
 * Android
 * iOS
@@ -45,8 +45,8 @@ ms.locfileid: "51228439"
 ## <a name="what-are-notification-hubs"></a>Notification Hubs 정의
 Azure Notification Hubs는 모바일 디바이스에 푸시 알림을 보내는 사용하기 쉽고 확장성 있는 다중 플랫폼 인프라를 제공합니다. 서비스 인프라에 대한 세부 정보는 [Azure Notification Hubs](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) 페이지를 참조하세요.
 
-## <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
-이 자습서의 첫 번째 단계는 새로운 빈 Node.js 응용 프로그램을 만드는 것입니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][nodejswebsite], Windows PowerShell을 사용한 [Node.js Cloud Service][Node.js Cloud Service] 또는 [WebMatrix를 사용하는 웹 사이트][webmatrix]를 참조하세요.
+## <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
+이 자습서의 첫 번째 단계는 새로운 빈 Node.js 애플리케이션을 만드는 것입니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][nodejswebsite], Windows PowerShell을 사용한 [Node.js Cloud Service][Node.js Cloud Service] 또는 [WebMatrix를 사용하는 웹 사이트][webmatrix]를 참조하세요.
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Notification Hubs를 사용하도록 응용 프로그램 구성
 Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와 통신하는 일련의 기본 제공 도우미 라이브러리가 포함되어 있는 Node.js [Azure 패키지](https://www.npmjs.com/package/azure)를 다운로드하여 사용해야 합니다.
@@ -62,7 +62,7 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
 > 
 
 ### <a name="import-the-module"></a>모듈 가져오기
-텍스트 편집기를 사용하여 다음을 응용 프로그램의 **server.js** 파일 맨 위에 추가합니다.
+텍스트 편집기를 사용하여 다음을 애플리케이션의 **server.js** 파일 맨 위에 추가합니다.
 
     var azure = require('azure');
 
@@ -93,7 +93,7 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
 * **Windows Phone** - **notificationHubService.mpns**에서 제공되는 **MpnsService** 개체를 사용합니다.
 * **유니버설 Windows 플랫폼** - **notificationHubService.wns**에서 제공되는 **WnsService** 개체를 사용합니다.
 
-### <a name="how-to-send-push-notifications-to-android-applications"></a>방법: Android 응용 프로그램에 푸시 알림 보내기
+### <a name="how-to-send-push-notifications-to-android-applications"></a>방법: Android 애플리케이션에 푸시 알림 보내기
 **GcmService** 개체는 Android 응용 프로그램에 푸시 알림을 보내는 데 사용할 수 있는 **보내기** 메서드를 제공합니다. **send** 메서드는 다음 매개 변수를 수락합니다.
 
 * **Tags** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
@@ -115,8 +115,8 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
       }
     });
 
-### <a name="how-to-send-push-notifications-to-ios-applications"></a>방법: iOS 응용 프로그램에 푸시 알림 보내기
-위에서 설명한 Android 응용 프로그램과 동일하게 **ApnsService** 개체는 iOS 응용 프로그램에 알림을 보내는 데 사용할 수 있는 **보내기** 메서드를 제공합니다. **send** 메서드는 다음 매개 변수를 수락합니다.
+### <a name="how-to-send-push-notifications-to-ios-applications"></a>방법: iOS 애플리케이션에 푸시 알림 보내기
+위에서 설명한 Android 애플리케이션과 동일하게 **ApnsService** 개체는 iOS 애플리케이션에 알림을 보내는 데 사용할 수 있는 **보내기** 메서드를 제공합니다. **send** 메서드는 다음 매개 변수를 수락합니다.
 
 * **Tags** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
 * **Payload** - 메시지의 JSON 또는 문자열 페이로드
@@ -135,7 +135,7 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
       }
     });
 
-### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>방법: Windows Phone 응용 프로그램에 푸시 알림 보내기
+### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>방법: Windows Phone 애플리케이션에 푸시 알림 보내기
 **MpnsService** 개체는 Windows Phone 응용 프로그램에 푸시 알림을 보내는 데 사용할 수 있는 **보내기** 메서드를 제공합니다. **send** 메서드는 다음 매개 변수를 수락합니다.
 
 * **Tags** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
@@ -156,7 +156,7 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
       }
     });
 
-### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>방법: UWP(범용 Windows 플랫폼) 응용 프로그램에 푸시 알림 보내기
+### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>방법: UWP(범용 Windows 플랫폼) 애플리케이션에 푸시 알림 보내기
 **WnsService** 개체는 유니버설 Windows 플랫폼 응용 프로그램에 푸시 알림을 보내는 데 사용할 수 있는 **send** 메서드를 제공합니다.  **send** 메서드는 다음 매개 변수를 수락합니다.
 
 * **Tags** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.

@@ -463,7 +463,7 @@ SRS 설치 및 작동은 Azure Virtual Machine 서비스에서 호스트되는 V
 SAP ASE HADR은 Azure Internal Load Balancer가 필요하지 않으며 OS 수준 클러스터링을 사용하지 않습니다. Azure Windows 및 Linux VM에서 작동합니다. SAP ASE HADR에 대한 자세한 내용은 [SAP ASE HADR 사용자 가이드](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.3/en-US/a6645e28bc2b1014b54b8815a64b87ba.html)를 참조하세요.
 
 ## <a name="specifics-to-sap-ase-on-linux"></a>Linux의 SAP ASE에 대한 고유 정보
-Microsoft Azure부터 기존 SAP ASE 응용 프로그램을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. Virtual Machine에서 SAP ASE를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
+Microsoft Azure부터 기존 SAP ASE 응용 프로그램을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. Virtual Machine에서 SAP ASE를 사용하면 이러한 애플리케이션을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 애플리케이션에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
 
 Azure VM을 배포하는 경우 <https://azure.microsoft.com/support/legal/sla>에 있는 공식 SLA에 대해 알고 있어야 합니다.
 

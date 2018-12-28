@@ -1,6 +1,6 @@
 ---
 title: Azure AD에서 애플리케이션에 대한 액세스 권한이 있는 그룹 구성원 또는 사용자의 액세스 검토 수행 | Microsoft Docs
-description: Azure Active Directory에서 응용 프로그램에 대한 액세스 권한이 있는 그룹 구성원 또는 사용자의 액세스 검토를 수행하는 방법을 알아봅니다.
+description: Azure Active Directory에서 애플리케이션에 대한 액세스 권한이 있는 그룹 구성원 또는 사용자의 액세스 검토를 수행하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon

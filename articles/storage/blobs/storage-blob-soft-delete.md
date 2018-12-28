@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Blob에 대한 일시 삭제 | Microsoft Docs
-description: Azure Storage는 이제 응용 프로그램 또는 다른 저장소 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제를 제공합니다.
+description: Azure Storage는 이제 애플리케이션 또는 다른 저장소 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제를 제공합니다.
 services: storage
 author: MichaelHauss
 ms.service: storage
@@ -16,7 +16,7 @@ ms.lasthandoff: 08/01/2018
 ms.locfileid: "39398563"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure Storage Blob에 대한 일시 삭제
-Azure Storage는 이제 응용 프로그램 또는 다른 저장소 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제를 제공합니다.
+Azure Storage는 이제 애플리케이션 또는 다른 저장소 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제를 제공합니다.
 
 ## <a name="how-does-it-work"></a>작동 원리
 설정하면 일시 삭제를 통해 Blob 또는 Blob 스냅숏이 삭제되는 경우 데이터를 저장 및 복구할 수 있습니다. 이 보호는 덮어쓰기의 결과로 삭제되는 Blob 데이터로 확장합니다.

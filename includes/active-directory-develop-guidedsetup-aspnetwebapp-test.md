@@ -74,20 +74,20 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 ```
 <!--end-collapse-->
 
-### <a name="restrict-who-can-sign-in-to-your-application"></a>응용 프로그램에 로그인할 수 있는 사용자 제한
+### <a name="restrict-who-can-sign-in-to-your-application"></a>애플리케이션에 로그인할 수 있는 사용자 제한
 
-기본적으로 이 가이드에서 만드는 모든 애플리케이션을 빌드할 때 애플리케이션에서는 Azure Active Directory와 통합된 모든 회사 또는 조직의 회사 및 학교 계정뿐만 아니라 개인 계정(outlook.com, live.com 등)의 로그인을 수락합니다. SaaS 응용 프로그램에는 이 옵션을 권장합니다.
+기본적으로 이 가이드에서 만드는 모든 애플리케이션을 빌드할 때 애플리케이션에서는 Azure Active Directory와 통합된 모든 회사 또는 조직의 회사 및 학교 계정뿐만 아니라 개인 계정(outlook.com, live.com 등)의 로그인을 수락합니다. SaaS 애플리케이션에는 이 옵션을 권장합니다.
 
-응용 프로그램에 대한 사용자 로그인 액세스를 제한할 수 있는 여러 가지 옵션이 있습니다.
+애플리케이션에 대한 사용자 로그인 액세스를 제한할 수 있는 여러 가지 옵션이 있습니다.
 
-#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>옵션 1: 한 조직의 Active Directory 인스턴스에 속한 사용자만 응용 프로그램에 로그인하도록 제한(단일 테넌트)
+#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>옵션 1: 한 조직의 Active Directory 인스턴스에 속한 사용자만 애플리케이션에 로그인하도록 제한(단일 테넌트)
 
-이 옵션은 *LOB 응용 프로그램*의 일반적인 시나리오입니다. 응용 프로그램에서 특정 Azure Active Directory 인스턴스에 속한 계정(해당 인스턴스의 *게스트 계정* 포함)의 로그인만 수락하도록 하려면
+이 옵션은 *LOB 애플리케이션*의 일반적인 시나리오입니다. 애플리케이션에서 특정 Azure Active Directory 인스턴스에 속한 계정(해당 인스턴스의 *게스트 계정* 포함)의 로그인만 수락하도록 하려면
 
 1. **web.config** 파일에서 `Tenant` 매개 변수의 값을 `Common`에서 조직의 테넌트 이름(예: `contoso.onmicrosoft.com`)으로 변경합니다.
 2. [OWIN 스타트업 클래스](#configure-the-authentication-pipeline)에서 `ValidateIssuer` 인수를 `true`로 설정합니다.
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>옵션 2: 응용 프로그램 액세스를 조직의 특정 목록에 포함된 사용자로 제한
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>옵션 2: 애플리케이션 액세스를 조직의 특정 목록에 포함된 사용자로 제한
 
 로그인 액세스를 허용된 조직 목록에 들어 있는 Azure AD 조직에 있는 사용자 계정으로만 국한할 수 있습니다.
 1. [OWIN 스타트업 클래스](#configure-the-authentication-pipeline)에서 `ValidateIssuer` 인수를 `true`로 설정합니다.

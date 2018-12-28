@@ -31,7 +31,7 @@ Azure 서비스 패브릭 클러스터는 사용자가 소유하는 리소스입
 * 역할 기반 Access Control(RBAC)
 
 ## <a name="node-to-node-security"></a>노드 간 보안
-노드 간 보안을 통해 클러스터의 VM 또는 컴퓨터 간 통신을 보호할 수 있습니다. 이 보안 시나리오를 통해 클러스터에 가입하도록 인증된 컴퓨터만 호스팅 응용 프로그램 및 클러스터의 서비스에 참여할 수 있습니다.
+노드 간 보안을 통해 클러스터의 VM 또는 컴퓨터 간 통신을 보호할 수 있습니다. 이 보안 시나리오를 통해 클러스터에 가입하도록 인증된 컴퓨터만 호스팅 애플리케이션 및 클러스터의 서비스에 참여할 수 있습니다.
 
 ![노드-노드 통신의 다이어그램][Node-to-Node]
 
@@ -50,7 +50,7 @@ Azure의 클러스터에서 인증서 보안을 설정하는 방법을 알아보
 독립 실행형 Windows Server 클러스터의 Windows 보안을 설정하는 방법을 알아보려면 [Windows 보안을 사용하여 Windows에서 독립 실행형 클러스터 보호](service-fabric-windows-cluster-windows-security.md)를 참조하세요.
 
 ## <a name="client-to-node-security"></a>클라이언트-노드 보안
-클라이언트-노드 보안은 클라이언트를 인증하고 클라이언트와 클러스터의 개별 노드 간 통신을 보호하도록 합니다. 이 보안 유형을 통해 인증된 사용자만 클러스터 및 클러스터에 배포된 응용 프로그램에 액세스할 수 있도록 합니다. 클라이언트는 Windows 보안 자격 증명이나 인증서 보안 자격 증명을 통해 고유하게 식별됩니다.
+클라이언트-노드 보안은 클라이언트를 인증하고 클라이언트와 클러스터의 개별 노드 간 통신을 보호하도록 합니다. 이 보안 유형을 통해 인증된 사용자만 클러스터 및 클러스터에 배포된 애플리케이션에 액세스할 수 있도록 합니다. 클라이언트는 Windows 보안 자격 증명이나 인증서 보안 자격 증명을 통해 고유하게 식별됩니다.
 
 ![클라이언트-노드 통신의 다이어그램][Client-to-Node]
 
@@ -66,9 +66,9 @@ Azure의 클러스터에서 인증서 보안을 설정하는 방법을 알아보
 독립 실행형 Windows Server 클러스터의 클러스터에서 인증서 보안을 설정하는 방법을 알아보려면 [X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호](service-fabric-windows-cluster-x509-security.md)를 참조하세요.
 
 ### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Azure에서 클라이언트-노드 Azure Active Directory 보안
-조직(테넌트)에서는 Azure AD를 사용하여 응용 프로그램에 대한 사용자 액세스를 관리할 수 있습니다. 응용 프로그램은 웹 기반 로그인 UI를 갖는 항목과 네이티브 클라이언트 환경을 갖는 항목으로 나뉩니다. 테넌트를 아직 만들지 않은 경우 [Azure Active Directory 테넌트를 얻는 방법][active-directory-howto-tenant]을 참조하세요.
+조직(테넌트)에서는 Azure AD를 사용하여 애플리케이션에 대한 사용자 액세스를 관리할 수 있습니다. 애플리케이션은 웹 기반 로그인 UI를 갖는 항목과 네이티브 클라이언트 환경을 갖는 항목으로 나뉩니다. 테넌트를 아직 만들지 않은 경우 [Azure Active Directory 테넌트를 얻는 방법][active-directory-howto-tenant]을 참조하세요.
 
-Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer][service-fabric-visualizing-your-cluster] 및 [Visual Studio][service-fabric-manage-application-in-visual-studio]를 포함하여 관리 기능에 대한 여러 진입점을 제공합니다. 결과적으로 두 개의 Azure AD 응용 프로그램(웹 응용 프로그램과 네이티브 응용 프로그램)을 만들어 클러스터에 대한 액세스를 제어합니다.
+Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer][service-fabric-visualizing-your-cluster] 및 [Visual Studio][service-fabric-manage-application-in-visual-studio]를 포함하여 관리 기능에 대한 여러 진입점을 제공합니다. 결과적으로 두 개의 Azure AD 애플리케이션(웹 애플리케이션과 네이티브 애플리케이션)을 만들어 클러스터에 대한 액세스를 제어합니다.
 
 Azure에서 실행 중인 클라이언트의 경우 Azure AD(Azure Active Directory)를 사용하여 관리 엔드포인트에 대한 액세스를 보호할 수 있습니다. 필요한 Azure AD 아티팩트를 만드는 방법 및 클러스터를 만들 때 채우는 방법을 알아보려면 [클라이언트를 인증하도록 Azure AD 설정](service-fabric-cluster-creation-setup-aad.md)을 참조하세요.
 
@@ -80,12 +80,12 @@ Azure 클러스터의 경우 노드 간 보안에 대해 Azure AD 보안을 사�
 ## <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
 다른 사용자 그룹의 특정 클러스터 작업에 대한 액세스를 제한하기 위해 액세스 제어를 사용할 수 있습니다. 이를 통해 클러스터의 보안을 강화합니다. 클러스터에 연결하는 클라이언트에 대해 두 가지 액세스 제어 유형인 관리자 역할 및 사용자 역할이 지원됩니다.
 
-관리자 역할이 할당된 사용자는 읽기 및 쓰기 기능을 포함한 관리 기능에 대한 모든 권한을 가집니다. 사용자 역할이 할당된 사용자는 기본적으로 관리 기능(예: 쿼리 기능)에 대한 읽기 권한만을 갖습니다. 또한 응용 프로그램 및 서비스를 확인할 수 있습니다.
+관리자 역할이 할당된 사용자는 읽기 및 쓰기 기능을 포함한 관리 기능에 대한 모든 권한을 가집니다. 사용자 역할이 할당된 사용자는 기본적으로 관리 기능(예: 쿼리 기능)에 대한 읽기 권한만을 갖습니다. 또한 애플리케이션 및 서비스를 확인할 수 있습니다.
 
 클러스터를 만들 때 관리자 및 사용자 클라이언트 역할을 설정합니다. 각 역할 유형에 대해 별도 ID를 제공하여 역할을 할당합니다(예: 인증서 또는 Azure AD 사용). 기본 액세스 제어 설정 및 기본 설정을 변경하는 방법에 대한 자세한 내용은 [Service Fabric 클라이언트에 대한 역할 기반 액세스 제어](service-fabric-cluster-security-roles.md)를 참조하세요.
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509 인증서 및 서비스 패브릭
-X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일반적으로 사용됩니다. 또한 암호화하고 디지털로 메시지를 서명하는 데 사용됩니다. 서비스 패브릭은 클러스터에 보안 적용을 하고 응용 프로그램 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. X.509 디지털 인증서에 대한 자세한 내용은 [인증서 사용](https://msdn.microsoft.com/library/ms731899.aspx)을 참조하세요. [Key Vault](../key-vault/key-vault-get-started.md)를 사용하여 Azure에서 Service Fabric 클러스터에 대한 인증서를 관리합니다.
+X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일반적으로 사용됩니다. 또한 암호화하고 디지털로 메시지를 서명하는 데 사용됩니다. 서비스 패브릭은 클러스터에 보안 적용을 하고 애플리케이션 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. X.509 디지털 인증서에 대한 자세한 내용은 [인증서 사용](https://msdn.microsoft.com/library/ms731899.aspx)을 참조하세요. [Key Vault](../key-vault/key-vault-get-started.md)를 사용하여 Azure에서 Service Fabric 클러스터에 대한 인증서를 관리합니다.
 
 고려할 몇 가지 중요한 사항은 다음과 같습니다.
 
@@ -113,9 +113,9 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일�
 * 인증서의 **용도** 필드의 값은 **서버 인증** 또는 **클라이언트 인증**과 같은 적절한 값을 포함해야 합니다.
 
 ### <a name="application-certificates-optional"></a>응용 프로그램 인증서(선택 사항)
-응용 프로그램 보안을 위해 클러스터에 제한 없는 수의 인증서를 추가로 설치할 수 있습니다. 클러스터를 만들기 전에, 다음과 같이 노드에 인증서를 설치하도록 요구하는 응용 프로그램 보안 시나리오를 고려해 보세요.
+애플리케이션 보안을 위해 클러스터에 제한 없는 수의 인증서를 추가로 설치할 수 있습니다. 클러스터를 만들기 전에, 다음과 같이 노드에 인증서를 설치하도록 요구하는 애플리케이션 보안 시나리오를 고려해 보세요.
 
-* 응용 프로그램 구성 값의 암호화 및 암호 해독
+* 애플리케이션 구성 값의 암호화 및 암호 해독
 * 복제 중에 노드 간 데이터 암호화
 
 Linux나 Windows 클러스터 모두 보안 클러스터를 만드는 개념은 같습니다.

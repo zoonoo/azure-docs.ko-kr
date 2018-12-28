@@ -17,19 +17,19 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/12/2018
 ms.locfileid: "38991631"
 ---
-# <a name="start-monitoring-your-nodejs-web-application"></a>Node.js 웹 응용 프로그램 모니터링 시작
+# <a name="start-monitoring-your-nodejs-web-application"></a>Node.js 웹 애플리케이션 모니터링 시작
 
-Azure Application Insights를 사용하면 웹 응용 프로그램의 가용성, 성능 및 사용량을 쉽게 모니터링할 수 있습니다. 또한 사용자가 보고할 때까지 기다리지 않고 응용 프로그램의 오류를 빠르게 식별하고 진단할 수 있습니다. SDK 릴리스 버전 0.20 이상을 사용하면 MongoDB, MySQL 및 Redis를 포함하여 일반적인 타사 패키지를 모니터링할 수 있습니다.
+Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 성능 및 사용량을 쉽게 모니터링할 수 있습니다. 또한 사용자가 보고할 때까지 기다리지 않고 애플리케이션의 오류를 빠르게 식별하고 진단할 수 있습니다. SDK 릴리스 버전 0.20 이상을 사용하면 MongoDB, MySQL 및 Redis를 포함하여 일반적인 타사 패키지를 모니터링할 수 있습니다.
 
-이 빠른 시작은 기존 Node.js 웹 응용 프로그램에 Node.js용 Application Insights SDK 버전 0.22를 추가하는 방법을 안내합니다.
+이 빠른 시작은 기존 Node.js 웹 애플리케이션에 Node.js용 Application Insights SDK 버전 0.22를 추가하는 방법을 안내합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-- Azure 구독과 기존 Node.js 웹 응용 프로그램이 필요합니다.
+- Azure 구독과 기존 Node.js 웹 애플리케이션이 필요합니다.
 
-Node.js 웹 응용 프로그램이 없는 경우 [Node.js 웹앱 만들기 빠른 시작](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)에 따라 Node.js 웹 응용 프로그램을 만들 수 있습니다.
+Node.js 웹 애플리케이션이 없는 경우 [Node.js 웹앱 만들기 빠른 시작](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)에 따라 Node.js 웹 애플리케이션을 만들 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="enable-application-insights"></a>Application Insights 사용
 
-Application Insights는 온-프레미스 또는 클라우드에서 실행되는지 여부에 관계 없이 인터넷에 연결된 모든 응용 프로그램에서 원격 분석 데이터를 수집할 수 있습니다. 이 데이터를 보기 시작하려면 다음 단계를 사용합니다.
+Application Insights는 온-프레미스 또는 클라우드에서 실행되는지 여부에 관계 없이 인터넷에 연결된 모든 애플리케이션에서 원격 분석 데이터를 수집할 수 있습니다. 이 데이터를 보기 시작하려면 다음 단계를 사용합니다.
 
 1. **리소스 만들기** > **모니터링 + 관리** > **Application Insights**를 선택합니다.
 
@@ -50,7 +50,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
     | 설정        | 값           | 설명  |
    | ------------- |:-------------|:-----|
    | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **응용 프로그램 유형** | Node.js 응용 프로그램 | 모니터링하는 응용 프로그램의 유형입니다. |
+   | **응용 프로그램 유형** | Node.js 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
    | **위치**: | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
@@ -62,7 +62,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![새로운 App Insights 리소스 형식](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
 
-2. Node.js용 Application Insights SDK를 응용 프로그램에 추가합니다. 응용 프로그램의 루트 폴더에서 다음을 실행합니다.
+2. Node.js용 Application Insights SDK를 애플리케이션에 추가합니다. 응용 프로그램의 루트 폴더에서 다음을 실행합니다.
 
    ```bash
    npm install applicationinsights --save
@@ -82,19 +82,19 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Azure Portal에서 모니터링 시작
 
-1. 이제 계측 키를 검색한 Azure Portal에서 Application Insights **개요** 페이지를 다시 열어 현재 실행 중인 응용 프로그램에 대한 세부 정보를 볼 수 있습니다.
+1. 이제 계측 키를 검색한 Azure Portal에서 Application Insights **개요** 페이지를 다시 열어 현재 실행 중인 애플리케이션에 대한 세부 정보를 볼 수 있습니다.
 
    ![Application Insights 개요 메뉴](./media/app-insights-nodejs-quick-start/overview-001.png)
 
-2. 응용 프로그램 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **앱 맵**을 클릭합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
+2. 애플리케이션 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **앱 맵**을 클릭합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
    ![애플리케이션 맵](./media/app-insights-nodejs-quick-start/application-map.png)
 
-3. **앱 분석** 아이콘![ 응용 프로그램 맵 아이콘](./media/app-insights-nodejs-quick-start/006.png)을 클릭합니다.  그러면 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights 분석**이 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
+3. **앱 분석** 아이콘![ 응용 프로그램 맵 아이콘](./media/app-insights-nodejs-quick-start/006.png)을 클릭합니다.  그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
    ![일정 기간의 사용자 요청에 대한 분석 그래프](./media/app-insights-nodejs-quick-start/007-Black.png)
 
-4. **개요** 페이지로 돌아가서 KPI 그래프를 검사합니다.  이 대시보드는 들어오는 요청의 수, 해당 요청의 기간 및 발생한 모든 오류를 포함하여 응용 프로그램 상태에 대한 통계를 제공합니다. 
+4. **개요** 페이지로 돌아가서 KPI 그래프를 검사합니다.  이 대시보드는 들어오는 요청의 수, 해당 요청의 기간 및 발생한 모든 오류를 포함하여 애플리케이션 상태에 대한 통계를 제공합니다. 
 
    ![상태 개요 타임라인 그래프](./media/app-insights-nodejs-quick-start/overview-perf.png)
 

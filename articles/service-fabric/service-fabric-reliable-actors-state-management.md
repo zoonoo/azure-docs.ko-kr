@@ -81,7 +81,7 @@ class MyActorImpl extends FabricActor implements MyActor
 이 설정은 메모리내 전용 상태 제공자를 사용하고 복제본 수를 1로 설정합니다.
 
 ### <a name="defaults-and-generated-settings"></a>기본값 및 생성된 설정
-`StatePersistence` 특성을 사용하는 경우 행위자 서비스를 시작할 때 런타임 시 상태 제공자가 자동으로 선택됩니다. 그러나 복제본 수는 Visual Studio 행위자 빌드 도구에 의해 컴파일 시점에 설정됩니다. 빌드 도구는 ApplicationManifest.xml의 행위자 서비스에 대한 *기본 서비스* 를 자동으로 생성합니다. **최소 복제본 세트 크기** 및 **대상 복제본 세트 크기**에 대한 매개 변수를 만듭니다.
+`StatePersistence` 특성을 사용하는 경우 행위자 서비스를 시작할 때 런타임 시 상태 제공자가 자동으로 선택됩니다. 그러나 복제본 수는 Visual Studio 행위자 빌드 도구에 의해 컴파일 시점에 설정됩니다. 빌드 도구는 ApplicationManifest.xml의 행위자 서비스에 대한 *기본 서비스*를 자동으로 생성합니다. **최소 복제본 세트 크기** 및 **대상 복제본 세트 크기**에 대한 매개 변수를 만듭니다.
 
 이러한 매개 변수를 수동으로 변경할 수 있지만 `StatePersistence` 특성을 변경할 때마다 매개 변수는 이전 값을 재정의하여 선택된 `StatePersistence` 특성에 대한 기본 복제본 세트 크기 값으로 설정됩니다. 즉, ServiceManifest.xml에서 설정한 값은 `StatePersistence` 특성 값을 변경하는 경우 빌드 시에*만* 재정의됩니다.
 

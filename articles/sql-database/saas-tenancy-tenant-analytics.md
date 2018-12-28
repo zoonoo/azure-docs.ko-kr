@@ -69,7 +69,7 @@ ms.locfileid: "47393267"
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 
-- Wingtip Tickets SaaS Database Per Tenant 애플리케이션이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip SaaS 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
+- Wingtip Tickets SaaS Database Per Tenant 애플리케이션이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip SaaS 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
 - Wingtip Tickets SaaS Database Per Tenant 스크립트와 애플리케이션 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)를 GitHub에서 다운로드해야 합니다. 다운로드 지침을 참조하세요. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제*해야 합니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 - Power BI Desktop이 설치되어 있어야 합니다. [Power BI Desktop 다운로드](https://powerbi.microsoft.com/downloads/)
 - 추가 테넌트 배치가 프로비전되어 있어야 합니다. [**테넌트 프로비전 자습서**](saas-dbpertenant-provision-and-catalog.md)를 참조하세요.

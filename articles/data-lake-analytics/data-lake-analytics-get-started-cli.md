@@ -50,7 +50,7 @@ az account set --subscription <subscription id>
 ## <a name="create-data-lake-analytics-account"></a>데이터 레이크 분석 계정 만들기
 모든 작업을 실행하기 전에 Data Lake Analytics 계정이 있어야 합니다. Data Lake Analytics 계정을 만들려면 다음 항목을 지정해야 합니다.
 
-* **Azure 리소스 그룹**. Azure 리소스 그룹 내에서 Data Lake Analytics 계정을 만들어야 합니다. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
+* **Azure 리소스 그룹**. Azure 리소스 그룹 내에서 Data Lake Analytics 계정을 만들어야 합니다. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 애플리케이션에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
 
 구독 중인 기존 리소스 그룹을 나열하려면
 

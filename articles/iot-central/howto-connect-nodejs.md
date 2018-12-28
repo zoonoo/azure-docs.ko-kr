@@ -95,7 +95,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정값 및 디바이스 �
 
 Azure IoT Central 응용 프로그램에서, 자신이 만든 디바이스 템플릿으로 실제 디바이스를 추가하고 디바이스 연결 문자열을 기록해 둡니다. IoT Central에 Node.js 응용 프로그램을 연결하는 방법에 대한 단계별 지침은 [응용 프로그램에서 실제 장치에 대한 연결 문자열 생성](tutorial-add-device.md#generate-connection-string-for-real-device-from-application) 및 자습서 > 장치 추가에서 [클라이언트 코드 준비](tutorial-add-device.md#prepare-the-client-code)를 참조하세요.
 
-### <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
+### <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
 
 다음 단계에서는 응용 프로그램에 추가한 실제 디바이스를 구현하는 클라이언트 응용 프로그램을 만드는 방법을 보여줍니다. Node.js 애플리케이션은 실제 물리적 디바이스를 나타냅니다. 
 

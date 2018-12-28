@@ -24,7 +24,7 @@ ms.lasthandoff: 07/31/2018
 ms.locfileid: "39368761"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱의 이름 또는 로고 변경
-Azure AD(Azure Active Directory)에서 사용자 정의 엔터프라이즈 응용 프로그램에 대한 이름 또는 로고를 변경하는 것은 쉽습니다. 이러한 변경을 수행하려면 적절한 권한이 있고 사용자 지정 앱에 대한 작성자여야 합니다.
+Azure AD(Azure Active Directory)에서 사용자 정의 엔터프라이즈 애플리케이션에 대한 이름 또는 로고를 변경하는 것은 쉽습니다. 이러한 변경을 수행하려면 적절한 권한이 있고 사용자 지정 앱에 대한 작성자여야 합니다.
 
 ## <a name="how-do-i-change-an-enterprise-apps-name-or-logo"></a>엔터프라이즈 앱의 이름 또는 로고를 변경하려면 어떻게 해야 합니까?
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.

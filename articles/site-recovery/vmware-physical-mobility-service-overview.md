@@ -5,27 +5,27 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/04/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: efbbe048456c969f0045a0588bc5b64d1138ee15
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: e3967319cd41399209bd50886bce88efc8ba6ba6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976964"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956519"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스
 
 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 VMware VM 및 물리적 서버에 대한 재해 복구를 설정할 경우 각 온-프레미스 VMware VM 및 물리적 서버에 Site Recovery Mobility 서비스를 설치합니다.  Mobility 서비스는 머신에 기록된 데이터를 캡처하고 이를 Site Recovery 프로세스 서버에 전달합니다. 다음 메서드를 사용하여 Mobility 서비스를 설치할 수 있습니다.
 
-[푸시 설치](vmware-azure-install-mobility-service.md): Mobility 서비스의 푸시 설치를 수행하도록 Site Recovery를 구성합니다. 이를 위해 재해 복구를 구성할 때 Site Recovery 프로세스 서버가 서비스 설치를 위해 VM 또는 물리적 서버에 액세스하는 데 사용할 수 있는 계정도 설정합니다.
+[푸시 설치](vmware-azure-install-mobility-service.md): Site Recovery를 구성하여 Mobility 서비스의 푸시 설치를 수행합니다. 이를 위해 재해 복구를 설정할 때 Site Recovery 프로세스 서버가 서비스 설치를 위해 VM 또는 물리적 서버에 액세스하는 데 사용할 수 있는 계정도 설정합니다.
 [수동으로 설치](vmware-physical-mobility-service-install-manual.md): UI 또는 명령 프롬프트를 사용하여 각 머신에서 수동으로 Mobility 서비스를 설치할 수 있습니다.
-[자동 배포](vmware-azure-mobility-install-configuration-mgr.md): System Center Configuration Manager 같은 소프트웨어 배포 도구를 사용하여 설치를 자동화할 수 있습니다.
+[자동화된 배포](vmware-azure-mobility-install-configuration-mgr.md): System Center Configuration Manager 같은 소프트웨어 배포 도구를 사용하여 설치를 자동화할 수 있습니다.
 
 ## <a name="azure-virtual-machine-agent"></a>Azure Virtual Machine 에이전트
 
-- **Windows VM**: Mobility 서비스 버전 9.7.0.0부터 [Azure VM 에이전트](../virtual-machines/extensions/features-windows.md#azure-vm-agent)를 Mobility 서비스 설치 관리자가 설치합니다. 이렇게 하면 머신이 Azure로 장애 조치되는 경우에는 Azure VM이 VM 확장 사용을 위한 에이전트 설치 필수 조건을 충족하게 됩니다.
-- **Linux VM**: 장애 조치(failover) 후 [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent)가 Azure VM에 수동으로 설치되어야 합니다.
+- **Windows VM**: Mobility 서비스 버전 9.7.0.0부터 Mobility 서비스 설치 관리자가 [Azure VM 에이전트](../virtual-machines/extensions/features-windows.md#azure-vm-agent)를 설치합니다. 이렇게 하면 머신이 Azure로 장애 조치되는 경우에는 Azure VM이 VM 확장 사용을 위한 에이전트 설치 필수 조건을 충족하게 됩니다.
+- **Linux VM**: 장애 조치(failover) 후 [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent)를 Azure VM에 수동으로 설치해야 합니다.
 
 ## <a name="installer-files"></a>설치 관리자 파일
 
@@ -56,11 +56,11 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 2. 포털에서 자격 증명 모음 > **복제된 항목**을 엽니다.
 3. 구성 서버를 최신 버전으로 업데이트한 경우 “새 Site Recovery 복제 에이전트 업데이트를 사용할 수 있습니다. 설치하려면 클릭하세요.”라는 알림이 표시됩니다.
 
-     ![복제된 항목 창](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![복제된 항목 창](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
 4. 알림을 클릭하고 **에이전트 업데이트**에서 Mobility 서비스를 업그레이드하려는 머신을 선택합니다. 그런 후 **OK**를 클릭합니다.
 
-     ![복제된 항목 VM 목록](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![복제된 항목 VM 목록](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 5. 선택한 머신 각각에 대한 Mobility Service 업데이트 작업이 시작됩니다.
 
@@ -75,7 +75,7 @@ Site Recovery를 배포하여 Mobility 서비스의 푸시 설치를 사용하�
 UI 또는 명령 프롬프트에서 제거합니다.
 
 - **UI에서**: 머신의 제어판에서 **프로그램**을 선택합니다. **Microsoft Azure Site Recovery Mobility 서비스/마스터 대상 서버** > **제거**를 선택합니다.
-- **명령 프롬프트에서**: 머신에서 관리자 권한으로 명령 프롬프트 창을 엽니다. 다음 명령 실행: 
+- **명령 프롬프트에서**: 머신에서 명령 프롬프트 창을 관리자로 엽니다. 다음 명령 실행: 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
     ```

@@ -1,6 +1,6 @@
 ---
-title: 웹 응용 프로그램 방화벽으로 웹 트래픽 제한 - Azure PowerShell
-description: Azure PowerShell을 사용하여 응용 프로그램 게이트웨이에서 웹 응용 프로그램 방화벽의 웹 트래픽을 제한하는 방법을 알아봅니다.
+title: 웹 애플리케이션 방화벽으로 웹 트래픽 제한 - Azure PowerShell
+description: Azure PowerShell을 사용하여 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽의 웹 트래픽을 제한하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -75,7 +75,7 @@ $pip = New-AzureRmPublicIpAddress `
   -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
 이 섹션에서는 애플리케이션 게이트웨이를 지원하는 리소스를 만든 다음, 최종적으로 애플리케이션 게이트웨이 및 WAF를 만듭니다. 다음과 같은 리소스를 만듭니다.
 
@@ -125,7 +125,7 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>기본 수신기 및 규칙 만들기
 
-수신기는 응용 프로그램 게이트웨이를 백 엔드 주소 풀에 트래픽을 적절하게 라우팅하도록 설정해야 합니다. 이 예제에서는 루트 URL에서 트래픽을 수신하는 기본 수신기를 만듭니다. 
+수신기는 애플리케이션 게이트웨이를 백 엔드 주소 풀에 트래픽을 적절하게 라우팅하도록 설정해야 합니다. 이 예제에서는 루트 URL에서 트래픽을 수신하는 기본 수신기를 만듭니다. 
 
 이전에 만든 프론트 엔드 구성 및 프론트 엔드 포트가 포함된 [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener)를 사용하여 *mydefaultListener*라는 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule)을 사용하여 *rule1*이라는 기본 규칙을 만듭니다.
 
@@ -144,9 +144,9 @@ $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
   -BackendHttpSettings $poolSettings
 ```
 
-### <a name="create-the-application-gateway-with-the-waf"></a>WAF를 사용하여 응용 프로그램 게이트웨이 만들기
+### <a name="create-the-application-gateway-with-the-waf"></a>WAF를 사용하여 애플리케이션 게이트웨이 만들기
 
-이제 필요한 지원 리소스를 만들었으므로 [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku)를 사용하여 응용 프로그램 게이트웨이에 대한 매개 변수를 지정합니다. [New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewaywebapplicationfirewallconfiguration)을 사용하여 WAF 구성을 지정합니다. 그런 다음, [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway)를 사용하여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만듭니다.
+이제 필요한 지원 리소스를 만들었으므로 [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku)를 사용하여 애플리케이션 게이트웨이에 대한 매개 변수를 지정합니다. [New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewaywebapplicationfirewallconfiguration)을 사용하여 WAF 구성을 지정합니다. 그런 다음, [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만듭니다.
 
 ```azurepowershell-interactive
 $sku = New-AzureRmApplicationGatewaySku `
@@ -175,7 +175,7 @@ $appgw = New-AzureRmApplicationGateway `
 
 ## <a name="create-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 응용 프로그램 게이트웨이에서 백 엔드 풀에 대한 서버를 제공하도록 가상 머신 확장 집합을 만듭니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
+이 예제에서는 애플리케이션 게이트웨이에서 백 엔드 풀에 대한 서버를 제공하도록 가상 머신 확장 집합을 만듭니다. IP 설정을 구성할 때 확장 집합을 백 엔드 풀에 할당합니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -248,7 +248,7 @@ Update-AzureRmVmss `
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>저장소 계정 만들기 및 진단 구성
 
-이 자습서에서 응용 프로그램 게이트웨이는 저장소 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Log Analytics 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다.
+이 자습서에서 애플리케이션 게이트웨이는 저장소 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Log Analytics 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다.
 
 ### <a name="create-the-storage-account"></a>저장소 계정 만들기
 

@@ -3,7 +3,7 @@ title: Azure SQL Database를 사용하여 규모 확장 | Microsoft Docs
 description: SaaS(Software as a Service) 개발자는 이러한 도구를 사용하여 클라우드에서 확장 가능한 탄력적 데이터베이스를 쉽게 만들 수 있습니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,20 +12,20 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: ab787e8f659d2f57f23bb87397608736e7f6848a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a36c5cfc977920f43b7f73e3e7cf9176de7c1f8a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164916"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867089"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Azure SQL Database를 사용하여 규모 확장
 **Elastic Database** 도구를 사용하여 Azure SQL 데이터베이스의 규모를 쉽게 확장할 수 있습니다. 이러한 도구와 기능을 사용하면 **Azure SQL Database**의 데이터베이스 리소스를 사용하여 트랜잭션 워크로드에 대한 솔루션, 특히 SaaS(Software as a Service) 응용 프로그램을 만들 수 있습니다. Elastic Database 기능은 다음으로 구성됩니다.
 
 * [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md): 클라이언트 라이브러리는 분할된 데이터베이스를 만들고 유지 관리할 수 있도록 해주는 기능입니다.  [Elastic Database 도구 시작하기](sql-database-elastic-scale-get-started.md)를 참조하세요.
 * [Elastic Database 분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md): 분할된 데이터베이스 간에 데이터를 이동합니다. 이 도구는 데이터를 다중 테넌트 데이터베이스에서 단일 테넌트 데이터베이스로 또는 그 반대로 이동하는 데 유용합니다. [탄력적 데이터베이스 분할-병합 도구 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
-* [Elastic Database 작업](sql-database-elastic-jobs-overview.md) (미리 보기): 작업을 사용하여 많은 수의 Azure SQL 데이터베이스를 관리합니다. 작업을 사용하여 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 컬렉션 등의 관리 작업을 쉽게 수행합니다.
-* [Elastic Database 쿼리](sql-database-elastic-query-overview.md) (미리 보기): 여러 데이터베이스에 걸쳐 있는 Transact-SQL 쿼리를 실행할 수 있습니다. 이렇게 하면 Excel, Power BI, Tableau 등과 같은 보고 도구에 연결할 수 있습니다.
+* [Elastic Database 작업](sql-database-elastic-jobs-overview.md)(미리 보기): 작업을 사용하여 많은 수의 Azure SQL 데이터베이스를 관리합니다. 작업을 사용하여 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 컬렉션 등의 관리 작업을 쉽게 수행합니다.
+* [Elastic Database 쿼리](sql-database-elastic-query-overview.md)(미리 보기): 여러 데이터베이스에 걸쳐 있는 Transact-SQL 쿼리를 실행할 수 있습니다. 이렇게 하면 Excel, Power BI, Tableau 등과 같은 보고 도구에 연결할 수 있습니다.
 * [탄력적 트랜잭션](sql-database-elastic-transactions-overview.md): 이 기능을 사용하면 Azure SQL Database의 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. 탄력적 데이터베이스 트랜잭션은 ADO .NET을 사용하여 .NET 응용 프로그램에서 사용할 수 있고 [System.Transaction 클래스](https://msdn.microsoft.com/library/system.transactions.aspx)를 사용하여 친숙한 프로그래밍 환경과 통합될 수 있습니다.
 
 아래 그림은 데이터베이스 컬렉션과 관련된 **Elastic Database 기능** 을 포함하는 아키텍처를 보여 줍니다.

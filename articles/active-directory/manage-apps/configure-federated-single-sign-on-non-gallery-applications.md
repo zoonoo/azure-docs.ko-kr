@@ -1,6 +1,6 @@
 ---
-title: 비갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성하는 방법 | Microsoft Docs
-description: Azure AD와 통합할 사용자 지정 비갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성하는 방법
+title: 비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법 | Microsoft Docs
+description: Azure AD와 통합할 사용자 지정 비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -21,12 +21,12 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2018
 ms.locfileid: "44355950"
 ---
-# <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>비갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성하는 방법
+# <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 
 비갤러리 애플리케이션에 대해 *코드를 작성하지 않고* Single Sign-On을 구성하려면 Azure AD Premium 구독이 있어야 하며 애플리케이션이 SAML 2.0을 지원해야 합니다. Azure AD 버전에 대한 자세한 내용은 [Azure AD 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
 
 ## <a name="overview-of-steps-required"></a>필요한 단계 개요
-다음은 비갤러리(예: 사용자 지정) 응용 프로그램에 대해 SAML 2.0을 사용하여 페더레이션된 Single Sign-On을 구성하는 데 필요한 단계를 요약한 개요입니다.
+다음은 비갤러리(예: 사용자 지정) 애플리케이션에 대해 SAML 2.0을 사용하여 페더레이션된 Single Sign-On을 구성하는 데 필요한 단계를 요약한 개요입니다.
 
 -   [Azure AD에서 응용 프로그램의 메타데이터 값 구성(로그온 URL, 식별자, 회신 URL)](#_Configuring_single_sign-on)
 
@@ -38,9 +38,9 @@ ms.locfileid: "44355950"
 
 -   [응용 프로그램에 사용자 할당](#_Assign_users_to_the_application)
 
-## <a name="configuring-single-sign-on-to-non-gallery-applications"></a>비갤러리 응용 프로그램에 Single Sign-On 구성
+## <a name="configuring-single-sign-on-to-non-gallery-applications"></a>비갤러리 애플리케이션에 Single Sign-On 구성
 
-Azure AD 갤러리에 없는 응용 프로그램에 대해 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
+Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
@@ -78,11 +78,11 @@ Azure AD 갤러리에 없는 응용 프로그램에 대해 Single Sign-On을 구
 
    2. **저장**을 클릭합니다. 테이블에 새 특성이 표시됩니다.
 
-14. 응용 프로그램의 Single Sign-On을 구성하는 방법에 관한 문서에 액세스하려면 **&lt;응용 프로그램 이름&gt; 구성**을 클릭합니다. 또한 응용 프로그램에 필요한 Azure AD URL과 인증서가 있습니다.
+14. 응용 프로그램의 Single Sign-On을 구성하는 방법에 관한 문서에 액세스하려면 **&lt;응용 프로그램 이름&gt; 구성**을 클릭합니다. 또한 애플리케이션에 필요한 Azure AD URL과 인증서가 있습니다.
 
 15. [응용 프로그램에 사용자를 할당합니다.](#assign-users-to-the-application)
 
-## <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>사용자 식별자를 선택하고 응용 프로그램에 보낼 사용자 특성 추가
+## <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>사용자 식별자를 선택하고 애플리케이션에 보낼 사용자 특성 추가
 
 사용자 식별자를 선택하거나 사용자 특성을 추가하려면 아래 단계를 수행합니다.
 
@@ -96,15 +96,15 @@ Azure AD 갤러리에 없는 응용 프로그램에 대해 Single Sign-On을 구
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
-  * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+  * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
 6.  Single Sign-On을 구성한 애플리케이션을 선택합니다.
 
 7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
-8.  **사용자 특성** 섹션 아래의 **사용자 식별자** 드롭다운에서 사용자의 고유한 식별자를 선택합니다. 사용자를 인증하려면 선택한 옵션이 응용 프로그램의 예상 값과 일치해야 합니다.
+8.  **사용자 특성** 섹션 아래의 **사용자 식별자** 드롭다운에서 사용자의 고유한 식별자를 선택합니다. 사용자를 인증하려면 선택한 옵션이 애플리케이션의 예상 값과 일치해야 합니다.
 
- >[!NOTE] Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 응용 프로그램이 요청한 형식을 기반으로 NameID 특성(사용자 식별자)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
+ >[!NOTE] Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 식별자)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
  >
  >
 
@@ -130,7 +130,7 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
-   * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
 6.  Single Sign-On을 구성한 애플리케이션을 선택합니다.
 
@@ -140,9 +140,9 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
 Azure AD에서도 메타데이터를 가져오는 URL을 제공합니다. 애플리케이션 관련 메타데이터 URL(https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>)을 가져오려면 이 패턴을 따릅니다.
 
-## <a name="assign-users-to-the-application"></a>응용 프로그램에 사용자 할당
+## <a name="assign-users-to-the-application"></a>애플리케이션에 사용자 할당
 
-응용 프로그램에 하나 이상의 사용자를 직접 할당하려면 다음 단계를 수행합니다.
+애플리케이션에 하나 이상의 사용자를 직접 할당하려면 다음 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
@@ -154,9 +154,9 @@ Azure AD에서도 메타데이터를 가져오는 URL을 제공합니다. 애플
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
-  * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+  * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
-6.  목록에서 사용자를 할당하려는 응용 프로그램을 선택합니다.
+6.  목록에서 사용자를 할당하려는 애플리케이션을 선택합니다.
 
 7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -170,17 +170,17 @@ Azure AD에서도 메타데이터를 가져오는 URL을 제공합니다. 애플
 
 12. **선택 사항:** **둘 이상의 사용자를 추가**하려는 경우 **이름 또는 전자 메일 주소로 검색** 검색 상자에 다른 **전체 이름** 또는 **전자 메일 주소**를 입력하고 확인란을 클릭하여 이 사용자를 **선택됨** 목록에 추가합니다.
 
-13. 사용자 선택이 완료되면 **선택** 단추를 클릭하여 응용 프로그램에 할당되도록 사용자 및 그룹의 목록에 추가합니다.
+13. 사용자 선택이 완료되면 **선택** 단추를 클릭하여 애플리케이션에 할당되도록 사용자 및 그룹의 목록에 추가합니다.
 
 14. **선택 사항:** **할당 추가** 창에서 **역할 선택** 선택기를 클릭하여 선택한 사용자에게 할당할 역할을 선택합니다.
 
 15. **할당** 단추를 클릭하여 선택한 사용자에게 응용 프로그램을 할당합니다.
 
-잠시 후 선택한 사용자는 솔루션 설명 섹션에 설명된 메서드를 사용하여 이러한 응용 프로그램을 시작할 수 있습니다.
+잠시 후에 선택한 사용자는 솔루션 설명 섹션에 설명된 메서드를 사용하여 이러한 애플리케이션을 시작할 수 있습니다.
 
-## <a name="customizing-the-saml-claims-sent-to-an-application"></a>응용 프로그램에 보낸 SAML 클레임 사용자 지정
+## <a name="customizing-the-saml-claims-sent-to-an-application"></a>애플리케이션에 보낸 SAML 클레임 사용자 지정
 
-응용 프로그램에 전송된 SAML 특성 클레임을 사용자 지정하는 방법을 알아보려면 [Azure Active Directory의 클레임 매핑](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)을 참조하세요.
+애플리케이션에 전송된 SAML 특성 클레임을 사용자 지정하는 방법을 알아보려면 [Azure Active Directory의 클레임 매핑](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)

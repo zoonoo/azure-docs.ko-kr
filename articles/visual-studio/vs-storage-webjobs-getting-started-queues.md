@@ -117,7 +117,7 @@ SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링
 
 Azure 저장소 API에서 직접 작업하려면 **CloudStorageAccount** 매개 변수를 추가하면 됩니다.
 
-다음 예제에서는 이러한 모든 메타데이터를 INFO 응용 프로그램 로그에 씁니다. 예제에서 logMessage와 queueTrigger에는 둘 다 큐 메시지의 내용이 포함됩니다.
+다음 예제에서는 이러한 모든 메타데이터를 INFO 애플리케이션 로그에 씁니다. 예제에서 logMessage와 queueTrigger에는 둘 다 큐 메시지의 내용이 포함됩니다.
 
 ```csharp
 public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
@@ -550,7 +550,7 @@ WebJobs SDK 대시보드에서 콘솔 출력의 최근 100줄은 함수 호출�
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-Azure Blob에서 응용 프로그램 로그는 다음과 같습니다. 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
+Azure Blob에서 애플리케이션 로그는 다음과 같습니다. 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
 
 Azure 테이블에서 **Console.Out** 및 **Console.Error** 로그는 다음과 같이 표시됩니다.
 

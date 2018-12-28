@@ -5,14 +5,14 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: ddbfdc9928122373b82d043fac0777576c5fe99e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7a4ff22bbb4c7c13d8c2feae3638ce8e33a8f7ad
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227487"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845827"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Azure Site Recovery 에이전트를 사용하여 문제 해결
 
@@ -21,14 +21,14 @@ ms.locfileid: "51227487"
 
 ## <a name="azure-site-recovery-extension-time-out"></a>Azure Site Recovery 확장 시간 초과  
 
-오류 메시지: “확장 작업이 시작될 때까지 추적하는 동안 작업 실행 시간이 초과되었습니다.”<br>
+오류 메시지: “시작할 확장 작업을 추적하는 동안 작업 실행 시간이 초과되었습니다.”<br>
 오류 코드: “151076”
 
  Azure Site Recovery에서는 보호 사용 작업의 일부로 가상 머신에 확장을 설치합니다. 다음 조건 중 하나라도 충족되지 않을 경우 보호 기능이 트리거되지 않고 작업이 실패할 수 있습니다. 다음 문제 해결 단계를 완료한 후, 작업을 다시 시도하세요.
 
 **원인 1: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
 **원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**원인 3: [Site Recovery 확장을 업데이트 또는 로드하지 못했습니다.](#the-site-recovery-extension-fails-to-update-or-load)**  
+**원인 3: [Site Recovery 확장을 업데이트 또는 로드하지 못합니다.](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 오류 메시지: “이전 Site Recovery 확장 작업이 예상보다 더 오래 걸립니다.”<br>
 오류 코드: “150066”<br>
@@ -39,7 +39,7 @@ ms.locfileid: "51227487"
 
 ## <a name="protection-fails-because-the-vm-agent-is-unresponsive"></a>VM 에이전트가 응답하지 않으므로 보호 기능이 실패합니다.
 
-오류 메시지: “확장 작업이 시작될 때까지 추적하는 동안 작업 실행 시간이 초과되었습니다.”<br>
+오류 메시지: “시작할 확장 작업을 추적하는 동안 작업 실행 시간이 초과되었습니다.”<br>
 오류 코드: “151099”<br>
 
 이 오류는 가상 머신의 Azure 게스트 에이전트가 준비 상태가 아닌 경우에 발생할 수 있습니다.
@@ -49,7 +49,7 @@ ms.locfileid: "51227487"
 **원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 
-오류 메시지: “확장 작업이 시작될 때까지 추적하는 동안 작업 실행 시간이 초과되었습니다.”<br>
+오류 메시지: “시작할 확장 작업을 추적하는 동안 작업 실행 시간이 초과되었습니다.”<br>
 오류 코드: “151095”<br>
 
 이 오류는 Linux 머신의 에이전트 버전이 오래된 경우에 발생합니다. 다음 문제 해결 단계를 완료합니다.<br>

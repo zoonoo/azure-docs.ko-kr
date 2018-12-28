@@ -146,7 +146,7 @@ Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 
 
 ### <a name="joins"></a>조인
 
-데이터 스트림이 조인되는 방식은 응용 프로그램마다 다릅니다. 예를 들어 여러 스트림의 각 튜플을 새 스트림 하나에 조인할 수도 있고 특정 창에 대한 튜플 배치만 조인할 수도 있습니다. 어떤 방법을 사용하든 [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)을 통해 조인을 수행할 수 있습니다. 필드 그룹화는 튜플을 Bolt로 라우팅하는 방식을 정의합니다.
+데이터 스트림이 조인되는 방식은 애플리케이션마다 다릅니다. 예를 들어 여러 스트림의 각 튜플을 새 스트림 하나에 조인할 수도 있고 특정 창에 대한 튜플 배치만 조인할 수도 있습니다. 어떤 방법을 사용하든 [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)을 통해 조인을 수행할 수 있습니다. 필드 그룹화는 튜플을 Bolt로 라우팅하는 방식을 정의합니다.
 
 다음 Java 예제에서는 fieldsGrouping을 사용하여 구성 요소 "1", "2", "3"에서 생성된 튜플을 MyJoiner Bolt로 라우팅합니다.
 

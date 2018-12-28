@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d7c207f89b9cb50f940f071fbbf6ee81b4d44976
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8e265f2bed480f7b40476e09ab8f442aedcc9dd4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164326"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999444"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT 클러스터 배포
 
@@ -306,6 +306,15 @@ RESOURCE_GROUP=
 
 ![끝 부분에 관리 IP 주소를 표시하는 스크립트의 명령줄 출력](media/avere-vfxt-mgmt-ip.png)
 
+> [!IMPORTANT] 
+> 새 Blob 컨테이너를 만든 경우 클러스터 외부에 저장하지 않은 기본 키를 사용하여 해당 컨테이너를 암호화할 수 있습니다. 컨테이너에 데이터를 저장하기 전에 먼저 키 복구 파일을 다운로드하거나 사용자 고유의 암호화 키를 만들고 영구적인 위치에 해당 복구 파일을 저장해야 합니다. 
+> 
+> 복구 파일을 다운로드 하지 않고 기본 키를 사용하는 경우 vFXT 클러스터가 제거되거나 손실되면 Blob 코어 파일러의 암호화된 데이터에 액세스할 수 없습니다.
+>
+> 아래 스크린샷에 원으로 표시된 것과 같은 `WARNING` 메시지가 스크립트에 표시되는 경우 [스토리지 구성](avere-vfxt-add-storage.md)에 있는 지침을 따라 키 파일을 다운로드하거나 Blob 컨테이너용 새 키를 만듭니다. 클러스터 구성 도구인 Avere 제어판을 사용합니다.
+
+![새 암호화 키를 만드는 방법에 대한 경고 메시지를 표시하는 스크립트의 명령줄 출력](media/avere-vfxt-key-warning.png)
+
 ## <a name="next-step"></a>다음 단계
 
-이제 클러스터가 실행되고 관리 IP 주소를 알고 있으므로 [클러스터 구성 도구에 연결](avere-vfxt-cluster-gui.md)하여 지원을 사용하도록 설정하고, 필요한 경우 저장소를 추가할 수 있습니다.
+이제 클러스터가 실행되고 해당 관리 IP 주소를 알고 있으므로 [클러스터 구성 도구에 연결](avere-vfxt-cluster-gui.md)하여 지원을 사용하도록 설정하고, 필요한 경우 스토리지를 추가하거나, 새 Blob 스토리지에서 기본 암호화 키를 처리할 수 있습니다.

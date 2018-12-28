@@ -18,7 +18,7 @@ ms.locfileid: "51237539"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
-Key Vault를 사용하면 응용 프로그램 내에서 중요한 정보를 안전하게 액세스할 수 있습니다.
+Key Vault를 사용하면 애플리케이션 내에서 중요한 정보를 안전하게 액세스할 수 있습니다.
 
 - 키와 암호는 코드 작성 없이 보호되며 응용 프로그램에서 쉽게 사용할 수 있습니다.
 - 고객들에게 고유한 키를 부여하여 관리하게 하므로 핵심 소프트웨어 기능을 제공하는 데 집중할 수 있습니다 이러한 이유로 응용 프로그램에는 고객의 테넌트 키와 암호에 대한 책임 또는 잠재적인 법적 책임이 없습니다.
@@ -42,7 +42,7 @@ Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란
 
 ## <a name="videos"></a>동영상
 
-이 비디오에서는 사용자 고유의 키 자격 증명 모음을 만드는 방법과 'Hello Key Vault' 샘플 응용 프로그램에서 이를 사용하는 방법을 보여 줍니다.
+이 비디오에서는 사용자 고유의 키 자격 증명 모음을 만드는 방법과 'Hello Key Vault' 샘플 애플리케이션에서 이를 사용하는 방법을 보여 줍니다.
 
 - [Key Vault 개발자 - 빠른 시작 가이드](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
 
@@ -112,7 +112,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 ### <a name="code-examples"></a>코드 예제
 
-응용 프로그램에서 Key Vault를 사용하는 전체 예제는 다음을 참조하세요.
+애플리케이션에서 Key Vault를 사용하는 전체 예제는 다음을 참조하세요.
 
 - [Azure Key Vault 코드 샘플](https://azure.microsoft.com/resources/samples/?service=key-vault) - Azure Key Vault에 대한 코드 샘플입니다. 
 - [웹 응용 프로그램에서 Azure Key Vault 사용](quick-create-net.md) - Azure의 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 제공하는 자습서입니다. 

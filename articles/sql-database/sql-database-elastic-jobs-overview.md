@@ -3,7 +3,7 @@ title: 규모가 확장된 클라우드 데이터베이스 관리 | Microsoft Do
 description: 데이터베이스 그룹에 대해 스크립트를 실행하려면 Elastic Database 작업 서비스를 사용합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: f5878c510e048bea2ce1aedaf4e0e5dbb4611caf
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 9647522f4b3990d065f292f05934b8d19c691454
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242520"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865525"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>규모가 확장된 클라우드 데이터베이스 관리
 
@@ -81,8 +81,8 @@ Azure SQL Database의 사용자 지정 그룹을 정의하고 작업 실행을 �
 2. PowerShell API를 사용하여 사용자 지정 데이터베이스 컬렉션 만들기, 일정 추가 및/또는 결과 집합 수집 등 더 많은 기능에 액세스할 수 있습니다. **탄력적 풀**에 대한 실행으로 제한되는 작업의 생성/모니터링 및 간단한 설치에는 포털을 사용합니다.
 3. 작업 실행을 위한 암호화된 자격 증명을 만들고 [그룹의 각 데이터베이스에 사용자(또는 역할)를 추가](sql-database-security-overview.md)합니다.
 4. 그룹의 모든 데이터베이스에 대해 실행할 수 있는 idempotent T-SQL 스크립트를 만듭니다.
-5. Azure Portal을 사용하여 [Elastic Database 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)단계에 따라 작업을 만듭니다.
-6. 또는 PowerShell 스크립트를 사용하여 [PowerShell로 SQL Database Elastic Database 작업을 만들고 관리(미리 보기)](sql-database-elastic-jobs-powershell.md)합니다.
+5. Azure Portal을 사용하여 작업을 만들려면 다음 단계를 수행합니다. [Elastic Database 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)
+6. 또는 PowerShell 스크립트 사용: [PowerShell을 사용하여 SQL Database Elastic Database 작업 만들기 및 관리(미리 보기)](sql-database-elastic-jobs-powershell.md)
 
 ## <a name="idempotent-scripts"></a>Idempotent 스크립트
 
@@ -137,7 +137,7 @@ Azure SQL Database의 사용자 지정 그룹을 정의하고 작업 실행을 �
 1. Azure SQL Database는 모든 메타데이터 및 상태 데이터를 저장하는 **제어 데이터베이스** 로 지정됩니다.
 2. **작업 서비스** 로 제어 데이터베이스에 액세스하여 실행할 작업을 시작 및 추적합니다.
 3. 다음 두 가지 역할이 제어 데이터베이스와 통신합니다.
-   - 컨트롤러: 요청된 작업을 수행할 태스크가 필요한 작업을 확인하고 새 작업 태스크를 만들어 실패한 작업을 다시 시도합니다.
+   - 컨트롤러: 요청된 작업을 수행하기 위해 태스크가 필요한 작업을 확인하고, 새 작업 태스크를 만들어서 실패한 작업을 다시 시도합니다.
    - 작업 태스크 실행: 작업 태스크를 수행합니다.
 
 ### <a name="job-task-types"></a>작업 태스크 유형

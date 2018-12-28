@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 앱 패키징 | Microsoft Docs
-description: 클러스터에 배포하기 전에 Service Fabric 응용 프로그램을 패키지하는 방법입니다.
+description: 클러스터에 배포하기 전에 Service Fabric 애플리케이션을 패키지하는 방법입니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -21,11 +21,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
 ms.locfileid: "34205813"
 ---
-# <a name="package-an-application"></a>응용 프로그램 패키지 작성
-이 문서에서는 Service Fabric 응용 프로그램을 패키지하고 배포를 준비하는 방법에 대해 설명합니다.
+# <a name="package-an-application"></a>애플리케이션 패키지 작성
+이 문서에서는 Service Fabric 애플리케이션을 패키지하고 배포를 준비하는 방법에 대해 설명합니다.
 
 ## <a name="package-layout"></a>패키지 레이아웃
-Service Fabric 클러스터에 배포할 수 있도록 응용 프로그램 매니페스트, 하나 이상의 서비스 매니페스트 및 기타 필요한 패키지 파일을 특정 레이아웃으로 구성해야 합니다. 이 문서에 예로 제공된 매니페스트를 다음 디렉터리 구조로 구성해야 합니다.
+Service Fabric 클러스터에 배포할 수 있도록 애플리케이션 매니페스트, 하나 이상의 서비스 매니페스트 및 기타 필요한 패키지 파일을 특정 레이아웃으로 구성해야 합니다. 이 문서에 예로 제공된 매니페스트를 다음 디렉터리 구조로 구성해야 합니다.
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -51,7 +51,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 ## <a name="use-setupentrypoint"></a>SetupEntryPoint 사용
 **SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예: 
 
-* 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 Service Fabric 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지 않습니다. 예를 들어 npm.exe 파일에는 node.js 응용 프로그램 배포를 위해 구성되는 환경 변수가 필요합니다.
+* 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 Service Fabric 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
 
 **SetupEntryPoint**를 구성하는 방법에 대한 자세한 내용은 [서비스 설치 진입점에 대한 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.
@@ -59,13 +59,13 @@ D:\TEMP\MYAPPLICATIONTYPE
 <a id="Package-App"></a>
 ## <a name="configure"></a>구성
 ### <a name="build-a-package-by-using-visual-studio"></a>Visual Studio를 사용하여 패키지 빌드
-Visual Studio 2015를 사용하여 응용 프로그램을 만드는 경우 패키지 명령을 사용하여 위에서 설명한 레이아웃과 일치하는 패키지를 자동으로 만들 수 있습니다.
+Visual Studio 2015를 사용하여 애플리케이션을 만드는 경우 패키지 명령을 사용하여 위에서 설명한 레이아웃과 일치하는 패키지를 자동으로 만들 수 있습니다.
 
-패키지를 만들려면 솔루션 탐색기에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 아래와 같이 패키지 명령을 선택합니다.
+패키지를 만들려면 솔루션 탐색기에서 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 아래와 같이 패키지 명령을 선택합니다.
 
-![Visual Studio를 통해 응용 프로그램 패키징][vs-package-command]
+![Visual Studio를 통해 애플리케이션 패키징][vs-package-command]
 
-패키징이 완료되면 **출력** 창에서 패키지의 위치를 찾을 수 있습니다. Visual Studio에서 응용 프로그램을 배포 또는 디버깅할 때 패키징 단계가 자동으로 발생합니다.
+패키징이 완료되면 **출력** 창에서 패키지의 위치를 찾을 수 있습니다. Visual Studio에서 애플리케이션을 배포 또는 디버깅할 때 패키징 단계가 자동으로 발생합니다.
 
 ### <a name="build-a-package-by-command-line"></a>명령줄로 패키지 빌드
 `msbuild.exe`를 사용하여 응용 프로그램을 프로그래밍 방식으로 패키징할 수도 있습니다. 내부적으로 보면 Visual Studio가 실행하고 있으므로 출력은 동일합니다.
@@ -86,7 +86,7 @@ Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
 ```
 
-이 오류는 서비스 매니페스트 *SetupEntryPoint* 에서 참조되는 **MySetup.bat** 파일이 코드 패키지에 없다는 뜻입니다. 누락된 파일이 추가되면, 응용 프로그램 검사가 통과됩니다.
+이 오류는 서비스 매니페스트 *SetupEntryPoint* 에서 참조되는 **MySetup.bat** 파일이 코드 패키지에 없다는 뜻입니다. 누락된 파일이 추가되면, 애플리케이션 검사가 통과됩니다.
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -112,9 +112,9 @@ True
 PS D:\temp>
 ```
 
-응용 프로그램에 [응용 프로그램 매개 변수](service-fabric-manage-multiple-environment-app-configuration.md)가 정의되어 있으면 적절한 유효성 검사를 위해 [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps)에 이 매개 변수를 전달할 수 있습니다.
+애플리케이션에 [애플리케이션 매개 변수](service-fabric-manage-multiple-environment-app-configuration.md)가 정의되어 있으면 적절한 유효성 검사를 위해 [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps)에 이 매개 변수를 전달할 수 있습니다.
 
-응용 프로그램을 배포할 클러스터를 알고 있는 경우 `ImageStoreConnectionString` 매개 변수에 전달하는 것이 좋습니다. 이 경우 이미 클러스터에서 실행 중인 이전 버전의 응용 프로그램에 대해서도 패키지의 유효성이 검사됩니다. 예를 들어 유효성 검사를 통해 동일한 버전이지만 다른 내용이 포함된 패키지를 이미 배포했는지 여부를 확인할 수 있습니다.  
+애플리케이션을 배포할 클러스터를 알고 있는 경우 `ImageStoreConnectionString` 매개 변수에 전달하는 것이 좋습니다. 이 경우 이미 클러스터에서 실행 중인 이전 버전의 응용 프로그램에 대해서도 패키지의 유효성이 검사됩니다. 예를 들어 유효성 검사를 통해 동일한 버전이지만 다른 내용이 포함된 패키지를 이미 배포했는지 여부를 확인할 수 있습니다.  
 
 응용 프로그램이 올바르게 패키지되고 유효성 검사를 통과하면 빠른 배포 작업을 위해 패키지를 압축하는 것이 좋습니다.
 
@@ -169,7 +169,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
-내부적으로 Service Fabric은 유효성 검사를 위해 응용 프로그램 패키지에 대한 체크섬을 계산합니다. 압축을 사용할 때 체크섬은 각 패키지의 압축된 버전에서 계산됩니다. 동일한 응용 프로그램 패키지에서 새 zip을 생성하면 다른 체크섬을 만듭니다. 유효성 검사 오류를 방지하려면 [diff 프로비전](service-fabric-application-upgrade-advanced.md)을 사용합니다. 이 옵션을 사용하는 경우 새 버전에서 변경되지 않은 패키지를 포함하지 마십시오. 대신 새 서비스 매니페스트에서 직접 참조합니다.
+내부적으로 Service Fabric은 유효성 검사를 위해 애플리케이션 패키지에 대한 체크섬을 계산합니다. 압축을 사용할 때 체크섬은 각 패키지의 압축된 버전에서 계산됩니다. 동일한 응용 프로그램 패키지에서 새 zip을 생성하면 다른 체크섬을 만듭니다. 유효성 검사 오류를 방지하려면 [diff 프로비전](service-fabric-application-upgrade-advanced.md)을 사용합니다. 이 옵션을 사용하는 경우 새 버전에서 변경되지 않은 패키지를 포함하지 마십시오. 대신 새 서비스 매니페스트에서 직접 참조합니다.
 
 diff 프로비전이 옵션이 아니며 패키지를 포함해야 하는 경우 `code`, `config` 및 `data` 패키지에 대한 새 버전을 생성하여 체크섬 불일치를 방지합니다. 이전 버전이 압축을 사용하는지 여부에 관계 없이 압축된 패키지를 사용할 경우 변경되지 않은 패키지에 대한 새 버전을 생성해야 합니다.
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e0bbfafcda77ca48fb22ad919c5848a7670a102
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 67658d75f7ad4a6db1af5db97a525774b0ab6e61
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309677"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095281"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Azure Data Factory를 사용하여 ServiceNow에서 데이터 복사
 
@@ -42,9 +42,9 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **ServiceNow**로 설정해야 합니다. | yes |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **ServiceNow** | yes |
 | endpoint | ServiceNow 서버(`http://<instance>.service-now.com`)의 엔드포인트입니다.  | yes |
-| authenticationType | 사용할 인증 유형입니다. <br/>허용되는 값은 **Basic**, **OAuth2**입니다. | yes |
+| authenticationType | 사용할 인증 유형입니다. <br/>허용되는 값은 다음과 같습니다. **Basic**, **OAuth2** | yes |
 | 사용자 이름 | 기본 및 OAuth2 인증을 위해 ServiceNow 서버에 연결하는 데 사용되는 사용자 이름입니다.  | yes |
 | 암호 | 기본 및 OAuth2 인증의 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
 | clientId | OAuth2 인증의 클라이언트 ID입니다.  | 아니요 |
@@ -77,7 +77,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 ServiceNow 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-ServiceNow에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ServiceNowObject**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
+ServiceNow에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ServiceNowObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **ServiceNowObject** | yes |
+| tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -89,7 +94,8 @@ ServiceNow에서 데이터를 복사하려면 데이터 세트의 type 속성을
         "linkedServiceName": {
             "referenceName": "<ServiceNow linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -104,8 +110,8 @@ ServiceNow에서 데이터를 복사하려면 복사 작업의 원본 형식을 
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **ServiceNowSource**로 설정해야 합니다. | yes |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Actual.alm_asset"` | yes |
+| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **ServiceNowSource** | yes |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Actual.alm_asset"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 쿼리에서 ServiceNow에 대해 스키마 및 열을 지정하는 경우 다음에 유의하고, **복사 성능에 미치는 영향에 대한 [성능 팁](#performance-tips)을 참조하세요**.
 
@@ -113,7 +119,7 @@ ServiceNow에서 데이터를 복사하려면 복사 작업의 원본 형식을 
 - **열:** `Actual` 스키마의 실제 값에 대한 열 이름은 `[columne name]_value`이며 `Display` 스키마의 표시 값에 대한 열 이름은 `[columne name]_display_value`입니다. 열 이름은 쿼리에 사용되는 스키마에 매핑되어야 합니다.
 
 **샘플 쿼리:**
-`SELECT col_value FROM Actual.alm_asset` 또는  
+`SELECT col_value FROM Actual.alm_asset` OR 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **예제:**

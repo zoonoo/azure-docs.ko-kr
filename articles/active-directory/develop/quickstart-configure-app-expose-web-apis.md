@@ -119,7 +119,7 @@ UI를 통해 새 범위를 공개하려면
 1. [웹 API에 액세스하는 클라이언트 응용 프로그램 구성](#configure-a-client-application-to-access-web-apis)에서 개요로 설명한 단계를 반복합니다.
 1. **API 선택** 단계가 되면 리소스를 선택합니다. 클라이언트 권한 요청에 사용할 수 있는 새 범위가 표시되어야 합니다.
 
-## <a name="more-on-the-application-manifest"></a>응용프로그램 매니페스트에 대한 추가 정보
+## <a name="more-on-the-application-manifest"></a>애플리케이션 매니페스트에 대한 추가 정보
 
 응용 프로그램 매니페스트는 Azure AD 응용 프로그램의 ID 구성의 모든 특성을 정의하는 응용 프로그램 엔터티를 업데이트하기 위한 메커니즘으로 사용됩니다. 응용 프로그램 엔터티 및 해당 스키마에 대한 자세한 내용은 [Graph API 응용 프로그램 엔터티 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)를 참조하세요. 이 문서에는 다음을 비롯하여 API에 대한 사용 권한을 지정하는 데 사용되는 응용 프로그램 엔터티 멤버에 대한 전체 참조 정보가 포함됩니다.  
 

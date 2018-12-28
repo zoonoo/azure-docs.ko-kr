@@ -35,7 +35,7 @@ ms.locfileid: "50242418"
 
 인증서 기반 인증을 구성하려면 다음 명령문에 해당되어야 합니다.
 
-- CBA(인증서 기반 인증)는 최신 인증(ADAL)을 사용하는 브라우저 응용 프로그램 또는 네이티브 클라이언트의 페더레이션 환경에서만 지원됩니다. 단, 페더레이션 및 관리 계정 모두에 사용할 수 있는 EXO(Exchange Online)용 EAS(Exchange Active Sync)는 예외입니다.
+- CBA(인증서 기반 인증)는 최신 인증(ADAL)을 사용하는 브라우저 애플리케이션 또는 네이티브 클라이언트의 페더레이션 환경에서만 지원됩니다. 단, 페더레이션 및 관리 계정 모두에 사용할 수 있는 EXO(Exchange Online)용 EAS(Exchange Active Sync)는 예외입니다.
 - Azure Active Directory에는 루트 인증 기관 및 중간 인증 기관을 구성되어야 합니다.
 - 각 인증 기관에는 인터넷 연결 URL을 통해 참조될 수 있는 CRL(인증서 해지 목록)이 있어야 합니다.
 - Azure Active Directory에 해당 인증 기관이 하나 이상 구성되어 있어야 합니다. [인증 기관 구성](#step-2-configure-the-certificate-authorities) 섹션에서 관련 단계를 찾을 수 있습니다.
@@ -47,7 +47,7 @@ ms.locfileid: "50242418"
 
 첫 번째 단계로 대상 디바이스 플랫폼에 대해 다음을 검토해야 합니다.
 
-- Office 모바일 응용 프로그램 지원
+- Office 모바일 애플리케이션 지원
 - 특정 구현 요구 사항
 
 다음 디바이스 플랫폼에 대한 관련 정보가 있습니다.
@@ -172,19 +172,19 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 - 테스트 디바이스에 사용자 인증서가 프로비전되었습니다.
 - AD FS가 올바르게 구성되었습니다.
 
-### <a name="testing-office-mobile-applications"></a>Office 모바일 응용 프로그램 테스트
+### <a name="testing-office-mobile-applications"></a>Office 모바일 애플리케이션 테스트
 
 **모바일 Office 응용 프로그램에서 인증서 인증을 테스트하려면**
 
 1. 테스트 디바이스에서 Office 모바일 응용 프로그램(예: OneDrive)을 설치합니다.
-3. 응용 프로그램을 시작합니다.
+3. 애플리케이션을 시작합니다.
 4. 사용자 이름을 입력하고 사용하려는 사용자 인증서를 선택합니다.
 
 정상적으로 로그인되어야 합니다.
 
 ### <a name="testing-exchange-activesync-client-applications"></a>Exchange ActiveSync 클라이언트 응용 프로그램 테스트
 
-인증서 기반 인증을 통해 EAS(Exchange ActiveSync)에 액세스하려면 클라이언트 인증서를 포함하는 EAS 프로필을 응용 프로그램에서 사용할 수 있어야 합니다.
+인증서 기반 인증을 통해 EAS(Exchange ActiveSync)에 액세스하려면 클라이언트 인증서를 포함하는 EAS 프로필을 애플리케이션에서 사용할 수 있어야 합니다.
 
 EAS 프로필은 다음 정보를 포함해야 합니다.
 
@@ -198,8 +198,8 @@ Intune과 같은 MDM(모바일 디바이스 관리)을 활용하거나 디바이
 
 **인증서 인증을 테스트하려면**
 
-1. 이전 섹션의 요구 사항을 충족하는 EAS 프로필을 응용 프로그램에서 구성합니다.
-2. 응용 프로그램을 열고 메일이 동기화되는지 확인합니다.
+1. 이전 섹션의 요구 사항을 충족하는 EAS 프로필을 애플리케이션에서 구성합니다.
+2. 애플리케이션을 열고 메일이 동기화되는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

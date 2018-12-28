@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory)에 응용 프로그램을 등록한 Enterprise 
 * 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
 * 테넌트에 앱을 추가하고 등록하는 방법을 알아보려면 [Azure AD에 응용 프로그램 추가](quickstart-v1-integrate-apps-with-azure-ad.md)를 참조하세요.
 
-## <a name="removing-an-application-authored-by-your-organization"></a>조직이 작성한 응용프로그램 제거
+## <a name="removing-an-application-authored-by-your-organization"></a>조직이 작성한 애플리케이션 제거
 
 조직에서 등록한 응용 프로그램은 테넌트의 기본 **앱 등록** 페이지에 있는 **내 앱** 필터 아래에 표시됩니다. 이러한 응용 프로그램은 Azure Portal을 통해 수동으로 또는 PowerShell 또는 Microsoft Graph API를 통해 프로그래밍 방식으로 등록한 응용 프로그램입니다. 구체적으로 말해, 응용프로그램은 테넌트에서 응용프로그램 개체와 서비스 주체 개체 둘 다로 나타냅니다. 이러한 개체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
 
@@ -63,7 +63,7 @@ Azure AD(Azure Active Directory)에 응용 프로그램을 등록한 Enterprise 
 1. 응용 프로그램의 기본 등록 페이지에서 **삭제**를 선택합니다.
 1. **예**를 선택하여 응용 프로그램 삭제를 확인합니다.
 
-## <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>다른 조직이 권한을 부여한 다중 테넌트 응용프로그램 제거
+## <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>다른 조직이 권한을 부여한 다중 테넌트 애플리케이션 제거
 
 테넌트의 기본 **앱 등록** 페이지에서 **모든 앱** 필터(**내 앱** 등록 제외) 아래에 표시되는 응용 프로그램 하위 집합은 다중 테넌트 응용 프로그램입니다.
 

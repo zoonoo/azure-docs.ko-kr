@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d3cc1a09963c5f7fee613af24c63fd15b1cfffee
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: bf7d639c682e443f29b31b3c6d7438e89c406fde
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807225"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838636"
 ---
 # <a name="how-to-publish-a-new-iot-edge-module-in-the-cloud-partner-portal"></a>Cloud 파트너 포털에서 새 IoT Edge 모듈을 게시하는 방법
 
@@ -39,7 +39,7 @@ ms.locfileid: "48807225"
 
     -   설명(기본 HTML 형식)
 
-    -   png 이미지 형식을 가지며 크기가 40픽셀 x 40픽셀, 90픽셀 x 90픽셀, 115픽셀 x 115픽셀, 255픽셀 x 115픽셀인 로고입니다.
+    -   png 이미지 형식 및 다음 크기의 로고: 40픽셀 x 40픽셀, 90픽셀 x 90픽셀, 115픽셀 x 115픽셀, 255 픽셀x 115픽셀입니다.
 
     -   사용 약관 및 개인정보처리방침
 
@@ -53,7 +53,7 @@ ms.locfileid: "48807225"
 -   [CPP 계정](https://cloudpartner.azure.com/)에 로그인합니다.
 
 >[!Note]
->Cloud 파트너 포털에 대한 일반적인 정보는 [학습 설명서](https://cloudpartner.azure.com/#learn)를 참조하세요.
+>Cloud 파트너 포털에 대한 일반적인 정보는 [학습 설명서](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal)를 참조하세요.
 
 -   **새 제안**을 선택한 후 **IoT Edge 모듈**을 선택합니다.
 
@@ -151,7 +151,7 @@ Marketplace 탭에서 마케팅 관련 콘텐츠를 추가합니다. 이 정보�
 
 -   **제안된 범주** - 최대 5개의 범주를 선택합니다. 이러한 범주는 제품 세부 정보 페이지에 표시됩니다. 현재, 모든 IoT Edge 모듈이 찾아보기 페이지의 *사물 인터넷 \> IoT Edge 모듈* 범주에 표시됩니다.
 
--   **로고** - IoT Edge 모듈 로고 이미지를 PNG 형식으로 업로드합니다. 크기로 40픽셀 x 40픽셀, 90픽셀 x 90픽셀, 115픽셀 x 115픽셀, 255픽셀 x 115픽셀을 사용합니다.
+-   **로고** - IoT Edge 모듈 로고 이미지를 PNG 형식으로 업로드합니다. 정확하게 다음 크기로 사용: 40픽셀 x 40픽셀, 90픽셀 x 90픽셀, 115픽셀 x 115픽셀, 255 픽셀x 115픽셀입니다.
 
 -   **스크린샷** - 스크린샷은 제품 세부 정보 페이지에 표시됩니다. IoT Edge 모듈의 의미 및 작동 방식을 시각적으로 알려주는 좋은 방법입니다. 아키텍처 다이어그램이나 사용 사례 그림을 예제로 표시할 수 있습니다.
 

@@ -25,7 +25,7 @@ ms.locfileid: "53018941"
 # <a name="quickstart-how-to-use-azure-cache-for-redis-with-java"></a>빠른 시작: Java에서 Azure Cache for Redis를 사용하는 방법
 
 
-Azure Cache for Redis를 통해 Microsoft에서 관리하는 전용 Azure Cache for Redis에 액세스할 수 있습니다. Microsoft Azure 내의 모든 응용 프로그램에서 캐시에 액세스할 수 있습니다.
+Azure Cache for Redis를 통해 Microsoft에서 관리하는 전용 Azure Cache for Redis에 액세스할 수 있습니다. Microsoft Azure 내의 모든 애플리케이션에서 캐시에 액세스할 수 있습니다.
 
 이 문서에서는 Java용 [Jedis](https://github.com/xetorthio/jedis) Redis 클라이언트를 사용하여 Azure Cache for Redis를 시작하는 방법을 보여 줍니다.
 

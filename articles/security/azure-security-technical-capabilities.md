@@ -63,7 +63,7 @@ Azure에서는 사용자 ID 및 자격 증명을 관리하고 액세스를 제�
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Microsoft ID 및 액세스 관리 솔루션은 IT가 다중 요소 인증 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 활성화하여 회사 데이터 센터에 걸친 응용 프로그램 및 리소스에 대한 액세스 및 클라우드로 액세스를 보호하도록 도움을 줍니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) 은 수천 개의 클라우드 앱에 Single Sign-On(SaaS)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
+Microsoft ID 및 액세스 관리 솔루션은 IT가 다중 요소 인증 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 활성화하여 회사 데이터 센터에 걸친 애플리케이션 및 리소스에 대한 액세스 및 클라우드로 액세스를 보호하도록 도움을 줍니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) 은 수천 개의 클라우드 앱에 Single Sign-On(SaaS)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
 
 Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을 포함합니다.
 
@@ -99,7 +99,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 [SSO(Single Sign-On)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는 데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다.
 
-대부분의 조직에서는 최종 사용자 생산성을 위해 Office 365, Box, Salesforce와 같은 SaaS(Software as a Service) 응용 프로그램에 의존합니다. 지금까지 IT 담당자는 각 SaaS 응용 프로그램에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 응용 프로그램에 대한 암호를 기억해야 했습니다.
+대부분의 조직에서는 최종 사용자 생산성을 위해 Office 365, Box, Salesforce와 같은 SaaS(Software as a Service) 응용 프로그램에 의존합니다. 지금까지 IT 담당자는 각 SaaS 애플리케이션에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 애플리케이션에 대한 암호를 기억해야 했습니다.
 
 [Azure AD는 온-프레미스 Active Directory를 클라우드](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)로 확장하여 사용자가 자신의 기본 조직 계정을 사용하여 해당 도메인에 가입된 장치 및 회사 리소스뿐만 아니라 작업에 필요한 모든 웹 및 SaaS 응용 프로그램에 로그인할 수 있도록 합니다.
 
@@ -117,7 +117,7 @@ Azure Portal 또는 [Azure Active Directory 포털](http://aad.portal.azure.com/
 
 - 비정상 보고서 – 비정상으로 확인된 로그인 이벤트가 포함됩니다. 이러한 활동을 인식하고 이벤트가 의심스러운지 확인할 수 있게 해 줍니다.
 
-- 통합 응용 프로그램 보고서 – 클라우드 응용 프로그램이 조직에서 사용되는 방식을 파악할 수 있게 해 줍니다. Azure Active Directory는 수천 개의 클라우드 응용 프로그램과 통합을 제공합니다.
+- 통합 애플리케이션 보고서 – 클라우드 애플리케이션이 조직에서 사용되는 방식을 파악할 수 있게 해 줍니다. Azure Active Directory는 수천 개의 클라우드 응용 프로그램과 통합을 제공합니다.
 
 - 오류 보고서 – 외부 응용 프로그램에 계정을 프로비전할 때 발생할 수 있는 오류를 나타냅니다.
 
@@ -127,11 +127,11 @@ Azure Portal 또는 [Azure Active Directory 포털](http://aad.portal.azure.com/
 
 #### <a name="consumer-identity-and-access-management"></a>소비자 ID 및 액세스 관리
 
-[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)는 몇 억 개의 ID로 확장하는 소비자 지향 응용 프로그램에 항상 사용 가능한 전역적인 ID 관리 서비스입니다. 이 서비스는 모바일 및 웹 플랫폼에 통합될 수 있습니다. 고객은 사용자 지정 가능한 환경을 통해 기존 소셜 계정을 사용하거나 새 자격 증명을 만들어 모든 응용 프로그램에 로그온할 수 있습니다.
+[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)는 몇 억 개의 ID로 확장하는 소비자 지향 응용 프로그램에 항상 사용 가능한 전역적인 ID 관리 서비스입니다. 이 서비스는 모바일 및 웹 플랫폼에 통합될 수 있습니다. 고객은 사용자 지정 가능한 환경을 통해 기존 소셜 계정을 사용하거나 새 자격 증명을 만들어 모든 애플리케이션에 로그온할 수 있습니다.
 
 이전에는 [고객을 응용 프로그램에 가입 및 로그인](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)하게 하려고 했던 응용 프로그램 개발자들이 자체 코드를 작성했습니다. 또한 온-프레미스 데이터베이스나 시스템을 사용하여 사용자 이름과 암호를 저장했습니다. Azure Active Directory B2C는 조직에게 안전한 표준 기반 플랫폼 및 확장할 수 있는 정책의 다양한 집합으로 소비자 ID 관리를 응용 프로그램에 통합하는 더 나은 방법을 제공합니다.
 
-Azure Active Directory B2C를 사용하면 소비자는 기존 소셜 계정(Facebook, Google, Amazon, LinkedIn)을 사용하거나 새 자격 증명(전자 메일 주소 및 암호 또는 사용자 이름 및 암호)을 만들어서 응용 프로그램을 등록할 수 있습니다.
+Azure Active Directory B2C를 사용하면 소비자는 기존 소셜 계정(Facebook, Google, Amazon, LinkedIn)을 사용하거나 새 자격 증명(전자 메일 주소 및 암호 또는 사용자 이름 및 암호)을 만들어서 애플리케이션을 등록할 수 있습니다.
 
 #### <a name="device-registration"></a>디바이스 등록
 
@@ -262,7 +262,7 @@ Azure Key Vault에 통합하려는 경우 암호 해독에 필요할 때 AKV에�
 
 온-프레미스에 있는 한 워크스테이션에서 Azure로의 액세스를 보호해야 하는 조직의 경우 [지점 및 사이트 간 VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create)을 사용합니다.
 
-대용량 데이터 집합은 [ExpressRoute](https://azure.microsoft.com/services/expressroute/) 같은 전용 고속 WAN 링크를 통해 이동할 수 있습니다. ExpressRoute를 사용하기로 선택하는 경우 [SSL/TLS](https://support.microsoft.com/kb/257591) 또는 기타 프로토콜을 사용하여 응용 프로그램 수준에서 데이터를 암호화하면 보안 수준을 더욱 높일 수 있습니다.
+대용량 데이터 집합은 [ExpressRoute](https://azure.microsoft.com/services/expressroute/) 같은 전용 고속 WAN 링크를 통해 이동할 수 있습니다. ExpressRoute를 사용하기로 선택하는 경우 [SSL/TLS](https://support.microsoft.com/kb/257591) 또는 기타 프로토콜을 사용하여 애플리케이션 수준에서 데이터를 암호화하면 보안 수준을 더욱 높일 수 있습니다.
 
 Azure Portal을 통해 Azure Storage와 상호 작용하는 경우 모든 트랜잭션이 HTTPS를 통해 발생합니다. 또한 HTTPS를 통해 [저장소 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)를 사용하여 [Azure Storage](https://azure.microsoft.com/services/storage/) 및 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)와 상호 작용할 수 있습니다.
 
@@ -289,14 +289,14 @@ Azure RMS 도입 계획을 세울 때 다음 사항을 권장합니다.
 > Azure RMS에 대한 자세한 내용은 [Azure Rights Management 시작](https://technet.microsoft.com/library/jj585016.aspx) 문서를 참조하세요.
 
 ## <a name="secure-your-application-protect"></a>응용 프로그램 보안(보호)
-Azure가 응용 프로그램이 실행되는 인프라 및 플랫폼의 보안을 담당하는 반면 응용 프로그램 자체를 보호하는 것은 사용자 책임입니다. 즉, 응용 프로그램 코드 및 콘텐츠를 안전한 방식으로 개발, 배포 및 관리해야 합니다. 이렇게 하지 않으면 응용 프로그램 코드 또는 콘텐츠는 위협에 취약할 수 있습니다.
+Azure가 애플리케이션이 실행되는 인프라 및 플랫폼의 보안을 담당하는 반면 애플리케이션 자체를 보호하는 것은 사용자 책임입니다. 즉, 애플리케이션 코드 및 콘텐츠를 안전한 방식으로 개발, 배포 및 관리해야 합니다. 이렇게 하지 않으면 응용 프로그램 코드 또는 콘텐츠는 위협에 취약할 수 있습니다.
 
-### <a name="web-application-firewall-waf"></a>WAF(웹 응용 프로그램 방화벽)
+### <a name="web-application-firewall-waf"></a>WAF(웹 애플리케이션 방화벽)
 [WAF(웹 응용 프로그램 방화벽)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview)는 일반적인 악용 및 취약점으로부터 웹 응용 프로그램에 대해 중앙 집중화된 보호를 제공하는 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)의 기능입니다.
 
-웹 응용 프로그램 방화벽은 [OWASP 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙에 기반합니다. 웹 애플리케이션의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 응용 프로그램 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 응용 프로그램 토폴로지의 여러 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 응용 프로그램 방화벽을 통해 보안 관리가 훨씬 간단해지고 응용 프로그램 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 응용 프로그램 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
+웹 애플리케이션 방화벽은 [OWASP 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙에 기반합니다. 웹 애플리케이션의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 애플리케이션 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 애플리케이션 토폴로지의 여러 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 애플리케이션 방화벽을 통해 보안 관리가 훨씬 간단해지고 애플리케이션 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 애플리케이션을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 애플리케이션 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
 
-웹 응용 프로그램 방화벽이 보호하는 일반적인 웹 취약점에는 다음이 포함됩니다.
+웹 애플리케이션 방화벽이 보호하는 일반적인 웹 취약점에는 다음이 포함됩니다.
 
 - SQL 삽입 공격 보호
 
@@ -310,7 +310,7 @@ Azure가 응용 프로그램이 실행되는 인프라 및 플랫폼의 보안�
 
 - 보트, 크롤러 및 스캐너 방지
 
-- 일반적인 응용 프로그램 구성 오류(즉 Apache, IIS 등) 검색
+- 일반적인 애플리케이션 구성 오류(즉 Apache, IIS 등) 검색
 
 > [!Note]
 > 더 자세한 규칙 목록 및 해당 보호는 다음 [핵심 규칙 집합](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview#core-rule-sets)을 참조하세요.
@@ -356,7 +356,7 @@ Azure 네트워킹은 Azure Virtual Network의 네트워크 트래픽에 대한 
 
 [터널링 적용](https://www.petri.com/azure-forced-tunneling) 은 사용자의 서비스가 인터넷에서 장치에 대한 연결을 개시하지 못하게 하도록 사용할 수 있는 메커니즘입니다.
 
-Azure는 온-프레미스 네트워크에 대한 전용 WAN 링크 연결과 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 통한 Azure Virtual Network를 지원합니다. Azure와 사이트 간의 링크는 공용 인터넷을 사용하지 않는 전용 연결을 사용합니다. Azure 응용 프로그램이 여러 데이터 센터에서 실행되는 경우 [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)를 사용하여 사용자 요청을 적절하게 여러 응용 프로그램 인스턴스에 라우팅할 수 있습니다. 또한 인터넷에서 액세스할 수 있는 경우 Azure에서 실행되지 않는 서비스로 트래픽을 라우팅할 수 있습니다.
+Azure는 온-프레미스 네트워크에 대한 전용 WAN 링크 연결과 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 통한 Azure Virtual Network를 지원합니다. Azure와 사이트 간의 링크는 공용 인터넷을 사용하지 않는 전용 연결을 사용합니다. Azure 애플리케이션이 여러 데이터 센터에서 실행되는 경우 [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)를 사용하여 사용자 요청을 적절하게 여러 애플리케이션 인스턴스에 라우팅할 수 있습니다. 또한 인터넷에서 액세스할 수 있는 경우 Azure에서 실행되지 않는 서비스로 트래픽을 라우팅할 수 있습니다.
 
 ## <a name="virtual-machine-security-protect"></a>가상 컴퓨터 보안(보호)
 
@@ -426,7 +426,7 @@ Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-
 
 - 네트워크 보안 그룹 및 VM에 대한 트래픽 제어 규칙 구성
 
-- 웹 응용 프로그램 방화벽을 프로비전하여 웹 응용 프로그램의 대상이 되는 공격에 대한 방어 지원
+- 웹 애플리케이션 방화벽을 프로비전하여 웹 애플리케이션의 대상이 되는 공격에 대한 방어 지원
 
 - 누락된 시스템 업데이트 배포
 
@@ -446,9 +446,9 @@ Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-
 
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)는 특정 유형의 리소스 정보에 대한 포인터를 제공합니다. Azure 인프라(활동 로그)와 개별 Azure 리소스(진단 로그)의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다.
 
-클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다.
+클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 애플리케이션을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다.
 
-![Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig10.png) 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 통해 응용 프로그램 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
+![Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig10.png) 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 통해 애플리케이션 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
 
 네트워크 보안 감사는 네트워크 취약성을 검색하고 IT 보안 및 규제 관리 모델을 준수하는 것이 중요합니다. 보안 그룹 보기를 사용하면 구성된 네트워크 보안 그룹과 해당 보안 규칙 및 효과적인 보안 규칙을 검색할 수 있습니다. 적용된 규칙 목록을 사용하면 열려 있는 포트를 확인하고 네트워크 취약성을 평가할 수 있습니다.
 
@@ -462,7 +462,7 @@ Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-
 
 ### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)는 여러 플랫폼의 웹 개발자를 위한 확장성 있는 APM(Application Performance Management) 서비스입니다. 이를 사용하여 라이브 웹 응용 프로그램을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 J2EE, 호스팅된 온-프레미스 또는 클라우드의 다양한 플랫폼에서 앱과 함께 사용합니다. devOps 프로세스와 통합되며, 다양한 개발 도구에 대한 연결 지점이 있습니다.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)는 여러 플랫폼의 웹 개발자를 위한 확장성 있는 APM(Application Performance Management) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 J2EE, 호스팅된 온-프레미스 또는 클라우드의 다양한 플랫폼에서 앱과 함께 사용합니다. devOps 프로세스와 통합되며, 다양한 개발 도구에 대한 연결 지점이 있습니다.
 
 다음 사항을 모니터링합니다.
 

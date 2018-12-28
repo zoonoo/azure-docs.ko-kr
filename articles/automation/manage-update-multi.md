@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8e1c58f2d60ee95189fb583e032d8748fedb88d4
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620220"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679532"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -84,7 +84,7 @@ Azure Portal에서 Automation 계정을 연 후 **업데이트 관리**를 선�
 
 - **준수**: 중요 또는 보안 업데이트가 누락되지 않은 컴퓨터입니다.
 
-- **비호환**: 중요 또는 보안 업데이트가 하나 이상 누락된 컴퓨터입니다.
+- **비준수**: 중요 또는 보안 업데이트가 하나 이상 누락된 컴퓨터입니다.
 
 - **평가되지 않음**: 예상 기간 내에 컴퓨터의 업데이트 평가 데이터를 받지 못했습니다. Linux 컴퓨터의 경우, 예상 시간 범위는 지난 3시간입니다. Windows 컴퓨터의 경우, 예상 시간 범위는 지난 12시간입니다.
 
@@ -128,7 +128,7 @@ Azure Portal에서 Automation 계정을 연 후 **업데이트 관리**를 선�
 - **이름**: 업데이트 배포를 식별하는 고유 이름을 제공합니다.
 - **운영 체제**: **Windows** 또는 **Linux**를 선택합니다.
 - **업데이트할 그룹(미리 보기)**: 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. 자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.
-- **업데이트할 컴퓨터**: 저장된 검색, 가져온 그룹 또는 머신을 선택하여 업데이트할 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다. 업데이트 배포를 예약하기 전에 컴퓨터의 상태를 확인할 수 있습니다. Log Analytics에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Log Analytics의 컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 참조하세요.
+- **업데이트할 머신**: 저장된 검색, 가져온 그룹 또는 머신을 선택하여 업데이트할 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다. 업데이트 배포를 예약하기 전에 컴퓨터의 상태를 확인할 수 있습니다. Log Analytics에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Log Analytics의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요.
 
   ![새 업데이트 배포 창](./media/manage-update-multi/update-select-computers.png)
 

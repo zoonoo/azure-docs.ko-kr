@@ -49,7 +49,7 @@ ms.locfileid: "37112506"
 * [3부](service-fabric-tutorial-java-deploy-azure.md)를 완료하고 Event Hubs에 로그를 보내기 위해 실행 중인 Service Fabric 클러스터를 구성합니다.
 * '수신 대기' 권한과 시리즈 3부에서 연결된 기본 키가 있는 Event Hubs 정책입니다.
 
-## <a name="download-the-voting-sample-application"></a>투표 응용 프로그램 예제 다운로드
+## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 예제 다운로드
 
 [이 자습서 시리즈의 1부](service-fabric-tutorial-create-java-app.md)에서 투표 예제 응용 프로그램을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service 및 Swarm을 사용한 CI/CD
+title: (사용되지 않음) Azure Container Service 및 Swarm을 사용한 CI/CD
 description: Docker Swarm, Azure Container Registry 및 Azure DevOps와 Azure Container Service를 사용하여 다중 컨테이너 .NET Core 응용 프로그램 지속 제공
 services: container-service
 author: jcorioland
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 3b91c269104e740add1d3a5b8ecaee93ca269188
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db0a16fa44dd23cbc32159889fe8b8ec28c77a5f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302829"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992557"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>Azure DevOps Services를 사용하여 Docker Swarm을 포함한 Azure Container Service에 있는 다중 컨테이너 응용 프로그램을 배포하는 전체 CI/CD 파이프라인
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(사용되지 않음) Azure DevOps Services를 사용하여 Docker Swarm을 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 클라우드를 위한 최신 응용 프로그램을 개발할 때 어려운 문제 중 하나는 이러한 응용 프로그램을 지속적으로 전달할 수 있다는 점입니다. 이 문서에서는 Docker Swarm, Azure Container Registry, Azure Pipelines 관리와 함께 Azure Container Service를 사용하여 전체 CI/CD(연속 통합 및 배포) 파이프라인을 구현하는 방법에 대해 알아봅니다.
 

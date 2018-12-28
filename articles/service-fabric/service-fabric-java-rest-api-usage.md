@@ -112,7 +112,7 @@ Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로�
             imageStorePath.withApplicationTypeBuildPath("<application-path-in-image-store>");
             client.provisionApplicationType(imageStorePath);
         ```
-    * 응용 프로그램 만들기
+    * 애플리케이션 만들기
 
         ```java
             ApplicationDescription applicationDescription = new ApplicationDescription();

@@ -45,13 +45,13 @@ Azure [SQL Database](sql-database-technical-overview.md)와 [SQL Data Warehouse]
   다음 세 번째 스크린샷에 나열된 **Azure SQL Database**를 찾을 수 없는 경우 다음 단계를 완료합니다.   
   - SSMS를 사용하여 AAD 관리자 계정으로 Azure SQL DB/DW 인스턴스에 로그인합니다.  
   - `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`를 실행합니다.  
-  - AAD에 로그인하고 Azure SQL Database 및 데이터 웨어하우스가 AAD의 응용 프로그램에 나열되어 있는지 확인합니다.  
+  - AAD에 로그인하고 Azure SQL Database 및 데이터 웨어하우스가 AAD의 애플리케이션에 나열되어 있는지 확인합니다.  
 
 5.  **액세스 제어**를 선택하고 **권한 부여**를 선택한 다음 적용하려는 정책을 선택합니다. 예를 들어 **다단계 인증 필요**를 선택합니다.  
   ![액세스 권한 부여 선택](./media/sql-database-conditional-access/grant-access.png)  
 
 ## <a name="summary"></a>요약  
-Azure AD Premium을 사용하여 Azure SQL DB/DW에 대한 연결을 허용하는 선택한 응용 프로그램(Azure SQL Database)은 이제 선택한 조건부 액세스 정책, **필요한 다단계 인증**을 적용합니다.  
+Azure AD Premium을 사용하여 Azure SQL DB/DW에 대한 연결을 허용하는 선택한 애플리케이션(Azure SQL Database)은 이제 선택한 조건부 액세스 정책, **필요한 다단계 인증**을 적용합니다.  
 다단계 인증 문제에 관한 Azure SQL Database 및 데이터 웨어하우스에 대한 질문은 MFAforSQLDB@microsoft.com에 문의합니다.  
 
 ## <a name="next-steps"></a>다음 단계  

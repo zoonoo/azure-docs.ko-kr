@@ -172,7 +172,7 @@ ms.locfileid: "52993750"
 다른 매개 변수를 추가할 수 있습니다. 템플릿의 매개 변수 섹션에서 해당 설명을 찾을 수 있습니다.
 
 ## <a name="to-get-the-instrumentation-key"></a>계측 키를 가져오려면
-응용 프로그램 리소스를 만든 후 계측 키가 필요할 수 있습니다. 
+애플리케이션 리소스를 만든 후 계측 키가 필요할 수 있습니다. 
 
 ```PS
     $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"

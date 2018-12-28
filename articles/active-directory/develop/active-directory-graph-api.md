@@ -54,7 +54,7 @@ Azure AD Graph API는 다음과 같은 기능을 제공합니다.
 * **권한 범위로 보호**: Azure AD Graph API는 OAuth 2.0을 사용하여 Azure AD 데이터에 대한 보안 액세스를 사용할 수 있는 권한 범위를 노출합니다. 다음을 포함한 다양한 클라이언트 앱 유형을 지원합니다.
   
   * 로그인한 사용자의 권한 부여를 통해 데이터에 대한 위임된 액세스 권한을 부여한 사용자 인터페이스(위임)
-  * 로그인한 사용자가 없는 백그라운드에서 작동하고 응용 프로그램 정의 역할 기반 액세스 제어를 사용하는 서비스/디먼 응용 프로그램
+  * 로그인한 사용자가 없는 백그라운드에서 작동하고 애플리케이션 정의 역할 기반 액세스 제어를 사용하는 서비스/디먼 애플리케이션
     
     위임 및 애플리케이션 권한은 Azure AD Graph API에서 노출하는 권한을 표시하고 [Azure Portal의 기능](https://portal.azure.com)인 애플리케이션 등록 사용 권한을 통해 클라이언트 애플리케이션에 의해 요청될 수 있습니다. [Azure AD Graph API 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)는 클라이언트 응용 프로그램에서 사용할 수 있는 기능에 대한 정보를 제공합니다.
 

@@ -50,7 +50,7 @@ PhoneFactor Agent v5.x 또는 이전 버전을 Azure Multi-Factor Authentication
 
 2. 웹 서비스 SDK를 이전에 설치한 경우 Multi-Factor Authentication 서버 사용자 인터페이스를 통해 새 웹 서비스 SDK를 설치합니다.
 
-  기본 가상 디렉터리 이름은 이제 **PhoneFactorWebServiceSdk** 대신 **MultiFactorAuthWebServiceSdk**가 됩니다. 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 그렇지 않은 경우 새 기본 이름을 사용하여 설치할 수 있으면 사용자 포털 및 모바일 앱 웹 서비스 등의 웹 서비스 SDK를 참조하는 모든 응용 프로그램의 URL이 올바른 위치를 가리키도록 변경해야 합니다.
+  기본 가상 디렉터리 이름은 이제 **PhoneFactorWebServiceSdk** 대신 **MultiFactorAuthWebServiceSdk**가 됩니다. 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 그렇지 않은 경우 새 기본 이름을 사용하여 설치할 수 있으면 사용자 포털 및 모바일 앱 웹 서비스 등의 웹 서비스 SDK를 참조하는 모든 애플리케이션의 URL이 올바른 위치를 가리키도록 변경해야 합니다.
 
 3. 사용자 포털이 이전에 PhoneFactor Agent 서버에 설치된 경우 Multi-Factor Authentication 서버 사용자 인터페이스를 통해 새 Multi-Factor Authentication 사용자 포털을 설치합니다.
 

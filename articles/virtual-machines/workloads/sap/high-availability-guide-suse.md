@@ -1,6 +1,6 @@
 ---
-title: SAP 응용 프로그램용 SUSE Linux Enterprise Server의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 | Microsoft 문서
-description: SAP 응용 프로그램용 SUSE Linux Enterprise Server의 SAP NetWeaver에 대한 고가용성 가이드
+title: SAP 애플리케이션용 SUSE Linux Enterprise Server의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 | Microsoft Docs
+description: SAP 애플리케이션용 SUSE Linux Enterprise Server의 SAP NetWeaver에 대한 고가용성 가이드
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
@@ -23,7 +23,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/15/2018
 ms.locfileid: "45631143"
 ---
-# <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 응용 프로그램용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
+# <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -64,8 +64,8 @@ ms.locfileid: "45631143"
   * Microsoft Azure에서 Windows 및 Linux에 필요한 SAP 커널 버전
 
 * SAP Note [2015553]는 Azure에서 SAP을 지원하는 SAP 소프트웨어 배포에 대한 필수 구성 요소를 나열합니다.
-* SAP Note [2205917]에는 SAP 응용 프로그램용 SUSE Linux Enterprise Server에 권장되는 OS 설정이 나와 있습니다.
-* SAP Note [1944799]에는 SAP 응용 프로그램용 SUSE Linux Enterprise Server에 대한 SAP HANA 지침이 나와 있습니다.
+* SAP Note [2205917]에는 SAP 애플리케이션용 SUSE Linux Enterprise Server에 권장되는 OS 설정이 나와 있습니다.
+* SAP Note [1944799]에는 SAP 애플리케이션용 SUSE Linux Enterprise Server에 대한 SAP HANA 지침이 나와 있습니다.
 * SAP Note [2178632]는 Azure에서 SAP에 대해 보고된 모든 모니터링 메트릭에 대한 자세한 정보를 포함하고 있습니다.
 * SAP Note [2191498]는 Azure에서 Linux에 필요한 SAP Host Agent 버전을 포함하고 있습니다.
 * SAP Note [2243692]는 Azure에서 Linux의 SAP 라이선스에 대한 정보를 포함하고 있습니다.
@@ -500,7 +500,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 1. **[A]** 연결 유지 구성
 
-   SAP NetWeaver 응용 프로그램 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 연결 끊김을 방지하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정하고 Linux 시스템 설정을 변경해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
+   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 연결 끊김을 방지하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정하고 Linux 시스템 설정을 변경해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
 
    ASCS/SCS profile 매개 변수 enque/encni/set_so_keepalive는 마지막 단계에서 이미 추가된 상태입니다.
 
@@ -575,7 +575,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 일부 데이터베이스에서는 데이터베이스 인스턴스 설치가 응용 프로그램 서버에서 실행되어야 합니다. 이러한 경우 응용 프로그램 서버 가상 머신을 사용할 수 있도록 준비합니다.
 
-아래 단계에서는 ASCS/SCS 및 HANA 서버와 다른 서버에 응용 프로그램 서버를 설치한다고 가정합니다. 그 외의 경우에는 호스트 이름 확인을 구성하는 단계 등 아래의 일부 단계를 수행할 필요가 없습니다.
+아래 단계에서는 ASCS/SCS 및 HANA 서버와 다른 서버에 애플리케이션 서버를 설치한다고 가정합니다. 그 외의 경우에는 호스트 이름 확인을 구성하는 단계 등 아래의 일부 단계를 수행할 필요가 없습니다.
 
 1. 운영 체제 구성
 
@@ -677,17 +677,17 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-## <a name="sap-netweaver-application-server-installation"></a>SAP NetWeaver 응용 프로그램 서버 설치
+## <a name="sap-netweaver-application-server-installation"></a>SAP NetWeaver 애플리케이션 서버 설치
 
-다음 단계에 따라 SAP 응용 프로그램 서버를 설치합니다.
+다음 단계에 따라 SAP 애플리케이션 서버를 설치합니다.
 
 1. 응용 프로그램 서버 준비
 
 위에 있는 [SAP NetWeaver 응용 프로그램 서버 준비](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) 챕터의 단계에 따라 응용 프로그램 서버를 준비합니다.
 
-1. SAP NetWeaver 응용 프로그램 서버 설치
+1. SAP NetWeaver 애플리케이션 서버 설치
 
-   기본 또는 추가 SAP NetWeaver 응용 프로그램 서버를 설치합니다.
+   기본 또는 추가 SAP NetWeaver 애플리케이션 서버를 설치합니다.
 
    sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다.
 

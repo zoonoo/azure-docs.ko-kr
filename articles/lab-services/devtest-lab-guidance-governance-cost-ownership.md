@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 9b83d6ac908be1e62e3c6c2025ae31aa374bdeea
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 47f3e8ab14ecd50e958c57ba4c8f9f098fd5bb7b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975076"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868364"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Azure DevTest Labs 인프라의 거버넌스 - 비용 및 소유권 관리
 비용 및 소유권은 개발 및 테스트 환경의 구축을 고려할 때 주요 관심사입니다. 이 섹션에서는 비용을 최적화하고 사용자 환경에서 소유권을 조정하는 데 유용한 도움이 되는 정보를 찾을 수 있습니다.
@@ -40,7 +40,7 @@ DevTest Labs 환경 내에서 비용을 최적화하려면 어떻게 해야 하�
  
 현재 Visual Studio를 구독(표준 구독, 연간 클라우드 구독 및 월간 클라우드 구독) 중인 경우에만 Enterprise 개발/테스트 구독 내에서 실행되는 Azure 리소스를 사용할 수 있습니다. 그러나 최종 사용자는 응용 프로그램에 액세스하여 피드백을 제공하거나 승인 테스트를 수행할 수도 있습니다. 이 구독 내에서 리소스 사용은 응용 프로그램 개발 및 테스트로 제한되며, 작동 시간은 보장되지 않습니다.
 
-DevTest 제안을 사용하기로 결정한 경우 이 혜택이 개발 및 응용 프로그램 테스트에만 해당된다는 것에 유의합니다. Visual Studio Team Services 및 HockeyApp을 사용하는 경우를 제외하고 구독 내에서의 사용에는 재정적으로 지원되는 SLA가 적용되지 않습니다.
+DevTest 제안을 사용하기로 결정한 경우 이 혜택이 개발 및 응용 프로그램 테스트에만 해당된다는 것에 유의합니다. Azure DevOps 및 HockeyApp을 사용하는 경우를 제외하고 구독 내에서의 사용에는 재정적으로 지원되는 SLA가 적용되지 않습니다.
 
 ## <a name="define-a-role-based-access-across-your-organization"></a>조직 전체에서 역할 기반 액세스 정의
 ### <a name="question"></a>질문

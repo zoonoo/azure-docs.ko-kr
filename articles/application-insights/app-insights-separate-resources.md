@@ -98,11 +98,11 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
 ## <a name="filter-on-build-number"></a>빌드 번호 필터링
 앱의 새 버전을 게시하면서 다른 빌드의 원격 분석을 구분하고자 할 수 있습니다.
 
-응용 프로그램 버전 속성을 설정하여 [검색](app-insights-diagnostic-search.md) 및 [메트릭 탐색기](app-insights-metrics-explorer.md) 결과를 필터링할 수 있습니다.
+애플리케이션 버전 속성을 설정하여 [검색](app-insights-diagnostic-search.md) 및 [메트릭 탐색기](app-insights-metrics-explorer.md) 결과를 필터링할 수 있습니다.
 
 ![속성 필터링](./media/app-insights-separate-resources/050-filter.png)
 
-응용 프로그램 버전 속성은 몇 가지 다른 방법으로 설정할 수 있습니다.
+애플리케이션 버전 속성은 몇 가지 다른 방법으로 설정할 수 있습니다.
 
 * 직접 설정:
 

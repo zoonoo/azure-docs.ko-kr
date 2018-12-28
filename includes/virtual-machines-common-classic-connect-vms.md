@@ -17,7 +17,7 @@ ms.locfileid: "50226898"
 
 ![가상 네트워크의 가상 머신](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
-가상 네트워크는 Azure에서 가상 머신을 연결하는 데 권장되는 방법입니다. 응용 프로그램의 각 계층을 별도의 클라우드 서비스에 구성하는 것이 가장 좋습니다. 그러나 구독당 클라우드 서비스 수를 최대 200개의 범위 내에서 유지하기 위해 여러 응용 프로그램 계층의 일부 가상 머신을 동일한 클라우드 서비스에 통합해야 할 수도 있습니다. 이 제한 및 다른 제한을 검토하려면 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)을 참조하세요.
+가상 네트워크는 Azure에서 가상 머신을 연결하는 데 권장되는 방법입니다. 애플리케이션의 각 계층을 별도의 클라우드 서비스에 구성하는 것이 가장 좋습니다. 그러나 구독당 클라우드 서비스 수를 최대 200개의 범위 내에서 유지하기 위해 여러 애플리케이션 계층의 일부 가상 머신을 동일한 클라우드 서비스에 통합해야 할 수도 있습니다. 이 제한 및 다른 제한을 검토하려면 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)을 참조하세요.
 
 ## <a name="connect-vms-in-a-virtual-network"></a>가상 네트워크에서 VM 연결
 가상 네트워크에서 가상 머신을 연결하려면

@@ -41,15 +41,15 @@ Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 **Azure VM 복제** | 기본 지역의 Azure VM을 보조 지역으로 재해 복구하도록 설정할 수 있습니다.
 **온-프레미스 VM 복제** | 온-프레미스 VM 및 물리적 서버를 Azure 또는 보조 온-프레미스 데이터 센터에 복제할 수 있습니다. Azure에 복제하면 보조 데이터 센터를 유지하는 비용과 복잡성을 제거할 수 있습니다.
 **워크로드 복제** | 지원되는 Azure VM, 온-프레미스 Hyper-V 및 VMware VM, Windows/Linux 물리적 서버에서 실행되는 모든 워크로드를 복제할 수 있습니다.
-**데이터 복원력** | Site Recovery는 응용 프로그램 데이터를 차단하지 않고 복제를 오케스트레이션합니다. Azure에 복제할 때 데이터는 제공되는 복원력을 통해 Azure Storage에 저장됩니다. 장애 조치(failover)가 발생하는 경우 복제된 데이터를 기반으로 하여 Azure VM을 만듭니다.
+**데이터 복원력** | Site Recovery는 애플리케이션 데이터를 차단하지 않고 복제를 오케스트레이션합니다. Azure에 복제할 때 데이터는 제공되는 복원력을 통해 Azure Storage에 저장됩니다. 장애 조치(failover)가 발생하는 경우 복제된 데이터를 기반으로 하여 Azure VM을 만듭니다.
 **RTO 및 RPO 대상** | 조직 제한 내에서 RTO(복구 시간 목표) 및 RPO(복구 지점 목표)를 유지합니다. Site Recovery는 Azure VM 및 VMware VM에 대해 연속 복제를 제공하고 Hyper-V에 대해서는 짧은 빈도(30초)의 복제를 제공합니다. [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)와 통합하여 RTO를 더 줄일 수 있습니다.
 **장애 조치(Failover)를 통해 앱 일관성 유지** | 애플리케이션 일치 스냅숏으로 복구 지점을 사용하여 복제할 수 있습니다. 이러한 스냅숏은 디스크 데이터, 메모리의 모든 데이터, 프로세스의 모든 트랜잭션을 캡처합니다.
 **중단 없는 테스트** | 진행 중인 복제에 영향을 주지 않고 손쉽게 재해 복구 훈련을 실행할 수 있습니다.
 **유연한 장애 조치(failover)** | 예상된 중단에 대해서는 계획된 데이터 무손실 장애 조치를 실행하고, 예기치 않은 재해에 대해서는 복제 빈도에 따라 데이터 손실을 최소화하는 계획되지 않은 장애 조치를 실행할 수 있습니다. 기본 사이트를 다시 사용할 수 있는 경우 손쉽게 이 사이트로 장애 복구할 수 있습니다.
 **사용자 지정 복구 계획** | 복구 계획을 사용하여 여러 VM에서 실행되는 다중 계층 애플리케이션의 장애 조치(failover) 및 복구를 사용자 지정하고 순서를 정할 수 있습니다. 복구 계획에서 컴퓨터를 그룹으로 묶고 선택적으로 스크립트와 수동 작업을 추가합니다. 복구 계획은 Azure Automation runbook과 통합될 수 있습니다.
 **BCDR 통합** | Site Recovery는 다른 BCDR 기술과 통합합니다. 예를 들어 Site Recovery를 사용하여 가용성 그룹의 장애 조치를 관리하는 AlwaysOn에 대한 SQL Server의 기본 지원을 통해 회사 워크로드의 SQL Server 백 엔드를 보호할 수 있습니다.
-**Azure Automation 통합** | 다양한 Azure Automation 라이브러리는 Site Recovery를 다운로드하고 통합할 수 있는 프로덕션 준비된 응용 프로그램 특정 스크립트를 제공합니다.
-**네트워크 통합** | Site Recovery는 효율적인 네트워크 전환을 위한 IP 주소 예약, 부하 분산 장치 구성 또는 Azure Traffic Manager의 통합 등 간단한 응용 프로그램 네트워크 관리를 위해 Azure와 통합됩니다.
+**Azure Automation 통합** | 다양한 Azure Automation 라이브러리는 Site Recovery를 다운로드하고 통합할 수 있는 프로덕션 준비된 애플리케이션 특정 스크립트를 제공합니다.
+**네트워크 통합** | Site Recovery는 효율적인 네트워크 전환을 위한 IP 주소 예약, 부하 분산 장치 구성 또는 Azure Traffic Manager의 통합 등 간단한 애플리케이션 네트워크 관리를 위해 Azure와 통합됩니다.
 
 
 ## <a name="what-can-i-replicate"></a>무엇을 복제할 수 있습니까?

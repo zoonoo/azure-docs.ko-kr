@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 173a64181c1e8c051c6856fa8353f484540917e7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cd8a7540b14c9d0896b9b0db2cae91ac54d92f2a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249713"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844688"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행 
 
@@ -30,12 +30,12 @@ ms.locfileid: "51249713"
 
 1. Azure Portal의 Site Recovery에서 **복구 계획** > *recoveryplan_name* > **테스트 장애 조치(Failover)** 를 클릭합니다.
 2. 장애 조치(failover)할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
-    - **가장 최근에 처리됨**: 이 옵션은 계획의 모든 VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치합니다. 특정 VM에 대한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점**을 선택하세요. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
-    - **최신 앱 일치**: 이 옵션은 계획의 모든 VM을 Site Recovery에서 처리된 최신 응용 프로그램 일치 복구 지점으로 장애 조치합니다. 특정 VM에 대한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점**을 선택하세요.
-    - **최신**: 먼저 Site Recovery 서비스로 보낸 모든 데이터를 처리한 다음 각 VM에 대한 복구 지점을 만든 후에 해당 복구 지점에 장애 조치합니다. 이 옵션은 장애 조치(failover) 후에 생성된 VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
-    - **최신 다중 VM 처리**: 이 옵션은 다중 VM 일치가 사용하도록 설정된 하나 이상의 VM이 포함된 복구 계획에 사용할 수 있습니다. 이 설정이 사용하도록 설정된 VM은 최신 일반 다중 VM 일치 복구 지점으로 장애 조치(Failover)됩니다. 다른 VM은 처리된 최신 복구 지점으로 장애 조치(Failover)됩니다.  
+    - **가장 최근에 처리됨**: 이 옵션은 계획의 모든 VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치(failover)합니다. 특정 VM에 대한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점**을 선택하세요. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
+    - **최신 앱 일치**: 이 옵션은 계획의 모든 VM을 Site Recovery에서 처리된 최신 애플리케이션 일치 복구 지점으로 장애 조치(failover)합니다. 특정 VM에 대한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점**을 선택하세요.
+    - **최신**: 이 옵션은 Site Recovery 서비스로 보낸 모든 데이터를 먼저 처리한 다음 각 VM에 대한 복구 지점을 만든 후에 해당 복구 지점으로 장애 조치(failover)합니다. 이 옵션은 장애 조치(failover) 후에 생성된 VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
+    - **최신 다중 VM이 처리됨**: 이 옵션은 다중 VM 일치가 사용하도록 설정된 하나 이상의 VM이 포함된 복구 계획에 사용할 수 있습니다. 이 설정이 사용하도록 설정된 VM은 최신 일반 다중 VM 일치 복구 지점으로 장애 조치(Failover)됩니다. 다른 VM은 처리된 최신 복구 지점으로 장애 조치(Failover)됩니다.  
     - **최신 다중 VM 앱 일치**: 이 옵션은 다중 VM 일치가 사용하도록 설정된 하나 이상의 VM이 포함된 복구 계획에 사용할 수 있습니다. 복제 그룹에 속하는 VM은 공통된 최신 다중 VM 응용 프로그램 일관성 복구 지점으로 장애 조치(failover)됩니다. 다른 VM은 최신 응용 프로그램 일치 복구 지점으로 장애 조치(Failover)됩니다.
-    - **사용자 지정**: 특정 VM을 특정 복구 지점으로 장애 조치(failover)하려면 이 옵션을 사용합니다.
+    - **사용자 지정**: 이 옵션은 특정 VM을 특정 복구 지점으로 장애 조치(failover)하는 데 사용합니다.
 3. 테스트 VM을 만들 Azure Virtual Network를 선택합니다.
 
     - Site Recovery는 VM의 **Compute 및 네트워크** 설정에서 제공한 것과 동일한 이름 및 IP 주소를 사용하여 서브넷에 테스트 VM을 만들려고 시도합니다.
@@ -52,10 +52,10 @@ ms.locfileid: "51249713"
 
 테스트 장애 조치(Failover)가 트리거되면 다음 작업이 수행됩니다.
 
-1. **필수 구성 요소**: 장애 조치(failover)에 필요한 모든 조건이 충족되었는지 확인하기 위해 필수 구성 요소 확인이 실행됩니다.
-2. **장애 조치(Failover)**: Azure VM이 만들어질 수 있도록 장애 조치(Failover)가 데이터를 처리하고 준비합니다.
+1. **필수 조건**: 필수 구성 요소 확인을 실행하여 장애 조치(failover)에 필요한 모든 조건이 충족되었는지 확인합니다.
+2. **장애 조치(failover)**: Azure VM이 만들어질 수 있도록 장애 조치(Failover)가 데이터를 처리하고 준비합니다.
 3. **최신**: 최신 복구 지점을 선택한 경우 서비스로 전송된 데이터에서 복구 지점이 만들어집니다.
-4. **시작**: 이 단계에서는 이전 단계에서 처리한 데이터를 사용하여 Azure Virtual Machine이 만들어집니다.
+4. **시작**: 이 단계는 이전 단계에서 처리된 데이터를 사용하여 Azure 가상 머신을 만듭니다.
 
 ### <a name="failover-timing"></a>장애 조치(Failover) 시간
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Stack VM에서 파일 백업
-description: Azure Backup을 사용하여 Azure Stack 환경에 Azure Stack 파일과 응용 프로그램을 백업하고 복구합니다.
+description: Azure Backup을 사용하여 Azure Stack 환경에 Azure Stack 파일과 애플리케이션을 백업하고 복구합니다.
 services: backup
 author: adiganmsft
 manager: shivamg
@@ -16,7 +16,7 @@ ms.lasthandoff: 09/14/2018
 ms.locfileid: "45579206"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Azure Stack에서 파일 백업
-Azure Backup을 사용하여 Azure Stack의 파일 및 응용 프로그램을 보호(또는 백업)합니다. 파일 및 응용 프로그램을 백업하려면 Microsoft Azure Backup Server를 Azure Stack에서 실행되는 가상 머신으로 설치합니다. 동일한 가상 네트워크의 Azure Stack 서버에서 파일을 보호할 수 있습니다. Azure Backup Server를 설치하면 Azure 디스크를 추가하여 단기 백업 데이터에 사용할 수 있는 로컬 저장소를 증가시킵니다. Azure Backup Server는 장기 보존을 위해 Azure Storage를 사용합니다.
+Azure Backup을 사용하여 Azure Stack의 파일 및 애플리케이션을 보호(또는 백업)합니다. 파일 및 애플리케이션을 백업하려면 Microsoft Azure Backup Server를 Azure Stack에서 실행되는 가상 머신으로 설치합니다. 동일한 가상 네트워크의 Azure Stack 서버에서 파일을 보호할 수 있습니다. Azure Backup Server를 설치하면 Azure 디스크를 추가하여 단기 백업 데이터에 사용할 수 있는 로컬 저장소를 증가시킵니다. Azure Backup Server는 장기 보존을 위해 Azure Storage를 사용합니다.
 
 > [!NOTE]
 > Azure Backup Server 및 System Center DPM(Data Protection Manager)은 유사하지만 DPM은 Azure Stack에서 사용하도록 지원되지 않습니다.

@@ -52,7 +52,7 @@ BizTalk Services 포털을 사용하여 X12 및 EDIFACT 규약을 구성 및 배
 > 
 > 
 
-시나리오를 완료하려면 Service Bus 큐를 사용하여 Contoso에서 Northwind로 송장을 보내거나 Northwind로부터 승인을 받습니다. 이러한 큐는 다운로드로 제공되며 이 자습서의 일부로 사용 가능한 샘플 패키지에 포함된 클라이언트 응용 프로그램을 사용하여 만들 수 있습니다.  
+시나리오를 완료하려면 Service Bus 큐를 사용하여 Contoso에서 Northwind로 송장을 보내거나 Northwind로부터 승인을 받습니다. 이러한 큐는 다운로드로 제공되며 이 자습서의 일부로 사용 가능한 샘플 패키지에 포함된 클라이언트 애플리케이션을 사용하여 만들 수 있습니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 * Service Bus 네임스페이스가 있어야 합니다. 네임스페이스를 만드는 방법에 대한 지침은 [방법: Service Bus 서비스 네임스페이스 만들기 또는 수정](https://msdn.microsoft.com/library/azure/hh674478.aspx)을 참조하세요. **edifactbts**라는 프로비전된 Service Bus 네임스페이스가 있다고 가정합니다.
@@ -68,7 +68,7 @@ BizTalk Services 포털을 사용하여 X12 및 EDIFACT 규약을 구성 및 배
 * **contosoreceive** – Contoso는 이 큐를 통해 Northwind로부터 승인을 받습니다.
 * **일시 중단** – 모든 일시 중단된 메시지가 이 큐에 라우팅됩니다. 처리 중 실패하는 경우 메시지는 일시 중단됩니다.
 
-샘플 패키지에 포함된 클라이언트 응용 프로그램을 사용하여 이러한 Service Bus 큐를 만들 수 있습니다.  
+샘플 패키지에 포함된 클라이언트 애플리케이션을 사용하여 이러한 Service Bus 큐를 만들 수 있습니다.  
 
 1. 샘플을 다운로드한 위치에서 **자습서: BizTalk Services EDI Bridges.sln을 사용하여 송장 전송**을 엽니다.
 2. **F5** 키를 눌러 빌드하고 **자습서 클라이언트** 응용 프로그램을 시작합니다.

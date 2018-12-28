@@ -85,7 +85,7 @@ ASD 규정 준수를 구현하려면 정보 보안 등록 평가자가 시스템
 
 **App Service Environment v2**: [Azure App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro)는 App Service 응용 프로그램을 높은 수준에서 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 Azure App Service 기능입니다.
 
-App Service Environment는 단일 고객의 애플리케이션만 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 고객은 인바운드 및 아웃바운드 응용 프로그램 네트워크 트래픽 둘 다에 대해 세밀하게 제어할 수 있고 응용 프로그램은 가상 네트워크를 통해 온-프레미스 회사 리소스에 고속 보안 연결을 설정할 수 있습니다.
+App Service Environment는 단일 고객의 애플리케이션만 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 고객은 인바운드 및 아웃바운드 애플리케이션 네트워크 트래픽 둘 다에 대해 세밀하게 제어할 수 있고 애플리케이션은 가상 네트워크를 통해 온-프레미스 회사 리소스에 고속 보안 연결을 설정할 수 있습니다.
 
 이 아키텍처에 대한 App Service Environment 사용은 다음 제어/구성에 대해 허용됩니다.
 

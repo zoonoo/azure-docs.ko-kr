@@ -150,10 +150,10 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 `NumberOfBatches`|이렇게 하면 샘플에 부여할 테스트 꼭짓점 및 에지의 수가 결정됩니다. 이 숫자는 꼭짓점과 에지 둘 다에 적용됩니다.
 `CollectionPartitionKey`|테스트 꼭짓점 및 에지를 만드는 데 사용되며, 이 속성은 자동으로 할당됩니다. 또한 `ShouldCleanupOnStart` 옵션을 `true`로 설정할 경우 데이터베이스 및 컬렉션을 다시 만드는 데 사용됩니다.
 
-### <a name="run-the-sample-application"></a>샘플 응용 프로그램 실행
+### <a name="run-the-sample-application"></a>샘플 애플리케이션 실행
 
 1. `App.config`에서 특정 데이터베이스 구성 매개 변수를 추가합니다. DocumentClient 인스턴스를 만드는 데 사용됩니다. 데이터베이스 및 컨테이너가 아직 생성되지 않은 경우 자동으로 생성됩니다.
-2. 응용 프로그램을 실행합니다. `BulkImportAsync`를 두 번 호출합니다. 한 번은 꼭짓점을 가져오는 호출이고, 다른 한 번은 에지를 가져오는 호출입니다. 개체를 삽입할 때 개체에서 오류가 발생할 경우 해당 개체는 `.\BadVertices.txt` 또는 `.\BadEdges.txt`에 추가됩니다.
+2. 애플리케이션을 실행합니다. `BulkImportAsync`를 두 번 호출합니다. 한 번은 꼭짓점을 가져오는 호출이고, 다른 한 번은 에지를 가져오는 호출입니다. 개체를 삽입할 때 개체에서 오류가 발생할 경우 해당 개체는 `.\BadVertices.txt` 또는 `.\BadEdges.txt`에 추가됩니다.
 3. 그래프 데이터베이스를 쿼리하여 결과를 평가하세요. `ShouldCleanupOnFinish` 옵션을 true로 설정하면 데이터베이스가 자동으로 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계

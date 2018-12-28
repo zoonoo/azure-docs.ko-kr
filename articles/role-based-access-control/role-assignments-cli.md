@@ -283,7 +283,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-다음 예제에서는 *pharma-sales-projectforecast* 리소스 그룹 범위에서 개체 ID 44444444-4444-4444-4444-444444444444의 응용 프로그램에 *Virtual Machine Contributor* 역할을 부여합니다. 응용 프로그램의 개체 ID를 가져오기 위해 [az ad app list](/cli/azure/ad/app#az-ad-app-list) 또는 [az ad app show](/cli/azure/ad/app#az-ad-app-show)를 사용할 수 있습니다.
+다음 예제에서는 *pharma-sales-projectforecast* 리소스 그룹 범위에서 개체 ID 44444444-4444-4444-4444-444444444444의 애플리케이션에 *Virtual Machine Contributor* 역할을 부여합니다. 애플리케이션의 개체 ID를 가져오기 위해 [az ad app list](/cli/azure/ad/app#az-ad-app-list) 또는 [az ad app show](/cli/azure/ad/app#az-ad-app-show)를 사용할 수 있습니다.
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast

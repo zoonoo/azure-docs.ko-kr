@@ -38,14 +38,14 @@ OAuth 2.0 On-Behalf-Of 흐름은 애플리케이션이 서비스/웹 API를 호�
 > 2018년 5월부터 위임자 흐름에는 `id_token`을 사용할 수 없습니다. SPA는 OBO 흐름을 수행하려면 중간 계층 기밀 클라이언트에 **액세스 토큰**을 전달해야 합니다. 클라이언트가 위임자 호출을 수행할 수 있는 데 관한 자세한 내용은 [제한](#client-limitations)을 참조하세요.
 
 ## <a name="protocol-diagram"></a>프로토콜 다이어그램
-사용자가 [OAuth 2.0 권한 부여 코드 부여 흐름](v2-oauth2-auth-code-flow.md)을 사용하여 응용 프로그램에 대해 인증되었다고 가정합니다. 이 시점에서 응용 프로그램에는 사용자의 클레임 및 중간 계층 웹 API(API A) 액세스에 대한 동의가 있는 *API A용* 액세스 토큰(토큰 A)이 있습니다. 이제 API A는 다운스트림 웹 API(API B)에 대해 인증된 요청을 해야 합니다.
+사용자가 [OAuth 2.0 권한 부여 코드 부여 흐름](v2-oauth2-auth-code-flow.md)을 사용하여 응용 프로그램에 대해 인증되었다고 가정합니다. 이 시점에서 애플리케이션에는 사용자의 클레임 및 중간 계층 웹 API(API A) 액세스에 대한 동의가 있는 *API A용* 액세스 토큰(토큰 A)이 있습니다. 이제 API A는 다운스트림 웹 API(API B)에 대해 인증된 요청을 해야 합니다.
 
 다음 단계는 On-Behalf-Of 흐름을 구성하며 다음 다이어그램을 통해 쉽게 이해할 수 있습니다.
 
 ![OAuth2.0 On-Behalf-Of 흐름](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
-1. 클라이언트 응용 프로그램은 토큰 A(API A의 `aud` 클레임 포함)를 사용하여 API A에 요청합니다.
+1. 클라이언트 애플리케이션은 토큰 A(API A의 `aud` 클레임 포함)를 사용하여 API A에 요청합니다.
 2. API A는 Azure AD 토큰 발급 엔드포인트를 인증하고 API B에 액세스하기 위해 토큰을 요청합니다.
 3. Azure AD 토큰 발급 엔드포인트는 토큰 A와 함께 API A의 자격 증명의 유효성을 검사하고 API B(토큰 B)에 대한 액세스 토큰을 발급합니다.
 4. 토큰 B는 API B에 대한 요청의 권한 부여 헤더에 설정됩니다.
@@ -154,7 +154,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 > [!NOTE]
-> 위의 액세스 토큰은 V1 형식의 토큰입니다. 이는 토큰이 액세스되는 리소스에 따라 제공되기 때문입니다. Microsoft Graph는 V1 토큰을 요청하므로 클라이언트에서 Microsoft Graph용 토큰을 요청할 때 Azure AD에서 V1 액세스 토큰을 생성합니다. 응용 프로그램만 액세스 토큰을 검사해야 하며 클라이언트는 검사할 필요가 없습니다. 
+> 위의 액세스 토큰은 V1 형식의 토큰입니다. 이는 토큰이 액세스되는 리소스에 따라 제공되기 때문입니다. Microsoft Graph는 V1 토큰을 요청하므로 클라이언트에서 Microsoft Graph용 토큰을 요청할 때 Azure AD에서 V1 액세스 토큰을 생성합니다. 애플리케이션만 액세스 토큰을 검사해야 하며 클라이언트는 검사할 필요가 없습니다. 
 
 
 ### <a name="error-response-example"></a>오류 응답 예제

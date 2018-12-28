@@ -40,9 +40,9 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 
 서비스 형식은 서비스의 코드 패키지, 데이터 패키지 및 구성 패키지에 할당된 이름/버전입니다. 서비스 패키지 디렉터리에 포함된 ServiceManifest.xml 파일에서 정의됩니다. 그런 다음 서비스 패키지 디렉터리는 응용 프로그램 패키지의 *ApplicationManifest.xml* 파일에서 참조됩니다. 클러스터 내에서 명명된 응용 프로그램을 만든 후에 응용 프로그램 형식의 서비스 형식 중 하나에서 명명된 서비스를 만들 수 있습니다. 서비스 형식은 *ServiceManifest.xml* 파일로 설명되며, 런타임에 로드되는 실행 가능한 코드 서비스 구성 설정과 서비스가 소비하는 정적 데이터로 구성됩니다.
 
-![서비스 패브릭 응용 프로그램 유형 및 서비스 유형][cluster-imagestore-apptypes]
+![Service Fabric 애플리케이션 유형 및 서비스 유형][cluster-imagestore-apptypes]
 
-응용 프로그램 패키지는 응용 프로그램 형식의 *ApplicationManifest.xml* 파일이 들어 있는 디스크 디렉터리로, 응용 프로그램 형식을 구성하는 각 서비스 형식에 대해 서비스 패키지를 참조합니다. 예를 들어 전자 메일 응용 프로그램 형식에 대한 응용 프로그램 패키지는 큐 서비스 패키지, 프런트 엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다. 응용 프로그램 패키지 디렉터리에 있는 파일은 Service Fabric 클러스터의 이미지 저장소에 복사됩니다. 
+응용 프로그램 패키지는 응용 프로그램 형식의 *ApplicationManifest.xml* 파일이 들어 있는 디스크 디렉터리로, 응용 프로그램 형식을 구성하는 각 서비스 형식에 대해 서비스 패키지를 참조합니다. 예를 들어 전자 메일 애플리케이션 형식에 대한 애플리케이션 패키지는 큐 서비스 패키지, 프런트 엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다. 응용 프로그램 패키지 디렉터리에 있는 파일은 Service Fabric 클러스터의 이미지 저장소에 복사됩니다. 
 
 서비스 패키지는 서비스 형식의 *ServiceManifest.xml* 파일이 들어 있는 디스크 디렉터리로, 서비스 형식에 대한 코드, 정적 데이터 및 구성 패키지를 참조합니다. 서비스 패키지 디렉터리의 파일은 응용 프로그램 형식의 *ApplicationManifest.xml* 파일에서 참조합니다. 예를 들어, 서비스 패키지는 데이터베이스 서비스를 구성하는 코드, 정적 데이터 및 구성 패키지를 참조할 수 있습니다.
 
@@ -93,20 +93,20 @@ Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제�
 Reliable Services의 최상위에 구축되는 [Reliable Actor](service-fabric-reliable-actors-introduction.md) 프레임워크는 행위자 설계 패턴을 기준으로 가상 행위자 패턴을 구현하는 응용 프로그램 프레임워크입니다. Reliable Actor 프레임워크는 행위자라고 하는 단일 스레드 실행을 통해 독립적인 계산 단위 및 상태를 사용합니다. Reliable Actor 프레임워크는 행위자와 사전 설정 상태 지속성 및 확장 구성에 대해 기본 포함된 통신을 제공합니다.
 
 ### <a name="aspnet-core"></a>ASP.NET Core
-Service Fabric은 웹 및 API 응용 프로그램 빌드를 위한 첫 번째 클래스 프로그래밍 모델로 [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)와 통합됩니다.  ASP.NET Core는 Service Fabric에서 다음 두 가지 방식으로 사용할 수 있습니다.
+Service Fabric은 웹 및 API 애플리케이션 빌드를 위한 첫 번째 클래스 프로그래밍 모델로 [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)와 통합됩니다.  ASP.NET Core는 Service Fabric에서 다음 두 가지 방식으로 사용할 수 있습니다.
 
-- 게스트 실행 파일로 호스팅됨 주로 코드 변경 없이 Service Fabric에서 기존 ASP.NET Core 응용 프로그램을 실행하는 데 사용됩니다.
+- 게스트 실행 파일로 호스팅됨 주로 코드 변경 없이 Service Fabric에서 기존 ASP.NET Core 애플리케이션을 실행하는 데 사용됩니다.
 - Reliable Service에서 실행 향상된 Service Fabric 런타임 통합과 상태 저장 ASP.NET Core 서비스를 허용합니다.
 
 ### <a name="guest-executables"></a>게스트 실행 파일
 [게스트 실행 파일](service-fabric-guest-executables-introduction.md)은 Service Fabric 클러스터에서 다른 서비스와 함께 호스트된 임의의 기존 실행 파일입니다. 게스트 실행 파일은 Service Fabric API와 직접 통합되지 않습니다. 그러나 사용자 지정 상태 및 로드 보고, REST API 호출에 의한 서비스 검색 가능성과 같이 플랫폼에서 제공하는 기능을 계속 활용합니다. 또한 전체 응용 프로그램 수명 주기 지원도 포함합니다. 
 
 ## <a name="application-lifecycle"></a>응용 프로그램 수명 주기
-다른 플랫폼과 마찬가지로, Service Fabric 기반의 응용 프로그램은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. 서비스 패브릭은 개발부터 배포, 일상적인 관리, 유지 관리 및 최종적인 서비스 해제에 이르기까지 클라우드 응용 프로그램의 전체 응용 프로그램 수명 주기 관리에 대해 최고 수준의 지원을 제공합니다. 여러 역할이 응용 프로그램 수명 주기에 독립적으로 참가할 수 있는 서비스 모델이 제공됩니다. [Service Fabric 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)에서는 API에 대한 개요 및 API가 Service Fabric 응용 프로그램 수명 주기의 전체 단계에서 여러 역할에 의해 사용되는 방법을 제공합니다. 
+다른 플랫폼과 마찬가지로, Service Fabric 기반의 애플리케이션은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. 서비스 패브릭은 개발부터 배포, 일상적인 관리, 유지 관리 및 최종적인 서비스 해제에 이르기까지 클라우드 응용 프로그램의 전체 응용 프로그램 수명 주기 관리에 대해 최고 수준의 지원을 제공합니다. 여러 역할이 응용 프로그램 수명 주기에 독립적으로 참가할 수 있는 서비스 모델이 제공됩니다. [Service Fabric 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)에서는 API에 대한 개요 및 API가 Service Fabric 응용 프로그램 수명 주기의 전체 단계에서 여러 역할에 의해 사용되는 방법을 제공합니다. 
 
 전체 앱 수명 주기는 [PowerShell cmdlet](/powershell/module/ServiceFabric/), [CLI 명령](service-fabric-sfctl.md), [C# API](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API](/java/api/overview/azure/servicefabric) 및 [REST API](/rest/api/servicefabric/)를 사용하여 관리할 수 있습니다. [Azure Pipelines](service-fabric-set-up-continuous-integration.md) 또는 [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)와 같은 도구를 사용하여 연속 통합/지속적인 배포 파이프라인을 설정할 수도 있습니다.
 
-다음 Microsoft Virtual Academy 비디오에서는 응용 프로그램 수명 주기를 관리하는 방법을 설명합니다. <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
+다음 Microsoft Virtual Academy 비디오에서는 애플리케이션 수명 주기를 관리하는 방법을 설명합니다. <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -139,7 +139,7 @@ Azure에서 Service Fabric 클러스터를 실행하면 클러스터의 작업 �
 
 [Azure Portal](service-fabric-cluster-creation-via-portal.md), [템플릿](service-fabric-cluster-creation-via-arm.md) 또는 [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md)를 통해 Azure에 클러스터를 만들 수 있습니다.
 
-Linux의 Service Fabric을 사용하면 Windows와 마찬가지로 Linux에서도 Service Fabric을 통해 해당 환경에서 가용성 및 확장성이 뛰어난 응용 프로그램을 빌드, 배포 및 관리할 수 있습니다. Service Fabric 프레임워크(Reliable Services 및 Reliable Actors)는 C#(.NET Core)뿐만 아니라 Linux의 Java에서 사용할 수 있습니다. 어떤 언어 또는 프레임워크에서도 [게스트 실행 서비스](service-fabric-guest-executables-introduction.md) 를 빌드할 수 있습니다. Docker 컨테이너 오케스트레이션도 지원됩니다. Docker 컨테이너는 게스트 실행 파일 또는 Service Fabric 프레임워크를 사용하는 네이티브 Service Fabric 서비스를 실행할 수 있습니다. 자세한 내용은 [Linux의 Service Fabric](service-fabric-deploy-anywhere.md)을 참조하세요.
+Linux의 Service Fabric을 사용하면 Windows와 마찬가지로 Linux에서도 Service Fabric을 통해 해당 환경에서 가용성 및 확장성이 뛰어난 애플리케이션을 빌드, 배포 및 관리할 수 있습니다. Service Fabric 프레임워크(Reliable Services 및 Reliable Actors)는 C#(.NET Core)뿐만 아니라 Linux의 Java에서 사용할 수 있습니다. 어떤 언어 또는 프레임워크에서도 [게스트 실행 서비스](service-fabric-guest-executables-introduction.md) 를 빌드할 수 있습니다. Docker 컨테이너 오케스트레이션도 지원됩니다. Docker 컨테이너는 게스트 실행 파일 또는 Service Fabric 프레임워크를 사용하는 네이티브 Service Fabric 서비스를 실행할 수 있습니다. 자세한 내용은 [Linux의 Service Fabric](service-fabric-deploy-anywhere.md)을 참조하세요.
 
 Windows에서는 지원되지만 Linux에서 지원되지 않는 일부 기능이 있습니다. 자세한 내용은 [Linux와 Windows의 Service Fabric 간의 차이점](service-fabric-linux-windows-differences.md)을 참조하세요.
 
@@ -193,14 +193,14 @@ Service Fabric은 여러 가지 다음 방법으로 상태 저장소에 집계�
 </a></center>
 
 ## <a name="monitoring-and-diagnostics"></a>모니터링 및 진단
-[모니터링 및 진단](service-fabric-diagnostics-overview.md)은 모든 환경에서 응용 프로그램 및 서비스를 개발, 테스트 및 배포하는 데 중요합니다. Service Fabric 솔루션은 로컬 개발 환경 또는 프로덕션 환경에서 응용 프로그램과 서비스가 예상대로 작동하는지 확인하는 데 도움이 되는 모니터링 및 진단을 계획하고 구현할 때 가장 효과적입니다.
+[모니터링 및 진단](service-fabric-diagnostics-overview.md)은 모든 환경에서 응용 프로그램 및 서비스를 개발, 테스트 및 배포하는 데 중요합니다. Service Fabric 솔루션은 로컬 개발 환경 또는 프로덕션 환경에서 애플리케이션과 서비스가 예상대로 작동하는지 확인하는 데 도움이 되는 모니터링 및 진단을 계획하고 구현할 때 가장 효과적입니다.
 
 모니터링 및 진단의 주요 목표는 다음과 같습니다.
 
 - 하드웨어 및 인프라 문제 감지 및 진단
 - 소프트웨어 및 앱 문제 감지, 서비스 가동 중지 시간 감소
 - 리소스 사용량 이해 및 적절한 작업 의사 결정 유도
-- 응용 프로그램, 서비스 및 인프라 성능 최적화
+- 애플리케이션, 서비스 및 인프라 성능 최적화
 - 비즈니스 통찰력 생성 및 향상 가능 영역 식별
  
 모니터링 및 진단의 전체 워크플로는 다음 세 단계로 구성됩니다.

@@ -28,7 +28,7 @@ ms.locfileid: "48854119"
 
 ## <a name="what-is-wcf-relay"></a>WCF 릴레이란?
 
-Azure [*WCF 릴레이*](relay-what-is-it.md) 서비스를 사용하면 Azure 데이터 센터와 고유한 온-프레미스 엔터프라이즈 환경 둘 다에서 실행되는 하이브리드 응용 프로그램을 빌드할 수 있습니다. 릴레이 서비스는 방화벽 연결을 열거나 회사 네트워크 인프라를 주입식으로 변경하지 않고도 회사 엔터프라이즈 네트워크 내에 있는 WCF(Windows Communication Foundation) 서비스를 공용 클라우드에 안전하게 노출할 수 있게 함으로써 이 작업을 도와줍니다.
+Azure [*WCF Relay*](relay-what-is-it.md) 서비스를 사용하면 Azure 데이터 센터와 고유한 온-프레미스 엔터프라이즈 환경 둘 다에서 실행되는 하이브리드 애플리케이션을 빌드할 수 있습니다. 릴레이 서비스는 방화벽 연결을 열거나 회사 네트워크 인프라를 주입식으로 변경하지 않고도 회사 엔터프라이즈 네트워크 내에 있는 WCF(Windows Communication Foundation) 서비스를 공용 클라우드에 안전하게 노출할 수 있게 함으로써 이 작업을 도와줍니다.
 
 ![WCF 릴레이 개념](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 

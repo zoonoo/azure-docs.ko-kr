@@ -35,9 +35,9 @@ RADIUS 인증을 구성하려면 Windows 서버에 Azure Multi-Factor Authentica
 2. **RADIUS 인증 사용** 확인란을 선택합니다.
 3. 클라이언트 탭에서 Azure MFA RADIUS 서비스가 비표준 포트에서 RADIUS 요청을 수신해야 하는 경우 인증 및 계정 포트를 변경합니다.
 4. **추가**를 클릭합니다.
-5. Azure Multi-Factor Authentication 서버, 응용 프로그램 이름(옵션) 및 공유 암호를 인증하는 어플라이언스/서버의 IP 주소를 입력합니다.
+5. Azure Multi-Factor Authentication 서버, 애플리케이션 이름(옵션) 및 공유 비밀을 인증하는 어플라이언스/서버의 IP 주소를 입력합니다.
 
-  응용 프로그램 이름이 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
+  애플리케이션 이름이 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
 
   공유 암호는 Azure Multi-Factor Authentication 서버 및 어플라이언스/서버 모두에서 동일해야 합니다.
 

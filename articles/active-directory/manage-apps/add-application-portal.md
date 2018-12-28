@@ -54,7 +54,7 @@ Azure AD 테넌트에 갤러리 애플리케이션을 추가하려면:
 
 4. **모든 응용 프로그램** 블레이드 맨 위에서 **새 응용 프로그램**을 클릭합니다.
 
-    ![새 응용 프로그램](media/add-application-portal/new-application.png)
+    ![새 애플리케이션](media/add-application-portal/new-application.png)
 
 5. 갤러리의 애플리케이션 목록을 보려면 **범주**를 사용하는 것이 더 쉽습니다. **주요 애플리케이션** 아래의 아이콘은 갤러리 애플리케이션의 임의의 샘플이기 때문입니다. 
 

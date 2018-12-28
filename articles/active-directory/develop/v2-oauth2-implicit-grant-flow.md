@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 878c2596a1d884e26a4b4a4ed4764cfd9ce6b39b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e9de2c9b7f79dd6cba3050d84ccfa0795bc2d09a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424103"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962582"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 프로토콜 - 암시적 흐름을 사용하는 SPA
 
@@ -36,7 +36,7 @@ v2.0 엔드포인트를 사용하는 경우 사용자가 Microsoft 개인 계정
 
 이러한 응용 프로그램(AngularJS, Ember.js, React.js 등)에 대해 Azure AD(Active Directory)는 OAuth 2.0 암시적 허용 흐름을 지원합니다. 암시적 흐름은 [OAuth 2.0 사양(영문)](https://tools.ietf.org/html/rfc6749#section-4.2)에 설명되어 있습니다. 이것의 주요 이점은 앱이 백 엔드 서버 자격 증명 교환을 수행하지 않고 Azure AD에서 토큰을 가져오도록 허용한다는 것입니다. 따라서 앱은 사용자 로그인, 세션 유지 관리, 다른 웹 API에 대한 토큰 가져오기를 모두 클라이언트 JavaScript 코드 내에서 수행할 수 있습니다. 암시적 흐름을 사용하는 경우 보안과 관련된 몇 가지 중요 사항(특히 [클라이언트](https://tools.ietf.org/html/rfc6749#section-10.3) 및 [사용자 가장](https://tools.ietf.org/html/rfc6749#section-10.3) 관련 사항)을 고려해야 합니다.
 
-암시적 흐름과 Azure AD를 사용하여 JavaScript 앱에 인증 기능을 추가하려는 경우에는 오픈 소스 JavaScript 라이브러리인 [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)를 사용하는 것이 좋습니다. 
+암시적 흐름과 Azure AD를 사용하여 JavaScript 앱에 인증 기능을 추가하려는 경우에는 오픈 소스 JavaScript 라이브러리인 [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)를 사용하는 것이 좋습니다.
 
 하지만 단일 페이지 앱에서 라이브러리를 사용하지 않고 직접 프로토콜 메시지를 보내려는 경우에는 아래의 일반적인 단계를 따릅니다.
 
@@ -54,7 +54,7 @@ v2.0 엔드포인트를 사용하는 경우 사용자가 Microsoft 개인 계정
 사용자가 앱에 처음으로 로그인하도록 하려는 경우 [OpenID Connect](v2-protocols-oidc.md) 권한 부여 요청을 보내고 v2.0 엔드포인트에서 `id_token`을 가져올 수 있습니다.
 
 > [!IMPORTANT]
-> ID 토큰을 올바르게 요청하려면 [등록 포털](https://apps.dev.microsoft.com)의 앱 등록에서 웹 클라이언트에 대한 **암시적 흐름 허용**이 사용하도록 설정되어 있어야 합니다. 암시적 흐름 허용이 사용하도록 설정되어 있지 않으면 `unsupported_response` 오류가 반환됩니다. 이 오류의 구체적인 메시지는 **입력 매개 변수 'response_type'에 대해 제공된 값은 이 클라이언트에 대해 허용되지 않습니다. 필요한 값은 'code'입니다.** 입니다.
+> ID 토큰을 올바르게 요청하려면 [등록 포털](https://apps.dev.microsoft.com)의 앱 등록에서 웹 클라이언트에 대한 **암시적 흐름 허용**이 사용하도록 설정되어 있어야 합니다. 사용하도록 설정되어 있지 않으면 `unsupported_response` 오류가 반환됩니다. **입력 매개 변수 'response_type'에 대해 제공된 값은 이 클라이언트에 대해 허용되지 않습니다. 필요한 값은 'code'입니다.** 입니다.
 
 ```
 // Line breaks for legibility only
@@ -71,7 +71,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > 암시적 흐름을 사용하여 로그인을 테스트하려면 <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize..를 클릭합니다.</a> 로그인하면 브라우저가 주소 표시줄에서 `id_token`과 함께 `https://localhost/myapp/`으로 리디렉션됩니다.
-> 
+>
 
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |

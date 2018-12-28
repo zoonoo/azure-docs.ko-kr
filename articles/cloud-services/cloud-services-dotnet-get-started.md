@@ -24,7 +24,7 @@ ms.locfileid: "51242129"
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services 및 ASP.NET 시작
 
 ## <a name="overview"></a>개요
-이 자습서에서는 ASP.NET MVC 프런트 엔드를 사용하여 다중 계층 .NET 응용 프로그램을 만들어 [Azure 클라우드 서비스](cloud-services-choose-me.md)에 배포하는 방법을 보여 줍니다. 이 응용 프로그램은 [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문) 및 [Azure 큐 서비스](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)를 사용합니다. MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 할 수 있습니다.
+이 자습서에서는 ASP.NET MVC 프런트 엔드를 사용하여 다중 계층 .NET 애플리케이션을 만들어 [Azure 클라우드 서비스](cloud-services-choose-me.md)에 배포하는 방법을 보여 줍니다. 이 애플리케이션은 [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문) 및 [Azure 큐 서비스](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)를 사용합니다. MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 할 수 있습니다.
 
 이 자습서에서는 응용 프로그램을 구축하고 로컬에서 실행하는 방법, 응용 프로그램을 Azure에 배포하고 클라우드에서 실행하는 방법, 그리고 응용 프로그램을 처음부터 구축하는 방법을 보여 줍니다. 처음부터 구축하는 방법으로 시작한 다음 원하는 경우 나중에 테스트 및 배포 단계를 수행할 수 있습니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "51242129"
 
 ![광고 목록](./media/cloud-services-dotnet-get-started/list.png)
 
-이 응용 프로그램에서는 [큐 중심 작업 패턴](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 을 사용하여 미리 보기를 만드는 CPU 사용량이 많은 작업을 백 엔드 프로세스에 오프로드합니다.
+이 애플리케이션에서는 [큐 중심 작업 패턴](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 을 사용하여 미리 보기를 만드는 CPU 사용량이 많은 작업을 백 엔드 프로세스에 오프로드합니다.
 
 ## <a name="alternative-architecture-web-apps-and-webjobs"></a>대체 아키텍처: Web Apps 및 WebJobs
 이 자습서에서는 Azure 클라우드 서비스에서 프런트 엔드 및 백 엔드를 실행하는 방법을 보여 줍니다. 대안은 [Azure Web Apps](/azure/app-service/)에서 프런트 엔드를 실행하고 백 엔드에 [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) 기능을 사용하는 것입니다. WebJobs를 사용하는 자습서는 [Azure WebJobs SDK 시작](https://github.com/Azure/azure-webjobs-sdk/wiki)(영문)을 참조하세요. 시나리오에 가장 적합한 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure Websites, Cloud Services 및 가상 머신 비교](../app-service/choose-web-site-cloud-service-vm.md)(영문)를 참조하세요.
@@ -59,7 +59,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 
 위 제품 중 하나도 없는 경우 Azure SDK를 설치하면 Visual Studio가 자동으로 설치될 수 있습니다.
 
-## <a name="application-architecture"></a>응용 프로그램 아키텍처
+## <a name="application-architecture"></a>애플리케이션 아키텍처
 앱은 Entity Framework Code First를 사용해 SQL 데이터베이스에 광고를 저장하여 테이블을 만들고 데이터에 액세스합니다. 광고별로 데이터베이스는 전체 크기 이미지용과 썸네일용으로 두 개의 URL을 저장합니다.
 
 ![광고 테이블](./media/cloud-services-dotnet-get-started/adtable.png)
@@ -124,7 +124,7 @@ Azure 클라우드 서비스는 응용 프로그램이 실행되는 환경입니
     이 URL은 고유해야 합니다.  선택한 접두사를 이미 사용 중이면 오류 메시지가 나타납니다.
 4. 서비스에 대한 새 리소스 그룹을 지정합니다. **새로 만들기**를 클릭한 다음 리소스 그룹 입력 상자에 이름(예: CS_contososadsRG)을 입력합니다.
 
-5. 응용 프로그램을 배포할 지역을 선택합니다.
+5. 애플리케이션을 배포할 지역을 선택합니다.
 
     이 필드는 클라우드 서비스가 호스팅될 데이터센터를 지정합니다. 프로덕션 응용 프로그램의 경우 고객에게 가장 가까운 지역을 선택합니다. 이 자습서에서는 자신에게 가장 가까운 지역을 선택합니다.
 5. **만들기**를 클릭합니다.
@@ -195,7 +195,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 >
 >
 
-1. ContosoAdsWeb 프로젝트에서 응용 프로그램 *Web.config* 파일에 대한 *Web.Release.config* 변환 파일을 열고 `<connectionStrings>` 요소가 포함된 주석 블록을 삭제한 후 그 자리에 다음 코드를 붙여 넣습니다.
+1. ContosoAdsWeb 프로젝트에서 애플리케이션 *Web.config* 파일에 대한 *Web.Release.config* 변환 파일을 열고 `<connectionStrings>` 요소가 포함된 주석 블록을 삭제한 후 그 자리에 다음 코드를 붙여 넣습니다.
 
     ```xml
     <connectionStrings>
@@ -291,7 +291,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 
     ![설정 단계](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    **고급** 탭의 기본 설정은 이 자습서 내용에 적합합니다. 고급 탭에 대한 자세한 내용은 [Azure 응용 프로그램 게시 마법사](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard)를 참조하세요.
+    **고급** 탭의 기본 설정은 이 자습서 내용에 적합합니다. 고급 탭에 대한 자세한 내용은 [Azure 애플리케이션 게시 마법사](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard)를 참조하세요.
 4. **요약** 단계에서 **게시**를 클릭합니다.
 
     ![요약 단계](./media/cloud-services-dotnet-get-started/pubsummary.png)
@@ -302,7 +302,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
     배포가 완료되는 데 약 5분 이상 걸릴 수 있습니다.
 
     ![Azure 활동 로그 창](./media/cloud-services-dotnet-get-started/waal.png)
-6. 배포 상태가 완료되면 **웹 앱 URL** 을 클릭하여 응용 프로그램을 시작합니다.
+6. 배포 상태가 완료되면 **웹 앱 URL** 을 클릭하여 애플리케이션을 시작합니다.
 7. 이제 응용 프로그램을 로컬에서 실행할 때처럼 일부 광고를 만들고, 보고, 편집하는 방법으로 앱을 테스트할 수 있습니다.
 
 > [!NOTE]
@@ -311,7 +311,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 >
 
 ## <a name="create-the-application-from-scratch"></a>처음부터 응용 프로그램 만들기
-아직 [완료된 응용 프로그램](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)(영문)을 다운로드하지 않았다면 다운로드하세요. 다운로드한 프로젝트에서 새 프로젝트로 파일을 복사합니다.
+아직 [완료된 애플리케이션](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)(영문)을 다운로드하지 않았다면 다운로드하세요. 다운로드한 프로젝트에서 새 프로젝트로 파일을 복사합니다.
 
 Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합니다.
 
@@ -745,9 +745,9 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 이 자습서의 지침을 따르는 동안 무언가가 작동하지 않는 경우 일반적인 오류 및 이를 해결하는 방법은 다음과 같습니다.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
-Azure에서 응용 프로그램을 실행하거나 Azure 계산 에뮬레이터를 사용하여 로컬에서 실행하면 `RoleEnvironment` 개체가 Azure에서 제공됩니다.  로컬에서 실행할 때 이 오류가 나타나는 경우 ContosoAdsCloudService 프로젝트를 시작 프로젝트로 설정해야 합니다. 그러면 Azure 계산 에뮬레이터를 사용하여 실행되도록 프로젝트가 설정됩니다.
+Azure에서 애플리케이션을 실행하거나 Azure 계산 에뮬레이터를 사용하여 로컬에서 실행하면 `RoleEnvironment` 개체가 Azure에서 제공됩니다.  로컬에서 실행할 때 이 오류가 나타나는 경우 ContosoAdsCloudService 프로젝트를 시작 프로젝트로 설정해야 합니다. 그러면 Azure 계산 에뮬레이터를 사용하여 실행되도록 프로젝트가 설정됩니다.
 
-응용 프로그램이 Azure RoleEnvironment를 사용하는 이유 중 하나는 *.cscfg* 파일에 저장된 연결 문자열 값을 가져오는 것이므로, 이 예외를 일으키는 또 다른 원인은 누락된 연결 문자열입니다. ContosoAdsWeb 프로젝트에서 클라우드 및 로컬 구성으로 StorageConnectionString 설정을 만들어야 하며, ContosoAdsWorker 프로젝트에서 두 구성 모두에 대해 두 연결 문자열을 만들어야 합니다. 전체 솔루션에서 StorageConnectionString에 대해 **모두 찾기** 로 검색하는 경우 6개 파일에서 9번 표시됩니다.
+애플리케이션이 Azure RoleEnvironment를 사용하는 이유 중 하나는 *.cscfg* 파일에 저장된 연결 문자열 값을 가져오는 것이므로, 이 예외를 일으키는 또 다른 원인은 누락된 연결 문자열입니다. ContosoAdsWeb 프로젝트에서 클라우드 및 로컬 구성으로 StorageConnectionString 설정을 만들어야 하며, ContosoAdsWorker 프로젝트에서 두 구성 모두에 대해 두 연결 문자열을 만들어야 합니다. 전체 솔루션에서 StorageConnectionString에 대해 **모두 찾기** 로 검색하는 경우 6개 파일에서 9번 표시됩니다.
 
 ### <a name="cannot-override-to-port-xxx-new-port-below-minimum-allowed-value-8080-for-protocol-http"></a>xxx 포트로 재정할 수 없음. 프로토콜 http에 대한 최소 허용 값 8080 미만의 새 포트
 웹 프로젝트에서 사용되는 포트 번호를 변경해 봅니다. ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다. **웹** 탭을 클릭한 다음 **프로젝트 Url** 설정에서 포트 번호를 변경합니다.

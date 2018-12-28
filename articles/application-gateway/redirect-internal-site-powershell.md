@@ -27,7 +27,7 @@ Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](overview.m
 
 > [!div class="checklist"]
 > * 네트워크 설정
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 수신기 및 리디렉션 규칙 추가
 > * 백 엔드 풀로 가상 머신 확장 집합 만들기
 > * 도메인에서 CNAME 레코드 만들기
@@ -70,7 +70,7 @@ $pip = New-AzureRmPublicIpAddress `
   -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프론트 엔드 포트 만들기
 
@@ -306,7 +306,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 > [!div class="checklist"]
 > * 네트워크 설정
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 수신기 및 리디렉션 규칙 추가
 > * 백 엔드 풀로 가상 머신 확장 집합 만들기
 > * 도메인에서 CNAME 레코드 만들기

@@ -38,7 +38,7 @@ ms.locfileid: "50241322"
 - [Java용 Azure SDK][Azure SDK for Java]. 
 
 ## <a name="what-are-service-bus-topics-and-subscriptions"></a>Service Bus 토픽 및 구독 정의
-Service Bus 토픽 및 구독은 *게시/구독* 메시징 통신 모델을 지원합니다. 토픽 및 구독을 사용하는 경우 분산 응용 프로그램의 구성 요소가 서로 직접 통신하지 않고 중간자 역할을 하는 토픽을 통해 메시지를 교환합니다.
+Service Bus 토픽 및 구독은 *게시/구독* 메시징 통신 모델을 지원합니다. 토픽 및 구독을 사용하는 경우 분산 애플리케이션의 구성 요소가 서로 직접 통신하지 않고 중간자 역할을 하는 토픽을 통해 메시지를 교환합니다.
 
 ![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
 
@@ -173,7 +173,7 @@ public class MyServiceBusTopicClient {
 }
 ```
 
-Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다.
+Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 애플리케이션 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다.
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>구독에서 메시지를 받는 방법
 **main** 메서드를 업데이트하여 3개 구독에 대한 3개 **SubscriptionClient** 개체를 만들고, Service Bus 토픽에서 비동기적으로 메시지를 수신하는 도우미 메서드를 호출합니다. 샘플 코드에서는 **BasicTopic**이라는 토픽과 3개의 구독 **Subscription1**, **Subscription2** 및 **Subscription3**를 만들었다고 가정합니다. 이러한 항목에 다른 이름을 사용한 경우 테스트하기 전에 코드를 업데이트합니다. 

@@ -206,7 +206,7 @@ ms.locfileid: "52497289"
 * [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 
-### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행
+### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
 * [Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 

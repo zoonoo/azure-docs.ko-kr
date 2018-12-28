@@ -1,6 +1,6 @@
 ---
 title: (사용되지 않음) Azure Container Service 자습서 - 애플리케이션 크기 조정
-description: Azure Container Service 자습서 - 응용 프로그램 크기 조정
+description: Azure Container Service 자습서 - 애플리케이션 크기 조정
 services: container-service
 author: dlepow
 manager: jeconnoc
