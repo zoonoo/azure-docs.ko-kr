@@ -4,15 +4,15 @@ description: Azure Migrate의 Collector 어플라이언스에 대한 정보를 �
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241194"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255978"
 ---
 # <a name="about-the-collector-appliance"></a>Collector 어플라이언스 정보
 
@@ -20,23 +20,11 @@ ms.locfileid: "50241194"
 
 Azure Migrate Collector는 Azure로 마이그레이션하기 전에 [Azure Migrate](migrate-overview.md) 서비스를 통해 평가를 진행하기 위해 온-프레미스 vCenter 환경을 검색하는 데 사용할 수 있는 간편한 어플라이언스입니다.  
 
-## <a name="discovery-methods"></a>검색 방법
+## <a name="discovery-method"></a>검색 방법
 
-Collector 어플라이언스에 대해 일회성 검색과 연속 검색의 두 가지 옵션이 제공됩니다.
+이전에는 Collector 어플라이언스에 대해 일회성 검색과 연속 검색의 두 가지 옵션이 제공되었습니다. 일회성 검색 모델은 성능 데이터 수집을 위해 vCenter Server 통계 설정에 의존하고(통계 설정을 수준 3으로 설정해야 함), 최대가 아닌 평균 카운터를 수집하여 결과 크기가 작아지도록 하므로 이제 더 이상 사용되지 않습니다. 연속 검색 모델은 세부적인 데이터 수집을 보장하며, 최대 카운터 수집을 통해 정확한 결과 크기를 제공합니다. 작동 방식은 다음과 같습니다.
 
-### <a name="one-time-discovery"></a>일회성 검색
-
-Collector 어플라이언스가 vCenter Server와 일회성 통신을 수행하여 VM에 대한 메타데이터를 수집합니다. 이 방법을 사용하는 경우의 특징은 다음과 같습니다.
-
-- 어플라이언스가 Azure Migrate 프로젝트에 계속 연결되어 있지 않습니다.
-- 검색이 끝난 후 온-프레미스 환경의 변경 내용이 Azure Migrate에 반영되지 않습니다. 변경 내용을 반영하려면 같은 프로젝트에서 동일 환경을 다시 검색해야 합니다.
-- 어플라이언스는 VM의 성능 데이터를 수집할 때 vCenter Server에 저장된 기록 성능 데이터를 사용하며 지난 달의 성능 기록을 수집합니다.
-- 이전 성능 데이터를 수집하려면 vCenter Server의 통계 설정을 수준 3으로 설정해야 합니다. 수준을 3으로 설정한 후에는 vCenter에서 성능 카운터를 수집할 때까지 하루 이상 기다려야 합니다. 따라서 적어도 하루 뒤에 검색을 실행하는 것이 좋습니다. 1주일 또는 1개월의 성능 데이터를 기준으로 환경을 평가하려면 그에 맞게 대기해야 합니다.
-- 이 검색 방법에서 Azure Migrate는 각 메트릭에 대한 평균 카운터를 수집합니다(최대 카운터 대신). 따라서 결과 값의 크기가 작을 수 있습니다. 연속 검색 옵션을 사용하여 보다 정확한 크기의 결과를 얻는 것이 좋습니다.
-
-### <a name="continuous-discovery"></a>연속 검색
-
-수집기 어플라이언스는 Azure Migrate 프로젝트에 지속적으로 연결되어 VM 성능 데이터를 지속적으로 수집합니다.
+Collector 어플라이언스는 Azure Migrate 프로젝트에 지속적으로 연결되어 VM 성능 데이터를 지속적으로 수집합니다.
 
 - Collector가 온-프레미스 환경을 지속적으로 프로파일링하여 20초마다 실시간 사용률 데이터를 수집합니다.
 - 어플라이언스는 20초 샘플을 롤업하고 15분마다 데이터 요소를 하나씩 만듭니다.
@@ -44,21 +32,23 @@ Collector 어플라이언스가 vCenter Server와 일회성 통신을 수행하�
 - 이 모델은 성능 데이터를 수집할 때 vCenter Server 통계 설정을 사용하지 않습니다.
 - 언제든지 Collector에서 연속 프로파일링을 중지할 수 있습니다.
 
-응용 프로그램은 성능 데이터를 연속적으로 수집할 뿐이며 온-프레미스 환경의 구성 변경(예: VM 추가, 삭제, 디스크 추가 등)은 탐지하지 않습니다. 온-프레미스 환경에서 구성 변경이 있으면 다음을 통해 포털에 변경 내용을 반영할 수 있습니다.
+**즉각적인 충족**: 지속적인 검색 어플라이언스를 사용하면 검색이 완료되고 난 후(VM의 수에 따라 몇 시간 소요) 즉시 평가를 만들 수 있습니다. 검색을 시작할 때 성능 데이터 수집이 시작되므로 즉각적인 충족을 원하는 경우 평가의 크기 조정 기준으로 *온-프레미스로*를 선택해야 합니다. 성능 기반 평가의 경우 신뢰할 수 있는 크기 권장 사항을 얻으려면 검색을 시작한 후 하루 이상 대기하는 것이 좋습니다.
+
+애플리케이션은 성능 데이터를 연속적으로 수집할 뿐이며 온-프레미스 환경의 구성 변경(예: VM 추가, 삭제, 디스크 추가 등)은 탐지하지 않습니다. 온-프레미스 환경에서 구성 변경이 있으면 다음을 통해 포털에 변경 내용을 반영할 수 있습니다.
 
 - 항목 추가(VM, 디스크, 코어 등): 이러한 변경을 Azure Portal에 반영하려면 어플라이언스의 검색을 멈추었다가 다시 시작하면 됩니다. 이렇게 하면 Azure Migrate 프로젝트에서 변경 내용이 업데이트됩니다.
 
-- VM삭제: 어플라이언스 설계 방식으로 인해 VM 삭제는 검색을 중지했다 시작해도 반영되지 않습니다. 이후 검색의 데이터는 기존 검색에 추가되는 것이지 기존 검색을 덮어쓰는 것이 아니기 때문입니다. 이 경우에는 그룹에서 VM을 제거하고 평가를 다시 계산하여 포털에서 VM을 간단히 무시하면 됩니다.
+- VM 삭제: 어플라이언스 설계 방식으로 인해 VM 삭제는 검색을 중지했다 시작해도 반영되지 않습니다. 이후 검색의 데이터는 기존 검색에 추가되는 것이지 기존 검색을 덮어쓰는 것이 아니기 때문입니다. 이 경우에는 그룹에서 VM을 제거하고 평가를 다시 계산하여 포털에서 VM을 간단히 무시하면 됩니다.
 
 > [!NOTE]
-> 연속 검색 기능은 미리 보기 상태입니다. 이 방법은 세부 성능 데이터를 수집하고 정확한 크기 조정을 제공하므로 이 방법을 사용하는 것이 좋습니다.
+> 일회성 검색 어플라이언스는 성능 데이터 지점 가용성에 대한 vCenter Server의 통계 설정에 의존하고 평균 성능 카운터를 수집함에 따라 Azure로 마이그레이션할 VM의 크기가 부족해진다는 이유로 현재는 사용되지 않습니다.
 
 ## <a name="deploying-the-collector"></a>Collector 배포
 
 OVF 템플릿을 사용하여 Collector 어플라이언스를 배포할 수 있습니다.
 
 - Azure Portal의 Azure Migrate 프로젝트에서 OVF 템플릿을 다운로드합니다. 다운로드한 파일을 vCenter Server로 가져와서 Collector 어플라이언스 VM을 설정합니다.
-- OVF에서 VMware가 코어 4개, 8GB RAM, 80GB 디스크 1개로 VM을 설정합니다. 운영 체제는 Windows Server 2012 R2(64비트)입니다.
+- OVF에서 VMware가 코어 8개, 16GB RAM, 80GB 디스크 1개로 VM을 설정합니다. 운영 체제는 Windows Server 2016(64비트)입니다.
 - Collector를 실행하면 Collector가 Azure Migrate에 연결할 수 있는지를 확인하기 위해 여러 가지 필수 구성 요소 확인이 실행됩니다.
 
 - Collector를 만드는 방법에 대해 [자세히 알아보세요](tutorial-assessment-vmware.md#create-the-collector-vm).
@@ -68,18 +58,22 @@ OVF 템플릿을 사용하여 Collector 어플라이언스를 배포할 수 있�
 
 Collector는 몇 가지 필수 구성 요소 확인을 통과해야 인터넷을 통해 Azure Migrate 서비스에 연결하고 검색된 데이터를 업로드할 수 있습니다.
 
+- **Azure 클라우드 확인**: Collector는 마이그레이션하려는 Azure 클라우드를 알고 있어야 합니다.
+    - Azure Government 클라우드로 마이그레이션하려는 경우에는 Azure Government를 선택합니다.
+    - 상용 Azure 클라우드로 마이그레이션하려는 경우 Azure 글로벌을 선택합니다.
+    - 여기에서 지정한 클라우드를 기준으로, 어플라이언스는 검색된 메타데이터를 해당 엔드포인트로 전송합니다.
 - **인터넷 연결 확인**: Collector는 인터넷에 직접 연결하거나 프록시를 통해 연결할 수 있습니다.
     - 필수 구성 요소 확인에서는 [필수 및 선택적 URL](#connect-to-urls)에 대한 연결을 확인합니다.
     - 인터넷에 직접 연결하는 경우에는 Collector가 필수 URL에 연결할 수 있는지를 확인하는 것 외에는 별도의 작업을 수행하지 않아도 됩니다.
     - 프록시를 통해 연결하는 경우에는 [아래 요구 사항](#connect-via-a-proxy)을 참조하세요.
-- **시간 동기화 확인**: 서비스에 대한 요청이 인증되도록 하려면 Collector가 인터넷 시간 서버와 동기화되어야 합니다.
+- **시간 동기화 확인**: 서비스에 대한 요청이 인증되었는지 확인하려면 Collector가 인터넷 시간 서버와 동기화 되어야 합니다.
     - 시간 유효성을 검사할 수 있도록 Collector에서 portal.azure.com URL에 연결할 수 있어야 합니다.
     - 컴퓨터가 동기화되지 않은 경우에는 Collector VM의 시계 시간을 현재 시간과 일치하도록 변경해야 합니다. 이렇게 하려면 VM에서 관리자 프롬프트를 열고 **w32tm /tz**를 실행하여 표준 시간대를 확인합니다. 그런 후에 **w32tm /resync**를 실행하여 시간을 동기화합니다.
-- **Collector 서비스가 실행되고 있는지 확인**: Azure Migrate Collector 서비스가 Collector VM에서 실행되고 있어야 합니다.
+- **Collector 서비스가 실행 중인지 확인**:  Azure Migrate Collector 서비스를 Collector VM에서 실행 중이어야 합니다.
     - 서비스는 시스템이 부팅될 때 자동으로 시작됩니다.
     - 서비스가 실행되고 있지 않으면 제어판에서 서비스를 시작합니다.
     - Collector 서비스가 vCenter Server에 연결하여 VM 메타데이터 및 성능 데이터를 수집한 다음 Azure Migrate 서비스로 전송합니다.
-- **Check VMware PowerCLI 6.5가 설치되어 있는지 확인**: Collector VM에 VMware PowerCLI 6.5 PowerShell 모듈이 설치되어 있어야 해당 VM이 vCenter Server와 통신할 수 있습니다.
+- **VMware PowerCLI 6.5가 설치되어 있는지 확인**: Collector VM에 VMware PowerCLI 6.5 PowerShell 모듈이 설치되어 있어야 해당 VM이 vCenter Server와 통신할 수 있습니다.
     - Collector가 모듈을 설치하는 데 필요한 URL에 액세스할 수 있으면 Collector 배포 중에 모듈이 자동으로 설치됩니다.
     - 배포 중에 Collector가 모듈을 설치할 수 없는 경우에는 [모듈을 수동 설치](#install-vwware-powercli-module-manually)해야 합니다.
 - **vCenter Server에 대한 연결 확인**: Collector는 vCenter Server에 연결하여 VM, 해당 메타데이터 및 성능 카운터를 쿼리할 수 있어야 합니다. 연결을 위한 [필수 구성 요소를 확인](#connect-to-vcenter-server)하세요.
@@ -117,7 +111,8 @@ Collector는 몇 가지 필수 구성 요소 확인을 통과해야 인터넷을
 
 **URL** | **세부 정보**  | **필수 구성 요소 확인**
 --- | --- | ---
-*.portal.azure.com | Azure 서비스와의 연결과 시간 동기화를 확인합니다. | URL에 액세스할 수 있어야 합니다.<br/><br/> URL에 연결할 수 없으면 필수 구성 요소 확인은 실패합니다.
+*.portal.azure.com | Azure 글로벌에 적용됩니다. Azure 서비스와의 연결과 시간 동기화를 확인합니다. | URL에 액세스할 수 있어야 합니다.<br/><br/> URL에 연결할 수 없으면 필수 구성 요소 확인은 실패합니다.
+*.portal.azure.us | Azure Government에만 적용됩니다. Azure 서비스와의 연결과 시간 동기화를 확인합니다. | URL에 액세스할 수 있어야 합니다.<br/><br/> URL에 연결할 수 없으면 필수 구성 요소 확인은 실패합니다.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| PowerShell vCenter PowerCLI 모듈을 다운로드하는 데 사용됩니다. | 필요에 따라 URL에 액세스하면 됩니다.<br/><br/> 필수 구성 요소 확인은 실패하지 않습니다.<br/><br/> Collector VM에서 자동 모듈 설치가 실패합니다. 모듈을 수동으로 설치해야 합니다.
 
 
@@ -211,7 +206,7 @@ OVA를 다시 다운로드하지 않고도 Collector를 최신 버전으로 업�
 
 ### <a name="collected-metadata"></a>수집된 메타데이터
 
-Collector 어플라이언스는 VM에 대해 다음 정적 메타데이터를 검색합니다.
+Collector 어플라이언스는 각 VM에 대해 다음 구성 메타데이터를 검색합니다. VM의 구성 데이터는 검색을 시작하고 1시간 후에 사용 가능합니다.
 
 - vCenter Server의 VM 표시 이름
 - VM의 인벤토리 경로(vCenter Server의 호스트/폴더)
@@ -224,26 +219,18 @@ Collector 어플라이언스는 VM에 대해 다음 정적 메타데이터를 �
 
 #### <a name="performance-counters"></a>성능 카운터
 
-- **일회성 검색**: 일회성 검색에서 카운터를 수집할 때는 다음 사항에 유의하세요.
+ Collector 어플라이언스는 20초 간격으로 ESXi 호스트에서 각 VM에 대해 다음 성능 카운터를 수집합니다. 이러한 카운터는 vCenter 카운터로, 용어 자체는 평균을 의미하지만 20초 샘플은 실시간 카운터입니다. VM에 대한 성능 데이터는 검색을 실행하고 2시간 후에 포털에서 사용 가능해집니다. 정확한 크기 권장 사항을 얻을 수 있도록 성능 기반 평가를 만들기 전에 하루 이상 대기할 것을 강력히 권장합니다. 즉각적인 충족을 원할 경우 적절한 크기의 성능 데이터를 고려하지 않는 온-프레미스 방식의 크기 조정 기준으로 평가를 만들 수 있습니다.
 
-    - 구성 메타데이터를 수집하여 프로젝트로 전송하려면 최대 15분이 걸릴 수 있습니다.
-    - 구성 데이터를 수집한 후에 성능 데이터를 포털에서 사용할 수 있을 때까지는 최대 1시간이 걸릴 수 있습니다.
-    - 메타데이터가 포털에서 사용 가능해지면 VM 목록이 표시되며, 평가용으로 그룹 만들기를 시작할 수 있습니다.
-- **연속 검색**: 연속 검색 시에는 다음 사항에 유의하세요.
-    - VM의 구성 데이터는 검색을 시작하고 1시간 후에 사용 가능합니다.
-    - 성능 데이터는 2시간 후부터 사용 가능해집니다.
-    - 검색을 시작한 후 어플라이언스가 환경을 프로파일링하도록 1일 이상 기다렸다가 평가를 작성해야 합니다.
-
-**카운터** | **Level** | **장치 단위 수준** | **평가에 미치는 영향**
---- | --- | --- | ---
-cpu.usage.average | 1 | 해당 없음 | 권장되는 VM 크기 및 비용  
-mem.usage.average | 1 | 해당 없음 | 권장되는 VM 크기 및 비용  
-virtualDisk.read.average | 2 | 2 | 디스크 크기, 저장소 비용 및 VM 크기 계산
-virtualDisk.write.average | 2 | 2  | 디스크 크기, 저장소 비용 및 VM 크기 계산
-virtualDisk.numberReadAveraged.average | 1 | 3 |  디스크 크기, 저장소 비용 및 VM 크기 계산
-virtualDisk.numberWriteAveraged.average | 1 | 3 |   디스크 크기, 저장소 비용 및 VM 크기 계산
-net.received.average | 2 | 3 |  VM 크기 계산                          |
-net.transmitted.average | 2 | 3 | VM 크기 계산     
+**카운터** |  **평가에 미치는 영향**
+--- | ---
+cpu.usage.average | 권장되는 VM 크기 및 비용  
+mem.usage.average | 권장되는 VM 크기 및 비용  
+virtualDisk.read.average | 디스크 크기, 저장소 비용 및 VM 크기 계산
+virtualDisk.write.average | 디스크 크기, 저장소 비용 및 VM 크기 계산
+virtualDisk.numberReadAveraged.average | 디스크 크기, 저장소 비용 및 VM 크기 계산
+virtualDisk.numberWriteAveraged.average | 디스크 크기, 저장소 비용 및 VM 크기 계산
+net.received.average | VM 크기 계산                          
+net.transmitted.average | VM 크기 계산     
 
 ## <a name="next-steps"></a>다음 단계
 

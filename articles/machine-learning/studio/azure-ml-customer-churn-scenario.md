@@ -1,12 +1,11 @@
 ---
-title: Azure Machine Learning Studio를 사용하여 고객 이탈 분석 | Microsoft Docs
+title: 고객 이탈 분석 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Machine Learning Studio를 사용하여 고객 이탈을 분석하고 채점하는 통합 모델 개발에 대한 사례 연구입니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 48e3ca0b9910b673491e20e834b38170308aa132
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314987"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272170"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 사용하여 고객 이탈 분석
 ## <a name="overview"></a>개요
@@ -35,7 +34,7 @@ ms.locfileid: "52314987"
 > 
 > 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="the-problem-of-customer-churn"></a>고객 이탈 문제
 고객 시장과 모든 기업 부문의 비즈니스에서는 이탈을 처리해야 합니다. 때때로 이탈이 지나치고 정책 의사 결정에 영향을 미칠 수도 있습니다. 기존 솔루션에서는 이탈 가능성이 큰 고객을 예측하고 안내자 서비스, 마케팅 캠페인 또는 특별 관리 적용을 통해 해당 고객의 요구를 해결합니다. 이러한 접근 방식은 업계에 따라 달라질 수 있습니다. 또한 한 업계(예: 통신) 내의 특정 고객 클러스터에 따라 달라질 수 있습니다.
@@ -217,7 +216,7 @@ Azure Machine Learning에서 제공되는 또 다른 흥미로운 기능은 이�
  
 
 ## <a name="references"></a>참조
-[1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.  
+[1] 예측 분석: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.  
 
 [2] Wikipedia 문서: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 

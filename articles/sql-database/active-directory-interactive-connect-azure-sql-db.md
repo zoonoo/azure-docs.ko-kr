@@ -12,12 +12,12 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 04/06/2018
 manager: craigg
-ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 0b8b83651fb5466f5d9a2f703667d7645b498e89
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055529"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958820"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>ActiveDirectoryInteractive 모드를 사용하여 Azure SQL Database에 연결
 
@@ -66,23 +66,23 @@ Azure AD 인증을 사용하려면 프로그램에서 연결을 시도할 때 C#
 
 1. Azure Portal &gt; **Azure Active Directory** &gt; **앱 등록**
 
-    ![앱 등록](media\active-directory-interactive-connect-azure-sql-db\sshot-create-app-registration-b20.png)
+    ![앱 등록](media/active-directory-interactive-connect-azure-sql-db/sshot-create-app-registration-b20.png)
 
 2. **응용 프로그램 ID** 값이 생성 및 표시됩니다.
 
-    ![표시된 앱 ID](media\active-directory-interactive-connect-azure-sql-db\sshot-application-id-app-regis-mk49.png)
+    ![표시된 앱 ID](media/active-directory-interactive-connect-azure-sql-db/sshot-application-id-app-regis-mk49.png)
 
 3. **등록된 앱** &gt; **설정** &gt; **필요한 권한** &gt; **앱**
 
-    ![등록된 앱의 권한 설정](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
+    ![등록된 앱의 권한 설정](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
 4. **필요한 권한** &gt; **API 액세스 추가** &gt; **API 선택** &gt; **Azure SQL Database**
 
-    ![Azure SQL Database에 대한 API 액세스 추가](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
+    ![Azure SQL Database에 대한 API 액세스 추가](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
 5. **API 액세스** &gt; **권한 선택** &gt; **위임된 권한**
 
-    ![Azure SQL Database에 대한 API에 권한 위임](media\active-directory-interactive-connect-azure-sql-db\sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
+    ![Azure SQL Database에 대한 API에 권한 위임](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
 
 ### <a name="b-set-azure-ad-admin-on-your-sql-database-server"></a>B. SQL 데이터베이스 서버에서 Azure AD 관리자 설정
@@ -124,13 +124,13 @@ C# 프로그램은 **Microsoft.IdentityModel.Clients.ActiveDirectory** 네임스
 
 C# 예제에서 사용하는 네임스페이스 중 하나는 **System.Data.SqlClient**입니다. 특히 흥미로운 것은 열거형 **SqlAuthenticationMethod**입니다. 이 열거형의 값은 다음과 같습니다.
 
-- **SqlAuthenticationMethod.ActiveDirectory \*Interactive**\*:&nbsp; MFA(Multi-Factor Authentication)를 구현하려면 Azure AD 사용자 이름과 함께 이 값을 사용합니다.
+- **SqlAuthenticationMethod.ActiveDirectory *Interactive***:&nbsp;  MFA(Multi-Factor Authentication)를 구현하려면 Azure AD 사용자 이름과 함께 이 값을 사용합니다.
     - 이 문서에서는 이 값을 집중적으로 다룹니다. 이 값은 사용자 암호를 요청하는 대화 상자를 표시하여 대화형 경험을 생성한 다음, 이 사용자에게 MFA가 적용되면 MFA 유효성 검사를 위한 대화 상자를 표시합니다.
     - 이 값은 .NET framework 버전 4.7.2부터 사용할 수 있습니다.
 
-- **SqlAuthenticationMethod.ActiveDirectory \*Integrated**\*:&nbsp; 이 값은 *페더레이션된* 계정에 사용합니다. 페더레이션된 계정에서 사용자 이름은 Windows 도메인에 알려져 있습니다. 이 방법은 MFA를 지원하지 않습니다.
+- **SqlAuthenticationMethod.ActiveDirectory *Integrated***:&nbsp;  *페더레이션* 계정에 이 값을 사용합니다. 페더레이션된 계정에서 사용자 이름은 Windows 도메인에 알려져 있습니다. 이 방법은 MFA를 지원하지 않습니다.
 
-- **SqlAuthenticationMethod.ActiveDirectory \*Password**\*:&nbsp; Azure AD 사용자 및 사용자 암호가 필요한 인증에는 이 값을 사용합니다. Azure SQL Database가 인증을 수행합니다. 이 방법은 MFA를 지원하지 않습니다.
+- **SqlAuthenticationMethod.ActiveDirectory *Password***:&nbsp;  Azure AD 사용자 및 사용자의 암호가 필요한 인증에 이 값을 사용합니다. Azure SQL Database가 인증을 수행합니다. 이 방법은 MFA를 지원하지 않습니다.
 
 
 

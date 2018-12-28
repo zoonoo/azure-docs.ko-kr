@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 07a62dfa2d7e1c71daf547c5aa7c8c7d15830bfd
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 1c850b16492f725114fb23a8503f6345e1509212
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309319"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868670"
 ---
 # <a name="requirements-by-listing-type"></a>등록 형식별 요구 사항  
 마케팅 및 기술 콘텐츠 요구 사항은 상점, 제품 유형 및 열거 유형에 따라 달라집니다. 준수 여부를 확인하기 위해 다음 사양을 검토합니다.  
@@ -31,6 +31,7 @@ ms.locfileid: "36309319"
 
 ## <a name="storefront-requirements-appsource"></a>상점 요구 사항: AppSource  
 다음 표에서는 AppSource에 게시하기 위한 필수 구성 요소 요구 사항을 설명합니다.  
+
 | 요구 사항 | 세부 정보 | 필수 또는 권장 |  
 |:--- |:--- |:--- |  
 | ***Azure AD(Azure Active Directory)*** | 앱은 동의가 이루어질 경우 Azure Active Directory 페더레이션 Single Sign-On(Azure AD 페더레이션 SSO)을 허용해야 합니다.<ul> <li>Azure AD 페더레이션 SSO 사용에 대한 자세한 내용은 [docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)에 있는 Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성 페이지를 참조하세요.</li> </ul> | 필수 |   
@@ -45,6 +46,7 @@ ms.locfileid: "36309319"
 
 ## <a name="storefront-requirements-azure-marketplace"></a>상점 요구 사항: Azure Marketplace  
 다음은 Azure Marketplace의 열거 유형에 대한 필수 구성 요소 요구 사항입니다.  
+
 | 요구 사항 | 세부 정보 | 열거 유형 |  
 |:--- |:--- |:--- |  
 | ***참가 정책*** | 앱은 Azure Marketplace 참가 정책을 따라야 합니다.<ul> <li>참가 정책에 대한 자세한 내용은 [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies)에 있는 Azure Marketplace 참가 정책 페이지를 참조하세요.</li></ul> | list<br />거래<br />체험 |  
@@ -62,19 +64,19 @@ ms.locfileid: "36309319"
 
 | 제품 유형 | 상점 | 세부 정보 |  
 |:---        |:---        |:---     |  
-| 컨설팅 서비스 | AppSource | [요구 사항: AppSource: 나열: 컨설팅 서비스](#requirements-appsource-list-consulting-services) |  
-| 컨설팅 서비스 | Azure Marketplace | [요구 사항: Azure Marketplace: 나열: 컨설팅 서비스](#requirements-azure-marketplace-list-consulting-services) |  
+| 컨설팅 서비스 | AppSource | [요구 사항: AppSource: 목록: 컨설팅 서비스](#requirements-appsource-list-consulting-services) |  
+| 컨설팅 서비스 | Azure Marketplace | [요구 사항: Azure Marketplace: 목록: 컨설팅 서비스](#requirements-azure-marketplace-list-consulting-services) |  
 | 연락처 | AppSource | [](#) |  
-| 연락처 | Azure Marketplace | [요구 사항: AppSource: 나열: 연락처](#requirements-azure-marketplace-list-contact-me) |  
+| 연락처 | Azure Marketplace | [요구 사항: AppSource: 목록: 연락처](#requirements-azure-marketplace-list-contact-me) |  
 
-#### <a name="requirements-appsource-list-consulting-service"></a>요구 사항: AppSource: 나열: 컨설팅 서비스  
+#### <a name="requirements-appsource-list-consulting-service"></a>Requirements: AppSource: 목록: 컨설팅 서비스  
 
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- |  
 | 서비스 제안 특성 | 컨설팅 서비스는 다음 기준을 충족해야 합니다.<ul> <li>고정 범위, 고정 기간, 고정 가격(또는 무료) 약정을 제공합니다.</li> <li>주로 판매 전 지원을 지향합니다.</li> <li>단일 고객으로 제한합니다.</li> <li>사이트에서 수행합니다.</li> </ul> |  
 | 컨설팅 서비스에 대한 파트너 요구 사항 | 서비스에 대한 관련 영역의 기준을 충족합니다.<table><tr><th>솔루션 영역</th><th>조건</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>실버 또는 골드 클라우드 고객 관계 관리 역량을 갖습니다.</td></tr><tr><td>Dynamics 365 for Operations, Enterprise Edition</td><td>실버 또는 골드 엔터프라이즈 리소스 플랜 역량을 갖고, 최근 12개월 동안 클라우드 운영에서 최소 25,000 USD 수익을 달성합니다.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Business Edition</td><td>한 명 이상의 고객에 대해 CSP(클라우드 서비스 공급자) 또는 DPOR(디지털 공식 파트너) 역할을 수행합니다.</td></tr><tr><td>Power BI</td><td>솔루션 파트너 기준을 충족합니다.</td></tr><tr><td>PowerApps</td><td>파트너 쇼케이스 솔루션이 있습니다.</td></tr></table><ul> <li>고객 관계 관리에 대한 자세한 내용은 [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency)에 있는 클라우드 고객 관계 관리 페이지를 참조하세요.</li> <li>리소스 플랜에 대한 자세한 내용은 [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency)에 있는 엔터프라이즈 리소스 플랜 페이지를 참조하세요.</li> <li>CSP에 대한 자세한 내용은 [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider)에 있는 클라우드 서비스 공급자 페이지를 참조하세요.</li> <li>DPOR에 대한 자세한 내용은 [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record)에 있는 디지털 공식 파트너 및 파트너 연결 페이지를 참조하세요.</li> <li>솔루션 파트너 기준에 대한 자세한 내용은 [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf)에 있는 솔루션 파트너 개요 및 인센티브 문서를 참조하세요.</li> <li>파트너 쇼케이스에 대한 자세한 내용은 [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase)에 있는 파트너 쇼케이스 페이지를 참조하세요.</li> </ul> |  
 
-#### <a name="requirements-azure-marketplace-list-consulting-service"></a>요구 사항: Azure Marketplace: 나열: 컨설팅 서비스  
+#### <a name="requirements-azure-marketplace-list-consulting-service"></a>Requirements: Azure Marketplace: 목록: 컨설팅 서비스  
 
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- |  
@@ -96,28 +98,28 @@ ms.locfileid: "36309319"
 | 시험 사용 | AppSource | [열거 유형 요구 사항: 평가판](#listing-type-requirements-trial) |  
 | 시험 사용 | Azure Marketplace | [요구 사항: Azure Marketplace: 평가판: 시험 사용](#requirements-azure-marketplace-trial-test-drive) |  
 
-#### <a name="requirements-azure-marketplace-trial"></a>요구 사항: Azure Marketplace: 평가판  
+#### <a name="requirements-azure-marketplace-trial"></a>Requirements: Azure Marketplace: 평가판  
 
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- |  
-| 평가판 기간 및 체험 환경 | 고객은 제한된 기간 동안 앱을 체험해 볼 수 있습니다.<br /><br />고객은 제품이나 앱에 대한 라이선스 또는 구독 요금을 지급할 필요가 없습니다. 고객은 기본 Microsoft 자사 제품 또는 서비스에 대한 요금을 지급할 필요가 없습니다. 모든 평가판 옵션은 Azure 구독에 배포됩니다. 비용 최적화 및 관리 평가판을 단독으로 제어할 수 있습니다.<br /><br />평가판, 대화형 데모 또는 시험 사용 중에서 선택할 수 있습니다. 어떤 방식을 선택하든, 평가판에는 고객이 추가 비용 부담 없이 앱을 사용해 볼 수 있는 기간이 미리 설정되어야 합니다.<ul> <li>시험 사용 생성 프로세스를 시작하려면 [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com)에 메일을 보내세요.</li> </ul>참고: Azure Marketplace SaaS 체험 환경에서는 고객이 회사 자격 증명으로 로그인하도록 허용해야 합니다.<ul> <li>자세한 내용은 [docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences)에 있는 AppSource 체험 환경 섹션을 참조하세요.</li> </ul> |  
+| 평가판 기간 및 체험 환경 | 고객은 제한된 기간 동안 앱을 체험해 볼 수 있습니다.<br /><br />고객은 제품이나 앱에 대한 라이선스 또는 구독 요금을 지급할 필요가 없습니다. 고객은 기본 Microsoft 자사 제품 또는 서비스에 대한 요금을 지급할 필요가 없습니다. 모든 평가판 옵션은 Azure 구독에 배포됩니다. 비용 최적화 및 관리 평가판을 단독으로 제어할 수 있습니다.<br /><br />평가판, 대화형 데모 또는 시험 사용 중에서 선택할 수 있습니다. 어떤 방식을 선택하든, 평가판에는 고객이 추가 비용 부담 없이 앱을 사용해 볼 수 있는 기간이 미리 설정되어야 합니다.<ul> <li>시험 사용 생성 프로세스를 시작하려면 [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com)에 메일을 보내세요.</li> </ul>참고: Azure Marketplace SaaS 평가판 환경에서는 고객이 회사 자격 증명으로 로그인하도록 허용해야 합니다.<ul> <li>자세한 내용은 [docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences)에 있는 AppSource 체험 환경 섹션을 참조하세요.</li> </ul> |  
 | 쉽게 구성 가능하고 즉시 사용할 수 있는 솔루션 | 앱은 구성 및 설정이 빠르고 쉬워야 합니다. |  
 | 가용성/작동 시간 | SaaS 또는 플랫폼의 가동 시간은 최소 99.9%여야 합니다. |  
 | Azure Active Directory | 제품은 동의가 이루어질 경우 Azure AD(Azure Active Directory) 페더레이션 SSO(Single Sign-On)(Azure AD 페더레이션 SSO)를 허용해야 합니다. |  
 
-#### <a name="requirements-azure-marketplace-trial-free-trial--saas-trial"></a>요구 사항: Azure Marketplace: 평가판: 평가판/SaaS 평가판  
+#### <a name="requirements-azure-marketplace-trial-free-trial--saas-trial"></a>Requirements: Azure Marketplace: 평가판: 평가판/SaaS 평가판  
 
 | 혜택 | 요구 사항 |  
 |:--- |:--- |  
 | 고객이 유료 사용으로 자동 전환 방법을 사용하여 제품을 구매하기 전에 사용해 보도록 합니다. 또한 고객에 대한 개념 증명 및 Microsoft 판매 팀과의 공동 계약을 사용할 수 있습니다. | 사용자의 솔루션은 가상 머신 또는 솔루션 템플릿입니다.<br /><br />사용자의 솔루션은 SaaS 제품이며 다중 테넌트 SaaS 제품을 제공합니다.<br /><br />사용자는 고객이 빨리 정상 작동 상태에 이르도록 하는 처음 실행 환경을 가지고 있습니다.<br /><br />사용자는 단일 테넌트를 가지고 있지만 고객을 게스트 사용자로 추가합니다. |  
 
-#### <a name="requirements-azure-marketplace-trial-interactive-demo"></a>요구 사항: Azure Marketplace: 평가판: 대화형 데모  
+#### <a name="requirements-azure-marketplace-trial-interactive-demo"></a>Requirements: Azure Marketplace: 평가판: 대화형 데모  
 
 | 혜택 | 요구 사항 |  
 |:--- |:--- |  
 | 고객이 복잡한 설치 없이 작동되는 제품을 볼 수 있도록 합니다. | 솔루션이 평가 기간에 구현하기 어려운 복잡한 설정을 요구합니다. |  
 
-#### <a name="requirements-azure-marketplace-trial-test-drive"></a>요구 사항: Azure Marketplace: 평가판: 시험 사용  
+#### <a name="requirements-azure-marketplace-trial-test-drive"></a>Requirements: Azure Marketplace: 평가판: 시험 사용  
 
 | 혜택 | 요구 사항 |  
 |:--- |:--- |  
@@ -131,7 +133,7 @@ ms.locfileid: "36309319"
 
 | 제품 유형 | 상점 | 세부 정보 |   
 |:---        |:---        | :--- |  
-| Azure 앱: 관리되는 앱 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: Azure 앱: 관리되는 앱](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
+| Azure 앱: 관리형 앱 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: Azure 앱: 관리형 앱](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
 | Azure 앱: 솔루션 템플릿 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: Azure 앱: 솔루션 템플릿](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
 | 컨테이너 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: 컨테이너](#requirements-azure-marketplace-transact-container) |  
 | SaaS 앱  | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: SaaS 앱](#requirements-azure-marketplace-transact-saas-app) |  
@@ -141,14 +143,14 @@ ms.locfileid: "36309319"
 
 #### Requirements: Azure Marketplace: Transact: Azure apps: Solution template   -->
 
-#### <a name="requirements-azure-marketplace-transact-container"></a>요구 사항: Azure Marketplace: 거래: 컨테이너  
+#### <a name="requirements-azure-marketplace-transact-container"></a>Requirements: Azure Marketplace: 거래: 컨테이너  
 
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- |  
 | 청구 및 계량 | 무료 또는 BYOL 청구 모델을 지원합니다. |  
 | Docker 기반 이미지 | 컨테이너 이미지는 Docker 이미지 형식을 기반으로 해야 하며 Azure Container Registries에서 풀해야 합니다. |  
 
-#### <a name="requirements-azure-marketplace-transact-saas-app"></a>요구 사항: Azure Marketplace: 거래: SaaS 앱  
+#### <a name="requirements-azure-marketplace-transact-saas-app"></a>Requirements: Azure Marketplace: 거래: SaaS 앱  
 
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- |  
@@ -157,7 +159,7 @@ ms.locfileid: "36309319"
 | 트랜잭션 방문 페이지 | Azure 공동 브랜드 트랜잭션 방문 페이지를 호스트합니다. 방문 페이지를 사용하면 고객이 SaaS 서비스 계정을 만들고 관리할 수 있습니다. |  
 | SaaS 구독 API | SaaS 구독과 상호 작용하는 서비스를 제공하여 사용자 계정 및 서비스 계획을 생성하고, 업데이트하고, 삭제합니다. 24시간 내에 모든 중요한 API 변경 내용이 지원되어야 합니다. 중요하지 않은 API 변경 내용은 정기적으로 업데이트됩니다. |  
 
-#### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>요구 사항: Azure Marketplace: 거래: 가상 머신  
+#### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Requirements: Azure Marketplace: 거래: 가상 머신  
 
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- | 

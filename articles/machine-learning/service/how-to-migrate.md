@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning 서비스로 마이그레이션
+title: Workbench에서 마이그레이션
+titleSuffix: Azure Machine Learning service
 description: 이전 버전에서 최신 버전의 Azure Machine Learning 서비스로 업그레이드하거나 마이그레이션하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22e7e513c7ec015b070ae37c1dbdd168404ee768
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253451"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140754"
 ---
-# <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>최신 버전의 Azure Machine Learning 서비스로 마이그레이션 
+# <a name="migrate-from-workbench-to-the-latest-version-of-azure-machine-learning-service"></a>Workbench에서 최신 버전의 Azure Machine Learning 서비스로 마이그레이션 
 
-**Workbench(미리 보기) 응용 프로그램을 설치했거나 실험 및 모델 관리 미리 보기 계정이 있는 경우 이 문서의 내용을 참조하여 최신 버전으로 마이그레이션하세요.**  미리 보기 Workbench를 설치하지 않았거나 실험 및/또는 모델 관리 계정이 없으면 마이그레이션을 수행할 필요가 없습니다.
+**Workbench 애플리케이션을 설치했거나 실험 및 모델 관리 미리 보기 계정이 있는 경우 이 문서의 내용을 참조하여 최신 버전으로 마이그레이션하세요.**  미리 보기 Workbench를 설치하지 않았거나 실험 및/또는 모델 관리 계정이 없으면 마이그레이션을 수행할 필요가 없습니다.
 
 ## <a name="what-can-i-migrate"></a>마이그레이션 가능한 항목
 Azure Machine Learning 서비스의 첫 번째 미리 보기에서 만든 대부분의 아티팩트는 사용자의 로컬 또는 클라우드 저장소에 저장됩니다. 이러한 아티팩트는 그대로 유지됩니다. 마이그레이션하려면 업데이트된 Azure Machine Learning 서비스에 아티팩트를 다시 등록합니다. 
@@ -75,12 +76,11 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 웹 서비스를 마이그레이션하려면 새 SDK 또는 CLI를 사용하여 새 배포 대상으로 모델을 다시 배포합니다. 원래 점수 매기기 파일, 모델 파일 종속성 파일, 환경 파일 및 스키마 파일은 변경할 필요가 없습니다. 
 
-최신 버전에서 모델은 ACI([Azure Container Instances](how-to-deploy-to-aci.md)) 또는 AKS([Azure Kubernetes Service](how-to-deploy-to-aks.md)) 클러스터에 웹 서비스로 배포됩니다. 
+최신 버전에서 모델은 ACI(Azure Container Instances) 또는 AKS(Azure Kubernetes Service) 클러스터에 웹 서비스로 배포됩니다. 
 
 다음 문서에서 자세한 내용을 알아보세요.
-+ [ACI에 배포](how-to-deploy-to-aci.md)
-+ [AKS에 배포](how-to-deploy-to-aks.md)
-+ [자습서: Azure Machine Learning 서비스를 사용하여 모델 배포](tutorial-deploy-models-with-aml.md)
++ [배포 방법 및 위치](how-to-deploy-and-where.md)
++ [자습서: Azure Machine Learning Service를 사용하여 모델 배포](tutorial-deploy-models-with-aml.md)
 
 [이전 CLI 지원이 종료](overview-what-happened-to-workbench.md#timeline)되면 모델 관리 계정을 사용하여 원래 배포했던 웹 서비스를 관리할 수 없습니다. 그러나 ACS(Azure Container Service)가 계속 지원된다면 이러한 웹 서비스는 계속 작동합니다.
 
@@ -108,7 +108,7 @@ az ml history download
 <a name="dataprep"></a>
 
 ## <a name="data-preparation-files"></a>데이터 준비 파일
-Workbench가 없으면 데이터 준비 파일을 이식할 수 없습니다. 하지만 새 Azure Machine Learning Data Prep SDK 또는 Azure Databricks(큰 데이터 집합의 경우)를 사용하여 모델링할 원하는 크기의 데이터 집합을 계속 준비할 수는 있습니다.  [Data Prep SDK를 가져오는 방법을 알아보세요](how-to-data-prep.md). 
+Workbench가 없으면 데이터 준비 파일을 이식할 수 없습니다. 하지만 새 Azure Machine Learning Data Prep SDK 또는 Azure Databricks(큰 데이터 집합의 경우)를 사용하여 모델링할 원하는 크기의 데이터 집합을 계속 준비할 수는 있습니다. [Data Prep SDK를 가져오는 방법을 알아보세요](https://aka.ms/data-prep-sdk).
 
 ## <a name="next-steps"></a>다음 단계
 

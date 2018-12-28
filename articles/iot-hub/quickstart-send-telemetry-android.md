@@ -90,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 5. 앱이 로드되면 **시작** 단추를 클릭하여 IoT Hub로 원격 분석 데이터를 보내기 시작합니다.
 
-    ![응용 프로그램](media/quickstart-send-telemetry-android/sample-screenshot.png)
+    ![애플리케이션](media/quickstart-send-telemetry-android/sample-screenshot.png)
 
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기

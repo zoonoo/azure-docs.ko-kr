@@ -1,23 +1,24 @@
 ---
-title: Language Understanding을 사용하여 새 앱 만들기
-titleSuffix: Azure Cognitive Services
+title: 새 앱 만들기
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS(Language Understanding) 웹 페이지에서 응용 프로그램을 만들고 관리합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a4dbea40e59ef8fb3a89fefc24f43060c46a91eb
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8275965e84021c41a3d0b3d13a4fb71d22090757
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214208"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139914"
 ---
-# <a name="create-an-app"></a>앱 만들기
+# <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS 포털에서 새 LUIS 앱 만들기
 LUIS 앱을 만드는 몇 가지 방법이 있습니다. [LUIS](https://www.luis.ai) 포털에서 또는 LUIS 제작 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 통해 LUIS 앱을 만들 수 있습니다.
 
 ## <a name="using-the-luis-portal"></a>LUIS 포털 사용
@@ -70,7 +71,7 @@ You can set the name (50 char max), version (10 char max), and description of an
 ## Export app
 1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row.
 
-    [![](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
+    [![Screenshot of pop-up dialog of per-app actions](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
 
 2. Select **Export app** from the menu. 
 

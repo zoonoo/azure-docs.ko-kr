@@ -116,7 +116,7 @@ SDK를 다음과 같이 다운로드하고 설치합니다.
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
      ```
 
-1. 응용 프로그램을 실행합니다.
+1. 애플리케이션을 실행합니다.
 
    ```sh
    ./helloworld

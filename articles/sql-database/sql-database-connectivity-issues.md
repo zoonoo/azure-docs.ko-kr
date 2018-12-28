@@ -22,7 +22,7 @@ ms.locfileid: "51634161"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL Database 연결 문제 및 일시적 오류 해결
 
-이 문서에서는 클라이언트 응용 프로그램이 Azure SQL Database와 상호 작용할 때 발생하는 연결 오류 및 일시적 오류를 방지, 해결, 진단, 완화하는 방법에 대해 설명합니다. 재시도 논리를 구성하고 연결 문자열을 빌드하며 타 연결 설정을 조정하는 방법에 대해 알아봅니다.
+이 문서에서는 클라이언트 애플리케이션이 Azure SQL Database와 상호 작용할 때 발생하는 연결 오류 및 일시적 오류를 방지, 해결, 진단, 완화하는 방법에 대해 설명합니다. 재시도 논리를 구성하고 연결 문자열을 빌드하며 타 연결 설정을 조정하는 방법에 대해 알아봅니다.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
@@ -154,7 +154,7 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 
 ### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>ConnectRetryCount가 애플리케이션 다시 시도 논리에 결합되어야 하는지 여부
 
-응용 프로그램에는 강력한 사용자 지정 다시 시도 논리가 있다고 가정합니다. 연결 작업을 4번 다시 시도할 수 있습니다. **ConnectRetryInterval** 및 **ConnectRetryCount** =3을 연결 문자열에 추가하는 경우 다시 시도 횟수가 4 * 3 = 12로 늘어납니다. 이러한 많은 수의 다시 시도를 할 의도가 아닐 수 있습니다.
+애플리케이션에는 강력한 사용자 지정 다시 시도 논리가 있다고 가정합니다. 연결 작업을 4번 다시 시도할 수 있습니다. **ConnectRetryInterval** 및 **ConnectRetryCount** =3을 연결 문자열에 추가하는 경우 다시 시도 횟수가 4 * 3 = 12로 늘어납니다. 이러한 많은 수의 다시 시도를 할 의도가 아닐 수 있습니다.
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 

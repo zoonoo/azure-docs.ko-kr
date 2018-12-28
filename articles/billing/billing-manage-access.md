@@ -1,6 +1,6 @@
 ---
 title: Azure 청구에 대한 액세스 관리 | Microsoft Docs
-description: ''
+description: 팀 멤버의 Azure 청구 정보에 대한 액세스를 제공하는 방법을 알아봅니다.
 services: ''
 documentationcenter: ''
 author: vikramdesai01
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 7a4e19ae5bf770949623f4cee7fa0d3033ccfa29
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: a15d055505ca0f28ad28b477e90e6fe859cc9ac7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582618"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094290"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Azure의 청구 정보에 대한 액세스 관리
 
@@ -72,9 +73,10 @@ EA 고객은 계정 소유자 또는 부서 관리자가 청구 읽기 권한자
 
 1. **액세스 제어(IAM)** 를 선택합니다.
 1. **역할 할당**을 선택하여 이 구독의 모든 역할 할당을 봅니다.
-1. **추가** > **역할 할당 추가**를 선택합니다.
+1. **역할 할당 추가**를 선택합니다.
 1. **역할** 드롭 다운 목록에서 **청구 읽기 권한자**를 선택합니다.
 1. **선택** 텍스트 상자에 추가하려는 사용자의 이름이나 이메일을 입력합니다.
+1. 사용자를 선택합니다.
 1. **저장**을 선택합니다.
 1. 몇 분이 지나면 사용자에게는 구독 범위의 청구 읽기 권한자 역할이 할당됩니다.
 1. 청구 읽기 권한자는 로그인할 링크가 포함된 이메일을 받습니다.

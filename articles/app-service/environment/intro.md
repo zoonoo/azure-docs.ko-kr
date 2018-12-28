@@ -33,7 +33,7 @@ Azure App Service Environment는 Azure App Service 앱을 매우 높은 확장�
 * 모바일 앱
 * Functions
 
-ASE(App Service Environment)는 다음을 필요로 하는 응용 프로그램 워크로드에 적합합니다.
+ASE(App Service Environment)는 다음을 필요로 하는 애플리케이션 워크로드에 적합합니다.
 
 * 매우 높은 확장성
 * 격리 및 보안된 네트워크 액세스
@@ -41,7 +41,7 @@ ASE(App Service Environment)는 다음을 필요로 하는 응용 프로그램 �
 
 고객은 단일 Azure 지역 내 또는 여러 Azure 지역에 걸쳐서 여러 ASE를 만들 수 있습니다. 따라서 ASE는 높은 RPS 워크로드를 지원하여 상태 비저장 응용 프로그램 계층을 수평적으로 크기 조정하는 데 적합합니다.
 
-ASE는 단일 고객의 응용 프로그램만을 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 고객은 인바운드 및 아웃바운드 응용 프로그램 네트워크 트래픽을 세부적으로 제어할 수 있습니다. 응용 프로그램은 온-프레미스 회사 리소스에 VPN을 통한 고속 보안 연결을 설정할 수도 있습니다.
+ASE는 단일 고객의 응용 프로그램만을 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 고객은 인바운드 및 아웃바운드 응용 프로그램 네트워크 트래픽을 세부적으로 제어할 수 있습니다. 애플리케이션은 온-프레미스 회사 리소스에 VPN을 통한 고속 보안 연결을 설정할 수도 있습니다.
 
 * ASE에는 고유한 가격 책정 계층이 있습니다. [격리 솔루션](https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment)이 하이퍼스케일 및 보안을 구현하는 데 어떻게 도움이 되는지 알아보세요.
 * [App Service Environments v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment)는 네트워크의 서브넷에서 앱을 보호하는 환경을 제공하고, Azure App Service의 자체 비공개 배포를 지원합니다.

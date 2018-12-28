@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 2f2f338f7c4ddb885bc909f49815783e616b94c8
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300458"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720137"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Azure Portal을 사용하여 사용자 할당 관리 ID를 생성, 나열, 삭제 또는 할당
 
@@ -42,8 +42,8 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 관리 ID를
 2. 검색 상자에 *관리 ID*를 입력하고, **서비스** 아래에서 **관리 ID**를 클릭합니다.
 3. **추가**를 클릭하고 **사용자가 할당한 관리 ID 만들기** 창 아래에서 다음 필드에 값을 입력합니다.
    - **리소스 이름**: 사용자 할당 관리 ID의 이름(예: UAI1)입니다.
-   - **구독**: 사용자 할당 관리 ID를 만들 구독을 선택합니다.
-   - **리소스 그룹**: 사용자 할당 관리 ID를 포함할 새 리소스 그룹을 만들거나 **기존 항목 사용**을 선택하고 기존 리소스 그룹에 사용자 할당 관리 ID를 만듭니다.
+   - **구독**: 사용자 할당 관리 ID를 만들 구독 선택
+   - **리소스 그룹**: 사용자 할당 관리 ID를 포함할 새 리소스 그룹을 만들거나 **기존 항목 사용**을 선택하여 기존 리소스 그룹에서 사용자 할당 관리 ID를 만듭니다.
    - **위치**: 사용자 할당 관리 ID를 배포할 위치(예: **미국 서부**)를 선택합니다.
 4. **만들기**를 클릭합니다.
 
@@ -69,18 +69,18 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 관리 ID를
 
 ![사용자 할당 관리 ID 삭제](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID에 역할 할당
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID에 역할 할당 
 
 사용자 할당 관리 ID에 역할을 할당하려면 계정에 [사용자 액세스 관리자](/azure/role-based-access-control/built-in-roles#user-access-administrator) 역할 할당이 필요합니다.
 
 1. 사용자 할당 관리 ID를 나열하려면 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 검색 상자에 *관리 ID*를 입력하고, 서비스 아래에서 **관리 ID**를 클릭합니다.
 3. 구독의 사용자 할당 관리 ID 목록이 반환됩니다.  역할을 할당하려는 사용자 할당 관리 ID를 선택합니다.
-4. **액세스 제어(IAM)** 를 선택한 다음, **추가**를 선택합니다.
+4. **액세스 제어(IAM)**, **역할 할당 추가**를 차례로 선택합니다.
 
    ![사용자 할당 관리 ID 시작](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 
-5. 추가 사용 권한 블레이드에서 다음 값을 구성한 다음, **저장**을 클릭합니다.
+5. 역할 할당 추가 블레이드에서 다음 값을 구성한 다음, **저장**을 클릭합니다.
    - **역할** - 할당할 역할
    - **다음에 대한 액세스 할당** - 사용자 할당 관리 ID를 할당할 리소스
    - **선택** - 액세스를 할당할 구성원

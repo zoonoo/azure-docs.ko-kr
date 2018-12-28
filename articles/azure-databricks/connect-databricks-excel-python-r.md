@@ -24,7 +24,7 @@ ms.locfileid: "52995628"
 
 * Azure Databricks 작업 영역, Spark 클러스터 및 클러스터와 연결된 샘플 데이터가 있어야 합니다. 이러한 필수 구성 요소가 아직 없으면 [Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행](quickstart-create-databricks-workspace-portal.md) 빠른 시작을 완료합니다.
 
-* [Databricks 드라이버 다운로드 페이지](https://databricks.com/spark/odbc-driver-download)에서 Databricks ODBC 드라이버를 다운로드합니다. Azure Databricks에 연결하려는 응용 프로그램에 따라 32비트 또는 64비트 버전을 설치합니다. 예를 들어 Excel에서 연결하려면 32비트 버전의 드라이버를 설치합니다. R 및 Python에서 연결하려면 64비트 버전의 드라이버를 설치합니다.
+* [Databricks 드라이버 다운로드 페이지](https://databricks.com/spark/odbc-driver-download)에서 Databricks ODBC 드라이버를 다운로드합니다. Azure Databricks에 연결하려는 애플리케이션에 따라 32비트 또는 64비트 버전을 설치합니다. 예를 들어 Excel에서 연결하려면 32비트 버전의 드라이버를 설치합니다. R 및 Python에서 연결하려면 64비트 버전의 드라이버를 설치합니다.
 
 * Databricks에서 개인용 액세스 토큰을 설정합니다. 지침은 [토큰 관리](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management)를 참조하세요.
 

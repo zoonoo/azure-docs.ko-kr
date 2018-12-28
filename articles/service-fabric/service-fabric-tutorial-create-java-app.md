@@ -400,7 +400,7 @@ VotingWeb 서비스 프런트 엔드 서비스를 만들면 Service Fabric에서
   </Resources>
 ```
 
-## <a name="add-a-stateful-back-end-service-to-your-application"></a>상태 저장 백 엔드 서비스를 응용 프로그램에 추가
+## <a name="add-a-stateful-back-end-service-to-your-application"></a>상태 저장 백 엔드 서비스를 애플리케이션에 추가
 
 이제 Java Web API 서비스의 기본 구조가 완료되면 계속해서 상태 저장 백 엔드 서비스를 완료합니다.
 

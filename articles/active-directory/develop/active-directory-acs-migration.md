@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 805270fa4cc051929ecb1362f2d3cd4455a17a60
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e68099609e5a4a27dfae7956fa43634d38311a22
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423384"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015775"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -113,7 +113,7 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
 
 Access Control 구성 요소의 사용 중지 일정은 다음과 같습니다.
 
-- **2017년 11월**: 클래식 Azure Portal의 Azure AD 관리자 환경이 [사용 중지됩니다](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). 현재 새로운 전용 URL `https://manage.windowsazure.com?restoreClassic=true`에서 Access Control에 대한 네임스페이스를 관리할 수 있습니다. 필요한 경우 이 URl를 사용하여 기존 네임스페이스를 보고, 네임스페이스를 사용하거나 사용하지 않도록 설정하고, 네임스페이스를 삭제합니다.
+- **2017년 11월**:  클래식 Azure Portal의 Azure AD 관리자 환경이 [사용 중지됩니다](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). 현재 새로운 전용 URL `https://manage.windowsazure.com?restoreClassic=true`에서 Access Control에 대한 네임스페이스를 관리할 수 있습니다. 필요한 경우 이 URl를 사용하여 기존 네임스페이스를 보고, 네임스페이스를 사용하거나 사용하지 않도록 설정하고, 네임스페이스를 삭제합니다.
 - **2018년 4월 2일**: Azure 클래식 포털이 완전히 사용 중지됩니다. 즉, 더 이상 URL을 통해 Access Control 네임스페이스 관리를 사용할 수 없습니다. 이 시점에서는 Access Control을 사용 또는 사용하지 않도록 설정 하거나, 삭제하거나, 열거할 수 없습니다. 하지만 `https://\<namespace\>.accesscontrol.windows.net`에서는 Access Control 관리 포털이 완벽하게 작동됩니다. Access Control의 다른 모든 구성 요소는 계속해서 정상적으로 작동합니다.
 - **2018년 11월 7일**: 모든 Access Control 구성 요소가 영구적으로 종료됩니다. 즉, Access Control 관리 포털, 관리 서비스, STS, 토큰 변환 규칙 엔진이 종료됩니다. 이 시점에서 Access Control(\<namespace\>.accesscontrol.windows.net에 위치)로 전송된 모든 요청이 실패합니다. 이 시점 전까지 기존 앱과 서비스를 다른 기술로 모두 마이그레이션 완료해야 합니다.
 
@@ -132,7 +132,7 @@ Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우
 | ------- | -------- |
 | Azure Service Bus | [공유 액세스 서명으로 마이그레이션](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [공유 액세스 서명으로 마이그레이션](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Managed Cache | [Azure Redis Cache로 마이그레이션](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure Managed Cache | [Azure Cache for Redis로 마이그레이션](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | Azure DataMarket | [Cognitive Services API로 마이그레이션](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | BizTalk Services | [Azure App Service의 Logic Apps 기능으로 마이그레이션](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure Media Services | [Azure AD 인증으로 마이그레이션](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
@@ -162,8 +162,8 @@ SharePoint 2013, 2016 및 SharePoint Online 고객은 오래 전부터 클라우
 
 - WIF(Windows Identity Foundation)와의 심층적인 통합.
 - Google, Facebook, Yahoo, Azure Active Directory 및 AD FS 계정, Microsoft 계정과의 페더레이션.
-- OAuth 2.0 초안 13, Ws-Trust, WS-Federation(Web Services Federation) 인증 프로토콜 지원.
-- JWT(JSON 웹 토큰), SAML 1.1, SAML 2.0, SWT(단순 웹 토큰) 토큰 형식 지원.
+- 다음 인증 프로토콜에 대한 지원: OAuth 2.0 Draft 13, WS-Trust 및 WS-Federation(Web Services Federation).
+- 다음 토큰 형식에 대한 지원: JWT(JSON Web Token), SAML 1.1, SAML 2.0 및 SWT(Simple Web Token).
 - 사용자가 로그인할 계정 유형을 직접 선택할 수 있는, WIF에 통합된 홈 영역 검색 환경. 이 환경은 웹 응용 프로그램에 의해 호스팅되며 원하는 대로 사용자 지정이 가능합니다.
 - 웹 응용 프로그램이 Access Control로부터 수신한 클레임을 다음과 같이 사용자 지정할 수 있는 토큰 변환:
     - ID 공급자의 클레임 전달.
@@ -307,7 +307,7 @@ Access Control에서 발행한 토큰으로 보호되는 웹 서비스의 경우
     - 서비스 ID를 위해 만든 단순한 암호
     - 대칭 키 또는 X509 인증서를 사용하여 서명된 SWT
     - 신뢰할 수 있는 ID 공급자(주로 AD FS 인스턴스)가 발행한 SAML 토큰
-- JWT, SAML 1.1, SAML 2.0 및 SWT 토큰 형식 지원.
+- 다음 토큰 형식에 대한 지원: JWT, SAML 1.1, SAML 2.0 및 SWT.
 - 단순 토큰 변환 규칙.
 
 Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증을 구현하는 데 사용됩니다. 

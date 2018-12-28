@@ -31,7 +31,7 @@ Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](http
   > [!IMPORTANT]
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.3 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-* [SQuirreL SQL](https://squirrel-sql.sourceforge.net/). SQuirreL은 JDBC 클라이언트 응용 프로그램입니다.
+* [SQuirreL SQL](https://squirrel-sql.sourceforge.net/). SQuirreL은 JDBC 클라이언트 애플리케이션입니다.
 
 * [JDK(Java Developer Kit) 버전 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 이상
 
@@ -49,7 +49,7 @@ Azure에서 HDInsight 클러스터에 대한 JDBC가 443을 통해 연결되어 
 
 연결을 설정할 때 HDInsight 클러스터 관리자 이름 및 암호를 사용하여 클러스터 게이트웨이에 대해 인증해야 합니다. SQuirreL SQL 등의 JDBC 클라이언트에서 연결할 때 클라이언트 설정에 관리자 이름 및 암호를 입력해야 합니다.
 
-Java 응용 프로그램에서 연결을 설정할 때 이름 및 암호를 사용해야 합니다. 예를 들어 다음 Java 코드는 연결 문자열, 관리자 이름 및 암호를 사용하여 새 연결을 엽니다.
+Java 애플리케이션에서 연결을 설정할 때 이름 및 암호를 사용해야 합니다. 예를 들어 다음 Java 코드는 연결 문자열, 관리자 이름 및 암호를 사용하여 새 연결을 엽니다.
 
 ```java
 DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
@@ -78,7 +78,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     `USERNAME`은 클러스터의 SSH 사용자 계정 이름으로 바꿉니다. `CLUSTERNAME`은 HDInsight 클러스터 이름으로 바꿉니다.
 
-3. SQuirreL SQL 응용 프로그램을 시작합니다. 왼쪽 창에서 **드라이버**를 선택합니다.
+3. SQuirreL SQL 애플리케이션을 시작합니다. 왼쪽 창에서 **드라이버**를 선택합니다.
 
     ![창 왼쪽의 드라이버 탭](./media/apache-hadoop-connect-hive-jdbc-driver/squirreldrivers.png)
 
@@ -132,7 +132,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     ![결과를 포함한 sql 쿼리 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/sqlquery.png)
 
-## <a name="connect-from-an-example-java-application"></a>Java 응용 프로그램 예제에서 연결
+## <a name="connect-from-an-example-java-application"></a>Java 애플리케이션 예제에서 연결
 
 Java 클라이언트를 사용하여 HDInsight에서 Hive를 쿼리하는 예제는 [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc)에 있습니다. 리포지토리의 지침에 따라 샘플을 빌드하고 실행합니다.
 

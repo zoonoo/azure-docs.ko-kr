@@ -519,7 +519,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 | ResultStatus | Operation 속성에 지정된 작업이 성공했는지 여부를 나타냅니다. 가능한 값은 Succeeded, PartiallySucceded 또는 Failed입니다. Exchange 관리자 활동의 경우 값은 True 또는 False입니다. |
 | UserId | 레코드가 기록된 원인인 작업을 수행한 사용자의 UPN(사용자 계정 이름)입니다. 예를 들면 my_name@my_domain_name과 같습니다. SHAREPOINT\system 또는 NTAUTHORITY\SYSTEM과 같은 시스템 계정이 수행한 활동에 대한 레코드도 포함됩니다. | 
 | UserKey | UserId 속성에 나와 있는 사용자의 대체 ID입니다.  예를 들어 SharePoint, 비즈니스용 OneDrive 및 Exchange에서 사용자가 수행한 이벤트의 경우에는 이 속성에 PUID(Passport 고유 ID)가 입력됩니다. 시스템 계정이 수행한 이벤트와 기타 서비스에서 발생하는 이벤트의 경우 이 속성이 UserID 속성과 같은 값을 지정할 수도 있습니다.|
-| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리자<br>응용 프로그램<br>DcAdmin<br>일반 <br>Reserved<br>ServicePrincipal<br>시스템 |
+| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리자<br>애플리케이션<br>DcAdmin<br>일반 <br>Reserved<br>ServicePrincipal<br>시스템 |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 기본 속성
@@ -540,7 +540,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
-| 응용 프로그램 | Office 15 등의 계정 로그인 이벤트를 트리거하는 응용 프로그램입니다. |
+| 애플리케이션 | Office 15 등의 계정 로그인 이벤트를 트리거하는 응용 프로그램입니다. |
 | 클라이언트 | 계정 로그인 이벤트에 사용된 클라이언트 디바이스, 디바이스 OS 및 디바이스 브라우저에 대한 세부 정보입니다. |
 | LoginStatus | OrgIdLogon.LoginStatus에서 직접 생성되는 속성입니다. 알림 알고리즘을 사용하면 로그온 실패를 다양한 방식으로 매핑할 수 있습니다. |
 | UserDomain | TII(테넌트 ID 정보)입니다. | 

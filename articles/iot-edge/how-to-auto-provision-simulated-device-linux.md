@@ -1,6 +1,6 @@
 ---
-title: DPS를 사용하여 Azure IoT Edge 디바이스 자동 프로비전 - Linux | Microsoft Docs
-description: Linux VM에서 시뮬레이션된 TPM을 사용하여 Azure IoT Edge에 대한 디바이스 프로 비전 테스트
+title: DPS를 사용하여 Linux 디바이스 자동 프로비전 - Azure IoT Edge | Microsoft Docs
+description: Linux VM에서 시뮬레이션된 TPM을 사용하여 Azure IoT Edge에 대한 Azure Device Provisioning Service 테스트
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 61da3b8e139cf5091aec4c1ab835c23fe319ea46
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 0550b1765e36d591a1baf34d3c255a252ca5278b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446255"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101758"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Linux 가상 머신에서 가상 TPM을 사용하여 Edge 디바이스 만들기 및 프로비전
 
@@ -116,7 +117,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    1. **메커니즘**의 경우 **TPM**을 선택합니다. 
    2. 가상 머신에서 복사한 **인증 키** 및 **등록 ID**를 삽입합니다.
-   3. **사용**을 선택하여 이 가상 머신이 IoT Edge 장치임을 선언합니다. 
+   3. **사용**을 선택하여 이 가상 머신이 IoT Edge 디바이스임을 선언합니다. 
    4. 디바이스를 연결하려는 링크된 **IoT Hub**를 선택합니다. 
    5. 원하는 경우 디바이스에 대한 ID를 제공합니다. 디바이스 ID를 사용하여 모듈 배포에 대한 개별 디바이스를 대상으로 할 수 있습니다. 
    6. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 

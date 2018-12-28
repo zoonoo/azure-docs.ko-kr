@@ -22,7 +22,7 @@ Microsoft는 모든 사람이 디지털 변환의 혜택을 누릴 수 있도록
     - [Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/) - 사용자 지정 IoT 솔루션 개발 속도를 높일 수 있도록 미리 구성된 엔터프라이즈급 솔루션 컬렉션. 
     - [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) - 물리적 환경을 모델링하여 공간 인텔리전스 그래프 및 도메인 관련 개체 모델을 사용하여 컨텍스트 인식 IoT 솔루션을 만들 수 있습니다.
 
-- SaaS(Software as a Service): IoT 솔루션의 복잡성에 노출되지 않고 IoT 응용 프로그램을 개발할 수 있는 새로운 SaaS 솔루션인 [Azure IoT Central](https://azure.microsoft.com/services/iot-central/)로 빠르게 시작하세요. 조직에 고유의 IoT 솔루션을 빌드하는 데 필요한 리소스가 없는 경우 Azure IoT Central은 몇 분 안에 디바이스 모델, 대시보드 및 규칙을 만들 수 있는 코드 없는 IoT 솔루션입니다.
+- SaaS(Software as a Service): IoT 솔루션의 복잡성에 노출되지 않고 IoT 애플리케이션을 개발할 수 있는 새로운 SaaS 솔루션인 [Azure IoT Central](https://azure.microsoft.com/services/iot-central/)로 빠르게 시작하세요. 조직에 고유의 IoT 솔루션을 빌드하는 데 필요한 리소스가 없는 경우 Azure IoT Central은 몇 분 안에 디바이스 모델, 대시보드 및 규칙을 만들 수 있는 코드 없는 IoT 솔루션입니다.
 
 ![Azure IoT 기술 및 솔루션](./media/iot-services-and-technologies/paas-saas-technologies-solutions.png)
 

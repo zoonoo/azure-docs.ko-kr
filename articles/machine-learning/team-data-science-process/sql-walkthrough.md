@@ -1,6 +1,6 @@
 ---
-title: Azure VM에서 SQL Server를 사용하여 기계 학습 모델 빌드 및 배포 | Microsoft Docs
-description: 활성 중인 고급 분석 프로세스 및 기술
+title: SQL Server VM에서 모델 빌드 및 배포 - Team Data Science Process
+description: 공개적으로 사용 가능한 데이터 세트가 있는 Azure VM에서 SQL Server를 사용하여 기계 학습 모델을 빌드하고 배포합니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,18 +10,18 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: cad56d2e8de071feb9a02e0cfc6bcc884eebe91a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 97ef7b02690110f571e87960add34b45f683b615
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445466"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141410"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>실행 중인 팀 데이터 과학 프로세스: SQL Server 사용
 이 자습서에서는 SQL Server 및 공개적으로 사용할 수 있는 데이터 세트([NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 세트)를 사용하여 Machine Learning 모델의 배포 및 빌드 처리를 연습합니다. 이 절차는 표준 데이터 과학 워크플로를 따릅니다. 데이터를 수집 및 탐색하고 학습이 용이하도록 기능을 엔지니어링한 후 모델을 빌드 및 배포합니다.
 
-## <a name="dataset"></a>NYC Taxi Trips 데이터 집합 설명
+## <a name="dataset"></a>NYC Taxi Trips 데이터 세트 설명
 NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여정의 요금으로 구성된 약 20GB의 압축된 CSV 파일(압축되지 않은 경우 약 48GB)입니다. 각 여정 레코드는 승차 및 하차 위치, 익명 처리된 hack(기사) 면허증 번호 및 medallion(택시의 고유 ID) 번호를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 세트로 제공됩니다.
 
 1. 'trip_data' CSV는 승객 수, 승차 및 하차 지점, 여정 기간, 여정 거리 등 여정 세부 정보를 포함합니다. 다음은 몇 가지 샘플 레코드입니다.
@@ -57,7 +57,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 3. 회귀 작업: 여정에 대해 지불된 팁의 금액을 예측합니다.  
 
 ## <a name="setup"></a>고급 분석을 위한 Azure 데이터 과학 환경 설정
-[환경 계획 가이드](plan-your-environment.md) 에서 볼 수 있듯이 Azure에서 NYC Taxi Trips 데이터 집합으로 작업할 수 있는 여러 가지 옵션이 있습니다.
+[환경 계획 가이드](plan-your-environment.md)에서 볼 수 있듯이 Azure에서 NYC Taxi Trips 데이터 세트로 작업할 수 있는 여러 가지 옵션이 있습니다.
 
 * Azure Blob의 데이터로 작업한 다음 Azure Machine Learning에서 모델링
 * SQL Server 데이터베이스로 데이터를 로드한 다음 Azure Machine Learning에서 모델링
@@ -87,7 +87,7 @@ Azure 데이터 과학 환경을 설정하려면
 AzCopy를 사용하여 데이터를 복사하려면
 
 1. VM(가상 컴퓨터)에 로그인합니다.
-2. VM의 데이터 디스크에서 새 디렉터리를 만듭니다(참고: VM과 함께 제공되는 임시 디스크를 데이터 디스크로 사용하지 마세요.
+2. VM의 데이터 디스크에 새 디렉터리를 만듭니다.(참고: 데이터 디스크로 VM과 함께 제공되는 임시 디스크를 사용하지 마세요.)
 3. 명령 프롬프트 창에서 <path_to_data_folder>를 (2)에서 만든 데이터 폴더로 바꿔 다음 Azcopy 명령줄을 실행합니다.
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -191,7 +191,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>탐색: 왕복 여정과 비왕복 여정 분포
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>탐색: 왕복 vs. 비왕복 여정 분포
 이 예제에서는 지정된 기간 동안(또는 전체 연도를 포괄하는 경우 전체 데이터 세트에서) 왕복 여정 수와 비왕복 여정 수를 확인합니다. 이 분포는 나중에 이진 분류 모델링에 사용할 이진 레이블 분포를 반영합니다.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -215,7 +215,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-#### <a name="exploration-compute-and-compare-trip-distance"></a>탐색: 여정 거리 Compute 및 비교
+#### <a name="exploration-compute-and-compare-trip-distance"></a>탐색: 여정 거리 컴퓨팅 및 비교
 이 예제에서는 승차 및 하차 경도/위도를 SQL 지리 지점으로 변환하고, SQL 지리 지점 차이를 사용하여 여정 거리를 계산한 다음, 비교를 위해 무작위 결과 샘플을 반환합니다. 앞서 설명한 데이터 품질 평가 쿼리를 사용하여 유효한 좌표로만 결과가 제한됩니다.
 
     SELECT
@@ -344,7 +344,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 
 ![그릴 #2][2]
 
-#### <a name="visualization-bar-and-line-plots"></a>시각화: 가로 막대형 및 꺾은선형 차트
+#### <a name="visualization-bar-and-line-plots"></a>시각화: 가로 막대형 또는 꺾은선형 그림
 이 예에서는 여정 거리를 5개의 bin으로 범주화하고 범주화 결과를 시각화합니다.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -428,7 +428,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 ### <a name="feature-generation-using-sql-queries-in-ipython-notebook"></a>IPython Notebook에서 SQL 쿼리를 사용하여 기능 생성
 이 섹션에서는 이전 섹션에서 만든 1% 샘플 테이블에서 작동하는 SQL 쿼리를 직접 사용하여 새 레이블 및 기능을 생성합니다.
 
-#### <a name="label-generation-generate-class-labels"></a>레이블 생성: 클래스 레이블을 생성합니다.
+#### <a name="label-generation-generate-class-labels"></a>레이블 생성: 클래스 레이블 생성
 다음 예제에서는 모델링에 사용할 두 개의 레이블 집합을 생성합니다.
 
 1. 이진 클래스 레이블 **tipped** (팁이 제공되는지 예측)

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: 4d9e47d6da45eaba19cbe089de3fdf053c36046a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 2b9702dbae0414ba597b6e1f6080d9de86f624fc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030680"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077081"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>자습서: 권장 사항에서 비용 최적화
 
@@ -43,7 +43,7 @@ Azure Cost Management는 Azure Advisor와 함께 실행되어 비용 최적화 �
 
 Azure Portal의 서비스 목록에서 **Cost Management + 청구**를 클릭합니다. 그런 다음, **Cost Management**의 목록에서 **Advisor 권장 사항**을 선택합니다. Advisor 비용 권장 사항이 표시됩니다.
 
-![Advisor 권장 사항](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
+![Azure Portal에 표시되는 비용 관리 Advisor 권장 사항](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
 권장 사항 목록은 추가 비용을 절감할 수 있도록 구매 권장 사항을 표시하거나 사용 비효율성을 식별합니다. 총 **연간 절약 가능 금액**은 권장 사항 규칙을 충족하는 모든 VM을 종료 또는 할당 해제할 경우 절약할 수 있는 총액을 보여 줍니다. 종료하고 싶지 않다면 덜 비싼 VM SKU로 크기 조정을 고려해야 합니다.
 
@@ -59,20 +59,20 @@ CPU 사용률 5% 이하 설정은 기본값이지만, 설정을 조정할 수 �
 
 권장 사항 목록에서 **사용률이 낮은 가상 머신을 적절하게 크기 조정하거나 종료**를 클릭합니다. 가상 머신 후보 목록에서 크기 조정할 가상 머신을 선택한 다음, 해당 가상 머신을 클릭합니다. 사용률 메트릭을 확인할 수 있도록 가상 머신의 세부 정보가 표시됩니다. **연간 절약 가능 금액** 값은 VM을 종료 또는 제거할 경우 절약할 수 있는 금액입니다. VM 크기 조정으로 비용이 절감될 수는 있지만, 연간 절약 가능한 전체 금액이 절감되지는 않습니다.
 
-![권장 사항 세부 정보](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
+![권장 사항 세부 정보 예제](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
 
 VM 세부 정보에서 가상 머신의 사용률을 확인하여 적합한 크기 조정 후보인지 확인하세요.
 
-![VM 세부 정보](./media/tutorial-acm-opt-recommendations/vm-details.png)
+![기록 사용률을 보여주는 VM 세부 사항 예제](./media/tutorial-acm-opt-recommendations/vm-details.png)
 
 현재 가상 머신의 크기를 기록합니다. 해당 가상 머신을 크기 조정해야 하는지 확인한 후 VM 세부 정보를 닫으면 가상 머신 목록이 나타납니다.
 
 종료 또는 크기 조정할 후보 목록에서 **가상 머신 크기 조정**을 선택합니다.
-![가상 머신 크기 조정](./media/tutorial-acm-opt-recommendations/resize-vm.png)
+![가상 머신의 크기를 조정하는 옵션을 사용한 권장 사항 예제](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 다음으로, 사용할 수 있는 크기 조정 옵션 목록이 표시됩니다. 사용자 시나리오에 가장 적합한 성능과 비용 효율성을 제공할 옵션을 선택합니다. 다음 예제에서 선택한 옵션은 **DS14\_V2**에서 **DS13\_V2**로 크기를 조정합니다. 권장 사항을 따르면 매월 551.30달러 또는 연간 6,615.60달러가 절감됩니다.
 
-![크기 선택](./media/tutorial-acm-opt-recommendations/choose-size.png)
+![크기를 선택할 수 있는 사용 가능한 VM 크기의 목록 예제](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
 적합한 크기를 선택한 후 **선택**을 클릭하여 크기 조정 작업을 시작합니다.
 
@@ -82,7 +82,7 @@ VM 세부 정보에서 가상 머신의 사용률을 확인하여 적합한 크�
 
 VM 크기 조정이 성공적으로 완료되면 Azure 알림이 표시됩니다.
 
-![크기 조정 완료 알림](./media/tutorial-acm-opt-recommendations/resized-notification.png)
+![성공적으로 크기 조정된 가상 머신 알림](./media/tutorial-acm-opt-recommendations/resized-notification.png)
 
 ## <a name="next-steps"></a>다음 단계
 

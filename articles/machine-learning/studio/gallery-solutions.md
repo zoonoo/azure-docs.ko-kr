@@ -1,12 +1,11 @@
 ---
 title: Azure AI Gallery 솔루션 - Azure Machine Learning Studio | Microsoft Docs
-description: Azure AI 갤러리에서 솔루션을 검색합니다.
+description: Azure AI 갤러리에서 솔루션을 검색합니다. 솔루션은 미리 구성된 솔루션, 참조 아키텍처 및 디자인 패턴을 통해 Cortana Intelligence 솔루션을 신속하게 구축하도록 솔루션을 제공합니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: c0be3f10-9e54-4fc1-b5df-725c2e919f65
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 4a16cdde41e17b334df389c4ef9dab64d959885a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8bfcbac45dd50ebed5491b0411d5f1faa5b5f078
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308956"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271337"
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 솔루션 검색
 
@@ -48,5 +47,5 @@ ms.locfileid: "52308956"
 
 **[갤러리로 이동 >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

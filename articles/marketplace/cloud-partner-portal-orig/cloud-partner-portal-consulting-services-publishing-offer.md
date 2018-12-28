@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7ea4a58f072071f60cf87d1e8817ae19658be5fb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037773"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310422"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure 및 Dynamics 365 컨설팅 서비스 제품
 
 <table> <tr> <td>이 섹션에서는 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> 또는 <a href="https://appsource.microsoft.com">AppSource Marketplace</a>에 컨설팅 서비스를 게시하는 방법을 설명합니다. Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> 및 <a href="https://powerapps.microsoft.com">PowerApps</a> 기반의 솔루션은 AppSource에 나열할 수 있습니다. 다른 Microsoft <a href="https://azure.microsoft.com/services">Azure 서비스</a> 기반의 다른 제품은 Azure Marketplace에 나열하는 데 적합합니다. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
 
 
-# <a name="publishing-benefits"></a>게시 이점
+## <a name="publishing-benefits"></a>게시 이점
 
 Microsoft 마켓플레이스 중 하나에 게시하면 상당한 이점이 있습니다.
 
@@ -36,13 +36,11 @@ Microsoft 마켓플레이스 중 하나에 게시하면 상당한 이점이 있�
 - Microsoft 필드 팀 및 통신 판매 팀에 의해 수준이 올라간 서비스를 확보합니다.
 
 
-<a name="define-your-consulting-services-offer"></a>컨설팅 서비스 제품 정의
--------------------------------------
+## <a name="define-your-consulting-services-offer"></a>컨설팅 서비스 제품 정의
 
 패키지로 만든 컨설팅 서비스 제품을 정의합니다. 이 과정에서는 고정 범위, 고정 기간, 예상/고정 가격 또는 무료 제공 여부 및 단일 고객 대상 사전 판매 중심 서비스를 중점적으로 결정합니다. 그리고 신규 거래 성사 과정에서 자주 사용되었으며 효율성이 확인된 반복 가능한 패키지 기능을 선택합니다.
 
-<a name="publish-a-consulting-service-offer"></a>컨설팅 서비스 제품 게시
-----------------------------------
+## <a name="publish-a-consulting-service-offer"></a>컨설팅 서비스 제품 게시
 
 다음 섹션에서는 컨설팅 서비스 제품을 게시하는 프로세스를 설명합니다.
 
@@ -62,7 +60,7 @@ Microsoft 마켓플레이스 중 하나에 게시하면 상당한 이점이 있�
 
 ### <a name="define-offer-settings"></a>제품 설정 정의
 
-새 제품 화면에서 처음으로 수행하는 단계는 제품 ID 만들기입니다.  **제품 ID**, **게시자 ID** 및 **이름**의 세 부분으로 구성된 제품 ID입니다.  다음 섹션에서 이러한 각 부분에 대해 설명합니다.
+새 제품 화면에서 처음으로 수행하는 단계는 제품 ID 만들기입니다.  제품 ID는 다음의 세 부분으로 구성됩니다. **제품 ID**, **게시자 ID** 및 **이름**  다음 섹션에서 이러한 각 부분에 대해 설명합니다.
 
 #### <a name="offer-id"></a>제품 ID
 
@@ -97,13 +95,13 @@ Edgewater Fullscope의 다음 예제는 제품 이름이 조합되는 방식을 
 
 -   전문 서비스 필수 사항: 1시간 브리핑
 -   클라우드 마이그레이션 플랫폼: 1시간 브리핑
--   PowerApps 및 Microsoft Flow: 1시간 워크샵
+-   PowerApps 및 Microsoft Flow: 1일 워크샵
 -   Azure Machine Learning Services: 3주 PoC
 -   Brick and Click Retail 솔루션: 1시간 브리핑
--   BYOD(Bring Your Own Data): 1주 워크샵
--   Cloud Analytics: 3일 워크샵
+-   사용자 데이터 가져오기: 1주 워크샵
+-   클라우드 분석: 3일 워크샵
 -   Power BI 교육: 3일 워크샵
--   영업 관리 솔루션: 1주 구현
+-   판매 관리 솔루션: 1주 구현
 -   CRM 빠른 시작: 1일 워크샵
 -   Dynamics 365 for Sales: 2일 평가
 
@@ -131,7 +129,7 @@ Edgewater Fullscope의 다음 예제는 제품 이름이 조합되는 방식을 
 
 *예 1*
 
--   **제품 이름:** Cloud Analytics: 3일 워크샵
+-   **제품 이름:** 클라우드 분석: 3일 워크샵
 -   **제품 요약:** Microsoft Azure 및 Power BI의 개요를 살펴보고, 현재 환경을 평가하고, 미니 POC를 진행합니다.
 
 *예 2*
@@ -146,12 +144,12 @@ Edgewater Fullscope의 다음 예제는 제품 이름이 조합되는 방식을 
 
 *예제 4*
 
--   **제품 이름:** 사용자 환경의 Power BI: 4시간 워크샵
+-   **제품 이름:** 전세계 Power BI: 4시간 워크샵
 -   **제품 요약:** 첫 번째 대시보드를 작동/실행하고 모범 사례를 알아봅니다(수강자 최대 12명, 현장 진행).
 
 *예제 5*
 
--   **제품 이름:** Dynamics와 프로젝트: 3일 평가
+-   **제품 이름:** Dynamics 및 프로젝트: 3일 평가
 -   **제품 요약:** 전문 서비스 업체 및 프로젝트 중심 기업용 ERP 솔루션에 대한 요구 사항 수집 및 평가를 진행합니다.
 
 ##### <a name="offer-description"></a>제품 설명
@@ -168,7 +166,7 @@ Edgewater Fullscope의 다음 예제는 제품 이름이 조합되는 방식을 
 
 다음 예제에는 적절하게 작성된 제품 설명과 관련 이름 및 요약이 나와 있습니다.
 
-**제품 이름:** Cloud Analytics: 3일 워크샵
+**제품 이름:** 클라우드 분석: 3일 워크샵
 
 **제품 요약:** Microsoft Azure 및 Power BI의 개요를 살펴보고, 현재 환경을 평가하고, 미니 POC를 진행합니다.
 
@@ -237,8 +235,8 @@ Microsoft는 단일 고객 및 현장에서 또는 가상으로 진행되는 평
 포함되는 5가지 서비스 유형은 다음과 같습니다.
 
 -   **평가:** 솔루션의 적용 가능성을 확인하고 예상 비용 및 타이밍을 제공하기 위한 고객 환경 평가입니다.
--   **브리핑:**: 프레임워크, 데모 및 고객 예제를 사용하여 고객의 관심을 끌기 위한 솔루션 또는 컨설팅 서비스를 소개합니다. 브리핑은 현장에서 진행해야 합니다.
--   **구현:** 완벽하게 작동하는 솔루션으로 이어지는 완전한 설치. 이 파일럿의 경우에는 1주일 이내에 구현할 수 있는 솔루션만 포함하는 것이 좋습니다.
+-   **브리핑:** 프레임워크, 데모 및 고객 예제를 사용하여 고객의 관심을 끌기 위한 솔루션 또는 컨설팅 서비스를 소개합니다. 브리핑은 현장에서 진행해야 합니다.
+-   **구현:** 완벽하게 작동하는 솔루션으로 이어지는 완전한 설치입니다. 이 파일럿의 경우에는 1주일 이내에 구현할 수 있는 솔루션만 포함하는 것이 좋습니다.
 -   **개념 증명:** 솔루션이 고객의 요구 사항을 충족하는지 확인하기 위한 제한된 범위의 구현입니다.
 -   **워크샵:** 고객 쪽에서 수행되는 대화형 활동으로 고객의 데이터 또는 환경에서 작성된 교육 세션, 브리핑, 평가 또는 데모가 포함될 수 있습니다.
 

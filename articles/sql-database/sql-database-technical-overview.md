@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 74e963abe5d2798f72bce8212c9f761f8f3297d1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256938"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270011"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL Database 서비스
 
@@ -60,7 +60,7 @@ SQL Database를 사용하면 각 데이터베이스가 [DTU 기반 구매 모델
 
 SQL Database는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 제공합니다.
 
-- DTU 기반 구매 모델에서는 가볍거나 무거운 데이터베이스 워크로드를 지원하기 위해 Basic, Standard 및 Premium과 같은 세 가지 서비스 계층에서 계산, 메모리 및 IO 리소스를 함께 제공합니다. 각 계층 내의 계산 크기는 이러한 리소스의 다양한 조합을 제공하여 추가 저장소 리소스를 추가할 수 있습니다.
+- DTU 기반 구매 모델에서는 경량 또는 중량 데이터베이스 워크로드를 지원하기 위해 기본, 표준 및 프리미엄의 세 가지 서비스 계층으로 계산, 메모리 및 IO 리소스를 함께 제공합니다. 각 계층 내의 계산 크기는 이러한 리소스의 다양한 조합을 제공하여 추가 저장소 리소스를 추가할 수 있습니다.
 - vCore 기반 구매 모델을 통해 vCore 개수, 크기나 메모리 및 저장소의 크기와 속도를 선택할 수 있습니다.
 
 범용 서비스 계층에서 매월 저렴한 비용으로 작은 규모의 단일 데이터베이스에 첫 번째 앱을 빌드한 다음, 솔루션의 요구 사항에 맞게 언제든지 수동 또는 프로그래밍 방식으로 이 서비스 계층을 중요 비즈니스용 서비스 계층으로 변경할 수 있습니다. 앱이나 고객에게 가동 중지 시간 없이 성능을 조정할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.
@@ -93,8 +93,8 @@ SQL Database는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) �
 
 또한 SQL Database는 쉬운 모니터링을 위해 [메트릭 및 진단 로그를 내보낼](sql-database-metrics-diag-logging.md) 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
 
-- **Azure Storage**: 저렴한 가격으로 방대한 양의 원격 분석을 보관하는 경우
-- **Azure Event Hub**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합하는 경우
+- **Azure Storage**: 저렴한 가격으로 방대한 양의 원격 분석을 보관할 수 있습니다.
+- **Azure Event Hub**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
 - **Azure Log Analytics**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우
 
     ![아키텍처](./media/sql-database-metrics-diag-logging/architecture.png)
@@ -109,10 +109,10 @@ Azure의 업계 선도적인 99.99% 가용성 [SLA](https://azure.microsoft.com/
 - **[지정 시간 복원](sql-database-recovery-using-backups.md)**:
 
   SQL Database는 자동 백업 보존 기간 내에 어느 시점으로든 복구를 지원합니다.
-- **[활성 지역 복제](sql-database-geo-replication-overview.md)**:
+- **[활성 지역 복제](sql-database-active-geo-replication.md)**:
 
   SQL Database를 사용하면 동일하거나 전역적으로 분산되어 있는 Azure 데이터 센터에 최대 4개의 읽기 가능한 보조 데이터베이스를 구성할 수 있습니다.  예를 들어 읽기 전용 동시 트랜잭션 양이 많은 카탈로그 데이터베이스와 SaaS 응용 프로그램이 있는 경우 활성 지역 복제를 사용하여 세계적인 읽기 규모를 사용하도록 설정하고 읽기 워크로드로 인한 주 서버의 병목 상태를 제거합니다.
-- **[장애 조치(failover) 그룹](sql-database-geo-replication-overview.md)**:
+- **[자동 장애 조치(Failover) 그룹](sql-database-auto-failover-group.md)**:
 
   SQL Database를 사용하면 큰 집합의 데이터베이스와 탄력적 풀에 대해 투명한 지역에서 복제 및 장애 조치를 포함하여 세계적인 규모로 고가용성 및 부하 분산을 사용할 수 있습니다. 장애 조치 그룹 및 활성 지역 복제를 사용하면 SQL Database에 대한 복잡한 모니터링, 라우팅 및 장애 조치 오케스트레이션 없이 최소한의 관리 오버헤드를 포함하여 전 세계적으로 분산된 SaaS 응용 프로그램을 만들 수 있습니다.
 - **[영역 중복 데이터베이스](sql-database-high-availability.md)**:
@@ -197,10 +197,10 @@ SQL Database는 MacOS, Linux 및 Windows에서 Python, Java, Node.js, PHP, Ruby 
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>SQL Server 엔지니어링 팀에 문의
 
-- [DBA 스택 교환(영문)](https://dba.stackexchange.com/questions/tagged/sql-server): 데이터베이스 관리 관련 질문
-- [Stack Overflow(영문)](http://stackoverflow.com/questions/tagged/sql-server): 개발 관련 질문
+- [DBA 스택 교환](https://dba.stackexchange.com/questions/tagged/sql-server): 데이터베이스 관리 관련 질문
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): 개발 관련 질문
 - [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): 기술 관련 질문
-- [피드백](https://aka.ms/sqlfeedback): 버그 및 요청 기능 보고
+- [사용자 의견](https://aka.ms/sqlfeedback): 버그 및 요청 기능 보고
 - [Reddit](https://www.reddit.com/r/SQLServer/): SQL Server 관련 토론
 
 ## <a name="next-steps"></a>다음 단계

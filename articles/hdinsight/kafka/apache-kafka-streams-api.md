@@ -20,7 +20,7 @@ ms.locfileid: "52495140"
 
 Apache Kafka Streams API를 사용하는 애플리케이션을 만들고 HDInsight의 Kafka에서 이를 실행하는 방법을 알아봅니다. 
 
-이 자습서에서 사용되는 응용 프로그램은 스트리밍 워드 카운트입니다. 이 응용 프로그램은 Kafka 토픽에서 텍스트 데이터를 읽고, 개별 단어를 추출한 다음, 워드 카운트를 다른 Kafka 토픽에 저장합니다.
+이 자습서에서 사용되는 애플리케이션은 스트리밍 워드 카운트입니다. 이 응용 프로그램은 Kafka 토픽에서 텍스트 데이터를 읽고, 개별 단어를 추출한 다음, 워드 카운트를 다른 Kafka 토픽에 저장합니다.
 
 > [!NOTE]
 > Kafka 스트림 처리는 종종 Apache Spark 또는 Apache Storm을 사용하여 수행됩니다. Kafka 0.10.0 버전(HDInsight 3.5 및 3.6)에 Kafka Streams API가 도입되었습니다. 이 API를 사용하면 입력 및 출력 토픽 간의 데이터 스트림을 변환할 수 있습니다. 경우에 따라 Spark 또는 Storm 스트리밍 솔루션을 만드는 대신 이 방법을 사용할 수 있습니다. 
@@ -32,7 +32,7 @@ Apache Kafka Streams API를 사용하는 애플리케이션을 만들고 HDInsig
 > [!div class="checklist"]
 > * 개발 환경 설정
 > * 코드 이해
-> * 응용 프로그램 빌드 및 배포
+> * 애플리케이션 빌드 및 배포
 > * Kafka 토픽 구성
 > * 코드 실행
 
@@ -40,7 +40,7 @@ Apache Kafka Streams API를 사용하는 애플리케이션을 만들고 HDInsig
 
 * HDInsight 3.6 클러스터의 Kafka HDInsight 클러스터에서 Kafka를 만드는 방법을 알아보려면 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md) 설명서를 참조하세요.
 
-* [Apache Kafka 소비자 및 생산자 API](apache-kafka-producer-consumer-api.md) 문서의 단계를 완료합니다. 이 문서의 단계는 이 자습서에서 만든 예제 응용 프로그램 및 토픽을 사용합니다.
+* [Apache Kafka 소비자 및 생산자 API](apache-kafka-producer-consumer-api.md) 문서의 단계를 완료합니다. 이 문서의 단계는 이 자습서에서 만든 예제 애플리케이션 및 토픽을 사용합니다.
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
 
@@ -54,7 +54,7 @@ Apache Kafka Streams API를 사용하는 애플리케이션을 만들고 HDInsig
 
 ## <a name="understand-the-code"></a>코드 이해
 
-예제 응용 프로그램은 `Streaming` 하위 디렉터리의 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에 있습니다. 응용 프로그램은 다음 두 파일로 구성되어 있습니다.
+예제 애플리케이션은 `Streaming` 하위 디렉터리의 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에 있습니다. 애플리케이션은 다음 두 파일로 구성되어 있습니다.
 
 * `pom.xml`: 이 파일은 프로젝트 종속성, Java 버전 및 패키징 메서드를 정의합니다.
 * `Stream.java`: 이 파일은 스트리밍 논리를 구현합니다.
@@ -80,13 +80,13 @@ Apache Kafka Streams API를 사용하는 애플리케이션을 만들고 HDInsig
 * 플러그 인: Maven 플러그 인은 다양한 기능을 제공합니다. 이 프로젝트에서는 다음 플러그 인이 사용됩니다.
 
     * `maven-compiler-plugin`: 프로젝트에서 사용하는 Java 버전을 8로 설정하는 데 사용됩니다. HDInsight 3.6에는 Java 8이 필요합니다.
-    * `maven-shade-plugin`: 이 응용 프로그램 및 모든 종속성을 포함하는 uber jar를 생성하는 데 사용됩니다. 또한 기본 클래스를 지정하지 않고 Jar 파일을 직접 실행할 수 있도록 응용 프로그램의 진입점을 설정하는 데 사용됩니다.
+    * `maven-shade-plugin`: 이 응용 프로그램 및 모든 종속성을 포함하는 uber jar를 생성하는 데 사용됩니다. 또한 기본 클래스를 지정하지 않고 Jar 파일을 직접 실행할 수 있도록 애플리케이션의 진입점을 설정하는 데 사용됩니다.
 
 ### <a name="streamjava"></a>Stream.java
 
 [Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) 파일은 스트림 API를 사용하여 워드 카운트 응용 프로그램을 구현합니다. 이 파일은 `test`라는 Kafka 토픽에서 데이터를 읽고, `wordcounts`라는 토픽에 워드 카운트를 씁니다.
 
-다음 코드는 워드 카운트 응용 프로그램을 정의합니다.
+다음 코드는 워드 카운트 애플리케이션을 정의합니다.
 
 ```java
 package com.microsoft.example;
@@ -199,7 +199,7 @@ public class Stream
 
     토픽은 다음과 같은 용도로 사용됩니다.
 
-    * `test`: 이 토픽은 레코드가 수신되는 위치입니다. 여기에서 스트리밍 응용 프로그램이 읽습니다.
+    * `test`: 이 토픽은 레코드가 수신되는 위치입니다. 여기에서 스트리밍 애플리케이션이 읽습니다.
     * `wordcounts`: 이 토픽은 스트리밍 응용 프로그램이 출력을 저장하는 위치입니다.
     * `RekeyedIntermediateTopic`: 이 토픽은 `countByKey` 연산자에 의해 카운트가 업데이트되므로 데이터를 다시 분할하는 데 사용됩니다.
     * `wordcount-example-Counts-changelog`: 이 토픽은 `countByKey` 작업에서 사용되는 상태 저장소입니다.
@@ -209,7 +209,7 @@ public class Stream
 
 ## <a name="run-the-code"></a>코드 실행
 
-1. 스트리밍 응용 프로그램을 백그라운드 프로세스로 시작하려면 다음 명령을 사용합니다.
+1. 스트리밍 애플리케이션을 백그라운드 프로세스로 시작하려면 다음 명령을 사용합니다.
 
     ```bash
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &

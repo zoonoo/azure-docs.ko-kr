@@ -135,7 +135,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
    ![중단점 추가](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
 
-5. F5 키를 눌러 응용 프로그램을 실행합니다.
+5. F5 키를 눌러 애플리케이션을 실행합니다.
 
     콘솔 창에서 Azure Cosmos DB의 새 테이블 데이터베이스에 대한 이름(이 경우 demo91ab4)이 표시됩니다. 
     

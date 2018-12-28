@@ -1,17 +1,18 @@
 ---
 title: Azure Site Recovery를 사용한 재해 복구를 위한 복구 계획 만들기 및 사용자 지정 | Microsoft Docs
 description: Azure Site Recovery 서비스를 사용한 재해 복구를 위한 복구 계획을 만들고 사용자 지정하는 방법을 알아봅니다.
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 5253b5743216fdb7cea9e3d387f64fdba8f56d8a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 85e649f3065d7f8d601541bbac6e93f4b2a0dc85
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212338"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878667"
 ---
 # <a name="create-and-customize-recovery-plans"></a>복구 계획 만들기 및 사용자 지정
 

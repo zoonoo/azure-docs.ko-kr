@@ -1,6 +1,6 @@
 ---
 title: Azure Automation의 연결 자산
-description: Azure Automation의 연결 자산은 외부 서비스 또는 runbook이나 DSC 구성의 응용 프로그램을 연결하는데 필요한 정보를 포함합니다. 이 문서에서는 연결에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 연결을 사용하는 방법을 설명합니다.
+description: Azure Automation의 연결 자산은 외부 서비스 또는 runbook이나 DSC 구성의 애플리케이션을 연결하는데 필요한 정보를 포함합니다. 이 문서에서는 연결에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 연결을 사용하는 방법을 설명합니다.
 services: automation
 ms.service: automation
 ms.component: shared-capabilities

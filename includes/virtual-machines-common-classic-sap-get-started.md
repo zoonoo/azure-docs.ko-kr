@@ -32,7 +32,7 @@ ms.locfileid: "51264356"
 ## <a name="sap-dbms-on-azure"></a>Azure에서 SAP DBMS
 제목: Azure 배포 가이드의 SAP DBMS
 
-요약: 이 문서에서는 SAP와 함께 실행해야 하는 DBMS 시스템에 대한 계획 및 구현 고려 사항을 살펴봅니다. 첫 번째 부분에서는 일반적인 고려 사항이 나열되고 표시됩니다. 문서의 다음 부분은 SAP에서 지원되는 Azure의 여러 DBMS 배포와 관련되어 있습니다. 제공된 다른 DBMS는 Linux, Unix 및 Windows용 SQL Server, SAP ASE, Oracle, SAP MaxDB 및 IBM DB2입니다. 해당 특정 부분 고려 사항에서 설명된 DBMS와 함께 Azure에서 SAP를 실행 중인 경우에 대해 설명해야 합니다. Azure의 각 DMS에서 지원되는 백업 및 고가용성 방법과 같은 주제가 SAP 응용 프로그램과 함께 사용하기 위해 표시됩니다.
+요약: 이 문서에서는 SAP와 함께 실행해야 하는 DBMS 시스템에 대한 계획 및 구현 고려 사항을 살펴봅니다. 첫 번째 부분에서는 일반적인 고려 사항이 나열되고 표시됩니다. 문서의 다음 부분은 SAP에서 지원되는 Azure의 여러 DBMS 배포와 관련되어 있습니다. 제공된 다른 DBMS는 Linux, Unix 및 Windows용 SQL Server, SAP ASE, Oracle, SAP MaxDB 및 IBM DB2입니다. 해당 특정 부분 고려 사항에서 설명된 DBMS와 함께 Azure에서 SAP를 실행 중인 경우에 대해 설명해야 합니다. Azure의 각 DBMS에서 지원되는 백업 및 고가용성 방법과 같은 주제가 SAP 애플리케이션과 함께 사용하기 위해 표시됩니다.
 
 업데이트한 날짜: 2015년 12월
 
@@ -41,7 +41,7 @@ ms.locfileid: "51264356"
 ## <a name="sap-netweaver-on-azure"></a>Azure에서 SAP NetWeaver
 제목: SAP NetWeaver - Azure 기반 재해 복구 솔루션 빌드
 
-요약: 이 문서는 SAP NetWeaver용 Azure 기반 재해 복구 솔루션 빌드에 대한 단계별 지침을 제공합니다. 설명된 솔루션은 SAP 환경이 Hyper-V를 기반으로 하여 가상화된 온-프레미스에서 실행되고 있다고 가정합니다. 문서의 첫 번째 부분에서 ASR(Azure Site Recovery) 서비스가 해당 구성 요소에서 도입됩니다. 문서의 두 번째 부분에서는 SAP NetWeaver 기반 환경에 대한 세부 사항을 설명합니다. SAP NetWeaver 응용 프로그램 인스턴스 및 SAP Central Services와 함께 ASR 사용에 대한 가능성을 소개하고 설명합니다. 두 번째 부분의 초점은 Windows Server 장애 조치 클러스터 구성을 통해 보호되는 SAP Central Services에 대한 ASR 활용입니다.
+요약: 이 문서는 SAP NetWeaver용 Azure 기반 재해 복구 솔루션 빌드에 대한 단계별 지침을 제공합니다. 설명된 솔루션은 SAP 환경이 Hyper-V를 기반으로 하여 가상화된 온-프레미스에서 실행되고 있다고 가정합니다. 문서의 첫 번째 부분에서 ASR(Azure Site Recovery) 서비스가 해당 구성 요소에서 도입됩니다. 문서의 두 번째 부분에서는 SAP NetWeaver 기반 환경에 대한 세부 사항을 설명합니다. SAP NetWeaver 애플리케이션 인스턴스 및 SAP Central Services와 함께 ASR 사용에 대한 가능성을 소개하고 설명합니다. 두 번째 부분의 초점은 Windows Server 장애 조치 클러스터 구성을 통해 보호되는 SAP Central Services에 대한 ASR 활용입니다.
 
 업데이트 날짜: 2015년 9월
 

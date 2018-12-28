@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 09ecd46837a12f5f1a8278b1644dc099701bcd00
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 064f141680e62d7102d7c3332e4d93efd6c28037
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584726"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258749"
 ---
 # <a name="billing-and-cost-management-automation-scenarios"></a>청구 및 비용 관리 자동화 시나리오
 
-청구 및 비용 관리 공간에 대한 일반적인 시나리오는 아래에서 식별되어 해당 시나리오에서 사용할 수 있는 여러 API에 매핑됩니다. 사용 가능한 모든 API 및 제공되는 기능에 대한 요약은 시나리오-API 매핑 아래에 있습니다. 
+청구 및 비용 관리에 대한 일반적인 시나리오는 아래에서 식별되어 해당 시나리오에서 사용할 수 있는 여러 API에 매핑됩니다. 사용 가능한 모든 API 및 제공되는 기능에 대한 요약은 시나리오-API 매핑 아래에 있습니다.
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
 
@@ -34,11 +34,11 @@ ms.locfileid: "52584726"
 
 - **교차 청구** - 청구 금액은 알았는데, 조직에서 누가 지불해야 하나요?
 
-- **비용 최적화** - 청구된 금액은 확인했지만, 어떻게 하면 Azure에서 지출하는 것보다 더 많은 돈을 벌 수 있나요?
+- **비용 최적화** - 청구 금액이 얼마인지 알고 있습니다. 그렇지만 Azure에서 지출하는 것보다 더 많은 돈을 벌려면 어떻게 해야 하나요?
 
-- **비용 추적** - Azure를 사용하여 내가 얼마나 지출하고 있는지를 시간별로 알고 싶습니다. 추세란 무엇인가요? 어떻게 더 개선할 수 있나요?
+- **비용 추적** - 시간별로 Azure를 얼마나 많이 사용하고 있으며 비용은 얼마나 되는지 알고 싶습니다. 추세란 무엇인가요? 어떻게 더 개선할 수 있나요?
 
-- **해당월 Azure 소비** - 이번 달 현재까지 지출액은 얼마인가요? Azure의 지출 및/또는 사용량을 조정해야 하나요? 해당 월 중에 언제 나는 Azure를 가장 많이 소비했나요?
+- **해당월 Azure 소비** - 이번 달 현재까지 지출액은 얼마인가요? Azure의 지출 및/또는 사용량을 변경해야 하나요? 해당 월 중에 언제 나는 Azure를 가장 많이 소비했나요?
 
 - **경고 설정** - 리소스 기반 소비 또는 통화 기반 알림을 설정하고 싶습니다.
 
@@ -59,19 +59,19 @@ ms.locfileid: "52584726"
 | 요금 미지정 사용량               |             X             |                  |           X          |                  |          X         |           |
 
 > [!NOTE]
-> 아래 시나리오-API 매핑은 기업 소비량 API를 포함하지 않습니다. 가능한 경우, 일반적인 Consumption API를 활용하여 향후 진행될 새로운 개발 시나리오를 해결해 주세요.
+> 아래 시나리오-API 매핑은 기업 소비량 API를 포함하지 않습니다. 가능한 경우 새로운 개발 시나리오에는 일반 사용량 API를 사용합니다.
 
 ## <a name="api-summaries"></a>API 요약
 
 ### <a name="consumption"></a>Consumption
 (*웹 직접 + 기업 고객 - 아래 나와 있는 API를 제외한 모든 API*)
 
--   **예산**(*기업 고객만*): [예산 API](https://docs.microsoft.com/rest/api/consumption/budgets)를 사용하여 리소스, 리소스 그룹 또는 청구 측정 단위에 대한 비용 또는 사용 예산을 만들 수 있습니다.  예산을 만든 후에는 사용자 정의 예산 임계값이 초과되면 이를 알리도록 경고를 구성할 수 있습니다. 예산액에 도달할 때 발생할 작업도 구성할 수 있습니다.
+-   **예산**(*기업 고객만*): [예산 API](https://docs.microsoft.com/rest/api/consumption/budgets)를 사용하여 리소스, 리소스 그룹 또는 청구 측정 단위에 대한 비용 또는 사용 예산을 만들 수 있습니다. 예산을 만들 때 사용자 정의 예산 임계값이 초과되면 이를 알리도록 경고를 구성할 수 있습니다. 예산액에 도달할 때 발생할 작업도 구성할 수 있습니다.
 -   **Marketplace**: [Marketplace 요금 API](https://docs.microsoft.com/rest/api/consumption/marketplaces)를 사용하여 모든 Marketplace 리소스(Azure 타사 제품)에 대한 요금 및 사용 현황 데이터를 가져옵니다. 이 데이터는 모든 Marketplace 리소스에 걸쳐 비용을 합산하거나 특정 리소스에 대한 비용/사용량을 조사하는 데 사용할 수 있습니다.
 -   **가격표**(*기업 고객만*): 기업 고객은 [가격표 API](https://docs.microsoft.com/rest/api/consumption/pricesheet)를 사용하여 모든 미터에 대한 사용자 지정 가격을 검색할 수 있습니다. 기업은 사용량 세부 정보 및 마켓플레이스 사용 정보를 이 데이터와 함께 사용하여 사용량 및 마켓플레이스 데이터를 사용한 비용 계산을 수행할 수 있습니다. 
--   **예약 권장 사항**: [예약 권장 사항 API](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations)를 사용하여 예약된 VM 인스턴스 구매에 대한 권장 사항을 가져옵니다. 권장 사항은 고객이 예상 비용 절감 및 구매 금액을 분석할 수 있도록 설계되었습니다.
--   **예약 세부 정보**: [예약 세부 정보 API](https://docs.microsoft.com/rest/api/consumption/reservationsdetails)를 사용하면 예약된 소비량과 실제로 사용된 양과 같은 이전에 구매한 VM 예약 정보를 볼 수 있습니다. VM 수준별로 데이터를 자세히 볼 수 있습니다.
--   **예약 요약**: [예약 요약 API](https://docs.microsoft.com/rest/api/consumption/reservationssummaries)를 사용하면 예약된 소비량과 실제로 사용된 양과 같은 이전에 구매한 VM 예약 정보를 볼 수 있습니다. 
+-   **예약 권장 사항**: [예약 권장 사항 API](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations)를 사용하여 예약된 VM 인스턴스 구매에 대한 권장 사항을 가져옵니다. 권장 사항은 고객이 예상 비용 절감 및 구매 금액을 분석할 수 있도록 설계되었습니다. 자세한 내용은 [Azure 예약 자동화를 위한 API](billing-reservation-apis.md)를 참조하세요.
+-   **예약 세부 정보**: [예약 세부 정보 API](https://docs.microsoft.com/rest/api/consumption/reservationsdetails)를 사용하여 예약된 소비량과 실제로 사용된 양과 같은 이전에 구매한 VM 예약 정보를 볼 수 있습니다. VM 수준별로 데이터를 자세히 볼 수 있습니다. 자세한 내용은 [Azure 예약 자동화를 위한 API](billing-reservation-apis.md)를 참조하세요.
+-   **예약 요약**: [예약 요약 API](https://docs.microsoft.com/rest/api/consumption/reservationssummaries)를 사용하여 예약된 소비량 및 집계에 사용된 소비량과 같은 조직이 구매한 VM 예약의 집계 정보를 확인할 수 있습니다. 자세한 내용은 [Azure 예약 자동화를 위한 API](billing-reservation-apis.md)를 참조하세요.
 -   **사용량 세부 정보**: [사용량 세부 정보 API](https://docs.microsoft.com/rest/api/consumption/usagedetails)를 사용하여 모든 Azure 자사 리소스에 대한 요금 및 사용량을 가져옵니다. 정보는 하루에 미터당 한 번씩 보내지는 사용량 세부 정보 레코드 형식으로 제공됩니다. 정보는 모든 리소스에 걸쳐 비용을 합산하거나 특정 리소스에 대한 비용/사용량을 조사하는 데 사용할 수 있습니다.
 -   **RateCard**: 웹 직접 고객은 [RateCard API](https://msdn.microsoft.com/library/azure/mt219005.aspx)를 사용하여 자신의 요금제를 가져옵니다. 그런 다음, 해당 리소스 사용 정보를 반환된 정보와 함께 사용하여 예상된 청구서를 직접 계산할 수 있습니다. 
 -   **요금 미지정 사용량**: [요금 미지정 사용량 API](https://msdn.microsoft.com/library/azure/mt219003.aspx)를 사용하여 Azure에 의해 계량/청구되기 전에 가공되지 않은 사용량 정보를 얻을 수 있습니다.
@@ -83,19 +83,19 @@ ms.locfileid: "52584726"
 ### <a name="enterprise-consumption"></a>기업 소비량
 *(모든 API 기업만)*
 
--   **잔액 요약** - [잔액 요약 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)를 사용하여 잔액, 신규 구매, Azure Marketplace 서비스 요금, 조정 및 초과 요금에 대한 월별 정보 요약을 가져옵니다. 현재 청구 기간 또는 과거의 특정 기간에 대해 이 정보를 얻을 수 있습니다. 기업은 이 데이터를 사용하여 수동으로 계산한 요약 요금과 비교할 수 있습니다. 이 API는 리소스 관련 정보 또는 비용에 대한 집계 보기는 제공하지 않습니다.
+-   **잔액 요약**: [잔액 요약 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)를 사용하여 잔액, 신규 구매, Azure Marketplace 서비스 요금, 조정 및 초과 요금에 대한 월별 정보 요약을 가져옵니다. 현재 청구 기간 또는 과거의 특정 기간에 대해 이 정보를 얻을 수 있습니다. 기업은 이 데이터를 사용하여 수동으로 계산한 요약 요금과 비교할 수 있습니다. 이 API는 리소스 관련 정보 또는 비용에 대한 집계 보기는 제공하지 않습니다.
 -   **사용량 세부 정보**: [사용량 세부 정보 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)를 사용하여 당월, 특정 청구 기간 또는 사용자 지정 기간에 대한 자사 Azure 사용량 세부 정보를 가져옵니다. 기업은 이 데이터를 사용하여 요금 및 소비량을 기반으로 청구서를 직접 계산할 수 있으며 제공된 부서/조직 정보를 사용하여 조직 전체의 비용을 산출할 수 있습니다. 데이터는 리소스별 사용량/비용 보기를 제공합니다.
 -   **Marketplace 저장소 요금**: [Marketplace 저장소 요금 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)를 사용하여 당월, 특정 청구 기간 또는 사용자 지정 기간에 대한 타사 Azure 사용량 세부 정보를 가져옵니다. 기업은 이 데이터를 사용하여 요금 및 소비량을 기반으로 청구서를 직접 계산할 수 있으며 제공된 부서/조직 정보를 사용하여 조직 전체의 비용을 산출할 수 있습니다. Marketplace 저장소 요금 API는 리소스별 사용량/비용 보기를 제공합니다.
 -   **가격표**: [가격표 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet)는 지정된 등록 및 청구 기간에 대한 각 측정기에 적용할 수 있는 가격을 제공합니다. 이 요금 정보를 사용량 세부 정보 및 마켓플레이스 사용 정보와 함께 사용하여 예상된 청구서를 직접 계산할 수 있습니다.
--   **청구 기간**: [청구 기간 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)를 사용하여 해당 청구 기간과 관련된 4가지 Enterprise API 데이터 집합(BalanceSummary, UsageDetails, Marketplace Charges, PriceSheet)에 대한 API 경로를 가리키는 속성과 함께 청구 기간 목록을 가져옵니다.
--   **Azure 예약 권장 사항**: [예약 인스턴스 권장 사항 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)는 고객의 7일, 30일 또는 60일의 가상 머신 사용량을 확인하고 단일 및 공유 구매 권장 사항을 제공합니다. 고객은 예약 인스턴스 API를 통해 예상 비용 절감 및 권장 구매 금액을 분석할 수 있습니다.
+-   **청구 기간**: [청구 기간 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)를 사용하여 해당 청구 기간과 관련된 4가지 Enterprise API 데이터 세트(BalanceSummary, UsageDetails, Marketplace Charges, PriceSheet)에 대한 API 경로를 가리키는 속성과 함께 청구 기간 목록을 가져옵니다.
+-   **Azure 예약 권장 사항**: [예약 인스턴스 권장 사항 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)는 고객의 7일, 30일 또는 60일의 가상 머신 사용량을 확인하고 단일 및 공유 구매 권장 사항을 제공합니다. 고객은 예약 인스턴스 API를 통해 예상 비용 절감 및 권장 구매 금액을 분석할 수 있습니다. 자세한 내용은 [Azure 예약 자동화를 위한 API](billing-reservation-apis.md)를 참조하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="what-is-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>기업 보고 API와 소비량 API 간의 차이는 무엇입니까? 언제 사용해야 하나요?
 이러한 API에는 유사한 기능 집합이 있고 청구 및 비용 관리 공간에서 동일한 광범위한 질문의 집합에 대답할 수 있습니다. 그러나 각 API는 다양한 대상을 대상으로 합니다. 
 
-- **기업 보고 API**: 이러한 API는 협상된 현금 약정 금액 및 사용자 지정 가격 책정에 대한 액세스를 부여하는 Microsoft와 기업계약을 체결한 고객에게 제공됩니다. API에는 [Enterprise Portal](https://ea.azure.com)을 통해 얻을 수 있는 사용할 키가 필요합니다. 이러한 API에 대한 설명은 [기업 고객을 위한 보고 API 개요](billing-enterprise-api.md)를 참조하세요.
+- **기업 보고 API** 이러한 API는 협상된 현금 약정 금액 및 사용자 지정 가격 책정에 대한 액세스를 부여하는 Microsoft와 기업계약을 체결한 고객에게 제공됩니다. API에는 [Enterprise Portal](https://ea.azure.com)을 통해 얻을 수 있는 키가 필요합니다. 이러한 API에 대한 설명은 [기업 고객을 위한 보고 API 개요](billing-enterprise-api.md)를 참조하세요.
 
 - **소비량 API**: 이러한 API는 몇 가지 예외로 모든 고객에게 제공됩니다. 자세한 내용은 [Azure 소비량 API 개요](billing-consumption-api-overview.md) 및 [Azure 소비량 API 참조](https://docs.microsoft.com/rest/api/consumption/)를 참조하세요. 제공된 API는 최신 개발 시나리오에 권장되는 솔루션입니다. 
 
@@ -107,7 +107,7 @@ ms.locfileid: "52584726"
     - 선불된 현금 약정 금액의 사용을 위한 계정 변경
     - Azure에서 검색된 사용량 불일치에 대한 계정 변경
 
-- **사용량**: [사용량 API](https://msdn.microsoft.com/library/Mt219003.aspx)는 Azure의 비용 계량 시스템을 통과하기 전에 원시 Azure 사용량 정보를 제공합니다. 이 데이터는 Azure 요금 계량 시스템 후에 표시되는 사용량 및/또는 요금량과 상관 관계를 갖지 않을 수 있습니다.
+- **사용 현황** [사용량 API](https://msdn.microsoft.com/library/Mt219003.aspx)는 Azure의 비용 계량 시스템을 통과하기 전에 원시 Azure 사용량 정보를 제공합니다. 이 데이터는 Azure 요금 계량 시스템 후에 표시되는 사용량 또는 요금량과 상관 관계가 없을 수 있습니다.
 
 ### <a name="what-is-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>청구서 API와 사용량 세부 정보 API 간의 차이는 무엇입니까?
 이러한 API는 동일한 데이터의 다른 보기를 제공합니다. [청구서 API](https://docs.microsoft.com/rest/api/billing/invoices)는 Web Direct 고객 전용이며 각 계량 형식에 대한 집계 요금에 따라 청구 요금의 월별 롤업을 제공합니다. [사용량 세부 정보 API](https://docs.microsoft.com/rest/api/consumption/usagedetails)는 각 날짜에 대한 사용량/비용 레코드의 세부적인 보기를 제공하고 Enterprise 및 Web Direct 고객이 사용할 수 있습니다.

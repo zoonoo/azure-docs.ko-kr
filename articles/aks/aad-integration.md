@@ -80,7 +80,7 @@ Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook �
 
 8. 응용 프로그램으로 돌아오고 **응용 프로그램 ID**를 기록해 둡니다. Azure AD 사용 AKS 클러스터를 배포할 때 이 값은 `Server application ID`이라고 합니다.
 
-  ![응용 프로그램 ID 가져오기](media/aad-integration/application-id.png)
+  ![애플리케이션 ID 가져오기](media/aad-integration/application-id.png)
 
 ## <a name="create-client-application"></a>클라이언트 응용 프로그램 만들기
 

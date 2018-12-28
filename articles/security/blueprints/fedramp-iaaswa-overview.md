@@ -25,7 +25,7 @@ ms.locfileid: "49405381"
 
 ## <a name="overview"></a>개요
 
-[FedRAMP(Federal Risk and Authorization Management Program)](https://www.fedramp.gov)는 미국 정부 차원 프로그램으로 클라우드 제품 및 서비스에 대한 보안 평가, 권한 부여 및 연속 모니터링에 대한 표준화된 접근 방법을 제공합니다. 이 Azure Security 및 Compliance Blueprint Automation에서는 간단한 인터넷 연결 웹 응용 프로그램에 적합한 FedRAMP 규격 IaaS(Infrastructure as a Service) 환경의 배포를 위한 지침을 제공합니다. 이 솔루션은 공통 참조 아키텍처를 위한 Azure 리소스 배포 및 구성을 자동화하여 고객이 특정 보안 및 규정 준수 요구 사항에 부합할 수 있는 방법을 보여 주며 고객이 Azure에서 자체 솔루션을 구축 및 구성하기 위한 기초 역할을 합니다. 이 솔루션은 NIST SP 800-53을 기준으로 FedRAMP 높음 기준에서 제어의 하위 집합을 구현합니다. FedRAMP 요구 사항이 이 솔루션에 대한 자세한 내용은 [규정 준수 설명서](#compliance-documentation)를 참조하세요.
+[FedRAMP(Federal Risk and Authorization Management Program)](https://www.fedramp.gov)는 미국 정부 차원 프로그램으로 클라우드 제품 및 서비스에 대한 보안 평가, 권한 부여 및 연속 모니터링에 대한 표준화된 접근 방법을 제공합니다. 이 Azure Security 및 Compliance Blueprint Automation에서는 간단한 인터넷 연결 웹 애플리케이션에 적합한 FedRAMP 규격 IaaS(Infrastructure as a Service) 환경의 배포를 위한 지침을 제공합니다. 이 솔루션은 공통 참조 아키텍처를 위한 Azure 리소스 배포 및 구성을 자동화하여 고객이 특정 보안 및 규정 준수 요구 사항에 부합할 수 있는 방법을 보여 주며 고객이 Azure에서 자체 솔루션을 구축 및 구성하기 위한 기초 역할을 합니다. 이 솔루션은 NIST SP 800-53을 기준으로 FedRAMP 높음 기준에서 제어의 하위 집합을 구현합니다. FedRAMP 요구 사항이 이 솔루션에 대한 자세한 내용은 [규정 준수 설명서](#compliance-documentation)를 참조하세요.
 > [!NOTE]
 > 이 솔루션은 Azure Government에 배포됩니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "49405381"
 배포 지침을 보려면 [여기](https://aka.ms/fedrampblueprintrepo)를 클릭하세요.
 
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
-이 솔루션은 SQL Server 백 엔드가 있는 IaaS 웹 응용 프로그램에 대한 참조 아키텍처를 배포합니다. 이 아키텍처는 웹 계층, 데이터 계층, Active Directory 인프라, Application Gateway 및 Load Balancer를 포함합니다. 웹 및 데이터 계층에 배포된 가상 머신은 가용성 집합에서 구성되며 SQL Server 인스턴스는 고가용성을 위해 AlwaysOn 가용성 그룹에 구성됩니다. Virtual Machines는 도메인에 조인되며 Active Directory 그룹 정책을 사용하여 운영 체제 수준에서 보안 및 규정 준수 구성을 적용합니다.  요새 호스트는 관리자가 배포된 리소스에 액세스할 수 있는 보안 연결을 제공합니다. **Azure에서는 관리 및 참조 아키텍처 서브넷에 데이터 가져오기를 위해 VPN 또는 Azure ExpressRoute 연결을 구성하는 것이 좋습니다.**
+이 솔루션은 SQL Server 백 엔드가 있는 IaaS 웹 애플리케이션에 대한 참조 아키텍처를 배포합니다. 이 아키텍처는 웹 계층, 데이터 계층, Active Directory 인프라, Application Gateway 및 Load Balancer를 포함합니다. 웹 및 데이터 계층에 배포된 가상 머신은 가용성 집합에서 구성되며 SQL Server 인스턴스는 고가용성을 위해 AlwaysOn 가용성 그룹에 구성됩니다. Virtual Machines는 도메인에 조인되며 Active Directory 그룹 정책을 사용하여 운영 체제 수준에서 보안 및 규정 준수 구성을 적용합니다.  요새 호스트는 관리자가 배포된 리소스에 액세스할 수 있는 보안 연결을 제공합니다. **Azure에서는 관리 및 참조 아키텍처 서브넷에 데이터 가져오기를 위해 VPN 또는 Azure ExpressRoute 연결을 구성하는 것이 좋습니다.**
 
 ![FedRAMP용 IaaS 웹 응용 프로그램 참조 아키텍처 다이어그램](images/fedramp-iaaswa-architecture.png?raw=true "FedRAMP용 IaaS 웹 응용 프로그램 참조 아키텍처 다이어그램")
 
@@ -177,7 +177,7 @@ Log Analytics는 시스템 및 사용자 활동과 시스템 상태에 대한 �
 
 [Azure 보안 및 규정 준수 청사진 - FedRAMP High 고객 책임 매트릭스](https://aka.ms/blueprinthighcrm)에는 FedRAMP High 기준에서 요구하는 모든 보안 컨트롤이 나열되어 있습니다. 매트릭스는 각 컨트롤 구현이 Microsoft의 책임인지, 고객의 책임인지 아니면 둘의 공동 책임인지 자세히 설명합니다.
 
-[Azure Security 및 Compliance Blueprint - FedRAMP IaaS 웹 응용 프로그램 High 컨트롤 구현 매트릭스](https://aka.ms/blueprintwacim)에는 FedRAMP High 기준에서 요구하는 모든 보안 컨트롤이 나열되어 있습니다. 매트릭스는 IaaS 웹 응용 프로그램 아키텍처가 어떤 컨트롤을 담당하는지에 대한 정보를 제공하며, 여기에는 구현을 통해 담당 컨트롤의 요구 사항을 충족시키는 방법에 대한 자세한 설명이 포함됩니다.
+[Azure Security 및 Compliance Blueprint - FedRAMP IaaS 웹 응용 프로그램 High 컨트롤 구현 매트릭스](https://aka.ms/blueprintwacim)에는 FedRAMP High 기준에서 요구하는 모든 보안 컨트롤이 나열되어 있습니다. 매트릭스는 IaaS 웹 애플리케이션 아키텍처가 어떤 컨트롤을 담당하는지에 대한 정보를 제공하며, 여기에는 구현을 통해 담당 컨트롤의 요구 사항을 충족시키는 방법에 대한 자세한 설명이 포함됩니다.
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
@@ -196,7 +196,7 @@ Log Analytics는 시스템 및 사용자 활동과 시스템 상태에 대한 �
 
 ## <a name="guidance-and-recommendations"></a>지침 및 권장 사항
 ### <a name="vpn-and-expressroute"></a>VPN 및 ExpressRoute
-이 IaaS 웹 응용 프로그램 참조 아키텍처의 일부로 배포된 리소스에 대한 연결을 안전하게 설정하도록 보안 VPN 터널 또는 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 구성해야 합니다. VPN 또는 ExpressRoute를 적절히 설정하면 고객이 전송 중인 데이터에 대한 보호 계층을 추가할 수 있습니다.
+이 IaaS 웹 애플리케이션 참조 아키텍처의 일부로 배포된 리소스에 대한 연결을 안전하게 설정하도록 보안 VPN 터널 또는 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 구성해야 합니다. VPN 또는 ExpressRoute를 적절히 설정하면 고객이 전송 중인 데이터에 대한 보호 계층을 추가할 수 있습니다.
 
 Azure를 통해 보안 VPN 터널을 구현하면 온-프레미스 네트워크와 Azure Virtual Network 간의 가상 사설 연결을 만들 수 있습니다. 이 연결은 인터넷을 통해 이루어지며, 고객이 고객의 네트워크와 Azure 간에 암호화된 링크 내에서 정보를 안전하게 "터널링"할 수 있습니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포한 안전하고 완성도가 높은 기술입니다. [IPsec 터널 모드](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10))는 이 옵션에서 암호화 메커니즘으로 사용됩니다.
 

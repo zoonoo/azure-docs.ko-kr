@@ -1,5 +1,5 @@
 ---
-title: Azure Blueprint에서 매개 변수를 통해 동적 청사진 만들기
+title: 매개 변수를 사용하여 동적 청사진 만들기
 description: 정적 및 동적 매개 변수란 무엇이며 동적 청사진을 만드는 데 사용하는 방법을 알아봅니다.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f6485b01c391ba336799ceb35ee67402b3603585
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 0eef85fe92682eb3a6fd1dbc036cf547b163db97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093754"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310320"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
@@ -57,7 +58,7 @@ Resource Manager 템플릿 _아티팩트_가 **secureString** 및 **secureObject
 
 1. 기존 청사진을 클릭한 다음, **청사진 편집** 또는 **+ 청사진 만들기**를 클릭하고 **기본 사항** 탭에서 정보를 입력합니다.
 
-1. **다음: 아티팩트** 또는 **아티팩트** 탭을 클릭합니다.
+1. **다음: 아티팩트**를 클릭하거나 **아티팩트** 탭을 클릭합니다.
 
 1. 청사진에 추가되고 매개 변수 옵션이 있는 아티팩트는 **매개 변수** 열에 **X/Y 매개 변수 채워짐**으로 표시됩니다. 아티팩트 행을 클릭하여 아티팩트 매개 변수를 편집합니다.
 

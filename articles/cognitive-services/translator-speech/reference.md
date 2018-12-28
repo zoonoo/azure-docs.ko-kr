@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: dea32146c1e00869de43b50823e81853e6543411
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340446"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259429"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
@@ -34,9 +34,9 @@ Translator Text API에 액세스하려면 [Microsoft Azure에 등록](translator
 
 등록 키를 사용하여 인증을 받습니다. Translator Speech API는 다음 두 가지 인증 모드를 지원합니다.
 
-* **액세스 토큰 사용:** 응용 프로그램에서 토큰 서비스의 액세스 토큰을 가져옵니다. Translator Speech API 구독 키를 사용하여 Azure Cognitive Services 인증 서비스에서 액세스 토큰을 가져옵니다. 액세스 토큰은 10분 동안 유효합니다. 10분 간격으로 새 액세스 토큰을 획득하고, 이러한 10분 내에 반복되는 요청에 대해 동일한 액세스 토큰을 계속 사용합니다.
+* **액세스 토큰 사용:** 애플리케이션에서 토큰 서비스의 액세스 토큰을 가져옵니다. Translator Speech API 구독 키를 사용하여 Azure Cognitive Services 인증 서비스에서 액세스 토큰을 가져옵니다. 액세스 토큰은 10분 동안 유효합니다. 10분 간격으로 새 액세스 토큰을 획득하고, 이러한 10분 내에 반복되는 요청에 대해 동일한 액세스 토큰을 계속 사용합니다.
 
-* **등록 키 직접 사용:** 응용 프로그램에서 등록 키를 `Ocp-Apim-Subscription-Key` 헤더에 값으로 제공합니다.
+* **구독 키 직접 사용:** 애플리케이션에서 구독 키를 `Ocp-Apim-Subscription-Key` 헤더에 값으로 제공합니다.
 
 구독 키와 액세스 토큰을 보이지 않게 숨겨야 하는 비밀로 취급합니다.
 
@@ -49,7 +49,7 @@ Translator Text API에 액세스하려면 [Microsoft Azure에 등록](translator
 ## <a name="5-process-the-results"></a>5. 결과 처리
 **서비스에서 다시 스트리밍된 결과를 처리합니다.** 부분 결과, 최종 결과 및 텍스트 음성 변환 오디오 세그먼트의 형식은 아래 `/speech/translate` 작업의 설명서에 설명되어 있습니다.
 
-Translator Speech API의 사용 방식을 보여 주는 코드 샘플은 [Microsoft Translator Github 사이트](https://github.com/MicrosoftTranslator)에서 사용할 수 있습니다.
+Translator Speech API의 사용 방식을 보여 주는 코드 샘플은 [Microsoft Translator GitHub 사이트](https://github.com/MicrosoftTranslator)에서 사용할 수 있습니다.
 
 ## <a name="implementation-notes"></a>구현 참고 사항
 
@@ -89,10 +89,13 @@ GET /speech/translate: 음성 번역에 대한 세션을 설정합니다.
 
 클라이언트는 WAV(RIFF) 헤더를 보낸 후 오디오 데이터의 청크를 보냅니다. 클라이언트는 일반적으로 고정 기간을 나타내는 고정된 크기의 청크를 스트리밍합니다(예: 한 번에 100ms의 오디오 스트리밍).
 
+### <a name="signal-the-end-of-the-utterance"></a>발언의 마지막 신호
+Translator Speech API는 오디오를 전송할 때 오디오 스트림의 대본과 번역을 반환합니다. 최종 대본, 최종 번역 및 번역된 오디오는 발언이 끝난 후에만 반환됩니다. 일부 경우에는 발언을 강제로 종료하려고 할 수 있습니다. 발언을 강제로 종료하려면 2.5초 동안 무음을 보내 주세요. 
+
 ### <a name="final-result"></a>최종 결과
 최종 음성 인식 결과는 발언의 끝에 생성됩니다. 결과는 Text 형식의 WebSocket 메시지를 사용하여 서비스에서 클라이언트로 전송됩니다. 메시지 콘텐츠는 다음 속성을 갖는 개체의 JSON 직렬화입니다.
 
-* `type`: 결과의 형식을 식별하기 위해 문자열 상수입니다. 이 값은 최종 결과를 위한 최종 값입니다.
+* `type`: 결과의 형식을 식별하기 위한 문자열 상수입니다. 이 값은 최종 결과를 위한 최종 값입니다.
 * `id`: 인식 결과에 할당되는 문자열 식별자입니다.
 * `recognition`: 원본 언어의 인식된 텍스트입니다. 이 텍스트는 잘못 인식될 경우 빈 문자열일 수 있습니다.
 * `translation`: 대상 언어로 번역된 인식된 텍스트입니다.
@@ -123,7 +126,7 @@ GET /speech/translate: 음성 번역에 대한 세션을 설정합니다.
 
 부분 결과는 Text 형식의 WebSocket 메시지를 사용하여 서비스에서 클라이언트로 전송됩니다. 메시지 콘텐츠는 다음 속성을 갖는 개체의 JSON 직렬화입니다.
 
-* `type`: 결과의 형식을 식별하기 위해 문자열 상수입니다. 이 값은 부분 결과에 대한 부분적인 값입니다.
+* `type`: 결과의 형식을 식별하기 위한 문자열 상수입니다. 이 값은 부분 결과에 대한 부분적인 값입니다.
 * `id`: 인식 결과에 할당되는 문자열 식별자입니다.
 * `recognition`: 원본 언어의 인식된 텍스트입니다.
 * `translation`: 대상 언어로 번역된 인식된 텍스트입니다.

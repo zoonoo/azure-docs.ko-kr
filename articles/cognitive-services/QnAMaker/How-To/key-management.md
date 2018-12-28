@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
-ms.openlocfilehash: 1fe39cf9e4a1e58a0d37cc8ebf9fe02c6ad7eed5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 25b23d280aca9ef13b8820596686a1f9dbecd2a1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334621"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085946"
 ---
-# <a name="key-management"></a>키 관리
+# <a name="how-to-manage-keys-in-qna-maker"></a>QnA Maker에서 키를 관리하는 방법
 
 QnA Maker 서비스는 **구독 키**와 **엔드포인트 키**의 두 종류 키를 사용합니다.
 

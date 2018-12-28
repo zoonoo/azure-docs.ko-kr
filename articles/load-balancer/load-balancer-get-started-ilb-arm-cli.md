@@ -1,5 +1,6 @@
 ---
-title: 내부 기본 부하 분산 장치 만들기 - Azure CLI | Microsoft Docs
+title: 내부 기본 Load Balancer 만들기 - Azure CLI
+titlesuffix: Azure Load Balancer
 description: Azure CLI를 사용하여 내부 부하 분산 장치를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 369c47a48d49a91985f7a9534230e04cff1e7ce6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 114b01f3c1636f57813adcd199b90a4c72d0013e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413692"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106008"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Azure CLI를 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 

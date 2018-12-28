@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f02c495c7448334529de2d5b42cda02206daea0d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229682"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877975"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 
-Microsoft Custom Translator 미리 보기는 Microsoft Translator 서비스의 기능으로, 사용자가 Translator Text API(버전 3만)를 사용하여 텍스트를 번역할 때 Microsoft Translator의 고급 신경망 기계 번역을 사용자 지정할 수 있도록 합니다.
+Microsoft Custom Translator는 Microsoft Translator 서비스의 기능으로, 사용자가 Translator Text API(버전 3만)를 사용하여 텍스트를 번역할 때 Microsoft Translator의 고급 인공신경망 기계 번역을 사용자 지정할 수 있도록 합니다.
 
-이 기능은 [Cognitive Services Speech 미리 보기](https://docs.microsoft.com/azure/cognitive-services/speech-service/)에서 사용될 경우 음성 번역을 사용자 지정하는 데도 사용될 수 있습니다.
+이 기능은 [Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/)에서 사용될 경우 음성 번역을 사용자 지정하는 데도 사용될 수 있습니다.
 
 ## <a name="custom-translator"></a>Custom Translator
 
@@ -48,7 +48,7 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 
 |   | **허브** | **Custom Translator**|
 |:-----|:----:|:----:|
-|사용자 지정 기능 상태   | 일반 공급  | 미리 보기 |
+|사용자 지정 기능 상태   | 일반 공급  | 일반 공급 |
 | Text API 버전  | V2만   | V3만 |
 | SMT 사용자 지정 | yes   | 아니요 |
 | NMT 사용자 지정 | 아니요    | yes |

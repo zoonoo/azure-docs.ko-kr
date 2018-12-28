@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 954eec8566173dd4707926d5f713a5cd509bdd9b
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 9c63808af8d883badd379cf8bc3372a1d65d6624
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620067"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968659"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>자습서: SharePoint 온-프레미스와 Azure Active Directory 통합
 
@@ -76,7 +76,7 @@ SharePoint 온-프레미스의 Azure AD 통합을 구성하려면 갤러리의 S
 
 4. 검색 상자에 **SharePoint 온-프레미스**를 입력하고 결과 패널에서 **SharePoint 온-프레미스**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
-    ![결과 목록의 SharePoint 온-프레미스](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
+    ![결과 목록의 SharePoint 온-프레미스](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -104,11 +104,11 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하고 테스
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
-    ![Single Sign-On 대화 상자](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
+    ![Single Sign-On 대화 상자](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
 
 3. **SharePoint 온-프레미스 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
-    ![SharePoint 온-프레미스 도메인 및 URL Single Sign-On 정보](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
+    ![SharePoint 온-프레미스 도메인 및 URL Single Sign-On 정보](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<YourSharePointServerURL>/_trust/default.aspx`
 
@@ -118,21 +118,21 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하고 테스
 
 4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
-    ![인증서 다운로드 링크](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
+    ![인증서 다운로드 링크](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
 
     > [!Note]
     > 구성을 위해 PowerShell 스크립트에서 나중에 사용해야 하므로 인증서 파일을 다운로드한 파일 경로를 적어 두세요.
 
 5. **저장** 단추를 클릭합니다.
 
-    ![Single Sign-On 구성 저장 단추](./media\sharepoint-on-premises-tutorial/tutorial_general_400.png)
+    ![Single Sign-On 구성 저장 단추](./media/sharepoint-on-premises-tutorial/tutorial_general_400.png)
 
 6. **SharePoint 온-프레미스 구성** 섹션에서 **SharePoint 온-프레미스 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID**를 복사합니다. **Single Sign-On 서비스 URL**의 경우 다음 패턴의 값을 사용합니다. `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
     > [!Note]
     > _my_directory_id_는 Azure Ad 구독의 테넌트 ID입니다.
 
-    ![SharePoint 온-프레미스 구성](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
+    ![SharePoint 온-프레미스 구성](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 
     > [!NOTE]
     > Sharepoint On-Premises 응용 프로그램은 SAML 1.1 토큰을 사용하므로, Azure AD는 SharePoint 서버로부터 WS Fed 요청을 기대하고 인증 후 SAML 1.1 토큰을 발급합니다.
@@ -171,7 +171,7 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하고 테스
 
     e. **확인**을 클릭합니다.
 
-    ![인증 공급자 구성](./media\sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
+    ![인증 공급자 구성](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
     > [!NOTE]
     > 일부 외부 사용자는 해당 UPN이 `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`과 같은 손상된 값을 가지므로 이 Single Sign-On 통합을 사용할 수 없습니다. 곧 사용자 유형에 따라 UPN을 처리하는 방법에 대한 고객 앱 구성을 허용할 계획입니다. 그런 다음, 모든 게스트 사용자는 조직의 직원으로 SSO를 원활하게 사용할 수 있어야 합니다.
@@ -186,19 +186,19 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하고 테스
 
 1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** 단추를 클릭합니다.
 
-    ![Azure Active Directory 단추](./media\sharepoint-on-premises-tutorial/create_aaduser_01.png)
+    ![Azure Active Directory 단추](./media/sharepoint-on-premises-tutorial/create_aaduser_01.png)
 
 2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
 
-    !["사용자 및 그룹" 및 "모든 사용자" 링크](./media\sharepoint-on-premises-tutorial/create_aaduser_02.png)
+    !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/sharepoint-on-premises-tutorial/create_aaduser_02.png)
 
 3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
 
-    ![추가 단추](./media\sharepoint-on-premises-tutorial/create_aaduser_03.png)
+    ![추가 단추](./media/sharepoint-on-premises-tutorial/create_aaduser_03.png)
 
 4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
 
-    ![사용자 대화 상자](./media\sharepoint-on-premises-tutorial/create_aaduser_04.png)
+    ![사용자 대화 상자](./media/sharepoint-on-premises-tutorial/create_aaduser_04.png)
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
@@ -220,7 +220,7 @@ Azure AD에 로그인하고 SharePoint에 액세스할 사용자는 응용 프�
 
 4. 웹 응용 프로그램에 대한 정책에서 **사용자 추가**를 클릭합니다.
 
-    ![이름 클레임으로 사용자 검색](./media\sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
+    ![이름 클레임으로 사용자 검색](./media/sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
 
 5. **사용자 추가** 대화 상자의 **영역**에서 적합한 영역을 클릭하고 **다음**을 클릭합니다.
 
@@ -232,7 +232,7 @@ Azure AD에 로그인하고 SharePoint에 액세스할 사용자는 응용 프�
 
 9. 권한에서 **모든 권한**을 클릭합니다.
 
-    ![클레임 사용자에게 모든 권한 부여](./media\sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
+    ![클레임 사용자에게 모든 권한 부여](./media/sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
 
 10. **다음**을 클릭한 후 **확인**을 클릭합니다.
 
@@ -263,7 +263,7 @@ Azure AD에 로그인하고 SharePoint에 액세스할 사용자는 응용 프�
 
 이제 사용자가 Azure AD의 ID를 사용하여 SharePoint 2016에 로그인할 수 있지만 사용자 환경을 개선할 수 있는 여지가 남아 있습니다. 예를 들어, 사용자 선택에서 사용자를 검색하면 여러 검색 결과가 표시됩니다. 클레임 매핑에서 생성된 3가지 클레임 유형 각각에 대한 검색 결과가 있습니다. 사용자 선택기를 사용하여 사용자를 선택하려면 사용자 이름을 정확하게 입력하고 **이름** 클레임 결과를 선택해야 합니다.
 
-![클레임 검색 결과](./media\sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
+![클레임 검색 결과](./media/sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
 
 검색한 값에 대해 유효성 검사가 없기 때문에 철자 오류가 발생하거나, 사용자가 실수로 **SurName** 클레임 등, 잘못된 클레임 유형을 선택하여 할당할 수 있습니다. 이렇게 되면 사용자가 리소스에 액세스하지 못할 수 있습니다.
 
@@ -283,7 +283,7 @@ Azure AD에 로그인하고 SharePoint에 액세스할 사용자는 응용 프�
 
 2. 응용 프로그램 목록에서 **SharePoint 온-프레미스**를 선택합니다.
 
-    ![응용 프로그램 목록의 SharePoint 링크](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
+    ![응용 프로그램 목록의 SharePoint 링크](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 

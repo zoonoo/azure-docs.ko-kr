@@ -1,5 +1,5 @@
 ---
-title: Azure DC/OS 클러스터 모니터링 - Dynatrace
+title: (사용되지 않음) Azure DC/OS 클러스터 모니터링 - Dynatrace
 description: Dynatrace를 사용하여 Azure Container Service DC/OS 클러스터를 모니터링합니다. DC/OS 대시보드를 사용하여 Dynatrace OneAgent를 배포합니다.
 services: container-service
 author: MartinGoodwell
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 3d1bfc3bb61781d487c40831edd5da6fcb5a7df9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162044"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001979"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Dynatrace SaaS/Managed를 사용하여 Azure Container Service DC/OS 클러스터 모니터링
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(사용되지 않음) Dynatrace SaaS/Managed를 사용하여 Azure Container Service DC/OS 클러스터 모니터링
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 이 문서에서는 [Dynatrace](https://www.dynatrace.com/) OneAgent를 배포하여 Azure Container Service 클러스터의 모든 에이전트 노드를 모니터링하는 방법을 보여 줍니다. 이러한 구성을 위해서는 Dynatrace SaaS/Managed 계정이 필요합니다. 
 

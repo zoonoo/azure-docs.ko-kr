@@ -9,16 +9,15 @@ ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8cee346a45cd20e7dd677fd7f2efed5500175598
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1c76e25c29d79213fbdf36d563b4bd316b832b06
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096397"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017034"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 다음을 수행하는 방법
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
@@ -72,7 +71,7 @@ ms.locfileid: "47096397"
 * 경고는 "경고" 및 "정상"의 두 상태가 있습니다. 상태는 메트릭 수신 시에만 평가됩니다.
 * 상태가 변경될 때만 전자 메일을 보냅니다. 이 때문에 높은 값과 낮은 값의 메트릭을 모두 보내야 합니다.
 * 경고를 평가하기 위해 이전 기간 동안 수신한 값에서 평균을 취합니다. 이 작업은 메트릭이 수신될 때마다 발생하므로 설정한 기간보다 더 자주 전자 메일이 전달될 수 있습니다.
-* "경고" 및 "정상"에서 모두 전자 메일을 보내므로 원샷 이벤트를 2상태 조건으로 간주할 수 있습니다. 예를 들어, "작업 완료" 이벤트 대신, 작업 시작과 종료 시 전자 메일을 받는 "작업 진행 중"  조건을 적용합니다.
+* "경고" 및 "정상"에서 모두 전자 메일을 보내므로 원샷 이벤트를 2상태 조건으로 간주할 수 있습니다. 예를 들어, "작업 완료" 이벤트 대신, 작업 시작과 종료 시 전자 메일을 받는 "작업 진행 중" 조건을 적용합니다.
 
 ### <a name="set-up-alerts-automatically"></a>자동 경고 설정
 [PowerShell을 사용하여 새 경고 만들기](app-insights-alerts.md#automation)
@@ -83,9 +82,9 @@ ms.locfileid: "47096397"
 
 ## <a name="separate-telemetry-from-different-versions"></a>서로 다른 버전에서 별도 원격 분석
 
-* 앱에서 여러 역할: 단일 Application Insights 리소스 사용 및 cloud_Rolename 필터링. [자세히 알아보기](app-insights-monitor-multi-role-apps.md)
-* 개발, 테스트 및 릴리스 버전 구분: 다른 Application Insights 리소스 사용. web.config에서 계측 키를 선택합니다. [자세히 알아보기](app-insights-separate-resources.md)
-* 빌드 버전 보고: 원격 분석 이니셜라이저를 사용하여 속성 추가. [자세히 알아보기](app-insights-separate-resources.md)
+* 앱에서 여러 역할: 단일 Application Insights 리소스 사용 및 [cloud_Rolename](app-insights-app-map.md) 필터링
+* 개발, 테스트 및 릴리스 버전 구분: 다른 Application Insights 리소스 사용 web.config에서 계측 키를 선택합니다. [자세히 알아보기](app-insights-separate-resources.md)
+* 빌드 버전 보고: 원격 분석 이니셜라이저를 사용하여 속성 추가 [자세히 알아보기](app-insights-separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>백엔드 서버 및 데스크톱 앱 모니터링
 [Windows Server SDK 모듈을 사용합니다](app-insights-windows-desktop.md).
@@ -156,7 +155,7 @@ ms.locfileid: "47096397"
 
 ### <a name="if-you-see-no-performance-counter-data"></a>성능 카운터 데이터가 없는 경우
 * **IIS 서버** . [상태 모니터를 설치합니다](app-insights-monitor-performance-live-website-now.md).
-* **Azure 웹 사이트** - 성능 카운터는 아직 지원되지 않습니다. Azure 웹 사이트 제어판의 표준 부분으로 몇 가지 메트릭을 가져올  수 있습니다.
+* **Azure 웹 사이트** - 성능 카운터는 아직 지원되지 않습니다. Azure 웹 사이트 제어판의 표준 부분으로 몇 가지 메트릭을 가져올 수 있습니다.
 * **Unix 서버** - [collectd 설치](app-insights-java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>더 많은 성능 카운터를 표시하려면

@@ -24,9 +24,9 @@ ms.locfileid: "53133641"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Microsoft Teams를 통해 온-프레미스 응용 프로그램에 액세스
 
-Azure Active Directory 응용 프로그램 프록시는 장소에 관계없이 온-프레미스 응용 프로그램에 Single Sign-On을 제공합니다. Microsoft Teams를 사용하면 한 곳에서 효율적으로 공동 작업을 수행할 수 있습니다. 이 두 가지를 통합하면 사용자가 어떤 상황에서도 팀 동료와 협력하여 생산성을 높일 수 있습니다. 
+Azure Active Directory 애플리케이션 프록시는 장소에 관계없이 온-프레미스 애플리케이션에 Single Sign-On을 제공합니다. Microsoft Teams를 사용하면 한 곳에서 효율적으로 공동 작업을 수행할 수 있습니다. 이 두 가지를 통합하면 사용자가 어떤 상황에서도 팀 동료와 협력하여 생산성을 높일 수 있습니다. 
 
-사용자가 [탭을 사용](https://support.office.com/article/Video-Using-Tabs-7350a03e-017a-4a00-a6ae-1c9fe8c497b3?ui=en-US&rs=en-US&ad=US)하여 해당 Teams 채널에 클라우드 앱을 추가할 수 있으나 온-프레미스에 호스트되는 SharePoint 사이트 또는 계획 도구에서는 어떻게 될까요? 응용 프로그램 프록시는 솔루션입니다. 원격으로 앱에 액세스하는 데 항상 사용하는 것과 동일한 외부 URL을 사용하여 응용 프로그램 프록시를 통해 게시된 앱을 해당 채널에 추가할 수 있습니다. 응용 프로그램 프록시는 Azure Active Directory를 통해 인증하므로 사용자에게 Single Sign-On 환경이 제공됩니다.
+사용자가 [탭을 사용](https://support.office.com/article/Video-Using-Tabs-7350a03e-017a-4a00-a6ae-1c9fe8c497b3?ui=en-US&rs=en-US&ad=US)하여 해당 Teams 채널에 클라우드 앱을 추가할 수 있으나 온-프레미스에 호스트되는 SharePoint 사이트 또는 계획 도구에서는 어떻게 될까요? 응용 프로그램 프록시는 솔루션입니다. 원격으로 앱에 액세스하는 데 항상 사용하는 것과 동일한 외부 URL을 사용하여 응용 프로그램 프록시를 통해 게시된 앱을 해당 채널에 추가할 수 있습니다. 애플리케이션 프록시는 Azure Active Directory를 통해 인증하므로 사용자에게 Single Sign-On 환경이 제공됩니다.
 
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>응용 프로그램 프록시 커넥터 설치 및 앱 게시
@@ -37,7 +37,7 @@ Azure Active Directory 응용 프로그램 프록시는 장소에 관계없이 �
 
 ## <a name="add-your-app-to-teams"></a>Teams에 앱 추가
 
-응용 프로그램 프록시를 통해 앱을 게시하면 사용자가 해당 Teams 채널에서 직접 탭으로 추가할 수 있음을 알 수 있으며 앱이 사용할 팀의 모든 사람에게 제공됩니다. 사용자가 다음 세 가지 단계를 수행하도록 합니다.
+애플리케이션 프록시를 통해 앱을 게시하면 사용자가 해당 Teams 채널에서 직접 탭으로 추가할 수 있음을 알 수 있으며 앱이 사용할 팀의 모든 사람에게 제공됩니다. 사용자가 다음 세 가지 단계를 수행하도록 합니다.
 
 1. 이 앱을 추가하려는Teams 채널로 이동하여 탭을 추가할 **+** 를 선택합니다.
 

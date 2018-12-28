@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 34011144d4f960413e78f13c999dfddf6d2660bf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: c4a289d1aeefc35f07e7598adf3780620b11f0da
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742948"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252204"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>사용자 지정 금지 암호 목록 구성
 
@@ -36,7 +36,7 @@ ms.locfileid: "50742948"
    * 사용자 지정 금지 암호 목록에는 단어를 1000개까지 포함할 수 있습니다.
    * 사용자 지정 금지 암호 목록에서는 대/소문자가 구별됩니다.
    * 사용자 지정 금지 암호 목록에는 일반적인 문자 대체가 고려됩니다.
-      * 예: "o"과 "0" 또는 "a"와 "\@\"
+      * 예: "o"와 "0" 또는 "a"와 "\@"
    * 문자열 최소 길이는 4자이고 최대 길이는 16자입니다.
 1. 문자열을 모두 추가했으면 **저장**을 클릭합니다.
 

@@ -1,21 +1,22 @@
 ---
-title: 1000개의 예제 발화를 사용한 일괄 테스트
-titleSuffix: Azure Cognitive Services
+title: 테스트 일괄 처리
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS(Language Understanding) 일괄 테스트 집합을 사용하여 잘못된 의도 및 엔터티가 있는 발화를 찾습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 1560b8e574b0932e258353648c73f030ef19d314
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9ad71c34bdf88023bcb0a4115fc02ddf3a8d7624
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333499"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086401"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
@@ -29,11 +30,11 @@ ms.locfileid: "52333499"
 
     ![일괄 테스트 링크](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. **데이터 집합 가져오기**를 선택합니다. **새 데이터 집합 가져오기** 대화 상자가 표시됩니다. **파일 선택**을 선택하고 테스트할 *1,000개 이하* 발언을 포함하는 올바른 [JSON 형식](luis-concept-batch-test.md#batch-file-format)의 JSON 파일을 찾습니다.
+2. **데이터 세트 가져오기**를 선택합니다. **새 데이터 세트 가져오기** 대화 상자가 표시됩니다. **파일 선택**을 선택하고 테스트할 *1,000개 이하* 발언을 포함하는 올바른 [JSON 형식](luis-concept-batch-test.md#batch-file-format)의 JSON 파일을 찾습니다.
 
     가져오기 오류는 브라우저 위쪽의 빨간색 알림 표시줄에 보고됩니다. 가져오기에 오류가 있으면 데이터 세트가 생성되지 않습니다. 자세한 내용은 [일반 오류](luis-concept-batch-test.md#common-errors-importing-a-batch)를 참조하세요.
 
-3. **데이터 집합 이름** 필드에 데이터 집합 파일의 이름을 입력합니다. 데이터 세트 파일에는 ‘레이블이 지정된 의도’ 및 ‘엔터티’를 포함하는 **발화 배열**이 포함되어 있습니다. 구문의 [예제 일괄 처리 파일](luis-concept-batch-test.md#batch-file-format)을 검토합니다. 
+3. **데이터 세트 이름** 필드에 데이터 세트 파일의 이름을 입력합니다. 데이터 세트 파일에는 ‘레이블이 지정된 의도’ 및 ‘엔터티’를 포함하는 **발화 배열**이 포함되어 있습니다. 구문의 [예제 일괄 처리 파일](luis-concept-batch-test.md#batch-file-format)을 검토합니다. 
 
 4. **완료**를 선택합니다. 데이터 세트 파일이 추가됩니다.
 

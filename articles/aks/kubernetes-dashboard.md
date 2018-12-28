@@ -55,7 +55,7 @@ kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-adm
 
 이제 RBAC 지원 클러스터의 Kubernetes 대시보드에 액세스할 수 있습니다. Kubernetes 대시보드를 시작하려면 이전 단계에서 설명한 대로 [az aks browse][az-aks-browse] 명령을 사용합니다.
 
-## <a name="create-an-application"></a>응용 프로그램 만들기
+## <a name="create-an-application"></a>애플리케이션 만들기
 
 Kubernetes 대시보드가 관리 작업의 복잡도를 줄일 수 있는 방법을 보기 위해 응용 프로그램을 작성해 보겠습니다. 텍스트 입력, YAML 파일을 제공하거나 그래픽 마법사를 통해 Kubernetes 대시보드에서 응용 프로그램을 작성할 수 있습니다.
 

@@ -1,7 +1,7 @@
 ---
 title: 'NoSQL 자습서: Azure Cosmos DB Java SDK용 SQL API'
 description: Azure Cosmos DB용 SQL API를 사용하여 온라인 데이터베이스 및 Java 콘솔 애플리케이션을 만드는 NoSQL 자습서입니다. Azure SQL은 JSON의 NoSQL 데이터베이스입니다.
-keywords: NoSQL 자습서, 온라인 데이터베이스, Java 콘솔 응용 프로그램
+keywords: NoSQL 자습서, 온라인 데이터베이스, Java 콘솔 애플리케이션
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
@@ -29,7 +29,7 @@ ms.locfileid: "53093027"
 > * [Node.JS](sql-api-nodejs-get-started.md)
 > 
 
-Azure Cosmos DB Java SDK용 SQL API에 대한 NoSQL 자습서를 시작합니다. 이 자습서를 따라 하면 Azure Cosmos DB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
+Azure Cosmos DB Java SDK용 SQL API에 대한 NoSQL 자습서를 시작합니다. 이 자습서를 따라 하면 Azure Cosmos DB 리소스를 만들고 쿼리하는 콘솔 애플리케이션이 생깁니다.
 
 다음 항목에 대해서 다룹니다.
 
@@ -79,7 +79,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
     </dependency>
 
 ## <a id="Connect"></a>3단계: Azure Cosmos DB 계정에 연결
-다음으로 [Azure Portal](https://portal.azure.com)로 다시 이동하여 엔드포인트와 기본 마스터 키를 검색합니다. Azure Cosmos DB 엔드포인트와 기본 키는 응용 프로그램에서 연결할 위치를 식별하고 Azure Cosmos DB에서 응용 프로그램의 연결을 신뢰하는 데 필요합니다.
+다음으로 [Azure Portal](https://portal.azure.com)로 다시 이동하여 엔드포인트와 기본 마스터 키를 검색합니다. Azure Cosmos DB 엔드포인트와 기본 키는 애플리케이션에서 연결할 위치를 식별하고 Azure Cosmos DB에서 애플리케이션의 연결을 신뢰하는 데 필요합니다.
 
 Azure Portal에서 Azure Cosmos DB 계정으로 이동한 다음 **키**를 클릭합니다. 포털에서 URI를 복사하고 Program.java 파일의 `https://FILLME.documents.azure.com`에 붙여 넣습니다. 그런 다음 포털에서 기본 키를 복사하고 `FILLME`에 붙여 넣습니다.
 
@@ -104,7 +104,7 @@ Azure Portal에서 Azure Cosmos DB 계정으로 이동한 다음 **키**를 클�
 > 
 > 
 
-**DocumentClient** 클래스의 [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) 메서드를 사용하여 컬렉션을 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다.
+**DocumentClient** 클래스의 [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) 메서드를 사용하여 컬렉션을 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 애플리케이션 논리의 컨테이너입니다.
 
 
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -175,7 +175,7 @@ Azure Cosmos DB는 [replaceDocument](/java/api/com.microsoft.azure.documentdb._d
     this.client.deleteDatabase("/dbs/familydb", null);
 
 ## <a id="Run"></a>11단계: Java 콘솔 애플리케이션 모두 실행!
-콘솔에서 응용 프로그램을 실행하려면 프로젝트 폴더로 이동하고 Maven을 사용하여 컴파일합니다.
+콘솔에서 애플리케이션을 실행하려면 프로젝트 폴더로 이동하고 Maven을 사용하여 컴파일합니다.
     
     mvn package
 
@@ -183,7 +183,7 @@ Azure Cosmos DB는 [replaceDocument](/java/api/com.microsoft.azure.documentdb._d
 
     mvn exec:java -D exec.mainClass=GetStarted.Program
 
-축하합니다! 이 NoSQL 자습서를 완료했으며 실행되는 Java 콘솔 응용 프로그램이 생겼습니다.
+축하합니다! 이 NoSQL 자습서를 완료했으며 실행되는 Java 콘솔 애플리케이션이 생겼습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Java 웹앱 자습서가 필요한가요? [Azure Cosmos DB를 사용하여 Java로 웹 응용 프로그램 빌드](sql-api-java-application.md)를 참조하세요.

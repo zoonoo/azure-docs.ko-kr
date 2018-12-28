@@ -309,7 +309,7 @@ static void DisplayItem(Newtonsoft.Json.Linq.JToken item, string title, string[]
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-응용 프로그램을 실행합니다. 출력은 다음과 비슷해야 합니다.
+애플리케이션을 실행합니다. 출력은 다음과 비슷해야 합니다.
 
 ```
 Enter Bing query: sailing lessons seattle

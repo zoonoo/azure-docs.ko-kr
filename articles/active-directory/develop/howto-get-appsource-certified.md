@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory에 대해 인증된 AppSource 가져오는 방법 | Microsoft Docs
-description: Azure Active Directory에 대해 인증된 응용 프로그램 AppSource 가져오는 방법에 대한 세부 정보.
+description: Azure Active Directory에 대해 인증된 애플리케이션 AppSource 가져오는 방법에 대한 세부 정보.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -34,9 +34,9 @@ AppSource에서 독립 실행형 SaaS 응용 프로그램을 나열하려면 응
 
 Open ID를 사용하여 응용 프로그램을 Azure AD와 통합하는 방법에 대해 자세히 알아보려면 [Azure Active Directory 개발자 가이드](v1-overview.md#get-started "개발자를 위한 Azure AD 시작")에서 지침 및 코드 샘플을 따릅니다.
 
-## <a name="multi-tenant-applications"></a>다중 테넌트 응용 프로그램
+## <a name="multi-tenant-applications"></a>다중 테넌트 애플리케이션
 
-*다중 테넌트 응용 프로그램*은 별도 인스턴스, 구성 또는 배포를 요구하지 않고 Azure AD가 있는 모든 회사 또는 조직에서 사용자의 로그인을 허용하는 응용 프로그램입니다. AppSource에서는 응용 프로그램이 *단일 클릭* 평가판 체험을 활성화하도록 다중 테넌트를 구현하는 것을 권장합니다.
+*다중 테넌트 응용 프로그램*은 별도 인스턴스, 구성 또는 배포를 요구하지 않고 Azure AD가 있는 모든 회사 또는 조직에서 사용자의 로그인을 허용하는 응용 프로그램입니다. AppSource에서는 애플리케이션이 *단일 클릭* 평가판 체험을 활성화하도록 다중 테넌트를 구현하는 것을 권장합니다.
 
 응용 프로그램에서 다중 테넌트를 활성화하려면 다음 단계를 수행합니다.
 1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)의 응용 프로그램 등록 정보에서 `Multi-Tenanted` 속성을 `Yes`로 설정합니다. 기본적으로 Azure Portal에서 만든 응용 프로그램은 *[단일 테넌트](#single-tenant-applications)* 로 구성됩니다.
@@ -45,7 +45,7 @@ Open ID를 사용하여 응용 프로그램을 Azure AD와 통합하는 방법�
 
 다중 테넌트에 대한 정보는 [다중 테넌트 응용 프로그램 패턴을 사용하여 모든 Azure AD(Azure Active Directory) 사용자를 로그인하는 방법](howto-convert-app-to-be-multi-tenant.md)을 참조하세요.
 
-### <a name="single-tenant-applications"></a>단일 테넌트 응용 프로그램
+### <a name="single-tenant-applications"></a>단일 테넌트 애플리케이션
 
 *단일 테넌트 응용 프로그램*은 정의된 Azure AD 인스턴스의 사용자의 로그인만 허용하는 응용 프로그램입니다. 외부 사용자(다른 조직의 회사 또는 학교 계정 또는 개인 계정 포함)는 각 사용자를 게스트 계정으로 응용 프로그램이 등록된 Azure AD 인스턴스에 추가한 후 단일 테넌트 응용 프로그램에 로그인 할 수 있습니다. 
 
@@ -61,12 +61,12 @@ Open ID를 사용하여 응용 프로그램을 Azure AD와 통합하는 방법�
 
 <table >
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>사용자는 AppSource 웹 사이트에서 응용 프로그램을 찾습니다.</li><li>‘평가판’ 옵션을 선택합니다.</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>‘평가판’ 옵션을 선택합니다.</li></ul></td>
     <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource는 웹 사이트의 URL로 사용자를 리디렉션합니다.</li><li>웹 사이트는 <i>Single Sign-On</i> 프로세스를 자동으로 시작합니다(페이지 로드에서).</li></ul></td>
     <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>사용자는 Microsoft 로그인 페이지로 리디렉션됩니다.</li><li>사용자는 로그인하기 위해 자격 증명을 제공합니다.</li></ul></td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>사용자는 응용 프로그램에 대한 동의를 제공합니다.</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>사용자는 애플리케이션에 대한 동의를 제공합니다.</li></ul></td>
     <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>로그인을 완료하고 사용자는 웹 사이트로 다시 리디렉션됩니다.</li><li>사용자는 평가판을 시작합니다.</li></ul></td>
     <td></td>
 </tr>
@@ -78,7 +78,7 @@ Open ID를 사용하여 응용 프로그램을 Azure AD와 통합하는 방법�
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>사용자는 AppSource 웹 사이트에서 응용 프로그램을 찾습니다.</li><li>'연락처' 옵션을 선택합니다.</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>'연락처' 옵션을 선택합니다.</li></ul></td>
     <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>연락처 정보로 양식을 작성합니다.</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
@@ -95,12 +95,12 @@ Open ID를 사용하여 응용 프로그램을 Azure AD와 통합하는 방법�
             <td>평가판 정보로 사용자에게 연락합니다.</td>
         </tr>
         </table><br/><br/>
-        <ul><li>사용자의 정보를 받고 평가판 인스턴스를 설정합니다.</li><li>응용 프로그램이 사용자에게 액세스하기 위한 하이퍼링크를 보냅니다.</li></ul>
+        <ul><li>사용자의 정보를 받고 평가판 인스턴스를 설정합니다.</li><li>애플리케이션이 사용자에게 액세스하기 위한 하이퍼링크를 보냅니다.</li></ul>
     </td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>사용자는 응용 프로그램에 액세스하고 Single Sign-On 프로세스를 완료합니다.</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>사용자는 응용 프로그램에 대한 동의를 제공합니다.</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>사용자는 애플리케이션에 액세스하고 Single Sign-On 프로세스를 완료합니다.</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>사용자는 애플리케이션에 대한 동의를 제공합니다.</li></ul></td>
     <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>로그인을 완료하고 사용자는 웹 사이트로 다시 리디렉션됩니다.</li><li>사용자는 평가판을 시작합니다.</li></ul></td>
    
 </tr>
@@ -113,7 +113,7 @@ AppSource 평가판 체험에 대한 자세한 내용은 [이 비디오](https:/
 ## <a name="next-steps"></a>다음 단계
 
 - Azure AD 로그인을 지원하는 응용 프로그램 구축에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)를 참조하세요.
-- AppSource에 SaaS 응용 프로그램을 나열하는 방법에 대한 내용은 [AppSource 파트너 정보](https://appsource.microsoft.com/partners)를 참조하세요.
+- AppSource에 SaaS 애플리케이션을 나열하는 방법에 대한 내용은 [AppSource 파트너 정보](https://appsource.microsoft.com/partners)를 참조하세요.
 
 
 ## <a name="get-support"></a>지원 받기

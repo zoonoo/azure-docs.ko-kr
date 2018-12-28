@@ -4,15 +4,15 @@ description: Azure Site Recovery를 사용하여 Azure로 VMware VM의 재해 �
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 10/28/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: nisoneji
-ms.openlocfilehash: c6ec47017d944a206642932223ebb1d9df9cf942
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.author: mayg
+ms.openlocfilehash: f724837e8cce733680b98a5df5690e6a8dfbf6ee
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011734"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258851"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위한 용량 및 크기 조정 계획
 
@@ -26,7 +26,7 @@ VMware 복제를 위해 [Azure Site Recovery Deployment Planner](https://aka.ms/
 
 **구성 요소** | **세부 정보** |
 --- | --- | ---
-**복제** | **일일 최대 변경률:** 보호된 컴퓨터는 하나의 프로세스 서버만 사용할 수 있으며 단일 프로세스 서버는 최대 2TB의 일일 최대 변경률을 처리할 수 있습니다. 따라서 2TB는 보호되는 컴퓨터에 대해 지원되는 최대 일일 데이터 변경률입니다.<br/><br/> **최대 처리량:** 복제된 컴퓨터는 Azure에서 하나의 저장소 계정에 속할 수 있습니다. 표준 저장소 계정은 초당 최대 20,000개의 요청을 처리할 수 있으며 원본 컴퓨터의 IOPS(초당 입력/출력 작업 수)를 20,000으로 유지하는 것이 좋습니다. 예를 들어 원본 컴퓨터의 디스크가 5개이고 각 디스크가 원본 컴퓨터에서 120 IOPS(8K 크기)를 생성할 경우 Azure 내에서 디스크당 IOPS 한도인 500을 초과하지 않습니다. (필요한 저장소 계정 수는 총 원본 컴퓨터 IOPS 수를 20,000으로 나눈 값입니다.)
+**복제** | **최대 일일 변동률:** 보호된 컴퓨터는 하나의 프로세스 서버만 사용할 수 있으며 단일 프로세스 서버는 최대 2TB의 일일 최대 변경률을 처리할 수 있습니다. 따라서 2TB는 보호되는 컴퓨터에 대해 지원되는 최대 일일 데이터 변경률입니다.<br/><br/> **최대 처리량:** 복제된 컴퓨터는 Azure에서 하나의 스토리지 계정에 속할 수 있습니다. 표준 저장소 계정은 초당 최대 20,000개의 요청을 처리할 수 있으며 원본 컴퓨터의 IOPS(초당 입력/출력 작업 수)를 20,000으로 유지하는 것이 좋습니다. 예를 들어 원본 컴퓨터의 디스크가 5개이고 각 디스크가 원본 컴퓨터에서 120 IOPS(8K 크기)를 생성할 경우 Azure 내에서 디스크당 IOPS 한도인 500을 초과하지 않습니다. (필요한 저장소 계정 수는 총 원본 컴퓨터 IOPS 수를 20,000으로 나눈 값입니다.)
 **구성 서버** | 구성 서버는 보호된 컴퓨터에서 실행되는 모든 워크로드에 대한 일일 변경률 용량을 처리할 수 있어야 하며 데이터를 Azure storage로 지속적으로 복제할 만큼 충분한 대역폭을 보유해야 합니다.<br/><br/> 가장 좋은 방법은 보호하려는 컴퓨터와 동일한 네트워크 및 LAN 세그먼트에 구성 서버를 배치하는 것입니다. 다른 네트워크에 배치할 수도 있지만 보호하려는 컴퓨터에서 구성 서버의 L3 네트워크를 볼 수 있어야 합니다.<br/><br/> 구성 서버에 권장하는 크기는 다음 섹션의 테이블에 요약되어 있습니다.
 **프로세스 서버** | 첫 번째 프로세스 서버는 기본적으로 구성 서버에 설치됩니다. 사용자 환경의 크기를 조정하는 추가 프로세스 서버를 배포할 수 있습니다. <br/><br/> 프로세스 서버는 보호된 컴퓨터에서 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화합니다. 그런 다음 Azure에 데이터를 보냅니다. 프로세스 서버 컴퓨터에는 이러한 작업을 수행할 충분한 리소스가 있어야 합니다.<br/><br/> 프로세스 서버는 디스크 기반 캐시를 사용합니다. 네트워크 병목 현상 또는 중단이 발생하는 경우 저장된 데이터 변경을 처리할 수 있도록 600GB 이상의 별도의 캐시 디스크를 사용하세요.
 
@@ -81,7 +81,7 @@ VMware 복제를 위해 [Azure Site Recovery Deployment Planner](https://aka.ms/
 
 ### <a name="throttle-bandwidth"></a>대역폭 제한
 
-1. 프로세스 서버 역할을 하는 컴퓨터에서 Azure Backup MMC 스냅인을 엽니다. 기본적으로 바탕 화면 또는 C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin 폴더에 Backup의 바로 가기가 있습니다.
+1. 프로세스 서버 역할을 하는 컴퓨터에서 Azure Backup MMC 스냅인을 엽니다. 기본적으로 Backup 바로 가기는 바탕 화면이나 다음 폴더에서 사용할 수 있습니다. C:\Program Files\Microsoft Azure Recovery Services Agent\bin.
 2. 스냅인에서 **속성 변경**을 클릭합니다.
 
     ![속성을 변경하는 Azure Backup MMC 스냅인의 스크린샷](./media/site-recovery-vmware-to-azure/throttle1.png)

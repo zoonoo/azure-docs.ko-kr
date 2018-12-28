@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central 응용 프로그램에서 원격 분석 규칙 만들기 및 관리 | Microsoft Docs
+title: Azure IoT Central 애플리케이션에서 원격 분석 규칙 만들기 및 관리 | Microsoft Docs
 description: Azure IoT Central 원격 분석 규칙을 사용하여 디바이스를 거의 실시간으로 모니터링하고, 규칙이 트리거되면 이메일 보내기 등의 작업을 자동으로 호출합니다.
 author: ankitgupta
 ms.author: ankitgup
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52964818"
 ---
-# <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 원격 분석 규칙을 만들고 알림 설정
+# <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 원격 분석 규칙을 만들고 알림 설정
 
 *이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*
 
@@ -83,11 +83,11 @@ Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니�
 1. **이메일** 작업을 선택하고, **받는 사람** 필드에 유효한 이메일 주소를 입력하고, 규칙이 트리거될 때 이메일 본문에 표시할 메모를 입력합니다.
 
     > [!NOTE]
-    > 응용 프로그램에 추가되어 한 번 이상 로그인한 사용자에게만 이메일이 발송됩니다. Azure IoT Central에서 [사용자 관리](howto-administer.md)에 대해 자세히 알아보세요.
+    > 애플리케이션에 추가되어 한 번 이상 로그인한 사용자에게만 이메일이 발송됩니다. Azure IoT Central에서 [사용자 관리](howto-administer.md)에 대해 자세히 알아보세요.
 
    ![작업 구성](media/howto-create-telemetry-rules/Configure_Action.png)
 
-1. 규칙을 저장하려면 **저장**을 선택합니다. 몇 분 이내에 규칙이 적용되어 응용 프로그램으로 전송되는 원격 분석 데이터의 모니터링이 시작됩니다. 규칙에 지정된 조건이 충족하는 경우 규칙이 구성된 이메일 작업을 트리거합니다.
+1. 규칙을 저장하려면 **저장**을 선택합니다. 몇 분 이내에 규칙이 적용되어 애플리케이션으로 전송되는 원격 분석 데이터의 모니터링이 시작됩니다. 규칙에 지정된 조건이 충족하는 경우 규칙이 구성된 이메일 작업을 트리거합니다.
 
 1. **완료**를 선택하여 **템플릿 편집** 모드를 종료합니다.
 

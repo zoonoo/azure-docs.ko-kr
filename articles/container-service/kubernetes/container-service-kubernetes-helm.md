@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes에서 Helm을 이용한 컨테이너 배포
+title: (사용되지 않음) Azure Kubernetes에서 Helm을 이용한 컨테이너 배포
 description: Helm 패키징 도구를 사용하여 Azure Container Service의 Kubernetes 클러스터에 컨테이너 배포
 services: container-service
 author: sauryadas
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 882e785968f94473e80c7a14e5a68498add37735
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634156"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997878"
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Helm을 사용하여 Kubernetes 클러스터에 컨테이너 배포
+# <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(사용되지 않음) Helm을 사용하여 Kubernetes 클러스터에 컨테이너 배포
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 문서의 업데이트된 버전은 [AKS(Azure Kubernetes Service)에서 Helm을 사용하여 애플리케이션 설치](../../aks/kubernetes-helm.md)를 참조하세요.
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Helm](https://github.com/kubernetes/helm/)은 Kubernetes 응용 프로그램을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. Apt-get, Yum 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다. 이 문서는 Azure Container Service에 배포된 Kubernetes 클러스터에서 Helm을 이용하여 작업하는 방법을 보여줍니다.
 

@@ -35,7 +35,7 @@ ms.locfileid: "34207471"
 일단 [애플리케이션 형식이 패키지화되면][10] Azure Service Fabric 클러스터에 배포될 준비가 된 것입니다. 배포에는 다음 세 단계가 포함됩니다.
 
 1. 이미지 저장소에 응용 프로그램 패키지 업로드
-2. 응용 프로그램 형식 등록
+2. 애플리케이션 형식 등록
 3. 이미지 저장소에서 응용 프로그램 패키지 제거
 4. 응용 프로그램 인스턴스 만들기
 
@@ -57,7 +57,7 @@ FabricClient fabricClient = new FabricClient();
 ## <a name="upload-the-application-package"></a>응용 프로그램 패키지 업로드
 Visual Studio에서 *MyApplication*이라는 응용 프로그램을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 응용 프로그램 유형 이름은 "MyApplicationType"입니다.  필요한 응용 프로그램 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함된 응용 프로그램 패키지는 *C:\Users\&lt;username&gt;\Documents\Visual Studio 2017\Projects\MyApplication\MyApplication\pkg\Debug*에 있습니다.
 
-응용 프로그램 패키지를 업로드하면 내부 Service Fabric 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. Service Fabric은 응용 프로그램 패키지를 등록하는 동안 응용 프로그램 패키지를 확인합니다. 단, 로컬로 응용 프로그램 패키지를 확인하려는 경우(예: 업로드하기 전에) [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet을 사용합니다.
+애플리케이션 패키지를 업로드하면 내부 Service Fabric 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. Service Fabric은 응용 프로그램 패키지를 등록하는 동안 응용 프로그램 패키지를 확인합니다. 단, 로컬로 응용 프로그램 패키지를 확인하려는 경우(예: 업로드하기 전에) [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet을 사용합니다.
 
 [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API는 응용 프로그램 패키지를 클러스터 이미지 저장소에 업로드합니다. 
 

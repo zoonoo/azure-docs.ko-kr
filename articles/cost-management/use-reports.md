@@ -1,23 +1,23 @@
 ---
 title: Azure에서 Cloudyn 보고서 사용 | Microsoft Docs
-description: 이 문서에서는 Cloudyn 포털에서 다양한 보고서를 사용하는 방법을 설명합니다.
+description: 이 문서에서는 Cloudyn 포털에 포함된 Cloudyn 보고서를 효과적으로 사용할 수 있도록 용도에 대해 설명합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276026"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075883"
 ---
-# <a name="use-cloudyn-reports"></a>Cloudyn 보고서 사용
+# <a name="reports-available-in-the-cloudyn-portal"></a>Cloudyn 포털에 제공되는 보고서
 
 이 문서에서는 Cloudyn 포털에 포함된 Cloudyn 보고서의 용도에 대해 설명합니다. 또한 보고서를 효과적으로 사용하는 방법도 설명합니다. 대부분의 보고서는 직관적이며 모양과 느낌이 일관됩니다. 한 보고서에서 수행할 수 있는 대부분의 작업을 다른 보고서에서도 수행할 수 있습니다. Cloudyn 보고서를 사용자 지정하고 저장하거나 예약하는 방법을 포함하여 보고서를 사용하는 방법에 대한 개요는 [비용 보고서 이해](understanding-cost-reports.md)를 참조하세요.
 
@@ -59,7 +59,7 @@ Cloudyn의 대시보드에서는 개요 수준의 보고서를 확인할 수 있
 
 ## <a name="budget-information-in-reports"></a>보고서의 예산 정보
 
-예산을 수동으로 만들면 많은 Cloudyn 보고서에 예산 정보가 표시됩니다. 따라서 예산을 만들 때까지는 보고서에 예산 정보가 표시되지 않습니다. 자세한 내용은 [예산 설정](#budget-settings)을 참조하세요.
+예산을 수동으로 만들면 많은 Cloudyn 보고서에 예산 정보가 표시됩니다. 따라서 예산을 만들 때까지는 보고서에 예산 정보가 표시되지 않습니다. 자세한 내용은 [예산 관리 설정](#budget-management-settings)을 참조하세요.
 
 ## <a name="reports-and-reporting-features"></a>보고서 및 보고 기능
 
@@ -448,7 +448,7 @@ AWS 예약 인스턴스를 구매한 경우 이 보고서에는 RI로 실행되�
 
 그래프를 클릭하여 드릴다운하고, 시간당 인스턴스 CPU 보고서를 열어 인스턴스의 분석 결과를 볼 수 있습니다.
 
-- **필드 표시/숨기기**를 사용하여 평균 CPU, 최소 CPU, 최대 CPU 등의 필드를 추가하거나 제거합니다.
+- **필드 표시/숨기기**를 사용하여: 타임스탬프, 평균 CPU, 최소 CPU, 최대 CPU 등의 필드를 추가하거나 제거합니다.
 - **날짜 범위**를 입력하여 날짜 또는 날짜 범위를 입력하고 특정 InstanceID로 드릴합니다.
 - **확장 필터**를 사용하여 모든 인스턴스 ID 또는 특정 인스턴스 ID를 표시합니다.
 - **확대**를 클릭하여 CPU 사용률 보고서를 엽니다.

@@ -1,7 +1,7 @@
 ---
-title: Speech Service 체험해 보기
+title: Speech Service 평가판 사용해 보기
 titleSuffix: Azure Cognitive Services
-description: Speech Service를 체험해 보는 방법을 알아봅니다.
+description: Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가판을 통해 서비스 기능을 확인하고 서비스가 응용 프로그램 요구 사항에 적합한지 판단할 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 4e29f2e77ad2b4e993fbe6a39b90325a0738f538
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 69e2c094e1fca57d0dddc662cc1dae6453897c38
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471393"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079112"
 ---
 # <a name="try-the-speech-service-for-free"></a>Speech Service 체험해 보기
 
@@ -36,7 +37,7 @@ Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가�
 1. **Speech API** 탭을 선택합니다.
 
    ![Speech Services 탭](media/index/try-speech-api-free-trial1.png)
-   
+
 1. **Speech Services** 아래에서 **API 키 가져오기** 단추를 선택합니다.
 
    ![API 키](media/index/try-speech-api-free-trial2.png)

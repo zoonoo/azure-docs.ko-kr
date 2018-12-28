@@ -45,7 +45,7 @@ Azure Cloud Services를 사용하면 가상 머신을 만들지 않습니다. �
 Azure Cloud Services 응용 프로그램은 사용자가 사용할 수 있도록 일반적으로 두 단계 프로세스를 통해 만들어집니다. 우선 개발자가 애플리케이션을 플랫폼의 [준비 영역에 업로드합니다](cloud-services-how-to-create-deploy-portal.md). 개발자가 애플리케이션을 사용할 준비가 되면 Azure Portal을 사용하여 준비를 프로덕션으로 바꿉니다. [준비와 프로덕션 간의 이러한](cloud-services-how-to-manage-portal.md#swap-deployments-to-promote-a-staged-deployment-to-production) 전환은 가동 중지 시간 없이 수행될 수 있어서 사용자를 방해하지 않고도 실행 중인 응용 프로그램을 새 버전으로 업그레이드할 수 있습니다.
 
 ## <a name="monitoring"></a>모니터링
-Azure Cloud Services는 모니터링도 제공합니다. Virtual Machines처럼 오류가 발생한 물리적 서버를 검색하여 해당 서버에서 실행 중이었던 VM을 새 컴퓨터에서 다시 시작합니다. 하지만 Azure Cloud Services는 하드웨어 오류뿐만 아니라 오류가 발생한 VM과 응용 프로그램도 검색합니다. Virtual Machines와 달리 클라우드 서비스에는 각 웹 역할 및 작업자 역할 내에 에이전트가 있어서 오류가 발생할 때 새 VM 및 응용 프로그램 인스턴스를 시작할 수 있습니다.
+Azure Cloud Services는 모니터링도 제공합니다. Virtual Machines처럼 오류가 발생한 물리적 서버를 검색하여 해당 서버에서 실행 중이었던 VM을 새 컴퓨터에서 다시 시작합니다. 하지만 Azure Cloud Services는 하드웨어 오류뿐만 아니라 오류가 발생한 VM과 응용 프로그램도 검색합니다. Virtual Machines와 달리 클라우드 서비스에는 각 웹 역할 및 작업자 역할 내에 에이전트가 있어서 오류가 발생할 때 새 VM 및 애플리케이션 인스턴스를 시작할 수 있습니다.
 
 Azure Cloud Services의 PaaS 특성에는 다른 것도 있습니다. 가장 중요한 것 중 하나는 웹 역할 또는 작업자 역할 인스턴스에 오류가 발생할 때 이 기술로 빌드된 애플리케이션이 제대로 실행되도록 작성되어야 한다는 점입니다. 이렇게 하려면 Azure Cloud Services 응용 프로그램이 자체 VM의 파일 시스템 상태를 관리해서는 안 됩니다. Virtual Machines를 사용하여 만든 VM의 경우와 달리 Azure Cloud Services VM에 대해 실행된 쓰기는 영구적이지 않습니다. Virtual Machines 데이터 디스크와 같은 것도 없습니다. 대신 Azure Cloud Services 응용 프로그램은 Azure SQL Database, Blob, 테이블 또는 일부 기타 외부 저장소에 모든 상태를 명확하게 작성해야 합니다. 이 방법으로 응용 프로그램을 빌드하면 더 쉽게 확장하고 오류를 방어할 수 있습니다. 이 두 가지는 모두 Azure Cloud Services의 중요한 목표입니다.
 

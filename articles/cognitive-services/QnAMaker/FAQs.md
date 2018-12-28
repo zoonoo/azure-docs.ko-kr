@@ -1,7 +1,7 @@
 ---
 title: FAQ - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker 서비스에 대한 FAQ(질문과 대답) 목록입니다.
+description: QnA Maker 서비스와 관련된 자주 묻는 질문의 큐레이팅된 목록은 더 나은 결과로 서비스를 더 빠르게 제공하는 데 도움이 됩니다.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,14 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 28153e71ba6f2336398517454a81cfce39b93956
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: 529c130f5694856f99f5d49e5b2f3628a4c3818f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496333"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074998"
 ---
-# <a name="frequently-asked-questions"></a>질문과 대답
+# <a name="frequently-asked-questions-for-qna-maker"></a>QnA Maker에 대한 질문과 대답
+
+QnA Maker 서비스와 관련된 자주 묻는 질문의 큐레이팅된 목록은 더 나은 결과로 서비스를 더 빠르게 제공하는 데 도움이 됩니다.
 
 ## <a name="manage-the-knowledge-base"></a>기술 자료 관리
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Search의 분석기 | Microsoft Docs
+title: 언어 및 텍스트 처리용 분석기 - Azure Search
 description: 인덱스의 검색 가능한 텍스트 필드에 분석기를 할당하여 사용자 지정, 미리 정의 또는 언어 특정 대안으로 기본 표준 Lucene을 바꿉니다.
 services: search
 ms.service: search
@@ -8,14 +8,15 @@ ms.date: 09/11/2017
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.openlocfilehash: 68ce4fa5536f21d6d66245a9383a4b58c42febff
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: seodec2018
+ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116373"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310541"
 ---
-# <a name="analyzers-in-azure-search"></a>Azure Search의 분석기
+# <a name="analyzers-for-text-processing-in-azure-search"></a>Azure Search의 텍스트 처리용 분석기
 
 *분석기*는 쿼리 문자열과 인덱싱된 문서의 텍스트를 처리하는 [전체 텍스트 검색](search-lucene-query-architecture.md) 구성 요소입니다. 다음 변환은 분석 중에 일반적으로 발생합니다.
 
@@ -82,7 +83,7 @@ Azure Search는 추가적인 `indexAnalyzer` 및 `searchAnalyzer` 필드 매개 
 다음 예제에서는 몇 가지 주요 시나리오에 대한 분석기 정의를 보여줍니다.
 
 <a name="Example1"></a>
-### <a name="example-1-custom-options"></a>예제1: 사용자 지정 옵션
+### <a name="example-1-custom-options"></a>예제 1: 사용자 지정 옵션
 
 이 예제에서는 사용자 지정 옵션을 사용하는 분석기 정을 보여줍니다. char 필터, 토크나이저 및 토큰 필터에 대한 사용자 지정 옵션은 명명된 구문으로 개별 지정되고 분석기 정의에서 참조됩니다. 미리 정의된 요소도 그대로 사용되며 이름별로 참조하기만 하면 됩니다.
 
@@ -149,7 +150,7 @@ Azure Search는 추가적인 `indexAnalyzer` 및 `searchAnalyzer` 필드 매개 
 ~~~~
 
 <a name="Example2"></a>
-### <a name="example-2-override-the-default-analyzer"></a>예제2: 기본 분석기 재정의
+### <a name="example-2-override-the-default-analyzer"></a>예 2: 기본 분석기 재정의
 
 표준 분석기는 기본값입니다. 패턴 분석기와 같은 다른 미리 정의된 분석기로 기본값을 바꾸려 한다고 가정합니다. 사용자 지정 옵션을 설정하지 않은 경우 필드 정의에서 이름으로 지정하기만 하면 됩니다.
 
@@ -181,7 +182,7 @@ Azure Search는 추가적인 `indexAnalyzer` 및 `searchAnalyzer` 필드 매개 
 ~~~~
 
 <a name="Example3"></a>
-### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>예제3: 인덱싱 및 검색 작업에 대한 여러 분석기
+### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>예 3: 인덱싱 및 검색 작업에 대한 여러 분석기
 
 API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 추가 인덱스 특성을 포함합니다. `searchAnalyzer` 및 `indexAnalyzer` 특성은 한 쌍으로 지정되어야 하며 단일 `analyzer` 특성을 바꿉니다.
 
@@ -208,7 +209,7 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 ~~~~
 
 <a name="Example4"></a>
-### <a name="example-4-language-analyzer"></a>예제4: 언어 분석기
+### <a name="example-4-language-analyzer"></a>예 4: 언어 분석기
 
 다른 언어의 문자열을 포함하는 필드는 언어 분석기를 사용할 수 있지만 다른 필드는 기본값을 그대로 둡니다(또는 다른 미리 정의되거나 사용자 지정된 분석기 사용). 언어 분석기를 사용하는 경우 인덱싱 및 검색 작업에 사용해야 합니다. 언어 분석기를 사용하는 필드는 인덱싱 및 검색에 다른 분석기를 가질 수 없습니다.
 

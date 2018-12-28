@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f7d13c946ce9d74d23ceef63c31e3858591ae42e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b297be16110e24342b224f7f89c2a3c0c44229a9
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637708"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341409"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>지속성 함수의 진단(Azure Functions)
 
@@ -38,18 +38,20 @@ Azure Functions에서 진단 및 모니터링을 수행하려면 [Application In
 * **functionType**: **Orchestrator** 또는 **Activity**와 같은 함수 유형입니다.
 * **instanceId**: 오케스트레이션 인스턴스의 고유 ID입니다.
 * **state**: 인스턴스의 수명 주기 실행 상태입니다. 유효한 값은 다음과 같습니다.
-    * **예약됨**: 함수 실행이 예약되었지만 아직 실행되지 않았습니다.
-    * **시작됨**: 함수 실행이 시작되었지만 아직 대기하거나 완료되지 않았습니다.
-    * **대기**: 오케스트레이터에서 작업을 예약했고 완료되기를 기다리고 있습니다.
-    * **수신 대기 중**: 오케스트레이터에서 외부 이벤트 알림을 수신 대기 중입니다.
-    * **완료됨**: 함수가 성공적으로 완료되었습니다.
-    * **실패**: 함수가 오류로 인해 실패했습니다.
-* **reason**: 추적 이벤트와 관련된 추가 데이터입니다. 예를 들어 인스턴스에서 외부 이벤트 알림을 기다리고 있는 경우 이 필드는 대기 중인 이벤트의 이름을 나타냅니다. 함수가 실패하면 이 필드에 오류 세부 정보가 포함됩니다.
+  * **예약됨**: 함수 실행이 예약되었지만 아직 실행되지 않았습니다.
+  * **시작됨**: 함수 실행이 시작되었지만 아직 대기하거나 완료되지 않았습니다.
+  * **대기**: 오케스트레이터에서 작업을 예약했고 완료되기를 기다리고 있습니다.
+  * **수신 대기 중**: 오케스트레이터에서 외부 이벤트 알림을 수신 대기 중입니다.
+  * **완료됨**: 함수가 성공적으로 완료되었습니다.
+  * **실패**: 함수가 오류로 인해 실패했습니다.
+* **이유**: 추적 이벤트와 관련된 추가 데이터입니다. 예를 들어 인스턴스에서 외부 이벤트 알림을 기다리고 있는 경우 이 필드는 대기 중인 이벤트의 이름을 나타냅니다. 함수가 실패하면 이 필드에 오류 세부 정보가 포함됩니다.
 * **isReplay**: 재생된 실행에 대한 추적 이벤트인지를 나타내는 부울 값입니다.
-* **extensionVersion**: 지속성 작업 확장의 버전입니다. 이는 확장에서 가능한 버그를 보고할 때 특히 중요한 데이터입니다. 장기 실행 인스턴스는 실행되는 동안 업데이트가 발생하는 경우 여러 버전을 보고할 수 있습니다. 
-* **sequenceNumber**: 이벤트에 대한 실행 시퀀스 번호. 타임스탬프와 결합하면 이벤트를 실행 시간 기준으로 정렬하는 데 도움이 됩니다. *인스턴스가 실행 중인 동안 호스트가 다시 시작되면 이 번호가 0으로 다시 설정되므로, 항상 가장 먼저 타임스탬프를 기준으로 정렬한 후 sequenceNumber를 기준으로 정렬해야 합니다.*
+* **extensionVersion**: 지속성 작업 확장의 버전입니다. 이는 확장에서 가능한 버그를 보고할 때 특히 중요한 데이터입니다. 장기 실행 인스턴스는 실행되는 동안 업데이트가 발생하는 경우 여러 버전을 보고할 수 있습니다.
+* **sequenceNumber**: 이벤트에 대한 실행 시퀀스 번호입니다. 타임스탬프와 결합하면 이벤트를 실행 시간 기준으로 정렬하는 데 도움이 됩니다. *인스턴스가 실행 중인 동안 호스트가 다시 시작되면 이 번호가 0으로 다시 설정되므로, 항상 가장 먼저 타임스탬프를 기준으로 정렬한 후 sequenceNumber를 기준으로 정렬해야 합니다.*
 
-Application Insights로 내보낸 추적 데이터에 대한 자세한 정보는 `host.json` 파일의 `logger` 섹션에서 구성할 수 있습니다.
+Application Insights로 내보낸 추적 데이터에 대한 자세한 정보는 `host.json` 파일의 `logger`(Functions 1.x) 또는 `logging`(Functions 2.x) 섹션에서 구성할 수 있습니다.
+
+#### <a name="functions-1x"></a>Functions 1.x
 
 ```json
 {
@@ -63,9 +65,23 @@ Application Insights로 내보낸 추적 데이터에 대한 자세한 정보는
 }
 ```
 
+#### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+    "logging": {
+        "logLevel": {
+          "Host.Triggers.DurableTask": "Information",
+        },
+    }
+}
+```
+
 기본적으로 모든 재생되지 않는 추적 이벤트를 내보냅니다. 예외 상황에서만 추적 이벤트를 내보내는 경우 `Host.Triggers.DurableTask`를 `"Warning"` 또는 `"Error"`로 설정하여 데이터의 양을 줄일 수 있습니다.
 
 자세한 오케스트레이션 재생 이벤트를 내보내도록 설정하려면 다음에 표시된 대로 `durableTask` 아래의 `host.json` 파일에서 `LogReplayEvents`를 `true`로 설정할 수 있습니다.
+
+#### <a name="functions-1x"></a>Functions 1.x
 
 ```json
 {
@@ -75,12 +91,24 @@ Application Insights로 내보낸 추적 데이터에 대한 자세한 정보는
 }
 ```
 
+#### <a name="functions-2x"></a>Functions 2.x
+
+```javascript
+{
+    "extensions": {
+        "durableTask": {
+            "logReplayEvents": true
+        }
+    }
+}
+```
+
 > [!NOTE]
 > 기본적으로 데이터를 너무 자주 내보내지 않도록 방지하기 위해 Azure Functions 런타임에서 Application Insights 원격 분석을 샘플링합니다. 이로 인해 짧은 기간 동안 많은 수명 주기 이벤트가 발생하면 추적 정보가 손실될 수 있습니다. [Azure Functions 모니터링 문서](../functions-monitoring.md#configure-sampling)에서는 이 동작을 구성하는 방법에 대해 설명합니다.
 
 ### <a name="single-instance-query"></a>단일 인스턴스 쿼리
 
-다음 쿼리에서는 [Hello 시퀀스](durable-functions-sequence.md) 함수 오케스트레이션의 단일 인스턴스에 대한 추적 기록 데이터를 보여 줍니다. [AIQL(Application Insights Query Language)](https://aka.ms/LogAnalyticsLanguageReference)을 사용하여 작성되었습니다. *논리* 실행 경로만 표시되도록 재생 실행을 필터링합니다. 아래 쿼리처럼 `timestamp` 및 `sequenceNumber`를 기준으로 이벤트를 정렬할 수 있습니다. 
+다음 쿼리에서는 [Hello 시퀀스](durable-functions-sequence.md) 함수 오케스트레이션의 단일 인스턴스에 대한 추적 기록 데이터를 보여 줍니다. [AIQL(Application Insights Query Language)](https://aka.ms/LogAnalyticsLanguageReference)을 사용하여 작성되었습니다. *논리* 실행 경로만 표시되도록 재생 실행을 필터링합니다. 아래 쿼리처럼 `timestamp` 및 `sequenceNumber`를 기준으로 이벤트를 정렬할 수 있습니다.
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
@@ -92,7 +120,7 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
-| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"])
 | where isReplay != true
 | where instanceId == targetInstanceId
 | sort by timestamp asc, sequenceNumber asc
@@ -102,7 +130,6 @@ traces
 그 결과는 실행 시간 오름차순으로 정렬된 작업 함수를 포함하여 오케스트레이션의 실행 경로를 보여주는 추적 이벤트 목록입니다.
 
 ![Application Insights 쿼리](./media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
-
 
 ### <a name="instance-summary-query"></a>인스턴스 요약 쿼리
 
@@ -123,6 +150,7 @@ traces
 | project timestamp, instanceId, functionName, state, output, appName = cloud_RoleName
 | order by timestamp asc
 ```
+
 결과는 인스턴스 ID 및 현재 런타임 상태의 목록입니다.
 
 ![Application Insights 쿼리](./media/durable-functions-diagnostics/app-insights-single-summary-query.png)
@@ -131,24 +159,24 @@ traces
 
 오케스트레이터 함수에서 로그를 직접 작성할 때 오케스트레이터 재생 동작을 고려하는 것이 중요합니다. 예를 들어 다음 오케스트레이터 함수를 살펴보세요.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(
-    DurableOrchestrationContext ctx,
+    DurableOrchestrationContext context,
     ILogger log)
 {
     log.LogInformation("Calling F1.");
-    await ctx.CallActivityAsync("F1");
+    await context.CallActivityAsync("F1");
     log.LogInformation("Calling F2.");
-    await ctx.CallActivityAsync("F2");
+    await context.CallActivityAsync("F2");
     log.LogInformation("Calling F3");
-    await ctx.CallActivityAsync("F3");
+    await context.CallActivityAsync("F3");
     log.LogInformation("Done!");
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -188,20 +216,20 @@ Done!
 
 ```cs
 public static async Task Run(
-    DurableOrchestrationContext ctx,
+    DurableOrchestrationContext context,
     ILogger log)
 {
-    if (!ctx.IsReplaying) log.LogInformation("Calling F1.");
-    await ctx.CallActivityAsync("F1");
-    if (!ctx.IsReplaying) log.LogInformation("Calling F2.");
-    await ctx.CallActivityAsync("F2");
-    if (!ctx.IsReplaying) log.LogInformation("Calling F3");
-    await ctx.CallActivityAsync("F3");
+    if (!context.IsReplaying) log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    if (!context.IsReplaying) log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    if (!context.IsReplaying) log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
     log.LogInformation("Done!");
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+#### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -230,21 +258,36 @@ Done!
 
 사용자 지정 오케스트레이션 상태를 사용하면 오케스트레이터 함수의 사용자 지정 상태 값을 설정할 수 있습니다. 이 상태는 HTTP 상태 쿼리 API 또는 `DurableOrchestrationClient.GetStatusAsync` API를 통해 제공됩니다. 사용자 지정 오케스트레이션 상태를 통해 오케스트레이터 함수를 보다 자세히 모니터링할 수 있습니다. 예를 들어, 오케스트레이터 함수 코드는 장기 실행 작업에 대한 진행 상태를 업데이트하기 위한 `DurableOrchestrationContext.SetCustomStatus` 호출을 포함할 수 있습니다. 따라서 웹 페이지 또는 다른 외부 시스템과 같은 클라이언트가 HTTP 상태 쿼리 API를 주기적으로 쿼리하여 보다 다양한 진행률 정보를 얻을 수 있습니다. `DurableOrchestrationContext.SetCustomStatus` 사용 샘플은 아래에 제공됩니다.
 
+### <a name="c"></a>C#
+
 ```csharp
-public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
+public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext context)
 {
     // ...do work...
 
     // update the status of the orchestration with some arbitrary data
     var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
-    ctx.SetCustomStatus(customStatus);
+    context.SetCustomStatus(customStatus);
 
     // ...do more work...
 }
 ```
 
-> [!NOTE]
-> JavaScript에 대한 사용자 지정 오케스트레이션 상태는 향후 릴리스에서 사용할 수 있습니다.
+### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    const customStatus = { completionPercentage: 90.0, status: "Updating database records", };
+    context.df.setCustomStatus(customStatus);
+
+    // ...do more work...
+});
+```
 
 오케스트레이션이 실행되는 동안 외부 클라이언트가 이 사용자 지정 상태를 가져올 수 있습니다.
 
@@ -253,7 +296,7 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 
 ```
 
-클라이언트는 다음과 같은 응답을 받습니다. 
+클라이언트는 다음과 같은 응답을 받습니다.
 
 ```http
 {
@@ -267,7 +310,7 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 ```
 
 > [!WARNING]
->  사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 더 큰 페이로드가 필요한 경우 외부 저장소를 사용하면 됩니다.
+> 사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 더 큰 페이로드가 필요한 경우 외부 저장소를 사용하면 됩니다.
 
 ## <a name="debugging"></a>디버그
 

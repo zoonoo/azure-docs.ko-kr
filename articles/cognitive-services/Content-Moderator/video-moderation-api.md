@@ -34,7 +34,7 @@ Content Moderator의 비디오 조정 기능은 AMS(Azure Media Services)에서 
 
 [Azure Media Services 계정 만들기](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account)의 지침에 따라 AMS를 구독하고 연결된 Azure Storage 계정을 만듭니다. 해당 스토리지 계정에서 새 Blob 스토리지 컨테이너를 만듭니다.
 
-### <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 응용 프로그램 만들기
+### <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 애플리케이션 만들기
 
 Azure Portal에서 새 AMS 구독으로 이동한 후 측면 메뉴에서 **API 액세스**를 선택합니다. **서비스 주체를 사용하여 Azure Media Services에 연결**을 선택합니다. 나중에 필요하므로 **REST API 엔드포인트** 필드의 값을 기록합니다.
 

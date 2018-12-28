@@ -25,7 +25,7 @@ ms.locfileid: "53314876"
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Environment에 대한 웹 응용 프로그램 방화벽(WAF) 구성
 ## <a name="overview"></a>개요
 
-WAF(웹 응용 프로그램 방화벽)를 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 응용 프로그램 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 응용 프로그램을 보호할 수 있습니다. DLP(데이터 손실 방지)를 위해 백 엔드 웹 서버로부터의 응답도 검사합니다. App Service Environment는 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 응용 프로그램에 이상적인 환경을 제공합니다. Azure에서는 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 WAF 기능을 제공합니다.  Application Gateway와 App Service 환경을 통합하는 방법을 보려면 [Application Gateway와 ILB ASE 통합](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway) 문서를 참고하세요.
+WAF(웹 응용 프로그램 방화벽)를 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 응용 프로그램 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 응용 프로그램을 보호할 수 있습니다. DLP(데이터 손실 방지)를 위해 백 엔드 웹 서버로부터의 응답도 검사합니다. App Service Environment는 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 애플리케이션에 이상적인 환경을 제공합니다. Azure에서는 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 WAF 기능을 제공합니다.  Application Gateway와 App Service 환경을 통합하는 방법을 보려면 [Application Gateway와 ILB ASE 통합](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway) 문서를 참고하세요.
 
 Azure Application Gateway 외에도 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/)에서 사용할 수 있는 [Azure용 Barracuda WAF](https://www.barracuda.com/programs/azure)와 같은 여러 마켓플레이스 옵션이 있습니다. 이 문서의 나머지 부분에서는 Barracuda WAF 디바이스와 App Service 환경을 통합하는 방법에 중점을 둡니다.
 
@@ -84,11 +84,11 @@ Barracuda에는 Azure의 가상 머신에 WAF를 배포하는 방법에 대한 [
 > 
 
 ## <a name="configuring-microsoft-azure-traffic-manager-optional"></a>Microsoft Azure Traffic Manager를 구성합니다. (선택 사항)
-응용 프로그램이 여러 지역에서 사용할 수 있는 경우, [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)를 사용하여 부하 분산하고자 합니다. 이 작업을 수행하려면 다음 이미지와 같이 Traffic Manager 프로필의 WAF 클라우드 서비스 이름을 이용하여 [Azure Portal](https://portal.azure.com)에서 엔드포인트를 추가합니다. 
+애플리케이션이 여러 지역에서 사용할 수 있는 경우, [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)를 사용하여 부하 분산하고자 합니다. 이 작업을 수행하려면 다음 이미지와 같이 Traffic Manager 프로필의 WAF 클라우드 서비스 이름을 이용하여 [Azure Portal](https://portal.azure.com)에서 엔드포인트를 추가합니다. 
 
 ![Traffic Manager 엔드포인트][TrafficManagerEndpoint]
 
-응용 프로그램에 대해 인증이 필요한 경우, 응용 프로그램의 가용성에 대해 ping하는 Traffic Manager에 대한 어떤 자격 증명도 필요하지 않는 리소스가 남아 있는지 확인합니다. 다음 이미지와 같이 [Azure Portal](https://portal.azure.com)의 **구성** 페이지에서 URL을 구성할 수 있습니다.
+애플리케이션에 대해 인증이 필요한 경우, 애플리케이션의 가용성에 대해 ping하는 Traffic Manager에 대한 어떤 자격 증명도 필요하지 않는 리소스가 남아 있는지 확인합니다. 다음 이미지와 같이 [Azure Portal](https://portal.azure.com)의 **구성** 페이지에서 URL을 구성할 수 있습니다.
 
 ![Traffic Manager를 구성하는 방법][ConfigureTrafficManager]
 

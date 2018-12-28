@@ -1,5 +1,5 @@
 ---
-title: 팀 데이터 과학 프로세스 수명 주기의 모델링 단계 - Azure | Microsoft Docs
+title: Team Data Science Process 수명 주기의 모델링 단계
 description: 데이터 과학 프로젝트의 모델링 단계에 대한 목표, 작업 및 결과물입니다.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b486083e4dc76f6d9ebc5e24e7d52b5ef3b99f3a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: dac686878ff128e3d556c0dbd7e9a2d51ac1756d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442416"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139957"
 ---
-# <a name="modeling"></a>모델링
+# <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 모델링 단계
 
 이 문서에서는 TDSP(팀 데이터 과학 프로세스)의 모델링 단계와 관련된 목표, 작업 및 결과물을 설명합니다. 이 프로세스는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다. 수명 주기는 일반적으로 프로젝트에서 반복적으로 자주 실행하는 주요 단계를 설명합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "52442416"
    * 대체 방법 간의 성공 메트릭을 비교하여 질문에 대답하는 **"최상"의 솔루션을 결정**합니다.
 
 > [!NOTE]
-> **유출 방지**: 모델 또는 Machine Learning 알고리즘을 통해 비현실적으로 좋은 예측을 만들기 위해 학습 데이터 집합 외부의 데이터를 포함하면 데이터 유출이 발생할 수 있습니다. 유출은 데이터 과학자들이 진실하기에는 너무 좋아 보이는 예측 결과를 가져올 때 불안해 하는 일반적 이유입니다. 이러한 종속성은 감지하기 어려울 수 있습니다. 유출을 방지하려면 종종 분석 데이터 집합을 빌드하고 모델을 만들어 결과의 정확성을 평가하는 과정을 반복해야 합니다. 
+> **유출 방지**: 모델 또는 기계 학습 알고리즘을 통해 비현실적으로 좋은 예측을 만들기 위해 학습 데이터 세트 외부의 데이터를 포함하면 데이터 유출이 발생할 수 있습니다. 유출은 데이터 과학자들이 진실하기에는 너무 좋아 보이는 예측 결과를 가져올 때 불안해 하는 일반적 이유입니다. 이러한 종속성은 감지하기 어려울 수 있습니다. 유출을 방지하려면 종종 분석 데이터 집합을 빌드하고 모델을 만들어 결과의 정확성을 평가하는 과정을 반복해야 합니다. 
 > 
 > 
 

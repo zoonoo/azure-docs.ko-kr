@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs 처리량 단위 자동 확장 | Microsoft Docs
+title: 처리량 단위 자동 확장 - Azure Event Hubs | Microsoft Docs
 description: 처리량 단위를 자동으로 확장하려면 네임스페이스에서 자동 확장을 사용합니다.
 services: event-hubs
 documentationcenter: na
@@ -10,19 +10,19 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987004"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408165"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Azure Event Hubs 처리량 단위 자동 확장
-
 Azure Event Hubs는 확장성이 뛰어난 데이터 스트리밍 플랫폼입니다. 따라서 서비스를 사용하기 시작한 후에 Event Hubs 사용량이 증가합니다. 그러려면 Event Hubs의 크기를 조정하고 더 빠른 전송 속도를 처리할 수 있도록 미리 지정된 [처리량 단위](event-hubs-features.md#throughput-units)를 늘려야 합니다. Event Hubs의 **자동 확장** 기능은 필요한 사용량에 맞게 처리량 단위 수를 증가하여 자동으로 확장합니다. 처리량 단위를 늘리면 다음과 같은 상황에서 제한 시나리오를 예방할 수 있습니다.
 
 * 데이터 수신 속도가 설정된 처리량 단위를 초과하는 경우.
@@ -47,15 +47,25 @@ Event Hubs 트래픽은 [처리량 단위](event-hubs-features.md#throughput-uni
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>포털을 통해 자동 확장 사용
 
-Event Hubs 네임스페이스를 만들 때 자동 확장 기능을 사용하도록 설정할 수 있습니다.
+
+#### <a name="enable-at-the-time-of-creation"></a>생성 시 사용 
+**Event Hubs 네임스페이스를 만들 때** 자동 확장 기능을 사용하도록 설정할 수 있습니다.
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+![이벤트 허브 생성 시 자동 확장 사용](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 이 옵션을 사용하도록 설정하면 작은 처리량 단위부터 시작하여 필요한 사용량 증가에 따라 확장할 수 있습니다. 확장 상한은 가격 책정에 즉시 영향을 미치지 않으며 가격 책정은 시간당 사용된 처리량 단위 수에 따라 다릅니다.
 
-포털의 설정 창에서 **크기 조정** 옵션을 사용하여 자동 확장을 사용하도록 설정할 수도 있습니다.
+#### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>기존 이벤트 허브에 대해 자동 확장 사용
+또한 자동 확장 기능을 사용하도록 설정하고 다음 지침에 따라 해당 설정을 수정할 수 있습니다. 
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+1. **Event Hubs 네임스페이스** 페이지의 **처리량 단위 자동 확장**에서 **사용 안 함**을 선택합니다.  
+
+    ![Event Hubs 네임스페이스 페이지에서 처리량 단위 선택](./media/event-hubs-auto-inflate/select-throughput-units.png)
+2. **크기 조정 설정** 페이지에서 **사용** 확인란을 선택합니다(자동 크기 조정 기능을 사용하도록 설정하지 않은 경우).
+
+    ![사용 선택](./media/event-hubs-auto-inflate/scale-settings.png)
+3. **최대** 처리량 단위 수를 입력하거나 스크롤 막대를 사용하여 값을 설정합니다. 
+4. (선택 사항) 이 페이지 맨 위에서 **최소** 처리량 단위 수를 업데이트합니다. 
 
 
 > [!NOTE]

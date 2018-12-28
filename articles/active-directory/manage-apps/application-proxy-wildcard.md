@@ -15,12 +15,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 638ae4c779af3bebb68622ccee6932618d42e4f0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 8c876f220cde99bbeb3b5d9f8f8878acb5584802
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056945"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140050"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 응용 프로그램 프록시의 와일드카드 응용 프로그램 
 
@@ -49,7 +49,7 @@ Azure AD(Azure Active Directory)에서 다수의 온-프레미스 응용 프로�
 
 다른 구성 설정을 가진 추가 응용 프로그램이 있는 경우, 이러한 예외를 별도의 응용 프로그램으로 게시하여 와일드카드에 설정된 기본값을 덮어써야 합니다. 와일드카드가 없는 응용 프로그램이 와일드카드 응용 프로그램보다 항상 우선합니다. 구성 측면에서는 “단순히” 일반적인 응용 프로그램입니다.
 
-와일드카드 응용 프로그램 생성은 다른 모든 응용 프로그램에 사용할 수 있는 것과 동일한 [응용 프로그램 게시 흐름](application-proxy-publish-azure-portal.md)을 기반으로 합니다. 유일한 차이점은 URL에 와일드카드를 포함하고 잠재적으로 SSO 구성이라는 것뿐입니다.
+와일드카드 응용 프로그램 생성은 다른 모든 응용 프로그램에 사용할 수 있는 것과 동일한 [응용 프로그램 게시 흐름](application-proxy-add-on-premises-application.md)을 기반으로 합니다. 유일한 차이점은 URL에 와일드카드를 포함하고 잠재적으로 SSO 구성이라는 것뿐입니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -122,7 +122,7 @@ DNS 관리를 통해 와일드카드를 특정 응용 프로그램에 대해서�
 
 
 
-## <a name="scenario-1-general-wildcard-application"></a>시나리오 1: 일반 와일드카드 응용 프로그램
+## <a name="scenario-1-general-wildcard-application"></a>시나리오 1: 일반 와일드카드 애플리케이션
 
 이 시나리오에서는 세 가지 응용 프로그램을 게시하려고 합니다.
 
@@ -137,7 +137,7 @@ DNS 관리를 통해 와일드카드를 특정 응용 프로그램에 대해서�
 - 동일한 속성이 있음
 
 
-[Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)에 요약된 단계를 사용하여 와일드카드 응용 프로그램을 게시할 수 있습니다. 이 시나리오에서는 다음과 같이 가정합니다.
+[Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-add-on-premises-application.md)에 요약된 단계를 사용하여 와일드카드 응용 프로그램을 게시할 수 있습니다. 이 시나리오에서는 다음과 같이 가정합니다.
 
 - ID가 `000aa000-11b1-2ccc-d333-4444eee4444e`인 테넌트가 있습니다. 
 
@@ -145,7 +145,7 @@ DNS 관리를 통해 와일드카드를 특정 응용 프로그램에 대해서�
 
 - `*.adventure-works.com`이 `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`을 가리키도록 설정하는 **CNAME** 항목이 만들어져 있습니다.
 
-[문서화된 단계](application-proxy-publish-azure-portal.md)에 따라 테넌트에 새 응용 프로그램 프록시 응용 프로그램을 만듭니다. 이 예제에서 와일드카드는 다음 필드에 있습니다.
+[문서화된 단계](application-proxy-add-on-premises-application.md)에 따라 테넌트에 새 응용 프로그램 프록시 응용 프로그램을 만듭니다. 이 예제에서 와일드카드는 다음 필드에 있습니다.
 
 - 내부 URL:
 
@@ -176,7 +176,7 @@ DNS 관리를 통해 와일드카드를 특정 응용 프로그램에 대해서�
 
 
 
-## <a name="scenario-2-general-wildcard-application-with-exception"></a>시나리오 2: 예외가 있는 일반 와일드카드 응용 프로그램
+## <a name="scenario-2-general-wildcard-application-with-exception"></a>시나리오 2: 예외가 있는 일반 와일드카드 애플리케이션
 
 이 시나리오에서는 세 가지 일반 응용 프로그램 외에도 재무 부서에서만 액세스할 수 있는 다른 응용 프로그램 `finance.adventure-works.com`이 있습니다. 현재 응용 프로그램 구조에서는 와일드카드 응용 프로그램을 통해 모든 직원이 재무 응용 프로그램에 액세스할 수 있습니다. 이를 변경하려면 더 제한적인 권한을 가진 별도의 응용 프로그램으로 재무를 구성하여 와일드카드에서 응용 프로그램을 제외합니다.
 
@@ -184,7 +184,7 @@ DNS 관리를 통해 와일드카드를 특정 응용 프로그램에 대해서�
 
 `finance.adventure-works.com`이 응용 프로그램의 응용 프로그램 프록시 페이지에 지정된 응용 프로그램 특정 엔드포인트를 가리키도록 지정하는 CNAME 레코드가 있는지 확인해야 합니다. 이 시나리오에서 `finance.adventure-works.com`은 `https://finance-awcycles.msappproxy.net/`를 가리킵니다. 
 
-[문서화된 단계](application-proxy-publish-azure-portal.md)에 따라 이 시나리오에는 다음 설정이 필요합니다.
+[문서화된 단계](application-proxy-add-on-premises-application.md)에 따라 이 시나리오에는 다음 설정이 필요합니다.
 
 
 - **내부 URL**에 와일드카드 대신 **재무**를 설정합니다. 
@@ -215,6 +215,6 @@ DNS 관리를 통해 와일드카드를 특정 응용 프로그램에 대해서�
 
 - **사용자 지정 도메인**에 대한 자세한 내용은 [Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)을 참조하세요.
 
-- **응용 프로그램 게시**에 대한 자세한 내용은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)를 참조하세요.
+- **응용 프로그램 게시**에 대한 자세한 내용은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-add-on-premises-application.md)를 참조하세요.
 
 

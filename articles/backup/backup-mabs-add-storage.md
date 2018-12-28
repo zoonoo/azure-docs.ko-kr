@@ -2,22 +2,22 @@
 title: Azure Backup Server에서 Modern Backup Storage 사용
 description: Azure Backup Server의 새로운 기능에 대해 알아봅니다. 이 문서에서는 Backup Server 설치를 업그레이드하는 방법을 설명합니다.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: markgal; adigan; kasinh
-ms.openlocfilehash: da9b3d22dce3f92ff6d1a588d283d47f22fca736
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: adigan
+ms.openlocfilehash: cc76b15c3cb108b5181e22330954dfee789b01ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612970"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251116"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Azure Backup Server에 저장소 추가
 
-Azure Backup Server V2 이상에는 System Center 2016 Data Protection Manager Modern Backup Storage가 함께 제공됩니다. Modern Backup Storage를 사용하면 저장소를 50% 절약할 수 있고, 백업이 3배 더 빨라지고, 저장소를 더 효율적으로 사용할 수 있습니다. 저장소에서 워크로드를 인식할 수도 있습니다.
+Azure Backup Server V2 이상은 스토리지를 50% 절약할 수 있고, 백업이 3배 더 빨라지고, 스토리지를 더 효율적으로 사용할 수 있는 Modern Backup Storage를 지원합니다. 저장소에서 워크로드를 인식할 수도 있습니다.
 
 > [!NOTE]
 > Modern Backup Storage를 사용하려면 Windows Server 2016에서 Backup Server V2 또는 V3을, Windows Server 2019에서 V3을 실행해야 합니다.
@@ -75,7 +75,7 @@ Backup Server에 볼륨을 추가하려면 **관리** 창에서 저장소를 다
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Data Protection Manager 서버의 저장소 풀에서 볼륨 속성을 업데이트하는 PowerShell cmdlet Update-DPMDiskStorage를 사용하여 워크로드 인식 저장소를 설정할 수 있습니다.
+Azure Backup Server의 스토리지 풀에서 볼륨 속성을 업데이트하는 PowerShell cmdlet Update-DPMDiskStorage를 사용하여 워크로드 인식 스토리지를 설정할 수 있습니다. 
 
 구문
 

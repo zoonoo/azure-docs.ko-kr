@@ -49,7 +49,7 @@ Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요�
 - 초당 수백 개에서 수백만 개의 요청으로 확장할 수 있는 [테이블당 전용 처리량](request-units.md) 지원
 - 응용 프로그램 요구 사항에 따라 가용성, 대기 시간 및 일관성을 조정할 수 있는 [튜닝 가능한 5가지 일관성 수준](consistency-levels.md) 지원
 - 단일 지역 내 99.99% 가용성, 더 높은 가용성을 위해 더 많은 지역을 추가할 수 있는 기능 및 일반 가용성에 대한 [업계 최고의 포괄적 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- 기존 Azure 저장소 .NET SDK 사용 및 응용 프로그램에 대한 코드 변경 없음
+- 기존 Azure 저장소 .NET SDK 사용 및 애플리케이션에 대한 코드 변경 없음
 
 이 자습서에서는 .NET SDK를 사용하는 Azure Cosmos DB 테이블 API에 대해 설명합니다. NuGet에서 [Azure Cosmos DB 테이블 API .NET SDK](https://aka.ms/tableapinuget)를 다운로드할 수 있습니다.
 

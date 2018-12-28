@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: 078f6bcd7aa48f2a63118e6dfb625d9b2c69fbb3
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248026"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879391"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 플랫폼 지원
 
@@ -20,18 +20,17 @@ ms.locfileid: "48248026"
 
 Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, Azure IoT C SDK를 사용하여 확장할 수 있습니다. 일부는 팀에서 공식적으로 지원하며, 사용자에게 필요한 지원 수준을 나타내는 계층으로 그룹화됩니다. *완벽하게 지원되는 플랫폼*은 Microsoft에서 다음을 보장한다는 것을 의미합니다.
 
-    * 마스터 및 LTS 지원 버전에 대한 종단 간 테스트를 지속적으로 빌드하고 실행합니다.
+    * 마스터 및 LTS 지원 버전에 대한 종단 간 테스트를 지속적으로 빌드하고 실행합니다.  다양한 버전 간에 테스트 범위를 제공하기 위해 일반적으로 최신 LTS 버전과 가장 인기 있는 버전을 테스트합니다.  동일한 플랫폼의 다른 버전은 플랫폼 버전 호환성을 통해 지원될 수 있습니다.
     * 해당되는 경우 설치 지침 또는 패키지를 제공합니다.
     * GitHub에서 플랫폼을 완전히 지원합니다.
 
-또한 파트너 목록을 통해 C SDK를 더 많은 플랫폼에 이식했으며 PAL(플랫폼 추상화 계층)을 유지 관리하고 있습니다. [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsolutions.com/)에는 다양한 SDK가 테스트된 OS 플랫폼 목록도 있습니다. 또한 SDK는 제한된 테스트 및 지원을 통해 다음 플랫폼에서 정기적으로 구축됩니다.
+또한 파트너 목록을 통해 C SDK를 더 많은 플랫폼에 이식했으며 PAL(플랫폼 추상화 계층)을 유지 관리하고 있습니다. [IoT용 Azure Certified 디바이스 카탈로그](https://catalog.azureiotsolutions.com/)에는 다양한 SDK가 테스트된 OS 플랫폼 목록도 있습니다. 또한 SDK는 제한된 테스트 및 지원을 통해 다음 플랫폼에서 정기적으로 구축됩니다.
 
 * MBED2
 * Arduino
 * Windows CE 2013(2018년 10월 사용 중단)
 * .NET Standard 1.3(.NET Core 2.1 및 .NET Framework 4.7 포함)
 * Xamarin iOS, Android, UWP
-* Android(Java 포함)
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
 
@@ -83,6 +82,7 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
+| Android API 28 | X64  | Java 8       |
 
 ## <a name="partner-supported-platforms"></a>파트너 지원 플랫폼
 
@@ -97,5 +97,5 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [장치 및 서비스 SDK](iot-hub-devguide-sdks.md)
+* [디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)
 * [이식 지침](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)

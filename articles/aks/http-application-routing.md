@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2018
 ms.locfileid: "49384984"
 ---
-# <a name="http-application-routing"></a>HTTP 응용 프로그램 라우팅
+# <a name="http-application-routing"></a>HTTP 애플리케이션 라우팅
 
 HTTP 애플리케이션 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 애플리케이션에 쉽게 액세스할 수 있습니다. 솔루션이 사용하도록 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램이 배포되면 솔루션에서 응용 프로그램 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
 
@@ -176,7 +176,7 @@ az aks disable-addons --addons http_application_routing --name myAKSCluster --re
 
 ## <a name="troubleshoot"></a>문제 해결
 
-외부 DNS 응용 프로그램의 응용 프로그램 로그를 보려면 [kubectl logs][kubectl-logs] 명령을 사용합니다. 로그에서 A 및 TXT DNS 레코드가 성공적으로 만들어졌음을 확인합니다.
+외부 DNS 애플리케이션의 애플리케이션 로그를 보려면 [kubectl logs][kubectl-logs] 명령을 사용합니다. 로그에서 A 및 TXT DNS 레코드가 성공적으로 만들어졌음을 확인합니다.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system

@@ -39,8 +39,8 @@ Azure Application Insights는 애플리케이션에서 원격 분석을 수집�
     - Azure 개발
 - [Visual Studio 스냅숏 디버거](https://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
 - [Visual Studio 스냅숏 디버거](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 사용
-- Azure에 .NET 응용 프로그램을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
-- 자습서는 응용 프로그램에서 예외의 ID를 추적하여 개발 또는 테스트 환경에서 코드를 수정하여 예외를 생성합니다. 
+- Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
+- 자습서는 애플리케이션에서 예외의 ID를 추적하여 개발 또는 테스트 환경에서 코드를 수정하여 예외를 생성합니다. 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
@@ -75,7 +75,7 @@ Application Insights는 애플리케이션에서 모든 오류를 수집하고 �
     ![예외 세부 정보](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>실패 코드 식별
-스냅숏 디버거는 응용 프로그램에서 가장 빈번한 예외의 스냅숏을 수집하여 프로덕션에서 해당 근본 원인을 진단하는 데 도움을 줍니다.  포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 그 후 스냅숏을 다운로드하여 Visual Studio 2017 Enterprise에서 열고 소스 코드를 디버그할 수 있습니다.
+스냅숏 디버거는 애플리케이션에서 가장 빈번한 예외의 스냅숏을 수집하여 프로덕션에서 해당 근본 원인을 진단하는 데 도움을 줍니다.  포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 그 후 스냅숏을 다운로드하여 Visual Studio 2017 Enterprise에서 열고 소스 코드를 디버그할 수 있습니다.
 
 1. 예외 속성에서 **디버그 스냅숏 열기**를 클릭합니다.
 2. **디버그 스냅숏** 패널이 요청에 대한 호출 스택과 함께 열립니다.  메서드를 클릭하여 요청 시 모든 지역 변수의 값을 봅니다.  이 예제에서는 맨 위 메서드에서부터 시작하여 값이 없는 지역 변수를 볼 수 있습니다.

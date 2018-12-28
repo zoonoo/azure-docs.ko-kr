@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 222558a6596c676034e52812d3b2dd0c77e1466b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3c4bd08d2ba3aa4aeceb38a0ae498786f681d800
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046904"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960688"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory에 대한 데이터 이동 보안 고려 사항](../data-movement-security-considerations.md)을 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory에 대한 데이터 이동 보안 고려 사항](../data-movement-security-considerations.md)을 참조하세요.
 
 ## <a name="introduction"></a>소개
 이 문서에서는 Azure Data Factory의 데이터 이동 서비스가 데이터를 보호하는 데 사용하는 기본 보안 인프라에 대해 설명합니다. Azure Data Factory 관리 리소스는 Azure 보안 인프라를 기반으로 하며 Azure가 제공하는 모든 가능한 보안 수단을 사용합니다.
@@ -130,7 +130,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 | ------ | ----------- | --------------------- | ------------- | 
 | 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 게이트웨이는 Vnet의 온-프레미스 또는 Azure 가상 머신(VM)에 설치할 수 있습니다. | 
 | 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(개인 피어링) | 게이트웨이는 VNet의 Azure VM 또는 온-프레미스 환경에 설치할 수 있습니다. | 
-| 온-프레미스 | 공개 끝점이 있는 Azure 기반 서비스 | ExpressRoute(공용 피어링) | 게이트웨이를 온-프레미스에 설치해야 합니다. | 
+| 온-프레미스 | 공개 엔드포인트가 있는 Azure 기반 서비스 | ExpressRoute(공용 피어링) | 게이트웨이를 온-프레미스에 설치해야 합니다. | 
 
 다음 이미지는 ExpressRoute 및 IPSec VPN(Virtual Network 사용)을 사용하여 온-프레미스 데이터베이스와 Azure 서비스간에 데이터를 이동시키기 위한 데이터 관리 게이트웨이의 사용법을 보여 줍니다.
 
@@ -166,7 +166,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 | ------------- | ----------- | 
 | 8050(TCP) | 게이트웨이의 온-프레미스 데이터 저장소에 대한 신임을 안전하게 설정하기 위해 신임 관리자 응용 프로그램에서 필요합니다. | 
 
-![게이트웨이 포트 요구 사항](media\data-factory-data-movement-security-considerations/gateway-port-requirements.png) 
+![게이트웨이 포트 요구 사항](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
 #### <a name="ip-configurations-whitelisting-in-data-store"></a>데이터 저장소의 IP 구성/화이트리스트
 클라우드의 일부 데이터 저장소는 액세스하는 시스템의 IP 주소를 허용 목록에 포함해야 합니다. 게이트웨이 시스템의 IP 주소가 방화벽에서 허용 목록에 올바르게 구성되어 있는지 확인합니다.
@@ -182,13 +182,13 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 **질문:** 게이트웨이를 다른 데이터 팩터리에서 공유할 수 있습니까?
-**대답:** 이 기능은 아직 지원하지 않습니다. 적극적으로 노력하고 있습니다.
+**대답:** 이 기능을 지원하지 않습니다. 적극적으로 노력하고 있습니다.
 
 **질문:** 게이트웨이가 작동하는 데 필요한 포트 요구 사항은 무엇입니까?
 **대답:** 게이트웨이는 인터넷을 열 수 있는 HTTP 기반 연결을 만듭니다. 이 연결을 만들기 위해 게이트웨이에서 **443 및 80 아웃바운드 포트**를 열어야 합니다. Credential Manager 응용 프로그램의 경우(회사 방화벽 수준이 아닌) 시스템 수준에서만 **8050 인바운드 포트**를 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본/대상으로 사용되는 경우 **1433** 포트도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of gateway) 섹션을 참조하세요. 
 
 **질문:** 게이트웨이의 인증서 요구 사항은 무엇입니까?
-**대답:** 현재 게이트웨이에는 데이터 저장소 자격 증명을 안전하게 설정하기 위해 자격 증명 관리자 응용 프로그램에서 사용하는 인증서가 필요합니다. 이 인증서는 게이트웨이 설정에 의해 생성되고 구성된 자체 서명된 인증서입니다. 대신 자신의 TLS/SSL 인증서를 사용할 수 있습니다. 자세한 정보는 [클릭 한번 자격 증명 관리자 응용 프로그램](#click-once-credentials-manager-app) 섹션을 참조하세요. 
+**대답:** 현재 게이트웨이에는 데이터 저장소 자격 증명을 안전하게 설정하기 위해 자격 증명 관리자 애플리케이션에서 사용하는 인증서가 필요합니다. 이 인증서는 게이트웨이 설정에 의해 생성되고 구성된 자체 서명된 인증서입니다. 대신 자신의 TLS/SSL 인증서를 사용할 수 있습니다. 자세한 정보는 [클릭 한번 자격 증명 관리자 응용 프로그램](#click-once-credentials-manager-app) 섹션을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 복사 활동의 성능에 대한 자세한 내용은 [복사 활동 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.

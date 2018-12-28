@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에서 사용자 암호를 다시 설정하는 방법 | Microsoft Docs
-description: Azure Active Directory를 사용하여 사용자의 암호를 다시 설정하는 방법을 알아봅니다.
+title: 사용자의 암호 다시 설정 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory를 사용하여 사용자의 암호를 다시 설정하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,19 +12,22 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 3803808ab589c3d880111421f650141f0d829f0b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c8dd387104d52075425d881363dbcbaac700461a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736096"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103373"
 ---
-# <a name="how-to-reset-a-users-password-using-azure-active-directory"></a>방법: Azure Active Directory를 사용하여 사용자의 암호 다시 설정
-암호를 잊어버린 경우, 사용자가 디바이스로부터 잠긴 경우 또는 사용자가 암호를 받지 못한 경우 사용자의 암호를 다시 설정할 수 있습니다.
+# <a name="reset-a-users-password-using-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자의 암호 다시 설정
+암호를 잊어버린 경우, 사용자가 디바이스로부터 잠긴 경우 또는 사용자가 암호를 받지 못한 경우에는 관리자가 사용자의 암호를 다시 설정할 수 있습니다.
 
 >[!Note]
 >Azure AD 테넌트가 사용자의 홈 디렉터리가 아니면 해당 암호를 다시 설정할 수 없습니다. 즉, 사용자가 다른 조직의 계정, Microsoft 계정 또는 Google 계정을 사용하여 조직에 로그인하는 경우 해당 암호를 다시 설정할 수 없습니다.<br><br>사용자에게 Windows Server Active Directory인 인증 원본이 있는 경우 비밀번호 쓰기 저장을 설정할 때에만 암호를 다시 설정할 수 있습니다.<br><br>사용자에게 외부 Azure AD인 인증 원본이 있는 경우 암호를 다시 설정할 수 없습니다. 사용자 또는 외부 Azure AD의 관리자만 암호를 다시 설정할 수 있습니다.
+
+>[!Note]
+>관리자가 아니라서 자신의 회사 또는 학교 암호를 다시 설정하는 방법에 대한 지침을 찾는 경우에는 [회사 또는 학교 암호 다시 설정](../user-help/active-directory-passwords-update-your-own-password.md)을 참조하세요.
 
 ## <a name="to-reset-a-password"></a>암호를 다시 설정하려면
 

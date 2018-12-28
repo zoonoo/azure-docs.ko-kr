@@ -26,7 +26,7 @@ ms.locfileid: "50913934"
 
 ## <a name="what-is-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On이란?
 
-Azure AD Seamless SSO(Azure Active Directory Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 디바이스에 있을 때 사용자를 자동으로 서명합니다. 이 기능을 사용하도록 설정되면 사용자가 Azure AD에 로그인하는 데 암호를 입력할 필요가 없고, 일반적으로 사용자 이름으로도 입력할 수 있습니다. 추가 온-프레미스 구성 요소가 없어도 사용자가 클라우드 기반 응용 프로그램에 쉽게 액세스할 수 있습니다.
+Azure AD Seamless SSO(Azure Active Directory Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 디바이스에 있을 때 사용자를 자동으로 서명합니다. 이 기능을 사용하도록 설정되면 사용자가 Azure AD에 로그인하는 데 암호를 입력할 필요가 없고, 일반적으로 사용자 이름으로도 입력할 수 있습니다. 추가 온-프레미스 구성 요소가 없어도 사용자가 클라우드 기반 애플리케이션에 쉽게 액세스할 수 있습니다.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
@@ -40,7 +40,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 ## <a name="key-benefits"></a>주요 이점
 
 - *멋진 사용자 환경*
-  - 사용자는 온-프레미스 및 클라우드 기반 응용 프로그램에 자동으로 로그인됩니다.
+  - 사용자는 온-프레미스 및 클라우드 기반 애플리케이션에 자동으로 로그인됩니다.
   - 사용자는 자신의 암호를 반복적으로 입력할 필요가 없습니다.
 - *손쉬운 배포 및 관리*
   - 이 작업을 수행하기 위해 온-프레미스에 필요한 추가 구성 요소가 없습니다.

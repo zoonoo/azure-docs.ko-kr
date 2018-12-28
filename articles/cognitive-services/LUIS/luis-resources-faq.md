@@ -1,21 +1,22 @@
 ---
-title: FAQ - 질문과 대답 - LUIS(Language Understanding)
+title: 질문과 대답(FAQ)
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 LUIS(Language Understanding)에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 9e5b132a7946bdc648e051c9f7327cc7159f291e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284373"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163636"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding FAQ
 
@@ -196,9 +197,9 @@ LUIS 템플릿을 선택하고 템플릿 창에서 **선택** 단추를 선택�
 
 ## <a name="luis-service"></a>LUIS 서비스
 
-### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>온-프레미스 또는 사설 클라우드에서 LUIS를 사용할 수 있나요?
- 아니요.
+### <a name="is-language-understanding-luis-available-on-premises-or-in-private-cloud"></a>온-프레미스 또는 사설 클라우드에서 LUIS(Language Understanding)를 사용할 수 있나요?
 
+예, 사용량을 산정하는 데 필요한 연결이 있는 경우 이러한 시나리오에 LUIS [컨테이너](luis-container-howto.md)를 사용할 수 있습니다. 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Build 2018 Conference에서 Language Understanding 기능이나 데모에 대해 들어보았으나 어떻게 지칭하는지 기억이 나지 않습니다.
 
@@ -214,13 +215,13 @@ Build 2018 Conference에서는 다음 기능이 발표되었습니다.
 추가적인 작성 [API 경로](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md)가 포함되었습니다.
 
 비디오:
-* [Build 2018의 Azure Friday: Cognitive Services - 언어(LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Azure Friday(빌드 2018): Cognitive Services - 언어(LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Build 2018 AI Show - Language Understanding Service의 새로운 기능](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
 * [Build 2018 Session - 봇 인텔리전스, 음성 기능 및 NLU 모범 사례](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [Build 2018 - LUIS 업데이트](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 프로젝트:
-* [Contoso Cafe 봇](https://github.com/botbuilderbuild2018/build2018demo) 데모 - Github의 소스 코드
+* [Contoso Cafe 봇](https://github.com/botbuilderbuild2018/build2018demo) 데모 - GitHub의 소스 코드
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에 조직으로 등록하는 방법 | Microsoft Docs
-description: Azure 및 Azure Active Directory를 사용하기 위해 조직을 등록하는 방법을 알아봅니다.
+title: Azure Active Directory를 사용하기 위해 조직 등록 | Microsoft Docs
+description: Azure 및 Azure Active Directory를 사용하기 위해 조직을 등록하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: ccff64b88787291832b9d2ed84eb81919152d887
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 53536604ed2f371d1ae7e63b286b17501b260c8c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364774"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100721"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-as-an-organization"></a>방법: Azure Active Directory에 조직으로 등록
+# <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Azure Active Directory를 사용하기 위해 조직 등록
 다음 중 하나를 사용하여 Azure AD(Azure Active Directory)에 새로운 Microsoft Azure 구독을 등록합니다.
 
 - **Microsoft 계정** 개인, Microsoft 계정을 사용하여 Azure 및 Outlook(Hotmail), Messenger, OneDrive, MSN, Xbox LIVE 또는 Office 365와 같은 모든 소비자 지향 Microsoft 제품 및 클라우드 서비스에 액세스할 수 있습니다. Outlook.com 사서함에 등록하면 Microsoft 계정이 자동으로 만들어집니다. 자세한 내용은 [Microsoft 계정 개요](https://account.microsoft.com/account)를 참조하세요.

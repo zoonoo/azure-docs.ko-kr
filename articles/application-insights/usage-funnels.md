@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights Funnels
-description: Funnels를 사용하여 고객이 응용 프로그램과 상호 작용하는 방법을 검색하는 방법을 알아봅니다.
+description: Funnels를 사용하여 고객이 애플리케이션과 상호 작용하는 방법을 검색하는 방법을 알아봅니다.
 services: application-insights
 documentationcenter: ''
 author: NumberByColors

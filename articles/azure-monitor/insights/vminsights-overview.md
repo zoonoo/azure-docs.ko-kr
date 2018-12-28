@@ -8,53 +8,59 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/07/2018
 ms.author: magoedte
-ms.openlocfilehash: d37ca7d46f1231a8e1b0b258c10089fe6ba81fba
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 69aa2cbcaa6861b1d5c5c71769be2fb8046d9ea5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714478"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188514"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)란?
 
-VM용 Azure Monitor는 Windows 및 Linux VM의 성능과 상태를 분석하여 대규모 Azure VM(Virtual Machines) 및 Azure Virtual Machine Scale Sets를 모니터링하며, 여기에는 VM의 여러 프로세스, 그리고 다른 리소스 및 외부 프로세스에 대한 상호 연결된 종속성이 포함됩니다. 이 솔루션에는 온-프레미스 또는 다른 클라우드 공급자에 호스트되는 VM의 성능 및 응용 프로그램 종속성 모니터링에 대한 지원이 포함됩니다. 심층 인사이트를 제공하는 세 가지 핵심 기능이 포함되어 있습니다.
+VM용 Azure Monitor는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 이 서비스는 Windows 및 Linux VM의 성능과 상태를 분석하고, 해당 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. 
 
-* 평가 조건이 충족되면 미리 구성된 상태 조건 집합과 경고에 따라 Windows 및 Linux 운영 체제를 실행하는 Azure VM의 논리적 구성 요소를 측정합니다.  
-* 게스트 VM 운영 체제의 프로세서, 메모리, 디스크 및 네트워크 어댑터에서 핵심 성능 메트릭을 수집하여 미리 정의된 추세 성능 차트에 표시합니다.
-* 종속성 맵은 여러 리소스 그룹 및 구독에서 해당 VM과 상호 연결된 것으로 발견된 구성 요소를 표시합니다.  
+VM용 Azure Monitor 솔루션에는 온-프레미스 또는 다른 클라우드 공급자에 호스트되는 VM의 성능 및 애플리케이션 종속성 모니터링에 대한 지원이 포함됩니다. 다음 세 가지 주요 기능이 심층적인 인사이트를 제공합니다.
 
-이러한 기능은 다음과 같은 세 가지 관점으로 구성됩니다.
+* **Windows 및 Linux를 실행하는 Azure VM의 논리적 구성 요소**: 미리 구성된 상태 기준에 따라 측정되고 평가 조건이 충족되면 경고합니다.  
+
+* **미리 정의된 추세 성능 차트**: 게스트 VM 운영 체제의 핵심 성능 메트릭을 표시합니다.
+
+* **종속성 맵**: 다양한 리소스 그룹 및 구독에서 VM과 상호 연결된 구성 요소를 표시합니다.  
+
+이러한 기능은 다음과 같은 세 가지 큐브 뷰로 구성됩니다.
 
 * 상태
 * 성능
 * Map
 
 >[!NOTE]
->현재 상태 기능은 Azure Virtual Machines 및 Virtual Machine Scale Sets에만 제공됩니다. 성능 및 맵은 사용자 환경 또는 다른 클라우드 공급자에 호스트된 Azure VM 및 가상 머신을 모두 지원합니다.
->
+>현재 상태 기능은 Azure Virtual Machines 및 가상 머신 확장 집합에만 제공됩니다. 성능 및 맵 기능은 사용자 환경 또는 다른 클라우드 공급자에 호스트된 Azure VM 및 가상 머신을 모두 지원합니다.
 
-Log Analytics와 통합하면 강력한 집계, 필터링 및 시간에 따른 데이터 추세 분석을 수행하는 기능이 제공됩니다. Azure Monitor, 서비스 맵 또는 Log Analytics 단독으로는 워크로드를 포괄적으로 모니터링할 수 없습니다.  
+Log Analytics와 통합하면 강력한 집계, 필터링을 제공하고, 시간에 따른 데이터 추세를 분석할 수 있습니다. Azure Monitor, 서비스 맵 또는 Log Analytics 단독으로는 워크로드를 포괄적으로 모니터링할 수 없습니다.  
 
-가상 머신에서 직접 단일 VM의 컨텍스트에서 이 데이터를 볼 수도 있고, 각 기능에 대한 다음 큐브 뷰에 따라 VM의 집계 보기를 제공하는 Azure Monitor를 사용할 수도 있습니다.
+단일 VM의 이러한 데이터를 가상 머신에서 직접 볼 수 있으며, Azure Monitor를 사용하여 VM의 집계 뷰를 제공할 수 있습니다. 이 뷰는 각 기능의 다음 큐브 뷰를 기준으로 합니다.
 
-* 상태 - 리소스 그룹과 관련된 VM
-* 맵 및 성능 - 특정 Log Analytics 작업 영역에 보고하도록 구성된 VM
+* **상태**: VM이 리소스 그룹과 관련되어 있습니다.
+* **맵** 및 **성능**: VM이 특정 Log Analytics 작업 영역에 보고하도록 구성됩니다.
 
-![포털의 가상 머신 인사이트 큐브 뷰](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
+![Azure Portal의 가상 머신 인사이트 큐브 뷰](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 
-DevOps는 중요한 운영 체제 이벤트, 성능 병목 상태 및 네트워크 문제를 식별하고 문제가 다른 종속성과 관련되어 있는지 확인하여 중요한 응용 프로그램의 예측 가능한 성능 및 가용성을 효과적으로 제공할 수 있습니다.  
+Azure DevOps는 중요한 애플리케이션의 예측 가능한 성능 및 가용성을 제공할 수 있습니다. 중요한 운영 체제 이벤트, 성능 병목 상태 및 네트워크 문제를 식별합니다. 또한 Azure DevOps는 문제가 다른 종속성과 관련이 있는지 여부를 이해하는 데도 도움이 됩니다.  
 
 ## <a name="data-usage"></a>데이터 사용량 
 
-VM용 Azure Monitor를 등록하는 즉시, VM에서 수집한 데이터가 Azure Monitor에 수집 및 저장됩니다. VM용 Azure Monitor는 Azure Monitor [가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 게시된 가격 책정에 따라 수집 및 보존되는 데이터, 모니터링되는 상태 조건 메트릭 시계열의 수, 생성된 경고 규칙, 전송된 알림에 대한 요금이 청구됩니다.
+VM용 Azure Monitor를 배포하면 VM에서 수집한 데이터가 Azure Monitor에 수집 및 저장됩니다. [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 게시된 가격 책정에 따라, Azure Monitor용 VM에 다음에 대한 요금이 청구됩니다.
+* 수집 및 저장된 데이터
+* 모니터링되는 상태 조건 메트릭 시계열의 수
+* 만들어진 경고 규칙
+* 전송되는 알림 
 
 로그 크기는 카운터의 문자열 길이에 따라 달라지며, 논리 디스크 및 네트워크 어댑터 수를 늘릴 수 있습니다. 이미 작업 영역이 있고 이러한 카운터를 수집 중인 경우 요금이 중복 적용되지 않습니다. 이미 서비스 맵을 사용 중인 경우 Azure Monitor로 전송되는 추가 연결 데이터만 변경됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[VM용 Azure Monitor 등록](vminsights-onboard.md)을 검토하여 가상 머신의 모니터링을 사용하기 위한 요구 사항과 방법을 알아보세요.
+가상 머신을 모니터링하는 데 도움이 되는 요구 사항과 메서드를 이해하려면 [VM용 Azure Monitor 배포](vminsights-onboard.md)를 검토하세요.

@@ -1,23 +1,23 @@
 ---
 title: Azure에서 Cloudyn 예산 관리 | Microsoft Docs
-description: 이 문서는 Cloudyn에서 예산을 만들고 관리하는 데 유용합니다.
+description: 이 문서는 신속하게 예산을 만들고 Cloudyn에서 관리를 시작하는 데 유용합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 9/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 92236547e2100ab57f4ec6b4953f6c61ec87892d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 44062670283a15f678da45e13a831e73a7738c39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275507"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075491"
 ---
-# <a name="manage-budgets"></a>예산 관리
+# <a name="manage-azure-budgets-with-cloudyn"></a>Cloudyn을 사용하여 Azure 예산 관리
 
 예산 및 예산 기반 경고를 설정하면 클라우드 거버넌스 및 책임을 개선하는 데 도움이 됩니다. 이 문서는 신속하게 예산을 만들고 Cloudyn에서 관리를 시작하는 데 유용합니다.
 
@@ -40,7 +40,7 @@ Azure Cost Management는 Cloudyn과 비슷한 기능을 제공합니다. Azure C
 3. 예산 연도에서 예산을 만들려는 연도를 선택합니다.
 4. 각 월에 대해 예산 값을 설정합니다. 완료되면 **저장**을 클릭합니다.
 이 예제에서는 2018년 6월에 대한 월별 예산을 $135,000로 설정했습니다. 총 한 해 예산은 $1,615,000.00입니다.
-![예산 만들기](./media/manage-budgets/set-budget.png)
+![각 월에 대해 예산을 설정하는 예산 페이지 만들기](./media/manage-budgets/set-budget.png)
 
 
 연간 예산에 대한 파일을 가져오려면 다음을 수행합니다.
@@ -64,11 +64,11 @@ Azure Cost Management는 Cloudyn과 비슷한 기능을 제공합니다. Azure C
 
 보고서를 보는 다른 방법은 누적된 비용 대 예산을 살펴보는 것입니다. 누적된 비용을 확인하려면 **필드 표시/숨기기**에서 **누적 비용** 및 **총 예산**을 선택합니다. 해당 연도가 시작된 이후 누적된 비용을 보여 주는 예제는 다음과 같습니다.
 
-![누적된 예산](./media/manage-budgets/accumulated-budget.png)
+![예제 누적된 비용 및 총 예산을 보여 주는 시간에 따른 비용 대 예산 보고서](./media/manage-budgets/accumulated-budget.png)
 
 나중에 누적된 비용이 예산을 초과할 수도 있습니다. 차트 뷰를 _꺾은선형_ 유형으로 변경하면 더 쉽게 확인할 수 있습니다.
 
-![꺾은선형 차트에 표시된 예산](./media/manage-budgets/budget-line.png)
+![월별 비용 보고서에 꺾은선형 차트로 표시된 예산](./media/manage-budgets/budget-line.png)
 
 ## <a name="create-budget-alerts-for-a-filter"></a>필터를 위한 예산 경고 만들기
 
@@ -81,7 +81,7 @@ Azure Cost Management는 Cloudyn과 비슷한 기능을 제공합니다. Azure C
 
 시간에 따른 비용 대 예산 보고서에서 **작업**을 클릭한 다음, **보고서 예약**을 선택합니다. 임계값 탭에서 임계값 메트릭을 선택합니다. 예를 들어 **비용 백분율 대 예산**을 선택합니다. 경고 유형을 선택하고 예산의 백분율 값을 입력합니다. 한 번만 알림을 수신하도록 하려면 **연속 경고 수**를 선택한 다음, _1_을 입력합니다. **저장**을 클릭합니다.
 
-![예산 경고](./media/manage-budgets/budget-alert.png)
+![이 보고서 저장 또는 예약 상자에 예산 경고 만들기](./media/manage-budgets/budget-alert.png)
 
 ## <a name="next-steps"></a>다음 단계
 

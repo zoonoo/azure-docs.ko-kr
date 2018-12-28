@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric 응용 프로그램 수준 모니터링 | Microsoft Docs
-description: Azure Service Fabric 클러스터를 모니터링 및 진단하는 데 사용되는 응용 프로그램 및 서비스 수준 이벤트와 로그에 대해 알아봅니다.
+title: Azure Service Fabric 애플리케이션 수준 모니터링 | Microsoft Docs
+description: Azure Service Fabric 클러스터를 모니터링 및 진단하는 데 사용되는 애플리케이션 및 서비스 수준 이벤트와 로그에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -25,7 +25,7 @@ ms.locfileid: "52291269"
 
 코드를 계측하는 것은 사용자에 대한 인사이트를 얻는 방법일 뿐만 아니라 애플리케이션에 문제가 있는지 여부도 알 수 있고 수정해야 할 항목을 진단할 수 있는 방법입니다. 기술적으로 디버거를 프로덕션 서비스에 연결할 수도 있지만 일반적인 방법은 아닙니다. 따라서 자세한 계측 데이터를 갖는 것이 중요합니다.
 
-일부 제품은 자동으로 코드를 계측합니다. 이러한 솔루션이 제대로 작동할 수 있지만, 수동 계측은 거의 항상 비즈니스 논리에 맞게 수행되어야 합니다. 결국 응용 프로그램을 과학 수사 방식으로 디버그하는 데 필요한 정보가 충분히 있어야 합니다. Service Fabric 애플리케이션은 모든 로깅 프레임워크를 통해 계측할 수 있습니다. 이 문서에서는 코드를 계측하는 몇 가지 다른 방법과 다른 방법 중 하나를 선택하는 경우에 대해 설명합니다. 
+일부 제품은 자동으로 코드를 계측합니다. 이러한 솔루션이 제대로 작동할 수 있지만, 수동 계측은 거의 항상 비즈니스 논리에 맞게 수행되어야 합니다. 결국 애플리케이션을 과학 수사 방식으로 디버그하는 데 필요한 정보가 충분히 있어야 합니다. Service Fabric 애플리케이션은 모든 로깅 프레임워크를 통해 계측할 수 있습니다. 이 문서에서는 코드를 계측하는 몇 가지 다른 방법과 다른 방법 중 하나를 선택하는 경우에 대해 설명합니다. 
 
 이러한 제안을 사용하는 방법에 대한 예제는 [Service Fabric 애플리케이션에 로깅 추가](service-fabric-how-to-diagnostics-log.md)를 참조하세요.
 
@@ -35,7 +35,7 @@ Application Insights에는 즉시 사용이 가능한 Service Fabric과의 통�
 
 ## <a name="eventsource"></a>EventSource
 
-Visual Studio의 템플릿에서 Service Fabric 솔루션을 만들면 **EventSource** 파생 클래스(**ServiceEventSource** 또는 **ActorEventSource**)가 생성됩니다. 응용 프로그램 또는 서비스에 대한 이벤트를 추가할 수 있는 템플릿을 만듭니다. **EventSource** 이름은 **고유해야** 하며 MyCompany-&lt;solution&gt;-&lt;project&gt; 기본 템플릿 문자열에서 이름을 변경해야 합니다. 동일한 이름을 사용하는 **EventSource** 정의가 여러 개 있으면 런타임에서 문제가 발생합니다. 정의된 각 이벤트에는 고유 식별자가 있어야 합니다. 식별자가 고유하지 않으면 런타임 오류가 발생합니다. 일부 조직에서는 별도의 개발 팀 간에 충돌을 피하기 위해 식별자에 대한 값의 범위가 미리 할당됩니다. 자세한 내용은 [Vance의 블로그](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) 또는 [MSDN 설명서](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx)를 참조하세요.
+Visual Studio의 템플릿에서 Service Fabric 솔루션을 만들면 **EventSource** 파생 클래스(**ServiceEventSource** 또는 **ActorEventSource**)가 생성됩니다. 애플리케이션 또는 서비스에 대한 이벤트를 추가할 수 있는 템플릿을 만듭니다. **EventSource** 이름은 **고유해야** 하며 MyCompany-&lt;solution&gt;-&lt;project&gt; 기본 템플릿 문자열에서 이름을 변경해야 합니다. 동일한 이름을 사용하는 **EventSource** 정의가 여러 개 있으면 런타임에서 문제가 발생합니다. 정의된 각 이벤트에는 고유 식별자가 있어야 합니다. 식별자가 고유하지 않으면 런타임 오류가 발생합니다. 일부 조직에서는 별도의 개발 팀 간에 충돌을 피하기 위해 식별자에 대한 값의 범위가 미리 할당됩니다. 자세한 내용은 [Vance의 블로그](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) 또는 [MSDN 설명서](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx)를 참조하세요.
 
 ## <a name="aspnet-core-logging"></a>ASP.NET Core 로깅
 
@@ -43,4 +43,4 @@ Visual Studio의 템플릿에서 Service Fabric 솔루션을 만들면 **EventSo
 
 ## <a name="next-steps"></a>다음 단계
 
-응용 프로그램 및 서비스를 계측할 로깅 공급자를 선택한 후에는 분석 플랫폼으로 보낼 수 있도록 로그 및 이벤트를 집계해야 합니다. 몇 가지 Azure Monitor 추천 옵션에 대해 자세히 알아보려면 [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) 및 [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)를 참조하세요.
+애플리케이션 및 서비스를 계측할 로깅 공급자를 선택한 후에는 분석 플랫폼으로 보낼 수 있도록 로그 및 이벤트를 집계해야 합니다. 몇 가지 Azure Monitor 추천 옵션에 대해 자세히 알아보려면 [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) 및 [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)를 참조하세요.

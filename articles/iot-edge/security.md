@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge의 보안 | Microsoft Docs
-description: IoT Edge 디바이스의 보안, 인증 및 권한 부여
+title: 보안 프레임워크 - Azure IoT Edge | Microsoft Docs
+description: Azure IoT Edge를 개발하는 데 사용되었으며 솔루션을 디자인할 때 고려해야 하는 보안, 인증 및 권한 부여 표준에 대해 알아봅니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,15 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4292dc3abf775d48ee33cc7a48793d080156efb1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 1042f53147122a7370b464f6bfc892dcee70fe70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568940"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100143"
 ---
-# <a name="securing-azure-iot-edge"></a>Securing Azure IoT Edge
+# <a name="security-standards-for-azure-iot-edge"></a>Azure IoT Edge에 대한 보안 표준
 
 지능형 에지 보안은 종단간 IoT 솔루션의 작동에 대한 확신을 제공하기 위해 필요합니다. Azure IoT Edge는 다양한 위험 프로필, 배포 시나리오로 확장될 수 있는 보안을 위해 설계되었으며 모든 Azure 서비스에서 기대하는 것과 동일한 보호 기능을 제공합니다.
 

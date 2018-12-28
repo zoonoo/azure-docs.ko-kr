@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge 인증서 이해 | Microsoft Docs
-description: Azure IoT Edge 인증서 및 사용 방법에 대해 알아봅니다.
+title: 디바이스 보안에 대한 인증서 - Azure IoT Edge | Microsoft Docs
+description: Azure IoT Edge는 인증서를 사용하여 디바이스, 모듈 및 리프 디바이스의 유효성을 검사하고 이들 간의 보안 연결을 설정합니다.
 author: stevebus
 manager: philmea
 ms.author: stevebus
@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ff85f2c9ef708c7cbac9be4933541f063a6c95b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1cf1411e227363e7dc9d54f04d0c630341f55a6e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568593"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099898"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Azure IoT Edge 인증서 사용 현황 세부 정보
 
@@ -51,7 +51,7 @@ IoT Edge의 인증서 사용에 관한 혼란을 없애기 위해 이 문서에�
 
 ### <a name="device-ca-certificate"></a>디바이스 CA 인증서
 
-디바이스 CA 인증서는 프로세스에서 최종 중간 CA 인증서로 생성 및 서명됩니다. 이 인증서는 Edge 디바이스 자체에 설치되며 HSM(하드웨어 보안 모듈)과 같은 보안 저장소에서 더 선호됩니다. 또한 디바이스 CA 인증서는 IoT Edge 디바이스를 고유하게 식별합니다. IoT Edge의 경우 디바이스 CA 인증서가 다른 인증서를 발급할 수 있습니다. 예를 들어 디바이스 CA 인증서는 [Azure IoT Device Provisioning Service](..\iot-dps\about-iot-dps.md)에 대해 디바이스를 인증하는 데 사용되는 리프 디바이스 인증서를 발급합니다.
+디바이스 CA 인증서는 프로세스에서 최종 중간 CA 인증서로 생성 및 서명됩니다. 이 인증서는 Edge 디바이스 자체에 설치되며 HSM(하드웨어 보안 모듈)과 같은 보안 저장소에서 더 선호됩니다. 또한 디바이스 CA 인증서는 IoT Edge 디바이스를 고유하게 식별합니다. IoT Edge의 경우 디바이스 CA 인증서가 다른 인증서를 발급할 수 있습니다. 예를 들어 디바이스 CA 인증서는 [Azure IoT Device Provisioning Service](../iot-dps/about-iot-dps.md)에 대해 디바이스를 인증하는 데 사용되는 리프 디바이스 인증서를 발급합니다.
 
 ### <a name="iot-edge-workload-ca"></a>IoT Edge 워크로드 CA
 

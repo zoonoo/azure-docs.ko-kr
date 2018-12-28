@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: c7626c6edceddcfbd4d95ff6efc4678836a4502c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2f9c4c0b973efe26e6ece2235f2d0c7a6878ebef
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247996"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844994"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
 
@@ -111,8 +111,8 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 6. VSS 스냅숏을 만드는 앱과 충돌하지 않는지 확인합니다. 여러 앱이 VSS 스냅숏을 동시에 만들려고 하면 충돌이 발생할 수 있습니다. 예를 들어, 복제 정책에 따라 Site Recovery가 스냅숏을 만들도록 예약되어 있을 때 Backup 앱이 VSS 스냅숏을 만드는 경우가 여기에 해당합니다.   
 7. VM에서 높은 변동률이 발생하는지 확인합니다.
     - Hyper-V 호스트에서 성능 카운터를 사용하여 게스트 VM에 대한 일일 데이터 변경률을 측정할 수 있습니다. 데이터 변경률을 측정하려면 다음 카운터를 사용하도록 설정합니다. 5-15분 동안 VM 디스크에서 이 값의 샘플을 집계하여 VM 변동을 얻습니다.
-        - 범주: "Hyper-V 가상 저장소 디바이스"
-        - 카운터: "Write Bytes / Sec"</br>
+        - 범주: “Hyper-V 가상 스토리지 디바이스”
+        - 카운터: “쓰기 바이트/초”</br>
         - 이 데이터 변동률은 VM 및 해당 앱의 작업량에 따라 증가하거나 높은 수준을 유지합니다.
         - 평균 원본 디스크 데이터 변동은 Site Recovery용 표준 저장소에 대해 2MB/s입니다. [자세히 알아보기](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - 또한 [저장소 확장성 목표를 확인](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account)할 수 있습니다.
@@ -125,7 +125,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 1. 이벤트 로그에서 VSS 오류 및 권장 사항을 확인합니다.
     - Hyper-V 호스트 서버의 **이벤트 뷰어** > **Applications and Services Logs** > **Microsoft** > **Windows** > **Hyper-V** > **Admin**에서 Hyper-V Admin 이벤트 로그를 엽니다.
     - 앱 일치 스냅숏 실패를 나타내는 이벤트가 있는지 여부를 확인합니다.
-    - 일반적인 오류는 다음과 같습니다. "Hyper-V가 가상 머신 'XYZ'에 대한 VSS 스냅숏 집합을 생성하지 못했습니다. 작성자에게 영구 오류가 발생했습니다. VSS 서비스가 응답하지 않을 때 서비스를 다시 시작하면 문제가 해결될 수 있습니다."
+    - 일반적인 오류는 다음과 같습니다. “Hyper-V가 가상 머신 ‘XYZ’에 대한 VSS 스냅숏 세트를 생성하지 못했습니다. 작성자에게 일시적인 오류가 발생했습니다. VSS 서비스가 응답하지 않을 때 서비스를 다시 시작하면 문제가 해결될 수 있습니다."
 
 2. VM에 대한 VSS 스냅숏을 생성하려면 VM에서 Hyper-V Integration Services가 설치되어 있는지와 Backup(VSS) Integration Services가 사용되도록 설정되어 있는지 확인합니다.
     - Integration Services VSS 서비스/디먼이 게스트에서 실행되고 있는지와 **정상** 상태인지 확인합니다.
@@ -136,7 +136,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 **오류 코드** | **메시지** | **세부 정보**
 --- | --- | ---
-**0x800700EA** | "Hyper-V가 가상 머신에 대한 VSS 스냅숏 집합을 생성하지 못했습니다. 추가 데이터를 사용할 수 있습니다. (0x800700EA). 백업 작업이 진행 중인 경우 VSS 스냅숏 집합 생성이 실패할 수 있습니다.<br/><br/> 가상 머신에 대한 복제 작업이 실패했습니다. 추가 데이터를 사용할 수 있습니다.” | VM의 동적 디스크가 사용되도록 설정되어 있는지 확인합니다. 지원되지 않습니다.
+**0x800700EA** | “Hyper-V가 가상 머신에 대한 VSS 스냅숏 세트를 생성하지 못했습니다. 추가 데이터를 사용할 수 있습니다. (0x800700EA). 백업 작업이 진행 중인 경우 VSS 스냅숏 집합 생성이 실패할 수 있습니다.<br/><br/> 가상 머신에 대한 복제 작업이 실패했습니다. 추가 데이터를 사용할 수 있습니다.” | VM의 동적 디스크가 사용되도록 설정되어 있는지 확인합니다. 지원되지 않습니다.
 **0x80070032** | Hyper-V 볼륨 섀도 복사본 요청자가 해당 버전이 Hyper-V에서 요구하는 버전과 일치하지 않으므로 가상 머신 <./VMname>에 연결하지 못했습니다. | 최신 Windows 업데이트가 설치되어 있는지 확인합니다.<br/><br/> 최신 버전의 Integration Services로 [업그레이드](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date)합니다.
 
 

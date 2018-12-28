@@ -28,7 +28,7 @@ ms.locfileid: "46964124"
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 
-Azure Application Gateway WAF(웹 응용 프로그램 방화벽)는 웹 응용 프로그램을 보호합니다. 이러한 보호 기능은 OWASP(Open Web Application Security Project) CRS(코어 규칙 집합)을 통해 제공됩니다. 일부 규칙은 거짓 긍정의 원인이 되어 실제 트래픽을 차단할 수도 있습니다. 이러한 이유로 Application Gateway는 규칙 그룹 및 규칙을 사용자 지정하는 기능을 제공합니다. 특정 규칙 그룹 및 규칙에 대한 자세한 내용은 [웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙 목록](application-gateway-crs-rulegroups-rules.md)을 참조하세요.
+Azure Application Gateway WAF(웹 애플리케이션 방화벽)는 웹 애플리케이션을 보호합니다. 이러한 보호 기능은 OWASP(Open Web Application Security Project) CRS(코어 규칙 세트)을 통해 제공됩니다. 일부 규칙은 거짓 긍정의 원인이 되어 실제 트래픽을 차단할 수도 있습니다. 이러한 이유로 Application Gateway는 규칙 그룹 및 규칙을 사용자 지정하는 기능을 제공합니다. 특정 규칙 그룹 및 규칙에 대한 자세한 내용은 [웹 애플리케이션 방화벽 CRS 규칙 그룹 및 규칙 목록](application-gateway-crs-rulegroups-rules.md)을 참조하세요.
 
 ## <a name="view-rule-groups-and-rules"></a>규칙 그룹 및 규칙 보기
 
@@ -128,7 +128,7 @@ az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP
 
 ## <a name="disable-rules"></a>규칙 사용 안 함
 
-다음 예제는 응용 프로그램 게이트웨이에서 규칙 `910018` 및 `910017`을 비활성화합니다.
+다음 예제는 애플리케이션 게이트웨이에서 규칙 `910018` 및 `910017`을 비활성화합니다.
 
 ```azurecli-interactive
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017

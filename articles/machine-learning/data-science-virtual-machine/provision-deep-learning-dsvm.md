@@ -1,10 +1,12 @@
 ---
-title: Azure에서 심층 학습 데이터 과학 Virtual Machine 프로비전 | Microsoft Docs
+title: 딥러닝 Data Science Virtual Machine 만들기
+titleSuffix: Azure
 description: 분석 및 기계 학습을 수행하기 위해 Azure에서 심층 학습 데이터 과학 Virtual Machine을 구성하고 만듭니다.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -13,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9d64ad70ea49f7fbffd8bd6a5a77177fe490b832
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6963515958cd55314562e37ffc6ab1d8e0af5bee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229665"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078759"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Azure에서 심층 학습 Virtual Machine 프로비전 
 
@@ -37,11 +39,11 @@ DLVM에는 몇 가지 AI용 도구가 포함되어 있습니다. 즉 인기 있�
    1. **기본 사항**
       
       1. **이름**: 만들려는 데이터 과학 서버 이름
-      2. **심층 학습 VM의 OS 유형 선택**: Windows 또는 Linux를 선택합니다(Windows 2016 및 Ubuntu Linux 기반 DSVM용).
+      2. **딥러닝 VM의 OS 유형 선택**: Windows 또는 Linux 선택(Windows 2016 및 Ubuntu Linux 기반 DSVM용)
       2. **사용자 이름**: 관리자 계정 로그인 ID
       3. **암호**: 관리자 계정 암호
-      4. **구독**: 둘 이상의 구독을 보유한 경우, 컴퓨터를 만들고 요금을 청구할 구독 하나를 선택합니다.
-      5. **리소스 그룹**: 새 구독을 만들거나 구독에서 **비어 있는** 기존 Azure 리소스 그룹을 사용할 수 있습니다.
+      4. **구독**: 둘 이상의 구독이 있는 경우 머신을 만들고 요금을 청구할 구독을 선택합니다.
+      5. **리소스 그룹**: 새 그룹을 만들거나 구독에서 **비어 있는** 기존 Azure 리소스 그룹을 사용할 수 있습니다.
       6. **위치**: 가장 적합한 데이터 센터를 선택합니다. 이는 대개 대부분의 데이터가 저장되어 있거나 네트워크에 가장 빠르게 액세스하기 위해 물리적 위치와 가장 가까이 있는 데이터 센터입니다. 
       
 > [!NOTE]
@@ -77,12 +79,12 @@ Linux DLVM은 이미 X2Go 서버를 통해 프로비전되었고 클라이언트
 1. 사용 중인 클라이언트 플랫폼용 X2Go 클라이언트를 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 다운로드하여 설치합니다.    
 2. X2Go 클라이언트를 실행하고 **새 세션**을 선택합니다. 여러 탭이 있는 구성 창이 열립니다. 다음 구성 매개 변수를 입력합니다.
    * **세션 탭**:
-     * **호스트**: Linux 데이터 과학 VM의 호스트 이름 또는 프로그램 IP 주소입니다.
-     * **로그인**: Linux VM의 사용자 이름입니다.
+     * **호스트**: Linux Data Science VM의 호스트 이름 또는 IP 주소
+     * **로그인**: Linux VM의 사용자 이름
      * **SSH 포트**: 기본값 22를 그대로 사용합니다.
      * **세션 유형**: 값을 **XFCE**로 변경합니다. Linux DSVM은 현재 XFCE 데스크톱만 지원합니다.
    * **미디어 탭**: 사운드 지원 및 클라이언트 인쇄를 사용하지 않으려면 해제할 수 있습니다.
-   * **공유 폴더**: 클라이언트 컴퓨터의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 컴퓨터 디렉터리를 추가합니다.
+   * **공유 폴더**: 클라이언트 머신의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 머신 디렉터리를 추가합니다.
 
 X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이언트를 사용하여 VM에 로그인하고 나면 VM에 설치 및 구성된 도구를 사용할 수 있습니다. XFCE에는 다양한 도구에 대한 응용 프로그램 메뉴 바로 가기와 바탕 화면 아이콘이 표시됩니다.
 

@@ -25,7 +25,7 @@ ms.locfileid: "51228830"
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-BizTalk 서비스를 만들고 응용 프로그램을 배포한 후 BizTalk 서비스 설정 중 일부를 변경하고 응용 프로그램 성능을 모니터링할 수 있습니다. 
+BizTalk 서비스를 만들고 애플리케이션을 배포한 후 BizTalk 서비스 설정 중 일부를 변경하고 애플리케이션 성능을 모니터링할 수 있습니다. 
 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
@@ -330,7 +330,7 @@ Backup 상태를 없음 또는 자동으로 설정합니다. 없음으로 설정
 [BizTalk Services: Backup 및 복원](biztalk-backup-restore.md) 에 자세한 정보가 나와 있습니다. 
 
 ## <a name="HybridConnections"></a>하이브리드 연결
-[하이브리드 연결]은 Azure 응용 프로그램(예: Azure App Service의 Web Apps 또는 Mobile Apps)을 정적 TCP 포트를 사용하는 온-프레미스 리소스(예: SQL Server, MySQL, HTTP 웹 API 및 대부분의 사용자 지정 웹 서비스)에 연결합니다. 하이브리드 연결은 BizTalk Services에서 관리됩니다.
+[하이브리드 연결]은 Azure 애플리케이션(예: Azure App Service의 Web Apps 또는 Mobile Apps)을 정적 TCP 포트를 사용하는 온-프레미스 리소스(예: SQL Server, MySQL, HTTP 웹 API 및 대부분의 사용자 지정 웹 서비스)에 연결합니다. 하이브리드 연결은 BizTalk Services에서 관리됩니다.
 
 Azure BizTalk Services에서 하이브리드 연결을 만들거나 관리하려면 [하이브리드 연결](integration-hybrid-connection-overview.md)을 참조하세요.
 

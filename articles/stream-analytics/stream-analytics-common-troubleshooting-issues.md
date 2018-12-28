@@ -2,19 +2,19 @@
 title: Azure Stream Analytics의 일반적인 문제 및 문제 해결
 description: 이 문서에서는 Azure Stream Analytics의 몇 가지 일반적인 문제와 이러한 문제를 해결하는 단계에 대해 설명합니다.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 2fe180873f8f410d80b06d29d16881eb49f7fc2a
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978446"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090978"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Stream Analytics의 일반적인 문제 및 문제를 해결하는 단계
 
@@ -24,9 +24,9 @@ ms.locfileid: "50978446"
  
  Stream Analytics 작업이 입력으로부터 잘못된 형식의 메시지를 수신하면 해당 메시지를 삭제하고 경고로 알립니다. Stream Analytics 작업의 **입력** 타일에 경고 기호가 표시됩니다(이 경고 기호는 작업이 실행 중인 경우 계속 표시됨).
 
-![입력 타일](media/stream-analytics-malformed-events/inputs_tile.png)
+![Azure Stream Analytics 대시보드의 입력 타일](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-자세한 내용을 보려면 진단 로그를 사용하여 경고의 세부 정보를 확인하십시오. 형식이 잘못된 입력 이벤트의 경우 실행 로그에는 다음과 같은 메시지와 함께 항목이 포함됩니다. “메시지: 리소스 <blob URI>의 입력 이벤트를 JSON으로 역직렬화할 수 없습니다.” 
+자세한 내용을 보려면 진단 로그를 사용하여 경고의 세부 정보를 확인하십시오. 잘못된 형식의 입력 이벤트의 경우 실행 로그에는 다음과 같은 메시지와 함께 항목이 포함됩니다. “메시지: 리소스 <blob URI>의 입력된 이벤트를 json으로 deserialize하지 못했습니다.” 
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계
 
@@ -34,7 +34,7 @@ ms.locfileid: "50978446"
 
 2. 입력 세부 정보 타일에는 문제에 대한 세부 정보를 포함하는 경고 집합이 표시됩니다. 다음은 예제 경고 메시지로, 경고 메시지는 잘못된 형식의 JSON 데이터가 있는 파티션, 오프셋 및 시퀀스 번호를 보여 줍니다. 
 
-   ![오프셋을 포함하는 경고 메시지](media/stream-analytics-malformed-events/warning_message_with_offset.png)
+   ![오프셋을 포함하는 경고 메시지 입력](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
 3. 잘못된 형식이 있는 JSON 데이터를 불러오려면 CheckMalformedEvents.cs 코드를 실행합니다. 이 예제는 [GitHub 샘플 리포지토리](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH)에 있습니다. 이 코드는 파티션 ID, 오프셋을 읽고 오프셋에 배치된 데이터를 출력합니다. 
 

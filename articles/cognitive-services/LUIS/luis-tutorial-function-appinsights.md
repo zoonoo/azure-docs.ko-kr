@@ -1,23 +1,24 @@
 ---
-title: Node.js를 사용하는 LUIS의 Application Insights 데이터
+title: Application Insights, Node.js
 titleSuffix: Azure Cognitive Services
 description: Node.js를 사용하여 LUIS 응용 프로그램 및 Application Insights와 통합된 봇을 빌드합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6199e4a681f7f58ea0cf57b575afb2a63d160eee
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4f1372f8b15670472146efc1c4f3a341f4a97c71
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321957"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255604"
 ---
-# <a name="add-luis-results-to-application-insights"></a>Application Insights에 LUIS 결과 추가
+# <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Application Insights 및 Azure 함수에 LUIS 결과 추가
 이 자습서에서는 [Application Insights](https://azure.microsoft.com/services/application-insights/) 원격 분석 데이터 저장소에 LUIS 요청 및 응답 정보를 추가합니다. 해당 데이터가 있으면 Kusto 언어 또는 PowerBi로 데이터를 쿼리하여 발화의 의도 및 엔터티를 실시간으로 분석, 집계 및 보고할 수 있습니다. 이 분석을 통해 LUIS 앱의 의도와 엔터티를 추가하거나 편집해야 할지 결정할 수 있습니다.
 
 이 봇은 Bot Framework 3.x 및 Azure 웹앱 봇을 사용하여 빌드됩니다.
@@ -36,7 +37,7 @@ ms.locfileid: "49321957"
 > [!Tip]
 > 아직 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)으로 등록할 수 있습니다.
 
-이 자습서의 모든 코드는 [LUIS-Samples GitHub 리포지토리](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs)에서 사용 가능하며 이 자습서와 연결된 각 줄은 `//APPINSIGHT:`을 사용하여 주석으로 처리됩니다. 
+이 자습서의 모든 코드는 [LUIS-Samples GitHub 리포지토리](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs)에서 사용할 수 있으며 이 자습서와 연결된 각 줄은 `//APPINSIGHT:`를 사용하여 주석으로 처리됩니다. 
 
 ## <a name="web-app-bot-with-luis"></a>LUIS와 웹앱 봇
 이 자습서에서는 다음과 같은 코드가 있거나 [다른 자습서](luis-nodejs-tutorial-build-bot-framework-sample.md)를 완료했다고 가정합니다. 
@@ -58,7 +59,7 @@ LUIS 요청 및 응답을 캡처하려면 웹앱 봇에 **[Application Insights]
 
 3. 콘솔에서 다음 명령을 입력하여 Application Insights 및 Underscore 패키지를 설치합니다.
 
-    ```
+    ```console
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
@@ -66,7 +67,7 @@ LUIS 요청 및 응답을 캡처하려면 웹앱 봇에 **[Application Insights]
 
     패키지가 설치될 때까지 기다립니다.
 
-    ```
+    ```console
     luisbot@1.0.0 D:\home\site\wwwroot
     `-- applicationinsights@1.0.1 
       +-- diagnostic-channel@0.2.0 
@@ -142,7 +143,7 @@ Application Insights를 사용하면 [Kusto](https://docs.microsoft.com/azure/ap
 
 3. 상위 의도, 점수 및 발화를 끌어오려면 쿼리 창의 마지막 줄 바로 위에 다음을 추가합니다.
 
-    ```SQL
+    ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_intent_intent)
     | extend score = todouble(customDimensions.LUIS_intent_score)
     | extend utterance = tostring(customDimensions.LUIS_text)

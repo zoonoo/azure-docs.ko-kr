@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 93478e5d13ef649b86ebc047f4e53f1486e2ff68
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c2bb1c0147d38b4286e2cdfb2d161eaa0704e393
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493956"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271490"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 모든 서비스에 대한 파티션을 쿼리 및 관리합니다.
@@ -47,8 +47,9 @@ ms.locfileid: "39493956"
 ## <a name="sfctl-partition-data-loss"></a>sfctl partition data-loss
 이 API는 지정한 파티션에 대한 데이터 손실을 유도합니다.
 
-파티션의 OnDataLossAsync API에 대한 호출을 트리거합니다.  이 API는 지정한 파티션에 대한 데이터 손실을 유도합니다. 파티션의 OnDataLoss API에 대한 호출을 트리거합니다. 실제 데이터 손실은 지정된 DataLossMode에 따라 달라집니다. <br> PartialDataLoss - 복제본의 쿼럼만 제거되고 파티션에 대한 OnDataLoss가 트리거되지만 실제 데이터 손실은 진행 중인 복제의 존재 여부에 따라 달라집니다. <br>FullDataLoss - 모든 복제본이 제거되므로 모든 데이터가 손실되고 OnDataLoss가 트리거됩니다. <br>이 API는 대상으로 상태 저장 서비스로만 호출되어야 합니다. 시스템 서비스를 대상으로 이 API를 호출하는 것은 권장되지 않습니다. 
-> [!NOTE]
+파티션의 OnDataLossAsync API에 대한 호출을 트리거합니다.  이 API는 지정한 파티션에 대한 데이터 손실을 유도합니다. 파티션의 OnDataLoss API에 대한 호출을 트리거합니다. 실제 데이터 손실은 지정된 DataLossMode에 따라 달라집니다.  <br> - PartialDataLoss - 복제본의 쿼럼만 제거되고 파티션에 대한 OnDataLoss가 트리거되지만 실제 데이터 손실은 진행 중인 복제의 존재 여부에 따라 달라집니다.  <br> - FullDataLoss - 모든 복제본이 제거되므로 모든 데이터가 손실되고 OnDataLoss가 트리거됩니다. 이 API는 대상으로 상태 저장 서비스로만 호출되어야 합니다. 시스템 서비스를 대상으로 이 API를 호출하는 것은 권장되지 않습니다.
+
+> [!NOTE] 
 > 이 API가 호출되면 취소할 수 없습니다. CancelOperation을 호출하면 실행을 중지하고 내부 시스템 상태를 정리합니다. 명령이 데이터 손실을 충분히 진행시킨 경우 데이터를 복원하지 않습니다. 동일한 OperationId로 GetDataLossProgress API를 호출하여 이 API로 시작된 작업에 대한 정보를 반환합니다.
 
 ### <a name="arguments"></a>인수
@@ -320,7 +321,7 @@ Service Fabric 파티션에 관한 상태 보고서를 보냅니다.
 | --remove-when-expired | 보고서가 만료될 때 Health 스토어에서 제거할지 여부를 나타내는 값입니다. <br><br> true로 설정된 경우 보고서는 만료된 후 Health 스토어에서 제거됩니다. false로 설정된 경우 보고서는 만료될 때 오류로 처리됩니다. 이 속성의 값은 기본적으로 false입니다. 클라이언트가 주기적으로 보고하는 경우 RemoveWhenExpired를 false(기본값)로 설정해야 합니다. 이러한 방식은 문제가 있고(예: 교착 상태) 보고할 수 없는 보고자이며, 엔터티는 상태 보고서가 만료되는 경우 오류로 평가됩니다. 엔터티를 오류 성능 상태에 있는 것으로 플래그 지정합니다. |
 | --sequence-number | 숫자 문자열의 이 상태 보고서에 대한 일련 번호입니다. <br><br> 보고서 일련 번호는 Health 스토어에서 유효하지 않은 보고서를 검색하는 데 사용됩니다. 지정되지 않은 경우 일련 번호는 보고서가 추가될 때 상태 클라이언트에서 자동으로 생성됩니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
-| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하기 위해 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트가 전환 시 보고하는 경우 TTL(Time to live)을 무한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
+| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하는 데 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트가 전환 시 보고하는 경우 TTL(Time to live)을 무한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 

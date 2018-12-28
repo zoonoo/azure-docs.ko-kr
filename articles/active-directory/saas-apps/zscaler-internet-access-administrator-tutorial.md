@@ -60,7 +60,7 @@ Zscaler Internet Access Administrator의 Azure AD 통합을 구성하려면 갤�
 
     ![엔터프라이즈 응용 프로그램 블레이드](common/enterprise-applications.png)
 
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 

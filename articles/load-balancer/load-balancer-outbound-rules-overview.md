@@ -1,5 +1,6 @@
 ---
-title: Azure Load Balancer의 아웃바운드 규칙 | Microsoft Docs
+title: Azure Load Balancer의 아웃바운드 규칙
+titlesuffix: Azure Load Balancer
 description: 아웃바운드 규칙을 사용하여 아웃바운드 네트워크 주소 변환을 정의합니다.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: ab09eb939d760a0f06be758fdf83591565aaf7d0
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 3848e2caefbc8fdfb30f36272f1b13e120312a7c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219378"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185021"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 아웃바운드 규칙
 
@@ -67,9 +69,9 @@ Azure Load Balancer는 가상 네트워크에서 인바운드 연결 외에도 �
 
 하나의 아웃바운드 규칙은 하나의 공용 IP 주소에만 사용할 수 있지만, 아웃바운드 규칙은 아웃바운드 NAT를 확장하기 위한 구성에 대한 부담을 덜어줍니다. 여러 IP 주소를 사용하여 대규모 시나리오를 계획하고, 아웃바운드 규칙을 사용하여 [SNAT 고갈](load-balancer-outbound-connections.md#snatexhaust) 가능성이 높은 경향의 패턴을 완화할 수 있습니다.  
 
-프런트 엔드에서 제공하는 추가 IP 주소 각각은 SNAT 포트로 사용할 Load Balancer에 대해 64,000개의 사용 후 삭제 포트를 제공합니다. 부하 분산 또는 인바운드 NAT 규칙에는 단일 프런트 엔드가 있지만, 아웃바운드 규칙에는 프런트 엔드 개념이 확장되고 규칙마다 여러 개의 프런트 엔드가 허용됩니다.  규칙당 여러 개의 프런트 엔드를 사용하면 사용 가능한 SNAT 포트의 수에 각 공용 IP 주소를 곱하여 큰 시나리오를 지원할 수 있습니다.
+프런트 엔드에서 제공하는 추가 IP 주소 각각은 SNAT 포트로 사용할 Load Balancer에 대해 51,200개의 사용 후 삭제 포트를 제공합니다. 부하 분산 또는 인바운드 NAT 규칙에는 단일 프런트 엔드가 있지만, 아웃바운드 규칙에는 프런트 엔드 개념이 확장되고 규칙마다 여러 개의 프런트 엔드가 허용됩니다.  규칙당 여러 개의 프런트 엔드를 사용하면 사용 가능한 SNAT 포트의 수에 각 공용 IP 주소를 곱하여 큰 시나리오를 지원할 수 있습니다.
 
-또한 아웃바운드 규칙에 [공용 IP 접두사](https://aka.ms/lbpublicipprefix)를 직접 사용할 수 있습니다.  공용 IP 접두사를 사용하면 Azure 배포에서 시작되는 흐름을 더 쉽게 크기 조정하고 허용 목록에 추가를 간소화할 수 있습니다. 공용 IP 주소 접두사를 직접 참조하도록 Load Balancer 리소스 내에 프런트 엔드 IP 구성을 구성할 수 있습니다.  이렇게 하면 Load Balancer에서 공용 IP 접두사를 독점적으로 제어하고, 아웃바운드 연결에 대한 공용 IP 접두사에 포함된 모든 공용 IP 주소가 아웃바운드 규칙에 자동으로 사용될 수 있습니다.  공용 IP 접두사 범위 내의 각 IP 주소는 Load Balancer에서 SNAT 포트로 사용할 IP 주소당 64,000개 사용 후 삭제 포트를 제공합니다.   
+또한 아웃바운드 규칙에 [공용 IP 접두사](https://aka.ms/lbpublicipprefix)를 직접 사용할 수 있습니다.  공용 IP 접두사를 사용하면 Azure 배포에서 시작되는 흐름을 더 쉽게 크기 조정하고 허용 목록에 추가를 간소화할 수 있습니다. 공용 IP 주소 접두사를 직접 참조하도록 Load Balancer 리소스 내에 프런트 엔드 IP 구성을 구성할 수 있습니다.  이렇게 하면 Load Balancer에서 공용 IP 접두사를 독점적으로 제어하고, 아웃바운드 연결에 대한 공용 IP 접두사에 포함된 모든 공용 IP 주소가 아웃바운드 규칙에 자동으로 사용될 수 있습니다.  공용 IP 접두사 범위 내의 각 IP 주소는 Load Balancer에서 SNAT 포트로 사용할 IP 주소당 51,200개의 사용 후 삭제 포트를 제공합니다.   
 
 아웃바운드 규칙에서 공용 IP 접두사를 완전히 제어해야 하므로, 이 옵션을 사용하는 경우 공용 IP 접두사에서 만든 개별 공용 IP 주소 리소스는 사용할 수 없습니다.  더 세분화된 제어가 필요한 경우, 공용 IP 접두사에서 개별 공용 IP 주소 리소스를 만들고 여러 공용 IP 주소를 개별적으로 아웃바운드 규칙의 프런트 엔드에 할당할 수 있습니다.
 
@@ -82,7 +84,7 @@ VM당 10,000개의 SNAT 포트를 할당하려면 다음 매개 변수를 사용
 
           "allocatedOutboundPorts": 10000
 
-아웃바운드 규칙의 모든 프런트 엔드에 있는 각 공용 IP 주소는 SNAT 포트로 사용할 최대 64,000개의 사용 후 삭제 포트를 제공합니다.  Load Balancer는 SNAT 포트를 8의 배수로 할당합니다. 8로 나눌 수 없는 값을 제공하면 구성 작업이 거부됩니다.  공용 IP 주소의 수를 기준으로 사용 가능한 것보다 더 많은 SNAT 포트를 할당하려고 하면 구성 작업이 거부됩니다.  예를 들어 VM당 10,000개의 포트를 할당하고 백 엔드 풀의 7개 VM에서 단일 공용 IP 주소를 공유하는 경우 구성이 거부됩니다(7 x 10,0000개 SNAT 포트> 64,000개 SNAT 포트).  아웃바운드 규칙의 프런트 엔드에 더 많은 공용 IP 주소를 추가하여 시나리오를 사용하도록 설정할 수 있습니다.
+아웃바운드 규칙의 모든 프런트 엔드에 있는 각 공용 IP 주소는 SNAT 포트로 사용할 최대 51,200개의 사용 후 삭제 포트를 제공합니다.  Load Balancer는 SNAT 포트를 8의 배수로 할당합니다. 8로 나눌 수 없는 값을 제공하면 구성 작업이 거부됩니다.  공용 IP 주소의 수를 기준으로 사용 가능한 것보다 더 많은 SNAT 포트를 할당하려고 하면 구성 작업이 거부됩니다.  예를 들어 VM당 10,000개의 포트를 할당하고 백 엔드 풀의 7개 VM에서 단일 공용 IP 주소를 공유하는 경우 구성이 거부됩니다(7 x 10,0000개 SNAT 포트> 51,200개 SNAT 포트).  아웃바운드 규칙의 프런트 엔드에 더 많은 공용 IP 주소를 추가하여 시나리오를 사용하도록 설정할 수 있습니다.
 
 포트 수로 0을 지정하여 [백 엔드 풀 크기를 기준으로 자동 SNAT 포트 할당](load-balancer-outbound-connections.md#preallocatedports)으로 되돌릴 수 있습니다.
 
@@ -160,7 +162,7 @@ disableOutboundSNAT 매개 변수의 기본값은 false입니다. 즉 부하 분
 
 아웃바운드 규칙을 사용하여 [백 엔드 풀 크기를 기준으로 자동 SNAT 포트 할당](load-balancer-outbound-connections.md#preallocatedports)을 튜닝할 수 있습니다.
 
-예를 들어 아웃바운드 NAT에 대해 하나의 공용 IP 주소를 공유하는 두 개의 가상 머신이 있는 경우 SNAT가 고갈되었으면 기본 1024 포트에서 할당되는 SNAT 포트 수를 늘리는 것이 좋습니다. 각 공용 IP 주소는 최대 64,000개의 사용 후 삭제 포트를 제공할 수 있습니다.  단일 공용 IP 주소 프런트 엔드를 사용하는 아웃바운드 규칙을 구성하면 총 64,000개의 SNAT 포트를 백 엔드 풀의 VM에 배포할 수 있습니다.  두 VM의 경우 아웃바운드 규칙을 사용하여 최대 32,000개의 SNAT 포트를 할당할 수 있습니다(2 x 32,000 = 64,000).
+예를 들어 아웃바운드 NAT에 대해 하나의 공용 IP 주소를 공유하는 두 개의 가상 머신이 있는 경우 SNAT가 고갈되었으면 기본 1024 포트에서 할당되는 SNAT 포트 수를 늘리는 것이 좋습니다. 각 공용 IP 주소는 최대 51,200개의 사용 후 삭제 포트를 제공할 수 있습니다.  단일 공용 IP 주소 프런트 엔드를 사용하여 아웃바운드 규칙을 구성하면 총 51,200개의 SNAT 포트를 백 엔드 풀의 VM에 배포할 수 있습니다.  두 VM의 경우 아웃바운드 규칙을 사용하여 최대 25,600개의 SNAT 포트를 할당할 수 있습니다(2 x 25,600 = 51,200).
 
 [아웃바운드 연결](load-balancer-outbound-connections.md) 및 [SNAT](load-balancer-outbound-connections.md#snat) 포트가 할당되고 사용되는 방법에 대한 자세한 내용을 검토하세요.
 
@@ -191,18 +193,18 @@ disableOutboundSNAT 매개 변수의 기본값은 false입니다. 즉 부하 분
    1. 부하 분산 규칙에서 아웃바운드 SNAT를 사용하지 않도록 설정합니다.
    2. 동일한 Load Balancer에서 아웃바운드 규칙을 구성합니다.
    3. VM에서 이미 사용하고 있는 백 엔드 풀을 다시 사용합니다.
-   4. 아웃바운드 규칙의 일부로 "프로토콜"을 "모두"로 지정합니다.
+   4. 다음과 같이 "프로토콜"을 지정합니다. 아웃바운드 규칙의 일부로 "모두"를 지정합니다.
 
 - 인바운드 NAT 규칙만 사용하는 경우 아웃바운드 NAT는 제공되지 않습니다.
 
    1. 백 엔드 풀에 VM을 배치합니다.
    2. 공용 IP 주소 또는 공용 IP 접두사를 사용하여 하나 이상의 프런트 엔드 IP 구성을 정의합니다.
    3. 동일한 Load Balancer에서 아웃바운드 규칙을 구성합니다.
-   4. 아웃바운드 규칙의 일부로 "프로토콜"을 "모두"로 지정합니다.
+   4. 다음과 같이 "프로토콜"을 지정합니다. 아웃바운드 규칙의 일부로 "모두"를 지정합니다.
 
 ## <a name="limitations"></a>제한 사항
 
-- 프런트 엔드 IP 주소당 사용 가능한 사용 후 삭제 포트의 최대 수는 64,000개입니다.
+- 프런트 엔드 IP 주소당 사용 가능한 사용 후 삭제 포트의 최대 수는 51,200개입니다.
 - 구성 가능한 아웃바운드 유휴 시간 제한 범위는 4-66분(240-4,000초)입니다.
 - Load Balancer는 아웃바운드 NAT에 대해 ICMP를 지원하지 않습니다.
 - 아웃바운드 규칙은 포털을 통해 구성하거나 볼 수 없습니다.  대신 템플릿, REST API, Az CLI 2.0 또는 PowerShell을 사용하세요.

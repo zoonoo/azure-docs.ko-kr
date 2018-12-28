@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 환경 만들기 | Microsoft Docs
+title: Azure Time Series Insights 환경 만들기 - Azure Time Series Insights 환경 만들기 | Microsoft Docs
 description: 이 문서에서는 Azure Portal을 사용하여 새로운 Time Series Insights 환경을 만드는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 909d8a921e46f0f935bb8a059714b1c0170ddee4
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: f50f0de4cff72f8eaf8304893d49ab14a68a3fc4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627664"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277304"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Azure Portal에서 Time Series Insights 환경 만들기
 이 문서에서는 Azure Portal을 사용하여 새로운 Time Series Insights 환경을 만드는 방법을 설명합니다.

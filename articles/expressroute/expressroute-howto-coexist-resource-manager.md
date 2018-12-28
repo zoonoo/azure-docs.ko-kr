@@ -1,19 +1,19 @@
 ---
-title: '공존할 수 있는 ExpressRoute 및 사이트 간 VPN 연결 구성: PowerShell: Azure | Microsoft Docs'
-description: 이 문서에서는 PowerShell을 사용하여 Resource Manager 모델에 대해 공존할 수 있는 ExpressRoute와 사이트 간 VPN 연결을 구성하는 과정을 안내합니다.
+title: 'ExpressRoute 및 사이트 간 VPN 연결 구성 - 공존: PowerShell: Azure | Microsoft Docs'
+description: PowerShell을 사용하여 Resource Manager 모델에 대해 공존할 수 있는 ExpressRoute 및 사이트 간 VPN 연결을 구성합니다.
 services: expressroute
 author: charwen
-manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 1aeb5ca447a3058962483b640f742e4a7ec4a414
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243814"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104036"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>PowerShell을 사용하여 사이트 간 연결 및 ExpressRoute 공존 연결 구성
 > [!div class="op_single_selector"]
@@ -21,6 +21,9 @@ ms.locfileid: "51243814"
 > * [PowerShell - 클래식](expressroute-howto-coexist-classic.md)
 > 
 > 
+
+
+이 문서에서는 공존하는 ExpressRoute 및 사이트 간 VPN 연결을 구성합니다. 사이트 간 VPN 및 ExpressRoute를 구성하는 기능이 있으면 여러 장점이 있습니다. 사이트 간 VPN을 ExpressRoute의 보안 장애 조치 경로로 구성하거나, 사이트 간 VPN을 사용하여 ExpressRoute를 통해 연결되지 않은 사이트에 연결할 수 있습니다. 이 문서에서는 두 시나리오 모두를 구성하는 단계를 설명합니다. 이 문서는 Resource Manager 배포 모델에 적용됩니다.
 
 사이트 간 VPN과 ExpressRoute가 공존하는 연결을 구성하면 여러 장점이 있습니다.
 

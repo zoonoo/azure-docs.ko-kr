@@ -13,7 +13,7 @@ items:
     href: overview-iot-central-tour.md
 - name: 빠른 시작
   items:
-  - name: 새 응용 프로그램 만들기
+  - name: 새 애플리케이션 만들기
     href: quick-deploy-iot-central.md
   expanded: true
 - name: 자습서
@@ -38,7 +38,7 @@ items:
   items:
   - name: 디바이스 연결
     items:
-    - name: Node.js(일반) 응용 프로그램 준비 및 연결
+    - name: Node.js(일반) 애플리케이션 준비 및 연결
       href: howto-connect-nodejs.md
     - name: MXChip IoT DevKit 준비 및 연결
       href: howto-connect-devkit.md
@@ -91,7 +91,7 @@ items:
       href: howto-build-iotc-device-bridge.md
   - name: 관리
     items:
-    - name: 응용 프로그램 관리
+    - name: 애플리케이션 관리
       href: howto-administer.md
     - name: 이미지 준비 및 업로드
       href: howto-prepare-images.md

@@ -1,5 +1,5 @@
 ---
-title: U-SQL을 사용하여 Azure Data Lake 데이터 과학 연습 | Microsoft Docs
+title: Azure Data Lake에서 U-SQL을 사용하여 분석 - Team Data Science Process
 description: 예측 분석을 수행하기 위해 Azure Data Lake에서 U-SQL의 사용을 안내하는 예제입니다.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2f01ec6dc97dccbca15c61d4f1a087f6f1a9abe2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ecf19ec484e03f4cbc9e396ff80818c192da4d17
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444225"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132792"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>U-SQL을 사용하여 Azure Data Lake 데이터 과학 연습
 
@@ -27,7 +27,7 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 
 ## <a name="predict-taxi-tips-using-u-sql-with-azure-data-lake"></a>Azure Data Lake와 함께 U-SQL을 사용하여 택시 팁 예측
 
-[데이터 과학에 Azure Data Lake 사용](data-lake-walkthrough.md) 연습에서는 고객이 팁을 지불할지 여부를 예측하기 위해 NYC Taxi 데이터 집합 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여 줍니다. 
+[데이터 과학에 Azure Data Lake 사용](data-lake-walkthrough.md) 연습에서는 고객이 팁을 지불할지 여부를 예측하기 위해 NYC Taxi 데이터 세트 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여 줍니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

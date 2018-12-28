@@ -34,7 +34,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 차단된 전자 메일, 고객 응답 같은 항목의 실시간 메트릭 수집
 * 경향을 식별하는 데 도움이 되도록 보고서 생성
 * 고객 문의 전달
-* 응용 프로그램의 전자 메일 알림
+* 애플리케이션의 전자 메일 알림
 
 자세한 내용은 [https://sendgrid.com][https://sendgrid.com]을 참조하세요.
 
@@ -42,9 +42,9 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="using-sendgrid-from-your-php-application"></a>PHP 응용 프로그램에서 SendGrid 사용
+## <a name="using-sendgrid-from-your-php-application"></a>PHP 애플리케이션에서 SendGrid 사용
 
-Azure PHP 응용 프로그램에서 SendGrid를 사용하기 위해 특별한 구성이 필요하지는 않습니다. SendGrid는 서비스이므로, 온-프레미스 응용 프로그램에서 액세스하는 것과 동일한 방법으로 클라우드 응용 프로그램에서 액세스할 수 있습니다.
+Azure PHP 애플리케이션에서 SendGrid를 사용하기 위해 특별한 구성이 필요하지는 않습니다. SendGrid는 서비스이므로, 온-프레미스 애플리케이션에서 액세스하는 것과 동일한 방법으로 클라우드 애플리케이션에서 액세스할 수 있습니다.
 
 ## <a name="how-to-send-an-email"></a>방법: 전자 메일 보내기
 

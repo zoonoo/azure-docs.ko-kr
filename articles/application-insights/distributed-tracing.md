@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9594ccd0449cf68a63c770cfdee03f255aa2beae
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: aa163d215f4b9c396585dbba63883a3d1beff457
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638378"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164265"
 ---
 # <a name="what-is-distributed-tracing"></a>분산 추적이란?
 
-최신 클라우드 및 마이크로 서비스 아키텍처가 등장하면서 비용을 절감하면서 가용성과 처리량을 높일 수 있는 간단하고 독립적으로 배포할 수 있는 서비스가 생겨났습니다. 이러한 움직임으로 인해 개별 서비스를 전반적으로 이해하기는 쉬워졌지만 전체 시스템을 추론하고 디버그하기가 더 어려워졌습니다.
+최신 클라우드 및 [마이크로 서비스](http://azure.com/microservices) 아키텍처가 등장하면서 비용을 절감하면서 가용성과 처리량을 높일 수 있는 독립적으로 배포할 수 있는 간단한 서비스가 생겨났습니다. 이러한 움직임으로 인해 개별 서비스를 전반적으로 이해하기는 쉬워졌지만 전체 시스템을 추론하고 디버그하기가 더 어려워졌습니다.
 
 모놀리식 아키텍처에서는 호출 스택을 사용하여 디버깅하는 데 익숙해져 왔습니다. 호출 스택은 각 호출에 대한 세부 정보 및 매개 변수와 함께 실행 흐름(메서드 A가 메서드 B를 호출하고 이로 인해 메서드 C가 호출됨)을 표시하기에 훌륭한 도구입니다. 이런 방식은 단일 프로세스에서 실행되는 단일 조직이나 서비스에는 적합하지만 호출이 로컬 스택의 참조가 아닌 프로세스 경계를 넘어서는 경우에는 어떻게 디버그해야 할까요? 
 

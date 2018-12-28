@@ -218,7 +218,7 @@
 ##### [일반적인 문제 - 갤러리 앱](manage-apps/adding-gallery-app-common-problems.md)
 ##### [일반적인 문제 - 비갤러리 앱](manage-apps/adding-non-gallery-app-common-problems.md)
 
-#### 응용 프로그램 프록시
+#### 애플리케이션 프록시
 ##### [앱 페이지를 표시할 때 문제](manage-apps/application-proxy-page-appearance-broken-problem.md)
 ##### [너무 긴 응용 프로그램 로드](manage-apps/application-proxy-page-load-speed-problem.md)
 ##### [응용 프로그램 페이지에서 링크가 작동하지 않음](manage-apps/application-proxy-page-links-broken-problem.md)

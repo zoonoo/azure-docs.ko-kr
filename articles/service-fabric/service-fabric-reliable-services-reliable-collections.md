@@ -3,7 +3,7 @@ title: Azure Service Fabric 상태 저장 서비스의 신뢰할 수 있는 컬�
 description: 서비스 패브릭 상태 저장 서비스는가용성 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 응용 프로그램을 작성할 수 있는 믿을 수 렉션을 제공합니다.
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
-ms.author: mcoskun
-ms.openlocfilehash: 2876d90c02995394104009d1b2d62d5b3ed6a8d9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: caca297afb9ed4e2d85f1068ad3c1122db60c1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212928"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191991"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
 신뢰할 수 있는 컬렉션을 사용하면 단일 컴퓨터 응용 프로그램을 작성하는 것처럼 가용성이 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 응용 프로그램을 작성할 수 있습니다. **Microsoft.ServiceFabric.Data.Collections** 네임스페이스의 클래스는 상태를 자동으로 항상 사용할 수 있도록 하는 컬렉션 집합을 제공합니다. 개발자는 신뢰할 수 있는 컬렉션 API로 프로그래밍하고 신뢰할 수 있는 컬렉션이 복제된 로컬 상태를 관리하도록 하기만 하면 됩니다.
@@ -35,8 +35,8 @@ ms.locfileid: "34212928"
 
 * 복제됨: 고가용성을 위해 상태 변경 내용이 복제됩니다.
 * 유지됨: 대규모 정전에 대한 내구성을 위해 데이터가 디스크에 유지됩니다(예: 데이터 센터 전원 정전).
-* 비동기: API는 IO를 초래할 때 스레드가 차단되지 않도록 비동기적입니다.
-* 트랜잭션: API가 트랜잭션 추상화를 활용하므로 서비스 내에서 여러 신뢰할 수 있는 컬렉션을 쉽게 관리할 수 있습니다.
+* 비동기: API는 IO 발생 시 스레드가 차단되지 않도록 비동기적입니다.
+* 트랜잭션: API가 트랜잭션 추상화를 활용하므로 서비스 내에서 신뢰할 수 있는 여러 컬렉션을 쉽게 관리할 수 있습니다.
 
 신뢰할 수 있는 컬렉션은 기본적으로 강력한 일관성을 보장하여 응용 프로그램 상태에 대한 추론을 보다 쉽게 해줍니다.
 강력한 일관성은 주 복제본을 포함한 복제본의 과반수 쿼럼에 전체 트랜잭션이 기록된 후에만 트랜잭션 커밋을 완료하여 수행됩니다.
@@ -46,13 +46,13 @@ ms.locfileid: "34212928"
 
 * 비동기: 동시 컬렉션과 달리 작업이 복제 및 유지되므로 작업을 반환합니다.
 * 출력 매개 변수 없음: `ConditionalValue<T>` 를 사용하여 출력 매개 변수 대신 부울 및 값을 반환합니다. `ConditionalValue<T>`는 `Nullable<T>`과 유사하지만 T가 구조체일 필요는 없습니다.
-* 트랜잭션: 트랜잭션 개체를 사용하여 사용자가 트랜잭션의 여러 신뢰할 수 있는 컬렉션에 대한 작업을 그룹화하도록 지원합니다.
+* 트랜잭션: 트랜잭션 개체를 사용하여 사용자가 트랜잭션의 신뢰할 수 있는 여러 컬렉션에 대한 작업을 그룹화하도록 지원합니다.
 
 오늘날 **Microsoft.ServiceFabric.Data.Collections** 은 다음과 같은 3가지 컬렉션을 포함합니다.
 
 * [신뢰할 수 있는 사전](https://msdn.microsoft.com/library/azure/dn971511.aspx): 키/값 쌍의 복제, 트랜잭션 및 비동기 컬렉션을 나타냅니다. **ConcurrentDictionary**와 유사하게 키와 값은 모든 형식일 수 있습니다.
 * [신뢰할 수 있는 큐](https://msdn.microsoft.com/library/azure/dn971527.aspx): 복제, 트랜잭션 및 비동기의 엄격한 FIFO(선입 선출) 큐를 나타냅니다. **ConcurrentQueue**와 유사하게 값은 어떤 형식일 수 있습니다.
-* [신뢰할 수 있는 동시 큐](service-fabric-reliable-services-reliable-concurrent-queue.md): 높은 처리량을 위해 최고의 순서로 대기되는 복제, 트랜잭션 및 비동기 큐. **ConcurrentQueue**와 유사하게 값은 어떤 형식일 수 있습니다.
+* [신뢰할 수 있는 동시 큐](service-fabric-reliable-services-reliable-concurrent-queue.md): 높은 처리량을 위해 최고의 순서로 대기되는 복제, 트랜잭션 및 비동기 큐를 나타냅니다. **ConcurrentQueue**와 유사하게 값은 어떤 형식일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [신뢰할 수 있는 컬렉션 지침 및 권장 사항](service-fabric-reliable-services-reliable-collections-guidelines.md)

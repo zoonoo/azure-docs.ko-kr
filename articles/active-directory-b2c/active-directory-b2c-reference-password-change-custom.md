@@ -150,7 +150,7 @@ ms.locfileid: "49407030"
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>사용자 지정 정책에 응용 프로그램 ID 추가
 
-확장 파일(`TrustFrameworkExtensions.xml`)에 응용 프로그램 ID를 추가합니다.
+확장 파일(`TrustFrameworkExtensions.xml`)에 애플리케이션 ID를 추가합니다.
 
 1. 확장 파일(TrustFrameworkExtensions.xml)에서 `<TechnicalProfile Id="login-NonInteractive">` 및 `<TechnicalProfile Id="login-NonInteractive-PasswordChange">` 요소를 찾습니다.
 

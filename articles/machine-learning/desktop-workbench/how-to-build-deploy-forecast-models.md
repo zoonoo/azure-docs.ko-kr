@@ -34,7 +34,7 @@ ms.locfileid: "52634985"
 
 1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-1. 다음 계정 및 응용 프로그램을 설정하고 설치해야 합니다.
+1. 다음 계정 및 애플리케이션을 설정하고 설치해야 합니다.
    - Azure Machine Learning 실험 계정 
    - Azure Machine Learning 모델 관리 계정
    - Azure Machine Learning Workbench 설치 
@@ -1365,7 +1365,7 @@ all_errors.sort_values('MedianAPE')
 
 ### <a name="cross-validation-parameter-and-model-sweeping"></a>교차 유효성 검사, 매개 변수 및 모델 비우기    
 
-이 패키지는 일부 기존 기계 학습 함수를 예측 응용 프로그램에 맞게 변경합니다.  [RollingOriginValidator](/python/api/azuremlftk/ftk.model_selection.cross_validation.rollingoriginvalidator)는 예측 프레임워크에 알려진 것과 그렇지 않은 것을 존중하면서 일시적으로 교차 유효성 검사를 수행합니다. 
+이 패키지는 일부 기존 기계 학습 함수를 예측 애플리케이션에 맞게 변경합니다.  [RollingOriginValidator](/python/api/azuremlftk/ftk.model_selection.cross_validation.rollingoriginvalidator)는 예측 프레임워크에 알려진 것과 그렇지 않은 것을 존중하면서 일시적으로 교차 유효성 검사를 수행합니다. 
 
 아래 그림에서 각 사각형은 한 시점의 데이터를 나타냅니다. 파란 사각형은 학습을 나타내고 주황색 사각형은 각 폴드의 테스트를 나타냅니다. 테스트 데이터는 가장 큰 학습 시점 이후의 시점에서 나와야 합니다. 그렇지 않으면 이후 데이터가 학습 데이터로 유출되어 모델 평가가 유효하지 않게 됩니다. 
 ![png](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)

@@ -2,19 +2,19 @@
 title: Azure Stream Analytics를 사용하는 IoT 실시간 데이터 스트림
 description: 스트림 분석 및 실시간 데이터 처리와 IoT 센서 태그 및 데이터 스트림
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 8a4e5b180438203e345ef6c5323ab010f4757c0e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: b008fe128aa760197c34d8c14c4d3b92cbed2bd2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978079"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103169"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT 디바이스에서 데이터를 처리하도록 Azure Stream Analytics 시작
 이 자습서에서는 IoT(사물 인터넷) 디바이스에서 데이터를 수집하기 위한 스트림 처리 논리를 만드는 방법을 배웁니다. 실제, IoT(사물 인터넷) 사용 사례를 사용하여 솔루션을 신속하고 경제적으로 구축하는 방법을 보여 줍니다.
@@ -56,35 +56,35 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
    > 
 4. 대시보드에서 작업을 배치할 확인란을 선택한 다음 **만들기**를 클릭합니다.
    
-    ![진행 중인 작업 만들기](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
+    ![스트림 분석 작업을 만드는 중](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
 5. 브라우저 창의 오른쪽 위에서 '배포를 시작했습니다.'라고 표시됩니다. 그리고는 곧 아래와 같이 완료된 창으로 바뀝니다.
    
-    ![진행 중인 작업 만들기](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
+    ![스트림 분석 배포 성공](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
 ## <a name="create-an-azure-stream-analytics-query"></a>Azure Stream Analytics 쿼리 만들기
 작업이 만들어졌으면 이제는 해당 작업을 열고 쿼리를 빌드할 시간입니다. 작업의 타일을 클릭하면 해당 작업에 쉽게 액세스할 수 있습니다.
 
-![작업 타일](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
+![Azure Portal에서 Stream Analytics 작업 타일](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
 **작업 토폴로지** 창에서 **쿼리** 상자를 클릭하여 쿼리 편집기로 이동합니다. **쿼리** 편집기에서는 들어오는 이벤트 데이터에 대해 변환을 수행하는 T-SQL 쿼리를 입력할 수 있습니다.
 
-![쿼리 상자](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
+![Stream Analytics 대시보드 쿼리 타일](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
 ### <a name="query-archive-your-raw-data"></a>쿼리: 원시 데이터 보관
 가장 간단한 형태의 쿼리는 모든 입력 데이터를 지정된 출력에 보관하는 통과 쿼리입니다. [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)에서 컴퓨터의 위치로 샘플 데이터 파일을 다운로드합니다. 
 
 1. PassThrough.txt 파일에서 쿼리를 붙여 넣습니다. 
    
-    ![입력 스트림 테스트](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
+    ![Stream Analytics 쿼리 편집기로 쿼리 붙여넣기](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
 2. 사용자의 입력 옆에 있는 점 세 개를 클릭하고 **파일에서 샘플 데이터 업로드** 상자를 선택합니다.
    
-    ![입력 스트림 테스트](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
+    ![파일에서 예제 데이터 업로드 선택](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
 3. 오른쪽에 열리는 결과 창에서 다운로드 위치에 있는 HelloWorldASA InputStream.json 데이터 파일을 선택하고 창 맨 아래의 **확인**을 클릭합니다.
    
-    ![입력 스트림 테스트](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
+    ![json 샘플 데이터 파일 업로드](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
 4. 그런 다음, 창의 왼쪽 위에 있는 **테스트** 기어를 클릭하여 샘플 데이터 세트에 대한 테스트 쿼리를 처리합니다. 처리가 완료되면 쿼리 아래에 결과 창이 열립니다.
    
-    ![테스트 결과](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+    ![Stream Analytics 쿼리에 대한 테스트 결과](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ### <a name="query-filter-the-data-based-on-a-condition"></a>쿼리: 조건에 따라 데이터 필터링
 조건에 따라 결과를 필터링해 보겠습니다. “sensorA”에서 가져온 해당 이벤트에 대한 결과만 표시하려고 합니다. 쿼리는 Filtering.txt 파일에 있습니다.
@@ -102,7 +102,7 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 
 이제 결과에서 245행 및 평균 온도가 100도를 넘는 센서의 이름을 표시해야 합니다. 이 쿼리는 이벤트의 스트림을 30초 동안의 **연속 창**에서 센서 이름인 **dspl**로 그룹화합니다. 임시 쿼리는 시간을 진행할 방법을 명시해야 합니다. **TIMESTAMP BY** 절을 사용하여 모든 임시 계산과 시간을 연결하는 **OUTPUTTIME** 열을 지정했습니다. 자세한 정보는 [시간 관리](https://msdn.microsoft.com/library/azure/mt582045.aspx) 및 [기간 이동 기능](https://msdn.microsoft.com/library/azure/dn835019.aspx)에 대한 MSDN 문서를 참조하세요.
 
-### <a name="query-detect-absence-of-events"></a>쿼리: 이벤트 부재 감지
+### <a name="query-detect-absence-of-events"></a>쿼리: 이벤트의 부재 감지
 이벤트의 부족을 찾기 위해 어떻게 쿼리를 작성할 수 있나요? 센서에서 데이터를 보낸 이후 5초 동안 이벤트를 보내지 않은 마지막 시간을 알아보겠습니다. 쿼리는 AbsenseOfEvent.txt 파일에 있습니다.
 
 ![이벤트의 부재 감지](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
@@ -110,5 +110,5 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 여기서는 동일한 데이터 스트림에 대해 **왼쪽 외부** 조인을 사용합니다(자체 조인). **내부** 조인의 경우 결과는 일치 항목이 있는 경우에만 반환됩니다.  하지만 **왼쪽 외부** 조인의 경우 조인 왼쪽의 이벤트가 일치하지 않는 경우 오른쪽 행의 모든 열에 대해 NULL이 있는 행이 반환됩니다. 이 방법은 이벤트의 부재를 찾는 데 매우 유용합니다. [조인](https://msdn.microsoft.com/library/azure/dn835026.aspx)에 대한 자세한 내용은 MSDN 설명서를 참조하세요.
 
 ## <a name="conclusion"></a>결론
-이 자습서의 목적은 다른 Stream Analytics 쿼리 언어 쿼리를 작성하고 브라우저에서 결과를 확인하는 방법을 보여 주는 것입니다. 그러나 이 과정은 시작일 뿐입니다. Stream Analytics으로 많은 작업을 수행할 수 있습니다. Stream Analytics은 다양한 입력 및 출력을 지원하고 Azure Machine Learning에서 함수를 사용하여 데이터 스트림을 분석하는 강력한 도구로 만들 수 있습니다. [학습 맵](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)을 사용하여 Stream Analytics에 대한 탐색을 시작할 수 있습니다. 쿼리를 작성하는 방법에 대한 자세한 내용은 [일반적인 쿼리 패턴](stream-analytics-stream-analytics-query-patterns.md)에 대한 문서를 참조하세요.
+이 자습서의 목적은 다른 Stream Analytics 쿼리 언어 쿼리를 작성하고 브라우저에서 결과를 확인하는 방법을 보여 주는 것입니다. 그러나 이 과정은 시작일 뿐입니다. Stream Analytics으로 많은 작업을 수행할 수 있습니다. Stream Analytics은 다양한 입력 및 출력을 지원하고 Azure Machine Learning에서 함수를 사용하여 데이터 스트림을 분석하는 강력한 도구로 만들 수 있습니다. [학습 맵](https://docs.microsoft.com/azure/stream-analytics/)을 사용하여 Stream Analytics에 대한 탐색을 시작할 수 있습니다. 쿼리를 작성하는 방법에 대한 자세한 내용은 [일반적인 쿼리 패턴](stream-analytics-stream-analytics-query-patterns.md)에 대한 문서를 참조하세요.
 

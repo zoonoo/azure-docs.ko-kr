@@ -1,10 +1,8 @@
 ---
-title: Azure의 MongoDB, React 및 Node.js 자습서 | Microsoft Docs
+title: Azure의 MongoDB, React 및 Node.js 자습서
 description: 이 동영상 기반 자습서 시리즈에서 MongoDB에 사용하는 것과 정확히 동일한 API를 사용하여 Azure Cosmos DB의 React 및 Node.js를 사용하여 MongoDB 앱을 만드는 방법을 알아봅니다.
 services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
@@ -12,12 +10,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 28651f0b9a2c775292b5c9406f676b45fc4e5d14
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: bd72aad51d2649ba6f110ab07b3f85d58da2a09d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701785"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867038"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>React 및 Azure Cosmos DB에서 MongoDB 앱 만들기  
 
@@ -38,7 +36,7 @@ ms.locfileid: "43701785"
 Angular를 사용하여 동일한 앱을 빌드하시겠습니까? [Angular 자습서 비디오 시리즈](tutorial-develop-mongodb-nodejs.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-* [Node.js](https://www.nodejs.org)
+* [Node.JS](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>완료된 프로젝트
 [GitHub에서](https://github.com/Azure-Samples/react-cosmosdb) 완성된 응용 프로그램을 가져옵니다.
@@ -57,7 +55,7 @@ Angular를 사용하여 동일한 앱을 빌드하시겠습니까? [Angular 자�
 
 ## <a name="build-the-ui"></a>UI 빌드
 
-이 비디오에서는 React를 사용하여 응용 프로그램의 UI(사용자 인터페이스)를 만드는 방법을 보여줍니다. 
+이 비디오에서는 React를 사용하여 애플리케이션의 UI(사용자 인터페이스)를 만드는 방법을 보여줍니다. 
 
 > [!NOTE]
 > 이 비디오에서 참조되는 CSS는 [react-cosmosdb GitHub 리포지토리](https://github.com/Azure-Samples/react-cosmosdb/blob/master/src/index.css)에서 찾을 수 있습니다.
@@ -104,9 +102,9 @@ Angular를 사용하여 동일한 앱을 빌드하시겠습니까? [Angular 자�
 > * Azure Cosmos DB 계정 만들기
 > * 앱을 Azure Cosmos DB 계정에 연결
 > * Postman을 사용하여 앱 테스트
-> * 응용 프로그램 실행 및 데이터베이스에 Heroes 추가
+> * 애플리케이션 실행 및 데이터베이스에 Heroes 추가
 
-이 자습서 시리즈의 추가 비디오에서는 응용 프로그램을 배포하고 전역으로 데이터를 복제하는 방법을 다룹니다.
+이 자습서 시리즈의 추가 비디오에서는 애플리케이션을 배포하고 전역으로 데이터를 복제하는 방법을 다룹니다.
 
 다음 자습서로 진행하여 Azure Cosmos DB로 MongoDB 데이터를 가져오는 방법을 알아볼 수 있습니다.  
 

@@ -7,14 +7,15 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: 60248da2bbdac751845a40720f8967203c562b4a
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 48fd64908a5cb2488d58f3c078e0ccb17419352f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085748"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260252"
 ---
-# <a name="quickstart-send-container-registry-events-to-event-grid"></a>빠른 시작: Event Grid로 컨테이너 레지스트리 이벤트 전송
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리에서 Event Grid에 이벤트 보내기
 
 Azure Event Grid는 게시-구독 모델을 사용하여 균일한 이벤트 소비를 제공하는 완전히 관리되는 이벤트 라우팅 서비스입니다. 이 빠른 시작에서는 Azure CLI를 사용하여 컨테이너 레지스트리를 만들고, 레지스트리 이벤트를 구독한 다음, 샘플 웹 응용 프로그램을 배포하여 이벤트를 수신합니다. 마지막으로, 컨테이너 이미지 `push` 및 `delete` 이벤트를 트리거하고 응용 프로그램 예제에서 이벤트 페이로드를 봅니다.
 

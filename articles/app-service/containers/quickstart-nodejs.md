@@ -140,7 +140,7 @@ All done.
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
 
-웹 브라우저를 사용하여 배포된 응용 프로그램으로 이동합니다. <app_name>을 웹앱 이름으로 바꿉니다.
+웹 브라우저를 사용하여 배포된 애플리케이션으로 이동합니다. <app_name>을 웹앱 이름으로 바꿉니다.
 
 ```bash
 http://<app_name>.azurewebsites.net

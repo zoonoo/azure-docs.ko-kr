@@ -1,23 +1,24 @@
 ---
-title: LUIS 앱의 엔터티 형식 - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: 엔터티 형식
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS(Language Understanding Intelligent Service) 앱에서 엔터티(응용 프로그램 도메인의 키 데이터)를 추가합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: f0e543263c7a9890abc485d0f0cd6bec88f16dd4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085867"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135205"
 ---
-# <a name="entities-in-luis"></a>LUIS의 엔터티
+# <a name="entity-types-and-their-purposes-in-luis"></a>엔터티 형식 및 LUIS에서의 용도
 
 엔터티는 응용 프로그램 도메인의 키 데이터인 발화의 단어 또는 구입니다.
 
@@ -71,7 +72,7 @@ LUIS는 미리 빌드된 엔터티, 사용자 지정 기계 학습 엔터티, �
 | 이름 | 레이블 지정 가능 | 설명 |
 | -- |--|--|
 | **미리 빌드된** <br/>[사용자 지정](#prebuilt)| |  **정의**<br>일반 개념을 나타내는 기본 제공 유형입니다. <br><br>**목록**<br/>핵심 구 번호, 서수, 온도, 차원, 비용, 연령, 백분율, 메일, URL, 전화 번호 및 핵심 구. <br><br>미리 빌드된 엔터티 이름은 예약되어 있습니다. <br><br>응용 프로그램에 추가되는 모든 미리 빌드된 엔터티는 [엔드포인트](luis-glossary.md#endpoint) 쿼리에서 반환됩니다. 자세한 내용은 [미리 빌드된 엔터티](./luis-prebuilt-entities.md)를 참조하세요. <br/><br/>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **정규식**<br/>[RegEx](#regex)||**정의**<br>서식이 지정된 원시 발화 텍스트에 대한 사용자 지정 정규식입니다. 대/소문자를 무시하고 문화적 변형을 무시합니다.  <br><br>이 엔터티는 항상 일관된 변형으로 일관되게 서식을 지정하는 단어나 구에 적합합니다.<br><br>정규식 일치는 맞춤법 검사 변경 후에 적용됩니다. <br><br>많은 대괄호를 사용하는 경우처럼 정규식이 너무 복잡한 경우, 모델에 식을 추가할 수 없습니다. <br><br>**예제**<br>`kb[0-9]{6,}`은 kb123456과 일치합니다.<br/><br/>[빠른 시작](luis-quickstart-intents-regex-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md)|
+|<!-- added week of 3/21/08 --> **정규식**<br/>[RegEx](#regex)||**정의**<br>서식이 지정된 원시 발화 텍스트에 대한 사용자 지정 정규식입니다. 대/소문자를 무시하고 문화적 변형을 무시합니다.  <br><br>이 엔터티는 항상 일관된 변형으로 일관되게 서식을 지정하는 단어나 구에 적합합니다.<br><br>정규식 일치는 토큰 수준이 아니라 문자 수준에서 맞춤법 검사 변경 후에 적용됩니다. [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) 라이브러리의 전체가 아니라 일부를 사용합니다.<br><br>많은 대괄호를 사용하는 경우처럼 정규식이 너무 복잡한 경우, 모델에 식을 추가할 수 없습니다. <br><br>**예제**<br>`kb[0-9]{6,}`은 kb123456과 일치합니다.<br/><br/>[빠른 시작](luis-quickstart-intents-regex-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md)|
 | **간단** <br/>[기계 학습](#machine-learned) | ✔ | **정의**<br>단순 엔터티는 단일 개념을 설명하고 기계 학습 컨텍스트에서 학습되는 일반 엔터티입니다. 컨텍스트에는 단어 선택, 단어 배치 및 발화 길이가 포함됩니다.<br/><br/>일관되게 서식을 지정하지는 않지만 동일한 항목을 나타내는 단어나 구에 적합한 엔터티입니다. <br/><br/>[빠른 시작](luis-quickstart-primary-and-secondary-data.md)<br/>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#simple-entity-data)|  
 | **목록** <br/>[정확한 일치](#exact-match)|| **정의**<br>목록 엔터티는 시스템의 동의어와 함께 관련 단어의 고정된 폐쇄형 집합을 나타냅니다. <br><br>각 목록 엔터티에는 하나 이상의 형식이 있을 수 있습니다. 동일한 개념을 나타내는 방법의 알려진 변형 집합에 가장 적합합니다.<br/><br/>LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. **권장** 기능을 사용하여 현재 목록을 기준으로 권장되는 새 단어를 확인합니다.<br/><br>동일한 값을 갖는 목록 엔터티가 둘 이상 있는 경우, 각 엔터티가 엔드포인트 쿼리에서 반환됩니다. <br/><br/>[빠른 시작](luis-quickstart-intent-and-list-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[혼합](#mixed) | ✔|**정의**<br>Patterns.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해 패턴의 템플릿 발화에서만 사용되는 가변 길이 자리 표시자입니다.  <br><br>**예제**<br>발화에서 제목을 기준으로 도서를 검색하는 경우, pattern.any는 전체 제목을 추출합니다. pattern.any를 사용하는 템플릿 발화는 `Who wrote {BookTitle}[?]`입니다.<br/><br/>[자습서](luis-tutorial-pattern.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#composite-entity-data)|  

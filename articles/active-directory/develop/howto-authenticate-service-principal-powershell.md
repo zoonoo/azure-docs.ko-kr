@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용하여 Azure 앱에 대한 ID 만들기 | Microsoft Docs
-description: Azure PowerShell을 사용하여 Azure Active Directory 응용 프로그램 및 서비스 주체를 만들고 역할 기반 액세스 제어를 통해 리소스에 대한 액세스를 부여하는 방법을 설명합니다. 인증서를 사용하여 애플리케이션을 인증하는 방법을 보여줍니다.
+description: Azure PowerShell을 사용하여 Azure Active Directory 애플리케이션 및 서비스 주체를 만들고 역할 기반 액세스 제어를 통해 리소스에 대한 액세스를 부여하는 방법을 설명합니다. 인증서를 사용하여 애플리케이션을 인증하는 방법을 보여줍니다.
 services: active-directory
 documentationcenter: na
 author: CelesteDG
@@ -179,7 +179,7 @@ Param (
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 ```
 
-응용 프로그램 ID를 검색해야 할 경우 다음을 사용합니다.
+애플리케이션 ID를 검색해야 할 경우 다음을 사용합니다.
 
 ```powershell
 (Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
@@ -189,7 +189,7 @@ Param (
 
 보안 위협 또는 자격 증명 만료 때문에 AD 앱에 대한 자격 증명을 변경하려면 [Remove-AzureRmADAppCredential](/powershell/module/azurerm.resources/remove-azurermadappcredential) 및 [New-AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential) cmdlet을 사용합니다.
 
-응용 프로그램에 대한 자격 증명을 모두 제거하려면 다음을 사용합니다.
+애플리케이션에 대한 자격 증명을 모두 제거하려면 다음을 사용합니다.
 
 ```powershell
 Get-AzureRmADApplication -DisplayName exampleapp | Remove-AzureRmADAppCredential

@@ -7,16 +7,15 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: b6188bbf89d9aee842d7f8e232a820b59c4d9e31
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 76cdd4bd4d95c7c11906f9c02a0f5cfa2326390e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023256"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000769"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet 패키지
 
@@ -71,13 +70,13 @@ ms.locfileid: "50023256"
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  x64 응용 프로그램의 런타임 데이터 수집을 사용하도록 설정합니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  x86 응용 프로그램의 런타임 데이터 수집을 사용하도록 설정합니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-이러한 패키지는 [상태 모니터](app-insights-monitor-performance-live-website-now.md)의 핵심 런타임 모니터링 기능 중 일부를 구성합니다. 이러한 패키지를 직접 다운로드할 필요는 없으며 상태 모니터 설치 관리자를 사용하기만 하면 됩니다. 이러한 패키지가 내부적으로 작동하는 방식을 알라보려면 먼저 개발자가 만든 [블로그 게시물](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)을 참조하면 좋습니다.
+이러한 패키지는 [상태 모니터](app-insights-monitor-performance-live-website-now.md)의 핵심 런타임 모니터링 기능 중 일부를 구성합니다. 이러한 패키지를 직접 다운로드할 필요는 없으며 상태 모니터 설치 관리자를 사용하기만 하면 됩니다. 이러한 패키지가 내부적으로 작동하는 방식을 알라보려면 먼저 개발자가 만든 [블로그 게시물](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)을 참조하면 좋습니다.
 
 ## <a name="additional-packages"></a>추가 패키지
 
 | 패키지 이름 | 안정적 버전 | 설명 | 다운로드 |
 |-------------------------------|-----------------------|------------|----|
-| Microsoft.ApplicationInsights.AzureWebSites | 2.6.5 | 이 확장을 사용하여 Azure App Service에서 Application Insights 모니터링을 수행할 수 있습니다. SDK 버전 2.6.1. 지침: ikey를 사용하여 'APPINSIGHTS_INSTRUMENTATIONKEY' 응용 프로그램 설정을 추가하고 웹앱을 다시 시작하여 변경 내용을 적용합니다.| [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
+| Microsoft.ApplicationInsights.AzureWebSites | 2.6.5 | 이 확장을 사용하여 Azure App Service에서 Application Insights 모니터링을 수행할 수 있습니다. SDK 버전 2.6.1. 지침: ikey를 사용하여 'APPINSIGHTS_INSTRUMENTATIONKEY' 애플리케이션 설정을 추가하고 웹앱을 다시 시작하여 적용합니다.| [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
 | Microsoft.ApplicationInsights.Injector | 2.6.7 | 이 패키지에는 코드 없는 Application Insights 주입에 필요한 파일이 포함되어 있습니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Injector/) |
 
 ## <a name="next-steps"></a>다음 단계

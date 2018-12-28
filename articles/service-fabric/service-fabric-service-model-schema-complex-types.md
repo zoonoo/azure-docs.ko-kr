@@ -63,7 +63,7 @@ ms.locfileid: "53262506"
 ### <a name="attribute-details"></a>특성 세부 정보
 
 #### <a name="name"></a>이름
-만들려는 응용 프로그램의 이름입니다.
+만들려는 애플리케이션의 이름입니다.
 |특성|값|
 |---|---|
 |이름|이름|
@@ -141,7 +141,7 @@ ms.locfileid: "53262506"
 |기본값|false|
 
 #### <a name="maxpercentunhealthydeployedapplications"></a>MaxPercentUnhealthyDeployedApplications
-응용 프로그램에서 오류로 처리하기 전에 비정상 상태를 유지할 수 있는 배포된 응용 프로그램의 최대 허용 비율을 지정합니다. 이는 클러스터에서 응용 프로그램이 현재 배포되어 있는 노드 수에 대해 배포된 비정상 응용 프로그램의 수를 나누어 계산됩니다. 계산값은 적은 수의 노드에서 오류 하나를 허용할 수 있도록 반올림됩니다. 기본 비율: 0.
+애플리케이션에서 오류로 처리하기 전에 비정상 상태를 유지할 수 있는 배포된 애플리케이션의 최대 허용 비율을 지정합니다. 이는 클러스터에서 애플리케이션이 현재 배포되어 있는 노드 수에 대해 배포된 비정상 애플리케이션의 수를 나누어 계산됩니다. 계산값은 적은 수의 노드에서 오류 하나를 허용할 수 있도록 반올림됩니다. 기본 비율: 0.
 |특성|값|
 |---|---|
 |이름|MaxPercentUnhealthyDeployedApplications|
@@ -461,7 +461,7 @@ ApplicationPackage는 노드에 필요한 버전이 있는 Application 정보를
 ### <a name="attribute-details"></a>특성 세부 정보
 
 #### <a name="applicationtypename"></a>ApplicationTypeName
-이 응용 프로그램에 대한 유형 식별자입니다.
+이 애플리케이션에 대한 유형 식별자입니다.
 |특성|값|
 |---|---|
 |이름|ApplicationTypeName|
@@ -2892,7 +2892,7 @@ X509 인증서의 지문입니다.
 |형식|xs:string|
 
 #### <a name="protocol"></a>프로토콜
-엔드포인트의 프로토콜입니다. 서비스 매니페스트의 값을 재정의합니다. HTTPS 엔드포인트에는 응용 프로그램 매니페스트에 선언된 EndpointCertificate 및 EndpointBindingPolicy도 있어야 합니다. 프로토콜은 나중에 응용 프로그램 업그레이드 시 변경할 수 없습니다. 
+엔드포인트의 프로토콜입니다. 서비스 매니페스트의 값을 재정의합니다. HTTPS 엔드포인트에는 애플리케이션 매니페스트에 선언된 EndpointCertificate 및 EndpointBindingPolicy도 있어야 합니다. 프로토콜은 나중에 애플리케이션 업그레이드 시 변경할 수 없습니다. 
 |특성|값|
 |---|---|
 |이름|프로토콜|
@@ -3020,7 +3020,7 @@ URI 서비스 매니페스트의 값을 재정의합니다. 체계입니다(예:
 |use|필수|
 
 #### <a name="protocol"></a>프로토콜
-http, https, tcp, udp 등의 엔드포인트 프로토콜입니다. HTTPS 엔드포인트에는 응용 프로그램 매니페스트에 선언된 EndpointCertificate 및 EndpointBindingPolicy도 있어야 합니다. 프로토콜은 나중에 응용 프로그램 업그레이드 시 변경할 수 없습니다. 
+http, https, tcp, udp 등의 엔드포인트 프로토콜입니다. HTTPS 엔드포인트에는 애플리케이션 매니페스트에 선언된 EndpointCertificate 및 EndpointBindingPolicy도 있어야 합니다. 프로토콜은 나중에 애플리케이션 업그레이드 시 변경할 수 없습니다. 
 |특성|값|
 |---|---|
 |이름|프로토콜|
@@ -3437,7 +3437,7 @@ EntryPoint에서 지정한 실행 파일은 일반적으로 장기 실행 서비
 ### <a name="attribute-details"></a>특성 세부 정보
 
 #### <a name="isexternalexecutable"></a>IsExternalExecutable
-실행 파일이 응용 프로그램 패키지의 외부에 있는 경우 True입니다. 응용 프로그램 패키지의 프로그램 존재 검사를 건너뜁니다.
+실행 파일이 애플리케이션 패키지의 외부에 있는 경우 True입니다. 애플리케이션 패키지의 프로그램 존재 검사를 건너뜁니다.
 |특성|값|
 |---|---|
 |이름|IsExternalExecutable|
@@ -6938,7 +6938,7 @@ Persistence(보존) 및 Eviction(제거) 정책에 대한 Properties(속성)를 
 ### <a name="attribute-details"></a>특성 세부 정보
 
 #### <a name="maxpercentunhealthyservices"></a>MaxPercentUnhealthyServices
-응용 프로그램을 비정상으로 처리하기 전에 허용되는 최대 비정상 서비스 비율을 지정합니다. 기본 비율: 0.
+애플리케이션을 비정상으로 처리하기 전에 허용되는 최대 비정상 서비스 비율을 지정합니다. 기본 비율: 0.
 |특성|값|
 |---|---|
 |이름|MaxPercentUnhealthyServices|

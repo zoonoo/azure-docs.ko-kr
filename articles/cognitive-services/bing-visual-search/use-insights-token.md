@@ -72,7 +72,7 @@ Windows에서 실행되는 이 코드를 가져오려면 [Visual Studio 2017](ht
 
 이 빠른 시작에서는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키를 사용할 수 있습니다.
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+## <a name="running-the-application"></a>애플리케이션 실행
 
 이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 
@@ -248,7 +248,7 @@ namespace VisualSearchInsightsToken
 
 이 빠른 시작에서는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키를 사용할 수 있습니다.
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+## <a name="running-the-application"></a>애플리케이션 실행
 
 이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 
@@ -366,7 +366,7 @@ public class InsightsToken {
 
 이 빠른 시작에서는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키를 사용할 수 있습니다.
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+## <a name="running-the-application"></a>애플리케이션 실행
 
 이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 

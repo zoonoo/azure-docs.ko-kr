@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 9ec8cbe3d2467714a4b2586db79566aaef30d6d7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 60e0485c28d90050a6ff775db41f8696a09fe033
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627947"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165761"
 ---
 # <a name="train-a-model"></a>모델 학습
 
@@ -26,21 +26,17 @@ ms.locfileid: "51627947"
 
 2.  프로젝트의 [데이터] 탭에 프로젝트 언어 쌍에 대한 관련 문서가 모두 표시됩니다. 모델 훈련에 사용할 문서를 수동으로 선택합니다. 이 화면에서 훈련, 튜닝, 테스트 문서를 선택할 수 있습니다. 또는 훈련 세트만 선택하고 튜닝 세트와 테스트 세트는 Custom Translator가 생성하도록 할 수도 있습니다.
 
-    -  문서 이름: 문서의 이름입니다.
+    -  문서 이름: 문서 이름입니다.
 
-    -  페어링: 병렬 문서인지 단일어 문서인지를 나타냅니다.
+    -  페어링: 이 문서가 병렬 문서인지 단일어 문서인지를 나타냅니다. 현재 단일어 문서에는 훈련이 지원되지 않습니다.
 
-    - 현재 단일어 문서에는 훈련이 지원되지 않습니다.
-
-    -  문서 유형: 훈련, 튜닝, 테스트 또는 사전일 수 있습니다.
+    -  문서 유형: 학습, 튜닝, 테스트 또는 사전일 수 있습니다.
 
     -  언어 쌍: 프로젝트의 원본 언어와 대상 언어를 보여 줍니다.
 
-    -  원본 문장: 소스 파일에서 추출한 문장의 개수를
-    - 보여 줍니다.
+    -  원본 문장: 원본 파일에서 추출한 문장의 개수를 표시합니다.
 
-    -  대상 문장: 타깃 파일에서 추출한 문장의 개수를
-    - 보여 줍니다.
+    -  대상 문장: 대상 파일에서 추출한 문장의 개수를 표시합니다.
 
     ![모델 훈련](media/how-to/how-to-train-model.png)
 

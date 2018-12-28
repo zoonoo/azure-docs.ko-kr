@@ -1,28 +1,29 @@
 ---
-title: Azure Policy를 사용하여 비준수 리소스 수정
+title: 규정 비준수 리소스 수정
 description: 이 방법 문서에서는 Azure Policy에서 정책을 준수하지 않는 리소스를 수정하는 과정을 안내합니다.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/25/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: adba2322bce5f0884cba51078e65feeaeaf193d9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.custom: seodec18
+ms.openlocfilehash: 093b49bea167efb12b941f8f0baff6fbdae5be25
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392699"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312649"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
-**deployIfNotExists** 정책을 준수하지 않는 리소스는 **수정**을 통해 정책을 준수하는 상태로 설정할 수 있습니다. 기존 리소스에 할당된 정책의 **deployIfNotExists** 효과를 실행하도록 Policy에 명령하는 방식으로 수정을 수행할 수 있습니다. 이 방법 문서에서는 수정을 수행하는 데 필요한 단계를 안내합니다.
+**deployIfNotExists** 정책을 준수하지 않는 리소스는 **수정**을 통해 정책을 준수하는 상태로 설정할 수 있습니다. 기존 리소스에 할당된 정책의 **deployIfNotExists** 효과를 실행하도록 Policy에 명령하는 방식으로 수정을 수행할 수 있습니다. 이 문서에서는 Policy를 통한 수정을 이해하고 수행하는 데 필요한 단계를 보여 줍니다.
 
 ## <a name="how-remediation-security-works"></a>수정 보안의 작동 방식
 
 Policy는 **deployIfNotExists** 정책 정의의 템플릿을 실행할 때 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md)를 사용합니다.
-Policy는 각 할당용 관리 ID를 자동으로 만듭니다. 단, 관리 ID를 부여할 역할 관련 세부 정보를 제공해야 합니다. 관리 ID에서 역할이 누락된 경우에는 정책 또는 정책이 포함된 이니셔티브 할당 중에 역할이 누락되었음이 표시됩니다. 포털 사용 시 Policy는 할당이 시작되면 나열된 역할을 관리 ID에 자동으로 부여합니다.
+Policy는 각 할당용 관리 ID를 만듭니다. 단, 관리 ID를 부여할 역할 관련 세부 정보가 있어야 합니다. 관리 ID에서 역할이 누락된 경우 정책 또는 이니셔티브 할당 중에 이 오류가 표시됩니다. 포털 사용 시 Policy는 할당이 시작되면 나열된 역할을 관리 ID에 자동으로 부여합니다.
 
 ![관리 ID - 역할 누락](../media/remediate-resources/missing-role.png)
 
@@ -31,8 +32,7 @@ Policy는 각 할당용 관리 ID를 자동으로 만듭니다. 단, 관리 ID�
 
 ## <a name="configure-policy-definition"></a>정책 정의 구성
 
-첫 단계에서는 **deployIfNotExists**가 포함된 템플릿의 콘텐츠를 정상적으로 배포하려면 정책 정의에 포함되어 있어야 하는 역할을 정의합니다. 이렇게 하려면 **details** 속성 아래에 **roleDefinitionIds** 속성을 추가합니다. 이 속성은 환경의 역할과 일치하는 문자열 배열입니다.
-전체 예제는 [deployIfNotExists 예제](../concepts/effects.md#deployifnotexists-example)를 참조하세요.
+첫 단계에서는 **deployIfNotExists**가 포함된 템플릿의 콘텐츠를 정상적으로 배포하려면 정책 정의에 포함되어 있어야 하는 역할을 정의합니다. 이렇게 하려면 **details** 속성 아래에 **roleDefinitionIds** 속성을 추가합니다. 이 속성은 환경의 역할과 일치하는 문자열 배열입니다. 전체 예제는 [deployIfNotExists 예제](../concepts/effects.md#deployifnotexists-example)를 참조하세요.
 
 ```json
 "details": {
@@ -123,13 +123,13 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. 역할 정의를 수동으로 추가해야 하는 리소스 또는 리소스 상위 컨테이너(리소스 그룹, 구독, 관리 그룹)로 이동합니다.
 
-1. 리소스 페이지에서 **액세스 제어(IAM)** 링크를 클릭한 다음 액세스 제어 페이지 위쪽의 **+ 추가**를 클릭합니다.
+1. 리소스 페이지에서 **액세스 제어(IAM)** 링크를 클릭한 다음 액세스 제어 페이지 위쪽의 **+ 역할 할당 추가**를 클릭합니다.
 
 1. 정책 정의에서 **roleDefinitionIds**와 일치하는 적절한 역할을 선택합니다. **다음에 대한 액세스 할당:** 은 기본값인 ‘Azure AD 사용자, 그룹 또는 응용 프로그램’으로 설정해 둡니다. **선택** 상자에 앞에서 찾은 할당 리소스 ID 부분을 붙여넣거나 입력합니다. 검색이 완료되면 이름이 같은 개체를 클릭하여 ID를 선택하고 **저장**을 클릭합니다.
 
 ## <a name="create-a-remediation-task"></a>수정 작업 만들기
 
-평가 중에는 **deployIfNotExists** 효과가 포함된 정책 할당이 비준수 리소스가 있는지를 확인합니다. 비준수 리소스가 있으면 **수정** 페이지에서 세부 정보가 제공됩니다. 비준수 리소스가 있는 정책 목록을 통해 **수정 작업**이 트리거됩니다. 그러면 **deployIfNotExists** 템플릿에서 배포가 작성됩니다.
+평가 중에는 **deployIfNotExists** 효과가 포함된 정책 할당이 비준수 리소스가 있는지를 확인합니다. 비준수 리소스가 있으면 **수정** 페이지에서 세부 정보가 제공됩니다. 비준수 리소스가 있는 정책 목록을 통해 **수정 작업**이 트리거됩니다. 이 옵션을 선택하면 **deployIfNotExists** 템플릿에서 배포가 작성됩니다.
 
 **수정 작업**을 만들려면 다음 작업을 수행합니다.
 
@@ -160,7 +160,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
    ![수정 - 리소스 작업 상황에 맞는 메뉴](../media/remediate-resources/resource-task-context-menu.png)
 
-**수정 작업**을 통해 배포한 리소스는 잠시 후에 정책 준수 페이지의 **배포된 리소스** 탭에 추가됩니다.
+**수정 작업**을 통해 배포한 리소스는 정책 준수 페이지의 **배포된 리소스** 탭에 추가됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

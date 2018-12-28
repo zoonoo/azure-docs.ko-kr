@@ -68,7 +68,7 @@ ms.locfileid: "51612223"
 
 앱을 실행하면 다른 프로토콜을 사용하여 비디오를 재생하는 데 사용할 수 있는 URL이 표시됩니다. 
 
-1. Ctrl+F5를 눌러서 *EncodeAndStreamFiles* 응용 프로그램을 실행합니다.
+1. Ctrl+F5를 눌러서 *EncodeAndStreamFiles* 애플리케이션을 실행합니다.
 2. Apple의 **HLS** 프로토콜(*manifest(format=m3u8-aapl)* 로 끝남)을 선택하고 콘솔에서 스트리밍 URL을 복사합니다.
 
 ![출력](./media/stream-files-tutorial-with-api/output.png)
@@ -83,7 +83,7 @@ ms.locfileid: "51612223"
 > 플레이어가 https 사이트에 호스트 될 경우 URL을 "https"로 업데이트해야 합니다.
 
 1. 웹 브라우저를 열고 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)로 이동합니다.
-2. 응용 프로그램을 실행할 때 얻은 URL 값 중 하나를 **URL:** 상자에 붙여넣습니다. 
+2. 애플리케이션을 실행할 때 얻은 URL 값 중 하나를 **URL:** 상자에 붙여넣습니다. 
 3. **플레이어 업데이트**를 누릅니다.
 
 Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 환경에서는 사용할 수 없습니다. 
@@ -106,7 +106,7 @@ az group delete --name amsResourceGroup
 
 ## <a name="multithreading"></a>다중 스레딩
 
-Azure Media Services v3 SDK는 스레드로부터 안전하지 않습니다. 다중 스레드 응용 프로그램으로 작업하는 경우, 스레드마다 새로운 AzureMediaServicesClient 개체를 생성해야 합니다.
+Azure Media Services v3 SDK는 스레드로부터 안전하지 않습니다. 다중 스레드 애플리케이션으로 작업하는 경우, 스레드마다 새로운 AzureMediaServicesClient 개체를 생성해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

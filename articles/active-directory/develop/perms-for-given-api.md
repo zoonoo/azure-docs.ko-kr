@@ -1,6 +1,6 @@
 ---
 title: 지정된 API에 대한 사용 권한을 선택하는 방법 | Microsoft Docs
-description: 개발하는 응용 프로그램의 클라이언트 및 리소스 응용 프로그램에 대한 사용 권한 요청 방법을 알아봅니다.
+description: 개발하는 애플리케이션의 클라이언트 및 리소스 애플리케이션에 대한 사용 권한 요청 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG

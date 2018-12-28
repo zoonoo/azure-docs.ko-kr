@@ -1,5 +1,5 @@
 ---
-title: 'Saas 앱: 많은 Azure SQL 데이터베이스의 성능 모니터링 | Microsoft Docs'
+title: 'SaaS 앱: 많은 Azure SQL Database의 성능 모니터링 | Microsoft Docs'
 description: 멀티 테넌트 SaaS 앱에서 Azure SQL Database 및 풀의 성능 모니터링 및 관리
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 86fdd7b0bd8ac76ddb2ac30ff324b80101c177e8
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353903"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259140"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>멀티 테넌트 SaaS 앱에서 Azure SQL Database 및 풀의 성능 모니터링 및 관리
 
@@ -75,7 +75,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 
 이 스크립트는 테넌트 17개를 5분 이내에 배포합니다.
 
-*New-TenantBatch* 스크립트는 테넌트의 배치를 만드는 [Resource Manager](../azure-resource-manager/index.md) 템플릿의 중첩 또는 연결된 집합을 사용하며, 기본적으로 **basetenantdb** 데이터베이스를 카탈로그 서버에 복사하여 새 테넌트 데이터베이스를 만든 다음 이들을 카탈로그에 등록하며, 끝으로 이들을 테넌트 이름과 장소 유형으로 초기화합니다. 이 방법은 앱이 새 테넌트를 프로비전하는 방법과 일치합니다. *basetenantdb*에 대해 실행한 변경은 이후 프로비전하는 새 테넌트에 모두 적용됩니다. *기존* 테넌트 데이터베이스(*basetenantdb* 데이터베이스 포함)에 대해 스키마를 변경하는 방법은 [스키마 관리 자습서](saas-tenancy-schema-management.md)를 참조하세요.
+*New-TenantBatch* 스크립트는 테넌트의 배치를 만드는 [Resource Manager](../azure-resource-manager/index.yml) 템플릿의 중첩 또는 연결된 집합을 사용하며, 기본적으로 **basetenantdb** 데이터베이스를 카탈로그 서버에 복사하여 새 테넌트 데이터베이스를 만든 다음 이들을 카탈로그에 등록하며, 끝으로 이들을 테넌트 이름과 장소 유형으로 초기화합니다. 이 방법은 앱이 새 테넌트를 프로비전하는 방법과 일치합니다. *basetenantdb*에 대해 실행한 변경은 이후 프로비전하는 새 테넌트에 모두 적용됩니다. *기존* 테넌트 데이터베이스(*basetenantdb* 데이터베이스 포함)에 대해 스키마를 변경하는 방법은 [스키마 관리 자습서](saas-tenancy-schema-management.md)를 참조하세요.
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>모든 테넌트 데이터베이스에 대한 사용 시뮬레이션
 

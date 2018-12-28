@@ -3,19 +3,19 @@ title: Azure Database for MySQL에 대한 연결 문제 해결 | Microsoft Docs
 description: Azure Database for MySQL에 대한 연결 문제를 해결하는 방법을 알아봅니다.
 keywords: MySQL 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
 services: mysql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 7688ddd28dfab2ebb8eb0b5e8d9bb1189ec62564
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 901c8f0c903a7e26e82d89209ea4b0ec69057d23
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285305"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165414"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 연결 문제 해결
 
@@ -49,9 +49,9 @@ ms.locfileid: "51285305"
 
 애플리케이션에서 Azure Database for MySQL 연결에 계속 실패하는 경우 일반적으로 다음 문제 중 하나를 나타낼 수 있습니다.
 
-* 방화벽 구성: Azure Database for MySQL 서버 또는 클라이언트 쪽 방화벽에서 연결을 차단하고 있습니다.
-* 클라이언트 쪽 네트워크 재구성: 새 IP 주소 또는 프록시 서버가 추가되었습니다.
-* 사용자 오류: 예를 들어 연결 문자열의 서버 이름 또는 사용자 이름에 누락된 *@servername* 접미사와 같은 연결 매개 변수가 잘못 입력되었을 수 있습니다.
+* 서버 방화벽 구성: Azure Database for MySQL 서버 방화벽이 프록시 서버 및 게이트웨이를 포함하여 클라이언트에서 연결을 허용하도록 구성되어 있는지 확인합니다.
+* 클라이언트 방화벽 구성: 클라이언트에서 방화벽은 데이터베이스 서버에 연결을 허용해야 합니다. 일부 방화벽에서 MySQL과 같은 애플리케이션 이름뿐만 아니라 연결할 수 없는 서버의 IP 주소 및 포트도 허용되어야 합니다.
+* 사용자 오류: 연결 문자열의 서버 이름 또는 사용자 이름에 누락된 *@servername* 접미사와 같은 연결 매개 변수가 잘못 입력되었을 수 있습니다.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>영구적인 연결 문제를 해결하는 단계
 

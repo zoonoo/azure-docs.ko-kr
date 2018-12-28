@@ -51,7 +51,7 @@ ms.locfileid: "53278460"
   </tr>
   <tr>
     <td>자격 증명</td>
-    <td>PACPAC 응용 프로그램 또는 스크립트 실행을 위해 데이터베이스에 연결할 때 사용할 사용자 이름 및 암호입니다. <p>Elastic Database 작업 데이터베이스로 보내고 저장하기 전에 암호가 암호화됩니다.  설치 스크립트에서 생성 및 업로드된 자격 증명을 통해 Elastic Database 작업 서비스에서 암호를 해독합니다.</td>
+    <td>PACPAC 애플리케이션 또는 스크립트 실행을 위해 데이터베이스에 연결할 때 사용할 사용자 이름 및 암호입니다. <p>Elastic Database 작업 데이터베이스로 보내고 저장하기 전에 암호가 암호화됩니다.  설치 스크립트에서 생성 및 업로드된 자격 증명을 통해 Elastic Database 작업 서비스에서 암호를 해독합니다.</td>
     <td><p>Get-AzureSqlJobCredential</p>
     <p>New-AzureSqlJobCredential</p><p>Set-AzureSqlJobCredential</p></td></td>
   </tr>
@@ -189,7 +189,7 @@ ms.locfileid: "53278460"
 </table>
 
 ## <a name="supported-elastic-database-jobs-group-types"></a>지원되는 Elastic Database 작업 그룹 유형
-이 작업은 데이터베이스 그룹에 대해 DACPAC 응용 프로그램 또는 Transact-SQL(T-SQL) 스크립트를 실행합니다. 데이터베이스 그룹에 대해 실행할 작업이 제출되면 작업은 자식 작업으로 "확장"되며 여기에서 각 자식 작업은 그룹의 단일 데이터베이스에 대해 요청된 실행을 수행합니다. 
+이 작업은 데이터베이스 그룹에 대해 DACPAC 애플리케이션 또는 Transact-SQL(T-SQL) 스크립트를 실행합니다. 데이터베이스 그룹에 대해 실행할 작업이 제출되면 작업은 자식 작업으로 "확장"되며 여기에서 각 자식 작업은 그룹의 단일 데이터베이스에 대해 요청된 실행을 수행합니다. 
 
 두 가지 형식의 그룹을 만들 수 있습니다. 
 
@@ -230,7 +230,7 @@ Elastic Database 작업에 대한 보안 모범 사례는 다음과 같습니다
     Set-AzureSqlJobCredential -CredentialName $credentialName -Credential $credential 
 
 ## <a name="to-define-an-elastic-database-shard-map-target"></a>Elastic Database 분할된 데이터베이스 맵 대상을 정의하려면
-[Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 통해 만든 분할된 데이터베이스 집합의 모든 데이터베이스에 대해 작업을 실행하려면 분할된 데이터베이스 맵을 데이터베이스 대상으로 사용합니다. 이 예제에서는 Elastic Database 클라이언트 라이브러리를 사용하여 만든 분할된 데이터베이스 응용 프로그램이 필요합니다. [Elastic Database 도구 샘플 시작](sql-database-elastic-scale-get-started.md)을 참조하세요.
+[Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 통해 만든 분할된 데이터베이스 집합의 모든 데이터베이스에 대해 작업을 실행하려면 분할된 데이터베이스 맵을 데이터베이스 대상으로 사용합니다. 이 예제에서는 Elastic Database 클라이언트 라이브러리를 사용하여 만든 분할된 데이터베이스 애플리케이션이 필요합니다. [Elastic Database 도구 샘플 시작](sql-database-elastic-scale-get-started.md)을 참조하세요.
 
 분할된 데이터베이스 맵 관리자 데이터베이스를 데이터베이스 대상으로 설정한 후 분할된 특정 데이터베이스 맵을 대상으로 지정해야 합니다.
 
@@ -608,15 +608,15 @@ Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을
     $jobTriggers = Get-AzureSqlJobTrigger -JobName $jobName
     Write-Output $jobTriggers
 
-## <a name="to-create-a-data-tier-application-dacpac-for-execution-across-databases"></a>데이터베이스에서 실행할 DACPAC(데이터 계층 응용 프로그램)를 만들려면
-DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.microsoft.com/library/ee210546.aspx)을 참조하세요. DACPAC를 배포하려면 [New-AzureSqlJobContent cmdlet](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent)을 사용합니다. DACPAC는 서비스에 액세스할 수 있어야 합니다. 생성된 DACPAC를 Azure Storage에 업로드하고 DACPAC에 대한 서 [공유 액세스 서명](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 을 만드는 것이 좋습니다.
+## <a name="to-create-a-data-tier-application-dacpac-for-execution-across-databases"></a>데이터베이스에서 실행할 DACPAC(데이터 계층 애플리케이션)를 만들려면
+DACPAC를 만들려면 [데이터 계층 애플리케이션](https://msdn.microsoft.com/library/ee210546.aspx)을 참조하세요. DACPAC를 배포하려면 [New-AzureSqlJobContent cmdlet](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent)을 사용합니다. DACPAC는 서비스에 액세스할 수 있어야 합니다. 생성된 DACPAC를 Azure Storage에 업로드하고 DACPAC에 대한 서 [공유 액세스 서명](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 을 만드는 것이 좋습니다.
 
     $dacpacUri = "{Uri}"
     $dacpacName = "{Dacpac Name}"
     $dacpac = New-AzureSqlJobContent -DacpacUri $dacpacUri -ContentName $dacpacName 
     Write-Output $dacpac
 
-### <a name="to-update-a-data-tier-application-dacpac-for-execution-across-databases"></a>데이터베이스에서 실행할 DACPAC(데이터 계층 응용 프로그램)를 업데이트하려면
+### <a name="to-update-a-data-tier-application-dacpac-for-execution-across-databases"></a>데이터베이스에서 실행할 DACPAC(데이터 계층 애플리케이션)를 업데이트하려면
 Elastic Database 작업 내에 등록된 기존 DACPAC를 새 URI를 가리키도록 업데이트할 수 있습니다. [**Set-AzureSqlJobContentDefinition cmdlet**](/powershell/module/elasticdatabasejobs/set-azuresqljobcontentdefinition)을 사용하여 기존에 등록된 DACPAC에서 DACPAC URI를 업데이트합니다.
 
     $dacpacName = "{Dacpac Name}"

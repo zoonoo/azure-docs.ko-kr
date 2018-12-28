@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 테넌트에 기존 Azure 구독을 추가하는 방법 | Microsoft Docs
-description: Azure Active Directory 테넌트에 기존 Azure 구독을 추가하는 방법에 대해 알아봅니다.
+title: 테넌트에 기존 Azure 구독 추가 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory 테넌트에 기존 Azure 구독을 추가하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: dd62b22eca40a214c5b08a9bc48815e40fe90e47
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 4e4d4d9f34c8220ba70c64f073557f0293881c3e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984089"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083872"
 ---
-# <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>방법: Azure Active Directory에 Azure 구독 연결 또는 추가
+# <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 Azure 구독에는 Azure AD(Active Directory)와의 트러스트 관계가 설정되어 있습니다. 즉, 구독은 Azure AD의 사용자/서비스/디바이스 인증을 신뢰합니다. 여러 구독이 동일한 Azure AD 디렉터리를 신뢰할 수는 있지만 각 구독은 디렉터리를 하나만 신뢰할 수 있습니다.
 
 구독이 만료되면 구독과 연결된 기타 모든 리소스에 대한 액세스 권한도 손실됩니다. 그러나 Azure AD 디렉터리는 Azure에 남아 있으므로 다른 Azure 구독을 사용하여 디렉터리를 연결하고 관리할 수 있습니다.

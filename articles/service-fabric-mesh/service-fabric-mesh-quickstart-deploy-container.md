@@ -44,7 +44,7 @@ az account set --subscription "<subscriptionID>"
 az group create --name myResourceGroup --location eastus 
 ```
 
-## <a name="deploy-the-application"></a>응용 프로그램 배포
+## <a name="deploy-the-application"></a>애플리케이션 배포
 `az mesh deployment create` 명령을 사용하여 리소스 그룹에 응용 프로그램을 만듭니다.  다음을 실행합니다.
 
 ```azurecli-interactive

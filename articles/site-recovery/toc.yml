@@ -344,7 +344,7 @@ items:
       href: site-recovery-sap.md
     - name: 파일 서버
       href: file-server-disaster-recovery.md
-    - name: IIS 기반 웹 응용 프로그램
+    - name: IIS 기반 웹 애플리케이션
       href: site-recovery-iis.md
     - name: Citrix XenApp 및 XenDesktop
       href: site-recovery-citrix-xenapp-and-xendesktop.md

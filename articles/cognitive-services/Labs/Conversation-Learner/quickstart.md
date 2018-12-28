@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bc0cf0900ec9f87c75091b3bf219d92e0859aa1f
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282142"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166135"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Node.js를 사용하여 Conversation Learner 모델 만들기
 
@@ -164,7 +164,7 @@ cp .env.example .env
 
 - [Stack Overflow](https://stackoverflow.com)에 대한 질문에 "microsoft cognitive" 태그 지정
 - [사용자 의견 페이지](https://aka.ms/conversation-learner-uservoice)에서 기능 요청
-- [github 리포지토리](https://github.com/Microsoft/ConversationLearner-Samples)에서 문제 열기
+- [GitHub 리포지토리](https://github.com/Microsoft/ConversationLearner-Samples)에서 문제 열기
 
 ## <a name="contributing"></a>참여
 

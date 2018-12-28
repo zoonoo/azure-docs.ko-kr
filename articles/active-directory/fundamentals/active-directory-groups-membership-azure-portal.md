@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에서 다른 그룹의 그룹을 추가하거나 제거하는 방법 | Microsoft Docs
-description: Azure Active Directory를 사용하여 다른 그룹에서 그룹을 추가하거나 제거하는 방법을 알아봅니다.
+title: 다른 그룹에서 그룹 추가 또는 제거 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory를 사용하여 다른 그룹에서 그룹을 추가하거나 제거하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 09e023d1d562ea53d9927adf609335beac38a2d7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 12f557e9453db0d8bff2ab91fe8453e026e0320c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468033"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104274"
 ---
-# <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>방법: Azure Active Directory를 사용하여 다른 그룹에서 그룹 추가 또는 제거
+# <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Azure Active Directory를 사용하여 다른 그룹에서 그룹 추가 또는 제거
 이 문서는 Azure Active Directory를 사용하여 다른 그룹에서 그룹을 추가 및 제거하는 데 도움이 됩니다.
 
 >[!Note]
@@ -29,7 +29,7 @@ ms.locfileid: "49468033"
 기존 보안 그룹을 다른 기존 그룹(중첩 그룹이라고도 함)에 추가하여 멤버 그룹(하위 그룹) 및 부모 그룹을 만들 수 있습니다. 멤버 그룹은 부모 그룹의 특성과 속성을 상속하므로 구성 시간이 절약됩니다.
 
 >[!Important]
->다음 작업은 현재 지원되지 않습니다.<ul><li>Office 365 그룹에 보안 그룹 추가</li><li>보안 그룹 또는 다른 Office 365 그룹에 Office 365 그룹 추가</li><li>중첩된 그룹에 앱 할당</li><li>중첩된 그룹에 라이선스 적용</li></ul>
+>다음 작업은 현재 지원되지 않습니다.<ul><li>온-프레미스 Active Directory와 동기화되는 그룹에 그룹 추가</li><li>Office 365 그룹에 보안 그룹 추가</li><li>보안 그룹 또는 다른 Office 365 그룹에 Office 365 그룹 추가</li><li>중첩된 그룹에 앱 할당</li><li>중첩된 그룹에 라이선스 적용</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>그룹을 다른 그룹의 멤버로 추가하려면
 

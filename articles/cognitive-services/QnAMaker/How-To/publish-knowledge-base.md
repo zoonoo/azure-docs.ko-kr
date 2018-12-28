@@ -1,6 +1,6 @@
 ---
-title: 기술 자료 게시 - QnA Maker
-titleSuffix: Azure Cognitive Services
+title: 기술 자료 게시
+titleSuffix: QnA Maker - Azure Cognitive Services
 description: 기술 자료 게시는 기술 자료를 질문-답변 엔드포인트로 사용할 수 있도록 하는 최종 단계입니다. 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다.
 services: cognitive-services
 author: tulasim88
@@ -8,22 +8,25 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/11/2018
 ms.author: tulasim
-ms.openlocfilehash: eceb0554d35935f1aee77c4c054cb7e65b327845
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: deeebd99425bc1ec1ed2ae76ef4852119a9c10ea
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033418"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342445"
 ---
-# <a name="publish-a-knowledge-base"></a>기술 자료 게시
+# <a name="publish-a-knowledge-base-using-the-qna-maker-portal"></a>QnA Maker 포털을 사용하여 기술 자료 게시
 
-기술 자료 게시는 기술 자료를 질문-답변 엔드포인트로 사용할 수 있도록 하는 최종 단계입니다. 
+기술 자료를 게시하는 것은 기술 자료를 클라이언트 애플리케이션에 대해 질문-답변 엔드포인트로 사용할 수 있도록 하는 최종 단계입니다. 
 
 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다.
 
 ![게시 프로덕션 테스트 인덱스](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
 ## <a name="publish-a-knowledge-base"></a>기술 자료 게시
 
@@ -33,8 +36,12 @@ ms.locfileid: "47033418"
 
 2. 다시 **게시**를 선택하여 응용 프로그램 또는 봇 코드에 사용할 수 있는 엔드포인트 세부 정보를 확인합니다.
 
-    ![기술 자료 게시](../media/qnamaker-how-to-publish-kb/publish-success.png)
+    ![성공적으로 게시된 기술 자료](../media/qnamaker-how-to-publish-kb/publish-success.png)
     
+## <a name="clean-up-resources"></a>리소스 정리
+
+기술 자료를 사용한 작업이 완료되면 QnA Maker 포털에서 제거합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]

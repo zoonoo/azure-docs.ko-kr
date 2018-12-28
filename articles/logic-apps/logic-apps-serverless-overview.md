@@ -23,9 +23,9 @@ ms.locfileid: "49393782"
 
 ## <a name="what-is-serverless"></a>서버를 사용하지 않음은 무엇입니까?
 
-서버를 사용하지 않음은 서버가 없음을 의미하지 않습니다. 이는 개발자가 서버에 대한 걱정을 할 필요가 없음을 의미합니다.  기존 응용 프로그램 개발의 많은 부분에서 응용 프로그램의 요구에 맞는 솔루션의 크기 조정, 호스팅 및 모니터링에 대한 질문에 대답합니다.  서버를 사용하지 않으면 이러한 질문은 솔루션의 일부로 취급됩니다.  또한 서버를 사용하지 않는 응용 프로그램은 사용량 기반 계획에 대해 요금이 청구됩니다.  응용 프로그램이 사용되지 않는 경우 비용이 발생되지 않습니다.  이 기능을 통해 개발자는 솔루션의 비즈니스 논리에만 온전히 집중할 수 있습니다.
+서버를 사용하지 않음은 서버가 없음을 의미하지 않습니다. 이는 개발자가 서버에 대한 걱정을 할 필요가 없음을 의미합니다.  기존 애플리케이션 개발의 많은 부분에서 애플리케이션의 요구에 맞는 솔루션의 크기 조정, 호스팅 및 모니터링에 대한 질문에 대답합니다.  서버를 사용하지 않으면 이러한 질문은 솔루션의 일부로 취급됩니다.  또한 서버를 사용하지 않는 애플리케이션은 사용량 기반 계획에 대해 요금이 청구됩니다.  애플리케이션이 사용되지 않는 경우 비용이 발생되지 않습니다.  이 기능을 통해 개발자는 솔루션의 비즈니스 논리에만 온전히 집중할 수 있습니다.
 
-서버를 사용하지 않는 Azure의 핵심 서비스는 [Azure Functions](https://azure.microsoft.com/services/functions/) 및 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)입니다.  이러한 두 솔루션은 위의 원칙을 따르고 개발자가 최소한의 코드로 강력한 클라우드 응용 프로그램을 빌드할 수 있도록 합니다.
+서버를 사용하지 않는 Azure의 핵심 서비스는 [Azure Functions](https://azure.microsoft.com/services/functions/) 및 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)입니다.  이러한 두 솔루션은 위의 원칙을 따르고 개발자가 최소한의 코드로 강력한 클라우드 애플리케이션을 빌드할 수 있도록 합니다.
 
 ## <a name="what-are-azure-functions"></a>Azure Functions란?
 
@@ -39,9 +39,9 @@ Azure Logic Apps는 클라우드에서 확장 가능한 통합 및 워크플로�
 
 Logic Apps를 시작하려면 [첫 번째 논리 앱 만들기](quickstart-create-first-logic-app-workflow.md)로 시작합니다.  Logic Apps에 대한 자세한 기술 정보는 [개발자 참조](logic-apps-workflow-actions-triggers.md)를 참조하세요.
 
-## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Azure에서 서버를 사용하지 않는 응용 프로그램을 빌드 및 배포하려면 어떻게 해야 합니까?
+## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Azure에서 서버를 사용하지 않는 애플리케이션을 빌드 및 배포하려면 어떻게 해야 합니까?
 
-Azure는 서버를 사용하지 않는 앱의 개발, 배포 및 관리에 대한 풍부한 도구 집합을 제공합니다.  앱은 Azure Portal에서 직접 빌드하거나 [Visual Studio의 도구](logic-apps-serverless-get-started-vs.md)를 사용하여 빌드할 수 있습니다.  응용 프로그램이 개발되면 [즉시 배포](logic-apps-create-deploy-template.md)될 수 있습니다.  Azure는 또한 서버를 사용하지 않는 앱에 대한 모니터링을 제공합니다.  이 모니터링은 API 또는 SDK를 통해 Azure Portal에서 액세스하거나 Log Analytics 및 Application Insights에 대해 통합된 도구를 사용하여 액세스할 수 있습니다.
+Azure는 서버를 사용하지 않는 앱의 개발, 배포 및 관리에 대한 풍부한 도구 집합을 제공합니다.  앱은 Azure Portal에서 직접 빌드하거나 [Visual Studio의 도구](logic-apps-serverless-get-started-vs.md)를 사용하여 빌드할 수 있습니다.  애플리케이션이 개발되면 [즉시 배포](logic-apps-create-deploy-template.md)될 수 있습니다.  Azure는 또한 서버를 사용하지 않는 앱에 대한 모니터링을 제공합니다.  이 모니터링은 API 또는 SDK를 통해 Azure Portal에서 액세스하거나 Log Analytics 및 Application Insights에 대해 통합된 도구를 사용하여 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4c54fe7c9ae5555ad1b8ba6919c70c8f7fa49125
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625456"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252111"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 응용 프로그램의 비밀 응용 프로그램 설정을 안전하게 저장
 
 ## <a name="overview"></a>개요
 이 문서에서는 Azure 응용 프로그램의 보안 응용 프로그램 구성 설정을 안전하게 저장하는 방법에 대해 설명합니다.
 
-일반적으로 모든 웹 응용 프로그램 구성 설정은 Web.config와 같은 구성 파일에 저장됩니다. 이렇게 하면 Github와 같은 공개 소스 제어 시스템에 클라우드 자격 증명과 같은 비밀 설정을 체크 인하게 됩니다. 한편 소스 코드를 변경하고 개발 설정을 재구성하는 데 필요한 오버헤드로 인해 보안 모범 사례를 따르기 어려울 수 있습니다.
+일반적으로 모든 웹 응용 프로그램 구성 설정은 Web.config와 같은 구성 파일에 저장됩니다. 이렇게 하면 GitHub와 같은 공개 소스 제어 시스템에 클라우드 자격 증명과 같은 비밀 설정을 체크 인하게 됩니다. 한편 소스 코드를 변경하고 개발 설정을 재구성하는 데 필요한 오버헤드로 인해 보안 모범 사례를 따르기 어려울 수 있습니다.
 
 개발 프로세스가 안전하도록, 소스 코드를 거의 또는 전혀 변경하지 않고 응용 프로그램 비밀 설정을 안전하게 저장하기 위한 도구와 프레임워크 라이브러리가 생성됩니다.
 

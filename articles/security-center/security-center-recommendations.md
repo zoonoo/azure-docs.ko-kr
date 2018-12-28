@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3e8333b521832579a942d3fffb06103ad0431acc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d0c61f6e905ca109f3f178996a08f353c36e7880
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316620"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337209"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Security Center에서 보안 권장 사항 관리
 이 문서에서는 Azure Security Center의 권장 사항을 사용하여 Azure 리소스를 보호하는 데 도움이 되는 방법을 안내합니다.
@@ -34,13 +34,13 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 
 ## <a name="implementing-security-recommendations"></a>보안 권장 사항 구현
 ### <a name="set-recommendations"></a>권장 사항 설정
-[Azure Security Center의 보안 정책 설정](security-center-azure-policy.md)에서 다음을 배울 수 있습니다.
+[Azure Security Center의 보안 정책 설정](tutorial-security-policy.md)에서 다음을 배울 수 있습니다.
 
 * 보안 정책 구성.
 * 데이터 수집 사용.
 * 보안 정책의 일부로 표시될 권장 사항 선택.
 
-현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/security-overview.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다.  [보안 정책 설정](security-center-azure-policy.md) 은 각 권장 사항 옵션에 대한 설명을 제공합니다.
+현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/security-overview.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다.  [보안 정책 설정](tutorial-security-policy.md) 은 각 권장 사항 옵션에 대한 설명을 제공합니다.
 
 ### <a name="monitor-recommendations"></a>권장 사항 모니터링
 보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. **개요**의 **권장 사항** 타일은 Security Center에서 식별된 권장 사항의 총 수를 알려줍니다.
@@ -56,13 +56,13 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 권장 사항은 각 줄이 한 가지 특정 권장을 나타내는 표 형식으로 표시됩니다. 이 테이블의 열은 다음과 같습니다.
 
 * **설명**: 권장 사항 및 권장 사항을 해결하기 위해 수행해야 할 작업을 설명합니다.
-* **리소스**:이 권장 사항이 적용되는 리소스를 나열합니다.
+* **리소스**: 이 권장 사항이 적용되는 리소스를 나열합니다.
 * **상태**: 권장 사항의 현재 상태를 설명합니다.
   * **열기**: 권장 사항이 아직 해결되지 않았습니다.
   * **진행 중**: 권장 사항이 현재 해당 리소스에 적용되고 있으며 사용자가 아무런 작업도 수행할 필요가 없습니다.
   * **해결됨**: 권장 사항이 이미 완료되었습니다(이 경우에 줄은 회색으로 표시됨).
 * **심각도**: 특정 권장 사항의 심각도를 설명합니다.
-  * **높음**: 중요한 리소스(응용 프로그램, VM, 네트워크 또는 보안 그룹 등)에 취약점이 있으며 주의가 필요합니다.
+  * **높음**: 중요한 리소스(애플리케이션, VM 또는 네트워크 보안 그룹 등)에 취약점이 있으며 주의가 필요합니다.
   * **보통**: 취약점이 있으며 중요하지 않은 또는 추가 단계가 프로세스를 완료하거나 취약점을 제거하는 데 필요합니다.
   * **낮음**: 해결해야 하지만 즉시 조치하지 않아도 되는 취약점이 있습니다. (기본적으로 낮은 권장 사항은 표시되지 않지만 표시하려는 경우 낮은 권장 사항으로 필터링할 수 있습니다.)
 
@@ -135,7 +135,7 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 보안 센터의 보안 권장 사항을 소개했습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) - Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) - Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.

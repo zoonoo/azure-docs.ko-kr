@@ -27,17 +27,17 @@ ms.locfileid: "53086542"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-이 Java 웹 응용 프로그램 자습서에서는 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스를 사용하여 Azure App Service Web Apps에 호스트된 Java 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 문서에서는 다음에 대해 알아봅니다.
+이 Java 웹 애플리케이션 자습서에서는 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스를 사용하여 Azure App Service Web Apps에 호스트된 Java 애플리케이션에서 데이터를 저장하고 액세스하는 방법을 보여줍니다. 이 문서에서는 다음에 대해 알아봅니다.
 
-* Eclipse에서 기본 JSP(JavaServer Pages) 응용 프로그램을 빌드하는 방법.
+* Eclipse에서 기본 JSP(JavaServer Pages) 애플리케이션을 빌드하는 방법.
 * [Azure Cosmos DB Java SDK](https://github.com/Azure/azure-documentdb-java)를 사용하여 Azure Cosmos DB 서비스로 작업하는 방법입니다.
 
-이 Java 응용 프로그램 자습서에서는 다음 이미지에 표시된 것처럼 작업을 생성 및 검색하고 완료로 표시할 수 있게 해주는 웹 기반 작업 관리 응용 프로그램을 만드는 방법을 보여 줍니다. 할 일 목록에 있는 각 작업은 Azure Cosmos DB에서 JSON 문서로 저장됩니다.
+이 Java 애플리케이션 자습서에서는 다음 이미지에 표시된 것처럼 작업을 생성 및 검색하고 완료로 표시할 수 있게 해주는 웹 기반 작업 관리 애플리케이션을 만드는 방법을 보여줍니다. 할 일 목록에 있는 각 작업은 Azure Cosmos DB에서 JSON 문서로 저장됩니다.
 
 ![My ToDo List Java 응용 프로그램](./media/sql-api-java-application/image1.png)
 
 > [!TIP]
-> 이 응용 프로그램 개발 자습서에서는 이전에 Java를 사용한 경험이 있다고 가정합니다. Java 또는 [필수 구성 요소 도구](#Prerequisites)를 처음 사용하는 경우 GitHub에서 전체 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 프로젝트를 다운로드하고 [이 문서의 끝에 있는 지침](#GetProject)을 사용하여 이 프로젝트를 빌드하는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.  
+> 이 애플리케이션 개발 자습서에서는 이전에 Java를 사용한 경험이 있다고 가정합니다. Java 또는 [필수 구성 요소 도구](#Prerequisites)를 처음 사용하는 경우 GitHub에서 전체 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 프로젝트를 다운로드하고 [이 문서의 끝에 있는 지침](#GetProject)을 사용하여 이 프로젝트를 빌드하는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.  
 > 
 > 
 
@@ -62,11 +62,11 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
 ## <a id="CreateJSP"></a>2단계: Java JSP 애플리케이션 만들기
-JSP 응용 프로그램을 만들려면 다음을 수행합니다.
+JSP 애플리케이션을 만들려면 다음을 수행합니다.
 
 1. 먼저, Java 프로젝트를 만듭니다. Eclipse를 시작한 후 **파일**, **새로 만들기**, **동적 웹 프로젝트**를 차례로 클릭합니다. **동적 웹 프로젝트**가 사용 가능한 프로젝트로 나열되지 않았으면 다음을 수행합니다. **파일**, **새로 만들기**, **프로젝트**…를 차례로 클릭하고 **웹**을 확장한 후 **동적 웹 프로젝트**를 클릭하고 **다음**을 클릭합니다.
    
-    ![JSP Java 응용 프로그램 개발](./media/sql-api-java-application/image10.png)
+    ![JSP Java 애플리케이션 개발](./media/sql-api-java-application/image10.png)
 2. **프로젝트 이름** 상자에 프로젝트 이름을 입력하고 **대상 런타임** 드롭다운 메뉴에서 선택적으로 값(예: Apache Tomcat v7.0)을 선택한 후 **마침**을 클릭합니다. 대상 런타임을 선택하면 Eclipse를 통해 프로젝트를 로컬로 실행할 수 있습니다.
 3. Eclipse의 Project Explorer 보기에서 프로젝트를 확장합니다. **WebContent**를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **JSP File**을 클릭합니다.
 4. **새 JSP 파일** 대화 상자에서 파일 이름을 **index.jsp**로 지정합니다. 다음 그림에 표시된 것처럼 상위 폴더를 **WebContent**로 유지하고 **다음**을 클릭합니다.
@@ -721,7 +721,7 @@ Azure 웹 사이트에서는 Java 애플리케이션을 간단히 배포할 수 
    * 웹 프로젝트 상자에 azure-documentdb-java-sample을 입력합니다.
    * 대상 상자에서 WAR 파일을 저장할 대상을 선택합니다.
    * **Finish**를 클릭합니다.
-3. 이제 WAR 파일이 준비되었으므로 간단히 Azure 웹 사이트의 **webapps** 디렉터리로 업로드하면 됩니다. 파일 업로드에 대한 자세한 내용은 [Azure App Service Web Apps에 Java 응용 프로그램 추가](../app-service/web-sites-java-add-app.md)를 참조하세요.
+3. 이제 WAR 파일이 준비되었으므로 간단히 Azure 웹 사이트의 **webapps** 디렉터리로 업로드하면 됩니다. 파일 업로드에 대한 자세한 내용은 [Azure App Service Web Apps에 Java 애플리케이션 추가](../app-service/web-sites-java-add-app.md)를 참조하세요.
    
     WAR 파일이 webapps 디렉터리에 업로드되면 런타임 환경에서 이 파일이 추가되었음을 감지하고 자동으로 로드합니다.
 4. 완성된 제품을 보려면 http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/로 이동하고 작업 추가를 시작하세요.
@@ -750,5 +750,5 @@ Azure 웹 사이트에서는 Java 애플리케이션을 간단히 배포할 수 
 19. **추가 및 제거** 창에서 **azure-documentdb-java-sample**을 **구성됨** 상자로 이동하고 **마침**을 클릭합니다.
 20. **서버** 탭에서 **로컬 호스트의 Tomcat v7.0 서버**를 마우스 오른쪽 단추로 클릭하고 **다시 시작**을 클릭합니다.
 21. 브라우저에서 http://localhost:8080/azure-documentdb-java-sample/로 이동하고 작업 목록에 추가하기 시작합니다. 기본 포트 값을 변경한 경우 8080을 선택한 값으로 변경합니다.
-22. 프로젝트를 Azure 웹 사이트에 배포하려면 [6단계. Azure 웹 사이트에 응용 프로그램 배포](#Deploy)를 참조하세요.
+22. 프로젝트를 Azure 웹 사이트에 배포하려면 [6단계. Azure 웹 사이트에 애플리케이션 배포](#Deploy)를 참조하세요.
 

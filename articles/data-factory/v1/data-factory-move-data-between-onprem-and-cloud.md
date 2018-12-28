@@ -119,7 +119,7 @@ ms.locfileid: "51242843"
 5. 몇 분 정도 기다리거나 다음과 같은 알림 메시지가 나타날 때까지 기다립니다.
 
     ![성공적인 게이트웨이 설치](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자** 응용 프로그램을 시작합니다. **Search** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다. **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
+6. 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자** 애플리케이션을 시작합니다. **Search** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다. **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
 
     ![게이트웨이 구성 관리자](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. `adftutorialgateway is connected to the cloud service` 메시지를 확인합니다. 맨 아래 상태 표시줄에 **색 확인 표시**와 함께 **클라우드 서비스에 연결됨**이 표시됩니다.
@@ -140,7 +140,7 @@ ms.locfileid: "51242843"
    * 게이트웨이에서 사용 중인 인증서를 보거나 내보냅니다.
    * 게이트웨이에서 사용하는 HTTPS 엔드포인트를 변경합니다.    
    * 게이트웨이에서 사용할 HTTP 프록시를 설정합니다.     
-9. (선택 사항) 게이트웨이와 관련된 모든 문제를 해결하는 데 사용할 수 있는 자세한 정보 로깅을 활성화하려면 **진단** 탭으로 전환하고 **자세한 정보 로깅 사용** 옵션을 체크합니다. 로깅 정보는 **응용 프로그램 및 서비스 로그** -> **데이터 관리 게이트웨이** 노드 아래의 **이벤트 뷰어**에서 찾을 수 있습니다.
+9. (선택 사항) 게이트웨이와 관련된 모든 문제를 해결하는 데 사용할 수 있는 자세한 정보 로깅을 활성화하려면 **진단** 탭으로 전환하고 **자세한 정보 로깅 사용** 옵션을 체크합니다. 로깅 정보는 **애플리케이션 및 서비스 로그** -> **데이터 관리 게이트웨이** 노드 아래의 **이벤트 뷰어**에서 찾을 수 있습니다.
 
     ![진단 탭](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
@@ -167,9 +167,9 @@ ms.locfileid: "51242843"
 
       1. **servername**의 경우 SQL Server 데이터베이스를 호스팅하는 서버의 이름을 입력합니다.
       2. **databasename**의 경우 데이터베이스의 이름을 입력합니다.
-      3. 도구 모음에서 **암호화** 단추를 클릭합니다. 자격 증명 관리자 응용 프로그램이 표시됩니다.
+      3. 도구 모음에서 **암호화** 단추를 클릭합니다. 자격 증명 관리자 애플리케이션이 표시됩니다.
 
-         ![자격 증명 관리자 응용 프로그램](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
+         ![자격 증명 관리자 애플리케이션](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
       4. **자격 증명 설정** 대화 상자에서 인증 유형, 사용자 이름 및 암호를 입력하고 **확인**을 클릭합니다. 연결이 성공하면 암호화된 자격 증명이 JSON에 저장되고 대화 상자가 닫힙니다.
       5. 대화 상자가 자동으로 닫히지 않고 Azure Portal을 사용하여 해당 탭으로 돌아간 경우 이 대화 상자를 시작한 빈 브라우저 탭을 닫습니다.
 

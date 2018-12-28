@@ -4,14 +4,14 @@ description: Azure로 재해 복구 중에 복제에서 VM 디스크를 제외�
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 851da02ebd7486c0e96451a14086eb95d81968b4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7de9dc497b1c9ee29b46aa0d645b7b28676cb22d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213205"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849023"
 ---
 # <a name="exclude-disks-from-replication"></a>복제에서 디스크 제외
 이 문서에서는 디스크를 복제에서 제외하는 방법을 설명합니다. 이 제외는 그러한 디스크가 활용하는 대상 쪽 리소스를 최적화하거나 소비된 복제 대역폭을 최적화할 수 있습니다.
@@ -160,7 +160,7 @@ DB-Disk2(제외된 디스크) | Disk2 | E:\ | 임시 파일
 DB-Disk3(제외된 디스크) | Disk3 | F:\ | SQL tempdb 데이터베이스(폴더 경로(F:\MSSQL\Data\))
 DB-Disk4 | Disk4 | G:\ | 사용자 데이터베이스 2
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>예제 2: 페이징 파일(pagefile.sys) 디스크 제외
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>예 2: 페이징 파일(pagefile.sys) 디스크 제외
 
 제외할 수 있는 페이징 파일 디스크가 있는 가상 머신을 살펴보겠습니다.
 다음 두 가지 경우가 있습니다.

@@ -1,21 +1,22 @@
 ---
-title: '자습서 6: LUIS 복합 엔터티를 사용하여 복합 데이터 추출'
+title: 복합 엔터티”
 titleSuffix: Azure Cognitive Services
 description: 복합 엔터티를 추가하여 다양한 형식의 추출된 데이터를 단일 포함 엔터티로 묶습니다. 데이터를 묶어서 클라이언트 응용 프로그램이 다른 데이터 형식의 관련된 데이터를 쉽게 추출할 수 있습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8f7edecf1abd1f01a2f40f1420a6a85224271239
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423504"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079214"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>자습서 6: 관련된 데이터 그룹화 및 추출
 이 자습서에서는 복합 엔터티를 추가하여 다양한 형식의 추출된 데이터를 단일 포함 엔터티로 묶습니다. 데이터를 묶어서 클라이언트 응용 프로그램이 다른 데이터 형식의 관련된 데이터를 쉽게 추출할 수 있습니다.
@@ -57,7 +58,7 @@ ms.locfileid: "52423504"
 
 이 앱에서 직원 이름은 **Employee** 목록 엔터티에 정의되고 이름, 이메일 주소, 회사 전화 내선 번호, 휴대폰 번호 및 미국 연방 세금 ID의 동의어를 포함합니다. 
 
-**MoveEmployee** 의도는 직원에게 한 건물에서 다른 건물의 사무실로 이전할 것을 요청하는 예제 발언을 포함합니다. 사무실 이름은 숫자 "1234", "13245"이지만 건물 이름은 알파벳 문자 "A", "B" 등으로 표시됩니다. 
+**MoveEmployee** 의도는 직원에게 한 건물에서 다른 건물의 사무실로 이전할 것을 요청하는 예제 발언을 포함합니다. 빌딩 이름은 알파벳으로 “A”, “B” 등이며 사무실은 숫자로 “1234”, “13245”입니다. 
 
 **MoveEmployee** 의도의 예제 발언에는 다음이 포함됩니다.
 
@@ -70,7 +71,7 @@ ms.locfileid: "52423504"
 
 엔드포인트에서 추출된 데이터는 이 정보를 포함하며 `RequestEmployeeMove` 복합 엔터티에 반환해야 합니다.
 
-```JSON
+```json
 "compositeEntities": [
   {
     "parentType": "RequestEmployeeMove",
@@ -103,22 +104,22 @@ ms.locfileid: "52423504"
 
 3. 도구 모음에서 돋보기 아이콘을 선택하여 발언 목록을 필터링합니다. 
 
-    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "돋보기 단추가 강조 표시된 'MoveEmployee' 의도의 LUIS 스크린샷")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    [![강조 표시된 돋보기 단추를 사용하는 ‘MoveEmployee’ 의도에서 LUIS의 스크린샷](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "강조 표시된 돋보기 단추를 사용하는 ‘MoveEmployee’ 의도에서 LUIS의 스크린샷")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
 4. 필터 입력란에 `tomorrow`를 입력하여 발언 `shift x12345 to h-1234 tomorrow`를 찾습니다.
 
-    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "'tomorrow' 필터가 강조 표시된 'MoveEmployee' 의도의 LUIS 스크린샷")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+    [![강조 표시된 ‘tomorrow’ 필터링을 사용한 ‘MoveEmployee’ 의도에서 LUIS의 스크린샷](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "강조 표시된 ‘tomorrow’ 필터링을 사용한 ‘MoveEmployee’ 의도에서 LUIS의 스크린샷")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
     다른 방법은 **엔터티 필터**를 선택한 후 목록에서 **datetimeV2**를 선택하여 datetimeV2를 기준으로 엔터티를 필터링하는 것입니다. 
 
 5. 첫 번째 엔터티 `Employee`를 선택한 후 팝업 메뉴 목록에서 **복합 엔터티에 래핑**을 선택합니다. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "복합 요소에서 첫 번째 엔터티 선택이 강조 표시된 'MoveEmployee' 의도의 LUIS의 스크린 샷")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+    [![강조 표시된 복합 중 첫 번째 엔터티를 선택한 ‘MoveEmployee’ 의도에서 LUIS의 스크린샷](media/luis-tutorial-composite-entity/hr-create-entity-1.png "강조 표시된 복합 중 첫 번째 엔터티를 선택한 ‘MoveEmployee’ 의도에서 LUIS의 스크린샷")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
 6. 그런 다음, 발언에서 마지막 엔터티 `datetimeV2`를 즉시 선택합니다. 선택한 단어 아래에 복합 엔터티를 나타내는 녹색 막대가 그려집니다. 팝업 메뉴에서 `RequestEmployeeMove` 복합 이름을 입력한 다음, 입력을 선택합니다. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "복합 요소에서 마지막 엔터티 선택 및 엔터티 만들기가 강조 표시된 'MoveEmployee' 의도의 LUIS의 스크린 샷")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+    [![강조 표시된 복합 중 마지막 엔터티를 선택하고 엔터티를 생성하는 ‘MoveEmployee’ 의도에서 LUIS의 스크린샷](media/luis-tutorial-composite-entity/hr-create-entity-2.png "강조 표시된 복합 중 마지막 엔터티를 선택하고 엔터티를 생성하는 ‘MoveEmployee’ 의도에서 LUIS의 스크린샷")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. **What type of entity do you want to create?**(만들려는 엔터티 형식을 선택하세요.)에서는 필요한 거의 모든 필드가 목록에 표시됩니다. 원래 위치만 없습니다. **자식 엔터티 추가**를 선택하고 기존 엔터티 목록에서 **Locations::Origin**을 선택한 후 **완료**를 선택합니다. 
 
@@ -135,15 +136,15 @@ ms.locfileid: "52423504"
 
 1. 각 예제 발언에서 복합 요소로 지정되어야 하는 맨 왼쪽 엔터티를 선택합니다. 그런 후 **복합 엔터티에 래핑**을 선택합니다.
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "복합 요소에서 첫 번째 엔터티 선택이 강조 표시된 'MoveEmployee' 의도의 LUIS의 스크린 샷")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+    [![강조 표시된 복합 중 첫 번째 엔터티를 선택한 ‘MoveEmployee’ 의도에서 LUIS의 스크린샷](media/luis-tutorial-composite-entity/hr-label-entity-1.png "강조 표시된 복합 중 첫 번째 엔터티를 선택한 ‘MoveEmployee’ 의도에서 LUIS의 스크린샷")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
 2. 복합 엔터티에서 마지막 단어를 선택한 다음, 팝업 메뉴에서 **RequestEmployeeMove**를 선택합니다. 
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "복합 요소에서 마지막 엔터티 선택이 강조 표시된 'MoveEmployee' 의도의 LUIS의 스크린 샷")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
+    [![강조 표시된 복합 중 마지막 엔터티를 선택한 ‘MoveEmployee’ 의도에서 LUIS의 스크린샷](media/luis-tutorial-composite-entity/hr-label-entity-2.png "강조 표시된 복합 중 마지막 엔터티를 선택한 ‘MoveEmployee’ 의도에서 LUIS의 스크린샷")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
 3. 의도의 모든 발언에 복합 엔터티 레이블이 지정되었는지 확인합니다. 
 
-    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "모든 발언에 레이블이 지정된 'MoveEmployee'의 LUIS 스크린샷")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
+    [![레이블이 지정된 모든 발언을 사용하는 ‘MoveEmployee’에서 LUIS의 스크린샷](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "레이블이 지정된 모든 발언을 사용하는 ‘MoveEmployee’에서 LUIS의 스크린샷")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train"></a>학습
 
@@ -161,7 +162,7 @@ ms.locfileid: "52423504"
 
     이 테스트는 복합 요소가 올바르게 추출되었는지 확인하기 위한 것이므로 테스트에 기존의 샘플 발언이나 새 발언이 포함될 수 있습니다. 복합 엔터티에 모든 자식 엔터티를 포함하면 테스트 효과가 좋습니다.
 
-    ```JSON
+    ```json
     {
       "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
       "topScoringIntent": {

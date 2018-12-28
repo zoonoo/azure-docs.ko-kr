@@ -1,11 +1,12 @@
 ---
 title: Azure에서 지역 인공 지능 Virtual Machine 프로비전 - Azure | Microsoft Docs
-description: Azure에서 지역 AI Virtual Machine을 프로비전하는 방법입니다.
+description: 지역 AI Data Science Virtual Machine을 만들고 구성하는 방법을 알아봅니다. 지역 AI Data Science Virtual Machine은 지리적 데이터를 사용하여 AI 및 ML 솔루션을 만들 수 있는 도구를 제공합니다.
 keywords: 심화 학습, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239800"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103951"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Azure에서 지역 인공 지능 Virtual Machine 프로비전 
 
@@ -50,18 +51,18 @@ Geo-DSVM에는 다음을 비롯하여 AI에 대한 몇 가지 도구가 포함�
 
       1. **이름**: 만들려는 데이터 과학 서버 이름입니다.
 
-      2. **사용자 이름**: 관리자 계정 로그인 ID
+      2. **사용자 이름**: 관리자 계정 로그인 ID입니다.
 
-      3. **암호**: 관리자 계정 암호
+      3. **암호**: 관리자 계정 암호입니다.
 
-      4. **구독**: 둘 이상의 구독을 보유한 경우, 컴퓨터를 만들고 요금을 청구할 구독 하나를 선택합니다.
+      4. **구독**: 둘 이상의 구독이 있는 경우 머신을 만들고 요금을 청구할 구독을 선택합니다.
 
       5. **리소스 그룹**: 새 구독을 만들거나 구독에서 **비어 있는** 기존 Azure 리소스 그룹을 사용할 수 있습니다.
 
-      6. **위치**: 가장 적합한 데이터 센터를 선택합니다. 이는 대개 대부분의 데이터가 저장되어 있거나 네트워크에 가장 빠르게 액세스하기 위해 물리적 위치와 가장 가까이 있는 데이터 센터입니다. GPU에 대한 심층 학습이 필요한 경우 NC 시리즈 GPU VM 인스턴스를 포함하는 Azure 위치 중 하나를 선택해야 합니다. 현재 GPU VM이 있는 위치는 **미국 동부, 미국 중북부, 미국 중남부, 미국 서부 2, 북유럽, 유럽 서부**입니다. 최신 목록은 [지역별 Azure 제품 페이지](https://azure.microsoft.com/regions/services/)를 확인하고 **Compute** 아래에서 **NC 시리즈**를 찾으세요. 
+      6. **위치**: 가장 적합한 데이터 센터를 선택합니다. 이는 대개 대부분의 데이터가 저장되어 있거나 네트워크에 가장 빠르게 액세스하기 위해 물리적 위치와 가장 가까이 있는 데이터 센터입니다. GPU에 대한 심층 학습이 필요한 경우 NC 시리즈 GPU VM 인스턴스를 포함하는 Azure 위치 중 하나를 선택해야 합니다. 현재 GPU VM이 있는 위치는 다음과 같습니다. **미국 동부, 미국 중북부, 미국 중남부, 미국 서부 2, 유럽 북부, 유럽 서부**. 최신 목록은 [지역별 Azure 제품 페이지](https://azure.microsoft.com/regions/services/)를 확인하고 **Compute** 아래에서 **NC 시리즈**를 찾으세요. 
 
 
-   - **설정**: Geo DSVM에서 GPU에 대한 심층 학습을 실행하려는 경우 NC 시리즈 GPU 가상 머신 크기 중 하나를 선택합니다. 그렇지 않으면, CPU 기반 인스턴스 중 하나를 선택할 수 있습니다.  VM에 대한 저장소 계정을 만듭니다. 
+   - **설정**: Geo DSVM에서 GPU에 대한 딥러닝을 실행하려는 경우 NC 시리즈 GPU 가상 머신 크기 중 하나를 선택합니다. 그렇지 않으면, CPU 기반 인스턴스 중 하나를 선택할 수 있습니다.  VM에 대한 저장소 계정을 만듭니다. 
    
    - **요약**: 입력한 모든 정보가 올바른지 확인합니다.
 

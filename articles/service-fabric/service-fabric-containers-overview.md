@@ -1,6 +1,6 @@
 ---
 title: Service Fabric 및 컨테이너 개요 | Microsoft Docs
-description: Service Fabric 및 마이크로 서비스 응용 프로그램 배포를 위한 컨테이너 사용에 대한 개요. 이 문서는 컨테이너를 사용하는 방법과 Service Fabric에서 사용할 수 있는 기능에 대한 개요를 제공합니다.
+description: Service Fabric 및 마이크로 서비스 애플리케이션 배포를 위한 컨테이너 사용에 대한 개요. 이 문서는 컨테이너를 사용하는 방법과 Service Fabric에서 사용할 수 있는 기능에 대한 개요를 제공합니다.
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
@@ -76,9 +76,9 @@ Windows 기반 자습서는 [ Windows에서 첫 번째 Service Fabric 컨테이�
 
 다음은 컨테이너가 적합한 일반적인 예입니다.
 
-* **IIS 리프트 및 시프트**: 기존 [ASP.NET MVC](https://www.asp.net/mvc) 앱을 ASP.NET Core로 마이그레이션하지 않고 컨테이너에 넣을 수 있습니다. 이러한 ASP.NET MVC 앱은 IIS(인터넷 정보 서비스)에 따라 다릅니다. 이러한 응용 프로그램을 미리 만든 IIS 이미지의 컨테이너 이미지로 패키징하고 Service Fabric을 사용하여 배포할 수 있습니다. Windows 컨테이너에 대한 자세한 내용은 [Windows Server의 컨테이너 이미지](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)를 참조하세요.
+* **IIS 리프트 및 시프트**: 기존 [ASP.NET MVC](https://www.asp.net/mvc) 앱을 ASP.NET Core로 마이그레이션하지 않고 컨테이너에 넣을 수 있습니다. 이러한 ASP.NET MVC 앱은 IIS(인터넷 정보 서비스)에 따라 다릅니다. 이러한 애플리케이션을 미리 만든 IIS 이미지의 컨테이너 이미지로 패키징하고 Service Fabric을 사용하여 배포할 수 있습니다. Windows 컨테이너에 대한 자세한 내용은 [Windows Server의 컨테이너 이미지](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)를 참조하세요.
 
-* **컨테이너와 Service Fabric 마이크로 서비스의 혼합**: 기존 컨테이너 이미지를 응용 프로그램의 일부에 사용합니다. 예를 들어, 응용 프로그램의 웹 프런트 엔드에 [NGINX 컨테이너](https://hub.docker.com/_/nginx/) 를 사용하고 상태 저장 서비스를 보다 집약적인 백 엔드 계산에 사용합니다.
+* **컨테이너와 Service Fabric 마이크로 서비스의 혼합**: 기존 컨테이너 이미지를 응용 프로그램의 일부에 사용합니다. 예를 들어, 애플리케이션의 웹 프런트 엔드에 [NGINX 컨테이너](https://hub.docker.com/_/nginx/) 를 사용하고 상태 저장 서비스를 보다 집약적인 백 엔드 계산에 사용합니다.
 
 * **"시끄러운 이웃" 서비스의 영향 감소**: 컨테이너의 리소스 관리 기능을 사용하여 호스트에 서비스가 사용하는 리소스를 제한합니다. 서비스는 많은 리소스를 소비하고 다른 서비스의 성능에 영향을 미칠 수 있는 경우(예: 장기적으로 실행되는 쿼리 같은 연산), 리소스 관리를 사용하는 컨테이너에 이 서비스를 넣는 것이 좋습니다.
 

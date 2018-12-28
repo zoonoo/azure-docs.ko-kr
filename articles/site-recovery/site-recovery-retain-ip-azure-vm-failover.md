@@ -2,16 +2,16 @@
 title: Azure Site Recovery를 사용하여 Azure VM 장애 조치(failover) 중에 IP 주소 유지 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 보조 지역으로 재해 복구를 수행하기 위해 Azure VM을 장애 조치(failover)할 때 IP 주소를 보존하는 방법을 설명합니다.
 ms.service: site-recovery
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 4e75ba210e12a39d2c4cfb9753bbc2da2893746b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567403"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842750"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>장애 조치(failover) 중에 IP 주소 유지
 
@@ -43,7 +43,7 @@ A사의 모든 앱은 Azure에서 실행됩니다.
         - 동아시아에는 주소 공간이 10.1.0.0/16인 VNet(**원본 VNet**)이 있습니다.
         - 동아시아의 워크로드는 VNet의 세 개 서브넷에 분산됩니다.
             - **서브넷 1**: 10.1.1.0/24
-            - **서브넷 2**: 10.1.2.0/24
+            - **서브넷 2**: 10.1.2.0/24,
             - **서브넷 3**: 10.1.3.0/24
     - 보조(대상) 지역은 Azure 동남아시아
         - 동남 아시아에는 **원본 VNet**과 동일한 복구 VNet(**Recovery VNet**)이 있습니다.
@@ -131,8 +131,8 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 -  동아시아에는 주소 공간이 10.1.0.0/16인 VNet(**원본 VNet**)이 있습니다.
     - 동아시아의 워크로드는 **Source VNet**의 세 개 서브넷에 분산됩니다.
         - **서브넷 1**: 10.1.1.0/24
-        - **서브넷 2**: 10.1.2.0/24
-        - **서브넷 3**: 10.1.3.0/24. 주소 공간이 10.1.0.0/16인 Azure 가상 네트워크를 활용합니다. 이 가상 네트워크의 이름은 **Source VNet**입니다.
+        - **서브넷 2**: 10.1.2.0/24,
+        - **서브넷 3**: 10.1.3.0/24 주소 공간이 10.1.0.0/16인 Azure 가상 네트워크를 활용합니다. 이 가상 네트워크의 이름은 **Source VNet**입니다.
  - 보조(대상) 지역은 Azure 동남아시아:
     - 동남 아시아에는 **원본 VNet**과 동일한 복구 VNet(**Recovery VNet**)이 있습니다.
 - 동아시아의 VM은 Azure ExpressRoute 또는 사이트 간 VPN을 통해 온-프레미스 데이터 센터에 연결됩니다.

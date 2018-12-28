@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456493"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957694"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure에서 Azure 복제로 Mobility Service 자동 업데이트
 
@@ -66,11 +66,11 @@ Site Recovery에서 업데이트를 관리하도록 허용하면 자격 증명 �
 
 1. Azure VM에 설치된 모바일 서비스에 사용 가능한 새 업데이트가 있는 경우 "새 사이트 복구 복제 에이전트 업데이트를 사용할 수 있습니다. 설치하려면 클릭하세요.”라는 알림이 표시됩니다.
 
-     ![복제된 항목 창](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![복제된 항목 창](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 3. 이 알림을 선택하여 가상 머신 선택 페이지를 엽니다.
 4. Mobile Service를 업그레이드하려는 가상 머신을 선택하고 **확인**을 선택합니다.
 
-     ![복제된 항목 VM 목록](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![복제된 항목 VM 목록](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 선택한 가상 머신 각각에 대한 Mobility Service 업데이트 작업이 시작됩니다.
 
@@ -81,8 +81,8 @@ Site Recovery에서 업데이트를 관리하도록 허용하면 자격 증명 �
 
 자동 업데이트를 사용하려고 했으나 실패한 경우 아래를 참조하여 문제를 해결할 수 있습니다.
 
-**오류**: Azure 실행 계정(서비스 사용자)을 만들고 서비스 사용자에게 기여자 역할을 부여할 권한이 없습니다. 
-- 권장 조치: 로그인한 계정에 '기여자' 역할이 할당되었는지 확인한 후 작업을 다시 시도합니다. 올바른 권한을 할당하는 방법에 대한 자세한 내용은 [이](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) 문서를 참조하세요.
+**오류**: Azure 실행 계정(서비스 사용자)을 만들고 서비스 사용자에 기여자 역할을 부여할 수 있는 권한이 없습니다. 
+- 권장 작업: 로그인한 계정에 ‘기여자’ 역할이 할당되었는지 확인한 후 작업을 다시 시도합니다. 올바른 권한을 할당하는 방법에 대한 자세한 내용은 [이](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) 문서를 참조하세요.
  
 자동 업데이트가 켜져 있으면 Site Recovery 서비스가 대부분의 문제를 해결하며 사용자는 '**복구**' 단추를 클릭해야 합니다.
 
@@ -92,8 +92,8 @@ Site Recovery에서 업데이트를 관리하도록 허용하면 자격 증명 �
 
  - **오류**: 복구 서비스 리소스에 액세스할 수 있는 권한이 실행 계정에 없습니다.
 
-    **권장 조치**: 실행 계정을 삭제하고 [다시 만들거나](https://docs.microsoft.com/azure/automation/automation-create-runas-account) Automation 실행 계정의 Azure Active Directory 응용 프로그램이 복구 서비스 리소스에 액세스할 수 있는지 확인합니다.
+    **권장 작업**: 실행 계정을 삭제한 다음, [다시 만들거나](https://docs.microsoft.com/azure/automation/automation-create-runas-account) Automation 실행 계정의 Azure Active Directory 애플리케이션이 복구 서비스 리소스에 액세스할 수 있는지 확인합니다.
 
 - **오류**: 실행 계정을 찾을 수 없습니다. Azure Active Directory 응용 프로그램, 서비스 사용자, 역할, Automation 인증서 자산, Automation 연결 자산 중 하나가 삭제되었거나 생성되지 않았습니다. 또는 인증서와 연결 사이에서 지문이 일치하지 않습니다. 
 
-    **권장 조치**: 실행 계정을 삭제하고 [다시 만듭니다](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+    **권장 작업**: 실행 계정을 삭제한 다음, [다시 만듭니다](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

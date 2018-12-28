@@ -1,13 +1,11 @@
 ---
-title: Azure 표준 Load Balancer 진단 | Microsoft Docs
+title: Azure 표준 Load Balancer 진단
+titlesuffix: Azure Load Balancer
 description: Azure 표준 Load Balancer 진단을 위해 사용 가능한 메트릭 및 상태 정보 사용
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 258e093acd50946e95360416f89b2ceb96ee35d3
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77c3c595994092ff2ca68f3cefa5eb3c8a54bcd6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426471"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189050"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>표준 Load Balancer에 대한 메트릭 및 상태 진단
 
 Azure 표준 Load Balancer는 리소스에 다음과 같은 진단 기능을 제공합니다.
 * **다차원 메트릭**: [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)를 통해 공용 및 내부 부하 분산 장치 구성에 대한 새로운 다차원 진단 기능을 제공합니다. 부하 분산 장치 리소스를 모니터링 및 관리하고 관련 문제를 해결할 수 있습니다.
 
-* **Resource Health**: Azure Portal의 Load Balancer 페이지와 Resource Health 페이지(모니터 아래)에는 표준 Load Balancer의 공용 부하 분산 장치 구성에 대한 Resource Health 섹션이 표시됩니다.
+* **리소스 상태**: Azure Portal의 Load Balancer 페이지와 Resource Health 페이지(모니터 아래)에는 표준 Load Balancer의 공용 부하 분산 장치 구성에 대한 Resource Health 섹션이 표시됩니다.
 
 이 문서에서는 이러한 기능에 대한 간단한 설명을 제공하고 표준 Load Balancer에 이러한 기능을 사용하는 방법을 제공합니다.
 

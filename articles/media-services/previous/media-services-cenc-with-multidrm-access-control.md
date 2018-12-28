@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 69802c6c4246b91f62a0e49ec0c34bdd3a1bec8b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c94c88aa088745a2ed421bff43c8d87382564a43
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958423"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141478"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계
 
@@ -64,7 +64,7 @@ Microsoft는 몇몇 주요 기업들과 더불어 DASH 및 CENC의 적극적인 
 | **Android 장치(전화, 태블릿, TV)** |Widevine |크롬/EME |DASH, HLS |
 | **iOS(iPhone, iPad), OS X 클라이언트 및 Apple TV** |FairPlay |Safari 8+/EME |HLS |
 
-각 DRM에 대한 배포의 현재 상태를 고려하면 서비스는 일반적으로 가장 좋은 방법으로 모든 유형의 엔드포인트를 해결하도록 2개 또는 3개의 DRM을 구현해야 합니다.
+각 DRM에 대한 배포의 현재 상태를 고려하면 서비스는 일반적으로 가장 좋은 방법으로 모든 유형의 끝점을 해결하도록 2개 또는 3개의 DRM을 구현해야 합니다.
 
 다양한 클라이언트에서 사용자 환경의 특정 수준에 도달하는 데 서비스 논리의 복잡성과 클라이언트 쪽의 복잡성 사이의 장단점이 있습니다.
 
@@ -152,7 +152,7 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 | **STS(보안 토큰 서비스)** |Azure AD |
 | **DRM 보호 워크플로** |Media Services 동적 보호 |
 | **DRM 라이선스 배달** |* Media Services 라이선스 배달(PlayReady, Widevine, FairPlay) <br/>* Axinom License Server <br/>* 사용자 지정 PlayReady 라이선스 서버 |
-| **원본** |Media Services 스트리밍 엔드포인트 |
+| **원본** |Media Services 스트리밍 끝점 |
 | **키 관리** |참조 구현에는 필요하지 않음 |
 | **콘텐츠 관리** |C# 콘솔 응용 프로그램 |
 
@@ -252,11 +252,11 @@ Azure AD에 대한 내용:
 
         <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
 
-    GUID는 Azure AD 테넌트 ID입니다. Azure Porta의 **엔드포인트** 팝업 창에서 GUID를 찾을 수 있습니다.
+    GUID는 Azure AD 테넌트 ID입니다. Azure Porta의 **끝점** 팝업 창에서 GUID를 찾을 수 있습니다.
 
 * 그룹 멤버 자격 클레임 권한을 부여합니다. Azure AD 응용 프로그램 매니페스트 파일에서 다음이 있는지 확인합니다. 
 
-    "groupMembershipClaims": "All", (기본값은 null)
+    “groupMembershipClaims”: “All”(기본값은 null임)
 
 * 제한 사항 요구 사항을 만들 때 적절한 TokenType을 설정합니다.
 
@@ -316,7 +316,7 @@ Azure AD가 JWT를 생성한 후, 플레이어가 확인을 위해 JWT를 Media 
 
 * 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다. 자세한 내용은 [웹 브라우저-웹 응용 프로그램](../../active-directory/develop/web-app.md)을 참조하세요.
 * Azure AD 권한 부여 엔드포인트는 사용자 에이전트를 인증 코드와 함께 클라이언트 응용 프로그램으로 리디렉션합니다. 사용자 에이전트는 인증 코드를 클라이언트 응용 프로그램의 리디렉션 URI로 반환합니다.
-* 웹 응용 프로그램이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. Azure AD의 토큰 엔드포인트에 요청하여 자격 증명, 클라이언트 ID, 웹 API의 응용 프로그램 ID URI를 제공합니다. 사용자가 동의했음을 증명하는 인증 코드를 표시합니다.
+* 웹 응용 프로그램이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. Azure AD의 토큰 끝점에 요청하여 자격 증명, 클라이언트 ID, 웹 API의 응용 프로그램 ID URI를 제공합니다. 사용자가 동의했음을 증명하는 인증 코드를 표시합니다.
 * Azure AD가 응용 프로그램을 인증하고 웹 API를 호출하는 데 사용되는 JWT 액세스 토큰을 반환합니다.
 * HTTPS를 통해 웹 응용 프로그램이 반환된 JWT 액세스 토큰을 사용해서 웹 API에 대한 요청의 “권한 부여” 헤더에 “전달자”를 지정한 JWT 문자열을 추가합니다. 그런 후 웹 API에는 JWT의 유효성을 검사합니다. 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
 
@@ -335,7 +335,7 @@ Azure AD에서 포인터 앱을 등록 및 구성하려면 다음 단계를 따�
 
 2. 리소스 앱에 대한 새 키를 추가합니다.
 
-3. groupMembershipClaims 속성이 "groupMembershipClaims": "All"을 포함하도록 앱 매니페스트 파일을 업데이트합니다.
+3. groupMembershipClaims 속성이 “groupMembershipClaims”: “All”을 포함하도록 앱 매니페스트 파일을 업데이트합니다.
 
 4. 플레이어 웹앱을 가리키는 Azure AD 앱의 **다른 응용 프로그램에 대한 권한** 섹션에서 1단계에서 추가한 리소스 앱을 추가합니다. **위임된 권한**에서 **[resource_name] 액세스**를 선택합니다. 이 옵션은 리소스 앱에 액세스하는 액세스 토큰을 만드는 웹앱 권한을 제공합니다. Visual Studio 및 Azure Web App으로 개발 중이라면 웹앱의 로컬 및 배포된 버전 모두에 대해 이 작업을 수행합니다.
 
@@ -372,8 +372,8 @@ Azure AD에서 발급한 JWT가 포인터 리소스에 액세스하는 데 사�
 
 > [!NOTE]
 > 개발 플랫폼으로 .NET Framework/C#을 사용하는 경우 비공개 보안 키에 사용된 X509 인증서에는 키 길이가 2048 이상이어야 합니다. 이는 .NET Framework에서 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 클래스의 요구 사항입니다. 그렇지 않으면 다음 예외가 throw됩니다.
-
-> IDX10630: 서명을 위한 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey'는 '2048'비트 이상이어야 합니다.
+> 
+> IDX10630: 서명을 위한 ‘System.IdentityModel.Tokens.X509AsymmetricSecurityKey’는 ‘2048’비트 이상이어야 합니다.
 
 ## <a name="the-completed-system-and-test"></a>완료된 시스템 및 테스트
 이 섹션에서는 사용자가 로그인 계정을 얻기 전 동작에 대한 기본적인 그림을 그려볼 수 있도록, 완료된 종단 간 시스템에 대한 몇 가지 시나리오를 살펴볼 것입니다.
@@ -407,15 +407,15 @@ Azure AD는 Microsoft 계정 도메인을 신뢰하므로 다음 도메인에서
 
 다음은 스크린샷에서는 다양한 도메인 계정에서 사용하는 다양한 로그인 페이지를 보여 줍니다.
 
-**사용자 지정 Azure AD 테넌트 도메인 계정**: Azure AD 테넌트 도메인의 사용자 지정된 로그인 페이지
+**사용자 지정 Azure AD 테넌트 도메인 계정**: 사용자 지정 Azure AD 테넌트 도메인의 사용자 지정된 로그인 페이지입니다.
 
 ![사용자 지정 Azure AD 테넌트 도메인 계정](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
-**스마트 카드를 사용한 Microsoft 도메인 계정**: Microsoft 회사 IT에서 2단계 인증으로 사용자 지정한 로그인 페이지
+**스마트 카드를 사용한 Microsoft 도메인 계정**: Microsoft 회사 IT에서 2단계 인증으로 사용자 지정한 로그인 페이지입니다.
 
 ![사용자 지정 Azure AD 테넌트 도메인 계정](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
-**Microsoft 계정**: 소비자를 위한 Microsoft 계정의 로그인 페이지
+**Microsoft 계정**: 소비자를 위한 Microsoft 계정의 로그인 페이지입니다.
 
 ![사용자 지정 Azure AD 테넌트 도메인 계정](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 

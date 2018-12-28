@@ -1,6 +1,6 @@
 ---
-title: Azure AD 배포 검사 목록 30일차, 90일차 및 그 이후
-description: Azure Active Directory Premium P2 기능 배포 검사 목록
+title: Premium P2 라이선스 기능 검사 목록 - Azure Active Directory | Microsoft Docs
+description: 30일, 90일 및 90일 이상 기간 동안의 Azure Active Directory Premium P2 기능 배포 검사 목록입니다.
 services: active-directory
 ms.service: active-directory
 ms.component: ''
@@ -9,13 +9,13 @@ ms.date: 09/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: ''
-ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705654"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078241"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Azure Active Directory Premium P2 라이선스 기능 검사 목록
 
@@ -33,7 +33,7 @@ ID 인프라를 잘 계획하고 실행해 두면 인증된 사용자와 디바�
 
 [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
-## <a name="plan-and-deploy-day-1-30"></a>계획 및 배포: 1~30일차
+## <a name="plan-and-deploy-day-1-30"></a>플랜 및 배포: 1-30일
 
 - 둘 이상의 글로벌 관리자 지정(비상 계정)
    - [Azure AD에서 응급 액세스 관리 계정 관리](../users-groups-roles/directory-emergency-access.md)
@@ -64,7 +64,7 @@ ID 인프라를 잘 계획하고 실행해 두면 인증된 사용자와 디바�
    - [Azure AD Connect Health 구현](../connect-health/active-directory-aadconnect-health.md)
 - [Azure Active Directory에서 그룹 멤버 자격별로 사용자에게 라이선스 할당](../users-groups-roles/licensing-groups-assign.md)
 
-## <a name="plan-and-deploy-day-31-90"></a>계획 및 배포: 31~90일차
+## <a name="plan-and-deploy-day-31-90"></a>플랜 및 배포: 31-90일
 
 - [게스트 사용자 액세스에 대한 계획](../b2b/what-is-b2b.md)
    - [Azure Portal에서 Azure Active Directory B2B 공동 작업 사용자 추가](../b2b/add-users-administrator.md)
@@ -75,7 +75,7 @@ ID 인프라를 잘 계획하고 실행해 두면 인증된 사용자와 디바�
    - [Azure AD 연결에 대한 사용 시나리오와 배포 고려 사항](../devices/azureadjoin-plan.md)
 - [조직의 비즈니스용 Windows Hello 관리](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization)
 
-## <a name="plan-and-deploy-day-90-and-beyond"></a>계획 및 배포: 90일차 및 그 이후
+## <a name="plan-and-deploy-day-90-and-beyond"></a>플랜 및 배포: 90일 이상
 
 - [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md)
    - [PIM에서 Azure AD 디렉터리 역할 설정 구성](../privileged-identity-management/pim-how-to-change-default-settings.md)
@@ -90,6 +90,6 @@ ID 인프라를 잘 계획하고 실행해 두면 인증된 사용자와 디바�
 
 ## <a name="next-steps"></a>다음 단계
 
-[ID 및 장치 액세스 구성](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+[ID 및 디바이스 액세스 구성](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
-[일반적으로 권장되는 ID 및 장치 액세스 정책](https://docs.microsoft.com/microsoft-365/enterprise/identity-access-policies)
+[일반적으로 권장되는 ID 및 디바이스 액세스 정책](https://docs.microsoft.com/microsoft-365/enterprise/identity-access-policies)

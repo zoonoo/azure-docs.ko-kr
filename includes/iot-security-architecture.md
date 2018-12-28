@@ -72,7 +72,7 @@ Microsoft는 오래전부터 제품에 위협 모델을 사용해 왔으며 회�
 
 * 데이터 흐름(애플리케이션의 요소 사이에서 데이터가 이동하는 위치)
 
-* 외부 엔터티(시스템과 상호 작용하지만 응용 프로그램의 제어를 받지 않는 모든 것. 예: 사용자 및 위성 피드)
+* 외부 엔터티(시스템과 상호 작용하지만 애플리케이션의 제어를 받지 않는 모든 것. 예: 사용자 및 위성 피드)
 
 아키텍처 다이어그램의 모든 요소는 다양한 위협에 노출되며, 이 문서에서는 STRIDE 니모닉을 사용합니다. STRIDE 요소에 대한 자세한 내용은 [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/)를 참조하세요.
 

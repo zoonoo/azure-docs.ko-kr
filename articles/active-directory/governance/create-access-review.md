@@ -1,6 +1,6 @@
 ---
-title: Azure AD에서 응용 프로그램에 대한 액세스 권한이 있는 그룹 구성원 또는 사용자의 액세스 검토 만들기 | Microsoft Docs
-description: 그룹 구성원이나 응용 프로그램에 대한 액세스 권한이 있는 사용자의 액세스 검토를 만드는 방법을 알아봅니다.
+title: Azure AD에서 애플리케이션에 대한 액세스 권한이 있는 그룹 구성원 또는 사용자의 액세스 검토 만들기 | Microsoft Docs
+description: 그룹 구성원이나 애플리케이션에 대한 액세스 권한이 있는 사용자의 액세스 검토를 만드는 방법을 알아봅니다.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/26/2018
 ms.locfileid: "52307851"
 ---
-# <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD에서 그룹 구성원 또는 응용 프로그램 액세스에 대한 액세스 검토 만들기
+# <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD에서 그룹 구성원 또는 애플리케이션 액세스에 대한 액세스 검토 만들기
 
 직원 및 게스트용 그룹과 애플리케이션에 대한 액세스는 시간이 지나면 변합니다. 관리자는 Azure AD(Azure Active Directory)를 사용하여 그룹 구성원 또는 애플리케이션 액세스에 대한 액세스 검토를 만들면 상태 액세스 할당과 관련된 위험을 줄일 수 있습니다. 일상적으로 액세스를 검토해야 하는 경우 되풀이 액세스 검토를 만들 수도 있습니다. 이러한 시나리오에 대한 자세한 내용은 [사용자 액세스 관리](manage-user-access-with-access-reviews.md) 및 [게스트 액세스 관리](manage-guest-access-with-access-reviews.md)를 참조하세요.
 

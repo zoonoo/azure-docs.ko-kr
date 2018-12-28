@@ -1,21 +1,21 @@
 ---
-title: Kafka 에코시스템용 Azure Event Hubs에서 Apache Kafka MirrorMaker 사용 | Microsoft Docs
-description: Kafka MirrorMaker를 사용하여 Event Hubs에서 Kafka 클러스터를 미러합니다.
+title: Apache Kafka MirrorMaker 사용 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Kafka MirrorMaker를 사용하여 Azure Event Hubs에서 Kafka 클러스터를 미러링하는 방법에 대한 정보를 제공합니다.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: mirror-maker
-ms.custom: mvc
-ms.date: 08/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: b79d62175c29dfc1671f0cb59c36f4bd2a8857e1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 83f51d2980e5cb5bc2e2a415bb3ee96778667ed7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282826"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095038"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Kafka MirrorMaker 사용
 
@@ -136,8 +136,8 @@ Event Hubs 및 Kafka용 Event Hubs에 대해 자세히 알아보려면 다음 �
 - [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
 - [Kafka 사용 Event Hubs 만드는 방법](event-hubs-create-kafka-enabled.md)
 - [Kafka 응용 프로그램에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Kafka 사용 이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
-- [Kafka 사용 이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
-- [Kafka 사용 이벤트 허브와 Kafka Connect 통합](event-hubs-kafka-connect-tutorial.md)
-- [Kafka 사용 이벤트 허브에 Akka Streams 연결](event-hubs-kafka-akka-streams-tutorial.md)
-- [GitHub에서 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Kafka 지원 이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
+- [Kafka 지원 이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
+- [Kafka 지원 이벤트 허브에 Kafka Connect 통합](event-hubs-kafka-connect-tutorial.md)
+- [Kafka 지원 이벤트 허브에 Akka Streams 연결](event-hubs-kafka-akka-streams-tutorial.md)
+- [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)

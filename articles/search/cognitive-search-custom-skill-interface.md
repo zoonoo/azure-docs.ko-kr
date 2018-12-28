@@ -1,5 +1,5 @@
 ---
-title: 인식 검색 파이프라인의 사용자 지정 기술에 대한 인터페이스 정의(Azure Search) | Microsoft Docs
+title: 인식 검색 파이프라인의 사용자 지정 기술에 대한 인터페이스 정의 - Azure Search
 description: Azure Search에서 인식 검색 파이프라인의 web-api 사용자 지정 기술에 대한 사용자 지정 데이터 추출 인터페이스입니다.
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: luisca
-ms.openlocfilehash: 2218a96702a02a32df18da9640ea9946d05acdb1
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.custom: seodec2018
+ms.openlocfilehash: 1df2a565b1c9e8bd2bea75ce78abc84608c89eea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145213"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314655"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>인식 검색 파이프라인에 사용자 지정 기술을 추가하는 방법
 
@@ -149,6 +150,6 @@ Web API 보강자를 만들 때 요청의 일부로 HTTP 헤더 및 매개 변�
 ## <a name="next-steps"></a>다음 단계
 
 + [예제: Translator Text API에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [기능 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

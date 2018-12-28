@@ -1,5 +1,5 @@
 ---
-title: 웹앱에 대 한 TLS 상호 인증을 구성하는 방법
+title: TLS 상호 인증 구성 - Azure App Service
 description: TLS에 클라이언트 인증서 인증을 사용 하 여 웹앱을 구성하는 방법에 알아봅니다.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: 894a77be05de131ab122f18c62d209e9829357f9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.custom: seodec18
+ms.openlocfilehash: f08e8f60f0e23cce9546e45dcf7b249d38224736
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056211"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252884"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>웹앱에 대 한 TLS 상호 인증을 구성하는 방법
 ## <a name="overview"></a>개요

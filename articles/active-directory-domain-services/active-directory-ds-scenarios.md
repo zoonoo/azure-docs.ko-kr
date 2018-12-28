@@ -64,7 +64,7 @@ Contoso에는 거의 10년 전에 개발된 온-프레미스 LOB(기간 업무) 
 * 응용 프로그램이 디렉터리에 수정/쓰기를 하지 않아도 됩니다. Azure AD 도메인 서비스에서 제공하는 관리된 도메인에 대한 LDAP 쓰기 액세스는 지원되지 않습니다.
 * 응용 프로그램에 사용자 지정/확장 된 Active Directory 스키마가 필요하지 않습니다. 스키마 확장은 Azure AD 도메인 서비스에서 지원되지 않습니다.
 
-## <a name="migrate-an-on-premises-service-or-daemon-application-to-azure-infrastructure-services"></a>Azure 인프라 서비스에 온-프레미스 서비스 또는 데몬 응용 프로그램 마이그레이션
+## <a name="migrate-an-on-premises-service-or-daemon-application-to-azure-infrastructure-services"></a>Azure 인프라 서비스에 온-프레미스 서비스 또는 데몬 애플리케이션 마이그레이션
 계층 중 하나가 데이터베이스 계층과 같은 백 엔드 계층에 대해 인증된 호출을 수행해야 하는 여러 계층으로 구성된 일부 응용 프로그램 Active Directory 서비스 계정은 이러한 사용 사례에 대해 자주 사용됩니다. 이러한 응용 프로그램을 Azure 인프라 서비스로 전환하고 이러한 응용 프로그램의 ID 필요에 대해 Azure AD 도메인 서비스를 사용할 수 있습니다. 온-프레미스 디렉터리에서 Azure AD로 동기화되는 동일한 서비스 계정을 사용하도록 선택할 수 있습니다. 또는 먼저 사용자 지정 OU를 만든 다음 이러한 응용 프로그램을 배포하도록 해당 OU에 별도 서비스 계정을 만들 수 있습니다.
 
 ![WIA를 사용하는 서비스 계정](./media/active-directory-domain-services-scenarios/wia-service-account.png)

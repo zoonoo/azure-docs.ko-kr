@@ -1,6 +1,6 @@
 ---
 title: Azure 마이크로 서비스에 대한 Windows 개발 환경 설정 | Microsoft Docs
-description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Windows에서 응용 프로그램을 빌드할 수 있습니다.
+description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Windows에서 애플리케이션을 빌드할 수 있습니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -77,7 +77,7 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 > 단일 컴퓨터 클러스터(OneBox)는 응용 프로그램 또는 클러스터 업그레이드용으로 지원되지 않습니다. 클러스터 업그레이드를 수행해야 하거나 응용 프로그램 업그레이드 수행 시에 문제가 발생하는 경우에는 OneBox 클러스터를 삭제한 후에 다시 만드세요. 
 
 ## <a name="enable-powershell-script-execution"></a>PowerShell 스크립트 실행 활성화
-서비스 패브릭은 로컬 개발 클러스터를 만들고 Visual Studio에서 응용 프로그램을 배포하기 위해 Windows PowerShell 스크립트를 사용합니다. 기본적으로 Windows에서는 이러한 스크립트의 실행을 차단합니다. 따라서 이러한 스크립트를 사용하려면 PowerShell 실행 정책을 수정해야 합니다. 관리자로 PowerShell을 열고 다음 명령을 입력합니다.
+서비스 패브릭은 로컬 개발 클러스터를 만들고 Visual Studio에서 애플리케이션을 배포하기 위해 Windows PowerShell 스크립트를 사용합니다. 기본적으로 Windows에서는 이러한 스크립트의 실행을 차단합니다. 따라서 이러한 스크립트를 사용하려면 PowerShell 실행 정책을 수정해야 합니다. 관리자로 PowerShell을 열고 다음 명령을 입력합니다.
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser

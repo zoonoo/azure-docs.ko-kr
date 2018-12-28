@@ -29,7 +29,7 @@ Azure BizTalk Services는 Service Bus 발급자 이름 및 발급자 키와 Acce
 
 | Task | 발급자 이름 및 발급자 키 |
 | --- | --- |
-| Visual Studio에서 응용 프로그램 배포 |Access Control 발급자 이름 및 발급자 키 |
+| Visual Studio에서 애플리케이션 배포 |Access Control 발급자 이름 및 발급자 키 |
 | Azure BizTalk Services 포털 구성 |Access Control 발급자 이름 및 발급자 키 |
 | Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 |Service Bus 발급자 이름 및 발급자 키 |
 
@@ -38,7 +38,7 @@ Azure BizTalk Services는 Service Bus 발급자 이름 및 발급자 키와 Acce
 ## <a name="access-control-issuer-name-and-issuer-key"></a>Access Control 발급자 이름 및 발급자 키
 Access Control 발급자 이름 및 발급자 키는 다음에 사용됩니다.
 
-* Visual Studio에서 만든 Azure BizTalk 서비스 응용 프로그램: Visual Studio의 BizTalk 서비스 응용 프로그램을 Azure에 배포하려면 Access Control 발급자 이름 및 발급자 키를 입력합니다. 
+* Visual Studio에서 만든 Azure BizTalk 서비스 애플리케이션: Visual Studio의 BizTalk 서비스 애플리케이션을 Azure에 배포하려면 Access Control 발급자 이름 및 발급자 키를 입력합니다. 
 * Azure BizTalk Services 포털: BizTalk 서비스를 만들고 BizTalk Services 포털에 로그인하면 배포를 위해 Access Control 발급자 이름 및 Access Control 발급자 키가 동일한 Access Control 값으로 자동으로 등록됩니다.
 
 ### <a name="get-the-access-control-issuer-name-and-issuer-key"></a>Access Control 발급자 이름 및 발급자 키 가져오기

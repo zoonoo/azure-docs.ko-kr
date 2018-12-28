@@ -4,10 +4,9 @@ description: 초급자를 위한 데이터 과학 비디오 3에서 정확한 �
 keywords: 데이터 과학 문제, 데이터 과학 질문,질문 작성,회귀 질문,분류 질문,정확한 질문
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: c6d42ed7920b634994adf5313656c77e2df6dd5b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f117a8c47d7c98f13101efe0ca5147ce8d8c25a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310840"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250981"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>데이터로 대답할 수 있는 질문하기
 ## <a name="video-3-data-science-for-beginners-series"></a>비디오 3: 초급자를 위한 데이터 과학 시리즈
@@ -44,12 +43,12 @@ ms.locfileid: "52310840"
 * 비디오 4: [단순 모델을 사용하여 답변 예측](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7분 42초)*
 * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
-## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>비디오 내용: 데이터로 대답할 수 있는 질문하기
+## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>대본: 데이터로 대답할 수 있는 질문하기
 "초급자를 위한 데이터 과학" 시리즈 중 3번째 비디오를 시작합니다.  
 
 여기에서는 데이터로 답할 수 있는 질문을 작성하는 방법과 관련된 몇 가지 팁을 얻을 수 있습니다.
 
-이 시리즈에 포함된 두 가지의 이전 비디오, “데이터 과학으로 답변할 수 있는 5가지 질문” 및 “데이터 과학에 사용할 수 있게 데이터가 준비되었나요?”를 보면 더 많은 내용을 얻을 수 있습니다.
+이 시리즈의 이전 두 개의 비디오를 먼저 시청하면 이 비디오를 최대한 활용할 수 있습니다. "데이터 과학으로 답변할 수 있는 5가지 질문" 및 "데이터 과학에 사용할 수 있게 데이터가 준비되었나요?"
 
 ## <a name="ask-a-sharp-question"></a>정확하게 질문하기
 데이터 과학이 왜 이름(범주 또는 레이블)과 숫자를 사용하여 질문에 대한 답변을 예측하는 프로세스인가에 대해 알아보았습니다. 하지만 아무 질문이나 되는 것은 아니고 *정확한 질문*
@@ -62,7 +61,7 @@ ms.locfileid: "52310840"
 
 하지만, “다음 주 내 주식의 판매 가격은 얼마가 될까요?”라고 정확하게 질문하면, 지니는 구체적인 답을 주고 판매 가격을 예측해 주지 않고는 못 배길 것입니다.
 
-## <a name="examples-of-your-answer-target-data"></a>답변에 대한 사례: 대상 데이터
+## <a name="examples-of-your-answer-target-data"></a>답변에 대한 예제: 대상 데이터
 질문을 작성하고 난 후, 답변에 대한 사례가 데이터에 있는지를 확인합니다.
 
 질문이 “다음 주 내 주식의 판매 가격은 얼마가 될까요?”인 경우 데이터에 주식 가격 기록이 포함되어 있는지 확인해야 합니다.

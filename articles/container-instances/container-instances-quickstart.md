@@ -78,7 +78,7 @@ aci-demo.eastus.azurecontainer.io  Succeeded
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-출력은 컨테이너의 로그를 표시하며, 브라우저에서 응용 프로그램을 볼 때 생성된 HTTP GET 요청을 표시해야 합니다.
+출력은 컨테이너의 로그를 표시하며, 브라우저에서 애플리케이션을 볼 때 생성된 HTTP GET 요청을 표시해야 합니다.
 
 ```console
 $ az container logs --resource-group myResourceGroup --name mycontainer

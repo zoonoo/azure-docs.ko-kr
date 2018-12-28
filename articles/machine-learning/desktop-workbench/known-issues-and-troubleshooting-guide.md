@@ -19,7 +19,7 @@ ms.lasthandoff: 10/09/2018
 ms.locfileid: "48885050"
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 알려진 문제 및 문제 해결 가이드 
-이 문서는 Azure Machine Learning Workbench 응용 프로그램 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
+이 문서는 Azure Machine Learning Workbench 애플리케이션 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
 
 ## <a name="find-the-workbench-build-number"></a>Workbench 빌드 번호 찾기
 지원 팀과 논의할 때는 Workbench 앱의 빌드 번호가 있어야 합니다. **도움말** 메뉴를 클릭하여 Windows에서 빌드 번호를 확인하고 **Azure ML Workbench 정보**를 선택할 수 있습니다. MacOS 등에서 **Azure ML Workbench** 메뉴를 클릭하고 **Azure ML Workbench**를 선택할 수 있습니다.

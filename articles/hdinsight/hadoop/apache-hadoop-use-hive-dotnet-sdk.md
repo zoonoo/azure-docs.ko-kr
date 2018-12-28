@@ -39,7 +39,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 **작업을 제출하려면**
 
-1. Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio를 사용하여 C# 콘솔 애플리케이션을 만듭니다.
 2. NuGet 패키지 관리자 콘솔에서 다음 명령을 실행합니다.
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
@@ -130,7 +130,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
     ```
 4. **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
-응용 프로그램의 출력은 다음과 유사합니다.
+애플리케이션의 출력은 다음과 유사합니다.
 
 ![HDInsight Hadoop Hive 작업 출력](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
 

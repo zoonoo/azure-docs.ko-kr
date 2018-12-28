@@ -47,7 +47,7 @@ ms.locfileid: "52582851"
 
 ## <a name="submit-a-topology-visual-studio"></a>토폴로지 제출: Visual Studio
 
-HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지를 제출하는 데 사용할 수 있습니다. 다음 단계는 샘플 응용 프로그램을 사용합니다. HDInsight 도구를 사용하여 만들기에 대한 자세한 내용은 [Visual Studio용 HDInsight 도구를 사용하여 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
+HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지를 제출하는 데 사용할 수 있습니다. 다음 단계는 샘플 애플리케이션을 사용합니다. HDInsight 도구를 사용하여 만들기에 대한 자세한 내용은 [Visual Studio용 HDInsight 도구를 사용하여 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
 1. 최신 버전의 Data Lake Tools for Visual Studio를 아직 설치하지 않은 경우 [Data Lake Tools for Visual Studio 사용 시작](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
@@ -58,7 +58,7 @@ HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지
 
 2. Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 
-3. **새 프로젝트** 대화 상자에서 **설치됨** > **템플릿**을 확장하고 **HDInsight**를 선택합니다. 템플릿 목록에서 **Storm 샘플**을 선택합니다. 대화 상자 아래쪽에서 응용 프로그램 이름을 입력합니다.
+3. **새 프로젝트** 대화 상자에서 **설치됨** > **템플릿**을 확장하고 **HDInsight**를 선택합니다. 템플릿 목록에서 **Storm 샘플**을 선택합니다. 대화 상자 아래쪽에서 애플리케이션 이름을 입력합니다.
 
     ![이미지](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
 

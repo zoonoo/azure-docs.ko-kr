@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: hrasheed
-ms.openlocfilehash: 77f1d0f9d1f9ad07b977750e7701b660781d63e5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c615188e5f198cb8707b12643e0942e8d8821983
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499388"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725185"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
@@ -64,7 +64,7 @@ HDInsight 클러스터를 만들 때 Azure 구독을 지정해야 합니다. 클
     1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
     2. 왼쪽 메뉴에서 **리소스 그룹**을 클릭하여 리소스 그룹을 나열합니다.
     3. HDInsight 클러스터를 만드는 데 사용할 리소스 그룹을 클릭합니다.
-    4. **액세스 제어(IAM)** 를 클릭하고 사용자(또는 사용자가 속한 그룹)에게 리소스 그룹에 대한 참가자 액세스 권한 이상이 있는지 확인합니다.
+    4. **액세스 제어(IAM)** 및 **역할 할당**을 클릭하고 사용자(또는 사용자가 속한 그룹)에게 리소스 그룹에 대한 기여자 액세스 권한 이상이 있는지 확인합니다.
 
 NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류가 발생하면 [Azure 리소스 관리자를 사용한 일반적인 Azure 배포 오류 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)을 참조하세요.
 
@@ -75,50 +75,50 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
 4. 개요 페이지를 보려면 목록에서 클러스터를 클릭합니다.
 
     ![Azure Portal HDInsight 클러스터 기본 정보](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **개요 메뉴:**
-    * **대시보드**: 클러스터에 대한 Ambari Web UI를 엽니다.
-    * **보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다.
+    * **대시보드**: 클러스터에 대한 Ambari 웹 UI를 엽니다.
+    * **보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여줍니다.
     * **클러스터 크기 조정**: 이 클러스터의 작업자 노드 수를 변경할 수 있습니다.
     * **이동**: 클러스터를 다른 리소스 그룹 또는 다른 구독으로 이동시킵니다.
     * **삭제**: 클러스터를 삭제합니다.
 
 **왼쪽 메뉴:**
     * **활동 로그**: 활동 로그를 표시하고 쿼리합니다.
-    * **Access Control(IAM)**: 역할 할당을 사용합니다.  [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
-    * **태그**: 태그를 사용하면 Cloud Services의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 **project**라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
+    * **액세스 제어(IAM)**: 역할 할당을 사용합니다.  [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+    * **태그**: 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 **project**라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
 * **문제 진단 및 해결**: 문제 해결 정보를 표시합니다.
-    * **빠른 시작**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
+    * **빠른 시작**:  HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
     * **HDInsight용 도구**: HDInsight 관련 도구에 대한 도움말 정보입니다.
 **설정**
 * **클러스터 크기**: 클러스터 작업자 노드의 수를 확인하고, 늘리고, 줄입니다. [클러스터 크기 조정](hdinsight-administer-use-management-portal.md#scale-clusters)을 참조하세요.
     * **할당량 한도**: 구독에 사용된 코어 및 사용 가능한 코어를 표시합니다.
-    * **SSH + 클러스터 로그인**: SSH(Secure Shell) 연결을 사용하여 클러스터에 연결하기 위한 지침을 표시합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+    * **SSH + 클러스터 로그인**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여줍니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 * **Data Lake Store Gen1**: Data Lake Store Gen1에 대한 액세스를 구성합니다.  [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
-    * **Storage 계정**: Storage 계정 및 키를 봅니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.
-    * **응용 프로그램**: HDInsight 응용 프로그램을 추가/제거합니다.  [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+    * **Storage 계정**: 스토리지 계정 및 키를 봅니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.
+    * **애플리케이션**: HDInsight 애플리케이션을 추가/제거합니다.  [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
     * **스크립트 작업**: 클러스터에서 Bash 스크립트를 실행합니다. [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
     * **HDInsight 파트너**: 현재 HDInsight 파트너를 추가/제거합니다.
-    * **속성**: 클러스터 속성을 표시합니다.
+    * **속성**: 클러스터 속성을 봅니다.
 * **잠금**: 클러스터가 수정되거나 삭제되지 않도록 잠금을 추가합니다.
     * **Automation 스크립트**: 클러스터에 대한 Azure Resource Manager 템플릿을 표시하고 내보냅니다. 현재는 Azure Storage 계정만 내보낼 수 있습니다. [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Linux 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 **모니터링**
 * **변경**: 경고와 작업을 관리합니다.
     * **메트릭**: Azure Log Analytics에서 클러스터 메트릭을 모니터링합니다.
 * **진단 설정**: 진단 메트릭 **지원 + 문제 해결**을 저장하는 위치에 대한 설정
-    * **리소스 상태**: [Azure Resource Health 개요](../service-health/resource-health-overview.md)를 참조하세요.
+    * **리소스 상태**: [Azure 리소스 상태 개요](../service-health/resource-health-overview.md)를 참조하세요.
     * **새 지원 요청**: Microsoft 지원에 지원 티켓을 만들 수 있습니다.
-
+    
 6. **속성**을 클릭합니다.
 
     속성은 다음과 같습니다.
 
-   * **호스트 이름**: 클러스터 이름입니다.
+   * **호스트 이름**: 클러스터 이름.
    * **클러스터 URL**: Ambari 웹 인터페이스에 대한 URL입니다.
-   * **보안 셸(SSH)**: SSH를 통해 클러스터에 액세스할 때 사용할 사용자 이름과 호스트 이름입니다.
-   * **상태**: 중단됨, 수락됨, 클러스터 저장소가 프로비전됨, Azure VM 구성, HDInsight 구성, 작동 가능, 실행 중, 오류, 삭제 중, 삭제됨, 시간이 초과됨, 삭제가 큐에 대기됨, 삭제 시간이 초과됨, 삭제 오류, 패치가 큐에 대기됨, 인증서 롤오버가 큐에 대기됨, 크기가 조정되어 큐에 대기됨 또는 클러스터 사용자 지정 중 하나입니다.
+   * **SSH(보안 셸)**: SSH를 통해 클러스터에 액세스할 때 사용할 사용자 이름과 호스트 이름입니다.
+   * **상태**: 다음 중 하나입니다. 중단됨, 수락됨, 클러스터 스토리지가 프로비전됨, Azure VM 구성, HDInsight 구성, 작동 가능, 실행 중, 오류, 삭제 중, 삭제됨, 시간이 초과됨, 삭제가 큐에 대기됨, 삭제 시간이 초과됨, 삭제 오류, 패치가 큐에 대기됨, 인증서 롤오버가 큐에 대기됨, 크기가 조정되어 큐에 대기됨 또는 클러스터 사용자 지정
    * **지역**: Azure 위치입니다. 지원되는 Azure 위치를 보려면, **HDInsight 가격** 의 [지역](https://azure.microsoft.com/pricing/details/hdinsight/)드롭다운 목록 상자를 참고하세요.
    * **만든 날짜**: 클러스터가 배포된 날짜입니다.
    * **운영 체제**: **Windows** 또는 **Linux**입니다.
-   * **형식**: Hadoop, HBase, Storm, Spark.
+   * **형식**: Hadoop, HBase, Storm, Spark입니다.
    * **버전**. [HDInsight 버전](hdinsight-component-versioning.md) 참조
    * **구독**: 구독 이름입니다.
    * **기본 데이터 원본**: 기본 클러스터 파일 시스템입니다.

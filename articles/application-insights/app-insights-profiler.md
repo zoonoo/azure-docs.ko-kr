@@ -8,21 +8,20 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b0fc10099f1388169146d90efcd7c20dcbe8df27
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 4d957c26bd4e4ae278c0909c9df1476b02954b86
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164951"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138010"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링
 
-Profiler는 현재 Web Apps에서 실행 중인 ASP.NET 및 ASP.NET Core 웹앱에서 작동합니다. Profiler를 사용하려면 기본 서비스 계층 이상이 필요합니다.
+Profiler는 현재 Web Apps에서 실행 중인 ASP.NET 및 ASP.NET Core 웹앱에서 작동합니다. Profiler를 사용하려면 기본 서비스 계층 이상이 필요합니다. Linux에서 Profiler를 사용하도록 설정하려면 반드시 [이 방법](app-insights-profiler-aspnetcore-linux.md)을 사용해야 합니다.
 
 ## <a id="installation"></a> Web Apps에 Profiler 사용
 웹앱에 대해 Profiler를 사용하려면 아래 지침을 따르세요. 다른 유형의 Azure 서비스를 실행하는 경우 지원되는 다른 플랫폼에서 Profiler를 사용하도록 설정하는 지침은 다음과 같습니다.
@@ -30,11 +29,10 @@ Profiler는 현재 Web Apps에서 실행 중인 ASP.NET 및 ASP.NET Core 웹앱�
 * [Service Fabric 응용 프로그램](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-
 Application Insights Profiler는 App Services 런타임의 일부로 미리 설치되어 있지만 Azure Web Apps에 대한 프로필을 가져오도록 해당 기능을 켜야 합니다. 웹앱을 배포했으면, 소스 코드에 Application Insights SDK를 포함한 경우에도 아래 단계에 따라 프로파일러를 사용하도록 설정합니다.
 
 1. Azure Portal에서 **App Services** 창으로 이동합니다.
-1. **설정 > 모니터링** 창으로 이동합니다.
+1. **설정 > Application Insights** 창으로 이동합니다.
 
    ![App Services 포털에서 App Insights를 사용하도록 설정](./media/app-insights-profiler/AppInsights-AppServices.png)
 

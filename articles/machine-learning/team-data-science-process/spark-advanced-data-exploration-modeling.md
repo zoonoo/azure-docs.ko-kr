@@ -1,5 +1,5 @@
 ---
-title: 고급 Spark로 데이터 탐색 및 모델링 | Microsoft Docs
+title: Spark로 고급 데이터 탐색 및 모델링 - Team Data Science Process
 description: HDInsight Spark를 사용하여 데이터 탐색 및 학습 이진 분류를 수행하며 교차 유효성 검사 및 하이퍼 매개 변수 최적화를 사용하는 회귀 모델링을 수행합니다.
 services: machine-learning
 author: marktab
@@ -10,24 +10,24 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: e0fa3d481e18cdb15095968e791bd9eee630f8af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 4aa7e8b45f3791212280226b396ed9eb0f86538c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446333"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135477"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>고급 Spark로 데이터 탐색 및 모델링
 
-이 연습에서는 HDInsight Spark를 사용하여 데이터 탐색 및 학습 이진 분류를 수행하며 NYC Taxi Trip 및 요금 2013 데이터 세트 샘플에서 교차 유효성 검사 및 하이퍼 매개 변수 최적화를 사용하는 회귀 모델링을 수행합니다. 처리를 위한 HDInsight Spark 클러스터와 데이터 및 모델을 저장하는 Azure Blob을 사용하여 [데이터 과학 프로세스](https://aka.ms/datascienceprocess)의 단계를 종단 간 안내합니다. 프로세스는 Azure Storage Blob에서 가져온 데이터를 탐색하고 시각화한 다음 데이터를 준비하여 예측 모델을 빌드합니다. Python은 솔루션을 코딩하고 관련 차트를 표시하는 데 사용합니다. 이러한 모델은 Spark MLlib 도구 키트를 사용하여 이진 분류 및 회귀 모델링 작업을 수행합니다. 
+이 연습에서는 HDInsight Spark를 사용하여 데이터 탐색 및 학습 이진 분류를 수행하며 NYC Taxi Trip 및 요금 2013 데이터 세트 샘플에서 교차 유효성 검사 및 하이퍼 매개 변수 최적화를 사용하는 회귀 모델링을 수행합니다. 처리를 위한 HDInsight Spark 클러스터와 데이터 및 모델을 저장하는 Azure Blob을 사용하여 [데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계를 종단 간 안내합니다. 프로세스는 Azure Storage Blob에서 가져온 데이터를 탐색하고 시각화한 다음 데이터를 준비하여 예측 모델을 빌드합니다. Python은 솔루션을 코딩하고 관련 차트를 표시하는 데 사용합니다. 이러한 모델은 Spark MLlib 도구 키트를 사용하여 이진 분류 및 회귀 모델링 작업을 수행합니다. 
 
 * **이진 분류** 작업은 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 
 * **회귀** 작업은 다른 팁 기능을 기반으로 하는 팁의 금액을 예측합니다. 
 
 또한 모델링 단계에는 각 모델 유형을 학습, 평가 및 저장하는 방법을 보여주는 코드가 포함되어 있습니다. 이 항목에는 [Spark로 데이터 탐색 및 모델링](spark-data-exploration-modeling.md) 항목과 동일한 기본적인 내용이 일부 포함되어 있습니다. 하지만 좀 더 "고급" 내용으로, 하이퍼 매개 변수 비우기와 교차 유효성 검사를 함께 사용하여 정확한 분류 및 회귀 모델을 최적으로 학습할 수 있습니다. 
 
-**CV(교차 유효성 검사)** 는 알려진 데이터 집합에서 학습된 모델이 학습되지 않은 데이터 집합의 기능 예측을 얼마나 잘 일반화하는지 평가하는 기술입니다.  여기에 사용된 일반적인 구현은 데이터 세트를 K 접기로 나눈 다음 접기 중 하나를 제외한 모든 접기에서 라운드 로빈 방식으로 모델을 학습하는 것입니다. 이 접기에서 모델을 테스트하는 데 사용되지 않은 독립 데이터 세트에 대해 모델을 테스트할 때 모델이 정확히 예측하는 기능이 평가됩니다.
+**CV(교차 유효성 검사)** 는 알려진 데이터 세트에서 학습된 모델이 학습되지 않은 데이터 세트의 기능 예측을 얼마나 잘 일반화하는지 평가하는 기술입니다.  여기에 사용된 일반적인 구현은 데이터 세트를 K 접기로 나눈 다음 접기 중 하나를 제외한 모든 접기에서 라운드 로빈 방식으로 모델을 학습하는 것입니다. 이 접기에서 모델을 테스트하는 데 사용되지 않은 독립 데이터 세트에 대해 모델을 테스트할 때 모델이 정확히 예측하는 기능이 평가됩니다.
 
 **하이퍼 매개 변수 최적화** 는 학습 알고리즘에 대한 하이퍼 매개 변수 집합을 선택하는 문제이며, 일반적으로 독립된 데이터 집합에서의 알고리즘 성능 측정값을 최적화하는 것을 목표로 합니다. **하이퍼 매개 변수** 는 모델 학습 절차 외부에서 지정해야 하는 값입니다. 이러한 값에 대한 가정은 모델의 유연성 및 정확도에 영향을 줄 수 있습니다. 의사 결정 트리에는 원하는 깊이와 트리의 리프 수와 같은 하이퍼 매개 변수가 있습니다. SVM(Support Vector Machine)은 오분류 페널티 조건을 설정해야 합니다. 
 
@@ -52,11 +52,11 @@ ms.locfileid: "52446333"
 
 ### <a name="spark-16-notebooks"></a>Spark 1.6 Notebook
 
-[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Notebook #1의 항목 및 하이퍼 매개 변수 조정 및 교차 유효성 검사를 사용하는 모델 개발을 포함합니다.
+[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): 노트북 #1의 항목 및 하이퍼 매개 변수 튜닝 및 교차 유효성 검사를 사용한 모델 개발이 포함됩니다.
 
-### <a name="spark-20-notebooks"></a>Spark 2.0 Notebook
+### <a name="spark-20-notebooks"></a>Spark 2.0 노트북
 
-[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): 이 파일은 Spark 2.0 클러스터에서 데이터 탐색, 모델링, 점수 매기기를 수행하는 방법에 대한 정보를 제공합니다.
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): 이 파일은 Spark 2.0 클러스터에서 데이터 탐색, 모델링, 채점을 수행하는 방법에 대한 정보를 제공합니다.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -1000,7 +1000,7 @@ Area under ROC = 0.985336538462
 
 > AZURE 참고: 교차 유효성 검사는 로지스틱 회귀 모델에 대한 세부 정보에 표시되므로 이 섹션의 3가지 회귀 모델에 사용되지 않습니다. 선형 회귀에 대한 탄력적 net과 함께 CV를 사용하는 방법을 보여 주는 예제를 이 토픽의 부록에 제공합니다.
 > 
-> AZURE NOTE: 경험에 따르면 LinearRegressionWithSGD 모델의 수렴과 관련된 문제가 발생할 수 있으며 매개 변수는 유효한 모델을 얻기 위해 신중하게 변경/최적화되어야 합니다. 변수의 크기를 조정하면 수렴에 큰 도움이 됩니다. 이 토픽의 부록에 나와 있는 바와 같이 LinearRegressionWithSGD 대신 탄력적 net 회귀를 사용할 수도 있습니다.
+> AZURE 참고: 경험에 따르면 LinearRegressionWithSGD 모델의 수렴과 관련된 문제가 발생할 수 있으며 매개 변수는 유효한 모델을 얻기 위해 신중하게 변경/최적화되어야 합니다. 변수의 크기를 조정하면 수렴에 큰 도움이 됩니다. 이 토픽의 부록에 나와 있는 바와 같이 LinearRegressionWithSGD 대신 탄력적 net 회귀를 사용할 수도 있습니다.
 > 
 > 
 
@@ -1436,7 +1436,7 @@ BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassificatio
 BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0316_52_18.827237"
 
 ## <a name="whats-next"></a>다음 작업
-Spark MlLib로 회귀 및 분류 모델을 만든 경우 이러한 모델의점수를  매기고 평가하는 방법을 배울 수 있습니다.
+Spark MlLib로 회귀 및 분류 모델을 만든 경우 이러한 모델의 점수를 매기고 평가하는 방법을 배울 수 있습니다.
 
-**모델 사용:** 이 토픽에서 만든 분류 및 회귀 모델의 점수를 매기고 평가하는 방법을 알아보려면 [Spark에서 만든 기계 학습 모델 점수 매기기 및 평가](spark-model-consumption.md)를 참조하세요.
+**모델 사용:** 이 항목에서 만든 분류 및 회귀 모델의 점수를 매기고 평가하는 방법을 알아보려면 [Spark로 빌드된 기계 학습 모델 점수 매기기 및 평가](spark-model-consumption.md)를 참조하세요.
 

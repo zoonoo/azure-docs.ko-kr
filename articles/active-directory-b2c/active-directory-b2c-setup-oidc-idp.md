@@ -7,22 +7,24 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 30bc3e0f1a8230bdbcad653c8c2db7dc078629bb
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e6fc9ded2b3509f9505d88f0ae7ccc790e47b0f2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180351"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842767"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 OpenID Connect를 통한 등록 및 로그인 설정
 
 >[!NOTE]
 > 이 기능은 공개 미리 보기 상태입니다. 프로덕션 환경에서는 이 기능을 사용하지 마세요.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html)는 사용자를 안전하게 로그인하는 데 사용할 수 있는 OAuth 2.0을 기반으로 빌드된 인증 프로토콜입니다. 이 프로토콜을 사용하는 [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)와 같은 ID 공급자는 대부분 Azure AD B2C에서 지원됩니다. 이 문서에서는 사용자 지정 OpenID Connect ID 공급자를 기본 제공 정책에 추가하는 방법을 설명합니다.
+
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)는 사용자를 안전하게 로그인하는 데 사용할 수 있는 OAuth 2.0을 기반으로 빌드된 인증 프로토콜입니다. 이 프로토콜을 사용하는 [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)와 같은 ID 공급자는 대부분 Azure AD B2C에서 지원됩니다. 이 문서에서는 사용자 지정 OpenID Connect ID 공급 기업을 사용자 흐름에 추가하는 방법을 설명합니다.
+
 
 ## <a name="add-the-identity-provider"></a>ID 공급자 추가
 
@@ -39,15 +41,15 @@ ms.locfileid: "47180351"
 사용자가 로그인할 수 있도록 허용하기 위해 ID 공급자는 개발자가 해당 서비스에 응용 프로그램을 등록하도록 요청합니다. 이 응용 프로그램에는 ID(**클라이언트 ID**라고 함) 및 **클라이언트 비밀**이 있습니다. ID 공급자에서 이러한 값을 복사하여 해당하는 필드에 입력합니다.
 
 > [!NOTE]
-> 클라이언트 비밀은 선택 사항입니다. 하지만 비밀을 사용하여 토큰에 대한 코드를 교환하는 [권한 부여 코드 흐름](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)을 사용하려는 경우에는 클라이언트 비밀을 입력해야 합니다.
+> 클라이언트 비밀은 선택 사항입니다. 하지만 비밀을 사용하여 토큰에 대한 코드를 교환하는 [권한 부여 코드 흐름](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)을 사용하려는 경우에는 클라이언트 비밀을 입력해야 합니다.
 
 범위는 사용자 지정 ID 공급자로부터 수집하려는 정보 및 권한을 정의합니다. ID 공급자로부터 ID 토큰을 받을 수 있도록 OpenID Connect 요청에 `openid` 범위 값이 포함되어 있어야 합니다. 사용자는 ID 토큰이 없으면 사용자 지정 ID 공급자를 사용하여 Azure AD B2C에 로그인할 수 없습니다. 다른 범위를 공백으로 구분하여 추가할 수 있습니다. 사용할 수 있는 다른 범위를 확인하려면 사용자 지정 ID 공급자의 설명서를 참조하세요.
 
 응답 유형은 초기 호출 시 사용자 지정 ID 공급자의 `authorization_endpoint`로 반송되는 정보의 종류를 설명합니다. 다음과 같은 응답 유형을 사용할 수 있습니다.
 
-- `code`: [권한 부여 코드 흐름](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)에 따라 코드가 Azure AD B2C로 다시 반환됩니다. 그러면 Azure AD B2C는 `token_endpoint` 호출을 진행하여 토큰용 코드를 교환합니다.
-- `token`: 액세스 토큰이 사용자 지정 ID 공급자에서 Azure AD B2C로 다시 반환됩니다.
-- `id_token`: ID 토큰이 사용자 지정 ID 공급자에서 Azure AD B2C로 다시 반환됩니다.
+- `code`: [권한 부여 코드 흐름](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)에 따라 코드가 Azure AD B2C로 다시 반환됩니다. 그러면 Azure AD B2C는 `token_endpoint` 호출을 진행하여 토큰용 코드를 교환합니다.
+- `token`: 액세스 토큰이 사용자 지정 ID 공급 기업에서 Azure AD B2C로 다시 반환됩니다.
+- `id_token`: ID 토큰이 사용자 지정 ID 공급 기업에서 Azure AD B2C로 다시 반환됩니다.
 
 응답 모드는 사용자 지정 ID 공급자에서 Azure AD B2C로 데이터를 다시 보내는 데 사용해야 하는 메서드를 정의합니다. 다음 응답 모드를 사용할 수 있습니다.
 

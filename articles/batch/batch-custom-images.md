@@ -2,18 +2,18 @@
 title: 사용자 지정 이미지에서 Azure Batch 풀 프로비전| Microsoft Docs
 description: 사용자 지정 이미지에서 Batch 풀을 만들어 응용 프로그램에 필요한 데이터와 소프트웨어가 포함된 계산 노드를 프로비전하는 방법을 설명합니다. 사용자 지정 이미지는 Batch 워크로드를 실행하도록 계산 노드를 구성하는 효율적인 방법입니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
-ms.author: danlep
-ms.openlocfilehash: 7d0526dd233afd3976b22d257300681db0bfcead
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: lahugh
+ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885214"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840370"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>사용자 지정 이미지를 사용하여 가상 머신 풀 만들기 
 
@@ -50,7 +50,13 @@ Azure에서는 Azure VM OS 및 데이터 디스크의 스냅숏, 관리되는 �
 
 ### <a name="prepare-a-vm"></a>VM 준비 
 
-이미지용으로 새 VM을 만드는 경우 Batch에서 지원되는 Azure Marketplace 이미지를 관리되는 이미지의 기본 이미지로 사용한 후 사용자 지정할 수 있습니다.  Azure Batch에서 지원하는 Azure Marketplace 이미지 참조의 목록을 가져오려면 [노드 에이전트 SKU 나열](/rest/api/batchservice/account/listnodeagentskus) 작업을 참조하세요. 타사 이미지는 기본 이미지로 사용할 수 없습니다.
+이미지용으로 새 VM을 만드는 경우 Batch에서 지원되는 Azure Marketplace 이미지를 관리되는 이미지의 기본 이미지로 사용한 후 사용자 지정할 수 있습니다.  Azure Batch에서 지원하는 Azure Marketplace 이미지 참조의 목록을 가져오려면 [노드 에이전트 SKU 나열](/rest/api/batchservice/account/listnodeagentskus) 작업을 참조하세요. 
+
+> [!NOTE]
+> 추가 라이선스 및 구매 약관이 있는 타사 이미지는 기본 이미지로 사용할 수 없습니다. Marketplace 이미지에 대한 자세한 내용은 [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) 또는 [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) VM을 참조하세요.
+
 
 * 관리되는 디스크로 VM이 생성되었는지 확인합니다. VM을 만들 때 기본 저장소 설정입니다.
 * 사용자 지정 스크립트 확장 등의 Azure 확장을 VM에 설치해서는 안 됩니다. 이미지에 미리 설치된 확장이포함되어 있으면 Batch 풀을 배포할 때 Azure에서 문제가 발생할 수 있습니다.

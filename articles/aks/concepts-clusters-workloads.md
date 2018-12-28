@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155986"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998087"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -28,7 +28,7 @@ Kubernetes에서 이러한 응용 프로그램 구성 요소의 가용성을 오
 
 오픈 플랫폼인 Kubernetes를 사용하면 기본 설정 프로그래밍 언어, OS, 라이브러리 또는 메시지 버스를 사용하여 응용 프로그램을 빌드할 수 있습니다. 기존의 CI/CD(지속적인 통합 및 지속적인 업데이트) 도구는 Kubernetes와 통합되어 릴리스를 예약하고 배포할 수 있습니다.
 
-AKS(Azure Kubernetes Service)는 업그레이드 조정을 포함하여 배포 및 핵심 관리 작업의 복잡성을 줄여 주는 관리되는 Kubernetes 서비스를 제공합니다. AKS 클러스터 마스터는 Azure 플랫폼에서 관리하며, 응용 프로그램을 실행하는 AKS 노드에 대해서만 비용을 지불합니다. AKS는 오픈 소스 Azure Container Service 엔진(acs-engine)을 기반으로 합니다.
+AKS(Azure Kubernetes Service)는 업그레이드 조정을 포함하여 배포 및 핵심 관리 작업의 복잡성을 줄여 주는 관리되는 Kubernetes 서비스를 제공합니다. AKS 클러스터 마스터는 Azure 플랫폼에서 관리하며, 응용 프로그램을 실행하는 AKS 노드에 대해서만 비용을 지불합니다. AKS는 오픈 소스 Azure Kubernetes Service 엔진(aks-engine)을 기반으로 합니다.
 
 ## <a name="kubernetes-cluster-architecture"></a>Kubernetes 클러스터 아키텍처
 
@@ -54,7 +54,7 @@ AKS는 전용 API 서버, 스케줄러 등을 사용하여 단일 테넌트 클�
 
 이 관리되는 클러스터 마스터는 고가용성 *etcd* 저장소와 같은 구성 요소를 구성할 필요가 없지만 클러스터 마스터에 직접 액세스할 수 없음을 의미합니다. Kubernetes로의 업그레이드는 Azure CLI 또는 Azure Portal을 통해 오케스트레이션되며, 클러스터 마스터, 다음으로 노드를 업그레이드합니다. 가능한 문제를 해결하기 위해 Azure Log Analytics를 통해 클러스터 마스터 로그를 검토할 수 있습니다.
 
-클러스터 마스터를 특정 방식으로 구성해야 하거나 직접 액세스해야 하는 경우 [acs-engine][acs-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다.
+클러스터 마스터를 특정 방식으로 구성해야 하거나 직접 액세스해야 하는 경우 [aks-engine][aks-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다.
 
 ## <a name="nodes-and-node-pools"></a>노드 및 노드 풀
 
@@ -70,7 +70,7 @@ AKS는 전용 API 서버, 스케줄러 등을 사용하여 단일 테넌트 클�
 
 AKS에서 클러스터의 노드에 대한 VM 이미지는 현재 Ubuntu Linux를 기반으로 합니다. AKS 클러스터를 만들거나 노드 수를 확장하면 Azure 플랫폼에서 요청된 수의 VM을 만들고 구성합니다. 수동으로 구성할 필요가 없습니다.
 
-다른 호스트 OS, 컨테이너 런타임을 사용하거나 사용자 지정 패키지를 포함해야 하는 경우 [acs-engine][acs-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. `acs-engine` 업스트림은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 해제하고 구성 옵션을 제공합니다. 예를 들어 Docker 이외의 Windows 컨테이너 또는 컨테이너 런타임을 사용하려는 경우 `acs-engine`을 사용하여 현재 요구 사항에 맞게 Kubernetes 클러스터를 구성하고 배포할 수 있습니다.
+다른 호스트 OS, 컨테이너 런타임을 사용하거나 사용자 지정 패키지를 포함해야 하는 경우 [aks-engine][aks-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. `aks-engine` 업스트림은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 해제하고 구성 옵션을 제공합니다. 예를 들어 Docker 이외의 Windows 컨테이너 또는 컨테이너 런타임을 사용하려는 경우 `aks-engine`을 사용하여 현재 요구 사항에 맞게 Kubernetes 클러스터를 구성하고 배포할 수 있습니다.
 
 ### <a name="resource-reservations"></a>리소스 예약
 
@@ -218,7 +218,7 @@ AKS 클러스터를 만들 때 사용할 수 있는 네임스페이스는 다음
 - [Kubernetes/AKS 크기 조정][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [kubernetes-pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
 [kubernetes-pod-lifecycle]: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
 [kubernetes-deployments]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/

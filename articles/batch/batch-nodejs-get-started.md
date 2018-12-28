@@ -20,7 +20,7 @@ ms.locfileid: "53164622"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js용 Batch SDK 시작
 
-[Azure Batch Node.js SDK](/javascript/api/overview/azure/batch)를 사용하여 Node.js로 Batch 클라이언트를 빌드하는 기본 사항을 알아봅니다. 일괄 처리 응용 프로그램에 대한 시나리오를 단계별로 이해한 다음 Node.js 클라이언트를 사용하여 설정해 보겠습니다.  
+[Azure Batch Node.js SDK](/javascript/api/overview/azure/batch)를 사용하여 Node.js로 Batch 클라이언트를 빌드하는 기본 사항을 알아봅니다. 일괄 처리 애플리케이션에 대한 시나리오를 단계별로 이해한 다음 Node.js 클라이언트를 사용하여 설정해 보겠습니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자가 Node.js에 대한 작업 지식을 갖고 있으며 Linux에 익숙하다고 가정합니다. 또한 Batch 및 Storage 서비스를 만들 액세스 권한이 있는 Azure 계정을 갖고 있다고 가정합니다.
@@ -79,7 +79,7 @@ Batch 계정을 만들 리소스가 이미 있는 경우 리소스 그룹을 만
 
 `az batch account create -l "<location>"  -g "<resource-group-name>" -n "<batch-account-name>"`
 
-각 Batch 계정에는 해당하는 액세스 키가 있습니다. 이러한 키는 Azure Batch 계정에 추가 리소스를 만드는 데 필요합니다. 프로덕션 환경의 경우 Azure Key Vault를 사용하여 이러한 키를 저장하는 것이 좋습니다. 그런 다음 응용 프로그램의 서비스 주체를 만듭니다. 이 서비스 주체를 사용하여 응용 프로그램에서 Key Vault의 키에 액세스하는 OAuth 토큰을 만들 수 있습니다.
+각 Batch 계정에는 해당하는 액세스 키가 있습니다. 이러한 키는 Azure Batch 계정에 추가 리소스를 만드는 데 필요합니다. 프로덕션 환경의 경우 Azure Key Vault를 사용하여 이러한 키를 저장하는 것이 좋습니다. 그런 다음 애플리케이션의 서비스 주체를 만듭니다. 이 서비스 주체를 사용하여 애플리케이션에서 Key Vault의 키에 액세스하는 OAuth 토큰을 만들 수 있습니다.
 
 `az batch account keys list -g "<resource-group-name>" -n "<batch-account-name>"`
 

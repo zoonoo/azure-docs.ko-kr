@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 1877acbd39f4e312e3a567e092bb0bcf7531b96b
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 45d5cee92ce75c2e13f602d1ea6540698ea8abf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276332"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078364"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Google Cloud Platform 계정 연결
 
@@ -30,8 +30,8 @@ ms.locfileid: "52276332"
 
 1. [https://console.cloud.google.com](https://console.cloud.google.com)에서 Google Cloud Platform 콘솔에 로그인합니다.
 2. Cloudyn에 등록할 프로젝트 정보를 검토하고 **프로젝트 이름**과 **프로젝트 ID**를 적어 둡니다. 이후 단계를 위해 이 정보를 보관합니다.  
-    ![Google Cloud Platform 콘솔](./media/connect-google-account/gcp-console01.png)
-3. 청구가 사용하도록 설정 및 프로젝트에 연결되지 않은 경우 청구 계정을 만듭니다. 자세한 내용은 [새 청구 계정 만들기](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create\_a\_new\_billing\_account)를 참조하세요.
+    ![Google Cloud Platform 콘솔에 표시된 프로젝트 이름 및 프로젝트 ID](./media/connect-google-account/gcp-console01.png)
+3. 청구가 사용하도록 설정 및 프로젝트에 연결되지 않은 경우 청구 계정을 만듭니다. 자세한 내용은 [새 청구 계정 만들기](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account)를 참조하세요.
 
 ## <a name="enable-storage-bucket-billing-export"></a>저장소 버킷 청구 내보내기 사용
 
@@ -41,7 +41,7 @@ Google Cloud Storage를 사용하여 사용 보고서를 저장하는 경우 최
 
 1. 파일로 청구 내보내기를 사용하도록 설정하지 않은 경우 [파일로 청구 내보내기를 사용하도록 설정하는 방법](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file)의 지침을 따르세요. JSON 또는 CSV 청구 내보내기 형식을 사용할 수 있습니다.
 2. 사용하도록 설정한 경우에는 Google Cloud Platform 콘솔에서 **청구** > **청구 내보내기**로 이동합니다. 청구 **버킷 이름** 및 **보고서 접두사**를 적어둡니다.  
-    ![청구 내보내기](./media/connect-google-account/billing-export.png)
+    ![청구 내보내기 페이지에 표시되는 청구 내보내기 정보](./media/connect-google-account/billing-export.png)
 
 ## <a name="enable-google-cloud-platform-apis"></a>Google Cloud Platform API 사용
 
@@ -69,7 +69,7 @@ Google Cloud Storage를 사용하여 사용 보고서를 저장하는 경우 최
 4. **Google 계정 이름**에 청구 계정의 메일 주소를 입력하고 **다음**을 클릭합니다.
 5. Google 인증 대화 상자에서 Google 계정을 선택하거나 입력하고 cloudyn.com에 계정에 대한 액세스를 **허용**합니다.
 6. 이전에 적어둔 요청 프로젝트 정보를 추가합니다. 여기에는 **프로젝트 ID**, **프로젝트** 이름, **청구** 버킷 이름 및 **청구 파일** 보고서 접두사가 포함됩니다. 그런 다음 **저장**을 클릭합니다.  
-    ![Google 프로젝트 추가](./media/connect-google-account/add-project.png)
+    ![Cloudyn 계정으로 Google 프로젝트 추가](./media/connect-google-account/add-project.png)
 
 Google 계정이 계정 목록에 나타나며 **인증됨**으로 표시되어야 합니다. 그 아래에 Google 프로젝트 이름과 ID가 표시되고 녹색 확인 표시 기호가 있어야 합니다. 계정 상태는 **완료됨**이어야 합니다.
 

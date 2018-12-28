@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: e3c5a581b02f1dd7b7415ebd93de0e425ac2f8ae
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85aab429fd59afd36cd026e6d8aef2b7e6f6e122
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358368"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140458"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 출력 섹션
 Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 들어, 배포된 리소스에 액세스하기 위한 URI를 반환할 수 있습니다.
@@ -48,7 +48,9 @@ Azure CLI의 경우
 az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
 ```
 
-[참조](resource-group-template-functions-resource.md#reference) 함수를 사용하여 연결된 템플릿에서 출력 값을 검색할 수 있습니다. 연결된 템플릿에서 출력 값을 가져오려면 `"[reference('<name-of-deployment>').outputs.<property-name>.value]"` 같은 구문으로 속성 값을 검색합니다.
+[참조](resource-group-template-functions-resource.md#reference) 함수를 사용하여 연결된 템플릿에서 출력 값을 검색할 수 있습니다. 연결된 템플릿에서 출력 값을 가져오려면 `"[reference('deploymentName').outputs.propertyName.value]"` 같은 구문으로 속성 값을 검색합니다.
+
+연결된 템플릿에서 출력 속성을 가져올 때 속성 이름에 대시를 포함할 수 없습니다.
 
 예를 들어 연결된 템플릿에서 값을 검색하여 부하 분산 장치에 대한 IP 주소를 설정할 수 있습니다.
 
@@ -75,9 +77,9 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
-| outputName |예 |출력 값의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
-| 형식 |예 |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. |
-| 값 |예 |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. |
+| outputName |yes |출력 값의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
+| 형식 |yes |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. |
+| 값 |yes |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. |
 
 ## <a name="recommendations"></a>권장 사항
 

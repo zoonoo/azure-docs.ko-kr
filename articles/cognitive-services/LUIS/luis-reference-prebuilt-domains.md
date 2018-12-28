@@ -1,23 +1,24 @@
 ---
-title: 미리 작성된 도메인 참조 - Azure | Microsoft Docs
+title: 미리 작성된 도메인 참조
 titleSuffix: Azure
 description: LUIS(Language Understanding Intelligent Services)에서 미리 작성된 의도 및 엔터티 컬렉션에 해당하는 미리 작성된 도메인에 대한 참조입니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335626"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140968"
 ---
-# <a name="prebuilt-domain-reference"></a>미리 작성된 도메인 참조
+# <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS 앱에 대한 미리 작성된 도메인 참조
 이 참조는 LUIS에서 제공하는 의도 및 엔터티의 미리 작성된 컬렉션에 해당하는 [미리 작성된 도메인](luis-how-to-use-prebuilt-domains.md)에 대한 정보를 제공합니다.
 
 반대로, [사용자 지정 도메인](luis-how-to-start-new-app.md)은 의도 및 모델 없이 시작합니다. 사용자 지정 모델에 미리 작성된 도메인 의도 및 엔터티를 추가할 수 있습니다.
@@ -115,7 +116,7 @@ Communication 도메인은 전자 메일, 메시지 및 전화 통화와 관련�
 | TurnForwardingOff| 전화 통화를 합니다.|<br/><br/>|
 | Redial| 전화를 다시 겁니다.|다시 전화를 겁니다.<br/>마지막에 걸었던 전화를 다시 겁니다.|
 | 거부| 수신 전화를 거부합니다.|전화 거부<br/>지금은 전화를 받을 수 없습니다.<br/>지금은 전화를 받을 수 없으므로 나중에 다시 전화하겠습니다.|
-| SendEmail| 전자 메일을 보냅니다. 이 의도는 문메자 시지가 아닌 전자 메일에 적용됩니다.|Mike Waters에게 전자 메일 보내기: Mike, 지난 주에 함께 했던 저녁 식사는 아주 멋졌어요.<br/>Bob에게 전자 메일 보내기<br/>|
+| SendEmail| 전자 메일을 보냅니다. 이 의도는 문메자 시지가 아닌 전자 메일에 적용됩니다.|Mike Waters에게 이메일 보내기: Mike, 지난 주에 함께 했던 저녁 식사가 아주 멋졌어요.<br/>Bob에게 전자 메일 보내기<br/>|
 | SendMessage| 문자 메시지 또는 인스턴트 메시지를 보냅니다.|Chris 및 Carol에게 문자 보내기|
 | SetSpeedDial| 연락처의 전화 번호에 대해 단축번호를 설정합니다.|Carol에 단축번호 1을 설정합니다.<br/>엄마에게 단축번호를 설정합니다.|
 | ShowNext| 예를 들어 문자 메시지 또는 전자 메일 목록의 다음 항목을 표시합니다.|다음 항목을 표시합니다.<br/>다음 페이지로 이동합니다.|
@@ -241,11 +242,12 @@ HomeAutomation 도메인은 조명 및 어플라이언스와 같은 스마트 �
 MovieTickets 도메인은 영화관의 영화 티켓 예약과 관련된 의도 및 엔터티를 제공합니다.
 
 ### <a name="examples"></a>예
-```
-Book me two tickets for Captain Omar and the two Musketeers
-Cancel tickets
-When is Captain Omar showing?
-```
+
+|예|
+|--|
+|Captain Omar 티켓 2장과 Musketeers 티켓 2장을 예약해주세요.|
+|티켓 취소|
+|Captain Omar 상영 시간은 언제인가요?|
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
@@ -266,11 +268,12 @@ When is Captain Omar showing?
 Music 도메인은 뮤직 플레이어의 음악 재생과관 련된 의도 및 엔터티를 제공합니다.
 
 ### <a name="examples"></a>예
-```
-play Beethoven
-Increase track volume
-Skip to the next song
-```
+
+|예|
+|--|
+|베토벤 재생|
+|트랙 볼륨 높이기|
+|다음 노래로 이동|
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
@@ -297,11 +300,12 @@ Skip to the next song
 Note 도메인은 메모 생성, 편집 및 찾기와 관련된 의도 및 엔터티를 제공합니다.
 
 ### <a name="examples"></a>예
-```
-Add to my groceries note lettuce tomato bread coffee
-Check off bananas from my grocery list
-Remove all items from my vacation list
-```
+
+|예|
+|--|
+|내 식료품 메모에 양배추, 토마토, 빵, 커피 추가|
+|식료품 목록에서 바나나에 표시|
+|내 휴가 목록에서 모든 항목 제거|
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
@@ -330,11 +334,13 @@ Remove all items from my vacation list
 OnDevice 도메인은 디바이스 제어와 관련된 의도 및 엔터티를 제공합니다.
 
 ### <a name="examples"></a>예
-```
-Close video player
-Cancel playback
-Can you make the screen brighter?
-```
+
+|예|
+|--|
+|비디오 플레이어 닫기|
+|재생 취소|
+|화면을 더 밝게 만들 수 있나요?|
+
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
@@ -381,11 +387,13 @@ Can you make the screen brighter?
 Places 도메인은 회사, 기관, 식당, 공용 공간 및 주소와 같은 장소 관련 쿼리 처리를 위한 의도를 제공합니다.
 
 ### <a name="examples"></a>예
-```
-Save this location to my favorites
-How far away is Holiday Inn?
-At what time does Safeway close?
-```
+
+|예|
+|--|
+|이 위치를 내 즐겨찾기에 저장|
+|Holiday Inn은 얼마나 멀리 떨어져 있나요?|
+|Safeway는 몇 시에 문을 닫나요?|
+
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
@@ -450,11 +458,13 @@ restart|
 reminder 도메인은 미리 알림 생성, 편집 및 찾기에 대한 의도 및 엔터티를 제공합니다.
 
 ### <a name="examples"></a>예
-```
-Change my interview to 9 am tomorrow
-Remind me to buy milk on my way back home
-Can you check if I have a reminder about Christine's birthday?
-```
+
+|예|
+|--|
+|내 인터뷰를 내일 오전 9시로 변경|
+|집에 돌아오는 길에 우유를 구매하도록 미리 알림|
+|Christine의 생일에 대한 미리 알림이 있는지 확인할 수 있나요?|
+
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
@@ -473,11 +483,12 @@ Can you check if I have a reminder about Christine's birthday?
 RestaurantReservation 도메인은 식당 예약 관리와 관련된 의도 및 엔터티를 제공합니다.
 
 ### <a name="examples"></a>예
-```
-Reserve at Zucca for two for tonight
-Book a table at BJ's for tomorrow
-Table for 3 in Palo Alto at 7
-```
+
+|예|
+|--|
+|야간 시간에 Zucca에서 2명 예약|
+|내일을 위해 BJ's에 테이블 예약|
+|Palo Alto에서 7시에 3인용 테이블 예약|
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
@@ -502,11 +513,12 @@ Table for 3 in Palo Alto at 7
 Taxi 도메인은 택시 예약을 만들고 관리하기 위한 의도 및 엔터티를 제공합니다.
 
 ### <a name="examples"></a>예
-```
-Get me a cab at 3 pm
-How much longer do I have to wait for my taxi?
-Cancel my Uber
-```
+
+|예|
+|--|
+|오후 3시에 내게 택시 불러주기|
+|택시가 올 때까지 얼마나 더 기다려야 하나요?|
+|내 우버 취소|
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
@@ -531,11 +543,13 @@ Cancel my Uber
 Translate 도메인은 텍스트를 대상 언어로 번역하는 것과 관련된 의도 및 엔터티를 제공합니다.
 
 ### <a name="examples"></a>예
-```
-Translate to French
-Translate hello to German
-Translate this sentence to English
-```
+
+|예|
+|--|
+|프랑스어로 번역|
+|Hello를 독일어로 번역|
+|이 문장을 영어로 번역|
+
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
@@ -554,11 +568,12 @@ Translate this sentence to English
 TV 도메인은 TV를 제어하기 위한 의도 및 엔터티를 제공합니다.
 
 ### <a name="examples"></a>예
-```
-Switch channel to BBC
-Show TV guide
-Watch National Geographic
-```
+
+|예|
+|--|
+|BBC로 채널 전환|
+|TV 가이드 표시|
+|내셔널 지오그래픽 시청|
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
@@ -576,11 +591,13 @@ Watch National Geographic
 Utilities 도메인은 인사말, 취소, 확인, 도움말, 반복, 탐색, 시작 및 중지 등과 같이 여러 작업에서 공통적으로 진행되는 작업에 대한 의도를 제공합니다.
 
 ### <a name="examples"></a>예
-```
-Go back to Twitter
-Please help
-Repeat last question please
-```
+
+|예|
+|--|
+|Twitter로 돌아가기|
+|도와주세요.|
+|마지막 질문을 반복하세요.|
+
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
@@ -600,11 +617,13 @@ Repeat last question please
 Weather 도메인은 날씨 보고서 및 예측을 가져오기 위한 의도 및 엔터티를 제공합니다.
 
 ### <a name="examples"></a>예
-```
-weather in London in september
-What?s the 10 day forecast?
-What's the average temperature in India in september?
-```
+
+|예|
+|--|
+|9월의 런던 날씨|
+|10일 예측은 무엇인가요?|
+|9월에 인도 평균 온도는 얼마나 되나요?|
+
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
@@ -621,11 +640,12 @@ What's the average temperature in India in september?
 Web 도메인은 웹 사이트를 탐색하기 위한 의도를 제공합니다.
 
 ### <a name="examples"></a>예
-```
-Navigate to facebook.com
-Go to www.twitter.com
-Navigate to www.bing.com
-```
+
+|예|
+|--|
+|facebook.com으로 이동|
+|www.twitter.com으로 이동|
+|www.bing.com으로 이동|
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |

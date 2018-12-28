@@ -1,23 +1,19 @@
 ---
 title: Azure Application Gateway에서 SSL 정책 구성 - PowerShell
-description: 이 페이지에서는 Azure Application Gateway에서 SSL 정책을 구성하기 위한 지침을 제공합니다.
-documentationcenter: na
+description: 이 문서에서는 Azure Application Gateway에서 SSL 정책을 구성하기 위한 지침을 제공합니다.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/27/2018
+ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: 4c9ca5cee14603fb39115defc574aa7e956886ba
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7afa628ea455aa28f1717de8da66b631baeee4f1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30232139"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870456"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Application Gateway에서 SSL 정책 버전 및 암호 그룹 구성
 
@@ -110,7 +106,7 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>사용자 지정 SSL 정책 구성
 
-사용자 지정 SSL 정책을 구성할 때에는 PolicyType, MinProtocolVersion, CipherSuite 및 ApplicationGateway 매개 변수를 전달합니다. 다른 매개 변수를 전달하려고 하면 Application Gateway를 만들거나 업데이트할 때 오류가 발생합니다. 
+사용자 지정 SSL 정책을 구성할 때 다음 매개 변수를 전달합니다. PolicyType, MinProtocolVersion, CipherSuite 및 ApplicationGateway 다른 매개 변수를 전달하려고 하면 Application Gateway를 만들거나 업데이트할 때 오류가 발생합니다. 
 
 다음 예제에서는 Application Gateway에서 사용자 지정 SSL 정책을 설정합니다. 최소 프로토콜 버전을 `TLSv1_1`로 설정하고 다음 암호 그룹을 사용하도록 설정합니다.
 
@@ -119,7 +115,8 @@ CipherSuites:
 
 > [!IMPORTANT]
 > 사용자 지정 SSL 정책을 구성할 때 다음 목록에서 하나 이상의 암호 그룹을 선택해야 합니다. Application Gateway는 백 엔드 관리를 위해 RSA SHA256 암호 그룹을 사용합니다.
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 > * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_RSA_WITH_AES_128_GCM_SHA256
@@ -142,7 +139,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>미리 정의된 SSL 정책을 사용하여 Application Gateway 만들기
 
-미리 정의된 SSL 정책을 구성할 때에는 PolicyType, PolicyName 및 ApplicationGateway 매개 변수를 전달합니다. 다른 매개 변수를 전달하려고 하면 Application Gateway를 만들거나 업데이트할 때 오류가 발생합니다.
+미리 정의된 SSL 정책을 구성할 때 다음 매개 변수를 전달합니다. PolicyType, PolicyName 및 ApplicationGateway 다른 매개 변수를 전달하려고 하면 Application Gateway를 만들거나 업데이트할 때 오류가 발생합니다.
 
 다음 예제에서는 미리 정의된 SSL 정책을 사용하여 새 Application Gateway를 만듭니다.
 
@@ -199,7 +196,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.Re
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>미리 정의된 SSL 정책을 사용하여 기존 응용 프로그램 게이트웨이 업데이트
 
-사용자 지정 SSL 정책을 설정하려면 **PolicyType**, **MinProtocolVersion**, **CipherSuite** 및 **ApplicationGateway** 매개 변수를 전달합니다. 미리 정의된 SSL 정책을 설정하려면 **PolicyType**, **PolicyName** 및 **ApplicationGateway** 매개 변수를 전달합니다. 다른 매개 변수를 전달하려고 하면 Application Gateway를 만들거나 업데이트할 때 오류가 발생합니다.
+사용자 지정 SSL 정책을 설정하려면 다음 매개 변수를 전달합니다. **PolicyType**, **MinProtocolVersion**, **CipherSuite** 및 **ApplicationGateway** 미리 정의된 SSL 정책을 설정하려면 다음 매개 변수를 전달합니다. **PolicyType**, **PolicyName** 및 **ApplicationGateway** 다른 매개 변수를 전달하려고 하면 Application Gateway를 만들거나 업데이트할 때 오류가 발생합니다.
 
 다음 예제에는 사용자 지정 정책과 미리 정의된 정책 모두에 대한 코드 샘플이 나옵니다. 사용하려는 정책의 주석 처리를 제거하세요.
 
@@ -225,4 +222,4 @@ $SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>다음 단계
 
-[Application Gateway 리디렉션 개요](application-gateway-redirect-overview.md)를 방문하여 HTTPS 끝점에 HTTP 트래픽을 리디렉션하는 방법에 대해 알아봅니다.
+[Application Gateway 리디렉션 개요](application-gateway-redirect-overview.md)를 방문하여 HTTPS 엔드포인트에 HTTP 트래픽을 리디렉션하는 방법에 대해 알아봅니다.

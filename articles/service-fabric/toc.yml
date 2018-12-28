@@ -82,7 +82,7 @@ items:
       href: service-fabric-tutorial-standalone-create-infrastructure.md
     - name: 2 - Service Fabric 설정
       href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
-    - name: 3 - 클러스터에 응용 프로그램 배포
+    - name: 3 - 클러스터에 애플리케이션 배포
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4 - 클러스터 정리 및 인프라 삭제
       href: service-fabric-tutorial-standalone-clean-up.md
@@ -170,16 +170,16 @@ items:
       href: service-fabric-application-model.md
     - name: 애플리케이션 및 서비스 매니페스트
       href: service-fabric-application-and-service-manifests.md
-    - name: 응용 프로그램 및 서비스 매니페스트 예제
+    - name: 애플리케이션 및 서비스 매니페스트 예제
       href: service-fabric-manifest-examples.md
       items:
-      - name: Reliable Services 응용 프로그램 및 서비스 매니페스트 예제
+      - name: Reliable Services 애플리케이션 및 서비스 매니페스트 예제
         href: service-fabric-manifest-example-reliable-services-app.md
-      - name: 다중 컨테이너 응용 프로그램 및 서비스 매니페스트 예제
+      - name: 다중 컨테이너 애플리케이션 및 서비스 매니페스트 예제
         href: service-fabric-manifest-example-container-app.md
     - name: 호스팅 모델
       href: service-fabric-hosting-model.md
-    - name: 응용 프로그램 보안
+    - name: 애플리케이션 보안
       href: service-fabric-application-and-service-security.md
     - name: 서비스 상태
       href: service-fabric-concepts-state.md
@@ -201,7 +201,7 @@ items:
       items:
       - name: 애플리케이션 수명 주기 개요
         href: service-fabric-application-lifecycle.md
-      - name: 응용 프로그램 업그레이드
+      - name: 애플리케이션 업그레이드
         items:
         - name: 애플리케이션 업그레이드 개요
           href: service-fabric-application-upgrade.md
@@ -359,7 +359,7 @@ items:
       href: service-fabric-create-your-first-linux-application-with-java.md
     - name: Windows의 게스트 실행 가능 애플리케이션
       href: quickstart-guest-app.md
-  - name: 응용 프로그램 빌드
+  - name: 애플리케이션 빌드
     items:
     - name: 게스트 실행 가능한 서비스 빌드
       items:
@@ -513,7 +513,7 @@ items:
       href: /azure/architecture/service-fabric/refactor-migrated-app
   - name: 응용 프로그램 수명 주기 관리
     items:
-    - name: 응용 프로그램 패키지 작성
+    - name: 애플리케이션 패키지 작성
       href: service-fabric-package-apps.md
     - name: 구성 파일과 매개 변수 사용
       href: service-fabric-how-to-parameterize-configuration-files.md
@@ -533,7 +533,7 @@ items:
         href: service-fabric-application-lifecycle-sfctl.md
       - name: FabricClient API
         href: service-fabric-deploy-remove-applications-fabricclient.md
-    - name: 응용 프로그램 업그레이드
+    - name: 애플리케이션 업그레이드
       items:
       - name: Azure Powershell을 사용하여 업그레이드
         href: service-fabric-application-upgrade-tutorial-powershell.md
@@ -653,7 +653,7 @@ items:
       href: service-fabric-diagnostics-common-scenarios.md
     - name: 응용 프로그램 모니터링
       items:
-      - name: 응용 프로그램에 로깅 추가
+      - name: 애플리케이션에 로깅 추가
         href: service-fabric-how-to-diagnostics-log.md
       - name: Application Insights를 사용하여 분석
         href: service-fabric-diagnostics-event-analysis-appinsights.md

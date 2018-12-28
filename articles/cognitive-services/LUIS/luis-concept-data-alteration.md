@@ -1,23 +1,24 @@
 ---
-title: LUIS의 데이터 변경 개념 - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: 데이터 변경
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Language Understanding(LUIS)에서 예측 전에 데이터를 변경하는 방법을 알아봅니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6db7fd2474688608eb029fce1529ba1d3f00c5d3
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 6f3f1ba47ec4dbdd09f6c9e3962b2102fc366136
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637173"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099123"
 ---
-# <a name="data-alterations"></a>데이터 변경
+# <a name="alter-utterance-data-before-or-during-prediction"></a>예측 이전 또는 도중에 발언 데이터 변경
 LUIS는 예측 전이나 예측 중에 발화를 조작할 수 있는 방법을 제공합니다. 여기에는 미리 빌드된 datetimeV2에 대한 맞춤법 검사 및 표준 시간대 문제 해결이 포함됩니다. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>발화에서 맞춤법 오류 수정

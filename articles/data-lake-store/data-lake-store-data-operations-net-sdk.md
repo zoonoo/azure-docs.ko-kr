@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 57f4485e70bf91713539b3398fc93d6810c3c28e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391490"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163239"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.locfileid: "44391490"
    | --- | --- |
    | Category |Templates/Visual C#/Windows |
    | Template |콘솔 응용 프로그램 |
-   | Name |CreateADLApplication |
+   | 이름 |CreateADLApplication |
 
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 
@@ -146,7 +146,7 @@ ms.locfileid: "44391490"
     var directoryEntry = client.GetDirectoryEntry(fileName);
     PrintDirectoryEntry(directoryEntry);
 
-`PrintDirectoryEntry` 메서드의 정의는 [Github에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 샘플의 일부로 사용할 수 있습니다. 
+`PrintDirectoryEntry` 메서드의 정의는 [GitHub에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 샘플의 일부로 사용할 수 있습니다. 
 
 ## <a name="rename-a-file"></a>파일 이름 바꾸기
 다음 코드 조각은 Data Lake Storage Gen1 계정의 기존 파일 이름을 바꿉니다.
@@ -164,7 +164,7 @@ ms.locfileid: "44391490"
         PrintDirectoryEntry(entry);
     }
 
-`PrintDirectoryEntry` 메서드의 정의는 [Github에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 샘플의 일부로 사용할 수 있습니다.
+`PrintDirectoryEntry` 메서드의 정의는 [GitHub에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 샘플의 일부로 사용할 수 있습니다.
 
 ## <a name="delete-directories-recursively"></a>디렉터리를 재귀적으로 삭제
 다음 코드 조각은 디렉터리 및 모든 해당 하위 디렉터리를 재귀적으로 삭제합니다.
@@ -178,7 +178,7 @@ Data Lake Storage Gen1 파일 시스템 SDK를 사용하는 방법에 대한 몇
 * [GitHub의 고급 샘플](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>참고 항목
-* [.NET SDK를 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
+* [.NET SDK를 사용한 Data Lake Storage Gen1의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
 * [Data Lake Storage Gen1 .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>다음 단계

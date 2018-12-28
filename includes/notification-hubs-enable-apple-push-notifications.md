@@ -39,7 +39,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 푸시 알림
 
 ## <a name="register-your-app-for-push-notifications"></a>푸시 알림에 대해 앱 등록
 
-iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등록하고 푸시 알림도 등록해야 합니다.  
+iOS 앱으로 푸시 알림을 보내려면 Apple에 애플리케이션을 등록하고 푸시 알림도 등록해야 합니다.  
 
 1. 아직 앱을 등록하지 않은 경우 Apple Developer Center의 [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456)로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App ID**를 클릭한 다음, **+** 기호를 클릭하여 새 앱을 등록합니다.
 

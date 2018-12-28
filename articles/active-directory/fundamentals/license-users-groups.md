@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 라이선스를 할당하거나 제거하는 방법 | Microsoft Docs
-description: Azure Active Directory를 사용하여 사용자 또는 그룹에서 Azure Active Directory 라이선스를 할당하거나 제거합니다.
+title: 라이선스 할당 또는 제거 - Azure Active Directory | Microsoft Docs
+description: 사용자 또는 그룹에서 Azure Active Directory 라이선스를 할당하거나 제거하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: e1b0b2f84c67e30c3bb998554dc662b002744003
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 6cf3e9a9b767dfaa6f04d151864f64123e3d6ae7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603892"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077464"
 ---
-# <a name="how-to-assign-or-remove-azure-active-directory-licenses"></a>방법: Azure Active Directory 라이선스 할당 또는 제거
+# <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거
 많은 Azure AD(Azure Active Directory) 서비스를 사용하려면 Azure AD 제품을 활성화하고 해당 제품에 대한 각 사용자 또는 그룹(및 관련 멤버)에 라이선스를 부여해야 합니다. 활성 라이선스가 있는 사용자만 사용이 허가된 Azure AD 서비스에 액세스하여 사용할 수 있습니다.
 
 ## <a name="available-product-editions"></a>사용 가능한 제품 버전

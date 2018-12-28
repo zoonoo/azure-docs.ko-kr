@@ -1,6 +1,6 @@
 ---
-title: 'AI(인공 지능) 응용 프로그램에 대한 DevOps: Docker, Kubernetes 및 Python Flask 응용 프로그램을 사용하여 Azure에서 지속적인 통합 파이프라인 만들기'
-description: 'AI(인공 지능) 응용 프로그램에 대한 DevOps: Docker 및 Kubernetes를 사용하여 Azure에서 지속적인 통합 파이프라인 만들기'
+title: 지속적인 통합 Azure 파이프라인 만들기 - Team Data Science Process
+description: 'AI(인공 지능) 애플리케이션에 대한 DevOps: Docker 및 Kubernetes를 사용하여 Azure에서 지속적인 통합 파이프라인 만들기'
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
-ms.custom: (previous author=jainr, ms.author=jainr)
-ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
+ms.openlocfilehash: a3c570d3d22742afcbba86f35a9dd1f6a85c0b8f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496755"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134287"
 ---
-# <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>AI(인공 지능) 응용 프로그램에 대한 DevOps: Docker 및 Kubernetes를 사용하여 Azure에서 지속적인 통합 파이프라인 만들기
+# <a name="creating-continous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Docker, Kubernetes 및 Python Flask 애플리케이션을 사용하여 Azure에서 지속적인 통합 파이프라인 만들기
 AI 응용 프로그램의 경우 대개 Machine Learning 모델을 빌드하는 데이터 과학자와 응용 프로그램을 빌드하고 사용할 최종 사용자에게 노출하는 앱 개발자라는 두 가지 작업 스트림이 있습니다. 이 문서에서는 AI 응용 프로그램을 위한 CI(지속적인 통합)/CD(지속적인 배포) 파이프라인을 구현하는 방법을 설명합니다. AI 응용 프로그램은 미리 학습된 ML(Machine Learning) 모델이 포함된 응용 프로그램 코드의 조합입니다. 이 문서의 경우 개인 Azure blob 저장소 계정에서 미리 학습된 모델을 페치합니다. 이는 AWS S3 계정에도 적용될 수 있습니다. 문서에서는 간단한 python flask 웹 응용 프로그램을 사용합니다.
 
 > [!NOTE]

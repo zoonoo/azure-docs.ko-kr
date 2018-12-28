@@ -1,27 +1,28 @@
 ---
-title: LUIS 미리 빌드된 엔터티 number 참조 - Azure | Microsoft Docs
+title: Number 미리 빌드된 엔터티
 titleSuffix: Azure
 description: 이 문서에는 LUIS(Language Understanding)의 number 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: b3ac42f5ecd1dc14055b0767e057a1da093042f9
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: bd42fbb85468ab652741573731515e499fe453da
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334570"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165676"
 ---
-# <a name="number-entity"></a>Number 엔터티
+# <a name="number-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 Number 미리 빌드된 엔터티
 숫자 값은 다양한 방식으로 정보를 정량화하고, 표현하고, 설명하는 데 사용됩니다. 이 문서에서는 가능한 예제 중 일부만 제공합니다. LUIS는 사용자 발언에서 변형을 해석하고 일관된 숫자 값을 반환합니다. 이 엔터티를 이미 학습했기 때문에 number를 포함하는 예제 발언을 응용 프로그램 의도에 추가할 필요가 없습니다. 
 
 ## <a name="types-of-number"></a>Number의 유형
-Number는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) Github 리포지토리에서 관리됩니다.
+Number는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) GitHub 리포지토리에서 관리됩니다.
 
 ## <a name="examples-of-number-resolution"></a>Number 해결 예제
 
@@ -42,7 +43,7 @@ LUIS에서 반환하는 JSON 응답의 `resolution` 필드에는 **`builtin.numb
 ## <a name="resolution-for-prebuilt-number"></a>미리 빌드된 number의 해결
 다음 예제에서는 발언 "two dozen"에 대해 값 24라는 해결을 포함하는 LUIS의 JSON 응답을 보여줍니다.
 
-```JSON
+```json
 {
   "query": "order two dozen eggs",
   "topScoringIntent": {

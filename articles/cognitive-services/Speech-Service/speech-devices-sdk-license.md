@@ -1,5 +1,5 @@
 ---
-title: 음성 디바이스 SDK 라이선스 계약
+title: 음성 디바이스 SDK 라이선스 계약 - Speech Services
 titleSuffix: Azure Cognitive Services
 description: 음성 디바이스 SDK 라이선스 계약입니다.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: dea27d7363210580d5f040de7ea1db770701d9c9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: b1605337a810c635bfa40cd05e2f9b15d2e5a7e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466123"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078517"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>음성 디바이스 SDK 라이선스 계약
 
-## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>MICROSOFT 소프트웨어 사용 조건<br>음성 디바이스 SDK(소프트웨어 개발 키트) 
+## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>MICROSOFT 소프트웨어 사용 조건<br>음성 디바이스 SDK(소프트웨어 개발 키트)
 
 > 거주지(또는 비즈니스 본거지)가 미국인 경우 아래 “의무 중재 및 등급 조치 면책” 섹션을 참조하세요. 분쟁의 해결 방법에 적용됩니다.
 
@@ -57,7 +58,7 @@ f)  Microsoft Azure Cognitive Services, 음성 서비스를 통해서만 소프�
 
 **5\. 피드백.** Microsoft에 소프트웨어에 대한 피드백을 제공하는 경우 귀하는 피드백을 어떠한 방식과 목적으로든 체험으로 사용, 공유 및 상품화할 수 있는 권리를 Microsoft에 제공하는 것입니다. Microsoft가 귀하의 피드백을 포함함으로써 제3자에게 소프트웨어 또는 문서의 사용을 허가해야 하는 라이선스가 적용되는 피드백을 제공하지 않습니다. 이러한 권리는 이 계약에서 효력을 유지합니다.
 
-**6\. 기간.** 이 계약은 귀하가 동의할 때 적용되며, 언제든지 귀하나 Microsoft가 종료할 수 있습니다. 
+**6\. 기간.** 이 계약은 귀하가 동의할 때 적용되며, 언제든지 귀하나 Microsoft가 종료할 수 있습니다.
 
 **7\. 종료.** 귀하가 본 사용 약관을 준수하지 않는 경우, Microsoft는 여타 권리에 영향을 미치지 않고 이 계약을 종료할 수 있습니다. 이러한 경우 소프트웨어의 모든 사본과 해당 구성 요소 파트를 모두 삭제해야 합니다.
 

@@ -1,7 +1,7 @@
 ---
-title: Speech to Text 정보
+title: 음성을 텍스트로 변환 정보 - 음성 서비스
 titleSuffix: Azure Cognitive Services
-description: Speech to Text API의 기능 개요입니다.
+description: Speech-to-Text API는 오디오 스트림을 앱에서 표시하거나 입력으로 작동할 수 있는 텍스트로 기록합니다. 서비스는 SDK 및 RESTful 엔드포인트를 통해 사용할 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: 041ec1c095ec604fed7906368ff266c1586df570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 050d395614fa4a08e6d0d0967200029e8fc36010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471342"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094715"
 ---
 # <a name="about-the-speech-to-text-api"></a>Speech to Text API 정보
 
@@ -39,7 +40,7 @@ ms.locfileid: "49471342"
 
 ## <a name="api-capabilities"></a>API 기능
 
-**음성 텍스트 변환** API의 일부 기능(특히 사용자 지정 기능)은 REST를 통해 사용할 수 있습니다. 다음 표에서는 API에 액세스하는 각 방법의 기능을 요약해서 설명합니다. 기능 및 API의 세부 정보의 전체 목록은 [Swagger 참조](https://westus.cris.ai/swagger/ui/index)를 참조하세요.
+**음성 텍스트 변환** API의 일부 기능(특히 사용자 지정 기능)은 REST를 통해 사용할 수 있습니다. 다음 표에서는 API에 액세스하는 각 방법의 기능을 요약해서 설명합니다. 기능 및 API의 세부 정보에 대한 전체 목록은 [Swagger 참조](https://westus.cris.ai/swagger/ui/index)를 참조하세요.
 
 | 사용 사례 | REST (영문) | SDK |
 |-----|-----|-----|----|

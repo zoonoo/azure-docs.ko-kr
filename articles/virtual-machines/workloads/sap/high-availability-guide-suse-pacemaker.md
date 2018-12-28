@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 9d3d1e5ba7ebc7e2afefb31df3be9f2a8f43e153
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685398"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076358"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -178,7 +178,7 @@ o- / ...........................................................................
 새로 만들 클러스터의 노드에서 다음 명령을 실행합니다.
 다음 항목에는 접두사 **[A]**(모든 노드에 적용됨), **[1]**(노드 1에만 적용됨), **[2]**(노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
-1. **[A]** iSCSI 장치에 연결
+1. **[A]** iSCSI 디바이스에 연결
 
    먼저 iSCSI 및 SBD 서비스를 사용하도록 설정합니다.
 
@@ -272,7 +272,7 @@ o- / ...........................................................................
    * **/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df**
    * **/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf**
 
-1. **[1]** SBD 장치 만들기
+1. **[1]** SBD 디바이스 만들기
 
    iSCSI 디바이스의 디바이스 ID를 사용하여 첫 번째 클러스터 노드에 새 SBD 디바이스를 만듭니다.
 
@@ -436,7 +436,7 @@ o- / ...........................................................................
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   값이 없거나 다른 경우 파일에 다음과 같이 굵게 표시된 콘텐츠를 추가합니다. 메모리 보존 유지 관리를 허용하도록 토큰을 30000으로 변경해야 합니다. 자세한 내용은 [Linux][virtual-machines-linux-maintenance] or [Windows에 대한 이 문서][virtual-machines-windows-maintenance]를 참조하세요.
+   값이 없거나 다른 경우 파일에 다음과 같이 굵게 표시된 콘텐츠를 추가합니다. 메모리 보존 유지 관리를 허용하도록 토큰을 30000으로 변경해야 합니다. 자세한 내용은 [Linux][virtual-machines-linux-maintenance] or [Windows에 대한 이 문서][virtual-machines-windows-maintenance]를 참조하세요. 또한 매개 변수 mcastaddr을 제거했는지 확인합니다.
 
    <pre><code>[...]
      <b>token:          30000
@@ -449,6 +449,8 @@ o- / ...........................................................................
         [...] 
      }
      <b>transport:      udpu</b>
+     # remove parameter mcastaddr
+     <b># mcastaddr: IP</b>
    } 
    <b>nodelist {
      node {
@@ -527,14 +529,14 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 1. 모든 리소스 블레이드 열기
 1. 첫 번째 클러스터 노드의 가상 머신 선택
 1. 액세스 제어(IAM) 클릭
-1. 추가를 클릭합니다.
+1. 역할 할당 추가 클릭
 1. "Linux 펜스 에이전트 역할"이라는 역할 선택
 1. 위에서 만든 응용 프로그램의 이름 입력
-1. 확인 클릭
+1. 저장을 클릭합니다.
 
 두 번째 클러스터 노드에 위 단계 반복
 
-### <a name="1-create-the-stonith-devices"></a>**[1]** STONITH 장치 만들기
+### <a name="1-create-the-stonith-devices"></a>**[1]** STONITH 디바이스 만들기
 
 가상 머신의 권한을 편집하고 나면 클러스터의 STONITH 디바이스를 구성할 수 있습니다.
 
@@ -548,7 +550,7 @@ sudo crm configure property stonith-enabled=true
 
 ## <a name="default-pacemaker-configuration-for-sbd"></a>SBD에 대한 기본 Pacemaker 구성
 
-1. **[1]** STONITH 장치를 사용하도록 설정하고 방어 지연 설정
+1. **[1]** STONITH 디바이스를 사용하도록 설정하고 방어 지연 설정
 
 <pre><code>sudo crm configure property stonith-timeout=144
 sudo crm configure property stonith-enabled=true

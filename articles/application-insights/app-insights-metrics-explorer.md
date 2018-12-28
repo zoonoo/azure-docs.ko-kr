@@ -33,7 +33,7 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 ## <a name="time-range"></a>시간 범위
 모든 블레이드의 차트 또는 표에서 다루는 시간 범위를 변경할 수 있습니다.
 
-![Azure 포털에서 응용 프로그램의 개요 블레이드 열기](./media/app-insights-metrics-explorer/03-range.png)
+![Azure 포털에서 애플리케이션의 개요 블레이드 열기](./media/app-insights-metrics-explorer/03-range.png)
 
 일부 데이터가 표시되어야 하지만 아직 표시되지 않은 경우 새로 고침을 클릭합니다. 차트는 특정 간격에 따라 자체적으로 새로 고쳐지지만 시간 범위가 더 클 경우 간격이 늘어납니다. 차트에 분석 파이프라인을 내놓기 위한 데이터에는 시간이 걸릴 수 있습니다.
 

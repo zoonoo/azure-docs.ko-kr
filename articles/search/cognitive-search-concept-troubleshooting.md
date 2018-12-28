@@ -1,5 +1,5 @@
 ---
-title: Azure Search에서 인식 검색에 대한 문제 해결 팁 | Microsoft Docs
+title: 인식 검색을 위한 문제 해결 팁 - Azure Search
 description: Azure Search에서 인식 설정 파이프라인을 설정하기 위한 문제 해결 및 팁입니다.
 services: search
 manager: pablocas
@@ -10,18 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3d0d468674a2284e9925c1410f2bb8bcbde8f73f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec2018
+ms.openlocfilehash: 5f21fe3c65e37d3fee4043526762a7fafdea5cc4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575313"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316297"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>인식 검색을 위한 문제 해결 팁
 
 이 문서에는 Azure Search에서 인식 검색 기능을 시작할 때 감동시키는 팁과 요령 목록이 포함돼 있습니다. 
 
-아직 그렇게 하지 않은 경우 BLOB 데이터 원본에 인식 검색 보강을 적용하려면 [자습서: 인식 검색 API를 호출하는 방법 알아보기](cognitive-search-quickstart-blob.md)를 단계별로 실행합니다.
+아직 수행하지 않은 경우 Blob 데이터 원본에 인식 검색 보강을 적용하려면 [자습서: 인식 검색 API를 호출하는 방법 알아보기](cognitive-search-quickstart-blob.md)를 단계별로 실행합니다.
 
 ## <a name="tip-1-start-with-a-small-dataset"></a>팁 1: 작은 데이터 세트로 시작
 문제를 신속하게 찾는 최상의 방법은 문제를 해결할 수 있는 속도를 높이는 것입니다. 인덱싱 시간을 줄이는 최상의 방법은 인덱싱할 문서 수를 줄이는 것입니다. 
@@ -36,7 +37,7 @@ ms.locfileid: "45575313"
 https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials)을 참조합니다.
 - 인덱서의 사용자 컨테이너 이름은 올바릅니다.
 
-## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>팁 3: 일부 오류가 있는 경우라도 작동 조건 참조
+## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>팁 3: 일부 오류가 있는 경우라도 어떤 기능이 작동하는지 확인
 경우에 따라 작은 오류가 해당 트랙에서 인덱서를 중지합니다. 차례로 문제를 해결하려는 경우 괜찮습니다. 그러나 특정 유형의 오류를 무시하고 어떤 흐름이 실제로 작동하는지 확인할 수 있도록 인덱서를 계속 허용하려 할 수 있습니다.
 
 이 경우 인덱서에게 오류를 무시하라고 명령하고 싶을 수 있습니다. *maxFailedItems* 및 *maxFailedItemsPerBatch*를 -1로 인덱서 정의의 일부로 설정하여 그렇게 합니다.
@@ -83,17 +84,17 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 
 누락된 콘텐츠는 인덱싱 동안 삭제되는 문서의 결과물일 수 있습니다. 무료 및 기본 계층은 문서 크기에 대한 제한이 낮습니다. 제한을 초과하는 모든 파일은 인덱싱 동안 삭제됩니다. Azure Portal에서 삭제된 문서를 확인할 수 있습니다. 검색 서비스 대시보드에서 인덱서 타일을 두 번 클릭합니다. 성공적으로 인덱싱된 문서의 비율을 검토합니다. 100%가 아닌 경우 자세한 내용을 보려면 비율을 클릭하면 됩니다. 
 
-문제가 파일 크기와 관련된 경우 다음과 같은 오류가 표시될 수 있습니다. "BLOB <file-name>은 현재 서비스 계층에 대해 문서 추출을 위한 최대 크기를 초과하는 <file-size> 바이트 크기입니다." 인덱서 제한에 대한 자세한 내용은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
+문제가 파일 크기와 관련이 있는 경우 다음과 같은 오류가 표시될 수 있습니다. “Blob <file-name>은 현재 서비스 계층에 대해 문서 추출을 위한 최대 크기를 초과하는 <file-size> 바이트 크기입니다.” 인덱서 제한에 대한 자세한 내용은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
 콘텐츠를 표시하는 데 실패한 두 번째 이유는 관련된 입/출력 매핑 오류일 수 있습니다. 예를 들어 출력 대상 이름은 "People"이지만 인덱스 필드 이름은 소문자 "people"입니다. 실제로 필드가 비어있을 때 인덱싱이 성공한 것으로 생각하도록 시스템이 전체 파이프라인에 대한 201 성공 메시지를 반환할 수 있습니다. 
 
-## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>팁 6: 최대 실행 시간(24시간 범위)을 초월하여 처리 확장
+## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>팁 6: 최대 실행 시간(24시간 범위) 이상으로 처리 확장
 
 이미지 분석은 단순한 사례라도 계산 집약적이므로 이미지가 특히 크거나 복잡한 경우 처리 시간이 최대 허용 시간을 초과할 수 있습니다. 
 
 최대 실행 시간은 무료 계층에는 몇 분 인덱싱, 청구 가능 계층에는 24시간 인덱싱 등 계층에 따라 다릅니다. 요청 시 처리를 위해 처리를 24시간 내에 완료하지 못하면 인덱서가 중단된 경우 처리를 선택할 수 있도록 일정을 전환합니다. 
 
-예약된 인덱서의 경우 인덱싱은 마지막으로 알려진 좋은 문서에서 일정에 따라 다시 시작합니다. 처리되지 않은 이미지를 모두 처리할 때까지, 인덱서는 반복 일정을 사용하여 일련의 시간 또는 일이 지나는 동안 이미지 백로그를 통해 자기 방식대로 작동할 수 있습니다. 일정 구문에 대한 자세한 내용은 [3단계: 인덱서 만들기](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer)를 참조합니다.
+예약된 인덱서의 경우 인덱싱은 마지막으로 알려진 좋은 문서에서 일정에 따라 다시 시작합니다. 처리되지 않은 이미지를 모두 처리할 때까지, 인덱서는 반복 일정을 사용하여 일련의 시간 또는 일이 지나는 동안 이미지 백로그를 통해 자기 방식대로 작동할 수 있습니다. 일정 구문에 대한 자세한 내용은 [3단계: 인덱서 만들기](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer)를 참조하세요.
 
 포털 기반 인덱싱의 경우(빠른 시작에서 설명한 대로) "한 번 실행" 인덱서 옵션을 선택하면 처리 시간을 1시간(`"maxRunTime": "PT1H"`)으로 제한합니다. 처리 창을 조금 더 길게 확장하고 싶을 수 있습니다.
 
@@ -106,6 +107,6 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 + [빠른 시작: 포털에서 인식 검색 파이프라인 만들기](cognitive-search-quickstart-blob.md)
 + [자습서: 인식 검색 REST API 알아보기](cognitive-search-tutorial-blob.md)
 + [데이터 원본 자격 증명 지정](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
-+ [큰 데이터 집합 인덱싱](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
++ [큰 데이터 세트 인덱싱](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [인덱스에 보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

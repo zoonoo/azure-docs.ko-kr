@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8c8376fcdcc33996ecc9340647c92a3abcf262c7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6a2bbc75c3802d6eea86e6d552330adde4bdc5f4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129695"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101775"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Oracle Responsys에서 데이터 복사(미리 보기)
 
@@ -45,7 +45,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **Responsys**로 설정해야 합니다. | yes |
+| 형식 | 형식 속성을 다음으로 설정해야 합니다. **Responsys** | yes |
 | endpoint | Responsys 서버의 엔드포인트입니다.  | yes |
 | clientId | Responsys 응용 프로그램과 연결된 클라이언트 ID입니다.  | yes |
 | clientSecret | Responsys 응용 프로그램과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하거나, ADF에 안전하게 저장하거나, Azure Key Vault에 암호를 저장하도록 선택하고 데이터 복사를 수행하는 경우 여기에서 ADF 복사 작업을 끌어올 수 있습니다. [Key Vault에서 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | yes |
@@ -80,7 +80,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Oracle Responsys 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Oracle Responsys에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ResponsysObject**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
+Oracle Responsys에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ResponsysObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| 형식 | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **ResponsysObject** | yes |
+| tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -92,7 +97,8 @@ Oracle Responsys에서 데이터를 복사하려면 데이터 세트의 type 속
         "linkedServiceName": {
             "referenceName": "<Oracle Responsys linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -108,8 +114,8 @@ Oracle Responsys에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 **ResponsysSource**로 설정해야 합니다. | yes |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | yes |
+| 형식 | 복사 작업 원본의 형식 속성을 다음으로 설정해야 합니다. **ResponsysSource** | yes |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

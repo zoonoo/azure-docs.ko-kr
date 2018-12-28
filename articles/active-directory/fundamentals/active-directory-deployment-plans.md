@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 배포 계획 | Microsoft Docs
-description: Azure Active Directory 기능을 배포하는 방법에 대한 포괄적인 지침을 제공합니다.
+title: 배포 계획 - Azure Active Directory | Microsoft Docs
+description: 많은 Azure Active Directory 기능을 배포하는 방법에 대한 포괄적인 지침입니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,12 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
-ms.openlocfilehash: f5a148cba172b4e1e4490b52afb3b500da3a593c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: f471f1183a7d0d695b5817003fe70a018787731d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434163"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094785"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
 Azure AD(Azure Active Directory) 기능을 배포하는 방법에 대한 포괄적인 지침을 찾고 계신가요? 다음 배포 계획은 보다 일반적인 Azure AD 기능을 성공적으로 출시하기 위해 필요한 비즈니스 가치, 계획 고려 사항, 디자인 및 운영 절차를 안내합니다. 

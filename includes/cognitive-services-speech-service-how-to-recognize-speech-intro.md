@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 3394fc2f6395799a252b645635d982b4573296c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 31482cc7850c574b952c454021af729da324ba15
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47000720"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978781"
 ---
 <!-- N.B. no header, no intents here, language-agnostic -->
 
@@ -21,7 +21,7 @@ Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/spe
 
 1. 필요한 경우, 비동기 작업에 대한 이벤트를 연결합니다. 중간 및 최종 결과가 있으면 인식기가 이벤트 처리기를 호출합니다. 그렇지 않을 경우 응용 프로그램은 최종 전사 결과만 받습니다.
 
-1. 인식을 시작합니다. 명령 또는 쿼리 인식과 같은 1단계 인식의 경우 `RecognizeOnceAsync()` 메서드를 사용합니다. 이 메서드는 처음 인식된 발언을 반환합니다. 전사와 같은 장기 실행 인식의 경우 `StartContinuousRecognitionAsync()` 메서드를 사용합니다. 비동기 인식 결과 대한 이벤트를 연결합니다.
+1. 인식을 시작합니다. 명령 또는 쿼리 인식과 같은 1단계 인식의 경우 `RecognizeOnceAsync()`(또는 해당 언어) 메서드를 사용합니다. 이 메서드는 처음 인식된 발언을 반환합니다. 전사와 같은 장기 실행 인식의 경우 `StartContinuousRecognitionAsync()`(또는 해당 언어) 메서드를 사용합니다. 비동기 인식 결과 대한 이벤트를 연결합니다.
 
 Speech SDK를 사용하는 음성 인식 시나리오는 다음 코드 조각을 참조하십시오.
 

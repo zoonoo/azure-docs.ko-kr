@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: 관리되는 도메인에 Windows Server VM 가입 | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Windows Server VM을 관리되는 도메인에 연결 | Microsoft Docs'
 description: Windows Server 가상 머신을 Azure AD DS에 가입
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 753818526ad637db0baa13c92e92d2725b19dbf8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158333"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957677"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Windows Server 가상 머신을 관리되는 도메인에 가입
 이 문서에서는 Azure Portal을 사용하여 Windows Server 가상 머신을 배포하는 방법을 보여줍니다. 그런 후 가상 머신을 Azure AD DS(Azure Active Directory Domain Services) 관리되는 도메인에 가입하는 방법을 보여줍니다.
@@ -30,7 +30,7 @@ ms.locfileid: "50158333"
 ## <a name="step-1-create-a-windows-server-virtual-machine"></a>1단계: Windows Server 가상 머신 만들기
 Azure AD DS를 사용하도록 설정한 가상 네트워크에 조인되는 Windows 가상 머신을 만들려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 창 맨 위에서 **새로 만들기**를 클릭합니다.
 3. **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다.
 
@@ -109,7 +109,7 @@ Windows Server 가상 머신을 Azure AD DS에서 관리되는 도메인에 조�
 
    * **UPN 형식**: (권장) Azure AD에 구성된 대로 사용자 계정에 대한 UPN(사용자 계정 이름) 접미사를 지정합니다. 이 예제에서 사용자 *bob*의 UPN 접미사는 *bob@domainservicespreview.onmicrosoft.com*입니다.
 
-   * **SAMAccountName 형식:** SAMAccountName 형식으로 계정 이름을 지정할 수 있습니다. 이 예제에서 사용자 *bob*은 *CONTOSO100\bob*을 입력해야 합니다.
+   * **SAMAccountName 형식**: SAMAccountName 형식으로 계정 이름을 지정할 수 있습니다. 이 예제에서 사용자 *bob*은 *CONTOSO100\bob*을 입력해야 합니다.
 
      > [!TIP]
      > **UPN 형식을 사용하여 자격 증명을 지정하는 것이 좋습니다.**

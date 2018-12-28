@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cec9e5bfea16e5ba11f8cd7324acf15188fb907a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669360"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844960"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정 정보
 
@@ -23,13 +23,13 @@ Azure AD(Azure Active Directory) B2C가 응용 프로그램에 제공하는 UI(�
 
 이러한 환경에 있어 필요에 따라 다양한 방식으로 응용 프로그램의 UI를 사용자 지정할 수 있습니다. 예: 
 
-- [기본 제공 정책](active-directory-b2c-reference-policies.md)을 사용하여 응용 프로그램에서 등록 또는 로그인, 암호 재설정 또는 프로필 편집 환경을 제공하는 경우 [UI를 사용자 지정하는 Azure Portal](tutorial-customize-ui.md)을 사용합니다.
+- [사용자 흐름](active-directory-b2c-reference-policies.md)을 사용하여 애플리케이션에 등록 또는 로그인, 암호 재설정 또는 프로필 편집 환경을 제공하는 경우 [UI를 사용자 지정하는 Azure Portal](tutorial-customize-ui.md)을 사용합니다.
 - 로그인 전용, 첨부된 암호 재설정 페이지와 확인 이메일을 제공하는 경우 [Azure AD 로그인 페이지](../active-directory/fundamentals/customize-branding.md)에 사용되는 것과 동일한 사용자 지정 단계를 사용합니다.
 - 고객이 로그인하기 전에 프로필을 편집하려는 경우 Azure AD 로그인 페이지를 사용자 지정하는 데 사용되는 것과 동일한 단계를 사용하여 사용자 지정하는 페이지로 리디렉션됩니다.
 - [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 사용하여 응용 프로그램에서 등록 또는 로그인, 암호 재설정 또는 프로필 편집을 제공하는 경우 [UI를 사용자 지정하는 정책 파일](active-directory-b2c-ui-customization-custom.md)을 사용합니다.
 - 고객의 결정에 따라 동적 콘텐츠를 제공해야 하는 경우 쿼리 문자열에 전송된 매개 변수에 따라 [페이지 콘텐츠를 변경할 수 있는 사용자 지정 정책](active-directory-b2c-ui-customization-custom-dynamic.md) 을 사용합니다. 예를 들어 Azure AD B2C 등록 또는 로그인 페이지의 배경 이미지는 웹 또는 모바일 응용 프로그램에서 전달한 매개 변수에 따라 변경됩니다.
 
-Azure AD B2C는 고객의 브라우저에서 코드를 실행하고 [CORS(원본 간 리소스 공유)](http://www.w3.org/TR/cors/)라는 최신 방법을 사용합니다. 런타임에, 정책에서 지정한 URL에서 콘텐츠가 로드됩니다. 다른 페이지에 다른 URL을 지정합니다. URL에서 콘텐츠가 로드된 후 Azure AD B2C에서 삽입된 HTML 조각과 병합된 다음, 고객에게 표시됩니다.
+Azure AD B2C는 고객의 브라우저에서 코드를 실행하고 [CORS(원본 간 리소스 공유)](https://www.w3.org/TR/cors/)라는 최신 방법을 사용합니다. 런타임 시 사용자 흐름이나 정책에서 지정하는 URL에서 콘텐츠를 로드합니다. 다른 페이지에 다른 URL을 지정합니다. URL에서 콘텐츠가 로드된 후 Azure AD B2C에서 삽입된 HTML 조각과 병합된 다음, 고객에게 표시됩니다.
 
 시작하기 전에 다음 지침을 검토하세요.
 
@@ -118,6 +118,6 @@ Azure AD B2C 테넌트에서 [사용자 언어 지정](active-directory-b2c-refe
 
 ## <a name="next-steps"></a>다음 단계
 
-- 기본 제공 정책을 사용하는 경우, [Azure Active Directory B2C에서 응용 프로그램의 사용자 인터페이스 사용자 지정](tutorial-customize-ui.md) 자습서를 사용하여 UI 사용자 지정을 시작할 수 있습니다.
-- 사용자 지정 정책을 사용하는 경우 [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 응용 프로그램의 사용자 인터페이스 사용자 지정](active-directory-b2c-ui-customization-custom.md) 문서를 사용하여 UI 사용자 지정을 시작할 수 있습니다.
+- 사용자 흐름을 사용하는 경우 다음과 같은 자습서를 사용하여 UI를 사용자 지정할 수 있습니다. [Azure Active Directory B2C에서 애플리케이션의 사용자 인터페이스 사용자 지정](tutorial-customize-ui.md).
+- 사용자 지정 정책을 사용하는 경우 다음과 같은 문서를 사용하여 UI를 사용자 지정할 수 있습니다. [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정](active-directory-b2c-ui-customization-custom.md).
 

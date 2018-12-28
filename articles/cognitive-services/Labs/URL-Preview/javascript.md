@@ -52,7 +52,7 @@ ms.locfileid: "49466939"
 
 ![JavaScript URL 미리 보기 예제](./media/java-script-demo.png)
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+## <a name="running-the-application"></a>애플리케이션 실행
 
 애플리케이션을 실행하려면:
 

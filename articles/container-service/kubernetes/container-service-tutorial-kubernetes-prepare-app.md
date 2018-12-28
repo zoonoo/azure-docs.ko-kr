@@ -44,11 +44,11 @@ ms.locfileid: "52992370"
 
 Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필요한 Docker 구성 요소가 포함되어 있지 않습니다. 따라서 전체 Docker 개발 환경을 사용하는 것이 좋습니다.
 
-## <a name="get-application-code"></a>응용 프로그램 코드 가져오기
+## <a name="get-application-code"></a>애플리케이션 코드 가져오기
 
 이 자습서에서 사용되는 응용 프로그램 예제는 기본 투표 앱입니다. 응용 프로그램은 프런트 엔드 웹 구성 요소 및 백 엔드 Redis 인스턴스로 구성됩니다. 웹 구성 요소는 사용자 지정 컨테이너 이미지에 패키지됩니다. Redis 인스턴스는 Docker 허브에서 수정되지 않은 이미지를 사용합니다.  
 
-Git을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다.
+Git을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git

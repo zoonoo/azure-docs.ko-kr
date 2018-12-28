@@ -446,7 +446,7 @@ Microsoft는 Azure Marketplace에서 이미 SQL Server를 포함하는 버전의
 * Azure Marketplace에서 제공되는 VM에 설치되는 SQL Server 인스턴스의 데이터 정렬은 SAP NetWeaver에서 SQL Server 인스턴스를 실행하는 데 필요한 데이터 정렬이 아닙니다. 다음 섹션의 지침을 사용하여 데이터 정렬을 변경할 수 있습니다.
 
 ### <a name="changing-the-sql-server-collation-of-a-microsoft-windowssql-server-vm"></a>Microsoft Windows/SQL Server VM의 SQL Server 데이터 정렬 변경
-Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 응용 프로그램에서 요구하는 데이터 정렬을 사용하도록 설정되어 있지 않으므로 배포 후 즉시 변경해야 합니다. SQL Server의 경우 이 정렬 변경은 VM을 배포하고 관리자가 배포된 VM에 로그인할 수 있게 되는 즉시 다음 단계를 통해 수행할 수 있습니다.
+Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 애플리케이션에서 요구하는 데이터 정렬을 사용하도록 설정되어 있지 않으므로 배포 후 즉시 변경해야 합니다. SQL Server의 경우 이 정렬 변경은 VM을 배포하고 관리자가 배포된 VM에 로그인할 수 있게 되는 즉시 다음 단계를 통해 수행할 수 있습니다.
 
 * 관리자 권한으로 Windows 명령 창을 엽니다.
 * 디렉터리를 C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012로 변경합니다.

@@ -11,15 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 15fd86a88c3025f81741d614b03d5c4c7c60262c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 11/30/2018
+ms.openlocfilehash: 7de4415dd332254c595b6687dfb9d8db01c42362
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351745"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871715"
 ---
-# <a name="general-purpose-and-business-critical-service-tiers"></a>범용 및 중요 비즈니스용 서비스 계층
+# <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층
+
+Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 보장하기 위해 클라우드 환경에 대해 조정되는 SQL Server 데이터베이스 엔진 아키텍처를 기반으로 합니다. Azure SQL Database에 사용되는 세 가지 아키텍처 모델이 있습니다.
+- [범용](sql-database-service-tier-general-purpose.md): 대부분의 일반 워크로드용으로 디자인되었습니다.
+- [중요 비즈니스용](sql-database-service-tier-business-critical.md): 읽기 가능한 단일 복제본을 포함하는 대기 시간이 짧은 워크로드용으로 디자인되었습니다.
+- [하이퍼스케일](sql-database-service-tier-hyperscale.md): 여러 개의 읽기 가능한 복제본을 포함하는 초대형 데이터베이스(최대 100TB)용으로 디자인되었습니다.
 
 이 문서에서는 vCore 기반 구매 모델의 범용 및 중요 비즈니스용 서비스 계층에 대한 저장소 및 백업 고려 사항을 설명합니다.
 
@@ -52,7 +57,7 @@ MDF 및 LDF의 현재 총 크기를 모니터링하려면 [sp_spaceused](https:/
 
 데이터베이스 백업용 저장소는 SQL Database의 PITR(특정 시점 복원) 및 [LTR(장기 보존)](sql-database-long-term-retention.md) 기능을 지원하도록 할당됩니다. 이 저장소는 각 데이터베이스에 대해 개별적으로 할당되며 데이터베이스당 별도의 두 가지 요금으로 청구됩니다.
 
-- **PITR**: 개별 데이터베이스 백업은 [RA-GRS 저장소](../storage/common/storage-designing-ha-apps-with-ragrs.md)에 자동으로 복사됩니다. 새 백업이 만들어지면 저장소 크기가 동적으로 증가합니다.  저장소는 주별 전체 백업, 일별 차등 백업 및 5분마다 복사되는 트랜잭션 로그 백업에 사용됩니다. 저장소 사용량은 데이터베이스 변경률과 보존 기간에 따라 다릅니다. 각 데이터베이스에 대한 개별적인 보존 기간은 7-35일 사이에서 구성할 수 있습니다. 데이터 크기의 1배에 해당하는 최소 저장소 크기는 추가 비용 없이 제공됩니다. 대부분의 데이터베이스에서 이 크기는 7일간의 백업을 저장하기에 충분합니다.
+- **PITR**: 개별 데이터베이스 백업은 [RA-GRS 스토리지](../storage/common/storage-designing-ha-apps-with-ragrs.md)에 자동으로 복사됩니다. 새 백업이 만들어지면 저장소 크기가 동적으로 증가합니다.  저장소는 주별 전체 백업, 일별 차등 백업 및 5분마다 복사되는 트랜잭션 로그 백업에 사용됩니다. 저장소 사용량은 데이터베이스 변경률과 보존 기간에 따라 다릅니다. 각 데이터베이스에 대한 개별적인 보존 기간은 7-35일 사이에서 구성할 수 있습니다. 데이터 크기의 1배에 해당하는 최소 저장소 크기는 추가 비용 없이 제공됩니다. 대부분의 데이터베이스에서 이 크기는 7일간의 백업을 저장하기에 충분합니다.
 - **LTR**: SQL Database는 전체 백업의 장기 보존을 최대 10년 동안 구성하는 옵션을 제공합니다. LTR 정책을 사용하도록 설정하면 이러한 백업이 RA-GRS 저장소에 자동으로 저장되지만 백업이 복사되는 빈도를 제어할 수 있습니다. 서로 다른 준수 요구 사항을 충족하려면 주별, 월별 및/또는 연도별 백업에 대해 다른 보존 기간을 선택할 수 있습니다. 이 구성은 LTR 백업에 사용되는 저장소의 크기를 정의합니다. LTR 가격 계산기를 사용하여 LTR 저장소 비용을 추정할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

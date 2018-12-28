@@ -41,11 +41,11 @@ API에 대한 호출을 보호하려면 코드를 업데이트할 필요가 없�
 
 2. API에 대한 호출을 인증하려면 논리 앱의 Azure AD 응용 프로그램 ID와 연결된 서비스 주체의 자격 증명(클라이언트 ID 및 비밀)을 사용합니다.
 
-3. 논리 앱 정의에 응용 프로그램 ID를 포함합니다.
+3. 논리 앱 정의에 애플리케이션 ID를 포함합니다.
 
-#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>1부: 논리 앱의 Azure AD 응용 프로그램 ID 만들기
+#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>1부: 논리 앱의 Azure AD 애플리케이션 ID 만들기
 
-논리 앱은 이 Azure AD 응용 프로그램 ID를 사용하여 Azure AD에 대해 인증합니다. 디렉터리에 대해 이 ID를 한 번만 설정하면 됩니다. 예를 들어 논리 앱마다 고유한 ID를 만들 수 있더라도 모든 논리 앱에 대해 동일한 ID를 사용하도록 선택할 수 있습니다. Azure Portal에서 또는 [PowerShell](#powershell)을 사용하여 이러한 ID를 설정할 수 있습니다.
+논리 앱은 이 Azure AD 애플리케이션 ID를 사용하여 Azure AD에 대해 인증합니다. 디렉터리에 대해 이 ID를 한 번만 설정하면 됩니다. 예를 들어 논리 앱마다 고유한 ID를 만들 수 있더라도 모든 논리 앱에 대해 동일한 ID를 사용하도록 선택할 수 있습니다. Azure Portal에서 또는 [PowerShell](#powershell)을 사용하여 이러한 ID를 설정할 수 있습니다.
 
 **Azure Portal에서 논리 앱에 대한 응용 프로그램 ID 만들기**
 
@@ -56,30 +56,30 @@ API에 대한 호출을 보호하려면 코드를 업데이트할 필요가 없�
    > [!TIP]
    > 디렉터리를 전환하려면 프로필을 선택하고 다른 디렉터리를 선택합니다. 또는 **개요** > **디렉터리 전환**을 차례로 선택합니다.
 
-3. 디렉터리 메뉴의 **관리** 아래에서 **앱 등록** > **새 응용 프로그램 등록**을 차례로 선택합니다.
+3. 디렉터리 메뉴의 **관리** 아래에서 **앱 등록** > **새 애플리케이션 등록**을 차례로 선택합니다.
 
    > [!TIP]
    > 기본적으로 앱 등록 목록에는 디렉터리의 모든 앱 등록이 표시됩니다. 앱 등록만 보려면 검색 상자 옆에 있는 **내 앱**을 선택합니다. 
 
    ![새 앱 등록 만들기](./media/logic-apps-custom-api-authentication/new-app-registration-azure-portal.png)
 
-4. 응용 프로그램 ID의 이름을 지정하고, **응용 프로그램 종류**를 **웹앱/API**로 설정하며, **로그인 URL**의 도메인으로 형식이 지정된 고유 문자열을 제공하고, **만들기**를 선택합니다.
+4. 애플리케이션 ID의 이름을 지정하고, **애플리케이션 종류**를 **웹앱/API**로 설정하며, **로그인 URL**의 도메인으로 형식이 지정된 고유 문자열을 제공하고, **만들기**를 선택합니다.
 
-   ![응용 프로그램 ID의 이름 및 로그인 URL 제공](./media/logic-apps-custom-api-authentication/logic-app-identity-azure-portal.png)
+   ![애플리케이션 ID의 이름 및 로그인 URL 제공](./media/logic-apps-custom-api-authentication/logic-app-identity-azure-portal.png)
 
-   논리 앱에 대해 만든 응용 프로그램 ID가 이제 앱 등록 목록에 표시됩니다.
+   논리 앱에 대해 만든 애플리케이션 ID가 이제 앱 등록 목록에 표시됩니다.
 
-   ![논리 앱의 응용 프로그램 ID](./media/logic-apps-custom-api-authentication/logic-app-identity-created.png)
+   ![논리 앱의 애플리케이션 ID](./media/logic-apps-custom-api-authentication/logic-app-identity-created.png)
 
-5. 앱 등록 목록에서 새 응용 프로그램 ID를 선택합니다. 3부에서 논리 앱에 대한 "클라이언트 ID"로 사용할 **응용 프로그램 ID**를 복사하여 저장합니다.
+5. 앱 등록 목록에서 새 애플리케이션 ID를 선택합니다. 3부에서 논리 앱에 대한 "클라이언트 ID"로 사용할 **애플리케이션 ID**를 복사하여 저장합니다.
 
-   ![논리 앱의 응용 프로그램 ID 복사 및 저장](./media/logic-apps-custom-api-authentication/logic-app-application-id.png)
+   ![논리 앱의 애플리케이션 ID 복사 및 저장](./media/logic-apps-custom-api-authentication/logic-app-application-id.png)
 
-6. 응용 프로그램 ID 설정이 표시되지 않으면 **설정** 또는 **모든 설정**을 선택합니다.
+6. 애플리케이션 ID 설정이 표시되지 않으면 **설정** 또는 **모든 설정**을 선택합니다.
 
 7. **API 액세스** 아래에서 **키**를 선택합니다. **설명** 아래에서 키의 이름을 입력합니다. **만료** 아래에서 키의 기간을 선택합니다.
 
-   만드는 키는 논리 앱에 대한 응용 프로그램 ID의 "비밀" 또는 암호 역할을 합니다.
+   만드는 키는 논리 앱에 대한 애플리케이션 ID의 "비밀" 또는 암호 역할을 합니다.
 
    ![논리 앱 ID의 키 만들기](./media/logic-apps-custom-api-authentication/create-logic-app-identity-key-secret-password.png)
 
@@ -102,13 +102,13 @@ PowerShell과 함께 Azure Resource Manager를 통해 이 작업을 수행할 �
 
 3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
-4. 사용한 **테넌트 ID**(Azure AD 테넌트의 GUID), **응용 프로그램 ID** 및 암호를 복사합니다.
+4. 사용한 **테넌트 ID**(Azure AD 테넌트의 GUID), **애플리케이션 ID** 및 암호를 복사합니다.
 
 자세한 내용은 [PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md)를 참조하세요.
 
-#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>2부: 웹앱 또는 API 앱의 Azure AD 응용 프로그램 ID 만들기
+#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>2부: 웹앱 또는 API 앱의 Azure AD 애플리케이션 ID 만들기
 
-웹앱 또는 API 앱이 이미 배포된 경우 Azure Portal에서 인증을 설정하고 응용 프로그램 ID를 만들 수 있습니다. 그렇지 않으면 [Azure Resource Manager 템플릿으로 배포할 때 인증을 설정](#authen-deploy)할 수 있습니다. 
+웹앱 또는 API 앱이 이미 배포된 경우 Azure Portal에서 인증을 설정하고 애플리케이션 ID를 만들 수 있습니다. 그렇지 않으면 [Azure Resource Manager 템플릿으로 배포할 때 인증을 설정](#authen-deploy)할 수 있습니다. 
 
 **Azure Portal에서 배포된 앱의 응용 프로그램 ID 만들기 및 인증 설정**
 
@@ -118,13 +118,13 @@ PowerShell과 함께 Azure Resource Manager를 통해 이 작업을 수행할 �
 
    ![인증 설정](./media/logic-apps-custom-api-authentication/custom-web-api-app-authentication.png)
 
-3. 이제 다음과 같이 웹앱 또는 API 앱의 응용 프로그램 ID를 만듭니다. **Azure Active Directory 설정** 페이지에서 **관리 모드**를 **기본**으로 설정합니다. **새 AD 앱 만들기**를 선택합니다. 응용 프로그램 ID의 이름을 지정하고 **확인**을 선택합니다. 
+3. 이제 다음과 같이 웹앱 또는 API 앱의 애플리케이션 ID를 만듭니다. **Azure Active Directory 설정** 페이지에서 **관리 모드**를 **기본**으로 설정합니다. **새 AD 앱 만들기**를 선택합니다. 애플리케이션 ID의 이름을 지정하고 **확인**을 선택합니다. 
 
-   ![웹앱 또는 API 앱의 응용 프로그램 ID 만들기](./media/logic-apps-custom-api-authentication/custom-api-application-identity.png)
+   ![웹앱 또는 API 앱의 애플리케이션 ID 만들기](./media/logic-apps-custom-api-authentication/custom-api-application-identity.png)
 
 4. **인증/권한 부여** 페이지에서 **저장**을 선택합니다.
 
-이제 웹앱 또는 API 앱과 연결된 응용 프로그램 ID에 대한 클라이언트 ID 및 테넌트 ID를 찾아야 합니다. 이러한 ID는 3부에서 사용됩니다. 따라서 Azure Portal에 대해 이러한 단계를 계속합니다.
+이제 웹앱 또는 API 앱과 연결된 애플리케이션 ID에 대한 클라이언트 ID 및 테넌트 ID를 찾아야 합니다. 이러한 ID는 3부에서 사용됩니다. 따라서 Azure Portal에 대해 이러한 단계를 계속합니다.
 
 **Azure Portal에서 웹앱 또는 API 앱에 대한 응용 프로그램 ID의 클라이언트 ID 및 테넌트 ID 찾기**
 
@@ -149,7 +149,7 @@ PowerShell과 함께 Azure Resource Manager를 통해 이 작업을 수행할 �
 
 **Azure Resource Manager 템플릿으로 배포할 때 인증 설정**
 
-논리 앱의 앱 ID와 다른 웹앱 또는 API 앱의 Azure AD 응용 프로그램 ID도 만들어야 합니다. 응용 프로그램 ID를 만들려면 Azure Portal에 대해 2부의 이전 단계를 수행합니다. 
+논리 앱의 앱 ID와 다른 웹앱 또는 API 앱의 Azure AD 애플리케이션 ID도 만들어야 합니다. 애플리케이션 ID를 만들려면 Azure Portal에 대해 2부의 이전 단계를 수행합니다. 
 
 1부의 단계를 수행할 수도 있지만 **로그인 URL** 및 **앱 ID URI**에 대한 웹앱 또는 API 앱의 실제 `https://{URL}`을 사용해야 합니다. 이러한 단계에서 앱의 배포 템플릿 및 3부에서 사용할 클라이언트 ID와 테넌트 ID를 모두 저장해야 합니다.
 
@@ -191,7 +191,7 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 | tenant | yes | Azure AD 테넌트의 GUID | 
 | 대상 | yes | 액세스하려는 대상 리소스의 GUID, 즉 웹앱 또는 API 앱에 대한 응용 프로그램 ID의 클라이언트 ID | 
 | clientId | yes | 액세스를 요청하는 클라이언트의 GUID, 즉 논리 앱에 대한 응용 프로그램 ID의 클라이언트 ID | 
-| secret | yes | 액세스 토큰을 요청하는 클라이언트에 대한 응용 프로그램 ID의 키 또는 암호 | 
+| secret | yes | 액세스 토큰을 요청하는 클라이언트에 대한 애플리케이션 ID의 키 또는 암호 | 
 | 형식 | yes | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
 |||| 
 

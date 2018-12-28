@@ -488,7 +488,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
    
     ![](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
-2. 패키지 관리자 콘솔 창에서 **기본 프로젝트**를 새 콘솔 응용 프로그램 프로젝트로 설정한 후 콘솔 창에서 다음 명령을 실행합니다.
+2. 패키지 관리자 콘솔 창에서 **기본 프로젝트**를 새 콘솔 애플리케이션 프로젝트로 설정한 후 콘솔 창에서 다음 명령을 실행합니다.
    
         Install-Package Microsoft.Azure.NotificationHubs
    

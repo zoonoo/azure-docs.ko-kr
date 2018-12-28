@@ -87,7 +87,7 @@ pod install
 
 설치 명령은 프로젝트에 필요한 포드를 설치하고, 종속성에 Pod를 사용하도록 이미 구성된 XCode 작업 영역 파일도 만들었습니다. 
 
-### <a name="run-the-sample-application"></a>샘플 응용 프로그램 실행 
+### <a name="run-the-sample-application"></a>샘플 애플리케이션 실행 
 
 1. XCode에서 샘플 작업 영역을 엽니다.
 

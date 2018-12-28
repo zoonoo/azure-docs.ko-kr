@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3450a2ba4a0bf4b1f38806ad4aacf5772c13ed9f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 179d8fc0f17bf43792db6a9b0e15a6f63349f002
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317792"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890945"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대한 함수 참조
 
@@ -691,7 +691,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
 | <*interval*> | yes | 정수  | 더할 지정한 시간 단위 수 | 
-| <*timeUnit*> | yes | 문자열 | *interval*과 함께 사용할 시간 단위: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
+| <*timeUnit*> | yes | 문자열 | *interval*을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” | 
 | <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 ||||| 
 
@@ -753,7 +753,7 @@ and(false, false)
 그리고 다음 결과를 반환합니다.
 
 * 첫 번째 예제: 두 식이 모두 true이므로 `true`를 반환합니다. 
-* 두 번째 예제: 식 한 개가 false이므로 `false`를 반환합니다.
+* 두 번째 예제: 한 식이 true이므로 `false`를 반환합니다.
 * 세 번째 예제: 두 식이 모두 false이므로 `false`를 반환합니다.
 
 *예 2*
@@ -769,7 +769,7 @@ and(equals(1, 2), equals(1, 3))
 그리고 다음 결과를 반환합니다.
 
 * 첫 번째 예제: 두 식이 모두 true이므로 `true`를 반환합니다. 
-* 두 번째 예제: 식 한 개가 false이므로 `false`를 반환합니다.
+* 두 번째 예제: 한 식이 true이므로 `false`를 반환합니다.
 * 세 번째 예제: 두 식이 모두 false이므로 `false`를 반환합니다.
 
 <a name="array"></a>
@@ -1647,7 +1647,7 @@ empty('abc')
 그리고 다음 결과를 반환합니다. 
 
 * 첫 번째 예제: 비어 있는 문자열을 전달하므로 함수는 `true`를 반환합니다. 
-* 두 번째 예제: 문자열 "abc"를 전달하므로 함수는 `false`를 반환합니다. 
+* 두 번째 예제: 문자열 “abc”를 전달하므로 함수는 `false`를 반환합니다. 
 
 <a name="endswith"></a>
 
@@ -1722,7 +1722,7 @@ equals('abc', 'abcd')
 그리고 다음 결과를 반환합니다. 
 
 * 첫 번째 예제: 두 값이 모두 같으므로 함수는 `true`를 반환합니다.
-* 두 번째 예제: 두 값이 같지 않으므로 함수는 `false`를 반환합니다.
+* 두 번째 예제: 두 값이 모두 같으므로 함수는 `false`를 반환합니다.
 
 <a name="first"></a>
 
@@ -1895,7 +1895,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | 매개 변수 | 필수 | 형식 | 설명 | 
 | --------- | -------- | ---- | ----------- | 
 | <*interval*> | yes | 정수  | 뺄 지정한 시간 단위 수 | 
-| <*timeUnit*> | yes | 문자열 | *interval*과 함께 사용할 시간 단위: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
+| <*timeUnit*> | yes | 문자열 | *interval*을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” | 
 | <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. | 
 ||||| 
 
@@ -1937,7 +1937,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | 매개 변수 | 필수 | 형식 | 설명 | 
 | --------- | -------- | ---- | ----------- | 
 | <*interval*> | yes | 정수  | 뺄 지정한 시간 단위 수 | 
-| <*timeUnit*> | yes | 문자열 | *interval*과 함께 사용할 시간 단위: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
+| <*timeUnit*> | yes | 문자열 | *interval*을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” | 
 | <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. | 
 ||||| 
 
@@ -2773,7 +2773,7 @@ or(false, false)
 
 그리고 다음 결과를 반환합니다.
 
-* 첫 번째 예제: 최소 하나의 식이 true이므로 함수는 `true`를 반환합니다.
+* 첫 번째 예제: 최소 한 식이 true이므로 함수는 `true`를 반환합니다.
 * 두 번째 예제: 두 식이 모두 false이므로 함수는 `false`를 반환합니다.
 
 *예 2*
@@ -2787,7 +2787,7 @@ or(equals(1, 2), equals(1, 3))
 
 그리고 다음 결과를 반환합니다.
 
-* 첫 번째 예제: 최소 하나의 식이 true이므로 함수는 `true`를 반환합니다.
+* 첫 번째 예제: 최소 한 식이 true이므로 함수는 `true`를 반환합니다.
 * 두 번째 예제: 두 식이 모두 false이므로 함수는 `false`를 반환합니다.
 
 <a name="parameters"></a>
@@ -3294,7 +3294,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
 | <*interval*> | yes | 정수  | 뺄 지정한 시간 단위 수 | 
-| <*timeUnit*> | yes | 문자열 | *interval*과 함께 사용할 시간 단위: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
+| <*timeUnit*> | yes | 문자열 | *interval*을 사용하는 시간 단위: “초”, “분”, “시간”, “일”, “주”, “월”, “년” | 
 | <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. | 
 ||||| 
 
@@ -4026,7 +4026,7 @@ xml('<value>')
 
 이 예제는 이 문자열에 대한 XML 버전을 만들며, 이 문자열은 JSON 개체를 포함합니다. 
 
-`xml( '{ \"name\": \"Sophia Owen\" }' )`
+`xml(json('{ \"name\": \"Sophia Owen\" }'))`
 
 그리고 다음 결과 XML을 반환합니다. 
 
@@ -4049,7 +4049,7 @@ xml('<value>')
 
 이 예제는 이 JSON 개체를 포함하는 문자열에 대한 XML을 만듭니다.
 
-`xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )`
+`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
 
 그리고 다음 결과 XML을 반환합니다. 
 

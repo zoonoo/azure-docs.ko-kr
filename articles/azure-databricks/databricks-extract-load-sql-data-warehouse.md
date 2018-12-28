@@ -136,7 +136,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    ![앱 추가](./media/databricks-extract-load-sql-data-warehouse/select-add-app.png)
 
-4. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 애플리케이션 유형으로 **웹앱/API**를 선택합니다. 로그온 URL을 입력하고 **만들기**를 선택합니다.
+4. 애플리케이션에 대한 이름 및 URL을 제공합니다. 만들려는 애플리케이션 유형으로 **웹앱/API**를 선택합니다. 로그온 URL을 입력하고 **만들기**를 선택합니다.
 
    ![응용 프로그램 이름 지정](./media/databricks-extract-load-sql-data-warehouse/create-app.png)
 
@@ -149,7 +149,7 @@ Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 �
 
 ### <a name="get-application-id-and-authentication-key-for-the-service-principal"></a>서비스 사용자의 애플리케이션 ID 및 인증 키 가져오기
 
-프로그래밍 방식으로 로그인하는 경우 응용 프로그램에 대한 ID 및 인증 키가 필요합니다. 이러한 값을 가져오려면 다음 단계를 사용합니다.
+프로그래밍 방식으로 로그인하는 경우 애플리케이션에 대한 ID 및 인증 키가 필요합니다. 이러한 값을 가져오려면 다음 단계를 사용합니다.
 
 1. Azure Active Directory의 **앱 등록**에서 애플리케이션을 선택합니다.
 

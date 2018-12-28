@@ -1,25 +1,19 @@
 ---
-title: Azure Virtual Network 성능 문제 해결 | Microsoft Docs
+title: '가상 네트워크 성능 문제 해결: Azure | Microsoft Docs'
 description: 이 페이지는 Azure 네트워크 링크 성능을 테스트하는 표준화된 방법을 제공합니다.
 services: expressroute
-documentationcenter: na
 author: tracsman
-manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 12/20/2017
 ms.author: jonor
-ms.openlocfilehash: 56f011632a2aa3ef0632efd5ace472c0fc79a329
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: seodec18
+ms.openlocfilehash: 2572ff3711fb86cda88a86744192980a5b2d5361
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27318894"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277627"
 ---
 # <a name="troubleshooting-network-performance"></a>네트워크 성능 문제 해결
 ## <a name="overview"></a>개요
@@ -136,7 +130,7 @@ AzureCT PowerShell 모듈은 [가용성 테스트][Availability Doc] 및 [성능
 ### <a name="test-plan"></a>테스트 계획
 1. VM1 및 VM2 간의 Get-LinkPerformance 테스트를 실행합니다. 이 테스트는 문제가 로컬에 있는지 여부에 대한 실마리를 제공합니다. 이 테스트의 결과로 생성되는 대기 시간 및 대역폭이 용인 가능한 수준인 경우 로컬 VNet 로컬 네트워크가 양호하다고 표시할 수 있습니다.
 2. 로컬 VNet 트래픽이 양호하다고 가정하고 VM1 및 VM3 간의 Get LinkPerformance 테스트를 실행합니다. 이 테스트는 Microsoft 네트워크를 거쳐 MSEE까지 갔다가 다시 Azure로 돌아오는 연결을 실행합니다. 이 테스트의 결과로 생성되는 대기 시간 및 대역폭이 용인 가능한 수준인 경우 Azure 네트워크가 양호하다고 표시할 수 있습니다.
-3. Azure를 제외하면 회사 네트워크에서 비슷한 테스트 순서를 수행할 수 있습니다. 이 테스트도 잘 진행되면 서비스 공급자 또는 ISP를 작업하여 WAN 연결을 진단할 시간입니다. 예: 두 지점 사이에서 또는 데스크와 데이터 센터 서버 사이에서 이 테스트를 실행합니다. 테스트 대상에 따라 해당 경로를 실행할 수 있는 엔드포인트(서버, PC 등)를 찾아봅니다.
+3. Azure를 제외하면 회사 네트워크에서 비슷한 테스트 순서를 수행할 수 있습니다. 이 테스트도 잘 진행되면 서비스 공급자 또는 ISP를 작업하여 WAN 연결을 진단할 시간입니다. 예제: 두 지점 사이에서 또는 데스크와 데이터 센터 서버 사이에서 이 테스트를 실행합니다. 테스트 대상에 따라 해당 경로를 실행할 수 있는 엔드포인트(서버, PC 등)를 찾아봅니다.
 
 >[!IMPORTANT]
 > 공통 위치(개인적으로는 OneNote 또는 Excel을 선호합니다)에 각 테스트의 실행 시간을 표시하고 결과를 기록하는 것이 중요합니다. 여러 테스트 실행의 결과 데이터를 비교할 수 있고 데이터에 "허점"이 없도록 각 테스트 실행의 결과가 동일해야 합니다. 제가 문제 해결에 AzureCT를 사용하는 주된 이유는 테스트 간의 일관성입니다. *마법*은 제가 실행하는 부하 시나리오의 정확성에 있는 것이 아니라 모든 테스트에서 *일관적인 테스트 및 데이터 출력*을 얻는다는 사실에 있습니다. 특히 문제가 산발적으로 발생하는 경우 매번 시간을 기록하고 일관적인 데이터를 얻는 것이 매우 중요합니다. 성실하게 데이터를 수집하면 동일한 시나리오를 다시 테스트하는 시간을 줄일 수 있습니다(저는 이 사실을 몇 년 전에 어렵게 배웠습니다).

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284832"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969484"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [통합 런타임 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -49,7 +49,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
 다음은 자체 호스팅 IR을 통한 복사 단계를 요약하는 대략적인 데이터 흐름입니다.
 
-![대략적인 개요](media\create-self-hosted-integration-runtime\high-level-overview.png)
+![대략적인 개요](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. 데이터 개발자가 PowerShell cmdlet을 사용하여 Azure Data Factory 내에서 자체 호스팅 통합 런타임을 만듭니다. 현재 Azure Portal은 이 기능을 지원하지 않습니다.
 2. 데이터 개발자가 데이터 저장소에 연결하는 데 사용할 자체 호스팅 통합 런타임 인스턴스를 지정하여 온-프레미스 데이터 저장소에 대한 연결된 서비스를 만듭니다. 연결된 서비스 설정 중에 데이터 개발자는 Credential Manager 응용 프로그램(현재 지원 안 함)을 사용하여 인증 유형 및 자격 증명을 설정합니다. Credential Manager 응용 프로그램이 데이터 저장소와 통신하여 연결을 테스트하고 자체 호스팅 통합 런타임과 통신하여 자격 증명을 저장합니다.
@@ -131,7 +131,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
 사용 가능한 메모리와 CPU가 적절하게 활용되지 않는데 동시 작업 실행 수가 한도에 도달하는 경우에는 노드에서 실행할 수 있는 동시 작업 수를 늘려 기능을 강화해야 합니다. 또한 자체 호스팅 IR 오버로드로 인해 활동 시간이 초과되는 경우에도 기능을 강화할 수 있습니다. 다음 이미지와 같이 노드의 최대 용량을 늘릴 수 있습니다.  
 
-![노드에서 실행할 수 있는 동시 작업 수 늘리기](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![노드에서 실행할 수 있는 동시 작업 수 늘리기](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>TLS/SSL 인증서 요구 사항
 
@@ -155,40 +155,40 @@ PowerShell을 사용하여 자체 호스팅 통합 런타임을 공유하려면 
 
 ### <a name="terminology"></a>용어
 
-- **공유된 IR** – 물리적 인프라에서 실행되는 원래 자체 호스팅 IR입니다.  
-- **연결된 IR** – 다른 공유된 IR을 참조하는 IR입니다. 논리적 IR이며, 다른 자체 호스팅 IR(공유됨)의 인프라를 사용합니다.
+- **공유된 IR**: 물리적 인프라에서 실행되는 원래 자체 호스팅 IR입니다.  
+- **연결된 IR**: 다른 공유된 IR을 참조하는 IR입니다. 논리적 IR이며, 다른 자체 호스팅 IR(공유됨)의 인프라를 사용합니다.
 
 ### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>연결된 자체 호스팅 IR을 만드는 대략적인 단계
 
 1. 공유할 자체 호스팅 IR에서 연결된 IR을 만들려면 데이터 팩터리에 대한 권한을 부여합니다. 
 
-   ![공유 탭에서 권한을 부여하는 단추](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![공유 탭에서 권한을 부여하는 단추](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
 
-   ![권한 할당을 위한 선택 항목](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+   ![권한 할당을 위한 선택 항목](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)
 
 2. 공유할 자체 호스팅 IR의 리소스 ID를 적어 둡니다.
 
-   ![리소스 ID의 위치](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+   ![리소스 ID의 위치](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
 
 3. 권한이 부여된 데이터 팩터리에서 연결된 자체 호스팅 IR을 새로 만들고 리소스 ID를 입력합니다.
 
-   ![연결된 자체 호스팅 통합 런타임을 만드는 단추](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+   ![연결된 자체 호스팅 통합 런타임을 만드는 단추](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
 
-   ![이름 및 리소스 ID 입력용 상자](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+   ![이름 및 리소스 ID 입력용 상자](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
 ### <a name="monitoring"></a>모니터링 
 
 - **공유된 IR**
 
-  ![공유된 통합 런타임을 찾기 위한 선택 항목](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![공유된 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-  ![모니터링용 탭](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![모니터링용 탭](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
 - **연결된 IR**
 
-  ![연결된 통합 런타임을 찾기 위한 선택 항목](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![연결된 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-  ![모니터링용 탭](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![모니터링용 탭](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>자체 호스팅 IR 공유에 대해 알려진 제한 사항
 
@@ -211,12 +211,12 @@ PowerShell을 사용하여 자체 호스팅 통합 런타임을 공유하려면 
 
 알림 영역의 아이콘이나 메시지 위로 커서를 이동하면 자체 호스팅 통합 런타임 상태에 대한 세부 정보를 확인할 수 있습니다.
 
-![알림 영역의 알림](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![알림 영역의 알림](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
 ## <a name="ports-and-firewall"></a>포트 및 방화벽
 두 가지 방화벽을 고려해야 합니다. 그중 하나는 조직의 중앙 라우터에서 실행되는 *회사 방화벽*이고, 다른 하나는 자체 호스팅 통합 런타임이 설치된 로컬 컴퓨터에 디먼으로 구성된 *Windows 방화벽*입니다.
 
-![방화벽](media\create-self-hosted-integration-runtime\firewall.png)
+![방화벽](media/create-self-hosted-integration-runtime/firewall.png)
 
 *회사 방화벽* 수준에서는 다음 도메인 및 아웃바운드 포트를 구성해야 합니다.
 
@@ -249,11 +249,11 @@ download.microsoft.com | 443 | 업데이트 다운로드에 사용됨
 ## <a name="proxy-server-considerations"></a>프록시 서버 고려 사항
 회사 네트워크 환경에서 프록시 서버를 사용하여 인터넷에 액세스하는 경우 자체 호스팅 통합 런타임이 적절한 프록시 설정을 사용하도록 구성합니다. 초기 등록 단계에서 프록시를 설정할 수 있습니다.
 
-![프록시 지정](media\create-self-hosted-integration-runtime\specify-proxy.png)
+![프록시 지정](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
 자체 호스팅 통합 런타임은 프록시 서버를 사용하여 클라우드 서비스에 연결합니다. 초기 설치 중에 **변경** 링크를 클릭합니다. 그러면 프록시 설정 대화 상자가 나타납니다.
 
-![프록시 설정](media\create-self-hosted-integration-runtime\set-http-proxy.png)
+![프록시 설정](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
 이 대화 상자에는 세 가지 구성 옵션이 있습니다.
 
@@ -272,7 +272,7 @@ download.microsoft.com | 443 | 업데이트 다운로드에 사용됨
 
 구성 관리자 도구를 사용하여 HTTP 프록시를 확인하고 업데이트할 수 있습니다.
 
-![프록시 보기](media\create-self-hosted-integration-runtime\view-proxy.png)
+![프록시 보기](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
 > NTLM 인증을 사용하여 프록시 서버를 설치하면 통합 런타임 호스트 서비스가 도메인 계정에서 실행됩니다. 나중에 도메인 계정의 암호를 변경하는 경우에는 서비스의 구성 설정을 업데이트하여 서비스를 다시 시작해야 합니다. 이 요구 사항을 감안하여, 암호를 자주 업데이트하지 않아도 되는 전용 도메인 계정을 사용해 프록시 서버에 액세스하는 것이 좋습니다.
@@ -318,7 +318,7 @@ Microsoft Azure가 회사의 허용 목록에 있는지도 확인해야 합니�
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>방화벽 및 프록시 서버 관련 문제 발생 시 나타날 수 있는 증상
 다음과 비슷한 오류가 발생할 경우 방화벽 또는 프록시 서버가 잘못 구성된 것일 수 있습니다. 그러면 자체 호스팅 통합 런타임이 데이터 팩터리에 연결되어 인증을 할 수 없게 됩니다. 이전 섹션을 참조하여 방화벽 및 프록시 서버가 올바르게 구성되었는지 확인합니다.
 
-* 자체 호스팅 통합 런타임을 등록할 때 다음과 같은 오류 메시지가 표시됩니다. “이 Integration Runtime 노드를 등록하지 못했습니다. 인증 키가 유효하고 통합 런타임 호스트 서비스가 이 컴퓨터에서 실행 중인지 확인하십시오.”
+* 자체 호스팅 통합 런타임을 등록할 때 다음과 같은 오류 메시지가 표시됩니다. "이 Integration Runtime 노드를 등록하지 못했습니다. 인증 키가 유효하고 통합 런타임 호스트 서비스가 이 컴퓨터에서 실행 중인지 확인하십시오.”
 * 통합 런타임 구성 관리자를 열 때 상태가 **연결 끊김** 또는 **연결 중**으로 표시됩니다. Windows 이벤트 로그를 확인할 때 **이벤트 뷰어** > **응용 프로그램 및 서비스 로그** > **Microsoft 통합 런타임**에 다음 오류와 같은 오류 메시지가 표시됩니다.
 
     ```
@@ -345,4 +345,4 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 
 
 ## <a name="next-steps"></a>다음 단계
-[자습서: 온-프레미스 데이터를 클라우드에 복사](tutorial-hybrid-copy-powershell.md)에서 단계별 지침을 확인합니다.
+단계별 지침은 다음 자습서를 참조하세요. [자습서: 클라우드에 온-프레미스 데이터 복사](tutorial-hybrid-copy-powershell.md)

@@ -20,7 +20,7 @@ ms.locfileid: "52993543"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-이 문서에서는 Marathon-LB를 사용하여 DC/OS로 관리되는 Azure Container Service에 내부 부하 분산 장치를 만드는 방법을 살펴봅니다. 이 구성은 애플리케이션을 수평으로 확장할 수 있습니다. 또한 부하 분산 장치를 공용 클러스터에 배치하고 응용 프로그램 컨테이너를 개인 클러스터에 배치하여 공용 및 개인 에이전트 클러스터를 활용할 수 있습니다. 이 자습서에서는 다음을 수행했습니다.
+이 문서에서는 Marathon-LB를 사용하여 DC/OS로 관리되는 Azure Container Service에 내부 부하 분산 장치를 만드는 방법을 살펴봅니다. 이 구성은 애플리케이션을 수평으로 확장할 수 있습니다. 또한 부하 분산 장치를 공용 클러스터에 배치하고 애플리케이션 컨테이너를 개인 클러스터에 배치하여 공용 및 개인 에이전트 클러스터를 활용할 수 있습니다. 이 자습서에서는 다음을 수행했습니다.
 
 > [!div class="checklist"]
 > * Marathon Load Balancer 구성
@@ -51,9 +51,9 @@ Marathon Load Balancer는 배포한 컨테이너를 기준으로 동적으로 �
 dcos package install marathon-lb
 ```
 
-## <a name="deploy-load-balanced-application"></a>부하 분산된 응용 프로그램 배포
+## <a name="deploy-load-balanced-application"></a>부하 분산된 애플리케이션 배포
 
-이제 marathon-lb 패키지가 있으므로 부하를 분산하려는 응용 프로그램 컨테이너를 배포할 수 있습니다. 
+이제 marathon-lb 패키지가 있으므로 부하를 분산하려는 애플리케이션 컨테이너를 배포할 수 있습니다. 
 
 먼저 공개적으로 노출된 에이전트의 FQDN을 가져옵니다.
 

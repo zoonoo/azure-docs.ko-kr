@@ -96,10 +96,10 @@ FactInternetSales, DimGeography 및 DimSalesTerritory 테이블은 모두 SalesT
   
     이 관계의 활성 속성은 False이며 비활성을 의미합니다. FactInternetSales 테이블에는 이미 다른 활성 관계가 있습니다.  
   
-## <a name="hide-the-employeesecurity-table-from-client-applications"></a>클라이언트 응용 프로그램에서 EmployeeSecurity 테이블 숨기기  
-이 작업에서는 EmployeeSecurity 테이블을 숨겨서 클라이언트 응용 프로그램의 필드 목록에 나타나지 않도록 합니다. 테이블을 숨긴다고 해서 안전한 것은 아닙니다. 사용자는 EmployeeSecurity 테이블 데이터를 계속 쿼리할 수 있습니다(알고 있는 경우). 사용자가 어떤 데이터도 쿼리하지 못하도록 하고 EmployeeSecurity 테이블 데이터의 보안을 유지하려면 나중 작업에 필터를 적용합니다.  
+## <a name="hide-the-employeesecurity-table-from-client-applications"></a>클라이언트 애플리케이션에서 EmployeeSecurity 테이블 숨기기  
+이 작업에서는 EmployeeSecurity 테이블을 숨겨서 클라이언트 애플리케이션의 필드 목록에 나타나지 않도록 합니다. 테이블을 숨긴다고 해서 안전한 것은 아닙니다. 사용자는 EmployeeSecurity 테이블 데이터를 계속 쿼리할 수 있습니다(알고 있는 경우). 사용자가 어떤 데이터도 쿼리하지 못하도록 하고 EmployeeSecurity 테이블 데이터의 보안을 유지하려면 나중 작업에 필터를 적용합니다.  
   
-#### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>클라이언트 응용 프로그램에서 EmployeeSecurity 테이블을 숨기려면  
+#### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>클라이언트 애플리케이션에서 EmployeeSecurity 테이블을 숨기려면  
   
 -   모델 디자이너의 다이어그램 뷰에서 **Employee** 테이블 머리글을 마우스 오른쪽 단추로 클릭한 후 **클라이언트 도구에서 숨기기**를 클릭합니다.  
   

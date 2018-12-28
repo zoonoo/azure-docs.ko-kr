@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: 15fbf254eb479f0935e154806795ebd00cff6adf
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d94f70771cf3ee364dbb3e4c4256cd2248ce3828
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345950"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164775"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Draft 사용
 
-Draft는 Kubernetes 클러스터에 응용 프로그램 컨테이너를 패키지하고 배포하도록 지원하면서 집중 개발의 "내부 루프" 곧 개발 주기에 자유롭게 집중하게 하는 오픈 소스 도구입니다. Draft는 코드가 개발되고 있을 때 그러나 버전 제어에 커밋하기 전에 작동합니다. Draft를 사용하면 코드가 변경될 때 Kubernetes에 응용 프로그램을 신속하게 재배포할 수 있습니다. Draft에 대한 자세한 내용은 [Github의 Draft 설명서][draft-documentation]를 참조하세요.
+Draft는 Kubernetes 클러스터에 응용 프로그램 컨테이너를 패키지하고 배포하도록 지원하면서 집중 개발의 "내부 루프" 곧 개발 주기에 자유롭게 집중하게 하는 오픈 소스 도구입니다. Draft는 코드가 개발되고 있을 때 그러나 버전 제어에 커밋하기 전에 작동합니다. Draft를 사용하면 코드가 변경될 때 Kubernetes에 응용 프로그램을 신속하게 재배포할 수 있습니다. Draft에 대한 자세한 내용은 [GitHub의 Draft 설명서][draft-documentation]를 참조하세요.
 
 이 문서에서는 AKS의 Kubernetes 클러스터에서 Draft를 사용하는 방법을 보여줍니다.
 
@@ -139,7 +139,7 @@ $ draft connect
 Connect to java:4567 on localhost:49804
 [java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 [java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
-[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[java]: SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 [java]: == Spark has ignited ...
 [java]: >> Listening on 0.0.0.0:4567
 ```

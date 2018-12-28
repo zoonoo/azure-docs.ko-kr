@@ -245,7 +245,7 @@ Update-Database
 
 `Ctrl+F5`를 입력하여 앱을 실행합니다. 편집, 세부 정보 및 만들기 링크를 테스트합니다.
 
-응용 프로그램이 오류 없이 로드되면 Code First 마이그레이션이 성공한 것입니다. 그러나 애플리케이션 논리에서 이 새로운 속성을 아직 사용하지 않기 때문에 페이지가 여전히 동일하게 표시될 수 있습니다. 
+애플리케이션이 오류 없이 로드되면 Code First 마이그레이션이 성공한 것입니다. 그러나 애플리케이션 논리에서 이 새로운 속성을 아직 사용하지 않기 때문에 페이지가 여전히 동일하게 표시될 수 있습니다. 
 
 ### <a name="use-the-new-property"></a>새 속성 사용
 
@@ -327,7 +327,7 @@ SQL Database에 대한 연결 문자열이 **MyDatabaseContext (MyDbConnection)*
 
 ![Code First 마이그레이션 후 Azure 웹앱](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
-기존의 모든 할 일 항목이 계속 표시됩니다. ASP.NET 응용 프로그램을 다시 게시해도 SQL Database의 기존 데이터가 손실되지 않습니다. 또한 Code First 마이그레이션은 데이터 스키마만 변경하고 기존 데이터는 그대로 유지합니다.
+기존의 모든 할 일 항목이 계속 표시됩니다. ASP.NET 애플리케이션을 다시 게시해도 SQL Database의 기존 데이터가 손실되지 않습니다. 또한 Code First 마이그레이션은 데이터 스키마만 변경하고 기존 데이터는 그대로 유지합니다.
 
 
 ## <a name="stream-application-logs"></a>애플리케이션 로그 스트림

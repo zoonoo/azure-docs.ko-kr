@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: a9248e2310e509bbc4f527608246b47543a03fc4
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502180"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969007"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인의 상태 확인
 
@@ -32,7 +32,7 @@ Azure Portal에서 상태 페이지를 사용하여 관리되는 도메인에서
 2. 상태를 보고 싶은 도메인을 클릭합니다.
 3. 왼쪽의 탐색 창에서 **상태**를 클릭합니다.
 
-다음 그림은 샘플 상태 페이지 ![상태 페이지 예제](.\media\active-directory-domain-services-alerts\health-page.png)를 보여줍니다.
+다음 그림은 샘플 상태 페이지를 보여줍니다. ![상태 페이지 예제](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > 관리되는 도메인의 상태는 1시간마다 평가됩니다. 관리되는 도메인을 변경한 후 업데이트된 상태를 보려면 그 다음 평가 주기까지 기다려야 합니다. 오른쪽 상단 모서리의 "마지막 평가 시간" 타임스탬프는 관리되는 도메인의 상태를 마지막으로 평가한 시간을 나타냅니다.
@@ -43,10 +43,10 @@ Azure Portal에서 상태 페이지를 사용하여 관리되는 도메인에서
 
 | 상태 | 아이콘 | 설명 |
 | --- | :----: | --- |
-| 실행 중 | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | 관리되는 도메인이 문제 없이 실행되며 중요 또는 경고 알림이 없습니다. 이 도메인에 정보 제공 알림이 있을 수 있습니다. |
-| 주의 필요(경고) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | 관리되는 도메인에 대한 중요 알림은 없지만, 해결해야 하는 하나 이상의 경고 알림이 있습니다. |
-| 주의 필요(중요) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | 관리되는 도메인에 하나 이상의 중요 경고가 있습니다. 경고 및/또는 정보 제공 알림이 있을 수도 있습니다. |
-| 배포 중 | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | 도메인이 배포되고 있는 중입니다. |
+| 실행 중 | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | 관리되는 도메인이 문제 없이 실행되며 중요 또는 경고 알림이 없습니다. 이 도메인에 정보 제공 알림이 있을 수 있습니다. |
+| 주의 필요(경고) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | 관리되는 도메인에 대한 중요 알림은 없지만, 해결해야 하는 하나 이상의 경고 알림이 있습니다. |
+| 주의 필요(중요) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | 관리되는 도메인에 하나 이상의 중요 경고가 있습니다. 경고 및/또는 정보 제공 알림이 있을 수도 있습니다. |
+| 배포 중 | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | 도메인이 배포되고 있는 중입니다. |
 
 ## <a name="monitors"></a>모니터
 모니터는 Azure AD Domain Services에서 정기적으로 모니터링하는 관리되는 도메인의 한 측면입니다. 모니터를 정상 상태로 유지하는 가장 좋은 방법은 관리되는 도메인에 대한 모든 활성 경고를 해결하는 것입니다.
@@ -68,7 +68,7 @@ Azure AD Domain Services는 현재 다음을 모니터링합니다.
 ### <a name="the-synchronization-with-azure-ad-monitor"></a>'Azure AD와 동기화' 모니터
 Microsoft는 관리되는 도메인이 Azure Active Directory와 동기화되는 빈도를 모니터링합니다. 개체(사용자 및 그룹) 수 및 마지막 동기화 이후에 변경된 Azure AD 디렉터리 변경 항목 수는 동기화에 걸리는 시간에 영향을 줄 수 있습니다. 관리되는 도메인이 마지막으로 동기화된 지 3일이 넘은 경우 [지원에 문의](active-directory-ds-contact-us.md)하세요.
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>경고
 Azure AD Domain Services가 실행되려면 해결해야 하는 관리되는 도메인의 문제에 대한 경고가 생성됩니다. 각 경고는 문제에 대해 설명하고 문제 해결을 위한 단계를 간략하게 설명하는 해결 방법 URL을 제공합니다. 모든 경고 및 해결 방법을 보려면 [경고 문제 해결](active-directory-ds-troubleshoot-alerts.md) 문서를 참조하세요.
 
 ### <a name="alert-severity"></a>경고 심각도

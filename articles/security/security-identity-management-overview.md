@@ -51,9 +51,9 @@ Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수�
 
 ## <a name="single-sign-on"></a>SSO(Single sign-on)
 
-SSO란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는 데 필요한 모든 애플리케이션 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다.
+SSO란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는 데 필요한 모든 애플리케이션 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 애플리케이션에 액세스할 수 있습니다.
 
-대부분의 조직에서는 사용자 생산성을 위해 Office 365, Box, Salesforce와 같은 SaaS 애플리케이션에 의존합니다. 지금까지 IT 담당자는 각 SaaS 응용 프로그램에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 응용 프로그램에 대한 암호를 기억해야 했습니다.
+대부분의 조직에서는 사용자 생산성을 위해 Office 365, Box, Salesforce와 같은 SaaS 애플리케이션에 의존합니다. 지금까지 IT 담당자는 각 SaaS 애플리케이션에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 애플리케이션에 대한 암호를 기억해야 했습니다.
 
 Azure AD는 온-프레미스 Active Directory 환경을 클라우드로 확장하여 사용자가 자신의 기본 조직 계정을 사용하여 해당 도메인에 가입된 디바이스 및 회사 리소스뿐만 아니라 작업에 필요한 모든 웹 및 SaaS 응용 프로그램에 로그인할 수 있도록 합니다.
 
@@ -67,7 +67,7 @@ Azure AD는 온-프레미스 Active Directory 환경을 클라우드로 확장�
 
 ## <a name="reverse-proxy"></a>역방향 프록시
 
-Azure AD Application Proxy를 사용하면 [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) 사이트, [Outlook 웹앱](https://technet.microsoft.com/library/jj657718.aspx), [IIS](http://www.iis.net/) 기반 앱과 같은 온-프레미스 응용 프로그램을 개인 네트워크 내에 게시할 수 있으며 네트워크 외부 사용자가 안전하게 액세스할 수 있게 합니다. 애플리케이션 프록시에서는 Azure AD가 지원하는 수천 개의 SaaS 애플리케이션과 함께, 많은 유형의 온-프레미스 웹 애플리케이션에 대한 원격 액세스 및 SSO를 제공합니다. 직원들은 자택에서 개인용 디바이스를 사용하여 앱에 로그인하고 이 클라우드 기반 프록시를 통해 인증할 수 있습니다.
+Azure AD 애플리케이션 프록시를 사용하면 [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) 사이트, [Outlook 웹앱](https://technet.microsoft.com/library/jj657718.aspx), [IIS](http://www.iis.net/) 기반 앱과 같은 온-프레미스 애플리케이션을 개인 네트워크 내에 게시할 수 있으며 네트워크 외부 사용자가 안전하게 액세스할 수 있게 합니다. 애플리케이션 프록시에서는 Azure AD가 지원하는 수천 개의 SaaS 애플리케이션과 함께, 많은 유형의 온-프레미스 웹 애플리케이션에 대한 원격 액세스 및 SSO를 제공합니다. 직원들은 자택에서 개인용 디바이스를 사용하여 앱에 로그인하고 이 클라우드 기반 프록시를 통해 인증할 수 있습니다.
 
 자세한 정보:
 
@@ -78,7 +78,7 @@ Azure AD Application Proxy를 사용하면 [SharePoint](https://support.office.c
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure Multi-Factor Authentication은 1 초과 인증 방법을 사용해야 하고 사용자 로그인 및 트랜잭션에 중요한 제2의 보안 계층을 추가하는 인증 방법입니다. 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Multi-Factor Authentication을 사용하면 데이터와 응용 프로그램에 대한 액세스를 보호합니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OAuth 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
+Azure Multi-Factor Authentication은 1 초과 인증 방법을 사용해야 하고 사용자 로그인 및 트랜잭션에 중요한 제2의 보안 계층을 추가하는 인증 방법입니다. 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Multi-Factor Authentication을 사용하면 데이터와 애플리케이션에 대한 액세스를 보호합니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OAuth 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
 
 자세한 정보:
 
@@ -169,7 +169,7 @@ Azure AD ID 보호는 조직의 ID에 영향을 주는 위험 이벤트와 잠�
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>하이브리드 ID 관리/Azure AD Connect
 
-Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 확장하며 이는 위치에 관계 없이 모든 리소스에 인증 및 권한 부여에 대한 단일 사용자 ID를 만듭니다. 하이브리드 ID라고 합니다. Azure AD Connect는 하이브리드 ID 목표를 충족하고 달성하도록 설계된 Microsoft 도구입니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 SaaS 응용 프로그램 사용자를 위한 공통 ID를 제공할 수 있습니다. 다음과 같은 기능을 제공합니다.
+Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 확장하며 이는 위치에 관계 없이 모든 리소스에 인증 및 권한 부여에 대한 단일 사용자 ID를 만듭니다. 하이브리드 ID라고 합니다. Azure AD Connect는 하이브리드 ID 목표를 충족하고 달성하도록 설계된 Microsoft 도구입니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 SaaS 애플리케이션 사용자를 위한 공통 ID를 제공할 수 있습니다. 다음과 같은 기능을 제공합니다.
 
 * 동기화
 * AD FS 및 페더레이션 통합

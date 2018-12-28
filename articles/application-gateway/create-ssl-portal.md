@@ -1,6 +1,6 @@
 ---
-title: SSL 종료로 응용 프로그램 게이트웨이 구성 - Azure Portal | Microsoft Docs
-description: Azure Portal을 사용하여 응용 프로그램 게이트웨이를 구성하고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
+title: SSL 종료로 애플리케이션 게이트웨이 구성 - Azure Portal | Microsoft Docs
+description: Azure Portal을 사용하여 애플리케이션 게이트웨이를 구성하고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -17,9 +17,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52997621"
 ---
-# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Azure Portal을 사용하여 SSL 종료로 응용 프로그램 게이트웨이 구성
+# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Azure Portal을 사용하여 SSL 종료로 애플리케이션 게이트웨이 구성
 
-Azure Portal을 사용하여 백 엔드 서버에 가상 머신을 사용하는 SSL 종료용 인증서가 있는 [응용 프로그램 게이트웨이](overview.md)를 구성할 수 있습니다.
+Azure Portal을 사용하여 백 엔드 서버에 가상 머신을 사용하는 SSL 종료용 인증서가 있는 [애플리케이션 게이트웨이](overview.md)를 구성할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -66,7 +66,7 @@ Export-PfxCertificate \
   -Password $pwd
 ```
 
-## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
 가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
 

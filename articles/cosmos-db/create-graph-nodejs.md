@@ -178,7 +178,7 @@ module.exports = config;
 
 2. `npm install`을 실행하여 필요한 npm 모듈(`gremlin` 포함)을 설치합니다.
 
-3. 터미널에서 `node app.js`을 실행하여 노드 응용 프로그램을 시작합니다.
+3. 터미널에서 `node app.js`을 실행하여 노드 애플리케이션을 시작합니다.
 
 ## <a name="browse-with-data-explorer"></a>데이터 탐색기 검색
 

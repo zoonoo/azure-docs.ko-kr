@@ -1,20 +1,20 @@
 ---
-title: Python을 사용하여 Azure Event Hubs에서 이벤트 수신 | Microsoft Docs
-description: Python을 사용하여 Event Hubs에서 이벤트 수신 시작
+title: Python을 사용하여 이벤트 수신 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Azure Event Hubs에 이벤트를 받는 Python 애플리케이션을 만드는 연습을 할 수 있습니다.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: db177c3356d378317c41e0c91c10865db5e05992
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: bc1cf07c5a74bc4d7182eea5281e75525fd04247
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286982"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103187"
 ---
 # <a name="receive-events-from-event-hubs-using-python"></a>Python을 사용하여 Event Hubs에서 이벤트 수신
 
@@ -30,11 +30,9 @@ Event Hubs에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs overview
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
+- Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 - Python 3.4 이상
 - 기존 Event Hubs 네임스페이스 및 이벤트 허브 [이 문서의 지침](event-hubs-create.md)에 따라 이러한 엔터티를 만들 수 있습니다. 
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
 
 ## <a name="install-python-package"></a>Python 패키지 설치
 

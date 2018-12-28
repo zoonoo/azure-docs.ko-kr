@@ -1,23 +1,24 @@
 ---
-title: LUIS 미리 빌드된 사용되지 않는 엔터티 참조 - Azure | Microsoft Docs
+title: 사용되지 않는 미리 빌드된 엔터티
 titleSuffix: Azure
 description: 이 문서에는 LUIS(Language Understanding)의 더 이상 사용되지 않는 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 5f722e9eae45f2df86b8c0831ffd33ad3edd8e5b
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 7b294b9c528d0b7a93a3e287b37124a26d0851dd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334111"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138061"
 ---
-# <a name="deprecated-entities"></a>사용되지 않는 엔터티
+# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>LUIS 앱의 사용되지 않는 미리 빌드된 엔터티
 다음과 같은 미리 빌드된 엔터티는 더 이상 사용되지 않으므로 새 LUIS 앱에 추가될 수 없습니다.
 
 * **Datetime**: datetime 엔터티는 사용되는 기존 앱에서 계속 작동하지만, **datetime**을 사용하는 기존 LUIS 앱을 **datetimeV2**로 마이그레이션해야 합니다.
@@ -42,9 +43,9 @@ ms.locfileid: "52334111"
 **Encyclopedia**는 `en-US` 로캘에서만 사용할 수 있습니다.
 
 #### <a name="encyclopedia-subtypes"></a>Encyclopedia 하위 유형
-다음 표에는 Encyclopedia 기본 제공 엔터티의 하위 유형이 100가지 넘게 포함되어 있습니다. 또한 encyclopedia 엔터티는 여러 유형에 매핑되기도 합니다. 예를 들어, 쿼리 Ronald Reagan은 다음 결과를 제공합니다. 
+다음 표에 Encyclopedia 기본 제공 엔터티에는 100개 이상의 하위 형식이 포함됩니다. 또한 encyclopedia 엔터티는 종종 여러 형식에 매핑됩니다. 예를 들어, 쿼리 Ronald Reagan은 다음 결과를 제공합니다. 
 
-```JSON
+```json
 {
       "entity": "ronald reagan",
       "type": "builtin.encyclopedia.people.person"

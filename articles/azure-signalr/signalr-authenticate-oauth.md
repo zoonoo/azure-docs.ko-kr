@@ -16,11 +16,11 @@ ms.locfileid: "53254125"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>자습서: Azure SignalR Service 인증
 
-이 자습서는 빠른 시작에서 소개한 대화방 응용 프로그램에서 진행됩니다. [SignalR Service로 대화방 만들기](signalr-quickstart-dotnet-core.md)를 아직 완료하지 않았으면 해당 연습을 먼저 완료합니다.
+이 자습서는 빠른 시작에서 소개한 대화방 애플리케이션에서 진행됩니다. [SignalR Service로 대화방 만들기](signalr-quickstart-dotnet-core.md)를 아직 완료하지 않았으면 해당 연습을 먼저 완료합니다.
 
 이 자습서에서는 사용자 고유의 인증을 구현하고 Microsoft Azure SignalR Service에 통합하는 방법을 설명합니다.
 
-처음에 빠른 시작의 대화방 응용 프로그램에서 사용된 인증은 실제 시나리오에 비해 너무 간단합니다. 이 애플리케이션에서 각 클라이언트는 자신이 누구인지 클레임할 수 있으며, 서버는 간단히 수락합니다. 이 방법은 Rogue 사용자가 다른 사람을 가장하여 중요한 데이터에 액세스하는 실제 애플리케이션에서는 별로 유용하지 않습니다.
+처음에 빠른 시작의 대화방 애플리케이션에서 사용된 인증은 실제 시나리오에 비해 너무 간단합니다. 이 애플리케이션에서 각 클라이언트는 자신이 누구인지 클레임할 수 있으며, 서버는 간단히 수락합니다. 이 방법은 Rogue 사용자가 다른 사람을 가장하여 중요한 데이터에 액세스하는 실제 애플리케이션에서는 별로 유용하지 않습니다.
 
 [GitHub](https://github.com/)는 [OAuth](https://oauth.net/)라는 인기 있는 업계 표준 프로토콜에 따른 인증 API를 제공합니다. 이러한 API는 타사 애플리케이션에서 GitHub 계정을 인증할 수 있도록 합니다. 이 자습서에서는 클라이언트가 대화방 응용 프로그램에 로그인하도록 허용하기 전에 이러한 API를 사용하여 GitHub 계정을 통한 인증을 구현합니다. GitHub 계정을 인증한 후 계정 정보는 웹 클라이언트가 인증받는 데 사용하는 쿠키로 추가됩니다.
 
@@ -378,7 +378,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 ## <a name="deploy-the-app-to-azure"></a>Azure에 앱 배포
 
-이 섹션에서는 Azure Cloud Shell의 Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 ASP.NET 응용 프로그램을 호스트할 새 [Azure 웹앱](https://docs.microsoft.com/azure/app-service/)을 만듭니다. 이 웹앱은 로컬 Git 배포를 사용하도록 구성됩니다. 또한 SignalR 연결 문자열, GitHub OAuth 앱 암호 및 배포 사용자로도 구성됩니다.
+이 섹션에서는 Azure Cloud Shell의 Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 ASP.NET 애플리케이션을 호스트할 새 [Azure 웹앱](https://docs.microsoft.com/azure/app-service/)을 만듭니다. 이 웹앱은 로컬 Git 배포를 사용하도록 구성됩니다. 또한 SignalR 연결 문자열, GitHub OAuth 앱 암호 및 배포 사용자로도 구성됩니다.
 
 이 섹션의 단계에서는 Azure CLI에 대해 *signalr* 확장을 사용합니다. 다음 명령을 실행하여 Azure CLI용 *signalr* 확장을 설치합니다.
 

@@ -70,7 +70,7 @@ Spark 작업의 샘플 JSON 정의는 다음과 같습니다.
 | SparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Azure Storage 연결된 서비스입니다.  이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 저장소가 사용됩니다. 이 속성의 값은 Azure Storage 연결된 서비스만 될 수 있습니다. | 아니오       |
 | rootPath              | Spark 파일이 포함된 Azure Blob 컨테이너 및 폴더입니다. 파일 이름은 대/소문자를 구분합니다. 이 폴더의 구조에 대한 자세한 내용은 폴더 구조 섹션(다음 섹션)을 참조하세요. | 예      |
 | entryFilePath         | Spark 코드/패키지의 루트 폴더에 대한 상대 경로입니다. 항목 파일은 Python 파일이나 .jar 파일이어야 합니다. | 예      |
-| className             | 응용 프로그램의 Java/Spark main 클래스      | 아니오       |
+| className             | 애플리케이션의 Java/Spark main 클래스      | 아니오       |
 | arguments             | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 아니오       |
 | proxyUser             | Spark 프로그램 실행을 가장하는 사용자 계정 | 아니오       |
 | sparkConfig           | [Spark 구성 - 응용 프로그램 속성](https://spark.apache.org/docs/latest/configuration.html#available-properties) 항목에 나열된 Spark 구성 속성의 값을 지정합니다. | 아니오       |

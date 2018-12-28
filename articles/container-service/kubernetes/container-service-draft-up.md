@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service 및 Azure Container Registry에서 Draft 사용
+title: (사용되지 않음) Azure Container Service 및 Azure Container Registry에서 Draft 사용
 description: ACS Kubernetes 클러스터와 Azure Container Registry를 만들어 Azure에서 Draft로 첫 번째 응용 프로그램을 만듭니다.
 services: container-service
 author: squillace
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: c635a869506918ab7ee032df349eb307987c1284
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 42bd12b9479cd1b4f57a7f3ae73f3c32061fed65
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432282"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996502"
 ---
-# <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Azure Container Service 및 Azure Container Registry에서 Draft를 사용하여 응용 프로그램 빌드 및 Kubernetes에 배포
+# <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(사용되지 않음) Azure Container Service 및 Azure Container Registry에서 Draft를 사용하여 애플리케이션 빌드 및 Kubernetes에 배포
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 문서의 업데이트된 버전은 [AKS(Azure Kubernetes Service)에서 Draft 사용](../../aks/kubernetes-draft.md)을 참조하세요.
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Draft](https://aka.ms/draft)는 Docker와 Kubernetes에 대해 잘 알지 못하거나 패키지를 설치하지 않고도 손쉽게 컨테이너 기반 응용 프로그램을 개발하여 Kubernetes 클러스터에 배포할 수 있는 새로운 오픈 소스 도구입니다. Draft와 같은 도구를 사용하면 사용자와 팀이 Kubernetes로 응용 프로그램을 빌드하는 데 집중할 수 있는 한편 인프라에는 많은 주의를 기울이지 않습니다.
 

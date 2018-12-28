@@ -8,12 +8,12 @@ ms.author: tanmayb
 ms.date: 08/30/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 2977c3d1656bacf8ba8d34080641ea6c5cdf5bbe
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 20b1c7500587324f6f7dbb5cc679a3603eff56bd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957128"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963830"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Azure Portal에서 IoT Central 관리 
 IoT Central 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관리할 수 있을 뿐만 아니라 Azure Portal에서도 IoT Central을 관리할 수 있습니다. 이 문서에서는 가능한 작업과 그 수행 방법을 설명합니다.
@@ -21,23 +21,23 @@ IoT Central 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관
 ## <a name="create-iot-central-applications"></a>IoT Central 응용 프로그램 만들기
 새 응용 프로그램을 만들려면 [Azure Portal](https://ms.portal.azure.com)로 이동하여 왼쪽의 주 탐색 메뉴에서 “리소스 만들기”를 클릭합니다. 
 
-![관리 포털: 탐색 메뉴](media\howto-manage-iot-central-from-portal\image0.png)
+![관리 포털: 탐색 메뉴](media/howto-manage-iot-central-from-portal/image0.png)
 
 검색 창에 “IoT Central”이라는 용어를 입력합니다.
 
-![관리 포털: 검색](media\howto-manage-iot-central-from-portal\image0a.png)
+![관리 포털: 검색](media/howto-manage-iot-central-from-portal/image0a.png)
 
 검색 결과에서 IoT Central 응용 프로그램 항목을 클릭합니다.
 
-![관리 포털: 검색 결과](media\howto-manage-iot-central-from-portal\image0b.png)
+![관리 포털: 검색 결과](media/howto-manage-iot-central-from-portal/image0b.png)
 
 이제 “만들기” 단추를 클릭하여 작성해야 하는 양식을 표시합니다.
 
-![관리 포털: IoT Central 리소스](media\howto-manage-iot-central-from-portal\image0c.png)
+![관리 포털: IoT Central 리소스](media/howto-manage-iot-central-from-portal/image0c.png)
 
 양식에 있는 모든 필드를 작성합니다. 이 양식은 IoT Central 웹 사이트에서 응용 프로그램을 만들기 위해 채워야 하는 양식과 비슷합니다. 각 필드를 작성하는 방법을 자세히 알아보려면 [IoT Central 애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작을 확인하세요. 
 
-![관리 포털: IoT Central 리소스 만들기](media\howto-manage-iot-central-from-portal\image1.png)  
+![관리 포털: IoT Central 리소스 만들기](media/howto-manage-iot-central-from-portal/image1.png)  
 
 모든 필드를 작성한 후 “만들기” 단추를 클릭합니다.
 
@@ -46,19 +46,19 @@ Azure IoT Central 응용 프로그램이 이미 있는 경우 해당 응용 프�
 
 시작하려면 왼쪽의 주 탐색 메뉴에서 “모든 리소스”를 클릭하세요. 검색 상자를 사용하여 응용 프로그램 이름을 입력하고 리소스 목록에서 찾습니다. 그런 다음 관리하려는 IoT Central 응용 프로그램을 클릭합니다.
 
-![관리 포털: 리소스 관리](media\howto-manage-iot-central-from-portal\image2.png)
+![관리 포털: 리소스 관리](media/howto-manage-iot-central-from-portal/image2.png)
 
 응용 프로그램으로 이동하려면 [IoT Central Application URL]\(IoT Central 응용 프로그램 URL)을 클릭합니다.
 
-![관리 포털: 리소스 관리](media\howto-manage-iot-central-from-portal\image3.png)
+![관리 포털: 리소스 관리](media/howto-manage-iot-central-from-portal/image3.png)
 
 응용 프로그램을 다른 리소스 그룹으로 이동하려면 [리소스 그룹] 옆에 있는 **변경** 링크를 클릭합니다. 표시되는 대화 상자에서 이 응용 프로그램을 마이그레이션할 리소스 그룹을 선택합니다.
 
-![관리 포털: 리소스 관리](media\howto-manage-iot-central-from-portal\image4.png)
+![관리 포털: 리소스 관리](media/howto-manage-iot-central-from-portal/image4.png)
 
 응용 프로그램을 다른 구독으로 이동하려면 [구독] 옆에 있는 **변경** 링크를 클릭합니다. 표시되는 대화 상자에서 이 응용 프로그램을 마이그레이션할 구독을 선택합니다.
 
-![관리 포털: 리소스 관리](media\howto-manage-iot-central-from-portal\image5.png)
+![관리 포털: 리소스 관리](media/howto-manage-iot-central-from-portal/image5.png)
 
 ## <a name="next-steps"></a>다음 단계
 

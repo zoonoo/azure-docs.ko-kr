@@ -1,11 +1,12 @@
 ---
 title: Data Science Virtual Machine에 대한 일반 ID 설정 - Azure | Microsoft Docs
-description: 엔터프라이즈 팀의 DSVM 환경에서 일반적인 ID를 설정합니다.
+description: 여러 Data Science Virtual Machines에 사용할 수 있는 일반 사용자 계정을 만드는 방법을 알아봅니다. Azure Active Directory 또는 온-프레미스 Active Directory를 사용하여 Data Science Virtual Machine에 사용자를 인증할 수 있습니다.
 keywords: 딥 러닝, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석, 팀 데이터 과학 프로세스
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 25d40b6a72ab6da61feb1458f5930eb48ef1d900
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6be7c63d3879c7ed89cd97eaecd6d59b6b5aadd4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436304"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075474"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 일반적인 ID 설정
 
@@ -42,7 +43,7 @@ Azure AD DS를 사용하면 Azure에서 완전히 관리되는 서비스를 제�
 
    a. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
     
-   나. **Azure Active Directory**를 선택한 후 **사용자 및 그룹**을 선택합니다.
+   b. **Azure Active Directory**를 선택한 후 **사용자 및 그룹**을 선택합니다.
     
    다. **사용자 및 그룹**에서 **모든 사용자**를 선택한 다음 **새 사용자**를 선택합니다.
    
@@ -69,7 +70,7 @@ Azure AD DS를 사용하면 Azure에서 완전히 관리되는 서비스를 제�
 
    a. [Azure Files 공유 만들기](../../storage/files/storage-how-to-create-file-share.md)
     
-   나. Linux DSVM에 탑재합니다. Azure Portal의 저장소 계정에서 Azure Files 공유에 대해 **연결** 단추를 선택하면 Linux DSVM의 bash 셸에서 실행할 명령이 나타납니다. 이 명령은 다음과 같습니다.
+   b. Linux DSVM에 탑재합니다. Azure Portal의 저장소 계정에서 Azure Files 공유에 대해 **연결** 단추를 선택하면 Linux DSVM의 bash 셸에서 실행할 명령이 나타납니다. 이 명령은 다음과 같습니다.
    
    ```
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp

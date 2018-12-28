@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 54a88188a432a23476af6a1670635a23fb72eea7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638208"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341171"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>지속성 함수의 성능 및 크기 조정(Azure Functions)
 
@@ -33,7 +33,7 @@ ms.locfileid: "52638208"
 
 **인스턴스** 테이블은 작업 허브 내의 모든 오케스트레이션 인스턴스의 상태를 포함하는 또 다른 Azure Storage 테이블입니다. 인스턴스가 생성되면 새 행이 이 테이블에 추가됩니다. 이 테이블의 파티션 키는 오케스트레이션 인스턴스 ID이고 행 키는 고정된 상수입니다. 오케스트레이션 인스턴스당 하나의 행이 있습니다.
 
-이 테이블은 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API와 [상태 쿼리 HTTP API](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status)의 인스턴스 쿼리 요청을 충족하는 데 사용됩니다. 결과적으로 앞서 언급된 **기록** 테이블의 내용과 일관되게 유지됩니다. 이러한 방식으로 인스턴스 쿼리 작업을 효과적으로 충족하기 위해 별도 Azure Storage 테이블을 사용하면 [CQRS(명령 및 쿼리 책임 분리) 패턴](https://docs.microsoft.com/azure/architecture/patterns/cqrs)의 영향을 받습니다.
+이 테이블은 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_)(.NET) 및 `getStatus`(JavaScript) API와 [상태 쿼리 HTTP API](durable-functions-http-api.md#get-instance-status)의 인스턴스 쿼리 요청을 충족하는 데 사용됩니다. 결과적으로 앞서 언급된 **기록** 테이블의 내용과 일관되게 유지됩니다. 이러한 방식으로 인스턴스 쿼리 작업을 효과적으로 충족하기 위해 별도 Azure Storage 테이블을 사용하면 [CQRS(명령 및 쿼리 책임 분리) 패턴](https://docs.microsoft.com/azure/architecture/patterns/cqrs)의 영향을 받습니다.
 
 ## <a name="internal-queue-triggers"></a>내부 큐 트리거
 
@@ -53,10 +53,24 @@ ms.locfileid: "52638208"
 
 지속형 함수에 사용되는 큐, 테이블 및 Blob는 구성된 Azure Storage 계정에 의해 만들어집니다. 사용할 계정은 **host.json** 파일에서 `durableTask/azureStorageConnectionStringName` 설정을 사용하여 지정할 수 있습니다.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
     "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+    }
   }
 }
 ```
@@ -67,6 +81,8 @@ ms.locfileid: "52638208"
 
 작업 함수는 상태 비저장이며, VM을 추가하여 자동으로 확장됩니다. 반면 오케스트레이터 함수는 하나 이상의 제어 큐에서 *분할됩니다*. 제어 큐의 수는 **host.json** 파일에서 정의됩니다. 다음의 예제 host.json 코드 조각은 `durableTask/partitionCount` 속성을 `3`으로 설정합니다.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
@@ -74,6 +90,19 @@ ms.locfileid: "52638208"
   }
 }
 ```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "partitionCount": 3
+    }
+  }
+}
+```
+
 작업 허브는 1~16개 파티션으로 구성할 수 있습니다. 파티션 수를 지정하지 않으면 기본 파티션 수는 **4**개 입니다.
 
 여러 함수 호스트 인스턴스(일반적으로 서로 다른 VM에 있음)로 확장하는 경우 각 인스턴스는 제어 큐 중 하나에 대한 잠금을 얻습니다. 이러한 잠금은 내부적으로 Blob 저장소 임대로 구현되며, 오케스트레이션 인스턴스가 한 번에 단일 호스트 인스턴스에서만 실행되도록 합니다. 작업 허브에 세 개의 제어 큐가 구성되어 있으면 오케스트레이션 인스턴스를 세 개의 VM에서 부하를 분산할 수 있습니다. 작업 함수 실행을 위한 용량을 늘리기 위해 추가 VM을 추가할 수 있습니다.
@@ -106,11 +135,26 @@ Azure Functions는 단일 응용 프로그램 인스턴스 내에서 여러 함�
 
 작업 함수 및 오케스트레이터 함수 동시성 제한은 둘 다 **host.json** 파일에서 구성할 수 있습니다. 관련 설정은 각각 `durableTask/maxConcurrentActivityFunctions` 및 `durableTask/maxConcurrentOrchestratorFunctions`입니다.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
     "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10
+    }
   }
 }
 ```
@@ -121,15 +165,31 @@ Azure Functions는 단일 응용 프로그램 인스턴스 내에서 여러 함�
 > 이러한 설정은 단일 VM의 메모리 및 CPU 사용량을 관리하는 데 유용합니다. 그러나 여러 VM에 걸쳐 스케일 아웃할 경우 각 VM에는 고유한 제한이 설정됩니다. 이러한 설정을 전역 수준에서 동시성을 제어하는 데는 사용할 수 없습니다.
 
 ## <a name="orchestrator-function-replay"></a>오케스트레이터 함수 재생
+
 앞서 언급된 것처럼 오케스트레이터 함수는 **기록** 테이블의 콘텐츠를 사용하여 재생됩니다. 기본적으로 오케스트레이터 함수 코드는 메시지의 일괄 처리가 제어 큐에서 제거될 때마다 재생됩니다.
 
 이러한 적극적인 재생 동작은 **확장 세션**을 사용하도록 설정하여 비활성화할 수 있습니다. 확장 세션이 사용되도록 설정되면 오케스트레이터 함수 인스턴스는 더 이상 메모리에 유지되지 않으며, 새 메시지는 전체 재생 없이 처리될 수 있습니다. **host.json** 파일에서 `durableTask/extendedSessionsEnabled`를 `true`로 설정하여 확장 세션을 사용하도록 설정할 수 있습니다. `durableTask/extendedSessionIdleTimeoutInSeconds` 설정은 유휴 세션이 메모리에 유지되는 기간을 제어하는 데 사용됩니다.
+
+### <a name="functions-1x"></a>Functions 1.x
 
 ```json
 {
   "durableTask": {
     "extendedSessionsEnabled": true,
     "extendedSessionIdleTimeoutInSeconds": 30
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "extendedSessionsEnabled": true,
+      "extendedSessionIdleTimeoutInSeconds": 30
+    }
   }
 }
 ```
@@ -152,7 +212,7 @@ Azure Functions는 단일 응용 프로그램 인스턴스 내에서 여러 함�
 
 * **순차적 작업 실행**: 이 시나리오에서는 일련의 작업 함수를 순차적으로 실행하는 오케스트레이터 함수를 설명합니다. 이 시나리오는 [함수 체인](durable-functions-sequence.md) 샘플과 가장 유사합니다.
 * **병렬 작업 실행**: 이 시나리오에서는 [팬아웃, 팬인](durable-functions-cloud-backup.md) 패턴을 사용하여 많은 작업 함수를 병렬로 실행하는 오케스트레이터 함수를 설명합니다.
-* **병렬 응답 처리**:이 시나리오는 [팬아웃, 팬인](durable-functions-cloud-backup.md) 패턴의 두 번째 절반 부분입니다. 팬인 부분의 성능에 중점을 둡니다. 팬아웃과 달리, 팬인은 단일 오케스트레이터 함수 인스턴스에 의해 수행되므로 단일 VM에서만 실행될 수 있습니다.
+* **병렬 응답 처리**: 이 시나리오는 [팬아웃, 팬인](durable-functions-cloud-backup.md) 패턴의 두 번째 절반 부분입니다. 팬인 부분의 성능에 중점을 둡니다. 팬아웃과 달리, 팬인은 단일 오케스트레이터 함수 인스턴스에 의해 수행되므로 단일 VM에서만 실행될 수 있습니다.
 * **외부 이벤트 처리**: 이 시나리오에서는 한 번에 하나씩 [외부 이벤트](durable-functions-external-events.md)를 처리하는 단일 오케스트레이터 함수 인스턴스를 나타냅니다.
 
 > [!TIP]

@@ -1,30 +1,26 @@
 ---
-title: 사설 도메인에 Azure DNS 사용 | Microsoft Docs
+title: 사설 도메인에 Azure DNS 사용
 description: Microsoft Azure의 사설 DNS 호스팅 서비스에 대한 개요입니다.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/15/2018
+ms.date: 012/5/2018
 ms.author: victorh
-ms.openlocfilehash: 2ab7070a4cf46dae543af8d3e1d688e12ec1eb2a
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4d817e71cffd782bdcfdfb91492dbd5d08fb8479
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173645"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967098"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>사설 도메인에 Azure DNS 사용
-DNS(Domain Name System)는 서비스 이름을 해당 IP 주소로 변환(또는 확인)합니다. DNS 도메인에 대한 호스팅 서비스인 Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공합니다. 인터넷 연결 DNS 도메인 지원 외에도 Azure DNS는 이제 사설 DNS 도메인을 미리 보기 기능으로 지원합니다. 
- 
+
+DNS(Domain Name System)는 서비스 이름을 해당 IP 주소로 변환(또는 확인)합니다. DNS 도메인에 대한 호스팅 서비스인 Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공합니다. 인터넷 연결 DNS 도메인 지원 외에도 Azure DNS는 이제 사설 DNS 도메인을 미리 보기 기능으로 지원합니다.
+
 Azure DNS는 사용자 지정 DNS 솔루션을 추가하지 않고도 가상 네트워크의 도메인 이름을 관리하고 확인할 수 있는 안정적이고 신뢰할 수 있는 DNS 서비스를 제공합니다. 사설 DNS 영역을 사용하면 현재 Azure에서 제공하는 이름 대신 사용자 고유의 사용자 지정 도메인 이름을 사용할 수 있습니다. 사용자 지정 도메인 이름을 사용하면 조직의 요구 사항에 가장 적합하도록 가상 네트워크 아키텍처를 조정할 수 있습니다. 가상 네트워크 내에서 그리고 가상 네트워크 간에 VM(가상 머신)에 대한 이름을 확인할 수 있게 해줍니다. 또한 분할 수평 보기로 영역 이름을 구성하여 사설 및 공용 DNS 영역에서 동일한 이름을 공유할 수 있습니다.
+
+등록 가상 네트워크를 지정하는 경우, 사설 영역에 등록된 해당 가상 네트워크의 VM에 대한 DNS 레코드는 Azure Powershell 및 Azure CLI API에서 보거나 검색할 수 없지만 VM 레코드는 실제로 등록되어 성공적으로 확인됩니다.
 
 ![DNS 개요](./media/private-dns-overview/scenario.png)
 
@@ -46,22 +42,22 @@ Azure DNS는 다음과 같은 이점을 제공합니다.
 
 * **수평 분할 DNS 지원**. Azure DNS를 사용하면 이름이 같고 가상 네트워크 내 그리고 공용 인터넷의 다른 답변을 확인하는 영역을 만들 수 있습니다. 분할 수평 DNS에 대한 일반적인 시나리오는 가상 네트워크 내에서 사용할 수 있는 전용 서비스 버전을 제공하는 것입니다.
 
-* **모든 Azure 지역에서 사용 가능**. Azure DNS Private Zones 기능은 Azure 공용 클라우드의 모든 Azure 지역에서 사용할 수 있습니다. 
-
+* **모든 Azure 지역에서 사용 가능**. Azure DNS Private Zones 기능은 Azure 공용 클라우드의 모든 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="capabilities"></a>기능
 
 Azure DNS는 다음과 같은 기능을 제공합니다.
- 
+
 * **등록 가상 네트워크로 사설 영역에 연결된 단일 가상 네트워크에서 가상 머신 자동 등록**. 가상 머신이 개인 IP를 가리키는 A 레코드로 사설 영역에 등록(추가)됩니다. 등록 가상 네트워크의 가상 머신이 삭제되면 Azure가 연결된 사설 영역에서 해당 DNS 레코드도 자동으로 제거합니다. 
 
+  또한 영역에 대한 DNS 확인이 가상 네트워크 내의 모든 가상 머신에서 작동한다는 점에서 등록 가상 네트워크는 기본적으로 확인 가상 네트워크 역할을 합니다.
+
   > [!NOTE]
-  > 또한 영역에 대한 DNS 확인이 가상 네트워크 내의 모든 가상 머신에서 작동한다는 점에서 등록 가상 네트워크는 기본적으로 확인 가상 네트워크 역할을 합니다. 
+  > 등록 가상 네트워크를 지정하는 경우, 사설 영역에 등록된 해당 가상 네트워크의 VM에 대한 DNS 레코드는 Azure Powershell 및 Azure CLI API에서 보거나 검색할 수 없습니다. VM 레코드는 실제로 등록되어 성공적으로 확인됩니다.
 
 * **확인 가상 네트워크로 사설 영역에 연결된 가상 네트워크 전체에서 지원되는 정방향 DNS 확인**. 가상 네트워크 간 DNS 확인의 경우 가상 네트워크가 서로 연결되는 명시적 종속성은 없습니다. 그러나 고객이 다른 시나리오(예: HTTP 트래픽)를 위해 가상 네트워크를 피어링할 수도 있습니다.
 
-* **DNS 역방향 조회는 가상 네트워크 범위 내에서 지원됩니다**. 사설 영역에 할당된 가상 네트워크 내의 개인 IP에 대한 역방향 DNS 조회는 호스트/레코드 이름 및 접미사로 영역 이름을 포함하는 FQDN을 반환합니다. 
-
+* **DNS 역방향 조회는 가상 네트워크 범위 내에서 지원됩니다**. 사설 영역에 할당된 가상 네트워크 내의 개인 IP에 대한 역방향 DNS 조회는 호스트/레코드 이름 및 접미사로 영역 이름을 포함하는 FQDN을 반환합니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -71,19 +67,17 @@ Azure DNS에는 다음과 같은 제한 사항이 적용됩니다.
 * 사설 영역당 최대 10개의 확인 가상 네트워크가 허용됩니다.
 * 특정 가상 네트워크가 1개의 사설 영역에만 등록 가상 네트워크로 연결될 수 있습니다.
 * 특정 가상 네트워크가 최대 10개의 사설 영역에 확인 가상 네트워크로 연결될 수 있습니다.
-* 등록 가상 네트워크가 지정된 경우, 사설 영역에 등록된 해당 가상 네트워크의 VM에 대한 DNS 레코드는 Azure Powershell 및 Azure CLI API에서 보거나 검색할 수 없지만 VM 레코드는 실제로 등록되어 성공적으로 확인됩니다.
+* 등록 가상 네트워크를 지정하는 경우, 사설 영역에 등록된 해당 가상 네트워크의 VM에 대한 DNS 레코드는 Azure Powershell 및 Azure CLI API에서 보거나 검색할 수 없습니다. VM 레코드는 실제로 등록되어 성공적으로 확인됩니다.
 * 역방향 DNS는 등록 가상 네트워크의 개인 IP 공간에 대해서만 작동합니다.
-* 사설 영역에 등록되지 않은 개인 IP(예: 확인 가상 네트워크로 사설 영역에 연결된 가상 네트워크에 있는 가상 머신의 개인 IP)에 대한 역방향 DNS는 DNS 접미사로 *internal.cloudapp.net*를 반환합니다. 그러나 이 접미사를 확인할 수 없습니다. 
-* 가상 네트워크는 초기에(즉, 처음) 사설 영역에 등록 또는 확인 가상 네트워크로 연결할 때 비어 있어야 합니다(즉, VM 레코드가 없음). 그러나 가상 네트워크가 나중에 등록 또는 확인 가상 네트워크로 다른 사설 영역에 연결할 때는 비어 있지 않을 수 있습니다. 
+* 사설 영역에 등록되지 않은 사설 IP(예: 확인 가상 네트워크로 사설 영역에 연결된 가상 네트워크에 있는 가상 머신의 사설 IP)에 대한 역방향 DNS는 DNS 접미사로 *internal.cloudapp.net*을 반환합니다. 그러나 이 접미사를 확인할 수 없습니다.
+* 가상 네트워크는 초기에(즉, 처음) 사설 영역에 등록 또는 확인 가상 네트워크로 연결할 때 비어 있어야 합니다(즉, VM 레코드가 없음). 그러나 가상 네트워크가 나중에 등록 또는 확인 가상 네트워크로 다른 사설 영역에 연결할 때는 비어 있지 않을 수 있습니다.
 * 이때 Azure와 온-프레미스 네트워크 간에 확인이 가능하도록 조건부 전달은 지원되지 않습니다. 고객이 다른 메커니즘을 통해 이 시나리오를 실현할 수 있는 방법에 대한 자세한 내용은 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
 특정 종류의 작업에 필요한 특정 DNS 등록 및 확인 동작을 포함하여 Azure DNS의 사설 영역에 대한 일반적인 질문과 대답은 [FAQ](./dns-faq.md#private-dns)를 참조하세요.  
 
-
 ## <a name="pricing"></a>가격
 
 공개 미리 보기 기간에는 사설 DNS 영역 기능을 무료로 사용할 수 있습니다. 일반 공급 기간에는 이 기능은 기존 Azure DNS 제품과 비슷한 사용량 기반 가격 책정 모델을 제공합니다. 
-
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -95,5 +89,4 @@ Azure DNS에서 사설 영역으로 실현할 수 있는 몇 가지 일반 [사�
 
 [DNS 영역 및 레코드 개요](dns-zones-records.md)를 참조하여 DNS 영역 및 레코드에 대해 알아봅니다.
 
-Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다. 
-
+Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.

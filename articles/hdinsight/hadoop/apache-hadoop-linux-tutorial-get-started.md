@@ -131,7 +131,7 @@ Visual Studio에서 HDInsight Tools를 가져오는 방법은 [Data Lake Tools f
 Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 * 임시 쿼리 만들기
-* Hive 응용 프로그램 만들기
+* Hive 애플리케이션 만들기
 
 임시 쿼리를 만들고 실행하려면:
 

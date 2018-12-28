@@ -1,6 +1,6 @@
 ---
 title: Python을 사용하여 Azure Files용으로 개발 | Microsoft Docs
-description: Azure Files를 사용하여 파일 데이터를 저장하는 Python 응용 프로그램 및 서비스를 개발하는 방법에 대해 알아봅니다.
+description: Azure Files를 사용하여 파일 데이터를 저장하는 Python 애플리케이션 및 서비스를 개발하는 방법에 대해 알아봅니다.
 services: storage
 author: wmgries
 ms.service: storage
@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
 ms.component: files
-ms.openlocfilehash: a376e4f5d8d74731f30da47a696656e79ae55ac7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4082352c8c9814b8e6533d3f64b18450a6cf416d
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245684"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165575"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python을 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
-이 자습서에서는 Azure Files를 사용하여 파일 데이터를 저장하는 응용 프로그램이나 서비스를 Python을 사용하여 개발하는 데 필요한 기본 사항을 보여 줍니다. 즉 간단한 콘솔 응용 프로그램을 만들고, Python 및 Azure Files를 통해 기본 작업을 수행하는 방법을 보여 줍니다.
+이 자습서에서는 Azure Files를 사용하여 파일 데이터를 저장하는 애플리케이션이나 서비스를 Python을 사용하여 개발하는 데 필요한 기본 사항을 보여줍니다. 즉 간단한 콘솔 애플리케이션을 만들고, Python 및 Azure Files를 통해 기본 작업을 수행하는 방법을 보여줍니다.
 
 * Azure 파일 공유 만들기
 * 디렉터리 만들기
@@ -29,7 +29,7 @@ ms.locfileid: "51245684"
 * 파일 업로드, 다운로드 및 삭제
 
 > [!Note]  
-> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 Python I/O 클래스 및 함수를 사용하여 Azure File 공유에 액세스하는 간단한 응용 프로그램을 작성할 수 있습니다. 이 문서에서는 [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage Python SDK를 사용하는 응용 프로그램을 작성하는 방법에 대해 설명합니다.
+> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 Python I/O 클래스 및 함수를 사용하여 Azure File 공유에 액세스하는 간단한 응용 프로그램을 작성할 수 있습니다. 이 문서에서는 [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage Python SDK를 사용하는 애플리케이션을 작성하는 방법에 대해 설명합니다.
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Azure Storage SDK for Python 다운로드 및 설치
 
@@ -49,9 +49,9 @@ pip install azure-storage-file
 > 
 > 
 
-대체 설치 방법을 확인하려면 [Github의 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)을 방문하세요.
+대체 설치 방법을 확인하려면 [GitHub의 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)을 방문하세요.
 
-## <a name="set-up-your-application-to-use-azure-files"></a>Azure Files를 사용하도록 응용 프로그램 설정
+## <a name="set-up-your-application-to-use-azure-files"></a>Azure Files를 사용하도록 애플리케이션 설정
 프로그래밍 방식으로 Azure Storage에 액세스하려는 Python 원본 파일의 맨 위쪽에 다음을 추가합니다.
 
 ```python

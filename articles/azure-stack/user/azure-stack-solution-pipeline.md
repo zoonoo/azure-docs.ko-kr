@@ -166,7 +166,7 @@ Azure DevOps 서비스를 실행 하려면 서비스 끝점 구성의 일부로 
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Azure Stack 구독에 리소스를 배포 하려면 서비스 주체 권한 부여
 
-구독의 리소스에 액세스하려면 역할에 응용 프로그램을 할당해야 합니다. 응용 프로그램에 대 한 최상의 권한을 나타내는 역할을 결정 합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 참조하세요.
+구독의 리소스에 액세스하려면 역할에 애플리케이션을 할당해야 합니다. 응용 프로그램에 대 한 최상의 권한을 나타내는 역할을 결정 합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 참조하세요.
 
 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어, 리소스 그룹에 대 한 읽기 권한자 역할에 응용 프로그램을 추가할 리소스 그룹 및 해당 리소스를 읽을 수 의미 합니다.
 

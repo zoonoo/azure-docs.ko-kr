@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Environment 사용
+title: App Service environment 사용 - Azure
 description: Azure App Service Environment에서 앱을 작성, 게시 및 확장하는 방법에 대해 알아봅니다.
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 80abe29c80898b691aa6e5e47bf068a9e69e50e4
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.custom: seodec18
+ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303373"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274720"
 ---
 # <a name="use-an-app-service-environment"></a>App Service Environment 사용 #
 
@@ -29,10 +30,10 @@ Azure App Service Environment는 Azure App Service를 고객의 Azure Virtual Ne
 - **프런트 엔드**: 프런트 엔드는 ASE(App Service Environment)에서 HTTP/HTTPS가 종료되는 위치입니다.
 - **작업자**: 작업자는 앱을 호스트하는 리소스입니다.
 - **데이터베이스**: 데이터베이스에는 환경을 정의하는 정보가 들어 있습니다.
-- **저장소**: 저장소는 고객이 게시한 앱을 호스트하는 데 사용됩니다.
+- **저장소**: 스토리지는 고객이 게시한 앱을 호스트하는 데 사용됩니다.
 
 > [!NOTE]
-> App Service Environment에는 두 가지 버전(ASEv1 및 ASEv2)이 있습니다. ASEv1에서는 사용하려는 리소스를 관리해야 합니다. ASEv1을 구성하고 관리하는 방법을 알아보려면 [App Service Environment v1 구성][ConfigureASEv1]을 참조하세요. 이 문서의 나머지 부분에서는 ASEv2에 대해 중점적으로 설명합니다.
+> App Service Environment에는 ASEv1 및 ASEv2라는 두 가지 버전이 있습니다. ASEv1에서는 사용하려는 리소스를 관리해야 합니다. ASEv1을 구성하고 관리하는 방법을 알아보려면 [App Service Environment v1 구성][ConfigureASEv1]을 참조하세요. 이 문서의 나머지 부분에서는 ASEv2에 대해 중점적으로 설명합니다.
 >
 >
 
@@ -51,7 +52,7 @@ ASE에서 웹앱을 만들려면:
 
 1. **리소스 만들기** > **웹 + 모바일** > **웹앱**을 선택합니다.
 
-1. 웹앱의 이름을 입력합니다. ASE에서 이미 App Service 계획을 선택한 경우 앱의 도메인 이름에 ASE의 도메인 이름이 반영됩니다.
+2. 웹앱의 이름을 입력합니다. ASE에서 이미 App Service 계획을 선택한 경우 앱의 도메인 이름에 ASE의 도메인 이름이 반영됩니다.
 
     ![웹앱 이름 선택][1]
 
@@ -70,7 +71,7 @@ ASE에서 웹앱을 만들려면:
 
     b. App Service 계획의 이름을 입력합니다.
 
-    다. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다. ASE에서 Linux 앱을 호스트하는 것은 현재 **미국 서 부, 미국 동부, 유럽 서부, 유럽 북부, 오스트레일리아 동부, 동남 아시아**의 6개 지역에서만 가능합니다. 
+    다. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다. ASE의 Linux 앱 호스트는 현재 **미국 서부, 미국 동부, 유럽 서부, 유럽 북부, 오스트레일리아 동부, 동남 아시아**의 6개 지역에서만 가능합니다. 
 
     d. **격리** 가격 책정 계층을 선택합니다. **선택**을 선택합니다.
 
@@ -182,10 +183,10 @@ ASE를 삭제하려면 다음을 수행합니다.
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../app-service-deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

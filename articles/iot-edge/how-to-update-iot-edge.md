@@ -1,5 +1,5 @@
 ---
-title: 최신 버전의 Azure IoT Edge로 디바이스 업데이트 | Microsoft Docs
+title: 디바이스에서 IoT Edge 버전 업데이트 - Azure IoT Edge | Microsoft Docs
 description: 최신 버전의 보안 디먼 및 IoT Edge 런타임을 실행하도록 IoT Edge 디바이스를 업데이트하는 방법
 keywords: ''
 author: kgremban
@@ -9,14 +9,15 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1522d9c9bc4fda178d8571fb57cb9c94ed1044ae
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 8b8638d8fa428b1b867e3f126ac8b5cc992cc273
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567794"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095157"
 ---
-# <a name="update-the-iot-edge-runtime"></a>IoT Edge 런타임 업데이트
+# <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IoT Edge 보안 디먼 및 런타임 업데이트
 
 IoT Edge 서비스가 새 버전을 릴리스하면 최신 기능 및 개선된 보안을 사용하도록 IoT Edge 디바이스를 업데이트할 수 있습니다. 이 문서에서는 새 버전을 사용할 수 있을 때 IoT Edge 디바이스를 업데이트하는 방법에 대한 정보를 제공합니다. 
 
@@ -28,7 +29,7 @@ IoT Edge 서비스가 새 버전을 릴리스하면 최신 기능 및 개선된 
 
 IoT Edge 보안 디먼은 IoT Edge 디바이스에서 패키지 관리자를 사용하여 업데이트해야 하는 네이티브 구성 요소입니다. 
 
-`iotedge version` 명령을 사용하여 장치에서 실행 중인 보안 디먼의 버전을 확인합니다. 
+`iotedge version` 명령을 사용하여 디바이스에서 실행 중인 보안 디먼의 버전을 확인합니다. 
 
 ### <a name="linux-devices"></a>Linux 디바이스
 
@@ -61,9 +62,9 @@ Install-SecurityDaemon -Manual -ContainerOS <Windows or Linux>
 
 에지 에이전트 및 에지 허브 컨테이너를 업데이트하는 방법은 배포에서 롤링 태그(예: 1.0)를 사용할지 또는 특정 태그(예: 1.0.2)를 사용할지에 따라 다릅니다. 
 
-`iotedge logs edgeAgent` 또는 `iotedge logs edgeHub` 명령을 사용하여 현재 사용 중인 장치에 있는 IoT Edge 에이전트 및 에지 허브 모듈 버전을 확인합니다. 
+`iotedge logs edgeAgent` 또는 `iotedge logs edgeHub` 명령을 사용하여 현재 사용 중인 디바이스에 있는 IoT Edge 에이전트 및 에지 허브 모듈 버전을 확인합니다. 
 
-  ![컨테이너 버전 보기](./media/how-to-update-iot-edge/container-version.png)
+  ![로그의 컨테이너 버전 찾기](./media/how-to-update-iot-edge/container-version.png)
 
 ### <a name="understand-iot-edge-tags"></a>IoT Edge 태그 이해
 

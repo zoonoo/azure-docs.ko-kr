@@ -55,7 +55,7 @@ ms.locfileid: "52970659"
 |---|---|
 | [Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/) | 응용 프로그램이 인증에 OpenIdConnect를 사용할 수 있게 해주는 미들웨어입니다. |
 | [Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies) |응용 프로그램이 쿠키를 사용하여 사용자 세션을 유지하도록 하는 미들웨어 |
-| [Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb) | OWIN 기반 응용 프로그램이 ASP.NET 요청 파이프라인을 사용하여 IIS에서 실행되도록 함 |
+| [Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb) | OWIN 기반 애플리케이션이 ASP.NET 요청 파이프라인을 사용하여 IIS에서 실행되도록 함 |
 |  |  |
 
 ## <a name="step-1-set-up-your-project"></a>1단계: 프로젝트 설정

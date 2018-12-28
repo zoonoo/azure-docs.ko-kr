@@ -25,7 +25,7 @@ ms.locfileid: "53252476"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Linux의 App Service에서 Ruby on Rails 앱 만들기
 
-[Linux의 Azure App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 기본 [Ruby on Rails](https://rubyonrails.org/) 응용 프로그램을 만든 다음, Linux의 웹앱으로 Azure에 배포하는 방법을 보여 줍니다.
+[Linux의 Azure App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 기본 [Ruby on Rails](https://rubyonrails.org/) 애플리케이션을 만든 다음, Linux의 웹앱으로 Azure에 배포하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > Ruby 개발 스택은 현재 Ruby on Rails만 지원합니다. Sinatra 같은 다른 플랫폼을 사용하려면 [Web App for Containers](https://docs.microsoft.com/azure/app-service/containers/)를 참조하세요.
@@ -91,7 +91,7 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="deploy-your-application"></a>응용 프로그램 배포
 
-다음 명령을 실행하여 Azure 웹 사이트에 로컬 응용 프로그램을 배포합니다.
+다음 명령을 실행하여 Azure 웹 사이트에 로컬 애플리케이션을 배포합니다.
 
 ```bash
 git remote add azure <Git deployment URL from above>

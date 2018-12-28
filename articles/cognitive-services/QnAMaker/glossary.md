@@ -1,7 +1,7 @@
 ---
 title: 용어 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 용어
+description: QnA Maker 서비스에는 서비스 관련 용어와 함께 Machine Learning의 많은 새로운 용어 및 자연어 처리 기능이 있습니다. 이 목록은 그러한 용어를 이해하는 데 도움이 됩니다.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: b22ec27b2999d322945e37c5a38d2b1d1532e7e3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: 832bf85087b706451a6ee58c538d7a163ef18203
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166047"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079945"
 ---
-# <a name="glossary"></a>용어
+# <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>QnA Maker 기술 자료 및 서비스에 대한 용어집
 
 ## <a name="qna-maker-service"></a>QnA Maker Service
 QnA Maker 서비스는 QnA Maker 사용을 시작하기 위한 필수 조건입니다. QnA Maker 계층을 구매하면 Azure 구독에 기술 자료를 만들고 관리하기 위한 리소스가 설정됩니다. 각 QnA Maker 사용자 계정은 Azure 구독에 여러 개의 QnA Maker 서비스를 만들 수 있습니다.
