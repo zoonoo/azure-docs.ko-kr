@@ -8,20 +8,20 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ae6ddea3860c7fc636e071b3c39c418ff4a10272
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230039"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273938"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
-이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 데이터베이스 성능 진단 로그를 통해 감지되는 Azure SQL Database 및 Managed Instance 성능 문제에 대한 정보를 제공합니다. 이 진단 로그 원격 분석은 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) 또는 타사 솔루션에 스트림할 수 있습니다.
+이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 데이터베이스 성능 진단 로그를 통해 감지되는 Azure SQL Database 및 Managed Instance 성능 문제에 대한 정보를 제공합니다. 이 진단 로그 원격 분석은 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) 또는 타사 솔루션에 스트림할 수 있습니다.
 
 > [!NOTE]
 > Intelligent Insights를 사용한 빠른 SQL Database 성능 문제 해결 가이드는 이 문서의 [권장되는 문제 해결 흐름](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) 순서도를 참조하세요.
@@ -109,7 +109,7 @@ SQL Database의 리소스는 일반적으로 [DTU](https://docs.microsoft.com/az
 
 또한 워크로드를 최적화하거나 여러 데이터베이스에 분산하여 워크로드를 줄일 수 있습니다. 또는 여러 데이터베이스에 워크로드를 분산할 수도 있습니다. 이러한 방법을 사용할 수 없는 경우 SQL 데이터베이스 구독의 가격 책정 계층을 높여 데이터베이스에 사용 가능한 메모리 리소스의 양을 늘려 보십시오.
 
-문제 해결에 대한 자세한 제안 사항은 [메모리 부여에 대한 명상: 다양한 이름으로 정체를 알 수 없는 SQL Server 메모리 소비자(영문)](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/)를 참조하세요.
+추가 문제 해결 제안 사항은 [메모리 부여 명상: 많은 이름을 가진 특이한 SQL Server 메모리 소비자](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/)를 참조하세요.
 
 ## <a name="locking"></a>잠금
 
@@ -227,7 +227,7 @@ SQL 데이터베이스에는 사용할 수 있는 다양한 유형의 래치가 
 
 ### <a name="troubleshooting"></a>문제 해결
 
-진단 로그는 TempDB 경합 세부 정보를 출력합니다. 문제를 해결할 때 가장 먼저 이 정보를 참고할 수 있습니다. 이러한 유형의 경합을 완화하고 전체 워크로드의 처리량을 늘리려는 경우 두 가지 방법을 시도할 수 있습니다. 임시 테이블 사용을 중단합니다. 또는 메모리 최적화 테이블을 사용할 수 있습니다. 
+진단 로그는 TempDB 경합 세부 정보를 출력합니다. 문제를 해결할 때 가장 먼저 이 정보를 참고할 수 있습니다. 이러한 유형의 경합을 완화하고 전체 워크로드의 처리량을 늘리려는 경우 두 가지 방법을 시도할 수 있습니다. 임시 테이블 사용을 중지할 수 있습니다. 또는 메모리 최적화 테이블을 사용할 수 있습니다. 
 
 자세한 내용은 [메모리 최적화 테이블 소개(영문)](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)를 참조하세요. 
 

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 43b3e293bf2990c953aeb2947b1113ee30175dee
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 51e9d12d9f8801102997266cfd6699a367b11126
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632818"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435518"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight에서 Apache Hive 정책 구성
 Apache Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 경우 Excel 및 ODBC 드라이버를 사용하여 HDInsight의 Hive 테이블에 연결합니다.
@@ -28,10 +28,9 @@ Apache Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알�
 
 1. 브라우저에서 Ranger 관리 UI에 연결합니다. URL은 https://&lt;ClusterName>.azurehdinsight.net/Ranger/입니다.
 
-   > [!NOTE]
-   > Ranger는 다른 Hadoop 클러스터가 아닌 자격 증명을 사용합니다. 브라우저가 캐시된 Hadoop 자격 증명을 사용하지 않도록 방지하려면 새 InPrivate 브라우저 창을 사용하여 Ranger 관리 UI에 연결합니다.
-   >
-   >
+   > [!NOTE]  
+   > Ranger는 다른 Apache Hadoop 클러스터가 아닌 자격 증명을 사용합니다. 브라우저가 캐시된 Hadoop 자격 증명을 사용하지 않도록 방지하려면 새 InPrivate 브라우저 창을 사용하여 Ranger 관리 UI에 연결합니다.
+
 2. 클러스터 관리자 도메인 사용자 이름 및 암호를 사용하여 로그인합니다.
 
     ![HDInsight ESP Ranger 홈페이지](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
@@ -59,7 +58,7 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
 
      ![HDInsight ESP Ranger Hive 정책 구성](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
-     > [!NOTE]
+     > [!NOTE]  
      > 사용자 선택에서 도메인 사용자가 채워지지 않으면 Ranger가 AAD와 동기화되기를 몇 분 정도 기다립니다.
      >
      >
@@ -134,6 +133,6 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
 * Enterprise Security Package가 포함된 HDInsight 클러스터 구성에 대한 내용은 [ESP가 포함된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)을 참조하세요.
 * ESP가 포함된 HDInsight 클러스터를 관리하려면 [ESP가 포함된 HDInsight 클러스터 관리](apache-domain-joined-manage.md)를 참조하세요.
 * ESP가 포함된 HDInsight 클러스터에서 SSH를 사용하여 Hive 쿼리를 실행하려면 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
-* Hive JDBC를 사용하여 Hive를 연결하는 자세한 내용은 [Hive JDBC 드라이버를 사용하여 Azure HDInsight에서 Hive에 연결](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)을 참조하세요.
-* Hive ODBC를 사용하여 Hadoop에 Excel을 연결하는 자세한 내용은 [Microsoft Hive ODBC 드라이브와 함께 Hadoop에 Excel 연결](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)을 참조하세요.
-* 파워 쿼리를 사용하여 Hadoop에 Excel을 연결하는 자세한 내용은 [파워 쿼리를 사용하여 Hadoop에 Excel 연결](../hadoop/apache-hadoop-connect-excel-power-query.md)을 참조하세요.
+* Hive JDBC를 사용하여 Hive를 연결하는 자세한 내용은 [Hive JDBC 드라이버를 사용하여 Azure HDInsight에서 Apache Hive에 연결](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)을 참조하세요.
+* Hive ODBC를 사용하여 Hadoop에 Excel을 연결하는 자세한 내용은 [Microsoft Hive ODBC 드라이브와 함께 Apache Hadoop에 Excel 연결](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)을 참조하세요.
+* 파워 쿼리를 사용하여 Hadoop에 Excel을 연결하는 자세한 내용은 [파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결](../hadoop/apache-hadoop-connect-excel-power-query.md)을 참조하세요.

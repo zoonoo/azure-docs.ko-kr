@@ -4,19 +4,19 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
-ms.openlocfilehash: 2c96604093542c2697c691ad8fb8bf11e77e2d0b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 2627554647c6c20cbdedfec53c1028b3edfa9c9c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572426"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111835"
 ---
-프리미엄 캐시를 만들려면 [Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 만들기** > **데이터베이스** > **Redis Cache**를 클릭합니다.
+프리미엄 캐시를 만들려면 [Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 만들기** > **데이터베이스** > **Azure Cache for Redis**를 클릭합니다.
 
 ![캐시 만들기](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
 > [!NOTE]
-> Azure 포털에서 캐시를 만드는 것 외에도 Resource Manager 템플릿, PowerShell 또는 Azure CLI를 사용해서도 만들 수 있습니다. Azure Redis Cache 생성에 대한 자세한 내용은 [캐시 생성하기](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)을 참조하세요.
+> Azure 포털에서 캐시를 만드는 것 외에도 Resource Manager 템플릿, PowerShell 또는 Azure CLI를 사용해서도 만들 수 있습니다. Azure Cache for Redis를 만드는 방법에 대한 자세한 내용은 [캐시 만들기](../articles/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)를 참조하세요.
 > 
 > 
 

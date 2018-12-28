@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7bc9341d7e078b0ae69cc9a734c02f257df6d96a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: beb6650125bdf7526b8167ba0f076b079e4e84a8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638508"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342870"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
 
@@ -45,8 +45,8 @@ ms.locfileid: "52638508"
 * **E4_SendSmsChallenge**
 
 다음 섹션에서는 C# 스크립팅 및 JavaScript에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
- 
-## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS 확인 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드) 
+
+## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS 확인 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드)
 
 **E4_SmsPhoneVerification** 함수는 오케스트레이터 함수에 표준 *function.json*을 사용합니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "52638508"
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
@@ -72,7 +72,7 @@ ms.locfileid: "52638508"
 사용자는 4자리 코드가 있는 SMS 메시지를 받습니다. 확인 프로세스를 완료하기 위해 동일한 4자리 코드를 오케스트레이터 함수 인스턴스로 다시 보내는 데 90초가 걸립니다. 잘못된 코드를 제출하면 동일한 90초 간격으로 3번의 시도를 추가로 얻을 수 있습니다.
 
 > [!NOTE]
-> 처음에는 명확하지 않을 수도 있지만 이 오케스트레이터 함수는 완전히 결정적입니다. 이는 `CurrentUtcDateTime` 속성이 타이머 만료 시간을 계산하는 데 사용되며, 이 속성이 오케스트레이터 코드의 이 시점에 있는 모든 재생에서 동일한 값을 반환하기 때문입니다. 이 경우 `Task.WhenAny`를 반복적으로 호출할 때마다 동일한 `winner`가 발생하도록 하는 것이 중요합니다.
+> 처음에는 명확하지 않을 수도 있지만 이 오케스트레이터 함수는 완전히 결정적입니다. 이는 `CurrentUtcDateTime`(.NET) 및 `currentUtcDateTime`(JavaScript) 속성이 타이머 만료 시간을 계산하는 데 사용되며, 이러한 속성이 오케스트레이터 코드의 이 시점에 있는 모든 재생에서 동일한 값을 반환하기 때문입니다. 이 경우 `Task.WhenAny`(.NET) 또는 `context.df.Task.any`(JavaScript)를 반복적으로 호출할 때마다 동일한 `winner`가 발생하도록 하는 것이 중요합니다.
 
 > [!WARNING]
 > 챌린지 응답이 수락되고 타이머가 더 이상 만료될 필요가 없으면 위의 예제와 같이 [타이머를 취소](durable-functions-timers.md)하는 것이 중요합니다.
@@ -89,7 +89,7 @@ ms.locfileid: "52638508"
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -106,6 +106,7 @@ Content-Type: application/json
 
 "+1425XXXXXXX"
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Length: 695
@@ -115,12 +116,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
-   > [!NOTE]
-   > 현재 JavaScript 오케스트레이션 시작 함수는 인스턴스 관리 URI를 반환할 수 없습니다. 이 기능은 이후 릴리스에서 추가될 예정입니다.
-
 오케스트레이터 함수는 제공된 전화 번호를 받는 즉시 임의로 생성된 4자리 확인 코드&mdash;(예: *2168*)가 있는 SMS 메시지를 보냅니다. 그런 다음 이 함수는 90초 동안 응답을 기다립니다.
 
-코드를 사용하여 회신하려면 다른 함수 내에서 `RaiseEventAsync`를 사용하거나 위의 202 응답에서 참조된 **sendEventUrl** HTTP POST 웹후크를 호출하여 `{eventName}`을 `SmsChallengeResponse` 이벤트 이름으로 바꾸면 됩니다.
+코드를 사용하여 회신하려면 다른 함수 내에서 [`RaiseEventAsync`(.NET) 또는 `raiseEvent`(JavaScript)](durable-functions-instance-management.md#sending-events-to-instances)를 사용하거나 위의 202 응답에서 참조된 **sendEventUrl** HTTP POST 웹후크를 호출하여 `{eventName}`을 `SmsChallengeResponse` 이벤트 이름으로 바꾸면 됩니다.
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -135,6 +133,7 @@ Content-Type: application/json
 ```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
+
 ```
 HTTP/1.1 200 OK
 Content-Length: 144

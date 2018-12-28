@@ -1,5 +1,5 @@
 ---
-title: Azure WebJobs SDK 사용 방법
+title: WebJob SDK 사용 방법 - Azure
 description: WebJobs SDK에 대한 코드 작성 방법을 알아봅니다. Azure 서비스 및 타사 서비스의 데이터에 액세스하는 이벤트 중심 백그라운드 처리 작업을 만듭니다.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: f6d343d42bf9d918bf23c9f5f442d977a5caca96
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335217"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343720"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -450,7 +450,7 @@ WebJobs SDK는 분산 잠금을 구현하기 위해 백그라운드에서 [Azure
 
 타이머 트리거는 자동으로 타이머의 한 인스턴스만 실행되도록 보장하므로 예약된 특정 시간에 오직 하나의 함수 인스턴스만 실행됩니다.
 
-호스트 웹앱의 인스턴스가 여러 개 있는 경우에도 함수 인스턴스 중 하나만 실행되게 하려면 [Singleton](#singleton) 특성을 사용하면 됩니다.
+호스트 웹앱의 인스턴스가 여러 개 있는 경우에도 함수 인스턴스 중 하나만 실행되게 하려면 [싱글톤 특성](#singleton-attribute)을 사용하면 됩니다.
     
 ## <a name="filters"></a>필터 
 
@@ -498,7 +498,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ### <a name="custom-telemetry-for-application-insights"></a>Application Insights에 대한 사용자 지정 원격 분석​
 
-내부적으로 WebJobs SDK에 대한 Application Insights 공급자가 만든 `TelemetryClient`는 [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)을 사용합니다. Application Insights 엔드포인트를 사용할 수 없거나 들어오는 요청을 제한하는 경우 이 채널은 [웹앱의 파일 시스템에 요청을 저장해 두었다가 나중에 다시 전송](http://apmtips.com/blog/2015/09/03/more-telemetry-channels)합니다.
+내부적으로 WebJobs SDK에 대한 Application Insights 공급자가 만든 `TelemetryClient`는 [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)을 사용합니다. Application Insights 엔드포인트를 사용할 수 없거나 들어오는 요청을 제한하는 경우 이 채널은 [웹앱의 파일 시스템에 요청을 저장해 두었다가 나중에 다시 전송](https://apmtips.com/blog/2015/09/03/more-telemetry-channels)합니다.
 
 `TelemetryClient`는 `ITelemetryClientFactory`를 구현하는 클래스에서 생성합니다. 기본적으로는 [DefaultTelemetryClientFactory](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs)입니다.
 

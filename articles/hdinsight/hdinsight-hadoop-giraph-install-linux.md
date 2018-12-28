@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 202a68d219bec3a70e50afa68228cbc6bf453518
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6cedc269e279a9154e63bae241f02e766e06ec96
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011666"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383904"
 ---
-# <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop 클러스터에 Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
+# <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop 클러스터에 Apache Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
 
 HDInsight 클러스터에 Apache Giraph를 설치하는 방법을 알아봅니다. Hdinsight의 스크립트 작업 기능을 사용하면 bash 스크립트를 실행하여 클러스터를 사용자 지정할 수 있습니다. 클러스터를 만드는 도중 및 만든 후에 클러스터를 사용자 지정하는 데 스크립트를 사용할 수 있습니다.
 
@@ -33,7 +33,7 @@ HDInsight 클러스터에 Apache Giraph를 설치하는 방법을 알아봅니�
 
 * 웹 페이지의 페이지 순위 계산.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight 클러스터와 함께 제공되는 구성 요소는 완벽하게 지원됩니다. Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하는 데 도움이 됩니다.
 >
 > Giraph와 같은 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. Microsoft 지원은 문제를 해결할 수 있습니다. 그렇지 않으면 해당 기술에 대한 전문 지식을 찾을 수 있는 오픈 소스 커뮤니티를 참조해야 합니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/)).
@@ -72,9 +72,9 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-   * **HEAD**: 이 항목 선택
+   * **HEAD**: 이 항목을 선택합니다.
 
-   * **작업자**: 이 항목을 선택 취소된 상태로 둡니다.
+   * **WORKER**: 이 항목을 선택 취소된 상태로 둡니다.
 
    * **ZOOKEEPER**: 이 항목을 선택 취소된 상태로 둡니다.
 
@@ -172,4 +172,4 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 * [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)입니다.
 
-* [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install-linux.md).
+* [HDInsight 클러스터에 Apache Solr을 설치](hdinsight-hadoop-solr-install-linux.md)합니다.

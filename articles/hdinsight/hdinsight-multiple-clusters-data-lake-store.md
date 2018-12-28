@@ -10,19 +10,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: f92100e6e4dd7569a109aa01f3c998777568cce3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6b835dc300808453240dd3b9fe47957bd5feab9b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004595"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435228"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Azure Data Lake Store 계정으로 여러 HDInsight 클러스터 사용
 
 HDInsight 버전 3.5 이상에서는 기본 파일 시스템으로 Azure Data Lake Store 계정을 사용하여 HDInsight 클러스터를 만들 수 있습니다.
-Data Lake Store는 많은 양의 데이터 호스팅 뿐만 아니라 단일 Data Lake Store 계정을 공유하는 여러 HDInsight 클러스터 호스팅에 적합하도록 만드는 제한되지 않은 저장소를 지원합니다. Data Lake Store를 저장소로 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
+Data Lake Store는 많은 양의 데이터 호스팅 뿐만 아니라 단일 Data Lake Store 계정을 공유하는 여러 HDInsight 클러스터 호스팅에 적합하도록 만드는 제한되지 않은 저장소를 지원합니다. Data Lake Store를 스토리지로 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
-이 문서에서는 Data Lake Store 관리자에게 여러 **활성** HDInsight 클러스터에서 사용할 수 있는 단일 및 공유 Data Lake Store 계정 설정에 대한 권장 사항을 제공합니다. 이러한 권장 사항은 여러 보안 호스팅 뿐만 아니라 공유 Data Lake Store 계정에서 비보안 Hadoop 클러스터에도 적용됩니다.
+이 문서에서는 Data Lake Store 관리자에게 여러 **활성** HDInsight 클러스터에서 사용할 수 있는 단일 및 공유 Data Lake Store 계정 설정에 대한 권장 사항을 제공합니다. 이러한 권장 사항은 여러 보안 호스팅 뿐만 아니라 공유 Data Lake Store 계정에서 비보안 Apache Hadoop 클러스터에도 적용됩니다.
 
 
 ## <a name="data-lake-store-file-and-folder-level-acls"></a>Data Lake Store 파일 및 폴더 수준 ACL
@@ -78,7 +78,7 @@ AAD 응용 프로그램을 만드는 방법에 대한 지침은(서비스 주체
 
 이 섹션에서는 Data Lake Store로 HDInsight 사용에 대한 알려진 문제 및 해당 해결 방법을 나열합니다.
 
-### <a name="publicly-visible-localized-yarn-resources"></a>공개적으로 표시되는 지역화된 YARN 리소스
+### <a name="publicly-visible-localized-apache-hadoop-yarn-resources"></a>공개적으로 표시되는 지역화된 Apache Hadoop YARN 리소스
 
 새 Azure Data Lake Store 계정이 만들어질 때 루트 디렉터리는 770으로 설정된 액세스-ACL 사용 권한 비트로 자동으로 프로비전됩니다. 루트 폴더의 소유 사용자는 계정(Data Lake Store 관리자)을 만든 사용자로 설정되고 소유 그룹은 계정을 만든 사용자의 주 그룹으로 설정됩니다. "다른 사용자"에 대한 액세스는 제공되지 않습니다.
 

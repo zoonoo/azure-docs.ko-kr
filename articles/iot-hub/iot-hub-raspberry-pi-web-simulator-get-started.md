@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a2d067f71b7b68944e479cfd27c1dbf414762af8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 6844fb9b6e85e77ad9c7a869a989214fffd05ece
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514879"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438747"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Azure IoT Hub에 Raspberry Pi 온라인 시뮬레이터 연결(Node.js)
 
@@ -71,7 +71,7 @@ ms.locfileid: "51514879"
    * **접기/확장** - 오른쪽에 있는 단추를 사용하여 콘솔 창 접기/확장을 수행할 수 있습니다.
 
 > [!NOTE] 
-Raspberry Pi 웹 시뮬레이터는 현재 미리 보기 버전으로 제공됩니다. [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator)에서 사용자 의견을 듣고 싶습니다. 소스 코드는 [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator)에 공개되어 있습니다.
+Raspberry Pi 웹 시뮬레이터는 현재 미리 보기 버전으로 제공됩니다. [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator)에서 사용자 의견을 듣고 싶습니다. 소스 코드는 [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator)에 공개되어 있습니다.
 
 ![Pi 온라인 시뮬레이터 개요](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 
@@ -79,7 +79,7 @@ Raspberry Pi 웹 시뮬레이터는 현재 미리 보기 버전으로 제공됩�
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT 허브에 대한 연결 문자열 검색
+### <a name="retrieve-connection-string-for-iot-hub"></a>IoT Hub에 대한 연결 문자열 검색
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -90,7 +90,7 @@ Raspberry Pi 웹 시뮬레이터는 현재 미리 보기 버전으로 제공됩�
 ## <a name="run-a-sample-application-on-pi-web-simulator"></a>Pi 웹 시뮬레이터에서 샘플 응용 프로그램 실행
 
 1. 코딩 영역에서 기본 샘플 응용 프로그램으로 작업 중인지 확인합니다. 15행의 자리 표시자를 Azure IoT Hub 디바이스 연결 문자열로 대체합니다.
-   ![장치 연결 문자열 바꾸기](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
+   ![디바이스 연결 문자열 바꾸기](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
 
 2. **실행**을 클릭하거나 `npm start`를 입력하여 응용 프로그램을 실행합니다.
 

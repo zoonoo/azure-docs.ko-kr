@@ -1,12 +1,11 @@
 ---
-title: Azure 표준 Load Balancer 개요 | Microsoft Docs
+title: Azure 표준 Load Balancer란?
+titlesuffix: Azure Load Balancer
 description: Azure 표준 Load Balancer 기능 개요
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 17b4bc68b2dc996134626b1822cfd17f0a9a7572
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161644"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438764"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer 표준 개요
 
@@ -103,9 +102,9 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 
 표준 Load Balancer는 새로운 유형의 규칙을 지원합니다.  
 
-부하 분산 규칙을 구성하여 응용 프로그램 규모를 매우 안정적으로 만들 수 있습니다. HA 포트 부하 분산 규칙을 사용할 경우, 표준 Load Balancer는 내부 표준 Load Balancer 프런트 엔드 IP 주소의 모든 삭제 포트에서 흐름별 부하 분산을 제공합니다.  이 기능은 개별 포트 지정이 불가능하거나 바람직하지 않은 다른 시나리오에 유용합니다.
+부하 분산 규칙을 구성하여 애플리케이션 규모를 매우 안정적으로 만들 수 있습니다. HA 포트 부하 분산 규칙을 사용할 경우, 표준 Load Balancer는 내부 표준 Load Balancer 프런트 엔드 IP 주소의 모든 삭제 포트에서 흐름별 부하 분산을 제공합니다.  이 기능은 개별 포트 지정이 불가능하거나 바람직하지 않은 다른 시나리오에 유용합니다.
 
-HA 포트 부하 분산 규칙을 사용하여 네트워크 가상 어플라이언스 및 광범위한 인바운드 포트가 모든 응용 프로그램을 위한 활성-수동 또는 활성-활성 n+1 시나리오를 만들 수 있습니다.  상태 프로브를 사용하여 새 흐름을 수신할 백 엔드를 확인할 수 있습니다.  네트워크 보안 그룹을 사용하여 포트 범위 시나리오를 에뮬레이트할 수 있습니다.
+HA 포트 부하 분산 규칙을 사용하여 네트워크 가상 어플라이언스 및 광범위한 인바운드 포트가 모든 애플리케이션을 위한 활성-수동 또는 활성-활성 n+1 시나리오를 만들 수 있습니다.  상태 프로브를 사용하여 새 흐름을 수신할 백 엔드를 확인할 수 있습니다.  네트워크 보안 그룹을 사용하여 포트 범위 시나리오를 에뮬레이트할 수 있습니다.
 
 >[!IMPORTANT]
 > 네트워크 가상 어플라이언스를 사용하려는 경우, 제품을 HA 포트로 테스트했는지에 따른 지침을 공급업체에 문의하고 구체적인 지침에 따라 구현합니다. 
@@ -162,7 +161,7 @@ Load Balancer는 여러 프런트 엔드가 있는 여러 규칙을 지원합니
 
 ### <a name="operations"></a> 관리 작업
 
-표준 Load Balancer 리소스는 완전히 새로운 인프라 플랫폼에 존재합니다.  따라서 표준 SKU에 대한 관리 작업이 훨씬 더 빨라지며, 완료 시간도 표준 SKU 리소스별로 30초 이내로 감소됩니다.  백 엔드 풀 크기가 커질수록 백 엔드 풀 변경에 필요한 기간도 늘어납니다.
+표준 Load Balancer 리소스는 완전히 새로운 인프라 플랫폼에 존재합니다.  따라서 표준 SKU에 대한 관리 작업이 더 빨라지며, 완료 시간도 표준 SKU 리소스별로 30초 이내로 감소됩니다.  백 엔드 풀 크기가 커질수록 백 엔드 풀 변경에 필요한 기간도 늘어납니다.
 
 표준 Load Balancer 리소스를 수정하고 표준 공용 IP 주소를 가상 머신 간에 훨씬 더 빠르게 이동할 수 있습니다.
 
@@ -230,7 +229,7 @@ Load Balancer 표준은 현재 모든 공용 클라우드 지역에서 사용할
 - [상태 프로브](load-balancer-custom-probe-overview.md)에 대해 자세히 알아보세요.
 - [가용성 영역](../availability-zones/az-overview.md)에 대해 자세히 알아보세요.
 - [표준 Load Balancer 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
-- [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)의 진단과 관련된 [지원되는 다차원 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers)에 대해 자세히 알아보세요.
+- [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)의 진단과 관련된 [지원되는 다차원 메트릭](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers)에 대해 자세히 알아보세요.
 - [아웃바운드 연결에 Load Balancer](load-balancer-outbound-connections.md) 사용에 대해 자세히 알아보세요.
 - [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)에 대해 알아보세요.
 - [유휴 상태의 TCP 재설정](load-balancer-tcp-reset.md)에 대해 알아보세요.

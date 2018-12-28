@@ -1,5 +1,5 @@
 ---
-title: 인식 검색 파이프라인에서 기술 집합 만들기(Azure Search) | Microsoft Docs
+title: Cognitive Search 파이프라인에서 기술 세트 만들기 - Azure Search
 description: Azure Search에서 사용을 위해 데이터에서 구조화된 정보를 추출하고 보강하기 위한 데이터 추출, 자연어 처리 또는 이미지 분석 단계입니다.
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.custom: seodec2018
+ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268025"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320798"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>보강 파이프라인에서 기술 집합을 만드는 방법
 
@@ -29,7 +30,7 @@ ms.locfileid: "36268025"
 
 + 인덱서 당 하나의 기술 집합만 사용할 수 있습니다.
 + 기술 집합에는 최소 하나 이상의 기술이 있어야 합니다.
-+ 동일한 형식의 여러 기술(예: 이미지 분석 기술의 변형)을 만들 수 있지만 각 기술은 동일한 기술 내에서 한 번만 사용할 수 있습니다.
++ 동일한 형식의 여러 기술(예: 이미지 분석 기술의 변형)을 만들 수 있습니다.
 
 ## <a name="begin-with-the-end-in-mind"></a>종료로 시작
 

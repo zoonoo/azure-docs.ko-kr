@@ -8,14 +8,14 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1cef5f8f77a11dad605d9758296c9632f5d30ab8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321991"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409023"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: UK OFFICIAL 워크로드 준수 PaaS 웹 응용 프로그램 호스팅
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 보안 및 규정 준수 청사진: UK OFFICIAL 워크로드 준수 PaaS 웹 애플리케이션 호스팅
 
 ## <a name="azure-security-and-compliance-blueprints"></a>Azure 보안 및 규정 준수 청사진
 
@@ -39,7 +39,7 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 
 이 청사진은 기초 아키텍처입니다. 고객은 이 청사진을 OFFICIAL 분류 웹 기반 워크로드의 기반으로 사용하고 템플릿 및 리소스를 자체 요구 사항으로 확장할 수 있습니다. 이 청사진은 웹 기반 워크로드를 호스팅하기 위한 [IaaS(Infrastructure as a Service)](https://azure.microsoft.com/overview/what-is-iaas/)와 PaaS 구현 옵션을 고객에게 제공하는 [UK-OFFICAL 3계층 IaaS 웹 응용 프로그램 청사진](https://aka.ms/ukofficial-iaaswa)의 원칙을 기반으로 합니다.
 
-이 청사진을 배포하려면 Azure 구독이 필요합니다. Azure 구독이 없으면 평가판을 통해 빠르고 쉽게 등록할 수 있습니다. Azure를 시작하세요. 배포 지침을 보려면 [여기](https://aka.ms/ukofficial-paaswa-repo/)를 클릭하세요.
+이 청사진을 배포하려면 Azure 구독이 필요합니다. Azure 구독이 없으면 평가판으로 빠르고 쉽게 가입할 수 있습니다. Azure를 시작하세요. 배포 지침을 보려면 [여기](https://aka.ms/ukofficial-paaswa-repo/)를 클릭하세요.
 
 ## <a name="architecture-and-components"></a>아키텍처 및 구성 요소
 
@@ -79,11 +79,11 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 
 - [Azure AD(Azure Active Directory)](https://azure.microsoft.com/services/active-directory/)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. SQL Database에 액세스하는 사용자를 포함하여 모든 솔루션 사용자가 Azure Active Directory에서 만들어졌습니다.
 - Azure AD를 사용하여 웹 응용 프로그램을 연결하는 운영자와 Azure 리소스 관리에 대한 액세스의 인증이 수행됩니다. 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요.
-- 데이터베이스 열 암호화는 Azure AD를 사용하여 Azure SQL Database에 대한 응용 프로그램을 인증합니다. 자세한 내용은 [Always Encrypted: SQL Database에서 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
+- 데이터베이스 열 암호화는 Azure AD를 사용하여 Azure SQL Database에 대한 응용 프로그램을 인증합니다. 자세한 내용은 [Always Encrypted: SQL Database의 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
 - 일반 사용자가 연결하는 웹 응용 프로그램은 공용 액세스로 구성됩니다. Active Directory 또는 소셜 네트워크 ID 공급자를 통해 계정을 만들거나 인증할 수 있도록 하기 위해 필요한 경우 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)를 통합할 수 있습니다.
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)은 잠재적인 취약성을 감지하고, 위험한 계정에는 조직의 ID 보안 상태를 향상시키는 권장 사항이 제공되며, 조직의 ID와 관련하여 감지된 의심스러운 활동에 대한 자동 응답을 구성하고, 의심스러운 인시던트를 조사하여 해결하기 위한 적절한 조치를 수행합니다.
 - [Azure RBAC(Role-based Access Control)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)은 Azure에 대해 세밀하게 초점을 맞춘 액세스 관리를 구현합니다. 구독 액세스는 구독 관리자로 제한되며, Azure Key Vault 액세스는 키 관리 액세스가 필요한 사용자로만 제한됩니다.
-- [Azure Active Directory 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)를 활용하여 고객은 위치, 장치, 상태 및 로그인 위험과 같은 특정 조건에 따라 환경에서 앱 또는 사용자의 액세스에 대한 추가 보안 제어를 적용할 수 있습니다.
+- [Azure Active Directory 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)를 활용하여 고객은 위치, 디바이스, 상태 및 로그인 위험과 같은 특정 조건에 따라 환경에서 앱 또는 사용자의 액세스에 대한 추가 보안 제어를 적용할 수 있습니다.
 - [Azure DDoS Protection](https://docs.microsoft.com/azure/security/security-paas-deployments#security-advantages-of-a-paas-cloud-service-model)은 응용 프로그램 설계 모범 사례와 결합하여 상시 모니터링 트래픽 및 일반적인 네트워크 수준 공격에 대한 실시간 완화를 통해 DDoS 공격 방어를 제공합니다. PaaS 아키텍처에서는 플랫폼 수준의 DDoS 보호가 고객에게 투명하고 플랫폼에 통합되지만 응용 프로그램 보안 설계 책임은 고객에게 있다는 점에 유의해야 합니다.
 
 #### <a name="data-in-transit"></a>전송 중 데이터
@@ -104,14 +104,14 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 
 Azure Web Apps는 인프라를 관리할 필요 없이 Java, PHP, Node.js Python, HTML 및 C#으로 개발된 웹 응용 프로그램을 위해 완벽하게 관리되는 웹 호스팅 환경을 제공합니다. 여기서는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며 [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) 또는 Git 기반 리포지토리에서 자동화된 배포를 사용합니다.
 
-App Service는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)이며, [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) 또는 소셜 로그인([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication) 및 [Microsoft 인증](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication)을 통해 사용자를 인증합니다.
+App Service는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)이며, [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) 또는 소셜 로그인([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter) 및 [Microsoft 인증](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)을 통해 사용자를 인증합니다.
 
 기본, 표준 및 프리미엄 요금제는 프로덕션 워크로드에 적용되는 요금제이며, 전용 Virtual Machine 인스턴스에서 실행됩니다. 각 인스턴스는 여러 개의 응용 프로그램과 도메인을 지원할 수 있습니다. 또한 App Services는 필요한 경우 [IP 주소 제한](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)을 지원하여 신뢰할 수 있는 IP 주소로 전송되는 트래픽을 보호하고, [Key Vault](https://azure.microsoft.com/services/key-vault/) 및 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 같은 다른 PaaS 서비스에 안전하게 연결할 수 있도록 [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)를 지원합니다. 추가 보안이 필요한 경우 격리 계층 요금제는 개인 전용 Azure 환경에서 앱을 호스팅하며, 온-프레미스 네트워크와의 보안 연결이 필요하거나 추가 성능과 크기 조정이 필요한 앱에 이상적입니다.
 
 이 템플릿에서 배포하는 App Service 기능은 다음과 같습니다.
 
 - [표준](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) App Service 계획 계층
-- 여러 Web App [배포 슬롯](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): 개발, 미리 보기, QA, UAT 및 프로덕션(기본 슬롯)
+- 여러 웹앱 [배포 슬롯](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): 개발, 미리 보기, QA, UAT 및 프로덕션(기본 슬롯).
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 연결하는 [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)([Azure SQL Database](https://azure.microsoft.com/services/sql-database/)에 대한 액세스를 제공하는 데 사용할 수도 있음) 
 - 성능을 모니터링하는 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps)와의 통합
 - [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 

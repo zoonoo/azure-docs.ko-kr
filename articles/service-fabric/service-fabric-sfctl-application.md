@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 40ec204f105b32c8b7d9e2dda6f6f3c3023b2d44
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0f608dc89d3a9bc8914fc9be142c442246ce13b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495461"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278545"
 ---
 # <a name="sfctl-application"></a>sfctl application
 응용 프로그램 및 응용 프로그램 종류를 만들고, 삭제하고, 관리합니다.
@@ -338,7 +338,7 @@ Microsoft Azure Service Fabric 응용 프로그램에 대한 상태 보고서를
 | --remove-when-expired | 보고서가 만료될 때 Health 스토어에서 제거할지 여부를 나타내는 값입니다. <br><br> true로 설정된 경우 보고서는 만료된 후 Health 스토어에서 제거됩니다. false로 설정된 경우 보고서는 만료될 때 오류로 처리됩니다. 이 속성의 값은 기본적으로 false입니다. 클라이언트가 주기적으로 보고하는 경우 RemoveWhenExpired를 false(기본값)로 설정해야 합니다. 이러한 방식은 문제가 있고(예: 교착 상태) 보고할 수 없는 보고자이며, 엔터티는 상태 보고서가 만료되는 경우 오류로 평가됩니다. 엔터티를 오류 성능 상태에 있는 것으로 플래그 지정합니다. |
 | --sequence-number | 숫자 문자열의 이 상태 보고서에 대한 일련 번호입니다. <br><br> 보고서 일련 번호는 Health 스토어에서 유효하지 않은 보고서를 검색하는 데 사용됩니다. 지정되지 않은 경우 일련 번호는 보고서가 추가될 때 상태 클라이언트에서 자동으로 생성됩니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
-| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하기 위해 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트가 전환 시 보고하는 경우 TTL(Time to live)을 무한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
+| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하는 데 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트가 전환 시 보고하는 경우 TTL(Time to live)을 무한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -434,23 +434,23 @@ Microsoft Azure Service Fabric 클러스터에서 응용 프로그램 업그레�
 
 |인수|설명|
 | --- | --- |
-| --application-id      [필수] | 응용 프로그램의 id입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '\~' 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 'fabric\:/myapp/app1'인 경우 응용 프로그램 ID가 6.0 이상에서는 'myapp\~app1'이고 이전 버전에서는 'myapp/app1'입니다. |
-| --application-version [필수] | 대상 응용 프로그램 버전입니다. |
+| --application-id      [필수] | 응용 프로그램의 id입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
+| --application-version [필수] | 애플리케이션 업그레이드를 위한 대상 애플리케이션 유형 버전(애플리케이션 매니페스트에 있음)입니다. |
 | --parameters          [필수] | JSON 인코딩된 응용 프로그램 매개 변수 목록은 응용 프로그램을 업그레이드할 때 적용되기 위해 재정의합니다. |
 | --default-service-health-policy | 기본적으로 서비스 유형의 상태를 평가하는 데 사용되는 JSON 인코딩된 상태 정책 사양입니다. |
 | --failure-action | 모니터링된 업그레이드가 모니터링 정책 또는 상태 정책 위반을 발견할 때 수행할 작업입니다. |
 | --force-restart | 코드 버전이 변경되지 않은 경우에도 업그레이드 동안 프로세스를 강제로 다시 시작합니다. |
-| --health-check-retry-timeout | 응용 프로그램이나 클러스터가 정상 상태가 아닌 경우 실패 작업을 실행하기 전에 상태 평가를 다시 시도하는 기간입니다. 밀리초 단위로 측정.  기본값\: PT0H10M0S. |
-| --health-check-stable-duration | 업그레이드가 다음 업그레이드 도메인으로 진행되기 전에 응용 프로그램 또는 클러스터가 정상 상태로 유지되어야 하는 시간입니다. 밀리초 단위로 측정.  기본값\: PT0H2M0S. |
-| --health-check-wait-duration | 업그레이드 도메인을 완료한 후 상태 정책을 적용하기 전에 대기하는 시간입니다. 밀리초 단위로 측정.  기본값\: 0. |
+| --health-check-retry-timeout | 애플리케이션 또는 클러스터가 정상이 아닌지 상태 확인을 수행하는 시도의 시간 간격입니다.  기본값\: PT0H10M0S. |
+| --health-check-stable-duration | 업그레이드가 다음 업그레이드 도메인으로 진행되기 전에 응용 프로그램 또는 클러스터가 정상 상태로 유지되어야 하는 시간입니다.  기본값\: PT0H2M0S. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
+| --health-check-wait-duration | 업그레이드 도메인을 완료한 후 상태 확인 프로세스를 시작하기 전에 대기하는 시간입니다.  기본값\: 0. |
 | --max-unhealthy-apps | 비정상적인 배포 응용 프로그램의 최대 허용치입니다. 0과 100 사이의 숫자로 표시합니다. |
 | --mode | 롤링 업그레이드 동안 상태를 모니터링하는 데 사용되는 모드입니다.  기본값\: UnmonitoredAuto. |
 | --replica-set-check-timeout | 예기치 않은 문제가 있을 때 업그레이드 도메인의 처리를 차단하고 가용성의 손실을 방지하는 최대 시간입니다. 초 단위로 측정됩니다. |
 | --service-health-policy | 서비스 형식 이름 단위 서비스 형식 상태 정책으로 JSON 인코딩된 맵입니다. 맵은 기본적으로 비어 있습니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
-| --upgrade-domain-timeout | FailureAction이 실행되기 전에 각 업그레이드 도메인이 완료해야 하는 시간입니다. 밀리초 단위로 측정.  기본값\: P10675199DT02H48M05.4775807S. |
-| --upgrade-timeout | FailureAction이 실행되기 전에 전체 업그레이드를 완료해야 하는 시간입니다. 밀리초 단위로 측정.  기본값\: P10675199DT02H48M05.4775807S. |
-| --warning-as-error | 동일한 심각도를 갖는 상태 평가 경고를 오류로 처리합니다. |
+| --upgrade-domain-timeout | FailureAction이 실행되기 전에 각 업그레이드 도메인이 완료해야 하는 시간입니다.  기본값\: P10675199DT02H48M05.4775807S. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
+| --upgrade-timeout | FailureAction이 실행되기 전에 전체 업그레이드를 완료해야 하는 시간입니다.  기본값\: P10675199DT02H48M05.4775807S. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
+| --warning-as-error | 경고가 오류와 동일한 심각도로 처리되는지 여부를 나타냅니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 

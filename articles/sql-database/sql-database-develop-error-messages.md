@@ -13,14 +13,14 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/31/2018
-ms.openlocfilehash: 71a23e982f1e4ae5609d4f9a160cd1861e043ea1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00fe4e109df2ac8954e657a1a567842ec5eb7d37
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251818"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317460"
 ---
-# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제
+# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 클라이언트 애플리케이션에 대한 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제
 
 이 문서에서는 데이터베이스 연결 오류, 일시적인 오류(일시적인 폴트라고도 함), 리소스 거버넌스 오류, 데이터베이스 복사 문제, 탄력적 풀 및 기타 오류를 포함하여 SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드를 나열합니다. 대부분의 범주는 Azure SQL Database에 특정되며 Microsoft SQL Server에 적용되지 않습니다. [시스템 오류 메시지](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx)를 참조하세요.
 
@@ -37,7 +37,7 @@ Azure 인프라에 는 SQL Database 서비스에 과도한 워크로드 부하�
 * &lt;Azure_instance&gt; 서버에서 &lt;db_name&gt; 데이터베이스를 현재 사용할 수 없는 경우. 나중에 연결을 다시 시도하십시오. 문제가 지속되면 고객 지원에 문의하고 &lt;session_id&gt;의 세션 추적 Id를 제공합니다.
 * &lt;Azure_instance&gt; 서버에서 &lt;db_name&gt; 데이터베이스를 현재 사용할 수 없는 경우. 나중에 연결을 다시 시도하십시오. 문제가 지속되면 고객 지원에 문의하고 &lt;session_id&gt;의 세션 추적 Id를 제공합니다. (Microsoft SQL Server, 오류: 40613)
 * 기존 연결이 원격 호스트에 의해 강제로 끊겼습니다.
-* System.Data.Entity.Core.EntityCommandExecutionException: 명령 정의를 실행하는 동안 오류가 발생했습니다. 자세한 내용은 내부 예외를 참조하세요. ---> System.Data.SqlClient.SqlException: 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. (공급자: 세션 공급자, 오류: 19 - 실제 연결을 사용할 수 없습니다.)
+* System.Data.Entity.Core.EntityCommandExecutionException: 명령 정의를 실행하는 중에 오류가 발생했습니다. 자세한 내용은 내부 예외를 참조하세요. ---> System.Data.SqlClient.SqlException: 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. (공급자: 세션 공급자, 오류: 19 - 실제 연결을 사용할 수 없습니다.)
 * 데이터베이스가 재구성 프로세스 중이며 주 데이터베이스에서 활성 거래 중에 새 페이지를 적용하고 있으므로 보조 데이터베이스에 연결하지 못했습니다. 
 
 다시 시도 논리의 코드 예제는 다음을 참조하십시오.
@@ -90,12 +90,12 @@ Azure SQL Database에서 데이터베이스를 복사하는 동안 다음 오류
 
 관련 항목:
 
-* 자세한 정보는 여기에서 제공됩니다. [Azure SQL Database 리소스 제한](sql-database-service-tiers-dtu.md)
+* 자세한 정보는 여기에서 제공됩니다. [Azure SQL Database 리소스 제한](sql-database-service-tiers-dtu.md).
 
 | 오류 코드 | 심각도 | 설명 |
 | ---:| ---:|:--- |
-| 10928 |20 |리소스 ID: %d입니다. 데이터베이스에 대한 %s 제한이 %d이며 이 제한에 도달했습니다. 자세한 내용은 [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637)을 참조하세요.<br/><br/>리소스 ID는 제한에 도달한 리소스를 나타냅니다. 작업자 스레드의 경우 리소스 ID = 1입니다. 세션의 경우 리소스 ID = 2입니다.<br/><br/>이 오류 및 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요.<br/>• [Azure SQL Database 리소스 제한](sql-database-service-tiers-dtu.md)을 참조하세요. |
-| 10929 |20 |리소스 ID: %d입니다. %s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 자세한 내용은 [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637)을 참조하세요. 그렇지 않으면 나중에 다시 시도하세요.<br/><br/>리소스 ID는 제한에 도달한 리소스를 나타냅니다. 작업자 스레드의 경우 리소스 ID = 1입니다. 세션의 경우 리소스 ID = 2입니다.<br/><br/>이 오류 및 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요.<br/>• [Azure SQL Database 리소스 제한](sql-database-service-tiers-dtu.md)을 참조하세요. |
+| 10928 |20 |리소스 ID: %d입니다. 데이터베이스에 대한 %s 제한이 %d이며 이 제한에 도달했습니다. 자세한 내용은 [단일 데이터베이스 및 풀링된 데이터베이스에 대한 SQL Database 리소스 한도](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server)를 참조하세요.<br/><br/>리소스 ID는 제한에 도달한 리소스를 나타냅니다. 작업자 스레드의 경우 리소스 ID = 1입니다. 세션의 경우 리소스 ID = 2입니다.<br/><br/>이 오류 및 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요.<br/>• [Azure SQL Database 리소스 제한](sql-database-service-tiers-dtu.md)을 참조하세요. |
+| 10929 |20 |리소스 ID: %d입니다. %s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 자세한 내용은 [단일 데이터베이스 및 풀링된 데이터베이스에 대한 SQL Database 리소스 한도](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server)를 참조하세요. 그렇지 않으면 나중에 다시 시도하세요.<br/><br/>리소스 ID는 제한에 도달한 리소스를 나타냅니다. 작업자 스레드의 경우 리소스 ID = 1입니다. 세션의 경우 리소스 ID = 2입니다.<br/><br/>이 오류 및 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요.<br/>• [Azure SQL Database 리소스 제한](sql-database-service-tiers-dtu.md)을 참조하세요. |
 | 40544 |20 |데이터베이스가 크기 할당량에 도달했습니다. 데이터를 분할 또는 삭제하거나 인덱스를 삭제하거나 가능한 해결 방법에 대한 설명서를 참조하십시오. |
 | 40549 |16 |실행 시간이 긴 트랜잭션이 있으므로 세션이 종료됩니다. 트랜잭션 실행 시간을 줄이십시오. |
 | 40550 |16 |너무 많은 잠금을 획득하여 세션이 종료되었습니다. 단일 트랜잭션에서 읽기 또는 수정 행 수를 줄이십시오. |
@@ -109,7 +109,7 @@ Azure SQL Database에서 데이터베이스를 복사하는 동안 다음 오류
 | 오류 코드 | 심각도 | 설명 | 정정 작업 |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |탄력적 풀이 저장소 용량 한도에 도달했습니다. 탄력적 풀의 저장소 사용량은 (%d)MB를 초과할 수 없습니다. 탄력적 풀이 저장소 용량 한도에 도달했을 때 데이터베이스에 데이터를 기록하려고 했습니다. |가능하다면 탄력적 풀의 DTU를 늘리거나 탄력적 풀에 저장소를 추가하여 저장소 용량 한도를 늘리거나, 탄력적 풀에 있는 개별 데이터베이스에서 사용하는 저장소를 줄이거나, 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. |
-| 10929 | 16 |%s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 도움은 [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637)을 참조하세요. 그렇지 않으면 나중에 다시 시도하세요. 데이터베이스당 DTU/vCore 최솟값, 데이터베이스당 DTU/vCore 최댓값. 탄력적 풀에 있는 전체 데이터베이스의 동시 작업자(요청) 수 합계가 풀 한도를 초과하려고 했습니다. |가능하다면 탄력적 풀의 DTU 또는 vCore를 늘려 작업자 한도를 늘리거나 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. |
+| 10929 | 16 |%s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 도움이 필요하면 [단일 데이터베이스 및 풀링된 데이터베이스에 대한 SQL Database 리소스 한도](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server)를 참조하세요. 그렇지 않으면 나중에 다시 시도하세요. 데이터베이스당 DTU/vCore 최솟값, 데이터베이스당 DTU/vCore 최댓값. 탄력적 풀에 있는 전체 데이터베이스의 동시 작업자(요청) 수 합계가 풀 한도를 초과하려고 했습니다. |가능하다면 탄력적 풀의 DTU 또는 vCore를 늘려 작업자 한도를 늘리거나 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. |
 | 40844 | 16 |서버 '%ls'에 있는 데이터베이스 '%ls'은(는) 탄력적 풀에 포함된 '%ls' 버전 데이터베이스이며, 연속 복사 관계를 가질 수 없습니다.  |해당 없음 |
 | 40857 | 16 |서버: '%ls'에서 탄력적 풀을 찾을 수 없음, 탄력적 풀 이름: '%ls'. 지정한 탄력적 풀이 지정한 서버에 존재하지 않습니다. | 유효한 탄력적 풀 이름을 입력하세요. |
 | 40858 | 16 |탄력적 풀 '%ls'이(가) 서버 '%ls'에 이미 있습니다. 지정한 탄력적 풀이 지정한 논리 서버에 이미 있습니다. | 새 탄력적 풀 이름을 입력하세요. |

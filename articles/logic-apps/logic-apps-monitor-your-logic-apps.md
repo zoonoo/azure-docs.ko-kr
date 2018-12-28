@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3779260d2dd6036e65be39b4a59ceb1459d01b9e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405738"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434259"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>상태 모니터링, 진단 로깅 설정, Azure Logic Apps에 대한 경고 설정
 
@@ -74,7 +74,7 @@ ms.locfileid: "49405738"
 
 런타임 세부 정보 및 이벤트로 보다 풍부한 디버깅은 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 진단 로깅을 설정할 수 있습니다. Log Analytics는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하도록 돕는 Azure의 서비스입니다. 
 
-시작하기 전에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역을 만드는 방법](../log-analytics/log-analytics-quick-create-workspace.md)을 알아봅니다.
+시작하기 전에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)을 알아봅니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 논리 앱을 찾고 선택합니다. 
 
@@ -155,10 +155,10 @@ ms.locfileid: "49405738"
 
 Azure Log Analytics와 마찬가지로 다른 Azure 서비스와 함께 논리 앱의 진단 데이터를 사용하는 방법을 다음과 같이 확장할 수 있습니다. 
 
-* [Azure Storage에 Azure 진단 로그 보관](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Azure Storage에 Azure 진단 로그 보관](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Azure Event Hubs로 Azure 진단 로그 스트림](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../log-analytics/log-analytics-powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예: 
+그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/platform/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예: 
 
 * [Event Hub에서 Stream Analytics로 데이터 스트림](../stream-analytics/stream-analytics-define-inputs.md)
 * [Stream Analytics를 사용하여 스트리밍 데이터 분석 및 Power BI에서 실시간 분석 대시보드 만들기](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -174,7 +174,7 @@ Azure Log Analytics와 마찬가지로 다른 Azure 서비스와 함께 논리 �
 
 ## <a name="set-up-alerts-for-your-logic-app"></a>논리 앱에 대한 경고 설정
 
-논리 앱에 대한 특정 메트릭 또는 초과된 임계값을 모니터링하려면 [Azure에서 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 설정합니다. [Azure의 매트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md)에 대해 알아봅니다. 
+논리 앱에 대한 특정 메트릭 또는 초과된 임계값을 모니터링하려면 [Azure에서 경고](../azure-monitor/platform/alerts-overview.md)를 설정합니다. [Azure의 매트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md)에 대해 알아봅니다. 
 
 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 없이 경고를 설정하려면 다음 단계를 수행합니다. 더 많은 고급 경고 조건 및 작업은 [Log Analytics도 설정](#azure-diagnostics)합니다.
 
@@ -207,7 +207,7 @@ Azure Log Analytics와 마찬가지로 다른 Azure 서비스와 함께 논리 �
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Azure 진단 이벤트 설정 및 세부 정보
 
-각 진단 이벤트는 논리 앱 및 해당 이벤트(예: 상태, 시작 시간, 종료 시간 등)에 대한 세부 정보를 포함합니다. 프로그래밍 방식으로 모니터링, 추적 및 로깅을 설정하기 위해 [Azure Logic Apps용 REST API](https://docs.microsoft.com/rest/api/logic) 및 [Azure 진단용 REST API](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows)와 함께 이러한 세부 정보를 사용할 수 있습니다.
+각 진단 이벤트는 논리 앱 및 해당 이벤트(예: 상태, 시작 시간, 종료 시간 등)에 대한 세부 정보를 포함합니다. 프로그래밍 방식으로 모니터링, 추적 및 로깅을 설정하기 위해 [Azure Logic Apps용 REST API](https://docs.microsoft.com/rest/api/logic) 및 [Azure 진단용 REST API](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows)와 함께 이러한 세부 정보를 사용할 수 있습니다.
 
 예를 들어 `ActionCompleted` 이벤트에는 추적 및 모니터링에 사용할 수 있는 `clientTrackingId` 및 `trackedProperties` 속성이 있습니다.
 

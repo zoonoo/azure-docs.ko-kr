@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: ed0c387f9785336fbf18b3fd3c0cd9a7b09df633
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: efa367157a8fd896cdc9680bf2ab6ba6a9e3dbb0
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279790"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53430004"
 ---
 키 트랜잭션(지역당 자격 증명 모음당 10초 내에 허용되는 최대 트랜잭션<sup>1</sup>)
 
@@ -23,6 +23,20 @@ ms.locfileid: "52279790"
 |ECC P-521|5|1000|10|2000|
 |ECC SECP256K1|5|1000|10|2000|
 |
+
+> [!NOTE]
+> 아래 표를 보면 소프트웨어 백업 키에 대해 10초마다 2,000개의 트랜잭션을 허용하고, HSM 백업 키에 대해 10초마다 1,000개의 트랜잭션을 허용한다는 것을 알 수 있습니다. 소프트웨어 백업 트랜잭션의 비율인 3,072개 키에 대한 2,048개 키는 500/2000 또는 0.4입니다. 이것은 고객이 10초 안에 3,072개 키 트랜잭션을 500개 수행할 경우 최대 한계에 도달하여 다른 키 작업을 수행할 수 없음을 의미합니다. 
+   
+|키 유형  | 소프트웨어 키 |HSM 키  |
+|---------|---------|---------|
+|RSA 2048비트     |    2000     |   1000    |
+|RSA 3072비트     |     500    |    250     |
+|RSA 4096비트     |    125     |    250     |
+|ECC P-256     |    2000     |  1000     |
+|ECC P-384     |    2000     |  1000     |
+|ECC P-521     |    2000     |  1000     |
+|ECC SECP256K1     |    2000     |  1000     |
+
 
 암호, 관리되는 Storage 계정 키 및 자격 증명 모음 트랜잭션:
 | 트랜잭션 유형 | 지역당 자격 증명 모음당 10초 내에 허용되는 최대 트랜잭션<sup>1</sup> |

@@ -9,32 +9,32 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: afa9b57d9c0e2acf81b5307273ac038e92073655
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: ff905f34ab63027e9708082c4690e4275220854f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632297"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406796"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
 
-HDInsight 클러스터의 Apache Hadoop에서 WebHCat REST API를 사용하여 MapReduce 작업을 실행하는 방법에 대해 배웁니다. Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight와 함께 작용하는 방법을 설명하기 위해 사용됩니다.
+HDInsight 클러스터의 Apache Hadoop에서 Apache Hive WebHCat REST API를 사용하여 MapReduce 작업을 실행하는 방법을 알아봅니다. Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight와 함께 작용하는 방법을 설명하기 위해 사용됩니다.
 
-> [!NOTE]
-> Linux 기반 Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 [HDInsight의 Linux 기반 Hadoop에 대해 알아야 할 정보](../hdinsight-hadoop-linux-information.md) 문서를 참조하세요.
+> [!NOTE]  
+> Linux 기반 Apache Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 [HDInsight의 Linux 기반 Apache Hadoop에 대해 알아야 할 정보](../hdinsight-hadoop-linux-information.md) 문서를 참조하세요.
 
 
 ## <a id="prereq"></a>필수 조건
 
 * HDInsight 클러스터의 Hadoop
-* Windows PowerShell 또는 [Curl](http://curl.haxx.se/) 및 [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell 또는 [Curl](https://curl.haxx.se/) 및 [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>MapReduce 작업 실행
 
-> [!NOTE]
+> [!NOTE]  
 > Curl 또는 기타 모든 REST 통신을 WebHCat 함께 사용하면 HDInsight 클러스터 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다. 서버로 요청을 보내는 데 사용하는 URI의 일부에 클러스터 이름을 사용해야 합니다.
 >
-> REST API는 [기본 액세스 인증](http://en.wikipedia.org/wiki/Basic_access_authentication)을 사용하여 보안이 유지됩니다. 자격 증명이 안전하게 서버에 전송되려면 항상 HTTPS를 사용하여 요청을 보냅니다.
+> REST API는 [기본 액세스 인증](https://en.wikipedia.org/wiki/Basic_access_authentication)을 사용하여 보안이 유지됩니다. 자격 증명이 안전하게 서버에 전송되려면 항상 HTTPS를 사용하여 요청을 보냅니다.
 
 1. 이 문서의 스크립트에서 사용되는 클러스터 로그인을 설정하려면 다음 명령 중 하나를 사용합니다.
 
@@ -110,7 +110,7 @@ HDInsight 클러스터의 Apache Hadoop에서 WebHCat REST API를 사용하여 M
     * **user.name**: 명령을 실행하는 사용자입니다.
     * **jar**: 실행할 클래스가 포함된 jar 파일의 위치입니다.
     * **class**: MapReduce 논리가 포함된 클래스입니다.
-    * **arg**: MapReduce 작업에 전달할 인수. 이 경우는 출력에 사용되는 입력 텍스트 파일과 디렉터리입니다.
+    * **arg**: MapReduce 작업에 전달할 인수입니다. 이 경우는 출력에 사용되는 입력 텍스트 파일과 디렉터리입니다.
 
    이 명령은 작업 상태를 확인하는데 사용할 수 있는 작업 ID를 반환해야 합니다.
 
@@ -136,7 +136,7 @@ HDInsight 클러스터의 Apache Hadoop에서 WebHCat REST API를 사용하여 M
 
     작업이 완료된 경우 상태는 `SUCCEEDED`입니다.
 
-   > [!NOTE]
+   > [!NOTE]  
    > 이 Curl 요청은 작업에 대한 정보가 포함된 JSON 문서를 반환합니다. Jq는 상태 값을 검색하는 데에만 사용됩니다.
 
 6. 작업 상태가 `SUCCEEDED`로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달되는 `statusdir` 매개 변수에는 출력 파일의 위치가 포함됩니다. 이 예제에서 위치는 `/example/curl`입니다. 이 주소는 작업의 출력을 클러스터 기본 저장소인 `/example/curl`에 저장합니다.
@@ -147,11 +147,11 @@ HDInsight 클러스터의 Apache Hadoop에서 WebHCat REST API를 사용하여 M
 
 HDInsight의 MapReduce 작업에 대한 일반적인 정보:
 
-* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
 
 이 문서에 사용된 REST 인터페이스에 대한 자세한 내용은 [WebHCat 참조](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)를 참조하세요.

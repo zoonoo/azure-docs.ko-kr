@@ -1,25 +1,23 @@
 ---
-title: 'Azure Cosmos DB: SQL Python API, SDK 및 리소스 | Microsoft Docs'
+title: Azure Cosmos DB는 SQL Python API, SDK 및 리소스
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB Python SDK의 각 버전 간 변경 내용을 포함하여 SQL Python API 및 SDK에 대한 모든 것을 알아봅니다.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 9/24/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75b5fd2f586a9122aa1248ba88d7ceab59b13215
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: cf796466d8d4156eb442e6b0d1b51cb70d0d30f3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269295"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337090"
 ---
-# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK for SQL API: 릴리스 정보 및 리소스
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Python SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +28,7 @@ ms.locfileid: "48269295"
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -51,10 +49,28 @@ ms.locfileid: "48269295"
 
 ## <a name="release-notes"></a>릴리스 정보
 
+### <a name="a-name302302"></a><a name="3.0.2"/>3.0.2
+* MultiPolygon 데이터 형식 지원이 추가됨
+* 세션 읽기 다시 시도 정책의 버그 수정
+* base 64 문자열을 디코딩하는 동안 잘못된 패딩 문제에 대한 버그 수정
+
+### <a name="a-name301301"></a><a name="3.0.1"/>3.0.1
+* LocationCache의 버그 수정
+* 버그 수정 엔드포인트 다시 시도 논리
+* 설명서 수정됨
+
 ### <a name="a-name300300"></a><a name="3.0.0"/>3.0.0
 * 다중 지역 쓰기 지원
 * azure.cosmos로 변경된 네임스페이스
 * 컨테이너 및 항목으로 이름이 바뀐 컬렉션 및 문서 개념, cosmos_client로 이름이 바뀐 document_client 
+
+### <a name="a-name233233"></a><a name="2.3.3"/>2.3.3
+* 프록시 지원이 추가됨
+* 변경 피드 읽기 지원이 추가됨
+* 컬렉션 할당량 헤더 지원이 추가됨
+* 큰 세션 토큰 문제의 버그 수정
+* ReadMedia API 버그 수정
+* 파티션 키 범위 캐시의 버그 수정
 
 ### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
 * 연결 문제에 대한 기본 재시도 지원이 추가되었습니다.
@@ -145,6 +161,9 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [3.0.2](#3.0.2) |2018년 11월 15일 |--- |
+| [3.0.1](#3.0.1) |2018년 10월 4일 |--- |
+| [2.3.3](#2.3.3) |2018년 9월 8일 |--- |
 | [2.3.2](#2.3.2) |2018년 5월 8일 |--- |
 | [2.3.1](#2.3.1) |2017년 12월 21일 |--- |
 | [2.3.0](#2.3.0) |2017년 11월 10일 |--- |

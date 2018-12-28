@@ -7,14 +7,14 @@ manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994805"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387049"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -38,9 +38,7 @@ Linux 진단 확장을 통해 사용자는 Microsoft Azure에서 실행하는 Li
 
 ## <a name="installing-the-extension-in-your-vm"></a>VM에 확장 설치
 
-Azure PowerShell cmdlet, Azure CLI 스크립트 또는 Azure 배포 템플릿을 통해 이 확장을 사용하도록 설정할 수 있습니다. 자세한 내용은 [확장 기능](features-linux.md)을 참조하세요.
-
-Azure Portal은 LAD 3.0을 사용하도록 설정하거나 구성하는 데 사용할 수 없습니다. 대신 버전 2.3을 설치하고 구성합니다. Azure Portal 그래프 및 경고는 두 확장 버전에서 가져온 데이터로 작동합니다.
+Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Portal을 통해 이 확장을 사용하도록 설정할 수 있습니다. 자세한 내용은 [확장 기능](features-linux.md)을 참조하세요.
 
 이러한 설치 지침 및 [다운로드 가능한 샘플 구성](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json)은 다음을 수행할 수 있도록 LAD 3.0을 구성합니다.
 
@@ -174,7 +172,7 @@ Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다
 이름 | 확장 구성의 다른 위치에서 이 싱크를 참조하는 데 사용되는 문자열입니다.
 형식 | 정의 중인 싱크 유형입니다. 이 유형의 인스턴스에서 다른 값(있는 경우)을 결정합니다.
 
-Linux 진단 확장 3.0 버전에서는 두 개의 싱크 유형(EventHub 및 JsonBlob)을 지원합니다.
+Linux 진단 확장 3.0 버전에서는 두 개의 싱크 유형 EventHub 및 JsonBlob을 지원합니다.
 
 #### <a name="the-eventhub-sink"></a>EventHub 싱크
 
@@ -359,7 +357,7 @@ syslogEventConfiguration 컬렉션에는 각각의 특정 syslog 기능별로 �
 
 요소 | 값
 ------- | -----
-sinks | 개별 로그 이벤트가 게시되는 쉼표로 구분된 싱크 이름 목록입니다. syslogEventConfiguration의 제한 사항과 일치하는 모든 로그 이벤트가 나열된 각 싱크에 게시됩니다. 예: "EHforsyslog"
+sinks | 개별 로그 이벤트가 게시되는 쉼표로 구분된 싱크 이름 목록입니다. syslogEventConfiguration의 제한 사항과 일치하는 모든 로그 이벤트가 나열된 각 싱크에 게시됩니다. 예제: "EHforsyslog"
 facilityName | syslog 기능 이름입니다(예: "LOG\_USER" 또는 "LOG\_LOCAL0"). 전체 목록은 [syslog 기본 페이지](http://man7.org/linux/man-pages/man3/syslog.3.html)의 "facility" 섹션을 참조하세요.
 minSeverity | syslog 심각도 수준입니다(예: "LOG\_ERR" 또는 "LOG\_INFO"). 전체 목록은 [syslog 기본 페이지](http://man7.org/linux/man-pages/man3/syslog.3.html)의 "level" 섹션을 참조하세요. 확장은 지정된 수준 이상으로 전송되는 이벤트를 캡처합니다.
 

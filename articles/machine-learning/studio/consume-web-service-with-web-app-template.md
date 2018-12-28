@@ -1,13 +1,12 @@
 ---
-title: 웹앱 템플릿에서 Machine Learning 웹 서비스 사용 - Azure Machine Learning Studio | Microsoft Docs
+title: 웹앱 템플릿에서 Studio 웹 서비스 사용 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Marketplace에서 웹 앱을 사용하여 Azure Machine Learning의 예측 웹 서비스를 사용합니다.
 keywords: 웹 서비스, 운영, REST API, 기계 학습
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 2c0bba4a442b73b82ebc271c3516f65954d6d8a4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6a6da1af937338637cd875abe4e9d539b2e2b6e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311571"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273887"
 ---
-# <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>웹앱 템플릿을 사용한 Azure Machine Learning 웹 서비스 사용
+# <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>웹앱 템플릿을 사용한 Azure Machine Learning Studio 웹 서비스 사용
 
 다음을 사용하여 예측 모델을 개발하고 Azure 웹 서비스로 배포할 수 있습니다.
 - Azure Machine Learning Studio
@@ -36,7 +35,7 @@ REST API를 사용하고 웹 서비스에 액세스하는 방법은 많습니다
 
 그러나 웹 서비스를 액세스하는 가장 빠르고 쉬운 방법은 [Azure Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/)에서 사용 가능한 웹앱 템플릿을 통한 것입니다.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="azure-machine-learning-web-app-templates"></a>Azure Machine Learning 웹앱 템플릿
 Azure Marketplace에서 사용할 수 있는 웹 앱 템플릿은 웹 서비스의 입력 데이터 및 예상 결과를 알고 있는 사용자 지정 웹 앱을 구축할 수 있습니다. 따라서 웹 앱이 웹 서비스 및 데이터에 액세스하도록 하기만 하면 나머지 작업은 템플릿이 수행합니다.

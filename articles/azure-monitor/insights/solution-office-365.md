@@ -9,16 +9,15 @@ editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 14e89d5eab058b9fa42c20811df9c5ac0ceca44a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 54fda4852e986749499b7fc8717308edf81915b2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633200"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338497"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -30,7 +29,7 @@ Office 365 관리 솔루션을 사용하면 Log Analytics에서 Office 365 환�
 - 관리자 활동을 모니터링하면 구성 변경 내용이나 높은 권한이 필요한 작업을 추적할 수 있습니다.
 - 조직 요구 사항에 따라 사용자 지정할 수 있는 부적절한 사용자 행동을 검색하고 조사할 수 있습니다.
 - 감사 및 규정 준수 방식을 제시할 수 있습니다. 예를 들어 기밀 파일에 대한 파일 액세스 작업을 모니터링하여 감사 및 규정 준수 프로세스를 보다 원활하게 진행할 수 있습니다.
-- 조직의 Office 365 활동 데이터를 토대로 [log searches](../../log-analytics/log-analytics-queries.md) 기능을 사용해 운영상의 문제를 해결할 수 있습니다.
+- 조직의 Office 365 활동 데이터를 토대로 [log searches](../../azure-monitor/log-query/log-query-overview.md) 기능을 사용해 운영상의 문제를 해결할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 솔루션을 설치하고 구성하려면 다음 항목이 필요합니다.
@@ -41,7 +40,7 @@ Office 365 관리 솔루션을 사용하면 Log Analytics에서 Office 365 환�
  
 
 ## <a name="management-packs"></a>관리 팩
-이 솔루션은 [연결된 관리 그룹](../../log-analytics/log-analytics-om-agents.md)에 관리 팩을 설치하지 않습니다.
+이 솔루션은 [연결된 관리 그룹](../../azure-monitor/platform/om-agents.md)에 관리 팩을 설치하지 않습니다.
   
 ## <a name="install-and-configure"></a>설치 및 구성
 먼저 [구독에 Office 365 솔루션](solutions.md#install-a-management-solution)을 추가합니다. 추가된 후에는 이 섹션의 구성 단계를 수행하여 Office 365 구독에 대한 액세스 권한을 부여해야 합니다.
@@ -51,16 +50,16 @@ Office 365 관리 솔루션을 사용하면 Log Analytics에서 Office 365 환�
 
 Log Analytics 작업 영역에서 수집할 정보:
 
-- 작업 영역 이름: Office 365 데이터가 수집되는 작업 영역.
-- 리소스 그룹 이름: 작업 영역을 포함하는 리소스 그룹.
-- Azure 구독 ID: 작업 영역을 포함하는 구독.
+- 작업 영역 이름: Office 365 데이터가 수집되는 작업 영역입니다.
+- 리소스 그룹 이름: 작업 영역을 포함하는 리소스 그룹입니다.
+- Azure 구독 ID: 작업 영역을 포함하는 구독입니다.
 
 Office 365 구독에서 수집할 정보:
 
-- 사용자 이름: 관리 계정의 이메일 주소.
-- 테넌트 ID: Office 365 구독의 고유 ID.
-- 클라이언트 ID: Office 365 클라이언트를 나타내는 16자 길이의 문자열.
-- 클라이언트 암호: 인증에 필요한 암호화된 문자열.
+- 사용자 이름: 관리 계정의 메일 주소입니다.
+- 테넌트 ID: Office 365 구독의 고유 ID입니다.
+- 클라이언트 ID: Office 365 클라이언트를 나타내는 16자 길이의 문자열입니다.
+- 클라이언트 암호: 인증에 필요한 암호화된 문자열입니다.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Azure Active Directory에서 Office 365 응용 프로그램 만들기
 첫 번째 단계는 Azure Active Directory에 관리 솔루션이 Office 365 솔루션에 액세스할 때 사용할 응용 프로그램을 만드는 것입니다.
@@ -709,6 +708,6 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics](../../log-analytics/log-analytics-queries.md)의 로그 검색을 사용하여 자세한 업데이트 데이터 보기
+* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)의 로그 검색을 사용하여 자세한 업데이트 데이터 보기
 * [고유한 대시보드 만들기](../../azure-monitor/platform/dashboards.md)를 수행하여 자주 사용하는 Office 365 검색 쿼리를 표시합니다.
-* 중요한 Office 365 활동에 대해 미리 알림을 받을 수 있도록 [경고 만들기](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 수행합니다.  
+* 중요한 Office 365 활동에 대해 미리 알림을 받을 수 있도록 [경고 만들기](../../azure-monitor/platform/alerts-overview.md)를 수행합니다.  

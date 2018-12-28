@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eeb12500a5ddfb95317b3d20b41acf12e3978bad
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 80818a7264b35b703be217f07127ab7883da339a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626525"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271592"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 위치 조건이란? 
 
@@ -58,7 +58,7 @@ Azure AD에서는 공용 인터넷의 어디에서든지 디바이스, 앱 및 �
 
 - **이름** - 명명된 위치의 표시 이름입니다.
 
-- **IP 범위** - CIDR 형식으로 나타낸 하나 이상의 IP 주소 범위입니다.
+- **IP 범위** - CIDR 형식으로 나타낸 하나 이상의 IPv4 주소 범위입니다. IPv6 주소 범위는 지정할 수 없습니다.
 
 - **신뢰할 수 있는 위치로 표시** - 신뢰할 수 있는 위치를 나타내기 위해 명명된 위치에 대해 설정할 수 있는 플래그입니다. 일반적으로 신뢰할 수 있는 위치는 IT 부서에서 제어하는 네트워크 영역입니다. 신뢰할 수 있는 명명된 위치는 조건부 액세스뿐만 아니라, Azure ID 보호 및 Azure AD 보안 보고서에서 [거짓 긍정](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1)을 줄이는 데도 사용됩니다.
 

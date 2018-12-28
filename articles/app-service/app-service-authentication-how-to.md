@@ -1,5 +1,5 @@
 ---
-title: Azure App Service의 고급 인증 및 권한 부여 사용 | Microsoft Docs
+title: 고급 인증 및 권한 부여 사용 - Azure App Service | Microsoft Docs
 description: App Service의 인증 및 권한 부여를 사용자 지정하고, 사용자 클레임 및 서로 다른 토큰을 가져오는 방법을 보여 줍니다.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685330"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409754"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -26,13 +27,13 @@ ms.locfileid: "51685330"
 
 지금 바로 시작하려면 다음 자습서 중 하나를 참조하세요.
 
-* [자습서: Azure App Service에서 종단 간 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)
-* [자습서: Azure App Service에서 Linux용 종단 간 사용자 인증 및 권한 부여](containers/tutorial-auth-aad.md)
-* [Azure Active Directory 로그인을 사용하도록 앱을 구성하는 방법](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [Facebook 로그인을 사용하도록 앱을 구성하는 방법](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [Google 로그인을 사용하도록 앱을 구성하는 방법](app-service-mobile-how-to-configure-google-authentication.md)
-* [Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [Twitter 로그인을 사용하도록 앱을 구성하는 방법](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)
+* [자습서: Azure App Service에서 Linux용 엔드투엔드 사용자 인증 및 권한 부여](containers/tutorial-auth-aad.md)
+* [Azure Active Directory 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-aad.md)
+* [Facebook 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-facebook.md)
+* [Google 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-google.md)
+* [Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-microsoft.md)
+* [Twitter 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-twitter.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>다중 로그인 공급자 사용
 
@@ -181,8 +182,8 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 응용 프�
 
 - **Google**: `access_type=offline` 쿼리 문자열 매개 변수를 `/.auth/login/google` API 호출에 추가합니다. Mobile Apps SDK를 사용하는 경우 `LogicAsync` 오버로드 중 하나에 매개 변수를 추가할 수 있습니다([Google 새로 고침 토큰](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) 참조).
 - **Facebook**: 새로 고침 토큰을 제공하지 않습니다. 수명이 긴 토큰은 60일 후에 만료됩니다([액세스 토큰의 Facebook 만료 및 확장](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) 참조).
-- **Twitter**: 액세스 토큰이 만료되지 않습니다([Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq) 참조).
-- **Microsoft 계정**: [Microsoft 계정 인증 설정을 구성](app-service-mobile-how-to-configure-microsoft-authentication.md)할 때 `wl.offline_access` 범위를 선택합니다.
+- **Twitter**: 액세스 토큰이 만료되지 않습니다([Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ) 참조).
+- **Microsoft 계정**: [Microsoft 계정 인증 설정을 구성](configure-authentication-provider-microsoft.md)할 때 `wl.offline_access` 범위를 선택합니다.
 - **Azure Active Directory**: [https://resources.azure.com](https://resources.azure.com)에서 다음 단계를 수행합니다.
     1. 페이지의 위쪽에서 **읽기/쓰기**를 선택합니다.
     1. 왼쪽 브라우저에서 **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **사이트** > _**\<app\_name>**_ > **config** > **authsettings**로 이동합니다. 
@@ -242,5 +243,5 @@ Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 종단 간 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)
-> [자습서: 종단 간 사용자 인증 및 권한 부여(Linux)](containers/tutorial-auth-aad.md)
+> [자습서: 엔드투엔드 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)
+> [자습서: 엔드투엔드 사용자 인증 및 권한 부여(Linux)](containers/tutorial-auth-aad.md)

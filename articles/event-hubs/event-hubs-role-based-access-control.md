@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs RBAC(역할 기반 액세스 제어) 미리 보기 | Microsoft Docs
-description: Azure Event Hubs 역할 기반 액세스 제어
+title: 역할 기반 액세스 제어 미리 보기 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Azure Event Hubs의 역할 기반 액세스 제어에 대한 정보를 제공합니다.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ef74600fdf5051394f8b7bfbdd71e144b3f26d8a
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 1324700445aebe672b2c5ae2b55ad9bc0bab13b2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005741"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384261"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 역할 기반 액세스 제어(미리 보기)
 
@@ -33,7 +34,7 @@ Azure AD RBAC를 사용하는 응용 프로그램은 SAS 규칙 및 키 또는 �
 
 다음 섹션에서는 로그인하기 위해 대화형 Azure AD 사용자 로그온을 요구하는 응용 프로그램 예제를 만들고 실행하기 위한 단계, Event Hubs에 해당 사용자 계정에 대한 액세스 권한을 부여하는 방법 및 해당 ID를 사용하여 Event Hubs에 액세스하는 방법을 설명합니다. 
 
-이 소개에서는 [Github에 있는 코드](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)인 간단한 콘솔 응용 프로그램을 설명합니다.
+이 소개에서는 [GitHub에 있는 코드](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)인 간단한 콘솔 애플리케이션을 설명합니다.
 
 ### <a name="create-an-active-directory-user-account"></a>Active Directory 사용자 계정 만들기
 
@@ -43,13 +44,9 @@ Azure AD RBAC를 사용하는 응용 프로그램은 SAS 규칙 및 키 또는 �
 
 ### <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
 
-다음으로 RBAC에 대한 Event Hubs 미리 보기 지원이 있는 Azure 지역인 **미국 동부**, **미국 동부 2** 또는 **유럽 서부** 중 한 곳에 [Event Hubs 네임스페이스를 만듭니다](event-hubs-create.md). 
+다음으로 RBAC에 대한 Event Hubs 미리 보기 지원이 있는 다음 Azure 지역 중 한 곳에 [Event Hubs 네임스페이스를 만듭니다](event-hubs-create.md). **미국 동부**, **미국 동부 2** 또는 **유럽 서부**. 
 
-네임스페이스를 만들고 나면, 포털의 **액세스 제어(IAM)** 페이지로 이동한 후 **추가**를 클릭하여 Azure AD 사용자 계정을 소유자 역할에 추가합니다. 사용자 고유의 사용자 계정을 사용하고 네임스페이스를 만든 경우 이미 소유자 역할에 있는 것입니다. 다른 계정을 역할에 추가하려면 **권한 추가** 패널의 **선택** 필드에서 웹 응용 프로그램의 이름을 검색한 다음, 해당 항목을 클릭합니다. 그런 다음 **Save**를 클릭합니다.
- 
-![](./media/event-hubs-role-based-access-control/rbac1.PNG)
-
-이제 사용자 계정은 Event Hubs 네임스페이스 및 이전에 만든 이벤트 허브에 액세스할 수 있습니다.
+네임스페이스를 만들고 나면, 포털의 **액세스 제어(IAM)** 페이지로 이동한 후 **역할 할당 추가**를 클릭하여 Azure AD 사용자 계정을 소유자 역할에 추가합니다. 사용자 고유의 사용자 계정을 사용하고 네임스페이스를 만든 경우 이미 소유자 역할에 있는 것입니다. 다른 계정을 역할에 추가하려면 **권한 추가** 패널의 **선택** 필드에서 웹 응용 프로그램의 이름을 검색한 다음, 해당 항목을 클릭합니다. 그런 다음 **Save**를 클릭합니다. 이제 사용자 계정은 Event Hubs 네임스페이스 및 이전에 만든 이벤트 허브에 액세스할 수 있습니다.
  
 ### <a name="register-the-application"></a>응용 프로그램 등록
 
@@ -71,6 +68,8 @@ Azure AD RBAC를 사용하는 응용 프로그램은 SAS 규칙 및 키 또는 �
 - 이전 단계에서 앱에 지정된 리디렉션 URI입니다.
  
 콘솔 응용 프로그램을 실행하면 시나리오를 선택하라는 메시지가 표시됩니다. 번호를 입력하고 ENTER 키를 눌러 **대화형 사용자 로그인**을 클릭합니다. 응용 프로그램에서는 로그인 창이 표시되고, Event Hubs에 액세스할지 묻는 메시지가 표시된 다음, 서비스를 사용하여 로그인 ID를 통해 보내기/받기 시나리오를 실행합니다.
+
+이 앱은 `ServiceAudience.EventHubsAudience`를 토큰 대상으로 사용합니다. 대상을 상수로 사용할 수 없는 다른 언어나 SDK를 사용하는 경우 사용할 올바른 값은 `https://eventhubs.azure.net/`입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: ccc30d336542622048cc28b991d5ecf616133c5a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c9cbea913a86a681620eea4adc0a5c99cc84f920
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633821"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433868"
 ---
 # <a name="run-custom-mapreduce-programs"></a>사용자 지정 MapReduce 프로그램 실행
 
@@ -25,7 +25,7 @@ HDInsight 등의 Apache Hadoop 기반 빅 데이터 시스템에서는 광범위
 | **HiveQL을 사용하는 Apache Hive** | <ul><li>변경할 수 없는 대량 데이터의 일괄 처리 및 분석, 데이터 요약, 주문형 쿼리를 위한 뛰어난 솔루션입니다. 익숙한 SQL 유사 구문을 사용합니다.</li><li>이 솔루션을 사용하면 쉽게 분할 및 인덱싱할 수 있는 영구적 데이터 테이블을 생성할 수 있습니다.</li><li>동일한 데이터에 대해 여러 개의 외부 테이블과 뷰를 만들 수 있습니다.</li><li>데이터 저장 및 처리를 위해 다양한 스케일 아웃 및 내결함성 기능을 제공하는 간단한 데이터 웨어하우스 구현을 지원합니다.</li></ul> | <ul><li>원본 데이터에 적어도 식별 가능한 구조가 있어야 합니다.</li><li>실시간 쿼리 및 행 수준 업데이트에는 적합하지 않습니다. 대규모 데이터 집합에 대한 일괄 작업에 가장 적합합니다.</li><li>일부 유형의 복잡한 처리 작업은 수행하지 못할 수도 있습니다.</li></ul> |
 | **Pig Latin을 사용하는 Apache Pig** | <ul><li>데이터를 집합으로 조작하고, 데이터 세트를 병합 및 필터링하고, 레코드 또는 레코드 그룹에 함수를 적용하고, 열 정의, 값 그룹화, 열을 행으로 변환 등을 통해 데이터를 재구성하기 위한 뛰어난 솔루션입니다.</li><li>워크플로 기반 접근 방법을 데이터에 대한 작업 시퀀스로 사용할 수 있습니다.</li></ul> | <ul><li>SQL 사용자는 Pig Latin이 HiveQL보다 더 낯설고 사용하기 어려울 수도 있습니다.</li><li>일반적으로 기본 출력은 텍스트 파일이므로 Excel 등의 시각화 도구에서 사용하기 어려울 수 있습니다. 일반적으로 출력 위에 Hive 테이블을 놓습니다.</li></ul> |
 | **사용자 지정 Map/Reduce** | <ul><li>Map/Reduce 단계와 실행을 완벽하게 제어할 수 있습니다.</li><li>이 경우 쿼리를 최적화하여 클러스터의 성능을 최대화하거나 서버와 네트워크의 부하를 최소화할 수 있습니다.</li><li>잘 알려진 광범위한 언어로 구성 요소를 작성할 수 있습니다.</li></ul> | <ul><li>자체 Map/Reduce 구성 요소를 만들어야 하므로 Pig 또는 Hive를 사용하는 것보다 더 어렵습니다.</li><li>데이터 집합을 결합해야 하는 프로세스는 구현하기 더 어렵습니다.</li><li>사용 가능한 테스트 프레임워크가 있지만 코드가 Hadoop 작업 스케줄러에 의해 제어되는 일괄 작업으로 실행되므로 코드 디버그가 일반 응용 프로그램보다 더 복잡합니다.</li></ul> |
-| **Apache HCatalog** | <ul><li>저장소의 경로 정보를 추상화하므로 관리가 더 용이하며 사용자가 데이터 저장 위치를 몰라도 됩니다.</li><li>데이터 가용성 등의 이벤트 알림을 사용할 수 있으므로 Oozie 등의 다른 도구가 작업이 발생한 시기를 감지할 수 있습니다.</li><li>키별 분할을 비롯한 관계형 데이터 뷰를 노출하고 데이터에 쉽게 액세스할 수 있도록 합니다.</li></ul> | <ul><li>기본적으로 RCFile, CSV 텍스트, JSON 텍스트, SequenceFile 및 ORC 파일 형식을 지원하지만 다른 형식의 경우 사용자 지정 SerDe를 작성해야 할 수도 있습니다.</li><li>HCatalog는 스레드로부터 안전하지 않습니다.</li><li>Pig 스크립트에서 HCatalog 로더를 사용하는 경우 열의 데이터 형식에 대한 몇 가지 제한 사항이 있습니다. 자세한 내용은 Apache HCatalog 설명서에서 [HCatLoader 데이터 형식](http://cwiki.apache.org/confluence/display/Hive/HCatalog%20LoadStore#HCatalogLoadStore-HCatLoaderDataTypes)을 참조하세요.</li></ul> |
+| **Apache HCatalog** | <ul><li>저장소의 경로 정보를 추상화하므로 관리가 더 용이하며 사용자가 데이터 저장 위치를 몰라도 됩니다.</li><li>데이터 가용성 등의 이벤트 알림을 사용할 수 있으므로 Oozie 등의 다른 도구가 작업이 발생한 시기를 감지할 수 있습니다.</li><li>키별 분할을 비롯한 관계형 데이터 뷰를 노출하고 데이터에 쉽게 액세스할 수 있도록 합니다.</li></ul> | <ul><li>기본적으로 RCFile, CSV 텍스트, JSON 텍스트, SequenceFile 및 ORC 파일 형식을 지원하지만 다른 형식의 경우 사용자 지정 SerDe를 작성해야 할 수도 있습니다.</li><li>HCatalog는 스레드로부터 안전하지 않습니다.</li><li>Pig 스크립트에서 HCatalog 로더를 사용하는 경우 열의 데이터 형식에 대한 몇 가지 제한 사항이 있습니다. 자세한 내용은 Apache HCatalog 설명서에서 [HCatLoader 데이터 형식](https://cwiki.apache.org/confluence/display/Hive/HCatalog%20LoadStore#HCatalogLoadStore-HCatLoaderDataTypes)을 참조하세요.</li></ul> |
 
 일반적으로 이러한 접근 방법 중 필요한 결과를 제공할 수 있는 가장 간단한 방법을 사용합니다. 예를 들어 Hive만 사용하여 이러한 결과를 얻을 수도 있지만 더 복잡한 시나리오의 경우 Pig를 사용하거나 자체 Map/Reduce 구성 요소를 작성해야 할 수도 있습니다. 또한 Hive 또는 Pig를 실험한 후 사용자 지정 Map/Reduce 구성 요소가 처리 세분화 및 최적화를 허용하여 더 나은 성능을 제공할 수 있다고 결정할 수 있습니다.
 
@@ -74,8 +74,8 @@ Map/Reduce 코드는 **Map** 및 **Reduce** 구성 요소로 구현된 두 개�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight의 Hadoop에서 MapReduce 스트리밍과 함께 C# 사용](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [HDInsight에서 Hadoop용 Java MapReduce 프로그램 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [HDInsight의 Apache Hadoop에서 MapReduce 스트리밍으로 C# 사용](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [HDInsight에서 Apache Hadoop용 Java MapReduce 프로그램 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 * [HDInsight용 Python 스트리밍 MapReduce 프로그램 개발](apache-hadoop-streaming-python.md)
-* [Eclipse용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기](../spark/apache-spark-eclipse-tool-plugin.md)
-* [HDInsight에서 Hive 및 Pig와 함께 Python UDF(사용자 정의 함수) 사용](python-udf-hdinsight.md)
+* [Azure Toolkit for Eclipse를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기](../spark/apache-spark-eclipse-tool-plugin.md)
+* [HDInsight의 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수) 사용](python-udf-hdinsight.md)

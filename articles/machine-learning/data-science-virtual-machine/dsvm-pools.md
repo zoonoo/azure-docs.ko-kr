@@ -6,6 +6,7 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -13,36 +14,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 12/10/2018
 ms.author: gokuma
-ms.openlocfilehash: 0740ff7542d066442146b8e80e188ad5ba49a2b5
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 648b0818f07aca8763fa4af01380076ae307b0a2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309401"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408955"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Data Science Virtual Machines의 공유 풀 만들기
 
 이 아티클에서는 팀에서 사용할 DSVM(Data Science Virtual Machines)의 공유 풀을 만들 수 있는 방법을 설명합니다. 공유 풀을 사용하는 경우 이점은 리소스 사용률이 개선되고, 공유 및 공동 작업이 원활하고, DSVM 리소스를 더 효과적으로 관리할 수 있다는 것입니다. 
 
-다양한 메서드 및 기술을 사용하여 DSVM의 풀을 만들 수 있습니다. 이 아티클은 일괄 처리 및 대화형 VM의 풀에 중점을 둡니다.
-
-## <a name="batch-processing-pool"></a>일괄 처리 풀
-오프라인에서 작업을 일괄 처리로 실행하도록 DSVM의 풀을 설정하려는 경우 [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) 또는 [Azure Batch](https://docs.microsoft.com/azure/batch/) 서비스를 사용할 수 있습니다. 이 아티클에서는 Azure Batch AI에 초점을 맞춥니다.
-
-DSVM의 Ubuntu 판은 Azure Batch AI에서 이미지 중 하나로 지원됩니다. Azure Batch AI 클러스터를 만드는 Azure CLI 또는 Python SDK에서 `image` 매개 변수를 지정하고 이를 `UbuntuDSVM`으로 설정할 수 있습니다. Azure에서 사용할 수 있는 [폭 넓은 VM 인스턴스 선택 항목](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)에서 원하는 종류의 처리 노드(GPU 기반 인터페이스 및 CPU 전용 인스턴스, CPU 수 및 메모리)를 선택할 수 있습니다. 
-
-GPU 기반 노드를 포함한 Batch AI에서 Ubuntu DSVM 이미지를 사용하는 경우, 모든 필요한 GPU 드라이버와 딥 러닝 프레임워크는 미리 설치되어 있습니다. 사전 설치로 인해 일괄 처리 노드를 준비할 때 많은 시간이 절약됩니다. 사실 Ubuntu DSVM에서 대화형으로 개발하는 경우, Batch AI 노드가 환경과 똑같은 설정 및 구성이라는 것을 확인할 수 있습니다. 
-
-일반적으로 Batch AI 클러스터를 만들 때 모든 노드에서 탑재하는 파일 공유도 만들게 됩니다. 파일 공유는 일괄 작업 코드/스크립트 저장뿐만 아니라 데이터의 입력 및 출력에도 사용됩니다. 
-
-Batch AI 클러스터를 만든 후에 동일한 CLI 또는 Python SDK를 사용하여 실행할 작업을 제출할 수 있습니다. 일괄 작업을 실행하는 데 사용된 시간에 대해서만 요금을 지불합니다. 
-
-자세한 내용은 다음을 참조하세요.
-* [Azure CLI](https://docs.microsoft.com/azure/batch-ai/quickstart-cli)를 사용하여 Batch AI를 관리하는 단계별 연습
-* [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python)을 사용하여 Batch AI를 관리하는 단계별 연습
-* [Batch AI 레시피](https://github.com/Azure/BatchAI)는 Batch AI를 사용하여 다양한 AI 및 심층 학습 프레임워크를 사용하는 방법을 설명합니다.
+다양한 메서드 및 기술을 사용하여 DSVM의 풀을 만들 수 있습니다. 이 문서에서는 대화형 VM의 풀에 중점을 둡니다. 대체 관리형 컴퓨팅 인프라는 Azure Machine Learning 컴퓨팅입니다. 자세한 내용은 [컴퓨팅 대상 설정](../service/how-to-set-up-training-targets.md#amlcompute)을 참조하세요.
 
 ## <a name="interactive-vm-pool"></a>대화형 VM 풀
 

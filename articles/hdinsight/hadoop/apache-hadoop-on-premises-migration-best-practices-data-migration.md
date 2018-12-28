@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 492087f7eeca8628ac6ac9a9e42f355a9356f1ce
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584709"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433426"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 데이터 마이그레이션 모범 사례
 
 이 문서에서는 데이터를 Azure HDInsight로 마이그레이션하기 위한 권장 사항을 제공합니다. 온-프레미스 Apache Hadoop 시스템을 Azure HDInsight로 마이그레이션하는 데 도움을 주는 모범 사례를 제공하는 시리즈의 일부입니다.
 
-## <a name="migrate-data-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 데이터 마이그레이션
+## <a name="migrate-on-premises-data-to-azure"></a>온-프레미스 데이터를 Azure로 마이그레이션
 
 온-프레미스에서 Azure 환경으로 데이터를 마이그레이션하는 두 가지 주요 옵션이 있습니다.
 
@@ -47,9 +47,11 @@ ms.locfileid: "52584709"
 |1PB|6년|3년|97일|10일|
 |2PB|12년|5년|194일|19일|
 
-DistCp, Azure Data Factory, AzureCp 같은 Azure 기본 도구를 사용하여 네트워크를 통해 데이터를 전송할 수 있습니다. 타사 도구 WANDisco를 같은 용도로 사용할 수도 있습니다. Kafka Mirrormaker 및 Sqoop는 온-프레미스에서 Azure 저장소 시스템으로 데이터를 지속적으로 전송하는 데 사용할 수 있습니다.
+Apache Hadoop DistCp, Azure Data Factory, AzureCp 같은 Azure 기본 도구를 사용하여 네트워크를 통해 데이터를 전송할 수 있습니다. 타사 도구 WANDisco를 같은 용도로 사용할 수도 있습니다. Apache Kafka Mirrormaker 및 Apache Sqoop는 온-프레미스에서 Azure Storage 시스템으로 데이터를 지속적으로 전송하는 데 사용할 수 있습니다.
 
-## <a name="performance-considerations-when-using-apache-distcp"></a>Apache DistCp 사용 시 성능 고려 사항
+
+## <a name="performance-considerations-when-using-apache-hadoop-distcp"></a>Apache Hadoop DistCp 사용 시 성능 고려 사항
+
 
 DistCp는 MapReduce 맵 작업을 사용하여 데이터를 전송하고 오류를 처리하고 오류를 복구하는 Apache 프로젝트입니다. DistCp는 원본 파일 목록을 각 맵 작업에 할당합니다. 그러면 맵 작업에서는 할당된 모든 파일을 대상에 복사합니다. DistCp 성능을 향상할 수 있는 여러 기술이 있습니다.
 
@@ -86,13 +88,13 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 ## <a name="metadata-migration"></a>메타데이터 마이그레이션
 
-### <a name="hive"></a>Hive
+### <a name="apache-hive"></a>Apache Hive
 
 Hive metastore는 스크립트를 사용하여 또는 DB 복제를 사용하여 마이그레이션할 수 있습니다.
 
 #### <a name="hive-metastore-migration-using-scripts"></a>스크립트를 사용하여 Hive metastore 마이그레이션
 
-1. 온-프레미스 Hive metastore에서 Hive DDL을 생성합니다. 이 단계는 [래퍼 배시 스크립트]를 사용하여 수행할 수 있습니다(https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. 온-프레미스 Hive metastore에서 Hive DDL을 생성합니다. 이 단계는 [래퍼 Bash 스크립트](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)를 사용하여 수행할 수 있습니다.
 1. 생성된 DDL을 편집하여 HDFS url을 WASB/ADLS/ABFS URL로 바꿉니다.
 1. HDInsight 클러스터의 metastore에서 업데이트된 DDL을 실행합니다.
 1. Hive metastore 버전이 온-프레미스와 클라우드 간에 호환되는지 확인합니다.
@@ -106,7 +108,7 @@ Hive metastore는 스크립트를 사용하여 또는 DB 복제를 사용하여 
 ./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 ```
 
-### <a name="ranger"></a>Ranger
+### <a name="apache-ranger"></a>Apache Ranger
 
 - 온-프레미스 Ranger 정책을 xml 파일로 내보냅니다.
 - XSLT 같은 도구를 사용하여 온-프레미스 HDFS 기반 경로를 WASB/ADLS로 변환합니다.

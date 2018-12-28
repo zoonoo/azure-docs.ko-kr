@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 6ba2fd85e23f3a0b634319f7399f97bec9ef3954
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 48b2d42348996f5f135d88cdf6345bca8daf8335
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346425"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409448"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -37,16 +37,6 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions 핵심 도구 설치
 
 [Azure Functions 핵심 도구]에는 로컬 개발 컴퓨터에서 실행할 수 있는 Azure Functions 런타임을 제공하는 동일한 런타임 버전이 포함됩니다. 또한 함수를 만들고, Azure에 연결하고, 함수 프로젝트를 배포하는 명령을 제공합니다.
-
-### <a name="v1"></a>버전 1.x
-
-원래 버전의 도구는 Functions 1.x 런타임을 사용합니다. 이 버전은 .NET Framework(4.7)를 사용하며 Windows 컴퓨터에서만 지원됩니다. 버전 1.x 도구를 설치하려면 먼저 npm이 포함된 [NodeJS를 설치](https://docs.npmjs.com/getting-started/installing-node)해야 합니다.
-
-다음 명령을 사용하여 버전 1.x 도구를 설치합니다.
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
 
 ### <a name="v2"></a>버전 2.x
 
@@ -155,7 +145,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--force`** | 프로젝트에 기존 파일이 있어도 프로젝트를 초기화합니다. 이 설정은 이름이 같은 기존 파일을 덮어씁니다. 프로젝트 폴더의 다른 파일에는 영향이 없습니다. |
 | **`--no-source-control -n`** | 버전 1.x에서 Git 리포지토리 기본 작성을 차단합니다. 버전 2.x에서는 Git 리포지토리가 기본적으로 작성되지 않습니다. |
 | **`--source-control`** | Git 리포지토리 작성 여부를 제어합니다. 리포지토리는 기본적으로 작성되지 않습니다. `true`이면 리포지토리가 작성됩니다. |
-| **`--worker-runtime`** | 프로젝트의 언어 런타임을 설정합니다. 지원되는 값은 `dotnet`, `node`(JavaScript) 및 `java`입니다. 설정하지 않으면 초기화 중에 런타임을 선택하라는 메시지가 표시됩니다. |
+| **`--worker-runtime`** | 프로젝트의 언어 런타임을 설정합니다. 지원되는 값은 `dotnet`, `node`(JavaScript), `java` 및 `python`입니다. 설정하지 않으면 초기화 중에 런타임을 선택하라는 메시지가 표시됩니다. |
 
 > [!IMPORTANT]
 > 기본적으로 핵심 도구 버전 2.x에서는 .NET 런타임에 대한 함수 앱 프로젝트를 [C# 클래스 프로젝트](functions-dotnet-class-library.md)(.csproj)로 만듭니다. 이러한 C# 프로젝트는 Visual Studio 또는 Visual Studio Code에서 사용할 수 있으며, 테스트 중에/Azure에 게시할 때 컴파일됩니다. 버전 1.x 및 포털에서 생성되는 것과 동일한 C# 스크립트(.csx) 파일을 만들고 작업하려는 경우, 함수를 만들고 배포할 때 `--csx` 매개 변수를 포함해야 합니다.
@@ -220,7 +210,7 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 
   ![Azure Portal에서 연결 문자열 복사](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ [Azure Storage 탐색기](http://storageexplorer.com/)를 사용하여 Azure 계정에 연결합니다. **탐색기**에서 구독을 확장하고, 저장소 계정을 선택하고, 기본 또는 보조 연결 문자열을 복사합니다. 
++ [Azure Storage 탐색기](https://storageexplorer.com/)를 사용하여 Azure 계정에 연결합니다. **탐색기**에서 구독을 확장하고, 저장소 계정을 선택하고, 기본 또는 보조 연결 문자열을 복사합니다. 
 
   ![Storage 탐색기에서 연결 문자열 복사](./media/functions-run-local/storage-explorer.png)
 
@@ -313,12 +303,12 @@ func host start
 | **`--cors`** | CORS 원본의 공백 없이 쉼표로 구분된 목록입니다. |
 | **`--debug`** | [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) 또는 [Visual Studio 2017](functions-dotnet-class-library.md)에서 **func.exe** 프로세스에 연결할 수 있도록 디버그 포트를 열어둔 호스트를 시작합니다. 유효한 값은 `VSCode` 및 `VS`입니다.  |
 | **`--language-worker`** | 언어 작업자를 구성하는 인수입니다. 버전 2.x 전용입니다. |
-| **`--nodeDebugPort -n`** | 사용할 노드 디버거의 포트입니다. 기본값: launch.json 값 또는 5858 버전 1.x 전용입니다. |
+| **`--nodeDebugPort -n`** | 사용할 노드 디버거의 포트입니다. Default: launch.json 값 또는 5858. 버전 1.x 전용입니다. |
 | **`--password`** | .pfx 파일에 대한 암호가 포함된 암호 또는 파일입니다. `--cert`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
-| **`--port -p`** | 수신 대기할 로컬 포트입니다. 기본값: 7071 |
+| **`--port -p`** | 수신 대기할 로컬 포트입니다. 기본값: 7071. |
 | **`--pause-on-error`** | 프로세스를 종료하기 전에 추가 입력에 대해 일시 중지합니다. IDE(통합 개발 환경)에서 Core Tools를 시작할 때만 사용됩니다.|
 | **`--script-root --prefix`** | 실행하거나 배포할 함수 앱의 루트 경로를 지정하는 데 사용됩니다. 하위 폴더에 프로젝트 파일을 생성하는 컴파일된 프로젝트용으로 사용됩니다. 예를 들어 C# 클래스 라이브러리 프로젝트를 작성할 때는 `MyProject/bin/Debug/netstandard2.0`과 같은 경로를 사용하여 *root* 하위 폴더에 host.json, local.settings.json 및 function.json 파일이 생성됩니다. 이 경우 접두사를 `--script-root MyProject/bin/Debug/netstandard2.0`으로 설정합니다. 이 접두사는 Azure에서 실행할 때의 함수 앱 루트입니다. |
-| **`--timeout -t`** | Functions 호스트를 시작할 제한 시간(초)입니다. 기본값: 20초|
+| **`--timeout -t`** | Functions 호스트를 시작할 제한 시간(초)입니다. Default: 20초.|
 | **`--useHttps`** | `http://localhost:{port}`가 아닌 `https://localhost:{port}`에 바인딩합니다. 기본적으로 이 옵션은 사용자 컴퓨터에 신뢰할 수 있는 인증서를 만듭니다.|
 
 C# 클래스 라이브러리 프로젝트(.csproj)의 경우 library.dll을 생성하려면 `--build` 옵션을 포함해야 합니다.
@@ -420,11 +410,11 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Core Tools는 두 가지 배포 유형을 지원합니다. 그중 하나는 함수 앱에 함수 프로젝트 파일을 직접 배포하는 것이고, 다른 하나는 사용자 지정 Linux 컨테이너를 배포하는 것입니다. 두 번째 유형은 버전 2.x에서만 지원됩니다. 그리고 이미 [Azure 구독에서 함수 앱을 작성](functions-cli-samples.md#create)한 상태여야 합니다.
 
-버전 2.x에서는 게시 전에 프로젝트에서 [확장을 등록](#register-extensions)해야 합니다. 컴파일해야 하는 프로젝트는 이진 파일을 배포할 수 있는 방식으로 빌드해야 합니다.
+버전 2.x에서는 게시 전에 프로젝트에서 [확장을 등록](#register-extensions)해야 합니다. 컴파일해야 하는 프로젝트는 이진 파일을 배포할 수 있는 방식으로 빌드해야 합니다. 
 
 ### <a name="project-file-deployment"></a>프로젝트 파일 배포  
 
-가장 흔히 사용되는 배포 방법에서는 Core Tools를 사용하여 함수 앱 프로젝트를 패키지로 만든 다음 함수 앱에 해당 패키지를 배포합니다. 필요한 경우 [배포 패키지에서 함수를 직접 실행](run-functions-from-deployment-package.md)할 수 있습니다.
+가장 흔히 사용되는 배포 방법에서는 Core Tools를 사용하여 함수 앱 프로젝트, 이진 파일 및 종속성을 패키지로 만든 후 함수 앱에 해당 패키지를 배포합니다. 필요한 경우 [배포 패키지에서 함수를 직접 실행](run-functions-from-deployment-package.md)할 수 있습니다.
 
 Azure의 함수 앱에 Functions 프로젝트를 게시하려면 `publish` 명령을 사용합니다.
 
@@ -440,21 +430,23 @@ func azure functionapp publish <FunctionAppName>
 > Azure Portal에서 함수 앱을 만들 때는 기본적으로 Function 런타임 버전 2.x가 사용됩니다. 함수 앱이 런타임 버전 1.x를 사용하도록 하려면 [버전 1.x에서 실행](functions-versions.md#creating-1x-apps)의 지침을 따르세요.  
 > 기존 함수가 있는 함수 앱의 런타임 버전은 변경할 수 없습니다.
 
-두 버전(1.x 및 2.x)에 모두 적용되는 다음 게시 옵션을 사용할 수 있습니다.
+다음 프로젝트 게시 옵션은 두 버전 1.x 및 2.x에 모두 적용됩니다.
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  local.settings.json의 설정을 Azure에 게시하고, 설정이 이미 있는 경우 덮어쓸지 묻습니다. 저장소 에뮬레이터를 사용하는 경우 앱 설정을 [실제 저장소 연결](#get-your-storage-connection-strings)로 변경합니다. |
 | **`--overwrite-settings -y`** | `--publish-local-settings -i` 사용 시 앱 설정을 덮어쓴다는 메시지를 표시하지 않습니다.|
 
-다음 게시 옵션은 버전 2.x에서만 지원됩니다.
+다음 프로젝트 게시 옵션은 버전 2.x에서만 지원됩니다.
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  설정만 게시하고 콘텐츠는 건너뜁니다. 기본값은 프롬프트입니다. |
 |**`--list-ignored-files`** | .funcignore 파일을 기준으로 하여 게시 중에 무시되는 파일 목록을 표시합니다. |
 | **`--list-included-files`** | .funcignore 파일을 기준으로 하여 게시되는 파일 목록을 표시합니다. |
-| **`--zip`** | Run-From-Zip 패키지에서 게시합니다. 앱에 AzureWebJobsStorage 설정이 정의되어 있어야 합니다. |
+| **`--nozip`** | 기본 `Run-From-Zip` 모드를 끕니다. |
+| **`--build-native-deps`** | Python 함수 앱을 게시할 때 .wheels 폴더 생성을 건너뜁니다. |
+| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev` |
 | **`--force`** | 특정 시나리오에서 게시 전 확인을 무시합니다. |
 | **`--csx`** | C# 스크립트(.csx) 프로젝트를 게시합니다. |
 | **`--no-build`** | dotnet 함수 작성을 건너뜁니다. |

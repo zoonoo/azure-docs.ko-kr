@@ -2,16 +2,16 @@
 title: Batch 렌더링 응용 프로그램
 description: 미리 설치된 Batch 렌더링 응용 프로그램
 services: batch
-author: mscurrell
-ms.author: markscu
-ms.date: 08/02/2018
+author: laurenhughes
+ms.author: lahugh
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 28acd1b7275694d38a52f14d2b2c32b79cc8183e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 7cc19c8def9e162c752efab776d0b6f5118bfde2
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036809"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320951"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>렌더링 VM 이미지에 미리 설치된 응용 프로그램
 
@@ -34,11 +34,11 @@ Azure Batch를 모든 렌더링 응용 프로그램에 사용할 수 있습니�
 ## <a name="applications-on-windows-server-2016-rendering-nodes"></a>Windows Server 2016의 응용 프로그램 렌더링 노드
 
 * Autodesk Maya I/O 2017 업데이트 5(버전 17.4.5459)
-* Autodesk Maya I/O 2018 업데이트 3(버전 18.3.0.7040)  
-* Autodesk 3ds Max I/O 2019 업데이트 1(버전 21.10.1314)
+* Autodesk Maya I/O 2018 업데이트 4(버전 18.4.0.7622)  
+* Autodesk 3ds Max I/O 2019 업데이트 1(버전 21.2.0.2219)
 * Autodesk 3ds Max I/O 2018 업데이트 4(버전 20.4.0.4254)
-* Maya용 Autodesk Arnold(Arnold 버전 5.0.1.1) MtoA-2.0.1.1-2017
-* Maya용 Autodesk Arnold(Arnold 버전 5.0.1.4) MtoA-2.0.2.3-2018
+* Autodesk Arnold for Maya 2017(Arnold 버전 5.2.0.1) MtoA-3.1.0.1-2017
+* Autodesk Arnold for Maya 2018(Arnold 버전 5.2.0.1) MtoA-3.1.0.1-2018
 * 3ds Max용 Autodesk Arnold(Arnold 버전 5.0.2.4) (버전 1.2.926)
 * Maya용 Chaos Group V-Ray(버전 3.52.03)
 * 3ds Max용 Chaos Group V-Ray(버전 3.60.02)

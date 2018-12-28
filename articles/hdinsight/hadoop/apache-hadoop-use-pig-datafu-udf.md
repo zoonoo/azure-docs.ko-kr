@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0c7e8b7ab10771c611f80d36fb1c9ed0cf3e6f1b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 982ed4533c34cd4a6613d289ef4712001977538f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632359"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436221"
 ---
 # <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>HDInsight에서 Apache Pig와 함께 Apache DataFu Pig 사용
 
@@ -29,21 +29,21 @@ DataFu Pig에 대한 자세한 내용은 [https://datafu.apache.org/](https://da
 
 * Azure HDInsight 클러스터(Linux 또는 Windows 기반)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-*  [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Pig 사용](hdinsight-use-pig.md)에 대한 기본적인 이해
 
 ## <a name="install-datafu-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에 DataFu 설치
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > DataFu는 Linux 기반 클러스터 버전 3.3 이상 및 Windows 기반 클러스터에 설치됩니다. 3.3 이전 버전의 Linux 기반 클러스터에 설치되지 않습니다.
 >
 > Windows 기반 또는 Linux 기반 클러스터 버전 3.3 이상 클러스터를 사용하는 경우 이 섹션을 건너뛸 수 있습니다.
 
 Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니다. 다음 단계를 사용하여 필요한 버전을 찾고 HDInsight 클러스터에 추가합니다.
 
-> [!WARNING]
+> [!WARNING]  
 > DataFu 버전에는 HDInsight에서 충족되지 않는 요구 사항이 있을 수 있습니다. 예를 들어, 이전 버전의 DataFu를 사용하는 경우, HDInsight에 포함된 것과 다른 버전의 Pig가 필요할 수 있습니다.
 
 ### <a name="find-a-version"></a>버전 찾기
@@ -62,30 +62,30 @@ Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니
 
 2. 다음 명령을 사용하여 wget 유틸리티를 통해 DataFu jar 파일을 다운로드합니다.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 명령의 링크를 이전에 복사한 URL으로 바꿉니다.
 
     ```
-    wget http://central.maven.org/maven2/org/apache/datafu/datafu-pig/1.4.0/datafu-pig-1.4.0.jar
+    wget https://central.maven.org/maven2/org/apache/datafu/datafu-pig/1.4.0/datafu-pig-1.4.0.jar
     ```
 
 3. 그런 다음 HDInsight 클러스터의 기본 저장소에 파일을 업로드합니다. 기본 저장소에 파일을 배치하면 클러스터의 모든 노드에 사용할 수 있습니다.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 파일 이름의 버전 번호를 다운로드한 버전으로 바꿉니다.
 
     ```
     hdfs dfs -put datafu-pig-1.4.0.jar /example/jars
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > 이전 명령은 이 디렉터리가 클러스터 저장소에 이미 존재하기 때문에 jar 파일을 `/example/jars`에 저장합니다. HDInsight 클러스터 저장소에 원하는 모든 위치를 사용할 수 있습니다.
 
 ## <a name="use-datafu-with-pig"></a>Pig와 함께 DataFu 사용
 
 이 섹션의 단계에서는 HDInsight에서 Pig 사용에 익숙하다고 가정합니다. HDInsight와 함께 Pig 사용에 대한 자세한 내용은 [Pig와 함께 HDInsight 사용](hdinsight-use-pig.md)을 참조하세요.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이전 섹션의 단계에 따라 DataFu를 수동으로 설치한 경우 사용하기 전에 등록해야 합니다.
 >
 > * 클러스터에서 Azure Storage를 사용하는 경우 `wasb://` 경로를 사용합니다. 예: `register wasb:///example/jars/datafu-pig-1.4.0.jar`
@@ -140,4 +140,4 @@ DUMP mask;
 DataFu 또는 Pig에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Apache DataFu Pig Getting Started](https://datafu.apache.org/docs/datafu/getting-started.html)(Apache DataFu Pig 시작).
-* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Pig 사용](hdinsight-use-pig.md)

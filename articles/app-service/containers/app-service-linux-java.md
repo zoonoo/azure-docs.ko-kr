@@ -1,6 +1,6 @@
 ---
-title: Linux 기반의 Azure App Service에 대한 Java 언어 지원 | Microsoft Docs
-description: Linux 기반의 Azure App Service를 사용하여 Java 앱을 배포하는 방법을 안내하는 개발자 가이드입니다.
+title: Linux 기반의 App Service에 대한 Java 개발자 가이드 - Azure | Microsoft Docs
+description: Linux의 Azure App Service에서 실행되는 Java 앱을 구성하는 방법을 알아봅니다.
 keywords: azure app service, 웹앱, linux, oss, java
 services: app-service
 author: rloutlaw
@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 12/10/2018
 ms.author: routlaw
-ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: 6a9f3fcb372606e7f608b5137fb1ed15376d72d9
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497342"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407340"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java 개발자 가이드
 
@@ -53,7 +54,7 @@ az webapp log config --name ${WEBAPP_NAME} \
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-자세한 내용은 [Azure CLI를 사용하여 로그 스트리밍](/azure/app-service/web-sites-enable-diagnostic-log#streaming-with-azure-command-line-interface)을 참조하세요.
+자세한 내용은 [Azure CLI를 사용하여 로그 스트리밍](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli)을 참조하세요.
 
 ### <a name="app-logging"></a>앱 로깅
 
@@ -134,7 +135,7 @@ Linux용 App Service에서 실행되는 Java 응용 프로그램의 [보안 모�
 
 ### <a name="authenticate-users"></a>사용자 인증
 
-Azure Portal에서 **인증 및 권한 부여** 옵션을 사용하여 앱 인증을 설정합니다. 여기서 Azure Active Directory 또는 Facebook, Google, GitHub 등의 소셜 로그인을 사용하여 인증을 사용하도록 설정할 수 있습니다. Azure Portal 구성은 단일 인증 공급자를 구성할 때만 작동합니다.  자세한 내용은 [Azure Active Directory 로그인을 사용하도록 App Service 앱 구성](/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) 및 기타 ID 공급자 관련 문서를 참조하세요.
+Azure Portal에서 **인증 및 권한 부여** 옵션을 사용하여 앱 인증을 설정합니다. 여기서 Azure Active Directory 또는 Facebook, Google, GitHub 등의 소셜 로그인을 사용하여 인증을 사용하도록 설정할 수 있습니다. Azure Portal 구성은 단일 인증 공급자를 구성할 때만 작동합니다.  자세한 내용은 [Azure Active Directory 로그인을 사용하도록 App Service 앱 구성](/azure/app-service/configure-authentication-provider-aad) 및 기타 ID 공급자 관련 문서를 참조하세요.
 
 여러 로그인 공급자를 사용하도록 설정해야 하는 경우 [App Service 인증 사용자 지정](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) 문서의 지침을 따르세요.
 
@@ -151,36 +152,47 @@ Azure Portal에서 **인증 및 권한 부여** 옵션을 사용하여 앱 인�
 >[!NOTE]
 > 응용 프로그램에서 Spring Framework 또는 Spring Boot를 사용하는 경우 Spring Data JPA에 대한 데이터베이스 연결 정보를 [응용 프로그램 속성 파일]에 환경 변수로 설정할 수 있습니다. 그런 다음, Azure Portal 또는 CLI에서 [앱 설정](/azure/app-service/web-sites-configure#app-settings)을 사용하여 응용 프로그램에 대한 이러한 값을 정의합니다.
 
-이 섹션의 예제 구성 코드 조각은 MySQL 데이터베이스를 사용합니다. 추가 정보는 [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html), [SQL Server JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) 및 [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html)에 대한 구성 문서를 참조하세요.
+이러한 지침은 데이터베이스 연결에 적용됩니다. 선택한 데이터베이스의 드라이버 클래스 이름 및 JAR 파일로 자리 표시자를 채워야 합니다. 공통 데이터베이스에 대한 클래스 이름 및 드라이버 다운로드가 포함된 표가 제공됩니다.
 
-관리되는 연결을 사용하여 JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 통해 데이터베이스에 연결하도록 Tomcat을 구성하려면 먼저 시작 시 Tomcat이 읽은 CATALINA_OPTS 환경 변수를 사용자 지정합니다. App Service Maven 플러그 인에서 앱 설정을 통해 이러한 값을 설정합니다.
+| 데이터베이스   | 드라이버 클래스 이름                             | JDBC 드라이버                                                                      |
+|------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
+| PostgreSQL | `org.postgresql.Drvier`                        | [다운로드](https://jdbc.postgresql.org/download.html)                                    |
+| MySQL      | `com.mysql.jdbc.Driver`                        | [다운로드](https://dev.mysql.com/downloads/connector/j/)(“플랫폼 독립적” 선택) |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [다운로드](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+
+JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하도록 Tomcat을 구성하려면 먼저 시작 시 Tomcat에서 읽은 `CATALINA_OPTS` 환경 변수를 사용자 지정합니다. [App Service Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)에서 앱 설정을 통해 이러한 값을 설정합니다.
 
 ```xml
 <appSettings> 
     <property> 
         <name>CATALINA_OPTS</name> 
-        <value>"$CATALINA_OPTS -Dmysqluser=${mysqluser} -Dmysqlpass=${mysqlpass} -DmysqlURL=${mysqlURL}"</value> 
+        <value>"$CATALINA_OPTS -Ddbuser=${DBUSER} -Ddbpassword=${DBPASSWORD} -DconnURL=${CONNURL}"</value> 
     </property> 
 </appSettings> 
 ```
 
-또는 Azure Portal에서 상응하는 App Service 설정을 사용해도 됩니다.
+또는 Azure Portal의 “애플리케이션 설정” 블레이드에서 환경 변수를 설정합니다.
 
-다음으로, 데이터 원본을 한 응용 프로그램에만 제공할 것인지 또는 App Service 계획에서 실행 중인 모든 응용 프로그램에 제공할 것인지 결정합니다.
+>[!NOTE]
+> Azure Database for Postgres를 사용하는 경우 JDBC 연결 문자열에서 `ssl=true`를 `sslmode=require`로 바꿉니다.
 
-응용 프로그램 수준 데이터 원본의 경우: 
+다음으로, 데이터 원본을 한 애플리케이션에만 제공할 것인지 또는 Tomcat 서블릿에서 실행 중인 모든 애플리케이션에 제공할 것인지 결정합니다.
 
-1. `context.xml` 파일이 없으면 웹 응용 프로그램에 추가하고, 프로젝트가 빌드될 때 WAR 파일의 `META-INF` 디렉터리에 추가합니다.
+#### <a name="for-application-level-data-sources"></a>응용 프로그램 수준 데이터 원본의 경우: 
 
-2. 이 파일에서는 데이터 원본을 JNDI 주소에 연결하는 `Context` 경로 항목을 추가합니다.
+1. 프로젝트의 `META-INF/` 디렉터리에 `context.xml` 파일을 만듭니다. `META-INF/` 디렉터리가 없으면 디렉터리를 만듭니다.
+
+2. `context.xml`에서는 데이터 원본을 JNDI 주소에 연결하는 `Context` 요소를 추가합니다. `driverClassName` 자리 표시자를 위 테이블에 있는 드라이버의 클래스 이름으로 바꿉니다.
 
     ```xml
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
     ```
@@ -189,38 +201,50 @@ Azure Portal에서 **인증 및 권한 부여** 옵션을 사용하여 앱 인�
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-공유 서버 수준 리소스의 경우:
+#### <a name="for-shared-server-level-resources"></a>공유 서버 수준 리소스의 경우:
 
 1. 아직 구성이 있는 경우 SSH를 사용하여 `/usr/local/tomcat/conf`의 내용을 App Service Linux 인스턴스의 `/home/tomcat/conf`에 복사합니다.
+    ```
+    mkdir -p /home/tomcat
+    cp -a /usr/local/tomcat/conf /home/tomcat/conf
+    ```
 
-2. 컨텍스트를 `server.xml`에 추가
+2. `server.xml`에서 `<Server>` 요소 내에 컨텍스트 요소를 추가합니다.
 
     ```xml
+    <Server>
+    ...
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
+    ...
+    </Server>
     ```
 
 3. 응용 프로그램의 데이터 원본을 사용하도록 응용 프로그램의 `web.xml`을 업데이트합니다.
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-4. JDBC 드라이버 파일을 Tomcat classloader에 사용할 수 있도록 `/home/tomcat/lib` 디렉터리에 배치합니다. 이러한 파일을 App Service 인스턴스에 업로드하려면 다음 단계를 수행합니다.  
+#### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>마지막으로 Tomcat 클래스 경로에 드라이버 JAR을 배치하고 App Service를 다시 시작합니다. 
+
+1. JDBC 드라이버 파일을 Tomcat classloader에 사용할 수 있도록 `/home/tomcat/lib` 디렉터리에 배치합니다. (아직 존재하지 않는 경우 이 디렉터리를 만듭니다.) 이러한 파일을 App Service 인스턴스에 업로드하려면 다음 단계를 수행합니다.  
     1. Azure App Service 웹앱 확장을 설치합니다.
 
       ```azurecli-interactive
@@ -235,7 +259,9 @@ Azure Portal에서 **인증 및 권한 부여** 옵션을 사용하여 앱 인�
 
     3. SFTP 클라이언트를 사용하여 로컬 터널링 포트에 연결하고 파일을 `/home/tomcat/lib` 폴더에 업로드합니다.
 
-5. App Service Linux 응용 프로그램을 다시 시작합니다. Tomcat이 `CATALINA_HOME`을 `/home/tomcat/conf`으로 다시 설정하고, 업데이트된 구성 및 클래스를 사용할 것입니다.
+    또는 FTP 클라이언트를 사용하여 JDBC 드라이버를 업로드할 수 있습니다. [FTP 자격 증명을 가져오기 위한 이러한 지침](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials)을 따릅니다.
+
+2. 서버 수준 데이터 원본을 만든 경우 App Service Linux 애플리케이션을 다시 시작합니다. Tomcat이 `CATALINA_HOME`을 `/home/tomcat/conf`로 다시 설정하고 업데이트된 구성을 사용합니다.
 
 ## <a name="docker-containers"></a>Docker 컨테이너
 
@@ -245,7 +271,7 @@ Azure Portal에서 **인증 및 권한 부여** 옵션을 사용하여 앱 인�
 
 Linux용 App Service는 Java 웹 응용 프로그램의 관리되는 호스팅에 다음과 같은 두 가지 런타임을 지원합니다.
 
-- 웹 보관(WAR) 파일로 패키징된 응용 프로그램을 실행하기 위한 [Tomcat 서블릿 컨테이너](http://tomcat.apache.org/). 지원되는 버전은 8.5 및 9.0입니다.
+- 웹 보관(WAR) 파일로 패키징된 응용 프로그램을 실행하기 위한 [Tomcat 서블릿 컨테이너](https://tomcat.apache.org/). 지원되는 버전은 8.5 및 9.0입니다.
 - Java 보관(JAR) 파일로 패키징된 응용 프로그램을 실행하기 위한 Java SE 런타임 환경. 유일하게 지원되는 주 버전은 Java 8입니다.
 
 ## <a name="java-runtime-statement-of-support"></a>Java 런타임 문 지원 

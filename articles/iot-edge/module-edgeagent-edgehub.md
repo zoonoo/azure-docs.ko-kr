@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge 에이전트 및 Edge 허브 참조 | Microsoft Docs
+title: EdgeAgent 및 EdgeHub의 원하는 속성 참조 - Azure IoT Edge | Microsoft Docs
 description: Edge 에이전트 및 Edge 허브 모듈 트윈스에 대한 특정 속성 및 해당 값 검토
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 01e1942b12de126aa34130f5a4b77dd0fb958aa6
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: a0834e5886a1a088486109f967baf357e375ad05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568923"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100285"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Edge 에이전트 및 Edge 허브 모듈 트윈스의 속성
 
@@ -70,7 +71,7 @@ Edge 에이전트 reported 속성에는 다음 세 가지 주요 정보가 포�
 | 자산 | 설명 |
 | -------- | ----------- |
 | lastDesiredVersion | 이 정수는 Edge 에이전트에서 처리하는 desired 속성의 마지막 버전을 나타냅니다. |
-| lastDesiredStatus.code | Edge 에이전트에서 마지막으로 표시한 desired 속성을 나타내는 상태 코드입니다. 허용되는 값: `200` 성공, `400` 잘못된 구성, `412` 잘못된 스키마 버전, `417` 비어 있는 desired 속성, `500` 실패 |
+| lastDesiredStatus.code | Edge 에이전트에서 마지막으로 표시한 desired 속성을 나타내는 상태 코드입니다. 허용되는 값은 다음과 같습니다. `200` 성공, `400` 잘못된 구성, `412` 잘못된 스키마 버전, `417` 비어 있는 desired 속성, `500` 실패 |
 | lastDesiredStatus.description | 상태에 대한 텍스트 설명입니다. |
 | deviceHealth | 모든 모듈의 런타임 상태가 `running` 또는 `stopped`이면 `healthy`, 그렇지 않으면 `unhealthy`입니다 |
 | configurationHealth.{deploymentId}.health | {deploymentId} 배포에서 설정한 모든 모듈의 런타임 상태가 `running` 또는 `stopped`이면 `healthy`이고, 그렇지 않으면 `unhealthy`입니다. |
@@ -108,7 +109,7 @@ Edge 허브에 대한 모듈 쌍은 `$edgeHub`라고 하며, 디바이스에서 
 | 자산 | 설명 |
 | -------- | ----------- |
 | lastDesiredVersion | 이 정수는 Edge 허브에서 처리하는 desired 속성의 마지막 버전을 나타냅니다. |
-| lastDesiredStatus.code | Edge 허브에서 마지막으로 표시한 desired 속성을 나타내는 상태 코드입니다. 허용되는 값: `200` 성공, `400` 잘못된 구성, `500` 실패 |
+| lastDesiredStatus.code | Edge 허브에서 마지막으로 표시한 desired 속성을 나타내는 상태 코드입니다. 허용되는 값은 다음과 같습니다. `200` 성공, `400` 잘못된 구성, `500` 실패 |
 | lastDesiredStatus.description | 상태에 대한 텍스트 설명입니다. |
 | clients.{device or moduleId}.status | 이 디바이스 또는 모듈의 연결 상태입니다. 가능한 값 {“connected” \| “disconnected”}. 모듈 ID만 연결이 끊긴 상태가 될 수 있습니다. 연결된 경우에만 Edge 허브에 연결된 다운스트림 디바이스가 표시됩니다. |
 | clients.{device or moduleId}.lastConnectTime | 디바이스 또는 모듈이 마지막으로 연결된 시간입니다. |

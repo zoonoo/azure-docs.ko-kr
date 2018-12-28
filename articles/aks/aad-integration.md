@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0dc0421baf1e5cb19be925072b5fffb989e23a3b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 9bdd3060219907f95454bfc9248572f796afd72e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979253"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437609"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -149,7 +149,7 @@ Azure Active Directory 계정을 AKS 클러스터와 함께 사용하려면 역�
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-다음으로 다음 매니페스트를 사용하여 Azure AD 계정에 대한 ClusterRoleBinding을 만듭니다. 사용자 이름을 Azure AD 테넌트의 이름으로 업데이트합니다. 이 예제에서는 계정에 클러스터의 모든 네임스페이스에 대한 모든 권한을 제공합니다.
+다음으로 다음 매니페스트를 사용하여 Azure AD 계정에 대한 ClusterRoleBinding을 만듭니다. 이 예제에서는 계정에 클러스터의 모든 네임스페이스에 대한 모든 권한을 제공합니다. *rbac-aad-user.yaml*과 같은 파일을 만들고 다음 내용을 붙여 넣습니다. 사용자 이름을 Azure AD 테넌트의 이름으로 업데이트합니다.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -166,7 +166,13 @@ subjects:
   name: "user@contoso.com"
 ```
 
-Azure AD 그룹의 모든 구성원에 대해 역할 바인딩을 만들 수도 있습니다. 다음 예제에서와 같이 Azure AD 그룹은 그룹 개체 ID를 사용하여 지정됩니다.
+다음 예제와 같이 [kubectl apply][kubectl-apply] 명령을 사용하여 바인딩을 적용합니다.
+
+```console
+kubectl apply -f rbac-aad-user.yaml
+```
+
+Azure AD 그룹의 모든 구성원에 대해 역할 바인딩을 만들 수도 있습니다. 다음 예제에서와 같이 Azure AD 그룹은 그룹 개체 ID를 사용하여 지정됩니다. *rbac-aad-group.yaml*과 같은 파일을 만들고 다음 내용을 붙여 넣습니다. Azure AD 테넌트의 그룹 개체 ID로 업데이트합니다.
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -181,6 +187,12 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
    kind: Group
    name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
+```
+
+다음 예제와 같이 [kubectl apply][kubectl-apply] 명령을 사용하여 바인딩을 적용합니다.
+
+```console
+kubectl apply -f rbac-aad-group.yaml
 ```
 
 RBAC를 사용하여 Kubernetes 클러스터 보호에 대한 자세한 내용은 [RBAC 권한 부여 사용][rbac-authorization]을 참조하세요.
@@ -221,6 +233,7 @@ error: You must be logged in to the server (Unauthorized)
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [rbac-authorization]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

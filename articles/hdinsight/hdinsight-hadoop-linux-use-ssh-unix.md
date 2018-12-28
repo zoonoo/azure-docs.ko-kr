@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5a3fccba6465e6043db3f95ffdb65f1a8d8a7009
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: bcd550ac8f4b75002648f2e4737a4683349aa45f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279361"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384635"
 ---
-# <a name="connect-to-hdinsight-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Hadoop)에 연결
+# <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Apache Hadoop)에 연결
 
-[SSH(보안 셸)](https://en.wikipedia.org/wiki/Secure_Shell)을 사용하여 Azure HDInsight의 Hadoop에 안전하게 연결하는 방법에 대해 알아봅니다. 
+[SSH(Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell)를 사용하여 Azure HDInsight의 Apache Hadoop에 안전하게 연결하는 방법에 대해 알아봅니다. 
 
 HDInsight는 Hadoop 클러스터 내에서 노드의 운영 체제로 Linux(Ubuntu)를 사용할 수 있습니다. 다음 표에서는 SSH 클라이언트를 사용하여 Linux 기반 HDInsight에 연결할 때 필요한 주소와 포트 정보를 보여 줍니다.
 
@@ -30,7 +30,7 @@ HDInsight는 Hadoop 클러스터 내에서 노드의 운영 체제로 Linux(Ubun
 | `<clustername>-ssh.azurehdinsight.net` | 22 | 기본 헤드 노드 |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | 보조 헤드 노드 |
 
-> [!NOTE]
+> [!NOTE]  
 > `<edgenodename>`을 에지 노드의 이름으로 바꿉니다.
 >
 > `<clustername>`을 클러스터의 이름으로 바꿉니다.
@@ -39,7 +39,7 @@ HDInsight는 Hadoop 클러스터 내에서 노드의 운영 체제로 Linux(Ubun
 >
 > 에지 노드를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 에지 노드 사용](hdinsight-apps-use-edge-node.md#access-an-edge-node)을 참조하세요.
 
-> [!TIP]
+> [!TIP]  
 > HDInsight에 처음 연결할 때 호스트의 신뢰성을 설정할 수 없다는 경고가 SSH 클라이언트에 표시될 수도 있습니다. 메시지가 표시되면 ‘예’를 선택하여 SSH 클라이언트의 신뢰할 수 있는 서버 목록에 호스트를 추가합니다.
 >
 > 이전에 같은 이름의 서버에 연결한 경우 저장된 호스트 키 서버의 호스트 키와 일치하지 않는다는 경고가 나타날 수도 있습니다. 서버 이름에 대한 기존 항목을 제거하는 방법에 대해 SSH 클라이언트에 대한 설명서를 참조하세요.
@@ -52,14 +52,14 @@ Microsoft Windows는 기본적으로 SSH 클라이언트를 설치하지 않습�
 
 * OpenSSH 클라이언트(베타): Fall Creators Update에서 __설정__ > __앱 및 기능__ > __선택적 기능 관리__ > __기능 추가__로 이동하여 __OpenSSH 클라이언트__를 선택합니다. 
 
-    > [!NOTE]
+    > [!NOTE]  
     > 이 기능을 사용하도록 설정한 후 PowerShell에서 `ssh` 및 `scp` 명령을 사용할 수 없는 경우 로그아웃했다가 다시 로그인합니다.
 
-* [Windows 10의 Ubuntu에 있는 Bash](https://msdn.microsoft.com/commandline/wsl/about)(영문): `ssh` 및 `scp` 명령은 Windows 명령줄에서 Bash를 통해 사용할 수 있습니다.
+* [Windows 10의 Ubuntu에 있는 Bash](https://msdn.microsoft.com/commandline/wsl/about): `ssh` 및 `scp` 명령은 Windows 명령줄에서 Bash를 통해 사용할 수 있습니다.
 
 * [OpenSSH 클라이언트(베타)](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/): Windows 10 Fall Creators Update에 도입된 선택적 기능입니다.
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md): 브라우저에 Bash 환경을 제공하고 `ssh`, `scp` 및 기타 일반적인 Linux 명령을 제공합니다.
+* [Azure Cloud Shell](../cloud-shell/quickstart.md): Cloud Shell은 브라우저에 Bash 환경을 제공하고 `ssh`, `scp` 및 기타 일반적인 Linux 명령을 제공합니다.
 
 * [Git(https://git-scm.com/)](https://git-scm.com/): `ssh` 및 `scp` 명령은 GitBash 명령줄을 통해 사용할 수 있습니다.
 
@@ -77,8 +77,7 @@ SSH 키는 [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_crypt
 
 * 다른 서버에 사용할 수 있는 __여러 개인 키__가 있는 경우 [ssh-agent(https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) 같은 유틸리티를 고려해 볼 수 있습니다. `ssh-agent` 유틸리티를 사용하여 SSH 세션을 설정할 때 사용할 키를 자동으로 선택할 수 있습니다.
 
-> [!IMPORTANT]
->
+> [!IMPORTANT]  
 > 암호를 사용하여 개인 키를 보호하는 경우 키를 사용할 때 암호를 입력해야 합니다. `ssh-agent`와 같은 유틸리티는 편의상 암호를 캐시할 수 있습니다.
 
 ### <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
@@ -93,7 +92,7 @@ SSH 키는 [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_crypt
 
 * __개인 키__는 HDInsight 클러스터에 클라이언트를 인증하는 데 사용됩니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 암호를 사용하여 키를 보호할 수 있습니다. 암호는 사실상 개인 키의 암호입니다. 누군가 사용자의 개인 키를 얻게 되더라도 키를 사용하기 위해 암호가 있어야 합니다.
 
 ### <a name="create-hdinsight-using-the-public-key"></a>공용 키를 사용하여 HDInsight 만들기
@@ -109,10 +108,10 @@ SSH 키는 [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_crypt
 
 SSH 계정은 암호를 사용하여 보호될 수 있습니다. SSH를 사용하여 HDInsight에 연결할 경우 암호를 입력하라는 메시지가 표시됩니다.
 
-> [!WARNING]
+> [!WARNING]  
 > Microsoft는 SSH에 암호 인증을 사용하는 것을 권장하지 않습니다. 암호는 추측할 수 있고 무차별 암호 대입 공격에 취약합니다. 대신 [인증하기 위한 SSH 키](#sshkey)를 사용하는 것이 좋습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > SSH 계정 암호는 HDInsight 클러스터가 만들어지고 70일 후에 만료됩니다. 암호가 만료되면 [HDInsight 관리 ](hdinsight-administer-use-portal-linux.md#change-passwords) 문서의 정보를 사용하여 암호를 변경할 수 있습니다.
 
 ### <a name="create-hdinsight-using-a-password"></a>암호를 사용하여 HDInsight 만들기
@@ -128,7 +127,7 @@ SSH 계정은 암호를 사용하여 보호될 수 있습니다. SSH를 사용�
 
 SSH 사용자 계정 암호를 변경하는 방법에 대한 내용은 [HDInsight 관리](hdinsight-administer-use-portal-linux.md#change-passwords) 문서의 __암호 변경__ 섹션을 참조하세요.
 
-## <a id="domainjoined"></a>인증: 도메인에 조인된 HDInsight
+## <a id="domainjoined"></a>인증: 도메인에 가입된 HDInsight
 
 __도메인에 조인된 HDInsight 클러스터__를 사용하는 경우 SSH 로컬 사용자와 연결한 후에 `kinit` 명령을 사용해야 합니다. 이 명령은 도메인 사용자 및 암호를 묻는 메시지를 표시하고 클러스터와 연결된 Azure Active Directory 도메인을 사용하여 세션을 인증합니다.
 
@@ -168,12 +167,12 @@ sudo service sshd restart
     ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.net
     ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이전 예에서는 암호 인증을 사용하고 있고 인증서 인증이 자동으로 발생하고 있다고 가정합니다. 인증에 SSH 키 쌍을 사용하고 인증서가 자동으로 사용되지 않을 경우 `-i` 매개 변수를 사용하여 개인 키를 지정합니다. 예: `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`
 
 연결되면 프롬프트가 변경되어 SSH 사용자 이름과 사용자가 연결된 노드를 나타냅니다. 예를 들어, `sshuser`로 기본 헤드 노드에 연결된 경우 프롬프트는 `sshuser@hn0-clustername:~$`입니다.
 
-### <a name="connect-to-worker-and-zookeeper-nodes"></a>작업자 및 Zookeeper 노드에 연결
+### <a name="connect-to-worker-and-apache-zookeeper-nodes"></a>작업자 및 Apache Zookeeper 노드에 연결
 
 작업자 노드와 Zookeeper 노드는 인터넷에서 직접 액세스할 수 없으며, 클러스터 헤드 노드 또는 에지 노드에서 액세스할 수 있습니다. 다음은 다른 노드에 연결하는 일반적인 단계입니다.
 
@@ -185,20 +184,20 @@ sudo service sshd restart
 
         ssh sshuser@wn0-myhdi
 
-    노드 이름 목록을 검색하려면 [Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서를 참조하세요.
+    노드 이름 목록을 검색하려면 [Apache Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서를 참조하세요.
 
 __암호__를 사용하여 SSH 계정을 보호하는 경우 연결할 때 해당 암호를 입력합니다.
 
 __SSH 키__를 사용하여 SSH 계정을 보호하는 경우 SSH 전달이 클라이언트에서 활성화되어 있는지 확인합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 클러스터에서 모든 노드에 직접 액세스하는 다른 방법은 Azure Virtual Network에 HDInsight를 설치하는 것입니다. 그런 다음 동일한 가상 네트워크에 원격 컴퓨터를 조인하고 클러스터에 있는 모든 노드에 직접 액세스할 수 있습니다.
 >
 > 자세한 내용은 [HDInsight와 함께 가상 네트워크 사용](hdinsight-extend-hadoop-virtual-network.md)을 참조하십시오.
 
 ### <a name="configure-ssh-agent-forwarding"></a>SSH 에이전트 전달 구성
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 다음 단계에서는 Linux 또는 UNIX 기반 시스템이며 Windows 10의 Bash를 통해 작업한다고 가정합니다. 이 단계가 시스템에서 작동하지 않는다면 해당 SSH 클라이언트에 대한 설명서를 참조해야 할 수 있습니다.
 
 1. 텍스트 편집기를 사용하여 `~/.ssh/config`를 엽니다. 이 파일이 존재하지 않으면 명령줄에 `touch ~/.ssh/config`를 입력하여 만들 수 있습니다.
@@ -244,7 +243,7 @@ scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
 scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > `scp`는 클러스터 내 개별 노드의 파일 시스템에만 액세스할 수 있으며 해당 클러스터에 대한 HDFS 호환 저장소의 데이터 액세스에는 사용할 수 없습니다.
 >
 > SSH 세션에서 사용할 리소스를 업로드해야 할 때 `scp`를 사용합니다. 예를 들어 Python 스크립트를 업로드한 다음 SSH 세션에서 스크립트를 실행합니다.

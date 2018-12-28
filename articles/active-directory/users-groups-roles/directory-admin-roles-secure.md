@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821092"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387083"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -58,21 +58,21 @@ does the article really start here?-->
 
 ## <a name="develop-a-roadmap"></a>로드맵 개발 
 
-사이버 공격자로부터 권한 있는 액세스를 보호하기 위한 로드맵을 개발하고 따르는 것이 좋습니다. 언제든지 조직 내의 기존 기능과 특정 요구 사항에 맞게 로드맵을 조정할 수 있습니다. 로드맵의 각 단계에서는 악의적 사용자가 온-프레미스, 클라우드 및 하이브리드 자산에 대한 권한 있는 액세스를 공격하는 데 드는 비용과 어려움을 제시해야 합니다. Microsoft는 다음 네 개의 로드맵 단계를 권장합니다. 이 권장 로드맵은 사이버 공격 인시던트 및 대응 구현에 대한 Microsoft의 경험을 기반으로 하여 가장 효과적이고 빠른 구현을 먼저 계획합니다. 이 로드맵에 대한 타임라인은 근사값으로 표시됩니다.
+사이버 공격자로부터 권한 있는 액세스를 보호하기 위한 로드맵을 개발하고 따르는 것이 좋습니다. 언제든지 조직 내의 기존 기능과 특정 요구 사항에 맞게 로드맵을 조정할 수 있습니다. 로드맵의 각 단계에서는 악의적 사용자가 온-프레미스, 클라우드 및 하이브리드 자산에 대한 권한 있는 액세스를 공격하는 데 드는 비용과 어려움을 제시해야 합니다. Microsoft는 다음 네 개의 로드맵 스테이지를 권장합니다. 이 권장 로드맵은 사이버 공격 인시던트 및 대응 구현에 대한 Microsoft의 경험을 기반으로 하여 가장 효과적이고 빠른 구현을 먼저 계획합니다. 이 로드맵에 대한 타임라인은 근사값으로 표시됩니다.
 
 ![타임라인이 있는 로드맵 단계](./media/directory-admin-roles-secure/roadmap-timeline.png)
 
-* 1단계(24~48시간): 즉시 수행하도록 권장되는 중요한 항목
+* 스테이지 1(24~48시간): 즉시 수행하도록 권장되는 중요한 항목
 
-* 2단계(2~4주): 가장 자주 사용되는 공격 기법에 대한 완화
+* 스테이지 2(2~4주): 가장 자주 사용되는 공격 기법에 대한 완화
 
-* 3단계(1~3개월): 가시성 빌드 및 관리자 활동에 대한 모든 권한 빌드
+* 스테이지 3(1~3개월): 가시성 빌드 및 관리자 활동에 대한 모든 권한 빌드
 
-* 4단계(6개월 이상): 보안 플랫폼 강화를 위한 방어 체계 구축 계속
+* 스테이지 4(6개월 이상): 보안 플랫폼 강화를 위한 방어 체계 구축 계속
 
 이 로드맵 프레임워크는 이미 배포한 Microsoft 기술을 최대한 사용하도록 설계되었습니다. 또한 주요 현재 및 향후 보안 기술을 활용하고, 이미 배포했거나 배포하려고 고려 중인 다른 공급업체의 보안 도구를 통합할 수 있습니다. 
 
-## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>1단계: 즉시 수행하도록 권장되는 중요한 항목
+## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>스테이지 1: 즉시 수행하도록 권장되는 중요한 항목
 
 ![1단계](./media/directory-admin-roles-secure/stage-one.png)
 
@@ -121,9 +121,9 @@ Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>다단계 인증 설정 및 권한이 높고 페더레이션되지 않은 다른 모든 단일 사용자 관리자 계정 등록 
 
-로그인 시 Azure AD 관리자 역할(전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자) 중 하나 이상에 영구적으로 할당된 모든 개별 사용자에 대해 Azure MFA(Multi-Factor Authentication)를 요구합니다. 이 가이드를 사용하여 [관리자 계정에 대해 MFA(Multi-Factor Authentication)](../authentication/howto-mfa-userstates.md)를 사용하도록 설정하고, 해당 사용자가 모두 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 등록되었는지 확인합니다. 자세한 내용은 [Office 365에서 데이터 및 서비스에 대한 액세스 보호](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) 가이드의 2단계 및 3단계에서 찾을 수 있습니다. 
+로그인 시 Azure AD 관리자 역할인 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자 중 하나 이상에 영구적으로 할당된 모든 개별 사용자에게 Azure MFA(Multi-Factor Authentication)를 요구합니다. 이 가이드를 사용하여 [관리자 계정에 대해 MFA(Multi-Factor Authentication)](../authentication/howto-mfa-userstates.md)를 사용하도록 설정하고, 해당 사용자가 모두 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 등록되었는지 확인합니다. 자세한 내용은 [Office 365에서 데이터 및 서비스에 대한 액세스 보호](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) 가이드의 2단계 및 3단계에서 찾을 수 있습니다. 
 
-## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>2단계: 가장 자주 사용되는 공격 기법에 대한 완화
+## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>스테이지 2: 가장 자주 사용되는 공격 기법에 대한 완화
 
 ![2단계](./media/directory-admin-roles-secure/stage-two.png)
 
@@ -196,7 +196,7 @@ Azure AD Identity Protection은 조직의 ID에 영향을 주는 잠재적 취�
 
 #### <a name="secure-on-premises-privileged-administrative-accounts-if-not-already-done"></a>아직 보안이 설정되지 않은 권한 있는 온-프레미스 관리 계정에 대한 보안
 
-Azure Active Directory 테넌트가 온-프레미스 Active Directory와 동기화되는 경우 [권한 있는 보안 액세스 로드맵](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): 1단계의 지침을 따릅니다. 여기에는 온-프레미스 관리 작업을 수행해야 하는 사용자에 대한 별도의 관리자 계정 만들기, Active Directory 관리자에 대한 액세스 권한 있는 워크스테이션 배포 및 워크스테이션 및 서버에 대한 고유 로컬 관리자 암호 만들기가 포함됩니다.
+Azure Active Directory 테넌트가 온-프레미스 Active Directory와 동기화되는 경우 [권한 있는 보안 액세스 로드맵](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): 스테이지 1의 지침을 따릅니다. 여기에는 온-프레미스 관리 작업을 수행해야 하는 사용자에 대한 별도의 관리자 계정 만들기, Active Directory 관리자에 대한 액세스 권한 있는 워크스테이션 배포 및 워크스테이션 및 서버에 대한 고유 로컬 관리자 암호 만들기가 포함됩니다.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Azure에 대한 액세스를 관리하는 조직을 위한 추가 단계
 
@@ -210,7 +210,7 @@ Xbox, Live 및 Outlook과 같은 다른 프로그램의 Microsoft 계정은 조�
 
 #### <a name="monitor-azure-activity"></a>Azure 활동 모니터링
 
-Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합니다. 즉 누가 어떤 리소스를 생성, 업데이트, 삭제했는지와 언제 이러한 이벤트가 발생했는지에 대한 정보를 제공합니다. 자세한 내용은 [Azure 구독에서 중요한 작업에 대한 알림 감사 및 수신](../../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md)을 참조하세요.
+Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합니다. 즉 누가 어떤 리소스를 생성, 업데이트, 삭제했는지와 언제 이러한 이벤트가 발생했는지에 대한 정보를 제공합니다. 자세한 내용은 [Azure 구독에서 중요한 작업에 대한 알림 감사 및 수신](../../azure-monitor/platform/quick-audit-notify-action-subscription.md)을 참조하세요.
 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Azure AD를 통해 다른 클라우드 앱에 대한 액세스를 관리하는 조직을 위한 추가 단계 
@@ -220,7 +220,7 @@ Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합�
 온-프레미스 및 클라우드 호스팅 응용 프로그램에 대한 조건부 액세스 정책을 준비합니다. 사용자 작업 공간 가입 디바이스가 있는 경우 [Azure Active Directory 디바이스 등록을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-device-registration-on-premises-setup.md)에서 자세한 정보를 얻을 수 있습니다.
 
 
-## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>3단계: 가시성 빌드 및 관리자 활동에 대한 완전한 제어
+## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>스테이지 3: 가시성 빌드 및 관리자 활동에 대한 완전한 제어
 
 ![3단계](./media/directory-admin-roles-secure/stage-three.png)
 
@@ -247,7 +247,7 @@ Azure MFA 또는 Windows Hello와 같이 고위 경영진, 고위 관리자, 중
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>인시던트 처리에 대한 NIST 권장 사항 검토 
 
-NIST(미국 표준 기술 연구소)에서는 인시던트 처리 지침, 특히 인시던트 관련 데이터를 분석하고 각 인시던트에 대한 적절한 대응을 결정하기 위한 지침을 제공합니다. 자세한 내용은 [NIST 컴퓨터 보안 인시던트 처리 지침(SP 800-61, 수정 버전 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)을 참조하세요.
+NIST(미국 표준 기술 연구소)에서는 인시던트 처리 지침, 특히 인시던트 관련 데이터를 분석하고 각 인시던트에 대한 적절한 대응을 결정하기 위한 지침을 제공합니다. 자세한 내용은 [NIST 컴퓨터 보안 인시던트 처리 지침(SP 800-61, 수정 버전 2)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)을 참조하세요.
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>추가 관리 역할에 JIT에 대한 PIM(Privileged Identity Management) 구현
 
@@ -275,7 +275,7 @@ Azure AD Privileged Identity Management를 이미 사용하고 있는 경우 필
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>권한 있는 온-프레미스 관리 계정 보안 유지
 
-Azure Active Directory 테넌트가 온-프레미스 Active Directory에 연결되는 경우 [권한 있는 보안 액세스 로드맵](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): 2단계의 지침을 따릅니다. 여기에는 모든 관리자에 대한 액세스 권한 있는 워크스테이션 배포, MFA 요구, DC 유지 관리를 위한 Just Inough Admin(충분한 관리) 사용, 도메인 공격 영역 감소, 공격 탐지를 위한 ATA 배포가 포함됩니다.
+Azure Active Directory 테넌트가 온-프레미스 Active Directory에 연결되는 경우 [권한 있는 보안 액세스 로드맵](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): 스테이지 2의 지침을 따릅니다. 여기에는 모든 관리자에 대한 액세스 권한 있는 워크스테이션 배포, MFA 요구, DC 유지 관리를 위한 Just Inough Admin(충분한 관리) 사용, 도메인 공격 영역 감소, 공격 탐지를 위한 ATA 배포가 포함됩니다.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Azure에 대한 액세스를 관리하는 조직을 위한 추가 단계
 
@@ -322,7 +322,7 @@ MCAS를 사용하면 Azure Information Protection 분류 레이블을 기반으�
 
 Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통합하여 Office 365 경고 및 활동을 중앙 집중식으로 모니터링할 수 있도록 합니다. 서버에서 실행되고 Cloud App Security에서 경고 및 활동을 가져와서 SIEM 서버로 스트리밍합니다. 자세한 내용은 [SIEM 통합](https://docs.microsoft.com/cloud-app-security/siem)을 참조하세요.
 
-## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>4단계: 사전 예방적인 보안 상태에 대한 방어 체계 구축 계속
+## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>스테이지 4: 사전 예방적인 보안 상태에 대한 방어 체계 구축 계속
 
 
 ![4단계](./media/directory-admin-roles-secure/stage-four.png)
@@ -448,7 +448,7 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 ### <a name="other-ms-online-services"></a>기타 MS 온라인 서비스 
 
-* [Microsoft Intune 보안](https://www.microsoft.com/trustcenter/security/intune-security) – Intune은 클라우드에서 모바일 장치 관리, 모바일 응용 프로그램 관리 및 PC 관리 기능을 제공합니다.
+* [Microsoft Intune 보안](https://www.microsoft.com/trustcenter/security/intune-security) – Intune은 클라우드에서 모바일 디바이스 관리, 모바일 응용 프로그램 관리 및 PC 관리 기능을 제공합니다.
 
 * [Microsoft Dynamics 365 보안](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365는 CRM(고객 관계 관리) 및 ERP(전사적 자원 관리) 기능을 통합하는 Microsoft 클라우드 기반 솔루션입니다.
 

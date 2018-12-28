@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 38e2589365c2f1c88145fbf068d3ed267d4a4621
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: a95c9f1edd6983c915316f2900885a8131245860
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284572"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437836"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Worker 문제 해결
 
@@ -52,7 +52,7 @@ Runbook이 3회 실행 시도 직후 일시 중단됩니다. Runbook이 성공�
 
 *.azure-automation.net에 대한 아웃바운드 액세스 권한이 컴퓨터의 443 포트에 있는지 확인합니다.
 
-Hybrid Runbook Worker가 실행되는 컴퓨터는 이 기능을 호스트하도록 지정하기 전에, 최소 하드웨어 요구 사항을 충족해야 합니다. 그렇지 않으면, 실행 중 Runbook에 의해 유발되는 다른 백그라운드 프로세스 및 경합의 리소스 사용률에 따라, 컴퓨터가 과도하게 사용되거나 Runbook 작업이 지연되거나 시간이 초과되는 원인이 될 수 있습니다.
+Hybrid Runbook Worker가 실행되는 컴퓨터는 이 기능을 호스트하도록 지정하기 전에, 최소 하드웨어 요구 사항을 충족해야 합니다. 그렇지 않으면, 다른 백그라운드 프로세스의 리소스 사용률과 Runbook 실행으로 인한 경합에 따라, 컴퓨터가 과도하게 사용되거나 Runbook 작업이 지연되거나 시간이 초과될 수 있습니다.
 
 Hybrid Runbook Worker 기능을 실행하도록 지정된 컴퓨터가 최소 하드웨어 요구 사항을 충족하는지 확인합니다. 그렇다면, CPU 및 메모리 사용률을 모니터링하여 Hybrid Runbook Worker 프로세스와 Windows 사이에 어떠한 상관 관계가 있는지 확인합니다. 메모리 또는 CPU가 과도하게 사용된다면, 리소스 디스크 병목 현상에 대처하고 오류를 해결하기 위해 메모리를 증가시키거나 프로세서를 업그레이드 또는 추가해야 한다는 것을 나타냅니다. 아니면, 최소 요구 사항을 지원할 수 있는 다른 계산 리소스를 선택하고 필요한 워크로드에 증가가 필요하다는 것이 나타나면 규모를 확장합니다.
 
@@ -74,9 +74,9 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 다음 목록은 Linux Hybrid Runbook Worker에 대해 시작된 프로세스를 보여줍니다. 모두 `/var/opt/microsoft/omsagent/state/automationworker/` 디렉터리에 있습니다.
 
-* **oms.conf** - 작업자 관리자 프로세스로, DSC에서 바로 시작됩니다.
+* **oms.conf** - 이 프로세스는 작업자 관리자 프로세스로, DSC에서 바로 시작됩니다.
 
-* **worker.conf** - 이 프로세스는 자동 등록 하이브리드 작업자 프로세스로, 작업자 관리자가 시작합니다. 이 프로세스는 업데이트 관리에서 사용되며 사용자에게 투명합니다. 컴퓨터에서 업데이트 관리 솔루션을 사용하도록 설정하지 않으면 이 프로세스가 없습니다.
+* **worker.conf** - 이 프로세스는 자동 등록 Hybrid Worker 프로세스로, 작업자 관리자가 시작합니다. 이 프로세스는 업데이트 관리에서 사용되며 사용자에게 투명합니다. 컴퓨터에서 업데이트 관리 솔루션을 사용하도록 설정하지 않으면 이 프로세스가 없습니다.
 
 * **diy/worker.conf** - 이 프로세스는 DIY 하이브리드 작업자 프로세스입니다. DIY 하이브리드 작업자 프로세스는 Hybrid Runbook Worker에서 사용자 Runbook을 실행하는 데 사용됩니다. 다른 구성을 사용한다는 점 외에는 자동 등록 하이브리드 작업자 프로세스와 차이가 없습니다. Azure Automation 솔루션을 사용하도록 설정하지 않고 DIY Linux Hybrid Worker가 등록되지 않으면 이 프로세스가 없습니다.
 
@@ -84,7 +84,7 @@ Linux용 OMS 에이전트가 실행되고 있지 않으면 `sudo /opt/microsoft/
 
 ### <a name="class-does-not-exist"></a>시나리오: 지정된 클래스가 없음
 
-**지정된 클래스가 없습니다** 오류가 `/var/opt/microsoft/omsconfig/omsconfig.log`에서 보이는 경우 Linux용 OMS 에이전트를 업데이트해야 합니다. 다음 명령을 실행하여 OMS 에이전트를 다시 설치합니다.
+오류가 표시되는 경우 **지정된 클래스가 없습니다.** `/var/opt/microsoft/omsconfig/omsconfig.log`에서 보이는 경우 Linux용 OMS 에이전트를 업데이트해야 합니다. 다음 명령을 실행하여 OMS 에이전트를 다시 설치합니다.
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -94,7 +94,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 Windows Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고하는 Microsoft Monitoring Agent에 따라 달라집니다. 작업자 등록이 실패하는 경우 다음과 같은 몇 가지 오류 원인이 있을 수 있습니다.
 
-### <a name="mma-not-running"></a>시나리오: The Microsoft Monitoring Agent가 실행되고 있지 않습니다.
+### <a name="mma-not-running"></a>시나리오: Microsoft Monitoring Agent가 실행되고 있지 않습니다.
 
 #### <a name="issue"></a>문제
 
@@ -102,7 +102,7 @@ Windows Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 
 
 #### <a name="cause"></a>원인
 
-Microsoft Monitoring Agent Windows 서비스가 실행되고 있지 않으면 Hybrid Runbook Worker가 Azure Automation과 통신할 수 없습니다.
+Microsoft Monitoring Agent Windows 서비스가 실행되고 있지 않으면 이 시나리오로 인해 Hybrid Runbook Worker가 Azure Automation과 통신할 수 없습니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -112,21 +112,51 @@ PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트
 
 #### <a name="issue"></a>문제
 
-**Application and Services Logs\Operations Manager** 이벤트 로그에 이벤트 4502 및 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**가 포함된 EventMessage와 함께 다음 설명이 보입니다. *\<wsid\>.oms.opinsights.azure.com 서비스에서 제공한 인증서가 Microsoft 서비스에 사용되는 인증 기관에서 발급한 것이 아닙니다. 네트워크 관리자에게 문의하여 TLS/SSL 통신을 가로채는 프록시를 실행하고 있는지 확인하세요. 문서 KB3126513에는 연결 문제에 대한 추가 문제 해결 정보가 들어 있습니다.*
+**Application and Services Logs\Operations Manager** 이벤트 로그에서 이벤트 4502 및 다음 설명과 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**를 포함하는 EventMessage를 볼 수 있습니다. *\<wsid\>.oms.opinsights.azure.com 서비스에서 제공한 인증서를 Microsoft 서비스에 사용된 인증 기관에서 발급하지 않았습니다. 네트워크 관리자에게 문의하여 TLS/SSL 통신을 가로채는 프록시를 실행하고 있는지 확인하세요. 문서 KB3126513에는 연결 문제에 대한 추가 문제 해결 정보가 들어 있습니다.*
 
 #### <a name="cause"></a>원인
 
-프록시 또는 네트워크 방화벽이 Microsoft Azure와의 통신을 차단하는 것일 수 있습니다. *.azure-automation.net에 대한 아웃바운드 액세스 권한이 컴퓨터의 443 포트에 있는지 확인합니다.
+이 문제는 프록시 또는 네트워크 방화벽이 Microsoft Azure와의 통신을 차단하기 때문일 수 있습니다. *.azure-automation.net에 대한 아웃바운드 액세스 권한이 컴퓨터의 443 포트에 있는지 확인합니다.
 
 #### <a name="resolution"></a>해결 방법
 
-로그는 각 Hybrid Worker의 로컬에 저장되며 위치는 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes입니다. Azure Automation에 역할을 온보딩하는 데 영향을 미치는 연결 또는 기타 문제가 있거나 정상 작업을 수행하는 동안 문제가 발생했음을 나타내는 경고 또는 오류 이벤트가 **Application and Services Logs\Microsoft SMA\Operations** 및 **Application and Services Logs\Operations Manager** 이벤트 로그에 기록되었는지 확인할 수 있습니다.
+로그는 각 Hybrid Worker의 로컬에 저장되며 위치는 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes입니다. Azure Automation에 역할을 온보딩하는 데 영향을 미치는 연결 또는 기타 문제가 있거나 정상 작동 동안 문제가 발생했음을 나타내는 경고 또는 오류 이벤트가 **Application and Services Logs\Microsoft SMA\Operations** 및 **Application and Services Logs\Operations Manager** 이벤트 로그에 있는지 확인할 수 있습니다.
 
 [Runbook 출력 및 메시지](../automation-runbook-output-and-messages.md)는 클라우드에서 실행되는 Runbook 작업처럼 Hybrid Worker에서 Azure Automation으로 전송됩니다. Verbose 및 Progress 스트림을 다른 Runbook과 같은 방식으로 사용할 수도 있습니다.
 
+### <a name="corrupt-cache"></a> Hybrid Runbook Worker가 보고하지 않음
+
+#### <a name="issue"></a>문제
+
+Hybrid Runbook Worker 시스템이 실행 중이지만 작업 영역에 해당 시스템에 대한 하트비트 데이터가 표시되지 않습니다.
+
+다음 예제 쿼리는 작업 영역의 시스템과 해당 마지막 하트비트를 보여 줍니다.
+
+```loganalytics
+// Last heartbeat of each computer
+Heartbeat 
+| summarize arg_max(TimeGenerated, *) by Computer
+```
+
+#### <a name="cause"></a>원인
+
+이 문제는 Hybrid Runbook Worker의 손상된 캐시로 인해 발생할 수 있습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+이 문제를 해결하려면 Hybrid Runbook Worker에 로그인하고 다음 스크립트를 실행합니다. 이 스크립트는 Microsoft Monitoring Agent를 중지하고 해당 캐시를 제거한 후 서비스를 다시 시작합니다. 이 작업을 통해 Hybrid Runbook Worker는 강제로 Azure Automation에서 해당 구성을 다시 다운로드하게 됩니다.
+
+```powershell
+Stop-Service -Name HealthService
+
+Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State' -Recurse
+
+Start-Service -Name HealthService
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-문제가 표시되지 않거나 문제를 해결할 수 없는 경우, 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
+문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
 * [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 * [@AzureSupport](https://twitter.com/azuresupport)를 사용하여 연결 – Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결하여 고객 환경을 개선하는 공식 Microsoft Azure 계정입니다.

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 7a7267faae2067a873ee11bfbf4ef3027b285a0b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: ae21dbe675d78c663fc9d05364d91eca3288dd46
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034952"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435415"
 ---
-# <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 메타데이터 서비스: Windows VM에 예정된 이벤트
+# <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata 서비스: Windows VM의 예약된 이벤트
 
 예약된 이벤트는 응용 프로그램이 가상 머신 유지 관리를 준비할 시간을 부여하는 Azure 메타데이터 서비스입니다. 향후 유지 관리 이벤트(예: 재부팅)에 대한 정보를 제공하여 응용 프로그램이 이에 대비하고 서비스 중단을 제한할 수 있도록 합니다.  이 기능은 Windows와 Linux 모두에서 PaaS 및 IaaS를 포함한 모든 Azure Virtual Machine 유형에 사용할 수 있습니다. 
 
@@ -225,6 +225,6 @@ foreach($event in $scheduledEvents.Events)
 ## <a name="next-steps"></a>다음 단계 
 
 - Azure Friday에서 [예약된 이벤트 데모](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance)를 참조하세요. 
-- [Azure 인스턴스 메타데이터 예약된 이벤트 Github 리포지토리](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)에서 예약된 이벤트 코드 샘플을 검토합니다.
+- [Azure 인스턴스 메타데이터 예약된 이벤트 GitHub 리포지토리](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)에서 예약된 이벤트 코드 샘플을 검토합니다.
 - [인스턴스 메타데이터 서비스](instance-metadata-service.md)에서 사용 가능한 API에 대해 자세히 알아봅니다.
 - [Azure에서 Windows 가상 머신에 대한 계획된 유지 관리](planned-maintenance.md)에 대해 알아봅니다.

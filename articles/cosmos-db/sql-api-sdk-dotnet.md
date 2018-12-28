@@ -1,10 +1,7 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET API, SDK 및 리소스 | Microsoft Docs'
+title: Azure Cosmos DB는 SQL .NET API, SDK 및 리소스
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB .NET SDK의 각 버전 간 변경 내용을 포함하여 SQL .NET API 및 SDK에 대한 모든 것을 알아봅니다.
-services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -12,14 +9,14 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f8af635eb7d5449a242f3a7708d865c13bb448
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 715d67a30bbf2c6d1f50ed7c10a013c0d421f48b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162809"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337940"
 ---
-# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK for SQL API: 다운로드 및 릴리스 정보
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SQL API용 Azure Cosmos DB .NET SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +27,7 @@ ms.locfileid: "52162809"
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -50,6 +47,24 @@ ms.locfileid: "52162809"
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
+* 공개 미리 보기용 .NET SDK [버전 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)의 미리 보기 1.
+* .NET Framework 4.6.1 이상 및 .NET Core 2.0 이상을 지원하는 대상 .NET Standard
+* 최상위 CosmosClient 및 관련 CosmosDatabases, CosmosContainers 및 CosmosItems 클래스 간에 분할되는 메서드가 포함된 새 개체 모델. 
+* 스트림 지원. 
+* 상태 코드를 반환하고 응답이 반환되지 않을 경우에만 예외를 throw하는 서버에서 업데이트된 CosmosResponseMessage. 
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* 직접/TCP 전송 진단의 경우 SDK의 내부 예외 유형인 TransportException이 추가되었습니다. 예외 메시지에 포함될 경우 이 유형은 클라이언트 연결 문제를 해결하기 위해 추가 정보를 인쇄합니다.
+
+* HttpClient 요청(예: HttpClientHandler)을 전송하는 데 사용할 HTTP 처리기 스택인 HttpMessageHandler를 가져오는 새 생성자 오버로드가 추가되었습니다.
+
+* Null 값이 있는 헤더가 제대로 처리되지 않은 버그를 수정합니다.
+
+* 컬렉션 캐시 유효성 검사를 개선했습니다.
+
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
 * System.Net.Security가 4.3.2로 업데이트되었습니다.
@@ -101,7 +116,7 @@ ms.locfileid: "52162809"
 
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
-* 세션 일관성 수준을 사용하는 경우 일시적인 "Microsoft.Azure.Documents.NotFoundException: 읽기 세션을 입력 세션 토큰에 사용할 수 없습니다." 오류가 발생하는 특정 경합 조건에 도달하는 버그가 수정되었습니다.
+* 세션 일관성 수준을 사용하는 경우 일시적인 “Microsoft.Azure.Documents.NotFoundException: 읽기 세션을 입력 세션 토큰에 사용할 수 없습니다.” 오류가 발생하는 특정 경합 조건에 도달하는 버그가 수정되었습니다.
 
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
@@ -205,7 +220,7 @@ ms.locfileid: "52162809"
 * 컬렉션 내 문서의 [피드 변경](change-feed.md) 프로세스에 대한 새 클래스 및 메서드 지원
 * 파티션 간 쿼리 연속 및 파티션 간 쿼리에 대한 일부 성능 향상 지원
 * CreateDatabaseIfNotExistsAsync 및 CreateDocumentCollectionIfNotExistsAsync 메서드 추가
-* 시스템 함수에 대한 LINQ 지원: IsDefined, IsNull 및 IsPrimitive
+* 시스템 함수에 대한 LINQ 지원: IsDefined, IsNull 및 IsPrimitive.
 * project.json 도구를 포함한 프로젝트의 NuGet 패키지를 사용할 때 Microsoft.Azure.Documents.ServiceInterop.dll 및 DocumentDB.Spatial.Sql.dll 어셈블리가 자동으로 응용 프로그램의 휴지통에 들어가는 현상 수정
 * 시나리오를 디버깅하는 데 도움이 될 수 있는 클라이언트 쪽 ETW 추적 내보내기 지원
 
@@ -217,7 +232,7 @@ ms.locfileid: "52162809"
 * 다양한 SDK 버그가 수정되었습니다.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* 입력 세션 토큰에 대해 읽기 세션을 사용할 수 없다는 NotFoundException을 발생시키는 문제를 해결했습니다. 이 예외는 지리적으로 분산된 계정의 읽기 영역을 쿼리할 때 가끔 발생합니다.
+* 다음 NotFoundException의 원인이 되는 문제를 수정했습니다. 읽기 세션을 입력 세션 토큰에 사용할 수 없습니다. 이 예외는 지리적으로 분산된 계정의 읽기 영역을 쿼리할 때 가끔 발생합니다.
 * 응답에서 내부 스트림에 직접 액세스할 수 있도록 하는 ResourceResponse 클래스의 ResponseStream 속성이 노출되었습니다.
 
 ### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
@@ -225,7 +240,7 @@ ms.locfileid: "52162809"
 * 데이터 직렬화를 위해 사용자 지정 JsonSerializerSettings 개체를 사용할 때 잘못된 파티션 키 헤더가 발생하는 문제가 수정되었습니다.
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
-* 오래 실행하는 쿼리가 오류와 함께 실패하게 한 문제를 해결했습니다. 인증 토큰은 현재 시간에 올바르지 않습니다.
+* 오래 실행하는 쿼리가 오류와 함께 실패하게 한 문제를 해결했습니다. 인증 토큰은 현재 시간에 유효하지 않습니다.
 * 크로스 파티션 위쪽/order-by 쿼리에서 원래 SqlParameterCollection을 제거하는 문제를 해결했습니다.
 
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
@@ -260,7 +275,7 @@ ms.locfileid: "52162809"
 * [분할된 컬렉션](partition-data.md) 및 [사용자 정의 성능 수준](performance-levels.md)이 구현되었습니다. 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[수정됨]** Azure Cosmos DB 엔드포인트를 쿼리하면 'System.Net.Http.HttpRequestException: 스트림에 콘텐츠를 복사하는 중 오류가 발생했습니다.'가 나타납니다.
+* **[수정됨]** Azure Cosmos DB 엔드포인트를 쿼리하면 다음이 throw됩니다. ‘System.Net.Http.HttpRequestException: 콘텐츠를 스트림에 복사하는 중 오류가 발생했습니다.’
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * 페이징, 조건식 및 범위 비교에 대한 새 연산자를 포함하는 LINQ 지원이 확장되었습니다.
@@ -335,6 +350,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |2018년 12월 7일 |--- |
 | [2.1.3](#2.1.3) |2018년 10월 15일 |--- |
 | [2.1.2](#2.1.2) |2018년 10월 4일 |--- |
 | [2.1.1](#2.1.1) |2018년 9월 27일 |--- |

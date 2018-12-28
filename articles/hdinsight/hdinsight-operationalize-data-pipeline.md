@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 9057d9f5d63598ea249e8f3193b84fd715018829
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109974"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436163"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>데이터 분석 파이프라인 운영
 
@@ -30,13 +30,13 @@ ms.locfileid: "43109974"
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-이 예제 파이프라인은 새로운 시간 간격의 비행 데이터가 도착할 때까지 기다렸다가, 장기적인 분석을 위해 자세한 비행 정보를 Hive 데이터 웨어하우스에 저장합니다. 또한 이 파이프라인은 일별 비행 데이터만 요약하는 훨씬 더 작은 데이터 세트도 만듭니다. 이 일별 비행 요약 데이터는 웹 사이트용과 같은 보고서를 제공하기 위해 SQL Database로 전송됩니다.
+이 예제 파이프라인은 새로운 시간 간격의 비행 데이터가 도착할 때까지 기다렸다가, 장기적인 분석을 위해 자세한 비행 정보를 Apache Hive 데이터 웨어하우스에 저장합니다. 또한 이 파이프라인은 일별 비행 데이터만 요약하는 훨씬 더 작은 데이터 세트도 만듭니다. 이 일별 비행 요약 데이터는 웹 사이트용과 같은 보고서를 제공하기 위해 SQL Database로 전송됩니다.
 
 아래 다이어그램은 이 예제 파이프라인을 보여 줍니다.
 
 ![비행 데이터 파이프라인](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## <a name="oozie-solution-overview"></a>Oozie 솔루션 개요
+## <a name="apache-oozie-solution-overview"></a>Apache Oozie 솔루션 개요
 
 이 파이프라인은 HDInsight Hadoop 클러스터에서 실행되는 Apache Oozie를 사용합니다.
 
@@ -139,7 +139,7 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터*의 측면에서 해당 �
 
 Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스의 상태를 보려면 HDInsight 클러스터에 대한 SSH 터널을 설정합니다. 자세한 내용은 [SSH 터널](hdinsight-linux-ambari-ssh-tunnel.md)을 참조하세요.
 
-> [!NOTE]
+> [!NOTE]  
 > [Foxy Proxy](https://getfoxyproxy.org/) 확장에서 Chrome을 사용하여 SSH 터널에서 클러스터의 웹 리소스를 검색할 수도 있습니다. 터널 포트 9876의 호스트 `localhost`를 통해 모든 요청을 프록시하도록 구성합니다. 이 방법은 Windows 10의 Bash라고도 하는 Linux용 Windows 하위 시스템과 호환됩니다.
 
 1. 다음 명령을 실행하여 클러스터에 대한 SSH 터널을 엽니다.
@@ -156,7 +156,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
 ### <a name="configure-hive"></a>Hive 구성
 
-1. 1개월 동안의 비행 데이터를 포함하는 예제 CSV 파일을 다운로드합니다. 해당 ZIP 파일 `2017-01-FlightData.zip`을 [HDInsight Github 리포지토리](https://github.com/hdinsight/hdinsight-dev-guide)에서 다운로드한 후 CSV 파일 `2017-01-FlightData.csv`로 압축을 풉니다. 
+1. 1개월 동안의 비행 데이터를 포함하는 예제 CSV 파일을 다운로드합니다. 해당 ZIP 파일 `2017-01-FlightData.zip`을 [HDInsight GitHub 리포지토리](https://github.com/hdinsight/hdinsight-dev-guide)에서 다운로드한 후 CSV 파일 `2017-01-FlightData.csv`로 압축을 풉니다. 
 
 2. HDInsight 클러스터에 연결된 Azure Storage 계정으로 이 CSV 파일을 복사한 후 `/example/data/flights` 폴더에 배치합니다.
 
@@ -430,7 +430,7 @@ day=03
 | month | 항공편 요약이 계산되는 날짜의 월 구성 요소입니다. 있는 그대로 둡니다. |
 | 일 | 항공편 요약이 계산되는 날짜의 일 구성 요소입니다. 있는 그대로 둡니다. |
 
-> [!NOTE]
+> [!NOTE]  
 > Oozie 워크플로를 배포 및 실행하기 전에 `job.properties` 파일 복사본을 사용자 환경의 고유한 값으로 업데이트해야 합니다.
 
 ### <a name="deploy-and-run-the-oozie-workflow"></a>Oozie 워크플로 배포 및 실행

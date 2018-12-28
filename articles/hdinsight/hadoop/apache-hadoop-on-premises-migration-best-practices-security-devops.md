@@ -9,37 +9,39 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: fa72765e02592b72efb09320958a0aa244ae8b08
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 7cfb327a3eb6cbf2ae90c9d258a470797732acaa
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265290"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437506"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 보안 및 DevOps 모범 사례
 
 이 문서에서는 Azure HDInsight 시스템의 보안 및 DevOps에 대한 권장 사항을 제공합니다. 온-프레미스 Apache Hadoop 시스템을 Azure HDInsight로 마이그레이션하는 데 도움을 주는 모범 사례를 제공하는 시리즈의 일부입니다.
 
-## <a name="use-the-enterprise-security-package-to-secure-and-govern-the-cluster"></a>Enterprise Security Package를 사용하여 클러스터 보호 및 관리
+## <a name="secure-and-govern-cluster-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 클러스터 보안 유지 및 관리
 
-ESP(Enterprise Security Package)는 Active Directory 기반 인증, 다중 사용자 지원 및 역할 기반 액세스 제어를 지원합니다. ESP 옵션을 선택하면 HDInsight 클러스터가 Active Directory 도메인에 조인되고 엔터프라이즈 관리자는 Apache Ranger를 사용하여 Hive 보안을 위한 RBAC(역할 기반 액세스 제어)를 구성할 수 있습니다. 또한 관리자는 직원의 데이터 액세스 및 액세스 제어 정책에 대한 변경 내용을 감사할 수 있습니다.
+ESP(Enterprise Security Package)는 Active Directory 기반 인증, 다중 사용자 지원 및 역할 기반 액세스 제어를 지원합니다. ESP 옵션을 선택하면 HDInsight 클러스터가 Active Directory 도메인에 조인되고 엔터프라이즈 관리자는 Apache Ranger를 사용하여 Apache Hive 보안을 위한 RBAC(역할 기반 액세스 제어)를 구성할 수 있습니다. 또한 관리자는 직원의 데이터 액세스 및 액세스 제어 정책에 대한 변경 내용을 감사할 수 있습니다.
 
-ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Query(Hive LLAP)의 클러스터 유형에서 사용할 수 있습니다. 
+ESP는 ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Query(Hive LLAP)의 클러스터 유형에서 사용할 수 있습니다. 
 
 도메인에 조인된 HDInsight 클러스터를 배포하려면 다음 단계를 수행합니다.
 
-- 도메인 이름을 전달하여 AAD(Azure Active Directory) 배포
-- AAD DS(Azure Active Directory Domain Services) 배포
-- 필요한 Virtual Network 및 서브넷 만들기
-- Virtual Network에 AAD DS를 관리할 VM 배포
-- VM을 도메인에 조인
-- AD 및 DNS 도구 설치
-- AAD DS 관리자를 시켜 OU(조직 구성 단위) 만들기
-- AAD DS에 LDAPS를 사용하도록 설정
+- 도메인 이름을 전달하여 AAD(Azure Active Directory)를 배포합니다.
+- AAD DS(Azure Active Directory Domain Services)를 배포합니다.
+- 필요한 Virtual Network 및 서브넷을 만듭니다.
+- Virtual Network에 AAD DS를 관리할 VM을 배포합니다.
+- VM을 도메인에 조인합니다.
+- AD 및 DNS 도구를 설치합니다.
+- AAD DS 관리자에게 OU(조직 구성 단위)를 만들도록 합니다.
+- AAD DS에 LDAPS를 사용하도록 설정합니다.
 - OU를 읽고 쓸 수 있도록 OU에 대한 위임된 읽기 및 쓰기 관리 권한이 있는 서비스 계정을 Azure Active Directory에 만듭니다. 그러면 이 서비스 계정이 머신을 도메인에 조인하고 머신 보안 주체를 OU 내에 배치할 수 있습니다. 또한 클러스터를 만드는 동안 관리자가 지정하는 OU 내에 서비스 사용자를 만들 수 있습니다.
+
 
     > [!Note]
     > 서비스 계정이 AD 도메인 관리자 계정일 필요는 없습니다.
+
 
 - 다음 매개 변수를 설정하여 HDInsight ESP 클러스터를 배포합니다.
     - **도메인 이름**: Azure AD DS와 연결된 도메인 이름입니다.
@@ -51,14 +53,15 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [도메인 조인 HDInsight 클러스터 소개를 사용한 Hadoop 보안 소개](../domain-joined/apache-domain-joined-introduction.md)
-- [HDInsight에서 Azure 도메인에 가입된 Hadoop 클러스터 계획](../domain-joined/apache-domain-joined-architecture.md)
+- [도메인에 가입된 HDInsight 클러스터를 사용하는 Apache Hadoop 보안 소개](../domain-joined/apache-domain-joined-introduction.md)
+
+- [HDInsight에서 Azure 도메인에 가입된 Apache Hadoop 클러스터 계획](../domain-joined/apache-domain-joined-architecture.md)
 - [Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 - [Azure Active Directory 사용자를 HDInsight 클러스터와 동기화](../hdinsight-sync-aad-users-to-cluster.md)
-- [도메인에 가입된 HDInsight에서 Hive 정책 구성](../domain-joined/apache-domain-joined-run-hive.md)
+- [도메인에 가입된 HDInsight에서 Apache Hive 정책 구성](../domain-joined/apache-domain-joined-run-hive.md)
 - [도메인에 가입된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행](../domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)
 
-## <a name="implement-end-to-end-enterprise-security-management"></a>종단 간 엔터프라이즈 보안 관리 구현
+## <a name="implement-end-to-end-enterprise-security"></a>엔드 투 엔드 엔터프라이즈 보안 구현
 
 다음 컨트롤을 사용하여 종단 간 엔터프라이즈 보안을 달성할 수 있습니다.
 
@@ -67,17 +70,17 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
 
 - **데이터 액세스를 위한 인증 및 권한 부여**
     - Azure Active Directory Domain Services를 사용하여 도메인에 조인된 HDInsight 클러스터를 만듭니다. (Enterprise Security Package)
-    - Ambari를 사용하여 AD 사용자용 클러스터 리소스에 대한 역할 기반 액세스 제공
+    - Ambari를 사용하여 AD 사용자용 클러스터 리소스에 대한 역할 기반 액세스를 제공합니다.
     - Apache Ranger를 사용하여 테이블/열/행 수준에서 Hive에 대한 액세스 제어 정책을 설정합니다.
     - 클러스터에 대한 SSH 액세스를 관리자로 제한할 수 있습니다.
 
 - **감사**
     - HDInsight 클러스터 리소스 및 데이터에 대한 모든 액세스를 확인하고 보고할 수 있습니다.
-    - 모든 액세스 제어 정책 변경 내용 확인 및 보고
+    - 모든 액세스 제어 정책 변경 내용을 확인하고 보고합니다.
 
 - **암호화**
     - Microsoft 관리 키 또는 고객 관리 키를 사용하는 투명한 서버 쪽 암호화입니다.
-    - 전송 중 암호화에 클라이언트 쪽 암호화, https 및 TLS 사용
+    - 전송 중 암호화에 클라이언트 쪽 암호화, https 및 TLS를 사용합니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 
@@ -106,13 +109,13 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
 1. 백업된 임시 데이터를 가져옵니다.
 1. 새 클러스터를 사용하여 작업을 시작하거나 계속 처리합니다.
 
-자세한 내용은 [HDInsight 클러스터를 새 버전으로 업그레이드](../hdinsight-upgrade-cluster.md) 문서를 참조하세요.
+자세한 내용은 다음 문서를 참조하세요. [HDInsight 클러스터를 최신 버전으로 업그레이드](../hdinsight-upgrade-cluster.md)
 
 ## <a name="patch-cluster-operating-systems"></a>클러스터 운영 체제 패치
 
 관리되는 Hadoop 서비스인 HDInsight는 HDInsight 클러스터에서 사용하는 VM의 OS를 패치하는 작업을 담당합니다.
 
-자세한 내용은 [HDInsight의 OS 패치](../hdinsight-os-patching.md) 문서를 참조하세요.
+자세한 내용은 다음 문서를 참조하세요. [HDInsight의 OS 패치](../hdinsight-os-patching.md)
 
 ## <a name="post-migration"></a>마이그레이션 후 작업
 

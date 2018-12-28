@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: ceb0b1ce0d04c15a5b949519caad65d2c33b40ed
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c9ff4332a10247787e3b11c5508d0d94a1f1c8ba
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092453"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410468"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure에서 호스트되는 API를 PowerApps 및 Microsoft Flow로 내보내기
 
@@ -25,7 +25,7 @@ ms.locfileid: "44092453"
 마찬가지로 조직 내에서 자신의 API를 보다 광범위하게 노출하려는 개발자는 앱 및 흐름 빌더에 자신의 API를 제공하려 합니다. 이 토픽에서는 [Azure Functions](../azure-functions/functions-overview.md) 또는 [Azure App Service](../app-service/app-service-web-overview.md)를 통해 작성한 API를 노출하는 방법을 보여 줍니다. 내보낸 API는 *사용자 지정 커넥터*가 되며, 이 커넥터는 마치 기본 커넥터처럼 PowerApps 및 Microsoft Flow에 사용됩니다.
 
 ## <a name="create-and-export-an-api-definition"></a>API 정의를 만들고 내보내기
-API를 내보내기 전에 먼저 OpenAPI 정의(이전에는 [Swagger](http://swagger.io/) 파일)를 사용하여 API를 설명해야 합니다. 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다. PowerApps 및 Microsoft Flow는 모든 OpenAPI 2.0 정의를 위한 사용자 지정 커넥터를 만들 수 있습니다. Azure Functions 및 Azure App Service는 OpenAPI 정의를 만들고 호스트하고 관리할 수 있는 기본 지원을 제공합니다. 자세한 내용은 [Azure App Service에서 CORS를 통해 RESTful API 호스팅](../app-service/app-service-web-tutorial-rest-api.md)을 참조하세요.
+API를 내보내기 전에 먼저 OpenAPI 정의(이전에는 [Swagger](https://swagger.io/) 파일)를 사용하여 API를 설명해야 합니다. 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다. PowerApps 및 Microsoft Flow는 모든 OpenAPI 2.0 정의를 위한 사용자 지정 커넥터를 만들 수 있습니다. Azure Functions 및 Azure App Service는 OpenAPI 정의를 만들고 호스트하고 관리할 수 있는 기본 지원을 제공합니다. 자세한 내용은 [Azure App Service에서 CORS를 통해 RESTful API 호스팅](../app-service/app-service-web-tutorial-rest-api.md)을 참조하세요.
 
 > [!NOTE]
 > OpenAPI 정의를 사용하지 않고 PowerApps 및 Microsoft Flow UI에서 사용자 지정 커넥터를 빌드할 수도 있습니다. 자세한 내용은 [사용자 지정 커넥터 등록 및 사용(PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) 및 [사용자 지정 커넥터 등록 및 사용(Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/)을 참조하세요.
@@ -154,7 +154,7 @@ API 키를 사용하는 경우 커넥터 사용자가 연결을 만들 때 키�
 ### <a name="azure-active-directory-azure-ad"></a>Azure AD(Azure Active Directory)
 Azure AD를 사용하는 경우 두 개의 Azure AD 응용 프로그램 등록이 필요합니다. 하나는 API 자체에 대한 것이고 다른 하나는 사용자 지정 커넥터에 대한 것입니다.
 
-- API에 대한 등록을 구성하려면 [App Service 인증/권한 부여](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md) 기능을 사용합니다.
+- API에 대한 등록을 구성하려면 [App Service 인증/권한 부여](../app-service/configure-authentication-provider-aad.md) 기능을 사용합니다.
 
 - 커넥터에 대한 등록을 구성하려면 [Azure AD 응용 프로그램 추가](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application)의 단계를 따릅니다. 등록에는 API 및 `https://msmanaged-na.consent.azure-apim.net/redirect`의 회신 URL에 대한 위임된 액세스가 필요합니다. 
 

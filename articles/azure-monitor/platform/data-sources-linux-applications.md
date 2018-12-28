@@ -1,5 +1,5 @@
 ---
-title: Log Analytics에서 Linux 응용 프로그램 성능 수집 | Microsoft Docs
+title: Azure Monitor에서 Linux 애플리케이션 성능 수집 | Microsoft Docs
 description: 이 문서에서는 MySQL 및 Apache HTTP 서버에 대한 성능 카운터를 수집하도록 Linux용 Log Analytics 에이전트를 구성하는 세부 정보를 제공합니다.
 services: log-analytics
 documentationcenter: ''
@@ -8,23 +8,21 @@ manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: fe5c355054aab483a7ee8e68305473b7b840779d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 824d3f2402861ed8a54a29c9571654cc581e4c5e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336653"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434633"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Log Analytics에서 Linux 응용 프로그램에 대한 성능 카운터 수집 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Azure Monitor에서 Linux 애플리케이션에 대한 성능 카운터 수집 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-이 문서에서는 특정 응용 프로그램에 대한 성능 카운터를 수집하도록 [Linux용 Log Analytics 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux)를 구성하는 세부 정보를 제공합니다.  이 문서에 포함된 응용 프로그램은 다음과 같습니다.  
+이 문서에서는 특정 애플리케이션에 대한 성능 카운터를 Azure Monitor 로드로 수집하도록 [Linux용 Log Analytics 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux)를 구성하는 방법에 대한 세부 정보를 제공합니다.  이 문서에 포함된 응용 프로그램은 다음과 같습니다.  
 
 - [MySQL](#MySQL)
 - [Apache HTTP 서버](#apache-http-server)
@@ -116,7 +114,7 @@ MySQL 사용자는 MySQL 서버 성능 데이터를 수집하기 위해 다음 �
 
 ### <a name="define-performance-counters"></a>성능 카운터 정의
 
-Log Analytics에 데이터를 보내도록 Linux용 Log Analytics 에이전트를 구성하고 나면 수집할 성능 카운터를 구성해야 합니다.  다음 테이블의 카운터와 함께 [Log Analytics의 Windows 및 Linux 성능 데이터 원본](data-sources-windows-events.md)의 절차를 사용합니다.
+Azure Monitor에 데이터를 보내도록 Linux용 Log Analytics 에이전트를 구성하고 나면 수집할 성능 카운터를 구성해야 합니다.  다음 표의 카운터와 함께 [Azure Monitor의 Windows 및 Linux 성능 데이터 원본](data-sources-performance-counters.md)에 제공되는 절차를 사용합니다.
 
 | 개체 이름 | 카운터 이름 |
 |:--|:--|
@@ -152,7 +150,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>성능 카운터 정의
 
-Log Analytics에 데이터를 보내도록 Linux용 Log Analytics 에이전트를 구성하고 나면 수집할 성능 카운터를 구성해야 합니다.  다음 테이블의 카운터와 함께 [Log Analytics의 Windows 및 Linux 성능 데이터 원본](data-sources-windows-events.md)의 절차를 사용합니다.
+Azure Monitor에 데이터를 보내도록 Linux용 Log Analytics 에이전트를 구성하고 나면 수집할 성능 카운터를 구성해야 합니다.  다음 표의 카운터와 함께 [Azure Monitor의 Windows 및 Linux 성능 데이터 원본](data-sources-performance-counters.md)에 제공되는 절차를 사용합니다.
 
 | 개체 이름 | 카운터 이름 |
 |:--|:--|
@@ -170,4 +168,4 @@ Log Analytics에 데이터를 보내도록 Linux용 Log Analytics 에이전트�
 
 ## <a name="next-steps"></a>다음 단계
 * Linux 에이전트에서 [성능 카운터를 수집합니다](data-sources-performance-counters.md).
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](../../log-analytics/log-analytics-queries.md)에 대해 알아봅니다. 
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../../log-analytics/log-analytics-queries.md)에 대해 알아봅니다. 

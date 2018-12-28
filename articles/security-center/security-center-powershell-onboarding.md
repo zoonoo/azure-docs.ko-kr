@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 650c767d6f8ef495bb19886980b6d45bfe53b32a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ecfab15860ffc690d341069b626e5d7579c00da4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311180"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340371"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell을 사용하여 Azure Security Center 온보딩 자동화
 
@@ -40,7 +40,7 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 5. 조직의 [CISO를 ASC 경고 및 주요 이벤트의 보안 연락처](security-center-provide-security-contact-details.md)로 설정합니다.
 
-6. Azure Security Center의 [기본 보안 정책](security-center-azure-policy.md)을 할당합니다.
+6. Azure Security Center의 [기본 보안 정책](tutorial-security-policy.md)을 할당합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -92,7 +92,7 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 6.  기본 Security Center 정책 이니셔티브를 할당합니다.
 
         Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-        $Policy = Get-AzureRmPolicySetDefinition -Name ' [Preview]: Enable Monitoring in Azure Security Center'
+        $Policy = Get-AzureRmPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
         New-AzureRmPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
 
 이제 PowerShell을 사용하여 Azure Security Center를 온보딩했습니다.
@@ -111,6 +111,6 @@ PowerShell을 사용하여 Security Center에 대한 온보딩을 자동화하�
 
 Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.

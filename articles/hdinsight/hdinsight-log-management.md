@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 339d5d39c637369420e197acf65df802cefd5cb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988495"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434888"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 로그 관리
 
@@ -27,7 +27,7 @@ HDInsight 클러스터 로그 관리에는 클러스터 환경의 모든 측면�
 * 1단계: 로그 보존 정책 결정
 * 2단계: 클러스터 서비스 버전 구성 로그 관리
 * 3단계: 클러스터 작업 실행 로그 파일 관리
-* 4단계: 로그 볼륨 저장소 크기 및 비용 예측
+* 4단계: 로그 볼륨 스토리지 크기 및 비용 예측
 * 5단계: 로그 보관 정책 및 프로세스 결정
 
 ## <a name="step-1-determine-log-retention-policies"></a>1단계: 로그 보존 정책 결정
@@ -51,7 +51,7 @@ Azure Portal을 사용하여 이 최상위 수준 정보를 대부분 얻을 수
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-PowerShell을 사용하여 이 정보를 볼 수도 있습니다.  자세한 내용은 [Azure PowerShell을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-powershell.md)를 참조하세요.
+PowerShell을 사용하여 이 정보를 볼 수도 있습니다.  자세한 내용은 [Apache에서 Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-powershell.md)를 참조하세요.
 
 ### <a name="understand-the-workloads-running-on-your-clusters"></a>클러스터에서 실행되는 워크로드 이해
 
@@ -69,9 +69,9 @@ HDInsight 클러스터에서 실행 중인 워크로드 유형을 이해하여 �
 
 * 클러스터에서 또는 둘 이상의 클러스터에서 로그를 수집하고 감사, 모니터링, 계획, 경고 등의 목적에 사용할 수 있도록 정렬하는 방안을 고려해 봅니다. 사용자 정의 솔루션을 사용하여 정기적으로 로그 파일에 액세스 및 다운로드하고, 로그 파일을 결합 및 분석하여 대시보드 표시를 제공할 수 있습니다. 보안 또는 실패 감지에 대해 경고하는 추가 기능을 추가할 수도 있습니다. 이러한 기능은 PowerShell, HDInsight SDK 또는 Azure 클래식 배포 모델에 액세스하는 코드를 사용하여 빌드할 수 있습니다.
 
-* 솔루션 또는 서비스를 모니터링하면 도움이 될 것 같은지 고민해 봅니다. Microsoft System Center에서는 [HDInsight 관리 팩](https://www.microsoft.com/download/details.aspx?id=42521)을 제공합니다. Chukwa 및 Ganglia 같은 타사 도구를 사용하여 로그를 수집하고 중앙 집중화할 수도 있습니다. Centerity, Compuware APM, Sematext SPM, Zettaset Orchestrator 등 많은 회사에서 Hadoop 기반의 빅 데이터 솔루션을 모니터링하는 서비스를 제공합니다.
+* 솔루션 또는 서비스를 모니터링하면 도움이 될 것 같은지 고민해 봅니다. Microsoft System Center에서는 [HDInsight 관리 팩](https://www.microsoft.com/download/details.aspx?id=42521)을 제공합니다. Apache Chukwa 및 Ganglia 같은 타사 도구를 사용하여 로그를 수집하고 중앙 집중화할 수도 있습니다. 많은 회사에서는 Hadoop 기반 빅 데이터 솔루션을 모니터링하기 위해 Centerity, Compuware APM, Sematext SPM 및 Zettaset Orchestrator와 같은 서비스를 제공합니다.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>2단계: 클러스터 서비스 버전을 관리하고 스크립트 동작 로그 보기
+## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>2단계: 클러스터 서비스 버전 관리 및 스크립트 작업 로그 보기
 
 일반적인 HDInsight 클러스터는 여러 서비스와 오픈 소스 소프트웨어 패키지를 사용합니다(Apache HBase, Apache Spark 등). 생물정보학 같은 일부 워크로드의 경우 작업 실행 로그 외에도 서비스 구성 로그 기록을 의무적으로 유지해야 할 수도 있습니다.
 
@@ -136,7 +136,7 @@ YARN ResourceManager UI는 클러스터 헤드 노드에서 실행되며 Ambari 
 2. 왼쪽에 있는 서비스 목록에서 YARN을 선택합니다.
 3. 빠른 링크 드롭다운에서 클러스터 헤드 노드 중 하나를 선택한 다음 **ResourceManager 로그**를 선택합니다. YARN 로그에 대한 링크 목록이 나타납니다.
 
-## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>4단계: 로그 볼륨 저장소 크기 및 비용 예측
+## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>4단계: 로그 볼륨 스토리지 크기 및 비용 예측
 
 이전 단계에서는 HDInsight 클러스터가 생성하는 로그 파일의 종류와 볼륨을 알아보았습니다.
 
@@ -177,5 +177,5 @@ Hadoop용 .NET SDK를 사용하여 HDInsight 클러스터에 대한 데이터를
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight의 모니터링 및 로깅 연습](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Linux 기반 HDInsight에서 YARN 응용 프로그램 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [다양한 Hadoop 구성 요소의 로그 파일 크기를 제어하는 방법](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)
+* [Linux 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [다양한 Apache Hadoop 구성 요소의 로그 파일 크기를 제어하는 방법](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

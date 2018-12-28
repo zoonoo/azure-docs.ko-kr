@@ -15,14 +15,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 140994de4b1be61f16593e450d156b81727a9f52
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251025"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437846"
 ---
-# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs로 푸시 알림: 질문과 대답
+# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs를 사용하는 푸시 알림: 질문과 대답
 ## <a name="general"></a>일반
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>Notification Hubs의 리소스 구조는 무엇입니까?
 
@@ -39,7 +39,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 
 표준 계층 기능:
 * **다양한 원격 분석**: 메시지 원격 분석 단위로 Notification Hubs를 사용하여 푸시 요청을 추적하고 디버깅을 위해 플랫폼 알림 시스템 피드백을 사용할 수 있습니다.
-* **다중 테넌트**: 네임스페이스 수준에서 플랫폼 알림 시스템 자격 증명 작업을 수행할 수 있습니다. 이 옵션을 사용하면 동일한 네임스페이스 내에서 허브로 테넌트를 쉽게 분할할 수 있습니다.
+* **다중 테넌시**: 네임스페이스 수준에서 플랫폼 알림 시스템 자격 증명 작업을 수행할 수 있습니다. 이 옵션을 사용하면 동일한 네임스페이스 내에서 허브로 테넌트를 쉽게 분할할 수 있습니다.
 * **예약된 푸시**: 알림이 언제든지 전송되도록 예약할 수 있습니다.
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Notification Hubs SLA란?
@@ -51,7 +51,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 ### <a name="which-customers-are-using-notification-hubs"></a>어떤 고객이 Notification Hubs를 사용하나요?
 많은 고객이 Notification Hubs를 사용합니다. 주목할 만한 고객은 여기에 나열되어 있습니다.
 
-* 2014년 소치 동계 올림픽: 수 백 개의 관심 그룹에서 300만 대 이상의 디바이스를 사용하여 1억 5천만 개 이상의 알림을 2주 동안 디스패치했습니다. [사례 연구: 소치]
+* 2014년 소치 동계 올림픽: 수 백 개의 관심 그룹에서 300만 대 이상의 디바이스를 사용하여 1억 5천만 개 이상의 알림을 2주 동안 디스패치했습니다. [사례 연구: Sochi]
 * Skanska: [사례 연구: Skanska]
 * Seattle Times: [사례 연구: Seattle Times]
 * Mural.ly: [사례 연구: Mural.ly]
@@ -199,7 +199,7 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 [Azure Portal]: https://portal.azure.com
 [Notification Hubs 가격 책정]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
-[사례 연구: 소치]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
+[사례 연구: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [사례 연구: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [사례 연구: Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [사례 연구: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
@@ -213,7 +213,7 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 [Notification Hubs 보안 모델]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [Notification Hubs 보안 푸시 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Notification Hubs 문제 해결]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Notification Hubs 메트릭]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Notification Hubs 메트릭]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Notification Hubs 메트릭 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [등록 내보내기/가져오기]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com

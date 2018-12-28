@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2c4730b3ec84ca14bcc3e93ed82faf37b15970d7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0d27b16690516becc586678f8cf3edea234feeea
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010374"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383401"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>HDInsight WebHCat에서 받은 오류 이해 및 해결
 
@@ -22,18 +22,18 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 
 ## <a name="what-is-webhcat"></a>WebHCat이란?
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)은 [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog)용 REST API, Hadoop용 테이블 및 저장소 관리 계층입니다. WebHCat은 HDInsight 클러스터에서 기본적으로 활성화되어있으며 다양한 도구에서 사용되어 클러스터에 로그인하지 않고 작업을 제출하고, 작업 상태 등을 가져옵니다.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)은 [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog)용 REST API, Apache Hadoop용 테이블 및 스토리지 관리 계층입니다. WebHCat은 HDInsight 클러스터에서 기본적으로 활성화되어있으며 다양한 도구에서 사용되어 클러스터에 로그인하지 않고 작업을 제출하고, 작업 상태 등을 가져옵니다.
 
 ## <a name="modifying-configuration"></a>구성 수정
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 구성된 최대값을 초과하기 때문에 이 문서에 나열된 몇몇 오류가 발생합니다. 해결 단계에서 값을 변경할 수 있음을 언급하면, 다음 중 하나를 사용하여 변경해야 합니다.
 
 * **Windows** 클러스터: 클러스터를 만드는 동안 값을 구성하려면 스크립트 동작을 사용합니다. 자세한 내용은 [스크립트 동작 개발](hdinsight-hadoop-script-actions.md)을 참조하세요.
 
-* **Linux** 클러스터: Ambari(웹 또는 REST API)를 사용하여 값을 수정합니다. 자세한 내용은 [Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)
+* **Linux** 클러스터: Apache Ambari(Web 또는 REST API)를 사용하여 값을 수정합니다. 자세한 내용은 [Apache Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ### <a name="default-configuration"></a>기본 구성
@@ -62,7 +62,7 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 | --- | --- |
 | 이 상태 코드는 클러스터에 대한 기본 및 보조 헤드 노드 간 장애 조치 중에 발생합니다. |2분을 기다린 후 작업을 다시 시도합니다. |
 
-## <a name="bad-request-content-could-not-find-job"></a>잘못된 요청 콘텐츠: 작업을 찾을 수 없습니다.
+## <a name="bad-request-content-could-not-find-job"></a>잘못된 요청 콘텐츠: 작업을 찾을 수 없음
 
 **HTTP 상태 코드**: 400
 

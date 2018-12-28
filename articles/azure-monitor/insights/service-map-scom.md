@@ -8,18 +8,17 @@ manager: jwhit
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: b590a6ce6d92c78f2020d5ef7cffe6d7f277433c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827498"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187214"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager와 서비스 맵 통합
   > [!NOTE]
@@ -98,7 +97,7 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 
     ![Operations Manager 서버 모니터링 창](media/service-map-scom/scom-monitoring-servers.png)
 
-* **컴퓨터 그룹 종속성 보기**: 서비스 맵에서 동기화되는 모든 컴퓨터 그룹을 나열합니다. 원하는 그룹을 클릭하여 해당 그룹의 배포 응용 프로그램 다이어그램을 볼 수 있습니다.
+* **머신 그룹 종속성 보기**: 서비스 맵에서 동기화되는 모든 머신 그룹을 나열합니다. 원하는 그룹을 클릭하여 해당 그룹의 배포 응용 프로그램 다이어그램을 볼 수 있습니다.
 
     ![Operations Manager 분산 응용 프로그램 다이어그램](media/service-map-scom/scom-group-dad.png)
 
@@ -121,8 +120,8 @@ _Microsoft.SystemCenter.ServiceMapImport.Rule_ 규칙은 서비스 맵에서 주
 
 ![Operations Manager 재정의 속성 창](media/service-map-scom/scom-overrides.png)
 
-* **Enabled** – 자동 업데이트를 사용하거나 사용하지 않도록 설정합니다. 
-* **IntervalMinutes**: 업데이트 간 시간을 다시 설정합니다. 기본 간격은 1시간입니다. 서버 맵을 더 자주 동기화하려면 값을 변경할 수 있습니다.
+* **Enabled**: 자동 업데이트를 사용하거나 사용하지 않도록 설정합니다. 
+* **IntervalMinutes**: 업데이트 간격을 다시 설정합니다. 기본 간격은 1시간입니다. 서버 맵을 더 자주 동기화하려면 값을 변경할 수 있습니다.
 * **TimeoutSeconds**: 요청 시간이 초과되기 전의 시간을 다시 설정합니다. 
 * **TimeWindowMinutes**: 데이터를 쿼리하기 위한 기간을 다시 설정합니다. 기본값은 60분입니다. 서비스 맵에서 허용되는 최대값은 60분입니다.
 

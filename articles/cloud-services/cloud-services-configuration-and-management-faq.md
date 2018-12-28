@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979202"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386998"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -53,7 +53,7 @@ ms.locfileid: "50979202"
 **권한**
 
 - [Microsoft 내부 엔지니어는 권한이 없어도 클라우드 서비스 인스턴스에 RDP가 가능한가요?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [RDP 파일을 사용하여 클라우드 서비스 VM에 RDP할 수 없습니다. 인증 오류(코드: 0x80004005)가 발생합니다.](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [RDP 파일을 사용하여 클라우드 서비스 VM에 RDP할 수 없습니다. 다음 오류가 표시됩니다. 인증 오류가 발생했습니다(코드: 0x80004005).](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **크기 조정**
 
@@ -170,7 +170,7 @@ Cloud Services의 현재 WAD 설정을 가져오기 위해 [Get-AzureServiceDiag
     </Endpoints>
   </WorkerRole>
 ```
-자세한 정보는 [새로 만들기: Azure Load Balancer에 구성 가능한 유휴 시간 제한](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/)을 참조하세요.
+자세한 내용은 [새로 만들기: Azure Load Balancer에 구성 가능한 유휴 시간 제한](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/)을 참조하세요.
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>클라우드 서비스에 고정 IP 주소를 연결하려면 어떻게 할까요?
 고정 IP 주소를 설정하려면 예약된 IP 만들어야 합니다. 이 예약된 IP는 새 클라우드 서비스 또는 기존 배포에 연결할 수 있습니다. 자세한 내용은 다음과 같은 문서를 참조하세요.
@@ -190,7 +190,7 @@ Microsoft에서는 서버, 네트워크 및 응용 프로그램을 지속적으�
 Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서 HTTP/2에 대한 지원이 함께 제공됩니다. TLS 확장을 통해 HTTP/2를 협상하는 TLS로 클라이언트(브라우저)가 IIS 서버에 연결되어 있는 경우 서버 쪽에서 변경을 수행할 필요가 없습니다. TLS를 통해 HTTP/2의 사용을 지정하는 h2-14 헤더가 기본적으로 전송되기 때문입니다. 반면에 HTTP/2로 업그레이드하도록 클라이언트를 업그레이드 헤더로 전송 중인 경우 서버 쪽에서 아래 변경을 수행하여 업그레이드 작업이 HTTP/2 연결을 끝냈는지 확인해야 합니다. 
 
 1. regedit.exe를 실행합니다.
-2. 레지스트리 키(HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters)를 찾습니다.
+2. 레지스트리 키로 이동합니다. HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. **DuoEnabled**라는 새 DWORD 값을 만듭니다.
 4. 해당 값을 1로 설정합니다.
 5. 서버를 다시 시작합니다.
@@ -199,7 +199,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 자세한 내용은 다음을 참조하세요.
 
 - [IIS에서 HTTP/2](https://blogs.iis.net/davidso/http2)
-- [동영상: Windows 10에서 HTTP/2: 브라우저, 앱 및 웹 서버](https://channel9.msdn.com/Events/Build/2015/3-88)
+- [비디오: Windows 10의 HTTP/2: 브라우저, 앱 및 웹 서버](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
 이러한 단계는 시작 작업을 통해 자동화할 수 있으므로 새로운 PaaS 인스턴스가 만들어질 때마다 시스템 레지스트리에 위의 변경 내용을 수행할 수 있습니다. 자세한 내용은 [클라우드 서비스에 대한 시작 작업 구성 및 실행 방법](cloud-services-startup-tasks.md)을 참조하세요.
@@ -224,7 +224,7 @@ Cloud Services는 Azure Resource Manager 기반 서비스가 아니므로 RBAC(�
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Microsoft 내부 엔지니어는 권한이 없어도 클라우드 서비스 인스턴스에 RDP가 가능한가요?
 Microsoft에서는 소유자 또는 지정된 사용자의 서면 승인(전자 메일 또는 기타 서면 통신) 없이는 내부 엔지니어가 클라우드 서비스에 RDP하는 것을 허용하지 않는 엄격한 프로세스를 따릅니다.
 
-### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>RDP 파일을 사용하여 클라우드 서비스 VM에 RDP할 수 없습니다. 인증 오류(코드: 0x80004005)가 발생합니다.
+### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>RDP 파일을 사용하여 클라우드 서비스 VM에 RDP할 수 없습니다. 다음 오류가 표시됩니다. 인증 오류가 발생했습니다(코드: 0x80004005).
 
 Azure Active Directory에 조인된 컴퓨터에서 RDP 파일을 사용하는 경우 이 오류가 발생할 수 있습니다. 이 문제를 해결하려면 다음 단계를 따릅니다.
 
@@ -242,9 +242,9 @@ Cloud Services를 위한 메모리 메트릭 기반의 자동 크기 조정은 �
 
 이 문제를 해결하려면 Application Insights를 사용하세요. 자동 크기 조정은 Application Insights를 메트릭 소스로 지원하며 "메모리" 같은 게스트 메트릭에 따라 역할 인스턴스 수를 확장할 수 있습니다.  클라우드 서비스 프로젝트 패키지 파일(*.cspkg)에서 Application Insights를 구성하고 서비스에서 Azure 진단 확장을 사용하도록 설정하여 이 기능을 구현해야 합니다.
 
-Application Insights를 통해 사용자 지정 메트릭을 사용하여 Cloud Services에서 자동 크기 조정을 구성하는 방법에 대한 자세한 내용은 [Azure에서 사용자 지정 메트릭을 기준으로 자동 크기 조정 시작](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)을 참조하세요.
+Application Insights를 통해 사용자 지정 메트릭을 사용하여 Cloud Services에서 자동 크기 조정을 구성하는 방법에 대한 자세한 내용은 [Azure에서 사용자 지정 메트릭을 기준으로 자동 크기 조정 시작](../azure-monitor/platform/autoscale-custom-metric.md)을 참조하세요.
 
-Azure 진단을 Cloud Services용 Application Insights와 통합하는 방법에 대한 자세한 내용은 [Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)를 참조하세요.
+Azure 진단을 Cloud Services용 Application Insights와 통합하는 방법에 대한 자세한 내용은 [Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)를 참조하세요.
 
 Cloud Services용 Application Insights를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Cloud Services용 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)를 참조하세요.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Search의 보안 및 데이터 프라이버시 | Microsoft Docs
+title: 보안 및 데이터 프라이버시 - Azure Search
 description: Azure Search는 SOC 2, HIPAA 및 기타 인증을 준수합니다. 연결 및 데이터 암호화, 인증, ID는 Azure Search 필터의 사용자 및 그룹 보안 식별자를 통해 액세스합니다.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: heidist
-ms.openlocfilehash: 4b1307aa00fae26d7425c9a95ed673b11ba2e9b4
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.custom: seodec2018
+ms.openlocfilehash: 55558f1483a576e7ac3b9ce027588eceabd5db70
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092634"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311714"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure Search의 보안 및 데이터 프라이버시
 
@@ -103,7 +104,7 @@ Azure Search에서 요청을 구성하는 방법에 대한 정보는 [Azure Sear
 
 다음 표에서는 Azure Search에서 허용되는 작업 및 특정 작업에 대한 액세스의 잠금을 해제하는 키를 요약합니다.
 
-| 작업 | 권한 |
+| 작업(Operation) | 권한 |
 |-----------|-------------------------|
 | 서비스 만들기 | Azure 구독 소유자|
 | 서비스 크기 조정 | 관리자 키, 리소스에 대한 RBAC 소유자 또는 참가자  |
