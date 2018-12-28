@@ -34,11 +34,11 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 -   **사용자 지정 개발된 응용 프로그램** – 조직에서 Azure AD 응용 프로그램 개발 플랫폼에서 개발하고자 하지만 아직 존재하지 않을 수 있는 응용 프로그램입니다.
 
--   **비 갤러리 응용 프로그램** – 사용자의 응용 프로그램을 가져옵니다! 원하는 모든 웹 링크 또는 사용자 이름 및 암호 필드를 렌더링하는 모든 응용 프로그램은 SAML 또는 OpenID Connect 프로토콜을 지원하거나 Single Sign-On에 대해 Azure AD와 통합하려는 SCIM을 지원합니다.
+-   **비 갤러리 응용 프로그램** – 사용자의 응용 프로그램을 가져옵니다! 원하는 모든 웹 링크 또는 사용자 이름 및 암호 필드를 렌더링하는 모든 애플리케이션은 SAML 또는 OpenID Connect 프로토콜을 지원하거나 Single Sign-On에 대해 Azure AD와 통합하려는 SCIM을 지원합니다.
 
 ## <a name="features-and-capabilities-supported-by-the-application-types"></a>애플리케이션 유형에서 지원되는 기능 및 특징
 
-다음 기능은 Azure AD에서 이전 4개의 응용 프로그램 형식 중 하나에서 지원됩니다.
+다음 기능은 Azure AD에서 이전 4개의 애플리케이션 형식 중 하나에서 지원됩니다.
 
 -   **빠른 시작** – [간단한 배포 단계](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)를 수행하여 신속하게 응용 프로그램 시작
 
@@ -56,9 +56,9 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 -   **사용 권한 보기** – 응용 프로그램이 단일 위치의 디렉터리에서 액세스를 갖는 [OAuth2 권한](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent) 중 하나 보기
 
-## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>특정 응용 프로그램 형식에서 지원되는 Single Sign-On 및 프로비전 모드
+## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>특정 애플리케이션 형식에서 지원되는 Single Sign-On 및 프로비전 모드
 
-다음 표는 이전 각 애플리케이션 형식에서 지원하는 서로 다른 Single Sign-On 및 프로비전 모드를 설명합니다. 이 표를 사용하여 특정 목표를 지원하기 위해 추가해야 하는 응용 프로그램을 이해할 수 있습니다.
+다음 표는 이전 각 애플리케이션 형식에서 지원하는 서로 다른 Single Sign-On 및 프로비전 모드를 설명합니다. 이 표를 사용하여 특정 목표를 지원하기 위해 추가해야 하는 애플리케이션을 이해할 수 있습니다.
 
   ![앱 형식 테이블](./media/choose-application-type/table1.png)
 
@@ -93,7 +93,7 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
    >
    >
 
-## <a name="single-sign-on-modes-for-custom-developed-applications"></a>사용자 지정 개발된 응용 프로그램에 대한 Single Sign-On 모드
+## <a name="single-sign-on-modes-for-custom-developed-applications"></a>사용자 지정 개발된 애플리케이션에 대한 Single Sign-On 모드
 
 [사용자 지정 개발된 응용 프로그램](#_Custom-Developed_Applications) 환경을 통해 사용자 지정 개발한 응용 프로그램은 이전에 나열되지 않은 추가 Single Sign-On 모드도 지원하며, 다음을 포함합니다.
 
@@ -105,9 +105,9 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 -   [SAML 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference) 기반 로그온
 
-이러한 Single Sign-On 모드를 지원하는 사용자 지정 개발된 응용 프로그램을 만드는 방법에 대해 자세히 알아보려면 [Azure Active Directory 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)를 참조하세요.
+이러한 Single Sign-On 모드를 지원하는 사용자 지정 개발된 애플리케이션을 만드는 방법에 대해 자세히 알아보려면 [Azure Active Directory 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)를 참조하세요.
 
-## <a name="how-to-set-an-applications-single-sign-on-mode"></a>응용 프로그램의 Single Sign-On 모드를 설정하는 방법
+## <a name="how-to-set-an-applications-single-sign-on-mode"></a>애플리케이션의 Single Sign-On 모드를 설정하는 방법
 
 애플리케이션의 **Single Sign-On** 모드를 설정하려면 아래 지침을 따릅니다.
 
@@ -121,7 +121,7 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
-  * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+  * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
 6.  Single Sign-On을 구성하려는 응용 프로그램을 선택합니다.
 
@@ -147,7 +147,7 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 ## <a name="how-to-set-an-applications-provisioning-mode"></a>응용 프로그램의 프로비전 모드를 설정하는 방법
 
-응용 프로그램의 **프로비전** 모드를 설정하려면 아래 지침을 따릅니다.
+애플리케이션의 **프로비전** 모드를 설정하려면 아래 지침을 따릅니다.
 
 애플리케이션의 **Single Sign-On** 모드를 설정하려면 아래 지침을 따릅니다.
 
@@ -161,11 +161,11 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
-  * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+  * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
 6.  프로비전을 구성하려는 응용 프로그램을 선택합니다.
 
-7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **프로비전**을 클릭합니다.
+7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **프로비전**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory로 응용 프로그램 관리](what-is-application-management.md)

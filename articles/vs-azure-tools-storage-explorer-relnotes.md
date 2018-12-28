@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 608dd6067e5c9d31f720b97453615a3e8ead0a85
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 956482a30d383df558eee775b9d89c211bc53e61
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038623"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101418"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage 탐색기 릴리스 정보
 
@@ -165,9 +165,9 @@ ms.locfileid: "51038623"
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
@@ -221,9 +221,9 @@ ms.locfileid: "51038623"
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
@@ -276,9 +276,9 @@ ms.locfileid: "51038623"
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
@@ -336,9 +336,9 @@ ms.locfileid: "51038623"
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
@@ -363,7 +363,7 @@ ms.locfileid: "51038623"
 * 정적 웹 사이트에서 사용하는 $web 컨테이너 액세스가 현재 지원됩니다. 이제 웹 사이트에서 사용되는 파일 및 폴더를 손쉽게 업로드하고 관리할 수 있습니다. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
 * macOS에서 앱 표시줄이 재구성되었습니다. 변경 내용에는 파일 메뉴, 일부 바로 가기 키 변경 및 앱 메뉴의 몇 가지 새로운 명령이 포함됩니다. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
 * Azure US Government에 로그인하기 위한 인증 기관 엔드포인트가 https://login.microsoftonline.us/로 변경되었습니다.
-* 접근성: 화면 판독기가 활성 상태인 경우 키보드 탐색이 이제 오른쪽에 항목을 표시하는 데 사용되는 테이블과 함께 작동합니다. 화살표 키를 사용하여 행과 열을 탐색하고, Enter 키를 사용하여 기본 작업 항목을 호출하고, 바로 가기 메뉴 키를 사용하여 항목에 대한 바로 가기 메뉴를 열고, Shift 키 또는 컨트롤을 사용하여 다중 선택할 수 있습니다. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+* 접근성: 화면 판독기가 활성이 되면 키보드 탐색이 오른쪽에 항목을 표시하는 데 사용되는 테이블과 작동합니다. 화살표 키를 사용하여 행과 열을 탐색하고, Enter 키를 사용하여 기본 작업 항목을 호출하고, 바로 가기 메뉴 키를 사용하여 항목에 대한 바로 가기 메뉴를 열고, Shift 키 또는 컨트롤을 사용하여 다중 선택할 수 있습니다. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
 
 ### <a name="fixes"></a>수정 프로그램
 *  일부 머신에서 자식 프로세스를 시작하려면 오랜 시간이 소요되었습니다. 이 현상이 발생하는 경우 “자식 프로세스가 적시에 시작하지 못함” 오류가 나타납니다. 자식 프로세스를 시작하는 데 할당된 시간이 이제 20초에서 90초로 증가되었습니다. 이 문제가 아직 해결되지 않은 경우 연결된 GitHub 문제에 의견을 남겨주세요. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
@@ -371,11 +371,11 @@ ms.locfileid: "51038623"
 * 컨테이너에 대한 공용 액세스 수준 설정에서 모든 액세스 정책을 제거하고, 그 반대의 경우도 마찬가지입니다. 이제 공용 액세스 수준 및 액세스 정책은 둘 중 하나를 설정하는 경우 유지됩니다. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
 * 속성 대화 상자에서 “AccessTierChangeTime”이 잘렸습니다. 이 문제가 해결되었습니다. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
 * “Microsoft Azure Storage 탐색기 -” 접두사가 새 디렉터리 만들기 대화 상자에서 누락되었습니다. 이 문제가 해결되었습니다. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
-* 접근성: 엔터티 추가 대화 상자가 VoiceOver를 사용하는 경우 탐색하기 어려웠습니다. 개선이 이루어졌습니다. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* 접근성: VoiceOver를 사용하는 경우 엔터티 추가 대화 상자를 탐색하기 어려웠습니다. 개선이 이루어졌습니다. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
 * 접근성: 작업 및 속성 창에 대한 축소/확장 단추의 배경색이 고대비 검정 테마의 유사한 UI 컨트롤과 불일치합니다. 색상이 변경되었습니다. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
 * 접근성: 고대비 검정 테마에서 속성 대화 상자의 ‘X’ 단추에 대한 포커스 스타일링이 표시되지 않습니다. 이 문제가 해결되었습니다. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
-* 접근성: 작업 및 속성 탭에서 수준 이하의 화면 판독기 환경에서 발생하는 몇 가지 aria 값이 누락되었습니다. 이제 누락된 aria 값이 추가되었습니다. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
-* 접근성: 왼쪽에 축소된 트리 노드에 false의 aria 확장 값이 부여되지 않았습니다. 이 문제가 해결되었습니다. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+* 접근성: 작업 및 속성 탭에 몇 가지 aria 값이 누락되어 수준 이하의 화면 판독기 환경이 되었습니다. 이제 누락된 aria 값이 추가되었습니다. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
+* 접근성: 왼쪽에 접힌 트리 노드에 false의 aria 확장 값이 부여되지 않았습니다. 이 문제가 해결되었습니다. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
 
 ### <a name="known-issues"></a>알려진 문제
 * Blob 컨테이너와 같은 SAS URI를 통해 연결된 리소스에서 분리하면 다른 첨부 파일이 올바르게 표시되지 않도록 하는 오류가 발생할 수 있습니다. 이 문제를 해결하려면 그룹 노드를 새로 고칩니다. 자세한 내용은 [이 문제](https://github.com/Microsoft/AzureStorageExplorer/issues/537)를 참조하세요.
@@ -393,9 +393,9 @@ ms.locfileid: "51038623"
    * 일시 삭제
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
@@ -450,9 +450,9 @@ ms.locfileid: "51038623"
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
@@ -504,9 +504,9 @@ ms.locfileid: "51038623"
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
@@ -570,9 +570,9 @@ ms.locfileid: "51038623"
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
@@ -607,9 +607,9 @@ ms.locfileid: "51038623"
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
 
@@ -656,9 +656,9 @@ ms.locfileid: "51038623"
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
 
@@ -702,9 +702,11 @@ ms.locfileid: "51038623"
 * blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
 
     ```
@@ -764,9 +766,11 @@ ms.locfileid: "51038623"
 * blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
 
     ```
@@ -818,9 +822,11 @@ ms.locfileid: "51038623"
 * blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
 
     ```
@@ -913,12 +919,12 @@ ms.locfileid: "51038623"
 
 #### <a name="fixes"></a>수정 프로그램
 
-* 수정됨: 파일 업로드 시의 높은 메모리 부족 오류 발생 가능성이 수정되었습니다.
-* 수정됨: 이제 PIN/스마트 카드를 사용하여 로그인할 수 있습니다.
-* 수정됨: 이제 포털에서 열기가 Azure 중국, Azure 독일, Azure 미국 정부 및 Azure Stack에서 작동합니다.
-* 수정됨: Blob 컨테이너에 폴더를 업로드하는 중에 가끔씩 "잘못된 작업입니다."라는 오류가 발생하는 현상이 해결되었습니다.
-* 수정됨: 스냅숏을 관리하는 동안 모두 선택 기능이 사용할 수 없도록 설정되었습니다.
-* 수정됨: 기본 Blob의 메타데이터 스냅숏 속성을 확인하고 나면 해당 메타데이터가 덮어쓰여질 수 있습니다.
+* 수정됨: 파일 업로드로 인해 메모리 부족 오류가 발생할 확률이 높습니다.
+* 수정됨: 이제 PIN/스마트 카드로 로그인할 수 있습니다.
+* 수정됨: 포털에서 열기가 이제 Azure 중국, Azure 독일, Azure 미국 정부 및 Azure Stack에서 작동합니다.
+* 수정됨: Blob 컨테이너에 폴더를 업로드하는 중에 "잘못된 작업"오류가 발생하는 경우가 있습니다.
+* 수정됨: 스냅숏을 관리하는 동안 모두 선택이 불가능하도록 설정되었습니다.
+* 수정됨: 기본 BLOB의 메타데이터가 해당 스냅숏의 속성을 보고 나면 덮어쓰여질 수 있습니다.
 
 #### <a name="known-issues"></a>알려진 문제
 
@@ -1027,13 +1033,13 @@ ms.locfileid: "51038623"
 
 #### <a name="fixes"></a>수정 프로그램
 
-* 수정됨: 이제 Mac에서도 Storage 탐색기를 신뢰할 수 있는 앱으로 사용할 수 있습니다.
+* 수정됨: Storage 탐색기가 이제 Mac에서 신뢰할 수 있는 앱입니다.
 * 수정됨: Ubuntu 14.04가 다시 지원됩니다.
-* 수정됨: 구독을 로드할 때 계정 추가 UI가 가끔씩 깜박이는 현상이 수정되었습니다.
-* 수정됨: 가끔씩 왼쪽 탐색 창에 일부 Storage 리소스가 나열되지 않는 현상이 수정되었습니다.
-* 수정됨: 작업 창에 가끔씩 빈 작업이 표시되는 현상이 수정되었습니다.
-* 수정됨: 이제 마지막에 닫은 세션의 창 크기가 유지됩니다.
-* 수정됨: 상황에 맞는 메뉴를 사용하는 동일한 리소스에 대해 여러 탭을 열 수 있습니다.
+* 수정됨: 구독을 로드할 때 계정 추가 UI가 깜박이는 경우가 있습니다.
+* 수정됨: 왼쪽 탐색 창에 일부 스토리지 리소스가 나열되지 않는 경우가 있습니다.
+* 수정됨: 작업 창에 빈 작업이 표시되는 경우가 있습니다.
+* 수정됨: 마지막에 닫은 세션의 창 크기가 이제 유지됩니다.
+* 수정됨: 상황에 맞는 메뉴를 사용하여 동일한 리소스에 대해 여러 탭을 열 수 있습니다.
 
 #### <a name="known-issues"></a>알려진 문제
 
@@ -1055,7 +1061,7 @@ ms.locfileid: "51038623"
 * 새롭게 향상된 하위 문자열 검색에 범위 지정 검색 기능이 다시 도입되었으므로 이제 검색 시에 다음의 두 가지 옵션을 사용할 수 있습니다.
     * 전체 검색 - 검색 입력란에 검색 용어만 입력하면 됩니다.
     * 범위 지정 검색 - 노드 옆의 돋보기 아이콘을 클릭하고 경로 끝에 검색 용어를 추가하거나 마우스 오른쪽 단추를 클릭하고 "여기에서 검색"을 선택합니다.
-* 밝게(기본값), 어둡게, 고대비 검정 및 고대비 흰색 등의 다양한 테마를 추가했습니다. 편집 -&gt; 테마로 이동하여 테마 기본 설정을 변경할 수 있습니다.
+* 다양하게 추가된 테마: 밝게(기본값), 어둡게, 고대비 검정 및 고대비 흰색. 편집 -&gt; 테마로 이동하여 테마 기본 설정을 변경할 수 있습니다.
 * Blob 및 파일 속성을 수정할 수 있습니다.
 * 이제 인코딩된 큐 메시지(Base64)와 인코딩되지 않은 큐 메시지가 모두 지원됩니다.
 * 이제 Linux에서는 64비트 OS를 사용해야 합니다. 이번 릴리스에서는 64비트 Ubuntu 16.04.1 LTS만 지원됩니다.
@@ -1065,12 +1071,12 @@ ms.locfileid: "51038623"
 
 * 수정됨: 화면 중단 문제
 * 수정됨: 향상된 보안
-* 수정됨: 가끔씩 연결된 계정이 중복으로 표시되는 현상이 수정되었습니다.
-* 수정됨: Blob의 콘텐츠 형식이 정의되어 있지 않으면 예외가 발생할 수 있는 현상이 수정되었습니다.
-* 수정됨: 빈 테이블에서 쿼리 패널을 열 수 없는 현상이 수정되었습니다.
-* 수정됨: 검색의 버그가 확인 및 수정되었습니다.
+* 수정됨: 연결된 계정이 중복 표시되는 경우가 있습니다.
+* 수정됨: 정의되지 않은 콘텐츠 형식이 있는 Blob에서 예외가 발생할 수 있습니다.
+* 수정됨: 빈 테이블에서 쿼리 패널을 열 수 없었습니다.
+* 수정됨: 검색의 다양한 버그
 * 수정됨: "추가 로드"를 클릭하면 로드되는 리소스의 수가 50개에서 100개로 늘어났습니다.
-* 수정됨: 이제는 첫 실행 시 계정에 로그인하면 기본적으로 해당 계정의 모든 구독이 선택됩니다.
+* 수정됨: 처음 실행될 때 계정에 로그인하면 기본적으로 해당 계정의 모든 구독이 선택됩니다.
 
 #### <a name="known-issues"></a>알려진 문제
 
@@ -1091,8 +1097,8 @@ ms.locfileid: "51038623"
 #### <a name="fixes"></a>수정 프로그램
 
 * 수정됨: 검색 중에 경합 상태가 발생하면 가끔씩 노드를 확장할 수 없게 되는 현상이 수정되었습니다.
-* 수정됨: 계정 이름과 키를 사용하여 Storage 계정에 연결할 때 "HTTP 사용"이 작동하지 않는 현상이 수정되었습니다.
-* 수정됨: SAS 키(구체적으로는 Portal에서 생성된 키)에서 "후행 슬래시" 오류가 반환되는 현상이 수정되었습니다.
+* 수정됨: 계정 이름과 키를 사용하여 스토리지 계정에 연결할 때 "HTTP 사용"이 작동하지 않습니다.
+* 수정됨: SAS 키(특히 포털에서 생성된 키)가 "후행 슬래시" 오류를 반환합니다.
 * 수정됨: 테이블 가져오기 문제가 수정되었습니다.
     * 가끔씩 파티션 키와 행 키가 서로 바뀌는 문제
     * "null" 파티션 키를 읽을 수 없는 문제
@@ -1138,7 +1144,7 @@ ms.locfileid: "51038623"
 
 #### <a name="fixes"></a>수정 프로그램
 
-* 수정됨: Microsoft 계정을 8-12시간마다 다시 인증해야 하는 문제가 수정되었습니다.
+* 수정됨: 8-12시간마다 Microsoft 계정을 다시 인증해야 합니다.
 
 #### <a name="known-issues"></a>알려진 문제
 
@@ -1194,7 +1200,7 @@ ms.locfileid: "51038623"
 
 * 수정됨: 큰 Blob를 업로드하거나 다운로드하면 업로드/다운로드가 완전히 진행되지 않는 현상이 수정되었습니다.
 * 수정됨: 숫자 문자열 값("1")이 포함된 엔터티를 편집하거나 추가하거나 가져오면 해당 값이 double로 변환되는 현상이 수정되었습니다.
-* 수정됨: 로컬 개발 환경에서 테이블 노드를 확장할 수 없는 현상이 수정되었습니다.
+* 수정됨: 로컬 개발 환경에서 테이블 노드를 확장할 수 없습니다.
 
 #### <a name="known-issues"></a>알려진 문제
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Blueprints의 리소스 잠금 이해
+title: 리소스 잠금 이해
 description: 청사진을 할당할 때 리소스를 보호하기 위한 잠금 옵션에 대해 알아봅니다.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4e71797837927fe5f5233bcf88d35fef98f504e9
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: seodec18
+ms.openlocfilehash: 0e272f7137967b545269a408b6e83552de532682
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139445"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309436"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
 
@@ -21,9 +22,9 @@ ms.locfileid: "50139445"
 
 ## <a name="locking-modes-and-states"></a>잠금 모드 및 상태
 
-잠금 모드는 청사진 할당에 적용되며 **없음** 또는 **모든 리소스**의 두 가지 옵션만 포함합니다. 청사진 할당 시에 구성되는 잠금 모드는 할당이 구독에 정상 적용되고 나면 변경할 수 없습니다.
+잠금 모드는 청사진 할당에 적용되며 다음 두 가지 옵션만 있습니다. **없음** 또는 **모든 리소스**. 청사진 할당 시에 구성되는 잠금 모드는 할당이 구독에 정상 적용되고 나면 변경할 수 없습니다.
 
-청사진 할당의 아티팩트에 의해 생성되는 리소스의 상태는 **잠겨있지 않음**, **읽기 전용** 또는 **편집/삭제할 수 없음**의 세 가지입니다. 각 아티팩트는 **잠겨 있지 않음** 상태일 수 있습니다. 그러나 리소스 그룹이 아닌 아티팩트는 **읽기 전용** 상태이며 리소스 그룹은 **편집/삭제할 수 없음** 상태입니다. 이러한 차이점에 따라 리소스 관리 방식이 구분됩니다.
+청사진 할당의 아티팩트에서 생성되는 리소스의 상태는 다음 세 가지입니다. **잠겨있지 않음**, **읽기 전용** 또는 **편집/삭제할 수 없음**. 각 아티팩트는 **잠겨 있지 않음** 상태일 수 있습니다. 그러나 리소스 그룹이 아닌 아티팩트는 **읽기 전용** 상태이며 리소스 그룹은 **편집/삭제할 수 없음** 상태입니다. 이러한 차이점에 따라 리소스 관리 방식이 구분됩니다.
 
 **읽기 전용** 상태는 정의된 그대로입니다. 즉, 리소스를 어떤 방식으로도 변경할 수 없으며 삭제할 수도 없습니다. **편집/삭제할 수 없음**의 경우 리소스 그룹의 “컨테이너” 특성으로 인해 약간 차이가 있습니다. 리소스 그룹 개체는 읽기 전용이지만 리소스 그룹 내에서 잠겨 있지 않은 리소스를 변경할 수 있습니다.
 

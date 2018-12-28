@@ -1,6 +1,6 @@
 ---
-title: Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드 | Microsoft Docs
-description: Hive 테이블을 만들어서 blob의 데이터를 Hive 테이블에 로드
+title: Hive 테이블 만들기 및 Blob 스토리지에서 데이터 로드 - Team Data Science Process
+description: Hive 쿼리를 사용하여 Hive 테이블을 만들고 Azure Blob 스토리지에서 데이터를 로드합니다. Hive 테이블을 분할하고 ORC(Optimized Row Columnar) 형식을 사용하여 쿼리 성능을 개선합니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 42911c347cd055f37f7fe8f31b6d22cc18a78662
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5d88974fd1fb3d8784416ad3895fe139a3275e01
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442883"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134950"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드
 
@@ -65,14 +65,14 @@ Hadoop 클러스터의 헤드 노드에 로그인하고, 헤드 노드 바탕 �
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Hadoop 명령줄에서 직접 Hive 쿼리를 제출합니다.
 `hive -e "<your hive query>;` 같은 명령을 실행하여 Hadoop 명령줄에서 바로 간단한 Hive 쿼리를 제출할 수 있습니다. 다음은 그 예제입니다. 빨간색 상자는 Hive 쿼리를 제출하는 명령을, 녹색 상자는 Hive 쿼리의 출력을 보여 줍니다.
 
-![작업 영역 만들기](./media/move-hive-tables/run-hive-queries-1.png)
+![Hive 쿼리의 출력을 사용하여 Hive 쿼리를 제출하는 명령](./media/move-hive-tables/run-hive-queries-1.png)
 
 #### <a name="submit-hive-queries-in-hql-files"></a>.hql 파일로 Hive 쿼리 제출
 Hive 쿼리가 좀 더 복잡하고 줄이 여러 개인 경우 명령줄 또는 Hive 명령 콘솔에서 쿼리를 편집하는 방법은 실용적이지 않습니다. 대신 Hadoop 클러스터의 헤드 노드에서 텍스트 편집기를 사용하여 헤드 노드의 로컬 디렉터리에 있는 .hql 파일에 Hive 쿼리를 저장합니다. 그러면 다음과 같이 `-f` 인수를 사용하여 .hql 파일의 Hive 쿼리를 제출할 수 있습니다.
 
     hive -f "<path to the .hql file>"
 
-![작업 영역 만들기](./media/move-hive-tables/run-hive-queries-3.png)
+![.hql 파일의 Hive 쿼리](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Hive 쿼리의 진행 상태 화면 인쇄 숨기기**
 
@@ -84,7 +84,7 @@ Hive 쿼리가 좀 더 복잡하고 줄이 여러 개인 경우 명령줄 또는
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Hive 명령 콘솔에서 Hive 쿼리를 제출합니다.
 또한 Hadoop 명령줄에서 `hive` 명령을 실행하여 Hive 명령 콘솔을 먼저 입력한 후 Hive 명령 콘솔에서 Hive 쿼리를 제출할 수 있습니다. 다음은 예제입니다. 이 예제에서 두 빨간색 상자는 각각 Hive 명령 콘솔을 입력하는 데 사용된 명령과 Hive 명령 콘솔에서 제출된 Hive 쿼리를 보여 줍니다. 녹색 상자는 Hive 쿼리의 출력을 보여 줍니다.
 
-![작업 영역 만들기](./media/move-hive-tables/run-hive-queries-2.png)
+![Hive 명령 콘솔을 열고 명령을 입력하고, Hive 쿼리 출력 보기](./media/move-hive-tables/run-hive-queries-2.png)
 
 이전 예제에서는 Hive 쿼리 결과가 화면에 바로 출력됩니다. 또한 헤드 로드의 로컬 파일 또는 Azure blob에 출력을 작성할 수 있습니다. 그런 다음 다른 도구를 사용하여 Hive 쿼리 출력을 추가로 분석할 수 있습니다.
 
@@ -95,7 +95,7 @@ Hive 쿼리 결과를 헤드 노드의 로컬 디렉터리에 출력하려면 �
 
 다음 예제에서 Hive 쿼리의 출력은 `C:\apps\temp` 디렉터리의 `hivequeryoutput.txt` 파일에 작성됩니다.
 
-![작업 영역 만들기](./media/move-hive-tables/output-hive-results-1.png)
+![Hive 쿼리의 출력](./media/move-hive-tables/output-hive-results-1.png)
 
 **Azure blob에 Hive 쿼리 결과 출력**
 
@@ -105,11 +105,11 @@ Hadoop 클러스터의 기본 컨테이너 내에 있는 Azure blob에 Hive 쿼�
 
 다음 예제에서 Hive 쿼리는 Hadoop 클러스터의 기본 컨테이너 내에 있는 blob 디렉터리 `queryoutputdir` 에 작성됩니다. 이때 사용자는 blob 이름 없이 디렉터리 이름만 입력하면 됩니다. `wasb:///queryoutputdir/queryoutput.txt`처럼 디렉터리 이름과 blob 이름을 모두 입력하면 오류가 발생합니다.
 
-![작업 영역 만들기](./media/move-hive-tables/output-hive-results-2.png)
+![Hive 쿼리의 출력](./media/move-hive-tables/output-hive-results-2.png)
 
 Azure Storage 탐색기를 사용하여 Hadoop 클러스터의 기본 컨테이너를 열면 다음과 같은 Hive 쿼리 출력을 볼 수 있습니다. 필터(빨간색 상자로 강조 표시됨)를 적용하여 이름에 지정된 문자가 포함된 blob만 검색할 수 있습니다.
 
-![작업 영역 만들기](./media/move-hive-tables/output-hive-results-3.png)
+![Hive 쿼리의 출력을 표시하는 Azure Storage 탐색기](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Hive 편집기를 사용하여 Hive 쿼리 제출
 *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* 형식의 URL을 웹 브라우저에 입력하여 쿼리 콘솔(Hive 편집기)을 사용할 수도 있습니다. 이 콘솔을 보려면 로그인해야 하며, Hadoop 클러스터 자격 증명이 필요합니다.

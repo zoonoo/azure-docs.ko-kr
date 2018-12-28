@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/10/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 45f77c3065feeb011a10bc345c22082b6a89529c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5bea4c655e9a8970d8d0d946827cc3e46e7efa7a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582822"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255162"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -25,7 +25,9 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
-| V4 릴리스 | 4.0.1.0 | 2018년 11월 13일 | 지원됨(권장 버전) |
+| 12월 업데이트 롤업 - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 2018년 12월 10일 | 지원됨(권장 버전) |
+| 12월 업데이트 롤업 | 4.1.0.0 | 2018년 12월 4일 | 지원됨 |
+| V4 릴리스 | 4.0.1.0 | 2018년 11월 13일 | 지원됨 |
 | 9월 업데이트 롤업 | 3.3.0.0 | 2018년 9월 24일 | 지원됨 |
 | 8월 업데이트 롤업 | 3.2.0.0 | 2018년 8월 15일 | 지원됨 |
 | 일반 공급 | 3.1.0.0 | 2018년 7월 19일 | 지원됨 |
@@ -42,6 +44,22 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-4200"></a>에이전트 버전 4.2.0.0
+다음 릴리스 정보는 2018년 12월 10일 릴리스된 Azure 파일 동기화 에이전트의 버전 4.2.0.0에 대한 것입니다. 이러한 정보는 버전 4.0.1.0에 대해 나열된 릴리스 정보에 대한 추가 사항입니다.
+
+이 릴리스에서 해결된 문제 목록:  
+- VSS 스냅숏이 생성될 때 중지 오류 0x3B 또는 중지 오류 0x1E가 발생할 수 있습니다.  
+- 클라우드 계층화를 사용하도록 설정하면 메모리 누수가 발생할 수 있습니다.  
+
+## <a name="agent-version-4100"></a>에이전트 버전 4.1.0.0
+다음 릴리스 정보는 2018년 12월 4일 릴리스된 Azure 파일 동기화 에이전트의 버전 4.1.0.0에 대한 것입니다. 이러한 정보는 버전 4.0.1.0에 대해 나열된 릴리스 정보에 대한 추가 사항입니다.
+
+이 릴리스에서 해결된 문제 목록:  
+- 클라우드 계층화 메모리 누수로 인해 서버가 응답하지 않을 수 있습니다.  
+- 다음 오류를 나타내며 에이전트 설치가 실패합니다. 오류 1921. '스토리지 동기화 에이전트'(FileSyncSvc) 서비스를 중지하지 못했습니다.  시스템 서비스를 중지할 수 있는 권한이 있는지 확인하세요.  
+- 메모리 사용량이 높은 경우 스토리지 동기화 에이전트'(FileSyncSvc) 서비스가 충돌할 수 있습니다.  
+- 클라우드 계층화 및 동기화의 기타 안정성 개선
 
 ## <a name="agent-version-4010"></a>에이전트 버전 4.0.1.0
 다음 릴리스 정보는 2018년 11월 13일 릴리스된 Azure 파일 동기화 에이전트의 버전 4.0.1.0에 대한 것입니다.
@@ -107,10 +125,10 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 ## <a name="agent-version-3300"></a>에이전트 버전 3.3.0.0
 아래에는 2018년 9월 24일에 릴리스된 Azure File Sync 에이전트 버전 3.3.0.0의 릴리스 정보가 나와 있습니다. 이러한 정보는 버전 3.1.0.0에 대해 나열된 릴리스 정보에 대한 추가 사항입니다.
 
-이 릴리스에는 다음과 같은 수정 사항이 포함됩니다.
+이 릴리스에서 해결된 문제 목록:
 - Azure File Sync 에이전트를 버전 3.1 또는 3.2로 업그레이드하고 나면 등록된 서버 상태가 “오프라인으로 나타남”으로 표시됩니다.
 - 경로가 긴 파일로 인해 Storage 동기화 에이전트(FileSyncSvc) 서비스 작동이 중단됩니다.
-- 서버 등록이 실패하며 “파일 또는 어셈블리 Kailani.Afs.StorageSyncProtocol.V3을(를) 로드할 수 없습니다.” 오류가 발생합니다.
+- 서버 등록이 실패하며 "파일 또는 어셈블리 Kailani.Afs.StorageSyncProtocol.V3을(를) 로드할 수 없습니다." 오류가 발생합니다.
 
 ## <a name="agent-version-3200"></a>에이전트 버전 3.2.0.0
 다음 릴리스 정보는 2018년 8월 15일 릴리스된 Azure 파일 동기화 에이전트의 버전 3.2.0.0에 대한 것입니다. 이러한 정보는 버전 3.1.0.0에 대해 나열된 릴리스 정보에 대한 추가 사항입니다.

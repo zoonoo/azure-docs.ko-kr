@@ -53,7 +53,7 @@ sections:
       text: 구독 감사 및 경고
       href: /azure/monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription
   - type: paragraph
-    text: Azure Application Insights를 사용하여 응용 프로그램 모니터링을 시작하는 방법을 알아봅니다.
+    text: Azure Application Insights를 사용하여 애플리케이션 모니터링을 시작하는 방법을 알아봅니다.
   - type: list
     style: icon48
     items:

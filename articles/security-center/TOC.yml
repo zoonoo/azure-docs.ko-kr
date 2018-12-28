@@ -121,7 +121,7 @@ items:
       href: security-center-vulnerability-assessment-recommendations.md
     - name: 웹 애플리케이션 방화벽 추가
       href: security-center-add-web-application-firewall.md
-    - name: 응용 프로그램 보호 완료
+    - name: 애플리케이션 보호 완료
       href: security-center-add-web-application-firewall.md#finalize-application-protection
     - name: 차세대 방화벽 추가
       href: security-center-add-next-generation-firewall.md

@@ -3,7 +3,7 @@ title: Elastic Database 작업 시작 | Microsoft Docs
 description: 여러 데이터베이스에 걸친 T-SQL 스크립트를 실행하려면 탄력적 데이터베이스 작업을 사용합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,27 +12,27 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: ada95f9fc09aeb7e8dac67bc5f9c4af96f9700df
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241364"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863536"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Elastic Database 작업 시작
 
-
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
 
 Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면 자동으로 다시 시도하여 최종 완료를 보장하는 동시에 여러 데이터베이스에 걸친 T-SQL 스크립트를 안정적으로 실행할 수 있습니다. Elastic Database 작업 기능에 대한 자세한 내용은 [탄력적 작업](sql-database-elastic-jobs-overview.md)을 참조하세요.
 
 이 문서에는 [Elastic Database 도구 시작](sql-database-elastic-scale-get-started.md)의 샘플의 확장이 나와 있습니다. 완료되면 관련 데이터베이스 그룹을 관리하는 작업을 만들고 관리하는 방법을 살펴봅니다. 탄력적 작업의 이점을 활용하기 위해 탄력적 확장 도구를 사용할 필요는 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
 [Elastic Database 도구 샘플 시작](sql-database-elastic-scale-get-started.md)을 다운로드하고 실행하세요.
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>샘플 응용 프로그램을 사용하여 분할된 데이터베이스 맵 관리자 만들기
+
 분할된 데이터베이스 안의 삽입된 데이터에 따라 여느 분할된 데이터 베이스와 마찬가지로 분할된 데이터 베이스 관리자를 만들 수 있습니다. 이미 분할된 데이터가 설치되어 있는 분할된 데이터베이스가 있다면, 다음 단계들을 건너뛰고 다음 섹션으로 이동합니다.
 
 1. **Elastic Database 도구 응용 프로그램** 을 빌드하고 실행하세요. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)섹션에서 7단계까지 수행합니다. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
@@ -49,7 +49,8 @@ Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면
 일반적으로 여기서 **New-AzureSqlJobTarget** cmdlet을 사용하여 분할된 데이터베이스 맵 대상을 만듭니다. 분할된 데이터베이스 맵 관리자 데이터베이스를 데이터베이스 대상으로 설정해야 하며, 그러면 분할된 특정 데이터베이스 맵이 대상으로 지정됩니다. 대신, 서버에 있는 모든 데이터베이스를 열거하고 master 데이터베이스 이외의 데이터베이스를 새 사용자 지정 컬렉션에 추가하겠습니다.
 
 ## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>사용자 지정 컬렉션을 만들고 마스터를 제외한 서버의 모든 데이터베이스를 사용자 지정 컬렉션에 추가합니다.
-   ```
+
+   ```Powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -258,17 +259,17 @@ Elastic Database 작업은 작업을 시작할 때 적용할 수 있는 사용�
 실행 정책은 현재 다음과 같은 정의를 허용합니다.
 
 * 이름: 실행 정책의 식별자입니다.
-* 작업 시간 제한: Elastic Database 작업에 의해 작업이 취소되기 전의 총 시간입니다.
+* 작업 시간 제한: Elastic Database 작업에 의해 작업이 취소되기 전 총 시간입니다.
 * 초기 재시도 간격: 첫 번째 재시도 전에 대기할 간격입니다.
-* 최대 재시도 간격: 사용할 재시도 간격의 최대값입니다.
-* 재시도 간격 백오프 계수: 재시도 사이의 다음 간격을 계산하는 데 사용되는 계수입니다.  (초기 재시도 간격) * Math.pow((계수 백오프 간격), (재시도 횟수) - 2) 수식이 사용됩니다.
+* 최대 재시도 간격: 사용할 재시도 간격의 최댓값입니다.
+* 재시도 간격 백오프 계수: 재시도 사이의 다음 간격을 계산하는 데 사용되는 계수입니다.  사용 수식: (초기 재시도 간격) * Math.pow((계수 백오프 간격), (재시도 횟수) - 2)
 * 최대 시도 횟수: 작업 내에서 수행할 최대 재시도 횟수입니다.
 
 기본 실행 정책은 다음 값을 사용합니다.
 
 * 이름: 기본 실행 정책
 * 작업 시간 제한: 1주
-* 초기 재시도 간격: 100밀리초
+* 초기 재시도 간격:  100밀리초
 * 최대 재시도 간격: 30분
 * 재시도 간격 계수: 2
 * 최대 시도 횟수: 2,147,483,647
@@ -301,23 +302,25 @@ Elastic Database 작업은 작업을 시작할 때 적용할 수 있는 사용�
    ```
 
 ## <a name="cancel-a-job"></a>작업 취소
+
 Elastic Database 작업은 작업 취소 요청을 지원합니다.  Elastic Database 작업이 현재 실행 중인 작업에 대한 취소 요청을 감지하는 경우 작업을 중지하려고 합니다.
 
 Elastic Database 작업이 취소를 수행할 수 있는 방법에는 다음 두 가지가 있습니다.
 
-1. 현재 실행 중인 작업 취소: 작업이 현재 실행되는 동안 취소가 감지되면 현재 실행 중인 작업 측면 내에서 취소가 시도됩니다.  예를 들어 현재 장기 실행 쿼리를 수행하는 동안 취소가 시도되면 쿼리를 취소하려고 합니다.
+1. 현재 실행 중인 태스크 취소: 태스크가 현재 실행되는 동안 취소가 감지되면 현재 실행 중인 태스크 측면 내에서 취소가 시도됩니다.  예:  현재 장기 실행 쿼리를 수행하는 동안 취소가 시도되면 쿼리를 취소하려고 합니다.
 2. 태스크 재시도 취소: 태스크 실행이 시작되기 전에 제어 스레드에서 취소가 감지되면 제어 스레드는 태스크를 시작하지 않고 요청이 취소된 것으로 선언합니다.
 
 부모 작업에 대해 작업 취소가 요청된 경우 부모 작업 및 모든 자식 작업에 대해 취소 요청이 적용됩니다.
 
 취소 요청을 제출하려면 **Stop-AzureSqlJobExecution** cmdlet을 사용하고 을 사용하고 **JobExecutionId** 매개 변수를 설정합니다.
 
-   ```
+   ```Powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>이름 및 작업 기록으로 작업 삭제
+
 Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을 삭제되도록 표시할 수 있으며, 작업에 대한 모든 작업 실행이 완료된 후 작업 및 모든 작업 기록이 삭제됩니다. 활성 작업 실행은 자동으로 취소되지 않습니다.  
 
 활성 작업 실행을 취소하려면 Stop-AzureSqlJobExecution을 호출해야 합니다.

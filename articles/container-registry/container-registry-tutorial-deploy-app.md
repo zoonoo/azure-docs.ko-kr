@@ -27,7 +27,7 @@ ms.locfileid: "53253836"
 
 지리적 복제 레지스트리를 아직 만들지 않았고 컨테이너화된 샘플 애플리케이션의 이미지를 레지스트리에 푸시한 경우 시리즈의 이전 자습서인 [지리적 복제 Azure Container Registry 준비](container-registry-tutorial-prepare-registry.md)로 돌아갑니다.
 
-이 시리즈의 그 다음 문서에서는 응용 프로그램을 업데이트한 다음, 업데이트된 컨테이너 이미지를 레지스트리로 푸시합니다. 마지막으로, 실행 중인 각 웹앱 인스턴스를 탐색하여 변경 사항이 자동으로 적용되어 Azure Container Registry 지역에서 복제 및 webhook가 실제로 작동하고 있음을 보여 줍니다.
+이 시리즈의 그 다음 문서에서는 애플리케이션을 업데이트한 다음, 업데이트된 컨테이너 이미지를 레지스트리로 푸시합니다. 마지막으로, 실행 중인 각 웹앱 인스턴스를 탐색하여 변경 사항이 자동으로 적용되어 Azure Container Registry 지역에서 복제 및 webhook가 실제로 작동하고 있음을 보여 줍니다.
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Web App for Containers에 자동 배포
 

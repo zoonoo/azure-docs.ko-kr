@@ -147,7 +147,7 @@ Event Grid는 고가용성, 일관된 성능 및 동적 확장을 위해 설계�
 
 ## <a name="run-the-sample-app"></a>샘플 앱 실행
 
-Ctrl+F5 키를 눌러 *AnalyzeVideos* 응용 프로그램을 실행합니다.
+Ctrl+F5 키를 눌러 *AnalyzeVideos* 애플리케이션을 실행합니다.
 
 프로그램을 실행하면 Job은 동영상에서 찾은 각 얼굴의 썸네일을 생성합니다. insights.json 파일도 생성합니다.
 
@@ -167,7 +167,7 @@ az group delete --name amsResourceGroup
 
 ## <a name="multithreading"></a>다중 스레딩
 
-Azure Media Services v3 SDK는 스레드로부터 안전하지 않습니다. 다중 스레드 응용 프로그램으로 작업하는 경우, 스레드마다 새로운 AzureMediaServicesClient 개체를 생성해야 합니다.
+Azure Media Services v3 SDK는 스레드로부터 안전하지 않습니다. 다중 스레드 애플리케이션으로 작업하는 경우, 스레드마다 새로운 AzureMediaServicesClient 개체를 생성해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

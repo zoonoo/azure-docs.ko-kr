@@ -52,7 +52,7 @@ ms.locfileid: "53094960"
 * 예를 들어 [이 자습서를 따라](service-fabric-tutorial-create-vnet-and-windows-cluster.md) Windows Service Fabric 클러스터를 Azure에 만듭니다.
 * [Azure DevOps 조직](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)을 만듭니다. 이렇게 하면 Azure DevOps에서 프로젝트를 만들고 Azure Pipelines를 사용할 수 있습니다.
 
-## <a name="download-the-voting-sample-application"></a>투표 응용 프로그램 예제 다운로드
+## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 예제 다운로드
 
 [이 자습서 시리즈의 1부](service-fabric-tutorial-create-dotnet-app.md)에서 투표 예제 응용 프로그램을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 
@@ -164,7 +164,7 @@ Azure Pipelines에 변경 내용을 푸시하면 빌드가 자동으로 트리�
 
 빌드 진행률을 확인하려면 Visual Studio의 **팀 탐색기**에서 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후 응용 프로그램을 클러스터에 배포하는 릴리스 파이프라인을 정의합니다.
 
-배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  응용 프로그램 버전을 확인합니다. 이 예제에서는 "1.0.0.20170815.3"입니다.
+배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  애플리케이션 버전을 확인합니다. 이 예제에서는 "1.0.0.20170815.3"입니다.
 
 ![Service Fabric Explorer][sfx1]
 

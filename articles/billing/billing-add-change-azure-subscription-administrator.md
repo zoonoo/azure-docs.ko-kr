@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 2380cd3712c47ca08e9b9b3597f09f4119238af3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 53cecc845ed8bd15311e1bcec3ec9b36db8f5c2c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581616"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727871"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
 
@@ -42,10 +42,10 @@ Azure 구독에 대한 관리자로 다른 사용자를 추가하려면 구독 �
 1. [Azure Portal에서 **구독**](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 방문하세요.
 2. 액세스 권한을 부여하려는 구독을 선택합니다.
 3. 목록에서 **액세스 제어(IAM)** 를 선택합니다.
-4. **추가**를 선택합니다.
-   (추가 단추가 없으면 사용 권한을 추가할 수 있는 권한이 없는 것입니다.)
+4. **역할 할당 추가**를 선택합니다.
+   (역할 할당 추가 단추가 없으면 사용 권한을 추가할 수 있는 권한이 없는 것입니다.)
 5. **역할**상자에서 **소유자**를 선택합니다. 
-6. **다음에 대한 액세스 할당** 상자에서 **Azure AD 사용자, 그룹 또는 응용 프로그램**을 선택합니다. 
+6. **다음에 대한 액세스 할당** 상자에서 **Azure AD 사용자, 그룹 또는 서비스 보안 주체**를 선택합니다. 
 7. **선택** 상자에서 소유자로 추가할 사용자의 메일 주소를 입력합니다. 사용자를 선택한 다음 **저장**을 선택합니다.
 
     ![선택한 소유자 역할을 보여 주는 스크린샷](./media/billing-add-change-azure-subscription-administrator/add-role.png)

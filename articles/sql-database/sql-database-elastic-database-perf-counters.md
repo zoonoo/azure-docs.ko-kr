@@ -12,26 +12,26 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/31/2018
-ms.openlocfilehash: d4ecfe700c90beb94455e3607cee4ea30227bd0e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f98c09a7e51fa729ef4a940e5f3c03de55d8dfd2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166239"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875283"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>분할된 맵 관리자에 대한 성능 카운터
 [분할된 맵 관리자](sql-database-elastic-scale-shard-map-management.md)에 대한 성능은 특히, [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 사용하는 경우에 캡처할 수 있습니다. 카운터는 Microsoft.Azure.SqlDatabase.ElasticScale.Client 클래스의 메서드를 사용하여 만들 수 있습니다.  
 
-카운터는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 작업의 성능을 추적하는 데 사용됩니다. 이러한 카운터는 “Elastic Database: 분할된 관리" 범주 아래 성능 모니터에서 액세스할 수 있습니다.
+카운터는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 작업의 성능을 추적하는 데 사용됩니다. 이러한 카운터는 "Elastic Database: 분할된 관리" 범주 아래 성능 모니터에서 액세스할 수 있습니다.
 
-**최신 버전은**[Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)로 이동합니다. 참고 항목: [최신 탄력적 데이터베이스 클라이언트 라이브러리를 사용하도록 앱 업그레이드](sql-database-elastic-scale-upgrade-client-library.md).
+**최신 버전:** [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)로 이동합니다. 참고 항목: [최신 탄력적 데이터베이스 클라이언트 라이브러리를 사용하도록 앱 업그레이드](sql-database-elastic-scale-upgrade-client-library.md).
 
 ## <a name="prerequisites"></a>필수 조건
 * 성능 범주 및 카운터를 만들려면, 응용 프로그램을 호스트하는 컴퓨터의 로컬 **관리자** 그룹에 사용자가 속해야 합니다.  
 * 성능 카운터 인스턴스를 만들고 카운터를 업데이트하려면, **관리자** 또는 **성능 모니터 사용자** 그룹에 사용자가 속해야 합니다. 
 
 ## <a name="create-performance-category-and-counters"></a>성능 범주 및 카운터 만들기
-카운터를 만들려면 [ShardMapManagmentFactory 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx)의 CreatePeformanceCategoryAndCounters 메서드를 호출합니다. 관리자만 메서드를 실행할 수 있습니다. 
+카운터를 만들려면 [ShardMapManagementFactory 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx)의 CreatePeformanceCategoryAndCounters 메서드를 호출합니다. 관리자만 메서드를 실행할 수 있습니다. 
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
@@ -41,7 +41,7 @@ ms.locfileid: "47166239"
 * **DDR 작업/초**: 분할된 맵에 대한 데이터 종속 라우팅 작업의 속도. 이 카운터는 [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)에 대한 호출이 대상 분할에 대한 성공적인 연결로 이어지면 업데이트됩니다. 
 * **매핑 조회 캐시 적중/초**: 분할된 맵의 매핑에 대한 성공적인 캐시 조회 작업의 속도. 
 * **매핑 조회 캐시 누락/초**: 분할된 맵의 매핑에 대해 실패한 캐시 조회 작업의 속도.
-* **캐시에 추가되거나 업데이트된 매핑/초**: 분할된 맵에 대해 캐시에 매핑이 추가되거나 업데이트된 속도. 
+* **캐시에 추가되거나 업데이트된 매핑/초**: 분할된 맵에 대해 캐시에 매핑이 추가되거나 업데이트되는 속도. 
 * **캐시에서 제거된 매핑/초**: 분할된 맵에 대해 캐시에서 매핑이 제거되는 속도. 
 
 성능 카운터는 프로세스마다 각각의 캐시된 분할 맵에 생성됩니다.  

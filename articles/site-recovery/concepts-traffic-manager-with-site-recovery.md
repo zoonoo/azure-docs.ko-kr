@@ -17,9 +17,9 @@ ms.locfileid: "52842568"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Azure Traffic Manager
 
-Azure Traffic Manager를 사용하면 응용 프로그램 엔드포인트에 트래픽 분산을 제어할 수 있습니다. 엔드포인트는 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다.
+Azure Traffic Manager를 사용하면 애플리케이션 엔드포인트에 트래픽 분산을 제어할 수 있습니다. 엔드포인트는 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다.
 
-Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 트래픽 라우팅 메서드 및 엔드포인트의 상태를 기반으로 가장 적절한 엔드포인트로 리디렉션합니다. Traffic Manager는 다양한 응용 프로그램 요구와 자동 장애 조치(failover)에 맞는 [트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md) 및 [엔드포인트 모니터링 옵션](../traffic-manager/traffic-manager-monitoring.md)을 제공합니다. 클라이언트는 선택한 엔드포인트에 직접 연결됩니다. Traffic Manager는 프록시 또는 게이트웨이가 아니며, 클라이언트와 서비스 간에 전달되는 트래픽을 표시하지 않습니다.
+Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 트래픽 라우팅 메서드 및 엔드포인트의 상태를 기반으로 가장 적절한 엔드포인트로 리디렉션합니다. Traffic Manager는 다양한 애플리케이션 요구와 자동 장애 조치(failover)에 맞는 [트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md) 및 [엔드포인트 모니터링 옵션](../traffic-manager/traffic-manager-monitoring.md)을 제공합니다. 클라이언트는 선택한 엔드포인트에 직접 연결됩니다. Traffic Manager는 프록시 또는 게이트웨이가 아니며, 클라이언트와 서비스 간에 전달되는 트래픽을 표시하지 않습니다.
 
 이 문서에서는 Azure Site Recovery의 강력한 재해 복구 및 마이그레이션 기능으로 Azure Traffic Monitor의 지능형 라우팅을 결합하는 방법을 설명합니다.
 

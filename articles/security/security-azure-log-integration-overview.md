@@ -50,7 +50,7 @@ Azure Log Integration은 Azure 리소스에서 Windows 이벤트 뷰어 로그, 
 Azure에서는 각 Azure 서비스에 대해 광범위한 로깅을 생성합니다. 로그는 다음 세 가지 로그 유형을 나타냅니다.
 
 * **컨트롤/관리 로그**: [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) CREATE, UPDATE 및 DELETE 작업에 대한 가시성을 제공합니다. Azure 활동 로그가 이 로그 유형에 속합니다.
-* **데이터 평면 로그**: Azure 리소스를 사용할 때 발생하는 이벤트에 대한 가시성을 제공합니다. 이 로그 유형의 예는 Windows 가상 컴퓨터의 Windows 이벤트 뷰어에 있는 **시스템**, **보안** 및 **응용 프로그램** 채널이 있습니다. 또 다른 예는 Azure Monitor를 통해 구성하는 Azure 진단 로깅입니다.
+* **데이터 평면 로그**: Azure 리소스를 사용할 때 발생하는 이벤트에 대한 가시성을 제공합니다. 이 로그 유형의 예는 Windows 가상 컴퓨터의 Windows 이벤트 뷰어에 있는 **시스템**, **보안** 및 **애플리케이션** 채널이 있습니다. 또 다른 예는 Azure Monitor를 통해 구성하는 Azure 진단 로깅입니다.
 * **처리된 이벤트**: 사용자를 위해 처리된 경고 정보 및 분석된 이벤트를 제공합니다. 이 이벤트 유형의 예는 Azure Security Center 경고입니다. Azure Security Center에서는 구독을 처리하고 분석하여 현재 보안 상태에 관련된 경고를 제공합니다.
 
 Azure 로그 통합은 ArcSight, QRadar 및 Splunk를 지원합니다. SIEM 공급업체에 문의하여 공급업체에 기본 커넥터가 있는지 평가합니다. 기본 커넥터를 사용할 수 있는 경우, Azure Log Integration을 사용하지 마세요.

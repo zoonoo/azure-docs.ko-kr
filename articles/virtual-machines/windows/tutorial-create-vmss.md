@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure에서 Windows용 가상 머신 확장 집합 만들기 | Microsoft Docs
-description: 이 자습서에서는 Azure PowerShell을 사용하여 가상 머신 확장 집합을 사용하는 Windows VM에서 고가용성 응용 프로그램을 만들고 배포하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure PowerShell을 사용하여 가상 머신 확장 집합을 사용하는 Windows VM에서 고가용성 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: zr-msft

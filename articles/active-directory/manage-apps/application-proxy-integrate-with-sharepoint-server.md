@@ -32,7 +32,7 @@ Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스�
 
 이 문서에서는 사용자 환경에 SharePoint 2013 이상이 이미 있다고 가정합니다. 또한 다음 필수 조건도 고려하세요.
 
-* SharePoint에는 기본 Kerberos 지원을 포함합니다. 따라서 Azure AD 응용 프로그램 프록시를 통해 원격으로 내부 사이트에 액세스하는 사용자는 SSO(Single Sign-On) 환경을 사용한다고 가정할 수 있습니다.
+* SharePoint에는 기본 Kerberos 지원을 포함합니다. 따라서 Azure AD 애플리케이션 프록시를 통해 원격으로 내부 사이트에 액세스하는 사용자는 SSO(Single Sign-On) 환경을 사용한다고 가정할 수 있습니다.
 
 * 이 시나리오는 SharePoint 서버에 대한 구성 변경을 포함합니다. 스테이징 환경을 사용하는 것이 좋습니다. 이 방법에서는 스테이징 서버로 먼저 업데이트할 수 있으므로 프로덕션으로 전환하기 전에 테스트 주기를 용이하게 할 수 있습니다.
 
@@ -40,7 +40,7 @@ Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스�
 
 ## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>1단계: KCD(Kerberos 제한된 위임) 구성
 
-Windows 인증을 사용하는 온-프레미스 응용 프로그램에 대해 Kerberos 인증 프로토콜 및 KCD(Kerberos 제한 위임)라는 기능을 사용하여 SSO(Single Sign-On)를 획득할 수 있습니다. KCD(구성된 경우)를 통해 응용 프로그램 프록시 커넥터는 사용자가 Windows에 직접 로그인하지 않더라도 사용자에 대한 Windows 토큰을 얻을 수 있습니다. KCD에 대한 자세한 내용은 [Kerberos 제한 위임 개요](https://technet.microsoft.com/library/jj553400.aspx)를 참조하세요.
+Windows 인증을 사용하는 온-프레미스 애플리케이션에 대해 Kerberos 인증 프로토콜 및 KCD(Kerberos 제한 위임)라는 기능을 사용하여 SSO(Single Sign-On)를 획득할 수 있습니다. KCD(구성된 경우)를 통해 애플리케이션 프록시 커넥터는 사용자가 Windows에 직접 로그인하지 않더라도 사용자에 대한 Windows 토큰을 얻을 수 있습니다. KCD에 대한 자세한 내용은 [Kerberos 제한 위임 개요](https://technet.microsoft.com/library/jj553400.aspx)를 참조하세요.
 
 SharePoint 서버에 대해 KCD를 설정하려면 다음에 나오는 순차 섹션의 절차를 사용합니다.
 
@@ -60,7 +60,7 @@ SharePoint 서버에 대해 KCD를 설정하려면 다음에 나오는 순차 �
   ![서비스 계정 구성 옵션](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
 4. **이 구성 요소에 대한 계정을 선택하세요.** 필드가 **로컬 서비스** 또는 **네트워크 서비스**인 경우 계정을 만들어야 합니다. 그렇지 않은 경우 작업이 끝났으며 다음 섹션으로 진행하면 됩니다.
-5. **새 관리되는 계정을 등록하세요.** 를 선택합니다. 계정이 생성되면 계정을 사용하기 전에 **웹 응용 프로그램 풀**을 설정해야 합니다.
+5. **새 관리되는 계정을 등록하세요.** 를 선택합니다. 계정이 생성되면 계정을 사용하기 전에 **웹 애플리케이션 풀**을 설정해야 합니다.
 
 ### <a name="set-a-service-principal-name-for-the-sharepoint-service-account"></a>SharePoint 서비스 계정에 대한 서비스 주체 이름 설정
 
@@ -95,7 +95,7 @@ _HTTP/SharePoint_를 내부 URL의 SPN으로 바꾸고, _demo\spAppPoolAccount_�
 
 ### <a name="ensure-that-the-connector-is-trusted-for-delegation-to-the-spn-added-to-the-sharepoint-application-pool-account"></a>커넥터가 SharePoint 애플리케이션 풀 계정에 추가된 SPN에 위임되도록 신뢰할 수 있는지 확인
 
-Azure AD 애플리케이션 프록시 서비스가 사용자 ID를 SharePoint 애플리케이션 풀 계정에 위임할 수 있도록 KCD를 구성합니다. 응용 프로그램 프록시 커넥터에서 Azure AD에서 인증된 사용자에 대한 Kerberos 티켓을 검색할 수 있도록 하여 KCD를 구성합니다. 그런 다음 해당 서버에서 컨텍스트를 대상 응용 프로그램(이 경우 SharePoint)에 전달합니다.
+Azure AD 애플리케이션 프록시 서비스가 사용자 ID를 SharePoint 애플리케이션 풀 계정에 위임할 수 있도록 KCD를 구성합니다. 애플리케이션 프록시 커넥터에서 Azure AD에서 인증된 사용자에 대한 Kerberos 티켓을 검색할 수 있도록 하여 KCD를 구성합니다. 그런 다음 해당 서버에서 컨텍스트를 대상 애플리케이션(이 경우 SharePoint)에 전달합니다.
 
 KCD를 구성하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반복합니다.
 
@@ -113,26 +113,26 @@ KCD를 구성하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반복
 
 KCD를 구성했으므로 이제 Azure AD 애플리케이션 프록시를 구성할 준비가 되었습니다.
 
-1. 다음 설정을 사용하여 SharePoint 사이트를 게시합니다. 단계별 지침은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)를 참조하세요.
+1. 다음 설정을 사용하여 SharePoint 사이트를 게시합니다. 단계별 지침은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-publish-azure-portal.md)를 참조하세요.
    * **내부 URL**: **<https://SharePoint/>** 와 같은, 이전에 선택한 SharePoint 내부 URL입니다.
    * **사전 인증 방법**: Azure Active Directory
    * **헤더에서 URL 변환**: 아니요
 
    >[!TIP]
-   >SharePoint에서는 사이트를 조회하기 위해 _호스트 헤더_ 값을 사용합니다. 이 값을 토대로 링크도 생성합니다. 이렇게 하면 SharePoint에서 생성하는 모든 링크가 외부 URL을 사용하도록 올바르게 설정된 게시된 URL입니다. 값을 **예**로 설정하는 방법으로도 커넥터에서 요청을 백 엔드 응용 프로그램으로 전달할 수 있습니다. 그러나 이 값을 **아니요**로 설정하면 커넥터가 내부 호스트 이름을 보내지 않습니다. 대신 커넥터는 호스트 헤더를 게시된 URL로 백 엔드 응용 프로그램에 보냅니다.
+   >SharePoint에서는 사이트를 조회하기 위해 _호스트 헤더_ 값을 사용합니다. 이 값을 토대로 링크도 생성합니다. 이렇게 하면 SharePoint에서 생성하는 모든 링크가 외부 URL을 사용하도록 올바르게 설정된 게시된 URL입니다. 값을 **예**로 설정하는 방법으로도 커넥터에서 요청을 백 엔드 애플리케이션으로 전달할 수 있습니다. 그러나 이 값을 **아니요**로 설정하면 커넥터가 내부 호스트 이름을 보내지 않습니다. 대신 커넥터는 호스트 헤더를 게시된 URL로 백 엔드 애플리케이션에 보냅니다.
 
-   ![SharePoint를 응용 프로그램으로 게시](./media/application-proxy-integrate-with-sharepoint-server/publish-app.png)
+   ![SharePoint를 애플리케이션으로 게시](./media/application-proxy-integrate-with-sharepoint-server/publish-app.png)
 
 2. 앱이 게시된 후에는 다음 단계에 따라 Single Sign-On 설정을 구성합니다.
 
-   1. 포털의 응용 프로그램 페이지에서 **Single Sign-On**을 선택합니다.
+   1. 포털의 애플리케이션 페이지에서 **Single Sign-On**을 선택합니다.
    2. Single Sign-On 모드로 **Windows 통합 인증**을 선택합니다.
    3. 내부 응용 프로그램 SPN을 이전에 설정한 값으로 설정합니다. 이 예제에서는 **HTTP/SharePoint**입니다.
    4. “위임된 로그인 ID”에서 **온-프레미스 SAM 계정 이름**을 선택합니다.
 
    ![SSO용 통합 Windows 인증 구성](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
-3. 응용 프로그램 설정을 완료하려면 **사용자 및 그룹** 섹션으로 이동하고 이 응용 프로그램에 액세스할 사용자를 할당합니다. 
+3. 애플리케이션 설정을 완료하려면 **사용자 및 그룹** 섹션으로 이동하고 이 애플리케이션에 액세스할 사용자를 할당합니다. 
 
 ## <a name="step-3-configure-sharepoint-to-use-kerberos-and-azure-ad-proxy-urls"></a>3단계: Kerberos 및 Azure AD 프록시 URL을 사용하도록 SharePoint 구성
 

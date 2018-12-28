@@ -42,7 +42,7 @@ Azure Search에서 동의어는 동등한 용어를 연결하는 *매핑 규칙*
 
 ## <a name="overview"></a>개요
 
-이전 및 이후 쿼리는 동의어의 가치를 설명합니다. 이 자습서에서는 쿼리를 실행하고 샘플 인덱스에서 결과를 반환하는 샘플 애플리케이션을 사용합니다. 샘플 응용 프로그램은 두 개의 문서로 채워진 "hotels"라는 작은 인덱스를 만듭니다. 응용 프로그램은 인덱스에 나타나지 않는 조건 및 구를 사용하여 검색 쿼리를 실행하고 동의어 기능을 사용한 다음 다시 동일한 검색을 실행합니다. 아래 코드에서는 전체 흐름을 보여 줍니다.
+이전 및 이후 쿼리는 동의어의 가치를 설명합니다. 이 자습서에서는 쿼리를 실행하고 샘플 인덱스에서 결과를 반환하는 샘플 애플리케이션을 사용합니다. 샘플 애플리케이션은 두 개의 문서로 채워진 "hotels"라는 작은 인덱스를 만듭니다. 애플리케이션은 인덱스에 나타나지 않는 조건 및 구를 사용하여 검색 쿼리를 실행하고 동의어 기능을 사용한 다음, 다시 동일한 검색을 실행합니다. 아래 코드에서는 전체 흐름을 보여 줍니다.
 
 ```csharp
   static void Main(string[] args)
@@ -76,7 +76,7 @@ Azure Search에서 동의어는 동등한 용어를 연결하는 *매핑 규칙*
       Console.ReadKey();
   }
 ```
-샘플 인덱스를 만들고 채우는 단계는 [.NET 응용 프로그램에서 Azure Search를 사용하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)에서 설명됩니다.
+샘플 인덱스를 만들고 채우는 단계는 [.NET 애플리케이션에서 Azure Search를 사용하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)에서 설명됩니다.
 
 ## <a name="before-queries"></a>"이전" 쿼리
 
@@ -163,7 +163,7 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 
 동의어를 추가하면 검색 환경이 완전히 변경됩니다. 이 자습서에서 인덱스에 있는 문서가 관련된 경우에도 원본 쿼리는 의미 있는 결과를 반환하지 못했습니다. 동의어를 사용하여 인덱스의 기본 데이터를 변경하지 않고 일반적인 용도로 사용되는 용어를 포함하도록 인덱스를 확장할 수 있습니다.
 
-## <a name="sample-application-source-code"></a>샘플 응용 프로그램 소스 코드
+## <a name="sample-application-source-code"></a>샘플 애플리케이션 소스 코드
 [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)에서 이 연습에 사용된 샘플 응용 프로그램의 전체 소스 코드를 찾을 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리

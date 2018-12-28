@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: f8e16af629eaa18b49b054be9fc478d633263ddb
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: d023bf4428790667ef192a3ce981087694224f50
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45636799"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724539"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 
@@ -224,14 +224,14 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 1. 모든 리소스 블레이드 열기
 1. 첫 번째 클러스터 노드의 가상 머신 선택
 1. 액세스 제어(IAM) 클릭
-1. 추가를 클릭합니다.
+1. 역할 할당 추가 클릭
 1. "Linux 펜스 에이전트 역할"이라는 역할 선택
 1. 위에서 만든 응용 프로그램의 이름 입력
-1. 확인 클릭
+1. 저장을 클릭합니다.
 
 두 번째 클러스터 노드에 위 단계 반복
 
-### <a name="1-create-the-stonith-devices"></a>**[1]** STONITH 장치 만들기
+### <a name="1-create-the-stonith-devices"></a>**[1]** STONITH 디바이스 만들기
 
 가상 머신의 권한을 편집하고 나면 클러스터의 STONITH 디바이스를 구성할 수 있습니다.
 
@@ -246,7 +246,7 @@ sudo pcs property set stonith-timeout=900
 
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> power_timeout=240 pcmk_reboot_timeout=900</code></pre>
 
-### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]** STONITH 장치를 사용하도록 설정
+### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]** STONITH 디바이스를 사용하도록 설정
 
 <pre><code>sudo pcs property set stonith-enabled=true
 </code></pre>

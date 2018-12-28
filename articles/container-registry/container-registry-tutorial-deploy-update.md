@@ -29,7 +29,7 @@ ms.locfileid: "53256624"
 
 두 개의 *Web App for Containers* 지역 배포를 아직 구성하지 않은 경우 시리즈의 이전 자습서, [Azure Container Registry에서 웹앱 배포](container-registry-tutorial-deploy-app.md)로 돌아갑니다.
 
-## <a name="modify-the-web-application"></a>웹 응용 프로그램 수정
+## <a name="modify-the-web-application"></a>웹 애플리케이션 수정
 
 이 단계에서는 Azure Container Registry에 업데이트된 컨테이너 이미지를 푸시하면 항상 볼 수 있는 웹 애플리케이션을 변경합니다.
 
@@ -127,7 +127,7 @@ Webhook는 두 지역 웹앱에 업데이트된 컨테이너를 자동으로 배
 
 ![미국 동부 지역에서 실행되는 수정된 웹앱의 브라우저 보기][deployed-app-eastus-modified]
 
-단일 `docker push`를 사용하여 두 지역 웹앱 배포에서 실행되는 웹 응용 프로그램을 자동으로 업데이트했습니다. 그리고 Azure Container Registry는 각 배포와 가장 가까이 있는 리포지토리의 컨테이너 이미지를 제공했습니다.
+단일 `docker push`를 사용하여 두 지역 웹앱 배포에서 실행되는 웹 애플리케이션을 자동으로 업데이트했습니다. 그리고 Azure Container Registry는 각 배포와 가장 가까이 있는 리포지토리의 컨테이너 이미지를 제공했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

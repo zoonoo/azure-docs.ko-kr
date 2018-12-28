@@ -32,7 +32,7 @@ Azure Service Fabric은 컴퓨터 클러스터에 걸쳐있는 서비스를 오�
 독립 실행형 또는 Azure에서 실행되는 클러스터의 경우 고려해야 할 두 시나리오는 노드 간 보안 및 클라이언트-노드 보안입니다. 이러한 시나리오를 구현하기 위해 다양한 기술을 사용할 수 있습니다.
 
 ### <a name="node-to-node-security"></a>노드 간 보안
-노드 간 보안은 클러스터의 VM 또는 컴퓨터 간 통신에 적용됩니다. 노드 간 보안을 통해 클러스터에 가입하도록 인증된 컴퓨터만 호스팅 응용 프로그램 및 클러스터의 서비스에 참여할 수 있습니다.
+노드 간 보안은 클러스터의 VM 또는 컴퓨터 간 통신에 적용됩니다. 노드 간 보안을 통해 클러스터에 가입하도록 인증된 컴퓨터만 호스팅 애플리케이션 및 클러스터의 서비스에 참여할 수 있습니다.
 
 Azure에서 실행되는 클러스터 또는 Windows에서 실행되는 독립 실행형 클러스터는 Windows Server 컴퓨터에 대한 [인증서 보안](https://msdn.microsoft.com/library/ff649801.aspx) 또는 [Windows 보안](https://msdn.microsoft.com/library/ff649396.aspx)을 사용할 수 있습니다.
 
@@ -64,7 +64,7 @@ Azure Portal, Resource Manager 템플릿 또는 독립 실행형 JSON 템플릿�
 
 Azure에서 실행되는 클라이언트는 Azure AD(Azure Active Directory)를 사용하여 관리 끝점에 안전하게 액세스할 수 있습니다. 필요한 Azure Active Directory 아티팩트를 만드는 방법, 클러스터를 만드는 동안 이러한 아티팩트를 채우는 방법 및 나중에 해당 클러스터에 연결하는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 클러스터 설정](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 참조하세요.
 
-조직(테넌트)에서는 Azure AD를 사용하여 응용 프로그램에 대한 사용자 액세스를 관리할 수 있습니다. 웹 기반 로그인 UI를 갖는 응용 프로그램과 네이티브 클라이언트 환경을 갖는 응용 프로그램이 있습니다.
+조직(테넌트)에서는 Azure AD를 사용하여 애플리케이션에 대한 사용자 액세스를 관리할 수 있습니다. 웹 기반 로그인 UI를 갖는 애플리케이션과 네이티브 클라이언트 환경을 갖는 애플리케이션이 있습니다.
 
 Service Fabric 클러스터는 웹 기반 Service Fabric Explorer 및 Visual Studio를 포함하여 관리 기능에 대한 여러 진입점을 제공합니다. 결과적으로 두 개의 Azure AD 애플리케이션(웹 애플리케이션과 네이티브 애플리케이션)을 만들어 클러스터에 대한 액세스를 제어합니다.
 
@@ -73,7 +73,7 @@ Azure 클러스터의 경우 Azure AD 보안을 사용하여 노드 간 보안�
 Windows Server 2012 R2 및 Active Directory가 있는 독립 실행형 Windows Server 클러스터의 경우 그룹 관리 서비스 계정(gMSA)으로 Windows 보안을 사용하는 것이 좋습니다. 그렇지 않은 경우 Windows 계정으로 Windows 보안을 사용합니다.
 
 ## <a name="understand-monitoring-and-diagnostics-in-service-fabric"></a>Service Fabric에서 모니터링 및 진단 이해
-[모니터링 및 진단](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)은 모든 환경에서 응용 프로그램 및 서비스를 개발, 테스트 및 배포하는 데 중요합니다. Service Fabric 솔루션은 로컬 개발 환경 또는 프로덕션 환경에서 응용 프로그램과 서비스가 예상대로 작동하는지 확인하는 모니터링 및 진단을 구현할 때 가장 효과적입니다.
+[모니터링 및 진단](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)은 모든 환경에서 응용 프로그램 및 서비스를 개발, 테스트 및 배포하는 데 중요합니다. Service Fabric 솔루션은 로컬 개발 환경 또는 프로덕션 환경에서 애플리케이션과 서비스가 예상대로 작동하는지 확인하는 모니터링 및 진단을 구현할 때 가장 효과적입니다.
 
 보안의 관점에서 볼 때 모니터링 및 진단의 주요 목표는 다음과 같습니다.
 
@@ -127,8 +127,8 @@ Active Directory 도메인 내에서 컴퓨터 그룹을 사용하려는 경우 
 -   연결할 수 있는 도메인 그룹 사용자를 지정합니다.
 -   연결할 수 있는 도메인 노드 사용자를 지정합니다.
 
-## <a name="configure-application-security-in-service-fabric"></a>Service Fabric에서 응용 프로그램 보안 구성
-### <a name="manage-secrets-in-service-fabric-applications"></a>Service Fabric 응용 프로그램에서 비밀 관리
+## <a name="configure-application-security-in-service-fabric"></a>Service Fabric에서 애플리케이션 보안 구성
+### <a name="manage-secrets-in-service-fabric-applications"></a>Service Fabric 애플리케이션에서 비밀 관리
 저장소 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다.
 
 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)를 사용하여 키와 비밀을 관리할 수 있습니다. 그러나 애플리케이션에서 암호 사용은 특정 클라우드 플랫폼을 필요로 하지 않습니다. 어디서나 호스팅되는 클러스터에 애플리케이션을 배포할 수 있습니다. 이 흐름은 주요 네 단계로 구성됩니다.
@@ -141,7 +141,7 @@ Active Directory 도메인 내에서 컴퓨터 그룹을 사용하려는 경우 
 자세한 내용은 [Service Fabric 애플리케이션의 암호 관리](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management)를 참조하세요.
 
 ### <a name="configure-security-policies-for-an-application"></a>애플리케이션에 대한 보안 정책 구성
-Azure Service Fabric 보안을 사용하여 다른 사용자 계정으로 클러스터에서 실행 중인 응용 프로그램을 보호할 수 있습니다. 또한 Service Fabric 보안은 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 애플리케이션에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 더욱 안전하게 응용 프로그램을 실행할 수 있습니다.
+Azure Service Fabric 보안을 사용하여 다른 사용자 계정으로 클러스터에서 실행 중인 애플리케이션을 보호할 수 있습니다. 또한 Service Fabric 보안은 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 애플리케이션에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 더욱 안전하게 애플리케이션을 실행할 수 있습니다.
 
 보안 정책 구성을 위한 작업은 다음과 같습니다.
 

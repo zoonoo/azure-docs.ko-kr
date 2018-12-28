@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 81608dd7281ceddce7e0701535ad99e1c9e44315
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d96b4a99b2ea66cdeff43f06c1789dd133c2c31a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142918"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723009"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler 구성
 
@@ -62,7 +61,7 @@ Application Insights 포털, **구성 > 성능 테스트**로 이동합니다. �
 
 ![진행 중인 부하 테스트가 실행됨][load-test-in-progress]
 
-### <a name="step-2-start-profiler-on-demand"></a>2단계: 주문형 프로파일러 시작
+### <a name="step-2-start-profiler-on-demand"></a>2단계: 요청 시 프로파일러 시작
 
 부하 테스트가 실행되면 프로파일러를 시작하여 부하를 수신하는 동안 웹앱에서 추적을 캡처할 수 있습니다.
 프로파일러 구성 창으로 이동합니다.
@@ -89,7 +88,7 @@ Application Insights 포털, **구성 > 성능 테스트**로 이동합니다. �
 1. App Services 앱 설정으로 이동하고 다음이 설정되었는지를 확인합니다.
     * **APPINSIGHTS_INSTRUMENTATIONKEY**: Application Insights에 대한 적절한 계측 키로 바꿉니다.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 이러한 항목을 설정하지 않은 경우 1.0.0입니다. Application Insights 사용 창으로 이동하여 최신 사이트 확장을 설치합니다.
+    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0. 이러한 항목을 설정하지 않은 경우 Application Insights 사용 창으로 이동하여 최신 사이트 확장을 설치합니다.
 
 1. App Services 포털에서 Application Insights 창으로 이동합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 웹 UI를 사용하여 Azure Kubernetes 클러스터 관리
+title: (사용되지 않음) 웹 UI를 사용하여 Azure Kubernetes 클러스터 관리
 description: Azure Container Service에서 Kubernetes 웹 UI 사용
 services: container-service
 author: bburns
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: b5079ddb63f468f924577f61adda6a3056ec8c6c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998528"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996129"
 ---
-# <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Azure Container Service에서 Kubernetes 웹 UI 사용
+# <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(사용되지 않음) Azure Container Service에서 Kubernetes 웹 UI 사용
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 문서의 업데이트된 버전은 [AKS(Azure Kubernetes Service)에서 Kubernetes 웹 대시보드에 액세스](../../aks/kubernetes-dashboard.md)를 참조하세요.
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 이 연습에서는 [Azure Container Service를 사용하여 Kubernetes 클러스터를 만들었다고](container-service-kubernetes-walkthrough.md) 가정합니다.

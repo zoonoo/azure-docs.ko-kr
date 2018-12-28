@@ -113,7 +113,7 @@ class Program
     private DocumentClient client;
 ```
 
-다음으로, [Azure Portal](https://portal.azure.com)로 이동하여 URI 및 기본 키를 검색합니다. Azure Cosmos DB URI와 기본 키는 응용 프로그램에서 연결할 위치를 식별하고 Azure Cosmos DB에서 응용 프로그램의 연결을 신뢰하는 데 필요합니다.
+다음으로, [Azure Portal](https://portal.azure.com)로 이동하여 URI 및 기본 키를 검색합니다. Azure Cosmos DB URI와 기본 키는 애플리케이션에서 연결할 위치를 식별하고 Azure Cosmos DB에서 애플리케이션의 연결을 신뢰하는 데 필요합니다.
 
 Azure Portal에서 Azure Cosmos 계정으로 이동한 다음, **키**를 선택합니다.
 
@@ -196,7 +196,7 @@ private async Task GetStartedDemo()
 
 ## <a id="CreateColl"></a>컬렉션 만들기
 
-**DocumentClient** 클래스의 `CreateDocumentCollectionAsync` 메서드를 사용하여 컬렉션을 만듭니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다.
+**DocumentClient** 클래스의 `CreateDocumentCollectionAsync` 메서드를 사용하여 컬렉션을 만듭니다. 컬렉션은 JSON 문서 및 관련 JavaScript 애플리케이션 논리의 컨테이너입니다.
 
 > [!WARNING]
 > **CreateDocumentCollectionAsync**는 가격 책정 의미가 포함된 예약된 처리량이 있는 새 컬렉션을 만듭니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
@@ -431,7 +431,7 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 다음 다이어그램에서는 만든 컬렉션에 대해 Azure Cosmos DB SQL 쿼리 구문을 호출하는 방법을 보여 줍니다. 동일한 논리가 LINQ 쿼리에 적용됩니다.
 
-![NoSQL에서 C# 콘솔 응용 프로그램을 만들기 위해 사용한 쿼리의 의미와 범위를 보여 주는 다이어그램](./media/sql-api-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
+![NoSQL에서 C# 콘솔 애플리케이션을 만들기 위해 사용한 쿼리의 의미와 범위를 보여 주는 다이어그램](./media/sql-api-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
 Azure Cosmos DB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때문에 `FROM` 키워드는 쿼리에서 선택 사항입니다. 따라서 "FROM Families f"를 "FROM root r" 또는 선택한 다른 변수 이름으로 교체할 수 있습니다. Azure Cosmos DB는 Families, root 또는 선택한 변수 이름이 기본적으로 현재 컬렉션을 참조하는 것으로 유추합니다.
 

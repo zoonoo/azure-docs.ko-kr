@@ -1,6 +1,6 @@
 ---
-title: 데이터 과학 프로젝트 실행 - Azure Machine Learning | Microsoft Docs
-description: 데이터 과학자가 데이터 과학 프로젝트의 진행률을 추적할 수 있는 방법입니다.
+title: 데이터 과학 프로세스의 진행률 추적 - Team Data Science Process
+description: 데이터 과학 그룹 관리자, 팀 리더 및 프로젝트 리더가 데이터 과학 프로젝트의 진행률을 추적하는 방법입니다.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 202ac89b8a281012dbcf5f4c4df11e97ba2c8c65
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a9616a4f80a3105118b82ce3f4106a65fdd9ddfe
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441471"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134305"
 ---
-# <a name="track-progress-of-data-science-projects"></a>데이터 과학 프로젝트의 진행률 추적
+# <a name="tracking-the-progress-of-data-science-projects"></a>데이터 과학 프로젝트의 진행률 추적
 
 데이터 과학 그룹 관리자, 팀 리더 및 프로젝트 리더는 프로젝트의 진행 상황, 수행된 작업, 작업 수행자 및 할 일 목록에 남아 있는 작업을 추적해야 합니다. 
 
@@ -39,7 +39,7 @@ Azure DevOps에서 사용자 지정 대시보드 및 위젯을 만드는 방법�
 
 나머지 패널은 누적 흐름 다이어그램(CFD), 번다운(Burndown) 및 프로젝트에 대한 번업(Burnup)을 보여 줍니다.
 
-- **왼쪽 아래**: 지정한 상태에 있는 작업의 양에 대한 CFD - 승인됨을 회색, 커밋됨을 파란색, 완료됨을 녹색으로 표시합니다.
+- **왼쪽 아래**:  지정한 상태에 있는 작업의 양에 대한 CFD - 승인됨을 회색, 커밋됨을 파란색, 완료됨을 녹색으로 표시합니다.
 - **오른쪽 위**: 완료까지 남은 작업과 남은 시간을 비교하여 보여 주는 번다운 차트입니다).
 - **오른쪽 아래**: 완료된 작업과 총 작업량을 비교하여 보여 주는 번업 차트입니다.
 

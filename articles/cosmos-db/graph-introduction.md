@@ -22,7 +22,7 @@ ms.locfileid: "53077452"
 이 문서에서는 Azure Cosmos DB Gremlin API의 개요와 이 API를 사용하여 수십억 개의 꼭짓점 및 에지가 포함된 대량의 그래프를 저장하는 방법을 설명합니다. 밀리초 단위 대기 시간 내에 그래프를 쿼리하고 그래프 구조 및 스키마를 쉽게 발전시킬 수 있습니다. Azure Cosmos DB를 쿼리하려면 [Apache TinkerPop](https://tinkerpop.apache.org) 그래프 순회 언어나 [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)을 사용합니다.
 
 ## <a name="what-is-a-graph-database"></a>그래프 데이터베이스란?
-실제 환경의 경우처럼 데이터는 자연스럽게 연결되어 있습니다. 기존의 데이터 모델링은 엔터티에 중점을 둡니다. 또한 대부분의 응용 프로그램에서는 기본적으로 엔터티 및 관계를 모두 모델링해야 합니다.
+실제 환경의 경우처럼 데이터는 자연스럽게 연결되어 있습니다. 기존의 데이터 모델링은 엔터티에 중점을 둡니다. 또한 대부분의 애플리케이션에서는 기본적으로 엔터티 및 관계를 모두 모델링해야 합니다.
 
 [그래프](https://mathworld.wolfram.com/Graph.html)는 [꼭짓점](http://mathworld.wolfram.com/GraphVertex.html) 및 [에지](http://mathworld.wolfram.com/GraphEdge.html)로 구성된 구조입니다. 꼭짓점 및 에지는 둘 다 임의 개수의 속성을 포함할 수 있습니다. 
 
@@ -80,7 +80,7 @@ Azure Cosmos DB는 동일한 컨테이너/데이터베이스 내에서 문서 �
 
 ## <a name="get-started"></a>시작하기
 
-Azure CLI(명령줄 인터페이스), Azure PowerShell 또는 Azure Portal을 사용하여 Azure Cosmos DB Gremlin API 계정을 만들고 액세스할 수 있습니다. 계정을 만들면 Gremlin에 대한 WebSocket 프런트 엔드를 제공하는 Gremlin API 서비스 엔드포인트(`https://<youraccount>.gremlin.cosmosdb.azure.com`)를 사용하여 해당 계정 내에서 그래프 데이터베이스에 액세스할 수 있습니다. 이 엔드포인트에 연결하고 Java, Node.js 또는 임의 Gremlin 클라이언트 드라이버에서 응용 프로그램을 빌드하도록 [Gremin 콘솔](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)과 같은 TinkerPop 호환 도구를 구성할 수 있습니다.
+Azure CLI(명령줄 인터페이스), Azure PowerShell 또는 Azure Portal을 사용하여 Azure Cosmos DB Gremlin API 계정을 만들고 액세스할 수 있습니다. 계정을 만들면 Gremlin에 대한 WebSocket 프런트 엔드를 제공하는 Gremlin API 서비스 엔드포인트(`https://<youraccount>.gremlin.cosmosdb.azure.com`)를 사용하여 해당 계정 내에서 그래프 데이터베이스에 액세스할 수 있습니다. 이 엔드포인트에 연결하고 Java, Node.js 또는 임의 Gremlin 클라이언트 드라이버에서 애플리케이션을 빌드하도록 [Gremin 콘솔](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)과 같은 TinkerPop 호환 도구를 구성할 수 있습니다.
 
 다음 표에서는 Azure Cosmos DB에 대해 사용할 수 있는 인기 있는 Gremlin 드라이버를 보여 줍니다.
 

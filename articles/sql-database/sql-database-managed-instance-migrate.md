@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3808511e588ba4284dee16cf7ca88bfd5a382c3a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345308"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337481"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션
 
@@ -60,7 +60,7 @@ Managed Instance는 클라우드로 이동할 온-프레미스 작업에 맞게 
 VNet 인프라와 Managed Instance를 만드는 방법을 알아보려면 [Managed Instance를 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
 
 > [!IMPORTANT]
-> [Managed Instance VNet 요구 사항](sql-database-managed-instance-vnet-configuration.md#requirements)에 따라 항상 대상 VNet 및 서브넷을 유지해야 합니다. 호환되지 않는 경우 새 인스턴스를 만들거나 이미 만든 인스턴스를 사용하지 못할 수 있습니다.
+> [Managed Instance VNet 요구 사항](sql-database-managed-instance-connectivity-architecture.md#network-requirements)에 따라 항상 대상 VNet 및 서브넷을 유지해야 합니다. 호환되지 않는 경우 새 인스턴스를 만들거나 이미 만든 인스턴스를 사용하지 못할 수 있습니다. [새 네트워크 만들기](sql-database-managed-instance-create-vnet-subnet.md) 및 [기존 네트워크 구성](sql-database-managed-instance-configure-vnet-subnet.md)에 대해 자세히 알아보세요.
 
 ## <a name="select-migration-method-and-migrate"></a>마이그레이션 방법 선택 및 마이그레이션
 
@@ -117,8 +117,7 @@ SAS 자격 증명을 사용하여 Managed Instance에 데이터베이스 백업�
 
 마이그레이션 위험을 줄이려면 성능 모니터링 후에만 데이터베이스 호환성 수준을 변경합니다. [최신 SQL Server 버전으로 업그레이드하는 동안 성능 안정성 유지](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade)에서 설명한 대로, 데이터베이스 호환성 수준 변경 전후의 작업 성능에 대한 정보를 얻기 위한 최적의 도구로 쿼리 저장소를 사용합니다.
 
-완전히 관리되는 플랫폼에 있는 경우 SQL Database 서비스의 일부로 자동으로 제공되는 이점을 활용합니다. 예를 들어 서비스에서 백업을 자동으로 수행하므로 Managed Instance에 백업을 만들 필요가 없습니다. 백업 예약, 가져오기 및 관리에 대해 더 이상 걱정할 필요가 없습니다. Managed Instance는 [PITR(지정 시간 복구)](sql-database-recovery-using-backups.md#point-in-time-restore)을 사용하여 이 보존 기간 내의 특정 시점으로 복원하는 기능을 제공합니다. 공개 미리 보기 동안에는 보존 기간이 7일로 고정됩니다.
-또한 [고가용성](sql-database-high-availability.md)이 기본 제공되므로 고가용성 설정에 대해 걱정할 필요가 없습니다.
+완전히 관리되는 플랫폼에 있는 경우 SQL Database 서비스의 일부로 자동으로 제공되는 이점을 활용합니다. 예를 들어 서비스에서 백업을 자동으로 수행하므로 Managed Instance에 백업을 만들 필요가 없습니다. 백업 예약, 가져오기 및 관리에 대해 더 이상 걱정할 필요가 없습니다. Managed Instance는 [PITR(지정 시간 복구)](sql-database-recovery-using-backups.md#point-in-time-restore)을 사용하여 이 보존 기간 내의 특정 시점으로 복원하는 기능을 제공합니다. 또한 [고가용성](sql-database-high-availability.md)이 기본 제공되므로 고가용성 설정에 대해 걱정할 필요가 없습니다.
 
 보안을 강화하려면 다음과 같이 사용할 수 있는 기능 중 일부를 사용하는 것이 좋습니다.
 

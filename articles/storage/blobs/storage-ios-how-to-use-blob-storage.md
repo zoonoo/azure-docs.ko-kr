@@ -18,13 +18,13 @@ ms.locfileid: "52961929"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>iOS에서 Blob 저장소를 사용하는 방법
 
-이 문서에서는 Microsoft Azure Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)를 사용합니다. 여기서 다루는 시나리오에는 Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다. Blob에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오. 또한 [샘플 앱](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)을 다운로드하여 iOS 응용 프로그램에서 Azure Storage의 사용을 신속하게 볼 수 있습니다.
+이 문서에서는 Microsoft Azure Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)를 사용합니다. 여기서 다루는 시나리오에는 Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다. Blob에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오. 또한 [샘플 앱](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)을 다운로드하여 iOS 애플리케이션에서 Azure Storage의 사용을 신속하게 볼 수 있습니다.
 
 Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-blobs-introduction.md)를 참조하세요.
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="import-the-azure-storage-ios-library-into-your-application"></a>Azure Storage iOS 라이브러리를 응용 프로그램으로 가져오기
+## <a name="import-the-azure-storage-ios-library-into-your-application"></a>Azure Storage iOS 라이브러리를 애플리케이션으로 가져오기
 [Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient)를 사용하거나 **프레임워크** 파일을 가져와 Azure Storage iOS 라이브러리를 응용 프로그램으로 가져올 수 있습니다. CocoaPod는 라이브러리를 손쉽게 통합하는 반면, 프레임워크 파일에서 가져오기는 기존 프로젝트에 대해 덜 침입적이기 때문에 권장되는 방식입니다.
 
 이 라이브러리를 사용하려면 다음이 필요합니다.
@@ -64,7 +64,7 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
 3. Xcode의 왼쪽 위에서 "Azure Storage 클라이언트 라이브러리"의 활성 구성표를 "프레임워크"로 변경합니다.
 4. 프로젝트를 빌드합니다(⌘+B). 그러면 바탕 화면에 `AZSClient.framework` 파일이 만들어집니다.
 
-그런 후 다음을 수행하여 프레임워크 파일을 응용 프로그램으로 가져올 수 있습니다.
+그런 다음, 다음을 수행하여 프레임워크 파일을 애플리케이션으로 가져올 수 있습니다.
 
 1. 새 프로젝트를 만들거나 Xcode에서 기존 프로젝트를 엽니다.
 2. `AZSClient.framework`를 Xcode 프로젝트 탐색기에 끌어다 놓습니다.
@@ -203,7 +203,7 @@ Azure Storage의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예�
 }
 ```
 
-[Microsoft Azure Storage Explorer](http://storageexplorer.com)를 확인하고 컨테이너 *containerpublic*이 Blob *sampleblob*을 포함하는지 확인하여 이 작업을 확인할 수 있습니다. 이 샘플에서는 공용 컨테이너를 사용했으므로 Blob URI로 이동하여 이 응용 프로그램 작업을 확인할 수도 있습니다.
+[Microsoft Azure Storage Explorer](http://storageexplorer.com)를 확인하고 컨테이너 *containerpublic*이 Blob *sampleblob*을 포함하는지 확인하여 이 작업을 확인할 수 있습니다. 이 샘플에서는 공용 컨테이너를 사용했으므로 Blob URI로 이동하여 이 애플리케이션 작업을 확인할 수도 있습니다.
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 

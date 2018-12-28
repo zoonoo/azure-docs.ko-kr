@@ -1,18 +1,19 @@
 ---
-title: Azure ExpressRoute Direct 구성 방법 | Microsoft Docs
-description: 이 페이지를 참조하여 ExpressRoute Direct(미리 보기)를 구성할 수 있습니다.
+title: ExpressRoute Direct 구성 - Azure | Microsoft Docs
+description: 이 페이지를 사용하면 ExpressRoute Direct(미리 보기)를 구성할 수 있습니다.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: jaredro
-ms.openlocfilehash: 857602cf9c3c743e91ea6dace64e71e03cdd879b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.custom: seodec18
+ms.openlocfilehash: 9dadd61c8c4c2d1cd2305aa852e4528bfb9a1421
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959676"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076613"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>ExpressRoute Direct(미리 보기) 구성 방법
 
@@ -228,7 +229,7 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
 
 기본적으로 ExpressRoute Direct 리소스가 있는 구독에서 10개의 회로를 만들 수 있습니다. 이 제한은 지원 서비스에서 늘릴 수 있습니다. 사용자는 프로비전된 대역폭과 사용된 대역폭을 둘 다 추적할 책임이 있습니다. 프로비전된 대역폭은 ExpressRoute Direct 리소스에 있는 모든 회로의 대역폭 합계이고, 사용된 대역폭은 기본 물리적 인터페이스의 물리적 사용량입니다.
 
-위에 설명된 시나리오를 지원에 한해 ExpressRoute Direct에서 사용할 수 있는 추가 회로 대역폭은 40Gbps 및 100Gbps입니다.
+위에 설명된 시나리오를 지원에 한해 ExpressRoute Direct에서 사용할 수 있는 추가 회로 대역폭은 다음과 같습니다. 40Gbps 및 100Gbps.
 
 표준 또는 프리미엄 회로를 만들 수 있습니다. 표준 회로는 비용에 포함되지만, 프리미엄 회로는 선택한 대역폭을 기준으로 비용이 부과됩니다. ExpressRoute Direct에서는 무제한이 지원되지 않으므로 데이터 통신 연결로만 회로를 만들 수 있습니다.
 

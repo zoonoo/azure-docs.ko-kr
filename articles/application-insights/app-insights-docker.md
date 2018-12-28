@@ -9,16 +9,15 @@ ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4df6780fa61c1ed32279d882f383097dc0287716
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 91ba5024dc87ac7707d5ba1d2cdc94a7bfeb02b5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275918"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727463"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Application Insights에서 Docker 응용 프로그램 모니터링
 
@@ -100,7 +99,7 @@ AI SDK를 사용하여 계측되는 응용 프로그램에서 보내는 요청 �
 
 *앱 자체에서 원격 분석을 가져오려면 어떻게 해야 하나요?*
 
-* Application Insights SDK를 앱에 설치합니다. [Java 웹앱](app-insights-java-get-started.md), [Windows 웹앱](app-insights-asp-net.md)에 대한 방법을 알아봅니다.
+* Application Insights SDK를 앱에 설치합니다. 방법 알아보기: [Java 웹앱](app-insights-java-get-started.md), [Windows 웹앱](app-insights-asp-net.md)
 
 ## <a name="video"></a>비디오
 

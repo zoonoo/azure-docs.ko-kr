@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 110005469d5ff42af10b29fcee97c2f130ecdc2d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390214"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873830"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 Compute 환경
 이 문서는 프로세스 또는 변환 데이터에 사용할 수 있는 다양한 계산 환경을 설명합니다. 또한 이러한 계산 환경을 Azure 데이터 팩터리에 연결하는 연결된 서비스를 구성하는 경우 데이터 팩터리에서 지원하는 다른 구성(주문형 vs. 사용자 고유)에 대한 자세한 내용을 제공합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "39390214"
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [주문형 HDInsight 클러스터](#azure-hdinsight-on-demand-linked-service) 또는 [사용자 고유의 HDInsight 클러스터](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [사용자 지정](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning 작업: Batch 실행 및 업데이트 리소스](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) |
 | [Azure 데이터 레이크 분석](#azure-data-lake-analytics-linked-service) | [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [저장 프로시저](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
@@ -48,11 +48,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 * 주문형 HDInsight 클러스터는 Azure 구독에 따라 생성됩니다. 클러스터가 실행 중인 경우 Azure Portal에서 클러스터를 볼 수 있습니다. 
 * 주문형 HDInsight 클러스터에서 실행하는 작업에 대한 로그는 HDInsight 클러스터와 연결된 저장소 계정에 복사됩니다. 연결된 서비스 정의에 정의된 clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword는 클러스터의 수명 주기 동안 자세한 문제 해결을 위해 클러스터에 로그인하는 데 사용됩니다. 
 * HDInsight 클러스터가 작업을 실행 중인 경우에 대해서만 청구됩니다.
-* Azure HDInsight 주문형 연결된 서비스와 함께 스크립트 동작을 사용할 수 없습니다. 다른 종속성을 설치해야 하는 경우 예를 들어 다음 작업을 수행하는 PowerShell 스크립트를 실행하기 위해 Azure Automation을 사용하는 것을 고려합니다.  
-  a. HDInsight 클러스터를 만듭니다.  
-  나. 예를 들어 스크립트 동작을 실행하여 다른 종속성을 설치합니다.  
-  다. Data Factory 파이프라인을 실행합니다.  
-  d. 클러스터를 삭제합니다.  
+* 이제 Azure HDInsight 주문형 연결된 서비스와 함께 스크립트 동작이 지원됩니다.  
 
 > [!IMPORTANT]
 > 주문형 Azure HDInsight 클러스터를 프로비전하는 데 일반적으로 **20분** 이상이 걸립니다.
@@ -113,7 +109,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 | clusterNamePrefix           | HDI 클러스터 이름의 접두사로, 클러스터 이름 끝에 타임스탬프가 자동으로 추가됩니다.| 아니요       |
 | sparkVersion                 | 클러스터 형식이 "Spark"인 경우 Spark 버전입니다. | 아니요       |
 | additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다.  이러한 저장소 계정은 linkedServiceName에 지정된 저장소 계정과 동일한 지역에 생성된 HDInsight 클러스터와 동일한 지역에 있어야 합니다. | 아니요       |
-| osType                       | 운영 체제 유형입니다. 허용되는 값은 Linux 및 Windows(HDInsight 3.3에만 해당)입니다. 기본값은 Linux입니다. | 아니요       |
+| osType                       | 운영 체제 유형입니다. 허용되는 값은 다음과 같습니다. Linux 및 Windows(HDInsight 3.3에만 해당) 기본값은 Linux입니다. | 아니요       |
 | hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 Azure SQL Database를 metastore로 사용하여 만들어집니다. | 아니요       |
 | connectVia                   | 이 HDInsight 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. 주문형 HDInsight 연결된 서비스의 경우 Azure 통합 런타임만 지원합니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요       |
 | clusterUserName                   | 클러스터에 액세스하기 위한 사용자 이름입니다. | 아니요       |
@@ -230,9 +226,9 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 | 자산          | 설명                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
-| headNodeSize      | 헤드 노드의 크기를 지정합니다. 기본값은 Standard_D3입니다. 자세한 내용은 **노드 크기 지정** 섹션을 참조하세요. | 아니요       |
-| dataNodeSize      | 데이터 노드의 크기를 지정합니다. 기본값은 Standard_D3입니다. | 아니요       |
-| zookeeperNodeSize | Zookeeper 노드의 크기를 지정합니다. 기본값은 Standard_D3입니다. | 아니요       |
+| headNodeSize      | 헤드 노드의 크기를 지정합니다. 기본값은 다음과 같습니다. Standard_D3 자세한 내용은 **노드 크기 지정** 섹션을 참조하세요. | 아니요       |
+| dataNodeSize      | 데이터 노드의 크기를 지정합니다. 기본값은 다음과 같습니다. Standard_D3 | 아니요       |
+| zookeeperNodeSize | Zookeeper 노드의 크기를 지정합니다. 기본값은 다음과 같습니다. Standard_D3 | 아니요       |
 
 #### <a name="specifying-node-sizes"></a>노드 크기 지정
 이전 섹션에 언급된 속성에 대해 지정해야 하는 문자열 값은 [Virtual Machines 크기](../virtual-machines/linux/sizes.md) 문서를 참조하세요. 값은 이 문서에서 참조된 **Cmdlet 및 API**를 준수해야 합니다. 이 문서에서 볼 수 있는 것처럼 크게(기본값) 크기의 데이터 노드는 메모리가 7GB이므로 시나리오에 맞지 않을 수 있습니다. 
@@ -244,7 +240,7 @@ D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 headNodeS
 "dataNodeSize": "Standard_D4",
 ```
 
-이러한 속성에 잘못된 값을 지정하는 경우 다음과 같은 오류가 발생할 수 있습니다. **오류:** 클러스터를 만들지 못했습니다. 예외: 클러스터 만들기 작업을 완료할 수 없습니다. 작업이 실패했습니다. 오류 코드는 '400'입니다. 클러스터의 상태가 '오류'로 남아 있습니다. 메시지: 'PreClusterCreationValidationFailure'. 이 오류가 발생하면 [Virtual Machines 크기](../virtual-machines/linux/sizes.md) 문서의 테이블에서 **CMDLET 및 API** 이름을 사용하고 있는지 확인합니다.        
+이러한 속성에 잘못된 값을 지정하는 경우 다음과 같은 오류가 발생할 수 있습니다. **오류:** 클러스터를 만들지 못했습니다. 예외: 클러스터 만들기 작업을 완료할 수 없습니다. 작업이 실패했습니다. 오류 코드는 '400'입니다. 클러스터의 상태가 '오류'로 남아 있습니다. 메시지: 'PreClusterCreationValidationFailure' 이 오류가 발생하면 [Virtual Machines 크기](../virtual-machines/linux/sizes.md) 문서의 테이블에서 **CMDLET 및 API** 이름을 사용하고 있는지 확인합니다.        
 
 ## <a name="bring-your-own-compute-environment"></a>사용자 고유의 계산 환경 가져오기
 이 구성의 형식에서는 사용자가 이미 기존 컴퓨팅 환경을 데이터 팩터리에서 연결된 서비스로 등록할 수 있습니다. 컴퓨팅 환경은 이를 사용하여 작업을 실행하는 데이터 팩터리 서비스와 사용자에 의해 관리됩니다.
@@ -356,7 +352,7 @@ Azure Batch 서비스가 처음이라면 다음 항목을 참조하십시오.
 | connectVia        | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요       |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스
-Azure Machine Learning 연결된 서비스를 만들어 데이터 팩토리에 끝점을 매기는 Machine Learning 일괄 처리를 등록합니다. 
+Azure Machine Learning 연결된 서비스를 만들어 데이터 팩토리에 엔드포인트를 매기는 Machine Learning 일괄 처리를 등록합니다.
 
 ### <a name="example"></a>예
 
@@ -386,7 +382,7 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩토리에 �
 | type                   | 형식 속성은 **AzureML**로 설정해야 합니다. | yes                                      |
 | mlEndpoint             | 일괄 처리 점수 매기기 URL입니다.                   | yes                                      |
 | apiKey                 | 게시된 작업 영역 모델의 API입니다.     | yes                                      |
-| updateResourceEndpoint | 학습된 모델 파일이 있는 예측 웹 서비스를 업데이트하는 데 사용되는 Azure ML Web Service 끝점에 대한 업데이트 리소스 URL입니다. | 아니요                                       |
+| updateResourceEndpoint | 학습된 모델 파일이 있는 예측 웹 서비스를 업데이트하는 데 사용되는 Azure ML Web Service 엔드포인트에 대한 업데이트 리소스 URL입니다. | 아니요                                       |
 | servicePrincipalId     | 응용 프로그램의 클라이언트 ID를 지정합니다.     | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | servicePrincipalKey    | 응용 프로그램의 키를 지정합니다.           | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | tenant                 | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
@@ -426,7 +422,7 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 
 | 자산             | 설명                              | 필수                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| 형식                 | type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | yes                                      |
+| 형식                 | 형식 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | yes                                      |
 | accountName          | Azure 데이터 레이크 분석 계정 이름입니다.  | yes                                      |
 | dataLakeAnalyticsUri | Azure 데이터 레이크 분석 URI입니다.           | 아니요                                       |
 | subscriptionId       | Azure 구독 ID                    | 아니요                                       |

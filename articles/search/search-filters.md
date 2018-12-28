@@ -1,5 +1,5 @@
 ---
-title: Azure Search의 필터 | Microsoft Docs
+title: 인덱스에서 검색 결과의 범위를 지정하기 위한 필터 - Azure Search
 description: Microsoft Azure의 호스트된 클라우드 검색 서비스인 Azure Search에서 쿼리에 대한 검색 결과를 줄이려면 사용자 보안 ID, 언어, 지리적 위치 또는 숫자 값별로 필터링합니다.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 9f891dbe3f051f2fb5bfd242830f3c30abede487
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: d99196e231d122fcb0e707d30aed4d3b3eb2b89d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191369"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310354"
 ---
 # <a name="filters-in-azure-search"></a>Azure Search의 필터 
 

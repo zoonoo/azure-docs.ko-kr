@@ -10,12 +10,13 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 103da0c65bcf9b9bd24130082f844b9bd12a9a02
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.custom: seodec18
+ms.openlocfilehash: 6898b007287e4f4c87010649c6f0b66c03f7cf8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389720"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086269"
 ---
 # <a name="create-a-qna-maker-service"></a>QnA Maker 서비스 만들기
 
@@ -27,7 +28,7 @@ QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스�
 
 2.  **새 리소스 추가**를 클릭하고 검색에 “qna maker”를 입력한 다음, QnA Maker 리소스를 선택합니다.
 
-    ![새 QnA Maker 서비스 만들기](../media/qnamaker-how-to-setup-service/create-new-resource.png)
+    ![새 QnA Maker 서비스 만들기 - 새 리소스 추가](../media/qnamaker-how-to-setup-service/create-new-resource.png)
 
 3.  사용 약관을 읽은 후 **만들기**를 클릭합니다.
 
@@ -35,7 +36,7 @@ QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스�
 
 4. **QnA Maker**에서 적절한 계층과 지역을 선택합니다.
 
-    ![새 QnA Maker 서비스 만들기](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
+    ![새 QnA Maker 서비스 만들기 - 가격 책정 계층 및 지역](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
     * 이 QnA Maker 서비스를 식별하는 고유 이름으로 **이름**을 채웁니다. 이 이름은 기술 자료가 연결되는 QnA Maker 엔드포인트도 식별합니다.
     * QnA Maker 리소스가 배포되는 **구독**을 선택합니다.
@@ -57,7 +58,7 @@ QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스�
 
 6.  배포가 완료되면 구독에 다음 리소스가 생성됩니다.
 
-    ![새 QnA Maker 서비스 만들기](../media/qnamaker-how-to-setup-service/resources-created.png)
+    ![QnA Maker 서비스를 새로 만든 리소스](../media/qnamaker-how-to-setup-service/resources-created.png)
 
 ## <a name="next-steps"></a>다음 단계
 

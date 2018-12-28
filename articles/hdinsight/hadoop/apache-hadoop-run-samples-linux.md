@@ -167,7 +167,7 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 GraySort는 벤치마크 정렬입니다. 이 메트릭은 엄청난 양, 일반적으로 최소 100TB의 데이터를 정렬하는 동안 도달하는 정렬 속도(TB/분)입니다.
 
-이 샘플에서는 비교적 빠르게 실행할 수 있도록 적절한 10GB의 데이터를 사용합니다. Owen O'Malley와 Arun Murthy가 개발한 MapReduce 응용 프로그램을 사용합니다. 이 응용 프로그램은 0.578TB/분(100TB 정렬에 173분 소요)의 속도로, 2009년 연간 범용("daytona") 테라바이트 정렬 벤치마크로 선정되었습니다. 이 정렬 벤치마크 및 다른 정렬 벤치마크에 대한 자세한 내용은 [정렬 벤치마크](https://sortbenchmark.org/) (영문) 사이트를 참조하십시오.
+이 샘플에서는 비교적 빠르게 실행할 수 있도록 적절한 10GB의 데이터를 사용합니다. Owen O'Malley와 Arun Murthy가 개발한 MapReduce 애플리케이션을 사용합니다. 이 애플리케이션은 0.578TB/분(100TB 정렬에 173분 소요)의 속도로, 2009년 연간 범용("daytona") 테라바이트 정렬 벤치마크로 선정되었습니다. 이 정렬 벤치마크 및 다른 정렬 벤치마크에 대한 자세한 내용은 [정렬 벤치마크](https://sortbenchmark.org/) (영문) 사이트를 참조하십시오.
 
 이 샘플에서는 세 가지 집합의 MapReduce 프로그램을 사용합니다.
 

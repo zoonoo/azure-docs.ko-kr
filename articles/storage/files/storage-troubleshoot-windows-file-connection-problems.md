@@ -149,7 +149,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 - 슬래시(/)가 첫 번째 문자가 아닐 경우 키 주위에 큰따옴표를 배치하여 이 문제를 해결합니다. 슬래시(/)가 첫 번째 문자일 경우 대화형 모드를 사용하여 암호를 개별적으로 입력하거나 키를 다시 생성하여 슬래시(/) 문자로 시작되지 않는 키를 얻습니다.
 
 <a id="cannotaccess"></a>
-## <a name="application-or-service-cannot-access-a-mounted-azure-files-drive"></a>응용 프로그램 또는 서비스가 탑재된 Azure Files 드라이브에 액세스할 수 없습니다.
+## <a name="application-or-service-cannot-access-a-mounted-azure-files-drive"></a>애플리케이션 또는 서비스가 탑재된 Azure Files 드라이브에 액세스할 수 없습니다.
 
 ### <a name="cause"></a>원인
 

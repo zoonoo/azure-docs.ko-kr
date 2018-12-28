@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 194f84d2ce5360aa9ad9f3d771bf24f153ac6f5c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a75514013a1945d9ca5718be115184f6ba9950d9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496306"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015758"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 저장소 계정 추가
 
@@ -27,9 +27,9 @@ ms.locfileid: "52496306"
 
 이 스크립트는 다음 매개 변수를 사용합니다.
 
-* __Azure 저장소 계정 이름__: HDInsight 클러스터에 추가할 저장소 계정의 이름입니다. 스크립트를 실행한 후 HDInsight에서 이 저장소 계정에 저장된 데이터를 읽고 쓸 수 있습니다.
+* __Azure 스토리지 계정 이름__: HDInsight 클러스터에 추가할 스토리지 계정의 이름입니다. 스크립트를 실행한 후 HDInsight에서 이 저장소 계정에 저장된 데이터를 읽고 쓸 수 있습니다.
 
-* __Azure 저장소 계정 키__: 저장소 계정에 대한 액세스 권한을 부여하는 키입니다.
+* __Azure 스토리지 계정 키__: 스토리지 계정에 대한 액세스 권한을 부여하는 키입니다.
 
 * __-p__(선택 사항): 지정되는 경우 키가 암호화되지 않고 core-site.xml 파일에 일반 텍스트로 저장됩니다.
 
@@ -95,7 +95,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > `$PASSWORD`를 클러스터 로그인(관리자) 계정 암호로 설정합니다. `$CLUSTERNAME`을 HDInsight 클러스터의 이름으로 설정합니다. `$STORAGEACCOUNTNAME`을 저장소 계정의 이름으로 설정합니다.
 >
-> 이 예제에서는 [curl(http://curl.haxx.se/)](http://curl.haxx.se/) 및 [jq(https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/)를 사용하여 JSON 데이터를 검색하고 구문 분석합니다.
+> 이 예제에서는 [curl(https://curl.haxx.se/)](https://curl.haxx.se/) 및 [jq(https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/)를 사용하여 JSON 데이터를 검색하고 구문 분석합니다.
 
 이 명령을 사용할 때는 __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다. __PASSWORD__는 클러스터의 HTTP 로그인 암호로 바꿉니다. __STORAGEACCOUNT__는 스크립트 동작을 사용하여 추가한 저장소 계정의 이름으로 바꿉니다. 이 명령에서 반환되는 정보는 다음 텍스트와 비슷합니다.
 

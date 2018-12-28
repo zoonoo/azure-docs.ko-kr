@@ -196,7 +196,7 @@ PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name 
 Succeeded
 ```
 
-## <a name="view-running-application"></a>실행 중인 응용 프로그램 보기
+## <a name="view-running-application"></a>실행 중인 애플리케이션 보기
 
 ACI에 배포가 성공하고 컨테이너가 작동되면 브라우저에서 FQDN(정규화된 도메인 이름)으로 이동하여 Azure에서 실행 중인 앱을 살펴봅니다.
 
@@ -218,7 +218,7 @@ FQDN을 얻었으면 브라우저에서 해당 FQDN으로 이동합니다.
 
 ![브라우저의 Hello World 앱][qs-psh-01-running-app]
 
-축하합니다! Azure에서 응용 프로그램을 실행하는 컨테이너를 만들고, 개인 Azure 컨테이너 레지스트리의 컨테이너 이미지에서 직접 배포하였습니다.
+축하합니다! Azure에서 애플리케이션을 실행하는 컨테이너를 만들고, 개인 Azure 컨테이너 레지스트리의 컨테이너 이미지에서 직접 배포하였습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

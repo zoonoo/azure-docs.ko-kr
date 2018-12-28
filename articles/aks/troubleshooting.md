@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1fd8f7c8499b7f9223939b8d426f274e79fd190e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c20f2cc03565ce861dfc6317be8459fdafeef0bf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025348"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384108"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 AKS 클러스터를 만들거나 관리할 때 가끔 문제가 발생할 수 있습니다. 이 문서에서는 몇 가지 일반적인 문제 및 문제 해결 단계를 자세히 설명합니다.
@@ -59,8 +59,31 @@ kubernetes 대시보드가 표시되지 않으면 kube-system 네임스페이스
 
 기본 NSG가 수정되지 않았는지와 API 서버 연결을 위해 포트 22가 열려 있는지 확인합니다. tunnelfront pod가 kube-system 네임스페이스에서 실행되고 있는지 확인합니다. 실행되고 있지 않으면 강제로 삭제합니다. 그러면 다시 시작됩니다.
 
-### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>업그레이드 또는 크기 조정을 시도하면 "메시지": "'imageReference' 속성 변경은 허용되지 않습니다." 오류가 표시됩니다.  이 문제를 어떻게 해결하나요?
+### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>업그레이드하거나 크기를 조정하려고 하는데 "메시지": "'ImageReference' 속성을 변경할 수 없습니다."가 표시됩니다. 오류가 표시됩니다.  이 문제를 어떻게 해결하나요?
 
 AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문에 이 오류가 발생하는 것일 수 있습니다. MC_* 리소스 그룹에서 태그 및 리소스의 기타 속성을 수정 및 삭제하면 예기치 않은 결과가 발생할 수 있습니다. AKS 클러스터의 MC_* 아래에서 리소스를 수정하면 SLO가 중단됩니다.
 
+### <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>AKS 클러스터 내에서 서비스 주체 암호를 갱신하려면 어떻게 하나요?
 
+기본적으로 AKS 클러스터는 만료 시간이 1년인 서비스 주체로 만들어집니다. 1년의 만료 날짜가 가까워지면 자격 증명을 다시 설정하여 서비스 주체를 추가 기간 동안 연장할 수 있습니다.
+
+이 예제에서는 다음 단계를 수행합니다.
+
+1. [az aks show](/cli/azure/aks#az-aks-show) 명령을 사용하여 클러스터의 서비스 주체 ID를 가져옵니다.
+1. [az ad sp credential list](/cli/azure/ad/sp/credential#az-ad-sp-credential-list)를 사용하여 서비스 주체 클라이언트 비밀을 나열합니다.
+1. [az ad sp credential-reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) 명령을 사용하여 서비스 주체를 1년 더 연장합니다. AKS 클러스터가 올바르게 실행될 수 있게 서비스 주체 클라이언트 비밀을 동일하게 유지해야 합니다.
+
+```azurecli
+# Get the service principal ID of your AKS cluster
+sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+
+# Get the existing service principal client secret
+key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
+
+# Reset the credentials for your AKS service principal and extend for 1 year
+az ad sp credential reset \
+    --name $sp_id \
+    --password $key_secret \
+    --years 1
+```

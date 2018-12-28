@@ -18,7 +18,7 @@ items:
   items:
   - name: 웹 트래픽 관리
     href: tutorial-manage-web-traffic-cli.md
-  - name: 웹 응용 프로그램 방화벽 사용
+  - name: 웹 애플리케이션 방화벽 사용
     href: tutorial-restrict-web-traffic-cli.md
   - name: SSL을 통한 보안
     href: tutorial-ssl-cli.md

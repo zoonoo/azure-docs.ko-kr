@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process 프로젝트 계획 - Azure | Microsoft Docs
+title: Team Data Science Process 프로젝트 계획
 description: 데이터 과학 프로젝트를 계획하고 관리하는 데 도움이 되는 Microsoft Project 및 Excel 템플릿
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 702ea6152ce5bf90d1d1f61b566e91d1859e672b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 3675d3cd8959d78270a491aeb443cb8e458d2472
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443103"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137914"
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 프로젝트 계획
 
@@ -48,7 +48,7 @@ Team Data Science Process용 Microsoft Project 서식 파일은 다음 위치에
 
 ## <a name="excel-template"></a>Excel 서식 파일
 
-Microsoft Project에 대한 액세스 권한이 없는 경우 동일한 데이터가 모두 포함된 Excel 워크시트를 [Excel 서식 파일](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx)에서 다운로드할 수도 있습니다. 이것을 원하는 도구로 끌어올 수 있습니다.
+Microsoft Project에 대한 액세스 권한이 없는 경우 동일한 데이터가 모두 포함된 Excel 워크시트를 [Excel 서식 파일](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx)에서 다운로드할 수도 있습니다. 원하는 도구로 끌어올 수 있습니다.
 
 이러한 서식 파일의 사용에 따른 모든 책임은 사용자에게 있습니다. [일반적인 고지 사항](https://www.gnu.org/licenses/gpl-3.0.en.html)이 적용됩니다.
 

@@ -70,7 +70,7 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 
 상태가 *보류 중*에서 *실행 중*으로 변경될 때까지 [az container show][az-container-show] 명령을 1분 미만으로 반복합니다. 컨테이너가 *실행 중* 상태가 되면 다음 단계를 진행합니다.
 
-## <a name="view-the-application-and-container-logs"></a>응용 프로그램 및 컨테이너 로그 보기
+## <a name="view-the-application-and-container-logs"></a>애플리케이션 및 컨테이너 로그 보기
 
 배포에 성공하면 [az container show][az-container-show] 명령을 사용하여 컨테이너의 FQDN(정규화된 도메인 이름)을 표시합니다.
 

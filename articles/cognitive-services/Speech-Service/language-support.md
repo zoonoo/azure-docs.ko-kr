@@ -1,27 +1,28 @@
 ---
 title: 언어 지원 - Speech Service API
 titleSuffix: Azure Cognitive Services
-description: Speech Service에서 지원되는 자연 언어 목록입니다.
+description: Azure Speech Services는 음성 번역과 함께 음성-텍스트 변환 및 텍스트-음성 변환을 위해 다양한 언어를 지원합니다. 이 문서에서는 서비스별 언어 지원에 대한 종합 목록을 제공합니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec18
+ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284764"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342100"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Speech Service API에 대한 언어 및 지역 지원
 
 Speech Service 기능마다 다른 언어가 지원됩니다. 다음 표에서는 언어 지원을 요약합니다.
 
-## <a name="speech-to-text"></a>음성을 텍스트로 변환
+## <a name="speech-to-text"></a>음성 텍스트 변환
 
 Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다른 수준의 사용자 지정을 각 언어에 사용할 수 있습니다.
 
@@ -37,7 +38,7 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
  en-IN | 영어(인도) | yes | 예 | yes
  en-NZ | 영어(뉴질랜드) | 아니요 | 예 | yes  
  en-US | 영어(미국) | yes | 예 | yes
- es-ES | 스페인어(스페인) | 아니요 | yes | 아니요
+ es-ES | 스페인어(스페인) | yes | yes | 아니요
  es-MX | 스페인어(멕시코) | 아니요 | yes | 아니요
  fi-FI | 핀란드어(핀란드) | 아니요 | 아니요 | 아니요
  fr-CA | 프랑스어(캐나다) | 아니요 | yes | 아니요
@@ -45,11 +46,11 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
  hi-IN | 힌디어(인도) | 아니요 | yes | 아니요
  it-IT | 이탈리아어(이탈리아) | yes | yes | 아니요
  ja-JP | 일본어(일본) | 아니요 | yes | 아니요
- ko-KR | 한국어(한국) | 아니요 | yes | 아니요
+ en-US | 한국어(한국) | 아니요 | yes | 아니요
  nb-NO | 노르웨이어(복말)(노르웨이) | 아니요 | 아니요 | 아니요
  nl-NL | 네덜란드어(네덜란드) | 아니요 | yes | 아니요
  pl-PL | 폴란드어(폴란드) | 아니요 | 아니요 | 아니요
- pt-BR | 포르투갈어(브라질) | 아니요 | yes | 아니요
+ pt-BR | 포르투갈어(브라질) | yes | yes | 아니요
  pt-PT | 포르투갈어(포르투갈) | 아니요 | yes | 아니요
  ru-RU | 러시아어(러시아) | yes | yes | 아니요
  sv-SE | 스웨덴어(스웨덴) | 아니요 | 아니요 | 아니요
@@ -59,9 +60,26 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
  th-TH | 태국어(태국) | 아니요 | 아니요 | 아니요
 
 
-## <a name="text-to-speech"></a>텍스트에서 음성 변환
+## <a name="text-to-speech"></a>텍스트 음성 변환
 
-Speech Synthesis API는 각각 로캘로 식별되는 특정 언어를 지원하는 다음과 같은 음성을 제공합니다.
+텍스트-음성 변환 REST API는 이러한 음성을 제공하며, 해당 음성 각각은 로캘로 식별되는 특정 언어를 지원합니다.
+
+### <a name="neural-voices-preview"></a>인공신경망 음성(미리 보기)
+
+인공신경망 텍스트-음성 변환은 심층 신경망에서 지원되는 새로운 형식의 음성 합성입니다. 인공신경망 음성을 사용하는 경우 합성된 음성은 인간 음성 녹음과 거의 구분되지 않습니다.
+
+인공신경망 음성을 사용하여 챗봇 및 가상 도우미와의 상호 작용에 더 자연스럽게 참여하도록 만들고, 전자책 같은 디지털 텍스트를 오디오북으로 변환하고, 자동차 내부 내비게이션 시스템을 향상시킬 수 있습니다. 인간과 유사한 자연스러운 운율 및 단어의 명확한 조음을 사용하면 사용자가 AI 시스템과 상호 작용할 때 인공신경망 음성은 수신 피로도를 현저히 줄일 수 있습니다.
+
+인공신경망 음성 및 국가별 가용성 전체 목록은 [지역](regions.md#neural-voices)을 참조하세요.
+
+| 로캘 | 언어 | 성별 | 서비스 이름 매핑|
+|--------|----------|---------|--------------------|
+| en-US | 영어(미국) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
+| en-US | 영어(미국) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+
+### <a name="standard-voices"></a>표준 음성
+
+75개를 초과하는 표준 음성은 45개 이상의 언어 및 로캘에서 사용할 수 있으며 텍스트를 합성된 음성으로 변환할 수 있습니다. 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-voices)을 참조하세요.
 
 로캘 | 언어 | 성별 | 서비스 이름 매핑
 -------|----------|---------|--------------------
@@ -117,7 +135,7 @@ it-IT | 이탈리아어 |Male | “Microsoft Server Speech Text to Speech Voice(
 ja-JP | 일본어 |Female | “Microsoft Server Speech Text to Speech Voice(ja-JP, Ayumi, Apollo)”
 | | |Male | “Microsoft Server Speech Text to Speech Voice(ja-JP, Ichiro, Apollo)”
 | | |Female | “Microsoft Server Speech Text to Speech Voice(ja-JP, HarukaRUS)”
-ko-KR | 한국어 |Female | “Microsoft Server Speech Text to Speech Voice(ko-KR, HeamiRUS)”
+en-US | 한국어 |Female | “Microsoft Server Speech Text to Speech Voice(ko-KR, HeamiRUS)”
 ms-MY | 말레이어 | Male | “Microsoft Server Speech Text to Speech Voice(ms-MY, Rizwan)”
 nb-NO | 노르웨이어 | Female | “Microsoft Server Speech Text to Speech Voice(nb-NO, HuldaRUS)”
 nl-NL | 네덜란드어 | Female | “Microsoft Server Speech Text to Speech Voice(nl-NL, HannaRUS)”
@@ -156,9 +174,9 @@ zh-TW | 중국어(대만)|Female | “Microsoft Server Speech Text to Speech Voi
 > [!NOTE]
 > 프랑스어, 독일어 및 이탈리아 음성 학습은 2,000개 이상의 발화가 있는 데이터 세트로 시작합니다. 중국어-영어 이중 언어 모델도 2,000개 이상의 발화로 이루어진 초기 데이터 집합으로 지원됩니다.
 
-## <a name="speech-translation"></a>Speech Translation
+## <a name="speech-translation"></a>음성 번역
 
-**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 다음과 같은 음성 언어 테이블 중 하나여야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다. 들어오는 음성을 [60개 언어](https://www.microsoft.com/translator/business/languages/) 이상으로 변환할 수 있습니다. 이러한 언어의 하위 집합을 [음성 합성](language-support.md#text-languages)에 사용할 수 있습니다. 
+**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 다음과 같은 음성 언어 테이블 중 하나여야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다. 들어오는 음성을 [60개 언어](https://www.microsoft.com/translator/business/languages/) 이상으로 변환할 수 있습니다. 이러한 언어의 하위 집합을 [음성 합성](language-support.md#text-languages)에 사용할 수 있습니다.
 
 ### <a name="speech-languages"></a>음성 언어
 

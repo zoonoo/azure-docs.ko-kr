@@ -32,11 +32,11 @@ Azure HDInsight .NET SDK를 사용하여 HDInsight 클러스터와 Azure SQL 데
 * HDInsight의 Hadoop 클러스터 - 자세한 내용은 [클러스터 및 SQL 데이터베이스 만들기](hdinsight-use-sqoop.md#create-cluster-and-sql-database)를 참조하세요.
 
 ## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>.NET SDK를 사용하여 HDInsight 클러스터에서 Sqoop 사용
-HDInsight .NET SDK는 .NET 클라이언트 라이브러리를 제공하므로 .NET에서 HDInsight 클러스터 작업을 더 쉽게 수행할 수 있습니다. 이 섹션에서는 C# 콘솔 응용 프로그램을 만들어 이 자습서의 앞 부분에서 만든 SQL Database 테이블에 hivesampletable을 내보냅니다.
+HDInsight .NET SDK는 .NET 클라이언트 라이브러리를 제공하므로 .NET에서 HDInsight 클러스터 작업을 더 쉽게 수행할 수 있습니다. 이 섹션에서는 C# 콘솔 애플리케이션을 만들어 이 자습서의 앞 부분에서 만든 SQL Database 테이블에 hivesampletable을 내보냅니다.
 
 ## <a name="submit-a-sqoop-job"></a>Sqoop 작업 제출
 
-1. Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio를 사용하여 C# 콘솔 애플리케이션을 만듭니다.
 
 2. Visual Studio 패키지 관리자 콘솔에서 다음 NuGet 명령을 실행하여 패키지를 가져옵니다.
    

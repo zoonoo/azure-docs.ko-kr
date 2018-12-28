@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/14/2018
+ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705381"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966826"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 10월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 10월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다.
@@ -62,6 +62,7 @@ Azure SQL Data Warehouse ADR(가속 데이터베이스 복구)이 공개 미리 
 | **DW2000 등의 데이터 웨어하우스에 있는 소규모 리소스 클래스에서 Parquet에 대한 CETAS 오류** | 이 픽스는 Create External Table As to Parquet 코드 경로에서 null 참조를 올바르게 식별합니다. |
 |**일부 CTAS 작업에서 ID 열 값이 손실될 수 있음** | 다른 테이블로 CTAS 할 때 ID 열 값이 유지되지 않을 수 있습니다. [https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/) 블로그에서 보고되었습니다. |
 | **쿼리가 실행 중인 동안 세션이 종료되면 경우에 따라 내부 오류 발생** | 쿼리가 실행 중일 때 세션이 종료되면 이 픽스는 InvalidOperationException을 트리거합니다. |
+| **(2018년 11월에 배포됨) Polybase를 사용하여 ADLS(Gen1)에서 여러 작은 파일을 로드하려고 하는 경우 고객에게 최적이 아닌 성능 문제가 발생했습니다.** | 시스템 성능은 AAD 보안 토큰 유효성 검사 동안 병목 상태가 되었습니다. 보안 토큰의 캐싱을 사용하여 성능 문제를 완화했습니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

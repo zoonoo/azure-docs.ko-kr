@@ -9,17 +9,16 @@ ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 9105b7f44a9677b2b843305c30fec30c74dd8be5
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 097eae37f170a8036ee46652450788faf77c3960
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958494"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967132"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -175,7 +174,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 그런 다음, ConfigureServices 메서드 내에 다음을 추가합니다.
 
 ``` C#
-services.ConfigureTelemetryModule<QuickPulseTelemetryModule>( module => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
+services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
 
@@ -198,7 +197,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule>( module => module.A
 
 ## <a name="troubleshooting"></a>문제 해결
 
-데이터가 없나요? 응용 프로그램이 보호된 네트워크에 있는 경우: 라이브 메트릭 스트림은 Application Insights 원격 분석과는 다른 IP 주소를 사용합니다. 방화벽에서 [해당 포트](app-insights-ip-addresses.md)가 열려 있는지 확인합니다.
+데이터가 없나요? 애플리케이션이 보호된 네트워크에 있는 경우: 라이브 메트릭 스트림은 다른 Application Insights 원격 분석과 다른 IP 주소를 사용합니다. 방화벽에서 [해당 포트](app-insights-ip-addresses.md)가 열려 있는지 확인합니다.
 
 
 

@@ -1,21 +1,22 @@
 ---
 title: 컨테이너 구성
-titlesuffix: Text Analytics - Cognitive Services - Azure
-description: Text Analytics 컨테이너에 대한 구성 설정입니다.
+titlesuffix: Text Analytics - Azure Cognitive Services
+description: Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공하므로, 사용자는 컨테이너에 대한 스토리지, 로깅 및 원격 분석은 물론, 보안 설정을 쉽게 구성하고 관리할 수 있습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 0f6b8fa27d2db45be2c677a52c53cff5847acf4a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 7e993b9ccc57359ac64186765b7b704535eb5a57
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635089"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086677"
 ---
 # <a name="configure-containers"></a>컨테이너 구성
 
@@ -70,7 +71,7 @@ Text Analytics 컨테이너로부터 컨테이너 인스턴스화 시 [환경 �
 > [!IMPORTANT]
 > [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-configuration-setting) 구성 설정은 함께 사용됩니다. 따라서 이 세 가지 설정 모두에 대해 유효한 값을 제공해야 하며, 제공하지 않을 경우 컨테이너는 시작되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](how-tos/text-analytics-how-to-install-containers.md#billing)를 참조하세요.
 
-## <a name="applicationinsights-configuration-settings"></a>ApplicationInsights 및 구성 설정
+## <a name="applicationinsights-configuration-settings"></a>ApplicationInsights 구성 설정
 
 `ApplicationInsights` 섹션의 구성 설정을 통해 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 원격 분석 지원을 컨테이너에 추가할 수 있습니다. Application Insights는 코드 수준까지 컨테이너의 심층 모니터링을 제공합니다. 컨테이너의 가용성, 성능 및 사용량을 쉽게 모니터링할 수 있습니다. 또한 사용자가 보고할 때까지 기다리지 않고 컨테이너의 오류를 빠르게 식별하고 진단할 수 있습니다.
 
@@ -92,7 +93,7 @@ Text Analytics 컨테이너로부터 컨테이너 인스턴스화 시 [환경 �
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing` 구성 설정은 컨테이너에 대한 청구 정보를 추적하기 위해 사용하는 Azure 기반 Text Analytics 리소스의 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure 기반 Text Analytics 리소스에 대해 유효한 엔드포인트 URI여야 합니다.
+`Billing` 구성 설정은 컨테이너에 대한 청구 정보를 측정하기 위해 사용하는 Azure 기반 Text Analytics 리소스의 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure 기반 Text Analytics 리소스에 대해 유효한 엔드포인트 URI여야 합니다.
 
 > [!IMPORTANT]
 > [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-configuration-setting) 구성 설정은 함께 사용됩니다. 따라서 이 세 가지 설정 모두에 대해 유효한 값을 제공해야 하며, 제공하지 않을 경우 컨테이너는 시작되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](how-tos/text-analytics-how-to-install-containers.md#billing)를 참조하세요.
@@ -103,6 +104,8 @@ Text Analytics 컨테이너로부터 컨테이너 인스턴스화 시 [환경 �
 
 > [!IMPORTANT]
 > [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-configuration-setting) 구성 설정은 함께 사용됩니다. 따라서 이 세 가지 설정 모두에 대해 유효한 값을 제공해야 하며, 제공하지 않을 경우 컨테이너는 시작되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](how-tos/text-analytics-how-to-install-containers.md#billing)를 참조하세요.
+
+Cognitive Services 컨테이너는 Azure 사용에 관한 [계약](https://go.microsoft.com/fwlink/?linkid=2018657)에 따라 사용 허가됩니다. Azure 사용에 관한 기존 계약이 없으면 Azure 사용에 관한 계약은 [온라인 서비스 사용 약관](https://go.microsoft.com/fwlink/?linkid=2018760)을 포함한 [Microsoft 온라인 정기가입 계약](https://go.microsoft.com/fwlink/?linkid=2018755)임에 동의합니다. 미리 보기의 경우 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://go.microsoft.com/fwlink/?linkid=2018815)에도 동의합니다. 컨테이너를 사용하여 이 사용 약관에 동의합니다.
 
 ## <a name="fluentd-configuration-settings"></a>Fluentd 구성 설정
 
@@ -133,7 +136,7 @@ Text Analytics 컨테이너로부터 컨테이너 인스턴스화 시 [환경 �
 
   | 이름 | 데이터 형식 | 설명 |
   |------|-----------|-------------|
-  | `Format` | 문자열 | 로그 파일에 대한 출력 형식입니다.<br/> **참고:** 로깅 공급자를 사용 설정하려면 이 값을 `json`으로 설정해야 합니다. 또한 컨테이너를 인스턴스화하는 동안 출력 탑재를 지정하지 않고 이 값이 지정된 경우에는 오류가 발생합니다. |
+  | `Format` | 문자열 | 로그 파일에 대한 출력 형식입니다.<br/> **참고:** 이 값은 `json`으로 설정해야 로깅 공급자를 사용할 수 있습니다. 또한 컨테이너를 인스턴스화하는 동안 출력 탑재를 지정하지 않고 이 값이 지정된 경우에는 오류가 발생합니다. |
   | `MaxFileSize` | 정수  | 로그 파일의 최대 크기(MB)입니다. 현재 로그 파일의 크기가 이 값을 충족하거나 초과할 경우 로깅 공급자가 새 로그 파일을 시작합니다. -1을 지정하면 로그 파일의 크기는 출력 탑재(있는 경우)에 대한 최대 파일 크기에 의해서만 제한됩니다. 기본값은 1입니다. |
 
 ASP.NET Core 로깅 지원 구성에 대한 자세한 내용은 [설정 파일 구성](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration)을 참조하세요.
@@ -164,7 +167,7 @@ Text Analytics 컨테이너에서 제공하는 Docker 컨테이너는 상태 비
 |[언어 감지](#working-with-language-detection) | 지원되지 않음 | 옵션 |
 |[감정 분석](#working-with-sentiment-analysis) | 지원되지 않음 | 옵션 |
 
-다운로드된 컨테이너 이미지에서 컨테이너를 인스턴스화하기 위해 사용하는 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령에서 `--mount` 옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다. 기본적으로, 입력 탑재는 대상으로 `/input`을 사용하며 출력 탑재는 대상으로 `/output`을 사용합니다. Docker 컨테이너 호스트에 사용 가능한 Docker 스토리지 옵션이라면 `--mount` 옵션에서 지정할 수 있습니다.
+다운로드된 컨테이너 이미지에서 컨테이너를 인스턴스화하기 위해 사용하는 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령에서 `--mount` 옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다. 기본적으로 입력 탑재는 대상으로 `/input`을 사용하며 출력 탑재는 대상으로 `/output`을 사용합니다. Docker 컨테이너 호스트에 사용 가능한 Docker 스토리지 옵션이라면 `--mount` 옵션에서 지정할 수 있습니다.
 
 예를 들어 다음 명령은 호스트 머신의 `D:\Output` 폴더에 대한 Docker 바인드 탑재를 출력 탑재로 정의한 다음, 감정 분석 컨테이너 이미지로부터 컨테이너를 인스턴스화하여 JSON 형식의 로그 파일을 출력 탑재에 저장합니다.
 

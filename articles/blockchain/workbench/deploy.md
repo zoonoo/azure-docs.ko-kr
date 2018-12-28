@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/12/2018
+ms.date: 12/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 33fce88e7108ee45236e20b1f20dde56bb7446b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616387"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876152"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench 배포
 
@@ -43,6 +43,9 @@ Blockchain Workbench의 구성 요소에 대한 자세한 내용은 [Azure Block
 ![예제 배포](media/deploy/example-deployment.png)
 
 블록체인 Workbench의 비용은 기본 Azure 서비스 비용의 집계입니다. Azure 서비스에 대한 가격 책정 정보는 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하여 계산할 수 있습니다.
+
+> [!IMPORTANT]
+> Azure 무료 계층 구독과 같은 낮은 서비스 한도로 구독을 사용하는 경우 VM 코어 할당량 부족으로 인해 배포가 실패할 수 있습니다. 배포하기 전에 [가상 머신 vCPU 할당량](../../virtual-machines/windows/quotas.md) 문서의 지침을 사용하여 할당량을 확인합니다. 기본적으로 VM 선택에는 6개의 VM 코어가 필요합니다. *표준 DS1 v2*와 같은 작은 크기로 VM을 변경하면 코어 수가 4로 줄어듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -98,8 +101,8 @@ Azure Blockchain Workbench를 사용하려면 Azure AD 구성 및 애플리케�
     | 설정 | 설명  |
     |---------|--------------|
     | 모니터링 | Azure Monitor를 사용하여 블록 체인 네트워크를 모니터링할 수 있도록 할지 여부를 선택합니다. |
-    | Azure Active Directory 설정 | **나중에 추가**를 선택합니다.</br>참고: [Azure AD를 미리 구성](#azure-ad-configuration)하도록 선택했거나 재배포하는 경우 *지금 추가*하도록 선택합니다. |
-    | VM 선택 | 블록체인 네트워크에 대한 기본 VM 크기를 선택합니다. |
+    | Azure Active Directory 설정 | **나중에 추가**를 선택합니다.</br>참고: [Azure AD를 미리 구성](#azure-ad-configuration)하도록 선택했거나 다시 배포하는 경우 *지금 추가*하도록 선택합니다. |
+    | VM 선택 | 블록체인 네트워크에 대한 기본 VM 크기를 선택합니다. Azure 무료 계층 같은 낮은 서비스 한도로 구독하는 경우 *표준 DS1 v2*와 같은 작은 크기의 VM을 선택합니다. |
 
     **기존 항목 사용**을 사용하는 경우:
 
@@ -117,7 +120,7 @@ Azure Blockchain Workbench를 사용하려면 Azure AD 구성 및 애플리케�
     | 설정 | 설명  |
     |---------|--------------|
     | Ethereum RPC 끝점 | 기존 PoA 블록체인 네트워크의 RPC 끝점을 제공합니다. 엔드포인트는 https:// 또는 http://로 시작되고 포트 번호로 끝납니다. 예를 들어 `https://network.westus.cloudapp.com:8540` |
-    | Azure Active Directory 설정 | **나중에 추가**를 선택합니다.</br>참고: [Azure AD를 미리 구성](#azure-ad-configuration)하도록 선택했거나 재배포하는 경우 *지금 추가*하도록 선택합니다. |
+    | Azure Active Directory 설정 | **나중에 추가**를 선택합니다.</br>참고: [Azure AD를 미리 구성](#azure-ad-configuration)하도록 선택했거나 다시 배포하는 경우 *지금 추가*하도록 선택합니다. |
     | VM 선택 | 블록체인 네트워크에 대한 기본 VM 크기를 선택합니다. |
 
 9. **확인**을 선택하여 고급 설정을 완료합니다.

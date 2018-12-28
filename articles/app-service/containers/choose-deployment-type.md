@@ -1,6 +1,6 @@
 ---
 title: 사용자 지정 이미지, 다중 컨테이너 또는 기본 제공 이미지 배포 - Azure App Service | Microsoft Docs
-description: 사용자 지정 Docker 컨테이너 배포, 다중 컨테이너 및 Linux의 App Service를 위한 기본 제공 응용 프로그램 프레임워크 중 하나를 결정하는 방법
+description: 사용자 지정 Docker 컨테이너 배포, 다중 컨테이너 및 Linux의 App Service를 위한 기본 제공 애플리케이션 프레임워크 중 하나를 결정하는 방법
 keywords: azure app service, 웹앱, linux, oss
 services: app-service
 documentationCenter: ''

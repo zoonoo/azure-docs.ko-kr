@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 7a0f1313f8b22aba0a153563bd804435c3ef53f2
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 1ccdb8254551d0009a71cc047b8399a539edb8e2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52159868"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866853"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>DMZ에 사용할 샘플 응용 프로그램
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
@@ -142,7 +142,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     Restart-Service -Name W3SVC
 
     Write-Host
-    Write-Host "Web App Creation Successfull!" -ForegroundColor Green
+    Write-Host "Web App Creation Successful!" -ForegroundColor Green
     Write-Host
 ```
 
@@ -156,7 +156,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 5. 이 서버에서 쉽게 탐색할 수 있도록 IE의 강화된 보안을 해제합니다. 
 
 > [!IMPORTANT]
-> **모범 사례**: 프로덕션 서버에서 IE의 강화된 보안을 해제하지 마십시오. 프로덕션 서버에서 웹을 탐색하는 것도 좋지 않습니다. 또한 익명 액세스를 위해 파일 공유를 여는 것도 바람직하지 않지만 여기서는 간단한 설명을 위해 사용합니다.
+> **모범 사례**: 프로덕션 서버에서 IE의 보안 강화를 해제하지 마십시오. 프로덕션 서버에서 웹을 탐색하는 것도 좋지 않습니다. 또한 익명 액세스를 위해 파일 공유를 여는 것도 바람직하지 않지만 여기서는 간단한 설명을 위해 사용합니다.
 > 
 > 
 
@@ -189,7 +189,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0
 
     Write-Host
-    Write-Host "File Server Set up Successfull!" -ForegroundColor Green
+    Write-Host "File Server Set up Successful!" -ForegroundColor Green
     Write-Host
 ```
 

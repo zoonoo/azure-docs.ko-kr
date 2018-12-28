@@ -21,7 +21,7 @@ ms.locfileid: "53317290"
 
 버전 1.0.2-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 통해 버전 1.1로 응용 프로그램을 업그레이드할 수 있습니다.
 
-예제를 비롯하여 SDK에 대한 보다 일반적인 연습은 [.NET 응용 프로그램에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
+예제를 비롯하여 SDK에 대한 보다 일반적인 연습은 [.NET 애플리케이션에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
 > [!NOTE]
 > 버전 1.1로 업그레이드한 후 또는 1.1 및 2.0-preview(포함) 사이의 버전을 이미 사용 중인 경우 버전 3으로 업그레이드해야 합니다. 지침은 [Azure Search .NET SDK 버전 3으로 업그레이드](search-dotnet-sdk-migration.md)를 참조하세요.

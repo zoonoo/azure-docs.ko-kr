@@ -27,7 +27,7 @@ ms.locfileid: "52331254"
 * [기본 모드 - SPA 빠른 시작을 사용하여 앱 구성](#option-1-register-your-application-express-mode)
 * [고급 모드 - 앱 설정을 수동으로 구성](#option-2-register-your-application-advanced-mode)
 
-### <a name="option-1-register-your-application-express-mode"></a>옵션 1: 응용 프로그램 등록(기본 모드)
+### <a name="option-1-register-your-application-express-mode"></a>옵션 1: 애플리케이션 등록(기본 모드)
 
 1. [Azure Portal 앱 등록(미리 보기)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs)에 로그인하여 응용 프로그램을 등록합니다.
 1. **응용 프로그램 등록** 페이지에서 응용 프로그램의 이름을 입력합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "52331254"
 1. 작업을 마쳤으면 **등록**을 선택합니다.
 1. 빠른 시작 지침에 따라 클릭 한 번으로 새 응용 프로그램을 다운로드하고 자동으로 구성합니다.
 
-### <a name="option-2-register-your-application-advanced-mode"></a>옵션 2: 응용 프로그램 등록(고급 모드)
+### <a name="option-2-register-your-application-advanced-mode"></a>옵션 2: 애플리케이션 등록(고급 모드)
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하여 응용 프로그램을 등록합니다.
 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.

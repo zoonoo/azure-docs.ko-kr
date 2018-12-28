@@ -1,6 +1,6 @@
 ---
-title: Azure Search의 패싯 필터 | Microsoft Docs
-description: Microsoft Azure의 호스트된 클라우드 검색 서비스인 Azure Search에서 쿼리에 대한 검색 결과를 줄이려면 사용자 보안 ID, 언어, 지리적 위치 또는 숫자 값별로 조건을 필터링합니다.
+title: 앱에서 검색 탐색을 위한 패싯 필터 - Azure Search
+description: Microsoft Azure의 호스트된 클라우드 검색 서비스인 Azure Search의 쿼리에 대한 검색 결과를 줄이려면 사용자 보안 ID, 지리적 위치 또는 숫자 값별로 조건을 필터링합니다.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 3f2cfea52d3c3f4bfc75364d0662a4218219152d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 94a0d3f19e595ac040d908ea47d6332ceae0943c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792412"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314808"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Azure Search에서 패싯 필터를 작성하는 방법 
 

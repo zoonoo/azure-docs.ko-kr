@@ -35,7 +35,7 @@ Azure Portal을 사용하여 WAF([웹 애플리케이션 방화벽](application-
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인
 
-## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
 가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
 
@@ -130,7 +130,7 @@ Azure Portal을 사용하여 WAF([웹 애플리케이션 방화벽](application-
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-이 자습서에서 응용 프로그램 게이트웨이는 저장소 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Log Analytics 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다.
+이 자습서에서 애플리케이션 게이트웨이는 저장소 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Log Analytics 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다.
 
 1. Azure Portal의 왼쪽 위에 있는 **새로 만들기**를 클릭합니다.
 2. **저장소**를 선택한 다음, **저장소 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
