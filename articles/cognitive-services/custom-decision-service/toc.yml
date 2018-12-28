@@ -9,7 +9,7 @@ items:
     href: custom-decision-service-workflow.md
 - name: 빠른 시작
   items:
-  - name: 응용 프로그램 등록
+  - name: 애플리케이션 등록
     href: custom-decision-service-get-started-register.md
   - name: 브라우저에서 API 호출
     href: custom-decision-service-get-started-browser.md

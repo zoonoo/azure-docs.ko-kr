@@ -94,4 +94,4 @@ PathBasedRouting 규칙 조각:
 
 ## <a name="next-steps"></a>다음 단계
 
-URL 기반 콘텐츠 라우팅을 알아본 후에는 [URL 기반 라우팅을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-url-route-portal.md) 로 이동하여 URL 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이를 만듭니다.
+URL 기반 콘텐츠 라우팅을 알아본 후에는 [URL 기반 라우팅을 사용하여 애플리케이션 게이트웨이 만들기](application-gateway-create-url-route-portal.md) 로 이동하여 URL 라우팅 규칙을 사용하여 애플리케이션 게이트웨이를 만듭니다.

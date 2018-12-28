@@ -20,7 +20,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2018
 ms.locfileid: "52720976"
 ---
-# <a name="monitor-performance-in-web-applications"></a>웹 응용 프로그램의 성능 모니터링
+# <a name="monitor-performance-in-web-applications"></a>웹 애플리케이션의 성능 모니터링
 
 
 애플리케이션이 정상적으로 작동하는지 확인하고 오류가 발생하는지 신속하게 파악합니다. [Application Insights][start]는 성능 문제 및 예외에 대한 정보와, 이러한 현상에 대한 근본 원인을 확인하고 진단하는 기능을 제공합니다.

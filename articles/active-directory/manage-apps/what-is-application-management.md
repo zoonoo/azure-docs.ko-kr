@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory와 응용 프로그램 관리 | Microsoft Docs
-description: 이 문서는 온-프레미스, 클라우드 및 SaaS 응용 프로그램을 사용하여 Azure Active Directory를 통합하는 이점을 얻을 수 있습니다.
+description: 이 문서는 온-프레미스, 클라우드 및 SaaS 애플리케이션을 사용하여 Azure Active Directory를 통합하는 이점을 얻을 수 있습니다.
 services: active-directory
 author: barbkess
 manager: mtillman

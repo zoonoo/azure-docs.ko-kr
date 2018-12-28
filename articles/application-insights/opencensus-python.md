@@ -180,7 +180,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     하나의 메서드 호출만 추적했으므로 응용 프로그램 맵은 흥미롭지 않습니다. 하지만 응용 프로그램은 훨씬 분산된 응용 프로그램을 시각화하도록 확장될 수 있습니다.
 
-   ![응용 프로그램 맵](media/opencensus-python/application-map.png)
+   ![애플리케이션 맵](media/opencensus-python/application-map.png)
 
 4. **성능 조사**를 선택하여 자세한 성능 분석을 수행하고 성능 저하의 근본 원인을 확인합니다.
 

@@ -69,7 +69,7 @@ items:
     href: http://community.powerbi.com/t5/Developer/bd-p/Developer
   - name: 요금 계산기
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: 샘플 응용 프로그램
+  - name: 샘플 애플리케이션
     href: https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/
   - name: 스택 오버플로
     href: http://stackoverflow.com/questions/tagged/powerbi

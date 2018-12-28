@@ -110,7 +110,7 @@ Service Fabric은 웹 및 API 응용 프로그램 빌드를 위한 첫 번째 �
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
-## <a name="test-applications-and-services"></a>응용 프로그램 및 서비스 테스트
+## <a name="test-applications-and-services"></a>애플리케이션 및 서비스 테스트
 진정한 클라우드 규모 서비스를 만들려면 응용 프로그램과 서비스가 실제 오류를 견딜 수 있도록 하는 것이 중요합니다. 오류 분석 서비스는 Service Fabric에서 작성된 서비스 테스트를 위해 설계되었습니다. [오류 분석 서비스](service-fabric-testability-overview.md)를 통해 의미 있는 결함을 유도하고 응용 프로그램에 대해 전체 테스트 시나리오를 실행할 수 있습니다. 이러한 오류와 시나리오는 다양한 상태를 실행하고 유효성을 검사하며 서비스가 수명 전반에서 일관되게 제어되고 안전한 방식으로 경험할 수 있도록 전환합니다.
 
 [작업](service-fabric-testability-actions.md)은 개별 오류를 사용하여 테스트할 서비스를 대상으로 합니다. 서비스 개발자는 이러한 기본 구성 요소를 사용하여 복잡한 시나리오를 작성할 수 있습니다. 시뮬레이트된 오류의 예는 다음과 같습니다.

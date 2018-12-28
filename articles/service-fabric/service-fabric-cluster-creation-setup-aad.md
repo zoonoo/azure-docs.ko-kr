@@ -127,7 +127,7 @@ Service Fabric Explorer를 나타내는 클러스터(웹) 응용 프로그램이
 #### <a name="solution"></a>해결 방법
 AAD 페이지에서 “앱 등록”을 선택하고, 클러스터 애플리케이션을 선택한 다음, **회신 URL** 단추를 선택합니다. “회신 URL” 페이지에서 Service Fabric Explorer URL을 목록에 추가하거나 목록의 항목 중 하나를 대체합니다. 마친 후 변경 사항을 저장합니다.
 
-![웹 응용 프로그램 회신 URL][web-application-reply-url]
+![웹 애플리케이션 회신 URL][web-application-reply-url]
 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>PowerShell 통해 Azure AD 인증을 사용하여 클러스터 연결
 Service Fabric 클러스터에 연결하려면 다음 PowerShell 명령 예제를 사용합니다.

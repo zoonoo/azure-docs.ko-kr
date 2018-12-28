@@ -1,6 +1,6 @@
 ---
 title: Azure 진단으로 Cloud Services 애플리케이션의 흐름 추적 | Microsoft Docs
-description: Azure 응용 프로그램에 추적 메시지를 추가하여 디버깅, 성능 측정, 모니터링, 트래픽 분석 등을 할 수 있습니다.
+description: Azure 애플리케이션에 추적 메시지를 추가하여 디버깅, 성능 측정, 모니터링, 트래픽 분석 등을 할 수 있습니다.
 services: cloud-services
 documentationcenter: .net
 author: jpconnock

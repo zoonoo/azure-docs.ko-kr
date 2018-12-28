@@ -154,5 +154,5 @@ Azure Resource Manager를 사용하여 만든 가상 머신, 가상 네트워크
 
 ## <a name="next-steps"></a>다음 단계
 * 가상 머신, 가상 네트워크 및 저장소 계정을 정의하는 템플릿을 만들기 위해 연습하려면 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
-* 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
+* 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 애플리케이션 배포](resource-group-template-deploy.md)를 참조하세요.
 

@@ -180,7 +180,7 @@ JSON 템플릿과 매개 변수 파일을 사용하여 리소스 그룹에 IoT H
 
 ## <a name="complete-and-run-the-application"></a>응용 프로그램을 완료하고 실행합니다.
 
-이제 응용 프로그램을 빌드하고 실행하기 전에 **CreateIoTHub** 메서드를 호출하여 완료합니다.
+이제 애플리케이션을 빌드하고 실행하기 전에 **CreateIoTHub** 메서드를 호출하여 완료합니다.
 
 1. **Main** 메서드의 끝에 다음 코드를 추가합니다.
 
@@ -196,7 +196,7 @@ JSON 템플릿과 매개 변수 파일을 사용하여 리소스 그룹에 IoT H
 4. 응용 프로그램이 새 IoT Hub에 추가되었는지 확인하려면 [Azure Portal][lnk-azure-portal]을 방문하여 리소스 목록을 확인합니다. 또는 **Get AzureRmResource** PowerShell cmdlet을 사용합니다.
 
 > [!NOTE]
-> 이 예제 응용 프로그램은 대금이 청구되는 S1 표준 IoT Hub를 추가합니다. 완료되면 [Azure Portal][lnk-azure-portal] 또는 **Remove-AzureRmResource** PowerShell cmdlet을 사용하여 IoT Hub를 삭제할 수 있습니다.
+> 이 예제 애플리케이션은 대금이 청구되는 S1 표준 IoT Hub를 추가합니다. 완료되면 [Azure Portal][lnk-azure-portal] 또는 **Remove-AzureRmResource** PowerShell cmdlet을 사용하여 IoT Hub를 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Resource Manager 템플릿을 사용하여 C# 프로그램에서 IoT Hub를 배포했으므로 구체적인 내용을 알아볼 차례입니다.

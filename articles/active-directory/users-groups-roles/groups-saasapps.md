@@ -1,6 +1,6 @@
 ---
 title: 그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스 관리| Microsoft Docs
-description: Azure Active Directory Premium 또는 Basic에서 그룹을 사용하여 Azure Active Directory와 통합되는 SaaS 응용 프로그램에 대한 액세스 권한을 할당하는 방법입니다.
+description: Azure Active Directory Premium 또는 Basic에서 그룹을 사용하여 Azure Active Directory와 통합되는 SaaS 애플리케이션에 대한 액세스 권한을 할당하는 방법입니다.
 services: active-directory
 documentationcenter: ''
 author: curtand

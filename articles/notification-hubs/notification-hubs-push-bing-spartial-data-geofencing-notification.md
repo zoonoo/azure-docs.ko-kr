@@ -355,7 +355,7 @@ ms.locfileid: "33778446"
 4. 개발자 센터로 이동하고 만든 앱을 엽니다. **서비스** > **푸시 알림** > **라이브 서비스 사이트**를 선택합니다.
 
     ![](./media/notification-hubs-geofence/ms-live-services.png)
-5. 사이트에서 **응용 프로그램 암호** 및 **패키지 SID**를 적어둡니다. Azure Portal에서 알림 허브를 열고, **설정** > **Notification Services** > **WNS(Windows)** 를 선택하고 필수 필드에 정보를 입력해야 합니다.
+5. 사이트에서 **애플리케이션 암호** 및 **패키지 SID**를 적어둡니다. Azure Portal에서 알림 허브를 열고, **설정** > **Notification Services** > **WNS(Windows)** 를 선택하고 필수 필드에 정보를 입력해야 합니다.
 
     ![](./media/notification-hubs-geofence/notification-hubs-wns.png)
 6. **저장**을 선택합니다.

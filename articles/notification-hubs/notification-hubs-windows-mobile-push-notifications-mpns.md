@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시 | Microsoft Docs
-description: 이 자습서에서는 Azure Notification Hubs를 사용하여 Windows Phone 8 또는 Windows Phone 8.1 Silverlight 응용 프로그램에 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Notification Hubs를 사용하여 Windows Phone 8 또는 Windows Phone 8.1 Silverlight 애플리케이션에 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: windows
 keywords: 푸시 알림, 푸시 알림, windows phone 푸시
@@ -66,11 +66,11 @@ ms.locfileid: "51235210"
 ## <a name="create-a-windows-phone-application"></a>Windows Phone 애플리케이션 만들기
 이 섹션에서는 알림 허브에 자신을 등록하는 Windows Phone 애플리케이션을 만듭니다. 
 
-1. Visual Studio에서 새 Windows Phone 8 응용 프로그램을 만듭니다. 
+1. Visual Studio에서 새 Windows Phone 8 애플리케이션을 만듭니다. 
    
     ![Visual Studio - 새 프로젝트 - Windows Phone 앱][13]
    
-    Visual Studio 2013 업데이트 2 이상에서는 대신 Windows Phone Silverlight 응용 프로그램을 만듭니다.
+    Visual Studio 2013 업데이트 2 이상에서는 대신 Windows Phone Silverlight 애플리케이션을 만듭니다.
    
     ![Visual Studio - 새 프로젝트 - 새 응용 프로그램 - Windows Phone Silverlight][11]
 2. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
@@ -112,7 +112,7 @@ ms.locfileid: "51235210"
    > 
    
     허브 이름과 이전 섹션에서 적어둔 **DefaultListenSharedAccessSignature**라는 연결 문자열을 삽입합니다.
-    이 코드는 MPNS에서 앱의 채널 URI를 검색한 후 해당 채널 URI를 알림 허브에 등록합니다. 또한 이 코드는 응용 프로그램이 시작될 때마다 채널 URI가 알림 허브에 등록되도록 보장합니다.
+    이 코드는 MPNS에서 앱의 채널 URI를 검색한 후 해당 채널 URI를 알림 허브에 등록합니다. 또한 이 코드는 애플리케이션이 시작될 때마다 채널 URI가 알림 허브에 등록되도록 보장합니다.
    
    > [!NOTE]
    > 이 자습서에서는 알림 메시지를 디바이스로 보냅니다. 타일 알림을 보내는 경우 채널에서 **BindToShellTile** 메서드를 대신 호출해야 합니다. 알림 메시지와 타일 알림을 둘 다 지원하려면 **BindToShellTile** 및 **BindToShellToast**를 둘 다 호출합니다.
@@ -127,7 +127,7 @@ ms.locfileid: "51235210"
 8. 앱을 닫거나 홈페이지로 전환합니다. 
    
    > [!NOTE]
-   > 푸시 알림 메시지를 받으려면 응용 프로그램이 포그라운드에서 실행되고 있지 않아야 합니다.
+   > 푸시 알림 메시지를 받으려면 애플리케이션이 포그라운드에서 실행되고 있지 않아야 합니다.
 
 ## <a name="test-send-a-notification"></a>알림 테스트 보내기 
 

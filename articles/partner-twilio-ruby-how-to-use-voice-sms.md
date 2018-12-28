@@ -22,7 +22,7 @@ ms.lasthandoff: 11/27/2018
 ms.locfileid: "52426438"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Ruby에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
-이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
+이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 애플리케이션에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
 
 ## <a id="WhatIs"></a>Twilio 정의
 Twilio는 기존 웹 언어와 기술을 사용하여 음성 및 SMS 응용 프로그램을 빌드할 수 있게 해주는 전화 통신 웹 서비스 API입니다. Twilio는 타사 서비스입니다(Azure 기능 또는 Microsoft 제품 아님).
@@ -151,7 +151,7 @@ Twilio 서비스를 사용하고 Azure에서 실행되고 있는 Ruby 응용 프
 
 먼저 [Twilio 대시보드][twilio_account](영문)에 로그인합니다. 위쪽 탐색 표시줄에서 "Numbers(번호)"를 클릭한 후 제공받은 Twilio 번호를 클릭합니다. 구성할 수 있는 URL 두 개가 표시됩니다. 하나는 음성 요청 URL이고 다른 하나는 SMS 요청 URL입니다. 이러한 URL은 전화 통화가 걸리거나 SMS가 사용자의 번호로 전송될 때마다 Twilio가 호출하는 URL입니다. 이러한 URL을 "웹 후크"라고도 합니다.
 
-수신 SMS 메시지를 처리할 것이므로, URL을 `http://yourdomain.cloudapp.net/sms_url`로 업데이트합니다. 계속해서 페이지 아래쪽에 있는 Save Changes(변경 내용 저장)를 클릭합니다. 이제 다시 `web.rb` 에서 이를 처리하기 위한 응용 프로그램을 프로그래밍합니다.
+수신 SMS 메시지를 처리할 것이므로, URL을 `http://yourdomain.cloudapp.net/sms_url`로 업데이트합니다. 계속해서 페이지 아래쪽에 있는 Save Changes(변경 내용 저장)를 클릭합니다. 이제 다시 `web.rb` 에서 이를 처리하기 위한 애플리케이션을 프로그래밍합니다.
 
     post '/sms_url' do
       "<Response>

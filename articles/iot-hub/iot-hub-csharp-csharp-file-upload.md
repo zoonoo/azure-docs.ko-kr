@@ -100,7 +100,7 @@ ms.locfileid: "51259329"
 
 이 섹션에서는 IoT Hub에서 파일 업로드 알림 메시지를 수신하는 .NET 콘솔 앱을 작성합니다.
 
-1. 최신 Visual Studio 솔루션에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 프로젝트를 만듭니다. 프로젝트 이름을 **ReadFileUploadNotification**으로 지정합니다.
+1. 최신 Visual Studio 솔루션에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사용하여 Visual C# Windows 프로젝트를 만듭니다. 프로젝트 이름을 **ReadFileUploadNotification**으로 지정합니다.
 
     ![Visual Studio의 새 프로젝트](./media/iot-hub-csharp-csharp-file-upload/file-upload-project-csharp1.png)
 

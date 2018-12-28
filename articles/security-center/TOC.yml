@@ -119,7 +119,7 @@ items:
       href: security-center-update-os-version.md
     - name: 취약성 평가 설치되지 않음
       href: security-center-vulnerability-assessment-recommendations.md
-    - name: 웹 응용 프로그램 방화벽 추가
+    - name: 웹 애플리케이션 방화벽 추가
       href: security-center-add-web-application-firewall.md
     - name: 응용 프로그램 보호 완료
       href: security-center-add-web-application-firewall.md#finalize-application-protection

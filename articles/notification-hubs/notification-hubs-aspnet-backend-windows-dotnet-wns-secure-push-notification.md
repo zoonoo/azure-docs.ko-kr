@@ -161,7 +161,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 ## <a name="run-the-application"></a>응용 프로그램 실행
 응용 프로그램을 실행하려면 다음을 수행합니다.
 
-1. Visual Studio에서 **AppBackend** Web API 응용 프로그램을 실행합니다. ASP.NET 웹 페이지가 표시됩니다.
+1. Visual Studio에서 **AppBackend** Web API 애플리케이션을 실행합니다. ASP.NET 웹 페이지가 표시됩니다.
 2. Visual Studio에서 **NotifyUserWindowsPhone (Windows Phone 8.1)** Windows Phone 앱을 실행합니다. Windows Phone 에뮬레이터가 실행되고 자동으로 앱을 로드합니다.
 3. **NotifyUserWindowsPhone** 앱 UI에서 사용자 이름과 암호를 입력합니다. 이는 임의 문자열일 수 있지만 같은 값이어야 합니다.
 4. **NotifyUserWindowsPhone** 앱 UI에서 **로그인 및 등록**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다.

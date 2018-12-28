@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/26/2018
 ms.locfileid: "52331254"
 ---
-## <a name="register-your-application"></a>응용 프로그램 등록
+## <a name="register-your-application"></a>애플리케이션 등록
 
 여러 가지 방법으로 응용 프로그램을 등록할 수 있습니다. 요구 사항에 가장 잘 맞는 옵션을 선택하세요.
 * [기본 모드 - SPA 빠른 시작을 사용하여 앱 구성](#option-1-register-your-application-express-mode)

@@ -50,7 +50,7 @@ ms.locfileid: "49955589"
 * [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
 * 컴퓨터에 [Curl](https://curl.haxx.se/dlwiz/) 을 설치합니다. REST 명령과 함께 CURL 도구를 사용하여 데이터 팩터리를 만듭니다.
 * [이 문서](../../active-directory/develop/howto-create-service-principal-portal.md) 의 지침에 따라 다음 작업을 수행합니다.
-  1. Azure Active Directory에서 **ADFGetStartedApp** 이라는 웹 응용 프로그램을 만듭니다.
+  1. Azure Active Directory에서 **ADFGetStartedApp** 이라는 웹 애플리케이션을 만듭니다.
   2. **클라이언트 ID** 및 **암호 키**를 가져옵니다.
   3. **테넌트 ID**를 가져옵니다.
   4. **ADFGetStartedApp** 응용 프로그램을 **데이터 팩터리 참가자** 역할에 할당합니다.

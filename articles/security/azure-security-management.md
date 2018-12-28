@@ -95,7 +95,7 @@ Azure는 Azure 클라우드 서비스 및 가상 머신을 관리하는 관리�
 
 Active Directory Domain Services(AD DS)의 [그룹 정책 개체](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy)(GPO)를 사용하고 로컬 관리 도메인을 통해 이를 모든 관리 계정에 적용함으로써 이 모두를 적용할 수 있습니다.
 
-### <a name="managing-services-applications-and-data"></a>서비스, 응용 프로그램 및 데이터 관리
+### <a name="managing-services-applications-and-data"></a>서비스, 애플리케이션 및 데이터 관리
 Azure 클라우드 서비스 구성은 Windows PowerShell 명령줄 인터페이스 또는 이러한 RESTful 인터페이스를 활용하는 사용자 지정 응용 프로그램을 경유하여 Azure 포털 또는 SMAPI를 통해 수행됩니다. 이러한 메커니즘을 사용하여 서비스에는 Azure Active Directory(Azure AD), Azure Storage, Azure Websites 및 Azure Virtual Network 등이 있습니다.
 
 Virtual Machine–배포 응용 프로그램은 필요에 따라 MMC(Microsoft Management Console), 엔터프라이즈 관리 콘솔(예: Microsoft System Center 또는 Windows Intune) 또는 다른 관리 응용 프로그램(예: Microsoft SQL Server Management Studio) 등 자체 클라이언트 도구 및 인터페이스를 제공합니다. 이러한 도구는 일반적으로 엔터프라이즈 환경 또는 클라이언트 네트워크에 상주합니다. 이는 직접적이며 상태 저장 연결이 필요한 RDP(원격 데스크톱 프로토콜)와 같은 특정 네트워크 프로토콜에 따라 다를 수 있습니다. 일부는 인터넷을 통해 공개적으로 게시되거나 액세스할 수 없는 웹 기반 인터페이스가 있을 수 있습니다.
@@ -198,7 +198,7 @@ Azure에서 응용 프로그램 및 데이터를 관리하는 경우 다음의 �
 | - | 모든 관리 연결에 대한 방화벽, VPN 및 NAP를 사용합니다. |
 
 ## <a name="azure-operations"></a>Azure 작업
-Microsoft의 Azure 작업 내에서, Azure의 프로덕션 시스템에 액세스하는 작업 엔지니어 및 고객 지원 담당자는 회사 내부 네트워크 액세스 및 응용 프로그램(예: 전자 메일, 인트라넷 등)을 위해 프로비전되고 [VM으로 강화된 워크스테이션 PC](#stand-alone-hardened-workstation-for-management)를 사용합니다. 모든 관리 워크스테이션 컴퓨터에는 TPM이 있고, 호스트 부트 드라이브는 BitLocker로 암호화되어 있으며, Microsoft의 기본 회사 도메인에 특별 조직 구성 단위(OU)에 가입되어 있습니다.
+Microsoft의 Azure 작업 내에서, Azure의 프로덕션 시스템에 액세스하는 작업 엔지니어 및 고객 지원 담당자는 회사 내부 네트워크 액세스 및 애플리케이션(예: 전자 메일, 인트라넷 등)을 위해 프로비전되고 [VM으로 강화된 워크스테이션 PC](#stand-alone-hardened-workstation-for-management)를 사용합니다. 모든 관리 워크스테이션 컴퓨터에는 TPM이 있고, 호스트 부트 드라이브는 BitLocker로 암호화되어 있으며, Microsoft의 기본 회사 도메인에 특별 조직 구성 단위(OU)에 가입되어 있습니다.
 
 중앙 집중화된 소프트웨어 업데이트와 함께 그룹 정책을 통해 시스템 강화가 적용됩니다. 감사 및 분석을 위해 이벤트 로그(예: 보안 및 AppLocker)는 관리 워크스테이션에서 수집되며 중앙 위치에 저장됩니다.
 

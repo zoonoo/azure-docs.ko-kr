@@ -129,5 +129,5 @@ http://contoso.com에 대한 요청은 ContosoServerPool로 라우팅되고, htt
 
 ## <a name="next-steps"></a>다음 단계
 
-다중 사이트 호스팅에 대해 알아본 후에는 [다중 사이트 호스팅을 사용하여 응용 프로그램 게이트웨이 만들기](tutorial-multiple-sites-powershell.md) 로 이동해 둘 이상의 웹 응용 프로그램 지원 기능으로 응용 프로그램 게이트웨이를 만듭니다.
+다중 사이트 호스팅에 대해 알아본 후에는 [다중 사이트 호스팅을 사용하여 애플리케이션 게이트웨이 만들기](tutorial-multiple-sites-powershell.md) 로 이동해 둘 이상의 웹 애플리케이션 지원 기능으로 애플리케이션 게이트웨이를 만듭니다.
 

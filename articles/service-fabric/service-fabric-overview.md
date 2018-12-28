@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric 개요 | Microsoft Docs
-description: 응용 프로그램이 여러 마이크로 서비스로 구성되어 확장성과 복원력을 제공하는 서비스 패브릭의 개요입니다. Service Fabric은 확장 가능하고 안정적이며 관리하기 쉬운 클라우드 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다.
+description: 애플리케이션이 여러 마이크로 서비스로 구성되어 확장성과 복원력을 제공하는 서비스 패브릭의 개요입니다. Service Fabric은 확장 가능하고 안정적이며 관리하기 쉬운 클라우드 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -39,7 +39,7 @@ Service Fabric은 필요에 따라 작은 규모로 시작하여 수백 또는 �
 
 Service Fabric은 이러한 마이크로 서비스로 구성된 애플리케이션에 포괄적인 런타임 및 수명 주기 관리 기능을 제공합니다. 서비스 패브릭 클러스터에 걸쳐 배포 및 활성화된 컨테이너 내에서 마이크로 서비스를 호스트합니다. 가상 머신에서 컨테이너로 이동하면 밀도가 큰 순서대로 정렬됩니다. 마찬가지로, 컨테이너에서 다음과 같은 컨테이너의 마이크로 서비스로 이동하면 또 다른 밀도 순서대로 정렬됩니다. 예를 들어, 단일 Azure SQL Database 클러스터는 수십만 개의 데이터베이스를 호스트하는 수만 개의 컨테이너를 실행하는 수백 대의 컴퓨터로 구성됩니다. 각 데이터베이스는 서비스 패브릭 상태 저장 마이크로 서비스입니다. 
 
-마이크로 서비스 접근 방식에 대한 자세한 내용은 [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
+마이크로 서비스 접근 방식에 대한 자세한 내용은 [애플리케이션 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
 
 ## <a name="container-deployment-and-orchestration"></a>컨테이너 배포 및 오케스트레이션
 Service Fabric은 컴퓨터 클러스터에 걸쳐 마이크로 서비스를 배포하는 Microsoft의 [컨테이너 조정자](service-fabric-cluster-resource-manager-introduction.md)입니다. 마이크로 서비스는 [Service Fabric 프로그래밍 모델](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 사용부터 [선택한 코드](service-fabric-guest-executables-introduction.md) 배포에 이르는 다양한 방식으로 개발될 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 애플리케이션의 컨테이너의 서비스를 혼합할 수 있습니다. [이미지를 배포 및 관리](service-fabric-containers-overview.md)하려는 경우 Service Fabric은 컨테이너 조정자로 선택하기에 가장 적합합니다.
@@ -82,7 +82,7 @@ Service Fabric은 [Azure Pipelines](https://www.visualstudio.com/team-services/)
 * 동일한 애플리케이션의 서로 다른 버전을 병렬로 배포하고 각 애플리케이션을 독립적으로 업그레이드.
 * 중단 및 무중단 업그레이드를 포함하여, 중단 시간 없이 응용 프로그램의 수명 주기를 관리합니다.
 * 클러스터의 노드 수를 확장하거나 감축합니다. 노드의 크기를 조정하면 응용 프로그램이 자동으로 조정됩니다.
-* 응용 프로그램의 상태를 모니터링 및 진단하고 자동 복구를 수행하는 정책 설정.
+* 애플리케이션의 상태를 모니터링 및 진단하고 자동 복구를 수행하는 정책 설정.
 * 리소스 분산 장치를 감시하여 클러스터 간 응용 프로그램을 재배포하도록 조정합니다. 서비스 패브릭은 오류에서 복구하고 사용 가능한 리소스에 따라 부하의 분산을 최적화합니다.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->

@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/24/2018
 ms.locfileid: "49988522"
 ---
-## <a name="register-your-application"></a>응용 프로그램 등록
+## <a name="register-your-application"></a>애플리케이션 등록
 
 응용 프로그램을 등록하고 응용 프로그램 등록 정보를 솔루션에 추가하는 두 가지 옵션이 있습니다.
 

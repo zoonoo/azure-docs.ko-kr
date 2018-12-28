@@ -1,6 +1,6 @@
 ---
 title: .NET을 사용한 주문형 콘텐츠 제공 시작 | Microsoft Docs
-description: 이 자습서에서는 .NET을 사용한 Azure Media Services로 주문형 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다.
+description: 이 자습서에서는 .NET을 사용한 Azure Media Services로 주문형 콘텐츠 배달 애플리케이션을 구현하는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako

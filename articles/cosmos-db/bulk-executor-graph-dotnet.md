@@ -113,7 +113,7 @@ e.AddProperty("customProperty", "value");
 > [!NOTE]
 > BulkExecutor 유틸리티는 에지를 추가하기 전에 기존 꼭짓점을 자동으로 확인하지 않습니다. BulkImport 작업을 실행하기 전에 응용 프로그램에서 이 부분의 유효성을 검사해야 합니다.
 
-## <a name="sample-application"></a>샘플 응용 프로그램
+## <a name="sample-application"></a>샘플 애플리케이션
 
 ### <a name="prerequisites"></a>필수 조건
 * Azure 개발 워크로드를 사용하는 Visual Studio 2017. [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com/downloads/)을 무료로 시작할 수 있습니다.

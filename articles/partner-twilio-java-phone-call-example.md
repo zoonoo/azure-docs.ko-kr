@@ -1,6 +1,6 @@
 ---
 title: Twilio에서 전화를 거는 방법(Java) | Microsoft Docs
-description: Azure의 Java 응용 프로그램에서 Twilio를 사용하여 웹 페이지에서 전화를 거는 방법에 대해 알아봅니다.
+description: Azure의 Java 애플리케이션에서 Twilio를 사용하여 웹 페이지에서 전화를 거는 방법에 대해 알아봅니다.
 services: ''
 documentationcenter: java
 author: devinrader

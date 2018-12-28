@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 Kindle 앱에 알림 푸시 | Microsoft Docs
-description: 이 자습서에서 Azure Notification Hubs를 사용하여 Kindle 응용 프로그램에 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서 Azure Notification Hubs를 사용하여 Kindle 애플리케이션에 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ''
 author: dimazaid

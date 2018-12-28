@@ -11,7 +11,7 @@ items:
     href: kubernetes-walkthrough.md
   - name: AKS 클러스터 만들기 - 포털
     href: kubernetes-walkthrough-portal.md
-  - name: 응용 프로그램 개발
+  - name: 애플리케이션 개발
     items:
     - name: Java 사용(VS Code 및 CLI)
       href: ../dev-spaces/quickstart-java.md

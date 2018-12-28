@@ -38,7 +38,7 @@ Azure 가상 머신은 다양한 방식으로 사용할 수 있습니다. 일부
 애플리케이션에서 사용하는 VM의 수는 요구 사항을 충족하는 데 필요한 만큼 늘리거나 줄일 수 있습니다.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM을 만들기 전의 고려 사항
-Azure에서 응용 프로그램 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
+Azure에서 애플리케이션 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
 
 * 응용 프로그램 리소스 이름
 * 리소스가 저장되어 있는 위치
@@ -144,7 +144,7 @@ VM은 스크립팅 지원을 통해 브라우저 기반 포털, 명령줄 도구
 Azure 포털의 연결 단추를 사용하여 [RDP(원격 데스크톱) 세션을 시작합니다](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 원격 연결을 사용하려고 할 때 가끔 문제가 발생할 수도 있습니다. 이러한 상황이 발생하면 [Windows를 실행하는 Azure 가상 머신에 대한 원격 데스크톱 연결 문제 해결](../troubleshooting/troubleshoot-rdp-connection.md)에 있는 도움말 정보를 확인하세요.
 
 ### <a name="manage-availability"></a>가용성 관리
-응용 프로그램의 [높은 가용성을 보장](manage-availability.md)하는 방법을 이해하는 것이 중요합니다. 이렇게 구성하면 여러 VM을 만들어 하나 이상 실행되도록 합니다.
+애플리케이션의 [높은 가용성을 보장](manage-availability.md)하는 방법을 이해하는 것이 중요합니다. 이렇게 구성하면 여러 VM을 만들어 하나 이상 실행되도록 합니다.
 
 99.95 VM SLA(서비스 수준 계약)에 적합한 배포가 되도록 [가용성 집합](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 내에서 워크로드를 실행하는 VM을 둘 이상 배포해야 합니다. 이렇게 구성하면 VM이 여러 오류 도메인 간에 분산되고, 다양한 유지 관리 창을 사용하는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 

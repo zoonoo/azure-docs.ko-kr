@@ -1,6 +1,6 @@
 ---
 title: 응용 프로그램 시나리오 및 설계 | Microsoft Docs
-description: 서비스 패브릭의 클라우드 응용 프로그램 범주 개요 상태 저장 및 상태 비저장 서비스를 사용하는 응용 프로그램 설계에 대해 논의합니다.
+description: 서비스 패브릭의 클라우드 애플리케이션 범주 개요 상태 저장 및 상태 비저장 서비스를 사용하는 응용 프로그램 설계에 대해 논의합니다.
 services: service-fabric
 documentationcenter: .net
 author: msfussell

@@ -63,11 +63,11 @@ Application Insights는 실행 중인 위치에 관계 없이 응용 프로그�
 
 1. 솔루션 탐색기에서 **연결된 서비스 Application Insights** 폴더를 마우스 오른쪽 단추로 클릭하고 **Application Insights 포털 열기**를 클릭합니다.  응용 프로그램에 대한 몇 가지 정보와 다양한 옵션이 표시됩니다.
 
-    ![응용 프로그램 맵](media/quick-monitor-portal/overview-001.png)
+    ![애플리케이션 맵](media/quick-monitor-portal/overview-001.png)
 
 2. **응용 프로그램 맵**을 클릭하여 응용 프로그램 구성 요소 간의 종속 관계에 대한 시각적 레이아웃을 봅니다.  각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
-    ![응용 프로그램 맵](media/quick-monitor-portal/application-map-001.png)
+    ![애플리케이션 맵](media/quick-monitor-portal/application-map-001.png)
 
 3. 응용 프로그램 구성 요소 중 하나에서 **앱 분석** 아이콘 ![Application Map](media/quick-monitor-portal/app-analytics-icon.png)을 클릭합니다.  그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다.  이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다.  사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 

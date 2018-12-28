@@ -130,7 +130,7 @@ SQL/데이터 관리자는 Azure SQL 데이터베이스에 업로드하기 위�
 Azure SQL Database의 보안 기능 사용에 대한 자세한 내용은 [Contoso Clinic 데모 응용 프로그램](https://github.com/Microsoft/azure-sql-security-sample) 샘플을 참조하세요.
 
 ### <a name="security"></a>보안
-**비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Azure Key Vault는 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다.
+**비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다.
 
 ## <a name="guidance-and-recommendations"></a>지침 및 권장 사항
 

@@ -1,6 +1,6 @@
 ---
 title: 웹 애플리케이션에서 Azure Key Vault 사용 자습서 | Microsoft Docs
-description: 이 자습서에서는 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 알아볼 수 있습니다.
+description: 이 자습서에서는 웹 애플리케이션에서 Azure Key Vault를 사용하는 방법을 알아볼 수 있습니다.
 services: key-vault
 author: barclayn
 manager: mbaldwin

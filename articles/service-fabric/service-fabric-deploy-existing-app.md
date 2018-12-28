@@ -66,7 +66,7 @@ Yeoman은 설치 및 제거 스크립트와 함께 해당 응용 프로그램과
 1. 패키지 디렉터리 구조를 만듭니다.
 2. 응용 프로그램의 코드 및 구성 파일을 추가합니다.
 3. 서비스 매니페스트 파일을 편집합니다.
-4. 응용 프로그램 매니페스트 파일을 편집합니다.
+4. 애플리케이션 매니페스트 파일을 편집합니다.
 
 <!--
 >[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](https://aka.ms/servicefabricpacktool).
@@ -75,7 +75,7 @@ Yeoman은 설치 및 제거 스크립트와 함께 해당 응용 프로그램과
 ### <a name="create-the-package-directory-structure"></a>패키지 디렉터리 구조 만들기
 이전 섹션에서 "응용 프로그램 패키지 파일 구조"에 설명된 대로 디렉터리 구조를 만들어서 시작할 수 있습니다.
 
-### <a name="add-the-applications-code-and-configuration-files"></a>응용 프로그램의 코드 및 구성 파일 추가
+### <a name="add-the-applications-code-and-configuration-files"></a>애플리케이션의 코드 및 구성 파일 추가
 디렉터리 구조를 만든 후에 응용 프로그램의 코드 및 구성 파일을 코드 및 구성 디렉터리 아래에 추가할 수 있습니다. 코드 또는 구성 디렉터리 아래에 하위 디렉터리 또는 추가 디렉터리를 만들 수도 있습니다.
 
 Service Fabric은 응용 프로그램 루트 디렉터리의 내용에 대한 `xcopy`를 수행하므로 두 상위 디렉터리인 code 및 settings를 만들지 않고도 사용할 수 있는 미리 정의된 구조가 없습니다. 하지만 원한다면 다른 이름을 선택할 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
@@ -188,7 +188,7 @@ WorkingFolder는 응용 프로그램 또는 초기화 스크립트에서 상대 
 </Endpoints>
 
 ```
-앞의 예제에서 `Endpoint` 요소는 응용 프로그램에서 수신 대기할 수 있는 엔드포인트를 지정합니다. 이 예제에서 Node.js 응용 프로그램은 포트 3000의 http에 수신 대기합니다.
+앞의 예제에서 `Endpoint` 요소는 응용 프로그램에서 수신 대기할 수 있는 엔드포인트를 지정합니다. 이 예제에서 Node.js 애플리케이션은 포트 3000의 http에 수신 대기합니다.
 
 또한 다른 서비스가 이 서비스에 대한 엔드포인트 주소를 검색할 수 있도록 Service Fabric에 이 엔드포인트를 명명 서비스에 게시하도록 요청할 수 있습니다. 이렇게 하면 게스트 실행 파일인 서비스 간에 통신을 할 수 있습니다.
 게시된 엔드포인트 주소는 `UriScheme://IPAddressOrFQDN:Port/PathSuffix`형식입니다. `UriScheme` 및 `PathSuffix`는 선택적 특성입니다. `IPAddressOrFQDN`은 이 실행 파일이 배치되고 계산되는 노드의 IP 주소 또는 정규화된 도메인 이름입니다.
@@ -202,7 +202,7 @@ WorkingFolder는 응용 프로그램 또는 초기화 스크립트에서 상대 
 ```
 이 주소를 [역방향 프록시](service-fabric-reverseproxy.md)와 사용하여 서비스 간에 통신할 수 있습니다.
 
-### <a name="edit-the-application-manifest-file"></a>응용 프로그램 매니페스트 파일 편집
+### <a name="edit-the-application-manifest-file"></a>애플리케이션 매니페스트 파일 편집
 `Servicemanifest.xml` 파일을 구성했으면 `ApplicationManifest.xml` 파일을 변경하여 올바른 서비스 유형 및 이름이 사용되는지 확인해야 합니다.
 
 ```xml
@@ -283,7 +283,7 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 
 이 구성은 프런트 엔드 응용 프로그램(예: REST 엔드포인트)에 유용합니다. 클라이언트 응용 프로그램은 엔드포인트를 사용하려면 클러스터의 노드에 "연결"해야 하기 때문입니다. 예를 들어, Service Fabric 클러스터의 모든 노드가 부하 분산 장치에 연결된 경우 이 구성을 사용할 수도 있습니다. 그러면 클라이언트 트래픽을 클러스터의 모든 노드에서 실행되는 서비스에 배포할 수 있습니다.
 
-## <a name="check-your-running-application"></a>실행 중인 응용 프로그램 확인
+## <a name="check-your-running-application"></a>실행 중인 애플리케이션 확인
 서비스 패브릭 탐색기에서 서비스가 실행되고 있는 노드를 식별합니다. 이 예제에서는 Node1에서 실행됩니다.
 
 ![서비스가 실행 중인 노드](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)

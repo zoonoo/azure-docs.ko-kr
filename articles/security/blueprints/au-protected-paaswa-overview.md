@@ -157,7 +157,7 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 **Azure Multi-Factor Authentication**: ID를 보호하려면 다단계 인증을 구현해야 합니다. [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)은 인증의 두 번째 메서드를 제공하여 사용자를 보호하는 사용하기 쉽고 확장 가능한 신뢰할 수 있는 솔루션입니다. Azure Multi-Factor Authentication은 클라우드의 강력한 기능을 이용하며 온-프레미스 Active Directory와 사용자 지정 응용 프로그램을 통합합니다. 이러한 보호는 고용량 업무상 중요한 시나리오에 확장됩니다.
 
 ### <a name="security"></a>보안
-**비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Azure Key Vault는 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. 고객은 다음 Azure Key Vault 기능을 통해 데이터를 보호할 수 있습니다.
+**비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. 고객은 다음 Azure Key Vault 기능을 통해 데이터를 보호할 수 있습니다.
 - 필요에 따라 고급 액세스 정책이 구성됩니다.
 - Key Vault 액세스 정책은 키와 비밀에 대한 최소 필수 권한으로 정의됩니다.
 - Key Vault의 모든 키와 비밀에는 만료 날짜가 있습니다.

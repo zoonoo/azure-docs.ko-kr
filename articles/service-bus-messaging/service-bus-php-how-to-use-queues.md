@@ -41,7 +41,7 @@ Azure Blob service에 액세스하는 PHP 응용 프로그램을 만드는 데 �
 ## <a name="get-the-azure-client-libraries"></a>Azure 클라이언트 라이브러리 가져오기
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 응용 프로그램 구성
+## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
 Service Bus 큐 API를 사용하려면 다음을 수행합니다.
 
 1. [require_once][require_once] 문을 사용하여 자동 로더 파일을 참조합니다.

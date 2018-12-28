@@ -162,7 +162,7 @@ items:
       items:
       - name: 웹앱 및 서비스 심층 진단
         href: ../application-insights/app-insights-devops.md?toc=/azure/azure-monitor/toc.json
-      - name: 웹 응용 프로그램의 성능 모니터링
+      - name: 웹 애플리케이션의 성능 모니터링
         href: ../application-insights/app-insights-web-monitor-performance.md?toc=/azure/azure-monitor/toc.json
       - name: 개발, 테스트 및 프로덕션 구분
         href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
@@ -475,7 +475,7 @@ items:
           href: ../application-insights/app-insights-metrics-explorer.md?toc=/azure/azure-monitor/toc.json
         - name: 라이브 스트림
           href: ../application-insights/app-insights-live-stream.md?toc=/azure/azure-monitor/toc.json
-        - name: 응용 프로그램 맵
+        - name: 애플리케이션 맵
           href: app/app-map.md
         - name: 트랜잭션 진단
           href: ../application-insights/app-insights-transaction-diagnostics.md?toc=/azure/azure-monitor/toc.json

@@ -24,7 +24,7 @@ ms.locfileid: "52279785"
 | 대역폭 |165 MB |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |무제한, [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/) 이 적용 |
 | 응용 프로그램 아키텍처 |32비트 |32비트 |32비트/64비트 |32비트/64비트 |32비트/64비트 |32비트/64비트 |
 | 인스턴스당 웹 소켓<sup>7</sup> |5 |35 |350 |Unlimited |Unlimited |무제한 |
-| 응용 프로그램당 동시 [디버거 연결](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) |1 |1 |1 |5 |5 |5 |
+| 애플리케이션당 동시 [디버거 연결](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) |1 |1 |1 |5 |5 |5 |
 | 구독당 App Service 인증서 수<sup>10</sup>| 지원되지 않음 | 지원되지 않음 |10 |10 |10 |10 |
 | 앱당 사용자 지정 도메인</a> |0(azurewebsites.net 하위 도메인 전용)|500 |500 |500 |500 |500 |
 | 사용자 지정 도메인 [SSL 지원](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |지원되지 않습니다. 기본적으로 사용할 수 있는 *.azurewebsites.net의 와일드카드 인증서입니다.|지원되지 않습니다. 기본적으로 사용할 수 있는 *.azurewebsites.net의 와일드카드 인증서입니다.|무제한 SNI SSL 연결 |무제한 SNI SSL 및 1개의 IP SSL 연결 포함 |무제한 SNI SSL 및 1개의 IP SSL 연결 포함 | 무제한 SNI SSL 및 1개의 IP SSL 연결 포함|

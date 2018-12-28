@@ -75,7 +75,7 @@ Visual Studio는 응용 프로그램 프로젝트 및 작업자 서비스 프로
 응용 프로그램을 배포/업그레이드하기 위한 PowerShell 스크립트입니다.
 
 * **응용 프로그램 정의**  
-*ApplicationPackageRoot*에서 응용 프로그램 매니페스트를 포함합니다. 관련된 응용 프로그램 매개 변수 파일은 *ApplicationParameters*에 있으며 응용 프로그램을 정의하고 지정된 환경에 대해 해당 응용 프로그램을 구체적으로 구성할 수 있습니다.
+*ApplicationPackageRoot*에서 응용 프로그램 매니페스트를 포함합니다. 관련된 애플리케이션 매개 변수 파일은 *ApplicationParameters*에 있으며 애플리케이션을 정의하고 지정된 환경에 대해 해당 애플리케이션을 구체적으로 구성할 수 있습니다.
     
 서비스 프로젝트의 내용에 대한 개요는 [Reliable Services 시작](service-fabric-reliable-services-quick-start.md)을 참조하세요.
 

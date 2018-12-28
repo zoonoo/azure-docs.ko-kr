@@ -88,7 +88,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 2. 응용 프로그램 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **앱 맵**을 클릭합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
-   ![응용 프로그램 맵](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![애플리케이션 맵](./media/app-insights-nodejs-quick-start/application-map.png)
 
 3. **앱 분석** 아이콘![ 응용 프로그램 맵 아이콘](./media/app-insights-nodejs-quick-start/006.png)을 클릭합니다.  그러면 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights 분석**이 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 

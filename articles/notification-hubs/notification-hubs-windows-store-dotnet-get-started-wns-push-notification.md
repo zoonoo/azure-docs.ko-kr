@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기 | Microsoft Docs
-description: 이 자습서에서는 Azure Notification Hubs를 사용하여 Windows 유니버설 플랫폼 응용 프로그램으로 알림을 푸시하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Notification Hubs를 사용하여 Windows 유니버설 플랫폼 애플리케이션으로 알림을 푸시하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: windows
 author: dimazaid

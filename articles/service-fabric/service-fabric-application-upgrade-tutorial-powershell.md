@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용하여 Service Fabric 앱 업그레이드 | Microsoft Docs
-description: 이 문서는 PowerShell을 사용하여 서비스 패브릭 응용 프로그램의 배포, 코드 변경, 업그레이드 롤아웃 환경을 안내합니다.
+description: 이 문서는 PowerShell을 사용하여 서비스 패브릭 애플리케이션의 배포, 코드 변경, 업그레이드 롤아웃 환경을 안내합니다.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy

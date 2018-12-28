@@ -69,7 +69,7 @@ items:
     items:
     - name: 응용 프로그램 형식
       items:
-      - name: 응용 프로그램 유형
+      - name: 애플리케이션 유형
         href: app-types.md
       - name: 단일 페이지 응용 프로그램
         href: single-page-application.md

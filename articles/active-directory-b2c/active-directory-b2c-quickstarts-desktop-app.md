@@ -43,7 +43,7 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
 1. **로그인**을 클릭하여 **등록 또는 로그인** 워크플로를 시작합니다.
 
-    ![샘플 응용 프로그램](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
+    ![샘플 애플리케이션](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
     이 샘플에서는 소셜 ID 공급자를 사용하거나 이메일 주소를 사용하여 로컬 계정을 만드는 등의 여러 가지 등록 옵션을 지원합니다. 이 빠른 시작에서는 Facebook, Google, Microsoft 또는 Twitter의 소셜 ID 공급자 계정을 사용합니다. 
 

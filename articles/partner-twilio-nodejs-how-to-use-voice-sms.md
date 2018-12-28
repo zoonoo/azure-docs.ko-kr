@@ -51,7 +51,7 @@ Twilio 서비스를 사용하기 전에 먼저 [계정을 등록][signup]해야 
 * Azure 계정 등록(아직 없는 경우)
 * Azure 관리 콘솔을 사용하여 새 웹 사이트 만들기
 * 소스 제어 지원 추가(git를 사용했다고 가정함)
-* 간단한 node.js 웹 응용 프로그램을 사용하여 파일 `server.js` 만들기
+* 간단한 node.js 웹 애플리케이션을 사용하여 파일 `server.js` 만들기
 * 이 간단한 응용 프로그램을 Azure에 배포
 
 <a id="twiliomodule"/>

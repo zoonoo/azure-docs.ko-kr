@@ -224,7 +224,7 @@ Contoso와 Northwind 간의 거래 업체 규약을 만듭니다. 거래 업체 
    출력 창에서 EAI 브리지가 배포되는 엔드포인트(예: `https://contosowabs.biztalk.windows.net/default/ProcessInvoiceBridge`)를 복사합니다. 이 엔드포인트 URL은 나중에 필요합니다.  
 
 ## <a name="step-4-test-the-solution"></a>4단계: 솔루션 테스트
-이 항목에서는 샘플의 일부로 제공되는 **자습서 클라이언트** 응용 프로그램을 사용하여 솔루션을 테스트하는 방법을 살펴봅니다.  
+이 항목에서는 샘플의 일부로 제공되는 **자습서 클라이언트** 애플리케이션을 사용하여 솔루션을 테스트하는 방법을 살펴봅니다.  
 
 1. Visual Studio에서 F5 키를 눌러 **자습서 클라이언트**를 시작합니다.
 2. 화면은 Service Bus 큐를 만든 단계의 미리 채워진 값을 가져야 합니다. **다음**을 클릭합니다.

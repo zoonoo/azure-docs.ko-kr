@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 인증 라이브러리 | Microsoft Docs
-description: Azure AD 인증 라이브러리(ADAL)는 클라이언트 응용 프로그램 개발자들이 클라우드 또는 온-프레미스 Active Directory(AD)에 쉽게 사용자를 인증하고 API 호출 보안을 위한 액세스 토큰을 가져올 수 있게 합니다.
+description: Azure AD 인증 라이브러리(ADAL)는 클라이언트 애플리케이션 개발자들이 클라우드 또는 온-프레미스 Active Directory(AD)에 쉽게 사용자를 인증하고 API 호출 보안을 위한 액세스 토큰을 가져올 수 있게 합니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG

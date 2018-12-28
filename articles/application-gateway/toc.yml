@@ -88,7 +88,7 @@ items:
       href: renew-certificates.md
     - name: SSL 정책 구성
       href: application-gateway-configure-ssl-policy-powershell.md
-  - name: 웹 응용 프로그램 방화벽 구성
+  - name: 웹 애플리케이션 방화벽 구성
     items:
     - name: Azure portal
       href: application-gateway-web-application-firewall-portal.md

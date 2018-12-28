@@ -88,7 +88,7 @@ Service Bus 토픽을 만들려면 해당 토픽을 만들 네임스페이스를
 3. 이전 단계를 두 번 더 반복하여 **Subscription2** 및 **Subscription3**라는 구독을 만듭니다.
 
 
-## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 응용 프로그램 구성
+## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
 이 샘플을 빌드하기 전에 [Java용 Azure SDK][Azure SDK for Java]를 설치했는지 확인하세요. Eclipse를 사용하는 경우 Azure SDK for Java를 포함하고 있는 [Eclipse용 Azure Toolkit][Azure Toolkit for Eclipse]를 설치할 수 있습니다. 그런 다음 **Java용 Microsoft Azure 라이브러리**를 프로젝트에 추가할 수 있습니다.
 
 ![Eclipse 빌드 경로의 라이브러리](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)

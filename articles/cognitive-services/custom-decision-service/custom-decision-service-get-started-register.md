@@ -18,7 +18,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/19/2018
 ms.locfileid: "46365403"
 ---
-# <a name="register-your-application"></a>응용 프로그램 등록
+# <a name="register-your-application"></a>애플리케이션 등록
 
 애플리케이션에 대해 Custom Decision Service를 사용하려면 포털에서 등록합니다. 이 문서에서는 등록 방법을 설명합니다.
 

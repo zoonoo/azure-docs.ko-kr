@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
 ms.locfileid: "34212741"
 ---
-# <a name="troubleshoot-application-upgrades"></a>응용 프로그램 업그레이드 문제 해결
+# <a name="troubleshoot-application-upgrades"></a>애플리케이션 업그레이드 문제 해결
 이 문서에서는 Azure 서비스 패브릭 응용 프로그램 업그레이드에 관한 일반적인 문제와 이를 해결하는 방법을 설명합니다.
 
 ## <a name="troubleshoot-a-failed-application-upgrade"></a>응용 프로그램 업그레이드 실패 문제 해결

@@ -1,6 +1,6 @@
 ---
 title: Azure AD v2.0 OAuth 인증 코드 흐름 | Microsoft Docs
-description: OAuth 2.0 인증 프로토콜의 Azure AD의 구현을 사용하여 웹 응용 프로그램을 빌드합니다.
+description: OAuth 2.0 인증 프로토콜의 Azure AD의 구현을 사용하여 웹 애플리케이션을 빌드합니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG

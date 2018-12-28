@@ -262,7 +262,7 @@ items:
     href: active-directory-b2c-access-tokens.md
   - name: 액세스 토큰을 통해 전달
     href: idp-pass-through-user-flow.md
-  - name: 응용 프로그램 등록
+  - name: 애플리케이션 등록
     href: active-directory-b2c-app-registration.md
   - name: 보고서 사용량
     href: active-directory-b2c-reference-usage-reporting-api.md

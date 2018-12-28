@@ -64,7 +64,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 1. 새 응용 프로그램을 저장하려는 디렉터리로 이동합니다.
 
-1. Express 생성기를 사용해서 **todo**라는 새로운 응용 프로그램을 생성합니다.
+1. Express 생성기를 사용해서 **todo**라는 새로운 애플리케이션을 생성합니다.
 
    ```bash
    express todo
@@ -85,7 +85,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 1. 브라우저에서 [http://localhost:3000](http://localhost:3000)으로 이동하여 새 애플리케이션을 확인할 수 있습니다.
    
-   ![Node.js 알아보기 - 브라우저 창에 표시된 Hello World 응용 프로그램의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
+   ![Node.js 알아보기 - 브라우저 창에 표시된 Hello World 애플리케이션의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
  터미널 창에서 Ctrl+C를 사용하여 애플리케이션을 중지하고, **y**를 선택하여 일괄 작업을 종료합니다.
 
