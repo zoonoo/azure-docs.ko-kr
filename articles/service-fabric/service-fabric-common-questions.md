@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016701"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164649"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -39,7 +39,7 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 코어 Service Fabric 클러스터링 기술은 서로 네트워크로 연결되어 있기만 한다면 전 세계 어디서나 실행되는 컴퓨터를 결합하는 데 사용할 수 있습니다. 그러나 이러한 클러스터를 구축하고 실행하는 것은 복잡할 수 있습니다.
 
-이 시나리오에 관심이 있는 경우 [Service Fabric Github 문제 목록](https://github.com/azure/service-fabric-issues)을 확인하거나 지원 담당자를 통해 추가 지침을 얻는 것이 좋습니다. Service Fabric 팀은 이 시나리오에 대해 추가적인 설명, 지침 및 권장 사항을 제공하기 위해 작업 중입니다. 
+이 시나리오에 관심이 있는 경우 [Service Fabric GitHub 문제 목록](https://github.com/azure/service-fabric-issues)을 확인하거나 지원 담당자를 통해 추가 지침을 얻는 것이 좋습니다. Service Fabric 팀은 이 시나리오에 대해 추가적인 설명, 지침 및 권장 사항을 제공하기 위해 작업 중입니다. 
 
 고려할 사항은 다음과 같습니다. 
 
@@ -93,7 +93,7 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 예.  자세한 내용은 [연결된 데이터 디스크를 사용하여 클러스터 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [디스크 암호화(PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) 및 [디스크 암호화(CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md)를 참조하세요.
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>클러스터 노드 형식(가상 머신 확장 집합)에서 우선 순위가 낮은 VM을 사용할 수 있나요?
-아니요. 우선 순위가 낮은 VM은 지원되지 않습니다. 
+ 아니요. 우선 순위가 낮은 VM은 지원되지 않습니다. 
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>클러스터에서 바이러스 백신 프로그램을 실행하는 경우 제외해야 하는 디렉터리 및 프로세스는 무엇입니까?
 

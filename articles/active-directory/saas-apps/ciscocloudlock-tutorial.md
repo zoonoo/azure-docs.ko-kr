@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 9908dae627ae11a42e8e01a9a4f4d11f35ce0f8d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1fe0db2f0c7fea4b24cc23aaa52deb16376012b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422963"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>자습서: The Cloud Security Fabric과 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ The Cloud Security Fabric과 Azure AD의 통합을 구성하려면 다음 항목
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 The Cloud Security Fabric 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -108,12 +108,14 @@ The Cloud Security Fabric에서 Azure AD Single Sign-On을 구성하고 테스�
     ![The Cloud Security Fabric 도메인 및 URL Single Sign-On 정보](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
     a. **로그온 URL** 텍스트 상자에서 URL을 입력합니다.
+
     | |
     |--|
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
-    나. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    
     | |
     |--|
     | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
@@ -166,7 +168,7 @@ The Cloud Security Fabric에서 Azure AD Single Sign-On을 구성하고 테스�
 
 ### <a name="create-a-the-cloud-security-fabric-test-user"></a>The Cloud Security Fabric 테스트 사용자 만들기
 
-이 섹션에서는 The Cloud Security Fabric에서 Britta Simon이라는 사용자를 만듭니다. [The Cloud Security Fabric 지원 팀](mailto:support@cloudlock.com)과 협력하여 The Cloud Security Fabric 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
+이 섹션에서는 The Cloud Security Fabric에서 Britta Simon이라는 사용자를 만듭니다.  [The Cloud Security Fabric 지원 팀](mailto:support@cloudlock.com)과 협력하여 The Cloud Security Fabric 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

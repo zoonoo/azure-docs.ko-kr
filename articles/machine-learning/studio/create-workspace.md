@@ -1,11 +1,10 @@
 ---
-title: Azure Machine Learning Studio 작업 영역 만들기 | Microsoft Docs
+title: 작업 영역 만들기 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Machine Learning Studio를 사용하려면 Machine Learning Studio 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
@@ -13,18 +12,18 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 8362468d329f12ad8ebf25c8d205ec7d35ac6c28
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e6835afd66d054a79c422a35839d64ae89031de5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307222"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268260"
 ---
-# <a name="create-and-share-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 만들기 및 공유
+# <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Azure Machine Learning Studio 작업 영역 만들기 및 공유
 
 Azure Machine Learning Studio를 사용하려면 Machine Learning Studio 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="to-create-a-workspace"></a>작업 영역을 만들려면
 1.  [Azure 포털](https://portal.azure.com/)
@@ -60,13 +59,13 @@ Azure Machine Learning Studio를 사용하려면 Machine Learning Studio 작업 
     ![실험 열기](./media/create-workspace/my-experiments.png)
 
 작업 영역을 관리하는 방법에 대한 자세한 내용은 [Azure Machine Learning 작업 영역 관리](manage-workspace.md)를 참조하세요.
-작업 영역을 만드는 데 문제가 발생한 경우 [문제 해결 가이드: Machine Learning 작업 영역 만들기 및 연결](troubleshooting-creating-ml-workspace.md)을 참조하세요.
+작업 영역을 만드는 데 문제가 있으면 [문제 해결 가이드: Machine Learning 작업 영역 만들기 및 연결](troubleshooting-creating-ml-workspace.md)을 참조하세요.
 
 
 ## <a name="sharing-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 공유
 Machine Learning 작업 영역이 만들어진 후에는 사용자를 작업 영역에 초대하고 작업 영역과 모든 실험, 데이터 세트, Notebook 등에 대한 액세스를 공유할 수 있습니다. 이 두 역할 중 하나에 사용자를 추가할 수 있습니다.
 
-* **사용자** - 작업 영역 사용자는 작업 영역에서 실험, 데이터 집합 등을 만들기, 열기, 수정 및 삭제할 수 있습니다.
+* **사용자** - 작업 영역 사용자는 작업 영역에서 실험, 데이터 세트 등을 만들기, 열기, 수정 및 삭제할 수 있습니다.
 * **소유자** - 소유자는 사용자가 수행할 수 있는 작업 외에도 작업 영역에 사용자를 초대 및 제거할 수 있습니다.
 
 > [!NOTE]

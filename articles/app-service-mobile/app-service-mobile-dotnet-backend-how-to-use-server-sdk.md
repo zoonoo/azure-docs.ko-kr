@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bbba7898329af9d9bca9d35883e3cb4097ca3de4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473716"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968615"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -122,21 +122,21 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()** 을 호
 
 * `AddMobileAppHomeController()`은(는) 기본 Azure Mobile Apps 홈 페이지를 제공합니다.
 * `MapApiControllers()`은(는) `[MobileAppController]` 특성으로 데코레이팅된 WebAPI 컨트롤러에 대한 사용자 지정 API 기능을 제공합니다.
-* `AddTables()`은(는) 테이블 컨트롤러에 대한 `/tables` 끝점의 매핑을 제공합니다.
-* `AddTablesWithEntityFramework()`은(는) Entity Framework 기반 컨트롤러를 사용하는 `/tables` 끝점 매핑에 대한 약칭입니다.
-* `AddPushNotifications()`은(는) Notification Hubs에 대한 장치를 등록하는 간단한 방법을 제공합니다.
+* `AddTables()`은(는) 테이블 컨트롤러에 대한 `/tables` 엔드포인트의 매핑을 제공합니다.
+* `AddTablesWithEntityFramework()`은(는) Entity Framework 기반 컨트롤러를 사용하는 `/tables` 엔드포인트 매핑에 대한 약칭입니다.
+* `AddPushNotifications()`은(는) Notification Hubs에 대한 디바이스를 등록하는 간단한 방법을 제공합니다.
 * `MapLegacyCrossDomainController()` 은(는) 로컬 개발을 위한 표준 CORS 헤더를 제공합니다.
 
 ### <a name="sdk-extensions"></a>SDK 확장
 다음 NuGet 기반 확장 패키지는 응용 프로그램에서 사용할 수 있는 다양한 모바일 기능을 제공합니다. **MobileAppConfiguration** 개체를 사용하여 초기화하는 동안 확장을 사용하도록 설정합니다.
 
-* [Microsoft.Azure.Mobile.Server.Quickstart] 기본 Mobile Apps 설정을 지원합니다. 초기화하는 동안 **UseDefaultConfiguration** 확장 메서드를 호출하여 구성에 추가했습니다. 이 확장은 알림, 인증, 엔터티, 테이블, Crossdomain 및 홈 패키지와 같은 확장을 포함합니다. 이 패키지는 Azure 포털에서 사용할 수 있는 Mobile Apps 빠른 시작에서 사용됩니다.
-* [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 웹 사이트 루트에 대해 기본 *이 모바일 앱이 실행 중인 페이지* 를 구현합니다. **AddMobileAppHomeController** 확장 메서드를 호출하여 구성에 추가합니다.
-* [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) 데이터로 작업하기 위한 클래스를 포함하고 데이터 파이프라인을 설정합니다. **AddTables** 확장 메서드를 호출하여 구성에 추가합니다.
-* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) SQL Database에서 데이터를 액세스하는 Entity Framework를 사용할 수 있도록 합니다. **AddTablesWithEntityFramework** 확장 메서드를 호출하여 구성에 추가합니다.
+* [Microsoft.Azure.Mobile.Server.Quickstart] 기본 Mobile Apps 설정을 지원합니다. 초기화하는 동안 **UseDefaultConfiguration** 확장 메서드를 호출하여 구성에 추가했습니다. 이 확장은 다음과 같은 확장을 포함합니다. 알림, 인증, 엔터티, 테이블, Cross-domain 및 홈 패키지 이 패키지는 Azure 포털에서 사용할 수 있는 Mobile Apps 빠른 시작에서 사용됩니다.
+* [Microsoft.Azure.Mobile.Server.Home](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 웹 사이트 루트에 대해 기본 *이 모바일 앱이 실행 중인 페이지* 를 구현합니다. **AddMobileAppHomeController** 확장 메서드를 호출하여 구성에 추가합니다.
+* [Microsoft.Azure.Mobile.Server.Tables](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) 데이터로 작업하기 위한 클래스를 포함하고 데이터 파이프라인을 설정합니다. **AddTables** 확장 메서드를 호출하여 구성에 추가합니다.
+* [Microsoft.Azure.Mobile.Server.Entity](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) SQL Database에서 데이터를 액세스하는 Entity Framework를 사용할 수 있도록 합니다. **AddTablesWithEntityFramework** 확장 메서드를 호출하여 구성에 추가합니다.
 * [Microsoft.Azure.Mobile.Server.Authentication] 인증을 사용할 수 있도록 하고 토큰의 유효성을 검사하는 데 사용되는 OWIN 미들웨어를 설정합니다. **AddAppServiceAuthentication** 및 **IAppBuilder**.**UseAppServiceAuthentication** 확장 메서드를 호출하여 구성에 추가합니다.
-* [Microsoft.Azure.Mobile.Server.Notifications] 푸시 알림을 사용할 수 있도록 하며 푸시 등록 끝점을 정의합니다. **AddPushNotifications** 확장 메서드를 호출하여 구성에 추가합니다.
-* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) 모바일 앱에서 레거시 웹 브라우저에 데이터를 제공하는 컨트롤러를 만듭니다. **MapLegacyCrossDomainController** 확장 메서드를 호출하여 구성에 추가합니다.
+* [Microsoft.Azure.Mobile.Server.Notifications] 푸시 알림을 사용할 수 있도록 하며 푸시 등록 엔드포인트를 정의합니다. **AddPushNotifications** 확장 메서드를 호출하여 구성에 추가합니다.
+* [Microsoft.Azure.Mobile.Server.CrossDomain](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) 모바일 앱에서 레거시 웹 브라우저에 데이터를 제공하는 컨트롤러를 만듭니다. **MapLegacyCrossDomainController** 확장 메서드를 호출하여 구성에 추가합니다.
 * [Microsoft.Azure.Mobile.Server.Login]은 사용자 지정 인증 시나리오 동안 사용되는 정적 메서드인 AppServiceLoginHandler.CreateToken() 메서드를 제공합니다.
 
 ## <a name="publish-server-project"></a>방법: 서버 프로젝트 게시
@@ -215,7 +215,7 @@ Azure SDK가 설치되어 있으면 이제 다음과 같이 템플릿 테이블 
 PageSize은 클라이언트에서 요청하는 크기보다 크거나 같습니다.  클라이언트 페이지 크기 변경에 대한 내용은 특정 클라이언트 방법 설명서를 참조하세요.
 
 ## <a name="how-to-define-a-custom-api-controller"></a>방법: 사용자 지정 API 컨트롤러 정의
-사용자 지정 API 컨트롤러는 끝점을 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. [MobileAppController] 특성을 사용하여 모바일 전용 API 컨트롤러를 등록할 수 있습니다. `MobileAppController`특성은 경로를 등록하고 Mobile Apps JSON 직렬 변환기를 설정한 후 [클라이언트 버전 검사](app-service-mobile-client-and-server-versioning.md)를 켭니다.
+사용자 지정 API 컨트롤러는 엔드포인트를 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. [MobileAppController] 특성을 사용하여 모바일 전용 API 컨트롤러를 등록할 수 있습니다. `MobileAppController` 특성은 경로를 등록하고 Mobile Apps JSON 직렬 변환기를 설정한 후 [클라이언트 버전 검사](app-service-mobile-client-and-server-versioning.md)를 켭니다.
 
 1. Visual Studio에서 컨트롤러 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **컨트롤러**를 클릭하고 **웹 API 2 컨트롤러&mdash;비어 있음**을 선택한 후 **추가**를 클릭합니다.
 2. `CustomController`와 같은 **컨트롤러 이름**을 제공하고 **추가**를 클릭합니다.
@@ -241,7 +241,7 @@ PageSize은 클라이언트에서 요청하는 크기보다 크거나 같습니�
 Azure Mobile Apps는 App Service 인증/권한 부여를 사용하여 모바일 백 엔드를 보호합니다.  이 섹션에서는 .NET 백 엔드 서버 프로젝트에서 다음과 같은 인증 관련 작업을 수행하는 방법을 보여줍니다.
 
 * [방법: 서버 프로젝트에 인증 추가](#add-auth)
-* [방법: 응용 프로그램에 사용자 지정 인증 사용](#custom-auth)
+* [방법: 애플리케이션에 대한 사용자 지정 인증 사용](#custom-auth)
 * [방법: 인증된 사용자 정보 검색](#user-info)
 * [방법: 인증된 사용자에 대한 데이터 액세스 제한](#authorize)
 
@@ -258,7 +258,7 @@ Azure Mobile Apps는 App Service 인증/권한 부여를 사용하여 모바일 
 
 Mobile Apps 백 엔드에 클라이언트를 인증하는 방법에 대해 알아보려면 [앱에 인증 추가](app-service-mobile-ios-get-started-users.md)를 참조하세요.
 
-### <a name="custom-auth"></a>방법: 응용 프로그램에 사용자 지정 인증 사용
+### <a name="custom-auth"></a>방법: 애플리케이션에 대한 사용자 지정 인증 사용
 > [!IMPORTANT]
 > 사용자 지정 인증을 사용하도록 설정하려면 Azure Portal에서 App Service에 대한 공급자를 선택하지 않고 먼저 App Service 인증을 사용하도록 설정해야 합니다. 이렇게 하면 호스트될 때 WEBSITE_AUTH_SIGNING_KEY 환경 변수가 사용되도록 설정됩니다.
 > 
@@ -454,7 +454,7 @@ Azure App Service는 ASP.NET 응용 프로그램에 대한 여러 디버깅 및 
 ### <a name="local-debug"></a>인증을 사용하여 로컬 디버깅
 응용 프로그램을 로컬로 실행하여 변경 내용을 클라우드에 게시하기 전에 테스트할 수 있습니다. 대부분의 Azure Mobile Apps 백 엔드의 경우 Visual Studio에 있는 동안 *F5* 를 누릅니다. 그러나 인증을 사용할 때 몇 가지 추가 고려 사항이 있습니다.
 
-클라우드 기반 모바일 앱에서 App Service 인증/권한 부여를 구성해야 하며 클라이언트가 클라우드 끝점을 대체 로그인 호스트로 지정해야 합니다. 필요한 구체적인 단계는 클라이언트 플랫폼에 대한 설명서를 참조하세요.
+클라우드 기반 모바일 앱에서 App Service 인증/권한 부여를 구성해야 하며 클라이언트가 클라우드 엔드포인트를 대체 로그인 호스트로 지정해야 합니다. 필요한 구체적인 단계는 클라이언트 플랫폼에 대한 설명서를 참조하세요.
 
 모바일 백 엔드에 [Microsoft.Azure.Mobile.Server.Authentication] 을 설치했는지 확인합니다. 그런 다음 `MobileAppConfiguration`를 `HttpConfiguration`에 적용한 후 응용 프로그램의 OWIN 시작 클래스에 다음을 추가합니다.
 
@@ -474,7 +474,7 @@ Azure App Service는 ASP.NET 응용 프로그램에 대한 여러 디버깅 및 
 3. Kudu 관리 사이트에서 **환경**을 클릭합니다.
 4. *WEBSITE\_AUTH\_SIGNING\_KEY*에 대한 값을 찾습니다.
 
-로컬 응용 프로그램 구성에서 *authSigningKey* 매개 변수에 대한 서명 키를 사용합니다.  로컬로 실행 중일 때 모바일 백 엔드가 이제 클라이언트가 클라우드 기반 끝점에서 가져오는 토큰을 확인하게 됩니다.
+로컬 응용 프로그램 구성에서 *authSigningKey* 매개 변수에 대한 서명 키를 사용합니다.  로컬로 실행 중일 때 모바일 백 엔드가 이제 클라이언트가 클라우드 기반 엔드포인트에서 가져오는 토큰을 확인하게 됩니다.
 
 [1]: https://msdn.microsoft.com/library/azure/dn961176.aspx
 [2]: https://github.com/Azure/azure-mobile-apps-net-server
@@ -483,10 +483,10 @@ Azure App Service는 ASP.NET 응용 프로그램에 대한 여러 디버깅 및 
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
 [Azure Portal]: https://portal.azure.com
-[NuGet.org]: http://www.nuget.org/
-[Microsoft.Azure.Mobile.Server]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
-[Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
-[Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
-[Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
-[Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
+[NuGet.org]: https://www.nuget.org/
+[Microsoft.Azure.Mobile.Server]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
+[Microsoft.Azure.Mobile.Server.Quickstart]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
+[Microsoft.Azure.Mobile.Server.Authentication]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
+[Microsoft.Azure.Mobile.Server.Login]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
+[Microsoft.Azure.Mobile.Server.Notifications]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx

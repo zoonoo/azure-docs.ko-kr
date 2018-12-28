@@ -66,11 +66,11 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
@@ -94,11 +94,11 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 8x8 Virtual Office 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 8x8 Virtual Office 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **8x8 Virtual Office에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **8x8 Virtual Office** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **8x8 Virtual Office** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -134,7 +134,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 7. 8x8 Virtual Office 테넌트에 관리자 권한으로 로그온합니다.
 
-8. 응용 프로그램 패널에서 **Virtual Office Account Mgr** 를 선택합니다.
+8. 애플리케이션 패널에서 **Virtual Office Account Mgr**를 선택합니다.
 
     ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
@@ -210,7 +210,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     ![사용자 할당][201]
 
-2. 응용 프로그램 목록에서 **8x8 Virtual Office**를 선택합니다.
+2. 애플리케이션 목록에서 **8x8 Virtual Office**를 선택합니다.
 
     ![Configure Single Sign-On](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_app.png) 
 

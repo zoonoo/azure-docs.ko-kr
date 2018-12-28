@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: eaabb29a492ec6a0ef4c85afe839a9df5f588958
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567488"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087170"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 액세스 제어
 
@@ -27,9 +27,9 @@ Azure Data Lake Storage Gen1은 HDFS에서 파생된 액세스 제어 모델을 
 
 **액세스 ACL** 및 **기본 ACL**이라는 두 가지 ACL(액세스 제어 목록)이 있습니다.
 
-* **액세스 ACL** – 개체에 대한 액세스를 제어합니다. 파일과 폴더에는 모두 액세스 ACL이 있습니다.
+* **액세스 ACL**: 개체에 대한 액세스를 제어합니다. 파일과 폴더에는 모두 액세스 ACL이 있습니다.
 
-* **기본 ACL** - 해당 폴더 아래에 만든 모든 자식 항목에 대한 액세스 ACL을 결정하는 폴더와 연결된 ACL의 "템플릿"입니다. 파일에는 기본 ACL이 없습니다.
+* **기본 ACL**: 해당 폴더 아래에 만든 모든 자식 항목에 대한 액세스 ACL을 결정하는 폴더와 연결된 ACL의 "템플릿"입니다. 파일에는 기본 ACL이 없습니다.
 
 
 액세스 ACL 및 기본 ACL은 모두 구조가 동일합니다.
@@ -71,15 +71,15 @@ Data Lake Storage Gen1에서 사용하는 POSIX 스타일 모델에서 항목에
 
 Data Lake Storage Gen1 계정에서 특정 작업을 수행하는 데 필요한 권한을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
-|    작업(Operation)             |    /    | Seattle/ | Portland/ | Data.txt     |
-|--------------------------|---------|----------|-----------|--------------|
-| Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| List /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| List /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| 작업(Operation) | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
+|-----------|---------------------|-----------|------------|-------------|----------------|
+| 읽기      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| 추가 | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| 삭제    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| 생성    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| 나열      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| 나열      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| 나열      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -132,8 +132,8 @@ Data Lake Storage Gen1의 사용자와 연결된 “기본 그룹”이 없으�
 
 **새 파일이나 폴더의 소유 그룹 할당**
 
-* **사례 1** - "/" 루트 폴더입니다. 이 폴더는 Data Lake Storage Gen1 계정이 만들어질 때 생성됩니다. 이 경우 소유 그룹은 모두 0 GUID로 설정됩니다.  이 값은 어떠한 액세스도 허용하지 않습니다.  그룹이 할당될 때까지는 자리 표시자입니다.
-* **사례 2**(기타 모든 경우) - 새 항목을 만들 때 소유 그룹이 부모 폴더에서 복사됩니다.
+* **사례 1**: "/" 루트 폴더입니다. 이 폴더는 Data Lake Storage Gen1 계정이 만들어질 때 생성됩니다. 이 경우 소유 그룹은 모두 0 GUID로 설정됩니다.  이 값은 어떠한 액세스도 허용하지 않습니다.  그룹이 할당될 때까지는 자리 표시자입니다.
+* **사례 2**(기타 모든 경우): 새 항목을 만들 때 소유 그룹이 부모 폴더에서 복사됩니다.
 
 **소유 그룹 변경**
 

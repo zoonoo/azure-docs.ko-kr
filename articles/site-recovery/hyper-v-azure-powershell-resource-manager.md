@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 4b008cc119951e50567218e332818585fb017e5a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c20f61788086806d3eebb62d35b7ac9fbcbd6fb9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229410"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846932"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell과 Azure Resource Manager를 사용하여 Hyper-V VM용 Azure에 대한 재해 복구 설정
 
@@ -36,7 +36,7 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
 * [Microsoft Azure](https://azure.microsoft.com/) 계정. [평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수도 있습니다.
 * Azure PowerShell 1.0 이 릴리스에 대한 정보 및 설치하는 방법은 [Azure PowerShell 1.0.](https://azure.microsoft.com/)을 참조하세요.
-* [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) 및 [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) 모듈. [PowerShell 갤러리](https://www.powershellgallery.com/)
+* [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) 및 [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) 모듈.  [PowerShell 갤러리](https://www.powershellgallery.com/)
 
 또한 이 문서에 설명된 특정 예제에는 다음과 같은 필수 조건이 있습니다.
 
@@ -45,9 +45,9 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>1단계: Azure 계정에 로그인
 
-1. PowerShell 콘솔을 열고 이 명령을 실행하여 Azure 계정에 로그인합니다. cmdlet은 계정 자격 증명을 묻는 웹 페이지를 엽니다. **Connect-AzureRmAccount**
+1. PowerShell 콘솔을 열고 이 명령을 실행하여 Azure 계정에 로그인합니다. cmdlet은 계정 자격 증명을 묻는 웹 페이지를 엽니다. **Connect-AzureRmAccount**.
     - 또는 **Connect-AzureRmAccount** cmdlet에서 **-Credential** 매개 변수를 사용하여 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
-    - 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
+    - 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예:  **Connect-AzureRmAccount -Tenant “fabrikam.com”**
 2. 계정에 여러 구독이 있을 수 있으므로 사용하려는 구독을 계정과 연결합니다.
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
@@ -78,7 +78,7 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
     **Get-AzureRmRecoveryServicesVault** cmdlet을 사용하여 기존 자격 증명 모음 목록을 검색할 수 있습니다.
 
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>3단계: Recovery Services 자격 증명 모음 설정
+## <a name="step-3-set-the-recovery-services-vault-context"></a>3단계: Recovery Services 자격 증명 모음 컨텍스트 설정
 
 자격 증명 모음 컨텍스트를 다음과 같이 설정합니다.
 
@@ -102,7 +102,7 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
 5. Hyper-V 호스트에 다운로드한 키를 복사합니다. 사이트에 Hyper-V 호스트를 등록하는 키가 필요합니다.
 
-## <a name="step-5-install-the-provider-and-agent"></a>5단계: 공급자 및 에이전트 설치
+## <a name="step-5-install-the-provider-and-agent"></a>5단계: 공급자 및 에이전트를 설치
 
 1. [Microsoft](https://aka.ms/downloaddra)에서 공급자의 최신 버전을 위한 설치 관리자를 다운로드합니다.
 2. Hyper-V 호스트에서 설치 관리자를 실행합니다.
@@ -136,7 +136,7 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
 4. 연결 작업이 완료될 때까지 기다립니다.
 
-## <a name="step-7-enable-vm-protection"></a>단계7: VM 보호 사용
+## <a name="step-7-enable-vm-protection"></a>7단계: VM 보호 사용
 
 1. 다음과 같이 보호하려는 VM에 해당하는 보호 항목을 검색합니다.
 
@@ -175,7 +175,7 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
 
 
-## <a name="step-8-run-a-test-failover"></a>8단계: 테스트 장애 조치 실행
+## <a name="step-8-run-a-test-failover"></a>8단계: 테스트 장애 조치(failover) 실행
 1. 다음과 같이 테스트 장애 조치(failover)를 실행합니다.
 
         $nw = Get-AzureRmVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group

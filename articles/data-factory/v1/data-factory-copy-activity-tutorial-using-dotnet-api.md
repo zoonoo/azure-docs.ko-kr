@@ -53,7 +53,7 @@ ms.locfileid: "51253043"
 * Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell을 설치합니다. Azure PowerShell을 사용하여 Azure Active Directory 응용 프로그램을 만듭니다.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 응용 프로그램 만들기
-Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램의 서비스 주체를 만들고 **데이터 팩터리 참가자** 역할에 할당합니다.
+Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의 서비스 주체를 만들고 **데이터 팩터리 참가자** 역할에 할당합니다.
 
 1. **PowerShell**을 시작합니다.
 2. 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
@@ -110,7 +110,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
     ```PowerShell
     $azureAdApplication 
     ```
-    출력에서 응용 프로그램 ID(applicationID)를 적어둡니다.
+    출력에서 애플리케이션 ID(applicationID)를 적어둡니다.
 
 이 단계에서 다음과 같은 4가지 값이 있어야 합니다.
 
@@ -120,7 +120,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
 * (첫 번째 명령에 지정된)암호
 
 ## <a name="walkthrough"></a>연습
-1. Visual Studio 2012/2013/2015를 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio 2012/2013/2015를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
    1. **Visual Studio** 2012/2013/2015를 실행합니다.
    2. **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다.
    3. **템플릿**을 확장하고 **Visual C#** 을 선택합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.
@@ -504,7 +504,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
     ```
 
 15. 솔루션 탐색기에서 프로젝트(DataFactoryAPITestApp)를 확장하고 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가**를 클릭합니다. **System.Configuration** 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
-16. 콘솔 응용 프로그램을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
+16. 콘솔 애플리케이션을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
 17. Azure Blob 저장소의 **adftutorial** 컨테이너에 하나 이상의 파일이 있는지 확인합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 **Emp.txt** 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
     ```

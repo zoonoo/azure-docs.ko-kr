@@ -1,5 +1,5 @@
 ---
-title: '자습서: ServiceNow와 Azure Active Directory 통합 | Microsoft 문서'
+title: '자습서: ServiceNow와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory 및 ServiceNow 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: jeedes
-ms.openlocfilehash: 470805b2bb77e367887767b95e0f1e04d79c8f9d
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 5b7baffea8e718810a91ea9687a007d36c806aab
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830738"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>자습서: ServiceNow와 Azure Active Directory 통합
 
@@ -41,7 +41,7 @@ ServiceNow와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 구독
 - ServiceNow의 경우 ServiceNow의 인스턴스 또는 테넌트, Calgary 버전 이상
 - ServiceNow Express의 경우 ServiceNow Express의 인스턴스, Helsinki 버전 이상
-- ServiceNow 테넌트에서 [여러 공급자 Single Sign-On 플러그 인](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0)을 사용하도록 설정해야 합니다. [서비스 요청을 제출](https://hi.service-now.com)하면 이렇게 설정할 수 있습니다.
+- ServiceNow 테넌트에서 [여러 공급자 Single Sign-On 플러그 인](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0)을 사용하도록 설정해야 합니다. [서비스 요청을 제출](https://hi.service-now.com)하면 이렇게 설정할 수 있습니다.
 - 자동 구성은 ServiceNow에 대한 다중 공급자 플러그 인을 사용하도록 설정합니다.
 
 > [!NOTE]
@@ -55,7 +55,7 @@ ServiceNow와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 ServiceNow 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -320,7 +320,7 @@ ServiceNow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [ServiceNow 클라이언트 지원 팀](https://www.servicenow.com/support/contact-support.html)에 문의하세요.
 
-6. **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 **인증서(Base64)** 를 다운로드한 다음 컴퓨터에 인증서 파일을 저장합니다.
+6. **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 인증서 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/servicenow-tutorial/tutorial_servicenow_certificates.png)
 
@@ -356,7 +356,7 @@ ServiceNow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-On 구성](./media/servicenow-tutorial/ic7694975.png "Single Sign-On 구성")
 
-    a. **이름** 텍스트 상자에 구성의 이름을 입력합니다(예: **TestSAML2.0**).
+    a. **이름** 텍스트 상자에 구성에 사용할 이름을 입력합니다(예: **TestSAML2.0**).
 
     b. **활성**을 선택합니다.
 
@@ -376,7 +376,7 @@ ServiceNow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-On 구성](./media/servicenow-tutorial/ic7694982ex.png "Single Sign-On 구성")
 
-    a. **이름** 텍스트 상자에 구성의 이름을 입력합니다(예: **SAML 2.0**).
+    a. **이름** 텍스트 상자에 구성에 사용할 이름을 입력합니다(예: **SAML 2.0**).
 
     b. **ID 공급자 URL** 필드에 Azure Portal에서 복사한 **ID 공급자 ID** 값을 붙여넣습니다.
 
@@ -441,7 +441,7 @@ ServiceNow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음 암호 상자에 표시된 값을 적어 둡니다.
+    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
 
     d. **만들기**를 선택합니다.
 

@@ -64,11 +64,11 @@ PlanMyLeave의 Azure AD 통합을 구성하려면 갤러리의 PlanMyLeave를 �
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
@@ -206,7 +206,7 @@ PlanMyLeave에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **PlanMyLeave**를 선택합니다.
+1. 애플리케이션 목록에서 **PlanMyLeave**를 선택합니다.
 
     ![응용 프로그램 목록의 PlanMyLeave 링크](./media/planmyleave-tutorial/tutorial_planmyleave_app.png)  
 
@@ -228,7 +228,7 @@ PlanMyLeave에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 PlanMyLeave 타일을 클릭하면 PlanMyLeave 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 PlanMyLeave 타일을 클릭하면 PlanMyLeave 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

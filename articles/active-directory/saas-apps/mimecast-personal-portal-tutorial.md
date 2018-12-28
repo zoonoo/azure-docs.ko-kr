@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 71ecffebe095fd325837aeb1d6e741a2f3321aea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 88952d09672fb4dd2d31878d56a59cb425f53de2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421841"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>자습서: Mimecast Personal Portal과 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Mimecast Personal Portal과 Azure AD 통합을 구성하려면 다음 항목이 
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Mimecast Personal Portal 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -118,7 +118,7 @@ Mimecast Personal Portal에서 Azure AD Single Sign-On을 구성하고 테스트
     | 오스트레일리아       | `https://au-api.mimecast.com/login/saml`|
     | 역외        | `https://jer-api.mimecast.com/login/saml`|
 
-    나. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
     | 지역  |  값 | 
     | --------------- | --------------- |
@@ -139,7 +139,7 @@ Mimecast Personal Portal에서 Azure AD Single Sign-On을 구성하고 테스트
     | 역외        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
-    > 식별자 값은 실제 값이 아닙니다. 실제 식별자로 값을 업데이트하세요. 이러한 값을 얻으려면 [Mimecast Personal Portal 클라이언트 지원 팀](http://www.mimecast.com/customer-success/technical-support/)에 문의하세요. 
+    > 식별자 값은 실제 값이 아닙니다. 실제 식별자로 값을 업데이트하세요. 이러한 값을 얻으려면 [Mimecast Personal Portal 클라이언트 지원 팀](https://www.mimecast.com/customer-success/technical-support/)에 문의하세요. 
 
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -173,7 +173,7 @@ Mimecast Personal Portal에서 Azure AD Single Sign-On을 구성하고 테스트
    
     a. **설명** 텍스트 상자에 구성 이름을 입력합니다.
    
-    나. **Mimecast Personal Portal에 대한 SAML 인증 적용**을 선택합니다.
+    b. **Mimecast Personal Portal에 대한 SAML 인증 적용**을 선택합니다.
    
     다. **공급자**로 **Azure Active Directory**를 선택합니다.
    
@@ -249,11 +249,11 @@ Azure AD 사용자가 Mimecast Personal Portal에 로그인하게 하려면 Mime
    
     a. **이메일 주소** 텍스트 상자에 사용자의 **이메일 주소**를 **BrittaSimon@contoso.com**으로 입력합니다.
     
-    나. **Global Name**(전역 이름) 텍스트 상자에 **사용자 이름**을 **BrittaSimon**으로 입력합니다.
+    b. **Global Name**(전역 이름) 텍스트 상자에 **사용자 이름**을 **BrittaSimon**으로 입력합니다.
 
     다. **암호** 및 **암호 확인** 텍스트 상자에 사용자의 **암호**를 입력합니다.
    
-    나. **저장**을 클릭합니다.
+    b. **저장**을 클릭합니다.
 
 >[!NOTE]
 >Mimecast Personal Portal 사용자 계정 생성 도구 또는 Mimecast Personal Portal에서 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비전합니다.

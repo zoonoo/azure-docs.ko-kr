@@ -19,7 +19,7 @@ ms.locfileid: "51228813"
 
 SAS(공유 액세스 서명)를 사용하면 계정 키를 노출하지 않고 다른 클라이언트에게 저장소 계정의 개체에 대한 제한된 액세스 권한을 부여할 수 있습니다. 이 문서에서는 SAS 모델의 개요를 설명하고 SAS 모범 사례를 검토하고 몇 가지 예를 살펴봅니다.
 
-여기에 제시된 것 이외의 SAS를 사용하는 추가 코드 예제는 [.NET에서 Azure Blob Storage 시작](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) 및 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage) 라이브러리에서 사용할 수 있는 다른 샘플을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
+여기에 제시된 것 이외의 SAS를 사용하는 추가 코드 예제는 [.NET에서 Azure Blob Storage 시작](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) 및 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage) 라이브러리에서 사용할 수 있는 다른 샘플을 참조하세요. GitHub에서 샘플 애플리케이션을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
 
 ## <a name="what-is-a-shared-access-signature"></a>공유 액세스 서명이란?
 공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. SAS로 계정 키를 공유하지 않고 저장 계정의 리소스에 대한 클라이언트의 액세스를 승인할 수 있습니다. 이는 응용 프로그램에서 공유 액세스 서명을 사용하는 중요한 점입니다. SAS는 선택키를 손상시키지 않고 저장 리소스를 공유할 수 있는 보안 방법입니다.

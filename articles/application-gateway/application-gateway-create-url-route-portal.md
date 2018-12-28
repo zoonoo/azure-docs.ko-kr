@@ -24,7 +24,7 @@ Azure Portal을 사용하여 [응용 프로그램 게이트웨이](application-g
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 백 엔드 서버용 가상 머신 만들기
 > * 백 엔드 서버로 백 엔드 풀 만들기
 > * 백 엔드 수신기 만들기
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인
 
-## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
 가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 응용 프로그램 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 응용 프로그램 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
 
@@ -148,7 +148,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 5. **확인**을 클릭합니다.
 
-## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
 1. **모든 리소스**를 클릭한 다음, **myAGPublicIPAddress**를 클릭합니다.
 
@@ -171,7 +171,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 문서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 백 엔드 서버용 가상 머신 만들기
 > * 백 엔드 서버로 백 엔드 풀 만들기
 > * 백 엔드 수신기 만들기

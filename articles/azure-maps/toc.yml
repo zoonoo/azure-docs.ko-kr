@@ -93,7 +93,7 @@ items:
       href: map-show-traffic.md
     - name: 마우스 이벤트와 상호 작용
       href: map-events.md
-    - name: 액세스할 수 있는 맵 응용 프로그램
+    - name: 액세스할 수 있는 맵 애플리케이션
       href: map-accessibility.md
 - name: 참고 자료
   items:

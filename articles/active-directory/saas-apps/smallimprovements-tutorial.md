@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 48b1e47befa647a9d221e5cdf5bf0485c3b66028
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 588e56c9ae22578c08dbca07c7c576fe8b577b58
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423830"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012337"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>자습서: Small Improvements와 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Small Improvements와의 Azure AD 통합을 구성하려면 다음 항목이 필
 - Azure AD 평가판 환경이 없으면 [평가판 제품](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Small Improvements 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -114,7 +114,7 @@ Small Improvements에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.small-improvements.com`
 
-    나. **식별자** 텍스트 상자에서 `https://<subdomain>.small-improvements.com` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<subdomain>.small-improvements.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Small Improvements 클라이언트 지원 팀](mailto:support@small-improvements.com)에 문의하세요. 
@@ -145,9 +145,9 @@ Small Improvements에서 Azure AD Single Sign-On을 구성하고 테스트하려
    
     ![Configure Single Sign-On](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
-    a. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **HTTP 끝점** 텍스트 상자에 붙여 넣습니다.
+    a. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **HTTP 엔드포인트** 텍스트 상자에 붙여 넣습니다.
 
-    나. 다운로드된 인증서를 메모장에서 열고, 내용을 복사한 다음 전체 인증서를 **x509 인증서** 텍스트 상자에 붙여넣습니다. 
+    b. 다운로드된 인증서를 메모장에서 열고, 내용을 복사한 다음 전체 인증서를 **x509 인증서** 텍스트 상자에 붙여넣습니다. 
 
     다. 사용자에 대해 SSO 및 로그인 폼 인증 옵션을 사용하려면 **로그인/암호를 통한 액세스 사용** 옵션을 선택합니다.  
 
@@ -156,7 +156,7 @@ Small Improvements에서 Azure AD Single Sign-On을 구성하고 테스트하려
     e. **저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -184,7 +184,7 @@ Small Improvements에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -214,9 +214,9 @@ Azure AD 사용자가 Small Improvements에 로그인할 수 있도록 하려면
     
     a. 사용자의 **이름**(예: **Britta**)을 입력합니다.
 
-    나. 사용자의 **성**(예: **Simon**)을 입력합니다.
+    b. 사용자의 **성**(예: **Simon**)을 입력합니다.
 
-    다. 사용자의 **전자 메일**(예: **brittasimon@contoso.com** )을 입력합니다. 
+    다. 사용자의 **전자 메일**(예: <strong>brittasimon@contoso.com</strong> )을 입력합니다. 
 
     d. 또한 **알림 메일 보내기** 상자에 개인 메시지를 입력할 수 있습니다. 알림을 전송하려는 경우 이 확인란의 선택을 취소합니다.
 

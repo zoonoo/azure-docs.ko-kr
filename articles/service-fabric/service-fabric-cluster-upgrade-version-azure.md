@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 클러스터 업그레이드 | Microsoft Docs
-description: 클러스터 업데이트 모드 설정, 인증서 업그레이드, 응용 프로그램 포트 추가, OS 패치 수행 등을 포함하는 Service Fabric 클러스터를 실행하는 Service Fabric 코드 및/또는 구성을 업그레이드합니다. 업그레이드를 수행할 때 예상할 수 있는 것은 무엇입니까?
+description: 클러스터 업데이트 모드 설정, 인증서 업그레이드, 애플리케이션 포트 추가, OS 패치 수행 등을 포함하는 Service Fabric 클러스터를 실행하는 Service Fabric 코드 및/또는 구성을 업그레이드합니다. 업그레이드를 수행할 때 예상할 수 있는 것은 무엇입니까?
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft

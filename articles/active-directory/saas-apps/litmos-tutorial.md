@@ -121,7 +121,7 @@ Litmos에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![인증서 다운로드 링크](./media/litmos-tutorial/tutorial_litmos_certificate.png)
 
-1. 구성의 일부로 Litmos 응용 프로그램에 대한 **SAML 토큰 특성** 을 사용자 지정해야 합니다.
+1. 구성의 일부로 Litmos 애플리케이션에 대한 **SAML 토큰 특성** 을 사용자 지정해야 합니다.
 
     ![특성 섹션](./media/litmos-tutorial/tutorial_attribute.png)
            
@@ -247,7 +247,7 @@ Litmos 응용 프로그램은 적시에 프로비전을 지원합니다. 즉, �
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Litmos**를 선택합니다.
+1. 애플리케이션 목록에서 **Litmos**를 선택합니다.
 
     ![응용 프로그램 목록의 Litmos 링크](./media/litmos-tutorial/tutorial_litmos_app.png)  
 

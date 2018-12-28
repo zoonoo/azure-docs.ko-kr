@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 84c2faaf137e19d78e7e17527feb50baebf8041b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dbe234b3c6aaeed90f0b95e5118c1ff2f9e2bb24
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494577"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276879"
 ---
 # <a name="sfctl-service"></a>sfctl service
 서비스, 서비스 유형 및 서비스 패키지를 생성, 삭제 및 관리합니다.
@@ -497,7 +497,7 @@ Service Fabric 서비스에 대한 상태 보고서를 보냅니다.
 | --remove-when-expired | 보고서가 만료될 때 Health 스토어에서 제거할지 여부를 나타내는 값입니다. <br><br> true로 설정된 경우 보고서는 만료된 후 Health 스토어에서 제거됩니다. false로 설정된 경우 보고서는 만료될 때 오류로 처리됩니다. 이 속성의 값은 기본적으로 false입니다. 클라이언트가 주기적으로 보고하는 경우 RemoveWhenExpired를 false(기본값)로 설정해야 합니다. 이러한 방식은 문제가 있고(예: 교착 상태) 보고할 수 없는 보고자이며, 엔터티는 상태 보고서가 만료되는 경우 오류로 평가됩니다. 엔터티를 오류 성능 상태에 있는 것으로 플래그 지정합니다. |
 | --sequence-number | 숫자 문자열의 이 상태 보고서에 대한 일련 번호입니다. <br><br> 보고서 일련 번호는 Health 스토어에서 유효하지 않은 보고서를 검색하는 데 사용됩니다. 지정되지 않은 경우 일련 번호는 보고서가 추가될 때 상태 클라이언트에서 자동으로 생성됩니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
-| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하기 위해 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트가 전환 시 보고하는 경우 TTL(Time to live)을 무한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
+| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하는 데 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트가 전환 시 보고하는 경우 TTL(Time to live)을 무한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -512,7 +512,7 @@ Service Fabric 서비스에 대한 상태 보고서를 보냅니다.
 ## <a name="sfctl-service-resolve"></a>sfctl service resolve
 Service Fabric 파티션을 해결합니다.
 
-Service Fabric 서비스 파티션을 확인하여 서비스 복제본의 끝점을 가져옵니다.
+Service Fabric 서비스 파티션을 확인하여 서비스 복제본의 엔드포인트를 가져옵니다.
 
 ### <a name="arguments"></a>인수
 
@@ -520,7 +520,7 @@ Service Fabric 서비스 파티션을 확인하여 서비스 복제본의 끝점
 | --- | --- |
 | --service-id [필수] | 서비스 id입니다. 이 ID는 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
 | --partition-key-type | 파티션의 키 유형입니다. 서비스의 파티션 구성표가 Int64Range 또는 Named인 경우 이 매개 변수가 필요합니다. 가능한 값은 다음과 같습니다. - None(1) - PartitionKeyValue 매개 변수가 지정되지 않았음을 나타냅니다. 파티션 구성표가 싱글톤인 파티션에 유효합니다. 기본값입니다. 값은 1입니다. - Int64Range(2) - PartitionKeyValue 매개 변수가 int64 파티션 키임을 나타냅니다. 파티션 구성표가 Int64Range인 파티션에 유효합니다. 값은 2입니다. - Named(3) - PartitionKeyValue 매개 변수가 파티션의 이름임을 나타냅니다. 파티션 구성표가 Named인 파티션에 유효합니다. 값은 3입니다. |
-| --partition-key-value | 파티션 키입니다. 서비스의 파티션 구성표가 Int64Range 또는 Named인 경우 필요합니다. |
+| --partition-key-value | 파티션 키입니다. 서비스의 파티션 구성표가 Int64Range 또는 Named인 경우 필요합니다. 파티션 ID가 아니라 정수 키 값 또는 파티션 ID의 이름입니다. 예를 들어 서비스가 0~10 범위의 파티션을 사용하는 경우 PartitionKeyValue는 해당 범위의 정수입니다. 범위 또는 이름을 보려면 서비스 설명을 쿼리합니다. |
 | --previous-rsp-version | 이전에 수신한 응답의 버전 필드 값입니다. 이전에 얻은 결과가 오래되었다는 것을 사용자가 아는 경우에 필요합니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 

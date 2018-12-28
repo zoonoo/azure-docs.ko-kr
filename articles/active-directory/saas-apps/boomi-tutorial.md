@@ -64,11 +64,11 @@ Boomi의 Azure AD 통합을 구성하려면 갤러리의 Boomi를 관리되는 S
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
@@ -94,11 +94,11 @@ Boomi에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Boomi 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Boomi 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Boomi에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Boomi** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Boomi** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -117,7 +117,7 @@ Boomi에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     > [!NOTE] 
     > [회신 URL] 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 이 값을 가져오려면 [Boomi 지원 팀](https://boomi.com/company/contact/)에 문의합니다.
  
-1. Boomi 응용 프로그램에는 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대한 다음 클레임을 구성하세요. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+1. Boomi 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대한 다음 클레임을 구성하세요. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
     
     ![Configure Single Sign-On](./media/boomi-tutorial/tutorial_attribute.png)
 
@@ -249,7 +249,7 @@ Azure AD 사용자가 Boomi에 로그인할 수 있도록 하려면 Boomi로 프
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Boomi**를 선택합니다.
+1. 애플리케이션 목록에서 **Boomi**를 선택합니다.
 
     ![응용 프로그램 목록의 Boomi 링크](./media/boomi-tutorial/tutorial_boomi_app.png)  
 
@@ -271,7 +271,7 @@ Azure AD 사용자가 Boomi에 로그인할 수 있도록 하려면 Boomi로 프
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Boomi 타일을 클릭하면 Boomi 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Boomi 타일을 클릭하면 Boomi 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

@@ -67,7 +67,7 @@ FilesAnywhere를 Azure AD로 통합하도록 구성하려면 갤러리에서 Fil
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
@@ -132,7 +132,7 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL로 값을 업데이트해야 합니다. 이러한 값을 얻으려면 [FilesAnywhere 지원 팀](mailto:support@FilesAnywhere.com)에 문의하세요. 
 
-1. FilesAnywhere Software 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대한 다음 클레임을 구성하세요. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+1. FilesAnywhere Software 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대한 다음 클레임을 구성하세요. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
     
     ![Configure Single Sign-On](./media/filesanywhere-tutorial/tutorial_filesanywhere_attribute.png)
     

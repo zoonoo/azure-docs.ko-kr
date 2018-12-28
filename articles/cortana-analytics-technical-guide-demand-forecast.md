@@ -19,7 +19,7 @@ ms.locfileid: "52427066"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 기술 가이드
 ## <a name="overview"></a>**개요**
-솔루션 템플릿은 Cortana Intelligence Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Intelligence 구성 요소로 구독을 프로비전하고 이들 간의 관계를 빌드합니다. 또한 데이터 시뮬레이션 응용 프로그램에서 생성된 샘플 데이터로 데이터 파이프라인을 시드합니다. 제공된 링크에서 데이터 시뮬레이터를 다운로드하고 로컬 컴퓨터에 설치합니다. 시뮬레이터 사용에 대한 지침은 readme.txt 파일을 참조하세요. 시뮬레이터에서 생성된 데이터는 데이터 파이프라인을 하이드레이션하며 Power BI 대시보드에서 시각화할 수 있는 Machine Learning 예측을 생성하기 시작합니다.
+솔루션 템플릿은 Cortana Intelligence Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Intelligence 구성 요소로 구독을 프로비전하고 이들 간의 관계를 빌드합니다. 또한 데이터 시뮬레이션 애플리케이션에서 생성된 샘플 데이터로 데이터 파이프라인을 시드합니다. 제공된 링크에서 데이터 시뮬레이터를 다운로드하고 로컬 컴퓨터에 설치합니다. 시뮬레이터 사용에 대한 지침은 readme.txt 파일을 참조하세요. 시뮬레이터에서 생성된 데이터는 데이터 파이프라인을 하이드레이션하며 Power BI 대시보드에서 시각화할 수 있는 Machine Learning 예측을 생성하기 시작합니다.
 
 솔루션 템플릿은 [여기](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1)
 

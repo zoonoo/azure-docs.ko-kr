@@ -63,11 +63,11 @@ M-Files의 Azure AD 통합을 구성하려면 갤러리의 M-Files를 관리되�
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![애플리케이션][3]
 
@@ -75,7 +75,7 @@ M-Files의 Azure AD 통합을 구성하려면 갤러리의 M-Files를 관리되�
 
     ![Azure AD 테스트 사용자 만들기](./media/m-files-tutorial/tutorial_m-files_search.png)
 
-1. 결과 패널에서 **M-Files**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **M-Files**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/m-files-tutorial/tutorial_m-files_addfromgallery.png)
 
@@ -100,7 +100,7 @@ M-Files에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 **M-Files에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **M-Files** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **M-Files** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -127,12 +127,12 @@ M-Files에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Configure Single Sign-On](./media/m-files-tutorial/tutorial_general_400.png)
 
-1. 응용 프로그램에 대해 SSO를 구성하려면 [M-Files 지원 팀](mailto:support@m-files.com)에 문의하고 다운로드한 메타데이터를 제공합니다.
+1. 애플리케이션에 대해 SSO를 구성하려면 [M-Files 지원 팀](mailto:support@m-files.com)에 문의하고 다운로드한 메타데이터를 제공합니다.
    
     >[!NOTE]
-    >M-Files 데스크톱 응용 프로그램에 대한 SSO를 구성하려면 다음 단계를 따릅니다. M-Files 웹 버전에 대해서만 SSO를 구성하려는 경우 추가 단계가 필요하지 않습니다.  
+    >M-Files 데스크톱 애플리케이션에 대한 SSO를 구성하려면 다음 단계를 따릅니다. M-Files 웹 버전에 대해서만 SSO를 구성하려는 경우 추가 단계가 필요하지 않습니다.  
 
-1. 다음 단계에 따라 Azure AD에서 SSO를 사용하도록 M-Files 데스크톱 응용 프로그램을 구성합니다. M-Files를 다운로드하려면 [M-Files 다운로드](https://www.m-files.com/en/download-latest-version) 페이지로 이동합니다.
+1. 다음 단계에 따라 Azure AD에서 SSO를 사용하도록 M-Files 데스크톱 애플리케이션을 구성합니다. M-Files를 다운로드하려면 [M-Files 다운로드](https://www.m-files.com/en/download-latest-version) 페이지로 이동합니다.
 
 1. **M-Files 데스크톱 설정** 창을 엽니다. 그런 다음 **추가**를 클릭합니다.
    

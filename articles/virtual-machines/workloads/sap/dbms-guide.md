@@ -323,7 +323,7 @@ ms.locfileid: "42146069"
 * IaaS: 서비스 제공 인프라
 * PaaS: Platform as a Service
 * SaaS: Software as a Service.
-* SAP 구성 요소: ECC, BW, Solution Manager 또는 EP 등의 개별 SAP 응용 프로그램.  SAP 구성 요소는 기존의 ABAP 또는 Java 기술을 기반으로 하거나 비즈니스 개체와 같은 비NetWeaver 기반 응용 프로그램을 기반으로 사용할 수 있습니다.
+* SAP 구성 요소: ECC, BW, Solution Manager 또는 EP 등의 개별 SAP 애플리케이션.  SAP 구성 요소는 기존의 ABAP 또는 Java 기술을 기반으로 하거나 비즈니스 개체와 같은 비NetWeaver 기반 응용 프로그램을 기반으로 사용할 수 있습니다.
 * SAP 환경: 하나 이상의 SAP 구성 요소가 논리적으로 그룹화되어 개발, QAS, 교육, DR 또는 프로덕션과 같은 비즈니스 기능을 수행합니다.
 * SAP 배경: 고객 IT 환경의 전체 SAP 자산입니다. SAP 지형에는 모든 프로덕션 및 비프로덕션 환경이 포함됩니다.
 * SAP 시스템: SAP ERP 개발 시스템, SAP BW 테스트 시스템, SAP CRM 프로덕션 시스템 등의 응용 프로그램 계층과 DBMS 계층의 조합입니다. Azure 배포에서는 온-프레미스와 Azure 간에 이러한 두 계층을 나눌 수 없습니다. 즉, SAP 시스템은 온-프레미스에 배포되거나 Azure에 배포됩니다. 그러나 Azure 또는 온-프레미스에는 SAP 배경의 서로 다른 시스템을 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포할 수 있지만 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다.
@@ -758,7 +758,7 @@ Microsoft는 Azure Marketplace에서 이미 SQL Server를 포함하는 버전의
 * Azure Marketplace에서 제공되는 VM에 설치되는 SQL Server 인스턴스의 데이터 정렬은 SAP NetWeaver에서 SQL Server 인스턴스를 실행하는 데 필요한 데이터 정렬이 아닙니다. 다음 섹션의 지침을 사용하여 데이터 정렬을 변경할 수 있습니다.
 
 #### <a name="changing-the-sql-server-collation-of-a-microsoft-windowssql-server-vm"></a>Microsoft Windows/SQL Server VM의 SQL Server 데이터 정렬 변경
-Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 응용 프로그램에서 요구하는 데이터 정렬을 사용하도록 설정되어 있지 않으므로 배포 후 즉시 변경해야 합니다. SQL Server 2012의 경우 VM을 배포하자마자 다음 단계를 통해 이 작업을 수행할 수 있으며 관리자가 배포된 VM에 로그인할 수 있습니다.
+Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 애플리케이션에서 요구하는 데이터 정렬을 사용하도록 설정되어 있지 않으므로 배포 후 즉시 변경해야 합니다. SQL Server 2012의 경우 VM을 배포하자마자 다음 단계를 통해 이 작업을 수행할 수 있으며 관리자가 배포된 VM에 로그인할 수 있습니다.
 
 * 관리자 권한으로 Windows 명령 창을 엽니다.
 * 디렉터리를 C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012로 변경합니다.
@@ -1318,7 +1318,7 @@ Azure에서 지원되는 SAP liveCache용 Microsoft Windows 버전을 찾으려�
 
 ### <a name="sap-livecache-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 SAP liveCache 구성 지침
 #### <a name="recommended-azure-vm-types"></a>권장되는 Azure VM 유형
-SAP liveCache는 많은 계산을 수행하는 응용 프로그램이므로 RAM과 CPU의 양 및 속도가 SAP liveCache 성능에 큰 영향을 줍니다. 
+SAP liveCache는 많은 계산을 수행하는 애플리케이션이므로 RAM과 CPU의 양 및 속도가 SAP liveCache 성능에 큰 영향을 줍니다. 
 
 SAP에서 지원하는 Azure VM 형식(SAP Note [1928533])의 경우, VM에 할당된 모든 가상 CPU 리소스가 하이퍼바이저의 전용 물리적 CPU 리소스에 의해 지원됩니다. 오버프로비저닝이 발생되지 않습니다(따라서 CPU 리소스에 대한 경쟁 없음).
 
@@ -1341,7 +1341,7 @@ SAP liveCache는 컴퓨팅 기능을 집중적으로 사용하므로 생산적�
 다른 일반적 영역은 모두 SAP MaxDB 관련의 [이][dbms-guide-8.4.4] 챕터에서 이미 설명하고 있습니다. 
 
 ## <a name="specifics-for-the-sap-content-server-on-windows"></a>Windows의 SAP Content Server에 대한 고유 정보
-SAP Content Server는 다양한 형식의 전자 문서와 같은 콘텐츠를 저장하기 위한 별도의 서버 기반 구성 요소입니다. SAP Content Server는 기술 개발을 통해 제공되며 SAP 응용 프로그램의 응용 프로그램 간에 사용됩니다. 별도의 시스템에 설치됩니다. 일반적인 콘텐츠는 기술 웨어하우스 설명서 또는 mySAP PLM 문서 관리 시스템의 기술 드로잉 및 교육 자료입니다. 
+SAP Content Server는 다양한 형식의 전자 문서와 같은 콘텐츠를 저장하기 위한 별도의 서버 기반 구성 요소입니다. SAP Content Server는 기술 개발을 통해 제공되며 SAP 애플리케이션의 애플리케이션 간에 사용됩니다. 별도의 시스템에 설치됩니다. 일반적인 콘텐츠는 기술 웨어하우스 설명서 또는 mySAP PLM 문서 관리 시스템의 기술 드로잉 및 교육 자료입니다. 
 
 ### <a name="sap-content-server-version-support"></a>SAP Content Server 버전 지원
 SAP에서 현재 다음을 지원합니다.

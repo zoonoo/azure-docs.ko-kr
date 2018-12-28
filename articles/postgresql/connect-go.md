@@ -29,7 +29,7 @@ ms.locfileid: "49986484"
 ## <a name="install-go-and-pq-connector"></a>Go 및 pq 커넥터 설치
 사용자 컴퓨터에 [Go](https://golang.org/doc/install) 및 [Pure Go Postgres 드라이버(pq)](https://github.com/lib/pq)를 설치합니다. 사용하는 플랫폼에 따라 적절한 단계를 수행합니다.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 1. [설치 지침](https://golang.org/doc/install)에 따라 Microsoft Windows용 Go를 [다운로드](https://golang.org/dl/)하고 설치합니다.
 2. [시작] 메뉴에서 [명령 프롬프트]를 선택합니다.
 3. `mkdir  %USERPROFILE%\go\src\postgresqlgo`와 같이 프로젝트에 폴더를 만듭니다.
@@ -93,7 +93,7 @@ PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가�
 3. 코드에서 `HOST`, `DATABASE`, `USER` 및 `PASSWORD` 상수를 찾아 예제 값을 사용자 고유의 값으로 바꿉니다.  
 4. 명령 프롬프트 또는 Bash 셸을 시작합니다. 디렉터리를 프로젝트 폴더로 변경합니다. 예를 들어 Windows에서는 `cd %USERPROFILE%\go\src\postgresqlgo\`이고, Linux에서는 `cd ~/go/src/postgresqlgo/`를 실행합니다. 언급된 일부 IDE 환경에서는 셸 명령 없이 디버그 및 런타임 기능을 제공합니다.
 5. `go run createtable.go` 명령을 입력하여 코드를 실행하고 응용 프로그램을 컴파일한 후 실행합니다. 
-6. 또는 원시 응용 프로그램 `go build createtable.go`에 코드를 빌드하려면 `createtable.exe`를 시작하여 응용 프로그램을 실행합니다.
+6. 또는 원시 애플리케이션 `go build createtable.go`에 코드를 빌드하려면 `createtable.exe`를 시작하여 애플리케이션을 실행합니다.
 
 ## <a name="connect-and-create-a-table"></a>테이블 연결 및 생성
 **CREATE TABLE** SQL 문 다음에 테이블에 행을 추가하는 **INSERT INTO** SQL 문을 사용하여 테이블을 연결 및 생성하려면 다음 코드를 사용합니다.

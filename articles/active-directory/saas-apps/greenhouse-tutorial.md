@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 7f48a0c11beb038370a8fc00e64d87127d356dec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 14cdf0ddf648fb4441785106d3a8123d73a4bde9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424746"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>자습서: Greenhouse와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Greenhouse와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Greenhouse 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -112,7 +112,7 @@ Greenhouse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<companyname>.greenhouse.io`
 
-    나. **식별자** 텍스트 상자에서 `https://<companyname>.greenhouse.io` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<companyname>.greenhouse.io` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Greenhouse 클라이언트 지원 팀](https://www.greenhouse.io/contact)에 문의하세요. 
@@ -127,10 +127,10 @@ Greenhouse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-On 구성 저장 단추](./media/greenhouse-tutorial/tutorial_general_400.png)
 
-1. **Greenhouse** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [Greenhouse 지원 팀](http://www.greenhouse.io/contact)에 보내야 합니다.
+1. **Greenhouse** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [Greenhouse 지원 팀](https://www.greenhouse.io/contact)에 보내야 합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -190,7 +190,7 @@ Azure AD 사용자가 Greenhouse에 로그인할 수 있도록 하려면 Greenho
 
    a. **사용자 전자 메일 입력** 텍스트 상자에서 프로비전하려는 유효한 Azure Active Directory 계정의 전자 메일 주소를 입력합니다.
 
-   나. **저장**을 클릭합니다.    
+   b. **저장**을 클릭합니다.    
    
       >[!NOTE]
       >Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.

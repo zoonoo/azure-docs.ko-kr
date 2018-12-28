@@ -1,6 +1,6 @@
 ---
-title: Azure Search .NET SDK 버전 3으로 업그레이드 | Microsoft Docs
-description: Azure Search .NET SDK 버전 3으로 업그레이드
+title: Azure Search .NET SDK 버전 3으로 업그레이드 - Azure Search
+description: 이전 버전에서 Azure Search .NET SDK 버전 3으로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 161d22e0ff4ec4ab28107919a80ecc48cd027967
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 4acf609ca1f81e69babfa1a319b43e20e84a8395
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793480"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317256"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK 버전 3으로 업그레이드
 버전 2.0-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 통해 버전 3으로 응용 프로그램을 업그레이드할 수 있습니다.
@@ -35,7 +36,7 @@ Azure Search .NET SDK 버전 3은 Azure Search REST API의 최신 일반 공급 
 
 * [사용자 지정 분석기](https://aka.ms/customanalyzers)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) 및 [Azure Table Storage](search-howto-indexing-azure-tables.md) 인덱서 지원
-* [필드 매핑](search-indexer-field-mappings.md)
+*  [필드 매핑](search-indexer-field-mappings.md)
 * 인덱스 정의, 인덱서 및 데이터 원본의 안전한 동시 업데이트를 가능하게 하는 Etag 지원
 * 모델 클래스를 데코레이트하고 새 `FieldBuilder` 클래스를 사용하여 인덱스 필드 정의를 선언적으로 지원
 * .NET Core와 .NET 이식 가능 프로필 111에 대한 지원

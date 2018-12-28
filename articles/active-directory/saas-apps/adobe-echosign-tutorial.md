@@ -232,7 +232,7 @@ Azure AD 사용자가 Adobe Sign에 로그인할 수 있도록 하려면 Adobe S
 
     ![엔터프라이즈 애플리케이션 및 모든 애플리케이션이 강조 표시된 Azure Portal 애플리케이션 보기의 스크린샷][201] 
 
-2. 응용 프로그램 목록에서 **Adobe Sign**을 선택합니다.
+2. 애플리케이션 목록에서 **Adobe Sign**을 선택합니다.
 
     ![Adobe Sign이 강조 표시된 애플리케이션 목록의 스크린샷](./media/adobe-echosign-tutorial/tutorial_adobesign_app.png) 
 

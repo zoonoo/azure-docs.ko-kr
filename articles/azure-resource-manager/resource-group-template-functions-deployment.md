@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 12/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 725bc41f96359d4bf0d9d570f73f91dba5da2cab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d802af1d48405518f26f4b52ecc3023cbb15caff
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358237"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407357"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 배포 함수 
 
@@ -86,6 +86,8 @@ Resource Manager는 템플릿의 섹션에서 값을 가져오고 배포와 관�
 }
 ```
 
+리소스 그룹 대신 [Azure 구독에 배포](deploy-to-subscription.md)할 때 반환 개체에는 `location` 속성이 포함됩니다. 로컬 템플릿 또는 외부 템플릿을 배포할 때 위치 속성이 포함됩니다.
+
 ### <a name="remarks"></a>설명
 
 deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다른 템플릿에 연결할 수 있습니다.
@@ -150,6 +152,8 @@ PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
+배포 기능을 사용하는 구독 수준 템플릿의 경우 [구독 배포 기능](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json)을 참조하세요. `az deployment create` 또는 `New-AzureRmDeployment` 명령을 사용하여 배포됩니다.
+
 <a id="parameters" />
 
 ## <a name="parameters"></a>매개 변수
@@ -159,9 +163,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| parameterName |예 |string |반환할 매개 변수의 이름입니다. |
+| parameterName |yes |string |반환할 매개 변수의 이름입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -275,9 +279,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| variableName |예 |문자열 |반환할 변수의 이름입니다. |
+| variableName |yes |문자열 |반환할 변수의 이름입니다. |
 
 ### <a name="return-value"></a>반환 값
 

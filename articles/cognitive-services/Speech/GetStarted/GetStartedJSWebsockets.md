@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 79f2aa9c3e73037aa25848b7d11c34a73bf35f64
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f212e2555b6097912628791635a539bc488d4979
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342401"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413169"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>JavaScript에서 Speech Recognition API 시작
 
@@ -34,10 +34,10 @@ Speech API는 Cognitive Services의 일부입니다. [Cognitive Services 구독]
 
 ## <a name="get-started"></a>시작하기
 
-이 섹션에서는 샘플 HTML 페이지를 로드하는 데 필요한 단계를 안내합니다. 샘플은 [github 리포지토리](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript)에 있습니다. 리포지토리에서 **직접 샘플을 열거나** 리포지토리의 **로컬 복사본에서 샘플을 열 수 있습니다**. 
+이 섹션에서는 샘플 HTML 페이지를 로드하는 데 필요한 단계를 안내합니다. 샘플은 [GitHub 리포지토리](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript)에 있습니다. 리포지토리에서 **직접 샘플을 열거나** 리포지토리의 **로컬 복사본에서 샘플을 열 수 있습니다**.
 
 > [!NOTE]
-> 일부 브라우저는 보안되지 않은 원본에서 마이크를 액세스하지 못하도록 차단합니다. 따라서 https에서 '샘플'/'앱'을 호스팅하여 지원되는 모든 브라우저에서 작동하도록 하는 것이 좋습니다. 
+> 일부 브라우저는 보안되지 않은 원본에서 마이크를 액세스하지 못하도록 차단합니다. 따라서 https에서 '샘플'/'앱'을 호스팅하여 지원되는 모든 브라우저에서 작동하도록 하는 것이 좋습니다.
 
 ### <a name="open-the-sample-directly"></a>샘플 직접 열기
 

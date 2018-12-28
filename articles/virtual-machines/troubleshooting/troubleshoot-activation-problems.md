@@ -37,7 +37,7 @@ Azure는 VM이 상주하는 클라우드 영역에 따라 KMS 정품 인증에 �
 
 Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류 메시지가 표시됩니다.
 
-**오류: 0xC004F074 보고된 소프트웨어 라이센싱 서비스를 컴퓨터에서 활성화할 수 없습니다. KMS(Key Management Service)를 연결할 수 없습니다. 추가 정보는 응용 프로그램 이벤트 로그를 참조하세요.**
+**오류: 0xC004F074 보고된 소프트웨어 라이센싱 서비스를 컴퓨터에서 활성화할 수 없습니다. KMS(Key Management Service)를 연결할 수 없습니다. 추가 정보는 애플리케이션 이벤트 로그를 참조하세요.**
 
 ## <a name="cause"></a>원인
 일반적으로 Azure VM 정품 인증 문제는 Windows VM이 적절한 KMS 클라이언트 설정 키를 사용하여 구성되어 있지 않거나 Windows VM에 Azure KMS 서비스(kms.core.windows.net, 포트 1668)에 대한 연결 문제가 있는 경우에 발생합니다. 

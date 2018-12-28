@@ -24,11 +24,11 @@ ms.locfileid: "51237098"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 및 Azure Active Directory에 대한 페더레이션 인증서 갱신
 ## <a name="overview"></a>개요
-Azure AD(Azure Active Directory)와 AD FS(Active Directory Federation Services) 간의 성공적인 페더레이션을 위해 AD FS에서 Azure AD에 대한 보안 토큰을 서명하는 데 사용하는 인증서는 Azure AD에서 구성된 인증서와 일치해야 합니다. 불일치로 인해 끊어진 트러스트가 발생할 수 있습니다. 엑스트라넷에 액세스하기 위해 AD FS 및 웹 응용 프로그램 프록시를 배포하는 경우 Azure AD는 이 정보의 동기화를 유지합니다.
+Azure AD(Azure Active Directory)와 AD FS(Active Directory Federation Services) 간의 성공적인 페더레이션을 위해 AD FS에서 Azure AD에 대한 보안 토큰을 서명하는 데 사용하는 인증서는 Azure AD에서 구성된 인증서와 일치해야 합니다. 불일치로 인해 끊어진 트러스트가 발생할 수 있습니다. 엑스트라넷에 액세스하기 위해 AD FS 및 웹 애플리케이션 프록시를 배포하는 경우 Azure AD는 이 정보의 동기화를 유지합니다.
 
 이 문서에서는 다음과 같은 경우 토큰 서명 인증서를 관리하고 Azure AD와 동기화하는 추가 정보를 제공합니다.
 
-* 웹 응용 프로그램 프록시를 배포하지 않았고 따라서 엑스트라넷에서 페더레이션 메타데이터를 사용할 수 없습니다.
+* 웹 애플리케이션 프록시를 배포하지 않았고 따라서 엑스트라넷에서 페더레이션 메타데이터를 사용할 수 없습니다.
 * 토큰 서명 인증서에 AD FS의 기본 구성을 사용하지 않는 경우.
 * 타사 ID 공급자를 사용하는 경우.
 
@@ -106,14 +106,14 @@ Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서
 ## 토큰 서명 인증서를 자동으로 갱신(권장됨) <a name="autorenew"></a>
 다음 두 가지가 true일 경우 수동 단계를 수행할 필요가 없습니다.
 
-* 엑스트라넷에서 페더레이션 메타데이터에 액세스할 수 있는 웹 응용 프로그램 프록시를 배포했습니다.
+* 엑스트라넷에서 페더레이션 메타데이터에 액세스할 수 있는 웹 애플리케이션 프록시를 배포했습니다.
 * AD FS 기본 구성(AutoCertificateRollover 사용)을 사용합니다.
 
 다음을 확인하여 인증서를 자동으로 업데이트할 수 있는지 확인합니다.
 
 **1. AD FS 속성 AutoCertificateRollover를 True로 설정해야 합니다.** 이는 기존 항목이 만료되기 전에 AD FS가 자동으로 새 토큰 서명 및 토큰 암호 해독 인증서를 생성함을 의미합니다.
 
-**2. AD FS 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다.** 공용 인터넷(회사 네트워크 외부)에 있는 컴퓨터에서 다음 URL로 이동하여 공개적으로 페더레이션 메타 데이터에 액세스할 수 있는지 확인합니다.
+**2. AD FS 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다.**  공용 인터넷(회사 네트워크 외부)에 있는 컴퓨터에서 다음 URL로 이동하여 공개적으로 페더레이션 메타 데이터에 액세스할 수 있는지 확인합니다.
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 

@@ -1,6 +1,6 @@
 ---
 title: Socket.io를 사용하는 Node.js 응용 프로그램 - Azure
-description: Azure에 호스트된 node.js 응용 프로그램에서 socket.io를 사용하는 방법을 알아봅니다.
+description: Azure에 호스트된 node.js 애플리케이션에서 socket.io를 사용하는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: nodejs
 author: jpconnock
@@ -150,7 +150,7 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
 > 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure 클라우드 서비스에 호스팅된 기본 채팅 응용 프로그램을 만드는 방법을 학습했습니다. 이 응용 프로그램을 Azure 웹 사이트에 호스트하는 방법을 학습하려면 [Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드][chatwebsite]를 참조하세요.
+이 자습서에서는 Azure 클라우드 서비스에 호스팅된 기본 채팅 애플리케이션을 만드는 방법을 학습했습니다. 이 애플리케이션을 Azure 웹 사이트에 호스트하는 방법을 학습하려면 [Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드][chatwebsite]를 참조하세요.
 
 자세한 내용은 [Node.js 개발자 센터](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)도 참조하세요.
 

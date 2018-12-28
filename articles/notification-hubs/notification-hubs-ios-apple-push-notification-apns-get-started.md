@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시 | Microsoft Docs
-description: 이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램으로 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 애플리케이션으로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ios
 keywords: 푸시 알림, 푸시알림,ios 푸시 알림
@@ -77,7 +77,7 @@ ms.locfileid: "49353971"
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Notification Hubs에 iOS 앱 연결
 
-1. Xcode에서 새 iOS 프로젝트를 만들고 **응용 프로그램 단일 보기** 템플릿을 선택합니다.
+1. Xcode에서 새 iOS 프로젝트를 만들고 **애플리케이션 단일 보기** 템플릿을 선택합니다.
 
     ![Xcode - 단일 보기 응용 프로그램][8]
 

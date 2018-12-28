@@ -229,7 +229,7 @@ _**그림 1:** 두 클러스터에 배포된 SAP ASCS/SCS 인스턴스 및 SOFS_
 > * SAP ASCS/SCS 인스턴스는 동일한 WSFC 클러스터를 공유해야 합니다.
 > * 서로 다른 SAP SID에 속한 서로 다른 SAP 글로벌 호스트 파일 공유는 동일한 SOFS 클러스터를 공유해야 합니다.
 > * 각 DBMS(데이터베이스 관리 시스템) SID에는 해당하는 고유한 전용 WSFC 클러스터가 있어야 합니다.
-> * 하나의 SAP 시스템 SID에 속하는 SAP 응용 프로그램 서버에는 고유한 전용 VM이 있어야 합니다.
+> * 하나의 SAP 시스템 SID에 속하는 SAP 애플리케이션 서버에는 고유한 전용 VM이 있어야 합니다.
 
 ## <a name="sap-ascsscs-multi-sid-architecture-with-file-share"></a>파일 공유를 사용하는 SAP ASCS 다중 SID 아키텍처
 

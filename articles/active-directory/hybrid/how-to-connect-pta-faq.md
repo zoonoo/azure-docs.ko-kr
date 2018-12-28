@@ -44,7 +44,7 @@ ms.locfileid: "52619823"
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>통과 인증은 "userPrincipalName" 대신 "Alternate ID"를 사용자 이름으로 지원하나요?
 
-예, 통과 인증은 Azure AD Connect에서 구성될 때 `Alternate ID`를 사용자 이름으로 지원합니다. 전제 조건으로 Azure AD Connect는 온-프레미스 Active Directory `UserPrincipalName` 특성을 Azure AD로 동기화해야 합니다. 자세한 내용은 [Azure AD Connect의 사용자 지정 설치](how-to-connect-install-custom.md)를 참조하세요. 모든 Office 365 응용 프로그램에서 `Alternate ID`를 지원하지는 않습니다. 특정 응용 프로그램의 설명서 지원 부분을 참조하세요.
+예, 통과 인증은 Azure AD Connect에서 구성될 때 `Alternate ID`를 사용자 이름으로 지원합니다. 전제 조건으로 Azure AD Connect는 온-프레미스 Active Directory `UserPrincipalName` 특성을 Azure AD로 동기화해야 합니다. 자세한 내용은 [Azure AD Connect의 사용자 지정 설치](how-to-connect-install-custom.md)를 참조하세요. 모든 Office 365 애플리케이션에서 `Alternate ID`를 지원하지는 않습니다. 특정 응용 프로그램의 설명서 지원 부분을 참조하세요.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화가 통과 인증을 대체하는 역할을 하나요?
 

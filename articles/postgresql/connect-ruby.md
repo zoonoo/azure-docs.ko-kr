@@ -19,7 +19,7 @@ ms.lasthandoff: 10/24/2018
 ms.locfileid: "49985032"
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Ruby를 사용하여 데이터 연결 및 쿼리
-이 빠른 시작에서는 [Ruby](https://www.ruby-lang.org) 응용 프로그램을 사용하여 PostgreSQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Ruby를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
+이 빠른 시작에서는 [Ruby](https://www.ruby-lang.org) 애플리케이션을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Ruby를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "49985032"
 ## <a name="install-ruby"></a>Ruby 설치
 사용자의 컴퓨터에 Ruby를 설치합니다. 
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 - 최신 버전의 [Ruby](https://rubyinstaller.org/downloads/)를 다운로드하여 설치합니다.
 - MSI 설치 관리자 마침 화면에서 "MSYS2 및 개발 도구 체인을 설치하려면 'ridk install' 실행"이라는 상자를 선택합니다. 그런 다음 **마침**을 클릭하여 다음 설치 관리자를 시작합니다.
 - Windows용 RubyInstaller2 설치 관리자가 시작됩니다. MSYS2 리포지토리 업데이트를 설치하려면 2를 입력합니다. 완료되고 설치 프롬프트로 돌아오면 명령 창을 닫습니다.
@@ -55,7 +55,7 @@ ms.locfileid: "49985032"
 
 ## <a name="run-ruby-code"></a>Ruby 코드 실행 
 - 코드를 .rb 파일 확장자를 사용하여 텍스트 파일에 저장하고 `C:\rubypostgres\read.rb` 또는 `/home/username/rubypostgres/read.rb`와 같은 프로젝트 폴더에 파일을 저장합니다.
-- 코드를 실행하려면 명령 프롬프트 또는 Bash 셸을 시작합니다. 프로젝트 폴더 `cd rubypostgres`로 디렉터리를 변경한 후 `ruby read.rb` 명령을 입력하여 응용 프로그램을 실행합니다.
+- 코드를 실행하려면 명령 프롬프트 또는 Bash 셸을 시작합니다. 프로젝트 폴더 `cd rubypostgres`로 디렉터리를 변경한 후 `ruby read.rb` 명령을 입력하여 애플리케이션을 실행합니다.
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.

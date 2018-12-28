@@ -1,11 +1,12 @@
 ---
 title: 데이터 과학 Virtual Machine 데이터 수집 도구-Azure | Microsoft Docs
-description: 데이터 과학 Virtual Machine 데이터 수집 도구
+description: 데이터 과학 가상 머신에 미리 설치된 데이터 수집 도구 및 유틸리티에 대해 알아봅니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 7aeb0476fffb8c9e5cf2b0b5d89a2a387bd6364a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 75f068a857be33337348958fbc472f37f6d84e12
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411348"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075858"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>데이터 과학 Virtual Machine 데이터 수집 도구
 

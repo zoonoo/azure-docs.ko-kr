@@ -1,11 +1,12 @@
 ---
 title: 데이터 과학 Virtual Machine에 대한 데이터 플랫폼 - Azure | Microsoft Docs
-description: 데이터 과학 Virtual Machine에 대한 데이터 플랫폼.
+description: Data Science Virtual Machine에서 지원되는 데이터 플랫폼 및 도구에 대해 알아봅니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,14 +16,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b3f340006801287383c2afb2924706affbd77a51
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f73f90b76900a3a5213297f8a28ff13204852039
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411032"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105550"
 ---
-# <a name="data-platforms"></a>데이터 플랫폼
+# <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 지원되는 데이터 플랫폼
 
 데이터 과학 Virtual Machine(DSVM)을 사용하여 광범위한 데이터 플랫폼에 대한 분석을 빌드할 수 있습니다. 원격 데이터 플랫폼에 대 한 인터페이스를 외에도 DSVM 신속 하 게 개발 및 프로토타입 생성에 대 한 로컬 인스턴스를 제공합니다. 
 

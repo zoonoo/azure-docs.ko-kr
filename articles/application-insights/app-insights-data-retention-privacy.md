@@ -9,16 +9,15 @@ ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1994c714f691177b526b44e277fea705d18b4335
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 613e0f51ae7bbb0b295f13d50fc95683085d7da9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245701"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995814"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 저장소
 
@@ -29,14 +28,14 @@ ms.locfileid: "51245701"
 * "초기"를 실행하는 표준 원격 분석 모듈은 서비스에 중요한 데이터를 전송하지 않을 가능성이 있습니다. 원격 분석은 로드, 성능 및 사용 현황 메트릭, 예외 보고서 및 기타 진단 데이터와 관련되어 있습니다. 진단 보고서에 표시되는 기본 사용자 데이터는 URL입니다. 하지만 앱은 어떤 경우에도 URL에 일반 텍스트로 중요한 데이터를 배치하지 않아야 합니다.
 * 추가 사용자 지정 원격 분석을 보내는 코드를 작성하여 사용 현황의 진단 및 모니터링을 도울 수 있습니다. (이 확장성은 Application Insights의 매우 유용한 기능입니다.) 실수로 개인 및 기타 중요한 데이터가 포함되도록 이 코드를 작성할 수 있습니다. 응용 프로그램이 이러한 데이터를 사용하여 작동하는 경우 작성하는 모든 코드에 철저한 검토 프로세스를 적용해야 합니다.
 * 앱을 개발하고 테스트하는 동안 SDK에서 보낼 항목을 검사하기 쉽습니다. IDE 및 브라우저의 디버깅 출력 창에 데이터가 나타납니다. 
-* 데이터는 미국 또는 유럽의 [Microsoft Azure](http://azure.com) 서버에 저장됩니다. 그러나 앱은 어디서나 실행할 수 있습니다. Azure는 [강력한 보안 프로세스를 가지고 광범위한 규정 준수 표준을 충족](https://azure.microsoft.com/support/trust-center/)합니다. 사용자와 지정된 팀만 데이터에 액세스할 수 있습니다. Microsoft 직원은 지식으로 제한된 특정 상황에서만 해당 데이터에 제한된 액세스 권한을 갖을 수 있습니다. 서버에 없더라도 전송 중에 암호화됩니다.
+* 데이터는 미국 또는 유럽의 [Microsoft Azure](https://azure.com) 서버에 저장됩니다. 그러나 앱은 어디서나 실행할 수 있습니다. Azure는 [강력한 보안 프로세스를 가지고 광범위한 규정 준수 표준을 충족](https://azure.microsoft.com/support/trust-center/)합니다. 사용자와 지정된 팀만 데이터에 액세스할 수 있습니다. Microsoft 직원은 지식으로 제한된 특정 상황에서만 해당 데이터에 제한된 액세스 권한을 갖을 수 있습니다. 서버에 없더라도 전송 중에 암호화됩니다.
 
 이 문서의 나머지 부분에서는 이러한 대답에 대해 더 자세하게 설명합니다. 자체 포함되도록 설계되어 소속 팀에 속하지 않은 동료에게 표시할 수 있습니다.
 
 ## <a name="what-is-application-insights"></a>Application Insights란?
 [Azure Application Insights][start]는 라이브 응용 프로그램의 성능 및 가용성을 향상시키는 Microsoft에서 제공하는 서비스입니다. 테스트 중인 경우 및 게시하거나 배포한 후에 실행 중인 모든 시간 동안 응용 프로그램을 모니터링합니다. 예를 들어 Application Insights는 많은 사용자를 가져오는 시간, 앱이 얼마나 반응하는지, 종속된 외부 서비스에서 얼마나 잘 제공되는지를 보여주는 차트 및 테이블을 만듭니다. 충돌, 오류 또는 성능 문제가 있는 경우 세부 정보에서 원격 분석 데이터를 통해 검색하여 원인을 진단할 수 있습니다. 그리고 앱의 성능과 가용성에 변경 사항이 있는 경우 서비스는 사용자에게 전자 메일을 보냅니다.
 
-이 기능을 가져오기 위해 응용 프로그램에서 해당 코드의 일부가 되는 Application Insights SDK를 설치합니다. 앱이 실행 중일 때 SDK는 작업을 모니터링하고 Application Insights 서비스에 원격 분석을 보냅니다. [Microsoft Azure](http://azure.com)에서 호스팅하는 클라우드 서비스입니다. (하지만 Application Insights는 Azure에서 호스팅되는 서비스가 아닌 모든 응용 프로그램에 대해 작동합니다.)
+이 기능을 가져오기 위해 응용 프로그램에서 해당 코드의 일부가 되는 Application Insights SDK를 설치합니다. 앱이 실행 중일 때 SDK는 작업을 모니터링하고 Application Insights 서비스에 원격 분석을 보냅니다. [Microsoft Azure](https://azure.com)에서 호스팅하는 클라우드 서비스입니다. (하지만 Application Insights는 Azure에서 호스팅되는 서비스가 아닌 모든 응용 프로그램에 대해 작동합니다.)
 
 ![앱의 SDK Application Insights은 서비스에 원격 분석을 보냅니다.](./media/app-insights-data-retention-privacy/01-scheme.png)
 
@@ -103,9 +102,8 @@ Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사�
 ## <a name="where-is-the-data-held"></a>데이터가 저장되는 위치는 어디인가요?
 * 미국, 유럽 또는 동남 아시아에 있습니다. 새 Application Insights 리소스를 만들 때 위치를 선택할 수 있습니다. 
 
-
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>내 앱을 미국, 유럽 또는 동남 아시아에서 호스트해야 한다는 뜻인가요?
-*  아니요. 응용 프로그램은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
+*  아니요. 애플리케이션은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
 
 ## <a name="how-secure-is-my-data"></a>내 데이터는 어느 정도 안전한가요?
 Application Insights는 Azure 서비스입니다. 보안 정책은 [Azure 보안, 개인 정보 보호 및 규정 준수 백서](https://go.microsoft.com/fwlink/?linkid=392408)에 설명되어 있습니다.
@@ -206,7 +204,7 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 |.NET | 지원됨, 구성이 버전에 따라 다릅니다. | .NET 4.7 이전 버전에 대한 자세한 구성 정보는 [이러한 지침](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 참조하세요.  |
 |상태 모니터 | 지원됨, 구성이 필요합니다. | 상태 모니터는 [OS 구성](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 구성](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 사용하여 TLS 1.2를 지원합니다.
 |Node.js |  지원됨, v10.5.0에서 구성이 필요할 수 있습니다. | 응용 프로그램 특정 구성에 대해 [공식 Node.js TLS/SSL 설명서](https://nodejs.org/api/tls.html)를 사용합니다. |
-|자바 | 지원됨, TLS 1.2에 대한 JDK 지원이 [JDK 6 업데이트 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 및 [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html)에서 추가되었습니다. | JDK 8은 [기본적으로 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)를 사용합니다.  |
+|자바 | 지원됨, TLS 1.2에 대한 JDK 지원이 [JDK 6 업데이트 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 및 [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html)에서 추가되었습니다. | JDK 8은 [기본적으로 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)를 사용합니다.  |
 |Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다.  | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
 | Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
 | Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면 |
@@ -232,7 +230,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Application Insights에 저장된 개인 데이터
 
-[Application Insights 개인 데이터 아티클](../log-analytics/log-analytics-personal-data-mgmt.md)에서는 이 문제를 자세히 설명합니다.
+[Application Insights 개인 데이터 아티클](../azure-monitor/platform/personal-data-mgmt.md)에서는 이 문제를 자세히 설명합니다.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>내 사용자가 Application Insights를 끌 수 있나요?
 직접 끌 수는 없습니다. 사용자가 Application Insights를 끄기 위해 작동할 수 있는 스위치는 제공되지 않습니다.
@@ -282,8 +280,11 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 
 [ApplicationInsights.config를 편집하여 일부 데이터를 해제][config]할 수 있습니다.
 
+> [!NOTE]
+> 클라이언트 IP는 지리적 위치를 유추하는 데 사용되지만 기본적으로 IP 데이터는 더 이상 저장되지 않으며 모든 0은 연결된 필드에 기록됩니다. 개인 데이터 처리에 대한 자세한 내용은 이 [문서](../azure-monitor/platform/personal-data-mgmt.md#application-data)를 권장합니다. IP 주소를 저장해야 하는 경우 [원격 분석 이니셜라이저](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer)를 사용하여 수행할 수 있습니다.
+
 ## <a name="credits"></a>크레딧
-이 제품은 [http://www.maxmind.com](http://www.maxmind.com)에 있는 MaxMind에서 작성된 GeoLite2 데이터를 포함합니다.
+이 제품은 [https://www.maxmind.com](https://www.maxmind.com)에 있는 MaxMind에서 작성된 GeoLite2 데이터를 포함합니다.
 
 
 
@@ -296,7 +297,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 [greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 

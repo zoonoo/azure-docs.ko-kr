@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
-ms.openlocfilehash: a5f07d02bfe4032d77a17e5972b88f6530125f28
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 91d28802b4af23da5b8060fa7c8f9a7e843a7dab
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634971"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840268"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Azure에서 SendGrid를 사용하여 전자 메일을 보내는 방법
 ## <a name="overview"></a>개요
@@ -43,7 +43,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 [SendGrid NuGet 패키지](https://www.nuget.org/packages/Sendgrid) 는 SendGrid API를 가져오고 응용 프로그램에서 종속성을 모두 갖도록 구성하는 가장 쉬운 방법입니다. NuGet은 Microsoft Visual Studio 2015 이상에 포함된 Visual Studio 확장 프로그램으로서 라이브러리 및 도구를 쉽게 설치하고 업데이트할 수 있습니다.
 
 > [!NOTE]
-> Visual Studio 2015보다 이전 버전의 Visual Studio를 실행 중인 경우 NuGet을 설치하려면 [http://www.nuget.org](http://www.nuget.org)로 이동하여 **Install NuGet** 단추를 클릭합니다.
+> Visual Studio 2015보다 이전 버전의 Visual Studio를 실행 중인 경우 NuGet을 설치하려면 [https://www.nuget.org](https://www.nuget.org)로 이동하여 **Install NuGet** 단추를 클릭합니다.
 >
 >
 
@@ -71,7 +71,7 @@ SendGrid의 .NET 클래스 라이브러리는 **SendGrid**라고 합니다. 다�
     using SendGrid;
     using SendGrid.Helpers.Mail;
 
-## <a name="how-to-create-an-email"></a>방법: 전자 메일 만들기
+## <a name="how-to-create-an-email"></a>방법: 이메일 만들기
 **SendGridMessage** 개체를 사용하여 메일 메시지를 만듭니다. 일단 메시지 개체가 만들어지면 메일 보낸 사람, 메일 받는 사람, 메일 제목 및 본문을 포함하여 속성과 메서드를 설정할 수 있습니다.
 
 다음 예에서는 완전히 채워진 전자 메일 개체를 만드는 방법을 보여 줍니다.
@@ -95,7 +95,7 @@ SendGrid의 .NET 클래스 라이브러리는 **SendGrid**라고 합니다. 다�
 
 **SendGrid** 형식에서 지원하는 모든 속성 및 메서드에 대한 자세한 내용은 GitHub에서 [sendgrid-csharp][sendgrid-csharp]을 참조하세요.
 
-## <a name="how-to-send-an-email"></a>방법: 전자 메일 보내기
+## <a name="how-to-send-an-email"></a>방법: 이메일 보내기
 전자 메일 메시지를 만든 후에 SendGrid의 API를 사용하여 해당 메시지를 보낼 수 있습니다. 또는 [.NET의 기본 제공 라이브러리][NET-library]를 사용할 수도 있습니다.
 
 메일을 보내려면 SendGrid API 키를 제공해야 합니다. API 키를 구성하는 방법에 대한 세부 정보가 필요한 경우 SendGrid의 API 키 [설명서][documentation]를 방문하세요.

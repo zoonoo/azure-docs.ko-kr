@@ -9,21 +9,20 @@ ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: fd8c45bf3d7fd9e392d55a82001aa8768fcce8ba
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 528b344063dd9f84720ee55c4b3663c20127e5fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096602"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995045"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Application Insights에서 Linux 성능 메트릭
 
 
-Linux 시스템 성능 메트릭을[Application Insights](app-insights-overview.md)에서 탐색하려면 [collectd](http://collectd.org/)와 Application Insights 플러그 인을 함께 설치합니다. 이 오픈 소스 솔루션은 다양한 시스템 및 네트워크 통계를 수집합니다.
+Linux 시스템 성능 메트릭을[Application Insights](app-insights-overview.md)에서 탐색하려면 [collectd](https://collectd.org/)와 Application Insights 플러그 인을 함께 설치합니다. 이 오픈 소스 솔루션은 다양한 시스템 및 네트워크 통계를 수집합니다.
 
 이미 [Application Insights로 Java 웹 서비스를 계측][java]한 경우 일반적으로 collectd를 사용합니다. 앱의 성능을 향상시키거나 문제를 진단할 수 있도록 더 많은 데이터를 제공합니다. 
 
@@ -39,7 +38,7 @@ Linux 시스템 성능 메트릭을[Application Insights](app-insights-overview.
 ## <a name="install-collectd-and-the-plug-in"></a>Collectd 및 플러그인을 설치합니다.
 Linux 서버 컴퓨터에서:
 
-1. [collectd](http://collectd.org/) 5.4.0 버전 또는 그 이상을 설치합니다.
+1. [collectd](https://collectd.org/) 5.4.0 버전 또는 그 이상을 설치합니다.
 2. [Application Insights collectd 기록기 플러그 인](https://aka.ms/aijavasdk)을 다운로드합니다. 버전 번호를 메모합니다.
 3. 플러그인JAR를 `/usr/share/collectd/java`에 복사합니다.
 4. 편집 `/etc/collectd/collectd.conf`:
@@ -119,7 +118,7 @@ Application Insights 리소스에서 [메트릭 탐색기 및 차트 추가하�
 *포털에 데이터가 표시되지 않습니다.*
 
 * [검색][diagnostic]을 열고 원시 이벤트가 도착했는지 확인합니다. 때로는 메트릭 탐색기에 나타날 때 시간이 오래 걸립니다.
-* [나가는 데이터에 대한 방화벽 예외를 설정](app-insights-ip-addresses.md)
+*  [나가는 데이터에 대한 방화벽 예외를 설정](app-insights-ip-addresses.md)
 * Application insights 플러그인에서 추적을 사용할 수 있습니다. `<Plugin ApplicationInsightsWriter>`에서 이 줄 추가:
   * `SDKLogger true`
 * 터미널을 열고 세부정보 표시 모드를 시작하여 어떤 문제가 보고되었는지 확인합니다.
@@ -129,7 +128,7 @@ Application Insights 리소스에서 [메트릭 탐색기 및 차트 추가하�
 
 Application Insights 쓰기 플러그 인이 특정 읽기 플러그 인과 호환되지 않습니다. 경우에 따라 일부 플러그 인은 Application Insights 플러그 인에서 부동 소수점 숫자를 예상하는 위치로 “NaN”를 전송합니다.
 
-증상: 수집된 로그에 “AI: ... SyntaxError: 예기치 않은 토큰 N”을 포함하는 오류가 표시됩니다.
+증상: 수집된 로그에 “AI: ... SyntaxError: 예기치 않은 token N"을 포함하는 오류가 표시됩니다.
 
 해결 방법: 문제 쓰기 플러그 인에 의해 수집된 데이터를 제외합니다. 
 

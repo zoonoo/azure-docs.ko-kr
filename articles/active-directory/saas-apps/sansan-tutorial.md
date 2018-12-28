@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: cc070f7c4cb201e68c93b0b1337982325df74663
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9e14f923b1e25f5fbc522cd39763ac53ddf37617
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051264"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872257"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>자습서: Sansan과 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Sansan과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Sansan 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -139,7 +139,7 @@ Sansan에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **Sansan** 응용 프로그램의 **속성** 페이지로 이동하고, **복사** 단추를 사용하여 **개체 ID**를 복사한 다음, 메모장에 붙여넣습니다.
 
-    나. Azure Portal에서 복사한 **개체 ID**는 이 자습서의 뒷부분에서 사용할 PowerShell 스크립트에서 **ServicePrincipalObjectId**로 사용됩니다. 
+    b. Azure Portal에서 복사한 **개체 ID**는 이 자습서의 뒷부분에서 사용할 PowerShell 스크립트에서 **ServicePrincipalObjectId**로 사용됩니다. 
 
     다. 이제 승격된 Windows PowerShell 명령 프롬프트를 엽니다.
     
@@ -186,7 +186,7 @@ Sansan에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     }
     ```
 
-8. PowerShell 스크립트가 완료되면 스크립트 결과가 아래와 같이 표시되며 URL 값이 업데이트되지만 Azure Portal에는 반영되지 않습니다. 
+8. PowerShell 스크립트가 성공적으로 완료되면 스크립트 결과가 아래와 같이 표시되며 URL 값이 업데이트되지만 Azure Portal에는 반영되지 않습니다. 
 
     ![Single Sign On 스크립트 구성](./media/sansan-tutorial/tutorial_sansan_powershell.png)
 
@@ -226,7 +226,7 @@ Sansan에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 

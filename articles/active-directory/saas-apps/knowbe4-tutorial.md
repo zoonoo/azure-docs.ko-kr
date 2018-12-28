@@ -64,11 +64,11 @@ KnowBe4 Security Awareness Training의 Azure AD 통합을 구성하려면 갤러
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
@@ -94,11 +94,11 @@ KnowBe4 Security Awareness Training에서 Azure AD Single Sign-On을 구성하�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 KnowBe4 Security Awareness Training 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 KnowBe4 Security Awareness Training 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **KnowBe4 Security Awareness Training에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **KnowBe4 Security Awareness Training** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **KnowBe4 Security Awareness Training** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -191,7 +191,7 @@ KnowBe4 Security Awareness Training에서 Azure AD Single Sign-On을 구성하�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **KnowBe4 Security Awareness Training**을 선택합니다.
+1. 애플리케이션 목록에서 **KnowBe4 Security Awareness Training**을 선택합니다.
 
     ![응용 프로그램 목록에서 KnowBe4 Security Awareness Training 링크](./media/knowbe4-tutorial/tutorial_knowbe4_app.png)  
 
@@ -213,7 +213,7 @@ KnowBe4 Security Awareness Training에서 Azure AD Single Sign-On을 구성하�
 
 이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.
   
-액세스 패널에서 KnowBe4 Security Awareness Training 타일을 클릭하면 KnowBe4 Security Awareness Training 응용 프로그램에 자동으로 로그온됩니다. 
+액세스 패널에서 KnowBe4 Security Awareness Training 타일을 클릭하면 KnowBe4 Security Awareness Training 애플리케이션에 자동으로 로그온됩니다. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

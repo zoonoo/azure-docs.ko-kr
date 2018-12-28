@@ -10,26 +10,26 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: d7b29980321f04d1ad9325580bc48ab944f60d1c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 73c68e6946b3715bfa67561141e6c18e32e20c18
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633719"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011762"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
 
-[Apache Hive](http://hive.apache.org/)는 Apache Hadoop용 데이터 웨어하우스 시스템입니다. Hive를 사용하면 데이터의 요약, 쿼리 및 분석을 수행할 수 있습니다. Hive 쿼리는 SQL과 유사한 쿼리 언어인 HiveQL로 작성합니다.
+[Apache Hive](https://hive.apache.org/)는 Apache Hadoop용 데이터 웨어하우스 시스템입니다. Hive를 사용하면 데이터의 요약, 쿼리 및 분석을 수행할 수 있습니다. Hive 쿼리는 SQL과 유사한 쿼리 언어인 HiveQL로 작성합니다.
 
 Hive를 사용하면 크게 구조가 없는 데이터에 구조를 투영할 수 있습니다. 구조를 정의한 후에 Java 또는 MapReduce 지식 없이 해당 데이터를 쿼리할 때에 HiveQL을 사용할 수 있습니다.
 
 HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형식을 제공합니다. 다음과 같은 클러스터 형식이 Hive 쿼리에 가장 자주 사용됩니다.
 
-* __Interactive Query__: [LLAP(낮은 대기 시간 분석 처리)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 기능을 제공하여 대화형 쿼리에 대한 응답 시간을 개선하는 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Interactive Query로 시작](../interactive-query/apache-interactive-query-get-started.md) 문서를 참조하세요.
+* __대화형 쿼리__: [LLAP(낮은 대기 시간 분석 처리)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 기능을 제공하여 대화형 쿼리에 대한 응답 시간을 개선하는 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Interactive Query로 시작](../interactive-query/apache-interactive-query-get-started.md) 문서를 참조하세요.
 
-* __Hadoop__: 배치 프로세싱 워크로드에 대해 조정된 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Hadoop으로 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md) 문서를 참조하세요.
+* __Hadoop__: 일괄 처리 프로세싱 워크로드에 대해 조정된 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Hadoop으로 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md) 문서를 참조하세요.
 
-* __Spark__: Apache Spark는 Hive로 작업하기 위한 기본 제공 기능입니다. 자세한 내용은 [HDInsight의 Spark로 시작](../spark/apache-spark-jupyter-spark-sql.md) 문서를 참조하세요.
+* __Spark__: Apache Spark에는 Hive 작업을 위한 기본 제공 기능이 있습니다. 자세한 내용은 [HDInsight의 Spark로 시작](../spark/apache-spark-jupyter-spark-sql.md) 문서를 참조하세요.
 
 * __HBase__: HiveQL은 HBase에 저장된 데이터를 쿼리하는 데 사용할 수 있습니다. 자세한 내용은 [HDInsight의 HBase로 시작](../hbase/apache-hbase-tutorial-get-started-linux.md) 문서를 참조하세요.
 
@@ -193,7 +193,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 ### <a id="usetez"></a>Apache Tez
 
-[Apache Tez](http://tez.apache.org) 는 Hive와 같이 데이터를 많이 사용하는 응용 프로그램을 큰 규모에서도 훨씬 더 효율적으로 실행할 수 있는 프레임워크입니다. Tez는 Linux 기반 HDInsight 클러스터에 대해 기본값으로 사용할 수 있습니다.
+[Apache Tez](https://tez.apache.org) 는 Hive와 같이 데이터를 많이 사용하는 응용 프로그램을 큰 규모에서도 훨씬 더 효율적으로 실행할 수 있는 프레임워크입니다. Tez는 Linux 기반 HDInsight 클러스터에 대해 기본값으로 사용할 수 있습니다.
 
 > [!NOTE]
 > Tez는 현재 Windows 기반 HDInsight 클러스터에 대해 기본적으로 꺼져 있으며 사용하도록 설정해야 합니다. Tez를 사용하려면 Hive 쿼리에 대해 다음 값을 설정해야 합니다.
@@ -246,18 +246,18 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로 및 코디네이션 �
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
 * [HDInsight에서 MapReduce 작업 사용][hdinsight-use-mapreduce]
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: http://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[hivetask]: https://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
+[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -272,7 +272,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로 및 코디네이션 �
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx

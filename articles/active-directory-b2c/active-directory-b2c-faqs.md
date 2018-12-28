@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6957a18440dfc225c63a1b1843e2b47af8b841bf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010646"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842954"
 ---
-# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답) 
+# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: 질문과 대답(FAQ) 
 이 페이지는 Azure AD(Azure Active Directory) B2C에 대한 자주 묻는 질문에 응답합니다. 업데이트를 계속 확인합니다.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Azure Portal에서 Azure AD B2C 확장에 액세스할 수 없는 이유는 무엇인가요?
@@ -34,17 +34,17 @@ Azure AD 테넌트에서 테넌트에 속한 사용자는 `<xyz>@<tenant domain>
 
 Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 주소(예: joe@comcast.net, bob@gmail.com, sarah@contoso.com 또는 jim@live.com)로 로그인하도록 합니다. 이 계정 유형은 로컬 계정입니다.  또한 임의의 사용자 이름이 로컬 계정으로 지원됩니다(예: joe, bob, sarah 또는 jim). Azure Portal에서 Azure AD B2C에 대한 ID 공급자를 구성하는 경우 이러한 두 로컬 계정 형식 중 하나를 선택할 수 있습니다. Azure AD B2C 테넌트에서 **ID 공급자**를 클릭한 다음, 로컬 계정에서 **사용자 이름**을 선택합니다. 
 
-응용 프로그램에 대한 사용자 계정은 항상 등록 정책, 등록 또는 로그인 정책을 통해 또는 Azure AD Graph API를 사용하여 만들어야 합니다. Azure Portal에서 만들어진 사용자 계정은 테넌트를 관리하는 데만 사용합니다.
+애플리케이션에 대한 사용자 계정은 항상 가입 사용자 흐름, 가입 또는 로그인 사용자 흐름을 통해 또는 Azure AD Graph API를 사용하여 만들어야 합니다. Azure Portal에서 만들어진 사용자 계정은 테넌트를 관리하는 데만 사용합니다.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>지금 어떤 소셜 ID 공급자를 지원하나요? 나중에 어떤 공급자를 지원하려는 계획입니까?
 현재 Facebook, Google+, LinkedIn, Amazon, Twitter(미리 보기), WeChat(미리 보기), Weibo(미리 보기) 및 QQ(미리 보기)가 지원됩니다. 고객의 요구에 따라 다른 인기 있는 소셜 ID 공급자에 대한 지원을 추가합니다.
 
-Azure AD B2C에서는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)에 대한 지원도 추가했습니다.  이러한 [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 통해 개발자는 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 또는 SAML을 지원하는 모든 ID 공급자가 있는 사용자 고유의 정책을 만들 수 있습니다. 
+Azure AD B2C에서는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)에 대한 지원도 추가했습니다.  이러한 [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 통해 개발자는 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 또는 SAML을 지원하는 모든 ID 공급자가 있는 사용자 고유의 정책을 만들 수 있습니다. 
 
 [사용자 지정 정책 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)을 확인하여 사용자 지정 정책을 시작하세요.
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>범위를 구성하여 다양한 소셜 ID 공급자에서 소비자에 대한 자세한 정보를 수집할 수 있나요?
-아니요. 지원되는 소셜 ID 공급자 집합에 사용되는 기본 범위는 다음과 같습니다.
+ 아니요. 지원되는 소셜 ID 공급자 집합에 사용되는 기본 범위는 다음과 같습니다.
 
 * Facebook: 전자 메일
 * Google+: 전자 메일
@@ -62,7 +62,7 @@ Azure Portal의 왼쪽 메뉴에서 'Azure AD B2C'를 열기 전에 관리하려
 [회사 브랜딩 기능](../active-directory/fundamentals/customize-branding.md)을 사용하여 확인 메일의 콘텐츠를 사용자 지정할 수 있습니다. 특히, 전자 메일의 다음 두 요소를 사용자 지정할 수 있습니다.
 
 * **배너 로고**: 오른쪽 아래에 표시됩니다.
-* **배경색**: 맨 위에 표시됩니다.
+* **배경색**: 위쪽에 표시됩니다.
 
     ![사용자 지정된 확인 전자 메일의 스크린샷](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
@@ -79,8 +79,8 @@ Azure Portal의 왼쪽 메뉴에서 'Azure AD B2C'를 열기 전에 관리하려
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>데이터베이스에서 Azure AD B2C로 기존 사용자 이름, 암호 및 프로필을 어떻게 마이그레이션할 수 있나요?
 Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 있습니다. 자세한 내용은 [사용자 마이그레이션 가이드](active-directory-b2c-user-migration.md)를 참조하세요.
 
-### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Azure AD B2C의 로컬 계정에 사용되는 암호 정책은 무엇인가요?
-로컬 계정에 대한 Azure AD B2C 암호 정책은 Azure AD 정책을 기반으로 합니다. Azure AD B2C의 등록, 등록 또는 로그인 및 암호 재설정 정책은 "강력한" 암호 강도를 사용하며 어떠한 암호도 만료되지 않습니다. 자세한 내용은 [Azure AD 암호 정책](https://msdn.microsoft.com/library/azure/jj943764.aspx)을 참조하세요. 계정 잠금 및 암호에 대한 자세한 내용은 [Azure Active Directory B2C에서 리소스 및 데이터에 대한 위협 관리](active-directory-b2c-reference-threat-management.md)를 참조하세요.
+### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Azure AD B2C의 로컬 계정에 사용되는 암호 사용자 흐름은 무엇인가요?
+로컬 계정에 대한 Azure AD B2C 암호 사용자 흐름은 Azure AD 정책을 기반으로 합니다. Azure AD B2C의 가입, 가입 또는 로그인 및 암호 재설정 사용자 흐름은 "강력한" 암호 강도를 사용하며 어떠한 암호도 만료되지 않습니다. 자세한 내용은 [Azure AD 암호 정책](https://msdn.microsoft.com/library/azure/jj943764.aspx)을 참조하세요. 계정 잠금 및 암호에 대한 자세한 내용은 [Azure Active Directory B2C에서 리소스 및 데이터에 대한 위협 관리](active-directory-b2c-reference-threat-management.md)를 참조하세요.
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Azure AD Connect를 사용하여 온-프레미스 Active Directory에 저장된 소비자 ID를 Azure AD B2C에 마이그레이션할 수 있나요?
 아니요, Azure AD Connect는 Azure AD B2C와 함께 작동하지 않습니다. [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)를 사용자 마이그레이션에 사용하는 것이 좋습니다.  자세한 내용은 [사용자 마이그레이션 가이드](active-directory-b2c-user-migration.md)를 참조하세요.

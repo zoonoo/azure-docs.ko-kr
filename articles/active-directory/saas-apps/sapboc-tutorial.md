@@ -252,7 +252,7 @@ Britta Simon을 SAP Business Object Cloud에 할당하려면:
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **SAP Business Object Cloud**을 선택합니다.
+2. 애플리케이션 목록에서 **SAP Business Object Cloud**을 선택합니다.
 
     ![Configure Single Sign-On](./media/sapboc-tutorial/tutorial_sapboc_app.png) 
 

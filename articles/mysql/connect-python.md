@@ -33,7 +33,7 @@ ms.locfileid: "50914739"
 > 이 빠른 시작은 쿼리를 실행하는 MySQL에 연결하는 원시 SQL 쿼리 접근 방식을 사용합니다. 웹 프레임워크를 사용하는 경우 이러한 프레임워크에 대한 권장되는 커넥터를 사용합니다. 예를 들어 Django 사용에 대해 [mysqlclient](https://pypi.org/project/mysqlclient/)가 제안됩니다.
 >
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 1. [python.org](https://www.python.org/downloads/windows/)에서 Python 2.7을 다운로드하고 설치합니다. 
 2. 명령 프롬프트를 실행하여 Python 설치를 확인합니다. 대문자 V 스위치와 함께 `C:\python27\python.exe -V` 명령을 실행하여 버전 번호를 확인합니다.
 3. [mysql.com](https://dev.mysql.com/downloads/connector/python/)에서 자신의 Python 버전에 해당하는 MySQL용 Python 커넥터를 설치합니다.
@@ -73,7 +73,7 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 
 ## <a name="run-python-code"></a>Python 코드 실행
 - 코드를 텍스트 파일에 붙여넣고 .py 파일 확장명이 포함된 프로젝트 폴더(C:\pythonmysql\createtable.py 또는 /home/username/pythonmysql/createtable.py)에 저장합니다.
-- 코드를 실행하려면 명령 프롬프트 또는 Bash 셸을 시작합니다. 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd pythonmysql`). 그런 다음 python 명령 다음에 파일 이름을 입력하여 응용 프로그램을 실행합니다(예: `python createtable.py`). Windows OS에서 python.exe를 찾을 수 없으면 실행 파일의 전체 경로를 제공하거나 경로 환경 변수에 Python 경로를 추가해야 할 수 있습니다. `C:\python27\python.exe createtable.py`
+- 코드를 실행하려면 명령 프롬프트 또는 Bash 셸을 시작합니다. 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd pythonmysql`). 그런 다음 python 명령 다음에 파일 이름을 입력하여 애플리케이션을 실행합니다(예: `python createtable.py`). Windows OS에서 python.exe를 찾을 수 없으면 실행 파일의 전체 경로를 제공하거나 경로 환경 변수에 Python 경로를 추가해야 할 수 있습니다. `C:\python27\python.exe createtable.py`
 
 ## <a name="connect-create-table-and-insert-data"></a>테이블 연결, 생성 및 데이터 삽입
 다음 코드를 사용하여 서버에 연결하고, 테이블을 만들고, **INSERT** SQL 문을 통해 데이터를 로드합니다. 

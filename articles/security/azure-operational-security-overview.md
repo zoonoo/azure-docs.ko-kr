@@ -27,7 +27,7 @@ ms.locfileid: "51238542"
 
 ## <a name="azure-management-services"></a>Azure 관리 서비스
 
-IT 운영 팀은 이러한 시스템의 안정성과 보안을 포함하여 데이터 센터 인프라, 응용 프로그램 및 데이터를 관리하는 역할을 담당합니다. 그러나 점점 더 복잡해지는 IT 환경에서 보안 정보를 얻으려면 조직에서 여러 보안 및 관리 시스템의 데이터를 급하게 맞추어야 합니다.
+IT 운영 팀은 이러한 시스템의 안정성과 보안을 포함하여 데이터 센터 인프라, 애플리케이션 및 데이터를 관리하는 역할을 담당합니다. 그러나 점점 더 복잡해지는 IT 환경에서 보안 정보를 얻으려면 조직에서 여러 보안 및 관리 시스템의 데이터를 급하게 맞추어야 합니다.
 
 [Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 클라우드 기반 IT 관리 솔루션입니다. 핵심 기능은 Azure에서 실행되는 다음 서비스를 통해 제공됩니다. Azure는 온-프레미스 및 클라우드 인프라를 관리하고 보호하는 여러 서비스를 제공합니다. 각 서비스는 특정 관리 기능을 제공합니다. 이러한 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다. 
 
@@ -59,7 +59,7 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 
 -   클라우드 서비스로 IAM(ID 및 액세스 관리) 사용
 -   중앙 액세스 관리, SSO(Single Sign-On) 및 보고 제공
--   Salesforce, Google Apps, Box, Concur 등을 포함하여 Azure Marketplace에서 [수천 개의 응용 프로그램](https://azure.microsoft.com/marketplace/active-directory/)에 대한 통합된 액세스 관리 지원
+-   Salesforce, Google Apps, Box, Concur 등을 포함하여 Azure Marketplace에서 [수천 개의 애플리케이션](https://azure.microsoft.com/marketplace/active-directory/)에 대한 통합된 액세스 관리 지원
 
 또한 Azure AD에는 다음을 비롯해 전체 [ID 관리 기능](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports)이 포함되어 있습니다.
 
@@ -72,7 +72,7 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 - [풍부한 감사](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [보안 모니터링 및 경고](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
 
-Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시하는 모든 응용 프로그램에 동일한 ID 및 액세스 관리 기능이 제공됩니다. 이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
+Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시하는 모든 애플리케이션에 동일한 ID 및 액세스 관리 기능이 제공됩니다.  이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
@@ -101,7 +101,7 @@ Security Center에서는 Microsoft Monitoring Agent를 사용하며, Log Analyti
 
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) - Azure에서 실행되는 서비스를 모니터링하는 기본 도구입니다. 또한 서비스의 처리량과 주변 환경에 대한 인프라 수준 데이터를 제공합니다. Azure에서 모든 앱을 관리하고 리소스를 확장 또는 축소할지 여부를 결정하려면 Azure Monitor에서 시작해야 합니다.
 
-모니터링 데이터를 사용하여 응용 프로그램에 대해 깊이 이해할 수도 있습니다. 이러한 정보를 통해 응용 프로그램 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다. 
+모니터링 데이터를 사용하여 애플리케이션에 대해 깊이 이해할 수도 있습니다. 이러한 정보를 통해 애플리케이션 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다. 
 
 Azure Monitor에는 다음 구성 요소가 포함되어 있습니다.
 
@@ -123,7 +123,7 @@ Azure Monitor는 Azure에서 워크로드의 상태와 성능에 대한 정보�
 
 ### <a name="azure-diagnostics"></a>Azure 진단
 
-Azure 진단은 배포된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 합니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. [Azure 클라우드 서비스 역할](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), Microsoft Windows를 실행하는 [Azure Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) 및 [Azure Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)에서 현재 지원됩니다.
+Azure 진단은 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 합니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. [Azure 클라우드 서비스 역할](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), Microsoft Windows를 실행하는 [Azure Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) 및 [Azure Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)에서 현재 지원됩니다.
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 

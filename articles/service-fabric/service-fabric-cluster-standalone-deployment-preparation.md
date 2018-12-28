@@ -13,17 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0b6fae59fbe0fa86cb16b176eb1df47e031d04f1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259091"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317195"
 ---
-<a id="preparemachines"></a>
-
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Service Fabric 독립 실행형 클러스터 배포 계획 및 준비
-클러스터를 만들기 전에 다음 단계를 수행합니다.
+
+<a id="preparemachines"></a>클러스터를 만들기 전에 다음 단계를 수행합니다.
 
 ## <a name="plan-your-cluster-infrastructure"></a>클러스터 인프라 계획
 클러스터가 견뎌낼 수 있는 실패의 종류를 결정할 수 있도록 사용자가 “소유한” 컴퓨터에서 Service Fabric 클러스터를 만들려고 합니다. 예를 들어 이러한 컴퓨터를 제공하는 전원 줄 또는 인터넷 연결을 구분해야 하나요? 또한 이러한 컴퓨터의 물리적 보안을 고려합니다. 컴퓨터는 어디에 있으며 누가 액세스해야 하나요? 이러한 결정을 내리면 다양한 장애 도메인에 컴퓨터를 논리적으로 매핑할 수 있습니다(다음 단계 참조). 프로덕션 클러스터에 대한 인프라 계획은 테스트 클러스터보다 더 복잡합니다.
@@ -43,10 +42,10 @@ FD를 ClusterConfig.json에 지정하는 경우 각 FD의 이름을 선택할 �
 
 UD를 ClusterConfig.json에 지정하는 경우 각 UD의 이름을 선택할 수 있습니다. 예를 들어 다음 이름이 유효합니다.
 
-* "upgradeDomain": "UD0"
-* "upgradeDomain": "UD1A"
-* "upgradeDomain": "DomainRed"
-* "upgradeDomain": "Blue"
+* “upgradeDomain”: “UD0”
+* “upgradeDomain”: “UD1A”
+* “upgradeDomain”: “DomainRed”
+* “upgradeDomain”: “Blue”
 
 FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)을 참조하세요.
 
@@ -83,10 +82,11 @@ FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](ser
 이 파일의 섹션에 대한 자세한 내용은 [독립 실행형 Windows 클러스터에 대한 구성 설정](service-fabric-cluster-manifest.md)을 참조하세요.
 
 다운로드한 패키지에서 ClusterConfig.json 파일 중 하나를 열고 다음 설정을 수정합니다.
+
 | **구성 설정** | **설명** |
 | --- | --- |
 | **NodeTypes** |노드 유형을 사용하면 클러스터 노드를 다양한 그룹으로 구분할 수 있습니다. 클러스터에는 하나 이상이 NodeType이 있어야 합니다. 그룹의 모든 노드는 다음과 같은 일반적인 특징이 있습니다. <br> **이름** - 노드 유형 이름입니다. <br>**엔드포인트 포트** - 이 노드 유형과 연결된 다양한 이름의 엔드포인트(포트)입니다. 이 매니페스트의 다른 요소와 충돌하지 않으며 컴퓨터/VM에서 실행 중인 다른 응용 프로그램에서 사용하지 않는 한 원하는 모든 포트 번호를 사용할 수 있습니다. <br> **배치 속성** - 이는 시스템 서비스 또는 서비스에 대한 배치 제약 조건으로 사용할 다음 노드 유형에 대한 속성을 설명합니다. 이런 속성은 주어진 노드에 대한 여분의 메타데이터를 제공하는 사용자 정의 키/값 쌍입니다. 노드 속성의 예로는 노드에 하드 드라이브 또는 그래픽 카드가 있는지 여부, 하드 드라이브, 코어에 포함된 스핀들 수, 기타 물리 속성이 있습니다. <br> **용량** - 노드 용량은 특정 노드가 사용할 수 있는 특정 리소스의 이름과 양을 정의합니다. 예를 들어 노드에는 "MemoryInMb"라는 메트릭에 대한 용량 및 기본적으로 사용할 수 있는 2048MB가 있음을 정의할 수 있습니다. 이러한 용량은 특정한 양의 리소스를 필요로 하는 서비스가 해당 리소스가 필요한 양만큼 사용 가능한 노드에 배치되도록 런타임 시 사용됩니다.<br>**IsPrimary** - 둘 이상의 NodeType이 정의되어 있으면 하나만 기본으로 설정되어 있는지 확인합니다(값 *true* 지정). 이러한 기본 유형에서 시스템 서비스가 실행됩니다. 다른 모든 노드 유형은 *false* 값으로 설정되어야 합니다. |
-| **노드** |클러스터의 일부인 노드 각각에 대한 세부 정보입니다(노드 유형, 노드 이름, IP 주소, 노드의 장애 도메인 및 업그레이드 도메인). 클러스터를 만들려는 컴퓨터는 여기서 해당 IP 주소로 나열되어야 합니다. <br> 모든 노드에 동일한 IP 주소를 사용하는 경우 다음 one-box 클러스터가 만들어지며 테스트를 목적으로 사용할 수 있습니다. one-box 클러스터는 프로덕션 워크로드를 배포하는 데 사용하지 마세요. |
+| **노드** |클러스터의 일부인 노드 각각에 대한 세부 정보입니다(노드 유형, 노드 이름, IP 주소, 노드의 장애 도메인 및 업그레이드 도메인). 클러스터를 만들려는 컴퓨터는 여기서 해당 IP 주소로 나열되어야 합니다. <br>  모든 노드에 동일한 IP 주소를 사용하는 경우 다음 one-box 클러스터가 만들어지며 테스트를 목적으로 사용할 수 있습니다. one-box 클러스터는 프로덕션 워크로드를 배포하는 데 사용하지 마세요. |
 
 클러스터 구성에서 모든 설정을 환경에 구성한 후 클러스터 환경에 대해 테스트할 수 있습니다(7단계).
 
@@ -97,20 +97,20 @@ FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](ser
 클러스터 관리자가 Service Fabric 독립 실행형 클러스터를 구성할 때 환경은 다음 기준으로 설정되어야 합니다. <br>
 1. 클러스터를 만드는 사용자에는 클러스터 구성 파일에서 노드로 나열된 모든 컴퓨터에 대한 관리자 수준 보안 권한이 있어야 합니다.
 2. 클러스터가 생성되는 컴퓨터 뿐 아니라 각 클러스터 노드 컴퓨터는 다음이 필수입니다.
-* Service Fabric SDK 제거
-* Service Fabric 런타임 제거 
-* Windows 방화벽 서비스(mpssvc) 활성화
-* 원격 레지스트리 서비스(remoteregistry) 활성화
-* 파일 공유(SMB) 활성화
-* 클러스터 구성 포트에 따라 필요한 포트 열기
-* Windows SMB 및 원격 레지스트리 서비스: 135, 137, 138, 139 및 445에 대한 필요한 포트 열기
-* 네트워크 간 연결
+   * Service Fabric SDK 제거
+   * Service Fabric 런타임 제거 
+   * Windows 방화벽 서비스(mpssvc) 활성화
+   * 원격 레지스트리 서비스(remoteregistry) 활성화
+   * 파일 공유(SMB) 활성화
+   * 클러스터 구성 포트에 따라 필요한 포트 열기
+   * Windows SMB 및 원격 레지스트리 서비스: 135, 137, 138, 139 및 445에 대한 필요한 포트 열기
+   * 네트워크 간 연결
 3. 모든 클러스터 노드 컴퓨터는 도메인 컨트롤러여서는 안 됩니다.
 4. 배포되는 클러스터가 보안 클러스터인 경우 필수 보안 구성 요소가 배치되고 구성에 대해 올바르게 구성되어 있는지 유효성을 검사합니다.
 5. 클러스터 컴퓨터를 인터넷에서 액세스할 수 없는 경우 클러스터 구성에서 다음을 설정합니다.
-* 원격 분석 사용 안 함: *속성*에서 *“enableTelemetry”: false* 설정
-* 자동 패브릭 버전 다운로드 및 현재 클러스터 버전이 곧 지원 종료된다는 알림 사용 안 함: *속성*에서 *“fabricClusterAutoupgradeEnabled”: false* 설정
-* 또는 네트워크 인터넷 액세스가 허용 목록 도메인으로 제한될 경우 자동 업그레이드를 위해 go.microsoft.com, download.microsoft.com 도메인이 필요합니다.
+   * 원격 분석 사용 안 함: *properties*에서 *“enableTelemetry”: false* 설정
+   * 자동 패브릭 버전 다운로드 및 현재 클러스터 버전이 곧 지원 종료된다는 알림 사용 안 함: *properties*에서 *“fabricClusterAutoupgradeEnabled”: true* 설정
+   * 또는 네트워크 인터넷 액세스가 허용 목록 도메인으로 제한될 경우 자동 업그레이드를 위해 go.microsoft.com, download.microsoft.com 도메인이 필요합니다.
 
 6. 적절한 Service Fabric 바이러스 백신 예외 설정:
 

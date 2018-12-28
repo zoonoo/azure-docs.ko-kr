@@ -46,13 +46,13 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 ## <a name="set-the-connection-string"></a>연결 문자열 설정
 
-함수 앱은 Azure에서 함수 실행을 호스트합니다. 보안 연습으로 함수 앱 설정에 연결 문자열 및 다른 비밀을 저장합니다. 응용 프로그램 설정을 사용하여 코드로 연결 문자열이 실수로 노출되는 것을 방지합니다. Visual Studio에서 직접 함수 앱의 앱 설정에 액세스할 수 있습니다.
+함수 앱은 Azure에서 함수 실행을 호스트합니다. 보안 연습으로 함수 앱 설정에 연결 문자열 및 다른 비밀을 저장합니다. 애플리케이션 설정을 사용하여 코드로 연결 문자열이 실수로 노출되는 것을 방지합니다. Visual Studio에서 직접 함수 앱의 앱 설정에 액세스할 수 있습니다.
 
 이전에 Azure에 앱을 게시했어야 합니다. 아직 이렇게 수행하지 않은 경우 [함수 앱을 Azure에 게시](functions-develop-vs.md#publish-to-azure)합니다.
 
 1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고, **게시** > **응용 프로그램 설정 관리...** 를 선택합니다. **설정 추가**를 선택하고, **새 앱 설정 이름**에서 `sqldb_connection`을 입력하고, **확인**을 선택합니다.
 
-    ![함수 앱에 대한 응용 프로그램 설정입니다.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
+    ![함수 앱에 대한 애플리케이션 설정입니다.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
 1. 새로운 **sqldb_connection** 설정에서는 이전 섹션에서 복사한 연결 문자열을 **로컬** 필드에 붙여넣고, `{your_username}` 및 `{your_password}` 자리 표시자를 실제 값으로 바꿉니다. **로컬에서 값 삽입**을 선택하여 업데이트된 값을 **원격** 필드에 복사한 다음, **확인**을 선택합니다.
 
@@ -139,6 +139,6 @@ SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니
 Functions에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 + [Azure Functions 개발자 참조](functions-reference.md)  
-  함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
+   함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
 + [Azure Functions 테스트](functions-test-a-function.md)  
-  함수를 테스트하는 다양한 도구와 기법을 설명합니다.  
+   함수를 테스트하는 다양한 도구와 기법을 설명합니다.  

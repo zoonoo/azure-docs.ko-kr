@@ -1,6 +1,6 @@
 ---
 title: Azure Backup FAQ
-description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
+description: '다음의 일반적인 질문에 대한 답변: Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등을 포함하는 Azure Backup 기능 '
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 61e8a7732b7e6dc7fd521819a135fb1a7a6a13b3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 647ed64d405424431419da1e693abea2bdf07ace
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261669"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262268"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 이 문서에서는 Azure Backup 서비스에 대한 일반적인 질문과 대답을 제공합니다.
@@ -236,7 +236,7 @@ Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니�
 
 예. Azure의 미사용 데이터도 암호화됩니다.
 - 온-프레미스 백업의 경우 미사용 데이터 암호화 기능은 Azure에 백업할 때 제공한 암호를 사용하여 제공됩니다.
-- Azure VM의 경우 SSE(저장소 서비스 암호화)를 사용하여 미사용 데이터가 암호화됩니다.
+- Azure VM의 경우 SSE(스토리지 서비스 암호화)를 사용하여 미사용 데이터가 암호화됩니다.
 
 Microsoft는 어떠한 경우에도 백업 데이터를 암호 해독하지 않습니다.
 

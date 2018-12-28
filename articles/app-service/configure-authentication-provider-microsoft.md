@@ -29,11 +29,11 @@ ms.locfileid: "53411371"
 
 ## <a name="register-microsoft-account"> </a>Microsoft 계정을 사용하여 앱 등록
 1. [Azure Portal]에 로그온한 다음 응용 프로그램으로 이동합니다. **URL**을 복사하여 나중에 Microsoft 계정으로 응용 프로그램을 구성하는 데 사용합니다.
-2. Microsoft 계정 개발자 센터의 [내 응용 프로그램] 페이지로 이동하고 필요한 경우 Microsoft 계정으로 로그온합니다.
+2. Microsoft 계정 개발자 센터의 [내 애플리케이션] 페이지로 이동하고 필요한 경우 Microsoft 계정으로 로그온합니다.
 3. **앱 추가**를 클릭한 다음, 응용 프로그램 이름을 입력하고 **만들기**를 클릭합니다.
-4. 나중에 필요하므로 **응용 프로그램 ID**를 기록해 둡니다. 
+4. 나중에 필요하므로 **애플리케이션 ID**를 기록해 둡니다. 
 5. "플랫폼" 아래에서 **플랫폼 추가** 를 클릭하고 "웹"을 선택합니다.
-6. "리디렉션 URI" 아래에서 응용 프로그램에 대한 엔드포인트를 입력한 다음 **저장**을 클릭합니다. 
+6. "리디렉션 URI" 아래에서 애플리케이션에 대한 엔드포인트를 입력한 다음 **저장**을 클릭합니다. 
    
    > [!NOTE]
    > 리디렉션 URI는 경로 */.auth/login/microsoftaccount/callback*이 추가된 응용 프로그램의 URL입니다. 예: `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`   
@@ -69,5 +69,5 @@ ms.locfileid: "53411371"
 
 <!-- URLs. -->
 
-[내 응용 프로그램]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[내 애플리케이션]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Azure Portal]: https://portal.azure.com/

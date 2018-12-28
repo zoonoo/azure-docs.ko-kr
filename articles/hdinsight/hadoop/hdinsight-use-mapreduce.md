@@ -51,7 +51,7 @@ MapReduce는 다양한 언어로 구현할 수 있습니다. Java는 가장 일�
 
 ## <a name="development-languages"></a>개발 언어
 
-Java 및 Java Virtual Machine을 기반으로 하는 언어 또는 프레임워크는 MapReduce 작업으로 직접 실행할 수 있습니다. 이 문서에서 사용된 예는 Java MapReduce 응용 프로그램입니다. C#, Python, 독립 실행형 실행 파일 등의 비-Java 언어는 **Hadoop 스트리밍**을 사용해야 합니다.
+Java 및 Java Virtual Machine을 기반으로 하는 언어 또는 프레임워크는 MapReduce 작업으로 직접 실행할 수 있습니다. 이 문서에서 사용된 예는 Java MapReduce 애플리케이션입니다. C#, Python, 독립 실행형 실행 파일 등의 비-Java 언어는 **Hadoop 스트리밍**을 사용해야 합니다.
 
 Hadoop 스트리밍은 STDIN 및 STDOUT을 통해 매퍼 및 리듀서와 통신합니다. 매퍼와 리듀서는 STDIN에서 한 번에 한 줄씩 데이터를 읽고 STDOUT에 출력을 씁니다. 매퍼 및 리듀서가 읽거나 내보낸 각 줄은 탭 문자로 구분된 키/값 쌍의 형식이어야 합니다.
 
@@ -71,9 +71,9 @@ HDInsight는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되는 다�
 
 ## <a id="job"></a>예제 MapReduce
 
-MapReduce 단어 수 세기 응용 프로그램 예가 HDInsight 클러스터에 포함되어 있습니다. 이 예제는 클러스터의 기본 저장소인 `/example/jars/hadoop-mapreduce-examples.jar`에 있습니다.
+MapReduce 단어 수 세기 애플리케이션 예가 HDInsight 클러스터에 포함되어 있습니다. 이 예제는 클러스터의 기본 저장소인 `/example/jars/hadoop-mapreduce-examples.jar`에 있습니다.
 
-다음 Java 코드는 `hadoop-mapreduce-examples.jar` 파일에 포함된 MapReduce 응용 프로그램의 원본입니다.
+다음 Java 코드는 `hadoop-mapreduce-examples.jar` 파일에 포함된 MapReduce 애플리케이션의 원본입니다.
 
 ```java
 package org.apache.hadoop.examples;
@@ -147,7 +147,7 @@ public class WordCount {
 }
 ```
 
-고유한 MapReduce 응용 프로그램을 쓰는 지침은 다음 문서를 참조하세요.
+고유한 MapReduce 애플리케이션을 쓰는 지침은 다음 문서를 참조하세요.
 
 * [HDInsight용 Java MapReduce 프로그램 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 

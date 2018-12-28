@@ -1,5 +1,5 @@
 ---
-title: Azure를 사용하여 항공 예측 유지 관리 - Cortana 인텔리전스 솔루션 기술 가이드 | Microsoft Docs
+title: 항공 우주 예측 유지 관리에 대한 가이드 - Team Data Science Process
 description: 항공, 유틸리티 및 운송에서 예측 유지 관리를 위한 Microsoft Cortana Intelligence를 사용한 솔루션 템플릿에 대한 기술 지침
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: 904e9c22f23255f1bee7f532d7f577c7cd457778
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
+ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443749"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140186"
 ---
-# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드
+# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>항공 우주에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드
 
 >[!Important]
 이 문서는 더 이상 사용되지 않습니다. 항공 우주 분야에서의 예측 유지 관리와 관련된 논의가 여전히 있지만, 최신 정보는 [비즈니스 담당자를 위한 솔루션 개요](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace)를 참조하세요.
@@ -218,7 +218,7 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
    *  ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
 3. 데이터가 Power BI로 흐르게 한 후 스트리밍 데이터의 시각화를 시작할 수 있습니다. 다음은 고정된 몇 가지 실행 부하 과다 경로 시각화를 사용한 예제 대시보드입니다. 적절한 데이터 세트에 따라 다른 대시보드 타일을 만들 수 있습니다. 데이터 생성기의 실행 시간에 따라 시각화에 대한 숫자가 달라질 수 있습니다.
 
-    ![대시보드 보기](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+    ![대시보드 보기](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
 
 1. 다음은 위의 타일 중 하나를 만드는 몇몇 단계입니다. “센서 11의 Fleet 보기 vs.  임계값 48.26” 타일:
    

@@ -1,6 +1,6 @@
 ---
 title: Cloud Services에서 사용자 지정 도메인 이름 구성| Microsoft Docs
-description: DNS 설정을 구성하여 사용자 지정 도메인에서 Azure 응용 프로그램이나 데이터를 인터넷에 노출하는 방법을 알아봅니다.  이 예제는 Azure 포털을 사용합니다.
+description: DNS 설정을 구성하여 사용자 지정 도메인에서 Azure 애플리케이션이나 데이터를 인터넷에 노출하는 방법을 알아봅니다.  이 예제는 Azure 포털을 사용합니다.
 services: cloud-services
 documentationcenter: .net
 author: jpconnock

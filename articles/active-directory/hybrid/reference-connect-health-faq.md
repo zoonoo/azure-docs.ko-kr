@@ -77,7 +77,7 @@ ms.locfileid: "52497725"
 
 **Q: 개별 서버에 Azure AD Connect Health Agent를 설치하면 어떤 영향이 있나요?**
 
-Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 응용 프로그램 프록시 서버, Azure AD Connect(sycn) 서버, 도메인 컨트롤러를 설치해도 CPU, 메모리 사용량, 네트워크 대역폭 및 저장소에는 최소한의 영향만 미칩니다.
+Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 애플리케이션 프록시 서버, Azure AD Connect(sycn) 서버, 도메인 컨트롤러를 설치해도 CPU, 메모리 사용량, 네트워크 대역폭 및 저장소에는 최소한의 영향만 미칩니다.
 
 다음 숫자는 근사값입니다.
 
@@ -131,7 +131,7 @@ Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 응용 프로그램 �
 
 Health Agent는 다음과 같은 원인으로 등록에 실패할 수 있습니다.
 
-* 방화벽이 트래픽을 차단하고 있어서 에이전트가 필수 엔드포인트와 통신할 수 없습니다. 특히 웹 응용 프로그램 프록시 서버에서 자주 발생하는 문제입니다. 필수 엔드포인트 및 포트에 아웃바운드 통신을 허용해야 합니다. 자세한 내용은 [요구 사항 섹션](how-to-connect-health-agent-install.md#requirements)을 참조하세요.
+* 방화벽이 트래픽을 차단하고 있어서 에이전트가 필수 엔드포인트와 통신할 수 없습니다. 특히 웹 애플리케이션 프록시 서버에서 자주 발생하는 문제입니다. 필수 엔드포인트 및 포트에 아웃바운드 통신을 허용해야 합니다. 자세한 내용은 [요구 사항 섹션](how-to-connect-health-agent-install.md#requirements)을 참조하세요.
 * 아웃바운드 통신은 네트워크 계층에서 SSL 검사를 받습니다. 이로 인해 에이전트에서 사용하는 인증서가 검사 서버/엔터티로 교체되고, 에이전트 등록을 완료하는 단계가 실패합니다.
 * 사용자는 에이전트의 등록을 수행하기 위한 액세스 권한이 없습니다. 전역 관리자는 기본적으로 액세스 권한이 있습니다. [역할 기반 Access Control](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)을 사용하여 다른 사용자에 대한 액세스를 위임할 수 있습니다.
 
@@ -142,7 +142,7 @@ Azure AD Connect Health는 2시간 동안 서버에서 데이터 지점을 수�
 ## <a name="operations-questions"></a>작업 관련 질문
 **Q: 웹 응용 프로그램 프록시 서버에 대한 감사를 사용하도록 설정해야 하나요?**
 
-아니요, 웹 응용 프로그램 프록시 서버에서 감사를 사용할 필요가 없습니다.
+아니요, 웹 애플리케이션 프록시 서버에서 감사를 사용할 필요가 없습니다.
 
 **Q: Azure AD Connect Health 경고는 어떻게 해결하나요?**
 

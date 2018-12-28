@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ee04008b62867c8eba68b1525cf50edec881cbc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c8d3364f9de298d19df35846af5f421978fea960
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432636"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842172"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>자습서: Five9 Plus Adapter(CTI, Contact Center Agents)와 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Five9 Plus Adapter(CTI, Contact Center Agents)와 Azure AD 통합을 구성하�
 - Azure AD 평가판 환경이 없으면 [평가판 제품](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Five9 Plus Adapter(CTI, Contact Center Agents) 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -120,7 +120,7 @@ Five9 Plus Adapter(CTI, Contact Center Agents)에서 Azure AD Single Sign-On을 
     | “Five9 Plus Adapter for Zendesk”의 경우 | `https://app.five9.com/appsvcs/saml/metadata/alias/zd` |
     | “Five9 Plus Adapter for Agent Desktop Toolkit”의 경우 | `https://app.five9.com/appsvcs/saml/metadata/alias/adt` |
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
 
     |      Environment     |      URL      |
     | :--                  | :--           |
@@ -142,15 +142,15 @@ Five9 Plus Adapter(CTI, Contact Center Agents)에서 Azure AD Single Sign-On을 
 
 1. **Five9 Plus Adapter(CTI, Contact Center Agents)** 에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64), 로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 [Five9 Plus Adapter(CTI, Contact Center Agents) 지원 팀](https://www.five9.com/about/contact)에 보내야 합니다. 또한 SSO를 더 구성하려면 어댑터에 따라 다음 단계를 수행합니다.
 
-    a. “Five9 Plus Adapter for Agent Desktop Toolkit” 관리자 가이드: [http://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
+    a. “Five9 Plus Adapter for Agent Desktop Toolkit” 관리자 가이드: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
     
-    나. “Five9 Plus Adapter for Microsoft Dynamics CRM” 관리자 가이드: [http://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf)
+    b. “Five9 Plus Adapter for Microsoft Dynamics CRM” 관리자 가이드: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf)
     
-    다. “Five9 Plus Adapter for Zendesk” 관리자 가이드: [http://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf)
+    다. “Five9 Plus Adapter for Zendesk” 관리자 가이드: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf)
 
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -178,7 +178,7 @@ Five9 Plus Adapter(CTI, Contact Center Agents)에서 Azure AD Single Sign-On을 
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -186,7 +186,7 @@ Five9 Plus Adapter(CTI, Contact Center Agents)에서 Azure AD Single Sign-On을 
  
 ### <a name="creating-a-five9-plus-adapter-cti-contact-center-agents-test-user"></a>Five9 Plus Adapter(CTI, Contact Center Agents) 테스트 사용자 만들기
 
-이 섹션에서는 Five9 Plus Adapter(CTI, Contact Center Agents)에서 Britta Simon이라는 사용자를 만듭니다. Five9 Plus Adapter(CTI, Contact Center Agents) 플랫폼에서 사용자를 추가하려면 [Five9 Plus Adapter(CTI, Contact Center Agents) 지원 팀](https://www.five9.com/about/contact)에 문의합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Five9 Plus Adapter(CTI, Contact Center Agents)에서 Britta Simon이라는 사용자를 만듭니다. Five9 Plus Adapter(CTI, Contact Center Agents) 플랫폼에서 사용자를 추가하려면  [Five9 Plus Adapter(CTI, Contact Center Agents) 지원 팀](https://www.five9.com/about/contact) 에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

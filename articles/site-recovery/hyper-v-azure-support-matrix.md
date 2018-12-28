@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: e389f37448211afc35fb98572161be4fcaea7556
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8c8ba338a7059d6d11f43bda6348aa6e645ab98c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210723"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410162"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -33,8 +33,8 @@ Hyper-V(Virtual Machine Manager 없음) | Virtual Machine Manager에서 관리�
 
 **서버** | **요구 사항** | **세부 정보**
 --- | --- | ---
-Hyper-V(Virtual Machine Manager 없이 실행 중) | Windows Server 2016(서버 코어 설치 포함), Windows Server 2012 R2 최신 업데이트 | Site Recovery에서 Hyper-V 사이트를 구성하는 경우 Windows Server 2016과 2012 R2를 실행하는 호스트를 함께 포함할 수는 없습니다.<br/><br/> Windows Server 2016을 실행 중인 호스트에 있는 VM의 경우에는 대체 위치로의 복구가 지원되지 않습니다.
-Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Virtual Machine Manager를 사용하는 경우 Windows Server 2016 호스트는 Virtual Machine Manager 2016에서 관리되어야 합니다.<br/><br/> Windows Server 2016 및 2012 R2에서 실행 중인 Hyper-V 호스트가 모두 포함된 Virtual Machine Manager 클라우드는 현재 지원되지 않습니다.<br/><br/> 기존 Virtual Machine Manager 2012 R2 서버에서 2016으로의 업그레이드를 포함하는 환경은 지원되지 않습니다.
+Hyper-V(Virtual Machine Manager 없이 실행 중) | Windows Server 2016(서버 코어 설치 포함), Windows Server 2012 R2 최신 업데이트 | Windows Server 2016을 실행 중인 호스트에 있는 VM의 경우에는 대체 위치로의 복구가 지원되지 않습니다.<br/><br/> Azure Site Recovery 및 플랜을 사용하여 Windows Server 2012 R2 또는 SCVMM 2012 R2를 이미 구성했고 OS를 업그레이드할 계획이라면 지침 [설명서](upgrade-2012R2-to-2016.md)를 따르세요. 
+Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Virtual Machine Manager를 사용하는 경우 Windows Server 2016 호스트는 Virtual Machine Manager 2016에서 관리되어야 합니다.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>복제된 VM
@@ -111,7 +111,7 @@ NFS | 해당 없음 | 해당 없음
 SMB 3.0 | 아니요 | 아니요
 RDM | 해당 없음 | 해당 없음
 디스크 1TB 이상 | 예, 최대 4,095GB | 예, 최대 4,095GB
-디스크: 4K 논리/실제 섹터 | 미지원: 1세대/2세대 | 미지원: 1세대/2세대
+디스크: 4K 논리/실제 섹터 | 지원되지 않음: 1세대/2세대 | 지원되지 않음: 1세대/2세대
 디스크: 4K 논리/512바이트 물리 섹터 | yes |  yes
 논리 볼륨 관리(LVM)입니다. LVM은 데이터 디스크에서만 지원됩니다. Azure는 단일 OS 디스크만 제공합니다. | yes | yes
 스트라이프 디스크 포함 볼륨 1TB 이상 | yes | yes
@@ -159,7 +159,7 @@ Azure로 복제하는 온-프레미스 VM은 이 표에 요약되어 있는 Azur
 네트워크 어댑터 | 여러 어댑터가 지원됩니다. |
 공유 VHD | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
 FC 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패함
-하드 디스크 형식 | VHD  <br/><br/> VHDX | Azure로의 장애 조치(failover)를 수행하면 Site Recovery는 VHDX를 VHD로 자동 변환합니다. 온-프레미스에 장애 복구 시 가상 머신에서 계속해서 VHDX 형식을 사용합니다.
+하드 디스크 형식 | VHD  <br/><br/>  VHDX | Azure로의 장애 조치(failover)를 수행하면 Site Recovery는 VHDX를 VHD로 자동 변환합니다. 온-프레미스에 장애 복구 시 가상 머신에서 계속해서 VHDX 형식을 사용합니다.
 BitLocker | 지원되지 않음 | VM의 복제를 사용하도록 설정하기 전에 BitLocker를 사용하지 않도록 설정해야 합니다.
 VM 이름 | 1 자에서 63자 사이입니다. 문자, 숫자 및 하이픈으로 제한됩니다. VM 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. | Site Recovery에서 VM 속성의 값을 업데이트합니다.
 VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 있는 2세대 VM(VHDX로 포맷된 한 개 또는 두 개의 데이터 볼륨을 포함) 및 300GB 미만의 디스크 공간이 지원됩니다.<br></br>Linux 2세대 VM은 지원되지 않습니다. [자세히 알아보기](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
@@ -171,6 +171,9 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
 저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
 
+> [!NOTE]
+> 온-프레미스에서 Azure로 Hyper-VM(SCVMM을 사용하거나 사용하지 않고 관리)을 복제할 때 하나의 특정 환경(해당하는 경우 Hyper-V 사이트 또는 SCVMM)에서 하나의 AD 테넌트에만 복제할 수 있습니다.
+
 
 ## <a name="provider-and-agent"></a>공급자 및 에이전트
 
@@ -178,7 +181,7 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 
 **Name** | **설명** | **세부 정보**
 --- | --- | --- | --- | ---
-Azure Site Recovery 공급자 | 온-프레미스 서버와 Azure 간 통신 조정 <br/><br/> Virtual Machine Manager가 있는 Hyper-V : Virtual Machine Manager 서버에 설치됨<br/><br/> Virtual Machine Manager가 없는 Hyper-V: Hyper-V 호스트에 설치됨| 최신 버전: 5.1.2700.1(Azure Portal에서 제공됨)<br/><br/> [최신 기능 및 수정](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
+Azure Site Recovery 공급자 | 온-프레미스 서버와 Azure 간 통신 조정 <br/><br/> Hyper-V(Virtual Machine Manager 있음): Virtual Machine Manager 서버에 설치됨<br/><br/> Hyper-V(Virtual Machine Manager 없음): Hyper-V 호스트에 설치됨| 최신 버전: 5.1.2700.1(Azure Portal에서 제공됨)<br/><br/> [최신 기능 및 수정](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure Recovery Services 에이전트 | Hyper-V VM과 Azure 간 복제 조정<br/><br/> 온-프레미스 Hyper-V 서버에 설치됨(Virtual Machine Manager 있음/없음) | 포털에서 사용할 수 있는 최신 에이전트
 
 

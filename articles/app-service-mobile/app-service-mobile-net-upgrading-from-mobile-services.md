@@ -1,6 +1,6 @@
 ---
 title: Mobile Services에서 Azure App Service로 업그레이드
-description: Mobile Services 응용 프로그램을 App Service 모바일 앱으로 쉽게 업그레이드하는 방법을 알아봅니다.
+description: Mobile Services 애플리케이션을 App Service 모바일 앱으로 쉽게 업그레이드하는 방법을 알아봅니다.
 services: app-service\mobile
 documentationcenter: ''
 author: conceptdev
@@ -22,9 +22,9 @@ ms.lasthandoff: 12/12/2018
 ms.locfileid: "53278617"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>기존 .NET Azure 모바일 서비스를 App Service로 업그레이드
-App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로그램을 빌드하는 새로운 방법입니다. 자세한 내용은 [Mobile Apps 정의]를 참조하세요.
+App Service 모바일은 Microsoft Azure를 사용하여 모바일 애플리케이션을 빌드하는 새로운 방법입니다. 자세한 내용은 [Mobile Apps 정의]를 참조하세요.
 
-이 항목에서는 기존 .NET 백 엔드 응용 프로그램을 Azure Mobile Services에서 새로운 App Service Mobile Apps로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 Mobile Services 애플리케이션이 계속 작동할 수 있습니다.   Node.js 백 엔드 애플리케이션을 업그레이드해야 하는 경우 [Node.js Mobile Services 업그레이드](app-service-mobile-node-backend-upgrading-from-mobile-services.md)를 참조하세요.
+이 항목에서는 기존 .NET 백 엔드 애플리케이션을 Azure Mobile Services에서 새로운 App Service Mobile Apps로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 Mobile Services 애플리케이션이 계속 작동할 수 있습니다.   Node.js 백 엔드 애플리케이션을 업그레이드해야 하는 경우 [Node.js Mobile Services 업그레이드](app-service-mobile-node-backend-upgrading-from-mobile-services.md)를 참조하세요.
 
 모바일 백 엔드가 Azure App Service로 업그레이드되면 모든 App Service 기능에 액세스할 수 있고 Mobile Services 가격 책정이 아닌 [App Service 가격 책정]에 따라 요금이 청구됩니다.
 
@@ -32,7 +32,7 @@ App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
 > [!TIP]
-> 업그레이드를 진행하기 전에 [마이그레이션을 수행](app-service-mobile-migrating-from-mobile-services.md) 하는 것이 좋습니다. 이러한 방식으로 동일한 App Service 계획에 두 버전의 응용 프로그램을 모두 추가 비용 없이 둘 수 있습니다.
+> 업그레이드를 진행하기 전에 [마이그레이션을 수행](app-service-mobile-migrating-from-mobile-services.md) 하는 것이 좋습니다. 이러한 방식으로 동일한 App Service 계획에 두 버전의 애플리케이션을 모두 추가 비용 없이 둘 수 있습니다.
 >
 >
 
@@ -52,25 +52,25 @@ App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로
 >
 >
 
-Mobile Services 클라이언트 SDK는 새 Mobile Apps 서버 SDK와 호환할 수 **없습니다** . 앱에 대한 서비스 연속성을 제공하기 위해 현재 게시된 클라이언트를 제공하는 사이트에 변경 내용을 게시하지 않아야 합니다. 대신 중복으로 제공한 새 모바일 앱을 만들어야 합니다. 이 응용 프로그램을 동일한 App Service 계획에 두어 추가 비용이 발생하지 않도록 할 수 있습니다.
+Mobile Services 클라이언트 SDK는 새 Mobile Apps 서버 SDK와 호환할 수 **없습니다** . 앱에 대한 서비스 연속성을 제공하기 위해 현재 게시된 클라이언트를 제공하는 사이트에 변경 내용을 게시하지 않아야 합니다. 대신 중복으로 제공한 새 모바일 앱을 만들어야 합니다. 이 애플리케이션을 동일한 App Service 계획에 두어 추가 비용이 발생하지 않도록 할 수 있습니다.
 
-다음 두 가지 버전의 응용 프로그램이 있습니다. 하나는 동일하게 유지되고 야생에서 게시된 앱을 제공하며 다른 하나는 업그레이드하고 새 클라이언트 릴리스를 대상으로 할 수 있습니다. 진도에 맞게 코드를 이동하고 테스트할 수 있지만 수행한 버그 수정이 둘 모두에 적용되도록 해야 합니다. 야생에서 원하는 수의 클라이언트 앱이 최신 버전으로 업데이트되면 원하는 경우 원래 마이그레이션된 앱을 삭제할 수 있습니다.
+다음 두 가지 버전의 애플리케이션이 있습니다. 하나는 동일하게 유지되고 야생에서 게시된 앱을 제공하며 다른 하나는 업그레이드하고 새 클라이언트 릴리스를 대상으로 할 수 있습니다. 진도에 맞게 코드를 이동하고 테스트할 수 있지만 수행한 버그 수정이 둘 모두에 적용되도록 해야 합니다. 야생에서 원하는 수의 클라이언트 앱이 최신 버전으로 업데이트되면 원하는 경우 원래 마이그레이션된 앱을 삭제할 수 있습니다.
 
 업그레이드 프로세스에 대한 전체 개요는 다음과 같습니다.
 
 1. 새 모바일 앱 만들기
 2. 프로젝트를 업데이트하여 새 서버 SDK 사용
-3. 새 버전의 클라이언트 응용 프로그램 릴리스
+3. 새 버전의 클라이언트 애플리케이션 릴리스
 4. (선택 사항) 원래 마이그레이션된 인스턴스 삭제
 
 ## <a name="mobile-app-version"></a>두 번째 응용 프로그램 인스턴스 만들기
-업그레이드의 첫 번째 단계는 새 버전의 응용 프로그램을 호스트할 모바일 앱 리소스를 만드는 것입니다. 기존 모바일 서비스를 이미 마이그레이션한 경우 동일한 호스팅 계획에 이 버전을 만들려고 합니다. [Azure Portal] 을 열고 마이그레이션된 응용 프로그램으로 이동합니다. App Service 계획에서 실행 중인지 확인합니다.
+업그레이드의 첫 번째 단계는 새 버전의 애플리케이션을 호스트할 모바일 앱 리소스를 만드는 것입니다. 기존 모바일 서비스를 이미 마이그레이션한 경우 동일한 호스팅 계획에 이 버전을 만들려고 합니다. [Azure Portal] 을 열고 마이그레이션된 응용 프로그램으로 이동합니다. App Service 계획에서 실행 중인지 확인합니다.
 
-다음으로 [.NET 백 엔드 만들기 지침](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)을 수행하여 두 번째 애플리케이션 인스턴스를 만듭니다. App Service 계획 또는 "호스팅 계획"을 선택하라는 메시지가 나타나면 마이그레이션된 응용 프로그램의 계획을 선택합니다.
+다음으로 [.NET 백 엔드 만들기 지침](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)을 수행하여 두 번째 애플리케이션 인스턴스를 만듭니다. App Service 계획 또는 "호스팅 계획"을 선택하라는 메시지가 나타나면 마이그레이션된 애플리케이션의 계획을 선택합니다.
 
-Mobile Services와 동일한 데이터베이스 및 알림 허브를 사용하려는 경우가 많습니다. [Azure Portal]을 열고 원래 응용 프로그램 탐색하여 이러한 값을 복사한 다음 **설정** > **응용 프로그램 설정**을 클릭할 수 있습니다. **연결 문자열**에서 `MS_NotificationHubConnectionString` 및 `MS_TableConnectionString`을 복사합니다. 새 업그레이드 사이트로 이동하고 붙여 넣어 기존 값을 덮어씁니다. 앱에 필요한 다른 응용 프로그램 설정에 이 프로세스를 반복합니다.
+Mobile Services와 동일한 데이터베이스 및 알림 허브를 사용하려는 경우가 많습니다. [Azure Portal]을 열고 원래 응용 프로그램 탐색하여 이러한 값을 복사한 다음 **설정** > **응용 프로그램 설정**을 클릭할 수 있습니다. **연결 문자열**에서 `MS_NotificationHubConnectionString` 및 `MS_TableConnectionString`을 복사합니다. 새 업그레이드 사이트로 이동하고 붙여 넣어 기존 값을 덮어씁니다. 앱에 필요한 다른 애플리케이션 설정에 이 프로세스를 반복합니다.
 
-응용 프로그램에 대한 ASP.NET 프로젝트의 복사본을 만들고 새 사이트에 게시합니다. 새 URL를 통해 업데이트된 클라이언트 응용 프로그램의 복사본을 사용하여 모든 작업이 예상 대로 작동하는 것을 확인합니다.
+애플리케이션에 대한 ASP.NET 프로젝트의 복사본을 만들고 새 사이트에 게시합니다. 새 URL를 통해 업데이트된 클라이언트 애플리케이션의 복사본을 사용하여 모든 작업이 예상 대로 작동하는 것을 확인합니다.
 
 ## <a name="updating-the-server-project"></a>서버 프로젝트 업데이트
 Mobile Apps는 Mobile Services 런타임과 동일한 기능을 대부분 제공하는 새로운 [모바일 앱 서버 SDK]를 제공합니다. 먼저 Mobile Services 패키지에 대한 모든 참조를 제거해야 합니다. NuGet 패키지 관리자에서 `WindowsAzure.MobileServices.Backend`를 검색합니다. 대부분의 앱에서 `WindowsAzure.MobileServices.Backend.Tables` 및 `WindowsAzure.MobileServices.Backend.Entity`를 포함하여 여러 패키지가 나타납니다. 이 경우 `Entity`와 같은 종속성 트리에서 가장 낮은 패키지를 시작하고 제거합니다. 메시지가 표시되면 모든 종속 패키지를 제거하지 마십시오. `WindowsAzure.MobileServices.Backend` 자체를 제거할 때까지 이 프로세스를 반복합니다.
@@ -125,13 +125,13 @@ app.UseAppServiceAuthentication(config);
 ### <a name="working-with-data"></a>데이터 작업
 Mobile Services에서 모바일 앱 이름은 Entity Framework 설치 프로그램의 기본 스키마 이름으로 제공되었습니다.
 
-이전에 참조된 동일한 스키마가 있는지 확인하려면 다음을 사용하여 응용 프로그램에 DbContext의 스키마를 설정합니다.
+이전에 참조된 동일한 스키마가 있는지 확인하려면 다음을 사용하여 애플리케이션에 DbContext의 스키마를 설정합니다.
 
 ```csharp
 string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
 ```
 
-위의 작업을 수행하는 경우 MS_MobileServiceName을 설정해야 합니다. 또한 응용 프로그램이 이전에 사용자 지정한 경우 다른 스키마 이름을 제공할 수 있습니다.
+위의 작업을 수행하는 경우 MS_MobileServiceName을 설정해야 합니다. 또한 애플리케이션이 이전에 사용자 지정한 경우 다른 스키마 이름을 제공할 수 있습니다.
 
 ### <a name="system-properties"></a>시스템 속성
 #### <a name="naming"></a>이름 지정
@@ -233,11 +233,11 @@ traceWriter.Info("Hello, World");
 ## <a name="authentication"></a>인증 고려 사항
 이제 Mobile Services의 인증 구성 요소는 App Service 인증/권한 부여 기능으로 옮겨졌습니다. [모바일 앱에 인증 추가](app-service-mobile-ios-get-started-users.md) 항목을 읽어서 사이트에 이 옵션을 사용하는 데 대해 알아볼 수 있습니다.
 
-AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그램에서 기존 등록을 활용할 수 있어야 합니다. 단순히 ID 공급자의 포털로 이동하고 새 리디렉션 URL을 등록에 추가해야 합니다. 그런 다음 클라이언트 ID 및 암호를 통해 App Service 인증/권한 부여를 구성합니다.
+AAD, Facebook, Google 등의 일부 공급자의 경우 복사 애플리케이션에서 기존 등록을 활용할 수 있어야 합니다. 단순히 ID 공급자의 포털로 이동하고 새 리디렉션 URL을 등록에 추가해야 합니다. 그런 다음 클라이언트 ID 및 암호를 통해 App Service 인증/권한 부여를 구성합니다.
 
 ### <a name="controller-action-authorization"></a>컨트롤러 작업 권한 부여
-`[AuthorizeLevel(AuthorizationLevel.User)]` 특성의 인스턴스는 이제 표준 ASP.NET `[Authorize]` 특성을 사용하도록 변경되어야 합니다. 또한 컨트롤러는 다른 ASP.NET 응용 프로그램에서와 같이 이제 기본적으로 익명입니다.
-관리자 또는 응용 프로그램을 같은 다른 AuthorizeLevel 옵션 중 하나를 사용하는 경우 이러한 내용이 사라지도록 합니다. 대신 공유 암호에 AuthorizationFilters를 설정하거나 AAD 서비스 주체를 구성하여 서비스 간 호출을 안전하게 사용하도록 할 수 있습니다.
+`[AuthorizeLevel(AuthorizationLevel.User)]` 특성의 인스턴스는 이제 표준 ASP.NET `[Authorize]` 특성을 사용하도록 변경되어야 합니다. 또한 컨트롤러는 다른 ASP.NET 애플리케이션에서와 같이 이제 기본적으로 익명입니다.
+관리자 또는 애플리케이션을 같은 다른 AuthorizeLevel 옵션 중 하나를 사용하는 경우 이러한 내용이 사라지도록 합니다. 대신 공유 암호에 AuthorizationFilters를 설정하거나 AAD 서비스 주체를 구성하여 서비스 간 호출을 안전하게 사용하도록 할 수 있습니다.
 
 ### <a name="getting-additional-user-information"></a>추가 사용자 정보 가져오기
 `GetAppServiceIdentityAsync()` 메서드를 통해 액세스 토큰을 포함하는 추가 사용자 정보를 가져올 수 있습니다.
@@ -246,13 +246,13 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
 ```
 
-또한 데이터베이스에 사용자 ID를 저장하는 경우와 같이 응용 프로그램이 사용자 ID에 종속된 경우 Mobile Services와 App Service Mobile Apps 간에 사용자 ID가 서로 다르다는 것에 유의해야 합니다. 그러나 Mobile Services 사용자 ID도 가져올 수 있습니다. ProviderCredentials 하위 클래스는 모두 UserId 속성을 가집니다. 따라서 앞의 예제부터 계속 실행합니다.
+또한 데이터베이스에 사용자 ID를 저장하는 경우와 같이 애플리케이션이 사용자 ID에 종속된 경우 Mobile Services와 App Service Mobile Apps 간에 사용자 ID가 서로 다르다는 것에 유의해야 합니다. 그러나 Mobile Services 사용자 ID도 가져올 수 있습니다. ProviderCredentials 하위 클래스는 모두 UserId 속성을 가집니다. 따라서 앞의 예제부터 계속 실행합니다.
 
 ```csharp
 string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
 ```
 
-앱이 사용자 ID에 종속된 경우 가능하면 ID 공급자와 함께 동일한 등록을 활용하는 것이 중요합니다. 일반적으로 사용자 ID의 범위는 사용된 응용 프로그램 등록으로 지정되므로 새 등록을 도입하면 사용자를 해당 데이터에 일치시킬 때 문제가 발생할 수 있습니다.
+앱이 사용자 ID에 종속된 경우 가능하면 ID 공급자와 함께 동일한 등록을 활용하는 것이 중요합니다. 일반적으로 사용자 ID의 범위는 사용된 애플리케이션 등록으로 지정되므로 새 등록을 도입하면 사용자를 해당 데이터에 일치시킬 때 문제가 발생할 수 있습니다.
 
 ### <a name="custom-authentication"></a>사용자 지정 인증
 앱이 사용자 지정 인증 솔루션을 사용하는 경우 업그레이드된 사이트가 시스템에 액세스하도록 하려 합니다. [.NET 서버 SDK 개요] 에서 사용자 지정 인증에 대한 새 지침을 수행하여 솔루션을 통합할 수 있습니다. 사용자 지정 인증 구성 요소가 여전히 미리 보기 상태입니다.
@@ -260,7 +260,7 @@ string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
 ## <a name="updating-clients"></a>클라이언트 업데이트
 작동하는 모바일 앱 백 엔드가 있으면 그것을 사용하는 클라이언트 애플리케이션의 새 버전에서 작동할 수 있습니다. 또한 Mobile Apps는 클라이언트 SDK의 새 버전을 포함하고 위의 서버 업그레이드와 유사합니다. 따라서 Mobile Apps 버전을 설치하기 전에 Mobile Services SDK에 대한 모든 참조를 제거해야 합니다.
 
-버전 간의 주요 변경 사항 중 하나는 생성자가 응용 프로그램 키를 더 이상 필요로 하지 않는다는 점입니다. 이제 모바일 앱의 URL에 간단히 전달할 수 있습니다. 예를 들어 .NET 클라이언트에서 `MobileServiceClient` 생성자는 다음과 같습니다.
+버전 간의 주요 변경 사항 중 하나는 생성자가 애플리케이션 키를 더 이상 필요로 하지 않는다는 점입니다. 이제 모바일 앱의 URL에 간단히 전달할 수 있습니다. 예를 들어 .NET 클라이언트에서 `MobileServiceClient` 생성자는 다음과 같습니다.
 
 ```csharp
 public static MobileServiceClient MobileService = new MobileServiceClient(
@@ -273,9 +273,9 @@ public static MobileServiceClient MobileService = new MobileServiceClient(
 * [iOS 버전 3.0.0 이상](app-service-mobile-ios-how-to-use-client-library.md)
 * [.NET(Windows/Xamarin) 버전 2.0.0 이상](app-service-mobile-dotnet-how-to-use-client-library.md)
 
-응용 프로그램이 푸시 알림을 사용하면 일부 변경 사항이 있는 경우와 같이 각 플랫폼에 대한 특정 등록 지침을 기록합니다.
+애플리케이션이 푸시 알림을 사용하면 일부 변경 사항이 있는 경우와 같이 각 플랫폼에 대한 특정 등록 지침을 기록합니다.
 
-새 클라이언트 버전을 준비할 때 업그레이드된 서버 프로젝트에 사용해보세요. 작동하는지 유효성을 검사한 후에 고객에게 응용 프로그램의 새 버전을 릴리스할 수 있습니다. 결국 고객이 이러한 업데이트를 받고 나면 Mobile Services 버전의 앱을 삭제할 수 있습니다. 이 시점에서 최신 모바일 앱 서버 SDK를 사용하여 App Service Mobile Apps의 업그레이드를 완전히 완료했습니다.
+새 클라이언트 버전을 준비할 때 업그레이드된 서버 프로젝트에 사용해보세요. 작동하는지 유효성을 검사한 후에 고객에게 애플리케이션의 새 버전을 릴리스할 수 있습니다. 결국 고객이 이러한 업데이트를 받고 나면 Mobile Services 버전의 앱을 삭제할 수 있습니다. 이 시점에서 최신 모바일 앱 서버 SDK를 사용하여 App Service Mobile Apps의 업그레이드를 완전히 완료했습니다.
 
 <!-- URLs. -->
 

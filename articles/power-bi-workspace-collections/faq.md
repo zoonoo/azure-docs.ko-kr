@@ -26,19 +26,19 @@ ms.locfileid: "51249203"
 Power BI 작업 영역 컬렉션은 사용자 컨트롤을 처음부터 빌드해야 하는 시간과 비용을 들이지 않고 응용 프로그램 개발자가 뛰어나고 완전한 대화형 보고서 및 시각화를 고객 쪽 앱에 포함할 수 있도록 하는 Azure 서비스입니다. 이제 전 세계 9곳의 데이터 센터에서 SLA로 Power BI 작업 영역 컬렉션을 사용할 수 있습니다. 또한 Power BI 작업 영역 컬렉션에서 고급 필터링을 위해 RLS(행 수준 보안)를 통한 데이터 보안 지원 등 서비스의 기능도 향상되었습니다. Power BI 작업 영역 컬렉션 가격 책정 모델도 간소화 및 업데이트되었습니다.
 
 ## <a name="who-would-want-to-use-microsoft-power-bi-workspace-collections-and-why"></a>Microsoft Power BI 작업 영역 컬렉션을 누가 사용하고 사용하는 이유는 무엇인가요?
-Microsoft Power BI 작업 영역 컬렉션은 사용자가 직접 빌드하지 않아도 모든 디바이스에 걸쳐 사용자에게 뛰어난 대화형 데이터 시각화 환경을 제공하려는 응용 프로그램 개발자를 위한 것입니다. Power BI 작업 영역 컬렉션으로 개발자는 직접 쿼리를 사용하여 항상 최신 보기를 제공할 수 있습니다. 개발자는 또한 프로그래밍 방식으로 Azure Resource Manager API 및 Power BI API를 사용하여 Power BI를 배포, 관리 및 자동화할 수도 있습니다. 모든 Power BI와 마찬가지로 포함된 서비스는 응용 프로그램의 사용량 및 수요에 맞게 자동으로 조정됩니다. Power BI 작업 영역 컬렉션 서비스는 종량제 사용량 기반 가격 책정 모델 기능을 갖추고 있습니다.
+Microsoft Power BI 작업 영역 컬렉션은 사용자가 직접 빌드하지 않아도 모든 디바이스에 걸쳐 사용자에게 뛰어난 대화형 데이터 시각화 환경을 제공하려는 응용 프로그램 개발자를 위한 것입니다. Power BI 작업 영역 컬렉션으로 개발자는 직접 쿼리를 사용하여 항상 최신 보기를 제공할 수 있습니다. 개발자는 또한 프로그래밍 방식으로 Azure Resource Manager API 및 Power BI API를 사용하여 Power BI를 배포, 관리 및 자동화할 수도 있습니다. 모든 Power BI와 마찬가지로 포함된 서비스는 애플리케이션의 사용량 및 수요에 맞게 자동으로 조정됩니다. Power BI 작업 영역 컬렉션 서비스는 종량제 사용량 기반 가격 책정 모델 기능을 갖추고 있습니다.
 
 ## <a name="how-does-power-bi-workspace-collections-relate-to-the-power-bi-service"></a>Power BI 작업 영역 컬렉션은 Power BI 서비스와 어떤 관련이 있나요?
 Power BI 작업 영역 컬렉션과 Power BI 서비스는 별개의 서비스입니다. Power BI 작업 영역 컬렉션은 사용량 기반 요금 청구 모델 기능을 갖추고 있으며 Azure 포털을 통해 배포되고 ISV가 고객이 사용할 수 있도록 응용 프로그램의 데이터 시각화를 포함할 수 있도록 디자인되었습니다. Power BI 서비스는 O365 포털을 통해 청구 및 배포되고, 주 사용 대상이 엔터프라이즈 내부용인 독립 실행형 일반용 BI 서비스입니다. Power BI 서비스에 대한 자세한 내용을 보려면 [www.powerbi.com](https://powerbi.microsoft.com)을 참조하세요.
 
 ## <a name="how-does-power-bi-workspace-collections-improve-my-app"></a>Power BI 작업 영역 컬렉션으로 앱을 어떻게 개선할 수 있나요?
-응용 프로그램은 뛰어난 대화형 데이터 시각화를 활용하여 응용 프로그램에서 사용자 결정을 직접 제공하는 경우 훨씬 더 강력합니다. Power BI 작업 영역 컬렉션을 사용하면 대화형이고 항상 최신인 풍부한 데이터 시각화로 앱을 향상시키므로 앱의 유틸리티, 사용자 만족도 및 충성도를 향상시키고 상황별 분석을 모든 디바이스에서 쉽게 제공할 수 있습니다.
+애플리케이션은 뛰어난 대화형 데이터 시각화를 활용하여 애플리케이션에서 사용자 결정을 직접 제공하는 경우 훨씬 더 강력합니다. Power BI 작업 영역 컬렉션을 사용하면 대화형이고 항상 최신인 풍부한 데이터 시각화로 앱을 향상시키므로 앱의 유틸리티, 사용자 만족도 및 충성도를 향상시키고 상황별 분석을 모든 디바이스에서 쉽게 제공할 수 있습니다.
 
 ## <a name="are-there-any-rules-or-restrictions-about-how-i-can-use-power-bi-workspace-collections-in-my-app"></a>내 앱에서 Power BI 작업 영역 컬렉션을 사용하는 방법에 대한 규칙이나 제한 사항이 있나요?
 Power BI 작업 영역 컬렉션은 타사용으로 제공되는 응용 프로그램을 위한 용도입니다. Power BI 작업 영역 컬렉션 서비스를 사용하여 내부 비즈니스 응용 프로그램을 만들려는 경우 각 내부 사용자는 Power BI Pro USL을 필요로 하며 Power BI Pro USL 요금 외에도 Power BI 작업 영역 컬렉션 서비스의 사용량에 대한 비용이 조직에 청구됩니다. 내부 응용 프로그램에 대한 Power BI Pro USL 요금 및 Power BI 작업 영역 컬렉션 사용량 비용을 방지하기 위해 Power BI 서비스는 Power BI USL 소유자(dev.powerbi.com)에 대한 추가 비용 없이 Power BI 작업 영역 컬렉션 외부에서 자체 콘텐츠 포함 기능을 제공합니다.
 
 ## <a name="can-power-bi-workspace-collections-be-used-to-create-internal-applications"></a>Power BI 작업 영역 컬렉션을 내부 응용 프로그램을 만드는 데 사용할 수 있나요?
-아니요. Power BI 작업 영역 컬렉션은 외부 사용자가 사용할 목적으로만 제공되며 내부 비즈니스 응용 프로그램 내에서는 사용할 수 없습니다. 내부 비즈니스 응용 프로그램용으로 Power BI 콘텐츠를 포함하려면 Power BI 서비스를 사용해야 합니다. 해당 콘텐츠를 사용하는 모든 사용자는 유효한 Power BI Free 또는 Power BI Pro 사용자 구독 라이선스가 있어야 합니다. Power BI 서비스를 사용한 내부 응용 프로그램 통합에 대한 자세한 내용은 [https://dev.powerbi.com](https://dev.powerbi.com)에서 확인할 수 있습니다.
+아니요. Power BI 작업 영역 컬렉션은 외부 사용자가 사용할 목적으로만 제공되며 내부 비즈니스 응용 프로그램 내에서는 사용할 수 없습니다. 내부 비즈니스 애플리케이션용으로 Power BI 콘텐츠를 포함하려면 Power BI 서비스를 사용해야 합니다. 해당 콘텐츠를 사용하는 모든 사용자는 유효한 Power BI Free 또는 Power BI Pro 사용자 구독 라이선스가 있어야 합니다. Power BI 서비스를 사용한 내부 응용 프로그램 통합에 대한 자세한 내용은 [https://dev.powerbi.com](https://dev.powerbi.com)에서 확인할 수 있습니다.
 
 ## <a name="is-this-service-available-globally"></a>이 서비스는 전 세계적으로 사용할 수 있나요?
 Power BI 작업 영역 컬렉션 서비스는 현재 대부분의 데이터 센터에서 사용 가능합니다. [여기](https://azure.microsoft.com/status/)에서 최신 가용성을 항상 확인할 수 있습니다.
@@ -53,14 +53,14 @@ Azure 표준 SLA를 Power BI 작업 영역 컬렉션에 사용할 수 있습니�
 Azure Portal에서는 구독에 대해 수행된 렌더링/보고서 세션 수에 대한 청구 세부 정보를 제공합니다.
 
 ## <a name="do-i-need-a-power-bi-subscription-in-order-to-develop-applications-with-power-bi-workspace-collections-how-do-i-get-started"></a>Power BI 작업 영역 컬렉션으로 응용 프로그램을 개발하려면 Power BI 구독이 필요한가요? 어떻게 시작하나요?
-응용 프로그램 개발자에게 응용 프로그램에서 사용하려는 보고서 및 시각화를 만들기 위해 Power BI 구독이 필요하지 않습니다. Microsoft Azure 구독 및 무료 Power BI Desktop 응용 프로그램이 필요합니다.
+애플리케이션 개발자에게 애플리케이션에서 사용하려는 보고서 및 시각화를 만들기 위해 Power BI 구독이 필요하지 않습니다. Microsoft Azure 구독 및 무료 Power BI Desktop 응용 프로그램이 필요합니다.
 
 Power BI 작업 영역 컬렉션 서비스를 사용하는 방법에 대한 자세한 내용은 서비스 설명서를 참조하세요.
 
 ## <a name="i-have-an-azure-subscription-can-i-use-power-bi-workspace-collections-using-my-existing-subscription"></a>Azure 구독이 있습니다. 기존 구독을 사용하여 Power BI 작업 영역 컬렉션을 사용할 수 있나요?
 예. 기존 Azure 구독을 사용하여 Microsoft Power BI 작업 영역 컬렉션 서비스를 프로비전하고 사용할 수 있습니다.
 
-## <a name="does-my-application-end-user-need-a-power-bi-license"></a>응용 프로그램 최종 사용자에게 Power BI 라이선스가 필요한가요?
+## <a name="does-my-application-end-user-need-a-power-bi-license"></a>애플리케이션 최종 사용자에게 Power BI 라이선스가 필요한가요?
  아니요. 응용 프로그램의 최종 사용자는 앱 내 데이터 시각화에 액세스하기 위해 별도로 Power BI 구독을 구매할 필요가 없습니다. Power BI 작업 영역 컬렉션 모델에서는 응용 프로그램 공급자에게 Azure 소비 측정기를 통해 서비스에 대한 요금이 청구됩니다. [가격 책정 및 라이선스 페이지](https://go.microsoft.com/fwlink/?LinkId=760527)를 참조하세요.
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>사용자 인증은 Power BI 작업 영역 컬렉션에 어떻게 작동하나요?

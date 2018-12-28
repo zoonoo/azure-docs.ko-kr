@@ -229,7 +229,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="float"></a>float
 `float(arg1)`
 
-값을 부동 소수점 숫자로 변환합니다. 논리 앱과 같은 응용 프로그램에 사용자 지정 매개 변수를 전달할 때만 이 함수를 사용합니다.
+값을 부동 소수점 숫자로 변환합니다. 논리 앱과 같은 애플리케이션에 사용자 지정 매개 변수를 전달할 때만 이 함수를 사용합니다.
 
 ### <a name="parameters"></a>매개 변수
 

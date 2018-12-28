@@ -1,6 +1,6 @@
 ---
 title: Azure 모바일 앱(Xamarin iOS)에 대해 오프라인 동기화 사용
-description: App Service 모바일 앱을 사용하여 Xamarin iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
+description: App Service 모바일 앱을 사용하여 Xamarin iOS 애플리케이션에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
 documentationcenter: xamarin
 author: conceptdev
 manager: cfowler

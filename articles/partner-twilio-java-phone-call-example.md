@@ -22,7 +22,7 @@ ms.lasthandoff: 11/27/2018
 ms.locfileid: "52426896"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Azure의 Java 애플리케이션에서 Twilio를 사용하여 전화를 거는 방법
-다음 예제는 Azure에 호스트된 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 보여 줍니다. 다음 스크린샷에 표시된 것처럼 응용 프로그램에서 사용자에게 전화 통화 값을 묻습니다.
+다음 예제는 Azure에 호스트된 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 보여 줍니다. 다음 스크린샷에 표시된 것처럼 애플리케이션에서 사용자에게 전화 통화 값을 묻습니다.
 
 ![Twilio 및 Java를 사용하는 Azure 통화 양식][twilio_java]
 

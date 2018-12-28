@@ -9,17 +9,16 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0895d31475de5d78c82f3bfedc0765e5a9549339
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960925"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877601"
 ---
 # <a name="smart-detection---failure-anomalies"></a>스마트 감지 - 실패
 [Application Insights](app-insights-overview.md)는 웹앱에서 실패한 요청이 비정상적으로 증가하는 경우 거의 실시간으로 자동으로 알립니다. 실패했다고 보고된 HTTP 요청 또는 종속성 호출의 비율이 비정상적으로 증가하는 것을 감지합니다. 요청의 경우 실패한 요청은 일반적으로 응답 코드 400 이상입니다. 문제를 심사하고 진단할 수 있도록 실패 및 관련된 원격 분석의 특성에 대한 분석이 알림 영역에서 제공됩니다. 또한 추가 진단을 위해 Application Insights 포털에 링크가 제공됩니다. 기능이 Machine Learning 알고리즘을 사용하여 일반 실패율을 예측하려면 설정 또는 구성이 필요하지 않습니다.
@@ -92,7 +91,7 @@ ms.locfileid: "50960925"
 
 더 자세히 조사해야 하는 경우 각 섹션의 링크는 관련 요청, 예외, 종속성 또는 추적을 필터링하는 [검색 페이지](app-insights-diagnostic-search.md) 로 바로 이동합니다. 또는 [Azure 포털](https://portal.azure.com)을 열고 앱에 대한 Application Insights 리소스에 이동하며 오류 블레이드를 열 수 있습니다.
 
-이 예제에서 '종속성 오류 세부 정보 보기' 링크를 클릭하면 Application Insights 검색 블레이드가 열립니다. 다음과 같은 근본 원인의 예가 있는 SQL 문이 표시됩니다. 필수 필드에 Null이 제공되었으며 저장 작업 동안 유효성 검사를 통과하지 못했습니다.
+이 예제에서 '종속성 오류 세부 정보 보기' 링크를 클릭하면 Application Insights 검색 블레이드가 열립니다. 근본 원인의 예제가 있는 SQL 명령문이 표시됩니다. 필수 필드에 NULL이 제공되었으며 저장 작업 중 유효성 검사를 통과하지 못했습니다.
 
 ![진단 검색](./media/app-insights-proactive-failure-diagnostics/051.png)
 
@@ -124,11 +123,11 @@ ms.locfileid: "50960925"
 
 *그렇다면, 내 데이터를 확인하고 있습니까?*
 
-* 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [비공개](app-insights-data-retention-privacy.md)입니다.
+*  아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [비공개](app-insights-data-retention-privacy.md)입니다.
 
 *이 경고를 구독해야 하나요?*
 
-* 아니요. 요청 원격 분석을 보내는 모든 응용 프로그램에 스마트 감지 경고 규칙이 있습니다.
+*  아니요. 요청 원격 분석을 보내는 모든 응용 프로그램에 스마트 감지 경고 규칙이 있습니다.
 
 *구독을 취소하거나 동료에게 대신 보낸 알림을 가져올 수 있습니까?*
 
@@ -147,7 +146,7 @@ ms.locfileid: "50960925"
 
 * [메트릭 탐색기](app-insights-metrics-explorer.md)
 * [검색 탐색기](app-insights-diagnostic-search.md)
-* [분석 - 강력한 쿼리 언어](../log-analytics/query-language/get-started-analytics-portal.md)
+* [분석 - 강력한 쿼리 언어](../azure-monitor/log-query/get-started-portal.md)
 
 스마트 감지는 완전히 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 

@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로의
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/19/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.author: mayg
+ms.openlocfilehash: d7b3919d0f970190238dbc5899a20f2d9e7d8cd4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162486"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256516"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -74,7 +74,7 @@ VMware에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요](
 Site Recovery는 공용 엔드포인트를 통하거나 ExpressRoute 공용 피어링을 사용하여 온-프레미스에서 Azure 저장소로 데이터를 복제합니다. 사이트 간 VPN 네트워크를 통한 복제는 지원되지 않습니다.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>ExpressRoute를 사용하여 Azure에 복제할 수 있나요?
-예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery에서 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제하므로 Site Recovery 복제에 대해 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)을 설정해야 합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)을 사용하여 해당 VM에 액세스할 수 있습니다.
+예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery에서 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제하므로 Site Recovery 복제에 대해 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#publicpeering)을 설정해야 합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 VM에 액세스할 수 있습니다.
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN을 통해 복제할 수 없는 이유는 무엇인가요?
@@ -146,11 +146,14 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>MySQL을 다운로드하지 않고 Site Recovery에서 설치할 수 있나요?
 예. MySQL 설치 관리자를 다운로드하여 **C:\Temp\ASRSetup** 폴더에 넣습니다.  구성 서버 VM을 설정하고, 조건에 동의하고, **다운로드 및 설치**를 클릭하면 포털에서 추가한 설치 관리자를 사용하여 MySQL을 설치합니다.
  
-### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>다른 용도로 구성 서버 VM을 사용할 수 있나요?
+### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>다른 용도로 구성 서버 VM을 사용할 수 있나요?
 아니요, 구성 서버로만 VM을 사용해야 합니다. 
 
+### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>구성 서버를 복제하고 오케스트레이션에 사용할 수 있나요?
+아니요, 등록 문제를 방지하기 위해 새 구성 서버를 설치해야 합니다.
+
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>구성 서버에 등록된 자격 증명 모음을 변경할 수 있나요?
- 아니요. 구성 서버에 등록된 후에는 자격 증명 모음을 변경할 수 없습니다.
+ 아니요. 구성 서버에 등록된 후에는 자격 증명 모음을 변경할 수 없습니다. 재등록 단계는 [이 문서](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault)를 검토하세요.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버의 재해 복구에 동일한 구성 서버를 사용할 수 있나요?
 예, 하지만 물리적 머신은 VMware VM으로만 장애 복구(failback)할 수 있습니다.

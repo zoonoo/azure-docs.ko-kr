@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 9986e7984f24e065886f6d0a8b2d06968f778702
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 84ea1d999a26ce0ce1d548da92549c6a718d5978
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582720"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850366"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>자습서: Tableau Server와 Azure Active Directory 통합
 
@@ -175,7 +175,7 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
    
     >[!NOTE] 
     >고객은 Tableau Server SAML SSO 구성의 모든 인증서를 업로드해야 하며, 인증서는 SSO 흐름에서 무시됩니다.
-    >Tableau Server에서 SAML을 구성하는 데 도움이 필요한 경우 [SAML 구성](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm) 문서를 참조하세요.
+    >Tableau Server에서 SAML을 구성하는 데 도움이 필요한 경우 [SAML 구성](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm) 문서를 참조하세요.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

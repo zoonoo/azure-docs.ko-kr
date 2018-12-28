@@ -69,7 +69,7 @@ Azure Functions는 다양한 Azure 및 타사 서비스와 통합됩니다. 이�
 Azure Functions에는 두 종류의 가격 책정 계획이 있습니다. 사용자의 요구에 가장 잘 맞는 하나를 선택합니다. 
 
 * **소비 요금제** - 함수가 실행되면 Azure에서 필요한 모든 계산적 리소스를 제공합니다. 리소스 관리에 대해 염려하지 않아도 되며 코드가 실행된 시간에 대해서만 비용을 지불합니다. 
-* **App Service 계획** - 웹앱과 같이 함수를 실행합니다. 다른 응용 프로그램에 이미 App Service를 사용하고 있는 경우 추가 비용 없이 동일한 계획으로 함수를 실행할 수 있습니다. 
+* **App Service 계획** - 웹앱과 같이 함수를 실행합니다. 다른 애플리케이션에 이미 App Service를 사용하고 있는 경우 추가 비용 없이 동일한 계획으로 함수를 실행할 수 있습니다. 
 
 호스팅 계획에 대한 자세한 내용은 [Azure Functions 호스팅 계획 비교](functions-scale.md)를 참조하세요. 전체 가격 책정 정보는 [Functions 가격 책정](https://azure.microsoft.com/pricing/details/functions/)페이지에 나와 있습니다.
 

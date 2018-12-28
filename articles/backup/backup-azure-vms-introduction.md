@@ -2,22 +2,22 @@
 title: Azure에서 VM 백업 인프라 계획
 description: Azure에서 가상 머신을 백업하려고 할 때 중요한 고려 사항
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: vm 백업, virtual machines 백업
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
-ms.author: markgal
-ms.openlocfilehash: ae02a1bcbf00a022cfd884b02141ce084f1fffa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: e38f245197f2b1bdb22a2866028ad10f4ec39ec1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232463"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343500"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure에서 VM 백업 인프라 계획
-이 문서에서는 성능 및 리소스를 제안하여 VM 백업 인프라를 계획할 수 있도록 합니다. 또한 Backup 서비스의 핵심 요소를 정의합니다. 이러한 측면은 아키텍처, 용량 계획 및 예약을 결정하는 데 중요한 요인이 될 수 있습니다. [환경을 준비](backup-azure-arm-vms-prepare.md)했다면 계획은 [VM 백업](backup-azure-arm-vms.md)을 시작하기 전의 다음 단계입니다. Azure Virtual Machines에 대한 자세한 내용은 [Virtual Machines 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요. 
+이 문서에서는 성능 및 리소스를 제안하여 VM 백업 인프라를 계획할 수 있도록 합니다. 또한 Backup 서비스의 핵심 요소를 정의합니다. 이러한 측면은 아키텍처, 용량 계획 및 예약을 결정하는 데 중요한 요인이 될 수 있습니다. [환경을 준비](backup-azure-arm-vms-prepare.md)했다면 계획은 [VM 백업](backup-azure-arm-vms.md)을 시작하기 전의 다음 단계입니다. Azure Virtual Machines에 대한 자세한 내용은 [Virtual Machines 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
 
 > [!NOTE]
 > 이 문서는 관리되는 디스크 및 관리되지 않는 디스크에서 사용하도록 작성되었습니다. 관리되지 않는 디스크를 사용하는 경우 저장소 계정 권장 사항이 있습니다. [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md)를 사용하는 경우 성능 또는 리소스 사용률 문제를 걱정할 필요가 없습니다. Azure는 저장소 사용량을 최적화합니다.
@@ -62,7 +62,7 @@ Azure Backup은 백업 워크플로 및 환경을 제어하기 위한 스크립�
 | 일관성 | VSS 기반 | 설명 및 세부 정보 |
 | --- | --- | --- |
 | 응용 프로그램 일관성 |Windows 경우 예|응용 프로그램 일관성은 다음을 보장하므로 워크로드에 이상적입니다.<ol><li> VM이 *부팅*됩니다. <li>*손상이 없습니다*. <li>*데이터 손실*이 없습니다.<li> 데이터는 백업 시 VSS 또는 사전/사후 스크립트를 사용하는 응용 프로그램을 포함하여 데이터를 사용하는 응용 프로그램과 일치됩니다.</ol> <li>*Windows VM* - 대부분의 Microsoft 워크로드에는 데이터 일관성과 관련된 워크로드 관련 동작을 수행하는 VSS 작성자가 있습니다. 예를 들어 SQL Server VSS 작성자는 트랜잭션 로그 파일 및 데이터베이스에 대한 쓰기가 올바르게 수행되었는지 확인합니다. IaaS Windows VM 백업의 경우, 응용 프로그램에 일관된 복구 지점을 생성하려면 백업 확장이 VSS 워크플로를 호출하고 VM 스냅숏을 촬영하기 전에 완료해야 합니다. Azure VM 스냅숏이 정확하려면 모든 Azure VM 응용 프로그램의 VSS 기록기도 완료해야 합니다. [VSS 기본 사항](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx)(영문) 및 [작동 방법](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)(영문)에서 자세히 알아 보세요. </li> <li> *Linux VM* - 고객은 [응용 프로그램 일관성을 보장하기 위해 사용자 지정 사전 스크립트 및 사후 스크립트를](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) 실행할 수 있습니다. </li> |
-| 파일 시스템 일관성 |예 - Windows 기반 컴퓨터 |복구 지점이 *일관된 파일 시스템*일 수 있는 두 가지 시나리오는 다음과 같습니다.<ul><li>사전 스크립트/사후 스크립트 없이 또는 사전 스크립트/사후 스크립트가 실패한 경우 Azure에서 Linux VM의 Backup. <li>Azure에서 Windows VM을 백업하는 중에 VSS 오류가 발생합니다.</li></ul> 두 경우 모두 다음을 보장하는 것이 가장 좋습니다. <ol><li> VM이 *부팅*됩니다. <li>*손상이 없습니다*.<li>*데이터 손실*이 없습니다.</ol> 응용 프로그램은 복원된 데이터에 대해 고유한 "수정" 메커니즘을 구현해야 합니다. |
+| 파일 시스템 일관성 |예 - Windows 기반 컴퓨터 |복구 지점이 *일관된 파일 시스템*일 수 있는 두 가지 시나리오는 다음과 같습니다.<ul><li>사전 스크립트/사후 스크립트 없이 또는 사전 스크립트/사후 스크립트가 실패한 경우 Azure에서 Linux VM의 Backup. <li>Azure에서 Windows VM을 백업하는 중에 VSS 오류가 발생합니다.</li></ul> 두 경우 모두 다음을 보장하는 것이 가장 좋습니다. <ol><li> VM이 *부팅*됩니다. <li>*손상이 없습니다*.<li>*데이터 손실*이 없습니다.</ol>  응용 프로그램은 복원된 데이터에 대해 고유한 "수정" 메커니즘을 구현해야 합니다. |
 | 충돌 일관성 |아니요 |이 상황은 "충돌"이 발생하는 가상 머신과 같습니다(소프트 또는 하드 재설정을 통해). 충돌 일관성은 일반적으로 Azure 가상 컴퓨터가 백업 시 종료될 때 발생합니다. 일관된 복구 지점에 충돌이 있다는 것은 저장소 매체의 데이터에 일관성을 보장해 주지 않는다는 뜻입니다(OS 관점 또는 응용 프로그램의 관점에서). 백업 시 디스크에 이미 존재하는 데이터만 캡처 및 백업됩니다. <br/> <br/> 보장은 없지만 대부분의 경우에 OS는 부팅됩니다. 이는 손상 오류를 수정하기 위한 chkdsk와 같은 디스크 검사 과정 이후에 발생합니다. 메모리 내 데이터 또는 디스크로 이전되지 않은 쓰기는 손실됩니다. 일반적으로 응용 프로그램은 데이터 롤백 작업을 수행해야 하는 경우에 고유한 확인 매커니즘을 수행합니다. <br><br>예를 들어 트랜잭션 로그에 데이터베이스에 없는 항목이 있는 경우 데이터베이스 소프트웨어는 데이터가 일관성을 찾을 때가지 롤백합니다. 여러 가상 디스크(예: 스팬 볼륨)에 분산된 데이터의 경우 충돌-일관성 복구 지점은 데이터 정확성을 보장하지 않습니다. |
 
 ## <a name="performance-and-resource-utilization"></a>성능 및 리소스 사용률
@@ -96,7 +96,19 @@ Azure Backup은 백업 워크플로 및 환경을 제어하기 위한 스크립�
 
 ### <a name="why-are-backup-times-longer-than-12-hours"></a>백업 시간이 12시간보다 긴 이유는 무엇인가요?
 
-Backup은 자격 증명 모음에 스냅숏 만들기 및 스냅숏 전송과 같은 두 단계로 구성됩니다. Backup 서비스는 저장소에 최적화됩니다. 스냅숏 데이터를 자격 증명 모음으로 이전할 경우 서비스는 이전 스냅숏에서 증분 변경 사항만 이전합니다.  증분 변경을 확인하기 위해 컴퓨터는 블록의 체크섬을 계산합니다. 블록이 변경되면 해당 블록은 자격 증명 모음으로 전송될 블록으로 식별됩니다. 그런 다음 서비스는 식별된 각 블록을 더 분석하여 전송할 데이터를 최소화할 기회를 찾습니다. 모든 변경된 블록을 평가한 후 서비스는 변경 사항을 취합하여 자격 증명 모음으로 보냅니다. 일부 레거시 응용 프로그램의 경우 소규모의 조각난 쓰기는 저장소에 적합하지 않습니다. 스냅숏에 많은 소규모의 조각난 쓰기가 포함되어 있을 경우 서비스는 응용 프로그램에서 기록한 데이터를 처리하는 데 추가적인 시간을 소비합니다. VM 내에서 실행되는 응용 프로그램의 경우 권장되는 응용 프로그램 쓰기 블록은 최소 8KB입니다. 응용 프로그램에서 8KB 보다 작은 블록을 사용할 경우 백업 성능에 영향을 미칩니다. 백업 성능을 개선하도록 응용 프로그램을 조정하려면 [Azure Storage에서 최적의 성능을 위한 응용 프로그램 조정](../virtual-machines/windows/premium-storage-performance.md)을 참조하세요. 백업 성능에 관한 문서에서는 프리미엄 저장소 예제를 사용하고 있지만 해당 지침은 표준 저장소 디스크에 적용 가능합니다.
+Backup은 자격 증명 모음에 스냅숏 만들기 및 스냅숏 전송과 같은 두 단계로 구성됩니다. Backup 서비스는 저장소에 최적화됩니다. 스냅숏 데이터를 자격 증명 모음으로 이전할 경우 서비스는 이전 스냅숏에서 증분 변경 사항만 이전합니다.  증분 변경을 확인하기 위해 컴퓨터는 블록의 체크섬을 계산합니다. 블록이 변경되면 해당 블록은 자격 증명 모음으로 전송될 블록으로 식별됩니다. 그런 다음 서비스는 식별된 각 블록을 더 분석하여 전송할 데이터를 최소화할 기회를 찾습니다. 모든 변경된 블록을 평가한 후 서비스는 변경 사항을 취합하여 자격 증명 모음으로 보냅니다. 일부 레거시 응용 프로그램의 경우 소규모의 조각난 쓰기는 저장소에 적합하지 않습니다. 스냅숏에 많은 소규모의 조각난 쓰기가 포함되어 있을 경우 서비스는 응용 프로그램에서 기록한 데이터를 처리하는 데 추가적인 시간을 소비합니다. VM 내에서 실행되는 응용 프로그램의 경우 권장되는 응용 프로그램 쓰기 블록은 최소 8KB입니다. 응용 프로그램에서 8KB 보다 작은 블록을 사용할 경우 백업 성능에 영향을 미칩니다. 백업 성능을 개선하도록 응용 프로그램을 조정하려면 [Azure Storage에서 최적의 성능을 위한 응용 프로그램 조정](../virtual-machines/windows/premium-storage-performance.md)을 참조하세요. 백업 성능에 관한 문서에서는 프리미엄 저장소 예제를 사용하고 있지만 해당 지침은 표준 저장소 디스크에 적용 가능합니다.<br>
+긴 백업 시간은 여러 가지 이유로 발생할 수 있습니다.
+  1. **새로 추가된 디스크의 이미 보호된 VM에 대한 첫 번째 백업** <br>
+    VM이 초기 백업을 완료했고 증분 백업을 수행 중인 경우. 새 디스크를 추가하면 새 디스크의 크기에 따라 1일 SLA가 누락될 수 있습니다.
+  2. **조각화** <br>
+    VM에서 실행 중인 워크로드(애플리케이션)가 작은 조각화된 쓰기를 수행하는 경우 백업 성능에 부정적인 영향을 줄 수 있습니다. <br>
+  3. **스토리지 계정이 오버로드됨** <br>
+      a. 백업이 최고 애플리케이션 사용 중에 예약된 경우.  
+      b. 5~10개 디스크가 동일한 스토리지 계정에서 호스트되는 경우.<br>
+  4. **CC(일관성 확인) 모드** <br>
+      1TB가 넘는 디스크의 경우 아래 언급된 이유로 인해 백업이 CC 모드에서 발생합니다.<br>
+        a. 관리 디스크가 VM 다시 부팅의 일부로 이동됩니다.<br>
+        b. 스냅숏의 수준을 기본 Blob으로 올립니다.<br>
 
 ## <a name="total-restore-time"></a>총 복원 시간
 

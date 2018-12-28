@@ -5,16 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/12/2018
 ms.author: raynew
-ms.openlocfilehash: bc671a598d975fb732b668d579561a253f04ded3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 50f9027301e4a04cd5624deee084429c803e04f4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317724"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342717"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>한 Azure 지역에서 다른 지역으로 복제를 위한 지원 매트릭스
 
@@ -41,9 +40,9 @@ ms.locfileid: "52317724"
 **지원되는 지역별 클러스터 내의 여러 지역 간에 VM 마이그레이션(구독 내/구독 간)** | 동일한 Azure Active Directory 테넌트 내에서 지원됩니다.
 **동일한 지역 내에서 VM 마이그레이션** | 지원되지 않습니다.
 
-# <a name="region-support"></a>지역 지원
+## <a name="region-support"></a>지역 지원
 
-동일한 지리적 클러스터 내의 두 지역 간에 VM을 복제 및 복구할 수 있습니다.
+동일한 지리적 클러스터 내의 두 지역 간에 VM을 복제 및 복구할 수 있습니다. 지리적 클러스터는 데이터 대기 시간 및 주권에 유의해서 정의해야 합니다.
 
 **지리적 클러스터** | **Azure 지역**
 -- | --
@@ -53,21 +52,21 @@ ms.locfileid: "52317724"
 오스트레일리아   | 오스트레일리아 동부, 오스트레일리아 남동부, 오스트레일리아 중부, 오스트레일리아 중부 2
 Azure Government    | 미국 버지니아 주 정부, 미국 아이오와 주 정부, 미국 애리조나 주 정부, 미국 텍사스 주 정부, US DoD 동부, US DoD 중부
 독일 | 독일 중부, 독일 북동부
-중국 | 중국 동부, 중국 북부
+중국 | 중국 동부, 중국 북부, 중국 북부 2, 중국 동부 2
 
 >[!NOTE]
 >
-> 브라질 남부 지역의 경우 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2 및 미국 중북부 지역 중 하나로 복제 및 장애 조치(failover)할 수 있습니다.
+> 브라질 남부 지역의 경우 복제한 후 다음 중 하나로 장애 조치(failover)할 수 있습니다. 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중북부 지역</br>
+> Site Recovery는 브라질 남부만 VM을 보호할 수 있는 원본 지역으로 사용할 수 있도록 설정했습니다. 미국 중남부와 같은 Azure 지역의 경우 대상 DR 지역으로 사용할 수 없습니다. 지리적 거리로 인한 대기 시간이 확인되므로 브라질 남부 이외의 아메리카 지역을 선택하는 것이 좋습니다.  
 
 ## <a name="cache-storage"></a>캐시 저장소
 
 이 표에서는 복제하는 동안 Site Recovery에서 사용하는 캐시 저장소 계정에 대한 지원을 요약해서 보여 줍니다.
 
-**설정** | **세부 정보**
---- | ---
+**설정** | **지원** | **세부 정보**
+--- | --- | ---
 범용 V2 저장소 계정(핫 및 쿨 계층) | 지원되지 않습니다. | V2의 트랜잭션 비용이 V1 저장소 계정 비용보다 훨씬 더 높기 때문에 캐시 저장소에 대한 제한이 있습니다.
-가상 네트워크의 Azure Storage 방화벽  | 아니요 | 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다.
-
+가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 방화벽 지원 캐시 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우 ['신뢰할 수 있는 Microsoft 서비스 허용'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)을 선택해야 합니다.
 
 
 ## <a name="replicated-machine-operating-systems"></a>복제된 컴퓨터 운영 체제
@@ -128,14 +127,14 @@ Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64에서 3.16.0-6-amd64까지, 4.9.0-0.bpo.4
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default에서 4.4.140-94.69-default |
+SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default에서 4.4.162-94.69-default |
 SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default에서 4.4.140-94.42-default |
 SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default에서 4.4.138-94.39-default |
 SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | 9.17 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default에서 4.4.126-94.22-default |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>복제된 컴퓨터 - Linux 파일 시스템/게스트 저장소
 
-* 파일 시스템: ext3, ext4, ReiserFS(Suse Linux Enterprise Server만), XFS
+* 파일 시스템: ext3, ext4, ReiserFS(Suse Linux Enterprise Server만), XFS, BTRFS
 * 볼륨 관리자: LVM2
 * 다중 경로 소프트웨어: 디바이스 매퍼
 
@@ -146,7 +145,7 @@ SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | 9.17 | SP1 3.12.49-11-default에�
 --- | --- | ---
 크기 | CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM | [Azure Virtual Machine 크기](../virtual-machines/windows/sizes.md)를 확인합니다.
 가용성 집합 | 지원됨 | 기본 옵션을 사용하여 Azure VM에 대해 복제를 사용하도록 설정하면 원본 지역 설정에 따라 가용성 집합이 자동으로 생성됩니다. 이러한 설정을 수정할 수 있습니다.
-가용성 영역 | 지원되지 않음 | 현재 가용성 영역에서 배포된 VM을 복제할 수 없습니다.
+가용성 영역 | 지원됨 |  
 HUB(하이브리드 사용 혜택) | 지원됨 | 원본 VM에 활성 HUB 라이선스가 있는 경우 테스트 장애 조치(failover) 또는 장애 조치(failover)된 VM에서도 HUB 라이선스를 사용합니다.
 VM 확장 집합 | 지원되지 않음 |
 Azure 갤러리 이미지 - Microsoft 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
@@ -180,6 +179,7 @@ OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아�
 데이터 디스크 - Premium Storage 계정 | 지원됨 | VM의 디스크가 Premium Storage 계정과 표준 저장소 계정에 분산된 경우 대상 지역의 저장소를 동일하게 구성하기 위해 각 디스크에 대해 서로 다른 대상 저장소 계정을 선택할 수 있습니다.
 Managed Disk - Standard | Azure Site Recovery가 지원되는 Azure 지역에서 지원됩니다. |  
 Managed Disk - Premium | Azure Site Recovery가 지원되는 Azure 지역에서 지원됩니다. |
+표준 SSD | 지원되지 않음 |
 중복 | LRS 및 GRS가 지원됩니다.<br/><br/> ZRS는 지원되지 않습니다.
 콜드 및 핫 저장소 | 지원되지 않음 | VM 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
 저장소 공간 | 지원됨 |         
@@ -195,12 +195,24 @@ GRS | 지원됨 |
 RA-GRS | 지원됨 |
 ZRS | 지원되지 않음 |  
 콜드 및 핫 저장소 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
-가상 네트워크의 Azure Storage 방화벽  | yes | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 신뢰할 수 있는 Microsoft 서비스가 스토리지 계정에 액세스할 수 있는지 확인합니다.
+가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 ['신뢰할 수 있는 Microsoft 서비스를 허용'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)해야 합니다.
 범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니요 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 
 >[!IMPORTANT]
 > [Linux](../virtual-machines/linux/disk-scalability-targets.md) 또는 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 가상 머신에 대한 VM 디스크 확장성 및 성능 목표를 확인하여 성능 문제를 피해야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 디스크 및 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 소스 VM의 디스크 확장성 및 성능 목표를 준수하는지 확인합니다.
 
+## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>복제 데이터 변경률에 대한 Azure Site Recovery 제한
+다음 테이블에는 Azure Site Recovery 제한이 제공됩니다. 이러한 한도는 테스트를 기반으로 하지만 모든 가능한 응용 프로그램 I/O 조합을 다룰 수는 없습니다. 실제 결과는 응용 프로그램 I/O 조합에 따라 달라질 수 있습니다. 디스크 데이터 변동별 및 가상 머신 데이터 변동별 고려해야 할 두 가지 제한 사항이 있습니다.
+예를 들어 아래 테이블에서 프리미엄 P20 디스크를 보면 Site Recovery는 VM당 25MB/s 총 변동 제한으로 인해 VM당 이러한 최대 5개의 디스크로 디스크당 5MB/s 변동을 처리할 수 있습니다.
+
+**복제 저장소 대상** | **평균 원본 디스크 I/O 크기** |**평균 원본 디스크 데이터 변동** | **일일 총 원본 디스크 데이터 변동**
+---|---|---|---
+Standard Storage | 8KB | 2MB/초 | 디스크당 168GB
+프리미엄 P10 또는 P15 디스크 | 8KB  | 2MB/초 | 디스크당 168GB
+프리미엄 P10 또는 P15 디스크 | 16KB | 4MB/초 |  디스크당 336GB
+프리미엄 P10 또는 P15 디스크 | 32KB 이상 | 8MB/초 | 디스크당 672GB
+프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MB/초 | 디스크당 421GB
+프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |10MB/초 | 디스크당 842GB
 ## <a name="replicated-machines---networking"></a>복제된 컴퓨터 - 네트워킹
 **구성** | **지원** | **세부 정보**
 --- | --- | ---

@@ -31,7 +31,7 @@ Azure Storage 애플리케이션에서 종단간 문제 해결 실습 가이드�
 
 * [소개]
   * [이 가이드의 구성 방식]
-* [Storage 서비스 모니터링]
+* [저장소 서비스 모니터링]
   * [서비스 상태 모니터링]
   * [용량 모니터링]
   * [가용성 모니터링]
@@ -87,7 +87,7 @@ Azure Storage 애플리케이션에서 종단간 문제 해결 실습 가이드�
 * Azure Storage 관련 문제 해결을 위한 실행 가능 지침 제공
 
 ### <a name="how-this-guide-is-organized"></a>이 가이드의 구성 방식
-"[Storage 서비스 모니터링]" 섹션에서는 Azure Storage 분석 메트릭(Storage 메트릭)을 사용하여 Azure Storage 서비스의 상태와 성능을 모니터링하는 방법을 설명합니다.
+"[저장소 서비스 모니터링]" 섹션에서는 Azure Storage 분석 메트릭(Storage 메트릭)을 사용하여 Azure Storage 서비스의 상태와 성능을 모니터링하는 방법을 설명합니다.
 
 "[저장소 문제 진단]" 섹션에서는 Azure Storage 분석 로깅(저장소 로깅)을 사용하여 문제를 진단하는 방법을 설명합니다. 또한 .NET용 Storage 클라이언트 라이브러리 또는 Java용 Azure SDK와 같은 클라이언트 라이브러리 중 하나의 기능을 사용하여 클라이언트 쪽 로깅을 사용하도록 설정하는 방법도 설명합니다.
 
@@ -163,7 +163,7 @@ Blob 등의 다양한 저장소 개체 크기를 예측하는 방법에 대한 �
 다음과 같은 여러 가지 방법으로 응용 프로그램의 문제를 파악할 수 있습니다.
 
 * 응용 프로그램을 중단하거나 작동을 중지하는 중대한 오류
-* 메트릭의 값이 이전 섹션("[Storage 서비스 모니터링]")에서 설명한 모니터링 중인 메트릭의 기본 값에서 크게 변경되는 현상
+* 메트릭의 값이 이전 섹션("[저장소 서비스 모니터링]")에서 설명한 모니터링 중인 메트릭의 기본 값에서 크게 변경되는 현상
 * 일부 특정 작업이 정상적으로 완료되지 않거나 일부 기능이 작동하지 않는다는 응용 프로그램 사용자의 보고
 * 응용 프로그램 내에서 생성되어 로그 파일이나 일부 기타 알림 방법을 통해 표시되는 오류
 
@@ -469,7 +469,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 | 원본 | 자세한 정도 | 자세한 정도 | 클라이언트 요청 ID | 작업 텍스트 |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab-… |위치 모드 PrimaryOnly에 대해 위치 Primary로 작업을 시작하는 중입니다. |
-| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&ampsr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14에 대한 동기 요청을 시작하는 중입니다. |
+| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14 에 대한 동기 요청을 시작하는 중입니다. |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |응답을 기다리는 중입니다. |
 | Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |응답을 기다리는 동안 throw 된 예외: 원격 서버가 오류를 반환했습니다: (403) 사용할 수 없음. |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |응답을 받았습니다. 상태 코드 = 403, 요청 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
@@ -811,7 +811,7 @@ Blob Storage에서 다운로드한 저장소 로깅 데이터를 Excel로 가져
 [소개]: #introduction
 [이 가이드의 구성 방식]: #how-this-guide-is-organized
 
-[Storage 서비스 모니터링]: #monitoring-your-storage-service
+[저장소 서비스 모니터링]: #monitoring-your-storage-service
 [서비스 상태 모니터링]: #monitoring-service-health
 [용량 모니터링]: #monitoring-capacity
 [가용성 모니터링]: #monitoring-availability

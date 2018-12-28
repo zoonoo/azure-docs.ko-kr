@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/3/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: df020fc3a4e2f57730dea7329b08e1e46660e610
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fab03f12f4099fe2df2525cb3a6fa093170d1c79
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037042"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850179"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임을 위한 사용자 지정 설치
 
@@ -63,7 +63,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
 1.  [Azure Storage 탐색기](http://storageexplorer.com/)를 다운로드 및 설치하고 시작합니다.
 
-    1.  **(로컬 및 연결)** 에서 **저장소 계정**을 마우스 오른쪽 단추로 선택하고 **Azure Storage에 연결**을 선택합니다.
+    1.   **(로컬 및 연결)** 에서 **저장소 계정**을 마우스 오른쪽 단추로 선택하고 **Azure Storage에 연결**을 선택합니다.
 
        ![Azure Storage에 연결](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
@@ -131,7 +131,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
     다. 연결된 공개 미리 보기 컨테이너를 선택하고 `CustomSetupScript` 폴더를 두 번 클릭합니다. 이 폴더에는 다음 항목이 있습니다.
 
-       1. `Sample` 폴더: Azure-SSIS IR의 각 노드에 기본 작업을 설치하는 사용자 지정 설정을 포함합니다. 이 작업은 몇 초 동안 대기하면서 아무 것도 수행하지 않습니다. 폴더는 또한 `gacutil.exe`를 포함한 `gacutil` 폴더를 포함합니다. 또한 `main.cmd`에는 파일 공유에 대한 액세스 자격 증명을 유지하기 위한 설명이 포함됩니다.
+       1. `Sample` 폴더: Azure-SSIS IR의 각 노드에 기본 작업을 설치하는 사용자 지정 설정을 포함합니다. 이 작업은 몇 초 동안 대기하면서 아무 것도 수행하지 않습니다. 또한 폴더에는 `gacutil` 폴더와 컨테이너에 있는 그대로 복사할 수 있는 전체 콘텐츠(`gacutil.exe`, `gacutil.exe.config` 및 `1033\gacutlrc.dll`)가 포함됩니다. 또한 `main.cmd`에는 파일 공유에 대한 액세스 자격 증명을 유지하기 위한 설명이 포함됩니다.
 
        1. `UserScenarios` 폴더: 실제 사용자 시나리오에 대한 여러 사용자 지정 설정을 포함합니다.
 
@@ -146,8 +146,6 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
        1. `BCP` 폴더: 대량 복사 프로그램(`bcp`) 등, Azure-SSIS IR의 각 노드에 SQL Server 명령줄 유틸리티를 설치하기 위한 사용자 지정 설정을 포함합니다(`MsSqlCmdLnUtils.msi`).
 
        1. `EXCEL` 폴더: Azure-SSIS IR의 각 노드에 오픈 소스 어셈블리(`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll` 및`ExcelDataReader.dll`)를 설치하는 사용자 지정 설정을 포함합니다.
-
-       1. `MSDTC` 폴더: Azure-SSIS IR의 각 노드에 MSDTC(Microsoft Distributed Transaction Coordinator) 서비스에 대한 네트워크 및 보안 구성을 수정하기 위한 사용자 지정 설치를 포함합니다. MSDTC가 시작됐는지 확인하려면 다음 명령 `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"`를 실행하는 패키지에서 제어 흐름의 시작 부분에 프로세스 실행 작업을 추가하십시오. 
 
        1. `ORACLE ENTERPRISE` 폴더: Azure-SSIS IR Enterprise Edition의 각 노드에 Oracle 커넥터 및 OCI 드라이버를 설치하기 위한 사용자 지정 설정 스크립트(`main.cmd`) 및 자동 설치 구성 파일(`client.rsp`)을 포함합니다. 이 설정을 통해 Oracle Connection Manager, 원본 및 대상을 사용할 수 있습니다. 먼저, [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=55179)에서 Oracle용 Microsoft Connectors v5.0(`AttunitySSISOraAdaptersSetup.msi` 및 `AttunitySSISOraAdaptersSetup64.msi`), [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html)에서 최신 Oracle 클라이언트(예: `winx64_12102_client.zip`)를 다운로드한 다음, `main.cmd` 및 `client.rsp`를 사용하여 모두 컨테이너에 업로드합니다. TNS를 사용하여 Oracle에 연결할 경우, 설정 중에 Oracle 설치 폴더에 복사될 수 있게 `tnsnames.ora`도 다운로드하여 편집하고 컨테이너에 업로드해야 합니다.
 

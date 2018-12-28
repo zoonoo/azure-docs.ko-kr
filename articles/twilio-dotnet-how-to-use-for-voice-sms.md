@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 087dcfd10b191dcd80ec4a70be8eb2e373e1d56b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 254128d212dec3e6f51a98dc4435894e08377eb0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427545"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955227"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
@@ -51,8 +51,8 @@ API는 Twilio 동사를 활용합니다. 예를 들어 **&lt;Say&gt;** 동사는
 * `<Pause>`: 지정된 시간(초) 동안 무음으로 대기합니다.
 * `<Record>`: 발신자의 음성을 녹음하고 녹음이 포함된 파일의 URL을 반환합니다.
 * `<Redirect>`: 통화 또는 SMS에 대한 제어를 다른 URL의 TwiML로 전송합니다.
-* `<Reject>`: 요금을 청구하지 않고 Twilio 번호의 수신 전화를 거부합니다.
-* `<Say>`: 텍스트를 통화에 사용되는 음성으로 변환합니다.
+* `<Reject>`: 요금을 청구하지 않고 Twilio 번호로 걸려 오는 전화를 거부합니다.
+* `<Say>`: 통화 시 텍스트를 음성으로 변환합니다.
 * `<Sms>`: SMS 메시지를 보냅니다.
 
 ### <a name="twiml"></a>TwiML
@@ -277,7 +277,7 @@ Azure에서 ASP.NET과 함께 Twilio 사용에 대한 자세한 내용은 [Azure
 
 [twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls
 
-[vs_project]:https://msdn.microsoft.com/library/windowsazure/ee405487.aspx
+[vs_project]:https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-azure-project-create
 [nuget]:https://nuget.org/
 [twilio_github_repo]:https://github.com/twilio/twilio-csharp
 

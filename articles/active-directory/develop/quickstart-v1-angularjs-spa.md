@@ -77,7 +77,7 @@ Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순�
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>2단계: ADAL 설치 및 단일 페이지 앱 구성
 
-Azure AD에서 응용 프로그램이 있으므로 adal.js를 설치하고 ID 관련 코드를 작성할 수 있습니다.
+Azure AD에서 애플리케이션이 있으므로 adal.js를 설치하고 ID 관련 코드를 작성할 수 있습니다.
 
 ### <a name="configure-the-javascript-client"></a>JavaScript 클라이언트 구성
 

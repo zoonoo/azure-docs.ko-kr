@@ -1,11 +1,13 @@
 ---
-title: Azure의 데이터 과학 Virtual Machine에서 수행할 수 있는 10가지 작업 | Microsoft 문서
+title: Data Science Virtual Machine에서 데이터 탐색 및 모델링
+titleSuffix: Azure
 description: 데이터 과학 Virtual Machine에서 다양한 데이터 탐색 및 모델링 작업을 수행합니다.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52f0a298b1a9e9f3f209f51c1bc0362b8ddf2c4e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250920"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075688"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -62,7 +64,7 @@ Python의 경우 PTVS(Python Tools for Visual Studio) 확장 기능이 사전 �
 
 Visual Studio에서 사용자 지정 환경 설정이 다음과 같이 표시됩니다.
 
-![PTVS 설치](./media/vm-do-ten-things/PTVSSetup.png)
+![선택한 Visual Studio용 Python 도구를 사용하는 Visual Studio의 스크린샷](./media/vm-do-ten-things/PTVSSetup.png)
 
 Python 환경을 만드는 방법에 대한 자세한 내용은 [PTVS 설명서](https://aka.ms/ptvsdocs) 를 참조하세요.
 
@@ -249,7 +251,7 @@ GitHub 리포지토리에서 코드를 다운로드하려면 ```git clone``` 명
 
 Visual Studio에서 동일한 복제 작업을 수행할 수 있습니다. 아래 스크린샷은 Visual Studio에서 Git 및 GitHub 도구에 액세스하는 방법을 보여 줍니다.
 
-![Visual Studio의 Git](./media/vm-do-ten-things/VSGit.PNG)
+![표시된 GitHub 연결을 사용하는 Visual Studio의 스크린샷](./media/vm-do-ten-things/VSGit.PNG)
 
 github.com에서 제공하는 여러 리소스를 통해 Git를 사용하여 GitHub 리포지토리를 작업하는 방법에 대한 자세한 내용을 찾을 수 있습니다. [참고 자료](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) 를 보시면 많은 도움이 될 것입니다.
 
@@ -261,14 +263,14 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 
 * **[Azure 포털](https://portal.azure.com)에서 고유한 Azure Blob 저장소 계정을 만듭니다.**
 
-![Create_Azure_Blob](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Azure Portal에서 스토리지 계정 만들기 프로세스의 스크린샷](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * 사전 설치된 명령줄 AzCopy 도구를 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```에서 찾을 수 있는지 확인합니다. 이 도구를 실행할 때 전체 명령 경로 입력하지 않아도 PATH 환경 변수에 azcopy.exe를 포함하는 디렉터리가 이미 있습니다. AzCopy 도구에 대한 자세한 내용은 [AzCopy 설명서](../../storage/common/storage-use-azcopy.md)를 참조하세요.
 * Azure Storage 탐색기 도구를 시작합니다. 이 도구는 [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)에서 다운로드할 수 있습니다. 
 
-![AzureStorageExplorer_v4](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
+![스토리지 계정에 액세스하는 Azure Storage 탐색기의 스크린샷](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
-**VM에서 Azure Blob로 데이터 이동: AzCopy**
+**VM에서 Azure Blob: AzCopy로 데이터 이동**
 
 로컬 파일과 Blob Storage 간에 데이터를 이동하려면 명령줄 또는 PowerShell에서 AzCopy를 사용합니다.
 
@@ -276,7 +278,7 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 
 파일이 저장되는 경로를 **C:\myfolder**로, Blob Store 계정 이름을 **mystorageaccount**로, 컨테이너 이름을 **mycontainer**로, Blob Store 액세스 키를 **저장소 계정 키**로 바꿉니다. 저장소 계정 자격 증명은 [Azure 포털](https://portal.azure.com)에서 찾을 수 있습니다.
 
-![StorageAccountCredential_v2](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
+![Azure Portal에서 스토리지 계정 키 및 컨테이너 정보의 스크린샷](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 PowerShell 또는 명령 프롬프트에서 AzCopy 명령을 실행합니다. 다음은 AzCopy 명령을 사용하는 예입니다.
 
@@ -291,22 +293,22 @@ PowerShell 또는 명령 프롬프트에서 AzCopy 명령을 실행합니다. �
 
 Azure 명령을 실행하여 AzCopy Blob을 복사하면 잠시 후 Azure Storage 탐색기에 해당 파일이 표시될 것입니다.
 
-![AzCopy_run_finshed_Storage_Explorer_v3](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
+![업로드된 CSV 파일을 표시하는 스토리지 계정의 스크린샷](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**VM에서 Azure Blob로 데이터 이동: Azure Storage 탐색기**
+**VM에서 Azure Blob: Azure Storage 탐색기로 데이터 이동**
 
 Azure Storage 탐색기를 사용하여 VM의 로컬 파일에서 데이터를 업로드할 수도 있습니다.
 
-* 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다.![Storage 탐색기에서 업로드](./media/vm-do-ten-things/storage-accounts.png)
-* **파일** 상자 오른쪽의 **...** 을 클릭하고 파일 시스템에서 업로드할 파일을 하나 이상 선택한 후에 **업로드**를 클릭하여 파일 업로드를 시작합니다.![Blob에 파일 업로드](./media/vm-do-ten-things/upload-files-to-blob.png)
+* 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다. ![Storage 탐색기에서 업로드 단추의 스크린샷](./media/vm-do-ten-things/storage-accounts.png)
+* **파일** 상자 오른쪽의 **...** 을 클릭하고, 파일 시스템에서 업로드할 파일을 하나 이상 선택하고 **업로드**를 클릭하여 파일 업로드를 시작합니다. ![파일 업로드 대화 상자의 스크린샷](./media/vm-do-ten-things/upload-files-to-blob.png)
 
-**Azure Blob에서 데이터 읽기: Machine Learning 판독기 모듈**
+**Azure Blob: Machine Learning 판독기 모듈에서 데이터 읽기**
 
 Azure Machine Learning Studio에서 **데이터 가져오기 모듈**을 사용하여 Blob에서 데이터를 읽을 수 있습니다.
 
-![AML_ReaderBlob_Module_v3](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
+![Machine Learning Studio에서 데이터 가져오기 모듈의 스크린샷](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
-**Azure Blob에서 데이터 읽기: Python ODBC**
+**Azure Blob: Python ODBC에서 데이터 읽기**
 
 **BlobService** 라이브러리를 사용하여 Jupyter Notebook 또는 Python 프로그램의 Blob에서 직접 데이터를 읽을 수 있습니다.
 
@@ -352,7 +354,7 @@ Azure Machine Learning Studio에서 **데이터 가져오기 모듈**을 사용�
 
 데이터 프레임으로 데이터를 읽어 들입니다.
 
-![IPNB_data_readin](./media/vm-do-ten-things/IPNB_data_readin.PNG)
+![데이터의 처음 10개 행의 스크린샷](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
 ### <a name="azure-data-lake"></a>Azure Data Lake
 빅 데이터 분석 작업용의 초대형 리포지토리인 Azure Data Lake Storage는 HDFS(Hadoop 분산 파일 시스템)와 호환됩니다. Hadoop, Spark 및 Azure Data Lake Analytics와 작동합니다. 이 섹션에서는 Azure Data Lake 저장소에 데이터를 이동하고 Azure Data Lake 분석을 사용하여 분석을 실행하는 방법을 알아봅니다.
@@ -361,29 +363,29 @@ Azure Machine Learning Studio에서 **데이터 가져오기 모듈**을 사용�
 
 * [Azure 포털](https://portal.azure.com)에서 Azure Data Lake Analytics를 만듭니다.
 
-![Azure_Data_Lake_Create_v2](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+![Azure Portal에서 Data Lake Analytics 만들기의 스크린샷](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
 * 이 [링크](https://www.microsoft.com/download/details.aspx?id=49504)에서 찾을 수 있는 **Visual Studio**의 **Azure Data Lake 도구**는 이미 가상 머신의 Visual Studio Community Edition에 설치되어 있습니다. Visual Studio를 시작하고 Azure 구독에 로그인하면 Visual Studio의 왼쪽 패널에 Azure Data Lake Analytics 계정 및 저장소가 표시됩니다.
 
-![Azure_Data_Lake_PlugIn_v2](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
+![Visual Studio에서 Data Lake Tools의 스크린샷](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
-**VM에서 Data Lake로 데이터 이동: Azure Data Lake 탐색기**
+**VM에서 Data Lake: Azure Data Lake Explorer로 데이터 이동**
 
 **Azure Data Lake Explorer** 를 사용하여 Virtual Machine의 로컬 파일에서 Data Lake Storage로 데이터를 업로드할 수 있습니다.
 
-![Azure_Data_Lake_UploadData](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+![Data Lake Explorer를 사용하여 파일을 업로드하는 스크린샷](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
 
 [ADF(Azure Data Factory)](https://azure.microsoft.com/services/data-factory/)를 사용하여 Azure Data Lake와의 데이터 이동을 운용하는 데이터 파이프라인을 구축할 수도 있습니다. 데이터 파이프라인을 구축하는 단계를 안내하는 이 [문서](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/)를 참조하세요.
 
-**Azure Blob에서 Data Lake로 데이터 읽기: U-SQL**
+**Azure Blob에서 Data Lake: U-SQL로 데이터 읽기**
 
 데이터가 Azure Blob 저장소에 상주하는 경우 U SQL 쿼리를 사용하여 Azure 저장소 Blob에서 직접 데이터를 읽을 수 있습니다. U-SQL 쿼리를 작성하기 전에 Blob 저장소 계정이 Azure Data Lake에 연결되었는지 확인합니다. **Azure Portal**로 이동하여 Azure Data Lake Analytics 대시보드를 찾은 다음 **데이터 원본 추가**를 클릭하고 저장소 유형을 **Azure Storage**로 선택한 후에 Azure Storage 계정 이름 및 키를 연결합니다. 그러면 저장소 계정에 저장된 데이터를 참조할 수 있습니다.
 
-![저장소 계정 및 키 입력](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
+![데이터 원본 추가 대화 상자의 스크린샷](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 Visual Studio에서 Blob Storage의 데이터를 읽고, 데이터를 조작하고, 기능을 엔지니어링하고, Azure Data Lake 또는 Azure Blob Storage에 결과 데이터를 출력할 수 있습니다. Blob Storage의 데이터를 참조할 때는 **wasb://** 를 사용하고, Azure Data Lake의 데이터를 참조할 때는 **swbhdfs://** 를 사용합니다.
 
-![데이터 프레임](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
+![WASB 항목이 강조 표시된 쿼리의 스크린샷](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 Visual Studio에서 다음 U-SQL 쿼리를 사용할 수 있습니다.
 
@@ -429,19 +431,19 @@ Visual Studio에서 다음 U-SQL 쿼리를 사용할 수 있습니다.
 
 서버에 쿼리가 제출되면 작업 상태를 표시하는 다이어그램이 표시됩니다.
 
-![작업 상태 다이어그램](./media/vm-do-ten-things/USQL_Job_Status.PNG)
+![작업 대화 상자 상태의 스크린샷](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
-**Data Lake의 데이터 쿼리: U SQL**
+**Data Lake: U-SQL의 데이터 쿼리**
 
 Azure Data Lake에 데이터 세트가 수집되면 [U-SQL 언어](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md)를 사용하여 데이터를 쿼리하고 탐색할 수 있습니다. U-SQL 언어는 T-SQL과 비슷하지만 C#의 일부 기능이 결합되어 사용자가 사용자 지정 모듈, 사용자 정의 함수 등을 작성할 수 있습니다. 이전 단계의 스크립트를 사용할 수 있습니다.
 
 서버에 쿼리가 제출되면 잠시 후 **Azure Data Lake 탐색기**에서 tripdata_summary.CSV 파일이 표시되며, 이 파일을 마우스 오른쪽 단추로 클릭하여 데이터를 미리 볼 수 있습니다.
 
-![Azure Data Lake Explorer의 파일](./media/vm-do-ten-things/USQL_create_summary.png)
+![Data Lake Explorer에서 csv 파일의 스크린샷](./media/vm-do-ten-things/USQL_create_summary.png)
 
 파일 정보를 보려면:
 
-![파일 요약](./media/vm-do-ten-things/USQL_tripdata_summary.png)
+![파일 요약 정보의 스크린샷](./media/vm-do-ten-things/USQL_tripdata_summary.png)
 
 ### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터
 Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase 및 Storm 서비스입니다. 데이터 과학 가상 머신에서 Azure HDInsight 클러스터를 쉽게 사용할 수 있습니다.
@@ -450,7 +452,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 * [Azure 포털](https://portal.azure.com)에서 고유한 Azure Blob 저장소 계정을 만듭니다. 이 저장소 계정은 HDInsight 클러스터에 대한 데이터를 저장하는 데 사용됩니다.
 
-![Azure Blob Storage 계정 만들기](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Azure Portal에서 HDInsight 만들기의 스크린샷](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 *  [Azure 포털](../team-data-science-process/customize-hadoop-cluster.md)
   
@@ -460,7 +462,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 * 클러스터의 헤드 노드에 대한 **원격 액세스**를 사용하도록 설정합니다. 여기에서 지정한 원격 액세스 자격 증명은 이후 절차에서 필요하므로 기억해둡니다.
 
-![원격 액세스 사용](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
+![HDInsight 클러스터에 원격 액세스를 사용하도록 설정](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
 * Azure Machine Learning 작업 영역을 만듭니다. Machine Learning 실험이 이 Machine Learning 작업 영역에 저장됩니다. 아래 스크린샷에 표시된 것과 같이 포털에서 강조 표시된 옵션을 선택합니다.
 
@@ -638,7 +640,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
     results.head(5)
 
 
-![승차 및 하차 테이블](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
+![승차 및 하차 테이블의 상위 행](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
 
     results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
                        'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
@@ -782,7 +784,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
     pd.read_sql(queryString,connection)
 
 
-![데이터 테이블](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
+![테이블에서 데이터의 상위 행](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
 **Machine Learning을 사용하여 HDI에서 데이터 읽기: 판독기 모듈**
 

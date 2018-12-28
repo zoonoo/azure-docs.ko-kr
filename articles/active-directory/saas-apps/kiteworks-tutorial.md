@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 88531ee1a98eefdf3ee85b4308150f10417858d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 986640c6af07c5a7ad85cfe8ca1f3d5b8a8aae84
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420226"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845997"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>자습서: Kiteworks와 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Kiteworks와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Kiteworks 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -114,10 +114,10 @@ Kiteworks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.kiteworks.com`
 
-    나. **식별자** 텍스트 상자에서 `https://<subdomain>.kiteworks.com/sp/module.php/saml/sp/saml2-acs.php/sp-sso` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<subdomain>.kiteworks.com/sp/module.php/saml/sp/saml2-acs.php/sp-sso` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Kiteworks 클라이언트 지원 팀](http://accellion.com/support)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Kiteworks 클라이언트 지원 팀](https://accellion.com/support)에 문의하세요. 
  
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -147,7 +147,7 @@ Kiteworks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **SSO를 통해 인증**을 선택합니다.
 
-    나. **AuthnRequest 시작**을 선택합니다.
+    b. **AuthnRequest 시작**을 선택합니다.
 
     다. Azure Portal에서 복사한 **SAML 엔터티 ID**를 **IDP 엔터티 ID** 텍스트 상자에 붙여넣습니다. 
 
@@ -160,7 +160,7 @@ Kiteworks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     g. **저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -188,7 +188,7 @@ Kiteworks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -201,7 +201,7 @@ Kiteworks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 Kiteworks는 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Kiteworks에 액세스하는 동안 만들어집니다.
 
 >[!NOTE]
->사용자를 수동으로 만들어야 하는 경우 [Kiteworks 지원 팀](http://accellion.com/support)에 문의해야 합니다.
+>사용자를 수동으로 만들어야 하는 경우 [Kiteworks 지원 팀](https://accellion.com/support)에 문의해야 합니다.
  
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당

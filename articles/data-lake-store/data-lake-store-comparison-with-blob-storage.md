@@ -12,15 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: d24a268cf389dfe9dec914b2d27bbe8e466ea675
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a6272f0a6da10075db299d0f8c87f0d748a7a946
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737195"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996474"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Azure Data Lake Storage Gen1과 Azure Blob Storage 비교
+  >[!NOTE] 
+    >[Azure Data Lake Storage Gen2 미리 보기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)가 최근에 발표되었습니다. Data Lake Storage Gen2 미리 보기는 기존의 두 가지 스토리지 서비스인 Azure Blob Storage와 [Azure Data Lake Storage Gen1]의 기능을 통합한 결과입니다(https://docs.microsoft.com/azure/data-lake-store/index). 파일 시스템 의미 체계, 파일 수준 보안 및 크기 조정과 같은 Azure Data Lake Storage Gen1의 기능이 [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)의 낮은 비용, 계층화된 스토리지, 고가용성/재해 복구 기능과 결합됩니다. <br> 엔터프라이즈 데이터 레이크를 빌드하기 위한 기초로 Data Lake Storage Gen2 미리 보기를 사용하여 시작하고 Azure Blob Storage 뿐만 아니라 Azure Data Lake Storage Gen1을 최대한 활용하는 것이 좋습니다.
+
 이 문서의 표에서는 빅 데이터 처리의 일부 주요 측면을 따라 Azure Data Lake Storage Gen1과 Azure Blob Storage 간의 차이점을 요약합니다. Azure Blob Storage는 다양한 저장소 시나리오를 위해 설계된 확장성 있는 범용 개체 저장소입니다. Azure Data Lake Storage Gen1은 빅 데이터 분석 워크로드에 대해 최적화된 하이퍼 스케일 리포지토리입니다.
+
+
+
+
 
 |  | Azure Data Lake Storage Gen1 | Azure Blob Storage |
 | --- | --- | --- |

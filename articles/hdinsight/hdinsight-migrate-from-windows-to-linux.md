@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3f0c912d1489884e0fef87e495d91486f3b1fc67
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bcaf59e1d9b36dfbb17f1e0b8089cd88e626e2b9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010068"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437132"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션
 
 이 문서에서는 Windows와 Linux의 HDInsight가 어떻게 다른지 자세히 설명합니다. 기존 워크로드를 Linux 기반 클러스터로 마이그레이션하는 방법에 대해서도 설명합니다.
 
-Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방법을 제공하지만 Linux 기반 클러스터로 마이그레이션해야 합니다. 예를 들어, 솔루션에 필요한 Linux 기반 도구 및 기술을 활요하는 것입니다. Hadoop 에코시스템 내의 많은 개체가 Linux 기반 시스템에서 개발되며 Windows 기반 HDInsight에서 사용하지 못할 수도 있습니다. 많은 책, 동영상 및 기타 교육 자료에서는 사용자가 Hadoop 작업 시 Linux 시스템을 사용한다고 가정합니다.
+Windows 기반 HDInsight가 클라우드에서 Apache Hadoop을 사용하는 쉬운 방법을 제공하지만 Linux 기반 클러스터로 마이그레이션해야 합니다. 예를 들어, 솔루션에 필요한 Linux 기반 도구 및 기술을 활요하는 것입니다. Hadoop 에코시스템 내의 많은 개체가 Linux 기반 시스템에서 개발되며 Windows 기반 HDInsight에서 사용하지 못할 수도 있습니다. 많은 책, 동영상 및 기타 교육 자료에서는 사용자가 Hadoop 작업 시 Linux 시스템을 사용한다고 가정합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight 클러스터는 클러스터의 노드에 대한 운영 체제로 Ubuntu LTS(장기 지원)를 사용합니다. HDInsight와 함께 사용할 수 있는 Ubuntu의 버전 및 기타 구성 요소 버전 정보는 [HDInsight 구성 요소 버전](hdinsight-component-versioning.md)을 참조하세요.
 
 ## <a name="migration-tasks"></a>마이그레이션 작업
@@ -82,7 +82,7 @@ Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방
     hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > 데이터를 포함하는 디렉터리 구조가 테스트 환경에 없는 경우 다음 명령을 사용하면 만들 수 있습니다.
 
     ```bash
@@ -97,7 +97,7 @@ Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방
 
 ## <a name="client-side-technologies"></a>클라이언트 쪽 기술
 
-[Azure PowerShell cmdlet](/powershell/azureps-cmdlets-docs), [Azure 클래식 CLI](../cli-install-nodejs.md), [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) 등의 클라이언트 쪽 기술은 계속해서 Linux 기반 클러스터에서 작동합니다. 이러한 기술은 두 클러스터 OS 유형에서 동일한 REST API에 의존합니다.
+[Azure PowerShell cmdlet](/powershell/azureps-cmdlets-docs), [Azure 클래식 CLI](../cli-install-nodejs.md), [.NET SDK for Apache Hadoop](https://hadoopsdk.codeplex.com/) 등의 클라이언트 쪽 기술은 계속해서 Linux 기반 클러스터에서 작동합니다. 이러한 기술은 두 클러스터 OS 유형에서 동일한 REST API에 의존합니다.
 
 ## <a name="server-side-technologies"></a>서버 쪽 기술
 
@@ -110,7 +110,7 @@ Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방
 | **.NET 구성 요소** |.NET은 Linux 기반 HDInsight 클러스터에서 [Mono](https://mono-project.com)를 통해 완전히 지원되지 않습니다. 자세한 내용은 [.NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요. |
 | **Win32 구성 요소 또는 기타 Windows 전용 기술** |참고 자료는 구성 요소 또는 기술에 따라 다릅니다. Linux와 호환되는 버전을 찾을 수도 있습니다. 찾지 못한 경우 대체 솔루션을 찾거나 이 구성 요소를 다시 작성해야 합니다. |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight 관리 SDK는 Mono와 완전히 호환되지 않습니다. HDInsight 클러스터에 배포되는 솔루션의 일부로 사용하지 마세요.
 
 ## <a name="cluster-creation"></a>클러스터 만들기
@@ -133,7 +133,7 @@ Linux 기반 HDInsight 클러스터는 클러스터 노드에 원격 액세스�
 
 다른 사용자 지정 기능은 **부트스트랩**입니다. Windows 클러스터의 경우 이 기능을 사용하면 Hive와 함께 사용하기 위한 추가 라이브러리 위치를 지정할 수 있습니다. 클러스터를 생성한 다음 이러한 라이브러리는 `ADD JAR`를 사용할 필요 없이 자동으로 Hive 쿼리와 함께 사용할 수 있습니다.
 
-Linux 기반 클러스터용 부트스트랩은 이 기능을 제공하지 않습니다. 대신 [클러스터 생성 중 Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md)에 설명된 스크립트 동작을 사용합니다.
+Linux 기반 클러스터용 부트스트랩은 이 기능을 제공하지 않습니다. 대신 [클러스터 생성 중 Apache Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md)에 설명된 스크립트 동작을 사용합니다.
 
 ### <a name="virtual-networks"></a>Virtual Network
 
@@ -143,18 +143,18 @@ Windows 기반 HDInsight 클러스터는 클래식 Virtual Network에서만 작�
 
 ## <a name="management-and-monitoring"></a>관리 및 모니터링
 
-작업 기록 또는 Yarn UI와 같이 Windows 기반 HDInsight와 함께 사용했을 수도 있는 여러 웹 UI는 Ambari를 통해 사용할 수 있습니다. 또한 Ambari Hive 보기는 사용자의 웹 브라우저를 사용하여 Hive 쿼리를 실행하는 방법을 제공합니다. Ambari 웹 UI는 https://CLUSTERNAME.azurehdinsight.net의 Linux 기반 클러스터에서 사용할 수 있습니다.
+작업 기록 또는 Yarn UI와 같이 Windows 기반 HDInsight와 함께 사용했을 수도 있는 여러 웹 UI는 Apache Ambari를 통해 사용할 수 있습니다. 또한 Ambari Hive 보기는 사용자의 웹 브라우저를 사용하여 Hive 쿼리를 실행하는 방법을 제공합니다. Ambari 웹 UI는 https://CLUSTERNAME.azurehdinsight.net의 Linux 기반 클러스터에서 사용할 수 있습니다.
 
 Ambari 작업에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Ambari 웹](hdinsight-hadoop-manage-ambari.md)
-* [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Apache Ambari 웹](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
 
 ### <a name="ambari-alerts"></a>Ambari 경고
 
 Ambari에는 클러스터의 잠재적인 문제를 알려주는 경고 시스템이 있습니다. 경고는 Ambari 웹 UI에 빨간색 또는 노란색 항목으로 나타나며 REST API를 통해서도 검색할 수 있습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ambari 경고는 문제가 *있을 수 있다*라는 의미이며, 문제가 *있다*는 것은 아닙니다. 예를 들어 평소처럼 액세스할 수 있는데도 HiveServer2에 액세스할 수 없다는 경고가 나타날 수 있습니다.
 >
 > 많은 경고는 서비스에서 간격 기반 쿼리로 구현되므로 특정 시간 프레임 내에서 응답을 기대합니다. 그러므로 경고가 발생했다고 해서 반드시 해당 서비스가 다운되었다는 것이 아니라 예상된 시간 프레임 내에 결과를 반환하지 않았다는 것을 의미합니다.
@@ -176,30 +176,30 @@ Linux 클러스터 파일 시스템은 Windows 기반 HDInsight 클러스터와�
 
 파일 이름과 함께 와일드카드를 사용할 수도 있습니다. 예를 들어 `find / -name *streaming*.jar 2>/dev/null`는 파일 이름 중 'streaming'이라는 단어를 포함하는 모든 jar 파일의 경로를 반환합니다.
 
-## <a name="hive-pig-and-mapreduce"></a>Hive, Pig 및 MapReduce
+## <a name="apache-hive-apache-pig-and-mapreduce"></a>Apache Hive, Apache Pig 및 MapReduce
 
 Pig 및 MapReduce 워크로드는 Linux 기반 클러스터에서 매우 유사합니다. 하지만 Linux 기반 HDInsight 클러스터는 Hadoop, Hive, Pig의 최신 버전을 사용하여 만들 수 있습니다. 이러한 버전 차이로 인해 기존 솔루션이 작동하는 방식이 달라질 수 있습니다. HDInsight와 함께 제공되는 구성 요소 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요.
 
 Linux 기반 HDInsight는 원격 데스크톱 기능을 제공하지 않습니다. 대신, SSH를 사용하여 클러스터 헤드 노드로 원격으로 연결할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [SSH와 함께 Hive 사용](hdinsight-hadoop-use-hive-ssh.md)
-* [SSH와 함께 Pig 사용](hadoop/apache-hadoop-use-pig-ssh.md)
+* [SSH에서 Apache Hive 사용](hdinsight-hadoop-use-hive-ssh.md)
+* [SSH에서 Apache Pig 사용](hadoop/apache-hadoop-use-pig-ssh.md)
 * [SSH와 함께 MapReduce 사용](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### <a name="hive"></a>Hive
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 외부 Hive 메타스토어를 사용하는 경우 Linux 기반 HDInsight와 함께 사용하기 전에 메타스토어를 백업해야 합니다. Linux 기반 HDInsight는 최신 버전의 Hive에서 사용할 수 있으며, 이 경우 이전 버전에서 만든 메타스토어와 호환되지 않을 수 있습니다.
 
 다음 차트는 Hive 작업 마이그레이션에 대한 참고 자료를 제공합니다.
 
 | Windows 기반 | Linux 기반에서... |
 | --- | --- |
-| **Hive 편집기** |[Ambari에서 Hive 보기](hadoop/apache-hadoop-use-hive-ambari-view.md) |
-| `set hive.execution.engine=tez;` - Tez 사용 설정 |Tez는 Linux 기반 클러스터에 대한 기본 실행 엔진이므로 SET 문이 더 이상 필요하지 않습니다. |
+| **Hive 편집기** |[Ambari에서 Apache Hive 보기](hadoop/apache-hadoop-use-hive-ambari-view.md) |
+| `set hive.execution.engine=tez;` - Tez 사용 설정 |Apache Tez는 Linux 기반 클러스터에 대한 기본 실행 엔진이므로 SET 문이 더 이상 필요하지 않습니다. |
 | C# 사용자 정의 함수 | Linux 기반 HDInsight로 C# 구성 요소를 검증하는 방법에 대한 자세한 내용은 [.NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요. |
 | Hive 작업의 일부로 호출된 서버의 CMD 파일 또는 스크립트 |Bash 스크립트 사용 |
-| `hive` 명령 |[SSH 세션에서 Hive](hdinsight-hadoop-use-hive-ssh.md) 또는 [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) 사용 |
+| `hive` 명령 |[SSH 세션에서 Apache Hive](hdinsight-hadoop-use-hive-ssh.md) 또는 [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) 사용 |
 
 ### <a name="pig"></a>Pig
 
@@ -215,9 +215,9 @@ Linux 기반 HDInsight는 원격 데스크톱 기능을 제공하지 않습니�
 | C# 매퍼 및 리듀서 구성 요소 | Linux 기반 HDInsight로 C# 구성 요소를 검증하는 방법에 대한 자세한 내용은 [.NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요. |
 | Hive 작업의 일부로 호출된 서버의 CMD 파일 또는 스크립트 |Bash 스크립트 사용 |
 
-## <a name="oozie"></a>Oozie
+## <a name="apache-oozie"></a>Apache Oozie
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 외부 Oozie 메타스토어를 사용하는 경우 Linux 기반 HDInsight와 함께 사용하기 전에 메타스토어를 백업해야 합니다. Linux 기반 HDInsight는 최신 버전의 Oozie에서 사용할 수 있으며, 이 경우 이전 버전에서 만든 메타스토어와 호환되지 않을 수 있습니다.
 
 Oozie 워크플로에서는 셸 작업이 가능합니다. 셸 작업은 운영 체제의 기본 셸을 사용하여 명령줄 명령을 실행합니다. Windows 셸에 의존하는 Oozie 워크플로가 있는 경우 Linux 셸 환경(Bash)에 의존하도록 워크플로를 다시 작성해야 합니다. Oozie와 함께 셸 작업을 사용하는 방법에 대한 자세한 내용은 [Oozie 셸 작업 확장](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html)을 참조하세요.
@@ -228,15 +228,15 @@ C# 응용 프로그램을 사용하는 워크플로가 있는 경우 Linux 환�
 
 | Windows 기반 | Linux 기반에서... |
 | --- | --- |
-| Storm 대시보드 |Storm 대시보드를 사용할 수 없습니다. 토폴로지를 제출하는 방법은 [Linux 기반 HDInsight에서 Storm 토폴로지 배포 및 관리](storm/apache-storm-deploy-monitor-topology-linux.md) 를 참조하세요. |
+| Storm 대시보드 |Storm 대시보드를 사용할 수 없습니다. 토폴로지를 제출하는 방법은 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](storm/apache-storm-deploy-monitor-topology-linux.md)를 참조하세요. |
 | Storm UI |Storm UI는 https://CLUSTERNAME.azurehdinsight.net/stormui에서 사용할 수 있습니다. |
 | C# 또는 하이브리드 토폴로지를 생성, 배포 및 관리하기 위한 Visual Studio |Visual Studio를 사용하여 HDInsight 클러스터의 Linux 기반 Storm에서 C#(SCP.NET) 또는 하이브리드 토폴로지를 생성, 배포 및 관리할 수 있습니다. 2016년 10월 28일 이후에 생성된 클러스터에만 사용할 수 있습니다. |
 
-## <a name="hbase"></a>HBase
+## <a name="apache-hbase"></a>Apache HBase
 
 Linux 기반 클러스터에서 HBase에 대한 znode 상위는 `/hbase-unsecure`입니다. 기본 HBase Java API를 사용하는 모든 Java 클라이언트 응용 프로그램 구성에서 이 값을 설정합니다.
 
-이 값을 설정하는 예제 클라이언트에 대한 내용은 [Java 기반 HBase 응용 프로그램 빌드](hdinsight-hbase-build-java-maven.md) 를 참조하세요.
+이 값을 설정하는 예제 클라이언트에 대한 내용은 [Java 기반 Apache HBase 애플리케이션 빌드](hdinsight-hbase-build-java-maven.md)를 참조하세요.
 
 ## <a name="spark"></a>Spark
 
@@ -248,7 +248,7 @@ Spark 클러스터는 미리 보기 중 Windows 클러스터에서 사용 가능
 
 Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight 클러스터에서 지원되지 않습니다. 대신 ADF 파이프라인의 일부로 사용자 지정 작업을 구현하기 위해서는 다음 방법 중 하나를 사용해야 합니다.
 
-* Azure Batch 풀에서 .NET 작업을 실행합니다. [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](../data-factory/transform-data-using-dotnet-custom-activity.md)
+* Azure Batch 풀에서 .NET 작업을 실행합니다.  [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](../data-factory/transform-data-using-dotnet-custom-activity.md)
 * MapReduce 작업으로 작업을 구현합니다. 자세한 내용은 [데이터 팩터리에서 MapReduce 프로그램 호출](../data-factory/transform-data-using-hadoop-map-reduce.md)을 참조하세요.
 
 ### <a name="line-endings"></a>줄 끝
@@ -261,7 +261,7 @@ Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight
 
 포함된 CR 문자가 있는 문자열이 스크립트에 없는 경우 다음 방법 중 하나를 사용하여 줄 끝을 대량 변경할 수 있습니다.
 
-* **스크립트를 클러스터에 업로드하기 전**: 스크립트를 클러스터에 업로드하기 전 다음 PowerShell 문을 사용하여 줄 끝을 CRLF에서 LF로 변경합니다.
+* **클러스터에 업로드하기 전**: 스크립트를 클러스터에 업로드하기 전 다음 PowerShell 문을 사용하여 줄 끝을 CRLF에서 LF로 변경합니다.
 
     ```powershell
     $original_file ='c:\path\to\script.py'
@@ -269,7 +269,7 @@ Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight
     [IO.File]::WriteAllText($original_file, $text)
     ```
 
-* **클러스터에 업로드한 후:** Linux 기반 클러스터에 대한 SSH 세션에서 다음 명령을 사용하여 스크립트를 수정합니다.
+* **클러스터로 업로드한 후**: Linux 기반 클러스터에 대한 SSH 세션에서 다음 명령을 사용하여 스크립트를 수정합니다.
 
     ```bash
     hdfs dfs -get wasb:///path/to/script.py oldscript.py
@@ -281,4 +281,4 @@ Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight
 
 * [Linux 기반 HDInsight 클러스터를 만드는 방법 알아보기](hdinsight-hadoop-provision-linux-clusters.md)
 * [SSH를 사용하여 HDInsight에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Ambari를 사용하여 Linux 기반 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari를 사용하여 Linux 기반 클러스터 관리](hdinsight-hadoop-manage-ambari.md)

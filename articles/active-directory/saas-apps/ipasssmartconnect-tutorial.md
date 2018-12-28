@@ -63,11 +63,11 @@ iPass SmartConnect가 Azure AD에 통합되도록 구성하려면 갤러리에�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
 
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
@@ -113,7 +113,7 @@ iPass SmartConnect에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     로그온 URL 텍스트 상자에 다음 URL을 입력합니다. `https://om-activation.ipass.com/ClientActivation/ssolanding.go`
 
-1. iPass SmartConnect 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대한 다음 클레임을 구성하세요. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+1. iPass SmartConnect 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대한 다음 클레임을 구성하세요. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
     ![Configure Single Sign-On](./media/ipasssmartconnect-tutorial/attribute.png)
 

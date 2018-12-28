@@ -63,11 +63,11 @@ Veritas Enterprise Vault.cloud SSO의 Azure AD 통합을 구성하려면 갤러�
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![애플리케이션][3]
 
@@ -75,7 +75,7 @@ Veritas Enterprise Vault.cloud SSO의 Azure AD 통합을 구성하려면 갤러�
 
     ![Azure AD 테스트 사용자 만들기](./media/veritas-tutorial/tutorial_veritas_search.png)
 
-1. 결과 패널에서 **Veritas Enterprise Vault.cloud SSO**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **Veritas Enterprise Vault.cloud SSO**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/veritas-tutorial/tutorial_veritas_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Veritas Enterprise Vault.cloud SSO에서 Azure AD Single Sign-On을 구성하고
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Veritas Enterprise Vault.cloud SSO 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Veritas Enterprise Vault.cloud SSO 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Veritas Enterprise Vault.cloud SSO에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Veritas Enterprise Vault.cloud SSO** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Veritas Enterprise Vault.cloud SSO** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -198,7 +198,7 @@ Veritas Enterprise Vault.cloud SSO에서 Azure AD Single Sign-On을 구성하고
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Veritas Enterprise Vault.cloud SSO**를 선택합니다.
+1. 애플리케이션 목록에서 **Veritas Enterprise Vault.cloud SSO**를 선택합니다.
 
     ![Configure Single Sign-On](./media/veritas-tutorial/tutorial_veritas_app.png) 
 
@@ -220,7 +220,7 @@ Veritas Enterprise Vault.cloud SSO에서 Azure AD Single Sign-On을 구성하고
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Veritas Enterprise Vault.cloud SSO 타일을 클릭하면 Veritas Enterprise Vault.cloud SSO 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Veritas Enterprise Vault.cloud SSO 타일을 클릭하면 Veritas Enterprise Vault.cloud SSO 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

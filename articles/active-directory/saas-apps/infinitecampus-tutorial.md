@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f4adbacf2749e8c8ff2da8f331a007e8dcaaea3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632809"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099956"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>자습서: Infinite Campus와 Azure Active Directory 통합
 
@@ -111,11 +111,11 @@ Infinite Campus에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     ![Configure Single Sign-On](common/editconfigure.png)
 
-5. **서비스 공급자 메타데이터 파일**(**11.b** 단계)이 있는 경우 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+5. **서비스 공급 기업 메타데이터 파일**(**11.c** 단계로 건너뜀)이 있는 경우 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     a. **메타데이터 파일 업로드**를 클릭합니다.
 
-    ![이미지](common/b9_saml.png)
+        ![image](common/b9_saml.png)
 
     b. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
 
@@ -128,9 +128,9 @@ Infinite Campus에서 Azure AD Single Sign-On을 구성하고 테스트하려면
     d. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다(도메인은 호스팅 모델에 따라 다름).`https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
-    > **서비스 공급자 메타데이터 파일**은 Infinite Campus SSO 구성 페이지에서 제공됩니다. 이 페이지에 대해서는 자습서 뒷부분에서 설명합니다.
+    > **서비스 공급자 메타데이터 파일**은 Infinite Campus SSO 구성 페이지에서 제공됩니다. 이 페이지에 대해서는 자습서 뒷부분에서 설명합니다. Infinite Campus에서 새 SAML 서비스 공급 기업 구성으로 시작하는 경우 **11단계**로 건너뛰어 서비스 공급 기업 메타 데이터 파일의 내보내기를 완료합니다.
 
-6. **서비스 공급자 메타데이터 파일**이 없는 경우 다음 단계를 수행합니다.
+6. **서비스 공급 기업 메타데이터 파일**이 없는 경우 다음 단계를 수행합니다(도메인은 호스팅 모델에 따라 달라집니다).
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
@@ -169,10 +169,10 @@ Infinite Campus에서 Azure AD Single Sign-On을 구성하고 테스트하려면
     ![sso](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
     a. **SAML Single Sign-On 사용**을 선택합니다.
+    
+    b. **IDP(ID 공급 기업) 서버 데이터 검색 옵션 선택** 섹션에서 **메타데이터 URL**을 선택하고 상자에 **앱 페더레이션 메타데이터 ULR**을 붙여넣은 다음, **동기화**를 클릭합니다.
 
-    b. **서비스 공급자 메타데이터** 링크를 클릭하여 **서비스 공급자 메타데이터 파일**을 컴퓨터에 저장한 다음, **기본 SAML 구성** 섹션에 업로드합니다. 그러면 Azure Portal에서 **식별자** 및 **회신 URL** 값이 자동으로 입력됩니다(5단계).
-
-    다. **IDP(ID 공급자) 서버 데이터 검색 옵션 선택** 섹션에서 **메타데이터 URL**을 선택하고 텍스트 상자에 **앱 페더레이션 메타데이터 ULR**을 붙여넣은 다음, **동기화**를 클릭합니다.
+    다. **서비스 공급 기업 메타데이터** 링크를 클릭하여 **서비스 공급 기업 메타데이터 파일**을 컴퓨터에 저장하고 **기본 SAML 구성** 섹션에 업로드합니다. 그러면 Azure Portal에서 **식별자** 및 **회신 URL** 값이 자동으로 입력됩니다(값의 업로드 및 자동 입력은 4단계를 참조하거나 수동 입력은 5단계를 참조하세요).
 
     d. **동기화**를 클릭하면 값이 **SSO 서비스 공급자 구성** 페이지에 자동으로 입력됩니다.
 

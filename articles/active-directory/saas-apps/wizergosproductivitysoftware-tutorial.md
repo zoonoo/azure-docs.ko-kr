@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 696d0326530baadfffc6f757c2a25690422a12c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e117b6e791bde3a8311b35ea5d651dad6bf88737
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441547"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845674"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wizergos-productivity-software"></a>자습서: Wizergos Productivity Software와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Wizergos Productivity Software와의 Azure AD 통합을 구성하려면 다음 �
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Wizergos Productivity Software 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -110,7 +110,7 @@ Wizergos Productivity Software에서 Azure AD Single Sign-On을 구성하고 테
 
     ![Wizergos Productivity Software 도메인 및 URL Single Sign-On 정보](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_url.png)
 
-    **식별자** 텍스트 상자에 URL `http://www.wizergos.net`을 입력합니다.
+    **식별자** 텍스트 상자에 URL `https://www.wizergos.net`을 입력합니다.
 
 1. **SAML 서명 인증서** 섹션에서 **인증서**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -140,7 +140,7 @@ Wizergos Productivity Software에서 Azure AD Single Sign-On을 구성하고 테
     
     a. **업로드** 버튼을 클릭하여 Azure AD에서 다운로드한 인증서를 업로드합니다.
     
-    나. **발급자 URL** 텍스트 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
+    b. **발급자 URL** 텍스트 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
     
     다. **Single Sign-On URL** 텍스트 상자에 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 붙여넣습니다.
     
@@ -149,7 +149,7 @@ Wizergos Productivity Software에서 Azure AD Single Sign-On을 구성하고 테
     e. **저장** 단추를 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기

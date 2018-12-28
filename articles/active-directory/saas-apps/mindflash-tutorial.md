@@ -63,11 +63,11 @@ Mindflash의 Azure AD 통합을 구성하려면 갤러리의 Mindflash를 관리
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![애플리케이션][3]
 
@@ -75,7 +75,7 @@ Mindflash의 Azure AD 통합을 구성하려면 갤러리의 Mindflash를 관리
 
     ![Azure AD 테스트 사용자 만들기](./media/mindflash-tutorial/tutorial_mindflash_search.png)
 
-1. 결과 패널에서 **Mindflash**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **Mindflash**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/mindflash-tutorial/tutorial_mindflash_addfromgallery.png)
 
@@ -100,7 +100,7 @@ Mindflash에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 **Mindflash에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Mindflash** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Mindflash** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -208,7 +208,7 @@ Azure AD 사용자가 Mindflash에 로그인할 수 있도록 하려면 Mindflas
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Mindflash**를 선택합니다.
+1. 애플리케이션 목록에서 **Mindflash**를 선택합니다.
 
     ![Configure Single Sign-On](./media/mindflash-tutorial/tutorial_mindflash_app.png) 
 

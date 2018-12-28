@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 77e370e80e423446d17a074b9458e7002f8627dd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ad2a9dba54df3ae7a3e2604437c8a65c88dcca94
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448349"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850893"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>자습서: Panorama9와 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Panorama9와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Panorama9 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -115,7 +115,7 @@ Panorama9에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **로그온 URL** 텍스트 상자에 URL을 입력합니다. `https://dashboard.panorama9.com/saml/access/3262`
 
-    나. **식별자** 텍스트 상자에서 `http://www.panorama9.com/saml20/<tenant-name>` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://www.panorama9.com/saml20/<tenant-name>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Panorama9 클라이언트 지원 팀](https://support.panorama9.com)에 문의하세요. 
@@ -146,12 +146,12 @@ Panorama9에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
     a. Azure Portal에서 복사한 **Single Sign-On 서비스 URL** 값을 **Identity provider URL**(ID 공급자 URL) 텍스트 상자에 붙여넣습니다.
    
-    나. Azure Portal에서 복사한 인증서의 **지문** 값을 **Certificate fingerprint**(인증서 지문) 텍스트 상자에 붙여넣습니다.    
+    b. Azure Portal에서 복사한 인증서의 **지문** 값을 **Certificate fingerprint**(인증서 지문) 텍스트 상자에 붙여넣습니다.    
          
 1. **저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -179,7 +179,7 @@ Panorama9에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 

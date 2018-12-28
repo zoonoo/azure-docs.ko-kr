@@ -24,14 +24,14 @@ ms.locfileid: "27592697"
 # <a name="add-authentication-to-your-ios-app"></a>iOS 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-이 자습서에서는 지원되는 ID 공급자를 사용하여 [iOS 빠른 시작 안내서] 에 인증을 추가합니다. 이 자습서는 먼저 완료해야 하는 [iOS 빠른 시작 안내서] 를 기반으로 합니다.
+이 자습서에서는 지원되는 ID 공급자를 사용하여 [iOS 빠른 시작] 에 인증을 추가합니다. 이 자습서는 먼저 완료해야 하는 [iOS 빠른 시작] 를 기반으로 합니다.
 
 ## <a name="register"></a>인증을 위해 앱 등록 및 App Service 구성
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ## <a name="redirecturl"></a>허용되는 외부 리디렉션 URL에 앱 추가
 
-보안 인증을 위해서는 앱에 대한 새로운 URL 체계를 정의해야 합니다.  이를 통해 인증 시스템은 인증 프로세스가 완료되면 앱으로 다시 리디렉션될 수 있습니다.  이 자습서에서는 전체적으로 URL 체계 _appname_을 사용합니다.  그러나 선택한 어떤 URL 체계도 사용 가능합니다.  이 체계는 모바일 응용 프로그램에 고유해야 합니다.  서버 쪽에서 리디렉션을 사용하도록 설정하려면
+보안 인증을 위해서는 앱에 대한 새로운 URL 체계를 정의해야 합니다.  이를 통해 인증 시스템은 인증 프로세스가 완료되면 앱으로 다시 리디렉션될 수 있습니다.  이 자습서에서는 전체적으로 URL 체계 _appname_을 사용합니다.  그러나 선택한 어떤 URL 체계도 사용 가능합니다.  이 체계는 모바일 애플리케이션에 고유해야 합니다.  서버 쪽에서 리디렉션을 사용하도록 설정하려면
 
 1. [Azure Portal]에서 해당 App Service를 선택합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "27592697"
 
 4. **관리 모드**를 **고급**으로 설정합니다.
 
-5. **허용되는 외부 리디렉션 URL**에서 `appname://easyauth.callback`을 입력합니다.  이 문자열의 _appname_은 모바일 응용 프로그램에 대한 URL 체계입니다.  이 체계는 프로토콜에 대한 일반 URL 사양을 따라야 합니다(문자 및 숫자만 사용하고 문자로 시작).  여러 위치에서 URL 체계에 따라 모바일 응용 프로그램 코드를 조정해야 할 경우 선택한 문자열을 적어두어야 합니다.
+5. **허용되는 외부 리디렉션 URL**에서 `appname://easyauth.callback`을 입력합니다.  이 문자열의 _appname_은 모바일 애플리케이션에 대한 URL 체계입니다.  이 체계는 프로토콜에 대한 일반 URL 사양을 따라야 합니다(문자 및 숫자만 사용하고 문자로 시작).  여러 위치에서 URL 체계에 따라 모바일 애플리케이션 코드를 조정해야 할 경우 선택한 문자열을 적어두어야 합니다.
 
 6. **확인**을 클릭합니다.
 
@@ -79,7 +79,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
 
     Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용하는 경우 [앱에서 Facebook 도메인을 허용 목록에 추가해야 합니다][1].
 
-    **urlScheme**을 응용 프로그램에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 응용 프로그램으로 다시 전환하는 데 사용됩니다.
+    **urlScheme**을 응용 프로그램에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 애플리케이션으로 다시 전환하는 데 사용됩니다.
 
 2. *QSTodoListViewController.m*의 `viewDidLoad`에 있는 `[self refresh]`를 다음 코드로 바꿉니다.
 
@@ -165,7 +165,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
 
     Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용하는 경우 [앱에서 Facebook 도메인을 허용 목록에 추가해야 합니다][1].
 
-    **urlScheme**을 응용 프로그램에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 응용 프로그램으로 다시 전환하는 데 사용됩니다.
+    **urlScheme**을 응용 프로그램에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 애플리케이션으로 다시 전환하는 데 사용됩니다.
 
 2. *ToDoTableViewController.swift*에 있는 `viewDidLoad()`의 끝에서 `self.refreshControl?.beginRefreshing()` 및 `self.onRefresh(self.refreshControl)` 줄을 제거합니다. 그 자리에 `loginAndGetData()` 에 대한 호출을 추가합니다.
 
@@ -217,7 +217,7 @@ App Service 인증은 Apples Inter-App Communication을 사용합니다.  이 �
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
-[iOS 빠른 시작 안내서]: app-service-mobile-ios-get-started.md
+[iOS 빠른 시작]: app-service-mobile-ios-get-started.md
 

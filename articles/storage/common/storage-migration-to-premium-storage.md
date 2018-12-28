@@ -52,7 +52,7 @@ Azure VM은 여러 Premium Storage 디스크의 연결을 지원하므로 응용
 Azure VM 크기 사양은 [가상 머신의 크기](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 나열되어 있습니다. Premium Storage와 작동하는 가상 머신의 성능 특징을 검토하고 워크로드에 가장 적합한 VM 크기를 선택합니다. VM에서 디스크 트래픽을 제어하기에 충분한 대역폭을 사용할 수 있는지 확인합니다.
 
 #### <a name="disk-sizes"></a>디스크 크기
-VM에서 사용할 수 있는 디스크에는 다섯 종류가 있으며 각 종류에는 특정 IOP 및 처리량 제한이 있습니다. 용량, 성능, 확장성 및 최대 로드 측면에서 응용 프로그램의 필요에 따라 VM에 대한 디스크 유형을 선택할 때 이 제한을 고려해야 합니다.
+VM에서 사용할 수 있는 디스크에는 다섯 종류가 있으며 각 종류에는 특정 IOP 및 처리량 제한이 있습니다. 용량, 성능, 확장성 및 최대 로드 측면에서 애플리케이션의 필요에 따라 VM에 대한 디스크 유형을 선택할 때 이 제한을 고려해야 합니다.
 
 | 프리미엄 디스크 유형  | P10   | P20   | P30            | P40            | P50            | 
 |:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
@@ -141,7 +141,7 @@ Azure VM을 만들 때 특정 VM 설정을 구성해야 합니다. 나중에 다
 Ubuntu VM에 대해 동일한 작업을 수행할 virt sysprep를 사용할 수 있습니다. 자세한 내용은 [virt-sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) 를 참조하세요. 다른 Linux 운영 체제는 공개 소스 [Linux 서버 프로비전 소프트웨어](http://www.cyberciti.biz/tips/server-provisioning-software.html) 의 일부도 참조하세요.
 
 ##### <a name="use-a-unique-operating-system-vhd-to-create-a-single-vm-instance"></a>고유의 운영 체제 VHD를 사용하여 단일 VM 인스턴스 만들기
-컴퓨터 특정 데이터를 필요로 하는 VM에서 실행 중인 응용 프로그램이 있는 경우 VHD를 일반화하지 않습니다. 일반화되지 않은 VHD는 고유한 Azure VM 인스턴스를 만드는 데 사용될 수 있습니다. 예를들어 VHD에 도메인 컨트롤러가 있는 경우, sysprep를 실행하면 도메인 컨트롤러가 비효율적이게 됩니다. VHD를 일반화하기 전에 VM에서 실행 중인 응용 프로그램을 검토하고 이러한 응용 프로그램에서 sysprep를 실행할 때의 영향을 확인합니다.
+컴퓨터 특정 데이터를 필요로 하는 VM에서 실행 중인 애플리케이션이 있는 경우 VHD를 일반화하지 않습니다. 일반화되지 않은 VHD는 고유한 Azure VM 인스턴스를 만드는 데 사용될 수 있습니다. 예를들어 VHD에 도메인 컨트롤러가 있는 경우, sysprep를 실행하면 도메인 컨트롤러가 비효율적이게 됩니다. VHD를 일반화하기 전에 VM에서 실행 중인 응용 프로그램을 검토하고 이러한 응용 프로그램에서 sysprep를 실행할 때의 영향을 확인합니다.
 
 ##### <a name="register-data-disk-vhd"></a>데이터 디스크 VHD 등록
 Azure에 마이그레이션할 데이터 디스크가 있는 경우 이 데이터 디스크를 사용하는 VM을 종료해야 합니다.
@@ -743,11 +743,11 @@ Update-AzureVM  -VM $vm
 ##### <a name="execution-steps"></a>실행 단계
 1. Premium Storage VM에 올바른 크기의 새 디스크를 만듭니다.
 2. VM에 로그인하고 현재 볼륨의 데이터를 해당 볼륨에 매핑되는 새 디스크로 복사합니다. 새 디스크에 매핑해야 하는 모든 현재 볼륨에 대해 이 작업을 수행합니다.
-3. 다음으로, 새 디스크로 전환하도록 응용 프로그램 설정을 변경하고 이전 볼륨을 분리합니다.
+3. 다음으로, 새 디스크로 전환하도록 애플리케이션 설정을 변경하고 이전 볼륨을 분리합니다.
 
 디스크 성능 향상을 위해 애플리케이션을 튜닝하는 방법은 [애플리케이션 성능 최적화](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance)를 참조하세요.
 
-### <a name="application-migrations"></a>응용 프로그램 마이그레이션
+### <a name="application-migrations"></a>애플리케이션 마이그레이션
 데이터베이스 및 기타 복잡한 응용 프로그램에는 응용 프로그램 공급자가 마이그레이션에 대해 정의한 특별한 단계가 필요할 수 있습니다. 각각의 애플리케이션 설명서를 참조하세요. 예: 일반적으로 백업 및 복원을 통해 데이터베이스를 마이그레이션할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -53,7 +53,7 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
 1. Azure DevOps Services 빌드 파이프라인을 편집하고 Azure PowerShell 빌드 단계를 추가합니다. **빌드 파이프라인** 범주 아래에서 빌드 파이프라인을 선택하고 **편집** 링크를 선택합니다.
    
    ![빌드 파이프라인 편집][0]
-2. 새 **Azure PowerShell** 빌드 단계를 빌드 파이프라인에 추가한 다음, **빌드 단계 추가...** 단추를 선택합니다. 단추를 선택합니다.
+2. 새 **Azure PowerShell** 빌드 단계를 빌드 파이프라인에 추가한 다음, **빌드 단계 추가...** 단추를 선택합니다.  단추를 선택합니다.
    
    ![빌드 단계 추가][1]
 3. **배포 작업** 범주를 선택한 다음 **Azure PowerShell** 작업을 선택하고 해당 항목의 **추가** 버튼을 선택합니다.
@@ -92,7 +92,7 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
       Azure CLI의 경우 
       
       `azure account show`
-   8. 서비스 주체 ID, 서비스 주체 키 및 테넌트 ID를 가져오려면 [Active Directory 응용 프로그램 및 서비스 주체 만들기](active-directory/develop/howto-create-service-principal-portal.md) 또는 [Azure Resource Manager를 사용한 서비스 주체 인증](active-directory/develop/howto-authenticate-service-principal-powershell.md)의 절차에 따릅니다.
+   8. 서비스 주체 ID, 서비스 주체 키 및 테넌트 ID를 가져오려면 [Active Directory 애플리케이션 및 서비스 주체 만들기](active-directory/develop/howto-create-service-principal-portal.md) 또는 [Azure Resource Manager를 사용한 서비스 주체 인증](active-directory/develop/howto-authenticate-service-principal-powershell.md)의 절차에 따릅니다.
    9. 서비스 주체 ID, 서비스 주체 키 및 테넌트 ID 값을 **Azure 구독 추가** 대화 상자에 추가한 다음 **확인** 단추를 선택합니다.
       
       이제 Azure PowerShell 스크립트를 실행하는 데 사용할 유효한 서비스 주체를 만들었습니다.
@@ -137,7 +137,7 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
 1. Azure DevOps Services 빌드 파이프라인을 편집하여 두 개의 새 빌드 단계를 추가합니다. **빌드 정의** 범주 아래에서 빌드 파이프라인을 선택하고 **편집** 링크를 선택합니다.
    
    ![빌드 정의 편집][12]
-2. **빌드 단계 추가...** 를 사용하여 빌드 파이프라인에 새 빌드 단계를 추가합니다. 단추를 선택합니다.
+2. **빌드 단계 추가...** 를 사용하여 빌드 파이프라인에 새 빌드 단계를 추가합니다.  단추를 선택합니다.
    
    ![빌드 단계 추가][13]
 3. **배포** 작업 범주를 선택한 다음 **Azure File Copy** 작업을 선택하고 해당 항목의 **추가** 단추를 선택합니다.

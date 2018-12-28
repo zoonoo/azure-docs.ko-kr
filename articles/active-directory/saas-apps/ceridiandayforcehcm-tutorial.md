@@ -64,11 +64,11 @@ Ceridian Dayforce HCM의 Azure AD 통합을 구성하려면 갤러리의 Ceridia
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
@@ -94,11 +94,11 @@ Ceridian Dayforce HCM에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Ceridian Dayforce HCM 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Ceridian Dayforce HCM 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Ceridian Dayforce HCM에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Ceridian Dayforce HCM** 응용 프로그램 통합 페이지에서 **Single Sign-on**을 클릭합니다.
+1. Azure Portal의 **Ceridian Dayforce HCM** 애플리케이션 통합 페이지에서 **Single Sign-on**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -138,7 +138,7 @@ Ceridian Dayforce HCM에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     ![인증서 다운로드 링크](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_certificate.png) 
 
-1. Ceridian Dayforce HCM 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 올바른 사용자 ID를 식별하려면 [Ceridian Dayforce HCM 팀](https://www.ceridian.com/support)과 먼저 작업해 보세요. Microsoft는 사용자 식별자로 **"name"** 특성을 사용하도록 권장합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.  
+1. Ceridian Dayforce HCM 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 올바른 사용자 ID를 식별하려면 [Ceridian Dayforce HCM 팀](https://www.ceridian.com/support)과 먼저 작업해 보세요. Microsoft는 사용자 식별자로 **"name"** 특성을 사용하도록 권장합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.  
 
     ![Configure Single Sign-On](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_07.png)
 

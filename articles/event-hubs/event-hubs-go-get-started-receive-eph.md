@@ -1,20 +1,21 @@
 ---
-title: Go를 사용하여 Azure Event Hubs에서 이벤트 수신 | Microsoft Docs
-description: Go를 사용하여 Event Hubs에서 이벤트 수신 시작
+title: Go를 사용하여 이벤트 수신 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Azure Event Hubs에 이벤트를 받는 Go 애플리케이션을 만드는 연습을 할 수 있습니다.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 0a8cb349be0ffefecb07bc705391684dc57f1b96
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: db952b82172928e42e951563d98bb32b275e8af7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239494"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084994"
 ---
 # <a name="receive-events-from-event-hubs-using-go"></a>Go를 사용하여 Event Hubs에서 이벤트 수신
 
@@ -80,7 +81,7 @@ import (
 
 ## <a name="create-service-principal"></a>서비스 주체 만들기
 
-[Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)의 지침에 따라 새 서비스 주체를 만듭니다. 제공된 자격 증명을 사용자 환경에 다음 이름으로 저장합니다. Go용 Azure SDK 및 Event Hubs 패키지는 이러한 변수 이름을 찾도록 미리 구성되어 있습니다.
+[Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)의 지침에 따라 새 서비스 주체를 만듭니다. 제공된 자격 증명을 다음 이름으로 현재 환경에 저장합니다. Go용 Azure SDK 및 Event Hubs 패키지는 다음 변수 이름을 찾도록 미리 구성됩니다.
 
 ```bash
 export AZURE_CLIENT_ID=

@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253723"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014500"
 ---
-# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob 저장소: 프리미엄(미리 보기), 핫, 쿨 및 보관 저장소 계층
+# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob 스토리지: 프리미엄(미리 보기), 핫, 쿨 및 보관 스토리지 계층
 
 ## <a name="overview"></a>개요
 
@@ -62,7 +62,7 @@ Blob 저장소 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특�
 미리 보기 동안 프리미엄 액세스 계층은 다음과 같습니다.
 
 - LRS(로컬 중복 저장소)로 사용 가능
-- 미국 동부 2, 미국 중부 및 미국 서부 지역에서만 사용 가능
+- 다음 지역에서만 제공됩니다. 미국 동부 2, 미국 중부 및 미국 서부
 - 자동 계층화 및 데이터 수명 주기 관리를 지원하지 않음
 
 프리미엄 액세스 계층 미리 보기에 등록하는 방법을 알아보려면 [Azure Premium Blob Storage 소개](https://aka.ms/premiumblob)를 참조하세요.
@@ -113,7 +113,7 @@ Blob 수준 계층화를 사용하면 [Blob 계층 설정](/rest/api/storageserv
 프리미엄 액세스 계층에 저장된 데이터는 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 또는 Azure Blob Storage 수명 주기 관리를 사용하여 핫, 쿨 또는 보관으로 계층화될 수 없습니다. 데이터를 이동하려면 [URL에서 블록 배치 API](/rest/api/storageservices/put-block-from-url) 또는 이 API를 지원하는 AzCopy 버전을 사용하여 프리미엄 액세스 계층에서 핫 액세스 계층으로 Blob을 동기적으로 복사하면 됩니다. *URL에서 블록 배치* API는 서버에서 데이터를 동기적으로 복사합니다. 이는 모든 데이터를 원래 서버 위치에서 대상 위치로 이동하면 호출이 완료된다는 의미입니다.
 
 ### <a name="blob-lifecycle-management"></a>Blob 수명 주기 관리
-Blob Storage 수명 주기 관리(미리 보기)는 데이터를 최적의 액세스 계층으로 전환하고 수명 주기가 끝나면 데이터를 만료할 수 있는 풍부한 규칙 기반 정책을 제공합니다. [Azure Blob Storage 수명 주기 관리](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)를 참조하여 자세히 알아보세요.  
+Blob Storage 수명 주기 관리(미리 보기)는 데이터를 최적의 액세스 계층으로 전환하고 수명 주기가 끝나면 데이터를 만료할 수 있는 풍부한 규칙 기반 정책을 제공합니다. [Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)를 참조하여 자세히 알아보세요.  
 
 ### <a name="blob-level-tiering-billing"></a>Blob 수준 계층화 청구
 
@@ -157,7 +157,7 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 
 3. 설정 블레이드에서 **구성** 을 클릭하여 계정 구성을 보기 및/또는 변경합니다.
 
-4. 요구 사항에 적합한 저장소 계층을 선택합니다. 즉 **액세스 계층**을 **쿨** 또는 **핫**으로 설정합니다.
+4. 요구 사항에 맞게 올바른 스토리지 계층을 선택합니다. **액세스 계층**을 **쿨** 또는 **핫**으로 설정합니다.
 
 5. 블레이드 위쪽에서 저장을 클릭합니다.
 
@@ -175,12 +175,12 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 
 모든 저장소 계정에서는 각 Blob의 계층에 따라 Blob Storage에 가격 책정 모델을 사용합니다. 다음과 같은 비용 청구 고려 사항을 염두에 둡니다.
 
-* **저장소 비용**: 저장된 데이터 크기 외에도, 데이터 저장 비용은 저장소 계층에 따라 달라집니다. 계층이 차가워질수록 기가바이트당 비용이 감소합니다.
+* **스토리지 비용**: 저장된 데이터 크기 외에도, 데이터 저장 비용은 스토리지 계층에 따라 달라집니다. 계층이 차가워질수록 기가바이트당 비용이 감소합니다.
 * **데이터 액세스 비용**: 계층이 차가워질수록 데이터 액세스 요금이 증가합니다. 쿨 및 보관 저장소 계층에 있는 데이터의 경우 읽기에 대해 기가바이트당 데이터 액세스 요금이 부과됩니다.
 * **트랜잭션 비용**: 계층이 차가워질수록 증가하는 모든 계층에 대해 트랜잭션당 요금이 부과됩니다.
 * **지역에서 복제 데이터 전송 비용**: 이 요금은 GRS 및 RA-GRS를 포함하여 지역에서 복제가 구성된 계정에만 해당합니다. 지역 복제 데이터 전송에는 기가바이트당 요금이 발생합니다.
-* **아웃바운드 데이터 전송 비용**: 아웃바운드 데이터 전송(Azure 지역 밖으로 전송된 데이터)에서는 기가바이트당 요금을 기준으로 대역폭 사용 요금이 발생하며 범용 저장소 계정과 같습니다.
-* **저장소 계층 변경**: 계정 저장소 계층을 쿨에서 핫으로 변경하면 저장소 계정에서 모든 기존 데이터를 읽는 것과 같은 요금이 발생합니다. 하지만 계정 저장소 계층을 핫에서 쿨로 변경하면 모든 데이터를 쿨 계층에 쓰는 것과 동일한 요금이 부과됩니다(GPv2 계정에만 해당).
+* **아웃바운드 데이터 전송 비용**: 아웃바운드 데이터 전송(Azure 지역 밖으로 전송된 데이터)에서는 기가바이트당 요금을 기준으로 대역폭 사용 요금이 발생하며 범용 스토리지 계정과 같습니다.
+* **스토리지 계층 변경**: 계정 스토리지 계층을 쿨에서 핫으로 변경하면 스토리지 계정에서 모든 기존 데이터를 읽는 것과 같은 요금이 발생합니다. 하지만 계정 저장소 계층을 핫에서 쿨로 변경하면 모든 데이터를 쿨 계층에 쓰는 것과 동일한 요금이 부과됩니다(GPv2 계정에만 해당).
 
 > [!NOTE]
 > Blob 저장소 계정의 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 페이지를 참조하세요. 아웃바운드 데이터 전송 요금에 대한 자세한 내용은 [데이터 전송 가격 책정 정보](https://azure.microsoft.com/pricing/details/data-transfers/) 페이지를 참조하세요.
@@ -245,7 +245,7 @@ Azure Portal, PowerShell과 CLI 도구 및 .NET, Java, Python과 Node.js 클라�
 
 [지역별 핫, 쿨 및 보관의 가용성 확인](https://azure.microsoft.com/regions/#services)
 
-[Azure Blob Storage 수명 주기 관리](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
+[Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)
 
 [Azure Storage 메트릭을 활성화하여 현재 Storage 계정의 사용 현황 평가](../common/storage-enable-and-view-metrics.md)
 

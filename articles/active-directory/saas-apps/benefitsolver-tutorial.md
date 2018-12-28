@@ -64,11 +64,11 @@ Benefitsolver의 Azure AD 통합을 구성하려면 갤러리의 Benefitsolver�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
@@ -119,7 +119,7 @@ Benefitsolver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Benefitsolver 클라이언트 지원 팀](https://www.businessolver.com/contact)에 문의하세요.
 
-1. Benefitsolver 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, **SAML 토큰 특성** 구성에 사용자 지정 특성 매핑을 추가해야 합니다.
+1. Benefitsolver 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, **SAML 토큰 특성** 구성에 사용자 지정 특성 매핑을 추가해야 합니다.
 
     ![Benefitsolver 특성 섹션](./media/benefitsolver-tutorial/tutorial_attribute.png)
 
@@ -195,7 +195,7 @@ Benefitsolver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
  
 ### <a name="create-a-benefitsolver-test-user"></a>Benefitsolver 테스트 사용자 만들기
 
-Azure AD 사용자가 Benefitsolver에 로그인할 수 있도록 하려면 Benefitsolver로 프로비전되어야 합니다. Benefitsolver의 경우 직원 데이터는 HRIS 시스템의 인구 조사 파일을 통해 주로 밤에 채워지는 응용 프로그램에 있습니다.
+Azure AD 사용자가 Benefitsolver에 로그인할 수 있도록 하려면 Benefitsolver로 프로비전되어야 합니다. Benefitsolver의 경우 직원 데이터는 HRIS 시스템의 인구 조사 파일을 통해 주로 밤에 채워지는 애플리케이션에 있습니다.
 
 > [!NOTE]
 > 다른 Benefitsolver 사용자 계정 생성 도구 또는 Benefitsolver가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.

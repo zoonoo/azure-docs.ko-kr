@@ -33,12 +33,12 @@ Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프�
 ## <a name="how-to-integrate"></a>통합하는 방법
 여러 가지 방법으로 응용 프로그램을 Azure AD와 통합할 수 있습니다. 응용 프로그램에 맞게 이 시나리오를 활용하세요.
 
-### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>응용 프로그램에 로그인하기 위한 방법으로 Azure AD 지원
+### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>애플리케이션에 로그인하기 위한 방법으로 Azure AD 지원
 **로그인 충돌을 줄이고 지원 비용을 절감합니다.** Azure AD를 사용하여 응용 프로그램에 로그인하면 사용자는 이름 및 암호를 기억하지 않아도 되며 개발자는 저장하고 보호할 암호가 줄어듭니다. 잊어버린 암호 재설정을 처리하지 않으므로 상당히 효율적입니다. Azure AD에서는 Office 365, Microsoft Azure 등과 같이 전 세계에서 인기가 많은 다양한 클라우드 응용 프로그램에 로그인할 수 있도록 지원합니다. 약 500만 개의 조직에서 4억 3천 만명 이상이 사용 중이므로 사용자가 이미 Azure AD에 로그인되어 있을 가능성이 높습니다. [Azure AD 로그인 지원 추가](authentication-scenarios.md)에 대해 자세히 알아보세요.
 
 **응용 프로그램 등록을 단순화합니다.**   응용 프로그램을 등록하는 동안 등록 양식을 사전에 입력하거나 완전히 제거할 수 있도록 Azure AD가 사용자에 대한 필수 정보를 보낼 수 있습니다. 사용자는 소셜 미디어 및 모바일 응용 프로그램에서 본 것과 비슷한 친숙한 동의 환경을 통해 자신의 Azure AD 계정을 사용하여 응용 프로그램을 등록할 수 있습니다. 모든 사용자는 IT 담당자의 도움 없이 Azure AD와 통합된 응용 프로그램을 등록 및 로그인할 수 있습니다. [Azure AD 계정 로그인을 위해 응용 프로그램 등록](../../app-service/configure-authentication-provider-aad.md)에 대해 자세히 알아보세요.
 
-### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>사용자 검색, 사용자 프로비전 관리, 응용 프로그램에 대한 액세스 제어
+### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>사용자 검색, 사용자 프로비전 관리, 애플리케이션에 대한 액세스 제어
 **디렉터리에서 사용자를 찾습니다.**   다른 사람을 초대하거나 액세스 권한을 부여할 때 사용자가 메일 주소를 입력할 필요 없이 Graph API를 사용하면 조직에서 다른 사람을 검색하고 찾는 데 도움이 됩니다. 사용자는 조직 계층의 세부 정보 보기 등 친숙한 주소록 유형의 인터페이스를 사용하여 찾아볼 수 있습니다. [Graph API](active-directory-graph-api.md)에 대해 자세히 알아보세요.
 
 **Active Directory 그룹 및 고객이 이미 관리하는 메일 그룹을 다시 사용합니다.**   Azure AD에는 고객이 이미 메일 배포에 사용하고 액세스를 관리하는 그룹이 포함되어 있습니다. 고객이 응용 프로그램에서 별도의 그룹 집합을 만들고 관리할 필요 없이 Graph API를 사용하여 그룹을 다시 사용하세요. 로그인 토큰의 응용 프로그램에 그룹 정보가 전송될 수도 있습니다. [Graph API](active-directory-graph-api.md)에 대해 자세히 알아보세요.

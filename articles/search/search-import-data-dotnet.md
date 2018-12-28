@@ -46,7 +46,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
 > [!NOTE]
-> 일반적인 검색 응용 프로그램에서 인덱스 관리 및 채우기는 검색 쿼리와는 별도의 구성 요소에 의해 처리됩니다. `Indexes.GetClient`는 다른 `SearchCredentials`를 제공하는 문제를 피할 수 있으므로 인덱스를 생성하기에 편리한 방법입니다. 이는 새 `SearchIndexClient`에 `SearchServiceClient`을(를) 만드는 데 사용하는 관리 키를 눌러 수행됩니다. 그러나 쿼리를 실행하는 일부 응용 프로그램의 경우, `SearchIndexClient` 을(를) 직접 만들어 관리 키 대신에 쿼리 키에서 전달하는 것이 더 낫습니다. 이는 [최소 권한의 원칙](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 과 일치하고 응용 프로그램을 더욱 안전하게 하는 데 도움이 됩니다. 관리 키와 쿼리 키에 대한 자세한 내용은 [Azure Search REST API 참조](https://docs.microsoft.com/rest/api/searchservice/)에서 찾을 수 있습니다.
+> 일반적인 검색 응용 프로그램에서 인덱스 관리 및 채우기는 검색 쿼리와는 별도의 구성 요소에 의해 처리됩니다. `Indexes.GetClient`는 다른 `SearchCredentials`를 제공하는 문제를 피할 수 있으므로 인덱스를 생성하기에 편리한 방법입니다. 이는 새 `SearchIndexClient`에 `SearchServiceClient`을(를) 만드는 데 사용하는 관리 키를 눌러 수행됩니다. 그러나 쿼리를 실행하는 일부 응용 프로그램의 경우, `SearchIndexClient` 을(를) 직접 만들어 관리 키 대신에 쿼리 키에서 전달하는 것이 더 낫습니다. 이는 [최소 권한의 원칙](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 과 일치하고 애플리케이션을 더욱 안전하게 하는 데 도움이 됩니다. 관리 키와 쿼리 키에 대한 자세한 내용은 [Azure Search REST API 참조](https://docs.microsoft.com/rest/api/searchservice/)에서 찾을 수 있습니다.
 > 
 > 
 

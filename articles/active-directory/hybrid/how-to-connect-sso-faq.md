@@ -38,7 +38,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
  아니요. Seamless SSO는 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
 
-## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Seamless SSO의 `domain_hint` 또는 `login_hint` 매개 변수 기능을 활용하는 응용 프로그램은 무엇인가요?
+## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Seamless SSO의 `domain_hint` 또는 `login_hint` 매개 변수 기능을 활용하는 애플리케이션은 무엇인가요?
 
 다음은 이러한 매개 변수를 Azure AD에 전송할 수 있는 애플리케이션의 부분 목록으로, Seamless SSO를 사용하여 자동 로그온 환경을 제공합니다(예: 사용자가 사용자 이름 또는 암호를 입력할 필요가 없음).
 
@@ -61,7 +61,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Seamless SSO에서는 사용자 이름으로 `userPrincipalName` 대신 `Alternate ID`를 지원하는가요?
 
-예. Seamless SSO는 [여기서](how-to-connect-install-custom.md) 보여주듯이 Azure AD Connect에서 구성할 때 `Alternate ID`를 사용자 이름으로 지원합니다. 모든 Office 365 응용 프로그램에서 `Alternate ID`를 지원하지는 않습니다. 지원 내용은 특정 응용 프로그램의 설명서를 참조하세요.
+예. Seamless SSO는 [여기서](how-to-connect-install-custom.md) 보여주듯이 Azure AD Connect에서 구성할 때 `Alternate ID`를 사용자 이름으로 지원합니다. 모든 Office 365 애플리케이션에서 `Alternate ID`를 지원하지는 않습니다. 지원 내용은 특정 애플리케이션의 설명서를 참조하세요.
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>[Azure AD 조인](../active-directory-azureadjoin-overview.md) 및 Seamless SSO에서 제공하는 Single Sign-On 환경 간에 차이점은 무엇인가요?
 

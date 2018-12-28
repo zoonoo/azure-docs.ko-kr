@@ -1,5 +1,5 @@
 ---
-title: 네트워크 프록시용 Azure IoT Edge 디바이스 구성 | Microsoft Docs
+title: 네트워크 프록시용 디바이스 구성 - Azure IoT Edge | Microsoft Docs
 description: 프록시 서버를 통해 통신하도록 Azure IoT Edge 런타임과 인터넷 연결 IoT Edge 모듈을 구성하는 방법을 설명합니다.
 author: kgremban
 manager: ''
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.custom: seodec18
+ms.openlocfilehash: a7d32c98b77568e02fa14b70e969eeb254989062
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913226"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100480"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
 
@@ -165,7 +166,7 @@ Azure Portal을 사용하거나 JSON 파일을 직접 편집하여 배포 매니
 
 ### <a name="azure-portal"></a>Azure portal
 
-**모듈 설정** 마법사를 사용하여 IoT Edge 장치의 배포를 만들 때는 모든 모듈에 **환경 변수** 섹션에 있으므로 이 섹션을 통해 프록시 서버 연결을 구성할 수 있습니다. 
+**모듈 설정** 마법사를 사용하여 IoT Edge 디바이스의 배포를 만들 때는 모든 모듈에 **환경 변수** 섹션에 있으므로 이 섹션을 통해 프록시 서버 연결을 구성할 수 있습니다. 
 
 Edge 에이전트 및 Edge 허브 모듈을 구성하려면 마법사의 첫 단계에서 **고급 Edge 런타임 설정 구성**을 선택합니다. 
 
@@ -173,7 +174,7 @@ Edge 에이전트 및 Edge 허브 모듈을 구성하려면 마법사의 첫 단
 
 Edge 에이전트 및 Edge 허브 모듈 정의에 모두 **https_proxy** 환경 변수를 추가합니다. IoT Edge 디바이스의 config.yaml 파일에 **UpstreamProtocol** 환경 변수를 포함한 경우에는 Edge 에이전트 모듈 정의에도 해당 환경 변수를 포함합니다. 
 
-![환경 변수 설정](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
+![Https_proxy 환경 변수 설정](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
 배포 매니페스트에 추가하는 기타 모든 모듈은 같은 패턴을 따릅니다. 모듈 이름 및 이미지를 설정하는 페이지에는 환경 변수 섹션이 있습니다.
 

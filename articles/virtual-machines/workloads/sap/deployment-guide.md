@@ -313,9 +313,9 @@ ms.locfileid: "49956360"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산 및 저장소 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 Azure에서 SAP NetWeaver 기반 응용 프로그램 같은 기존 응용 프로그램을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 응용 프로그램의 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
+Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산 및 저장소 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 Azure에서 SAP NetWeaver 기반 애플리케이션 같은 기존 애플리케이션을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 애플리케이션의 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
 
-이 문서에서는 대체 배포 옵션과 문제 해결 등 Azure에서 VM(가상 머신)에 SAP 응용 프로그램을 배포하는 단계를 설명합니다. 이 문서는 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 정보를 기반으로 합니다. 또한 SAP 소프트웨어를 설치 및 배포하기 위한 기본 리소스인 SAP 설치 설명서 및 SAP Note를 보완합니다.
+이 문서에서는 대체 배포 옵션과 문제 해결 등 Azure에서 VM(가상 머신)에 SAP 애플리케이션을 배포하는 단계를 설명합니다. 이 문서는 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 정보를 기반으로 합니다. 또한 SAP 소프트웨어를 설치 및 배포하기 위한 기본 리소스인 SAP 설치 설명서 및 SAP Note를 보완합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -359,7 +359,7 @@ SAP 크기 조정을 위해 다음 정보를 알고 있어야 합니다.
 
 ### <a name="resource-groups"></a>리소스 그룹
 
-Azure Resource Manager에서 리소스 그룹을 사용하여 Azure 구독에서 모든 응용 프로그램 리소스를 관리할 수 있습니다. 자세한 내용은 [Azure Resource Manager 개요][resource-group-overview]를 참조하세요.
+Azure Resource Manager에서 리소스 그룹을 사용하여 Azure 구독에서 모든 애플리케이션 리소스를 관리할 수 있습니다. 자세한 내용은 [Azure Resource Manager 개요][resource-group-overview]를 참조하세요.
 
 ## <a name="resources"></a>리소스
 
@@ -435,7 +435,7 @@ Azure Marketplace에서 이미지를 사용하여 새 가상 머신을 만드는
   * **Storage**
     * **디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
     * **관리 디스크 사용**: Managed Disks를 사용하려는 경우 [예]를 선택합니다. Managed Disks에 대한 자세한 내용은 이 계획 가이드의 [Managed Disks][planning-guide-managed-disks] 챕터를 참조하세요.
-    * **Storage 계정**: 기존 Storage 계정을 선택하거나 새 Storage 계정을 만듭니다. 모든 저장소 유형이 SAP 응용 프로그램 실행을 위해 작동하지는 않습니다. 저장소 유형에 대한 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]를 참조하세요.
+    * **Storage 계정**: 기존 Storage 계정을 선택하거나 새 Storage 계정을 만듭니다. 모든 저장소 유형이 SAP 애플리케이션 실행을 위해 작동하지는 않습니다. 저장소 유형에 대한 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]를 참조하세요.
   * **네트워크**
     * **가상 네트워크** 및 **서브넷**: 인트라넷에 가상 머신을 통합하려면 온-프레미스 네트워크에 연결된 가상 네트워크를 선택합니다.
     * **공용 IP 주소**: 사용하려는 공용 IP 주소를 선택하거나 매개 변수를 입력하여 새 공용 IP 주소를 만듭니다. 인터넷에서 가상 머신에 액세스하는 공용 IP 주소를 사용할 수 있습니다. 또한 가상 머신에 안전하게 액세스하려면 네트워크 보안 그룹을 만들어야 합니다.
@@ -534,7 +534,7 @@ Azure에서 VM을 배포한 후 온-프레미스 환경에서와 동일한 지�
 Linux에 대한 개인 이미지를 만들려면 Windows에 대해 개인 이미지를 만드는 방법과 다른 단계를 사용합니다.
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > 여러 가상 머신을 배포하는 데 사용할 수 있는 Windows 이미지를 준비하려면 Windows 설정(예: Windows SID 및 호스트 이름)을 온-프레미스 VM에서 추상화 또는 일반화해야 합니다. [sysprep](https://msdn.microsoft.com/library/hh825084.aspx)을 사용하여 이 작업을 수행할 수 있습니다.
 >
@@ -674,7 +674,7 @@ SAP가 사용자 환경을 지원하도록 하려면 [SAP용 Azure 고급 모니
 Azure VM 에이전트에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > [Azure Virtual Machine 에이전트 개요][virtual-machines-windows-agent-user-guide]
 >
@@ -871,7 +871,7 @@ Azure Marketplace에서 VM을 배포하는 경우 이 단계가 필요 없습니
 
 Windows에서 프록시를 구성하기 위해 거치는 단계는 Linux에서 프록시를 구성하는 방법과 다릅니다.
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 로컬 시스템 계정이 인터넷에 액세스하려면 프록시 설정을 올바르게 설정해야 합니다. 그룹 정책으로 프록시 설정을 지정하지 않은 경우 로컬 시스템 계정에 대해 프록시 설정을 구성할 수 있습니다.
 
@@ -1030,7 +1030,7 @@ Azure VM을 배포하고 관련 Azure 모니터링 인프라를 설정한 후 Az
 
 ### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>SAP용 Azure 고급 모니터링 확장에 대한 준비 검사
 
-이 검사에서는 SAP 응용 프로그램 내부에 나타나는 모든 성능 메트릭이 기반 Azure 모니터링 인프라에서 제공되는지 확인합니다.
+이 검사에서는 SAP 애플리케이션 내부에 나타나는 모든 성능 메트릭이 기반 Azure 모니터링 인프라에서 제공되는지 확인합니다.
 
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Windows VM에서 준비 검사 실행
 
@@ -1123,7 +1123,7 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 
   다.  **Virtualization_Configuration\Enhanced Monitoring Access** 메트릭이 **true**인지 여부를 확인합니다.
 
-SAP NetWeaver ABAP 응용 프로그램 서버가 이미 설치된 경우 트랜잭션 ST06을 열고 고급 모니터링이 사용하도록 설정되어 있는지 여부를 확인합니다.
+SAP NetWeaver ABAP 애플리케이션 서버가 이미 설치된 경우 트랜잭션 ST06을 열고 고급 모니터링이 사용하도록 설정되어 있는지 여부를 확인합니다.
 
 이 검사 중 하나 이상에 실패한 경우 확장을 배포하는 방법에 대한 자세한 내용은 [SAP용 Azure 모니터링 인프라 문제 해결][deployment-guide-5.3]을 참조하세요.
 
@@ -1156,7 +1156,7 @@ SAP NetWeaver ABAP 응용 프로그램 서버가 이미 설치된 경우 트랜�
 
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>SAP용 Azure 모니터링 인프라 문제 해결
 
-#### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Azure 성능 카운터가 전혀 표시되지 않습니다.
+#### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![ Windows][Logo_Windows]  Azure 성능 카운터가 전혀 표시되지 않습니다.
 
 AzureEnhancedMonitoring Windows 서비스에서 Azure의 성능 메트릭을 수집합니다. 서비스가 올바르게 설치되지 않은 경우 또는 VM에서 실행되지 않는 경우 성능 메트릭을 수집할 수 없습니다.
 
@@ -1191,19 +1191,19 @@ Azperflib.exe 출력에 오류가 발생합니다.
 
 ###### <a name="issue"></a>문제
 
-AzureEnhancedMonitoring Windows 서비스가 존재하고 사용하도록 설정되었지만 시작할 수 없습니다. 자세한 내용은 응용 프로그램 이벤트 로그를 확인합니다.
+AzureEnhancedMonitoring Windows 서비스가 존재하고 사용하도록 설정되었지만 시작할 수 없습니다. 자세한 내용은 애플리케이션 이벤트 로그를 확인합니다.
 
 ###### <a name="solution"></a>해결 방법
 
 구성이 올바르지 않습니다. [SAP용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에 설명된 대로 VM에 대한 모니터링 확장을 다시 시작합니다.
 
-#### <a name="windowslogowindows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] 일부 Azure 성능 카운터가 없습니다.
+#### <a name="windowslogowindows-some-azure-performance-counters-are-missing"></a>![ Windows][Logo_Windows] 일부 Azure 성능 카운터가 없습니다.
 
 AzureEnhancedMonitoring Windows 서비스에서 Azure의 성능 메트릭을 수집합니다. 이 서비스는 여러 원본에서 데이터를 가져옵니다. 일부 구성 데이터는 로컬로 수집되고 일부 성능 메트릭은 Azure 진단에서 읽습니다. 저장소 카운터는 저장소 구독 수준에 대한 로깅에서 사용됩니다.
 
 SAP Note [1999351]을 사용한 문제 해결로 문제가 해결되지 않으면 `Set-AzureRmVMAEMExtension` 구성 스크립트를 다시 실행합니다. 사용하도록 설정한 후 바로 저장소 분석 또는 진단 카운터가 생성되지 않을 수 있으므로 1시간 동안 기다려야 할 수 있습니다. 문제가 지속되면 Windows용 BC-OP-NT-AZR 또는 Linux 가상 머신용 BC-OP-LNX-AZR 구성 요소에 대한 SAP 고객 지원 메시지를 엽니다.
 
-#### <a name="linuxlogolinux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Azure 성능 카운터가 전혀 표시되지 않습니다.
+#### <a name="linuxlogolinux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux]  Azure 성능 카운터가 전혀 표시되지 않습니다.
 
 Azure의 성능 메트릭은 데몬에 의해 수집됩니다. 데몬이 실행되지 않는 경우 성능 메트릭은 전혀 수집할 수 없습니다.
 

@@ -64,11 +64,11 @@ EBSCO의 Azure AD 통합을 구성하려면 갤러리의 EBSCO를 관리되는 S
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
@@ -125,7 +125,7 @@ EBSCO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     o   **Profile** = 클라이언트는 링크를 조정하여 사용자를 특정 프로필에 연결할 수 있습니다(EBSCO에서 구매한 제품에 따라 다름). 특정 프로필 ID를 입력할 수 있습니다. 주 ID는 eds(EBSCO 검색 서비스) 및 ehost(EBSOCOhost 데이터베이스)입니다. 동일한 경우에 대한 지침은 [여기](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile)를 참조하세요.
 
-1. EBSCO 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+1. EBSCO 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
     
     ![Configure Single Sign-On](./media/ebsco-tutorial/tutorial_ebsco_attribute.png)
 

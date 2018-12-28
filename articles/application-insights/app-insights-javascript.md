@@ -9,16 +9,15 @@ ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 46939e15100468eab0d5575546eb6bd58df4aacd
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 937cbc1346ce41670270b911e474e900f406a93b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961078"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993626"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 웹 페이지 또는 앱의 성능 및 사용 현황에 대해 알아봅니다. 페이지 스크립트에 [Application Insights](app-insights-overview.md)를 추가하면 페이지 로드 및 AJAX 호출의 타이밍, 브라우저 예외 및 AJAX 실패의 개수 및 세부 정보뿐만 아니라 사용자 및 세션 개수를 얻을 수 있습니다. 이러한 모든 요소를 페이지, 클라이언트 OS 및 브라우저 버전, 지리적 위치 및 기타 차원으로 분할할 수 있습니다. 실패 횟수 또는 느린 페이지 로딩에 대한 경고를 설정할 수도 있습니다. 또한 JavaScript 코드에 추적 호출을 삽입하여 웹 페이지 응용 프로그램의 다양한 기능 사용 방법을 추적할 수 있습니다.
@@ -75,9 +74,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 스크립트에는 Application Insights 리소스에 데이터를 전달하는 계측 키가 포함됩니다. 
 
-([스크립트에 대한 자세한 설명.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
-
-*(잘 알려진 웹 페이지 프레임워크를 사용하는 경우 Application Insights 어댑터를 찾아보세요. 예를 들어 [AngularJS 모듈](http://ngmodules.org/modules/angular-appinsights)이 있습니다.)*
+([스크립트에 대한 자세한 설명.](https://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
 ## <a name="detailed-configuration"></a>자세한 구성
 몇 가지 [매개 변수](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)를 설정할 수 있지만 대부분의 경우에서 설정할 필요가 없습니다. 예를 들어, 트래픽을 줄이기 위해 페이지 보기 당 보고된 Ajax 호출 수를 사용하지 않도록 설정하거나 제한할 수 있습니다. 또는 디버그 모드를 설정하여 배치되지 않고 파이프라인을 통해 원격 분석을 빠르게 이동시킬 수 있습니다.
@@ -121,14 +118,14 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 ![Portal.azure.com에서 앱의 리소스 열고 설정, 브라우저를 클릭합니다.](./media/app-insights-javascript/03.png)
 
-아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](app-insights-troubleshoot-faq.md)을 참조하세요.
+아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침**을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](app-insights-troubleshoot-faq.md)을 참조하세요.
 
 브라우저 블레이드는 미리 설정된 필터와 차트를 선택할 수 있는 [메트릭 탐색기 블레이드](app-insights-metrics-explorer.md)입니다. 원하는 경우 시간 범위, 필터 및 차트 구성을 편집하고 즐겨찾기로 결과를 저장할 수 있습니다. **기본값 복원**을 클릭하여 원래 블레이드 구성으로 돌아갑니다.
 
 ## <a name="page-load-performance"></a>페이지 로드 성능
 맨 위에 있는 것이 페이지 로드 시간의 분할된 차트입니다. 차트의 전체 높이는 사용자의 브라우저의 앱에서 페이지를 로드하고 페이지를 표시하는 평균 시간을 나타냅니다. 레이아웃 및 실행 스크립트를 포함하여 모든 동기 로드 이벤트가 처리될 때까지 브라우저가 초기 HTTP 요청을 보낼 때부터 시간이 측정됩니다. AJAX 호출로부터 웹 파트를 로드하는 등의 비동기 작업은 포함되지 않습니다.
 
-차트는 총 페이지 로드 시간을 [W3C에서 정의한 표준 타이밍](http://www.w3.org/TR/navigation-timing/#processing-model)으로 분할한 것입니다. 
+차트는 총 페이지 로드 시간을 [W3C에서 정의한 표준 타이밍](https://www.w3.org/TR/navigation-timing/#processing-model)으로 분할한 것입니다. 
 
 ![](./media/app-insights-javascript/08-client-split.png)
 
@@ -143,17 +140,17 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 페이지 보기 수 및 표준 편차를 확인합니다. 페이지 수가 매우 낮은 경우 사용자에게 큰 문제가 되지 않습니다. 높은 표준 편차(자체 평균 비교 시)는 개별 측정값 간의 차이가 많음을 나타냅니다.
 
-**한 URL 및 한 페이지 보기에서 확대합니다.** 해당 URL에 대해서만 필터링된 브라우저 차트의 블레이드를 보려면 페이지 이름을 클릭한 다음, 페이지 보기의 인스턴스를 클릭합니다.
+**한 URL 및 한 페이지 보기에서 확대합니다.**  해당 URL에 대해서만 필터링된 브라우저 차트의 블레이드를 보려면 페이지 이름을 클릭한 다음, 페이지 보기의 인스턴스를 클릭합니다.
 
 ![](./media/app-insights-javascript/35.png)
 
 `...`을(를) 클릭하여 해당 이벤트에 대한 속성의 전체 목록을 보거나 Ajax 호출 및 관련된 이벤트를 검사합니다. 느린 Ajax 호출은 동기화할 때 전체 페이지 로드 시간에 영향을 줍니다. 관련된 이벤트에는 동일한 URL에 대한 서버 요청을 포함합니다(웹 서버에서 Application Insights를 설정한 경우).
 
-**시간에 따른 페이지 성능** 브라우저 블레이드로 돌아와서 특정 시간에 최대치가 있는지 확인하기 위해 페이지 보기 로드 시간 표를 꺾은선형 차트로 변경합니다.
+**시간에 따른 페이지 성능**  브라우저 블레이드로 돌아와서 특정 시간에 최대치가 있는지 확인하기 위해 페이지 보기 로드 시간 표를 꺾은선형 차트로 변경합니다.
 
 ![표의 머리글을 클릭하고 새 차트 종류를 선택합니다.](./media/app-insights-javascript/10-page-perf-area.png)
 
-**다른 차원으로 분류** 특정 브라우저, 클라이언트 OS 또는 사용자 거주지에 따라 페이지 로드 시간이 느려질 수 있습니까? 새 차트를 추가하고 **Group-by** 차원을 실험해봅니다.
+**다른 차원으로 분류**  특정 브라우저, 클라이언트 OS 또는 사용자 거주지에 따라 페이지 로드 시간이 느려질 수 있습니까? 새 차트를 추가하고 **Group-by** 차원을 실험해봅니다.
 
 ![](./media/app-insights-javascript/21.png)
 

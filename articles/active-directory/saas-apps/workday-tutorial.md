@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
-ms.openlocfilehash: 78b9fe704c5c8a1f81da480787f1791e88bf4f72
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c789f5fec9b31b53d316b23faad5c438b52137c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714721"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>자습서: Workday와 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ Workday와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Workday 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -114,7 +114,7 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. **식별자** 텍스트 상자에 URL `http://www.workday.com`를 입력합니다.
+    b. **식별자** 텍스트 상자에 URL `https://www.workday.com`를 입력합니다.
 
 4. **고급 URL 설정 표시**를 확인하고, 다음 단계를 수행합니다.
 
@@ -180,7 +180,7 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![SAML ID 공급자](./media/workday-tutorial/IC7829271.png "SAML ID 공급자")
 
-    a. **ID 공급자 이름** 텍스트 상자에 공급자 이름(예: *SPInitiatedSSO*)을 입력합니다.
+    a. **ID 공급 기업 이름** 텍스트 상자에 공급 기업 이름(예: *SPInitiatedSSO*)을 입력합니다.
 
     b. Azure Portal의 **로그온 구성** 창에서 **SAML 엔터티 ID**  값을 복사한 다음 **발급자** 텍스트 상자에 붙여넣습니다.
 
@@ -225,7 +225,7 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![SSO 구성](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO 구성")
 
-    a.  **서비스 공급자 ID** 텍스트 상자에 **http://www.workday.com**을 입력합니다.
+    a.  **서비스 공급자 ID** 텍스트 상자에 **https://www.workday.com**을 입력합니다.
 
     b. **SP에서 시작한 인증 요청을 Deflate하지 않음**을 선택합니다.
 

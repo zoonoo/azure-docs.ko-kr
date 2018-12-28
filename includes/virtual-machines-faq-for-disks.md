@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585776"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326546"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -85,9 +85,9 @@ VM 진단을 위한 개인 저장소 계정을 설정할 수 있습니다.
 
 Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 
-* 소유자: 액세스를 포함한 모든 것을 관리할 수 있음
-* 참여자: 액세스를 제외한 모든 것을 관리할 수 있음
-* 읽기 권한자: 모든 항목을 볼 수 있지만 변경할 수 없음
+* 소유자: 액세스를 제외한 모든 것을 관리할 수 있음
+* Contributor: 액세스를 제외한 모든 것을 관리할 수 있음
+* 읽기 권한자: 모든 항목을 볼 수 있지만 변경할 수는 없음
 
 **개인 저장소 계정에 Managed Disk를 복사하거나 내보낼 수 있는 방법이 있나요?**
 
@@ -137,9 +137,9 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 
 관리 디스크의 이름은 변경할 수 없습니다. 하지만 현재 VHD 또는 VM에 연결되어 있지 않은 경우에 한해 비관리 디스크의 이름은 변경할 수 있습니다.
 
-**Azure 디스크에서 GBT 분할을 사용할 수 있나요?**
+**Azure 디스크에서 GPT 분할을 사용할 수 있나요?**
 
-GBT 분할은 OS 디스크가 아닌 데이터 디스크에서만 사용할 수 있습니다. OS 디스크는 MBR 파티션 스타일을 사용해야 합니다.
+GPT 분할은 OS 디스크가 아닌 데이터 디스크에서만 사용할 수 있습니다. OS 디스크는 MBR 파티션 스타일을 사용해야 합니다.
 
 ## <a name="standard-ssd-disks"></a>표준 SSD 디스크
 
@@ -188,6 +188,10 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용하여 표
 아니요. 표준 SSD에는 단일 인스턴스 VM SLA가 없습니다. 단일 인스턴스 VM SLA에는 프리미엄 SSD 디스크를 사용합니다.
 
 ## <a name="migrate-to-managed-disks"></a>Managed Disks로 마이그레이션
+
+** 마이그레이션이 Managed Disks 성능에 영향을 주나요?
+
+마이그레이션에는 스토리지 위치 간 디스크 이동이 포함됩니다. 이는 완료하는 데 몇 시간(일반적으로 디스크의 데이터 양에 따라 24시간 미만)이 걸릴 수 있는 데이터의 백그라운드 복사를 통해 오케스트레이션됩니다. 이 기간 동안 일부 읽기가 원래 위치로 리디렉션될 수 있어 완료하는 데 더 오래 걸릴 수 있으므로 애플리케이션의 읽기 대기 시간이 일반적인 읽기 대기 시간보다 길어질 수 있습니다. 이 기간 동안 쓰기 대기 시간에는 영향이 없습니다.  
 
 **Managed Disks로 마이그레이션하기 전/후에 기존 Azure Backup 서비스 구성에 어떤 변경이 필요한가요?**
 
@@ -262,7 +266,7 @@ yes
 
  아니요. 하지만 암호화된 Managed Disk 또는 스냅숏의 암호화된 저장소 계정에 VHD를 내보낼 경우 암호화됩니다. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>프리미엄 디스크: 관리 및 관리되지 않는 디스크
+## <a name="premium-disks-managed-and-unmanaged"></a>프리미엄 디스크: 관리형 및 비관리형
 
 **VM에서 DSv2와 같이 프리미엄 SD 디스크를 지원하는 크기를 사용하는 경우 프리미엄 및 표준 데이터 디스크를 모두 연결할 수 있나요?** 
 
@@ -292,7 +296,7 @@ DS 시리즈의 캐시 및 로컬 SSD에 대한 결합 제한은 코어당 4,000
 
 프리미엄 또는 표준 디스크의 Azure 디스크에서 TRIM을 사용해도 문제는 없습니다.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>새 디스크 크기: 관리 및 관리되지 않는 디스크
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>새 디스크 크기: 관리형 및 비관리형
 
 **운영 체제 및 데이터 디스크에 지원되는 가장 큰 관리 디스크 크기는 어떻게 되나요?**
 

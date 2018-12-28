@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: dbf21c7c22a9b3273a65f7e186a2ac02ccae6ba2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b933bc5f5ecb39c3462e4e9bd300f1e07fd718c0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436210"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838778"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>자습서: Symantec WSS(Web Security Service)와 Azure Active Directory 통합
 
@@ -53,7 +53,7 @@ Symantec WSS(Web Security Service)와 Azure AD 통합을 구성하려면 다음 
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 Azure AD 계정에 정의된 최종 사용자 자격 증명을 사용하여 WSS에 Single Sign-On을 사용하도록 Azure AD를 구성하겠습니다.
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Symantec WSS(Web Security Service) 앱 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -115,7 +115,7 @@ Symantec WSS(Web Security Service)에서 Azure AD Single Sign-On을 구성하고
 
     a. **식별자** 텍스트 상자에 URL `https://saml.threatpulse.net:8443/saml/saml_realm`을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 URL `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`를 입력합니다.
+    b. **회신 URL** 텍스트 상자에 URL `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`를 입력합니다.
 
     > [!NOTE]
     > **식별자** 및 **회신 URL** 값이 어떤 이유로 작동하지 않는 경우 [Symantec WSS(Web Security Service) 클라이언트 지원 팀](https://www.symantec.com/contact-us)에 문의하세요.
@@ -131,7 +131,7 @@ Symantec WSS(Web Security Service)에서 Azure AD Single Sign-On을 구성하고
 1. Symantec WSS(Web Security Service) 쪽에 Single Sign-On을 구성하려면 WSS 온라인 설명서를 참조하세요. 다운로드한 **메타데이터 XML** 파일을 WSS 포털로 가져와야 합니다. WSS 포털 구성과 관련하여 도움이 필요하면 [Symantec WSS(Web Security Service) 지원 팀](https://www.symantec.com/contact-us)에 문의하세요.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -170,7 +170,7 @@ Symantec WSS(Web Security Service)에서 Azure AD Single Sign-On을 구성하고
 이 섹션에서는 Symantec WSS(Web Security Service)에서 Britta Simon이라는 사용자를 만듭니다. WSS 포털에서 해당하는 최종 사용자 이름을 수동으로 만들 수도 있고, Azure AD에 프로비전된 사용자/그룹이 몇 분 후(15분 이내) WSS 포털에 동기화될 때까지 기다릴 수도 있습니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 웹 사이트 찾아보기에 사용되는 최종 사용자 컴퓨터의 공용 IP 주소 또한 Symantec WSS(Web Security Service) 포털에서 프로비전해야 합니다.
 
 > [!NOTE]
-> 컴퓨터의 공용 IP 주소를 보려면 [여기를 클릭](http://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1)하세요.
+> 컴퓨터의 공용 IP 주소를 보려면 [여기를 클릭](https://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1)하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

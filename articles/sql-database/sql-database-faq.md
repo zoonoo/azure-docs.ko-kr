@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242826"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270402"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL Database FAQ(질문과 대답)
 
@@ -31,7 +31,7 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>패치 가동 중지 시간이 발생하는 경우를 제어할 수 있나요?
 
-아니요. 일반적으로 패치 적용에 따른 영향은 앱에서 [다시 시도 논리를 사용](sql-database-develop-overview.md#resiliency)하면 두드러지지 않습니다.
+ 아니요. 일반적으로 패치 적용에 따른 영향은 앱에서 [다시 시도 논리를 사용](sql-database-develop-overview.md#resiliency)하면 두드러지지 않습니다.
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Azure SQL Database에 대한 새 vCore 기반 구매 모델이란?
 
@@ -196,9 +196,9 @@ vCore 기반 모델에서 서비스 요금은 서비스 계층, 프로비전된 
 > [!NOTE]
 > 제한된 기간 동안 백업 요금 및 IO 요금은 무료입니다.
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>탄력적 풀의 활성 지역 복제의 사용량이 청구서에 어떻게 표시되나요?
+## <a name="how-does-the-use-of-active-geo-replication-or-auto-failover-groups-in-an-elastic-pool-show-up-on-my-bill"></a>탄력적 풀의 활성 지역 복제 또는 자동 장애 조치(failover) 그룹의 사용량이 청구서에 어떻게 표시되나요?
 
-단일 데이터베이스와 달리, 탄력적 데이터베이스의 [활성 지역 복제](sql-database-geo-replication-overview.md)를 사용해도 청구서에 직접적인 영향은 없습니다.  각 풀(주 풀 및 보조 풀)에 프로비전된 리소스에 대해서만 요금이 청구됩니다.
+단일 데이터베이스와 달리, 탄력적 데이터베이스의 [활성 지역 복제](sql-database-active-geo-replication.md)나 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md)을 사용해도 청구서에 직접적인 영향은 없습니다. 각 풀(주 풀 및 보조 풀)에 프로비전된 리소스에 대해서만 요금이 청구됩니다.
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>감사 기능을 사용하면 청구서에 어떤 영향을 주나요?
 

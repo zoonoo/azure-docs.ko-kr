@@ -23,7 +23,7 @@ ms.locfileid: "52874739"
 
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>분할 및 분할 안 함 키당 단일 테넌트가 있는 경우 스키마 정보에 대한 분할 키를 채우려면 어떻게 해야 하나요?
 
-스키마 정보 개체는 시나리오를 분할 병합하는 데만 사용됩니다. 응용 프로그램이 기본적으로 단일 테넌트인 경우에는 분할 병합 도구가 필요하지 않으므로 스키마 정보 개체를 채울 필요가 없습니다.
+스키마 정보 개체는 시나리오를 분할 병합하는 데만 사용됩니다. 애플리케이션이 기본적으로 단일 테넌트인 경우에는 분할 병합 도구가 필요하지 않으므로 스키마 정보 개체를 채울 필요가 없습니다.
 
 #### <a name="ive-provisioned-a-database-and-i-already-have-a-shard-map-manager-how-do-i-register-this-new-database-as-a-shard"></a>데이터베이스를 프로비전했으며 분할된 데이터베이스 맵 관리자가 이미 있습니다. 이 새로운 데이터베이스를 분할로 등록하려면 어떻게 해야 하나요?
 

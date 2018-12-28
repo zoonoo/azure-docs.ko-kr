@@ -63,7 +63,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 애
 
 ## <a name="package-a-docker-image-container-with-yeoman"></a>Yeoman에서 Docker 이미지 컨테이너 패키징
 
-1. Service Fabric 컨테이너 응용 프로그램을 만들려면 복제된 리포지토리의 'container-tutorial' 디렉터리에서 다음 명령을 실행합니다.
+1. Service Fabric 컨테이너 애플리케이션을 만들려면 복제된 리포지토리의 'container-tutorial' 디렉터리에서 다음 명령을 실행합니다.
 
     ```bash
     yo azuresfcontainer
@@ -118,7 +118,7 @@ $ ls
 ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 ```
 
-## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Azure Container Registry의 자격 증명으로 응용 프로그램 매니페스트 구성
+## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Azure Container Registry의 자격 증명으로 애플리케이션 매니페스트 구성
 
 Service Fabric이 Azure Container Registry에서 컨테이너 이미지를 끌어오려면 **ApplicationManifest.xml**에서 자격 증명을 제공해야 합니다.
 
@@ -223,7 +223,7 @@ redis_server = os.environ['REDIS']
 r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 ```
 
-자습서의 이 시점에서 서비스 패키지 응용 프로그램의 템플릿은 클러스터에 배포하는 데 사용할 수 있습니다. 이후 자습서에서 이 응용 프로그램을 배포하고 Service Fabric 클러스터에서 실행합니다.
+자습서의 이 시점에서 서비스 패키지 애플리케이션의 템플릿은 클러스터에 배포하는 데 사용할 수 있습니다. 이후 자습서에서 이 애플리케이션을 배포하고 Service Fabric 클러스터에서 실행합니다.
 
 ## <a name="create-a-service-fabric-cluster"></a>Service Fabric 클러스터 만들기
 
@@ -241,7 +241,7 @@ openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1
 
 자체 클러스터를 만드는 방법은 [Azure에서 Service Fabric 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
 
-## <a name="build-and-deploy-the-application-to-the-cluster"></a>응용 프로그램 빌드 및 클러스터에 배포
+## <a name="build-and-deploy-the-application-to-the-cluster"></a>애플리케이션 빌드 및 클러스터에 배포
 
 Service Fabric CLI를 사용하여 Azure 클러스터에 애플리케이션을 배포할 수 있습니다. Service Fabric CLI가 컴퓨터에 설치되어 있지 않으면 [여기](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli)의 지침에 따라 설치합니다.
 
@@ -267,7 +267,7 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 
 ## <a name="clean-up"></a>정리
 
-템플릿에 제공된 제거 스크립트를 사용하여 클러스터에서 응용 프로그램 인스턴스를 삭제하고 응용 프로그램 유형을 등록 해제합니다. 이 명령은 인스턴스를 정리하는 데 시간이 걸리고 'install.sh' 명령은 이 스크립트 직후에 실행할 수 없습니다.
+템플릿에 제공된 제거 스크립트를 사용하여 클러스터에서 애플리케이션 인스턴스를 삭제하고 애플리케이션 유형을 등록 해제합니다. 이 명령은 인스턴스를 정리하는 데 시간이 걸리고 'install.sh' 명령은 이 스크립트 직후에 실행할 수 없습니다.
 
 ```bash
 ./uninstall.sh

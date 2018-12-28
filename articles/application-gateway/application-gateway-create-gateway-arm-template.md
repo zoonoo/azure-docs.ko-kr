@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: c749cdf133caebb2d1f061d53a1db38e9ec433bd
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6a671744944527b64aab9a7b9afe05d6a9f2f27f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770777"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002086"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -84,7 +84,7 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "addressPrefix": {
@@ -121,7 +121,7 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
     }
     ```
 
-1. 파일을 저장합니다. [JSlint.com](http://www.jslint.com/)같은 JSON 유효성 검사 도구를 사용하여 JSON 템플릿과 매개 변수 템플릿을 테스트할 수 있습니다.
+1. 파일을 저장합니다. [JSlint.com](https://www.jslint.com/)같은 JSON 유효성 검사 도구를 사용하여 JSON 템플릿과 매개 변수 템플릿을 테스트할 수 있습니다.
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>PowerShell을 사용하여 Azure 리소스 관리자 템플릿 배포
 
@@ -210,7 +210,7 @@ cert=$( base64 <certificate path and name>.pfx )
 echo $cert
 ```
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
@@ -233,12 +233,12 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>다음 단계
 
-SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대한 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
+SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대한 애플리케이션 게이트웨이 구성](application-gateway-ssl.md)을 방문해보세요.
 
-내부 부하 분산 장치에서 사용하도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
+내부 부하 분산 장치에 사용되도록 애플리케이션 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 애플리케이션 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 
 부하 분산 옵션에 대한 자세한 정보는 다음을 방문하세요.
 
-* [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 

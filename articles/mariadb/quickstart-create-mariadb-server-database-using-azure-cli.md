@@ -90,7 +90,7 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 
 ## <a name="configure-ssl-settings"></a>SSL 설정 구성
 
-기본적으로 서버와 클라이언트 응용 프로그램 간에 SSL 연결이 적용됩니다. 이 기본 설정은 인터넷을 통해 데이터 스트림을 암호화하여 "이동 중"인 데이터를 보호합니다. 이 빠른 시작에서는 서버에 SSL 연결을 사용하지 않겠습니다. SSL 비활성화는 프로덕션 서버에는 권장되지 않습니다. 자세한 내용은 [Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요.
+기본적으로 서버와 클라이언트 애플리케이션 간에 SSL 연결이 적용됩니다. 이 기본 설정은 인터넷을 통해 데이터 스트림을 암호화하여 "이동 중"인 데이터를 보호합니다. 이 빠른 시작에서는 서버에 SSL 연결을 사용하지 않겠습니다. SSL 비활성화는 프로덕션 서버에는 권장되지 않습니다. 자세한 내용은 [Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요.
 
 다음 예제에서는 Azure Database for MariaDB 서버에 적용되는 SSL을 사용하지 않습니다.
  

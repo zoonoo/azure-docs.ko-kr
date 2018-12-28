@@ -64,15 +64,15 @@ Tangoe Command Premium Mobile과 Azure AD 통합을 구성하려면 갤러리의
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![애플리케이션][3]
 
-1. 검색 상자에 **Tangoe Command Premium Mobile**을 입력하고, 결과 패널에서 **Tangoe Command Premium Mobile**을 선택한 다음 **추가** 단추를 눌러 응용 프로그램을 추가합니다.
+1. 검색 상자에 **Tangoe Command Premium Mobile**을 입력하고, 결과 패널에서 **Tangoe Command Premium Mobile**을 선택한 다음 **추가** 단추를 눌러 애플리케이션을 추가합니다.
 
     ![갤러리에서 Tangoe Command Premium Mobile 추가 ](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
@@ -93,11 +93,11 @@ Tangoe Command Premium Mobile에서 Azure AD Single Sign-On을 구성하고 테�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Tangoe Command Premium Mobile 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Tangoe Command Premium Mobile 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Tangoe Command Premium Mobile에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Tangoe Command Premium Mobile** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure Portal의 **Tangoe Command Premium Mobile** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -128,7 +128,7 @@ Tangoe Command Premium Mobile에서 Azure AD Single Sign-On을 구성하고 테�
 
     ![Tangoe Command Premium Mobile 구성 섹션](./media/tangoe-tutorial/tutorial_tangoe_configure.png) 
 
-1. 응용 프로그램에 SSO를 구성하려면 [Tangoe Command Premium Mobile 클라이언트 지원 팀](https://www.tangoe.com/contact-us/)에 연락하여 다음 정보를 제공하세요.
+1. 애플리케이션에 SSO를 구성하려면 [Tangoe Command Premium Mobile 클라이언트 지원 팀](https://www.tangoe.com/contact-us/)에 연락하여 다음 정보를 제공하세요.
 
    - 다운로드한 메타데이터 파일
    - **SAML 엔터티 ID**
@@ -174,7 +174,7 @@ Tangoe Command Premium Mobile에서 Azure AD Single Sign-On을 구성하고 테�
 
 이 섹션에서는 Tangoe Command Premium Mobile에서 Britta Simon이라는 사용자를 만듭니다. 
 
-Tangoe Command Premium Mobile 응용 프로그램에서는 Single Sign On을 수행하기 전에 모든 사용자를 프로비전해야 합니다. 따라서 [Tangoe Command Premium Mobile 클라이언트 지원 팀](https://www.tangoe.com/contact-us/)과 협력하여 모든 사용자를 응용 프로그램에 프로비전하세요. 
+Tangoe Command Premium Mobile 애플리케이션에서는 Single Sign On을 수행하기 전에 애플리케이션에서 모든 사용자를 프로비전해야 합니다. 따라서 [Tangoe Command Premium Mobile 클라이언트 지원 팀](https://www.tangoe.com/contact-us/)과 협력하여 모든 사용자를 애플리케이션에 프로비전하세요. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -210,7 +210,7 @@ Tangoe Command Premium Mobile 응용 프로그램에서는 Single Sign On을 수
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트합니다.
 
-액세스 패널에서 Tangoe Command Premium Mobile 타일을 클릭하면 Tangoe Command Premium Mobile 응용 프로그램에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에서 Tangoe Command Premium Mobile 타일을 클릭하면 Tangoe Command Premium Mobile 애플리케이션에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

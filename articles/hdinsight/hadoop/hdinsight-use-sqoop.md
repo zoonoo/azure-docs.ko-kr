@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 1571480540baedd5910c4153caf23e0687d48922
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e448b367e574b044762fb1ee7eaa30e1bb3e1f8b
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684990"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011745"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Sqoop 사용
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -76,15 +76,15 @@ Azure PowerShell을 사용하여 클러스터 및 SQL Database를 만들려면 [
 2. 다음과 같은 속성을 입력합니다.
 
     - **구독**: Azure 구독을 입력합니다.
-    - **리소스 그룹**: 새 Azure 리소스 그룹을 만들거나 기존 Azure 리소스 그룹을 선택합니다.  리소스 그룹은 관리 목적으로 사용됩니다.  개체에 대한 컨테이너입니다.
+    - **리소스 그룹**: 새 Azure 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 관리 목적으로 사용됩니다.  개체에 대한 컨테이너입니다.
     - **위치**: 지역을 선택합니다.
-    - **클러스터 이름**: Hadoop 클러스터의 이름을 입력합니다.
+    - **ClusterName**: Hadoop 클러스터에 사용할 이름을 입력합니다.
     - **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 admin입니다.
     - **SSH 사용자 이름 및 암호**.
     - **SQL 데이터베이스 서버 로그인 이름 및 암호**.
-    - **_artifacts 위치**: 다른 위치에 직접 backpac 파일을 사용하려는 경우가 아니면 기본값을 그대로 사용합니다.
-    - **_artifacts 위치 Sas 토큰**: 비워 둡니다.
-    - **Bacpac 파일 이름**: 자체 backpac 파일을 사용하려는 경우가 아니면 기본값을 그대로 사용합니다.
+    - **_artifacts Location**: 다른 위치에 자체 backpac 파일을 사용하려는 경우가 아니면 기본값을 사용합니다.
+    - **_artifacts 위치 Sas 토큰**: 비워 둠
+    - **Bacpac 파일 이름**: 자체 backpac 파일을 사용하려는 경우가 아니면 기본값을 사용합니다.
      
         다음 값은 변수 섹션에서 하드 코드합니다.
         
@@ -216,7 +216,7 @@ PowerShell 샘플은 다음 단계를 수행합니다.
    > 
    > * **Azure 가상 네트워크 지점 및 사이트 간 구성**: 개인 데이터 센터에서 HDInsight 클러스터를 SQL Server에 연결하는 가상 네트워크입니다. 자세한 내용은 [관리 포털에서 지점 및 사이트 간 VPN 구성](../../vpn-gateway/vpn-gateway-point-to-site-create.md) 을 참조하세요.
    > * **Azure HDInsight**: 가상 네트워크에서 클러스터를 만드는 방법에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
-   > * **SQL Server 2014**: 인증을 허용하고 VPN 클라이언트 구성 패키지를 실행하여 가상 네트워크에 안전하게 연결할 수 있도록 구성됩니다.
+   > * **SQL Server 2014**: 인증을 허용하고 VPN 클라이언트 구성 패키지를 실행하여 가상 네트워크에 안전하게 연결할 수 있도록 구성합니다.
    > 
    > 
 7. Hive 테이블을 Azure SQL 데이터베이스로 내보냅니다.
@@ -638,8 +638,8 @@ Get-AzureRmHDInsightJobOutput `
 [sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
 [sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

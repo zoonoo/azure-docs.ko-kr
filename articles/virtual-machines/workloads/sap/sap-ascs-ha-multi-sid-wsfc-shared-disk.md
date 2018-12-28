@@ -235,7 +235,7 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 > 설치 프로그램은 다음 조건을 충족해야 합니다.
 > * SAP ASCS/SCS 인스턴스는 동일한 WSFC 클러스터를 공유해야 합니다.
 > * 각 DBMS(데이터베이스 관리 시스템) SID에는 해당하는 고유한 전용 WSFC 클러스터가 있어야 합니다.
-> * 하나의 SAP 시스템 SID에 속하는 SAP 응용 프로그램 서버에는 고유한 전용 VM이 있어야 합니다.
+> * 하나의 SAP 시스템 SID에 속하는 SAP 애플리케이션 서버에는 고유한 전용 VM이 있어야 합니다.
 
 ## <a name="sap-ascsscs-multi-sid-architecture-with-shared-disk"></a>공유 디스크를 사용하는 SAP ASCS/SCS 다중 SID 아키텍처
 

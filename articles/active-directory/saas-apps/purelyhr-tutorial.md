@@ -1,5 +1,5 @@
 ---
-title: '자습서: PurelyHR과 Azure Active Directory 통합| Microsoft 문서'
+title: '자습서: PurelyHR과 Azure Active Directory 통합| Microsoft Docs'
 description: Azure Active Directory 및 PurelyHR 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c02dc274c5d22c16b2bda6d7896ee64c41d6e2ab
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 88388be1a0687c3e56fd39dde2f70e40cf578f2a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438997"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841050"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>자습서: PurelyHR과 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ PurelyHR과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 PurelyHR 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -121,7 +121,7 @@ PurelyHR에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     **로그온 URL** 텍스트 상자에 다음 패턴으로 값을 입력합니다. `https://<companyID>.purelyhr.com/sso-initiate` 
      
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [PurelyHR 클라이언트 지원 팀](http://support.purelyhr.com/)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [PurelyHR 클라이언트 지원 팀](https://support.purelyhr.com/)에 문의하세요. 
 
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -145,16 +145,16 @@ PurelyHR에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. Azure Portal에서 다운로드한 **인증서(Bas64)** 를 메모장에서 열고 인증서 값을 복사합니다. 복사한 값을 **X.509 인증서** 상자에 붙여넣습니다.
 
-    나. **IDP 발급자 URL** 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID**를 붙여넣습니다.
+    b. **IDP 발급자 URL** 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID**를 붙여넣습니다.
 
-    다. **IDP 끝점 URL** 상자에 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 붙여넣습니다. 
+    다. **IDP 엔드포인트 URL** 상자에 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 붙여넣습니다. 
 
     d. **사용자 자동 생성** 확인란을 선택하여 PurelyHR에서 자동 사용자 프로비전을 사용하도록 설정합니다.
 
     e. **변경 내용 저장**을 클릭하여 설정을 저장합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -182,7 +182,7 @@ PurelyHR에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 

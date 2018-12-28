@@ -63,11 +63,11 @@ Marketo의 Azure AD 통합을 구성하려면 갤러리의 Marketo를 관리되�
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![애플리케이션][3]
 
@@ -75,7 +75,7 @@ Marketo의 Azure AD 통합을 구성하려면 갤러리의 Marketo를 관리되�
 
     ![Azure AD 테스트 사용자 만들기](./media/marketo-tutorial/tutorial_marketo_search.png)
 
-1. 결과 창에서 **Marketo**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **Marketo**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/marketo-tutorial/tutorial_marketo_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Marketo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Marketo 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Marketo 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Marketo에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Marketo** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Marketo** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -131,7 +131,7 @@ Marketo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_configure.png) 
 
-1. 응용 프로그램의 Munchkin ID를 가져오려면 관리자 자격 증명을 사용하여 Marketo에 로그인하고 다음 작업을 수행합니다.
+1. 애플리케이션의 Munchkin ID를 가져오려면 관리자 자격 증명을 사용하여 Marketo에 로그인하고 다음 작업을 수행합니다.
    
     a. 관리자 자격 증명을 사용하여 Marketo 앱에 로그인합니다.
    
@@ -147,7 +147,7 @@ Marketo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
    
     ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_12.png) 
 
-1. 아래 단계에 따라 응용 프로그램에서 SSO를 구성합니다.
+1. 아래 단계에 따라 애플리케이션에서 SSO를 구성합니다.
    
     a. 관리자 자격 증명을 사용하여 Marketo 앱에 로그인합니다.
    
@@ -290,7 +290,7 @@ Marketo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Marketo**를 선택합니다.
+1. 애플리케이션 목록에서 **Marketo**를 선택합니다.
 
     ![Configure Single Sign-On](./media/marketo-tutorial/tutorial_marketo_app.png) 
 
@@ -312,7 +312,7 @@ Marketo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Marketo 타일을 클릭하면 Marketo 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Marketo 타일을 클릭하면 Marketo 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

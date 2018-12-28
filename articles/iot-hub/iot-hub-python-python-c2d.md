@@ -258,7 +258,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 1. **SendCloudToDeviceMessage.py** 파일을 저장한 후 닫습니다.
 
 
-## <a name="run-the-applications"></a>응용 프로그램 실행
+## <a name="run-the-applications"></a>애플리케이션 실행
 이제 응용 프로그램을 실행할 준비가 되었습니다.
 
 1. 명령 프롬프트를 열고 **Python용 Azure IoT Hub 디바이스 SDK**를 설치합니다.

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 1f5626b1001f2d5deb3fa84d64eab6acf6c94b7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dfdabed95d89e02b5a4b23ba23949cd0aaf838f3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239528"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959398"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobile Apps 및 Mobile Services에서 클라이언트 및 서버 버전 관리
 Azure Mobile Services의 최신 버전은 Azure App Service의 **Mobile Apps** 기능입니다.
@@ -38,7 +38,7 @@ Mobile Apps 클라이언트 및 서버 SDK는 원래 Mobile Services를 기반�
 
 GET https://service.azurewebsites.net/tables/TodoItem
 
-HEADERS: ZUMO-API-VERSION: 2.0.0
+헤더: ZUMO-API-VERSION: 2.0.0
 
 POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
@@ -62,7 +62,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 <!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
 
-<!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
+<!-- NOTE: the fwlink to this document is https://go.microsoft.com/fwlink/?LinkID=690568 -->
 
 ## <a name="1.0.0"></a>Mobile Services 클라이언트 및 서버
 아래 테이블의 클라이언트 SDK는 **Mobile Services**와 호환됩니다.
@@ -75,7 +75,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | 관리된 클라이언트(Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |해당 없음 |
 | iOS |[2.2.2](https://aka.ms/gc6fex) |해당 없음 |
 | Android |[2.0.3](https://go.microsoft.com/fwLink/?LinkID=280126) |해당 없음 |
-| HTML |[1.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |해당 없음 |
+| HTML |[1.2.7](https://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |해당 없음 |
 
 ### <a name="mobile-services-server-sdks"></a>모바일 *서비스* 서버 SDK
 | 서버 플랫폼 | 버전 | 수락된 버전 헤더 |
@@ -128,5 +128,5 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 [Mobile Apps 클라이언트]: #MobileAppsClients
 
 
-[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Mobile App Server SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [모바일 서비스를 Azure App Service로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md

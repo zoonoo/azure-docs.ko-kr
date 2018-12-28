@@ -9,16 +9,15 @@ ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: bc505aa9dc2258a8752d1986489957c401e4e4c4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: f19da07fb8299d2b11410309b76a1d7900d1cb93
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023511"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727454"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 저장소로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
@@ -86,7 +85,7 @@ ms.locfileid: "50023511"
 ## <a name="get"></a> 데이터 검사
 포털에서 직접 저장소를 검사할 수 있습니다. **찾아보기**를 클릭하고 저장소 계정을 선택한 후 **컨테이너**를 엽니다.
 
-Visual Studio에서 Azure Storage를 검사하려면 **보기**, **클라우드 탐색기**를 차례로 엽니다. (해당 메뉴 명령이 없는 경우 Azure SDK를 설치해야 합니다. **새 프로젝트** 대화 상자를 열고 Visual C#/클라우드를 확장한 다음 **.NET용 Microsoft Azure SDK 가져오기**를 선택합니다.)
+Visual Studio에서 Azure Storage를 검사하려면 **보기**, **클라우드 탐색기**를 차례로 엽니다. (해당 메뉴 명령이 없는 경우 Azure SDK를 설치해야 합니다. **새 프로젝트** 대화 상자를 열고, 시각적 개체 C#/클라우드를 확장하고 **.NET용 Microsoft Azure SDK 가져오기**를 선택합니다.)
 
 blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입니다. Application Insights 리소스 이름, 계측 키, 원격 분석 유형/날짜/시간에서 파생된 각 파일의 URI입니다. 리소스 이름은 모두 소문자이고 계측 키에서 대시를 생략합니다.
 
@@ -174,7 +173,7 @@ Where
     아니요. 죄송합니다. 우리의 내보내기 엔진은 현재 Azure 저장소에서만 작동합니다.  
 * *내 저장소에 보관하는 데이터량에 제한이 있나요?*
 
-    아니요. 내보내기를 삭제할 때까지 푸싱한 데이터를 유지합니다. blob 저장소에 대한 외부 제한에 도달하는 경우 중지하지만 제한은 상당히 큽니다. 사용자가 이용하는 저장소 크기는 사용자가 제어하기 나름입니다.  
+     아니요. 내보내기를 삭제할 때까지 푸싱한 데이터를 유지합니다. blob 저장소에 대한 외부 제한에 도달하는 경우 중지하지만 제한은 상당히 큽니다. 사용자가 이용하는 저장소 크기는 사용자가 제어하기 나름입니다.  
 * *저장소에서 몇 개의 BLOB를 볼 수 있나요?*
 
   * 내보내려고 선택한 모든 데이터 형식에 대해 새 blob(데이터 파일이 사용 가능한 경우)이 매 분마다 만들어 집니다.

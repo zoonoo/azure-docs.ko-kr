@@ -40,7 +40,7 @@ Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정�
 [Azure App Service](app-service/app-service-web-overview.md)에서 웹 사이트 또는 웹 응용 프로그램, 웹 API 또는 [모바일 앱 백 엔드](app-service-mobile/app-service-mobile-value-prop.md)를 호스팅하기 위해 제공하는 계산 리소스입니다. App Service 앱은 *App Services*, *웹앱*, *API 앱* 및 *모바일 앱*이라고도 합니다.
 
 ## <a name="availability-set"></a>가용성 집합
-응용 프로그램 중복성 및 안정성을 제공하기 위해 함께 관리되는 가상 머신의 컬렉션입니다. 가용성 집합을 사용하면 계획되거나 계획되지 않은 유지 관리 이벤트 중에 하나 이상의 가상 머신을 사용할 수 있도록 합니다.  
+애플리케이션 중복성 및 안정성을 제공하기 위해 함께 관리되는 가상 머신의 컬렉션입니다. 가용성 집합을 사용하면 계획되거나 계획되지 않은 유지 관리 이벤트 중에 하나 이상의 가상 머신을 사용할 수 있도록 합니다.  
 [Windows 가상 머신의 가용성 관리](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Linux 가상 머신의 가용성 관리](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ## <a name="classic-model"></a>Azure 클래식 배포 모델
@@ -70,7 +70,7 @@ Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->를 참조하세요.
 
 ## <a name="image"></a>이미지
-개수에 관계없이 여러 가상 머신을 만드는 데 사용할 수 있는 운영 체제 및 응용 프로그램 구성을 포함하는 파일입니다. Azure에는 두 가지 유형의 이미지, 즉 VM 이미지와 OS 이미지가 있습니다. VM 이미지에는 운영 체제 및 이미지를 만들 때 가상 머신에 연결된 모든 디스크가 포함됩니다. OS 이미지에는 데이터 디스크 구성 없이 일반화된 운영 체제만 포함되어 있습니다.  
+개수에 관계없이 여러 가상 머신을 만드는 데 사용할 수 있는 운영 체제 및 애플리케이션 구성을 포함하는 파일입니다. Azure에는 두 가지 유형의 이미지, 즉 VM 이미지와 OS 이미지가 있습니다. VM 이미지에는 운영 체제 및 이미지를 만들 때 가상 머신에 연결된 모든 디스크가 포함됩니다. OS 이미지에는 데이터 디스크 구성 없이 일반화된 운영 체제만 포함되어 있습니다.  
 [PowerShell 또는 CLI로 Azure의 Windows 가상 머신 이미지 이동 및 선택](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 ## <a name="limits"></a>제한
@@ -85,7 +85,7 @@ Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델
 
 ## <a name="offer"></a>제품
 Azure 구독에 적용되는 가격 책정, 신용 및 관련 조건입니다.  
-[Azure 제안 세부 정보 페이지](https://azure.microsoft.com/support/legal/offer-details/)
+ [Azure 제안 세부 정보 페이지](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>portal
 Azure 서비스를 배포하고 관리하는 데 사용하는 보안 웹 포털입니다.
@@ -99,7 +99,7 @@ Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 �
 [Azure Resource Manager 개요](azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 ## <a name="resource-group"></a>리소스 그룹
-리소스 관리자에서 응용 프로그램에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹에는 모든 응용 프로그램에 대한 리소스 또는 논리적으로 그룹화된 리소스만 포함될 수 있습니다. 사용자의 조직에 가장 적합한 내용에 따라 어떻게 리소스 그룹에 리소스를 할당할지 결정할 수 있습니다.  
+리소스 관리자에서 응용 프로그램에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹에는 모든 애플리케이션에 대한 리소스 또는 논리적으로 그룹화된 리소스만 포함될 수 있습니다. 사용자의 조직에 가장 적합한 내용에 따라 어떻게 리소스 그룹에 리소스를 할당할지 결정할 수 있습니다.  
 [Azure Resource Manager 개요](azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 ## <a name="arm-template"></a>리소스 관리자 템플릿

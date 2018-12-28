@@ -1,11 +1,11 @@
 ---
 title: Machine Learning Studio FAQ(질문과 대답) - Azure | Microsoft Docs
-description: 'Azure Machine Learning Studio: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ.'
+description: 'Azure Machine Learning Studio: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ'
 keywords: 기계 학습 소개, 예측 모델링, 기계 학습이란 무엇인가요
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309143"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091296"
 ---
-# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning Studio 질문과 대답: 대금 청구, 기능, 제한 사항 및 지원
+# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Azure Machine Learning Studio FAQ: 청구, 기능, 제한 사항 및 지원
 Azure Machine Learning, 예측 모델 개발을 위한 클라우드 서비스 및 웹 서비스를 통한 운용성 솔루션에 대한 질문(FAQ)과 해당하는 대답입니다. 이 FAQ는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대한 질문을 제공합니다.
 
 **여기에서 찾을 수 없는 질문이 있나요?**
@@ -32,7 +32,7 @@ Azure Machine Learning은 데이터 과학 커뮤니티의 멤버가 Azure Machi
 ## <a name="general-questions"></a>일반적인 질문
 **Machine Learning Studio란 무엇인가요?**
 
-Machine Learning Studio는 웹 브라우저를 사용하여 액세스하는 워크벤치 환경입니다. Machine Learning Studio는 실험 형태의 종단 간 데이터 과학 워크플로를 구성할 수 있는 시각적 컴퍼지션 인터페이스로 모듈 팔레트를 호스트합니다.
+Machine Learning Studio는 웹 브라우저를 사용하여 액세스하는 끌어서 놓기 캔버스 환경입니다. Machine Learning Studio는 실험 형태의 종단 간 데이터 과학 워크플로를 구성할 수 있는 시각적 컴퍼지션 인터페이스로 모듈 팔레트를 호스트합니다.
 
 Machine Learning Studio에 대한 자세한 내용은 [Machine Learning Studio란 무엇인가요?](what-is-ml-studio.md)
 
@@ -96,7 +96,7 @@ Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대
 
 * Recommender 모듈
 * SMOTE(Synthetic Minority Oversampling Technique) 모듈
-* Scripting 모듈: R, Python, SQL
+* 스크립팅 모듈: R, Python, SQL
 * 출력 데이터 크기가 입력 데이터 크기보다 클 수 있는 모듈(예: Join 또는 Feature Hashing)
 * Cross-validation, Tune Model Hyperparameters, Ordinal Regression 및 One-vs-All Multiclass(반복 횟수가 매우 많은 경우)
 
@@ -263,7 +263,7 @@ Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대
 
 * Recommender 모듈
 * SMOTE(Synthetic Minority Oversampling Technique) 모듈
-* Scripting 모듈: R, Python, SQL
+* 스크립팅 모듈: R, Python, SQL
 * 출력 데이터 크기가 입력 데이터 크기보다 클 수 있는 모듈(예: Join 또는 Feature Hashing)
 * Cross-Validate, Tune Model Hyperparameters, Ordinal Regression 및 One-vs-All Multiclass(반복 횟수가 매우 많은 경우)
 
@@ -312,7 +312,7 @@ Azure Machine Learning에 대한 기술 지원을 받으려면 [Azure 지원](ht
 ## <a name="billing-questions"></a>대금 청구 관련 질문
 **Machine Learning 결제는 어떤 방식으로 이루어지나요?**
 
-Azure Machine Learning은 Machine Learning Studio 및 Machine Learning 웹 서비스라는 두 구성 요소로 이루어집니다.
+Azure Machine Learning에는 다음 두 가지 구성 요소가 있습니다. Machine Learning Studio 및 Machine Learning 웹 서비스
 
 Machine Learning Studio를 평가하는 동안 무료 청구 계층을 사용할 수 있습니다. 무료 계층을 사용하면 제한된 용량으로 클래식 웹 서비스를 배포할 수도 있습니다.
 
@@ -438,7 +438,7 @@ Resource Manager 기반 웹 서비스를 처음 배포할 때 기존 계획을 �
 
 예. 지역에 따라 계획 가격 책정이 달라집니다. 다른 지역에 웹 서비스를 배포하는 경우 해당 지역에 특정된 계획을 할당해야 합니다. 자세한 내용은 [지역별 사용 가능한 제품]( https://azure.microsoft.com/regions/services/)을 참조하세요.
 
-### <a name="new-web-services-overages"></a>새 웹 서비스 - 초과분
+### <a name="new-web-services-overages"></a>새 웹 서비스: 초과분
 **내 웹 서비스 사용량을 초과했는지 어떻게 확인하나요?**
 
 Azure Machine Learning 웹 서비스 포털의 계획 페이지에서 모든 계획의 사용량을 볼 수 있습니다. 포털에 로그인한 다음 **계획** 메뉴 옵션을 클릭합니다.
@@ -483,19 +483,19 @@ Azure Machine Learning API 서비스는 클래식 웹 서비스 또는 새로운
 
 다음 요금은 구독에 대해 작업 영역별로 집계됩니다.
 
-* Machine Learning 작업 영역 구독 - Machine Learning 작업 영역 구독은 Machine Learning Studio 작업 영역에 대한 액세스를 제공하는 월별 요금입니다. 이 구독은 스튜디오에서 실행하고 프로덕션 API를 활용하는 실험에 필요합니다.
-* 스튜디오 실험 시간 - 이 미터는 Machine Learning Studio에서 실행 중인 실험과 스테이징 환경에서 실행 중인 프로덕션 API 호출로 발생하는 모든 계산 요금을 집계합니다.
+* Machine Learning 작업 영역 구독: Machine Learning 작업 영역 구독은 Machine Learning Studio 작업 영역에 대한 액세스를 제공하는 월별 요금입니다. 이 구독은 스튜디오에서 실행하고 프로덕션 API를 활용하는 실험에 필요합니다.
+* 스튜디오 실험 시간: 이 미터는 Machine Learning Studio에서 실행 중인 실험과 스테이징 환경에서 실행 중인 프로덕션 API 호출로 발생하는 모든 컴퓨팅 요금을 집계합니다.
 * 교육 및 평가를 위해 모델에서 SQL Server를 실행하는 온-프레미스 서버에 연결하여 데이터에 액세스합니다.
 * 클래식 웹 서비스의 경우:
-  * 프로덕션 API Compute 시간: 이 미터에는 프로덕션에서 실행 중인 웹 서비스로 발생하는 계산 요금이 포함됩니다.
+  * 프로덕션 API 계산 시간: 이 미터에는 프로덕션에서 실행 중인 웹 서비스로 발생하는 컴퓨팅 요금이 포함됩니다.
   * 프로덕션 API 트랜잭션(단위: 1000): 이 미터에는 프로덕션 웹 서비스 호출당 발생하는 요금이 포함됩니다.
 
 Resource Manager 기반 웹 서비스의 경우 앞의 요금 외에도 선택한 계획에 대한 요금이 집계됩니다.
 
 * 표준 S1/S2/S3 API 계획(단위): 이 미터는 Resource Manager 기반 웹 서비스에 대해 선택한 인스턴스의 유형을 나타냅니다.
-* 표준 S1/S2/S3 초과 API Compute 시간: 이 미터는 기존 인스턴스의 포함된 수량을 모두 사용한 후에 프로덕션에서 실행되는 Resource Manager 기반 웹 서비스에서 발생한 계산 요금을 포함합니다. 추가 사용량은 S1/S2/S3 계획 계층과 관련한 초과 요금으로 부과됩니다.
+* 표준 S1/S2/S3 초과 API 계산 시간: 이 미터는 기존 인스턴스의 포함된 수량을 모두 사용한 후에 프로덕션에서 실행되는 Resource Manager 기반 웹 서비스에서 발생한 컴퓨팅 요금을 포함합니다. 추가 사용량은 S1/S2/S3 계획 계층과 관련한 초과 요금으로 부과됩니다.
 * 표준 S1/S2/S3 초과 API 트랜잭션(단위: 1,000): 이 미터는 기존 인스턴스의 포함된 수량을 모두 사용한 후에 프로덕션 Resource Manager 기반 웹 서비스에 대한 호출당 발생하는 요금을 포함합니다. 추가 사용량은 S1/S2/S3 계획 계층과 관련한 초과 요금으로 부과됩니다.
-* 포함된 수량 API Compute 시간: 이 미터는 Resource Manager 기반 웹 서비스를 사용하여 API 계산 시간의 포함된 수량을 나타냅니다.
+* 포함된 수량 API 계산 시간: 이 미터는 Resource Manager 기반 웹 서비스를 사용하여 API 컴퓨팅 시간의 포함된 수량을 나타냅니다.
 * 포함된 수량 API 트랜잭션(단위: 1,000): 이 미터는 Resource Manager 기반 웹 서비스를 사용하여 API 트랜잭션의 포함된 수량을 나타냅니다.
 
 **Azure Machine Learning 무료 계층에 등록하려면 어떻게 하나요?**

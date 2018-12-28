@@ -32,7 +32,7 @@ Absorb LMS를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니�
 - 사용자가 해당 Azure AD 계정으로 Absorb LMS에 자동으로 로그인(Single Sign-On 사용)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -88,7 +88,7 @@ Absorb LMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Absorb LMS 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Absorb LMS 애플리케이션에서 Single Sign-On을 구성합니다.
 
 Absorb LMS에서 Azure AD Single Sign-on을 구성하려면 다음을 수행합니다.
 
@@ -242,11 +242,11 @@ Britta Simon을 Absorb LMS에 할당하려면 다음을 수행합니다.
 
 1. Azure Portal에서 응용 프로그램 보기를 열고 디렉터리 보기로 이동한 후 **Enterprise 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
 
-    !["모든 응용 프로그램" 링크][201] 
+    !["모든 애플리케이션" 링크][201] 
 
 2. **응용 프로그램** 목록에서 **Absorb LMS**를 선택합니다.
 
-    ![응용 프로그램 목록의 Absorb LMS 링크](./media/absorblms-tutorial/tutorial_absorblms_app.png) 
+    ![애플리케이션 목록의 Absorb LMS 링크](./media/absorblms-tutorial/tutorial_absorblms_app.png) 
 
 3. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 

@@ -64,15 +64,15 @@ TimeOffManager의 Azure AD 통합을 구성하려면 갤러리의 TimeOffManager
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![애플리케이션][3]
 
-1. 검색 상자에 **TimeOffManager**를 입력하고 결과 패널에서 **TimeOffManager**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **TimeOffManager**를 입력하고 결과 패널에서 **TimeOffManager**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![갤러리에서 추가](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_addfromgallery.png)
 
@@ -93,11 +93,11 @@ TimeOffManager에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 TimeOffManager 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 TimeOffManager 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **TimeOffManager에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **TimeOffManager** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure Portal의 **TimeOffManager** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -120,7 +120,7 @@ TimeOffManager에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 1. 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 TimeOffManager에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
     
-    TimeOffManager 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+    TimeOffManager 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
     ![SAML 토큰 특성](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_attrb.png "SAML 토큰 특성")
     
@@ -236,7 +236,7 @@ TimeOffManager는 사용자 프로비전 시간에만 지원합니다. 작업 �
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **TimeOffManager**를 선택합니다.
+1. 애플리케이션 목록에서 **TimeOffManager**를 선택합니다.
 
     ![앱 목록의 TimeOffManager](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_app.png) 
 
@@ -258,7 +258,7 @@ TimeOffManager는 사용자 프로비전 시간에만 지원합니다. 작업 �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 TimeOffManager 타일을 클릭하면 TimeOffManager 응용 프로그램에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에서 TimeOffManager 타일을 클릭하면 TimeOffManager 애플리케이션에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

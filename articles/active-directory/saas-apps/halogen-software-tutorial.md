@@ -131,7 +131,7 @@ Halogen Software에서 Azure AD Single Sign-on을 구성하고 테스트하려�
 
     ![Configure Single Sign-On](./media/halogen-software-tutorial/tutorial_general_400.png)
 
-1. 다른 브라우저 창에서 **Halogen Software** 응용 프로그램에 관리자 권한으로 로그온합니다.
+1. 다른 브라우저 창에서 **Halogen Software** 애플리케이션에 관리자 권한으로 로그온합니다.
 
 1. **옵션** 탭을 클릭합니다. 
    
@@ -234,7 +234,7 @@ Halogen Software에서 Azure AD Single Sign-on을 구성하고 테스트하려�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Halogen Software**를 선택합니다.
+1. 애플리케이션 목록에서 **Halogen Software**를 선택합니다.
 
     ![Configure Single Sign-On](./media/halogen-software-tutorial/tutorial_halogensoftware_app.png) 
 

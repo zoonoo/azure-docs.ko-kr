@@ -67,11 +67,11 @@ Zendesk의 Azure AD 통합을 구성하려면 갤러리의 Zendesk를 관리되�
 
     ![이미지](./media/zendesk-tutorial/selectazuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![이미지](./media/zendesk-tutorial/a_select_app.png)
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![이미지](./media/zendesk-tutorial/a_new_app.png)
 
@@ -97,7 +97,7 @@ Zendesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Zendesk 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Zendesk 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Zendesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
@@ -267,7 +267,7 @@ Zendesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![이미지](./media/zendesk-tutorial/d_all_applications.png)
 
-2. 응용 프로그램 목록에서 **Zendesk**를 선택합니다.
+2. 애플리케이션 목록에서 **Zendesk**를 선택합니다.
 
     ![이미지](./media/zendesk-tutorial/d_all_zendeskapplications.png)
 

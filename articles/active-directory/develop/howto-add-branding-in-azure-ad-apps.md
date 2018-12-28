@@ -44,7 +44,7 @@ Microsoft는 두 종류의 사용자 계정을 관리합니다.
 
 Microsoft 회사 또는 학교 계정은 일반적으로 회사, 학교, 정부 기관 등의 조직이 직원, 학생, 연방 직원 등의 최종 사용자에게 할당합니다. 이 계정은 Azure AD 플랫폼의 클라우드에서 직접 마스터되거나 Windows Server Active Directory와 같은 온-프레미스 디렉터리에서 Azure AD로 동기화됩니다. Microsoft는 회사 또는 학교 계정의 *보유자* 이지만, 이 계정을 소유하고 제어하는 것은 조직입니다.
 
-## <a name="referring-to-azure-ad-accounts-in-your-application"></a>응용 프로그램에서 Azure AD 계정 언급
+## <a name="referring-to-azure-ad-accounts-in-your-application"></a>애플리케이션에서 Azure AD 계정 언급
 
 Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자를 노출하지 않으며 이 규칙을 강제합니다.
 
@@ -65,11 +65,11 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 ## <a name="visual-guidance-for-app-acquisition"></a>앱 구입에 대한 시각적 지침
 
-"앱 가져오기" 링크는 Azure AD 액세스 권한 부여(권한 부여) 페이지로 사용자를 리디렉션해야 합니다. 그러면 조직 관리자가 앱이 Microsoft에서 호스트되는 조직 데이터에 액세스할 수 있게 승인할 수 있습니다. 액세스 권한을 요청하는 방법에 대한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](quickstart-v1-integrate-apps-with-azure-ad.md) 항목에서 설명합니다.
+"앱 가져오기" 링크는 Azure AD 액세스 권한 부여(권한 부여) 페이지로 사용자를 리디렉션해야 합니다. 그러면 조직 관리자가 앱이 Microsoft에서 호스트되는 조직 데이터에 액세스할 수 있게 승인할 수 있습니다. 액세스 권한을 요청하는 방법에 대한 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](quickstart-v1-integrate-apps-with-azure-ad.md) 문서에서 설명합니다.
 
 관리자가 앱에 동의한 후에는 사용자의 Office 365 앱 시작 관리자 환경(와플 및 [https://portal.office.com/myapps](https://portal.office.com/myapps)에서 액세스 가능)에 앱을 추가할 수 있습니다. 이 기능을 보급하려는 경우 "조직에 이 앱 추가"와 같은 용어를 사용하고 다음 예제와 같은 단추를 표시할 수 있습니다.
 
-![응용 프로그램 종류 및 시나리오](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
+![애플리케이션 종류 및 시나리오](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
 그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예: 
 

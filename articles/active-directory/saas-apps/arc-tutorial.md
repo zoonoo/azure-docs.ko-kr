@@ -64,15 +64,15 @@ Arc Publishing - SSO가 Azure AD로 통합되도록 구성하려면 Arc Publishi
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
-1. 검색 상자에서 **Arc Publishing - SSO**를 입력하고, 결과 패널에서 **Arc Publishing - SSO**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에서 **Arc Publishing - SSO**를 입력하고, 결과 패널에서 **Arc Publishing - SSO**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Arc Publishing - SSO](./media/arc-tutorial/tutorial_arc_addfromgallery.png)
 
@@ -92,11 +92,11 @@ Arc Publishing - SSO에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Arc Publishing - SSO 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Arc Publishing - SSO 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Arc Publishing - SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Arc Publishing - SSO** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Arc Publishing - SSO** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -121,7 +121,7 @@ Arc Publishing - SSO에서 Azure AD Single Sign-On을 구성하고 테스트하�
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Arc Publishing - SSO 클라이언트 지원 팀](mailto:inf@washpost.com)에 문의하세요. 
 
-1. Arc Publishing - SSO 응용 프로그램에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+1. Arc Publishing - SSO 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
     
     ![Configure Single Sign-On](./media/arc-tutorial/tutorial_arc_attribute.png)
 
@@ -149,7 +149,7 @@ Arc Publishing - SSO에서 Azure AD Single Sign-On을 구성하고 테스트하�
     1. **확인**을 클릭합니다.
 
     > [!NOTE]
-    > 여기서 **groups** 특성은 **user.assignedroles**와 매핑됩니다. 이는 Azure AD에서 만든 사용자 지정 역할로서 응용 프로그램에서 그룹 이름을 다시 매핑합니다. Azure AD에서 사용자 지정 역할을 만드는 방법에 대한 자세한 지침은 [여기](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management)서 확인할 수 있습니다. 
+    > 여기서 **groups** 특성은 **user.assignedroles**와 매핑됩니다. 이는 Azure AD에서 만든 사용자 지정 역할로서 애플리케이션에서 그룹 이름을 다시 매핑합니다. Azure AD에서 사용자 지정 역할을 만드는 방법에 대한 자세한 지침은 [여기](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management)서 확인할 수 있습니다. 
 
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -216,9 +216,9 @@ Arc Publishing - SSO에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Arc Publishing - SSO**를 선택합니다.
+1. 애플리케이션 목록에서 **Arc Publishing - SSO**를 선택합니다.
 
-    ![응용 프로그램 목록의 Arc Publishing - SSO 링크](./media/arc-tutorial/tutorial_arc_app.png)  
+    ![애플리케이션 목록의 Arc Publishing - SSO 링크](./media/arc-tutorial/tutorial_arc_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -238,7 +238,7 @@ Arc Publishing - SSO에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Arc Publishing - SSO 타일을 클릭하면 Arc Publishing - SSO 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Arc Publishing - SSO 타일을 클릭하면 Arc Publishing - SSO 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

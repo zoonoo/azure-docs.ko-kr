@@ -16,7 +16,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/15/2018
 ms.locfileid: "41919178"
 ---
-# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 응용 프로그램 업데이트
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 업데이트
 
 Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지 또는 이미지 버전을 지정하여 해당 응용 프로그램을 업데이트할 수 있습니다. 응용 프로그램을 업데이트할 때는 배포의 일부분만 동시에 업데이트되도록 업데이트가 스테이징됩니다. 이처럼 스테이징 업데이트가 수행되므로 업데이트 중에도 애플리케이션을 계속 실행할 수 있습니다. 또한 배포 오류가 발생하는 경우에는 롤백 메커니즘도 제공됩니다.
 
@@ -64,7 +64,7 @@ SHOWHOST = 'false'
 docker-compose up --build -d
 ```
 
-## <a name="test-the-application-locally"></a>로컬에서 응용 프로그램 테스트
+## <a name="test-the-application-locally"></a>로컬에서 애플리케이션 테스트
 
 업데이트된 컨테이너 이미지에 변경 내용이 적용되었는지 확인하고, 로컬 웹 브라우저를 http://localhost:8080으로 엽니다.
 
@@ -118,7 +118,7 @@ kubectl scale --replicas=3 deployment/azure-vote-front
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
-배포를 모니터링하려면 [kubectl get pod][kubectl-get] 명령을 사용합니다. 업데이트된 응용 프로그램이 배포되면 Pod가 종료되고 새 컨테이너 이미지로 다시 만들어집니다.
+배포를 모니터링하려면 [kubectl get pod][kubectl-get] 명령을 사용합니다. 업데이트된 애플리케이션이 배포되면 Pod가 종료되고 새 컨테이너 이미지로 다시 만들어집니다.
 
 ```console
 kubectl get pods
@@ -150,7 +150,7 @@ kubectl get service azure-vote-front
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 응용 프로그램을 업데이트하고 이 업데이트를 Kubernetes 클러스터에 배포했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 애플리케이션을 업데이트하고 이 업데이트를 Kubernetes 클러스터에 배포했습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 프런트 엔드 응용 프로그램 코드 업데이트

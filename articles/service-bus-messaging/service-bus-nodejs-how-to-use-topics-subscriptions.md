@@ -25,7 +25,7 @@ ms.locfileid: "49377653"
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-이 가이드에서는 Node.js 응용 프로그램에서 Service Bus 토픽과 구독을 사용하는 방법을 설명합니다. 다루는 시나리오는 다음과 같습니다.
+이 가이드에서는 Node.js 애플리케이션에서 Service Bus 토픽과 구독을 사용하는 방법을 설명합니다. 다루는 시나리오는 다음과 같습니다.
 
 - 토픽 및 구독 만들기 
 - 구독 만들기 필터 
@@ -37,8 +37,8 @@ ms.locfileid: "49377653"
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-## <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
-빈 Node.js 애플리케이션을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포], Windows PowerShell을 사용하는 [Node.js 클라우드 서비스][Node.js Cloud Service] 또는 WebMatrix를 사용하는 웹 사이트를 참조하세요.
+## <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
+빈 Node.js 애플리케이션을 만듭니다. Node.js 애플리케이션을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포], Windows PowerShell을 사용하는 [Node.js 클라우드 서비스][Node.js Cloud Service] 또는 WebMatrix를 사용하는 웹 사이트를 참조하세요.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
 Service Bus를 사용하려면 Node.js Azure 패키지를 다운로드합니다. 이 패키지에는 Service Bus REST 서비스와 통신하는 라이브러리 집합이 포함되어 있습니다.
@@ -64,7 +64,7 @@ Service Bus를 사용하려면 Node.js Azure 패키지를 다운로드합니다.
 3. **ls** 명령을 수동으로 실행하여 **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 Service Bus 토픽에 액세스하는 데 필요한 라이브러리가 들어 있는 **Azure** 패키지를 찾습니다.
 
 ### <a name="import-the-module"></a>모듈 가져오기
-메모장 또는 다른 텍스트 편집기를 사용하여 다음을 응용 프로그램의 **server.js** 파일 맨 위에 추가합니다.
+메모장 또는 다른 텍스트 편집기를 사용하여 다음을 애플리케이션의 **server.js** 파일 맨 위에 추가합니다.
 
 ```javascript
 var azure = require('azure');
@@ -238,7 +238,7 @@ var rule={
 이제 `MyTopic`으로 메시지를 보내는 경우 `AllMessages` 토픽 구독을 구독하는 수신자에게는 배달되고, 메시지 내용에 따라 `HighMessages` 및 `LowMessages` 토픽 구독을 구독하는 수신자에게 선택적으로 배달됩니다.
 
 ## <a name="how-to-send-messages-to-a-topic"></a>토픽에 메시지를 보내는 방법
-Service Bus 토픽에 메시지를 보내려면 응용 프로그램에서 **ServiceBusService** 개체의 `sendTopicMessage` 메서드를 사용해야 합니다.
+Service Bus 토픽에 메시지를 보내려면 애플리케이션에서 **ServiceBusService** 개체의 `sendTopicMessage` 메서드를 사용해야 합니다.
 Service Bus 토픽으로 보내는 메시지는 **BrokeredMessage** 개체입니다.
 **BrokeredMessage** 개체에는 표준 속성 집합(예: `Label` 및 `TimeToLive`), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 문자열 데이터의 본문이 있습니다. 응용 프로그램은 문자열 값을 `sendTopicMessage`에 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성이 기본값으로 채워집니다.
 
@@ -297,7 +297,7 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>응용 프로그램 작동 중단 및 읽을 수 없는 메시지를 처리하는 방법
-Service Bus는 응용 프로그램 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 응용 프로그램이 메시지를 처리할 수 없는 경우 **ServiceBusService** 개체의 `unlockMessage` 메서드를 호출할 수 있습니다. 이 메서드를 사용하면 Service Bus가 구독 내 메시지의 잠금을 해제하고 메시지를 다시 받을 수 있습니다. 이 인스턴스에서는 동일하게 사용되는 애플리케이션 또는 다른 사용되는 애플리케이션입니다.
+Service Bus는 응용 프로그램 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 애플리케이션이 메시지를 처리할 수 없는 경우 **ServiceBusService** 개체의 `unlockMessage` 메서드를 호출할 수 있습니다. 이 메서드를 사용하면 Service Bus가 구독 내 메시지의 잠금을 해제하고 메시지를 다시 받을 수 있습니다. 이 인스턴스에서는 동일하게 사용되는 애플리케이션 또는 다른 사용되는 애플리케이션입니다.
 
 구독 내에는 잠긴 메시지와 관련된 제한 시간도 있습니다. 애플리케이션에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 애플리케이션이 크래시되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 

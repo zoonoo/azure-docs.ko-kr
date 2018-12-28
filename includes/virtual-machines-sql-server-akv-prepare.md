@@ -49,7 +49,7 @@ Azure Key Vault 통합을 사용하여 SQL Server VM을 구성하려면 몇 가�
 
 * 애플리케이션 ID 및 암호는 또한 SQL Server에서 자격 증명을 만드는 데 사용됩니다.
 
-* 이 새 클라이언트 ID에 **get**, **wrapKey**, **unwrapKey** 액세스 권한을 부여해야 합니다. 이 작업은 [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) cmdlet을 통해 수행됩니다. 자세한 내용은 [응용 프로그램에 키 또는 암호를 사용하도록 권한 부여](../articles/key-vault/key-vault-get-started.md#authorize)를 참조하세요.
+* 이 새 클라이언트 ID에 **get**, **wrapKey**, **unwrapKey** 액세스 권한을 부여해야 합니다. 이 작업은 [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) cmdlet을 통해 수행됩니다. 자세한 내용은 [애플리케이션에 키 또는 암호를 사용하도록 권한 부여](../articles/key-vault/key-vault-get-started.md#authorize)를 참조하세요.
 
 ### <a id="createkeyvault"></a> Key Vault 만들기
 Azure Key Vault를 사용하여 암호화에 사용할 키를 VM에 저장하려면 키 자격 증명 모음에 액세스해야 합니다. 아직 Key Vault를 설정하지 않았으면 [Azure Key Vault 시작](../articles/key-vault/key-vault-get-started.md) 문서의 단계에 따라 새로 만듭니다. 다음 단계를 완료하기 전에, SQL VM에서 Azure Key Vault 통합을 활성화할 때 필요한 몇 가지 정보를 이 설정 과정에서 수집해야 합니다.

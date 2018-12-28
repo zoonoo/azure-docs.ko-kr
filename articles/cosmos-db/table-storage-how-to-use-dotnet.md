@@ -59,7 +59,7 @@ Table Storage를 사용하는 추가 예제는 [.NET에서 Azure Table Storage �
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ### <a name="create-a-windows-console-application-project"></a>Windows 콘솔 응용 프로그램 프로젝트 만들기
-Visual Studio에서 새로운 Windows 콘솔 응용 프로그램을 만듭니다. 다음 단계에서는 Visual Studio 2017에서 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다. 이러한 단계는 다른 버전의 Visual Studio에서도 비슷합니다.
+Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다. 다음 단계에서는 Visual Studio 2017에서 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다. 이러한 단계는 다른 버전의 Visual Studio에서도 비슷합니다.
 
 1. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **설치됨** > **Visual C#** > **Windows 기본 바탕 화면**을 차례로 선택합니다.
@@ -69,7 +69,7 @@ Visual Studio에서 새로운 Windows 콘솔 응용 프로그램을 만듭니다
 
 이 샘플의 모든 코드 예제는 콘솔 애플리케이션에 있는 `Program.cs` 파일의 `Main()` 메서드에 추가될 수 있습니다.
 
-Azure 클라우드 서비스, 웹앱, 바탕화면 및 모바일 응용 프로그램을 포함하여 .NET 응용 프로그램의 모든 형식에서 Azure CosmosDB 테이블 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 응용 프로그램을 사용합니다.
+Azure 클라우드 서비스, 웹앱, 바탕화면 및 모바일 응용 프로그램을 포함하여 .NET 응용 프로그램의 모든 형식에서 Azure CosmosDB 테이블 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 애플리케이션을 사용합니다.
 
 ### <a name="install-the-required-nuget-packages"></a>필요한 NuGet 패키지 설치
 이 샘플을 완료하기 위해 프로젝트에서 참조해야 하는 세 개의 권장되는 패키지가 있습니다.

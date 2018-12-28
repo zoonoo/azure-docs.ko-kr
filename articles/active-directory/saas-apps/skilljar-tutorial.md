@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 6a0463640f9a7194632a65cdb10653a520fcc0c9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a997de5530bf8ed475031147369b591b2d44d227
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435233"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850334"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skilljar"></a>자습서: Skilljar와 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Skilljar와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Skilljar 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -114,10 +114,10 @@ Skilljar에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<companyname>.skilljar.com/`
 
-    나. **식별자** 텍스트 상자에서 `https://<companyname>.skilljar.com/` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<companyname>.skilljar.com/` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Skilljar 클라이언트 지원 팀](http://support.skilljar.com/hc/)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Skilljar 클라이언트 지원 팀](https://support.skilljar.com/hc/)에 문의하세요. 
  
 1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
@@ -127,10 +127,10 @@ Skilljar에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Configure Single Sign-On](./media/skilljar-tutorial/tutorial_general_400.png)
 
-1. **Skilljar** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML** 및 **이름 식별자 형식 값 - urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**를 [Skilljar 지원 팀](http://support.skilljar.com/hc/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+1. **Skilljar** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML** 및 **이름 식별자 형식 값 - urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**를 [Skilljar 지원 팀](https://support.skilljar.com/hc/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -158,7 +158,7 @@ Skilljar에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -171,7 +171,7 @@ Skilljar에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Skilljar에 액세스하는 동안 만들어질 수 있습니다. 
 
 >[!NOTE]
->사용자를 수동으로 만들어야 하는 경우 [Skilljar 지원 팀](http://support.skilljar.com/hc/)에 문의해야 합니다. 
+>사용자를 수동으로 만들어야 하는 경우 [Skilljar 지원 팀](https://support.skilljar.com/hc/)에 문의해야 합니다. 
 > 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당

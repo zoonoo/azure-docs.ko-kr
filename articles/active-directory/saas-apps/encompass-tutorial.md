@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: b2a5050960eee55a7edbdc6048ee717e8345cb2e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1a179751cb8919e260c58564be6e14303f4d3f41
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420294"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845453"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-encompass"></a>자습서: Encompass와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Encompass와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Encompass 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -112,10 +112,10 @@ Encompass에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **식별자** 텍스트 상자에 고객별 값을 제공합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.voxmobile.com/voxportal/ws/saml/consume`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.voxmobile.com/voxportal/ws/saml/consume`
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Encompass 지원 팀](http://www.voxmobile.com/contact/)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Encompass 지원 팀](https://www.voxmobile.com/contact/)에 문의하세요.
 
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -129,10 +129,10 @@ Encompass에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Encompass 구성](./media/encompass-tutorial/tutorial_encompass_configure.png) 
 
-1. **Encompass** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64), 로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 [Encompass 지원 팀](http://www.voxmobile.com/contact/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+1. **Encompass** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64), 로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 [Encompass 지원 팀](https://www.voxmobile.com/contact/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -168,7 +168,7 @@ Encompass에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
   
 ### <a name="create-a-encompass-test-user"></a>Encompass 테스트 사용자 만들기
 
-이 섹션에서는 Encompass에서 Britta Simon이라는 사용자를 만듭니다. Encompass 플랫폼에서 사용자를 추가하려면 [Encompass 지원 팀](http://www.voxmobile.com/contact/)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
+이 섹션에서는 Encompass에서 Britta Simon이라는 사용자를 만듭니다. Encompass 플랫폼에서 사용자를 추가하려면  [Encompass 지원 팀](https://www.voxmobile.com/contact/) 에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

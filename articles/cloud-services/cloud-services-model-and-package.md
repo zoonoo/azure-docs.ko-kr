@@ -270,7 +270,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 | --- | --- |
 | \[DirectoryName\] |Azure 프로젝트의 .csdef 파일을 포함하는 루트 프로젝트 디렉터리의 하위 디렉터리입니다. |
 | \[ServiceDefinition\] |서비스 정의 파일의 이름입니다. 기본적으로 이 파일의 이름은 ServiceDefinition.csdef입니다. |
-| \[OutputFileName\] |생성된 패키지 파일의 이름입니다. 일반적으로 응용 프로그램의 이름으로 설정됩니다. 파일 이름이 지정되지 않은 경우 애플리케이션 패키지는 \[ApplicationName\].cspkg로 만들어집니다. |
+| \[OutputFileName\] |생성된 패키지 파일의 이름입니다. 일반적으로 애플리케이션의 이름으로 설정됩니다. 파일 이름이 지정되지 않은 경우 애플리케이션 패키지는 \[ApplicationName\].cspkg로 만들어집니다. |
 | \[RoleName\] |서비스 정의 파일에서 정의된 역할 이름입니다. |
 | \[RoleBinariesDirectory] |역할에 대한 이진 파일의 위치입니다. |
 | \[VirtualPath\] |서비스 정의의 Sites 섹션에서 정의된 각 가상 경로에 대한 실제 디렉터리입니다. |

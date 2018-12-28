@@ -17,7 +17,7 @@ ms.author: sethm
 ms.reviewer: ''
 ms.openlocfilehash: e4f15da8464c2103b5f6540d342cb7c741a67c5f
 ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52994836"
@@ -35,7 +35,7 @@ ms.locfileid: "52994836"
 |![SQL IaaS 확장](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Windows Marketplace 항목에 모든 SQL Server를 배포 하려면이 확장을 다운로드-이 확장은 필수입니다.** | Microsoft |  Windows |
 |![사용자 지정 스크립트 확장](media/azure-stack-marketplace-azure-items/cse.png) | [사용자 지정 스크립트 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **Windows 사용자 지정 스크립트 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft |  Windows |
 |![Powershell DSC 확장](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **PowerShell DSC 확장의 기본 버전으로이 업데이트를 다운로드 합니다. TLS v1.2를 지원 하도록 업데이트 합니다.** | Microsoft |  Windows |
-| ![Microsoft 맬웨어 방지 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 맬웨어 방지 확장](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Azure를 위한 Microsoft 맬웨어 방지는 응용 프로그램 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. **맬웨어 방지 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft |  Windows |
+| ![Microsoft 맬웨어 방지 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 맬웨어 방지 확장](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Azure를 위한 Microsoft 맬웨어 방지는 애플리케이션 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. **맬웨어 방지 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft |  Windows |
 | ![Microsoft Azure 진단 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Azure 진단 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Microsoft Azure 진단은 배포 된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. **Windows에 대 한 진단 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft |  Windows || ![Microsoft Monitoring 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Monitoring Agent 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Microsoft Monitoring Agent 확장 기능을 모니터링 하는 가상 컴퓨터 수 있도록 OMS와 함께 사용 됩니다. **이 업데이트는 모니터링 에이전트 확장에 대 한 Windows의 기본 버전을 다운로드 합니다.** | Microsoft |  Windows |
 |![사용자 지정 스크립트 확장](media/azure-stack-marketplace-azure-items/cse.png) | [사용자 지정 스크립트 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)|**Linux 용 사용자 지정 스크립트 확장의 기본 버전으로이 업데이트를 다운로드 합니다. 이 확장의 버전이 여러 개 및 1.5.2.1와 2.0.x 다운로드 해야 합니다.** | Microsoft | Linux |
 | ![Linux 용 VM 액세스](media/azure-stack-marketplace-azure-items/cse.png) | [Linux 용 VM 액세스](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **Linux 확장에 대 한 기본 버전을 VMAccess의이 업데이트를 다운로드 합니다. 이 업데이트는 Debian Linux Vm을 사용 하려는 경우 중요 합니다.** | Microsoft | Linux |
