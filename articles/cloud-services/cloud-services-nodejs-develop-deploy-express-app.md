@@ -26,7 +26,7 @@ ms.locfileid: "45574611"
 Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
 개발자는 Node.js 애플리케이션을 개발할 때 추가 기능을 제공하기 위해 종종 타사 모듈을 사용합니다. 이 자습서에서는 Node.js 웹 응용 프로그램을 만들기 위해 MVC 프레임워크를 제공하는 [Express](https://github.com/expressjs/express) 모듈을 사용하여 새 응용 프로그램을 만듭니다.
 
-아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
+아래에는 완성된 애플리케이션의 스크린샷이 표시되어 있습니다.
 
 ![Welcome to Express in Azure를 표시하는 웹 브라우저](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 

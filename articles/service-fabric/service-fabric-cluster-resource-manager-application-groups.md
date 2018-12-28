@@ -120,7 +120,7 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 ![예약된 용량을 정의하는 응용 프로그램 인스턴스][Image2]
 </center>
 
-왼쪽 예에서 응용 프로그램은 정의된 응용 프로그램 용량이 없습니다. Cluster Resource Manager는 기본 규칙에 따라 모든 항목의 균형을 유지합니다.
+왼쪽 예에서 애플리케이션은 정의된 애플리케이션 용량이 없습니다. Cluster Resource Manager는 기본 규칙에 따라 모든 항목의 균형을 유지합니다.
 
 오른쪽의 예제에서는 Application1을 다음 설정으로 만들었다고 가정하겠습니다.
 
@@ -193,7 +193,7 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicat
 
 이 명령은 애플리케이션 인스턴스에서 모든 애플리케이션 용량 관리 매개 변수를 제거합니다. 여기에는 MinimumNodes, MaximumNodes 및 애플리케이션의 메트릭(있는 경우)이 포함됩니다. 명령은 즉시 적용됩니다. 이 명령이 완료되면 Cluster Resource Manager는 애플리케이션을 관리하는 기본 동작을 사용합니다. `Update-ServiceFabricApplication`/`System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()`을 통해 응용 프로그램 용량 매개 변수를 다시 지정할 수 있습니다.
 
-### <a name="restrictions-on-application-capacity"></a>응용 프로그램 용량에 대한 제한 사항
+### <a name="restrictions-on-application-capacity"></a>애플리케이션 용량에 대한 제한 사항
 고려해야 할 애플리케이션 용량 매개 변수에 대한 몇 가지 제한 사항이 있습니다. 유효성 검사 오류가 있는 경우 아무 것도 변경되지 않습니다.
 
 - 모든 정수 매개 변수는 음수가 아닌 숫자여야 합니다.
@@ -204,7 +204,7 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicat
 
 애플리케이션 생성 및 업데이트 동안 이러한 제한이 둘 다 적용됩니다.
 
-## <a name="how-not-to-use-application-capacity"></a>응용 프로그램 용량을 사용하지 않는 방법
+## <a name="how-not-to-use-application-capacity"></a>애플리케이션 용량을 사용하지 않는 방법
 - 애플리케이션 그룹 기능을 사용하여 애플리케이션을 노드의 _특정_ 하위 집합으로 제한하지 않습니다. 즉, 애플리케이션을 최대 다섯 개의 노드에서 실행하도록 지정할 수 있지만 클러스터에서 어떤 특정 다섯 개의 노드인지 지정할 수 없습니다. 서비스에 대한 배치 제약 조건을 사용하여 애플리케이션 특정 노드로 제한할 수 있습니다.
 - 동일한 애플리케이션의 두 서비스가 같은 노드에 배치될 수 있도록 애플리케이션 용량을 사용하려고 하지 않습니다. 대신 [선호도](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md) 또는 [배치 제약 조건](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)을 사용합니다.
 

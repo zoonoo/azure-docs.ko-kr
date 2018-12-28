@@ -217,7 +217,7 @@ Soonr Workplace에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
 이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.  
 
-액세스 패널에서 Soonr Workplace 타일을 클릭하면 Soonr Workplace 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Soonr Workplace 타일을 클릭하면 Soonr Workplace 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

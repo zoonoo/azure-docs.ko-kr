@@ -183,7 +183,7 @@ ms.locfileid: "51234452"
 
 ## <a name="run-the-applications"></a>애플리케이션 실행
 
-이제 응용 프로그램을 실행할 준비가 되었습니다.
+이제 애플리케이션을 실행할 준비가 되었습니다.
 
 `fileuploadnotification` 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
 

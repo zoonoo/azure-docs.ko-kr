@@ -1,6 +1,6 @@
 ---
 title: C#에서 첫 번째 Service Fabric 애플리케이션 만들기 | Microsoft Docs
-description: 상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure 서비스 패브릭 응용 프로그램 만들기 소개
+description: 상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure Service Fabric 애플리케이션 만들기 소개
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -127,7 +127,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 동일한 *HelloWorld* 응용 프로그램에서 응용 프로그램 프로젝트의 서비스 참조를 마우스 오른쪽 단추로 클릭하고 **추가 -> 새 Service Fabric 서비스**를 선택하여 새 서비스를 추가할 수 있습니다.
 
-![서비스 패브릭 응용 프로그램에 서비스 추가](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
+![Service Fabric 애플리케이션에 서비스 추가](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
 **.Net Core 2.0 -> 상태 저장 서비스**를 선택하고 *HelloWorldStateful*이라고 이름을 지정합니다. **확인**을 클릭합니다.
 

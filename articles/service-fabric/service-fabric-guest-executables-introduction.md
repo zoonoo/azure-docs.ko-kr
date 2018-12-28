@@ -39,7 +39,7 @@ Service Fabric 클러스터에서 게스트 실행 파일을 실행하면 다음
 * [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
-## <a name="overview-of-application-and-service-manifest-files"></a>응용 프로그램 및 서비스 매니페스트 파일 개요
+## <a name="overview-of-application-and-service-manifest-files"></a>애플리케이션 및 서비스 매니페스트 파일 개요
 게스트 실행 파일을 배포하는 일환으로 [애플리케이션 모델](service-fabric-application-model.md)에 설명된 Service Fabric 패키징 및 배포 모델을 이해하는 것이 유용합니다. Service Fabric 패키징 모델은 두 XML 파일(애플리케이션 및 서비스 매니페스트)에 의존합니다. ApplicationManifest.xml 및 ServiceManifest.xml에 대한 스키마 정의는 Service Fabric SDK와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다.
 
 * **응용 프로그램 매니페스트** 응용 프로그램 매니페스트는 응용 프로그램을 설명하는 데 사용되며 응용 프로그램을 구성하는 서비스와 하나 이상의 서비스 배포 방법(예: 인스턴스 수)을 정의하는 데 사용되는 기타 매개 변수를 나열합니다.

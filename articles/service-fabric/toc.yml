@@ -511,7 +511,7 @@ items:
       href: /azure/architecture/service-fabric/migrate-from-cloud-services
     - name: 마이그레이션된 앱 리팩터링
       href: /azure/architecture/service-fabric/refactor-migrated-app
-  - name: 응용 프로그램 수명 주기 관리
+  - name: 애플리케이션 수명 주기 관리
     items:
     - name: 애플리케이션 패키지 작성
       href: service-fabric-package-apps.md
@@ -521,7 +521,7 @@ items:
       href: service-fabric-how-to-specify-port-number-using-parameters.md
     - name: 환경 변수 지정
       href: service-fabric-how-to-specify-environment-variables.md
-    - name: 응용 프로그램 배포 또는 제거
+    - name: 애플리케이션 배포 또는 제거
       items:
       - name: 로컬 클러스터에 애플리케이션 배포
         href: service-fabric-get-started-with-a-local-cluster.md

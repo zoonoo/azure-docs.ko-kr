@@ -173,7 +173,7 @@ Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다�
             -EndDate $certificatePFX.NotAfter
 
         $applicationId = $application.ApplicationId
-2. 응용 프로그램 ID를 사용하여 서비스 주체를 만듭니다.
+2. 애플리케이션 ID를 사용하여 서비스 주체를 만듭니다.
 
         $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
 

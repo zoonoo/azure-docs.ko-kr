@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center에서 웹 응용 프로그램 방화벽 추가 | Microsoft Docs
+title: Azure Security Center에서 웹 애플리케이션 방화벽 추가 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center 권장 사항 **웹 애플리케이션 방화벽 추가** 및 **애플리케이션 보호 완료**를 구현하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/13/2018
 ms.locfileid: "53343142"
 ---
-# <a name="add-a-web-application-firewall-in-azure-security-center"></a>Azure Security Center에서 웹 응용 프로그램 방화벽 추가
+# <a name="add-a-web-application-firewall-in-azure-security-center"></a>Azure Security Center에서 웹 애플리케이션 방화벽 추가
 Azure Security Center에서는 웹 애플리케이션을 보호하기 위해 Microsoft 파트너의 WAF(웹 애플리케이션 방화벽)를 추가하도록 권장할 수 있습니다. 이 문서에서는 이 권장 사항을 적용하는 방법의 예를 보여 줍니다.
 
 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다.
@@ -52,7 +52,7 @@ Security Center에서는 가상 머신과 [격리된](https://azure.microsoft.co
 8. **새 웹 응용 프로그램 방화벽**으로 돌아가서 **WAF 정보**를 선택합니다. **WAF 정보**에서 WAF 자체를 구성합니다. 7단계에서는 WAF가 실행되는 가상 머신을 구성하고 8단계에서는 WAF 자체를 프로비전할 수 있습니다.
 
 ## <a name="finalize-application-protection"></a>애플리케이션 보호 완료
-1. **권장 사항**으로 돌아갑니다. WAF를 만든 후에 **애플리케이션 보호 완료**라고 하는 새 항목이 생성되었습니다. 새 항목을 사용하면 Azure Virtual Network 내에서 WAF를 연결하는 프로세스를 완료하여 응용 프로그램을 보호할 수 있다는 점을 알 수 있습니다.
+1. **권장 사항**으로 돌아갑니다. WAF를 만든 후에 **애플리케이션 보호 완료**라고 하는 새 항목이 생성되었습니다. 새 항목을 사용하면 Azure Virtual Network 내에서 WAF를 연결하는 프로세스를 완료하여 애플리케이션을 보호할 수 있다는 점을 알 수 있습니다.
 
    ![애플리케이션 보호 완료][5]
 

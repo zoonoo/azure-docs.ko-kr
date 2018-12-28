@@ -50,7 +50,7 @@ Resource Manager를 사용하면 응용 프로그램 게이트웨이를 만드�
 
 1. Resource Manager에 대한 리소스 그룹 만들기
 2. 애플리케이션 게이트웨이에 대한 가상 네트워크 및 서브넷 만들기
-3. 응용 프로그램 게이트웨이 구성 개체 만들기
+3. 애플리케이션 게이트웨이 구성 개체 만들기
 4. 애플리케이션 게이트웨이 리소스 만들기
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager에 대한 리소스 그룹 만들기
@@ -121,7 +121,7 @@ $subnet = $vnet.subnets[0]
 
 이 단계에서는 다음 단계를 위해 $subnet 변수에 서브넷 개체를 할당합니다.
 
-## <a name="create-an-application-gateway-configuration-object"></a>응용 프로그램 게이트웨이 구성 개체 만들기
+## <a name="create-an-application-gateway-configuration-object"></a>애플리케이션 게이트웨이 구성 개체 만들기
 
 ### <a name="step-1"></a>1단계
 

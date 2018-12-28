@@ -204,7 +204,7 @@ Azure Data Lake Storage Gen1 Java SDK를 사용하여 폴더 만들기, 데이�
     System.out.println("All files and folders deleted recursively");
     promptEnterKey();
 
-## <a name="build-and-run-the-application"></a>응용 프로그램 빌드 및 실행
+## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 1. IDE 내에서 실행하려면 **실행** 단추를 찾아 누릅니다. Maven을 실행하려면 [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html)을 사용합니다.
 2. 명령줄 빌드에서 실행할 수 있는 독립 실행형 jar을 생성하려면 [Maven 어셈블리 플러그 인](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html)을 사용하여 포함된 모든 종속성을 가진 jar을 빌드합니다. [GitHub의 소스 코드 예제](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml)에서 pom.xml에 예제가 있습니다.
 

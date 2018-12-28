@@ -85,7 +85,7 @@ StorSimple용 Windows PowerShell을 사용하여 유지 관리 모드 업데이�
 > 
 
 ### <a name="step-1-connect-to-the-serial-console-a-namestep1"></a>1단계: 직렬 콘솔에 연결 <a name="step1">
-먼저,  PuTTY와 같은 응용 프로그램을 사용하여 직렬 콘솔에 액세스합니다. 다음 절차는 PuTTY를 사용하여 직렬 콘솔에 연결하는 방법을 설명합니다.
+먼저,  PuTTY와 같은 애플리케이션을 사용하여 직렬 콘솔에 액세스합니다. 다음 절차는 PuTTY를 사용하여 직렬 콘솔에 연결하는 방법을 설명합니다.
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 

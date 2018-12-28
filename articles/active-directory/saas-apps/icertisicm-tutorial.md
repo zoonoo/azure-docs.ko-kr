@@ -206,7 +206,7 @@ Icertis Contract Management Platform에서 Azure AD Single Sign-On을 구성하�
 
 이 섹션은 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트하기 위한 것입니다.
 
-액세스 패널에서 Icertis Contract Management Platform 타일을 클릭하면 Icertis Contract Management Platform 응용 프로그램에 자동으로 로그온되어야 합니다.
+액세스 패널에서 Icertis Contract Management Platform 타일을 클릭하면 Icertis Contract Management Platform 애플리케이션에 자동으로 로그온되어야 합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

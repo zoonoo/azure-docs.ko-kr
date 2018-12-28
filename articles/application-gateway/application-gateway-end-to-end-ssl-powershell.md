@@ -123,7 +123,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 > [!IMPORTANT]
 > Application Gateway는 정의된 도메인 레이블로 만든 공용 IP 주소의 사용을 지원하지 않습니다. 도메인 레이블이 동적으로 생성된 공용 IP 주소만 지원됩니다. Application Gateway에 친숙한 DNS 이름이 필요한 경우 CNAME 레코드를 별칭으로 사용하는 것이 좋습니다.
 
-## <a name="create-an-application-gateway-configuration-object"></a>응용 프로그램 게이트웨이 구성 개체 만들기
+## <a name="create-an-application-gateway-configuration-object"></a>애플리케이션 게이트웨이 구성 개체 만들기
 
 Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다. 다음 단계 애플리케이션 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
 

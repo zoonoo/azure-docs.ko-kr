@@ -1,6 +1,6 @@
 ---
 title: 네이티브 클라이언트 앱 게시 - Azure AD | Microsoft Docs
-description: Azure AD 응용 프로그램 프록시 커넥터와 통신하는 네이티브 클라이언트 앱을 사용하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법에 대해 설명합니다.
+description: Azure AD 애플리케이션 프록시 커넥터와 통신하는 네이티브 클라이언트 앱을 사용하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: barbkess

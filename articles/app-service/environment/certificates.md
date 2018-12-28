@@ -57,7 +57,7 @@ ASE를 만들고 포털 또는 하나의 템플릿에서 인증서를 하나의 
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
 
 
-## <a name="application-certificates"></a>응용 프로그램 인증서 
+## <a name="application-certificates"></a>애플리케이션 인증서 
 
 ASE에서 호스팅되는 앱은 다중 테넌트 App Service에서 사용할 수 있는 앱 중심 인증서 기능을 사용할 수 있습니다. 이러한 기능은 다음과 같습니다.  
 

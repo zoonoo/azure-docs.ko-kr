@@ -1,6 +1,6 @@
 ---
-title: 비디오 플레이어 응용 프로그램 개발
-description: 이 토픽에서는 Media Services의 스트리밍 미디어를 사용할 수 있는 고유한 클라이언트 응용 프로그램을 개발하는 데 사용할 수 있는 플레이어 프레임워크 및 플러그 인에 대한 링크를 제공합니다.
+title: 비디오 플레이어 애플리케이션 개발
+description: 이 토픽에서는 Media Services의 스트리밍 미디어를 사용할 수 있는 고유한 클라이언트 애플리케이션을 개발하는 데 사용할 수 있는 플레이어 프레임워크 및 플러그 인에 대한 링크를 제공합니다.
 author: Juliako
 manager: cfowler
 editor: ''
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51237046"
 ---
-# <a name="develop-video-player-applications"></a>비디오 플레이어 응용 프로그램 개발
+# <a name="develop-video-player-applications"></a>비디오 플레이어 애플리케이션 개발
 ## <a name="overview"></a>개요
 Azure Media Services는 iOS 디바이스, Android 디바이스, Windows, Windows Phone, Xbox 및 셋톱 박스를 포함한 대부분의 플랫폼에서 풍부한 동적 클라이언트 플레이어 애플리케이션을 만드는 데 필요한 도구를 제공합니다. 또한 이 토픽에서는 Azure Media Services의 스트리밍 미디어를 사용할 수 있는 클라이언트 애플리케이션을 개발하는 데 사용할 수 있는 SDK 및 플레이어 프레임워크 링크를 제공합니다.
 
@@ -41,7 +41,7 @@ Microsoft Azure Media Services에서 컨텐츠를 DASH, 부드러운 스트리�
 * [최신 Azure Media Player 관련 최신 정보를 얻으려면 등록](https://aka.ms/ampsignup)
 * [새로운 기능 요청, 아이디어, 사용자 의견 추가](https://aka.ms/ampuservoice) 
 
-## <a name="other-tools-for-creating-player-applications"></a>플레이어 응용 프로그램을 만들기 위한 다른 도구
+## <a name="other-tools-for-creating-player-applications"></a>플레이어 애플리케이션을 만들기 위한 다른 도구
 또한 다음 SDK 중 하나를 사용할 수도 있습니다.
 
 * [부드러운 스트리밍 클라이언트 SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 

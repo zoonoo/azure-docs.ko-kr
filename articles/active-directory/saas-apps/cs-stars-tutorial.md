@@ -204,7 +204,7 @@ CS Stars에서 만든 사용자를 가져오려면 [CS Stars 지원 팀](https:/
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.  
-액세스 패널에서 CS Stars 타일을 클릭하면 CS Stars 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 CS Stars 타일을 클릭하면 CS Stars 애플리케이션에 자동으로 로그온됩니다.
  
 
 ## <a name="additional-resources"></a>추가 리소스

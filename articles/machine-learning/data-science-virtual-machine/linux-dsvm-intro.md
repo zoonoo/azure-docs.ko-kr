@@ -201,7 +201,7 @@ Microsoft R Server에서 Spark 컨텍스트를 실행하기 전에 로컬 단일
 필요하지 않을 때 ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````을 실행하여 서비스와 관련된 Hadoop을 중지할 수 있습니다. 원격 Spark 컨텍스트(DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 및 테스트하는 방법을 보여주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공되고 사용할 수 있습니다. 
 
 ### <a name="ides-and-editors"></a>IDE 및 편집기
-여러 코드 편집기 중에서 선택할 수 있습니다. vi/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse 및 IntelliJ를 포함합니다. gEdit, Eclipse, IntelliJ, RStudio 및 PyCharm은 그래픽 편집기이며 그래픽 데스크톱에 로그인해야 사용할 수 있습니다. 이러한 편집기는 데스크톱 및 응용 프로그램 바로 가기 메뉴를 사용하여 시작할 수 있습니다.
+여러 코드 편집기 중에서 선택할 수 있습니다. vi/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse 및 IntelliJ를 포함합니다. gEdit, Eclipse, IntelliJ, RStudio 및 PyCharm은 그래픽 편집기이며 그래픽 데스크톱에 로그인해야 사용할 수 있습니다. 이러한 편집기는 데스크톱 및 애플리케이션 바로 가기 메뉴를 사용하여 시작할 수 있습니다.
 
 **VIM** 및 **Emacs**는 텍스트 기반 편집기입니다. Emacs의 경우 Emacs 편집기 내에서 R 작업을 쉽게 수행할 수 있도록 해주는 ESS(Emacs Speaks Statistics)라는 추가 기능 패키지가 설치되어 있습니다. 자세한 내용은 [ESS](http://ess.r-project.org/)를 참조하세요.
 

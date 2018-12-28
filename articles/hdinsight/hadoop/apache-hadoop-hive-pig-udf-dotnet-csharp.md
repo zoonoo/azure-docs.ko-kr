@@ -117,7 +117,7 @@ Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처�
 
 ### <a name="apache-pig-udf"></a>Apache Pig UDF
 
-1. Visual Studio를 열고 솔루션을 만듭니다. 프로젝트 형식의 경우, **콘솔 응용 프로그램**을 선택하고 새 프로젝트의 이름을 **PigUDF**로 지정합니다.
+1. Visual Studio를 열고 솔루션을 만듭니다. 프로젝트 형식의 경우, **콘솔 애플리케이션**을 선택하고 새 프로젝트의 이름을 **PigUDF**로 지정합니다.
 
 2. **Program.cs** 파일의 내용을 다음 코드로 바꿉니다.
 
@@ -206,7 +206,7 @@ Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처�
     > [!IMPORTANT]
     > 클러스터에 사용되는 기본 저장소의 유형과 일치하는 `add file` 문에서 주석 처리를 제거합니다.
 
-    이 쿼리는 `hivesampletable`에서 `clientid`, `devicemake` 및 `devicemodel` 필드를 선택하고 해당 필드를 HiveCSharp.exe 애플리케이션으로 전달합니다. 쿼리는 응용 프로그램이 3개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel` 및 `phoneHash`로 저장됩니다. 또한 쿼리는 기본 저장소 컨테이너의 루트에서 HiveCSharp.exe를 찾는다고 예상합니다.
+    이 쿼리는 `hivesampletable`에서 `clientid`, `devicemake` 및 `devicemodel` 필드를 선택하고 해당 필드를 HiveCSharp.exe 애플리케이션으로 전달합니다. 쿼리는 애플리케이션이 3개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel` 및 `phoneHash`로 저장됩니다. 또한 쿼리는 기본 저장소 컨테이너의 루트에서 HiveCSharp.exe를 찾는다고 예상합니다.
 
 5. **제출** 을 클릭하여 HDInsight 클러스터에 작업을 제출합니다. **Hive 작업 요약** 창이 열립니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Multi-Factor Authentication - 작동 방법
-description: 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Azure Multi-Factor Authentication을 사용하면 데이터와 응용 프로그램에 대한 액세스를 보호합니다.
+description: 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Azure Multi-Factor Authentication을 사용하면 데이터와 애플리케이션에 대한 액세스를 보호합니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication

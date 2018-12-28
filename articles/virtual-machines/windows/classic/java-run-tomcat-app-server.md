@@ -1,6 +1,6 @@
 ---
 title: 클래식 Azure VM에서 Java 응용 프로그램 서버 실행
-description: 이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Windows 가상 머신을 만들고 Apache Tomcat 응용 프로그램 서버를 실행하도록 구성하는 방법을 보여 줍니다.
+description: 이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Windows 가상 머신을 만들고 Apache Tomcat 애플리케이션 서버를 실행하도록 구성하는 방법을 보여 줍니다.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray

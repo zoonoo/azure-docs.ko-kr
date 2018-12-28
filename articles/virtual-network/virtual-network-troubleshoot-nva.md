@@ -138,5 +138,5 @@ VM 네트워크 사용량이 급증하거나 특정 기간에 사용량이 많�
 
 백 엔드 VM 추적으로 들어오는 패킷이 보이지 않으면 NSG 또는 UDR 방해가 있거나 NVA 라우팅 테이블이 잘못된 것일 수 있습니다.
 
-들어오는 패킷이 표시되지만 응답하지 않으면 VM 응용 프로그램 또는 방화벽 문제를 해결해야 합니다. 필요에 따라 이러한 문제에 대해 [NVA 공급업체에 지원을 요청](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)하세요.
+들어오는 패킷이 표시되지만 응답하지 않으면 VM 애플리케이션 또는 방화벽 문제를 해결해야 합니다. 필요에 따라 이러한 문제에 대해 [NVA 공급업체에 지원을 요청](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)하세요.
 

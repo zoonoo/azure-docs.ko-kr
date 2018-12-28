@@ -231,8 +231,8 @@ Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](https://msdn.microsoft.c
 | --- | --- |
 | .NET SDK를 사용하여 HDInsight 클러스터 만들기 | [.NET SDK를 사용하여 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
 | .NET SDK와 스크립트 작업을 사용하여 클러스터 사용자 지정 | [스크립트 작업을 사용하여 HDInsight Linux 클러스터 사용자 지정](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
-| .NET SDK와 Azure Active Directory를 사용하여 대화형으로 응용 프로그램 인증 |[.NET SDK를 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)을 참조하세요. 이 문서의 코드 조각에서는 대화형 인증 접근 방법을 사용합니다. |
-| .NET SDK와 Azure Active Directory를 사용하여 비대화형으로 응용 프로그램 인증 | [HDInsight에 대한 비대화형 응용 프로그램 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
+| .NET SDK와 Azure Active Directory를 사용하여 대화형으로 애플리케이션 인증 |[.NET SDK를 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)을 참조하세요. 이 문서의 코드 조각에서는 대화형 인증 접근 방법을 사용합니다. |
+| .NET SDK와 Azure Active Directory를 사용하여 비대화형으로 애플리케이션 인증 | [HDInsight에 대한 비대화형 응용 프로그램 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | .NET SDK를 사용하여 Apache Hive 작업 제출 |[Apache Hive 작업 제출](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) 참조 |
 | .NET SDK를 사용하여 Apache Pig 작업 제출 |[Apache Pig 작업 제출](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) 참조 |
 | .NET SDK를 사용하여 Apache Sqoop 작업 제출 |[Apache Sqoop 작업 제출](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) 참조 |

@@ -129,7 +129,7 @@ People에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Configure Single Sign-On](./media/people-tutorial/tutorial_general_400.png)
     
-1. 응용 프로그램에 대해 구성된 SSO를 가져오려면 관리자 권한으로 People 테넌트에 로그온해야 합니다.
+1. 애플리케이션에 대해 구성된 SSO를 가져오려면 관리자 권한으로 People 테넌트에 로그온해야 합니다.
    
 1. 왼쪽 메뉴에서 **설정**을 클릭합니다.
 
@@ -216,7 +216,7 @@ People에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 이 섹션은 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트하기 위한 것입니다.
 
-액세스 패널에서 People 타일을 클릭하면 People 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 People 타일을 클릭하면 People 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

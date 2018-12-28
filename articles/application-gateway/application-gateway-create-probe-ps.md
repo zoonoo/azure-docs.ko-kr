@@ -137,7 +137,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location 'West US' -BackendAddressPools $pool -Probes $probe -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-## <a name="add-a-probe-to-an-existing-application-gateway"></a>기존 응용 프로그램 게이트웨이에 프로브 추가
+## <a name="add-a-probe-to-an-existing-application-gateway"></a>기존 애플리케이션 게이트웨이에 프로브 추가
 
 다음 코드 조각에서는 기존 응용 프로그램 게이트웨이에 프로브를 추가합니다.
 

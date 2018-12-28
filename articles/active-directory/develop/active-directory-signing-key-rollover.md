@@ -117,7 +117,7 @@ app.UseJwtBearerAuthentication(
 ### <a name="passport"></a>Node.js passport-azure-ad 모듈을 사용하여 리소스를 보호하는 웹 응용 프로그램/API
 응용 프로그램에서 Node.js passport-ad module을 사용 하는 경우, 자동으로 키 롤오버를 처리하는 데 필요한 논리가 이미 있는 것입니다.
 
-응용 프로그램의 app.js에서 다음 코드 조각을 찾아봄으로써 응용 프로그램 passport ad를 확인할 수 있습니다.
+애플리케이션의 app.js에서 다음 코드 조각을 찾아봄으로써 애플리케이션 passport ad를 확인할 수 있습니다.
 
 ```
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;

@@ -51,7 +51,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 > 
 > 
 
-현재는 자동 크기 조정 기능이 응용 프로그램에서 서비스 패브릭에 보고할 수 있는 로드에 따라 결정되지 않습니다. 따라서 현재는 자동 크기 조정이 각 가상 머신 확장 집합 인스턴스에서 내보낸 성능 카운터에 의해서만 결정됩니다.  
+현재는 자동 크기 조정 기능이 애플리케이션에서 Service Fabric에 보고할 수 있는 로드에 따라 결정되지 않습니다. 따라서 현재는 자동 크기 조정이 각 가상 머신 확장 집합 인스턴스에서 내보낸 성능 카운터에 의해서만 결정됩니다.  
 
 [각 Virtual Machine 확장 집합에 대해 자동 크기 조정을 설정](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)하는 지침을 따르세요.
 

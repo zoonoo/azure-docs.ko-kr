@@ -33,7 +33,7 @@ ms.locfileid: "53135069"
 Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워킹 필수 조건을 검사하는 문제 해결 도구](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites)를 참조하세요.
 
 ## <a name="the-page-is-not-rendered-correctly"></a>페이지가 제대로 렌더링되지 않습니다.
-특정 오류 메시지를 수신하지 않고도 응용 프로그램 렌더링 또는 기능이 제대로 이뤄지지 않는 문제가 있을 수 있습니다. 문서 경로를 게시했지만 응용 프로그램에 해당 경로 밖에 있는 콘텐츠가 필요한 경우에 이 문제가 발생할 수 있습니다.
+특정 오류 메시지를 수신하지 않고도 응용 프로그램 렌더링 또는 기능이 제대로 이뤄지지 않는 문제가 있을 수 있습니다. 문서 경로를 게시했지만 애플리케이션에 해당 경로 밖에 있는 콘텐츠가 필요한 경우에 이 문제가 발생할 수 있습니다.
 
 예를 들어, https://yourapp/app 경로를 게시하는 한편 응용 프로그램에서 https://yourapp/media의 이미지를 호출하는 경우 이미지가 렌더링되지 않습니다. 모든 관련 콘텐츠를 포함해야 하는 가장 높은 수준의 경로를 사용하여 응용 프로그램을 게시하는지 확인합니다. 이 예에서는 http://yourapp/입니다.
 

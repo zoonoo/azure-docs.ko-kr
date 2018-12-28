@@ -86,7 +86,7 @@ Azure 서비스가 작동하는 방식으로 인해 UNC 공유를 호스트하�
 
 App Service가 임시 로컬 저장소를 사용하는 방법을 두 가지 예로 들면 임시 ASP.NET 파일용 디렉터리와 IIS 압축 파일용 디렉터리 등입니다. ASP.NET 컴파일 시스템은 임시 컴파일 캐시 위치로 "Temporary ASP.NET Files" 디렉터리를 사용합니다. IIS는 압축된 응답 출력을 저장하는 데 "IIS Temporary Compressed Files" 디렉터리를 사용합니다. 이 두 가지 파일 사용법은(다른 사용법도 포함) 모두 App Service에서 앱별 임시 로컬 저장소로 다시 매핑됩니다. 이렇게 다시 매핑되면 해당 기능이 예상대로 지속됩니다.
 
-App Service의 각 앱은 "응용 프로그램 풀 ID"라는 권한이 낮은 임의의 고유 작업자 프로세스 ID로 실행됩니다. 이 ID에 대한 자세한 내용은 [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)를 참조하세요. 응용 프로그램 코드는 운영 체제 드라이브(D:\ 드라이브)에 대한 기본적인 읽기 전용 액세스에 이 ID를 사용합니다. 따라서 응용 프로그램 코드는 일반적인 디렉터리 구조를 나열하고 운영 체제 드라이브에 있는 일반 파일을 읽을 수 있습니다. 이는 다소 광범위한 수준의 액세스 권한으로 보일 수도 있지만, Azure 호스팅 서비스에서 작업자 역할을 프로비전하고 드라이브 콘텐츠를 읽을 때 동일한 디렉터리 및 파일에 액세스할 수 있습니다. 
+App Service의 각 앱은 "응용 프로그램 풀 ID"라는 권한이 낮은 임의의 고유 작업자 프로세스 ID로 실행됩니다. 이 ID에 대한 자세한 내용은 [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)를 참조하세요. 애플리케이션 코드는 운영 체제 드라이브(D:\ 드라이브)에 대한 기본적인 읽기 전용 액세스에 이 ID를 사용합니다. 따라서 응용 프로그램 코드는 일반적인 디렉터리 구조를 나열하고 운영 체제 드라이브에 있는 일반 파일을 읽을 수 있습니다. 이는 다소 광범위한 수준의 액세스 권한으로 보일 수도 있지만, Azure 호스팅 서비스에서 작업자 역할을 프로비전하고 드라이브 콘텐츠를 읽을 때 동일한 디렉터리 및 파일에 액세스할 수 있습니다. 
 
 <a name="multipleinstances"></a>
 
@@ -105,7 +105,7 @@ App Service의 각 앱은 "응용 프로그램 풀 ID"라는 권한이 낮은 �
 <a id="Code"></a>
 
 ## <a name="code-execution-processes-and-memory"></a>코드 실행, 프로세스 및 메모리
-앞에서 설명했듯이, 앱은 임의의 응용 프로그램 풀 ID를 사용하여 권한이 낮은 작업자 프로세스 내부에서 실행됩니다. 응용 프로그램 코드는 작업자 프로세스 및 CGI 프로세스나 다른 응용 프로그램에 의해 생성될 수 있는 하위 프로세스와 연결된 메모리 공간에 액세스할 수 있습니다. 하지만 하나의 앱이 동일한 가상 컴퓨터에 있더라도 다른 앱의 메모리나 데이터에 액세스할 수는 없습니다.
+앞에서 설명했듯이, 앱은 임의의 애플리케이션 풀 ID를 사용하여 권한이 낮은 작업자 프로세스 내부에서 실행됩니다. 응용 프로그램 코드는 작업자 프로세스 및 CGI 프로세스나 다른 응용 프로그램에 의해 생성될 수 있는 하위 프로세스와 연결된 메모리 공간에 액세스할 수 있습니다. 하지만 하나의 앱이 동일한 가상 컴퓨터에 있더라도 다른 앱의 메모리나 데이터에 액세스할 수는 없습니다.
 
 앱은 지원되는 웹 개발 프레임워크에서 작성된 스크립트나 페이지를 실행할 수 있습니다. App Service는 웹 프레임워크 설정을 더 제한적인 모드로 구성하지 않습니다. 예를 들어 App Service에서 실행되는 ASP.NET 앱은 더 제한적인 신뢰 모드와 달리 "완전" 신뢰 모드로 실행됩니다. 클래식 ASP 및 ASP.NET 모두를 포함한 웹 프레임워크는 Windows 운영 체제에 기본적으로 등록된 ADO(ActiveX Data Object)와 같은 In-Process COM 구성 요소(Out of Process COM 구성 요소 아님)를 호출할 수 있습니다.
 

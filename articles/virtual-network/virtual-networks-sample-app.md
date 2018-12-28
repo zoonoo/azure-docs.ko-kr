@@ -1,6 +1,6 @@
 ---
 title: DMZ에 사용할 Azure 샘플 애플리케이션 | Microsoft Docs
-description: 트래픽 흐름 시나리오를 테스트하기 위해 DMZ을 만든 다음 이 간단한 웹 응용 프로그램을 배포합니다.
+description: 트래픽 흐름 시나리오를 테스트하기 위해 DMZ을 만든 다음 이 간단한 웹 애플리케이션을 배포합니다.
 services: virtual-network
 documentationcenter: na
 author: tracsman

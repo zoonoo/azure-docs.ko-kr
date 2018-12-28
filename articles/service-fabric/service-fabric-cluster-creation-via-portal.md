@@ -65,7 +65,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 > 
 > 
 
-#### <a name="application-certificates-optional"></a>응용 프로그램 인증서(선택 사항)
+#### <a name="application-certificates-optional"></a>애플리케이션 인증서(선택 사항)
 애플리케이션 보안을 위해 클러스터에 제한 없는 수의 인증서를 추가로 설치할 수 있습니다. 클러스터를 만들기 전에, 다음과 같이 노드에 인증서를 설치하도록 요구하는 애플리케이션 보안 시나리오를 고려해 보세요.
 
 * 애플리케이션 구성 값의 암호화 및 암호 해독

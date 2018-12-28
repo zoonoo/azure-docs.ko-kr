@@ -39,7 +39,7 @@ Visual Studio에서 **F5** 키를 누르면 애플리케이션이 배포되고 �
 ### <a name="application-debug-mode"></a>애플리케이션 디버그 모드
 Visual Studio는 Visual Studio에서 디버깅의 일부로 애플리케이션 배포를 처리하는 방법을 제어하는 **애플리케이션 디버그 모드**라는 속성을 제공합니다.
 
-#### <a name="to-set-the-application-debug-mode-property"></a>응용 프로그램 디버그 모드 속성을 설정하려면
+#### <a name="to-set-the-application-debug-mode-property"></a>애플리케이션 디버그 모드 속성을 설정하려면
 1. Service Fabric 애플리케이션 프로젝트의 (*.sfproj) 바로 가기 메뉴에서 **속성**을 선택합니다(또는 **F4** 키 누름).
 2. **속성** 창에서 **응용 프로그램 디버그 모드** 속성을 설정합니다.
 
@@ -54,7 +54,7 @@ Visual Studio는 Visual Studio에서 디버깅의 일부로 애플리케이션 �
 
 **자동 업그레이드**의 경우 데이터는 Service Fabric의 응용 프로그램 업그레이드 기능을 적용하여 보존됩니다. 애플리케이션 업그레이드 및 실제 환경에서 업그레이드를 수행하는 방법에 대한 자세한 내용은 [Service Fabric 애플리케이션 업그레이드](service-fabric-application-upgrade.md)를 참조하세요.
 
-## <a name="add-a-service-to-your-service-fabric-application"></a>서비스 패브릭 응용 프로그램에 서비스 추가
+## <a name="add-a-service-to-your-service-fabric-application"></a>Service Fabric 애플리케이션에 서비스 추가
 애플리케이션에 새 서비스를 추가하여 기능을 확장할 수 있습니다. 애플리케이션 패키지에 서비스가 포함되도록 하려면 **새 패브릭 서비스...** 메뉴 항목을 통해 서비스를 추가합니다.
 
 ![새 Service Fabric 서비스 추가][newservice]
@@ -67,8 +67,8 @@ Visual Studio는 Visual Studio에서 디버깅의 일부로 애플리케이션 �
 
 ![새 서비스가 애플리케이션 매니페스트에 추가됩니다.][newserviceapplicationmanifest]
 
-## <a name="package-your-service-fabric-application"></a>서비스 패브릭 응용 프로그램 패키징
-응용 프로그램 및 해당 서비스를 클러스터에 배포하려면 응용 프로그램 패키지를 만들어야 합니다.  패키지는 애플리케이션 매니페스트, 서비스 매니페스트 및 특정 레이아웃에서 필요한 기타 파일로 구성됩니다.  Visual Studio는 애플리케이션 프로젝트의 폴더인 'pkg' 디렉터리에서 패키지를 관리합니다.  **응용 프로그램** 상황에 맞는 메뉴에서 **패키지**를 클릭하면 응용 프로그램 패키지가 생성되거나 업데이트됩니다.
+## <a name="package-your-service-fabric-application"></a>Service Fabric 애플리케이션 패키징
+애플리케이션 및 해당 서비스를 클러스터에 배포하려면 애플리케이션 패키지를 만들어야 합니다.  패키지는 애플리케이션 매니페스트, 서비스 매니페스트 및 특정 레이아웃에서 필요한 기타 파일로 구성됩니다.  Visual Studio는 애플리케이션 프로젝트의 폴더인 'pkg' 디렉터리에서 패키지를 관리합니다.  **응용 프로그램** 상황에 맞는 메뉴에서 **패키지**를 클릭하면 응용 프로그램 패키지가 생성되거나 업데이트됩니다.
 
 ## <a name="remove-applications-and-application-types-using-cloud-explorer"></a>클라우드 탐색기를 사용하여 애플리케이션 및 애플리케이션 유형 제거
 **보기** 메뉴에서 시작할 수 있는 클라우드 탐색기를 사용하여 Visual Studio 내에서 기본 클러스터 관리 작업을 수행할 수 있습니다. 예를 들어 애플리케이션을 삭제하고 로컬 또는 원격 클러스터에서 애플리케이션 유형을 프로비전 해제할 수 있습니다.

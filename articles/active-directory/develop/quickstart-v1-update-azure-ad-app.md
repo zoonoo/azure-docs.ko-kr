@@ -80,7 +80,7 @@ Azure AD(Azure Active Directory)를 통해 응용 프로그램을 등록한 엔�
 
 6. 작업을 마치면 **액세스 사용** 페이지에서 **선택** 단추를 선택한 다음, **API 액세스 추가** 페이지에서 **완료** 단추를 클릭합니다. **필수 사용 권한** 페이지로 돌아가게 됩니다. 여기서 새 리소스를 API 목록에 추가합니다.
 
-## <a name="configuring-a-resource-application-to-expose-web-apis"></a>웹 API를 공개하는 리소스 응용 프로그램 구성
+## <a name="configuring-a-resource-application-to-expose-web-apis"></a>웹 API를 공개하는 리소스 애플리케이션 구성
 
 액세스 [범위](developer-glossary.md#scopes) 및 [역할](developer-glossary.md#roles)을 공개하면 웹 API를 개발하고 클라이언트 애플리케이션에서 사용할 수 있게 만들 수 있습니다. 올바르게 구성된 웹 API는 Graph API 및 Office 365 API와 같은 다른 Microsoft 웹 API와 마찬가지로 사용 가능합니다. 액세스 범위와 역할은 [애플리케이션의 매니페스트](developer-glossary.md#application-manifest)를 통해 공개되며, 이 매니페스트는 애플리케이션의 ID 구성을 나타내는 JSON 파일입니다.
 
@@ -165,7 +165,7 @@ Azure AD에서 응용 프로그램을 등록하는 경우 조직 내의 사용�
 고객이나 조직 외부의 파트너가 사용할 수 있는 응용 프로그램을 작성 중인 경우 Azure Portal에서 응용 프로그램 정의를 업데이트해야 합니다.
 
 > [!IMPORTANT]
-> Azure AD에서는 다중 테넌트 응용 프로그램의 앱 ID URI가 전역적으로 고유해야 합니다. 앱 ID URI는 프로토콜 메시지에서 응용 프로그램을 식별하는 방법 중 하나입니다. 단일 테넌트 응용 프로그램의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다. 다중 테넌트 응용 프로그램의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 응용 프로그램을 찾을 수 있습니다.
+> Azure AD에서는 다중 테넌트 응용 프로그램의 앱 ID URI가 전역적으로 고유해야 합니다. 앱 ID URI는 프로토콜 메시지에서 애플리케이션을 식별하는 방법 중 하나입니다. 단일 테넌트 응용 프로그램의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다. 다중 테넌트 응용 프로그램의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 응용 프로그램을 찾을 수 있습니다.
 > 앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다. 예를 들어, 테넌트의 이름이 contoso.onmicrosoft.com이라면 유효한 앱 ID URI은 https://contoso.onmicrosoft.com/myapp이 될 것입니다. 테넌트에 contoso.com이라는 확인된 도메인이 있으면 유효한 앱 ID URI도 https://contoso.com/myapp이 됩니다. 앱 ID URI가 이 패턴을 따르지 않으면 애플리케이션을 다중 테넌트로 설정하지 못합니다.
 
 응용 프로그램에 액세스하는 기능을 외부 사용자에게 부여하려면:

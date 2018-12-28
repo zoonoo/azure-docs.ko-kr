@@ -65,7 +65,7 @@ Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 �
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
 ### <a name="configure-external-redirect-urls"></a>방법: 외부 리디렉션 URL에 대해 모바일 App Service 구성
-여러 가지 유형의 JavaScript 응용 프로그램은 루프백 기능을 사용하여 OAuth UI 흐름을 처리합니다.  이러한 기능은 다음과 같습니다.
+여러 가지 유형의 JavaScript 애플리케이션은 루프백 기능을 사용하여 OAuth UI 흐름을 처리합니다.  이러한 기능은 다음과 같습니다.
 
 * 로컬로 서비스 실행
 * Ionic Framework와 라이브 다시 로드 사용

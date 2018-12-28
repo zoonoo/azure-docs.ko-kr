@@ -160,7 +160,7 @@ ms.locfileid: "51259329"
 
 ## <a name="run-the-applications"></a>애플리케이션 실행
 
-이제 응용 프로그램을 실행할 준비가 되었습니다.
+이제 애플리케이션을 실행할 준비가 되었습니다.
 
 1. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다. **여러 개의 시작 프로젝트**를 선택한 다음 **ReadFileUploadNotification** 및 **SimulatedDevice**에 대한 **시작** 작업을 선택합니다.
 

@@ -29,7 +29,7 @@ ms.locfileid: "52496501"
 
 1. 헤드 노드로 ssh합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-2. 다음 명령을 실행하여 Livy를 통해 시작한 대화형 작업의 응용 프로그램 ID를 찾습니다. 
+2. 다음 명령을 실행하여 Livy를 통해 시작한 대화형 작업의 애플리케이션 ID를 찾습니다. 
    
         yarn application –list
    

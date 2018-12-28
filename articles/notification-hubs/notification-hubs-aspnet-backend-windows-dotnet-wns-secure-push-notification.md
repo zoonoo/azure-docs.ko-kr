@@ -30,9 +30,9 @@ ms.locfileid: "38696918"
 > 
 
 ## <a name="overview"></a>개요
-Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및 규모 확장 푸시 인프라에 액세스할 수 있어, 모바일 플랫폼용 소비자 응용 프로그램 및 엔터프라이즈 응용 프로그램 모두에 대한 푸시 알림을 매우 간단하게 구현할 수 있습니다.
+Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및 규모 확장 푸시 인프라에 액세스할 수 있어, 모바일 플랫폼용 소비자 애플리케이션 및 엔터프라이즈 애플리케이션 모두에 대한 푸시 알림을 매우 간단하게 구현할 수 있습니다.
 
-규제나 보안 제약 조건 때문에 응용 프로그램의 알림에 표준 푸시 알림 인프라를 통해 전송할 수 없는 어떤 항목을 포함해야 할 수 있습니다. 이 자습서에서는 클라이언트 디바이스와 앱 백 엔드 간에 인증된 보안 연결을 통해 중요한 정보를 전송하여 동일한 경험을 얻는 방법에 대해 설명합니다.
+규제나 보안 제약 조건 때문에 애플리케이션의 알림에 표준 푸시 알림 인프라를 통해 전송할 수 없는 어떤 항목을 포함해야 할 수 있습니다. 이 자습서에서는 클라이언트 디바이스와 앱 백 엔드 간에 인증된 보안 연결을 통해 중요한 정보를 전송하여 동일한 경험을 얻는 방법에 대해 설명합니다.
 
 개략적으로 흐름은 다음과 같습니다.
 
@@ -49,7 +49,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 > [!NOTE]
 > 이 자습서에서는 [Notification Hubs 시작(Windows 스토어)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)에 설명된 대로 Notification Hubs를 만들고 구성했다고 가정합니다.
-> 또한 Windows Phone 8.1에 Windows(Windows Phone이 아님) 자격 증명이 필요하며, 백그라운드 작업은 Windows Phone 8.0 또는 Silverlight 8.1에서 작동하지 않습니다. Windows 스토어 응용 프로그램은 앱에서 잠금 화면이 사용되는 경우(Appmanifest에서 확인란 클릭)에만 백그라운드 작업을 통해 알림을 받을 수 있습니다.
+> 또한 Windows Phone 8.1에 Windows(Windows Phone이 아님) 자격 증명이 필요하며, 백그라운드 작업은 Windows Phone 8.0 또는 Silverlight 8.1에서 작동하지 않습니다. Windows 스토어 애플리케이션은 앱에서 잠금 화면이 사용되는 경우(Appmanifest에서 확인란 클릭)에만 백그라운드 작업을 통해 알림을 받을 수 있습니다.
 > 
 > 
 
@@ -158,8 +158,8 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
     ![][13]
 16. **파일** 메뉴에서 **모두 저장**을 클릭합니다.
 
-## <a name="run-the-application"></a>응용 프로그램 실행
-응용 프로그램을 실행하려면 다음을 수행합니다.
+## <a name="run-the-application"></a>애플리케이션 실행
+애플리케이션을 실행하려면 다음을 수행합니다.
 
 1. Visual Studio에서 **AppBackend** Web API 애플리케이션을 실행합니다. ASP.NET 웹 페이지가 표시됩니다.
 2. Visual Studio에서 **NotifyUserWindowsPhone (Windows Phone 8.1)** Windows Phone 앱을 실행합니다. Windows Phone 에뮬레이터가 실행되고 자동으로 앱을 로드합니다.

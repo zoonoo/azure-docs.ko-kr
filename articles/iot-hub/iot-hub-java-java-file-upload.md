@@ -233,7 +233,7 @@ IoT Hub가 이 섹션을 완료하려면 **iothubowner** 연결 문자열이 필
 
 ## <a name="run-the-applications"></a>애플리케이션 실행
 
-이제 응용 프로그램을 실행할 준비가 되었습니다.
+이제 애플리케이션을 실행할 준비가 되었습니다.
 
 `read-file-upload-notification` 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
 

@@ -30,7 +30,7 @@ ms.locfileid: "42141150"
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
-Azure Queue Storage에 액세스하는 PHP 애플리케이션을 만들기 위한 유일한 요구 사항은 코드 내에서 [PHP용 Azure Storage Client Library][download]의 클래스를 참조하는 것입니다. 응용 프로그램을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
+Azure Queue Storage에 액세스하는 PHP 애플리케이션을 만들기 위한 유일한 요구 사항은 코드 내에서 [PHP용 Azure Storage Client Library][download]의 클래스를 참조하는 것입니다. 애플리케이션을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
 
 이 가이드에서는 PHP 애플리케이션 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 Queue Storage 서비스 기능을 사용합니다.
 
@@ -54,7 +54,7 @@ Azure Queue Storage에 액세스하는 PHP 애플리케이션을 만들기 위�
 
 또는 GitHub에서 [Azure Storage PHP 클라이언트 라이브러리][download]로 이동하여 소스 코드를 복제합니다.
 
-## <a name="configure-your-application-to-access-queue-storage"></a>큐 저장소에 액세스하도록 응용 프로그램 구성
+## <a name="configure-your-application-to-access-queue-storage"></a>큐 저장소에 액세스하도록 애플리케이션 구성
 Azure 큐 저장소에 대한 API를 사용하려면 다음을 수행해야 합니다.
 
 1. [require_once] 문을 사용하여 자동 로더 파일을 참조합니다.

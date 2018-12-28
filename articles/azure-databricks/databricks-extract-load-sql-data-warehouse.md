@@ -138,7 +138,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 4. 애플리케이션에 대한 이름 및 URL을 제공합니다. 만들려는 애플리케이션 유형으로 **웹앱/API**를 선택합니다. 로그온 URL을 입력하고 **만들기**를 선택합니다.
 
-   ![응용 프로그램 이름 지정](./media/databricks-extract-load-sql-data-warehouse/create-app.png)
+   ![애플리케이션 이름 지정](./media/databricks-extract-load-sql-data-warehouse/create-app.png)
 
 Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 만든 Azure Active Directory 서비스 사용자에 대한 다음 값이 있어야 합니다.
 - 응용 프로그램 UI

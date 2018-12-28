@@ -45,7 +45,7 @@ ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(s
 username@server 형태의 값을 사용하지 말고, "username" 값을 사용합니다.  자격 증명은 분할된 데이터베이스 맵 관리자 데이터베이스와 각기 다른 서버에 있을 수 있는 개별 분할된 데이터베이스에 대해 모두 작동해야 하기 때문입니다.
 
 ## <a name="access-credentials"></a>액세스 자격 증명
-분할된 데이터베이스 맵을 관리하지 않는 응용 프로그램에 분할된 데이터베이스 맵 관리자를 만드는 경우, 글로벌 분할된 데이터베이스 맵에 대해 읽기 전용 권한이 있는 자격 증명을 사용합니다. 이러한 자격 증명으로 글로벌 분할된 데이터베이스 맵에서 검색한 정보는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 에 사용되며, 클라이언트의 분할된 데이터베이스 맵 캐시를 채우는 데에도 사용됩니다. 자격 증명은 **GetSqlShardMapManager**에 대한 동일한 호출 패턴을 통해 제공됩니다. 
+분할된 데이터베이스 맵을 관리하지 않는 애플리케이션에 분할된 데이터베이스 맵 관리자를 만드는 경우, 글로벌 분할된 데이터베이스 맵에 대해 읽기 전용 권한이 있는 자격 증명을 사용합니다. 이러한 자격 증명으로 글로벌 분할된 데이터베이스 맵에서 검색한 정보는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 에 사용되며, 클라이언트의 분할된 데이터베이스 맵 캐시를 채우는 데에도 사용됩니다. 자격 증명은 **GetSqlShardMapManager**에 대한 동일한 호출 패턴을 통해 제공됩니다. 
 
 ```
 // Obtain shard map manager. 

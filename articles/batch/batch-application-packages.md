@@ -1,6 +1,6 @@
 ---
 title: 계산 노드에 응용 프로그램 패키지 설치 - Azure Batch | Microsoft Docs
-description: Azure Batch의 응용 프로그램 패키지 기능을 사용하여 Batch 계산 노드에 설치할 여러 응용 프로그램 및 버전을 간편하게 관리하세요.
+description: Azure Batch의 애플리케이션 패키지 기능을 사용하여 Batch 계산 노드에 설치할 여러 애플리케이션 및 버전을 간편하게 관리하세요.
 services: batch
 documentationcenter: .net
 author: dlepow

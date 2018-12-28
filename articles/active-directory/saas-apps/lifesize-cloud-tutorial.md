@@ -138,7 +138,7 @@ Lifesize Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesize-cloud_configure.png) 
 
-1. 응용 프로그램에 대해 구성된 SSO를 가져오려면 관리자 권한으로 Lifesize Cloud 응용 프로그램에 로그인합니다.
+1. 애플리케이션에 대해 구성된 SSO를 가져오려면 관리자 권한으로 Lifesize Cloud 애플리케이션에 로그인합니다.
 
 1. 페이지의 오른쪽 위 모서리에 있는 사용자 이름을 클릭하고 **고급 설정**을 클릭합니다.
    

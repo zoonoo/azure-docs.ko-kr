@@ -35,14 +35,14 @@ Java 에이전트를 사용하려면 사용자의 서버에 설치합니다. [Ap
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Java용 Application Insights 에이전트 설치
 1. Java 서버를 실행 중인 컴퓨터에서 [에이전트를 다운로드](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)합니다. Application Insights Java SDK 코어 및 웹 패키지와 동일한 버전의 Java Agent 다운로드를 확인하십시오.
-2. 응용 프로그램 서버 시작 스크립트를 편집하여 다음 JVM을 추가합니다.
+2. 애플리케이션 서버 시작 스크립트를 편집하여 다음 JVM을 추가합니다.
    
     `javaagent:`*에이전트 JAR 파일에 대한 전체 경로*
    
     예를 들어 Linux 컴퓨터의 Tomcat에서:
    
     `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
-3. 응용 프로그램 서버를 다시 시작합니다.
+3. 애플리케이션 서버를 다시 시작합니다.
 
 ## <a name="configure-the-agent"></a>에이전트 구성
 `AI-Agent.xml` 파일을 만들어 에이전트 JAR 파일과 동일한 폴더에 배치합니다.

@@ -19,7 +19,7 @@ ms.locfileid: "53438628"
 # <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>원격 데스크탑 연결에서 Apache Pig 작업 실행
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-이 문서에서는 Windows 기반 HDInsight 클러스터에 대한 원격 데스크톱 연결을 통해 Apache Pig 명령을 사용하여 Pig Latin 문을 실행하는 과정을 설정합니다. Pig Latin을 사용하면 매핑하고 함수를 줄이는 대신 데이터 변환을 설명하여 MapReduce 응용 프로그램을 만들 수 있습니다.
+이 문서에서는 Windows 기반 HDInsight 클러스터에 대한 원격 데스크톱 연결을 통해 Apache Pig 명령을 사용하여 Pig Latin 문을 실행하는 과정을 설정합니다. Pig Latin을 사용하면 매핑하고 함수를 줄이는 대신 데이터 변환을 설명하여 MapReduce 애플리케이션을 만들 수 있습니다.
 
 > [!IMPORTANT]  
 > 원격 데스크톱은 Windows를 운영 체제로 사용하는 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.

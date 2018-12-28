@@ -1,6 +1,6 @@
 ---
 title: Node.js 시작 가이드
-description: 간단한 Node.js 웹 응용 프로그램을 만들고 Azure 클라우드 서비스에 배포하는 방법에 대해 알아봅니다.
+description: 간단한 Node.js 웹 애플리케이션을 만들고 Azure 클라우드 서비스에 배포하는 방법에 대해 알아봅니다.
 services: cloud-services
 documentationcenter: nodejs
 author: jpconnock
@@ -137,7 +137,7 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 4. 배포 패키지를 Azure에 게시합니다.
 
 ## <a name="stopping-and-deleting-your-application"></a>애플리케이션 중지 및 삭제
-애플리케이션을 배포한 후 사용하지 않도록 설정하여 추가 비용을 방지할 수 있습니다. Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 청구합니다. 서버 시간은 응용 프로그램이 배포된 다음에 사용되며 인스턴스가 실행되지 않고 중지된 상태인 경우에도 사용됩니다.
+애플리케이션을 배포한 후 사용하지 않도록 설정하여 추가 비용을 방지할 수 있습니다. Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 청구합니다. 서버 시간은 애플리케이션이 배포된 다음에 사용되며 인스턴스가 실행되지 않고 중지된 상태인 경우에도 사용됩니다.
 
 1. Windows PowerShell 창에서, 이전 섹션에서 만든 서비스 배포를 다음 cmdlet을 사용하여 중지합니다.
 

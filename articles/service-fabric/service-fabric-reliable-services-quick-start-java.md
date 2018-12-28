@@ -1,6 +1,6 @@
 ---
 title: Java에서 Azure Service Fabric Reliable Services 처음 만들기 | Microsoft Docs
-description: 상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure 서비스 패브릭 응용 프로그램 만들기 소개
+description: 상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure Service Fabric 애플리케이션 만들기 소개
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -51,7 +51,7 @@ Service Fabric 애플리케이션을 만드는 것으로 시작합니다. Linux�
 $ yo azuresfjava
 ```
 
-지침에 따라 **신뢰할 수 있는 상태 비저장 서비스**를 만듭니다. 이 자습서에서는 응용 프로그램을 "HelloWorldApplication", 행위자를 "HelloWorld"라고 이름을 지정합니다. 결과에는 `HelloWorldApplication` 및 `HelloWorld`에 대한 디렉터리가 포함됩니다.
+지침에 따라 **신뢰할 수 있는 상태 비저장 서비스**를 만듭니다. 이 자습서에서는 애플리케이션을 "HelloWorldApplication", 행위자를 "HelloWorld"라고 이름을 지정합니다. 결과에는 `HelloWorldApplication` 및 `HelloWorld`에 대한 디렉터리가 포함됩니다.
 
 ```bash
 HelloWorldApplication/

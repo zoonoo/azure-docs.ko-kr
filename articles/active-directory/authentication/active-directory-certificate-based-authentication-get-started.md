@@ -182,7 +182,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 정상적으로 로그인되어야 합니다.
 
-### <a name="testing-exchange-activesync-client-applications"></a>Exchange ActiveSync 클라이언트 응용 프로그램 테스트
+### <a name="testing-exchange-activesync-client-applications"></a>Exchange ActiveSync 클라이언트 애플리케이션 테스트
 
 인증서 기반 인증을 통해 EAS(Exchange ActiveSync)에 액세스하려면 클라이언트 인증서를 포함하는 EAS 프로필을 애플리케이션에서 사용할 수 있어야 합니다.
 
@@ -194,7 +194,7 @@ EAS 프로필은 다음 정보를 포함해야 합니다.
 
 Intune과 같은 MDM(모바일 디바이스 관리)을 활용하거나 디바이스의 EAS 프로필에 인증서를 수동으로 배치하여 디바이스에서 EAS 프로필을 구성하고 배치할 수 있습니다.
 
-### <a name="testing-eas-client-applications-on-android"></a>Android에서 EAS 클라이언트 응용 프로그램 테스트
+### <a name="testing-eas-client-applications-on-android"></a>Android에서 EAS 클라이언트 애플리케이션 테스트
 
 **인증서 인증을 테스트하려면**
 

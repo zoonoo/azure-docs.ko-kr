@@ -127,7 +127,7 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     ![Fuse 구성](./media/fuse-tutorial/tutorial_fuse_configure.png) 
 
-7. 응용 프로그램에 대해 구성된 SSO를 얻으려면 [Fuse 지원 팀](mailto:support@fusion-universal.com)에 문의하고 다음을 제공하세요.
+7. 애플리케이션에 대해 구성된 SSO를 얻으려면 [Fuse 지원 팀](mailto:support@fusion-universal.com)에 문의하고 다음을 제공하세요.
 
     * 다운로드한 **인증서(원시) 파일**
     * **SAML Single Sign-On 서비스 URL**
@@ -209,7 +209,7 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Fuse 타일을 클릭하면 Fuse 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Fuse 타일을 클릭하면 Fuse 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

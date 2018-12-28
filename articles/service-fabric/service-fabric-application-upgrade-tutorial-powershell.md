@@ -116,7 +116,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObject
 Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "VisualObjects\_V2" -ImageStoreConnectionString fabric:ImageStore
 ```
 
-## <a name="step-5-start-the-application-upgrade"></a>5단계: 응용 프로그램 업그레이드 시작
+## <a name="step-5-start-the-application-upgrade"></a>5단계: 애플리케이션 업그레이드 시작
 이제 [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) 명령을 사용하여 응용 프로그램 업그레이드를 시작할 수 있습니다.
 
 ```powershell

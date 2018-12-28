@@ -194,7 +194,7 @@ Azure DevOps 서비스를 실행 하려면 서비스 끝점 구성의 일부로 
 
     ![앱 검색 결과](media/azure-stack-solution-hybrid-pipeline/000_16.png)
 
-7. **저장**을 선택하여 역할 할당을 완료합니다. 목록에서 해당 범위에 대한 역할에 할당된 사용자 목록에 응용 프로그램이 표시될 것입니다.
+7. **저장**을 선택하여 역할 할당을 완료합니다. 목록에서 해당 범위에 대한 역할에 할당된 사용자 목록에 애플리케이션이 표시될 것입니다.
 
 ### <a name="role-based-access-control"></a>역할 기반 Access Control
 

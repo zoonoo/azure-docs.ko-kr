@@ -43,7 +43,7 @@ Table Storage 또는 Azure Cosmos DB Table API를 사용하여 웹 응용 프로
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 ### <a name="more-samples"></a>추가 샘플
-Table Storage를 사용하는 추가 예제는 [.NET에서 Azure Table Storage 시작](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
+Table Storage를 사용하는 추가 예제는 [.NET에서 Azure Table Storage 시작](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)을 참조하세요. GitHub에서 샘플 애플리케이션을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
 
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]

@@ -1,6 +1,6 @@
 ---
 title: HDInsight를 사용하여 스크립트 작업 개발 - Azure
-description: 스크립트 작업을 사용하여 Hadoop 클러스터를 사용자 지정하는 방법을 알아봅니다. 스크립트 작업은 Hadoop 클러스터에서 실행되는 추가 소프트웨어를 설치하거나 클러스터에 설치된 응용 프로그램의 구성을 변경하기 위해 사용할 수 있습니다.
+description: 스크립트 작업을 사용하여 Hadoop 클러스터를 사용자 지정하는 방법을 알아봅니다. 스크립트 작업은 Hadoop 클러스터에서 실행되는 추가 소프트웨어를 설치하거나 클러스터에 설치된 애플리케이션의 구성을 변경하기 위해 사용할 수 있습니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh

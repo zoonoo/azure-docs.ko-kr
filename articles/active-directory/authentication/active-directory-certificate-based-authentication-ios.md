@@ -74,7 +74,7 @@ Azure Active Directory는 이러한 클레임이 ADFS 토큰(또는 다른 SAML 
 
 ## <a name="exchange-activesync-clients-support"></a>Exchange ActiveSync 클라이언트 지원
 
-iOS 9 이상에서, 네이티브 iOS 메일 클라이언트가 지원됩니다. 다른 모든 Exchange ActiveSync 응용 프로그램에 대하여, 이 기능이 지원되는지 확인하려면 응용 프로그램 개발자에게 문의하세요.
+iOS 9 이상에서, 네이티브 iOS 메일 클라이언트가 지원됩니다. 다른 모든 Exchange ActiveSync 애플리케이션에 대하여, 이 기능이 지원되는지 확인하려면 애플리케이션 개발자에게 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
