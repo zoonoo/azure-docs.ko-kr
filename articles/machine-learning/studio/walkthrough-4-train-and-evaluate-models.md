@@ -1,12 +1,11 @@
 ---
 title: '4단계: 예측 분석 모델 학습 - Azure Machine Learning Studio | Microsoft Docs'
-description: '예측 솔루션 개발 연습 4단계: Azure Machine Learning Studio에서 다중 모델을 학습하고, 점수를 매기고, 평가합니다.'
+description: '예측 솔루션 연습 개발 4단계: Azure Machine Learning Studio에서 여러 모델을 학습하고 점수를 매기고 평가합니다.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 4b4ffcf8e6c886a2f182c844f940e53c24d1efa0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2464ef0ba89f138834bedfdc9f29347092e5fe99
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313472"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254516"
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>연습 4단계: Machine Learning Studio에서 예측 분석 모델 학습 및 평가
 이 토픽에는 연습의 4번째 단계인 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)이 포함되어 있습니다.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 69ebe7fde454d2f0e98371406de56f48c9ea97ae
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 24430b1b785a24da06a8ea51594147040e6d5bd6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639376"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190393"
 ---
 # <a name="certify-your-vm-image"></a>VM 이미지 인증
 
@@ -82,4 +82,4 @@ Azure 인증 테스트 도구는 로컬 Windows 머신에서 실행되지만 Azu
 
 ## <a name="next-steps"></a>다음 단계
 
-다음으로, 마켓플레이스에 제출하는 [각 VHD에 대한 URI(Uniform Resource Identifier)를 생성](./cpp-get-sas-uri.md)해야 합니다. 
+다음으로, 마켓플레이스에 제출하는 [각 VHD에 대한 URI(Uniform Resource Identifier)를 생성](./cpp-get-sas-uri.md)합니다. 

@@ -1,12 +1,11 @@
 ---
-title: Cortana Intelligence 대회 관련 FAQ | Microsoft Docs
+title: Cortana Intelligence 대회 FAQ - Azure Machine Learning Studio | Microsoft Docs
 description: Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문입니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 8782af26056f8341ee68ed87f003bc585e0c4e69
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fe4da412aa779e9861446f8dcbb8a807c282c7c6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265112"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268906"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence 대회 관련 FAQ
 **Cortana Intelligence 대회는 무엇입니까?**
@@ -70,7 +69,7 @@ Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커�
 
 대회 참가는 무료입니다. 그러나 대회에 참가하려면 Azure Machine Learning 작업 영역에 액세스할 수 있어야 합니다. 유효한 Microsoft 계정 또는 Office 365 계정으로 로그인하여 신용 카드 없이 무료 작업 영역을 만들 수 있습니다. 이미 Azure 또는 Cortana Intelligence 제품군 고객인 경우에는 동일한 Azure 구독에서 표준 작업 영역을 만들어서 사용할 수 있습니다. Azure 구독을 구입하려는 경우 [Azure 가격 책정](https://azure.microsoft.com/pricing) 페이지로 이동합니다. 표준 작업 영역을 사용하여 실험을 만들 때 표준 요금이 적용됩니다. 자세한 내용은 [Azure Machine Learning 가격 책정 정보](https://azure.microsoft.com/pricing/details/machine-learning/)를 참조하세요. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 **공용 및 개인 점수는 무엇인가요?**
 

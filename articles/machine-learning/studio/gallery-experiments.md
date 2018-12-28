@@ -1,12 +1,11 @@
 ---
 title: Azure AI Gallery 실험 - Azure Machine Learning Studio | Microsoft Docs
-description: Azure AI 갤러리에서 실험을 검색 및 공유합니다.
+description: Azure AI 갤러리에서 실험을 검색 및 공유합니다. 실험은 예측 분석 모델을 생성하는 데 사용할 수 있는 Machine Learning Studio의 캔버스입니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
@@ -16,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 66b5e30a26c57676bdd65b4861d34ca90c0c25af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 12fb45b00848e5e34760ccb0691998c1f72237b8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317469"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269304"
 ---
-# <a name="discover-experiments-in-azure-ai-gallery"></a>Azure AI 갤러리의 실험 검색
+# <a name="discover-azure-machine-learning-studio-experiments-in-azure-ai-gallery"></a>Azure AI Gallery에서 Azure Machine Learning Studio 실험 검색
 
 [Azure AI Gallery](http://gallery.cortanaintelligence.com)에는 [Azure Machine Learning Studio](https://studio.azureml.net)에서 개발된 다양한 [실험](https://gallery.cortanaintelligence.com/experiments)이 있습니다. 실험은 특정한 기계 학습 기법을 보여주는 빠른 개념 증명 실험에서 복잡한 기계 학습 문제에 대한 완전히 개발된 솔루션에 이르기까지 다양합니다.
 
 > [!NOTE]
-> ***실험***은 예측 분석 모델을 생성하는 데 사용할 수 있는 Machine Learning Studio의 캔버스입니다. 다양한 분석 모듈에 데이터를 연결하여 모델을 만듭니다. 다른 아이디어를 시도, 평가판 실행을 수행하고 마지막으로 Azure에 웹 서비스로 모델을 배포할 수 있습니다. 기본 실험을 만드는 방법의 예제는 [Machine Learning 자습서: Azure Machine Learning Studio에서 첫 번째 실험 만들기](create-experiment.md)를 참조하세요. 예측 분석 솔루션을 만드는 방법의 자세한 연습 과정은 [연습: Azure Machine Learning의 신용 위험 평가에 대한 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)을 참조하세요.
+> ***실험***은 예측 분석 모델을 생성하는 데 사용할 수 있는 Machine Learning Studio의 캔버스입니다. 다양한 분석 모듈에 데이터를 연결하여 모델을 만듭니다. 다른 아이디어를 시도, 평가판 실행을 수행하고 마지막으로 Azure에 웹 서비스로 모델을 배포할 수 있습니다. 기본 실험을 만드는 방법의 예는 [기계 학습 자습서: Azure Machine Learning Studio에서 첫 번째 실험 만들기](create-experiment.md)를 참조하세요. 예측 분석 솔루션을 만드는 방법의 포괄적인 연습은 [연습: Azure Machine Learning의 신용 위험 평가에 대한 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)을 참조하세요.
 >
 >
 
@@ -189,4 +188,4 @@ Azure AI 갤러리는 실험의 복사본을 가져오는 두 가지 방법을 �
 
 **[갤러리로 이동](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+

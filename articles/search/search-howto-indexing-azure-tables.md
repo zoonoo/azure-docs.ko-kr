@@ -1,5 +1,5 @@
 ---
-title: Azure Search를 사용하여 Azure Table Storage 인덱싱
+title: 전체 텍스트 검색을 위해 Azure Table Storage 콘텐츠 인덱싱 - Azure Search
 description: Azure Search를 사용하여 Azure Table Storage에 저장된 데이터를 인덱싱하는 방법을 알아봅니다.
 ms.date: 10/17/2018
 author: mgottein
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 738518f94869a55cf80db1c87b8c74b167f5cce1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 39455669dd739309ac0201de49b390c2390e0067
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406928"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317273"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Azure Search를 사용하여 Azure Table Storage 인덱싱
 이 문서에서는 Azure Search를 사용하여 Azure Table Storage에 저장된 데이터를 인덱싱하는 방법을 보여 줍니다.
@@ -66,8 +67,8 @@ ms.locfileid: "49406928"
 
 테이블에 대한 자격 증명을 제공하는 방법은 다음 중 하나입니다. 
 
-- **전체 액세스 Storage 계정 연결 문자열**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Azure Portal에서 **Storage 계정 블레이드** > **설정** > **키**(클래식 Storage 계정) 또는 **설정** > **액세스 키**(Azure Resource Manager Storage 계정)로 이동하여 연결 문자열을 가져올 수 있습니다.
-- **Storage 계정 공유 액세스 서명 연결 문자열**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` 공유 액세스 서명에 컨테이너(이 경우 테이블) 및 개체(테이블 행)에 대한 읽기 권한 및 목록이 있어야 합니다.
+- **전체 액세스 스토리지 계정 연결 문자열**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Azure Portal에서 **스토리지 계정 블레이드** > **설정** > **키**(클래식 스토리지 계정) 또는 **설정** > **액세스 키**(Azure Resource Manager 스토리지 계정)로 이동하여 연결 문자열을 가져올 수 있습니다.
+- **스토리지 계정 공유 액세스 서명 연결 문자열**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` 공유 액세스 서명에 컨테이너(이 경우 테이블) 및 개체(테이블 행)에 대한 읽기 권한 및 목록이 있어야 합니다.
 -  **테이블 공유 액세스 서명**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` 공유 액세스 서명에는 테이블에 대한 쿼리(읽기) 권한이 있어야 합니다.
 
 저장소 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.

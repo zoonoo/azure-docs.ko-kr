@@ -1,12 +1,11 @@
 ---
-title: Azure Machine Learning Studio를 사용하는 온-프레미스 SQL Server | Microsoft Docs
+title: 온-프레미스 SQL Server - Azure Machine Learning Studio | Microsoft Docs
 description: 온-프레미스 SQL Server 데이터베이스의 데이터를 사용하여 Azure Machine Learning Studio를 통해 고급 분석을 수행할 수 있습니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dccea7c5d7967af2e81ab4728704a5a104a007b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310959"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269293"
 ---
-# <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>온-프레미스 SQL Server 데이터베이스의 데이터를 사용하여 Azure Machine Learning을 통해 고급 분석 수행
+# <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>온-프레미스 SQL Server 데이터베이스를 사용하여 Azure Machine Learning Studio로 분석 수행
 
 온-프레미스 데이터로 작업하는 기업에서는 종종 기계 학습 워크로드를 위해 클라우드의 규모와 민첩성을 활용하려고 합니다. 하지만 클라우드로 온-프레미스 데이터를 이동하여 현재 비즈니스 프로세스 및 워크플로를 중단하지 않으려고 합니다. 이제 Azure Machine Learning은 온-프레미스 SQL Server 데이터베이스의 데이터를 읽은 다음, 이 데이터를 사용하여 교육을 하고 모델 점수를 매길 수 있도록 지원합니다. 더 이상 클라우드 및 온-프레미스 서버 간에 데이터를 수동으로 복사하고 동기화할 필요가 없습니다. 대신 Azure Machine Learning Studio의 **데이터 가져오기** 모듈은 교육 및 점수 매기기 작업을 위해 온-프레미스 SQL Server 데이터베이스에서 직접 데이터를 읽을 수 있습니다.
 
@@ -36,7 +35,7 @@ ms.locfileid: "52310959"
 
 <!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Data Factory 자체 호스팅 통합 런타임 설치
 Azure Machine Learning에서 온-프레미스 SQL Server 데이터베이스에 액세스하려면 Data Factory 자체 호스팅 통합 런타임(이전의 데이터 관리 게이트웨이)을 다운로드하고 설치해야 합니다. Machine Learning Studio에서 연결을 구성할 때 아래에 설명된 **데이터 게이트웨이 다운로드 및 등록** 대화 상자를 사용하여 IR(Integration Runtime)을 다운로드하고 설치할 수 있습니다.

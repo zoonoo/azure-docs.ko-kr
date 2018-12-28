@@ -3,21 +3,21 @@ title: PowerShell을 사용하여 탄력적 작업 만들기 및 관리 | Micros
 description: Azure SQL Database 풀을 관리하는데 사용되는 PowerShell
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
-ms.devlang: pwershell
+ms.devlang: powershell
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 9ed5026211bec11b510d095decac25f8d4b8a52a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243200"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278460"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell을 사용하여 SQL Database 탄력적 작업 만들기 및 관리(미리 보기)
 
@@ -31,10 +31,10 @@ ms.locfileid: "50243200"
 * Azure 구독. 무료 평가판에 대한 내용은 [무료 1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * Elastic Database 도구로 만든 데이터 집합. [Elastic Database 도구 시작하기](sql-database-elastic-scale-get-started.md)를 참조하세요.
 * Azure PowerShell. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](https://docs.microsoft.com/powershell/azure/overview)을 참조하세요.
-* **Elastic Database 작업** PowerShell 패키지: [Installing Elastic Database 작업](sql-database-elastic-jobs-service-installation.md)
+* **Elastic Database 작업** PowerShell 패키지: [Elastic Database 작업 설치](sql-database-elastic-jobs-service-installation.md) 참조
 
 ### <a name="select-your-azure-subscription"></a>Azure 구독 선택
-구독을 선택하려면 구독 ID **-SubscriptionId** 또는 구독 이름(**-SubscriptionName**이 필요합니다. 구독이 여러 개일 경우 **Get-AzureRmSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독 정보가 준비되면 다음 commandlet을 실행하여 이 구독을 기본값, 즉 작업을 만들고 관리하기 위한 대상으로 설정합니다.
+구독을 선택하려면 구독 ID **-SubscriptionId** 또는 구독 이름(**-SubscriptionName**이 필요합니다. 구독이 여러 개일 경우 **Get-AzureRmSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독 정보가 준비되면 다음 cmdlet을 실행하여 이 구독을 기본값, 즉 작업을 만들고 관리하기 위한 대상으로 설정합니다.
 
     Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 
@@ -194,7 +194,7 @@ ms.locfileid: "50243200"
 두 가지 형식의 그룹을 만들 수 있습니다. 
 
 * [분할된 데이터베이스 맵](sql-database-elastic-scale-shard-map-management.md) 그룹: 분할된 데이터베이스 맵을 대상으로 하는 작업이 제출되면 해당 작업은 분할된 데이터베이스 맵을 쿼리하여 분할된 데이터베이스의 현재 집합을 확인한 다음 분할된 데이터베이스 맵의 각 분할된 데이터베이스에 대한 자식 작업을 만듭니다.
-* 사용자 지정 컬렉션 그룹: 사용자 지정 데이터베이스 집합입니다. 작업이 사용자 지정 컬렉션을 대상으로 하는 경우 사용자 지정 컬렉션에서 현재 각 데이터베이스에 대한 자식 작업을 만듭니다.
+* 사용자 지정 컬렉션 그룹: 사용자 지정 정의 데이터베이스 세트입니다. 작업이 사용자 지정 컬렉션을 대상으로 하는 경우 사용자 지정 컬렉션에서 현재 각 데이터베이스에 대한 자식 작업을 만듭니다.
 
 ## <a name="to-set-the-elastic-database-jobs-connection"></a>Elastic Database 작업 연결을 설정하려면
 작업 API를 사용하기 전에 작업 *제어 데이터베이스* 에 대한 연결을 설정해야 합니다. 이 cmdlet을 실행하면 자격 증명 창이 트리거되어 Elastic Database 작업을 설치할 때 만든 사용자 이름 및 암호를 요청하는 팝업이 표시됩니다. 이 항목에 제공된 모든 예제에서는 이 첫 번째 단계가 이미 수행되었다고 가정합니다.
@@ -417,15 +417,15 @@ Elastic Database 작업은 작업을 시작할 때 적용할 수 있는 사용�
 * 이름: 실행 정책의 식별자입니다.
 * 작업 시간 제한: Elastic Database 작업에 의해 작업이 취소되기 전의 총 시간입니다.
 * 초기 재시도 간격: 첫 번째 재시도 전에 대기할 간격입니다.
-* 최대 재시도 간격: 사용할 재시도 간격의 최대값입니다.
-* 재시도 간격 백오프 계수: 재시도 사이의 다음 간격을 계산하는 데 사용되는 계수입니다.  (초기 재시도 간격) * Math.pow((계수 백오프 간격), (재시도 횟수) - 2) 수식이 사용됩니다. 
+* 최대 재시도 간격: 사용할 재시도 간격의 최댓값입니다.
+* 재시도 간격 백오프 계수: 재시도 사이의 다음 간격을 계산하는 데 사용되는 계수입니다.  사용 수식: (초기 재시도 간격) * Math.pow((계수 백오프 간격), (재시도 횟수) - 2) 
 * 최대 시도 횟수: 작업 내에서 수행할 최대 재시도 횟수입니다.
 
 기본 실행 정책은 다음 값을 사용합니다.
 
 * 이름: 기본 실행 정책
 * 작업 시간 제한: 1주
-* 초기 재시도 간격: 100밀리초
+* 초기 재시도 간격:  100밀리초
 * 최대 재시도 간격: 30분
 * 재시도 간격 계수: 2
 * 최대 시도 횟수: 2,147,483,647
@@ -459,7 +459,7 @@ Elastic Database 작업은 작업 취소 요청을 지원합니다.  Elastic Dat
 
 Elastic Database 작업이 취소를 수행할 수 있는 방법에는 다음 두 가지가 있습니다.
 
-1. 현재 실행 중인 태스크 취소: 태스크가 현재 실행되는 동안 취소가 감지되면 현재 실행 중인 태스크 측면 내에서 취소가 시도됩니다.  예를 들어 현재 장기 실행 쿼리를 수행하는 동안 취소가 시도되면 쿼리를 취소하려고 합니다.
+1. 현재 실행 중인 태스크 취소: 태스크가 현재 실행되는 동안 취소가 감지되면 현재 실행 중인 태스크 측면 내에서 취소가 시도됩니다.  예:  현재 장기 실행 쿼리를 수행하는 동안 취소가 시도되면 쿼리를 취소하려고 합니다.
 2. 태스크 재시도 취소: 태스크 실행이 시작되기 전에 제어 스레드에서 취소가 감지되면 제어 스레드는 태스크를 시작하지 않고 요청을 취소된 것으로 선언합니다.
 
 부모 작업에 대해 작업 취소가 요청된 경우 부모 작업 및 모든 자식 작업에 대해 취소 요청이 적용됩니다.

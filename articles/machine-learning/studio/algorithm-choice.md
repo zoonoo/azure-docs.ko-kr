@@ -1,11 +1,10 @@
 ---
-title: 기계 학습 알고리즘을 선택하는 방법 - Azure Machine Learning Studio | Microsoft Docs
+title: Azure Machine Learning Studio를 위한 알고리즘 선택 방법 | Microsoft Docs
 description: 클러스터링, 분류 또는 회귀 실험에서 감독 및 자율 학습에 대한 Azure Machine Learning Studio 알고리즘을 선택하는 방법입니다.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: cgronlun
 tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
@@ -13,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 7ddfb98a884779385cde643e213bebb98b050436
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9e601464f97a7717a2ccef0e60172357d3169697
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312421"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256930"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 위한 알고리즘 선택 방법
 
@@ -44,7 +43,7 @@ ms.locfileid: "52312421"
 완벽하게 맞는 것이 없는 경우도 있습니다. 경험에 기반한 권장 방법으로 제공되는 것이므로 정확하지 않은 것에 대해 걱정하지 않아도 됩니다.
 수많은 데이터 과학자가 최적의 알고리즘을 찾는 가장 확실한 방법은 모든 알고리즘을 시도해보는 것이라고 말합니다.
 
-동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험의 예제는 [Azure AI 갤러리](http://gallery.cortanaintelligence.com/)에서 [다중 클래스 분류자 비교: 문자 인식](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92)을 참조합니다.
+동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험의 예제는 [Azure AI Gallery](http://gallery.cortanaintelligence.com/)에서 [다중 클래스 분류자 비교: 문자 인식](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92)을 참조하세요.
 
 > [!TIP]
 > Machine Learning Studio의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure Machine Learning Studio 기능 개요](studio-overview-diagram.md)를 참조하세요.

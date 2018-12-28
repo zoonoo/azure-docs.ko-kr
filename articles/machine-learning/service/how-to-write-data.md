@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning Data Prep SDK를 사용하여 데이터 쓰기 - Python
+title: '쓰기: Data Prep Python SDK'
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning Data Prep SDK를 사용하여 데이터를 쓰는 방법을 알아봅니다. 데이터 흐름의 모든 지점에서, 지원되는 위치(로컬 파일 시스템, Azure Blob Storage 및 Azure Data Lake Storage)의 파일에 데이터를 쓸 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,14 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: 4a2af832fda8a85ee8a4aba395a8f436172153ed
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: a6abdaff986df3c457a0118f6e143fe4ff0daf49
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308565"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384346"
 ---
 # <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning 데이터 준비 SDK를 사용하여 데이터 쓰기
 
@@ -50,7 +52,7 @@ Spark에서 데이터 흐름을 실행하는 경우 빈 폴더에 써야 합니�
 
 ```python
 import azureml.dataprep as dprep
-t = dprep.smart_read_file('./data/fixed_width_file.txt')
+t = dprep.auto_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
 t.head(10)
 ```

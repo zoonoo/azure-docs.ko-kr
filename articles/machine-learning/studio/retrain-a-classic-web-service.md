@@ -4,9 +4,8 @@ description: Azure Machine Learning에서 프로그래밍 방식으로 모델을
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: e94fa4b6382a4672e5763b382a22fb812991cb03
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a012798f71b0e3c14ab9982fd41bce6f0fa098e5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308468"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257610"
 ---
-# <a name="retrain-a-classic-web-service"></a>기존 웹 서비스 재학습
+# <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>클래식 Azure Machine Learning Studio 웹 서비스 다시 학습
 배포한 예측 웹 서비스는 기본 점수 매기기 엔드포인트입니다. 기본 엔드포인트는 원래 학습 및 점수 매기기 실험과 동기화 상태를 유지하므로 기본 엔드포인트에 대한 학습된 모델을 바꿀 수 없습니다. 웹 서비스를 다시 학습하려면 웹 서비스에 새 엔드포인트를 추가해야 합니다. 
 
 ## <a name="prerequisites"></a>필수 조건

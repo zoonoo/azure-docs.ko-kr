@@ -4,7 +4,7 @@ description: Azure SQL Database에서 클라우드 무중단 업무 방식 및 �
 keywords: 무중단 업무 방식, 클라우드 무중단 업무 방식, 데이터베이스 재해 복구, 데이터베이스 복구
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 14fdc0dc12debb32f63d7322c233e06fc2fc0d9e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/10/2018
+ms.openlocfilehash: aecfecda08a6008b931738802bb89054f9d3963c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161544"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274126"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 
-Azure SQL Database는 비즈니스 프로세스에 영향을 줄 수 있는 오류에 대한 [고가용성](sql-database-high-availability.md) 및 복원력을 제공하는 Azure 클라우드 환경에 맞게 구성되고 최적화된 안정적인 최신 SQL Server 데이터베이스 엔진을 구현한 것입니다. Azure SQL Database의 **비즈니스 연속성**은 비즈니스가 중단, 특히 자사의 컴퓨팅 인프라에서 계속 운영할 수 있도록 하는 메커니즘, 정책 및 절차를 나타냅니다. 대부분의 경우 Azure SQL Database는 클라우드 환경에서 발생할 수 있는 중단 이벤트를 처리하고 비즈니스 프로세스를 계속 실행합니다. 그러나 SQL Database에서 처리할 수 없는 몇 가지 중단 이벤트는 다음과 같습니다.
+Azure SQL Database의 **비즈니스 연속성**은 비즈니스가 중단, 특히 자사의 컴퓨팅 인프라에서 계속 운영할 수 있도록 하는 메커니즘, 정책 및 절차를 나타냅니다. 대부분의 경우 Azure SQL Database는 클라우드 환경에서 발생할 수 있는 중단 이벤트를 처리하고 애플리케이션 및 비즈니스 프로세스를 계속 실행합니다. 그러나 SQL Database에서 처리할 수 없는 몇 가지 중단 이벤트는 다음과 같습니다.
 
 - 사용자가 실수로 테이블 행을 삭제하거나 업데이트했습니다.
 - 악의적인 공격자가 데이터를 삭제하거나 데이터베이스를 삭제하는 데 성공했습니다.
@@ -48,7 +48,8 @@ SQL Database는 이러한 시나리오를 완화할 수 있는 자동화된 백�
 - [기본 제공 자동화된 백업](sql-database-automated-backups.md) 및 [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 사용하면 전체 데이터베이스를 지난 35일 이내의 특정 시점으로 복원할 수 있습니다.
 - **논리 서버가 삭제되지 않은 경우** [삭제된 데이터베이스를 삭제된 시점으로 복원](sql-database-recovery-using-backups.md#deleted-database-restore)할 수 있습니다.
 - [장기 백업 보존](sql-database-long-term-retention.md)을 사용하면 백업을 최대 10년 동안 유지할 수 있습니다.
-- [자동 장애 조치(failover) 그룹](sql-database-geo-replication-overview.md#auto-failover-group-capabilities)을 사용하면 데이터 센터 규모 중단 시 응용 프로그램에서 빠른 재해 복구를 수행할 수 있습니다.
+- [활성 지역 복제](sql-database-active-geo-replication.md)를 사용하면 데이터 센터 중단 또는 애플리케이션 업그레이드 시 읽기 쉬운 복제본을 만들고 복제본에 수동으로 장애 조치(failover)할 수 있습니다.
+- [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities)을 사용하면 데이터 센터 중단 시 애플리케이션에서 빠른 재해 복구를 수행할 수 있습니다.
 
 이러한 기능은 최근 트랜잭션에 대한 ERT(예상 복구 시간) 및 잠재적 데이터 손실에 대해 각기 다른 특성을 갖습니다. 이러한 옵션을 이해하면 적절한 옵션을 선택할 수 있습니다. 대부분의 시나리오에서 이러한 옵션을 함께 사용할 수 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트가 발생한 후 응용 프로그램이 완전히 복구되기까지 허용되는 최대 시간을 이해해야 합니다. 응용 프로그램을 완전히 복구하는 데 필요한 시간을 RTO(복구 시간 목표)라고 합니다. 또한 중단 이벤트가 발생한 후 복구될 때 응용 프로그램에서 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 기간(시간 간격)도 이해해야 합니다. 손실될 수 있는 업데이트 기간을 RPO(복구 지점 목표)라고 합니다.
 
@@ -75,8 +76,7 @@ SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 �
 - 데이터 변경(시간당 낮은 트랜잭션) 속도가 느리고, 최대 1시간의 데이터 변경 내용 손실은 비교적 허용 가능한 데이터 손실에 해당합니다.
 - 비용에 민감합니다.
 
-더 빠른 복구가 필요한 경우 [장애 조치(failover) 그룹](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
-)(다음에 설명)을 사용합니다. 35일이 지난 기간에서 데이터를 복구해야 하는 경우 [장기 보존](sql-database-long-term-retention.md)을 사용합니다.
+빠른 복구가 필요한 경우 [활성 지역 복제](sql-database-active-geo-replication.md) 또는 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md)을 사용합니다. 35일이 지난 기간에서 데이터를 복구해야 하는 경우 [장기 보존](sql-database-long-term-retention.md)을 사용합니다.
 
 ## <a name="recover-a-database-to-another-region"></a>데이터베이스를 다른 지역으로 복구
 
@@ -84,14 +84,14 @@ SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 �
 
 - 한 가지 방법은 데이터 센터 가동 중단이 끝날 때 데이터베이스가 다시 온라인 상태가 될 때까지 기다리는 것입니다. 이러한 방법은 데이터베이스의 오프라인 유지가 가능한 응용 프로그램에 적합합니다. 예를 들어 지속적으로 작업할 필요가 없는 개발 프로젝트 또는 무료 평가판이 있습니다. 데이터 센터가 가동 중단되면 중단이 얼마나 지속될지 알 수 없으므로 이 옵션은 잠시 데이터베이스가 필요 없어도 되는 경우에만 적합합니다.
 - 또 다른 옵션은 [지역 중복 데이터베이스 백업](sql-database-recovery-using-backups.md#geo-restore)(지역 복원)을 사용하여 모든 Azure 지역의 모든 서버에서 데이터베이스를 복원하는 것입니다. 지리적 복원은 지역 중복 백업을 해당 원본으로 사용하고 가동 중단으로 인해 데이터베이스 또는 데이터 센터에 액세스할 수 없는 경우에도 데이터베이스를 복구하는 데 사용될 수 있습니다.
-- 마지막으로, 데이터베이스 하나 이상에 대해 [자동 장애 조치(failover) 그룹](sql-database-geo-replication-overview.md#auto-failover-group-capabilities)을 구성한 경우 가동 중단 시 빠르게 복구할 수 있습니다. 자동 또는 수동 장애 조치(failover)를 사용하도록 장애 조치(failover) 정책을 사용자 지정할 수 있습니다. 장애 조치(failover) 자체는 몇 초밖에 걸리지 않지만 서비스에서 장애 조치(failover)를 활성화하려면 최소 1시간이 걸립니다. 가동 중단 규모가 장애 조치(failover)를 수행하기에 적합한지를 확인해야 하기 때문입니다. 또한 비동기 복제의 특성상 장애 조치(failover)로 인해 데이터가 약간 손실될 수도 있습니다. 자동 장애 조치(failover) RTO 및 RPO 세부 정보는 이 문서 앞부분의 표를 참조하세요.
+- 마지막으로, 데이터베이스 하나 이상에 대해 [활성 지역 복제](sql-database-active-geo-replication.md)를 사용한 지역 복제 또는 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md)을 구성한 경우 가동 중단 시 빠르게 복구할 수 있습니다. 이러한 기술의 선택에 따라 수동 또는 자동 장애 조치(failover)를 사용할 수 있습니다. 장애 조치(failover) 자체는 몇 초밖에 걸리지 않지만 서비스에서 장애 조치(failover)를 활성화하려면 최소 1시간이 걸립니다. 가동 중단 규모가 장애 조치(failover)를 수행하기에 적합한지를 확인해야 하기 때문입니다. 또한 비동기 복제의 특성상 장애 조치(failover)로 인해 데이터가 약간 손실될 수도 있습니다. 자동 장애 조치(failover) RTO 및 RPO 세부 정보는 이 문서 앞부분의 표를 참조하세요.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 > [!IMPORTANT]
 > 활성 지역 복제 및 자동 장애 조치(failover) 그룹을 사용하려면 SQL Server에서 구독 소유자이거나 관리 권한을 보유해야 합니다. 구독에 대한 권한을 통해 Azure Portal, PowerShell 또는 REST API를 사용하거나, Azure 구독 사용 권한을 사용하거나, SQL Server 사용 권한이 있는 Transact-SQL을 사용하여 구성하고 장애 조치할 수 있습니다.
 
-응용 프로그램이 다음 조건에 맞는 경우 활성 자동 장애 조치(failover) 그룹을 사용합니다.
+애플리케이션이 다음 조건에 맞는 경우 자동 장애 조치(failover) 그룹을 사용합니다.
 
 - 중요 업무용입니다.
 - 12시간 이상의 가동 중지 시간을 허용하지 않는 SLA(서비스 수준 약정)가 있습니다.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 753a0ad72e1d4b60a93daa570ceecc25d21bb228
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6f1620c9977f997b4037fbf3f823c429e43b4f6a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634144"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436265"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>PowerShell을 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
 
@@ -26,7 +26,7 @@ ms.locfileid: "51634144"
 
 * **Azure HDInsight(HDInsight의 Hadoop) 클러스터**
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * **Azure PowerShell이 포함된 워크스테이션**.
@@ -45,7 +45,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 * **Wait-AzureRmHDInsightJob**: 작업 개체를 사용하여 작업 상태를 확인합니다. 작업이 완료되거나 대기 시간이 초과될 때까지 기다립니다.
 
-* **Get-AzureRmHDInsightJobOutput**: 작업 출력을 검색하는 데 사용됩니다.
+* **Get-AzureRmHDInsightJobOutput**: 작업의 출력을 검색하는 데 사용합니다.
 
 다음 단계는 HDInsight 클러스터에서 작업을 실행하기 위해 이러한 cmdlet을 사용하는 방법에 대해 설명합니다.
 
@@ -73,7 +73,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
     이 출력은 작업이 성공적으로 완료되었음을 나타냅니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > **ExitCode** 가 0이 아닌 값이면 [문제 해결](#troubleshooting)을 참조하세요.
 
     이 예제에서도 다운로드한 파일을 스크립트를 실행한 디렉터리의 **output.txt** 파일에 저장합니다.
@@ -82,7 +82,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 작업에서 생성한 단어 및 단어 개수를 보려면 텍스트 편집기에서 **output.txt** 파일을 엽니다.
 
-> [!NOTE]
+> [!NOTE]  
 > MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 샘플을 다시 실행하는 경우 출력 파일의 이름을 변경해야 합니다.
 
 ## <a id="troubleshooting"></a>문제 해결
@@ -113,5 +113,5 @@ HDInsight의 MapReduce 작업에 대한 일반적인 정보:
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)

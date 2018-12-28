@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: f24baaf07f86722bc461cbb79e262f63b46c8a1f
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: b3d6f30aa2a7858d673199e55090e96fb9aba915
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619949"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337632"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Security Center 계획 및 작업 가이드
 이 가이드는 Azure Security Center의 사용을 계획 중인 정보 기술(IT) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자를 대상으로 합니다.
@@ -195,7 +195,7 @@ Security Center 개요는 모든 Azure 리소스 및 연결된 모든 비 Azure 
 ### <a name="monitoring-for-new-or-changed-resources"></a>새 또는 변경된 리소스 모니터링
 대부분의 Azure 환경은 동적이며, 새 리소스가 일정 기준, 구성 또는 변경에 따라 확장 및 분리됩니다. Security Center는 이러한 새 리소스의 보안 상태에 대한 정보를 얻는 데 도움이 됩니다.
 
-Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자동으로 해당 리소스를 감지하고 보안을 모니터링하기 시작합니다. 또한 PaaS 웹 역할 및 작업자 역할이 포함됩니다. [보안 정책](security-center-azure-policy.md)에서 데이터 수집을 사용하도록 설정한 경우 가상 머신에 대해 추가적인 모니터링 기능이 자동으로 적용됩니다.
+Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자동으로 해당 리소스를 감지하고 보안을 모니터링하기 시작합니다. 또한 PaaS 웹 역할 및 작업자 역할이 포함됩니다. [보안 정책](tutorial-security-policy.md)에서 데이터 수집을 사용하도록 설정한 경우 가상 머신에 대해 추가적인 모니터링 기능이 자동으로 적용됩니다.
 
 ![주요 영역](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 

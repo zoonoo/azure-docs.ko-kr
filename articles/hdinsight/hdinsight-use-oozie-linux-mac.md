@@ -9,35 +9,35 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 4ea8ded6abcdee397511272c539f9be6cdd12c0e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 14b849a46701ab19c76ee175717c3715cc89f411
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685534"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408904"
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Hadoop과 함께 Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
+# <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Azure HDInsight에서 Hadoop와 함께 Apache Oozie를 사용하는 방법을 알아봅니다. Oozie는 Hadoop 작업을 관리하는 워크플로 및 코디네이션 시스템입니다. Oozie는 Hadoop 스택과 통합되며 다음 작업을 지원합니다.
+Azure HDInsight에서 Apache Hadoop과 함께 Apache Oozie를 사용하는 방법을 알아봅니다. Oozie는 Hadoop 작업을 관리하는 워크플로 및 코디네이션 시스템입니다. Oozie는 Hadoop 스택과 통합되며 다음 작업을 지원합니다.
 
-* Apache MapReduce
+* Apache Hadoop MapReduce
 * Apache Pig
 * Apache Hive
 * Apache Sqoop
 
 Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스템에 특정한 작업을 예약할 수도 있습니다.
 
-> [!NOTE]
-> HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure Data Factory를 사용하는 것입니다. Data Factory에 대한 자세한 내용은 [Data Factory에서 Pig 및 Hive 사용][azure-data-factory-pig-hive]을 참조하세요. Enterprise Security Package가 포함된 클러스터에서 Oozie를 사용하려면 [Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)을 참조하세요.
+> [!NOTE]  
+> HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure Data Factory를 사용하는 것입니다. Data Factory에 대해 자세히 알아보려면 [Data Factory에서 Apache Pig 및 Apache Hive 사용][azure-data-factory-pig-hive]을 참조하세요. Enterprise Security Package가 포함된 클러스터에서 Oozie를 사용하려면 [Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)을 참조하세요.
 
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **기본 HDInsight 클러스터**: [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **일반 HDInsight 클러스터**: [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="example-workflow"></a>예제 워크플로
@@ -54,9 +54,9 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
     이 문서에서 사용된 Hive 스크립트는 각 플랫폼(예: Android 또는 iPhone)에 대한 총 방문 횟수를 계산하여 새 Hive 테이블에 저장합니다.
 
-    Hive에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight-use-hive]을 참조하세요.
+    Hive에 대한 자세한 내용은 [HDInsight에서 Apache Hive 사용][hdinsight-use-hive]을 참조하세요.
 
-2. Sqoop 동작은 새 Hive 테이블의 내용을 Azure SQL Database에서 만든 테이블로 내보냅니다. Sqoop에 대한 자세한 내용은 [HDInsight에서 Hadoop Sqoop 사용][hdinsight-use-sqoop]을 참조하세요.
+2. Sqoop 동작은 새 Hive 테이블의 내용을 Azure SQL Database에서 만든 테이블로 내보냅니다. Sqoop에 대한 자세한 내용은 [HDInsight에서 Apache Sqoop 사용][hdinsight-use-sqoop]을 참조하세요.
 
 > [!NOTE]
 > HDInsight 클러스터에서 지원되는 Oozie 버전에 대해서는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
@@ -90,7 +90,7 @@ Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리�
 
     `username`을 SSH 사용자 이름으로 바꿉니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 사용자가 이미 `users` 그룹의 구성원이라는 오류는 무시해도 됩니다.
 
 ## <a name="add-a-database-driver"></a>데이터베이스 드라이버 추가
@@ -101,7 +101,7 @@ Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리�
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 파일이 이미 있다는 메시지가 표시될 수 있습니다.
 
 워크플로에서 MapReduce 응용 프로그램이 포함된 jar 등의 다른 리소스를 사용하는 경우 이러한 리소스도 추가해야 합니다.
@@ -232,7 +232,7 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
 
 ### <a name="create-the-table"></a>테이블 만들기
 
-> [!NOTE]
+> [!NOTE]  
 > 여러 가지 방법으로 SQL Database에 연결하여 테이블을 생성할 수 있습니다. 다음 단계는 HDInsight 클러스터의 [FreeTDS](http://www.freetds.org/) 를 사용합니다.
 
 
@@ -300,7 +300,7 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
     <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > HDInsight 클러스터에서 Azure Storage를 기본 저장소로 사용하면 `<value>` 요소의 내용은 `wasb://`로 시작합니다. Azure Data Lake Store를 대신 사용하면 `adl://`로 시작합니다.
 
     다음 단계에서 사용되므로 `<value>` 요소의 내용을 저장합니다.
@@ -376,7 +376,7 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
 
    * `wasb://mycontainer@mystorageaccount.blob.core.windows.net`의 모든 인스턴스를 기본 저장소에 대해 이전에 받은 값으로 바꿉니다.
 
-     > [!WARNING]
+     > [!WARNING]  
      > `wasb` 경로인 경우 전체 경로를 사용해야 합니다. `wasb:///`만으로 줄이지 마세요.
 
    * `YourName`을 HDInsight 클러스터의 로그인 이름으로 바꿉니다.
@@ -384,7 +384,7 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
 
      이 파일의 정보는 대부분 workflow.xml 또는 ooziewf.hql 파일에서 사용되는 값(예: `${nameNode}`)을 채우는 데 사용됩니다.
 
-     > [!NOTE]
+     > [!NOTE]  
      > `oozie.wf.application.path` 항목은 workflow.xml 파일을 찾을 위치를 정의합니다. 이 파일에는 이 작업에서 실행된 워크플로가 포함되어 있습니다.
 
 5. 파일을 저장하려면 Ctrl+X를 선택하고 `Y`를 입력한 후 **Enter** 키를 누릅니다.
@@ -393,7 +393,7 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
 
 다음 단계에서는 Oozie 명령을 사용하여 클러스터에서 Oozie 워크플로를 제출 및 관리합니다. Oozie 명령은 [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html)를 통해 제공되는 친숙한 인터페이스입니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Oozie 명령을 사용할 때는 HDInsight 헤드 노드에 대한 FQDN을 사용해야 합니다. 이 FQDN은 클러스터에서만 액세스할 수 있으며, 클러스터가 Azure Virtual Network에 있는 경우에는 같은 네트워크에 있는 다른 컴퓨터에서 액세스할 수 있습니다.
 
 
@@ -435,7 +435,7 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
     oozie job -info <JOBID>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > `<JOBID>`를 이전 단계에서 반환된 ID로 바꿉니다.
 
     이 명령은 다음 텍스트와 유사한 정보를 반환합니다.
@@ -463,7 +463,7 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
     oozie job -start JOBID
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > `<JOBID>`를 이전에 반환된 ID로 바꿉니다.
 
     이 명령 후에 상태를 확인하면 실행 중 상태가 표시되고 작업 내 동작에 대한 정보를 반환합니다.
@@ -492,7 +492,7 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
         Windows Phone   1791
         (6 rows affected)
 
-Oozie 명령에 대한 자세한 내용은 [Oozie 명령줄 도구](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html)를 참조하세요.
+Oozie 명령에 대한 자세한 내용은 [Apache Oozie 명령줄 도구](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html)를 참조하세요.
 
 ## <a name="oozie-rest-api"></a>Oozie REST API
 
@@ -506,7 +506,7 @@ Oozie REST API를 사용하면 Oozie와 함께 작동하는 사용자 고유의 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
     ```
 
-Oozie REST API 사용 방법에 대한 자세한 내용은 [Oozie 웹 서비스 API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html)를 참조하세요.
+Oozie REST API 사용 방법에 대한 자세한 내용은 [Apache Oozie 웹 서비스 API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html)를 참조하세요.
 
 ## <a name="oozie-web-ui"></a>Oozie web UI
 
@@ -660,7 +660,7 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
 
     ![코디네이터 작업 정보](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > 이 이미지는 성공한 작업 실행만 표시하며, 예약된 워크플로 내의 개별 동작은 표시하지 않습니다. 개별 작업을 보려면 **동작** 항목 중 하나를 선택합니다.
 
     ![동작 정보](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
@@ -683,7 +683,7 @@ Oozie UI를 사용하여 Oozie 로그를 볼 수 있습니다. Oozie UI에는 �
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**원인**: **job.xml** 파일에 사용된 Azure Blob Storage 주소에 저장소 컨테이너 또는 저장소 계정 이름이 포함되어 있지 않습니다. Blob Storage 주소 형식은 `wasb://containername@storageaccountname.blob.core.windows.net`이어야 합니다.
+**원인**: **job.xml** 파일에 사용된 Azure Blob Storage 주소에 스토리지 컨테이너 또는 스토리지 계정 이름이 포함되어 있지 않습니다. Blob Storage 주소 형식은 `wasb://containername@storageaccountname.blob.core.windows.net`이어야 합니다.
 
 **해결 방법**: 해당 작업이 사용하는 Blob Storage 주소를 변경합니다.
 
@@ -693,13 +693,13 @@ Oozie UI를 사용하여 Oozie 로그를 볼 수 있습니다. Oozie UI에는 �
 
     JA002: User: oozie is not allowed to impersonate <USER>
 
-**원인**: 현재 사용 권한 설정에서 Oozie가 지정된 사용자 계정을 가장하도록 허용하지 않습니다.
+**원인**: 현재 권한 설정에서 Oozie가 지정된 사용자 계정을 가장하도록 허용하지 않습니다.
 
 **해결 방법**: Oozie에서 **사용자** 그룹의 사용자를 가장할 수 있습니다. `groups USERNAME` 을 사용하여 사용자 계정이 멤버로 속해 있는 그룹을 확인합니다. 사용자가 **users** 그룹의 멤버가 아닌 경우 다음 명령을 사용하여 사용자를 그룹에 추가합니다.
 
     sudo adduser USERNAME users
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight에서 사용자가 그룹에 추가된 것을 인식하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ### <a name="launcher-error-sqoop"></a>시작 관리자 오류(Sqoop)
@@ -730,11 +730,11 @@ Oozie UI를 사용하여 Oozie 로그를 볼 수 있습니다. Oozie UI에는 �
 
 이 자습서에서는 Oozie 워크플로를 정의하는 방법 및 Oozie 작업을 실행하는 방법을 알아보았습니다. HDInsight 작업 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [HDInsight에서 시간 기준의 Oozie 코디네이터 사용][hdinsight-oozie-coordinator-time]
-* [HDInsight에서 Hadoop 작업용 데이터 업로드][hdinsight-upload-data]
-* [HDInsight에서 Hadoop과 Sqoop 사용][hdinsight-use-sqoop]
-* [HDInsight에서 Hadoop과 Hive 사용][hdinsight-use-hive]
-* [HDInsight에서 Hadoop과 Pig 사용][hdinsight-use-pig]
+* [HDInsight에서 시간 기준의 Apache Oozie 코디네이터 사용][hdinsight-oozie-coordinator-time]
+* [HDInsight에서 Apache Hadoop 작업용 데이터 업로드][hdinsight-upload-data]
+* [HDInsight에서 Apache Hadoop과 함께 Apache Sqoop 사용][hdinsight-use-sqoop]
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용][hdinsight-use-hive]
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용][hdinsight-use-pig]
 * [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
@@ -761,13 +761,13 @@ Oozie UI를 사용하여 Oozie 로그를 볼 수 있습니다. Oozie UI에는 �
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: http://azure.microsoft.com/downloads/
+[powershell-download]: https://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [img-workflow-diagram]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png

@@ -5,9 +5,8 @@ keywords: 실험, 선형 회귀, 기계 학습 알고리즘, 기계 학습 자�
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.openlocfilehash: 3191ff845f72c87b85fdd414716ed9a00b022d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6539ec36c23feccfa52c8214784590106fa5a01e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312030"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257525"
 ---
 # <a name="powershell-module-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 PowerShell 모듈
 Azure Machine Learning용 PowerShell 모듈은 Windows PowerShell을 사용하여 작업 영역, 실험, 데이터 세트, 기존 웹 서비스 등을 관리할 수 있는 강력한 도구입니다.
@@ -54,7 +53,7 @@ Machine Learning PowerShell 모듈은 Windows PowerShell에서 Azure Machine Lea
         #Run the Experiment
         Start-AmlExperiment -ExperimentId $exp.ExperimentId 
 
-일반적으로 요청된 작업을 자동화하도록 PowerShell 모듈을 사용하는 방법에 대한 자세한 사용 사례는 [PowerShell을 사용하여 한 실험에서 여러 Machine Learning 모델 및 웹 서비스 엔드포인트 만들기](create-models-and-endpoints-with-powershell.md)문서를 참조하세요.
+자세한 내용은 PowerShell 모듈을 사용하여 일반적으로 요청되는 작업을 자동화하는 방법에 대한 문서인 [PowerShell을 사용하여 한 실험에서 여러 Machine Learning 모델 및 웹 서비스 엔드포인트 만들기](create-models-and-endpoints-with-powershell.md)를 참조하세요.
 
 ## <a name="how-do-i-get-started"></a>어떻게 시작하나요?
 Machine Learning PowerShell을 시작하려면 GitHub에서 [릴리스 패키지](https://github.com/hning86/azuremlps/releases)를 다운로드하고 [설치에 대한 지침](https://github.com/hning86/azuremlps/blob/master/README.md)을 따릅니다. 지침은 다운로드/압축 해제된 DLL의 차단을 해제한 다음 PowerShell 환경으로 가져오는 방법을 설명합니다. 대부분의 cmdlet에는 작업 영역 ID, 작업 영역 권한 부여 토큰 및 작업 영역이 위치한 Azure 지역을 제공해야 합니다. 값을 제공하는 가장 간단한 방법은 기본 config.json 파일을 통하는 것입니다. 지침은 또한 이 파일을 구성하는 방법을 설명합니다. 

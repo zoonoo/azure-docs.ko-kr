@@ -1,6 +1,6 @@
 ---
-title: 고급 분석을 사용하여 Azure Blob 데이터 처리 | Microsoft Docs
-description: Azure Blob 저장소에서 데이터 처리
+title: 고급 분석을 사용하여 Azure Blob 데이터 처리 - 팀 데이터 과학 프로세스
+description: 고급 분석을 사용하여 데이터를 살펴보고 Azure Blob Storage에 저장된 데이터에서 기능을 생성합니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ef5a3decec3ddd87bb73d513981bdfe081fadf74
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 36e3512caa8922f8bc1a65f13ea41d6873b51e5e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442387"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140542"
 ---
 # <a name="heading"></a>고급 분석을 사용하여 Azure blob 데이터 처리
 이 문서에서는 Azure Blob 저장소에 저장된 데이터를 탐색하고 기능을 생성하는 방법을 다룹니다. 
@@ -130,7 +130,7 @@ ms.locfileid: "52442387"
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure 기계 학습에서 데이터 사용
-데이터를 탐색하고 필요한 기능을 만든 후에는 다음 단계에 따라 샘플링한 또는 기능화한 데이터를 Azure blob에 업로드하여 Azure Machine Learning에서 사용할 수 있습니다. Azure Machine Learning Studio에서 추가 기능을 만들 수도 있습니다. 
+데이터를 탐색하고 필요한 기능을 만든 후에는 다음 단계에 따라 샘플링한 또는 기능화한 데이터를 Azure Blob에 업로드하여 Azure Machine Learning에서 사용할 수 있습니다. Azure Machine Learning Studio에서 추가 기능을 만들 수도 있습니다. 
 
 1. 로컬 파일에 데이터 프레임을 씁니다.
    

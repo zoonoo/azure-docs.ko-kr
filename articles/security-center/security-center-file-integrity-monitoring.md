@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9cfb098fd8e6cb777b6cd968f92b20baabfab705
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6c101878c474e605106bb2fbb6ea6568f433e756
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313988"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338535"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용하여 Azure Security Center에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
@@ -136,7 +136,7 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 
   ![설정][11]
 
-  **Windows 레지스트리**, **Windows 파일** 및 **Linux 파일**의 세 가지 탭을 표시하는 **작업 영역 구성**이 열립니다. 각 탭에는 해당 범주에서 편집할 수 있는 엔터티가 나열됩니다. Security Center에서는 나열된 각 엔터티에 대해 FIM을 사용하거나(true) 사용하지 않도록(false) 설정되었는지를 식별합니다.  엔터티를 편집하면 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다.
+  **작업 영역 구성**이 열리고 세 개의 탭 **Windows 레지스트리**, **Windows 파일** 및 **Linux 파일**이 표시됩니다. 각 탭에는 해당 범주에서 편집할 수 있는 엔터티가 나열됩니다. Security Center에서는 나열된 각 엔터티에 대해 FIM을 사용하거나(true) 사용하지 않도록(false) 설정되었는지를 식별합니다.  엔터티를 편집하면 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
   ![작업 영역 구성][12]
 
@@ -205,7 +205,7 @@ FIM을 사용하지 않도록 설정할 수 있습니다. FIM은 Azure 변경 �
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center에서 FIM(파일 무결성 모니터링)을 사용하는 방법에 대해 알아보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [보안 정책 설정](security-center-azure-policy.md) - Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성하는 방법을 알아봅니다.
+* [보안 정책 설정](tutorial-security-policy.md) - Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성하는 방법을 알아봅니다.
 * [보안 권장 사항 관리](security-center-recommendations.md) - 권장 사항을 통해 Azure 리소스를 보호하는 방법을 알아봅니다.
 * [보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.

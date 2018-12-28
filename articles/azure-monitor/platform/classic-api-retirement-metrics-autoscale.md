@@ -7,13 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 450eac3613df18997c5b0f9189555555da20cfcf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585434"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433094"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor에서 메트릭 및 자동 크기 조정을 위한 클래식 배포 모델 API 사용 중지
 
@@ -25,7 +24,7 @@ Azure Monitor(이전에 처음 출시될 때는 Azure Insights)는 현재 클래
 
 Azure Portal, [새로운 Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, CLI 또는 Resource Manager 템플릿을 통해 자동 크기 조정을 관리하는 경우 아무 작업도 필요하지 않습니다.  
 
-Azure Portal 또는 다양한 [모니터링 파트너 서비스](../../monitoring-and-diagnostics/monitoring-partners.md)를 통해 메트릭을 사용하는 경우 아무 작업도 필요하지 않습니다. Microsoft는 새 API로 마이그레이션하기 위해 모니터링 파트너와 협력하고 있습니다.
+Azure Portal 또는 다양한 [모니터링 파트너 서비스](../../azure-monitor/platform/partners.md)를 통해 메트릭을 사용하는 경우 아무 작업도 필요하지 않습니다. Microsoft는 새 API로 마이그레이션하기 위해 모니터링 파트너와 협력하고 있습니다.
 
 ## <a name="who-is-affected"></a>영향을 받는 사람
 
@@ -76,9 +75,9 @@ Azure 서비스나 해당 워크로드에 대한 직접적인 영향은 없습�
 
 앞에 나열된 클래식 API에 대한 모든 호출이 실패하고 다음과 유사한 오류 메시지가 반환됩니다.
 
-자동 크기 조정의 경우: 이 API는 더 이상 사용되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI 또는 Resource Manager 템플릿을 사용하여 자동 크기 조정 설정을 관리합니다.  
+자동 크기 조정의 경우: *이 API는 더 이상 사용되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI 또는 Resource Manager 템플릿을 사용하여 자동 크기 조정 설정을 관리합니다.  
 
-메트릭의 경우: 이 API는 더 이상 사용되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI 등을 사용하여 메트릭을 쿼리합니다.
+메트릭의 경우: *이 API는 더 이상 사용되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI 등을 사용하여 메트릭을 쿼리합니다.
 
 ## <a name="email-notifications"></a>전자 메일 알림
 

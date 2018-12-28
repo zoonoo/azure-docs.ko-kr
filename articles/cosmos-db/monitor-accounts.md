@@ -1,22 +1,22 @@
 ---
-title: Azure Cosmos DB 요청 및 저장소 모니터링 | Microsoft Docs
+title: Azure Cosmos DB에서 성능 및 스토리지 메트릭 모니터링
 description: '성능 메트릭(예: 요청 및 서버 오류) 및 사용 메트릭(예: 저장소 사용)에 대해 Azure Cosmos DB 계정을 모니터링하는 방법을 알아봅니다.'
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 1f4bf4ba660e83be9879c56d04b27c932d563e17
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: fe527e6e9933d25d7f1a16561ce4822d7b9a33ab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354070"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135885"
 ---
-# <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB 모니터링
+# <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 성능 및 스토리지 메트릭 모니터링
+
 [Azure Portal](https://portal.azure.com/)에서 Azure Cosmos DB 계정을 모니터링할 수 있습니다. 각 Azure Cosmos DB 계정의 경우 처리량, 저장소, 가용성, 대기 시간 및 일관성을 모니터링하는 데 메트릭의 전체 도구 모음을 사용할 수 있습니다.
 
 계정 페이지, 새 메트릭 페이지 또는 Azure Monitor에서 메트릭을 검토할 수 있습니다.

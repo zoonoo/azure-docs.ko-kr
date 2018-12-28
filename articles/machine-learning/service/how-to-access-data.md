@@ -1,6 +1,7 @@
 ---
-title: Azure Machine Learning의 데이터 저장소를 사용하여 데이터 액세스
-description: 학습 중에 데이터 저장소를 사용하여 데이터 저장소에 액세스하는 방법을 설명합니다.
+title: 학습을 위해 데이터 저장소의 데이터 액세스
+titleSuffix: Azure Machine Learning service
+description: 데이터 저장소를 사용하여 Azure Machine Learning Service로 학습 중에 데이터 스토리지에 액세스하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +10,15 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: ef183397cf7ca3f1f561f6951290b722df31e5ed
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.custom: seodec18
+ms.openlocfilehash: 235ad729be434c8329a74e71abfe713480756316
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620203"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187146"
 ---
-# <a name="how-to-access-data-during-training"></a>학습 중에 데이터에 액세스하는 방법
+# <a name="access-data-during-training-from-your-datastores"></a>데이터 저장소에서 학습 중에 데이터 액세스
 데이터 저장소를 사용하여 Azure Machine Learning 워크플로의 데이터에 액세스하고 상호 작용합니다.
 
 Azure Machine Learning Services에서 데이터 저장소는 [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)보다 추상적인 개념입니다. 데이터 저장소는 [Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) 컨테이너 또는 [Azure 파일 공유](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) 중 하나를 기본 저장소로 참조할 수 있습니다. 

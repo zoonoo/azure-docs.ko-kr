@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: bf7f1f58250d94d821e6ec41266b518d7ebe105b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ee1e70e58c2f6dd15ae48c15373d4b1dc58f9328
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427559"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384992"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대한 진단 로깅
 
@@ -88,7 +88,7 @@ Set-AzureRmDiagnosticSetting `
   -Enabled $true
 ```
 
-둘 다가 아닌 하나의 범주에 대해 데이터를 기록하려는 경우 *NetworkSecurityGroupEvent* 또는 *NetworkSecurityGroupRuleCounter*가 뒤에 오는 이전 명령에 `-Categories` 옵션을 추가합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
+둘 다가 아닌 하나의 범주에 대해 데이터를 기록하려는 경우 *NetworkSecurityGroupEvent* 또는 *NetworkSecurityGroupRuleCounter*가 뒤에 오는 이전 명령에 `-Categories` 옵션을 추가합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
 
 로그를 보고 분석합니다. 자세한 내용은 [로그 보기 및 분석](#view-and-analyze-logs)을 참조하세요.
 
@@ -121,18 +121,18 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-기존 작업 영역에 없는 경우 [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace)을 사용하여 만들 수 있습니다. 로그를 활성화할 수 있는 두 가지 범주의 로깅이 있습니다. 
+기존 작업 영역에 없는 경우 [Azure Portal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace)을 사용하여 만들 수 있습니다. 로그를 활성화할 수 있는 두 가지 범주의 로깅이 있습니다. 
 
-특정 범주에 대한 데이터만 로깅하려는 경우 이전 명령에서 데이터를 로깅하지 않으려는 범주를 제거합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
+특정 범주에 대한 데이터만 로깅하려는 경우 이전 명령에서 데이터를 로깅하지 않으려는 범주를 제거합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
 
 로그를 보고 분석합니다. 자세한 내용은 [로그 보기 및 분석](#view-and-analyze-logs)을 참조하세요.
 
 ## <a name="log-destinations"></a>로그 대상
 
 진단 데이터는 다음 작업이 가능합니다.
-- 감사 또는 수동 검사를 위해 [Azure Storage 계정에 기록합니다](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 리소스 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+- 감사 또는 수동 검사를 위해 [Azure Storage 계정에 기록합니다](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 리소스 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 - 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)에서 수집하도록 [Event Hub로 스트리밍합니다](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- [Azure Log Analytics에 기록합니다](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Azure Log Analytics에 기록합니다](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## <a name="log-categories"></a>로그 범주
 

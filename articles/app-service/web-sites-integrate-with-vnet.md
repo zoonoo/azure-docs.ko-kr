@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Network에 앱 통합
+title: Azure Virtual Network와 앱 통합 - Azure App Service
 description: 신규 또는 기존 Azure 가상 네트워크에 Azure App Service의 앱을 연결하는 방법을 보여 줍니다.
 services: app-service
 documentationcenter: ''
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
-ms.openlocfilehash: 8a6d7fef902a3bd240b152cb15d6852a5fa0e7c6
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687310"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273360"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
-이 문서는 Azure App Service 가상 네트워크 통합 미리 보기 기능을 설명하고 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 앱에 해당 기능을 설정하는 방법을 보여줍니다. [Azure VNet(Virtual Network)][VNETOverview]을 사용하면 다양한 Azure 리소스를 인터넷이 아닌 라우팅 가능한 네트워크에 배치할 수 있습니다. 그러면 이러한 네트워크가 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. 
+이 문서는 Azure App Service 가상 네트워크 통합 미리 보기 기능을 설명하고 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱에 해당 기능을 설정하는 방법을 보여줍니다. [Azure VNet(Virtual Network)][VNETOverview]을 사용하면 다양한 Azure 리소스를 인터넷이 아닌 라우팅 가능한 네트워크에 배치할 수 있습니다. 그러면 이러한 네트워크가 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. 
 
 Azure App Service에는 두 가지 형태가 있습니다. 
 
@@ -30,7 +31,7 @@ Azure App Service에는 두 가지 형태가 있습니다.
 
 이 문서에서는 다중 테넌트 App Service에서 사용하도록 고안된 VNet 통합 기능에 대해 설명합니다.  앱이 [App Service Environment][ASEintro]에 있는 경우 이미 VNet에 있으므로 VNet 통합 기능을 사용하여 동일한 VNet의 리소스에 연결할 필요가 없습니다.
 
-VNet 통합은 가상 네트워크의 리소스에 대한 액세스 권한을 웹앱에 부여하지만, 가상 네트워크로부터의 웹앱에 대한 개인 액세스 권한은 부여하지 않습니다. 개인 사이트 액세스는 Azure Virtual Network와 같은 개인 네트워크에서만 앱에 액세스할 수 있도록 합니다. 개인 사이트 액세스는 ILB(내부 부하 분산 장치)로 ASE가 구성된 상태에서만 사용할 수 있습니다. ILB ASE 사용에 대한 자세한 내용을 보려면 [ILB ASE 만들기 및 사용][ILBASE] 문서부터 살펴봅니다. 
+VNet 통합은 가상 네트워크의 리소스에 대한 액세스 권한을 웹앱에 부여하지만, 가상 네트워크로부터의 웹앱에 대한 개인 액세스 권한은 부여하지 않습니다. 개인 사이트 액세스는 Azure Virtual Network와 같은 개인 네트워크에서만 앱에 액세스할 수 있도록 합니다. 개인 사이트 액세스는 ILB(내부 부하 분산 장치)로 ASE가 구성된 상태에서만 사용할 수 있습니다. ILB ASE 사용 방법에 대한 자세한 내용을 보려면 [ILB ASE 만들기 및 사용][ILBASE] 문서부터 살펴봅니다. 
 
 VNet 통합은 종종 VNet에서 실행되는 데이터베이스 및 웹 서비스에 앱에서 액세스할 수 있도록 하는 데 사용됩니다. VNet 통합을 사용하면 VM의 응용 프로그램에 대한 공개 엔드포인트를 노출할 필요가 없지만 인터넷에서 사용할 수 없고 라우팅할 있는 개인 주소를 대신 사용할 수 있습니다. 
 
@@ -161,7 +162,7 @@ VNet 통합 기능의 사용과 관련된 다음 세 가지 요금이 있습니�
 * 데이터 전송 비용
 * VPN Gateway 비용
 
-앱은 표준, 프리미엄 또는 프리미엄 V2 App Service 계획에 있어야 합니다. 해당 비용에 대한 자세한 정보는 [App Service 가격][ASPricing]을 참조하세요. 
+앱은 표준, 프리미엄 또는 프리미엄 V2 App Service 계획에 있어야 합니다. 해당 비용에 대한 자세한 내용은 [App Service 가격][ASPricing]을 참조하세요. 
 
 VNet이 동일한 데이터 센터에 있더라도 데이터 송신에 대한 요금이 있습니다. 이러한 요금은 [데이터 전송 가격 정보][DataPricing]에서 설명하고 있습니다. 
 
@@ -307,17 +308,17 @@ VNet과의 앱 연결을 끊으려면 **연결 끊기**를 선택합니다. 그�
 [8]: ./media/web-sites-integrate-with-vnet/vnetint-selectvnet.png
 
 <!--Links-->
-[VNETOverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
-[AzurePortal]: http://portal.azure.com/
-[ASPricing]: http://azure.microsoft.com/pricing/details/app-service/
-[VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
-[DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
-[V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[VNETOverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
+[AzurePortal]: https://portal.azure.com/
+[ASPricing]: https://azure.microsoft.com/pricing/details/app-service/
+[VNETPricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
+[DataPricing]: https://azure.microsoft.com/pricing/details/data-transfers/
+[V2VNETP2S]: https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
 [ASEintro]: environment/intro.md
 [ILBASE]: environment/create-ilb-ase.md
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
-[creategatewaysubnet]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
-[creategateway]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
-[setp2saddresses]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
+[creategatewaysubnet]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
+[creategateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
+[setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool

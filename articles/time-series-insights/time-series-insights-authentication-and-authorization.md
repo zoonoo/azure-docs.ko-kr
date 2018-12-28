@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights에서 API로 인증하고 권한을 부여하는 방법
+title: Azure Time Series Insights 인증 - Azure Time Series Insights에서 API로 인증하고 권한을 부여하는 방법 | Microsoft Docs
 description: 이 문서에서는 Azure Time Series Insights API를 호출하는 사용자 지정 응용 프로그램에 대한 인증 및 권한 부여를 구성하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: cbd851737d7122ff8b0c75eb2050ab481c8cecc0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.custom: seodec18
+ms.openlocfilehash: e42a29152f3abb762e6c95833e8e2e5eddd6929b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958468"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273547"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 

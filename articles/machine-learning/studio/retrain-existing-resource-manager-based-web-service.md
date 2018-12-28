@@ -1,12 +1,11 @@
 ---
-title: 기존 예측 웹 서비스 재학습 - Azure Machine Learning Studio | Microsoft Docs
+title: 기존 예측 Studio 웹 서비스 다시 학습 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Machine Learning Studio에서 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
@@ -16,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 8da3c5d5c79ce52f1f5176a8b3317ce2a0e0bc5f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d24cfd8dce42ee920c87fa2c3593a860468a6160
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311299"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250555"
 ---
-# <a name="retrain-an-existing-predictive-web-service"></a>기존 예측 웹 서비스 재학습
+# <a name="retrain-an-existing-predictive-azure-machine-learning-studio-web-service"></a>기존 예측 Azure Machine Learning Studio 웹 서비스 다시 학습
+
 이 문서에서는 다음 시나리오에 대한 재학습 프로세스를 설명합니다.
 
 * 조작 가능한 웹 서비스로 배포한 학습 실험 및 예측 실험이 있습니다.
@@ -66,7 +66,7 @@ ms.locfileid: "52311299"
 
 재학습 API를 호출하려면:
 
-1. Visual Studio(**새로 만들기** > **프로젝트** > **Visual C#** > **Windows 클래식 바탕 화면** > **콘솔 앱(.NET Framework)**)에서 C# 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio에서 C# 콘솔 애플리케이션을 만듭니다. **새로 만들기** > **프로젝트** > **Visual C#** > **Windows 클래식 데스크톱** > **콘솔 앱(.NET Framework)**.
 2. Machine Learning Web Service 포털에 로그인합니다.
 3. 현재 작업 중인 웹 서비스를 클릭합니다.
 4. **사용**을 클릭합니다.

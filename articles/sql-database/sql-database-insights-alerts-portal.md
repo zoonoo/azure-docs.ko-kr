@@ -3,7 +3,7 @@ title: Azure Portal을 사용하여 SQL Database 경고 만들기| Microsoft Doc
 description: Azure Portal을 사용하여 사용자가 지정한 조건에 부합하면 알림이나 자동 작업을 트리거할 수 있는 SQL Database 경고를 만듭니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: performance
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 11777013eca0ba3a759635ef99c2cfa04104e24b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: a48bd66c335981a76a67206f840f4be69aaa8af1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978998"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273350"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure Portal을 사용하여 Azure SQL Database 및 Data Warehouse에 대한 경고 만들기
 
@@ -38,8 +38,8 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다.
 
 * [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [명령줄 인터페이스(CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [명령줄 인터페이스(CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Azure 포털에서 메트릭에 대한 경고 규칙 만들기
@@ -48,7 +48,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
    
      ![모니터링](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SQL DW만 해당**: **DWU 사용량** 그래프를 클릭합니다. **클래식 경고 보기** 선택
+   - **SQL DW 전용**: **DWU 사용** 그래프를 클릭합니다. **클래식 경고 보기** 선택
 
 3. **메트릭 경고 추가(클래식)** 단추를 선택하고 필드에 입력합니다.
    
@@ -116,6 +116,6 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 모니터링 개요](../monitoring-and-diagnostics/monitoring-overview.md) 를 확인합니다.
-* [경고에서의 webhook 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md)에 대해 자세히 알아봅니다.
+* [경고에서의 webhook 구성](../azure-monitor/platform/alerts-webhooks.md)에 대해 자세히 알아봅니다.
 * 서비스의 상세 고빈도 메트릭을 수집하기 위한 [진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 의 개요를 살펴봅니다.
 * 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.

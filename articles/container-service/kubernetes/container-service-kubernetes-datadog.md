@@ -1,5 +1,5 @@
 ---
-title: Datadog을 사용하여 Azure Kubernetes 클러스터 모니터링
+title: (사용되지 않음) Datadog을 사용하여 Azure Kubernetes 클러스터 모니터링
 description: Datadog을 사용하여 Azure Container Service에서 Kubernetes 클러스터 모니터링
 services: container-service
 author: bburns
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0a3f0baa4998dbc594023935575d659f7d45bbb9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6a682c199b40035bfd44fc5611a7d44b49f7b3ab
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38629072"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995347"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Datadog을 사용하여 Azure Container Service 클러스터 모니터링
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(사용되지 않음) Datadog을 사용하여 Azure Container Service 클러스터 모니터링
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 이 연습에서는 [Azure Container Service를 사용하여 Kubernetes 클러스터를 만들었다고](container-service-kubernetes-walkthrough.md) 가정합니다.

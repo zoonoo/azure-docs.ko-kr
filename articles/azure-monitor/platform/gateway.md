@@ -10,17 +10,15 @@ ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 5e19c7c1ed15183fdb796a6fa4e537da946b40b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637338"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194235"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결
 이 문서에서는 직접 연결되거나 Operations Manager 모니터링 컴퓨터가 인터넷에 액세스할 수 없는 경우, Log Analytics 게이트웨이를 사용하여 Azure Automation 및 Log Analytics와의 통신을 구성하는 방법을 설명합니다.  HTTP CONNECT 명령을 사용하여 HTTP 터널링을 지원하는 HTTP 전달 프록시인 Log Analytics 게이트웨이에서 데이터를 수집하고 대신하여 Azure Automation 및 Log Analytics로 보낼 수 있습니다.  
@@ -82,7 +80,7 @@ Log Analytics 게이트웨이는 다음 언어로 제공됩니다.
 - 스페인어 (국제)
 
 ### <a name="supported-encryption-protocols"></a>지원되는 암호화 프로토콜
-Log Analytics 게이트웨이는 TLS(전송 계층 보안) 1.0, 1.1 및 1.2만 지원합니다.  SSL(Secure Sockets Layer)은 지원하지 않습니다.  Log Analytics로 전송 중인 데이터를 보호하려면 적어도 TLS(전송 계층 보안) 1.2 이상을 사용하도록 게이트웨이를 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**.  자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12)를 검토하세요. 
+Log Analytics 게이트웨이는 TLS(전송 계층 보안) 1.0, 1.1 및 1.2만 지원합니다.  SSL(Secure Sockets Layer)은 지원하지 않습니다.  Log Analytics로 전송 중인 데이터를 보호하려면 적어도 TLS(전송 계층 보안) 1.2 이상을 사용하도록 게이트웨이를 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**.  자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)를 검토하세요. 
 
 ### <a name="supported-number-of-agent-connections"></a>지원되는 에이전트 연결 수
 다음 표에는 게이트웨이 서버와 통신하는 지원되는 에이전트 수가 강조 표시되어 있습니다.  이 지원은 6초마다 200KB 이하의 데이터를 업로드하는 에이전트를 기반으로 합니다. 테스트되는 에이전트별 데이터 볼륨은 하루에 약 2.7GB입니다.
@@ -136,13 +134,13 @@ Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배�
 1. NLB 클러스터의 구성원인 Windows 서버에 관리 계정으로 로그인합니다.  
 1. [서버 관리자]에서 [네트워크 부하 분산 관리자]를 열고, **도구**를 클릭한 다음 **네트워크 부하 분산 관리자**를 클릭합니다.
 1. Log Analytics 게이트웨이 서버를 설치되어 있는 Microsoft Monitoring Agent와 연결하려면 클러스터의 IP 주소를 마우스 오른쪽 단추로 클릭한 다음, **클러스터에 호스트 추가**를 클릭합니다.<br><br> ![네트워크 부하 분산 관리자 – 클러스터에 호스트 추가](./media/gateway/nlb02.png)<br> 
-1. 연결하려는 게이트웨이 서버의 IP 주소를 입력합니다.<br><br> ![네트워크 부하 분산 관리자 – 클러스터에 호스트 추가: 연결](./media/gateway/nlb03.png) 
+1. 연결하려는 게이트웨이 서버의 IP 주소를 입력합니다.<br><br> ![네트워크 부하 분산 관리자 - 클러스터에 호스트 추가: 연결](./media/gateway/nlb03.png) 
     
 ## <a name="configure-log-analytics-agent-and-operations-manager-management-group"></a>Log Analytics 에이전트 및 Operations Manager 관리 그룹 구성
 다음 섹션에는 Log Analytics 게이트웨이와 직접 연결되는 Log Analytics 에이전트, Operations Manager 관리 그룹 또는 Azure Automation Hybrid Runbook Workers를 구성하여 Azure Automation 또는 Log Analytics와 통신하는 방법에 대한 단계가 포함되어 있습니다.  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>독립 실행형 Log Analytics 에이전트 구성
-Log Analytics에 직접 연결하는 Windows 컴퓨터에 Log Analytics 에이전트를 설치하는 방법에 대한 요구 사항과 단계를 이해하려면 [Log Analytics에 Windows 컴퓨터 연결](agent-windows.md) 또는 Linux 컴퓨터의 경우 [Log Analytics에 Linux 컴퓨터 연결](../../log-analytics/log-analytics-quick-collect-linux-computer.md)을 참조하세요. 에이전트를 구성하는 동안 프록시 서버를 지정하지 않고 Log Analytics 게이트웨이 서버와 해당 포트 번호의 IP 주소로 해당 값을 바꿉니다.  네트워크 부하 분산 장치 뒤에 여러 개의 게이트웨이 서버를 배포한 경우 Log Analytics 에이전트 프록시 구성은 NLB의 가상 IP 주소입니다.  
+Log Analytics에 직접 연결하는 Windows 컴퓨터에 Log Analytics 에이전트를 설치하는 방법에 대한 요구 사항과 단계를 이해하려면 [Log Analytics에 Windows 컴퓨터 연결](agent-windows.md) 또는 Linux 컴퓨터의 경우 [Log Analytics에 Linux 컴퓨터 연결](../../azure-monitor/learn/quick-collect-linux-computer.md)을 참조하세요. 에이전트를 구성하는 동안 프록시 서버를 지정하지 않고 Log Analytics 게이트웨이 서버와 해당 포트 번호의 IP 주소로 해당 값을 바꿉니다.  네트워크 부하 분산 장치 뒤에 여러 개의 게이트웨이 서버를 배포한 경우 Log Analytics 에이전트 프록시 구성은 NLB의 가상 IP 주소입니다.  
 
 Automation Hybrid Runbook Worker와 관련된 내용은 [Hybrid Runbook Worker 배포](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.
 
@@ -256,7 +254,7 @@ cmdlet은 Log Analytics 게이트웨이 구성 설정을 업데이트하는 데 
 1. 이전 단계에서 오류가 발생하지 않은 경우 모듈을 성공적으로 가져왔으며 cmdlet을 사용할 수 있습니다. `Get-Module OMSGateway`를 입력합니다.
 1. cmdlet을 사용하여 변경한 후에는 게이트웨이 서비스를 다시 시작해야 합니다.
 
-3단계에서 오류가 발생하면 모듈을 가져오기가 완료되지 못한 것입니다. PowerShell이 모듈을 찾을 수 없는 경우 오류가 발생할 수 있습니다. 게이트웨이 설치 경로 *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*에서 해당 모듈을 찾을 수 있습니다.
+3단계에서 오류가 발생하면 모듈을 가져오기가 완료되지 못한 것입니다. PowerShell이 모듈을 찾을 수 없는 경우 오류가 발생할 수 있습니다. 게이트웨이의 설치 경로에서 찾을 수 있습니다. *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
 
 | **Cmdlet** | **매개 변수** | **설명** | **예제** |
 | --- | --- | --- | --- |  

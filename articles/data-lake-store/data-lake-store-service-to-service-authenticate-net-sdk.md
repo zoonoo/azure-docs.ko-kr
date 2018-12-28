@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 61d9606ff14a48e6c224108596f0f01daa4813e1
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 58d8cfdbd2ad5d7e727decfa3e3cfdd7151b0048
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954293"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250208"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ ms.locfileid: "49954293"
         var adlCreds = GetCreds_SPI_SecretKey(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, secret_key);
     }
 
-앞의 코드 조각은 도우미 함수 `GetCreds_SPI_SecretKey`를 사용합니다. 이 도우미 함수에 대한 코드는 [여기 Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey)에서 사용할 수 있습니다.
+앞의 코드 조각은 도우미 함수 `GetCreds_SPI_SecretKey`를 사용합니다. 이 도우미 함수에 대한 코드는 [여기 GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey)에서 사용할 수 있습니다.
 
 ## <a name="service-to-service-authentication-with-certificate"></a>인증서를 사용하여 서비스 간 인증
 
@@ -113,7 +113,7 @@ ms.locfileid: "49954293"
         var adlCreds = GetCreds_SPI_Cert(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, cert);
     }
 
-앞의 코드 조각은 도우미 함수 `GetCreds_SPI_Cert`를 사용합니다. 이 도우미 함수에 대한 코드는 [여기 Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert)에서 사용할 수 있습니다.
+앞의 코드 조각은 도우미 함수 `GetCreds_SPI_Cert`를 사용합니다. 이 도우미 함수에 대한 코드는 [여기 GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert)에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 .NET SDK를 사용하여 Data Lake Storage Gen1로 인증하는 서비스 간 인증을 사용하는 방법을 배웠습니다. 이제 다음 문서를 통해 .NET SDK를 Data Lake Storage Gen1과 함께 사용하는 방법을 살펴볼 수 있습니다.

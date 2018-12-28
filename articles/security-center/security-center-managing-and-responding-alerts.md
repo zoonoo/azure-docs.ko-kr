@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 779efdd509460ac8175b3922097d701edf8b9b68
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 782e655edcb7cbac1965131bce4431dc5599328e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311231"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340631"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 대응
 이 문서는 Azure Security Center를 사용하여 보안 경고를 관리하고 대응하는 데 도움이 됩니다.
 
 > [!NOTE]
-> 고급 감지를 사용하도록 설정하려면 Azure Security Center 표준으로 업그레이드합니다. 무료 60일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-azure-policy.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Azure Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
+> 고급 감지를 사용하도록 설정하려면 Azure Security Center 표준으로 업그레이드합니다. 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](tutorial-security-policy.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Azure Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
 >
 >
 
@@ -52,11 +52,11 @@ ms.locfileid: "52311231"
 이 페이지의 아래 부분에 각 경고에 대한 세부 정보가 있습니다. 정렬하려면 정렬 기준으로 사용할 열을 클릭합니다. 각 열에 대한 정의는 다음과 같습니다.
 
 * **설명**: 경고에 대해 간략히 설명합니다.
-* **개수**: 특정 날짜에서 감지한 이 특정 형식의 모든 경고 목록입니다.
-* **감지 기준**: 경고를 트리거하는 일을 담당하는 서비스입니다.
+* **개수**: 특정 날짜에서 탐지된 이 특정 형식의 모든 경고 목록입니다.
+* **탐지 기준**: 경고를 트리거하는 일을 담당하는 서비스입니다.
 * **날짜**: 이벤트가 발생한 날짜입니다.
 * **상태**: 해당 경고에 대한 현재 상태입니다. 다음과 같은 두 가지 종류의 상태가 있습니다.
-  * **활성**: 보안 경고가 감지되었습니다.
+  * **활성**: 보안 경고가 탐지되었습니다.
   * **해제됨**: 사용자가 보안 경고를 해제했습니다. 일반적으로 이 상태는 조사를 거쳐 실제 공격이 아닌 것으로 밝혀졌거나 완화된 경고에 사용됩니다.
 * **심각도**: 심각도 수준(높음, 중간 또는 낮음)입니다.
 

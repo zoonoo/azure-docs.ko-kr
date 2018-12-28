@@ -4,18 +4,18 @@ description: Azure Logic Apps의 논리 앱 정의에 대한 2015-08-01-preview 
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: stepsic-microsoft-com
-ms.author: stepsic
-ms.reviewer: klam, estfan, LADocs
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: dd05543c2a727f010432ecb54c2dc3e77a245de4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ec6f98ca0f0260a0d7bed16538f557931cd2e33e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122780"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080013"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure Logic Apps에 대한 스키마 업데이트 - 2015년 8월 1일 미리 보기
 
@@ -72,12 +72,16 @@ Microsoft는 사용자를 대신해서 Office 365, Salesforce, Twitter, FTP 등�
 }
 ```
 
-`host` 개체는 API 연결에 고유한 입력의 일부로, `api` 및 `connection`의 두 부분을 포함합니다. `api` 개체는 관리 API가 호스팅되는 런타임 URL을 지정합니다. `GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`를 호출하여 사용 가능한 모든 관리 API를 볼 수 있습니다.
+`host` 개체는 API 연결에 고유한 입력의 일부로, `api` 및 `connection`의 두 부분을 포함합니다. `api` 개체는 관리 API가 호스팅되는 런타임 URL을 지정합니다. 다음 메서드를 호출하여 사용 가능한 모든 관리 API를 볼 수 있습니다.
+
+```text
+GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<location>/managedApis?api-version=2015-08-01-preview
+```
 
 API를 사용하는 경우 API에 *연결 매개 변수*가 정의되어 있거나 그렇지 않을 수 있습니다. 따라서 API에서 이 매개 변수를 정의하지 않는 경우에는 연결이 필요 없습니다. API에서 이 매개 변수를 정의하는 경우에는 지정된 이름으로 연결을 만들어야 합니다.  
 그런 다음, 이 이름을 `host` 개체 내의 `connection` 개체에서 참조합니다. 리소스 그룹에서 연결을 만들려면 다음 메서드를 호출합니다.
 
-```
+```text
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/<name>?api-version=2015-08-01-preview
 ```
 
@@ -99,8 +103,8 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
 
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 관리 API 배포
 
-대화형 로그인이 필요하지 않다면 Azure Resource Manager 템플릿에서 전체 앱을 만들 수 있습니다.
-로그인이 필요한 경우, Azure Resource Manager 템플릿을 사용하여 모든 항목을 설정할 수 있지만 Azure Portal에 방문하여 연결에 권한을 부여해야 합니다. 
+대화형 로그인이 필요하지 않은 경우 Resource Manager 템플릿을 사용하여 전체 앱을 만들 수 있습니다.
+로그인이 필요한 경우에도 Resource Manager 템플릿을 사용할 수 있지만, Azure Portal을 통해 연결에 권한을 부여해야 합니다. 
 
 ``` json
 "resources": [ {
@@ -194,7 +198,7 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
 
 ### <a name="your-custom-web-apis"></a>사용자 지정 Web API
 
-사용자 고유의 API(Microsoft 관리 항목 아님)를 사용하는 경우 기본 제공 **HTTP** 작업을 사용하여 호출해야 합니다. 이상적인 환경을 위해서는 API에 대한 Swagger 엔드포인트를 노출해야 합니다. 이 엔드포인트에서는 논리 앱 디자이너가 API에 대한 입력 및 출력을 렌더링할 수 있습니다. Swagger가 없는 경우 디자이너는 입력 및 출력을 불투명 JSON 개체로 표시할 수 있게 됩니다.
+Microsoft 관리 API가 아닌 사용자 고유의 API를 사용하는 경우 기본 제공 **HTTP** 작업을 사용하여 API를 호출합니다. API에 대한 Swagger 엔드포인트를 제공해야 합니다. 이 엔드포인트는 Logic App Designer에서 API의 입력 및 출력을 표시하는 데 도움이 됩니다. Swagger 엔드포인트가 없으면 디자이너에서 입력 및 출력을 불투명 JSON 개체로만 표시할 수 있습니다.
 
 다음은 새 `metadata.apiDefinitionUrl` 속성을 보여 주는 예입니다.
 
@@ -259,7 +263,7 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
 }
 ```
 
-이제 다음 예제와 같은 동등한 HTTP 작업을 생성할 수 있으나, 논리 앱 정의의 매개 변수 섹션은 변경되지 않고 유지됩니다.
+이제 다음과 같이 유사한 HTTP 작업을 빌드하고 논리 앱 정의의 `parameters` 섹션을 변경되지 않은 상태로 유지할 수 있습니다.
 
 ``` json
 "actions": {
@@ -292,8 +296,8 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
 | `metadata.apiDefinitionUrl` | 논리 앱 디자이너에서 이 작업을 사용하려는 경우 다음에서 생성되는 메타데이터 엔드포인트를 포함합니다. `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
 | `inputs.uri` | 생성된 위치: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` | 항상 `POST` |
-| `inputs.body` | API App 매개 변수와 동일 |
-| `inputs.authentication` | API App 인증과 동일 |
+| `inputs.body` | API 앱 매개 변수와 동일 |
+| `inputs.authentication` | API 앱 인증과 동일 |
 
 이 방법은 모든 API App 작업에 대해 작동합니다. 하지만 이러한 이전 API Apps는 더 이상 지원되지 않습니다. 따라서 이전의 다른 두 옵션 중 하나로 전환해야 합니다(관리 API 또는 사용자 지정 Web API 호스팅).
 
@@ -407,15 +411,15 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
 
 ## <a name="native-http-listener"></a>네이티브 HTTP 수신기
 
-이제 HTTP 수신기 기능이 기본 제공됩니다. 따라서 HTTP 수신기 API App을 더 이상 배포할 필요가 없습니다. [논리 앱 엔드포인트를 호출 가능한 상태로 만드는 방법에 대한 자세한 내용은 여기](../logic-apps/logic-apps-http-endpoint.md)를 참조하세요. 
+이제 HTTP 수신기 기능이 기본 제공되므로 HTTP 수신기 API 앱을 배포할 필요가 없습니다. 자세한 내용은 [논리 앱 엔드포인트를 호출 가능한 상태로 만드는 방법](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요. 
 
-이러한 변경으로 함수 `@accessKeys()`가 제거되고 필요한 경우 엔드포인트를 가져오기 위해 `@listCallbackURL()` 함수로 대체되었습니다. 또한 이제 논리 앱에서 트리거를 하나 이상 정의해야 합니다. 워크플로를 `/run`하려는 경우 `manual`, `apiConnectionWebhook` 또는 `httpWebhook` 트리거 중 하나를 포함해야 합니다.
+이러한 변경 때문에 Logic Apps는 필요한 경우 엔드포인트를 가져오는 `@listCallbackURL()` 함수로 `@accessKeys()` 함수를 대체합니다. 또한 이제 논리 앱에서 트리거를 하나 이상 정의해야 합니다. 워크플로를 `/run`하려는 경우 `Manual`, `ApiConnectionWebhook` 또는 `HttpWebhook` 트리거 유형 중 하나를 사용해야 합니다.
 
 <a name="child-workflows"></a>
 
 ## <a name="call-child-workflows"></a>하위 워크플로 호출
 
-이전에는 하위 워크플로를 호출하려면 해당 워크플로로 이동하여 액세스 토큰을 가져온 후 해당 하위 워크플로를 호출하려는 논리 앱 정의에 토큰을 붙여넣어야 했습니다. 새 스키마를 사용할 경우 Logic Apps 엔진은 런타임에 하위 워크플로에 대한 SAS를 자동으로 생성합니다. 따라서 정의에 어떠한 비밀도 붙여넣을 필요가 없습니다. 다음은 예제입니다.
+이전에는 하위 워크플로를 호출하려면 해당 워크플로로 이동하여 액세스 토큰을 가져온 후 해당 하위 워크플로를 호출하려는 논리 앱 정의에 토큰을 붙여넣어야 했습니다. 이 스키마를 사용할 경우 Logic Apps 엔진은 런타임에 하위 워크플로에 대한 SAS를 자동으로 생성합니다. 따라서 정의에 어떠한 비밀도 붙여넣을 필요가 없습니다. 다음은 예제입니다.
 
 ``` json
 "myNestedWorkflow": {
@@ -441,9 +445,9 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
 }
 ```
 
-두 번째 향상된 내용은 들어오는 요청에 대한 전체 액세스 권한을 하위 워크플로에 부여하는 것입니다. 따라서 *queries* 섹션 및 *headers* 개체에서 매개 변수를 전달할 수 있으며 전체 본문을 완전히 정의할 수 있습니다.
+또한 하위 워크플로가 수신 요청에 대한 모든 권한을 갖습니다. 따라서 `queries` 섹션 및 `headers` 개체에 매개 변수를 전달할 수 있습니다. 전체 `body` 섹션을 완전히 정의할 수도 있습니다.
 
-마지막으로, 하위 워크플로에 필요한 변경 내용이 있습니다. 이전에는 하위 워크플로를 직접 호출할 수 있었지만 이제는 상위에서 호출할 워크플로에 트리거 엔드포인트를 정의해야 합니다. 일반적으로 `manual` 유형의 트리거를 추가한 후 상위 정의에 해당 트리거를 사용합니다. 특히 호출 중인 트리거를 항상 지정해야 하므로 `host` 속성은 `triggerName`을 포함합니다.
+마지막으로, 하위 워크플로에 이러한 필수 변경 내용이 포함됩니다. 이전에는 하위 워크플로를 직접 호출할 수 있었지만 이제 상위에서 호출할 워크플로에 트리거 엔드포인트를 정의해야 합니다. 일반적으로 `Manual` 유형의 트리거를 추가한 후 상위 정의에 해당 트리거를 사용합니다. 항상 사용자가 호출하는 트리거를 지정해야 하므로 특히 `host` 속성에 `triggerName`이 있습니다.
 
 ## <a name="other-changes"></a>기타 변경 내용
 
@@ -453,8 +457,8 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
 
 ### <a name="renamed-parse-function-to-json"></a>'parse()' 함수 이름이 'json()'으로 변경되었습니다.
 
-곧 더 많은 콘텐츠가 추가될 예정이므로 `parse()` 함수 이름을 `json()`으로 바꾸었습니다.
+이후 콘텐츠 형식에 대한 `parse()` 함수의 이름이 이제 `json()` 함수로 변경되었습니다.
 
-## <a name="coming-soon-enterprise-integration-apis"></a>서비스 예정: 엔터프라이즈 통합 API
+## <a name="enterprise-integration-apis"></a>엔터프라이즈 통합 API
 
-관리된 버전의 엔터프라이즈 통합 API가 없습니다(예: AS2). 그 동안은 HTTP 작업을 통해 기존에 배포된 BizTalk API를 사용하면 됩니다. 자세한 내용은 [통합 로드맵](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)의 "이미 배포된 API 앱 사용"을 참조하세요. 
+이 스키마는 AS2와 같은 엔터프라이즈 통합 API에 대한 관리 버전을 아직 지원하지 않습니다. 하지만 HTTP 작업을 통해 기존에 배포된 BizTalk API를 사용할 수 있습니다. 자세한 내용은 [통합 로드맵](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)의 "이미 배포된 API 앱 사용"을 참조하세요. 

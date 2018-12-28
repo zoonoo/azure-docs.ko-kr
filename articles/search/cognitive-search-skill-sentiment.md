@@ -1,6 +1,6 @@
 ---
-title: 감성 인식 검색 기술(Azure Search) | Microsoft Docs
-description: Azure Search 보강 파이프라인의 이미지 파일에서 감성을 추출합니다.
+title: 감성 인식 검색 기술 - Azure Search
+description: Azure Search 보강 파이프라인의 텍스트에서 긍정-부정적 감성 점수를 추출합니다.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,19 +11,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1e4028c3a810de41efe217e6dd4347fc3bc6bf16
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 4b8913d64a3df8799ba1d73972121ef331aaac81
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730887"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314077"
 ---
 #   <a name="sentiment-cognitive-skill"></a>감성 인식 기술
 
 **감성** 기술은 긍정과 부정 지속성에 따라 구조화되지 않은 텍스트를 평가하고 각 레코드에 대해 0과 1 사이의 점수를 반환합니다. 점수가 1에 가까울수록 긍정적 감정을 나타내고 점수가 0에 가까울수록 부정적 감정을 나타냅니다.
 
 > [!NOTE]
-> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
+> 2018년 12월 21일부터 Cognitive Services 리소스를 Azure Search 기술과 연결할 수 있습니다. 이를 통해 Microsoft는 기술 실행 요금을 부과할 수 있습니다. 또한 문서 해독 단계의 일부로 이미지 추출에 대한 요금 청구가 이 날짜부터 시작됩니다. 문서에서의 텍스트 추출은 추가 비용 없이 계속 제공됩니다.
+>
+> 기본 제공 기술의 실행에 대한 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격은 미리 보기 가격으로 책정되며 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다. [자세히](cognitive-search-attach-cognitive-services.md) 알아봅니다.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SentimentSkill

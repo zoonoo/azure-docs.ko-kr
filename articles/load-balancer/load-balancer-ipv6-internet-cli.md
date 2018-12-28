@@ -1,5 +1,6 @@
 ---
-title: IPv6를 사용하여 공용 부하 분산 장치 만들기 - Azure CLI | Microsoft Docs
+title: IPv6로 공용 Load Balancer 만들기 - Azure CLI
+titlesuffix: Azure Load Balancer
 description: Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모�
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: e3d6611c8a5c6faf3d1e070d1bafa2027adfc0cb
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739841"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53142022"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치 만들기
 
@@ -45,9 +47,9 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 부하 분산 장치를 배포하려면 다음 개체를 만들고 구성합니다.
 
 * **프런트 엔드 IP 구성**: 들어오는 네트워크 트래픽에 대한 공용 IP 주소를 포함합니다.
-* **백 엔드 주소 풀**: 부하 분산 장치의 네트워크 트래픽을 수신하기 위해 가상 머신에 NIC(네트워크 인터페이스)를 포함합니다.
-* **부하 분산 규칙**: 백 엔드 주소 풀에 있는 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
-* **인바운드 NAT 규칙**: 백 엔드 주소 풀에 있는 특정 가상 머신에 대한 포트에 부하 분산 장치의 공용 포트를 매핑하는 NAT(Network Address Translation) 규칙을 포함합니다.
+* **백 엔드 주소 풀**: Load Balancer의 네트워크 트래픽을 수신하기 위해 가상 머신에 NIC(네트워크 인터페이스)를 포함합니다.
+* **부하 분산 규칙**: 백 엔드 주소 풀에 있는 포트에 Load Balancer의 공용 포트를 매핑하는 규칙을 포함합니다.
+* **인바운드 NAT 규칙**: 백 엔드 주소 풀에 있는 특정 가상 머신에 대한 포트에 Load Balancer의 공용 포트를 매핑하는 NAT(Network Address Translation) 규칙을 포함합니다.
 * **프로브**: 백 엔드 주소 풀의 가상 머신 인스턴스의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
 
 ## <a name="set-up-azure-cli"></a>Azure CLI 설치

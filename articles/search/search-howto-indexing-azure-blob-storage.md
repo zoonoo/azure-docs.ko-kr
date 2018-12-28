@@ -1,6 +1,6 @@
 ---
-title: Azure Search로 Azure Blob Storage 인덱싱
-description: Azure Blob Storage를 인덱싱하고 Azure Search를 사용하여 문서에서 텍스트를 추출하는 방법에 대해 알아보세요.
+title: 전체 텍스트 검색을 위해 Azure Blob Storage 콘텐츠 인덱싱 - Azure Search
+description: Azure Blob Storage를 인덱싱하고 Azure Search를 사용하여 문서에서 텍스트를 추출하는 방법을 알아봅니다.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: d2706d4b10303cb62066f0381f9a69b553c05cb4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: c73a802cd67c9ecb94482cfcd6aac51fc8bbc19e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406975"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317477"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure Search로 Azure Blob Storage에서 문서 인덱싱
 이 문서에서는 Azure Search를 사용하여 Azure Blob Storage에 저장된 문서(예: PDF, Office 파일 및 다양한 기타 일반적인 형식)를 인덱싱하는 방법을 보여줍니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
@@ -69,7 +70,7 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 하나입니다.
 
 - **전체 액세스 저장소 계정 연결 문자열**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Azure Portal에서 저장소 계정 블레이드 > 설정 > 키(클래식 저장소 계정) 또는 설정 > 액세스 키(Azure Resource Manager 저장소 계정)로 이동하여 연결 문자열을 가져올 수 있습니다.
-- **Storage 계정 SAS(공유 액세스 서명)** 연결 문자열: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS에 컨테이너 및 개체(이 경우 Blob)에 대한 읽기 권한 및 목록이 있어야 합니다.
+- **스토리지 계정 공유 액세스 서명**(SAS) 연결 문자열: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS에 컨테이너 및 개체(이 경우 Blob)에 대한 읽기 권한 및 목록이 있어야 합니다.
 -  **컨테이너 공유 액세스 서명**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다.
 
 저장소 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
@@ -333,7 +334,7 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 
 인덱스에 있는 여러 원본의 문서를 "조합"할 수도 있습니다. 예를 들어 Cosmos DB에 저장된 다른 메타데이터와 BLOB의 텍스트를 병합할 수 있습니다. 푸시 인덱싱 API를 다양한 인덱서와 함께 사용하여 여러 부분에서 검색 문서를 구축할 수도 있습니다. 
 
-이렇게 하려면 모든 인덱서 및 기타 구성 요소가 문서 키에 동의해야 합니다. 자세한 연습은 이 외부 아티클 [Azure Search의 다른 데이터와 문서 결합](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)을 참조하세요.
+이렇게 하려면 모든 인덱서 및 기타 구성 요소가 문서 키에 동의해야 합니다. 자세한 내용은 다음 외부 문서를 참조하세요. [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)(Azure Search에서 문서를 다른 데이터와 결합).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>일반 텍스트 인덱싱 
@@ -374,7 +375,7 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 | MSG(application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |첨부 파일을 비롯한 텍스트 추출 |
 | ZIP(application/zip) |`metadata_content_type` |보관 파일의 모든 문서에서 텍스트 추출 |
 | XML(application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |XML 태그를 제거하고 텍스트 추출 |
-| JSON(application/json) |`metadata_content_type`</br>`metadata_content_encoding` |텍스트 추출<br/>참고: JSON BLOB에서 여러 문서 필드를 추출해야 하는 경우 자세한 내용은 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md)을 참조하세요. |
+| JSON(application/json) |`metadata_content_type`</br>`metadata_content_encoding` |텍스트 추출<br/>참고:  JSON BLOB에서 여러 문서 필드를 추출해야 하는 경우 자세한 내용은 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md)을 참조하세요. |
 | EML(메시지/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |첨부 파일을 비롯한 텍스트 추출 |
 | RTF(application/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | 텍스트 추출|
 | 일반 텍스트(text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | 텍스트 추출|

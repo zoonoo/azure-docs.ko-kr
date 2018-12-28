@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 496a24f79cee1323077c357789628123d082ceac
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 16a392d83cc24aafc7a84b4fa4c50b752508d9c2
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716233"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53215921"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>사용자 로그인에 MSAL(Microsoft 인증 라이브러리) 사용
 
@@ -129,7 +129,7 @@ else {
 
 사용자가 **로그인** 단추를 처음으로 클릭하면 `signIn` 메서드는 사용자를 로그인하기 위해 `loginPopup`를 호출합니다. 이 메서드를 호출한 결과 사용자의 자격 증명을 묻고 유효성을 검사하는 *Microsoft Azure Active Directory v2.0 엔드포인트*가 있는 팝업 창이 열립니다. 성공적으로 로그인되면 사용자는 다시 원래 *index.html* 페이지로 리디렉션되고 토큰을 받아 `msal.js`에서 처리되며 토큰에 포함된 정보가 캐시됩니다. 이 토큰은 *ID 토큰*이라고 하며 사용자 표시 이름과 같은 사용자에 대한 기본 정보를 포함합니다. 이 토큰에서 제공하는 데이터를 어떤 용도로든 사용할 계획이면 백 엔드 서버에서 이 토큰의 유효성을 검사하여 토큰이 응용 프로그램의 유효한 사용자에게 발급되었음을 보장하는지 확인해야 합니다.
 
-이 가이드에서 생성하는 SPA는 `acquireTokenSilent` 및/또는 `acquireTokenPopup`를 호출하여 사용자 프로필 정보에 대해 Microsoft Graph API를 쿼리하는 데 사용하는 *액세스 토큰*을 가져옵니다. ID 토큰의 유효성을 검사하는 예제가 필요한 경우 GitHub에서 [이](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 예제") 응용 프로그램 예제를 살펴보세요. 이 예제는 토큰 유효성 검사를 위해 ASP.NET Web API를 사용합니다.
+이 가이드에서 생성하는 SPA는 `acquireTokenSilent` 및/또는 `acquireTokenPopup`를 호출하여 사용자 프로필 정보에 대해 Microsoft Graph API를 쿼리하는 데 사용하는 *액세스 토큰*을 가져옵니다. ID 토큰의 유효성을 검사하는 예제가 필요한 경우 GitHub에서 [이](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 샘플") 애플리케이션을 살펴보세요. 이 샘플은 토큰 유효성 검사를 위해 ASP.NET Web API를 사용합니다.
 
 #### <a name="getting-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 

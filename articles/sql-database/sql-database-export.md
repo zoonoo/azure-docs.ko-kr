@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: fecc694e5520444be06dab82191b6454fb4ee8f5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 2d881b9dbc20dbbf95491d023b859a20815091d3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354039"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311204"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL Database를 BACPAC 파일로 내보내기
 
@@ -39,11 +39,11 @@ ms.locfileid: "49354039"
   - 모든 대형 테이블에 null이 아닌 값의 [클러스터형 인덱스](https://msdn.microsoft.com/library/ms190457.aspx) 를 사용합니다. 클러스터형 인덱스가 없는 경우 6~12시간 이상 소요되면 내보내기에 실패할 수 있습니다. 전체 테이블 내보내기를 시도하려면 내보내기 서비스에서 테이블 스캔을 완료해야 하기 때문입니다. 테이블이 내보내기에 최적화되었는지 확인하는 좋은 방법은 **DBCC SHOW_STATISTICS**를 실행하고 *RANGE_HI_KEY*가 null이 아닌지와 해당 값이 잘 배포되어 있는지 검토하는 것입니다. 자세한 내용은 [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx)를 참조하세요.
 
 > [!NOTE]
-> BACPAC는 백업에 사용되는 목적이 아니며 작업을 복원합니다. Azure SQL Database에서는 모든 사용자 데이터베이스의 백업이 자동으로 생성됩니다. 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md) 및 [SQL Database 백업](sql-database-automated-backups.md)을 참조하세요.  
+> BACPAC는 백업에 사용되는 목적이 아니며 작업을 복원합니다. Azure SQL Database에서는 모든 사용자 데이터베이스의 백업이 자동으로 생성됩니다. 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md) 및 [SQL Database 백업](sql-database-automated-backups.md)을 참조하세요.
 
 ## <a name="export-to-a-bacpac-file-using-the-azure-portal"></a>Azure Portal을 사용하여 BACPAC 파일로 내보내기
 
-[Azure Portal](https://portal.azure.com)을 사용하여 데이터베이스를 내보내려면 데이터베이스에 대한 페이지를 열고 도구 모음에서 **내보내기**를 클릭합니다. BACPAC 파일 이름을 지정하고, 내보내기에 필요한 Azure Storage 계정 및 컨테이너를 제공하고, 원본 데이터베이스에 연결할 자격 증명을 제공합니다.  
+[Azure Portal](https://portal.azure.com)을 사용하여 데이터베이스를 내보내려면 데이터베이스에 대한 페이지를 열고 도구 모음에서 **내보내기**를 클릭합니다. BACPAC 파일 이름을 지정하고, 내보내기에 필요한 Azure Storage 계정 및 컨테이너를 제공하고, 원본 데이터베이스에 연결할 자격 증명을 제공합니다.
 
 ![데이터베이스 내보내기](./media/sql-database-export/database-export.png)
 
@@ -72,13 +72,13 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.d
 
 [New-AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet을 사용하여 Azure SQL Database 서비스에 데이터베이스 내보내기 요청을 제출합니다. 데이터베이스 크기에 따라 내보내기 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
- ```powershell
- $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
-   -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
-   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
- ```
+```powershell
+$exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+  -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+  -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
+```
 
-내보내기 요청의 상태를 확인하려면 [Get AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet을 사용합니다. 이 요청 직후에 이 명령을 실행하면 **Status: InProgress**가 반환됩니다. **Status : Succeeded**가 표시되면 내보내기가 완료된 것입니다.
+내보내기 요청의 상태를 확인하려면 [Get AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet을 사용합니다. 이 요청 직후에 이 명령을 실행하면 **Status: InProgress**가 반환됩니다. **Status: Succeeded**가 표시되면 내보내기가 완료된 것입니다.
 
 ```powershell
 $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink

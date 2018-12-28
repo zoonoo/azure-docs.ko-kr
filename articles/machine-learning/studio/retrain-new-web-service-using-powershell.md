@@ -4,9 +4,8 @@ description: Machine Learning Management PowerShell cmdlet를 사용하여 Azure
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 59d12ae91f8c75ab0fdd2058057cc8de158897e7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0dc41b001ecca26239c0a9e8f69e2709d6927fcd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314187"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250580"
 ---
-# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-studio-management-powershell-cmdlets"></a>Machine Learning Studio 관리 PowerShell cmdlet을 사용하여 새 Resource Manager 기반 웹 서비스를 다시 학습
+# <a name="retrain-a-new-resource-manager-based-studio-web-service-using-powershell"></a>Powershell을 사용하여 새 Resource Manager 기반 Studio 웹 서비스 다시 학습
 새 웹 서비스를 다시 교육하는 경우 새로 학습된 모델을 참조하여 예측 웹 서비스 정의를 업데이트합니다.
 
 ## <a name="prerequisites"></a>필수 조건

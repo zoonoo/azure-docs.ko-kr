@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2018
+ms.date: 12/9/2018
 ms.author: rkarlin
-ms.openlocfilehash: f46837751901015fd80d3ecc7a620878cadb3f12
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b38ba140a1e2b853c07e1ffe53405b58663653b5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317877"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343873"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Azure Security Center를 통해 App Service 보호
 이 문서에서는 Azure Security Center를 사용하여 App Service 기반으로 실행 중인 애플리케이션을 모니터링 및 보호하는 데 도움이 됩니다.
 
-App Service를 사용하면 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 애플리케이션을 빌드하고 호스팅할 수 있습니다. App Service는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며, GitHub, Visual Studio Team Services 또는 Git 리포지토리에서 자동화된 배포를 지원합니다. 
+App Service를 사용하면 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 애플리케이션을 빌드하고 호스팅할 수 있습니다. App Service는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며, GitHub, Azure DevOps 또는 Git 리포지토리에서 자동화된 배포를 지원합니다. 
 
 종종 웹 애플리케이션의 취약성은 인터넷의 거의 모든 조직에 대한 공통 및 동적 인터페이스를 가지고 있으므로 공격자들이 종종 이를 악용합니다. App Service 기반으로 실행 중인 애플리케이션에 대한 요청은 각 요청의 해당 애플리케이션을 담당하는 전 세계 Azure 데이터센터에 배포된 여러 게이트웨이를 거칩니다. 
 
@@ -63,8 +63,8 @@ App Service에 대한 모니터링과 권장 사항을 사용하지 않도록 �
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 Azure Security Center의 모니터링 기능을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) - Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-* [Azure Security Center에서 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md): Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md): 보안 경고를 관리하고 응답하는 방법을 알아봅니다.
+* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md): 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center FAQ](security-center-faq.md): 서비스 사용에 관한 질문과 대답을 찾습니다.
+* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/): Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

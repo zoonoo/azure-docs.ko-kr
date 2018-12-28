@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 9722ca0d83901ec1c73468fb5c192dd2f54c38c7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a9f956e66be03a4811868cbc2e7d6fc7dc672310
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572463"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52886310"
 ---
 ## <a name="specifying-formats"></a>형식 지정
 Azure Data Factory는 다음과 같은 서식 유형을 지원합니다.
@@ -27,7 +27,7 @@ Azure Data Factory는 다음과 같은 서식 유형을 지원합니다.
 | --- | --- | --- | --- |
 | columnDelimiter |파일의 열을 구분하는 데 사용되는 문자입니다. 데이터에 존재할 가능성이 없고 희귀하며 인쇄할 수 없는 문자를 사용하는 방법을 고려해 볼 수 있습니다(예: SOH(Head of Start)를 나타내는 "\u0001"을 지정). |문자는 하나만 사용할 수 있습니다. **기본값**은 **쉼표(,)** 입니다. <br/><br/>유니코드 문자를 사용하려면 [유니코드 문자](https://en.wikipedia.org/wiki/List_of_Unicode_characters)를 참조하여 해당하는 코드를 가져옵니다. |아니요 |
 | rowDelimiter |파일의 행을 구분하는 데 사용되는 문자입니다. |문자는 하나만 사용할 수 있습니다. **기본값**은 읽기의 경우 **["\r\n", "\r", "\n"]** 중 하나이고, 쓰기의 경우 **"\r\n"** 입니다. |아니요 |
-| escapeChar |입력 파일 내용에서 열 구분 기호를 이스케이프 처리하는 데 사용되는 특수 문자입니다. <br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 "Hello, world"와 같이 쉼표 문자를 포함하려는 경우에는 이스케이프 문자로 '$'를 정의하고 원본에서 "Hello$, world" 문자열을 사용하면 됩니다. |아니요 |
+| escapeChar |입력 파일 내용에서 열 구분 기호를 이스케이프 처리하는 데 사용되는 특수 문자입니다. <br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 문자로 쉼표(',')가 있지만 텍스트에 쉼표 문자를 사용하려는 경우(예: "Hello, world") 이스케이프 문자로 ‘$’를 정의하고 원본에 문자열 "Hello$, world"를 사용합니다. |아니요 |
 | quoteChar |문자열 값을 인용하는 데 사용하는 문자입니다. 인용 문자 안의 열 및 행 구분 기호는 문자열 값의 일부분으로 처리됩니다. 이 속성은 입력 데이터 세트와 출력 데이터 세트에 모두 적용됩니다.<br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 <Hello, world>와 같이 쉼표 문자를 포함하려는 경우에는 인용 문자로 "(큰따옴표)를 정의하고 원본에서 "Hello, world" 문자열을 사용하면 됩니다. |아니요 |
 | nullValue |null 값을 나타내는 데 사용되는 하나 이상의 문자입니다. |하나 이상의 문자입니다. **기본값**은 읽기의 경우 **"\N" 및 "NULL"** 이고, 쓰기의 경우 **"\N"** 입니다. |아니요 |
 | encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [Encoding.EncodingName 속성](https://msdn.microsoft.com/library/system.text.encoding.aspx)을 참조하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값**은 **UTF-8**입니다. |아니요 |
@@ -64,7 +64,7 @@ Azure Data Factory는 다음과 같은 서식 유형을 지원합니다.
 ```
 
 #### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>FirstRowAsHeader 및 skipLineCount 사용 시나리오
-* 파일이 아닌 원본에서 텍스트 파일로 데이터를 복사할 때 SQL 스키마 등의 스키마 메타데이터가 포함된 머리글 줄을 추가하려고 합니다. 이 시나리오의 출력 데이터 세트에서 `firstRowAsHeader`를 true로 지정합니다.
+* 파일이 아닌 원본에서 텍스트 파일로 데이터를 복사할 때 스키마 메타데이터가 포함된 머리글 줄을 추가하려고 합니다(예: SQL 스키마). 이 시나리오의 출력 데이터 세트에서 `firstRowAsHeader`를 true로 지정합니다.
 * 머리글 줄이 포함된 텍스트 파일에서 파일이 아닌 싱크로 데이터를 복사할 때 해당 줄을 삭제하려고 합니다. 입력 데이터 세트에서 `firstRowAsHeader`를 true로 지정합니다.
 * 텍스트 파일에서 데이터를 복사할 때 시작 부분에서 데이터도 없고 머리글 정보도 없는 몇 줄을 건너뛰려고 합니다. 건너뛸 줄 수를 나타내는 `skipLineCount`를 지정합니다. 파일의 나머지 부분에 헤더 줄이 있으면 `firstRowAsHeader`도 지정할 수 있습니다. `skipLineCount`와 `firstRowAsHeader`를 둘 다 지정하면 먼저 해당 줄을 먼저 건너뛴 다음 입력 파일에서 헤더 정보를 읽습니다.
 
@@ -195,7 +195,7 @@ JSON 파일에서 데이터를 복사하는 경우 아래의 두 가지 샘플 �
                     "TargetResourceType": "Microsoft.Compute/virtualMachines"
                 },
                 {
-                    "ResourceManagmentProcessRunId": "827f8aaa-ab72-437c-ba48-d8917a7336a3"
+                    "ResourceManagementProcessRunId": "827f8aaa-ab72-437c-ba48-d8917a7336a3"
                 },
                 {
                     "OccurrenceTime": "1/13/2017 11:24:37 AM"
@@ -207,11 +207,11 @@ JSON 파일에서 데이터를 복사하는 경우 아래의 두 가지 샘플 �
 ```
 개체와 배열 모두에서 데이터를 추출하여 다음과 같은 형식으로 Azure SQL 테이블에 복사하려는 경우
 
-| id | deviceType | targetResourceType | resourceManagmentProcessRunId | occurrenceTime |
+| id | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
-**JsonFormat** 형식의 입력 데이터 집합은 다음과 같이 정의됩니다(관련 부분만 있는 부분 정의). 더 구체적으로 살펴보면 다음과 같습니다.
+**JsonFormat** 형식의 입력 데이터 세트는 다음과 같이 정의됩니다(관련 부분만 있는 부분 정의). 더 구체적으로 살펴보면 다음과 같습니다.
 
 - `structure` 섹션은 테이블 형식 데이터로 변환하는 동안 사용자 지정된 열 이름과 해당 데이터 형식을 정의합니다. 이 섹션은 열 매핑을 수행할 필요가 없는 경우를 제외하고는 **선택적**입니다. 자세한 내용은 [사각형 데이터 세트의 구조 정의 지정](#specifying-structure-definition-for-rectangular-datasets) 섹션을 참조하세요.
 - `jsonPathDefinition`은 데이터를 추출할 위치를 나타내는 각 열의 JSON 경로를 지정합니다. 배열에서 데이터를 복사하려면 **array[x].property**를 사용하여 x번째 개체에서 지정된 속성의 값을 추출하거나, **array[*].property**를 사용하여 이러한 속성을 포함한 모든 개체에서 값을 찾을 수 있습니다.
@@ -232,7 +232,7 @@ JSON 파일에서 데이터를 복사하는 경우 아래의 두 가지 샘플 �
             "type": "String"
         },
         {
-            "name": "resourceManagmentProcessRunId",
+            "name": "resourceManagementProcessRunId",
             "type": "String"
         },
         {
@@ -245,7 +245,7 @@ JSON 파일에서 데이터를 복사하는 경우 아래의 두 가지 샘플 �
         "format": {
             "type": "JsonFormat",
             "filePattern": "setOfObjects",
-            "jsonPathDefinition": {"id": "$.id", "deviceType": "$.context.device.type", "targetResourceType": "$.context.custom.dimensions[0].TargetResourceType", "resourceManagmentProcessRunId": "$.context.custom.dimensions[1].ResourceManagmentProcessRunId", "occurrenceTime": " $.context.custom.dimensions[2].OccurrenceTime"}      
+            "jsonPathDefinition": {"id": "$.id", "deviceType": "$.context.device.type", "targetResourceType": "$.context.custom.dimensions[0].TargetResourceType", "resourceManagementProcessRunId": "$.context.custom.dimensions[1].ResourceManagementProcessRunId", "occurrenceTime": " $.context.custom.dimensions[2].OccurrenceTime"}      
         }
     }
 }
@@ -284,7 +284,7 @@ JSON 파일에서 데이터를 복사하는 경우 아래의 두 가지 샘플 �
 | 01 | 20170122 | P2 | 13 | [{"sanmateo":"No 1"}] |
 | 01 | 20170122 | P3 | 231 | [{"sanmateo":"No 1"}] |
 
-**JsonFormat** 형식의 입력 데이터 집합은 다음과 같이 정의됩니다(관련 부분만 있는 부분 정의). 더 구체적으로 살펴보면 다음과 같습니다.
+**JsonFormat** 형식의 입력 데이터 세트는 다음과 같이 정의됩니다(관련 부분만 있는 부분 정의). 더 구체적으로 살펴보면 다음과 같습니다.
 
 - `structure` 섹션은 테이블 형식 데이터로 변환하는 동안 사용자 지정된 열 이름과 해당 데이터 형식을 정의합니다. 이 섹션은 열 매핑을 수행할 필요가 없는 경우를 제외하고는 **선택적**입니다. 자세한 내용은 [사각형 데이터 세트의 구조 정의 지정](#specifying-structure-definition-for-rectangular-datasets) 섹션을 참조하세요.
 - `jsonNodeReference`는 **배열** 주문 줄에서 동일한 패턴을 사용하는 개체에서 데이터를 반복하고 추출하도록 지정합니다.
@@ -328,7 +328,7 @@ JSON 파일에서 데이터를 복사하는 경우 아래의 두 가지 샘플 �
 
 **주의 사항:**
 
-* `structure` 및 `jsonPathDefinition`이 Data Factory 데이터 집합에 정의되지 않은 경우 복사 작업은 첫 번째 개체에서 스키마를 검색하고 전체 개체를 평면화합니다.
+* `structure` 및 `jsonPathDefinition`이 Data Factory 데이터 세트에 정의되지 않은 경우 복사 작업은 첫 번째 개체에서 스키마를 검색하고 전체 개체를 평면화합니다.
 * JSON 입력에 배열이 있는 경우 복사 작업은 기본적으로 전체 배열 값을 문자열로 변환합니다. `jsonNodeReference` 및/또는 `jsonPathDefinition`을 사용하여 데이터를 추출하거나 `jsonPathDefinition`에서 지정하지 않고 건너뛸 수 있습니다.
 * 동일한 수준에 중복된 이름이 있는 경우 복사 활동에서는 마지막 이름이 선택됩니다.
 * 속성 이름은 대/소문자를 구분합니다. 이름은 같지만 대/소문자가 다른 두 속성은 별도의 두 속성으로 간주됩니다.
@@ -355,7 +355,7 @@ SQL Database에 아래 테이블이 있고
 }
 ```
 
-**JsonFormat** 형식의 출력 데이터 집합은 다음과 같이 정의됩니다(관련 부분만 있는 부분 정의). 더 구체적으로 말하면 `structure` 섹션은 대상 파일의 사용자 지정된 속성 이름을 정의하며 `nestingSeparator`(기본값: ".")는 이름에서 중첩 레이어를 식별하는 데 사용됩니다. 이 섹션은 원본 열 이름과 비교하여 속성 이름을 변경하거나 일부 속성을 중첩하지 않으려는 경우를 제외하고는 **선택적**입니다.
+**JsonFormat** 형식의 출력 데이터 세트는 다음과 같이 정의됩니다(관련 부분만 있는 부분 정의). 더 구체적으로 말하면 `structure` 섹션은 대상 파일의 사용자 지정된 속성 이름을 정의하며 `nestingSeparator`(기본값: ".")는 이름에서 중첩 레이어를 식별하는 데 사용됩니다. 이 섹션은 원본 열 이름과 비교하여 속성 이름을 변경하거나 일부 속성을 중첩하지 않으려는 경우를 제외하고는 **선택적**입니다.
 
 ```json
 "properties": {
@@ -420,7 +420,7 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 다음 사항에 유의하세요.
 
 * 복합 데이터 형식(구조체, 맵, 목록, 공용 구조체)은 지원되지 않습니다.
-* ORC 파일에는 3개의 [압축 관련 옵션](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)(NONE, ZLIB, SNAPPY)이 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 ORC 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 ORC 파일에 쓸 때 Data Factory는 ORC에 대한 기본값인 ZLIB를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
+* ORC 파일에는 3개의 [압축 관련 옵션](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/) (NONE, ZLIB, SNAPPY)이 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 ORC 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 ORC 파일에 쓸 때 Data Factory는 ORC에 대한 기본값인 ZLIB를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
 
 ### <a name="specifying-parquetformat"></a>ParquetFormat 지정
 Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:

@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service Engine 및 Swarm Mode를 사용한 CI/CD
+title: (사용되지 않음) Azure Container Service Engine 및 Swarm Mode를 사용한 CI/CD
 description: Docker Swarm Mode, Azure Container Registry Engine 및 Azure DevOps와 Azure Container Service를 사용하여 다중 컨테이너 .NET Core 응용 프로그램 연속 배달
 services: container-service
 author: diegomrtnzg
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 296c097ee3302eaa39210274b16c6352866eac8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 52d20004f43b5c553a17c44f3f35d30fd5693286
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299579"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995065"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>Azure DevOps를 사용하여 ACS Engine 및 Docker Swarm Mode를 포함한 Azure Container Service에 있는 다중 컨테이너 응용 프로그램을 배포하는 전체 CI/CD 파이프라인
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(사용되지 않음) Azure DevOps를 사용하여 ACS Engine 및 Docker Swarm Mode를 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 *이 문서는 [Azure DevOps를 사용하여 Docker Swarm을 포함한 Azure Container Service에 있는 다중 컨테이너 응용 프로그램을 배포하는 전체 CI/CD 파이프라인](container-service-docker-swarm-setup-ci-cd.md) 설명서를 토대로 작성되었습니다.*
 

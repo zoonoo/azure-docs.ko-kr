@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/20/2018
+ms.date: 12/12/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 4aa4809c57eaf26b10053d432f9191580ec143a0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 856d702bcf1f566d0cc455cdd2676e6c2e23d179
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44381102"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53326475"
 ---
 데이터 팩터리는 각각 다른 작업 부하에서 고객 구독이 보호되도록 하기 위해 다음 기본 제한을 적용한 다중 테넌트 서비스입니다. 지원에 문의하여 최대 한도까지 구독에 대한 제한 수를 늘릴 수 있습니다.
 
@@ -24,8 +24,7 @@ ms.locfileid: "44381102"
 | Azure 구독의 데이터 팩터리 | 50 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 데이터 팩터리 내 총 엔터티(파이프라인, 데이터 세트, 트리거, 연결된 서비스, 통합 런타임) 수 | 5,000 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 하나의 구독에 대한 Azure-SSIS Integration Runtime의 총 CPU 코어 | 128 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| 파이프라인당 동시 파이프라인 실행 수 | 100 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| 데이터 팩터리당 동시 파이프라인 실행 수 | 10000  | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 데이터 팩터리당 동시 파이프라인 실행(팩터리의 모든 파이프라인에서 공유됨) | 10000  | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 파이프라인당 최대 활동 수(컨테이너에 대한 내부 활동 포함) | 40 | 40 |
 | 파이프라인당 최대 매개 변수 수 | 50 | 50 |
 | ForEach 항목 | 100,000 | 100,000 |
@@ -56,7 +55,7 @@ ms.locfileid: "44381102"
 | 복사 작업 실행당 클라우드 데이터 이동 단위 <sup>3</sup> |32 |[지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 파이프라인 활동 실행에 대한 재시도 횟수 |1000 |MaxInt(32비트) |
 
-<sup>1</sup>파이프라인, 데이터 집합 및 연결된 서비스 개체에서 작업의 논리적 그룹화를 나타냅니다. 이러한 개체에 대한 제한은 Azure 데이터 팩터리 서비스를 통해 이동 및 처리할 수 있는 데이터 규모와는 관련이 없습니다. 데이터 팩터리는 페타바이트의 데이터 처리를 위해 확장되도록 설계되었습니다.
+<sup>1</sup>파이프라인, 데이터 세트 및 연결된 서비스 개체에서 작업의 논리적 그룹화를 나타냅니다. 이러한 개체에 대한 제한은 Azure 데이터 팩터리 서비스를 통해 이동 및 처리할 수 있는 데이터 규모와는 관련이 없습니다. 데이터 팩터리는 페타바이트의 데이터 처리를 위해 확장되도록 설계되었습니다.
 
 <sup>2</sup> 주문형 HDInsight 코어는 데이터 팩터리를 포함하는 구독 외부에서 할당됩니다. 결과적으로, 위의 제한은 주문형 HDInsight 코어에 대한 데이터 팩터리 실행 코어 제한이며 Azure 구독과 연결된 코어 제한과는 다릅니다.
 

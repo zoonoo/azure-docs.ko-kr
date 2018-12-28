@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 0b02ae4b75426b379ad7c124f5ddeb053c142ce6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 068b55e40afc96dbcfae26c8bf7da8a1b9ea349a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730297"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249780"
 ---
 # <a name="migrate-machines-after-assessment"></a>평가 후 컴퓨터 마이그레이션
 
@@ -19,6 +19,9 @@ ms.locfileid: "45730297"
 [Azure Migrate](migrate-overview.md)는 온-프레미스 컴퓨터를 평가하여 Azure로의 마이그레이션에 적합한지, Azure에서 컴퓨터를 실행하기 위해 크기 조정 및 비용 예상안을 제공하는지 여부를 확인합니다. 현재 Azure Migrate은 마이그레이션에 대해 컴퓨터를 평가하기만 합니다. 현재 마이그레이션 자체는 타 Azure 서비스를 통해 수행됩니다.
 
 이 문서에서는 마이그레이션 평가 실행 후 마이그레이션 도구에 대한 제안을 가져오는 방법을 설명합니다.
+
+> [!NOTE]
+> Azure Government에서는 마이그레이션 도구 제안을 사용할 수 없습니다.
 
 ## <a name="migration-tool-suggestion"></a>마이그레이션 도구 제안
 

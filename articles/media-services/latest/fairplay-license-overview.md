@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services 및 Apple FairPlay 라이선스 지원 | Microsoft Docs
+title: Media Services 및 Apple FairPlay 라이선스 지원 - Azure | Microsoft Docs
 description: 이 항목에서는 Apple FairPlay 라이선스 요구 사항 및 구성에 대한 개요를 제공합니다.
 author: juliako
 manager: femila
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 19f382de3ffe11253005f5fa2874ee817abaeed3
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.custom: seodec18
+ms.openlocfilehash: 66d816795ec06891aafce73036d7aea9bb52b2c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376757"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140541"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Apple FairPlay 라이선스 요구 사항 및 구성 
 
@@ -63,7 +64,7 @@ Media Services를 사용하여 **Apple FairPlay**로 암호화된 HLS 콘텐츠�
 
 ## <a name="fairplay-and-player-apps"></a>FairPlay 및 플레이어 앱
 
-콘텐츠가 **Apple FairPlay**로 암호화된 경우, 개별 비디오 및 오디오 샘플은 **AES-128 CBC** 모드를 사용하여 암호화됩니다. **FairPlay 스트리밍** (FPS)은 장치 운영 체제에 통합되며, iOS 및 Apple TV에서 고유하게 지원됩니다. OS X의 Safari는 EME(Encrypted Media Extensions) 인터페이스 지원을 사용하여 FPS를 지원합니다.
+콘텐츠가 **Apple FairPlay**로 암호화된 경우, 개별 비디오 및 오디오 샘플은 **AES-128 CBC** 모드를 사용하여 암호화됩니다. **FairPlay 스트리밍** (FPS)은 디바이스 운영 체제에 통합되며, iOS 및 Apple TV에서 고유하게 지원됩니다. OS X의 Safari는 EME(Encrypted Media Extensions) 인터페이스 지원을 사용하여 FPS를 지원합니다.
 
 Azure Media Player는 FairPlay 재생도 지원합니다. 자세한 내용은 [Azure Media Player 설명서](https://amp.azure.net/libs/amp/latest/docs/index.html)를 참조하세요.
 

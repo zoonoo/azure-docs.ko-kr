@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5e24ec6124b6a5f7dea66e33018dffc753966075
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955262"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141971"
 ---
 # <a name="dtu-based-service-tiers"></a>DTU 기반 서비스 계층
 
@@ -31,6 +31,7 @@ DTU 기반 서비스 계층은 포함된 저장소의 고정된 양, 고정된 �
 ## <a name="compare-the-dtu-based-service-tiers"></a>DTU 기반 서비스 계층 비교
 
 서비스 계층을 선택하는 작업은 주로 비즈니스 연속성, 저장소 및 성능 요구 사항에 따라 다릅니다.
+
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:| --:|
 |대상 워크로드|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션||
@@ -71,7 +72,7 @@ DTU 기반 서비스 계층은 포함된 저장소의 고정된 양, 고정된 �
 ||||||
 
 > [!IMPORTANT]
-> 현재 미국 중서부, 중국 동부, USDoDCentral, 독일 중부, USDoDEast, US Gov 남서부, US Gov 아이오와, 독일 북동부, 중국 북부를 제외한 모든 지역에서 1TB를 초과하는 저장소를 프리미엄 계층에 사용할 수 있습니다. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+> 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 미국 중서부, 중국 동부, US DoD 중부, 독일 중부, US DoD 동부, US Gov 남서부, 미국 아이오와 주 정부, 독일 북동부, 중국 북부. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 

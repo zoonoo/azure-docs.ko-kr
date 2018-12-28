@@ -5,18 +5,18 @@ services: azure maps
 author: jinzh-azureiot
 ms.service: azure-maps
 ms.topic: include
-ms.date: 05/07/2018
+ms.date: 11/29/2018
 ms.author: jinzh
 ms.custom: include file
-ms.openlocfilehash: fc96c66ce0cdda133d8776008874c5518cb80be6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1124e265b533b5f44c3b430746c48654883e524b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756069"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52857306"
 ---
-다음은 Azure Maps 서비스에 대한 사용 제약 조건입니다. 비용에 대한 정보는 [Azure Maps 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/azure-maps/)를 참조하세요. 구독에 대한 최대 요청 속도를 높이려면 [문의해 주세요](https://azure.microsoft.com/overview/sales-number/).
+다음은 Azure Maps 서비스 **S0 가격 책정 계층**의 사용량 제한입니다. 사용량 제한은 가격 책정 계층에 따라 달라집니다. Azure Maps 가격 책정 계층에 대한 자세한 내용은 [Azure Maps 가격 책정 정보](https://azure.microsoft.com/pricing/details/azure-maps/)를 참조하세요.
 
-| 리소스                              | 제한 |
-|---------------------------------------|:-----:|
+| 리소스                              | S0 가격 책정 계층 한도 |
+|---------------------------------------|:---------------------:|
 | 구독당 최대 요청 속도 |   초당 50회 요청  |

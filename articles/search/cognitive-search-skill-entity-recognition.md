@@ -1,5 +1,5 @@
 ---
-title: 엔터티 인식 검색 기술(Azure Search) | Microsoft Docs
+title: 엔터티 인식 검색 기술 - Azure Search
 description: Azure Search 인식 검색 파이프라인의 텍스트에서 다양한 형식의 엔터티를 추출합니다.
 services: search
 manager: pablocas
@@ -10,19 +10,23 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 7599ab7eb7a6ff247548d988c57bdc6c501a5a6b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 9745934891cd7ba99fa821377318e38134b7d2a5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447679"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311867"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>엔터티 인식 기술
 
 **엔터티 인식** 기술은 텍스트에서 다양한 형식의 엔터티를 추출합니다. 
 
 > [!NOTE]
-> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
+> 2018년 12월 21일부터 Cognitive Services 리소스를 Azure Search 기술과 연결할 수 있습니다. 이를 통해 Microsoft는 기술 실행 요금을 부과할 수 있습니다. 또한 문서 해독 단계의 일부로 이미지 추출에 대한 요금 청구가 이 날짜부터 시작됩니다. 문서에서의 텍스트 추출은 추가 비용 없이 계속 제공됩니다.
+>
+> 기본 제공 기술의 실행에 대한 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격은 미리 보기 가격으로 책정되며 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다. [자세히](cognitive-search-attach-cognitive-services.md) 알아봅니다.
+
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.EntityRecognitionSkill

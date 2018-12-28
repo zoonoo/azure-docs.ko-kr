@@ -1,6 +1,6 @@
 ---
-title: Azure App Service의 응용 프로그램 코드에서 업로드된 SSL 인증서 사용 | Microsoft Docs
-description: ''
+title: 애플리케이션 코드에서 클라이언트 SSL 인증서 사용 - Azure App Service | Microsoft Docs
+description: 클라이언트 인증서를 사용하여 해당 인증서가 필요한 원격 리소스에 연결하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: cephalin
-ms.openlocfilehash: 87c9cd5955dda1a379733e5ad48d58f8361f0e6b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.custom: seodec18
+ms.openlocfilehash: 763aadc50a8760b4265dbfc21e9278f909b68433
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051479"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342020"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용
 

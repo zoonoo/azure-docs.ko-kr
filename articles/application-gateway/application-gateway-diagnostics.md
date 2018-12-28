@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: d2f3c2ba6849540f90117ef127e25030ff56b569
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 45a13bca32593895e51fa7fe3c5bd7ce1ba547e6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427168"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437472"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Application Gateway에 대한 백 엔드 상태, 진단 로그 및 메트릭
 
 Azure Application Gateway를 사용하여 다음과 같은 방법으로 리소스를 모니터링할 수 있습니다.
 
-* [백 엔드 상태](#back-end-health) - Application Gateway는 Azure Portal과 PowerShell을 통해 백 엔드 풀에 있는 서버의 상태를 모니터링하는 기능을 제공합니다. 또한 성능 진단 로그를 통해 백 엔드 풀의 상태도 확인할 수 있습니다.
+* [백 엔드 상태](#back-end-health): Application Gateway는 Azure Portal과 PowerShell을 통해 백 엔드 풀에 있는 서버의 상태를 모니터링하는 기능을 제공합니다. 또한 성능 진단 로그를 통해 백 엔드 풀의 상태도 확인할 수 있습니다.
 
-* [로그](#diagnostic-logging) - 로그를 사용하면 모니터링하기 위해 리소스에서 성능, 액세스 및 기타 데이터를 저장하거나 사용할 수 있습니다.
+* [로그](#diagnostic-logging): 로그를 사용하면 모니터링하기 위해 리소스에서 성능, 액세스 및 기타 데이터를 저장하거나 사용할 수 있습니다.
 
 * [메트릭](#metrics): 현재 Application Gateway는 성능 카운터를 보여주는 7개 메트릭을 제공합니다.
 
@@ -97,19 +97,19 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 관리하고 문제를 해결할 수 있습니다. 이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. 모든 로그는 Azure Blob 저장소에서 추출하고 다양한 도구(예: [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md),Excel 및 Power BI)에서 볼 수 있습니다. 다음 목록에서 다른 종류의 로그에 대해 자세히 알아볼 수 있습니다.
 
-* **활동 로그** - [Azure 활동 로그](../monitoring-and-diagnostics/insights-debugging-with-events.md)(이전의 작업 로그 및 감사 로그)를 사용하여 Azure 구독에 제출된 모든 작업과 상태를 확인할 수 있습니다. 활동 로그 항목은 기본적으로 수집되고 Azure Portal에서 볼 수 있습니다.
-* **액세스 로그** - 이 로그를 사용하여 Application Gateway 액세스 패턴을 확인하고 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 입/출력 바이트 수 등 중요한 정보를 분석할 수 있습니다. 액세스 로그는 300초마다 수집됩니다. 이 로그에는 Application Gateway 인스턴스당 하나의 레코드가 포함됩니다. Application Gateway 인스턴스는 'instanceId' 속성으로 식별할 수 있습니다.
-* **성능 로그** - 이 로그를 사용하여 Application Gateway 인스턴스를 수행하는 방법을 확인할 수 있습니다. 이 로그는 인스턴스 단위로 처리된 총 요청 수, 처리량(바이트), 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수 등의 성능 정보를 캡처합니다. 성능 로그는 60초마다 수집됩니다.
-* **방화벽 로그** - 이 로그를 사용하면 웹 응용 프로그램 방화벽으로 구성된 응용 프로그램 게이트웨이의 검색 모드 또는 방지 모드를 통해 로깅된 요청을 확인할 수 있습니다.
+* **활동 로그**: [Azure 활동 로그](../monitoring-and-diagnostics/insights-debugging-with-events.md)(이전의 작업 로그 및 감사 로그)를 사용하여 Azure 구독에 제출된 모든 작업과 상태를 확인할 수 있습니다. 활동 로그 항목은 기본적으로 수집되고 Azure Portal에서 볼 수 있습니다.
+* **액세스 로그**: 이 로그를 사용하여 Application Gateway 액세스 패턴을 확인하고 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 입/출력 바이트 수 등 중요한 정보를 분석할 수 있습니다. 액세스 로그는 300초마다 수집됩니다. 이 로그에는 Application Gateway 인스턴스당 하나의 레코드가 포함됩니다. Application Gateway 인스턴스는 'instanceId' 속성으로 식별할 수 있습니다.
+* **성능 로그**: 이 로그를 사용하여 Application Gateway 인스턴스를 수행하는 방법을 확인할 수 있습니다. 이 로그는 인스턴스 단위로 처리된 총 요청 수, 처리량(바이트), 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수 등의 성능 정보를 캡처합니다. 성능 로그는 60초마다 수집됩니다.
+* **방화벽 로그**: 이 로그를 사용하면 웹 애플리케이션 방화벽으로 구성된 애플리케이션 게이트웨이의 검색 모드 또는 방지 모드를 통해 로깅된 요청을 확인할 수 있습니다.
 
 > [!NOTE]
 > 로그는 Azure Resource Manager 배포 모델에 배포된 리소스에만 사용할 수 있습니다. 클래식 배포 모델에서 리소스에 대한 로그를 사용할 수 없습니다. 두 모델에 대해 더 잘 이해하려면 [리소스 관리자 배포 및 클래식 배포 이해](../azure-resource-manager/resource-manager-deployment-model.md) 문서를 참조하세요.
 
 로그 저장에는 세 가지 옵션이 있습니다.
 
-* **Storage 계정** - 로그를 장기간 저장하고 필요할 때 검토하는 경우에 가장 적합합니다.
-* **이벤트 허브** - 다른 SEIM(보안 정보 및 이벤트 관리) 도구와 통합하여 리소스에 대한 알림을 얻을 수 있는 좋은 옵션입니다.
-* **Log Analytics** - 일반적으로 응용 프로그램을 실시간 모니터링하거나 추세를 파악하는 데 가장 적합합니다.
+* **스토리지 계정**: 로그를 장기간 저장하고 필요할 때 검토하는 경우에 가장 적합합니다.
+* **Event Hubs**: 다른 SEIM(보안 정보 및 이벤트 관리) 도구와 통합하여 리소스에 대한 알림을 얻을 수 있는 좋은 옵션입니다.
+* **Log Analytics**: Log Analytics는 일반적으로 애플리케이션을 실시간 모니터링하거나 추세를 파악하는 데 가장 적합합니다.
 
 ### <a name="enable-logging-through-powershell"></a>PowerShell을 통한 로깅 사용
 
@@ -174,7 +174,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |clientPort     | 요청에 대한 원래 포트       |
 |httpMethod     | 요청에서 사용된 HTTP 메서드       |
 |requestUri     | 받은 요청의 URI        |
-|RequestQuery     | **Server-Routed**: 요청을 보낸 백 엔드 풀 인스턴스입니다.</br>**X-AzureApplicationGateway-LOG-ID**: 요청에 사용된 상관 관계 ID입니다. 백 엔드 서버에서 트래픽 문제를 해결하는 데 사용할 수 있습니다. </br>**SERVER-STATUS**: Application Gateway에서 백 엔드로부터 받은 HTTP 응답 코드       |
+|RequestQuery     | **Server-Routed**: 요청을 보낸 백 엔드 풀 인스턴스입니다.</br>**X-AzureApplicationGateway-LOG-ID**: 요청에 사용되는 상관 관계 ID입니다. 백 엔드 서버에서 트래픽 문제를 해결하는 데 사용할 수 있습니다. </br>**SERVER-STATUS**: Application Gateway에서 백 엔드로부터 받은 HTTP 응답 코드입니다.       |
 |UserAgent     | HTTP 요청 헤더의 사용자 에이전트        |
 |httpStatus     | Application Gateway에서 클라이언트로 반환한 HTTP 상태 코드       |
 |httpVersion     | 요청의 HTTP 버전        |
@@ -298,8 +298,8 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 
 다음 방법 중 하나를 사용하여 활동 로그 데이터를 확인하고 분석할 수 있습니다.
 
-* **Azure 도구** - Azure PowerShell, Azure CLI, Azure REST API 또는 Azure Portal을 통해 활동 로그에서 정보를 검색합니다. 각 방법에 대한 단계별 지침은 [Resource Manager의 활동 작업](../azure-resource-manager/resource-group-audit.md) 문서에 자세히 나와 있습니다.
-* **Power BI** - [Power BI](https://powerbi.microsoft.com/pricing) 계정이 아직 없는 경우 무료로 사용해볼 수 있습니다. [Power BI용 Azure Activity Logs 콘텐츠 팩](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 미리 구성된 대시보드를 그대로 사용하거나 사용자 지정하여 데이터를 분석할 수 있습니다.
+* **Azure 도구**: Azure PowerShell, Azure CLI, Azure REST API 또는 Azure Portal을 통해 활동 로그에서 정보를 검색합니다. 각 방법에 대한 단계별 지침은 [Resource Manager의 활동 작업](../azure-resource-manager/resource-group-audit.md) 문서에 자세히 나와 있습니다.
+* **Power BI**: [Power BI](https://powerbi.microsoft.com/pricing) 계정이 아직 없는 경우 평가판으로 사용해볼 수 있습니다. [Power BI용 Azure Activity Logs 콘텐츠 팩](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 미리 구성된 대시보드를 그대로 사용하거나 사용자 지정하여 데이터를 분석할 수 있습니다.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>액세스, 성능 및 방화벽 로그 보기 및 분석
 
@@ -343,7 +343,7 @@ Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](ht
 
 [![](media/application-gateway-diagnostics/figure5.png "메트릭 보기")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
-현재 지원되는 메트릭 목록을 보려면 [Azure Monitor에서 지원되는 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md)을 참조하세요.
+현재 지원되는 메트릭 목록을 보려면 [Azure Monitor에서 지원되는 메트릭](../azure-monitor/platform/metrics-supported.md)을 참조하세요.
 
 ### <a name="alert-rules"></a>경고 규칙
 
@@ -357,7 +357,7 @@ Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](ht
 
 2. **규칙 추가** 블레이드에서 이름, 조건 및 알림 섹션을 입력하고 **확인**을 클릭합니다.
 
-   * **조건** 선택기에서 **보다 큼**, **보다 크거나 같음**, **보다 작음**, **보다 작거나 같음**의 네 가지 값 중 하나를 선택합니다.
+   * **조건** 선택기에서 허용되는 값은 **보다 큼**, **보다 크거나 같음**, **보다 작음**, **보다 작거나 같음**의 4가지입니다.
 
    * **기간** 선택기에서 5분에서 6시간 사이의 기간까지 선택합니다.
 
@@ -375,7 +375,7 @@ Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](ht
 
 경고 알림에 대한 자세한 내용은 [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)를 참조하세요.
 
-웹후크에 대한 자세한 내용 및 경고와 함께 웹후크를 사용하는 방법을 알아보려면 [Azure 메트릭 경고에 대한 웹후크 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md)을 참조하세요.
+웹후크에 대한 자세한 내용 및 경고와 함께 웹후크를 사용하는 방법을 알아보려면 [Azure 메트릭 경고에 대한 웹후크 구성](../azure-monitor/platform/alerts-webhooks.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

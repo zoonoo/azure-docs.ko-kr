@@ -1,22 +1,21 @@
 ---
-title: Azure AI Gallery에서 데이터 확인 및 삭제 - Azure Machine Learning Studio | Microsoft Docs
+title: Azure AI Gallery에서 데이터 관리 - Azure Machine Learning Studio | Microsoft Docs
 description: 인터페이스 또는 AI Gallery 카탈로그 API를 사용하여 Azure AI Gallery에서 제품 내 사용자 데이터를 내보내고 삭제할 수 있습니다. 이 문서는 방법을 안내합니다.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: cgronlun
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 6603428599a84a265566fb98da0b151ab4962f81
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2fc2d8a21a4090a02822607eac1695ed192eac27
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314459"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250249"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Azure AI Gallery에서 제품 내 사용자 데이터 보기 및 삭제
 

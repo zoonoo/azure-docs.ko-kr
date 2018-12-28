@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: e853ea6d05585fa764ad6e019a3a4390ed840263
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: de9186faa9c6228f1938a94016ef449ce8bb1899
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313442"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335934"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure Security Center의 권한
 
@@ -59,7 +59,7 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 ## <a name="next-steps"></a>다음 단계
 이 문서는 Security Center에서 RBAC를 사용하여 사용자에게 사용 권한을 할당하고 각 역할에 대해 허용된 작업을 식별하는 방법에 대해 설명합니다. 이제 구독의 보안 상태를 모니터링하고, 보안 정책을 편집하고, 권장 사항을 적용하는 데 필요한 역할 할당에 익숙해졌으므로 다음을 수행하는 방법을 알아봅니다.
 
-- [Security Center에서 보안 정책 설정](security-center-azure-policy.md)
+- [Security Center에서 보안 정책 설정](tutorial-security-policy.md)
 - [Security Center의 보안 권장 사항 관리](security-center-recommendations.md)
 - [Azure 리소스의 보안 상태 모니터링](security-center-monitoring.md)
 - [Security Center에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md)

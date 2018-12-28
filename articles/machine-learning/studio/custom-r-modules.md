@@ -1,12 +1,11 @@
 ---
-title: Azure Machine Learning Studio에 사용할 사용자 지정 R 모듈 정의 | Microsoft Docs
-description: 이 항목에서는 Azure Machine Learning에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning Studio 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여줍니다.
+title: 사용자 지정 R 모듈 정의 - Azure Machine Learning Studio | Microsoft Docs
+description: 이 항목에서는 Azure Machine Learning에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -16,18 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: b8ab22f1567102ed79ccf6e0bf49dbdbc3f42ea9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2bdc8b7b28bee37ae88e466874d2b3d22dcd7556
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308434"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277933"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio에 사용할 사용자 지정 R 모듈 정의
 
 이 토픽에서는 Azure Machine Learning Studio에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="what-is-a-custom-r-module"></a>사용자 지정 R 모듈이란?
 **사용자 지정 모듈** 은 사용자의 작업 영역에 업로드하고 Azure Machine Learning 실험의 일부로 실행할 수 있는 사용자 정의 모듈입니다. 사용자 지정 R 모듈은 사용자 정의 R 함수를 실행하는 **사용자 지정 모듈** 입니다. **R** 은 통계학자 및 데이터 과학자가 알고리즘을 구현하는 데 널리 사용되는 통계 컴퓨팅 및 그래픽용 프로그래밍 언어입니다. 현재, R은 사용자 지정 모듈에서 지원되는 유일한 언어이지만 향후 릴리스에서는 추가 언어에 대한 지원이 예정되어 있습니다.
@@ -215,7 +214,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
     return (list(dataset, dataset1, dataset2)) 
     } 
 
-**시각화 출력:** R 그래픽 장치의 출력 및 콘솔 출력을 표시하는 *Visualization*형식의 출력 포트를 지정할 수도 있습니다. 이 포트는 R 함수 출력의 일부가 아니며 다른 출력 포트 형식의 순서와 간섭되지 않습니다. 사용자 지정 모듈에 시각화 포트를 추가하려면 해당 **type** 특성 값이 *Visualization*인 **Output** 요소를 추가합니다.
+**시각화 출력:** R 그래픽 디바이스의 출력 및 콘솔 출력을 표시하는 *Visualization* 형식의 출력 포트를 지정할 수도 있습니다. 이 포트는 R 함수 출력의 일부가 아니며 다른 출력 포트 형식의 순서와 간섭되지 않습니다. 사용자 지정 모듈에 시각화 포트를 추가하려면 해당 **type** 특성 값이 *Visualization*인 **Output** 요소를 추가합니다.
 
     <Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
@@ -372,6 +371,6 @@ R 스크립트의 실행 환경에서는 **R 스크립트 실행** 모듈과 동
 
 **실행 환경에 대한 제한 사항** 은 다음과 같습니다.
 
-* 비영구 파일 시스템: 사용자 지정 모듈을 실행할 때 작성한 파일은 동일한 모듈의 여러 실행에서 유지되지 않습니다.
+* 비영구적 파일 시스템: 사용자 지정 모듈을 실행할 때 작성한 파일은 동일한 모듈의 여러 실행에서 유지되지 않습니다.
 * 네트워크 액세스 불가
 

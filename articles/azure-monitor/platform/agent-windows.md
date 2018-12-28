@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 7474d76537111ebc9f34bb2632a899b7ceb4e50a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 1c90c85f667e18a80c4673a73867ee2d6b3b6294
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638198"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189900"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
 
@@ -180,7 +178,7 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 
 에이전트 설치가 완료되면 두 가지 방법으로 성공적으로 연결되었는지 확인하고 보고할 수 있습니다.  
 
-**제어판**의 컴퓨터에서 **Microsoft Monitoring Agent** 항목을 찾습니다.  해당 항목을 선택하면 **Azure Log Analytics** 탭에서 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.** 와 같은 메시지가 표시됩니다.<br><br> ![Log Analytics에 대한 MMA 연결 상태](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+**제어판**의 컴퓨터에서 **Microsoft Monitoring Agent** 항목을 찾습니다.  이 항목을 선택하면 **Azure Log Analytics** 탭에서 에이전트가 다음과 같은 메시지를 표시합니다. **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 연결되었습니다.**<br><br> ![Log Analytics에 대한 MMA 연결 상태](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
 Azure Portal에서 단순 로그 검색을 수행할 수도 있습니다.  
 

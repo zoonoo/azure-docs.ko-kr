@@ -1,19 +1,20 @@
 ---
-title: Azure Policy를 사용하여 프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
+title: 프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 description: 이 문서는 Azure Policy에 대해 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: d72c9c1747bb697f66fa53489636b1726053060c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: 3c8fd185feff9a580e2d23926dcf60cb33121122
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242639"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312479"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 
@@ -29,7 +30,7 @@ ms.locfileid: "50242639"
 
 1. AzureRM PowerShell 모듈을 최신 버전으로 업데이트합니다. 최신 버전에 대한 자세한 내용은 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)을 참조하세요.
 
-1. 구독이 리소스 공급자와 함께 작동하도록 Azure PowerShell을 사용하여 Policy Insights 리소스 공급자를 등록합니다. 리소스 공급자를 등록하려면 리소스 공급자에 대해 작업 등록을 수행할 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다. 리소스 공급자를 등록하는 다음 명령을 실행합니다.
+1. 구독이 리소스 공급자와 함께 작동하도록 Azure PowerShell을 사용하여 Policy Insights 리소스 공급자를 등록합니다. 리소스 공급자를 등록하려면 리소스 공급자에 대해 등록 작업을 실행할 수 있는 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다. 리소스 공급자를 등록하는 다음 명령을 실행합니다.
 
    ```azurepowershell-interactive
    Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'

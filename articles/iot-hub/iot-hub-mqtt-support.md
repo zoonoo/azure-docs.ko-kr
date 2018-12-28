@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 53643b185825d4cc03073144e1b3547452629c08
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9df2e8762d546e6115dc1205548e927cfee7bb60
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497609"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341883"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -37,7 +37,7 @@ IoT Hub와 통신하는 모든 디바이스는 TLS/SSL을 사용하여 보호되
 
 ## <a name="using-the-device-sdks"></a>디바이스 SDK 사용
 
-MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js, C, C# 및 Python에서 사용할 수 있습니다. 디바이스 SDK는 표준 IoT Hub 연결 문자열을 사용하여 IoT Hub에 대한 연결을 설정합니다. MQTT 프로토콜을 사용하려면 클라이언트 프로토콜 매개 변수를 **MQTT**에 설정해야 합니다. 기본적으로는 디바이스 SDK는 **CleanSession** 플래그가 **0**으로 설정된 IoT Hub에 연결되고 **QoS 1**을 사용하여 IoT Hub와 메시지를 교환합니다.
+MQTT 프로토콜을 지원하는 [디바이스 SDK][lnk-device-sdks]는 Java, Node.js, C, C# 및 Python에서 사용할 수 있습니다. 디바이스 SDK는 표준 IoT Hub 연결 문자열을 사용하여 IoT Hub에 대한 연결을 설정합니다. MQTT 프로토콜을 사용하려면 클라이언트 프로토콜 매개 변수를 **MQTT**에 설정해야 합니다. 기본적으로는 디바이스 SDK는 **CleanSession** 플래그가 **0**으로 설정된 IoT Hub에 연결되고 **QoS 1**을 사용하여 IoT Hub와 메시지를 교환합니다.
 
 디바이스가 IoT Hub에 연결되면 디바이스 SDK는 IoT Hub와 메시지를 교환할 수 있게 하는 메서드를 제공합니다.
 
@@ -53,7 +53,7 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>디바이스 앱을 AMQP에서 MQTT로 마이그레이션
 
-[장치 SDK][lnk-device-sdks]를 사용하는 경우 이전에 언급한 대로 AMQP 사용에서 MQTT로 전환하려면 클라이언트 초기화에서 프로토콜 매개 변수를 변경해야 합니다.
+[디바이스 SDK][lnk-device-sdks]를 사용하는 경우 이전에 언급한 대로 AMQP 사용에서 MQTT로 전환하려면 클라이언트 초기화에서 프로토콜 매개 변수를 변경해야 합니다.
 
 이렇게 할 경우 다음 항목을 확인해야 합니다.
 
@@ -62,7 +62,7 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 
 ## <a name="using-the-mqtt-protocol-directly"></a>MQTT 프로토콜 직접 사용
 
-디바이스가 디바이스 SDK를 사용할 수 없는 경우라도 포트 8883에서 MQTT 프로토콜을 사용하는 공용 디바이스 엔드포인트에 연결할 수 있습니다. **CONNECT** 패킷에서 장치는 다음 값을 사용해야 합니다.
+디바이스가 디바이스 SDK를 사용할 수 없는 경우라도 포트 8883에서 MQTT 프로토콜을 사용하는 공용 디바이스 엔드포인트에 연결할 수 있습니다. **CONNECT** 패킷에서 디바이스는 다음 값을 사용해야 합니다.
 
 * **ClientId** 필드에 **deviceId**를 사용합니다.
 
@@ -81,9 +81,9 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 
   SAS 토큰을 생성하는 방법에 대한 자세한 내용은 [IoT Hub 보안 토큰 사용][lnk-sas-tokens]의 디바이스 섹션을 참조하세요.
 
-  테스트할 때 플랫폼 간 [Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 또는 [Device Explorer][lnk-device-explorer]를 사용하여 복사한 후 자체 코드에 붙여넣을 수 있는 SAS 토큰을 빠르게 생성할 수도 있습니다.
+  테스트할 때 플랫폼 간 [Visual Studio Code용 Azure IoT Hub Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전 Azure IoT Toolkit 확장) 또는 [Device Explorer][lnk-device-explorer]를 사용하여 복사한 후 자체 코드에 붙여넣을 수 있는 SAS 토큰을 빠르게 생성할 수도 있습니다.
 
-Azure IoT Toolkit의 경우
+Azure IoT Hub Toolkit의 경우
 
   1. Visual Studio Code의 왼쪽 아래 모퉁이에 있는 **AZURE IOT HUB 디바이스** 탭을 확장합니다.
   2. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스에 대한 SAS 토큰 생성**을 선택합니다.
@@ -92,9 +92,9 @@ Azure IoT Toolkit의 경우
 
 Device Explorer의 경우
 
-  1. **장치 탐색기**의 **관리** 탭으로 이동합니다.
+  1. **디바이스 탐색기**의 **관리** 탭으로 이동합니다.
   2. **SAS 토큰** (오른쪽 위)을 클릭합니다.
-  3. **SASTokenForm**의 **DeviceID** 드롭다운에서 장치를 선택합니다. **TTL**을 설정합니다.
+  3. **SASTokenForm**의 **DeviceID** 드롭다운에서 디바이스를 선택합니다. **TTL**을 설정합니다.
   4. **생성** 을 클릭하여 토큰을 만듭니다.
 
      생성되는 SAS 토큰은 다음 구조를 갖습니다.
@@ -126,8 +126,8 @@ pip install paho-mqtt
 그런 다음, Python 스크립트로 클라이언트를 구현합니다. 다음과 같이 자리 표시자를 바꿉니다.
 
 * `<local path to digicert.cer>`는 DigiCert Baltimore Root 인증서가 들어 있는 로컬 파일의 경로입니다. C에 대한 Azure IoT SDK에서 [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c)의 인증서 정보를 복사하여 이 파일을 만들 수 있습니다. `-----BEGIN CERTIFICATE-----` 및 `-----END CERTIFICATE-----` 줄을 포함하고 모든 줄의 시작과 끝에서 `"` 표시를 제거한 다음, 모든 줄의 마지막에서 `\r\n` 문자를 제거합니다.
-* `<device id from device registry>` IoT Hub에 추가된 장치의 ID입니다.
-* `<generated SAS token>`은 이 문서의 앞에서 설명한 장치에 대한 SAS 토큰입니다.
+* `<device id from device registry>` IoT Hub에 추가된 디바이스의 ID입니다.
+* `<generated SAS token>`은 이 문서의 앞에서 설명한 디바이스에 대한 SAS 토큰입니다.
 * `<iot hub name>`은 IoT Hub의 이름입니다.
 
 ```python
@@ -165,7 +165,7 @@ client.loop_forever()
 
 ### <a name="sending-device-to-cloud-messages"></a>디바이스-클라우드 메시지 보내기
 
-성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 장치를 사용할 수 있습니다. 예: 
+성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 디바이스를 사용할 수 있습니다. 예: 
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -177,7 +177,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 다음은 IoT Hub 구현 관련 동작의 목록입니다.
 
 * IoT Hub에서는 QoS 2 메시지를 지원하지 않습니다. 디바이스 앱이 **QoS 2**의 메시지를 게시하는 경우, IoT Hub는 네트워크 연결을 닫습니다.
-* IoT Hub에서는 보관 메시지가 지속되지 않습니다. 디바이스가 **RETAIN** 플래그가 1로 설정된 메시지를 게시하는 경우, IoT Hub는 **x-opt-retain** 애플리케이션 속성을 메시지에 추가합니다. 이 경우에 IoT Hub는 보관 메시지를 유지하지 않고 백 엔드 앱에 전달합니다.
+* IoT Hub에서는 보관 메시지가 지속되지 않습니다. 디바이스가 **RETAIN** 플래그가 1로 설정된 메시지를 게시하는 경우, IoT Hub는 **x-opt-retain** 응용 프로그램 속성을 메시지에 추가합니다. 이 경우에 IoT Hub는 보관 메시지를 유지하지 않고 백 엔드 앱에 전달합니다.
 * IoT Hub는 디바이스 당 하나의 활성 MQTT 연결만을 지원합니다. 동일한 디바이스 ID를 대신하는 모든 새 MQTT 연결로 인해 IoT Hub가 기존 연결을 삭제하게 됩니다.
 
 자세한 내용은 [메시징 개발자 가이드][lnk-messaging]를 참조하세요.
@@ -308,7 +308,7 @@ MQTT 프로토콜에 대한 자세한 내용은 [MQTT 설명서][lnk-mqtt-docs]�
 
 IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-* [IoT용 Azure Certified 장치 카탈로그][lnk-devices]
+* [IoT용 Azure Certified 디바이스 카탈로그][lnk-devices]
 * [추가 프로토콜 지원][lnk-protocols]
 * [Event Hubs와 비교][lnk-compare]
 * [크기 조정, HA 및 DR][lnk-scaling]
@@ -316,7 +316,7 @@ IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 다음을 �
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드][lnk-devguide]
-* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포][lnk-iotedge]
+* [Azure IoT Edge를 사용하여 Edge 디바이스에 AI 배포][lnk-iotedge]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/

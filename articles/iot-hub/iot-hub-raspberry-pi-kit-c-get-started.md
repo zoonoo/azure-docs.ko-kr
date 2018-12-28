@@ -10,12 +10,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 20c26c5daa66edd7705e850f14a79a2cbe2964fc
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: edbdd12ed292ac2e2953219d6f50da8e6c5c995f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515678"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343091"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi를 Azure IoT Hub에 연결(C)
 
@@ -209,6 +209,6 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
 ## <a name="next-steps"></a>다음 단계
 
-샘플 응용 프로그램을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다. Raspberry Pi가 IoT Hub로 보낸 메시지를 보거나 Raspberry Pi에 메시지를 보내려면 [Visual Studio Code용 Azure IoT Toolkit 확장을 사용하여 디바이스와 IoT Hub 간에 메시지 주고받기](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)를 참조하세요.
+샘플 응용 프로그램을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다. Raspberry Pi가 IoT Hub로 보낸 메시지를 보거나 Raspberry Pi에 메시지를 보내려면 [Visual Studio Code용 Azure IoT Hub Toolkit 확장을 사용하여 디바이스와 IoT Hub 간에 메시지 주고받기](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)를 참조하세요.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -1,6 +1,6 @@
 ---
-title: Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
-description: Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
+title: 전체 텍스트 검색을 위해 Azure Blob 인덱서에서 JSON Blob 인덱싱 - Azure Search
+description: Azure Search Blob 인덱서를 사용하여 텍스트 콘텐츠에 대해 Azure JSON Blob을 크롤링합니다. 인덱서는 Azure Blob Storage와 같은 선택된 데이터 원본에 대해 데이터 수집을 자동화합니다.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec2018
+ms.openlocfilehash: 7eb215271a8d5d21403cc7c5a49028bb366e61fd
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711075"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312530"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
 이 문서에서는 Azure Blob Storage의 JSON Blob에서 구조화된 콘텐츠를 추출하도록 Azure Search Blob 인덱서를 구성하는 방법을 보여줍니다.
@@ -186,7 +187,7 @@ JSON 개체의 배열을 인덱싱하려고 하지만 해당 배열이 문서 �
 >
 >
 
-## <a name="example-indexer-request-with-field-mappings"></a>예: 필드 매핑을 포함한 인덱서 요청
+## <a name="example-indexer-request-with-field-mappings"></a>예제: 필드 매핑을 포함한 인덱서 요청
 
 필드 매핑을 비롯하여 완전히 지정된 인덱서 페이로드는 다음과 같습니다.
 

@@ -1,25 +1,23 @@
 ---
-title: 'Azure Cosmos DB: SQL Java API, SDK 및 리소스 | Microsoft Docs'
+title: Azure Cosmos DB는 SQL Java API, SDK 및 리소스
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB SQL Java SDK의 각 버전 간 변경 내용을 포함하여 SQL Java API 및 SDK에 대한 모든 것을 알아봅니다.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/21/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c58c1972fee782a93f9641d00376db916021f95
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e5c733ecd65482e4b02a5d4e28784e84e63f2231
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634492"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340524"
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK for SQL API: 릴리스 정보 및 리소스
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +28,7 @@ ms.locfileid: "52634492"
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -38,7 +36,7 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 
 <table>
 
-<tr><td>**SDK 다운로드**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
+<tr><td>**SDK 다운로드**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
 <tr><td>**API 설명서**</td><td>[Java API 참조 설명서](/java/api/com.microsoft.azure.documentdb)</td></tr>
 
@@ -48,10 +46,27 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 
 <tr><td>**웹앱 자습서**</td><td>[Azure Cosmos DB를 사용한 웹 응용 프로그램 개발](sql-api-java-application.md)</td></tr>
 
-<tr><td>**지원되는 최소 런타임**</td><td>[JDK(Java Development Kit) 7+](https://aka.ms/azure-jdks)</td></tr>
+<tr><td>**지원되는 최소 런타임**</td><td>[JDK(Java Development Kit) 7 이상](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* 직접 모드에 대한 다중 지역 쓰기 지원이 추가되었습니다.
+* 프록시에서 ServiceUnavailable 예외로 throw된 IOExceptions 처리에 대한 지원이 추가되었습니다.
+* 엔드포인트 검색 다시 시도 정책에서 버그가 수정되었습니다.
+* Null 포인터 예외가 BaseDatabaseAccountConfigurationProvider에서 throw되지 않도록 하는 버그가 수정되었습니다.
+* 쿼리 반복기가 null을 반환하지 않도록 하는 버그가 수정되었습니다.
+* 큰 PartitionKey가 허용되도록 하는 버그가 수정되었습니다.
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* 게이트웨이 모드에 대한 다중 지역 쓰기 지원이 추가되었습니다.
+
+### <a name="a-name11641164"></a><a name="1.16.4"/>1.16.4
+* 쿼리에 대한 파티션 읽기 키 범위의 버그가 수정되었습니다.
+
+### <a name="a-name11631163"></a><a name="1.16.3"/>1.16.3
+* DirectHttps 모드에서 연속 토큰 헤더 크기를 설정하는 중에 발생하는 버그가 수정되었습니다.
 
 ### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
 * 스트리밍 장애 조치(failover) 지원이 추가되었습니다.
@@ -205,6 +220,10 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.1.1](#2.1.1) |2018년 11월 21일 |--- |
+| [2.0.0](#2.0.0) |2018년 9월 21일 |--- |
+| [1.16.4](#1.16.4) |2018년 9월 10일 |--- |
+| [1.16.3](#1.16.3) |2018년 9월 9일 |--- |
 | [1.16.2](#1.16.2) |2018년 6월 29일 |--- |
 | [1.16.1](#1.16.1) |2018년 5월 16일 |--- |
 | [1.16.0](#1.16.0) |2018년 3월 15일 |--- |

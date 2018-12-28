@@ -1,19 +1,20 @@
 ---
-title: Azure Blueprints를 사용하여 오류 문제 해결
+title: 일반적인 오류 문제 해결
 description: 청사진 만들기 및 할당과 관련된 문제를 해결하는 방법을 알아봅니다.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b910f90e70af4ce6d4243c06bfe5bd03d25d74d6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092937"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315530"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Azure Blueprints를 사용하여 오류 문제 해결
 

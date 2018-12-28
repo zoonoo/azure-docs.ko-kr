@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4be14cd1804c27eedc49cc17e33298c6134f6a37
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 062925f7e072651f4b4189cec7ca73144c0cf994
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008745"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436333"
 ---
-# <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링
-Ambari API를 사용하여 HDInsight 클러스터를 모니터링하는 방법을 알아봅니다.
+# <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>Apache Ambari API를 사용하여 HDInsight에서 Apache Hadoop 클러스터 모니터링
+Apache Ambari API를 사용하여 HDInsight 클러스터를 모니터링하는 방법을 알아봅니다.
 
-> [!NOTE]
-> 이 문서의 정보는 주로 Windows 기반 HDInsight 클러스터에 대한 것이며 Ambari REST API의 읽기 전용 버전을 제공합니다. Linux 기반 클러스터는 [Ambari를 사용하여 Hadoop 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+> [!NOTE]  
+> 이 문서의 정보는 주로 Windows 기반 HDInsight 클러스터에 대한 것이며 Ambari REST API의 읽기 전용 버전을 제공합니다. Linux 기반 클러스터는 [Apache Ambari를 사용하여 Apache Hadoop 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 > 
 > 
 
@@ -36,7 +36,7 @@ HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API 1.
 * **Azure PowerShell이 포함된 워크스테이션**.
 * (선택 사항)[cURL][curl]. 설치하려면 [cURL 릴리스 및 다운로드][curl-download]를 참조하세요.
   
-  > [!NOTE]
+  > [!NOTE]  
   > Windows에서 cURL 명령을 사용할 때는 옵션 값에 작은따옴표 대신 큰따옴표를 사용합니다.
   > 
   > 
@@ -120,7 +120,7 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 Ambari 엔드포인트 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host_name* 필드에서 호스트 이름만이 아니라 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 10/8/2014 릴리스 이전 버전에서는 이 예가 "**headnode0**"만 반환했습니다. 10/8/2014 릴리스부터는 위의 예에 나와 있는 것처럼 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 VNET(가상 네트워크) 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
 
 ## <a name="ambari-monitoring-apis"></a>Ambari 모니터링 API
-다음 테이블은 가장 일반적으로 사용되는 Ambari 모니터링 API 호출을 나열합니다. API에 대한 자세한 내용은 [Ambari API 참조][ambari-api-reference]를 참조하세요.
+다음 테이블은 가장 일반적으로 사용되는 Ambari 모니터링 API 호출을 나열합니다. API에 대한 자세한 내용은 [Apache Ambari API 참조][ambari-api-reference]를 참조하세요.
 
 | 모니터링 API 호출 | URI | 설명 |
 | --- | --- | --- |
@@ -138,7 +138,7 @@ Ambari 엔드포인트 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/cl
 | 구성 정보 가져오기 |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |구성 유형: core-site, hdfs-site, mapred-site, hive-site |
 
 ## <a name="next-steps"></a>다음 단계
-Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 자세한 내용은 다음을 참조하세요.
+Apache Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
 * [Azure Portal을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-portal]
 * [Azure PowerShell을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-powershell]
@@ -150,12 +150,12 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 [ambari-api-reference]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [curl]: http://curl.haxx.se
-[curl-download]: http://curl.haxx.se/download.html
+[curl-download]: https://curl.haxx.se/download.html
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md

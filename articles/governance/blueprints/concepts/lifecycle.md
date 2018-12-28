@@ -1,5 +1,5 @@
 ---
-title: Azure Blueprint의 수명 주기 이해
+title: 청사진의 수명 주기 이해
 description: 청사진이 거치는 수명 주기 및 각 단계의 세부 정보를 알아봅니다.
 services: blueprints
 author: DCtheGeek
@@ -8,17 +8,18 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 882279019a5f321c6af9beab1f4d0f220781bc5c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094162"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309809"
 ---
-# <a name="understand-the-life-cycle-of-an-azure-blueprint"></a>Azure Blueprint의 수명 주기 이해
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Azure Blueprint의 수명 주기 이해
 
 Azure 내의 많은 리소스와 마찬가지로 Azure Blueprint의 청사진에는 일반적이고 자연스러운 수명 주기가 있습니다. 생성, 배포되고 더 이상 필요하거나 관련되지 않은 경우 마지막으로 삭제됩니다.
-Blueprint는 표준 수명 주기 작업을 지원합니다. Blueprint는 이러한 작업을 토대로 DevOps의 핵심 요소인 Infrastructure as a Code를 관리하는 조직을 위해 일반적인 연속 통합 및 지속적인 배포 파이프라인을 지원하는 추가 상태 수준을 제공하도록 작성됩니다.
+Blueprints는 표준 수명 주기 작업을 지원합니다. Blueprint는 이러한 작업을 토대로 DevOps의 핵심 요소인 Infrastructure as a Code를 관리하는 조직을 위해 일반적인 연속 통합 및 지속적인 배포 파이프라인을 지원하는 추가 상태 수준을 제공하도록 작성됩니다.
 
 청사진 및 단계를 완벽하게 이해하기 위해 표준 수명 주기를 설명하겠습니다.
 
@@ -87,7 +88,7 @@ Blueprint는 표준 수명 주기 작업을 지원합니다. Blueprint는 이러
 
 ## <a name="assignments"></a>할당
 
-청사진을 구독에 할당할 수 있는 수명 주기 동안 몇 가지 사항이 있습니다. 청사진의 버전 모드가 **게시**되면 해당 버전을 구독에 할당할 수 있습니다. 이 수명 주기를 통해 새 버전이 개발되는 동안 청사진의 버전을 사용하고 적극적으로 할당할 수 있습니다.
+수명 주기 동안 청사진을 구독에 할당할 수 있는 여러 지점이 있습니다. 청사진의 버전 모드가 **게시**되면 해당 버전을 구독에 할당할 수 있습니다. 이 수명 주기를 통해 새 버전이 개발되는 동안 청사진의 버전을 사용하고 적극적으로 할당할 수 있습니다.
 
 청사진의 버전이 할당되면 할당된 위치 및 할당되는 데 사용하는 매개 변수를 이해해야 합니다. 매개 변수는 정적이거나 동적일 수 있습니다. 자세히 알아보려면 [정적 및 동적 매개 변수](parameters.md)를 참조하세요.
 

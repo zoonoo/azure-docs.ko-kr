@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory의 그룹 기반 라이선스란? | Microsoft Docs
+title: 그룹 기반 라이선스란? - Azure Active Directory | Microsoft Docs
 description: 작동 방법 및 모범 사례를 비롯한 Azure Active Directory 그룹 기반 라이선스에 대해 알아봅니다.
 services: active-directory
 keywords: Azure AD 라이선스
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 10/29/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 3f23b28c1b20155e50fddf17db90cd2a53c04855
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 47d04f6e73d95a7cb1ba63c437b97468041af57f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209822"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189866"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Azure Active Directory의 그룹 기반 라이선스란?
 
@@ -26,8 +26,17 @@ Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 �
 
 지금까지 개별 사용자 수준에서만 라이선스를 할당할 수 있었기 때문에 대규모 관리가 어려워질 수 있습니다. 예를 들어 조직이나 부서에 가입하거나 탈퇴하는 사용자와 같이 조직의 변경 내용에 따라 사용자 라이선스를 추가하거나 제거하려면 관리자는 종종 복잡한 PowerShell 스크립트를 작성해야 합니다. 이 스크립트는 클라우드 서비스를 개별적으로 호출합니다.
 
-이러한 문제를 해결하기 위해 이제는 Azure AD에 그룹 기반 라이선스가 포함됩니다. 그룹에 제품 라이선스를 하나 이상 할당할 수 있습니다. Azure AD는 그룹의 모든 멤버에게 라이선스가 할당되도록 합니다. 그룹에 참가하는 새 멤버에게는 적절한 라이선스가 할당됩니다. 멤버가 그룹을 떠날 때 해당 라이선스가 제거됩니다. 이렇게 하면 사용자 기준으로 조직 및 부서 구조에 변경 내용을 반영하기 위해 PowerShell을 통해 라이선스 관리를 자동화할 필요가 없습니다.
+이러한 문제를 해결하기 위해 이제는 Azure AD에 그룹 기반 라이선스가 포함됩니다. 그룹에 제품 라이선스를 하나 이상 할당할 수 있습니다. Azure AD는 그룹의 모든 멤버에게 라이선스가 할당되도록 합니다. 그룹에 참가하는 새 멤버에게는 적절한 라이선스가 할당됩니다. 멤버가 그룹을 떠날 때 해당 라이선스가 제거됩니다. 이 라이선싱 관리를 사용하면 사용자 기준으로 조직 및 부서 구조에 변경 내용을 반영하기 위해 PowerShell을 통해 라이선스 관리를 자동화할 필요가 없습니다.
 
+## <a name="licensing-requirements"></a>라이선싱 요구 사항
+그룹 기반 라이선싱을 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
+
+- Azure AD Basic에 대한 유료 또는 평가판 구독
+
+- Office 365 Enterprise E3 또는 Office 365 A3 이상의 유료 또는 평가판
+
+### <a name="required-number-of-licenses"></a>필요한 라이선스 수
+라이선스가 할당된 그룹의 경우 각 고유 구성원에 대한 라이선스도 있어야 합니다. 그룹의 각 구성원에게 라이선스를 할당할 필요는 없지만 모든 구성원을 포함하기에 충분한 라이선스가 있어야 합니다. 예를 들어 테넌트에서 라이선스가 부여된 그룹에 1,000명의 고유 구성원이 있는 경우 라이선싱 계약에 부합하려면 라이선스가 1,000개 이상 있어야 합니다.
 
 ## <a name="features"></a>기능
 
@@ -35,9 +44,9 @@ Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 �
 
 - Azure AD의 보안 그룹에 라이선스를 할당할 수 있습니다. Azure AD Connect를 사용하여 보안 그룹을 온-프레미스에서 동기화할 수 있습니다. 또한 Azure AD(클라우드 전용 그룹이라고도 함)에서 보안 그룹을 직접 만들거나 Azure AD 동적 그룹 기능을 통해 자동으로 만들 수 있습니다.
 
-- 그룹에 제품 라이선스를 할당하면 관리자는 제품에서 서비스 계획을 하나 이상 사용하지 않도록 설정할 수 있습니다. 일반적으로 조직에서 제품에 포함된 서비스를 아직 사용할 준비가 되지 않은 경우에 이 작업이 수행됩니다. 예를 들어 관리자는 Office 365를 부서에 할당할 수 있지만 Yammer 서비스를 일시적으로 사용하지 않도록 설정할 수 있습니다.
+- 그룹에 제품 라이선스를 할당하면 관리자는 제품에서 서비스 계획을 하나 이상 사용하지 않도록 설정할 수 있습니다. 일반적으로 조직이 제품에 포함된 서비스를 사용할 준비가 아직 되지 않은 경우에 이 할당이 수행됩니다. 예를 들어 관리자는 Office 365를 부서에 할당할 수 있지만 Yammer 서비스를 일시적으로 사용하지 않도록 설정할 수 있습니다.
 
-- 사용자 수준 라이선스를 필요로 하는 모든 Microsoft Clouds Services는 지원됩니다. 여기에는 모든 Office 365 제품, Enterprise Mobility + Security 및 Dynamics 365가 포함됩니다.
+- 사용자 수준 라이선스를 필요로 하는 모든 Microsoft Clouds Services는 지원됩니다. 이 지원에는 모든 Office 365 제품, Enterprise Mobility + Security 및 Dynamics 365가 포함됩니다.
 
 - 그룹 기반 라이선스는 현재 [Azure Portal](https://portal.azure.com)을 통해서만 사용할 수 있습니다. Office 365 포털과 같이 주로 사용자 및 그룹 관리를 위해 다른 관리 포털을 사용하는 경우에 이 작업을 계속 수행할 수 있습니다. 그러나 그룹 수준에서 라이선스를 관리하려면 Azure Portal을 사용해야 합니다.
 
@@ -47,11 +56,9 @@ Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 �
 
 - 어떤 경우에는 사용자에게 라이선스를 할당할 수 없습니다. 예를 들어 테넌트에서 사용할 수 있는 라이선스가 충분하지 않거나 충돌하는 서비스를 동시에 할당했을 수 있습니다. 관리자는 Azure AD가 그룹 라이선스를 완전하게 처리할 수 없는 사용자에 대한 정보에 액세스할 수 있습니다. 그런 다음 해당 정보에 따라 수정 작업을 수행할 수 있습니다.
 
-- 그룹 기반 라이선스 관리를 사용하려면 Azure AD Basic에 대한 유료 또는 평가판 구독이나 유료 또는 평가판 Office 365 Enterprise E3, Office 365 A3 이상 버전이 테넌트에 필요합니다. 이 기능을 사용하려면 라이선스가 할당된 그룹의 멤버인 각 고유 사용자에 대한 라이선스가 필요합니다. 라이선스가 할당된 그룹의 멤버가 되기 위해 사용자에게 라이선스를 할당할 필요는 없지만, 이러한 사용자를 모두 포함하려면 테넌트에 최소 개수의 라이선스는 있어야 합니다. 예를 들어, 테넌트에서 라이선스가 할당된 모든 그룹에 고유한 사용자가 총 1,000명 있는 경우, 라이선스 요구 사항을 충족하려면 1,000개 이상의 라이선스가 필요합니다.
-
 ## <a name="your-feedback-is-welcome"></a>피드백이 있으시면 언제든지 보내주세요.
 
-피드백 또는 기능 요청이 있는 경우 [Azure AD 관리자 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=162510)을 사용하여 공유해주세요.
+피드백 또는 기능 요청이 있는 경우 [Azure AD 관리자 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=162510)을 사용하여 공유해 주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

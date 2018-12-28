@@ -6,19 +6,20 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 10/29/2018
-ms.openlocfilehash: 1a8396f91f1e6f863d99be17dc8d00133a1bdd3a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/12/2018
+ms.openlocfilehash: 748f4e56b4b7fa52928f8f6507960ec35b5fe6e5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162554"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314400"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
 
 모바일 서비스 설치는 복제를 사용하도록 설정하는 동안 주요한 단계입니다. 이 단계의 성공은 필수 구성 요소 충족 및 지원되는 구성 작업에 달려 있습니다. 모바일 서비스를 설치하는 동안 접하는 가장 일반적인 문제의 원인은 다음과 같습니다.
 
 * 자격 증명/권한 오류
+* 로그인 실패
 * 연결 오류
 * 지원되지 않는 운영 체제
 * VSS 설치 오류
@@ -28,23 +29,63 @@ ms.locfileid: "52162554"
 ## <a name="credentials-check-errorid-95107--95108"></a>자격 증명 확인(ErrorID: 95107 및 95108)
 
 * 복제 활성화 중에 선택한 사용자 계정이 **유효하고 정확한지** 확인합니다.
-* 푸시 설치를 수행하려면 Azure Site Recovery에 **관리자 권한**이 필요합니다.
-  * Windows의 경우 사용자 계정에 원본 머신에서 로컬 도메인에 대한 관리 액세스 권한이 있는지 확인합니다.
+* 푸시 설치를 수행하려면 Azure Site Recovery에 **관리자 권한**이 있는 **ROOT** 계정 또는 사용자 계정이 필요합니다. 해당 계정이 없을 경우 원본 머신에서 푸시 설치가 차단됩니다.
+  * Windows(**오류 95107**)의 경우 원본 머신에서 사용자 계정에 로컬 도메인에 대한 관리 액세스 권한이 있는지 확인합니다.
   * 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다.
     * 원격 사용자 액세스 제어를 사용하지 않도록 설정하려면 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 레지스트리 키 아래에서 새로운 DWORD: LocalAccountTokenFilterPolicy를 추가합니다. 이 값을 1로 설정합니다. 이 단계를 실행하려면 명령 프롬프트에서 다음 명령을 실행합니다.
 
          `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
-  * Linux의 경우 모바일 에이전트를 성공적으로 설치하려면 루트 계정을 선택해야 합니다.
+  * Linux(**오류 95108**)의 경우 모바일 에이전트를 성공적으로 설치하려면 루트 계정을 선택해야 합니다. 또한 SFTP 서비스가 실행되어야 합니다. sshd_config 파일에서 SFTP 하위 시스템 및 암호 인증을 사용하도록 설정하려면
+    1. 루트로 로그인합니다.
+    2. /etc/ssh/sshd_config 파일로 이동하여 PasswordAuthentication으로 시작하는 줄을 찾습니다.
+    3. 줄의 주석 처리를 제거하고 값을 yes로 변경합니다.
+    4. Subsystem으로 시작하는 줄을 찾아서 주석 처리를 제거합니다.
+    5. sshd 서비스를 다시 시작합니다.
 
 선택한 사용자 계정의 자격 증명을 수정하려면 [여기](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)에 제공된 지침을 따릅니다.
 
-## <a name="connectivity-check-errorid-95117--97118"></a>**연결 모니터링(ErrorID: 95117 및 97118)**
+## <a name="insufficient-privileges-failure-errorid-95517"></a>권한 부족 오류(ErrorID: 95517)
+
+모바일 에이전트를 설치하도록 선택한 사용자에게 관리자 권한이 없는 경우, 구성 서버/스케일 아웃 프로세스 서버에서 모바일 에이전트 소프트웨어를 원본 머신에 복사할 수 없습니다. 따라서 이 오류는 액세스 거부됨 오류의 결과입니다. 사용자 계정에 관리자 권한이 있는지 확인합니다.
+
+선택한 사용자 계정의 자격 증명을 수정하려면 [여기](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)에 제공된 지침을 따릅니다.
+
+## <a name="insufficient-privileges-failure-errorid-95518"></a>권한 부족 오류(ErrorID: 95518)
+
+원본 머신에 로그인을 시도하는 동안 주 도메인과 워크스테이션 간의 도메인 트러스트 관계 설정에 실패하는 경우, 모바일 에이전트 설치가 오류 ID 95518로 실패합니다. 따라서 원본 머신의 주 도메인을 통해 로그인하려면 모바일 에이전트를 설치하는 데 사용된 사용자 계정에 관리 권한이 있는지 확인합니다.
+
+선택한 사용자 계정의 자격 증명을 수정하려면 [여기](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)에 제공된 지침을 따릅니다.
+
+## <a name="login-failure-errorid-95519"></a>로그인 실패(ErrorID: 95519)
+
+복제를 사용하도록 설정하는 동안 선택한 사용자 계정을 사용할 수 없습니다. 사용자 계정을 사용하려면 [여기](https://aka.ms/enable_login_user)서 문서를 참조하거나, *username* 텍스트를 실제 사용자 이름으로 대체하여 다음 명령을 실행합니다.
+`net user 'username' /active:yes`
+
+## <a name="login-failure-errorid-95520"></a>로그인 실패(ErrorID: 95520)
+
+머신에 대한 액세스 시도가 여러 번 실패하면 사용자 계정이 잠깁니다. 실패 원인은 다음과 같을 수 있습니다.
+
+* 구성 설정 중에 제공한 자격 증명이 잘못되었습니다. 또는
+* 복제를 사용하도록 설정하는 동안 선택한 사용자 계정이 잘못되었습니다.
+
+따라서 [여기](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)에 제공된 지침에 따라 선택한 자격 증명을 수정하고 잠시 후에 작업을 다시 시도합니다.
+
+## <a name="login-failure-errorid-95521"></a>로그인 실패(ErrorID: 95521)
+
+이 오류는 원본 머신에서 로그온 서버를 사용할 수 없는 경우에 발생합니다. 로그온 서버를 사용할 수 없는 경우 로그인 요청이 실패하여 모바일 에이전트를 설치할 수 없습니다. 로그인에 성공하려면 원본 머신에서 로그온 서버를 사용할 수 있는지 확인하고 로그온 서비스를 시작합니다. 자세한 지침을 보려면 [여기](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available)를 클릭합니다.
+
+## <a name="login-failure-errorid-95522"></a>로그인 실패(ErrorID: 95522)
+
+로그인 서비스가 원본 머신에서 실행되고 있지 않아 로그인 요청이 실패했습니다. 따라서 모바일 에이전트를 설치할 수 없습니다. 오류를 해결하려면 성공적인 로그인을 위해 원본 머신에서 로그온 서비스가 실행되고 있는지 확인합니다. 로그온 서비스를 시작하려면 명령 프롬프트에서 “net start Logon” 명령을 실행하거나 작업 관리자에서 “NetLogon” 서비스를 시작합니다.
+
+## <a name="connectivity-failure-errorid-95117--97118"></a>**연결 실패(ErrorID: 95117 및 97118)**
+
+구성 서버/스케일 아웃 프로세스 서버가 모바일 에이전트를 설치하기 위해 원본 VM에 연결하려고 시도합니다. 이 오류는 네트워크 연결 문제로 인해 원본 머신에 도달할 수 없는 경우에 발생합니다. 오류를 해결하려면 다음을 수행합니다.
 
 * 구성 서버에서 원본 머신에 ping을 수행할 수 있는지 확인합니다. 복제를 활성화하는 동안 확장 프로세스 서버를 선택한 경우 프로세스 서버에서 원본 머신에 ping을 수행할 수 있어야 합니다.
   * 원본 서버 머신 명령줄에서 텔넷을 사용하여 아래와 같이 https 포트(135)로 구성 서버/확장 프로세스 서버에 ping을 수행하여 네트워크 연결 문제나 방화벽 포트 차단 문제가 있는지 확인합니다.
 
      `telnet <CS/ scale-out PS IP address> <135>`
-  * **InMage Scout VX Agent – Sentinel/Outpost** 서비스의 상태를 확인합니다. 서비스가 실행 되고 있지 않으면 시작합니다.
 * 추가로 **Linux VM**에서도 시작합니다.
   * 최신 openssh, openssh-server 및 openssl 패키지가 설치되어 있는지 확인합니다.
   * SSH(Secure Shell)를 사용할 수 있고 22 포트에서 실행 중인지 확인합니다.
@@ -55,11 +96,15 @@ ms.locfileid: "52162554"
     * Subsystem으로 시작하는 줄을 찾아서 주석 처리를 제거합니다.
     * sshd 서비스를 다시 시작합니다.
 * 일정 기간 후에 적절한 응답이 없거나 연결된 호스트가 응답하지 못하여 기존 연결에 오류가 발생한 경우 연결 시도가 실패할 수 있습니다.
-* 연결/네트워크/도메인 관련 문제일 수 있습니다. DNS 이름 확인 문제 또는 TCP 포트 고갈 문제가 원인일 수 있습니다. 도메인에 이러한 문제가 있는지 확인하십시오.
+* 연결/네트워크/도메인 관련 문제일 수 있습니다. DNS 이름 확인 문제 또는 TCP 포트 고갈 문제가 원인일 수 있습니다. 도메인에 이러한 알려진 문제가 있는지 확인합니다.
+
+## <a name="connectivity-failure-errorid-95523"></a>연결 실패(ErrorID: 95523)
+
+이 오류는 원본 머신이 상주하는 네트워크를 찾을 수 없거나, 삭제되었거나, 더 이상 사용할 수 없는 경우에 발생합니다. 오류를 해결하는 유일한 방법은 네트워크가 존재하는지 확인하는 것입니다.
 
 ## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>파일 및 프린터 공유 서비스 확인(ErrorID: 95105 및 95106)
 
-연결을 모니터링한 후에는 가상 머신에 파일 및 프린터 공유 서비스가 활성화되어 있는지 확인합니다.
+연결을 모니터링한 후에는 가상 머신에 파일 및 프린터 공유 서비스가 활성화되어 있는지 확인합니다. 모바일 에이전트를 원본 머신에 복사하려면 이러한 설정이 필요합니다.
 
 **Windows 2008 R2 이전 버전**의 경우,
 
@@ -73,11 +118,11 @@ ms.locfileid: "52162554"
 
 **이후 버전**의 경우, [여기](vmware-azure-install-mobility-service.md)에 제공된 지침에 따라 파일 및 프린터 공유가 가능하도록 설정합니다.
 
-## <a name="windows-management-instrumentation-wmi-configuration-check"></a>WMI(Windows Management Instrumentation) 구성 확인
+## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>WMI(Windows Management Instrumentation) 구성 확인(오류 코드: 95103)
 
-파일 및 프린터 서비스를 확인한 후에는 방화벽을 통해 WMI 서비스를 사용하도록 설정합니다.
+파일 및 프린터 서비스를 확인한 후에는 방화벽을 통해 개인, 공용 및 도메인 프로필에 대한 WMI 서비스를 사용하도록 설정합니다. 이 설정은 원본 머신에서 원격 실행을 완료하는 데 필요합니다. 사용하도록 설정하려면 다음을 수행합니다.
 
-* 제어판에서 보안을 클릭한 다음, Windows 방화벽을 클릭합니다.
+* 제어판으로 이동하여 보안을 클릭한 다음, Windows 방화벽을 클릭합니다.
 * 설정 변경을 클릭한 다음, 예외 탭을 클릭합니다.
 * 예외 창에서 WMI(Windows Management Instrumentation)에 대한 확인란을 선택하여 방화벽을 통해 WMI 트래픽을 사용하도록 설정합니다. 
 
@@ -93,6 +138,24 @@ ms.locfileid: "52162554"
 실패에 대한 또 다른 가장 일반적인 이유는 지원되지 않는 운영 체제일 수 있습니다. 모바일 서비스를 성공적으로 설치하려면 지원되는 운영 체제/커널 버전에 설치해야 합니다.
 
 Azure Site Recovery에서 어떤 운영 체제가 지원되는지 알아보려면 [지원 매트릭스 문서](vmware-physical-azure-support-matrix.md#replicated-machines)를 참조하세요.
+
+## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>부트 및 시스템 파티션/볼륨이 동일한 디스크가 아님(ErrorID: 95309)
+
+9.20 이전 버전에서는 서로 다른 디스크의 부트 및 시스템 파티션/볼륨이 지원되지 않는 구성이었습니다. [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 이 구성이 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
+
+## <a name="system-partition-on-multiple-disks-errorid-95313"></a>여러 디스크에 있는 시스템 파티션(ErrorID: 95313)
+
+9.20 이전 버전에서는 여러 디스크에 배치된 루트 파티션 또는 볼륨이 지원되지 않는 구성이었습니다. [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 이 구성이 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
+
+## <a name="lvm-support-from-920-version"></a>9.20 버전의 LVM 지원
+
+9.20 이전 버전에서는 데이터 디스크에 대해서만 LVM이 지원되었습니다. /boot는 디스크 파티션에 있어야 하며 LVM 볼륨이 아니어야 합니다.
+
+[9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 [LVM의 OS 디스크](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)가 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
+
+## <a name="insufficient-space-errorid-95524"></a>공간 부족(ErrorID: 95524)
+
+모바일 에이전트를 원본 머신에 복사하는 경우 최소 100MB의 여유 공간이 필요합니다. 따라서 원본 머신에 필요한 여유 공간이 있는지 확인하고 작업을 다시 시도합니다.
 
 ## <a name="vss-installation-failures"></a>VSS 설치 오류
 

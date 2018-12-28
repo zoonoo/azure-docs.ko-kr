@@ -1,5 +1,5 @@
 ---
-title: Azure Blueprint의 배포 순서 이해
+title: 배포 순서 이해
 description: 청사진이 거치는 수명 주기 및 각 단계의 세부 정보를 알아봅니다.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: fcfffe6094361c8b47b1cc7ce42cb79561261b15
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: bd12aabf0ca8f82261e6b3c677d7306ee46c4171
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620598"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308620"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure Blueprint의 배포 순서 이해
 

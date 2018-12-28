@@ -6,23 +6,21 @@ author: michaelhauss
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: 43e9acb79b363e8f2cb00f6a4676d450c097bf3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be9254686eeb285fb4f0a5e29ba60023abee84ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261998"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961929"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>iOS에서 Blob 저장소를 사용하는 방법
 
 이 문서에서는 Microsoft Azure Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)를 사용합니다. 여기서 다루는 시나리오에는 Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다. Blob에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오. 또한 [샘플 앱](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)을 다운로드하여 iOS 응용 프로그램에서 Azure Storage의 사용을 신속하게 볼 수 있습니다.
 
-## <a name="what-is-blob-storage"></a>Blob 저장소란?
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
+Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-blobs-introduction.md)를 참조하세요.
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -219,11 +217,11 @@ NSString에서 블록 Blob을 업로드하는 것 외에도 이와 유사한 메
 * **useFlatBlobListing** - [컨테이너 및 Blob 이름 명명 및 참조](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 섹션에서 설명한 것처럼 Blob service가 플랫 저장소 스키마인 경우에도 경로 정보로 Blob 이름을 지정하여 가상 계층 구조를 만들 수 있습니다. 그러나 현재는 플랫이 아닌 목록은 지원되지 않습니다. 이 기능은 곧 제공됩니다. 현재 이 값은 **YES**여야 합니다.
 * **blobListingDetails** - Blob을 나열할 때 포함할 항목을 지정할 수 있습니다.
   * _AZSBlobListingDetailsNone_: 커밋된 Blob만 나열하고 Blob 메타데이터는 반환하지 않습니다.
-  * _AZSBlobListingDetailsSnapshots_: 커밋된 Blob과 Blob 스냅숏을 나열합니다.
+  * _AZSBlobListingDetailsSnapshots_: 커밋된 Blob 및 Blob 스냅숏을 나열합니다.
   * _AZSBlobListingDetailsMetadata_: 목록에 반환된 각 Blob에 대한 Blob 메타데이터를 검색합니다.
-  * _AZSBlobListingDetailsUncommittedBlobs_: 커밋된 Blob과 커밋되지 않은 Blob을 나열합니다.
+  * _AZSBlobListingDetailsUncommittedBlobs_: 커밋 및 커밋되지 않은 Blob을 나열합니다.
   * _AZSBlobListingDetailsCopy_: 목록에 복사 속성을 포함합니다.
-  * _AZSBlobListingDetailsAll_: 사용 가능한 커밋된 Blob, 커밋되지 않은 Blob 및 스냅숏을 모두 나열하고 해당 Blob의 메타데이터와 복사 상태를 모두 반환합니다.
+  * _AZSBlobListingDetailsAll_: 사용 가능한 모든 커밋된 Blob, 커밋되지 않은 Blob 및 스냅숏을 나열하고 모든 메타데이터와 해당 Blob에 대한 복사 상태를 반환합니다.
 * **maxResults** - 이 작업에 대해 반환할 결과의 최대 수입니다. 제한을 설정하지 않으려면 -1을 사용합니다.
 * **completionHandler** - 나열 작업의 결과와 함께 실행할 코드 블록입니다.
 

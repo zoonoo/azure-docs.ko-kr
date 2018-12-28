@@ -12,15 +12,15 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e7aeb273d4ae276d3460c3de1f404230276cffb7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 14183475fcca0e12c56f009f105e77aaf11b0c98
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056644"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315217"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>분할된 다중 테넌트 SQL 데이터베이스를 사용하는 SaaS 응용 프로그램에서 스키마 관리
- 
+
 이 자습서에서는 SaaS(Software as a Service) 응용 프로그램에서 대규모 데이터베이스를 유지 관리하는 데 따른 문제를 검토합니다. 수많은 데이터베이스에 스키마를 적용하기 위한 솔루션이 설명되어 있습니다.
 
 다른 응용 프로그램과 마찬가지로 Wingtip Tickets SaaS 앱도 시간이 지나면서 발전되고, 그에 따라 데이터베이스를 변경해야 합니다. 변경 사항은 스키마나 참조 데이터를 영향을 줄 수도 있고, 데이터베이스 유지 관리 작업에 적용될 수도 있습니다. 테넌트별 데이터베이스 패턴을 사용하는 SaaS 응용 프로그램에서는 수많은 테넌트 데이터베이스를 대상으로 변경 사항을 효율적으로 조율할 수 있어야 합니다. 또한, 변경 사항이 새로 생성되는 데이터베이스에도 포함되도록 데이터베이스 프로비저닝 프로세스에 변경 사항을 반영해야 합니다.
@@ -64,12 +64,12 @@ Azure SQL Database의 [탄력적 작업](sql-database-elastic-jobs-overview.md) 
 ## <a name="elastic-jobs-limited-preview"></a>탄력적 작업의 제한된 미리 보기
 
 현재 Azure SQL Database의 통합 기능인 새로운 탄력적 작업 버전이 있습니다. 이 새로운 탄력적 작업 버전은 현재 제한된 미리 보기 상태입니다. 제한된 미리 보기에서는 PowerShell을 사용하여 작업 에이전트 만들기와 T-SQL을 사용하여 작업을 생성 및 관리하기를 지원합니다.
-> [!NOTE] 
+> [!NOTE]
 > 이 자습서에서는 제한된 미리 보기(Elastic Database 작업)에 있는 SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행하려면 ‘Elastic 작업 미리 보기’라는 제목으로 SaaSFeedback@microsoft.com으로 구독 ID를 보내 주세요. 구독이 활성화되었다는 확인을 받은 후 최신 시험판 작업 cmdlet을 다운로드하여 설치하세요. 이 미리 보기는 제한적으로만 제공되므로 관련 질문이 있거나 지원이 필요한 경우 SaaSFeedback@microsoft.com에 문의해야 합니다.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 소스 코드 및 스크립트 가져오기
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 GitHub의 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) 리포지토리에서 사용할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 참조하세요. 
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 GitHub의 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) 리포지토리에서 사용할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 참조하세요.
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>작업 에이전트 데이터베이스와 새 작업 에이전트 만들기
 
@@ -84,9 +84,9 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 
 #### <a name="prepare"></a>준비
 
-각 테넌트 데이터베이스의 **VenueTypes** 테이블에는 장소 유형 집합이 포함되어 있습니다. 각 장소 유형은 장소에서 진행할 수 있는 이벤트의 종류를 정의합니다. 장소 유형은 테넌트 이벤트 앱에 표시된 배경 이미지에 해당합니다.  이 연습에서는 두 개의 추가 장소 유형인 *Motorcycle Racing* 및 *Swimming Club*을 추가하기 위해 모든 데이터베이스에 업데이트를 배포합니다. 
+각 테넌트 데이터베이스의 **VenueTypes** 테이블에는 장소 유형 집합이 포함되어 있습니다. 각 장소 유형은 장소에서 진행할 수 있는 이벤트의 종류를 정의합니다. 장소 유형은 테넌트 이벤트 앱에 표시된 배경 이미지에 해당합니다.  이 연습에서는 두 개의 추가 장소 유형인 *Motorcycle Racing* 및 *Swimming Club*을 추가하기 위해 모든 데이터베이스에 업데이트를 배포합니다.
 
-먼저 각 테넌트 데이터베이스에 포함된 각 장소 유형을 검토합니다. SQL Server Management Studio(SSMS)에서 테넌트 데이터베이스 중 하나에 접속하여 VenueTypes 테이블을 살펴봅니다.  데이터베이스 페이지에서 액세스할 수 있는 Azure Portal에서 쿼리 편집기를 사용하여 이 표를 쿼리하는 방법도 있습니다. 
+먼저 각 테넌트 데이터베이스에 포함된 각 장소 유형을 검토합니다. SQL Server Management Studio(SSMS)에서 테넌트 데이터베이스 중 하나에 접속하여 VenueTypes 테이블을 살펴봅니다.  데이터베이스 페이지에서 액세스할 수 있는 Azure Portal에서 쿼리 편집기를 사용하여 이 표를 쿼리하는 방법도 있습니다.
 
 1. SSMS를 열고 테넌트 서버 *tenants1-dpt-&lt;user&gt;.database.windows.net*에 접속합니다.
 1. *Motorcycle Racing*과 *Swimming Club*이 현재 포함되어 있지 **않은** 것을 확인하려면 *tenants1-dpt-&lt;user&gt;* 서버에서 *contosoconcerthall* 데이터베이스로 이동하여 *VenueTypes* 테이블을 쿼리합니다.

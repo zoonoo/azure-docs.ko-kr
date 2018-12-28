@@ -1,5 +1,5 @@
 ---
-title: Azure Search 인덱스 다시 빌드 또는 검색 가능한 콘텐츠 새로 고침 | Microsoft Docs
+title: 기본 제공 인덱서를 사용하여 인덱싱 스케일 아웃 - Azure Search
 description: 전체 다시 빌드 또는 부분 증분 인덱싱에서 새 요소를 추가하거나 기존 요소 또는 문서를 업데이트하거나 오래된 문서를 삭제하여 Azure Search 인덱스를 새로 고칩니다.
 services: search
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 0b346756349c483dea32ec31827a653bd9b777cf
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec2018
+ms.openlocfilehash: 5f268de43f4f860458c062cb80e5bea0134b4407
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705942"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316687"
 ---
 # <a name="how-to-scale-out-indexing-in-azure-search"></a>Azure Search에서 인덱싱을 스케일 아웃하는 방법
 

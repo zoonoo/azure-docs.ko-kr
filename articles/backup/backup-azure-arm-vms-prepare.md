@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d24b2773aa056b33a4067d5d84677d186d25b195
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422799"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255077"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Azure VM 백업 준비
 
@@ -39,7 +39,7 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
     > [!NOTE]
     > 가상 머신에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 있는 한 다른 Bring-Your-Own-Linux 배포가 작동할 수 있습니다. 그러나 이러한 배포는 지원되지 않습니다.
     >
- * **Windows Server**, **Windows 클라이언트**: Windows Server 2008 R2 또는 Windows 7 이전 버전은 지원되지 않습니다.
+ * **Windows Server**, **Windows 클라이언트**:  Windows Server 2008 R2 또는 Windows 7보다 이전 버전은 지원되지 않습니다.
 
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>VM 백업 및 복원 시의 제한 사항

@@ -1,5 +1,5 @@
 ---
-title: Azure Search에 대한 관리자 및 쿼리 api-key 만들기, 관리 및 보호 | Microsoft Docs
+title: 관리자 및 쿼리 api-key 만들기, 관리 및 보호 - Azure Search
 description: api-key는 서비스 엔드포인트에 대한 액세스를 제어합니다. 관리자 키는 쓰기 액세스를 부여합니다. 쿼리 키는 읽기 전용 액세스에 대해서만 만들 수 있습니다.
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 2ec720f26cfbadb9963ff3991ad1795c9b30c136
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.custom: seodec2018
+ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284984"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316931"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Azure Search 서비스에 대한 api-key 만들기 및 관리
 
@@ -65,12 +66,12 @@ api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다
 ## <a name="secure-api-keys"></a>api-key 보안
 키 보안은 포털 또는 Resource Manager 인터페이스를 통해 액세스를 제한하여 보장됩니다(PowerShell 또는 명령줄 인터페이스). 설명한 것처럼 구독 관리자는 모든 api-key를 보고 다시 생성할 수 있습니다. 예방 조치로 역할 할당을 검토하여 관리 키에 대한 액세스 권한이 있는 사용자를 파악할 수 있습니다.
 
-+ 서비스 대시보드에서 **액세스 제어(IAM)** 를 클릭하여 서비스에 대한 역할 할당을 봅니다.
++ 서비스 대시보드에서 **액세스 제어(IAM)**, **역할 할당** 탭을 차례로 클릭하여 서비스에 대한 역할 할당을 봅니다.
 
-다음 역할의 멤버는 키를 보고 다시 생성할 수 있습니다. 소유자, 참가자 [Search Service 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
+소유자, 기여자, [Search Service 공급자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) 역할의 구성원은 키를 보고 다시 생성할 수 있습니다.
 
 > [!Note]
-> ID를 기반으로 검색 결과에 액세스하기 위해 보안 필터를 만들어서 ID로 결과를 잘라 요청자에게 액세스 권한이 없어야 하는 문서를 제거할 수 있습니다. 자세한 내용은 [보안 필터](search-security-trimming-for-azure-search.md) 및 [Active Directory로 보안](search-security-trimming-for-azure-search-with-aad.md)을 참조하세요.
+> 검색 결과에 대한 ID 기반 액세스의 경우 보안 필터를 만들어서 ID를 기준으로 결과를 잘라 요청자에게 액세스 권한이 없어야 하는 문서를 제거할 수 있습니다. 자세한 내용은 [보안 필터](search-security-trimming-for-azure-search.md) 및 [Active Directory로 보안](search-security-trimming-for-azure-search-with-aad.md)을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 

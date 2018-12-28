@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d834b7f43d961400e2d5080a46cf921d719f3393
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684861"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409544"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Azure Cosmos 데이터베이스, 컨테이너 및 항목 작업
 
@@ -26,10 +26,10 @@ Azure 구독 아래에 [Azure Cosmos DB 계정](account-overview.md)을 생성�
 
 | **Azure Cosmos 엔터티** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos 데이터베이스 | 데이터베이스 | Keyspace | 데이터베이스 | 해당 없음 | 해당 없음 |
+|Azure Cosmos 데이터베이스 | 데이터베이스 | Keyspace | 데이터베이스 | 데이터베이스 | 해당 없음 |
 
 > [!NOTE]
-> Gremlin 및 Table API 계정을 사용하면 첫 번째 그래프 또는 테이블을 만들 때 기본 데이터베이스가 Azure Cosmos 계정 내에 자동으로 생성됩니다.
+> Table API 계정을 사용하면 첫 번째 테이블을 만들 때 기본 데이터베이스가 Azure Cosmos 계정 내에 자동으로 생성됩니다.
 
 ### <a name="operations-on-an-azure-cosmos-database"></a>Azure Cosmos 데이터베이스에서 작업
 
@@ -49,11 +49,11 @@ Azure Cosmos 컨테이너는 프로비전된 처리량과 항목의 스토리지
 
 Azure Cosmos 컨테이너를 만들 때 다음 모드 중 하나로 처리량을 구성합니다.
 
-* **Dedicated 프로비전된 처리량** 모드: 컨테이너에 프로비전된 처리량은 컨테이너 전용으로 예약되며 SLA에 의해 지원됩니다. 자세한 내용은 [Azure Cosmos 컨테이너에서 처리량을 프로비전하는 방법](how-to-provision-container-throughput.md)을 참조하세요.
+* **전용 프로비전된 처리량** 모드: 컨테이너에 프로비전된 처리량은 컨테이너 전용으로 예약되며 SLA에 의해 지원됩니다. 자세한 내용은 [Azure Cosmos 컨테이너에서 처리량을 프로비전하는 방법](how-to-provision-container-throughput.md)을 참조하세요.
 
-* **프로비전된 처리량 공유** 모드: 이러한 컨테이너는 프로비전된 처리량을 동일한 데이터베이스의 다른 컨테이너와 공유합니다(전용 프로비전된 처리량으로 구성된 컨테이너 제외). 즉, 데이터베이스의 프로비전된 처리량은 모든 "공유" 컨테이너 간에 공유됩니다. 자세한 내용은 [Azure Cosmos 데이터베이스에서 프로비전된 처리량을 구성하는 방법](how-to-provision-database-throughput.md)을 참조하세요.
+* **공유 프로비전된 처리량** 모드: 이러한 컨테이너는 프로비전된 처리량을 동일한 데이터베이스의 다른 컨테이너와 공유합니다(전용 프로비전된 처리량으로 구성된 컨테이너 제외). 즉, 데이터베이스의 프로비전된 처리량은 모든 "공유" 컨테이너 간에 공유됩니다. 자세한 내용은 [Azure Cosmos 데이터베이스에서 프로비전된 처리량을 구성하는 방법](how-to-provision-database-throughput.md)을 참조하세요.
 
-Azure Cosmos 컨테이너는 "공유" 또는 "전용" 프로비전된 처리량 모드로 컨테이너를 생성하든 관계없이 탄력적으로 확장할 수 있습니다. 즉, 무제한 스토리지 및 프로비전된 처리량이 있을 수 있습니다.  
+Azure Cosmos 컨테이너는 “공유” 또는 “전용” 프로비전된 처리량 모드로 컨테이너를 생성하든 관계없이 탄력적으로 확장할 수 있습니다.
 
 Azure Cosmos 컨테이너는 스키마에 구애받지 않는 항목 컨테이너입니다. 컨테이너 내의 항목은 임의의 스키마가 있을 수 있습니다. 예를 들어 사람을 나타내는 항목, 자동차를 나타내는 항목은 동일한 컨테이너에 배치할 수 있습니다. 기본적으로 컨테이너에 추가하는 모든 항목은 명시적 인텍스나 스키마 관리 없이 자동으로 인덱싱됩니다. 컨테이너에 인덱싱 정책을 구성하여 인덱싱 동작을 사용자 지정할 수 있습니다. 
 
@@ -69,7 +69,7 @@ Azure Cosmos 컨테이너는 다음과 같이 API별 엔터티에 특화됩니�
 
 | **Azure Cosmos 엔터티** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos 컨테이너 | 컨테이너 | 테이블 | 컬렉션 | 그래프 | 테이블 |
+|Azure Cosmos 컨테이너 | 컬렉션 | 테이블 | 컬렉션 | 그래프 | 테이블 |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너의 속성
 
@@ -105,7 +105,7 @@ API 선택에 따라 Azure Cosmos 항목은 컬렉션의 문서, 테이블의 �
 
 | **Cosmos 엔터티** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos 항목 | 항목 | 행 | 문서 | 노드 또는 Edge | 항목 |
+|Azure Cosmos 항목 | 문서 | 행 | 문서 | 노드 또는 Edge | 항목 |
 
 ### <a name="properties-of-an-item"></a>항목의 속성
 

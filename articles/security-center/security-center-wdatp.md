@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 1109e72d00ccddd6fc0f120ee71c88adaae72fed
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316993"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337600"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection과 Azure Security Center 통합
 
@@ -27,9 +27,9 @@ Azure Security Center를 [Windows Defender ATP(Advanced Threat Protection)](http
 
 Azure Security Center 고객은 이제 다음과 같은 Windows Defender ATP 기능을 사용할 수 있습니다.
 
-- **차세대 위반 후 검색 센서**: Windows 서버용 Windows Defender ATP 센서는 광범위한 동작 신호를 수집합니다.
+- **차세대 위반 후 탐지 센서**: Windows 서버용 Windows Defender ATP 센서는 광범위한 동작 신호를 수집합니다.
 
-- **분석 기반 클라우드형 위반 후 검색**: Windows Defender ATP는 지속적으로 변화하는 위협을 파악할 수 있도록 빠르게 조정되며, 고급 분석 기능과 빅 데이터를 활용합니다. 또한 Windows, Azure, Office 전반에 걸쳐 생성되는 신호를 통해 알 수 없는 위협을 검색하는 Intelligent Security Graph의 기능을 통해 보안을 더욱 강화하며, 신속하게 대응할 수 있도록 조치 가능한 경고를 제공합니다.
+- **분석 기반 클라우드형 위반 후 탐지**: Windows Defender ATP는 지속적으로 변화하는 위협을 파악할 수 있도록 빠르게 조정되며, 고급 분석 기능과 빅 데이터를 활용합니다. 또한 Windows, Azure, Office 전반에 걸쳐 생성되는 신호를 통해 알 수 없는 위협을 검색하는 Intelligent Security Graph의 기능을 통해 보안을 더욱 강화하며, 신속하게 대응할 수 있도록 조치 가능한 경고를 제공합니다.
 
 - **위협 인텔리전스**: Windows Defender ATP가 공격자 도구, 기술 및 절차를 식별하며 이러한 정보가 검색되면 경고를 생성합니다. 이 과정에서는 Microsoft 위협 확인 담당자와 보안 팀에서 생성하며 파트너가 제공한 정보를 통해 강화된 데이터를 활용합니다.
 
@@ -37,9 +37,9 @@ Azure Security Center 고객은 이제 다음과 같은 Windows Defender ATP 기
 
 - **자동 온보딩**: Azure Security Center에 온보딩하는 Windows 서버에는 Windows Defender ATP 센서가 자동으로 사용됩니다.
 
-- **한 곳에서 경고 확인**: Azure Security Center 콘솔에 Windows Defender ATP 경고가 표시됩니다.
+- **하나의 창에서 경고 확인**: Azure Security Center 콘솔에 Windows Defender ATP 경고가 표시됩니다.
 
-- **세부 컴퓨터 조사**: Azure Security Center 고객은 Windows Defender ATP 콘솔에 액세스한 다음 세부 조사를 수행하여 위반 범위를 파악할 수 있습니다.
+- **세부 머신 조사**: Azure Security Center 고객은 Windows Defender ATP 콘솔에 액세스한 다음 세부 조사를 수행하여 위반 범위를 파악할 수 있습니다.
 
 ![경고 목록 및 각 경고 관련 일반 정보가 표시된 Azure Security Center](media/security-center-wdatp/image1.png)
 
@@ -105,6 +105,6 @@ Windows Defender ATP 센서는 시스템 컨텍스트에서 연결하므로, 프
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md): Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
-- [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md): 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
+- [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md): Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성하는 방법을 알아봅니다.
+- [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md): 권장 사항을 통해 Azure 리소스를 보호하는 방법을 알아봅니다.
 - [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md): Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.

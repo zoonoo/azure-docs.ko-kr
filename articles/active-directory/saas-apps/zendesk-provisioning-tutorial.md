@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory를 사용한 자동 사용자 프로비전을 위한 Zendesk 구성 | Microsoft Docs'
+title: '자습서: Azure Active Directory를 사용한 자동 사용자 프로비저닝을 위한 Zendesk 구성 | Microsoft Docs'
 description: 사용자 계정을 Zendesk로 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 2dc965547511d27ed43a88c1f45b50593b30a937
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347939"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322775"
 ---
-# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 Zendesk 구성
+# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝에 대한 Zendesk 구성
 
 이 자습서에서는 사용자 및/또는 그룹을 Zendesk로 자동으로 프로비전 및 프로비전 해제하도록 Azure AD(Azure Active Directory)를 구성하기 위해 Zendesk 및 Azure AD에서 수행하는 단계를 보여 줍니다. 
 
@@ -77,6 +77,10 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Zendesk에 사용자를 할당하기 위한 주요 팁
 
+*    Zendesk 역할은 현재 Azure Portal UI에 자동으로 동적으로 채워집니다. 사용자에게 Zendesk 역할을 할당하기 전에 Zendesk 테넌트에서 최신 역할을 검색하기 위해 Zendesk에 대해 초기 동기화가 완료되었는지 확인합니다.
+
+*    단일 Azure AD 사용자를 Zendesk에 할당하여 초기 자동 사용자 프로비저닝 구성을 테스트하는 것이 좋습니다. 테스트가 성공적으로 완료되면 추가 사용자 및/또는 그룹이 나중에 할당될 수 있습니다.
+  
 *   단일 Azure AD 사용자를 Zendesk에 할당하여 자동 사용자 프로비전 구성을 테스트하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
 *   사용자를 Zendesk에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
@@ -111,7 +115,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
     *   6단계에서 설명한 대로 **비밀 토큰** 필드에 비밀 토큰을 채웁니다.
 
     *   **도메인** 필드에 Zendesk 테넌트의 하위 도메인을 채웁니다.
-    예: 테넌트 URL이 https://my-tenant.zendesk.com인 계정의 하위 도메인은 **my-tenant**입니다.
+    예제: 테넌트 URL이 https://my-tenant.zendesk.com인 계정의 하위 도메인은 **my-tenant**입니다.
 
 6. Zendesk 계정의 **비밀 토큰**은 **관리자 > API > 설정**에 있습니다. 
 

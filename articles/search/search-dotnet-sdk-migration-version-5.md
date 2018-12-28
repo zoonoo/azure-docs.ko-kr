@@ -1,6 +1,6 @@
 ---
-title: Azure Search .NET SDK 버전 5로 업그레이드 | Microsoft Docs
-description: Azure Search .NET SDK 버전 5로 업그레이드
+title: Azure Search .NET SDK 버전 5로 업그레이드 - Azure Search
+description: 이전 버전에서 Azure Search .NET SDK 버전 5로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: brjohnst
-ms.openlocfilehash: b08507d7685ce87a4c176385f750a72d6ae51ba3
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec2018
+ms.openlocfilehash: 743ac433418386281acc58ad1deef06ee75e38d9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091143"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316876"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK 버전 5로 업그레이드
 버전 4.0-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 참조하여 버전 5로 응용 프로그램을 업그레이드할 수 있습니다.
@@ -57,9 +58,9 @@ Azure Search .NET SDK의 패키징이 변경되었으므로 버전 5를 사용�
 버전 5에서 가장 크게 달라진 내용은 `Microsoft.Azure.Search` 어셈블리와 해당 내용이 4개의 개별 어셈블리로 4개의 독립된 NuGet 패키지로 배포된다는 점입니다.
 
  - `Microsoft.Azure.Search`: 다른 모든 Azure Search 패키지를 종속 항목으로 포함하는 메타 패키지입니다. 이전 버전의 SDK에서 업그레이드하는 경우 이 패키지를 업그레이드하고 다시 빌드하기만 하면 새 버전을 사용할 수 있습니다.
- - `Microsoft.Azure.Search.Data`: Azure Search를 사용하여 .NET 응용 프로그램을 개발하는 경우 이 패키지를 사용합니다. 인덱스에서 문서를 쿼리하거나 업데이트하기만 하면 됩니다. 인덱스, 동의어 맵 또는 서비스 수준의 다른 리소스도 만들거나 업데이트해야 하는 경우에는 대신 `Microsoft.Azure.Search` 패키지를 사용합니다.
+ - `Microsoft.Azure.Search.Data`: Azure Search를 사용하여 .NET 애플리케이션을 개발하는 경우 이 패키지를 사용합니다. 인덱스에서 문서를 쿼리하거나 업데이트하기만 하면 됩니다. 인덱스, 동의어 맵 또는 서비스 수준의 다른 리소스도 만들거나 업데이트해야 하는 경우에는 대신 `Microsoft.Azure.Search` 패키지를 사용합니다.
  - `Microsoft.Azure.Search.Service`: Azure Search 인덱스, 동의어 맵, 인덱서, 데이터 원본 또는 서비스 수준의 다른 리소스를 관리하기 위해 .NET에서 자동화를 개발하는 경우 이 패키지를 사용합니다. 인덱스에서 문서를 쿼리하거나 업데이트하기만 하면 되는 경우에는 대신 `Microsoft.Azure.Search.Data` 패키지를 사용합니다. Azure Search의 모든 기능이 필요한 경우에는 대신 `Microsoft.Azure.Search` 패키지를 사용합니다.
- - `Microsoft.Azure.Search.Common`: Azure Search .NET 라이브러리에 필요한 공통 유형입니다. 응용 프로그램에서 직접 이 패키지를 사용할 필요는 없습니다. 종속 항목으로만 사용하는 용도입니다.
+ - `Microsoft.Azure.Search.Common`: Azure Search .NET 라이브러리에 필요한 일반 형식입니다. 응용 프로그램에서 직접 이 패키지를 사용할 필요는 없습니다. 종속 항목으로만 사용하는 용도입니다.
  
 이 변경은 많은 유형이 어셈블리 간에 이동되었으므로 기술적으로 큰 변화입니다. 바로 이런 이유 때문에 SDK 버전 5로 업그레이드하려면 응용 프로그램을 다시 빌드해야 합니다.
 

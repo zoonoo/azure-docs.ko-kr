@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: f440e92f62c7c61966145a1e74d3d3be9f6b7825
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 0a4d5cf4731932ed72e0dc38c13a5f855a937864
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250571"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317511"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -27,13 +27,13 @@ ms.locfileid: "50250571"
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-Service Bus 바인딩은 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지 버전 2.x에서 제공됩니다. 
+Service Bus 바인딩은 [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지 버전 2.x에서 제공됩니다. 
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
 
-Service Bus 바인딩은 [Microsoft.Azure.WebJobs.Extensions.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) GitHub 리포지토리에 있습니다.
+Service Bus 바인딩은 [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -311,7 +311,7 @@ JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 �
 
 Functions 런타임은 [PeekLock 모드](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode)로 메시지를 수신합니다. 함수가 성공적으로 완료된 경우 메시지에서 `Complete`를 호출하고, 함수가 실패한 경우 `Abandon`을 호출합니다. 함수가 `PeekLock` 시간 제한보다 오래 실행되는 경우 함수가 실행되면 잠금이 자동으로 갱신됩니다. 
 
-함수 1.x를 사용하면 [OnMessageOptions.AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout?view=azure-dotnet#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout)에 매핑되는 *host.json*에서 `autoRenewTimeout`를 구성할 수 있습니다. 이 설정에 대해 허용되는 최대값음 Service Bus 설명서에 따라 5분입니다. 반면 함수 제한 시간 기본값은 5분에서 10분으로 늘릴 수 있습니다. Service Bus 함수의 경우 Service Bus 갱신 제한을 초과하기 때문에 이 작업을 하지 않는 것이 좋습니다.
+`maxAutoRenewDuration`은 [OnMessageOptions.MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet)에 매핑되는 *host.json*에서 구성할 수 있습니다. 이 설정에 대해 허용되는 최대값음 Service Bus 설명서에 따라 5분입니다. 반면 함수 제한 시간 기본값은 5분에서 10분으로 늘릴 수 있습니다. Service Bus 함수의 경우 Service Bus 갱신 제한을 초과하기 때문에 이 작업을 하지 않는 것이 좋습니다.
 
 ## <a name="trigger---message-metadata"></a>트리거 - 메시지 메타데이터
 
@@ -617,6 +617,7 @@ JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 �
                 "autoComplete": false,
                 "maxConcurrentCalls": 32,
                 "maxAutoRenewDuration": "00:55:00"
+            }
         }
     }
 }
@@ -624,7 +625,7 @@ JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 �
 
 |자산  |기본값 | 설명 |
 |---------|---------|---------| 
-|autoRenewTimeout|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.| 
+|maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.| 
 |autoComplete|false|트리거에서 즉시 완료(자동 완성)로 표시해야 할지 처리가 완료될 때까지 기다려야 하는지 여부입니다.| 
 |maxConcurrentCalls|16|메시지 펌프가 시작되어야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, `maxConcurrentCalls`를 1로 설정합니다. | 
 |prefetchCount|해당 없음|기본 MessageReceiver에서 사용할 기본 PrefetchCount입니다.| 

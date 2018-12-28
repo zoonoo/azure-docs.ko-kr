@@ -17,14 +17,14 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422442"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337141"
 ---
-# <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션 
+# <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
 Azure Active Directory, Microsoft ID 또는 Microsoft Graph API와 통합하기 시작하는지, 아니면 응용 프로그램에 새 기능을 구현하는지에 관계없이 커뮤니티에서 도움을 얻거나 개발자로서 사용하는 지원 옵션을 이해해야 할 때가 있습니다. 이 문서는 아래에 요약된 옵션을 이해하는 데 도움이 됩니다.
 
@@ -38,7 +38,7 @@ Azure Active Directory, Microsoft ID 또는 Microsoft Graph API와 통합하기 
 
 ## <a name="search"></a>검색
 
-개발 관련 질문이 있으면 설명서, [github 샘플](https://github.com/azure-samples) 또는 [Stack Overflow](https://www.stackoverflow.com) FAQ에서 필요한 답변을 찾을 수 있습니다.
+개발 관련 질문이 있으면 설명서, [GitHub 샘플](https://github.com/azure-samples) 또는 [Stack Overflow](https://www.stackoverflow.com) FAQ에서 필요한 답변을 찾을 수 있습니다.
 
 ### <a name="scoped-search"></a>범위 지정 검색
 빠른 결과를 얻으려면 [즐겨찾는 검색 엔진](https://bing.com)에서 다음을 사용하여 Stack Overflow, 설명서 및 코드 샘플에 대한 검색 범위를 지정합니다.
@@ -76,7 +76,7 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널이며, Mic
 |인증 또는 권한 부여 주제와 관련된 다른 모든 영역 |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
-> 다음 Stack Overflow 게시물에는 질문을 작성하는 방법 및 소스 코드를 추가하는 방법에 대한 팁이 있습니다. 이러한 지침을 따르면 커뮤니티 구성원이 신속하게 질문을 평가하고 응답할 수 있는 기회를 늘릴 수 있습니다.  
+> 다음 Stack Overflow 게시물에는 질문을 작성하는 방법 및 소스 코드를 추가하는 방법에 대한 팁이 있습니다. 이러한 지침을 따르면 커뮤니티 구성원이 신속하게 질문을 평가하고 응답할 수 있는 기회를 늘릴 수 있습니다.
 > - [좋은 질문을 하는 방법](https://stackoverflow.com/help/how-to-ask)
 > - [최소한의 완전하고 검증 가능한 예제를 만드는 방법](https://stackoverflow.com/help/mcve)
 
@@ -106,4 +106,4 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널이며, Mic
 
 제한된 시간 동안 Microsoft 파트너에 대한 체험 채팅 지원을 사용할 수도 있습니다. Microsoft 파트너가 아닌 경우 [여기](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx)로 이동하여 추가 비용 없이 등록하고 다른 혜택을 얻을 수 있습니다.
 
-등록한 후에는 [여기서](https://aka.ms/devchat) 채팅 요청을 시작할 수 있습니다.
+회사를 등록한 후에는 [여기서](https://aka.ms/devchat) 채팅 요청을 시작할 수 있습니다.

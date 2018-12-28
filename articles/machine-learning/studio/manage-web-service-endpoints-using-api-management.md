@@ -1,13 +1,12 @@
 ---
 title: API Management를 사용하여 Machine Learning Studio 웹 서비스 관리 - Azure | Microsoft Docs
-description: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다.
+description: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다. 사용자 액세스, 사용량 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리합니다.
 keywords: 기계 학습, api 관리
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f82332b02d2e7bbf937a84de42714392e3fccd6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308242"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258188"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Management를 사용하여 Azure Machine Learning Studio 웹 서비스 관리
 ## <a name="overview"></a>개요
@@ -186,19 +185,19 @@ API를 만들려면:
 
 ![search-experiment-templates](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
 
-실험 이름을 **SimpleFeatureHashingExperiment**로 바꿉니다. **저장된 데이터 집합**을 확장하고 **Amazon의 도서 리뷰**를 실험으로 끌어서 놓습니다.
+실험 이름을 **SimpleFeatureHashingExperiment**로 바꿉니다. **저장된 데이터 세트**를 확장하고 **Amazon의 도서 리뷰**를 실험으로 끌어서 놓습니다.
 
 ![simple-feature-hashing-experiment](./media/manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
-**데이터 변환** 및 **조작**을 확장하고 **데이터 집합의 열 선택**을 실험으로 끌어서 놓습니다. **Amazon의 도서 리뷰**를 **데이터 집합의 열 선택**에 연결합니다.
+**데이터 변환** 및 **조작**을 확장하고 **데이터 세트의 열 선택**을 실험으로 끌어서 놓습니다. **Amazon의 도서 리뷰**를 **데이터 세트의 열 선택**에 연결합니다.
 
 ![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
-**데이터 집합의 열 선택**, **열 선택기 시작**을 차례로 클릭하고 **Col2**를 선택합니다. 확인 표시를 클릭하여 변경 내용을 적용합니다.
+**데이터 세트의 열 선택**, **열 선택기 시작**을 차례로 클릭하고 **Col2**를 선택합니다. 확인 표시를 클릭하여 변경 내용을 적용합니다.
 
 ![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
-**텍스트 분석**을 확장하고 **기능 해싱**을 실험으로 끌어서 놓습니다. **데이터 집합의 열 선택**을 **기능 해싱**에 연결합니다.
+**텍스트 분석**을 확장하고 **기능 해싱**을 실험으로 끌어서 놓습니다. **데이터 세트의 열 선택**을 **기능 해싱**에 연결합니다.
 
 ![connect-project-columns](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
@@ -224,7 +223,7 @@ API를 만들려면:
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>웹 서비스 테스트
-AzureML 웹 서비스는 RSS(요청/응답 서비스) 및 BES(일괄 처리 실행 서비스) 엔드포인트로 구성됩니다. RSS는 동기 실행에 사용됩니다. BES는 비동기 작업 실행에 사용됩니다. 다음 샘플 Python 소스로 웹 서비스를 테스트하려면 Python용 Azure SDK를 다운로드해야 할 수 있습니다( [Python을 설치하는 방법](../../python-how-to-install.md)참조).
+AzureML 웹 서비스는 RSS(요청/응답 서비스) 및 BES(일괄 처리 실행 서비스) 엔드포인트로 구성됩니다. RSS는 동기 실행에 사용됩니다. BES는 비동기 작업 실행에 사용됩니다. 아래 샘플 Python 소스로 웹 서비스를 테스트하려면 Python용 Azure SDK를 다운로드해야 할 수 있습니다( [Python을 설치하는 방법](../../python-how-to-install.md) 참조).
 
 또한 다음 샘플 원본에 대한 실험의 **workspace**, **service** 및 **api_key**가 필요합니다. 웹 서비스 대시보드에서 실험의 **요청/응답** 또는 **Batch 실행**을 클릭하여 workspace 및 service를 찾을 수 있습니다.
 

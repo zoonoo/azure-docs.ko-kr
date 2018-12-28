@@ -1,18 +1,19 @@
 ---
-title: 'ExpressRoute 회로에 라우팅을 구성하는 방법(피어링): Azure: 클래식| Microsoft Docs'
+title: '회로의 피어링 구성 - ExpressRoute: Azure: 클래식 | Microsoft Docs'
 description: 이 문서에서는 ExpressRoute 회로의 개인, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/27/2018
-ms.author: cherylmc;ganesr
-ms.openlocfilehash: d4d53d2f365e06c58dcbbb70ea168128c364fbfd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/11/2018
+ms.author: cherylmc
+ms.custom: seodec18
+ms.openlocfilehash: fbf97c984a00d6bdd7f79c26094ae36348e00236
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165223"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342037"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>ExpressRoute 회로의 피어링 만들기 및 수정(클래식)
 > [!div class="op_single_selector"]
@@ -25,7 +26,7 @@ ms.locfileid: "52165223"
 > * [PowerShell(클래식)](expressroute-howto-routing-classic.md)
 > 
 
-이 문서에서는 PowerShell 및 클래식 배포 모델을 사용하여 ExpressRoute 회로에 대한 라우팅 구성을 만들고 관리하는 단계를 안내합니다. 아래 단계에서는 ExpressRoute 회로에 대한 피어링의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다. ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구성할 수 있습니다(Azure 개인, Azure 공용 및 Microsoft). 선택한 순서로 피어링을 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 
+이 문서에서는 PowerShell 및 클래식 배포 모델을 사용하여 ExpressRoute 회로에 대한 피어링/라우팅 구성을 만들고 관리하는 단계를 안내합니다. 아래 단계에서는 ExpressRoute 회로에 대한 피어링의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다. ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구성할 수 있습니다(Azure 개인, Azure 공용 및 Microsoft). 선택한 순서로 피어링을 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 
 
 이러한 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 인바운드 IP 주소 변경 준비하는 방법 - Azure
+title: 인바운드 IP 주소 변경 준비 - Azure App Service
 description: 인바운드 IP 주소를 변경하려는 경우 앱이 변경 후 작업을 계속할 수 있도록 수행할 작업에 대해 알아봅니다.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 28741e858b0c938ec8b2b2ff983106c6b08e18fc
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 2a494b318011d601609033bc877134f0b0eeff09
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578221"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249331"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>인바운드 IP 주소 변경 준비하는 방법
 
@@ -23,13 +24,13 @@ Azure App Service 앱의 인바운드 IP 주소가 변경된다는 알림을 받
 
 ## <a name="determine-if-you-have-to-do-anything"></a>어떤 작업을 수행해야 하는 경우 확인
 
-* 옵션 1: App Service 앱에 사용자 지정 도메인이 없는 경우 조치가 필요하지 않습니다.
+* 옵션 1: App Service 앱에 사용자 지정 도메인이 없는 경우 작업이 필요하지 않습니다.
 
-* 옵션 2: CNAME 레코드(URI를 가리키는 DNS 레코드)가 도메인 등록 포털(타사 DNS 공급자 또는 Azure DNS)에서 구성되는 경우 조치가 필요하지 않습니다.
+* 옵션 2: CNAME 레코드(URI를 가리키는 DNS 레코드)만 도메인 등록 포털(타사 DNS 공급자 또는 Azure DNS)에서 구성되는 경우 작업이 필요하지 않습니다.
 
 * 옵션 3: A 레코드(IP 주소를 직접 가리키는 DNS 레코드)가 도메인 등록 포털(타사 DNS 공급자 또는 Azure DNS)에서 구성되는 경우 기존 IP 주소를 새 주소로 바꿉니다. 다음 섹션의 지침을 따르면 새 IP 주소를 찾을 수 있습니다.
 
-* 옵션 4: 응용 프로그램이 부하 분산 장치, IP 필터 또는 앱의 IP 주소를 요구하는 다른 모든 IP 메커니즘의 배후에 있는 경우 기존 IP 주소를 새 주소로 바꿉니다. 다음 섹션의 지침을 따르면 새 IP 주소를 찾을 수 있습니다.
+* 옵션 4: 애플리케이션이 Load Balancer, IP 필터 또는 앱의 IP 주소를 요구하는 다른 모든 IP 메커니즘의 배후에 있는 경우 기존 IP 주소를 새 주소로 바꿉니다. 다음 섹션의 지침을 따르면 새 IP 주소를 찾을 수 있습니다.
 
 ## <a name="find-the-new-inbound-ip-address-in-the-azure-portal"></a>Azure Portal에서 새 인바운드 IP 주소 찾기
 
@@ -41,7 +42,7 @@ Azure App Service 앱의 인바운드 IP 주소가 변경된다는 알림을 받
 
 3.  목록에서 App Service 앱을 선택합니다.
 
-4.  앱이 함수 앱인 경우 [함수 앱 인바운드 IP 주소](../azure-functions/ip-addresses.md#function-app-inbound-ip-address)를 참조하세요.
+1.  앱이 함수 앱인 경우 [함수 앱 인바운드 IP 주소](../azure-functions/ip-addresses.md#function-app-inbound-ip-address)를 참조하세요.
 
 4.  **설정** 헤더 아래의 왼쪽 탐색에서 **속성**을 클릭하고 **가상 IP 주소**라는 섹션을 찾습니다.
 

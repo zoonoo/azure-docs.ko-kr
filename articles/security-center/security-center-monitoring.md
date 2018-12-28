@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2827461ee78be8d8976ec23e59d489213eb94e31
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0bbf67f728f7090c89d379f7b63474788d70a46c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316024"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338603"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Azure Security Center를 사용하여 보안 태세 강화
 이 문서는 보안 태세를 강화하는 데 도움이 됩니다. Azure Security Center의 모니터링 기능을 사용하여 리소스를 최대한 강력하게 보호하고 정책 준수를 모니터링하세요.
@@ -27,7 +27,7 @@ ms.locfileid: "52316024"
 ## <a name="how-do-you-strengthen-your-security-posture"></a>어떤 방법으로 보안 태세를 강화하시나요?
 상황에 대응할 수 있도록 이벤트가 발생할 때까지 이벤트를 감시하면서 기다리는 것을 모니터링이라고 생각하는 경우가 많습니다. 보안 태세 강화란 리소스를 감사하여 조직의 표준 또는 모범 사례를 충족하지 않는 시스템을 식별하는 사전 예방 전략을 의미합니다.
 
-구독의 리소스에 대해 [보안 정책](security-center-azure-policy.md)을 사용하도록 설정하면 보안 센터에서 리소스의 보안을 분석하여 잠재적 취약성을 식별합니다. 네트워크 구성 정보는 즉시 이용할 수 있지만, 에이전트가 설치된 VM 및 컴퓨터 수에 따라 VM 및 컴퓨터의 구성에 대한 정보(예: 보안 업데이트 상태 및 운영 체제 구성)를 수집하여 사용할 수 있게 하는 데 한 시간 이상이 걸릴 수 있습니다. **권장 사항** 타일에서 문제와 함께 네트워크를 강화하고 위험을 수정하기 위한 방법이 포함된 전체 목록을 볼 수 있습니다.
+구독의 리소스에 대해 [보안 정책](tutorial-security-policy.md)을 사용하도록 설정하면 보안 센터에서 리소스의 보안을 분석하여 잠재적 취약성을 식별합니다. 네트워크 구성 정보는 즉시 이용할 수 있지만, 에이전트가 설치된 VM 및 컴퓨터 수에 따라 VM 및 컴퓨터의 구성에 대한 정보(예: 보안 업데이트 상태 및 운영 체제 구성)를 수집하여 사용할 수 있게 하는 데 한 시간 이상이 걸릴 수 있습니다. **권장 사항** 타일에서 문제와 함께 네트워크를 강화하고 위험을 수정하기 위한 방법이 포함된 전체 목록을 볼 수 있습니다.
 
 리소스의 보안 상태 및 리소스 종류별 모든 문제를 볼 수 있습니다.
 
@@ -49,8 +49,8 @@ ms.locfileid: "52316024"
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 Azure Security Center의 모니터링 기능을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) - Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-* [Azure Security Center에서 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md): Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md): 보안 경고를 관리하고 응답하는 방법을 알아봅니다.
+* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md): 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center FAQ](security-center-faq.md): 서비스 사용에 관한 질문과 대답을 찾습니다.
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/): Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

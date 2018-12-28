@@ -1,5 +1,5 @@
 ---
-title: Azure App Service에 대한 SSL 인증서 구입 및 구성 | Microsoft Docs
+title: Azure에서 SSL 인증서 구입 및 구성 - App Service | Microsoft Docs
 description: App Service Certificate를 구입하고 App Service 앱에 바인딩하는 방법을 알아봅니다
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: c775798591a3063fdfe6d399c8337aac2e2f207e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351357"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268719"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
@@ -59,7 +60,7 @@ ms.locfileid: "49351357"
 
 인증서 구매 프로세스가 완료되고 나면 이 인증서를 사용하기 전에 완료해야 할 단계가 몇 가지 더 있습니다. 
 
-[App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, **인증서 구성** > **1단계: 저장**을 클릭합니다.
+[App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, **인증서 구성** > **1단계: 저장**을 클릭합니다.
 
 ![KV에 저장할 준비 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
@@ -114,7 +115,7 @@ ms.locfileid: "49351357"
 |-|-|
 | 호스트 이름 | SSL 바인딩을 추가할 도메인 이름입니다. |
 | 개인 인증서 지문 | 바인딩할 인증서입니다. |
-| SSL 형식 | <ul><li>**SNI SSL** - 여러 개의 SNI 기반 SSL 바인딩을 추가할 수 있습니다. 이 옵션을 사용하면 여러 SSL 인증서로 같은 IP 주소의 여러 도메인을 보호할 수 있습니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원합니다. [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication)(서버 이름 표시)에서 더 포괄적인 브라우저 지원 정보를 찾을 수 있습니다.</li><li>**IP 기반 SSL** - IP 기반 SSL 바인딩 하나만 추가할 수 있습니다. 이 옵션을 사용하면 전용 공용 IP 주소를 보호하는 데 하나의 SSL 인증서만 사용할 수 있습니다. 바인딩을 구성한 후에, [IP SSL에 대한 A 레코드 다시 매핑](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl)의 단계를 따릅니다. </li></ul> |
+| SSL 형식 | <ul><li>**SNI SSL** - 여러 개의 SNI 기반 SSL 바인딩을 추가할 수 있습니다. 이 옵션을 사용하면 여러 SSL 인증서로 같은 IP 주소의 여러 도메인을 보호할 수 있습니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원합니다. [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)(서버 이름 표시)에서 더 포괄적인 브라우저 지원 정보를 찾을 수 있습니다.</li><li>**IP 기반 SSL** - IP 기반 SSL 바인딩 하나만 추가할 수 있습니다. 이 옵션을 사용하면 전용 공용 IP 주소를 보호하는 데 하나의 SSL 인증서만 사용할 수 있습니다. 바인딩을 구성한 후에, [IP SSL에 대한 A 레코드 다시 매핑](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl)의 단계를 따릅니다. </li></ul> |
 
 ## <a name="verify-https-access"></a>HTTPS 액세스 확인
 
@@ -147,15 +148,15 @@ ms.locfileid: "49351357"
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>추가 리소스
 
 * [HTTPS 적용](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [TLS 1.1/1.2 적용](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용](app-service-web-ssl-cert-load.md)
-* [FAQ : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [FAQ : App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

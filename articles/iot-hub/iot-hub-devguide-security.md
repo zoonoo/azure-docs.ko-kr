@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 5e671c4eb47b56adf62a23791c403257c2538973
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 87df2731d45ffa51bc2fd298aa1b678b10e38515
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018930"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344332"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -81,7 +81,7 @@ AMQP 클레임-기반-보안을 사용하는 경우 표준은 해당 토큰을 �
 SASL PLAIN의 경우 **사용자 이름** 은 다음이 될 수 있습니다.
 
 * `{policyName}@sas.root.{iothubName}` IoT Hub 수준 토큰을 사용하는 경우입니다.
-* `{deviceId}@sas.{iothubname}` 장치 범위 토큰을 사용하는 경우입니다.
+* `{deviceId}@sas.{iothubname}` 디바이스 범위 토큰을 사용하는 경우입니다.
 
 두 가지 경우 모두 암호 필드에는 [IoT Hub 보안 토큰](iot-hub-devguide-security.md#security-tokens)에서 설명하는 토큰이 포함됩니다.
 
@@ -91,7 +91,7 @@ HTTPS는 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 
 
 사용자 이름(DeviceId는 대/소문자 구분): `iothubname.azure-devices.net/DeviceId`
 
-암호([Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) 도구, CLI 확장 명령 [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 또는 [Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 SAS 토큰을 생성할 수 있음):
+암호([Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) 도구, CLI 확장 명령 [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 또는 [Visual Studio Code용 Azure IoT Hub Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전 Azure IoT Toolkit 확장)을 사용하여 SAS 토큰을 생성할 수 있음):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -272,7 +272,7 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) 도구, CLI 확장 명령 [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 또는 [Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 SAS 토큰을 생성할 수 있습니다.
+> [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) 도구, CLI 확장 명령 [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 또는 [Visual Studio Code용 Azure IoT Hub Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 SAS 토큰을 생성할 수 있습니다.
 
 ### <a name="use-a-shared-access-policy"></a>공유 액세스 정책 사용
 
@@ -285,7 +285,7 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 
 공유 액세스 정책은 모든 디바이스로 연결하기 위해 잠재적으로 액세스 권한을 부여할 수 있으므로 보안 토큰을 만들 때 올바른 리소스 URI를 사용하는 것이 중요합니다. 이 설정은 리소스 URI를 사용하여 토큰을 특정 디바이스로 범위를 제한해야 하는 토큰 서비스에서 특히 중요합니다. 프로토콜 게이트웨이는 모든 디바이스에 대한 트래픽을 이미 조정하므로 관련성이 떨어집니다.
 
-예를 들어 **디바이스**라는 미리 생성된 공유 액세스 정책을 사용하는 토큰 서비스는 다음 매개 변수로 토큰을 만듭니다.
+예를 들어 **디바이스** 라는 미리 생성된 공유 액세스 정책을 사용하는 토큰 서비스는 다음 매개 변수로 토큰을 만듭니다.
 
 * 리소스 URI: `{IoT hub name}.azure-devices.net/devices/{device id}`,
 * 서명 키: `device` 정책의 키 중 하나,
@@ -364,7 +364,7 @@ CLI 확장 명령 [az iot hub device-identity](/cli/azure/ext/azure-cli-iot-ext/
 
 ### <a name="c-support"></a>C\# 지원
 
-**RegistryManager** 클래스는 장치를 등록하는 프로그래밍 방식을 제공합니다. 특히 **AddDeviceAsync** 및 **UpdateDeviceAsync** 메서드를 사용하면 IoT Hub ID 레지스트리에서 디바이스를 등록하고 업데이트할 수 있습니다. 이러한 두 메서드는 입력으로 **Device** 인스턴스를 수락합니다. **Device** 클래스에는 사용자가 기본 및 보조 X.509 인증서 지문을 지정할 수 있도록 하는 **Authentication** 속성이 포함되어 있습니다. 지문은 X.509 인증서의 SHA256 해시(이진 DER 인코딩 사용)를 나타냅니다. 기본 지문이나 보조 지문 또는 둘 다를 지정하는 옵션이 제공됩니다. 인증서 롤오버 시나리오를 처리하기 위해 기본 및 보조 지문이 지원됩니다.
+**RegistryManager** 클래스는 디바이스를 등록하는 프로그래밍 방식을 제공합니다. 특히 **AddDeviceAsync** 및 **UpdateDeviceAsync** 메서드를 사용하면 IoT Hub ID 레지스트리에서 디바이스를 등록하고 업데이트할 수 있습니다. 이러한 두 메서드는 입력으로 **Device** 인스턴스를 수락합니다. **Device** 클래스에는 사용자가 기본 및 보조 X.509 인증서 지문을 지정할 수 있도록 하는 **Authentication** 속성이 포함되어 있습니다. 지문은 X.509 인증서의 SHA256 해시(이진 DER 인코딩 사용)를 나타냅니다. 기본 지문이나 보조 지문 또는 둘 다를 지정하는 옵션이 제공됩니다. 인증서 롤오버 시나리오를 처리하기 위해 기본 및 보조 지문이 지원됩니다.
 
 X.509 인증서 지문을 사용하여 디바이스를 등록하는 샘플 C\# 코드 조각은 다음과 같습니다.
 
@@ -451,9 +451,9 @@ IoT Hub에 사용자 지정 ID 레지스트리/인증 구성표를 구현하는 
 
 * [제한 및 할당량](iot-hub-devguide-quotas-throttling.md)은 IoT Hub 서비스에 적용되는 할당량과 제한 동작에 대해 설명합니다.
 
-* [Azure IoT 장치 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
+* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 
-* [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)는 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 쿼리 언어에 대해 설명합니다.
+* [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)는 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 쿼리 언어에 대해 설명합니다.
 
 * [IoT Hub MQTT 지원](iot-hub-mqtt-support.md)은 MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
@@ -461,12 +461,12 @@ IoT Hub에 사용자 지정 ID 레지스트리/인증 구성표를 구현하는 
 
 IoT Hub 액세스를 제어하는 방법에 대해 알아봤으니 다음과 같은 IoT Hub 개발자 가이드 항목을 살펴보세요.
 
-* [장치 쌍을 사용하여 상태 및 구성 동기화](iot-hub-devguide-device-twins.md)
-* [장치에서 직접 메서드 호출](iot-hub-devguide-direct-methods.md)
-* [여러 장치에서 작업 예약](iot-hub-devguide-jobs.md)
+* [디바이스 쌍을 사용하여 상태 및 구성 동기화](iot-hub-devguide-device-twins.md)
+* [디바이스에서 직접 메서드 호출](iot-hub-devguide-direct-methods.md)
+* [여러 디바이스에서 작업 예약](iot-hub-devguide-jobs.md)
 
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
 * [Azure IoT Hub 시작](quickstart-send-telemetry-node.md)
 * [IoT Hub를 사용하여 클라우드와 장치 간에 메시지를 보내는 방법](iot-hub-csharp-csharp-c2d.md)
-* [IoT Hub 장치와 클라우드 간의 메시지를 처리하는 방법](tutorial-routing.md)
+* [IoT Hub 디바이스와 클라우드 간의 메시지를 처리하는 방법](tutorial-routing.md)

@@ -1,10 +1,10 @@
 ---
-title: Machine Learning 웹 서비스용 Excel 추가 기능 | Microsoft Docs
+title: 웹 서비스용 Excel 추가 기능 - Azure Machine Learning Studio | Microsoft Docs
 description: 코드를 작성하지 않고 Excel에서 직접 Azure Machine Learning 웹 서비스를 사용하는 방법입니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=marthalc, author=marthalc)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 2/1/2018
-ms.openlocfilehash: debe3165a60cd0da866842a425c1ca8c52eab644
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 02/01/2018
+ms.openlocfilehash: e836323ad452b86d89eee62936b574b2cc9d0337
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262026"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269501"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio 웹 서비스용 Excel 추가 기능
 Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비스를 호출할 수 있습니다.
@@ -41,7 +41,7 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
    
     ![Predict 섹션][02]
 
-웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포에 대한 자세한 내용은 [연습 5 단계: Azure Machine Learning 웹 서비스 배포](walkthrough-5-publish-web-service.md)를 참조하세요.
+웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포 방법에 대한 자세한 내용은 [연습 5단계: Azure Machine Learning 웹 서비스 배포](walkthrough-5-publish-web-service.md)를 참조하세요.
 
 웹 서비스에 대한 API 키를 가져옵니다. 새 Machine Learning 웹 서비스의 기존 Machine Learning 웹 서비스를 게시했는지 여부에 따라 이 작업을 수행하는 위치가 달라집니다.
 
@@ -69,7 +69,7 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 
 ## <a name="steps-to-add-a-new-web-service"></a>새 웹 서비스 추가 단계
 
-1. 웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포에 대한 자세한 내용은 [연습 5 단계: Azure Machine Learning 웹 서비스 배포](walkthrough-5-publish-web-service.md)를 참조하세요.
+1. 웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포 방법에 대한 자세한 내용은 [연습 5단계: Azure Machine Learning 웹 서비스 배포](walkthrough-5-publish-web-service.md)를 참조하세요.
 2. **사용**을 클릭합니다.
 3. **기본 사용량 정보** 섹션을 찾습니다. **기본 키** 및 **요청-응답** URL을 복사하여 저장합니다.
 4. Excel에서 **웹 서비스** 섹션으로 이동합니다(**Predict** 섹션에 있는 경우 뒤로 화살표를 클릭하여 웹 서비스 목록으로 이동).

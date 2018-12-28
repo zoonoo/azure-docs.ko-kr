@@ -4,14 +4,16 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: f4acec3db7d74b969c55e725d9ec1c5f063b552c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cc72fb39bf62915be10493a780538121f26ca835
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628176"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002274"
 ---
-# <a name="securing-docker-containers-in-azure-container-service"></a>Azure Container Service에서 Docker 컨테이너 보안
+# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(사용되지 않음) Azure Container Service에서 Docker 컨테이너 보호
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 이 문서에서는 Azure Container Service에 배포된 Docker 컨테이너 보호를 위한 고려 사항과 권장 사항을 소개합니다. 여기에 나와 있는 고려 사항은 대부분 Azure 또는 다른 환경에 배포된 Docker 컨테이너에 일반적으로 적용됩니다. 
 
@@ -58,7 +60,7 @@ Azure Container Service에 제공되는 각 조정자는 고유한 보안 고려
 
 * **Kubernetes**: [Kubernetes 배포에 대한 보안 모범 사례](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
 
-* **DC/OS**: [클러스터 보안 설정](https://dcos.io/docs/1.8/administration/securing-your-cluster/)
+* **DC/OS**: [클러스터 보호](https://dcos.io/docs/1.8/administration/securing-your-cluster/)
 
 * **Docker Swarm**: [Docker 보안](https://www.docker.com/docker-security)
 

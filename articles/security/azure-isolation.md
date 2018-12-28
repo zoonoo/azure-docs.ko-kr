@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239052"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311000"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 공용 클라우드에서 격리
 ##  <a name="introduction"></a>소개
@@ -149,9 +149,7 @@ Azure의 계산 플랫폼은 Hyper-V 가상 머신에서 모든 고객 코드를
 
 또한 각 노드에는 호스트 OS를 실행하는 특별한 하나의 루트 VM도 있습니다. 중요한 경계는 하이퍼바이저와 루트 OS에서 관리하는 게스트 VM/루트 VM 간 및 게스트 VM 간을 격리하는 것입니다. 하이퍼바이저/루트 OS 페어링은 수십 년간의 Microsoft 운영 체제 보안 경험과 Microsoft Hyper-V의 최신 학습을 활용하여 강력한 게스트 VM 격리를 제공합니다.
 
-Azure 플랫폼은 가상화된 환경을 사용합니다. 사용자 인스턴스는 물리적 호스트 서버에 대한 액세스 권한이 없는 독립 실행형 가상 머신으로 작동하고, 이러한 격리는 실제 프로세서(링 0/링 3) 권한 수준을 사용하여 적용됩니다.
-
-링 0는 사용 권한이 가장 많고 3은 가장 적습니다. 게스트 OS는 권한이 낮은 링 1에서 실행되고 응용 프로그램은 권한이 가장 낮은 링 3에서 실행합니다. 실제 리소스의 가상화는 게스트 OS와 하이퍼바이저 간에 명확한 분리를 이끌어 내고 둘 사이에 추가 보안 분리가 발생합니다.
+Azure 플랫폼은 가상화된 환경을 사용합니다. 사용자 인스턴스는 물리적 호스트 서버에 대한 액세스 권한이 없는 독립 실행형 가상 머신으로 작동합니다.
 
 Azure 하이퍼바이저는 마이크로 커널처럼 작동하고 VMBus라는 공유 메모리 인터페이스를 사용하여 게스트 가상 머신에서 호스트에 모든 하드웨어 액세스 요청을 처리하도록 전달합니다. 이렇게 하면 사용자가 시스템에 원시 읽기/쓰기/실행 액세스를 가져오는 것을 방지하고 시스템 리소스를 공유할 위험을 완화합니다.
 
@@ -187,9 +185,9 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노�
 
 프로그래밍되는 규칙에는 다음 두 가지 범주의 규칙이 있습니다.
 
--   **컴퓨터 구성 또는 인프라 규칙**: 기본적으로 모든 통신이 차단됩니다. 가상 머신이 DHCP 및 DNS 트래픽을 보내고 받을 수 있는 데 예외 사항이 있습니다. 또한 가상 머신에서 "공용" 인터넷에 트래픽을 보내고, 동일한 Azure Virtual Network 및 OS 정품 인증 서버 내에서 다른 가상 머신으로 트래픽을 보낼 수도 있습니다. 가상 머신의 허용된 송신 대상 목록에는 Azure 라우터 서브넷, Azure 관리 및 기타 Microsoft 속성이 포함되어 있지 않습니다.
+-   **머신 구성 또는 인프라 규칙:** 기본적으로 모든 통신이 차단됩니다. 가상 머신이 DHCP 및 DNS 트래픽을 보내고 받을 수 있는 데 예외 사항이 있습니다. 또한 가상 머신에서 "공용" 인터넷에 트래픽을 보내고, 동일한 Azure Virtual Network 및 OS 정품 인증 서버 내에서 다른 가상 머신으로 트래픽을 보낼 수도 있습니다. 가상 머신의 허용된 송신 대상 목록에는 Azure 라우터 서브넷, Azure 관리 및 기타 Microsoft 속성이 포함되어 있지 않습니다.
 
--   **역할 구성 파일**: 테넌트의 서비스 모델에 기반하여 인바운드 ACL(Access Control 목록)을 정의합니다.
+-   **역할 구성 파일:** 테넌트의 서비스 모델에 따라 인바운드 ACL(액세스 제어 목록)을 정의합니다.
 
 ### <a name="vlan-isolation"></a>VLAN 격리
 각 클러스터에는 다음과 같이 3개의 VLAN이 있습니다.
@@ -295,7 +293,7 @@ SQL Database는 시장을 선도하는 Microsoft SQL Server 엔진을 기반으�
 
 [Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) 데이터베이스는 SQL Server 기술로 구축된 클라우드 기반 관계형 데이터베이스 서비스입니다. Microsoft에서 호스팅하는 확장성 있는 고가용성 다중 테넌트 데이터베이스 서비스를 클라우드에 제공합니다.
 
-응용 프로그램 관점에서 SQL Azure는 다음과 같은 계층 구조를 제공하며, 각 수준 아래에는 1 대 다 시스템 수준이 포함됩니다.
+애플리케이션 관점에서 SQL Azure는 다음과 같은 계층 구조를 제공합니다. 각 수준은 아래 수준과 일대다 포함 관계입니다.
 
 ![SQL Azure 응용 프로그램 모델](./media/azure-isolation/azure-isolation-fig10.png)
 

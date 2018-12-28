@@ -1,26 +1,24 @@
 ---
-title: 유휴 시 Load Balancer TCP 재설정 | Microsoft Docs
+title: Azure에서 유휴 시 Load Balancer TCP 재설정
+titlesuffix: Azure Load Balancer
 description: 유휴 시간 초과 시 양방향 TCP RST 패킷이 포함된 Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2018
+ms.date: 12/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9aa3811eb03d38a4c6ab8203512f3e6699098122
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0b3e8fc72eb22a67c0672be19f60d4956d3377b7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883638"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257301"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>유휴 시 TCP 재설정이 포함된 Load Balancer(공개 미리 보기)
 
@@ -76,7 +74,17 @@ API 버전 2018-07-01을 사용하면 개별 규칙을 기반으로 유휴 시�
 | 지역 |
 |---|
 | 동남아시아 |
+| 브라질 남부 |
+| 캐나다 중부 |
 | 서유럽 |
+| 인도 중부 |
+| 인도 서부 |
+| 일본 서부 |
+| 한국 중부 |
+| 한국 남부 |
+| 영국 북부 |
+| 영국 남부 2 |
+| 미국 동부 |
 | 미국 동부 2 |
 | 영국 북부 |
 | 미국 서부 |

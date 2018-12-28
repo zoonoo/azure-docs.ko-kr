@@ -2,8 +2,8 @@
 title: Azure Machine Learning 모델 관리 설치 및 구성 | Microsoft Docs
 description: 이 문서에서는 Azure Machine Learning에서 모델 관리를 설치 및 구성할 때 수행되는 단계 및 개념을 설명합니다.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d10f61e6276b1ce0a0237e3cf2e35a68edf4a0cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968716"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257583"
 ---
 # <a name="model-management-setup"></a>모델 관리 설치
 

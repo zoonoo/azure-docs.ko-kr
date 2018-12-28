@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 1e77dfdec902b64f2524c790bda6742eaa1105fc
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 697815aeca9b8a07e3cece877d610436b2b8ac83
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669177"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278290"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 비정상 상황 테스트 서비스를 시작하고, 중지하고 보고합니다.
@@ -47,9 +47,9 @@ Chaos 이벤트의 다음 세그먼트를 가져오기 위해 ContinuationToken�
 |인수|설명|
 | --- | --- |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
-| --end-time-utc | Chaos 보고서가 생성될 시간 범위의 종료 시간을 나타내는 Windows 파일 시간입니다. 자세한 내용은 [DateTime.ToFileTimeUtc 메서드](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc)를 참조하세요. |
+| --end-time-utc | Chaos 보고서가 생성될 시간 범위의 종료 시간을 나타내는 Windows 파일 시간입니다. 자세한 내용은 [DateTime.ToFileTimeUtc 메서드](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx)를 참조하세요. |
 | --max-results | 페이징된 쿼리의 일부로 반환될 결과의 최대 수입니다. 이 매개 변수는 반환되는 결과 수에 상한값을 정의합니다. 반환되는 결과는 구성에 정의된 최대 메시지 크기 제한에 따라 메시지에 맞지 않는 경우 지정된 최대의 결과보다 작을 수 있습니다. 이 매개 변수가 0이거나 지정되지 않은 경우 페이징된 쿼리는 반환 메시지에 맞는 가능한 많은 결과를 포함합니다. |
-| --start-time-utc | Chaos 보고서가 생성될 시간 범위의 시작 시간을 나타내는 Windows 파일 시간입니다. 자세한 내용은 [DateTime.ToFileTimeUtc 메서드](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc)를 참조하세요. |
+| --start-time-utc | Chaos 보고서가 생성될 시간 범위의 시작 시간을 나타내는 Windows 파일 시간입니다. 자세한 내용은 [DateTime.ToFileTimeUtc 메서드](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx)를 참조하세요. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -104,7 +104,7 @@ Chaos가 아직 클러스터에 실행되고 있지 않다면 Chaos 매개 변�
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 | --wait-time-between-faults | 단일 반복 내에서 연속 오류 사이의 대기 시간(초)입니다.  기본값\: 20. <br><br> 값이 클수록 오류 간 겹침은 적어지며 클러스터가 통과하는 상태 전환의 시퀀스는 더 단순해집니다. 1 ~ 5 사이 값으로 시작하고 이동하는 동안 주의하는 것이 좋습니다. |
 | --wait-time-between-iterations | 두 차례의 Chaos 연속 반복 간 시간-구분(초)입니다. 값이 높을수록 오류 삽입 속도는 낮아집니다.  기본값\: 30. |
-| --warning-as-error | 경고를 오류로 처리하는 상태 정책을 설정합니다. |
+| --warning-as-error | 경고가 오류와 동일한 심각도로 처리되는지 여부를 나타냅니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -136,6 +136,7 @@ Chaos가 아직 클러스터에 실행되고 있지 않다면 Chaos 매개 변�
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI [설정](service-fabric-cli.md)

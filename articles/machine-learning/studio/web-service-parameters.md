@@ -1,12 +1,11 @@
 ---
-title: Azure Machine Learning Studio 웹 서비스 매개 변수 사용 | Microsoft Docs
+title: 웹 서비스 매개 변수 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Machine Learning 웹 서비스 매개 변수를 사용하여 웹 서비스에 액세스할 때 모델의 동작을 수정하는 방법입니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 0e8a1a4bb90f935bf3890bd803b9375d10261aa7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b929608d64e747d6e768da4ee6627f9e6b09a83a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312013"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270093"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Azure Machine Learning Studio 웹 서비스 매개 변수 사용
 Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈이 포함된 실험을 게시하여 만듭니다. 경우에 따라 웹 서비스가 실행되는 동안 모듈 동작을 변경할 수도 있습니다. *웹 서비스 매개 변수*를 통해 이 태스크를 수행할 수 있습니다. 
@@ -30,7 +29,7 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
 
 실험에서 웹 서비스 매개 변수를 설정하여 하나 이상의 모듈 매개 변수와 연결하고 이러한 매개 변수가 필수인지 또는 선택 사항인지 지정할 수 있습니다. 그러면 웹 서비스 사용자는 웹 서비스를 호출할 때 이러한 매개 변수에 대한 값을 제공할 수 있습니다. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="how-to-set-and-use-web-service-parameters"></a>웹 서비스 매개 변수를 설정 및 사용하는 방법
 모듈 매개 변수 옆에 있는 아이콘을 클릭하고 "웹 서비스 매개 변수로 설정"을 선택하여 웹 서비스 매개 변수를 정의합니다. 새로운 웹 서비스 매개 변수가 만들어지고 해당 모듈 매개 변수에 연결됩니다. 그런 다음 웹 서비스에 액세스할 때 사용자가 웹 서비스 매개 변수의 값을 지정할 수 있으며, 모듈 매개 변수에 값이 적용됩니다.
