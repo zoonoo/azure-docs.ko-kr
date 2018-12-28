@@ -127,7 +127,7 @@ Allocadia에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 가져오려면 [Allocadia 지원팀](mailTo:support@allocadia.com)에 문의하세요.
 
-4. Allocadia 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이 구성에 대한 예제를 보여줍니다. 
+4. Allocadia 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이 구성에 대한 예제를 보여줍니다. 
 
     ![Configure Single Sign-On](./media/allocadia-tutorial/tutorial_allocadia_attributes.png)
     
@@ -215,7 +215,7 @@ Allocadia에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Allocadia**를 선택합니다.
+2. 애플리케이션 목록에서 **Allocadia**를 선택합니다.
 
     ![Configure Single Sign-On](./media/allocadia-tutorial/tutorial_allocadia_app.png) 
 

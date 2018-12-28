@@ -1,7 +1,7 @@
 ---
 title: 애플리케이션 수명 주기 관리 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Machine Learning 스튜디오에서 애플리케이션 수명 주기 관리 모범 사례 적용
-keywords: AML, ALM, Azure ML, 응용 프로그램 수명 주기 관리, 버전 제어
+keywords: AML, ALM, Azure ML, 애플리케이션 수명 주기 관리, 버전 제어
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding

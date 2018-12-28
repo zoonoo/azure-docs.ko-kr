@@ -30,11 +30,11 @@ ms.locfileid: "53135529"
 
 ![최종 사용자, Azure Active Directory 및 게시된 응용 프로그램 간의 관계](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-인증을 처리하고 다양한 클라이언트 환경을 지원하는 Azure AD 인증 라이브러리를 사용하여 네이티브 응용 프로그램을 게시합니다. 응용 프로그램 프록시는 [Web API 시나리오에 대한 네이티브 응용 프로그램](../develop/native-app.md)에 맞습니다. 
+인증을 처리하고 다양한 클라이언트 환경을 지원하는 Azure AD 인증 라이브러리를 사용하여 네이티브 응용 프로그램을 게시합니다. 애플리케이션 프록시는 [Web API 시나리오에 대한 네이티브 애플리케이션](../develop/native-app.md)에 맞습니다. 
 
 이 문서에서는 응용 프로그램 프록시 및 Azure AD 인증 라이브러리를 사용하여 네이티브 응용 프로그램을 게시하는 네 가지 단계를 안내합니다. 
 
-## <a name="step-1-publish-your-application"></a>1단계: 응용 프로그램 게시
+## <a name="step-1-publish-your-application"></a>1단계: 애플리케이션 게시
 다른 응용 프로그램과 마찬가지로 프록시 응용 프로그램을 게시하고 응용 프로그램에 액세스하도록 사용자를 할당합니다. 자세한 내용은 [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-add-on-premises-application.md)를 참조하세요.
 
 ## <a name="step-2-configure-your-application"></a>2단계: 응용 프로그램 구성

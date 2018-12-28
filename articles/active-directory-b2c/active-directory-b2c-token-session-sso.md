@@ -76,7 +76,7 @@ Azure AD B2C는 보호된 리소스에 대한 보안 액세스를 활성화하�
 
 ## <a name="session-behavior"></a>세션 동작
 
-Azure AD B2C는 웹 응용 프로그램에 대한 보안 로그인을 활성화하도록 [OpenID Connect 인증 프로토콜](active-directory-b2c-reference-oidc.md)을 지원합니다. 다음 속성을 사용하여 웹 애플리케이션 세션을 관리할 수 있습니다.
+Azure AD B2C는 웹 애플리케이션에 대한 보안 로그인을 활성화하도록 [OpenID Connect 인증 프로토콜](active-directory-b2c-reference-oidc.md)을 지원합니다. 다음 속성을 사용하여 웹 애플리케이션 세션을 관리할 수 있습니다.
 
 - **웹앱 세션 수명(분)** - 인증 성공 시 사용자의 브라우저에 저장된 Azure AD B2C 세션 쿠키의 수명입니다.
     - 기본값: 1440분.

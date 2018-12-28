@@ -229,7 +229,7 @@ Pluralsight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Pluralsight 타일을 클릭하면 Pluralsight 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Pluralsight 타일을 클릭하면 Pluralsight 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

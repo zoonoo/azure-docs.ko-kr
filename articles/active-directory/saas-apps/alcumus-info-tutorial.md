@@ -182,7 +182,7 @@ Alcumus Info Exchange에서 Britta Simon이라는 사용자를 만들려면 [Alc
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Alcumus Info Exchange**를 선택합니다.
+2. 애플리케이션 목록에서 **Alcumus Info Exchange**를 선택합니다.
 
     ![Configure Single Sign-On](./media/alcumus-info-tutorial/tutorial_alcumusinfoexchange_app.png) 
 
@@ -203,7 +203,7 @@ Alcumus Info Exchange에서 Britta Simon이라는 사용자를 만들려면 [Alc
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.  
-액세스 패널에서 Alcumus 정보 교환 타일을 클릭하면 Alcumus 정보 교환 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Alcumus 정보 교환 타일을 클릭하면 Alcumus 정보 교환 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

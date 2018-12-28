@@ -66,7 +66,7 @@ executor-cores 수를 늘리면 더 많은 병렬 처리를 제공하므로 서�
     Total YARN memory = nodes * YARN memory per node
 **5단계: num-executors 계산**
 
-**메모리 제약 조건 계산** - num-executors 매개 변수는 메모리 또는 CPU에 의해 제한됩니다.  메모리 제약 조건은 응용 프로그램에 사용 가능한 YARN 메모리 양에 따라 결정됩니다.  총 YARN 메모리를 가져와 executor-memory로 나눕니다.  앱 수에 맞게 제약 조건을 조정해야 하므로 앱 수로 나눕니다.
+**메모리 제약 조건 계산** - num-executors 매개 변수는 메모리 또는 CPU에 의해 제한됩니다.  메모리 제약 조건은 애플리케이션에 사용 가능한 YARN 메모리 양에 따라 결정됩니다.  총 YARN 메모리를 가져와 executor-memory로 나눕니다.  앱 수에 맞게 제약 조건을 조정해야 하므로 앱 수로 나눕니다.
 
     Memory constraint = (total YARN memory / executor memory) / # of apps   
 **CPU 제약 조건 계산** - CPU 제약 조건은 총 가상 코어 수를 실행기당 코어 수로 나누어 계산합니다.  각 물리적 코어당 2개의 가상 코어가 있습니다.  메모리 제약 조건과 마찬가지로 앱 수로 나누어야 합니다.

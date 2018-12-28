@@ -88,7 +88,7 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치**를 사�
 각 템플릿 이름은 템플릿 본문 및 선택적 태그 집합에 매핑됩니다. 또한 각 플랫폼이 추가 템플릿 속성을 가질 수 있습니다. Windows 스토어(WNS 사용) 및 Windows Phone 8(MPNS 사용)의 경우 추가 헤더 집합이 템플릿의 일부일 수 있습니다. APN의 경우 만료 속성을 상수 또는 템플릿 식으로 설정할 수 있습니다. 설치 속성의 전체 목록은 [REST를 사용하여 설치 만들기 또는 덮어쓰기](https://msdn.microsoft.com/library/azure/mt621153.aspx) 항목을 참조하세요.
 
 #### <a name="secondary-tiles-for-windows-store-apps"></a>Windows 스토어 앱용 보조 타일
-Windows 스토어 클라이언트 응용 프로그램의 경우 보조 타일에 알림을 보내는 것은 기본 타일에 보내는 것과 같습니다. 이 기능은 설치에서도 지원됩니다. 보조 타일에는 클라이언트 앱의 SDK가 투명하게 처리하는 다른 ChannelUri가 있습니다.
+Windows 스토어 클라이언트 애플리케이션의 경우 보조 타일에 알림을 보내는 것은 기본 타일에 보내는 것과 같습니다. 이 기능은 설치에서도 지원됩니다. 보조 타일에는 클라이언트 앱의 SDK가 투명하게 처리하는 다른 ChannelUri가 있습니다.
 
 SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 만드는 데 사용하는 것과 같은 TileId를 사용합니다.
 기본 ChannelUri와 마찬가지로 보조 타일의 ChannelUris도 언제든지 변경할 수 있습니다. 알림 허브의 설치를 계속 업데이트되게 하려면 디바이스가 설치를 보조 타일의 현재 ChannelUris로 새로 고쳐야 합니다.

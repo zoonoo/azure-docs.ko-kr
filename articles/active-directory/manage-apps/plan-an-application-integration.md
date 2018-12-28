@@ -1,6 +1,6 @@
 ---
 title: 앱과 Azure AD 통합 시작 | Microsoft Docs
-description: 이 문서는 온-프레미스 응용 프로그램 및 클라우드 응용 프로그램과 Azure Active Directory(AD)를 통합하는 시작 가이드입니다.
+description: 이 문서는 온-프레미스 애플리케이션 및 클라우드 애플리케이션과 Azure Active Directory(AD)를 통합하는 시작 가이드입니다.
 services: active-directory
 documentationcenter: ''
 author: barbkess

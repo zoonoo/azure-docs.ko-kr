@@ -23,7 +23,7 @@ ms.locfileid: "51259142"
 ---
 # <a name="azure-storage-security-overview"></a>Azure Storage 보안 개요
 
-Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다. Azure Storage는 포괄적인 보안 기능 집합을 제공합니다. 다음을 수행할 수 있습니다.
+Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 애플리케이션을 위한 클라우드 스토리지 솔루션입니다. Azure Storage는 포괄적인 보안 기능 집합을 제공합니다. 다음을 수행할 수 있습니다.
 
 * RBAC(역할 기반 액세스 제어) 및 Azure Active Directory를 사용하여 저장소 계정의 보안을 유지할 수 있습니다.
 * 클라이언트 쪽 암호화, HTTP 또는 SMB 3.0을 사용하여 애플리케이션과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다.

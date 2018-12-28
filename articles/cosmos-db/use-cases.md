@@ -79,7 +79,7 @@ Azure Cosmos DB는 [The Walking Dead: No Man's Land](https://azure.microsoft.com
 
 ![Azure Cosmos DB 게임 참조 아키텍처](./media/use-cases/gaming.png)
 
-## <a name="web-and-mobile-applications"></a>웹 및 모바일 응용 프로그램
+## <a name="web-and-mobile-applications"></a>웹 및 모바일 애플리케이션
 Azure Cosmos DB는 일반적으로 웹 및 모바일 응용 프로그램 내에서 사용되며 소셜 상호 작용을 모델링하여 타사 서비스와 통합하고 풍부한 개인 설정 환경을 빌드하는 데 적합합니다. Cosmos DB SDK를 사용하면 인기 있는 [Xamarin 프레임워크](mobile-apps-with-xamarin.md)를 사용하여 풍부한 iOS 및 Android 응용 프로그램을 빌드할 수 있습니다.  
 
 ### <a name="social-applications"></a>소셜 응용 프로그램

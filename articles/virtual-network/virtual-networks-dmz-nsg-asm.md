@@ -576,12 +576,12 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 ```
 
 #### <a name="sample-application-scripts"></a>샘플 애플리케이션 스크립트
-이에 대한 샘플 응용 프로그램 및 기타 DMZ 예제를 설치하는 방법은 다음 링크를 통해 제공됩니다. [샘플 응용 프로그램 스크립트][SampleApp]
+이에 대한 샘플 애플리케이션 및 기타 DMZ 예제를 설치하는 방법은 다음 링크를 통해 제공됩니다. [샘플 애플리케이션 스크립트][SampleApp]
 
 ## <a name="next-steps"></a>다음 단계
 * 업데이트 및 XML 파일 저장
 * PowerShell 스크립트를 실행하여 환경 구축
-* 샘플 응용 프로그램 설치
+* 샘플 애플리케이션 설치
 * 이 DMZ를 통해 다양한 트래픽 흐름 테스트
 
 <!--Image References-->

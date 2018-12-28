@@ -68,7 +68,7 @@ Service Fabric 응용 프로그램 수명 주기 관리 기능을 사용하면 �
 
 Service Fabric은 [Azure Pipelines](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html) 및 [Octopus Deploy](https://octopus.com/)와 같은 CI/CD 도구와 통합되고 다른 인기 있는 CI/CD 도구와 함께 사용할 수 있습니다.
 
-응용 프로그램 수명 주기 관리에 대한 자세한 내용은 [응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)를 참조하세요. 모든 코드를 배포하는 방법에 대한 자세한 내용은 [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)를 참조하세요.
+애플리케이션 수명 주기 관리에 대한 자세한 내용은 [애플리케이션 수명 주기](service-fabric-application-lifecycle.md)를 참조하세요. 모든 코드를 배포하는 방법에 대한 자세한 내용은 [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)를 참조하세요.
 
 ## <a name="key-capabilities"></a>주요 기능
 서비스 패브릭을 사용하면 다음을 수행할 수 있습니다.

@@ -55,7 +55,7 @@ MyApps 포털에 연결하려면 Azure AD에서 회사 또는 학교 계정을 �
 
 Azure 또는 Office 365에 대한 구독이 있고 Azure Portal 또는 Office 365 응용 프로그램을 사용하고 있으면, 다시 로그인하지 않고 응용 프로그램의 목록을 볼 수 있습니다. 인증되지 않은 경우 Azure AD의 계정에 대한 사용자 이름과 암호를 사용하여 로그인하라는 메시지가 표시됩니다. 조직에서 페더레이션을 구성한 경우 사용자 이름만 입력하면 됩니다.
 
-인증되면 관리자에 의해 디렉터리와 통합된 응용 프로그램과 상호 작용할 수 있습니다. 응용 프로그램을 Azure AD와 통합하는 방법을 보려면 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
+인증되면 관리자에 의해 디렉터리와 통합된 응용 프로그램과 상호 작용할 수 있습니다. 애플리케이션을 Azure AD와 통합하는 방법을 보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="web-browser-requirements"></a>웹 브라우저 요구 사항
 

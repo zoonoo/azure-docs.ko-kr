@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning용 개발 환경 구성 | Microsoft Docs
+title: Python 개발 환경 설정
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning 서비스 작업 시 개발 환경을 구성하는 방법을 알아보세요. 이 문서에서는 Conda 환경을 사용하고, 구성 파일을 만들고, Jupyter Notebooks, Azure Notebooks, IDE, 코드 편집기 및 Data Science Virtual Machine을 구성하는 방법을 알아봅니다.
 services: machine-learning
 author: rastala
@@ -9,13 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 11/6/2018
-ms.openlocfilehash: fa70e0dfa1f131e38e43faa3d80497d50a52e135
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 59f847dc38cddfd9185cfd169cf1ef34c744f8f7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275217"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192637"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -24,9 +26,10 @@ ms.locfileid: "52275217"
 이 문서에서는 다음과 같은 환경 및 도구를 중점적으로 다룹니다.
 
 * [Azure Notebooks](#aznotebooks): Azure 클라우드에 호스트되는 Jupyter Notebook 서비스입니다. Azure Machine Learning SDK가 이미 설치되어 있으므로 시작하기에 __가장 쉬운__ 방법입니다.
-* [Data Science Virtual Machine](#dsvm): __데이터 과학 작업용으로 디자인된__ Azure 클라우드의 가상 머신입니다. Python 3, Conda, Jupyter Notebook 및 Azure Machine Learning SDK가 이미 설치되어 있습니다. VM과 함께 인기 있는 ML 솔루션 개발용 ML 프레임워크, 도구 및 편집기가 제공됩니다. Azure 플랫폼에서 __가장 완성도 높은__ ML용 개발 환경일 것입니다.
-* [Jupyter Notebook](#jupyter): 이미 Jupyter Notebook을 사용 중인 경우 SDK를 통해 몇 가지 요소를 추가로 설치해야 합니다.
+* [Data Science Virtual Machine](#dsvm): __데이터 과학 작업용으로 설계__되고 CPU 전용 VM 인스턴스 또는 GPU 기반 인스턴스에 배포될 수 있는 Azure 클라우드에서 __미리 구성된 개발/실험 환경__입니다. Python 3, Conda, Jupyter Notebook 및 Azure Machine Learning SDK가 이미 설치되어 있습니다. VM은 ML 솔루션 개발을 위해 인기 있는 ML/딥러닝 프레임워크, 도구 및 편집기와 함께 제공됩니다. Azure 플랫폼에서 __가장 완성도 높은__ ML용 개발 환경일 것입니다.
+* [Jupyter Notebooks](#jupyter): 이미 Jupyter Notebook을 사용 중인 경우 SDK를 통해 몇 가지 요소를 추가로 설치해야 합니다.
 * [Visual Studio Code](#vscode): Visual Studio Code를 사용하는 경우 몇 가지 유용한 확장 프로그램을 설치할 수 있습니다.
+* [Azure Databricks](#aml-databricks): Apache Spark 기반의 인기 있는 데이터 분석 플랫폼입니다. 모델을 배포할 수 있도록 클러스터로 Azure Machine Learning SDK를 가져오는 방법을 알아봅니다.
 
 이미 Python 3 환경을 갖고 있거나 SDK를 설치하는 데 필요한 기본 단계만 원하는 경우 [로컬 컴퓨터](#local) 섹션을 참조하세요.
 
@@ -57,20 +60,49 @@ Azure Notebooks로 개발을 시작하려면 [Azure Machine Learning 서비스 �
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
-DSVM(Data Science Virtual Machine)은 **데이터 과학 작업용으로 디자인된** 사용자 지정 VM(가상 머신) 이미지입니다.  다음을 포함합니다.
+DSVM(Data Science Virtual Machine)은 **데이터 과학 작업용으로 설계된** 사용자 지정 VM(가상 머신) 이미지로서
 
-  - 인기 있는 데이터 과학 도구
-  - RStudio, PyCharm 같은 IDE(통합 개발 환경)
-  - Jupyter Notebook, Tensorflow 같은 패키지
+  - Tensorflow, Pytorch, scikit-learn, Xgboost 및 Azure ML SDK 같은 패키지로 미리 구성됩니다.
+  - 독립 실행형 Spark, Drill과 같은 인기 있는 데이터 과학 도구
+  - CLI, Azcopy 및 Storage 탐색기와 같은 Azure 도구
+  - Visual Studio Code, PyCharm 및 RStudio와 같은 IDE(통합 개발 환경)
+  - Jupyter Notebook 서버 
 
-Azure Machine Learning SDK는 DSVM의 Ubuntu 또는 Windows 버전에서 작동합니다. 개별 환경으로 DSVM을 사용하려면 다음 단계를 따릅니다.
+Azure Machine Learning SDK는 DSVM의 Ubuntu 또는 Windows 버전에서 작동합니다. 개발 환경으로 Data Science Virtual Machine을 사용하려면 다음 단계를 사용합니다.
 
-1. Data Science Virtual Machine을 만들려면 다음 문서 중 하나의 단계를 수행합니다.
+1. Data Science Virtual Machine을 만들려면 다음 메서드 중 하나를 사용합니다.
 
-    * [Ubuntu Data Science Virtual Machine 만들기](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
-    * [Windows Data Science Virtual Machine 만들기](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
+    * Azure Portal 사용:
 
-1. Azure Machine Learning SDK가 DSVM에 **이미 설치되어 있습니다**. SDK가 포함된 Conda 환경을 사용하려면 다음 명령 중 하나를 사용합니다.
+        * [__Ubuntu__ Data Science Virtual Machine 만들기](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
+
+        * [__Windows__ Data Science Virtual Machine 만들기](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
+
+    * Azure CLI 사용:
+
+        > [!IMPORTANT]
+        > Azure CLI를 사용하는 경우 먼저 `az login` 명령을 사용하여 Azure 구독에 로그인해야 합니다.
+        >
+        > 이 단계의 명령을 사용하는 경우 리소스 그룹 이름, VM 이름, 사용자 이름 및 암호를 제공해야 합니다.
+
+        * __Ubuntu__ Data Science Virtual Machine을 만들려면 다음 명령을 사용합니다.
+
+            ```azurecli
+            # create a Ubuntu DSVM in your resource group
+            # note you need to be at least a contributor to the resource group in order to execute this command successfully
+            # If you need to create a new resource group use: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-REGION (For example: westus2)"
+            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --generate-ssh-keys --authentication-type password
+            ```
+
+        * __Windows__ Data Science Virtual Machine을 만들려면 다음 명령을 사용합니다.
+
+            ```azurecli
+            # create a Windows Server 2016 DSVM in your resource group
+            # note you need to be at least a contributor to the resource group in order to execute this command successfully
+            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
+            ```    
+
+2. Azure Machine Learning SDK가 DSVM에 **이미 설치되어 있습니다**. SDK가 포함된 Conda 환경을 사용하려면 다음 명령 중 하나를 사용합니다.
 
     * __Ubuntu__ DSVM에서는 다음 명령을 사용합니다.
 
@@ -150,17 +182,11 @@ Jupyter Notebook은 [Jupyter 프로젝트](https://jupyter.org/)의 일부입니
 
 1. 명령 프롬프트 또는 셸을 엽니다.
 
-1. Conda를 인식하는 Jupyter Notebook 서버를 설치하고 실험 위젯을 사용하려면 다음 명령을 사용합니다.
+1. Conda를 인식하는 Jupyter Notebook 서버를 설치하려면 다음 명령을 사용합니다.
 
     ```shell
     # install Jupyter
     conda install nb_conda
-
-    # install experiment widget
-    jupyter nbextension install --py --user azureml.widgets
-
-    # enable experiment widget
-    jupyter nbextension enable --py --user azureml.widgets
     ```
 
 1. 다음 명령을 사용하여 Jupyter Notebook을 엽니다.
@@ -186,7 +212,7 @@ Visual Studio Code는 크로스 플랫폼 코드 편집기입니다. 로컬 Pyth
 
 1. Python 개발에 Visual Studio Code를 사용하는 방법은 [VSCode에서 Python 시작](https://code.visualstudio.com/docs/python/python-tutorial) 문서를 참조하세요.
 
-1. Conda 환경을 선택하려면 VS Code를 열고 __Ctrl-Shift-P__(Linux 및 Windows) 또는 __Command-Shift-P__(Mac)를 사용하여 __명령 팔레트__를 가져옵니다. __Python: 인터프리터 선택__을 입력하고 conda 환경을 선택합니다.
+1. Conda 환경을 선택하려면 VS Code를 열고 __Ctrl-Shift-P__(Linux 및 Windows) 또는 __Command-Shift-P__(Mac)를 사용하여 __명령 팔레트__를 가져옵니다. __Python: 인터프리터 선택__을 입력한 다음, Conda 환경을 선택합니다.
 
 1. SDK를 사용할 수 있는지 확인하려면 다음 코드가 포함된 새 Python 파일(.py)을 만듭니다. 그런 다음, 파일을 실행합니다.
 
@@ -195,9 +221,35 @@ Visual Studio Code는 크로스 플랫폼 코드 편집기입니다. 로컬 Pyth
     azureml.core.VERSION
     ```
 
-1. Visual Studio Code Tools for AI 확장을 설치하려면 [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) 페이지를 참조하세요.
+1. Visual Studio Code용 Azure Machine Learning 확장을 설치하려면 [AI용 도구](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) 페이지를 참조하세요.
 
-    자세한 내용은 [Azure Machine Learning에서 VS Code Tools for AI 사용](how-to-vscode-tools.md) 문서를 참조하세요.
+    자세한 내용은 [Visual Studio Code용 Azure Machine Learning 사용](how-to-vscode-tools.md)을 참조하세요.
+
+<a name="aml-databricks"></a>
+
+## <a name="azure-databricks"></a>Azure Databricks
+
+엔드투엔드 사용자 지정 기계 학습을 위해 Azure Databricks용 Azure Machine Learning SDK 사용자 지정 버전을 사용할 수 있습니다. 또는 Databricks 내에서 모델을 학습하거나 [Visual Studio Code](how-to-vscode-train-deploy.md#deploy-your-service-from-vs-code)를 사용하여 모델 배포
+
+Databricks 클러스터를 준비하고 샘플 노트북을 가져오려면:
+
+1. **Python 3**를 사용하여 4.x(높은 동시성 기본 설정)의 Databricks 런타임 버전의 [Databricks 클러스터](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)를 만듭니다. 
+
+1. 라이브러리를 만들어 Python `azureml-sdk[databricks]` PyPi 패키지용 Azure Machine Learning SDK를 클러스터에 [설치 및 연결](https://docs.databricks.com/user-guide/libraries.html#create-a-library)합니다. 완료되면 이 이미지에 표시된 대로 연결된 라이브러리를 확인할 수 있습니다. 이러한 [일반적인 Databricks 문제](resource-known-issues.md#databricks)를 인식합니다.
+
+   ![Databricks에 설치된 SDK ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+
+   이 단계가 실패하면 다음과 같이 클러스터를 다시 시작합니다.
+   1. 왼쪽 창에서 `Clusters`를 선택합니다. 테이블에서 클러스터 이름을 선택합니다. 
+   1. `Libraries` 탭에서 `Restart`를 선택합니다.
+
+1. [Azure Databricks / Azure Machine Learning SDK Notebook 보관 파일](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc)을 다운로드합니다.
+
+   >[!Warning]
+   > 여러 샘플 Notebooks는 Azure Machine Learning Service에서 사용할 수 있습니다. 이러한 샘플 Notebooks만 Azure Databricks에서 작동합니다: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks
+
+1.  [이 보관 파일](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive)을 Databricks 클러스터로 가져와서 [여기에 설명된](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) 대로 검색을 시작합니다.
+
 
 ## <a id="workspace"></a>작업 영역 구성 파일 만들기
 
@@ -243,6 +295,6 @@ Visual Studio Code는 크로스 플랫폼 코드 편집기입니다. 로컬 Pyth
 
 ## <a name="next-steps"></a>다음 단계
 
-- [ MNIST 데이터 집합으로 Azure Machine Learning에서 모델 교육](tutorial-train-models-with-aml.md)
+- [ MNIST 데이터 세트로 Azure Machine Learning에서 모델 교육](tutorial-train-models-with-aml.md)
 - [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)
 - [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)

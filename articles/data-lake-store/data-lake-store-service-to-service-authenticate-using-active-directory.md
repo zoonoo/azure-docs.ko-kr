@@ -46,7 +46,7 @@ Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스
 ![웹앱 만들기](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "웹앱 만들기")
 
 ## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>2단계: 애플리케이션 ID, 인증 키 및 테넌트 ID 가져오기
-프로그래밍 방식으로 로그인하는 경우 애플리케이션에 대한 ID가 필요합니다. 응용 프로그램이 자체 자격 증명에서 실행되는 경우 인증 키도 필요합니다.
+프로그래밍 방식으로 로그인하는 경우 애플리케이션에 대한 ID가 필요합니다. 애플리케이션이 자체 자격 증명에서 실행되는 경우 인증 키도 필요합니다.
 
 * 응용 프로그램에 대한 응용 프로그램 ID 및 인증 키(클라이언트 비밀이라고도 함)를 검색하는 방법에 대한 지침은 [응용 프로그램 ID 및 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
 

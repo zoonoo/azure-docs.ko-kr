@@ -21,7 +21,7 @@ ms.locfileid: "47404554"
 **Azure 데이터 카탈로그** 포털에서 "Power BI Desktop에서 열기" 옵션을 사용할 때 Power BI Desktop 응용 프로그램에서 다음 두 가지 문제 중 하나가 발생할 수 있습니다.
 
 * "문서를 열 수 없습니다."라는 제목의 대화 상자가 표시됩니다.
-* Power BI Desktop 응용 프로그램이 열리지만 파일이 비어 있는 것으로 표시됩니다.
+* Power BI Desktop 애플리케이션이 열리지만 파일이 비어 있는 것으로 표시됩니다.
 
 각 경우에 대해 [PowerBI.com](https://powerbi.com)에서 최신 버전의 Power BI Desktop을 다운로드 및 설치하여 문제를 해결할 수 있습니다.
 

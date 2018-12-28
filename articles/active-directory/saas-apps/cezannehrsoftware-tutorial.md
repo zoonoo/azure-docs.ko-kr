@@ -267,7 +267,7 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Cezanne HR Software**를 선택합니다.
+1. 애플리케이션 목록에서 **Cezanne HR Software**를 선택합니다.
 
     ![응용 프로그램 목록의 Cezanne HR Software 링크](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_app.png)  
 

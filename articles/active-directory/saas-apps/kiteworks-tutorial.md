@@ -216,7 +216,7 @@ Kiteworks는 적시에 프로비전을 지원하며 기본적으로 사용하도
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Kiteworks**를 선택합니다.
+1. 애플리케이션 목록에서 **Kiteworks**를 선택합니다.
 
     ![Configure Single Sign-On](./media/kiteworks-tutorial/tutorial_kiteworks_app.png) 
 

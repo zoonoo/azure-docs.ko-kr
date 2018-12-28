@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs 미리 보기를 통해 Azure 리소스에 관리 ID 사용 | Microsoft Docs
-description: Azure Event Hubs를 통해 Azure 리소스에 관리 ID 사용
+title: Azure 리소스에 대한 관리 ID - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Azure Event Hubs에서 Azure 리소스에 대한 관리 ID를 사용하는 방법을 설명합니다.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 815a6ff528e024ed1685b09b66f8fabce4d360c1
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784556"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087731"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Event Hubs를 통해 Azure 리소스에 관리 ID 사용
 
@@ -47,19 +48,15 @@ ms.locfileid: "48784556"
 
 응용 프로그램을 만든 후 Azure Portal에서 새로 만든 웹앱으로 이동한 후(방법에 제공된 설명 참조) **관리 서비스 ID** 페이지로 이동하여 해당 기능을 사용하도록 설정합니다. 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![관리형 서비스 ID 페이지](./media/event-hubs-managed-service-identity/msi1.png)
  
 기능을 사용하도록 설정하면 새 서비스 ID가 Azure Active Directory에서 생성되고 App Service 호스트로 구성됩니다.
 
 ### <a name="create-a-new-event-hubs-namespace"></a>새 Event Hubs 네임스페이스 만들기
 
-그런 다음 Azure 리소스용 관리 ID 미리 보기를 지원하는 Azure 지역인 **미국 동부**, **미국 동부 2** 또는 **유럽 서부** 중 한 곳에 [Event Hubs 네임스페이스를 만듭니다](event-hubs-create.md). 
+그런 다음, Azure 리소스용 관리 ID 미리 보기를 지원하는 Azure 지역 중 한 곳에 [Event Hubs 네임스페이스를 만듭니다](event-hubs-create.md). **미국 동부**, **미국 동부 2** 또는 **유럽 서부**. 
 
-포털의 네임스페이스 **액세스 제어(IAM)** 페이지로 이동한 후 **추가**를 클릭하여 관리 ID를 **소유자** 역할에 추가합니다. 이렇게 하려면 **권한 추가** 패널의 **선택** 필드에서 웹 응용 프로그램의 이름을 검색한 다음, 해당 항목을 클릭합니다. 그런 다음 **Save**를 클릭합니다.
-
-![](./media/event-hubs-managed-service-identity/msi2.png)
- 
-이제 웹 응용 프로그램의 관리 ID는 Event Hubs 네임스페이스 및 이전에 만든 이벤트 허브에 액세스할 수 있습니다. 
+포털의 네임스페이스 **액세스 제어(IAM)** 페이지로 이동한 후 **역할 할당 추가**를 클릭하여 관리형 ID를 **소유자** 역할에 추가합니다. 이렇게 하려면 **권한 추가** 패널의 **선택** 필드에서 웹 응용 프로그램의 이름을 검색한 다음, 해당 항목을 클릭합니다. 그런 다음 **Save**를 클릭합니다. 이제 웹 응용 프로그램의 관리 ID는 Event Hubs 네임스페이스 및 이전에 만든 이벤트 허브에 액세스할 수 있습니다. 
 
 ### <a name="run-the-app"></a>앱 실행
 
@@ -71,7 +68,7 @@ ms.locfileid: "48784556"
 
 이와 같이 변경한 후에는 응용 프로그램을 게시하고 실행합니다. Visual Studio에서 게시 프로필을 다운로드한 다음 가져오면 올바른 게시 데이터를 가져올 수 있습니다.
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![게시 프로필 가져오기](./media/event-hubs-managed-service-identity/msi3.png)
  
 메시지를 보내거나 받으려면 만든 엔터티의 이름과 네임스페이스의 이름을 입력한 후 **전송** 또는 **수신**을 클릭합니다. 
  

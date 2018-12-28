@@ -1,6 +1,6 @@
 ---
 title: 내부 부하 분산 장치에서 Azure Application Gateway 사용 - PowerShell | Microsoft Docs
-description: 이 페이지에서는 Azure Resource Manager용 ILB(내부 부하 분산 장치)를 사용하여 Azure 응용 프로그램 게이트웨이를 만들고, 구성하고, 시작하고, 삭제하기 위한 지침을 제공합니다.
+description: 이 페이지에서는 Azure Resource Manager용 ILB(내부 부하 분산 장치)를 사용하여 Azure 애플리케이션 게이트웨이를 만들고, 구성하고, 시작하고, 삭제하기 위한 지침을 제공합니다.
 documentationcenter: na
 services: application-gateway
 author: vhorne
@@ -51,7 +51,7 @@ Resource Manager를 사용하면 응용 프로그램 게이트웨이를 만드�
 1. Resource Manager에 대한 리소스 그룹 만들기
 2. 애플리케이션 게이트웨이에 대한 가상 네트워크 및 서브넷 만들기
 3. 응용 프로그램 게이트웨이 구성 개체 만들기
-4. 응용 프로그램 게이트웨이 리소스 만들기
+4. 애플리케이션 게이트웨이 리소스 만들기
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager에 대한 리소스 그룹 만들기
 

@@ -209,7 +209,7 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 애플리케�
 
     PS C:\MyProject> Stop-AzureEmulator
 
-## <a name="publish-your-application"></a>응용 프로그램 게시
+## <a name="publish-your-application"></a>애플리케이션 게시
 
 애플리케이션을 게시하려면 먼저 [Import-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/import-azurepublishsettingsfile) cmdlet을 사용하여 게시 설정을 가져와야 합니다. 그런 다음, [Publish-AzureServiceProject](https://docs.microsoft.com/powershell/module/servicemanagement/azure/publish-azureserviceproject) cmdlet을 사용하여 애플리케이션을 게시합니다. 로그인에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 

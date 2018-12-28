@@ -43,7 +43,7 @@ ms.locfileid: "53165414"
 1. [Microsoft Azure 서비스 대시보드](https://azure.microsoft.com/status)에서 애플리케이션이 오류를 보고한 시간 동안 발생한 알려진 중단을 모두 확인합니다.
 2. Azure Database for MySQL과 같은 클라우드 서비스에 연결하는 애플리케이션은 일시적 오류를 예상하고, 이러한 이벤트를 사용자에게 애플리케이션 오류로 표시하는 대신 해당 오류를 처리하는 다시 시도 논리를 구현해야 합니다. 일시적 오류 처리를 위한 모범 사례 및 설계 지침은 [Azure Database for MySQL에 대한 일시적 연결 오류 처리](concepts-connectivity.md)를 검토하세요.
 3. 서버에서 리소스 제한에 도달하면 오류가 일시적 연결 문제로 보일 수 있습니다. [Azure Database for MySQL의 제한 사항](concepts-limits.md)을 참조하세요.
-4. 연결 문제가 계속 발생하거나 응용 프로그램에서 오류가 발생하는 기간이 60초를 초과하는 경우 또는 특정일에 오류가 여러 번 발생하는 경우에는 **Azure 지원** 사이트에서 [지원 받기](https://azure.microsoft.com/support/options) 를 선택하여 Azure 지원 요청을 접수합니다.
+4. 연결 문제가 계속 발생하거나 애플리케이션에서 오류가 발생하는 기간이 60초를 초과하는 경우 또는 특정일에 오류가 여러 번 발생하는 경우에는 **Azure 지원** 사이트에서 [지원 받기](https://azure.microsoft.com/support/options)를 선택하여 Azure 지원 요청을 접수합니다.
 
 ## <a name="troubleshoot-persistent-errors"></a>영구 오류 문제 해결
 

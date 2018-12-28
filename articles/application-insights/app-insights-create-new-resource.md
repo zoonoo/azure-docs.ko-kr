@@ -22,7 +22,7 @@ ms.locfileid: "52996248"
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 Azure Application Insights는 Microsoft Azure *리소스*에 애플리케이션에 대한 데이터를 표시합니다. 따라서 새 리소스 만들기는 [새 애플리케이션을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 대부분의 경우에 리소스를 만드는 작업은 IDE에 의해 자동으로 할 수 있습니다. 하지만 일부 경우에는 리소스를 수동으로 만듭니다. 예를 들어, 애플리케이션의 제품 개발과 빌드를 위한 별도의 리소스가 있습니다.
 
-리소스를 만든 후에 해당 계측 키를 가져오고 이 키를 사용하여 응용 프로그램에서 SDK를 구성합니다. 리소스 키는 원격 분석을 리소스로 연결합니다.
+리소스를 만든 후에 해당 계측 키를 가져오고 이 키를 사용하여 애플리케이션에서 SDK를 구성합니다. 리소스 키는 원격 분석을 리소스로 연결합니다.
 
 ## <a name="sign-up-to-microsoft-azure"></a>Microsoft Azure에 등록
 [Microsoft 계정이 없는 경우 계정을 만듭니다](https://live.com). Outlook.com, OneDrive, Windows Phone 또는 XBox Live 등의 서비스를 이용하는 경우 Microsoft 계정이 이미 있습니다.
@@ -52,7 +52,7 @@ Azure Application Insights는 Microsoft Azure *리소스*에 애플리케이션�
 ![Essentials과 계측 키를 차례로 클릭하고, CTRL + C 누릅니다.](./media/app-insights-create-new-resource/02-props.png)
 
 ## <a name="install-the-sdk-in-your-app"></a>응용 프로그램에 SDK를 설치합니다.
-Application Insights SDK를 애플리케이션에 설치합니다. 이 단계는 응용 프로그램의 형식에 따라 크게 달라 집니다. 
+Application Insights SDK를 애플리케이션에 설치합니다. 이 단계는 애플리케이션의 형식에 따라 크게 달라 집니다. 
 
 계측 키를 사용하여 [애플리케이션에 설치한 SDK][start]를 구성합니다.
 

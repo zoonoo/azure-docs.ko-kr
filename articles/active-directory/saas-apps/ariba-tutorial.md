@@ -185,7 +185,7 @@ Ariba에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Ariba**를 선택합니다.
+1. 애플리케이션 목록에서 **Ariba**를 선택합니다.
 
     ![Configure Single Sign-On](./media/ariba-tutorial/tutorial_ariba_app.png) 
 

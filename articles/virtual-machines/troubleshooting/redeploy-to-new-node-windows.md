@@ -22,7 +22,7 @@ ms.lasthandoff: 12/06/2018
 ms.locfileid: "52993254"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>새 Azure 노드로 Windows 가상 머신 다시 배포
-RDP(원격 데스크톱) 연결 문제 또는 Windows 기반 Azure VM(가상 머신)에 대한 응용 프로그램 액세스 문제를 해결하는 데 어려움이 있는 경우 VM을 다시 배포하는 것이 도움이 될 수 있습니다. VM을 다시 배포하는 경우 Azure에서는 VM을 종료하고 VM을 Azure 인프라 내의 새 노드로 이동한 다음, 전원을 다시 켜고 모든 구성 옵션 및 관련 리소스를 그대로 유지합니다. 이 문서에서는 Azure PowerShell 또는 Azure 포털을 사용하여 VM을 다시 배포하는 방법을 보여 줍니다.
+RDP(원격 데스크톱) 연결 문제 또는 Windows 기반 Azure VM(가상 머신)에 대한 애플리케이션 액세스 문제를 해결하는 데 어려움이 있는 경우 VM을 다시 배포하는 것이 도움이 될 수 있습니다. VM을 다시 배포하는 경우 Azure에서는 VM을 종료하고 VM을 Azure 인프라 내의 새 노드로 이동한 다음, 전원을 다시 켜고 모든 구성 옵션 및 관련 리소스를 그대로 유지합니다. 이 문서에서는 Azure PowerShell 또는 Azure 포털을 사용하여 VM을 다시 배포하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > VM을 다시 배포한 후에 임시 디스크가 손실되고 가상 네트워크 인터페이스와 연결된 동적 IP 주소가 업데이트됩니다. 

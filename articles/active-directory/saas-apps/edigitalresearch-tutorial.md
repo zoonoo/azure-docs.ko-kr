@@ -189,7 +189,7 @@ eDigitalResearch에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **eDigitalResearch**를 선택합니다.
+1. 애플리케이션 목록에서 **eDigitalResearch**를 선택합니다.
 
     ![응용 프로그램 목록의 eDigitalResearch 링크](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_app.png)  
 

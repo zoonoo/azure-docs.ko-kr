@@ -42,7 +42,7 @@ Azure AD와 통합된 응용 프로그램은 소프트웨어 측면을 넘어서
 
 다음 섹션에서는 Azure AD 응용 프로그램 모델이 디자인 타임 및 런타임 시 응용 프로그램을 나타내는 방법을 알아보겠습니다.
 
-## <a name="application-registration"></a>응용 프로그램 등록
+## <a name="application-registration"></a>애플리케이션 등록
 
 [Azure Portal][AZURE-Portal]에서 Azure AD 응용 프로그램을 등록할 때, Azure AD 테넌트에 다음 두 개의 개체가 만들어집니다.
 

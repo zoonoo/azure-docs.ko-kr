@@ -45,7 +45,7 @@ Azure SQL Database에 대한 연결이 실패하면 [오류 메시지](sql-datab
 
 ## <a name="troubleshoot-transient-errors"></a>일시적인 오류 문제 해결
 
-응용 프로그램이 Azure SQL Database에 연결할 때 다음 오류 메시지가 표시됩니다.
+애플리케이션이 Azure SQL Database에 연결할 때 다음 오류 메시지가 표시됩니다.
 
 ```
 Error code 40613: "Database <x> on server <y> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <z>"

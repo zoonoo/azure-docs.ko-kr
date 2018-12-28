@@ -340,7 +340,7 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![사용자 할당][201]
 
-2. 응용 프로그램 목록에서 **SAP NetWeaver**를 선택합니다.
+2. 애플리케이션 목록에서 **SAP NetWeaver**를 선택합니다.
 
     ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_app.png) 
 

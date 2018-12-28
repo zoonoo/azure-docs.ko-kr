@@ -26,7 +26,7 @@ ms.locfileid: "52867089"
 * [Elastic Database 분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md): 분할된 데이터베이스 간에 데이터를 이동합니다. 이 도구는 데이터를 다중 테넌트 데이터베이스에서 단일 테넌트 데이터베이스로 또는 그 반대로 이동하는 데 유용합니다. [탄력적 데이터베이스 분할-병합 도구 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
 * [Elastic Database 작업](sql-database-elastic-jobs-overview.md)(미리 보기): 작업을 사용하여 많은 수의 Azure SQL 데이터베이스를 관리합니다. 작업을 사용하여 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 컬렉션 등의 관리 작업을 쉽게 수행합니다.
 * [Elastic Database 쿼리](sql-database-elastic-query-overview.md)(미리 보기): 여러 데이터베이스에 걸쳐 있는 Transact-SQL 쿼리를 실행할 수 있습니다. 이렇게 하면 Excel, Power BI, Tableau 등과 같은 보고 도구에 연결할 수 있습니다.
-* [탄력적 트랜잭션](sql-database-elastic-transactions-overview.md): 이 기능을 사용하면 Azure SQL Database의 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. 탄력적 데이터베이스 트랜잭션은 ADO .NET을 사용하여 .NET 응용 프로그램에서 사용할 수 있고 [System.Transaction 클래스](https://msdn.microsoft.com/library/system.transactions.aspx)를 사용하여 친숙한 프로그래밍 환경과 통합될 수 있습니다.
+* [탄력적 트랜잭션](sql-database-elastic-transactions-overview.md): 이 기능을 사용하면 Azure SQL Database의 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. 탄력적 데이터베이스 트랜잭션은 ADO .NET을 사용하여 .NET 애플리케이션에서 사용할 수 있고 [System.Transaction 클래스](https://msdn.microsoft.com/library/system.transactions.aspx)를 사용하여 친숙한 프로그래밍 환경과 통합될 수 있습니다.
 
 아래 그림은 데이터베이스 컬렉션과 관련된 **Elastic Database 기능** 을 포함하는 아키텍처를 보여 줍니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "52867089"
 
 ![다중 테넌트 대 단일 테넌트][4]
 
-다른 시나리오에서는 여러 테넌트를 개별 데이터베이스로 격리하지 않고 함께 데이터베이스에 포함합니다. 이 패턴은 일반적인 **다중 테넌트 분할 패턴**이며, 응용 프로그램에서 많은 수의 작은 테넌트를 관리한다는 사실로 구동될 수 있습니다. 다중 테넌트 분할에서 데이터베이스 테이블의 행은 모두 테넌트 ID 또는 키 분할을 식별하는 키 ID를 제공하도록 설계되었습니다. 또한 응용 프로그램 계층이 적합한 데이터베이스로 테넌트의 요청을 라우팅하고 탄력적 데이터베이스 클라이언트 라이브러리가 보조할 수 있습니다. 또한 행 수준 보안은 행 각각의 세부 정보에 액세스할 수 있는 필터에 사용될 수 있습니다. 자세한 내용은 [Elastic Database 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램](sql-database-elastic-tools-multi-tenant-row-level-security.md)을 참조하세요. 데이터베이스 간 데이터 재배포는 다중 테넌트 분할 패턴에 필요할 수 있고, 탄력적 데이터베이스 분할 병합 도구를 통해 쉽게 처리할 수 있습니다. 탄력적 풀을 사용한 SaaS 응용 프로그램의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL Database를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
+다른 시나리오에서는 여러 테넌트를 개별 데이터베이스로 격리하지 않고 함께 데이터베이스에 포함합니다. 이 패턴은 일반적인 **다중 테넌트 분할 패턴**이며, 응용 프로그램에서 많은 수의 작은 테넌트를 관리한다는 사실로 구동될 수 있습니다. 다중 테넌트 분할에서 데이터베이스 테이블의 행은 모두 테넌트 ID 또는 키 분할을 식별하는 키 ID를 제공하도록 설계되었습니다. 또한 응용 프로그램 계층이 적합한 데이터베이스로 테넌트의 요청을 라우팅하고 탄력적 데이터베이스 클라이언트 라이브러리가 보조할 수 있습니다. 또한 행 수준 보안은 행 각각의 세부 정보에 액세스할 수 있는 필터에 사용될 수 있습니다. 자세한 내용은 [Elastic Database 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램](sql-database-elastic-tools-multi-tenant-row-level-security.md)을 참조하세요. 데이터베이스 간 데이터 재배포는 다중 테넌트 분할 패턴에 필요할 수 있고, 탄력적 데이터베이스 분할 병합 도구를 통해 쉽게 처리할 수 있습니다. 탄력적 풀을 사용한 SaaS 애플리케이션의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 
 ### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>다중 테넌트 데이터베이스에서 단일 테넌트 데이터베이스로 데이터 이동
 SaaS 응용 프로그램을 만들 때 잠재 고객에게 평가판 소프트웨어를 제공하는 것은 일반적입니다. 이 경우 데이터에 대해 다중 테넌트 데이터베이스를 사용하는 것이 비용 효율적입니다. 그러나 잠재 고객이 고객이 되면 단일 테넌트 데이터베이스가 더 나은 성능을 제공하므로 단일 테넌트 데이터베이스가 더 좋습니다. 고객이 평가판 사용 기간 동안 데이터를 만든 경우 [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md) 를 사용하여 데이터를 다중 테넌트에서 새 단일 테넌트 데이터베이스로 이동합니다.

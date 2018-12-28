@@ -126,7 +126,7 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 ### <a name="configure-sso-for-different-identities"></a>다른 ID에 대한 SSO 구성
 1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 저장소로 Azure AD를 사용하는 Office 365, Windows 10 디바이스 및 다른 응용 프로그램에 로그인하는 방법을 결정합니다.  
    ![사용자 식별 스크린샷 - 사용자 계정 이름 드롭다운](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_connect_settings.png)  
-2. 수정하려는 응용 프로그램에 대한 응용 프로그램 구성 설정에서 사용할 **위임된 로그인 ID** 를 선택합니다.
+2. 수정하려는 애플리케이션에 대한 애플리케이션 구성 설정에서 사용할 **위임된 로그인 ID**를 선택합니다.
 
    * 사용자 계정 이름(예: joe@contoso.com)
    * 대체 사용자 계정 이름(예: joed@contoso.local)
@@ -144,5 +144,5 @@ SSO 프로세스에 오류가 있으면 [문제 해결](application-proxy-back-e
 * [응용 프로그램 프록시에서 발생한 문제 해결](application-proxy-troubleshoot.md)
 
 
-최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](https://blogs.technet.com/b/applicationproxyblog/)
+최신 뉴스 및 업데이트는 [애플리케이션 프록시 블로그](https://blogs.technet.com/b/applicationproxyblog/)
 

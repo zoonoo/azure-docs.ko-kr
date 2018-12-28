@@ -201,7 +201,7 @@ filter, select 및 expand 문자열의 속성 이름은 이름과 대소문자 �
 
 ## <a name="code-samples"></a>코드 샘플
 ### <a name="efficient-list-queries-code-sample"></a>효율적인 목록 쿼리 코드 샘플
-GitHub의 [EfficientListQueries][efficient_query_sample] 샘플 프로젝트를 확인하여 애플리케이션에서 효율적인 목록 쿼리가 성능에 미치는 영향을 확인할 수 있습니다. 이 C# 콘솔 응용 프로그램은 많은 작업을 만들고 또 작업에 추가합니다. 그런 다음 [JobOperations.ListTasks][net_list_tasks] 메서드에 대한 여러 호출을 만들고 다른 속성 값으로 구성된 [ODATADetailLevel][odata] 개체를 전달하여 반환될 데이터의 크기를 다양화합니다. 다음과 유사한 출력을 생성합니다.
+GitHub의 [EfficientListQueries][efficient_query_sample] 샘플 프로젝트를 확인하여 애플리케이션에서 효율적인 목록 쿼리가 성능에 미치는 영향을 확인할 수 있습니다. 이 C# 콘솔 애플리케이션은 많은 작업을 만들고 또 작업에 추가합니다. 그런 다음 [JobOperations.ListTasks][net_list_tasks] 메서드에 대한 여러 호출을 만들고 다른 속성 값으로 구성된 [ODATADetailLevel][odata] 개체를 전달하여 반환될 데이터의 크기를 다양화합니다. 다음과 유사한 출력을 생성합니다.
 
 ```
 Adding 5000 tasks to job jobEffQuery...

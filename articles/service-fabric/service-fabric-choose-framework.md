@@ -27,7 +27,7 @@ Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제�
 ## <a name="guest-executables"></a>게스트 실행 파일
 [게스트 실행 파일](service-fabric-guest-executables-introduction.md)은 응용 프로그램에서 서비스로 실행될 수 있는 임의의 기존 실행 파일(작성 언어는 관계없음)입니다. 게스트 실행 파일은 Service Fabric SDK API를 직접 호출하지 않습니다. 그러나 Service Fabric에서 노출하는 REST API를 호출하여 서비스 검색 가능성, 사용자 지정 상태 및 로드 보고와 같이 플랫폼에서 제공하는 기능을 계속 활용합니다. 또한 전체 응용 프로그램 수명 주기 지원도 포함합니다.
 
-첫 번째 [게스트 실행 파일 응용 프로그램](service-fabric-deploy-existing-app.md)을 배포하여 게스트 실행 파일을 시작합니다.
+첫 번째 [게스트 실행 파일 애플리케이션](service-fabric-deploy-existing-app.md)을 배포하여 게스트 실행 파일을 시작합니다.
 
 ## <a name="containers"></a>컨테이너
 기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 [컨테이너](service-fabric-containers-overview.md)에 서비스를 배포할 수 있습니다. Service Fabric은 Windows Server 2016에서 Linux 컨테이너 및 Windows 컨테이너의 배포를 지원합니다. 컨테이너 이미지는 컨테이너 저장소에서 가져오고 컴퓨터에 배포될 수 있습니다. 기존 애플리케이션을 컨테이너에서 게스트 실행 파일, Service Fabric 상태 비저장 또는 상태 저장 서비스, Reliable Actors로 배포할 수 있으며, 프로세스의 서비스와 컨테이너의 서비스를 동일한 애플리케이션에서 함께 사용할 수 있습니다.

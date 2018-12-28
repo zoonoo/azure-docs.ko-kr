@@ -27,7 +27,7 @@ ms.locfileid: "53137704"
 ## <a name="prerequisites"></a>필수 조건
 클레임 인식 앱이 리디렉션되는 STS가 온-프레미스 네트워크 외부에서 사용 가능한지 확인합니다. 프록시를 통해 노출하거나 외부 연결을 허용하여 STS를 사용할 수 있도록 할 수 있습니다. 
 
-## <a name="publish-your-application"></a>응용 프로그램 게시
+## <a name="publish-your-application"></a>애플리케이션 게시
 
 1. [응용 프로그램 프록시로 응용 프로그램 게시](application-proxy-add-on-premises-application.md)에 설명된 지침에 따라 응용 프로그램을 게시합니다.
 2. 포털에서 응용 프로그램 페이지로 이동하고 **Single Sign-On**을 선택합니다.

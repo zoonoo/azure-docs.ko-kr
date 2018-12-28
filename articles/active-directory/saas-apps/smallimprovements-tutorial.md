@@ -234,7 +234,7 @@ Azure AD 사용자가 Small Improvements에 로그인할 수 있도록 하려면
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Small Improvements**를 선택합니다.
+1. 애플리케이션 목록에서 **Small Improvements**를 선택합니다.
 
     ![Configure Single Sign-On](./media/smallimprovements-tutorial/tutorial_smallimprovements_app.png) 
 

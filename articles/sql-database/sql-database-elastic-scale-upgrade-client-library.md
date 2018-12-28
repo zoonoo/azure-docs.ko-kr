@@ -53,7 +53,7 @@ ms.locfileid: "52866146"
 
 ***옵션 2: C#을 사용하여 메타데이터 업그레이드***
 
-ShardMapManager를 열고 모든 분할에서 반복 실행한 다음, 다음 예제와 같이 [UpgradeLocalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) 및 [UpgradeGlobalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx) 메서드를 호출하여 메타데이터 업그레이드를 수행하는 Visual Studio 응용 프로그램을 만들 수도 있습니다. 
+ShardMapManager를 열고 모든 분할에서 반복 실행한 다음, 다음 예제와 같이 [UpgradeLocalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) 및 [UpgradeGlobalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx) 메서드를 호출하여 메타데이터 업그레이드를 수행하는 Visual Studio 애플리케이션을 만들 수도 있습니다. 
 
     ShardMapManager smm =
        ShardMapManagerFactory.GetSqlShardMapManager

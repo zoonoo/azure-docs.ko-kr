@@ -43,8 +43,8 @@ ms.locfileid: "46972898"
 
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>OAuth 2.0 클라이언트 자격 증명 권한 부여를 사용하는 애플리케이션 ID
 
-1. 먼저, 서버 응용 프로그램이 대화형 로그온 대화 상자와 같은 사용자 개입 없이 자체적으로 Azure AD에서 인증해야 합니다. Azure AD의 토큰 엔드포인트에 요청하여 자격 증명, 애플리케이션 ID, 애플리케이션 ID URI를 제공합니다.
-1. Azure AD가 응용 프로그램을 인증하고 웹 API를 호출하는 데 사용되는 JWT 액세스 토큰을 반환합니다.
+1. 먼저, 서버 애플리케이션이 대화형 로그온 대화 상자와 같은 사용자 개입 없이 자체적으로 Azure AD에서 인증해야 합니다. Azure AD의 토큰 엔드포인트에 요청하여 자격 증명, 애플리케이션 ID, 애플리케이션 ID URI를 제공합니다.
+1. Azure AD가 애플리케이션을 인증하고 웹 API를 호출하는 데 사용되는 JWT 액세스 토큰을 반환합니다.
 1. HTTPS를 통해 웹 애플리케이션이 반환된 JWT 액세스 토큰을 사용해서 웹 API에 대한 요청의 권한 부여 헤더에 “전달자”를 지정한 JWT 문자열을 추가합니다. 그러면 웹 API에서 JWT 토큰의 유효성을 검사하여 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
 
 ### <a name="delegated-user-identity-with-oauth-20-on-behalf-of-draft-specification"></a>OAuth 2.0 On-Behalf-Of 초안 사양을 사용하는 위임된 사용자 ID

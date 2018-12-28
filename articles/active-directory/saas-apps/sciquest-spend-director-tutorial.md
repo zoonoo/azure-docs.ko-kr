@@ -188,7 +188,7 @@ Just-in-Time 프로비저닝을 사용하도록 설정하려면 [SciQuest Spend 
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **SciQuest Spend Director**를 선택합니다.
+1. 애플리케이션 목록에서 **SciQuest Spend Director**를 선택합니다.
 
     ![응용 프로그램 목록의 SciQuest Spend Director 링크](./media/sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_app.png)  
 

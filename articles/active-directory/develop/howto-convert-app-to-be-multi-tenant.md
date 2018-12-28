@@ -33,7 +33,7 @@ ms.locfileid: "52425346"
 > [!NOTE] 
 > 이 문서에서는 사용자가 Azure AD에 대한 단일 테넌트 애플리케이션을 빌드하는 것에 이미 익숙하다고 가정합니다. 그렇지 않은 경우 [개발자 가이드 홈페이지][AAD-Dev-Guide]에 있는 빠른 시작 중 하나를 시작합니다.
 
-다음과 같은 간단한 4 단게를 통해 응용 프로그램을 Azure AD 다중 테넌트 앱으로 변환할 수 있습니다.
+다음과 같은 간단한 4단계를 통해 애플리케이션을 Azure AD 다중 테넌트 앱으로 변환할 수 있습니다.
 
 1. [응용 프로그램 등록을 다중 테넌트로 업데이트](#update-registration-to-be-multi-tenant)
 2. [요청을 /common 엔드포인트로 보내도록 코드 업데이트](#update-your-code-to-send-requests-to-common)
@@ -162,7 +162,7 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 
 ### <a name="revoking-consent"></a>동의 철회
 
-사용자와 관리자는 언제든지 응용 프로그램에 대한 동의를 해지할 수 있습니다.
+사용자와 관리자는 언제든지 애플리케이션에 대한 동의를 해지할 수 있습니다.
 
 * 사용자는 자신의 [액세스 패널 애플리케이션][AAD-Access-Panel] 목록에서 개별 애플리케이션을 제거하여 해당 애플리케이션에 대한 액세스 권한을 취소합니다.
 * 관리자는 [Azure Portal][AZURE-portal]의 [엔터프라이즈 애플리케이션](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) 섹션을 사용하여 Azure AD에서 애플리케이션을 제거하여 해당 애플리케이션에 대한 액세스 권한을 철회합니다.

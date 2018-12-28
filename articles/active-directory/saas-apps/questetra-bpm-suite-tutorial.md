@@ -229,7 +229,7 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Questetra BPM Suite**를 선택합니다.
+1. 애플리케이션 목록에서 **Questetra BPM Suite**를 선택합니다.
 
     ![앱 목록의 Questetra BPM Suite](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_app.png) 
 

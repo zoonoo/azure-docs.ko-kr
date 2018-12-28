@@ -32,7 +32,7 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 
 | 서비스                 | 리소스 종류                           | 로그        | 메트릭     | 해결 방법 |
 | --- | --- | --- | --- | --- |
-| 응용 프로그램 게이트웨이    | Microsoft.Network/applicationGateways   | 진단 | 진단 | [Azure Application Gateway 분석](../../azure-monitor/insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
+| 애플리케이션 게이트웨이    | Microsoft.Network/applicationGateways   | 진단 | 진단 | [Azure Application Gateway 분석](../../azure-monitor/insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application insights    |                                         | 커넥터   | 커넥터   | [Application Insights 커넥터](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)(미리 보기) |
 | Automation 계정     | Microsoft.Automation/AutomationAccounts | 진단 |             | [자세한 정보](../../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch 계정          | Microsoft.Batch/batchAccounts           | 진단 | 진단 | |

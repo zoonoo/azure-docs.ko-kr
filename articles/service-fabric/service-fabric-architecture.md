@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 아키텍처 | Microsoft Docs
-description: 서비스 패브릭은 클라우드를 위한 확장 가능하고 안정적이며 쉽게 관리할 수 있는 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다. 이 문서에서는 서비스 패브릭의 아키텍처를 보여줍니다.
+description: Service Fabric은 클라우드를 위한 확장 가능하고 안정적이며 쉽게 관리할 수 있는 애플리케이션을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다. 이 문서에서는 서비스 패브릭의 아키텍처를 보여줍니다.
 services: service-fabric
 documentationcenter: .net
 author: rishirsinha

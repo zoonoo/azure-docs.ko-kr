@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2018
 ms.locfileid: "51615860"
 ---
-# <a name="application-upgrade-parameters"></a>응용 프로그램 업그레이드 매개 변수
+# <a name="application-upgrade-parameters"></a>애플리케이션 업그레이드 매개 변수
 이 문서에서는 Azure Service Fabric 애플리케이션을 업그레이드하는 동안 적용되는 다양한 매개 변수를 설명합니다. 응용 프로그램 업그레이드 매개 변수는 업그레이드 중에 적용되는 시간 제한 및 상태 확인을 제어하며, 업그레이드가 실패할 때 적용해야 하는 정책을 지정합니다. 애플리케이션 매개 변수는 다음을 사용하여 업그레이드에 적용됩니다.
 - PowerShell
 - Visual Studio

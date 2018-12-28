@@ -29,7 +29,7 @@ ms.locfileid: "53002130"
 > 
 
 ## <a name="add-application-insights-to-new-or-existing-crm-online-instance"></a>기존 또는 새 CRM Online 인스턴스에 Application Insights를 추가합니다.
-응용 프로그램을 모니터링하려면 응용 프로그램에 Application Insights SDK를 추가합니다. SDK는 [Application Insights 포털](https://portal.azure.com)로 원격 분석을 보내며 여기서 강력한 분석 및 진단 도구를 사용하고 저장소로 데이터를 내보낼 수 있습니다.
+응용 프로그램을 모니터링하려면 응용 프로그램에 Application Insights SDK를 추가합니다. SDK는 [Application Insights 포털](https://portal.azure.com)로 원격 분석을 보내며 여기서 강력한 분석 및 진단 도구를 사용하고 스토리지로 데이터를 내보낼 수 있습니다.
 
 ### <a name="create-an-application-insights-resource-in-azure"></a>Azure에서 Application Insights 리소스 만들기
 1. [Microsoft Azure에서 계정](https://azure.com/pricing)을 만듭니다. 

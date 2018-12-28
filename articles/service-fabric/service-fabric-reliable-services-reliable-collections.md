@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개 | Microsoft Docs
-description: 서비스 패브릭 상태 저장 서비스는가용성 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 응용 프로그램을 작성할 수 있는 믿을 수 렉션을 제공합니다.
+description: Service Fabric 상태 저장 서비스는 가용성 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 애플리케이션을 작성할 수 있는 안정적인 컬렉션을 제공합니다.
 services: service-fabric
 documentationcenter: .net
 author: tylermsft
@@ -31,7 +31,7 @@ ms.locfileid: "53191991"
 
 ![컬렉션 진화 이미지](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
 
-신뢰할 수 있는 컬렉션은 **System.Collections** 클래스의 자연스러운 진화로 생각할 수 있습니다. 즉, 개발자의 복잡성을 늘리지 않고 클라우드 및 다중 컴퓨터 응용 프로그램을 위해 설계된 컬렉션의 새 집합입니다. 따라서 신뢰할 수 있는 컬렉션은 다음과 같습니다.
+신뢰할 수 있는 컬렉션은 **System.Collections** 클래스의 자연스러운 진화로 생각할 수 있습니다. 즉, 개발자의 복잡성을 늘리지 않고 클라우드 및 다중 컴퓨터 애플리케이션을 위해 설계된 컬렉션의 새 집합입니다. 따라서 신뢰할 수 있는 컬렉션은 다음과 같습니다.
 
 * 복제됨: 고가용성을 위해 상태 변경 내용이 복제됩니다.
 * 유지됨: 대규모 정전에 대한 내구성을 위해 데이터가 디스크에 유지됩니다(예: 데이터 센터 전원 정전).

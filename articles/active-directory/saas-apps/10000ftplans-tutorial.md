@@ -186,7 +186,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **10,000ft Plans**를 선택합니다.
+2. 애플리케이션 목록에서 **10,000ft Plans**를 선택합니다.
 
     ![Configure Single Sign-On](./media/10000ftplans-tutorial/tutorial_10,000ftplans_app.png) 
 

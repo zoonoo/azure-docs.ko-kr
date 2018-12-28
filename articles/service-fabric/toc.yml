@@ -207,7 +207,7 @@ items:
           href: service-fabric-application-upgrade.md
         - name: 구성
           href: service-fabric-visualstudio-configure-upgrade.md
-        - name: 응용 프로그램 업그레이드 매개 변수
+        - name: 애플리케이션 업그레이드 매개 변수
           href: service-fabric-application-upgrade-parameters.md
         - name: 애플리케이션 업그레이드에서 데이터 직렬화
           href: service-fabric-application-upgrade-data-serialization.md

@@ -188,7 +188,7 @@ Tangoe Command Premium Mobile 애플리케이션에서는 Single Sign On을 수�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Tangoe Command Premium Mobile**을 선택합니다.
+1. 애플리케이션 목록에서 **Tangoe Command Premium Mobile**을 선택합니다.
 
     ![앱 목록의 Tangoe Command Premium Mobile](./media/tangoe-tutorial/tutorial_tangoe_app.png) 
 

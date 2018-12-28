@@ -33,7 +33,7 @@ ms.locfileid: "52994084"
 
 Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. Application Gateway는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC(Application Delivery Controller)를 제공합니다. 지원되는 기능의 전체 목록을 찾으려면 [Application Gateway 개요](application-gateway-introduction.md)
 
-이 문서는 응용 프로그램 게이트웨이를 생성, 구성, 시작 및 삭제하는 단계를 안내합니다.
+이 문서는 애플리케이션 게이트웨이를 생성, 구성, 시작 및 삭제하는 단계를 안내합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -67,7 +67,7 @@ Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우�
 
 ![예제 시나리오][scenario]
 
-### <a name="create-an-application-gateway-resource"></a>응용 프로그램 게이트웨이 리소스 만들기
+### <a name="create-an-application-gateway-resource"></a>애플리케이션 게이트웨이 리소스 만들기
 
 게이트웨이를 생성하려면 `New-AzureApplicationGateway` cmdlet을 사용하여 해당 값을 원하는 값으로 바꿉니다. 게이트웨이에 대한 청구는 이 시점에서 시작되지 않습니다. 게이트웨이가 성공적으로 작동되면, 요금청구가 시작됩니다.
 

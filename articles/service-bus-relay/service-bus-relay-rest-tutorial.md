@@ -45,7 +45,7 @@ ms.locfileid: "51614475"
 
 ## <a name="create-a-relay-namespace"></a>Relay 네임스페이스 만들기
 
-Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 Azure 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. [여기의 지침](relay-create-namespace-portal.md)을 따라 릴레이 네임스페이스를 만듭니다.
+Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 네임스페이스는 애플리케이션 내에서 Azure 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. [여기의 지침](relay-create-namespace-portal.md)을 따라 릴레이 네임스페이스를 만듭니다.
 
 ## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Azure Relay와 사용할 REST 기반 WCF 서비스 계약 정의
 

@@ -62,7 +62,7 @@ Service Bus에서 메시지를 받는 두 가지 다른 모드 (*ReceiveAndDelet
 
 ### <a name="rules-and-actions"></a>규칙 및 동작
 
-대부분의 시나리오에서 특정 특성을 가진 메시지를 다른 방법으로 처리해야 합니다. 이 처리를 사용하려면 desired 속성이 있는 메시지를 찾은 다음, 해당 속성에 대한 특정 수정 작업을 수행하도록 구독을 구성하면 됩니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 필터링은 구독 필터를 사용하여 수행됩니다. 이와 같은 수정을 *필터 동작*이라고 합니다. 구독을 만들 경우 메시지의 속성, 즉 시스템 속성(예: **Label**) 및 사용자 지정 응용 프로그램 속성(예:**StoreName**) 모두에서 작동하는 필터 식을 제공할 수 있습니다. 이 경우에 SQL 필터 식은 선택 사항입니다. SQL 필터 식 없이 구독에 정의된 필터 작업을 구독에 대한 모든 메시지에서 수행합니다.
+대부분의 시나리오에서 특정 특성을 가진 메시지를 다른 방법으로 처리해야 합니다. 이 처리를 사용하려면 desired 속성이 있는 메시지를 찾은 다음, 해당 속성에 대한 특정 수정 작업을 수행하도록 구독을 구성하면 됩니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 필터링은 구독 필터를 사용하여 수행됩니다. 이와 같은 수정을 *필터 동작*이라고 합니다. 구독을 만들 경우 메시지의 속성, 즉 시스템 속성(예: **Label**) 및 사용자 지정 애플리케이션 속성(예:**StoreName**) 모두에서 작동하는 필터 식을 제공할 수 있습니다. 이 경우에 SQL 필터 식은 선택 사항입니다. SQL 필터 식 없이 구독에 정의된 필터 작업을 구독에 대한 모든 메시지에서 수행합니다.
 
 전체 작업 예제를 보려면 GitHub의 [TopicSubscriptionWithRuleOperationsSample 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample)을 참조하세요.
 

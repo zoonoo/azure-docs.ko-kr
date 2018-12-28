@@ -9,18 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 558b426ea85decb0309390e36910eb18719e6e99
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 108ced5416eb7cd6826f4f96d4f62fd33e8f5653
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002530"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680857"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2(미리 보기)에 데이터 로드
 
-[Azure Data Lake Storage Gen2(미리 보기)](../storage/data-lake-storage/introduction.md)에서는 계층적 파일 시스템 네임스페이스 및 보안 기능을 포함한 프로토콜을 Azure Blob Storage에 추가하여 분석 프레임워크를 지속성 저장소 레이어에 쉽게 연결할 수 있습니다. Data Lake Storage Gen2(미리 보기)에서 파일 시스템 인터페이스의 이점이 추가되는 동안 개체 저장소의 모든 특성이 유지됩니다.
+Azure Data Lake Storage Gen2 미리 보기는 [Azure Blob 스토리지](../storage/blobs/storage-blobs-introduction.md)에 구축된 빅 데이터 분석 전용의 기능 세트입니다. 이를 사용하면 파일 시스템 및 개체 저장소 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다.
 
 Azure Data Factory는 완전히 관리되는 클라우드 기반 데이터 통합 서비스입니다. 분석 솔루션을 빌드할 때 서비스를 사용하여 풍부한 온-프레미스 및 크라우드 기반 데이터 저장소의 데이터로 레이크를 채우고 시간을 절약할 수 있습니다. 지원되는 커넥터의 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
@@ -33,9 +33,9 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* Data Lake Storage Gen2를 사용하는 Azure Storage 계정: Storage 계정이 없는 경우 [여기](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)를 클릭하여 만듭니다.
-* 데이터를 포함하는 S3 버킷을 포함한 AWS 계정: 이 아티클에서는 Amazon S3에서 데이터를 복사하는 방법을 보여줍니다. 다음과 같은 유사한 단계를 수행하여 다른 데이터 저장소를 사용할 수 있습니다.
+* Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* Data Lake Storage Gen2가 사용하도록 설정된 Azure Storage 계정: Storage 계정이 없으면 [여기](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)를 클릭하여 하나 만듭니다.
+* 데이터가 포함된 S3 버킷이 있는 AWS 계정: 이 문서는 Amazon S3에서 데이터를 복사하는 방법을 보여 줍니다. 다음과 같은 유사한 단계를 수행하여 다른 데이터 저장소를 사용할 수 있습니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
@@ -46,7 +46,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
       
    ![새 데이터 팩터리 페이지](./media/load-azure-data-lake-storage-gen2//new-azure-data-factory.png)
  
-    * **이름**: Azure 데이터 팩터리의 전역 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadADLSDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
+    * **이름**: Azure Data Factory의 전역적으로 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadADLSDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
     * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
     * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
     * **버전**: **V2**를 선택합니다.
@@ -76,14 +76,14 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
     ![원본 데이터 저장소 s3 페이지](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
     
 4. **Amazon S3 연결 지정** 페이지에서 다음 단계를 수행합니다.
-   1. **액세스 키 ID** 값을 지정합니다.
-   2. **비밀 액세스 키** 값을 지정합니다.
-   3. **연결 테스트**를 클릭하여 설정의 유효성을 검사한 다음, **마침**을 선택합니다.
+
+    1. **액세스 키 ID** 값을 지정합니다.
+    2. **비밀 액세스 키** 값을 지정합니다.
+    3. **연결 테스트**를 클릭하여 설정의 유효성을 검사한 다음, **마침**을 선택합니다.
+    4. 새 연결이 생성되었다고 표시됩니다. **다음**을 선택합니다.
    
-   ![Amazon S3 계정 지정](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
-   
-   4. 새 연결이 생성되었다고 표시됩니다. **다음**을 선택합니다.
-   
+    ![Amazon S3 계정 지정](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      
 5. **입력 파일 또는 폴더 선택** 페이지에서, 복사하려는 폴더 및 파일로 이동합니다. 폴더/파일을 선택하고 **선택**을 선택합니다.
 
     ![입력 파일 또는 폴더 선택](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
@@ -99,7 +99,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 8. **Azure Data Lake Storage 연결 지정** 페이지에서 다음 단계를 수행합니다.
 
    1. "저장소 계정 이름" 드롭다운 목록에서 Data Lake Storage Gen2 계정을 선택합니다.
-   2. **다음**을 선택합니다.
+   2. **마침**을 선택하여 연결을 만듭니다. 그런 후 **다음**을 선택합니다.
    
    ![Azure Data Lake Storage Gen2 계정 지정](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 

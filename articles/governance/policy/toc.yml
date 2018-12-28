@@ -176,7 +176,7 @@ items:
       - name: Network Watcher를 지역에 대해 사용하도록 설정되지 않은 경우 감사
         displayName: auditIfNotExists, Location
         href: samples/network-watcher-not-enabled.md
-    - name: 응용 프로그램 게이트웨이
+    - name: 애플리케이션 게이트웨이
       items:
       - name: 허용되는 애플리케이션 게이트웨이 SKU
         displayName: deny

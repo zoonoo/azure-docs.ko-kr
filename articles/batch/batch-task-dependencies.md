@@ -212,7 +212,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 
 ## <a name="next-steps"></a>다음 단계
 ### <a name="application-deployment"></a>응용 프로그램 배포
-Batch의 [응용 프로그램 패키지](batch-application-packages.md) 기능은 계산 노드에서 태스크를 실행하는 응용 프로그램을 배포하고 버전을 관리하는 쉬운 방법을 제공합니다.
+Batch의 [애플리케이션 패키지](batch-application-packages.md) 기능은 계산 노드에서 태스크를 실행하는 애플리케이션을 배포하고 버전을 관리하는 쉬운 방법을 제공합니다.
 
 ### <a name="installing-applications-and-staging-data"></a>애플리케이션 설치 및 데이터 준비
 태스크를 실행하기 위해 노드를 준비하는 방법의 개요는 Azure 배치 포럼에서 [Batch 계산 노드에서 응용 프로그램 설치 및 데이터 스테이징][forum_post]을 참조하세요. Azure Batch 팀 구성원 중 한 사람이 작성한 이 게시물은 계산 노드에 응용 프로그램, 태스크 입력 데이터 및 다른 파일을 복사하는 다른 방법에 대한 좋은 기초입니다.

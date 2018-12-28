@@ -50,7 +50,7 @@ ms.locfileid: "51235074"
     ![진단 이벤트 창 열기][viewdiagnosticevents]
    
     특정 서비스 또는 애플리케이션에 대해 추적을 필터링하려는 경우, 간단히 해당 특정 서비스 또는 애플리케이션에서 스트리밍 추적을 사용하면 됩니다.
-6. 진단 이벤트는 자동으로 생성되는 **ServiceEventSource.cs** 파일에서 볼 수 있으며 응용 프로그램 코드에서 호출됩니다.
+6. 진단 이벤트는 자동으로 생성되는 **ServiceEventSource.cs** 파일에서 볼 수 있으며 애플리케이션 코드에서 호출됩니다.
    
     ```csharp
     ServiceEventSource.Current.ServiceMessage(this, "My ServiceMessage with a parameter {0}", result.Value.ToString());

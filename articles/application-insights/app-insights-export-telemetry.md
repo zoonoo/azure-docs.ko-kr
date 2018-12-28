@@ -31,7 +31,7 @@ ms.locfileid: "52727454"
 * [데이터 액세스 REST API](https://dev.applicationinsights.io/)를 사용하여 원격 분석에 프로그래밍 방식으로 액세스할 수 있습니다.
 * [Powershell을 통해 연속 내보내기](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0) 설정에 액세스할 수도 있습니다.
 
-연속 내보내기를 통해 저장소에 데이터를 복사한 후에도(원하는 기간 동안 저장소에 유지할 수 있음) 일반적인 [보존 기간](app-insights-data-retention-privacy.md) 동안 Application Insights를 계속 사용할 수 있습니다.
+연속 내보내기를 통해 스토리지에 데이터를 복사한 후에도(원하는 기간 동안 스토리지에 유지할 수 있음) 일반적인 [보존 기간](app-insights-data-retention-privacy.md) 동안 Application Insights를 계속 사용할 수 있습니다.
 
 ## <a name="setup"></a> 연속 내보내기 만들기
 1. 앱에 대 한 Application Insights 리소스에서 연속 내보내기를 열고 **추가**를 선택합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "52727454"
 내보내기를 영구적으로 중지하려면 삭제합니다. 이렇게 해도 저장소에서 데이터를 삭제하지 않습니다.
 
 ### <a name="cant-add-or-change-an-export"></a>내보내기를 추가 또는 변경할 수 있나요?
-* 내보내기를 추가 또는 변경하려면 소유자, 참여자 또는 Application Insights 참여자 액세스 권한이 필요합니다. [역할에 대해 알아봅니다][roles].
+* 내보내기를 추가 또는 변경하려면 소유자, 기여자 또는 Application Insights 기여자 액세스 권한이 필요합니다. [역할에 대해 알아봅니다][roles].
 
 ## <a name="analyze"></a> 어떤 이벤트를 얻나요?
 클라이언트 IP 주소에서 계산하는 위치 데이터를 추가한다는 점을 제외하고 내보낸 데이터는 응용 프로그램에서 수신하는 원시 원격 분석입니다.

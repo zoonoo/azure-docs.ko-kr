@@ -75,7 +75,7 @@ Vnet의 모든 사용자 지정 DNS 서버는 App Service Environment 생성보�
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 
 
-포트 80 및 443에 대한 액세스를 잠가 업스트림 디바이스 또는 서비스 뒤의 App Service Environment를 “숨길" 경우 업스트림 IP 주소를 알아야 합니다.  예를 들어 WAF(웹 응용 프로그램 방화벽)를 사용하는 경우 WAF에는 다운스트림 App Service Environment로 트래픽을 프록시할 때 사용하는 고유한 IP 주소가 있습니다.  이 IP 주소를 네트워크 보안 규칙의 *SourceAddressPrefix* 매개 변수에서 사용해야 합니다.
+포트 80 및 443에 대한 액세스를 잠가 업스트림 디바이스 또는 서비스 뒤의 App Service Environment를 “숨길" 경우 업스트림 IP 주소를 알아야 합니다.  예를 들어 WAF(웹 애플리케이션 방화벽)를 사용하는 경우 WAF에는 다운스트림 App Service Environment로 트래픽을 프록시할 때 사용하는 고유한 IP 주소가 있습니다.  이 IP 주소를 네트워크 보안 규칙의 *SourceAddressPrefix* 매개 변수에서 사용해야 합니다.
 
 아래 예제에서는 특정 업스트림 IP 주소의 인바운드 트래픽이 명시적으로 허용됩니다.  주소 *1.2.3.4* 는 업스트림 WAF의 IP 주소에 대한 자리 표시자로 사용됩니다.  업스트림 디바이스 또는 서비스에서 사용하는 주소와 일치하도록 값을 변경합니다.
 

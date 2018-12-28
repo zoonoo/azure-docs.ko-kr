@@ -44,12 +44,12 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
 사용자 지정 클래스를 사용하여 문서를 모델링하고 해당 클래스에 Null이 허용되지 않는 기본 형식(예를 들어 C#의 `int` 또는 `bool`)이 있는 경우 알고 있어야 할 SDK 버전 1.1의 버그 수정이 있습니다. 자세한 내용은 [1.1 버전의 버그 수정](#BugFixesV1) 을 참조하세요.
 
-마지막으로, 모든 빌드 오류를 수정했다면 원하는 새 기능을 활용하도록 응용 프로그램을 변경할 수 있습니다.
+마지막으로, 모든 빌드 오류를 수정했다면 원하는 새 기능을 활용하도록 애플리케이션을 변경할 수 있습니다.
 
 <a name="ListOfChangesV1"></a>
 
 ## <a name="list-of-breaking-changes-in-version-11"></a>버전 1.1의 주요 변경 내용 목록
-다음 목록은 변경이 응용 프로그램 코드에 영향을 줄 가능성 순서로 정렬되어 있습니다.
+다음 목록은 변경이 애플리케이션 코드에 영향을 줄 가능성 순서로 정렬되어 있습니다.
 
 ### <a name="indexbatch-and-indexaction-changes"></a>IndexBatch 및 IndexAction 변경
 `IndexBatch.Create`는 `IndexBatch.New`로 이름이 변경되었고 더 이상 `params` 인수를 포함하지 않습니다. 다양한 형식의 작업(병합, 삭제 등)이 혼합된 배치에는 `IndexBatch.New` 를 사용할 수 있습니다. 또한 모든 작업이 동일한 배치를 만드는 새로운 정적 메서드가 제공됩니다(`Delete`, `Merge`, `MergeOrUpload` 및 `Upload`).
@@ -235,7 +235,7 @@ Azure Search .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
         Console.WriteLine(result.Document);
     }
 
-#### <a name="special-case-for-web-applications"></a>웹 응용 프로그램에 대한 특수 사례
+#### <a name="special-case-for-web-applications"></a>웹 애플리케이션에 대한 특수 사례
 `DocumentSearchResponse` 를 직접 serialize하여 검색 결과를 브라우저로 보내는 웹 응용 프로그램이 있는 경우 코드를 변경해야 하며 그렇지 않은 경우 결과가 제대로 serialize되지 않습니다. 예를 들어 코드는 다음과 같습니다.
 
     public ActionResult Search(string q = "")

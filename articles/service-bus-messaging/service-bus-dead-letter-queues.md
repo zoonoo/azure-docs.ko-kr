@@ -41,7 +41,7 @@ Service Bus의 여러 활동에 의해 메시징 엔진 자체 내에서 DLQ로 
 
 broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) 메서드 내부 버전을 호출하므로 해당 메시지에 두 속성 `DeadLetterReason` 및 `DeadLetterErrorDescription` 속성이 추가됩니다.
 
-응용 프로그램에서 `DeadLetterReason` 속성에 대한 고유의 코드를 정의할 수는 있지만, 시스템에서 다음 값을 설정합니다.
+애플리케이션에서 `DeadLetterReason` 속성에 대한 고유의 코드를 정의할 수는 있지만, 시스템에서 다음 값을 설정합니다.
 
 | 조건 | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |

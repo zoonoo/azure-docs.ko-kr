@@ -200,7 +200,7 @@ Wizergos Productivity Software에서 Azure AD Single Sign-On을 구성하고 테
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Wizergos Productivity Software**를 선택합니다.
+1. 애플리케이션 목록에서 **Wizergos Productivity Software**를 선택합니다.
 
     ![응용 프로그램 목록의 Wizergos Productivity Software 링크](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_app.png)  
 
@@ -222,7 +222,7 @@ Wizergos Productivity Software에서 Azure AD Single Sign-On을 구성하고 테
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Wizergos Productivity Software 타일을 클릭하면 Wizergos Productivity Software 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Wizergos Productivity Software 타일을 클릭하면 Wizergos Productivity Software 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

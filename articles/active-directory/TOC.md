@@ -233,7 +233,7 @@
 ##### [응용 프로그램 프록시 에이전트 커넥터 설치 시 문제](manage-apps/application-proxy-connector-installation-problem.md)
 
 
-#### 응용 프로그램 등록
+#### 애플리케이션 등록
 ##### [응용 프로그램 개체에 대한 필드 입력](develop/registration-config-specific-application-property-how-to.md)
 ##### [토큰 수명 기본값 변경](develop/registration-config-change-token-lifetime-how-to.md)
 

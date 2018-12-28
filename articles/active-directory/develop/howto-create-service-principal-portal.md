@@ -58,7 +58,7 @@ Azure AD 응용 프로그램 및 서비스 주체를 만들었습니다.
 
    ![구독 선택](./media/howto-create-service-principal-portal/select-subscription.png)
 
-1. 응용 프로그램을 할당할 특정 구독을 선택합니다.
+1. 애플리케이션을 할당할 특정 구독을 선택합니다.
 
    ![할당을 위한 구독 선택](./media/howto-create-service-principal-portal/select-one-subscription.png)
 

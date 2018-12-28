@@ -41,7 +41,7 @@ ms.locfileid: "53011698"
 * IaaS VM(Virtual Machines)
 * PaaS 역할 인스턴스
 * VPN 게이트웨이
-* 응용 프로그램 게이트웨이
+* 애플리케이션 게이트웨이
 
 ### <a name="allocation-method"></a>할당 방법
 공용 IP 주소를 Azure 리소스에 할당해야 하는 경우 리소스가 생성된 위치 내 사용 가능한 공용 IP 주소 풀에서 *동적으로* 할당됩니다. 이 IP 주소는 리소스가 중지되면 해제됩니다. 클라우드 서비스의 경우 모든 역할 인스턴스가 중지되면 이러한 상황이 발생하며, *정적* (예약된) IP 주소를 사용하면 이를 방지할 수 있습니다.( [Cloud Services](#Cloud-services)참조)
@@ -84,7 +84,7 @@ ms.locfileid: "53011698"
 ### <a name="vpn-gateways"></a>VPN 게이트웨이
 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) 는 Azure VNet를 다른 Azure VNet 또는 온-프레미스 네트워크에 연결하는 데 사용할 수 있습니다. VPN 게이트웨이는 공용 IP 주소가 *동적으로*할당되며, 원격 네트워크와의 통신을 지원합니다.
 
-### <a name="application-gateways"></a>응용 프로그램 게이트웨이
+### <a name="application-gateways"></a>애플리케이션 게이트웨이
 Azure [애플리케이션 게이트웨이](../application-gateway/application-gateway-introduction.md) 는 HTTP 기반 네트워크 트래픽을 라우팅하는 Layer7 부하 분산에 사용할 수 있습니다. 애플리케이션 게이트웨이에는 부하 분산된 VIP 역할을 하는 공용 IP 주소가 *동적으로*할당됩니다.
 
 ### <a name="at-a-glance"></a>개요

@@ -32,10 +32,10 @@ ms.locfileid: "47405057"
 
  ![검색 표시줄에서 보고서 관리자로 SQL Server Reporting Services 보고서 열기](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
-## <a name="supported-client-applications"></a>지원되는 클라이언트 응용 프로그램
-Azure Data Catalog 포털에서 데이터 원본에 대한 "열기..." 메뉴를 사용하는 경우 클라이언트 컴퓨터에 올바른 클라이언트 응용 프로그램이 설치되어 있어야 합니다.
+## <a name="supported-client-applications"></a>지원되는 클라이언트 애플리케이션
+Azure Data Catalog 포털에서 데이터 원본에 대한 "열기..." 메뉴를 사용하는 경우 클라이언트 컴퓨터에 올바른 클라이언트 애플리케이션이 설치되어 있어야 합니다.
 
-| 응용 프로그램에서 열기 | 파일 확장명 / 프로토콜 | 지원되는 응용 프로그램 버전 |
+| 애플리케이션에서 열기 | 파일 확장명 / 프로토콜 | 지원되는 애플리케이션 버전 |
 | --- | --- | --- |
 | Excel |.odc |Excel 2010 이상 |
 | Excel (상위 1000) |.odc |Excel 2010 이상 |

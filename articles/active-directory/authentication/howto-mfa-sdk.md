@@ -22,7 +22,7 @@ ms.locfileid: "52427185"
 > [!IMPORTANT]
 > Azure Multi-Factor Authentication SDK(소프트웨어 개발 키트) 사용 중단이 발표되었습니다. 이 기능은 새 고객에게 더 이상 지원되지 않습니다. 현재 고객은 2018년 11월 14일까지 계속 SDK를 사용할 수 있습니다. 해당 시점 이후에는 SDK에 대한 호출에 실패합니다. 
 
-Azure Multi-Factor Authentication 소프트웨어 개발 키트(SDK)를 사용하면 Azure AD 테넌트에 응용 프로그램의 로그인 또는 트랜잭션 프로세스로 직접 2단계 검증을 빌드할 수 있습니다.
+Azure Multi-Factor Authentication 소프트웨어 개발 키트(SDK)를 사용하면 Azure AD 테넌트에 애플리케이션의 로그인 또는 트랜잭션 프로세스로 직접 2단계 검증을 빌드할 수 있습니다.
 
 Multi-Factor Authentication SDK는 C#, Visual Basic(.NET), Java, Perl, PHP 및 Ruby에 사용할 수 있습니다. SDK는 2단계 검증에 대한 씬 래퍼를 제공합니다. 주석 처리된 소스 코드 파일, 예제 파일 및 자세한 추가 정보 파일을 포함하여 코드를 작성하는 데 필요한 모든 것이 포함됩니다. 또한 각 SDK에는 Multi-Factor Authentication 공급자에 고유한 트랜잭션을 암호화하기 위한 인증서와 개인 키가 포함됩니다. 공급자가 있으면 필요에 따라 많은 언어와 형식에서 SDK를 다운로드할 수 있습니다.
 

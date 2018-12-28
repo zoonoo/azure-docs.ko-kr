@@ -88,7 +88,7 @@ AD FS 프록시를 사용하지 않는 경우 AD FS의 보안을 유지할 수 �
 1. Azure Multi-Factor Authentication 서버의 왼쪽 메뉴에서 **IIS 인증** 아이콘을 클릭합니다.
 2. **HTTP** 탭을 클릭합니다.
 3. **추가**를 클릭합니다.
-4. 기준 URL 추가 대화 상자에서 기준 URL 필드에 HTTP 인증이 수행되는 AD FS 웹 사이트의 URL(예: https://sso.domain.com/adfs/ls/auth/integrated)을 입력합니다. 그런 다음 응용 프로그램 이름을 입력합니다(선택 사항). 애플리케이션 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
+4. 기준 URL 추가 대화 상자에서 기준 URL 필드에 HTTP 인증이 수행되는 AD FS 웹 사이트의 URL(예: https://sso.domain.com/adfs/ls/auth/integrated)을 입력합니다. 그런 다음 애플리케이션 이름을 입력합니다(선택 사항). 애플리케이션 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
 5. 원하는 경우 유휴 시간 제한 및 최대 세션 시간을 조정합니다.
 6. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 7. 원하는 경우 쿠키 캐시 상자를 선택합니다.

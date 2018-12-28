@@ -177,7 +177,7 @@ Intralinks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Intralinks**를 선택합니다.
+1. 애플리케이션 목록에서 **Intralinks**를 선택합니다.
 
     ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_app.png) 
 
@@ -223,7 +223,7 @@ Intralinks는 Deal Nexus 응용 프로그램을 제외한 모든 다른 Intralin
 
 1. **Intralinks 앱 추가**에서 다음 단계를 수행합니다.
 
-    ![Intralinks VIA 또는 Elite 응용 프로그램 추가](./media/intralinks-tutorial/tutorial_intralinks_addapp.png)
+    ![Intralinks VIA 또는 Elite 애플리케이션 추가](./media/intralinks-tutorial/tutorial_intralinks_addapp.png)
 
     a. **이름** 텍스트 상자에 응용 프로그램의 적절한 이름(예: **Intralinks Elite**)을 입력합니다.
 

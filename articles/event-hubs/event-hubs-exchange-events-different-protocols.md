@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs에서 서로 다른 프로토콜을 사용하는 소비자와 생산자 간의 이벤트 교환 | Microsoft Docs
+title: 서로 다른 프로토콜을 사용하는 앱 간의 이벤트 교환 - Azure Event Hubs| Microsoft Docs
 description: 이 문서에서는 서로 다른 프로토콜(AMQP, Apache Kafka 및 HTTPS)을 사용하는 소비자와 생산자가 Azure Event Hubs를 사용할 때 이벤트를 교환하는 방법을 보여 줍니다.
 services: event-hubs
 documentationcenter: ''
@@ -8,20 +8,20 @@ manager: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.custom: mvc
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/05/2018
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 54edeafbe950cde88c2c6051f95825cfaed52ac7
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1345a5814faefd4074e7d9548d374bd79d977514
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285315"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015588"
 ---
-# <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>서로 다른 프로토콜(AMQP, Kafka 및 HTTPS)을 사용하는 소비자와 생산자 간의 이벤트 교환
-Azure Event Hubs는 소비자와 생산자를 위한 세 가지 프로토콜, 즉 AMQP, Kafka 및 HTTPS를 지원합니다. 이러한 프로토콜 각각에는 메시지를 표현하는 자체의 고유한 방법이 있으므로 당연히 제기되는 질문은 다음과 같습니다. 애플리케이션에서 하나의 프로토콜을 사용하여 Event Hub에 이벤트를 보내고 다른 프로토콜을 사용하여 이벤트를 소비하는 경우 소비자에게 도착할 때 이벤트의 다양한 부분과 값은 어떻게 보일까요? 이 문서에서는 이벤트 내의 값이 소비 애플리케이션에서 올바르게 해석되도록 하는 생산자와 소비자 모두에 대한 모범 사례를 설명합니다.
+# <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>서로 다른 프로토콜(AMQP, Kafka 및 HTTPS)을 사용하는 소비자와 생산자 간의 이벤트 교환입니다.
+Azure Event Hubs는 소비자와 생산자를 위한 세 가지 프로토콜 (AMQP, Kafka 및 HTTPS)을 지원합니다. 이러한 프로토콜 각각에는 메시지를 표현하는 자체의 고유한 방법이 있으므로 당연히 제기되는 질문은 다음과 같습니다. 애플리케이션에서 하나의 프로토콜을 사용하여 Event Hub에 이벤트를 보내고 다른 프로토콜을 사용하여 이벤트를 소비하는 경우 소비자에게 도착할 때 이벤트의 다양한 부분과 값은 어떻게 보일까요? 이 문서에서는 이벤트 내의 값이 소비 애플리케이션에서 올바르게 해석되도록 하는 생산자와 소비자 모두에 대한 모범 사례를 설명합니다.
 
 이 문서에서 권장하는 경우 다음 클라이언트에 대해 구체적으로 설명하며, 코드 조각 개발에 사용된 버전도 나와 있습니다.
 

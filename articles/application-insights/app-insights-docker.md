@@ -29,7 +29,7 @@ Docker 호스트에서 [Application Insights 이미지](https://hub.docker.com/r
 
 * 호스트에서 실행하는 모든 컨테이너에 대한 수명 주기 원격 분석 – 시작, 중지 등
 * 모든 컨테이너에 대한 성능 카운터 CPU, 메모리, 네트워크 사용량 외 다수
-* 컨테이너에서 실행되는 앱에 [Java용 Application Insights SDK를 설치하면](app-insights-java-live.md) 해당 앱에 대한 모든 원격 분석에 컨테이너와 호스트 컴퓨터를 식별하는 추가적인 속성이 포함됩니다. 예를 들어 둘 이상의 호스트에서 실행되는 앱 인스턴스가 있다면 앱 원격 분석을 호스트별로 쉽게 필터링할 수 있습니다.
+* 컨테이너에서 실행되는 앱에 [Java용 Application Insights SDK를 설치하면](app-insights-java-live.md) 해당 앱에 대한 모든 원격 분석에 컨테이너와 호스트 머신을 식별하는 추가적인 속성이 포함됩니다. 예를 들어 둘 이상의 호스트에서 실행되는 앱 인스턴스가 있다면 앱 원격 분석을 호스트별로 쉽게 필터링할 수 있습니다.
 
 > [!NOTE]
 > 이 솔루션은 더 이상 사용되지 않습니다. 컨테이너 모니터링의 현재 투자에 대한 자세한 내용을 보려면 [컨테이너용 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)를 확인해보세요.
@@ -63,7 +63,7 @@ Docker 호스트에서 [Application Insights 이미지](https://hub.docker.com/r
 Application Insights 이미지는 Docker 호스트당 하나만 필요합니다. 응용 프로그램을 여러 개의 Docker 호스트에 표시하는 경우, 이 명령을 호스트마다 반복합니다.
 
 ## <a name="update-your-app"></a>앱 업데이트
-응용 프로그램이 [Java용 Application Insights SDK](app-insights-java-get-started.md)를 사용하여 계측되는 경우에는, 프로젝트의 ApplicationInsights.xml 파일에서 `<TelemetryInitializers>` 요소 아래에 다음 줄을 추가합니다.
+애플리케이션이 [Java용 Application Insights SDK](app-insights-java-get-started.md)를 사용하여 계측되는 경우에는, 프로젝트의 ApplicationInsights.xml 파일에서 `<TelemetryInitializers>` 요소 아래에 다음 줄을 추가합니다.
 
 ```xml
 

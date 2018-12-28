@@ -89,7 +89,7 @@ ms.locfileid: "52877601"
 
 몇 가지 다른 단서가 있습니다. 예를 들어 이 예에서 종속성 실패율이 예외 속도(89.3%)와 같습니다. 예외가 종속성 오류에서 직접 발생하므로 코드의 어디 부분부터 살펴보아야 하는지 확실히 알 수 있습니다.
 
-더 자세히 조사해야 하는 경우 각 섹션의 링크는 관련 요청, 예외, 종속성 또는 추적을 필터링하는 [검색 페이지](app-insights-diagnostic-search.md) 로 바로 이동합니다. 또는 [Azure 포털](https://portal.azure.com)을 열고 앱에 대한 Application Insights 리소스에 이동하며 오류 블레이드를 열 수 있습니다.
+더 자세히 조사해야 하는 경우 각 섹션의 링크는 관련 요청, 예외, 종속성 또는 추적을 필터링하는 [검색 페이지](app-insights-diagnostic-search.md) 로 바로 이동합니다. 또는 [Azure Portal](https://portal.azure.com)을 열고 앱에 대한 Application Insights 리소스에 이동하며 오류 블레이드를 열 수 있습니다.
 
 이 예제에서 '종속성 오류 세부 정보 보기' 링크를 클릭하면 Application Insights 검색 블레이드가 열립니다. 근본 원인의 예제가 있는 SQL 명령문이 표시됩니다. 필수 필드에 NULL이 제공되었으며 저장 작업 중 유효성 검사를 통과하지 못했습니다.
 

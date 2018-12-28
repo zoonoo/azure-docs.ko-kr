@@ -79,9 +79,9 @@ ms.locfileid: "48784813"
 
     ![variables](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **Automation 원본 제어**는 GitHub 계정에 권한이 부여된 응용 프로그램으로 추가됩니다. 응용 프로그램을 보려면 GitHub 홈페이지에서 **프로필** > **설정** > **응용 프로그램**으로 이동합니다. 이 애플리케이션을 사용하면 Azure Automation이 Automation 계정에 GitHub 리포지토리를 동기화할 수 있습니다.  
+    * **Automation 원본 제어**는 GitHub 계정에 권한이 부여된 응용 프로그램으로 추가됩니다. 애플리케이션을 보려면 GitHub 홈페이지에서 **프로필** > **설정** > **애플리케이션**으로 이동합니다. 이 애플리케이션을 사용하면 Azure Automation이 Automation 계정에 GitHub 리포지토리를 동기화할 수 있습니다.  
 
-    ![Git 응용 프로그램](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
+    ![Git 애플리케이션](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
 
 ## <a name="using-source-control-in-automation"></a>자동화에서 원본 제어 사용

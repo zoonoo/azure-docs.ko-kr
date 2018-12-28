@@ -473,7 +473,7 @@ ms.locfileid: "53409669"
 ## <a name="service-fabric-mesh"></a>Service Fabric Mesh
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 응용 프로그램 | yes | 
+| 애플리케이션 | yes | 
 | networks | yes | 
 | volumes | yes | 
 
@@ -490,7 +490,7 @@ ms.locfileid: "53409669"
 ## <a name="solutions"></a>솔루션
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 응용 프로그램 | yes | 
+| 애플리케이션 | yes | 
 | applicationDefinitions | yes | 
 | jitRequests | yes | 
 

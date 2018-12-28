@@ -12,12 +12,12 @@ ms.date: 08/20/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: a68b0465acdb416cd953e22d7f024eb399c94493
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 0ad58d4759d8532ab947043c20cc1060782c6d78
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246610"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138673"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 응용 프로그램 프록시 및 Tableau 
 
@@ -29,7 +29,7 @@ Azure Active Directory 응용 프로그램 프록시 및 Tableau를 사용하여
 
 - [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#azure)가 구성됨 
 
-- [응용 프로그램 프록시 커넥터](application-proxy-enable.md)가 설치됨 
+- [응용 프로그램 프록시 커넥터](application-proxy-add-on-premises-application.md)가 설치됨 
 
  
 ## <a name="enabling-application-proxy-for-tableau"></a>Tableau에 대해 응용 프로그램 프록시 사용 
@@ -43,7 +43,7 @@ Tableau를 게시하려면 Azure Portal에서 응용 프로그램을 게시해�
 
 관련 작업:
 
-- 1~8단계의 자세한 지침은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)를 참조하세요. 
+- 1~8단계의 자세한 지침은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-add-on-premises-application.md)를 참조하세요. 
 - 앱 프록시 필드의 Tableau 값을 확인하는 방법에 대한 정보는 Tableau 설명서를 참조하세요.  
 
 **앱을 게시하려면**: 
@@ -59,9 +59,9 @@ Tableau를 게시하려면 Azure Portal에서 응용 프로그램을 게시해�
 
 5. 새 앱에 대한 정보로 필수 필드를 작성합니다. 설정에 대해 다음 지침을 사용합니다. 
 
-    - **내부 URL**: 이 응용 프로그램에는 자체 Tableau URL인 내부 URL이 있어야 합니다. 예: `https://adventure-works.tableau.com` 
+    - **내부 URL**: 이 애플리케이션에는 자체 Tableau URL인 내부 URL이 있어야 합니다. 예: `https://adventure-works.tableau.com` 
 
-    - **사전 인증 방법**: Azure Active Directory(권장되지만 필수 아님)입니다. 
+    - **사전 인증 방법**: Azure Active Directory(권장되지만 필수는 아님) 
 
 6. 블레이드의 위쪽에서 **추가**를 선택합니다. 응용 프로그램이 추가되고 빠른 시작 메뉴가 열립니다. 
 

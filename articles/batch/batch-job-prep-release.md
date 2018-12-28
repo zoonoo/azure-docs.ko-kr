@@ -116,7 +116,7 @@ await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
 ## <a name="code-sample-on-github"></a>GitHub의 코드 샘플
-작동 중인 작업 준비 및 해제 태스크를 보려면 GitHub의 [JobPrepRelease][job_prep_release_sample] 샘플 프로젝트를 확인합니다. 이 콘솔 응용 프로그램은 다음을 수행합니다.
+작동 중인 작업 준비 및 해제 태스크를 보려면 GitHub의 [JobPrepRelease][job_prep_release_sample] 샘플 프로젝트를 확인합니다. 이 콘솔 애플리케이션은 다음을 수행합니다.
 
 1. 노드가 두 개인 풀을 만듭니다.
 2. 작업 준비, 릴리스 및 표준 태스크를 사용하여 작업을 만듭니다.
@@ -193,7 +193,7 @@ Sample complete, hit ENTER to exit...
 
 [Batch 계산 노드에서의 응용 프로그램 설치 및 데이터 스테이징][forum_post]
 
-Azure Batch 팀 멤버 중 하나에서 작성하고 응용 프로그램과 데이터를 계산 노드에 배포하는 데 사용할 수 있는 몇 가지 방법을 설명하고 있습니다.
+Azure Batch 팀 멤버 중 하나에서 작성하고 애플리케이션과 데이터를 계산 노드에 배포하는 데 사용할 수 있는 몇 가지 방법을 설명하고 있습니다.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx

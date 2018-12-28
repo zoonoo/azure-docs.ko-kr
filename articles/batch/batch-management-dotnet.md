@@ -64,7 +64,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> 배치 관리 .NET 라이브러리 및 해당 BatchManagementClient 클래스를 사용하는 응용 프로그램에는 관리할 배치 계정을 소유하고 있는 구독에 대한 **서비스 관리자** 또는 **공동 관리자** 액세스 권한이 필요합니다. 자세한 내용은 [Azure Active Directory](#azure-active-directory) 섹션과 [AccountManagement][acct_mgmt_sample] 코드 샘플을 참조하세요.
+> 배치 관리 .NET 라이브러리 및 해당 BatchManagementClient 클래스를 사용하는 애플리케이션에는 관리할 배치 계정을 소유하고 있는 구독에 대한 **서비스 관리자** 또는 **공동 관리자** 액세스 권한이 필요합니다. 자세한 내용은 [Azure Active Directory](#azure-active-directory) 섹션과 [AccountManagement][acct_mgmt_sample] 코드 샘플을 참조하세요.
 > 
 > 
 
@@ -128,7 +128,7 @@ Console.WriteLine("You can create {0} accounts in the {1} region.", quotaRespons
 위의 코드 조각에서 `creds`는 [TokenCloudCredentials][azure_tokencreds]의 인스턴스입니다. 이 개체를 만드는 예제를 보려면 GitHub에서 [AccountManagement][acct_mgmt_sample] 코드 샘플을 참조하세요.
 
 ### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Batch 계정에서 계산 리소스 할당량 확인
-Batch 솔루션에서 계산 리소스를 늘리기 전에 할당할 리소스가 해당 계정의 할당량을 초과하지 않는지 확인할 수 있습니다. 아래 코드 조각에서는 `mybatchaccount`라는 Batch 계정에 대한 할당량 정보를 간단히 출력합니다. 하지만 응용 프로그램에서 이러한 정보를 사용하여 만들려는 추가 리소스를 계정에서 처리할 수 있는지 여부를 확인할 수 있습니다.
+Batch 솔루션에서 계산 리소스를 늘리기 전에 할당할 리소스가 해당 계정의 할당량을 초과하지 않는지 확인할 수 있습니다. 아래 코드 조각에서는 `mybatchaccount`라는 Batch 계정에 대한 할당량 정보를 간단히 출력합니다. 하지만 애플리케이션에서 이러한 정보를 사용하여 만들려는 추가 리소스를 계정에서 처리할 수 있는지 여부를 확인할 수 있습니다.
 
 ```csharp
 // First obtain the Batch account

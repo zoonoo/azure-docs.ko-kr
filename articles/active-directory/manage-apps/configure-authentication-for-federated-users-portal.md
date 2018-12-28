@@ -126,7 +126,7 @@ Microsoft Azure Active Directory Graph API 또는 Azure Active Directory PowerSh
 **AllowCloudPasswordValidation**은 선택 사항입니다. **AllowCloudPasswordValidation**이 true인 경우 응용 프로그램에서 사용자 이름/암호 자격 증명을 Azure Active Directory 토큰 엔드포인트에 직접 표시하여 페더레이션 사용자를 인증할 수 있습니다. 암호 해시 동기화가 사용되는 경우에만 작동합니다.
 
 ### <a name="priority-and-evaluation-of-hrd-policies"></a>HRD 정책의 우선 순위 및 평가
-HRD 정책을 만들어 특정 조직 및 서비스 주체에 할당할 수 있습니다. 즉, 여러 정책을 특정 응용 프로그램에 적용할 수 있습니다. 적용되는 HRD 정책은 다음 규칙을 따릅니다.
+HRD 정책을 만들어 특정 조직 및 서비스 주체에 할당할 수 있습니다. 즉, 여러 정책을 특정 애플리케이션에 적용할 수 있습니다. 적용되는 HRD 정책은 다음 규칙을 따릅니다.
 
 
 - 도메인 힌트가 인증 요청에 있으면 자동 가속에 대한 HRD 정책이 무시됩니다. 도메인 힌트로 지정된 동작이 사용됩니다.

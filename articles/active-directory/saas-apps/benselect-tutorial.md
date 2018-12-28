@@ -121,7 +121,7 @@ BenSelect에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Configure Single Sign-On](./media/benselect-tutorial/tutorial_benselect_certificate.png) 
 
-1. BenSelect 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+1. BenSelect 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
     ![Configure Single Sign-On](./media/benselect-tutorial/tutorial_benselect_06.png)
 

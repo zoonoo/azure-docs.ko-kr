@@ -49,7 +49,7 @@ Azure Managed Cache Service 및 Azure Cache for Redis는 비슷하지만 해당 
 | --- | --- | --- |
 | 이름이 지정된 캐시 |기본 캐시는 표준 및 프리미엄 캐시 제품에서 구성됩니다. 원하는 경우 최대 9개의 추가 명명된 캐시가 구성될 수 있습니다. |Azure Cache for Redis에는 명명된 캐시와 비슷한 기능을 구현하는 데 사용할 수 있는 여러 개의 구성 가능한 데이터베이스(기본값 16개)가 있습니다. 자세한 내용은 [Redis 데이터베이스란?](cache-faq.md#what-are-redis-databases) 및 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요. |
 | 고가용성 |표준 및 프리미엄 캐시 제품의 캐시에서 항목에 고가용성을 제공합니다. 항목이 오류로 인해 손실된 경우 여전히 캐시에서 항목의 백업 복사본을 사용할 수 있습니다. 보조 캐시에 대한 쓰기는 동기적으로 수행됩니다. |고가용성은 두 개의 노드 기본/복제본 구성(프리미엄 캐시의 각 분할에는 하나의 기본/복제본 쌍이 있음)이 있는 표준 및 프리미엄 캐시 제품에서 사용할 수 있습니다. 복제본에 대한 쓰기는 비동기적으로 수행됩니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요. |
-| 공지 |명명된 캐시에서 다양한 캐시 작업이 발생할 때 클라이언트가 비동기 알림을 받을 수 있습니다. |클라이언트 응용 프로그램은 Redis 게시/구독 또는 [Keyspace 알림](cache-configure.md#keyspace-notifications-advanced-settings) 을 사용하여 알림에 유사한 기능을 수행할 수 있습니다. |
+| 공지 |명명된 캐시에서 다양한 캐시 작업이 발생할 때 클라이언트가 비동기 알림을 받을 수 있습니다. |클라이언트 애플리케이션은 Redis 게시/구독 또는 [Keyspace 알림](cache-configure.md#keyspace-notifications-advanced-settings)을 사용하여 알림에 유사한 기능을 수행할 수 있습니다. |
 | 로컬 캐시 |매우 빠른 액세스를 위해 클라이언트에서 캐시된 개체의 복사본을 로컬로 저장합니다. |클라이언트 응용 프로그램은 사전 또는 유사한 데이터 구조를 사용하여 이 기능을 구현해야 합니다. |
 | 제거 정책 |없음 또는 LRU입니다. 기본 정책이 LRU입니다. |Azure Cache for Redis는 volatile-lru, allkeys-lru, volatile-random, allkeys-random, volatile-ttl, noeviction 제거 정책을 지원합니다. 기본 정책이 volatile-lru입니다. 자세한 내용은 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요. |
 | 만료 정책 |기본 만료 정책은 절대이며 기본 만료 시간은 10분입니다. 또한 슬라이딩 및 없음 정책을 사용할 수 있습니다. |기본적으로 캐시의 항목이 만료되지 않지만 만료는 캐시 집합 오버로드를 사용하여 쓰기 단위로 구성할 수 있습니다. |

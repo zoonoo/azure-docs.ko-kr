@@ -460,7 +460,7 @@ azure.resourceGroups().deleteByName("myResourceGroup");
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-이 콘솔 응용 프로그램을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다.
+이 콘솔 애플리케이션을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다.
 
 1. 애플리케이션을 실행하려면 이 Maven 명령을 사용합니다.
 

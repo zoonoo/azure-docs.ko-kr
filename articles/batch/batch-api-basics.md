@@ -248,7 +248,7 @@ Batch에서 만드는 작업에 우선 순위를 할당할 수 있습니다. Bat
 
 태스크를 만들 때 다음을 지정할 수 있습니다.
 
-* 태스크에 대한 **명령줄** 입니다. 계산 노드에 응용 프로그램 또는 스크립트를 실행하는 명령줄입니다.
+* 태스크에 대한 **명령줄** 입니다. 계산 노드에 애플리케이션 또는 스크립트를 실행하는 명령줄입니다.
 
     명령줄이 셸에서 실제로 실행되지 않도록 주의해야 합니다. 따라서 기본적으로 [환경 변수](#environment-settings-for-tasks) 확장과 같은 셸 기능을 활용할 수 없습니다(`PATH` 포함). 이러한 기능을 활용하려면 예를 들어 Windows 노드에서 `cmd.exe` 또는 Linux 노드에서 `/bin/sh`를 시작하여 명령줄에서 셸을 호출해야 합니다.
 
@@ -338,7 +338,7 @@ Batch .NET 라이브러리를 사용하여 일괄 처리에서 MPI 작업 실행
 이 기능에 대한 자세한 정보는 [azure-batch-samples][github_samples] GitHub 리포지토리에서 [Azure Batch에서 태스크 종속성](batch-task-dependencies.md) 및 [TaskDependencies][github_sample_taskdeps] 코드 예제를 확인합니다.
 
 ## <a name="environment-settings-for-tasks"></a>태스크에 대한 환경 설정
-Batch 서비스에 의해 실행되는 각 태스크는 계산 노드에 설정된 환경 변수에 액세스할 수 있습니다. 여기에는 Batch 서비스에 의해 정의된([서비스 정의][msdn_env_vars]) 환경 변수와 태스크에 대해 정의할 수 있는 사용자 지정 환경 변수가 포함됩니다. 태스크가 실행하는 응용 프로그램 및 스크립트는 실행 중에 이러한 환경 변수에 액세스할 수 있습니다.
+Batch 서비스에 의해 실행되는 각 태스크는 계산 노드에 설정된 환경 변수에 액세스할 수 있습니다. 여기에는 Batch 서비스에 의해 정의된([서비스 정의][msdn_env_vars]) 환경 변수와 태스크에 대해 정의할 수 있는 사용자 지정 환경 변수가 포함됩니다. 태스크가 실행하는 애플리케이션 및 스크립트는 실행 중에 이러한 환경 변수에 액세스할 수 있습니다.
 
 이러한 엔터티에 대한 *환경 설정* 속성을 채워서 태스크 또는 작업 수준에서 사용자 지정 환경 변수를 설정할 수 있습니다. 예를 들어 [작업에 태스크 추가][rest_add_task] 작업(Batch REST API) 또는 Batch .NET의 [CloudTask.EnvironmentSettings][net_cloudtask_env] 및 [CloudJob.CommonEnvironmentSettings][net_job_env] 속성을 참조하세요.
 

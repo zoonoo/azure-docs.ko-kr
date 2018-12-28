@@ -222,7 +222,7 @@ Ceridian Dayforce HCM에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Ceridian Dayforce HCM**을 선택합니다.
+1. 애플리케이션 목록에서 **Ceridian Dayforce HCM**을 선택합니다.
 
     ![Configure Single Sign-On](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png) 
 
@@ -252,7 +252,7 @@ Ceridian Dayforce HCM에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Ceridian Dayforce HCM**을 선택합니다.
+1. 애플리케이션 목록에서 **Ceridian Dayforce HCM**을 선택합니다.
 
     ![응용 프로그램 목록의 Ceridian Dayforce HCM 링크](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png)  
 

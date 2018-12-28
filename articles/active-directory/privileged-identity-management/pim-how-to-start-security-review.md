@@ -25,11 +25,11 @@ ms.locfileid: "47224395"
 
 ## <a name="start-an-access-review"></a>액세스 검토 시작
 > [!NOTE]
-> Azure Portal의 대시보드에 PIM 응용 프로그램을 추가하지 않았으면 [Azure Privileged Identity Management 시작](pim-getting-started.md)
+> Azure Portal의 대시보드에 PIM 애플리케이션을 추가하지 않았으면 [Azure Privileged Identity Management 시작](pim-getting-started.md)
 > 
 > 
 
-PIM 응용 프로그램 기본 페이지에서 액세스 검토를 시작하는 방법은 세 가지가 있습니다.
+PIM 애플리케이션 기본 페이지에서 액세스 검토를 시작하는 방법은 세 가지가 있습니다.
 
 * **액세스 검토** > **추가**
 * **역할** > **검토** 단추
@@ -49,7 +49,7 @@ PIM 응용 프로그램 기본 페이지에서 액세스 검토를 시작하는 
 ### <a name="choose-a-role-to-review"></a>검토할 역할 선택
 각 검토는 오직 하나의 역할에 집중합니다. 특정 역할 블레이드에서 액세스 검토를 시작하지 않는 경우 지금 역할을 선택해야 합니다.
 
-1. **역할 멤버 자격 검토**
+1.  **역할 멤버 자격 검토**
    
     ![역할 멤버 자격 검토 - 스크린샷](./media/pim-how-to-start-security-review/PIM_review_role.png)
 2. 목록에서 역할 하나를 선택 합니다.
@@ -57,7 +57,7 @@ PIM 응용 프로그램 기본 페이지에서 액세스 검토를 시작하는 
 ### <a name="decide-who-will-perform-the-review"></a>검토를 수행할 사용자를 결정합니다.
 검토를 수행하는 데 세 가지 옵션이 있습니다. 검토를 다른 사람에게 완료하도록 할당할 수 있습니다, 사용자가 직접 수행하거나 각 사용자가 자신의 액세스를 검토하도록 할 수 있습니다.
 
-1. **검토자 선택**
+1.  **검토자 선택**
    
     ![검토자 선택 - 스크린 샷](./media/pim-how-to-start-security-review/PIM_review_reviewers.png)
 2. 옵션 중 하나를 선택하십시오.

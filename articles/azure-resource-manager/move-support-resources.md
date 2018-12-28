@@ -195,7 +195,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 응용 프로그램 | yes | yes |
+| 애플리케이션 | yes | yes |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -539,7 +539,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 응용 프로그램 | yes | 아니요 |
+| 애플리케이션 | yes | 아니요 |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -565,7 +565,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
-| 응용 프로그램 | yes | yes |
+| 애플리케이션 | yes | yes |
 | networks | yes | yes |
 | volumes | yes | yes |
 
@@ -585,7 +585,7 @@ az resource list -g demogroup --query '[].{name:name, resourceType:type}' --outp
 | appliancedefinitions | 아니요 | 아니요 |
 | appliances | 아니요 | 아니요 |
 | applicationdefinitions | 아니요 | 아니요 |
-| 응용 프로그램 | 아니요 | 아니요 |
+| 애플리케이션 | 아니요 | 아니요 |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | 리소스 종류 | 리소스 그룹 | 구독 |

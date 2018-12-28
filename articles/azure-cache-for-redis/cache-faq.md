@@ -280,7 +280,7 @@ PhpRedis 클라이언트에서 Azure Cache for Redis를 PHP 세션 캐시로 사
 Redis 데이터베이스는 동일한 Redis 인스턴스 내에 있는 데이터를 논리적으로 분리한 단위입니다. 캐시 메모리는 모든 데이터베이스와 해당 데이터베이스에 저장된 키/값에 따라 지정된 데이터베이스의 실제 메모리 소비 간에 공유됩니다. 예를 들어 C6 캐시에는 53GB의 메모리가 있습니다. 하나의 데이터베이스에 53GB를 모두 사용하거나 여러 데이터베이스 간에 분할할 수 있습니다. 
 
 > [!NOTE]
-> 클러스터링을 사용하도록 설정된 프리미엄 Azure Cache for Redis를 사용하는 경우 데이터베이스 0만 사용할 수 있습니다. 이 제한은 본질적인 Redis 제한이므로 Azure Cache for Redis에만 한정되지는 않습니다. 자세한 내용은 [클러스터링을 사용하려면 클라이언트 응용 프로그램을 변경해야 합니까?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+> 클러스터링을 사용하도록 설정된 프리미엄 Azure Cache for Redis를 사용하는 경우 데이터베이스 0만 사용할 수 있습니다. 이 제한은 본질적인 Redis 제한이므로 Azure Cache for Redis에만 한정되지는 않습니다. 자세한 내용은 [클러스터링을 사용하려면 클라이언트 애플리케이션을 변경해야 합니까?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 > 
 > 
 

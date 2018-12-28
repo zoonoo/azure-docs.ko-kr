@@ -34,7 +34,7 @@ ms.locfileid: "53021618"
 > 
 
 ## <a name="client-side-troubleshooting"></a>클라이언트 쪽 문제 해결
-이 섹션에서는 클라이언트 응용 프로그램에 부가된 조건 때문에 발생하는 문제 해결에 대해 알아봅니다.
+이 섹션에서는 클라이언트 애플리케이션에 부가된 조건 때문에 발생하는 문제 해결에 대해 알아봅니다.
 
 * [클라이언트 쪽의 메모리 부족](#memory-pressure-on-the-client)
 * [트래픽 폭주](#burst-of-traffic)

@@ -187,7 +187,7 @@ Predictix Ordering에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Predictix Ordering**을 선택합니다.
+1. 애플리케이션 목록에서 **Predictix Ordering**을 선택합니다.
 
     ![응용 프로그램 목록의 Predictix Ordering 링크](./media/predictixordering-tutorial/tutorial_predictixordering_app.png)  
 

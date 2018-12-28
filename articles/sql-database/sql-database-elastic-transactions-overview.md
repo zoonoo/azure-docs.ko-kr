@@ -20,7 +20,7 @@ ms.lasthandoff: 12/04/2018
 ms.locfileid: "52877187"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>클라우드 데이터베이스의 분산 트랜잭션
-Azure SQL Database(SQL DB)용 Elastic Database를 사용하면 SQL DB의 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. SQL DB용 탄력적 데이터베이스 트랜잭션은 ADO .NET을 사용하여 .NET 응용 프로그램에서 사용할 수 있고 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 클래스를 사용하여 친숙한 프로그래밍 환경과 통합될 수 있습니다. 라이브러리를 가져오려면 [.NET Framework 4.6.1(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=49981)을 참조하세요.
+Azure SQL Database(SQL DB)용 Elastic Database를 사용하면 SQL DB의 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. SQL DB용 탄력적 데이터베이스 트랜잭션은 ADO .NET을 사용하여 .NET 애플리케이션에서 사용할 수 있고 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 클래스를 사용하여 친숙한 프로그래밍 환경과 통합될 수 있습니다. 라이브러리를 가져오려면 [.NET Framework 4.6.1(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=49981)을 참조하세요.
 
 온-프레미스에서 이러한 시나리오는 Microsoft Distributed Transaction Coordinator(MSDTC) 실행을 필요로 합니다. MSDTC는 Azure의 PaaS(Platform-as-a-Service) 응용 프로그램에서 사용할 수 없기 때문에 분산된 트랜잭션을 조정할 수 있는 기능이 SQL DB와 직접적으로 통합되었습니다. 응용 프로그램은 분산된 트랜잭션을 시작하도록 모든 SQL Database에 연결할 수 있으며, 다음 그림에 표시된 것처럼 데이터베이스 중 하나는 분산된 트랜잭션을 투명하게 조정합니다. 
 
@@ -35,7 +35,7 @@ SQL DB용 Elastic Database 트랜잭션은 여러 개의 다른 SQL Database에 
   탄력적 데이터베이스 트랜잭션은 여러 데이터베이스에 걸쳐 트랜잭션 원자성을 보장하기 위해 2단계 커밋을 사용합니다. 이것은 단일 트랜잭션 내에 한 번에 100개 미만의 데이터베이스가 관여되는 트랜잭션에 적합합니다. 이 한도가 강제로 적용되지는 않지만, 한도를 초과하는 경우 탄력적 데이터베이스의 성능 및 성공률이 불리해질 수 있다는 것을 예상해야 합니다.
 
 ## <a name="installation-and-migration"></a>설치 및 마이그레이션
-SQL DB의 탄력적 데이터베이스 트랜잭션 기능은 .NET 라이브러리 System.Data.dll 및 System.Transactions.dll 업데이트를 통해 제공됩니다. DLL은 원자성을 보장하기 위해 필요한 경우 2단계 커밋이 사용되도록 합니다. 탄력적 데이터베이스 트랜잭션을 사용하여 응용 프로그램 개발을 시작하려면 [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) 이상 버전을 설치합니다. 이전 버전의 .NET framework를 실행하면, 트랜잭션이 분산 트랜잭션으로 승격하지 못하고 예외가 발생합니다.
+SQL DB의 탄력적 데이터베이스 트랜잭션 기능은 .NET 라이브러리 System.Data.dll 및 System.Transactions.dll 업데이트를 통해 제공됩니다. DLL은 원자성을 보장하기 위해 필요한 경우 2단계 커밋이 사용되도록 합니다. 탄력적 데이터베이스 트랜잭션을 사용하여 애플리케이션 개발을 시작하려면 [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) 이상 버전을 설치합니다. 이전 버전의 .NET framework를 실행하면, 트랜잭션이 분산 트랜잭션으로 승격하지 못하고 예외가 발생합니다.
 
 설치 후에는 SQL DB 연결과 함께 System.Transactions에 분산 트랜잭션 API를 사용할 수 있습니다. 기존 MSDTC 응용 프로그램에서 이러한 API를 사용하고 있는 경우에는 4.6.1 Framework를 설치한 후에 .NET 4.6에 대한 기존 응용 프로그램을 간단히 다시 빌드합니다. 프로젝트가 .NET 4.6을 대상으로 하는 경우에는, 새 Framework 버전에서 업데이트된 DLL이 자동으로 사용되고 분산 트랜잭션 API 호출이 SQL DB 연결과 함께 성공합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C에서 OpenID Connect로 웹 로그인 | Microsoft Docs
-description: OpenID Connect 인증 프로토콜의 Azure Active Directory 구현을 사용하여 웹 응용 프로그램을 빌드합니다.
+description: OpenID Connect 인증 프로토콜의 Azure Active Directory 구현을 사용하여 웹 애플리케이션을 빌드합니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -22,7 +22,7 @@ OpenID Connect는 웹 응용 프로그램에 사용자를 안전하게 로그인
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)는 *인증* 프로토콜로 사용하기 위해 OAuth 2.0 *권한 부여* 프로토콜을 확장합니다. OAuth를 통해 Single Sign-On을 수행할 수 있게 합니다. 클라이언트에서 사용자 ID를 확인하고 사용자에 대한 기본 프로필 정보를 얻을 수 있게 하는 보안 토큰인 *ID 토큰*의 개념을 소개합니다.
 
-또한 OAuth 2.0을 확장하므로 앱에서 *액세스 토큰*을 안전하게 얻을 수 있습니다. access_token을 사용하여 [권한 부여 서버](active-directory-b2c-reference-protocols.md#the-basics)로 보안이 유지되는 리소스에 액세스할 수 있습니다. OpenID Connect는 서버에서 호스트되고 브라우저를 통해 액세스되는 웹 응용 프로그램을 빌드하는 경우에 권장됩니다. Azure AD B2C를 사용하여 ID 관리를 모바일 또는 데스크톱 응용 프로그램에 추가하려는 경우 OpenID Connect 대신 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) 을 사용해야 합니다.
+또한 OAuth 2.0을 확장하므로 앱에서 *액세스 토큰*을 안전하게 얻을 수 있습니다. access_token을 사용하여 [권한 부여 서버](active-directory-b2c-reference-protocols.md#the-basics)로 보안이 유지되는 리소스에 액세스할 수 있습니다. OpenID Connect는 서버에서 호스트되고 브라우저를 통해 액세스되는 웹 응용 프로그램을 빌드하는 경우에 권장됩니다. Azure AD B2C를 사용하여 ID 관리를 모바일 또는 데스크톱 애플리케이션에 추가하려는 경우 OpenID Connect 대신 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md)을 사용해야 합니다.
 
 Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OpenID Connect 프로토콜을 확장합니다. OpenID Connect를 사용하여 앱에 가입, 로그인 및 프로필 관리와 같은 사용자 환경을 추가할 수 있는 [사용자 흐름 매개 변수](active-directory-b2c-reference-policies.md)를 소개합니다. 여기서는 OpenID Connect 및 사용자 흐름을 사용하여 웹 애플리케이션에서 이러한 환경을 각각 구현하는 방법 및 웹 API에 액세스하기 위한 액세스 토큰을 얻는 방법도 보여 줍니다.
 

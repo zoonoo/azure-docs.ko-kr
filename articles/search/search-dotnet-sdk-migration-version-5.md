@@ -80,7 +80,7 @@ Azure Search .NET SDK의 패키징이 변경되었으므로 버전 5를 사용�
 - `ParseJsonArrays`
 - `ParseDelimitedTextFiles`
 
-응용 프로그램이 이러한 기능에 강력하게 종속될 경우 Azure Search .NET SDK 버전 5로 업그레이드하지 못할 수 있습니다. 버전 4.0-preview는 계속 사용할 수 있습니다. 하지만 **프로덕션 응용 프로그램에서는 미리 보기 SDK를 사용하지 않는 것이 좋습니다**. 미리 보기 기능은 평가용일 뿐이며 변경될 수 있습니다.
+응용 프로그램이 이러한 기능에 강력하게 종속될 경우 Azure Search .NET SDK 버전 5로 업그레이드하지 못할 수 있습니다. 버전 4.0-preview는 계속 사용할 수 있습니다. 하지만 **프로덕션 애플리케이션에서는 미리 보기 SDK를 사용하지 않는 것이 좋습니다**. 미리 보기 기능은 평가용일 뿐이며 변경될 수 있습니다.
 
 ## <a name="conclusion"></a>결론
 Azure Search .NET SDK 사용에 대한 자세한 내용은 [.NET 방법](search-howto-dotnet-sdk.md)을 참조하세요.

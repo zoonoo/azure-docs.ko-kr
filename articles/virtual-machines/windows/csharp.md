@@ -388,7 +388,7 @@ azure.ResourceGroups.DeleteByName(groupName);
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-이 콘솔 응용 프로그램을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다. 
+이 콘솔 애플리케이션을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다. 
 
 1. 콘솔 애플리케이션을 실행하려면 **시작**을 클릭합니다.
 

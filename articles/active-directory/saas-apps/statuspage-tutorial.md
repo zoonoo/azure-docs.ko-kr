@@ -242,7 +242,7 @@ StatusPage는 적시에 프로비전을 지원합니다. 이미 [Azure AD Single
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **StatusPage**를 선택합니다.
+1. 애플리케이션 목록에서 **StatusPage**를 선택합니다.
 
     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_app.png) 
 

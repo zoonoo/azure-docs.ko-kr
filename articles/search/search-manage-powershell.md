@@ -127,7 +127,7 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 
     $resource | Remove-AzureRmResource
 
 ## <a name="next-steps"></a>다음 단계
-이제 서비스를 만들었으므로 다음 단계를 수행할 수 있습니다. [인덱스](search-what-is-an-index.md)를 빌드하고 [인덱스를 쿼리](search-query-overview.md)하며 마지막으로 Azure Search를 사용하는 고유의 검색 응용 프로그램을 만들고 관리합니다.
+이제 서비스를 만들었으므로 다음 단계를 수행할 수 있습니다. [인덱스](search-what-is-an-index.md)를 빌드하고 [인덱스를 쿼리](search-query-overview.md)하며 마지막으로 Azure Search를 사용하는 고유의 검색 애플리케이션을 만들고 관리합니다.
 
 * [Azure Portal에서 Azure Search 인덱스 만들기](search-create-index-portal.md)
 * [Azure Portal에서 검색 탐색기를 사용하여 Azure Search 인덱스 쿼리](search-explorer.md)

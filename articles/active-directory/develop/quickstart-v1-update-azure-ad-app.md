@@ -198,7 +198,7 @@ SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 
 
 사용자가 승인하면 이 동일한 인증 프로토콜을 사용하여 클라이언트와 애플리케이션에 대해 구성된 다른 웹 API 리소스 간의 보안 호출을 위해 토큰을 가져올 수 있습니다. 암시적 권한 부여에 관한 자세한 내용을 확인하고 자신의 애플리케이션 시나리오에 적절한지 판단하려면 [Azure Active Directory에서 OAuth2 암시적 권한 부여 흐름 이해](v1-oauth2-implicit-grant-flow.md)를 참조하세요.
 
-기본적으로 응용 프로그램에 대해 OAuth 2.0 암시적 허용이 사용되지 않도록 설정됩니다. 해당 [응용 프로그램 매니페스트](reference-app-manifest.md)에서 `oauth2AllowImplicitFlow` 값을 설정하여 응용 프로그램에 OAuth 2.0 암시적 권한 부여를 사용할 수 있습니다.
+기본적으로 애플리케이션에 대해 OAuth 2.0 암시적 허용이 사용되지 않도록 설정됩니다. 해당 [응용 프로그램 매니페스트](reference-app-manifest.md)에서 `oauth2AllowImplicitFlow` 값을 설정하여 응용 프로그램에 OAuth 2.0 암시적 권한 부여를 사용할 수 있습니다.
 
 ### <a name="to-enable-oauth-20-implicit-grant"></a>OAuth 2.0 암시적 허용을 사용하도록 설정하려면
 

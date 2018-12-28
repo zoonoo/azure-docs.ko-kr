@@ -49,7 +49,7 @@ RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap");
 응용 프로그램에서 분할된 데이터베이스 맵 자체를 조작하지 않는 경우 팩터리 메서드에서 사용되는 자격 증명은 **글로벌 분할된 데이터베이스 맵** 데이터베이스에서 읽기 전용 권한을 갖습니다. 이러한 자격 증명을 분할된 데이터베이스 맵 관리자에 대한 연결을 여는데 사용되는 자격 증명과는 일반적으로 다릅니다. 또는 [Elastic Database 클라이언트 라이브러리 액세스에 사용되는 자격 증명](sql-database-elastic-scale-manage-credentials.md)을 참조하세요. 
 
 ## <a name="call-the-openconnectionforkey-method"></a>OpenConnectionForKey 메서드 호출
-**ShardMap.OpenConnectionForKey 메서드**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._list_shard_mapper.openconnectionforkey), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx))는 **key** 매개 변수 값에 따라 적절한 데이터베이스에 명령을 실행할 수 있도록 준비된 연결을 반환합니다. 분할된 데이터베이스 정보는 **ShardMapManager**를 통해 응용 프로그램에 캐시되므로, 이러한 요청 시에는 일반적으로 **전역 분할된 데이터베이스 맵**에 대한 데이터베이스 조회를 수행하지 않습니다. 
+**ShardMap.OpenConnectionForKey 메서드**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._list_shard_mapper.openconnectionforkey), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx))는 **key** 매개 변수 값에 따라 적절한 데이터베이스에 명령을 실행할 수 있도록 준비된 연결을 반환합니다. 분할된 데이터베이스 정보는 **ShardMapManager**를 통해 애플리케이션에 캐시되므로, 이러한 요청 시에는 일반적으로 **전역 분할된 데이터베이스 맵**에 대한 데이터베이스 조회를 수행하지 않습니다. 
 
 ```Java
 // Syntax: 

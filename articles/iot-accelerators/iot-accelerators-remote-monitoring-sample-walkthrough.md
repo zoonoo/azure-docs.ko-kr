@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: f0f43826c50679cb3de88aef466795cbb9e9e76f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: e02492b3e80f71b4ae92066e5e4a2baf26818621
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139495"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316168"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>원격 모니터링 솔루션 가속기 개요
 
@@ -24,6 +24,11 @@ ms.locfileid: "50139495"
 * 솔루션의 문제를 해결합니다.
 * 솔루션을 사용자 지정하여 고유한 특정 요구 사항을 충족하는 방법을 계획합니다.
 * Azure 서비스를 사용하는 고유한 IoT 솔루션을 디자인합니다.
+
+원격 모니터링 솔루션 가속기 코드는 GitHub에서 사용할 수 있습니다.
+
+* [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 
 ## <a name="logical-architecture"></a>논리 아키텍처
 
@@ -36,7 +41,7 @@ ms.locfileid: "50139495"
 클라우드 아키텍처는 Microsoft가 솔루션 가속기를 처음 발표한 이후 발전해 왔습니다. [마이크로 서비스](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)는 개발 속도를 저하시키지 않으면서 규모와 유연성을 달성하는 입증된 방법으로 부상했습니다. 일부 Microsoft 서비스는 뛰어난 안정성과 확장성을 제공하는 아키텍처 패턴을 내부적으로 사용합니다. 업데이트된 솔루션 가속기를 통해 혜택을 볼 수 있도록 이러한 내용을 실제로 활용할 수 있습니다.
 
 > [!TIP]
-> 마이크로 서비스 아키텍처에 대한 자세한 내용은 [.NET 응용 프로그램 아키텍처](https://www.microsoft.com/net/learn/architecture) 및 [마이크로 서비스: 클라우드에서 제공하는 응용 프로그램 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)을 참조하세요.
+> 마이크로서비스 아키텍처에 대한 자세한 내용은 [.NET 애플리케이션 아키텍처](https://www.microsoft.com/net/learn/architecture) 및 [마이크로서비스: 클라우드가 지원하는 애플리케이션 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)을 참조하세요.
 
 ## <a name="device-connectivity"></a>디바이스 연결
 
@@ -61,7 +66,7 @@ ms.locfileid: "50139495"
 
 ### <a name="iot-hub"></a>IoT Hub
 
-[IoT 허브](../iot-hub/index.yml)는 물리적 장치 및 시뮬레이션된 장치에서 보낸 원격 분석을 수집합니다. IoT 허브를 사용하면 IoT 솔루션 백 엔드의 서비스에서 원격 분석을 사용하여 처리할 수 있습니다.
+[IoT 허브](../iot-hub/index.yml)는 물리적 디바이스 및 시뮬레이션된 디바이스에서 보낸 원격 분석을 수집합니다. IoT 허브를 사용하면 IoT 솔루션 백 엔드의 서비스에서 원격 분석을 사용하여 처리할 수 있습니다.
 
 또한 솔루션에서 IoT Hub는:
 
@@ -89,7 +94,7 @@ ms.locfileid: "50139495"
 
 ### <a name="device-telemetry-microservice"></a>디바이스 원격 분석 마이크로 서비스
 
-[장치 원격 분석 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry)는 Time Series Insights에 저장된 장치 원격 분석에 대한 읽기 액세스를 위한 RESTful 엔드포인트를 제공합니다. 또한 RESTful 엔드포인트를 사용하면 규칙의 CRUD 작업 및 저장소의 경보 정의에 대한 읽기/쓰기 액세스를 수행할 수 있습니다.
+[디바이스 원격 분석 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry)는 Time Series Insights에 저장된 디바이스 원격 분석에 대한 읽기 액세스를 위한 RESTful 엔드포인트를 제공합니다. 또한 RESTful 엔드포인트를 사용하면 규칙의 CRUD 작업 및 저장소의 경보 정의에 대한 읽기/쓰기 액세스를 수행할 수 있습니다.
 
 ### <a name="storage-adapter-microservice"></a>저장소 어댑터 마이크로 서비스
 
@@ -115,18 +120,18 @@ ASA 작업은 저장소 및 분석을 위해 원격 분석을 연결된 디바�
 
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)는 장치에서 대량으로 스트림되는 데이터를 검사할 수 있는 이벤트 처리 엔진입니다.
+[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)는 디바이스에서 대량으로 스트림되는 데이터를 검사할 수 있는 이벤트 처리 엔진입니다.
 
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/)는 솔루션 가속기에 연결된 장치의 원격 분석을 저장합니다. 또한 솔루션 웹 UI에서 디바이스 원격 분석을 시각화하고 쿼리할 수 있습니다.
+[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/)는 솔루션 가속기에 연결된 디바이스의 원격 분석을 저장합니다. 또한 솔루션 웹 UI에서 디바이스 원격 분석을 시각화하고 쿼리할 수 있습니다.
 
 > [!NOTE]
 > Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 저장소에 Cosmos DB를 사용합니다.
 
 ### <a name="configuration-microservice"></a>구성 마이크로 서비스
 
-[구성 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)는 솔루션 가속기의 장치 그룹, 솔루션 설정 및 사용자 설정의 CRUD 작업에 대한 RESTful 엔드포인트를 제공합니다. 저장소 어댑터 마이크로 서비스와 함께 작동하여 구성 데이터를 유지합니다.
+[구성 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)는 솔루션 가속기의 디바이스 그룹, 솔루션 설정 및 사용자 설정의 CRUD 작업에 대한 RESTful 엔드포인트를 제공합니다. 저장소 어댑터 마이크로 서비스와 함께 작동하여 구성 데이터를 유지합니다.
 
 ### <a name="authentication-and-authorization-microservice"></a>인증 및 권한 부여 마이크로 서비스
 

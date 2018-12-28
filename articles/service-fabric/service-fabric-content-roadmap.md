@@ -84,7 +84,7 @@ Service Fabric의 주요 차이점은 [기본 제공 프로그래밍 모델](ser
 Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제공합니다. 서비스는 플랫폼의 기능과 응용 프로그램 프레임워크를 최대한 활용하기 위해 Service Fabric API를 사용할 수 있습니다. 서비스는 모든 언어로 작성되고 Service Fabric 클러스터에서 호스트되는 컴파일된 실행 프로그램일 수도 있습니다. 자세한 내용은 [지원되는 프로그래밍 모델](service-fabric-choose-framework.md)을 참조하세요.
 
 ### <a name="containers"></a>컨테이너
-기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 [컨테이너](service-fabric-containers-overview.md)에 서비스를 배포할 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 응용 프로그램의 컨테이너의 서비스를 혼합할 수 있습니다. Service Fabric은 Windows Server 2016에서 Linux 컨테이너 및 Windows 컨테이너의 배포를 지원합니다. 컨테이너에서 기존 응용 프로그램, 상태 비저장 서비스 또는 상태 저장 서비스를 배포할 수 있습니다. 
+기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 [컨테이너](service-fabric-containers-overview.md)에 서비스를 배포할 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 애플리케이션의 컨테이너의 서비스를 혼합할 수 있습니다. Service Fabric은 Windows Server 2016에서 Linux 컨테이너 및 Windows 컨테이너의 배포를 지원합니다. 컨테이너에서 기존 응용 프로그램, 상태 비저장 서비스 또는 상태 저장 서비스를 배포할 수 있습니다. 
 
 ### <a name="reliable-services"></a>Reliable Services
 [Reliable Services](service-fabric-reliable-services-introduction.md)는 Service Fabric 플랫폼과 통합하여 전체 플랫폼 기능을 활용하는 서비스 작성을 위한 간단한 프레임워크입니다. Reliable Services는 웹 서버나 Azure Cloud Services의 작업자 역할 등, 대부분의 서비스 플랫폼과 유사하게 상태 비저장이 될 수 있습니다. 여기서는 상태가 Azure DB나 Azure Table Storage 같은 외부 솔루션에서 유지됩니다. Reliable Services는 Reliable Collections를 사용하여 서비스 자체에 직접 유지되게 상태를 저장할 수도 있습니다. 상태는 복제를 통해 [고가용성](service-fabric-availability-services.md)이 유지되고 [분할](service-fabric-concepts-partitioning.md)을 통해 배포되며, 모두 Service Fabric에서 자동으로 관리합니다.

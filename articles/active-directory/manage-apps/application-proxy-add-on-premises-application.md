@@ -156,7 +156,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 1. [Azure Portal](https://portal.azure.com/)에서 관리자로 로그인합니다.
 2. **Azure Active Directory** > **Enterprise 응용 프로그램** > **새로운 응용 프로그램**을 선택합니다.
 
-    ![엔터프라이즈 응용 프로그램 추가](./media/application-proxy-publish-azure-portal/add-app.png)
+    ![엔터프라이즈 애플리케이션 추가](./media/application-proxy-publish-azure-portal/add-app.png)
 
 3. **모두**를 선택한 다음 **온-프레미스 응용 프로그램**을 선택합니다.  
 

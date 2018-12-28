@@ -45,7 +45,7 @@ v2.0 엔드포인트는 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0
 ## <a name="app-registration"></a>앱 등록
 V2.0 엔드포인트를 사용하는 모든 앱은 OAuth 또는 OpenID Connect를 사용하여 상호 작용하려면 [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) 또는 [Azure Portal](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)의 새로운 **앱 등록(미리 보기)** 환경에서 등록되어야 합니다. 앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
 
-* 앱을 고유하게 식별하는 **응용 프로그램 ID**
+* 앱을 고유하게 식별하는 **애플리케이션 ID**
 * 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI** 또는 **패키지 식별자**
 * 다른 몇 가지 시나리오 관련 값.
 

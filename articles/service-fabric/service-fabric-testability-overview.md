@@ -99,7 +99,7 @@ PowerShell을 사용하려면 서비스 패브릭 SDK를 설치해야 합니다.
 ## <a name="next-steps"></a>다음 단계
 진정한 클라우드 규모 서비스를 만들려면 배포 전과 후에 모두 서비스가 실제 오류를 견딜 수 있도록 하는 것이 중요합니다. 오늘날의 서비스 환경에서 신속하게 혁신하고 코드를 프로덕션 환경으로 신속하게 이동하는 기능이 매우 중요합니다. 오류 분석 서비스는 서비스 개발자가 정확하게 작업을 수행하는 데 도움이 됩니다.
 
-기본 제공 [테스트 시나리오](service-fabric-testability-scenarios.md)를 사용하여 응용 프로그램 테스트를 시작하거나 오류 분석 서비스에서 제공하는 [오류 작업](service-fabric-testability-actions.md)을 사용하여 자체 테스트 시나리오를 작성합니다.
+기본 제공 [테스트 시나리오](service-fabric-testability-scenarios.md)를 사용하여 애플리케이션 테스트를 시작하거나 오류 분석 서비스에서 제공하는 [오류 작업](service-fabric-testability-actions.md)을 사용하여 자체 테스트 시나리오를 작성합니다.
 
 <!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png

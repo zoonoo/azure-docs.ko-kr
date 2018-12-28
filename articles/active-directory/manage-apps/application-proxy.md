@@ -100,5 +100,5 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 * [기존 온-프레미스 프록시 서버 작업](application-proxy-configure-connectors-with-proxy-servers.md) 
 * [사용자 지정 홈페이지 설정](application-proxy-configure-custom-home-page.md)
 
-최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](https://blogs.technet.com/b/applicationproxyblog/)
+최신 뉴스 및 업데이트는 [애플리케이션 프록시 블로그](https://blogs.technet.com/b/applicationproxyblog/)
 

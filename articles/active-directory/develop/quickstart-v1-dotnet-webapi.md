@@ -140,7 +140,7 @@ ASP.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현�
 To Do List Service가 작동하는 것을 보려면 먼저 Azure AD에서 토큰을 가져오고 서비스를 호출할 수 있도록 To Do List Client를 구성해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. Azure AD 테넌트에 새 응용 프로그램을 만들고 결과 프롬프트에서 **네이티브 클라이언트 응용 프로그램** 을 선택합니다.
+1. Azure AD 테넌트에 새 애플리케이션을 만들고 결과 프롬프트에서 **네이티브 클라이언트 애플리케이션**을 선택합니다.
     * **이름**은 사용자에게 응용 프로그램을 설명합니다.
     * **리디렉션 URI** 값으로 `http://TodoListClient/`를 입력합니다.
 

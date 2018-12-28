@@ -40,7 +40,7 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
 빌드가 실패하는 경우 변경된 일부 SDK 인터페이스를 구현했기 때문일 수 있습니다(예: 단위 테스트를 위해). 이 문제를 해결하려면 `BeginCreateOrUpdateWithHttpMessagesAsync`와 같은 새로운 메서드를 구현해야 합니다.
 
-모든 빌드 오류를 수정했다면 원하는 새 기능을 활용하도록 응용 프로그램을 변경할 수 있습니다. SDK의 새로운 기능에 대한 자세한 내용은 [버전 2의 새로운 기능](#WhatsNew)에 나와 있습니다.
+모든 빌드 오류를 수정했다면 원하는 새 기능을 활용하도록 애플리케이션을 변경할 수 있습니다. SDK의 새로운 기능에 대한 자세한 내용은 [버전 2의 새로운 기능](#WhatsNew)에 나와 있습니다.
 
 ## <a name="conclusion"></a>결론
 SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생하면 [Azure Search MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch)을 통해 자유롭게 도움을 요청하세요. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.

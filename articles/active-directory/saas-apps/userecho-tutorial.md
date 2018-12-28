@@ -242,7 +242,7 @@ UserEcho를 사용하여 시작할 수 있는 초대장이 Britta에게 전송�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **UserEcho**를 선택합니다.
+1. 애플리케이션 목록에서 **UserEcho**를 선택합니다.
 
     ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_app.png) 
 
