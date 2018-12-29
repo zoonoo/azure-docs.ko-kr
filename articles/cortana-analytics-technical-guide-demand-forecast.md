@@ -169,7 +169,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 2.  [Power BI 온라인](https://www.powerbi.com)
 
    * 내 작업 영역의 왼쪽 패널 데이터 세트 섹션에서 Power BI의 왼쪽 패널에 새 데이터 세트가 표시되는 것을 확인할 수 있습니다. 이전 단계에서 Azure Stream Analytics에서 푸시한 스트리밍 데이터입니다.
-   *  ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
+   * ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
 3. "Demand by Timestamp(타임스탬프별 수요)" 타일을 만듭니다.
 
    * 왼쪽 패널 데이터 세트 섹션에서 데이터 세트 **'EnergyStreamData'** 를 클릭합니다.

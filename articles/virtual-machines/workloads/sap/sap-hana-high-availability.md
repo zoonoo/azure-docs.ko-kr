@@ -91,7 +91,7 @@ SAP HANA 시스템 복제 설정은 전용 가상 호스트 이름과 가상 IP 
 
 ## <a name="deploy-for-linux"></a>Linux에 배포
 
-SAP HANA의 리소스 에이전트는 SAP 응용 프로그램의 SUSE Linux Enterprise Server에 포함되어 있습니다.
+SAP HANA의 리소스 에이전트는 SAP 애플리케이션의 SUSE Linux Enterprise Server에 포함되어 있습니다.
 Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있는 SAP Applications 12용 SUSE Linux Enterprise Server의 이미지가 포함되어 있습니다.
 
 ### <a name="deploy-with-a-template"></a>템플릿을 사용하여 배포

@@ -199,7 +199,7 @@ DistCp를 사용하여 HDFS에서 Azure Blob(준비된 복사 포함) 또는 Azu
     - Azure Data Lake Store 파일 시스템은 Hadoop 3.0.0-alpha1부터 패키지됩니다. Hadoop 클러스터가 해당 버전보다 낮은 경우 [여기](https://hadoop.apache.org/releases.html)에서 ADLS 관련 jar 패키지(azure-datalake-store.jar)를 클러스터로 수동으로 가져오고, Hadoop env config에서 jar 경로를 지정해야 합니다.
 
 4. HDFS에서 임시 폴더를 준비합니다. 이 임시 폴더는 KB 수준 공간을 차지할 수 있도록 DistCp 셸 스크립트를 저장하는 데 사용됩니다.
-5. HDFS 연결된 서비스에 제공된 사용자 계정이 a) Yarn에서 응용 프로그램을 제출하고, b) 위의 임시 폴더 아래에 하위 폴더, 읽기/쓰기 파일을 만드는 권한을 갖도록 합니다.
+5. HDFS 연결된 서비스에 제공된 사용자 계정이 a) Yarn에서 애플리케이션을 제출하고, b) 위의 임시 폴더 아래에 하위 폴더, 읽기/쓰기 파일을 만드는 권한을 갖도록 합니다.
 
 ### <a name="configurations"></a>구성
 
