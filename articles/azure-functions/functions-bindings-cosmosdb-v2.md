@@ -20,7 +20,7 @@ ms.locfileid: "53344349"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Functions 2.x의 Azure Cosmos DB 바인딩
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="사용중인 Azure Functions 런타임의 버전을 선택하십시오: "]
 > * [버전 1](functions-bindings-cosmosdb.md)
 > * [버전 2](functions-bindings-cosmosdb-v2.md)
 
